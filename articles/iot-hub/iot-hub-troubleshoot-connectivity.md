@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: 91e435c60a342768093b3bc869a78fa61df8782f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5bd66e3cb3902665aab9245a524a2bec6f57dc8c
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446567"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42140336"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Azure IoT Hub의 연결 끊김 문제 감지지 및 해결
 
@@ -77,7 +77,7 @@ IoT 장치의 연결 문제는 가능한 실패 지점이 많기 때문에 문�
     | 404104 DeviceConnectionClosedRemotely | 장치가 연결을 종료했지만 IoT Hub가 이유를 모릅니다. 일반적인 원인에는 MQTT/AMQP 시간 초과 및 인터넷 연결 손실이 있습니다. | [연결 테스트](tutorial-connectivity.md)를 통해 장치가 IoT Hub에 연결할 수 있는지 확인합니다. 연결이 정상인데 장치 연결이 간헐적으로 끊어지면 사용자가 선택한 프로토콜 (MQTT/AMPQ)에 적절한 장치 연결 유지 논리를 구현해야 합니다. |
     | 401003 IoTHubUnauthorized | IoT Hub가 연결을 인증할 수 없습니다. | SAS 또는 사용하는 기타 보안 토큰이 만료되지 않았는지 확인합니다. [Azure IoT SDK](iot-hub-devguide-sdks.md)는 특별한 구성없이 토큰을 자동으로 생성합니다. |
     | 409002 LinkCreationConflict | 동일한 장치에 대해 둘 이상의 연결이 있습니다. 장치에 대한 새로운 연결 요청이 들어오면 IoT Hub는 이 오류와 함께 이전 연결을 닫습니다. | 가장 일반적인 경우에 장치는 연결이 끊어진 것을 감지하고 연결을 다시 설정하려고 하지만 IoT Hub에서는 아직 연결이 끊어진 것으로 간주하지 않으므로 이전 연결을 닫고 이 오류를 기록합니다. 이 오류는 대부분 다른 일시적인 문제의 부작용으로 나타나므로 추가로 문제를 해결하려면 로그에서 다른 오류를 찾습니다. 그렇지 않으면, 연결이 끊어질 때만 새 연결 요청을 발급해야 합니다. |
-    | 500001 ServerError | IoT Hub에 서버 쪽 문제가 발생했습니다. 대부분의 경우 문제는 일시적입니다. IoT Hub 팀에서는 [SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/)를 유지하기 위해 열심히 노력하고 있지만, IoT Hub 노드의 작은 하위 집합에 이따금 일시적인 오류가 발생할 수 있습니다. 장치에서 문제가 있는 노드에 연결을 시도하면, 이 오류가 나타납니다. | 일시적인 오류를 줄이려면 장치에서 재시도를 발급합니다. [재시도를 자동으로 관리하려면](iot-hub-reliability-features-in-sdks.md#connection-and-retry) 최신 버전의 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 사용해야 합니다.<br><br>일시적인 오류 처리 및 재시도에 대한 모범 사례는 [일시적인 오류 처리](/azure/architecture/best-practices/transient-faults.md)를 참조하세요.  <br><br>재시도 후에도 문제가 지속되면[Resource Health](iot-hub-monitor-resource-health.md#use-azure-resource-health) 및 [Azure 상태](https://azure.microsoft.com/status/history/)를 확인하여 IoT Hub에 알려진 문제가 있는지 확인합니다. 알려진 문제가 없이 문제가 계속되면 추가 조사를 위해 [지원팀에 문의](https://azure.microsoft.com/support/options/)하세요. |
+    | 500001 ServerError | IoT Hub에 서버 쪽 문제가 발생했습니다. 대부분의 경우 문제는 일시적입니다. IoT Hub 팀에서는 [SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/)를 유지하기 위해 열심히 노력하고 있지만, IoT Hub 노드의 작은 하위 집합에 이따금 일시적인 오류가 발생할 수 있습니다. 장치에서 문제가 있는 노드에 연결을 시도하면, 이 오류가 나타납니다. | 일시적인 오류를 줄이려면 장치에서 재시도를 발급합니다. [재시도를 자동으로 관리하려면](iot-hub-reliability-features-in-sdks.md#connection-and-retry) 최신 버전의 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 사용해야 합니다.<br><br>일시적인 오류 처리 및 재시도에 대한 모범 사례는 [일시적인 오류 처리](/azure/architecture/best-practices/transient-faults)를 참조하세요.  <br><br>재시도 후에도 문제가 지속되면[Resource Health](iot-hub-monitor-resource-health.md#use-azure-resource-health) 및 [Azure 상태](https://azure.microsoft.com/status/history/)를 확인하여 IoT Hub에 알려진 문제가 있는지 확인합니다. 알려진 문제가 없이 문제가 계속되면 추가 조사를 위해 [지원팀에 문의](https://azure.microsoft.com/support/options/)하세요. |
     | 500008 GenericTimeout | IoT Hub가 시간이 초과되기 전에 연결 요청을 완료할 수 없습니다. 500001 ServerError 처럼 이 오류는 일시적일 수 있습니다. | 500001 ServerError의 문제 해결 단계에 따라서 근본 원인을 찾고 이 오류를 해결합니다.|
 
 ## <a name="other-steps-to-try"></a>시도할만한 다른 단계
@@ -92,7 +92,7 @@ IoT 장치의 연결 문제는 가능한 실패 지점이 많기 때문에 문�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 일시적인 문제 해결에 대한 자세한 내용은 [일시적인 오류 처리](/azure/architecture/best-practices/transient-faults.md)를 참조하세요.
+* 일시적인 문제 해결에 대한 자세한 내용은 [일시적인 오류 처리](/azure/architecture/best-practices/transient-faults)를 참조하세요.
 * Azure IoT SDK 및 재시도 관리에 대한 자세한 내용은 [Azure IoT Hub 장치 SDK를 사용하여 연결 및 신뢰할 수 있는 메시징을 관리하는 방법](iot-hub-reliability-features-in-sdks.md#connection-and-retry)을 참조하세요.
 
 <!-- Images -->

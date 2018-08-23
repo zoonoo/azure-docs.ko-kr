@@ -10,12 +10,12 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: powershell,  runbook, json, azure automation
-ms.openlocfilehash: 9fa60a56ecbff802e69e01e038bb45c7a6639873
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 1bdeef02621924bbb7af1e676d2b275229761081
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435766"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42145788"
 ---
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>Azure Automation Runbook에 JSON 개체 전달
 
@@ -23,7 +23,7 @@ JSON 파일에서 Runbook에 전달하려는 데이터를 저장하는 것이 �
 예를 들어 Runbook에 전달하려는 모든 매개 변수가 포함된 JSON 파일을 만들 수 있습니다.
 이렇게 하려면 JSON을 문자열로 변환한 다음 해당 문자열을 PowerShell 개체로 변환한 후에 해당 내용을 Runbook에 전달해야 합니다.
 
-이 예제에서는 [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx)을 호출하여 PowerShell Runbook을 시작하고 JSON의 내용을 Runbook에 전달하는 PowerShell 스크립트를 작성합니다.
+이 예제에서는 [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook)을 호출하여 PowerShell Runbook을 시작하고 JSON의 내용을 Runbook에 전달하는 PowerShell 스크립트를 작성합니다.
 PowerShell Runbook은 Azure VM을 시작하고 전달된 JSON에서 VM에 대한 매개 변수를 가져옵니다.
 
 ## <a name="prerequisites"></a>필수 조건

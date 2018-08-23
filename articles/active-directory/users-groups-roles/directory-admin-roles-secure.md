@@ -13,19 +13,19 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: c8c0f4c3f99aa413531f54c1807883fcd73f039a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: b52a447bf643510528e1bd8c6d473bf5d77731fe
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627936"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142643"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
 현대 조직에서 대부분 또는 모든 비즈니스 자산의 보안은 IT 시스템을 운영하고 관리하는 권한 있는 계정의 무결성에 따라 달라집니다. 사이버 공격자를 포함한 악의적인 행위자는 종종 권한 있는 액세스의 관리자 계정 및 기타 요소를 대상으로 하여 자격 증명 도난 공격을 통해 중요한 데이터 및 시스템에 신속하게 액세스하려고 합니다. 클라우드 서비스의 경우 예방 및 대응은 클라우드 서비스 공급자와 고객의 공동 책임입니다. 엔드포인트와 클라우드에 대한 최신 위협에 대한 자세한 내용은 [Microsoft 보안 인텔리전스 보고서](https://www.microsoft.com/security/sir/default.aspx)를 참조하세요. 이 문서는 현재 계획과 여기서 설명하는 지침 사이의 차이를 제거하기 위한 로드맵을 개발하는 데 도움이 될 수 있습니다.
 
 > [!NOTE] 
-> Microsoft는 최고 수준의 신뢰, 투명도, 표준 적합성 및 규정 준수를 위해 노력하고 있습니다. Microsoft 글로벌 인시던트 대응 팀이 클라우드 서비스에 대한 공격의 영향을 완화하는 방법과 Microsoft 비즈니스 제품 및 클라우드 서비스에 보안을 기본 제공하는 방법은 [Microsoft 보안 센터 - 보안](https://www.microsoft.com/en-us/trustcenter/security) 및 [Microsoft 보안 센터 - 준수](https://www.microsoft.com/en-us/trustcenter/compliance)에서 자세히 알아보세요.
+> Microsoft는 최고 수준의 신뢰, 투명도, 표준 적합성 및 규정 준수를 위해 노력하고 있습니다. Microsoft 글로벌 인시던트 대응 팀이 클라우드 서비스에 대한 공격의 영향을 완화하는 방법과 Microsoft 비즈니스 제품 및 클라우드 서비스에 보안을 기본 제공하는 방법은 [Microsoft 보안 센터 - 보안](https://www.microsoft.com/trustcenter/security) 및 [Microsoft 보안 센터 - 준수](https://www.microsoft.com/trustcenter/compliance)에서 자세히 알아보세요.
 
 <!--## Risk management, incident response, and recovery preparation
 
@@ -337,7 +337,7 @@ Cloud App Security SIEM 에이전트는 Cloud App Security와 SIEM 서버를 통
 * 필요한 경우에만 권한 있는 액세스 권한을 부여하고, 나중에 제거합니다(Just-In-Time).
 * 권한 있는 계정과 관련된 감사 활동을 유지하고 검토합니다.
 
-완벽한 보안 로드맵 작성에 대한 자세한 내용은 [Microsoft 클라우드 IT 아키텍처 리소스](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources)를 참조하세요. 이러한 항목을 다루는 Microsoft 서비스에 대한 자세한 내용은 Microsoft 담당자에게 문의하거나 [회사를 보호하기 위한 중요한 사이버 방어 구축](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx)을 참조하세요.
+완벽한 보안 로드맵 작성에 대한 자세한 내용은 [Microsoft 클라우드 IT 아키텍처 리소스](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources)를 참조하세요. 이러한 항목을 다루는 Microsoft 서비스에 대한 자세한 내용은 Microsoft 담당자에게 문의하거나 [회사를 보호하기 위한 중요한 사이버 방어 구축](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx)을 참조하세요.
 
 권한 있는 보안 액세스 로드맵의 마지막 단계에 포함되는 구성 요소는 다음과 같습니다.
 
@@ -440,17 +440,17 @@ Microsoft Office 365에서 보안 인시던트를 처리하는 방법에 대한 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Microsoft 보안 센터 - 제품 보안](https://www.microsoft.com/en-us/trustcenter/security) – Microsoft 클라우드 제품 및 서비스의 보안 기능
+* [Microsoft 보안 센터 - 제품 보안](https://www.microsoft.com/trustcenter/security) – Microsoft 클라우드 제품 및 서비스의 보안 기능
 
 * 
-  [Microsoft 보안 센터 - 준수](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) – 클라우드 서비스를 위한 포괄적인 Microsoft 규정 준수 제품 집합
+  [Microsoft 보안 센터 - 준수](https://www.microsoft.com/trustcenter/compliance/complianceofferings) – 클라우드 서비스를 위한 포괄적인 Microsoft 규정 준수 제품 집합
 
-* [위험 평가 수행 방법에 대한 지침](https://www.microsoft.com/en-us/trustcenter/guidance/risk-assessment) - Microsoft 클라우드 서비스에 대한 보안 및 규정 준수 요구 사항 관리
+* [위험 평가 수행 방법에 대한 지침](https://www.microsoft.com/trustcenter/guidance/risk-assessment) - Microsoft 클라우드 서비스에 대한 보안 및 규정 준수 요구 사항 관리
 
 ### <a name="other-ms-online-services"></a>기타 MS 온라인 서비스 
 
-* [Microsoft Intune 보안](https://www.microsoft.com/en-us/trustcenter/security/intune-security) – Intune은 클라우드에서 모바일 장치 관리, 모바일 응용 프로그램 관리 및 PC 관리 기능을 제공합니다.
+* [Microsoft Intune 보안](https://www.microsoft.com/trustcenter/security/intune-security) – Intune은 클라우드에서 모바일 장치 관리, 모바일 응용 프로그램 관리 및 PC 관리 기능을 제공합니다.
 
-* [Microsoft Dynamics 365 보안](https://www.microsoft.com/en-us/trustcenter/security/dynamics365-security) – Dynamics 365는 CRM(고객 관계 관리) 및 ERP(전사적 자원 관리) 기능을 통합하는 Microsoft 클라우드 기반 솔루션입니다.
+* [Microsoft Dynamics 365 보안](https://www.microsoft.com/trustcenter/security/dynamics365-security) – Dynamics 365는 CRM(고객 관계 관리) 및 ERP(전사적 자원 관리) 기능을 통합하는 Microsoft 클라우드 기반 솔루션입니다.
 
  

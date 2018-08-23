@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 9ffc84009adfca60e9ae6b188b65b15e874e7d9c
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d49b5404f1a2b4ac7fa4cc170ccc010a28bf98a2
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622173"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143747"
 ---
 # <a name="how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>장치의 하이브리드 Azure AD 조인을 제어하는 방법
 
@@ -116,7 +116,7 @@ GPO **도메인에 가입된 컴퓨터를 장치로 등록**을 배포하여 장
 
 ## <a name="control-windows-down-level-devices"></a>Windows 하위 수준 장치 제어
 
-Windows 하위 수준 장치를 등록하려면 [비-Windows 10 컴퓨터의 Microsoft 작업 공간 연결](https://www.microsoft.com/en-us/download/details.aspx?id=53554) 페이지의 다운로드 센터에서 Windows Installer 패키지(.msi)를 다운로드하여 설치해야 합니다.
+Windows 하위 수준 장치를 등록하려면 [비-Windows 10 컴퓨터의 Microsoft 작업 공간 연결](https://www.microsoft.com/download/details.aspx?id=53554) 페이지의 다운로드 센터에서 Windows Installer 패키지(.msi)를 다운로드하여 설치해야 합니다.
 
 System Center Configuration Manager 같은 소프트웨어 배포 시스템을 사용하여 패키지를 배포할 수 있습니다. 이 패키지는 quiet 매개 변수를 사용하여 표준 자동 설치 옵션을 지원합니다. [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager) Current Branch는 완료된 등록을 추적하는 기능과 같은 이전 버전의 이점이 추가로 제공됩니다.
 

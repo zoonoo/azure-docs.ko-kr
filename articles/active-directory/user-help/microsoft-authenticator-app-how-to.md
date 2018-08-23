@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 8afd743f6010822709bf3d49f7a3bbcd51b19edf
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: c8e14091d7a3fb5b925735824b1dd3ce26f034e8
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346490"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146506"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱 시작
 
-Microsoft Authenticator 앱은 계정에 대한 권한이 없는 액세스를 방지하고 사기성이 있는 트랜잭션을 중지하는 데 도움이 되어 회사 또는 학교 계정(예: alain@contoso.com) 또는 개인적인 Microsoft 계정(예: alain@outlook.com)에 대한 추가적인 보안 수준을 제공합니다. 이를 두 번째 인증 방법으로 사용하거나 휴대폰 로그인을 사용하는 경우 암호 대신 사용할 수 있습니다. 암호 없는 휴대폰 로그인을 설정하고 사용하는 방법에 대한 자세한 내용은 [암호가 아닌 휴대폰을 사용하여 로그인](microsoft-authenticator-app-phone-signin-faq.md)을 참조하세요.
+Microsoft Authenticator 앱은 계정에 대한 권한이 없는 액세스를 방지하고 사기성이 있는 트랜잭션을 중지하는 데 도움이 되어 회사 또는 학교 계정(예: alain@contoso.com) 또는 개인적인 Microsoft 계정(예: alain@outlook.com)에 대한 추가적인 보안 수준을 제공합니다.
 
 2단계 인증에 앱을 사용할 때 다음 두 가지 방법 중 하나로 작동할 수 있습니다.
 
@@ -109,9 +109,7 @@ Microsoft Authenticator 앱에 회사 또는 학교 계정이나 개인 계정�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 앱에 대한 더 일반적인 질문이 있는 경우 [Microsoft Authenticator FAQ](microsoft-authenticator-app-faq.md)를 참조하세요.
-
-- 휴대폰 로그인을 사용하는 방법에 대한 질문이 있으면 [암호가 아닌 휴대폰 로그인](microsoft-authenticator-app-phone-signin-faq.md)을 참조하세요.
+- 앱에 대한 일반적인 질문이 더 있는 경우 [Microsoft Authenticator FAQ](microsoft-authenticator-app-faq.md)를 참조하세요.
 
 - 2단계 인증에 대해 더 자세히 알아보려면 [2단계 인증에 내 계정 설정](multi-factor-authentication-end-user-first-time.md)을 참조하세요.
 

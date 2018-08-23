@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e9503759b776bb045c4dc0357b1ab88be1294013
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 8d95790dc09f6d26c6ae749ed0cd386053c5cb35
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038563"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141767"
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 튜닝 가능한 데이터 일관성 수준
 Azure Cosmos DB는 처음부터 모든 데이터 모델에 대한 전역 배포를 염두에 두고 설계되었습니다. 예측 가능한 짧은 대기 시간을 보증하고, 여러 개의 잘 정의된 관대한 일관성 모델을 제공하도록 설계되었습니다. 현재 Azure Cosmos DB는 5가지 일관성 수준(강력, 제한된 부실, 세션, 일관적인 접두사 및 최종)을 제공합니다. 제한된 부실, 세션, 일관된 접두사 및 최종은 가능한 가장 일관성 높은 모델인 강력보다는 일관성이 낮기 때문에 "관대한 일관성 모델"로 간주됩니다. 
@@ -132,7 +132,7 @@ Azure Cosmos DB는 현재 강함 및 최종, 두 개의 일관성 설정이 있�
 * [야구를 통해 설명하는 복제된 데이터 일관성(비디오) 작성자: Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I)
 * [야구를 통해 설명하는 복제된 데이터 일관성(백서) 작성자: Doug Terry](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 * [약하게 일관된 복제 데이터에 대한 세션 보장](http://dl.acm.org/citation.cfm?id=383631)
-* [최신 분산 데이터베이스 시스템 디자인의 일관성 균형: CAP는 스토리의 일부일 뿐입니다.](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+* [최신 분산 데이터베이스 시스템 디자인의 일관성 균형: CAP는 스토리의 일부일 뿐입니다.](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
 * [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 * [최종 일관성 - 재고되었습니다.](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 * [쿼럼 시스템의 부하 용량 및 가용성, SIAM Journal on Computing](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)

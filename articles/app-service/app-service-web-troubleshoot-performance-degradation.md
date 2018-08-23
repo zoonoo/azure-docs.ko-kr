@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 6b71aa004095a94bea84623fd2b5dbdfc1f81af0
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 34ee673ee1cf870e376ac8c954a9f3fc468abaa2
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
-ms.locfileid: "29461845"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42143525"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Azure App Service에서 느린 웹앱 성능 문제 해결
 이 문서에서는 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)의 느린 웹앱 성능 문제를 해결하는 데 도움을 줍니다.
@@ -72,16 +72,16 @@ Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 �
 * [Azure App Service에서 Web Apps 모니터링](web-sites-monitor.md)
 * [경고 알림 받기](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
-#### <a name="monitor-web-endpoint-status"></a>웹 끝점 상태 모니터링
-**표준** 가격 정책에서 Web Apps를 실행할 경우, 3곳의 지리적 위치에서 끝점 2개를 모니터링할 수 있습니다.
+#### <a name="monitor-web-endpoint-status"></a>웹 엔드포인트 상태 모니터링
+**표준** 가격 정책에서 Web Apps를 실행할 경우, 3곳의 지리적 위치에서 엔드포인트 2개를 모니터링할 수 있습니다.
 
-끝점 모니터링은 지리적으로 분산된 위치에서 웹 URL의 응답 시간 및 가동 시간을 테스트하는 웹 테스트를 구성합니다. 테스트는 웹 URL의 HTTP 가져오기 작업을 수행하여 각 위치의 응답 시간 및 가동 시간을 확인합니다. 구성된 각 위치에서는 5분마다 테스트를 실행합니다.
+엔드포인트 모니터링은 지리적으로 분산된 위치에서 웹 URL의 응답 시간 및 가동 시간을 테스트하는 웹 테스트를 구성합니다. 테스트는 웹 URL의 HTTP 가져오기 작업을 수행하여 각 위치의 응답 시간 및 가동 시간을 확인합니다. 구성된 각 위치에서는 5분마다 테스트를 실행합니다.
 
-가동 시간은 HTTP 응답 코드를 사용하여 모니터링되며 응답 시간은 밀리초로 측정됩니다. HTTP 응답 코드가 400 이상이거나 응답에 30초 넘게 걸리는 경우 모니터링 테스트가 실패합니다. 지정된 모든 위치에서 모니터링 테스트가 성공하는 경우 끝점은 사용 가능한 것으로 간주됩니다.
+가동 시간은 HTTP 응답 코드를 사용하여 모니터링되며 응답 시간은 밀리초로 측정됩니다. HTTP 응답 코드가 400 이상이거나 응답에 30초 넘게 걸리는 경우 모니터링 테스트가 실패합니다. 지정된 모든 위치에서 모니터링 테스트가 성공하는 경우 엔드포인트는 사용 가능한 것으로 간주됩니다.
 
 설정하려면 [Azure App Service에서 앱 모니터링](web-sites-monitor.md)을 참조하세요.
 
-또한, 끝점 모니터링의 비디오에 대해서는 [Azure Websites 가동 및 끝 점 모니터링 - 스테판 스차코우(Stefan Schackow)](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) 를 참조하세요.
+또한, 엔드포인트 모니터링의 비디오에 대해서는 [Azure Websites 가동 및 끝 점 모니터링 - 스테판 스차코우(Stefan Schackow)](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) 를 참조하세요.
 
 #### <a name="application-performance-monitoring-using-extensions"></a>확장을 사용하여 응용 프로그램 성능 모니터링
 *사이트 확장*을 사용하여 응용 프로그램 성능을 모니터링할 수도 있습니다.
@@ -91,7 +91,7 @@ Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 �
 - [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx)와 같은 소스 코드 편집기. 
 - 웹앱에 연결된 MySQL 데이터베이스와 같은 연결된 리소스에 대한 관리 도구.
 
-[Azure Application Insights](/services/application-insights/)도 사용할 수 있는 성능 모니터링 사이트 확장입니다. Application Insights를 사용하려면 SDK를 통해 코드를 다시 빌드합니다. 추가 데이터에 대한 액세스를 제공하는 확장을 설치할 수도 있습니다. SDK를 통해 앱의 사용과 성능을 보다 자세하게 모니터링하기 위한 코드를 작성할 수 있습니다. 자세한 내용은 [웹 응용 프로그램의 성능 모니터링](../application-insights/app-insights-web-monitor-performance.md)을 참조하세요.
+[Azure Application Insights](https://azure.microsoft.com/services/application-insights/)도 사용할 수 있는 성능 모니터링 사이트 확장입니다. Application Insights를 사용하려면 SDK를 통해 코드를 다시 빌드합니다. 추가 데이터에 대한 액세스를 제공하는 확장을 설치할 수도 있습니다. SDK를 통해 앱의 사용과 성능을 보다 자세하게 모니터링하기 위한 코드를 작성할 수 있습니다. 자세한 내용은 [웹 응용 프로그램의 성능 모니터링](../application-insights/app-insights-web-monitor-performance.md)을 참조하세요.
 
 <a name="collect" />
 
@@ -145,7 +145,7 @@ Azure App Service 지원 포털은 일반적인 문제 해결 시나리오의 �
 Azure App Service 지원 포털에 대한 자세한 내용은 [Azure Websites의 지원 사이트 확장에 대한 새 업데이트](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites)를 참조하세요.
 
 #### <a name="use-the-kudu-debug-console"></a>Kudu 디버그 콘솔 사용
-Web Apps는 사용자 환경에 대한 정보를 얻을 수 있는 JSON 끝점과 비슷한 디버깅, 탐색, 파일 업로드할 수 있는 디버그 콘솔과 함께 제공됩니다. 이 콘솔은 *Kudu 콘솔* 또는 사용자 웹앱에서는 *SCM 대시보드*라고 합니다.
+Web Apps는 사용자 환경에 대한 정보를 얻을 수 있는 JSON 엔드포인트와 비슷한 디버깅, 탐색, 파일 업로드할 수 있는 디버그 콘솔과 함께 제공됩니다. 이 콘솔은 *Kudu 콘솔* 또는 사용자 웹앱에서는 *SCM 대시보드*라고 합니다.
 
 **https://&lt;Your app name>.scm.azurewebsites.net/** 링크로 이동해서 대시보드에 액세스할 수 있습니다.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: a9e01039f1fbf46739ff8dbafea411aad2c3f4f2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 512dd7c3318022106b721d8f215bff17de51e51d
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308056"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42143689"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 가상 머신 확장 집합 관리
 가상 머신 확장 집합의 수명 주기 동안 하나 이상의 관리 작업을 실행해야 합니다. 또한 다양한 수명 주기 작업을 자동화하는 스크립트를 만들어야 하는 경우가 있습니다. 이 문서에서는 이러한 작업을 수행할 수 있는 공통 Azure CLI 2.0 명령의 일부를 설명합니다.
@@ -92,7 +92,7 @@ az vmss scale \
 
 
 ## <a name="stop-and-start-vms-in-a-scale-set"></a>확장 집합에서 VM 중지 및 시작
-확장 집합에서 하나 이상의 VM을 중지하려면 [az vmss stop](/cli/azure/vmss/stop)을 사용합니다. `--instance-ids` 매개 변수를 사용하면 하나 이상의 가상 컴퓨터를 중지하도록 지정할 수 있습니다. 인스턴스 ID를 지정하지 않으면 확장 집합에서 모든 VM이 중지됩니다. 여러 VM을 중지하려면 각 인스턴스 ID를 공백으로 구분합니다.
+확장 집합에서 하나 이상의 VM을 중지하려면 [az vmss stop](/cli/azure/vmss#az-vmss-stop)을 사용합니다. `--instance-ids` 매개 변수를 사용하면 하나 이상의 가상 컴퓨터를 중지하도록 지정할 수 있습니다. 인스턴스 ID를 지정하지 않으면 확장 집합에서 모든 VM이 중지됩니다. 여러 VM을 중지하려면 각 인스턴스 ID를 공백으로 구분합니다.
 
 다음 예제에서는 *myScaleSet*이라는 확장 집합 및 *myResourceGroup*이라는 리소스 그룹에서 인스턴스 *0*을 중지합니다. 다음과 같이 사용자 고유의 값을 제공합니다.
 

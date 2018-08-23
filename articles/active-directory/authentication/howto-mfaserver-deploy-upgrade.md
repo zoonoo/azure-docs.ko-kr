@@ -10,18 +10,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: dbb95c8aadc66e7ece93fa800055a0f6be81f015
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 7e7952a327134197f1e8492931d7ada871789395
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161415"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141600"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>최신 Azure Multi-Factor Authentication 서버로 업그레이드
 
 이 문서에서는 Azure MFA(Multi-factor Authentication) 서버 v6.0 이상을 업그레이드하는 프로세스를 단계별로 안내합니다. 이전 버전의 PhoneFactor Agent를 업그레이드해야 하는 경우 [PhoneFactor Agent를 Azure Multi-factor Authentication 서버로 업그레이드](howto-mfaserver-deploy-upgrade-pf.md)를 참조하세요.
 
-v6.x 이상에서 v7.x 또는 최신 버전으로 업그레이드하는 경우 모든 구성 요소가 .NET 2.0에서 .NET 4.5로 변경됩니다. 모든 구성 요소에는 Microsoft Visual C++ 2015 재배포 가능 패키지 업데이트 1 이상이 필요합니다. 이러한 구성 요소의 x86 및 x64 버전이 아직 설치되지 않았으면 MFA 서버 설치 관리자가 설치합니다. 사용자 포털 및 모바일 앱 웹 서비스가 별도 서버에서 실행되는 경우 해당 구성 요소를 업그레이드하기 전에 해당 패키지를 설치해야 합니다. [Microsoft 다운로드 센터](https://www.microsoft.com/en-us/download/)에서 최신 Microsoft Visual C++ 2015 재배포 가능 패키지 업데이트를 검색할 수 있습니다. 
+v6.x 이상에서 v7.x 또는 최신 버전으로 업그레이드하는 경우 모든 구성 요소가 .NET 2.0에서 .NET 4.5로 변경됩니다. 모든 구성 요소에는 Microsoft Visual C++ 2015 재배포 가능 패키지 업데이트 1 이상이 필요합니다. 이러한 구성 요소의 x86 및 x64 버전이 아직 설치되지 않았으면 MFA 서버 설치 관리자가 설치합니다. 사용자 포털 및 모바일 앱 웹 서비스가 별도 서버에서 실행되는 경우 해당 구성 요소를 업그레이드하기 전에 해당 패키지를 설치해야 합니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/)에서 최신 Microsoft Visual C++ 2015 재배포 가능 패키지 업데이트를 검색할 수 있습니다. 
 
 ## <a name="install-the-latest-version-of-azure-mfa-server"></a>최신 버전의 Azure MFA 서버 설치
 

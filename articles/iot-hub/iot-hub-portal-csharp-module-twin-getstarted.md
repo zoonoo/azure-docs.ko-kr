@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: dobett
-ms.openlocfilehash: d85845aa9bbf9b9f311adfc2588a4a8d0c670826
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 3de08d9e4a45b842fc921436f855831afb6b9ce0
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619854"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42142174"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>포털 및 .NET 장치를 사용하여 IoT Hub 모듈 ID 및 모듈 쌍 시작
 
@@ -59,7 +59,6 @@ ms.locfileid: "39619854"
 
 ![장치 세부 정보][12]
 
-<a id="D2C_csharp"></a>
 ## <a name="update-the-module-twin-using-net-device-sdk"></a>.NET 장치 SDK를 사용하여 모듈 쌍 업데이트
 
 IoT Hub에서 모듈 ID를 성공적으로 만들었습니다. 시뮬레이트된 장치에서 클라우드와 통신해 보겠습니다. 모듈 ID가 만들어지면 모듈 쌍이 IoT Hub에서 암시적으로 생성됩니다. 이 섹션에서는 시뮬레이션된 장치에 모듈 쌍 reported 속성을 업데이트하는 .NET 콘솔 앱을 만듭니다.

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 951756d57441d175ccf8bab44bf00c3cb542f1b9
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 8f86bcf5ecf38f0f1054fce82b66e63f0509f1c8
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050049"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246685"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>자습서: Hadoop 클러스터를 사용하여 데이터를 변환하는 첫 번째 파이프라인 빌드
 > [!div class="op_single_selector"]
@@ -85,7 +85,7 @@ adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 이 자습서를 시작하기 전에 다음 필수 조건이 있어야 합니다.
 
 1. **Azure 구독** - Azure 구독이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 무료 평가판 계정을 확보하는 방법은 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 문서를 참조하세요.
-2. **Azure 저장소** – 이 자습서에서는 데이터 저장을 위해 Azure Storage 계정을 사용합니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../../storage/common/storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요. 저장소 계정을 만든 후 **계정 이름**과 **액세스 키**를 적어둡니다. [저장소 액세스 키 보기, 복사 및 다시 생성](../../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys)을 참조하세요.
+2. **Azure 저장소** – 이 자습서에서는 데이터 저장을 위해 Azure Storage 계정을 사용합니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요. 저장소 계정을 만든 후 **계정 이름**과 **액세스 키**를 적어둡니다. [저장소 액세스 키 보기, 복사 및 다시 생성](../../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys)을 참조하세요.
 3. [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql)에 있는 Hive 쿼리 파일(**HQL**)을 다운로드하고 검토합니다. 이 쿼리는 출력 데이터를 생성하기 위해 입력 데이터를 변환합니다. 
 4. [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)에 있는 샘플 입력 파일(**input.log**)을 다운로드하고 검토합니다.
 5. Azure Blob Storage에 **adfgetstarted**라는 Blob 컨테이너를 만듭니다. 

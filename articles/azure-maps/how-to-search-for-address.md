@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 8b7d2119e1eef8532c30b0a45ae2684493462277
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: fe3bb3a778a42696cd15f9e4265448479bf043a1
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990016"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42140513"
 ---
 # <a name="how-to-find-an-address-using-the-azure-maps-search-service"></a>Azure Maps 검색 서비스를 사용하여 주소를 찾는 방법
 
@@ -36,7 +36,7 @@ ms.locfileid: "38990016"
 
 1. Postman 앱을 열고 새로 만들기 새로 만들기를 클릭하고 **GET 요청**을 선택합니다. **유사 항목 검색**의 요청 이름을 입력하고 이를 저장할 컬렉션 또는 폴더를 선택하고 **저장**을 클릭합니다.
 
-2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 API 끝점에 대한 요청 URL을 입력합니다.
+2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 API 엔드포인트에 대한 요청 URL을 입력합니다.
 
     ![유사 항목 검색 ](./media/how-to-search-for-address/fuzzy_search_url.png)
 
@@ -88,7 +88,7 @@ ms.locfileid: "38990016"
 전체 또는 부분 도로 주소를 검색 주소 API에 전달하고 지방 자치체 또는 구획 등과 같은 상세 주소 속성뿐만 아니라 위도와 경도 단위의 위치 값도 포함하는 응답을 받습니다.
 
 1. Postman에서 **새 요청** | **GET 요청**을 클릭하고 이름을 **주소 검색**으로 지정합니다.
-2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 API 끝점에 대한 요청 URL을 입력한 다음 권한 부여 프로토콜이 있는 경우 해당 프로토콜을 선택합니다.
+2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 API 엔드포인트에 대한 요청 URL을 입력한 다음 권한 부여 프로토콜이 있는 경우 해당 프로토콜을 선택합니다.
 
     ![주소 검색 ](./media/how-to-search-for-address/address_search_url.png)
     
@@ -128,7 +128,7 @@ ms.locfileid: "38990016"
 ## <a name="search-for-a-street-address-using-reverse-address-search"></a>역방향 주소 검색을 사용하여 주소 검색
 1. Postman에서 **새 요청** | **GET 요청**을 클릭하고 **역 주소 검색**으로 이름 지정합니다.
 
-2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 API 끝점에 대한 요청 URL을 입력합니다.
+2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 API 엔드포인트에 대한 요청 URL을 입력합니다.
     
     ![역 주소 검색 URL ](./media/how-to-search-for-address/reverse_address_search_url.png)
     
@@ -164,19 +164,11 @@ ms.locfileid: "38990016"
 
     | 키 | 값 |
     |-----|------------|
-    | spatialKeys | true |
-
-    [spatialKeys](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 쿼리 매개 변수를 설정한 경우, 응답은 지정된 위치에 대한 독자적인 지역-공간 키 정보를 포함합니다.
-
-6. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
-
-    | 키 | 값 |
-    |-----|------------|
     | returnSpeedLimit | true |
     
     [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 쿼리 매개 변수를 설정한 경우 응답은 게시된 속도 제한을 반환합니다.
 
-7. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
+6. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
 
     | 키 | 값 |
     |-----|------------|
@@ -184,7 +176,7 @@ ms.locfileid: "38990016"
 
     [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) 쿼리 매개 변수를 설정한 경우 응답은 도로 수준의 리버스 지오코드(reversegeocode)에 대한 도로 사용 배열을 반환합니다.
 
-8. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
+7. **Params** 섹션에 다음 키/값 쌍을 추가하고 **보내기**를 클릭합니다.
 
     | 키 | 값 |
     |-----|------------|
@@ -196,7 +188,7 @@ ms.locfileid: "38990016"
 
 1. Postman에서 **새 요청** | **GET 요청**을 클릭하고 **역 주소 교차로 검색**으로 이름 지정합니다.
 
-2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 API 끝점에 대한 요청 URL을 입력합니다.
+2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 API 엔드포인트에 대한 요청 URL을 입력합니다.
     
     ![역 주소 교차로 검색 ](./media/how-to-search-for-address/reverse_address_search_url.png)
     

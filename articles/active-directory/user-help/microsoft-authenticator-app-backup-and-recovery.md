@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 29226f0645a772ffe02e378c9b4df0a87909731a
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 39ec7c979294860967deb3307f5d87112b762257
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358123"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146503"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱을 사용하여 계정 자격 증명 백업 및 복구
 
@@ -101,8 +101,6 @@ Microsoft Authenticator 앱은 계정 자격 증명과 계정 순서 같은 관�
 
 ## <a name="related-topics"></a>관련된 항목
 - [Microsoft Authenticator 앱 시작](microsoft-authenticator-app-how-to.md)  
-
-- [휴대폰으로 로그인](microsoft-authenticator-app-phone-signin-faq.md)
 
 - [Microsoft Authenticator 앱 FAQ](microsoft-authenticator-app-faq.md)
 

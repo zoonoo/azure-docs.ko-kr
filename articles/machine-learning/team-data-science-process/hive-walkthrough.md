@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 556a7d9d921e0f2307445f8f6738b9b845c83112
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ff4daf350783e02141a6afea815165ccecfe0116
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006600"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143145"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>실행 중인 팀 데이터 과학 프로세스: Azure HDInsight Hadoop 클러스터 사용
 이 연습에서는 종단 간 시나리오에 [TDSP(Team Data Science Process)](overview.md)를 사용합니다. [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)를 사용하여 공개적으로 사용 가능한 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합에서 데이터를 저장, 탐색, 기능 설계, 다운 샘플링합니다. 이진/다중 클래스 분류 및 회귀 예측 작업을 처리하기 위해 데이터의 모델을 Azure Machine Learning으로 빌드합니다. 
@@ -75,7 +75,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_license 및
 
 다음 세 단계를 통해 HDInsight 클러스터를 사용하는 고급 분석용 Azure 환경을 설정할 수 있습니다.
 
-1. [저장소 계정 만들기](../../storage/common/storage-create-storage-account.md):이 저장소 계정은 Azure Blob 저장소에 데이터를 저장하는 데 사용됩니다. HDInsight 클러스터에 사용되는 데이터도 여기에 상주합니다.
+1. [저장소 계정 만들기](../../storage/common/storage-quickstart-create-account.md):이 저장소 계정은 Azure Blob 저장소에 데이터를 저장하는 데 사용됩니다. HDInsight 클러스터에 사용되는 데이터도 여기에 상주합니다.
 2. [고급 분석 프로세스 및 기술을 위한 Azure HDInsight Hadoop 클러스터 사용자 지정](customize-hadoop-cluster.md). 이 단계에서는 모든 노드에 64비트 Anaconda Python 2.7이 설치된 HDInsight Hadoop 클러스터를 만듭니다. HDInsight 클러스터 사용자 지정하는 동안 기억해야 할 중요한 두 단계가 있습니다.
    
    * HDInsight 클러스터를 만들 때 1단계에서 만든 저장소 계정을 연결해야 합니다. 이 저장소 계정은 클러스터 내에서 처리되는 데이터에 액세스합니다.
@@ -771,7 +771,7 @@ Machine Learning의 [데이터 가져오기][import-data] 모듈에서 Hive 쿼�
 
   ![실험의 다이어그램](./media/hive-walkthrough/QGxRz5A.png)
 
-  나. 이 실험의 경우 대상 레이블 분포는 약 1:1입니다.
+  b. 이 실험의 경우 대상 레이블 분포는 약 1:1입니다.
 
    다음 차트는 이진 분류 문제에 대한 팁 클래스 레이블의 분포를 보여 줍니다.
 
@@ -795,7 +795,7 @@ Machine Learning의 [데이터 가져오기][import-data] 모듈에서 Hive 쿼�
 
   ![테스트 클래스 분포의 차트](./media/hive-walkthrough/Vy1FUKa.png)
 
-  나. 이 실험에서는 혼동 행렬을 사용하여 예측 정확도를 확인합니다. 다음과 같습니다.
+  b. 이 실험에서는 혼동 행렬을 사용하여 예측 정확도를 확인합니다. 다음과 같습니다.
 
   ![혼동 행렬](./media/hive-walkthrough/cxFmErM.png)
 
@@ -811,7 +811,7 @@ Machine Learning의 [데이터 가져오기][import-data] 모듈에서 Hive 쿼�
 
   ![실험의 다이어그램](./media/hive-walkthrough/11TZWgV.png)
 
-  나. 회귀 문제의 경우 예측의 제곱된 오류, 결정 계수를 확인하여 예측 정확도를 측정합니다.
+  b. 회귀 문제의 경우 예측의 제곱된 오류, 결정 계수를 확인하여 예측 정확도를 측정합니다.
 
   ![예측 통계의 스크린샷](./media/hive-walkthrough/Jat9mrz.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 599c016763fde6f1dc8221fffa554cf68e8c498f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 43db9db3842d05fa13c3be92df14b905d2ddfc17
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790392"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42140917"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Azure Load Balancer에 대한 Azure Resource Manager 지원 사용
 
@@ -61,7 +61,7 @@ Azure Load Balancer를 사용하는 빠른 시작 템플릿은 커뮤니티 생�
 
 Azure Resource Manager cmdlet, 명령줄 도구 및 REST API 시작
 
-* [Azure 네트워킹 Cmdlet](https://msdn.microsoft.com/library/azure/mt163510.aspx) 을 사용하여 부하 분산 장치를 만들 수 있습니다.
+* [Azure 네트워킹 Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.network#networking) 을 사용하여 부하 분산 장치를 만들 수 있습니다.
 * [Azure Resource Manager를 사용하여 부하 분산 장치를 만드는 방법](load-balancer-get-started-ilb-arm-ps.md)
 * [Azure 리소스 관리에서 Azure CLI 사용](../xplat-cli-azure-resource-manager.md)
 * [부하 분산 장치 REST API](https://msdn.microsoft.com/library/azure/mt163651.aspx)

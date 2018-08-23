@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 07f739243b80230fbf4914535ea65183c3590937
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 61b804b876c91b5fcd12ce15bd7e2438f5d897a0
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020444"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617420"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Linux에서 첫 번째 Java Service Fabric Reliable Actors 응용 프로그램 만들기
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ ms.locfileid: "37020444"
 Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Service Fabric Java 응용 프로그램을 만들 수 있는 스캐폴딩 도구를 제공합니다.  Yeoman이 아직 설치되지 않은 경우 Yeoman 설정에 대한 지침은 [Linux로 시작하는 Service Fabric](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables)을 참조하세요. 다음 명령을 실행하여 Java용 Service Fabric Yeoman 템플릿 생성기를 설치합니다.
 
   ```bash
-  sudo npm install -g generator-azuresfjava
+  npm install -g generator-azuresfjava
   ```
 
 ## <a name="basic-concepts"></a>기본 개념

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5dc1a4bc1de3560338e1734e73ad04910535be5b
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 751175e46e13d6046cd6f459e1405a876fdce39a
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751305"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42141775"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Azure Automation에서 Runbook 출력 및 메시지
 대부분의 Azure Automation Runbook에는 사용자에게 표시되는 오류 메시지와 같은 일종의 출력 형식 또는 다른 워크플로에서 사용할 복합 개체가 있습니다. Windows PowerShell은 [여러 스트림](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) 제공하여 스크립트 또는 워크플로에서 출력을 보냅니다. Azure Automation은 이러한 스트림에서 각각 다르게 작동하고 runbook을 만들 경우 각각을 사용하는 방법은 모범 사례를 따라야 합니다.
@@ -175,7 +175,7 @@ Windows PowerShell은 [기본 설정 변수](http://technet.microsoft.com/librar
 Runbook의 작업 탭의 Azure 포털에서 Runbook 작업의 세부 정보를 볼 수 있습니다. 작업 요약에는 작업 및 발생하는 모든 예외에 대한 일반 정보 외에도 입력 매개 변수 및 [출력 스트림](#output-stream)이 표시합니다. 세부 정보 표시 및 진행률 레코드를 기록하도록 Runbook을 구성하면 [자세한 정보 표시 스트림](#verbose-stream) 및 [진행률 레코드](#progress-records) 외에도 [출력 스트림](#output-stream) 및 [경고 및 오류 스트림](#warning-and-error-streams)의 메시지가 기록에 포함됩니다.
 
 ### <a name="windows-powershell"></a>Windows PowerShell
-Windows PowerShell에서 [Get AzureAutomationJobOutput](https://msdn.microsoft.com/library/mt603476.aspx) cmdlet을 사용하여 runbook에서 출력 및 메시지를 검색할 수 있습니다. cmdlet은 작업의 ID를 필요로 하고 반환하는 스트림을 지정하는 스트림을 호출한 매개 변수가 있습니다. **Any**를 지정하여 작업에 모든 스트림을 반환할 수 있습니다.
+Windows PowerShell에서 [Get AzureAutomationJobOutput](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjoboutput) cmdlet을 사용하여 runbook에서 출력 및 메시지를 검색할 수 있습니다. cmdlet은 작업의 ID를 필요로 하고 반환하는 스트림을 지정하는 스트림을 호출한 매개 변수가 있습니다. **Any**를 지정하여 작업에 모든 스트림을 반환할 수 있습니다.
 
 다음 예제는 샘플 runbook를 시작한 다음 완료되기를 기다립니다. 완료되면 해당 출력 스트림을 작업에서 수집합니다.
 

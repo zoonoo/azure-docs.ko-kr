@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: 75017a1a3a400ca5390210225f26a6c5f3bb7c47
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e19f1a63c478d17154a24c14f6700e2fb07f2467
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856167"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146462"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Active Directory ID를 사용하여 Azure Search 결과를 자르는 보안 필터
 
@@ -63,7 +63,7 @@ Microsoft Graph는 REST API를 통해 AAD에 프로그래밍 방식으로 액세
 
 사용자 및 그룹 멤버 자격은 유동적이며, 조직 규모가 클수록 더욱 그렇습니다. 조직 멤버 자격의 변경 내용을 선택할 수 있을 만큼 사용자 및 그룹 ID를 빌드하는 코드를 충분히 자주 실행해야 합니다. 마찬가지로, Azure Search 인덱스에는 허용된 사용자 및 리소스의 현재 상태를 반영하도록 비슷한 업데이트 일정이 필요합니다.
 
-### <a name="step-1-create-aad-grouphttpsdevelopermicrosoftcomgraphdocsapi-referencev10apigrouppostgroups"></a>1단계: [AAD 그룹](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/group_post_groups) 만들기 
+### <a name="step-1-create-aad-grouphttpsdevelopermicrosoftcomen-usgraphdocsapi-referencev10apigrouppostgroups"></a>1단계: [AAD 그룹](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/group_post_groups) 만들기 
 ```csharp
 // Instantiate graph client 
 GraphServiceClient graph = new GraphServiceClient(new DelegateAuthenticationProvider(...));
@@ -77,7 +77,7 @@ Group group = new Group()
 Group newGroup = await graph.Groups.Request().AddAsync(group);
 ```
    
-### <a name="step-2-create-aad-userhttpsdevelopermicrosoftcomgraphdocsapi-referencev10apiuserpostusers"></a>2단계: [AAD 사용자](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_post_users) 만들기 
+### <a name="step-2-create-aad-userhttpsdevelopermicrosoftcomen-usgraphdocsapi-referencev10apiuserpostusers"></a>2단계: [AAD 사용자](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_post_users) 만들기 
 ```csharp
 User user = new User()
 {

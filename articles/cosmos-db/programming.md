@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 6374fcf1477d56b9803b63476f3fef38fc12def1
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 6296eb423f24762ed32a21ef40852dc1a9dd8f36
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618899"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142561"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB 서버 쪽 프로그래밍: 저장 프로시저, 데이터베이스 트리거 및 UDF
 
@@ -98,7 +98,7 @@ client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld'
     });
 ```
 
-컨텍스트 개체는 Cosmos DB 저장소에서 수행할 수 있는 모든 작업에 대한 액세스와 요청 및 응답 개체에 대한 액세스를 제공합니다. 여기서는 응답 개체를 사용하여 클라이언트로 전송되는 응답의 본문을 설정합니다. 자세한 내용은 [Azure Cosmos DB JavaScript 서버 SDK 설명서](http://azure.github.io/azure-documentdb-js-server/)를 참조하세요.  
+컨텍스트 개체는 Cosmos DB 저장소에서 수행할 수 있는 모든 작업에 대한 액세스와 요청 및 응답 개체에 대한 액세스를 제공합니다. 여기서는 응답 개체를 사용하여 클라이언트로 전송되는 응답의 본문을 설정합니다. 자세한 내용은 [Azure Cosmos DB JavaScript 서버 SDK 설명서](https://azure.github.io/azure-cosmosdb-js-server/)를 참조하세요.  
 
 이 예제를 확장하여 저장 프로시저에 데이터베이스 관련 기능을 더 추가하겠습니다. 저장 프로시저는 컬렉션 내의 문서와 첨부 파일을 만들고 업데이트하고 읽고 쿼리 및 삭제할 수 있습니다.    
 
@@ -591,7 +591,7 @@ value()로 종료되어야 하는 연결된 호출을 시작합니다.
 * 제어 흐름(예: if, for, while)
 * 함수 호출
 
-자세한 내용은 [서버 쪽 JSDocs](http://azure.github.io/azure-documentdb-js-server/)를 참조하세요.
+자세한 내용은 [서버 쪽 JSDocs](https://azure.github.io/azure-cosmosdb-js-server/)를 참조하세요.
 
 ### <a name="example-write-a-stored-procedure-using-the-javascript-query-api"></a>예: JavaScript 쿼리 API를 사용하여 저장된 프로시저 작성
 다음 코드 샘플은 저장된 프로시저의 컨텍스트에서 JavaScript 쿼리 API를 사용할 수 있는 방법의 예입니다. 저장된 프로시저는 입력된 매개 변수로 지정된 문서를 삽입하고 입력된 문서의 크기 속성을 기반으로 하는 minSize, maxSize 및 totalSize가 있는 `__.filter()` 메서드를 사용하여 메타데이터 문서를 업데이트합니다.
@@ -674,7 +674,7 @@ SQL 쿼리와 마찬가지로, 문서 속성 키(예: `doc.id`)는 대/소문자
 
 
 ## <a name="runtime-support"></a>런타임 지원
-[Azure Cosmos DB JavaScript 서버 쪽 API](http://azure.github.io/azure-documentdb-js-server/)는 [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)에서 표준화된 일반 JavaScript 언어 기능을 대부분 지원합니다.
+[Azure Cosmos DB JavaScript 서버 쪽 API](https://azure.github.io/azure-cosmosdb-js-server/)는 [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)에서 표준화된 일반 JavaScript 언어 기능을 대부분 지원합니다.
 
 ### <a name="security"></a>보안
 JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데이터베이스 수준의 스냅숏 트랜잭션 격리를 통과하지 않고 다른 스크립트로 누출되지 않도록 샌드박스됩니다. 런타임 환경은 풀링되지만 각 실행 후에 컨텍스트가 정리됩니다. 따라서 서로 간의 의도치 않은 파생 작업으로부터 보호됩니다.
@@ -683,7 +683,7 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
 저장 프로시저, 트리거 및 UDF는 각 스크립트 호출 시 컴파일 비용을 방지하기 위해 암시적으로 바이트 코드 형식으로 사전 컴파일됩니다. 사전 컴파일을 사용하면 저장 프로시저 호출이 빠르며 사용 공간이 적습니다.
 
 ## <a name="client-sdk-support"></a>클라이언트 SDK 지원
-Azure Cosmos DB [Node.js](sql-api-sdk-node.md) API 외에도 Azure Cosmos DB에는 SQL API용 [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/) 및 [Python SDK](sql-api-sdk-python.md)도 있습니다. 이러한 SDK를 사용하여 저장 프로시저, 트리거 및 UDF를 만들고 실행할 수도 있습니다. 다음 예제에서는 .NET 클라이언트를 사용하여 저장 프로시저를 만들고 실행하는 방법을 보여 줍니다. .NET 유형을 저장 프로시저에 JSON으로 전달하고 다시 읽는 방법을 확인합니다.
+Azure Cosmos DB [Node.js](sql-api-sdk-node.md) API 외에도 Azure Cosmos DB에는 SQL API용 [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md) 및 [Python SDK](sql-api-sdk-python.md)도 있습니다. 이러한 SDK를 사용하여 저장 프로시저, 트리거 및 UDF를 만들고 실행할 수도 있습니다. 다음 예제에서는 .NET 클라이언트를 사용하여 저장 프로시저를 만들고 실행하는 방법을 보여 줍니다. .NET 유형을 저장 프로시저에 JSON으로 전달하고 다시 읽는 방법을 확인합니다.
 
 ```javascript
 var markAntiquesSproc = new StoredProcedure
@@ -828,7 +828,7 @@ foreach (Book book in client.CreateDocumentQuery(UriFactory.CreateDocumentCollec
 여기서는 요청과 함께 실행할 사전 트리거가 x-ms-documentdb-pre-trigger-include 헤더에 지정됩니다. 마찬가지로, 모든 사후 트리거는 x-ms-documentdb-post-trigger-include 헤더에 지정됩니다. 지정된 요청에 사전 트리거와 사후 트리거를 둘 다 지정할 수 있습니다.
 
 ## <a name="sample-code"></a>샘플 코드
-[GitHub 리포지토리](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples)에서 더 많은 서버 쪽 코드 예제([bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) 및 [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js) 포함)를 찾을 수 있습니다.
+[GitHub 리포지토리](https://github.com/Azure/azure-cosmosdb-js-server/tree/master/samples)에서 더 많은 서버 쪽 코드 예제([bulk-delete](https://github.com/Azure/azure-cosmosdb-js-server/blob/master/samples/stored-procedures/bulkDelete.js) 및 [update](https://github.com/Azure/azure-cosmosdb-js-server/blob/master/samples/stored-procedures/update.js) 포함)를 찾을 수 있습니다.
 
 놀라운 저장 프로시저를 공유하시겠습니까? 리포지토리에 참여하고 끌어오기 요청을 만드세요! 
 

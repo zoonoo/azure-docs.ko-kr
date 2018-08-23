@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 366b89d3db0db634e239ac2d99188c7ea0444c13
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: accc2e994e7ea361315d5dfb33b257e58410490c
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365195"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146840"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Azure Active Directory에서 SaaS 응용 프로그램에 대한 사용자 프로비전 특성 매핑 사용자 지정
 Microsoft Azure AD는 Salesforce, Google Apps 등과 같은 타사 SaaS 응용 프로그램에 프로비전을 하는 사용자에 대한 지원을 제공합니다. 타사 SaaS 응용 프로그램을 프로비전하는 사용자가 있을 경우 Azure Portal은 해당 특성 값을 특성 매핑이라는 형식으로 제어합니다.
@@ -121,7 +121,7 @@ ServiceNow, Box 및 Google Apps와 같은 일부 응용 프로그램에서는 �
 * **다중 값 여부** - 특성이 다중 값을 지원하는지 여부입니다.
 * **대소문자 구분 여부** - 특성이 대/소문자 구분 방식으로 평가되는지 여부입니다.
 * **API 식** - 특정 프로비전 커넥터(예: Workday)에 대한 설명서에 달리 지정된 경우 외에는 사용하지 마세요.
-* **참조된 개체 특성** - 참조 형식 특성일 경우 이 메뉴를 사용하여 이 특성과 연결된 값이 포함된 대상 응용 프로그램의 테이블과 특성을 선택할 수 있습니다. 예를 들어 "Department"라는 특성의 저장된 값이 별도의 "Departments" 테이블에 있는 개체를 참조하는 경우 "Departments.Name"을 선택합니다. 지정된 응용 프로그램에 대해 지원되는 참조 테이블 및 기본 ID 필드는 미리 구성되며, 현재 Azure Portal을 사용하여 편집할 수는 없지만 [Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes)를 사용하여 편집할 수는 있습니다.
+* **참조된 개체 특성** - 참조 형식 특성일 경우 이 메뉴를 사용하여 이 특성과 연결된 값이 포함된 대상 응용 프로그램의 테이블과 특성을 선택할 수 있습니다. 예를 들어 "Department"라는 특성의 저장된 값이 별도의 "Departments" 테이블에 있는 개체를 참조하는 경우 "Departments.Name"을 선택합니다. 지정된 응용 프로그램에 대해 지원되는 참조 테이블 및 기본 ID 필드는 미리 구성되며, 현재 Azure Portal을 사용하여 편집할 수는 없지만 [Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes)를 사용하여 편집할 수는 있습니다.
 
 새 특성을 추가하려면 지원되는 특성 목록의 끝 부분으로 스크롤하고, 제공된 입력을 사용하여 위의 필드를 채우고, **특성 추가**를 선택합니다. 특성을 다 추가했으면 **저장**을 선택합니다. 그런 다음, **프로비전** 탭을 다시 로드해야 특성 매핑 편집기에서 새 특성을 볼 수 있습니다.
 

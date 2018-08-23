@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 92be187a1c593742feb90409f2b8cc305bf9a6c8
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 8ecb2008b85bb6a7ac35b5f95deaf0fb321ce155
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161654"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143581"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 획득 방법
 
@@ -63,7 +63,7 @@ ms.locfileid: "39161654"
 
 ## <a name="how-to-turn-on-azure-multi-factor-authentication-for-azure-ad-administrators"></a>Azure AD 관리자에 Azure Multi-Factor Authentication을 설정하는 방법
 
-Azure AD 테넌트에서 전역 관리자 역할이 할당된 사용자는 추가 비용 없이 Azure AD 전역 관리자 계정에 2단계 인증을 사용하도록 설정할 수 있습니다. Microsoft 계정을 사용하는 경우 Microsoft 계정 지원 문서 [2단계 인증 정보](https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification)의 지침에 따라 다단계 인증을 등록할 수 있습니다. Microsoft 계정을 사용하지 않는 경우 [사용자 또는 그룹에 대해 2단계 인증을 요구하는 방법](howto-mfa-userstates.md) 문서의 지침에 따라 전역 관리자에게 다단계 인증을 사용합니다.
+Azure AD 테넌트에서 전역 관리자 역할이 할당된 사용자는 추가 비용 없이 Azure AD 전역 관리자 계정에 2단계 인증을 사용하도록 설정할 수 있습니다. Microsoft 계정을 사용하는 경우 Microsoft 계정 지원 문서 [2단계 인증 정보](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification)의 지침에 따라 다단계 인증을 등록할 수 있습니다. Microsoft 계정을 사용하지 않는 경우 [사용자 또는 그룹에 대해 2단계 인증을 요구하는 방법](howto-mfa-userstates.md) 문서의 지침에 따라 전역 관리자에게 다단계 인증을 사용합니다.
 
 ## <a name="how-to-get-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 획득 방법
 

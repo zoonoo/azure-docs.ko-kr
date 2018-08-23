@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 173423c1a578500a990d6a7b43017d06ea96f6e7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3a82fa0464cd98c1e056e097018ba22ac19d72ac
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704903"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246690"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Azure에 온-프레미스 물리적 서버에 대한 재해 복구 설정
 
@@ -76,7 +76,7 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
 
 ## <a name="set-up-an-azure-storage-account"></a>Azure 저장소 계정을 설정
 
-[Azure Storage 계정](../storage/common/storage-create-storage-account.md#create-a-storage-account)을 설정합니다.
+[Azure Storage 계정](../storage/common/storage-quickstart-create-account.md)을 설정합니다.
 
 - Site Recovery는 온-프레미스 컴퓨터를 Azure Storage에 복제합니다. 장애 조치(failover)가 발생한 후에 저장소에서 Azure VM을 만듭니다.
 - 저장소 계정은 Recovery Services 자격 증명 모음과 동일한 영역에 있어야 합니다.

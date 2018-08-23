@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/30/2018
 ms.author: mstewart
-ms.openlocfilehash: 19fe03a6d06b0f058a90e8bdc40d862601db4f7e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 5421858fd7f31f18c2e6a1e3693b67b3c47a6945
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399901"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42145182"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure Disk Encryption 필수 구성 요소 
  'Azure Disk Encryption 필수 구성 요소'라는 이 문서에서는 Azure Disk Encryption을 사용하기 전에 필요한 항목에 대해 설명합니다. 일반적인 필수 구성 요소와 함께 Azure Disk Encryption은 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/)와 통합되고, 키 자격 증명 모음의 암호화 키를 관리하기 위해 Azure AD 응용 프로그램을 사용하여 인증을 제공합니다. 또한 [Azure PowerShell](/powershell/azure/overview) 또는 [Azure CLI](/cli/azure/)를 사용하여 Key Vault 및 Azure AD 응용 프로그램을 설정하거나 구성할 수 있습니다.
@@ -53,9 +53,9 @@ Azure Disk Encryption이 지원되는 운영 체제는 다음과 같습니다.
 ## <a name="bkmk_GPO"></a> 네트워킹 및 그룹 정책
 
 **Azure Disk Encryption 기능을 사용하도록 설정하려면 IaaS VM에서 다음 네트워크 엔드포인트 구성 요구 사항을 충족해야 합니다.**
-  - Key Vault에 연결할 토큰을 얻으려면 IaaS VM에서 Azure Active Directory 끝점인 \[login.microsoftonline.com\]에 연결할 수 있어야 합니다.
-  - 암호화 키를 고객 Key Vault에 쓰려면 IaaS VM에서 Key Vault 끝점에 연결할 수 있어야 합니다.
-  - IaaS VM은 Azure 확장 리포지토리를 호스팅하는 Azure Storage 끝점 및 VHD 파일을 호스팅하는 Azure Storage 계정에 연결할 수 있어야 합니다.
+  - Key Vault에 연결할 토큰을 얻으려면 IaaS VM에서 Azure Active Directory 엔드포인트인 \[login.microsoftonline.com\]에 연결할 수 있어야 합니다.
+  - 암호화 키를 고객 Key Vault에 쓰려면 IaaS VM에서 Key Vault 엔드포인트에 연결할 수 있어야 합니다.
+  - IaaS VM은 Azure 확장 리포지토리를 호스팅하는 Azure Storage 엔드포인트 및 VHD 파일을 호스팅하는 Azure Storage 계정에 연결할 수 있어야 합니다.
   -  보안 정책이 Azure VM에서 인터넷으로 액세스를 제한하는 경우 이전 URI를 확인하고 IP에 대한 아웃바운드 연결을 허용하도록 특정 규칙을 구성할 수 있습니다. 자세한 내용은 [방화벽 뒤에 있는 Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md)를 참조하세요.    
 
 
@@ -109,7 +109,7 @@ Azure Disk Encryption이 지원되는 운영 체제는 다음과 같습니다.
 
 ## <a name="bkmk_CLI"></a> Azure CLI
 
-[Azure CLI 2.0](/cli/azure)은 Azure 리소스를 관리하기 위한 명령줄 도구입니다. CLI는 데이터를 유연하게 쿼리하고, 장기 실행 작업을 비차단 프로세스로 지원하고, 쉽게 스크립팅할 수 있도록 설계되었습니다. [Azure Cloud Shell](/cloud-shell/overview.md)과 함께 브라우저에서 사용하거나 로컬 컴퓨터에 설치하여 PowerShell 세션에서 사용할 수 있습니다.
+[Azure CLI 2.0](/cli/azure)은 Azure 리소스를 관리하기 위한 명령줄 도구입니다. CLI는 데이터를 유연하게 쿼리하고, 장기 실행 작업을 비차단 프로세스로 지원하고, 쉽게 스크립팅할 수 있도록 설계되었습니다. [Azure Cloud Shell](../cloud-shell/overview.md)과 함께 브라우저에서 사용하거나 로컬 컴퓨터에 설치하여 PowerShell 세션에서 사용할 수 있습니다.
 
 1. 로컬 머신에서 사용할 [Azure CLI 설치](/cli/azure/install-azure-cli)(선택 사항):
 
@@ -174,7 +174,7 @@ Azure Disk Encryption은 [Azure Key Vault](https://azure.microsoft.com/documenta
 [az keyvault](/cli/azure/keyvault#commands) 명령을 사용하여 Azure CLI를 통해 키 자격 증명 모음을 관리할 수 있습니다. 키 자격 증명 모음을 만들려면 [az keyvault create](/cli/azure/keyvault#az-keyvault-create)를 사용합니다.
 
 1. 필요한 경우 [Azure 구독에 연결](azure-security-disk-encryption-appendix.md#bkmk_ConnectCLI)합니다.
-2. 필요한 경우 [az group create](/cli/azure/groupt#az-group-create)를 사용하여 새 리소스 그룹을 만듭니다. 위치를 나열하려면 [az account list-locations](/cli/azure/account#az-account-list)를 사용합니다. 
+2. 필요한 경우 [az group create](/cli/azure/group#az-group-create)를 사용하여 새 리소스 그룹을 만듭니다. 위치를 나열하려면 [az account list-locations](/cli/azure/account#az-account-list)를 사용합니다. 
      
      ```azurecli-interactive
      # To list locations: az account list-locations --output table
@@ -260,7 +260,7 @@ Azure AD 응용 프로그램에 자격 증명 모음의 키 또는 암호에 액
      ```
 
 ### <a name="bkmk_KVAPCLI"></a> Azure CLI를 사용하여 Azure AD 응용 프로그램에 대한 키 자격 증명 모음 액세스 정책 설정
-[az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault.md#az-keyvault-set-policy)를 사용하여 액세스 정책을 설정합니다. 자세한 내용은 [CLI 2.0을 사용하여 Key Vault 관리](../key-vault/key-vault-manage-with-cli2.md#authorize-the-application-to-use-the-key-or-secret)를 참조하세요.
+[az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-set-policy)를 사용하여 액세스 정책을 설정합니다. 자세한 내용은 [CLI 2.0을 사용하여 Key Vault 관리](../key-vault/key-vault-manage-with-cli2.md#authorize-the-application-to-use-the-key-or-secret)를 참조하세요.
 
 1. 필요한 경우 [Azure 구독에 연결](azure-security-disk-encryption-appendix.md#bkmk_ConnectCLI)합니다.
 2. 다음 명령을 사용하여 비밀 및 래핑 키를 가져오려면 Azure CLI 액세스를 통해 만든 서비스 주체에게 액세스 권한을 부여합니다.

@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: sajagtap
-ms.openlocfilehash: cb487314b8695f3676fdb22a9d7e3ec5ca3ed9f2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fe321d08a44e7f843228668908c8b2c4ff3a3c32
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373398"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42093881"
 ---
 # <a name="create-video-reviews-using-net"></a>.NET을 사용하여 비디오 검토 만들기
 
@@ -310,7 +310,7 @@ VideoReviews 네임스페이스, Program 클래스에 다음 메서드 정의를
     {
         Console.WriteLine("Getting frames for the review with ID {0}.", review_id);
 
-        Frames result = client.Reviews.GetVideoFrames(TeamName, review_id, 0, Int32.MaxValue);
+        Frames result = client.Reviews.GetVideoFrames(TeamName, review_id, 0);
         Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
 
         Thread.Sleep(throttleRate);

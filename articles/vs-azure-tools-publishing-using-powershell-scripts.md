@@ -7,16 +7,17 @@ manager: douge
 assetId: 5fff1301-5469-4d97-be88-c85c30f837c1
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/11/2016
 ms.author: ghogen
-ms.openlocfilehash: 872ca1dcd48c953180227580d805838c94ea232d
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: dac5425f72ff57e412be664e1bc0c84aee3dec1f
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115547"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143108"
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>Windows PowerShell 스크립트를 사용하여 개발 및 테스트 환경에 게시
 
@@ -75,7 +76,7 @@ JSON 파일은 **Configurations** 폴더에 생성되며 Azure에 배포할 리�
 }
 ```
 
-가상 컴퓨터를 만들면 JSON 구성 파일이 다음과 유사합니다. 클라우드 서비스가 가상 머신의 컨테이너로 생성됩니다. 가상 머신에 HTTP 및 HTTPS를 통한 웹 액세스에 사용할 일반적 끝점이 포함되어 있으며, 웹 배포용 끝점도 포함되어 있어 로컬 컴퓨터, 원격 데스크톱 및 Windows PowerShell에서 웹 사이트에 게시할 수 잇습니다.
+가상 컴퓨터를 만들면 JSON 구성 파일이 다음과 유사합니다. 클라우드 서비스가 가상 머신의 컨테이너로 생성됩니다. 가상 머신에 HTTP 및 HTTPS를 통한 웹 액세스에 사용할 일반적 엔드포인트가 포함되어 있으며, 웹 배포용 엔드포인트도 포함되어 있어 로컬 컴퓨터, 원격 데스크톱 및 Windows PowerShell에서 웹 사이트에 게시할 수 잇습니다.
 
 ```json
 {
@@ -314,7 +315,7 @@ Windows PowerShell 명령 프롬프트에서 사용할 수 있는 함수에 대�
 | Add-AzureSQLDatabase |새 Azure SQL 데이터베이스를 만듭니다. |
 | Add-AzureSQLDatabases |Visual Studio에서 생성하는 JSON 구성 파일의 값으로 Azure SQL Database를 만듭니다. |
 | Add-AzureVM |Azure 가상 머신을 만들고 배포된 VM의 URL을 반환합니다. 함수가 필수 구성 요소를 설정한 다음 **New-AzureVM** 함수(Azure 모듈)를 호출하여 새 가상 머신을 만듭니다. |
-| Add-AzureVMEndpoints |가상 머신에 새 입력 끝점을 추가하고 새 끝점으로 가상 머신을 반환합니다. |
+| Add-AzureVMEndpoints |가상 머신에 새 입력 엔드포인트를 추가하고 새 엔드포인트로 가상 머신을 반환합니다. |
 | Add-AzureVMStorage |현재 구독에 새 Azure 저장소 계정을 만듭니다. 계정 이름은 "devtest"로 시작하고 그 다음에 고유한 영숫자 문자열이 포함됩니다. 함수에서 새 저장소 계정의 이름을 반환합니다. 새 저장소 계정에 대해 위치 또는 선호도 그룹을 지정합니다. |
 | Add-AzureWebsite |지정된 이름 및 위치로 웹 사이트를 만듭니다. 이 함수는 Azure 모듈에서 **New-AzureWebsite** 함수라고 합니다. 구독에 이미 지정된 이름의 웹 사이트가 없을 경우 이 함수는 웹 사이트를 만들고 웹 사이트 개체를 반환합니다. 그렇지 않으면 `$null`를 반환합니다. |
 | Backup-구독 |현재 Azure 구독을 스크립트 범위의 `$Script:originalSubscription` 변수에 저장합니다. 이 함수는 현재 Azure 구독(`Get-AzureSubscription -Current`에서 가져옴) 및 해당 저장소 계정, 이 스크립트로 변경된 구독(`$UserSpecifiedSubscription` 변수에 저장) 및 해당 저장소 계정을 스크립트 범위에 저장합니다. 이러한 값을 저장하면 원래 현재 상태가 변경된 경우 `Restore-Subscription` 등의 함수를 사용하여 현재 구독 및 저장소 계정을 현재 상태로 복원할 수 있습니다. |

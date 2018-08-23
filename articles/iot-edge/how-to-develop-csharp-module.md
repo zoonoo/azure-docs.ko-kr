@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 06/27/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a895f21bc061763b1d5d45b2bedb44fc932190dc
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 212de83a88f5a8114454761121ee3f22830d2448
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345225"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141131"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge용 C# 모듈 개발 및 디버그
 
@@ -72,7 +72,7 @@ VS Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만든 다음,
 
 * **deployment.template.json** 파일은 테스트에 사용할 수 있는 데이터를 시뮬레이션하는 샘플 **tempSensor** 모듈과 함께 새 모듈을 나열합니다. 배포 매니페스트 작동 방식에 대한 자세한 내용은 [배포 매니페스트를 사용하여 모듈을 배포하고 경로를 설정하는 방법 알아보기](module-composition.md)를 참조하세요. 
 
-## <a name="devlop-your-module"></a>모듈 개발
+## <a name="develop-your-module"></a>모듈 개발
 
 솔루션과 함께 제공되는 기본 Azure Function 코드는 **모듈** > **\<모듈 이름\>** > **Program.cs**에 위치합니다. 모듈 및 deployment.template.json 파일은 솔루션을 빌드하고, 컨테이너 레지스트리에 푸시하고, 장치에 배포하여 코드를 변경하지 않고 테스트를 시작하도록 설정됩니다. 모듈은 단순히 원본에서 입력을 가져오고(이 경우에 데이터를 시뮬레이션하는 tempSensor 모듈) IoT Hub로 파이핑하도록 빌드됩니다. 
 
@@ -100,7 +100,7 @@ VS Code는 작업 영역의 `.vscode` 폴더에 위치한 `launch.json` 파일�
 
 1. VS Code 디버그 보기로 이동합니다. 모듈에 대한 디버그 구성 파일을 선택합니다. 디버그 옵션 이름은 **ModuleName 원격 디버그(.NET Core)** 와 비슷합니다.
 
-   ![디버그 구성 선택](./media/how-to-develop-csharp-module/debug-config.png)에서도 확인할 수 있습니다.
+   ![디버그 구성 선택](./media/how-to-develop-csharp-module/debug-config.png).
 
 2. `program.cs`로 이동합니다. 이 파일에 중단점을 추가합니다.
 

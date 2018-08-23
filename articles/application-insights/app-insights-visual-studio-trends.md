@@ -7,17 +7,20 @@ author: mrbullwinkle
 manager: carmonm
 ms.assetid: 3150c6fc-2691-44f6-a290-fc5cd68e692a
 ms.service: application-insights
-ms.workload: tbd
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/17/2017
-ms.author: mbullwin; daviste
-ms.openlocfilehash: 77ed0b5809a1da4629b80f65d1a27da2a2758236
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: daviste
+ms.author: mbullwin
+ms.openlocfilehash: 17303186b176c6d14b1c895d17d21c0f29cdcdcf
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42441792"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Visual Studio에서 추세 분석
 Application Insights 추세 도구는 웹 응용 프로그램의 중요한 원격 분석 이벤트가 시간이 지남에 따라 어떻게 변했는지 시각화하여, 문제와 잘못된 부분을 신속하게 식별하는 데 도움을 줍니다. 더 자세한 진단 정보에 연결하면 추세를 통해 앱의 성능을 향상시키고 예외의 원인을 추적하며 사용자 지정 이벤트로부터 새로운 정보를 발견할 수 있습니다.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 880632a39332f7d9ad24b0f7aa2301660eb2f9b8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 849253dd4a2e66acc6a509a0515a22309c90e081
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528576"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42143511"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Monitor의 Azure Storage 메트릭
 
@@ -332,14 +332,14 @@ Azure Storage는 Azure Monitor에서 다음과 같은 용량 메트릭을 제공
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
-| UsedCapacity | 저장소 계정에서 사용한 저장소 양입니다. 표준 저장소 계정의 경우 이는 Blob, 테이블, 파일 및 큐에서 사용한 용량의 합계입니다. 프리미엄 저장소 계정 및 Blob 저장소 계정의 경우 BlobCapacity와 같습니다. <br/><br/> 단위: 바이트 <br/> 집계 형식: 평균 <br/> 값 예: 1024 |
+| UsedCapacity | 저장소 계정에서 사용한 저장소 양입니다. 표준 저장소 계정의 경우 이는 Blob, 테이블, 파일 및 큐에서 사용한 용량의 합계입니다. 프리미엄 저장소 계정 및 Blob 저장소 계정의 경우 BlobCapacity와 같습니다. <br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 값 예: 1024 |
 
 ### <a name="blob-storage"></a>Blob 저장소
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
-| BlobCapacity | 저장소 계정에 사용한 Blob 저장소의 총계입니다. <br/><br/> 단위: 바이트 <br/> 집계 형식: 평균 <br/> 값 예: 1024 <br/> 차원: BlobType([정의](#metrics-dimensions)) |
-| BlobCount    | 저장소 계정에 저장된 Blob 개체 수입니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 평균 <br/> 값 예: 1024 <br/> 차원: BlobType([정의](#metrics-dimensions)) |
+| BlobCapacity | 저장소 계정에 사용한 Blob 저장소의 총계입니다. <br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 값 예: 1024 <br/> 차원: BlobType([정의](#metrics-dimensions)) |
+| BlobCount    | 저장소 계정에 저장된 Blob 개체 수입니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 값 예: 1024 <br/> 차원: BlobType([정의](#metrics-dimensions)) |
 | ContainerCount    | 저장소 계정의 컨테이너 수입니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 평균 <br/> 값 예: 1024 |
 
 ### <a name="table-storage"></a>테이블 저장소

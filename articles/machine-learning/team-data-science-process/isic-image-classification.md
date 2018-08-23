@@ -3,8 +3,8 @@ title: AMLPCV(Azure Machine Learning Package for Computer Vision) 및 TDSP(팀 �
 description: 이미지 분류를 위한 AMLPCV(Azure Machine Learning Package for Computer Vision) 및 TDSP(팀 데이터 과학 프로세스)의 사용에 대해 설명합니다.
 services: machine-learning, team-data-science-process
 documentationcenter: ''
-author: xibingao
-manager: deguhath
+author: deguhath
+ms.author: deguhath
 editor: cgronlun
 ms.assetid: b8fbef77-3e80-4911-8e84-23dbf42c9bee
 ms.service: machine-learning
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
-ms.author: xibingao
-ms.openlocfilehash: f9e88cfb7185845e96f287b39bebaaa24320f537
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 427ea1f3f22855b2c54beacbfb89a8f7fd37cce0
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300800"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246650"
 ---
 # <a name="skin-cancer-image-classification-with-the-azure-machine-learning-package-for-computer-vision-and-team-data-science-process"></a>AMLPCV(Azure Machine Learning Package for Computer Vision) 및 TDSP(팀 데이터 과학 프로세스)를 사용한 피부암 이미지 분류
 

@@ -7,16 +7,17 @@ manager: douge
 assetId: 1a07b6e4-3678-4cbf-b37e-4520b402a3d9
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/11/2017
 ms.author: ghogen
-ms.openlocfilehash: bde00dfbf4a7ffde90d1a9a3d57d3a2decf74cad
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 78a313e824ee7926ab9f1875407d650d614afce2
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799467"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143337"
 ---
 # <a name="publishing-a-cloud-service-using-visual-studio"></a>Visual Studio를 사용하여 클라우드 서비스 게시
 
@@ -45,7 +46,7 @@ Azure 응용 프로그램을 게시하면 다음 작업 중 하나를 수행할 
 
    a. Azure 프로젝트의 바로 가기 메뉴를 열고 **패키지**를 선택합니다.
 
-   나. **Azure 응용 프로그램 패키지 작성** 대화 상자에서 패키지를 만들려는 서비스 구성을 선택한 다음 빌드 구성을 선택합니다.
+   b. **Azure 응용 프로그램 패키지 작성** 대화 상자에서 패키지를 만들려는 서비스 구성을 선택한 다음 빌드 구성을 선택합니다.
 
    다. (옵션 사항) 클라우드 서비스를 게시한 다음 원격 데스크톱을 사용하도록 설정하려면 **모든 역할에 대해 원격 데스크톱 사용**을 선택한 다음 **설정**을 선택하여 원격 데스크톱 자격 증명을 구성합니다. 자세한 내용은 [Visual Studio를 사용하여 Azure Cloud Services에서 역할에 대한 원격 데스크톱 연결 사용](cloud-services/cloud-services-role-enable-remote-desktop-visual-studio.md)을 참조하세요.
 
@@ -104,7 +105,7 @@ Azure 응용 프로그램을 게시하면 다음 작업 중 하나를 수행할 
 
    a. **사용자 이름**에 사용자 이름을 입력합니다.
 
-   나. **암호**에 암호를 입력합니다.
+   b. **암호**에 암호를 입력합니다.
 
    다. (선택 사항) 이 프로필에 이 암호를 저장하려면 **암호 저장**을 선택합니다.
 
@@ -122,7 +123,7 @@ Azure 응용 프로그램을 게시하면 다음 작업 중 하나를 수행할 
 
    a. 웹 역할을 실행 중인 가상 머신에 연결하려면 **클라우드 탐색기** 또는 **서버 탐색기**에서 웹 역할의 인스턴스를 선택한 다음 **원격 데스크톱을 사용하여 연결** 명령을 선택합니다. 가상 머신에 연결하는 방법에 대한 자세한 내용은 [Visual Studio를 사용하여 Azure Cloud Services에서 역할에 대한 원격 데스크톱 연결 사용](cloud-services/cloud-services-role-enable-remote-desktop-visual-studio.md)을 참조하세요. 브라우저에 `.rdp` 파일을 다운로드하라는 메시지가 표시됩니다.
 
-   나. SSL 인증서를 추가하려면 IIS 관리자에서 관리 서비스를 엽니다. IIS 관리자의 **작업** 창에서 **바인딩** 링크를 열어 SSL을 사용하도록 설정합니다. **사이트 바인딩 추가** 대화 상자가 나타납니다. **추가**를 선택한 다음 **유형** 드롭다운 목록에서 HTTPS를 선택합니다. **SSL 인증서** 목록에서 CA에서 서명하고 사용자가 Azure Portal에 업로드한 SSL 인증서를 선택합니다. 자세한 내용은 [관리 서비스의 연결 설정 구성](http://go.microsoft.com/fwlink/?LinkId=215824)을 참조하세요.
+   b. SSL 인증서를 추가하려면 IIS 관리자에서 관리 서비스를 엽니다. IIS 관리자의 **작업** 창에서 **바인딩** 링크를 열어 SSL을 사용하도록 설정합니다. **사이트 바인딩 추가** 대화 상자가 나타납니다. **추가**를 선택한 다음 **유형** 드롭다운 목록에서 HTTPS를 선택합니다. **SSL 인증서** 목록에서 CA에서 서명하고 사용자가 Azure Portal에 업로드한 SSL 인증서를 선택합니다. 자세한 내용은 [관리 서비스의 연결 설정 구성](http://go.microsoft.com/fwlink/?LinkId=215824)을 참조하세요.
 
       > [!NOTE]
       > 신뢰할 수 있는 SSL 인증서를 추가하면 **게시 마법사**에 더 이상 노란색 경고 삼각형이 나타나지 않습니다.
@@ -134,7 +135,7 @@ Azure 응용 프로그램을 게시하면 다음 작업 중 하나를 수행할 
 1. 서비스 패키지에 어셈블리를 추가하려면 다음 단계를 사용합니다.
 
    a. **솔루션 탐색기**에서 참조 어셈블리가 없는 프로젝트의 프로젝트 노드를 엽니다.
-   나. 프로젝트에 어셈블리를 추가하려면 **참조** 폴더의 바로 가기 메뉴를 연 다음 **참조 추가**를 선택합니다. 참조 추가 대화 상자가 나타납니다.
+   b. 프로젝트에 어셈블리를 추가하려면 **참조** 폴더의 바로 가기 메뉴를 연 다음 **참조 추가**를 선택합니다. 참조 추가 대화 상자가 나타납니다.
    다. 추가하려는 참조를 선택한 다음 **확인**을 선택합니다. **참조** 폴더 아래 목록에 참조가 추가됩니다.
    d. 추가한 어셈블리의 바로 가기 메뉴를 열고 **속성**을 선택합니다. **속성** 창이 열립니다.
 

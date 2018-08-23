@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 0a61918108a48f4a9fa3d1c07cc8d41525f1f2a0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a61b7b08d883c1b5a7fde93c249fc8de1473d15d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28928164"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42146443"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Azure Service Bus 메시지 프리페치
 
@@ -40,9 +40,9 @@ ms.locfileid: "28928164"
 
 프리페치는 응용 프로그램을 요청할 때 및 그 전에 메시지를 로컬로 쉽게 검색할 수 있도록 하여 메시지 흐름 속도를 높입니다. 이러한 처리량 혜택은 응용 프로그램 작성자가 명시적으로 수행해야 하는 절충의 결과입니다.
 
-[ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode.receiveanddelete) 수신 모드를 사용할 경우 프리페치 버퍼로 획득되는 모든 메시지는 큐에서 더 이상 사용할 수 없으며 **Receive**/**ReceiveAsync** 또는 **OnMessage**/**OnMessageAsync** API를 통해 응용 프로그램에 수신될 때까지 메모리 내 프리페치 버퍼에만 상주합니다. 메시지가 응용 프로그램에 수신되기 전에 응용 프로그램이 종료되면 해당 메시지는 복구할 수 없게 손실됩니다.
+[ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) 수신 모드를 사용할 경우 프리페치 버퍼로 획득되는 모든 메시지는 큐에서 더 이상 사용할 수 없으며 **Receive**/**ReceiveAsync** 또는 **OnMessage**/**OnMessageAsync** API를 통해 응용 프로그램에 수신될 때까지 메모리 내 프리페치 버퍼에만 상주합니다. 메시지가 응용 프로그램에 수신되기 전에 응용 프로그램이 종료되면 해당 메시지는 복구할 수 없게 손실됩니다.
 
-[PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode.peeklock) 수신 모드에서 프리페치 버퍼로 가져온 메시지는 잠금 상태에서 버퍼로 인출되며 시간 제한 클럭이 잠금 시간을 계산합니다. 프리페치 버퍼가 크고 처리하는 데 너무 오래 걸려서 메시지가 프리페치 버퍼에 상주하는 동안 또는 심지어 응용 프로그램이 메시지를 처리하는 동안에도 메시지 잠금이 만료되는 경우 응용 프로그램이 처리할 이벤트에 혼동이 발생할 수 있습니다.
+[PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) 수신 모드에서 프리페치 버퍼로 가져온 메시지는 잠금 상태에서 버퍼로 인출되며 시간 제한 클럭이 잠금 시간을 계산합니다. 프리페치 버퍼가 크고 처리하는 데 너무 오래 걸려서 메시지가 프리페치 버퍼에 상주하는 동안 또는 심지어 응용 프로그램이 메시지를 처리하는 동안에도 메시지 잠금이 만료되는 경우 응용 프로그램이 처리할 이벤트에 혼동이 발생할 수 있습니다.
 
 응용 프로그램은 만료되었거나 만료가 임박한 잠금이 적용된 메시지를 획득할 수 있습니다. 이 경우 응용 프로그램은 메시지를 처리할 수 있지만 잠금 만료로 인해 완료할 수 없음을 알게 됩니다. 응용 프로그램은 [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.lockeduntilutc#Microsoft_Azure_ServiceBus_Core_MessageReceiver_LockedUntilUtc) 속성을 확인할 수 있습니다(브로커 및 로컬 컴퓨터 클럭 간 클럭 오차 적용). 메시지 잠금이 만료되면 응용 프로그램은 메시지를 무시해야 합니다. 즉, 메시지에 대한 API 호출이나 메시지를 사용한 API 호출은 수행되지 않아야 합니다. 메시지가 만료되지 않았으나 만료가 임박한 경우 [message.RenewLock()](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_)을 호출하여 잠금을 갱신하고 다른 기본 잠금 기간까지 연장할 수 있습니다.
 

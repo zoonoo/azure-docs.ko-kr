@@ -2,16 +2,17 @@
 title: SQL Server 및 Azure Site Recovery를 사용한 응용 프로그램 복제 | Microsoft Docs
 description: 이 문서에서는 SQL Server 재해 기능의 Azure Site Recovery를 사용하여 SQL Server를 복제하는 방법을 설명합니다.
 services: site-recovery
+author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/22/2018
 ms.author: raynew
-ms.openlocfilehash: fecf7366417a8a592578a425d8b028249c2681d7
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 23cf9430f82be860cb9acbfac42163f9243b2d0f
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216362"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42143526"
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>SQL Server 재해 복구 및 Azure Site Recovery를 사용하여 SQL Server 보호
 

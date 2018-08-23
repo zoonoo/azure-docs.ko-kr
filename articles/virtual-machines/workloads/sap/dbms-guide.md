@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2caa9a5137edd4e012adf704c01dc5c470e1bb51
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: f6b0ea7479910f7026974e37f8c05099453c0b26
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972447"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42146069"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -327,7 +327,7 @@ ms.locfileid: "38972447"
 * SAP 환경: 하나 이상의 SAP 구성 요소가 논리적으로 그룹화되어 개발, QAS, 교육, DR 또는 프로덕션과 같은 비즈니스 기능을 수행합니다.
 * SAP 배경: 고객 IT 환경의 전체 SAP 자산입니다. SAP 지형에는 모든 프로덕션 및 비프로덕션 환경이 포함됩니다.
 * SAP 시스템: SAP ERP 개발 시스템, SAP BW 테스트 시스템, SAP CRM 프로덕션 시스템 등의 응용 프로그램 계층과 DBMS 계층의 조합입니다. Azure 배포에서는 온-프레미스와 Azure 간에 이러한 두 계층을 나눌 수 없습니다. 즉, SAP 시스템은 온-프레미스에 배포되거나 Azure에 배포됩니다. 그러나 Azure 또는 온-프레미스에는 SAP 배경의 서로 다른 시스템을 배포할 수 있습니다. 예를 들어 Azure에는 SAP CRM 개발 및 테스트 시스템을 배포할 수 있지만 온-프레미스에는 SAP CRM 프로덕션 시스템을 배포할 수 있습니다.
-* 클라우드 전용 배포: Azure 구독이 사이트 간 연결 또는 ExpressRoute 연결을 통해 온-프레미스 네트워크 인프라에 연결되지 않는 배포입니다. 공통 Azure 설명서에서는 이러한 종류의 배포를 “클라우드 전용” 배포라고도 합니다. 이 방법으로 배포된 Virtual Machines는 인터넷과 Azure의 VM에 할당된 공용 인터넷 끝점을 통해 액세스됩니다. 이러한 유형의 배포에서는 온-프레미스 AD(Active Directory) 및 DNS가 Azure로 확장되지 않습니다. 따라서 VM은 온-프레미스 Active Directory에 속하지 않습니다. 참고: 이 문서에서 클라우드 전용 배포는 온-프레미스에서 Active Directory 또는 이름 확인을 공용 클라우드로 확장하지 않고 Azure에서 단독으로 실행 중인 전체 SAP 배경으로 정의됩니다. Azure에서 호스트되는 SAP 시스템과 온-프레미스에 상주하는 리소스 간에 SAP STMS 또는 기타 온-프레미스 리소스를 사용해야 하는 프로덕션 SAP 시스템 또는 구성에 대해서는 클라우드 전용 구성이 지원되지 않습니다.
+* 클라우드 전용 배포: Azure 구독이 사이트 간 연결 또는 ExpressRoute 연결을 통해 온-프레미스 네트워크 인프라에 연결되지 않는 배포입니다. 공통 Azure 설명서에서는 이러한 종류의 배포를 “클라우드 전용” 배포라고도 합니다. 이 방법으로 배포된 Virtual Machines는 인터넷과 Azure의 VM에 할당된 공용 인터넷 엔드포인트를 통해 액세스됩니다. 이러한 유형의 배포에서는 온-프레미스 AD(Active Directory) 및 DNS가 Azure로 확장되지 않습니다. 따라서 VM은 온-프레미스 Active Directory에 속하지 않습니다. 참고: 이 문서에서 클라우드 전용 배포는 온-프레미스에서 Active Directory 또는 이름 확인을 공용 클라우드로 확장하지 않고 Azure에서 단독으로 실행 중인 전체 SAP 배경으로 정의됩니다. Azure에서 호스트되는 SAP 시스템과 온-프레미스에 상주하는 리소스 간에 SAP STMS 또는 기타 온-프레미스 리소스를 사용해야 하는 프로덕션 SAP 시스템 또는 구성에 대해서는 클라우드 전용 구성이 지원되지 않습니다.
 * 프레미스 간: VM이 온-프레미스 데이터 센터와 Azure 간에 사이트-사이트, 다중 사이트 또는 ExpressRoute 방식으로 연결되는 Azure 구독에 배포되는 시나리오를 설명합니다. 공통 Azure 설명서에서 이러한 종류의 배포를 프레미스 간 시나리오라고도 합니다. 연결하는 이유는 온-프레미스 도메인, 온-프레미스 Active Directory 및 온-프레미스 DNS를 Azure로 확장하기 위한 것입니다. 온-프레미스 배경은 구독의 Azure 자산으로 확장됩니다. 이렇게 확장된 VM은 온-프레미스 도메인에 속할 수 있습니다. 온-프레미스 도메인의 도메인 사용자는 서버에 액세스하고 이러한 VM에서 서비스(예: DBMS 서비스)를 실행할 수 있습니다. 온-프레미스에 배포된 VM과 Azure에 배포된 VM 간의 통신 및 이름 확인이 가능합니다. 이 기능은 Azure의 SAP 자산 배포를 위한 가장 일반적인 시나리오가 될 것입니다. 자세한 내용은 [이 문서][vpn-gateway-cross-premises-options] 및 [이 문서][vpn-gateway-site-to-site-create]를 참조하세요.
 
 > [!NOTE]
@@ -808,14 +808,14 @@ Always On은 SAP 온-프레미스에 대해 지원되므로(SAP Note [1772688]�
 [comment]: <> (이전 블로그)
 [comment]: <> (<https://blogs.msdn.com/b/alwaysonpro/archive/2014/08/29/recommendations-and-best-practices-when-deploying-sql-server-alwayson-availability-groups-in-windows-azure-iaas.aspx>, <https://blogs.technet.com/b/rmilne/archive/2015/07/27/how-to-set-static-ip-on-azure-vm.aspx>) 
 * 현재 기능의 Azure는 클러스터가 만들어진 노드와 동일한 IP 주소를 클러스터 이름에 할당하므로 클러스터에 특정 IP 주소를 할당해야 하는 WSFC 클러스터를 구성할 때는 특별한 단계가 필요합니다. 즉, 클러스터에 다른 IP 주소를 할당하기 위해서는 수동 단계를 수행해야 합니다.
-* 가용성 그룹 수신기는 가용성 그룹의 기본 및 보조 복제본을 실행 중인 VM에 할당된 TCP/IP 끝점을 사용하여 Azure에서 만들어집니다.
-* 이러한 끝점은 ACL로 보호해야 할 수 있습니다.
+* 가용성 그룹 수신기는 가용성 그룹의 기본 및 보조 복제본을 실행 중인 VM에 할당된 TCP/IP 엔드포인트를 사용하여 Azure에서 만들어집니다.
+* 이러한 엔드포인트는 ACL로 보호해야 할 수 있습니다.
 
 [comment]: <> (TODO 이전 블로그)
 [comment]: <> (Azure에서 AlwaysOn 구성 설치에 대한 자세한 단계 및 필요성은 [여기][virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]에서 사용할 수 있는 자습서를 살펴보는 것이 좋습니다.)
 [comment]: <> (Azure 갤러리를 통해 미리 구성된 AlwaysOn 설정 <https://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx>)
 [comment]: <> (가용성 그룹 수신기 생성은 [이][virtual-machines-windows-classic-ps-sql-int-listener] 자습서에 잘 설명되어 있습니다.)
-[comment]: <> (ACL을 사용한 네트워크 끝점 보호는 여기를 참조하세요.)
+[comment]: <> (ACL을 사용한 네트워크 엔드포인트 보호는 여기를 참조하세요.)
 [comment]: <> (*    <https://michaelwasham.com/windows-azure-powershell-reference-guide/network-access-control-list-capability-in-windows-azure-powershell/>)
 [comment]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/08/31/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-1-of-2.aspx> )
 [comment]: <> (*    <https://blogs.technet.com/b/heyscriptingguy/archive/2013/09/01/weekend-scripter-creating-acls-for-windows-azure-endpoints-part-2-of-2.aspx>)  
@@ -1162,7 +1162,7 @@ SRS 설치 및 작동은 Azure Virtual Machine 서비스에서 호스트되는 V
 SAP Replication Server를 통한 ASE HADR은 현재 지원되지 않습니다. 이 기능은 곧 Microsoft Azure Platform에 대해 테스트되고 릴리스될 예정입니다.
 
 ## <a name="specifics-to-oracle-database-on-windows"></a>Windows의 Oracle 데이터베이스에 대한 고유 정보
-Microsoft Windows Hyper-V 및 Azure에서 Oracle 소프트웨어가 지원됩니다. Windows Hyper-V 및 Azure의 일반적인 지원에 대한 자세한 내용은 <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces>를 참조하세요. 
+Microsoft Windows Hyper-V 및 Azure에서 Oracle 소프트웨어가 지원됩니다. 
 
 일반 지원에 따라 Oracle 데이터베이스를 활용하는 SAP 응용 프로그램의 특정 시나리오도 지원됩니다. 자세한 내용은 문서의 이 부분에 나와 있습니다.
 
@@ -1200,7 +1200,7 @@ Azure 페이지 Blob Storage 또는 Managed Disks에 기반한 디스크를 사�
 Azure 가용성 집합 또는 SAP 모니터링과 같은 다른 일반적 영역은 모두 Oracle Database가 있는 VM 배포에 대해 이 문서의 처음 세 챕터에서 설명한 대로 적용됩니다.
 
 ## <a name="specifics-to-oracle-database-on-oracle-linux"></a>Oracle Linux의 Oracle 데이터베이스에 대한 고유 정보
-Microsoft Windows Hyper-V 및 Azure에서 Oracle 소프트웨어가 지원됩니다. Windows Hyper-V 및 Azure의 일반적인 지원에 대한 자세한 내용은 <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces>를 참조하세요. 
+Microsoft Windows Hyper-V 및 Azure에서 Oracle 소프트웨어가 지원됩니다. 
 
 일반 지원에 따라 Oracle 데이터베이스를 활용하는 SAP 응용 프로그램의 특정 시나리오도 지원됩니다. 자세한 내용은 문서의 이 부분에 나와 있습니다.
 

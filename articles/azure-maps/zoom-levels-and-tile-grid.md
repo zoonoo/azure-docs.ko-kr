@@ -1,24 +1,24 @@
 ---
 title: Azure Maps에서 확대/축소 수준 및 타일 그리드 | Microsoft Docs
 description: Azure Maps에서 확대/축소 수준 및 타일 그리드에 대해 알아봅니다.
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 55441cda7a6fc65ac8103d19510823a7c84a9cbf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c6d38dbb7ee292172fe081c2b77a49db61856d5c
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599928"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42145374"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>확대/축소 수준 및 타일 그리드
 Azure Maps에서는 구면 메르카토르 도법 구면좌표계를 사용합니다(EPSG: 3857).
 
-전 세계는 정사각형 타일로 구분됩니다. 렌더링(래스터)에는 0부터 18까지 19개의 확대/축소 수준이 있습니다. 렌더링(벡터)에는 0부터 20까지 21개의 확대/축소 수준이 있습니다. 확대/축소 수준 0에서 전 세계는 단일 타일로 맞춰집니다.
+전 세계는 정사각형 타일로 구분됩니다. 렌더링(래스터)에는 0부터 20까지 21개의 확대/축소 수준이 있습니다. 렌더링(벡터)에는 0부터 22까지 23개의 확대/축소 수준이 있습니다. 확대/축소 수준 0에서 전 세계는 단일 타일로 맞춰집니다.
 
 ![세계 타일](./media/zoom-levels-and-tile-grid/world0.png)
 
@@ -29,7 +29,7 @@ Azure Maps에서는 구면 메르카토르 도법 구면좌표계를 사용합�
 ![왼쪽 아래 세계 타일](./media/zoom-levels-and-tile-grid/world1b.png)     ![오른쪽 아래 세계 타일](./media/zoom-levels-and-tile-grid/world1d.png) 
 
 
-후속 확대/축소 수준 4개 타일은 각각 이전 수준의 타일을 나누어서 2<sup>확대/축소</sup>x2<sup>확대/축소</sup> 그리드를 만듭니다. 확대/축소 수준 20은 2<sup>20</sup> x 2<sup>20</sup> 그리드 또는 1,048,576 x 1,048,576 타일(총 109,951,162,778개)입니다.
+후속 확대/축소 수준 4개 타일은 각각 이전 수준의 타일을 나누어서 2<sup>확대/축소</sup>x2<sup>확대/축소</sup> 그리드를 만듭니다. 확대/축소 수준 22는 2<sup>22</sup> x 2<sup>22</sup> 그리드 또는 4,194,304 x 4,194,304 타일(총 17,592,186,044,416개)입니다.
 
 다음 표는 확대/축소 수준의 전체 목록 값을 제공합니다.
 
@@ -56,6 +56,8 @@ Azure Maps에서는 구면 메르카토르 도법 구면좌표계를 사용합�
 |18|0.6|152.8|
 |19|0.3|76.4|
 |20|0.15|38.2|
+|21|0.075|19.1|
+|22|0.0375|9.55|
 
 타일은 해당 확대/축소 수준의 그리드에서 타일의 위치에 해당하는 확대/축소 수준과 xy 좌표로 호출됩니다.
 

@@ -3,25 +3,21 @@ title: Azure Machine Learning Workbench를 사용하여 Q & A 일치 | Microsoft
 description: 다양하고 효과적인 기계 학습 방법을 사용하여 개방형 쿼리를 기존 FAQ 질문 /답변 쌍과 일치시키는 방법입니다.
 services: machine-learning
 documentationcenter: ''
-author: mezmicrosoft
-editor: mezmicrosoft
-ms.assetid: ''
-ms.reviewer: garyericson, jasonwhowell, mldocs
+author: rastala
+ms.author: roastala
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
-ms.author: mez
-manager: tihazen
-ms.openlocfilehash: 3695657d819f52ef04468a0f1a44828403c65373
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 33d95e0c17e8b9b18313cb0854532337ec76cfd1
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835103"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145981"
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench를 사용하여 Q & A 일치
 개방형 질문에 대한 대답은 어려우며 종종 SME(실무 전문가)의 수동 작업이 필요합니다. 내부 SME에 대한 요구를 줄이기 위해 회사에서는 종종 사용자를 지원하는 수단으로 FAQ(질문과 대답) 목록을 만듭니다. 이 예제에서는 개방형 쿼리를 기존 FAQ 질문/답변 쌍과 일치시키는 다양하고 효과적인 기계 학습 방법을 보여 줍니다. 이 예제는 Azure Machine Learning Workbench를 사용하여 이러한 솔루션을 빌드하는 간편한 개발 프로세스를 보여 줍니다. 

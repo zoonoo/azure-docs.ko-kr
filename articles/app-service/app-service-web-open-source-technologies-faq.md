@@ -15,31 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 747ee61d2620e7f79353207c0e44bcea36df30ee
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: d65a33dc13d0b91a9ace04dab0be6c37bcd2188f
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617635"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Azure Web Apps에 대한 오픈 소스 기술 FAQ
 
 이 문서에는 [Azure App Service의 Web Apps 기능](https://azure.microsoft.com/services/app-service/web/) 관련 오픈 소스 기술 문제에 대한 FAQ(질문과 대답)가 있습니다.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
-
-## <a name="my-cleardb-database-is-down-how-do-i-resolve-this"></a>내 ClearDB 데이터베이스가 다운되었습니다. 이 문제를 해결하려면 어떻게 해야 하나요?
-
-데이터베이스 관련 문제에 대해서는 [ClearDB 지원](https://www.cleardb.com/developers/help/support)에 문의하세요. 
-
-ClearDB에 대한 일반적인 질문과 답변은 [ClearDB FAQ](https://docs.microsoft.com/azure/store-cleardb-faq/)를 참조하세요.
-
-## <a name="why-wasnt-my-cleardb-database-migrated-during-my-subscription-migration"></a>구독 마이그레이션 중에 내 ClearDB 데이터베이스가 마이그레이션되지 않은 이유는 무엇인가요?
-
-구독 간에 리소스 마이그레이션을 수행할 때 일부 제한 사항 이 적용됩니다. ClearDB MySQL 데이터베이스는 타사 서비스이므로 Azure 구독 마이그레이션 중에 마이그레이션되지 않습니다.
-
-Azure 리소스를 마이그레이션하기 전에 MySQL 데이터베이스의 마이그레이션을 관리하지 않으면 ClearDB MySQL 데이터베이스를 사용할 수 없게 될 수 있습니다. 이 문제를 방지하려면 먼저 ClearDB 데이터베이스를 수동으로 마이그레이션하고 웹앱에 대한 Azure 구독을 마이그레이션합니다.
-
-자세한 내용은 [Azure App Service를 사용하는 ClearDB MySQLl 데이터베이스에 대한 FAQ](https://docs.microsoft.com/azure/store-cleardb-faq/)를 참조하세요.
 
 ## <a name="how-do-i-turn-on-php-logging-to-troubleshoot-php-issues"></a>PHP 문제를 해결하기 위해 PHP 로깅을 켜려면 어떻게 하나요?
 
@@ -65,16 +52,7 @@ PHP 로깅을 켜려면:
 자세한 내용은 [Enable WordPress error logs](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/)(WordPress 오류 로그 사용)를 참조하세요.
 
 ## <a name="how-do-i-log-python-application-errors-in-apps-that-are-hosted-in-app-service"></a>App Service에 호스트된 앱에서 Python 응용 프로그램 오류를 기록하려면 어떻게 하나요?
-
-Python 응용 프로그램 오류를 캡처하려면:
-
-1. Azure Portal의 웹앱에서 **설정**을 선택합니다.
-2. **설정** 탭에서 **응용 프로그램 설정**을 선택합니다.
-3. **앱 설정** 아래에 다음 키/값 쌍을 입력합니다.
-    * 키: WSGI_LOG
-    * 값: D:\home\site\wwwroot\logs.txt(선택한 파일 이름 입력)
-
-이제 wwwroot 폴더의 logs.txt 파일에 오류가 표시됩니다.
+[!INCLUDE [web-sites-python-troubleshooting-wsgi-error-log](../../includes/web-sites-python-troubleshooting-wsgi-error-log.md)]
 
 ## <a name="how-do-i-change-the-version-of-the-nodejs-application-that-is-hosted-in-app-service"></a>App Service에 호스트된 Node.js 응용 프로그램의 버전을 변경하려면 어떻게 하나요?
 

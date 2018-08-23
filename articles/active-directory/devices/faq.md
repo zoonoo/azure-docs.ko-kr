@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fd2505d6262948e193531d91222cdec319f33100
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 72035c2f13f5a2a749feabbb26db5500f6c3fc0a
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597156"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143732"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 장치 관리 FAQ
 
@@ -99,12 +99,12 @@ Azure Portal에서 모든 장치 보기를 사용해야 합니다. PowerShell [G
 
 **Q: 사용자가 Azure AD 조인 장치에서 프린터를 검색할 수 없습니다. Azure AD 조인 장치에서 어떻게 인쇄를 사용하도록 설정할 수 있나요?**
 
-**A:** Azure AD 조인 장치용 프린터를 배포하려면 [Hybrid cloud print](https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy)(하이브리드 클라우드 인쇄)를 참조하세요. 하이브리드 클라우드 인쇄를 배포하려면 온-프레미스 Windows Server가 필요합니다. 현재는 클라우드 기반 인쇄 서비스를 사용할 수 없습니다. 
+**A:** Azure AD 조인 장치용 프린터를 배포하려면 [Hybrid cloud print](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy)(하이브리드 클라우드 인쇄)를 참조하세요. 하이브리드 클라우드 인쇄를 배포하려면 온-프레미스 Windows Server가 필요합니다. 현재는 클라우드 기반 인쇄 서비스를 사용할 수 없습니다. 
 
 ---
 
 **Q: 원격 Azure AD 조인 장치에 연결하려면 어떻게 하나요?**
-**A:** 자세한 내용은 https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc 문서를 참조하세요.
+**A:** 자세한 내용은 https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc 문서를 참조하세요.
 
 ---
 
@@ -158,7 +158,7 @@ Azure Portal에서 모든 장치 보기를 사용해야 합니다. PowerShell [G
 
 - 컴퓨터가 Azure Active Directory와 통신할 수 없습니다. 네트워크 연결 문제가 있는지 확인합니다.
 
-- 페더레이션 로그인을 수행하려면 페더레이션 서버가 Ws-Trust 활성 끝점을 지원해야 합니다. 
+- 페더레이션 로그인을 수행하려면 페더레이션 서버가 Ws-Trust 활성 엔드포인트를 지원해야 합니다. 
 
 - 통과 인증을 사용하도록 설정했으며, 사용자에게 로그온 시 변경해야 하는 임시 암호가 있습니다.
 

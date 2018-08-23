@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 4e6600d81fedd884cf415d055aedd29d163b3365
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: fbc40d0768a7cf1cb83a3e78dd524fac26254bea
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629653"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42145235"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>하이브리드 Azure Active Directory 조인 구현을 계획하는 방법
 
@@ -97,7 +97,7 @@ VM(Virtual Machine) 스냅숏을 사용하여 추가 VM을 만드는 경우 하�
 
 사용자 프로필 로밍 또는 자격 증명 로밍에 대해 구성된 장치에는 Windows 하위 수준 장치의 등록이 지원되지 않습니다. 프로필 또는 설정 로밍을 사용하는 경우 Windows 10을 사용하세요.
 
-- Windows 하위 수준 장치 등록은 원활한 Single Sign-On([Azure Active Directory 원활한 Single Sign-On](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start))을 통해 페더레이션되지 않은 환경에서 **지원됩니다**. 
+- Windows 하위 수준 장치 등록은 원활한 Single Sign-On([Azure Active Directory 원활한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start))을 통해 페더레이션되지 않은 환경에서 **지원됩니다**. 
  
 - Seamless Single Sign On이 설정되지 않은 Azure AD 통과 인증을 사용할 경우 Windows 하위 수준 장치 등록이 지원되지 **않습니다**.
 

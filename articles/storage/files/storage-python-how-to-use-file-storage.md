@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: tamram
 ms.component: files
-ms.openlocfilehash: 7e5c85890585230961f52803b081c636c950c518
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 37c42c5a680b8768d0882ad97fb3f3f2ed4ab821
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39530272"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42146955"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Python을 사용하여 Azure Files 개발
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -177,6 +177,6 @@ file_service.delete_share(share_name, delete_snapshots=DeleteSnapshot.Include)
 ## <a name="next-steps"></a>다음 단계
 이제 Python으로 Azure Files를 조작하는 방법을 배웠으므로 다음 링크를 통해 자세한 내용을 알아보세요.
 
-* [Python 개발자 센터](/develop/python/)
+* [Python 개발자 센터](https://azure.microsoft.com/develop/python/)
 * [Azure Storage 서비스 REST API](http://msdn.microsoft.com/library/azure/dd179355)
 * [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)

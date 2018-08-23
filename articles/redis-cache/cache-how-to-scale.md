@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: d88fcea4a41d8402cc25a1623727284afb0e9088
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 885258379e71ea945e41c4b43c34b35b16dd4a7a
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959385"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42145619"
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Azure Redis Cache 크기를 조정하는 방법
 Azure Redis Cache에는 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제품이 있습니다. 캐시를 만든 후 응용 프로그램 요구 사항이 변경되면 캐시의 크기 및 가격 책정 계층의 크기를 조정할 수 있습니다. 이 문서에서는 Azure Portal과 Azure PowerShell 및 Azure CLI와 같은 도구를 사용하여 캐시 크기를 조정하는 방법을 보여 줍니다.
@@ -69,7 +69,7 @@ Azure Portal에서 캐시 인스턴스의 크기를 조정할 뿐만 아니라 P
 * [MAML을 사용하여 크기 조정](#scale-using-maml)
 
 ### <a name="scale-using-powershell"></a>PowerShell을 사용하여 크기 조정
-`Size`, `Sku` 또는 `ShardCount` 속성은 수정할 때 [Set-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634518.aspx) cmdlet를 사용하여 PowerShell을 통해 Azure Redis Cache 인스턴스를 확장할 수 있습니다. 다음 예제에서는 `myCache` 라는 캐시를 2.5GB 캐시로 크기를 조정하는 방법을 보여 줍니다. 
+`Size`, `Sku` 또는 `ShardCount` 속성은 수정할 때 [Set-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/set-azurermrediscache?view=azurermps-6.6.0) cmdlet를 사용하여 PowerShell을 통해 Azure Redis Cache 인스턴스를 확장할 수 있습니다. 다음 예제에서는 `myCache` 라는 캐시를 2.5GB 캐시로 크기를 조정하는 방법을 보여 줍니다. 
 
     Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 

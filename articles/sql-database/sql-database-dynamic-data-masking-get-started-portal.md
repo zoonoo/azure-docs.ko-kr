@@ -9,16 +9,16 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: ronitr
-ms.openlocfilehash: 9b47345278bd74449c16e4e17ed1748dba489f82
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8f7720555a3cfc39ce9e9b5ad2c392bab74b64ca
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645517"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146468"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Azure Portal에서 SQL Database 동적 데이터 마스킹 시작
 
-이 문서에서는 Azure Portal을 사용하여 [동적 데이터 마스킹](sql-database-dynamic-data-masking-get-started.md)을 구현하는 방법을 보여 줍니다. [Azure SQL Database cmdlet](https://msdn.microsoft.com/library/azure/mt574084.aspx) 또는 [REST API](https://msdn.microsoft.com/library/dn505719.aspx)를 사용하여 동적 데이터 마스킹을 구현할 수도 있습니다.
+이 문서에서는 Azure Portal을 사용하여 [동적 데이터 마스킹](sql-database-dynamic-data-masking-get-started.md)을 구현하는 방법을 보여 줍니다. [Azure SQL Database cmdlet](https://docs.microsoft.com/powershell/module/azurerm.sql/) 또는 [REST API](https://msdn.microsoft.com/library/dn505719.aspx)를 사용하여 동적 데이터 마스킹을 구현할 수도 있습니다.
 
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>Azure Portal을 사용하여 데이터베이스에 대한 동적 데이터 마스킹 설정
@@ -54,4 +54,4 @@ ms.locfileid: "34645517"
 ## <a name="next-steps"></a>다음 단계
 
 * 동적 데이터 마스킹의 개요는 [동적 데이터 마스킹](sql-database-dynamic-data-masking-get-started.md)을 참조하세요.
-* [Azure SQL Database cmdlet](https://msdn.microsoft.com/library/azure/mt574084.aspx) 또는 [REST API](https://msdn.microsoft.com/library/dn505719.aspx)를 사용하여 동적 데이터 마스킹을 구현할 수도 있습니다.
+* [Azure SQL Database cmdlet](https://docs.microsoft.com/powershell/module/azurerm.sql/) 또는 [REST API](https://msdn.microsoft.com/library/dn505719.aspx)를 사용하여 동적 데이터 마스킹을 구현할 수도 있습니다.

@@ -2,21 +2,19 @@
 title: Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning 실험 만들기 | Microsoft Docs
 description: 이 문서에서는 Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning 실험 계정을 만드는 예제를 제공합니다.
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: haining
-ms.reviewer: jmartens, jasonwhowell, mldocs
+author: hning86
+ms.author: haining
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/14/2017
-ms.openlocfilehash: 65efee0eea5e2595ef8833788281c5ba60ca3a43
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7938eaa0e06c9a33034a7388d02845d60967774e
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830785"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142559"
 ---
 # <a name="configure-the-azure-machine-learning-experimentation-service"></a>Azure Machine Learning 실험 서비스 구성
 

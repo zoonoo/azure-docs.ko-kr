@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/20/2018
+ms.date: 08/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9ed918a7402abcbe79e302421f3b2ac725857464
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: d18a6718e4c29f3d04639644dc752b0733f15ba8
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188653"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42146440"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Container Reigstry에 대한 Azure Event Grid 이벤트 스키마
 
@@ -117,8 +117,6 @@ Blob 저장소는 다음과 같은 이벤트 유형을 내보냅니다.
 | action | string | 제공된 이벤트를 포함하는 동작입니다. |
 | 대상 | object | 이벤트의 대상입니다. |
 | request | object | 이벤트를 생성한 요청입니다. |
-| actor | object | 이벤트를 시작한 에이전트입니다. 대부분의 경우에 이 값은 요청의 권한 부여 컨텍스트에서 올 수 있습니다. |
-| 원본 | object | 이벤트를 생성한 레지스트리 노드입니다. 달리 말해 작업자가 이벤트를 시작하는 동안 원본에서 이벤트가 생성됩니다. |
 
 대상 개체의 속성은 다음과 같습니다.
 
@@ -129,7 +127,6 @@ Blob 저장소는 다음과 같은 이벤트 유형을 내보냅니다.
 | digest | string | 콘텐츠의 다이제스트로, 레지스트리 V2 HTTP API 사양에 따라 정의됩니다. |
 | length | 정수 | 콘텐츠의 바이트 수입니다. 크기 필드와 동일합니다. |
 | 리포지토리 | string | 리포지토리 이름입니다. |
-| URL | string | 콘텐츠에 직접 연결되는 URL입니다. |
 | tag | string | 태그 이름입니다. |
 
 요청 개체의 속성은 다음과 같습니다.
@@ -141,19 +138,6 @@ Blob 저장소는 다음과 같은 이벤트 유형을 내보냅니다.
 | host | string | 외부에서 액세스할 수 있는 레지스트리 인스턴스의 호스트 이름으로, 들어오는 요청의 http 호스트 헤더를 통해 지정됩니다. |
 | 메서드 | string | 이벤트를 생성한 요청 메서드입니다. |
 | useragent | string | 요청의 사용자 에이전트 헤더입니다. |
-
-작업자 개체의 속성은 다음과 같습니다.
-
-| 자산 | type | 설명 |
-| -------- | ---- | ----------- |
-| 이름 | string | 이벤트를 생성한 요청 컨텍스트와 연결된 사용자 이름 또는 주체입니다. |
-
-원본 개체의 속성은 다음과 같습니다.
-
-| 자산 | type | 설명 |
-| -------- | ---- | ----------- |
-| addr | string | IP 또는 호스트 이름 및 포트 이벤트를 생성한 레지스트리 노드의 포트입니다. 일반적으로 이 값은 실행 중인 포트와 함께 os.Hostname()에서 확인합니다. |
-| instanceID | string | 응용 프로그램의 실행 중인 인스턴스입니다. 다시 시작할 때마다 변경됩니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

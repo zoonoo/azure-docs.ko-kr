@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/28/2018
 ms.author: liydu
-ms.openlocfilehash: acfff95afacfa1e5c75a799ba84d64cfa0579f66
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: cd67e612dd020ba600e33ac8baf77bc094d8afd3
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592094"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143598"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>Azure Functions 및 Cognitive Services에서 IoT DevKit AZ3166을 사용하여 언어 번역기 만들기
 
@@ -122,10 +122,6 @@ DevKit는 다시 부팅하고 코드를 실행하기 시작합니다.
 ![mini-solution-voice-to-tweet-diagram](media/iot-hub-arduino-iot-devkit-az3166-translator/diagram.png)
 
 Arduino 스케치는 음성을 기록한 다음, HTTP 요청을 게시하여 Azure Function을 트리거합니다. Azure Function은 Cognitive Service 음성 변환기 API를 호출하여 변환 작업을 수행합니다. Azure Function이 변환 텍스트를 가져온 후에 장치에 C2D(클라우드-장치) 메시지를 보냅니다. 그런 다음, 변환이 화면에 표시됩니다.
-
-## <a name="change-device-id"></a>장치 ID 변경
-
-Azure IoT Hub에 등록된 기본 장치 ID는 **AZ3166**입니다. 장치 ID를 수정하려면 [DevKit에 대한 IoT 장치 ID를 사용자 지정](https://microsoft.github.io/azure-iot-developer-kit/docs/customize-device-id/)하는 방법을 참조하세요.
 
 ## <a name="problems-and-feedback"></a>문제 및 피드백
 

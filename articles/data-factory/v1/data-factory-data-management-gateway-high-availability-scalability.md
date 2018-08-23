@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b9ec9867e9abd188142067e593c925e3c8acdd0b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 58f612906af55575e9d42307af924ea0a8501ca1
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37113343"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140141"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>데이터 관리 게이트웨이 - 고가용성 및 확장성(미리 보기)
 > [!NOTE]
@@ -169,7 +169,7 @@ Integration Runtime 노드 간의 통신 보안에 사용되는 TLS/SSL 인증�
 - 와일드 카드 인증서가 지원됩니다. FQDN 이름이 **node1.domain.contoso.com**인 경우 ***. domain.contoso.com**을 인증서의 주체 이름으로 사용할 수 있습니다.
 - SAN 인증서는 현재 제한 때문에 주체 대체 이름의 마지막 항목만 사용되고 다른 항목은 무시되므로 권장되지 않습니다. 예: 해당 SAN이 **node1.domain.contoso.com** 및 **node2.domain.contoso.com**인 SAN 인증서가 있으며 해당 FQDN이 **node2.domain.contoso.com**인 컴퓨터에만 이 인증서를 사용할 수 있습니다.
 - Windows Server 2012 R2에서 지원하는 SSL 인증서의 키 크기는 모두 지원됩니다.
-- CNG 키를 사용하는 인증서는 지원되지 않습니다. CNG 키를 사용하는 인증서는 지원되지 않습니다.
+- CNG 키를 사용하는 인증서는 지원되지 않습니다.
 
 #### <a name="faq-when-would-i-not-enable-this-encryption"></a>FAQ: 언제 이 암호화를 사용하지 않도록 설정하나요?
 암호화를 사용하도록 설정하며 인프라에 특정 비용이 추가되므로(공용 인증서 소유) 다음과 같은 경우에는 암호화를 사용하도록 설정하지 않아도 됩니다.

@@ -3,8 +3,8 @@ title: Power BI를 사용하여 Azure 네트워크 보안 그룹 흐름 로그 �
 description: 이 페이지에서는 Power BI를 사용하여 NSG 흐름 로그를 시각화하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: mattreatMSFT
+manager: vitinnan
 editor: ''
 ms.assetid: 1e4f95fa-f5f0-4e03-bc25-008fbfc4934c
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: 19bd7ed4bab915d7918a192a046653666cfaa498
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: mareat
+ms.openlocfilehash: 8f5bb54e12348fd915b2c4413bbacdc083a2a879
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
-ms.locfileid: "24878584"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146860"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Power BI를 사용하여 네트워크 보안 그룹 흐름 로그 시각화
 
@@ -108,7 +108,7 @@ ms.locfileid: "24878584"
 
 본인의 요구 사항에 맞게 얼마든지 이 템플릿을 사용자 지정해도 됩니다. Power BI를 네트워크 보안 그룹 흐름 로그와 함께 사용할 수 있는 매우 다양한 방법이 있습니다. 
 
-## <a name="notes"></a>참고 사항
+## <a name="notes"></a>메모
 
 * 로그는 기본적으로 `https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/`에 저장됩니다.
 

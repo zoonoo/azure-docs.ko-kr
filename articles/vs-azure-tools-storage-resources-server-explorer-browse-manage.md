@@ -7,16 +7,17 @@ manager: douge
 assetId: 658dc064-4a4e-414b-ae5a-a977a34c930d
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 8/24/2017
 ms.author: ghogen
-ms.openlocfilehash: dd867462ce3a1841aa4e2e8943f2c2619d168b08
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 74f5508586d073bcccc54894cce6fcde1b83fe18
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112323"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143738"
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>서버 탐색기로 저장소 리소스 찾아보기 및 관리
 
@@ -277,13 +278,13 @@ Azure 테이블 저장소는 많은 양의 구조화된 데이터를 저장합�
 
    * 연결하려는 기존 저장소 계정의 이름입니다.
    * 선택한 저장소 계정에 대한 키입니다. 저장소 계정을 선택할 때 일반적으로 이 값이 제공됩니다. Visual Studio가 저장소 계정 키를 기억하기를 원하는 경우 **계정 키 기억하기** 확인란을 선택합니다.
-   * 저장소 계정에 연결하기 위해 사용하는 프로토콜입니다 - 예: HTTP, HTTPS, 또는 사용자 지정 끝점. 사용자 지정 끝점에 대한 자세한 내용은 [연결 문자열을 구성하는 방법](https://msdn.microsoft.com/library/azure/ee758697.aspx)을 참조하세요.
+   * 저장소 계정에 연결하기 위해 사용하는 프로토콜입니다 - 예: HTTP, HTTPS, 또는 사용자 지정 엔드포인트. 사용자 지정 엔드포인트에 대한 자세한 내용은 [연결 문자열을 구성하는 방법](https://msdn.microsoft.com/library/azure/ee758697.aspx)을 참조하세요.
 
-### <a name="to-view-the-secondary-endpoints"></a>보조 끝점을 확인하려면
+### <a name="to-view-the-secondary-endpoints"></a>보조 엔드포인트를 확인하려면
 
 **읽기 액세스 지역 중복** 복제 옵션을 사용하여 저장소 계정을 만든 경우 계정 이름의 바로 가기 메뉴를 열고 **속성**을 선택하면 보조 엔드포인트를 볼 수 있습니다.
 
-![저장소 보조 끝점](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766040.png)
+![저장소 보조 엔드포인트](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766040.png)
 
 ### <a name="to-remove-a-storage-account-from-server-explorer"></a>서버 탐색기에서 저장소 계정을 제거하려면
 

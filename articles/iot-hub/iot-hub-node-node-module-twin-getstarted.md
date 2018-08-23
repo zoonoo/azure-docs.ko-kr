@@ -9,12 +9,12 @@ ms.devlang: node
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: e1fcca7f37f928c488b1111d6d3299cb03c73cc1
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: fa77e117b8045be4ef0566e388c4e8df08c95fe2
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035599"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42140326"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-nodejs-back-end-and-nodejs-device"></a>Node.js 백 엔드 및 Node.js 장치를 사용하여 IoT Hub 모듈 ID 및 모듈 쌍 시작
 
@@ -32,13 +32,12 @@ ms.locfileid: "37035599"
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
-* IoT Hub.
+* IoT Hub
 * 최신 [Node.js SDK](https://github.com/Azure/azure-iot-sdk-node)를 설치합니다.
 
 
 이제 IoT Hub가 만들어졌고 이 자습서 나머지 부분을 완료하는 데 필요한 호스트 이름과 IoT Hub 연결 문자열을 갖게 되었습니다.
 
-<a id="DeviceIdentity_csharp"></a>
 ## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>IoT Hub에서 장치 ID 및 모듈 ID 만들기
 
 이 섹션에서는 IoT Hub의 ID 레지스트리에 장치 ID 및 모듈 ID를 만드는 Node.js 앱을 만듭니다. ID 레지스트리에 항목이 없는 경우 장치 또는 모듈을 IoT Hub에 연결할 수 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]의 "ID 레지스트리" 섹션을 참조하세요. 이 콘솔 앱을 실행하면 장치 및 모듈 둘 다의 고유한 ID 및 키가 생성됩니다. 장치 및 모듈은 IoT Hub에 장치-클라우드 메시지를 보낼 때 이러한 값을 사용하여 자신을 식별합니다. ID는 대/소문자를 구분합니다.
@@ -114,8 +113,6 @@ ms.locfileid: "37035599"
     > [!NOTE]
     > IoT Hub ID 레지스트리는 장치 및 모듈 ID만 저장하여 IoT Hub에 보안 액세스를 사용합니다. ID 레지스트리는 보안 자격 증명으로 사용할 장치 ID 및 키를 저장합니다. 또한 ID 레지스트리는 각 장치에 대한 액세스를 사용하지 않도록 설정하는 데 사용할 수 있는 해당 장치에 대한 enabled/disabled 플래그를 저장합니다. 응용 프로그램이 다른 장치별 메타데이터를 저장해야 할 경우 응용 프로그램별 저장소를 사용해야 합니다. 모듈 ID에 대한 enabled/disabled 플래그는 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]를 참조하세요.
 
-
-<a id="D2C_csharp"></a>
 ## <a name="update-the-module-twin-using-nodejs-device-sdk"></a>Node.js 장치 SDK를 사용하여 모듈 쌍 업데이트
 
 이 섹션에서는 시뮬레이션된 장치에 보고된 모듈 쌍 속성을 업데이트하는 Node.js 앱을 만듭니다.

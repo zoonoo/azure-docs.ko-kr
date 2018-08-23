@@ -3,7 +3,8 @@ title: Azure에서 Linux(Ubuntu) 데이터 과학 Virtual Machine 프로비전 |
 description: 분석 및 기계 학습을 수행하기 위해 Azure에서 Linux(Ubuntu)용 데이터 과학 Virtual Machine을 구성하고 만듭니다.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
+ms.author: gokuma
 manager: cgronlun
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
@@ -13,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: bradsev
-ms.openlocfilehash: 19f190c66f7bb4042c640f2cbb82f911746ceb45
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f45bb3b47209bd6b02cea49c23b0a59ad75fc2e2
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422378"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143362"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Azure에서 Linux(Ubuntu)용 데이터 과학 Virtual Machine 프로비전
 
@@ -53,7 +53,7 @@ Linux용 데이터 과학 Virtual Machine에는 다음을 포함하여 데이터
 * 기계 학습 도구
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): 온라인, 해시, allreduce, 축소, learning2search, 활성 및 대화형 학습 등의 기술을 지원하는 속성 기계 학습 시스템
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): 기능이 향상된 빠르고 정확한 트리 구현을 제공하는 도구
-  * [Rattle](http://rattle.togaware.com/): R에서 데이터 분석 및 기계 학습을 쉽게 시작할 수 있도록 하는 그래픽 도구
+  * [Rattle](https://togaware.com/rattle/): R에서 데이터 분석 및 기계 학습을 쉽게 시작할 수 있도록 하는 그래픽 도구
   * [LightGBM](https://github.com/Microsoft/LightGBM): 빠른 분산형 고성능 그라데이션 향상 프레임워크
 * Java, Python, node.js, Ruby, PHP의 Azure SDK
 * Azure Machine Learning 및 기타 Azure 서비스에서 사용하기 위한 R 및 Python의 라이브러리
@@ -94,7 +94,7 @@ Linux용 데이터 과학 Virtual Machine의 인스턴스를 만드는 단계는
    * **리소스 그룹**: 새 그룹을 만들거나 기존 그룹을 사용할 수 있습니다.
    * **위치**: 가장 적합한 데이터 센터를 선택합니다. 이 위치는 대개 대부분의 데이터가 저장되어 있는 위치이거나 사용자의 실제 위치에 가장 가까운 위치(이 경우 네트워크에 가장 빠르게 액세스할 수 있음)입니다.
    
-   나. **크기**:
+   b. **크기**:
    
    * 기능 요구 사항과 비용 제약 조건에 부합하는 서버 유형 중 하나를 선택합니다. **모두 보기** 를 선택하면 더 많은 VM 크기 선택 항목을 확인할 수 있습니다. GPU 학습을 위한 NC 또는 ND 클래스 VM을 선택합니다. [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/) 페이지에는 GPU가 있는 영역이 나열됩니다.
    
@@ -149,7 +149,7 @@ X2Go 클라이언트를 통해 XFCE 그래픽 데스크톱 또는 SSH 클라이�
 
 Ubuntu DSVM은 [JupyterHub](https://github.com/jupyterhub/jupyterhub), 다중 사용자 Jupyter 서버를 실행합니다. 연결하려면 랩톱 또는 데스크톱에서 https://your-vm-ip:8000으로 이동하고, VM을 만들고 로그인하는 데 사용한 사용자 이름 및 암호를 입력합니다. 다양한 샘플 노트북을 사용하여 찾아보고 체험할 수 있습니다.
 
-Jupyter 노트북의 차세대 JupyterLab 및 JupyterHub도 제공됩니다. 액세스하려면 JupyterHub에 로그인한 다음, https://your-vm-ip:8000/lab URL로 이동합니다. /etc/jupyterhub/jupyterhub_config.py에 이 줄을 추가하여 기본 노트북 서버로 JupyterLab을 설정할 수 있습니다.
+Jupyter 노트북의 차세대 JupyterLab 및 JupyterHub도 제공됩니다. 액세스하려면 JupyterHub에 로그인한 다음, https://your-vm-ip:8000/user/your-username/lab URL로 이동합니다. /etc/jupyterhub/jupyterhub_config.py에 이 줄을 추가하여 기본 노트북 서버로 JupyterLab을 설정할 수 있습니다.
 
     c.Spawner.default_url = '/lab'
 

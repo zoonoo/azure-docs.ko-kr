@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: b560022f1f727949021a599e1ab342551f64c084
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: ac81525c107fcc291a8c3ef0163bf0ef2bbfdc3b
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129135"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143371"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Log Analytics의 뷰 디자이너 시각화 요소에 대한 참조 가이드
 Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Log Analytics 작업 영역의 다양한 데이터 시각화를 나타내는 사용자 지정 보기를 만들 수 있습니다. 이 문서는 사용자 지정 보기에서 사용할 수 있는 시각화 요소 설정에 대한 참조 가이드입니다.
@@ -324,7 +324,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 예를 들어 *Redmond-Building 41* 및 *Bellevue-Building 12*와 같은 값을 포함하는 *위치*라는 속성이 있습니다. 이름과 값 구분 기호에 파선(-)을 사용하여 *City-Building*을 이름에 지정할 수 있습니다. 이렇게 하면 각 값이 *City*와 *Building*이라는 두 가지 속성으로 구문 분석됩니다.
 
 ### <a name="click-through-navigation"></a>클릭 탐색
-클릭 탐색은 보기에서 머리글 또는 목록 항목을 클릭할 때 수행될 작업을 정의합니다.  [로그 검색 포털](log-analytics-log-search-portals.md#log-search)에서 쿼리를 열거나 다른 보기를 시작합니다.
+클릭 탐색은 보기에서 머리글 또는 목록 항목을 클릭할 때 수행될 작업을 정의합니다.  [로그 검색 포털](log-analytics-log-search-portals.md)에서 쿼리를 열거나 다른 보기를 시작합니다.
 
 다음 표에서는 클릭 탐색에 대한 설정을 설명합니다.
 

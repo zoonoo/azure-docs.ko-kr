@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/11/18
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: a5b96279993c35aad4cc49c52950576f12dd15ce
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: f69830deb4d2c74b5fe1c85ad8c9452097dd2a1e
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345946"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143208"
 ---
 # <a name="what-is-the-access-panel"></a>액세스 패널이란?
 
@@ -79,7 +79,7 @@ Azure 또는 Office 365에 대한 구독이 있고 Azure Portal 또는 Office 36
 - 앱의 **로그온 URL**을 사용하면 앱에 바로 로그인할 수 있습니다. 앱의 URL을 사용하면 확장에서 작업을 검색하여 확장을 통해 로그인할 수 있는 옵션을 제공합니다.
 - 확장의 *빠른 검색* 기능을 사용하면 액세스 패널에서 어떤 앱이든 시작할 수 있습니다. 
 - 확장의 **최근에 사용됨** 섹션에는 최근에 시작한 세 가지 응용 프로그램이 표시됩니다.
-- 회사 내부 URL은 [응용 프로그램 프록시](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-get-started)를 통해 원격으로 사용할 수 있습니다.
+- 회사 내부 URL은 [응용 프로그램 프록시](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)를 통해 원격으로 사용할 수 있습니다.
 
 > [!NOTE]
 > 추가 기능은 Edge, Chrome 및 Firefox에서만 사용할 수 있습니다.
@@ -97,8 +97,8 @@ Azure 또는 Office 365에 대한 구독이 있고 Azure Portal 또는 Office 36
 5. **시작하려면 로그인하세요**를 선택합니다.
 
 원격으로 확장을 사용하여 회사 내부 URL을 사용하려면 다음을 수행합니다.
-1. 테넌트에 [응용 프로그램 프록시를 구성](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable)합니다.
-2. 응용 프로그램 프록시를 통해 [응용 프로그램 및 URL을 게시](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal)합니다.
+1. 테넌트에 [응용 프로그램 프록시를 구성](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable)합니다.
+2. 응용 프로그램 프록시를 통해 [응용 프로그램 및 URL을 게시](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal)합니다.
 3. 확장을 설치하고, 시작하려면 로그인을 선택하여 확장에 로그인합니다.
 4. 이제는 내부 회사 URL을 원격으로도 검색할 수 있습니다.
 

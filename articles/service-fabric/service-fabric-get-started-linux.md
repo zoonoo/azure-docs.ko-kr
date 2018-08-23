@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 5d4fa878197732daf188fcc318569b178e608684
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 00164789d7f37277127878911c3f368a56ec7710
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345963"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616975"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux에서 개발 환경 준비
 > [!div class="op_single_selector"]
@@ -208,27 +208,20 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Ser
 
 1. 컴퓨터에서 Node.js 및 npm을 설치합니다.
 
-    * Ubuntu
-        ```bash
-        curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
-        sudo apt-get install -y nodejs 
-        ```
-
-    * Red Hat Enterprise Linux 7.4(Service Fabric 미리 보기 지원)
-        ```bash
-        sudo yum install nodejs
-        sudo yum install npm
-        ```
+    ```bash
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+    nvm install node
+    ```
 2. 컴퓨터에 npm의 [Yeoman](http://yeoman.io/) 템플릿 생성기를 설치합니다.
 
     ```bash
-    sudo npm install -g yo
+    npm install -g yo
     ```
 3. Service Fabric Yeo 컨테이너 생성기 및 npm의 게스트 실행 파일 생성기를 설치합니다.
 
     ```bash
-    sudo npm install -g generator-azuresfcontainer  # for Service Fabric container application
-    sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
+    npm install -g generator-azuresfcontainer  # for Service Fabric container application
+    npm install -g generator-azuresfguest      # for Service Fabric guest executable application
     ```
 
 생성기를 설치한 후에는 각각 `yo azuresfguest` 또는 `yo azuresfcontainer`를 실행하여 게스트 실행 파일 또는 컨테이너 서비스를 만듭니다.
@@ -260,7 +253,7 @@ Java를 사용하여 Service Fabric 서비스를 빌드하려면 JDK 1.8 및 Gra
 Java 실행 파일에 대한 Service Fabric Yeo 생성기를 설치해야 합니다. [Yeoman 설치](#set-up-yeoman-generators-for-containers-and-guest-executables)를 확인한 후, 다음 명령을 실행합니다.
 
   ```bash
-  sudo npm install -g generator-azuresfjava
+  npm install -g generator-azuresfjava
   ```
  
 ## <a name="install-the-eclipse-plug-in-optional"></a>Eclipse 플러그 인 설치(선택 사항)
@@ -310,8 +303,8 @@ Service Fabric SDK를 제거하려면 다음 명령을 실행합니다.
 
     ```bash
     sudo apt-get remove servicefabric servicefabicsdkcommon
-    sudo npm uninstall generator-azuresfcontainer
-    sudo npm uninstall generator-azuresfguest
+    npm uninstall -g generator-azuresfcontainer
+    npm uninstall -g generator-azuresfguest
     sudo apt-get install -f
     ```
 
@@ -319,9 +312,9 @@ Service Fabric SDK를 제거하려면 다음 명령을 실행합니다.
 * Red Hat Enterprise Linux 7.4(Service Fabric 미리 보기 지원)
 
     ```bash
-    sudo yum remote servicefabric servicefabicsdkcommon
-    sudo npm uninstall generator-azuresfcontainer
-    sudo npm uninstall generator-azuresfguest
+    sudo yum remove servicefabric servicefabicsdkcommon
+    npm uninstall -g generator-azuresfcontainer
+    npm uninstall -g generator-azuresfguest
     ```
 
 ## <a name="next-steps"></a>다음 단계

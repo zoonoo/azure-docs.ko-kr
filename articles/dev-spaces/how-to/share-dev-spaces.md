@@ -11,12 +11,12 @@ ms.topic: article
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: douge
-ms.openlocfilehash: 6fb50f985f6d4f3c5d8644498316fb6229e2eaee
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 1d7d665c20baddb3a94bfe53568ab56a5a961630
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054681"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42145197"
 ---
 # <a name="share-azure-dev-spaces"></a>Azure Dev Spaces 공유
 

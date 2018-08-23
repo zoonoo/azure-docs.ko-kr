@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.custom: mvc
-ms.openlocfilehash: 2d5bc3d0167c08c41b38bb324d55c239041f1fba
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: c94b5d4800f5776b51247c6ec2f6662a6ab26abc
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "34630428"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42146694"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Azure에서 C용 Device Provisioning 서비스 클라이언트 SDK와 함께 다른 증명 메커니즘을 사용하는 방법
 
@@ -147,7 +147,7 @@ TPM을 사용하는 경우 ["Azure IoT Hub Device Provisioning Service를 사용
       ```
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
-2. Azure Portal에 로그인하고, 왼쪽 메뉴에서 **모든 리소스** 단추를 클릭하고, DPS 서비스를 엽니다.
+2. Azure Portal에 로그인하고, 왼쪽 메뉴에서 **모든 리소스** 단추를 클릭하고, Device Provisioning Service를 엽니다.
    - X **.** 509 개별 등록: 프로비전 서비스 요약 블레이드에서 **등록 관리**를 선택합니다. **개별 등록** 탭을 선택하고 맨 위에서 **추가** 단추를 클릭합니다. ID 증명 *메커니즘*으로 **X**.**509**를 선택하고, 블레이드에서 요구하는 대로 리프 인증서를 업로드합니다. 완료되면 **저장** 단추를 클릭합니다. 
    - X **.** 509 그룹 등록: 프로비전 서비스 요약 블레이드에서 **등록 관리**를 선택합니다. **그룹 등록** 탭을 선택하고, 위쪽에 있는 **추가** 단추를 클릭합니다. ID 증명 *메커니즘*으로 **X**.**509**를 선택하고, 그룹 이름과 인증 이름을 입력하고, 블레이드에서 요구하는 대로 CA/중간 인증서를 업로드합니다. 완료되면 **저장** 단추를 클릭합니다. 
 

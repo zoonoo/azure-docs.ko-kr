@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
-ms.openlocfilehash: 73ad78fc73a7605f8feaf114ebdfac5023cc91b6
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 9032a0b68c4c8789010b0304b64a63d4924521fb
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342428"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140548"
 ---
 # <a name="run-openfoam-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Azure의 Linux RDMA 클러스터에서 Microsoft HPC 팩을 사용하여 OpenFoam 실행
 이 문서에서는 Azure 가상 머신에서 OpenFoam을 실행하는 한 가지 방법을 설명합니다. 여기서는 Azure에서 Linux 계산 노드를 사용하여 Microsoft HPC Pack 클러스터를 배포하고 Intel MPI를 사용하여 [OpenFoam](http://openfoam.com/) 작업을 실행합니다. 계산 노드에 RDMA 지원 Azure VM을 사용할 수 있으므로 계산 노드는 Azure RDMA 네트워크를 통해 통신합니다. Azure에서 OpenFoam을 실행하는 다른 옵션으로는 Marketplace에서 제공되는 완전히 구성된 상용 이미지(예: UberCloud에서 제공하는 [CentOS 6의 OpenFoam 2.3](https://azuremarketplace.microsoft.com/marketplace/apps/cfd-direct.cfd-direct-from-the-cloud)) 및 [Azure Batch](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/)에서 실행되는 이미지가 있습니다. 
@@ -46,7 +46,7 @@ Microsoft HPC 팩에서는 MPI 응용 프로그램을 포함하는 대규모 HPC
   * Linux 노드를 배포한 후 SSH에 연결하여 추가 관리 작업을 수행합니다. Azure Portal에서 각 Linux VM에 대한 SSH 연결 세부 정보를 확인하세요.  
 * **Intel MPI** - Azure의 SLES 12 HPC 계산 노드에서 OpenFOAM를 실행하려면 [Intel.com 사이트](https://software.intel.com/en-us/intel-mpi-library/)에서 Intel MPI Library 5 런타임을 설치해야 합니다. (Intel MPI 5는 CentOS 기반 HPC 이미지에 미리 설치되어 있습니다.)  이후 단계에서 필요한 경우 Linux 계산 노트에 Intel MPI를 설치합니다. 이 단계를 준비하려면 Intel에 등록한 후 확인 전자 메일의 링크를 따라 관련 웹 페이지로 이동합니다. 그런 다음 해당 Intel MPI 버전에 대한 .tgz 파일의 다운로드 링크를 복사합니다. 이 문서는 Intel MPI 5.0.3.048 버전을 기반으로 합니다.
 * **OpenFOAM 소스 팩** - [OpenFOAM Foundation 사이트](http://openfoam.org/download/2-3-1-source/)에서 Linux용 OpenFOAM 소스 팩 소프트웨어를 다운로드합니다. 이 문서는 OpenFOAM-2.3.1.tgz로 다운로드할 수 있는 소스 팩 버전 2.3.1을 기반으로 합니다. Linux 계산 노드에서 OpenFOAM의 압축을 풀고 컴파일하려면 이 문서의 뒷부분에 나오는 지침을 따릅니다.
-* **EnSight** (선택 사항) - OpenFOAM 시뮬레이션의 결과를 확인하려면 [EnSight](https://www.ceisoftware.com/download/) 시각화 및 분석 프로그램을 다운로드 및 설치합니다. 라이선스 및 다운로드 정보는 EnSight 사이트에 있습니다.
+* **EnSight** (선택 사항) - OpenFOAM 시뮬레이션의 결과를 확인하려면 [EnSight](https://ensighttransfe.wpengine.com/direct-access-downloads/) 시각화 및 분석 프로그램을 다운로드 및 설치합니다. 라이선스 및 다운로드 정보는 EnSight 사이트에 있습니다.
 
 ## <a name="set-up-mutual-trust-between-compute-nodes"></a>계산 노드 간 상호 트러스트 설정
 여러 Linux 노드에서 크로스 노드 작업을 실행하려면 노드가 서로 신뢰해야 합니다(**rsh** 또는 **ssh** 사용). Microsoft HPC 팩 IaaS 배포 스크립트로 HPC 팩 클러스터를 만드는 경우 스크립트에서 사용자가 지정한 관리자 계정에 대해 영구 상호 트러스트를 자동으로 설정합니다. 클러스터의 도메인에 만든 관리자가 아닌 사용자의 경우 작업이 할당될 때 노드 간에 임시 상호 트러스트를 설정하고 작업이 완료된 후 관계를 삭제해야 합니다. 각 사용자에 대해 트러스트를 설정하려면 HPC Pack에서 트러스트 관계에 사용하는 RSA 키 쌍을 클러스터에 제공합니다.
@@ -362,7 +362,7 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 10. 작업이 완료되면 C:\OpenFoam\sloshingTank3D 아래의 폴더에서 작업 결과 및 C:\OpenFoam에서 로그 파일을 찾습니다.
 
 ## <a name="view-results-in-ensight"></a>EnSight에서 결과 보기
-필요에 따라 [EnSight](https://www.ceisoftware.com/) 를 사용하여 OpenFOAM 작업의 결과를 시각화하고 분석합니다. EnSight에서 시각화 및 애니메이션에 대한 자세한 내용은 이 [비디오 가이드](http://www.ceisoftware.com/wp-content/uploads/screencasts/vof_visualization/vof_visualization.html)를 참조하세요.
+필요에 따라 [EnSight](http://www.ensight.com/) 를 사용하여 OpenFOAM 작업의 결과를 시각화하고 분석합니다. EnSight에서 시각화 및 애니메이션에 대한 자세한 내용은 이 [비디오 가이드](http://www.ensight.com/ensight.com/envideo/)를 참조하세요.
 
 1. 헤드 노드에서 EnSight를 설치한 후 시작합니다.
 2. C:\OpenFoam\sloshingTank3D\EnSight\sloshingTank3D.case를 엽니다.

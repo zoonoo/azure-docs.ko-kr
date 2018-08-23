@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b0517af9f8066d2d5849b0ffe3d4a0d00afdad44
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: afc1ec8e171bc602f2698b4a36f249bc454cbed9
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437878"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140149"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure Automation에서 그래픽 작성
 
@@ -332,7 +332,7 @@ Runbook 도구 모음에서 **입력 및 출력** 단추를 클릭하여 Runbook
 
 ### <a name="runbook-output"></a>Runbook 출력
 
-나가는 링크가 없는 모든 작업에서 생성된 데이터는 [Runbook의 출력](http://msdn.microsoft.com/library/azure/dn879148.aspx)에 저장됩니다. 출력은 Runbook 작업과 함께 저장되며, 해당 Runbook이 자식으로 사용되는 경우 부모 Runbook에서 사용할 수 있습니다.
+나가는 링크가 없는 모든 작업에서 생성된 데이터는 [Runbook의 출력](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages)에 저장됩니다. 출력은 Runbook 작업과 함께 저장되며, 해당 Runbook이 자식으로 사용되는 경우 부모 Runbook에서 사용할 수 있습니다.
 
 ## <a name="powershell-expressions"></a>PowerShell 식
 

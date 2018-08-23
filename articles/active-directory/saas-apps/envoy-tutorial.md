@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: jeedes
-ms.openlocfilehash: c3a91509238534bed37cfd169c66f37732546bfb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 06cccaeaea3ff43bd5a4100ef0d4628e8cc77254
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425122"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141760"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envoy"></a>자습서: Envoy와 Azure Active Directory 통합
 
@@ -110,7 +110,7 @@ Envoy에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     ![Envoy 도메인 및 URL Single Sign-On 정보](./media/envoy-tutorial/tutorial_envoy_url.png)
 
-    **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<tenant-name>.Envoy.com`
+    **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://app.envoy.com/a/saml/auth/<company-ID-from-Envoy>`
     
     > [!NOTE] 
     > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Envoy 클라이언트 지원 팀](https://envoy.com/contact/)에 문의하세요.
@@ -150,12 +150,12 @@ Envoy에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
     
     a. Azure Portal에서 복사한 인증서의 **지문** 값을 **지문** 텍스트 상자에 붙여넣습니다.
     
-    나. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **ID 공급자 HTTP SAML URL** 텍스트 상자에 붙여넣습니다.
+    b. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **ID 공급자 HTTP SAML URL** 텍스트 상자에 붙여넣습니다.
     
     다. **변경 내용 저장**을 클릭합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: f19c52629a997687692eef9bce2e13b2b7894052
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: da5d59aaaea8e6186609eb5f3419fba5e67d4279
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31794738"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42146956"
 ---
 # <a name="securing-paas-deployments"></a>PaaS 배포 보안
 
@@ -47,7 +47,7 @@ ms.locfileid: "31794738"
 배포 유형에 관계 없이 사용자가 항상 책임을 지는 영역은 다음과 같습니다.
 
 - Data
-- Endpoints
+- 엔드포인트
 - 계좌
 - 액세스 관리
 
@@ -101,7 +101,7 @@ PaaS 배포와 기존 온-프레미스 배포 간의 또 다른 중요한 차이
 
 - [Azure App Service](security-paas-applications-using-app-services.md)
 - [Azure SQL Database 및 Azure SQL Data Warehouse](security-paas-applications-using-sql.md)
-- Azure Storage
+- [Azure Storage](security-paas-applications-using-storage.md)
 - Azure REDIS Cache
 - Azure Service Bus
 - 웹 응용 프로그램 방화벽

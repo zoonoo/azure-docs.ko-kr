@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 243f0b8206166e3e054dfc423259bd3444d8a2db
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7082edf43e53766d32bd967d0b894f6439eaa492
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31589835"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42140343"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management FAQ
 Azure API Management에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 가져옵니다.
@@ -78,7 +78,7 @@ API Management 인스턴스를 새 인스턴스로 복사하려는 경우 몇 �
 
 * [API Management REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 * [Microsoft Azure ApiManagement 서비스 관리 라이브러리 SDK](http://aka.ms/apimsdk)
-* [서비스 배포](https://msdn.microsoft.com/library/mt619282.aspx) 및 [서비스 관리](https://msdn.microsoft.com/library/mt613507.aspx) PowerShell cmdlet
+* [서비스 배포](https://docs.microsoft.com/powershell/module/wds) 및 [서비스 관리](https://docs.microsoft.com/powershell/azure/servicemanagement/overview) PowerShell cmdlet
 
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>관리자 그룹에 사용자를 추가하려면 어떻게 해야 합니까?
 관리자 그룹에 사용자를 추가하는 방법은 다음과 같습니다.
@@ -87,7 +87,7 @@ API Management 인스턴스를 새 인스턴스로 복사하려는 경우 몇 �
 2. 업데이트하려는 API Management 인스턴스가 있는 리소스 그룹으로 이동합니다.
 3. API Management에서 **API Management 참여자** 역할을 사용자에게 할당합니다.
 
-이제 새롭게 추가된 참여자는 Azure PowerShell [cmdlet](https://msdn.microsoft.com/library/mt613507.aspx)을 사용할 수 있습니다. 관리자 권한으로 로그인하는 방법은 다음과 같습니다.
+이제 새롭게 추가된 참여자는 Azure PowerShell [cmdlet](https://docs.microsoft.com/powershell/azure/overview)을 사용할 수 있습니다. 관리자 권한으로 로그인하는 방법은 다음과 같습니다.
 
 1. `Connect-AzureRmAccount` cmdlet을 사용하여 로그인합니다.
 2. `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`를 사용하여 서비스가 있는 구독에 컨텍스트를 설정합니다.

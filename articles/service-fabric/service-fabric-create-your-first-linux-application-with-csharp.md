@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: 59dc090053c78dbddc1854f21db39f66df7bc91c
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 7427af3e814752801c4738675f7cd2263843f9b8
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020548"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617089"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>첫 번째 Azure Service Fabric 응용 프로그램 만들기
 > [!div class="op_single_selector"]
@@ -41,27 +41,19 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Ser
 
 1. 컴퓨터에서 Node.js 및 NPM 설치
 
-   Ubuntu
    ```bash
-   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
-   sudo apt-get install -y nodejs 
+   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash 
+   nvm install node 
    ```
-
-   Red Hat Enterprise Linux 7.4(Service Fabric 미리 보기 지원)
-   ```bash
-   sudo yum install nodejs
-   sudo yum install npm
-   ```
-
 2. NPM의 컴퓨터에 [Yeoman](http://yeoman.io/) 템플릿 생성기 설치
 
   ```bash
-  sudo npm install -g yo
+  npm install -g yo
   ```
 3. NPM에서 Service Fabric Yeoman C# 응용 프로그램 생성기 설치
 
   ```bash
-  sudo npm install -g generator-azuresfcsharp
+  npm install -g generator-azuresfcsharp
   ```
 
 ## <a name="create-the-application"></a>응용 프로그램 만들기

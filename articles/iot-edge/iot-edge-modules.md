@@ -8,12 +8,12 @@ ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 261c26290a4a7c4b8bb22ada7f97470a6efa7a91
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 9064e0da6dde6c4b30235adf771f06a4f25d709a
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576324"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42139900"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Azure IoT Edge 모듈 이해
 
@@ -33,7 +33,11 @@ IoT Edge 모듈 이미지에는 IoT Edge 런타임의 관리, 보안 및 통신 
 
 ![클라우드의 모듈 이미지 - 장치의 모듈 인스턴스][1]
 
-구현 시 모듈 이미지는 컨테이너 이미지로 리포지토리에 존재하며 모듈 인스턴스는 장치의 컨테이너입니다. Azure IoT Edge의 사용 사례가 증가함에 따라 새로운 유형의 모듈 이미지와 인스턴스가 생성됩니다. 예를 들어 리소스가 제한된 장치는 컨테이너를 실행할 수 없으므로 동적 연결 라이브러리 및 인스턴스(실행 파일)로 존재하는 모듈 이미지가 필요할 수 있습니다. 
+구현 시 모듈 이미지는 컨테이너 이미지로 리포지토리에 존재하며 모듈 인스턴스는 장치의 컨테이너입니다. 
+
+<!--
+As use cases for Azure IoT Edge grow, new types of module images and instances will be created. For example, resource constrained devices cannot run containers so may require module images that exist as dynamic link libraries and instances that are executables. 
+-->
 
 ## <a name="module-identities"></a>모듈 ID
 

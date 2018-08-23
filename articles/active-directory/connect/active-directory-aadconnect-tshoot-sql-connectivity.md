@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 05/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ad1e5d176caff6553159c5f35fe2b199ba50769f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9a9b22d3b0c6a4bad594b7fb238360207dd25e1f
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592384"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142998"
 ---
 # <a name="troubleshoot-sql-connectivity-issues-with-azure-ad-connect"></a>Azure AD Connect와 관련된 SQL 연결 문제 해결
 이 문서에서는 Azure AD Connect와 SQL Server 간의 연결 문제를 해결하는 방법에 대해 설명합니다. 
@@ -36,7 +36,7 @@ Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\A
 
 >[!NOTE]
 >Install-Module은 [PowerShell 5.0(WMF 5.0)](https://www.microsoft.com/download/details.aspx?id=50395) 이상으로 업데이트해야 합니다.  
-또는 [PowerShell 3.0/4.0용 PackageManagement PowerShell 모듈 미리 보기 - 2016년 3월](https://www.microsoft.com/en-us/download/details.aspx?id=51451)을 설치합니다. 
+또는 [PowerShell 3.0/4.0용 PackageManagement PowerShell 모듈 미리 보기 - 2016년 3월](https://www.microsoft.com/download/details.aspx?id=51451)을 설치합니다. 
 
 - **모든 명령 표시**: `Get-Command -Module AdSyncTools` 
 - **PowerShell 함수 실행**: 다음 매개 변수가 있는 `Connect-ADSyncDatabase`

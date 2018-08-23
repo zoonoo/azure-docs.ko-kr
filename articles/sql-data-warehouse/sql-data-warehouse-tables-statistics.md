@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: bbc6a5083aebba40885700cab6c67128c9d9f916
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 778da6d244561d87e7070ab244fd92dba043488e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643433"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141794"
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 테이블에서 통계 만들기 및 업데이트
 Azure SQL Data Warehouse의 테이블에서 쿼리 최적화 통계 생성 및 업데이트에 대한 예제와 권장 사항입니다.
@@ -65,7 +65,10 @@ DBCC SHOW_STATISTICS (<tablename>, <targetname>)
 
 통계를 업데이트하는 권장 사항은 다음과 같습니다.
 
-| **통계 업데이트 빈도** | 일반: 매일 <br></br> 데이터 로드 또는 변환 이후 | | **샘플링** | 10억 개 미만의 행인 경우 기본 샘플링(20%)을 사용합니다. <br></br> 10억 개 이상의 행인 경우 2% 범위의 통계가 적합합니다. |
+|||
+|-|-|
+| **통계 업데이트의 빈도**  | 일반: 매일 <br></br> 데이터 로드 또는 변환 후 |
+| **샘플링** |  10억 개 미만의 행인 경우 기본 샘플링(20%)을 사용합니다. <br></br> 10억 개 이상의 행인 경우 2% 범위의 통계가 적합합니다. |
 
 쿼리 문제를 해결할 때 가장 먼저 묻는 질문 중 하나는 **"통계가 최신 상태입니까?"** 입니다.
 

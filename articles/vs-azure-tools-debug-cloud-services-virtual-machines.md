@@ -11,15 +11,16 @@ ms.service: visual-studio-online
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.date: 11/11/2016
 ms.author: mikejo
-ms.openlocfilehash: d230632fe49874385e3c337a7b07d1f1acec585e
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: af961533648ce3a939c25fca32173684255a52a8
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30292801"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444693"
 ---
 # <a name="debugging-an-azure-cloud-service-or-virtual-machine-in-visual-studio"></a>Visual Studio에서 Azure 클라우드 서비스 또는 가상 머신 디버깅
 
@@ -99,7 +100,7 @@ Azure SDK 2.3의 원격 디버깅은 다음과 같은 제한 사항이 있습니
 * 디버거는 30400에서 30424, 31400에서 31424 및 32400에서 32424의 포트를 사용합니다. 이 포트 중 하나를 사용하려는 경우, 서비스를 게시할 수 없으며, 다음과 같은 오류 메시지 중 하나가 Azure 활동 로그에 표시됩니다.
 
   * .csdef 파일에 대한 .cscfg 파일의 유효성 검사 오류가 발생했습니다.
-    예약된 포트의 범위는 끝점 Microsoft.WindowsAzure.Plugins.RemoteDebugger의 범위입니다. 역할의 커넥터는 이미 정의된 포트 또는 범위를 겹치는 역할입니다.
+    예약된 포트의 범위는 엔드포인트 Microsoft.WindowsAzure.Plugins.RemoteDebugger의 범위입니다. 역할의 커넥터는 이미 정의된 포트 또는 범위를 겹치는 역할입니다.
   * 할당하지 못했습니다. 나중에 다시 시도하거나, 가상 컴퓨터 사이즈 또는 역할 인스턴스의 수를 줄이거나 다른 지역에 배포해 보십시오.
 
 ## <a name="debugging-azure-virtual-machines"></a>Azure 가상 머신을 디버깅합니다.
@@ -137,7 +138,7 @@ Visual Studio의 서버 탐색기를 사용하여 Azure 가상 머신에서 실�
 
 Azure 프로젝트를 게시하기 전에, 포함된 환경 - 디버깅 및 테스트 시나리오를 지원하고 테스트 및 모니터링 프로그램을 설치할 수 있는-에서 테스트에 유용한 것을 찾을 수 있습니다. 이러한 테스트를 실행하는 한 가지 방법은 가상 머신에서 앱을 원격으로 디버그합니다.
 
-Visual Studio ASP.NET 프로젝트는 앱 테스트를 위해 사용할 수 있는 편리한 가상 머신을 만드는 옵션을 제공합니다. 가상 머신은 PowerShell, 원격 데스크톱 및 WebDeploy와 같은 일반적으로 필요한 끝점을 포함합니다.
+Visual Studio ASP.NET 프로젝트는 앱 테스트를 위해 사용할 수 있는 편리한 가상 머신을 만드는 옵션을 제공합니다. 가상 머신은 PowerShell, 원격 데스크톱 및 WebDeploy와 같은 일반적으로 필요한 엔드포인트를 포함합니다.
 
 ### <a name="to-create-a-web-project-and-a-virtual-machine-for-debugging"></a>웹 프로젝트 및 디버깅을 위한 가상 컴퓨터를 만들려면
 
@@ -157,7 +158,7 @@ Visual Studio ASP.NET 프로젝트는 앱 테스트를 위해 사용할 수 있�
 
     ![Azure 대화 상자에 가상 컴퓨터 만들기](./media/vs-azure-tools-debug-cloud-services-virtual-machines/IC746724.png)
 
-    Azure는 가상 머신을 만들고 원격 데스크톱과 웹 배포와 같은 끝점을 프로비전하고 구성합니다.
+    Azure는 가상 머신을 만들고 원격 데스크톱과 웹 배포와 같은 엔드포인트를 프로비전하고 구성합니다.
 
 4. 가상 머신을 완벽히 구현한 후에 서버 탐색기에서 가상 머신의 노드를 선택합니다.
 

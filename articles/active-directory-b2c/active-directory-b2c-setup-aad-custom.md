@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/04/2017
+ms.date: 08/15/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 139658b57cfdce2603d4413b5bf4c9a86b6a8c14
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: cb70828960220bbc1e37321b77375fe2c42ee1b6
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444330"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42145209"
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C: Azure AD 계정을 사용하여 로그인
 
@@ -78,7 +78,7 @@ Azure AD B2C 테넌트에 contoso.com 응용 프로그램 키를 저장해야 �
 
 ## <a name="add-a-claims-provider-in-your-base-policy"></a>기본 정책에서 클레임 공급자 추가
 
-사용자가 Azure AD를 사용하여 로그인하도록 하려면 Azure AD를 클레임 공급자로 정의해야 합니다. 즉, Azure AD B2C가 통신하는 끝점을 지정해야 합니다. 끝점은 Azure AD B2C에서 사용하는 일단의 클레임을 제공하여 특정 사용자가 인증했는지 확인합니다. 
+사용자가 Azure AD를 사용하여 로그인하도록 하려면 Azure AD를 클레임 공급자로 정의해야 합니다. 즉, Azure AD B2C가 통신하는 엔드포인트를 지정해야 합니다. 엔드포인트는 Azure AD B2C에서 사용하는 일단의 클레임을 제공하여 특정 사용자가 인증했는지 확인합니다. 
 
 정책의 확장 파일에서 `<ClaimsProvider>` 노드에 Azure AD를 추가하여 Azure AD를 클레임 공급자로 정의할 수 있습니다.
 
@@ -113,7 +113,7 @@ Azure AD B2C 테넌트에 contoso.com 응용 프로그램 키를 저장해야 �
                     <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
                     <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
                     <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
-                    <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="contosoAuthentication" />
+                    <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
                     <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="AzureADContoso" />
                 </OutputClaims>
                 <OutputClaimsTransformations>
@@ -133,7 +133,7 @@ Azure AD B2C 테넌트에 contoso.com 응용 프로그램 키를 저장해야 �
 
 ### <a name="update-the-technical-profile"></a>기술 프로필 업데이트
 
-Azure AD 끝점에서 토큰을 가져오려면 Azure AD B2C에서 Azure AD와 통신하는 데 사용해야 하는 프로토콜을 정의해야 합니다. 이 작업은 `<ClaimsProvider>`의 `<TechnicalProfile>` 요소 내에서 수행됩니다.
+Azure AD 엔드포인트에서 토큰을 가져오려면 Azure AD B2C에서 Azure AD와 통신하는 데 사용해야 하는 프로토콜을 정의해야 합니다. 이 작업은 `<ClaimsProvider>`의 `<TechnicalProfile>` 요소 내에서 수행됩니다.
 1. `<TechnicalProfile>` 노드의 ID를 업데이트합니다. 이 ID는 정책의 다른 부분에서 이 기술 프로필을 참조하는 데 사용합니다.
 1. `<DisplayName>` 값을 업데이트합니다. 이 값은 로그인 화면의 로그인 단추에 표시됩니다.
 1. `<Description>` 값을 업데이트합니다.

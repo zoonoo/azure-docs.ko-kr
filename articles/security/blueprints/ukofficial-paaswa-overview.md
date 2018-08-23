@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: b4b37a073f41295bf800d4e6c34681e0a06799c7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f465a6e6cb0642f64670a8d2727c939f91bad134
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450323"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617252"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Security and Compliance Blueprint: UK OFFICIAL 워크로드 준수 PaaS 웹 응용 프로그램 호스팅
 
@@ -23,7 +23,7 @@ Azure Blueprint는 승인 또는 규정 준수 요구 사항이 있는 시나리
 
 ## <a name="overview"></a>개요
 
-이 Azure Security and Compliance Blueprint는 [UK OFFICIAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/251480/Government-Security-Classifications-April-2014.pdf)로 분류된 워크로드를 처리하는 데 적합한 Microsoft Azure [PaaS(Platform as a Service)](https://azure.microsoft.com/overview/what-is-paas/) 호스팅 웹 응용 프로그램 아키텍처를 제공하기 위한 지침 및 자동화 스크립트를 제공합니다. 이 보안 분류는 공공 부문에서 만들거나 처리하는 대부분의 정보를 포함합니다. 여기에는 일상적인 비즈니스 작업 및 서비스가 포함되며, 미디어에서 분실, 도난 또는 게시되는 경우 그 중 일부는 해로운 결과를 초래할 수 있습니다. OFFICIAL 분류에 대한 일반적인 위협 프로필은 중요한 정보와 서비스를 제공하는 개인 비즈니스와 거의 같습니다. UK OFFICIAL은 제한된 역량과 리소스를 갖춘 공격자의 위협 또는 타협으로부터 영국 정부의 데이터 또는 서비스를 방어해야 할 필요성을 예상합니다. 이러한 공격자는 핵티비스트(hactivist), 단일 주장 압력 단체, 사회 고발 언론인, 유능한 개인 해커, 대다수의 범죄자 및 범죄 집단과 같지만 이에 국한되지는 않습니다.
+이 Azure Security and Compliance Blueprint는 [UK OFFICIAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/715778/May-2018_Government-Security-Classifications-2.pdf)로 분류된 워크로드를 처리하는 데 적합한 Microsoft Azure [PaaS(Platform as a Service)](https://azure.microsoft.com/overview/what-is-paas/) 호스팅 웹 응용 프로그램 아키텍처를 제공하기 위한 지침 및 자동화 스크립트를 제공합니다. 이 보안 분류는 공공 부문에서 만들거나 처리하는 대부분의 정보를 포함합니다. 여기에는 일상적인 비즈니스 작업 및 서비스가 포함되며, 미디어에서 분실, 도난 또는 게시되는 경우 그 중 일부는 해로운 결과를 초래할 수 있습니다. OFFICIAL 분류에 대한 일반적인 위협 프로필은 중요한 정보와 서비스를 제공하는 개인 비즈니스와 거의 같습니다. UK OFFICIAL은 제한된 역량과 리소스를 갖춘 공격자의 위협 또는 타협으로부터 영국 정부의 데이터 또는 서비스를 방어해야 할 필요성을 예상합니다. 이러한 공격자는 핵티비스트(hactivist), 단일 주장 압력 단체, 사회 고발 언론인, 유능한 개인 해커, 대다수의 범죄자 및 범죄 집단과 같지만 이에 국한되지는 않습니다.
 
 이 청사진은 영국 NCSC(National Cyber Security Centre)에서 검토되었으며 NCSC 14개 클라우드 보안 원칙에 부합합니다.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: 74fb9e784122dadd1ad2f6f29a497398eacf7464
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 9e49e7cdb9157fea2ae29d015bd84d391c73e71b
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412885"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139943"
 ---
 # <a name="services-that-support-managed-service-identity"></a>관리 서비스 ID를 지원하는 서비스 
 
@@ -46,4 +46,4 @@ Azure AD 인증을 지원하며, 관리 서비스 ID를 사용하는 클라이�
 | Azure SQL | https://database.windows.net/ | 사용 가능 | 2017년 10월 | |
 | Azure Event Hubs | https://eventhubs.azure.net | 사용 가능 | 2017년 12월 | |
 | Azure Service Bus | https://servicebus.azure.net | 사용 가능 | 2017년 12월 | |
-| Azure Storage | https://storage.azure.com/ | 미리 보기 | 2018년 5월 | |
+| Azure Storage | https://azure.microsoft.com/services/storage/ | 미리 보기 | 2018년 5월 | |

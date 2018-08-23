@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 5/4/18
 ms.author: barbkess
 ms.reviewer: japere,asteen
-ms.openlocfilehash: 00dade0926f9f2601757ac637e21737027f24c45
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 642f07be0eb58e4d10630bc4482d26bd00e08a94
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332612"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42144922"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>액세스 패널 브라우저 확장 설치
 
@@ -87,8 +87,8 @@ Azure AD 버전을 사용하는 경우에는 액세스 패널을 통해 셀프 �
        마지막으로 사용한 세 개의 앱이 **최근에 사용한 항목** 바로 가기 목록에 표시됩니다.
        
 * 원격으로 회사 내부 URL을 사용하려면 다음을 수행합니다.
-    1. 테넌트에 [응용 프로그램 프록시 구성](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable)
-    2. 응용 프로그램 프록시를 통해 [응용 프로그램 및 URL 게시](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal)
+    1. 테넌트에 [응용 프로그램 프록시 구성](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable)
+    2. 응용 프로그램 프록시를 통해 [응용 프로그램 및 URL 게시](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal)
     3. 확장을 설치하고, 시작하려면 로그인을 선택하여 확장에 로그인
     4. 이제 원격으로도 내부 회사 URL로 이동할 수 있습니다.
 

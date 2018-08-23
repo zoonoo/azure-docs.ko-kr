@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: jasonh
 ms.openlocfilehash: 938605bebe30dd23e73fbf43a37328d9e753a06e
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597228"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143329"
 ---
 # <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Data Lake Tools for Visual Studio를 사용하여 Hive 쿼리 실행
 

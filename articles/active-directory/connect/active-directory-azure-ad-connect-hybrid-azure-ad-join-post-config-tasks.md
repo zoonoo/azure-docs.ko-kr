@@ -4,7 +4,7 @@ description: 이 문서에서는 하이브리드 Azure AD 조인 완료 후 필�
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: samueld
+manager: mtillman
 editor: billmath
 ms.assetid: ''
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9949275b18206ca66f38bab036337a00fdde6ee5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 05cb6d10a7e4269cbe5f9c97ef70cd9eb5a4d68e
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916550"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42140576"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>하이브리드 Azure AD 조인 구성 후 작업
 
@@ -62,7 +62,7 @@ SCP(서비스 연결점)는 장치에서 자동 등록에 사용하는 Azure AD 
 
 ## <a name="6-enable-azure-ad-seamless-sso-for-windows-down-level-devices"></a>6. Windows 하위 수준 장치에 Azure AD Seamless SSO 사용
 
-조직에서 암호 해시 동기화 또는 통과 인증을 사용하여 Azure AD에 로그인하는 경우 해당 로그인 방법에 Azure AD Seamless SSO를 사용하여 Windows 하위 수준 장치를 인증합니다(https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso). 
+조직에서 암호 해시 동기화 또는 통과 인증을 사용하여 Azure AD에 로그인하는 경우 해당 로그인 방법에 Azure AD Seamless SSO를 사용하여 Windows 하위 수준 장치를 인증합니다(https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso). 
 
 ## <a name="7-set-azure-ad-policy-for-windows-down-level-devices"></a>7. Windows 하위 수준 장치에 대한 Azure AD 정책 설정
 
@@ -81,7 +81,7 @@ Windows 하위 수준 장치를 등록하려면 사용자가 장치를 등록할
 
 ## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9. Windows 하위 수준 장치에 Microsoft Workplace Join을 설치합니다.
 
-이 설치 관리자는 장치 시스템에 사용자 컨텍스트에서 실행되도록 예약된 작업을 만듭니다. 사용자가 Windows에 로그인할 때 이 작업이 트리거됩니다. 이 작업은 통합 Windows 인증을 사용하여 인증한 후 사용자 자격 증명을 사용하여 장치를 Azure AD에 자동으로 가입합니다. 다운로드 센터는 https://www.microsoft.com/en-us/download/details.aspx?id=53554에 있습니다. 
+이 설치 관리자는 장치 시스템에 사용자 컨텍스트에서 실행되도록 예약된 작업을 만듭니다. 사용자가 Windows에 로그인할 때 이 작업이 트리거됩니다. 이 작업은 통합 Windows 인증을 사용하여 인증한 후 사용자 자격 증명을 사용하여 장치를 Azure AD에 자동으로 가입합니다. 다운로드 센터는 https://www.microsoft.com/download/details.aspx?id=53554에 있습니다. 
 
 ## <a name="10-configure-group-policy-to-allow-device-registration"></a>10. 장치 등록을 허용하도록 그룹 정책을 구성합니다.
 

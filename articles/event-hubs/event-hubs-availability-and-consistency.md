@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2017
+ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 67a7a701eb7700fab9aa9d0ec22354cc1618f856
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 9b4d992d690bb3237f8c92e44020c0ac83978d7e
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004697"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42143561"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Event Hubs의 가용성 및 일관성
 
@@ -59,7 +59,7 @@ data.Properties.Add("SequenceNumber", sequenceNumber);
 await eventHubClient.SendAsync(data);
 ```
 
-이 예에서는 이벤트 허브에서 사용 가능한 파티션 중 하나에 이벤트를 보내고 응용 프로그램에서 해당 시퀀스 번호를 설정합니다. 이 솔루션에서는 상태를 처리 응용 프로그램에서 유지해야 하지만 사용할 가능성이 높은 끝점을 보낸 사람에게 제공합니다.
+이 예에서는 이벤트 허브에서 사용 가능한 파티션 중 하나에 이벤트를 보내고 응용 프로그램에서 해당 시퀀스 번호를 설정합니다. 이 솔루션에서는 상태를 처리 응용 프로그램에서 유지해야 하지만 사용할 가능성이 높은 엔드포인트를 보낸 사람에게 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.

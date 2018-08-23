@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2018
 ms.author: genli
-ms.openlocfilehash: 5f11129e562ec47f4c81790cf21c9a390cc697b8
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d16f106fa1776b0d11a97f71ffe16cf89fb9584a
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621408"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142853"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Azure의 네트워크 가상 어플라이언스 문제
 
@@ -132,5 +132,5 @@ VM 네트워크 사용량이 급증하거나 특정 기간에 사용량이 많�
 
 백 엔드 VM 추적으로 들어오는 패킷이 보이지 않으면 NSG 또는 UDR 방해가 있거나 NVA 라우팅 테이블이 잘못된 것일 수 있습니다.
 
-들어오는 패킷이 표시되지만 응답하지 않으면 VM 응용 프로그램 또는 방화벽 문제를 해결해야 합니다. 필요에 따라 이러한 문제에 대해 [NVA 공급업체에 지원을 요청](Let's link customer to 3rd party vendor again here: https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)하세요.
+들어오는 패킷이 표시되지만 응답하지 않으면 VM 응용 프로그램 또는 방화벽 문제를 해결해야 합니다. 필요에 따라 이러한 문제에 대해 [NVA 공급업체에 지원을 요청](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines)하세요.
 

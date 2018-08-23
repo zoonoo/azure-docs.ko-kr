@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 128b4bc787cd882e719ee3332d285af44b15dfe2
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 0920489daf99445a9d715d0858cf68ae45e6a178
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412993"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140549"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>DTU를 기반 구매 모델을 사용한 탄력적 풀에 대한 리소스 제한 
 
@@ -128,6 +128,7 @@ ms.locfileid: "39412993"
 ## <a name="next-steps"></a>다음 단계
 
 - 자주 묻는 질문에 대한 답변은 [SQL Database FAQ](sql-database-faq.md)를 참조하세요.
+- 서버 및 구독 수준에서 제한에 대한 자세한 내용은 [Azure SQL Database 리소스 제한 개요](sql-database-resource-limits.md)를 참조하세요.
 - 일반 Azure 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
 - DTU 및 eDTU에 대한 자세한 내용은 [DTU 및 eDTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)를 참조하세요.
 - tempdb 크기 한도에 대한 자세한 내용은 https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database를 참조하세요.

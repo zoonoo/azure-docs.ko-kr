@@ -15,12 +15,12 @@ ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a2b1816a7f972e698d3872e6c252c09a4d5292ef
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 928e4811f15953313df167375043231478f5c11a
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578731"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42145441"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성
 
@@ -89,7 +89,7 @@ Azure AD를 설정하려면 기본 SAML 구성을 입력합니다. 필드 값을
     Set-AzureADServicePrincipal -ObjectId $sp.ObjectId -ReplyUrls "<ReplyURLs>"
     ```
 
-자세한 내용은 [Azure AD(Azure Active Directory)에서 지원하는 SAML 2.0 인증 요청 및 응답](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML)을 참조
+자세한 내용은 [Azure AD(Azure Active Directory)에서 지원하는 SAML 2.0 인증 요청 및 응답](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML)을 참조
 
 
 ### <a name="review-or-customize-the-claims-issued-in-the-saml-token"></a>SAML 토큰에 발급된 클레임 검토 또는 사용자 지정
@@ -129,7 +129,7 @@ Azure AD에서 Base64 또는 원시 형식의 인증서를 다운로드할 수 �
 
 Single Sign-On에 대해 응용 프로그램을 구성하려면 응용 프로그램의 설명서를 찾습니다. 설명서를 찾으려면 SAML 기반 로그온 구성 페이지의 끝으로 스크롤한 다음, **구성<application name>** 을 클릭합니다. 
 
-필요한 값은 응용 프로그램에 따라 달라집니다. 자세한 내용은 응용 프로그램의 SAML 설명서를 참조합니다. 로그온 및 로그아웃 서비스 URL은 모두 동일한 끝점으로 해결하는데, 이는 Azure AD의 인스턴스에 대한 SAML 요청 처리 끝점입니다. SAML 엔터티 ID는 응용 프로그램에 발급된 SAML 토큰 내에서 발급자로 표시되는 값입니다.
+필요한 값은 응용 프로그램에 따라 달라집니다. 자세한 내용은 응용 프로그램의 SAML 설명서를 참조합니다. 로그온 및 로그아웃 서비스 URL은 모두 동일한 엔드포인트로 해결하는데, 이는 Azure AD의 인스턴스에 대한 SAML 요청 처리 엔드포인트입니다. SAML 엔터티 ID는 응용 프로그램에 발급된 SAML 토큰 내에서 발급자로 표시되는 값입니다.
 
 
 ### <a name="assign-users-and-groups-to-your-saml-application"></a>SAML 응용 프로그램에 사용자 및 그룹 할당

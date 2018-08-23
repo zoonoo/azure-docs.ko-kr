@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: e3be74fbb571a806fc03a92d0b1b373e35d196be
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 3231792ed1cb7f80cd2a106faf3760c48dd13c19
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363617"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143211"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>자습서: 자동 사용자 계정 프로비전에 대한 보고
 
 
-Azure Active Directory에는 종단 간 ID 수명 주기 관리를 위해 SaaS 앱 및 기타 시스템에서 사용자 계정을 자동으로 프로비전하거나 프로비전 해제하는 데 유용한 [사용자 계정 프로비전 서비스](active-directory-saas-app-provisioning.md)가 포함되어 있습니다. Azure AD는 [Azure AD 응용 프로그램 갤러리](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured)의 "추천 앱" 섹션에 있는 모든 응용 프로그램 및 시스템에 대해 사전 통합된 사용자 프로비전 커넥터를 지원합니다.
+Azure Active Directory에는 종단 간 ID 수명 주기 관리를 위해 SaaS 앱 및 기타 시스템에서 사용자 계정을 자동으로 프로비전하거나 프로비전 해제하는 데 유용한 [사용자 계정 프로비전 서비스](active-directory-saas-app-provisioning.md)가 포함되어 있습니다. Azure AD는 [Azure AD 응용 프로그램 갤러리](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured)의 "추천 앱" 섹션에 있는 모든 응용 프로그램 및 시스템에 대해 사전 통합된 사용자 프로비전 커넥터를 지원합니다.
 
 이 문서에서는 프로비전 작업을 설정한 후 해당 상태를 확인하는 방법과 개별 사용자 및 그룹의 프로비전 문제를 해결하는 방법에 대해 설명합니다.
 

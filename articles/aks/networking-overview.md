@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: marsma
-ms.openlocfilehash: 1d7855ff840fc1dd68effb19c43c3a691bd15d62
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 051402a319e1dc26145b5a1602a4caeffa7fba19
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714675"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42445510"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 네트워크 구성
 
@@ -27,7 +27,8 @@ AKS(Azure Kubernetes Service) 클러스터를 만들 때 두 가지 네트워킹
 
 ## <a name="advanced-networking"></a>고급 네트워킹
 
-**고급** 네트워킹에서는 구성하는 Azure VNet(Virtual Network)에 Pod가 배치되며, VNet 리소스에 자동으로 연결되고 VNet이 제공하는 풍부한 기능 집합과 통합될 수 있습니다. 고급 네트워킹은 [Azure Portal][portal], Azure CLI 또는 Resource Manager 템플릿을 사용하여 AKS 클러스터를 배포할 때 사용할 수 있습니다.
+
+  **고급** 네트워킹에서는 구성하는 Azure VNet(Virtual Network)에 Pod가 배치되며, VNet 리소스에 자동으로 연결되고 VNet이 제공하는 풍부한 기능 집합과 통합될 수 있습니다. 고급 네트워킹은 [Azure Portal][portal], Azure CLI 또는 Resource Manager 템플릿을 사용하여 AKS 클러스터를 배포할 때 사용할 수 있습니다.
 
 고급 네트워킹용으로 구성된 AKS 클러스터의 노드는 [Azure CNI(컨테이너 네트워킹 인터페이스)][cni-networking] Kubernetes 플러그 인을 사용합니다.
 
@@ -41,7 +42,7 @@ AKS(Azure Kubernetes Service) 클러스터를 만들 때 두 가지 네트워킹
 * 클러스터의 모든 Pod는 VNet의 IP 주소가 할당되고, 클러스터의 다른 Pod 및 VNet의 다른 노드와 직접 통신할 수 있습니다.
 * Pod는 피어링된 VNet의 다른 서비스에 연결되고, ExpressRoute와 S2S(사이트 간) VPN 연결을 통해 온-프레미스 네트워크에 연결될 수 있습니다. 또한 온-프레미스에서 Pod에 연결할 수도 있습니다.
 * Azure Load Balancer를 통해 외부 또는 내부로 Kubernetes 서비스를 노출합니다. 또한 기본 네트워킹의 기능도 제공합니다.
-* 서비스 끝점이 사용되도록 설정된 서브넷의 Pod는 Azure 서비스(예: Azure Storage 및 SQL DB)에 안전하게 연결될 수 있습니다.
+* 서비스 엔드포인트가 사용되도록 설정된 서브넷의 Pod는 Azure 서비스(예: Azure Storage 및 SQL DB)에 안전하게 연결될 수 있습니다.
 * UDR(사용자 정의 경로)을 사용하여 Pod에서 네트워크 가상 어플라이언스로 트래픽을 라우팅합니다.
 * Pod는 공용 인터넷의 리소스에 액세스할 수 있습니다. 또한 기본 네트워킹의 기능도 제공합니다.
 
@@ -150,7 +151,7 @@ Azure Portal의 다음 스크린샷은 AKS 클러스터를 만드는 동안 이�
 
   예. Azure CLI 또는 Resource Manager 템플릿을 사용하여 클러스터를 배포할 경우입니다. [노드당 최대 포드](#maximum-pods-per-node)를 참조하세요.
 
-* *AKS 클러스터를 만드는 동안 만든 서브넷에 대해 추가 속성을 구성하려면 어떻게 해야 하나요? 예를 들어, 서비스 끝점을 구성한다고 가정해보세요.*
+* *AKS 클러스터를 만드는 동안 만든 서브넷에 대해 추가 속성을 구성하려면 어떻게 해야 하나요? 예를 들어, 서비스 엔드포인트를 구성한다고 가정해보세요.*
 
   AKS 클러스터를 만드는 동안 만든 VNet과 서브넷에 대한 속성의 전체 목록은 Azure Portal의 표준 VNet 구성 페이지에서 구성할 수 있습니다.
 
@@ -189,5 +190,5 @@ ACS 엔진을 사용하여 만든 Kubernetes 클러스터는 [kubenet][kubenet] 
 
 <!-- LINKS - Internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
-[aks-ssh]: aks-ssh.md
+[aks-ssh]: ssh.md
 [ManagedClusterAgentPoolProfile]: /azure/templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object

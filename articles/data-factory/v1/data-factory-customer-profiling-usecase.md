@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: cc9dad4584c8edc47181e4a73ffe11a2e08de2f1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b60e4f3547e049dc35c08ce115bdfcbbf6ebb18a
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620815"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246655"
 ---
 # <a name="use-case---customer-profiling"></a>사용 사례 - 고객 프로파일링
 Azure Data Factory는 솔루션 가속기의 Cortana Intelligence Suite를 구현하는 데 사용되는 다양한 서비스 중 하나입니다.  Cortana Intelligence에 대한 자세한 내용은 [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics)를 참조하세요. 이 문서에서는 Azure 데이터 팩터리가 어떻게 일반적인 분석 문제를 해결할 수 있는지를 이해하기 시작하는 데 도움이 되는 간단한 사용 사례를 설명합니다.
@@ -32,7 +32,7 @@ Contoso의 목표는 플레이어의 게임 기록을 기반으로 상향 판매
 이 솔루션에서는 Contoso가 최근 시작한 마케팅 캠페인의 효과를 평가하려고 합니다. 원시 게임 로그로 시작하여, 지리적 위치 데이터를 처리하고 보강하고, 광고 참조 데이터와 조인하고 마지막으로 Azure SQL Database에 복사하여 캠페인의 영향을 분석합니다.
 
 ## <a name="deploy-solution"></a>솔루션 배포
-액세스하여 이 간단한 사용 사례를 시도하는데 필요한 것은 [Azure 구독](https://azure.microsoft.com/pricing/free-trial/), [Azure Blob Storage 계정](../../storage/common/storage-create-storage-account.md#create-a-storage-account) 및 [Azure SQL Database](../../sql-database/sql-database-get-started.md)입니다. 데이터 팩터리의 홈 페이지에 **샘플 파이프라인** 타일에서 파이프라인을 프로파일링하는 고객을 배포합니다.
+액세스하여 이 간단한 사용 사례를 시도하는데 필요한 것은 [Azure 구독](https://azure.microsoft.com/pricing/free-trial/), [Azure Blob Storage 계정](../../storage/common/storage-quickstart-create-account.md) 및 [Azure SQL Database](../../sql-database/sql-database-get-started.md)입니다. 데이터 팩터리의 홈 페이지에 **샘플 파이프라인** 타일에서 파이프라인을 프로파일링하는 고객을 배포합니다.
 
 1. 데이터 팩터리를 만들거나 기존 데이터 팩터리를 엽니다. Data Factory를 만드는 단계는 [Data Factory를 사용하여 Blob Storage에서 SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 2. 데이터 팩터리의 **데이터 팩터리** 블레이드에서 **샘플 파이프라인** 타일을 클릭합니다.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: d83d1ad74d04356f73f18a744c2d1509b5efc280
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 4d3f1c66c6403720bf02c80af1d6833dc3cee3f1
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233847"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42139926"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Azure App Service에 지속적인 배포
 이 문서에서는 [Azure App Service](app-service-web-overview.md)에 대해 지속적인 배포를 구성하는 방법을 보여 줍니다. App Service는 BitBucket, GitHub 및 [VSTS(Visual Studio Team Services)](https://www.visualstudio.com/team-services/) 중 하나의 기존 리포지토리에서 최신 업데이트를 가져와서 이러한 서비스에서 지속적인 배포를 활성화합니다.
@@ -62,7 +62,7 @@ GitHub를 통해 지속적인 배포를 사용하도록 설정하려면 [Azure P
 
 **테스트** 페이지에서 부하 테스트를 사용하도록 설정한 다음, **계속**을 클릭합니다.
 
-App Service 계획의 [가격 책정 계층](/pricing/details/app-service/plans/)에 따라 **스테이징에 배포** 페이지가 표시될 수 있습니다. [배포 슬롯을 활성화](web-sites-staged-publishing.md)할지 여부를 선택한 다음, **계속**을 클릭합니다.
+App Service 계획의 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/plans/)에 따라 **스테이징에 배포** 페이지가 표시될 수 있습니다. [배포 슬롯을 활성화](web-sites-staged-publishing.md)할지 여부를 선택한 다음, **계속**을 클릭합니다.
 
 ### <a name="finish-configuration"></a>구성 완료
 
@@ -119,7 +119,7 @@ VSTS를 통해 지속적인 배포를 사용하도록 설정하려면 [Azure Por
 
 **테스트** 페이지에서 부하 테스트를 사용하도록 설정한 다음, **계속**을 클릭합니다.
 
-App Service 계획의 [가격 책정 계층](/pricing/details/app-service/plans/)에 따라 **스테이징에 배포** 페이지가 표시될 수 있습니다. [배포 슬롯을 활성화](web-sites-staged-publishing.md)할지 여부를 선택한 다음, **계속**을 클릭합니다. 
+App Service 계획의 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/plans/)에 따라 **스테이징에 배포** 페이지가 표시될 수 있습니다. [배포 슬롯을 활성화](web-sites-staged-publishing.md)할지 여부를 선택한 다음, **계속**을 클릭합니다. 
 
 ### <a name="finish-configuration"></a>구성 완료
 

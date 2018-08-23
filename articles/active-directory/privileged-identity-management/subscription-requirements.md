@@ -16,12 +16,12 @@ ms.component: pim
 ms.date: 06/01/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2fe80f01faae89256c96e23944025d3bd0c55811
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: dbe4efa57a7c4c31b2bdca84665eef8179564a8f
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617193"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617072"
 ---
 # <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Azure Active Directory Privileged Identity Management 구독 요구 사항
 
@@ -42,7 +42,7 @@ Azure AD(Azure Active Directory) Privileged Identity Management가 미리 보기
 
 이 명령이 SkuPartNumber가 "AAD_PREMIUM_P2"이거나 "EMSPREMIUM"이고 IsTrial이 "True"인 줄을 반환하는 경우 Azure AD Premium P2 평가판이 테넌트에 있는 것입니다.  구독 상태를 사용하도록 설정하지 않고 Azure AD Premium P2 또는 EMS E5 구독을 구매하지 않은 경우 Azure AD Privileged Identity Management를 계속 사용하려면 Azure AD Premium P2 구독 또는 EMS E5 구독을 구입해야 합니다.
 
-Azure AD Premium P2는 [Microsoft 기업계약](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx), [오픈 볼륨 라이선스 프로그램](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) 및 [클라우드 솔루션 공급자](https://partner.microsoft.com/en-US/cloud-solution-provider) 프로그램을 통해 구입할 수 있습니다. 또한 Azure 및 Office 365 구독자는 Azure AD Premium P2를 온라인으로 구입할 수도 있습니다.  Azure AD Premium 가격 책정 및 온라인 주문 방법에 대한 자세한 내용은 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)에서 확인할 수 있습니다.
+Azure AD Premium P2는 [Microsoft 기업계약](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx), [오픈 볼륨 라이선스 프로그램](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) 및 [클라우드 솔루션 공급자](https://partner.microsoft.com/cloud-solution-provider) 프로그램을 통해 구입할 수 있습니다. 또한 Azure 및 Office 365 구독자는 Azure AD Premium P2를 온라인으로 구입할 수도 있습니다.  Azure AD Premium 가격 책정 및 온라인 주문 방법에 대한 자세한 내용은 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)에서 확인할 수 있습니다.
 
 ## <a name="azure-ad-privileged-identity-management-is-not-available-in-tenant"></a>Azure AD Privileged Identity Management를 테넌트에서 사용할 수 없음
 

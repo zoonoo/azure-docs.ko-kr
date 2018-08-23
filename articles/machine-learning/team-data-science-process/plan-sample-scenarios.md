@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 62e035c0d28a797ae08480b982598d8265b18767
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bf5ee52c98c173dbdde0a00c5657b8694b363279
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423847"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143027"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Azure Machine Learning의 고급 분석 시나리오
 이 문서에서는 [TDSP(팀 데이터 과학 프로세스)](overview.md)로 처리할 수 있는 다양한 샘플 데이터 원본 및 대상 시나리오를 안내합니다. TDSP는 지능형 응용 프로그램 개발을 위해 팀원들이 공동으로 작업하기 위한 체계적인 방법을 제공합니다. 여기에 제시된 시나리오는 Azure에서 데이터 특성, 원본 위치 및 대상 저장소를 기반으로 하는 데이터 처리 워크플로에서 사용 가능한 옵션을 보여 줍니다.
@@ -37,7 +37,7 @@ ms.locfileid: "39423847"
 > **이 모든 시나리오에서 다음을 수행해야 합니다.**
 > <br/>
 > 
-> * [저장소 계정을 만드는](../../storage/common/storage-create-storage-account.md)
+> * [저장소 계정을 만드는](../../storage/common/storage-quickstart-create-account.md)
 >   <br/>
 > * [Azure Machine Learning 작업 영역 만들기](../studio/create-workspace.md)
 > 
@@ -121,14 +121,14 @@ ms.locfileid: "39423847"
    
        blobs.
    
-   나.  필요한 경우, 데이터를 정리된 테이블 형식으로 변환합니다.
+   b.  필요한 경우, 데이터를 정리된 테이블 형식으로 변환합니다.
    
    다.  VM 로컬 파일에 데이터 저장합니다(IPython Notebook이 VM에서 실행되고, 로컬 드라이브가 VM 드라이브를 참조).
 1. Azure VM에서 실행되는 SQL Server 데이터베이스에 데이터를 로드 합니다.
    
    a.  SQL Server VM에 로그인합니다.
    
-   나.  데이터를 저장하지 경우, Azure에서 데이터 파일을 다운로드합니다.
+   b.  데이터를 저장하지 경우, Azure에서 데이터 파일을 다운로드합니다.
    
        storage container to local-VM folder.
    
@@ -166,7 +166,7 @@ ms.locfileid: "39423847"
    
    a.  SQL Server VM에 로그인합니다.
    
-   나.  Azure 저장소 컨테이너에서 로컬 VM 폴더로 데이터 파일을 다운로드합니다.
+   b.  Azure 저장소 컨테이너에서 로컬 VM 폴더로 데이터 파일을 다운로드합니다.
    
    다.  SQL Server Management Studio를 실행합니다.
    
@@ -210,7 +210,7 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
    
        blobs.
    
-   나.  필요한 경우, 데이터를 정리된 테이블 형식으로 변환합니다.
+   b.  필요한 경우, 데이터를 정리된 테이블 형식으로 변환합니다.
    
    다.  VM 로컬 파일에 데이터 저장합니다(IPython Notebook이 VM에서 실행되고, 로컬 드라이브가 VM 드라이브를 참조).
 1. 2단계에서 선택한 Hadoop 클러스터의 기본 컨테이너에 데이터를 업로드합니다.
@@ -218,7 +218,7 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
    
    a.  Hadoop 클러스터의 헤드 노드에 로그인
    
-   나.  Hadoop 명령줄을 엽니다.
+   b.  Hadoop 명령줄을 엽니다.
    
    다.  Hadoop 명령줄의 명령 `cd %hive_home%\bin` 로 Hive 루트 디렉터리를 입력합니다.
    
@@ -232,7 +232,7 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
    
    a.  Hadoop 클러스터의 헤드 노드에 로그인
    
-   나.  Hadoop 명령줄을 엽니다.
+   b.  Hadoop 명령줄을 엽니다.
    
    다.  Hadoop 명령줄의 명령 `cd %hive_home%\bin` 로 Hive 루트 디렉터리를 입력합니다.
    

@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: c43c15131afb5fbf346b0137dac566f5331c65a2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f89c97f1220c0e949912a3002021eca20f91441d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776375"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42140332"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>ASP.NET을 사용하여 푸시 알림에 현재 사용자 등록
 > [!div class="op_single_selector"]
@@ -107,7 +107,7 @@ ms.locfileid: "33776375"
     이 코드는 요청에 대한 장치 토큰을 설정합니다.
    
    > [!NOTE]
-   > 이때 이 메서드에 다른 코드가 있어서는 안 됩니다. **Notification Hubs 시작** 자습서를 완료할 때 추가된 [registerNativeWithDeviceToken](/manage/services/notification-hubs/get-started-notification-hubs-ios/) 메서드에 대한 호출이 이미 있는 경우 해당 호출을 주석으로 처리하거나 제거해야 합니다.
+   > 이때 이 메서드에 다른 코드가 있어서는 안 됩니다. **Notification Hubs 시작** 자습서를 완료할 때 추가된 [registerNativeWithDeviceToken](notification-hubs-ios-apple-push-notification-apns-get-started.md) 메서드에 대한 호출이 이미 있는 경우 해당 호출을 주석으로 처리하거나 제거해야 합니다.
    > 
    > 
 8. PushToUserAppDelegate.m 파일에서 다음 처리기 메서드를 추가합니다.
@@ -218,6 +218,6 @@ ms.locfileid: "33776375"
 [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
 
 <!-- URLs. -->
-[Notification Hubs를 통해 사용자에게 알림]: /manage/services/notification-hubs/notify-users-aspnet
+[Notification Hubs를 통해 사용자에게 알림]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 
-[Notification Hubs 시작]: /manage/services/notification-hubs/get-started-notification-hubs-ios
+[Notification Hubs 시작]: notification-hubs-ios-apple-push-notification-apns-get-started.md

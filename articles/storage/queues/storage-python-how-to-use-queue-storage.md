@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
 ms.component: queues
-ms.openlocfilehash: 975f76fa15507874a16b2b14c2988d618daf2b29
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8779b067c33ce76cd60b020e2952bcbccf0dd944
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520489"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42140540"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Python에서 큐 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -127,7 +127,7 @@ queue_service.delete_queue('taskqueue')
 ## <a name="next-steps"></a>다음 단계
 이제 큐 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 자세히 알아보세요.
 
-* [Python 개발자 센터](/develop/python/)
+* [Python 개발자 센터](https://azure.microsoft.com/develop/python/)
 * [Azure Storage 서비스 REST API](http://msdn.microsoft.com/library/azure/dd179355)
 * [Azure Storage 팀 블로그]
 * [Microsoft Azure Storage SDK for Python]
