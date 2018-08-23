@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 08/15/2018
 ms.author: anwestg
-ms.openlocfilehash: 22593fc470325fbfb74cfb432207abeea7d96ac2
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 9173dfcbb5f73c2292bce7d28c2dae5dbece79cd
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342785"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139582"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure Stack에 App Service 리소스 공급자 추가
 
@@ -28,7 +28,7 @@ ms.locfileid: "37342785"
 Azure Stack에서 App Service를 배포 하려면이 문서의 지침을 사용 합니다.
 
 >[!IMPORTANT]  
->Azure Stack 통합 시스템 1804 업데이트를 적용 하거나 Azure 앱 서비스 1.2를 배포 하기 전에 최신 Azure Stack 개발 키트 ASDK ()를 배포 합니다.
+>Azure Stack 통합 시스템 1807 업데이트를 적용 하거나 Azure 앱 서비스 1.3을 배포 하기 전에 최신 Azure Stack 개발 키트 ASDK ()를 배포 합니다.
 
 웹 및 API 응용 프로그램을 만드는 기능에 사용자를 제공할 수 있습니다. 를 사용자가 이러한 응용 프로그램을 만들 수 있도록 해야 합니다.
 
@@ -72,7 +72,7 @@ App Service 리소스 공급자를 배포 하려면 다음이 단계를 수행 �
      - Azure Active Directory (Azure AD)를 사용 하는 경우 Azure AD 관리자 계정 및 Azure Stack을 배포할 때 제공한 암호를 입력 합니다. 선택 **로그인**합니다.
      - Active Directory Federation Services (AD FS)를 사용 하는 경우에 관리자 계정을 제공 합니다. 예: cloudadmin@azurestack.local 암호를 입력 한 다음 선택 **로그인**합니다.
 
-   나. **Azure Stack 구독**를 선택 합니다 **공급자 구독 기본**입니다.
+   b. **Azure Stack 구독**를 선택 합니다 **공급자 구독 기본**입니다.
 
      >[!NOTE]
      >현재 App Service만에 배포할 수는 **기본 공급자 구독**합니다.
@@ -85,7 +85,7 @@ App Service 리소스 공급자를 배포 하려면 다음이 단계를 수행 �
 
    a. 선택 **기본 설정 사용 하 여 VNet 만들기**기본값을 적용 하 고 선택한 **다음**합니다.
 
-   나. 또는 선택할 **기존 VNet 및 서브넷을 사용 하 여**입니다. 다음 작업을 완료 합니다.
+   b. 또는 선택할 **기존 VNet 및 서브넷을 사용 하 여**입니다. 다음 작업을 완료 합니다.
 
      - 선택 된 **리소스 그룹** 가상 네트워크를 포함 하는 합니다.
      - 선택 된 **가상 네트워크** 에 배포 하려는 이름입니다.
@@ -105,7 +105,7 @@ App Service 리소스 공급자를 배포 하려면 다음이 단계를 수행 �
 
    a. 에 **응용 프로그램 ID** 상자에 id (Azure AD)를에서 사용 하는 응용 프로그램에 대 한 GUID를 입력 합니다.
 
-   나. 에 **Id 응용 프로그램 인증서 파일** 상자, 입력 (또는 이동) 인증서 파일의 위치입니다.
+   b. 에 **Id 응용 프로그램 인증서 파일** 상자, 입력 (또는 이동) 인증서 파일의 위치입니다.
 
    다. 에 **Id 응용 프로그램 인증서 암호** 상자에 인증서에 대 한 암호를 입력 합니다. 이 암호는 인증서를 만드는 스크립트를 사용 하는 경우의 참고를 변경한 것입니다.
 
@@ -131,6 +131,18 @@ App Service 리소스 공급자를 배포 하려면 다음이 단계를 수행 �
 
     > [!NOTE]
     > 관리자는 계속 진행 하기 전에 SQL Server에 대 한 연결을 테스트 하려고 합니다. 그러나 기존 가상 네트워크에 배포 하는 경우이 연결 테스트 파일 수 있습니다. 계속 하려면 경고 및 프롬프트를 지정 하는 합니다. SQL Server 정보가 올바른 경우 배포를 계속 합니다.
+    >
+    > Azure Stack 1.3 이상에서 Azure App Service에서 설치 관리자는 SQL Server SQL Server 수준에서 사용 하도록 설정 하는 데이터베이스 포함에 있는지 확인 합니다.  없는 경우 예외가 발생 하 여 묻는 메시지가 나타납니다.
+    > ```sql
+    >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
+    >    ***********************************************************
+    >    sp_configure 'contained database authentication', 1;  
+    >    GO  
+    >    RECONFIGURE;  
+    >    GO
+    >    ***********************************************************
+    > ```
+    > 참조 된 [Azure Stack 1.3에서 Azure App Service에 대 한 릴리스 정보](azure-stack-app-service-release-notes-update-three.md) 대 한 자세한 내용은 합니다.
 
     ![App Service 설치 관리자][11]
 
@@ -158,7 +170,7 @@ App Service 리소스 공급자를 배포 하려면 다음이 단계를 수행 �
 
      a. 작업자 역할 가상 머신 관리자 사용자 이름 및 암호를 입력 합니다.
 
-     나. 기타 역할 가상 머신 관리자 사용자 이름 및 암호를 입력 합니다.
+     b. 기타 역할 가상 머신 관리자 사용자 이름 및 암호를 입력 합니다.
 
      다. **다음**을 선택합니다.
 
@@ -168,7 +180,7 @@ App Service 리소스 공급자를 배포 하려면 다음이 단계를 수행 �
 
     a. 선택 사항을 확인 합니다. 변경 하려면 사용 합니다 **이전** 이전 페이지를 방문 하는 단추입니다.
 
-    나. 구성이 올바른 경우 확인란을 선택 합니다.
+    b. 구성이 올바른 경우 확인란을 선택 합니다.
 
     다. 배포를 시작 하려면 **다음**합니다.
 
@@ -178,7 +190,7 @@ App Service 리소스 공급자를 배포 하려면 다음이 단계를 수행 �
 
     a. 설치 진행률을 추적 합니다. Azure Stack에서 app Service는 기본 선택 사항을 기반 배포를 약 60 분.
 
-    나. 설치 관리자를 성공적으로 완료 되 면 선택 **종료**합니다.
+    b. 설치 관리자를 성공적으로 완료 되 면 선택 **종료**합니다.
 
     ![App Service 설치 관리자][17]
 

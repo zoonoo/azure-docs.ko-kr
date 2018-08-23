@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 08/15/2018
 ms.author: jeffgo
-ms.openlocfilehash: 5af8380accc23a62baf04b842430e692fdff3692
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d24902b894a632e9fe8c57f2fb2b652b44ab128c
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443555"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42139549"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Azure Stack에 대 한 Red Hat 기반 가상 머신 준비
 
@@ -40,7 +40,7 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
 * Linux 운영 체제를 설치하는 경우 설치 기본값인 경우가 많은 LVM(논리 볼륨 관리자)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이 방법은 특히 문제 해결에 대 한 다른 동일한 가상 컴퓨터에 운영 체제 디스크를 연결 해야 하는 경우 복제 된 가상 머신과 LVM 이름이 충돌을 방지 합니다.
 * UDF(범용 디스크 형식) 파일 시스템을 탑재하기 위한 커널 지원이 필요합니다. 게스트에 연결 된 UDF 형식의 미디어 처음 부팅 시 Linux 가상 머신을 프로 비전 구성을 전달 합니다. Azure Linux 에이전트는 해당 구성을 읽고 가상 머신을 프로 비전을 위해 UDF 파일 시스템을 탑재 해야 합니다.
 * 운영 체제 디스크에서는 스왑 파티션을 구성하지 마세요. 임시 리소스 디스크에서 스왑 파일을 만들도록 Linux 에이전트를 구성할 수 있습니다. 다음 단계에서에 대 한 자세한 정보를 찾을 수 있습니다.
-* Azure의 모든 Vhd는 가상 크기가 1MB로 정렬 있어야 합니다. 원시 디스크에서 VHD로 변환할 때 원시 디스크 크기가 변환 전에 1MB의 배수 인지 확인 해야 합니다. 자세한 내용은 아래 단계에서 찾을 수 있습니다.
+* Azure의 모든 Vhd는 가상 크기가 1MB로 정렬 있어야 합니다. 으로 변환할 때 원시 디스크를 VHD로 변환 하기 전에 1MB의 배수 원시 디스크 크기는 확인 해야 합니다. 자세한 내용은 아래 단계에서 찾을 수 있습니다.
 * Azure Stack에서 cloud-init를 지원 하지 않습니다. 지원 되는 Windows Azure Linux 에이전트 (WALA)의 버전을 사용 하 여 VM은 구성 해야 합니다.
 
 ### <a name="prepare-a-rhel-7-virtual-machine-from-hyper-v-manager"></a>Hyper-V 관리자에서 RHEL 7 가상 머신 준비
@@ -71,14 +71,14 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
 
 1. 다음 명령을 실행 하 여 네트워크 서비스 부팅 시 시작 해야 합니다.
 
-    ```sh
-    # sudo systemctl enable network
+    ```bash
+    sudo systemctl enable network
     ```
 
 1. RHEL 리포지토리에서 패키지 설치를 사용하도록 다음 명령을 실행하여 Red Hat 구독을 등록합니다.
 
-    ```sh
-    # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
+    ```bash
+    sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
 1. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 수정 하려면 엽니다 `/etc/default/grub` 텍스트 편집기에서 수정 하 고는 `GRUB_CMDLINE_LINUX` 매개 변수입니다. 예: 
@@ -87,7 +87,7 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
     ```
 
-   이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 도움이 될 수 있습니다 Azure 보내집니다는 문제를 디버깅 하는 지원 합니다. 이 구성은 NIC에 대한 새 RHEL 7 명명 규칙도 해제합니다. 
+   이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 도움이 될 수 있습니다 Azure 보내집니다는 문제를 디버깅 하는 지원 합니다. 이 구성은 NIC에 대한 새 RHEL 7 명명 규칙도 해제합니다.
 
    모든 로그를 직렬 포트로 보내려는 클라우드 환경에서는 그래픽 및 자동 부팅 기능이 효율적이지 않습니다. 원할 경우 `crashkernel` 옵션은 구성된 상태로 둘 수 있습니다. 이 매개 변수는 가상 머신의 사용 가능한 메모리 양을 128MB 이상 줄입니다. 이 방식은 좀 더 작은 가상 머신 크기에서는 문제가 될 수도 있습니다. 다음 매개 변수를 제거 하는 것이 좋습니다.
 
@@ -97,8 +97,8 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
 
 1. `/etc/default/grub`편집을 완료한 후에 다음 명령을 실행하여 grub 구성을 다시 빌드합니다.
 
-    ```sh
-    # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+    ```bash
+    sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
 1. SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다. 이것이 일반적으로 기본값입니다. 다음 줄을 포함하도록 `/etc/ssh/sshd_config` 을 수정합니다.
@@ -109,15 +109,15 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
 
 1. WALinuxAgent 패키지 `WALinuxAgent-<version>`은 Red Hat 기타 리포지토리에 푸시되었습니다. 다음 명령을 실행하여 기타 리포지토리를 사용합니다.
 
-    ```sh
-    # subscription-manager repos --enable=rhel-7-server-extras-rpms
+    ```bash
+    subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
 1. 다음 명령을 실행하여 Azure Linux 에이전트를 설치합니다.
 
-    ```sh
-    # sudo yum install WALinuxAgent
-    # sudo systemctl enable waagent.service
+    ```bash
+    sudo yum install WALinuxAgent
+    sudo systemctl enable waagent.service
     ```
 
 1. 운영 체제 디스크에 스왑 공간을 만들지 마세요.
@@ -129,23 +129,23 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
     ResourceDisk.Filesystem=ext4
     ResourceDisk.MountPoint=/mnt/resource
     ResourceDisk.EnableSwap=y
-    ResourceDisk.SwapSizeMB=2048    # NOTE: set this to whatever you need it to be.
+    ResourceDisk.SwapSizeMB=2048    #NOTE: set this to whatever you need it to be.
     ```
 
 1. 구독에 대한 등록을 해제하려면 다음 명령을 실행합니다.
 
-    ```sh
-    # sudo subscription-manager unregister
+    ```bash
+    sudo subscription-manager unregister
     ```
 
 1. 엔터프라이즈 인증 기관을 사용 하 여 배포 된 시스템을 사용 하는 경우 RHEL 가상 머신에 Azure Stack 루트 인증서를 신뢰 하지 않게 됩니다. 신뢰할 수 있는 루트 저장소에 배치 해야 합니다. 참조 [신뢰할 수 있는 추가 루트 인증서를 서버](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)합니다.
 
 1. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
-    ```sh
-    # sudo waagent -force -deprovision
-    # export HISTSIZE=0
-    # logout
+    ```bash
+    sudo waagent -force -deprovision
+    export HISTSIZE=0
+    logout
     ```
 
 1. Hyper-V 관리자에서 **작업** > **종료**를 클릭합니다.
@@ -160,14 +160,14 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
 
     암호화된 암호를 생성하고 명령 출력을 복사합니다.
 
-    ```sh
-    # openssl passwd -1 changeme
+    ```bash
+    openssl passwd -1 changeme
     ```
 
    guestfish 루트 암호를 설정합니다.
 
     ```sh
-    # guestfish --rw -a <image-name>
+    guestfish --rw -a <image-name>
     > <fs> run
     > <fs> list-filesystems
     > <fs> mount /dev/sda1 /
@@ -201,14 +201,14 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
 
 1. 다음 명령을 실행 하 여 네트워크 서비스 부팅 시 시작 해야 합니다.
 
-    ```sh
-    # sudo systemctl enable network
+    ```bash
+    sudo systemctl enable network
     ```
 
 1. RHEL 리포지토리에서 패키지 설치를 사용하도록 다음 명령을 실행하여 Red Hat 구독을 등록합니다.
 
-    ```sh
-    # subscription-manager register --auto-attach --username=XXX --password=XXX
+    ```bash
+    subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
 1. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이 구성을 수행 하려면 엽니다 `/etc/default/grub` 텍스트 편집기에서 수정 된 `GRUB_CMDLINE_LINUX` 매개 변수. 예: 
@@ -227,8 +227,8 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
 
 1. `/etc/default/grub`편집을 완료한 후에 다음 명령을 실행하여 grub 구성을 다시 빌드합니다.
 
-    ```sh
-    # grub2-mkconfig -o /boot/grub2/grub.cfg
+    ```bash
+    grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
 1. Hyper-V 모듈을 initramfs에 추가합니다.
@@ -241,20 +241,20 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
 
     Initramfs를 다시 빌드합니다.
 
-    ```sh
-    # dracut -f -v
+    ```bash
+    dracut -f -v
     ```
 
 1. Cloud-Init을 제거합니다.
 
-    ```sh
-    # yum remove cloud-init
+    ```bash
+    yum remove cloud-init
     ```
 
 1. SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다.
 
-    ```sh
-    # systemctl enable sshd
+    ```bash
+    systemctl enable sshd
     ```
 
     다음 줄을 포함하도록 /etc/ssh/sshd_config를 수정합니다.
@@ -266,20 +266,20 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
 
 1. WALinuxAgent 패키지 `WALinuxAgent-<version>`은 Red Hat 기타 리포지토리에 푸시되었습니다. 다음 명령을 실행하여 기타 리포지토리를 사용합니다.
 
-    ```sh
-    # subscription-manager repos --enable=rhel-7-server-extras-rpms
+    ```bash
+    subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
 1. 다음 명령을 실행하여 Azure Linux 에이전트를 설치합니다.
 
-    ```sh
-    # yum install WALinuxAgent
+    ```bash
+    yum install WALinuxAgent
     ```
 
     waagent 서비스를 사용하도록 설정합니다.
 
-    ```sh
-    # systemctl enable waagent.service
+    ```bash
+    systemctl enable waagent.service
     ```
 
 1. 운영 체제 디스크에 스왑 공간을 만들지 마세요.
@@ -291,23 +291,23 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
     ResourceDisk.Filesystem=ext4
     ResourceDisk.MountPoint=/mnt/resource
     ResourceDisk.EnableSwap=y
-    ResourceDisk.SwapSizeMB=2048    # NOTE: set this to whatever you need it to be.
+    ResourceDisk.SwapSizeMB=2048    #NOTE: set this to whatever you need it to be.
     ```
 
 1. 다음 명령을 실행하여 (필요한 경우) 구독에 대한 등록을 해제합니다.
 
-    ```sh
-    # subscription-manager unregister
+    ```bash
+    subscription-manager unregister
     ```
 
 1. 엔터프라이즈 인증 기관을 사용 하 여 배포 된 시스템을 사용 하는 경우 RHEL 가상 머신에 Azure Stack 루트 인증서를 신뢰 하지 않게 됩니다. 신뢰할 수 있는 루트 저장소에 배치 해야 합니다. 참조 [신뢰할 수 있는 추가 루트 인증서를 서버](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)합니다.
 
 1. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
-    ```sh
-    # sudo waagent -force -deprovision
-    # export HISTSIZE=0
-    # logout
+    ```bash
+    sudo waagent -force -deprovision
+    export HISTSIZE=0
+    logout
     ```
 
 1. KVM의 가상 머신을 종료합니다.
@@ -319,30 +319,30 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
 
     우선 이미지를 원시 형식으로 변환합니다.
 
-    ```sh
-    # qemu-img convert -f qcow2 -O raw rhel-7.4.qcow2 rhel-7.4.raw
+    ```bash
+    qemu-img convert -f qcow2 -O raw rhel-7.4.qcow2 rhel-7.4.raw
     ```
 
     원시 이미지의 크기가 1MB로 정렬되는지 확인합니다. 그렇지 않은 경우 1MB에 맞게 크기를 반올림합니다.
 
-    ```sh
-    # MB=$((1024*1024))
-    # size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
+    ```bash
+    MB=$((1024*1024))
+    size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
     gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-    # rounded_size=$((($size/$MB + 1)*$MB))
-    # qemu-img resize rhel-7.4.raw $rounded_size
+    rounded_size=$((($size/$MB + 1)*$MB))
+    qemu-img resize rhel-7.4.raw $rounded_size
     ```
 
     원시 디스크를 고정 크기 VHD로 변환합니다.
 
-    ```sh
-    # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
+    ```bash
+    qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
     또는, qemu 버전 **2.6 +** 는 `force_size` 옵션을 포함합니다.
 
-    ```sh
-    # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
+    ```bash
+    qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>VMware에서 RedHat 기반 가상 머신 준비
@@ -377,14 +377,14 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
 
 1. 다음 명령을 실행하여 부팅 시 네트워크 서비스가 시작되도록 합니다.
 
-    ```sh
-    # sudo chkconfig network on
+    ```bash
+    sudo chkconfig network on
     ```
 
 1. RHEL 리포지토리에서 패키지 설치를 사용하도록 다음 명령을 실행하여 Red Hat 구독을 등록합니다.
 
-    ```sh
-    # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
+    ```bash
+    sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
 1. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 수정 하려면 엽니다 `/etc/default/grub` 텍스트 편집기에서 수정 하 고는 `GRUB_CMDLINE_LINUX` 매개 변수입니다. 예: 
@@ -403,8 +403,8 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
 
 1. `/etc/default/grub`편집을 완료한 후에 다음 명령을 실행하여 grub 구성을 다시 빌드합니다.
 
-    ```sh
-    # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+    ```bash
+    sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
 1. Hyper-V 모듈을 initramfs에 추가합니다.
@@ -417,8 +417,8 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
 
     Initramfs를 다시 빌드합니다.
 
-    ```sh
-    # dracut -f -v
+    ```bash
+    dracut -f -v
     ```
 
 1. SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다. 이 설정이 일반적으로 기본값입니다. 다음 줄을 포함하도록 `/etc/ssh/sshd_config` 을 수정합니다.
@@ -429,15 +429,15 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
 
 1. WALinuxAgent 패키지 `WALinuxAgent-<version>`은 Red Hat 기타 리포지토리에 푸시되었습니다. 다음 명령을 실행하여 기타 리포지토리를 사용합니다.
 
-    ```sh
-    # subscription-manager repos --enable=rhel-7-server-extras-rpms
+    ```bash
+    subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
 1. 다음 명령을 실행하여 Azure Linux 에이전트를 설치합니다.
 
-    ```sh
-    # sudo yum install WALinuxAgent
-    # sudo systemctl enable waagent.service
+    ```bash
+    sudo yum install WALinuxAgent
+    sudo systemctl enable waagent.service
     ```
 
 1. 운영 체제 디스크에 스왑 공간을 만들지 마세요.
@@ -449,56 +449,56 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
     ResourceDisk.Filesystem=ext4
     ResourceDisk.MountPoint=/mnt/resource
     ResourceDisk.EnableSwap=y
-    ResourceDisk.SwapSizeMB=2048    # NOTE: set this to whatever you need it to be.
+    ResourceDisk.SwapSizeMB=2048    NOTE: set this to whatever you need it to be.
     ```
 
 1. 구독에 대한 등록을 해제하려면 다음 명령을 실행합니다.
 
-    ```sh
-    # sudo subscription-manager unregister
+    ```bash
+    sudo subscription-manager unregister
     ```
 
 1. 엔터프라이즈 인증 기관을 사용 하 여 배포 된 시스템을 사용 하는 경우 RHEL 가상 머신에 Azure Stack 루트 인증서를 신뢰 하지 않게 됩니다. 신뢰할 수 있는 루트 저장소에 배치 해야 합니다. 참조 [신뢰할 수 있는 추가 루트 인증서를 서버](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)합니다.
 
 1. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
-    ```sh
-    # sudo waagent -force -deprovision
-    # export HISTSIZE=0
-    # logout
+    ```bash
+    sudo waagent -force -deprovision
+    export HISTSIZE=0
+    logout
     ```
 
 1. 가상 머신을 종료하고 VMDK 파일을 VHD 형식으로 변환합니다.
 
     > [!NOTE]
-    > VHD 형식이 잘못 지정되는 qemu-img 버전 >=2.2.1에 알려진 버그가 있습니다. 이 문제는 QEMU 2.6에서 해결되었습니다. qemu-img 2.2.0 이하 버전을 사용하거나 2.6 이상으로 업데이트하는 것이 좋습니다. 참조: <https://bugs.launchpad.net/qemu/+bug/1490611.>
+    > VHD 형식이 잘못 지정되는 qemu-img 버전 >=2.2.1에 알려진 버그가 있습니다. 이 문제는 QEMU 2.6에서 해결되었습니다. qemu-img 2.2.0 이하 버전을 사용하거나 2.6 이상으로 업데이트하는 것이 좋습니다. 참조: <https://bugs.launchpad.net/qemu/+bug/1490611>
 
     우선 이미지를 원시 형식으로 변환합니다.
 
-    ```sh
-    # qemu-img convert -f qcow2 -O raw rhel-7.4.qcow2 rhel-7.4.raw
+    ```bash
+    qemu-img convert -f qcow2 -O raw rhel-7.4.qcow2 rhel-7.4.raw
     ```
 
     원시 이미지의 크기가 1MB로 정렬되는지 확인합니다. 그렇지 않은 경우 1MB에 맞게 크기를 반올림합니다.
 
-    ```sh
-    # MB=$((1024*1024))
-    # size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
+    ```bash
+    MB=$((1024*1024))
+    size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
     gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-    # rounded_size=$((($size/$MB + 1)*$MB))
-    # qemu-img resize rhel-7.4.raw $rounded_size
+    rounded_size=$((($size/$MB + 1)*$MB))
+    qemu-img resize rhel-7.4.raw $rounded_size
     ```
 
     원시 디스크를 고정 크기 VHD로 변환합니다.
 
-    ```sh
-    # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
+    ```bash
+    qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
     또는, qemu 버전 **2.6 +** 는 `force_size` 옵션을 포함합니다.
 
-    ```sh
-    # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
+    ```bash
+    qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-an-iso-by-using-a-kickstart-file-automatically"></a>자동으로 kickstart 파일을 사용하여 ISO에서 Red Hat 기반 가상 머신 준비
@@ -506,58 +506,58 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
 1. 다음 콘텐츠를 포함하는 kickstart 파일을 만들고 저장합니다. Kickstart 설치에 대한 자세한 내용은 [Kickstart 설치 가이드](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html)를 참조하세요.
 
     ```sh
-    # Kickstart for provisioning a RHEL 7 Azure VM
+    Kickstart for provisioning a RHEL 7 Azure VM
 
-    # System authorization information
+    System authorization information
     auth --enableshadow --passalgo=sha512
 
-    # Use graphical install
+    Use graphical install
     text
 
-    # Do not run the Setup Agent on first boot
+    Do not run the Setup Agent on first boot
     firstboot --disable
 
-    # Keyboard layouts
+    Keyboard layouts
     keyboard --vckeymap=us --xlayouts='us'
 
-    # System language
+    System language
     lang en_US.UTF-8
 
-    # Network information
+    Network information
     network  --bootproto=dhcp
 
-    # Root password
+    Root password
     rootpw --plaintext "to_be_disabled"
 
-    # System services
+    System services
     services --enabled="sshd,waagent,NetworkManager"
 
-    # System timezone
+    System timezone
     timezone Etc/UTC --isUtc --ntpservers 0.rhel.pool.ntp.org,1.rhel.pool.ntp.org,2.rhel.pool.ntp.org,3.rhel.pool.ntp.org
 
-    # Partition clearing information
+    Partition clearing information
     clearpart --all --initlabel
 
-    # Clear the MBR
+    Clear the MBR
     zerombr
 
-    # Disk partitioning information
+    Disk partitioning information
     part /boot --fstype="xfs" --size=500
     part / --fstyp="xfs" --size=1 --grow --asprimary
 
-    # System bootloader configuration
+    System bootloader configuration
     bootloader --location=mbr
 
-    # Firewall configuration
+    Firewall configuration
     firewall --disabled
 
-    # Enable SELinux
+    Enable SELinux
     selinux --enforcing
 
-    # Don't configure X
+    Don't configure X
     skipx
 
-    # Power down the machine after install
+    Power down the machine after install
     poweroff
 
     %packages
@@ -574,41 +574,41 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
 
     #!/bin/bash
 
-    # Register Red Hat Subscription
+    Register Red Hat Subscription
     subscription-manager register --username=XXX --password=XXX --auto-attach --force
 
-    # Install latest repo update
+    Install latest repo update
     yum update -y
 
-    # Enable extras repo
+    Enable extras repo
     subscription-manager repos --enable=rhel-7-server-extras-rpms
 
-    # Install WALinuxAgent
+    Install WALinuxAgent
     yum install -y WALinuxAgent
 
-    # Unregister Red Hat subscription
+    Unregister Red Hat subscription
     subscription-manager unregister
 
-    # Enable waaagent at boot-up
+    Enable waaagent at boot-up
     systemctl enable waagent
 
-    # Disable the root account
+    Disable the root account
     usermod root -p '!!'
 
-    # Configure swap in WALinuxAgent
+    Configure swap in WALinuxAgent
     sed -i 's/^\(ResourceDisk\.EnableSwap\)=[Nn]$/\1=y/g' /etc/waagent.conf
     sed -i 's/^\(ResourceDisk\.SwapSizeMB\)=[0-9]*$/\1=2048/g' /etc/waagent.conf
 
-    # Set the cmdline
+    Set the cmdline
     sed -i 's/^\(GRUB_CMDLINE_LINUX\)=".*"$/\1="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"/g' /etc/default/grub
 
-    # Enable SSH keepalive
+    Enable SSH keepalive
     sed -i 's/^#\(ClientAliveInterval\).*$/\1 180/g' /etc/ssh/sshd_config
 
-    # Build the grub cfg
+    Build the grub cfg
     grub2-mkconfig -o /boot/grub2/grub.cfg
 
-    # Configure network
+    Configure network
     cat << EOF > /etc/sysconfig/network-scripts/ifcfg-eth0
     DEVICE=eth0
     ONBOOT=yes
@@ -620,7 +620,7 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
     NM_CONTROLLED=no
     EOF
 
-    # Deprovision and prepare for Azure
+    Deprovision and prepare for Azure
     waagent -force -deprovision
 
     %end
@@ -634,7 +634,7 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
 
     a. 새 가상 하드 디스크를 가상 머신에 연결합니다. **VHD 형식** 및 **고정된 크기**를 선택하도록 합니다.
 
-    나. 설치 ISO를 DVD 드라이브에 연결합니다.
+    b. 설치 ISO를 DVD 드라이브에 연결합니다.
 
     다. CD에서 부팅하도록 BIOS를 설정합니다.
 
@@ -656,15 +656,15 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
 
 `/etc/dracut.conf`를 편집하고 다음 내용을 추가합니다.
 
-```sh
-add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
-```
+    ```sh
+    add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+    ```
 
 Initramfs를 다시 빌드합니다.
 
-```sh
-# dracut -f -v
-```
+    ```bash
+    dracut -f -v
+    ```
 
 자세한 내용은 [initramfs 다시 작성](https://access.redhat.com/solutions/1958)합니다.
 

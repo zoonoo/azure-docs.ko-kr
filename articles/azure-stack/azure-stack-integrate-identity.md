@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/07/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: c22831ae781239f2474720ee9cd1b58f6e14fe41
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 9bbe55e08d7a005d38c5608df39f9285d79eb203
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412868"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42139537"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 데이터 센터 통합-Identity
 Id 공급자로 Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)를 사용 하 여 Azure Stack을 배포할 수 있습니다. Azure Stack을 배포 하기 전에 선택을 해야 합니다. AD FS를 사용 하 여 배포를 오프 라인된 모드에서 Azure Stack 배포는 라고도 합니다.
@@ -151,7 +151,7 @@ Azure Stack에서 그래프 서비스 대상 Active Directory와 통신 하는 �
 
 ## <a name="setting-up-ad-fs-integration-by-providing-federation-metadata-file"></a>페더레이션 메타 데이터 파일을 제공 하 여 AD FS 통합 설정
 
-다음 조건 중 하나에 해당할 경우이 메서드를 사용 합니다.
+버전 1807 사용 하 여를 사용 하 여이 메서드는 다음 조건 중 하나에 해당할 경우:
 
 - Azure Stack의 다른 모든 끝점에 비교 하는 AD FS 인증서 체인이 다릅니다.
 - Azure Stack의 AD FS 인스턴스에서 기존 AD FS 서버에 없는 네트워크로 연결 되어 있습니다.
@@ -163,6 +163,8 @@ Azure Stack에서 그래프 서비스 대상 Active Directory와 통신 하는 �
 |---------|---------|---------|
 |CustomAdfsName|클레임 공급자의 이름입니다. 이런 방식으로 AD FS 방문 페이지에 표시 됩니다.|Contoso|
 |CustomADFSFederationMetadataFileContent|메타 데이터 콘텐츠|$using: federationMetadataFileContent|
+
+
 
 ### <a name="create-federation-metadata-file"></a>페더레이션 메타 데이터 파일 만들기
 

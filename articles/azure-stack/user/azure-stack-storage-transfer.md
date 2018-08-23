@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.date: 07/03/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 1adfd5dc21a7cab207fa14eeecc21d02507277f8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 91ba9b388566cc72f3024943005af499b7c3f3ec
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444139"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42139337"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Azure Stack 저장소에 대 한 데이터 전송 도구를 사용 합니다.
 
@@ -148,7 +148,7 @@ Azure Stack 호환 가능한 Azure PowerShell 모듈은 Azure Stack을 사용 �
 
 1. 설치할 [Azure Stack 호환 Azure PowerShell 모듈](azure-stack-powershell-install.md)합니다.
 2. 일관 된 [azure storage: 차이점 및 고려 사항](azure-stack-powershell-download.md).
-3. Microsoft Azure storage 소개
+3. 열기 **Windows PowerShell ISE** 및 **관리자 권한으로 실행**, 클릭 **파일** > **새** 를 새 스크립트 파일을 만듭니다.
 4. 아래 스크립트를 복사 하 고 새 스크립트 파일에 붙여 넣습니다.
 5. 구성 설정에 따라 스크립트 변수를 업데이트 합니다.
    > [!NOTE]
@@ -221,9 +221,9 @@ $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 
 ### <a name="powershell-known-issues"></a>PowerShell의 알려진 문제
 
-Azure Stack에 대 한 현재 호환 가능한 Azure PowerShell 모듈 버전 1.3.0 됩니다. 최신 버전의 Azure PowerShell에서 다릅니다. 이 차이 저장소 서비스 작업에 영향을 줍니다.
+Azure Stack에 대 한 현재 호환 가능한 Azure PowerShell 모듈 버전 1.2.11 사용자 작업에 대 한 경우 최신 버전의 Azure PowerShell에서 다릅니다. 이 차이 저장소 서비스 작업에 영향을 줍니다.
 
-* 반환 값 형식을 `Get-AzureRmStorageAccountKey` 버전 1.3.0에 두 개의 속성이: `Key1` 및 `Key2`반면 현재 Azure 버전 모든 account 키를 포함 하는 배열을 반환 합니다.
+* 반환 값 형식을 `Get-AzureRmStorageAccountKey` 버전에서 1.2.11는 두 개의 속성이: `Key1` 및 `Key2`반면 현재 Azure 버전 모든 account 키를 포함 하는 배열을 반환 합니다.
 
    ```
    # This command gets a specific key for a storage account, 

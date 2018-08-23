@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: efd1c1eafbff8bf56b16131e44cff6b03ce7338a
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: bb46881425398618df54288a9d2e6d65bb03dad4
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264813"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139563"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Azure Stack에서 테 넌 트 등록 관리
 
@@ -86,10 +86,10 @@ New-azurermresource cmdlet을 사용 하 여 등록 리소스를 업데이트 �
 
 ### <a name="powershell"></a>PowerShell
 
-Get-AzureRmResovurce cmdlet를 사용 하 여 등록 된 모든 테 넌 트를 나열 합니다. Azure에 로그인 (`Add-AzureRmAccount`) 초기 등록에 사용한 계정을 사용 합니다. 테 넌 트를 추가 하는 방법의 예는 다음과 같습니다.
+등록 된 모든 테 넌 트를 나열 하려면 Get AzureRmResource cmdlet을 사용 합니다. Azure에 로그인 (`Add-AzureRmAccount`) 초기 등록에 사용한 계정을 사용 합니다. 테 넌 트를 추가 하는 방법의 예는 다음과 같습니다.
 
 ```powershell
-  Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
+  Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
 ```
 
 ### <a name="api-call"></a>API 호출

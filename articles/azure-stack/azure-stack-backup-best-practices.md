@@ -3,7 +3,7 @@ title: Azure Stack 인프라 백업 서비스 모범 사례 | Microsoft Docs
 description: 배포 하 고 치명적인 오류가 발생 하는 경우 데이터 손실 위험을 완화 하려면 데이터 센터에서 Azure Stack을 관리 하는 경우 몇 가지 모범 사례를 따르면 됩니다.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: 221FDE40-3EF8-4F54-A075-0C4D66EECE1A
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/20/2017
-ms.author: mabrigg
+ms.date: 08/01/2018
+ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 4a0166856cf4d3f91c6cadf3e71f93000fbf158d
-ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
+ms.openlocfilehash: 08d8822410545fb0ae3a2a99de00b38566c9834c
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39242974"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42139497"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>인프라 Backup 서비스에 대 한 유용한 정보
 
@@ -34,7 +34,7 @@ ms.locfileid: "39242974"
 
 ### <a name="deployment"></a>배포
 
-각 Azure Stack 클라우드에 배포 된 후 인프라 Backup을 사용 합니다. 도구로 AzureStack-연산자 관리 API 끝점에 대 한 액세스를 사용 하 여 모든 클라이언트/서버에서 백업을 예약할 수 있습니다.
+각 Azure Stack 클라우드에 배포 된 후 인프라 Backup을 사용 합니다. Azure Stack PowerShell을 사용 하 여 연산자 관리 API 끝점에 대 한 액세스를 사용 하 여 모든 클라이언트/서버에서 백업을 예약할 수 있습니다.
 
 ### <a name="networking"></a>네트워킹
 

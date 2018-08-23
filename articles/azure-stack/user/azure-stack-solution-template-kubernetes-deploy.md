@@ -11,29 +11,28 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 08/09/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 1fb7716ff1b5ce661dff55c3a8dac90a062fad53
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: f6a2b3f242e5989d0c72083eef4faad9c4798cfe
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630785"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42139580"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>Azure Stack에 Kubernetes 클러스터 배포
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 > [!Note]  
-> Azure Stack에서 Azure 컨테이너 서비스 (ACS) Kubernetes 비공개 미리 보기입니다. 귀하가 Azure Stack 운영자는이 문서의 지침을 수행 하는 데 필요한 Kubernetes Marketplace 항목에 대 한 액세스를 요청 해야 합니다.
-<!-- Should "Azure Container Services" be replaced globally with Azure Kubernetes Services? It seems the Azure container page is now redirectin to Azure Kubernetes https://azure.microsoft.com/en-us/services/container-service -->
+> Azure Stack에서 Azure Kubernetes 서비스 (AKS) Kubernetes 비공개 미리 보기입니다. 귀하가 Azure Stack 운영자는이 문서의 지침을 수행 하는 데 필요한 Kubernetes Marketplace 항목에 대 한 액세스를 요청 해야 합니다.
 
 다음 문서를 배포 하 고 조정 된 단일 작업에서 Kubernetes에 대 한 리소스를 프로 비전 하는 Azure Resource Manager 솔루션 템플릿을 사용 하 여 살펴봅니다. 필요한 Azure Stack 설치에 대 한 필요한 정보를 수집 하려면 템플릿을 생성을을 클라우드에 배포 합니다.
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes 및 컨테이너
 
-Azure Stack에서 Azure 컨테이너 서비스 (ACS) 엔진에서 생성 하는 Azure Resource Manager 템플릿을 사용 하 여 Kubernetes를 설치할 수 있습니다. [Kubernetes](https://kubernetes.io) 는 배포를 자동화 하기 위한 오픈 소스 시스템 크기 조정 및 컨테이너의 응용 프로그램 관리. A [컨테이너](https://www.docker.com/what-container) VM에는 이미지에 포함 되어 있습니다. 컨테이너 이미지에는 VM과 달리 코드, 특정 라이브러리 및 설정을 실행 하기 위해 런타임 코드와 같은 응용 프로그램을 실행 하는 데 필요한 리소스만 포함 됩니다.
+Azure Stack에서 Azure Kubernetes 서비스 (AKS) 엔진에서 생성 하는 Azure Resource Manager 템플릿을 사용 하 여 Kubernetes를 설치할 수 있습니다. [Kubernetes](https://kubernetes.io) 는 배포를 자동화 하기 위한 오픈 소스 시스템 크기 조정 및 컨테이너의 응용 프로그램 관리. A [컨테이너](https://www.docker.com/what-container) VM에는 이미지에 포함 되어 있습니다. 컨테이너 이미지에는 VM과 달리 코드, 특정 라이브러리 및 설정을 실행 하기 위해 런타임 코드와 같은 응용 프로그램을 실행 하는 데 필요한 리소스만 포함 됩니다.
 
 Kubernetes에서 사용할 수 있습니다.
 
@@ -65,7 +64,7 @@ Kubernetes에서 사용할 수 있습니다.
 
     a. 선택 **Azure Active Directory** > **+ 앱 등록** > **새 응용 프로그램 등록**합니다.
 
-    나. 입력을 **이름** 응용 프로그램입니다.
+    b. 입력을 **이름** 응용 프로그램입니다.
 
     다. 선택 **웹 앱 / API**합니다.
 
@@ -73,13 +72,13 @@ Kubernetes에서 사용할 수 있습니다.
 
     다. **만들기**를 클릭합니다.
 
-1. 기록해는 **응용 프로그램 ID**합니다. 클러스터를 만들 때 ID가 필요 합니다. ID로 참조 되 **서비스 주체 클라이언트 ID**합니다.
+1. **응용 프로그램 ID**를 적어 둡니다. 클러스터를 만들 때 ID가 필요 합니다. ID로 참조 되 **서비스 주체 클라이언트 ID**합니다.
 
 1. 선택 **설정을** > **키**합니다.
 
     a. 입력 된 **설명을**합니다.
 
-    나. 선택 **무기한** 에 대 한 **Expires**합니다.
+    b. 선택 **무기한** 에 대 한 **Expires**합니다.
 
     다. **저장**을 선택합니다. 키 문자열을 기록 하십시오. 클러스터를 만들 때 키 문자열을 해야 합니다. 키로 참조 되는 **서비스 주체 클라이언트 비밀**합니다.
 

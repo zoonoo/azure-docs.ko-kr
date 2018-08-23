@@ -6,20 +6,20 @@ documentationcenter: ''
 author: brenduns
 manager: femila
 editor: ''
-ms.assetid: 96b080a4-a9a5-407c-ba54-111de2413d59
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/2/2018
+ms.date: 08/20/2018
 ms.author: brenduns
-ms.openlocfilehash: eed715a7c2cb967f6c9ea0b7d4442a4f9976bd17
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.reviewer: efemmano
+ms.openlocfilehash: 66a89c3cb14dd642ae993cbf3c45885635f59759
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345892"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42139633"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Azure Stack에서 제안 만들기
 
@@ -46,20 +46,16 @@ ms.locfileid: "37345892"
    > [!TIP]  
    > 제품에 변경 내용이 즉시 사용자에 게 표시 하지 않습니다. 변경 내용을 보려면, 로그 아웃 했다가 다시 로그온 사용자 포털에 새 제품을 확인 하려면 사용자가 해야 할 수 있습니다.
 
-   제품의 상태를 변경 합니다.
-
-   - **버전 1803 이상**:  
-     제품에 대 한 개요를 선택 **접근성 상태**합니다. 사용 하려는 상태 선택 (예를 들어 *공개*)를 선택한 **저장**합니다.
+   제품에 대 한 개요를 선택 **접근성 상태**합니다. 사용 하려는 상태 선택 (예를 들어 **공개**)를 선택한 **저장**합니다.
  
-     ![내게 필요한 옵션 상태를 선택 합니다.](media/azure-stack-create-offer/change-state.png)
+     ![상태 선택](media/azure-stack-create-offer/change-stage-1807.png)
 
-     대신 제품에 액세스 한 후 이동할 수 있습니다 **제품 설정**합니다. 선택 **접근성 상태** 상태를 변경할 수 있습니다.
+     대신 선택 **상태 변경** 상태를 선택 합니다.
 
-   - **이전 버전 1803**:  
-     선택 **모든 리소스**를 새 제품을 검색 한 다음 새 제품을 선택 합니다. 선택 **상태 변경**를 선택한 후 **공용**합니다.
+    ![내게 필요한 옵션 상태를 선택 합니다.](media/azure-stack-create-offer/change-stage-select-1807.png)
 
    > [!NOTE]
-   > 또한 기본 제공, 계획 및 할당량을 만들려면 PowerShell을 사용할 수 있습니다. 자세한 내용은 [Azure Stack Powershell 1.3.0](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0)합니다.
+   > 또한 기본 제공, 계획 및 할당량을 만들려면 PowerShell을 사용할 수 있습니다. 자세한 내용은 [Azure Stack Powershell 1.4.0](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

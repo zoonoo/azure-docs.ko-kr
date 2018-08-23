@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/14/2018
+ms.date: 08/14/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 9322c364832a12e711ee7e1b6ad9722ec82d8468
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 878b7952938c7ec534bc09e27ee8b859c1aaeefb
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449971"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139471"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Azure Stack Azure ExpressRoute를 사용 하 여 Azure에 연결
 
@@ -180,7 +180,7 @@ Azure Stack 구성 시작 하기 전에 다음을 수행 해야 합니다.
 
 1. Azure Stack 사용자 포털에서 선택 **모든 리소스**합니다.
 1. 아래 **모든 리소스**에 가상 네트워크 게이트웨이 선택 **GW1** 예제에서.
-1. 아래 **가상 네트워크 게이트웨이**를 선택 **개요**합니다. 리소스의 목록입니다. 선택할 수 있습니다 **속성**합니다.
+1. 아래 **가상 네트워크 게이트웨이**를 선택 **개요** 리소스 목록에서. 선택할 수 있습니다 **속성**합니다.
 1. 확인 하려는 IP 주소 아래에 나열 됩니다 **공용 IP 주소**합니다. 예제 구성에서는이 주소는 192.68.102.1입니다.
 
 #### <a name="create-a-virtual-machine"></a>가상 머신 만들기
@@ -360,7 +360,7 @@ Azure에서 가상 네트워크를 만드는 방법에 대 한 자세한 내용�
 
 ## <a name="configure-the-router"></a>라우터 구성
 
-다음을 사용할 수 있습니다 *ExpressRoute 라우터 구성* ExpressRoute 라우터를 구성 하기 위한 지침으로 다이어그램. 이 다이어그램에는 두 테 넌 트 (테 넌 트 1 및 테 넌 트 2) 해당 각 Expressroute 회로 사용 하 여 보여 줍니다. 각 테 넌 트 ExpressRoute 라우터의 LAN 및 WAN 쪽에서 자신의 VRF (가상 라우팅 및 전달을)에 연결 됩니다. 이 구성은 두 명의 테 넌 트 간에 종단 간 격리를 보장 합니다. 구성 예제에 따라 라우터 인터페이스에서 사용 된 IP 주소를 기록해 둡니다.
+다음을 사용할 수 있습니다 *ExpressRoute 라우터 구성* ExpressRoute 라우터를 구성 하기 위한 지침으로 다이어그램. 이 다이어그램에는 두 테 넌 트 (테 넌 트 1 및 테 넌 트 2)가 각 ExpressRoute 회로 사용 하 여 보여 줍니다. 각 테 넌 트 ExpressRoute 라우터의 LAN 및 WAN 쪽에서 자신의 VRF (가상 라우팅 및 전달을)에 연결 됩니다. 이 구성은 두 명의 테 넌 트 간에 종단 간 격리를 보장 합니다. 구성 예제에 따라 라우터 인터페이스에서 사용 된 IP 주소를 기록해 둡니다.
 
 *그림 4. ExpressRoute 라우터 구성*
 
@@ -368,7 +368,7 @@ Azure에서 가상 네트워크를 만드는 방법에 대 한 자세한 내용�
 
 Azure Stack에서 사이트 간 VPN 연결을 종료 하는 IKEv2 VPN 및 BGP를 지 원하는 모든 라우터를 사용할 수 있습니다. ExpressRoute 회로 사용 하 여 Azure에 연결 하는 동일한 라우터 사용 됩니다.
 
-다음 Cisco Azure 사이트 복구 1000 구성 예제에 표시 하는 네트워크 인프라를 지원 합니다 *ExpressRoute 라우터 구성* 다이어그램.
+다음 Cisco ASR 1000 시리즈 집계 서비스 라우터 구성 예제에 표시 하는 네트워크 인프라를 지원 합니다 *ExpressRoute 라우터 구성* 다이어그램.
 
 **Cisco ASR 1000 구성 예제**
 
@@ -457,7 +457,7 @@ description S2S VPN Tunnel for Tenant 2
  tunnel protection ipsec profile V4-PROFILE
 !
 interface GigabitEthernet0/0/1
- description PRIMARY Express Route Link to AZURE over Equinix
+ description PRIMARY ExpressRoute Link to AZURE over Equinix
  no ip address
  negotiation auto
 !
@@ -476,7 +476,7 @@ description Primary WAN interface of Tenant 2
  ip address 192.168.1.17 255.255.255.252
 !
 interface GigabitEthernet0/0/2
- description BACKUP Express Route Link to AZURE over Equinix
+ description BACKUP ExpressRoute Link to AZURE over Equinix
  no ip address
  negotiation auto
 !

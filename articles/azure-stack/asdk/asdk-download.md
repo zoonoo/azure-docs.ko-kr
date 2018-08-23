@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 08/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: b55bc7f6aab522a6313498b6fdccc88870796224
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: a6ccfa439b58d36ee44d5f8441c2058622965653
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213030"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42139712"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>다운로드 하 고 Azure Stack 개발 키트 (ASDK)를 추출 합니다.
 개발 키트 호스트 컴퓨터를 ASDK를 설치 하기 위한 기본 요구를 충족 하는지 확인에 한 후 다음 단계 다운로드는 Cloudbuilder.vhdx 가져오려는 ASDK 배포 패키지를 추출 하는 것입니다.
@@ -43,7 +43,7 @@ ms.locfileid: "39213030"
 2. 검토 하 고에서 표시 된 사용권 계약에 동의 합니다 **사용권 계약** Self-extractor 마법사 및 클릭 한 다음 페이지 **다음**합니다.
 3. 에 표시 되는 개인정보취급방침 정보를 검토 합니다 **중요 알림** Self-extractor 마법사 및 클릭 한 다음 페이지 **다음**합니다.
 4. 추출할 Azure Stack 설치 파일 위치를 선택 합니다 **대상 위치 선택** Self-extractor 마법사 및 클릭 한 다음 페이지 **다음**합니다. 기본 위치가 *현재 폴더*\Azure Stack 개발 키트. 
-5. 대상 위치에 대 한 요약을 검토 합니다 **추출 준비가** Self-extractor 마법사 및 클릭 한 다음 페이지 **추출** CloudBuilder.vhdx (약 25 GB)를 추출 및 ThirdPartyLicenses.rtf 파일입니다. 이 프로세스는 완료 하려면 다소 시간이 걸립니다.
+5. 대상 위치에 대 한 요약을 검토 합니다 **추출 준비가** Self-extractor 마법사 및 클릭 한 다음 페이지 **추출** CloudBuilder.vhdx (약 28GB)를 추출 및 ThirdPartyLicenses.rtf 파일입니다. 이 프로세스는 완료 하려면 다소 시간이 걸립니다.
 6. 복사 하거나 이동 CloudBuilder.vhdx 파일 (C:\CloudBuilder.vhdx) C:\ 드라이브의 루트 ASDK 호스트 컴퓨터.
 
 > [!NOTE]

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 08/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 7cf41a10f13e2edeb4ab1944c0d38cc7064c02bb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 88a4bcf018387ac83b485ec9e2efac11f85ba97c
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40161488"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42432292"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>App Service에서 Azure Stack 업데이트 3 릴리스 정보
 
@@ -70,6 +70,10 @@ Azure Stack 업데이트 3의 azure App Service는 다음과 같은 향상 된 �
   - 추가 Wincache 2.0.0.8
   - 업데이트 된 v 2.17.1.2로 Windows에 대 한 Git
   - 74.10611.3437에 업데이트 된 Kudu
+  
+- **모든 역할의 기본 운영 체제에 대 한 업데이트**:
+  - [X64 기반 시스템 (KB4132216)에 대 한 Windows Server 2016 용 서비스 스택 업데이트](https://support.microsoft.com/help/4132216/servicing-stack-update-for-windows-10-1607-may-17-2018)
+  - [X64 기반 시스템 (KB4338822)에 대 한 Windows Server 2016 용 2018-07 누적 업데이트](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822)
 
 ### <a name="post-update-steps-optional"></a>사후 업데이트 단계 (선택 사항)
 
@@ -80,7 +84,7 @@ Azure Stack 배포의 기존 Azure App Service에 대 한 포함 된 데이터�
 >
 >
 
-1. 추가 [가용성 그룹에 데이터베이스](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)
+1. 추가 [가용성 그룹에 AppService 데이터베이스 (appservice_hosting 및 appservice_metering)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)
 
 1. 포함 된 사용 데이터베이스
     ```sql

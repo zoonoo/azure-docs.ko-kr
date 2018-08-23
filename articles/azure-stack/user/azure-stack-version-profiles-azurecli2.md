@@ -3,22 +3,22 @@ title: CLI 사용 하 여 Azure Stack에 연결 | Microsoft Docs
 description: 플랫폼 간 명령줄 인터페이스 (CLI)를 사용 하 여 관리 하 고 Azure Stack에서 리소스를 배포 하는 방법 알아보기
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2018
-ms.author: mabrigg
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: e5dd41b34c41c442034e0a7ccb74c8d5b6583753
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f57a7f1cc255f9c4553384a7568beee1c2ed1752
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436712"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139501"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>Azure Stack에서 Azure CLI 2.0을 사용 하 여 API 버전 프로필 사용
 
@@ -129,7 +129,7 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
 
-   나. 등록 하는 *사용자* 환경에서 사용 하 여:
+   b. 등록 하는 *사용자* 환경에서 사용 하 여:
 
       ```azurecli
       az cloud register \ 
@@ -149,7 +149,7 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
         -n AzureStackAdmin
       ```
 
-   나. 에 대 한 합니다 *사용자* 환경에서 사용 하 여:
+   b. 에 대 한 합니다 *사용자* 환경에서 사용 하 여:
 
       ```azurecli
       az cloud set \

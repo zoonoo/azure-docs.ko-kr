@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: f6c78a3e79ac88194e7e34ad8be7a941ee715d39
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 3f87721dcf7485e15a473e82597f6bf4baeca659
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235385"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42139634"
 ---
 # <a name="set-up-your-validation-as-a-service-account"></a>서비스 계정으로 유효성 검사 설정
 
@@ -95,7 +95,7 @@ VaaS는 유효성 검사 테스트를 실행 하는 경우 진단 로그를 만�
 
 ### <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
 
-1. 저장소 계정 만들기, 지침을 따릅니다 [저장소 계정 만들기](https://docs.microsoft.com/azure/storage/storage-create-storage-account#create-a-storage-account)합니다.
+1. 저장소 계정 만들기, 지침을 따릅니다 [저장소 계정 만들기](../../storage/common/storage-quickstart-create-account.md)합니다.
 
 2. 저장소 계정의 형식을 선택할 때 선택 합니다 **Blob storage** 계정 유형입니다.
 

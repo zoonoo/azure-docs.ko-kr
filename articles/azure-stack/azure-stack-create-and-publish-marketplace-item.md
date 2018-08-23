@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/14/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 101686149c0e3faaf442c58f4002cbbfe0e72eaa
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: da1619c5dc536ee143a8cc5ed17e995bc2d1eab7
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "35651657"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42139387"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Marketplace 항목 만들기 및 게시
 
@@ -102,7 +102,7 @@ ms.locfileid: "35651657"
 
 6. 사용 하 여 마켓플레이스 항목을 제거할 수 있습니다 합니다 **Remove-azurermgalleryitem** cmdlet. 예제:
    
-        Remove-AzureRMGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
+        Remove-AzsGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
    
    > [!NOTE]
    > Marketplace UI 항목을 제거한 후 오류가 표시 될 수 있습니다. 오류를 해결 하려면 **설정을** 포털에서 합니다. 그런 다음 선택 **수정 취소** 아래에서 **포털 사용자 지정**합니다.

@@ -3,7 +3,7 @@ title: Azure Stack에 대 한 서비스 주체 만들기 | Microsoft Docs
 description: 리소스에 대 한 액세스를 관리 하려면 Azure Resource Manager에서 역할 기반 액세스 제어를 사용 하 여 사용할 수 있는 새 서비스 주체를 만드는 방법을 설명 합니다.
 services: azure-resource-manager
 documentationcenter: na
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2018
-ms.author: mabrigg
-ms.openlocfilehash: 0db3f19c99b786d7f32f126ad7bd70efc999a751
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.date: 08/22/2018
+ms.author: sethm
+ms.openlocfilehash: f7233d6a27b9ec3d58f33f7032bbec7a646d24f7
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444276"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42366122"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Azure Stack에 대한 액세스를 응용 프로그램에 제공합니다.
 
@@ -136,6 +136,10 @@ Requirements:
     -CertificateThumbprint $ServicePrincipal.Thumbprint `
     -ApplicationId $ServicePrincipal.ClientId `
     -TenantId $TenantID
+
+    # Output the SPN details
+    $ServicePrincipal
+
    ```
 
 2. 자동화에는 다음이 완료 되 면 SPN을 사용 하려면 필요한 세부 정보를 표시 합니다. 

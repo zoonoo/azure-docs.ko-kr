@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 08/20/2018
 ms.author: anwestg
-ms.openlocfilehash: 22901374988f6654bc1fb282315db81bb17c815f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e5fc6b5d396a45d15548cfdd8f445158147ad12f
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857868"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42139479"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure Stack에서 App Service를 사용 하 여 시작 하기 전에
 
@@ -28,7 +28,7 @@ ms.locfileid: "37857868"
 Azure App Service on Azure Stack을 배포 하기 전에이 문서의 필수 구성 요소 단계를 완료 해야 합니다.
 
 > [!IMPORTANT]
-> Azure Stack 통합 시스템 1804 업데이트를 적용 하거나 Azure 앱 서비스 1.2를 배포 하기 전에 최신 Azure Stack 개발 키트 ASDK ()를 배포 합니다.
+> Azure Stack 통합 시스템 1807 업데이트를 적용 하거나 Azure 앱 서비스 1.3을 배포 하기 전에 최신 Azure Stack 개발 키트 ASDK ()를 배포 합니다.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>설치 관리자 및 도우미 스크립트 다운로드
 
@@ -241,27 +241,6 @@ net share %WEBSITES_SHARE% /delete
 net share %WEBSITES_SHARE%=%WEBSITES_FOLDER% /grant:Everyone,full
 ```
 
-### <a name="add-the-fileshareowners-group-to-the-local-administrators-group"></a>로컬 관리자 그룹에 FileShareOwners 그룹을 추가 합니다.
-
-제대로 작동 하려면 Windows 원격 관리에 대 한 로컬 관리자 그룹에 FileShareOwners 그룹을 추가 해야 합니다.
-
-#### <a name="active-directory"></a>Active Directory
-
-파일 서버 또는 장애 조치 클러스터 노드로 역할 하는 모든 파일 서버에서 관리자 권한 명령 프롬프트에서 다음 명령을 실행 합니다. 에 대 한 값을 바꿉니다 `<DOMAIN>` 사용 하려는 도메인 이름을 사용 합니다.
-
-```DOS
-set DOMAIN=<DOMAIN>
-net localgroup Administrators %DOMAIN%\FileShareOwners /add
-```
-
-#### <a name="workgroup"></a>작업 그룹
-
-파일 서버에서 관리자 권한 명령 프롬프트에서 다음 명령을 실행 합니다.
-
-```DOS
-net localgroup Administrators FileShareOwners /add
-```
-
 ### <a name="configure-access-control-to-the-shares"></a>공유에 대 한 액세스 제어 구성
 
 파일 서버 또는 현재 클러스터 리소스 소유자는 장애 조치 클러스터 노드에서 관리자 권한 명령 프롬프트에서 다음 명령을 실행 합니다. 기울임꼴로 표시 값을 환경과 관련 된 값으로 바꿉니다.
@@ -353,6 +332,7 @@ Azure App Service on Azure Stack에 대 한 SQL Server 인스턴스를 모든 Ap
 | AzureStackAdminCredential | 필수 | Null | Azure AD 서비스 관리자 자격 증명입니다. |
 | CertificateFilePath | 필수 | Null | **전체 경로** identity 응용 프로그램 인증서 파일 이전에 생성 합니다. |
 | CertificatePassword | 필수 | Null | 인증서 개인 키를 보호 하는 암호입니다. |
+| Environment | 옵션 | AzureCloud | 대상 Azure Active Directory 그래프 서비스를 사용할 수 있는 지원 되는 클라우드 환경의 이름입니다.  허용 되는 값: 'AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment', 'AzureGermanCloud'.|
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Active Directory Federation Services 응용 프로그램 만들기
 

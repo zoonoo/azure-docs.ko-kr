@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/13/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 866f032e6bacc3a124ddffd9040ea81b598abcfe
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 196e671eefc3a8baaa7d6edc723851c101afc2da
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414796"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42139686"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack에서 사용할 수 있는 azure Marketplace 항목
 
-*적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
+*적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트.*
 
 ## <a name="virtual-machine-extensions"></a>가상 머신 확장
 
@@ -68,18 +68,19 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![Ubuntu Server 16.04 LTS의 SQL Server 2017 Standard](media/azure-stack-marketplace-azure-items/sql.png) | [Ubuntu Server 16.04 LTS의 SQL Server 2017 Standard](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017StandardonUbuntuServer1604LTS) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. | Microsoft 정식 + |
 | ![Ubuntu Server 16.04 LTS의 무료 라이선스: SQL Server 2017 Developer](media/azure-stack-marketplace-azure-items/sql.png) | [Ubuntu Server 16.04 LTS의 무료 라이선스: SQL Server 2017 Developer](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonUbuntuServer1604LTS) | 트랜잭션 데이터에 대 한 무료 개발자 버전의 SQL Server 2017 웨어하우징, 비즈니스 인텔리전스 및 분석 워크 로드. | Microsoft 정식 + |
 | ![Ubuntu Server 16.04 LTS의 무료 라이선스: SQL Server 2017 Express](media/azure-stack-marketplace-azure-items/sql.png) | [Ubuntu Server 16.04 LTS의 무료 라이선스: SQL Server 2017 Express](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonUbuntuServer1604LTS) | SQL Server 2017의 무료 express 버전입니다. | Microsoft 정식 + |
-| ![Ubuntu Server 16.04 LTS의 SQL Server 2017 Enterprise](media/azure-stack-marketplace-azure-items/sql.png) | [Ubuntu Server 16.04 LTS의 SQL Server 2017 Enterprise](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQLServer2017EnterpriseonUbuntuServer1604LTS) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. | Microsoft 정식 + |
+| ![Ubuntu Server 16.04 LTS의 SQL Server 2017 Enterprise](media/azure-stack-marketplace-azure-items/sql.png) | [Ubuntu Server 16.04 LTS의 SQL Server 2017 Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017EnterpriseonUbuntuServer1604LTS) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. | Microsoft 정식 + |
 | ![Ubuntu Server 16.04 LTS에서 SQL Server 2017 웹](media/azure-stack-marketplace-azure-items/sql.png) | [Ubuntu Server 16.04 LTS에서 SQL Server 2017 웹](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017WebonUbuntuServer1604LTS) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. | Microsoft 정식 + |
-| ![QL Server 2017 Standard SUSE Linux Enterprise server (SLES) 12 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Standard SUSE Linux Enterprise server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQLServer2017StandardonSLES12SP2?tab=Overview) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. | Microsoft + SUSE |
-| ![무료 라이선스: SUSE Linux Enterprise Server (SLES) 12의 SQL Server 2017 Developer SP2](media/azure-stack-marketplace-azure-items/sql.png) | [무료 라이선스: SUSE Linux Enterprise Server (SLES) 12의 SQL Server 2017 Developer SP2](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonSLES12SP2?tab=Overview) | 트랜잭션 데이터에 대 한 무료 개발자 버전의 SQL Server 2017 웨어하우징, 비즈니스 인텔리전스 및 분석 워크 로드. | Microsoft + SUSE |
+| ![QL Server 2017 Standard SUSE Linux Enterprise server (SLES) 12 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Standard SUSE Linux Enterprise server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017StandardonSLES12SP2?tab=Overview) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. | Microsoft + SUSE |
+| ![무료 라이선스: SUSE Linux Enterprise Server (SLES) 12의 SQL Server 2017 Developer SP2](media/azure-stack-marketplace-azure-items/sql.png) | [무료 라이선스: SUSE Linux Enterprise Server (SLES) 12의 SQL Server 2017 Developer SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonSLES12SP2?tab=Overview) | 트랜잭션 데이터에 대 한 무료 개발자 버전의 SQL Server 2017 웨어하우징, 비즈니스 인텔리전스 및 분석 워크 로드. | Microsoft + SUSE |
 | ![무료 라이선스: SQL Server 2017 Express SUSE Linux Enterprise server (SLES) 12 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [무료 라이선스: SQL Server 2017 Express SUSE Linux Enterprise server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2) | SQL Server 2017의 무료 express 버전입니다. | Microsoft + SUSE |
-| ![SQL Server 2017 Enterprise SUSE Linux Enterprise server (SLES) 12 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Enterprise SUSE Linux Enterprise server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQLServer2017EnterpriseonSLES12SP2?tab=Overview) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. | Microsoft + SUSE |
-| ![SQL Server 2017 웹 SUSE Linux Enterprise server (SLES) 12 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 웹 SUSE Linux Enterprise server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.SQLServer2017WebonSLES12SP2) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. | Microsoft + SUSE |
+| ![SQL Server 2017 Enterprise SUSE Linux Enterprise server (SLES) 12 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 Enterprise SUSE Linux Enterprise server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017EnterpriseonSLES12SP2?tab=Overview) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. | Microsoft + SUSE |
+| ![SQL Server 2017 웹 SUSE Linux Enterprise server (SLES) 12 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [SQL Server 2017 웹 SUSE Linux Enterprise server (SLES) 12 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017WebonSLES12SP2) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. | Microsoft + SUSE |
 | ![Microsoft Machine Learning Server 9.3.0 Windows Server 2016](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.3.0 Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onWindowsServer2016) | Microsoft Machine Learning Windows Server 2016의 Server 9.3.0 합니다. | Microsoft |
 | ![Microsoft Machine Learning Server 9.3.0 Ubuntu 16.04](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.3.0 Ubuntu 16.04](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onUbuntu1604) | Microsoft Machine Learning Ubuntu 16.04 Server 9.3.0 합니다. | Microsoft 정식 + |
 | ![Microsoft Machine Learning Server 9.3.0 CentOS linux 7.2](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.3.0 CentOS linux 7.2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onCentOSLinux72) | Microsoft Machine Learning CentOS linux 7.2 9.3.0 Server. | Microsoft + Rogue Wave |
 
 ## <a name="linux-distributions"></a>Linux 배포
+
 |  | 항목 이름 | 설명 | 게시자 |
 | --- | --- | --- | --- |
 | ![Linux OS 지우기](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Linux OS 지우기](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | 참조 Intel 아키텍처에 대 한 액세스에 최적화 된 Linux 배포판입니다. | Linux 프로젝트 지우기 |
@@ -88,11 +89,14 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux는 가장 많이 사용되는 Linux 배포 중 하나입니다. | credativ |
 | ![Debian 9 "Stretch"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 9 "Stretch"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian9) | Debian GNU/Linux는 가장 많이 사용되는 Linux 배포 중 하나입니다. | credativ |
 | ![Centos 6.9](media/azure-stack-marketplace-azure-items/roguewave.png) | [Centos 6.9](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased69) | 이 배포의 Linux CentOS 기반으로 하 고 Rogue Wave Software에서 제공 됩니다. | Rogue Wave Software (이전의 OpenLogic)  |
+| ![CentOS 기반 6.10](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 기반 6.10](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased610) | 이 배포의 Linux CentOS 기반으로 하 고 Rogue Wave Software에서 제공 됩니다. | Rogue Wave Software (이전의 OpenLogic)  |
 | ![CentOS 기반 7.4](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 기반 7.4](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74) | 이 배포의 Linux CentOS 기반으로 하 고 Rogue Wave Software에서 제공 됩니다. | Rogue Wave Software (이전의 OpenLogic) |
 | ![CentOS 기반 7.4 LVM](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 기반 7.4 LVM](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74) | 이 배포의 Linux CentOS 기반으로 하 고 Rogue Wave Software에서 제공 됩니다. | Rogue Wave Software (이전의 OpenLogic) |
+| ![CentOS 기반 7.5](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 기반 7.5](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased75) | 이 배포의 Linux CentOS 기반으로 하 고 Rogue Wave Software에서 제공 됩니다. | Rogue Wave Software (이전의 OpenLogic) |
 | ![CentOS 기반 7.5 LVM](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 기반 7.5 LVM](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased75) | 이 배포의 Linux CentOS 기반으로 하 고 Rogue Wave Software에서 제공 됩니다. | Rogue Wave Software (이전의 OpenLogic) |
-| ![SLES 11 SP4 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 11 SP4 (BYOS)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SLES?tab=PlansAndPrice) | SUSE Linux Enterprise Server 11 SP4입니다. | SUSE |
-| ![SLES 12 SP3 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SLES?tab=PlansAndPrice) | SUSE Linux Enterprise Server 12 SP3입니다. | SUSE |
+| ![SLES 11 SP4 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 11 SP4 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 11 SP4입니다. | SUSE |
+| ![SLES 12 SP3 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 12 SP3입니다. | SUSE |
+| ![SLES (BYOS) 15](media/azure-stack-marketplace-azure-items/suse.png) | [15 SLES SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 15입니다. | SUSE |
 
 ## <a name="third-party-byol-free-and-trial-images-and-solution-templates"></a>타사 BYOL, 무료 및 평가판 이미지 및 솔루션 템플릿
 
@@ -233,5 +237,6 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall 알려진 & 알 수 없는 취약점을 검색 하 고 웹 앱에 대 한 공격을 방지 합니다. **모두 (태평양 표준시) Marketplace 항목 다운로드 합니다.** | 양수 기술 |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise를 사용 하면 Azure Stack 인프라의 전체 수명 주기를 자동화할 수 있습니다. **두 Puppet Marketplace 항목 다운로드 합니다.** | Puppet |
 | ![Quest 신속한 복구](media/azure-stack-marketplace-azure-items/quest.png) | [Quest 신속한 복구 코어](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | 데이터 보호를 advanced 신속 하 게 복구, 복제에서에서 백업 및 복구 하나 사용 하기 쉬운 소프트웨어 솔루션을 통합 합니다. | Quest Software |
-| ![SUSE Manager 3.0 프록시 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.0 프록시 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSE-Manager) | 최고의 오픈 소스 인프라 관리 합니다. | SUSE |
-| ![ZeroDown 소프트웨어 도구](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown 소프트웨어 도구](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | ZeroDown 소프트웨어 도구 v7.1-마이그레이션 + HA 합니다. | ZeroDown 소프트웨어 |
+| ![SUSE 3.1 Manager 프록시 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE 3.1 Manager 프록시 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSE-Manager) | 최고의 오픈 소스 인프라 관리 합니다. | SUSE |
+| ![ZeroDown 소프트웨어 BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [As a Service ZeroDown 소프트웨어 비즈니스 연속성](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | 해당 비즈니스 연속성을 통해 회사 데이터에 대 한 지속적인 액세스를 사용 하 여 기업 (BCaaS) 서비스로 제공 하는 ZeroDown® 소프트웨어 기술™ 아키텍처, 응용 프로그램 및 보호는 네트워크 중단 발생 시 트랜잭션 일반적으로 엔터프라이즈를 약화 됩니다. | ZeroDown 소프트웨어 |
+| ![Palo Alto VM 시리즈 차세대 방화벽](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM 시리즈 차세대 방화벽](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | VM 시리즈 차세대 방화벽 응용 프로그램 허용 목록 및 위협 방지 정책 사용 하 여 알려진 및 알 수 없는 위협 으로부터 보호 고객이 Azure Stack에 해당 응용 프로그램 및 데이터를 안전 하 게 마이그레이션할 수 있습니다. **이 이미지; 배포 하는 템플릿은 필요 이 참조 하세요 [문서](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack) 중요 한 정보입니다.**| Palo Alto Networks, Inc. |
