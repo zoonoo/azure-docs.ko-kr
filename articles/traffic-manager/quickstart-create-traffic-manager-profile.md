@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2018
 ms.author: kumud
-ms.openlocfilehash: b3a9bbe8b88df4ac7dcb96903341e92261a2649b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c969dbc347f0463f6f675a11f69776948d45a9e2
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39532000"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42022833"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application"></a>빠른 시작: 고가용성 웹 응용 프로그램을 위한 Traffic Manager 프로필 만들기
 
@@ -79,7 +79,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
    ![Traffic Manager 프로필 만들기](./media/quickstart-create-traffic-manager-profile/traffic-manager-profile.png)
 
 
-## <a name="add-traffic-manager-endpoints"></a>Traffic Manager 끝점 추가
+## <a name="add-traffic-manager-endpoints"></a>Traffic Manager 엔드포인트 추가
 
 *미국 동부*에서 모든 사용자 트래픽을 라우팅할 기본 엔드포인트로 웹 사이트를 추가합니다. *유럽 서부*에서 백업 엔드포인트로 웹 사이트를 추가합니다. 기본 엔드포인트를 사용할 수 없게 되면 트래픽이 자동으로 보조 엔드포인트로 라우팅됩니다.
 
@@ -93,12 +93,12 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
     | Name           | myPrimaryEndpoint                                        |
     | 대상 리소스 종류           | App Service                          |
     | 대상 리소스          | **앱 서비스 선택**을 클릭하여 동일한 구독에서 Web Apps의 목록을 표시합니다. **리소스**에서 첫 번째 엔드포인트로 추가할 앱 서비스를 선택합니다. |
-    | 우선 순위               | **1**을 선택합니다. 이제 모든 트래픽이 정상일 경우 이 끝점으로 전송됩니다.    |
+    | 우선 순위               | **1**을 선택합니다. 이제 모든 트래픽이 정상일 경우 이 엔드포인트로 전송됩니다.    |
     
 4. 다음 Azure Web Apps 엔드포인트에 대해 2, 3단계를 반복합니다. **우선 순위** 값을 **2**로 설정한 상태에서 추가해야 합니다.
 5.  두 엔드포인트 추가가 완료되면 **온라인**인 모니터링 상태와 함께 **Traffic Manager 프로필**에 표시됩니다.
 
-    ![Traffic Manager 끝점 추가](./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint2.png)
+    ![Traffic Manager 엔드포인트 추가](./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint2.png)
 
 ## <a name="test-traffic-manager-profile"></a>Traffic Manager 프로필 테스트
 이 섹션에서는 Traffic Manager 프로필의 도메인 이름을 확인한 다음, 기본 엔드포인트를 사용할 수 없게 되면 Traffic Manager가 어떻게 보조 엔드포인트로 장애 조치(failover)되는지 살펴봅니다.
@@ -128,7 +128,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 이 빠른 시작에서는 고가용성 웹 응용 프로그램을 만들기 위해 사용자 트래픽을 전달하는 Traffic Manager 프로필을 만들었습니다. 트래픽 라우팅에 대해 자세히 알아보려면 Traffic Manager에 대한 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Traffic Manager 자습서](traffic-manager-configure-performance-routing-method.md)
+> [Traffic Manager 자습서](tutorial-traffic-manager-improve-website-response.md)
 
 
 

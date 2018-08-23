@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
-ms.openlocfilehash: d4f07896e835821612971f1558ca5a030a59d154
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 2bdfe35c7ce705966904487c3de6691e05c09098
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597442"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42144120"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Apache Hive를 ETL(추출, 변환 및 로드) 도구로 사용
 
@@ -92,4 +92,5 @@ ETL 프로세스의 일부로 해당 데이터에 대해 여러 작업을 실행
 
 * [최대 규모의 ETL](apache-hadoop-etl-at-scale.md)
 * [데이터 파이프라인 운용](../hdinsight-operationalize-data-pipeline.md)
+
 <!-- * [ETL Deep Dive](../hdinsight-etl-deep-dive.md) -->

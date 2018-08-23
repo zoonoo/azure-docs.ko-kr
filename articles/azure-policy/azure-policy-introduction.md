@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: e00af59c39219cf6efd14a1c6b2d831fc8addf5a
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 405f69ae1c37e478758d984ddf7dc0e267910fef
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364431"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42023971"
 ---
 # <a name="what-is-azure-policy"></a>Azure Policy이란?
 
@@ -89,7 +89,7 @@ Azure Policy에는 기본적으로 사용 가능한 몇 가지 기본 제공 정
 
 - **Security Center의 암호화되지 않은 SQL 데이터베이스 모니터링** - 암호화되지 않은 SQL 데이터베이스 및 서버 모니터링
 - **Security Center의 OS 취약점 모니터링** – 구성된 기준을 만족하지 않는 서버 모니터링
-- **Security Center의 누락된 끝점 보호 모니터링** – 끝점 보호 에이전트가 설치되지 않은 서버 모니터링
+- **Security Center의 누락된 엔드포인트 보호 모니터링** – 엔드포인트 보호 에이전트가 설치되지 않은 서버 모니터링
 
 ## <a name="initiative-assignment"></a>이니셔티브 할당
 
@@ -119,19 +119,7 @@ Azure Policy에는 기본적으로 사용 가능한 몇 가지 기본 제공 정
 
 ## <a name="maximum-count-of-policy-objects"></a>정책 개체의 최대 수
 
-Azure Policy의 각 개체 형식에 대한 최대 수가 있습니다. _범위_ 항목은 구독 또는 관리 그룹을 의미합니다.
-
-| Where | 대상 | 최대 수 |
-|---|---|---|
-| 범위 | 정책 정의 | 250 |
-| 범위 | 이니셔티브 정의 | 100 |
-| 테넌트 | 이니셔티브 정의 | 1000 |
-| 범위 | 정책/이니셔티브 할당 | 100 |
-| 정책 정의 | 매개 변수 | 20 |
-| 이니셔티브 정의 | 정책 | 100 |
-| 이니셔티브 정의 | 매개 변수 | 100 |
-| 정책/이니셔티브 할당 | 제외(notScopes) | 100 |
-| 정책 규칙 | 중첩된 조건부 | 512 |
+[!INCLUDE [policy-limits](../../includes/azure-policy-limits.md)]
 
 ## <a name="recommendations-for-managing-policies"></a>정책 관리에 대한 권장 사항
 

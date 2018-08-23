@@ -9,12 +9,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
-ms.openlocfilehash: 63c767483fa56f1b716ef61a18fa93c6947a1d3b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 20ffba69d9f0f5b6648b19967c086e23e1dcb923
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373798"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42093879"
 ---
 # <a name="microsoft-speech-client-samples"></a>Microsoft Speech 클라이언트 샘플
 
@@ -32,4 +32,4 @@ Microsoft Speech Service는 명령 인식, 연속 인식 및 의도 감지와 �
 
 - [iOS의 ObjectiveC 샘플](https://github.com/Azure-Samples/Cognitive-Speech-STT-iOS)
 
-Microsoft Cognitive Services SDK 및 샘플은 모두 MIT 라이선스를 통해 사용이 허가됩니다. 자세한 내용은 [라이선스](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md)를 참조하세요.
+Microsoft Cognitive Services SDK 및 샘플은 모두 MIT 라이선스를 통해 사용이 허가됩니다. 자세한 내용은 [라이선스](https://github.com/Azure-Samples/SpeechToText-REST/blob/master/LICENSE)를 참조하세요.

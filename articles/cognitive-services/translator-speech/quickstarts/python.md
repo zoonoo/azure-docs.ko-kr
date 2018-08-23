@@ -9,12 +9,12 @@ ms.component: translator-speech
 ms.topic: article
 ms.date: 07/17/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 8bf904b2029790d64a806fcf4a7e4860579a5a2f
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: a24ccd456df533542e7cbd2315fc1050cd82afbf
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39204853"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42093835"
 ---
 # <a name="quickstart-for-microsoft-translator-speech-api-with-python"></a>Python을 사용한 Microsoft Translator Speech API 빠른 시작 
 <a name="HOLTop"></a>
@@ -27,7 +27,7 @@ ms.locfileid: "39204853"
 
 Python용 [websocket-client 패키지](https://pypi.python.org/pypi/websocket-client)를 설치해야 합니다.
 
-아래 코드에서 컴파일하는 실행 파일과 동일한 폴더에 "speak.wav"라는 .wav 파일이 필요합니다. 이 .wav 파일은 표준 PCM, 16비트, 16kHz, 모노 형식이어야 합니다. 이러한 .wav 파일은 [Text to Speech API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech)에서 가져올 수 있습니다.
+아래 코드에서 컴파일하는 실행 파일과 동일한 폴더에 "speak.wav"라는 .wav 파일이 필요합니다. 이 .wav 파일은 표준 PCM, 16비트, 16kHz, 모노 형식이어야 합니다. 
 
 **Microsoft Translator Speech API**와 함께 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. [Azure 대시보드](https://portal.azure.com/#create/Microsoft.CognitiveServices)에서 유료 구독 키가 필요합니다.
 
@@ -132,4 +132,4 @@ client.run_forever()
 ## <a name="see-also"></a>참고 항목 
 
 [Translator Speech 개요](../overview.md)
-[API 참조](http://docs.microsofttranslator.com/speech-translate.html)
+[API 참조](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

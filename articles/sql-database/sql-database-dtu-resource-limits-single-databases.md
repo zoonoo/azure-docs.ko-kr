@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: carlrab
-ms.openlocfilehash: fae9f0aaa001c233a6687dda5cd5b7c0128ff8b0
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: b8c1a0a0c4f2b3b33338f1f76245fd4bcb66ad61
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038390"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42144298"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>DTU를 기반 구매 모델을 사용한 단일 데이터베이스에 대한 리소스 제한 
 
@@ -43,7 +43,7 @@ ms.locfileid: "40038390"
 
 ### <a name="standard-service-tier"></a>표준 서비스 계층
 | **성능 수준** | **S0** | **S1** | **S2** | **S3** |
-| :--- |---:| ---:|---:|---:|---:|
+| :--- |---:| ---:|---:|---:|
 | 최대 DTU | 10 | 20 | 50 | 100 |
 | 포함된 저장소(GB) | 250 | 250 | 250 | 250 |
 | 최대 저장소(GB) 옵션 | 250 | 250 | 250 | 250, 500, 750, 1024 |
@@ -54,7 +54,7 @@ ms.locfileid: "40038390"
 
 ### <a name="standard-service-tier-continued"></a>표준 서비스 계층(계속)
 | **성능 수준** | **S4** | **S6** | **S7** | **S9** | **S12** |
-| :--- |---:| ---:|---:|---:|---:|---:|
+| :--- |---:| ---:|---:|---:|---:|
 | 최대 DTU | 200 | 400 | 800 | 1600 | 3000 |
 | 포함된 저장소(GB) | 250 | 250 | 250 | 250 | 250 |
 | 최대 저장소(GB) 옵션 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
@@ -125,6 +125,7 @@ ms.locfileid: "40038390"
 ## <a name="next-steps"></a>다음 단계
 
 - 자주 묻는 질문에 대한 답변은 [SQL Database FAQ](sql-database-faq.md)를 참조하세요.
+- 서버 및 구독 수준에서 제한에 대한 자세한 내용은 [Azure SQL Database 리소스 제한 개요](sql-database-resource-limits.md)를 참조하세요.
 - 일반 Azure 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
 - DTU 및 eDTU에 대한 자세한 내용은 [DTU 및 eDTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)를 참조하세요.
 - tempdb 크기 한도에 대한 자세한 내용은 https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database를 참조하세요.

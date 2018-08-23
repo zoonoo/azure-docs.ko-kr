@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.date: 07/30/2018
 ms.author: dech
 ms.openlocfilehash: 23b7c5d332bd5fb75936c95ab9e38d17e1573999
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39602363"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42023527"
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-app-using-sql-api-javascript-sdk-20-preview-and-the-azure-portal"></a>Azure Cosmos DB: SQL API, JavaScript SDK 2.0(미리 보기) 및 Azure Portal을 사용하여 Node.js 앱 빌드 
 
@@ -133,7 +133,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 2. `config.js` 파일을 엽니다. 
 
-3. 포털에서 URI 값을 복사(복사 단추 사용)한 후 이 값을 `config.js`의 끝점 키 값으로 만듭니다. 
+3. 포털에서 URI 값을 복사(복사 단추 사용)한 후 이 값을 `config.js`의 엔드포인트 키 값으로 만듭니다. 
 
     `config.endpoint = "https://FILLME.documents.azure.com"`
 

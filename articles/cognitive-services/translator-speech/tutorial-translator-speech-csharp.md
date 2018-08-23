@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: e82c5c5ccfa6b7de8a9ec111140dad1a40ad44f6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 010ad8b5ceeaf046c8d361ff352e6058154a482d
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373943"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42093871"
 ---
 # <a name="tutorial-microsoft-translator-wpf-application-in-c"></a>자습서: C#의 Microsoft Translator WPF 응용 프로그램
 
@@ -357,7 +357,7 @@ private void Connect()
 }
 ```
 
-`Connect()`의 상당한 부분은 변환 옵션을 유지하는 `SpeechClientOptions` 인스턴스(`SpeechClientOptions.cs` 참조)를 만드는 것과 관련되어 있습니다. 옵션에는 서비스에 연결하는 데 필요한 정보(예: 인증 키 및 호스트 이름)와 변환에 사용되는 기능이 포함됩니다. 여기서는 필드가 [Translator Speech API](http://docs.microsofttranslator.com/speech-translate.html)로 노출되는 헤더 필드와 HTTP 매개 변수에 매핑됩니다.
+`Connect()`의 상당한 부분은 변환 옵션을 유지하는 `SpeechClientOptions` 인스턴스(`SpeechClientOptions.cs` 참조)를 만드는 것과 관련되어 있습니다. 옵션에는 서비스에 연결하는 데 필요한 정보(예: 인증 키 및 호스트 이름)와 변환에 사용되는 기능이 포함됩니다. 여기서는 필드가 [Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)로 노출되는 헤더 필드와 HTTP 매개 변수에 매핑됩니다.
 
 또한 `Connect()`는 변환할 음성 소스로 사용되는 오디오 입력 장치(`sampleProvider` 변수)를 만들고 초기화합니다. 이 장치는 마이크와 같은 하드웨어 입력 장치 또는 WAVE 오디오 데이터가 포함된 파일입니다.
 
@@ -431,4 +431,4 @@ private async Task ConnectAsync(SpeechClientOptions options, bool suspendInputAu
 이 코드 샘플은 Translator Speech API를 사용하는 방법을 보여 주는 다양한 기능을 갖춘 응용 프로그램입니다. 따라서 이해하기 위해 이동해야 하는 부분이 상당히 많습니다. 여기서는 가장 중요한 부분을 안내했습니다. 나머지 부분의 경우 Visual Studio에서 몇 가지 중단점을 설정하고 변환 프로세스를 진행하는 것이 좋습니다. 샘플 응용 프로그램을 이해하면 자신의 응용 프로그램에서 Translator Speech 서비스를 사용할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [Microsoft Translator Speech API 참조](http://docs.microsofttranslator.com/speech-translate.html)
+> [Microsoft Translator Speech API 참조](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

@@ -11,17 +11,17 @@ ms.component: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 9d269cf00eca4107ea5ccc122b92295b8855cf68
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 3b937eb5498a16e35455ed245696e66e53224969
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39347344"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42023905"
 ---
 # <a name="reset-password-overview"></a>암호 재설정 개요
 
 >[!Important]
->이 콘텐츠는 사용자를 위한 것입니다. 관리자의 경우 [Azure Active Directory 문서](https://docs.microsoft.com/en-us/azure/active-directory)에서 Azure AD(Azure Active Directory) 환경을 설정하고 관리하는 방법에 대한 자세한 정보를 찾을 수 있습니다.
+>이 콘텐츠는 사용자를 위한 것입니다. 관리자의 경우 [Azure Active Directory 문서](https://docs.microsoft.com/azure/active-directory)에서 Azure AD(Azure Active Directory) 환경을 설정하고 관리하는 방법에 대한 자세한 정보를 찾을 수 있습니다.
 
 암호가 생각 나지 않거나, 회사 지원팀에서 암호를 받은 적이 없거나, 계정이 잠긴 경우 보안 정보 및 모바일 장치를 사용하여 암호를 재설정할 수 있습니다.
 

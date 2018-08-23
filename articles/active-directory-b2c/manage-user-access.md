@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 15bc320bd82ea21ff608fcc834ba51b9bc7b6dea
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 6709fb8ae328f749b367c58f95b8a9ef8da9bc65
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716147"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42144469"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 액세스 관리
 
@@ -46,7 +46,7 @@ ms.locfileid: "39716147"
 
 다음은 보호자 동의를 수집하는 사용자 흐름의 예입니다.
 
-1. [Azure Active Directory Graph API](https://msdn.microsoft.com/en-us/library/azure/ad/graph/api/api-catalog) 작업이 사용자를 미성년자로 식별하고 서명되지 않은 JSON 토큰의 형태로 사용자 데이터를 응용 프로그램에 반환합니다.
+1. [Azure Active Directory Graph API](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog) 작업이 사용자를 미성년자로 식별하고 서명되지 않은 JSON 토큰의 형태로 사용자 데이터를 응용 프로그램에 반환합니다.
 
 2. 응용 프로그램에서 JSON 토큰을 처리하고, 보호자의 동의가 필요하다고 알리고 온라인으로 보호자의 동의를 요청하는 화면을 미성년자에게 표시합니다. 
 
@@ -56,7 +56,7 @@ ms.locfileid: "39716147"
 
 5. 미성년자 또는 성인이 동의를 철회하면 Azure AD Graph API를 사용하여 **consentProvidedForMinor**를 **denied**로 변경할 수 있습니다. 또는 응용 프로그램이 동의가 철회된 미성년자를 삭제하도록 선택할 수도 있습니다. 필요에 따라 인증된 미성년자(또는 미성년자의 계정을 사용하는 보호자)가 동의를 철회할 수 있도록 사용자 흐름을 사용자 지정할 수도 있습니다. Azure AD B2C가 **consentProvidedForMinor**를 **denied**로 기록합니다.
 
-**legalAgeGroupClassification**, **consentProvidedForMinor** 및 **ageGroup**에 대한 자세한 내용은 [사용자 리소스 종류](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/user)를 참조하세요. 사용자 지정 특성에 대한 자세한 내용은 [사용자 지정 특성을 사용하여 소비자에 대한 정보를 수집합니다.](active-directory-b2c-reference-custom-attr.md)를 참조하세요. Azure AD Graph API를 사용하여 확장된 특성을 처리하는 경우 긴 버전의 특성(예: *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*)을 사용해야 합니다.
+**legalAgeGroupClassification**, **consentProvidedForMinor** 및 **ageGroup**에 대한 자세한 내용은 [사용자 리소스 종류](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user)를 참조하세요. 사용자 지정 특성에 대한 자세한 내용은 [사용자 지정 특성을 사용하여 소비자에 대한 정보를 수집합니다.](active-directory-b2c-reference-custom-attr.md)를 참조하세요. Azure AD Graph API를 사용하여 확장된 특성을 처리하는 경우 긴 버전의 특성(예: *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*)을 사용해야 합니다.
 
 ## <a name="gather-date-of-birth-and-country-data"></a>생년월일 및 국가 데이터 수집
 

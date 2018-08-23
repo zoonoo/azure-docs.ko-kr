@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bda1c4074db123294ffde39e5c4cd5494474ca38
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 2daa624dd7912d09f01e5bab5dc6de9cc14a771c
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075695"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42144082"
 ---
 # <a name="oracle-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Oracle Azure Virtual Machines DBMS 배포
 
@@ -311,7 +311,7 @@ ms.locfileid: "39075695"
 
 
 ## <a name="specifics-to-oracle-database"></a>Oracle Database에 대한 세부 정보
-Oracle 소프트웨어는 Microsoft Azure에서 실행되도록 Oracle에서 지원합니다. Windows Hyper-V 및 Azure의 일반적인 지원에 대한 자세한 내용은 <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces>를 참조하세요. 
+Oracle 소프트웨어는 Microsoft Azure에서 실행되도록 Oracle에서 지원합니다. Windows Hyper-V 및 Azure의 일반적인 지원에 대한 자세한 내용은 <http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html>를 참조하세요. 
 
 일반 지원에 따라 Oracle 데이터베이스를 활용하는 SAP 응용 프로그램의 특정 시나리오도 지원됩니다. 자세한 내용은 문서에 나와 있습니다. 이 문서를 시작하기 전에 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md) 문서 및 [Azure의 SAP 워크로드 설명서](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)에 나오는 다른 가이드를 참조해야 합니다. 
 
@@ -384,7 +384,7 @@ Windows에서 Oracle을 배포하는 경우 [Azure 가속 네트워킹](https://
 Azure 가용성 집합 또는 SAP 모니터링과 같은 다른 모든 일반 영역은 Oracle Database가 있는 VM 배포에 대한 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md) 문서에서 설명한 대로 적용됩니다.
 
 ## <a name="specifics-to-oracle-database-on-oracle-linux"></a>Oracle Linux의 Oracle 데이터베이스에 대한 고유 정보
-Oracle 소프트웨어는 Oracle Linux를 게스트 OS로 사용하여 Microsoft Azure에서 실행되도록 Oracle에서 지원합니다. Windows Hyper-V 및 Azure의 일반적인 지원에 대한 자세한 내용은 <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces>를 참조하세요. 
+Oracle 소프트웨어는 Oracle Linux를 게스트 OS로 사용하여 Microsoft Azure에서 실행되도록 Oracle에서 지원합니다. Windows Hyper-V 및 Azure의 일반적인 지원에 대한 자세한 내용은 <http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html>를 참조하세요. 
 
 일반 지원에 따라 Oracle 데이터베이스를 활용하는 SAP 응용 프로그램의 특정 시나리오도 지원됩니다. 자세한 내용은 문서의 이 부분에 나와 있습니다.
 

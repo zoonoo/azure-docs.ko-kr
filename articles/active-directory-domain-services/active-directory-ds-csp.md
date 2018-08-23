@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: maheshu
-ms.openlocfilehash: 63244a8f767f71d0f9be80aad09f06f14c4d3acf
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 8d87312591f44bac5fd9a4ff63eccc19333a870c
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503974"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42144287"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure CSP(클라우드 솔루션 공급자)의 Azure AD(Active Directory) Domain Services
 이 문서에서는 Azure CSP 구독에서 Azure AD Domain Services를 사용하는 방법을 설명합니다.
@@ -87,7 +87,7 @@ Azure CSP 구독에서 관리되는 도메인을 관리하는 경우 다음과 �
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure CSP 프로그램에 등록](https://partnercenter.microsoft.com/partner/programs)하고 Azure CSP를 통해 비즈니스를 만듭니다.
+* [Azure CSP 프로그램에 등록](https://docs.microsoft.com/partner-center/enrolling-in-the-csp-program)하고 Azure CSP를 통해 비즈니스를 만듭니다.
 * [Azure CSP에서 사용할 수 있는 Azure 서비스](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services) 목록을 검토합니다.
 * [PowerShell을 사용하여 Azure AD Domain Services 사용](active-directory-ds-enable-using-powershell.md)
 * [Azure AD 도메인 서비스 시작](active-directory-ds-getting-started.md)

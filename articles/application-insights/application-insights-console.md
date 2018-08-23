@@ -11,15 +11,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 08/15/2018
 ms.reviewer: lmolkova
 ms.author: mbullwin
-ms.openlocfilehash: 613a0329c7ca449096386f3efb4d3f1f75d9349b
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: b2b5abf3b3b170e60df3aa2d6ec5ce471db74f80
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39632907"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42144309"
 ---
 # <a name="application-insights-for-net-console-applications"></a>.NET 콘솔 응용 프로그램용 Application Insights
 [Application Insights](app-insights-overview.md)를 사용하여 웹 응용 프로그램의 가용성, 성능 및 사용량을 모니터링할 수 있습니다.
@@ -57,7 +57,9 @@ TelemetryConfiguration config = TelemetryConfiguration.Active; // Reads Applicat
 구성 파일의 경로를 지정할 수도 있습니다.
 
 ```csharp
-TelemetryConfiguration configuration = TelemetryConfiguration.CreateFromConfiguration("ApplicationInsights.config");
+using System.IO;
+TelemetryConfiguration configuration = TelemetryConfiguration.CreateFromConfiguration(File.ReadAllText("C:\\ApplicationInsights.config"));
+var telemetryClient = new TelemetryClient(configuration);
 ```
 
 자세한 내용은 [구성 파일 참조](app-insights-configuration-with-applicationinsights-config.md)를 참조하세요.

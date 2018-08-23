@@ -10,12 +10,12 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 5ceb8cfd8efea66dbf17b8c522316b9a010e437d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 33e4a405547fcdd797ddfdf6aba6c6c1c126b742
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799450"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42144867"
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 ELT(추출, 로드 및 변환) 설계
 
@@ -101,7 +101,7 @@ Azure 저장소에 데이터를 두려면 [Azure Blob 저장소](../storage/blob
 ## <a name="load-to-a-staging-table"></a>준비 테이블에 로드
 데이터 웨어하우스에 데이터를 가져오려면 먼저 데이터를 준비 테이블에 로드하는 것이 좋습니다. 준비 테이블을 사용하면 프로덕션 테이블을 방해하지 않고 오류를 처리할 수 있으며 프로덕션 테이블에서 롤백 작업을 실행하지 않을 수 있습니다. 또한 준비 테이블에서는 데이터를 프로덕션 테이블에 삽입하기 전에 SQL Data Warehouse를 사용하여 변환을 실행할 수 있는 기회도 제공합니다.
 
-T-SQL을 사용하여 로드하려면 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) T-SQL 문을 실행하세요. 이 명령은 select 문의 결과를 새 테이블에 삽입합니다. 이 문은 외부 테이블에서 선택할 경우 외부 데이터를 가져옵니다. 
+T-SQL을 사용하여 로드하려면 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL 문을 실행하세요. 이 명령은 select 문의 결과를 새 테이블에 삽입합니다. 이 문은 외부 테이블에서 선택할 경우 외부 데이터를 가져옵니다. 
 
 다음 예제에서 ext.Date는 외부 테이블입니다. 모든 행을 dbo.Date라는 새 테이블로 가져옵니다.
 

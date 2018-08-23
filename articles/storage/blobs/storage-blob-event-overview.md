@@ -8,12 +8,12 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: 6f3afa22a50728070c42cd6e2eff0cc148815fbc
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: d38ab71ed2d2ebff04004f02589cfccca4199318
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39262687"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143911"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Blob 저장소 이벤트에 대응
 
@@ -21,7 +21,7 @@ Azure Storage 이벤트를 사용하면 응용 프로그램은 서버 없는 최
 
 일반적인 Blob 저장소 이벤트 시나리오에는 이미지 또는 비디오 처리, 검색 인덱싱, 또는 파일 중심의 워크플로가 포함됩니다.  비동기 파일 업로드는 이벤트에 매우 적합합니다.  변경 빈도가 낮더라도 즉각적인 대응이 필요한 시나리오에서는 이벤트 기반 아키텍처가 특히 효율적일 수 있습니다.
 
-Storage 이벤트의 가용성은 Event Grid [가용성](../../event-grid/overview.md)과 연관되어 있으며, Event Grid가 사용 가능하면 다른 지역에서도 사용 가능해집니다. 빠른 예제를 보려면 [Blob 저장소 이벤트를 사용자 지정 웹 끝점으로 라우팅 - CLI](storage-blob-event-quickstart.md) 또는 [Blob 저장소 이벤트를 사용자 지정 웹 끝점으로 라우팅 - PowerShell](storage-blob-event-quickstart-powershell.md)을 참조하세요. 
+빠른 예제를 보려면 [Blob 저장소 이벤트를 사용자 지정 웹 엔드포인트로 라우팅 - CLI](storage-blob-event-quickstart.md) 또는 [Blob 저장소 이벤트를 사용자 지정 웹 엔드포인트로 라우팅 - PowerShell](storage-blob-event-quickstart-powershell.md)을 참조하세요. 
 
 ![Event Grid 모델](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
@@ -134,4 +134,4 @@ Blob Storage 이벤트를 처리하는 응용 프로그램은 아래 권장되�
 Event Grid에 대해 자세히 알아보고 Blob Storage 이벤트를 사용해보세요.
 
 - [Event Grid 정보](../../event-grid/overview.md)
-- [Blob Storage 이벤트를 사용자 지정 웹 끝점으로 라우팅](storage-blob-event-quickstart.md)
+- [Blob Storage 이벤트를 사용자 지정 웹 엔드포인트로 라우팅](storage-blob-event-quickstart.md)

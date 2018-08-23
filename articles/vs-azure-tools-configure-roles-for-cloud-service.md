@@ -7,23 +7,24 @@ manager: douge
 assetId: d397ef87-64e5-401a-aad5-7f83f1022e16
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/21/2017
 ms.author: ghogen
-ms.openlocfilehash: 09e6c3a9c27342ef27d49674d62ccf74d70d2e0f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 010a345d0bc756855b9a85660afcd647d111db75
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798729"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143898"
 ---
 # <a name="configure-azure-cloud-service-roles-with-visual-studio"></a>Visual Studio를 사용하여 Azure 클라우드 서비스 역할 구성
 Azure 클라우드 서비스에는 하나 이상의 작업자 또는 웹 역할이 포함될 수 있습니다. 각 역할에 대해 해당 역할을 설정하는 방법을 정의하고 해당 역할을 실행하는 방법을 구성해야 합니다. 클라우드 서비스의 역할에 대한 자세한 내용은 [Azure Cloud Services 소개](https://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Introduction-to-Windows-Azure-Cloud-Services)를 참조하세요. 
 
 클라우드 서비스에 대한 정보는 다음 파일에 저장됩니다.
 
-- **ServiceDefinition.csdef** - 서비스 정의 파일은 필요한 역할, 끝점 및 가상 머신 크기를 포함하여 클라우드 서비스의 런타임 설정을 정의합니다. 역할이 실행 중일 때 `ServiceDefinition.csdef`에 저장된 데이터는 변경할 수 없습니다.
+- **ServiceDefinition.csdef** - 서비스 정의 파일은 필요한 역할, 엔드포인트 및 가상 머신 크기를 포함하여 클라우드 서비스의 런타임 설정을 정의합니다. 역할이 실행 중일 때 `ServiceDefinition.csdef`에 저장된 데이터는 변경할 수 없습니다.
 - **ServiceConfiguration.cscfg** - 서비스 구성 파일은 실행되는 역할의 인스턴스 수와 역할에 대해 정의된 설정 값을 구성합니다. 역할이 실행 중인 동안 `ServiceConfiguration.cscfg`에 저장된 데이터는 변경할 수 있습니다.
 
 역할 실행 방법을 제어하는 설정에 대해 다른 값을 저장하기 위해 여러 서비스 구성을 정의할 수 있습니다. 각 배포 환경에 대해 서로 다른 서비스 구성을 사용할 수 있습니다. 예를 들어 저장소 계정 연결 문자열을 설정하여 로컬 서비스 구성에서 로컬 Azure 저장소 에뮬레이터를 사용하고, 다른 서비스 구성을 만들어 클라우드에서 Azure 저장소를 사용할 수 있습니다.

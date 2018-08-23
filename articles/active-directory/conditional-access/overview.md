@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/18/2018
+ms.date: 08/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: b191e041d219ad629c2f3ac6a0ac689551187eca
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 3e96e251e655c7c7ad862fbf875111e08c0dfbdf
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630211"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42023444"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>Azure Active Directory의 조건부 액세스란?
 
@@ -47,7 +47,7 @@ ms.locfileid: "39630211"
 
 
 
-- **[로그인 위험](conditions.md#sign-in-risk)**: Azure AD ID 보호에서 로그인 위험을 검색합니다. 검색된 로그인 위험이 잘못된 작업자를 나타내는 경우 액세스를 제한하려면 어떻게 하나요? 로그인이 합법적 사용자에 의해 수행되었다는 강력한 증거를 확보하려면 어떻게 해야 할까요? 특정 사용자가 앱에 액세스하지 못하게 차단할 만큼 강한 의심이 든다면 어떻게 해야 할까요? 구성을 통해 
+- **[로그인 위험](conditions.md#sign-in-risk)**: Azure AD ID 보호에서 로그인 위험을 검색합니다. 검색된 로그인 위험이 잘못된 작업자를 나타내는 경우 액세스를 제한하려면 어떻게 하나요? 로그인이 합법적 사용자에 의해 수행되었다는 강력한 증거를 확보하려면 어떻게 해야 할까요? 특정 사용자가 앱에 액세스하지 못하게 차단할 만큼 강한 의심이 든다면 어떻게 해야 할까요?  
 
 - **[네트워크 위치](location-condition.md)**: Azure AD는 어디서나 액세스할 수 있습니다. IT 부서에서 제어하지 않는 네트워크 위치로부터 액세스를 시도하는 경우 어떻게 되나요? 사용자 이름 및 암호 조합을 사용하면 회사 네트워크의 리소스에 액세스하기 위한 확인 증명으로 충분할 수 있습니다. 다른 예기치 않은 국가 또는 지역에서 시작되는 액세스 시도에 대해 보다 강력한 확인 증명을 요구하는 경우 어떻게 되나요? 특정 위치에서의 액세스 시도를 차단하려는 경우 어떻게 되나요?  
 

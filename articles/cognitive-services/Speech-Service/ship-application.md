@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: df6224208e93f4a332247440933b3a4d11c1bb43
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 65ff0e47cf7a53d519bfd0c50ea4c3ebd09a5766
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283034"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42093845"
 ---
 # <a name="shipping-an-application"></a>응용 프로그램 전달
 
@@ -31,7 +31,7 @@ Cognitive Services Speech SDK에는 [Visual Studio 2017용 Microsoft Visual C++ 
 - [Win32](https://aka.ms/vs/15/release/vc_redist.x86.exe)
 - [x64](https://aka.ms/vs/15/release/vc_redist.x64.exe)
 
-응용 프로그램이 관리 코드를 사용 중인 경우, 대상 머신에 `.Net Framework 4.6.1` 이상이 필요합니다.
+응용 프로그램이 관리 코드를 사용 중인 경우, 대상 머신에 `.NET Framework 4.6.1` 이상이 필요합니다.
 
 마이크 입력을 위해 미디어 파운데이션 라이브러리를 설치해야 합니다. 이러한 라이브러리는 Windows 10 및 Windows Server 2016에 포함됩니다. 마이크를 오디오 입력 장치로 사용하지 않는 경우에는 이러한 라이브러리 없이 Speech SDK를 사용할 수 있습니다.
 

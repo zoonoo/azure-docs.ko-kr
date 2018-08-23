@@ -1,6 +1,6 @@
 ---
-title: C#을 사용하여 끝점 호출 - Bing Custom Search - Microsoft Cognitive Services
-description: 이 빠른 시작에서는 C#으로 Bing Custom Search 끝점을 호출하여 사용자 지정 검색 인스턴스의 검색 결과를 요청하는 방법을 보여 줍니다.
+title: C#을 사용하여 엔드포인트 호출 - Bing Custom Search - Microsoft Cognitive Services
+description: 이 빠른 시작에서는 C#으로 Bing Custom Search 엔드포인트를 호출하여 사용자 지정 검색 인스턴스의 검색 결과를 요청하는 방법을 보여 줍니다.
 services: cognitive-services
 author: brapel
 manager: ehansen
@@ -9,16 +9,16 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: be4cc79d16b9a22124f16878b11ca04a916f98ae
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 87970e1c5e8487f9afca2acc680bdfeb610dc89f
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374703"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42093807"
 ---
-# <a name="call-bing-custom-search-endpoint-c"></a>Bing Custom Search 끝점 호출(C#)
+# <a name="call-bing-custom-search-endpoint-c"></a>Bing Custom Search 엔드포인트 호출(C#)
 
-이 빠른 시작에서는 C#으로 Bing Custom Search 끝점을 호출하여 사용자 지정 검색 인스턴스의 검색 결과를 요청하는 방법을 보여 줍니다. 
+이 빠른 시작에서는 C#으로 Bing Custom Search 엔드포인트를 호출하여 사용자 지정 검색 인스턴스의 검색 결과를 요청하는 방법을 보여 줍니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -119,10 +119,12 @@ ms.locfileid: "35374703"
     }
     ```
 6. 다음 명령을 사용하여 응용 프로그램을 빌드합니다. 명령 출력에서 참조되는 dll 경로를 적어 둡니다.
+
     <pre>
     dotnet build 
     </pre>
 7. 다음 명령을 사용하여 응용 프로그램을 실행합니다. **PATH TO OUTPUT**을 빌드 단계에서 참조되는 경로로 바꿉니다.
+
     <pre>    
     dotnet **PATH TO OUTPUT**
     </pre>

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 07/02/2018
 ms.author: rogarana
-ms.openlocfilehash: 6e15f31ed0e9f6bfcbc41277fcf90e9444bac661
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 76b4cf2a8c16aa207b51faf3cc5252e47a368123
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397050"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42022782"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10-preview"></a>빠른 시작: Java Storage SDK V10(미리 보기)을 사용하여 Blob 업로드, 다운로드 및 나열
 
@@ -26,7 +26,7 @@ ms.locfileid: "39397050"
 * [Maven](http://maven.apache.org/download.cgi) - 명령줄 또는 사용자가 선호하는 Java 통합 개발 환경에서 작동
 * [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
@@ -290,5 +290,5 @@ containerURL.delete(null).blockingGet();
 
 > [!div class="nextstepaction"]
 > [Java 소스 코드에 대한 Storage SDK V10](https://github.com/Azure/azure-storage-java/tree/New-Storage-SDK-V10-Preview)
-> [API 참조](https://docs.microsoft.com/en-us/java/api/storage/client?view=azure-java-preview)
+> [API 참조](https://docs.microsoft.com/en-us/java/api/overview/azure/storage/client?view=azure-java-preview)
 > [RxJava에 대해 자세히 알아보기](https://github.com/ReactiveX/RxJava)

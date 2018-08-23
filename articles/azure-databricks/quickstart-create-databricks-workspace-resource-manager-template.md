@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 03/23/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 8c1d4dd01d489413d1e0a0121b25e9506e5d6139
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 573d8f6927cbd17c0f095bccf5132674faf94928
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30233679"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42023844"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Azure Databricks에서 Spark 작업 실행
 
@@ -83,7 +83,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 섹션을 시작하기 전에 다음 필수 구성 요소를 완료해야 합니다.
 
-* [Azure Blob Storage 계정을 만듭니다](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
+* [Azure Blob Storage 계정을 만듭니다](../storage/common/storage-quickstart-create-account.md). 
 * [Github에서](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) 샘플 JSON 파일을 다운로드합니다. 
 * 사용자가 만든 Azure Blob Storage 계정에 샘플 JSON 파일을 업로드합니다. [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 파일을 업로드할 수 있습니다.
 
@@ -166,7 +166,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     * **값**을 **수준**으로 설정합니다.
     * **집계**를 **COUNT**로 설정합니다.
 
-    **Apply**를 클릭합니다.
+    **적용**을 클릭합니다.
 
 9. 출력은 다음 스크린샷에 표시된 것처럼 시각적인 표시를 보여줍니다.
 

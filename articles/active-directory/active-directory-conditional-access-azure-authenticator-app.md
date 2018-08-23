@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 5c34219d01c8670102df40d9157cb0deff74b8e4
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: fbd728ec8cd2c8c4cd7ca74ecd84fd4d0d41cbd0
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724288"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42144333"
 ---
 # <a name="azure-authenticator-for-android"></a>Android용 Azure Authenticator
 IT 관리자가 Microsoft Azure Authenticator로 로그인하여 회사 리소스에 액세스하도록 권장했을 수도 있습니다. 이 응용 프로그램은 다음 두 가지 로그인 옵션을 제공합니다.
@@ -89,7 +89,7 @@ Azure Authenticator 앱을 설치한 후 Android 계정 관리자에서 회사 �
 ### <a name="sending-log-files-to-report-issues"></a>로그 파일을 보내 문제 보고
 1. Microsoft 지원의 지침에 따라 Azure Authenticator 앱과 관련된 인시던트를 보고하고, 인시던트 번호를 받고, 할당된 인시던트 번호에 대해 다음과 같이 로그 파일을 보냅니다.
 2. 팝업 메뉴에서 **로깅**을 클릭합니다.
-3. Microsoft 지원에 개설된 인시던트가 있는 경우 인시던트 번호를 적어둡니다(이후 단계에서 필요함). 지원 인시던트를 아직 만들지 않았으며 지원이 필요한 경우 [Microsoft 지원](https://support.microsoft.com/en-us/contactus) 의 지침에 따라 새 인시던트를 엽니다.
+3. Microsoft 지원에 개설된 인시던트가 있는 경우 인시던트 번호를 적어둡니다(이후 단계에서 필요함). 지원 인시던트를 아직 만들지 않았으며 지원이 필요한 경우 [Microsoft 지원](https://support.microsoft.com/contactus) 의 지침에 따라 새 인시던트를 엽니다.
 4. 로깅 화면에서 **지금 보내기**를 클릭합니다.
 5. 사용할 메일 공급자를 선택합니다.
 6. Microsoft 지원에 개설된 인시던트가 있는 경우 해당 문제에 할당된 지원 엔지니어에게 문의하여 로그 데이터를 보내고 인시던트에 연결시키는 방법을 확인합니다. 지원 엔지니어가 메일 주소 및 제목 줄에 대한 정보를 제공합니다. 아직 지원 인시던트가 없는 경우 Microsoft 지원의 지침에 따라 새 인시던트를 엽니다.

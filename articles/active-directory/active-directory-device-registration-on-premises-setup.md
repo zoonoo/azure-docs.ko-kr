@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: f0a6e164ed6b2269ec223a18f37d3475316d3e77
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 38d024de0fd2490d33f7c06498d3ff8d0d06e503
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629075"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143896"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Azure Active Directory 장치 등록을 사용하여 온-프레미스 조건부 액세스 설정
 사용자가 Azure AD(Azure Active Directory) 장치 등록 서비스에 자신의 개인 장치를 작업 공간에 연결하도록 요구하면 해당 장치가 조직에 알려진 것으로 표시될 수 있습니다. 다음은 Windows Server 2012 R2에서 AD FS(Active Directory Federation Services)를 사용하여 온-프레미스 응용 프로그램에 대한 조건부 액세스를 사용하도록 설정하는 단계별 가이드입니다.
@@ -48,7 +48,7 @@ ms.locfileid: "39629075"
 * Azure Active Directory Premium에 대한 라이선스
 * Azure AD에 대해 SSO로 구성된 Windows Server 2012 R2 페더레이션 서비스
 * Windows Server 2012 R2 웹 응용 프로그램 프록시 
-* Azure AD Connect(Microsoft Azure Active Directory Connect)[(Azure AD Connect 다운로드)](http://www.microsoft.com/en-us/download/details.aspx?id=47594)
+* Azure AD Connect(Microsoft Azure Active Directory Connect)[(Azure AD Connect 다운로드)](http://www.microsoft.com/download/details.aspx?id=47594)
 * 확인된 도메인
 
 ## <a name="known-issues-in-this-release"></a>이 릴리스의 알려진 문제

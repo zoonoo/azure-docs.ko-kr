@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: ccc0836a296bb392e60dd0c973516a7087ff6ea5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c2c1ef83ade7040e16f54b87f63f6eb27714bf2a
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429329"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42023223"
 ---
 # <a name="deploy-a-dcos-cluster"></a>DC/OS 클러스터 배포
 
@@ -78,7 +78,7 @@ SSH 터널이 성공적으로 만들어진 경우 DC/OS 포털이 반환됩니�
 
 ## <a name="install-dcos-cli"></a>DC/OS CLI 설치
 
-명령줄에서 DC/OS 클러스터를 관리하는 데 DC/OS 명령줄 인터페이스를 사용합니다. [az acs dcos install-cli](/azure/acs/dcos#install-cli) 명령을 사용하여 DC/OS 클라이언트를 설치합니다. Azure Cloud Shell을 사용하는 경우 DC/OS CLI가 이미 설치되어 있습니다. 
+명령줄에서 DC/OS 클러스터를 관리하는 데 DC/OS 명령줄 인터페이스를 사용합니다. [az acs dcos install-cli](/cli/azure/acs/dcos#az-acs-dcos-install-cli) 명령을 사용하여 DC/OS 클라이언트를 설치합니다. Azure Cloud Shell을 사용하는 경우 DC/OS CLI가 이미 설치되어 있습니다. 
 
 macOS 또는 Linux에서 Azure CLI를 실행하는 경우 sudo를 사용하여 이 명령을 실행해야 합니다.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: 2a09f302be83f39f918d83c45309d5cab79f9429
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: d674b0a6a16e22ed06577f7306ed6f4b9755dd0e
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526932"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42144272"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Linux에서 AzCopy를 사용하여 데이터 전송
 
@@ -61,7 +61,7 @@ Microsoft Linux 제품 리포지토리에 대한 apt 원본 추가 및 AzCopy �
 ```bash
 sudo echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod/ trusty main" > azure.list
 sudo cp ./azure.list /etc/apt/sources.list.d/
-apt-key adv --keyserver packages.microsoft.com --recv-keys B02C46DF417A0893
+apt-key adv --keyserver packages.microsoft.com --recv-keys EB3E94ADBE1229CF
 ```
 
 ```bash
@@ -76,7 +76,7 @@ Microsoft Linux 제품 리포지토리에 대한 apt 원본 추가 및 AzCopy �
 ```bash
 echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod/ xenial main" > azure.list
 sudo cp ./azure.list /etc/apt/sources.list.d/
-apt-key adv --keyserver packages.microsoft.com --recv-keys B02C46DF417A0893
+apt-key adv --keyserver packages.microsoft.com --recv-keys EB3E94ADBE1229CF
 ```
 
 ```bash
@@ -405,7 +405,7 @@ abc (2014-02-21 150331).txt
 ```
 
 ### <a name="synchronously-copy-blobs-across-storage-accounts"></a>Storage 계정 간 Blob 비동기 복사
-기본적으로 AzCopy는 두 저장소 끝점 간에 데이터를 비동기적으로 복사합니다. 따라서 복사 작업은 Blob이 복사되는 속도와 관련하여 SLA가 없는 여분의 대역폭 용량을 사용하여 백그라운드로 실행됩니다. 
+기본적으로 AzCopy는 두 저장소 엔드포인트 간에 데이터를 비동기적으로 복사합니다. 따라서 복사 작업은 Blob이 복사되는 속도와 관련하여 SLA가 없는 여분의 대역폭 용량을 사용하여 백그라운드로 실행됩니다. 
 
 `--sync-copy` 옵션을 사용하면 복사 작업이 일관된 속도를 유지할 수 있습니다. AzCopy는 지정된 소스에서 로컬 메모리로 복사할 Blob을 다운로드한 후 대상 Blob 저장소에 업로드하여 동기 복사를 수행합니다.
 

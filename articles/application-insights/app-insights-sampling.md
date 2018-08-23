@@ -10,15 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2017
-ms.author: mbullwin; vitalyg
-ms.openlocfilehash: 53753a3202362c73356e8e39bfca9d813f6387e0
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: vitalyg
+ms.author: mbullwin
+ms.openlocfilehash: 3c706b88ec9e67a607a75733833c67e62eebb724
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869906"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42144066"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -47,7 +48,7 @@ ms.locfileid: "33869906"
 적응 또는 고정 비율 샘플링이 작업 중인 경우 수집 샘플링은 비활성화됩니다.
 
 ## <a name="ingestion-sampling"></a>수집 샘플링
-이 샘플링 형식은 웹 서버, 브라우저 및 장치의 원격 분석이 Application Insights 서비스 끝점에 도달하는 지점에서 작동합니다. 앱에서 전송되는 원격 분석 트래픽을 줄이지는 않지만 Application Insights에서 처리 및 보존(및 청구)되는 양을 줄입니다.
+이 샘플링 형식은 웹 서버, 브라우저 및 장치의 원격 분석이 Application Insights 서비스 엔드포인트에 도달하는 지점에서 작동합니다. 앱에서 전송되는 원격 분석 트래픽을 줄이지는 않지만 Application Insights에서 처리 및 보존(및 청구)되는 양을 줄입니다.
 
 앱이 월간 할당량을 자주 초과하지만 SDK 기반의 샘플링 유형 중 하나를 사용할 옵션이 없는 경우 이 샘플링 유형을 사용합니다. 
 
@@ -69,7 +70,7 @@ SDK 기반 적응 또는 고정 비율 샘플링이 작동되는 동안에는 �
 ## <a name="adaptive-sampling-at-your-web-server"></a>웹 서버의 적응 샘플링
 적응 샘플링은 ASP.NET v 2.0.0-beta3 이상용 Application Insights SDK에 사용할 수 있으며, 기본적으로 사용하도록 설정됩니다. 
 
-적응 샘플링은 웹 서버 앱에서 Application Insights 서비스 끝점으로 보내는 원격 분석의 양에 영향을 줍니다. 이 양은 지정된 최대 트래픽 속도 내에서 유지되도록 자동으로 조정됩니다.
+적응 샘플링은 웹 서버 앱에서 Application Insights 서비스 엔드포인트로 보내는 원격 분석의 양에 영향을 줍니다. 이 양은 지정된 최대 트래픽 속도 내에서 유지되도록 자동으로 조정됩니다.
 
 적은 양의 원격 분석에서는 작동하지 않으므로 사용량이 적은 웹 사이트 또는 디버그 중인 앱은 영향을 받지 않습니다.
 
@@ -326,9 +327,12 @@ ASP.NET SDK 버전 2.0.0-beta3 이상을 사용하는 경우 적응 샘플링이
 ## <a name="how-do-i-know-whether-sampling-is-in-operation"></a>샘플링이 작업 중인지 어떻게 알 수 있나요?
 적용된 위치에 관계 없이 실제 샘플링 주기를 검색하려면 다음과 같은 [분석 쿼리](app-insights-analytics.md) 를 사용합니다.
 
-    requests | where timestamp > ago(1d)
-    | summarize 100/avg(itemCount) by bin(timestamp, 1h) 
-    | render areachart 
+```
+union * 
+| where timestamp > ago(1d)
+| summarize 100/avg(itemCount) by bin(timestamp, 1h), itemType
+| render timechart 
+```
 
 보존된 각 레코드에서 `itemCount` 은 나타내는 원래 레코드 수를 나타내며 1 + 이전에 삭제된 레코드의 수와 같습니다. 
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1d11b7d8f008c8ba000530e0486562882bfe3db3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: bc03bbf63427061c8d9f9e96ebcd9dce84f9fccf
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193896"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42144860"
 ---
 # <a name="runbook-input-parameters"></a>Runbook 입력 매개 변수
 
@@ -80,7 +80,7 @@ Runbook에 object 형식 입력 매개 변수가 있는 경우 값에 전달하�
 
 Azure로 인증하는 [**Azure 실행 계정으로 Runbook 인증**](automation-sec-configure-azure-runas-account.md).
 
-가상 머신의 속성을 가져오는 [**Get-AzureRmVm**](https://msdn.microsoft.com/library/mt603718.aspx).
+가상 머신의 속성을 가져오는 [**Get-AzureRmVm**](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm).
 
 You can use the [**Write-Output**](https://technet.microsoft.com/library/hh849921.aspx) activity to output the names of virtual machines. **Get-AzureRmVm** 활동은 **가상 머신 이름** 및 **리소스 그룹 이름**과 같은 두 개의 매개 변수를 수락합니다. 이러한 매개 변수가 Runbook을 시작할 때마다 다른 값을 필요할 수 있기 때문에 Runbook에 입력 매개 변수를 추가할 수 있습니다. 입력 매개 변수를 추가하는 단계는 다음과 같습니다.
 
@@ -147,7 +147,7 @@ Runbook은 Azure 포털, webhook, PowerShell cmdlet, REST API 또는 SDK 등 여
 
 #### <a name="start-a-published-runbook-by-using-powershell-cmdlets-and-assign-parameters"></a>PowerShell cmdlet을 사용하여 게시된 Runbook 시작 및 매개 변수 할당
 
-* **Azure Resource Manager cmdlet:**[Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx)을 사용하여 리소스 그룹에 생성된 자동화 Runbook을 시작할 수 있습니다
+* **Azure Resource Manager cmdlet:**[Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook)을 사용하여 리소스 그룹에 생성된 자동화 Runbook을 시작할 수 있습니다
   
   **예제:**
   
@@ -156,7 +156,7 @@ Runbook은 Azure 포털, webhook, PowerShell cmdlet, REST API 또는 SDK 등 여
   
   Start-AzureRmAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” –ResourceGroupName $resourceGroupName -Parameters $params
   ```
-* **Azure 클래식 배포 모델 cmdlet:** [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx)을 사용하여 기본 리소스 그룹에 생성된 자동화 Runbook을 시작할 수 있습니다
+* **Azure 클래식 배포 모델 cmdlet:** [Start-AzureAutomationRunbook](https://docs.microsoft.com/powershell/module/servicemanagement/azure/start-azureautomationrunbook)을 사용하여 기본 리소스 그룹에 생성된 자동화 Runbook을 시작할 수 있습니다
   
   **예제:**
   
