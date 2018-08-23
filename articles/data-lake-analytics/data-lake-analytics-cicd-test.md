@@ -121,7 +121,7 @@ UDO 함수를 호출한 후 C# 어설션 함수를 사용하여 스키마 및 �
 
 ### <a name="run-u-sql-test-cases-in-visual-studio-team-service"></a>Visual Studio Team Service에서 U-SQL 테스트 사례 실행
 
-U-SQL 테스트의 경우 빌드 컴퓨터에 `CPPSDK`를 로드하고 USqlScriptTestRunner에 대한 `CPPSDK` 경로(cppSdkFolderFullPath: @"")를 제공해야 합니다.
+U-SQL 테스트의 경우 빌드 컴퓨터에 `CPPSDK`를 로드하고 USqlScriptTestRunner에 대한 `CPPSDK` 경로(cppSdkFolderFullPath: \@"")를 제공해야 합니다.
 
 **CPPSDK란?**
 
