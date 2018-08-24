@@ -6,8 +6,7 @@
 
 # 자습서
 ## [Azure SQL DB로 SQL Server 마이그레이션](tutorial-sql-server-to-azure-sql.md)
-## 
-  [Azure SQL DB Managed Instance로 SQL Server 마이그레이션](tutorial-sql-server-to-managed-instance.md)
+## [Azure SQL DB Managed Instance로 SQL Server 마이그레이션](tutorial-sql-server-to-managed-instance.md)
 
 # 방법 가이드
 ## [PowerShell을 사용하여 SQL Server를 Azure SQL DB로 마이그레이션](howto-sql-server-to-azure-sql-powershell.md)
@@ -22,5 +21,4 @@
 ## [필수 구성 요소의 개요](pre-reqs.md)
 ## [FAQ](faq.md)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=database-migration)
-## 
-  [Azure SQL DB Managed Instance 마이그레이션에 대한 네트워크 토폴로지](resource-network-topologies.md)
+## [Azure SQL DB Managed Instance 마이그레이션에 대한 네트워크 토폴로지](resource-network-topologies.md)
