@@ -1,30 +1,34 @@
-# Azure 시작
-## [클라우드 컴퓨팅 개요](azure-operations-guide.md#cloud-computing-overview)
-### [Azure 지역](https://azure.microsoft.com/regions/)
-## [서비스](azure-operations-guide.md#azure-services)
-### [Azure 서비스 설명서](https://docs.microsoft.com/azure)
-## [주요 개념](azure-operations-guide.md#azure-key-concepts)
-### [Microsoft Azure Portal 개요](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) 
-### [포털을 통해 Azure 리소스 관리](https://docs.microsoft.com/azure/azure-portal/resource-group-portal)
-### [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/install-azurerm-ps)
-### [Azure CLI 설치](/cli/azure/install-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Azure REST SDK 참조](https://docs.microsoft.com/rest/api/index)
+# IT 운영자용 Azure
+## [Azure 시작](azure-operations-guide.md) 
+## 빠른 시작
+### Virtual Machines
+#### [Windows Virtual Machines](../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Linux Virtual Machines](../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
+### Virtual Network
+#### [Azure Portal을 사용하여 가상 네트워크 만들기](../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Storage](https://docs.microsoft.com/azure/storage/)
+### 보안
+#### [역할 할당을 사용하여 리소스 관리](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
-## [구독](azure-operations-guide.md#azure-subscriptions)
+## 자습서
+### Virtual Machines
+#### [Windows VM 만들기 및 관리](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Linux VM 만들기 및 관리](../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Jenkins CI/CD 파이프라인](../../virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [VM 부하 분산](../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Azure 리소스 관리자 템플릿 작성](../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
+## 방법 가이드
 ### [Azure 청구 송장 및 일간 사용 현황 데이터를 다운로드하는 방법](../../billing/billing-download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [리소스 사용에 대한 통찰력 얻기](../../billing/billing-usage-rate-card-overview.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [온라인 요금 계산기](http://azure.microsoft.com/pricing/calculator)
-### [청구 경고 설정](../../billing/billing-set-up-alerts.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Azure 리소스 관리자](azure-operations-guide.md#azure-resource-manager)
 
 ### [Azure 리소스 관리자 템플릿 작성](../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-###[Azure Portal을 사용하여 템플릿 배포](../../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-###[Azure PowerShell을 사용하여 템플릿 배포](../../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-###[Azure CLI를 사용하여 템플릿 배포](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Azure Portal을 사용하여 템플릿 배포](../../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Azure PowerShell을 사용하여 템플릿 배포](../../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Azure CLI를 사용하여 템플릿 배포](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [보안(RBAC)](azure-operations-guide.md#security-of-azure-resource)
-###[역할 할당을 사용하여 리소스 관리](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [역할 할당을 사용하여 리소스 관리](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [가상 머신](azure-operations-guide.md#azure-virtual-machines)
 ### [Windows용 VM 크기](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
@@ -38,7 +42,7 @@
 ### Windows용 가상 머신 자습서
 #### [VM 만들기/관리](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [디스크 만들기/관리](../../virtual-machines/windows/tutorial-manage-data-disk.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [구성 자동화](../../virtual-machines/windows/tutorial-automate-vm-deployment.md
+#### [구성 자동화](../../virtual-machines/windows/tutorial-automate-vm-deployment.md)
 #### [VM 이미지 만들기](../../virtual-machines/windows/tutorial-custom-images.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [고가용성 VM](../../virtual-machines/windows/tutorial-availability-sets.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [VM Scale Set 만들기](../../virtual-machines/windows/tutorial-create-vmss.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)

@@ -1,11 +1,3 @@
-### YamlMime:OriginYaml
-ms.openlocfilehash: a3d1862f3604c53af106bf90040d2380421a004d
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595863"
-metadata: {}
 items:
 - name: Azure Cosmos DB 설명서
   href: index.yml
@@ -14,7 +6,6 @@ items:
   - name: Azure Cosmos DB 정보
     href: introduction.md
 - name: 빠른 시작
-  expanded: true
   items:
   - name: SQL
     items:
@@ -78,6 +69,7 @@ items:
       href: create-cassandra-dotnet.md
     - name: 파이썬
       href: create-cassandra-python.md
+  expanded: true
 - name: 개념
   items:
   - name: 글로벌 분포
@@ -107,7 +99,6 @@ items:
     - name: 소셜 미디어 앱
       href: social-media-apps.md
 - name: 다중 모델
-  expanded: true
   items:
   - name: SQL API 문서
     items:
@@ -247,6 +238,10 @@ items:
           href: odbc-driver.md
         - name: SQL API에 Spring Boot Starter 사용
           href: https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json
+      - name: 솔루션 빌드
+        items:
+        - name: 판매 데이터 분석
+          href: changefeed-ecommerce-solution.md
     - name: 참고 자료
       items:
       - name: 비동기 Java
@@ -335,6 +330,8 @@ items:
         href: mongodb-readpreference.md
       - name: 인덱싱
         href: mongodb-indexing.md
+      - name: TTL(Time To Live) - MongoDB
+        href: mongodb-time-to-live.md
       - name: Power BI를 사용하여 데이터 시각화
         href: powerbi-visualize.md
     - name: 리소스
@@ -357,6 +354,8 @@ items:
       items:
       - name: 그래프 분할
         href: graph-partitioning.md
+      - name: BulkExecutor를 사용하여 그래프 데이터 가져오기
+        href: bulk-executor-graph-dotnet.md
     - name: 리소스
       items:
       - name: Visual Studio Code 확장
@@ -427,6 +426,7 @@ items:
         href: tutorial-develop-cassandra-java.md
       - name: 2 - 가져오기
         href: cassandra-import-data.md
+  expanded: true
 - name: 방법 가이드
   items:
   - name: 관리
@@ -441,7 +441,7 @@ items:
       href: manage-account.md
     - name: 처리량
       href: set-throughput.md
-    - name: 자동으로 데이터 만료
+    - name: TTL(Time to live)
       href: time-to-live.md
     - name: 진단 로깅
       href: logging.md
@@ -493,3 +493,9 @@ items:
     href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
   - name: 백서
     href: whitepapers.md
+ms.openlocfilehash: 431962982c9480fddd1b5450a9505a0052158980
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41927068"

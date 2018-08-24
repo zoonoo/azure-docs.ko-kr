@@ -5,14 +5,12 @@
 ## [FAQ](relay-faq.md)
 
 # 빠른 시작
-## [네임스페이스 만들기](relay-create-namespace-portal.md)
 ## [하이브리드 온-프레미스/클라우드 응용 프로그램 만들기](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## 하이브리드 연결
 ### [.NET Websocket](relay-hybrid-connections-dotnet-get-started.md)
 ### [.NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
 ### [노드 Websocket](relay-hybrid-connections-node-get-started.md)
 ### [노드 HTTP](relay-hybrid-connections-http-requests-node-get-started.md)
-## [WCF 릴레이](relay-wcf-dotnet-get-started.md)
 ## [WCF 릴레이 자습서](service-bus-relay-tutorial.md)
 ## [WCF 릴레이 REST 자습서](service-bus-relay-rest-tutorial.md)
 
@@ -22,6 +20,8 @@
 #### [ACS에서 SAS로 마이그레이션](relay-migrate-acs-sas.md)
 ### [하이브리드 연결 프로토콜](relay-hybrid-connections-protocol.md)
 ## 개발
+### [네임스페이스 만들기](relay-create-namespace-portal.md)
+### [WCF Relay를 사용하여 외부 클라이언트에 WCF 서비스 노출](relay-wcf-dotnet-get-started.md)
 ### [사용 가능한 API](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
 #### [Node](relay-hybrid-connections-node-ws-api-overview.md)

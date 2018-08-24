@@ -34,6 +34,7 @@
 ### [서버 이름 별칭 구성](analysis-services-server-alias.md)
 ### [스케일 아웃 구성](analysis-services-scale-out.md)
 ### [온-프레미스 데이터 게이트웨이 설치 및 구성](analysis-services-gateway-install.md)
+### [Azure Virtual Network에서 데이터 원본에 게이트웨이 사용](analysis-services-vnet-gateway.md)
 ### [서버 관리](analysis-services-manage.md)
 ### [서버 메트릭 모니터링](analysis-services-monitor.md)
 ### [진단 로깅 설정](analysis-services-logging.md)

@@ -82,34 +82,9 @@
 #### [B2B에 대한 지원 받기](b2b/get-support.md)
 
 ## [그룹 및 구성원 관리](fundamentals/active-directory-manage-groups.md)
-### 그룹 관리
-#### [Azure Portal](fundamentals/active-directory-groups-create-azure-portal.md)
-#### [Azure AD PowerShell for Graph(v2)](users-groups-roles/groups-settings-v2-cmdlets.md)
-#### [Azure AD PowerShell MSOnline](users-groups-roles/groups-settings-cmdlets.md)
-### [그룹 구성원 관리](fundamentals/active-directory-groups-members-azure-portal.md)
-### [그룹 소유자 관리](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
-### [그룹 멤버 자격 관리](fundamentals/active-directory-groups-membership-azure-portal.md)
-### [그룹을 사용하여 라이선스 할당](fundamentals/active-directory-licensing-whatis-azure-portal.md)
-#### [그룹에 라이선스 할당](users-groups-roles/licensing-groups-assign.md)
-#### [그룹에서 라이선스 문제 식별 및 해결](users-groups-roles/licensing-groups-resolve-problems.md)
-#### [개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션](users-groups-roles/licensing-groups-migrate-users.md)
-#### [제품 라이선스 간 사용자 마이그레이션](users-groups-roles/licensing-groups-change-licenses.md)
-#### [그룹 기반 라이선스에 대한 추가 시나리오](users-groups-roles/licensing-group-advanced.md)
-#### [그룹 기반 라이선스에 대한 Azure PowerShell 예제](users-groups-roles/licensing-ps-examples.md)
-#### [Azure AD의 제품 및 서비스 계획을 위한 참조](users-groups-roles/licensing-service-plan-reference.md)
-### [Office 365 그룹 만료 설정](users-groups-roles/groups-lifecycle.md)
-### [그룹에 대한 명명 정책 강제 적용](users-groups-roles/groups-naming-policy.md)
-### [모든 그룹 보기](fundamentals/active-directory-groups-view-azure-portal.md)
-### [SaaS 앱에 대한 그룹 액세스 추가](users-groups-roles/groups-saasapps.md)
+### [그룹 관리](fundamentals/active-directory-groups-create-azure-portal.md)
 ### [삭제된 Office 365 그룹 복원](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [그룹 설정 관리](fundamentals/active-directory-groups-settings-azure-portal.md)
-### [셀프 서비스 그룹 설정](users-groups-roles/groups-self-service-management.md)
-### 동적 그룹
-#### [동적 그룹 만들기](users-groups-roles/groups-create-rule.md)
-#### [규칙 구문 및 속성](users-groups-roles/groups-dynamic-membership.md)
-#### [그룹 멤버 자격 형식 변경](users-groups-roles/groups-change-type.md)
-#### [문제 해결](users-groups-roles/groups-troubleshooting.md)
-
 ## [보고서 관리](reports-monitoring/overview-reports.md)
 ### [로그인 활동](reports-monitoring/concept-sign-ins.md)
 ### [감사 활동](reports-monitoring/concept-audit-logs.md)
@@ -137,15 +112,13 @@
 #### [Azure Monitor에서 로그인 로그 스키마 해석](reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md)
 
 ### 문제 해결
-#### [누락된 감사 데이터](reports-monitoring/troubleshoot-missing-audit-data.md)
+#### [Azure AD 활동 로그에서 데이터 누락](reports-monitoring/troubleshoot-missing-audit-data.md)
 #### [다운로드에서 누락된 데이터](reports-monitoring/troubleshoot-missing-data-download.md)
 #### [Azure AD 활동 로그 콘텐츠 팩 오류](reports-monitoring/troubleshoot-content-pack.md)
 #### [Azure AD 보고 API의 오류](reports-monitoring/troubleshoot-graph-api.md)
 
 ### [프로그래밍 방식 액세스](reports-monitoring/concept-reporting-api.md)
 #### [필수 구성 요소](reports-monitoring/howto-configure-prerequisites-for-reporting-api.md)
-#### [감사 샘플](reports-monitoring/sample-audit-api.md)
-#### [로그인 샘플](reports-monitoring/sample-sign-in-api.md)
 #### [인증서 사용](reports-monitoring/tutorial-access-api-with-certificates.md)
 
 ## [암호 관리](authentication/concept-sspr-howitworks.md)
@@ -235,13 +208,14 @@
 ### 엔터프라이즈 앱 관리
 #### [응용 프로그램 추가](manage-apps/add-application-portal.md)
 #### [테넌트 앱 보기](manage-apps/view-applications-portal.md)
+#### [Single Sign-on 구성](manage-apps/configure-single-sign-on-portal.md)
 #### [사용자 할당](manage-apps/assign-user-or-group-access-portal.md)
 #### [브랜딩 사용자 지정](manage-apps/change-name-or-logo-portal.md)
 #### [사용자 로그인 비활성화](manage-apps/disable-user-sign-in-portal.md)
 #### [사용자 제거](manage-apps/remove-user-or-group-access-portal.md)
 
 #### [사용자 계정 프로비전 관리](manage-apps/configure-automatic-user-provisioning-portal.md)
-#### [엔터프라이즈 앱에 대한 Single Sign-On 관리](manage-apps/configure-single-sign-on-portal.md)
+
 #### [SAML 앱에 대한 고급 인증서 서명](manage-apps/certificate-signing-options.md)
 #### [사용자의 환경에서 응용 프로그램 숨기기](manage-apps/hide-application-from-user-portal.md)
 ### [HRD 정책을 사용하여 로그인 자동 가속 구성](manage-apps/configure-authentication-for-federated-users-portal.md)
@@ -363,12 +337,7 @@
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### 사용자 지정 도메인 이름
 #### [빠른 시작](fundamentals/add-custom-domain.md)
-#### [사용자 지정 도메인 이름 추가](users-groups-roles/domains-manage.md)
 ### [디렉터리 관리](fundamentals/active-directory-administer.md)
-### [디렉터리 삭제](users-groups-roles/directory-delete-howto.md)
-### [여러 디렉터리](users-groups-roles/licensing-directory-independence.md)
-### [셀프 서비스 등록](users-groups-roles/directory-self-service-signup.md)
-### [관리되지 않는 디렉터리 인수](users-groups-roles/domains-admin-takeover.md)
 ### [엔터프라이즈 상태 로밍](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [사용](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [그룹 정책 설정](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
@@ -379,14 +348,6 @@
 
 ### [Azure AD Connect를 사용하여 온-프레미스 ID 통합](./connect/active-directory-aadconnect.md)
 
-## 리소스에 대한 액세스 위임
-### [관리자 역할](users-groups-roles/directory-assign-admin-roles.md)
-#### [관리자 역할 구성원 보기](users-groups-roles//directory-manage-roles-portal.md)
-#### [사용자에게 관리자 역할 할당](fundamentals/active-directory-users-assign-role-azure-portal.md)
-#### [멤버 및 게스트 사용자 권한 비교](fundamentals/users-default-permissions.md)
-### [관리자 역할 보안](users-groups-roles/directory-admin-roles-secure.md)  
-#### [긴급 액세스 관리자 계정 만들기](users-groups-roles/directory-emergency-access.md)
-### [관리 단위](users-groups-roles/directory-administrative-units.md)
 ### [토큰 수명](active-directory-configurable-token-lifetimes.md)
 
 ## 액세스 검토
@@ -401,35 +362,6 @@
 ### [액세스 검토 결과 검색](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## ID 보안
-### 조건부 액세스
-#### [개요](conditional-access/overview.md)
-#### 빠른 시작
-##### [특정 앱에 대해 MFA 요구](conditional-access/app-based-mfa.md)
-##### [허용할 사용 약관 필요](conditional-access/require-tou.md)
-##### [세션 위험이 감지되면 액세스 차단](conditional-access/app-sign-in-risk.md)
-#### 자습서
-##### [클래식 MFA 정책 마이그레이션](conditional-access/policy-migration-mfa.md)
-#### 개념
-##### [기준 보호](conditional-access/baseline-protection.md)
-##### [조건](conditional-access/conditions.md)
-##### [위치 조건](conditional-access/location-condition.md)
-##### [컨트롤](conditional-access/controls.md)
-##### [가상 도구](conditional-access/what-if-tool.md)
-##### [Office 365 서비스에 대한 장치 정책 이해](active-directory-conditional-access-device-policies.md)
-#### 방법 가이드
-##### [모범 사례](conditional-access/best-practices.md)
-##### [신뢰할 수 없는 네트워크에서 액세스 시도에 대해 MFA 요구](conditional-access/untrusted-networks.md)
-##### [관리되는 장치 필요](conditional-access/require-managed-devices.md)
-##### [승인된 클라이언트 앱 필요](conditional-access/app-based-conditional-access.md)
-##### [사용자 및 앱에 대한 사용 약관 필요](active-directory-tou.md)
-##### [클래식 정책 마이그레이션](conditional-access/policy-migration.md)
-##### [VPN 연결 설정](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
-##### [SharePoint 및 Exchange Online 설정](active-directory-conditional-access-no-modern-authentication.md)
-##### [재구성](active-directory-conditional-access-device-remediation.md)
-#### [참조](conditional-access/technical-reference.md)
-##### [기술 참조](conditional-access/technical-reference.md)
-#### [FAQ](conditional-access/faqs.md)
-
 ### 인증서 기반 인증
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
@@ -449,9 +381,6 @@
 #### [Microsoft Graph](identity-protection/graph-get-started.md)
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
-## Azure AD와 다른 서비스 통합 
-### [Azure AD와 LinkedIn 통합](users-groups-roles/linkedin-integration.md)
-
 ## [Azure에서 AD FS 배포](active-directory-aadconnect-azure-adfs.md)
 ### [고가용성](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [서명 해시 알고리즘 변경](active-directory-federation-sha256-guidance.md)
@@ -464,13 +393,11 @@
 ### [PoC 플레이 북: 구현](active-directory-playbook-implementation.md)
 ### [PoC 플레이 북: 구성 요소](active-directory-playbook-building-blocks.md)
 
-
 # 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Azure PowerShell cmdlet](/powershell/azure/overview)
 ## [Java API 참조](/java/api)
 ## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
-## [서비스 제한 및 제한 사항](users-groups-roles/directory-service-limits-restrictions.md)
 
 # 관련 항목
 ## [Multi-Factor Authentication](/azure/multi-factor-authentication/)

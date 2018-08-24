@@ -6,12 +6,12 @@ description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 �
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 79b7301f2a9ef56956e6968f322b420a7622b172
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 8aff1d1c499ff9b53ca2adf47553b07c7ae71c45
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627426"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41927957"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1646,7 +1646,7 @@ Azure DevOps 프로젝트</a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/ddd/">
+                                            <a href="/azure/app-service-mobile">
                                                 <img src="https://docs.microsoft.com/media/common/i_mobile-app-developement.svg" alt="" />
                                                 <p>Azure 모바일 앱</p>
                                             </a>
@@ -2358,6 +2358,25 @@ Azure DevOps 프로젝트</a>
                                                 <div class="cardText">
                                                     <h3>File Storage</h3>
                                                     <p>표준 SMB 3.0 프로토콜을 사용하는 파일 공유</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/en-us/azure/databox/" data-linktype="absolute-path">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img alt="" src="media/index/service-icon-small.png" data-linktype="relative-path">
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Box</h3>
+                                                    <p>네트워크 가용성에 의해 제한될 때 대규모 데이터를 저렴한 비용으로 보안 전송</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5814,22 +5833,23 @@ Java 도구 </h3>
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="https://docs.microsoft.com/media/common/i_tools.svg" alt="" />
+                                                    <img src="media/index/azure-resource-manager.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-SQL 도구 </h3>
+Azure 리소스 관리자 </h3>
                                                 <p>
-                                                    <a href="/sql/sql-operations-studio/download">SQL Operations Studio<sup>미리 보기</sup></a>
+                                                    <a href="https://docs.microsoft.com/azure/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy">Visual Studio</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/sql/ssms/download-sql-server-management-studio-ssms">SSMS(SQL Server Management Studio)</a>
-                                                </p>                                            <p>
-                                                    <a href="/sql/ssdt/download-sql-server-data-tools-ssdt">SSDT(SQL Server Data Tools)</a>
+                                                    <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code">Visual Studio Code</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/sql/tools/overview-sql-tools">모든 SQL 도구 참조</a>
+                                                    <a href="https://azure.microsoft.com/resources/templates/">샘플 템플릿</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/templates/">참조</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -5901,20 +5921,22 @@ Service Fabric SDK 및 Tools </h3>
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/database-migration.svg" alt="" />
+                                                    <img src="https://docs.microsoft.com/media/common/i_tools.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-데이터베이스 마이그레이션 도구 </h3>
-                                                <p>DMA(
-                                                    <a href="https://aka.ms/dma">Data Migration Assistant</a>)
+SQL 도구 </h3>
+                                                <p>
+                                                    <a href="/sql/sql-operations-studio/download">SQL Operations Studio<sup>미리 보기</sup></a>
                                                 </p>
-                                                <p>SSMA(
-                                                    <a href="https://aka.ms/ssma">SQL Server Migration Assistant</a>)
+                                                <p>
+                                                    <a href="/sql/ssms/download-sql-server-management-studio-ssms">SSMS(SQL Server Management Studio)</a>
+                                                </p>                                            <p>
+                                                    <a href="/sql/ssdt/download-sql-server-data-tools-ssdt">SSDT(SQL Server Data Tools)</a>
                                                 </p>
-                                                <p>DEA(
-                                                    <a href="https://aka.ms/dea-tool">데이터베이스 실험 도우미</a>)
+                                                <p>
+                                                    <a href="/sql/tools/overview-sql-tools">모든 SQL 도구 참조</a>
                                                 </p>
                                             </div>
                                         </div>

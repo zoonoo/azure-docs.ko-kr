@@ -1,51 +1,60 @@
+items:
 - name: Azure 문서의 Terraform
   href: index.yml
 - name: 개요
   items:
-    - name: Azure의 Terraform 정보
-      href: terraform-overview.md
+  - name: Azure의 Terraform 정보
+    href: terraform-overview.md
 - name: 빠른 시작
-  expanded: true
   items:
-    - name: Terraform 설치 및 구성
-      href: /azure/virtual-machines/linux/terraform-install-configure
-      maintainContext: true
-    - name: Linux VM 만들기
-      href: /azure/virtual-machines/linux/terraform-create-complete-vm
-      maintainContext: true
+  - name: Terraform 설치 및 구성
+    href: /azure/virtual-machines/linux/terraform-install-configure
+    maintainContext: true
+  - name: Linux VM 만들기
+    href: /azure/virtual-machines/linux/terraform-create-complete-vm
+    maintainContext: true
+  expanded: true
 - name: 자습서
   items:
-    - name: AKS 및 Terraform으로 Kubernetes 클러스터 만들기
-      href: terraform-create-k8s-cluster-with-tf-and-aks.md
-    - name: Terraform 및 Azure 공급자 배포 슬롯
-      href: terraform-slot-walkthru.md
-    - name: MSI가 활성화된 Terraform VM 만들기
-      href: terraform-vm-msi.md
-    - name: Terraform 모듈을 사용하여 VM 클러스터 만들기
-      href: terraform-create-vm-cluster-module.md
-    - name: Terraform 및 HCL을 사용하여 VM 클러스터 만들기
-      href: terraform-create-vm-cluster-with-infrastructure.md
-    - name: 인프라를 사용하여 VM 확장 집합 프로비전
-      href: terraform-create-vm-scaleset-network-disks-hcl.md
-    - name: Packer 사용자 지정 이미지에서 VM 확장 집합 프로비전
-      href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
+  - name: AKS 및 Terraform으로 Kubernetes 클러스터 만들기
+    href: terraform-create-k8s-cluster-with-tf-and-aks.md
+  - name: Terraform 및 Azure 공급자 배포 슬롯
+    href: terraform-slot-walkthru.md
+  - name: MSI가 활성화된 Terraform VM 만들기
+    href: terraform-vm-msi.md
+  - name: Terraform 모듈을 사용하여 VM 클러스터 만들기
+    href: terraform-create-vm-cluster-module.md
+  - name: Terraform 및 HCL을 사용하여 VM 클러스터 만들기
+    href: terraform-create-vm-cluster-with-infrastructure.md
+  - name: 인프라를 사용하여 VM 확장 집합 프로비전
+    href: terraform-create-vm-scaleset-network-disks-hcl.md
+  - name: Packer 사용자 지정 이미지에서 VM 확장 집합 프로비전
+    href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
 - name: 개념
   items:
-    - name: Cloud Shell 통합
-      href: terraform-cloud-shell.md
+  - name: Cloud Shell 통합
+    href: terraform-cloud-shell.md
 - name: 샘플
   items:
-    - name: 구성 템플릿
-      href: 'https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples'
+  - name: 구성 템플릿
+    href: https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples
 - name: 참고 자료
   items:
-    - name: Azure 모듈 레지스트리
-      href: 'https://registry.terraform.io/modules/Azure'
-    - name: Terraform 참조
-      href: 'http://aka.ms/terraform'
+  - name: Azure 모듈 레지스트리
+    href: https://registry.terraform.io/modules/Azure
+  - name: Terraform 참조
+    href: http://aka.ms/terraform
+  - name: Azure Terraform VS Code 확장
+    href: terraform-vscode-extension.md
 - name: 리소스
   items:
-    - name: Azure 및 Terraform
-      href: 'https://azure.microsoft.com/solutions/devops/terraform/'
-    - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/'
+  - name: Azure 및 Terraform
+    href: https://azure.microsoft.com/solutions/devops/terraform/
+  - name: Azure 로드맵
+    href: https://azure.microsoft.com/roadmap/
+ms.openlocfilehash: 349348f2230005831c1ad68eb7f48dfaa8f4b78c
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41927012"

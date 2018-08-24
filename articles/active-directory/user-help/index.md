@@ -10,12 +10,12 @@ ms.component: user-help
 ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 00232a24310b13658fbfa04d2d410e7039c42bfe
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 3ee8834a2ff8b9126fea38b19df115474c36a9e9
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358403"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41928415"
 ---
 # <a name="user-help-for-authentication-apps-and-device-management"></a>인증, 앱 및 장치 관리에 대한 사용자 도움말
 
@@ -87,7 +87,6 @@ ms.locfileid: "39358403"
                         <h3>Microsoft Authenticator 앱 도움말</h3>
                         <p>
                         <a href="/azure/active-directory/user-help/microsoft-authenticator-app-how-to">시작</a><br/>
-                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq">휴대폰 로그인 FAQ</a><br/>
                         <a href="/azure/active-directory/user-help/microsoft-authenticator-app-backup-and-recovery">계정 자격 증명 백업 및 복구</a>
                         </p>
                     </div>
@@ -117,8 +116,8 @@ ms.locfileid: "39358403"
                     <div class="cardText">
                         <h3>내 장치 관리 도움말</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/device-management-azuread-joined-devices-setup">내 장치 연결</a><br/>
-                        <a href="/azure/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup">내 Windows 10 장치 등록</a>
+                        <a href="/azure/active-directory/user-help/user-help-join-device-on-network">작업 장치 조인</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-register-device-on-network">작업할 개인 장치 등록</a>
                         </p>
                     </div>
                 </div>

@@ -1,71 +1,80 @@
+items:
 - name: Custom Vision Service 설명서
 - name: 개요
   items:
-    - name: Custom Vision Service란?
-      href: home.md
+  - name: Custom Vision Service란?
+    href: home.md
 - name: 방법 가이드
   items:
-    - name: Custom Vision Service를 사용하여 시작
+  - name: Custom Vision Service를 사용하여 시작
+    items:
+    - name: 분류자 빌드
+      href: getting-started-build-a-classifier.md
+    - name: 모델 테스트
+      href: test-your-model.md
+    - name: 분류자 개선
+      href: getting-started-improving-your-classifier.md
+    - name: 예측 API 사용
+      href: use-prediction-api.md
+    - name: 모바일로 모델 내보내기
+      href: export-your-model.md
+    - name: Windows ML를 사용한 ONNX 모델 사용
+      href: custom-vision-onnx-windows-ml.md
+    - name: Python에서 TensorFlow 모델 실행
+      href: export-model-python.md
+    - name: REST API를 사용하여 모델 학습
+      href: rest-api-tutorial.md
+  - name: 앱 빌드
+    items:
+    - name: 이미지 분류
       items:
-        - name: 분류자 빌드
-          href: getting-started-build-a-classifier.md
-        - name: 모델 테스트
-          href: test-your-model.md
-        - name: 분류자 개선
-          href: getting-started-improving-your-classifier.md
-        - name: 예측 API 사용
-          href: use-prediction-api.md
-        - name: 모바일로 모델 내보내기
-          href: export-your-model.md
-        - name: Windows ML를 사용한 ONNX 모델 사용
-          href: custom-vision-onnx-windows-ml.md
-        - name: Python에서 TensorFlow 모델 실행
-          href: export-model-python.md
-    - name: 앱 빌드
+      - name: C# 자습서
+        href: csharp-tutorial.md
+      - name: Python 자습서
+        href: python-tutorial.md
+    - name: 개체 감지
       items:
-        - name: 이미지 분류
-          items:
-            - name: 'C# 자습서'
-              href: csharp-tutorial.md
-            - name: Python 자습서
-              href: python-tutorial.md
-        - name: 개체 감지
-          items:
-            - name: 'C# 자습서'
-              href: csharp-tutorial-od.md
-            - name: Python 자습서
-              href: python-tutorial-od.md
+      - name: C# 자습서
+        href: csharp-tutorial-od.md
+      - name: Python 자습서
+        href: python-tutorial-od.md
 - name: 참고 자료
   items:
-    - name: Custom Vision 교육 API
-      href: 'https://go.microsoft.com/fwlink/?linkid=865446'
-    - name: Custom Vision 예측 API
-      href: 'https://go.microsoft.com/fwlink/?linkid=865445'
-    - name: 용어
-      href: glossary-of-terms.md
-    - name: SDK
-      items:
-        - name: Windows
-          href: 'http://github.com/Microsoft/Cognitive-CustomVision-Windows'
-        - name: 파이썬
-          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules'
-        - name: Go
-          href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices'
+  - name: Custom Vision 교육 API
+    href: https://go.microsoft.com/fwlink/?linkid=865446
+  - name: Custom Vision 예측 API
+    href: https://go.microsoft.com/fwlink/?linkid=865445
+  - name: 용어
+    href: glossary-of-terms.md
+  - name: SDK
+    items:
+    - name: Windows
+      href: http://github.com/Microsoft/Cognitive-CustomVision-Windows
+    - name: 파이썬
+      href: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules
+    - name: Go
+      href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices
 - name: 리소스
   items:
-    - name: 샘플
-      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision'
-    - name: 가격
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/'
-    - name: 계정 데이터 내보내기 또는 삭제
-      href: ./export-delete-data.md
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/598141-custom-vision-service'
-    - name: 스택 오버플로
-      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
-    - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
-    - name: 국가별 가용성
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
-    - name: 한도 및 할당량
-      href: limits-and-quotas.md
+  - name: 샘플
+    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
+  - name: 가격
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/
+  - name: 계정 데이터 내보내기 또는 삭제
+    href: ./export-delete-data.md
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/598141-custom-vision-service
+  - name: 스택 오버플로
+    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
+  - name: Azure 로드맵
+    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
+  - name: 국가별 가용성
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: 한도 및 할당량
+    href: limits-and-quotas.md
+ms.openlocfilehash: 1ab6bbc1e6f5d600d38d65628798f27f33db17a7
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42440315"

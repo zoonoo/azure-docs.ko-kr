@@ -74,9 +74,9 @@
 #### [클라이언트 및 서버 버전 관리](app-service-mobile-client-and-server-versioning.md)
 
 ### App Service 환경
-#### [App Service Environment에서 웹앱 만들기](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Azure Resource Manager 템플릿을 사용하여 ILB ASE를 만드는 방법](../app-service/environment/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [내부 부하 분산 장치 사용](../app-service/environment/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [App Service Environment에서 웹앱 만들기](../app-service/environment/intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [내부 부하 분산 장치 만들기 및 사용](../app-service/environment/create-ilb-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [템플릿을 사용하여 ASE 만들기](../app-service/environment/create-from-template.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## 배포
 ### [클라우드 동기화 배포](../app-service/app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
