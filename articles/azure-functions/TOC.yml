@@ -162,8 +162,10 @@ items:
     items:
     - name: 연속 배포
       href: functions-continuous-deployment.md
-    - name: Zip 푸시 배포
+    - name: Zip 배포
       href: deployment-zip-push.md
+    - name: Zip 파일에서 실행
+      href: run-functions-from-deployment-package.md
     - name: 리소스 배포 자동화
       href: functions-infrastructure-as-code.md
     - name: 온-프레미스 함수
@@ -278,9 +280,9 @@ items:
     href: https://github.com/Azure/Azure-Functions/
   - name: 서비스 업데이트
     href: https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: 3eb52c481185c50d935991b5163d130925bd6eeb
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 59724921a304519da2939fc4e4183a17c01c926a
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41927363"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42810934"

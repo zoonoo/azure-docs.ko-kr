@@ -54,6 +54,7 @@
 #### [B2B 사용자를 추가하는 관리자](b2b/add-users-administrator.md)
 #### [B2B 사용자를 추가하는 지식 근로자](b2b/add-users-information-worker.md)
 #### [API 및 사용자 지정](b2b/customize-invitation-api.md)
+#### [Google 페더레이션](b2b/google-federation.md)
 #### [코드 및 Azure PowerShell 샘플](b2b/code-samples.md)
 #### [셀프 서비스 등록 포털 샘플](b2b/self-service-portal.md)
 #### [초대 전자 메일](b2b/invitation-email-elements.md)
