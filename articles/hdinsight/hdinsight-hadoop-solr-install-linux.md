@@ -113,7 +113,7 @@ Solr이 설치된 클러스터를 만들려면 [HDInsight 클러스터 만들기
     curl "http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true"
     ```
 
-    이 명령은 **\*:\***(쿼리 문자열에서 \*%3A\*로 인코딩)와 일치하는 모든 문서에 대해 **collection1**을 검색합니다. 다음 JSON 문서는 응답의 예제입니다.
+    이 명령은 **\*:\*** (쿼리 문자열에서 \*%3A\*로 인코딩)와 일치하는 모든 문서에 대해 **collection1**을 검색합니다. 다음 JSON 문서는 응답의 예제입니다.
 
             "response": {
                 "numFound": 2,

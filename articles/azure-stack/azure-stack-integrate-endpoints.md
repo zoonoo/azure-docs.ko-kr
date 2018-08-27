@@ -11,11 +11,11 @@ ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
 ms.openlocfilehash: c5d0bc6a0e7e885f61ba28be0575697b03fece09
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480710"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917145"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure 데이터 센터 통합 스택-끝점 게시
 Azure Stack 인프라 역할에 대 한 가상 IP 주소 (Vip)를 설정합니다. 이러한 Vip의 공용 IP 주소 풀에서 할당 됩니다. 각 VIP는 소프트웨어 정의 네트워크 계층에서 액세스 제어 목록 (ACL)을 사용 하 여 보호 됩니다. Acl은 솔루션 강화 (에서 및 BMC) 실제 스위치 간에 사용 됩니다. 배포 시 지정 된 외부 DNS 영역에서 각 끝점에 대 한 DNS 항목을 생성 됩니다.

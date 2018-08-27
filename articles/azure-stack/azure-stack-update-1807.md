@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 08/24/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: dba43f0823282bd385dca30402a9b16fa3b99de6
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 5e5ebac221060058a44f7605f77d33a133f5e72c
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42139509"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887226"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 업데이트
 
@@ -245,7 +245,9 @@ Azure Stack 호스트 키 인프라를 Windows Server 2016의 Server Core 설치
 
 - <!-- 1662991 IS ASDK --> Azure Stack의 Linux VM 진단을 지원 되지 않습니다. 를 사용 하도록 설정 하는 VM 진단을 사용 하 여 Linux VM을 배포 하는 경우 배포가 실패 합니다. 진단 설정을 통해 Linux VM 기본 메트릭을 사용 하도록 설정한 경우에 배포가 실패 합니다.  
 
-- <!-- 2724961- IS ASDK --> 등록 하는 경우는 **Microsoft.Insight** 리소스 공급자 구독 설정에서 게스트 OS 진단 사용 하도록 설정 된 Windows VM 만들기, VM 개요 페이지에서 CPU 백분율 차트 메트릭 데이터를 표시할 수 없습니다. VM에 대 한 CPU 백분율 차트를 찾으려면에서로 이동 합니다 **메트릭을** 블레이드에서 살펴보고, 지원 되는 모든 Windows VM 게스트 메트릭을 합니다.
+- <!-- 2724961- IS ASDK --> 등록할 때를 **Microsoft.Insight** 리소스 공급자 구독 설정에서 Windows VM 만들기 및 VM 개요 페이지 게스트 OS 진단 활성화를 사용 하 여 메트릭 데이터를 표시 하지 않습니다. 
+
+   VM에 대 한 CPU 백분율 차트와 같은 메트릭 데이터를 찾으려면에서로 이동 합니다 **메트릭을** 블레이드에서 살펴보고, 지원 되는 모든 Windows VM 게스트 메트릭을 합니다.
 
 ### <a name="networking"></a>네트워킹  
 

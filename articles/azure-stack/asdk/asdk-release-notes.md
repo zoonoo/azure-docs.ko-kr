@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 08/24/2018
 ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: b77772ce69afbc32bfe8a6826fdf8420076074d9
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: ed1c47830cbc4a629d827853c7d440b9bbd80d64
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42139741"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888189"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure Stack 개발 키트 릴리스 정보  
 이러한 릴리스 정보에서는 향상 된 기능, 수정 및 Azure Stack 개발 키트의 알려진된 문제에 대 한 정보를 제공 합니다. 실행 중인 버전을 잘 모를 경우 [포털을 사용 하 여 확인](.\.\azure-stack-updates.md#determine-the-current-version)합니다.
@@ -171,7 +171,9 @@ ms.locfileid: "42139741"
 
 - <!-- 1662991 - IS ASDK --> Azure Stack의 Linux VM 진단을 지원 되지 않습니다. 를 사용 하도록 설정 하는 VM 진단을 사용 하 여 Linux VM을 배포 하는 경우 배포가 실패 합니다. 진단 설정을 통해 Linux VM 기본 메트릭을 사용 하도록 설정한 경우에 배포가 실패 합니다.
 
-- <!-- 2724961- IS ASDK --> 등록 하는 경우는 **Microsoft.Insight** 리소스 공급자 구독 설정에서 게스트 OS 진단 사용 하도록 설정 된 Windows VM 만들기, VM 개요 페이지에서 CPU 백분율 차트 메트릭 데이터를 표시할 수 없습니다. VM에 대 한 CPU 백분율 차트를 찾으려면에서로 이동 합니다 **메트릭을** 블레이드에서 살펴보고, 지원 되는 모든 Windows VM 게스트 메트릭을 합니다.
+- <!-- 2724961- IS ASDK --> 등록할 때를 **Microsoft.Insight** 리소스 공급자 구독 설정에서 Windows VM 만들기 및 VM 개요 페이지 게스트 OS 진단 활성화를 사용 하 여 메트릭 데이터를 표시 하지 않습니다. 
+
+   VM에 대 한 CPU 백분율 차트와 같은 메트릭 데이터를 찾으려면에서로 이동 합니다 **메트릭을** 블레이드에서 살펴보고, 지원 되는 모든 Windows VM 게스트 메트릭을 합니다.
 
 #### <a name="networking"></a>네트워킹
 - <!-- 1766332 - IS, ASDK --> 아래 **네트워킹**를 클릭 하면 **VPN 게이트웨이 만들기** VPN 연결을 설정 하려면 **정책 기반** VPN 형식으로 나열 됩니다. 이 옵션을 선택 하지 마십시오. 만 **경로 기반** 옵션은 Azure Stack에서 지원 됩니다.

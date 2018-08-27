@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 08/16/2018
 ms.author: mtillman
-ms.openlocfilehash: 9496896e3d841e4857ea17987fb230adb4f0edb1
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: fa7b7430377def58f20daabc15e501321954befe
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41929627"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887553"
 ---
 # <a name="azure-active-directory-documentation"></a>Azure Active Directory 설명서
 
@@ -116,8 +116,8 @@ Azure AD(Azure Active Directory)는 다중 테넌트 클라우드 기반 디렉�
                         <h3>장치</h3>
                         <p>
                         <a href="/azure/active-directory/device-management-introduction">장치 관리</a><br/>
-                        <a href="/azure/active-directory/device-management-azuread-registered-devices-windows10-setup">Windows 10 장치</a><br/>
-                        <a href="/azure/active-directory/device-management-azuread-joined-devices-setup">연결 장치</a>
+                        <a href="/azure/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup">Windows 10 장치</a><br/>
+                        <a href="/azure/active-directory/user-help/device-management-azuread-joined-devices-setup">연결 장치</a>
                         </p>
                     </div>
                 </div>
