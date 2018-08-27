@@ -1,7 +1,7 @@
 # 개요
 ## [Azure 네트워킹 정보](networking-overview.md)
 ## 아키텍처
-### [가상 데이터 센터](networking-virtual-datacenter.md)
+### [가상 데이터 센터](/azure/architecture/vdc/networking-virtual-datacenter)
 ### [여러 네트워크 경로를 포함한 비대칭 라우팅](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [네트워크 설계 보안](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [허브-스포크 토폴로지](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
