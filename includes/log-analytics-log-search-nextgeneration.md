@@ -1,2 +1,0 @@
->[!NOTE]
-> 작업 영역을 [새 Log Analytics 쿼리 언어](../articles/log-analytics/log-analytics-log-search-upgrade.md)로 업그레이드한 경우 다음 쿼리를 변환해야 합니다. [언어 변환기](../articles/log-analytics/log-analytics-log-search-transition.md#language-converter)를 사용하여 이 변환을 수행할 수 있습니다.
