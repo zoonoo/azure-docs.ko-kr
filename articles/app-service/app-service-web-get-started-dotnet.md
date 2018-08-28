@@ -1,6 +1,6 @@
-﻿---
-title: Azure에서 ASP.NET Core 웹앱 만들기 | Microsoft Docs
-description: 기본 ASP.NET 웹앱을 배포하여 Azure App Service에서 웹앱을 실행하는 방법을 알아봅니다.
+---
+title: Azure에서 C# ASP.NET Core 웹앱 만들기 | Microsoft Docs
+description: 기본 C# ASP.NET 웹앱을 배포하여 Azure App Service에서 웹앱을 실행하는 방법을 알아봅니다.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/14/2017
+ms.date: 06/11/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 91f6fd077146e94833a5527f03ac710352e4fd9c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.custom: mvc, devcenter, vs-azure
+ms.openlocfilehash: 811f4df807292b9d539084a049cc643dbee07a7e
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30838369"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42432058"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Azure에서 ASP.NET Core 웹앱 만들기
 
@@ -40,11 +40,7 @@ ms.locfileid: "30838369"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* 다음 워크로드와 함께 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>을 설치합니다.
-    - **ASP.NET 및 웹 배포**
-    - **Azure 개발**
-
-    ![ASP.NET 및 웹 개발 및 Azure 개발(웹 & 클라우드에서)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+**ASP.NET 및 웹 개발** 워크로드가 있는 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>을 설치합니다.
 
 Visual Studio가 이미 설치된 경우 **도구** > **도구 및 기능 가져오기**를 클릭하여 Visual Studio에서 워크로드를 추가합니다.
 
@@ -64,10 +60,6 @@ Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**를 선택하여
 
 ![새 ASP.NET 프로젝트 대화 상자](./media/app-service-web-get-started-dotnet/razor-pages-aspnet-dialog.png)
 
-ASP.NET Core 프로젝트가 생성되면 ASP.NET Core 시작 페이지가 표시되고 시작하는 데 도움이 되는 리소스에 대한 다양한 링크가 제공됩니다. 
-
-![시작 페이지](./media/app-service-web-get-started-dotnet/aspnet-core-welcome-page.png)
-
 메뉴에서 **디버그 > 디버깅하지 않고 시작**을 선택하여 웹앱을 로컬로 실행합니다.
 
 ![로컬에서 앱 실행](./media/app-service-web-get-started-dotnet/razor-web-app-running-locally.png)
@@ -86,11 +78,10 @@ ASP.NET Core 프로젝트가 생성되면 ASP.NET Core 시작 페이지가 표�
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-**App Service 만들기** 대화 상자에서 **계정 추가**를 선택하고 Azure 구독에 로그인합니다. 이미 로그인한 경우 드롭다운에서 원하는 구독이 포함된 계정을 선택합니다.
+**App Service 만들기** 대화 상자에서 **계정 추가**를 클릭하고, Azure 구독에 로그인합니다. 이미 로그인한 경우 드롭다운에서 원하는 구독이 포함된 계정을 선택합니다.
 
 > [!NOTE]
 > 이미 로그인한 경우 **만들기**를 선택하지 마십시오.
->
 >
    
 ![Azure에 로그인](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
@@ -115,7 +106,7 @@ ASP.NET Core 프로젝트가 생성되면 ASP.NET Core 시작 페이지가 표�
 
 | 설정 | 제안 값 | 설명 |
 |-|-|-|
-|App Service 플랜| myAppServicePlan | App Service 플랜의 이름입니다. |
+|App Service 플랜| myAppServicePlan | App Service 계획의 이름입니다. |
 | 위치 | 서유럽 | 웹앱이 호스팅된 데이터 센터입니다. |
 | 크기 | 무료 | [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)은 호스팅 기능을 결정합니다. |
 
@@ -152,7 +143,8 @@ ASP.NET Core 프로젝트가 생성되면 ASP.NET Core 시작 페이지가 표�
 
 Azure에 다시 배포하려면 **솔루션 탐색기**에서 **myFirstAzureWebApp** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
-게시 페이지에서 **게시**를 선택합니다.
+게시 요약 페이지에서 **게시**를 선택합니다.
+![Visual Studio 게시 요약 페이지](./media/app-service-web-get-started-dotnet/publish-summary-page.png)
 
 게시가 완료되면 Visual Studio가 웹앱의 URL로 브라우저를 시작합니다.
 
@@ -170,7 +162,7 @@ Azure에 다시 배포하려면 **솔루션 탐색기**에서 **myFirstAzureWebA
 
 ![Azure Portal의 App Service 블레이드](./media/app-service-web-get-started-dotnet/web-app-blade.png)
 
-왼쪽 메뉴는 앱 구성을 위한 다양한 페이지를 제공합니다. 
+왼쪽 메뉴는 앱 구성을 위한 서로 다른 페이지를 제공합니다. 
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 

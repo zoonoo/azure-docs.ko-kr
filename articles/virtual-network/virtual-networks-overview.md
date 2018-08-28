@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/23/2018
+ms.date: 8/8/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 851c8c1eb13497355038ef4a8d5f1f9326c8c3bc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 179db61777fe60ae53d7fee553c8124d7a9f7abf
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781183"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42022685"
 ---
 # <a name="what-is-azure-virtual-network"></a>Azure Virtual Network란?
 
@@ -37,14 +37,17 @@ Azure Virtual Network를 사용하면 Azure VM(Virtual Machines)과 같은 다�
 
 ## <a name="communicate-with-the-internet"></a>인터넷 통신
 
-기본적으로 가상 네트워크의 모든 리소스는 인터넷으로 아웃바운드 통신을 할 수 있습니다. 공용 IP 주소를 할당하여 리소스에 대해 인바운드로 통신할 수 있습니다. 자세히 알아보려면 [공용 IP 주소](virtual-network-public-ip-address.md)를 참조하세요.
+기본적으로 가상 네트워크의 모든 리소스는 인터넷으로 아웃바운드 통신을 할 수 있습니다. 공용 IP 주소 또는 공용 Load Balancer를 할당하여 리소스에 대해 인바운드로 통신할 수 있습니다. 공용 IP 또는 공용 Load Balancer를 사용하여 아웃바운드 연결을 관리할 수도 있습니다.  Azure의 아웃바운드 연결에 대한 자세한 내용은 [아웃바운드 연결](../load-balancer/load-balancer-outbound-connections.md), [공용 IP 주소](virtual-network-public-ip-address.md) 및 [Load Balancer](../load-balancer/load-balancer-overview.md)를 참조하세요.
+
+>[!NOTE]
+>내부 [표준 Load Balancer](../load-balancer/load-balancer-standard-overview.md)만 사용하는 경우 인스턴스 수준 공용 IP 또는 공용 Load Balancer와 함께 작동하도록 [아웃바운드 연결](../load-balancer/load-balancer-outbound-connections.md) 방식을 정의하기 전에는 아웃바운드 연결을 사용할 수 없습니다.
 
 ## <a name="communicate-between-azure-resources"></a>Azure 리소스 간 통신
 
 Azure 리소스는 다음 방법 중 하나를 사용하여 서로 안전하게 통신합니다.
 
 - **가상 네트워크를 통해**: Azure App Service Environments, AKS(Azure Kubernetes Service), Azure Virtual Machine Scale Sets 등의 여러 가지 VM 및 Azure 리소스를 가상 네트워크에 배포할 수 있습니다. 가상 네트워크에 배포할 수 있는 Azure 리소스의 전체 목록을 보려면 [가상 네트워크 서비스 통합](virtual-network-for-azure-services.md)을 참조하세요. 
-- **가상 네트워크 서비스 끝점을 통해**: 직접 연결을 통해 Azure Storage 계정 및 Azure SQL Database와 같은 Azure 서비스 리소스로 가상 네트워크 개인 주소 공간 및 가상 네트워크의 ID를 확장합니다. 서비스 끝점을 사용하면 가상 네트워크에 대해 중요한 Azure 서비스 리소스를 보호할 수 있습니다. 자세한 내용은 [가상 네트워크 서비스 끝점 개요](virtual-network-service-endpoints-overview.md)를 참조하세요.
+- **가상 네트워크 서비스 엔드포인트를 통해**: 직접 연결을 통해 Azure Storage 계정 및 Azure SQL Database와 같은 Azure 서비스 리소스로 가상 네트워크 개인 주소 공간 및 가상 네트워크의 ID를 확장합니다. 서비스 엔드포인트를 사용하면 가상 네트워크에 대해 중요한 Azure 서비스 리소스를 보호할 수 있습니다. 자세한 내용은 [가상 네트워크 서비스 엔드포인트 개요](virtual-network-service-endpoints-overview.md)를 참조하세요.
  
 ## <a name="communicate-with-on-premises-resources"></a>온-프레미스 리소스와 통신
 

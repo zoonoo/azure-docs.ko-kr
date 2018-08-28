@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/18
+ms.date: 08/21/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 07700ecb8a31e6ee724f27e247f377eb869e6c39
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 2197ab230341fb2945e7b1acd9a010ef3d3f8c22
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305143"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42702409"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 VM 부하를 분산하는 표준 부하 분산 장치 만들기
 
@@ -30,24 +30,29 @@ ms.locfileid: "34305143"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합니다.
+[http://portal.azure.com](http://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-public-load-balancer"></a>공용 부하 분산 장치 만들기
 
 이 섹션에서는 가상 머신의 부하를 분산하는 데 도움이 되는 공용 부하 분산 장치를 만듭니다. 표준 부하 분산 장치는 표준 공용 IP 주소만 지원합니다. 표준 부하 분산 장치를 만들 때 표준 부하 분산 장치의 프런트 엔드(기본 이름은 *LoadBalancerFrontend*)로 구성된 새 표준 공용 IP 주소도 만들어야 합니다. 
 
 1. 화면의 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **부하 분산 장치**를 클릭합니다.
-2. **부하 분산 장치 만들기** 페이지에서 부하 분산 장치에 다음 값을 입력합니다.
-    - *myLoadBalancer* - 부하 분산 장치의 이름입니다.
-    - **공용** - 부하 분산 장치의 유형입니다.
-     - *myPublicIP* - 만드는 **새** 공용 IP로 입력합니다.
-    - *myResourceGroupLB* - 만들기로 선택하는 **새** 리소스 그룹의 이름으로 입력합니다.
-    - **westeurope** - 위치로 입력합니다.
-3. **만들기**를 클릭하여 부하 분산 장치를 만듭니다.
-   
-    ![부하 분산 장치 만들기](./media/load-balancer-standard-public-portal/1a-load-balancer.png)
+2. **부하 분산 장치 만들기**에서 다음 정보를 입력하거나 선택하고, 나머지 설정은 기본값을 그대로 적용한 다음, **만들기**를 선택합니다.
+
+    | 설정                 | 값                                              |
+    | ---                     | ---                                                |
+    | Name                   | *myLoadBalancer*                                   |
+    | type          | 공용                                        |
+    | SKU           | Standard                          |
+    | 공용 IP 주소 | **새로 만들기**를 선택하고, 텍스트 상자에 *myPublicIP*를 입력합니다. 공용 IP 주소에 대한 표준 SKU는 기본적으로 선택됩니다. **가용성 영역**에 **Zone-redundant**를 선택합니다. |
+    | 구독               | 구독을 선택합니다.    |
+    |리소스 그룹 | **새로 만들기**를 선택한 다음, *myResourceGroupSLB*를 입력합니다.    |
+    | 위치           | **유럽 서부**를 선택합니다.                          |
+    
+
+![부하 분산 장치 만들기](./media/load-balancer-standard-public-portal/create-load-balancer.png)
 
 
 ## <a name="create-backend-servers"></a>백 엔드 서버 만들기
@@ -67,22 +72,22 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
 
 1. 화면의 왼쪽 상단에서 **새로 만들기** > **계산** > **Windows Server 2016 데이터 센터**를 클릭하고 가상 머신에 대한 다음 값을 입력합니다.
     - *myVM1* - 가상 머신의 이름        
-    - *azureuser* - 관리자 사용자 이름    
     - *myResourceGroupSLB* - **리소스 그룹**에서 **기존 항목 사용**을 선택한 다음, *myResourceGroupSLB*를 선택합니다.
 2. **확인**을 클릭합니다.
 3. 가상 머신의 크기에 대해 **DS1_V2**를 선택하고 **선택**을 클릭합니다.
 4. VM 설정에 다음 값을 입력합니다.
-    - *myAvailabilitySet* - 새로 만드는 가용성 집합의 이름으로 입력합니다.
-    -  *myVNet* - 가상 네트워크로 선택합니다.
-    - *myBackendSubnet* - 서브넷으로 선택합니다.
-    - *myNetworkSecurityGroup* - 만들어야 하는 새 네트워크 보안 그룹(방화벽)의 이름으로 입력합니다.
+    1. 가상 네트워크로 *myVNet*이 선택되어 있고, 서브넷으로 *myBackendSubnet*이 선택되었는지 확인합니다.
+    2. **공용 IP 주소**의 경우 **공용 IP 주소 만들기** 창에서 **표준**를 선택한 다음, **확인**을 선택합니다.
+    3. **네트워크 보안 그룹**의 경우 **고급**을 선택한 다음, 다음을 수행합니다.
+        1. *네트워크 보안 그룹(방화벽)을 선택하고, **네트워크 보안 그룹 선택** 페이지에서 **새로 만들기**를 선택합니다. 
+        2. **네트워크 보안 그룹 만들기** 페이지에서 **이름**으로 *myNetworkSecurityGroup*을 입력한 다음, **확인**을 선택합니다.
 5. **사용 안 함**을 클릭하여 부팅 진단을 사용하지 않도록 설정합니다.
 6. **확인**을 클릭하고 요약 페이지에서 설정을 검토한 다음, **만들기**를 클릭합니다.
-7. 1-6단계를 사용하여 가용성 집합은 *myAvailabilityset*이고, 가상 네트워크는 *myVnet*이고, 서브넷은  *myBackendSubnet*이고, 네트워크 보안 그룹은 *myNetworkSecurityGroup*인 *VM2*라고 하는 두 번째 VM을 만듭니다. 
+7. 1-6단계를 사용하여 가용성 집합은 *myAvailibilityset*이고, 가상 네트워크는 *myVnet*이고, 서브넷은 *myBackendSubnet*이고, 네트워크 보안 그룹은 *myNetworkSecurityGroup*인 *VM2*라고 하는 두 번째 VM을 만듭니다. 
 
-### <a name="create-nsg-rules"></a>NSG 규칙 만들기
+### <a name="create-nsg-rule"></a>NSG 규칙 만들기
 
-이 섹션에서는 HTTP 및 RDP를 사용하는 인바운드 연결을 허용하는 NSG 규칙을 만듭니다.
+이 섹션에서는 HTTP를 사용하는 인바운드 연결을 허용하는 NSG 규칙을 만듭니다.
 
 1. 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 리소스 목록에서 **myResourceGroupSLB** 리소스 그룹에 있는 **myNetworkSecurityGroup**을 클릭합니다.
 2. **설정**에서 **인바운드 보안 규칙**을 클릭한 다음, **추가**를 클릭합니다.
@@ -97,17 +102,6 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
     - *HTTP 허용* - 설명으로 입력합니다.
 4. **확인**을 클릭합니다.
  
- ![가상 네트워크 만들기](./media/load-balancer-standard-public-portal/8-load-balancer-nsg-rules.png)
-5. 다음 값으로 2-4단계를 반복하여 포트 3389를 사용하는 인바운드 RDP 연결을 허용하는 *myRDPRule*이라는 또 다른 규칙을 만듭니다.
-    - *서비스 태그* - **소스**로 입력합니다.
-    - *인터넷* - **원본 서비스 태그**로 입력합니다.
-    - *3389* - **대상 포트 범위**로 입력합니다.
-    - *TCP* - **프로토콜**로 입력합니다.
-    - *허용* - **작업**에 대해 선택합니다.
-    - *200* - **우선 순위**로 입력합니다.
-    - *myRDPRule* - 이름으로 입력합니다.
-    - *RDP 허용* - 설명으로 입력합니다.
-
 ### <a name="install-iis"></a>IIS 설치
 
 1. 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 리소스 목록에서 *myResourceGroupLB* 리소스 그룹에 있는 **myVM1**을 클릭합니다.
@@ -124,7 +118,7 @@ Azure Portal([http://portal.azure.com](http://portal.azure.com))에 로그인합
 
 ## <a name="create-load-balancer-resources"></a>부하 분산 장치 리소스 만들기
 
-이 섹션에서는 백 엔드 주소 풀 및 상태 프로브에 대한 부하 분산 장치 설정을 구성하고, 부하 분산 장치 및 NAT 규칙을 지정합니다.
+이 섹션에서는 백 엔드 주소 풀 및 상태 프로브에 대한 부하 분산 장치 설정을 구성하고, 부하 분산 장치 규칙을 지정합니다.
 
 
 ### <a name="create-a-backend-address-pool"></a>백 엔드 주소 풀 만들기
@@ -134,13 +128,10 @@ VM으로 트래픽을 분산하기 위해 백 엔드 주소 풀에 부하 분산
 1. 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 리소스 목록에서 **myLoadBalancer**를 클릭합니다.
 2. **설정**에서 **백 엔드 풀**을 클릭한 다음, **추가**를 클릭합니다.
 3. **백 엔드 풀 추가** 페이지에서 다음을 수행합니다.
-    - 이름에서, 백 엔드 풀의 이름으로 *myBackEndPool을 입력합니다.
-    - **연결 대상**으로 드롭다운 메뉴에서 **가용성 집합**을 클릭합니다.
-    - **가용성 집합**으로 **myAvailabilitySet**를 클릭합니다.
-    - **대상 네트워크 IP 구성 추가**를 클릭하고 앞에서 만든 각 가상 머신(*myVM1* & *myVM2*)을 백 엔드 풀에 추가합니다.
+   - 이름에서 백 엔드 풀의 이름으로 *myBackendPool*을 입력합니다.
+   - **가상 네트워크**에서 *myVNet*을 선택합니다.
+   - 해당 IP 주소와 함께 **가상 머신** 아래에서 *myVM1* 및 *my VM2*를 추가한 다음, **추가**를 선택합니다.
     - **확인**을 클릭합니다.
-
-    ![백 엔드 주소 풀에 추가 ](./media/load-balancer-standard-public-portal/3-load-balancer-backend-02.png)
 
 3. 부하 분산 장치 백 엔드 풀 설정에 **VM1** 및 **VM2**가 모두 표시되는지 확인합니다.
 

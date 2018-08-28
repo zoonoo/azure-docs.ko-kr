@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2018
+ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 63ea834401e5c6798b6f84b6f09a964005d14306
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c20375d42786b817f677be22dee8f4e71e710bc5
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257874"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41919571"
 ---
 # <a name="virtual-network-peering"></a>가상 네트워크 피어링
 
@@ -77,6 +77,11 @@ Network Watcher의 [연결 확인](../network-watcher/network-watcher-connectivi
 
 ## <a name="requirements-and-constraints"></a>요구 사항 및 제약 조건
 
+가상 네트워크가 전역적으로 피어링될 때 다음 제약 조건이 적용됩니다.
+- 가상 네트워크는 Azure 국가별 클라우드를 제외한 모든 Azure 공용 클라우드 지역에 있을 수 있습니다.
+- 하나의 가상 네트워크의 리소스는 전역적으로 피어링된 가상 네트워크에 있는 Azure 내부 부하 분산 장치의 프런트 엔드 IP 주소와 통신할 수 없습니다. 함께 통신하는 부하 분산 장치 및 리소스는 동일한 지역에 있어야 합니다.
+- 원격 게이트웨이를 사용하거나 게이트웨이 전송을 허용할 수 없습니다. 원격 게이트웨이를 사용하거나 게이트웨이 전송을 허용하려면 피어링된 가상 네트워크가 동일한 지역에 있어야 합니다.
+
 요구 사항 및 제약 조건에 대한 자세한 내용은 [가상 네트워크 피어링 요구 사항 및 제약 조건](virtual-network-manage-peering.md#requirements-and-constraints)을 참조하세요. 가상 네트워크에 만들 수 있는 피어링 수 제한에 대한 자세한 내용은 [Azure 네트워킹 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요. 
 
 ## <a name="permissions"></a>권한
@@ -102,3 +107,4 @@ Network Watcher의 [연결 확인](../network-watcher/network-watcher-connectivi
 
 * [허브 및 스포크 네트워크 토폴로지](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)를 만드는 방법을 알아봅니다.
 * 모든 [가상 네트워크 피어링 설정 및 변경 방법](virtual-network-manage-peering.md)에 대해 자세히 알아봅니다.
+* [VNet 피어링 FAQ](virtual-networks-faq.md#vnet-peering)를 통해 VNet 피어링 및 글로벌 VNet 피어링에 대해 자주 묻는 질문의 답을 알아보세요.

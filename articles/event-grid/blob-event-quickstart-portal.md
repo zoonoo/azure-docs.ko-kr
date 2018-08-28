@@ -5,15 +5,15 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 07/05/2018
+ms.date: 08/13/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 423995aecc6e5f29464ad140349ba27f89c75b5d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 141e8f2a01c057f613b7668e64a0ec9503fcfb39
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068746"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42023090"
 ---
 # <a name="create-and-route-blob-storage-events-with-the-azure-portal-and-event-grid"></a>Azure Portal 및 Event Grid를 사용하여 Blob 저장소 이벤트 만들기 및 라우팅
 
@@ -27,8 +27,6 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-Blob Storage 이벤트를 사용하려면 [Blob Storage 계정](../storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) 또는 [범용 v2 저장소 계정](../storage/common/storage-account-options.md#general-purpose-v2-accounts)이 필요합니다. **범용 v2(GPv2)** 는 Blob, 파일, 큐 및 테이블을 포함하여 모든 저장소 서비스에서 모든 기능을 지원하는 저장소 계정입니다. **Blob Storage 계정**은 Azure Storage에서 Blob와 같은 구조화되지 않은 데이터(개체) 저장을 위한 특수 Storage 계정입니다. Blob Storage 계정은 범용 저장소 계정과 유사하면서, 현재 사용되고 있는 모든 뛰어난 내구성, 가용성, 확장성 및 성능 기능을 공유합니다(예: 블록 Blob 및 추가 Blob에 대한 100% API 일관성). 블록 또는 연결 Blob 저장소만 필요한 응용 프로그램의 경우 Blob 저장소 계정을 사용하는 것이 좋습니다. 
-
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
 1. Blob 저장소를 만들려면 **리소스 만들기**를 선택합니다. 
@@ -39,11 +37,11 @@ Blob Storage 이벤트를 사용하려면 [Blob Storage 계정](../storage/commo
 
    ![저장소 선택](./media/blob-event-quickstart-portal/create-storage.png)
 
-1. 계정에 대한 고유 이름을 포함하여 Blob 저장소에 대한 값을 제공합니다. 계정 유형의 경우 **Blob 저장소**를 선택합니다. 위치의 경우 Event Grid를 지원하는 [위치](overview.md) 중 하나를 선택합니다. 값 입력을 완료한 후 **만들기**를 선택합니다.
+1. 이벤트의 경우 [Blob Storage 계정](../storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) 또는 [범용 v2 저장소 계정](../storage/common/storage-account-options.md#general-purpose-v2-accounts)을 만들어야 합니다. 블록 또는 연결 Blob 저장소만 필요한 응용 프로그램의 경우 Blob 저장소 계정을 사용하는 것이 좋습니다. Blob 또는 StorageV2 계정의 값을 입력합니다. 계정의 고유한 이름을 입력합니다. 값 입력을 완료한 후 **만들기**를 선택합니다.
 
    ![시작 단계](./media/blob-event-quickstart-portal/provide-blob-values.png)
 
-## <a name="create-a-message-endpoint"></a>메시지 끝점 만들기
+## <a name="create-a-message-endpoint"></a>메시지 엔드포인트 만들기
 
 Blob 저장소 계정에 대한 이벤트를 구독하기 전에 이벤트 메시지에 대한 엔드포인트를 만들어 보겠습니다. 일반적으로 엔드포인트는 이벤트 데이터를 기반으로 작업을 수행합니다. 이 빠른 시작을 간소화하기 위해 이벤트 메시지를 표시하는 [미리 작성된 웹앱](https://github.com/dbarkol/azure-event-grid-viewer)을 배포합니다. 배포된 솔루션은 App Service 계획, App Service 웹앱 및 GitHub의 소스 코드를 포함합니다.
 
@@ -79,7 +77,7 @@ Blob 저장소 계정에 대한 이벤트를 구독하기 전에 이벤트 메�
 
    ![구독 이벤트 보기](./media/blob-event-quickstart-portal/view-subscription-event.png)
 
-이제 이벤트를 트리거하여 Event Grid가 메시지를 사용자 끝점에 어떻게 배포하는지 살펴 보겠습니다.
+이제 이벤트를 트리거하여 Event Grid가 메시지를 사용자 엔드포인트에 어떻게 배포하는지 살펴 보겠습니다.
 
 ## <a name="send-an-event-to-your-endpoint"></a>엔드포인트에 이벤트 보내기
 
@@ -142,6 +140,6 @@ Blob 저장소 계정에 대한 이벤트를 구독하기 전에 이벤트 메�
 이제 사용자 지정 항목 및 이벤트 구독을 만드는 방법에 대해 알아보았습니다. 다음으로 어떤 Event Grid가 도움이 되는지 자세히 알아보세요.
 
 - [Event Grid 정보](overview.md)
-- [Blob Storage 이벤트를 사용자 지정 웹 끝점으로 라우팅](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
+- [Blob Storage 이벤트를 사용자 지정 웹 엔드포인트로 라우팅](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 - [Azure Event Grid 및 Logic Apps를 사용하여 가상 머신 변경 모니터링](monitor-virtual-machine-changes-event-grid-logic-app.md)
 - [데이터 웨어하우스로 빅 데이터 스트림](event-grid-event-hubs-integration.md)

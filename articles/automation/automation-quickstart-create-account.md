@@ -4,17 +4,17 @@ description: Azure Automation 계정을 만들고 Runbook을 실행하는 방법
 services: automation
 author: csand-msft
 ms.author: csand
-ms.date: 12/13/2017
+ms.date: 08/22/2018
 ms.topic: quickstart
 ms.service: automation
 ms.component: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 3accd62415cd7d3a8210b7a05aa1edfd7a380edc
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 81dbcb4f77708f9f679d146b1db83ddecc30629d
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34055157"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616599"
 ---
 # <a name="create-an-azure-automation-account"></a>Azure Automation 계정 만들기
 
@@ -22,7 +22,7 @@ Azure Automation 계정은 Azure를 통해 만들 수 있습니다. 이 방법�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+## <a name="sign-in-to-azure"></a>Azure에 로그인
 
 https://portal.azure.com에서 Azure에 로그인
 
@@ -30,13 +30,13 @@ https://portal.azure.com에서 Azure에 로그인
 
 1. Azure의 왼쪽 위 모서리에서 **리소스 만들기** 단추를 클릭합니다.
 
-1. **모니터링 + 관리**를 선택한 다음 **Automation**을 선택합니다.
+1. **관리 도구**를 선택한 다음, **Automation**을 선택합니다.
 
-1. 계정 정보를 입력합니다. Azure에 대한 인증을 간소화하는 아티팩트를 자동으로 사용하도록 설정하기 위해 **Azure 실행 계정 만들기**에서 **예**를 선택합니다. 완료되면 **만들기**를 클릭하여 Automation 계정 배포를 시작합니다.
+1. 계정 정보를 입력합니다. Azure에 대한 인증을 간소화하는 아티팩트를 자동으로 사용하도록 설정하기 위해 **Azure 실행 계정 만들기**에서 **예**를 선택합니다. Automation 계정을 만들 때 이름을 선택한 후에는 변경할 수 없습니다. 완료되면 **만들기**를 클릭하여 Automation 계정 배포를 시작합니다.
 
     ![페이지에서 Automation 계정에 대한 정보 입력](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
-1. Automation 계정은 Azure 대시보드에 고정되어 있습니다. 배포가 완료되면 Automation 계정 개요가 자동으로 열립니다.
+1. 배포가 완료되면 ****모든 서비스**를 클릭하고, **Automation 계정**을 선택하고, 만든 Automation 계정을 선택합니다.
 
     ![Automation 계정 개요](./media/automation-quickstart-create-account/automation-account-overview.png)
 

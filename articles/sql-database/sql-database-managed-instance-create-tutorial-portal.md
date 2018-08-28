@@ -1,7 +1,7 @@
 ---
-title: 'Azure Portal: SQL Database 관리되는 인스턴스 만들기 | Microsoft Azure'
-description: VNet에서 Azure SQL Database 관리되는 인스턴스를 만듭니다.
-keywords: SQL Database 자습서, SQL Database 관리되는 인스턴스 만들기
+title: 'Azure Portal: SQL Database Managed Instance 만들기 | Microsoft Azure'
+description: VNet에서 Azure SQL Database Managed Instance를 만듭니다.
+keywords: SQL Database 자습서, SQL Database Managed Instance 만들기
 services: sql-database
 author: bonova
 ms.reviewer: carlrab, srbozovi
@@ -11,44 +11,47 @@ ms.topic: tutorial
 ms.date: 05/09/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: e337a5c7c203e2e1048149dfeff71436a4d2752f
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: a019b21c130bebfe27925e90d7f7843d92654e01
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850613"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41920096"
 ---
-# <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Azure Portal에서 Azure SQL Database 관리되는 인스턴스 만들기
+# <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Azure Portal에서 Azure SQL Database Managed Instance 만들기
 
-이 자습서에서는 가상 네트워크(VNet)의 전용 서브넷에 Azure Portal을 사용하여 Azure SQL Database 관리되는 인스턴스(미리 보기)를 만든 다음, 동일한 VNet의 가상 머신에서 SQL Server Management Studio를 사용하여 관리되는 인스턴스에 연결하는 방법을 보여줍니다.
+이 자습서에서는 가상 네트워크(VNet)의 전용 서브넷에 Azure Portal을 사용하여 Azure SQL Database Managed Instance(미리 보기)를 만든 다음, 동일한 VNet의 가상 머신에서 SQL Server Management Studio를 사용하여 Managed Instance에 연결하는 방법을 보여줍니다.
 
 > [!div class="checklist"]
 > * 허용 목록에 구독 추가
 > * VNet(가상 네트워크) 구성
 > * 새 경로 테이블 및 경로 만들기
-> * 관리되는 인스턴스 서브넷에 경로 테이블 적용
-> * 관리되는 인스턴스 만들기
+> * Managed Instance 서브넷에 경로 테이블 적용
+> * Managed Instance 만들기
 > * 가상 머신에 대한 VNet에 새 서브넷 만들기
 > * Vnet의 새 서브넷에 가상 머신 만들기
 > * 가상 머신에 연결
-> * SSMS를 설치하고 관리되는 인스턴스에 연결
+> * SSMS를 설치하고 Managed Instance에 연결
 
+> [!Note]
+> 이 자습서에서는 Azure Portal을 사용하여 네트워크, 서브넷, 인스턴스 및 가상 머신을 구성하는 방법을 설명하며, 이 방법에 더 긴 시간이 걸릴 수 있습니다. "Azure에 배포" 단추를 한 번만 클릭하면 인스턴스 액세스에 사용되는 네트워크 및 가상 머신이 생성되는 빠른 시작 자습서가 필요한 경우 [시작 자습서](sql-database-managed-instance-get-started.md)를 살펴보시기 바랍니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 > [!IMPORTANT]
-> 관리되는 인스턴스를 현재 사용할 수 있는 지역 목록은 [Azure SQL Database 관리되는 인스턴스를 사용해 완벽히 관리되는 서비스로 데이터베이스 마이그레이션](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/)을 참조하세요.
+> 현재 Managed Instance를 사용할 수 있는 지역 목록은 [Azure SQL Database Managed Instance를 사용해 완벽히 관리되는 서비스로 데이터베이스 마이그레이션](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/)을 참조합니다.
  
-## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure 포털](https://portal.azure.com/#create/Microsoft.SQLManagedInstance) 에 로그인합니다.
+[Azure Portal](https://portal.azure.com/#create/Microsoft.SQLManagedInstance)에 로그인합니다.
 
 ## <a name="whitelist-your-subscription"></a>허용 목록에 구독 추가
 
-관리되는 인스턴스는 초기에 공개 미리 보기로 릴리스되어 구독이 허용 목록에 추가되어야 합니다. 구독이 허용 목록에 아직 없는 경우 다음 단계를 사용하여 미리 보기 약관에 동의하고 허용 목록에 추가하기 위한 요청을 보냅니다.
+Managed Instance는 초기에 공개 미리 보기로 릴리스되어 구독이 허용 목록에 추가되어야 합니다. 구독이 허용 목록에 아직 없는 경우 다음 단계를 사용하여 미리 보기 약관에 동의하고 허용 목록에 추가하기 위한 요청을 보냅니다.
 
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
-2. **관리되는 인스턴스**를 찾은 다음, **Azure SQL Database 관리되는 인스턴스(미리 보기)** 를 선택합니다.
+2. 
+  **Managed Instance**를 찾은 다음, **Azure SQL Database Managed Instance(미리 보기)** 를 선택합니다.
 3. **만들기**를 클릭합니다.
 
    ![관리되는 인스턴스 만들기](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
@@ -66,7 +69,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="configure-a-virtual-network-vnet"></a>VNet(가상 네트워크) 구성
 
-다음 단계에서는 관리되는 인스턴스에서 사용할 새 [Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) VNet(가상 네트워크)을 만드는 방법을 보여 줍니다. VNet 구성에 대한 자세한 내용은 [관리되는 인스턴스 VNet 구성](sql-database-managed-instance-vnet-configuration.md)을 참조하세요.
+다음 단계에서는 Managed Instance에서 사용할 새 [Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) VNet(가상 네트워크)을 만드는 방법을 보여줍니다. VNet 구성에 대한 자세한 내용은 [Managed Instance VNet 구성](sql-database-managed-instance-vnet-configuration.md)을 참조하세요.
 
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
 2. 찾은 다음, **가상 네트워크**를 클릭하고, **Resource Manager**가 배포 모드로 선택되었는지 확인한 다음, **만들기**를 클릭합니다.
@@ -135,12 +138,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 8. **확인**을 클릭합니다.
 
-## <a name="apply-the-route-table-to-the-managed-instance-subnet"></a>관리되는 인스턴스 서브넷에 경로 테이블 적용
+## <a name="apply-the-route-table-to-the-managed-instance-subnet"></a>Managed Instance 서브넷에 경로 테이블 적용
 
-다음 단계에서는 관리되는 인스턴스 서브넷에 새 경로 테이블을 설정하는 방법을 보여 줍니다.
+다음 단계에서는 Managed Instance 서브넷에 새 경로 테이블을 설정하는 방법을 보여줍니다.
 
-1. 관리되는 인스턴스 서브넷에 경로 테이블을 설정하려면 이전에 만든 가상 네트워크를 엽니다.
-2. **서브넷**을 클릭한 다음, 관리되는 인스턴스 서브넷(다음 스크린샷의 **mi_subnet**)을 클릭합니다.
+1. Managed Instance 서브넷에 경로 테이블을 설정하려면 이전에 만든 가상 네트워크를 엽니다.
+2. 
+  **서브넷**을 클릭한 다음, Managed Instance 서브넷(다음 스크린샷의 **mi_subnet**)을 클릭합니다.
 
     ![서브넷](./media/sql-database-managed-instance-tutorial/subnet.png)
 
@@ -152,12 +156,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     ![경로 테이블 설정 저장](./media/sql-database-managed-instance-tutorial/set-route-table-save.png)
 
-## <a name="create-a-managed-instance"></a>관리되는 인스턴스 만들기
+## <a name="create-a-managed-instance"></a>Managed Instance 만들기
 
-다음 단계에서는 미리 보기가 승인된 후에 관리되는 인스턴스를 만드는 방법을 보여 줍니다.
+다음 단계에서는 미리 보기가 승인된 후에 Managed Instance를 만드는 방법을 보여줍니다.
 
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
-2. **관리되는 인스턴스**를 찾은 다음, **Azure SQL Database 관리되는 인스턴스(미리 보기)** 를 선택합니다.
+2. 
+  **Managed Instance**를 찾은 다음, **Azure SQL Database Managed Instance(미리 보기)** 를 선택합니다.
 3. **만들기**를 클릭합니다.
 
    ![관리되는 인스턴스 만들기](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
@@ -166,12 +171,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    ![승인된 관리되는 인스턴스 미리 보기](./media/sql-database-managed-instance-tutorial/preview-accepted.png)
 
-5. 다음 표의 정보를 사용하여 요청된 정보가 포함된 관리되는 인스턴스 양식을 작성합니다.
+5. 다음 표의 정보를 사용하여 요청된 정보가 포함된 Managed Instance 양식을 작성합니다.
 
    | 설정| 제안 값 | 설명 |
    | ------ | --------------- | ----------- |
-   |**관리되는 인스턴스 이름**|모든 유효한 이름|유효한 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.|
-   |**관리되는 인스턴스 관리자 로그인**|모든 유효한 사용자 이름|유효한 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. "serveradmin"을 예약된 서버 수준 역할로 사용하지 않습니다.| 
+   |
+  **관리되는 인스턴스 이름**|모든 유효한 이름|유효한 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.|
+   |
+  **Managed Instance 관리자 로그인**|모든 유효한 사용자 이름|유효한 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. "serveradmin"을 예약된 서버 수준 역할로 사용하지 않습니다.| 
    |**암호**|유효한 암호|암호는 16자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
    |**리소스 그룹**|이전에 만든 리소스 그룹||
    |**위치**:|이전에 선택한 위치|지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요.|
@@ -181,15 +188,18 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 6. **가격 책정 계층**을 클릭하여 계산 및 저장소 리소스의 크기를 조정하고 가격 책정 옵션을 검토합니다. 기본적으로 인스턴스에서 32GB의 저장소 공간을 추가 비용 없이 제공하며, 응용 프로그램에 충분하지 않을 수 있습니다.
 7. 슬라이더 또는 텍스트 상자를 사용하여 저장소 공간 및 가상 코어 수를 지정합니다. 
-   ![관리되는 인스턴스 가격 책정 계층](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
+   
+  ![관리되는 인스턴스 가격 책정 계층](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
 
 8. 완료되면 **적용**을 클릭하여 선택 사항을 저장합니다.  
-9. **만들기**를 클릭하여 관리되는 인스턴스를 배포합니다.
+9. 
+  **만들기**를 클릭하여 Managed Instance를 배포합니다.
 10. **알림** 아이콘을 클릭하여 배포 상태를 확인합니다.
  
    ![배포 진행률](./media/sql-database-managed-instance-tutorial/deployment-progress.png)
 
-11. **배포 진행 중**을 클릭하여 관리되는 인스턴스 창을 열어 배포 진행 상황을 자세히 모니터링합니다.
+11. 
+  **배포 진행 중**을 클릭하여 Managed Instance 창을 열어 배포 진행 상황을 자세히 모니터링합니다.
  
    ![배포 진행률 2](./media/sql-database-managed-instance-tutorial/managed-instance.png)
 
@@ -200,7 +210,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-a-new-subnet-in-the-vnet-for-a-virtual-machine"></a>가상 머신에 대한 VNet에 새 서브넷 만들기
 
-다음 단계에서는 SQL Server Management Studio를 설치하고 관리되는 인스턴스에 연결하는 가상 머신에 대한 VNet에 두 번째 서브넷을 만드는 방법을 보여 줍니다.
+다음 단계에서는 SQL Server Management Studio를 설치하고 Managed Instance에 연결하는 가상 머신에 대한 VNet에 두 번째 서브넷을 만드는 방법을 보여줍니다.
 
 1. 가상 네트워크 리소스를 엽니다.
  
@@ -226,7 +236,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-a-virtual-machine-in-the-new-subnet-in-the-vnet"></a>Vnet의 새 서브넷에 가상 머신 만들기
 
-다음 단계에서는 관리되는 인스턴스가 만들어지는 동일한 VNet에 가상 머신을 만드는 방법을 보여 줍니다. 
+다음 단계에서는 Managed Instance가 만들어지는 동일한 VNet에 가상 머신을 만드는 방법을 보여줍니다. 
 
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
 2. **계산**을 선택한 다음, **Windows Server 2016 Datacenter** 또는 **Windows 10**을 선택합니다. 자습서의 이 섹션에서는 Windows Server를 사용합니다. Windows 10 구성은 대체로 비슷합니다. 
@@ -244,7 +254,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    |**구독**|사용자의 구독|구독에 대한 자세한 내용은 [구독](https://account.windowsazure.com/Subscriptions)을 참조하세요.|
    |**리소스 그룹**|이전에 만든 리소스 그룹||
    |**위치**:|이전에 선택한 위치||
-   |**이미 Windows 라이선스가 있나요?**|아니오|활성 SA(Software Assurance)가 포함된 Windows 라이선스를 소유하고 있는 경우 Azure 하이브리드 혜택을 사용하여 계산 비용을 절감합니다.|
+   |**이미 Windows 라이선스가 있나요?**|아니요|활성 SA(Software Assurance)가 포함된 Windows 라이선스를 소유하고 있는 경우 Azure 하이브리드 혜택을 사용하여 계산 비용을 절감합니다.|
    ||||
 
    ![가상 머신 만들기 양식](./media/sql-database-managed-instance-tutorial/virtual-machine-create-form.png)
@@ -255,7 +265,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ![VM 크기](./media/sql-database-managed-instance-tutorial/virtual-machine-size.png)  
 
 6. **선택**을 클릭합니다.
-7. **설정** 양식에서 **서브넷**을 클릭한 다음, **vm_subnet**을 선택합니다. 관리되는 인스턴스가 프로비전되는 서브넷이 아니라 동일한 Vnet의 다른 서브넷을 선택합니다.
+7. **설정** 양식에서 **서브넷**을 클릭한 다음, **vm_subnet**을 선택합니다. Managed Instance가 프로비전되는 서브넷이 아니라 동일한 Vnet의 다른 서브넷을 선택합니다.
 
     ![VM 설정](./media/sql-database-managed-instance-tutorial/virtual-machine-settings.png)  
 
@@ -281,11 +291,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 서버 관리자 대시보드에서 가상 머신에 연결되어 있습니다.
 
 > [!IMPORTANT]
-> 관리되는 인스턴스가 성공적으로 프로비전될 때까지 계속하지 마세요. 프로비전되면 관리되는 인스턴스에 대한 **개요** 탭의 **관리되는 인스턴스** 필드에서 인스턴스에 대한 호스트 이름을 검색합니다. 이름은 **drfadfadsfd.tr23.westus1-a.worker.database.windows.net**과 비슷합니다.
+> Managed Instance가 성공적으로 프로비전될 때까지 계속하지 마세요. 프로비전되면 Managed Instance에 대한 **개요** 탭의 **Managed Instance** 필드에서 인스턴스에 대한 호스트 이름을 검색합니다. 이름은 **drfadfadsfd.tr23.westus1-a.worker.database.windows.net**과 비슷합니다.
 
-## <a name="install-ssms-and-connect-to-the-managed-instance"></a>SSMS를 설치하고 관리되는 인스턴스에 연결
+## <a name="install-ssms-and-connect-to-the-managed-instance"></a>SSMS를 설치하고 Managed Instance에 연결
 
-다음 단계에서는 SSMS를 다운로드하여 설치한 다음, 관리되는 인스턴스에 연결하는 방법을 보여 줍니다.
+다음 단계에서는 SSMS를 다운로드하여 설치한 다음, Managed Instance에 연결하는 방법을 보여줍니다.
 
 1. 서버 관리자의 왼쪽 창에서 **로컬 서버**를 클릭합니다.
 
@@ -302,31 +312,32 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 8. 메시지가 표시되면 **설치**를 클릭하여 시작합니다.
 9. 설치가 완료되면 **닫기**를 클릭합니다.
 10. SSMS를 엽니다.
-11. **서버에 연결** 대화 상자에서 **서버 이름** 상자에 관리 대상에 대한 **호스트 이름*을 입력하고 **SQL Server 인증**, 로그인 및 암호를 입력한 다음, **연결**을 클릭합니다.
+11. **서버에 연결** 대화 상자에서, **서버 이름** 상자에 Managed Instance의 **호스트 이름**을 입력하고, **SQL Server 인증**을 선택하고, 로그인 및 암호를 입력한 다음, **연결**을 클릭합니다.
 
     ![ssms 연결](./media/sql-database-managed-instance-tutorial/ssms-connect.png)  
 
 연결되면 데이터베이스 노드에서 시스템 및 사용자 데이터베이스를 보고, 보안, 서버 개체, 복제, 관리, SQL Server 에이전트 및 XEvent 프로파일러 노드에서 다양한 개체를 볼 수 있습니다.
 
 > [!NOTE]
-> 기존 SQL 데이터베이스를 관리되는 인스턴스로 복원하려면 [마이그레이션용 Azure DMS(Database Migration Service)](../dms/tutorial-sql-server-to-managed-instance.md)를 사용하여 데이터베이스 백업 파일에서 복원하거나 [T-SQL RESTORE 명령](sql-database-managed-instance-restore-from-backup-tutorial.md)을 사용하여 데이터베이스 백업 파일에서 복원하거나 [BACPAC 파일에서 가져올 수 있습니다](sql-database-import.md).
+> 기존 SQL 데이터베이스를 Managed Instance로 복원하려면 [마이그레이션용 Azure DMS(Database Migration Service)](../dms/tutorial-sql-server-to-managed-instance.md)를 사용하여 데이터베이스 백업 파일에서 복원하거나 [T-SQL RESTORE 명령](sql-database-managed-instance-restore-from-backup-tutorial.md)을 사용하여 데이터베이스 백업 파일에서 복원하거나 [BACPAC 파일에서 가져올 수 있습니다](sql-database-import.md).
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 가상 네트워크(VNet)의 전용 서브넷에 Azure Portal을 사용하여 Azure SQL Database 관리되는 인스턴스(미리 보기)를 작성한 다음, 동일한 VNet의 가상 머신에서 SQL Server Management Studio를 사용하여 관리되는 인스턴스에 연결하는 방법을 알아보았습니다.  다음 방법에 대해 알아보았습니다. 
+이 자습서에서는 가상 네트워크(VNet)의 전용 서브넷에 Azure Portal을 사용하여 Azure SQL Database Managed Instance(미리 보기)를 작성한 다음, 동일한 VNet의 가상 머신에서 SQL Server Management Studio를 사용하여 Managed Instance에 연결하는 방법을 알아보았습니다.  다음 방법에 대해 알아보았습니다. 
 
 > [!div class="checklist"]
 > * 허용 목록에 구독 추가
 > * VNet(가상 네트워크) 구성
 > * 새 경로 테이블 및 경로 만들기
-> * 관리되는 인스턴스 서브넷에 경로 테이블 적용
-> * 관리되는 인스턴스 만들기
+> * Managed Instance 서브넷에 경로 테이블 적용
+> * Managed Instance 만들기
 > * 가상 머신에 대한 VNet에 새 서브넷 만들기
 > * Vnet의 새 서브넷에 가상 머신 만들기
 > * 가상 머신에 연결
-> * SSMS를 설치하고 관리되는 인스턴스에 연결
+> * SSMS를 설치하고 Managed Instance에 연결
 
-Azure SQL Database 관리되는 인스턴스에 대한 데이터베이스 백업을 복원하는 방법을 알아보려면 다음 자습서로 이동합니다.
+Azure SQL Database Managed Instance에 대한 데이터베이스 백업을 복원하는 방법을 알아보려면 다음 자습서로 이동합니다.
 
 > [!div class="nextstepaction"]
->[Azure SQL Database 관리되는 인스턴스에 데이터베이스 백업 복원](sql-database-managed-instance-restore-from-backup-tutorial.md)
+>
+  [Azure SQL Database Managed Instance에 데이터베이스 백업 복원](sql-database-managed-instance-restore-from-backup-tutorial.md)

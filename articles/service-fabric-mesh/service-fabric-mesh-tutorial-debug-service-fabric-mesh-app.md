@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ad6812f25ee33bf723ed86d4ec32ca6898d01774
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: c519d24a8401823039f3d6598276890ec6498bbc
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186741"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41919455"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-web-application"></a>자습서: Service Fabric Mesh 웹 응용 프로그램 디버그
 
@@ -74,9 +74,17 @@ Docker 이미지는 프로젝트가 로드되는 즉시 자동으로 빌드되�
 
 **디버깅 팁**
 
-* **Service Fabric 로컬 클러스터가 실행되지 않습니다.** 라는 오류가 표시되면 SLCM(Service Local Custer Manager)가 실행되고 있는지 확인하고 작업 표시줄에서 SLCM 아이콘을 마우스 오른쪽 단추로 클릭한 다음, **로컬 클러스터 시작**을 클릭합니다. 작업이 시작되면 Visual Studio로 돌아가서 **F5** 키를 누릅니다.
-* 앱이 시작될 때 **404** 오류가 발생하면 아마도 **service.yaml**의 환경 변수가 올바르지 않을 것입니다. `ApiHostPort` 및 `ServiceName`이 [환경 변수 만들기](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore#create-environment-variables)의 지침에 따라 올바르게 설정되어야 합니다.
-* **service.yaml**에서 빌드 오류가 발생하면 탭이 아닌 공백을 사용하여 줄을 들여써야 합니다. 또한 이제 영어 로캘을 사용하여 앱을 빌드해야 합니다.
+현재 `using (HttpResponseMessage response = client.GetAsync("").GetAwaiter().GetResult())` 호출이 서비스 연결에 실패하는 문제가 있습니다. 호스트 IP 주소가 변경될 때마다 이 문제가 발생할 수 있습니다. 해결 방법:
+
+1. 로컬 클러스터에서 앱을 제거합니다(Visual Studio에서는 **빌드** > **솔루션 정리**).
+2. Service Fabric 로컬 클러스터 관리자에서 **로컬 클러스터 중지**, **로컬 클러스터 시작**을 차례로 선택합니다.
+3. 앱 다시 배포(Visual Studio에서는 **F5**).
+
+**Service Fabric 로컬 클러스터가 실행되지 않습니다.** 라는 오류가 표시되면 Service Fabric LCM(Local Custer Manager)가 실행되고 있는지 확인하고 작업 표시줄에서 LCM 아이콘을 마우스 오른쪽 단추로 클릭한 다음, **로컬 클러스터 시작**을 클릭합니다. 작업이 시작되면 Visual Studio로 돌아가서 **F5** 키를 누릅니다.
+
+앱이 시작될 때 **404** 오류가 발생하는 경우 **service.yaml**의 환경 변수가 올바르지 않은 것이 원인일 수 있습니다. `ApiHostPort` 및 `ToDoServiceName`이 [환경 변수 만들기](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore#create-environment-variables)의 지침에 따라 올바르게 설정되어야 합니다.
+
+**service.yaml**에서 빌드 오류가 발생하면 탭이 아닌 공백을 사용하여 줄을 들여써야 합니다. 또한 이제 영어 로캘을 사용하여 앱을 빌드해야 합니다.
 
 ### <a name="debug-in-visual-studio"></a>Visual Studio에서 디버그
 

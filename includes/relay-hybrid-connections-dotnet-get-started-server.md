@@ -1,3 +1,20 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: service-bus-relay
+author: clemensv
+ms.service: service-bus-relay
+ms.topic: include
+ms.date: 08/16/2018
+ms.author: clemensv
+ms.custom: include file
+ms.openlocfilehash: fbc5bbff62a13d9b4301271031105ecd7d17fa86
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40182518"
+---
 ### <a name="create-a-console-application"></a>콘솔 응용 프로그램 만들기
 
 Visual Studio에서 새 **콘솔 앱(.NET Framework)** 프로젝트를 만듭니다.
@@ -5,8 +22,10 @@ Visual Studio에서 새 **콘솔 앱(.NET Framework)** 프로젝트를 만듭니
 ### <a name="add-the-relay-nuget-package"></a>릴레이 NuGet 패키지 추가
 
 1. 마우스 오른쪽 단추로 새로 만든 프로젝트를 클릭한 다음 **NuGet 패키지 관리**를 선택합니다.
-2. **찾아보기**를 선택한 다음 **Microsoft.Azure.Relay**를 검색합니다. 검색 결과에서 **Microsoft Azure Relay**를 선택합니다. 
-3. **설치**을 선택하여 설치를 완료합니다. 대화 상자를 닫습니다.
+2. **시험판 포함** 옵션을 선택합니다. 
+3. **찾아보기**를 선택한 다음 **Microsoft.Azure.Relay**를 검색합니다. 검색 결과에서 **Microsoft Azure Relay**를 선택합니다.
+4. 버전은 **2.0.0-preview1-20180523**을 선택합니다. 
+5. **설치**을 선택하여 설치를 완료합니다. 대화 상자를 닫습니다.
 
 ### <a name="write-code-to-receive-messages"></a>메시지를 받는 코드 작성
 
@@ -17,6 +36,7 @@ Visual Studio에서 새 **콘솔 앱(.NET Framework)** 프로젝트를 만듭니
     using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
+    using System.Net;
     using Microsoft.Azure.Relay;
     ```
 2. 상수를 하이브리드 연결 정보의 `Program` 클래스에 추가합니다. 대괄호에 포함된 자리 표시자를 하이브리드 연결을 만들 때 가져온 값으로 바꿉니다. 정규화된 네임스페이스 이름을 사용해야 합니다.

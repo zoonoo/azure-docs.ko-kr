@@ -1,6 +1,6 @@
 ---
-title: Azure 빠른 시작 - Key Vault에서 비밀을 설정하고 검색하도록 Azure 웹 응용 프로그램 구성 | Microsoft Docs
-description: Key Vault에서 비밀을 설정하고 검색하도록 ASP.Net core 응용 프로그램 구성하는 방법을 보여주는 빠른 시작
+title: 빠른 시작 - 노드 웹앱을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색 | Microsoft Docs
+description: 빠른 시작 - 노드 웹앱을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 07/24/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 8b5624ae3083d92213b4ee919dc0860bf5ff4ab7
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 0188d06e5c58287e1040f6a15456d3ffe291b04a
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480205"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42022625"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-net-web-app"></a>빠른 시작: .NET 웹앱을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 
@@ -28,7 +28,10 @@ ms.locfileid: "39480205"
 > * [관리되는 서비스 ID를 사용하도록 설정합니다](../active-directory/managed-service-identity/overview.md).
 > * 웹 응용 프로그램이 Key Vault에서 데이터를 읽기 위해 필요한 권한을 부여합니다.
 
-본론으로 들어가기 전에 [기본 개념](key-vault-whatis.md#basic-concepts)의 [관리 서비스 ID](../active-directory/managed-service-identity/overview.md)를 집중적으로 읽어보세요.
+본론으로 들어가기 전에 [기본 개념](key-vault-whatis.md#basic-concepts)을 읽어보세요.
+
+>[!NOTE]
+아래 자습서가 모범 사례인 이유를 이해하려면 몇 가지 개념을 이해해야 합니다. Key Vault는 프로그래밍 방식으로 비밀을 저장하는 중앙 리포지토리입니다. 하지만 이렇게 하려면 응용 프로그램/사용자가 먼저 Key Vault에 인증해야 합니다. 즉, 비밀을 입력해야 합니다. 보안 모범 사례를 따르기 위해 이 첫 번째 비밀도 정기적으로 순환해야 합니다. 하지만 [관리 서비스 ID](../active-directory/managed-service-identity/overview.md)를 사용하면 Azure에서 실행되는 응용 프로그램에 Azure에서 자동으로 관리하는 ID가 할당됩니다. 이렇게 하면 **비밀 도입 문제**가 해결되므로 사용자/응용 프로그램이 모범 사례를 준수할 수 있고 첫 번째 비밀의 순환에 대해 걱정할 필요가 없습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -165,6 +168,8 @@ az webapp identity assign --name "keyvaultdotnetcorequickstart" --resource-group
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get
 
 ```
+
+**이제 응용 프로그램을 실행하면 비밀 값이 검색되는 것을 볼 수 있습니다.**
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,17 +4,17 @@ description: 이 빠른 시작에서는 미리 작성된 코드를 IoT Edge 장�
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 08/14/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: dfcb764d75b7328d1234d47d82afdae8d6a0deef
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: af291782585cf0211cf8beac54adc36fd9fe0d34
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413017"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42023175"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>빠른 시작: Linux x64 장치에 첫 번째 IoT Edge 모듈 배포
 
@@ -54,7 +54,9 @@ Azure IoT 확장을 Cloud Shell 인스턴스에 추가합니다.
    az group create --name IoTEdgeResources --location westus
    ```
 
-* IoT Edge 장치 역할을 하는 Linux 가상 머신입니다. 
+IoT Edge 장치:
+
+* IoT Edge 장치 역할을 하는 Linux 장치 또는 가상 머신입니다. Azure에서 가상 머신을 만들려는 경우 다음 명령을 사용하여 빠르게 시작합니다.
 
    ```azurecli-interactive
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_B1ms
@@ -78,10 +80,12 @@ Azure CLI를 사용하여 IoT Hub를 만들어서 이 빠른 시작을 시작합
 
 ## <a name="register-an-iot-edge-device"></a>IoT Edge 장치 등록
 
-새로 만든 IoT Hub에 IoT Edge 장치를 등록합니다.
+새로 만든 IoT Hub에 IoT Edge 장치를 등록합니다. 
 ![장치 등록][4]
 
-IoT Hub와 통신할 수 있도록, 시뮬레이트된 장치의 장치 ID를 만듭니다. IoT Edge 장치는 일반적인 IoT 장치와 다르게 작동하며 다른 방식으로 관리될 수 있으므로, 처음부터 IoT Edge 장치로 선언합니다. 
+IoT Hub와 통신할 수 있도록, 시뮬레이트된 장치의 장치 ID를 만듭니다. 장치 ID는 클라우드에 있으며, 사용자는 고유한 장치 연결 문자열을 사용하여 물리적 장치를 장치 ID에 연결합니다. 
+
+IoT Edge 장치는 일반적인 IoT 장치와 다르게 작동하며 다른 방식으로 관리될 수 있으므로, 처음부터 IoT Edge 장치로 선언합니다. 
 
 1. Azure Cloud Shell에서 다음 명령을 입력하여 **myEdgeDevice**라는 장치를 허브에 만듭니다.
 
@@ -100,12 +104,14 @@ IoT Hub와 통신할 수 있도록, 시뮬레이트된 장치의 장치 ID를 �
 
 ## <a name="install-and-start-the-iot-edge-runtime"></a>IoT Edge 런타임 설치 및 시작
 
-장치에 Azure IoT Edge 런타임을 설치하고 시작합니다. 
+IoT Edge 장치에 Azure IoT Edge 런타임을 설치하고 시작합니다. 
 ![장치 등록][5]
 
 IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 세 가지 구성 요소가 있습니다. **IoT Edge 보안 디먼**은 Edge 장치가 부팅되고 IoT Edge 에이전트를 시작하여 장치를 부트스트랩할 때마다 시작됩니다. **IoT Edge 에이전트**는 IoT Edge 허브를 포함하여 IoT Edge 장치에서 모듈을 쉽게 배포하고 모니터링할 수 있습니다. **IoT Edge 허브**는 IoT Edge 장치의 모듈 간 통신과 장치와 IoT Hub 간의 통신을 관리합니다. 
 
-이 빠른 시작에 대해 준비된 Linux 컴퓨터 또는 VM에서 다음 단계를 완료합니다. 
+런타임을 구성하는 동안 장치 연결 문자열을 입력합니다. Azure CLI에서 검색한 문자열을 사용합니다. 이 문자열은 물리적 장치를 Azure의 IoT Edge 장치 ID에 연결합니다. 
+
+IoT Edge 장치로 작동하도록 준비한 Linux 머신 또는 VM에서 다음 단계를 완료합니다. 
 
 ### <a name="register-your-device-to-use-the-software-repository"></a>소프트웨어 리포지토리를 사용하도록 장치 등록
 
@@ -131,19 +137,19 @@ IoT Edge 런타임을 실행하는 데 필요한 패키지는 소프트웨어 �
 
 IoT Edge 런타임은 일단의 컨테이너이며, IoT Edge 장치에 배포하는 논리는 컨테이너로 패키지됩니다. 컨테이너 런타임을 설치하여 이러한 구성 요소에 맞게 장치를 준비합니다.
 
-**apt-get**을 업데이트합니다.
+1. **apt-get**을 업데이트합니다.
 
    ```bash
    sudo apt-get update
    ```
 
-컨테이너 런타임인 **Moby**를 설치합니다.
+2. 컨테이너 런타임인 **Moby**를 설치합니다.
 
    ```bash
    sudo apt-get install moby-engine
    ```
 
-Moby용 CLI 명령을 설치합니다. 
+3. Moby용 CLI 명령을 설치합니다. 
 
    ```bash
    sudo apt-get install moby-cli
@@ -166,19 +172,26 @@ Moby용 CLI 명령을 설치합니다.
    sudo nano /etc/iotedge/config.yaml
    ```
 
-3. IoT Edge 장치 연결 문자열을 추가합니다. 변수 **device_connection_string**을 찾고, 장치를 등록한 후 복사한 문자열을 사용하여 해당 값을 업데이트합니다.
+3. IoT Edge 장치 연결 문자열을 추가합니다. 변수 **device_connection_string**을 찾고, 장치를 등록한 후 복사한 문자열을 사용하여 해당 값을 업데이트합니다. 이 연결 문자열은 물리적 장치를 Azure에서 만든 장치 ID에 연결합니다.
 
 4. 파일을 저장하고 닫습니다. 
 
    `CTRL + X`, `Y`, `Enter`
 
-4. IoT Edge 보안 디먼을 다시 시작합니다.
+5. IoT Edge 보안 디먼을 다시 시작하여 변경 내용을 적용합니다.
 
    ```bash
    sudo systemctl restart iotedge
    ```
 
-5. Edge 보안 디먼이 시스템 서비스로 실행되고 있는지 확인합니다.
+>[!TIP]
+>`iotedge` 명령을 실행하려면 상승된 권한이 필요합니다. IoT Edge 런타임을 설치한 후 처음으로 머신에서 로그아웃했다가 다시 로그인하면 권한이 자동으로 업데이트됩니다. 그 전까지는 명령 앞에 **sudo**를 사용합니다. 
+
+### <a name="view-the-iot-edge-runtime-status"></a>IoT Edge 런타임 상태 보기
+
+런타임이 성공적으로 설치 및 구성되었는지 확인합니다.
+
+1. Edge 보안 디먼이 시스템 서비스로 실행되고 있는지 확인합니다.
 
    ```bash
    sudo systemctl status iotedge
@@ -186,22 +199,21 @@ Moby용 CLI 명령을 설치합니다.
 
    ![시스템 서비스로 실행되는 Edge 디먼 확인](./media/quickstart-linux/iotedged-running.png)
 
-   또한 다음 명령을 실행하여 Edge 보안 디먼의 로그를 확인할 수도 있습니다.
+2. 서비스 문제를 해결해야 할 경우 서비스 로그를 검색합니다. 
 
    ```bash
    journalctl -u iotedge
    ```
 
-6. 장치에서 실행 중인 모듈을 확인합니다. 
-
-   >[!TIP]
-   >먼저 `iotedge` 명령을 실행하려면 *sudo*를 사용해야 합니다. 컴퓨터에서 로그아웃하고 다시 로그인하여 권한을 업데이트한 다음, 상승된 권한 없이 `iotedge` 명령을 실행할 수 있습니다. 
+3. 장치에서 실행 중인 모듈을 확인합니다. 
 
    ```bash
    sudo iotedge list
    ```
 
    ![장치에서 하나의 모듈 보기](./media/quickstart-linux/iotedge-list-1.png)
+
+IoT Edge 장치가 구성되었습니다. 클라우드 배포 모듈을 실행할 준비가 완료된 것입니다. 
 
 ## <a name="deploy-a-module"></a>모듈 배포
 
@@ -214,12 +226,11 @@ Moby용 CLI 명령을 설치합니다.
 
 이 빠른 시작에서는 새 IoT Edge 장치를 만들고 여기에 IoT Edge 런타임을 설치했습니다. 그런 다음 장치 자체를 변경하지 않고도 장치에서 실행할 IoT Edge 모듈을 푸시할 수 있도록 Azure Portal을 사용했습니다. 이 경우 푸시한 모듈에서는 자습서에 대해 사용할 수 있는 환경 데이터를 만듭니다. 
 
-시뮬레이션된 장치를 실행 중인 컴퓨터에서 명령 프롬프트를 다시 엽니다. 클라우드에서 배포된 모듈을 IoT Edge 장치에서 실행 중인지 확인합니다.
+다시 IoT Edge 장치에서 명령 프롬프트를 엽니다. 클라우드에서 배포된 모듈을 IoT Edge 장치에서 실행 중인지 확인합니다.
 
    ```bash
    sudo iotedge list
    ```
-   로그오프 및 로그인 후에는 위의 명령에 *sudo*가 필요하지 않습니다.
 
    ![장치에서 세 가지 모듈 보기](./media/quickstart-linux/iotedge-list-2.png)
 
@@ -234,7 +245,7 @@ tempSensor 모듈에서 전송되는 메시지를 봅니다.
 
 로그에 표시된 마지막 줄이 `Using transport Mqtt_Tcp_Only`인 경우 온도 센서 모듈이 Edge Hub에 연결하기 위해 대기 중일 수 있습니다. 모듈을 종료하고 Edge 에이전트가 다시 시작되도록 합니다. 모듈은 `sudo docker stop tempSensor` 명령으로 종료할 수 있습니다.
 
-또한 [IoT Hub 탐색기 도구][lnk-iothub-explorer] 또는 [Visual Studio Code용 Azure IoT Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)을 사용하여 장치에서 보내는 원격 분석을 볼 수도 있습니다. 
+[Visual Studio Code용 Azure IoT Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)을 사용하여 IoT Hub에 도착하는 원격 분석 데이터를 볼 수 있습니다. 
 
 
 ## <a name="clean-up-resources"></a>리소스 정리
@@ -278,7 +289,8 @@ IoT Edge 런타임에 의해 장치에서 만들어진 컨테이너를 삭제합
 컨테이너 런타임을 제거합니다.
 
    ```bash
-   sudo apt-get remove --purge moby
+   sudo apt-get remove --purge moby-cli
+   sudo apt-get remove --purge moby-engine
    ```
 
 ## <a name="next-steps"></a>다음 단계
@@ -305,10 +317,9 @@ IoT Edge 런타임에 의해 장치에서 만들어진 컨테이너를 삭제합
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-portal]: https://portal.azure.com
-[lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az_iot_hub_delete
+[lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-delete
 
 <!-- Anchor links -->
 [anchor-register]: #register-an-iot-edge-device

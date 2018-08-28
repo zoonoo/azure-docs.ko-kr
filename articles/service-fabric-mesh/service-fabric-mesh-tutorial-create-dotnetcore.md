@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d48d7625221dfb96e0119ef0d42b3b0a8d04baba
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 59ff3434e7b984f4530ad4f8b03b27991d3a9c1c
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185672"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41924810"
 ---
 # <a name="tutorial-create-debug-and-deploy-a-multi-service-web-application-to-service-fabric-mesh"></a>자습서 - Service Fabric Mesh에 다중 서비스 웹 응용 프로그램 만들기, 디버그 및 배포
 
@@ -227,7 +227,7 @@ public static class DataContext
 
 ### <a name="add-a-controller"></a>컨트롤러 추가
 
-**ToDoService** 프로젝트를 만들 때 HTPP 요청을 처리하고 HTTP 응답을 만드는 기본 컨트롤러가 템플릿에서 제공되었습니다. **솔루션 탐색기**의 **ToDoService** 아래에서 **컨트롤러** 폴더를 열어 **ValuesController.cs** 파일을 확인합니다. 
+**ToDoService** 프로젝트를 만들 때 HTTP 요청을 처리하고 HTTP 응답을 만드는 기본 컨트롤러가 템플릿에서 제공되었습니다. **솔루션 탐색기**의 **ToDoService** 아래에서 **컨트롤러** 폴더를 열어 **ValuesController.cs** 파일을 확인합니다. 
 
 **ValuesController.cs**를 마우스 오른쪽 단추로 클릭한 다음, **이름 바꾸기**를 클릭합니다. 파일의 이름을 `ToDoController.cs`로 변경합니다. 모든 참조의 이름을 바꾸라는 메시지가 표시되면 **예**를 클릭합니다.
 
@@ -314,7 +314,8 @@ public class ToDoController : Controller
 </div>
 ```
 
-**솔루션 탐색기**에서 **Index.cshtml**을 연 다음, **Index.cshtml.cs**를 열어 인덱스 페이지의 코드를 엽니다. **Index.cshtml.cs**의 맨 위쪽에 `using System.Net.Http;`를 추가합니다.
+**솔루션 탐색기**에서 **Index.cshtml**을 연 다음, **Index.cshtml.cs**를 열어 인덱스 페이지의 코드를 엽니다.
+**Index.cshtml.cs**의 맨 위쪽에 `using System.Net.Http;`를 추가합니다.
 
 `public class IndexModel`의 내용을 다음으로 바꿉니다.
 
@@ -336,7 +337,7 @@ public class IndexModel : PageModel
         }
     }
 
-    private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ServiceName")}";
+    private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ToDoServiceName")}";
     private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.GetEnvironmentVariable("ApiHostPort")}/api/todo");
 }
 ```
@@ -346,7 +347,7 @@ public class IndexModel : PageModel
 백 엔드 서비스에 대한 URL은 해당 서비스와 통신하는 데 필요합니다. 이 자습서의 목적을 위해, IndexModel의 일부로 위에서 정의된 코드에서 발췌한 다음 부분은 환경 변수를 읽어 URL을 작성합니다.
 
 ```csharp
-private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ServiceName")}";
+private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ToDoServiceName")}";
 private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.GetEnvironmentVariable("ApiHostPort")}/api/todo");
 ```
 

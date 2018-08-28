@@ -10,14 +10,14 @@ ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: john.papa
+ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: 8674e5daee003ea0688ea8702362165ebb8ccfcf
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 5bb1aeadeb31728dcc2d9ac5fa0aeade31857169
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249209"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41919461"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-5-use-mongoose-to-connect-to-azure-cosmos-db"></a>Angular 및 Azure Cosmos DB를 사용하여 MongoDB 앱 만들기 - 5부: Mongoose를 사용하여 Azure Cosmos DB에 연결
 
@@ -123,7 +123,7 @@ ms.locfileid: "39249209"
 
 ## <a name="create-a-hero-model"></a>Hero 모델 만들기
 
-1.  탐색기 창의 **서버** 폴더 아래에서 **hero.model.js** 파일을 만듭니다.
+1.  탐색기 창의 **server** 폴더 아래에 **hero.model.js** 파일을 만듭니다.
 
 2. 다음 코드를 **hero.model.js**에 복사합니다. 이 코드에서는 다음을 수행합니다.
    * Mongoose가 필요합니다.
@@ -155,7 +155,7 @@ ms.locfileid: "39249209"
 
 ## <a name="create-a-hero-service"></a>Hero 서비스 만들기
 
-1.  탐색기 창의 **서버** 폴더 아래에서 **hero.service.js** 파일을 만듭니다.
+1.  탐색기 창의 **server** 폴더 아래에서 **hero.service.js** 파일을 만듭니다.
 
 2. 다음 코드를 **hero.service.js**에 복사합니다. 이 코드에서는 다음을 수행합니다.
    * 방금 만든 모델을 가져옵니다.

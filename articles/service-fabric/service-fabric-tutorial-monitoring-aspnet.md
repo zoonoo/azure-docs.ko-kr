@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 8a98b12a42dff186c9226df39ce02c71cbc40c7e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 30dd3f4a467f19efd2edc7ca26305ee2e7ff05a5
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113326"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41920364"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>자습서: Application Insights를 사용하여 Service Fabric에서 ASP.NET Core 응용 프로그램 모니터링 및 진단
 
@@ -100,7 +100,7 @@ NuGet을 설정하는 단계는 다음과 같습니다.
 3. `Microsoft.ApplicationInsights.ServiceFabric.Native`를 검색하고 적절한 NuGet 패키지를 클릭합니다.
 
 >[!NOTE]
->Application Insights 패키지를 설치하기 전에 사전 설치되지 않은 경우 유사한 방식으로 Microsoft.ServiceFabric.Diagnistics.Internal 패키지를 설치해야 할 수도 있습니다.
+>Application Insights 패키지를 설치하기 전에 사전 설치되지 않은 경우 유사한 방식으로 Microsoft.ServiceFabric.Diagnostics.Internal 패키지를 설치해야 할 수도 있습니다.
 
 4. 오른쪽에서 응용 프로그램의 두 서비스, **VotingWeb** 및 **VotingData** 옆에 있는 두 확인란을 클릭하고 **설치**를 클릭합니다.
     ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
@@ -113,7 +113,8 @@ NuGet을 설정하는 단계는 다음과 같습니다.
     using Microsoft.ApplicationInsights.ServiceFabric;
     ```
 
-    2. *CreateServiceInstanceListeners()* 또는 *CreateServiceReplicaListeners()* 의 중첩된 *반환* 문에서, *ConfigureServices* > *서비스* 아래에 선언된 두 Singleton 서비스 사이에 `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))`를 추가합니다. 그러면 원격 분석에 *서비스 컨텍스트*가 추가되어 Application Insights에서 원격 분석의 소스를 더 잘 이해할 수 있습니다. *VotingWeb.cs*의 중첩된 *return* 문은 다음과 같아야 합니다.
+    2. *CreateServiceInstanceListeners()* 또는 *CreateServiceReplicaListeners()* 의 중첩된 *return* 문에서 *ConfigureServices* > *services* 아래에 선언된 두 Singleton 서비스 사이에 `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))`를 추가합니다.
+    *서비스 컨텍스트*가 원격 분석에 추가되어 Application Insights에서 원격 분석의 원본을 더 자세히 이해할 수 있습니다. *VotingWeb.cs*의 중첩된 *return* 문은 다음과 같아야 합니다.
 
     ```csharp
     return new WebHostBuilder()

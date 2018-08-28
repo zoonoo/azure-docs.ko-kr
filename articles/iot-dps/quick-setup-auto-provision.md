@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f4bae9ba41f61223a8e18e88e30b8fbf89eff1a9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ce1586e472e1d1ea5ddd9ca5a426b1bea2b5b931
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527595"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42023827"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Azure Portal에서 IoT Hub Device Provisioning 서비스 설정
 
@@ -34,15 +34,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 2. **Device Provisioning Service**에 대한 *Marketplace를 검색*합니다. **IoT Hub Device Provisioning 서비스**를 선택하고 **만들기** 단추를 클릭합니다. 
 
-3. 새 Device Provisioning Service 인스턴스에 대해 다음 정보를 제공하고 **만들기**를 클릭합니다.
+3. 새 Device Provisioning Service 인스턴스에 대해 다음 정보를 제공하고, **만들기**를 클릭합니다.
 
-    * **이름:** 새 Device Provisioning Service 인스턴스에 대해 고유한 이름을 제공합니다. 입력한 이름을 사용할 수 있으면 녹색 확인 표시가 나타납니다.
+    * **이름:** 새 Device Provisioning Service 인스턴스에 대해 고유한 이름을 입력합니다. 입력한 이름을 사용할 수 있으면 녹색 확인 표시가 나타납니다.
     * **구독**: 이 Device Provisioning Service 인스턴스를 만드는 데 사용할 구독을 선택합니다.
     * **리소스 그룹:** 이 필드를 통해 새 리소스 그룹을 만들거나 새 인스턴스를 포함하도록 기존 항목을 선택할 수 있습니다. 위에서 만든 Iot 허브를 포함하는 동일한 리소스 그룹을 선택합니다(예: **TestResources**). 모든 관련 리소스를 한 그룹에 배치하여 다 함께 관리할 수 있습니다. 예를 들어 리소스 그룹을 삭제하면 해당 그룹에 들어 있는 모든 리소스가 삭제됩니다. 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-portal.md)를 참조하세요.
     * **위치**: 장치에 가장 가까운 위치를 선택합니다.
     * **대시보드에 고정:** 대시보드에 고정된 인스턴스를 더 쉽게 찾을 수 있도록 이 옵션을 선택합니다.
 
-    ![포털 블레이드에서 DPS 인스턴스에 대한 기본 정보 입력](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
+    ![포털 블레이드에서 Device Provisioning Service 인스턴스에 대한 기본 정보 입력](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
 
 4. 서비스가 성공적으로 배포되면 요약 블레이드가 자동으로 열립니다.
 
@@ -55,13 +55,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 2. Device Provisioning Service 요약 블레이드에서 **연결된 IoT Hub**를 선택합니다. 맨 위에 표시된 **+ 추가** 단추를 클릭합니다. 
 
-3. **IoT 허브에 링크 추가** 페이지에서 IoT 허브에 새 Device Provisioning Service 인스턴스를 연결하도록 다음 정보를 제공합니다. 그런 다음, **저장**을 클릭합니다. 
+3. **IoT Hub에 링크 추가** 페이지에서 다음 정보를 입력하여 IoT Hub에 새 Device Provisioning Service 인스턴스를 연결합니다. 그런 다음, **저장**을 클릭합니다. 
 
-    * **구독:** 새 Device Provisioning Service 인스턴스와 연결하려는 IoT 허브를 포함하는 구독을 선택합니다.
-    * **Iot 허브:** 새 Device Provisioning Service 인스턴스에 연결할 IoT 허브를 선택합니다.
+    * **구독:** 새 Device Provisioning Service 인스턴스와 연결하려는 IoT Hub를 포함하는 구독을 선택합니다.
+    * **Iot Hub:** 새 Device Provisioning Service 인스턴스에 연결할 IoT Hub를 선택합니다.
     * **액세스 정책:** IoT 허브로 연결을 설정하기 위한 자격 증명으로 **iothubowner**를 선택합니다.  
 
-    ![포털 블레이드에서 DPS 인스턴스에 연결하도록 허브 이름 연결](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
+    ![포털 블레이드에서 Device Provisioning Service 인스턴스에 연결하도록 허브 이름을 연결합니다.](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
 
 3. 이제 선택한 허브가 **연결된 IoT Hub** 블레이드 아래에 표시됩니다. **연결된 IoT 허브**를 표시하려면 **새로 고침**을 클릭해야 할 수도 있습니다.
 
@@ -76,7 +76,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 IoT Hub 및 Device Provisioning Service 인스턴스를 배포한 후 두 리소스를 연결했습니다. 시뮬레이션된 장치를 프로비전하도록 설정하는 방법에 대해 알아보려면 시뮬레이션된 장치 만들기를 위한 빠른 시작을 진행하세요.
+이 빠른 시작에서는 IoT Hub 및 Device Provisioning Service 인스턴스를 배포하고, 두 리소스를 연결했습니다. 시뮬레이션된 장치를 프로비전하도록 설정하는 방법에 대해 알아보려면 시뮬레이션된 장치 만들기를 위한 빠른 시작을 진행하세요.
 
 > [!div class="nextstepaction"]
 > [시뮬레이션된 장치를 만들기 위한 빠른 시작](./quick-create-simulated-device.md)

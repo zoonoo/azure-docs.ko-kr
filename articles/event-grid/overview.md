@@ -6,47 +6,35 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 06/01/2018
+ms.date: 08/17/2018
 ms.author: babanisa
-ms.openlocfilehash: 6d0f769d65bc8ed4f41469b96edf4f0595d994de
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 90e8d6a3ef093046c5ee6324f6e6590e59124da7
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725244"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42022775"
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Azure Event Grid 소개
 
-Azure Event Grid를 사용하면 이벤트 기반 아키텍처를 가진 응용 프로그램을 쉽게 빌드할 수 있습니다. 구독할 Azure 리소스를 선택하고, 이벤트를 전송하는 이벤트 처리기 또는 웹후크 끝점을 제공합니다. Event Grid는 기본적으로 저장소 Blob 및 리소스 그룹과 같은 Azure 서비스의 이벤트를 지원합니다. 또한 Event Grid는 사용자 지정 토픽 및 사용자 지정 웹후크를 사용하여 응용 프로그램 및 타사 이벤트에 대한 사용자 지정을 지원합니다. 
+Azure Event Grid를 사용하면 이벤트 기반 아키텍처를 가진 응용 프로그램을 쉽게 빌드할 수 있습니다. 먼저 구독할 Azure 리소스를 선택한 다음, 이벤트를 전송하는 이벤트 처리기 또는 WebHook 엔드포인트를 제공합니다. Event Grid는 기본적으로 저장소 Blob 및 리소스 그룹과 같은 Azure 서비스의 이벤트를 지원합니다. 또한 Event Grid는 사용자 지정 토픽을 사용하여 사용자 고유의 이벤트를 지원합니다. 
 
-필터를 사용하여 다른 끝점에 대한 특정 이벤트를 라우팅하고, 여러 끝점으로 멀티캐스트하며, 이벤트가 안정적으로 배달되도록 할 수 있습니다. Event Grid에는 기본적으로 사용자 지정 및 타사 이벤트를 지원합니다.
+필터를 사용하여 다른 엔드포인트에 대한 특정 이벤트를 라우팅하고, 여러 엔드포인트로 멀티캐스트하며, 이벤트가 안정적으로 배달되도록 할 수 있습니다.
 
-현재 Event Grid는 다음 지역을 지원합니다.
+현재, Azure Event Grid는 모든 공용 지역에서 사용할 수 있습니다. Azure Germany, Azure China 또는 Azure Government 클라우드에서는 아직 사용할 수 없습니다.
 
-* 동남아시아
-* 아시아 동부
-* 오스트레일리아 동부
-* 오스트레일리아 남동부
-* 미국 중부
-*   미국 동부
-*   미국 동부 2
-* 서유럽
-* 북유럽
-* 일본 동부
-* 일본 서부
-*   미국 중서부
-*   미국 서부
-*   미국 서부 2
-
-이 문서는 Azure Event Grid의 개요를 제공합니다. Event Grid를 시작하려는 경우 [Azure Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md)을 참조하세요. 다음 이미지에서는 Event Grid가 소스 및 처리기를 연결하는 방법을 보여주지만 지원되는 옵션의 포괄적인 목록을 제공하지 않습니다.
+이 문서는 Azure Event Grid의 개요를 제공합니다. Event Grid를 시작하려는 경우 [Azure Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md)을 참조하세요. 
 
 ![Event Grid 기능 모델](./media/overview/functional-model.png)
 
+참고: 이 이미지는 Event Grid가 소스 및 처리기를 연결하는 방법을 보여주지만, 지원되는 통합의 전체 목록은 아닙니다.
+
 ## <a name="event-sources"></a>이벤트 원본
 
-현재 다음 Azure 서비스는 Event Grid로 이벤트 보내기를 지원합니다.
+각 소스의 기능에 대한 전체 내용 및 관련 문서는 [이벤트 원본](event-sources.md)을 참조하세요. 현재 다음 Azure 서비스는 Event Grid로 이벤트 보내기를 지원합니다.
 
 * Azure 구독(관리 작업)
+* Container Registry
 * 사용자 지정 토픽
 * Event Hubs
 * IoT Hub
@@ -56,11 +44,9 @@ Azure Event Grid를 사용하면 이벤트 기반 아키텍처를 가진 응용 
 * 저장소 Blob
 * 저장소 범용 v2(GPv2)
 
-각 이벤트 원본을 사용하는 방법을 보여 주는 문서에 대한 링크를 보려면 [Azure Event Grid의 이벤트 원본](event-sources.md)을 참조하세요.
-
 ## <a name="event-handlers"></a>이벤트 처리기
 
-현재 다음 Azure 서비스는 Event Grid의 이벤트 처리를 지원합니다. 
+각 소스의 기능에 대한 전체 내용 및 관련 문서는 [이벤트 원본](event-handlers.md)을 참조하세요. 현재 다음 Azure 서비스는 Event Grid의 이벤트 처리를 지원합니다. 
 
 * Azure Automation
 * Azure 기능
@@ -71,16 +57,14 @@ Azure Event Grid를 사용하면 이벤트 기반 아키텍처를 가진 응용 
 * Queue Storage
 * 웹후크
 
-각 이벤트 처리기를 사용하는 방법을 보여 주는 문서에 대한 링크를 보려면 [Azure Event Grid의 이벤트 처리기](event-handlers.md)를 참조하세요.
-
 ## <a name="concepts"></a>개념
 
 이제부터 살펴볼 Azure Event Grid의 5가지 개념은 다음과 같습니다.
 
 * **이벤트** - 발생한 내용입니다.
 * **이벤트 원본** - 이벤트가 발생한 곳입니다.
-* **토픽** - 게시자가 이벤트를 보낸 끝점입니다.
-* **이벤트 구독** - 때때로 여러 처리기에 이벤트를 라우팅하는 끝점 또는 기본 제공 메커니즘입니다. 구독도 처리기가 지능적으로 들어오는 이벤트를 필터링하는 데 사용됩니다.
+* **토픽** - 게시자가 이벤트를 보낸 엔드포인트입니다.
+* **이벤트 구독** - 때때로 여러 처리기에 이벤트를 라우팅하는 엔드포인트 또는 기본 제공 메커니즘입니다. 구독도 처리기가 지능적으로 들어오는 이벤트를 필터링하는 데 사용됩니다.
 * **이벤트 처리기** - 이벤트에 반응하는 앱 또는 서비스입니다.
 
 이러한 개념에 대한 자세한 내용은 [Azure Event Grid의 개념](concepts.md)을 참조하세요.
@@ -89,9 +73,9 @@ Azure Event Grid를 사용하면 이벤트 기반 아키텍처를 가진 응용 
 
 Azure Event Grid의 몇 가지 주요 기능은 다음과 같습니다.
 
-* **단순성** - Azure 리소스부터 모든 이벤트 처리기 또는 끝점의 이벤트를 목표로 선택하고 클릭합니다.
+* **단순성** - Azure 리소스부터 모든 이벤트 처리기 또는 엔드포인트의 이벤트를 목표로 선택하고 클릭합니다.
 * **고급 필터링** - 이벤트 처리기가 관련 이벤트만 수신하도록 이벤트 형식 또는 이벤트 게시자 경로를 필터링합니다.
-* **팬 아웃** - 필요에 따라 다양한 위치로 이벤트 사본을 보낼 수 있도록 동일한 이벤트에 대한 여러 끝점을 구독합니다.
+* **팬 아웃** - 필요에 따라 다양한 위치로 이벤트 사본을 보낼 수 있도록 동일한 이벤트에 대한 여러 엔드포인트를 구독합니다.
 * **안정성** - 이벤트 배달을 보장하기 위해 지수 백오프를 통한 다시 시도를 24시간 사용합니다.
 * **이벤트별 요금** - Event Grid를 사용하는 만큼만 지불합니다.
 * **높은 처리량** - 초당 수백만 개 이벤트 지원을 통해 Event Grid에서 대량 워크로드를 빌드합니다.
@@ -131,7 +115,7 @@ Azure Event Grid는 이벤트별 요금 가격 책정 모델을 사용하므로 
 * [Storage Blob 이벤트 라우팅](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
   Event Grid를 사용하여 Storage Blob 이벤트에 응답합니다.
 * [사용자 지정 이벤트 만들기 및 구독](custom-event-quickstart.md)  
-  Azure Event Grid 빠른 시작을 사용하여 사용자 지정 이벤트를 끝점으로 보내는 방법을 확인할 수 있습니다.
+  Azure Event Grid 빠른 시작을 사용하여 사용자 지정 이벤트를 엔드포인트로 보내는 방법을 확인할 수 있습니다.
 * [Logic Apps를 이벤트 처리기로 사용](monitor-virtual-machine-changes-event-grid-logic-app.md)  
   Event Grid에서 푸시된 이벤트에 응답하기 위해 Logic Apps를 사용하여 앱을 빌드하는 방법을 설명하는 자습서입니다.
 * [데이터 웨어하우스로 빅 데이터 스트림](event-grid-event-hubs-integration.md)  

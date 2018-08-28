@@ -9,12 +9,12 @@ ms.date: 07/26/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 567f2afdea44f439779212c61fb3a129f4f979be
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: c0e2aefe1222263b169e21490da079b165a57321
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281575"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42108481"
 ---
 # <a name="set-up-the-service-fabric-mesh-cli"></a>Service Fabric Mesh CLI 설정
 Service Fabric Mesh CLI는 Service Fabric Mesh에서 리소스를 배포하고 관리하는 데 필요합니다. 
@@ -23,18 +23,18 @@ Service Fabric Mesh CLI는 Service Fabric Mesh에서 리소스를 배포하고 �
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-CLI를 로컬에서 설치하고 사용하려는 경우 Azure CLI 버전 2.0.35 이상을 설치해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 최신 버전의 CLI를 설치하거나 업그레이드하려면 [Azure CLI 2.0 설치][azure-cli-install]를 참조하세요.
-
-Azure Service Fabric Mesh CLI 모듈의 이전 설치를 제거합니다.
-
-```azurecli-interactive
-az extension remove --name mesh
-```
+CLI를 로컬에서 설치하고 사용하려는 경우 Azure CLI 버전 2.0.43 이상을 설치해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 최신 버전의 CLI를 설치하거나 업그레이드하려면 [Azure CLI 2.0 설치][azure-cli-install]를 참조하세요.
 
 다음 명령을 사용하여 Azure Service Fabric Mesh CLI 확장 모듈을 설치합니다. 
 
 ```azurecli-interactive
-az extension add --source https://meshcli.blob.core.windows.net/cli/mesh-0.9.1-py2.py3-none-any.whl
+az extension add --name mesh
+```
+
+기존 Azure Service Fabric Mesh CLI 모듈을 업데이트하려면 다음 명령을 실행합니다.
+
+```azurecli-interactive
+az extension update --name mesh
 ```
 
 [Windows 개발 환경](service-fabric-mesh-howto-setup-developer-environment-sdk.md)을 설정할 수도 있습니다.

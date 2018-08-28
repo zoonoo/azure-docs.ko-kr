@@ -4,30 +4,37 @@ description: Ansible을 사용하여 Azure에서 Azure Kubernetes Service 클러
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, 플레이북, aks, 컨테이너, Kubernetes
 author: tomarcher
-manager: jpconnock
-editor: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.date: 07/11/2018
+manager: jeconnoc
 ms.author: tarcher
-ms.openlocfilehash: 6d7c5f961256e0ae1831bd76353cadd761f4b8ac
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.topic: tutorial
+ms.date: 08/21/2018
+ms.openlocfilehash: de692b29902145e44a055680d662c16ed90c56c2
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011991"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617178"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Ansible을 사용하여 Azure에서 Azure Kubernetes Service 클러스터 만들기 및 구성
 Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Ansible을 사용하여 AKS(Azure Kubernetes Service)를 관리할 수 있습니다. 이 문서에서는 Ansible을 사용하여 Azure에서 Azure Kubernetes Service 클러스터를 만들고 구성하는 방법을 보여줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 - **Azure 구독** - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
-- **Ansible 구성** - [Azure 자격 증명 만들기 및 Ansible 구성](../virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
-- **Ansible 및 Azure Python SDK 모듈** 
-  - [CentOS 7.4](../virtual-machines/linux/ansible-install-configure.md#centos-74)
-  - [Ubuntu 16.04 LTS](../virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts)
-  - [SLES 12 SP2](../virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
 - **Azure 서비스 주체** - [서비스 주체를 만들](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal) 경우 다음 값, **appId**, **displayName**, **암호**  및 **테넌트**를 참고합니다.
+
+- **Azure Cloud Shell 구성** 또는 **Linux 가상 머신에 Ansible 설치 및 구성**
+
+  **Azure Cloud Shell 구성**
+
+  1. **Azure Cloud Shell 구성** - Azure Cloud Shell을 처음 사용하는 경우 Cloud Shell을 시작하고 구성하는 방법이 [Azure Cloud Shell의 Bash 빠른 시작](/azure/cloud-shell/quickstart) 아티클에 설명되어 있습니다. 
+
+  **--OR--**
+
+  **Linux 가상 머신에 Ansible 설치 및 구성**
+
+  1. **Ansible 설치** - [지원되는 Linux 플랫폼](/azure/virtual-machines/linux/ansible-install-configure#install-ansible-on-an-azure-linux-virtual-machine)에 Ansible을 설치합니다.
+
+  1. **Ansible 구성** - [Azure 자격 증명 만들기 및 Ansible 구성](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
 
 > [!Note]
 > Ansible 2.6은 이 자습서에서 다음의 샘플 플레이북을 실행해야 합니다. 
@@ -157,7 +164,44 @@ Ansible 사용하여 Azure Kubernetes Service 클러스터 크기를 조정하�
   PLAY RECAP ******************************************************************************
   localhost                  : ok=2    changed=1    unreachable=0    failed=0
   ```
+## <a name="delete-a-managed-aks-cluster"></a>관리되는 AKS 클러스터 삭제
 
+다음 샘플 Ansible 플레이북 섹션에서는 AKS 클러스터를 삭제하는 방법을 보여줍니다.
+
+  ```yaml
+  - name: Delete a managed Azure Container Services (AKS) cluster
+    hosts: localhost
+    connection: local
+    vars:
+      resource_group: myResourceGroup
+      aks_name: myAKSCluster
+    tasks:
+    - name: 
+      azure_rm_aks:
+        name: "{{ aks_name }}"
+        resource_group: "{{ resource_group }}"
+        state: absent
+   ```
+
+Ansible 사용하여 Azure Kubernetes Service 클러스터를 삭제하려면 이전 플레이북을 *azure_delete_aks.yml*으로 저장하고, 다음과 같이 플레이북을 실행합니다.
+
+  ```bash
+  ansible-playbook azure_delete_aks.yml
+  ```
+
+다음 출력은 AKS 클러스터가 성공적으로 삭제되었음을 보여줍니다.
+  ```bash
+PLAY [Delete a managed Azure Container Services (AKS) cluster] ****************************
+
+TASK [Gathering Facts] ********************************************************************
+ok: [localhost]
+
+TASK [azure_rm_aks] *********************************************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0
+  ```
+  
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"] 
-> [자습서: AKS(Azure Kubernetes Service)에서 응용 프로그램 크기 조정](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-scale)
+> [자습서: AKS(Azure Kubernetes Service)에서 응용 프로그램 크기 조정](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale)

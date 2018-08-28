@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 42910d616bdbf38c847b48a4a44e6ff9593fa17b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 30db5dc373dd0fae24760bdad669fd872cba4b4d
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952728"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41918979"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Agent 설치
 이 문서는 Azure AD Connect Health Agent를 설치하고 구성하는 단계를 안내합니다. [여기](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent)에서 에이전트를 다운로드할 수 있습니다.
@@ -32,16 +32,16 @@ ms.locfileid: "37952728"
 | Azure AD Premium |Azure AD Connect Health는 Azure AD Premium 기능이기 때문에 Azure AD Premium이 필요합니다. </br></br>자세한 내용은 [Azure AD Premium 시작](../fundamentals/active-directory-get-started-premium.md)을 참조하세요. </br>30일 무료 평가판을 시작하려면 [평가판 시작](https://azure.microsoft.com/trial/get-started-active-directory/)을 참조하세요. |
 | 사용자는 Azure AD Connect Health를 시작할 수 있는 Azure AD의 전역 관리자여야 합니다. |기본적으로 전역 관리자만 Health Agent를 설치할 수 있고, 이것을 시작하고 포털에 액세스하고 Azure AD Connect Health 내에서 작업을 수행하도록 구성할 수 있습니다. 자세한 내용은 [Azure AD 디렉터리 관리](../fundamentals/active-directory-administer.md)를 참조하세요. <br><br> 역할 기반 Access Control를 사용하여 조직의 다른 사용자에게 Azure AD Connect Health에 대한 액세스를 허용할 수 있습니다. 자세한 내용은 [Azure AD Connect Health용 역할 기반 Access Control](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control)을 참조하세요. </br></br>**중요:** 에이전트를 설치할 때 사용하는 계정은 직장 또는 학교 계정이어야 합니다. Microsoft 계정은 사용할 수 없습니다. 자세한 내용은 [조직으로 Azure 등록](../fundamentals/sign-up-organization.md)을 참조하세요. |
 | Azure AD Connect Health Agent는 각 대상 서버에 설치됩니다. | Azure AD Connect Health가 데이터를 수신하고 모니터링 및 분석 기능을 제공하려면 Health Agents가 대상 서버에 설치되고 구성되어야 합니다. </br></br>예를 들어, AD FS 인프라에서 데이터를 가져오려면 AD FS 및 웹 응용 프로그램 프록시 서버에 에이전트가 설치되어야 합니다. 마찬가지로 온-프레미스 AD DS 인프라에 대한 데이터를 가져오려면 에이전트는 도메인 컨트롤러에 설치되어야 합니다. </br></br> |
-| Azure 서비스 끝점에 대한 아웃바운드 연결 | 에이전트는 설치 및 런타임 중에 Azure AD Connect Health 서비스 끝점에 연결되어야 합니다. 방화벽을 사용하여 아웃바운드 연결을 차단하는 경우 다음 엔드포인트가 허용 목록에 추가되어 있는지 확인합니다. [아웃바운드 연결 엔드포인트](active-directory-aadconnect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints)를 참조하세요. | 
-|IP 주소를 기반으로 하는 아웃바운드 연결 | 방화벽의 IP 주소 기반 필터링은 [Azure IP 범위](https://www.microsoft.com/en-us/download/details.aspx?id=41653)를 참조하세요.|
+| Azure 서비스 엔드포인트에 대한 아웃바운드 연결 | 에이전트는 설치 및 런타임 중에 Azure AD Connect Health 서비스 엔드포인트에 연결되어야 합니다. 방화벽을 사용하여 아웃바운드 연결을 차단하는 경우 다음 엔드포인트가 허용 목록에 추가되어 있는지 확인합니다. [아웃바운드 연결 엔드포인트](active-directory-aadconnect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints)를 참조하세요. | 
+|IP 주소를 기반으로 하는 아웃바운드 연결 | 방화벽의 IP 주소 기반 필터링은 [Azure IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 참조하세요.|
 | 아웃바운드 트래픽에 대한 SSL 조사가 필터링 또는 해제됨 | 네트워크 계층에 아웃바운드 트래픽에 대한 종료 또는 SSL 조사가 있으면 에이전트 등록 단계 또는 데이터 업로드 작업이 실패할 수 있습니다. [SSL 검사를 설정하는 방법](https://technet.microsoft.com/library/ee796230.aspx)에 대해 자세히 알아보기 |
-| 에이전트를 실행하는 서버의 방화벽 포트 |에이전트가 Azure AD Health 서비스 끝점과 통신하기 위해 다음 방화벽 포트를 열어놓아야 합니다.</br></br><li>TCP 포트 443</li><li>TCP 포트 5671</li> </br>[방화벽 포트 사용](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx)에 대해 자세히 알아보기 |
+| 에이전트를 실행하는 서버의 방화벽 포트 |에이전트가 Azure AD Health 서비스 엔드포인트와 통신하기 위해 다음 방화벽 포트를 열어놓아야 합니다.</br></br><li>TCP 포트 443</li><li>TCP 포트 5671</li> </br>[방화벽 포트 사용](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx)에 대해 자세히 알아보기 |
 | IE 보안 강화를 사용하는 경우 다음 웹 사이트 허용 |에이전트가 설치될 서버에서 IE 보안 강화를 사용하도록 설정되어 있는 경우 다음 웹 사이트를 허용해야 합니다.</br></br><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>Azure Active Directory에 의해 신뢰할 수 있는 조직의 페더레이션 서버입니다. 예: https:\//sts.contoso.com</li> [IE를 구성하는 방법](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing)에 대해 자세히 알아보기 |
-| PowerShell v4.0 이상이 설치되어 있는지 확인합니다. | <li>Windows Server 2008 R2는 에이전트에 충분하지 않은 PowerShell v2.0과 함께 제공됩니다.  [Windows Server 2008 R2 서버에 에이전트 설치](#agent-installation-on-windows-server-2008-r2-servers)에 설명된 대로 PowerShell을 업데이트합니다.</li><li>Windows Server 2012는 에이전트에 충분하지 않은 PowerShell v3.0과 함께 제공됩니다.  Windows Menagement Framework를 [업데이트](http://www.microsoft.com/en-us/download/details.aspx?id=40855)합니다.</li><li>Windows Server 2012 R2 이상은 PowerShell 최신 버전과 함께 제공됩니다.</li>|
+| PowerShell v4.0 이상이 설치되어 있는지 확인합니다. | <li>Windows Server 2008 R2는 에이전트에 충분하지 않은 PowerShell v2.0과 함께 제공됩니다.  [Windows Server 2008 R2 서버에 에이전트 설치](#agent-installation-on-windows-server-2008-r2-servers)에 설명된 대로 PowerShell을 업데이트합니다.</li><li>Windows Server 2012는 에이전트에 충분하지 않은 PowerShell v3.0과 함께 제공됩니다.  Windows Management Framework를 [업데이트](http://www.microsoft.com/download/details.aspx?id=40855)합니다.</li><li>Windows Server 2012 R2 이상은 PowerShell 최신 버전과 함께 제공됩니다.</li>|
 |FIPS 사용 안 함|FIPS는 Azure AD Connect Health 에이전트에서 지원되지 않습니다.|
 
-### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Azure 서비스 끝점에 대한 아웃바운드 연결
- 에이전트는 설치 및 런타임 중에 Azure AD Connect Health 서비스 끝점에 연결되어야 합니다. 방화벽을 사용하여 아웃바운드 연결을 차단하는 경우 다음 엔드포인트가 허용 목록에 추가되어 있는지 확인합니다. [아웃바운드 연결 확인](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)에 대해 자세히 알아보기  
+### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Azure 서비스 엔드포인트에 대한 아웃바운드 연결
+ 에이전트는 설치 및 런타임 중에 Azure AD Connect Health 서비스 엔드포인트에 연결되어야 합니다. 방화벽을 사용하여 아웃바운드 연결을 차단하는 경우 다음 엔드포인트가 허용 목록에 추가되어 있는지 확인합니다. [아웃바운드 연결 확인](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)에 대해 자세히 알아보기  
  
 | 도메인 환경 | 필수 Azure 서비스 엔드포인트 |
 | --- | --- |
@@ -62,6 +62,11 @@ ms.locfileid: "37952728"
     * [설치 지침 참조](#installing-the-azure-ad-connect-health-agent-for-ad-ds).
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-ad-fs"></a>AD FS용 Azure AD Connect Health Agent 설치
+> [!NOTE]
+> AD FS 서버는 Sync 서버와 다릅니다. Sync 서버에 AD FS 에이전트를 설치하지 마세요.
+>
+  
+설치하기 전에 AD FS 서버 호스트 이름이 고유하고 AD FS 서비스에 없는지 확인합니다.   
 에이전트 설치를 시작하려면 다운로드한 .exe 파일을 두 번 클릭합니다. 첫 번째 화면에서 설치를 클릭합니다.
 
 ![Azure AD Connect Health 확인](./media/active-directory-aadconnect-health-requirements/install1.png)
@@ -166,6 +171,10 @@ Windows Server 2008 R2 서버에 대한 단계:
 
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-sync"></a>동기화용 Azure AD Connect Health Agent 설치
+> [!NOTE]
+> Sync 서버는 AD FS 서버와 다릅니다. AD FS 서버에 Sync 에이전트를 설치하지 마세요.
+>
+
 동기화용 Azure AD Connect Health Agent는 Azure AD Connect의 최신 빌드에 자동으로 설치됩니다. Azure AD Connect를 동기화에 사용하려면 Azure AD Connect의 최신 버전을 다운로드하여 설치해야 합니다. 최신 버전은 [여기](http://www.microsoft.com/download/details.aspx?id=47594)에서 다운로드할 수 있습니다.
 
 에이전트가 설치되었는지 확인하려면 서버에서 다음 서비스를 살펴봅니다. 구성을 완료했다면 해당 서비스가 실행 중이어야 합니다. 그렇지 않으면 구성이 완료될 때까지 해당 서비스가 중지됩니다.

@@ -1,5 +1,5 @@
 ---
-title: 이 빠른 시작에서는 C#을 사용하여 Azure IoT Hub에 시뮬레이션된 TPM 장치를 프로비전하는 방법을 보여줍니다. | Microsoft Docs
+title: C를 사용하여 Azure IoT Hub에 시뮬레이션된 TPM 장치 프로비전 | Microsoft Docs
 description: 이 빠른 시작에서는 Azure IoT Hub Device Provisioning Service의 C# 장치 SDK를 사용하여 시뮬레이션된 TPM 장치를 만들고 프로비전합니다.
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 15c0ce5a545b0bd6b2d1f320b50e9990f8278296
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 4e03268db32b4be6900234abe58e7a308110520a
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091468"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42022708"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>빠른 시작: Azure IoT C SDK를 사용하여 시뮬레이션된 TPM 장치 프로비전
 
@@ -147,7 +147,7 @@ ms.locfileid: "39091468"
 
 1. Azure Portal에서 Device Provisioning 서비스에 대한 **개요** 탭을 선택하고 **_ID 범위_** 값을 복사합니다.
 
-    ![포털에서 DPS 엔드포인트 정보 추출](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
+    ![포털에서 장치 프로비저닝 서비스 엔드포인트 정보 추출](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 
 2. Visual Studio의 *솔루션 탐색기* 창에서 **Provision\_Samples** 폴더로 이동합니다. **prov\_dev\_client\_sample**이라는 샘플 프로젝트를 확장합니다. **원본 파일**을 확장하고, **prov\_dev\_client\_sample.c**를 엽니다.
 

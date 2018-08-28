@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
-ms.date: 03/14/2018
+ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: d0c587b3d43f7511775a4a114bead96348372bc5
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: c084a08ffef868af751d065c5857a9b67a12485f
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959970"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41918416"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>.NET을 사용하여 Azure Table Storage 및 Azure Cosmos DB Table API 시작
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -36,10 +36,10 @@ Table Storage 또는 Azure Cosmos DB Table API를 사용하여 웹 응용 프로
 이 샘플을 성공적으로 완료하려면 다음이 필요합니다.
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure Storage Common Library for .NET(미리 보기)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). 프로덕션 환경에서 지원되는 필수 미리 보기 패키지입니다. 
-* [Microsoft Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)
+* [Azure Storage Common Library for .NET(미리 보기)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). - 프로덕션 환경에서 지원되는 필수 미리 보기 패키지입니다. 
+* [Microsoft Azure CosmosDB Table Library for.NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) - 이 라이브러리는 현재 .NET 표준에만 제공되고, .NET Core에는 제공되지 않습니다.
 * [.NET용 Azure 구성 관리자](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-* [Azure 저장소 계정](../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* [Azure 저장소 계정](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -50,17 +50,14 @@ Table Storage를 사용하는 추가 예제는 [.NET에서 Azure Table Storage �
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
-첫 번째 Azure Storage 계정을 가장 쉽게 만드는 방법은 [Azure Portal](https://portal.azure.com)을 사용하는 것입니다. 자세한 내용은 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account)를 참조하십시오.
+* 첫 번째 Azure Storage 계정을 가장 쉽게 만드는 방법은 [Azure Portal](https://portal.azure.com)을 사용하는 것입니다. 자세한 내용은 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하십시오.
 
-[Azure PowerShell](../storage/common/storage-powershell-guide-full.md), [Azure CLI](../storage/common/storage-azure-cli.md) 또는 [.NET용 Storage 리소스 공급자 클라이언트 라이브러리](/dotnet/api/microsoft.azure.management.storage)를 사용하여 Azure Storage 계정을 만들 수도 있습니다.
+* [Azure PowerShell](../storage/common/storage-powershell-guide-full.md), [Azure CLI](../storage/common/storage-azure-cli.md) 또는 [.NET용 Storage 리소스 공급자 클라이언트 라이브러리](/dotnet/api/microsoft.azure.management.storage)를 사용하여 Azure Storage 계정을 만들 수도 있습니다.
 
-또한 이번에 저장소 계정을 만들지 않으려는 경우 Azure 저장소 에뮬레이터를 사용하여 로컬 환경에서 코드를 실행하고 테스트할 수 있습니다. 자세한 내용은 [개발 및 테스트에 Azure Storage 에뮬레이터 사용](../storage/common/storage-use-emulator.md)을 참조하세요.
+* 또한 이번에 저장소 계정을 만들지 않으려는 경우 Azure 저장소 에뮬레이터를 사용하여 로컬 환경에서 코드를 실행하고 테스트할 수 있습니다. 자세한 내용은 [개발 및 테스트에 Azure Storage 에뮬레이터 사용](../storage/common/storage-use-emulator.md)을 참조하세요.
 
 ### <a name="create-an-azure-cosmos-db-table-api-account"></a>Azure Cosmos DB Table API 계정 만들기
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
-
-## <a name="set-up-your-development-environment"></a>개발 환경 설정
-다음으로 이 가이드에 코드 예제를 사용할 준비가 되도록 Visual Studio에서 개발 환경을 설정합니다.
 
 ### <a name="create-a-windows-console-application-project"></a>Windows 콘솔 응용 프로그램 프로젝트 만들기
 Visual Studio에서 새로운 Windows 콘솔 응용 프로그램을 만듭니다. 다음 단계에서는 Visual Studio 2017에서 콘솔 응용 프로그램을 만드는 방법을 보여 줍니다. 이러한 단계는 다른 버전의 Visual Studio에서도 비슷합니다.
@@ -75,17 +72,19 @@ Visual Studio에서 새로운 Windows 콘솔 응용 프로그램을 만듭니다
 
 Azure 클라우드 서비스, 웹앱, 바탕화면 및 모바일 응용 프로그램을 포함하여 .NET 응용 프로그램의 모든 형식에서 Azure CosmosDB 테이블 라이브러리를 사용할 수 있습니다. 이 가이드에서는 편의상 콘솔 응용 프로그램을 사용합니다.
 
-### <a name="use-nuget-to-install-the-required-packages"></a>NuGet을 사용하여 필요한 패키지 설치
+### <a name="install-the-required-nuget-packages"></a>필요한 NuGet 패키지 설치
 이 샘플을 완료하기 위해 프로젝트에서 참조해야 하는 세 개의 권장되는 패키지가 있습니다.
 
-* [Azure Storage Common Library for .NET(미리 보기)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common) 
-* [Microsoft Azure Cosmos DB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) 이 패키지는 Azure Table Storage 계정 또는 Azure Cosmos DB 테이블 API 계정에서 데이터 리소스에 대한 프로그래밍 방식의 액세스를 제공합니다.
+* [Azure Storage Common Library for .NET(미리 보기)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common) - 9.0.0.1 이하(<= 9.0.0.1) 버전을 사용합니다.
+
+* [Microsoft Azure Cosmos DB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) 이 패키지는 Azure Table Storage 계정 또는 Azure Cosmos DB 테이블 API 계정에서 데이터 리소스에 대한 프로그래밍 방식의 액세스를 제공합니다. 이 라이브러리는 현재 .NET 표준에만 제공되고, .NET Core에는 제공되지 않습니다.
+
 * [.NET용 Microsoft Azure 구성 관리자 라이브러리](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): 이 패키지는 응용 프로그램을 실행하는 위치에 관계없이 구성 파일에서 연결 문자열을 구문 분석하기 위한 클래스를 제공합니다.
 
-NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단계를 수행하세요.
+NuGet 패키지를 가져오려면 다음 단계를 수행합니다.
 
 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
-2. 온라인에서 "Microsoft.Azure.Storage.Common"을 검색하고 **설치**를 선택하여 .NET용 Azure Storage 공통 라이브러리(미리 보기)와 해당 종속성을 설치합니다. 미리 보기 패키지이므로 **시험판 포함** 상자를 선택합니다.
+2. 온라인에서 "Microsoft.Azure.Storage.Common"을 검색하고, 9.0.0.1 이하 버전을 선택하고, **설치**를 선택하여 .NET용 Azure Storage 공통 라이브러리(미리 보기)와 해당 종속성을 설치합니다. 미리 보기 패키지이므로 **시험판 포함** 상자를 선택합니다.
 3. 온라인에서 "Microsoft.Azure.CosmosDB.Table"을 검색하고 **설치**를 선택하여 Microsoft Azure CosmosDB 테이블 라이브러리를 설치합니다.
 4. 온라인에서 "WindowsAzure.ConfigurationManager"를 검색하고 **설치**를 선택하여 Microsoft Azure Configuration Manager 라이브러리를 설치합니다.
 

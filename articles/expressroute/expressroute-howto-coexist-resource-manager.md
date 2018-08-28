@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/05/2018
+ms.date: 08/17/2018
 ms.author: charwen,cherylmc,rambala
-ms.openlocfilehash: 80d2f65f516d7f1190f276fa9f2c62206bd31e67
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 0e69a85f320a0a8d77bd07fc0dedb77eb99efb36
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39262875"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41919841"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>ExpressRoute 및 사이트 간 공존 연결 구성
 > [!div class="op_single_selector"]
@@ -183,14 +183,7 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
   ```
 
 ## <a name="add"></a>기존 VNet에 대한 공존 연결을 구성하려면
-기존 가상 네트워크가 있는 경우 게이트웨이 서브넷 크기를 확인합니다. 게이트웨이 서브넷이 /28 또는 /29인 경우 우선 가상 네트워크 게이트웨이를 삭제하고 게이트웨이 서브넷 크기를 늘려야 합니다. 이 섹션에서 단계별 수행 방법을 보여줍니다.
-
-게이트웨어 서브넷이 /27 이상이고 가상 네트워크가 ExpressRoute를 통해 연결된 경우 아래 단계를 건너뛰고 이전 섹션의 ["4단계 - 사이트 간 VPN 게이트웨이 만들기"](#vpngw)를 진행할 수 있습니다. 
-
-> [!NOTE]
-> 기존 게이트웨이를 삭제하면 이 구성에서 작업하는 동안 로컬 프레미스와 가상 네트워크의 연결이 끊어집니다. 
-> 
-> 
+가상 네트워크 게이트웨이가 하나밖에 없는 가상 네트워크(사이트 간 VPN 게이트웨이라고 가정)를 보유하고 있으며 다른 종류의 게이트웨이(ExpressRoute 게이트웨이라고 가정)를 추가하고 싶은 경우 게이트웨이 서브넷 크기를 확인합니다. 게이트웨이 서브넷이 /27 이상이면 아래 단계를 건너뛰고 이전 섹션의 단계에 따라 사이트 간 VPN 게이트웨이 또는 ExpressRoute 게이트웨이를 추가할 수 있습니다. 게이트웨이 서브넷이 /28 또는 /29인 경우 우선 가상 네트워크 게이트웨이를 삭제하고 게이트웨이 서브넷 크기를 늘려야 합니다. 이 섹션에서 단계별 수행 방법을 보여줍니다.
 
 1. 최신 버전의 Azure PowerShell cmdlet을 설치해야 합니다. cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요. 이 구성에 사용할 cmdlet은 지금까지 사용하던 것과 약간 다를 수 있습니다. 다음 지침에 지정된 cmdlet을 사용해야 합니다. 
 2. 기존 ExpressRoute 또는 사이트 간 VPN Gateway를 삭제합니다.
@@ -220,7 +213,7 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
   ```powershell
   $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
-5. 이제 게이트웨이 없는 VNet이 생겼습니다. 새 게이트웨이를 만들고 연결을 완료하려면 이전 단계의 [4단계 - 사이트 간 VPN 게이트웨이 만들기"](#vpngw)를 진행합니다.
+5. 이제 게이트웨이 없는 가상 네트워크가 생겼습니다. 새 게이트웨이를 만들고 연결을 설정하려면 이전 섹션의 단계를 따릅니다.
 
 ## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>VPN Gateway에 지점 및 사이트 간 구성을 추가하려면
 아래 단계에 따라 공존 설정에서 VPN Gateway에 지점 및 사이트 간 구성을 추가할 수 있습니다.

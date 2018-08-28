@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 92258ce7ea39a06f2af85efd9174b1b200710566
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4d5222889d5e840bd03bf77a56584dac48bb740c
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216969"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41920361"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Azure Automation을 사용하여 Windows 업데이트 관리
 
@@ -126,9 +126,6 @@ UpdateRunProgress
 
 따라서 릴리스 일정 및 서비스 기간 이후로 배포를 예약하여 업데이트를 설치합니다. 배포에 포함할 업데이트 형식을 선택할 수 있습니다. 예를 들어 중요 업데이트나 보안 업데이트를 포함하고 업데이트 롤업은 제외할 수 있습니다.
 
-> [!WARNING]
-> 업데이트로 인해 다시 시작해야 하는 경우 VM이 자동으로 다시 시작됩니다.
-
 VM에 대한 새 업데이트 배포를 예약하려면 **업데이트 관리**로 이동한 다음, **업데이트 배포 예약**을 선택합니다.
 
 **새 업데이트 배포**에서 다음 정보를 지정합니다.
@@ -136,6 +133,8 @@ VM에 대한 새 업데이트 배포를 예약하려면 **업데이트 관리**�
 * **이름**: 업데이트 배포에 대한 고유한 이름을 입력합니다.
 
 * **운영 체제**: 업데이트 배포의 대상 OS를 선택합니다.
+
+* **업데이트할 머신**: 저장된 검색, 가져온 그룹을 선택하거나 드롭다운에서 머신을 선택하고 개별 머신을 선택합니다. **머신**을 선택하면 머신의 준비 상태가 **업데이트 에이전트 준비** 열에 표시됩니다. Log Analytics에서 머신 그룹을 만드는 다른 방법은 [Log Analytics의 머신 그룹](../log-analytics/log-analytics-computer-groups.md)을 참조하세요.
 
 * **업데이트 분류**: 배포에 포함되는 업데이트 배포 소프트웨어의 종류를 선택합니다. 이 자습서에서는 모든 종류가 선택된 상태로 둡니다.
 
@@ -154,9 +153,17 @@ VM에 대한 새 업데이트 배포를 예약하려면 **업데이트 관리**�
 
 * **유지 관리 기간(분)**: 기본값으로 그대로 둡니다. 업데이트 배포를 수행하려는 기간을 설정할 수 있습니다. 이 설정을 통해 정해진 서비스 기간 내에 변경 내용을 수행할 수 있습니다.
 
+* **다시 부팅 옵션**: 이 설정은 다시 부팅을 처리하는 방식을 결정합니다. 사용 가능한 옵션은 다음과 같습니다.
+  * 필요한 경우 다시 부팅(기본값)
+  * 항상 다시 부팅
+  * 다시 부팅 안 함
+  * 다시 부팅만 - 업데이트 설치 안 함
+
+일정 구성을 마쳤으면 **만들기**를 선택합니다.
+
 ![업데이트 일정 설정 창](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
 
-일정 구성을 마쳤으면 **만들기**를 선택합니다. 상태 대시보드로 돌아갑니다. **예약된 업데이트 배포**를 선택하여 만든 배포 일정을 표시합니다.
+상태 대시보드로 돌아갑니다. **예약된 업데이트 배포**를 선택하여 만든 배포 일정을 표시합니다.
 
 ## <a name="view-results-of-an-update-deployment"></a>업데이트 배포의 결과 보기
 

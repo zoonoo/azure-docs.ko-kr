@@ -5,38 +5,40 @@ items:
   items:
   - name: Bing Web Search란?
     href: overview.md
-- name: REST API 빠른 시작
+- name: 빠른 시작
   items:
-  - name: C#
-    href: quickstarts/csharp.md
-  - name: Go
-    href: quickstarts/go.md
-  - name: 자바
-    href: quickstarts/java.md
-  - name: Node.js
-    href: quickstarts/nodejs.md
-  - name: PHP
-    href: quickstarts/php.md
-  - name: 파이썬
-    href: quickstarts/python.md
-  - name: Ruby
-    href: quickstarts/ruby.md
-  expanded: true
-- name: SDK 빠른 시작
-  items:
-  - name: SDK 샘플 개요
-    href: sdk.md
-  - name: Web Search SDK C# 빠른 시작
-    href: web-search-sdk-quickstart.md
-  - name: Web Search SDK Node.js 빠른 시작
-    href: web-search-sdk-node-quickstart.md
-  - name: Web Search SDK Python 빠른 시작
-    href: web-sdk-python-quickstart.md
-  - name: Web Search SDK Java 빠른 시작
-    href: web-sdk-java-quickstart.md
+  - name: REST API
+    items:
+    - name: C#
+      href: quickstarts/csharp.md
+    - name: Go
+      href: quickstarts/go.md
+    - name: 자바
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: PHP
+      href: quickstarts/php.md
+    - name: 파이썬
+      href: quickstarts/python.md
+    - name: Ruby
+      href: quickstarts/ruby.md
+    expanded: true
+  - name: SDK
+    items:
+    - name: 샘플 개요
+      href: sdk.md
+    - name: C#
+      href: web-search-sdk-quickstart.md
+    - name: 자바
+      href: web-sdk-java-quickstart.md
+    - name: Node.js
+      href: web-search-sdk-node-quickstart.md
+    - name: 파이썬
+      href: web-sdk-python-quickstart.md
 - name: 자습서
   items:
-  - name: 단일 페이지 웹앱
+  - name: 단일 페이지 웹앱 빌드
     href: tutorial-bing-web-search-single-page-app.md
   - name: 단일 페이지 웹앱(소스 코드)
     href: tutorial-bing-web-search-single-page-app-source.md
@@ -48,8 +50,6 @@ items:
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Web+Search
 - name: 방법 가이드
   items:
-  - name: 결과 사용 및 표시
-    href: UseAndDisplayRequirements.md
   - name: 답변 필터링
     href: filter-answers.md
   - name: 결과 순위 지정
@@ -62,41 +62,55 @@ items:
     href: resize-and-crop-thumbnails.md
   - name: v5에서 v7로 업그레이드
     href: bing-web-upgrade-guide-v5-to-v7.md
+- name: 개념
+  items:
+  - name: Autosuggest 검색 용어
+    href: autosuggest-bing-search-terms.md
+  - name: 검색 응답
+    href: search-responses.md
+  - name: 제한 요청
+    href: throttling-requests.md
 - name: 참고 자료
   items:
   - name: Bing Web Search API v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference
   - name: Bing Web Search API v5
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference
+  - name: Azure CLI
+    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+  - name: Azure PowerShell
+    href: https://aka.ms/azure-powershell-cognitiveservices
 - name: 리소스
   items:
   - name: FAQ
     href: bing-web-search-resource-faq.md
-  - name: 가격
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/web/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/555907-bing-web-search-api
-  - name: 스택 오버플로
-    href: https://stackoverflow.com/search?q=bing+web+search
-  - name: 국가별 가용성
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Azure 로드맵
-    href: https://azure.microsoft.com/roadmap/
-  - name: 기술 자료
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
   - name: API 키 가져오기
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api
-  - name: 사용해 보세요.
-    href: https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/
   - name: Bing Web Search 엔드포인트
     href: web-search-endpoints.md
+  - name: 가격
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/web/
+  - name: 국가별 가용성
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: 사용 및 표시 요구 사항
+    href: UseAndDisplayRequirements.md
   - name: 지원되는 국가 및 마켓
     href: supported-countries-markets.md
   - name: Bing Web Search API에 대한 분석
     href: bing-web-stats.md
-ms.openlocfilehash: e4cc75a8d0b55141b864b9295dd832676e62b4cd
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+  - name: 지원
+    items:
+    - name: 사용자 의견 포럼
+      href: https://cognitive.uservoice.com/forums/555907-bing-web-search-api
+    - name: 스택 오버플로
+      href: https://stackoverflow.com/search?q=bing+web+search
+    - name: 기술 자료
+      href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
+  - name: Azure 로드맵
+    href: https://azure.microsoft.com/roadmap/
+ms.openlocfilehash: 27a3ce13408b10d5ef93cf67555ac7113471ae93
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42440260"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886752"

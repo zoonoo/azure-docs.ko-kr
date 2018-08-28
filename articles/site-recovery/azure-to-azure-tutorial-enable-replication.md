@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: aaed3dd5a2a7b32d24aa8b19dab870c28e6f58ec
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 4638b697dcaa0d4c11bae1878a94f76f6237d4a4
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216185"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42154784"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>보조 Azure 지역에 Azure VM의 재해 복구 설정
 
@@ -82,7 +82,7 @@ URL 대신 IP 주소를 사용하여 아웃바운드 연결을 제어하려면 �
   - [Windows Azure 데이터 센터 IP 범위(독일)](http://www.microsoft.com/en-us/download/details.aspx?id=54770)
   - [Windows Azure 데이터 센터 IP 범위(중국)](http://www.microsoft.com/en-us/download/details.aspx?id=42064)
   - [Office 365 URL 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
-  - [Site Recovery 서비스 끝점 IP 주소](https://aka.ms/site-recovery-public-ips)
+  - [Site Recovery 서비스 엔드포인트 IP 주소](https://aka.ms/site-recovery-public-ips)
 
 이 [스크립트](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702)를 사용하여 필요한 NSG 규칙을 만들 수 있습니다.
 
@@ -114,8 +114,9 @@ Azure Site Recovery는 Site Recovery 관리 작업을 제어하는 3가지 기�
 2. **원본**에서 **Azure**를 선택합니다.
 3. **원본 위치**에서 VM이 현재 실행 중인 원본 Azure 지역을 선택합니다.
 4. VM의 **Azure 가상 머신 배포 모델**(**Resource Manager** 또는 **클래식**)을 선택합니다.
-5. **원본 리소스 그룹**(Resource Manager VM의 경우) 또는 **클라우드 서비스**(클래식 VM의 경우)를 선택합니다.
-6. **확인**을 클릭하여 설정을 저장합니다.
+5. 가상 머신이 실행되는 **구독 원본**을 선택합니다. 복구 서비스 자격 증명 모음이 있는 동일한 Azure Active Directory 테넌트 내에 있는 구독일 수 있습니다.
+6. Resource Manager VM의 경우 **원본 리소스 그룹**을 선택하고, 클래식 VM의 경우 **클라우드 서비스**를 선택합니다.
+7. **확인**을 클릭하여 설정을 저장합니다.
 
 ### <a name="select-the-vms"></a>VM 선택
 
@@ -134,9 +135,11 @@ Site Recovery는 대상 지역에 대한 기본 설정 및 복제 정책을 만�
   ![설정 구성](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
+- **대상 구독**: 재해 복구에 사용되는 대상 구독입니다. 기본적으로 대상 구독은 원본 구독과 동일합니다. '사용자 지정'을 클릭하여 동일한 Azure Active Directory 테넌트 내에서 다른 대상 구독을 선택합니다.
+
 - **대상 위치**: 재해 복구에 사용되는 대상 지역입니다. 대상 위치가 Site Recovery 자격 증명 모음의 위치와 일치하는 것이 좋습니다.
 
-- **대상 리소스 그룹**: 장애 조치(failover) 후 Azure VM을 보유하는 대상 지역의 리소스 그룹입니다. 기본적으로 Site Recovery는 "asr" 접미사를 사용하여 대상 지역에 새 리소스 그룹을 만듭니다. 원본 가상 머신이 호스트되는 지역을 제외한 모든 지역이 대상 리소스 그룹의 리소스 그룹 위치가 될 수 있습니다. 
+- **대상 리소스 그룹**: 장애 조치(failover) 후 Azure VM을 보유하는 대상 지역의 리소스 그룹입니다. 기본적으로 Site Recovery는 "asr" 접미사를 사용하여 대상 지역에 새 리소스 그룹을 만듭니다. 원본 가상 머신이 호스트되는 지역을 제외한 모든 지역이 대상 리소스 그룹의 리소스 그룹 위치가 될 수 있습니다.
 
 - **대상 가상 네트워크**: 장애 조치(failover) 후 VM이 배치되는 대상 지역의 네트워크입니다.
   기본적으로 Site Recovery는 "asr" 접미사를 사용하여 대상 지역에 새 가상 네트워크(및 서브넷)를 만듭니다.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 6fe314125440096d21a1276defd082c4e1997b8e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 50ece1d1f74ace494e6bebb84f9f121c1fad7a6c
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642685"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41920882"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>자습서: Azure Service Fabric에 Windows 컨테이너의 .NET 응용 프로그램 배포
 
@@ -143,7 +143,7 @@ $registry = New-AzureRMContainerRegistry -ResourceGroupName $acrresourcegroupnam
 Service Fabric 응용 프로그램은 네트워크에 연결된 가상 머신 또는 물리적 머신의 집합인 클러스터에서 실행됩니다.  Azure에 응용 프로그램을 배포하기 전에 먼저 Azure에서 Service Fabric 클러스터를 만듭니다.
 
 다음을 수행할 수 있습니다.
-- Visual Studio에서 테스트 클러스터를 만듭니다. 이 옵션을 사용하면 기본 설정 구성으로 Visual Studio에서 직접 보안 클러스터를 만들 수 있습니다. 
+- Visual Studio에서 테스트 클러스터를 만듭니다. 이 옵션을 사용하면 기본 설 구성으로 Visual Studio에서 직접 보안 클러스터정를 만들 수 있습니다. 
 - [템플릿에서 보안 클러스터 만들기](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 
 이 자습서는 테스트 시나리오에 적합한 Visual Studio에서 클러스터를 만듭니다. 어떤 다른 방법으로 클러스터를 만들거나 기존 클러스터를 사용하는 경우 연결 엔트포인트를 복사해 붙여넣거나 구독에서 선택할 수 있습니다. 
@@ -223,6 +223,9 @@ $vnetRuleObject1 = New-AzureRmSqlServerVirtualNetworkRule `
 출력 창의 배포 진행률을 따릅니다.  응용 프로그램을 배포할 때 클러스터 주소와 응용 프로그램 포트에서 브라우저와 유형을 엽니다. 예: http://http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/
 
 ![Fabrikam 웹 샘플][fabrikam-web-page-deployed]
+
+## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Service Fabric 클러스터와의 CI/CD(지속적인 통합 및 지속적인 배포) 설정
+VSTS를 사용하여 Service Fabric 클러스터에 대한 CI/CD 응용 프로그램 배포를 구성하는 방법을 알아보려면 [자습서: Service Fabric 클러스터에 CI/CD로 응용 프로그램 배포](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)를 참조하세요. 이 자습서에 설명된 프로세스는 이 (FabrikamFiber) 프로젝트와 동일하므로, Voting 샘플 다운로드 과정을 건너뛰고 리포지토리 이름으로 Voting 대신 FabrikamFiber를 사용합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 완료된 경우 만든 모든 리소스를 제거해야 합니다.  가장 간단한 방법은 Service Fabric 클러스터, Azure SQL DB 및 Azure Container Registry를 포함하는 리소스 그룹을 제거하는 것입니다.

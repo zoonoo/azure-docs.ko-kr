@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/17/2018
+ms.date: 08/22/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: d5bb5ed45363216bb1bcd39f85157a3eed68c2f9
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: fcae6d656f6e309b0fdcd60db743d3bebf3cd5a9
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126865"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617041"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Resource Manager 템플릿 만들기 및 배포
 
@@ -78,7 +78,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="edit-and-deploy-the-template"></a>템플릿 편집 및 배포
 
-이 섹션에서는 템플릿 라이브러리에서 저장된 템플릿을 열고, 포털 내에서 템플릿을 편집한 다음, 수정된 템플릿을 배포합니다. 더 복잡한 템플릿을 편집하려면 더 다양한 편집 기능을 제공하는 Visual Studio Code를 사용하는 것이 좋습니다.
+이 섹션에서는 템플릿 라이브러리에서 저장된 템플릿을 열고, 포털 내에서 템플릿을 편집한 다음, 수정된 템플릿을 배포합니다. 더 복잡한 템플릿을 편집하려면 더 다양한 편집 기능을 제공하는 [Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)를 사용하는 것이 좋습니다.
+
+Azure의 각 Azure 서비스에는 고유한 이름이 필요합니다. 이미 존재하는 저장소 계정 이름을 입력한 경우 배포에 실패합니다. 이 문제를 방지하기 위해 템플릿 함수 호출 uniquestring()을 사용하여 고유한 저장소 계정 이름을 생성할 수 있습니다.
 
 1. Azure Portal의 왼쪽 메뉴에서 **모든 서비스**를 선택하고, 필터 상자에서 **템플릿**을 입력한 다음, **템플릿(미리 보기)** 을 선택합니다.
 
@@ -177,6 +179,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 10. **구매**를 선택합니다.
 11. 화면 위쪽에서 벨 아이콘(알림)을 선택하여 배포 상태를 확인합니다.
+
+    ![Azure Resource Manager 템플릿 배포 알림](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-notification.png)
+
+12. 알림 창에서 **리소스 그룹으로 이동**을 선택합니다. 다음과 비슷한 화면이 표시됩니다.
+
+    ![Azure Resource Manager 템플릿 배포 리소스 그룹](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-deployment-resource-group.png)
+
+    배포 상태가 성공이고 리소스 그룹에 하나의 저장소 계정이 있는 것을 확인할 수 있습니다. 저장소 계정 이름은 템플릿에 의해 생성된 고유한 문자열입니다. Azure 저장소 계정을 사용하는 방법에 대해 자세히 알아보려면 [빠른 시작: Azure Portal을 사용하여 Blob 업로드, 다운로드 및 나열](../storage/blobs/storage-quickstart-blobs-portal.md)을 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

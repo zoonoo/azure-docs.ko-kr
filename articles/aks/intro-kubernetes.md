@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 06/13/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: cb38285a009d8dfba175de6e3037970e6111d929
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: e6f67c8900a7ee1728b474651b47d278cdfa51eb
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096130"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42022630"
 ---
 # <a name="azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)
 
@@ -66,7 +66,7 @@ AKS는 GPU 사용 노드 풀 만들기를 지원합니다. Azure는 현재, 단�
 
 ## <a name="development-tooling-integration"></a>개발 도구 통합
 
-Kubernetes에는 다양한 Visual Studio Code용 개발 및 관리 도구(예: Helm, Draft 및 Kubernetes 확장)가 있습니다. 이러한 도구는 Azure Kuberntees Service에서 원활하게 작동합니다.
+Kubernetes에는 다양한 Visual Studio Code용 개발 및 관리 도구(예: Helm, Draft 및 Kubernetes 확장)가 있습니다. 이러한 도구는 Azure Kubernetes Service에서 원활하게 작동합니다.
 
 또한 Azure Dev Spaces는 팀에게 신속하고 반복적인 Kubernetes 개발 환경을 제공합니다. 최소한의 구성을 통해 AKS(Azure Kubernetes Service)에서 바로 컨테이너를 실행하고 디버그할 수 있습니다.
 
@@ -104,7 +104,7 @@ AKS(Azure Kubernetes Service)는 Kubernetes 규칙을 따르는 CNCF로 인증�
 
 ## <a name="regulatory-compliance"></a>규정 준수
 
-AKS(Azure Kubernetes Service)는 SOC 및 ISO/HIPAA/HITRUST와 호환됩니다.
+AKS(Azure Kubernetes Service)는 SOC 및 ISO와 호환됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -131,7 +131,7 @@ AKS 빠른 시작으로 AKS 배포 및 관리에 대해 자세히 알아 봅니�
 [aks-scale]: ./scale-cluster.md
 [aks-upgrade]: ./upgrade-cluster.md
 [azure-dev-spaces]: https://docs.microsoft.com/en-us/azure/dev-spaces/azure-dev-spaces
-[azure-devops]: https://docs.microsoft.com/en-us/vsts/pipelines/actions/azure-devops-project-aks?view=vsts
+[azure-devops]: https://docs.microsoft.com/en-us/azure/devops-project/overview
 [azure-disk]: ./azure-disks-dynamic-pv.md
 [azure-files]: ./azure-files-dynamic-pv.md
 [container-health]: ../monitoring/monitoring-container-health.md

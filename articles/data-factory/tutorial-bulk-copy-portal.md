@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 651f9ba71d08698c64f3e90de59b5f29a8afc77d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b6d7b926a414c95d4e05834bafc91a2aa9c047fe
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433513"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41918145"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 여러 테이블 대량 복사
 이 자습서에서는 **Azure SQL Database에서 Azure SQL Data Warehouse로 여러 테이블을 복사**하는 방법을 보여 줍니다. 다른 복사 시나리오에도 동일한 패턴을 적용할 수 있습니다. 예를 들어 SQL Server/Oracle에서 Azure SQL Database/Data Warehouse/Azure Blob으로 테이블을 복사하고, Blob에서 Azure SQL Database 테이블로 다른 경로를 복사합니다.
@@ -199,7 +199,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
 
     a. **연결된 서비스**에 대해 **AzureSqlDatabaseLinkedService**를 선택합니다.
 
-    나. **테이블**에서 **편집** 옵션을 선택하고, 테이블 이름 입력란을 선택한 다음, 아래에서 **동적 콘텐츠 추가** 링크를 클릭합니다. 
+    b. **테이블**에서 **편집** 옵션을 선택하고, 테이블 이름 입력란을 선택한 다음, 아래에서 **동적 콘텐츠 추가** 링크를 클릭합니다. 
     
     ![매개 변수 이름](./media/tutorial-bulk-copy-portal/table-name-parameter.png)
 
@@ -235,7 +235,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
 
     a. 아래쪽의 **일반** 탭에서 **이름**에 대해 **IterateSQLTables**를 입력합니다. 
 
-    나. **설정** 탭으로 전환하고, **항목**에 대한 입력란을 선택한 다음, 아래에서 **동적 콘텐츠 추가** 링크를 클릭합니다. 
+    b. **설정** 탭으로 전환하고, **항목**에 대한 입력란을 선택한 다음, 아래에서 **동적 콘텐츠 추가** 링크를 클릭합니다. 
 
     ![ForEach 활동 설정](./media/tutorial-bulk-copy-portal/for-each-activity-settings.png)
 
@@ -265,7 +265,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
     1. DWTableName 매개 변수 값에 대해 입력란을 선택하고, 아래에서 **동적 콘텐츠 추가**를 선택하고, `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` 식을 스크립트로 입력하고, **마침**을 선택합니다.
     1. **Polybase 설정**을 펼치고 **Polybase 허용**을 선택합니다. 
     1. **유형 기본 사용** 옵션의 선택을 취소합니다. 
-    1. **정리 스크립트** 입력란을 선택하고, 아래에서 **동적 콘텐츠 추가**를 선택하고, 다음 식을 스크립트로 입력하고, **마침**을 선택합니다. 
+    1. **사전 복사 스크립트** 입력란을 선택하고, 아래에서 **동적 콘텐츠 추가**를 선택하고, 다음 식을 스크립트로 입력하고, **마침**을 선택합니다. 
 
         ```sql
         TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]

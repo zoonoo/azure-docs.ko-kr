@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 1d82ccdf85b34416dc630b9fcad969d87cc53ff1
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 84072c7e5f7aa37e89fc1b93c1585167dd6d9f4b
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520669"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41920757"
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Azure IoT Hub Device Provisioning Service 클라이언트를 사용하여 IoT Hub에 장치를 등록(.NET)
 
@@ -70,10 +70,10 @@ Device Provisioning Service에 장치를 등록하는 방법은 두 가지가 �
     using Microsoft.Azure.Devices.Provisioning.Service;
     ```
 
-1. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 값을 이전 섹션에서 메모한 DPS 연결 문자열로 대체합니다.
+1. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 값을 이전 섹션에서 메모한 장치 프로비저닝 서비스 연결 문자열로 바꿉니다.
    
     ```csharp
-    static readonly string ServiceConnectionString = "{DPS connection string}";
+    static readonly string ServiceConnectionString = "{Device Provisioning Service connection string}";
 
     private const string SampleRegistrationId = "sample-individual-csharp";
     private const string SampleTpmEndorsementKey =
@@ -222,7 +222,7 @@ Device Provisioning Service에 장치를 등록하는 방법은 두 가지가 �
 
 이 시점에서 다음 설정이 장치 등록을 위해 준비되었습니다.
 
-1. 장치 또는 장치 그룹이 Device Provisioning Service에 등록되었습니다. 또한 
+1. 장치 또는 장치 그룹이 Device Provisioning Service에 등록되었습니다. 
 2. 장치가 Device Provisioning Service 클라이언트 SDK를 사용하여 응용 프로그램을 통해 구성 및 액세스가 가능한 보안과 함께 준비되어 있습니다.
 
 장치에서 Device Provisioning Service를 통해 등록을 시작하도록 클라이언트 응용 프로그램을 허용합니다.  

@@ -4,17 +4,17 @@ description: 이 자습서에서는 Iot Edge 장치에 Azure Stream Analytics를
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/25/2018
+ms.date: 08/10/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: afbdf2171c1fc1eef95514526a509d171e262d4a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 66d55c07493a540e36a08d48d6abbdc3d082b9b9
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435685"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41921030"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>자습서: Azure Stream Analytics를 IoT Edge 모듈로 배포(미리 보기)
 
@@ -33,6 +33,10 @@ ASA(Azure Stream Analytics)는 클라우드 및 IoT Edge 장치 둘 다에서 �
 > * 새 Azure Stream Analytics 작업을 다른 IoT Edge 모듈에 연결합니다.
 > * Azure Portal에서 Azure Stream Analytics 작업을 IoT Edge 장치에 배포합니다.
 
+<center>
+![자습서 아키텍처 다이어그램](./media/tutorial-deploy-stream-analytics/ASATutorialDiagram.png)
+</center>
+
 >[!NOTE]
 >IoT Edge용 Azure Stream Analytics 모듈은 [공개 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)로 있습니다.
 
@@ -43,7 +47,6 @@ ASA(Azure Stream Analytics)는 클라우드 및 IoT Edge 장치 둘 다에서 �
 Azure IoT Edge 장치:
 
 * [Linux](quickstart-linux.md) 또는 [Windows 장치](quickstart.md)의 빠른 시작에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 장치로 사용할 수 있습니다.
-* Azure Machine Learning 모듈은 ARM 프로세서를 지원하지 않습니다.
 
 클라우드 리소스:
 
@@ -52,57 +55,72 @@ Azure IoT Edge 장치:
 
 ## <a name="create-an-azure-stream-analytics-job"></a>Azure Stream Analytics 작업 만들기
 
-이 섹션에서는 IoT Hub에서 데이터를 가져오고, 장치에서 전송된 원격 분석 데이터를 쿼리하고, 결과를 Azure Blob Storage 컨테이너로 전달하기 위한 Azure Stream Analytics 작업을 만듭니다. 자세한 내용은 [Stream Analytics 설명서][azure-stream]의 “개요” 섹션을 참조하세요. 
+이 섹션에서는 IoT Hub에서 데이터를 가져오고, 장치에서 전송된 원격 분석 데이터를 쿼리하고, 결과를 Azure Blob Storage 컨테이너로 전달하기 위한 Azure Stream Analytics 작업을 만듭니다. 
 
 ### <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-Azure Stream Analytics 작업에서 작업 출력에 대한 엔드포인트 역할을 수행하려면 Azure Storage 계정이 필요합니다. 이 섹션의 예제에서는 BLOB Storage 유형을 사용합니다. 자세한 내용은 [Azure Storage 설명서][azure-storage]의 “Blob” 섹션을 참조하세요.
+IoT Edge 장치에서 실행되는 Azure Stream Analytics 작업을 만들 때 장치에서 호출할 수 있는 방식으로 작업을 저장해야 합니다. 기존 Azure 저장소 계정을 사용해도 되고, 지금 새로 만들어도 됩니다. 
 
-1. Azure Portal에서 **리소스 만들기**로 이동한 후 검색 상자에 **저장소 계정**을 입력하고 **저장소 계정 - Blob, 파일, 테이블, 큐**를 선택합니다.
+1. Azure Portal에서 **리소스 만들기** > **Storage** > **Storage 계정 - BLOB, 파일, 테이블, 큐**로 이동합니다. 
 
-1. **저장소 계정 만들기** 창에 저장소 계정의 이름을 입력하고, IoT Hub가 저장된 위치와 동일한 위치를 선택하고, IoT Hub와 동일한 리소스 그룹을 선택한 다음, **만들기**를 선택합니다. 나중에 사용할 수 있게 이름을 적어둡니다.
+1. 다음 값을 입력하여 저장소 계정을 만듭니다.
 
-    ![저장소 계정 만들기][1]
+   | 필드 | 값 |
+   | ----- | ----- |
+   | Name | 저장소 계정의 고유한 이름을 입력합니다. | 
+   | 위치 | 가까운 위치를 선택합니다. |
+   | 구독 | IoT Hub와 동일한 구독을 선택합니다. |
+   | 리소스 그룹 | IoT Edge 빠른 시작 및 자습서에서 만드는 모든 테스트 리소스에 동일한 리소스 그룹을 사용하는 것이 좋습니다. 예를 들어 **IoTEdgeResources**를 사용합니다. |
 
+1. 다른 필드는 기본값을 유지하고 **만들기**를 선택합니다. 
 
-### <a name="create-a-stream-analytics-job"></a>Stream Analytics 작업 만들기
+### <a name="create-a-new-job"></a>새 작업 만들기
 
-1. Azure Portal에서 **리소스 만들기** > **사물 인터넷**으로 이동한 후 **Stream Analytics 작업**을 선택합니다.
+1. Azure Portal에서 **리소스 만들기** > **사물 인터넷** > **Stream Analytics 작업**으로 이동합니다.
 
-1. **새 Stream Analytics 작업** 창에서 다음 단계를 수행합니다.
+1. 다음 값을 입력하여 작업을 만듭니다.
 
-   1. **작업 이름** 상자에 작업 이름을 입력합니다.
-   
-   1. IoT 허브와 동일한 **리소스 그룹**과 **위치**를 사용합니다. 
-
-      > [!NOTE]
-      > 현재 IoT Edge의 Azure Stream Analytics 작업은 미국 서부 2 지역에서 지원되지 않습니다. 
-
-   1. **호스팅 환경** 아래에서 **에지**를 선택합니다.
-    
+   | 필드 | 값 |
+   | ----- | ----- |
+   | 작업 이름 | 작업의 이름을 입력합니다. 예: **IoTEdgeJob** | 
+   | 구독 | IoT Hub와 동일한 구독을 선택합니다. |
+   | 리소스 그룹 | IoT Edge 빠른 시작 및 자습서에서 만드는 모든 테스트 리소스에 동일한 리소스 그룹을 사용하는 것이 좋습니다. 예를 들어 **IoTEdgeResources**를 사용합니다. |
+   | 위치 | 가까운 위치를 선택합니다. | 
+   | 호스팅 환경 | **Edge**를 선택합니다. |
+ 
 1. **만들기**를 선택합니다.
 
-1. 만든 작업의 **작업 토폴로지** 아래에서 **입력**을 엽니다.
+### <a name="configure-your-job"></a>작업 구성
+
+Azure Portal에서 Stream Analytics 작업을 만든 후에는 통과하는 데이터에 대해 실행되는 입력, 출력 및 쿼리를 사용하여 작업을 구성할 수 있습니다. 
+
+이 섹션에서는 입력, 출력, 쿼리의 세 가지 요소를 사용하여 IoT Edge 장치에서 온도 데이터를 수신하는 작업을 만듭니다. 이 작업은 순환하는 30초 동안의 데이터를 분석합니다. 이 시간의 평균 온도가 70도를 초과하면 IoT Edge 장치로 경고가 전송됩니다. 그 다음 섹션에서는 작업을 배포할 때 데이터가 들어오고 나오는 위치를 정확하게 지정할 것입니다.  
+
+1. Azure Portal에서 Stream Analytics 작업으로 이동합니다. 
+
+1. **작업 토폴로지**에서 **입력**, **스트림 입력 추가**를 차례로 선택합니다.
 
    ![Azure Stream Analytics 입력](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
-1. **스트림 입력 추가**를 선택하고 **Edge Hub**를 선택합니다.
+1. 드롭다운 목록에서 **Edge Hub**를 선택합니다.
 
 1. **새 입력** 창에 입력 별칭으로 **온도**를 입력합니다. 
 
-1. **저장**을 선택합니다.
+1. 다른 필드는 기본값을 유지하고 **저장**을 선택합니다.
 
-1. **작업 토폴로지**에서 **출력**을 엽니다.
+1. **작업 토폴로지**에서 **출력**을 열고 **추가**를 선택합니다.
 
    ![Azure Stream Analytics 출력](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
-1. **추가**를 선택하고 **Edge Hub**를 선택합니다.
+1. 드롭다운 목록에서 **Edge Hub**를 선택합니다.
 
 1. **새 출력** 창에서 출력 별칭으로 **경고**를 입력합니다. 
 
-1. **저장**을 선택합니다.
+1. 다른 필드는 기본값을 유지하고 **저장**을 선택합니다.
 
-1. **작업 토폴로지** 아래에서 **쿼리**를 선택한 다음, 기본 텍스트를 30초 시간 범위에서 평균 컴퓨터 온도가 70도에 도달하면 경고를 만드는 다음 쿼리로 바꿉니다.
+1. **작업 토폴로지**에서 **쿼리**를 선택합니다.
+
+1. 기본 텍스트를 다음 쿼리로 바꿉니다. 30초 시간의 평균 머신 온도가 70도에 도달하면 SQL 코드는 출력 경고에 다시 설정 명령을 보냅니다. 다시 설정 명령은 센서에 수행 가능한 작업으로 미리 프로그래밍되어 있습니다. 
 
     ```sql
     SELECT  
@@ -117,6 +135,10 @@ Azure Stream Analytics 작업에서 작업 출력에 대한 엔드포인트 역�
 
 1. **저장**을 선택합니다.
 
+### <a name="configure-iot-edge-settings"></a>IoT Edge 설정 구성
+
+IoT Edge 장치에 배포할 Stream Analytics 작업을 준비하려면 작업을 저장소 계정의 컨테이너에 연결해야 합니다. 작업을 배포하려고 이동하면 작업 정의가 저장소 컨테이너로 내보내집니다. 
+
 1. **구성** 아래에서 **IoT Edge 설정**을 선택합니다.
 
 1. 드롭다운 메뉴에서 **저장소 계정**을 선택합니다.
@@ -125,22 +147,24 @@ Azure Stream Analytics 작업에서 작업 출력에 대한 엔드포인트 역�
 
 1. **저장**을 선택합니다. 
 
-
 ## <a name="deploy-the-job"></a>작업 배포
 
-이제 IoT Edge 장치에 Azure Stream Analytics 작업을 배포할 준비가 되었습니다.
+이제 IoT Edge 장치에 Azure Stream Analytics 작업을 배포할 준비가 되었습니다. 
+
+이 섹션에서는 Azure Portal의 **모듈 설정** 마법사를 사용하여 *배포 매니페스트*를 만듭니다. 배포 매니페스트는 장치에 배포될 모든 모듈, 모듈 이미지를 저장하는 컨테이너 레지스트리, 모듈을 관리하는 방법, 모듈이 서로 통신하는 방법을 설명하는 JSON 파일입니다. IoT Edge 장치는 IoT Hub에서 배포 매니페스트를 수신한 다음, 그 안에 들어 있는 정보를 사용하여 할당된 모든 모듈을 배포하고 구성합니다. 
+
+이 자습서에서는 두 개의 모듈을 배포합니다. 첫 번째는 온도 및 습도 센서를 시뮬레이션하는 **tempSensor** 모듈입니다. 두 번째는 Stream Analytics 작업입니다. 센서 모듈은 작업 쿼리에서 분석할 데이터 스트림을 제공합니다. 
 
 1. Azure Portal의 IoT 허브에서 **IoT Edge**로 이동한 다음, IoT Edge 장치의 세부 정보 페이지를 엽니다.
 
 1. **모듈 설정**을 선택합니다.  
 
-   이전에 이 장치에 tempSensor 모듈을 배포한 경우 자동으로 입력될 수 있습니다. 그렇지 않은 경우 다음 단계에 따라 모듈을 추가합니다.
+1. 이전에 이 장치에 tempSensor 모듈을 배포한 경우 자동으로 입력될 수 있습니다. 자동으로 입력되지 않으면 다음 단계에 따라 모듈을 추가합니다.
 
    1. **추가**를 클릭하고 **IoT Edge 모듈**을 선택합니다.
    1. 이름으로 **tempSensor**를 입력합니다.
    1. 이미지 URI에 대해 **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0**을 입력합니다. 
-   1. 다른 설정은 변경하지 말고 그대로 둡니다.
-   1. **저장**을 선택합니다.
+   1. 다른 설정은 변경하지 않고 **저장**을 선택합니다.
 
 1. 다음 단계에 따라 Azure Stream Analytics Edge 작업을 추가합니다.
 
@@ -148,9 +172,17 @@ Azure Stream Analytics 작업에서 작업 출력에 대한 엔드포인트 역�
    1. 구독 및 사용자가 만든 Azure Stream Analytics Edge 작업을 선택합니다. 
    1. **저장**을 선택합니다.
 
-1. **다음**을 선택합니다.
+1. 앞에서 만든 저장소 컨테이너에 Stream Analytics 작업이 게시되면 모듈 이름을 클릭하여 Stream Analytics 모듈이 어떻게 구성되어 있는지 살펴봅니다. 
 
-1. **경로**의 기본값을 다음 코드로 바꿉니다. _{moduleName}_ 을 Azure Stream Analytics 모듈의 이름으로 업데이트합니다. 모듈의 이름은 만든 작업과 동일한 이름이어야 합니다. 
+   이미지 URI는 표준 Azure Stream Analytics 이미지를 가리킵니다. IoT Edge 장치에 배포되는 모든 작업에 사용되는 이미지와 동일한 이미지입니다. 
+
+   모듈 쌍은 **ASAJobInfo**라고 하는 desired 속성을 사용하여 구성됩니다. 이 속성의 값은 저장소 컨테이너의 작업 정의를 가리킵니다. 이 속성은 특정 작업 정보를 사용하여 Stream Analytics 이미지를 구성하는 방법을 지정합니다. 
+
+1. 모듈 페이지를 닫습니다.
+
+1. 그 다음 단계에서 필요하므로 Stream Analytics 모듈 이름을 적어 두고 **다음**을 선택하여 계속 진행합니다.
+
+1. **경로**의 기본값을 다음 코드로 바꿉니다. _{moduleName}_ 의 세 인스턴스를 Azure Stream Analytics 모듈의 이름으로 업데이트합니다. 
 
     ```json
     {
@@ -162,6 +194,8 @@ Azure Stream Analytics 작업에서 작업 출력에 대한 엔드포인트 역�
         }
     }
     ```
+
+   여기에 선언하는 경로는 IoT Edge 장치를 통과하는 데이터 흐름을 정의합니다. tempSensor의 원격 분석 데이터는 IoT Hub 및 Stream Analytics 작업에서 구성한 **온도** 입력으로 전송됩니다. **경고** 출력 메시지는 IoT Hub 및 tempSensor 모듈로 전송되어 다시 설정 명령을 트리거합니다. 
 
 1. **다음**을 선택합니다.
 
@@ -197,35 +231,14 @@ Azure Stream Analytics 작업에서 작업 출력에 대한 엔드포인트 역�
 
 ## <a name="clean-up-resources"></a>리소스 정리 
 
-<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
+권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 장치와 동일한 IoT Edge 장치를 계속 사용해도 됩니다. 
 
-권장되는 다음 아티클을 계속 진행하는 경우 지금까지 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다.
+그렇지 않은 경우 요금 청구를 방지하도록 이 문서에서 만든 로컬 구성 및 Azure 리소스를 삭제할 수 있습니다. 
+ 
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-그렇지 않으면 요금이 부과되지 않도록 이 아티클에서 만든 로컬 구성과 Azure 리소스를 삭제할 수 있습니다. 
+[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
-> [!IMPORTANT]
-> Azure 리소스와 리소스 그룹을 삭제하면 되돌릴 수 없습니다. 일단 삭제되면 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 보관할 리소스가 포함된 기존 리소스 그룹 내에 IoT Hub를 만든 경우 리소스 그룹을 삭제하지 말고 IoT Hub 리소스만 삭제하면 됩니다.
->
-
-IoT Hub만 삭제하려면 허브 이름과 리소스 그룹 이름을 사용하여 다음 명령을 실행합니다.
-
-```azurecli-interactive
-az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
-```
-
-
-이름으로 전체 리소스 그룹을 삭제하려면 다음을 수행합니다.
-
-1. [Azure 포털](https://portal.azure.com) 에 로그인하고 **리소스 그룹**을 클릭합니다.
-
-1. **이름을 기준으로 필터링...** 텍스트 상자에 IoT Hub가 들어 있는 리소스 그룹의 이름을 입력합니다. 
-
-1. 결과 목록의 리소스 그룹 오른쪽에서 **...** 를 클릭한 다음, **리소스 그룹 삭제**를 클릭합니다.
-
-<!--
-   ![Delete](./media/iot-edge-quickstarts-clean-up-resources/iot-edge-delete-resource-group.png)
--->
-1. 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 다시 입력하여 확인한 다음, **삭제**를 클릭합니다. 잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -235,7 +248,6 @@ az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
 > [Azure Machine Learning 모델을 모듈로 배포][lnk-ml-tutorial]
 
 <!-- Images. -->
-[1]: ./media/tutorial-deploy-stream-analytics/storage.png
 [4]: ./media/tutorial-deploy-stream-analytics/add_device.png
 [5]: ./media/tutorial-deploy-stream-analytics/asa_job.png
 [6]: ./media/tutorial-deploy-stream-analytics/set_module.png

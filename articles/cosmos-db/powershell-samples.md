@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: sample
 ms.date: 10/16/2017
 ms.author: sngun
-ms.openlocfilehash: 066826661381f40af2943359eb75abae8306bb7b
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 9ee5c7a008f375beffd6bbdf00cca8b28752b1fb
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37855586"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "41920569"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 Azure PowerShell 샘플
 
@@ -28,6 +28,8 @@ ms.locfileid: "37855586"
 |[SQL API 계정 만들기](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| SQL API와 함께 사용할 단일 Azure Cosmos DB 계정을 만듭니다. |
 |[MongoDB API 계정 만들기](scripts/create-mongodb-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| MongoDB API와 함께 사용할 단일 Azure Cosmos DB 계정을 만듭니다. |
 |[Gremlin API 계정 만들기](scripts/create-graph-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Gremlin API와 함께 사용할 단일 Azure Cosmos DB 계정을 만듭니다. |
+|[Cassandra API 계정 만들기](scripts/create-and-configure-cassandra-database.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cassandra API와 함께 사용할 단일 Azure Cosmos DB 계정을 만듭니다. |
+|[Table API 계정 만들기](scripts/create-table-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Table API와 함께 사용할 단일 Azure Cosmos DB 계정을 만듭니다. |
 |**Azure Cosmos DB 확장**||
 |[Azure Cosmos DB 계정을 여러 하위 지역에서 복제 및 장애 조치 우선 순위 구성](scripts/scale-multiregion-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)|지정된 장애 조치 우선 순위를 사용해서 계정 데이터를 여러 하위 지역으로 전체적으로 복제합니다.|
 |**Azure Cosmos DB 보안 유지**||

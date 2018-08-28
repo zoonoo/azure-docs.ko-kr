@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: douge
-ms.openlocfilehash: 2a13a326aee29d002be18a3f40c4be9b4f2da4f1
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 7ff3a2b3547874fd10d35867574c020500c48cd4
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523338"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42023596"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>빠른 시작: Azure Dev Spaces(.NET Core 및 VS Code)를 사용하여 Kubernetes 개발 환경 만들기
 
@@ -32,7 +32,7 @@ ms.locfileid: "39523338"
 ## <a name="prerequisites"></a>필수 조건
 
 - Azure 구독. 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/free)에 만들 수 있습니다.
-- 미국 동부, 미국 중부, 미국 서부 2, 서유럽, 캐나다 중부 또는 캐나다 동부 지역에서 **Http 응용 프로그램 라우팅**이 활성화된 상태로 Kubernetes 1.10.3을 실행 중인 [Kubernetes 클러스터](https://ms.portal.azure.com/#create/microsoft.aks).
+- 미국 동부, 미국 중부, 미국 서부 2, 서유럽, 캐나다 중부 또는 캐나다 동부 지역에서 **Http 응용 프로그램 라우팅**이 활성화된 상태로 Kubernetes 1.9.6 이상을 실행하는 [Kubernetes 클러스터](https://ms.portal.azure.com/#create/microsoft.aks).
 
   ![Http 응용 프로그램 라우팅을 활성화해야 합니다.](media/common/Kubernetes-Create-Cluster-3.PNG)
 
@@ -44,7 +44,7 @@ Azure CLI 및 Azure Dev Spaces 확장은 Windows, Mac 또는 Linux 머신에 설
 
 다음 단계에 따라 Azure Dev Spaces를 설치합니다.
 
-1. [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)(버전 2.0.38 이상)를 설치합니다.
+1. [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)(버전 2.0.43 이상)를 설치합니다.
 1. AKS 클러스터에 Dev Spaces 설치: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
 1. VS Code용 [Azure Dev Spaces 확장](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds)을 다운로드합니다. 확장의 Marketplace 페이지 및 VS Code에서 [설치]를 한 번 클릭합니다.
 
@@ -143,7 +143,7 @@ public IActionResult About()
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Dev Spaces가 여러 컨테이너에서 더 복잡한 앱을 개발하는 데 어떤 도움이 되고, 사용자가 다양한 환경에서 다양한 코드 버전이나 분기로 작업하여 공동 개발을 간소화하는 방법을 알아봅니다. 
+Azure Dev Spaces를 통해 여러 컨테이너에서 더 복잡한 앱을 개발할 수 있는 방법 및 사용자가 다양한 환경에서 다양한 코드 버전이나 분기로 작업하여 공동 개발을 간소화하는 방법을 알아봅니다. 
 
 > [!div class="nextstepaction"]
 > [여러 컨테이너 작업 및 팀 개발](team-development-netcore.md)

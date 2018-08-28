@@ -10,12 +10,12 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: 1436ad54eb13052aa87ccfd5adc371c8d7d5a100
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4387e1c935ada99e1f9c335fb7e1b67905c01188
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31403793"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42023593"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>빠른 시작: Microsoft Genomics 서비스를 통해 워크플로 실행
 
@@ -57,7 +57,9 @@ Microsoft Genomics 계정을 만들려면 [Azure Portal](https://portal.azure.co
 
 ### <a name="install-python"></a>Python 설치
 
-Microsoft Genomics Python 클라이언트는 Python 2.7과 호환됩니다. 버전 2.7.12 이상을 사용하는 것이 좋습니다. 2.7.14가 권장 버전입니다. [여기](https://www.python.org/downloads/)에서 다운로드를 찾을 수 있습니다. 
+Microsoft Genomics Python 클라이언트는 Python 2.7과 호환됩니다. 12 또는 2.7.xx 이상 버전; 2.7.15는 이 작성 시 최신 버전이며 2.7.14는 권장된 버전입니다. [여기](https://www.python.org/downloads/)에서 다운로드를 찾을 수 있습니다. 
+
+참고: Python 3.x는 Python 2.7.xx와 호환되지 않습니다.  MSGen은 Python 2.7 응용 프로그램입니다. MSGen를 실행하는 경우 활성 Python 환경에서 Python 2.7.xx 버전을 사용하는지 확인합니다. Python 3.x 버전에서 MSGen 사용하려고 할 때 오류가 발생할 수 있습니다.
 
 
 ### <a name="install-the-microsoft-genomics-client"></a>Microsoft Genomics 클라이언트 설치

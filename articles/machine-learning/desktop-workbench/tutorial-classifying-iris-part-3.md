@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
-ms.openlocfilehash: 2270080f8612c69a69955202ececab44136f335c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: de0c93ef5b907b56e6ad66a04bb728b5b9aabb9a
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445539"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41918689"
 ---
 # <a name="tutorial-3-classify-iris-deploy-a-model"></a>자습서 3: 아이리스 분류: 배포 모델
 Azure Machine Learning(미리 보기)는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다. 데이터 과학자는 클라우드 규모로 데이터를 준비하고, 실험을 개발하며, 모델을 배포하는 데 사용할 수 있습니다.
@@ -68,7 +68,7 @@ Azure Machine Learning(미리 보기)는 전문 데이터 과학자를 위한 �
    
    a. 파일을 찾으려면 왼쪽 창의 **실행** 단추(시계 아이콘)를 선택하여 **모든 실행**의 목록을 엽니다. 
 
-   나. **모든 실행** 탭이 열립니다. 실행 테이블에서 대상이 **로컬**이고 스크립트 이름이 **iris_sklearn.py**인 최근 실행 중 하나를 선택합니다. 
+   b. **모든 실행** 탭이 열립니다. 실행 테이블에서 대상이 **로컬**이고 스크립트 이름이 **iris_sklearn.py**인 최근 실행 중 하나를 선택합니다. 
 
    다. **실행 속성** 창이 열립니다. 창의 오른쪽 위 섹션에서 **출력** 섹션을 확인합니다.
 
@@ -247,11 +247,11 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
    >[!IMPORTANT]
    >서비스 이름(새 Docker 이미지 이름이기도 함)은 모두 소문자여야 합니다. 그렇지 않으면 오류가 발생합니다. 
 
-1. 명령을 실행하면 환경 설정의 일부로 만든 저장소 계정에 모델 및 점수 매기기 파일이 업로드됩니다. 배포 프로세스에서는 모델, 스키마, 점수 매기기 파일이 포함된 Docker 이미지를 빌드하고, 이를 **\<ACR_name\>.azureacr.io/\<imagename\>:\<version\>** Azure 컨테이너 레지스트리에 푸시합니다. 
+1. 명령을 실행하면 환경 설정의 일부로 만든 저장소 계정에 모델 및 점수 매기기 파일이 업로드됩니다. 배포 프로세스에서는 모델, 스키마, 점수 매기기 파일이 포함된 Docker 이미지를 빌드하고, 이를 **\<ACR_name\>.azurecr.io/\<imagename\>:\<version\>** Azure 컨테이너 레지스트리에 푸시합니다. 
 
    명령은 이미지를 로컬로 컴퓨터에 가져온 다음, 해당 이미지를 기반으로 하여 Docker 컨테이너를 시작합니다. 환경이 클러스터 모드로 구성된 경우 Docker 컨테이너는 Azure Cloud Services Kubernetes 클러스터에 대신 배포됩니다.
 
-   배포의 일부로 로컬 컴퓨터에 웹 서비스에 대한 HTTP REST 끝점이 만들어집니다. 몇 분 후에 명령이 성공 메시지와 함께 완료됩니다. 웹 서비스에서 작업할 준비가 준비되었습니다!
+   배포의 일부로 로컬 컴퓨터에 웹 서비스에 대한 HTTP REST 엔드포인트가 만들어집니다. 몇 분 후에 명령이 성공 메시지와 함께 완료됩니다. 웹 서비스에서 작업할 준비가 준비되었습니다!
 
 1. 실행 중인 Docker 컨테이너를 보려면 **docker ps** 명령을 사용합니다.
 
@@ -313,7 +313,7 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
 1. 서비스를 테스트하려면 반환된 서비스 실행 명령을 실행합니다.
     
    ```azurecli
-   az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
+   az ml service run realtime -i <web service ID> -d '{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}'
    ```
 
    출력은 예상되는 클래스인 **"Iris-setosa"** 입니다. (결과가 다를 수도 있습니다.) 

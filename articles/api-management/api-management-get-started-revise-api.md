@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 864c269da61bcea885249021a44fe0259ca83e90
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: c1c884e05d357db7e23574dbd31f206d6c3fe23c
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33935167"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41919164"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>수정 버전을 사용하여 작업을 중단하지 않는 변경을 안전하게 수행
-API가 준비되어 개발자들이 사용하기 시작하면 대개 API 호출자의 작업을 중단하지 않으면서 해당 API를 변경해야 합니다. 이렇게 하면 개발자에게 변경 내용을 알릴 때도 유용합니다. Azure API Management에서 **수정 버전**을 사용하면 이러한 작업을 수행할 수 있습니다. 자세한 내용은 [버전 및 수정 버전](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) 및 [Azure API Management를 사용한 API 버전 관리](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/)를 참조하세요.
+개발자들이 API를 사용할 수 있도록 모든 준비가 완료되면, API 호출자의 작업을 중단하지 않으면서 해당 API를 변경해야 합니다. 이렇게 하면 개발자에게 변경 내용을 알릴 때도 유용합니다. Azure API Management에서 **수정 버전**을 사용하면 이러한 작업을 수행할 수 있습니다. 자세한 내용은 [버전 및 수정 버전](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) 및 [Azure API Management를 사용한 API 버전 관리](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/)를 참조하세요.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -42,7 +42,7 @@ API가 준비되어 개발자들이 사용하기 시작하면 대개 API 호출�
 ## <a name="add-a-new-revision"></a>새 수정 버전 추가
 
 1. **API** 페이지를 선택합니다.
-2. API 목록에서 **회의 API**(또는 수정 버전을 추가하려는 다른 API)를 선택합니다.
+2. API 목록에서 **데모 회의 API**(또는 수정 버전을 추가하려는 다른 API)를 선택합니다.
 3. 페이지 상단 근처의 메뉴에서 **수정 버전** 탭을 클릭합니다.
 4. **+ 수정 버전 추가**를 선택합니다.
 
@@ -60,33 +60,34 @@ API가 준비되어 개발자들이 사용하기 시작하면 대개 API 호출�
 
 ## <a name="make-non-breaking-changes-to-your-revision"></a>작업을 중단하지 않는 방식으로 수정 버전 변경
 
-1. API 목록에서 **회의 API**를 선택합니다.
+1. API 목록에서 **데모 회의 API**를 선택합니다.
 2. 화면 상단 근처에서 **디자인** 탭을 선택합니다.
-3. 디자인 탭 바로 위의 **수정 버전 선택기**에 현재 수정 버전이 **수정 버전 2**로 표시됩니다.
+3. 디자인 탭 바로 위에 있는 **수정 버전 선택기**를 보시면 현재 **수정 버전 2**를 선택한 것으로 표시됩니다.
 
     > [!TIP]
     > 수정 버전 선택기를 사용하여 작업하려는 수정 버전 간을 전환합니다.
 
 4. **+ 작업 추가**를 선택합니다.
-5. 새 작업을 **POST**로 설정하고 작업의 이름 및 표시 이름을 **테스트**로 설정합니다.
+5. 새 작업을 **POST**로 설정하고 작업의 이름, 표시 이름 및 URL을 **test**로 설정합니다.
 6. 새 작업을 **저장**합니다.
 7. 이제 **수정 버전 2**가 변경되었습니다. 페이지 상단 근처의 **수정 버전 선택기**를 사용하여 **수정 버전 1**로 다시 전환합니다.
 8. **수정 버전 1**에는 새 작업이 표시되지 않습니다. 
 
 ## <a name="make-your-revision-current-and-add-a-change-log-entry"></a>수정 버전을 현재 항목으로 설정하고 변경 로그 항목 추가
+
 1. 페이지 상단 근처의 메뉴에서 **수정 버전** 탭을 선택합니다.
 
     ![수정 버전 화면의 수정 버전 메뉴](media/api-management-getstarted-revise-api/RevisionsMenu.PNG)
-1. **수정 버전 2**의 상황에 맞는 메뉴(**...**)를 엽니다.
-2. **현재로 설정**을 선택합니다. 이 변경 내용에 대한 정보를 게시하려는 경우 **이 API에 대한 공용 변경 로그에 게시**를 선택합니다.
-3. **이 API에 대한 공용 변경 로그에 게시**를 선택합니다.
-4. **수정 버전을 테스트하는 중입니다. 세 “테스트” 작업을 추가했습니다.** 와 같이 개발자에게 표시할 변경 내용에 대한 설명을 입력합니다.
+2. **수정 버전 2**의 상황에 맞는 메뉴(**...**)를 엽니다.
+3. **현재로 설정**을 선택합니다.
+4. 이 변경 내용에 대한 정보를 게시하려는 경우 **이 API에 대한 공용 변경 로그에 게시**를 선택합니다. **수정 버전을 테스트하는 중입니다. 세 “테스트” 작업을 추가했습니다.** 와 같이 개발자에게 표시할 변경 내용에 대한 설명을 입력합니다.
 5. 이제 **수정 버전 2**가 현재 항목으로 설정되었습니다.
 
 ## <a name="browse-the-developer-portal-to-see-changes-and-change-log"></a>개발자 포털로 이동하여 변경 내용과 변경 로그 확인
+
 1. Azure Portal에서 **API**를 선택합니다.
 2. 상단 메뉴에서 **개발자 포털**을 선택합니다.
-3. **API**, **Conference API**를 차례로 선택합니다.
+3. **API**, **데모 회의 API**를 차례로 선택합니다.
 4. 이제 새 **테스트** 작업을 사용할 수 있습니다.
 5. API 이름 아래에서 **API 변경 기록**을 선택합니다.
 6. 이 목록에 변경 로그 항목이 표시됩니다.

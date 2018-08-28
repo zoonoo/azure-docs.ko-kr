@@ -4,17 +4,17 @@ description: 이 빠른 시작은 Stream Analytics 작업을 만들고, 입력, 
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 05/11/2018
+ms.date: 08/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 830b3d4226440a68c7de62170d2ffc28082315c2
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 1e466b2945793f866aad4e6f0ace3d7379226830
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902907"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42023532"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기
 
@@ -34,7 +34,7 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
 
    ```json
    {
-     "time": "2018-01-26T21:18:52.0000000",
+     "time": "2018-08-19T21:18:52.0000000",
      "dspl": "sensorC",
      "temp": 87,
      "hmdt": 44
@@ -146,6 +146,16 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
 3. 이 예제에서 쿼리는 Blob에서 데이터를 읽고 Blob의 새 파일로 복사합니다. **저장**을 선택합니다.  
 
    ![작업 변환 구성](./media/stream-analytics-quick-create-portal/configure-job-transformation.png)
+
+## <a name="configure-late-arrival-policy"></a>지연 도착 정책 구성
+
+1. 이전에 만든 Stream Analytics 작업으로 이동합니다.
+
+2. **구성** 아래에서 **이벤트 순서 지정**을 선택합니다.
+
+3. **늦게 도착하는 이벤트**를 20로 설정하고, **저장**을 선택합니다.
+
+   ![지연 도착 정책 구성](./media/stream-analytics-quick-create-portal/configure-late-policy.png)
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Stream Analytics 작업을 시작하고 출력을 확인합니다.
 

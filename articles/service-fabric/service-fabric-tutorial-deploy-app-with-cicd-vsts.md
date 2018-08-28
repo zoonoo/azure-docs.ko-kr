@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: f3cc4f518278cca915e40bd691c6a7674219916e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 2122b6d9c385e1137d0fc6df5229975359fa20d5
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109395"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41920572"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>자습서: Service Fabric 클러스터에 CI/CD로 응용 프로그램 배포
 
@@ -42,7 +42,7 @@ ms.locfileid: "37109395"
 > * Visual Studio Team Services를 사용하여 CI/CD 구성
 > * [응용 프로그램에 대한 모니터링 및 진단 설정](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 시작하기 전에:
 
@@ -50,7 +50,7 @@ ms.locfileid: "37109395"
 * [Visual Studio 2017을 설치](https://www.visualstudio.com/)하고 **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드를 설치합니다.
 * [Service Fabric SDK를 설치](service-fabric-get-started.md)합니다.
 * 예를 들어 [이 자습서를 따라](service-fabric-tutorial-create-vnet-and-windows-cluster.md) Windows Service Fabric 클러스터를 Azure에 만듭니다.
-* [Team Services 계정](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)을 만듭니다.
+* [Team Services 계정](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student)을 만듭니다.
 
 ## <a name="download-the-voting-sample-application"></a>투표 응용 프로그램 예제 다운로드
 
@@ -64,7 +64,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 이제 [응용 프로그램을 만들었고](service-fabric-tutorial-create-dotnet-app.md) [응용 프로그램을 Azure에 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)했으므로 연속 통합을 설정할 준비가 되었습니다.  먼저, Team Services 내에서 실행할 배포 프로세스에 사용할 게시 프로필을 응용 프로그램 내에서 준비하는 것입니다.  게시 프로필은 이전에 만든 클러스터를 대상으로 지정하도록 구성해야 합니다.  Visual Studio를 시작하고 기존 Service Fabric 응용 프로그램 프로젝트를 엽니다.  **솔루션 탐색기**에서 응용 프로그램을 마우스 오른쪽 단추로 클릭하고 **게시...** 를 선택합니다.
 
-연속 통합 워크플로로 사용할 대상 프로필을 응용 프로그램 프로젝트 내에서 선택합니다(예: 클라우드).  클러스터 연결 끝점을 지정합니다.  **응용 프로그램 업그레이드** 확인란을 선택하여 Team Services의 각 배포에 대해 응용 프로그램이 업그레이드되도록 합니다.  **저장** 하이퍼링크를 클릭하여 설정을 게시 프로필에 저장한 후 **취소**를 클릭하여 대화 상자를 닫습니다.
+연속 통합 워크플로로 사용할 대상 프로필을 응용 프로그램 프로젝트 내에서 선택합니다(예: 클라우드).  클러스터 연결 엔드포인트를 지정합니다.  **응용 프로그램 업그레이드** 확인란을 선택하여 Team Services의 각 배포에 대해 응용 프로그램이 업그레이드되도록 합니다.  **저장** 하이퍼링크를 클릭하여 설정을 게시 프로필에 저장한 후 **취소**를 클릭하여 대화 상자를 닫습니다.
 
 ![푸시 프로필][publish-app-profile]
 
@@ -94,7 +94,13 @@ Team Services 릴리스 정의에서는 응용 프로그램 패키지를 클러�
 
 웹 브라우저를 열고 [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting)에서 새 팀 프로젝트로 이동합니다.
 
-**빌드 및 릴리스** 탭, **빌드** 및 **+ 새로운 정의 만들기**를 차례로 선택합니다.  **템플릿 선택**에서 **Azure Service Fabric 응용 프로그램** 템플릿을 선택하고 **적용**을 클릭합니다.
+**빌드 및 릴리스** 탭을 선택하고 **빌드**를 선택한 다음, **새 파이프라인**을 클릭합니다.
+
+![새 파이프라인][new-pipeline]
+
+소스로 **VSTS Git**를 선택하고, **Voting** 팀 프로젝트, **Voting** 리포지토리 및 **마스터** 기본 분기 또는 수동 및 예약 빌드를 선택합니다.  그런 후 **계속**을 클릭합니다.
+
+**템플릿 선택**에서 **Azure Service Fabric 응용 프로그램** 템플릿을 선택하고 **적용**을 클릭합니다.
 
 ![빌드 템플릿 선택][select-build-template]
 
@@ -102,7 +108,9 @@ Team Services 릴리스 정의에서는 응용 프로그램 패키지를 클러�
 
 ![태스크 선택][save-and-queue]
 
-**트리거** 아래에서 **상태 트리거**를 설정하여 연속 통합을 사용합니다.  **저장 및 큐**를 선택하여 수동으로 빌드를 시작합니다.
+**트리거** 아래에서 **지속적인 통합 사용**을 선택하여 지속적인 통합을 사용하도록 설정합니다. **분기 필터** 내에서 **+ 추가**를 클릭하면 **분기 사양**이 기본값인 **마스터**로 지정됩니다. **저장 및 큐**를 선택하여 수동으로 빌드를 시작합니다.
+
+**빌드 파이프라인 및 큐 저장 대화 상자**에서 **저장 및 큐에 넣기**를 클릭합니다.
 
 ![트리거 선택][save-and-queue2]
 
@@ -110,7 +118,7 @@ Team Services 릴리스 정의에서는 응용 프로그램 패키지를 클러�
 
 ### <a name="create-a-release-definition"></a>릴리스 정의 만들기
 
-**빌드 및 릴리스** 탭, **릴리스** 및 **+ 새로운 정의 만들기**를 차례로 선택합니다.  **템플릿 선택**에서 목록의 **Azure Service Fabric 배포** 템플릿을 선택하고 **적용**을 선택합니다.
+**빌드 및 릴리스** 탭, **릴리스**, **+ 새 파이프라인**을 차례로 선택합니다.  **템플릿 선택**에서 목록의 **Azure Service Fabric 배포** 템플릿을 선택하고 **적용**을 선택합니다.
 
 ![릴리스 템플릿 선택][select-release-template]
 
@@ -118,7 +126,7 @@ Team Services 릴리스 정의에서는 응용 프로그램 패키지를 클러�
 
 ![클러스터 연결 추가][add-cluster-connection]
 
-**새 Service Fabric 연결 추가** 보기에서 **인증서 기반** 또는 **Azure Active Directory** 인증을 선택합니다.  "Mysftestcluster" 및 "tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000"의 클러스터 끝점(또는 배포 중인 클러스터의 끝점)의 연결 이름을 지정합니다.
+**새 Service Fabric 연결 추가** 보기에서 **인증서 기반** 또는 **Azure Active Directory** 인증을 선택합니다.  "Mysftestcluster" 및 "tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000"의 클러스터 엔드포인트(또는 배포 중인 클러스터의 엔드포인트)의 연결 이름을 지정합니다.
 
 인증서 기반 인증의 경우 클러스터를 만드는 데 사용된 서버 인증서의 **서버 인증서 지문**을 추가합니다.  **클라이언트 인증서**에서 base-64 인코딩된 클라이언트 인증서 파일을 추가합니다. base-64 인코딩된 해당 인증서의 표현을 가져오는 방법에 대한 정보는 해당 필드에서 도움말 팝업을 참조하세요. 인증서의 **암호**도 추가합니다.  별도 클라이언트 인증서가 없는 경우 클러스터 또는 서버 인증서를 사용할 수 있습니다.
 
@@ -134,13 +142,15 @@ Azure Active Directory 자격 증명의 경우 사용하려는 클러스터 및 
 
 ![트리거 사용][enable-trigger]
 
-**+릴리스** -> **릴리스 만들기** -> **만들기**를 선택하여 릴리스를 수동으로 만듭니다.  배포에 성공했고 클러스터에서 응용 프로그램이 실행 중인지 확인합니다.  웹 브라우저를 열고 [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/)로 이동합니다.  응용 프로그램 버전을 확인합니다. 이 예제에서는 "1.0.0.20170616.3"입니다.
+**+ 릴리스** -> **릴리스 만들기** -> **만들기**를 선택하여 릴리스를 수동으로 만듭니다. **릴리스** 탭에서 릴리스 진행률을 모니터링할 수 있습니다.
+
+배포에 성공했고 클러스터에서 응용 프로그램이 실행 중인지 확인합니다.  웹 브라우저를 열고 [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/)로 이동합니다.  응용 프로그램 버전을 확인합니다. 이 예제에서는 “1.0.0.20170616.3”입니다.
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>변경 내용 커밋 및 푸시, 릴리스 트리거
 
 Team Services에 일부 코드 변경을 체크 인하여 연속 통합 파이프라인이 작동하는지 확인합니다.
 
-코드를 작성하면 Visual Studio에서 변경 내용을 자동으로 추적합니다. 오른쪽 하단의 상태 표시줄에서 보류 중인 변경 내용 아이콘(![보류 중][pending])을 선택하여 로컬 Git 리포지토리로 변경 내용을 커밋합니다.
+코드를 작성하면 Visual Studio에서 변경 내용을 자동으로 추적합니다. 오른쪽 하단의 상태 표시줄에서 보류 중인 변경 내용 아이콘(![Pending][pending])을 선택하여 로컬 Git 리포지토리로 변경 내용을 커밋합니다.
 
 팀 탐색기의 **변경 내용** 보기에서 업데이트를 설명하는 메시지를 추가하고 변경 내용을 커밋합니다.
 
@@ -188,6 +198,7 @@ Team Services에 변경 내용을 푸시하면 빌드가 자동으로 트리거�
 [publish-app-profile]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishAppProfile.png
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
+[new-pipeline]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewPipeline.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
 [save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue.png
 [save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue2.png

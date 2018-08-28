@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/24/2018
 ms.author: cwatson
-ms.openlocfilehash: b04cb7ca3e8e7b292efaed66096c206b268a034a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: db2c6f9995356abc233e971a2fae5a1ee6233ed1
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626185"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42915699"
 ---
 # <a name="azure-billing-and-cost-management-documentation"></a>Azure 청구 및 비용 관리 설명서
 
 Azure 청구를 이해하고 사용량 및 비용을 모니터링하며 계정 및 구독을 관리하는 방법에 대해 알아봅니다.
+
+> [!div class="nextstepaction"]
+> [Azure 청구 문서 개선](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 <ul class="panelContent cardsF">
     <li>

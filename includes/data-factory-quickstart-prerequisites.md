@@ -1,3 +1,20 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: data-factory
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 08/20/2018
+ms.author: jingwang
+ms.custom: include file
+ms.openlocfilehash: ac6b53926ca6c44c8ec1e71db67321366aacb00e
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617612"
+---
 ## <a name="prerequisites"></a>필수 조건
 
 ### <a name="azure-subscription"></a>Azure 구독
@@ -6,8 +23,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 ### <a name="azure-roles"></a>Azure 역할
 데이터 팩터리 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정이 *참여자* 또는 *소유자* 역할의 구성원이거나, Azure 구독의 *관리자*여야 합니다. Azure Portal의 오른쪽 위 모서리에서 사용자 이름을 선택하고 **사용 권한**을 선택하여 구독에서 사용 권한을 봅니다. 여러 구독에 액세스할 수 있는 경우 적절한 구독을 선택합니다. 사용자를 역할에 추가하는 방법에 대한 샘플 지침은 [역할 추가](../articles/billing/billing-add-change-azure-subscription-administrator.md) 문서를 참조하세요.
 
+Azure Portal에서 작성 및 모니터링 UI를 통해 Data Factory에 대한 자식 리소스(데이터 집합, 연결된 서비스, 파이프라인, 트리거 및 통합 런타임 포함)를 만들고 관리하려면 **Data Factory 기여자** 역할에 속해야 합니다. PowerShell 또는 SDK를 사용하여 자식 리소스를 만들고 관리하려면 **기여자** 역할만으로 충분합니다.
+
 ### <a name="azure-storage-account"></a>Azure Storage 계정
-이 빠른 시작에서는 범용 Azure 저장소 계정(특히 Blob 저장소)을 *원본* 및 *대상* 데이터 저장소로 사용합니다. 범용 Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)를 참조하여 새로 만듭니다. 
+이 빠른 시작에서는 범용 Azure 저장소 계정(특히 Blob 저장소)을 *원본* 및 *대상* 데이터 저장소로 사용합니다. 범용 Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../articles/storage/common/storage-quickstart-create-account.md)를 참조하여 새로 만듭니다. 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>저장소 계정 이름 및 계정 키 가져오기
 이 빠른 시작에서 Azure Storage 계정 이름 및 키를 사용합니다. 다음 프로시저에서는 저장소 계정 이름 및 키를 가져오는 단계를 제공합니다. 

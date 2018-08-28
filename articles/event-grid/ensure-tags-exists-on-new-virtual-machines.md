@@ -3,23 +3,19 @@ title: Azure Automation과 Event Grid 통합 | Microsoft Docs
 description: 새 VM을 만들 때 자동으로 태그를 추가하고 Microsoft Teams에 알림을 보내는 방법을 알아봅니다.
 keywords: 자동화, runbook, 팀, 이벤트 그리드, 가상 머신, VM
 services: automation
-documentationcenter: ''
 author: eamonoreilly
 manager: ''
-editor: ''
 ms.service: automation
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2017
+ms.date: 08/14/2018
 ms.author: eamono
-ms.openlocfilehash: 6270f8bad893798f46d8db91e7b1140b6a125350
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a4356f38df017901ab219318463538003d3a979e
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049867"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41920889"
 ---
 # <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Azure Automation과 Event Grid 통합
 
@@ -32,7 +28,7 @@ ms.locfileid: "39049867"
 > * Event Grid 구독을 만듭니다.
 > * Runbook을 트리거하는 VM을 만듭니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -87,28 +83,30 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     ![웹후크 매개 변수 구성](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-parameters.png)
 
-5. **확인**을 선택하여 Automation Runbook 웹후크를 만듭니다.
-
+5. **만들기**를 선택하여 Automation Runbook 웹후크를 만듭니다.
 
 ## <a name="create-an-event-grid-subscription"></a>Event Grid 구독 만들기
+
 1. **Automation 계정** 개요 페이지에서 **Event grid**를 선택합니다.
 
     ![Event Grid 선택](media/ensure-tags-exists-on-new-virtual-machines/select-event-grid.png)
 
-2. **+ 이벤트 구독** 단추를 선택합니다.
+2. **+ 이벤트 구독**을 클릭합니다.
 
 3. 다음 정보로 구독을 구성합니다.
 
-    *   이름에 **AzureAutomation**을 입력합니다.
-    *   **토픽 유형**에서 **Azure Subscriptions**를 선택합니다.
-    *   **모든 이벤트 유형 구독** 확인란을 선택 취소합니다.
-    *   **이벤트 유형**에서 **리소스 작성 성공**을 선택합니다.
-    *   **구독자 엔드포인트**에서 Watch-VMWrite Runbook에 대해 웹후크 URL을 입력합니다. 
-    *   **접두사 필터**에서 만든 새 VM을 검색하려는 리소스 그룹과 구독을 입력합니다. `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`처럼 표시되어야 합니다.
+   * **항목 종류**에서 **Azure 구독**을 선택합니다.
+   * **모든 이벤트 유형 구독** 확인란을 선택 취소합니다.
+   * 이름에 **AzureAutomation**을 입력합니다.
+   * **정의된 이벤트 유형** 드롭다운에서 **리소스 작성 성공**을 제외한 모든 옵션의 선택을 취소합니다.
+   * **엔드포인트 유형**으로 **Webhook**를 선택합니다.
+   * **엔드포인트 선택**을 클릭합니다. 열리는 **Webhook 선택** 페이지에서, Watch-VMWrite Runbook에 대해 만든 웹후크 url을 붙여넣습니다.
+   * **필터**에서, 생성된 VM을 검색하려는 리소스 그룹과 구독을 입력합니다. `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`처럼 표시되어야 합니다.
 
 4. **만들기**를 선택하여 Event Grid 구독을 저장합니다.
 
 ## <a name="create-a-vm-that-triggers-the-runbook"></a>Runbook을 트리거하는 VM 만들기
+
 1. Event Grid 구독 접두사 필터에서 지정한 리소스 그룹에서 새 VM을 만듭니다.
 
 2. Watch-VMWrite Runbook이 호출되고 새 태그가 VM에 추가되어야 합니다.
@@ -120,6 +118,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     ![Microsoft Teams 알림](media/ensure-tags-exists-on-new-virtual-machines/teams-vm-message.png)
 
 ## <a name="next-steps"></a>다음 단계
+
 이 자습서에서는 Event Grid와 Automation 간의 통합을 설정했습니다. 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]

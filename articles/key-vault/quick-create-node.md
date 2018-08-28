@@ -1,6 +1,6 @@
 ---
-title: Key Vault에서 비밀을 읽도록 Azure 웹 응용 프로그램 구성 자습서 | Microsoft Docs
-description: '자습서: Key Vault에서 비밀을 읽도록 Node.js 응용 프로그램 구성'
+title: 빠른 시작 - 노드 웹앱을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색 | Microsoft Docs
+description: 빠른 시작 - 노드 웹앱을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 services: key-vault
 documentationcenter: ''
 author: prashanthyv
@@ -8,19 +8,19 @@ manager: sumedhb
 ms.service: key-vault
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 08/01/2018
+ms.date: 08/08/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: cc43081463667eba06af6538f3d78f16544ed2a5
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 4592b256dfda75e81a94034545cd54dbf0d71532
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412245"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42022545"
 ---
-# <a name="quickstart-how-to-set-and-read-a-secret-from-key-vault-in-a-node-web-app"></a>빠른 시작: 노드 웹앱의 Key Vault에서 비밀을 설정하고 읽는 방법 
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-node-web-app"></a>빠른 시작: 노드 웹앱을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색 
 
-이 빠른 시작에서는 Key Vault에 비밀을 저장하는 방법 및 웹앱을 사용하여 비밀을 검색하는 방법을 보여줍니다. 이 웹앱은 로컬로 또는 Azure에서 실행할 수 있습니다. 이 빠른 시작에서는 Node.js 및 MSI(관리 서비스 ID)를 사용합니다.
+이 빠른 시작에서는 Key Vault에 비밀을 저장하는 방법 및 웹앱을 사용하여 비밀을 검색하는 방법을 보여줍니다. 비밀 값을 확인하려면 Azure에서 다음을 실행해야 합니다. 이 빠른 시작에서는 Node.js 및 MSI(관리 서비스 ID)를 사용합니다.
 
 > [!div class="checklist"]
 > * Key Vault를 만듭니다.
@@ -32,12 +32,15 @@ ms.locfileid: "39412245"
 
 계속 진행하기 전에 [기본 개념](key-vault-whatis.md#basic-concepts)을 숙지하시기 바랍니다.
 
+>[!NOTE]
+아래 자습서가 모범 사례인 이유를 이해하려면 몇 가지 개념을 이해해야 합니다. Key Vault는 프로그래밍 방식으로 비밀을 저장하는 중앙 리포지토리입니다. 하지만 이렇게 하려면 응용 프로그램/사용자가 먼저 Key Vault에 인증해야 합니다. 즉, 비밀을 입력해야 합니다. 보안 모범 사례를 따르기 위해 이 첫 번째 비밀도 정기적으로 순환해야 합니다. 하지만 [관리 서비스 ID](../active-directory/managed-service-identity/overview.md)를 사용하면 Azure에서 실행되는 응용 프로그램에 Azure에서 자동으로 관리하는 ID가 할당됩니다. 이렇게 하면 **비밀 도입 문제**가 해결되므로 사용자/응용 프로그램이 모범 사례를 준수할 수 있고 첫 번째 비밀의 순환에 대해 걱정할 필요가 없습니다.
+
 ## <a name="prerequisites"></a>필수 조건
 
 * [Node JS](https://nodejs.org/en/)
 * [Git](https://www.git-scm.com/)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 2.0.4 이상
-* Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+* Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="login-to-azure"></a>Azure에 로그인
 
@@ -49,7 +52,7 @@ az login
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
 
-[az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
+[az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
 리소스 그룹 이름을 선택하고 자리 표시자를 입력하세요.
 다음 예에서는 *eastus* 위치에 *<YourResourceGroupName>* 이라는 리소스 그룹을 만듭니다.
@@ -123,8 +126,6 @@ git clone https://github.com/Azure-Samples/key-vault-node-quickstart.git
     ```
     # Bash
     az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9" --deployment-local-git
-    # PowerShell
-    az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
     ```
     웹앱이 만들어지면 Azure CLI에서 다음 예제와 비슷한 출력을 표시합니다.
     ```

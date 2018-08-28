@@ -6,17 +6,22 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 07/09/2018
+ms.date: 08/09/2018
 ms.author: heidist
-ms.openlocfilehash: 4874e42139e277400c866a7fc4c7094faeae136d
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e4d01fdb4c11277af68127e4671a36ad7e2c74d2
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002207"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42023514"
 ---
 # <a name="what-is-azure-search"></a>Azure Search란?
-Azure Search는 개발자에게 웹, 모바일 및 엔터프라이즈 응용 프로그램의 비공개, 이기종 콘텐츠에 대한 풍부한 검색 환경을 추가하기 위한 API 및 도구를 제공하는 SaaS(Search-as-a-Service) 클라우드 솔루션입니다.
+Azure Search는 개발자에게 웹, 모바일 및 엔터프라이즈 응용 프로그램의 비공개, 이기종 콘텐츠에 대한 풍부한 검색 환경을 추가하기 위한 API 및 도구를 제공하는 SaaS(Search-as-a-Service) 클라우드 솔루션입니다. 쿼리 실행은 사용자 정의 인덱스를 통합니다.
+
++ 여러 콘텐츠 형식 및 플랫폼에서 소싱된 데이터만 포함하는 검색 모음을 빌드합니다. 
++ AI 기반 인덱싱을 활용하여 이미지 파일에서 텍스트 및 기능 또는 원시 텍스트에서 엔터티 및 키를 추출합니다.
++ 자동 수정된 검색 용어 "did you mean"에 대한 패싯 탐색 및 필터, 동의어, 자동 완성 및 텍스트 분석을 사용하여 직관적인 검색 환경을 만듭니다.
++ "내 주변 찾기"에 대해 지역 검색, 영어가 아닌 전체 텍스트 검색에 대해 언어 분석기 및 검색 순위에 대해 점수 매기기 논리를 추가합니다.
 
 기능은 정보 검색의 내재된 복잡성을 표시하는 간단한 [REST API](/rest/api/searchservice/) 또는 [.NET SDK](search-howto-dotnet-sdk.md)를 통해 표시됩니다. API 외에도 Azure Portal에서 운영 및 콘텐츠 관리 지원과 인덱스 프로토타입 및 쿼리를 위한 도구를 제공합니다. 이 서비스는 클라우드에서 실행되므로 인프라 및 가용성은 Microsoft에서 관리합니다.
 
@@ -53,7 +58,7 @@ Azure Search는 개발자에게 웹, 모바일 및 엔터프라이즈 응용 프
 
 스키마는 Azure Portal에서 만들거나 [.NET SDK](search-howto-dotnet-sdk.md) 또는 [REST API](/rest/api/searchservice/)를 사용하여 프로그래밍 방식으로 만들 수 있습니다.
 
-### <a name="step-3-index-data"></a>3단계: 인덱스 데이터
+### <a name="step-3-load-data"></a>3단계: 데이터 로드
 인덱스를 정의하고 나면 콘텐츠를 업로드할 준비가 된 것입니다. 밀어넣기 또는 끌어오기 모델을 사용할 수 있습니다.
 
 끌어오기 모델은 외부 데이터 원본에서 데이터를 검색합니다. 이 방식은 데이터에 연결, 데이터 읽기 및 데이터 직렬화 등의 데이터 수집 측면을 능률화하고 자동화하는 *인덱서*를 통해 지원됩니다. [인덱서](/rest/api/searchservice/Indexer-operations)는 Azure Cosmos DB, Azure SQL Database, Azure Blob Storage 및 Azure VM에 호스트된 SQL Server에서 사용할 수 있습니다. 필요 시 또는 예약된 데이터 새로 고침을 위해 인덱서를 구성할 수 있습니다.
@@ -61,9 +66,9 @@ Azure Search는 개발자에게 웹, 모바일 및 엔터프라이즈 응용 프
 밀어넣기 모델은 SDK 또는 업데이트된 문서를 인덱스에 보내기 위해 사용되는 REST API를 통해 제공됩니다. JSON 형식을 사용하여 거의 모든 데이터 집합에서 데이터를 밀어넣을 수 있습니다. 데이터 로드에 대한 지침은 [문서 추가, 업데이트 또는 삭제](/rest/api/searchservice/addupdate-or-delete-documents) 또는 [.NET SDK를 사용하는 방법](search-howto-dotnet-sdk.md)을 참조하세요.
 
 ### <a name="step-4-search"></a>4단계: 검색
-인덱스를 채운 후에 REST API 또는 .NET SDK와 함께 간단한 HTTP 요청을 사용하여 서비스 끝점에 [검색 쿼리를 실행](/rest/api/searchservice/Search-Documents) 할 수 있습니다.
+인덱스를 채운 후에 REST API 또는 .NET SDK와 함께 간단한 HTTP 요청을 사용하여 서비스 엔드포인트에 [검색 쿼리를 실행](/rest/api/searchservice/Search-Documents) 할 수 있습니다.
 
-## <a name="how-azure-search-compares"></a>Azure Search 비교 원리
+## <a name="how-it-compares"></a>비교 결과
 
 Azure Search가 다른 검색 관련 솔루션과 어떻게 비교되는지 질문하는 경우가 많습니다. 다음 표에 주요 차이점이 요약되어 있습니다.
 
@@ -106,13 +111,16 @@ Azure 구독자는 [무료 계층에서 서비스를 프로비전](search-create
 
 ## <a name="how-to-get-started"></a>시작하는 방법
 
-1. [무료 계층](search-create-service-portal.md)에서 서비스를 만듭니다.
+1. [무료 서비스](search-create-service-portal.md)를 만듭니다. 무료 서비스에서 모든 빠른 시작 및 자습서를 완료할 수 있습니다.
 
-2. 다음 자습서 중 하나 이상을 단계별로 진행합니다. 
+2. [쿼리 및 인덱싱을 위한 기본 제공 도구를 사용하는 방법에 대한 자습서](search-get-started-portal.md)를 단계별로 실행합니다. 포털에서 제공하는 정보를 사용하여 중요한 개념을 알아보고 익숙해집니다.
 
-  + [.NET SDK를 사용하는 방법](search-howto-dotnet-sdk.md)에서는 관리 코드의 주요 단계를 보여 줍니다.  
-  + [Get started with the REST API](https://github.com/Azure-Samples/search-rest-api-getting-started)(REST API 시작)에서는 REST API를 사용하여 같은 단계를 보여 줍니다.  
-  + [포털에서 첫 번째 인덱스 만들기](search-get-started-portal.md)에서는 기본 제공 인덱싱 및 프로토타입 기능을 사용합니다.   
+3. .NET 또는 REST API 중 하나를 사용하는 코드로 진행합니다.
+
+  + [.NET SDK를 사용하는 방법](search-howto-dotnet-sdk.md)에서는 관리 코드의 기본 워크플로를 설명합니다.  
+  + [Get started with the REST API](https://github.com/Azure-Samples/search-rest-api-getting-started)(REST API 시작)에서는 REST API를 사용하여 같은 단계를 보여 줍니다. 이 빠른 시작을 사용하여 Postman 또는 Fiddler: [Azure Search REST API 탐색](search-fiddler.md)에서 REST API를 호출할 수도 있습니다.
+
+## <a name="watch-this-video"></a>이 동영상 시청
 
 검색 엔진은 Mobile Apps, 웹 및 회사 데이터 저장소에서 일반적으로 사용되는 정보 검색 드라이버입니다. Azure Search는 대규모 상업용 웹 사이트와 유사한 검색 환경을 만들기 위한 도구를 제공합니다.
 
@@ -124,5 +132,3 @@ Azure 구독자는 [무료 계층에서 서비스를 프로비전](search-create
 + 3-4분 구간에서는 서비스 프로비전을 다룹니다. 
 + 4-6분 구간에서는 기본 제공 부동산 데이터 집합을 사용하여 인덱스를 만드는 데 사용되는 데이터 가져오기 마법사를 다룹니다.
 + 6-9분 구간에서는 검색 탐색기 및 다양한 쿼리를 다룹니다.
-
-

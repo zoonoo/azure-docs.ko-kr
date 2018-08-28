@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: b085911f760693a774d443ca055944268b20f055
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 4c850cd98280940c53a07c70c9c478f9e20e2963
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869584"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41920598"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>자습서: Azure IoT Central 응용 프로그램에서 새 장치 유형 정의
 
@@ -342,8 +342,8 @@ _명령_을 사용하여 운영자가 장치에서 직접 명령을 실행하도
     | 표시 이름         | Echo 명령    |
     | 필드 이름           | echo            |
     | 기본 시간 제한      | 30              |
-    | 표시 이름         | 텍스트 표시    |
-    | 표시 유형         | text            |  
+    | 표시 유형         | text            |
+    | 설명          | 장치 명령  |  
 
 입력에 **+** 를 클릭하여 명령에 입력을 더 추가할 수 있습니다.
 

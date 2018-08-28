@@ -1,5 +1,5 @@
 ---
-title: Azure CLI를 사용하여 장치 프로비전 설정 | Microsoft Docs
+title: Azure CLI를 사용하여 Device Provisioning Service 설정 | Microsoft Docs
 description: Azure 빠른 시작 - Azure CLI를 사용하여 Azure IoT Hub Device Provisioning Service 설정
 author: wesmc7777
 ms.author: wesmc
@@ -9,18 +9,18 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: cf2e108aa7cab6be2996cb535d27d597e462617c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: c9e3bbbc4fbe8a9aade3364d6cbe9e93b5798595
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626542"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42023004"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Azure CLI를 사용하여 IoT Hub Device Provisioning Service 설정
 
 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 빠른 시작에서는 Azure CLI를 사용하여 IoT 허브 및 IoT Hub Device Provisioning Service를 만들고 두 서비스를 함께 연결하는 방법에 대해 자세히 설명합니다. 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 > [!IMPORTANT]
 > 이 빠른 시작에서 만드는 IoT 허브 및 프로비전 서비스는 모두 DNS 엔드포인트로 공개적으로 검색할 수 있습니다. 이러한 리소스에 사용되는 이름을 변경하려는 경우 중요한 정보가 공개되지 않도록 합니다.
@@ -72,7 +72,7 @@ az iot dps create --name my-sample-dps --resource-group my-sample-resource-group
 
 ## <a name="get-the-connection-string-for-the-iot-hub"></a>IoT 허브에 대한 연결 문자열 가져오기
 
-장치 프로비전 서비스와 연결하려면 IoT 허브의 연결 문자열이 필요합니다. [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) 명령을 사용하여 연결 문자열을 가져오고, 해당 출력을 사용하여 두 리소스를 연결할 때 사용할 변수를 설정합니다. 
+Device Provisioning Service와 연결하려면 IoT 허브의 연결 문자열이 필요합니다. [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) 명령을 사용하여 연결 문자열을 가져오고, 해당 출력을 사용하여 두 리소스를 연결할 때 사용할 변수를 설정합니다. 
 
 다음 예제에서는 *hubConnectionString* 변수를 허브의 *iothubowner* 정책에 있는 기본 키에 대한 연결 문자열 값으로 설정합니다. `--policy-name` 매개 변수를 사용하여 다른 정책을 지정할 수 있습니다. 이 명령은 Azure CLI [query](/cli/azure/query-azure-cli) 및 [output](/cli/azure/format-output-azure-cli#tsv-output-format) 옵션을 사용하여 명령 출력에서 연결 문자열을 추출합니다.
 

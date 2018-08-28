@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ccc699a500cbaf20c9b90d71e7c730e617bc572c
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: c2c80790fa3e7c20408346fbebf60c39879a94df
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145539"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41918524"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service를 사용하여 장치 프로비전을 위한 클라우드 리소스 구성
 
@@ -48,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    | **리소스 그룹** | myResourceGroup | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
    | **위치**: | 모든 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |   
 
-   ![포털에서 DPS에 대한 기본 정보 입력](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
+   ![포털에서 Device Provisioning Service에 대한 기본 정보 입력](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
 5. **만들기**를 클릭합니다. 몇 분 후 Device Provisioning Service 인스턴스가 생성되고 **개요** 페이지가 표시됩니다.
 6. 나중에 사용할 수 있도록 새 서비스 인스턴스의 **개요** 페이지에서 **ID 범위** 값을 복사합니다. 이 값은 등록 ID를 식별하는 데 사용되며, 등록 ID의 고유성을 보장합니다.
@@ -71,7 +71,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     * **IoT Hub:** 이 Device Provisioning Service 인스턴스와 연결할 IoT Hub 이름을 선택합니다.
     * **액세스 정책:** IoT Hub에 연결하는 데 사용할 자격 증명으로 **iothubowner**를 선택합니다.
 
-   ![포털에서 DPS에 연결할 허브 이름 연결](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
+   ![포털에서 Device Provisioning Service에 연결하도록 허브 이름을 연결합니다.](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
 ## <a name="set-the-allocation-policy-on-the-device-provisioning-service"></a>Device Provisioning Service에서 할당 정책 설정
 

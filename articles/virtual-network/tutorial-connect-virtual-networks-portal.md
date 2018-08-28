@@ -14,19 +14,19 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/13/2018
+ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: d702253c7b58b0a29c03e6563238b56ae75fa0d1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8b1290c2030835af1435e9a21602d3d2334a6737
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841791"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41919825"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 네트워크 피어링으로 가상 네트워크 연결
 
-가상 네트워크 피어링을 사용하여 가상 네트워크를 서로 연결할 수 있습니다. 가상 네트워크가 피어링되면 두 가상 네트워크에 있는 리소스가 같은 가상 네트워크에 있는 리소스인 것처럼 같은 대기 시간 및 대역폭으로 서로 통신할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+가상 네트워크 피어링을 사용하여 가상 네트워크를 서로 연결할 수 있습니다. 이러한 가상 네트워크는 동일한 지역일 수도 있고 다른 지역(글로벌 VNet 피어링이라고도 함)일 수도 있습니다. 가상 네트워크가 피어링되면 두 가상 네트워크에 있는 리소스가 같은 가상 네트워크에 있는 리소스인 것처럼 같은 대기 시간 및 대역폭으로 서로 통신할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 두 가상 네트워크 만들기
@@ -52,7 +52,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
     |---|---|
     |Name|myVirtualNetwork1|
     |주소 공간|10.0.0.0/16|
-    |구독| 사용 중인 구독을 선택합니다.|
+    |구독| 구독을 선택합니다.|
     |리소스 그룹| **새로 만들기**를 선택하고 *myResourceGroup*을 입력합니다.|
     |위치| **미국 동부**를 선택합니다.|
     |서브넷 이름|Subnet1|
@@ -81,8 +81,8 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
     |설정|값|
     |---|---|
     |Name|myVirtualNetwork1-myVirtualNetwork2|
-    |구독| 사용 중인 구독을 선택합니다.|
-    |가상 네트워크|myVirtualNetwork2 - *myVirtualNetwork2* 가상 네트워크를 선택하려면 **가상 네트워크**을 선택한 다음, **myVirtualNetwork2**를 선택합니다.|
+    |구독| 구독을 선택합니다.|
+    |가상 네트워크|myVirtualNetwork2 - *myVirtualNetwork2* 가상 네트워크를 선택하려면 **가상 네트워크**을 선택한 다음, **myVirtualNetwork2**를 선택합니다. 동일한 지역 또는 다른 지역의 가상 네트워크를 선택할 수 있습니다.|
 
     ![공용 설정](./media/tutorial-connect-virtual-networks-portal/peering-settings.png)
 

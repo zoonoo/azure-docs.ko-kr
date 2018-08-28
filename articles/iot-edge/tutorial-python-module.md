@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5766f9708d2439f42f9ad77169fd1fe7f7dc451e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6cf3a721dfd601fc4d4beb122f56b4a4de5fe426
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439115"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41920750"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>자습서: Python IoT Edge 모듈을 개발하여 시뮬레이션된 장치에 배포
 
@@ -37,7 +37,7 @@ ms.locfileid: "39439115"
 Azure IoT Edge 장치:
 
 * [Linux](quickstart-linux.md)의 빠른 시작에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 장치로 사용할 수 있습니다.
-* IoT Edge용 Python 모듈은 ARM 프로세서 또는 Windows 장치를 지원하지 않습니다.
+* IoT Edge용 Python 모듈은 Windows 장치를 지원하지 않습니다.
 
 클라우드 리소스:
 
@@ -51,6 +51,9 @@ Azure IoT Edge 장치:
 * [Docker CE](https://docs.docker.com/engine/installation/). 
 * [Python](https://www.python.org/downloads/).
 * Python 패키지 설치를 위한 [Pip](https://pip.pypa.io/en/stable/installing/#installation)(일반적으로 Python 설치와 함께 포함됨)
+
+>[!Note]
+>`bin` 폴더는 플랫폼 경로에 있어야 합니다. 일반적으로 UNIX 및 macOS에서는 `~/.local/`이고, Windows에서는 `%APPDATA%\Python`입니다.
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 이 자습서에서는 VS Code용 Azure IoT Edge 확장을 사용하여 모듈을 빌드하고 파일에서 **컨테이너 이미지**를 만듭니다. 그런 후 이미지를 저장하고 관리하는 **레지스트리**에 이 이미지를 푸시합니다. 마지막으로 IoT Edge 장치에서 실행되도록 레지스트리의 이미지를 배포합니다.  
@@ -78,6 +81,8 @@ Azure IoT Edge 장치:
     ```cmd/sh
     pip install --upgrade --user cookiecutter
     ```
+   >[!Note]
+   >명령 프롬프트에서 호출할 수 있도록 cookiecutter를 설치할 위치가 환경의 `Path`에 있는지 확인합니다.
 
 3. **보기** > **명령 팔레트**를 차례로 선택하여 VS Code 명령 팔레트를 엽니다. 
 
@@ -91,7 +96,13 @@ Azure IoT Edge 장치:
    4. 모듈 이름을 **PythonModule**로 지정합니다. 
    5. 이전 섹션에서 만든 Azure Container Registry를 첫 번째 모듈에 대한 이미지 리포지토리로 지정합니다. **localhost:5000**을 복사한 로그인 서버 값으로 바꿉니다. 마지막 문자열은 \<레지스트리 이름\>.azurecr.io/pythonmodule과 같습니다.
  
-VS Code 창은 모듈 폴더, 모듈 폴더, 배포 매니페스트 템플릿 파일, \.env 파일 등 IoT Edge 솔루션 작업 영역을 로드합니다. 
+   ![Docker 이미지 리포지토리 제공](./media/tutorial-python-module/repository.png)
+
+VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 솔루션 작업 영역에는 최상위 구성 요소 5개가 포함됩니다. 이 자습서에서는 **\.gitignore** 파일을 편집하지 않습니다. **modules** 폴더에는 모듈에 대한 Python 코드와 모듈을 컨테이너 이미지로 빌드하기 위한 Dockerfile이 포함되어 있습니다. **\.env** 파일은 컨테이너 레지스트리 자격 증명을 저장합니다. **deployment.template.json** 파일에는 IoT Edge 런타임에서 장치에 모듈을 배포하는 데 사용하는 정보가 포함되어 있습니다. 
+
+솔루션을 만들 때 컨테이너 레지스트리를 지정하지 않았지만 기본값인 localhost:5000을 수락한 경우에는 \.env 파일이 없습니다. 
+
+   ![Python 솔루션 작업 영역](./media/tutorial-python-module/workspace.png)
 
 ### <a name="add-your-registry-credentials"></a>레지스트리 자격 증명 추가
 
@@ -200,7 +211,7 @@ VS Code 창은 모듈 폴더, 모듈 폴더, 배포 매니페스트 템플릿 �
 
 4. 이 파일을 저장합니다.
 
-5. VS Code 탐색기에서 deployment.template.json 파일을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 솔루션 빌드**를 선택합니다. 
+5. VS Code 탐색기에서 deployment.template.json 파일을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 솔루션 빌드 및 푸시**를 선택합니다. 
 
 솔루션을 빌드하도록 Visual Studio Code에 지시하면 먼저 배포 템플릿의 정보를 가져와서 **config**라는 새 폴더에 deployment.json 파일을 생성합니다. 그런 다음, 통합 터미널에서 두 개의 명령, 즉 `docker build`과 `docker push`를 실행합니다. 이 두 명령은 코드를 빌드하고, Python 코드를 컨테이너화한 다음, 솔루션을 초기화할 때 지정한 컨테이너 레지스트리로 코드를 푸시합니다. 
 
@@ -208,23 +219,21 @@ VS Code 통합 터미널에서 실행되는 `docker build` 명령에서 태그�
 
 ## <a name="deploy-and-run-the-solution"></a>솔루션 배포 및 실행
 
-Azure Portal을 사용하여 빠른 시작에서 수행한 것처럼 IoT Edge 장치에 Python 모듈을 배포할 수 있습니다. 또한 Visual Studio Code 내에서 모듈을 배포하고 모니터링할 수 있습니다. 다음 섹션에서는 필수 조건에 나열된 VS Code용 Azure IoT Edge 확장을 사용합니다. 아직 설치하지 않은 경우 확장을 설치합니다. 
+IoT Edge 장치를 설정할 때 사용한 빠른 시작 문서에서는 Azure Portal을 사용하여 모듈을 배포했습니다. Visual Studio Code용 Azure IoT 도구 키트 확장을 사용하여 모듈을 배포할 수도 있습니다. 여러분의 시나리오를 위한 배포 매니페스트인 **deployment.json** 파일이 이미 준비되어 있습니다. 이제 배포를 받을 장치를 선택하기만 하면 됩니다.
 
-1. **보기** > **명령 팔레트**를 차례로 선택하여 VS Code 명령 팔레트를 엽니다.
+1. VS Code 명령 팔레트에서 **Azure IoT Hub: IoT Hub 선택**을 실행합니다. 
 
-2. **Azure: 로그인** 명령을 검색하여 실행합니다. 지침에 따라 Azure 계정에 로그인합니다. 
+2. 구성하려는 IoT Edge 장치가 포함된 구독 및 IoT Hub를 선택합니다. 
 
-3. 명령 팔레트에서 **Azure IoT Hub: IoT Hub 선택** 명령을 검색하여 실행합니다. 
+3. VS Code 탐색기에서 **Azure IoT Hub 장치** 섹션을 펼칩니다. 
 
-4. IoT Hub가 포함된 구독을 선택한 다음, 액세스하려는 IoT Hub를 선택합니다.
+4. IoT Edge 장치의 이름을 마우스 오른쪽 단추로 클릭한 다음, **단일 장치용 배포 만들기**를 선택합니다. 
 
-5. VS Code 탐색기에서 **Azure IoT Hub 장치** 섹션을 펼칩니다. 
+   ![단일 장치용 배포 만들기](./media/tutorial-python-module/create-deployment.png)
 
-6. IoT Edge 장치의 이름을 마우스 오른쪽 단추로 클릭한 다음, **IoT Edge 장치에 대한 배포 만들기**를 선택합니다. 
+5. **config** 폴더에서 **deployment.json** 파일을 선택한 다음, **에지 배포 매니페스트 선택**을 클릭합니다. deployment.template.json 파일을 사용하지 마세요. 
 
-7. **PythonModule**이 포함된 솔루션 폴더를 찾습니다. config 폴더를 열고 deployment.json 파일을 선택한 다음, **Edge 배포 매니페스트 선택**을 클릭합니다.
-
-8. **Azure IoT Hub 장치** 섹션을 새로 고칩니다. **TempSensor** 모듈과 **$edgeAgent** 및 **$edgeHub**와 함께 실행되는 새 **PythonModule**이 표시됩니다. 
+6. 새로고침 단추를 클릭합니다. **TempSensor** 모듈과 **$edgeAgent** 및 **$edgeHub**와 함께 실행되는 새 **PythonModule**이 표시됩니다. 
 
 ## <a name="view-generated-data"></a>생성된 데이터 보기
 
@@ -236,32 +245,42 @@ Azure Portal을 사용하여 빠른 시작에서 수행한 것처럼 IoT Edge �
 
 ## <a name="clean-up-resources"></a>리소스 정리 
 
-<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
-
-권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다.
+권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 장치와 동일한 IoT Edge 장치를 계속 사용해도 됩니다. 
 
 그렇지 않은 경우 요금 청구를 방지하도록 이 문서에서 만든 로컬 구성 및 Azure 리소스를 삭제할 수 있습니다. 
 
-> [!IMPORTANT]
-> Azure 리소스와 리소스 그룹을 삭제하면 되돌릴 수 없습니다. 이러한 항목을 삭제하면 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 보관하려는 리소스가 있는 기존 리소스 그룹 내에 IoT 허브를 만든 경우 리소스 그룹을 삭제하지 말고 IoT 허브 리소스만 삭제하면 됩니다.
->
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-IoT 허브만 삭제하려면 허브 이름과 리소스 그룹 이름을 사용하여 다음 명령을 실행합니다.
+### <a name="delete-local-resources"></a>로컬 리소스 삭제
 
-```azurecli-interactive
-az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
-```
+장치에서 IoT Edge 런타임 및 관련 리소스를 제거하려면 다음 명령을 사용합니다. 
 
+IoT Edge 런타임을 제거합니다.
 
-이름으로 전체 리소스 그룹을 삭제하려면 다음을 수행합니다.
+   ```bash
+   sudo apt-get remove --purge iotedge
+   ```
 
-1. [Azure Portal](https://portal.azure.com)에 로그인하고 **리소스 그룹**을 선택합니다.
+IoT Edge 런타임을 제거하면 만든 컨테이너는 중지되지만 장치에는 계속 남아 있습니다. 모든 컨테이너를 봅니다.
 
-2. **이름을 기준으로 필터링** 텍스트 상자에 IoT 허브가 들어 있는 리소스 그룹의 이름을 입력합니다. 
+   ```bash
+   sudo docker ps -a
+   ```
 
-3. 결과 목록에서 리소스 그룹의 오른쪽에서 줄임표(**...**)를 선택한 다음, **리소스 그룹 삭제**를 선택합니다.
+장치에서 만들어진 런타임 컨테이너를 삭제합니다.
 
-4. 리소스 그룹 삭제를 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 다시 입력하여 확인하고 **삭제**를 선택합니다. 잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
+   ```bash
+   docker rm -f edgeHub
+   docker rm -f edgeAgent
+   ```
+
+컨테이너 이름을 참조하여 `docker ps` 출력에 나열된 추가 컨테이너를 삭제합니다. 
+
+컨테이너 런타임을 제거합니다.
+
+   ```bash
+   sudo apt-get remove --purge moby
+   ```
 
 ## <a name="next-steps"></a>다음 단계
 

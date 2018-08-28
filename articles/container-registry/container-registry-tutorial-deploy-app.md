@@ -6,15 +6,15 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 04/30/2018
+ms.date: 08/20/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 6347c460ab88929152424d301445a219720b98e8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 25e3fdfe72fc2a6ffec1bcee23cd9f1edc783838
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582304"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41918973"
 ---
 # <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>자습서: Azure Container Registry에서 웹앱 배포
 
@@ -46,7 +46,9 @@ Azure Container Registry는 컨테이너화된 응용 프로그램을 [Web App f
 
 ![Azure Portal에서 App Service에 배포][deploy-app-portal-01]
 
-표시되는 **Web App for Containers**에서 각 설정에 대해 다음 값을 지정합니다.
+"웹앱에 배포"를 사용하지 않도록 설정된 경우 첫 번째 자습서의 [컨테이너 레지스트리 만들기](container-registry-tutorial-prepare-registry.md#create-a-container-registry)에 설명된 대로 레지스트리 관리 사용자를 사용하도록 설정하지 않은 것일 수 있습니다. Azure Portal의 **설정** > **액세스 키**에서 관리 사용자를 사용하도록 설정할 수 있습니다.
+
+"웹앱에 배포"를 선택하면 표시되는 **컨테이너용 웹앱**에서 각 설정에 대해 다음 값을 지정합니다.
 
 | 설정 | 값 |
 |---|---|

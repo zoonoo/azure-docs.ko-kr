@@ -1,5 +1,5 @@
 ---
-title: '자습서: 공용 기본 부하 분산 장치 만들기 - Azure Portal | Microsoft Docs'
+title: 자습서 - 공용 기본 부하 분산 장치 만들기 - Azure Portal | Microsoft Docs
 description: 이 자습서에서는 Azure Portal을 사용하여 내부 기본 부하 분산 장치를 만드는 방법을 보여줍니다.
 services: load-balancer
 documentationcenter: na
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 06/28/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: c0d19c53a0bd217935a494dfb4affbaa85062247
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 7c1e56b7c94c51a00fabdac56dd2d8c3eb621ae0
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097481"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42139597"
 ---
 # <a name="tutorial-load-balance-internal-traffic-with-basic-load-balancer-to-vms-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 기본 부하 분산 장치로 내부 트래픽을 여러 VM에 분산
 
@@ -30,7 +30,7 @@ ms.locfileid: "37097481"
 
 원하는 경우 [Azure CLI](load-balancer-get-started-ilb-arm-cli.md) 또는 [Azure PowerShell](load-balancer-get-started-ilb-arm-ps.md)을 사용하여 이 자습서를 완료할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -66,8 +66,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 ### <a name="create-virtual-machines"></a>가상 머신 만들기
 
 1. 화면의 왼쪽 상단에서 **리소스 만들기** > **계산** > **Windows Server 2016 Datacenter**를 클릭하고 가상 머신에 대해 다음 값을 입력합니다.
-    - *myVM1* - 가상 머신의 이름입니다.        
-    - *azureuser* - 관리자 사용자 이름입니다.   
+    - *myVM1* - 가상 머신의 이름        
+    - *azureuser* - 관리자 사용자 이름   
     - *myResourceGroupILB* - **리소스 그룹**에서 **기존 항목 사용**을 선택한 다음, *myResourceGroupILB*를 선택합니다.
 2. **확인**을 클릭합니다.
 3. 가상 머신의 크기에 대해 **DS1_V2**를 선택하고 **선택**을 클릭합니다.
@@ -158,7 +158,7 @@ VM으로 트래픽을 분산하기 위해 백 엔드 주소 풀에 부하 분산
 ## <a name="create-a-virtual-machine-to-test-the-load-balancer"></a>부하 분산 장치를 테스트할 가상 머신 만들기
 내부 부하 분산 장치를 테스트하기 위해 백 엔드 서버 VM과 동일한 가상 네트워크에 있는 가상 머신을 만들어야 합니다.
 1. 화면의 왼쪽 상단에서 **리소스 만들기** > **계산** > **Windows Server 2016 Datacenter**를 클릭하고 가상 머신에 대해 다음 값을 입력합니다.
-    - *myVMTest* - 가상 머신의 이름입니다.        
+    - *myVMTest* - 가상 머신의 이름.        
     - *myResourceGroupILB* - **리소스 그룹**에서 **기존 항목 사용**을 선택한 다음, *myResourceGroupILB*를 선택합니다.
 2. **확인**을 클릭합니다.
 3. 가상 머신의 크기에 대해 **DS1_V2**를 선택하고 **선택**을 클릭합니다.

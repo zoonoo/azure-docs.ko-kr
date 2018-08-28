@@ -1,22 +1,22 @@
 ---
 title: TDE 인증서 마이그레이션 - Azure SQL Database Managed Instance | Microsoft Docs
 description: 투명한 데이터 암호화를 사용하여 데이터베이스의 데이터베이스 암호화 키를 보호하는 인증서를 Azure SQL Managed instance에 마이그레이션
-keywords: SQL Database 자습서, SQL Database 관리되는 인스턴스, TDE 인증서 마이그레이션
+keywords: SQL Database 자습서, SQL Database Managed Instance, TDE 인증서 마이그레이션
 services: sql-database
 author: MladjoA
 ms.reviewer: carlrab, jovanpop
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: tutorial
-ms.date: 07/16/2018
+ms.date: 08/09/2018
 ms.author: mlandzic
 manager: craigg
-ms.openlocfilehash: 042d89017db898102deafc9156cf847a08c92227
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: afecd69cdf9832e1c6dc294ca01968ee50a3eabd
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39074546"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41920749"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-managed-instance"></a>TDE 보호 데이터베이스의 인증서를 Azure SQL Managed Instance로 마이그레이션
 
@@ -38,8 +38,9 @@ ms.locfileid: "39074546"
 
 - 파일로 내보낸 인증서에 대한 액세스 권한이 있는 온-프레미스 서버나 기타 시스템에 설치된 [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) 명령줄 도구. Pvk2Pfx 도구는 [Enterprise Windows 드라이버 키트](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk)에 속하며 독립 실행형 자체 포함 명령줄 환경입니다.
 - [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) 버전 5.0 이상 설치.
-- AzureRM PowerShell 모듈 [설치 및 업데이트](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).\[AzureRM.Sql module](https://www.powershellgallery.com/packages/AzureRM.Sql) 버전 4.10.0 이상.
-- PowerShell 모듈을 설치/업데이트하려면 PowerShell에서 다음 명령을 실행하십시오.
+- AzureRM PowerShell 모듈을 [설치하고 업데이트](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+- [AzureRM.Sql 모듈](https://www.powershellgallery.com/packages/AzureRM.Sql) 버전 4.10.0 이상.
+  PowerShell 모듈을 설치/업데이트하려면 PowerShell에서 다음 명령을 실행하십시오.
 
    ```powershell
    Install-Module -Name AzureRM.Sql
@@ -108,16 +109,6 @@ ms.locfileid: "39074546"
 
 4. 마법사를 따라 인증서 및 개인 키를 개인 정보 교환 형식으로 내보냅니다.
 
-## <a name="extract-certificate-from-file-to-base-64-string"></a>파일에서 Base-64 문자열로 인증서 추출
-
-PowerShell에서 다음 스크립트를 실행하고 Base-64로 인코딩된 인증서를 출력으로 얻습니다.
-
-```powershell
-$fileContentBytes = Get-Content 'C:/full_path/TDE_Cert.pfx' -Encoding Byte
-$base64EncodedCert = [System.Convert]::ToBase64String($fileContentBytes)
-echo $base64EncodedCert
-```
-
 ## <a name="upload-certificate-to-azure-sql-managed-instance-using-azure-powershell-cmdlet"></a>Azure PowerShell cmdlet을 사용하여 Azure SQL Managed Instance에 인증서 업로드
 
 1. PowerShell에서 준비 단계부터 시작합니다.
@@ -129,15 +120,16 @@ echo $base64EncodedCert
    Connect-AzureRmAccount
    # List subscriptions available and copy id of the subscription target Managed Instance belongs to
    Get-AzureRmSubscription
-   # Set subscription for the session
+   # Set subscription for the session (replace Guid_Subscription_Id with actual subscription id)
    Select-AzureRmSubscription Guid_Subscription_Id
    ```
 
 2. 모든 준비 단계가 완료되면 다음 명령을 실행하여 Base-64로 인코딩된 인증서를 대상 Managed Instance에 업로드합니다.
 
    ```powershell
-   $privateBlob = "<base-64-encoded-certificate-string>"
-   $securePrivateBlob = $privateBlob  | ConvertTo-SecureString -AsPlainText -Force
+   $fileContentBytes = Get-Content 'C:/full_path/TDE_Cert.pfx' -Encoding Byte
+   $base64EncodedCert = [System.Convert]::ToBase64String($fileContentBytes)
+   $securePrivateBlob = $base64EncodedCert  | ConvertTo-SecureString -AsPlainText -Force
    $password = "SomeStrongPassword"
    $securePassword = $password | ConvertTo-SecureString -AsPlainText -Force
    Add-AzureRmSqlManagedInstanceTransparentDataEncryptionCertificate -ResourceGroupName "<ResourceGroupName>" -ManagedInstanceName "<ManagedInstanceName>" -PrivateBlob $securePrivateBlob -Password $securePassword

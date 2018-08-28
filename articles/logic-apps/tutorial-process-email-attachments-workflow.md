@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
-ms.openlocfilehash: 133cc9d8fa52bb655e9baaad53ee157fdc7524f7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d07342bac3f76472a4783c28cac0741906049bb2
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429423"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41920781"
 ---
 # <a name="process-emails-and-attachments-with-azure-logic-apps"></a>Azure Logic Apps로 이메일 및 첨부 파일 처리
 
@@ -56,7 +56,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
 수신 이메일 및 첨부 파일을 [Azure 저장소 컨테이너](../storage/common/storage-introduction.md)에 BLOB으로 저장할 수 있습니다. 
 
-1. 저장소 컨테이너를 만들기 전에 다음 설정을 사용하여 [저장소 계정을 만듭니다](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+1. 저장소 컨테이너를 만들기 전에 다음 설정을 사용하여 [저장소 계정을 만듭니다](../storage/common/storage-quickstart-create-account.md).
 
    | 설정 | 값 | 설명 | 
    |---------|-------|-------------| 

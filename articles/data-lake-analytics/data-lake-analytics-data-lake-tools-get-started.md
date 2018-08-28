@@ -9,13 +9,13 @@ manager: kfile
 editor: jasonwhowell
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: get-started-article
-ms.date: 05/02/2018
-ms.openlocfilehash: 0acaace474d62f18b9b6ca4aaae324405a2f43db
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.date: 08/13/2018
+ms.openlocfilehash: 852840fc29589292e7a74390026b78b15f81e721
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735796"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41919847"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Data Lake Tools for Visual Studio를 사용하여 U-SQL 스크립트 개발
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -52,16 +52,20 @@ Visual Studio를 사용하여 Azure Data Lake Analytics 계정을 만들고, [U-
 ## <a name="connect-to-an-azure-data-lake-analytics-account"></a>Azure Data Lake Analytics 계정에 연결
 
 1. Visual Studio를 엽니다.
-2. **보기** > **서버 탐색기**를 선택하여 서버 탐색기를 엽니다.
-3. **Azure**를 마우스 오른쪽 단추로 클릭합니다. 그런 다음 **Microsoft Azure 구독에 연결**을 클릭하고 지침을 따릅니다.
-4. 서버 탐색기에서 선택 **Azure** > **Data Lake Analytics**를 선택합니다. Data Lake Analytics 계정 목록이 표시됩니다.
 
+2. **보기** > **서버 탐색기**를 선택하여 서버 탐색기를 엽니다.
+
+3. **Azure**를 마우스 오른쪽 단추로 클릭합니다. 그런 다음 **Microsoft Azure 구독에 연결**을 클릭하고 지침을 따릅니다.
+
+4. 서버 탐색기에서 선택 **Azure** > **Data Lake Analytics**를 선택합니다. Data Lake Analytics 계정 목록이 표시됩니다.
 
 ## <a name="write-your-first-u-sql-script"></a>첫 번째 U-SQL 스크립트 작성
 
 다음 텍스트는 간단한 U-SQL 스크립트입니다. 작은 데이터 집합을 정의하고 이 데이터 집합을 `/data.csv`라는 파일로 기본 Data Lake Store에 기록합니다.
 
 ```
+USE DATABASE master;
+USE SCHEMA dbo;
 @a  = 
     SELECT * FROM 
         (VALUES
@@ -74,7 +78,7 @@ OUTPUT @a
     USING Outputters.Csv();
 ```
 
-### <a name="submit-a-data-lake-analytics-job"></a>데이터 레이크 분석 작업 제출
+## <a name="submit-a-data-lake-analytics-job"></a>데이터 레이크 분석 작업 제출
 
 1. **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
 
@@ -87,31 +91,35 @@ OUTPUT @a
     ![U-SQL Visual Studio 프로젝트 제출](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job.png)
 
 5. **Script.usql** 창의 왼쪽 위 모서리에서 **제출**을 선택합니다.
-6. **분석 계정**을 확인한 후 **제출**을 선택합니다. 제출이 완료되면 Data Lake Tools for Visual Studio 결과에서 제출 결과를 사용할 수 있습니다.
 
-    ![U-SQL Visual Studio 프로젝트 제출](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-advanced.png)
-7. 최근 작업 상태를 보고 화면을 새로 고치려면 **새로 고침**을 클릭합니다. 작업이 성공하면 **작업 그래프**, **메타데이터 작업**, **상태 내역**, **진단**이 표시됩니다.
+6. 작업을 제출하면 **작업 보기** 탭이 열리고 작업 진행률이 표시됩니다. 최근 작업 상태를 보고 화면을 새로 고치려면 **새로 고침**을 클릭합니다.
 
     ![U-SQL Visual Studio 데이터 레이크 분석 작업 성능 그래프](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
    * **작업 요약**에 작업의 요약 정보가 표시됩니다.   
-   * **작업 세부 정보**에는 스크립트, 리소스 및 꼭짓점을 비롯하여 작업에 대한 보다 자세한 정보가 표시됩니다.
    * **작업 그래프**는 작업의 진행률을 시각화합니다.
    * **메타데이터 작업**에는 U-SQL 카탈로그에서 수행된 모든 작업이 표시됩니다.
    * **데이터**에는 모든 입력 및 출력이 표시됩니다.
+   * **상태 기록**은 타임라인 및 상태 세부 정보를 보여줍니다.
+   * **AU 분석**은 작업에 사용된 AU 수를 보여주고 다른 AU 할당 전략의 시뮬레이션을 살펴봅니다.
    * **진단**에서는 작업 실행 및 성능 최적화에 대한 고급 분석을 제공합니다.
 
-### <a name="to-check-job-state"></a>작업 상태를 확인하려면
+## <a name="check-job-status"></a>작업 상태 확인
 
-1. 서버 탐색기에서 선택 **Azure** > **Data Lake Analytics**를 선택합니다. 
+1. 서버 탐색기에서 선택 **Azure** > **Data Lake Analytics**를 선택합니다.
+
 2. Data Lake Analytics 계정 이름을 확장합니다.
+
 3. **작업**을 두 번 클릭합니다.
+
 4. 이전에 제출한 작업을 선택합니다.
 
-### <a name="to-see-the-output-of-a-job"></a>작업의 출력을 보려면
+## <a name="see-the-job-output"></a>작업 출력 보기
 
 1. 서버 탐색기에서 제출한 작업을 찾습니다.
+
 2. **데이터** 탭을 클릭합니다.
+
 3. **작업 출력** 탭에서 `"/data.csv"` 파일을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계

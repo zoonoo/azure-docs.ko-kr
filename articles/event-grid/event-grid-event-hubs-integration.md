@@ -6,22 +6,22 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 05/04/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 41cd2f1081cbe8d8fca9d6afa77b87f9aa1017d3
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 432436ee13519cf342313ad369c168ba764f9264
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302942"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616518"
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>데이터 웨어하우스로 빅 데이터 스트림
 
-Azure [Event Grid](overview.md)는 앱과 서비스의 알림에 응답하는 데 사용할 수 있는 지능형 이벤트 라우팅 서비스입니다. [Event Hubs 캡처 및 Event Grid 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)에는 Azure Event Hubs 캡처와 Azure Event Grid를 사용하여 이벤트 허브에서 SQL Data Warehouse로 데이터를 원활하게 마이그레이션하는 방법이 나와 있습니다.
+Azure [Event Grid](overview.md)는 앱과 서비스의 알림에 응답하는 데 사용할 수 있는 지능형 이벤트 라우팅 서비스입니다. 예를 들어 Azure Blob Storage 또는 Data Lake Store로 캡처된 Event Hubs 데이터를 처리하도록 Azure Function을 트리거하고, 다른 데이터 리포지토리에 데이터를 마이그레이션할 수 있습니다. 이 [Event Hubs 캡처 및 Event Grid 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)에서는 Event Grid와 Event Hubs 캡처를 사용하여 Event Hubs 데이터를 Blob Storage에서 SQL Data Warehouse로 원활하게 마이그레이션하는 방법을 보여줍니다.
 
 ![응용 프로그램 개요](media/event-grid-event-hubs-integration/overview.png)
 
-데이터가 이벤트 허브로 전송되면 캡처가 스트림에서 데이터를 가져온 다음 해당 데이터가 포함된 Storage Blob을 Avro 형식으로 생성합니다. 캡처는 Blob을 생성할 때 이벤트를 트리거합니다. Event Grid는 이벤트에 대한 데이터를 구독자에게 배포합니다. 이때 이벤트 데이터는 Azure Functions 끝점으로 전송됩니다. 이벤트 데이터는 생성된 Blob의 경로를 포함합니다. 함수는 해당 URL을 사용하여 파일을 검색한 다음 데이터 웨어하우스로 전송합니다.
+데이터가 이벤트 허브로 전송되면 캡처가 스트림에서 데이터를 가져온 다음 해당 데이터가 포함된 Storage Blob을 Avro 형식으로 생성합니다. 캡처는 Blob을 생성할 때 이벤트를 트리거합니다. Event Grid는 이벤트에 대한 데이터를 구독자에게 배포합니다. 이때 이벤트 데이터는 Azure Functions 엔드포인트로 전송됩니다. 이벤트 데이터는 생성된 Blob의 경로를 포함합니다. 함수는 해당 URL을 사용하여 파일을 검색한 다음 데이터 웨어하우스로 전송합니다.
 
 이 문서에서는 다음 작업을 수행합니다.
 
@@ -75,7 +75,7 @@ Event Grid는 구독자에게 이벤트 데이터를 배포합니다. 다음 예
 
 ## <a name="deploy-the-infrastructure"></a>인프라 배포
 
-이 문서의 작업을 간편하게 수행하려면 Resource Manager 템플릿을 사용하여 필요한 인프라를 배포합니다. 배포되는 리소스를 보려면 [템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json)을 확인하세요. 리소스 그룹 위치로 [지원되는 지역](overview.md) 중 하나를 사용합니다.
+이 문서의 작업을 간편하게 수행하려면 Resource Manager 템플릿을 사용하여 필요한 인프라를 배포합니다. 배포되는 리소스를 보려면 [템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json)을 확인하세요.
 
 Azure CLI의 경우 
 
