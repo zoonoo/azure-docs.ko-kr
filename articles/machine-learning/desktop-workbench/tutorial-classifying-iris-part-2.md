@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/15/2018
-ms.openlocfilehash: 77dcad0f3e49b601110f8700245aaf479bde1c4e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4f9b14762332bd11fd69a855d8fabdb206e34919
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38722782"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41917615"
 ---
 # <a name="tutorial-2-classify-iris---build-a-model"></a>자습서 2: 아이리스 분류: 모델 빌드
 Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, 실험을 개발하고, 클라우드 범위에서 모델을 배포할 수 있는 전문 데이터 과학자를 위한 데이터 과학 및 고급 분석 통합 솔루션입니다.
@@ -38,7 +38,7 @@ Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, �
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
-- Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
+- Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 - [빠른 시작](../service/quickstart-installation.md)에 설명된 대로 설치된 실험 계정 및 Azure Machine Learning Workbench
 - [자습서 1부](tutorial-classifying-iris-part-1.md)에서 준비된 아이리스 데이터 및 프로젝트
 - 로컬로 설치되고 실행되는 Docker 엔진입니다. Docker의 Community Edition은 충분합니다. Docker 설치 방법에 대해 여기서 https://docs.docker.com/engine/installation/ 알아봅니다.
@@ -442,7 +442,7 @@ Azure Machine Learning Workbench에서는 모든 스크립트 실행이 실행 �
    >IP 주소는 `vm-name.southcentralus.cloudapp.azure.com`과 같이 공개적으로 주소 지정이 가능한 FQDN(정규화된 도메인 이름)일 수도 있습니다. DSVM에 FQDN을 추가하여 IP 주소 대신 사용하는 것이 좋습니다. 비용을 절약하기 위해 특정 시점에 VM을 끌 수 있으므로 이 방법은 좋습니다. 또한 다음에 VM을 시작할 때 IP 주소가 변경되었을 수도도 있습니다.
 
    >[!NOTE]
-   >사용자 이름 및 암호 인증 외에도, `--private-key-file` 및 `--private-key-passphrase`(선택 사항) 옵션을 사용하여 개인 키와 해당 전달 구(있는 경우)를 지정할 수 있습니다.
+   >사용자 이름 및 암호 인증 외에도, `--private-key-file` 및 `--private-key-passphrase`(선택 사항) 옵션을 사용하여 개인 키와 해당 전달 구(있는 경우)를 지정할 수 있습니다. DSVM을 만들 때 사용한 개인 키를 사용하려면 `--use-azureml-ssh-key` 옵션을 지정해야 합니다.
 
    다음으로, 이 명령을 실행하여 **myvm** 계산 대상을 준비합니다.
    

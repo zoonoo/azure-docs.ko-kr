@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 08/27/2018
 ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: ed1c47830cbc4a629d827853c7d440b9bbd80d64
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 6016d6fd4dcae699efba49667676373a6586e723
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888189"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43101648"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure Stack 개발 키트 릴리스 정보  
 이러한 릴리스 정보에서는 향상 된 기능, 수정 및 Azure Stack 개발 키트의 알려진된 문제에 대 한 정보를 제공 합니다. 실행 중인 버전을 잘 모를 경우 [포털을 사용 하 여 확인](.\.\azure-stack-updates.md#determine-the-current-version)합니다.
@@ -106,6 +106,8 @@ ms.locfileid: "42888189"
 ### <a name="known-issues"></a>알려진 문제
 
 #### <a name="portal"></a>포털  
+- <!-- 2931230 – IS  ASDK --> 사용자 구독에서 해당 계획을 제거 하는 경우에는 추가 요금제는 사용자 구독에 추가 되는 계획을 삭제할 수 없습니다. 계획에는 추가 요금제를 참조 하는 구독도 삭제 될 때까지 상태로 유지 됩니다. 
+
 - <!--2760466 – IS  ASDK --> 이 버전을 실행 하는 새 Azure Stack 환경에 설치한 경우이 경고는 나타냅니다 *활성화 필요* 표시 되지 않을 수 있습니다. [활성화](.\.\azure-stack-registration.md) 마켓플레이스 배포를 사용 하려면 먼저 필요 합니다. 
 
 - <!-- TBD - IS ASDK --> 관리 구독 유형에 [1804 버전을 사용 하 여 도입 된](.\.\azure-stack-update-1804.md#new-features) 쓰일 수 없습니다. 구독 유형은 **구독을 계량**, 및 **소비 구독**합니다. 이러한 구독 유형은 **구독을 계량**, 및 **소비 구독**합니다. 이러한 구독 유형에 1804 버전부터 새 Azure Stack 환경에서 표시 되지만 아직 사용할 준비가 완료 됩니다. 계속 사용 해야 합니다 **기본 공급자 구독** 형식입니다.
@@ -251,6 +253,8 @@ ms.locfileid: "42888189"
 ### <a name="known-issues"></a>알려진 문제
 
 #### <a name="portal"></a>포털
+- <!-- 2931230 – IS  ASDK --> 사용자 구독에서 해당 계획을 제거 하는 경우에는 추가 요금제는 사용자 구독에 추가 되는 계획을 삭제할 수 없습니다. 계획에는 추가 요금제를 참조 하는 구독도 삭제 될 때까지 상태로 유지 됩니다. 
+
 - <!-- 2551834 - IS, ASDK --> 선택 하면 **개요** 관리자 또는 사용자의 정보를 포털에서 저장소 계정에 대 한 합니다 *Essentials* 창 표시 되지 않습니다.  같은 계정에 대 한 정보를 표시 하는 필수 창의 해당 *리소스 그룹*를 *위치*, 및 *구독 ID*합니다.  개요에 대 한 다른 옵션은 같은 액세스할 *서비스* 및 *모니터링*를 옵션으로 *탐색기에서 열기* 또는 *저장소 계정 삭제* .  
 
   사용할 수 없는 정보를 보려면 다음을 사용 합니다 [Get-azurermstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0) PowerShell cmdlet.

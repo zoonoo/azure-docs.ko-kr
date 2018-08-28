@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 08/27/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: f6a2b3f242e5989d0c72083eef4faad9c4798cfe
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 67e82a4809253123e15305b5f2ecd8cc5f7ee4ed
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42139580"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046853"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>Azure Stack에 Kubernetes 클러스터 배포
 
@@ -88,9 +88,9 @@ Kubernetes에서 사용할 수 있습니다.
 
 보안 주체가 리소스를 만들 수 있도록 구독에 대 한 서비스 주체 액세스를 제공 합니다.
 
-1.  에 로그인 합니다 [관리 포털](https://adminportal.local.azurestack.external)합니다.
+1.  에 로그인 합니다 [Azure Stack 포털](https://portal.local.azurestack.external/)합니다.
 
-1. 선택 **더 많은 서비스** > **사용자 구독** > **+ 추가**합니다.
+1. 선택 **더 많은 서비스** > **구독**합니다.
 
 1. 사용자가 만든 구독을 선택 합니다.
 

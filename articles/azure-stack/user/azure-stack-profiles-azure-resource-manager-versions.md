@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 08/24/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 9ba954db7003e062444e57bd56f87ff5d279b07f
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 9d33ccf9262d4432ac7255121e97f318d00b5145
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42139308"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050652"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Azure Stack의 프로필에서 지 원하는 리소스 공급자 API 버전
 
@@ -197,26 +197,26 @@ Azure Resource Manager를 사용하면 Azure 솔루션 인프라를 배포하고
 | 위임 된 공급자 | 2015-01-01 |
 | 위임 된 공급자/제안 | 2015-01-01 |
 | DelegatedProviders/offers/estimatePrice | 2015-01-01 |
-| 배포 | 2016-0209-01 |
-| 배포/작업 | 2016-0209-01 |
+| 배포 | 2016-09-01 |
+| 배포/작업 | 2016-09-01 |
 | 확장 메타 데이터 | 2015-01-01 |
 | 링크 | 2016-09-01 |
 | 위치 | 2015-01-01 |
 | 제품 | 2015-01-01 |
 | 작업 | 2015-01-01 |
-| 공급자 | 2015-012017-08-01 |
+| 공급자 | 2017-08-01 |
 | 리소스 그룹 | 2016-09-01 |
 | 리소스 | 2016-09-01 |
 | 구독 | 2016-09-01 |
 | 구독/위치 | 2016-09-01 |
 | 구독/작업 결과 | 2016-09-01 |
-| 구독/공급자 | 2015-012017-08-01 |
+| 구독/공급자 | 2017-08-01 |
 | 구독/리소스 그룹 | 2016-09-01 |
 | Subscriptions/resourceGroups/resources | 2016-09-01 |
 | 구독/리소스 | 2016-09-01 |
-| Subscriptions/tagNames | 2016-0609-01 |
-| 구독/tagNames/tagValues | 2016-0609-01 |
-| 테 넌 트 | 2015-012017-08-01 |
+| Subscriptions/tagNames | 2016-09-01 |
+| 구독/tagNames/tagValues | 2016-09-01 |
+| 테 넌 트 | 2017-08-01 |
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage 
 

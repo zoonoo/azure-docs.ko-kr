@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/27/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: abc96497c95397a6fab72672f1525462301c5cf9
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 4db0ce5e877f3054cc41e8940e8d9e672f7632c6
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414636"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43110351"
 ---
 # <a name="azure-stack-1805-update"></a>Azure Stack 1805 업데이트
 
@@ -91,6 +91,8 @@ Azure Stack 1805 업데이트 빌드 번호는 **1.1805.1.47**합니다.
 이 빌드 버전에 대 한 설치 후 알려진된 문제는 다음과 같습니다.
 
 ### <a name="portal"></a>포털  
+- <!-- 2931230 – IS  ASDK --> 사용자 구독에서 해당 계획을 제거 하는 경우에는 추가 요금제는 사용자 구독에 추가 되는 계획을 삭제할 수 없습니다. 계획에는 추가 요금제를 참조 하는 구독도 삭제 될 때까지 상태로 유지 됩니다. 
+
 - <!-- TBD - IS ASDK --> 이 버전의 Azure Stack을 사용 하 여 OEM 확장 패키지를 사용 하 여 드라이버 업데이트를 적용할 수 없습니다.  이 문제에 대 한 해결 방법은 없습니다.
 
 - <!-- 2551834 - IS, ASDK --> 선택 하면 **개요** 관리자 또는 사용자의 정보를 포털에서 저장소 계정에 대 한 합니다 *Essentials* 창 표시 되지 않습니다.  같은 계정에 대 한 정보를 표시 하는 필수 창의 해당 *리소스 그룹*를 *위치*, 및 *구독 ID*합니다.  개요에 대 한 다른 옵션은 같은 액세스할 *서비스* 및 *모니터링*를 옵션으로 *탐색기에서 열기* 또는 *저장소 계정 삭제* . 

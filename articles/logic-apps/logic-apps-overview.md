@@ -1,6 +1,6 @@
 ---
-title: Azure Logic Apps를 사용한 엔터프라이즈 통합 솔루션 | Microsoft Docs
-description: Logic Apps를 활용하여 기업 및 조직의 데이터, 서비스, 앱 및 시스템을 통합하는 자동화 워크플로 및 비즈니스 프로세스를 구축하는 방법을 알아봅니다. 데이터 통합, 시스템 통합, EAI(엔터프라이즈 응용 프로그램 통합) 및 오케스트레이션 시나리오에 대한 솔루션을 만듭니다.
+title: Azure Logic Apps를 사용한 엔터프라이즈 통합 | Microsoft Docs
+description: 이 개요에서는 기업 및 조직의 앱, 데이터, 서비스, 시스템을 통합하는 작업, 워크플로 및 비즈니스 프로세스를 자동화하여 엔터프라이즈 통합 솔루션을 빌드하는 방법을 설명합니다. 데이터 통합, 시스템 통합, EAI(엔터프라이즈 응용 프로그램 통합) 및 오케스트레이션 시나리오에 대한 솔루션을 만듭니다.
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -11,25 +11,25 @@ ms.custom: mvc
 ms.date: 6/29/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: d3640710b3ba209c8e701cf5e340103c1d3d6fa7
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: f9a59187b8de994e9ebfcab01ae2f3046f8f7971
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082222"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42022619"
 ---
 # <a name="what-is-azure-logic-apps"></a>Azure Logic Apps란?
 
-[Logic Apps](https://azure.microsoft.com/services/logic-apps)를 사용하면 작업 및 비즈니스 프로세스를 [워크플로](#logic-app-concepts)로 자동화하여 기업이나 조직에서 앱, 데이터, 시스템 및 서비스를 통합하는 솔루션을 구축할 수 있습니다. Logic Apps는 클라우드에서, 프레미스에서 또는 둘 모두에서 앱 통합, 데이터 통합, 시스템 통합, EAI(엔터프라이즈 응용 프로그램 통합), B2B(기업 간) 통신을 위한 확장성 있는 솔루션을 간편하게 디자인하고 만들 수 있는 Azure의 클라우드 서비스입니다.
+[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps)는 회사 또는 조직에서 앱, 데이터, 시스템 및 서비스를 통합해야 할 때 작업, 비즈니스 프로세스, [워크플로](#logic-app-concepts)의 자동화 및 오케스트레이션을 도와주는 클라우드 서비스입니다. Logic Apps를 사용하면 클라우드에서, 프레미스에서 또는 둘 모두에서 앱 통합, 데이터 통합, 시스템 통합, EAI(엔터프라이즈 응용 프로그램 통합), B2B(기업 간) 통신을 위한 확장성 있는 솔루션을 간편하게 디자인하고 빌드할 수 있습니다.
 
 예를 들어 다음은 논리 앱으로 자동화할 수 있는 몇 가지 워크로드의 예입니다.
 
 * 온-프레미스 시스템 및 클라우드 서비스의 주문 처리 및 라우팅.
-* 업로드된 파일을 SFTP 또는 FTP 서버에서 Azure Storage로 이동. 
 * 다양한 시스템, 앱 및 서비스에서 이벤트가 발생하면 Office 365에서 이메일 알림 전송.
+* 업로드된 파일을 SFTP 또는 FTP 서버에서 Azure Storage로 이동. 
 * 특정 주체에 대한 트윗을 모니터링하고, 감성을 분석하고, 검토할 항목에 대한 경고 또는 작업 만들기.
 
-논리 앱으로 통합 솔루션을 구축하려면 Service Bus, Functions 및 Storage와 같은 기타 Azure 서비스, SQL, Office 365, Dynamics, BizTalk, Salesforce, SAP, Oracle DB, 파일 공유를 비롯한 [200개가 넘는 커넥터](../connectors/apis-list.md)가 포함된 갤러리에서 항목을 선택합니다. 이러한 [커넥터](#logic-app-concepts)는 데이터를 실시간으로 안전하게 액세스 및 처리하는 논리 앱을 만들 수 있는 [트리거](#logic-app-concepts), [작업](#logic-app-concepts) 또는 둘 모두를 제공합니다.
+Azure Logic Apps을 사용하여 엔터프라이즈 통합 솔루션을 빌드하려는 경우 Azure Service Bus, Functions 및 Storage와 같은 Azure 서비스, SQL, Office 365, Dynamics, BizTalk, Salesforce, SAP, Oracle DB, 파일 공유를 비롯한 [200개가 넘는 커넥터](../connectors/apis-list.md)가 있고 지금도 계속 커넥터가 추가되는 갤러리에서 적합한 항목을 선택할 수 있습니다. [커넥터](#logic-app-concepts)는 데이터를 실시간으로 안전하게 액세스 및 처리하는 논리 앱을 만들 수 있는 [트리거](#logic-app-concepts), [작업](#logic-app-concepts) 또는 둘 모두를 제공합니다.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 
@@ -41,13 +41,13 @@ ms.locfileid: "37082222"
 
 ![Logic Apps 디자이너 - 예제 논리 앱](./media/logic-apps-overview/overview.png)
 
-브라우저를 통해 Azure Portal 에서 또는 Visual Studio에서 사용할 수 있는 Logic Apps 디자이너를 사용하여 논리 앱을 시각적으로 빌드할 수 있습니다. 더 많은 사용자 지정 논리 앱을 원하는 경우 "코드 보기" 모드에서 작업하여 JSON(JavaScript Object Notation)에서 논리 앱 정의를 만들거나 편집하면 됩니다. 선별된 작업에 Azure PowerShell 명령 및 Azure Resource Manager 템플릿을 사용할 수도 있습니다. 논리 앱은 Azure의 클라우드에 배포되어 실행됩니다. 자세한 내용은 [Azure Enterprise Integration Services를 사용하여 규모에 따라 클라우드 앱 실행](https://channel9.msdn.com/Events/Connect/2017/T119/) 비디오를 시청하세요.
+브라우저를 통해 Azure Portal 에서 또는 Visual Studio에서 사용할 수 있는 Logic Apps 디자이너를 사용하여 논리 앱을 시각적으로 빌드할 수 있습니다. 더 많은 사용자 지정 논리 앱을 원하는 경우 "코드 보기" 편집기에서 작업하여 JSON(JavaScript Object Notation)에서 논리 앱 정의를 만들거나 편집하면 됩니다. 선별된 작업에 Azure PowerShell 명령 및 Azure Resource Manager 템플릿을 사용할 수도 있습니다. 논리 앱은 Azure의 클라우드에 배포되어 실행됩니다. 자세한 내용은 [Azure Enterprise Integration Services를 사용하여 규모에 따라 클라우드 앱 실행](https://channel9.msdn.com/Events/Connect/2017/T119/) 비디오를 시청하세요.
 
 ## <a name="why-use-logic-apps"></a>Logic Apps를 사용하는 이유
 
 기업이 점차 디지털로 전환하는 요즘, 미리 빌드된 API를 Microsoft 관리 커넥터로 제공하는 논리 앱을 사용하면 기존 시스템과 현대식 첨단 시스템을 보다 간편하고 신속하게 연결할 수 있습니다. 사용자는 앱의 비즈니스 논리 및 기능에 집중할 수 있습니다. 앱의 빌드, 호스팅, 크기 조정, 관리, 유지 관리 및 모니터링에 대해 걱정할 필요가 없습니다. Logic Apps가 사용자 대신 이러한 문제를 처리합니다. 뿐만 아니라, 사용량 [가격 책정 모델](../logic-apps/logic-apps-pricing.md)에 따라 사용한 만큼만 요금을 지불하면 됩니다. 
 
-대부분의 경우 코드를 작성할 필요가 없습니다. 코드를 작성해야 하는 경우에도 [Azure Functions](../azure-functions/functions-overview.md)로 코드를 만들고 논리 앱에서 요청 시 해당 코드를 실행할 수 있습니다. 또한 논리 앱이 Azure 서비스, 사용자 지정 앱 또는 타사 솔루션의 이벤트와 상호 작용해야 하는 경우 [Azure Event Grid](../event-grid/overview.md)를 논리 앱과 함께 사용하여 이벤트를 모니터링, 라우팅 및 게시할 수 있습니다.
+대부분의 경우 코드를 작성할 필요가 없습니다. 코드를 작성해야 하는 경우에도 [Azure Functions](../azure-functions/functions-overview.md)로 코드를 만들고 논리 앱에서 요청 시 해당 코드를 실행할 수 있습니다. 또한 논리 앱이 Azure 서비스, 사용자 지정 앱 또는 기타 솔루션의 이벤트와 상호 작용해야 하는 경우 [Azure Event Grid](../event-grid/overview.md)를 논리 앱과 함께 사용하여 이벤트를 모니터링, 라우팅 및 게시할 수 있습니다.
 
 Logic Apps, Functions 및 Event Grid는 솔루션의 빌드, 호스팅, 크기 조정, 관리, 모니터링 및 유지 관리에 대해 걱정할 필요가 없는 Microsoft Azure를 통해 완벽하게 관리됩니다. ["서버 없는" 앱 및 솔루션](../logic-apps/logic-apps-serverless-overview.md)을 만드는 기능이 제공되므로 비즈니스 논리에만 집중할 수 있습니다. 이러한 서비스는 요구 사항을 충족하고, 신속하게 통합되고, 최소의 코드로 강력한 클라우드 앱을 빌드할 수 있도록 자동으로 크기가 조정됩니다. 뿐만 아니라, 사용량 [가격 책정 모델](../logic-apps/logic-apps-pricing.md)에 따라 사용한 만큼만 요금을 지불하면 됩니다. 
 
@@ -76,9 +76,9 @@ Logic Apps의 기능 및 장점에 대한 자세한 내용은 다음과 같습�
 * 다음 제품 및 서비스 빌드:
 
   * [Microsoft BizTalk Server](https://docs.microsoft.com/biztalk/core/introducing-biztalk-server)
+  * [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
   * [Azure 기능](../azure-functions/functions-overview.md)
   * [Azure API Management](../api-management/api-management-key-concepts.md)
-  * [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
 * [XML 메시지](../logic-apps/logic-apps-enterprise-integration-xml.md) 처리
 * [플랫 파일](../logic-apps/logic-apps-enterprise-integration-flatfile.md) 처리
@@ -90,7 +90,7 @@ Logic Apps의 기능 및 장점에 대한 자세한 내용은 다음과 같습�
   * [XML 변환 맵](../logic-apps/logic-apps-enterprise-integration-maps.md)
   * [XML 유효성 검사 스키마](../logic-apps/logic-apps-enterprise-integration-schemas.md)
    
-예를 들어 Microsoft BizTalk Server를 사용하는 경우 [BizTalk Server 커넥터](../connectors/apis-list.md#on-premises-connectors)를 사용하여 논리 앱을 연결하고 BizTalk Server와 통신할 수 있습니다. 그런 다음, 엔터프라이즈 통합 팩에 제공되는 [통합 계정 커넥터](../connectors/apis-list.md#integration-account-connectors)를 포함하면 논리 앱에서 BizTalk와 같은 작업을 수행하거나 확장할 수 있습니다. 
+예를 들어 Microsoft BizTalk Server를 사용하는 경우 논리 앱은 [BizTalk Server 커넥터](../connectors/apis-list.md#on-premises-connectors)를 사용하여 BizTalk Server와 통신할 수 있습니다. 그런 다음, 엔터프라이즈 통합 팩에 제공되는 [통합 계정 커넥터](../connectors/apis-list.md#integration-account-connectors)를 포함하면 논리 앱에서 BizTalk와 같은 작업을 수행하거나 확장할 수 있습니다. 
 
 다른 방향으로 이동하여 [Logic Apps용 Microsoft BizTalk Server 어댑터](https://www.microsoft.com/download/details.aspx?id=54287)를 사용하면 BizTalk Server를 논리 앱에 연결하고 통신할 수 있습니다. BizTalk Server에서 [BizTalk Server 어댑터를 설정하고 사용](https://docs.microsoft.com/biztalk/core/logic-app-adapter)하는 방법을 알아보세요.
 
