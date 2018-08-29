@@ -4,18 +4,17 @@ description: ABFS Hadoop 파일 시스템 드라이버
 services: storage
 keywords: ''
 author: jamesbak
-manager: jahogg
 ms.topic: article
 ms.author: jamesbak
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: e92c4efba29f1c40f6d4cb155974ca3a896796e5
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: dedf398064dd0a49e5691e952ea7c9b6d16e34fd
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114336"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42144056"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob 파일 시스템 드라이버(ABFS): Hadoop 전용 Azure Storage 드라이버
 
@@ -23,9 +22,7 @@ Azure Data Lake Storage Gen2 미리 보기에서 데이터에 대한 기본 액�
 
 ## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>이전 기능: Windows Azure Storage Blob 드라이버
 
-Windows Azure Storage Blob 드라이버 또는 [WASB 드라이버](https://hadoop.apache.org/docs/current/hadoop-azure/index.html)는 Azure Storage Blob에 대해 원래 지원을 제공했습니다. 이 드라이버는 파일 시스템 의미 체계를 Azure Blob Storage에서 공개한 개체 저장소 스타일 인터페이스의 드라이버에 매핑하는 복잡한 작업(Hadoop 파일 시스템 인터페이스에서 요구하는 대로)을 수행하였습니다. 이 드라이버는 이 모델을 계속 지원하면서 Blob에 저장된 데이터에 대한 고성능 액세스를 제공하지만 이 매핑을 수행하는 상당한 양의 코드를 담고 있어 유지하기가 어렵습니다. 또한 [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) 및 [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) 같은 몇몇 작업은 디렉터리에 적용될 때 개체 저장소의 디렉터리에 대한 지원이 부족하기 때문에 드라이버가 방대한 수의 작업을 수행하도록 요구해 종종 성능 저하로 이어집니다.
-
-따라서 WASB의 내재된 디자인 결함을 극복하기 위해 새 Azure Data Lake Storage 서비스가 새 ABFS 드라이버의 지원으로 구현됐습니다.
+Windows Azure Storage Blob 드라이버 또는 [WASB 드라이버](https://hadoop.apache.org/docs/current/hadoop-azure/index.html)는 Azure Storage Blob에 대해 원래 지원을 제공했습니다. 이 드라이버는 파일 시스템 의미 체계를 Azure Blob Storage에서 공개한 개체 저장소 스타일 인터페이스의 드라이버에 매핑하는 복잡한 작업(Hadoop 파일 시스템 인터페이스에서 요구하는 대로)을 수행하였습니다. 이 드라이버는 이 모델을 계속 지원하면서 Blob에 저장된 데이터에 대한 고성능 액세스를 제공하지만 이 매핑을 수행하는 상당한 양의 코드를 담고 있어 유지하기가 어렵습니다. 또한 [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) 및 [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) 같은 몇몇 작업은 디렉터리에 적용될 때 개체 저장소의 디렉터리에 대한 지원이 부족하기 때문에 드라이버가 방대한 수의 작업을 수행하도록 요구해 종종 성능 저하로 이어집니다. 새 Azure Data Lake Storage 서비스는 WASB의 고유한 결함을 해결하도록 설계되었습니다.
 
 ## <a name="the-azure-blob-file-system-driver"></a>Azure Blob 파일 시스템 드라이버
 
@@ -48,7 +45,11 @@ hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows
 
 ### <a name="authentication"></a>인증
 
-ABFS 드라이버는 현재 공유 키 인증을 지원하므로 Hadoop 응용 프로그램은 Data Lake Storage Gen2 내에 포함된 리소스에 안전하게 액세스할 수 있습니다. 키는 암호화되어 Hadoop 구성에 저장됩니다.
+ABFS 드라이버는 두 가지 형식의 인증을 지원하므로 Hadoop 응용 프로그램은 Data Lake Storage Gen2 지원 계정 내에 포함된 리소스에 안전하게 액세스할 수 있습니다. 사용 가능한 인증 체계의 전체 세부 정보는 [Azure Storage 보안 가이드](../common/storage-security-guide.md)에 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
+
+- **공유 키:** 이렇게 하면 사용자가 계정의 모든 리소스에 액세스할 수 있습니다. 키는 암호화되어 Hadoop 구성에 저장됩니다.
+
+- **Azure Active Directory OAuth 전달자 토큰:** Azure AD 전달자 토큰은 최종 사용자의 ID 또는 구성된 서비스 주체를 사용하여 드라이버에서 획득되고 새로 고쳐집니다. 이 인증 모델을 사용하면 모든 액세스 권한은 할당된 POSIX ACL(액세스 제어 목록)에 대해 평가되고 제공된 토큰과 연결된 ID를 사용하여 호출당 기준으로 부여됩니다.
 
 ### <a name="configuration"></a>구성
 

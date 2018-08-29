@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 05/30/2018
+ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6d8d911acf3e3eff2cf3340972b9b77a10be0a5f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 79bdab4c7a867117f6473864f1654f77603f7b26
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "35640693"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42144267"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: 설계 개념
 이 문서에서는 Azure AD Connect의 설계를 구현하는 중에 고려해야 할 영역을 설명합니다. 이 문서는 특정 영역을 심층 분석하고 이 개념을 다른 문서에서처럼 간단히 설명합니다.
@@ -72,20 +72,20 @@ sourceAnchor 특성값은 개체가 Azure AD에 생성되고 ID가 동기화된 
 * 다른 Azure AD Connect 서버를 설치한 경우 이전에 사용했던 동일한 sourceAnchor 특성을 선택해야만 합니다. 이전부터 DirSync를 사용했으며 Azure AD Connect로 이동한 경우 DirSync에서 사용했던 특성이므로 **objectGUID** 를 사용해야 합니다.
 * 개체를 Azure AD로 내보낸 후 sourceAnchor 값이 변경된 경우 Azure AD Connect 동기화는 오류가 발생하고 문제가 해결되거나 sourceAnchor를 소스 디렉터리에 원상 복귀시키기 전까지는 어떠한 변경도 허용하지 않습니다.
 
-## <a name="using-msds-consistencyguid-as-sourceanchor"></a>msDS-ConsistencyGuid를 sourceAnchor로 사용
-기본적으로 Azure AD Connect(버전 1.1.486.0 이상)는 objectGUID를 sourceAnchor 특성으로 사용합니다. ObjectGUID는 시스템에서 생성됩니다. 온-프레미스 AD 개체를 만들 때는 해당 값을 지정할 수 없습니다. [sourceAnchor](#sourceanchor) 섹션에서 설명한 대로 sourceAnchor 값을 지정해야 하는 시나리오가 있습니다. 시나리오를 적용할 수 있는 경우 구성 가능한 AD 특성(예: msDS-ConsistencyGuid)을 sourceAnchor 특성으로 사용해야 합니다.
+## <a name="using-ms-ds-consistencyguid-as-sourceanchor"></a>ms-DS-ConsistencyGuid를 sourceAnchor로 사용
+기본적으로 Azure AD Connect(버전 1.1.486.0 이상)는 objectGUID를 sourceAnchor 특성으로 사용합니다. ObjectGUID는 시스템에서 생성됩니다. 온-프레미스 AD 개체를 만들 때는 해당 값을 지정할 수 없습니다. [sourceAnchor](#sourceanchor) 섹션에서 설명한 대로 sourceAnchor 값을 지정해야 하는 시나리오가 있습니다. 시나리오를 적용할 수 있는 경우 구성 가능한 AD 특성(예: ms-DS-ConsistencyGuid)을 sourceAnchor 특성으로 사용해야 합니다.
 
-Azure AD Connect(버전 1.1.524.0 이상)는 이제 msDS-ConsistencyGuid를 sourceAnchor 특성으로 더 쉽게 사용할 수 있게 합니다. 이 기능을 사용하면 Azure AD Connect에서 동기화 규칙을 다음과 같이 자동으로 구성합니다.
+Azure AD Connect(버전 1.1.524.0 이상)는 이제 ms-DS-ConsistencyGuid를 sourceAnchor 특성으로 더 쉽게 사용할 수 있게 합니다. 이 기능을 사용하면 Azure AD Connect에서 동기화 규칙을 다음과 같이 자동으로 구성합니다.
 
-1. User 개체에 대한 sourceAnchor 특성으로 msDS-ConsistencyGuid를 사용합니다. ObjectGUID는 다른 개체 형식에 사용됩니다.
+1. User 개체에 대한 sourceAnchor 특성으로 ms-DS-ConsistencyGuid를 사용합니다. ObjectGUID는 다른 개체 형식에 사용됩니다.
 
-2. msDS-ConsistencyGuid 특성이 채워지지 않은 지정된 모든 온-프레미스 AD User 개체의 경우 Azure AD Connect는 해당 objectGUID 값을 온-프레미스 Active Directory의 msDS-ConsistencyGuid 특성에 다시 씁니다. msDS-ConsistencyGuid 특성이 채워지면 Azure AD Connect는 개체를 Azure AD로 내보냅니다.
+2. ms-DS-ConsistencyGuid 특성이 채워지지 않은 지정된 모든 온-프레미스 AD User 개체의 경우 Azure AD Connect는 해당 objectGUID 값을 온-프레미스 Active Directory의 ms-DS-ConsistencyGuid 특성에 다시 씁니다. ms-DS-ConsistencyGuid 특성이 채워지면 Azure AD Connect는 개체를 Azure AD로 내보냅니다.
 
 >[!NOTE]
-> 온-프레미스 AD 개체를 Azure AD Connect로 가져오면(즉, AD 커넥터 공간으로 가져와서 메타버스에 투영하면) sourceAnchor 값을 더 이상 변경할 수 없습니다. 지정된 온-프레미스 AD 개체에 대한 sourceAnchor 값을 지정하려면 Azure AD Connect로 가져오기 전에 해당 msDS-ConsistencyGuid 특성을 구성합니다.
+> 온-프레미스 AD 개체를 Azure AD Connect로 가져오면(즉, AD 커넥터 공간으로 가져와서 메타버스에 투영하면) sourceAnchor 값을 더 이상 변경할 수 없습니다. 지정된 온-프레미스 AD 개체에 대한 sourceAnchor 값을 지정하려면 Azure AD Connect로 가져오기 전에 해당 ms-DS-ConsistencyGuid 특성을 구성합니다.
 
 ### <a name="permission-required"></a>필요한 권한
-이 기능을 사용하려면 온-프레미스 Active Directory와 동기화하는 데 사용되는 AD DS 계정에 온-프레미스 Active Directory의 msDS-ConsistencyGuid 특성에 대한 쓰기 권한을 부여해야 합니다.
+이 기능을 사용하려면 온-프레미스 Active Directory와 동기화하는 데 사용되는 AD DS 계정에 온-프레미스 Active Directory의 ms-DS-ConsistencyGuid 특성에 대한 쓰기 권한을 부여해야 합니다.
 
 ### <a name="how-to-enable-the-consistencyguid-feature---new-installation"></a>ConsistencyGuid 기능을 사용하도록 설정하는 방법 - 새로 설치
 새로 설치하는 동안 sourceAnchor로 ConsistencyGuid 사용을 설정할 수 있습니다. 이 섹션에서는 기본 설치 및 사용자 지정 설치를 자세히 설명합니다.
@@ -104,7 +104,7 @@ Azure AD Connect를 기본 모드로 설치하는 경우 Azure AD Connect 마법
   >[!NOTE]
   > 최신 버전의 Azure AD Connect(1.1.524.0 이상)만 설치하는 동안 사용된 sourceAnchor 특성에 대한 정보를 Azure AD 테넌트에 저장합니다. 이전 버전의 Azure AD Connect는 그렇지 않습니다.
 
-* 사용되는 sourceAnchor 특성에 대한 정보를 사용할 수 없는 경우 마법사는 온-프레미스 Active Directory의 msDS-ConsistencyGuid 특성의 상태를 확인합니다. 특성이 디렉터리에 있는 모든 개체에 구성되어 있지 않으면, 마법사에서 msDS-ConsistencyGuid를 sourceAnchor 특성으로 사용합니다. 특성이 디렉터리에 있는 하나 이상의 개체에 구성되어 있으면, 마법사에서 특성이 다른 응용 프로그램에서 사용되고 있으며 sourceAnchor 특성으로 적합하지 않다고 결정합니다.
+* 사용되는 sourceAnchor 특성에 대한 정보를 사용할 수 없는 경우 마법사는 온-프레미스 Active Directory의 ms-DS-ConsistencyGuid 특성의 상태를 확인합니다. 특성이 디렉터리에 있는 모든 개체에 구성되어 있지 않으면, 마법사는 ms-DS-ConsistencyGuid를 sourceAnchor 특성으로 사용합니다. 특성이 디렉터리에 있는 하나 이상의 개체에 구성되어 있으면, 마법사에서 특성이 다른 응용 프로그램에서 사용되고 있으며 sourceAnchor 특성으로 적합하지 않다고 결정합니다.
 
 * 이 경우 마법사는 objectGUID를 sourceAnchor 특성으로 사용합니다.
 
@@ -140,7 +140,7 @@ Source Anchor 특성으로 objectGUID에서 ConsistencyGuid로 전환하려면:
 
 3. Azure AD 관리자 자격 증명을 입력하고 **다음**을 클릭합니다.
 
-4. Azure AD Connect 마법사에서 온-프레미스 Active Directory의 msDS-ConsistencyGuid 특성 상태를 분석합니다. 특성이 디렉터리의 개체에서 구성되지 않는 경우 Azure AD Connect는 다른 응용 프로그램이 현재 특성을 사용하지 않고 있으며 Source Anchor 특성으로 사용하는 데 안전하다고 판단합니다. **다음**을 클릭하여 계속합니다.
+4. Azure AD Connect 마법사는 온-프레미스 Active Directory의 ms-DS-ConsistencyGuid 특성 상태를 분석합니다. 특성이 디렉터리의 개체에서 구성되지 않는 경우 Azure AD Connect는 다른 응용 프로그램이 현재 특성을 사용하지 않고 있으며 Source Anchor 특성으로 사용하는 데 안전하다고 판단합니다. **다음**을 클릭하여 계속합니다.
 
    ![기존 배포에 대해 ConsistencyGuid 사용 - 4단계](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment02.png)
 
@@ -148,7 +148,7 @@ Source Anchor 특성으로 objectGUID에서 ConsistencyGuid로 전환하려면:
 
    ![기존 배포에 대해 ConsistencyGuid 사용 - 5단계](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment03.png)
 
-6. 구성이 완료되면 마법사는 msDS-ConsistencyGuid가 Source Anchor 특성으로 사용되고 있음을 나타냅니다.
+6. 구성이 완료되면 마법사는 ms-DS-ConsistencyGuid가 Source Anchor 특성으로 사용되고 있음을 나타냅니다.
 
    ![기존 배포에 대해 ConsistencyGuid 사용 - 6단계](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment04.png)
 
@@ -170,7 +170,7 @@ Azure AD Connect 외부에서 AD FS를 관리하거나 타사 페더레이션 �
 ![타사 페더레이션 구성](./media/active-directory-aadconnect-design-concepts/consistencyGuid-03.png)
 
 ### <a name="adding-new-directories-to-existing-deployment"></a>기존 배포에 새 디렉터리 추가
-활성화된 ConsistencyGuid 기능으로 Azure AD Connect를 배포한 후에 이제 다른 디렉터리를 배포에 추가하려고 한다고 가정합니다. 디렉터리를 추가하려고 하는 경우 Azure AD Connect 마법사에서 디렉터리의 mSDS-ConsistencyGuid 특성 상태를 확인합니다. 특성이 디렉터리에 있는 하나 이상의 개체에 구성되어 있으면, 마법사에서 특성이 다른 응용 프로그램에서 사용되고 있다고 결정하고 아래 그림과 같은 오류를 반환합니다. 기존 응용 프로그램에서 특성을 사용하지 않는다고 확신하는 경우, 오류를 표시하지 않는 방법에 대한 정보를 얻기 위해 지원에 문의해야 합니다.
+활성화된 ConsistencyGuid 기능으로 Azure AD Connect를 배포한 후에 이제 다른 디렉터리를 배포에 추가하려고 한다고 가정합니다. 디렉터리를 추가하려고 하는 경우 Azure AD Connect 마법사에서 디렉터리의 ms-DS-ConsistencyGuid 특성 상태를 확인합니다. 특성이 디렉터리에 있는 하나 이상의 개체에 구성되어 있으면, 마법사에서 특성이 다른 응용 프로그램에서 사용되고 있다고 결정하고 아래 그림과 같은 오류를 반환합니다. 기존 응용 프로그램에서 특성을 사용하지 않는다고 확신하는 경우, 오류를 표시하지 않는 방법에 대한 정보를 얻기 위해 지원에 문의해야 합니다.
 
 ![기존 배포에 새 디렉터리 추가](./media/active-directory-aadconnect-design-concepts/consistencyGuid-04.png)
 

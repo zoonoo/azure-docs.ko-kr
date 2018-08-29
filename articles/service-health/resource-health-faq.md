@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 03/27/2018
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 2a0758f5db381f721120cbc1c018a491c018aa8d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 1e22c62c291909bb4079ebaf389cfbd15ae9d8d5
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30264237"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42143507"
 ---
 # <a name="azure-resource-health-faq"></a>Azure Resource Health FAQ
 Azure Resource Health에 대해 자주 묻는 질문과 답변에 대해 알아보세요.
@@ -62,7 +62,7 @@ Resource Health 블레이드에서 지원 요청을 제출할 수 있습니다. 
 ## <a name="where-do-i-find-resource-health"></a>Resource Health는 어디서 찾을 수 있나요?
 Azure Portal에 로그인하면 여러 가지 방법으로 Resource Health에 액세스할 수 있습니다.
 - 리소스로 이동합니다. 왼쪽 탐색에서 **Resource Health**를 선택합니다.
-- Azure Monitor 블레이드로 이동합니다.  왼쪽 탐색에서 **Resource Health**를 선택합니다.
+- Azure Service Health 블레이드로 이동합니다.  왼쪽 탐색에서 **Resource Health**를 선택합니다.
 - 포털 오른쪽 위 모서리에서 물음표를 선택하고 **도움말 + 지원**을 선택하여 **도움말 + 지원** 블레이드를 엽니다. 블레이드가 열리면 **Resource Health**를 선택합니다.
 
 Resource Health API를 사용하여 리소스 상태에 대한 정보를 얻을 수도 있습니다.
@@ -76,7 +76,7 @@ Resource Health를 통해 지원되는 상태 검사 및 리소스 유형 목록
 ## <a name="is-resource-health-available-for-all-azure-regions"></a>모든 Azure 지역에서 Resource Health가 제공되나요? 
 리소스 상태는 다음 지역을 제외한 모든 Azure 지역 간에 제공됩니다.
 - 미국 정부 버지니아
-- 미국 정부 아이오와
+- 미국 아이오와 주 정부
 - 미국 국방부 동부
 - 미국 국방부 중부
 - 독일 중부
@@ -93,7 +93,7 @@ Resource Health에서 제공하는 정보는 Azure 상태 또는 Service Health 
 아니요, 상태 정보는 Resource Health를 통해 제공되는 모든 리소스 유형에 대해 사용 가능합니다. 
 
 ## <a name="do-we-need-to-enable-resource-health-for-my-organization"></a>내 조직에 대한 Resource Health를 활성화해야 하나요?
-번호  Azure Resource Health는 어떠한 설정 없이도 Azure Portal 내에서 액세스 가능합니다.
+아니요.  Azure Resource Health는 어떠한 설정 없이도 Azure Portal 내에서 액세스 가능합니다.
 
 ## <a name="is-resource-health-available-free-of-charge"></a>Resource Health는 비용 없이 제공되나요?
 예.  Azure Resource Health에는 비용이 없습니다.

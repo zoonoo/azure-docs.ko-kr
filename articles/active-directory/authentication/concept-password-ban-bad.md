@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: dfeacb266d6aa6a43e49a39bd19c9699ef65ce82
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 1ad499e2703ff8376c063d933c0cc1f03765fc23
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162017"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42140308"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>조직에서 잘못된 암호 제거
 
@@ -54,11 +54,10 @@ Microsoft는 항상 한 발 앞서 사이버 범죄에 대처하려고 합니다
 
 ## <a name="license-requirements"></a>라이선스 요구 사항
 
-전역 금지 암호 목록의 이점은 Azure AD(Azure Active Directory)의 모든 사용자에게 적용됩니다.
-
-사용자 지정 금지 암호 목록에는 Azure AD Basic 라이선스가 필요합니다.
-
-Windows Server Active Directory용 Azure AD 암호 보호에는 Azure AD Premium 라이선스가 필요합니다. 
+|   | 전역 금지 암호 목록을 사용하여 Azure AD 암호 보호 | 사용자 지정 금지 암호 목록을 사용하여 Azure AD 암호 보호|
+| --- | --- | --- |
+| 클라우드 전용 사용자 | Azure AD Free | Azure AD Basic |
+| 온-프레미스 Windows Server Active Directory에서 동기화된 사용자 | Azure AD Premium P1 또는 P2 | Azure AD Premium P1 또는 P2 |
 
 비용을 비롯한 추가 라이선스 정보는 [Azure Active Directory 가격 책정 사이트](https://azure.microsoft.com/pricing/details/active-directory/)에서 확인할 수 있습니다.
 

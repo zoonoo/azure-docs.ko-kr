@@ -12,14 +12,14 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2016
+ms.date: 08/08/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: a5ca615d984d07513b12399b6f7e7901490f2e41
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: a1b2d68a4a9433dc5c68d65552bf6bd509463958
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298834"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42143506"
 ---
 # <a name="decode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에 대한 AS2 메시지 디코딩 
 
@@ -67,6 +67,7 @@ ms.locfileid: "35298834"
 
     ![요청 출력에서 본문 및 헤더를 선택합니다.](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage5.png) 
 
+
 ## <a name="as2-decoder-details"></a>AS2 디코더 세부 정보
 
 AS2 디코딩 커넥터는 다음과 같은 태스크를 수행합니다. 
@@ -75,6 +76,7 @@ AS2 디코딩 커넥터는 다음과 같은 태스크를 수행합니다.
 * 서명 확인(구성된 경우)
 * 메시지 암호 해독(구성된 경우)
 * 메시지 압축 해제(구성된 경우)
+* 메시지 ID 중복 확인 및 허용 안 함(구성된 경우)
 * 원본 아웃바운드 메시지와 함께 수신된 MDN 조정
 * 부인 방지 데이터베이스에서 레코드 업데이트 및 연결
 * AS2 상태 보고에 대한 레코드 작성
@@ -82,6 +84,13 @@ AS2 디코딩 커넥터는 다음과 같은 태스크를 수행합니다.
 * MDN이 필요한지 여부 및 MDN을 AS2 규약의 구성에 따라 동기화해야 하는지 또는 비동기화해야 하는지 결정
 * (규약 구성에 따라)동기 또는 비동기 MDN 생성
 * MDN에 대한 상관 관계 토큰과 속성 설정
+
+
+  > [!NOTE]
+  > 인증서 관리에 Azure Key Vault를 사용하는 경우 **암호 해독** 작업을 허용하도록 키를 구성해야 합니다.
+  > 그렇지 않으면 AS2 디코딩에 실패합니다.
+  >
+  > ![Keyvault 암호 해독](media/logic-apps-enterprise-integration-as2-decode/keyvault1.png)
 
 ## <a name="try-this-sample"></a>이 샘플 사용해보기
 

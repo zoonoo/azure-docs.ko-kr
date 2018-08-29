@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2016
 ms.author: yushwang
-ms.openlocfilehash: 3708a2f7c445a161f02416cf8427b1707e1db8f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c510bb060d5c0dc866c3802fab751c1cbeff3745
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23126311"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42145784"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>항상 사용 가능한 크로스-프레미스 및 VNet 간 연결
 이 문서에서는 Azure VPN Gateway를 사용하여 크로스-프레미스 및 VNet 간 연결에 대해 항상 사용 가능한 구성 옵션의 개요를 제공합니다.
@@ -44,7 +44,7 @@ ms.locfileid: "23126311"
 
 이 구성은 동일한 위치에 있는 동일한 Azure VPN Gateway에서 온-프레미스 장치에 여러 활성 터널을 제공합니다. 요구 사항 및 제약 조건은 다음과 같습니다.
 
-1. VPN 장치에서 Azure에 여러 S2S VPN 연결을 만들어야 합니다. 동일한 온-프레미스 네트워크에서 Azure에 여러 VPN 장치를 연결하면 각 VPN 장치에 하나의 로컬 네트워크 게이트웨이를 만들고 Azure VPN Gateway에서 로컬 네트워크 게이트웨이에 하나의 연결을 만들어야 합니다.
+1. VPN 장치에서 Azure에 여러 S2S VPN 연결을 만들어야 합니다. 동일한 온-프레미스 네트워크에서 Azure에 여러 VPN 장치를 연결하면 각 VPN 장치에 하나의 로컬 네트워크 게이트웨이를 만들고 Azure VPN Gateway에서 각 로컬 네트워크 게이트웨이에 하나의 연결을 만들어야 합니다.
 2. VPN 장치에 해당하는 로컬 네트워크 게이트웨이는 "GatewayIpAddress" 속성에 고유한 공용 IP 주소가 있어야 합니다.
 3. BGP가 이 구성에 필요합니다. VPN 장치를 나타내는 각 로컬 네트워크 게이트웨이에는 "BgpPeerIpAddress" 속성에 지정된 고유한 BGP 피어링 IP 주소가 있어야 합니다.
 4. 각 로컬 네트워크 게이트웨이에서 AddressPrefix 속성 필드는 겹치지 않아야 합니다. AddressPrefix 필드에서 /32 CIDR 형식인 "BgpPeerIpAddress"를 10.200.200.254/32와 같이 지정해야 합니다.

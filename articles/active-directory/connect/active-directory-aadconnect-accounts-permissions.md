@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cfb6fb512ecb7d57cf411a31b2e04726bfc4b743
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: a628e28e9e6bd603fb2a3789c3281bc2181c91fe
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263405"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42141742"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: 계정 및 사용 권한
 
@@ -121,7 +121,7 @@ DirSync에서 업그레이드하는 경우 AD DS Enterprise 관리자 자격 증
 
 | 기능 | 권한 |
 | --- | --- |
-| msDS-ConsistencyGuid 기능 |[디자인 개념 - msDS-ConsistencyGuid를 sourceAnchor로 사용](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor)에서 설명하는 msDS-ConsistencyGuid 특성에 대한 쓰기 권한 | 
+| ms-DS-ConsistencyGuid 기능 |[디자인 개념 - ms-DS-ConsistencyGuid를 sourceAnchor로 사용](active-directory-aadconnect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor)에서 설명하는 ms-DS-ConsistencyGuid 특성에 대한 쓰기 권한. | 
 | 암호 해시 동기화 |<li>디렉터리 변경 내용 복제</li>  <li>모든 디렉터리 변경 내용 복제 |
 | Exchange 하이브리드 배포 |사용자, 그룹 및 연락처에 대한 [Exchange 하이브리드 쓰기 저장](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback)에 설명된 특성에 사용 권한을 작성합니다. |
 | Exchange 메일 공용 폴더 |공용 폴더의 [Exchange Mail 공용 폴더](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder)에서 설명하는 특성에 대한 읽기 권한 | 

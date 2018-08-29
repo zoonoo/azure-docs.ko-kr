@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 8c0810c4a1b92f14e510d005eaf1b6945a058dd7
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 54e6b4f5804e7390b7574aa60b4d3a76df15da11
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413106"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42139902"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>작동 방식: Azure AD SSPR(셀프 서비스 암호 재설정)
 
@@ -94,6 +94,9 @@ Microsoft Authenticator 앱과 같은 모바일 앱을 암호 재설정 방법�
 | 모바일 앱 기능 사용 가능 | 코드 | 코드 또는 알림 |
 
 사용자에게는 [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)에서 셀프 서비스 암호 재설정 등록을 위해 모바일 앱을 등록할 수 있는 옵션이 없습니다. 사용자는 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에서 또는 [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo)의 새로운 보안 정보 등록 미리 보기에서 자신의 모바일 앱을 등록할 수 있습니다.
+
+> [!WARNING]
+> 사용자가 [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo)에서 새 환경에 액세스할 수 있으려면 [셀프 서비스 암호 재설정 및 Azure Multi-Factor Authentication에 대한 등록 수렴(공개 미리 보기)](concept-registration-mfa-sspr-converged.md)를 사용하도록 설정해야 합니다.
 
 ### <a name="change-authentication-methods"></a>인증 방법 변경
 

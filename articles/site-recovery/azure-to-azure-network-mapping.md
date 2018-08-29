@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: 7b7f9c079a1fc9d74fed4cc4d94d37f336ca5dc7
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: aed804a257376308c668ce0c2f3e8ce652ee9b3f
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916743"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42140304"
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>다른 Azure 지역에 있는 가상 네트워크 매핑
 
@@ -88,16 +88,36 @@ ms.locfileid: "37916743"
 ### <a name="static-ip-address"></a>고정 IP 주소
 원본 가상 머신의 네트워크 인터페이스에서 고정 IP 주소를 사용하는 경우 대상 가상 머신의 네트워크 인터페이스도 고정 IP 주소를 사용하도록 설정됩니다. 다음 섹션에서는 고정 IP 주소를 설정하는 방법에 대해 설명합니다.
 
-#### <a name="same-address-space"></a>동일한 주소 공간
+### <a name="ip-assignment-behavior-during-failover"></a>장애 조치(Failover) 중 IP 할당 동작
+#### <a name="1-same-address-space"></a>1. 동일한 주소 공간
 
 원본 서브넷과 대상 서브넷에 동일한 주소 공간이 있는 경우 원본 가상 머신의 네트워크 인터페이스 IP 주소를 대상 IP로 설정합니다. 동일한 IP 주소를 사용할 수 없는 경우 다음으로 사용 가능한 IP 주소를 대상 IP 주소로 설정합니다.
 
-#### <a name="different-address-spaces"></a>다른 주소 공간
+#### <a name="2-different-address-spaces"></a>2. 다른 주소 공간
 
 원본 서브넷과 대상 서브넷에 주소 공간이 다른 경우 대상 서브넷의 다음으로 사용 가능한 IP 주소를 대상 IP 주소로 설정합니다.
 
-각 네트워크 인터페이스의 대상 IP를 수정하려면 가상 머신의 **계산 및 네트워크** 설정으로 이동합니다.
 
+### <a name="ip-assignment-behavior-during-test-failover"></a>테스트 장애 조치(Failover) 중 IP 할당 동작
+#### <a name="1-if-the-target-network-chosen-is-the-production-vnet"></a>1. 선택한 대상 네트워크가 프로덕션 vNet인 경우
+- 복구 IP(대상 IP)는 고정 IP가 되지만 장애 조치(Failover)용으로 예약된 **IP 주소와 동일하지 않습니다**.
+- 할당된 IP 주소는 서브넷 주소 범위 끝에서부터 사용 가능한 다음 IP가 됩니다.
+- 예를 들어, 원본 VM 고정 IP가 10.0.0.19로 구성되고 구성된 프로덕션 네트워크 ***dr-PROD-nw***, 서브넷 범위 10.0.0.0/24를 사용하여 테스트 장애 조치(Failover)가 시도되면 </br>
+장애 조치(Failover)된 VM에는 서브넷 주소 범위의 끝에서부터 사용 가능한 다음 IP인 10.0.0.254가 할당됩니다. </br>
+
+**참고:** 용어 **프로덕션 vNet**은 재해 복구 구성 동안 매핑되는 '대상 네트워크'를 나타냅니다.
+####<a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. 선택한 대상 네트워크가 프로덕션 vNet이 아니지만 프로덕션 네트워크와 동일한 서브넷 범위에 있는 경우 
+
+- 복구 IP(대상 IP)는 장애 조치(Failover)용으로 예약된 **IP 주소(예: 구성된 고정 IP 주소)와 동일한** 고정 IP가 됩니다. 단, 동일한 IP 주소가 사용 가능해야 합니다.
+- 구성된 고정 IP가 이미 일부 다른 VM/장치에 할당되면 복구 IP는 서브넷 주소 범위의 끝에서부터 사용 가능한 다음 IP가 됩니다.
+- 예를 들어, 원본 VM 고정 IP가 10.0.0.19로 구성되고 테스트 네트워크 ***dr-NON-PROD-nw***, 프로덕션 네트워크와 동일한 서브넷 범위 10.0.0.0/24를 사용하여 테스트 장애 조치(Failover)가 시도되면 </br>
+  장애 조치(Failover)된 VM에는 다음 고정 IP가 할당됩니다. </br>
+    - 구성된 고정 IP: 10.0.0.19(IP가 사용 가능한 경우)
+    - 사용 가능한 다음 IP: 10.0.0.254(IP 주소 10.0.0.19가 이미 사용 중인 경우)
+
+
+각 네트워크 인터페이스의 대상 IP를 수정하려면 가상 머신의 **계산 및 네트워크** 설정으로 이동합니다.</br>
+모범 사례로, 항상 테스트 장애 조치(Failover)를 수행할 테스트 네트워크를 선택하는 것이 좋습니다.
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Virtual Machines 복제에 대한 네트워킹 지침](site-recovery-azure-to-azure-networking-guidance.md)을 살펴봅니다.

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3dfe16cc09f0453aef8adf8bf87a00aebd2054bc
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: eb6516400d362fe60adc05590353ec003c70e059
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214638"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42145577"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
@@ -59,7 +59,7 @@ Azure Portal에서 또는 Runbook 작업 상태 및 작업 스트림을 전달�
 
 선택한 Automation 계정 오른쪽의 **작업 통계** 타일 아래에는 선택한 Automation 계정에 대한 모든 runbook 작업의 요약을 볼 수 있습니다.
 
-![작업 통계 타일](./media/automation-runbook-execution/automation-account-job-status-summary.png)에서도 확인할 수 있습니다.
+![작업 통계 타일](./media/automation-runbook-execution/automation-account-job-status-summary.png).
 
 이 타일은 실행된 모든 작업의 개수 및 작업 상태를 그래픽으로 표시합니다.
 
@@ -88,7 +88,7 @@ Azure Portal에서 또는 Runbook 작업 상태 및 작업 스트림을 전달�
 
 ## <a name="retrieving-job-status-using-windows-powershell"></a>Windows PowerShell을 사용하여 작업 상태 검색
 
-[Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx)을 사용하여 Runbook에 대해 생성된 작업 및 특정 작업을 검색할 수 있습니다. Windows PowerShell에서 [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx)을 사용하여 Runbook을 시작하는 경우 결과 작업이 반환됩니다. 작업의 출력을 얻으려면 [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx)을 사용합니다.
+[Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob)을 사용하여 Runbook에 대해 생성된 작업 및 특정 작업을 검색할 수 있습니다. Windows PowerShell에서 [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook)을 사용하여 Runbook을 시작하는 경우 결과 작업이 반환됩니다. 작업의 출력을 얻으려면 [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput)을 사용합니다.
 
 다음 명령 예제는 샘플 Runbook에 대한 마지막 작업을 검색하고 작업의 상태, Runbook 매개 변수에 제공된 값, 작업의 출력을 표시합니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: a9f684eccefab3e43d9b2b7a364b245a53519f76
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 3c4aa6d91d5f8c1e28cb52f6846f6ac9feeb4edd
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389688"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42145172"
 ---
 # <a name="create-list-or-delete-a-user-assigned-identity-using-azure-powershell"></a>Azure PowerShell을 사용하여 사용자 할당 ID 생성, 나열 또는 삭제
 
@@ -34,16 +34,15 @@ ms.locfileid: "39389688"
 - 관리 서비스 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 ID와 사용자 할당 ID의 차이점](overview.md#how-does-it-work)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
 - 아직 설치하지 않은 경우 [Azure PowerShell 최신 버전](https://www.powershellgallery.com/packages/AzureRM)을 설치합니다.
-- PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에는 Azure PowerShell 모듈 버전 5.7.0 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
+- 로컬에서 PowerShell을 설치하고 사용하도록 선택하려는 경우 이 자습서를 진행하려면 Azure PowerShell 모듈 버전 5.7.0 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 
+- PowerShell을 로컬로 실행하는 경우 다음이 필요합니다. 
+    - `Login-AzureRmAccount`를 실행하여 Azure와 연결합니다.
+    - [PowerShellGet 최신 버전](/powershell/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget)을 설치합니다.
+    - `Install-Module -Name PowerShellGet -AllowPrerelease` 명령을 실행하여 `PowerShellGet` 모듈의 시험판 버전을 가져옵니다. 이 명령을 실행한 후 `AzureRM.ManagedServiceIdentity` 모듈을 설치하기 위해 현재 PowerShell 세션에서 `Exit`해야 할 수도 있습니다.
+    - `Install-Module -Name AzureRM.ManagedServiceIdentity -AllowPrerelease` 명령을 실행하여 `AzureRM.ManagedServiceIdentity` 모듈의 시험판 버전을 설치하고 이 문서의 사용자 할당 ID 작업을 수행합니다.
 - 이 문서의 관리 작업을 수행하려면 계정에 다음과 같은 역할이 할당되어야 합니다.
     - [관리 ID 기여자](/azure/role-based-access-control/built-in-roles#managed-identity-contributor)는 사용자 할당 ID를 만들고 읽고(나열하고), 업데이트하고 삭제하는 역할을 합니다.
     - [관리 ID 운영자](/azure/role-based-access-control/built-in-roles#managed-identity-operator)는 사용자 할당 ID의 속성을 읽는(나열하는) 역할을 합니다.
-
-> [!NOTE]
-> 사용자 할당 ID가 미리 보기 상태인 동안, 다음 명령을 사용하여 AzureRM.ManagedServiceIdentity 모듈을 수동으로 설치해야 합니다. 
-```azurepowershell-interactive
-Install-Module -Name AzureRM.ManagedServiceIdentity -AllowPrerelease
-```
 
 ## <a name="create-a-user-assigned-identity"></a>사용자 할당 ID 만들기
 
@@ -69,7 +68,7 @@ Get-AzureRmUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP>
 
 사용자 ID를 삭제하려면 [Remove-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/remove-azurermuserassignedidentity) 명령을 사용합니다.  `-ResourceGroupName` 매개 변수는 사용자 할당 ID가 만들어진 리소스 그룹을 지정하고 `-Name` 매개 변수는 그 이름을 지정합니다. `<RESOURCE GROUP>` 및 `<USER ASSIGNED IDENTITY NAME>` 매개 변수 값을 원하는 값으로 바꿉니다.
 
- ```azurecli-interactive
+ ```azurepowershell-interactive
 Remove-AzurRmUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP> -Name <USER ASSIGNED IDENTITY NAME>
 ```
 > [!NOTE]
@@ -78,6 +77,3 @@ Remove-AzurRmUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP> -Name <USE
 ## <a name="related-content"></a>관련 콘텐츠
 
 Azure PowerShell MSI 명령의 전체 목록 및 자세한 내용은 [AzureRM.ManagedServiceIdentity](/powershell/module/azurerm.managedserviceidentity#managed_service_identity)를 참조하세요.
-
-
- 

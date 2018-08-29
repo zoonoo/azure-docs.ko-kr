@@ -12,18 +12,20 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 08/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8c828bb49548adfdb02ed6fb1611eb405ebf4ff2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: df9c218c275367852885e67ac2649926ba1d31d3
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38466263"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42141740"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>태그를 사용하여 Azure 리소스 구성
 
 [!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
+
+리소스에 태그를 적용하려면 사용자에게 해당 리소스 유형에 대한 쓰기 액세스 권한이 있어야 합니다. 모든 리소스 유형에 태그를 적용하려면 [기여자](../role-based-access-control/built-in-roles.md#contributor) 역할을 사용합니다. 하나의 리소스 형식에만 태그를 적용하려면 해당 리소스에 대한 기여자 역할을 사용합니다. 예를 들어, 가상 머신에 태그를 적용하려면 [가상 머신 기여자](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)를 사용합니다.
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
