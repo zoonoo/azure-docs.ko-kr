@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub MQTT 지원 이해 | Microsoft Docs
-description: 개발자 가이드 - MQTT 프로토콜을 사용하여 IoT Hub 장치 지향 끝점에 연결하는 장치를 지원합니다. Azure IoT 장치 SDK의 기본 제공 MQTT 지원에 대한 정보를 포함합니다.
+description: 개발자 가이드 - MQTT 프로토콜을 사용하여 IoT Hub 장치 지향 엔드포인트에 연결하는 장치를 지원합니다. Azure IoT 장치 SDK의 기본 제공 MQTT 지원에 대한 정보를 포함합니다.
 author: fsautomata
 manager: ''
 ms.service: iot-hub
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: elioda
-ms.openlocfilehash: 19a129ec4646f13f1bd095dffd423f3b90bb32a7
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 2e45422ca6a861894193600eff17f192bc20b357
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345463"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42140517"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -21,6 +21,8 @@ IoT Hub를 사용하면 다음을 사용하여 IoT Hub 장치 엔드포인트와
 
 * 포트 8883에서 [MQTT v3.1.1][lnk-mqtt-org] 
 * 포트 443에서 WebSocket을 통해 MQTT v3.1.1
+
+IoT Hub는 모든 기능을 갖춘 MQTT broker가 아니며 MQTT v3.1.1 표준에 지정된 모든 동작을 지원하지는 않습니다. 이 문서에서는 장치에서 지원되는 MQTT 동작을 사용하여 IoT Hub와 통신하는 방법을 설명합니다.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -60,7 +62,7 @@ MQTT 프로토콜을 지원하는 [장치 SDK][lnk-device-sdks]는 Java, Node.js
 
 ## <a name="using-the-mqtt-protocol-directly"></a>MQTT 프로토콜 직접 사용
 
-장치가 장치 SDK를 사용할 수 없는 경우라도 포트 8883에서 MQTT 프로토콜을 사용하는 공용 장치 끝점에 연결할 수 있습니다. **CONNECT** 패킷에서 장치는 다음 값을 사용해야 합니다.
+장치가 장치 SDK를 사용할 수 없는 경우라도 포트 8883에서 MQTT 프로토콜을 사용하는 공용 장치 엔드포인트에 연결할 수 있습니다. **CONNECT** 패킷에서 장치는 다음 값을 사용해야 합니다.
 
 * **ClientId** 필드에 **deviceId**를 사용합니다.
 
@@ -105,7 +107,7 @@ Azure IoT Toolkit의 경우
 
 MQTT 연결 및 분리 패킷의 경우, IoT Hub는 **작업 모니터링** 채널의 이벤트를 발행합니다. 이 이벤트에에는 연결 문제 해결에 도움이 되는 추가 정보가 있습니다.
 
-장치 앱은 **CONNECT** 패킷에 **Will** 메시지를 지정할 수 있습니다. 장치 앱은 `devices/{device_id}/messages/events/{property_bag}` 또는 `devices/{device_id}/messages/events/{property_bag}`를 **Will** 항목 이름으로 사용하여 원격 분석 메시지로서 전달할 **Will** 메시지를 정의할 수 있습니다. 이 경우 네트워크 연결이 닫혀 있지만 **DISCONNECT** 패킷이 이전에 장치에서 수신되지 않은 경우 IoT Hub는 **CONNECT** 패킷에 제공된 **Will** 메시지를 원격 분석 채널로 전송합니다. 원격 분석 채널은 기본 **이벤트** 끝점 또는 IoT Hub 라우팅으로 정의되는 사용자 지정 끝점일 수 있습니다. 메시지에는 **Will** 값이 할당된 **iothub MessageType** 속성이 지정됩니다.
+장치 앱은 **CONNECT** 패킷에 **Will** 메시지를 지정할 수 있습니다. 장치 앱은 `devices/{device_id}/messages/events/{property_bag}` 또는 `devices/{device_id}/messages/events/{property_bag}`를 **Will** 항목 이름으로 사용하여 원격 분석 메시지로서 전달할 **Will** 메시지를 정의할 수 있습니다. 이 경우 네트워크 연결이 닫혀 있지만 **DISCONNECT** 패킷이 이전에 장치에서 수신되지 않은 경우 IoT Hub는 **CONNECT** 패킷에 제공된 **Will** 메시지를 원격 분석 채널로 전송합니다. 원격 분석 채널은 기본 **이벤트** 엔드포인트 또는 IoT Hub 라우팅으로 정의되는 사용자 지정 엔드포인트일 수 있습니다. 메시지에는 **Will** 값이 할당된 **iothub MessageType** 속성이 지정됩니다.
 
 ### <a name="tlsssl-configuration"></a>TLS/SSL 구성
 
@@ -184,7 +186,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 IoT Hub에서 메시지를 수신하려면 장치는 `devices/{device_id}/messages/devicebound/#` 을 **토픽 필터**로 사용하여 구독해야 합니다. 토픽 필터에 다중 레벨 와일드카드 `#`는 장치가 토픽 이름에 추가 속성을 수신하도록 하려는 경우에만 사용됩니다. IoT Hub는 하위 토픽의 필터링을 위한 `#` 또는 `?` 와일드카드의 사용을 허용하지 않습니다. IoT Hub는 범용 발행-구독 메시징 브로커가 아니므로 문서화된 토픽 이름 및 토픽 필터만 지원합니다.
 
-장치는 `devices/{device_id}/messages/devicebound/#` 항목 필터로 표시되는 장치 특정 끝점을 성공적으로 구독하기 전에는 IoT Hub로부터 어떠한 메시지도 수신하지 않습니다 구독이 설정된 후에는 장치가 구독 시간 이후 전송된 클라우드-장치 메시지를 수신합니다. 장치가 **CleanSession** 플래그가 **0**으로 설정되어 연결되면 다양한 세션 간에 구독이 유지됩니다. 이 경우 다음 번에 장치가 **CleanSession 0**으로 연결될 때, 연결되지 않은 동안 보내진 미해결 메시지를 수신하게 됩니다. 장치가 **1**로 설정된 **CleanSession** 플래그를 사용하는 경우 장치-끝점을 구독할 때까지 IoT Hub에서 어떠한 메시지도 수신하지 않습니다.
+장치는 `devices/{device_id}/messages/devicebound/#` 항목 필터로 표시되는 장치 특정 엔드포인트를 성공적으로 구독하기 전에는 IoT Hub로부터 어떠한 메시지도 수신하지 않습니다 구독이 설정된 후에는 장치가 구독 시간 이후 전송된 클라우드-장치 메시지를 수신합니다. 장치가 **CleanSession** 플래그가 **0**으로 설정되어 연결되면 다양한 세션 간에 구독이 유지됩니다. 이 경우 다음 번에 장치가 **CleanSession 0**으로 연결될 때, 연결되지 않은 동안 보내진 미해결 메시지를 수신하게 됩니다. 장치가 **1**로 설정된 **CleanSession** 플래그를 사용하는 경우 장치-끝점을 구독할 때까지 IoT Hub에서 어떠한 메시지도 수신하지 않습니다.
 
 IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** `devices/{device_id}/messages/devicebound/`, 또는 `devices/{device_id}/messages/devicebound/{property_bag}`와 함께 메시지를 배달합니다. `{property_bag}` 에는 메시지 속성의 URL 인코딩된 키/값 쌍이 있습니다. 응용 프로그램 속성 및 사용자 설정 가능 시스템 속성(예: **messageId** 또는 **correlationId**)만 속성 모음에 포함됩니다. 시스템 속성 이름에는 접두사 **$** 가 있고, 응용 프로그램 속성은 접두사가 없는 원래 속성 이름을 사용합니다.
 

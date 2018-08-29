@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: v-wingf
-ms.openlocfilehash: 74907693270e6cd340d3b34585a80077aa87f0f7
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: bb3b3061c15a661caff778ca5c0ec48b0434c718
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055664"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141557"
 ---
 # <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Cisco Spark 구성
 
@@ -171,6 +171,10 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고, Cisco Spark의 Azure AD 프로비전 서비스에서 수행한 모든 작업을 설명하는 프로비전 활동 보고서에 대한 링크를 따를 수 있습니다.
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../active-directory-saas-provisioning-reporting.md)를 참조하세요.
+
+## <a name="connector-limitations"></a>커넥터 제한 사항
+
+* Cisco Spark는 현재 Cisco의 EFT(초기 필드 테스트) 단계에 있습니다. 자세한 내용은 [Cisco 지원 팀](https://www.webex.co.in/support/support-overview.html)에 문의하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

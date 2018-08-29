@@ -12,17 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: d02c3ad3e1ca2812049608cad2eacced3686dad3
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 1bb96821b61647f5dfad54c8b0cb6248eb0db4af
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128567"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140773"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics에서 데이터 사용 현황 분석
+
+> [!NOTE]
+> 이 문서에서는 Application Insights에서 데이터 사용량을 분석하는 방법을 설명합니다.  관련 정보는 다음 문서를 참조하세요.
+> - [Log Analytics에서 데이터 볼륨 및 보존을 제어하여 비용 관리](log-analytics-manage-cost-storage.md)에서는 데이터 보존 기간을 변경하여 비용을 제어하는 방법을 설명합니다.
+> - [사용량 및 예상 비용 모니터링](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md)에서는 다른 가격 책정 모델에 대해 여러 Azure 모니터링 기능에서 사용량 및 예상 비용을 보는 방법을 설명합니다. 또한 가격 책정 모델을 변경하는 방법을 설명합니다.
+
 Log Analytics는 데이터를 전송한 소스 및 전송되는 데이터의 다양한 형식과 같이 수집된 데이터의 양에 대한 정보를 포함합니다.  **Log Analytics 사용량** 대시보드를 사용하여 데이터 사용을 검토하고 분석할 수 있습니다. 대시보드는 각 솔루션에서 수집되는 데이터의 양 및 컴퓨터에서 전송한 데이터의 양을 표시합니다.
 
 ## <a name="understand-the-usage-dashboard"></a>사용량 대시보드 이해

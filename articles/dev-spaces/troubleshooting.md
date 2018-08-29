@@ -11,12 +11,12 @@ ms.topic: article
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: douge
-ms.openlocfilehash: 61bc081ca3221c0d588b7b7a2d9482d2fc70c0d5
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 001d58aa22d4fc52acebfc88ba07d2467c1be08e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038622"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141566"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
 
@@ -78,9 +78,10 @@ azds list-uris
 
 URL이 *보류 중* 상태이면 Dev Spaces가 DNS 등록 완료를 대기 중임을 의미합니다. 경우에 따라 이 작업은 몇 분 정도 걸립니다. Dev Spaces는 각 서비스마다 localhost 터널도 엽니다. 이것을 DNS 등록을 대기하는 동안 사용할 수 있습니다.
 
-URL이 5분을 초과하여 *보류 중* 상태로 있으면 공용 엔드포인트 획득을 담당하는 nginx 수신 컨트롤러에 문제가 있는 것일 수 있습니다. 다음 명령을 사용하여 nginx 컨트롤러를 실행하는 Pod를 삭제할 수 있습니다. 자동으로 다시 만들어집니다.
+URL이 5분 넘게 *보류 중* 상태로 있으면 공용 엔드포인트를 만드는 외부 DNS Pod 및/또는 공용 엔드포인트를 획득하는 nginx 수신 컨트롤러에 문제가 있는 것일 수 있습니다. 다음 명령을 사용하여 이러한 Pod를 삭제할 수 있습니다. 삭제된 Pod는 자동으로 다시 만들어집니다.
 
 ```cmd
+kubectl delete pod -n kube-system -l app=addon-http-application-routing-external-dns
 kubectl delete pod -n kube-system -l app=addon-http-application-routing-nginx-ingress
 ```
 
@@ -139,6 +140,14 @@ VS Code 디버거를 시작하면 때때로 이 오류가 발생할 수 있습�
 1. VS Code를 닫았다가 다시 엽니다.
 2. F5 키를 다시 누릅니다.
 
+## <a name="debugging-error-failed-to-find-debugger-extension-for-typecoreclr"></a>디버깅 오류 '다음 유형에 대한 디버거 확장을 찾지 못함: coreclr'
+VS Code 디버거를 실행하면 오류를 보고합니다. `Failed to find debugger extension for type:coreclr.`
+
+### <a name="reason"></a>이유
+.Net Core에 대한 디버깅 지원(CoreCLR)이 포함된 C#용 VS Code 확장이 개발 머신에 설치되지 않았습니다.
+
+### <a name="try"></a>다음을 시도해 보세요.
+[C#용 VS Code 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)을 설치합니다.
 
 ## <a name="debugging-error-configured-debug-type-coreclr-is-not-supported"></a>디버깅 오류 '구성된 디버그 형식 'coreclr'은 지원되지 않습니다.'
 VS Code 디버거를 실행하면 오류를 보고합니다. `Configured debug type 'coreclr' is not supported.`

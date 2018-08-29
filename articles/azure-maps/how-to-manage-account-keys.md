@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 38926cc42b44e61bd83f6b1e33946a9026cda06d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: f5596f4c9bc827852c730d18856753e87de3c59c
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989404"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141132"
 ---
 # <a name="how-to-manage-your-azure-maps-account-and-keys"></a>Azure Maps 계정과 키를 관리하는 방법
 
 Azure Portal을 통해 Azure Maps 계정 및 키를 관리할 수 있습니다. 계정과 키가 있으면 웹 사이트 또는 모바일 응용 프로그램에서 API를 구현할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="create-a-new-account"></a>새 계정 만들기
 
@@ -51,4 +51,5 @@ Azure Portal에서 계정을 삭제할 수 있습니다. 계정 개요 페이지
 
 ## <a name="next-steps"></a>다음 단계
 
-[Maps 관리 API ](https://docs.microsoft.com/rest/api/maps-management/accounts)를 사용하여 Maps 계정을 생성, 업데이트 및 삭제하는 방법에 대해 알아봅니다. 
+* [주소 검색](./how-to-search-for-address.md)에 Azure Maps 검색 API를 사용하는 방법을 알아봅니다.
+* Azure Maps [JavaScript 맵 컨트롤](./how-to-use-map-control.md) 사용 방법을 알아봅니다.

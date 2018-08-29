@@ -1,22 +1,49 @@
 ---
-title: Cognitive Services Speech SDK 설명서
+title: Cognitive Services Speech SDK 설명서 | Microsoft Docs
 description: 릴리스 정보 - 가장 최근 릴리스에서 변경된 내용
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: wolfma61
+manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 08/16/2018
 ms.author: wolfma
-ms.openlocfilehash: f346241e1d10d16eae08e389296f4be9149ec086
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 0900588f818855d72e415678338c96fb6505318d
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502461"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42093840"
 ---
 # <a name="release-notes"></a>릴리스 정보
+
+## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Cognitive Services Speech SDK 0.6.0: 2018년 8월 릴리스
+
+**새로운 기능**
+
+* Speech SDK를 사용하여 빌드된 UWP 앱은 이제 WACK(Windows 앱 인증 키트)를 전달할 수 있습니다.
+  [UWP 빠른 시작](quickstart-csharp-uwp.md)을 확인하세요.
+* Linux(Ubuntu 16.04 x64)에서 .NET 표준 2.0을 지원합니다.
+* 실험: Windows(64비트) 및 Linux(Ubuntu 16.04 x64)에서 Java 8을 지원합니다.
+  [Java 런타임 환경 빠른 시작](quickstart-java-jre.md) 확인
+
+**기능 변경 내용**
+
+* 연결 오류에 추가 오류 세부 정보를 공개합니다.
+
+**주요 변경 내용**
+
+* Java(Android)에서, `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` 함수는 더 이상 경로 매개 변수를 요구하지 않습니다. 이제 지원되는 모든 플랫폼에서 자동으로 경로가 검색됩니다.
+* Java 및 C#에서 `EndpointUrl` 속성의 get-accessor가 제거되었습니다.
+
+**버그 수정**
+
+* Java에서, 번역 인식기에서 오디오 합성 결과가 구현되었습니다.
+* 비활성 스레드 및 사용되지 않는 열린 소켓의 수가 증가하는 버그를 수정했습니다.
+* 오래 실행되는 인식이 전송 중에 종료되는 문제를 수정했습니다.
+* 인식기 종료에서 발생하는 경합 조건을 수정했습니다.
 
 ## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>Cognitive Services Speech SDK 0.5.0: 2018년 7월 릴리스
 

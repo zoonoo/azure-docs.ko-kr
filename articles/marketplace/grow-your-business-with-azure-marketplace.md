@@ -33,7 +33,7 @@ AppSource 또는 Azure Marketplace에 제품을 게시한 후 Microsoft와 함�
 ### <a name="storefront-offer-details"></a>상점 제품 세부 정보
 | 상점 설정 | 모범 사례 |
 |:--- |:--- |  
-| 제품 이름 | 강력한 제목을 입력합니다.<br>앱 이름은 고객이 받는 핵심 가치를 전달해야 합니다. 앱 제목에 검색 키워드가 포함되면 검색 엔진 결과에서 앱의 순위를 높일 수 있습니다.<br><br>다음과 같이 컨설팅 서비스 목록에 대한 일단의 제목 형식을 따릅니다.<br>[제품 이름]: [기간] [제품 유형](예: *Contoso: 2주 구현*)<br><br>브랜드 지침을 준수합니다.<br>Microsoft 상표와 Microsoft, 소프트웨어, 제품 및 서비스의 이름을 언급하는 경우 [Microsoft 상표 및 브랜드 지침](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) 및 기타 관련 제품별 지침을 따릅니다. |
+| 제품 이름 | 강력한 제목을 입력합니다.<br>앱 이름은 고객이 받는 핵심 가치를 전달해야 합니다. 앱 제목에 검색 키워드가 포함되면 검색 엔진 결과에서 앱의 순위를 높일 수 있습니다.<br><br>다음과 같이 컨설팅 서비스 목록에 대한 일단의 제목 형식을 따릅니다.<br>[제품 이름] : [기간] [제품 유형] (예: *Contoso: 2주 구현*)<br><br>브랜드 지침을 준수합니다.<br>Microsoft 상표와 Microsoft, 소프트웨어, 제품 및 서비스의 이름을 언급하는 경우 [Microsoft 상표 및 브랜드 지침](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) 및 기타 관련 제품별 지침을 따릅니다. |
 | 제품 설명 | 다음과 같이 명확한 제품 설명을 제공합니다.<br>설명의 처음 몇 문장에서 제품의 가치 제안을 명확하게 설명합니다. 처음 몇 문장은 검색 엔진 결과에 표시될 수 있다는 점에 유의하세요. 제품을 판매하는 특징과 기능에 의존하지 않습니다. 대신, 전달하는 가치에 중점을 둡니다. 산업별 어휘 또는 혜택 기반 단어를 최대한 많이 사용합니다.<br><br>가치 제안의 핵심 구성 요소에 포함되어야 하는 정보는 다음과 같습니다.<ul><li>제품 설명</li><li>제품의 혜택을 받는 사용자 유형</li><li>제품에서 처리하는 고객의 요구 사항 또는 불만 사항</li></ul> |
 
 ### <a name="storefront-listing-details"></a>상점 목록 세부 정보

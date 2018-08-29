@@ -1,6 +1,6 @@
 ---
-title: 호출 및 응답 - Azure Cognitive Services, Bing Image Search API에 대한 Node.js 빠른 시작 | Microsoft Docs
-description: Azure의 Microsoft Cognitive Services에서 Bing Image Search API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 확인합니다.
+title: '빠른 시작: Node.js를 사용하여 Bing Image Search API용 REST API를 사용한 검색 쿼리 보내기'
+description: 이 빠른 시작에서는 Bing Search API로 검색 쿼리를 보내고, Node.js를 사용하여 관련 이미지의 목록을 가져옵니다.
 services: cognitive-services
 documentationcenter: ''
 author: v-jerkin
@@ -9,14 +9,14 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 00408677d15a00d58720c142cabed96e310c69b2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 975275bea61a5903c06da394b762b1aceb18023f
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376911"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42093856"
 ---
-# <a name="call-and-response-your-first-bing-image-search-query-for-nodejs"></a>호출 및 응답: Node.js의 첫 번째 Bing Image Search 쿼리
+# <a name="quickstart-send-search-queries-using-the-rest-api-and-nodejs"></a>빠른 시작: REST API 및 Node.js를 사용하여 검색 쿼리 보내기
 
 Bing Images Search API는 사용자 검색 쿼리를 Bing에 전송하고 관련 이미지 목록을 받을 수 있게 하여 Bing.com/Images와 유사한 환경을 제공합니다.
 
@@ -26,7 +26,7 @@ Bing Images Search API는 사용자 검색 쿼리를 Bing에 전송하고 관련
 
 이 코드를 실행하려면 [Node.js 6](https://nodejs.org/en/download/)이 필요합니다.
 
-**Bing Search API**를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)이면 충분합니다. 평가판을 활성화할 때 제공된 액세스 키가 필요하며, Azure 대시보드에서 유료 구독 키를 사용해도 됩니다.
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="running-the-application"></a>응용 프로그램 실행
 

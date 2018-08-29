@@ -1,24 +1,24 @@
 ---
-title: Azure에서 C#용 Bot Builder SDK를 사용하여 봇과 LUIS 통합 | Microsoft Docs
-description: Bot Framework를 사용하여 LUIS 응용 프로그램과 통합된 봇을 빌드합니다.
+title: C# 사용, Bot Builder SDK를 사용하여 봇과 LUIS 통합- Azure Cognitive Services | Microsoft Docs
+description: C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합니다. 이 챗봇은 사전 빌드된 HomeAutomation 도메인을 사용하여 신속하게 봇 솔루션을 구현합니다.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 08/13/2018
 ms.author: diberry
-ms.openlocfilehash: ca893dadfed04c90a4d89087299bf1cc2bf55eb9
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: d0010ccf51fc688fa66e1be82c735ae38455509b
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225961"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42093875"
 ---
 # <a name="web-app-bot-using-the-luis-template-for-c"></a>C#에 LUIS 템플릿을 사용하는 웹앱 봇
 
-통합형 Language Understanding을 사용하여 챗봇을 빌드합니다.
+C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합니다. 이 챗봇은 사전 빌드된 HomeAutomation 도메인을 사용하여 신속하게 봇 솔루션을 구현합니다. 
 
 ## <a name="prerequisite"></a>필수 요소
 
@@ -148,7 +148,7 @@ Azure Portal에서 **웹 채팅에서 테스트**를 클릭하여 봇을 테스�
 > 봇의 코드를 수정하지 않고 LUIS 앱을 다시 학습시킬 수 있습니다. [예제 발화 추가](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) 및 [LUIS 앱 학습 및 테스트](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test)를 참조하세요. 
 
 ## <a name="download-the-bot-to-debug"></a>디버그할 봇 다운로드
-봇이 작동하지 않으면 프로젝트를 로컬 머신에 다운로드하고 계속 [디버그](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-an-azure-app-service-web-app-c-bot)합니다. 
+봇이 작동하지 않으면 프로젝트를 로컬 머신에 다운로드하고 계속 [디버그](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-a-c-bot)합니다. 
 
 ## <a name="learn-more-about-bot-framework"></a>Bot Framework에 대해 자세히 알아보기
 [Bot Framework](https://dev.botframework.com/)와 [3.x](https://github.com/Microsoft/BotBuilder) 및 [4.x](https://github.com/Microsoft/botbuilder-dotnet) SDK에 대해 자세히 알아봅니다.

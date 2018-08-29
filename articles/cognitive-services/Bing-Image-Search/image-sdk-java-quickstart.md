@@ -1,6 +1,6 @@
 ---
-title: Bing Image Search SDK Java 빠른 시작 | Microsoft Docs
-description: Bing Image Search SDK Java 콘솔 응용 프로그램을 설치하는 방법을 알아봅니다.
+title: '빠른 시작: Java에서 SDK를 사용하여 이미지를 요청하고 필터링'
+description: 이 빠른 시작에서는 Java를 사용하여 Bing Image Search에서 반환한 이미지를 요청하고 필터링합니다.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
@@ -10,14 +10,14 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: 0c44bb313328081167a419f3b7d5ce17e49d2c99
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 280a4b67d81b0734ea983c1d7fe1389e59651ccd
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377910"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42093829"
 ---
-# <a name="bing-image-search-sdk-java-quickstart"></a>Bing Image Search SDK Java 빠른 시작
+# <a name="quickstart-request-and-filter-images-using-the-sdk-and-java"></a>빠른 시작: SDK 및 Java를 사용하여 이미지를 요청하고 필터링
 
 Bing Image Search SDK는 이미지 쿼리 및 구문 분석 결과에 대한 REST API 기능을 제공합니다. 
 

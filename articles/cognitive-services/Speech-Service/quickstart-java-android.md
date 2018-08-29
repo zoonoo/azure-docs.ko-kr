@@ -9,19 +9,19 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: fmegen
-ms.openlocfilehash: ad1bf15f198529487dbed92d8f8639704b0c5fc7
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: bbf10d9bd0912dab22c81e2bb850ede52a3bd9e3
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325128"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42093850"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Android의 Java에서 음성 인식
 
 [!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 이 문서에서는 Cognitive Services Speech SDK를 사용하여 음성을 텍스트로 변환하는 Android용 Java 응용 프로그램을 만드는 방법을 설명합니다.
-이 응용 프로그램은 Microsoft Cognitive Services Speech SDK Maven Package, 버전 0.5.0 및 Android Studio 3.1을 기준으로 합니다.
+이 응용 프로그램은 Microsoft Cognitive Services Speech SDK Maven Package, 버전 0.6.0 및 Android Studio 3.1을 기준으로 합니다.
 
 > [!NOTE]
 > Speech Devices SDK 및 Roobo 장치에 대해서는 [Speech Devices SDK](speech-devices-sdk.md) 페이지를 방문하세요.
@@ -63,7 +63,7 @@ Android Studio를 시작하고 **새 Android Studio 프로젝트 시작**을 선
 
 [!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Cognitive Services 음성 SDK의 현재 버전은 `0.5.0`입니다.
+Cognitive Services 음성 SDK의 현재 버전은 `0.6.0`입니다.
 
 Android용 Speech SDK는 사용에 필요한 Android 권한 뿐만 아니라 필요한 라이브러리를 포함하는 [AAR(Android 라이브러리)](https://developer.android.com/studio/projects/android-library)로 패키지됩니다.
 https://csspeechstorage.blob.core.windows.net/maven/의 Maven 리포지토리에서 호스트됩니다.
@@ -81,7 +81,7 @@ https://csspeechstorage.blob.core.windows.net/maven/의 Maven 리포지토리에
 
   ![](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. 나타나는 창에서 Android용 Speech SDK의 이름과 버전인 `com.microsoft.cognitiveservices.speech:client-sdk:0.5.0`을 입력하고 **확인**을 클릭합니다.
+1. 나타나는 창에서 Android용 Speech SDK의 이름과 버전인 `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0`을 입력하고 **확인**을 클릭합니다.
    Speech SDK는 이제 다음과 같이 종속성 목록에 추가됩니다.
 
   ![](media/sdk/qs-java-android-08-dependency-added.png)

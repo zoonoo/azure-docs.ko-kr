@@ -7,8 +7,8 @@
 # 자습서
 ## [Azure SQL DB 오프라인으로 SQL Server 마이그레이션](tutorial-sql-server-to-azure-sql.md)
 ## [Azure SQL DB 온라인으로 SQL Server 마이그레이션](tutorial-sql-server-azure-sql-online.md)
-## [Azure SQL DB Managed Instance로 SQL Server 마이그레이션](tutorial-sql-server-to-managed-instance.md)
-## [MySQL용 Azure DB로 MySQL 마이그레이션](tutorial-mysql-azure-mysql-online.md)
+## [Azure SQL DB Managed Instance 오프라인으로 SQL Server 마이그레이션](tutorial-sql-server-to-managed-instance.md)
+## [MySQL 온라인용 Azure DB로 MySQL 마이그레이션](tutorial-mysql-azure-mysql-online.md)
 
 # 방법 가이드
 ## [PowerShell을 사용하여 SQL Server를 Azure SQL DB로 마이그레이션](howto-sql-server-to-azure-sql-powershell.md)

@@ -1,25 +1,25 @@
 ---
 title: Azure Search의 Lucene 쿼리 예제 | Microsoft Docs
 description: Lucene은 Azure Search 서비스에서 유사 항목 검색, 근접 검색, 용어 상승, 정규식 검색 및 와일드카드 검색에 대해 구문을 쿼리합니다.
-author: LiamCa
-manager: pablocas
+author: HeidiSteen
+manager: cgronlun
 tags: Lucene query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/16/2018
-ms.author: liamca
-ms.openlocfilehash: d90a7b2d12a147b8020abbd51ef055f0e70471fb
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.date: 08/09/2018
+ms.author: heidist
+ms.openlocfilehash: b5a3e2eac218ba2aa6958ffc56bd59f5b513cf48
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365431"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42140730"
 ---
 # <a name="lucene-syntax-query-examples-for-building-advanced-queries-in-azure-search"></a>Azure Search에서 고급 쿼리를 작성하기 위한 Lucene 구문 퀴리 예제
-Azure Search에 대한 쿼리를 생성하는 경우 기본 [단순 쿼리 파서](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)를 [Azure Search의 대체 Lucene 쿼리 파서](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)로 바꾸어 특수 및 고급 쿼리를 작성할 수 있습니다. 
+Azure Search에 대한 쿼리를 생성하는 경우 기본 [단순 쿼리 파서](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)를 좀 더 복잡한 [Azure Search의 Lucene 쿼리 파서](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)로 바꾸어 특수 및 고급 쿼리 정의를 작성할 수 있습니다. 
 
-Lucene 쿼리 파서는 필드 범위 쿼리, 유사 항목 및 와일드카드 검색, 근접 검색, 용어 상승, 정규식 검색 등의 더 복잡한 쿼리 구조를 지원합니다. 처리 능력이 늘어나면 처리 요구도 높아집니다. 이 문서에서는 전체 구문을 사용할 때 사용할 수 있는 쿼리 작업을 보여 주는 예제를 단계별로 진행할 수 있습니다.
+Lucene 쿼리 파서는 필드 범위 쿼리, 유사 항목 및 접두사 와일드카드 검색, 근접 검색, 용어 상승, 정규식 검색 등의 복잡한 쿼리 구조를 지원합니다. 성능이 늘어나면 처리 요구 사항도 늘어나므로 실행 시간이 약간 길어진다고 예상해야 합니다. 이 문서에서는 전체 구문을 사용할 때 사용할 수 있는 쿼리 작업을 보여 주는 예제를 단계별로 진행할 수 있습니다.
 
 > [!Note]
 > 전체 Lucene 쿼리 구문을 통해 사용하도록 설정된 특수화된 쿼리 구문 대부분이 [텍스트 분석](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis)되지 않으므로 형태소 분석 또는 기본형 분석을 예상한 경우에 당황할 수 있습니다. 어휘 분석은 완전한 용어(용어 쿼리 또는 구 쿼리)에만 수행됩니다. 불완전한 용어가 있는 쿼리 형식(접두사 쿼리, 와일드카드 쿼리, regex 쿼리, 유사 항목 쿼리)은 분석 단계를 건너뛰고 쿼리 트리에 직접 추가됩니다. 불완전한 쿼리 용어에서는 소문자 변환만 수행됩니다. 
@@ -27,9 +27,9 @@ Lucene 쿼리 파서는 필드 범위 쿼리, 유사 항목 및 와일드카드 
 
 ## <a name="formulate-requests-in-postman"></a>Postman에서 요청 작성
 
-다음 예제는 [City of New York OpenData](https://nycopendata.socrata.com/) 이니셔티브에서 제공하는 데이터 집합에 기반하여 사용 가능한 작업으로 구성된 NYC Jobs 검색 인덱스를 활용합니다. 이 데이터는 최신 또는 완료로 간주되어서는 안 됩니다. 이 인덱스는 Microsoft에서 제공하는 Sandbox 서비스에 있으며 이러한 쿼리를 시도하기 위해 Azure 구독 또는 Azure Search가 필요하지 않음을 의미합니다.
+다음 예제는 [City of New York OpenData](https://opendata.cityofnewyork.us/) 이니셔티브에서 제공하는 데이터 집합에 기반하여 사용 가능한 작업으로 구성된 NYC Jobs 검색 인덱스를 활용합니다. 이 데이터는 최신 또는 완료로 간주되어서는 안 됩니다. 이 인덱스는 Microsoft에서 제공하는 Sandbox 서비스에 있으며 이러한 쿼리를 시도하기 위해 Azure 구독 또는 Azure Search가 필요하지 않음을 의미합니다.
 
-따라서 GET에서 HTTP 요청을 실행하기 위한 Postman 또는 동급의 도구만 있으면 됩니다. 자세한 내용은 [REST 클라이언트로 테스트](search-fiddler.md)를 참조하세요.
+따라서 GET에서 HTTP 요청을 실행하기 위한 Postman 또는 동급의 도구만 있으면 됩니다. 자세한 내용은 [REST 클라이언트로 탐색](search-fiddler.md)을 참조하세요.
 
 ### <a name="set-the-request-header"></a>요청 헤더 설정
 
@@ -60,12 +60,12 @@ URL 구성에는 다음 요소가 있습니다.
 확인 단계에서 다음 요청을 GET에 붙여넣고 **보내기**를 클릭합니다. 결과는 자세한 JSON 문서로 반환됩니다. 아래의 첫 번째 예제에서는 이 URL을 복사하고 붙여 넣을 수 있습니다.
 
   ```http
-  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&search=*
+  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=*
   ```
 
 쿼리 문자열 **`search=*`** 은 null에 해당하는 미지정 검색이거나 빈 검색입니다. 이 검색은 그리 유용하지 않지만 할 수 있는 가장 간단한 검색입니다.
 
-필요에 따라 URL에 **`$count=true`** 를 추가하여 검색 조건과 일치하는 문서 수를 반환할 수 있습니다. 빈 검색 문자열에서는 인덱스(NYC 작업의 경우 2802)에 있는 모든 문서입니다.
+필요에 따라 URL에 **`$count=true`** 를 추가하여 검색 조건과 일치하는 문서 수를 반환할 수 있습니다. 빈 검색 문자열에서는 인덱스(NYC 작업의 경우 2800)에 있는 모든 문서입니다.
 
 ## <a name="how-to-invoke-full-lucene-parsing"></a>전체 Lucene 구문 분석을 호출하는 방법
 
@@ -77,29 +77,31 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 
 이 문서의 모든 예제는 전체 구문을 나타내는 **queryType=full** 검색 매개 변수가 Lucene 쿼리 파서에서 처리되도록 지정합니다. 
 
-## <a name="example-1-field-scoped-query"></a>예제 1: 필드 범위 쿼리
+## <a name="example-1-field-scoped-query"></a>예제제 1: 필드 범위 쿼리
 
-첫 번째 쿼리가 전체 Lucene 구문을 보여주지는 않지만(단순 및 전체 구문에 작동) 이 예제를 사용하여 판독 가능한 JSON 요청을 생성하는 초기 쿼리 개념을 소개하려고 합니다. 간단히 하기 위해 쿼리는 *business_title*만을 대상으로 하며, 직함만 반환되도록 지정합니다. 
+이 첫 번째 예제는 파서 특정적이지는 않지만 Azure에서는 이를 사용하여 첫 번째 기본 쿼리 개념인 포함을 소개하려고 합니다. 이 예제에서는 쿼리 실행 및 몇 가지 특정 필드에 대한 응답의 범위를 지정합니다. 도구가 Postman 또는 Search 탐색기인 경우 판독 가능한 JSON 응답을 구성하는 방법을 파악하는 것이 중요합니다. 
 
-```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=*
+간단히 하기 위해 쿼리는 *business_title*만을 대상으로 하며, 직함만 반환되도록 지정합니다. 이 구문은 business_title 필드로만 쿼리 실행을 제한하며 응답에 포함되는 필드를 지정하도록 **선택**하는 **searchFields**입니다.
+
+```http
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&search=*
 ```
-
-**searchFields** 매개 변수는 검색을 직위 필드로만 제한합니다. **select** 매개 변수는 결과 집합에 포함되는 필드를 결정합니다.
 
 이 쿼리에 대한 응답은 다음 스크린샷과 비슷하게 표시됩니다.
 
   ![Postman 샘플 응답](media/search-query-lucene-examples/postman-sample-results.png)
 
-검색 점수를 지정하지 않더라도, 모든 문서에 대해 검색 점수가 반환된다는 것을 알고 있을 것입니다. 검색 점수는 결과의 순위를 나타내는 값을 포함하는 메타데이터이기 때문입니다. 순위가 없으면 검색이 전체 텍스트 검색이 아니거나 적용할 조건이 없기 때문에 균일하게 점수 1이 지정됩니다. null 검색의 경우 조건이 없고, 반환되는 행은 임의 순서로 표시됩니다. 검색 조건에 더 많은 정의가 포함되면 검색 점수가 의미 있는 값으로 바뀌는 것을 볼 수 있습니다.
+응답에서 검색 점수를 보았을 수 있습니다. 순위가 없으면 검색이 전체 텍스트 검색이 아니거나 어떤 조건도 적용되지 않기 때문에 균일하게 점수 1이 지정됩니다. 조건 없는 Null 검색의 경우 행은 임의의 순서로 반환됩니다. 실제 조건을 포함하는 경우 검색 점수가 의미 있는 값으로 바뀌는 것을 볼 수 있습니다.
 
-## <a name="example-2-in-field-filtering"></a>예제 2: 필드 내 필터링
+## <a name="example-2-intra-field-filtering"></a>예제 2: 필드 내 필터링
 
 전체 Lucene 구문은 필드 내의 식을 지원합니다. 이 쿼리는 junior가 아닌 senior라는 용어가 포함된 직함을 검색합니다.
 
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:senior+NOT+junior
 ```
+
+  ![Postman 샘플 응답](media/search-query-lucene-examples/intrafieldfilter.png)
 
 **fieldname:searchterm** 구조를 정의하여 필드 지정 쿼리 작업을 정의할 수 있습니다. 여기서 필드는 단일 단어이고, 검색어도 선택적으로 부울 연산이 포함된 단일 단어 또는 구입니다. 몇 가지 예제는 다음과 같습니다. 
 
@@ -119,6 +121,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:asosiate~
 ```
+  ![유사 항목 검색 응답](media/search-query-lucene-examples/fuzzysearch.png)
 
 [Lucene 문서](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)에 따라 유사 항목 검색은 [다메라우-레펜슈타인(Damerau-Levenshtein) 거리](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance)에 기반합니다.
 
@@ -134,6 +137,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:%22senior%20analyst%22~1
 ```
+  ![근접 쿼리](media/search-query-lucene-examples/proximity-before.png)
 
 "senior analyst"라는 용어 사이에 단어를 제거하여 다시 시도합니다. 이전 쿼리에서는 10개 문장이 반환되지만 이번 쿼리에서는 8개 문서이 반환됩니다.
 
@@ -149,6 +153,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:computer%20analyst
 ```
+  ![before 용어 상승](media/search-query-lucene-examples/termboostingbefore.png)
 
 "after" 쿼리에서는 검색을 반복합니다. 이번에는 두 단어가 존재하지 않을 경우 용어 *computer*보다 용어 *analyst*가 포함된 결과를 상승시킵니다. 
 
@@ -156,6 +161,8 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:computer%20analyst%5e2
 ```
 위의 쿼리에서 인간이 이해하기 쉬운 버전은 `search=business_title:computer analyst^2`입니다. 작동 가능한 쿼리를 위해 `^2`가 이해하기 좀 더 어려운 `%5E2`로 인코딩됩니다.
+
+  ![after 용어 상승](media/search-query-lucene-examples/termboostingafter.png)
 
 용어 상승은 평가 프로필은 특정 용어가 아닌 특정 필드를 상승시킨다는 점에서 평가 프로필과는 다릅니다. 다음 예제는 차이점을 설명하는 데 도움이 됩니다.
 
@@ -173,6 +180,9 @@ musicstoreindex 예제에서 **genre** 와 같이, 특정 필드에서 일치 �
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:/(Sen|Jun)ior/
 ```
+
+  ![Regex 쿼리](media/search-query-lucene-examples/regex.png)
+
 > [!Note]
 > 정규식 쿼리는 [분석](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis)되지 않습니다. 불완전한 쿼리 용어에서는 소문자 변환만 수행됩니다.
 >
@@ -180,12 +190,12 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 ## <a name="example-7-wildcard-search"></a>예제 7: 와일드카드 검색
 일반적으로 다중(\*) 또는 단일(?) 문자 와일드카드 검색에 인식된 구문을 사용할 수 있습니다. Lucene 쿼리 커서는 구가 아닌 단일 용어에 이러한 기호의 사용을 지원합니다.
 
-이 쿼리에서 programming 및 programmer라는 용어가 있는 직함이 포함된 접두사 'prog'가 포함되어 있는 직업을 검색합니다.
+이 쿼리에서 programming 및 programmer라는 용어가 있는 직함이 포함된 접두사 'prog'가 포함되어 있는 직업을 검색합니다. 검색의 첫 문자로 * 또는 ? 기호를 사용할 수 없습니다.
 
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:prog*
 ```
-검색의 첫 문자로 * 또는 ? 기호를 사용할 수 없습니다.
+  ![와일드카드 쿼리](media/search-query-lucene-examples/wildcard.png)
 
 > [!Note]
 > 와일드카드 쿼리는 [분석](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis)되지 않습니다. 불완전한 쿼리 용어에서는 소문자 변환만 수행됩니다.

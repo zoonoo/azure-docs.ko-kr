@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: c2297f072786bdc1e80255dee278d640b0c0d26d
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 5a134e14768e0576c501232b6aedb1f836bc05b1
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629517"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42141592"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>PowerShell을 사용하여 Notification Hubs 배포 및 관리
 ## <a name="overview"></a>개요
-이 문서는 PowerShell을 사용하여 Azure Notification Hubs를 만들기 및 관리 방법을 보여줍니다. 다음과 같은 일반적인 자동화 작업은이 항목에 표시됩니다.
+이 문서는 PowerShell을 사용하여 Azure Notification Hubs를 만들기 및 관리 방법을 보여줍니다. 다음과 같은 일반적인 자동화 작업은 이 문서에 표시됩니다.
 
 * 알림 허브 만들기
 * 자격 증명 설정
@@ -89,10 +89,10 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 
 이 스크립트 부분에서는 4개의 로컬 변수를 설정합니다. 
 
-1. `$Namespace` : 알림 허브를 만들려는 네임스페이스 이름으로 설정합니다.
-2. `$Path` : 새 알림 허브의 이름으로 설정합니다.  예를 들면 "MyHub"와 같습니다.    
-3. `$WnsPackageSid` : [Windows 개발자 센터](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409)의 Windows 앱용 패키지 SID로 설정합니다.
-4. `$WnsSecretkey`: [Windows 개발자 센터](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409)의 Windows 앱 비밀 키로 설정합니다.
+1. `$Namespace`: 알림 허브를 만들려는 네임스페이스 이름으로 설정합니다.
+2. `$Path`: 새 알림 허브의 이름으로 설정합니다.  예를 들면 "MyHub"와 같습니다.    
+3. `$WnsPackageSid`: [Windows 개발자 센터](https://developer.microsoft.com/en-us/windows)의 Windows 앱용 패키지 SID로 설정합니다.
+4. `$WnsSecretkey`: [Windows 개발자 센터](https://developer.microsoft.com/en-us/windows)의 Windows 앱 비밀 키로 설정합니다.
 
 이러한 변수를 네임스페이스에 연결하고 새 알림 허브를 만들어서 Windows 앱용 WNS 자격 증명으로 WNS(Windows Notification Services) 알림을 처리합니다. 패키지SID 및 보안 키를 얻는 방법에 대한 정보는 [Notification Hubs 시작](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 자습서를 참조하세요. 
 

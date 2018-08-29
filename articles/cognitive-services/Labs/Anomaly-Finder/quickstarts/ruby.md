@@ -9,12 +9,12 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: ca4754514ba5012f7e9e28981d0869d174561fb3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6eb559f8971583afe9619fb41fe331bd3013bb69
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35375327"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42093816"
 ---
 # <a name="use-the-anomaly-finder-api-with-ruby"></a>Ruby 및 Anomaly Finder API 사용
 
@@ -28,7 +28,9 @@ ms.locfileid: "35375327"
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
 ### <a name="example-of-time-series-data"></a>시계열 데이터의 예
-시계열 데이터 요소의 예는 다음과 같습니다. [!INCLUDE [Request](../includes/request.md)]
+시계열 데이터 요소의 예는 다음과 같습니다.
+
+[!INCLUDE [Request](../includes/request.md)]
 
 ### <a name="analyze-data-and-get-anomaly-points-ruby-example"></a>데이터 분석 및 변칙 요소 Ruby 예제 가져오기
 

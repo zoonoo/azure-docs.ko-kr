@@ -1,6 +1,6 @@
 ---
-title: 호출 및 응답 - Azure Cognitive Services용 Python 빠른 시작, Bing Image Search API | Microsoft Docs
-description: Azure의 Microsoft Cognitive Services에서 Bing Image Search API를 사용하여 신속하게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
+title: '빠른 시작: Python에서 Bing Image Search API용 REST API를 사용하여 검색 쿼리 보내기'
+description: 이 빠른 시작에서는 Bing Search API로 검색 쿼리를 보내고, Python을 사용하여 관련 이미지 목록을 가져옵니다.
 services: cognitive-services
 author: v-jerkin
 ms.service: cognitive-services
@@ -8,16 +8,16 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 3b5d6a961ce4bcde8aaf73f1fbd30689a6c2c2d1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bc527ba39b580935f113f56aa63f7bdd283ba304
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374023"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42093867"
 ---
-# <a name="call-and-response-your-first-bing-image-search-query-in-python"></a>호출 및 응답: Python에서 첫 번째 Bing Image Search 쿼리
+# <a name="quickstart-send-search-queries-using-the-rest-api-and-python"></a>빠른 시작: REST API 및 Python을 사용하여 검색 쿼리 보내기
 
-사용자 검색 쿼리를 Bing에 전송하고 관련 이미지 목록을 돌려 받게 함으로써 Bing Images Search API는 Bing.com/Images와 비슷한 환경을 제공합니다.
+Bing Images Search API는 사용자 검색 쿼리를 Bing에 전송하고 관련 이미지 목록을 받을 수 있게 하여 Bing.com/Images와 유사한 환경을 제공합니다.
 
 이 연습에서는 Bing Image Search API를 호출하고 결과 JSON 개체를 사후 처리하는 간단한 예를 보여 줍니다. 자세한 내용은 [Bing Image Search 설명서](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)를 참조하세요.
 
@@ -27,7 +27,7 @@ ms.locfileid: "35374023"
 
 ## <a name="prerequisites"></a>필수 조건
 
-**Bing Search API**를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)이면 충분합니다. 평가판을 활성화할 때 제공된 액세스 키가 필요하며, Azure 대시보드에서 유료 구독 키를 사용해도 됩니다.
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="running-the-walkthrough"></a>연습 실행
 연습을 계속하려면 Bing API 서비스에 대한 API 키에 `subscription_key`를 설정합니다.
@@ -99,6 +99,6 @@ for i in range(4):
 ## <a name="see-also"></a>참고 항목 
 
 [Bing Image Search 개요](../overview.md)  
-[사용해 보세요](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+[체험해 보기](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
 [평가판 액세스 키 받기](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 [Bing Image Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

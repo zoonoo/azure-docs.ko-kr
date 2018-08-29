@@ -31,8 +31,7 @@ Azure VM은 가상 컴퓨터를 실행하는 실제 하드웨어를 구입 및 �
 
 Azure 가상 머신은 다양한 방식으로 사용할 수 있습니다. 일부 사례:
 
-* 
-  **개발 및 테스트** – Azure VM은 응용 프로그램의 코딩과 테스트에 필요한 특정 구성을 갖춘 컴퓨터를 만드는 쉽고 빠른 방법을 제공합니다.
+* **개발 및 테스트** – Azure VM은 응용 프로그램의 코딩과 테스트에 필요한 특정 구성을 갖춘 컴퓨터를 만드는 쉽고 빠른 방법을 제공합니다.
 * **클라우드의 응용 프로그램** – 응용 프로그램에 대한 수요가 변동할 수 있으므로 Azure의 VM에서 응용 프로그램을 실행하는 것이 경제적입니다. 필요할 경우 여분의 VM에 대해 비용을 지불하고, 그렇지 않은 경우에는 해당 VM을 종료합니다.
 * **확장된 데이터 센터** – Azure 가상 네트워크의 가상 머신은 조직의 네트워크에 쉽게 연결할 수 있습니다.
 
@@ -84,11 +83,9 @@ Azure에서는 다양한 버전과 종류의 Windows Server 운영 체제에서 
 | 방법 | 설명 |
 | --- | --- |
 | Azure portal |사용할 이미지를 선택할 때 사용자에 적합한 값이 자동으로 지정됩니다. |
-| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagepublisher) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimageoffer) -Location "location" -Publisher "publisherName"<BR>
-  [Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
+| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagepublisher) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimageoffer) -Location "location" -Publisher "publisherName"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
 | REST API |[이미지 게시자 나열](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[이미지 제안 나열](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[이미지 SKU 나열](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
-| Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location "location"<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location "location" --publisher "publisherName"<BR>
-  [az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location "location" --publisher "publisherName" --offer "offerName"|
+| Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location "location"<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location "location" --publisher "publisherName"<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location "location" --publisher "publisherName" --offer "offerName"|
 
 [사용자 고유의 이미지를 업로드하고 사용하도록](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account) 선택할 수 있습니다. 이렇게 하는 경우 게시자 이름, 제안 및 SKU는 사용되지 않습니다.
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: dobett
-ms.openlocfilehash: 718bf82a921ec3b70939b7a70205a4c650702dd0
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: ad1ce768ea5be2356f141d10a53ea0166546a2b7
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823353"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42141328"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Azure IoT Hub SDK 이해 및 사용
 
@@ -66,6 +66,7 @@ iOS용 Azure IoT Hub 장치 SDK:
 
 ### <a name="os-platform-and-hardware-compatibility"></a>OS 플랫폼 및 하드웨어 호환성
 
+SDK에 지원되는 플랫폼은 이 [문서](iot-hub-device-sdk-platform-support.md)에서 찾을 수 있습니다.
 특정 하드웨어 장치와 SDK 호환성에 대한 자세한 내용은 [IoT용 Azure Certified 장치 카탈로그][lnk-certified] 또는 개별 리포지토리를 참조하세요.
 
 ## <a name="azure-iot-service-sdks"></a>Azure IoT 서비스 SDK
@@ -103,15 +104,21 @@ iOS용 Azure IoT Hub 서비스 SDK:
 > 언어 및 플랫폼 특정 패키지 관리자를 사용하여 개발 컴퓨터에서 이진 파일 및 종속성을 설치하는 방법에 대한 정보는 GitHub 리포지토리의 추가 정보 파일을 참조하세요.
 
 
+
 ## <a name="next-steps"></a>다음 단계
+
+Azure IoT SDK는 개발을 도와주는 도구 집합도 제공합니다.
+* [iothub 진단](https://github.com/Azure/iothub-diagnostics): IoT Hub 연결 관련 문제를 진단할 수 있는 플랫폼 간 명령줄 도구입니다.
+* [장치 탐색기](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer): IoT Hub에 연결하는 Windows 데스크톱 응용 프로그램입니다.
 
 이 IoT Hub 개발자 가이드의 다른 참조 자료:
 
-* [IoT Hub 끝점][lnk-devguide-endpoints]
+* [IoT Hub 엔드포인트][lnk-devguide-endpoints]
 * [장치 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어][lnk-devguide-query]
 * [할당량 및 제한][lnk-devguide-quotas]
 * [IoT Hub MQTT 지원][lnk-devguide-mqtt]
 * [IoT Hub REST API 참조][lnk-rest-ref]
+* [Azure IoT SDK 플랫폼 지원](iot-hub-device-sdk-platform-support.md)
 
 <!-- Links and images -->
 

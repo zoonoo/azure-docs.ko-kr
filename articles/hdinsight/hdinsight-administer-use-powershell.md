@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 60868ceb58a9ed4935ea540ad15abd0e5d35f559
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: b23662ccda090b4d8a4cbb5eae3029affd075c33
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595531"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140764"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 HDInsight의 Hadoop 클러스터 관리
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있습니다. 이 문서에서는 Azure PowerShell을 사용하여 Azure HDInsight에서 Hadoop 클러스터를 관리하는 방법을 설명합니다. HDInsight PowerShell cmdlet의 목록은 [HDInsight cmdlet 참조][hdinsight-powershell-reference]를 참조하세요.
+Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있습니다. 이 문서에서는 Azure PowerShell을 사용하여 Azure HDInsight에서 Hadoop 클러스터를 관리하는 방법을 설명합니다. HDInsight PowerShell cmdlet의 목록은 [HDInsight cmdlet 참조](https://msdn.microsoft.com/library/azure/dn479228.aspx)를 참조하세요.
 
 **필수 구성 요소**
 
@@ -127,7 +127,7 @@ Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount
 
 
 ## <a name="grantrevoke-access"></a>액세스 권한 부여/해지
-HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다(이러한 모든 서비스에 RESTful 끝점이 있음).
+HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다(이러한 모든 서비스에 RESTful 엔드포인트가 있음).
 
 * ODBC
 * JDBC
@@ -231,7 +231,7 @@ $resourceGroupName = $cluster.ResourceGroup
 [HDInsight에 데이터 업로드][hdinsight-upload-data]를 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
-* [HDInsight Cmdlet 참조 설명서][hdinsight-powershell-reference]
+* [HDInsight Cmdlet 참조 설명서](https://msdn.microsoft.com/library/azure/dn479228.aspx)
 * [Azure Portal을 사용하여 HDInsight 관리][hdinsight-admin-portal]
 * [명령줄 인터페이스를 사용하여 HDInsight 관리][hdinsight-admin-cli]
 * [HDInsight 클러스터 만들기][hdinsight-provision]

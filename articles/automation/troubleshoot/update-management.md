@@ -4,20 +4,44 @@ description: 업데이트 관리 문제 해결 방법 살펴보기
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 08/08/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b77d1210ff48a4bd30834fcbad64173bf77b1290
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 2e47320d5ad88edfa8ea6122f3a0abd104230974
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064600"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141137"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>업데이트 관리 문제 해결
 
 이 문서에서는 업데이트 관리 사용 중에 발생할 수 있는 문제 해결을 위한 솔루션을 살펴봅니다.
+
+## <a name="general"></a>일반
+
+### <a name="components-enabled-not-working"></a>시나리오: '업데이트 관리' 솔루션의 구성 요소를 사용하도록 설정되었으며, 이제 이 가상 머신을 구성 중입니다.
+
+#### <a name="issue"></a>문제
+
+온보딩 후 15분이 지났는데도 가상 머신에 다음 메시지가 계속 표시됩니다.
+
+```
+The components for the 'Update Management' solution have been enabled, and now this virtual machine is being configured. Please be patient, as this can sometimes take up to 15 minutes.
+```
+
+#### <a name="cause"></a>원인
+
+이 오류는 다음과 같은 원인으로 인해 발생할 수 있습니다.
+
+1. Automation 계정과의 통신이 차단되었습니다.
+2. 온보딩 중인 VM이 현재 설치된 Microsoft Monitoring Agent를 사용하여 sysprep 되지 않은 머신에서 복제된 것일 수 있습니다.
+
+#### <a name="resolution"></a>해결 방법
+
+1. [네트워크 계획](../automation-hybrid-runbook-worker.md#network-planning)을 방문하여 업데이트 관리가 작동하려면 어떤 주소 및 포트를 허용해야 하는지 알아보세요.
+2. 복제된 이미지를 사용하는 경우 이미지에 sysprep을 수행한 후에 MMA 에이전트를 설치하세요.
 
 ## <a name="windows"></a>Windows
 
@@ -31,7 +55,7 @@ ms.locfileid: "37064600"
 
 다음과 같은 오류 메시지가 표시됩니다.
 
-```error
+```
 Unable to Register Machine for Patch Management, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
 ```
 

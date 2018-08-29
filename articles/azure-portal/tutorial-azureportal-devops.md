@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/05/2016
 ms.author: mlearned
-ms.openlocfilehash: 2764d8a17d50f1589d413c2343badfded6adb66e
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: db3cc8bb546758402e4f0b3fe91449e597e754fa
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216345"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42140539"
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>자습서: Azure Portal을 사용한 DevOps
 Azure 플랫폼은 유연한 DevOps 워크플로를 담고 있습니다. 이 자습서에서는 Azure Portal의 기능을 활용하여 실행 중인 응용 프로그램을 개발, 테스트, 배포, 문제 해결, 모니터링 및 관리하는 방법에 대해 알아봅니다. 이 자습서는 다음에 중점을 둡니다.
@@ -125,7 +125,7 @@ Azure 플랫폼은 유연한 DevOps 워크플로를 담고 있습니다. 이 자
 12. 도구 블레이드로 다시 이동하고 개발 범주에서 성능 테스트를 클릭합니다.
     
     ![image28][image28]
-13. 팀 서비스 계정을 설정해야 합니다. 자세한 내용을 보려면 [팀 서비스 계정 만들기](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
+13. 팀 서비스 계정을 설정해야 합니다. 자세한 내용은 [팀 서비스 계정 만들기](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student)를 참조하세요.
 14. 새로 만들기를 클릭하여 성능 테스트를 만듭니다.
     
     ![image29][image29]

@@ -19,8 +19,8 @@ Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리�
 방법 배우기:
 
 - [Azure에서 사용하도록 Linux에 Ansible 설치 및 구성](../articles/virtual-machines/linux/ansible-install-configure.md)
-- [기본 VM 만들기](../articles/virtual-machines/linux/ansible-create-vm.md)
-- [지원 리소스를 포함하여 완벽한 VM 환경 만들기](../articles/virtual-machines/linux/ansible-create-complete-vm.md)
+- [Linux 가상 머신 만들기](../articles/virtual-machines/linux/ansible-create-vm.md)
+- [Linux 가상 머신 관리](../articles/virtual-machines/linux/ansible-manage-linux-vm.md)
 
 
 ## <a name="chef"></a>Chef
@@ -37,7 +37,7 @@ Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리�
 
 방법 배우기:
 
-- [Azure Marketplace에서 Puppet 배포(영문)](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2016-1?tab=Overview)
+- [Azure Marketplace에서 Puppet 배포(영문)](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2?tab=Overview)
 
 
 ## <a name="cloud-init"></a>Cloud-init

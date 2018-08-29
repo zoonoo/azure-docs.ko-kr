@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 8546b1228c8d8f213cb87692144e8d1d31a949d8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a660b36f383eaf1fd0e868200ad7f59aba0f8225
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001806"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141552"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Azure Application Insights와 Azure API Management를 통합하는 방법
 
@@ -114,6 +114,12 @@ Azure Application Insights에서 받는 항목은 다음과 같습니다.
 **샘플링** 설정을 조정하여 기록되는 요청 수를 조작할 수 있습니다(위의 단계 참조). 100% 값은 모든 요청이 기록됨을 의미하고, 0%는 전혀 기록하지 않음을 의미합니다. **샘플링**을 사용하면 원격 분석의 양을 줄이고, 심각한 성능 저하를 효과적으로 방지하면서 로깅의 이점을 계속 유지할 수 있습니다.
 
 또한 요청의 헤더와 본문에 대한 로깅을 건너뛰면 성능 문제를 완화하는 데 긍정적인 영향을 줍니다.
+
+## <a name="video"></a>비디오
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2pkXv]
+>
+>
 
 ## <a name="next-steps"></a>다음 단계
 

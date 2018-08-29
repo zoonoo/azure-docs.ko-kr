@@ -1,6 +1,6 @@
 ---
 title: Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포
-description: PowerShell 스크립팅과 JSON 리소스 그룹을 사용한 예측 가능한 방법으로 Azure 앱 서비스 내에서 마이크로 서비스로 구성된 응용 프로그램을 배포하는 방법을 배워봅시다.
+description: PowerShell 스크립팅과 JSON 리소스 그룹을 사용한 예측 가능한 방법으로 Azure App Service 내에서 마이크로 서비스로 구성된 응용 프로그램을 배포하는 방법을 배워봅시다.
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 3719e037f1564411a8f94d1ca962ba1ef6b5d435
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 884edbf56fbf67e4ee71e0832f8924a3747994c9
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22987458"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42140524"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포
-이 자습서에서는 PowerShell 스크립팅과 JSON 리소스 그룹을 사용한 예측 가능한 방법으로 [Azure App Service](/services/app-service/) 내에서 [마이크로 서비스](https://en.wikipedia.org/wiki/Microservices)로 구성된 응용 프로그램의 프로비전 및 배포하는 방법을 보여줍니다. 
+이 자습서에서는 PowerShell 스크립팅과 JSON 리소스 그룹을 사용한 예측 가능한 방법으로 [Azure App Service](https://azure.microsoft.com/services/app-service/) 내에서 [마이크로 서비스](https://en.wikipedia.org/wiki/Microservices)로 구성된 응용 프로그램의 프로비전 및 배포하는 방법을 보여줍니다. 
 
-고도로 분리된 마이크로 서비스로 구성된 고확장성 응용 프로그램을 프로비전 및 배포할 때 반복성과 예측 가능성이 관건입니다. [Azure 앱 서비스](/services/app-service/) 는 웹앱, 모바일 앱, API 앱 및 논리 앱을 포함한 마이크로 서비스를 생성하게 해줍니다. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)는 데이터베이스와 소스 제어 설정과 같은 리소스 종속성과 함께 모든 마이크로 서비스를 하나의 유닛으로 관리할 수 있도록 해줍니다. 이제 JSON 템플릿과 간단한 PowerShell 스크립팅을 사용하여 이러한 응용 프로그램을 배포할 수 있습니다. 
+고도로 분리된 마이크로 서비스로 구성된 고확장성 응용 프로그램을 프로비전 및 배포할 때 반복성과 예측 가능성이 관건입니다. [Azure App Service](https://azure.microsoft.com/services/app-service/)는 웹앱, 모바일 앱, API 앱 및 논리 앱을 포함한 마이크로 서비스를 생성하게 해줍니다. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)는 데이터베이스와 소스 제어 설정과 같은 리소스 종속성과 함께 모든 마이크로 서비스를 하나의 유닛으로 관리할 수 있도록 해줍니다. 이제 JSON 템플릿과 간단한 PowerShell 스크립팅을 사용하여 이러한 응용 프로그램을 배포할 수 있습니다. 
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -32,7 +32,7 @@ ms.locfileid: "22987458"
 자습서에서는 포함된 응용 프로그램을 배포합니다.
 
 * 두 가지 웹앱(즉, 두 개의 마이크로 서비스)
-* 백 엔드 SQL 데이터베이스
+* 백 엔드 SQL Database
 * 앱 설정, 연결 문자열 및 소스 제어
 * Application insights, 경고, 자동 크기 조정 설정
 
@@ -40,7 +40,7 @@ ms.locfileid: "22987458"
 이 자습서에서는 다음 도구를 사용합니다. 도구에 대한 포괄적인 설명이 아니기 때문에 종단간 시나리오를 그대로 유지하고 각각에 대해 간단히 소개하고 이에 대한 자세한 정보를 찾을 수 있는 곳을 알려드립니다. 
 
 ### <a name="azure-resource-manager-templates-json"></a>Azure 리소스 관리자 템플릿(JSON)
-예를 들어, Azure 앱 서비스에서 웹 앱을 만들 때마다 Azure 리소스 관리자는 구성 요소 리소스와 함께 전체 리소스 그룹을 만들기 위해 JSON 템플릿을 사용합니다. [확장 가능한 WordPress](/marketplace/partners/wordpress/scalablewordpress/) 앱과 같이 [Azure Marketplace](/marketplace)에서 복잡한 템플릿은 MySQL 데이터베이스, 저장소 계정, App Service 계획, 웹 앱 자체, 경고 규칙, 앱 설정, 자동 크기 조정 설정 및 기타를 포함할 수 있으며 PowerShell을 통해 이러한 모든 템플릿을 사용할 수 있습니다. 이러한 템플릿을 다운로드하고 사용는하 방법에 대한 정보는 [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하십시오.
+예를 들어, Azure App Service에서 웹앱을 만들 때마다 Azure Resource Manager는 구성 요소 리소스와 함께 전체 리소스 그룹을 만들기 위해 JSON 템플릿을 사용합니다. [확장 가능한 WordPress](/marketplace/partners/wordpress/scalablewordpress/) 앱처럼 복잡한 [Azure Marketplace](/marketplace)의 템플릿은 MySQL 데이터베이스, 저장소 계정, App Service 계획, 웹앱 자체, 경고 규칙, 앱 설정, 자동 크기 조정 설정 등을 포함할 수 있으며 이러한 템플릿은 PowerShell을 통해 사용할 수 있습니다. 이러한 템플릿을 다운로드하고 사용는하 방법에 대한 정보는 [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하십시오.
 
 Azure 리소스 관리자 템플릿에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../azure-resource-manager/resource-group-authoring-templates.md)
 
@@ -63,7 +63,7 @@ Azure PowerShell 설치는 버전 0.8.0부터 Azure 모듈 외에도 Azure 리�
 ## <a name="get-the-sample-resource-group-template"></a>샘플 리소스 그룹 템플릿 가져오기
 이제 바로 살펴보겠습니다.
 
-1. [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 앱 서비스 샘플을 탐색합니다.
+1. [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) App Service 샘플을 탐색합니다.
 2. Readme.md에서 **Azure에 배포**를 클릭합니다.
 3. [azure 배포](https://deploy.azure.com) 사이트로 이동하면 배포 매개 변수를 입력하라는 메시지가 표시됩니다. 대부분의 필드가 저장소 이름 및 일부 임의 문자열로 채워져 있는지 확인합니다. 원하는 모든 필드를 변경할 수 있지만 유일하게 입력해야 할 것은 SQL Server 관리 로그인 및 암호이며 그런 다음 **다음**을 클릭합니다.
    
@@ -73,11 +73,11 @@ Azure PowerShell 설치는 버전 0.8.0부터 Azure 모듈 외에도 Azure 리�
    ![](./media/app-service-deploy-complex-application-predictably/gettemplate-2-deployprogress.png)
    
    UI는 앱이 이제 시작하기 때문에 먼저 탐색할 때 약간 느릴 수 있지만 완벽하게 작동하는 응용 프로그램임을 직접 확인하세요.
-5. 배포 페이지로 돌아와서 Azure 포털에서 새 응용 프로그램을 보려면 **관리** 링크를 클릭합니다.
+5. 배포 페이지로 돌아와서 Azure Portal에서 새 응용 프로그램을 보려면 **관리** 링크를 클릭합니다.
 6. **필수** 드롭다운에서 리소스 그룹 링크를 클릭합니다. 웹 앱이 **외부 프로젝트**아래 GitHub 리포지토리에 이미 연결되었습니다. 
    
    ![](./media/app-service-deploy-complex-application-predictably/gettemplate-3-portalresourcegroup.png)
-7. 리소스 그룹 블레이드에서 리소스 그룹에 이미 두 웹 앱 및 하나의 SQL 데이터베이스가 있습니다.
+7. 리소스 그룹 블레이드에서 리소스 그룹에 이미 두 웹 앱 및 하나의 SQL Database가 있습니다.
    
    ![](./media/app-service-deploy-complex-application-predictably/gettemplate-4-portalresourcegroupclicked.png)
 
@@ -104,14 +104,14 @@ JSON 형식의 모든 세부 정보를 설명하지 않겠지만 [더 리소스]
 이러한 대부분의 매개 변수가 **Azure에 배포** 단추로 입력하려는 것임을 확인하려면 매개 변수 섹션을 살펴보세요. **Azure에 배포** 버튼 뒤에 사이트는 azuredeploy.json에 정의된 매개 변수를 사용하는 입력 UI를 채웁니다. 이러한 매개 변수는 리소스 이름, 속성 값 등의 리소스 정의 전체에서 사용됩니다.
 
 ### <a name="resources"></a>리소스
-리소스 노드에서 SQL Server 인스턴스, 앱 서비스 계획 및 두 웹 앱을 포함하는 4개의 최상위 리소스가 정의됩니다. 
+리소스 노드에서 SQL Server 인스턴스, App Service 계획 및 두 웹앱을 포함하는 4개의 최상위 리소스가 정의됩니다. 
 
-#### <a name="app-service-plan"></a>앱 서비스 계획
-JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON 개요에서 해당하는 JSON 코드에 강조를 표시하기 위해 **[hostingPlanName]** 라고 명명된 앱 서비스 계획을 클릭합니다. 
+#### <a name="app-service-plan"></a>App Service 계획
+JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON 개요에서 해당하는 JSON 코드에 강조를 표시하기 위해 **[hostingPlanName]** 라고 명명된 App Service 계획을 클릭합니다. 
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-3-appserviceplan.png)
 
-`type` 요소는 (오래 전 서버 팜을 호출했을) 앱 서비스 계획에 대한 문자열을 지정하고 JSON 파일에 정의된 매개 변수를 사용하여 다른 요소 및 속성을 채웁니다. 또한 이 리소스에는 모든 중첩된 리소스가 없습니다.
+`type` 요소는 (오래 전 서버 팜을 호출했을) App Service 계획에 대한 문자열을 지정하고 JSON 파일에 정의된 매개 변수를 사용하여 다른 요소 및 속성을 채웁니다. 또한 이 리소스에는 모든 중첩된 리소스가 없습니다.
 
 > [!NOTE]
 > 또한 `apiVersion`의 값이 Azure에 JSON 리소스 정의를 사용할 REST API 버전을 알려주고 `{}` 내부에 형식을 지정하는 데 영향을 줄 수 있습니다. 
@@ -139,7 +139,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 이제는 실제 웹 앱 자체에 대해 알아보며 이것은 더 복잡합니다. 해당 JSON 코드에 강조를 표시하려면 JSON 개요에서 [variables('apiSiteName')] 웹 앱을 클릭합니다. 상황이 훨씬 더 흥미로워집니다. 이런 목적으로 하나씩 기능에 대해 말하겠습니다.
 
 ##### <a name="root-resource"></a>루트 리소스
-웹 앱은 두 개의 다른 리소스를 따라 다릅니다. 즉, Azure 리소스 관리자가 앱 서비스 계획 및 SQL Server 인스턴스를 모두 만든 후에 웹 앱을 만듭니다.
+웹 앱은 두 개의 다른 리소스를 따라 다릅니다. 즉, Azure 리소스 관리자가 App Service 계획 및 SQL Server 인스턴스를 모두 만든 후에 웹앱을 만듭니다.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-5-webapproot.png)
 
@@ -180,7 +180,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 > 
 
 ## <a name="compare-the-json-template-with-deployed-resource-group"></a>배포된 리소스 그룹과 JSON 템플릿 비교
-[Azure 포털](https://portal.azure.com/)에서 모든 웹 앱의 블레이드를 진행할 수 있지만, 더 사용할 수 없는 경우 유용한 다른 도구가 있습니다. [Azure 리소스 탐색기](https://resources.azure.com) 미리 보기 도구로 이동하면 구독하는 모든 리소스 그룹이 Azure 백엔드에 실제로 존재하기에 그 JSON 표현을 제공합니다. Azure에서 리소스 그룹의 JSON 계층이 어떻게 그것을 만드는데 사용되는 템플릿 파일의 계층 구조와 일치하는지를 볼 수 있습니다.
+[Azure Portal](https://portal.azure.com/)에서 모든 웹 앱의 블레이드를 진행할 수 있지만, 더 사용할 수 없는 경우 유용한 다른 도구가 있습니다. [Azure 리소스 탐색기](https://resources.azure.com) 미리 보기 도구로 이동하면 구독하는 모든 리소스 그룹이 Azure 백엔드에 실제로 존재하기에 그 JSON 표현을 제공합니다. Azure에서 리소스 그룹의 JSON 계층이 어떻게 그것을 만드는데 사용되는 템플릿 파일의 계층 구조와 일치하는지를 볼 수 있습니다.
 
 예를 들어 [Azure 리소스 탐색기](https://resources.azure.com) 도구로 이동하고 탐색기에서 노드를 확장하는 경우 해당 리소스 형식에서 수집되는 리소스 그룹 및 루트 수준 리소스를 볼 수 있습니다.
 
@@ -211,10 +211,10 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-4-newappinsight.png)
    
-   이제 리소스 및 그 역할에 따라 앱 서비스 계획 또는 웹 앱에 종속되는 여러 새 리소스를 볼 수 있습니다. 이러한 리소스는 기존의 정의를 사용할 수 없고 변경해야 합니다.
+   이제 리소스 및 그 역할에 따라 App Service 계획 또는 웹앱에 종속되는 여러 새 리소스를 볼 수 있습니다. 이러한 리소스는 기존의 정의를 사용할 수 없고 변경해야 합니다.
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-5-appinsightresources.png)
-8. JSON 개요에서 JSON 코드에 강조를 표시하려면 **appInsights 자동 크기 조정** 을 클릭합니다. 앱 서비스 계획용 크기 조정 설정입니다.
+8. JSON 개요에서 JSON 코드에 강조를 표시하려면 **appInsights 자동 크기 조정** 을 클릭합니다. App Service 계획용 크기 조정 설정입니다.
 9. 강조 표시된 JSON 코드에서 `location` 및 `enabled` 속성을 찾아 아래와 같이 설정합니다.
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-6-autoscalesettings.png)
@@ -241,7 +241,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
     > 자동 크기 조정은 **표준** 계층 이상에서 제공되는 기능이며 계획 수준 경고는 **기본** 계층 이상에서 제공되는 기능입니다. 모든 새 App Insights 리소스를 켜서 확인하기 위해서는 **sku** 매개 변수를 **표준** 또는 **프리미엄**으로 설정해야 합니다.
     > 
     > 
-16. **배포**를 클릭합니다. **암호 저장**을 선택한 경우, 암호가 **일반 텍스트에서** 매개 변수 파일에 저장됩니다. 그렇지 않은 경우 배포 프로세스 중에 데이터베이스 암호를 입력하라는 메시지가 표시됩니다.
+16. **배포**을 참조하십시오. **암호 저장**을 선택한 경우, 암호가 **일반 텍스트에서** 매개 변수 파일에 저장됩니다. 그렇지 않은 경우 배포 프로세스 중에 데이터베이스 암호를 입력하라는 메시지가 표시됩니다.
 
 끝났습니다. 이제 응용 프로그램에 배포된 JSON에 추가된 도구를 새 경고 및 자동 크기 조정 설정을 보기 위해 [Azure Portal](https://portal.azure.com/) 및 [Azure 리소스 탐색기](https://resources.azure.com) 도구로 이동해야 합니다.
 

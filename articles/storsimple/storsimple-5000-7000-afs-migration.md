@@ -11,16 +11,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/10/2018
+ms.date: 08/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 4dc4ddb2d11cf792bfa6288eadce8eb03470ae1d
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 6a52db27491ef707b813a7645d275b371b11368c
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40099777"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141569"
 ---
-# <a name="migrate-data-from-storsimple-5000-7000-series"></a>StorSimple 5000-7000 시리즈에서 데이터 마이그레이션 
+# <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>StorSimple 5000-7000 시리즈에서 Azure 파일 동기화로 데이터 마이그레이션
 
 데이터 마이그레이션은 데이터를 한 저장소 위치에서 다른 저장소 위치로 이동하는 프로세스입니다. 여기서는 활성 응용 프로그램을 중단하거나 비활성화하지 않고 조직의 현재 데이터를 한 장치에서 다른 장치로 정확히 복사한 다음, 모든 I/O(입/출력) 작업을 새 장치로 리디렉션해야 합니다. 
 
@@ -67,17 +67,17 @@ AFS로 전환하는 동안 고려해야 하는 사항은 다음과 같습니다.
 
 StorSimple 볼륨에 구성된 Windows 파일 공유를 Azure 파일 동기화 공유로 마이그레이션하려면 다음 단계를 수행합니다. 
 1.  StorSimple 볼륨이 탑재된 동일한 Windows Server 호스트에서 다음 단계를 수행하거나 다른 시스템을 사용합니다. 
-    - [Azure 파일 동기화에 사용할 Windows Server 준비](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal)
-    - [Azure 파일 동기화 에이전트 설치](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal)
-    - [저장소 동기화 서비스 배포](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal) 
-    - [저장소 동기화 서비스에 Windows Server 등록](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal) 
-    - [동기화 그룹 및 클라우드 엔드포인트 만들기](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). 호스트에서 마이그레이션해야 하는 각 Windows 파일 공유에 대한 동기화 그룹을 만들어야 합니다.
-    - [서버 엔드포인트 만들기](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). 경로를 파일 공유 데이터가 포함된 StorSimple 볼륨의 경로로 지정합니다. 예를 들어 StorSimple 볼륨이 `J` 드라이브이고 데이터가 `J:/<myafsshare>`에 있는 경우 이 경로를 서버 엔드포인트로 추가합니다. **계층화**는 **사용 안 함**으로 둡니다.
+    - [Azure 파일 동기화에 사용할 Windows Server 준비](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#prepare-windows-server-to-use-with-azure-file-sync)
+    - [Azure 파일 동기화 에이전트 설치](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#install-the-azure-file-sync-agent)
+    - [저장소 동기화 서비스 배포](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#deploy-the-storage-sync-service) 
+    - [저장소 동기화 서비스에 Windows Server 등록](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#register-windows-server-with-storage-sync-service) 
+    - [동기화 그룹 및 클라우드 엔드포인트 만들기](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#create-a-sync-group-and-a-cloud-endpoint) 호스트에서 마이그레이션해야 하는 각 Windows 파일 공유에 대한 동기화 그룹을 만들어야 합니다.
+    - [서버 엔드포인트 만들기](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal#create-a-server-endpoint). 경로를 파일 공유 데이터가 포함된 StorSimple 볼륨의 경로로 지정합니다. 예를 들어 StorSimple 볼륨이 `J` 드라이브이고 데이터가 `J:/<myafsshare>`에 있는 경우 이 경로를 서버 엔드포인트로 추가합니다. **계층화**는 **사용 안 함**으로 둡니다.
 2.  파일 서버 동기화가 완료될 때까지 기다립니다. 특정 동기화 그룹의 각 서버에 대해 다음 사항을 확인합니다.
     - 업로드 및 다운로드에 대한 마지막 동기화 시도 타임스탬프가 최근입니다.
     - 업로드 및 다운로드의 상태가 모두 녹색입니다.
-    - 동기화 작업에는 동기화하도록 남아 있는 파일이 거의 또는 전혀 표시되지 않습니다.
-    - 업로드 및 다운로드에 대한 [동기화 상태가 아닌 파일]은 모두 0입니다.
+    - **동기화 작업**에는 동기화하도록 남아 있는 파일이 거의 또는 전혀 표시되지 않습니다.
+    - 업로드 및 다운로드에 대한 **동기화 상태가 아닌 파일**은 모두 0입니다.
     서버 동기화가 완료되는 경우에 대한 자세한 내용은 [Azure 파일 동기화 문제 해결](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#how-do-i-know-if-my-servers-are-in-sync-with-each-other)을 참조하세요. 데이터 크기 및 대역폭에 따라 동기화하는 데 몇 시간에서 며칠이 걸릴 수 있습니다. 동기화가 완료되면 모든 데이터가 Azure 파일 공유에 안전하게 보관됩니다. 
 3.  StorSimple 볼륨의 공유로 이동합니다. 공유를 선택하고, 마우스 오른쪽 단추로 클릭하고, **속성**을 선택합니다. **보안** 아래에서 공유 권한을 확인합니다. 이러한 권한은 이후 단계에서 새 공유에 수동으로 적용해야 합니다.
 4.  동일한 Windows Server 호스트, 아니면 다른 Windows 호스트를 사용하는지에 따라 다음 단계가 달라집니다.

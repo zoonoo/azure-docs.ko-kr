@@ -1,34 +1,32 @@
 ---
 title: Azure SQL 로그인 및 사용자 | Microsoft Docs
-description: SQL Database 보안 관리, 특히 서버 수준 보안 주체 계정을 통해 데이터베이스 액세스 및 로그인 보안을 관리하는 방법에 대해 알아봅니다.
+description: SQL Database 및 SQL Data Warehouse 보안 관리, 특히 서버 수준 보안 주체 계정을 통해 데이터베이스 액세스 및 로그인 보안을 관리하는 방법에 대해 알아봅니다.
 keywords: sql 데이터베이스 보안,데이터베이스 보안 관리,로그인 보안,데이터베이스 보안,데이터베이스 액세스
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
+ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 08/15/2018
 ms.author: carlrab
-ms.openlocfilehash: 8529256313d8e3cb3b7155bb1b79764c17274397
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7dbd2585628c64f5baf7df6083e38217d00953be
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649808"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141160"
 ---
-# <a name="controlling-and-granting-database-access"></a>데이터베이스 액세스 제어 및 권한 부여
+# <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>SQL Database 및 SQL Data Warehouse에 대한 액세스 제어 및 권한 부여
 
-방화벽 규칙이 구성된 후에 사용자는 관리자 계정 중 하나, 데이터베이스 소유자 또는 데이터베이스에서 데이터베이스 사용자로 SQL Database에 연결할 수 있습니다.  
+방화벽 규칙이 구성된 후에는 관리자 계정 중 하나로, 데이터베이스 소유자로 또는 데이터베이스의 데이터베이스 사용자로 [SQL Database](sql-database-technical-overview.md) 및 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에 연결할 수 있습니다.  
 
 >  [!NOTE]  
 >  이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다. 
->
 
 > [!TIP]
 > 자습서는 [Azure SQL Database 보안](sql-database-security-tutorial.md)을 참조하세요.
->
-
 
 ## <a name="unrestricted-administrative-accounts"></a>무제한 관리 계정
 관리자로 작동하는 두 가지 관리 계정(**서버 관리자** 및 **Active Directory 관리자**)이 있습니다. SQL 서버에 대해 이러한 관리자 계정을 식별하려면 Azure Portal을 열고 SQL 서버의 속성으로 이동합니다.
@@ -38,17 +36,17 @@ ms.locfileid: "34649808"
 - **서버 관리자**   
 Azure SQL 서버를 만들 때 **서버 관리자 로그인**을 지정해야 합니다. SQL 서버는 master 데이터베이스에 로그인으로 해당 계정을 만듭니다. 이 계정은 SQL Server 인증(사용자 이름 및 암호)을 사용하여 연결됩니다. 이러한 계정 중 하나만 존재할 수 있습니다.   
 - **Azure Active Directory 관리자**   
-하나의 Azure Active Directory 계정, 개인 또는 보안 그룹 계정을 관리자로 구성할 수도 있습니다. Azure AD 관리자를 구성하는 것은 선택 사항이지만, Azure AD 계정을 사용하여 SQL Database에 연결하려면 Azure AD 관리자를 반드시 구성해야 합니다. Azure Active Directory 액세스 구성에 대한 자세한 내용은 [Azure Active Directory 인증을 사용하여 SQL Database 또는 SQL Data Warehouse에 연결](sql-database-aad-authentication.md) 및 [SQL Database 및 SQL Data Warehouse를 사용한 Azure AD MFA에 대한 SSMS 지원](sql-database-ssms-mfa-authentication.md)을 참조하세요.
+하나의 Azure Active Directory 계정, 개인 또는 보안 그룹 계정을 관리자로 구성할 수도 있습니다. Azure AD 관리자를 구성하는 것은 선택 사항이지만, Azure AD 계정을 사용하여 SQL Database에 연결하려면 Azure AD 관리자를 **반드시** 구성해야 합니다. Azure Active Directory 액세스 구성에 대한 자세한 내용은 [Azure Active Directory 인증을 사용하여 SQL Database 또는 SQL Data Warehouse에 연결](sql-database-aad-authentication.md) 및 [SQL Database 및 SQL Data Warehouse를 사용한 Azure AD MFA에 대한 SSMS 지원](sql-database-ssms-mfa-authentication.md)을 참조하세요.
  
 
 **서버 관리자** 및 **Azure AD 관리자** 계정에는 다음과 같은 특징이 있습니다.
 - 이들은 서버에서 모든 SQL Database에 자동으로 연결할 수 있는 유일한 계정입니다. (사용자 데이터베이스에 연결하려면 다른 계정은 데이터베이스의 소유자이거나 사용자 데이터베이스에 사용자 계정이 있어야 합니다.)
 - 이러한 계정은 `dbo` 사용자로 사용자 데이터베이스에 들어가고 사용자 데이터베이스에서 모든 권한을 갖습니다. (사용자 데이터베이스의 소유자는 또한 `dbo` 사용자로 데이터베이스에 들어갑니다.) 
-- 이러한 계정은 `dbo` 사용자로 `master` 데이터베이스에 들어가지 않으며 master에서 제한된 사용 권한을 갖습니다. 
-- 이러한 계정은 SQL 데이터베이스에서 사용할 수 없는 표준 SQL Server `sysadmin` 고정 서버 역할의 멤버가 아닙니다.  
-- 이러한 계정은 데이터베이스, 로그인, master의 사용자 및 서버 수준 방화벽 규칙을 만들고 변경하고 삭제할 수 있습니다.
-- 이러한 계정은 `dbmanager` 및 `loginmanager` 역할에 멤버를 추가하고 제거할 수 있습니다.
-- 이러한 계정은 `sys.sql_logins` 시스템 테이블을 볼 수 있습니다.
+- `master` 데이터베이스에 `dbo` 사용자로 들어가지 마세요. 그리고 master에서는 제한된 사용 권한을 갖습니다. 
+- SQL 데이터베이스에서 사용할 수 없는 표준 SQL Server `sysadmin` 고정 서버 역할의 멤버가 **아닙니다**.  
+- 데이터베이스, 로그인, master의 사용자 및 서버 수준 방화벽 규칙을 만들고 변경하고 삭제할 수 있습니다.
+- `dbmanager` 및 `loginmanager` 역할에 멤버를 추가하고 제거할 수 있습니다.
+- `sys.sql_logins` 시스템 테이블을 볼 수 있습니다.
 
 ### <a name="configuring-the-firewall"></a>방화벽 구성
 서버 수준 방화벽을 개별 IP 주소 또는 범위로 구성하면 **SQL 서버 관리자** 및 **Azure Active Directory 관리자**는 master 데이터베이스와 모든 사용자 데이터베이스에 연결할 수 있습니다. 초기 서버 수준 방화벽은 [Azure Portal](sql-database-get-started-portal.md)을 통하거나 [PowerShell](sql-database-get-started-powershell.md) 또는 [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx)를 사용하여 구성할 수 있습니다. 연결이 설정되면 [Transact-SQL](sql-database-configure-firewall-settings.md)을 사용하여 추가 서버 수준 방화벽 규칙도 구성할 수 있습니다.
@@ -89,7 +87,7 @@ SQL Database는 앞에서 설명한 서버 수준 관리 역할 외에도 데이
    
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
-   CREATE USER Tran WITH PASSWORD = '<strong_password>'; -- To create a SQL Database contained database user
+   CREATE USER Ann WITH PASSWORD = '<strong_password>'; -- To create a SQL Database contained database user
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: e12cc37c579c10d3b59197d126589d36e80a8451
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ffe15fc42aad2945ba622f1e38566100f2625340
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444524"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140555"
 ---
 # <a name="configure-managed-service-identity-on-an-azure-vm-using-azure-cli"></a>Azure CLI를 사용하여 Azure VM에서 관리 서비스 ID 구성
 
@@ -42,7 +42,11 @@ ms.locfileid: "39444524"
 - CLI 스크립트 예제는 다음의 세 가지 옵션 중 하나로 실행할 수 있습니다.
     - Azure Portal에서 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용합니다(다음 섹션 참조).
     - 각 코드 블록의 오른쪽 위에 있는 "사용해 보세요." 단추를 통해 포함된 Azure Cloud Shell을 사용합니다.
-    - 로컬 CLI 콘솔을 사용하려는 경우 [CLI 2.0의 최신 버전(2.0.13 이상)을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다. 
+    - 로컬 CLI 콘솔을 사용하려는 경우 [Azure CLI의 최신 버전을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
+      
+      > [!NOTE]
+      > [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)의 최신 릴리스를 반영하도록 명령이 업데이트되었습니다.     
+        
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -88,7 +92,7 @@ ms.locfileid: "39444524"
    az vm identity assign -g myResourceGroup -n myVm
    ```
 
-### <a name="disable-the-system-assigned-identity-from-an-azure-vm"></a>Azure VM에서 시스템 할당 ID를 사용하지 않도록 설정
+### <a name="disable-system-assigned-identity-from-an-azure-vm"></a>Azure VM에서 시스템 할당 ID를 사용하지 않도록 설정
 
 시스템 할당 ID는 더 이상 필요하지 않고 사용자 할당 ID는 여전히 필요한 가상 머신이 있는 경우 다음 명령을 사용합니다.
 
@@ -140,7 +144,7 @@ az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentit
        "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>/credentials?tid=5678&oid=9012&aid=73444643-8088-4d70-9532-c3a0fdc190fz",
        "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>",
        "location": "westcentralus",
-       "name": "<MSI NAME>",
+       "name": "<USER ASSIGNED IDENTITY NAME>",
        "principalId": "e5fdfdc1-ed84-4d48-8551-fe9fb9dedfll",
        "resourceGroup": "<RESOURCE GROUP>",
        "tags": {},
@@ -149,10 +153,10 @@ az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentit
    }
    ```
 
-3. [az vm create](/cli/azure/vm/#az-vm-create)를 사용하여 VM을 만듭니다. 다음 예제에서는 `--assign-identity` 매개 변수에서 지정한 대로 새 사용자 할당 ID와 연결된 VM을 만듭니다. `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>` 및 `<MSI ID>` 매개 변수 값을 원하는 값으로 바꾸세요. `<MSI ID>`의 경우 이전 단계에서 만든 사용자 할당 ID의 리소스 `id` 속성을 사용합니다. 
+3. [az vm create](/cli/azure/vm/#az-vm-create)를 사용하여 VM을 만듭니다. 다음 예제에서는 `--assign-identity` 매개 변수에서 지정한 대로 새 사용자 할당 ID와 연결된 VM을 만듭니다. `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>` 및 `<USER ASSIGNED IDENTITY NAME>` 매개 변수 값을 원하는 값으로 바꾸세요. 
 
    ```azurecli-interactive 
-   az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <MSI ID>
+   az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY NAME>
    ```
 
 ### <a name="assign-a-user-assigned-identity-to-an-existing-azure-vm"></a>기존 Azure VM에 사용자 할당 ID 할당
@@ -165,7 +169,7 @@ az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentit
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
     ```
-응답에는 다음과 같이 생성된 사용자가 할당한 관리 ID에 대한 세부 정보가 포함됩니다. 사용자 할당 ID에 할당된 리소스 `id` 값은 다음 단계에서 사용됩니다.
+   응답에는 다음과 같이 생성된 사용자가 할당한 관리 ID에 대한 세부 정보가 포함됩니다. 
 
    ```json
    {
@@ -182,18 +186,18 @@ az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentit
    }
    ```
 
-2. [az vm identity assign](/cli/azure/vm#az-vm-identity-assign)을 사용하여 VM에 사용자 할당 ID를 할당합니다. `<RESOURCE GROUP>` 및 `<VM NAME>` 매개 변수 값을 원하는 값으로 바꾸세요. `<MSI ID>`는 이전 단계에서 만든 대로 사용자 할당 ID의 리소스 `id` 속성입니다.
+2. [az vm identity assign](/cli/azure/vm#az-vm-identity-assign)을 사용하여 VM에 사용자 할당 ID를 할당합니다. `<RESOURCE GROUP>` 및 `<VM NAME>` 매개 변수 값을 원하는 값으로 바꾸세요. `<USER ASSIGNED IDENTITY>`는 이전 단계에서 만든 대로 사용자 할당 ID의 리소스 `name` 속성입니다.
 
     ```azurecli-interactive
-    az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI ID>
+    az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY>
     ```
 
 ### <a name="remove-a-user-assigned-identity-from-an-azure-vm"></a>Azure VM에서 사용자 할당 ID 제거
 
-VM에서 사용자 할당 ID를 제거하려면 [az vm identity remove](/cli/azure/vm#az-vm-identity-remove)를 사용합니다. `<RESOURCE GROUP>` 및 `<VM NAME>` 매개 변수 값을 원하는 값으로 바꾸세요. `<MSI NAME>`은 사용자 할당 ID의 `name` 속성이며 `az vm identity show`를 사용하여 VM의 ID 섹션에서 찾을 수 있습니다.
+VM에서 사용자 할당 ID를 제거하려면 [az vm identity remove](/cli/azure/vm#az-vm-identity-remove)를 사용합니다. 가상 머신에 할당된 유일한 사용자 할당 ID인 경우 `UserAssigned`는 ID 유형 값에서 제거됩니다.  `<RESOURCE GROUP>` 및 `<VM NAME>` 매개 변수 값을 원하는 값으로 바꾸세요. `<USER ASSIGNED IDENTITY>`는 사용자 할당 ID의 `name` 속성이며 `az vm identity show`를 사용하여 가상 머신의 ID 섹션에서 찾을 수 있습니다.
 
 ```azurecli-interactive
-az vm identity remove -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI NAME>
+az vm identity remove -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY>
 ```
 
 VM에 시스템 할당 ID가 없고 모든 사용자 할당 ID를 제거하려는 경우 다음 명령을 사용합니다.
@@ -202,13 +206,13 @@ VM에 시스템 할당 ID가 없고 모든 사용자 할당 ID를 제거하려�
 > `none` 값은 대/소문자를 구분합니다. 소문자여야 합니다.
 
 ```azurecli-interactive
-az vm update -n myVM -g myResourceGroup --set identity.type="none" identity.identityIds=null
+az vm update -n myVM -g myResourceGroup --set identity.type="none" identity.userAssignedIdentities=null
 ```
 
 VM에 시스템 할당 및 사용자 할당 ID가 모두 있는 경우 시스템 할당만 사용하도록 전환하여 모든 사용자 할당 ID를 제거할 수 있습니다. 다음 명령을 사용합니다.
 
 ```azurecli-interactive
-az vm update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' identity.identityIds=null 
+az vm update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' identity.userAssignedIdentities=null 
 ```
 
 ## <a name="related-content"></a>관련 콘텐츠

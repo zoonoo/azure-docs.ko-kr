@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 51f38cf7ade01b58ad5ce7925af5546d1a4f1a0c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 072573b16fbeebac1ec942b0be508cf901b5cd27
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525385"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42140711"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Azure Data Lake Storage Gen2 미리 보기 소개
 
@@ -33,6 +33,8 @@ Data Lake Storage Gen2의 기본 기능은 데이터 액세스 성능을 개선�
 
 - 디렉터리 및 하위 디렉터리를 통해 파일을 구성하고 조작할 수 있으므로 **관리**가 더 쉽습니다.
 
+- 폴더 또는 개별 파일에 POSIX 권한을 정의할 수 있으므로 **보안**을 강제로 적용할 수 있습니다.
+
 - Data Lake Storage Gen2가 저비용 [Azure Blob Storage](../blobs/storage-blobs-introduction.md) 위에 빌드되므로 **비용 효과**를 얻을 수 있습니다. 추가 기능을 통해 Azure에서 빅 데이터 분석을 실행하기 위한 총 소유 비용이 더 낮아집니다.
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Data Lake Storage Gen2의 주요 기능
@@ -43,15 +45,13 @@ Data Lake Storage Gen2의 기본 기능은 데이터 액세스 성능을 개선�
 
 - **Hadoop 호환 액세스**: Data Lake Storage Gen2를 사용하면 [HDFS(Hadoop 분산 파일 시스템)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html)를 사용하는 것처럼 데이터를 관리하고 액세스할 수 있습니다. 새 [ABFS 드라이버](./abfs-driver.md)는 [Azure HDInsight](../../hdinsight/index.yml) 및 [Azure Databricks](../../azure-databricks/index.yml)를 포함한 모든 Apache Hadoop 환경 내에서 Data Lake Storage Gen2에 저장된 데이터에 액세스하는 데 사용할 수 있습니다.
 
-- **다중 프로토콜 및 다중 모달 데이터 액세스**: Data Lake Storage Gen2는 **동시에** 동일한 데이터에 대한 개체 저장소 및 파일 시스템 인터페이스를 둘 다 제공하므로 **다중 모달** 저장소 서비스로 간주합니다. 이 작업은 동일한 데이터에 액세스할 수 있는 여러 프로토콜 끝점을 제공하는 방식으로 이루어집니다. 
-
-    다른 분석 솔루션과 달리 Data Lake Storage Gen2에 저장된 데이터는 다양한 분석 도구를 실행하기 전에 이동하거나 변환할 필요가 없습니다. 기존 [Blob Storage API](../blobs/storage-blobs-introduction.md)를 통해 데이터에 액세스하고(예: [Event Hubs 캡처](../../event-hubs/event-hubs-capture-enable-through-portal.md)를 통해 데이터 수집) 동시에 HDInsight 또는 Azure Databricks를 사용하여 해당 데이터를 처리할 수 있습니다. 
+- **POSIX 권한 상위 집합**: Data Lake Gen2의 보안 모델은 Data Lake Storage Gen2와 관련된 몇 가지 추가 세분성과 함께 ACL 및 POSIX 권한을 완벽하게 지원합니다. 설정은 관리 도구 또는 Hive 및 Spark 같은 프레임워크를 통해 구성할 수 있습니다.
 
 - **비용 효과**: Data Lake Storage Gen2는 낮은 비용의 저장소 용량 및 트랜잭션을 제공합니다. 데이터가 전체 수명 주기를 통해 전환됨에 따라 청구 요금이 바뀌므로 [Azure Blob Storage 수명 주기](../common/storage-lifecycle-managment-concepts.md)와 같은 기본 제공 기능을 통해 비용이 최소한으로 유지됩니다.
 
 - **Blob Storage 도구, 프레임워크 및 앱 사용**: Data Lake Storage Gen2는 현재 Blob Storage용으로 제공되는 다양한 도구, 프레임워크 및 응용 프로그램을 계속 사용합니다.
 
-- **최적화된 드라이버**: `abfs` 드라이버는 빅 데이터 분석을 위해 [특별히 최적화](./abfs-driver.md)되었습니다. 해당 REST API는 `dfs` 끝점, `dfs.core.windows.net`을 통해 표시됩니다.
+- **최적화된 드라이버**: `abfs` 드라이버는 빅 데이터 분석을 위해 [특별히 최적화](./abfs-driver.md)되었습니다. 해당 REST API는 `dfs` 엔드포인트, `dfs.core.windows.net`를 통해 표시됩니다.
 
 ## <a name="scalability"></a>확장성
 

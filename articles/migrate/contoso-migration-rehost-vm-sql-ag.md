@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/13/2018
 ms.author: raynew
-ms.openlocfilehash: 0cfb583f9d16039249aaffe18f71039e91dc3705
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: cd7a5832faf0fbb15349edee8ed504c1f94d1aa9
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39359209"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42140734"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Contoso 마이그레이션: 온-프레미스 앱을 Azure VM 및 SQL Server AlwaysOn 가용성 그룹에 다시 호스트
 
@@ -26,7 +26,8 @@ ms.locfileid: "39359209"
 [문서 1: 개요](contoso-migration-overview.md) | Contoso 마이그레이션 전략, 문서 시리즈 및 사용할 샘플 앱에 대해 간략히 설명합니다. | 사용 가능
 [문서 2: Azure 인프라 배포](contoso-migration-infrastructure.md) | Contoso가 마이그레이션을 위해 온-프레미스 및 Azure 인프라를 준비하는 방법을 설명합니다. 모든 마이그레이션 문서에 동일한 인프라가 사용됩니다. | 사용 가능
 [문서 3: 온-프레미스 리소스 평가](contoso-migration-assessment.md)  | Contoso가 VMware에서 실행되는 온-프레미스 2계층 SmartHotel 앱 평가를 실행하는 방법을 보여 줍니다. Contoso가 [Azure Migrate](migrate-overview.md) 서비스로 앱 VM을 평가하고 [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)로 앱 SQL Server 데이터베이스를 평가합니다. | 사용 가능
-[문서 4: 앱을 Azure VM 및 SQL Managed Instance에 다시 호스트](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso가 SmartHotel 앱에 대해 Azure로의 리프트 앤 시프트 마이그레이션을 실행하는 방법을 보여 줍니다. Contoso는 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하여 앱 프런트 엔드 VM을 마이그레이션하고 [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)를 사용하여 앱 데이터베이스를 SQL 관리되는 인스턴스로 마이그레이션합니다. | 사용 가능
+
+  [문서 4: 앱을 Azure VM 및 SQL Managed Instance에 다시 호스트](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso가 SmartHotel 앱에 대해 Azure로의 리프트 앤 시프트 마이그레이션을 실행하는 방법을 보여 줍니다. Contoso는 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하여 앱 프런트 엔드 VM을 마이그레이션하고 [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)를 사용하여 앱 데이터베이스를 SQL Managed Instance로 마이그레이션합니다. | 사용 가능
 [문서 5: 앱을 Azure VM에 다시 호스트](contoso-migration-rehost-vm.md) | Contoso가 Site Recovery만 사용하여 SmartHotel 앱 VM을 마이그레이션하는 방법을 보여 줍니다. | 사용 가능
 문서 6: 앱을 Azure VM 및 SQL Server Always On 가용성 그룹에 다시 호스트 | Contoso에서 SmartHotel 앱을 마이그레이션하는 방법을 보여 줍니다. Contoso가 Site Recovery를 사용하여 앱 VM을 마이그레이션하고 Database Migration Service를 사용하여 앱 데이터베이스를 AlwaysOn 가용성 그룹에서 보호하는 SQL Server 클러스터로 마이그레이션합니다. | 이 문서의 내용
 [문서 7: Azure VM에서 Linux 앱 다시 호스트](contoso-migration-rehost-linux-vm.md) | Contoso가 Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 리프트 앤 시프트 마이그레이션하는 방법을 보여 줍니다. | 사용 가능
@@ -76,8 +77,8 @@ Contoso 클라우드 팀은 이 마이그레이션의 목표를 확실하게 정
 
 **서비스** | **설명** | **비용**
 --- | --- | ---
-[데이터베이스 관리 서비스](https://docs.microsoft.com/azure/dms/dms-overview) | Contoso는 DMS를 사용하여 앱 데이터 계층을 마이그레이션합니다. DMS는 사이트 간 VPN에서 온-프레미스 SQLVM 머신에 연결됩니다. DMS를 통해 여러 데이터베이스 원본에서 Azure 데이터 플랫폼으로 원활하게 마이그레이션하며 가동 중지 시간을 최소화할 수 있습니다. | DMS에 대해 [지원되는 지역](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability)에 대해 알아보고, [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/database-migration/)를 확인하세요.
-[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | Contoso는 앱 프런트 엔드 VM의 리프트 앤 시프트 마이그레이션에 Site Recovery를 사용합니다. Site Recovery는 Azure VM, 온-프레미스 VM 및 물리적 서버에 대한 마이그레이션 및 재해 복구를 오케스트레이션하고 관리합니다.  | Azure로 복제하는 동안 Azure Storage 비용이 청구됩니다.  장애 조치(failover) 발생 시 Azure VM이 생성되고, 요금이 발생합니다. 요금 및 가격 책정에 대해 [자세히 알아보세요](https://azure.microsoft.com/pricing/details/site-recovery/).
+[Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview) | DMS를 통해 최소한의 가동 중지 시간으로 여러 데이터베이스 원본에서 Azure 데이터 플랫폼으로 원활하게 마이그레이션할 수 있습니다. | DMS에 대해 [지원되는 지역](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability)에 대해 알아보고, [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/database-migration/)를 확인하세요.
+[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | Site Recovery는 Azure VM, 온-프레미스 VM 및 물리적 서버에 대한 마이그레이션 및 재해 복구를 오케스트레이션하고 관리합니다.  | Azure로 복제하는 동안 Azure Storage 비용이 청구됩니다.  장애 조치(failover) 발생 시 Azure VM이 생성되고, 요금이 발생합니다. 요금 및 가격 책정에 대해 [자세히 알아보세요](https://azure.microsoft.com/pricing/details/site-recovery/).
 
  
 
@@ -104,7 +105,7 @@ Contoso 클라우드 팀은 이 마이그레이션의 목표를 확실하게 정
 **Azure 구독** | 이 시리즈의 첫 번째 문서에서 평가를 수행했을 때 이미 구독이 만들어졌어야 합니다. Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.<br/><br/> 체험 계정을 만들면 구독 관리자로서 모든 작업을 수행할 수 있습니다.<br/><br/> 기존 구독을 사용하고 관리자가 아닌 경우 관리자와 협력하여 소유자 또는 기여자 권한을 할당받아야 합니다.<br/><br/> 보다 세부적인 권한이 필요한 경우 [이 문서](../site-recovery/site-recovery-role-based-linked-access-control.md)를 검토합니다. 
 **Azure 인프라** | Contoso가 Azure 인프라를 설정하는 [방법에 대해 알아보세요](contoso-migration-infrastructure.md).<br/><br/> Site Recovery 고유의 [네트워크](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) 및 [저장소](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage) 요구 사항에 대해 자세히 알아보세요.
 **사이트 복구(온-프레미스)** | 온-프레미스 vCenter Server에서 5.5, 6.0 또는 6.5 버전을 실행해야 합니다.<br/><br/> 5.5, 6.0 또는 6.5 버전을 실행하는 ESXi 호스트<br/><br/> ESXi 호스트에서 실행되는 하나 이상의 VMware VM<br/><br/> VM은 [Azure 요구 사항](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements)을 충족해야 합니다.<br/><br/> 지원되는 [네트워크](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) 및 [저장소](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage) 구성입니다.<br/><br/> 복제하려는 VM은 [Azure 요구 사항](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements)을 충족해야 합니다.
-**DMS** | DMS의 경우 [호환 가능한 온-프레미스 VPN 장치](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices)가 필요합니다.<br/><br/> 온-프레미스 VPN 장치를 구성할 수 있어야 합니다. 외부적으로 연결 공용 IPv4 주소가 있어야 하며, NAT 장치 뒤에 주소를 배치할 수 없습니다.<br/><br/> 온-프레미스 SQL Server 데이터베이스에 대한 권한이 있는지 확인합니다.<br/><br/> Windows 방화벽은 원본 데이터베이스 엔진에 액세스할 수 있어야 합니다. [자세히 알아보기](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).<br/><br/> 데이터베이스 컴퓨터 앞에 방화벽이 있는 경우 SMB 포트 445를 통해 데이터베이스 및 파일에 엑세스를 허용하는 규칙을 추가합니다.<br/><br/> 원본 SQL Server와 대상 관리되는 인스턴스를 연결하는 데 사용되는 자격 증명은 sysadmin 서버 역할의 구성원이어야 합니다.<br/><br/> DMS에서 원본 데이터베이스를 백업하는 데 사용할 수 있는 온-프레미스 데이터베이스에서 네트워크 공유가 필요합니다.<br/><br/> 원본 SQL Server 인스턴스를 실행하는 서비스 계정이 네트워크 공유에 대한 쓰기 권한을 갖고 있는지 확인합니다.<br/><br/> 네트워크 공유에 대한 전체 제어 권한을 갖고 있는 Windows 사용자(및 암호)를 메모해 둡니다. Azure Database Migration Service는 이러한 사용자 자격 증명을 가장하여 Azure 저장소 컨테이너에 백업 파일을 업로드합니다.<br/><br/> SQL Server Express 설치 프로세스는 TCP/IP 프로토콜을 기본적으로 **사용 안 함**으로 설정합니다. 활성화되어 있는지 확인합니다.
+**DMS** | DMS의 경우 [호환 가능한 온-프레미스 VPN 장치](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices)가 필요합니다.<br/><br/> 온-프레미스 VPN 장치를 구성할 수 있어야 합니다. 외부적으로 연결 공용 IPv4 주소가 있어야 하며, NAT 장치 뒤에 주소를 배치할 수 없습니다.<br/><br/> 온-프레미스 SQL Server 데이터베이스에 대한 권한이 있는지 확인합니다.<br/><br/> Windows 방화벽은 원본 데이터베이스 엔진에 액세스할 수 있어야 합니다. [자세히 알아보기](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).<br/><br/> 데이터베이스 컴퓨터 앞에 방화벽이 있는 경우 SMB 포트 445를 통해 데이터베이스 및 파일에 엑세스를 허용하는 규칙을 추가합니다.<br/><br/> 원본 SQL Server와 대상 Managed Instance를 연결하는 데 사용되는 자격 증명은 sysadmin 서버 역할의 구성원이어야 합니다.<br/><br/> DMS에서 원본 데이터베이스를 백업하는 데 사용할 수 있는 온-프레미스 데이터베이스에서 네트워크 공유가 필요합니다.<br/><br/> 원본 SQL Server 인스턴스를 실행하는 서비스 계정이 네트워크 공유에 대한 쓰기 권한을 갖고 있는지 확인합니다.<br/><br/> 네트워크 공유에 대한 전체 제어 권한을 갖고 있는 Windows 사용자(및 암호)를 메모해 둡니다. Azure Database Migration Service는 이러한 사용자 자격 증명을 가장하여 Azure 저장소 컨테이너에 백업 파일을 업로드합니다.<br/><br/> SQL Server Express 설치 프로세스는 TCP/IP 프로토콜을 기본적으로 **사용 안 함**으로 설정합니다. 활성화되어 있는지 확인합니다.
 
 
 ## <a name="scenario-steps"></a>시나리오 단계

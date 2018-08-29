@@ -11,22 +11,24 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/04/2017
+ms.date: 08/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: d891cd92e70d3491ee0c7a58f1409823301b299c
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: cfcdf13f8aa4dfab9b361ccbb82ea4b2c3e2ca0d
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989760"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140547"
 ---
 # <a name="import-data-into-analytics"></a>Analytics로 데이터 가져오기
 
 테이블 형식 데이터를 [Analytics](app-insights-analytics.md)로 가져와 앱의 [Application Insights](app-insights-overview.md) 원격 분석과 연결하거나 별도 스트림으로 분석할 수 있습니다. Analytics는 타임스탬프가 지정된 고용량 원격 분석 스트림을 분석하는 데 적합한 강력한 쿼리 언어입니다.
-
 사용자 고유의 스키마를 사용하여 Analytics로 데이터를 가져올 수 있습니다. 요청 또는 추적과 같은 표준 Application Insights 스키마를 사용할 필요는 없습니다.
 
 JSON 또는 DSV(구분 기호 쉼표, 세미콜론 또는 탭으로 구분된 값) 파일을 가져올 수 있습니다.
+
+> [!IMPORTANT]
+> 이 문서는 더 이상 **사용되지 않습니다**. [Log Analytics 데이터 수집기 API](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)를 사용하여 Log Analytics로 데이터를 가져오는 것이 좋습니다.
 
 다음과 같은 세 가지 상황에서는 Analytics로 가져오는 것이 유용합니다.
 
@@ -146,7 +148,7 @@ JSON 형식
 2. [Blob에 대한 공유 액세스 서명 키를 생성합니다](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md). 이 키는 만료 기간이 1일이고 읽기 액세스 권한을 부여해야 합니다.
 3. 데이터가 대기 중임을 Application Insights에 알리기 위해 REST 호출을 수행합니다.
 
- * 끝점: `https://dc.services.visualstudio.com/v2/track`
+ * 엔드포인트: `https://dc.services.visualstudio.com/v2/track`
  * HTTP 메서드: POST
  * 페이로드:
 

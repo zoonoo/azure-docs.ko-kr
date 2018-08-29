@@ -12,16 +12,20 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
-ms.date: 06/21/2018
+ms.date: 08/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: a401bc3ed68dc9273ac14cfd357b9c05111dd54c
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 221d0d8a78a46cad9f1994e9313b21e2867d9563
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311107"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140556"
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Application Insights에서 가격 및 데이터 볼륨 관리
+
+> [!NOTE]
+> 이 문서에서는 데이터 사용량 Application Insights를 분석하는 방법을 설명합니다.  관련 정보는 다음 문서를 참조하세요.
+> - [사용량 및 예상 비용 모니터링](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md)에서는 다른 가격 책정 모델에 대해 여러 Azure 모니터링 기능에서 사용량 및 예상 비용을 보는 방법을 설명합니다. 또한 가격 책정 모델을 변경하는 방법을 설명합니다.
 
 [Azure Application Insights][start]의 가격 책정은 응용 프로그램당 데이터 볼륨을 기반으로 합니다. 각 Application Insights 리소스는 별도의 서비스로 요금이 부과되고 Azure 구독에 대한 청구서에 추가됩니다.
 

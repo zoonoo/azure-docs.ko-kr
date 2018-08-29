@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: cd97b00a522ff41a74f46195da5d8b1a0d92d344
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 04db7655f3f4b63edffcb731d0e92db25f1847b9
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960011"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42140762"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>경로 테이블 만들기, 변경 또는 삭제
 
@@ -43,7 +43,7 @@ Azure 위치와 구독별로 만들 수 있는 경로 테이블 수에 제한이
 
 1. 포털의 왼쪽 상단 모서리에서 **+ 리소스 만들기**를 선택합니다.
 2. **네트워킹**을 선택한 후 **경로 테이블**을 선택합니다.
-3. 경로 테이블의 **이름**을 입력하고 **구독**을 선택하고 새 **리소스 그룹**을 만들거나 기존 리소스 그룹을 선택하고 **위치**를 선택한 후 **만들기**를 선택합니다. **BGP 경로 전파 사용 안 함** 옵션은 온-프레미스 경로가 BGP를 통해 경로 테이블이 연결된 서브넷의 네트워크 인터페이스에 전파되는 것을 방지합니다. 가상 네트워크가 Azure 네트워크 게이트웨이(VPN 또는 ExpressRoute)에 연결되지 않은 경우 옵션을 *사용 안 함*으로 설정합니다.
+3. 경로 테이블의 **이름**을 입력하고 **구독**을 선택하고 새 **리소스 그룹**을 만들거나 기존 리소스 그룹을 선택하고 **위치**를 선택한 후 **만들기**를 선택합니다. VPN 게이트웨이를 통해 온-프레미스 네트워크에 연결된 가상 네트워크의 서브넷에 경로 테이블을 연결할 계획이고, **BGP 경로 전파**를 사용하지 않도록 설정하면 온-프레미스 경로가 서브넷의 네트워크 인터페이스로 전파되지 않습니다.
 
 **명령**
 
@@ -215,7 +215,7 @@ Azure 위치와 구독별로 만들 수 있는 경로 테이블당 경로 수에
 - Azure CLI: [az network nic show-effective-route-table](/cli/azure/network/nic?view=azure-cli-latest#az_network_nic_show_effective_route_table)
 - PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable) 
 
-## <a name="validate-routing-between-two-endpoints"></a>두 개의 끝점 간의 라우팅 유효성 검사
+## <a name="validate-routing-between-two-endpoints"></a>두 개의 엔드포인트 간의 라우팅 유효성 검사
 
 가상 머신 및 다른 Azure 리소스, 온-프레미스 리소스 또는 인터넷 리소스의 IP 주소 사이에서 다음 홉 유형을 확인할 수 있습니다. Azure 라우팅을 확인하면 라우팅 문제를 해결할 때 유용합니다. 이 작업을 완료하려면 기존 Network Watcher가 있어야 합니다. 기존 Network Watcher가 없는 경우 [Network Watcher 만들기](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)의 단계를 완료하여 만듭니다.
 

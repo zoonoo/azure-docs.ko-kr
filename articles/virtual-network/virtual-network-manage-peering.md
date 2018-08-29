@@ -13,18 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2018
+ms.date: 08/16/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 1b9807b587b6b52594133e8c792c72b21e8bd4ea
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 7d27b95f9c7d21f49f547534ca99a44657062abc
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503624"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42141380"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>가상 네트워크 피어링 만들기, 변경 또는 삭제
 
-가상 네트워크 피어링을 만들고 변경하거나 삭제하는 방법을 알아봅니다. 가상 네트워크 피어링은 Azure 백본 네트워크를 통해 가상 네트워크를 연결할 수 있습니다. 피어링된 후 가상 네트워크는 여전히 별도의 리소스로 관리됩니다. 가상 네트워크 피어링을 처음 접하는 경우 [가상 네트워크 피어링 개요](virtual-network-peering-overview.md)를 참조하거나 [자습서](tutorial-connect-virtual-networks-portal.md)를 완료하여 자세히 알아볼 수 있습니다.
+가상 네트워크 피어링을 만들고 변경하거나 삭제하는 방법을 알아봅니다. 가상 네트워크 피어링은 Azure 백본 네트워크를 통해 동일한 지역 및 여러 지역(글로벌 VNet 피어링)에 있는 네트워크를 연결할 수 있습니다. 피어링된 후 가상 네트워크는 여전히 별도의 리소스로 관리됩니다. 가상 네트워크 피어링을 처음 접하는 경우 [가상 네트워크 피어링 개요](virtual-network-peering-overview.md)를 참조하거나 [자습서](tutorial-connect-virtual-networks-portal.md)를 완료하여 자세히 알아볼 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -112,10 +112,10 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 
 ## <a name="requirements-and-constraints"></a>요구 사항 및 제약 조건 
 
-- <a name="cross-region"></a>동일한 또는 다른 지역에 있는 가상 네트워크를 피어링할 수 있습니다. 두 가상 네트워크가 *동일한* 지역에 있는 경우에는 다음과 같은 제약 조건이 적용되지 않지만 가상 네트워크가 전역에 피어링되는 경우에는 적용됩니다. 
-    - 가상 네트워크는 Azure 국가별 클라우드를 제외한 모든 Azure 공용 클라우드 지역에 있을 수 있습니다.
-    - 하나의 가상 네트워크의 리소스는 피어링된 가상 네트워크에 있는 Azure 내부 부하 분산 장치의 IP 주소와 통신할 수 없습니다. 함께 통신하는 부하 분산 장치 및 리소스는 동일한 가상 네트워크에 있어야 합니다.
-    - 원격 게이트웨이를 사용하거나 게이트웨이 전송을 허용할 수 없습니다. 원격 게이트웨이를 사용하거나 게이트웨이 전송을 허용하려면 피어링에서 두 가상 네트워크는 동일한 지역에 있어야 합니다. 
+- <a name="cross-region"></a>동일한 또는 다른 지역에 있는 가상 네트워크를 피어링할 수 있습니다. 다른 지역의 가상 네트워크 피어링을 *글로벌 피어링*이라고도 합니다. 
+- 글로벌 피어링을 만들 때 피어링된 가상 네트워크는 Azure 국가별 클라우드를 제외한 모든 Azure 공용 클라우드 지역에 있을 수 있습니다. 국가별 클라우드의 동일한 지역에 있는 가상 네트워크만 피어링할 수 있습니다.
+- 하나의 가상 네트워크의 리소스는 전역적으로 피어링된 가상 네트워크에 있는 Azure 내부 부하 분산 장치의 프런트 엔드 IP 주소와 통신할 수 없습니다. 서로 통신하는 부하 분산 장치 및 리소스는 동일한 지역의 동일한 가상 네트워크에 있어야 합니다. 하지만 피어링된 가상 네트워크가 동일한 지역에 있어도 두 가상 네트워크의 리소스는 피어링에 있는 두 가상 네트워크 중 하나의 Azure 내부 부하 분산 장치 프런트 엔드 IP 주소를 사용하여 통신할 수 있습니다.
+- 전역적으로 피어링된 가상 네트워크에서 원격 게이트웨이를 사용하거나 게이트웨이 전송을 허용할 수 없습니다. 원격 게이트웨이를 사용하거나 게이트웨이 전송을 허용하려면 피어링된 가상 네트워크가 동일한 지역에 있어야 합니다.
 - 가상 네트워크는 같은 구독에 있을 수도 있고 다른 구독에 있을 수도 있습니다. 다른 구독에서 가상 네트워크를 피어링하는 경우 두 구독 모두는 같은 Azure Active Directory 테넌트에 연결되어야 합니다. 아직 AD 테넌트가 없는 경우 빠르게 [만들](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant) 수 있습니다. [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V)를 사용하여 다른 Active Directory 테넌트에 연결된 다른 구독에 있는 2개의 가상 네트워크를 연결할 수 있습니다.
 - 피어링하는 가상 네트워크에 겹치지 않는 IP 주소 공간이 있어야 합니다.
 - 가상 네트워크가 다른 가상 네트워크와 피어링되면 가상 네트워크에 주소 범위를 추가하거나 가상 네트워크에서 주소 범위를 삭제할 수 없습니다. 주소 범위를 추가하거나 제거하려면 피어링을 삭제하고 주소 범위를 추가하거나 제거한 다음 피어링을 다시 만듭니다. 가상 네트워크에 주소 범위를 추가하거나 가상 네트워크에서 주소 범위를 제거하려면 [가상 네트워크 관리](manage-virtual-network.md)를 참조하세요.
