@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/18/2018
+ms.date: 08/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 800ec83b3599dba716e7a4a015b9b8c1745a0975
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 91d1be062dbf05f4c7c9c5c4a1eb3dfcfdb001af
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144570"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42441697"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Azure Security Center에 대한 테넌트 수준 가시성 얻기
 이 문서에서는 Azure Security Center에서 제공하는 혜택을 최대화하는 여러 작업을 수행하여 시작하도록 돕습니다. 이러한 작업을 수행하면 Azure Active Directory 테넌트에 연결된 모든 Azure 구독에 대한 가시성을 얻고 집합적 방식으로 여러 구독에 보안 정책을 적용하여 모든 규모에서 조직의 보안 상태를 효율적으로 관리할 수 있습니다.
@@ -85,21 +85,26 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
 
 5. 권한이 상승된 액세스를 확인하는 데 필요한 작업을 수행합니다. 작업이 완료되면 스위치를 다시 **아니요**로 설정합니다.
 
-### <a name="open-or-refresh-security-center"></a>Security Center 열기 또는 새로 고치기
-액세스 권한을 승격하면 Azure Security Center를 열거나 새로 고쳐 Azure AD 테넌트 아래의 모든 구독에 대한 가시성이 있는지 확인합니다. 
-
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
-2. 구독 선택기에서 Security Center에서 보려는 모든 구독을 선택해야 합니다.
-    ![구독 선택기 스크린샷](./media/security-center-management-groups/subscription-selector.png)
-1. Azure 주 메뉴 아래에서 **모든 서비스**를 선택한 다음, **Security Center**를 선택합니다.
-2. **개요**에 구독 적용 범위 차트가 있습니다. 
-    ![구독 적용 범위 차트 스크린샷](./media/security-center-management-groups/security-center-subscription-coverage.png)
-3. **적용 범위**를 클릭하여 적용되는 구독 목록을 봅니다. 
-    ![구독 적용 범위 목록 스크린샷](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="assign-rbac-roles-to-users"></a>사용자에게 RBAC 역할 할당
-테넌트 관리자가 상승된 엑세스 권한을 가지면 루트 관리 그룹 수준에서 관련 사용자에게 RBAC 역할을 할당할 수 있습니다. 할당할 권장 역할은 [**Reader**](../role-based-access-control/built-in-roles.md#reader)입니다. 이 역할은 테넌트 수준 가시성을 제공하는 데 필요합니다. 할당된 역할은 모든 관리 그룹 및 루트 관리 그룹 아래의 구독으로 자동으로 전파됩니다. RBAC 역할에 대한 자세한 내용은 [사용 가능한 역할](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles)을 참조하세요. 
+모든 구독에 대한 가시성을 확보하려면 테넌트 관리자가 루트 관리 그룹 수준에서 자신을 포함하여 테넌트 전체에 대한 가시성을 부여하려는 사용자에게 적절한 RBAC 역할을 할당해야 합니다. 권장되는 할당 역할은 **보안 관리자** 또는 **보안 읽기 권한자**입니다. 일반적으로 보안 관리자 역할은 루트 수준에서 정책을 적용해야 하며, 보안 읽기 권한자는 테넌트 수준 가시성을 제공하는 데 충분합니다. 이러한 역할로 부여되는 권한에 대한 자세한 내용은 [보안 관리자 기본 제공 역할 설명](../role-based-access-control/built-in-roles.md#security-admin) 또는 [보안 읽기 권한자 기본 제공 역할 설명](../role-based-access-control/built-in-roles.md#security-reader)을 참조하세요.
 
+
+#### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Azure Portal을 통해 사용자에게 RBAC 역할 할당: 
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
+2. 관리 그룹을 보려면 Azure 주 메뉴에서 **모든 서비스**를 선택한 다음, **관리 그룹**을 선택합니다.
+3.  관리 그룹을 선택하고 **세부 정보**를 클릭합니다.
+
+    ![관리 그룹 세부 정보 스크린샷](./media/security-center-management-groups/management-group-details.PNG)
+ 
+4. **액세스 제어(IAM)**, **추가**를 차례로 클릭합니다.
+5. 할당할 역할과 사용자를 선택한 다음, **저장**을 클릭합니다.  
+   
+   ![보안 읽기 권한자 역할 추가 스크린샷](./media/security-center-management-groups/asc-security-reader.png)
+
+
+#### <a name="assign-rbac-roles-to-users-with-powershell"></a>PowerShell을 사용하여 사용자에게 RBAC 역할 할당: 
 1. [Azure PowerShell](/powershell/azure/install-azurerm-ps)을 설치합니다.
 2. 다음 명령을 실행합니다. 
 
@@ -128,19 +133,17 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
     Remove-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
     ```
 
-<!-- Currently, PowerShell method only 6/26/18
+### <a name="open-or-refresh-security-center"></a>Security Center 열기 또는 새로 고치기
+액세스 권한을 승격하면 Azure Security Center를 열거나 새로 고쳐 Azure AD 테넌트 아래의 모든 구독에 대한 가시성이 있는지 확인합니다. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
-2. To view management groups, select **All services** under the Azure main menu then select **Management Groups**.
-3.  Select a management group and click **details**.
-
-    ![Management Groups details screenshot](./media/security-center-management-groups/management-group-details.PNG)
- 
-4. Click **Access control (IAM)** then **Add**.
-5. Select the role to assign and the user, then click **Save**.  
-   
-   ![Add Security Reader role screenshot](./media/security-center-management-groups/asc-security-reader.png)
--->
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
+2. Security Center에서 보려는 모든 구독을 구독 선택기에서 선택해야 합니다.
+    ![구독 선택기 스크린샷](./media/security-center-management-groups/subscription-selector.png)
+1. Azure 주 메뉴 아래에서 **모든 서비스**를 선택한 다음, **Security Center**를 선택합니다.
+2. **개요**에 구독 적용 범위 차트가 있습니다. 
+    ![구독 적용 범위 차트 스크린샷](./media/security-center-management-groups/security-center-subscription-coverage.png)
+3. **적용 범위**를 클릭하여 적용되는 구독 목록을 봅니다. 
+    ![구독 적용 범위 목록 스크린샷](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="remove-elevated-access"></a>상승된 액세스 제거 
 RBAC 역할이 사용자에게 할당되면 테넌트 관리자는 사용자 액세스 관리자 역할에서 스스로를 제거해야 합니다.

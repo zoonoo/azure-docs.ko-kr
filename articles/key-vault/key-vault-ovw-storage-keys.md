@@ -5,16 +5,16 @@ description: 저장소 계정 키는 Azure Key Vault 간의 원활한 통합과 
 ms.topic: article
 services: key-vault
 ms.service: key-vault
-author: lleonard-msft
-ms.author: alleonar
+author: bryanla
+ms.author: bryanla
 manager: mbaldwin
-ms.date: 10/12/2017
-ms.openlocfilehash: 4f42a47a6d934bf0538efccbcf7f057fd28e2c03
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 08/21/2017
+ms.openlocfilehash: 0112d48647c031845bc89ccebfcdd40954c59f14
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179591"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143383"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault Storage 계정 키
 
@@ -38,8 +38,8 @@ Azure Storage 계정에 대한 일반적인 내용은 [Azure storage 계정 정�
     - Azure Key Vault는 정기적으로 키를 다시 생성(회전)합니다.
     - 키 값은 호출자에게 응답으로 반환되지 않습니다.
     - Azure Key Vault는 Storage 계정과 클래식 Storage 계정 둘 다의 키를 관리합니다.
-- Azure Key Vault를 사용하면 자격 증명 모음/개체 소유자가 SAS(계정 또는 서비스 SAS) 정의를 만들 수 있습니다.
-    - SAS 정의를 사용하여 만든 SAS 값은 REST URI 경로를 통해 암호로 반환됩니다. 자세한 내용은 [Azure Key Vault 저장소 계정 작업](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations)을 참조하세요.
+- Azure Key Vault를 사용하면 자격 증명 모음/개체 소유자가 SAS(공유 액세스 서명, 계정 또는 서비스 SAS) 정의를 만들 수 있습니다.
+    - SAS 정의를 사용하여 만든 SAS 값은 REST URI 경로를 통해 암호로 반환됩니다. 자세한 내용은 [Azure Key Vault REST API 참조](/rest/api/keyvault)에서 SAS 정의 작업을 참조하세요.
 
 ## <a name="naming-guidance"></a>명명 지침
 
@@ -97,7 +97,9 @@ accountSasCredential.UpdateSASToken(sasToken);
 
 ## <a name="getting-started"></a>시작
 
-### <a name="setup-for-role-based-access-control-rbac-permissions"></a>RBAC(역할 기반 액세스 제어) 권한 설정
+### <a name="give-key-vault-access-to-your-storage-account"></a>Key Vault에 저장소 계정에 대한 액세스 제공 
+
+많은 응용 프로그램과 마찬가지로 Key Vault는 OAuth를 사용하여 다른 서비스에 액세스하기 위해 Azure AD를 사용하여 등록됩니다. 등록하는 동안 런타임 시 응용 프로그램의 ID를 나타내는 데 사용되는 [서비스 사용자](/azure/active-directory/develop/app-objects-and-service-principals) 개체가 생성됩니다. 서비스 사용자는 RBAC(역할 기반 액세스 제어)를 통해 응용 프로그램의 ID에 다른 리소스에 대한 액세스 권한을 부여하는 데도 사용됩니다.
 
 Azure Key Vault 응용 프로그램 ID는 저장소 계정의 키를 *나열*하고 *다시 생성*할 수 있는 권한이 필요합니다. 다음 단계를 따라 이러한 권한을 설정하세요.
 
@@ -106,7 +108,7 @@ Azure Key Vault 응용 프로그램 ID는 저장소 계정의 키를 *나열*하
 # Below, we are fetching a storage account using Azure Resource Manager
 $storage = Get-AzureRmStorageAccount -ResourceGroupName "mystorageResourceGroup" -StorageAccountName "mystorage"
 
-# Get ObjectId of Azure Key Vault Identity
+# Get Application ID of Azure Key Vault's service principal
 $servicePrincipal = Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093
 
 # Assign Storage Key Operator role to Azure Key Vault Identity
@@ -118,7 +120,7 @@ New-AzureRmRoleAssignment -ObjectId $servicePrincipal.Id -RoleDefinitionName 'St
 
 ## <a name="working-example"></a>작업 예제
 
-다음 예제에서는 Key Vault로 관리되는 Azure Storage 계정 및 연결된 SAS(공유 액세스 서명) 정의를 만드는 방법을 보여 줍니다.
+다음 예제에서는 Key Vault로 관리되는 Azure Storage 계정 및 연결된 SAS 정의를 만드는 방법을 보여줍니다.
 
 ### <a name="prerequisite"></a>필수 요소
 
@@ -205,8 +207,9 @@ $writeSasToken = (Get-AzureKeyVaultSecret -VaultName $keyVaultName -SecretName "
 $context1 = New-AzureStorageContext -SasToken $readSasToken -StorageAccountName $storage.StorageAccountName
 $context2 = New-AzureStorageContext -SasToken $writeSasToken -StorageAccountName $storage.StorageAccountName
 
-Set-AzureStorageBlobContent -Container containertest1 -File "abc.txt" -Context $context1
-Set-AzureStorageBlobContent -Container cont1-file "file.txt" -Context $context2
+# Ensure the txt file in command exists in local path mentioned
+Set-AzureStorageBlobContent -Container containertest1 -File "./abc.txt" -Context $context1
+Set-AzureStorageBlobContent -Container cont1-file "./file.txt" -Context $context2
 ```
 
 쓰기 권한이 있는 SAS 토큰을 사용하면 저장소 BLOB 콘텐츠에 액세스할 수 있습니다.
@@ -232,7 +235,7 @@ Key Vault에서 ID에 *다시 생성* 권한이 있는지 확인해야 키 다�
 - Key Vault는 저장소 계정 리소스에 대한 RBAC 권한을 나열합니다.
 - Key Vault는 작업 및 비작업의 정규식 일치를 통해 응답의 유효성을 검사합니다.
 
-[Key Vault - Managed Storage 계정 키 샘플](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/KeyVault/dataPlane/Microsoft.Azure.KeyVault.Samples/samples/HelloKeyVault/Program.cs#L167)에서 지원하는 몇 가지 예제를 찾습니다.
+[Key Vault - Managed Storage 계정 키 샘플](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)에서 지원하는 몇 가지 예제를 찾습니다.
 
 ID에 *다시 생성* 권한이 없거나 Key Vault의 첫 번째 파티 ID에 *나열* 또는 *다시 생성* 권한이 없는 경우 등록 요청이 실패하고 적절한 오류 코드 및 메시지가 반환됩니다.
 

@@ -6,18 +6,20 @@ author: banisadr
 manager: darosa
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/23/2018
+ms.date: 08/17/2018
 ms.author: babanisa
-ms.openlocfilehash: 39bf8df69f491aace546386b1b3aabce9ea6c696
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: afb85f20c49821ca98e078791730a3376198e9e5
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226546"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42144116"
 ---
 # <a name="azure-event-grid-event-schema-for-service-bus"></a>Service Bus에 대한 Azure Event Grid 이벤트 스키마
 
 이 문서에서는 Service Bus 이벤트에 대한 속성 및 스키마를 제공합니다. 이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
+
+샘플 스크립트 및 자습서 목록은 [Service Bus 이벤트 원본](event-sources.md#service-bus)을 참조하세요.
 
 ## <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
 

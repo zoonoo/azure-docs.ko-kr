@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: 0f6a0e2fe3aa632137392efe806aaab265eedf10
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f461a9a7cc900ce5f8fdba7b255417b1790d3f4d
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435545"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42140364"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Azure App Service에 대한 로컬 Git 배포
 
@@ -124,7 +124,7 @@ Kudu 빌드 서버로 앱에 대한 로컬 Git 배포를 사용하도록 설정�
 
 **테스트** 페이지에서 부하 테스트를 사용하도록 설정한 다음, **계속**을 클릭합니다.
 
-App Service 계획의 [가격 책정 계층](/pricing/details/app-service/plans/)에 따라 **스테이징에 배포** 페이지가 표시될 수 있습니다. 배포 슬롯을 활성화할지 여부를 선택한 다음, **계속**을 클릭합니다.
+App Service 계획의 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/plans/)에 따라 **스테이징에 배포** 페이지가 표시될 수 있습니다. 배포 슬롯을 활성화할지 여부를 선택한 다음, **계속**을 클릭합니다.
 
 **요약** 페이지에서 옵션을 확인하고 **마침**을 클릭합니다.
 

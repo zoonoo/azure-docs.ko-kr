@@ -8,16 +8,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 9c26a85a50bf4e7272b229bac8a8b9aa8c1ae364
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 93b9075831db356607438288a7c153dde2f8b210
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238525"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143752"
 ---
 # <a name="http-application-routing"></a>HTTP 응용 프로그램 라우팅
 
-HTTP 응용 프로그램 라우팅 솔루션을 사용하면 AKS(Azure Kubernetes Service) 클러스터에 배포된 응용 프로그램에 쉽게 액세스할 수 있습니다. 솔루션이 사용하도록 설정되면 AKS 클러스터에 수신 컨트롤러를 구성합니다. 응용 프로그램을 배포할 때 솔루션은 응용 프로그램 끝점에 대해 공개적으로 액세스할 수 있는 DNS 이름도 만듭니다.
+HTTP 응용 프로그램 라우팅 솔루션을 사용하면 AKS(Azure Kubernetes Service) 클러스터에 배포된 응용 프로그램에 쉽게 액세스할 수 있습니다. 솔루션이 사용하도록 설정되면 AKS 클러스터에 수신 컨트롤러를 구성합니다. 응용 프로그램을 배포할 때 솔루션은 응용 프로그램 엔드포인트에 대해 공개적으로 액세스할 수 있는 DNS 이름도 만듭니다.
 
 추가 기능이 사용하도록 설정되면 구독에 DNS 영역을 만듭니다. DNS 비용에 대한 자세한 내용은 [DNS 가격 책정][dns-pricing]을 참조하세요.
 
@@ -25,7 +25,7 @@ HTTP 응용 프로그램 라우팅 솔루션을 사용하면 AKS(Azure Kubernete
 
 추가 기능은 [Kubernetes 수신 컨트롤러][ingress] 및 [외부 DNS][external-dns] 컨트롤러라는 두 구성 요소를 배포합니다.
 
-- **수신 컨트롤러**: 수신 컨트롤러가 LoadBalancer 유형의 Kubernetes 서비스를 사용하여 인터넷에 노출됩니다. 수신 컨트롤러는 응용 프로그램 끝점에 대한 경로를 만드는 [Kubernetes 수신 리소스][ingress-resource]를 감시하고 구현합니다.
+- **수신 컨트롤러**: 수신 컨트롤러가 LoadBalancer 유형의 Kubernetes 서비스를 사용하여 인터넷에 노출됩니다. 수신 컨트롤러는 응용 프로그램 엔드포인트에 대한 경로를 만드는 [Kubernetes 수신 리소스][ingress-resource]를 감시하고 구현합니다.
 - **외부 DNS 컨트롤러**: Kubernetes 수신 리소스를 감시하고 클러스터 특정 DNS 영역에 DNS A 레코드를 만듭니다.
 
 ## <a name="deploy-http-routing-cli"></a>HTTP 라우팅 배포: CLI
@@ -33,13 +33,19 @@ HTTP 응용 프로그램 라우팅 솔루션을 사용하면 AKS(Azure Kubernete
 AKS 클러스터를 배포할 때 Azure CLI를 통해 HTTP 응용 프로그램 라우팅 추가 기능을 사용하도록 설정할 수 있습니다. [az aks create][az-aks-create] 명령에 `--enable-addons` 인수를 사용하면 됩니다.
 
 ```azurecli
-az aks create --resource-group myAKSCluster --name myAKSCluster --enable-addons http_application_routing
+az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
 ```
 
-클러스터가 배포된 후 [az aks show][az-aks-show] 명령을 사용하여 DNS 영역 이름을 검색합니다. 이 이름은 응용 프로그램을 AKS 클러스터에 배포하는 데 필요합니다.
+[az aks enable-addons][az-aks-enable-addons] 명령을 사용하여 기존 AKS 클러스터에서 HTTP 라우팅을 활성화할 수도 있습니다. 기존 클러스터에서 HTTP 라우팅을 활성화하려면 `--addons` 매개 변수를 추가하고 다음 예제에서와 같이 *http_application_routing*을 지정합니다.
 
 ```azurecli
-$ az aks show --resource-group myAKSCluster --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
+az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
+```
+
+클러스터가 배포되거나 업데이트된 후 [az aks show][az-aks-show] 명령을 사용하여 DNS 영역 이름을 검색합니다. 이 이름은 응용 프로그램을 AKS 클러스터에 배포하는 데 필요합니다.
+
+```azurecli
+$ az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
 
 Result
 -----------------------------------------------------
@@ -155,7 +161,7 @@ $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
 Azure CLI를 사용하여 HTTP 라우팅 솔루션을 제거할 수 있습니다. 이렇게 하려면 AKS 클러스터 및 리소스 그룹 이름을 대체하는 다음 명령을 실행합니다.
 
 ```azurecli
-az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myAKSCluster --no-wait
+az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
 ## <a name="troubleshoot"></a>문제 해결
@@ -232,6 +238,7 @@ AKS에 HTTPS 보안 수신 컨트롤러를 설치하는 방법에 대한 자세�
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az-aks-show
 [ingress-https]: ./ingress.md
+[az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
 
 
 <!-- LINKS - external -->

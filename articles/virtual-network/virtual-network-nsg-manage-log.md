@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: 81809660bdda957eb4502e02799b9f7f5538ae51
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 5635998eb72f08ddc665793e77008890b2cdb05d
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114026"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143128"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>네트워크 보안 그룹에 대한 진단 로깅
 
@@ -140,7 +140,7 @@ JSON 형식의 데이터는 다음 로그 범주에 대해 기록됩니다.
 
 ### <a name="event"></a>행사
 
-이벤트 로그는 MAC 주소에 따라 VM에 적용될 NSG 규칙에 대한 정보를 포함합니다. 다음 예제 데이터는 각 이벤트에 대해 기록됩니다.
+이벤트 로그는 MAC 주소에 따라 VM에 적용될 NSG 규칙에 대한 정보를 포함합니다. 다음 데이터는 각 이벤트에 대해 기록됩니다. 다음 예제에서 데이터는 IP 주소 192.168.1.4 및 00-0D-3A-92-6A-7C의 MAC 주소로 가상 머신에 대해 기록됩니다.
 
 ```json
 {
@@ -154,16 +154,16 @@ JSON 형식의 데이터는 다음 로그 범주에 대해 기록됩니다.
         "subnetPrefix":"192.168.1.0/24",
         "macAddress":"00-0D-3A-92-6A-7C",
         "primaryIPv4Address":"192.168.1.4",
-        "ruleName":"[SECURITY RULE NAME]",
-        "direction":"In",
-        "priority":1000,
-        "type":"allow",
+        "ruleName":"[SECURITY-RULE-NAME]",
+        "direction":"[DIRECTION-SPECIFIED-IN-RULE]",
+        "priority":[PRIORITY-SPECIFIED-IN-RULE],
+        "type":"[ALLOW-OR-DENY-AS-SPECIFIED-IN-RULE]",
         "conditions":{
-            "protocols":"6",
-            "destinationPortRange":"[PORT RANGE]",
-            "sourcePortRange":"0-65535",
-            "sourceIP":"0.0.0.0/0",
-            "destinationIP":"0.0.0.0/0"
+            "protocols":"[PROTOCOLS-SPECIFIED-IN-RULE]",
+            "destinationPortRange":"[PORT-RANGE-SPECIFIED-IN-RULE]",
+            "sourcePortRange":"[PORT-RANGE-SPECIFIED-IN-RULE]",
+            "sourceIP":"[SOURCE-IP-OR-RANGE-SPECIFIED-IN-RULE]",
+            "destinationIP":"[DESTINATION-IP-OR-RANGE-SPECIFIED-IN-RULE]"
             }
         }
 }
@@ -171,7 +171,7 @@ JSON 형식의 데이터는 다음 로그 범주에 대해 기록됩니다.
 
 ### <a name="rule-counter"></a>규칙 카운터
 
-규칙 카운터 로그는 리소스에 적용되는 각 규칙에 대한 정보를 포함합니다. 다음 예제 데이터는 규칙이 적용될 때마다 기록됩니다.
+규칙 카운터 로그는 리소스에 적용되는 각 규칙에 대한 정보를 포함합니다. 다음 예제 데이터는 규칙이 적용될 때마다 기록됩니다. 다음 예제에서 데이터는 IP 주소 192.168.1.4 및 00-0D-3A-92-6A-7C의 MAC 주소로 가상 머신에 대해 기록됩니다.
 
 ```json
 {
@@ -185,9 +185,9 @@ JSON 형식의 데이터는 다음 로그 범주에 대해 기록됩니다.
         "subnetPrefix":"192.168.1.0/24",
         "macAddress":"00-0D-3A-92-6A-7C",
         "primaryIPv4Address":"192.168.1.4",
-        "ruleName":"[SECURITY RULE NAME]",
-        "direction":"In",
-        "type":"allow",
+        "ruleName":"[SECURITY-RULE-NAME]",
+        "direction":"[DIRECTION-SPECIFIED-IN-RULE]",
+        "type":"[ALLOW-OR-DENY-AS-SPECIFIED-IN-RULE]",
         "matchedConnections":125
         }
 }

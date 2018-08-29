@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/02/2017
+ms.date: 08/20/2017
 ms.author: marsma
-ms.openlocfilehash: e85b69e452f4d76dfdf974698fa7d3b5cdbc0c30
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c424e81b13c3c60e975d3721693b1f80e00cfdd7
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426091"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142672"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Azure Container Registry 웹후크 사용
 
@@ -59,11 +59,11 @@ az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --act
 
 ### <a name="azure-portal"></a>Azure portal
 
-컨테이너 이미지 밀어넣기 및 삭제 작업에서 웹후크를 사용하기 전에 **Ping** 단추를 사용하여 테스트할 수 있습니다. Ping은 지정된 끝점에 일반 POST 요청을 보내고 응답을 기록합니다. ping 기능을 사용하면 웹후크를 올바르게 구성했는지 확인하는 데 도움이 될 수 있습니다.
+컨테이너 이미지 밀어넣기 및 삭제 작업에서 웹후크를 사용하기 전에 **Ping** 단추를 사용하여 테스트할 수 있습니다. Ping은 지정된 엔드포인트에 일반 POST 요청을 보내고 응답을 기록합니다. ping 기능을 사용하면 웹후크를 올바르게 구성했는지 확인하는 데 도움이 될 수 있습니다.
 
 1. 테스트하려는 웹후크를 선택합니다.
 2. 맨 위의 도구 모음에서 **Ping**을 선택합니다.
-3. **HTTP 상태** 열에서 끝점의 응답을 확인합니다.
+3. **HTTP 상태** 열에서 엔드포인트의 응답을 확인합니다.
 
 ![Azure Portal의 ACR 웹후크 만들기 UI](./media/container-registry-webhook/webhook-02.png)
 
@@ -95,4 +95,14 @@ az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 
 ## <a name="next-steps"></a>다음 단계
 
+### <a name="webhook-schema-reference"></a>Webhook 스키마 참조
+
+Azure Container Registry에서 내보낸 JSON 이벤트 페이로드의 형식 및 속성에 대한 내용은 webhook 스키마 참조를 참조하세요.
+
 [Azure Container Registry 웹후크 스키마 참조](container-registry-webhook-reference.md)
+
+### <a name="event-grid-events"></a>Event Grid 이벤트
+
+이 문서에서 설명한 기본 레지스트리 webhook 이벤트 외에도 Azure Container Registry는 Event Grid로 이벤트를 내보낼 수 있습니다.
+
+[빠른 시작: Event Grid로 컨테이너 레지스트리 이벤트 전송](container-registry-event-grid-quickstart.md)

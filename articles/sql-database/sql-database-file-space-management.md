@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: how-to
 ms.topic: conceptual
-ms.date: 08/08/2018
+ms.date: 08/15/2018
 ms.author: moslake
-ms.openlocfilehash: 5dce07996191af3df3a4bdf16b211c29d59a994f
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 498e83e7c312480af6d2eff7d44bd13aee9c55fd
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003861"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42143554"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Azure SQL Database에서 파일 공간 관리리
 이 문서에서는 Azure SQL Database의 다양한 종류의 저장소 공간을 설명하고 데이터베이스 및 탄력적 풀에 할당된 파일 공간을 명시적으로 관리해야 하는 경우 취할 수 있는 단계를 설명합니다.
@@ -122,6 +122,8 @@ ORDER BY end_time DESC
 
 풀의 각 데이터베이스에 할당된 공간을 확인하는 쿼리 결과를 함께 추가하여 탄력적 풀에 대한 할당된 총 공간을 확인할 수 있습니다. 할당된 탄력적 풀 공간은 탄력적 풀 최대 크기를 초과할 수 없습니다.  
 
+PowerShell 스크립트를 사용하려면 SQL Server PowerShell 모듈이 필요합니다. 설치하려면 [PowerShell 모듈 다운로드](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module?view=sql-server-2017)를 참조하세요.
+
 ```powershell
 # Resource group name
 $resourceGroupName = "rg1" 
@@ -143,7 +145,7 @@ $databaseStorageMetrics = @()
 
 # For each database in the elastic pool,
 # get its space allocated in MB and space allocated unused in MB.
-# Requires SQL Server PowerShell module – see here to install.  
+  
 foreach ($database in $databasesInPool)
 {
     $sqlCommand = "SELECT DB_NAME() as DatabaseName, `

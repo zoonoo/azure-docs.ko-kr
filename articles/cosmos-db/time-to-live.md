@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 49f6d6ee65ffae71cba8c73301355bfe2bdcd1d6
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 020f9c8753b2b91b3336b304a1c92590f62be003
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480559"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146460"
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>TTL(Time To Live)을 사용하여 자동으로 Azure Cosmos DB 컬렉션의 데이터 만료
 응용 프로그램은 방대한 양의 데이터을 생성하고 저장할 수 있습니다. 컴퓨터에서 생성한 이벤트 데이터, 로그 및 사용자 세션 정보와 같은 이 데이터 중 일부는 한정된 기간에만 사용할 수 있습니다. 데이터가 응용 프로그램의 요구를 넘게 되면 이 데이터를 삭제하고 응용 프로그램의 저장소 요구를 줄이는 것이 안전합니다.
@@ -41,11 +41,11 @@ TTL 기능은 컬렉션 수준 및 문서 수준 등 두 가지 수준으로 TTL
 
 위의 논리는 다음 행렬에 표시될 수 있습니다.
 
-|  | 컬렉션에서 DefaultTTL 누락/설정되지 않음 | 컬렉션에서 DefaultTTL = -1 | 컬렉션에서 DefaultTTL = "n" |
+|  | 컬렉션에서 DefaultTTL 누락/설정되지 않음 | 컬렉션에서 DefaultTTL = -1 | 컬렉션에서 DefaultTTL = n' |
 | --- |:--- |:--- |:--- |
-| 문서에서 TTL 누락 |문서와 컬렉션에 TTL의 개념이 없으므로 문서 수준에서 아무 것도 재정의할 수 없습니다. |이 컬렉션에서 만료되는 문서가 없습니다. |간격 n이 경과하면 이 컬렉션에서 문서가 만료됩니다. |
-| 문서에서 TTL = -1 |문서가 재정의할 수 있는 DefaultTTL 속성을 수집이 정의하지 않으므로 문서 수준에서 아무 것도 재정의되지 않습니다. 문서에서 TTL은 시스템에 의해 해석되지 않습니다. |이 컬렉션에서 만료되는 문서가 없습니다. |이 컬렉션에서 TTL = -1인 문서는 만료되지 않습니다. 다른 모든 문서는 "n" 간격 후에 만료됩니다. |
-| 문서에서 TTL = n |문서 수준에서 아무 것도 재정의하지 않습니다. 문서에서 TTL은 시스템에 의해 해석되지 않습니다. |TTL = n인 문서는 간격 n(초) 후에 만료됩니다. 다른 문서는 간격 -1을 상속하며 만료되지 않습니다. |TTL = n인 문서는 간격 n(초) 후에 만료됩니다. 다른 문서는 컬렉션에서 "n" 간격을 상속합니다. |
+| 문서에서 TTL 누락 |문서와 컬렉션에 TTL의 개념이 없으므로 문서 수준에서 아무 것도 재정의할 수 없습니다. |이 컬렉션에서 만료되는 문서가 없습니다. |간격 n'이 경과하면 이 컬렉션에서 문서가 만료됩니다. |
+| 문서에서 TTL = -1 |문서가 재정의할 수 있는 DefaultTTL 속성을 수집이 정의하지 않으므로 문서 수준에서 아무 것도 재정의되지 않습니다. 문서에서 TTL은 시스템에 의해 해석되지 않습니다. |이 컬렉션에서 만료되는 문서가 없습니다. |이 컬렉션에서 TTL = -1인 문서는 만료되지 않습니다. 다른 모든 문서는 n' 간격 후에 만료됩니다. |
+| 문서에서 TTL = n |문서 수준에서 아무 것도 재정의하지 않습니다. 문서에서 TTL은 시스템에 의해 해석되지 않습니다. |TTL = n인 문서는 간격 n(초) 후에 만료됩니다. 다른 문서는 간격 -1을 상속하며 만료되지 않습니다. |TTL = n인 문서는 간격 n(초) 후에 만료됩니다. 다른 문서는 컬렉션에서 n' 간격을 상속합니다. |
 
 ## <a name="configuring-ttl"></a>TTL 구성
 기본적으로 TTL(Time To Live)은 모든 Cosmos DB 컬렉션 및 문서에서 사용되지 않습니다. TTL은 프로그래밍 방식으로 설정하거나 Azure Portal을 사용하여 설정할 수 있습니다. Azure Portal에서 TTL을 구성하려면 다음 단계를 사용합니다.

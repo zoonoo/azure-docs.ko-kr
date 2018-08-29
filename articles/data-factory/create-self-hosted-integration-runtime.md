@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: afd061b026e30378f5e645d11b84b44b7a516143
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 705f2ce674a31d7dda4d87d893078a2ade26e327
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341582"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42443393"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임을 만들고 구성하는 방법
 IR(Integration Runtime)은 서로 다른 네트워크 환경에서 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다. IR에 대한 세부 정보는 [Integration Runtime 개요](concepts-integration-runtime.md)를 참조하세요.
@@ -27,17 +27,20 @@ IR(Integration Runtime)은 서로 다른 네트워크 환경에서 데이터 통
 이 문서에서는 자체 호스팅 IR을 만들고 구성하는 방법을 소개합니다.
 
 ## <a name="high-level-steps-to-install-self-hosted-ir"></a>자체 호스팅 IR을 설치하는 대략적인 단계
-1.  자체 호스팅 통합 런타임을 만듭니다. 다음은 PowerShell 예제입니다.
+1. 자체 호스팅 통합 런타임을 만듭니다. ADF UI를 사용하여 자체 호스팅 IR을 만들 수 있습니다. 다음은 PowerShell 예제입니다.
 
     ```powershell
     Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
-2.  자체 호스팅 통합 런타임을 다운로드하여 설치합니다(로컬 컴퓨터).
-3.  인증 키를 검색하고 자체 호스팅 통합 런타임을 키로 등록합니다. 다음은 PowerShell 예제입니다.
+2. 자체 호스팅 통합 런타임을 다운로드하여 설치합니다(로컬 컴퓨터).
+3. 인증 키를 검색하고 자체 호스팅 통합 런타임을 키로 등록합니다. 다음은 PowerShell 예제입니다.
 
     ```powershell
     Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
     ```
+
+## <a name="setting-up-self-hosted-ir-on-azure-vm-using-azure-resource-manager-template-automatation"></a>Azure Resource Manager 템플릿(자동화)을 사용하여 Azure VM에 자체 호스팅 IR 설정
+[이 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime)을 사용하여 Azure VM에서 자체 호스팅 IR 설정을 자동화할 수 있습니다. 이렇게 하면 노드 수를 둘 이상으로 설정하는 한 Azure VNet 내에서 고가용성 및 확장성 기능을 통해 완벽하게 작동하는 자체 호스팅 IR을 쉽게 사용할 수 있습니다.
 
 ## <a name="command-flow-and-data-flow"></a>명령 흐름 및 데이터 흐름
 온-프레미스와 클라우드 간에 데이터를 복사할 때 이 작업은 자체 호스팅 통합 런타임을 사용하여 온-프레미스 데이터 소스와 클라우드 간에 데이터를 전송합니다.
@@ -48,9 +51,9 @@ IR(Integration Runtime)은 서로 다른 네트워크 환경에서 데이터 통
 
 1. 데이터 개발자가 PowerShell cmdlet을 사용하여 Azure Data Factory 내에서 자체 호스팅 통합 런타임을 만듭니다. 현재 Azure Portal은 이 기능을 지원하지 않습니다.
 2. 데이터 개발자가 데이터 저장소에 연결하는 데 사용할 자체 호스팅 통합 런타임 인스턴스를 지정하여 온-프레미스 데이터 저장소에 대한 연결된 서비스를 만듭니다. 연결된 서비스 설정 중에 데이터 개발자는 ‘Credential Manager’ 응용 프로그램(현재 지원 안 함)을 사용하여 인증 유형 및 자격 증명을 설정합니다. Credential Manager 응용 프로그램 대화 상자는 데이터 저장소와 통신하여 연결을 테스트하고 자체 호스팅 통합 런타임과 통신하여 자격 증명을 저장합니다.
-4.  자체 호스팅 통합 런타임 노드는 Windows 데이터 보호 API(DPAPI)를 사용하여 자격 증명을 암호화하고 로컬로 저장합니다. 고가용성을 위해 여러 노드가 설정된 경우 자격 증명이 다른 노드 간에 동기화됩니다. 각 노드는 DPAPI를 사용하여 이를 암호화하고 로컬에 저장합니다. 자격 증명 동기화는 데이터 개발자에게 투명하고 자체 호스팅 IR에서 처리됩니다.    
-5.  데이터 팩터리 서비스는 작업의 예약 및 관리를 위해, 공유 Azure Service Bus 큐를 사용하는 **컨트롤 채널**을 통해 자체 호스팅 통합 런타임과 통신합니다. 작업을 실행해야 할 때 데이터 팩터리가 자격 증명 정보와 함께 요청을 큐에 지정합니다(자격 증명이 아직 자체 호스팅 통합 런타임에 저장되지 않은 경우). 큐 폴링 후 자체 호스팅 통합 런타임에서 작업을 시작합니다.
-6.  자체 호스팅 통합 런타임은 데이터 파이프라인에서 복사 작업을 구성하는 방법에 따라 온-프레미스 저장소와 클라우드 저장소 간에 데이터를 복사합니다. 이 단계에서 자체 호스팅 통합 런타임은 보안(HTTPS) 채널을 통해 Azure Blob Storage 등의 클라우드 기반 저장소 서비스와 직접 통신합니다.
+   - 자체 호스팅 통합 런타임 노드는 Windows 데이터 보호 API(DPAPI)를 사용하여 자격 증명을 암호화하고 로컬로 저장합니다. 고가용성을 위해 여러 노드가 설정된 경우 자격 증명이 다른 노드 간에 동기화됩니다. 각 노드는 DPAPI를 사용하여 이를 암호화하고 로컬에 저장합니다. 자격 증명 동기화는 데이터 개발자에게 투명하고 자체 호스팅 IR에서 처리됩니다.    
+   - 데이터 팩터리 서비스는 작업의 예약 및 관리를 위해, 공유 Azure Service Bus 큐를 사용하는 **컨트롤 채널**을 통해 자체 호스팅 통합 런타임과 통신합니다. 작업을 실행해야 할 때 데이터 팩터리가 자격 증명 정보와 함께 요청을 큐에 지정합니다(자격 증명이 아직 자체 호스팅 통합 런타임에 저장되지 않은 경우). 큐 폴링 후 자체 호스팅 통합 런타임에서 작업을 시작합니다.
+   - 자체 호스팅 통합 런타임은 데이터 파이프라인에서 복사 작업을 구성하는 방법에 따라 온-프레미스 저장소와 클라우드 저장소 간에 데이터를 복사합니다. 이 단계에서 자체 호스팅 통합 런타임은 보안(HTTPS) 채널을 통해 Azure Blob Storage 등의 클라우드 기반 저장소 서비스와 직접 통신합니다.
 
 ## <a name="considerations-for-using-self-hosted-ir"></a>자체 호스팅 IR 사용을 위한 고려 사항
 
@@ -113,7 +116,20 @@ IR(Integration Runtime)은 서로 다른 네트워크 환경에서 데이터 통
 > [!NOTE]
 > **고가용성 및 확장**에 다른 노드를 추가하기 전에 **‘인트라넷에 원격 액세스’** 옵션이 첫 번째 노드(Microsoft Integration Runtime 구성 관리자 -> 인트라넷에 원격 액세스)에서 **활성화**로 설정되어 있는지 확인합니다. 
 
+### <a name="scale-considerations"></a>크기 조정 고려 사항
+
+#### <a name="scale-out"></a>확장
+
+**자체 호스팅 IR에서 사용 가능한 메모리가 부족하고** **CPU 사용량이 많을** 경우 새 노드를 추가하면 머신 간에 로드를 확장하는 데 도움이 됩니다. 시간 제한 또는 오프라인 상태의 자체 호스팅 IR 노드로 인해 활동이 실패하는 경우 게이트웨이에 노드를 추가하면 도움이 됩니다.
+
+#### <a name="scale-up"></a>강화
+
+사용 가능한 메모리와 CPU가 잘 활용되지 않지만 동시 작업 실행이 한도에 도달하면 노드에서 실행할 수 있는 동시 작업 수를 늘려 강화해야 합니다. 또한 자체 호스팅 IR 오버로드로 인해 활동 시간이 초과되는 경우에도 강화할 수 있습니다. 다음 이미지와 같이 노드의 최대 용량을 늘릴 수 있습니다.  
+
+![](media\create-self-hosted-integration-runtime\scale-up-self-hosted-IR.png)
+
 ### <a name="tlsssl-certificate-requirements"></a>TLS/SSL 인증서 요구 사항
+
 Integration Runtime 노드 간의 통신 보안에 사용되는 TLS/SSL 인증서에 대한 요구 사항은 다음과 같습니다.
 
 - 인증서는 공개적으로 신뢰할 수 있는 X509 v3 인증서여야 합니다. 공용(타사) CA(인증 기관)에서 발급한 인증서를 사용하는 것이 좋습니다.
@@ -121,9 +137,57 @@ Integration Runtime 노드 간의 통신 보안에 사용되는 TLS/SSL 인증�
 - 와일드 카드 인증서가 지원됩니다. FQDN 이름이 **node1.domain.contoso.com**인 경우 ***. domain.contoso.com**을 인증서의 주체 이름으로 사용할 수 있습니다.
 - SAN 인증서는 현재 제한 때문에 주체 대체 이름의 마지막 항목만 사용되고 다른 항목은 무시되므로 권장되지 않습니다. 예: 해당 SAN이 **node1.domain.contoso.com** 및 **node2.domain.contoso.com**인 SAN 인증서가 있으며 해당 FQDN이 **node2.domain.contoso.com**인 컴퓨터에만 이 인증서를 사용할 수 있습니다.
 - Windows Server 2012 R2에서 지원하는 SSL 인증서의 키 크기는 모두 지원됩니다.
-- CNG 키를 사용하는 인증서는 지원되지 않습니다. CNG 키를 사용하는 인증서는 지원되지 않습니다.
+- CNG 키를 사용하는 인증서는 지원되지 않습니다.  
+
+## <a name="sharing-the-self-hosted-integration-runtime-ir-with-multiple-data-factories"></a>여러 개의 데이터 팩터리와 자체 호스팅 IR(통합 런타임) 공유
+
+데이터 팩터리에 이미 설치되어 있을 수 있는 기존의 자체 호스팅 통합 런타임 인프라를 재사용할 수 있습니다. 이렇게 하면 이미 있는 자체 호스팅 IR(공유됨)을 참조하여 다른 데이터 팩터리에서 **연결된 자체 호스팅 통합 런타임**을 만들 수 있습니다.
+
+#### <a name="terminologies"></a>**용어**
+
+- **공유된 IR** – 물리적 인프라에서 실행되고 있는 원래의 자체 호스팅 IR입니다.  
+- **연결된 IR** – 다른 공유된 IR을 참조하는 IR입니다. 논리적 IR이며, 다른 자체 호스팅 IR(공유됨)의 인프라를 사용합니다.
+
+#### <a name="high-level-steps-for-creating-a-linked-self-hosted-ir"></a>연결된 자체 호스팅 IR을 만들기 위한 고급 단계
+
+공유되는 자체 호스팅 IR에서
+
+1. 연결된 IR을 만들려는 Data Factory에 권한을 부여합니다. 
+
+   ![](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
+
+2. 공유되는 자체 호스팅 IR의 **리소스 ID**를 적어 둡니다.
+
+   ![](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
+
+권한이 부여된 Data Factory에서,
+
+3. 자체 호스팅 IR(연결됨)을 새로 만들고 위의 **리소스 ID**를 입력합니다.
+
+   ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
+
+   ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
+
+#### <a name="known-limitations-of-self-hosted-ir-sharing"></a>자체 호스팅 IR 공유에 대해 알려진 제한 사항
+
+1. 단일 자체 호스팅 IR에서 만들 수 있는 연결된 IR에 대한 기본 개수는 **20**입니다. 더 필요한 경우 고객 지원팀에 문의하세요. 
+
+2. 연결된 IR을 만드는 데이터 팩터리에는 MSI([관리 서비스 ID](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview))가 있어야 합니다. 기본적으로 Ibiza 포털 또는 PowerShell cmdlet에서 만든 데이터 팩터리에는 암시적으로 만든 MSI가 있습니다. 그러나 경우에 따라 Azure Resorce Manager 템플릿 또는 SDK를 사용하여 데이터 팩터리를 만들 때 Azure Resource Manager에서 MSI가 포함된 데이터 팩터리를 만들도록 "**Identity**" 속성을 **명시적으로 설정**해야 합니다. 
+
+3. 자체 호스팅 IR 버전은 3.8.xxxx.xx 이상이어야 합니다. [최신 버전의 자체 호스팅 IR](https://www.microsoft.com/download/details.aspx?id=39717)을 다운로드하세요.
+
+4. 연결된 IR을 만드는 데이터 팩터리에는 MSI([관리 서비스 ID](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview))가 있어야 합니다. 기본적으로 Ibiza 포털 또는 PowerShell cmdlet에서 만든 데이터 팩터리에는 MSI([관리 서비스 ID](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview))가 있습니다.
+이 ID는 암시적으로 만들어졌지만, ARM(Azure Resource Manager) 템플릿 또는 SDK를 사용하여 만든 데이터 팩터리에는 MSI를 만들도록 설정된 "Identity" 속성이 있어야 합니다.
+
+5. 이 기능을 지원하는 ADF .Net SDK는 1.1.0 버전 이상입니다.
+
+6. 이 기능을 지원하는 Azure PowerShell은 6.6.0 버전 이상(AzureRM.DataFactoryV2 0.5.7 이상)입니다.
+
+  > [!NOTE]
+  > 이 기능은 Azure Data Factory 버전 2에서만 사용할 수 있습니다. 
 
 ## <a name="system-tray-icons-notifications"></a>시스템 트레이 아이콘/알림
+
 커서를 시스템 트레이 아이콘/알림 메시지 위로 이동하면 자체 호스팅 통합 런타임의 상태에 대한 세부 정보가 팝업 창에 표시됩니다.
 
 ![시스템 트레이 알림](media\create-self-hosted-integration-runtime\system-tray-notifications.png)
@@ -180,10 +244,10 @@ download.microsoft.com | 443 | 업데이트 다운로드에 사용됨
 
 자체 호스팅 통합 런타임을 올바르게 등록한 후 프록시 설정을 확인하거나 업데이트하려면 Integration Runtime Configuration Manager를 사용합니다.
 
-1.  **Microsoft Integration Runtime Configuration Manager**를 시작합니다.
-2.  **설정** 탭으로 전환합니다.
-3.  **HTTP 프록시** 섹션에서 **변경** 링크를 클릭하여 **HTTP 프록시 설정** 대화 상자를 시작합니다.
-4.  **다음** 단추를 클릭하면 프록시 설정을 저장하고 Integration Runtime 호스트 서비스를 다시 시작하기 위한 권한이 필요하다는 경고 대화 상자가 표시됩니다.
+1. **Microsoft Integration Runtime Configuration Manager**를 시작합니다.
+   - **설정** 탭으로 전환합니다.
+   - **HTTP 프록시** 섹션에서 **변경** 링크를 클릭하여 **HTTP 프록시 설정** 대화 상자를 시작합니다.
+   - **다음** 단추를 클릭하면 프록시 설정을 저장하고 Integration Runtime 호스트 서비스를 다시 시작하기 위한 권한이 필요하다는 경고 대화 상자가 표시됩니다.
 
 구성 관리자 도구를 사용하여 HTTP 프록시를 확인하고 업데이트할 수 있습니다.
 
@@ -229,8 +293,8 @@ HTTP 프록시에 대해 **시스템 프록시 사용** 설정을 선택하는 �
 ### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>방화벽 및 프록시 서버 관련 문제 발생 시 나타날 수 있는 증상
 다음과 비슷한 오류가 발생할 경우 방화벽 또는 프록시 서버가 잘못 구성된 것일 수 있습니다. 그러면 자체 호스팅 통합 런타임이 데이터 팩터리에 연결되어 인증을 할 수 없게 됩니다. 이전 섹션을 참조하여 방화벽 및 프록시 서버가 올바르게 구성되었는지 확인합니다.
 
-1.  자체 호스팅 통합 런타임을 등록할 때 다음과 같은 오류 메시지가 표시됩니다. “이 Integration Runtime 노드를 등록하지 못했습니다. 인증 키가 유효하고 Integration Runtime 호스트 서비스가 이 컴퓨터에서 실행 중인지 확인하십시오. "
-2.  Integration Runtime Configuration Manager를 열 때 상태가 "**연결 끊김**" 또는 "**연결 중**"으로 표시됩니다. Windows 이벤트 로그를 확인할 때 "이벤트 뷰어" > "응용 프로그램 및 서비스 로그" > "Microsoft Integration Runtime"에 다음 오류와 같은 오류 메시지가 표시됩니다.
+1. 자체 호스팅 통합 런타임을 등록할 때 다음과 같은 오류 메시지가 표시됩니다. “이 Integration Runtime 노드를 등록하지 못했습니다. 인증 키가 유효하고 Integration Runtime 호스트 서비스가 이 컴퓨터에서 실행 중인지 확인하십시오. "
+   - Integration Runtime Configuration Manager를 열 때 상태가 "**연결 끊김**" 또는 "**연결 중**"으로 표시됩니다. Windows 이벤트 로그를 확인할 때 "이벤트 뷰어" > "응용 프로그램 및 서비스 로그" > "Microsoft Integration Runtime"에 다음 오류와 같은 오류 메시지가 표시됩니다.
 
     ```
     Unable to connect to the remote server

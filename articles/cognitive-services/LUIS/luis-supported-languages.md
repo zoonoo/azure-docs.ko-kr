@@ -1,33 +1,33 @@
 ---
-title: Azure에서 LUIS 앱을 사용하여 지역화 지원 | Microsoft Docs
-description: LUIS가 지원하는 언어에 대해 알아봅니다.
+title: 지역화 지원 - LUIS(Language Understanding) - Azure Cognitive Services | Microsoft Docs
+description: LUIS는 서비스 내에 다양한 기능을 포함합니다. 모든 기능이 동일한 언어 패리티에 있는 것은 아닙니다. 관심 있는 기능이 사용자가 원하는 언어 문화권에서 지원되는지 확인합니다. LUIS 앱은 문화권에 관련되며 설정된 후에는 변경할 수 없습니다.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/04/2017
+ms.date: 08/17/2017
 ms.author: diberry
-ms.openlocfilehash: d2c479445aabe05013470724c623978402abeb9d
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 4fa58843f7e888a8fc1cfbbf76a8131bba6c488a
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248420"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42107357"
 ---
 # <a name="culture-specific-understanding-in-luis-apps"></a>LUIS 앱의 문화권 관련 이해
 
-LUIS 앱은 문화권에 관련되며 설정된 후에는 변경할 수 없습니다. 
+LUIS는 서비스 내에 다양한 기능을 포함합니다. 모든 기능이 동일한 언어 패리티에 있는 것은 아닙니다. 관심 있는 기능이 사용자가 원하는 언어 문화권에서 지원되는지 확인합니다. LUIS 앱은 문화권에 관련되며 설정된 후에는 변경할 수 없습니다. 
 
 ## <a name="multi-language-luis-apps"></a>다국어 LUIS 앱
-챗봇과 같은 다국어 LUIS 클라이언트 응용 프로그램이 필요한 경우, 몇 가지 옵션이 있습니다. LUIS가 모든 언어를 지원하는 경우에는 언어별로 LUIS 앱을 개발합니다. 각 LUIS 앱에는 고유한 앱 ID와 끝점 로그가 있습니다. 지원되지 않는 언어 LUIS에 대한 Language Understanding을 제공해야 하는 경우, [Microsoft Translator API](../Translator/translator-info-overview.md)를 사용하여 발화를 지원되는 언어로 번역하고, 발화를 LUIS 끝점에 제출하고, 결과 점수를 받을 수 있습니다.
+챗봇과 같은 다국어 LUIS 클라이언트 응용 프로그램이 필요한 경우, 몇 가지 옵션이 있습니다. LUIS가 모든 언어를 지원하는 경우에는 언어별로 LUIS 앱을 개발합니다. 각 LUIS 앱에는 고유한 앱 ID와 엔드포인트 로그가 있습니다. 지원되지 않는 언어 LUIS에 대한 Language Understanding을 제공해야 하는 경우, [Microsoft Translator API](../Translator/translator-info-overview.md)를 사용하여 발화를 지원되는 언어로 번역하고, 발화를 LUIS 엔드포인트에 제출하고, 결과 점수를 받을 수 있습니다.
 
 ## <a name="languages-supported"></a>지원되는 언어
 LUIS는 발화를 다음 언어로 이해합니다.
 
 
-| 언어 |로캘  |  미리 빌드된 도메인 | 미리 빌드된 엔터티 | 구문 제안 | **[Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) | 
+| 언어 |로캘  |  미리 빌드된 도메인 | 미리 빌드된 엔터티 | 구문 제안 | **[Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(감정 및<br>키워드)| 
 |--|--|:--:|:--:|:--:|:--:|
 | 미국 영어 |`en-US` | ✔ | ✔  |✔|✔|
 | 캐나다 프랑스어 |`fr-CA` |-|   -   |-|✔|

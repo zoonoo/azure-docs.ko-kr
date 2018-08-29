@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
-ms.openlocfilehash: 11e238fa901a164df1dfd896e38df828601e650b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7c78f27fa948c15202e83df4ed42a805a414a72e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30190401"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146958"
 ---
 # <a name="configure-a-docker-host-with-virtualbox"></a>VirtualBox 및 Docker 호스트 구성
 ## <a name="overview"></a>개요
-이 문서에서는 Docker 컴퓨터 및 VirtualBox를 사용하여 기본 Docker 인스턴스를 구성하는 과정을 안내합니다. [Windows 베타용 Docker](http://beta.docker.com/)를 사용하는 경우 이 구성은 필요하지 않습니다.
+이 문서에서는 Docker 컴퓨터 및 VirtualBox를 사용하여 기본 Docker 인스턴스를 구성하는 과정을 안내합니다. [Windows용 Docker](https://www.docker.com/products/docker-desktop)를 사용하는 경우 이 구성은 필요하지 않습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 다음과 같은 도구를 설치해야 합니다.

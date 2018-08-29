@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f8ee8a2a4aae61e2edc275527d80a162c9bb4dc0
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 241fd1f9168ce6bfb8a4dfe97bbb1ef45ddf3f74
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345714"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42142180"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>웹후크를 사용하여 Azure Automation Runbook 시작
 
@@ -120,7 +120,7 @@ http://<Webhook Server>/token?=<Token Value>
 {"JobIds":["<JobId>"]}
 ```
 
-클라이언트는 runbook 작업이 완료되었거나 webhook의 완료 상태인 경우 클라이언트를 확인할 수 없습니다. [Windows PowerShell](http://msdn.microsoft.com/library/azure/dn690263.aspx) 또는 [Azure Automation API](/rest/api/automation/job)와 같은 다른 메서드로 작업 ID를 사용하여 이 정보를 확인할 수 있습니다.
+클라이언트는 runbook 작업이 완료되었거나 webhook의 완료 상태인 경우 클라이언트를 확인할 수 없습니다. [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) 또는 [Azure Automation API](/rest/api/automation/job)와 같은 다른 메서드로 작업 ID를 사용하여 이 정보를 확인할 수 있습니다.
 
 ## <a name="sample-runbook"></a>샘플 Runbook
 

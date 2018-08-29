@@ -1,6 +1,6 @@
 ---
 title: Azure의 업데이트 관리 솔루션
-description: 이 문서는 Azure 업데이트 관리 솔루션을 사용하여 Windows 및 Linux 컴퓨터에 대한 업데이트를 관리하는 방법을 이해할 수 있도록 제공됩니다.
+description: 이 문서는 Azure 업데이트 관리 솔루션을 사용하여 Windows 및 Linux 컴퓨터에 대한 업데이트를 관리하는 방법을 설명합니다.
 services: automation
 ms.service: automation
 ms.component: update-management
@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d12ce7b3416fac5de5cba9543f3bed5bcedf2012
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: ea96898e36080096c91285f3ff7621f84bf81edf
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115676"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42143705"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -41,7 +41,7 @@ Azure Automation 계정에서 직접 가상 머신에 업데이트 관리를 사
 
 Linux 컴퓨터에서 준수 검사는 기본적으로 3시간마다 수행됩니다. MMA 에이전트가 다시 시작되면 15분 이내에 준수 검사가 시작됩니다.
 
-솔루션은 동기화하도록 구성된 소스를 기반으로 컴퓨터가 최신 상태를 유지하는 방식을 보고합니다. Windows 컴퓨터가 WSUS에 보고하도록 구성된 경우 WSUS가 Microsoft Update와 마지막으로 동기화된 시기에 따라 그 결과는 Microsoft Update가 표시하는 것과 다를 수 있습니다. 공용 리포지토리 대신 로컬 리포지토리에 보고하도록 구성된 Linux 컴퓨터의 경우도 마찬가지입니다.
+솔루션은 동기화하도록 구성된 소스를 기반으로 컴퓨터가 얼마나 최신 상태인지를 보고합니다. Windows 컴퓨터가 WSUS에 보고하도록 구성된 경우 WSUS가 Microsoft Update와 마지막으로 동기화된 시기에 따라 그 결과는 Microsoft Update가 표시하는 것과 다를 수 있습니다. 공용 리포지토리 대신 로컬 리포지토리에 보고하도록 구성된 Linux 컴퓨터의 경우도 마찬가지입니다.
 
 > [!NOTE]
 > 서비스에 제대로 보고하려면 업데이트 관리를 수행할 때 특정 URL 및 포트가 사용되도록 설정되어야 합니다. 이러한 요구 사항에 대한 자세한 내용은 [Hybrid Worker에 대한 네트워크 계획](automation-hybrid-runbook-worker.md#network-planning)을 참조하세요.
@@ -50,7 +50,7 @@ Linux 컴퓨터에서 준수 검사는 기본적으로 3시간마다 수행됩�
 
 예약 배포는 컴퓨터를 명시적으로 지정하거나 특정 컴퓨터 집합의 로그 검색을 기반으로 하는 [컴퓨터 그룹](../log-analytics/log-analytics-computer-groups.md)을 선택하여 해당 업데이트를 받는 대상 컴퓨터를 정의합니다. 또한 업데이트를 설치할 수 있는 기간을 승인하고 지정하는 일정을 지정합니다. 
 
-Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Runbook은 볼 수 없으며 구성이 필요하지 않습니다. 업데이트 배포가 생성되면 업데이트 배포는 포함된 컴퓨터에 지정된 시간에 마스터 업데이트 Runbook을 시작하는 일정을 만듭니다. 이 마스터 Runbook은 필수 업데이트를 설치하는 각 에이전트에서 하위 Runbook을 시작합니다.
+Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Runbook은 볼 수 없으며 구성이 필요하지 않습니다. 업데이트 배포가 생성되면 업데이트 배포는 포함된 컴퓨터에 대해 지정된 시간에 마스터 업데이트 Runbook을 시작하는 일정을 만듭니다. 이 마스터 Runbook은 필수 업데이트를 설치하는 각 에이전트에서 하위 Runbook을 시작합니다.
 
 업데이트 배포에 지정된 날짜 및 시간에 대상 컴퓨터는 배포를 병렬로 실행합니다. 설치 전에, 업데이트가 여전히 필요한지 확인하기 위한 검사가 수행됩니다. WSUS 클라이언트 컴퓨터의 경우 업데이트가 WSUS에서 승인되지 않으면 업데이트 배포가 실패합니다.
 
@@ -102,7 +102,7 @@ Linux용 OMS 에이전트를 설치하고 최신 버전을 다운로드하는 �
 
 이 솔루션을 사용하도록 설정하면 이 솔루션에 포함된 Runbook을 지원하기 위해 Log Analytics 작업 영역에 직접 연결된 모든 Windows 컴퓨터가 자동으로 Hybrid Runbook Worker로 구성됩니다.
 
-솔루션에서 관리되는 각 Windows 컴퓨터의 경우 Automation 계정에 대한 **시스템 하이브리드 작업자 그룹**으로 **Hybrid Worker 그룹** 창에 나열됩니다. 솔ㄹ션은 명명 규칙 *Hostname FQDN_GUID*를 사용합니다. 계정에서 Runbook을 사용하여 이러한 그룹을 대상으로 지정할 수 없습니다. 이렇게 하려고 하면 실패합니다. 이러한 그룹은 관리 솔루션을 지원하는 용도로만 사용할 수 있습니다.
+솔루션에서 관리되는 각 Windows 컴퓨터의 경우 Automation 계정에 대한 **시스템 하이브리드 작업자 그룹**으로 **Hybrid Worker 그룹** 창에 나열됩니다. 솔루션은 명명 규칙 *Hostname FQDN_GUID*를 사용합니다. 계정에서 Runbook을 사용하여 이러한 그룹을 대상으로 지정할 수 없습니다. 이렇게 하려고 하면 실패합니다. 이러한 그룹은 관리 솔루션을 지원하는 용도로만 사용할 수 있습니다.
 
 솔루션과 Hybrid Runbook Worker 그룹 멤버 자격에 동일한 계정을 사용하는 경우, Automation Runbook을 지원하기 위해 Automation 계정의 Hybrid Runbook Worker 그룹에 Windows 컴퓨터를 추가할 수 있습니다. 이 기능은 Hybrid Runbook Worker의 7.2.12024.0 버전에 추가되었습니다.
 
@@ -139,8 +139,8 @@ Heartbeat
 
 Windows 컴퓨터에서 다음 정보를 검토하여 에이전트가 Log Analytics에 연결되었는지 확인할 수 있습니다.
 
-1. 제어판에서 **Microsoft Monitoring Agent**를 엽니다. **Azure Log Analytics** 탭에서 에이전트가 **Microsoft Monitoring Agent가 Log Analytics에 성공적으로 연결되었습니다**라는 메시지를 표시합니다.
-2. Windows 이벤트 로그를 엽니다. **응용 프로그램 및 서비스 Logs\Operations Manager**로 이동한 후, 원본 **서비스 커넥터**에서 이벤트 ID 3000 및 이벤트 ID 5002를 검색합니다. 이러한 이벤트는 컴퓨터가 Log Analytics 작업 영역에 등록되었으며 구성을 수신하고 있음을 나타냅니다.
+1. 제어판에서 **Microsoft Monitoring Agent**를 엽니다. **Azure Log Analytics** 탭에서 에이전트에 **Microsoft Monitoring Agent가 Log Analytics에 성공적으로 연결되었습니다**라는 메시지가 표시됩니다.
+2. Windows 이벤트 로그를 엽니다. **응용 프로그램 및 서비스 로그\Operations Manager**로 이동한 후, 원본 **서비스 커넥터**에서 이벤트 ID 3000 및 이벤트 ID 5002를 검색합니다. 이러한 이벤트는 컴퓨터가 Log Analytics 작업 영역에 등록되었으며 구성을 수신하고 있음을 나타냅니다.
 
 에이전트가 Log Analytics와 통신할 수 없고 방화벽 또는 프록시 서버를 통해 통신하도록 구성된 경우 방화벽 또는 프록시 서버가 올바르게 구성되었는지 확인합니다. 방화벽 또는 프록시 서버가 올바르게 구성되어 있는지 확인하는 방법을 알아보려면 [Windows 에이전트에 대한 네트워크 구성](../log-analytics/log-analytics-agent-windows.md) 또는 [Linux 에이전트에 대한 네트워크 구성](../log-analytics/log-analytics-agent-linux.md)을 참조하세요.
 
@@ -170,7 +170,7 @@ Operations Manager 관리 그룹이 Log Analytics와 통신하는지 확인하�
 
 관리되는 Windows 컴퓨터 각각에서 하루에 두 번 검사가 수행됩니다. 15분마다 Windows API가 호출되어 마지막 업데이트 시간을 쿼리하고 상태가 변경되었는지 확인합니다. 상태가 변경되었으면 준수 검사가 시작됩니다. 
 
-관리되는 Linux 컴퓨터 각각에서 세 시간마다 검사가 수행됩니다.
+관리되는 Linux 컴퓨터 각각에서 3시간마다 검사가 수행됩니다.
 
 관리되는 컴퓨터의 업데이트 데이터를 대시보드에 표시하는 데 30분에서 6시간이 걸릴 수 있습니다.
 
@@ -195,7 +195,7 @@ Automation 계정에서 **업데이트 관리**를 선택하여 컴퓨터 상태
 
 Ubuntu에서 유지 관리 기간 외에 업데이트가 적용되지 않도록 하려면 자동 업데이트를 사용하지 않도록 Unattended-Upgrade 패키지를 다시 구성합니다. 패키지 구성 방법에 대한 자세한 내용은 [Ubuntu Server 가이드의 자동 업데이트 항목](https://help.ubuntu.com/lts/serverguide/automatic-updates.html)을 참조하세요.
 
-Azure Marketplace에서 사용할 수 있는 RHEL(주문형 Red Hat Enterprise Linux)이미지에서 만든 가상 머신은 Azure에 배포된 [RHUI(Red Hat Update Infrastructure)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md)에 액세스하도록 등록됩니다. 다른 모든 Linux 배포판은 지원되는 방법에 따라 배포판 온라인 파일 리포지토리에서 업데이트되어야 합니다.
+Azure Marketplace에서 사용할 수 있는 RHEL(주문형 Red Hat Enterprise Linux) 이미지에서 만든 가상 머신은 Azure에 배포된 [RHUI(Red Hat Update Infrastructure)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md)에 액세스하도록 등록됩니다. 다른 모든 Linux 배포판은 지원되는 방법에 따라 배포판 온라인 파일 리포지토리에서 업데이트되어야 합니다.
 
 ## <a name="view-missing-updates"></a>누락 업데이트 보기
 
@@ -213,12 +213,14 @@ Azure Marketplace에서 사용할 수 있는 RHEL(주문형 Red Hat Enterprise L
 
 | 자산 | 설명 |
 | --- | --- |
-|Name |업데이트 배포를 식별하는 고유 이름입니다. |
-|운영 체제| **Linux** 또는 **Windows**를 선택합니다.|
-|업데이트할 컴퓨터 |저장된 검색을 선택하거나, 드롭다운 목록에서 **컴퓨터**를 선택하고 개별 컴퓨터를 선택합니다. |
-|업데이트 분류|필요한 모든 업데이트 분류를 선택합니다. CentOS는 기본적으로 이 기능을 지원하지 않습니다.|
-|제외할 업데이트|제외할 업데이트를 입력합니다. Windows의 경우 **KB** 접두사 없이 KB 문서를 입력합니다. Linux의 경우 패키지 이름을 입력하거나 와일드카드 문자를 사용합니다.  |
-|일정 설정|시작 시간을 선택하고 되풀이에 대해 **한 번** 또는 **정기**를 선택합니다.|| 유지 관리 기간 |업데이트에 대해 설정되는 시간(분)입니다. 값은 30분 이상 6시간 이하여야 합니다. |
+| Name |업데이트 배포를 식별하는 고유 이름입니다. |
+|운영 체제| Linux 또는or Windows|
+| 업데이트할 컴퓨터 |저장된 검색, 가져온 그룹을 선택하거나 드롭다운에서 머신을 선택하고 개별 머신을 선택합니다. **머신**을 선택한 경우 머신의 준비는 **업데이트 에이전트 준비** 열에 표시됩니다.</br> Log Analytics에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Log Analytics의 컴퓨터 그룹](../log-analytics/log-analytics-computer-groups.md)을 참조하세요. |
+|업데이트 분류|필요한 모든 업데이트 분류를 선택합니다.|
+|제외할 업데이트|제외할 업데이트를 입력합니다. Windows의 경우 ‘KB’ 접두사 없이 KB를 입력합니다. Linux의 경우 패키지 이름을 입력하거나 와일드카드를 사용합니다.  |
+|일정 설정|시작 시간을 선택하고 되풀이에 대해 [한 번] 또는 [정기]를 선택합니다.|
+| 유지 관리 기간 |업데이트에 대해 설정되는 시간(분)입니다. 값은 30분 이상 6시간 이하여야 합니다. |
+| 컨트롤 다시 부팅| 다시 부팅을 처리해야 하는 방법에 따라 달라집니다.</br>사용 가능한 옵션은 다음과 같습니다.</br>필요한 경우 다시 부팅(기본값)</br>항상 다시 부팅</br>다시 부팅 안 함</br>다시 부팅만 - 업데이트 설치 안 함|
 
 ## <a name="update-classifications"></a>업데이트 분류
 
@@ -242,7 +244,7 @@ Azure Marketplace에서 사용할 수 있는 RHEL(주문형 Red Hat Enterprise L
 |분류  |설명  |
 |---------|---------|
 |중요 업데이트 및 보안 업데이트     | 특정 문제 또는 제품이 특정된 보안 관련 문제에 대한 업데이트입니다.         |
-|다른 업데이트     | 특성 또는 보안 업데이트에 중요하지 않은 기타 모든 업데이트입니다.        |
+|다른 업데이트     | 본질적으로 중요하지 않거나 보안 업데이트가 아닌 기타 모든 업데이트입니다.        |
 
 Linux의 경우 클라우드의 풍부한 데이터로 인해 평가 데이터가 표시되면서, 업데이트 관리가 클라우드에서 중요 및 보안 업데이트 간을 구분할 수 있습니다. 패치의 경우, 업데이트 관리는 컴퓨터에서 사용할 수 있는 분류 데이터에 의존합니다. 다른 배포판과 달리, CentOS에서는 기본적으로 이 정보를 사용할 수 없습니다. CentOS 컴퓨터가 다음 명령에 대해 보안 데이터를 반환하는 방식으로 구성된 경우 업데이트 관리는 분류에 따라 패치를 수행할 수 있습니다.
 

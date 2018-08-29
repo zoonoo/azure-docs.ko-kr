@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: lmolkova
-ms.openlocfilehash: 847056acd2d97391782dcac1874a2739b7f5825c
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 5489fa999f3427345c3ee9f07f904296de224e31
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27741220"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42143560"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Service Bus 메시징을 통한 분산 추적 및 상관관계
 
@@ -45,8 +45,8 @@ Microsoft Azure Service Bus 메시징에는 생산자와 소비자가 이러한 
 [Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/)는 자동 요청 및 종속성 추적을 포함하여 다양한 성능 모니터링 기능을 제공합니다.
 
 프로젝트 유형에 따라 Application Insights SDK를 설치합니다.
-- [ASP.NET](../application-insights/app-insights-asp-net.md) 버전 2.5-beta2 이상
-- [ASP.NET Core](../application-insights/app-insights-asp-net-core.md) 버전 2.2.0-beta2 이상.
+- [ASP.NET](../application-insights/app-insights-asp-net.md) - 버전 2.5-beta2 이상 설치
+- [ASP.NET Core](../application-insights/app-insights-asp-net-core.md) - 버전 2.2.0-beta2 이상 설치
 이러한 링크는 SDK 설치, 리소스 만들기 및 SDK 구성(필요한 경우)에 대한 세부 정보를 제공합니다. 비 ASP.NET 응용 프로그램의 경우 [콘솔 응용 프로그램용 Azure Application Insights](../application-insights/application-insights-console.md) 문서를 참조하세요.
 
 [메시지 처리기 패턴](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler)을 사용하여 메시지를 처리하는 경우 특별히 수행할 작업이 없습니다. 서비스에서 수행하는 모든 Service Bus 호출이 자동으로 추적되고 다른 원격 분석 항목과 상호 연결됩니다. 또는 수동 메시지 처리 추적은 다음 예제를 참조하세요.
@@ -147,7 +147,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 모든 이벤트에는 ‘Entity’ 및 ‘Endpoint’ 속성도 있으며, 아래 표에서는 생략되었습니다.
   * `string Entity` - 엔터티(큐, 토픽 등) 이름
-  * `Uri Endpoint` - Service Bus 끝점 URL
+  * `Uri Endpoint` - Service Bus 엔드포인트 URL
 
 각 ‘Stop’ 이벤트에는 `TaskStatus` 비동기 작업이 완료된 `Status` 속성이 있으며, 다음 표에서는 이 속성도 간단한 설명을 위해 생략되었습니다.
 

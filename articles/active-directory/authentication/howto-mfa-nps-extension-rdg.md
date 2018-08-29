@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: e22fedda4861e68f2318aff89bc3fe5a15cb6ede
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 6348a6d003aa3efcd1b9c45e61438e0ac4b4c8d5
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160106"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42146738"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>NPS(네트워크 정책 서버) 확장 및 Azure AD를 사용하여 원격 데스크톱 게이트웨이 인프라 통합
 
@@ -226,7 +226,7 @@ RD CAP(원격 데스크톱 연결 권한 부여 정책)는 원격 데스크톱 �
 기본적으로 연결 권한 부여 정책에 중앙 정책 저장소를 사용하도록 RD 게이트웨이를 구성하면 RD 게이트웨이가 CAP 요청을 NPS 서버로 전달하도록 구성됩니다. Azure MFA 확장이 설치된 NPS 서버에서 RADIUS 액세스 요청을 처리합니다. 다음 단계에서는 기본 연결 요청 정책을 확인하는 방법을 보여 줍니다. 
 
 1. RD 게이트웨이의 [NPS(로컬)] 콘솔에서 **정책**을 펼치고 **연결 요청 정책**을 선택합니다.
-2. **연결 요청 정책**을 마우스 오른쪽 단추로 클릭하고 **TS 게이트웨이 권한 부여 정책**을 두 번 클릭합니다.
+2. **TS 게이트웨이 권한 부여 정책**을 두 번 클릭합니다.
 3. **TS 게이트웨이 권한 부여 정책 속성** 대화 상자에서 **설정** 탭을 클릭합니다.
 4. **설정** 탭의 [연결 요청 전달]에서 **인증**을 클릭합니다. RADIUS 클라이언트에서 인증 요청을 전달하도록 구성됩니다.
 
@@ -266,7 +266,7 @@ NPS 확장이 설치된 NPS 서버에서는 원격 데스크톱 게이트웨이�
 ### <a name="configure-network-policy"></a>네트워크 정책 구성
 Azure MFA 확장이 있는 NPS 서버는 CAP(연결 권한 부여 정책)에 지정된 중앙 정책 저장소입니다. 따라서 유효한 연결 요청에 대한 권한을 부여하도록 NPS 서버에 CAP를 구현해야 합니다.  
 
-1. [NPS(로컬)] 콘솔에서 **정책**을 펼치고 **네트워크 정책**을 클릭합니다.
+1. NPS 서버에서 NPS(로컬) 콘솔을 열고 **정책**을 펼쳐서 **네트워크 정책**을 클릭합니다.
 2. **다른 액세스 서버 연결**을 마우스 오른쪽 단추로 클릭하고 **중복된 정책**을 클릭합니다. 
 
  ![중복된 정책](./media/howto-mfa-nps-extension-rdg/image19.png)

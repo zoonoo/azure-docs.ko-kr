@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/01/2018
 ms.author: genli
-ms.openlocfilehash: 48037bc92d26cd01086451fdc778651df5b6bf67
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 0f7b19b0848886c7a906e79d63a814fddf5ef5a6
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398974"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42146068"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Azure에 업로드할 Windows VHD 또는 VHDX 준비
 온-프레미스에서 Microsoft Azure로 Windows VM(가상 머신)을 업로드하려면 먼저 VHD(가상 하드 디스크) 또는 VHDX를 준비해야 합니다. Azure는 VHD 파일 형식이고 크기가 고정된 디스크를 갖춘 **1세대 VM만** 지원합니다. VHD에 허용되는 최대 크기는 1,023GB입니다. 1세대 VM을 VHDX 파일 시스템에서 VHD로, 동적 확장 디스크에서 고정 크기로 변환할 수 있습니다. 하지만 VM의 세대는 변경할 수 없습니다. 자세한 내용은 [Hyper-V에 1 또는 2세대 가상 컴퓨터를 만들어야 합니까?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)를 참조하세요.
@@ -67,7 +67,7 @@ Azure에 업로드하려는 VM에서 다음 단계의 모든 명령을 [관리�
 1. 라우팅 테이블에서 정적 영구 경로를 제거합니다.
    
    * 경로 테이블을 보려면 명령 프롬프트에서 `route print`를 실행합니다.
-   * **지속성 경로** 섹션을 확인합니다. 지속성 경로가 있는 경우 [경로 삭제](https://technet.microsoft.com/library/cc739598.apx)를 사용하여 경로를 제거합니다.
+   * **지속성 경로** 섹션을 확인합니다. 지속성 경로가 있는 경우 **경로 삭제** 명령을 사용하여 경로를 제거합니다.
 2. WinHTTP 프록시를 제거합니다.
    
     ```PowerShell
@@ -90,7 +90,7 @@ Azure에 업로드하려는 VM에서 다음 단계의 모든 명령을 [관리�
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation' -name "RealTimeIsUniversal" 1 -Type DWord
 
-    Set-Service -Name w32time -StartupType Auto
+    Set-Service -Name w32time -StartupType Automatic
     ```
 5. 전원 프로필을 **고성능**으로 설정합니다.
 
@@ -102,17 +102,17 @@ Azure에 업로드하려는 VM에서 다음 단계의 모든 명령을 [관리�
 각 Windows 서비스가 **Windows 기본값**으로 설정되어 있는지 확인합니다. 이들은 VM이 연결되었는지 확인하려면 반드시 설정해야 하는 최소 서비스 수입니다. 시작 설정을 재설정하려면 다음 명령을 실행합니다.
    
 ```PowerShell
-Set-Service -Name bfe -StartupType Auto
-Set-Service -Name dhcp -StartupType Auto
-Set-Service -Name dnscache -StartupType Auto
-Set-Service -Name IKEEXT -StartupType Auto
-Set-Service -Name iphlpsvc -StartupType Auto
+Set-Service -Name bfe -StartupType Automatic
+Set-Service -Name dhcp -StartupType Automatic
+Set-Service -Name dnscache -StartupType Automatic
+Set-Service -Name IKEEXT -StartupType Automatic
+Set-Service -Name iphlpsvc -StartupType Automatic
 Set-Service -Name netlogon -StartupType Manual
 Set-Service -Name netman -StartupType Manual
-Set-Service -Name nsi -StartupType Auto
+Set-Service -Name nsi -StartupType Automatic
 Set-Service -Name termService -StartupType Manual
-Set-Service -Name MpsSvc -StartupType Auto
-Set-Service -Name RemoteRegistry -StartupType Auto
+Set-Service -Name MpsSvc -StartupType Automatic
+Set-Service -Name RemoteRegistry -StartupType Automatic
 ```
 
 ## <a name="update-remote-desktop-registry-settings"></a>원격 데스크톱 레지스트리 설정 업데이트
@@ -307,11 +307,22 @@ Set-Service -Name RemoteRegistry -StartupType Auto
     - Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment\Deny log on through Remote Desktop Services
 
 
-9. VM을 다시 시작하여 Windows가 여전히 정상 상태인지와 RDP 연결을 사용하여 연결할 수 있는지 확인합니다. 이 시점에서 사용자 로컬 Hyper-V에서 VM을 만들고, VM이 완벽히 시작되고 있는지 확인한 다음, RDP가 연결 가능한 상태인지 여부를 테스트할 수 있습니다.
+9. 다음 AD 정책을 확인하여 다음의 필수 액세스 계정을 제거하지 않는지 검토해야 합니다.
 
-10. TCP 패킷 또는 추가 방화벽을 분석하는 소프트웨어와 같은 추가 전송 드라이버 인터페이스 필터를 모두 제거합니다. 필요한 경우 Azure에서 VM을 배포한 후 나중에도 이 항목을 검토할 수 있습니다.
+    - Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment\Access this compute from the network
 
-11. 실제 구성 요소 또는 다른 가상화 기술과 관련된 다른 타사 소프트웨어 및 드라이버를 제거합니다.
+    다음 그룹이 이 정책에 나열되어야 합니다.
+
+    - 관리자
+    - 백업 운영자
+    - 모든 사람
+    - 사용자
+
+10. VM을 다시 시작하여 Windows가 여전히 정상 상태인지와 RDP 연결을 사용하여 연결할 수 있는지 확인합니다. 이 시점에서 사용자 로컬 Hyper-V에서 VM을 만들고, VM이 완벽히 시작되고 있는지 확인한 다음, RDP가 연결 가능한 상태인지 여부를 테스트할 수 있습니다.
+
+11. TCP 패킷 또는 추가 방화벽을 분석하는 소프트웨어와 같은 추가 전송 드라이버 인터페이스 필터를 모두 제거합니다. 필요한 경우 Azure에서 VM을 배포한 후 나중에도 이 항목을 검토할 수 있습니다.
+
+12. 실제 구성 요소 또는 다른 가상화 기술과 관련된 다른 타사 소프트웨어 및 드라이버를 제거합니다.
 
 ### <a name="install-windows-updates"></a>Windows 업데이트 설치
 이상적인 구성은 **최신 컴퓨터의 패치 수준을 갖추는 것**입니다. 가능하지 않은 경우 다음 업데이트가 설치되어 있는지 확인합니다.

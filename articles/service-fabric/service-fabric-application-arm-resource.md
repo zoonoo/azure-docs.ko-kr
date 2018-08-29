@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: 8c8ee30a603d439c0fadd0c1569813762bdf4351
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7aa7fc2620fa02af4a720a97eece3c0734252245
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205300"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142832"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>응용 프로그램 및 서비스를 Azure Resource Manager 리소스로 관리
 
@@ -66,7 +66,7 @@ Azure Resource Manager를 통해 Service Fabric 클러스터에 응용 프로그
 
 1. 배포를 위해 클러스터의 Resource Manager 템플릿을 준비합니다. 이에 대한 자세한 내용은 [Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-via-arm.md)를 참조하세요.
 2. 클러스터에 배포하려는 일부 응용 프로그램을 고려해보세요. 다른 응용 프로그램이 종속성을 가질 수 있는 응용 프로그램이 항상 실행되고 있나요? 클러스터 거버넌스 또는 설치 응용 프로그램을 배포할 계획인가요? 이러한 종류의 응용 프로그램은 위에서 설명한 것처럼 Resource Manager 템플릿을 통해 가장 잘 관리됩니다. 
-3. 이러한 방식으로 배포하려는 응용 프로그램을 결정했으면 응용 프로그램을 패키지하고, 압축하고, 파일 공유에 추가해야 합니다. Azure Resource Manager가 배포 중에 사용할 수 있도록 하려면 REST 끝점을 통해 공유에 액세스할 수 있어야 합니다.
+3. 이러한 방식으로 배포하려는 응용 프로그램을 결정했으면 응용 프로그램을 패키지하고, 압축하고, 파일 공유에 추가해야 합니다. Azure Resource Manager가 배포 중에 사용할 수 있도록 하려면 REST 엔드포인트를 통해 공유에 액세스할 수 있어야 합니다.
 4. Resource Manager 템플릿에서 클러스터 선언 아래에는 각 응용 프로그램의 속성이 설명되어 있습니다. 이러한 속성에는 복제본 또는 인스턴스 수와 리소스(다른 응용 프로그램이나 서비스) 간의 모든 종속성 체인이 포함됩니다. 포괄적인 속성 목록을 보려면 [REST API Swagger 사양](https://aka.ms/sfrpswaggerspec)을 참조하세요. 이 목록은 응용 프로그램 또는 서비스 매니페스트를 대신하지 않으며, 포함된 일부 항목을 클러스터의 Resource Manager 템플릿의 일부로 설명합니다. 다음은 상태 비저장 서비스 *Service1*과 상태 저장 서비스 *Service2*를 *Application1*의 일부로 배포하는 작업을 포함하는 샘플 템플릿입니다.
 
   ```json
@@ -263,6 +263,8 @@ Azure Resource Manager를 통해 Service Fabric 클러스터에 응용 프로그
 
 클러스터가 이미 작동 중이며 Resource Manager 리소스로 관리하려는 일부 응용 프로그램이 이미 클러스터에 배포된 경우, 응용 프로그램을 제거한 후 다시 배포하는 대신, 동일한 API를 통해 PUT 호출을 사용하여 응용 프로그램이 Resource Manager 리소스로 승인되도록 할 수 있습니다. 
 
+> [!NOTE]
+> 클러스터 업그레이드에서 비정상 응용 프로그램을 무시하도록 허용하려면 고객은 “upgradeDescription/healthPolicy” 섹션에서 “maxPercentUnhealthyApplications: 100”을 지정할 수 있습니다. 모든 설정에 대한 자세한 설명은 [Service Fabrics REST API 클러스터 업그레이드 정책 설명서](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfrp-model-clusterupgradepolicy)에 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

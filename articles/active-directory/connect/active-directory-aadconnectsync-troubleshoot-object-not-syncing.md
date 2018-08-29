@@ -12,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 997269efc017a024f2abbcb6561c951d7957af86
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e9bd3f60800976967e1fc1e5f163a6ae3ea525f2
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594332"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42145799"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Azure AD와 동기화되지 않는 개체 문제 해결
 
 개체가 Azure AD와 예상대로 동기화되지 않을 경우 몇 가지 이유로 인한 것일 수 있습니다. Azure AD에서 오류 전자 메일을 받았거나 Azure AD Connect Health에 오류 메시지가 표시될 경우 [내보내기 오류 문제 해결](active-directory-aadconnect-troubleshoot-sync-errors.md)을 대신 읽어보세요. 하지만 개체가 Azure AD에 없는 문제가 발생하는 경우 이 항목을 참조하세요. 여기서는 온-프레미스 구성 요소 Azure AD Connect 동기화에서 오류를 찾는 방법을 설명합니다.
 
 >[!IMPORTANT]
->버전 <verison> 이상인 AAD(Azure Active Directory) Connect 배포의 경우 개체 동기화 문제를 해결하는 데 마법사에서 [문제 해결 작업](active-directory-aadconnect-troubleshoot-objectsync.md)을 사용할 수 있습니다. 
+>버전 1.1.749.0 이상인 AAD(Azure Active Directory) Connect 배포의 경우 마법사에서 [문제 해결 작업](active-directory-aadconnect-troubleshoot-objectsync.md)을 사용하여 개체 동기화 문제를 해결합니다. 
 
 오류를 찾기 위해 다음 순서대로 몇 가지 위치를 확인해보겠습니다.
 

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: a11d8d8ab255a3e0a6adff3d488bcdaf0716f35e
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 1dda09896bfe8db5fc78ea64cd20baa78666c593
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39594997"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444328"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight에서 사용할 수 있는 Hadoop 구성 요소 및 버전은 무엇인가요?
 
@@ -50,7 +50,7 @@ HDInsight 클러스터 버전과 연결된 구성 요소 버전은 다음 표에
 | Apache Phoenix |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
 | Apache Spark |2.3.0, 2.2.0, 2.1.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1(Windows만 해당) |-|-|
 | Apache Livy |0.4 |0.3 |0.3 |0.2 |-|-|-|
-| Apache Kafka | 1.0, 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Kafka | 1.1, 1.0, 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
 | Apache Ambari | 2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.7.0 |-|-|-|-|-|-|
 | Mono |4.2.1 |4.2.1 |3.2.8 |-|-|-|
@@ -232,12 +232,12 @@ _사용 중지 날짜_는 HDInsight에서 해당 클러스터 버전을 만들 �
 
   | 클러스터 유형 | Hadoop은 | HBase | 대화형 쿼리 | Storm | Spark | ML Server |
   | --- | --- | --- | --- | --- | --- | --- |
-  | 헤드: 기본 VM 크기 |D3 v2 |D3 v2 | D13, D14 |A3 |D12 v2 |D12 v2 |
-  | 헤드: 권장되는 VM 크기 |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
+  | 헤드: 기본 VM 크기 |D3 v2 |D3 v2 | D13, D14 |A4 v2 |D12 v2 |D12 v2 |
+  | 헤드: 권장되는 VM 크기 |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A4 v2, A8 v2, A2m v2 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
   | 작업자: 기본 VM 크기 |D3 v2 |D3 v2  | D13, D14 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
   | 작업자: 권장되는 VM 크기 |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
-  | Zookeeper: 기본 VM 크기 | |A3 | |A2 | | |
-  | Zookeeper: 권장되는 VM 크기 | |A3, A4, A5 | | A2, A3, A4 | | |
+  | Zookeeper: 기본 VM 크기 | |A4 v2 | |A2 v2 | | |
+  | Zookeeper: 권장되는 VM 크기 | |A4 v2, A8 v2, A2m v2 | | A2 v2, A4 v2, A8 v2 | | |
   | Edge: 기본 VM 크기 | | | | | |Windows: D12 v2; Linux: D4 v2 |
   | Edge: 권장되는 VM 크기 | | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
 * 브라질 남부 및 일본 서부만 해당(v2 크기 제외):

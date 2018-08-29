@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 08/20/2018
 ms.author: jeedes
-ms.openlocfilehash: d46f2aac5fb16b10f33cccabdcd76d60f0d6dfb9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: eadf6724891d348c2ea3654bcf19ef0d74078049
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438061"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145882"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>자습서: Dropbox for Business와 Azure Active Directory 통합
 
@@ -50,29 +50,32 @@ Dropbox for Business와 Azure AD 통합을 구성하려면 다음 항목이 필�
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.
+이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Dropbox for Business 추가
-1. Azure AD Single Sign-on 구성 및 테스트
+2. Azure AD Single Sign-on 구성 및 테스트
 
 ## <a name="adding-dropbox-for-business-from-the-gallery"></a>갤러리에서 Dropbox for Business 추가
+
 Dropbox for Business가 Azure AD에 통합되도록 구성하려면 갤러리에서 Dropbox for Business를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
 **갤러리에서 Dropbox for Business를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
-    
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+
+3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
     ![새 응용 프로그램 단추][3]
 
-1. 검색 상자에 **Dropbox for Business**를 입력하고 결과 패널에서 **Dropbox for Business**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에 **Dropbox for Business**를 입력하고 결과 패널에서 **Dropbox for Business**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![결과 목록의 Dropbox for Business](./media/dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_addfromgallery.png)
 
@@ -87,10 +90,10 @@ Dropbox for Business에서 Azure AD의 **사용자 이름** 값을 **Username** 
 Dropbox for Business에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-1. **[Dropbox for Business 테스트 사용자 만들기](#create-a-dropbox-for-business-test-user)** - Britta Simon의 Azure AD 표현과 연결된 사용자를 Dropbox for Business에 만듭니다.
-1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-1. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
+2. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+3. **[Dropbox for Business 테스트 사용자 만들기](#create-a-dropbox-for-business-test-user)** - Britta Simon의 Azure AD 표현과 연결된 사용자를 Dropbox for Business에 만듭니다.
+4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -102,71 +105,68 @@ Dropbox for Business에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
     ![Single Sign-On 구성 링크][4]
 
-1. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
+2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
     ![Single Sign-On 대화 상자](./media/dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_samlbase.png)
 
-1. **Dropbox for Business 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
+3. **Dropbox for Business 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![Dropbox for Business 도메인 및 URL Single Sign-On 정보](./media/dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_url1.png)
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://www.dropbox.com/sso/<id>`
 
-    나. **식별자** 텍스트 상자에 값 `Dropbox`를 입력합니다.
+    b. **식별자** 텍스트 상자에 값 `Dropbox`를 입력합니다.
 
-    > [!NOTE] 
-    > 위의 로그온 URL 값은 실제 값이 아닙니다. 자습서 뒷부분에 설명된 실제 로그온 URL로 값을 업데이트하게 됩니다. 이 값을 얻으려면 [Dropbox for Business 클라이언트 지원 팀](https://www.dropbox.com/business/contact)에 문의합니다. 
- 
+    > [!NOTE]
+    > 위의 로그온 URL 값은 실제 값이 아닙니다. 자습서 뒷부분에 설명된 실제 로그온 URL로 값을 업데이트하게 됩니다.
 
-1. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![인증서 다운로드 링크](./media/dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_certificate.png) 
 
-1. **저장** 단추를 클릭합니다.
+5. **저장** 단추를 클릭합니다.
 
     ![Single Sign-On 구성 저장 단추](./media/dropboxforbusiness-tutorial/tutorial_general_400.png)
 
-1. **Dropbox for Business 구성** 섹션에서 **Dropbox for Business 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML Single Sign-On 서비스 URL**을 복사합니다.
+6. **Dropbox for Business 구성** 섹션에서 **Dropbox for Business 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML Single Sign-On 서비스 URL**을 복사합니다.
 
     ![Dropbox for Business 구성](./media/dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_configure.png) 
 
-1. **Dropbox for Business** 쪽에서 Single Sign-On을 구성하려면 Dropbox for Business 테넌트에서 계속 진행합니다.
+7. **Dropbox for Business** 쪽에서 Single Sign-On을 구성하려면 Dropbox for Business 테넌트에서 계속 진행하고 DropBox for Business 테넌트에 로그온합니다.
 
-    a. Dropbox for Business 테넌트에 로그온합니다. 
-   
     ![Single Sign-On 구성](./media/dropboxforbusiness-tutorial/ic769509.png "Single Sign-On 구성")
-   
-    나. 왼쪽의 탐색 창에서 **관리 콘솔**을 클릭합니다. 
-   
-    ![Single Sign-On 구성](./media/dropboxforbusiness-tutorial/ic769510.png "Single Sign-On 구성")
-   
-    다. **관리 콘솔**의 왼쪽 탐색 창에서 **인증**을 클릭합니다. 
-   
-    ![Single Sign-On 구성](./media/dropboxforbusiness-tutorial/ic769511.png "Single Sign-On 구성")
-   
-    d. **Single Sign-On** 섹션에서 **Single Sign-On 사용**을 선택한 다음 **추가**를 클릭하여 이 섹션을 확장합니다.  
-   
-    ![Single Sign-On 구성](./media/dropboxforbusiness-tutorial/ic769512.png "Single Sign-On 구성")
-   
-    e. **사용자가 전자 메일 주소를 입력하여 로그인하거나 직접 이동할 수 있음** 옆의 URL을 복사한 후 Azure Portal에 있는 **Dropbox for Business 도메인 및 URL** 섹션의 **로그온 URL** 텍스트 상자에 붙여넣습니다. 
-    
-    ![Single Sign-On 구성](./media/dropboxforbusiness-tutorial/ic769513.png)
-    
-1. **인증** 페이지의 **Single Sign-On 인증** 섹션에서 다음 단계를 수행합니다. 
-   
-    ![Single Sign-On 구성](./media/dropboxforbusiness-tutorial/IC769516.png "Single Sign-On 구성")
-   
-    a. **필수**를 클릭합니다.
-   
-    나. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **로그인 URL** 텍스트 상자에 붙여넣습니다.
 
-    다. **인증서 선택**을 클릭한 다음 **Base64로 인코딩된 인증서 파일**을 찾습니다.
+8. **사용자 아이콘**을 클릭하고 **설정** 탭을 선택합니다.
 
-    d. **변경 내용 저장**을 클릭하여 DropBox for Business 테넌트의 구성을 완료합니다.
+    ![Single Sign-On 구성](./media/dropboxforbusiness-tutorial/configure1.png "Single Sign-On 구성")
 
-> [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
-> 
+9. 왼쪽의 탐색 창에서 **관리 콘솔**을 클릭합니다.
+
+    ![Single Sign-On 구성](./media/dropboxforbusiness-tutorial/configure2.png "Single Sign-On 구성")
+
+10. **관리 콘솔**의 왼쪽 탐색 창에서 **설정**을 클릭합니다.
+
+    ![Single Sign-On 구성](./media/dropboxforbusiness-tutorial/configure3.png "Single Sign-On 구성")
+
+11. **인증** 섹션에서 **Single Sign-On** 옵션을 선택합니다.
+
+    ![Single Sign-On 구성](./media/dropboxforbusiness-tutorial/configure4.png "Single Sign-On 구성")
+
+12. **Single Sign-On** 섹션에서 다음 단계를 수행합니다.  
+
+    ![Single Sign-On 구성](./media/dropboxforbusiness-tutorial/configure5.png "Single Sign-On 구성")
+
+    a. **Single Sign-On**에 대한 드롭다운에서 옵션으로 **필수**를 선택합니다.
+
+    b. **로그인 URL 추가**를 클릭하고 **ID 공급자 로그인 URL** 텍스트 상자에 Azure Portal에서 복사한 **SAML Single Sign-on 서비스 URL** 값을 붙여 넣고 **완료**를 선택합니다.
+
+    ![Single Sign-On 구성](./media/dropboxforbusiness-tutorial/configure6.png "Single Sign-On 구성")
+
+    다. **인증서 업로드**를 클릭하고 Azure Portal에서 다운로드한 **Base64로 인코딩된 인증서 파일**로 이동합니다.
+
+    d. **링크 복사**를 클릭하고 복사한 값을 Azure Portal의 **Dropbox for Business 도메인 및 URL** 섹션에 있는 **로그온 URL** 텍스트 상자에 붙여 넣습니다.
+
+    e. **저장**을 클릭합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 

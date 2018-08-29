@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 59a48d06ca3c3bced73ed4043691b33784a4f81a
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: ce3a3d28a25c8e904eeebbfc4cf68003fdda07a5
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40006030"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42443635"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Database 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -65,6 +65,9 @@ Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음�
 - [SQL 인증](#sql-authentication)
 - [Azure AD 응용 프로그램 토큰 인증: 서비스 주체](#service-principal-authentication)
 - [Azure AD 응용 프로그램 토큰 인증: 관리 서비스 ID](#managed-service-identity-authentication)
+
+>[!TIP]
+>"UserErrorFailedToConnectToSqlServer" 오류 코드 및 "데이터베이스에 대한 세션 제한이 XXX이고 이에 도달했습니다."와 같은 메시지가 있는 오류가 발생하면 연결 문자열에 `Pooling=false`를 추가하고 다시 시도하세요.
 
 ### <a name="sql-authentication"></a>SQL 인증
 

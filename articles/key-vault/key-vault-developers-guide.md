@@ -2,19 +2,19 @@
 title: Azure Key Vault 개발자 가이드
 description: 개발자는 Microsoft Azure 환경 내에서 Azure Key Vault를 사용하여 암호화 키를 관리할 수 있습니다.
 services: key-vault
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
 ms.date: 10/12/2017
-ms.author: alleonar
-ms.openlocfilehash: 3a2ab6bbe2470fa12113ca4367316cf7a21190b8
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.author: bryanla
+ms.openlocfilehash: d8554d235fdfeb5b192ddf1268e60b7bc32aabe7
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626731"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42146434"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
@@ -23,7 +23,7 @@ Key Vault를 사용하면 응용 프로그램 내에서 중요한 정보를 안�
 - 키와 암호는 코드 작성 없이 보호되며 응용 프로그램에서 쉽게 사용할 수 있습니다.
 - 고객들에게 고유한 키를 부여하여 관리하게 하므로 핵심 소프트웨어 기능을 제공하는 데 집중할 수 있습니다 이러한 이유로 응용 프로그램에는 고객의 테넌트 키와 암호에 대한 책임 또는 잠재적인 법적 책임이 없습니다.
 - 응용 프로그램은 서명 및 암호화를 위해 키를 사용할 수 있지만, 응용 프로그램 외부에서 키 관리를 유지할 수 있으므로 지리적으로 분산된 앱에 적합한 솔루션을 구현할 수 있습니다.
-- Key Vault의 2016년 9월 릴리스를 통해 응용 프로그램에서 Key Vault [인증서](https://docs.microsoft.com/rest/api/keyvault/certificate-operations)를 사용할 수 있게 되었습니다. 자세한 내용은 [키, 암호 및 인증서 정보](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)를 참조하세요.
+- Key Vault의 2016년 9월 릴리스를 통해 응용 프로그램에서 Key Vault 인증서를 관리할 수 있게 되었습니다. 자세한 내용은 [키, 암호 및 인증서 정보](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)를 참조하세요.
 
 Azure Key Vault에 대한 일반적인 내용은 [키 자격 증명 모음이란?](key-vault-whatis.md)을 참조하세요.
 

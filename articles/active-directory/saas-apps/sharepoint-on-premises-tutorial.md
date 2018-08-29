@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 08/21/2018
 ms.author: jeedes
-ms.openlocfilehash: f30b2356b9d3d8ecf7afcdd8ad039a1f02c47550
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: cd1e4b376b634a3e3c7fa2c87723aff05f431a25
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438242"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143332"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>자습서: SharePoint 온-프레미스와 Azure Active Directory 통합
 
@@ -99,38 +99,44 @@ SharePoint 온-프레미스에서 Azure AD Single Sign-On을 구성하고 테스
 
     ![Single Sign-On 구성 링크][4]
 
-1. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
+2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
 
     ![Single Sign-On 대화 상자](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_samlbase.png)
 
-1. **SharePoint 온-프레미스 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
+3. **SharePoint 온-프레미스 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![SharePoint 온-프레미스 도메인 및 URL Single Sign-On 정보](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_url1.png)
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<YourSharePointServerURL>/_trust/default.aspx`
 
-    나. **식별자** 텍스트 상자에 URL `urn:sharepoint:federation`을 입력합니다.
+    b. **식별자** 텍스트 상자에 URL `urn:sharepoint:federation`을 입력합니다.
 
-1. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
+4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![인증서 다운로드 링크](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_certificate.png)
 
-1. **저장** 단추를 클릭합니다.
+    > [!Note]
+    > 구성을 위해 PowerShell 스크립트에서 나중에 사용해야 하므로 인증서 파일을 다운로드한 파일 경로를 적어 두세요.
+
+5. **저장** 단추를 클릭합니다.
 
     ![Single Sign-On 구성 저장 단추](./media\sharepoint-on-premises-tutorial/tutorial_general_400.png)
 
-1. **SharePoint 온-프레미스 구성** 섹션에서 **SharePoint 온-프레미스 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **Single Sign-On 서비스 URL**을 복사합니다.
+6. **SharePoint 온-프레미스 구성** 섹션에서 **SharePoint 온-프레미스 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML 엔터티 ID**를 복사합니다. **Single Sign-On 서비스 URL**의 경우 다음 패턴의 값을 사용합니다. `https://login.microsoftonline.com/_my_directory_id_/wsfed` 
+
+    > [!Note]
+    > _my_directory_id_는 Azure Ad 구독의 테넌트 ID입니다.
 
     ![SharePoint 온-프레미스 구성](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_configure.png)
 
     > [!NOTE]
     > Sharepoint On-Premises 응용 프로그램은 SAML 1.1 토큰을 사용하므로, Azure AD는 SharePoint 서버로부터 WS Fed 요청을 기대하고 인증 후 SAML 1.1 토큰을 발급합니다.
 
-1. 다른 웹 브라우저 창에서 SharePoint 온-프레미스 회사 사이트에 관리자 권한으로 로그인합니다.
+7. 다른 웹 브라우저 창에서 SharePoint 온-프레미스 회사 사이트에 관리자 권한으로 로그인합니다.
 
-1. **SharePoint Server 2016에서 신뢰할 수 있는 새 ID 공급자 구성**
+8. **SharePoint Server 2016에서 신뢰할 수 있는 새 ID 공급자 구성**
 
-    SharePoint Server 2016 서버에 로그인하고 SharePoint 2016 관리 셸을 엽니다. Azure Portal의 $Realm, $wsfedurl, $filepath 값을 입력하고 다음 명령을 실행하여 신뢰할 수 있는 새 ID 공급자를 구성합니다.
+    SharePoint Server 2016 서버에 로그인하고 SharePoint 2016 관리 셸을 엽니다. Azure Portal에서 $realm(Azure Portal의 온-프레미스 도메인 및 URL 섹션에서 SharePoint의 식별자 값), $wsfedurl(Single Sign-On 서비스 URL) 및 $filepath(인증서 파일을 다운로드한 파일 경로)의 값을 채우고 다음 명령을 실행하여 새 신뢰할 수 있는 ID 공급자를 구성합니다.
 
     > [!TIP]
     > PowerShell을 처음 사용하거나 PowerShell 작동 방법에 대해 자세히 알아보려면 [SharePoint PowerShell](https://docs.microsoft.com/en-us/powershell/sharepoint/overview?view=sharepoint-ps)을 참조하세요. 
@@ -138,7 +144,7 @@ SharePoint 온-프레미스에서 Azure AD Single Sign-On을 구성하고 테스
     ```
     $realm = "<Identifier value from the SharePoint on-premises Domain and URLs section in the Azure portal>"
     $wsfedurl="<SAML single sign-on service URL value which you have copied from the Azure portal>"
-    $filepath="<Full path to SAML signing certificate file which you have copied from the Azure portal>"
+    $filepath="<Full path to SAML signing certificate file which you have downloaded from the Azure portal>"
     $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($filepath)
     New-SPTrustedRootAuthority -Name "AzureAD" -Certificate $cert
     $map = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" -IncomingClaimTypeDisplayName "name" -LocalClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"
@@ -152,7 +158,7 @@ SharePoint 온-프레미스에서 Azure AD Single Sign-On을 구성하고 테스
 
     a. 중앙 관리에서 **웹 응용 프로그램 관리**로 이동하고 Azure AD로 보호하려는 웹 응용 프로그램을 선택합니다.
 
-    나. 리본 메뉴에서 **인증 공급자**를 클릭하고 사용하려는 영역을 선택합니다.
+    b. 리본 메뉴에서 **인증 공급자**를 클릭하고 사용하려는 영역을 선택합니다.
 
     다. **신뢰할 수 있는 ID 공급자**를 선택하고 방금 등록한 이름이 *AzureAD*인 ID 공급자를 선택합니다.
 
@@ -161,6 +167,9 @@ SharePoint 온-프레미스에서 Azure AD Single Sign-On을 구성하고 테스
     e. **확인**을 클릭합니다.
 
     ![인증 공급자 구성](./media\sharepoint-on-premises-tutorial/fig10-configauthprovider.png)
+
+    > [!NOTE]
+    > 일부 외부 사용자는 해당 UPN이 `MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com`과 같은 손상된 값을 가지므로 이 Single Sign-On 통합을 사용할 수 없습니다. 곧 사용자 유형에 따라 UPN을 처리하는 방법에 대한 고객 앱 구성을 허용할 계획입니다. 그런 다음, 모든 게스트 사용자는 조직의 직원으로 SSO를 원활하게 사용할 수 있어야 합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -200,27 +209,27 @@ Azure AD에 로그인하고 SharePoint에 액세스할 사용자는 응용 프�
 
 1. 중앙 관리에서 **응용 프로그램 관리**를 클릭합니다.
 
-1. **응용 프로그램 관리** 페이지의 **웹 응용 프로그램** 섹션에서 **웹 응용 프로그램 관리**를 클릭합니다.
+2. **응용 프로그램 관리** 페이지의 **웹 응용 프로그램** 섹션에서 **웹 응용 프로그램 관리**를 클릭합니다.
 
-1. 적합한 웹 응용 프로그램을 클릭한 다음, **사용자 정책**을 클릭합니다.
+3. 적합한 웹 응용 프로그램을 클릭한 다음, **사용자 정책**을 클릭합니다.
 
-1. 웹 응용 프로그램에 대한 정책에서 **사용자 추가**를 클릭합니다.
+4. 웹 응용 프로그램에 대한 정책에서 **사용자 추가**를 클릭합니다.
 
     ![이름 클레임으로 사용자 검색](./media\sharepoint-on-premises-tutorial/fig11-searchbynameclaim.png)
 
-1. **사용자 추가** 대화 상자의 **영역**에서 적합한 영역을 클릭하고 **다음**을 클릭합니다.
+5. **사용자 추가** 대화 상자의 **영역**에서 적합한 영역을 클릭하고 **다음**을 클릭합니다.
 
-1. **웹 응용 프로그램에 대한 정책** 대화 상자의 **사용자 선택** 섹션에서 **찾아보기** 아이콘을 클릭합니다.
+6. **웹 응용 프로그램에 대한 정책** 대화 상자의 **사용자 선택** 섹션에서 **찾아보기** 아이콘을 클릭합니다.
 
-1. **찾기** 텍스트 상자에 Azure AD에서 SharePoint 온-프레미스 응용 프로그램을 구성한 **UPN(사용자 계정 이름)** 값을 입력하고 **검색**을 클릭합니다. </br>예: *brittasimon@contoso.com*.
+7. **찾기** 텍스트 상자에 Azure AD에서 SharePoint 온-프레미스 응용 프로그램을 구성한 **UPN(사용자 계정 이름)** 값을 입력하고 **검색**을 클릭합니다. </br>예: *brittasimon@contoso.com*.
 
-1. 목록 보기의 AzureAD 머리글에서 이름 속성을 선택하고 **추가**를 클릭한 다음, **확인**을 클릭하여 대화 상자를 닫습니다.
+8. 목록 보기의 AzureAD 머리글에서 이름 속성을 선택하고 **추가**를 클릭한 다음, **확인**을 클릭하여 대화 상자를 닫습니다.
 
-1. 권한에서 **모든 권한**을 클릭합니다.
+9. 권한에서 **모든 권한**을 클릭합니다.
 
     ![클레임 사용자에게 모든 권한 부여](./media\sharepoint-on-premises-tutorial/fig12-grantfullcontrol.png)
 
-1. **다음**을 클릭한 후 **확인**을 클릭합니다.
+10. **다음**을 클릭한 후 **확인**을 클릭합니다.
 
 ### <a name="configuring-one-trusted-identity-provider-for-multiple-web-applications"></a>여러 웹 응용 프로그램에 대해 하나의 신뢰할 수 있는 ID 공급자 구성
 
@@ -228,22 +237,22 @@ Azure AD에 로그인하고 SharePoint에 액세스할 사용자는 응용 프�
 
 1. Azure Portal에서 Azure AD 디렉터리를 엽니다. **앱 등록**을 클릭한 다음, **모든 응용 프로그램 보기**를 클릭합니다. 이전에 만든 응용 프로그램을 클릭합니다(SharePoint SAML 통합).
 
-1. **설정**을 클릭합니다.
+2. **설정**을 클릭합니다.
 
-1. 설정 블레이드에서 **회신 URL**을 클릭합니다. 
+3. 설정 블레이드에서 **회신 URL**을 클릭합니다. 
 
-1. URL(예: `https://sales.contoso.local/_trust/default.aspx`)에 추가된 `/_trust/default.aspx`를 사용하여 추가 웹 응용 프로그램에 대한 URL을 추가하고 **저장**을 클릭합니다.
+4. URL(예: `https://sales.contoso.local/_trust/default.aspx`)에 추가된 `/_trust/default.aspx`를 사용하여 추가 웹 응용 프로그램에 대한 URL을 추가하고 **저장**을 클릭합니다.
 
-1. SharePoint Server에서 **SharePoint 2016 관리 셸**을 열고 다음 명령을 실행하여 이전에 사용한 신뢰할 수 있는 ID 토큰 발급자의 이름을 사용합니다.
+5. SharePoint Server에서 **SharePoint 2016 관리 셸**을 열고 다음 명령을 실행하여 이전에 사용한 신뢰할 수 있는 ID 토큰 발급자의 이름을 사용합니다.
 
     ```
     $t = Get-SPTrustedIdentityTokenIssuer "AzureAD"
     $t.UseWReplyParameter=$true
     $t.Update()
     ```
-1. 중앙 관리에서 웹 응용 프로그램으로 이동하고 기존의 신뢰할 수 있는 ID 공급자를 사용하도록 설정합니다. 로그인 페이지 URL을 사용자 지정 로그인 페이지 `/_trust/`로 구성해야합니다.
+6. 중앙 관리에서 웹 응용 프로그램으로 이동하고 기존의 신뢰할 수 있는 ID 공급자를 사용하도록 설정합니다. 로그인 페이지 URL을 사용자 지정 로그인 페이지 `/_trust/`로 구성해야 합니다.
 
-1. 중앙 관리에서 웹 응용 프로그램을 클릭하고 **사용자 정책**을 선택합니다. 이 아티클에서 이전에 설명한 대로 적절한 사용 권한이 있는 사용자를 추가합니다.
+7. 중앙 관리에서 웹 응용 프로그램을 클릭하고 **사용자 정책**을 선택합니다. 이 문서에서 이전에 설명한 대로 적절한 사용 권한이 있는 사용자를 추가합니다.
 
 ### <a name="fixing-people-picker"></a>사용자 선택 수정
 
@@ -267,23 +276,23 @@ Azure AD에 로그인하고 SharePoint에 액세스할 사용자는 응용 프�
 
     ![사용자 할당][201]
 
-1. 응용 프로그램 목록에서 **SharePoint 온-프레미스**를 선택합니다.
+2. 응용 프로그램 목록에서 **SharePoint 온-프레미스**를 선택합니다.
 
     ![응용 프로그램 목록의 SharePoint 링크](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_app.png)
 
-1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
     !["사용자 및 그룹" 링크][202]
 
-1. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+4. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
     ![할당 추가 창][203]
 
-1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
+5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
 
-1. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
+6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
-1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

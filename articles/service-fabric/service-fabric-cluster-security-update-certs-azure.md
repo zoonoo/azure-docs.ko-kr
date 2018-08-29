@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/23/2018
 ms.author: chackdan
-ms.openlocfilehash: 16758cc85b552e82d3daa63893558e1048bcefb8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a1cfd68b526d8ce63fcfbc3b6e0eac84926fabaa
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207556"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146701"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Azure에서 서비스 패브릭 클러스터에 대한 인증서 추가 또는 제거
 Service Fabric이 X.509 인증서를 사용하는 방법을 숙지하고 [클러스터 보안 시나리오](service-fabric-cluster-security.md)를 읽어보는 것이 좋습니다. 다음 과정으로 진행하기 전에 클러스터 인증서가 무엇이며 어떤 용도로 사용되는지를 이해해야 합니다.
+
+Azure Service Fabrics SDK의 기본 인증서 로드 동작은 기본 구성 정의 또는 보조 구성 정의에 상관없이 정의된 인증서 중 향후 만료 날짜가 가장 먼 인증서를 배포하고 사용하는 것입니다. 이전 동작으로 되돌아가는 것은 권장되지 않는 고급 동작이므로 Fabric.Code 구성에서 "UseSecondaryIfNever" 설정 매개 변수 값을 false로 설정해야 합니다.
 
 클러스터를 만드는 동안 클라이언트 인증서 외에도 인증서 보안을 구성할 때 Service Fabric을 사용하여 기본 인증서와 보조 인증서의 두 클러스터 인증서를 지정할 수 있습니다. 만드는 시점에서의 설정에 관한 자세한 내용은 [포털을 통해 Azure 클러스터 만들기](service-fabric-cluster-creation-via-portal.md) 또는 [Azure Resource Manager를 통해 Azure 클러스터 만들기](service-fabric-cluster-creation-via-arm.md)를 참조하세요. 만드는 시점에 클러스터 인증서를 하나만 지정하는 경우 해당 인증서가 기본 인증서로 사용됩니다. 클러스터를 만든 후 새 인증서를 보조 인증서로 추가할 수 있습니다.
 
@@ -34,17 +36,12 @@ Service Fabric이 X.509 인증서를 사용하는 방법을 숙지하고 [클러
 ## <a name="add-a-secondary-cluster-certificate-using-the-portal"></a>포털을 사용하여 보조 클러스터 인증서 추가
 Azure Portal로는 보조 클러스터 인증서를 추가할 수 없습니다. Azure Powershell을 사용합니다. 이 프로세스는 이 문서의 뒷부분에서 설명합니다.
 
-## <a name="swap-the-cluster-certificates-using-the-portal"></a>포털을 사용하여 클러스터 인증서 교환 
-보조 클러스터 인증서를 배포한 후 기본 인증서와 보조 인증서를 교환하려면 보안 섹션으로 이동한 다음, 바로 가기 메뉴에서 ‘기본으로 교환’ 옵션을 선택하여 보조 인증서를 기본 인증서와 교환합니다.
-
-![인증서 교환][Delete_Swap_Cert]
-
 ## <a name="remove-a-cluster-certificate-using-the-portal"></a>포털을 사용하여 클러스터 인증서 제거
-보안 클러스터의 경우 항상 적어도 하나의 유효한(취소되지 않거나 만료되지 않은) 기본 또는 보조 인증서를 배포해야 하며 그러지 않으면 클러스터가 작동을 중지합니다.
+보안 클러스터의 경우 하나 이상의 유효한(해지되지 않고 만기되지 않은) 인증서가 항상 필요합니다. 향후 만료 날짜가 가장 멀게 배포된 인증서가 사용되며 인증서를 제거하면 클러스터가 작동을 멈춥니다. 만료된 인증서 또는 가장 빨리 만료될 사용되지 않는 인증서만 제거되도록 해야 합니다.
 
-클러스터 보안에서 사용되는 보조 인증서를 제거하려면 보안 섹션으로 이동하여 보조 인증서에 대한 바로 가기 메뉴에서 ‘삭제’ 옵션을 선택합니다.
+사용하지 않는 클러스터 보안 인증서를 제거하려면 보안 섹션으로 이동하여 사용하지 않은 인증서의 바로 가기 메뉴에서 '삭제' 옵션을 선택합니다.
 
-기본으로 표시된 인증서를 제거하려는 경우 먼저 보조 인증서와 교환한 다음 업그레이드 완료 후 보조 인증서를 삭제해야 합니다.
+기본으로 표시된 인증서를 제거하는 것이 사용자의 의도인 경우에는 미래의 만료 날짜가 기본 인증서보다 멀리 있는 보조 인증서를 배포하여 자동 롤오버 동작이 가능하도록 하고 자동 롤오버가 완료된 후 기존 인증서가 삭제되도록 해야 합니다.
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Resource Manager Powershell을 사용하여 보조 인증서 추가
 > [!TIP]
@@ -295,7 +292,6 @@ Get-ServiceFabricClusterHealth
 * [클라이언트에 대한 역할 기반 액세스 설정](service-fabric-cluster-security-roles.md)
 
 <!--Image references-->
-[Delete_Swap_Cert]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_09.PNG
 [Add_Client_Cert]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_13.PNG
 [Json_Pub_Setting1]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_14.PNG
 [Json_Pub_Setting2]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_15.PNG

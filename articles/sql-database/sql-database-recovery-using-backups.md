@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ad4725ff6871ef489c6a10656af9a76e588edfa1
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 75805cad43f015f1741193ec5a1ead1fa7603f41
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308424"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42147017"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>자동화된 데이터베이스 백업을 사용하여 Azure SQL 데이터베이스 복구
 SQL Database는 [자동화된 데이터베이스 백업](sql-database-automated-backups.md) 및 [장기 보존에서 백업](sql-database-long-term-retention.md)을 사용한 데이터베이스 복구를 위해 다음 옵션을 제공합니다. 데이터베이스 백업에서 다음으로 복원할 수 있습니다.
@@ -61,7 +61,7 @@ SQL Database는 [자동화된 데이터베이스 백업](sql-database-automated-
 대량 복원을 위한 기본 제공 기능은 없습니다. [Azure SQL Database: Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) 스크립트는 이 작업을 수행하는 한 가지 방법의 예입니다.
 
 > [!IMPORTANT]
-> 자동화된 백업을 사용하여 복구하려면 구독에서 SQL Server 참여자 역할의 구성원이거나 구독 소유자여야 합니다. Azure 포털, PowerShell 또는 REST API를 사용하여 복구할 수 있습니다. Transact-SQL은 사용할 수 없습니다. 
+> 자동화된 백업을 사용하여 복구하려면 구독에서 SQL Server 기여자 역할의 구성원이거나 구독 소유자여야 합니다([RBAC: 기본 제공 역할](../role-based-access-control/built-in-roles.md) 참조). Azure 포털, PowerShell 또는 REST API를 사용하여 복구할 수 있습니다. Transact-SQL은 사용할 수 없습니다. 
 > 
 
 ## <a name="point-in-time-restore"></a>지정 시간 복원

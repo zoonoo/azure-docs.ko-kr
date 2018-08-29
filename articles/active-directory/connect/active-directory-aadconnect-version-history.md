@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/26/2018
+ms.date: 08/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6ca32d51a52cf636b1c41667e20872cfe49fa7e2
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 6c080d44aed7c2b3db54a34f4b711db66681cbe9
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390156"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142526"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -41,7 +41,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 
 ### <a name="release-status"></a>릴리스 상태
 
-2018년 7월 20일: 자동 업그레이드를 위해 릴리스되었습니다. 다운로드용 릴리스는 곧 제공될 예정입니다.
+2018년 8월 21일: 자동 업그레이드 및 다운로드를 위해 릴리스되었습니다. 
 
 ### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
 
@@ -67,7 +67,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 - 사용자가 마법사에서 앞/뒤로 이동할 때 문제를 생성하는 버그가 수정되었습니다.
 - 마법사의 잘못된 다중 스레드 처리로 인한 오류를 발생하지 못하게 하는 버그가 수정되었습니다.
 - 보안 그룹을 확인할 때 그룹 동기화 필터링 페이지에 LDAP 오류가 발생하는 경우 Azure AD Connect는 이제 예외를 고화질로 그대로 반환합니다.  조회 예외에 대한 근본 원인을 여전히 알 수 없으며 다른 버그에 의해 해결됩니다.
--  STK 및 NGC 키(WHfB의 User/Device 개체에 대한 msDS-KeyCredentialLink 특성)에 대한 권한이 올바르게 설정되지 않는 버그가 수정되었습니다.     
+-  STK 및 NGC 키(WHfB의 User/Device 개체에 대한 ms-DS-KeyCredentialLink 특성)에 대한 권한이 올바르게 설정되지 않는 버그가 수정되었습니다.     
 - 'Set-ADSyncRestrictedPermissions’가 제대로 호출되지 않는 버그가 수정되었습니다.
 -  AADConnect 설치 마법사의 그룹 쓰기 저장(writeback)에 대한 권한 부여 지원이 추가됩니다.
 - 암호 해시 동기화에서 AD FS로 로그인 방법을 변경할 경우 암호 해시 동기화가 사용되지 않도록 설정되지 않았습니다.
@@ -362,7 +362,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 ### <a name="ad-fs-management"></a>AD FS 관리
 #### <a name="fixed-issue"></a>해결된 문제
-* [msDS-ConsistencyGuid를 원본 앵커](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) 기능으로 사용하는 것과 관련된 문제가 해결되었습니다. 이 문제는 *AD FS로 페더레이션*을 사용자 로그인 방법으로 구성한 고객에게 영향을 줍니다. 마법사에서 *원본 앵커 구성* 작업을 실행하면 Azure AD Connect가 immutableId의 원본 특성으로 *ms-DS-ConsistencyGuid를 사용하도록 전환합니다. 이 변경의 일환으로 Azure AD Connect가 AD FS의 ImmutableId에 대한 클레임 규칙을 업데이트하려고 시도합니다. 하지만 Azure AD Connect에 AD FS를 구성하는 데 필요한 관리자 자격 증명이 없어서 이 단계가 실패했습니다. 이 문제가 해결되어 이제 *원본 앵커 구성* 작업을 실행하면 AD FS에 대한 관리자 자격 증명을 입력하라는 메시지가 Azure AD Connect에 표시됩니다.
+* [ms-DS-ConsistencyGuid를 원본 앵커](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) 기능으로 사용하는 것과 관련된 문제가 해결되었습니다. 이 문제는 *AD FS로 페더레이션*을 사용자 로그인 방법으로 구성한 고객에게 영향을 줍니다. 마법사에서 *원본 앵커 구성* 작업을 실행하면 Azure AD Connect가 immutableId의 원본 특성으로 *ms-DS-ConsistencyGuid를 사용하도록 전환합니다. 이 변경의 일환으로 Azure AD Connect가 AD FS의 ImmutableId에 대한 클레임 규칙을 업데이트하려고 시도합니다. 하지만 Azure AD Connect에 AD FS를 구성하는 데 필요한 관리자 자격 증명이 없어서 이 단계가 실패했습니다. 이 문제가 해결되어 이제 *원본 앵커 구성* 작업을 실행하면 AD FS에 대한 관리자 자격 증명을 입력하라는 메시지가 Azure AD Connect에 표시됩니다.
 
 
 
@@ -377,7 +377,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 * [원활한 Single Sign-On](active-directory-aadconnect-sso.md)을 설정한 고객에게 영향을 미치는 Azure AD Connect 업그레이드와 관련한 알려진 문제가 있습니다. Azure AD Connect를 업그레이드한 후 기능은 활성화된 상태로 남아 있는 경우라도 마법사에서는 비활성화된 것으로 표시됩니다. 이 문제의 해결책은 향후 릴리스에서 제공될 예정입니다. 이 디스플레이 문제에 대해 염려하는 고객은 마법사에서 원활한 Single Sign-On을 사용하도록 설정하면 수동으로 해결할 수 있습니다.
 
 #### <a name="fixed-issues"></a>해결된 문제
-* [소스 앵커로 msDS-ConsistencyGuid](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) 기능을 활성화하는 동안 Azure AD Connect가 온-프레미스 AD FS에서 클레임 규칙을 업데이트하지 못하도록 하는 문제를 해결했습니다. 로그인 방법으로 구성된 AD FS가 있는 기존 Azure AD Connect 배포에 대한 기능을 설정하려고 하는 경우 문제가 발생합니다. AD FS에서 클레임 규칙을 업데이트하려고 하기 전에 마법사가 ADFS 자격 증명에 대해 묻지 않기 때문에 문제가 발생합니다.
+* [소스 앵커로 ms-DS-ConsistencyGuid](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) 기능을 활성화하는 동안 Azure AD Connect가 온-프레미스 AD FS에서 클레임 규칙을 업데이트하지 못하도록 하는 문제를 해결했습니다. 로그인 방법으로 구성된 AD FS가 있는 기존 Azure AD Connect 배포에 대한 기능을 설정하려고 하는 경우 문제가 발생합니다. AD FS에서 클레임 규칙을 업데이트하려고 하기 전에 마법사가 ADFS 자격 증명에 대해 묻지 않기 때문에 문제가 발생합니다.
 * 온-프레미스 AD 포리스트에 NTLM을 사용하지 않도록 설정된 경우 Azure AD Connect의 설치 실패를 유발하는 문제가 해결되었습니다. 이 문제는 Azure AD Connect 마법사가 Kerberos 인증에 필요한 보안 컨텍스트를 만들 때 정규화된 자격 증명을 제공하지 않기 때문입니다. 이로 인해 Kerberos 인증에 실패하고 Azure AD Connect 마법사는 NTLM을 다시 사용하지 못합니다.
 
 ### <a name="azure-ad-connect-sync"></a>Azure AD Connect 동기화
@@ -394,7 +394,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 * 추가 작업에서 Azure AD Connect 마법사에 문제 해결 작업이 추가되었습니다. 고객은 이 작업을 활용하여 암호 동기화와 관련된 문제를 해결하고 일반 진단을 수집할 수 있습니다. 나중에 문제 해결 작업은 다른 디렉터리 동기화와 관련된 문제를 포함하도록 확장될 예정입니다.
 * 이제 Azure AD Connect에서 **기존 데이터베이스 사용**이라는 새 설치 모드를 지원합니다. 이 설치 모드를 사용하면 고객은 기존 ADSync 데이터베이스를 지정하는 Azure AD Connect를 설치할 수 있습니다. 이 기능에 대한 자세한 내용은 아티클 [기존 데이터베이스 사용](active-directory-aadconnect-existing-database.md)을 참조하세요.
 * 향상된 보안을 위해 Azure AD Connect는 이제 디렉터리 동기화를 위해 기본적으로 TLS1.2를 사용하여 Azure AD에 연결합니다. 이전에 기본 방법은 TLS1.0이었습니다.
-* Azure AD Connect 암호 동기화 에이전트가 시작되면 암호 동기화에 대해 잘 알려진 Azure AD 끝점에 연결하려고 합니다. 연결에 성공하면 지역별 끝점으로 리디렉션됩니다. 이전에는 암호 동기화 에이전트가 다시 시작될 때까지 지역별 끝점을 캐시합니다. 이제 에이전트는 지역별 끝점과 관련된 연결 문제가 발생하는 경우 캐시를 지우고 잘 알려진 끝점으로 재시도합니다. 이 변경을 통해 캐시된 지역별 끝점을 더 이상 사용할 수 없는 경우 암호 동기화를 다른 지역별 끝점으로 장애 조치(failover)할 수 있도록 보장합니다.
+* Azure AD Connect 암호 동기화 에이전트가 시작되면 암호 동기화에 대해 잘 알려진 Azure AD 엔드포인트에 연결하려고 합니다. 연결에 성공하면 지역별 엔드포인트로 리디렉션됩니다. 이전에는 암호 동기화 에이전트가 다시 시작될 때까지 지역별 엔드포인트를 캐시합니다. 이제 에이전트는 지역별 엔드포인트와 관련된 연결 문제가 발생하는 경우 캐시를 지우고 잘 알려진 엔드포인트로 재시도합니다. 이 변경을 통해 캐시된 지역별 엔드포인트를 더 이상 사용할 수 없는 경우 암호 동기화를 다른 지역별 엔드포인트로 장애 조치(failover)할 수 있도록 보장합니다.
 * 온-프레미스 AD 포리스트에서 변경 내용을 동기화하려면 AD DS 계정이 필요합니다. (i) 직접 AD DS 계정을 만들고 Azure AD Connect에 해당 자격 증명을 제공하거나 (ii) 엔터프라이즈 관리자 자격 증명을 제공하고 Azure AD Connect에서 AD DS 계정을 만들도록 할 수 있습니다. 이전은 (i)이 Azure AD Connect 마법사에서 기본 옵션입니다. 이제 (ii)가 기본 옵션입니다.
 
 ### <a name="azure-ad-connect-health"></a>Azure AD Connect Health
@@ -427,7 +427,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
   * Azure AD Connect를 업그레이드하는 경우 또는 Azure AD Connect 마법사에서 *동기화 구성 업데이트*를 작업 옵션을 사용하여 Azure AD Connect 동기화 구성을 업데이트하는 경우 문제가 발생합니다.
   
-  * 이 동기화 규칙은 [소스 앵커 기능으로 msDS-ConsistencyGuid](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor)를 사용하도록 설정한 고객에게 적용할 수 있습니다. 이 기능은 1.1.524.0 이후 버전에서 도입되었습니다. 동기화 규칙이 제거되면 Azure AD Connect에서는 더 이상 ObjectGuid 특성 값으로 온-프레미스 AD ms-DS-ConsistencyGuid 특성을 채울 수 없습니다. 새 사용자가 Azure AD에 프로비전되지 않도록 방지하지 않습니다.
+  * 이 동기화 규칙은 [소스 앵커 기능으로 ms-DS-ConsistencyGuid](active-directory-aadconnect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor)를 사용하도록 설정한 고객에게 적용할 수 있습니다. 이 기능은 1.1.524.0 이후 버전에서 도입되었습니다. 동기화 규칙이 제거되면 Azure AD Connect에서는 더 이상 ObjectGuid 특성 값으로 온-프레미스 AD ms-DS-ConsistencyGuid 특성을 채울 수 없습니다. 새 사용자가 Azure AD에 프로비전되지 않도록 방지하지 않습니다.
   
   * 기능이 설정되어 있다면 업그레이드 또는 구성을 변경하는 동안 동기화 규칙이 제거되지 않도록 수정합니다. 또한 이 문제의 영향을 받는 기존 고객의 경우 이 버전의 Azure AD Connect로 업그레이드한 후에 동기화 규칙이 다시 추가되도록 수정합니다.
 
@@ -463,7 +463,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 #### <a name="fixed-issue"></a>해결된 문제
 
-* OU 기반 필터링 구성이 업데이트되는 경우 기본 제공 동기화 규칙 “Out to AD - User ImmutableId”를 삭제하는 문제가 해결되었습니다. 이 동기화 규칙은 [소스 앵커 기능으로 msDS-ConsistencyGuid](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor)에 필요합니다.
+* OU 기반 필터링 구성이 업데이트되는 경우 기본 제공 동기화 규칙 “Out to AD - User ImmutableId”를 삭제하는 문제가 해결되었습니다. 이 동기화 규칙은 [소스 앵커 기능으로 ms-DS-ConsistencyGuid](active-directory-aadconnect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor)에 필요합니다.
 
 * OU 기반 필터링을 사용하는 경우에도 Azure AD Connect 마법사에서 [도메인 및 OU 필터링 화면](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering)이 *모든 도메인 및 OU 동기화* 옵션이 선택되었음을 표시하는 문제가 해결되었습니다.
 
@@ -529,14 +529,14 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 * Azure AD 관리자가 온-프레미스 AD 권한 있는 사용자 계정의 암호를 다시 설정할 수 있도록 하는, 비밀번호 쓰기 저장과 관련된 문제가 해결되었습니다. 이 문제는 Azure AD Connect에 권한 있는 계정에 대한 암호 다시 설정 권한이 부여된 경우에 발생합니다. 이 버전의 Azure AD Connect에서는 Azure AD 관리자가 계정의 소유자가 아닌 경우 임의의 온-프레미스 AD 권한 있는 사용자 계정의 암호를 다시 설정할 수 없도록 하여 이 문제를 해결합니다. 자세한 내용은 [보안 권고 4033453](https://technet.microsoft.com/library/security/4033453)을 참조하세요.
 
-* Azure AD Connect가 온-프레미스 AD msDS-ConsistencyGuid 특성에 쓰기 저장하지 않는, [원본 앵커로서의 msDS-ConsistencyGuid](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) 기능과 관련된 문제가 해결되었습니다. 이 문제는 여러 개의 온-프레미스 AD 포리스트가 Azure AD Connect에 추가되어 있고 *사용자 ID가 여러 디렉터리에 있습니다. 옵션*이 선택된 경우에 발생합니다. 이러한 구성을 사용하면 결과로 생성된 동기화 규칙이 메타버스의 sourceAnchorBinary 특성을 채우지 않습니다. sourceAnchorBinary 특성은 msDS-ConsistencyGuid 특성에 대한 원본 특성으로 사용됩니다. 결과적으로 ms-DSConsistencyGuid 특성에 대한 쓰기 저장이 발생하지 않습니다. 이 문제를 해결하기 위해 메타버스의 sourceAnchorBinary 특성이 항상 채워지도록 다음 동기화 규칙이 업데이트되었습니다.
+* Azure AD Connect가 온-프레미스 AD ms-DS-ConsistencyGuid 특성에 쓰기 저장하지 않는, [원본 앵커로서의 ms-DS-ConsistencyGuid](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) 기능과 관련된 문제가 해결되었습니다. 이 문제는 여러 개의 온-프레미스 AD 포리스트가 Azure AD Connect에 추가되어 있고 *사용자 ID가 여러 디렉터리에 있습니다. 옵션*이 선택된 경우에 발생합니다. 이러한 구성을 사용하면 결과로 생성된 동기화 규칙이 메타버스의 sourceAnchorBinary 특성을 채우지 않습니다. sourceAnchorBinary 특성은 ms-DS-ConsistencyGuid 특성에 대한 원본 특성으로 사용됩니다. 결과적으로 ms-DSConsistencyGuid 특성에 대한 쓰기 저장이 발생하지 않습니다. 이 문제를 해결하기 위해 메타버스의 sourceAnchorBinary 특성이 항상 채워지도록 다음 동기화 규칙이 업데이트되었습니다.
   * In from AD - InetOrgPerson AccountEnabled.xml
   * In from AD - InetOrgPerson Common.xml
   * In from AD - User AccountEnabled.xml
   * In from AD - User Common.xml
   * In from AD - User Join SOAInAAD.xml
 
-* 이전에는 [원본 앵커로서의 msDS-ConsistencyGuid](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) 기능이 사용되지 않는 경우에도 “Out to AD – User ImmutableId” 동기화 규칙이 Azure AD Connect에 추가되었습니다. 영향은 무해하며, msDS-ConsistencyGuid 특성의 쓰기 저장이 발생하지 않습니다. 혼동을 피하기 위해 기능이 사용되는 경우에만 동기화 규칙이 추가되도록 논리가 추가되었습니다.
+* 이전에는 [원본 앵커로서의 ms-DS-ConsistencyGuid](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) 기능이 사용되지 않는 경우에도 “Out to AD – User ImmutableId” 동기화 규칙이 Azure AD Connect에 추가되었습니다. 영향은 무해하며, ms-DS-ConsistencyGuid 특성의 쓰기 저장이 발생하지 않습니다. 혼동을 피하기 위해 기능이 사용되는 경우에만 동기화 규칙이 추가되도록 논리가 추가되었습니다.
 
 * 암호 해시 동기화가 오류 이벤트 611로 실패하게 만드는 문제가 해결되었습니다. 이 문제는 온-프레미스 AD에서 하나 이상의 도메인 컨트롤러가 제거된 후에 발생합니다. 각 암호 동기화 주기가 끝나면 온-프레미스 AD에서 발급된 동기화 쿠키에 제거된 도메인 컨트롤러의 호출 ID와 USN(업데이트 시퀀스 번호) 값 0이 포함됩니다. 암호 동기화 관리자는 USN 값 0이 포함된 동기화 쿠키를 유지할 수 없으며 오류 이벤트 611로 실패합니다. 다음 동기화 주기 동안 암호 동기화 관리자는 USN 값 0을 포함하지 않는 마지막으로 유지된 동기화 쿠키를 다시 사용합니다. 이 경우 동일한 암호 변경 내용을 다시 동기화됩니다. 이 문제가 해결되어 암호 동기화 관리자가 동기화 쿠키를 올바르게 유지합니다.
 
@@ -544,10 +544,10 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 #### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
 
-* 이전에는 [원본 앵커로서의 msDS-ConsistencyGuid](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) 기능을 새 배포에만 사용할 수 있었습니다. 이제 기존 배포에도 사용할 수 있습니다. 더 구체적으로 살펴보면 다음과 같습니다.
+* 이전에는 [원본 앵커로서의 ms-DS-ConsistencyGuid](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) 기능을 새 배포에만 사용할 수 있었습니다. 이제 기존 배포에도 사용할 수 있습니다. 더 구체적으로 살펴보면 다음과 같습니다.
   * 기능에 액세스하려면 Azure AD Connect 마법사를 시작하고 *원본 앵커 업데이트* 옵션을 선택합니다.
   * 이 옵션은 objectGuid를 sourceAnchor 특성으로 사용하는 기존 배포에만 표시됩니다.
-  * 옵션을 구성할 때 마법사는 온-프레미스 Active Directory의 msDS-ConsistencyGuid 특성 상태를 확인합니다. 특성이 디렉터리에 있는 사용자 개체에 구성되어 있지 않으면, 마법사는 msDS-ConsistencyGuid를 sourceAnchor 특성으로 사용합니다. 특성이 디렉터리에 있는 하나 이상의 사용자 개체에 구성되어 있으면, 마법사는 특성이 다른 응용 프로그램에서 사용되고 있으며 sourceAnchor 특성으로 적합하지 않다고 결정하고 원본 앵커 변경이 진행되지 않도록 합니다. 기존 응용 프로그램에서 특성을 사용하지 않는다고 확신하는 경우, 오류를 표시하지 않는 방법에 대한 정보를 얻기 위해 지원에 문의해야 합니다.
+  * 옵션을 구성할 때 마법사는 온-프레미스 Active Directory의 ms-DS-ConsistencyGuid 특성 상태를 확인합니다. 특성이 디렉터리에 있는 사용자 개체에 구성되어 있지 않으면, 마법사는 ms-DS-ConsistencyGuid를 sourceAnchor 특성으로 사용합니다. 특성이 디렉터리에 있는 하나 이상의 사용자 개체에 구성되어 있으면, 마법사는 특성이 다른 응용 프로그램에서 사용되고 있으며 sourceAnchor 특성으로 적합하지 않다고 결정하고 원본 앵커 변경이 진행되지 않도록 합니다. 기존 응용 프로그램에서 특성을 사용하지 않는다고 확신하는 경우, 오류를 표시하지 않는 방법에 대한 정보를 얻기 위해 지원에 문의해야 합니다.
 
 * 장치 개체의 **userCertificate** 특성과 관련해서, Azure AD Connect는 이제 [Windows 10 환경용 Azure AD에 도메인 가입 장치를 연결](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy)하는 데 필요한 인증서 값을 찾은 다음 Azure AD에 동기화하기 전에 나머지 값을 필터링합니다. 이 동작을 사용하도록 설정하기 위해 기본 제공 동기화 규칙 "Out to AAD - Device Join SOAInAD"가 업데이트되었습니다.
 
@@ -621,7 +621,7 @@ CBool(
 
 #### <a name="issues-fixed"></a>해결된 문제
 
-* 다음 URL은 Azure AD에서 인증 중단 시 복원력을 향상하기 위해 도입된 새로운 WS-Federation 끝점으로, 온-프레미스 AD FS 신뢰 당사자 트러스트 구성에 추가됩니다.
+* 다음 URL은 Azure AD에서 인증 중단 시 복원력을 향상하기 위해 도입된 새로운 WS-Federation 엔드포인트로, 온-프레미스 AD FS 신뢰 당사자 트러스트 구성에 추가됩니다.
   * https://ests.login.microsoftonline.com/login.srf
   * https://stamp2.login.microsoftonline.com/login.srf
   * https://ccs.login.microsoftonline.com/login.srf
@@ -653,7 +653,7 @@ Azure AD Connect 동기화
 * 관리자가 Azure AD Connect 마법사를 사용하여 Azure AD Connect 동기화 구성을 업데이트할 때 장치 쓰기 저장 기능을 자동으로 비활성화하는 문제를 해결했습니다. 이 문제는 마법사에서 온-프레미스 AD의 기존 장치 쓰기 저장 구성에 대한 필수 조건 확인을 수행함으로써 발생하는 것이며, 이 확인은 실패합니다. 이제 장치 쓰기 저장을 사용하도록 이미 설정되어 있는지 확인하는 것을 건너뛰도록 했습니다.
 * OU 필터링을 구성하려면 Azure AD Connect 마법사 또는 동기화 서비스 관리자를 사용하면 됩니다. 이전에는 Azure AD Connect 마법사를 사용하여 OU 필터링을 구성하는 경우 그 후에 만든 새 OU가 디렉터리 동기화에 포함되었습니다. 새 OU를 포함하지 않도록 하려면 동기화 서비스 관리자를 사용하여 OU 필터링을 구성해야 합니다. 이제는 Azure AD Connect 마법사를 사용하여 동일한 동작을 수행할 수 있습니다.
 * Azure AD Connect에 필요한 저장 프로시저를 dbo 스키마 대신 설치 관리자 스키마에서 만드는 문제를 해결했습니다.
-* Azure AD에서 반환한 TrackingId 특성이 AAD Connect 서버 이벤트 로그에서 생략되는 문제를 해결했습니다. Azure AD Connect에서 Azure AD로부터 리디렉션 메시지를 받고 제공된 끝점에 연결할 수 없는 경우에 이 문제가 발생합니다. TrackingId는 지원 엔지니어가 문제를 해결하는 동안 서비스 쪽 로그와 상호 연결하는 데 사용됩니다.
+* Azure AD에서 반환한 TrackingId 특성이 AAD Connect 서버 이벤트 로그에서 생략되는 문제를 해결했습니다. Azure AD Connect에서 Azure AD로부터 리디렉션 메시지를 받고 제공된 엔드포인트에 연결할 수 없는 경우에 이 문제가 발생합니다. TrackingId는 지원 엔지니어가 문제를 해결하는 동안 서비스 쪽 로그와 상호 연결하는 데 사용됩니다.
 * Azure AD Connect에서 Azure AD로부터 LargeObject 오류를 받으면 6941 EventID 및 *"프로비전된 개체가 너무 큽니다. 이 개체의 특성 값 수를 조정하십시오."* 라는 메시지가 포함된 이벤트를 생성합니다. 동시에 Azure AD Connect에서 6900 EventID 및 *"Microsoft.Online.Coexistence.ProvisionRetryException: Windows Azure Active Directory 서비스와 통신할 수 없습니다."* 라는 메시지가 포함된 잘못된 이벤트도 생성합니다. 혼란을 최소화하기 위해 Azure AD Connect에서 LargeObject 오류를 받으면 더 이상 후자의 이벤트를 생성하지 않습니다.
 * 일반 LDAP 커넥터의 구성을 업데이트하려고 할 때 동기화 서비스 관리자에서 응답하지 않는 문제를 해결했습니다.
 
@@ -667,7 +667,7 @@ Azure AD Connect 동기화
   * **preferredDataLocation**을 메타버스 스키마 및 AAD 커넥터 스키마에 추가했습니다. Azure AD에서 두 특성 중 하나를 업데이트하려는 고객은 사용자 지정 동기화 규칙을 구현하여 해당 특성을 업데이트할 수 있습니다. 
   * **userType**을 메타버스 스키마 및 AAD 커넥터 스키마에 추가했습니다. Azure AD에서 두 특성 중 하나를 업데이트하려는 고객은 사용자 지정 동기화 규칙을 구현하여 해당 특성을 업데이트할 수 있습니다.
 
-* Azure AD Connect는 이제 ConsistencyGuid 특성을 온-프레미스 AD 개체에 대한 원본 앵커 특성으로 사용하도록 자동으로 설정합니다. 또한 Azure AD Connect는 ConsistencyGuid 특성이 비어 있는 경우 이 특성을 objectGuid 특성 값으로 채웁니다. 이 기능은 새 배포에만 적용됩니다. 이 기능에 대한 자세한 내용은 [Azure AD Connect: 디자인 개념 - msDS-ConsistencyGuid를 sourceAnchor로 사용](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor)을 참조하세요.
+* Azure AD Connect는 이제 ConsistencyGuid 특성을 온-프레미스 AD 개체에 대한 원본 앵커 특성으로 사용하도록 자동으로 설정합니다. 또한 Azure AD Connect는 ConsistencyGuid 특성이 비어 있는 경우 이 특성을 objectGuid 특성 값으로 채웁니다. 이 기능은 새 배포에만 적용됩니다. 이 기능에 대한 자세한 내용은 [Azure AD Connect: 디자인 개념 - ms-DS-ConsistencyGuid를 sourceAnchor로 사용](active-directory-aadconnect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor)을 참조하세요.
 * 암호 해시 동기화 관련 문제를 진단하는 데 도움이 되는 새 Invoke-ADSyncDiagnostics 문제 해결 cmdlet을 추가했습니다. cmdlet 사용 방법에 대한 자세한 내용은 [Azure AD Connect 동기화를 사용하여 암호 해시 동기화 문제 해결](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md) 아티클을 참조하세요.
 * Azure AD Connect는 이제 온-프레미스 AD에서 Azure AD로 메일 사용 가능 공용 폴더 개체 동기화를 지원합니다. Azure AD Connect 마법사를 사용하여 [선택적 기능]에서 이 기능을 사용하도록 설정할 수 있습니다. 이 기능에 대한 자세한 내용은 [Office 365 Directory Based Edge Blocking support for on-premises Mail Enabled Public Folders](https://blogs.technet.microsoft.com/exchange/2017/05/19/office-365-directory-based-edge-blocking-support-for-on-premises-mail-enabled-public-folders)(온-프레미스 메일 사용이 가능한 공용 폴더에 대한 Office 365 디렉터리 기반 에지 차단 지원) 문서를 참조하세요.
 * 온-프레미스 AD에서 동기화하려면 Azure AD Connect에 AD DS 계정이 필요합니다. 이전에 Express 모드를 사용하여 Azure AD Connect를 설치한 경우 엔터프라이즈 관리자 계정의 자격 증명을 제공할 수 있고 Azure AD Connect에서는 필요한 AD DS 계정을 만듭니다. 그러나 사용자 지정 설치하거나 기존 배포에 포리스트를 추가하는 경우에는 AD DS 계정을 대신 제공해야 합니다. 이제는 사용자 지정 설치 중에 엔터프라이즈 관리자 계정의 자격 증명을 제공하고 Azure AD Connect에서 필요한 AD DS 계정을 만들 수 있습니다.
@@ -1070,7 +1070,7 @@ Azure AD Sync에서 Azure AD Connect로 이름을 변경했습니다.
 **새로운 기능:**
 
 * 이제 특성 기반 필터링을 사용하는 암호 동기화가 지원됩니다. 자세한 내용은 [필터링으로 암호 동기화](active-directory-aadconnectsync-configure-filtering.md)를 참조하세요.
-* msDS-ExternalDirectoryObjectID 특성이 다시 Active Directory에 기록됩니다. 이 기능을 통해 Office 365 응용 프로그램에 대한 지원이 추가됩니다. 이 기능은 OAuth2를 사용하여 하이브리드 Exchange 배포의 온라인 및 온-프레미스 사서함에 액세스합니다.
+* ms-DS-ExternalDirectoryObjectID 특성이 다시 Active Directory에 기록됩니다. 이 기능을 통해 Office 365 응용 프로그램에 대한 지원이 추가됩니다. 이 기능은 OAuth2를 사용하여 하이브리드 Exchange 배포의 온라인 및 온-프레미스 사서함에 액세스합니다.
 
 **수정된 업그레이드 문제:**
 

@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: aljo
-ms.openlocfilehash: 1869b25756693a4a3626d713b6bd2adab035cea6
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: d820898b1a0cc26d6832be9d302c74306fa4882f
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39717650"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143588"
 ---
+# <a name="read-before-you-scale"></a>크기 조정 전에 읽기
+응용 프로그램 워크로드에서 의도적인 계획이 필요한 원본에 대한 계산 리소스 크기 조정은 프로덕션 작업을 완료하는 데 항상 거의 한 시간 이상이 걸리며, 워크로드 및 비즈니스 컨텍스트를 이해해야 합니다. 사실상 이 작업을 전에 수행한 적이 없는 경우 이 문서의 나머지 부분을 계속하기 전에 [Service Fabric 클러스터 용량 계획 고려 사항](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-capacity)을 읽고 이해하여 시작하는 것이 좋습니다. 이 권장 사항은 의도하지 않은 LiveSite 문제를 방지하기 위한 것이며, 비 프로덕션 환경에 대해 수행하려는 작업을 성공적으로 테스트하는 것이 좋습니다. 언제든지 [프로덕션 문제를 보고하거나 Azure에 대한 유료 지원을 요청](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support#report-production-issues-or-request-paid-support-for-azure)할 수 있습니다. 적절한 컨텍스트를 소유하는 이러한 작업을 수행하도록 할당된 엔지니어의 경우 이 문서는 크기 조정 작업을 설명하지만 크기 조정할 리소스(CPU, 저장소, 메모리), 크기 조정할 방향(세로 또는 가로로) 및 수행할 작업(리소스 템플릿 배포, 포털, PowerShell/CLI)과 같은 사용 사례에 적절한 작업을 결정하고 이해해야 합니다.
+
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>자동 크기 조정 규칙을 사용하거나 수동으로 Service Fabric 클러스터 크기 조정
 가상 머신 확장 집합은 가상 머신의 컬렉션을 집합으로 배포하고 관리하는 데 사용할 수 있는 Azure 계산 리소스입니다. Service Fabric 클러스터에 정의된 모든 노드 형식은 별도의 가상 머신 확장 집합으로 설정됩니다. 각 노드 형식은 독립적으로 확장 또는 축소되고, 다른 포트의 집합을 열며 다른 용량 메트릭을 가질 수 있습니다. [서비스 패브릭 노드 형식](service-fabric-cluster-nodetypes.md) 문서에서 자세히 알아보세요. 클러스터에서 Service Fabric 노드 형식은 백 엔드에서 가상 머신 확장 집합으로 구성되므로 각 노드 형식/Virtual Machine 확장 집합에 대한 자동 크기 조정 규칙을 설정해야 합니다.
 
 > [!NOTE]
-> 사용자의 구독에 이 클러스터를 형성할 새 VM을 추가하기에 충분한 코어가 있어야 합니다. 현재는 모델 유효성 검사가 없으므로 할당량 한도에 도달하면 배포 시간 오류가 발생합니다.
+> 사용자의 구독에 이 클러스터를 형성할 새 VM을 추가하기에 충분한 코어가 있어야 합니다. 현재는 모델 유효성 검사가 없으므로 할당량 한도에 도달하면 배포 시간 오류가 발생합니다. 또한 단일 노드 형식은 VMSS당 100개의 노드를 초과할 수 없습니다. 대상 규모를 달성하려면 VMSS를 추가해야 할 수 있으며, 자동 크기 조정은 자동으로 VMSS를 추가할 수 없습니다. 실시간 클러스터 대신 VMSS를 추가하는 것은 어려운 작업이며, 일반적으로 이로 인해 사용자가 생성 시 프로비전된 적절한 노드 형식을 사용하여 새 클러스터를 프로비전합니다. 적절하게 [클러스터 용량을 계획](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-capacity)합니다. 
 > 
 > 
 

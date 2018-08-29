@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 2f496f906eef416b35e2e59b2db93481ce65acb1
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: 16d023a2f3abf0feb1f1c0478edb3de7a157d5a4
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36946274"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42144870"
 ---
 # <a name="how-to-use-perfinsights"></a>PerfInsights를 사용하는 방법
 
@@ -64,7 +64,7 @@ PerfInsights는 여러 종류의 정보를 수집하고 분석할 수 있습니�
 > 이 시나리오는 시스템에 영향을 줄 수 있으므로 라이브 프로덕션 시스템에서 실행하면 안됩니다. 필요한 경우 문제가 발생하지 않도록 전용 유지 관리 창에서 이 시나리오를 실행합니다. 추적 또는 벤치마크 테스트로 인해 워크로드가 증가하면 VM 성능이 저하될 수 있습니다.
 >
 
-### <a name="slow-vm-analysis"></a>느린 VM 분석
+### <a name="performance-analysis"></a>성능 분석
 
 이 시나리오에서는 RuleEngineConfig.json 파일에 지정된 카운터를 사용하여 [성능 카운터](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) 추적을 실행합니다. VM이 SQL Server를 실행하는 서버로 식별되면 성능 카운터 추적을 실행합니다. RuleEngineConfig.json 파일에 있는 카운터를 사용하여 이 작업을 수행합니다. 이 시나리오에는 성능 진단 데이터도 포함됩니다.
 
@@ -90,9 +90,9 @@ PerfInsights는 여러 종류의 정보를 수집하고 분석할 수 있습니�
 |              | 평균 쓰기 큐 길이       |
 |              | 평균 데이터 큐 길이        |
 
-### <a name="advanced-slow-vm-analysis"></a>고급 느린 VM 분석
+### <a name="advanced-performance-analysis"></a>고급 성능 분석
 
-고급 느린 VM 분석을 실행할 때는 병렬 실행되도록 추적을 선택합니다. 원한다면 전체(성능 카운터, Xperf, 네트워크 및 StorPort)를 실행할 수 있습니다.  
+고급 성능 분석을 실행할 때는 병렬로 실행되도록 추적을 선택합니다. 원한다면 전체(성능 카운터, Xperf, 네트워크 및 StorPort)를 실행할 수 있습니다.  
 
 > [!Note]
 > 이 시나리오는 시스템에 영향을 줄 수 있으므로 라이브 프로덕션 시스템에서 실행하면 안됩니다. 필요한 경우 문제가 발생하지 않도록 전용 유지 관리 창에서 이 시나리오를 실행합니다. 추적 또는 벤치마크 테스트로 인해 워크로드가 증가하면 VM 성능이 저하될 수 있습니다.
@@ -104,28 +104,28 @@ Windows VM, 디스크 또는 저장소 풀 구성, 성능 카운터, 로그 및 
 
 |수집되는 데이터                              |  |  | 성능 시나리오 |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | 빠른 성능 분석 | 벤치마킹 | 느린 VM 분석 | Azure Files 분석 | 고급 느린 VM 분석 |
-| 이벤트 로그의 정보       | 예                        | 예                                | 예                      | 예                  | 예                  |
-| 시스템 정보                | 예                        | 예                                | 예                      | 예                  | 예                  |
-| 볼륨 매핑                        | 예                        | 예                                | 예                      | 예                  | 예                  |
-| 디스크 매핑                          | 예                        | 예                                | 예                      | 예                  | 예                  |
-| 실행 중인 작업                     | 예                        | 예                                | 예                      | 예                  | 예                  |
-| 저장소 안정성 카운터      | 예                        | 예                                | 예                      | 예                  | 예                  |
-| 저장소 정보               | 예                        | 예                                | 예                      | 예                  | 예                  |
-| Fsutil 출력                     | 예                        | 예                                | 예                      | 예                  | 예                  |
-| 필터 드라이버 정보                | 예                        | 예                                | 예                      | 예                  | 예                  |
-| Netstat 출력                    | 예                        | 예                                | 예                      | 예                  | 예                  |
-| 네트워크 구성             | 예                        | 예                                | 예                      | 예                  | 예                  |
-| 방화벽 구성            | 예                        | 예                                | 예                      | 예                  | 예                  |
-| SQL Server 구성          | 예                        | 예                                | 예                      | 예                  | 예                  |
-| 성능 진단 추적 *  | 예                        | 예                                | 예                      | 예                  | 예                  |
-| 성능 카운터 추적 **      |                            |                                    | 예                      |                      | 예                  |
-| SMB 카운터 추적 **              |                            |                                    |                          | 예                  |                      |
-| SQL Server 카운터 추적 **       |                            |                                    | 예                      |                      | 예                  |
-| XPerf 추적                       |                            |                                    |                          |                      | 예                  |
-| StorPort 추적                    |                            |                                    |                          |                      | 예                  |
-| 네트워크 추적                     |                            |                                    |                          | 예                  | 예                  |
-| Diskspd 벤치마크 추적 ***       |                            | 예                                |                          |                      |                      |
+|                               | 빠른 성능 분석 | 벤치마킹 | 성능 분석 | Azure Files 분석 | 고급 성능 분석 |
+| 이벤트 로그의 정보       | yes                        | 예                                | 예                      | 예                  | yes                  |
+| 시스템 정보                | yes                        | 예                                | 예                      | 예                  | yes                  |
+| 볼륨 매핑                        | yes                        | 예                                | 예                      | 예                  | yes                  |
+| 디스크 매핑                          | yes                        | 예                                | 예                      | 예                  | yes                  |
+| 실행 중인 작업                     | yes                        | 예                                | 예                      | 예                  | yes                  |
+| 저장소 안정성 카운터      | yes                        | 예                                | 예                      | 예                  | yes                  |
+| 저장소 정보               | yes                        | 예                                | 예                      | 예                  | yes                  |
+| Fsutil 출력                     | yes                        | 예                                | 예                      | 예                  | yes                  |
+| 필터 드라이버 정보                | yes                        | 예                                | 예                      | 예                  | yes                  |
+| Netstat 출력                    | yes                        | 예                                | 예                      | 예                  | yes                  |
+| 네트워크 구성             | yes                        | 예                                | 예                      | 예                  | yes                  |
+| 방화벽 구성            | yes                        | 예                                | 예                      | 예                  | yes                  |
+| SQL Server 구성          | yes                        | 예                                | 예                      | 예                  | yes                  |
+| 성능 진단 추적 *  | yes                        | 예                                | 예                      | 예                  | yes                  |
+| 성능 카운터 추적 **      |                            |                                    | yes                      |                      | yes                  |
+| SMB 카운터 추적 **              |                            |                                    |                          | yes                  |                      |
+| SQL Server 카운터 추적 **       |                            |                                    | yes                      |                      | yes                  |
+| XPerf 추적                       |                            |                                    |                          |                      | yes                  |
+| StorPort 추적                    |                            |                                    |                          |                      | yes                  |
+| 네트워크 추적                     |                            |                                    |                          | yes                  | yes                  |
+| Diskspd 벤치마크 추적 ***       |                            | yes                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
 ### <a name="performance-diagnostics-trace-"></a>성능 진단 추적 (*)
@@ -138,7 +138,7 @@ Windows VM, 디스크 또는 저장소 풀 구성, 성능 카운터, 로그 및 
 - HighMemoryUsage 규칙: 높은 메모리 사용 기간을 검색하고 해당 기간 동안의 최고 메모리 사용량 소비자를 표시합니다.
 
 > [!NOTE] 
-> 현재 .NET Framework 3.5 이상 버전이 포함된 Windows 버전이 지원됩니다.
+> 현재 .NET Framework 4.5 이상 버전이 포함된 Windows 버전이 지원됩니다.
 
 ### <a name="performance-counter-trace-"></a>성능 카운터 추적 (\*\*)
 
@@ -171,9 +171,9 @@ Diskspd IO 워크로드 테스트(OS 디스크[쓰기] 및 풀 드라이브[읽�
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>프로덕션 VM에서 도구 실행 시 발생할 수 있는 문제
 
--  Xperf 또는 Diskspd를 사용하도록 구성된 벤치마킹 시나리오 또는 “고급 느린 VM 분석” 시나리오를 사용하는 경우 이 도구로 인해 VM의 성능이 저하될 수 있습니다. 이러한 시나리오는 프로덕션 환경에서 실행해서는 안 됩니다.
+-  Xperf 또는 Diskspd를 사용하도록 구성된 벤치마킹 시나리오 또는 “고급 성능 분석” 시나리오를 사용하는 경우 이 도구로 인해 VM의 성능이 저하될 수 있습니다. 이러한 시나리오는 프로덕션 환경에서 실행해서는 안 됩니다.
 
--  DiskSpd를 사용하도록 구성된 벤치마킹 시나리오 또는 “고급 느린 VM 분석” 시나리오의 경우, 다른 백그라운드 작업이 I/O 워크로드를 방해하지 않는지 확인합니다.
+-  DiskSpd를 사용하도록 구성된 벤치마킹 시나리오 또는 “고급 성능 분석” 시나리오의 경우, 다른 백그라운드 작업이 I/O 워크로드를 방해하지 않도록 합니다.
 
 -  기본적으로 이 도구는 임시 저장소 드라이브를 사용하여 데이터를 수집합니다. 추적을 더 오랫동안 사용하도록 유지하면 수집되는 데이터의 양이 적절할 수 있습니다. 이렇게 하면 임시 디스크의 공간 가용성을 낮출 수 있으므로 이 드라이브를 사용하는 모든 응용 프로그램에 영향을 미칠 수 있습니다.
 
@@ -212,7 +212,7 @@ PerfInsights 도구를 실행하려면 다음 단계를 수행합니다.
     PerfInsights /run <ScenarioName> [AdditionalOptions]
     ```
 
-    아래 예제를 사용하여 VM 시나리오를 5분 동안 느리게 실행합니다.
+    아래 예제를 사용하여 성능 분석 시나리오를 5분 동안 실행합니다.
     
     ```
     PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics
@@ -224,7 +224,7 @@ PerfInsights 도구를 실행하려면 다음 단계를 수행합니다.
     PerfInsights /run advanced xp /d 300 /AcceptDisclaimerAndShareDiagnostics
     ```
 
-    아래 예제를 사용하여 5분 동안 느린 VM 시나리오를 실행하고 결과 zip 파일을 저장소 계정에 업로드할 수 있습니다.
+    아래 예제를 사용하여 5분 동안 성능 분석 시나리오를 실행하고 결과 zip 파일을 저장소 계정에 업로드할 수 있습니다.
     
     ```
     PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics /sa <StorageAccountName> /sk <StorageAccountKey>

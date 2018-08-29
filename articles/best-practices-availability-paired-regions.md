@@ -6,12 +6,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: 13a2b78b50b1b10975a90c1da38810f1a62a6bb5
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 4084a5bd8cb82442eb37844f88f2ff6dd166b5ee
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436912"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42446067"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>BCDR(무중단 업무 방식 및 재해 복구): Azure 쌍을 이루는 지역
 
@@ -19,7 +19,7 @@ ms.locfileid: "37436912"
 
 Azure는 전 세계 여러 지역에서 작동합니다. Azure 지리적 위치는 하나 이상의 Azure 지역을 포함하는 전 세계의 정의된 영역입니다. Azure 지역은 하나 이상의 데이터 센터를 포함하는 지리적 위치 내의 영역입니다.
 
-각 Azure 지역은 동일한 지리적 위치 내의 다른 지역과 쌍을 이루어 함께 지역 쌍을 만듭니다. 예외는 브라질 남부이며, 지리적 위치 외부에 있는 지역과 쌍을 이루고 있습니다.
+각 Azure 지역은 동일한 지리적 위치 내의 다른 지역과 쌍을 이루어 함께 지역 쌍을 만듭니다. 예외는 브라질 남부이며, 지리적 위치 외부에 있는 지역과 쌍을 이루고 있습니다. 지역 쌍 전체에서 Azure는 한 번에 하나의 쌍을 이루는 지역만 업데이트하도록 플랫폼 업데이트(계획된 유지 관리)를 직렬화합니다. 또한 여러 지역에 영향을 주는 중단의 경우 각 쌍에서 하나 이상의 지역에 복구 우선 순위가 지정됩니다.
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
@@ -57,7 +57,7 @@ Azure는 전 세계 여러 지역에서 작동합니다. Azure 지리적 위치�
 - (4) 미국 버지니아 주 정부의 보조 지역은 미국 텍사스 주 정부이지만 미국 텍사스 주 정부의 보조 지역은 미국 버지니아 주 정부가 아닙니다.
 
 
-Azure의 격리 및 가용성 정책을 활용하려면 지역 쌍 간에 작업을 복제하는 것이 좋습니다. 예를 덜어 계획된 Azure 시스템 업데이트는 쌍을 이루는 지역 간에 순차적으로 배포됩니다. 즉, 흔하지 않은 업데이트 오류가 발생한 경우에도 두 지역이 동시에 영향을 않습니다. 또한 거의 발생할 가능성이 없는 광범위한 중단 시 모든 쌍에서 하나 이상의 지역에 대한 복구 우선 순위가 지정됩니다.
+Azure의 격리 및 가용성 정책을 활용하려면 지역 쌍 간에 BCDR(비즈니스 연속성 및 재해 복구)을 구성하는 것이 좋습니다. 여러 활성 지역을 지원하는 응용 프로그램의 경우 가능하면 한 지역 쌍에서 두 지역을 모두 사용하는 것이 좋습니다. 이렇게 하면 응용 프로그램에 대한 최적 가용성을 보장하고 재해 발생 시 복구 시간을 최소화할 수 있습니다. 
 
 ## <a name="an-example-of-paired-regions"></a>쌍을 이루는 지역의 예
 아래 그림 2는 재해 복구에 지역 쌍을 사용하는 가상 응용 프로그램을 보여줍니다. 녹색 숫자는 세 개의 Azure 서비스(Azure 계산, 저장소 및 데이터베이스)의 지역 간 활동 및 지역 간에 복제하도록 구성된 방식을 강조합니다. 쌍을 이루는 지역에 걸친 배포의 고유한 이점은 주황색 숫자로 강조 표시되어 있습니다.

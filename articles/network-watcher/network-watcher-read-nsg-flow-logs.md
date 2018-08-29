@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
-ms.openlocfilehash: 492a0a63198fe2013cfeac0459fc6da8521a5e6e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b43c082b5c4925fee2b1145956a2847e7f30bb11
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056803"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143013"
 ---
 # <a name="read-nsg-flow-logs"></a>NSG 흐름 로그 읽기
 
@@ -28,7 +28,7 @@ NSG 흐름 로그는 저장소 계정의 [블록 Blob](/rest/api/storageservices
 
 ## <a name="scenario"></a>시나리오
 
-다음 시나리오에서는 저장소 계정에 저장된 예제 흐름 로그를 사용합니다. NSG 흐름 로그에서 최신 이벤트를 선택적으로 읽을 수 있는 방법을 단계적으로 확인할 것입니다. 이 문서에서는 PowerShell을 사용하지만 여기서 설명하는 개념은 프로그래밍 언어에만 국한되지 않으며, Azure Storage API가 지원하는 모든 언어에 적용됩니다.
+다음 시나리오에서는 저장소 계정에 저장된 예제 흐름 로그를 사용합니다. NSG 흐름 로그에서 최신 이벤트를 선택적으로 읽는 방법을 알아봅니다. 이 문서에서는 PowerShell을 사용하지만 여기서 설명하는 개념은 프로그래밍 언어에만 국한되지 않으며, Azure Storage API가 지원하는 모든 언어에 적용됩니다.
 
 ## <a name="setup"></a>설정
 
@@ -157,7 +157,6 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 ```
 
 이 시나리오는 전체 로그를 구문 분석할 필요 없이 NSG 흐름 로그의 항목을 읽는 방법의 예입니다. 블록 Blob에 저장된 블록의 길이를 추적하거나 블록 ID를 사용하면 로그에 작성되는 새 항목을 읽을 수 있습니다. 이 방법을 사용하면 새 항목만 읽을 수 있습니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 

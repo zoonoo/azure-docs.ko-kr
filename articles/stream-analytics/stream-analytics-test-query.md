@@ -10,12 +10,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 3dc9091934f3db8ededc13f74d2f302eccace4d6
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: d699d69362b2d28c205aab14a4bfb26570a68a4e
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312993"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42143534"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>샘플 데이터로 Stream Analytics 쿼리 테스트
 
@@ -29,9 +29,7 @@ Azure Stream Analytics를 사용하면 작업을 시작하거나 중지하지 �
 
 3. Stream Analytics 작업 페이지의 **작업 토폴로지** 제목 아래에서 **쿼리**를 선택하여 쿼리 편집기 창을 엽니다. 
 
-4. 샘플 입력 데이터로 쿼리를 테스트하려면 아무 입력을 마우스 오른쪽 단추로 클릭합니다.  **파일에서 샘플 데이터 업로드**를 선택합니다.
-
-   데이터가 JSON 형식이어야 합니다. 데이터가 CSV 등의 다른 형식인 경우 업로드하기 전에 JSON으로 변환해야 합니다. [CSV-JSON 변환기](http://www.convertcsv.com/csv-to-json.htm)와 같은 오픈 소스 변환 도구를 사용하여 데이터를 JSON으로 변환할 수 있습니다.
+4. 샘플 입력 데이터로 쿼리를 테스트하려면 아무 입력을 마우스 오른쪽 단추로 클릭합니다.  **파일에서 샘플 데이터 업로드**를 선택합니다. 데이터는 JSON, CSV 또는 AVRO로 직렬화되어야 합니다.
 
     ![Stream Analytics 쿼리 편집기 쿼리 테스트](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 
@@ -51,4 +49,4 @@ Azure Stream Analytics를 사용하면 작업을 시작하거나 중지하지 �
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
-> [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+> [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)

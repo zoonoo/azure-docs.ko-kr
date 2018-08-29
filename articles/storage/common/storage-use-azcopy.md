@@ -5,15 +5,15 @@ services: storage
 author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 08/13/2018
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: aaae191baaa7b712c77d93303ded777afe97c249
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: a0e2400163433ba5290525d0fe807ede624a31ed
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39530597"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42143707"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Windows에서 AzCopy를 사용하여 데이터 전송
 AzCopy는 최적의 성능을 내는 간단한 명령을 사용하여 데이터를 Microsoft Azure Blob, File 및 Table Storage에 복사하거나 이들 저장소에서 복사하기 위한 명령줄 유틸리티입니다. 파일 시스템과 저장소 계정 간 또는 저장소 계정 간에 데이터를 복사할 수 있습니다.  
@@ -22,16 +22,16 @@ AzCopy는 최적의 성능을 내는 간단한 명령을 사용하여 데이터�
 
 ## <a name="download-and-install-azcopy-on-windows"></a>Windows에서 AzCopy 다운로드 및 설치
 
-### <a name="latest-preview-version-v800"></a>최신 미리 보기 버전(v8.0.0)
-[Windows에서 AzCopy의 최신 미리 보기 버전](https://aka.ms/downloadazcopypr)을 다운로드합니다. 이 미리 보기 버전은 뛰어난 성능 개선을 제공하고 설치에서 .NET Core를 패키징합니다.
+### <a name="latest-version-v81"></a>최신 버전(v8.1)
+[최신 버전의 Windows에서 AzCopy](https://aka.ms/downloadazcopy)를 다운로드합니다.
 
-#### <a name="azcopy-on-windows-80-preview-release-notes"></a>Windows의 AzCopy 8.0 미리 보기 릴리스 정보
-- Table service는 최신 버전에서 더 이상 지원되지 않습니다. 테이블 내보내기 기능을 사용하는 경우 안정적 버전을 다운로드합니다.
+#### <a name="azcopy-on-windows-81-release-notes"></a>Windows의 AzCopy 8.1 릴리스 정보
+- Table service는 최신 버전에서 더 이상 지원되지 않습니다. 테이블 내보내기 기능을 사용하는 경우 AzCopy 7.3 버전을 다운로드합니다.
 - .NET Core 2.1을 사용하여 빌드한 모든 .NET Core 종속성은 이제 설치에서 패키징됩니다.
-- 업로드 및 다운로드 시나리오 모두에 대한 뛰어난 성능 개선
+- OAuth 인증 지원을 추가했습니다. Azure Active Directory를 사용하여 로그온하려면 ```azcopy login```을 사용합니다.
 
-### <a name="latest-stable-version-v710"></a>안정적인 최신 버전(v7.1.0)
-[Windows에서 AzCopy의 안정적인 최신 버전](https://aka.ms/downloadazcopy)을 다운로드합니다.
+### <a name="azcopy-with-table-support-v73"></a>테이블 지원이 있는 Azcopy(v7.3)
+[테이블 지원이 있는 AzCopy 7.3](https://aka.ms/downloadazcopynet)을 다운로드합니다.
 
 ### <a name="post-installation-step"></a>설치 후 단계
 
@@ -274,7 +274,7 @@ AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
 
 ### <a name="synchronously-copy-blobs-from-one-storage-account-to-another"></a>저장소 계정 간에 비동기적으로 Blob 복사
 
-기본적으로 AzCopy는 두 저장소 끝점 간에 데이터를 비동기적으로 복사합니다. 따라서 복사 작업은 Blob이 복사되는 속도와 관련하여 SLA가 없는 여분의 대역폭 용량을 사용하여 백그라운드로 실행되며, AzCopy는 복사가 완료되거나 실패할 때까지 복사 상태를 정기적으로 확인합니다.
+기본적으로 AzCopy는 두 저장소 엔드포인트 간에 데이터를 비동기적으로 복사합니다. 따라서 복사 작업은 Blob이 복사되는 속도와 관련하여 SLA가 없는 여분의 대역폭 용량을 사용하여 백그라운드로 실행되며, AzCopy는 복사가 완료되거나 실패할 때까지 복사 상태를 정기적으로 확인합니다.
 
 `/SyncCopy` 옵션을 사용하면 복사 작업이 일관된 속도를 유지할 수 있습니다. AzCopy는 지정된 소스에서 로컬 메모리로 복사할 Blob을 다운로드한 후 대상 Blob 저장소에 업로드하여 동기 복사를 수행합니다.
 
@@ -927,7 +927,7 @@ AzCopy는 데이터 전송 처리량을 높이기 위해 기본적으로 특정 
 
 ### <a name="synccopy"></a>/SyncCopy
 
-두 Azure Storage 끝점 간에 Blob 또는 파일을 동기적으로 복사할지 여부를 나타냅니다.
+두 Azure Storage 엔드포인트 간에 Blob 또는 파일을 동기적으로 복사할지 여부를 나타냅니다.
 
 기본적으로 AzCopy에서는 서버 쪽 비동기 복사를 사용합니다. Blob 또는 파일을 로컬 메모리에 다운로드한 다음 Azure Storage에 업로드하는 동기 복사를 수행하려면 이 옵션을 지정합니다.
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 5d8fae7412bece631e6961fb92b7d87e308cc857
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 8bde1e8846dbaee957e2498ea4fae0c5cf79a913
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599217"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139935"
 ---
 # <a name="os-patching-for-hdinsight"></a>HDInsight의 OS 패치 
 관리되는 Hadoop 서비스인 HDInsight는 HDInsight 클러스터에서 사용하는 기본 VM의 OS를 패치하는 작업을 담당합니다. 2016년 8월 1일을 기준으로 Linux 기반 HDInsight 클러스터에 대한 게스트 OS 패치 정책을 변경했습니다(버전 3.4 이상). 새 정책의 목표는 패치로 인해 부팅 횟수를 크게 줄이는 것입니다. 새 정책은 월요일 또는 목요일 오전 12시(UTC)마다 시차를 두고 모든 지정된 클러스터의 노드에 있는 Linux 클러스터에서 계속 VM(가상 머신)을 패치합니다. 그러나 지정된 VM은 게스트 OS 패치로 인해 최대 30일마다 다시 부팅됩니다. 또한 새로 만든 클러스터는 생성된 날짜로부터 30일보다 이전에 첫 번째로 다시 부팅되지 않습니다. VM이 다시 부팅되면 패치가 적용됩니다.

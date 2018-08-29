@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: e77ccdc5b4bc03ba233aae49eda8465704e5405e
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e562b694b2d3f226d0b4f5bc03b54d6562e52244
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344378"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143131"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x-preview"></a>Azure Functions 2.x에 대한 Azure Cosmos DB 바인딩(미리 보기)
 
@@ -54,6 +54,7 @@ Azure Cosmos DB 트리거는 [Azure Cosmos DB 변경 피드](../cosmos-db/change
 * [C#](#trigger---c-example)
 * [C# 스크립트(.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 [트리거 건너뛰기 예제](#trigger---attributes)
 
@@ -159,7 +160,43 @@ JavaScript 코드는 다음과 같습니다.
     }
 ```
 
-## <a name="trigger---attributes"></a>트리거 - 특성
+### <a name="trigger---java-example"></a>트리거 - Java 예제
+
+다음 예제에서는 *function.json* 파일의 Cosmos DB 트리거 바인딩 및 바인딩을 사용하는 [Java 함수](functions-reference-java.md)를 보여줍니다. 지정한 데이터베이스 및 컬렉션에서 삽입 또는 업데이트가 있을 때 함수가 호출됩니다.
+
+```json
+{
+    "type": "cosmosDBTrigger",
+    "name": "items",
+    "direction": "in",
+    "leaseCollectionName": "leases",
+    "connectionStringSetting": "AzureCosmosDBConnection",
+    "databaseName": "ToDoList",
+    "collectionName": "Items",
+    "createLeaseCollectionIfNotExists": false
+}
+```
+
+Java 코드는 다음과 같습니다.
+
+```java
+    @FunctionName("cosmosDBMonitor")
+    public void cosmosDbProcessor(
+        @CosmosDBTrigger(name = "items",
+            databaseName = "ToDoList",
+            collectionName = "Items",
+            leaseCollectionName = "leases",
+            reateLeaseCollectionIfNotExists = true,
+            connectionStringSetting = "AzureCosmosDBConnection") String[] items,
+            final ExecutionContext context ) {
+                context.getLogger().info(items.length + "item(s) is/are changed.");
+            }
+```
+
+
+[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Cosmos DB에서 제공되는 매개 변수에 대한 `@CosmosDBTrigger` 주석을 사용합니다.  옵션 <T>를 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다. 
+
+## <a name="trigger---c-attributes"></a>트리거 - C# 특성
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) 특성을 사용합니다.
 
@@ -177,6 +214,7 @@ JavaScript 코드는 다음과 같습니다.
 ```
 
 전체 예제는 [트리거 - C# 예제](#trigger---c-example)를 참조하세요.
+
 
 ## <a name="trigger---configuration"></a>트리거 - 구성
 
@@ -229,6 +267,7 @@ ID 값을 지정하여 단일 문서를 읽는 언어 관련 예제를 참조하
 * [C# 스크립트(.csx)](#input---c-script-examples)
 * [JavaScript](#input---javascript-examples)
 * [F#](#input---f-examples)
+* [Java](#input---java-examples)
 
 [입력 건너뛰기 예제](#input---attributes)
 
@@ -1156,6 +1195,32 @@ F# 코드는 다음과 같습니다.
 
 `project.json` 파일을 추가하려면 [F# 패키지 관리](functions-reference-fsharp.md#package)를 참조하세요.
 
+### <a name="input---java-examples"></a>입력 - Java 예제
+
+다음 예제에서는 단일 문서를 검색하는 Java 함수를 보여줍니다. 함수는 조회할 ID를 지정하기 위해 쿼리 문자열을 사용하는 HTTP 요청에 의해 트리거됩니다. ID는 지정된 데이터베이스 및 컬렉션에서 ToDoItem 문서를 검색하는 데 사용됩니다.
+
+Java 코드는 다음과 같습니다.
+
+```java
+@FunctionName("getItem")
+public String cosmosDbQueryById(
+    @HttpTrigger(name = "req",
+                  methods = {HttpMethod.GET},
+                  authLevel = AuthorizationLevel.ANONYMOUS) Optional<String> dummy,
+    @CosmosDBInput(name = "database",
+                      databaseName = "ToDoList",
+                      collectionName = "Items",
+                      leaseCollectionName = "",
+                      id = "{Query.id}"
+                      connectionStringSetting = "AzureCosmosDBConnection") Optional<String> item,
+    final ExecutionContext context
+ ) {
+    return item.orElse("Not found");
+ }
+ ```
+
+[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Cosmos DB에서 제공되는 함수 매개 변수에 대한 `@CosmosDBInput` 주석을 사용합니다.  옵션 <T>를 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다. 
+
 ## <a name="input---attributes"></a>입력 - 특성
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) 특성을 사용합니다.
@@ -1201,6 +1266,7 @@ Azure Cosmos DB 출력 바인딩을 사용하면 Azure Cosmos DB 데이터베이
 * [C# 스크립트(.csx)](#output---c-script-examples)
 * [JavaScript](#output---javascript-examples)
 * [F#](#output---f-examples)
+* [Java](#output---java-example)
 
 `DocumentClient`을 사용하는 [입력 예제](#input---c-examples)도 참조하세요.
 
@@ -1564,6 +1630,24 @@ F# 코드는 다음과 같습니다.
 ```
 
 `project.json` 파일을 추가하려면 [F# 패키지 관리](functions-reference-fsharp.md#package)를 참조하세요.
+
+## <a name="output---java-examples"></a>출력 - Java 예제
+
+다음 예제에서는 큐 저장소의 메시지에서 데이터를 사용하여 문서를 데이터베이스에 추가하는 Java 함수를 보여줍니다.
+
+```java
+@FunctionName("getItem")
+@CosmosDBOutput(name = "database", databaseName = "ToDoList", collectionName = "Items", connectionStringSetting = "AzureCosmosDBConnection")
+public String cosmosDbQueryById(
+     @QueueTrigger(name = "msg", queueName = "myqueue-items", connection = "AzureWebJobsStorage") String message,
+     final ExecutionContext context
+)  {
+     return "{ id: " + System.currentTimeMillis() + ", Description: " + message + " }";
+   }
+```
+
+[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 Cosmos DB에 작성될 매개 변수에 대한 `@CosmosDBOutput` 주석을 사용합니다.  주석 매개 변수 형식은 OutputBinding<T>이어야 합니다. 여기서 T는 원시 Java 형식 또는 POJO입니다.
+
 
 ## <a name="output---attributes"></a>출력 - 특성
 

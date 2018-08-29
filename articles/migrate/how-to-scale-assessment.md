@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: 4bcb6734c33d70e4045860a2c0f0acfedfa06eff
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 06905a2f16a23e5a7c4612f4b567aaf86322924d
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215182"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139940"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>대규모 VMware 환경 검색 및 평가
 
@@ -94,7 +94,7 @@ vCenter Server당 1500개 미만의 가상 머신이 있는 여러 vCenter Serve
 요구 사항에 따라 Azure Migrate 프로젝트를 만듭니다.
 
 1. Azure Portal에서 **리소스 만들기**를 선택합니다.
-2. **Azure Migrate**를 검색하고 검색 결과에서 서비스 **Azure Migrate(미리 보기)** 를 선택합니다. 그런 다음 **만들기**를 선택합니다.
+2. **Azure Migrate**를 검색하고 검색 결과에서 서비스 **Azure Migrate**을 선택합니다. 그런 다음 **만들기**를 선택합니다.
 3. 프로젝트에 대해 프로젝트 이름과 Azure 구독을 지정합니다.
 4. 새 리소스 그룹을 만듭니다.
 5. 프로젝트를 만들 위치를 지정하고 **만들기**를 선택합니다. 다른 대상 위치에서 VM을 평가할 수도 있습니다. 프로젝트에 대해 지정된 위치는 온-프레미스 VM에서 수집된 메타데이터를 저장하는 데 사용됩니다.
@@ -224,7 +224,7 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
 
     수집기는 VM이 인터넷에 액세스를 수 있는지 확인합니다.
 
-    나. VM이 프록시를 통해 인터넷에 액세스하는 경우 **프록시 설정**을 선택하고, 프록시 주소 및 수신 대기 포트를 지정합니다. 프록시에 인증이 필요한 경우 자격 증명을 지정합니다.
+    b. VM이 프록시를 통해 인터넷에 액세스하는 경우 **프록시 설정**을 선택하고, 프록시 주소 및 수신 대기 포트를 지정합니다. 프록시에 인증이 필요한 경우 자격 증명을 지정합니다.
 
     수집기는 collectorservice가 실행 중인지 확인합니다. 서비스는 수집기 VM에 기본적으로 설치됩니다.
 

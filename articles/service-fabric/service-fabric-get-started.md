@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/13/2018
 ms.author: ryanwi
-ms.openlocfilehash: b5d0e923955ea5ca67941fad0dc3d1415e4a5899
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 3d4005c38c4c0730da3effbdca0907597b32aed3
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115870"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617471"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows에서 개발 환경 준비
 > [!div class="op_single_selector"]
@@ -64,8 +64,8 @@ SDK만 필요한 경우 다음 패키지를 설치할 수 있습니다.
 * [Microsoft Azure Service Fabric SDK 설치][core-sdk]
 
 현재 버전은 다음과 같습니다.
-* Service Fabric SDK 및 도구 3.2.162
-* Service Fabric 런타임 6.3.162
+* Service Fabric SDK 및 도구 3.2.176
+* Service Fabric 런타임 6.3.176
 * Visual Studio 2015 2.3.10710.3용 Service Fabric 도구
 * Visual Studio 2017 15.7에는 Visual Studio 2.3.10710.1용 Service Fabric 도구가 포함되어 있습니다. 
 

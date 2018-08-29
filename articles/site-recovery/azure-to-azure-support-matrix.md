@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: sujayt
-ms.openlocfilehash: c2892d51c6eb5e71c0b1af400b78e993742fede0
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 32bdf1080aa6e7c5884747eeecad3f42c7334c3a
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173053"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444829"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>한 Azure 지역에서 다른 지역으로 복제를 위한 지원 매트릭스
 
@@ -34,11 +34,11 @@ ms.locfileid: "39173053"
 
 ## <a name="resource-support"></a>리소스 지원
 
-**리소스 이동 유형** | **세부 정보** 
+**리소스 이동 유형** | **세부 정보**
 --- | --- | ---
 **리소스 그룹 간 자격 증명 모음 이동** | 지원되지 않음<br/><br/> 리소스 그룹 간에 복구 서비스 자격 증명 모음을 이동할 수 없습니다.
 **리소스 그룹 간에 계산/저장소/네트워크 리소스 이동** | 지원되지 않습니다.<br/><br/> 복제 후 VM 또는 저장소/네트워크와 같은 관련 구성 요소를 이동하는 경우 복제를 해제하고 VM에 복제를 사용하도록 다시 설정해야 합니다.
-**재해 복구를 위해 한 구독에서 다른 구독으로 Azure VM 복제** | 지원되지 않습니다.
+**재해 복구를 위해 한 구독에서 다른 구독으로 Azure VM 복제** | 동일한 Azure Active Directory 테넌트 내에서 지원됩니다.
 **구독 간 VM 마이그레이션** | 지원되지 않습니다.
 **동일한 지역 내에서 VM 마이그레이션** | 지원되지 않습니다.
 
@@ -179,8 +179,8 @@ GRS | 지원됨 |
 RA-GRS | 지원됨 |
 ZRS | 지원되지 않음 |  
 콜드 및 핫 저장소 | 지원되지 않음 | 가상 머신 디스크는 콜드 및 핫 저장소에서 지원되지 않습니다.
-가상 네트워크의 Azure Storage 방화벽  | 아니오 | 복제된 데이터를 저장하는 데 사용된 캐시 저장소 계정의 특정 Azure Virtual Network에 대한 액세스 허용은 지원되지 않습니다.
-범용 V2 저장소 계정(핫 및 쿨 계층 모두) | 아니오 | 범용 V1 Storage 계정에 비해 상당한 트랜잭션 비용 증가
+가상 네트워크의 Azure Storage 방화벽  | 아니요 | 복제된 데이터를 저장하는 데 사용된 캐시 저장소 계정의 특정 Azure Virtual Network에 대한 액세스 허용은 지원되지 않습니다.
+범용 V2 저장소 계정(핫 및 쿨 계층 모두) | 아니요 | 범용 V1 Storage 계정에 비해 상당한 트랜잭션 비용 증가
 
 >[!IMPORTANT]
 > [Linux](../virtual-machines/linux/disk-scalability-targets.md) 또는 [Windows](../virtual-machines/windows/disk-scalability-targets.md) 가상 머신에 대한 VM 디스크 확장성 및 성능 목표를 확인하여 성능 문제를 피해야 합니다. 기본 설정을 따르는 경우 Site Recovery가 원본 구성에 따라 필요한 디스크 및 저장소 계정을 만듭니다. 사용자 고유의 설정을 사용자 지정하고 선택하는 경우 소스 VM의 디스크 확장성 및 성능 목표를 준수하는지 확인합니다.
@@ -197,7 +197,7 @@ NIC의 NSG(Resource Manager)| 지원됨 | 복구 계획에서 Azure Automation �
 VM의 NSG(클래식)| 지원됨 | 복구 계획에서 Azure Automation 스크립트를 사용하여 NSG를 NIC에 연결해야 합니다.
 예약된 IP(고정 IP)/원본 IP 유지 | 지원됨 | 원본 VM의 NIC에 고정 IP 구성이 있고 대상 서브넷에서 동일한 IP를 사용할 수 있는 경우 해당 IP가 장애 조치 VM에 할당됩니다. 대상 서브넷에서 동일한 IP를 사용할 수 없는 경우 서브넷의 사용 가능한 IP 중 하나가 이 VM용으로 예약됩니다. '복제된 항목 > 설정 > Compute 및 네트워크 > 네트워크 인터페이스'에서 원하는 고정 IP를 지정할 수 있습니다. NIC를 선택하고 원하는 서브넷 및 IP를 지정할 수 있습니다.
 동적 IP| 지원됨 | 원본 VM의 NIC에 동적 IP 구성이 있는 경우 장애 조치 VM의 NIC도 기본적으로 동적으로 설정됩니다. '복제된 항목 > 설정 > Compute 및 네트워크 > 네트워크 인터페이스'에서 원하는 고정 IP를 지정할 수 있습니다. NIC를 선택하고 원하는 서브넷 및 IP를 지정할 수 있습니다.
-Traffic Manager 통합 | 지원됨 | 트래픽이 평소에는 원본 지역의 끝점으로 라우팅되고 장애 조치 시에는 대상 지역의 끝점으로 라우팅되도록 Traffic Manager를 미리 구성할 수 있습니다.
+Traffic Manager 통합 | 지원됨 | 트래픽이 평소에는 원본 지역의 엔드포인트로 라우팅되고 장애 조치 시에는 대상 지역의 엔드포인트로 라우팅되도록 Traffic Manager를 미리 구성할 수 있습니다.
 Azure 관리 DNS | 지원됨 |
 사용자 지정 DNS  | 지원됨 |    
 인증되지 않은 프록시 | 지원됨 | [네트워킹 지침 문서](site-recovery-azure-to-azure-networking-guidance.md)를 참조하세요.    

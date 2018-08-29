@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: f954e726aabb34f74d81580e3afc08f2b0b9914b
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 0056364883d5a4a350e5b35374e1fc3abd0c7bea
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619409"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141766"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Azure Cloud Shell의 문제 해결 및 제한 사항
 
@@ -31,6 +31,11 @@ Azure Cloud Shell의 문제 해결에 대해 알려진 해결 방법은 다음�
 
 - **세부 정보**: Cloud Shell은 개방형 WebSocket을 사용하여 브라우저에 입/출력을 전달합니다. FireFox에는 Cloud Shell에서 조기 시간 초과를 야기하는 WebSocket을 닫을 수 있는 미리 설정된 정책이 있습니다.
 - **해결 방법**: FireFox를 열고 URL 상자의 "about:config"로 이동합니다. "network.websocket.timeout.ping.request"를 검색하고 값을 0에서 10으로 변경합니다.
+
+### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>잠긴 네트워크 환경에서 Cloud Shell을 사용하지 않도록 설정
+
+- **세부 정보**: 관리자가 사용자를 위해 Cloud Shell에 대한 액세스를 사용하지 않도록 설정할 수 있습니다. Cloud Shell은 거부될 수 있는 `ux.console.azure.com` 도메인에 대한 액세스를 활용하여 portal.azure.com, shell.azure.com, Visual Studio Code Azure 계정 확장 및 docs.microsoft.com을 포함한 Cloud Shell의 진입점에 대한 액세스를 중단합니다.
+- **해결 방법**: 사용자 환경에 대한 네트워크 설정을 통해 `ux.console.azure.com`에 대한 액세스를 제한합니다. Cloud Shell 아이콘은 portal.azure.com에 여전히 존재하지만 서비스에 성공적으로 연결되지 않습니다.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>저장소 대화 상자 - 오류: 403 RequestDisallowedByPolicy
 

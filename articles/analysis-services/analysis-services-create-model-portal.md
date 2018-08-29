@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 17ff6ebed615971b4157831431d9e2395ca68b48
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: dcfcfb24d2b47a8272c576856fc3accc547f354a
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441678"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42142421"
 ---
 # <a name="create-a-model-in-azure-portal"></a>Azure Portal에서 모델 만들기
 
@@ -23,9 +23,10 @@ Azure Portal의 Azure Analysis Services 웹 디자이너(미리 보기) 기능�
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-- 표준 또는 개발자 계층의 Azure Analysis Services 서버. 웹 디자이너를 사용하여 만드는 새 모델은 이러한 계층에서만 지원되는 DirectQuery입니다.
+- Azure Analysis Services 서버가 표준 또는 개발자 계층에 있어야 합니다. 웹 디자이너를 사용하여 만드는 새 모델은 이러한 계층에서만 지원되는 DirectQuery입니다.
 - 데이터 원본으로 Azure SQL Database, Azure SQL Data Warehouse 또는 Power BI Desktop(.pbix) 파일. Power BI Desktop 파일로 만드는 새 모델은 Azure SQL Database 및 Azure SQL Data Warehouse를 지원합니다.
 - Azure SQL Database 또는 Azure SQL Data Warehouse 데이터 원본에 연결하기 위한 SQL Server 계정 및 암호.
+- 새 모델을 만들려면 서버 관리자 권한이 있어야 합니다. 디자이너를 사용하여 모델을 편집하고 쿼리하려면 데이터베이스 관리자 권한이 있어야 합니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 

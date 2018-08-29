@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 59a00f5605f7664148b65f2ec9a88fbaa9057ccf
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: e06db4e356de6a4572721d1652d6a2666e7cfefc
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36946060"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146854"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>여러 컴퓨터의 업데이트 관리
 
@@ -106,10 +106,10 @@ Azure Portal에서 Automation 계정을 연 후 **업데이트 관리**를 선�
 
 | 연결된 원본 | 지원됨 | 설명 |
 | --- | --- | --- |
-| Windows 에이전트 |예 |업데이트 관리에서 Windows 에이전트로부터 시스템 업데이트에 대한 정보를 수집하고 필요한 업데이트를 설치하기 시작합니다. |
-| Linux 에이전트 |예 |업데이트 관리에서 Linux 에이전트로부터 시스템 업데이트에 대한 정보를 수집하고 지원되는 배포판에서 필요한 업데이트를 설치하기 시작합니다. |
-| Operations Manager 관리 그룹 |예 |업데이트 관리에서 연결된 관리 그룹의 에이전트로부터 시스템 업데이트에 대한 정보를 수집합니다. |
-| Azure Storage 계정 |아니오 |Azure Storage는 시스템 업데이트에 대한 정보를 포함하지 않습니다. |
+| Windows 에이전트 |yes |업데이트 관리에서 Windows 에이전트로부터 시스템 업데이트에 대한 정보를 수집하고 필요한 업데이트를 설치하기 시작합니다. |
+| Linux 에이전트 |yes |업데이트 관리에서 Linux 에이전트로부터 시스템 업데이트에 대한 정보를 수집하고 지원되는 배포판에서 필요한 업데이트를 설치하기 시작합니다. |
+| Operations Manager 관리 그룹 |yes |업데이트 관리에서 연결된 관리 그룹의 에이전트로부터 시스템 업데이트에 대한 정보를 수집합니다. |
+| Azure Storage 계정 |아니요 |Azure Storage는 시스템 업데이트에 대한 정보를 포함하지 않습니다. |
 
 ### <a name="collection-frequency"></a>수집 빈도
 
@@ -127,7 +127,7 @@ Azure Portal에서 Automation 계정을 연 후 **업데이트 관리**를 선�
 
 - **이름**: 업데이트 배포를 식별하는 고유 이름을 제공합니다.
 - **운영 체제**: **Windows** 또는 **Linux**를 선택합니다.
-- **업데이트할 컴퓨터**: 업데이트하려는 가상 머신을 선택합니다. 컴퓨터의 준비는 **업데이트 에이전트 준비** 열에 표시됩니다. 업데이트 배포를 예약하기 전에 컴퓨터의 상태를 확인할 수 있습니다.
+- **업데이트할 컴퓨터**: 저장된 검색, 가져온 그룹 또는 머신을 선택하여 업데이트할 머신을 선택합니다. **머신**을 선택한 경우 머신의 준비 상태가 **업데이트 에이전트 준비** 열에 표시됩니다. 업데이트 배포를 예약하기 전에 컴퓨터의 상태를 확인할 수 있습니다. Log Analytics에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Log Analytics의 컴퓨터 그룹](../log-analytics/log-analytics-computer-groups.md)을 참조하세요.
 
   ![새 업데이트 배포 창](./media/manage-update-multi/update-select-computers.png)
 
@@ -150,10 +150,16 @@ Azure Portal에서 Automation 계정을 연 후 **업데이트 관리**를 선�
    ![일정 설정 대화 상자](./media/manage-update-multi/update-set-schedule.png)
 - **유지 관리 기간(분)**: 업데이트 배포가 수행될 기간을 지정합니다. 이 설정을 통해 정해진 서비스 기간 내에 변경 내용을 수행할 수 있습니다.
 
-일정 구성을 완료한 후에 **만들기** 단추를 선택하여 상태 대시보드로 돌아갑니다. **예약됨** 표에는 만든 배포 일정이 표시됩니다.
+- **다시 부팅 컨트롤** - 이 설정은 업데이트 배포에 대해 다시 부팅을 처리하는 방법을 결정합니다.
 
-> [!WARNING]
-> 다시 시작이 필요한 업데이트의 경우 가상 머신은 자동으로 다시 시작됩니다.
+   |옵션|설명|
+   |---|---|
+   |필요한 경우 다시 부팅| **(기본값)** 필요한 경우, 유지 관리 기간이 허용되면 다시 부팅이 시작됩니다.|
+   |항상 다시 부팅|필요 여부에 관계없이 다시 부팅이 시작됩니다. |
+   |다시 부팅 안 함|다시 부팅 필요 여부와 관계없이 다시 부팅이 무시됩니다.|
+   |다시 부팅만 - 업데이트 설치 안 함|이 옵션은 업데이트 설치를 무시하고 다시 부팅만 시작합니다.|
+
+일정 구성을 완료한 후에 **만들기** 단추를 선택하여 상태 대시보드로 돌아갑니다. **예약됨** 표에는 만든 배포 일정이 표시됩니다.
 
 ## <a name="view-results-of-an-update-deployment"></a>업데이트 배포의 결과 보기
 

@@ -3,26 +3,28 @@ title: Apache Kafka용 Azure Event Hubs | Microsoft Docs
 description: Kafka 사용 Azure Event Hubs 개요 및 소개
 services: event-hubs
 documentationcenter: .net
-author: djrosanova
+author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: darosa
-ms.openlocfilehash: 8388a8988dec2629c5ab309f32b72ae45a157a02
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.date: 08/16/2018
+ms.author: bahariri
+ms.openlocfilehash: 16c101068be48ba1435ef230b29c679fcef17d08
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281463"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142848"
 ---
-# <a name="azure-event-hubs-for-apache-kafka"></a>Apache Kafka용 Azure Event Hubs
+# <a name="azure-event-hubs-for-apache-kafka-preview"></a>Apache Kafka용 Azure Event Hubs(미리 보기)
 
-Event Hubs는 기존 Kafka 기반 응용 프로그램이 사용자 고유의 Kafka 클러스터 실행에 대한 대안으로 사용할 수 있는 Kafka 끝점을 제공합니다. Event Hubs는 [Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) 및 최신 클라이언트 버전을 지원하고 MirrorMaker를 포함하여 기존 Kafka 응용 프로그램과 작동합니다. Kafka 프로토콜을 Event Hubs에 사용하는 응용 프로그램에서 스트리밍 이벤트를 시작하고 연결 문자열을 변경합니다.
+Event Hubs는 기존 Kafka 기반 응용 프로그램이 사용자 고유의 Kafka 클러스터 실행에 대한 대안으로 사용할 수 있는 Kafka 끝점을 제공합니다. Event Hubs는 [Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) 및 최신 클라이언트 버전을 지원하고 MirrorMaker를 포함하여 기존 Kafka 응용 프로그램과 작동합니다. 
 
 ## <a name="what-does-event-hubs-for-kafka-provide"></a>Kafka용 Event Hubs는 무엇을 제공하나요?
 
-Kafka용 Event Hubs 기능은 Kafka 버전 1.0과 호환가능한 이진이며 나중에 Kafka 토픽에서 읽기 및 쓰기를 위한 Azure Event Hubs에 프로토콜 헤드를 제공합니다. 개념적으로 Kafka와 Event Hubs는 거의 동일합니다. 둘 다 스트리밍 데이터를 위해 빌드한 분할된 로그입니다. 다음 표에서 Kafka 및 Event Hubs 간 개념을 매핑합니다.
+Kafka용 Event Hubs 기능은 Kafka 버전 1.0과 호환가능한 이진이며 나중에 Kafka 토픽에서 읽기 및 쓰기를 위한 Azure Event Hubs에 프로토콜 헤드를 제공합니다. 코드 변경 없이 최소한의 구성 변경으로 응용 프로그램에서 Kafka 엔드포인트를 사용하여 시작할 수 있습니다. Kafka 클러스터를 가리키는 대신 이벤트 허브에서 노출된 Kafka 엔드포인트를 가리키도록 구성에서 연결 문자열을 업데이트합니다. 그런 다음, Kafka 프로토콜을 사용하는 응용 프로그램에서 Event Hubs로 이벤트 스트리밍을 시작할 수 있습니다. 
+
+개념적으로 Kafka와 Event Hubs는 거의 동일합니다. 둘 다 스트리밍 데이터를 위해 빌드한 분할된 로그입니다. 다음 표에서 Kafka 및 Event Hubs 간 개념을 매핑합니다.
 
 ### <a name="kafka-and-event-hub-conceptual-mapping"></a>Kafka 및 Event Hubs의 개념적 매핑
 
@@ -36,7 +38,7 @@ Kafka용 Event Hubs 기능은 Kafka 버전 1.0과 호환가능한 이진이며 �
 
 ### <a name="key-differences-between-kafka-and-event-hubs"></a>Kafka 및 Event Hubs의 주요 차이점
 
-[Apache Kafka](https://kafka.apache.org/)는 선택한 어디서든 실행할 수 있는 소프트웨어인 반면 Event Hubs는 Azure Blob Storage와 유사한 클라우드 서비스입니다. 관리할 네트워크나 서버가 없으며 구성할 브로커가 없습니다. 항목이 포함된 FQDN인 네임스페이스를 만든 다음, 해당 네임스페이스 내에 항목 또는 Event Hubs를 만듭니다. Event Hubs 및 네임스페이스에 대한 자세한 내용은 [Event Hubs란?](event-hubs-what-is-event-hubs.md)을 참조하세요. 클라우드 서비스로서 Event Hubs는 안정적인 단일 가상 IP 주소를 엔드포인트로 사용하므로 클라이언트는 클러스터 내에서 브로커 또는 컴퓨터에 대해 알 필요가 없습니다. 
+[Apache Kafka](https://kafka.apache.org/)는 선택한 어디서든 실행할 수 있는 소프트웨어인 반면 Event Hubs는 Azure Blob Storage와 유사한 클라우드 서비스입니다. 관리할 네트워크나 서버가 없으며 구성할 브로커가 없습니다. 항목이 포함된 FQDN인 네임스페이스를 만든 다음, 해당 네임스페이스 내에 항목 또는 Event Hubs를 만듭니다. Event Hubs 및 네임스페이스에 대한 자세한 내용은 [Event Hubs 기능](event-hubs-features.md#namespace)을 참조하세요. 클라우드 서비스로서 Event Hubs는 안정적인 단일 가상 IP 주소를 엔드포인트로 사용하므로 클라이언트는 클러스터 내에서 브로커 또는 컴퓨터에 대해 알 필요가 없습니다. 
 
 Event Hubs에서 확장은 구매한 처리량 단위 수에 의해 제어되며, 각 처리량 단위는 초당 1MB 또는 초당 이벤트 1000개를 수신할 수 있습니다. 기본적으로 Event Hubs는 [자동 확장](event-hubs-auto-inflate.md) 기능으로 한계에 도달할 경우 처리량 단위를 확장합니다. 이 기능은 Kafka용 Event Hubs 기능과 함께 작동합니다. 
 

@@ -3,7 +3,7 @@ title: Key Vault 인증서 시작
 description: 다음과 같은 시나리오는 키 자격 증명 모음에서 첫 번째 인증서를 만드는 데 필요한 추가 단계를 포함하여 몇 가지 Key Vault의 인증서 관리 서비스의 기본 사용을 간략하게 설명합니다.
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: a788b958-3acb-4bb6-9c94-4776852aeea1
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: alleonar
-ms.openlocfilehash: f1a1a2fa083dd1bf02132e08981d736a17a2c58f
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.author: bryanla
+ms.openlocfilehash: f2becc5d746c3079e8f686748f33f10cd4a8d8c8
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109487"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42145388"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault 인증서 시작
 다음과 같은 시나리오는 키 자격 증명 모음에서 첫 번째 인증서를 만드는 데 필요한 추가 단계를 포함하여 몇 가지 Key Vault의 인증서 관리 서비스의 기본 사용을 간략하게 설명합니다.
@@ -51,14 +51,14 @@ ms.locfileid: "37109487"
 
 **3단계** - CA에 따라 인증서를 소유하는 Contoso 직원(Key Vault 사용자)과 함께 Contoso 관리자는 관리자로부터 또는 CA로 계정에서 직접 인증서를 가져올 수 있습니다.  
 
--   [인증서 발급자](https://docs.microsoft.com/rest/api/keyvault/certificate-issuers) 리소스를 만들어 키 자격 증명 모음에 자격 증명 작업 추가를 시작합니다. 
+-   [인증서 발급자 리소스를 설정](/rest/api/keyvault/setcertificateissuer)하여 Key Vault에 자격 증명 작업 추가를 시작합니다. 인증서 발급자는 Azure KV(Key Vault)에 CertificateIssuer 리소스로 표시되는 엔터티입니다. KV 인증서의 원본에 대한 정보(발급자 이름, 공급자, 자격 증명 및 기타 관리 세부 정보)를 제공하는 데 사용됩니다.
     -   예: MyDigiCertIssuer  
         -   공급자  
         -   자격 증명 - CA 계정 자격 증명입니다. 각 CA에는 자체 특정 데이터가 있습니다.  
 
      CA 공급자로 계정을 만드는 방법에 대한 자세한 내용은 [Key Vault 블로그](http://aka.ms/kvcertsblog)에서 관련된 게시물을 참조하세요.  
 
-**3.1단계** - 알림에 대한 [인증서 연락처](https://docs.microsoft.com/rest/api/keyvault/certificate-contacts)를 설정합니다. Key Vault 사용자에 대한 연락처입니다. Key Vault는 이 단계를 적용하지 않습니다.  
+**3.1단계** - 알림에 대한 [인증서 연락처](/rest/api/keyvault/setcertificatecontacts)를 설정합니다. Key Vault 사용자에 대한 연락처입니다. Key Vault는 이 단계를 적용하지 않습니다.  
 
 참고 - 3.1단계를 통한 이 프로세스의 경우 일회성 작업입니다.  
 
@@ -121,5 +121,5 @@ ms.locfileid: "37109487"
   (5) - 응용 프로그램이 CA에서 X509 인증서를 병합해 새로운 인증서 만들기를 완료합니다.
 
 ## <a name="see-also"></a>참고 항목
-- [인증서 작업](/rest/api/keyvault/certificate-operations)
+
 - [키, 비밀 및 인증서에 대한 정보](about-keys-secrets-and-certificates.md)

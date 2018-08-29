@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: daveba
-ms.openlocfilehash: c4ccd75f679e58dd42f136bf1199eda88dc3f087
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 704342db2d1ff56a66eb70b33d3da10874844f2d
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431718"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42144900"
 ---
 # <a name="configure-managed-identity-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>REST API 호출을 사용하여 가상 머신 확장 집합에서 관리 ID 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "39431718"
 
 관리 ID는 Azure Active Directory에서 자동으로 관리되는 시스템 ID를 Azure 서비스에 제공합니다. 이 ID를 사용하면 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다. 
 
-이 문서에서는 CURL을 통해 Azure Resource Manager REST 끝점을 호출하여 가상 머신 확장 집합에서 다음 관리 ID 작업을 수행하는 방법을 알아봅니다.
+이 문서에서는 CURL을 통해 Azure Resource Manager REST 엔드포인트를 호출하여 가상 머신 확장 집합에서 다음 관리 ID 작업을 수행하는 방법을 알아봅니다.
 
 - Azure 가상 머신 확장 집합에서 시스템 할당 ID를 사용하거나 사용하지 않도록 설정
 - Azure 가상 머신 확장 집합에서 사용자 할당 ID 추가 및 제거
@@ -49,11 +49,11 @@ ms.locfileid: "39431718"
 
 ## <a name="system-assigned-identity"></a>시스템 할당 ID
 
-이 섹션에서는 CURL을 통해 Azure Resource Manager REST 끝점을 호출하여 가상 머신 확장 집합에서 시스템 할당 ID를 사용하거나 사용하지 않도록 설정하는 방법을 알아봅니다.
+이 섹션에서는 CURL을 통해 Azure Resource Manager REST 엔드포인트를 호출하여 가상 머신 확장 집합에서 시스템 할당 ID를 사용하거나 사용하지 않도록 설정하는 방법을 알아봅니다.
 
 ### <a name="enable-system-assigned-identity-during-creation-of-a-virtual-machine-scale-set"></a>가상 머신 확장 집합을 만드는 동안 시스템 할당 ID를 사용하도록 설정
 
-시스템 할당 ID를 사용할 수 있는 가상 머신 확장 집합을 만들려면 가상 머신 확장 집합을 만들고 액세스 토큰을 검색하여 CURL을 통해 시스템 할당 ID 유형 값으로 Resource Manager 끝점을 호출해야 합니다.
+시스템 할당 ID를 사용할 수 있는 가상 머신 확장 집합을 만들려면 가상 머신 확장 집합을 만들고 액세스 토큰을 검색하여 CURL을 통해 시스템 할당 ID 유형 값으로 Resource Manager 엔드포인트를 호출해야 합니다.
 
 1. [az group create](/cli/azure/group/#az-group-create)를 사용하여 가상 머신 확장 집합 및 관련 리소스를 포함하고 배포하기 위한 [리소스 그룹](../../azure-resource-manager/resource-group-overview.md#terminology)을 만듭니다. 대신 사용하려는 리소스 그룹이 이미 있다면 이 단계를 건너뛰어도 됩니다.
 
@@ -73,15 +73,15 @@ ms.locfileid: "39431718"
    az account get-access-token
    ``` 
 
-4. CURL을 사용하여 Azure Resource Manager REST 끝점을 호출하는 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 요청 본문에서 `"identity":{"type":"SystemAssigned"}` 값으로 식별된 시스템 할당 ID를 사용하여 *myResourceGroup*에서 *myVMSS*라는 가상 머신 확장 집합을 만듭니다. 전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<SUBSCRIPTION ID>` 값으로 `<ACCESS TOKEN>`을 바꿉니다.
+4. CURL을 사용하여 Azure Resource Manager REST 엔드포인트를 호출하는 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 요청 본문에서 `"identity":{"type":"SystemAssigned"}` 값으로 식별된 시스템 할당 ID를 사용하여 *myResourceGroup*에서 *myVMSS*라는 가상 머신 확장 집합을 만듭니다. 전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<SUBSCRIPTION ID>` 값으로 `<ACCESS TOKEN>`을 바꿉니다.
  
     ```bash   
-    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"SystemAssigned"},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"SystemAssigned"},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
     ```
 
 ### <a name="enable-system-assigned-identity-on-an-existing-azure-virtual-machine-scale-set"></a>기존 Azure 가상 머신 확장 집합에서 시스템 할당 ID를 사용하도록 설정
 
-기존 가상 머신 확장 집합에 시스템 할당 ID를 사용하려면 액세스 토큰을 얻은 후 CURL을 통해 Resource Manager REST 끝점을 호출하여 ID 유형을 업데이트합니다.
+기존 가상 머신 확장 집합에 시스템 할당 ID를 사용하려면 액세스 토큰을 얻은 후 CURL을 통해 Resource Manager REST 엔드포인트를 호출하여 ID 유형을 업데이트합니다.
 
 1. 인증 헤더의 다음 단계에서 시스템 할당 관리 ID로 가상 머신 확장 집합을 만드는 데 사용할 전달자 액세스 토큰을 검색합니다.
 
@@ -89,26 +89,36 @@ ms.locfileid: "39431718"
    az account get-access-token
    ```
 
-2. 다음 CURL 명령을 사용하여 Azure Resource Manager REST 끝점을 호출하면 요청 본문에서 *myVMSS*라는 가상 머신 확장 집합의 `{"identity":{"type":"SystemAssigned"}` 값으로 식별된 시스템 할당 ID를 가상 머신 확장 집합에서 사용할 수 있습니다.  전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<SUBSCRIPTION ID>` 값으로 `<ACCESS TOKEN>`을 바꿉니다.
+2. 다음 CURL 명령을 사용하여 Azure Resource Manager REST 엔드포인트를 호출하면 요청 본문에서 *myVMSS*라는 가상 머신 확장 집합의 `{"identity":{"type":"SystemAssigned"}` 값으로 식별된 시스템 할당 ID를 가상 머신 확장 집합에서 사용할 수 있습니다.  전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<SUBSCRIPTION ID>` 값으로 `<ACCESS TOKEN>`을 바꿉니다.
    
    > [!IMPORTANT]
-   > 가상 머신 확장 집합에 할당된 기존 사용자 할당 관리 ID를 삭제하지 않는지 확인하려면 다음 CURL 명령을 사용하여 사용자 할당 ID를 나열해야 합니다. `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2017-12-01' -H "Authorization: Bearer <ACCESS TOKEN>"` 응답에서 `identity` 값으로 식별된 사용자 할당 ID가 가상 머신 확장 집합에 할당되어 있는 경우에는 가상 머신 확장 집합에서 시스템 할당 ID를 사용하면서 사용자 할당 ID를 유지하는 방법을 보여주는 3단계로 건너뜁니다.
+   > 가상 머신 확장 집합에 할당된 기존 사용자 할당 관리 ID를 삭제하지 않는지 확인하려면 다음 CURL 명령을 사용하여 사용자 할당 ID를 나열해야 합니다. `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"` 응답에서 `identity` 값으로 식별된 사용자 할당 ID가 가상 머신 확장 집합에 할당되어 있는 경우에는 가상 머신 확장 집합에서 시스템 할당 ID를 사용하면서 사용자 할당 ID를 유지하는 방법을 보여주는 3단계로 건너뜁니다.
 
    ```bash
-    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
 3. 기존 사용자 할당 ID와 함께 시스템 할당 ID를 가상 머신 확장 집합에서 사용하려면 `SystemAssigned`를 `type` 값에 추가해야 합니다.  
    
    예를 들어, 가상 머신 확장 집합에 사용자 할당 ID `ID1` 및 `ID2`가 할당되어 있고 시스템 할당 ID를 가상 머신 확장 집합에 추가하려면 다음 CURL 호출을 사용합니다. `<ACCESS TOKEN>` 및 `<SUBSCRIPTION ID>`를 사용자 환경에 적절한 값으로 바꿉니다.
+
+   API 버전 `2018-06-01`은 API 버전 `2017-12-01` 및 이전 버전에서 사용된 배열 형식의 `identityIds` 값과 달리 사전 형식의 `userAssignedIdentities` 값에 사용자 할당 ID를 저장합니다.
    
+   **API 버전 2018-06-01**
+
+   ```bash
+   curl -v 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned,UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   ```
+   
+   **API 버전 2017-12-01 및 이전**
+
    ```bash
    curl -v 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned","UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
 ### <a name="disable-system-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Azure 가상 머신 확장 집합에서 시스템 할당 ID를 사용하지 않도록 설정
 
-기존 가상 머신 확장 집합에 시스템 할당 ID를 사용하지 않으려면 액세스 토큰을 얻은 후 CURL을 통해 Resource Manager REST 끝점을 호출하여 ID 유형을 `None`으로 업데이트합니다.
+기존 가상 머신 확장 집합에 시스템 할당 ID를 사용하지 않으려면 액세스 토큰을 얻은 후 CURL을 통해 Resource Manager REST 엔드포인트를 호출하여 ID 유형을 `None`으로 업데이트합니다.
 
 1. 인증 헤더의 다음 단계에서 시스템 할당 관리 ID로 가상 머신 확장 집합을 만드는 데 사용할 전달자 액세스 토큰을 검색합니다.
 
@@ -116,20 +126,20 @@ ms.locfileid: "39431718"
    az account get-access-token
    ```
 
-2. CURL을 사용하여 Azure Resource Manager REST 끝점을 호출하도록 가상 머신 확장 집합을 업데이트하여 시스템 할당 ID를 사용하지 않도록 설정합니다.  다음 예제에서는 요청 본문에서 *myVMSS*라는 가상 머신 확장 집합의 `{"identity":{"type":"None"}}` 값으로 식별되는 시스템 할당 ID를 사용하지 않도록 설정합니다.  전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<SUBSCRIPTION ID>` 값으로 `<ACCESS TOKEN>`을 바꿉니다.
+2. CURL을 사용하여 Azure Resource Manager REST 엔드포인트를 호출하도록 가상 머신 확장 집합을 업데이트하여 시스템 할당 ID를 사용하지 않도록 설정합니다.  다음 예제에서는 요청 본문에서 *myVMSS*라는 가상 머신 확장 집합의 `{"identity":{"type":"None"}}` 값으로 식별되는 시스템 할당 ID를 사용하지 않도록 설정합니다.  전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<SUBSCRIPTION ID>` 값으로 `<ACCESS TOKEN>`을 바꿉니다.
 
    > [!IMPORTANT]
-   > 가상 머신 확장 집합에 할당된 기존 사용자 할당 관리 ID를 삭제하지 않는지 확인하려면 다음 CURL 명령을 사용하여 사용자 할당 ID를 나열해야 합니다. `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2017-12-01' -H "Authorization: Bearer <ACCESS TOKEN>"` 사용자 할당 ID가 가상 머신 확장 집합에 할당되어 있는 경우에는 가상 머신 확장 집합에서 시스템 할당 ID를 제거하면서 사용자 할당 ID를 유지하는 방법을 보여주는 3단계로 건너뜁니다.
+   > 가상 머신 확장 집합에 할당된 기존 사용자 할당 관리 ID를 삭제하지 않는지 확인하려면 다음 CURL 명령을 사용하여 사용자 할당 ID를 나열해야 합니다. `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"` 사용자 할당 ID가 가상 머신 확장 집합에 할당되어 있는 경우에는 가상 머신 확장 집합에서 시스템 할당 ID를 제거하면서 사용자 할당 ID를 유지하는 방법을 보여주는 3단계로 건너뜁니다.
 
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
-3. 사용자 할당 ID가 있는 가상 머신 확장 집합에서 시스템 할당 ID를 제거하려면 가상 머신 확장 집합에 할당된 사용자 할당 ID를 정의하는 `UserAssigned` 값 및 `identityIds` 배열을 유지하면서 `{"identity":{"type:" "}}`에서 `SystemAssigned`를 제거합니다.
+3. 사용자 할당 ID가 있는 가상 머신 확장 집합에서 시스템 할당 ID를 제거하려면 **API 버전 2018-06-01**을 사용 중인 경우 `UserAssigned` 값 및 `userAssignedIdentities` 사전 값을 유지하면서 `{"identity":{"type:" "}}` 값에서 `SystemAssigned`를 제거합니다. **API 버전 2017-12-01** 이전 버전을 사용 중인 경우 `identityIds` 배열을 유지합니다.
 
 ## <a name="user-assigned-identity"></a>사용자 할당 ID
 
-이 섹션에서는 CURL을 통해 Azure Resource Manager REST 끝점을 호출하여 가상 머신 확장 집합에서 사용자 할당 ID를 추가 및 제거하는 방법을 알아봅니다.
+이 섹션에서는 CURL을 통해 Azure Resource Manager REST 엔드포인트를 호출하여 가상 머신 확장 집합에서 사용자 할당 ID를 추가 및 제거하는 방법을 알아봅니다.
 
 ### <a name="assign-a-user-assigned-identity-during-the-creation-of-a-virtual-machine-scale-set"></a>가상 머신 확장 집합을 만드는 동안 사용자 할당 ID를 할당합니다.
 
@@ -153,10 +163,18 @@ ms.locfileid: "39431718"
 
 4. [사용자 할당 관리 ID 만들기](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity)의 지침에 따라 사용자 할당 ID를 만듭니다.
 
-5. CURL을 사용하여 Azure Resource Manager REST 끝점을 호출하는 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 요청 본문에서 `"identity":{"type":"UserAssigned"}` 값으로 식별된 사용자 할당 ID `ID1`을 사용하여 리소스 그룹 *myResourceGroup*에서 *myVMSS*라는 가상 머신 확장 집합을 만듭니다. 전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<SUBSCRIPTION ID>` 값으로 `<ACCESS TOKEN>`을 바꿉니다.
+5. CURL을 사용하여 Azure Resource Manager REST 엔드포인트를 호출하는 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 요청 본문에서 `"identity":{"type":"UserAssigned"}` 값으로 식별된 사용자 할당 ID `ID1`을 사용하여 리소스 그룹 *myResourceGroup*에서 *myVMSS*라는 가상 머신 확장 집합을 만듭니다. 전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<SUBSCRIPTION ID>` 값으로 `<ACCESS TOKEN>`을 바꿉니다.
  
+   **API 버전 2018-06-01**
+
    ```bash   
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus",{"identity":{"type":"UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/TestRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus",{"identity":{"type":"UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}}},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+   ```
+
+   **API 버전 2017-12-01 및 이전**
+
+   ```bash   
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus",{"identity":{"type":"UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
    ```
 
 ### <a name="assign-a-user-assigned-identity-to-an-existing-azure-virtual-machine-scale-set"></a>기존 Azure 가상 머신 확장 집합에 사용자 할당 ID 할당
@@ -169,26 +187,48 @@ ms.locfileid: "39431718"
 
 2.  [사용자 할당 관리 ID 만들기](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity)의 지침에 따라 사용자 할당 ID를 만듭니다.
 
-3. 가상 머신 확장 집합에 할당된 기존 사용자 또는 시스템 할당 관리 ID를 삭제하지 않는지 확인하려면 다음 CURL 명령을 사용하여 가상 머신 확장 집합에 할당된 ID 유형을 나열해야 합니다. 가상 머신 확장 집합에 할당된 관리 ID가 있는 경우, 해당 ID가 `identity` 값 아래에 나열됩니다.
+3. 가상 머신 확장 집합에 할당된 기존 사용자 또는 시스템 할당 관리 ID를 삭제하지 않는지 확인하려면 다음 CURL 명령을 사용하여 가상 머신 확장 집합에 할당된 ID 유형을 나열해야 합니다. 가상 머신 확장 집합에 할당된 관리 ID가 있는 경우, 해당 ID가 `identity` 값에 나열됩니다.
  
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2017-12-01' -H "Authorization: Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"
    ```
 
-4. 가상 머신 확장 집합에 할당된 사용자 또는 시스템 할당 ID가 없는 경우에는 다음 CURL 명령을 통해 Azure Resource Manager REST 끝점을 호출하여 첫 번째 사용자 할당 ID를 가상 머신 확장 집합에 할당합니다.  가상 머신 확장 집합에 할당된 사용자 또는 시스템 할당 ID가 있는 경우, 시스템 할당 ID를 유지하면서 여러 사용자 할당 ID를 가상 머신 확장 집합에 추가하는 방법을 보여주는 5단계로 건너뜁니다.
+4. 가상 머신 확장 집합에 할당된 사용자 또는 시스템 할당 ID가 없는 경우에는 다음 CURL 명령을 통해 Azure Resource Manager REST 엔드포인트를 호출하여 첫 번째 사용자 할당 ID를 가상 머신 확장 집합에 할당합니다.  가상 머신 확장 집합에 할당된 사용자 또는 시스템 할당 ID가 있는 경우, 시스템 할당 ID를 유지하면서 여러 사용자 할당 ID를 가상 머신 확장 집합에 추가하는 방법을 보여주는 5단계로 건너뜁니다.
 
    다음 예제에서는 리소스 그룹 *myResourceGroup*의 가상 머신 확장 집합 *myVMSS*에 사용자 할당 ID `ID1`을 할당합니다.  전달자 액세스 토큰을 요청한 이전 단계에서 받은 값 및 사용자 환경에 적절한 `<SUBSCRIPTION ID>` 값으로 `<ACCESS TOKEN>`을 바꿉니다.
 
+   **API 버전 2018-06-01**
+
+    ```bash
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-12-01' -X PATCH -d '{"identity":{"type":"userAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   ```   
+    
+   **API 버전 2017-12-01 및 이전**
+
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"userAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/TestRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"userAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
-5. 가상 머신 확장 집합에 할당된 사용자 또는 시스템 할당 ID가 있는 경우, 새 사용자 할당 ID를 `identityIDs` 배열에 추가하면서 현재 가상 머신 확장 집합에 할당된 사용자 및 시스템 할당 ID도 유지해야 합니다.
+5. 기존 사용자 할당 또는 시스템 할당 ID가 가상 머신 확장 집합에 할당된 경우:
+   
+   **API 버전 2018-06-01**
 
-   예를 들어, 현재 가상 머신 확장 집합에 시스템 할당 ID 및 사용자 할당 ID `ID1`가 할당되어 있고 사용자 ID `ID2`를 추가하려면 다음 CURL 명령을 사용합니다. 전달자 액세스 토큰을 요청한 단계에서 받은 값 및 사용자 환경에 적절한 `<SUBSCRIPTION ID>` 값으로 `<ACCESS TOKEN>`을 바꿉니다.
+   사용자 할당 ID를 `userAssignedIdentities` 사전 값에 추가합니다.
+
+   예를 들어, 현재 가상 머신 확장 집합에 시스템 할당 ID 및 사용자 할당 ID `ID1`가 할당되어 있고 사용자 할당 ID `ID2`를 추가하려면 다음을 입력합니다.
 
    ```bash
-   curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned","UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   ```
+
+   **API 버전 2017-12-01 및 이전**
+
+   새 사용자 할당 ID를 추가하면서 `identityIds` 배열 값에 유지하려는 사용자 할당 ID를 유지합니다.
+
+   예를 들어, 현재 가상 머신 확장 집합에 시스템 할당 ID 및 사용자 할당 ID `ID1`가 할당되어 있고 사용자 ID `ID2`를 추가하려면 다음을 입력합니다. 
+
+   ```bash
+   curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
 ### <a name="remove-a-user-assigned-identity-from-a-virtual-machine-scale-set"></a>가상 머신 확장 집합에서 사용자 할당 ID 제거
@@ -202,27 +242,39 @@ ms.locfileid: "39431718"
 2. 가상 머신 확장 집합에 할당된 상태를 유지할 기존 사용자 할당 관리 ID를 삭제하거나 시스템 할당 ID를 제거하지 않는지 확인하려면 다음 CURL 명령을 사용하여 관리 ID를 나열해야 합니다. 
    
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2017-12-01' -H "Authorization: Bearer <ACCESS TOKEN>" 
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>" 
    ```
    
    VM에 관리 ID가 할당되어 있는 경우, `identity` 값의 응답으로 해당 ID가 나열됩니다. 
     
-   예를 들어, 가상 머신 확장 집합에 사용자 할당 ID `ID1` 및 `ID2`가 할당되어 있고 `ID1` 및 시스템 할당 ID만 할당된 상태로 유지하려면 가상 머신 확장 집합에 사용자 할당 관리 ID를 할당하는 것과 같은 CURL 명령에서 `ID1` 값 및 `SystemAssigned` 값만 유지합니다. 이렇게 하면 시스템 할당 ID가 유지되면서 사용자 할당 ID`ID2`이 가상 머신 확장에서 제거됩니다.
+   예를 들어 사용자 할당 ID `ID1` 및 `ID2`가 가상 머신 확장 집합에 할당되고 `ID1`의 할당 상태 및 시스템 할당 ID를 유지하려는 경우,
+
+   **API 버전 2018-06-01**
+
+   제거하려는 사용자 할당 ID에 `null`을 추가합니다.
 
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned","UserAssigned", "identityIds":["/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourcegroups/TestRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   ```
+
+   **API 버전 2017-12-01 및 이전**
+
+   `identityIds` 배열에 유지하려는 사용자 할당 ID만 유지합니다.   
+
+   ```bash
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned","UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
 가상 머신 확장 집합에 시스템 할당 및 사용자 할당 ID가 모두 있는 경우, 다음 명령을 사용하여 시스템 할당만 사용하도록 전환하여 모든 사용자 할당 ID를 제거할 수 있습니다.
 
 ```bash
-curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
 ```
     
 가상 머신 확장 집합에 사용자 할당 ID만 있고 이를 모두 제거하려면 다음 명령을 사용합니다.
 
 ```bash
-curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
 ```
 
 ## <a name="next-steps"></a>다음 단계

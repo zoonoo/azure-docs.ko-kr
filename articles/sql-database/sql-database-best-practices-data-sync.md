@@ -2,18 +2,18 @@
 title: Azure SQL 데이터 동기화에 대한 모범 사례 | Microsoft Docs
 description: Azure SQL 데이터 동기화의 구성 및 실행에 대한 모범 사례를 알아봅니다.
 services: sql-database
-ms.date: 07/03/2018
+ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: sql-database
 author: allenwux
 ms.author: xiwu
 manager: craigg
-ms.openlocfilehash: 2b23f9f2edbec468ecbd1395bd138e1be801c6e5
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 96fff35b95a63e4f806258eff59d08afb2db0ffd
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620803"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144647"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>SQL 데이터 동기화의 모범 사례 
 
@@ -75,17 +75,16 @@ SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제�
 
 #### <a name="autoprovisioning-limitations"></a>자동 프로비전 제한 사항
 
-다음은 SQL 데이터 동기화의 자동 프로비전 제한 사항입니다.
+다음은 SQL 데이터 동기화의 자동 프로비전에 대한 제한 사항입니다.
 
--   대상 테이블에 생성된 열만 선택합니다.  
-    동기화 그룹의 일부가 아닌 열은 대상 테이블에 프로비전되지 않습니다.
--   인덱스는 선택한 열에 대해서만 생성됩니다.  
-    원본 테이블 인덱스에 동기화 그룹의 일부가 아닌 열이 있으면 해당 인덱스는 대상 테이블에서 프로비전되지 않습니다.  
+-   대상 테이블에 생성된 열만 선택합니다. 동기화 그룹의 일부가 아닌 열은 대상 테이블에 프로비전되지 않습니다.
+-   인덱스는 선택한 열에 대해서만 생성됩니다. 원본 테이블 인덱스에 동기화 그룹의 일부가 아닌 열이 있으면 해당 인덱스는 대상 테이블에서 프로비전되지 않습니다.  
 -   XML 형식 열의 인덱스는 프로비전되지 않습니다.  
 -   CHECK 제약 조건은 프로비전되지 않습니다.  
 -   원본 테이블의 기존 트리거는 프로비전되지 않습니다.  
 -   보기 및 저장 프로시저는 대상 데이터베이스에 생성되지 않습니다.
 -   외래 키 제약 조건에 대한 UPDATE CASCADE 및 ON DELETE CASCADE 작업은 대상 테이블에서 다시 생성되지 않습니다.
+-   전체 자릿수가 28보다 큰 소수 또는 숫자 열이 있는 경우, SQL 데이터 동기화에서 동기화 중에 전환 오버플로 문제가 발생할 수 있습니다. 소수 또는 숫자 열의 전체 자릿수를 28 이하로 제한하는 것이 좋습니다.
 
 #### <a name="recommendations"></a>권장 사항
 

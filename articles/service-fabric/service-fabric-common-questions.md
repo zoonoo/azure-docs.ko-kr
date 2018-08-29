@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: d864a663604794a249b08a7c7be471c3abba32af
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0b731e94675992e59f79b61a2f3a15fa20bdf8a7
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971539"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142540"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric에 대해 자주 묻는 질문
 
@@ -27,7 +27,7 @@ Service Fabric으로 수행할 수 있는 작업 및 사용 방법에 대한 여
 
 ## <a name="cluster-setup-and-management"></a>클러스터 설정 및 관리
 
-### <a name="how-do-i-rollback-my-service-fabric-cluster-certificate"></a>Service Fabric 클러스터 인증서를 롤백하려면 어떻게 해야 하나요?
+### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>Service Fabric 클러스터 인증서를 롤백하려면 어떻게 해야 하나요?
 
 응용 프로그램 업그레이드를 롤백하려면 Service Fabric 클러스터 쿼럼에서 변경 내용을 커밋하기 전에 상태 오류를 감지해야 합니다. 감지된 변경 내용만 롤포워드할 수 있습니다. 모니터링되지 않은 주요 인증서 변경 내용이 있는 경우 고객 지원 서비스의 에스컬레이션 엔지니어가 클러스터를 복구해야 할 수도 있습니다.  [Service Fabric의 응용 프로그램 업그레이드](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master)는 [응용 프로그램 업그레이드 매개 변수](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master)를 적용하고, 가동 중지 시간 0이라는 약속을 이행합니다.  Microsoft의 권장 응용 프로그램 업그레이드 모니터링 모드에 따라, 업데이트 도메인을 통한 자동 진행은 상태 검사 통과를 기반으로 하며, 기본 서비스 업데이트가 실패하는 경우 자동으로 롤백됩니다.
  
@@ -119,6 +119,12 @@ Microsoft는 환경 개선을 위해 노력하고 있지만 업그레이드에 �
 | FabricRM.exe |
 | FileStoreService.exe |
  
+### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>비밀을 가져오도록 내 응용 프로그램을 KeyVault로 어떻게 인증하나요?
+다음은 응용 프로그램을 keyVault로 인증하기 위해 자격 증명을 얻기 위한 방법입니다.
+
+a. 응용 프로그램 빌드/압축 작업을 하는 동안 인증서를 SF 앱의 데이터 패키지로 가져오고, 이를 사용하여 KeyVault에 인증할 수 있습니다.
+B. 가상 머신 확장 집합 MSI가 활성화된 호스트의 경우 SF 앱에 대한 간단한 PowerShell SetupEntryPoint를 개발하여 [MSI 엔드포인트에서 액세스 토큰](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/how-to-use-vm-token)을 가져온 다음, [keyVault에서 비밀을 검색](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret?view=azurermps-6.5.0)할 수 있습니다.
+
 ## <a name="application-design"></a>응용 프로그램 설계
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>Reliable Collection의 파티션에 대해 데이터를 쿼리하는 가장 좋은 방법은 무엇인가요?

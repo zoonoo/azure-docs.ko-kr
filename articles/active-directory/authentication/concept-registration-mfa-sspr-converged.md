@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: d6915ce659d96021d4185be3818919fcfb9d4371
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: af57faddcc1413747b4bb847e27287ba86562175
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492895"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42144340"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>셀프 서비스 암호 재설정 및 Azure Multi-Factor Authentication에 대한 등록 수렴(공개 미리 보기)
 
@@ -55,6 +55,9 @@ MFA 또는 SSPR에 대한 등록을 적용한 후 아직 등록하지 않은 사
 > 이 환경은 로그인하는 동안 등록하라는 메시지가 사용자에게 표시되는 경우에만 표시됩니다. 새 환경(aka.ms/setupsecurityinfo)으로 바로 이동한 사용자에게는 다른 버전의 환경이 표시되며 이 내용은 이 문서의 뒷부분에 설명되어 있습니다.
 
 MFA 또는 SSPR 정책에 활성화된 방법을 기반으로 표시되는 인증 방법이 변경됩니다. MFA 정책, SSPR 정책 또는 두 가지 정책 모두를 준수하는 데 필요한 최소 인증 방법 수를 등록하라는 메시지가 표시됩니다. 사용자가 등록할 수 있는 인증 방법에 유연성이 있으면 **Choose security info**(보안 정보 선택)를 선택하여 다른 인증 방법을 선택할 수 있습니다.  
+
+> [!NOTE]
+> 모바일 앱 알림 및 모바일 앱 코드 둘 다 사용하도록 설정한 경우 알림을 사용하여 Microsoft Authenticator 앱을 등록하려는 사용자는 알림 및 코드 모두를 사용하여 해당 ID를 확인할 수 있습니다.
 
 이전 MFA 등록 환경과 달리 새 등록 환경에서 새 앱 암호를 등록하라는 메시지가 사용자에게 표시되지 않습니다. 대신 앱 암호 자습서에 나와 있는 단계에 따라 새 환경에서 앱 암호를 등록해야 합니다.  
 

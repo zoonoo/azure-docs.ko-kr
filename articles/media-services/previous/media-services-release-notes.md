@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: juliako
-ms.openlocfilehash: 220ff194ab5f8fa49ba7603ecd91122459d4dc1e
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: cdfd19f2dfd599eacaa0759b63c94767e760a874
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249226"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146849"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
 Azure Media Services에 대한 이 릴리스 정보에는 이전 릴리스 이후의 변경 내용과 알려진 문제가 요약되어 있습니다.
@@ -35,7 +35,7 @@ Azure Media Services에 대한 이 릴리스 정보에는 이전 릴리스 이�
 | 문제 | 설명 |
 | --- | --- |
 | REST API에 다양한 일반 HTTP 헤더가 제공되지 않습니다. |REST API를 사용하여 Media Services 응용 프로그램을 개발하는 경우 CLIENT-REQUEST-ID, REQUEST-ID, RETURN-CLIENT-REQUEST-ID를 비롯한 몇 가지 일반 HTTP 헤더 필드가 지원되지 않습니다. 이 헤더는 이후 업데이트에서 추가될 예정입니다. |
-| 퍼센트 인코딩은 허용되지 않습니다. |Media Services에서는 스트리밍 콘텐츠의 URL을 작성할 때 IAssetFile.Name 속성 값을 사용합니다(예: http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. 이름 속성 값에는 !* '();:@&=+$,/?%#[]"와 같은 [퍼센트 인코딩 예약 문자](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 파일 이름 확장명에는 "." 하나만 사용할 수 있습니다. |
+| 퍼센트 인코딩은 허용되지 않습니다. |Media Services는 스트리밍 콘텐츠의 URL을 작성할 때 속성의 값을 사용합니다(예: `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. 이름 속성 값에는 !* '();:@&=+$,/?%#[]"와 같은 [퍼센트 인코딩 예약 문자](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 파일 이름 확장명에는 "." 하나만 사용할 수 있습니다. |
 | Azure Storage SDK 버전 3.x의 일부분인 ListBlobs 메서드에서 오류가 발생합니다. |Media Services에서는 [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) 버전을 기반으로 SAS URL을 생성합니다. Storage SDK를 사용하여 Blob 컨테이너의 Blob을 나열하려는 경우 Storage SDK 버전 2.x에 포함된 [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) 메서드를 사용합니다. |
 | Media Services 제한 메커니즘은 서비스에 과도한 요청을 보내는 응용 프로그램의 리소스 사용을 제한합니다. 해당 서비스에서 "서비스를 사용할 수 없음" 503 HTTP 상태 코드를 반환할 수 있습니다. |자세한 내용은 [Media Services 오류 코드](media-services-encoding-error-codes.md)에서 503 HTTP 상태 코드 설명을 참조하세요. |
 | 엔터티를 쿼리할 때 한 번에 반환되는 엔터티 수의 제한은 1,000개입니다. 공용 REST 버전 2에서는 쿼리 결과를 1,000개로 제한하기 때문입니다. |[이 .NET 예제](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) 및 [이 REST API 예제](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)에 설명된 대로 건너뛰기 및 포함(.NET)/top(REST)을 사용합니다. |
@@ -102,11 +102,11 @@ Azure Media Redactor의 일반 공급: 이 미디어 프로세서는 선택한 �
 
 ## <a name="january-2017-release"></a>2017년 1월 릴리스
 
-Media Services에서 스트리밍 끝점은 추가 배포를 위해 CDN(Content Delivery Network) 또는 클라이언트 플레이어 응용 프로그램에 직접 콘텐츠를 배달할 수 있는 스트리밍 서비스를 나타냅니다. Media Services는 매끄러운 Azure Content Delivery Network 통합도 제공합니다. StreamingEndpoint 서비스의 아웃바운드 스트림은 Media Services 계정에서 자산의 라이브 스트림, 주문형 비디오 또는 점진적 다운로드일 수 있습니다. 각 Media Services 계정에는 기본 스트리밍 끝점이 포함됩니다. 계정에서 추가 스트리밍 끝점을 만들 수 있습니다. 
+Media Services에서 스트리밍 엔드포인트는 추가 배포를 위해 CDN(Content Delivery Network) 또는 클라이언트 플레이어 응용 프로그램에 직접 콘텐츠를 배달할 수 있는 스트리밍 서비스를 나타냅니다. Media Services는 매끄러운 Azure Content Delivery Network 통합도 제공합니다. StreamingEndpoint 서비스의 아웃바운드 스트림은 Media Services 계정에서 자산의 라이브 스트림, 주문형 비디오 또는 점진적 다운로드일 수 있습니다. 각 Media Services 계정에는 기본 스트리밍 엔드포인트가 포함됩니다. 계정에서 추가 스트리밍 엔드포인트를 만들 수 있습니다. 
 
-스트리밍 끝점 1.0 및 2.0이라는 두 가지 버전이 있습니다. 2017년 1월 10일부터 새로 만든 모든 Media Services 계정에는 버전 2.0 기본 스트리밍 끝점이 포함됩니다. 이 계정에 추가하는 추가 스트리밍 끝점도 버전 2.0입니다. 이 변경은 기존 계정에 영향을 주지 않습니다. 기존 스트리밍 끝점인 버전 1.0을 2.0 버전으로 업그레이드할 수 있습니다. 이러한 변경으로 인한 동작, 청구 및 기능 변경 내용이 있습니다. 자세한 내용은 [스트리밍 끝점 개요](media-services-streaming-endpoints-overview.md)를 참조하세요.
+스트리밍 엔드포인트 1.0 및 2.0이라는 두 가지 버전이 있습니다. 2017년 1월 10일부터 새로 만든 모든 Media Services 계정에는 버전 2.0 기본 스트리밍 엔드포인트가 포함됩니다. 이 계정에 추가하는 추가 스트리밍 엔드포인트도 버전 2.0입니다. 이 변경은 기존 계정에 영향을 주지 않습니다. 기존 스트리밍 엔드포인트인 버전 1.0을 2.0 버전으로 업그레이드할 수 있습니다. 이러한 변경으로 인한 동작, 청구 및 기능 변경 내용이 있습니다. 자세한 내용은 [스트리밍 엔드포인트 개요](media-services-streaming-endpoints-overview.md)를 참조하세요.
 
-2.15 버전부터 Media Services는 스트리밍 끝점 엔터티에 다음과 같은 속성을 추가했습니다.
+2.15 버전부터 Media Services는 스트리밍 엔드포인트 엔터티에 다음과 같은 속성을 추가했습니다.
 
 * CdnProvider 
 * CdnProfile
@@ -117,7 +117,7 @@ Media Services에서 스트리밍 끝점은 추가 배포를 위해 CDN(Content 
 
 ## <a name="december-2016-release"></a>2016년 12월 릴리스
 
- 이제 Media Services를 사용하여 해당 서비스에 대한 원격 분석/메트릭 데이터에 액세스할 수 있습니다. 현재 버전의 Media Services를 사용하여 라이브 채널, 스트리밍 끝점 및 보관 엔터티에 대한 원격 분석 데이터를 수집할 수 있습니다. 자세한 내용은 [Media Services 원격 분석](media-services-telemetry-overview.md)을 참조하세요.
+ 이제 Media Services를 사용하여 해당 서비스에 대한 원격 분석/메트릭 데이터에 액세스할 수 있습니다. 현재 버전의 Media Services를 사용하여 라이브 채널, 스트리밍 엔드포인트 및 보관 엔터티에 대한 원격 분석 데이터를 수집할 수 있습니다. 자세한 내용은 [Media Services 원격 분석](media-services-telemetry-overview.md)을 참조하세요.
 
 ## <a name="a-idjulychanges16july-2016-release"></a><a id="july_changes16"/>2016년 7월 릴리스
 ### <a name="updates-to-the-manifest-file-ism-generated-by-encoding-tasks"></a>인코딩 작업으로 생성된 매니페스트 파일(*.ISM)에 대한 업데이트
@@ -264,7 +264,7 @@ Media Services .NET SDK의 현재 버전은 3.2.0.0입니다. 다음이 업데�
 * 주요 변경 내용: TokenRestrictionTemplate.Issuer 및 TokenRestrictionTemplate.Audience가 문자열 형식으로 변경되었습니다.
 * 사용자 지정 다시 시도 정책 만들기 관련 업데이트가 수행되었습니다.
 * 파일 업로드 및 다운로드 관련 버그가 수정되었습니다.
-* 이제 MediaServicesCredentials 클래스에서는 기본 및 보조 액세스 제어 끝점에 대한 인증을 허용합니다.
+* 이제 MediaServicesCredentials 클래스에서는 기본 및 보조 액세스 제어 엔드포인트에 대한 인증을 허용합니다.
 
 ## <a id="march_changes_15"></a>2015년 3월 릴리스
 ### <a name="general-media-services-updates"></a>일반 Media Services 업데이트
@@ -273,7 +273,7 @@ Media Services .NET SDK의 현재 버전은 3.2.0.0입니다. 다음이 업데�
 
 ## <a id="february_changes_15"></a>2015년 2월 릴리스
 ### <a name="general-media-services-updates"></a>일반 Media Services 업데이트
-Media Services REST API의 현재 버전은 2.9입니다. 이 버전부터 스트리밍 끝점에서 Content Delivery Network 통합을 사용할 수 있습니다. 자세한 내용은 [StreamingEndpoint](https://msdn.microsoft.com/library/dn783468.aspx)를 참조하세요.
+Media Services REST API의 현재 버전은 2.9입니다. 이 버전부터 스트리밍 엔드포인트에서 Content Delivery Network 통합을 사용할 수 있습니다. 자세한 내용은 [StreamingEndpoint](https://msdn.microsoft.com/library/dn783468.aspx)를 참조하세요.
 
 ## <a id="january_changes_15"></a>2015년 1월 릴리스
 ### <a name="general-media-services-updates"></a>일반 Media Services 업데이트
@@ -307,7 +307,7 @@ Media Services .NET SDK의 현재 버전은 3.1.0.1입니다.
 ## <a id="november_changes_14"></a>2014년 11월 릴리스
 * 이제 Media Services를 사용하여 라이브 부드러운 스트리밍(fMP4) 콘텐츠를 SSL 연결을 통해 수집할 수 있습니다. SSL을 통해 수집하려면 수집 URL을 HTTPS로 업데이트해야 합니다. 현재 Media Services는 사용자 지정 도메인을 사용하는 SSL을 지원하지 않습니다. 라이브 스트리밍에 대한 자세한 내용은 [Azure Media Services 라이브 스트리밍 사용](http://msdn.microsoft.com/library/azure/dn783466.aspx)을 참조하세요.
 * 현재 SSL 연결을 통해 RTMP 라이브 스트림을 수집할 수 없습니다.
-* 콘텐츠를 배달하는 출발점이 될 스트리밍 끝점이 2014년 9월 10일 이후에 만들어진 경우에만 SSL을 통해 스트리밍할 수 있습니다. 스트리밍 URL이 2014년 9월 10일 이후에 만들어진 스트리밍 끝점을 기반으로 하는 경우 URL에는 "streaming.mediaservices.windows.net"(새 형식)이 포함됩니다. "origin.mediaservices.windows.net"(이전 형식)이 포함된 스트리밍 URL은 SSL을 지원하지 않습니다. URL이 이전 형식인 경우 SSL을 통해 스트리밍하려면 [새 스트리밍 끝점을 만듭니다.](media-services-portal-manage-streaming-endpoints.md) SSL을 통해 콘텐츠를 스트리밍하려면 새 스트리밍 끝점을 기준으로 하는 URL을 사용합니다.
+* 콘텐츠를 배달하는 출발점이 될 스트리밍 엔드포인트가 2014년 9월 10일 이후에 만들어진 경우에만 SSL을 통해 스트리밍할 수 있습니다. 스트리밍 URL이 2014년 9월 10일 이후에 만들어진 스트리밍 엔드포인트를 기반으로 하는 경우 URL에는 "streaming.mediaservices.windows.net"(새 형식)이 포함됩니다. "origin.mediaservices.windows.net"(이전 형식)이 포함된 스트리밍 URL은 SSL을 지원하지 않습니다. URL이 이전 형식인 경우 SSL을 통해 스트리밍하려면 [새 스트리밍 엔드포인트를 만듭니다.](media-services-portal-manage-streaming-endpoints.md) SSL을 통해 콘텐츠를 스트리밍하려면 새 스트리밍 엔드포인트를 기준으로 하는 URL을 사용합니다.
 
 ## <a id="october_changes_14"></a>2014년 10월 릴리스
 ### <a id="new_encoder_release"></a>Media Services 인코더 릴리스
@@ -340,7 +340,7 @@ Media Services REST 메타데이터의 현재 버전은 2.7입니다. 최신 RES
 * Media Indexer 미디어 프로세서가 도입되었습니다. 자세한 내용은 [Media Indexer를 사용하여 미디어 파일 인덱싱](http://msdn.microsoft.com/library/azure/dn783455.aspx)을 참조하세요.
 * 이제 [StreamingEndpoint] 엔터티를 사용하여 사용자 지정 도메인(호스트) 이름을 추가할 수 있습니다.
   
-    사용자 지정 도메인 이름을 Media Services 스트리밍 끝점 이름으로 사용하려면 스트리밍 끝점에 사용자 지정 호스트 이름을 추가합니다. Media Services REST API 또는 .NET SDK를 통해 사용자 지정 호스트 이름을 추가합니다.
+    사용자 지정 도메인 이름을 Media Services 스트리밍 엔드포인트 이름으로 사용하려면 스트리밍 엔드포인트에 사용자 지정 호스트 이름을 추가합니다. Media Services REST API 또는 .NET SDK를 통해 사용자 지정 호스트 이름을 추가합니다.
   
     고려 사항은 다음과 같습니다.
   

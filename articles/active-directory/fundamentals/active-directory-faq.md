@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/14/2017
 ms.author: lizross
-ms.openlocfilehash: 787178b2c1582729249fcf549356fa7445f5ecbe
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 419b5d480ebd1f978eb2a870231d151b549b25ea
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494967"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143135"
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory FAQ
 Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 측면에 걸쳐있는 포괄적인 IDaaS(Identity as a Service) 솔루션입니다.
@@ -48,7 +48,7 @@ Enterprise Mobility + Security와 같은 Azure AD 유료 서비스는 포괄적�
 
 - - -
 
-**Q:  구독 관리자와 디렉터리 관리자의 차이점은 무엇인가요?**
+**Q: 구독 관리자와 디렉터리 관리자의 차이점은 무엇인가요?**
 
 **A:** 기본적으로 Azure에 로그인할 때 구독 관리자 역할이 할당됩니다. 구독 관리자는 Azure 구독이 연결된 디렉터리에서 Microsoft 계정이나 회사 또는 학교 계정을 사용할 수 있습니다.  이 역할은 Azure Portal에서 서비스를 관리할 권한이 있습니다.
 
@@ -144,7 +144,7 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 
 "Password" 및 "123456"의 변형과 같이 전역에서 일반적인 암호를 말합니다.
 
-**Q: 수상한 소스(봇넷, tor 끝점)의 로그인 요청은 B2C 테넌트에서 차단되나요? 아니면 Basic 또는 Premium Edition 테넌트가 필요한가요?**
+**Q: 수상한 소스(봇넷, tor 엔드포인트)의 로그인 요청은 B2C 테넌트에서 차단되나요? 아니면 Basic 또는 Premium Edition 테넌트가 필요한가요?**
 
 요청을 필터링하고 봇넷으로부터 보호하며, 모든 B2C 테넌트에 적용되는 게이트웨이가 있습니다.
 
@@ -213,4 +213,4 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 - - -
 **Q: Azure AD에서 보안 LDAP 연결을 설정할 수 있나요?**
 
-**A:** 아니요. Azure AD에서는 LDAP 프로토콜을 지원하지 않습니다.
+**A:** 아니요. Azure AD에서는 LDAP 프로토콜을 지원하지 않습니다. 그러나 Azure AD Domain Services를 사용하여 보안 LDAP를 구성할 수 있습니다.

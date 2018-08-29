@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: aliceku
 monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: 4a2f751c55a3bd386c6a984a3b5a16a24166f90c
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: d3e8d34599600512a1d9d0308c0d6014691bf519
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043642"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42442725"
 ---
 # <a name="transparent-data-encryption-with-bring-your-own-key-support-for-azure-sql-database-and-data-warehouse"></a>Azure SQL Database 및 Data Warehouse에서 BYOK(Bring Your Own Key) 지원을 통한 투명한 데이터 암호화
 

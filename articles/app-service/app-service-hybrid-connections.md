@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 07/26/2018
 ms.author: ccompy
-ms.openlocfilehash: 677642e4e97523ed71ff5857ae27263743dca535
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 69897e288a90a731d95db82d0ff978d776c12580
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2017
-ms.locfileid: "25990822"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42145595"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure App Service 하이브리드 연결 #
 
@@ -35,14 +35,12 @@ App Service 내에서 하이브리드 연결은 다른 네트워크의 응용 �
 
 ![하이브리드 연결 대략적인 흐름의 다이어그램][1]
 
-앱이 구성된 하이브리드 연결 끝점과 일치하는 DNS 요청을 실행하면 아웃바운드 TCP 트래픽이 하이브리드 연결을 통해 리디렉션됩니다.  
+앱이 구성된 하이브리드 연결 엔드포인트와 일치하는 DNS 요청을 실행하면 아웃바운드 TCP 트래픽이 하이브리드 연결을 통해 리디렉션됩니다.  
 
 > [!NOTE]
-> 이는 항상 하이브리드 연결에 DNS 이름을 사용해야 함을 의미합니다. 일부 클라이언트 소프트웨어는 끝점에서 IP 주소를 사용하는 경우 DNS 조회를 수행하지 않습니다.
->
+> 이는 항상 하이브리드 연결에 DNS 이름을 사용해야 함을 의미합니다. 일부 클라이언트 소프트웨어는 엔드포인트에서 IP 주소를 사용하는 경우 DNS 조회를 수행하지 않습니다.
 >
 
-하이브리드 연결 기능에는 두 가지 유형이 있습니다. Service Bus Relay에서 서비스로 제공되는 하이브리드 연결과 이전 Azure BizTalk Services 하이브리드 연결이 그것입니다. 후자는 포털에서 클래스 하이브리드 연결이라고 합니다. 이 문서의 뒷부분에 이에 대한 더 많은 정보가 있습니다.
 
 ### <a name="app-service-hybrid-connection-benefits"></a>App Service 하이브리드 연결의 장점 ###
 
@@ -53,32 +51,32 @@ App Service 내에서 하이브리드 연결은 다른 네트워크의 응용 �
 - 빠르고 쉽게 설정할 수 있습니다. 
 - 각 하이브리드 연결이 단일 호스트:포트 조합과 일치하므로 보안에 도움이 됩니다.
 - 일반적으로 방화벽 구멍이 필요하지 않습니다. 연결은 모두 표준 웹 포트를 통한 아웃바운드입니다.
-- 기능이 네트워크 수준이므로 이는 앱에서 사용되는 언어 및 끝점에서 사용되는 기술과 관계없음을 의미합니다.
+- 기능이 네트워크 수준이므로 이는 앱에서 사용되는 언어 및 엔드포인트에서 사용되는 기술과 관계없음을 의미합니다.
 - 단일 앱에서 여러 네트워크에 액세스하는 데 사용될 수 있습니다. 
 
 ### <a name="things-you-cannot-do-with-hybrid-connections"></a>하이브리드 연결로 할 수 없는 작업 ###
 
-하이브리드 연결로 수행할 수 없는 몇 가지 작업은 다음과 같습니다.
+하이브리드 연결로 수행할 수 없는 작업에는 다음이 포함됩니다.
 
-- 드라이브 탑재
-- UDP 사용
-- FTP 수동 모드 또는 확장 수동 모드 같은 동적 포트를 사용하는 TCP 기반 서비스에 액세스
-- LDAP 지원(때때로 UDP가 필요하기 때문)
-- Active Directory 지원
+- 드라이브를 탑재합니다.
+- UDP를 사용합니다.
+- FTP 수동 모드 또는 확장 수동 모드 같은 동적 포트를 사용하는 TCP 기반 서비스에 액세스합니다.
+- UDP가 필요할 수 있으므로 LDAP를 지원합니다.
+- App Service 작업자를 도메인에 가입할 수 없으므로 Active Directory를 지원합니다.
 
 ## <a name="add-and-create-hybrid-connections-in-your-app"></a>앱에 하이브리드 연결 추가 및 만들기 ##
 
-하이브리드 연결은 Azure Portal의 App Service 앱이나 Azure Portal의 Azure Relay를 통해 만들 수 있습니다. 하이브리드 연결과 함께 사용하려는 App Service 앱을 통해 하이브리드 연결을 만드는 것이 좋습니다. 하이브리드 연결을 만들려면 [Azure Portal][portal]로 이동하고 해당 앱을 선택합니다. **네트워킹** > **하이브리드 연결 끝점 구성**을 선택합니다. 여기에서 앱에 구성된 하이브리드 연결을 볼 수 있습니다.  
+하이브리드 연결을 만들려면 [Azure Portal][portal]로 이동하고 해당 앱을 선택합니다. **네트워킹** > **하이브리드 연결 엔드포인트 구성**을 선택합니다. 여기에서 앱에 구성된 하이브리드 연결을 볼 수 있습니다.  
 
 ![하이브리드 연결 목록 스크린샷][2]
 
-새 하이브리드 연결을 추가하려면 **하이브리드 연결 추가**를 선택합니다.  이미 만든 하이브리드 연결 목록이 표시됩니다. 앱에 하나 이상을 추가하려면 원하는 항목을 선택한 다음 **선택한 하이브리드 연결 추가**를 선택합니다.  
+새 하이브리드 연결을 추가하려면 **[+]하이브리드 연결 추가**를 선택합니다.  이미 만든 하이브리드 연결 목록이 표시됩니다. 앱에 하나 이상을 추가하려면 원하는 항목을 선택한 다음 **선택한 하이브리드 연결 추가**를 선택합니다.  
 
 ![하이브리드 연결 포털 스크린샷][3]
 
 새 하이브리드 연결을 만들려면 **새 하이브리드 연결 만들기**를 선택합니다. 다음을 지정합니다. 
 
-- 엔드포인트 이름
+- 하이브리드 연결 이름
 - 엔드포인트 호스트 이름
 - 엔드포인트 포트
 - 사용할 Service Bus 네임스페이스
@@ -102,11 +100,7 @@ App Service 내에서 하이브리드 연결은 다른 네트워크의 응용 �
 
 ## <a name="hybrid-connections-and-app-service-plans"></a>하이브리드 연결 및 App Service 계획 ##
 
-하이브리드 연결 기능은 기본, 표준, 프리미엄 및 격리 요금제 SKU에서만 사용할 수 있습니다. 요금제에는 연결된 제한이 있습니다.  
-
-> [!NOTE] 
-> Azure Relay를 기반으로 하는 새로운 하이브리드 연결만 생성할 수 있습니다. 새 BizTalk 하이브리드 연결을 만들 수 없습니다.
->
+App Service 하이브리드 연결은 기본, 표준, 프리미엄 및 격리 요금제 SKU에서만 사용할 수 있습니다. 요금제에는 연결된 제한이 있습니다.  
 
 | 요금제 | 요금제에서 사용 가능한 하이브리드 연결 수 |
 |----|----|
@@ -115,7 +109,7 @@ App Service 내에서 하이브리드 연결은 다른 네트워크의 응용 �
 | Premium | 200 |
 | 격리 | 200 |
 
-App Service 계획은 어떤 앱에서 얼마나 많은 하이브리드 연결을 사용하고 있는지 보여줍니다.  
+App Service 계획 UI는 어떤 앱에서 얼마나 많은 하이브리드 연결을 사용하고 있는지 보여줍니다.  
 
 ![App Service 계획 속성 스크린샷][6]
 
@@ -123,13 +117,15 @@ App Service 계획은 어떤 앱에서 얼마나 많은 하이브리드 연결�
 
 App Service 계획에 사용할 수 있는 하이브리드 연결 엔드포인트 수에는 제한이 있습니다. 하지만 사용된 각 하이브리드 연결은 해당 계획의 여러 앱에서 사용할 수 있습니다. 예를 들어 App Service 계획에서 5개의 개별 앱에 사용되는 단일 하이브리드 연결은 하나의 하이브리드 연결로 간주됩니다.
 
-하이브리드 연결을 사용하려면 추가 비용이 필요합니다. 자세한 내용은 [Service Bus 가격 책정][sbpricing]을 참조하세요.
+### <a name="pricing"></a>가격 ###
+
+App Service 계획 SKU 요구 사항을 충족해야 할 뿐만 아니라 하이브리드 연결을 사용할 때는 추가 비용도 발생합니다. 하이브리드 연결에서 사용되는 각 수신기에 대해 요금이 부과됩니다. 수신기는 하이브리드 연결 관리자입니다. 두 개의 하이브리드 연결 관리자가 5개의 하이브리드 연결을 지원하는 경우 수신기는 10개가 됩니다. 자세한 내용은 [Service Bus 가격][sbpricing]을 참조하세요.
 
 ## <a name="hybrid-connection-manager"></a>하이브리드 연결 관리자 ##
 
-하이브리드 연결 기능에는 하이브리드 연결 엔드포인트를 호스트하는 네트워크의 릴레이 에이전트가 필요합니다. 이 릴레이 에이전트를 HCM(하이브리드 연결 관리자)이라고 합니다. HCM을 다운로드하려면 [Azure Portal][portal]의 앱에서 **네트워킹** > **하이브리드 연결 끝점 구성**을 선택합니다.  
+하이브리드 연결 기능에는 하이브리드 연결 엔드포인트를 호스트하는 네트워크의 릴레이 에이전트가 필요합니다. 이 릴레이 에이전트를 HCM(하이브리드 연결 관리자)이라고 합니다. HCM을 다운로드하려면 [Azure Portal][portal]의 앱에서 **네트워킹** > **하이브리드 연결 엔드포인트 구성**을 선택합니다.  
 
-이 도구는 Windows Server 2012 이상에서 실행됩니다. 설치되면, HCM은 구성된 엔드포인트를 기반으로 Service Bus Relay에 연결하는 서비스로 실행됩니다. HCM의 연결은 포트 443을 통해 Azure로 아웃바운드됩니다.    
+이 도구는 Windows Server 2012 이상에서 실행됩니다. HCM은 서비스로 실행되며, 포트 443에서 Azure Relay에 아웃바운드로 연결됩니다.  
 
 HCM을 설치한 후 HybridConnectionManagerUi.exe를 실행하여 도구의 UI를 사용할 수 있습니다. 이 파일은 하이브리드 연결 관리자 설치 디렉터리에 있습니다. Windows 10에서는 검색 상자에서 *하이브리드 연결 관리자 UI*를 검색할 수도 있습니다.  
 
@@ -156,11 +152,9 @@ HCM에 하나 이상의 하이브리드 연결을 추가하려면 다음을 수�
 
 구성된 하이브리드 연결을 지원하려면 HCM에 다음이 필요합니다.
 
-- 포트 80 및 443을 통한 Azure에 대한 TCP 액세스
+- 포트 443을 통한 Azure에 대한 TCP 액세스
 - 하이브리드 연결 엔드포인트에 대한 TCP 액세스
 - 엔드포인트 호스트 및 Service Bus 네임스페이스에서 DNS 조회를 수행하는 기능
-
-HCM은 새로운 하이브리드 연결과 BizTalk 하이브리드 연결을 모두 지원합니다.
 
 > [!NOTE]
 > Azure Relay는 연결을 위해 웹 소켓을 사용합니다. 이 기능은 Windows Server 2012 이상에서만 사용할 수 있습니다. 따라서 HCM은 Windows Server 2012 이전 버전에서 지원되지 않습니다.
@@ -168,30 +162,76 @@ HCM은 새로운 하이브리드 연결과 BizTalk 하이브리드 연결을 모
 
 ### <a name="redundancy"></a>중복 ###
 
-각 HCM은 여러 하이브리드 연결을 지원할 수 있습니다. 특정 하이브리드 연결이 여러 HCM에서 지원될 수도 있습니다. 기본 동작은 특정 엔드포인트에 대해 구성된 HCM을 통해 트래픽을 라우팅하는 것입니다. 네트워크에서 하이브리드 연결에 대한 고가용성이 필요한 경우에는 개별 컴퓨터에서 여러 HCM을 실행합니다. 
+각 HCM은 여러 하이브리드 연결을 지원할 수 있습니다. 특정 하이브리드 연결이 여러 HCM에서 지원될 수도 있습니다. 기본 동작은 특정 엔드포인트에 대해 구성된 HCM을 통해 트래픽을 라우팅하는 것입니다. 네트워크에서 하이브리드 연결에 대한 고가용성이 필요한 경우에는 개별 컴퓨터에서 여러 HCM을 실행합니다. Relay 서비스가 HCM에 트래픽을 분산하는 데 사용하는 부하 분산 알고리즘은 임의 할당입니다. 
 
 ### <a name="manually-add-a-hybrid-connection"></a>수동으로 하이브리드 연결 추가 ###
 
-구독 외부에서 사용자가 특정 하이브리드 연결에 대한 HCM 인스턴스를 호스트할 수 있도록 하려면 해당 하이브리드 연결에 대한 게이트웨이 연결 문자열을 공유합니다. [Azure Portal][portal]의 하이브리드 연결 속성에서 이 문자열을 확인할 수 있습니다. 이 문자열을 사용하려면 HCM에서 **수동으로 입력**을 선택하고 게이트웨이 연결 문자열에 붙여넣습니다.
+구독 외부에서 사용자가 특정 하이브리드 연결에 대한 HCM 인스턴스를 호스트할 수 있도록 하려면 해당 하이브리드 연결에 대한 게이트웨이 연결 문자열을 공유합니다. [Azure Portal][portal]의 하이브리드 연결 속성에서 게이트웨이 연결 문자열을 볼 수 있습니다. 이 문자열을 사용하려면 HCM에서 **수동으로 입력**을 선택하고 게이트웨이 연결 문자열에 붙여넣습니다.
 
+![수동으로 하이브리드 연결 추가][11]
+
+### <a name="upgrade"></a>업그레이드 ###
+
+문제를 해결하거나 개선 기능을 제공하기 위해 하이브리드 연결 관리자가 정기적으로 업데이트됩니다. 업그레이드가 릴리스되면 HCM UI에 팝업이 표시됩니다. 업그레이드를 적용하면 변경 내용이 적용되고 HCM이 다시 시작됩니다. 
+
+## <a name="adding-a-hybrid-connection-to-your-app-programmatically"></a>프로그래밍 방식으로 앱에 하이브리드 연결 추가 ##
+
+아래 설명된 API를 사용하여 웹앱에 연결된 하이브리드 연결을 직접 관리할 수 있습니다. 
+
+    /subscriptions/[subscription name]/resourceGroups/[resource group name]/providers/Microsoft.Web/sites/[app name]/hybridConnectionNamespaces/[relay namespace name]/relays/[hybrid connection name]?api-version=2016-08-01
+
+하이브리드 연결과 관련된 JSON 개체는 다음과 같습니다.
+
+    {
+      "name": "[hybrid connection name]",
+      "type": "Microsoft.Relay/Namespaces/HybridConnections",
+      "location": "[location]",
+      "properties": {
+        "serviceBusNamespace": "[namespace name]",
+        "relayName": "[hybrid connection name]",
+        "relayArmUri": "/subscriptions/[subscription id]/resourceGroups/[resource group name]/providers/Microsoft.Relay/namespaces/[namespace name]/hybridconnections/[hybrid connection name]",
+        "hostName": "[endpoint host name]",
+        "port": [port],
+        "sendKeyName": "defaultSender",
+        "sendKeyValue": "[send key]"
+      }
+    }
+
+이 정보를 사용하는 한 가지 방법은 [ARMClient][armclient] github 프로젝트에서 가져올 수 있는 armclient를 사용하는 것입니다. 웹앱에 기존 하이브리드 연결을 적용하는 예제는 다음과 같습니다. 다음과 같이 위 스키마에 따라 JSON 파일을 만듭니다.
+
+    {
+      "name": "relay-demo-hc",
+      "type": "Microsoft.Relay/Namespaces/HybridConnections",
+      "location": "North Central US",
+      "properties": {
+        "serviceBusNamespace": "demo-relay",
+        "relayName": "relay-demo-hc",
+        "relayArmUri": "/subscriptions/ebcidic-asci-anna-nath-rak1111111/resourceGroups/myrelay-rg/providers/Microsoft.Relay/namespaces/demo-relay/hybridconnections/relay-demo-hc",
+        "hostName": "my-wkstn.home",
+        "port": 1433,
+        "sendKeyName": "defaultSender",
+        "sendKeyValue": "Th9is3is8a82lot93of3774stu887ff122235="
+      }
+    }
+
+이 API를 사용하려면 송신 키 및 릴레이 리소스 ID가 필요합니다. filename hctest.json을 사용하여 정보를 저장한 경우 다음 명령을 실행하여 앱에 하이브리드 연결을 적용합니다. 
+
+    armclient login
+    armclient put /subscriptions/ebcidic-asci-anna-nath-rak1111111/resourceGroups/myapp-rg/providers/Microsoft.Web/sites/myhcdemoapp/hybridConnectionNamespaces/demo-relay/relays/relay-demo-hc?api-version=2016-08-01 @hctest.json
 
 ## <a name="troubleshooting"></a>문제 해결 ##
 
 "연결됨" 상태는 하나 이상의 HCM이 해당 하이브리드 연결로 구성되어 Azure에 연결할 수 있음을 의미합니다. 하이브리드 연결의 상태가 **연결됨**으로 표시되지 않으면 Azure에 액세스할 수 있는 HCM에 하이브리드 연결이 구성되어 있지 않은 것입니다.
 
-클라이언트가 엔드포인트에 연결할 수 없는 주된 이유는 엔드포인트가 DNS 이름이 아닌 IP 주소를 사용하여 지정되었기 때문입니다. 앱이 원하는 끝점에 도달할 수 없고 IP 주소가 사용되었으면 HCM이 실행 중인 호스트에서 유효한 DNS 이름을 사용하도록 전환합니다. 또한 HCM을 실행 중인 호스트에서 DNS 이름이 제대로 확인되는지 확인합니다. HCM을 실행 중인 호스트에서 하이브리드 연결 엔드포인트까지 연결이 있는지 확인합니다.  
+클라이언트가 엔드포인트에 연결할 수 없는 주된 이유는 엔드포인트가 DNS 이름이 아닌 IP 주소를 사용하여 지정되었기 때문입니다. 앱이 원하는 엔드포인트에 도달할 수 없고 IP 주소가 사용되었으면 HCM이 실행 중인 호스트에서 유효한 DNS 이름을 사용하도록 전환합니다. 또한 HCM을 실행 중인 호스트에서 DNS 이름이 제대로 확인되는지 확인합니다. HCM을 실행 중인 호스트에서 하이브리드 연결 엔드포인트까지 연결이 있는지 확인합니다.  
 
-App Service에서 tcpping 도구는 고급 도구(Kudu) 콘솔에서 호출할 수 있습니다. 이 도구를 통해 TCP 끝점에 액세스할 수 있는지 알 수 있지만 하이브리드 연결 끝점에 액세스할 수 있는지는 알 수 없습니다. 하이브리드 연결 엔드포인트에 대해 콘솔의 도구를 사용하면 호스트:포트 조합을 사용한다는 것만 확인하게 됩니다.  
+App Service에서 tcpping 도구는 고급 도구(Kudu) 콘솔에서 호출할 수 있습니다. 이 도구를 통해 TCP 엔드포인트에 액세스할 수 있는지 알 수 있지만 하이브리드 연결 엔드포인트에 액세스할 수 있는지는 알 수 없습니다. 하이브리드 연결 엔드포인트에 대해 콘솔의 도구를 사용하면 호스트:포트 조합을 사용한다는 것만 확인하게 됩니다.  
 
 ## <a name="biztalk-hybrid-connections"></a>BizTalk 하이브리드 연결 ##
 
-이전 BizTalk 하이브리드 연결 기능은 새 BizTalk 하이브리드 연결에 대해 중단되었습니다. 앱에 있는 기존 BizTalk 하이브리드 연결은 계속 사용할 수 있지만 Azure Relay를 사용하는 새 하이브리드 연결로 마이그레이션해야 합니다. BizTalk 버전에 비해 새 서비스의 몇 가지 장점은 다음과 같습니다.
+이 기능의 초기 형식을 BizTalk 하이브리드 연결이라고 지칭했습니다. 이 기능은 2018년 5월 31일에 지원이 종료되었으며 작동이 중단되었습니다. BizTalk 하이브리드 연결이 모든 웹앱에서 제거되었으므로 포털 또는 API를 통해 액세스할 수 없습니다. 이러한 이전 연결이 하이브리드 연결 관리자에 여전히 구성되어 있는 경우 중단됨 상태가 표시되고, 아래쪽에 수명 종료 설명이 표시됩니다.
 
-- 추가 BizTalk 계정이 필요하지 않습니다.
-- TLS는 버전 1.0 대신 버전 1.2입니다.
-- 통신은 포트 80 및 443을 통해 이루어지며 IP 주소 및 추가적인 포트 범위 대신 DNS 이름을 사용하여 Azure에 도달합니다.  
-
-기존 BizTalk 하이브리드 연결을 앱에 추가하려면 [Azure Portal][portal]에서 해당 앱으로 이동하고 **네트워킹** > **하이브리드 연결 끝점 구성**을 선택합니다. 클래식 하이브리드 연결 테이블에서 **클래식 하이브리드 연결 추가**를 선택합니다. 그런 다음 BizTalk 하이브리드 연결 목록을 볼 수 있습니다.  
+![HCM의 BizTalk 하이브리드 연결][12]
 
 
 <!--Image references-->
@@ -205,9 +245,12 @@ App Service에서 tcpping 도구는 고급 도구(Kudu) 콘솔에서 호출할 �
 [8]: ./media/app-service-hybrid-connections/hybridconn-hcmadd.png
 [9]: ./media/app-service-hybrid-connections/hybridconn-hcmadded.png
 [10]: ./media/app-service-hybrid-connections/hybridconn-hcmdetails.png
+[11]: ./media/app-service-hybrid-connections/hybridconn-manual.png
+[12]: ./media/app-service-hybrid-connections/hybridconn-bt.png
 
 <!--Links-->
 [HCService]: http://docs.microsoft.com/azure/service-bus-relay/relay-hybrid-connections-protocol/
 [portal]: http://portal.azure.com/
 [oldhc]: http://docs.microsoft.com/azure/biztalk-services/integration-hybrid-connection-overview/
 [sbpricing]: http://azure.microsoft.com/pricing/details/service-bus/
+[armclient]: https://github.com/projectkudu/ARMClient/

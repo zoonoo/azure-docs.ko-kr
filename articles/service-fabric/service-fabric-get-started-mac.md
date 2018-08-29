@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 87721428e1cd8a5360dcecc5f29225f813705a4f
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 2ea120ed1c43db5cf843bdd64c32a6c8d9c02bb1
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344759"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142525"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Mac OS X에서 개발 환경 설정
 > [!div class="op_single_selector"]
@@ -118,7 +118,7 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
 
 
 
-6. 작업을 모두 마쳤으면 이 명령을 사용하여 컨테이너를 중지하고 정리할 수 있습니다.
+6. 작업을 모두 마쳤으면 이 명령을 사용하여 컨테이너를 중지하고 정리합니다.
 
     ```bash 
     docker rm -f sftestcluster

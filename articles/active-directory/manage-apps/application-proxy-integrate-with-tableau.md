@@ -1,26 +1,23 @@
 ---
 title: Azure Active Directory 응용 프로그램 프록시 및 Tableau | Microsoft Docs
-description: Azure AD(Azure Active Directory) 응용 프로그램 프록시를 사용하여 Tableau 배포에 대해 원격 액세스를 제공하는 방법을 알아봅니다.  에서도 확인할 수 있습니다.
+description: Azure AD(Azure Active Directory) 응용 프로그램 프록시를 사용하여 Tableau 배포에 대해 원격 액세스를 제공하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 08/20/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 7cace1af527c1c7c80bf0e23f7a88aa9ac9f9d03
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: a68b0465acdb416cd953e22d7f024eb399c94493
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365025"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246610"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory 응용 프로그램 프록시 및 Tableau 
 
@@ -35,19 +32,10 @@ Azure Active Directory 응용 프로그램 프록시 및 Tableau를 사용하여
 - [응용 프로그램 프록시 커넥터](application-proxy-enable.md)가 설치됨 
 
  
-
 ## <a name="enabling-application-proxy-for-tableau"></a>Tableau에 대해 응용 프로그램 프록시 사용 
 
-Tableau에 대해 응용 프로그램 프록시를 사용하려는 경우 [aadapfeedback@microsoft.com](mailto:aadapfeedback@microsoft.com)으로 이메일을 보내 이 시나리오를 사용하도록 설정해야 합니다.
-이메일에서:
+응용 프로그램 프록시는 Tableau가 제대로 작동하는 데 필요한 OAuth 2.0 Grant Flow를 지원합니다. 즉, 아래의 게시 단계를 따라 구성하기만 하면 더 이상 특별한 단계를 수행할 필요 없이 이 응용 프로그램을 활성화할 수 있습니다.
 
--   Tableau에 대해 응용 프로그램 프록시를 사용하도록 설정을 제목으로 사용
--   본문에 테넌트 ID 포함    
-
-응용 프로그램을 사용할 준비가 되었을 경우 확인 메시지가 표시됩니다. 확인 메시지를 기다리는 동안 구성을 완료할 수 있습니다.
-
-
- 
 
 ## <a name="publish-your-applications-in-azure"></a>Azure에 응용 프로그램 게시 
 

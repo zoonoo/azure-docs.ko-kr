@@ -1,6 +1,6 @@
 ---
 title: C# 응용 프로그램에서 Custom Vision Service 사용 - Azure Cognitive Services | Microsoft Docs
-description: Microsoft Cognitive Services의 Custom Vision API를 사용하는 기본 C# 앱을 탐색합니다. 기본 끝점을 사용하여 프로젝트를 만들고, 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 예측을 수행합니다.
+description: Microsoft Cognitive Services의 Custom Vision API를 사용하는 기본 C# 앱을 탐색합니다. 기본 엔드포인트를 사용하여 프로젝트를 만들고, 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 예측을 수행합니다.
 services: cognitive-services
 author: anrothMSFT
 manager: corncar
@@ -9,22 +9,28 @@ ms.component: custom-vision
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 80cb022808748ed2c60dff7c363d6020cb4043a8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d3c2ffb0fd9578458bd07241eed4a87cf70d3c3c
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374719"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617437"
 ---
 # <a name="use-the-custom-vision-service-from-a-c35-application"></a>C&#35; 응용 프로그램에서 Custom Vision Service 사용
 
-C# 응용 프로그램에서 Custom Vision Service를 사용하는 방법을 알아봅니다. 프로젝트를 만든 후에는 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 기본 예측 끝점 URL를 획득하고, 해당 끝점을 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. 이 오픈 소스 예제를 Custom Vision Service API를 사용하여 사용자 고유의 Windows용 앱을 빌드하기 위한 템플릿으로 사용합니다.
+C# 응용 프로그램에서 Custom Vision Service를 사용하는 방법을 알아봅니다. 프로젝트를 만든 후에는 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 기본 예측 엔드포인트 URL를 획득하고, 해당 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. 이 오픈 소스 예제를 Custom Vision Service API를 사용하여 사용자 고유의 Windows용 앱을 빌드하기 위한 템플릿으로 사용합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Windows용 Visual Studio 2015 또는 2017의 모든 버전.
+* Windows용 Visual Studio 2017의 모든 버전
 
-* [Custom Vision Service SDK](http://github.com/Microsoft/Cognitive-CustomVision-Windows/) 이 문서에 사용된 샘플 및 이미지가 포함됩니다.
+## <a name="get-the-custom-vision-sdk-and-samples"></a>Custom Vision SDK 및 샘플 다운로드
+이 예제를 빌드하려면 다음 Custom Vision SDK NuGet 패키지가 필요합니다.
+
+* [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
+* [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
+
+[C# 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/CustomVision)과 함께 이미지를 다운로드할 수 있습니다.
 
 ## <a name="get-the-training-and-prediction-keys"></a>학습 및 예측 키 가져오기
 
@@ -103,7 +109,7 @@ __내 새 프로젝트__라는 새 프로젝트를 만들려면 이 응용 프�
     Console.WriteLine("Done!\n");
     ```
 
-* __예측 끝점을 만듭니다__.
+* __예측 엔드포인트를 만듭니다__.
  
     ```csharp
     // Create a prediction endpoint, passing in obtained prediction key

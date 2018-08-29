@@ -12,27 +12,26 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: c2071e662b50e57189e048b028fd5359482c817f
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 6120ef39c4eb91c4b595f6b97a0eb4b96621b6f2
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358652"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143149"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft Authenticator 앱 FAQ
 
-이 문서에서는 Microsoft Authenticator 앱에 대한 일반적인 질문에 대답합니다. 질문에 대한 답변을 찾을 수 없는 경우 [Microsoft Authenticator 앱 포럼](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp)으로 이동하세요. 휴대폰 로그인 프로세스에 대한 자세한 정보를 보려면 [휴대폰으로 로그인 FAQ](microsoft-authenticator-app-phone-signin-faq.md)를 참조하세요.
+이 문서에서는 Microsoft Authenticator 앱에 대한 일반적인 질문에 대답합니다. 질문에 대한 답변을 찾을 수 없는 경우 [Microsoft Authenticator 앱 포럼](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp)으로 이동하세요.
 
 Microsoft Authenticator 앱은 Azure Authenticator 앱을 대신하며, Azure Multi-factor Authentication을 사용하는 경우 권장됩니다. Microsoft Authenticator 앱은 [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) 및 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)에서 사용할 수 있습니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 |질문|해결 방법|
 |--------|--------|
-|Authenticator는 내 대신 어떤 데이터를 저장하며, 이러한 데이터는 어떻게 삭제할 수 있나요?| Microsoft Authenticator 앱은 계정을 추가할 때 사용자가 입력하는 계정 정보를 저장합니다. 이 앱을 사용할 때 디버깅 목적으로 진단 로그가 생성되고, Microsoft에서 예기치 못한 문제를 진단하는 데 도움이 되는 데이터만 저장됩니다. 앱을 열고, **도움말**을 선택하고, **로그 보내기**를 선택한 다음, **로그 보기** 단추를 선택합니다.<br><br>**계정** 화면에서 계정 타일을 삭제하여 로그 파일을 비롯한 모든 데이터를 삭제할 수 있습니다. Microsoft에서 데이터를 사용하는 방법에 대한 자세한 내용은 [Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/HomePage.)을 참조하세요.|
+|Authenticator는 내 대신 어떤 데이터를 저장하며, 이러한 데이터는 어떻게 삭제할 수 있나요?|Microsoft Authenticator 앱은 세 가지 유형의 정보를 수집합니다.<ul><li>사용자 계정을 추가할 때 제공하는 계정 정보 계정을 제거하여 이 데이터를 제거할 수 있습니다.</li><li>앱의 **도움말** 메뉴를 통해 Microsoft에 **로그를 보내도록** 선택할 때까지 앱에만 상주하는 진단 로그 데이터 이러한 로그 파일은 앱 문제를 해결하는 데 필요한 정보로 제한된 개인 데이터가 있는 이메일 주소(예: alain@contoso.com)와 같은 개인 데이터, 서버/IP 주소 및 장치 데이터(예: 장치 이름 및 운영 체제 버전)를 포함합니다. 수집된 정보를 확인하려면 언제든지 앱에서 이러한 로그 파일을 볼 수 있습니다. 로그 파일을 보내는 경우 인증 앱 엔지니어는 이를 사용하여 고객이 보고한 문제를 해결할 수 있습니다.</li><li>"계정 흐름 추가 시작됨/성공적으로 계정을 추가함" 또는 "알림 승인됨"과 같은 비-개인 식별이 가능한 사용량 데이터 이 데이터는 당사의 엔지니어링 의사 결정의 핵심이며 사용자에게 중요한 기능 및 앱에 대한 업데이트의 양식에서 만들어야 하는 개선 사항의 위치를 확인할 수 있도록 도와줍니다. 앱 사용자로서 앱의 첫 번째 실행 시 이 데이터 컬렉션의 알림을 확인하고, 앱의 **설정** 페이지에서 해제할 수 있음을 알 수 있습니다. 언제든지 이 설정을 활성화 또는 비활성화할 수 있습니다.</li></ul>|
 |앱에서 코드란 무엇인가요?|Microsoft Authenticator 앱을 열면 추가한 계정이 타일로 표시되고 각각 6자리 또는 8자리 숫자가 붙어 있습니다.<br><br>이러한 코드는 사용자 신원을 확인하는 용도로 사용됩니다. 사용자 이름 및 암호를 사용하여 로그인한 후 계정과 같은 타일에 있는 확인 코드를 입력합니다. 예를 들어 Alain이 Contoso 계정에 로그인하는 하는 경우 확인 코드 427303을 사용합니다.<br><br>![앱의 계정 화면](./media/microsoft-authenticator-app-faq/auth-app-accounts.png)|
 |코드 옆에 있는 숫자가 계속 카운트다운되는 이유는 무엇인가요?|활성 확인 코드 옆에 30초 타이머가 카운트다운되는 것을 볼 수 있습니다. 이 타이머는 같은 코드를 두 번 사용하여 로그인하는 일이 없도록 방지하기 위한 것입니다. 암호와는 달리, 이 숫자를 기억할 필요가 없습니다. 휴대폰에 액세스할 수 있는 사람만이 확인 코드를 알 수 있다는 점에 착안하였습니다.|
 |계정 타일이 회색으로 표시되는 이유는 무엇인가요?|일부 조직에서는 Microsoft Authenticator 앱을 Single Sign-On과 함께 사용하여 조직의 리소스를 보호할 것을 요구합니다. 이 경우 계정이 2단계 인증에 사용되지 않고 회색 또는 비활성 상태로 표시됩니다. 이러한 종류의 계정을 일반적으로 "브로커" 계정이라고 부릅니다.|
-|각 아이콘의 의미는 무엇입니까?|![휴대폰 키 아이콘](./media/microsoft-authenticator-app-faq/icon.png)<br>휴대폰 키 아이콘은 암호 없는 휴대폰 로그인을 사용할 수 있도록 계정이 업그레이드되었다는 의미입니다. Authenticator 앱의 모든 개인 Microsoft 계정과 단일 회사 또는 학교 계정에 설정할 수 있습니다. 휴대폰 로그인에 대한 자세한 내용은 [암호가 아닌 휴대폰을 사용하여 로그인](microsoft-authenticator-app-phone-signin-faq.md)을 참조하세요.<br><br>![잠금 아이콘](./media/microsoft-authenticator-app-faq/lock.png)<br>잠금 아이콘은 회사 또는 학교 계정이 조직에 등록되었다는 의미입니다. 조직에서는 파일 및 앱 같은 보안 리소스에 어떤 장치가 액세스하는지 파악하고, 가능하다면 조건부 액세스를 설정하여 보안 리소스에 대한 부적절한 액세스 위험을 줄이기 위해 사용자에게 장치 등록을 요구할 수 있습니다.|
 |장치 등록이란?|조직에서는 파일 및 앱 같은 보안 리소스에 어떤 장치가 액세스하는지 파악하고, 가능하다면 조건부 액세스를 설정하여 보안 리소스에 대한 부적절한 액세스 위험을 줄이기 위해 사용자에게 장치 등록을 요구할 수 있습니다. **설정**을 사용하여 장치 등록을 취소할 수 있지만, Outlook의 이메일과 OneDrive의 파일에 액세스할 수 없게 될 수 있고 휴대폰 로그인 기능을 잃게 됩니다.|
 |확인 코드를 가져와서 사용하려면 인터넷 또는 네트워크에 연결되어야 합니까?|인터넷 또는 데이터에 연결되지 않아도 코드를 사용할 수 있으므로 전화 서비스에 로그인할 필요가 없습니다. 또한 앱을 닫는 즉시 앱 실행이 중지되므로 배터리가 소모되지 않습니다.|
 |앱이 열려 있을 때만 알림을 받습니다. 앱이 닫히면 알림이 오지 않습니다.|벨 소리가 켜져 있어도 알림이 도착할 때 경고가 울리지 않으면 앱 설정을 확인하세요. 알림이 도착할 때 소리를 내거나 진동이 울리도록 앱을 설정해야 합니다. 알림이 전혀 수신되지 않으면 다음 사항을 확인합니다.<ul><li>휴대폰이 방해 금지 또는 자동 모드인가요? 이 모드에서는 앱이 알림을 보내지 않을 수 있습니다.</li><li>다른 앱에서 알림을 받을 수 있나요? 받을 수 없으면 휴대폰의 네트워크 연결 문제이거나 Android 또는 Apple의 알림 채널에 문제가 있는 것일 수 있습니다. 휴대폰 설정을 통해 네트워크 연결을 확인할 수 있지만, Android 또는 Apple 알림 채널 문제를 해결하려면 서비스 공급자에게 문의해야 할 수도 있습니다.</li><li>앱에서 일부 계정의 알림을 받을 수 있고 나머지 계정의 알림을 받을 수 없나요? 그렇다면 앱에서 문제가 있는 계정을 제거했다가 다시 추가하고 알림을 허용한 다음, 문제가 해결되었는지 확인하세요.</li></ul>이러한 단계를 모두 시도한 후에도 문제가 지속되면 로그 파일을 보내주세요. 앱을 열고, **도움말**로 이동한 다음, **로그 보내기**를 선택합니다. 그런 다음, [Microsoft Authenticator 앱 포럼](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp)으로 이동하여 어떤 문제가 표시되고 있는지, 지금까지 시도한 단계에 대해 알려주세요.|
@@ -50,8 +49,6 @@ Microsoft Authenticator 앱은 Azure Authenticator 앱을 대신하며, Azure Mu
 |Apple Watch 도우미 앱이 충돌했습니다. 크래시 로그를 보내서 조사할 수 있나요? |먼저 분석 정보를 Microsoft와 공유하도록 선택했는지 확인합니다. TestFlight 사용자인 경우 이미 등록되어 있습니다. 아닌 경우 **설정 > 개인 정보 > 분석**으로 이동하여 **iPhone 및 Watch 분석 공유** 및 **앱 개발자와 공유** 옵션을 모두 선택합니다.<br><br>등록을 마친 후 크래시를 재현하면 자동으로 크래시 로그가 Microsoft로 전송됩니다. 하지만 크래시를 재현할 수 없는 경우 로그 파일을 수동으로 복사해서 보내주시면 됩니다.<ol><li>휴대폰에서 Watch 앱을 열고 **설정 > 일반**으로 이동한 다음, **Watch 분석 복사**를 클릭합니다.</li><li>**설정 > 개인 정보 > 분석 > 분석 데이터** 아래에서 해당 크래시를 찾은 다음, 전체 텍스트를 수동으로 복사합니다.</li><li>휴대폰에서 Microsoft Authenticator 앱을 열고, 앞에서 복사한 텍스트를 **로그 보내기** 페이지의 **앱 개발자와 공유** 텍스트 상자에 붙여넣습니다.</li></ol>|
 
 ## <a name="next-steps"></a>다음 단계
-
--   휴대폰 로그인에 대한 추가 질문이 있으면 [암호가 아닌 휴대폰을 사용하여 로그인](microsoft-authenticator-app-phone-signin-faq.md)을 참조하세요.
 
 -   2단계 인증에 대해 더 자세히 알아보려면 [2단계 인증에 내 계정 설정](multi-factor-authentication-end-user-first-time.md)을 참조하세요.
 

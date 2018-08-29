@@ -7,14 +7,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2017
+ms.date: 08/19/2018
 ms.author: rafats
-ms.openlocfilehash: a8ea53b8f9b705078ac4ab56faeb60b8ba51e72e
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: cfd1160d1592c03eea94e3c4d04fdc5754eca671
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038678"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42144604"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Azure Cosmos DB 데이터에 대한 액세스 보호
 이 문서에서는 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)에 저장된 데이터에 대한 액세스를 보호하는 방법을 개괄적으로 설명합니다.
@@ -50,7 +50,7 @@ Azure Portal을 사용하여 주, 보조, 읽기 전용 및 읽기-쓰기 마스
 
 ### <a name="code-sample-to-use-a-master-key"></a>마스터 키를 사용할 코드 샘플
 
-다음 코드 샘플에서는 Cosmos DB 계정 끝점 및 마스터 키를 사용해서 DocumentClient를 인스턴스화하고 데이터베이스를 만듭니다. 
+다음 코드 샘플에서는 Cosmos DB 계정 엔드포인트 및 마스터 키를 사용해서 DocumentClient를 인스턴스화하고 데이터베이스를 만듭니다. 
 
 ```csharp
 //Read the Azure Cosmos DB endpointUrl and authorization keys from config.
@@ -174,6 +174,20 @@ foreach (Permission perm in permFeed)
 
 DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
+
+## <a name="add-users-and-assign-roles"></a>사용자 추가 및 역할 할당
+
+사용자 계정에 Azure Cosmos DB 계정 독자 액세스를 추가하려면 구독 소유자가 Azure Portal에서 다음 단계를 수행하도록 합니다.
+
+1. Azure Portal을 열고, Azure Cosmos DB 계정을 선택합니다.
+2. **Access Control(IAM)** 탭을 클릭한 다음, **+ 추가**를 클릭합니다.
+3. **사용 권한 추가** 창의 **역할** 상자에서 **Cosmos DB 계정 독자 역할**을 선택합니다.
+4. **다음에 대한 액세스 할당** 상자에서 **Azure AD 사용자, 그룹 또는 응용 프로그램**을 선택합니다.
+5. 액세스 권한을 부여하려는 디렉터리에서 사용자, 그룹 또는 응용 프로그램을 선택합니다.  표시 이름, 이메일 주소 또는 개체 식별자로 디렉터리를 검색할 수 있습니다.
+    선택한 사용자, 그룹 또는 응용 프로그램이 선택한 멤버 목록에 나타납니다.
+6. **저장**을 클릭합니다.
+
+이제 엔터티는 Azure Cosmos DB 리소스를 읽을 수 있습니다.
 
 ## <a name="delete-or-export-user-data"></a>사용자 데이터 삭제 또는 내보내기
 Azure Cosmos DB를 사용하면 데이터베이스 또는 컬렉션에 있는 개인 데이터를 검색, 선택, 수정 및 삭제할 수 있습니다. Azure Cosmos DB는 개인 데이터를 찾고 삭제하는 API를 제공하지만, API를 사용하고 개인 데이터를 지우는 데 필요한 논리를 정의하는 것은 사용자의 책임입니다. 각 다중 모델 API(SQL API, MongoDB API, Gremlin API, Cassandra API, Table API)는 개인 데이터를 검색하고 삭제하는 방법이 포함된 여러 가지 언어 SDK를 제공합니다. 또한 [TTL(Time to Live)](time-to-live.md) 기능을 사용하여 추가 비용을 발생시키지 않고 지정한 기간 후에 데이터를 자동으로 삭제할 수 있습니다.

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: trinadhk
-ms.openlocfilehash: 714c8fde28be63e5173f89f92d186445f0990214
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 32eba23202eca1c71c4f3b01dcb364281cb2eb60
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447383"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246695"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Azure Backup을 사용하여 하이브리드 백업을 보호하기 위한 보안 기능
 맬웨어, 랜섬웨어 및 침입과 같은 보안 문제에 대한 우려는 증가하고 있습니다. 이러한 보안 문제는 돈과 데이터 측면 모두에서 비용이 많이 들 수 있습니다. 이러한 공격을 방지하기 위해 Azure Backup은 이제 하이브리드 백업을 보호하는 데 도움이 되는 보안 기능을 제공합니다. 이 문서는 Azure Recovery Services 에이전트와 Azure Backup Server를 사용하여 이러한 기능을 활성화하고 사용하는 방법을 다룹니다. 이러한 기능으로는 다음이 포함됩니다.
@@ -80,6 +80,10 @@ Backup은 추가로 14일 동안 삭제된 백업 데이터를 유지하고, **�
 
 ### <a name="authentication-to-perform-critical-operations"></a>중요한 작업을 수행하기 위한 인증
 중요한 작업에 대한 추가 인증 계층 제공의 일부로, **데이터 삭제로 보호 중지** 및 **암호 변경** 작업을 수행할 때 보안 PIN을 입력하라는 메시지가 표시됩니다.
+
+> [!NOTE]
+
+> 현재 DPM 및 MABS에서 **데이터 삭제로 보호 중지**에 보안 핀이 지원되지 않습니다. 
 
 이 PIN을 받으려면 다음을 수행합니다.
 

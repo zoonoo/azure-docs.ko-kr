@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 03/26/2018
+ms.date: 08/17/2018
 ms.author: rnagpal
-ms.openlocfilehash: 2fba67b247ad0b53e11ca012969163a68013e82f
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: d0bd7dba5d50445cb681c16d9575b1bd69167e2f
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126714"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142670"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB Table .NET API: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ ms.locfileid: "39126714"
 ## <a name="release-notes"></a>릴리스 정보
 
 ### <a name="a-name113113"></a><a name="1.1.3"/>1.1.3
-* Microsoft.Azure.Storage.Common 및 Microsoft.Azure.DocumentDB에 대한 Nuget 패키지 종속성이 수정되었습니다.
+* Microsoft.Azure.Storage.Common 및 Microsoft.Azure.DocumentDB에 대한 NuGet 패키지 종속성이 수정되었습니다.
 * JsonConvert.DefaultSettings가 구성된 경우, 테이블 serialization에 대한 버그 수정입니다.
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
@@ -60,7 +60,7 @@ ms.locfileid: "39126714"
 ## <a name="release-and-retirement-dates"></a>릴리스 및 사용 중지 날짜
 Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK 사용 중지 최소 **12개월** 전에 알림을 제공합니다.
 
-[WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) 미리 보기 패키지는 사용되지 않으며 [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) 패키지로 대체되었습니다. WindowsAzure.Storage-PremiumTable SDK는 2018년 11월 15일부터 사용이 중지되고 사용 중지된 SDK에 대한 요청도 허용되지 않습니다.
+[WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) 미리 보기 패키지는 사용되지 않으며 [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) 패키지로 대체되었습니다. WindowsAzure.Storage-PremiumTable SDK는 2018년 11월 15일부터 사용이 중지되고 사용 중지된 SDK에 대한 요청도 허용되지 않습니다. `Microsoft.Azure.CosmosDB.Table` 라이브러리는 현재 .NET 표준에만 제공되고, .NET Core에는 제공되지 않습니다.
 
 새로운 기능 및 최적화는 현재 SDK에만 추가되어 있으며, 따라서 항상 최신 SDK 버전으로 가능한 한 빨리 업그레이드할 것을 권장합니다. 
 
@@ -91,7 +91,7 @@ Unable to resolve dependency 'Microsoft.Azure.Storage.Common'. Source(s) used: '
     Install-Package Microsoft.Azure.CosmosDB.Table -IncludePrerelease
     ```
     
-* 원하는 Nuget 패키지 관리 도구를 사용하여 Microsoft.Azure.CosmosDB.Table을 설치하기 전에 Microsoft.Azure.Storage.Common Nuget 패키지를 설치합니다.
+* 원하는 NuGet 패키지 관리 도구를 사용하여 Microsoft.Azure.CosmosDB.Table을 설치하기 전에 Microsoft.Azure.Storage.Common NuGet 패키지를 설치합니다.
 
 ## <a name="faq"></a>FAQ
 

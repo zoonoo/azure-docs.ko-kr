@@ -11,22 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 08/15/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 8468186d545d7aae484b037f3962b01b0ed4cd2e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: e97bab36a9a1a18cab1d45abfa451139323b2320
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127553"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144361"
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>로그 검색 포털을 사용하여 Azure Log Analytics에서 로그 검색 만들기
-
-> [!NOTE]
-> 이 문서에서는 새로운 쿼리 언어를 사용하는 Azure Log Analytics의 로그 검색 포털에 대해 설명합니다.  [Azure Log Analytics 작업 영역을 새 로그 검색으로 업그레이드](log-analytics-log-search-upgrade.md)에서 새 언어에 대해 자세히 알아보고 작업 영역을 업그레이드하는 절차를 확인할 수 있습니다.  
->
-> 작업 영역을 새로운 쿼리 언어로 업그레이드하지 않은 경우에는 [Log Analytics에서 로그 검색을 사용하여 데이터 찾기](log-analytics-log-searches.md)를 참조하여 로그 검색 포털의 현재 버전에 대한 정보를 확인해야 합니다.
 
 이 문서에는 로그 검색 포털을 사용하여 Log Analytics 작업 영역에 저장된 데이터를 분석하고 로그 검색을 만드는 방법을 설명하는 자습서가 포함되어 있습니다.  이 자습서에는 몇 가지 간단한 쿼리를 실행하여 여러 형식의 데이터를 반환하고 결과를 분석하는 방법이 나와 있습니다.  여기서는 쿼리를 직접 수정하기보다는 쿼리를 수정하는 로그 검색 포털의 기능에 대해 중점적으로 설명합니다.  쿼리를 직접 편집하는 방법에 대한 자세한 내용은 [쿼리 언어 참조](https://go.microsoft.com/fwlink/?linkid=856079)를 참조하세요.
 

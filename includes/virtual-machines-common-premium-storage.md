@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 4c14bfbad58849acefdc8c3a5513f681aba84ab8
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: e6a2493b0bc9e2b4c9695e29ae0c175dac9814fe
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37909966"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "40237859"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>VM의 고성능 Premium Storage 및 관리 디스크
 Azure Premium Storage는 입력/출력(I/O) 사용량이 많은 워크로드가 있는 VM(가상 머신)에서 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. Premium Storage를 사용하는 VM 디스크는 SSD(반도체 드라이브)에 데이터를 저장합니다. 프리미엄 저장소의 속도 및 성능을 활용하기 위해 기존 VM 디스크를 Premium Storage로 마이그레이션할 수 있습니다.
@@ -52,7 +52,7 @@ Premium Storage 기능 중 일부는 다음과 같습니다.
 
 * **Premium Storage 디스크**
 
-    Premium Storage는 특정 크기-시리즈 VM에 연결할 수 있는 VM 디스크를 지원합니다. Premium Storage는 다양한 Azure VM을 지원합니다. P4(32GB), P6(64GB), P10(128GB), P20(512GB), P30(1024GB), P40(2048GB), P50(4095GB) 등, 7가지 디스크 크기 중에서 선택할 수 있습니다. P4 및 P6 디스크 크기는 아직 Managed Disks에 대해서만 지원됩니다. 디스크 크기마다 자체 성능 사양이 있습니다. 응용 프로그램 요구 사항에 따라 하나 이상의 디스크를 VM에 연결할 수 있습니다. 사양에 대한 자세한 내용은 [Premium Storage 확장성 및 성능 목표](#scalability-and-performance-targets)에서 설명합니다.
+    Premium Storage는 특정 크기-시리즈 VM에 연결할 수 있는 VM 디스크를 지원합니다. Premium Storage는 다양한 Azure VM을 지원합니다. P4(32GB), P6(64GB), P10(128GB), P15(256GB), P20(512GB), P30(1024GB), P40(2048GB), P50(4095GB) 등, 7가지 디스크 크기 중에서 선택할 수 있습니다. P4 및 P6 디스크 크기는 아직 Managed Disks에 대해서만 지원됩니다. 디스크 크기마다 자체 성능 사양이 있습니다. 응용 프로그램 요구 사항에 따라 하나 이상의 디스크를 VM에 연결할 수 있습니다. 사양에 대한 자세한 내용은 [Premium Storage 확장성 및 성능 목표](#scalability-and-performance-targets)에서 설명합니다.
 
 * **프리미엄 페이지 Blob**
 
@@ -150,7 +150,7 @@ Azure에서 Windows용 VM 유형 및 크기에 대한 자세한 내용은 [Windo
 관리되지 않는 디스크에 프리미엄 저장소 계정을 사용하는 경우 응용 프로그램이 단일 저장소 계정의 확장성 목표를 초과하면 관리 디스크로 마이그레이션하려고 할 수 있습니다. 관리 디스크로 마이그레이션하지 않으려면 응용 프로그램이 다수의 저장소 계정을 사용하도록 빌드합니다. 그런 다음 이 저장소 계정 간에 데이터를 분할합니다. 예를 들어 51TB 디스크를 여러 VM에 연결하려는 경우에는 두 개의 저장소 계정에 분산합니다. 단일 프리미엄 저장소 계정의 한도는 35TB입니다. 단일 프리미엄 저장소 계정에 35TB를 넘는 프로비전된 디스크가 없도록 해야 합니다.
 
 ### <a name="premium-storage-disk-limits"></a>Premium Storage 디스크 한도
-프리미엄 저장소 디스크를 프로비전할 때 디스크의 크기가 최대 IOPS 및 처리량(대역폭)을 결정합니다. Azure에서는 P4(Managed Disks에만 해당), P6(Managed Disks에만 해당), P10, P20, P30, P40 및 P50과 같은 일곱 가지 프리미엄 저장소 디스크를 제공합니다. 각 프리미엄 저장소 디스크 유형에는 특정 IOPS 및 처리량 한도가 있습니다. 디스크 유형에 대한 한도는 다음 표에 설명되어 있습니다.
+프리미엄 저장소 디스크를 프로비전할 때 디스크의 크기가 최대 IOPS 및 처리량(대역폭)을 결정합니다. Azure에서는 P4(Managed Disks에만 해당), P6(Managed Disks에만 해당), P10, P15, P20, P30, P40 및 P50과 같은 여덟 가지 프리미엄 저장소 디스크를 제공합니다. 각 프리미엄 저장소 디스크 유형에는 특정 IOPS 및 처리량 한도가 있습니다. 디스크 유형에 대한 한도는 다음 표에 설명되어 있습니다.
 
 | 프리미엄 디스크 유형  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|

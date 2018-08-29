@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 24bd0e8eff616920dba0eb5353f983444e3161cd
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 31fe386cfbe5b6ccf842c05a2dd1d6fcd45bc9b7
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019962"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42139968"
 ---
 # <a name="security-frame-session-management--articles"></a>보안 프레임: 세션 관리 | Articles 
 | 제품/서비스 | 문서 |
@@ -32,7 +32,7 @@ ms.locfileid: "28019962"
 | **웹 응용 프로그램** | <ul><li>[HTTPS를 통해 사용할 수 있는 응용 프로그램은 보안 쿠키를 사용해야 함](#https-secure-cookies)</li><li>[모든 http 기반 응용 프로그램은 쿠키 정의에 대해서 http만을 지정해야 함](#cookie-definition)</li><li>[ASP.NET 웹 페이지에서 CSRF(교차 사이트 요청 위조) 공격에 대해 완화](#csrf-asp)</li><li>[비활성 수명에 대한 세션 설정](#inactivity-lifetime)</li><li>[응용 프로그램에서 적절한 로그아웃 구현](#proper-app-logout)</li></ul> |
 | **앱 API** | <ul><li>[ASP.NET Web API에서 CSRF(교차 사이트 요청 위조) 공격에 대해 완화](#csrf-api)</li></ul> |
 
-## <a id="logout-adal"></a>Azure AD를 사용하는 경우에 ADAL 메서드를 사용하여 적절한 로그아웃 구현
+## <a id="logout-adal">Azure AD를 사용하는 경우에 ADAL 메서드를 사용하여 적절한 로그아웃 구현</a>
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -552,6 +552,11 @@ public ViewResult SubmitUpdate()
 | **단계** | Web API가 OAuth 2.0을 사용하여 보호되는 경우 권한 부여 요청 헤더에서 전달자 토큰이 필요하고 토큰은 유효한 경우에만 요청에 대한 액세스 권한을 부여합니다. 쿠키 기반 인증과 달리 브라우저에서는 요청하는 전달자 토큰을 연결하지 않습니다. 요청하는 클라이언트는 요청 헤더에서 전달자 토큰을 명시적으로 연결해야 합니다. 따라서 ASP.NET Web API가 OAuth 2.0을 사용하여 보호되는 경우 전달자 토큰은 CSRF 공격에 대한 방어로 간주됩니다. 응용 프로그램의 MVC 부분이 폼 인증을 사용(즉, 쿠키 사용)하는 경우 위조 방지 토큰은 MVC 웹앱에서 사용되어야 합니다. |
 
 ### <a name="example"></a>예
-Web API는 쿠키가 아닌 전달자 토큰에서만 사용하도록 정보를 제공받아야 합니다. `WebApiConfig.Register` 메서드에서 다음 구성으로 수행될 수 있습니다. ```C-Sharp code config.SuppressDefaultHostAuthentication(); config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+Web API는 쿠키가 아닌 전달자 토큰에서만 사용하도록 정보를 제공받아야 합니다. 이 작업은 `WebApiConfig.Register` 메서드의 다음 구성으로 수행할 수 있습니다.
+
+```csharp
+config.SuppressDefaultHostAuthentication();
+config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 ```
-The SuppressDefaultHostAuthentication method tells Web API to ignore any authentication that happens before the request reaches the Web API pipeline, either by IIS or by OWIN middleware. That way, we can restrict Web API to authenticate only using bearer tokens.
+
+SuppressDefaultHostAuthentication 메서드는 IIS 또는 OWIN 미들웨어를 통해, 요청이 Web API 파이프라인에 도달하기 전에 발생하는 모든 인증을 무시하도록 Web API에 지시합니다. 이러한 방식으로 Web API가 전달자 토큰만으로 인증하도록 제한할 수 있습니다.

@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: isacabe
-ms.openlocfilehash: e900b952ab9bb2054b9e4174670894027cdd2618
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 88ce34125009665d346cf034f5d02ba7e21f48fc
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969455"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143328"
 ---
 # <a name="connect-mxchip-iot-devkit-az3166-to-the-iot-remote-monitoring-solution-accelerator"></a>MXChip IoT DevKit AZ3166을 IoT 원격 모니터링 솔루션 가속기에 연결
 
@@ -139,12 +139,6 @@ MX Chip 예제 코드는 센서가 선택될 때 Method 섹션에서 볼 수 있
 
 ![Led MX Chip](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-devkit-led.png)
 
-
-## <a name="change-device-id"></a>장치 ID 변경
-
-[이 가이드](https://microsoft.github.io/azure-iot-developer-kit/docs/customize-device-id/)에 따라 IoT Hub의 장치 ID를 변경할 수 있습니다.
-
-
 ## <a name="problems-and-feedback"></a>문제 및 피드백
 
 문제가 발생하면 [FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)를 참조하거나 다음 채널을 통해 문의해주세요.
@@ -158,3 +152,4 @@ DevKit 장치를 IoT 솔루션 가속기에 연결하고 센서 데이터를 시
 
 * [IoT 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-suite/)
 * [Microsoft IoT Central 응용 프로그램에 MXChip IoT DevKit 장치 연결](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [IoT 개발자 키트](https://microsoft.github.io/azure-iot-developer-kit/)

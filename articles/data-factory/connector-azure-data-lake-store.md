@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: a3df91adf7c35343dc890dc734ec052f1aa97134
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 735b152f55a9309e5d5dd85dac64a607de6417b0
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860251"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42443972"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1 간에 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,6 +45,9 @@ ms.locfileid: "37860251"
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
+>[!NOTE]
+>데이터 복사 도구를 사용하여 복사 파이프라인을 작성하거나 ADF UI를 사용하여 작성 중에 연결 테스트/폴더 탐색을 수행하는 경우 서비스 보안 주체 또는 MSI의 권한이 루트 수준에서 부여되어야 합니다. 반면 복사할 데이터에 대한 권한이 부여되는 한 복사 작업 실행은 계속 작동할 수 있습니다. 권한을 제한해야 하는 경우 작성 작업을 건너뛸 수 있습니다.
+
 다음 섹션에서는 Azure Data Lake Store에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
@@ -53,11 +56,11 @@ Azure Data Lake Store 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | type 속성은 **AzureDataLakeStore**로 설정해야 합니다. | 예 |
-| dataLakeStoreUri | Azure Data Lake Store 계정에 대한 정보. 이 정보는 `https://[accountname].azuredatalakestore.net/webhdfs/v1` 또는 `adl://[accountname].azuredatalakestore.net/` 형식 중 하나를 사용합니다. | 예 |
+| 형식 | type 속성은 **AzureDataLakeStore**로 설정해야 합니다. | yes |
+| dataLakeStoreUri | Azure Data Lake Store 계정에 대한 정보. 이 정보는 `https://[accountname].azuredatalakestore.net/webhdfs/v1` 또는 `adl://[accountname].azuredatalakestore.net/` 형식 중 하나를 사용합니다. | yes |
 | subscriptionId | Data Lake Store 계정이 속하는 Azure 구독 ID. | 싱크에 필요 |
 | resourceGroupName | Data Lake Store 계정이 속하는 Azure 리소스 그룹 이름. | 싱크에 필요 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니오 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 다른 인증 형식에 대한 더 많은 속성 및 JSON 샘플은 각각 다음 섹션을 참조하세요.
 
@@ -74,16 +77,16 @@ Azure Data Lake Store 연결된 서비스에 다음 속성이 지원됩니다.
 
 >[!IMPORTANT]
 > Azure Data Lake Store에서 서비스 주체에게 적절한 권한을 부여해야 합니다.
->- **원본으로**, 데이터 탐색기 -> 액세스에서 폴더/하위 폴더의 파일을 나열하고 복사할 수 있도록 적어도 **읽기 + 실행** 권한을 부여하거나, 단일 파일을 복수할 수 있도록 **읽기** 권한을 부여하고 **액세스 권한 및 기본 권한 항목**으로 추가합니다. 계정 수준 액세스 제어(IAM)가 필요하지 않습니다.
->- **싱크로**, 데이터 탐색기 -> 액세스에서 폴더에 자식 항목을 만들 수 있도록 적어도 **쓰기 + 실행** 권한을 부여하고, **액세스 권한 및 기본 권한 항목**을 추가합니다. Azure IR을 사용하여 복사하는 경우(원본과 싱크가 모두 클라우드에 있음) Data Factory가 Data Lake Store의 지역을 감지할 수 있도록 계정 액세스 제어(IAM)에서 적어도 **읽기 권한자** 역할을 부여합니다. 이 IAM 역할을 방지하려면 Data Lake Store의 위치에서 명시적으로 [Azure IR을 만들고](create-azure-integration-runtime.md#create-azure-ir), 다음 예제와 같이 Data Lake Store 연결된 서비스에서 연결합니다.
+>- **원본의 경우**, 데이터 탐색기 -> 액세스에서 폴더/하위 폴더의 파일을 나열하고 복사할 수 있도록 **읽기 + 실행** 권한 이상을 부여하거나 단일 파일을 복수할 수 있도록 **읽기** 권한을 부여하고, **이 폴더 및 모든 자식 폴더**에 재귀적으로 추가하도록 선택하고 **액세스 권한 및 기본 권한 항목**으로 추가합니다. 계정 수준 액세스 제어(IAM)가 필요하지 않습니다.
+>- **싱크의 경우**, 데이터 탐색기 -> 액세스에서 폴더에 자식 항목을 만들 수 있도록 **쓰기 + 실행** 권한 이상을 부여하고, **이 폴더 및 모든 자식 폴더**에 재귀적으로 추가하도록 선택하고 **액세스 권한 및 기본 권한 항목**으로 추가합니다. Azure IR을 사용하여 복사하는 경우(원본과 싱크가 모두 클라우드에 있음) Data Factory가 Data Lake Store의 지역을 감지할 수 있도록 계정 액세스 제어(IAM)에서 적어도 **읽기 권한자** 역할을 부여합니다. 이 IAM 역할을 방지하려면 Data Lake Store의 위치에서 명시적으로 [Azure IR을 만들고](create-azure-integration-runtime.md#create-azure-ir), 다음 예제와 같이 Data Lake Store 연결된 서비스에서 연결합니다.
 
 다음과 같은 속성이 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| servicePrincipalId | 응용 프로그램의 클라이언트 ID를 지정합니다. | 예 |
-| servicePrincipalKey | 응용 프로그램의 키를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| tenant | 응용 프로그램이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 예 |
+| servicePrincipalId | 응용 프로그램의 클라이언트 ID를 지정합니다. | yes |
+| servicePrincipalKey | 응용 프로그램의 키를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
+| tenant | 응용 프로그램이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | yes |
 
 **예제:**
 
@@ -122,8 +125,8 @@ MSI(관리 서비스 ID) 인증을 사용하려면:
 
 >[!IMPORTANT]
 > Azure Data Lake Store에서 데이터 팩터리 서비스 ID에 적절한 사용 권한을 부여해야 합니다.
->- **원본으로**, 데이터 탐색기 -> 액세스에서 폴더/하위 폴더의 파일을 나열하고 복사할 수 있도록 적어도 **읽기 + 실행** 권한을 부여하거나, 단일 파일을 복수할 수 있도록 **읽기** 권한을 부여하고 **액세스 권한 및 기본 권한 항목**으로 추가합니다. 계정 수준 액세스 제어(IAM)가 필요하지 않습니다.
->- **싱크로**, 데이터 탐색기 -> 액세스에서 폴더에 자식 항목을 만들 수 있도록 적어도 **쓰기 + 실행** 권한을 부여하고, **액세스 권한 및 기본 권한 항목**을 추가합니다. Azure IR을 사용하여 복사하는 경우(원본과 싱크가 모두 클라우드에 있음) Data Factory가 Data Lake Store의 지역을 감지할 수 있도록 계정 액세스 제어(IAM)에서 적어도 **읽기 권한자** 역할을 부여합니다. 이 IAM 역할을 방지하려면 Data Lake Store의 위치에서 명시적으로 [Azure IR을 만들고](create-azure-integration-runtime.md#create-azure-ir), 다음 예제와 같이 Data Lake Store 연결된 서비스에서 연결합니다.
+>- **원본의 경우**, 데이터 탐색기 -> 액세스에서 폴더/하위 폴더의 파일을 나열하고 복사할 수 있도록 **읽기 + 실행** 권한 이상을 부여하거나 단일 파일을 복수할 수 있도록 **읽기** 권한을 부여하고, **이 폴더 및 모든 자식 폴더**에 재귀적으로 추가하도록 선택하고 **액세스 권한 및 기본 권한 항목**으로 추가합니다. 계정 수준 액세스 제어(IAM)가 필요하지 않습니다.
+>- **싱크의 경우**, 데이터 탐색기 -> 액세스에서 폴더에 자식 항목을 만들 수 있도록 **쓰기 + 실행** 권한 이상을 부여하고, **이 폴더 및 모든 자식 폴더**에 재귀적으로 추가하도록 선택하고 **액세스 권한 및 기본 권한 항목**으로 추가합니다. Azure IR을 사용하여 복사하는 경우(원본과 싱크가 모두 클라우드에 있음) Data Factory가 Data Lake Store의 지역을 감지할 수 있도록 계정 액세스 제어(IAM)에서 적어도 **읽기 권한자** 역할을 부여합니다. 이 IAM 역할을 방지하려면 Data Lake Store의 위치에서 명시적으로 [Azure IR을 만들고](create-azure-integration-runtime.md#create-azure-ir), 다음 예제와 같이 Data Lake Store 연결된 서비스에서 연결합니다.
 
 Azure Data Factory에서 연결된 서비스의 일반 Data Lake Store 정보 이외의 속성을 지정할 필요가 없습니다.
 
@@ -153,13 +156,13 @@ Azure Data Factory에서 연결된 서비스의 일반 Data Lake Store 정보 �
 
 Azure Data Lake Store 간에 데이터를 복사하려면 데이터 집합의 type 속성을 **AzureDataLakeStoreFile**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 집합의 type 속성을 **AzureDataLakeStoreFile**로 설정해야 합니다. |예 |
-| folderPath | Data Lake Store의 폴더에 대한 경로입니다. 와일드카드 필터는 지원되지 않습니다. 예: rootfolder/subfolder/ |예 |
-| fileName | 지정된 "folderPath" 아래의 파일에 대한 **이름 또는 와일드 카드 필터**입니다. 이 속성의 값을 지정하지 않으면 데이터 집합은 폴더에 있는 모든 파일을 가리킵니다. <br/><br/>필터에 허용되는 와일드카드는 `*`(문자 0자 이상 일치) 및 `?`(문자 0자 또는 1자 일치)입니다.<br/>- 예 1: `"fileName": "*.csv"`<br/>- 예 2: `"fileName": "???20180427.txt"`<br/>`^`을 사용하여 실제 파일 이름 내에 와일드카드 또는 이 이스케이프 문자가 있는 경우 이스케이프합니다.<br/><br/>fileName이 출력 데이터 집합에 대해 지정되지 않고 **preserveHierarchy**가 활동 싱크에 지정되지 않으면, 복사 활동에서 자동으로 다음 형식의 파일 이름을 생성합니다. "*Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]*" 예: "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz" |아니오 |
+| 형식 | 데이터 집합의 type 속성을 **AzureDataLakeStoreFile**로 설정해야 합니다. |yes |
+| folderPath | Data Lake Store의 폴더에 대한 경로입니다. 와일드카드 필터는 지원되지 않습니다. 예: rootfolder/subfolder/ |yes |
+| fileName | 지정된 "folderPath" 아래의 파일에 대한 **이름 또는 와일드 카드 필터**입니다. 이 속성의 값을 지정하지 않으면 데이터 집합은 폴더에 있는 모든 파일을 가리킵니다. <br/><br/>필터에 허용되는 와일드카드는 `*`(문자 0자 이상 일치) 및 `?`(문자 0자 또는 1자 일치)입니다.<br/>- 예 1: `"fileName": "*.csv"`<br/>- 예 2: `"fileName": "???20180427.txt"`<br/>`^`을 사용하여 실제 파일 이름 내에 와일드카드 또는 이 이스케이프 문자가 있는 경우 이스케이프합니다.<br/><br/>fileName이 출력 데이터 집합에 대해 지정되지 않고 **preserveHierarchy**가 활동 싱크에 지정되지 않으면, 복사 활동에서 자동으로 다음 형식의 파일 이름을 생성합니다. "*Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]*" 예: "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz" |아니요 |
 | format | 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 집합 정의 둘 다에서 형식 섹션을 건너뜁니다.<br/><br/>특정 형식으로 파일을 생성하거나 구문 분석하려는 경우 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 파일 형식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](supported-file-formats-and-compression-codecs.md#text-format), [Json 형식](supported-file-formats-and-compression-codecs.md#json-format), [Avro 형식](supported-file-formats-and-compression-codecs.md#avro-format), [Orc 형식](supported-file-formats-and-compression-codecs.md#orc-format) 및 [Parquet 형식](supported-file-formats-and-compression-codecs.md#parquet-format) 섹션을 참조하세요. |아니요(이진 복사 시나리오에만 해당) |
-| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 자세한 내용은 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs.md#compression-support)을 참조하세요.<br/>지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다.<br/>지원되는 수준은 **최적** 및 **가장 빠름**입니다. |아니오 |
+| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 자세한 내용은 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs.md#compression-support)을 참조하세요.<br/>지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다.<br/>지원되는 수준은 **최적** 및 **가장 빠름**입니다. |아니요 |
 
 >[!TIP]
 >폴더 아래에서 모든 파일을 복사하려면 **folderPath**만을 지정합니다.<br>지정된 이름의 단일 파일을 복사하려면 폴더 부분으로 **folderPath** 및 파일 이름으로 **fileName**을 지정합니다.<br>폴더 아래에서 파일의 하위 집합을 복사하려면 폴더 부분으로 **folderPath** 및 와일드카드 필터로 **fileName**을 지정합니다. 
@@ -202,8 +205,8 @@ Azure Data Lake Store에서 데이터를 복사하려면 복사 작업의 원본
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 type 속성을 **AzureDataLakeStoreSource**로 설정해야 합니다. |예 |
-| recursive | 하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive가 true로 설정되고 싱크가 파일 기반 저장소인 경우 싱크에서 빈 폴더/하위 폴더가 복사/생성되지 않습니다.<br/>허용되는 값은 **true**(기본값), **false**입니다. | 아니오 |
+| 형식 | 복사 작업 원본의 type 속성을 **AzureDataLakeStoreSource**로 설정해야 합니다. |yes |
+| recursive | 하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive가 true로 설정되고 싱크가 파일 기반 저장소인 경우 싱크에서 빈 폴더/하위 폴더가 복사/생성되지 않습니다.<br/>허용되는 값은 **true**(기본값), **false**입니다. | 아니요 |
 
 **예제:**
 
@@ -243,8 +246,8 @@ Azure Data Lake Store에 데이터를 복사하려면 복사 작업의 싱크 �
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 싱크의 type 속성을 **AzureDataLakeStoreSink**로 설정해야 합니다. |예 |
-| copyBehavior | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용되는 값은 다음과 같습니다.<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일은 대상 폴더의 첫 번째 수준에 있게 됩니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일/Blob 이름이 지정된 경우 지정된 이름이 병합된 파일 이름이 됩니다. 그렇지 않으면 자동 생성된 파일 이름이 병합된 파일 이름이 됩니다. | 아니오 |
+| 형식 | 복사 작업 싱크의 type 속성을 **AzureDataLakeStoreSink**로 설정해야 합니다. |yes |
+| copyBehavior | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용되는 값은 다음과 같습니다.<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일은 대상 폴더의 첫 번째 수준에 있게 됩니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일/Blob 이름이 지정된 경우 지정된 이름이 병합된 파일 이름이 됩니다. 그렇지 않으면 자동 생성된 파일 이름이 병합된 파일 이름이 됩니다. | 아니요 |
 
 **예제:**
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 74d34e708fb74daa295642d50643b78af8f6cb7a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4bf92638e15767ea254b33e5804977f0d6ab5476
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31412188"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42145397"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션으로 인증 및 권한 부여
 
@@ -44,10 +44,10 @@ REST 호출에서 키를 사용하려면 다음 권한 부여 헤더를 추가�
 
 앱 토큰은 다음 클레임을 포함할 수 있습니다.
 
-| 클레임 | 설명 |
+| 클레임 | 설명 |    
 | --- | --- |
 | **ver** |앱 토큰의 버전으로 현재 버전은 0.2.0입니다. |
-| **aud** |토큰의 의도한 수신자입니다. Power BI 작업 영역 컬렉션의 경우 “https://analysis.windows.net/powerbi/api”를 사용합니다. |
+| **aud** |토큰의 의도한 수신자입니다. Power BI 작업 영역 컬렉션의 경우 *https:\//analysis.windows.net/powerbi/api*를 사용합니다. |
 | **iss** |토큰을 발급한 응용 프로그램을 나타내는 문자열입니다. |
 | **type** |생성되는 앱 토큰의 유형입니다. 현재 지원되는 유일한 유형은 **embed**입니다. |
 | **wcn** |토큰이 발급되는 대상 작업 영역 컬렉션 이름입니다. |

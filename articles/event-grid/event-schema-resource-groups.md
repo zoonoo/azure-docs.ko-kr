@@ -3,17 +3,16 @@ title: Azure Event Grid 리소스 그룹 이벤트 스키마
 description: Azure Event Grid를 사용하여 리소스 그룹 이벤트에 제공되는 속성을 설명합니다.
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/02/2018
+ms.date: 08/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 407d9fd5b6f4d554af37b60edf12422f8816ac00
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 22629ba553cc58435f99ed0fed97be252b24b409
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495325"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42146688"
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Azure Event Grid 리소스 그룹에 대한 이벤트 스키마
 
@@ -27,7 +26,9 @@ Azure 구독 및 리소스 그룹은 동일한 이벤트 유형을 내보냅니�
 
 프로그래밍 방식으로 이벤트를 처리하려면 `operationName` 값을 검토해 이벤트를 정렬할 수 있습니다. 예를 들어 이벤트 엔드포인트는 `Microsoft.Compute/virtualMachines/write` 또는 `Microsoft.Storage/storageAccounts/write`와 동일한 작업에 대한 이벤트만 처리할 수 있습니다.
 
-이벤트 주체는 작업의 대상이 되는 리소스의 리소스 ID입니다. 리소스에 대한 이벤트를 필터링하려면 이벤트 구독을 만들 때 해당 리소스 ID를 제공합니다. 샘플 스크립트는 [리소스 그룹에 대한 구독 및 필터링 - PowerShell](scripts/event-grid-powershell-resource-group-filter.md) 또는 [리소스 그룹에 대한 구독 및 필터링 - Azure CLI](scripts/event-grid-cli-resource-group-filter.md)를 참조하세요. 리소스 종류별로 필터링하려면 `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`과 같은 형식으로 값을 사용합니다.
+이벤트 주체는 작업의 대상이 되는 리소스의 리소스 ID입니다. 리소스에 대한 이벤트를 필터링하려면 이벤트 구독을 만들 때 해당 리소스 ID를 제공합니다.  리소스 종류별로 필터링하려면 `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`과 같은 형식으로 값을 사용합니다.
+
+샘플 스크립트 및 자습서 목록은 [리소스 그룹 이벤트 원본](event-sources.md#resource-groups)을 참조하세요.
 
 ## <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
 

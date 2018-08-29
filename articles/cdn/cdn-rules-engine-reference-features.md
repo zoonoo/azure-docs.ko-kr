@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-deasim
-ms.openlocfilehash: e1e002b51aa5a93e7fcc800f5cf48ac401c5cb2d
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 57648486e515b5438f937c4295b33843583e622e
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011427"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42140116"
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN 규칙 엔진 기능
 이 문서에서는 Azure CDN(Content Delivery Network) [규칙 엔진](cdn-rules-engine.md)에 사용할 수 있는 기능에 대해 자세히 설명합니다.
@@ -497,8 +497,8 @@ application/javascript|JavaScript
 
 헤더 형식|형식|예
 -|-|-
-요청 헤더|%{[RequestHeader]()}[i]() | %{Accept-Encoding}i <br/> {Referer}i <br/> %{Authorization}i
-응답 헤더|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
+요청 헤더|`%{[RequestHeader]()}[i]()` | %{Accept-Encoding}i <br/> {Referer}i <br/> %{Authorization}i
+응답 헤더|`%{[ResponseHeader]()}[o]()`| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
 
 주요 정보:
 

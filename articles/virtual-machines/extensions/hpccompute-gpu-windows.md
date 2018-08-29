@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/03/2018
+ms.date: 08/20/2018
 ms.author: roiyz
-ms.openlocfilehash: 463a00823997f1acfb65fdd739a093e556982a61
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: f7c7877768e2dc06e73f8c91016edd521151a11c
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39411953"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144646"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Windows용 NVIDIA GPU 드라이버 확장
 
@@ -63,7 +63,8 @@ NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 가�
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.2",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -77,7 +78,7 @@ NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 가�
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
 | 형식 | NvidiaGpuDriverWindows | string |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 1.2 | int |
 
 
 ## <a name="deployment"></a>배포
@@ -103,7 +104,8 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.2",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -120,7 +122,7 @@ Set-AzureRmVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverWindows" `
     -ExtensionType "NvidiaGpuDriverWindows" `
-    -TypeHandlerVersion 1.0 `
+    -TypeHandlerVersion 1.2 `
     -SettingString '{ `
     }'
 ```
@@ -133,7 +135,7 @@ az vm extension set `
   --vm-name myVM `
   --name NvidiaGpuDriverWindows `
   --publisher Microsoft.HpcCompute `
-  --version 1.0 `
+  --version 1.2 `
   --settings '{ `
   }'
 ```
@@ -164,7 +166,8 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 | :---: | --- | --- |
 | 0 | 작업이 성공했습니다. |
 | 1 | 작업이 성공했습니다. 다시 부팅해야 합니다. |
-| 4, 10 | 작업 시간이 초과되었습니다. | 작업을 다시 시도합니다.
+| 100 | 작업이 지원되지 않거나 완료할 수 없습니다. | 가능한 원인: PowerShell 버전이 지원되지 않습니다. VM 크기가 N 시리즈 VM이 아니며, 데이터를 다운로드하지 못했습니다. 로그 파일을 확인하여 오류의 원인을 파악합니다. |
+| 240, 840 | 작업 시간이 초과되었습니다. | 작업을 다시 시도합니다. |
 | -1 | 예외가 발생했습니다. | 로그 파일을 확인하여 예외의 원인을 파악합니다. |
 | -5x | 보류 중인 재부팅으로 인해 작업이 중단되었습니다. | VM을 다시 부팅합니다. 다시 부팅한 후에 설치가 계속됩니다. 제거는 수동으로 호출해야 합니다. |
 

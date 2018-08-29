@@ -3,7 +3,7 @@ title: 여러 Azure 지역에 Azure API Management 서비스 배포 | Microsoft 
 description: 여러 Azure 지역에 Azure API Management 서비스 인스턴스를 배포하는 방법에 대해 알아봅니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,32 +11,33 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: ff0101bde54f99f99461d0f042af520b1642d0df
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2ec8d53b0d8da3a7d643362abf58d3a5d4b42e74
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31586809"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42146691"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>여러 Azure 지역에 Azure API Management 서비스 인스턴스를 배포하는 방법
-API Management는 원하는 Azure 지역의 수에 상관 없이 단일 API Management 서비스를 배포하기 위해 API 게시자를 사용할 수 있는 여러 지역 배포를 지원합니다. 이를 통해 지역적으로 배포된 API 소비자가 느끼는 요청 대기 시간을 줄일 수 있으며 한 지역이 오프라인인 경우 가능한 서비스를 개선할 수도 있습니다. 
 
-API Management 서비스가 처음 만들어질 때 한 [단위][unit]만 포함하며 단일 Azure 지역에 있어 기본 지역으로 지정됩니다. Azure Portal을 통해 추가 지역을 쉽게 추가할 수 있습니다. API Management 게이트웨이 서버는 각 지역에 배포되고 호출 트래픽이 가장 가까운 게이트웨이에 라우팅됩니다. 지역이 오프라인 상태가 되면 다음으로 가장 가까운 게이트웨이에 트래픽이 자동으로 리디렉션됩니다. 
+Azure API Management는 원하는 Azure 지역의 수에 상관 없이 단일 Azure API Management 서비스를 배포하기 위해 API 게시자를 사용할 수 있는 여러 지역 배포를 지원합니다. 이를 통해 지역적으로 배포된 API 소비자가 느끼는 요청 대기 시간을 줄일 수 있으며 한 지역이 오프라인인 경우 가능한 서비스를 개선할 수도 있습니다.
+
+새 Azure API Management 서비스는 처음에 단일 Azure 지역인 주 지역에 [단위][unit]를 하나만 포함합니다. 추가 지역은 Azure Portal을 통해 쉽게 추가할 수 있습니다. API Management 게이트웨이 서버는 각 지역에 배포되고 호출 트래픽이 가장 가까운 게이트웨이에 라우팅됩니다. 지역이 오프라인 상태가 되면 다음으로 가장 가까운 게이트웨이에 트래픽이 자동으로 리디렉션됩니다.
 
 > [!IMPORTANT]
 > 다중 지역 배포는 **[프리미엄][Premium]** 계층에서만 사용할 수 있습니다.
-> 
-> 
+
+> [!NOTE]
+> Azure API Management는 여러 지역에서 API 게이트웨이 구성 요소만 복제합니다. 서비스 관리 구성 요소는 주 영역에서만 호스팅됩니다. 주 지역에서 중단이 발생하는 경우 Azure API Management 서비스 인스턴스에 구성 변경 사항(설정 또는 정책 업데이트 포함)을 적용할 수 없습니다.
 
 ## <a name="add-region"></a>새 지역에 API Management 서비스 인스턴스 배포
+
 > [!NOTE]
 > 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [API Management 서비스 인스턴스 만들기][Create an API Management service instance]를 참조하세요.
-> 
-> 
 
-Azure Portal에서 API Management 서비스 인스턴스에 대한 **크기 조정 및 가격 책정** 탭으로 이동합니다. 
+Azure Portal에서 API Management 서비스 인스턴스에 대한 **규모 및 가격 책정** 탭으로 이동합니다. 
 
 ![크기 조정 탭][api-management-scale-service]
 
@@ -54,13 +55,57 @@ Azure Portal에서 API Management 서비스 인스턴스에 대한 **크기 조�
 
 ## <a name="remove-region"></a>위치에 API Management 서비스 인스턴스 삭제
 
-Azure Portal에서 API Management 서비스 인스턴스에 대한 **크기 조정 및 가격 책정** 탭으로 이동합니다. 
+Azure Portal에서 API Management 서비스 인스턴스에 대한 **규모 및 가격 책정** 탭으로 이동합니다. 
 
 ![크기 조정 탭][api-management-scale-service]
 
 제거할 위치에 대해 테이블의 오른쪽 끝에 있는 **...** 단추를 사용하여 상황에 맞는 메뉴를 엽니다. **삭제** 옵션을 선택합니다.
 
 삭제를 확인하고 **저장**을 클릭하여 변경 내용을 적용합니다.
+
+## <a name="route-backend"> </a>지역 백 엔드 서비스로 API 호출 라우팅
+
+Azure API Management는 백 엔드 서비스 URL을 하나만 제공합니다. 다양한 지역에 Azure API Management 인스턴스가 있더라도 API 게이트웨이는 하나의 지역에만 배포된 동일한 백 엔드 서비스로 요청을 전달합니다. 이런 경우 성능 향상은 Azure API Management 내에서 요청에 특정한 지역에 캐시된 응답에서만 발생하고 전 세계의 백 엔드에 계속 연결하는 경우 대기 시간이 길어질 수 있습니다.
+
+시스템의 지리적 분포를 최대한 활용하려면 Azure API Management 인스턴스와 동일한 지역에 백 엔드 서비스를 배포해야 합니다. 그런 다음, 정책과 `@(context.Deployment.Region)` 속성을 사용하여 백 엔드의 로컬 인스턴스로 트래픽을 라우팅하면 됩니다.
+
+1. Azure API Management 인스턴스로 이동하여 왼쪽 메뉴에서 **API**를 클릭합니다.
+2. 원하는 API를 선택합니다.
+3. **인바운드 처리**의 화살표 드롭다운에서 **코드 편집기**를 클릭합니다.
+
+    ![API 코드 편집기](./media/api-management-howto-deploy-multi-region/api-management-api-code-editor.png)
+
+4. 조건부 `choose` 정책과 결합된 `set-backend`를 사용하여 파일의 `<inbound> </inbound>` 섹션에 적절한 라우팅 정책을 생성합니다.
+
+    예를 들어 아래 XML 파일은 미국 서부와 동아시아 지역에 해당합니다.
+
+    ```xml
+    <policies>
+        <inbound>
+            <base />
+            <choose>
+                <when condition="@("West US".Equals(context.Deployment.Region, StringComparison.OrdinalIgnoreCase))">
+                    <set-backend-service base-url="http://contoso-us.com/" />
+                </when>
+                <when condition="@("East Asia".Equals(context.Deployment.Region, StringComparison.OrdinalIgnoreCase))">
+                    <set-backend-service base-url="http://contoso-asia.com/" />
+                </when>
+                <otherwise>
+                    <set-backend-service base-url="http://contoso-other.com/" />
+                </otherwise>
+            </choose>
+        </inbound>
+        <backend>
+            <base />
+        </backend>
+        <outbound>
+            <base />
+        </outbound>
+        <on-error>
+            <base />
+        </on-error>
+    </policies>
+    ```
 
 [api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png
 
@@ -77,4 +122,3 @@ Azure Portal에서 API Management 서비스 인스턴스에 대한 **크기 조�
 
 [unit]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
-

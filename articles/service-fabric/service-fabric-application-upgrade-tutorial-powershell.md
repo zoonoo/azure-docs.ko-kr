@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 44f4dc3a9c876e383a6e4df8ef5f467f2b93eaa9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0238dce3f8cbf838e7fce3afefb866e3aaa791bc
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205487"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42144090"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>PowerShell을 사용하여 서비스 패브릭 응용 프로그램 업그레이드
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "34205487"
 
 가장 자주 사용되며 바람직한 업그레이드 방법은 모니터링 되는 롤링 업그레이드입니다.  Azure 서비스 패브릭은 상태 정책 세트에 기반하여 업그레이드되는 응용 프로그램의 상태를 모니터링합니다. UD(업데이트 도메인)이 업그레이드된 경우, 서비스 패브릭은 응용 프로그램의 상태를 평가하고 다음 업데이트 도메인으로 진행할지 또는 업그레이드를 실패할지 여부를 상태 정책에 기반하여 결정합니다.
 
-모니터링되는 응용 프로그램 업그레이드는 관리된 네이티브 API, PowerShell, REST를 사용하여 수행할 수 있습니다. Visual Studio를 사용하여 업그레이드를 수행하는 지침은 [Visual Studio를 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial.md)를 참조하세요.
+모니터링되는 응용 프로그램 업그레이드는 관리 또는 네이티브 API, PowerShell, Azure CLI, Java 또는 REST를 사용하여 수행할 수 있습니다. Visual Studio를 사용하여 업그레이드를 수행하는 지침은 [Visual Studio를 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial.md)를 참조하세요.
 
 서비스 패브릭 모니터링되는 롤링 업그레이드는 응용 프로그램 관리자가 서비스 패브릭이 사용하여 응용 프로그램이 정상인지 결정하는 상태 평가 정책을 구성할 수 있게 합니다. 또한 관리자는 상태 평가가 실패했을 때 자동 롤백과 같은 수행할 작업을 구성할 수 있습니다. 이 섹션에서는 PowerShell을 사용하는 SDK 샘플 중 하나에 대해 모니터링되는 업그레이드를 연습합니다. 또한 다음 Microsoft Virtual Academy 비디오는 앱 업그레이드를 안내합니다. <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=OrHJH66yC_6406218965">
 <img src="./media/service-fabric-application-upgrade-tutorial-powershell/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">

@@ -17,16 +17,16 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 5f5e2051f9c67fa4e37ce0e1213e14e197222f05
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 9feb6ef5b708813c2f73a70a930cabfd69dff114
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627545"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142650"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 조건이란? 
 
-[Azure AD(Azure Active Directory) 조건부 액세스](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal)를 사용하여 권한 있는 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있습니다. 조건부 액세스 정책에서 정책을 트리거하는 이유에 대한 응답을 정의합니다. 예제 응답은 **Then do this(그러면 이렇게 할 것)** 입니다. 예제 이유는 **When this happens(이 경우)** 입니다.
+[Azure AD(Azure Active Directory) 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)를 사용하여 권한 있는 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있습니다. 조건부 액세스 정책에서 정책을 트리거하는 이유("When this happens")에 대한 응답("Then do this")을 정의합니다. 
 
 ![이유 및 응답](./media/conditions/10.png)
 
@@ -64,15 +64,17 @@ ms.locfileid: "39627545"
 
 ## <a name="cloud-apps"></a>클라우드 앱 
 
-클라우드 앱은 웹 사이트 또는 서비스입니다. Azure AD 응용 프로그램 프록시로 보호되는 웹 사이트는 클라우드 앱이기도 합니다. 지원되는 클라우드 앱에 대한 자세한 설명은 [클라우드 앱 할당](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments)을 참조하세요. 
+클라우드 앱은 웹 사이트 또는 서비스입니다. Azure AD 응용 프로그램 프록시로 보호되는 웹 사이트는 클라우드 앱이기도 합니다. 지원되는 클라우드 앱에 대한 자세한 설명은 [클라우드 앱 할당](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments)을 참조하세요. 
 
 **클라우드 앱** 조건은 조건부 액세스 정책에서 필수입니다. 정책에서 **모든 클라우드 앱**을 선택할 수도 있고 특정 앱을 선택할 수도 있습니다.
 
 ![클라우드 앱 포함](./media/conditions/03.png)
 
-- 조직 전체에 기준 정책을 적용하려면 **모든 클라우드 앱** 선택합니다. 클라우드 앱에 대한 로그인 위험이 감지되면 다단계 인증을 요구하는 정책에 이 선택을 사용합니다. **모든 클라우드 앱**에 적용된 정책은 모든 웹 사이트 및 서비스에 대한 액세스에 적용됩니다. 이 설정은 **앱 선택** 목록에 표시되는 클라우드 앱으로 제한되지 않습니다. 
+선택:
 
-- 정책에 의해 특정 서비스를 대상으로 지정하는 개별 클라우드 앱을 선택합니다. 예를 들어 사용자가 SharePoint Online에 액세스하려면 [규격 장치](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online)를 사용하도록 요구할 수 있습니다. 이 정책은 사용자가 SharePoint 콘텐츠 팀에 액세스할 때 다른 서비스에도 적용됩니다. Microsoft Teams를 예로 들 수 있습니다. 
+- 조직 전체에 기준 정책을 적용하려면 **모든 클라우드 앱**을 선택합니다. 클라우드 앱에 대한 로그인 위험이 감지되면 다단계 인증을 요구하는 정책에 이 선택을 사용합니다. **모든 클라우드 앱**에 적용된 정책은 모든 웹 사이트 및 서비스에 대한 액세스에 적용됩니다. 이 설정은 **앱 선택** 목록에 표시되는 클라우드 앱으로 제한되지 않습니다. 
+
+- 정책에 의해 특정 서비스를 대상으로 지정하는 개별 클라우드 앱. 예를 들어 사용자가 SharePoint Online에 액세스하려면 [규격 장치](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online)를 사용하도록 요구할 수 있습니다. 이 정책은 사용자가 SharePoint 콘텐츠 팀에 액세스할 때 다른 서비스에도 적용됩니다. Microsoft Teams를 예로 들 수 있습니다. 
 
 특정 앱을 정책에서 제외할 수 있습니다. 그러나 사용자가 액세스하는 서비스에 적용되는 정책이 계속 적용됩니다. 
 
@@ -80,18 +82,18 @@ ms.locfileid: "39627545"
 
 ## <a name="sign-in-risk"></a>로그인 위험
 
-로그인 위험은 로그인 시도를 사용자 계정의 합법적인 소유자가 수행하지 않았을 가능성의 높음, 중간 또는 낮음 지표입니다 Azure AD는 사용자 로그인 중에 로그인 위험 수준을 계산합니다. 계산된 로그인 위험 수준을 조건부 액세스 정책의 조건으로 사용할 수 있습니다. 
+로그인 위험은 로그인 시도를 사용자 계정의 합법적인 소유자가 수행하지 않았을 가능성의 지표(높음, 중간 또는 낮음)입니다. Azure AD는 사용자 로그인 중에 로그인 위험 수준을 계산합니다. 계산된 로그인 위험 수준을 조건부 액세스 정책의 조건으로 사용할 수 있습니다.
 
 ![로그인 위험 수준](./media/conditions/22.png)
 
-이 조건을 사용하려면 [Azure Active Directory Id 보호](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-identityprotection-enable)를 사용하도록 설정해야 합니다.
+이 조건을 사용하려면 [Azure Active Directory Id 보호](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-enable)를 사용하도록 설정해야 합니다.
  
 이 조건의 일반적인 사용 사례는 다음 보호가 적용된 정책입니다. 
 
 - 로그인 위험이 높은 사용자를 차단합니다. 이 보호는 비합적일 수 있는 사용자가 클라우드 앱에 액세스하지 못하게 차단합니다. 
 - 로그인 위험 수준이 보통인 사용자에게 다단계 인증을 요구합니다. 다단계 인증을 사용하면 로그인이 합법적 계정 소유자에 의해 수행된다는 추가 신뢰를 제공할 수 있습니다.
 
-자세한 내용은 [위험한 로그인](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-security-risky-sign-ins)을 참조하세요.  
+자세한 내용은 [위험한 로그인](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-security-risky-sign-ins)을 참조하세요.  
 
 ## <a name="device-platforms"></a>장치 플랫폼
 
@@ -114,7 +116,7 @@ ms.locfileid: "39627545"
 
 ![장치 상태 구성](./media/conditions/112.png)
 
-관리되지 않는 장치에 대한 액세스를 차단하려면 [장치 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online)를 구현합니다.
+관리되지 않는 장치에 대한 액세스를 차단하려면 [장치 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online)를 구현합니다.
 
 
 ## <a name="locations"></a>위치
@@ -148,7 +150,7 @@ ms.locfileid: "39627545"
 
 이 조건의 일반적인 사용 사례는 다음 보호가 적용된 정책입니다. 
 
-- 장치에 대량의 데이터를 다운로드하는 모바일 및 데스크톱 응용 프로그램에 대해 [준수 장치](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online)를 요구합니다. 동시에 모든 장치에서 브라우저 액세스를 허용합니다.
+- 장치에 대량의 데이터를 다운로드하는 모바일 및 데스크톱 응용 프로그램에 대해 [준수 장치](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online)를 요구합니다. 동시에 모든 장치에서 브라우저 액세스를 허용합니다.
 
 - 웹 응용 프로그램 액세스를 차단하지만, 모바일 및 데스크톱 응용 프로그램 액세스는 허용합니다.
 
@@ -163,7 +165,7 @@ Microsoft Office 365 Exchange Online이 선택한 유일한 클라우드 앱인 
  
 ![지원되는 플랫폼에만 정책 적용](./media/conditions/33.png)
 
-지원되는 플랫폼에만 이 조건을 적용하는 것은 [장치 플랫폼 조건](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online)에서 모든 장치 플랫폼에 해당합니다.
+지원되는 플랫폼에만 이 조건을 적용하는 것은 [장치 플랫폼 조건](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online)에서 모든 장치 플랫폼에 해당합니다.
 
 ![장치 옵션 구성](./media/conditions/34.png)
 
@@ -172,7 +174,7 @@ Microsoft Office 365 Exchange Online이 선택한 유일한 클라우드 앱인 
 
 - [Azure Active Directory 조건부 액세스를 위한 SharePoint Online 및 Exchange Online 설정](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication)
  
-- [Azure Active Directory 앱 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) 
+- [Azure Active Directory 앱 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) 
 
 
 ### <a name="legacy-authentication"></a>레거시 인증  

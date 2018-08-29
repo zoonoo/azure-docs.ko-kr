@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 08/10/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 8bf7f18f8051f1647a86bbe9c0be638045781a72
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: cb4c9f91c7a116e6171a8e94030b6bb40fdb38ea
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989914"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141758"
 ---
 # <a name="configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Azure Active Directory의 엔터프라이즈 응용 프로그램에 대해 SAML 토큰에서 발급된 역할 클레임 구성
 
@@ -60,13 +60,16 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
     a. 테넌트의 전역 관리자 또는 공동 관리자 자격 증명을 사용하여 Graph Explorer 사이트에 로그인합니다.
 
-    나. 역할을 만들 수 있는 충분한 권한이 필요합니다. **권한 수정**을 선택하여 권한을 얻을 수 있습니다.
+    b. 역할을 만들 수 있는 충분한 권한이 필요합니다. **권한 수정**을 선택하여 권한을 얻을 수 있습니다.
 
       !["권한 수정" 단추](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
 
     다. 목록에서 다음 권한을 선택하고(아직 선택하지 않은 경우) **권한 수정**을 선택합니다.
 
       ![권한 목록 및 "권한 수정" 단추](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
+
+    > [!Note]
+    > 클라우드 앱 관리자 및 앱 관리자 역할은 디렉터리 읽기 및 쓰기에 대한 글로벌 관리자 권한이 필요하므로 이 시나리오에서는 작동하지 않습니다.
 
     d. 동의 확인에 동의합니다. 시스템에 다시 로그인됩니다.
 
@@ -159,7 +162,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
       !["특성 추가" 창](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
 
-    나. **이름** 상자에서 필요에 따라 특성 이름을 입력합니다. 이 예에서는 클레임 이름으로 **역할 이름**을 사용합니다.
+    b. **이름** 상자에서 필요에 따라 특성 이름을 입력합니다. 이 예에서는 클레임 이름으로 **역할 이름**을 사용합니다.
 
     다. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
 
@@ -201,7 +204,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
     a. 메서드를 **GET**에서 **PATCH**로 변경합니다.
 
-    나. 기존 역할을 복사하여 **요청 본문** 아래에 붙여넣습니다.
+    b. 기존 역할을 복사하여 **요청 본문** 아래에 붙여넣습니다.
 
     다. 필요에 따라 역할 설명, 역할 값 또는 역할 표시 이름을 업데이트하여 역할 값을 업데이트합니다.
 
@@ -239,7 +242,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
     a. 메서드를 **GET**에서 **PATCH**로 변경합니다.
 
-    나. 응용 프로그램에서 기존 역할을 복사하여 **요청 본문** 아래에 붙여넣습니다.
+    b. 응용 프로그램에서 기존 역할을 복사하여 **요청 본문** 아래에 붙여넣습니다.
 
     다. 삭제하려는 역할의 **IsEnabled** 값을 **false**로 설정합니다.
 

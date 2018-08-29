@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: f47b847b3a356540e5f366235713b8f99aea3404
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 443cb2786c12bddd87535a7267d66c0332473b1b
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113720"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42143687"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -42,6 +42,12 @@ ms.locfileid: "37113720"
 ## <a name="release-notes"></a>릴리스 정보
 
 ### <a name="v2-builds"></a>v2 빌드
+
+### <a name="a-name206206"></a><a name="2.0.6"/>2.0.6
+* v1을 사용하여 호환성에 대한 ChangeFeedEventHost.HostName 공용 속성이 추가되었습니다.
+
+### <a name="a-name205205"></a><a name="2.0.5"/>2.0.5
+* 파티션 분할 동안 발생하는 경쟁 조건을 수정했습니다. 파티션을 분할하는 동안 경쟁 조건이 임대 획득으로 이어지고 즉시 손실되어 경합을 초래할 수 있습니다. 경쟁 조건 문제는 이 릴리스에서 해결되었습니다.
 
 ### <a name="a-name204204"></a><a name="2.0.4"/>2.0.4
 * GA SDK

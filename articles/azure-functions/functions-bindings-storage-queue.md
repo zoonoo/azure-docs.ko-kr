@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 04502e80cea096ce384f97559bc7bad95ee2bcd8
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e034d6c57c619ea74003f531d3309f7da17210b0
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344102"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144638"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Queue Storage 바인딩
 
@@ -54,6 +54,7 @@ Queue Storage 바인딩은 [Microsoft.Azure.WebJobs](http://www.nuget.org/packag
 * [C#](#trigger---c-example)
 * [C# 스크립트(.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---Java-example)
 
 ### <a name="trigger---c-example"></a>트리거 - C# 예제
 
@@ -166,6 +167,22 @@ module.exports = function (context) {
 ```
 
 [사용](#trigger---usage) 섹션은 function.json에서 `name` 속성에 의해 명명된 `myQueueItem`을 설명합니다.  [메시지 메타데이터 섹션](#trigger---message-metadata)에서는 표시된 다른 모든 변수를 설명합니다.
+
+### <a name="trigger---java-example"></a>트리거 - Java 예제
+
+다음 Java 예제에서는 큐 `myqueuename`에 배치된 트리거된 메시지를 기록하는 저장소 큐 트리거 함수를 보여줍니다.
+ 
+ ```java
+ @FunctionName("queueprocessor")
+ public void run(
+    @QueueTrigger(name = "msg",
+                   queueName = "myqueuename",
+                   connection = "myconnvarname") String message,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
 
 ## <a name="trigger---attributes"></a>트리거 - 특성
  
@@ -299,6 +316,7 @@ Azure Queue Storage 출력 바인딩을 사용하여 메시지를 큐에 씁니�
 * [C#](#output---c-example)
 * [C# 스크립트(.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
+* [Java](#output---java-example)
 
 ### <a name="output---c-example"></a>출력 - C# 예제
 
@@ -428,6 +446,25 @@ module.exports = function(context) {
     context.done();
 };
 ```
+
+### <a name="output---java-example"></a>출력 - Java 예제
+
+ 다음 예제에서는 HTTP 요청에 의해 트리거되는 경우 큐 메시지를 만드는 Java 함수를 보여줍니다.
+
+```java
+@FunctionName("httpToQueue")
+@QueueOutput(name = "item", queueName = "myqueue-items", connection = "AzureWebJobsStorage")
+ public String pushToQueue(
+     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+     final String message,
+     @HttpOutput(name = "response") final OutputBinding&lt;String&gt; result) {
+       result.setValue(message + " has been added.");
+       return message;
+ }
+ ```
+
+[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Queue Storage에 작성되는 매개 변수에 대한 `@QueueOutput` 주석을 사용합니다.  매개 변수 형식은 `OutputBinding<T>`이어야 합니다. 여기서 T는 POJO의 원시 Java 형식입니다.
+
 
 ## <a name="output---attributes"></a>출력 - 특성
  

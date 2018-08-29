@@ -3,21 +3,22 @@ title: Azure Event Grid Blob 저장소 이벤트 스키마
 description: Azure Event Grid를 사용하여 Blob 저장소 이벤트에 제공되는 속성을 설명합니다.
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/30/2018
+ms.date: 08/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: a4d3f5d50df49851437cfd3bcec16ad217220eca
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 11524f8868a0102e30b06f3385a26b1bd06aae6e
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301392"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42145639"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Azure Event Grid Blob 저장소에 대한 이벤트 스키마
 
 이 문서에서는 Blob 저장소 이벤트에 대한 속성 및 스키마를 제공합니다. 이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
+
+샘플 스크립트 및 자습서 목록은 [저장소 이벤트 원본](event-sources.md#storage)을 참조하세요.
 
 ## <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
 

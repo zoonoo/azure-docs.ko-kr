@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: e04d1072acee635235b0a5bd8465ca38c861017b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d3b01e75a9b34ce4e38138816935bdae2e0ea778
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31523526"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42144345"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>Stream Analytics의 일반적인 문제 및 문제를 해결하는 단계
 
@@ -38,7 +38,9 @@ ms.locfileid: "31523526"
 
 3. 잘못된 형식이 있는 JSON 데이터를 불러오려면 CheckMalformedEvents.cs 코드를 실행합니다. 이 예제는 [GitHub 샘플 리포지토리](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH)에 있습니다. 이 코드는 파티션 ID, 오프셋을 읽고 오프셋에 배치된 데이터를 출력합니다. 
 
-4. 데이터를 읽은 경우 직렬화 형식을 분석하고 수정할 수 있습니다. 
+4. 데이터를 읽은 경우 직렬화 형식을 분석하고 수정할 수 있습니다.
+
+5. [Service Bus Explorer를 사용하여 IoT Hub에서 이벤트를 읽을](https://code.msdn.microsoft.com/How-to-read-events-from-an-1641eb1b) 수 있습니다.
 
 ## <a name="delayed-output"></a>지연된 출력
 

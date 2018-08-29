@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 6ed8265a0b1a014ad15a6bb42fabb6003fb6a775
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 12b5c013a0704eb2d3f7df58011571b902955c75
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343266"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42140312"
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>지속성 함수 확장 및 샘플 설치(Azure Functions)
 
@@ -146,14 +146,14 @@ Visual Studio Code는 주요 플랫폼인 Windows, macOS 및 Linux를 포함하�
 
 ## <a name="azure-portal"></a>Azure portal
 
-원하는 경우 지속성 함수 개발을 위해 Azure Portal을 사용할 수 있습니다.
+원하는 경우 지속성 함수 개발을 위해 [Azure Portal](https://portal.azure.com)을 사용할 수 있습니다.
 
    > [!NOTE]
    > JavaScript의 지속형 함수는 아직 포털에서 사용할 수 없습니다.
 
 ### <a name="create-an-orchestrator-function"></a>오케스트레이터 함수 만들기
 
-1. [functions.azure.com](https://functions.azure.com/signin)에서 새 함수 앱을 만듭니다.
+1. [함수 빠른 시작 문서](functions-create-first-azure-function.md#create-a-function-app)에 설명된 대로 포털에서 새 함수 앱을 만듭니다.
 
 2. [2.0 런타임 버전을 사용](set-runtime-version.md)하도록 함수 앱을 구성합니다.
 
@@ -179,7 +179,7 @@ Visual Studio Code는 주요 플랫폼인 Windows, macOS 및 Linux를 포함하�
     curl -X POST https://{your function app name}.azurewebsites.net/api/orchestrators/HelloSequence
     ```
 
-11. 그런 다음 **"statusQueryGetUri"** 끝점을 호출합니다. 그러면 지속성 함수의 현재 상태가 표시됩니다.
+11. 그런 다음 **"statusQueryGetUri"** 엔드포인트를 호출합니다. 그러면 지속성 함수의 현재 상태가 표시됩니다.
 
     ```json
         {
@@ -191,7 +191,7 @@ Visual Studio Code는 주요 플랫폼인 Windows, macOS 및 Linux를 포함하�
         }
     ```
 
-12. 상태가 **"Completed"** 가 될 때까지 **"statusQueryGetUri"** 끝점을 계속 호출합니다. 
+12. 상태가 **"Completed"** 가 될 때까지 **"statusQueryGetUri"** 엔드포인트를 계속 호출합니다. 
 
     ```json
     {

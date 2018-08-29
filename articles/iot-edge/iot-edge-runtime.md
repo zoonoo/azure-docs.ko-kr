@@ -4,16 +4,16 @@ description: Azure IoT Edge 런타임 및 Edge 장치에 권한을 부여하는 
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/05/2018
+ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 36750a4d907da1d4fa029aca0ecc503db7e82d81
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f832b05969c028880f6e375ff4a2ee8dc7a7eaf4
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526095"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42143538"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Azure IoT Edge 런타임 및 해당 아키텍처 이해
 
@@ -23,7 +23,7 @@ IoT Edge 런타임은 IoT Edge 장치에서 다음 기능을 수행합니다.
 
 * 장치에 워크로드를 설치하고 업데이트합니다.
 * 장치에서 Azure IoT Edge 보안 표준을 유지 관리합니다.
-* [IoT Edge 모듈][lnk-modules]이 항상 실행되도록 합니다.
+* [IoT Edge 모듈][lnk-modules]이 항상 실행되도록 보장합니다.
 * 원격 모니터링을 위해 모듈 상태를 클라우드에 보고합니다.
 * 다운스트림 리프 장치와 IoT Edge 장치 간의 통신을 용이하게 합니다.
 * IoT Edge 장치의 모듈 간 통신을 용이하게 합니다.
@@ -33,11 +33,11 @@ IoT Edge 런타임은 IoT Edge 장치에서 다음 기능을 수행합니다.
 
 IoT Edge 런타임의 책임은 모듈 관리와 통신이라는 두 가지 범주로 나뉩니다. 이 두 역할은 IoT Edge 런타임을 구성하는 두 가지 구성 요소를 통해 수행됩니다. IoT Edge 허브는 통신을 담당하고, IoT Edge 에이전트는 모듈 배포 및 모니터링을 관리합니다. 
 
-Edge 에이전트와 Edge 허브는 모두 IoT Edge 장치에서 실행되는 다른 모듈과 마찬가지로 모듈입니다. 모듈 작동 방식에 대한 자세한 내용은 [lnk-modules]를 참조하세요. 
+Edge 에이전트와 Edge 허브는 모두 IoT Edge 장치에서 실행되는 다른 모듈과 마찬가지로 모듈입니다. 
 
 ## <a name="iot-edge-hub"></a>IoT Edge 허브
 
-Edge 허브는 Azure IoT Edge 런타임을 구성하는 두 가지 모듈 중 하나입니다. IoT Hub와 동일한 프로토콜 끝점을 노출하여 IoT Hub에 대한 로컬 프록시 역할을 합니다. 이 일관성은 클라이언트(장치 또는 모듈)에서 IoT Hub와 마찬가지로 IoT Edge 런타임에 연결할 수 있음을 의미합니다. 
+Edge 허브는 Azure IoT Edge 런타임을 구성하는 두 가지 모듈 중 하나입니다. IoT Hub와 동일한 프로토콜 엔드포인트를 노출하여 IoT Hub에 대한 로컬 프록시 역할을 합니다. 이 일관성은 클라이언트(장치 또는 모듈)에서 IoT Hub와 마찬가지로 IoT Edge 런타임에 연결할 수 있음을 의미합니다. 
 
 >[!NOTE]
 >에지 허브는 MQTT 또는 AMQP를 사용하여 연결되는 클라이언트를 지원합니다. HTTP를 사용하는 클라이언트는 지원하지 않습니다. 
@@ -52,9 +52,6 @@ Edge 허브는 IoT Edge 솔루션에서 사용하는 대역폭을 줄이기 위�
 ![여러 물리적 장치와 클라우드 간의 게이트웨이 역할을 하는 Edge 허브][2]
 
 Edge 허브는 IoT Hub에 연결되어 있는지 여부를 결정할 수 있습니다. 연결이 끊어진 경우 Edge 허브는 메시지 또는 쌍 업데이트를 로컬로 저장합니다. 연결이 다시 설정되면 모든 데이터가 동기화됩니다. 이 임시 캐시에 사용되는 위치는 Edge 허브 모듈 쌍의 속성으로 결정됩니다. 캐시의 크기는 제한되지 않으며, 장치에 저장 용량이 있는 동안에는 증가합니다. 
-
->[!NOTE]
->추가 캐싱 매개 변수에 대한 컨트롤 추가는 일반 공급으로 전환되기 전에 제품에 추가됩니다.
 
 ### <a name="module-communication"></a>모듈 통신
 
@@ -86,11 +83,11 @@ Edge 허브에 데이터를 보내려면 모듈에서 SendEventAsync 메서드�
 
 IoT Edge 에이전트는 Azure IoT Edge 런타임을 구성하는 다른 모듈입니다. 모듈을 인스턴스화하고, 모듈을 계속 실행하며, 모듈의 상태를 IoT Hub에 다시 보고합니다. Edge 에이전트는 다른 모듈과 마찬가지로 모듈 쌍을 사용하여 이 구성 데이터를 저장합니다. 
 
-Edge 에이전트의 실행을 시작하려면 azure-iot-runtime-ctl.py 시작 명령을 실행합니다. 에이전트는 IoT Hub에서 모듈 쌍을 검색하고 모듈 사전을 검사합니다. 모듈 사전은 시작해야 하는 모듈의 컬렉션입니다. 
+[IoT Edge 보안 디먼](iot-edge-security-manager.md)은 장치 시작 시 Edge 에이전트를 시작합니다. 에이전트는 IoT Hub에서 모듈 쌍을 검색하고 배포 매니페스트를 검사합니다. 배포 매니페스트는 시작되어야 하는 모듈을 선언하는 JSON 파일입니다. 
 
-모듈 사전의 각 항목에는 모듈에 대한 특정 정보가 포함되며, 모듈의 수명 주기를 제어하기 위해 Edge 에이전트에서 사용합니다. 더 유용한 속성 중 일부는 다음과 같습니다. 
+배포 매니페스트의 각 항목에는 모듈에 대한 특정 정보가 포함되며, 모듈의 수명 주기를 제어하기 위해 Edge 에이전트에서 사용합니다. 더 유용한 속성 중 일부는 다음과 같습니다. 
 
-* **settings.image** – Edge 에이전트에서 모듈을 시작하는 데 사용하는 컨테이너 이미지입니다. 이미지가 암호로 보호되는 경우 Edge 에이전트는 컨테이너 레지스트리에 대한 자격 증명으로 구성되어야 합니다. Edge 에이전트를 구성하려면 `config.yaml` 파일을 업데이트합니다. Linux에서는 다음 명령을 사용합니다. `sudo nano /etc/iotedge/config.yaml`
+* **settings.image** – Edge 에이전트에서 모듈을 시작하는 데 사용하는 컨테이너 이미지입니다. 이미지가 암호로 보호되는 경우 Edge 에이전트는 컨테이너 레지스트리에 대한 자격 증명으로 구성되어야 합니다. 컨테이너 레지스트리에 대한 자격 증명은 배포 매니페스트를 사용하여 또는 IoT Edge 프로그램 폴더에서 `config.yaml` 파일을 업데이트하여 Edge 장치 자체에서 원격으로 구성될 수 있습니다.
 * **settings.createOptions** – 모듈의 컨테이너를 시작할 때 Docker 디먼에 직접 전달되는 문자열입니다. 이 속성에 Docker 옵션을 추가하면 포트 전달 또는 모듈의 컨테이너에 볼륨 탑재와 같은 고급 옵션을 사용할 수 있습니다.  
 * **status** – Edge 에이전트에서 모듈을 배치하는 상태입니다. 대부분의 사람들이 Edge 에이전트에서 장치의 모든 모듈을 즉시 시작하려고 하기 때문에 이 값은 일반적으로 'running'으로 설정됩니다. 그러나 중지할 모듈의 초기 상태를 지정하고, 나중에 Edge 에이전트에 모듈 시작을 알릴 때까지 기다릴 수 있습니다. Edge 에이전트는 각 모듈의 상태를 reported 속성의 클라우드로 다시 보고합니다. desired 속성과 reported 속성의 차이는 표시기 또는 오작동 장치입니다. 지원되는 상태는 다음과 같습니다.
    * 다운로드 중
@@ -114,13 +111,13 @@ IoT Edge 에이전트는 IoT Hub에 런타임 응답을 보냅니다. 가능한 
 
 ### <a name="security"></a>보안
 
-IoT Edge 에이전트는 IoT Edge 장치의 보안에서 중요한 역할을 합니다. 예를 들어 모듈의 이미지를 시작하기 전에 해당 이미지의 확인과 같은 작업을 수행합니다. 이러한 기능은 일반 공급 시에 추가됩니다. 
+IoT Edge 에이전트는 IoT Edge 장치의 보안에서 중요한 역할을 합니다. 예를 들어 모듈의 이미지를 시작하기 전에 해당 이미지의 확인과 같은 작업을 수행합니다. 
 
-<!-- For more information about the Azure IoT Edge security framework, see []. -->
+Azure IoT Edge 보안 프레임워크에 대한 자세한 정보는 [IoT Edge 보안 관리자](iot-edge-security-manager.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure IoT Edge 모듈 이해][lnk-modules]
+[Azure IoT Edge 모듈 이해][lnk-modules]
 
 <!-- Images -->
 [1]: ./media/iot-edge-runtime/Pipeline.png

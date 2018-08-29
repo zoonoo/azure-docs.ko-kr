@@ -13,23 +13,28 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 06/06/2018
 ms.author: bahariri
-ms.openlocfilehash: f6671e05c53b8be2e06eb969adc8a4d5736aff37
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 674c3b5cbd3b4253833a785b32e2bc4b0f1928da
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284454"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144635"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Apache Kafka용 Event Hubs에서 Akka Streams 사용
-
-Apache Kafka를 사용하는 주요 이점 중 하나는 연결할 수 있는 프레임워크의 에코시스템입니다. Kafka 지원 Event Hubs는 Kafka의 유연성과 Azure 에코시스템의 확장성, 일관성 및 지원을 결합합니다.
-
 이 자습서에서는 프로토콜 클라이언트를 변경하거나 사용자 고유의 클러스터를 실행하지 않고 Akka Streams를 Kafka 지원 이벤트 허브에 연결하는 방법을 보여 줍니다. Apache Kafka용 Azure Event Hubs는 [Apache Kafka 버전 1.0](https://kafka.apache.org/10/documentation.html)을 지원합니다.
+
+이 자습서에서는 다음 방법에 대해 알아봅니다.
+> [!div class="checklist"]
+> * Event Hubs 네임스페이스 만들기
+> * 프로젝트 예제 복제
+> * Flink 생산자 실행 
+> * Flink 소비자 실행
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 있어야 합니다.
 
+* [Apache Kafka용 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md) 문서를 참조하세요. 
 * Azure 구독. 구독이 없으면 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 * [JDK(Java Development Kit) 1.8 이상](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
     * Ubuntu에서 `apt-get install default-jdk`를 실행하여 JDK를 설치합니다.
@@ -52,7 +57,7 @@ git clone https://github.com/Azure/azure-event-hubs.git
 cd azure-event-hubs/samples/kafka/akka
 ```
 
-## <a name="akka-streams-producer"></a>Akka Streams 생산자
+## <a name="run-akka-streams-producer"></a>Akka Streams 생산자 실행
 
 제공된 Akka Streams 생산자 예제를 사용하여 Event Hubs 서비스에 메시지를 보냅니다.
 
@@ -89,7 +94,7 @@ mvn exec:java -Dexec.mainClass="AkkaTestProducer"
 
 생산자에서 `test` 항목의 Kafka 지원 이벤트 허브에 이벤트를 보내기 시작하고 해당 이벤트를 표준 출력으로 출력합니다.
 
-## <a name="akka-streams-consumer"></a>Akka Streams 소비자
+## <a name="run-akka-streams-consumer"></a>Akka Streams 소비자 실행
 
 제공된 소비자 예제를 사용하여 Kafka 지원 이벤트 허브로부터 메시지를 받습니다.
 
@@ -132,6 +137,15 @@ Kafka 지원 이벤트 허브에 이벤트가 있는 경우(예: 생산자도 �
 Akka Streams에 대한 자세한 내용은 [Akka Streams Kafka 가이드](https://doc.akka.io/docs/akka-stream-kafka/current/home.html)를 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
+이 자습서에서는 프로토콜 클라이언트를 변경하거나 사용자 고유의 클러스터를 실행하지 않고 Akka Streams를 Kafka 지원 이벤트 허브에 연결하는 방법을 알아보았습니다. Kafka용 Azure Event Hubs는 [Apache Kafka 버전 1.0](https://kafka.apache.org/10/documentation.html)을 지원합니다. 이 자습서의 일부로 다음 작업을 수행했습니다. 
+
+> [!div class="checklist"]
+> * Event Hubs 네임스페이스 만들기
+> * 프로젝트 예제 복제
+> * Flink 생산자 실행 
+> * Flink 소비자 실행
+
+Event Hubs 및 Kafka용 Event Hubs에 대해 자세히 알아보려면 다음 항목을 참조하세요.  
 
 * [Event Hubs에 대해 알아봅니다](event-hubs-what-is-event-hubs.md).
 * [Kafka용 Event Hubs에 대해 알아보기](event-hubs-for-kafka-ecosystem-overview.md)

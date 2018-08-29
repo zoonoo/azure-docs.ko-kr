@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 08/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 5a373c397df09653395eea7996b19262aee75c7a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 537777d2e379959d427c025036652a87ecc4a1fe
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619052"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617161"
 ---
 # <a name="built-in-roles-in-azure"></a>Azure의 기본 제공 역할
 [RBAC(역할 기반 액세스 제어)](overview.md)에는 사용자, 그룹 및 서비스 주체를 할당할 수 있는 여러 기본 제공 역할 정의가 있습니다. 역할 할당은 Azure의 리소스에 대한 액세스를 제어하는 방법입니다. 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 [사용자 지정 역할](custom-roles.md)을 만들면 됩니다.
@@ -47,6 +47,8 @@ ms.locfileid: "39619052"
 | [Automation 작업 연산자](#automation-job-operator) | Automation Runbook을 사용하여 작업을 만들고 관리합니다. |
 | [Automation 운영자](#automation-operator) | 자동화 연산자는 작업을 시작, 중지, 일시 중단 및 다시 시작할 수 있습니다. |
 | [Automation Runbook 연산자](#automation-runbook-operator) | Runbook 작업을 만들려면 Runbook 속성을 읽어보세요. |
+| [Azure Kubernetes Service 클러스터 관리자 역할](#azure-kubernetes-service-cluster-admin-role) | 클러스터 관리자 자격 증명 작업을 나열합니다. |
+| [Azure Kubernetes Service 클러스터 사용자 역할](#azure-kubernetes-service-cluster-user-role) | 클러스터 사용자 자격 증명 작업을 나열합니다. |
 | [Azure Stack 등록 소유자](#azure-stack-registration-owner) | Azure Stack 등록을 관리할 수 있습니다. |
 | [Backup 기여자](#backup-contributor) | 백업 서비스를 관리할 수 있지만, 자격 증명 모음을 만들고 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
 | [Backup 운영자](#backup-operator) | 백업 제거를 제외한 백업 서비스를 관리하고 자격 증명 모음 만들고 다른 사람에게 액세스 권한을 부여할 수 있습니다. |
@@ -60,8 +62,7 @@ ms.locfileid: "39619052"
 | [클래식 네트워크 기여자](#classic-network-contributor) | 기본 네트워크를 관리할 수 있지만 액세스할 수는 없습니다. |
 | [클래식 Storage 계정 기여자](#classic-storage-account-contributor) | 클래식 Storage 계정을 관리할 수 있지만 여기에 액세스할 수는 없습니다. |
 | [클래식 저장소 계정 키 운영자 서비스 역할](#classic-storage-account-key-operator-service-role) | 클래식 저장소 계정 키 운영자가 클래식 저장소 계정에서 키를 나열하고 다시 생성할 수 있습니다. |
-| [Classic Virtual Machine 참가자](#classic-virtual-machine-contributor) | 클래식 가상 머신을 관리할 수 있지만 가상 머신이나 연결된 가상 네트워크 또는 저장소 계정에 액세스할 수는 없습니다. |
-| [ClearDB MySQL DB 참가자](#cleardb-mysql-db-contributor) | ClearDB MySQL 데이터베이스를 관리할 수 있지만 액세스할 수는 없습니다. |
+| [Classic Virtual Machine 참가자](#classic-virtual-machine-contributor) | 클래식 가상 머신을 관리할 수 있지만 가상 머신이나 연결된 가상 네트워크 또는 저장소 계정에 액세스할 수는 없습니다.|
 | [Cosmos DB 계정 독자 역할](#cosmos-db-account-reader-role) | Azure Cosmos DB 계정 데이터를 읽을 수 있음. Azure Cosmos DB 계정 관리는 [DocumentDB 계정 참가자](#documentdb-account-contributor)를 참조하세요. |
 | [Data Box 기여자](#data-box-contributor) | 다른 사람에게 액세스 권한을 부여하는 것을 제외한 모든 항목을 Data Box 서비스에서 관리할 수 있습니다. |
 | [Data Box 연산자](#data-box-operator) | 주문하기나 주문 세부 정보 편집 및 다른 사용자에게 액세스 권한 부여 외에 Data Box 서비스를 관리할 수 있습니다. |
@@ -84,6 +85,7 @@ ms.locfileid: "39619052"
 | [관리 그룹 참가자](#management-group-contributor) | 관리 그룹 참가자 역할 |
 | [관리 그룹 읽기 권한자](#management-group-reader) | 관리 그룹 읽기 권한자 역할 |
 | [Monitoring Contributor](#monitoring-contributor) | 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있음 [Azure Monitor에서의 역할, 권한 및 보안 시작](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles)도 참조하세요. |
+| [모니터링 메트릭 게시자](#monitoring-metrics-publisher) | Azure 리소스에 대한 게시 메트릭 사용 |
 | [Monitoring Reader](#monitoring-reader) | 모든 모니터링 데이터를 읽을 수 있음(메트릭, 로그 등) [Azure Monitor에서의 역할, 권한 및 보안 시작](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles)도 참조하세요. |
 | [네트워크 기여자](#network-contributor) | 네트워크를 관리할 수 있지만 액세스할 수는 없습니다. |
 | [NewRelic APM 계정 기여자](#new-relic-apm-account-contributor) | New Relic Application Performance Management 계정을 관리할 수 있지만 액세스할 수는 없습니다. |
@@ -274,14 +276,15 @@ ms.locfileid: "39619052"
 > | **설명** | Automation Runbook을 사용하여 작업을 만들고 관리합니다. |
 > | **Id** | 4fe576fe-1146-4730-92eb-48519fa6bf9f |
 > | **Actions** |  |
-> | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
+> | Microsoft.Authorization/*/read | 역할 및 역할 할당을 읽습니다. |
+> | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Hybrid Runbook Worker 리소스를 읽습니다. |
 > | Microsoft.Automation/automationAccounts/jobs/read | Azure Automation 작업을 가져옵니다. |
 > | Microsoft.Automation/automationAccounts/jobs/resume/action | Azure Automation 작업을 계속합니다. |
 > | Microsoft.Automation/automationAccounts/jobs/stop/action | Azure Automation 작업을 중지합니다. |
-> | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Hybrid Runbook Worker 리소스를 읽습니다. |
 > | Microsoft.Automation/automationAccounts/jobs/streams/read | Azure Automation 작업 스트림을 가져옵니다. |
 > | Microsoft.Automation/automationAccounts/jobs/suspend/action | Azure Automation 작업을 일시 중단합니다. |
 > | Microsoft.Automation/automationAccounts/jobs/write | Azure Automation 작업을 만듭니다. |
+> | Microsoft.Automation/automationAccounts/jobs/output/read | 작업의 출력을 가져옵니다. |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
 > | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
@@ -328,7 +331,25 @@ ms.locfileid: "39619052"
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
 > | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
-> | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
+> | Microsoft.Support/* | 지원 티켓을 만들고 관리합니다. |
+
+## <a name="azure-kubernetes-service-cluster-admin-role"></a>Azure Kubernetes Service 클러스터 관리자 역할
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | 클러스터 관리자 자격 증명 작업을 나열합니다. |
+> | **Id** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
+> | **Actions** |  |
+> | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | 관리되는 클러스터의 clusterAdmin 자격 증명을 나열합니다. |
+
+## <a name="azure-kubernetes-service-cluster-user-role"></a>Azure Kubernetes Service 클러스터 사용자 역할
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | 클러스터 사용자 자격 증명 작업을 나열합니다. |
+> | **Id** | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
+> | **Actions** |  |
+> | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | 관리되는 클러스터의 clusterUser 자격 증명을 나열합니다. |
 
 ## <a name="azure-stack-registration-owner"></a>Azure Stack 등록 소유자
 > [!div class="mx-tableFixed"]
@@ -503,11 +524,11 @@ ms.locfileid: "39619052"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
-## <a name="cdn-endpoint-contributor"></a>CD 끝점 참가자
+## <a name="cdn-endpoint-contributor"></a>CD 엔드포인트 참가자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | CDN 끝점을 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
+> | **설명** | CDN 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
 > | **Id** | 426e0c7f-0c7e-4658-b36f-ff54d6c29b45 |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
@@ -519,11 +540,11 @@ ms.locfileid: "39619052"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
-## <a name="cdn-endpoint-reader"></a>CDN 끝점 읽기 권한자
+## <a name="cdn-endpoint-reader"></a>CDN 엔드포인트 읽기 권한자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | CDN 끝점을 볼 수 있지만 변경할 수는 없습니다. |
+> | **설명** | CDN 엔드포인트를 볼 수 있지만 변경할 수는 없습니다. |
 > | **Id** | 871e35f6-b5c1-49cc-a043-bde969a0f2cd |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
@@ -539,7 +560,7 @@ ms.locfileid: "39619052"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | CDN 프로필과 해당 끝점을 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
+> | **설명** | CDN 프로필과 해당 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
 > | **Id** | ec156ff8-a8d1-4d15-830c-5b80698ca432 |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
@@ -555,7 +576,7 @@ ms.locfileid: "39619052"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | CDN 프로필과 해당 끝점을 볼 수 있지만 변경할 수는 없습니다. |
+> | **설명** | CDN 프로필과 해당 엔드포인트를 볼 수 있지만 변경할 수는 없습니다. |
 > | **Id** | 8f96442b-4075-438f-813d-ad51ab4019af |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
@@ -630,22 +651,7 @@ ms.locfileid: "39619052"
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
 > | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
-> | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
-
-## <a name="cleardb-mysql-db-contributor"></a>ClearDB MySQL DB 참가자
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **설명** | ClearDB MySQL 데이터베이스를 관리할 수 있지만 액세스할 수는 없습니다. |
-> | **Id** | 9106cda0-8a86-4e81-b686-29a22c54effe |
-> | **Actions** |  |
-> | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
-> | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
-> | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
-> | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
-> | successbricks.cleardb/databases/* | ClearDB MySQL 데이터베이스 만들기 및 관리 |
+> | Microsoft.Support/* | 지원 티켓을 만들고 관리합니다. |
 
 ## <a name="cosmos-db-account-reader-role"></a>Cosmos DB 계정 읽기 권한자 역할
 > [!div class="mx-tableFixed"]
@@ -858,7 +864,7 @@ ms.locfileid: "39619052"
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당을 읽습니다. |
 > | Microsoft.LabServices/labAccounts/*/read |  |
 > | Microsoft.LabServices/labAccounts/createLab/action | 랩 계정에서 랩을 만듭니다. |
-> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action | 랩 계정에서 구성된 각 크기 범주에 대한 지역별 가용성 정보 가져오기 |
+> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action | 랩 계정에서 구성된 각 크기 범주에 대한 지역별 가용성 정보를 가져옵니다. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
@@ -1041,6 +1047,19 @@ ms.locfileid: "39619052"
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | Microsoft.WorkloadMonitor/workloads/* |  |
 > | Microsoft.WorkloadMonitor/workloadInsights/* |  |
+
+## <a name="monitoring-metrics-publisher"></a>모니터링 메트릭 게시자
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | Azure 리소스에 대한 게시 메트릭 사용 |
+> | **Id** | 3913510d-42f4-4e42-8a64-420c390055eb |
+> | **Actions** |  |
+> | Microsoft.Insights/Register/Action | Microsoft Insights 공급자를 등록합니다. |
+> | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
+> | **DataActions** |  |
+> | Microsoft.Insights/Metrics/Write | 메트릭을 작성합니다. |
 
 ## <a name="monitoring-reader"></a>모니터링 읽기 권한자
 > [!div class="mx-tableFixed"]

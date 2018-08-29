@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 08/21/2018
 ms.author: carlrab
-ms.openlocfilehash: 6c43a52309a6f41d73ead19fc5f5b7df2f06d6f6
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 03e24679ea01dabb78a0d7028d49b624b2e3bf64
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308816"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246780"
 ---
 # <a name="sql-database-faq"></a>SQL Database FAQ
 
@@ -47,12 +47,11 @@ DTU(데이터베이스 트랜잭션 단위)는 CPU, 메모리, 읽기 및 쓰기
 ## <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>SQL Server에 대한 Azure 하이브리드 혜택에 이중 사용 권한이 있나요?
 마이그레이션이 원활하게 실행되도록 하려면 180일간의 이중 사용 권한 라이선스가 있어야 합니다. 180일 기간이 지난 후에는 SQL Server 라이선스는 클라우드의 SQL Database에만 사용할 수 있으며, 온-프레미스 및 클라우드에 대한 이중 사용 권한을 갖지 않습니다.
 
-
 ## <a name="how-does-azure-hybrid-benefit-for-sql-server-differ-from-license-mobility"></a>SQL Server에 대한 Azure 하이브리드 혜택은 라이선스 이동과 어떻게 다른가요?
 현재 SQL Server 고객에게는 타사 공유 서버에 라이선스를 다시 할당할 수 있는 Software Assurance에 대한 라이선스 이동 혜택을 제공합니다. 이 혜택은 Azure IaaS 및 AWS EC2에서 사용할 수 있습니다.
 SQL Server에 대한 Azure 하이브리드 혜택은 두 가지 주요 영역에서 라이선스 이동과 다릅니다.
 - 높은 수준으로 가상화된 워크로드를 Azure로 이동할 수 있는 경제적 이점을 제공합니다. SQL EE 고객은 높은 수준으로 가상화된 응용 프로그램을 위해 온-프레미스에서 소유하는 모든 코어에 대해 Azure의 범용 SKU에서 4개 코어를 얻을 수 있습니다. 라이선스 이동은 가상화된 워크로드를 클라우드로 이동하는 데 특별한 비용상의 혜택을 허용하지 않습니다.
-- Azure SQL Database 관리되는 인스턴스에서 SQL Server 온-프레미스와 항상 호환되는 PaaS 대상을 제공합니다.
+- Azure SQL Database Managed Instance에서 SQL Server 온-프레미스와 항상 호환되는 PaaS 대상을 제공합니다.
 
 ## <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>SQL Server에 대한 Azure 하이브리드 혜택의 특정 권한은 무엇인가요?
 SQL Server에 대한 Azure 하이브리드 혜택과 관련하여 SQL Database 고객이 보유하는 권한은 다음과 같습니다.
@@ -63,8 +62,9 @@ SQL Server에 대한 Azure 하이브리드 혜택과 관련하여 SQL Database �
 |SA가 있는 SQL Server Standard Edition 핵심 고객|<li>범용 SKU에 대해서만 기본 요금을 지불할 수 있습니다.</li><br><li>온-프레미스의 1개 코어 = 범용 SKU의 1개 코어</li>|
 |||
 
-## <a name="is-the-vcore-based-model-available-to-sql-database-managed-instance"></a>vCore 기반 모델은 SQL Database 관리되는 인스턴스에서 사용할 수 있나요?
-[관리되는 인스턴스](sql-database-managed-instance.md)는 vCore 기반 모델에서만 사용할 수 있습니다. 자세한 내용은 [SQL Database 가격 페이지](https://azure.microsoft.com/pricing/details/sql-database/managed/)도 참조하세요. 
+## <a name="is-the-vcore-based-model-available-to-sql-database-managed-instance"></a>vCore 기반 모델은 SQL Database Managed Instance에서 사용할 수 있나요?
+
+  [Managed Instance](sql-database-managed-instance.md)는 vCore 기반 모델에서만 사용할 수 있습니다. 자세한 내용은 [SQL Database 가격 페이지](https://azure.microsoft.com/pricing/details/sql-database/managed/)도 참조하세요. 
 
 ## <a name="does-the-cost-of-compute-and-storage-depend-on-the-service-tier-that-i-choose"></a>내가 선택한 서비스 계층에 따라 계산 및 저장소 비용이 달라지나요?
 계산 비용은 응용 프로그램에 프로비전되는 총 계산 용량을 반영합니다. 중요 비즈니스 서비스 계층에서는 3개 이상의 Always ON 복제본이 자동으로 할당됩니다. 이러한 추가 계산 리소스 할당을 반영하기 위해 중요 비즈니스 계층에서 vCore 가격은 약 2.7배 더 높습니다. 같은 이유로, 중요 비즈니스 계층에서 GB당 저장소 가격이 더 높을수록 SSD 저장소의 높은 IO 및 짧은 대기 시간이 반영됩니다. 이와 동시에 두 경우 모두에서 표준 저장소 클래스를 사용하므로 백업 저장소 비용이 다릅니다.
@@ -109,16 +109,16 @@ vCore 모델은 프로비전된 계산 및 저장소의 용량을 독립적으�
 ## <a name="how-often-can-i-adjust-the-resources-per-pool"></a>풀당 리소스는 얼마나 자주 조정할 수 있나요?
 원하는 횟수만큼 조정할 수 있습니다. [탄력적 풀 관리](sql-database-elastic-pool.md)를 참조하세요.
 
-## <a name="how-long-does-it-take-to-change-the-service-tier-or-performance-level-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>단일 데이터베이스의 서비스 계층 또는 성능 수준을 변경하거나 탄력적 풀 내부 및 외부로 데이터베이스를 이동하는 데는 얼마나 시간이 소요되나요?
+## <a name="how-long-does-it-take-to-change-the-service-tier-or-performance-level-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>단일 데이터베이스의 서비스 계층 또는 성능 수준을 변경하거나 탄력적 풀 내부 및 외부로 데이터베이스를 이동하는 데 시간이 얼마나 소요됩니까?
 데이터베이스의 서비스 계층을 변경하고 풀 내부 및 외부로 이동하려면 플랫폼에서 백그라운드 작업으로 데이터베이스를 복사해야 합니다. 서비스 계층을 변경하는 데는 데이터베이스 크기에 따라 몇 분에서 몇 시간까지 소요될 수 있습니다. 두 경우 모두 데이터베이스는 온라인 상태이고 이동 중에도 사용할 수 있습니다. 단일 데이터베이스 변경에 대한 자세한 내용은 [데이터베이스의 서비스 계층 변경](sql-database-service-tiers-dtu.md)을 참조하세요. 
 
-## <a name="when-should-i-use-a-single-database-vs-elastic-databases"></a>탄력적 데이터베이스와 단일 데이터베이스는 언제 사용해야 하나요?
+## <a name="when-should-i-use-a-single-database-vs-elastic-databases"></a>탄력적 데이터베이스와 단일 데이터베이스는 언제 사용해야 합니까?
 일반적으로 탄력적 풀은 고객 또는 테넌트당 하나의 데이터베이스가 있는 전형적인 [SaaS(Software-as-a-Service) 응용 프로그램 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 위해 설계되었습니다. 개별 데이터베이스를 만들고 각 데이터베이스의 가변적인 최대 수요를 충족하기 위해 과도하게 프로비저닝하는 것은 대체로 비용 효율적이지 않습니다. 풀을 사용하여 사용자는 풀의 집단 성능을 관리하고 데이터베이스는 자동으로 확장 및 축소됩니다. Azure의 지능형 엔진이 사용 패턴이 타당하다고 판단되는 경우 데이터베이스에 대한 풀을 추천합니다. 자세한 내용은 [탄력적 풀 지침](sql-database-elastic-pool.md)을 참조하세요.
 
 ## <a name="how-does-the-usage-of-sql-database-using-the-dtu-based-purchasing-model-show-up-on-my-bill"></a>DTU 기반 구매 모델을 사용하는 SQL Database 사용량은 청구서에서 어떻게 표시되나요?
 SQL Database는 [구매 모델](sql-database-service-tiers-dtu.md)에 따라 예측 가능한 시간당 요금으로 청구됩니다. 실제 사용량은 시간별로 계산 및 비례 배분되므로 청구서에 시간의 일부가 표시될 수 있습니다. 예를 들어 데이터베이스가 한 달에 12시간 동안 있었다면 청구서에는 0.5일의 사용량이 표시됩니다. 
 
-## <a name="what-if-a-single-database-is-active-for-less-than-an-hour-or-uses-a-higher-service-tier-for-less-than-an-hour"></a>단일 데이터베이스가 1시간 미만 동안 활성화되거나 더 높은 서비스 계층을 1시간 미만 사용하는 경우 어떻게 되나요?
+## <a name="what-if-a-single-database-is-active-for-less-than-an-hour-or-uses-a-higher-service-tier-for-less-than-an-hour"></a>단일 데이터베이스가 1시간 미만 동안 활성화되거나 더 높은 서비스 계층을 1시간 미만 사용하는 경우 어떻게 됩니까?
 사용량이나 데이터베이스가 한 시간 미만 동안 활성화되었는지 여부에 관계없이, 그 시간에 적용된 최고 서비스 계층 + 성능 수준을 사용하여 데이터베이스가 있었던 각 시간에 대해 요금이 청구됩니다. 예를 들어 단일 데이터베이스를 만들고 5분 후 삭제하더라도 청구서에는 데이터베이스 1시간 사용에 대한 요금이 반영됩니다. 
 
 예제:
@@ -152,8 +152,8 @@ vCore 기반 모델에서 서비스 요금은 서비스 계층, 프로비전된 
 예: 
 - SQL 데이터베이스가 한 달에 12시간 동안 존재하는 경우 청구서에는 vCore에 대해 12시간 사용량이 표시됩니다. SQL 데이터베이스에서 100GB의 저장소를 추가로 프로비전한 경우, 청구서에는 저장소 사용량이 시간당 비례 배분한 GB/월 및 매월 사용된 IO 수의 단위로 표시됩니다.
 - SQL 데이터베이스가 1시간 미만 동안 활성 상태인 경우, 사용량에 관계없이 또는 데이터베이스가 1시간 미만 동안 활성 상태였는지 여부에 관계없이 선택한 가장 높은 서비스 계층, 프로비전된 저장소 및 해당 시간 동안 적용된 IO를 사용하여 존재한 데이터베이스에 대한 시간당 요금이 청구됩니다.
-- 관리되는 인스턴스를 만들고 5분 후에 삭제한 경우 데이터베이스 시간당 요금이 청구됩니다.
-- 8개 vCore를 사용하여 범용 계층에서 관리되는 인스턴스를 만든 다음, 즉시 16개 vCore로 업그레이드하는 경우 처음 1시간 사용에 대해 16개 vCore 요금이 청구됩니다.
+- Managed Instance를 만들고 5분 후에 삭제한 경우 데이터베이스 시간당 요금이 청구됩니다.
+- 8개 vCore를 사용하여 범용 계층에서 Managed Instance를 만든 다음, 즉시 16개 vCore로 업그레이드하는 경우 처음 1시간 사용에 대해 16개 vCore 요금이 청구됩니다.
 
 > [!NOTE]
 > 2018년 6월 30일까지로 제한된 기간 동안 백업 요금 및 IO 요금은 무료입니다.
@@ -168,7 +168,10 @@ vCore 기반 모델에서 서비스 요금은 서비스 계층, 프로비전된 
 [Azure Portal](https://portal.azure.com)에서 **SQL Server**를 클릭하고, 목록에서 서버를 선택한 다음, **암호 재설정**을 클릭합니다.
 
 ## <a name="how-do-i-manage-databases-and-logins"></a>데이터베이스 및 로그인을 관리하려면 어떻게 해야 하나요?
-[데이터베이스 및 로그인 관리](sql-database-manage-logins.md)를 참조하세요.
+[데이터베이스 및 로그인 관리](sql-database-manage-logins.md)를 참조하세요. 
+
+> [!NOTE]
+> 서버 관리자 계정의 이름을 만든 후에는 변경할 수 없습니다.
 
 ## <a name="how-do-i-make-sure-only-authorized-ip-addresses-are-allowed-to-access-a-server"></a>권한이 부여된 IP 주소만 서버에 액세스할 수 있도록 허용하려면 어떻게 해야 하나요?
 [방법: SQL Database에서 방화벽 설정 구성](sql-database-configure-firewall-settings.md)을 참조하세요.

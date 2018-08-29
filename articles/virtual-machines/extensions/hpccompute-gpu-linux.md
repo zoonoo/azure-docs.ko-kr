@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/03/2018
+ms.date: 08/20/2018
 ms.author: roiyz
-ms.openlocfilehash: d95a1b510411f913a05762494dd48d6a5b6f84fd
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 307bdb5fa7a5d14a77c71d0ea40634a55d8507b6
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413674"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144365"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Linux용 NVIDIA GPU 드라이버 확장
 
@@ -63,7 +63,8 @@ NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 가�
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.1",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -77,7 +78,7 @@ NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 가�
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
 | 형식 | NvidiaGpuDriverLinux | string |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 1.1 | int |
 
 
 ## <a name="deployment"></a>배포
@@ -103,7 +104,8 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.1",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -120,7 +122,7 @@ Set-AzureRmVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverLinux" `
     -ExtensionType "NvidiaGpuDriverLinux" `
-    -TypeHandlerVersion 1.0 `
+    -TypeHandlerVersion 1.1 `
     -SettingString '{ `
     }'
 ```
@@ -133,7 +135,7 @@ az vm extension set `
   --vm-name myVM `
   --name NvidiaGpuDriverLinux `
   --publisher Microsoft.HpcCompute `
-  --version 1.0 `
+  --version 1.1 `
   --settings '{ `
   }'
 ```
@@ -166,6 +168,8 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 | 1 | 확장의 사용이 잘못되었습니다. | 실행 출력 로그와 관련된 지원을 문의하세요. |
 | 10 | Hyper-V 및 Azure에 대한 Linux Integration Services를 사용하거나 설치할 수 없습니다. | lspci의 출력을 확인합니다. |
 | 11 | NVIDIA GPU는 이 VM 크기에서 찾을 수 없습니다. | [지원되는 VM 크기 및 OS](../linux/n-series-driver-setup.md)를 사용합니다. |
+| 12 | 지원되지 않는 이미지 제품 |
+| 13 | 지원되지 않는 VM 크기 | 배포하려면 N 시리즈 VM 사용 |
 | 14 | 작업 실패 | |
 | 21 | Ubuntu에 대한 업데이트에 실패했습니다. | "sudo apt-get update"의 출력을 검사합니다. |
 

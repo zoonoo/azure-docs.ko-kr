@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 22751d7ab38717fefdebe107e7a7d6fc10dda4c4
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 39ae4573b4c447253c4c90a3845a087434dcd77a
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39326193"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145967"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect에 대한 필수 조건
 이 항목에서는 Azure AD Connect에 대한 필수 조건 및 하드웨어 요구 사항을 설명합니다.
@@ -33,7 +33,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
   * [Azure Portal](https://portal.azure.com)을 사용할 수도 있습니다. 이 포털에는 Azure AD 라이선스가 필요하지 않습니다.
 * [도메인을 추가하고 확인합니다](../active-directory-domains-add-azure-portal.md) . 예를 들어, 사용자가 contoso.com을 사용하려는 경우 해당 도메인을 확인하고 contoso.onmicrosoft.com 기본 도메인을 사용하지 않도록 합니다.
 * Azure AD 테넌트는 기본적으로 5만 개의 개체를 허용합니다. 도메인을 확인하는 경우, 제한은 30만 개의 개체로 늘어납니다. Azure AD에서 더 많은 개체가 필요한 경우 제한을 더 증가시키려면 지원 사례를 열어야 합니다. 개체가 50만 개 이상 필요한 경우 Office 365, Azure AD Basic, Azure AD Premium 또는 Enterprise Mobility 및 Security와 같은 라이선스가 필요합니다.
-* ADSyncPrep은 Azure AD Connect에 대한 Active Directory 환경을 준비하는 데 사용되는 기능을 제공하는 PowerShell 스크립트 모듈입니다.  ADSyncPrep에는 [Azure AD Microsoft Online v1.1 PowerShell 모듈](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0)이 필요합니다.  버전 2는 작동하지 않습니다.  `Install-Module` cmdlet을 사용하여 모듈을 설치할 수 있습니다.  자세한 내용은 제공된 링크를 참조하세요.
+* ADSyncPrep은 Azure AD Connect에 대한 Active Directory 환경을 준비하는 데 사용되는 기능을 제공하는 PowerShell 스크립트 모듈입니다.  ADSyncPrep에는 [Azure AD Microsoft Online v1.1 PowerShell 모듈](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0)이 필요합니다.  버전 2는 작동하지 않습니다. `Install-Module` cmdlet을 사용하여 모듈을 설치할 수 있습니다.  자세한 내용은 제공된 링크를 참조하세요.
 
 ### <a name="prepare-your-on-premises-data"></a>온-프레미스 데이터 준비
 * Azure AD 및 Office 365로 동기화하기 전에 [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac)를 사용하여 디렉터리의 중복 및 서식 문제 등의 오류가 있는지 식별합니다.
@@ -73,7 +73,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 * 사용자 지정 설정 설치 경로를 사용하는 경우 [Active Directory의 계정입니다](active-directory-aadconnect-accounts-permissions.md).
 
 ### <a name="connectivity"></a>연결
-* Azure AD Connect 서버는 인트라넷 및 인터넷에 대해 DNS 확인을 해야 합니다. DNS 서버는 온-프레미스 Active Directory와 Azure AD 끝점 모두에 대해 이름을 확인할 수 있어야 합니다.
+* Azure AD Connect 서버는 인트라넷 및 인터넷에 대해 DNS 확인을 해야 합니다. DNS 서버는 온-프레미스 Active Directory와 Azure AD 엔드포인트 모두에 대해 이름을 확인할 수 있어야 합니다.
 * 인트라넷에 방화벽이 있고 Azure AD Connect 서버와 도메인 컨트롤러 사이에서 포트를 열어야 하는 경우 자세한 내용은 [Azure AD Connect 포트](active-directory-aadconnect-ports.md) 를 참조하세요.
 * 프록시 또는 방화벽에 액세스할 수 있는 URL을 제한하는 경우 [Office 365 URL 및 IP 주소 범위 ](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) 에서 설명한 URL이 열려야 합니다.
   * 독일의 Microsoft Cloud 또는 Microsoft Azure Government 클라우드를 사용하는 경우 URL은 [Azure AD Connect 동기화 서비스 인스턴스가 고려 사항](active-directory-aadconnect-instances.md) 을 참조하세요.

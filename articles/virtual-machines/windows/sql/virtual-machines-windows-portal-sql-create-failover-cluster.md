@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: a4b63c9d184f58fe13c1271f9a425919a42fd897
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 8e107c1721d5623239a694eba39b32e8a2a6089d
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216752"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42145895"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Azure Virtual Machines에 SQL Server 장애 조치(Failover) 클러스터 인스턴스 구성
 
@@ -481,7 +481,13 @@ FCI의 장애 조치(failover)를 테스트하여 클러스터 기능의 유효�
 >필요한 경우 [SQL Server Management Studio를 다운로드](http://msdn.microsoft.com/library/mt238290.aspx)할 수 있습니다.
 
 ## <a name="limitations"></a>제한 사항
-Azure 가상 머신에서 RPC 포트는 부하 분산 장치에서 지원되지 않으므로 Microsoft DTC(Distributed Transaction Coordinator)는 FCI에서 지원되지 않습니다.
+
+Azure Virtual Machines는 가상 머신 CSV(클러스터형 공유 볼륨)의 저장소와 [표준 Load Balancer](../../../load-balancer/load-balancer-standard-overview.md)가 있는 Windows Server 2019에서 MSDTC(Microsoft Distributed Transaction Coordinator)를 지원합니다.
+
+Azure Virtual Machines의 Windows Server 2016 및 이전 버전에서는 다음과 같은 이유로 MSDTC가 지원되지 않습니다.
+
+- 클러스터형 MSDTC 리소스는 공유 저장소를 사용하도록 구성할 수 없습니다. Windows Server 2016에서 MSDTC 리소스를 만드는 경우 공유 저장소가 있더라도 사용 가능한 공유 저장소가 표시되지 않습니다. 이 문제는 Windows Server 2019에서 수정되었습니다.
+- 기본 Load Balancer는 RPC 포트를 처리하지 않습니다.
 
 ## <a name="see-also"></a>참고 항목
 

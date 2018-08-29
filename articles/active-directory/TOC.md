@@ -128,31 +128,6 @@
 #### [셀프 서비스 암호 재설정 등록](user-help/active-directory-passwords-reset-register.md)
 
 
-## 장치 관리
-### [개요](devices/overview.md)
-
-### 빠른 시작
-#### [Azure AD 등록 Windows 10 장치 설정](user-help/device-management-azuread-registered-devices-windows10-setup.md)
-#### [Azure AD 가입 장치 설정](user-help/device-management-azuread-joined-devices-setup.md)
-
-### 자습서
-#### [관리되는 도메인용 하이브리드 AD 조인 구성](devices/hybrid-azuread-join-managed-domains.md)
-#### [페더레이션된 도메인용 하이브리드 AD 조인 구성](devices/hybrid-azuread-join-federated-domains.md)
-#### [수동으로 하이브리드 Azure AD 조인 구성](devices/hybrid-azuread-join-manual-steps.md)
-#### [Windows 10 첫 실행 경험 중 Azure AD 조인 구성](devices/azuread-joined-devices-frx.md)
-
-### 방법 가이드
-#### [Azure AD 조인 계획](devices/azureadjoin-plan.md)
-#### [하이브리드 Azure AD 조인 구현 계획](devices/hybrid-azuread-join-plan.md)
-#### [장치의 하이브리드 Azure AD 조인 제어](devices/hybrid-azuread-join-control.md)
-#### [Azure AD 가입 장치에 로컬 관리자 할당](devices/assign-local-admin.md)
-#### [하이브리드 Azure AD 조인 Windows 현재 장치 문제 해결](devices/troubleshoot-hybrid-join-windows-current.md)
-#### [하이브리드 Azure AD 조인 레거시 Windows 장치 문제 해결](devices/troubleshoot-hybrid-join-windows-legacy.md)
-
-### 개념
-#### [Azure Portal을 사용하여 장치 관리](devices/device-management-azure-portal.md)
-#### [FAQ](devices/faq.md)
-
 ## 앱 관리
 ### [개요](manage-apps/what-is-application-management.md)
 ### [시작](manage-apps/plan-an-application-integration.md)

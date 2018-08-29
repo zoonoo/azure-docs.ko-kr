@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 0bd14e85496da8c6c12ecb98b7c8f1730a16e640
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4a5a0634e371e4a762b3877b0c3e45682924a27d
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524569"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145020"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Blob Storage 바인딩
 
@@ -84,6 +84,7 @@ Event Grid 외에 BLOB 처리를 위한 다른 방법은 Queue 저장소 트리�
 * [C#](#trigger---c-example)
 * [C# 스크립트(.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>트리거 - C# 예제
 
@@ -181,6 +182,45 @@ module.exports = function(context) {
     context.done();
 };
 ```
+
+### <a name="trigger---java-example"></a>트리거 - Java 예제
+
+다음 예제에서는 바인딩을 사용하는 *function.json* 파일 및 [Java 코드](functions-reference-java.md)의 Blob 트리거 바인딩을 보여 줍니다. 함수는 `myblob` 컨테이너에서 Blob을 추가하거나 업데이트할 때 로그를 씁니다.
+
+*function.json* 파일은 다음과 같습니다.
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            "name": "file",
+            "type": "blobTrigger",
+            "direction": "in",
+            "path": "myblob/{name}",
+            "connection":"MyStorageAccountAppSetting"
+        }
+    ]
+}
+```
+
+Java 코드는 다음과 같습니다.
+
+```java
+ @FunctionName("blobprocessor")
+ public void run(
+    @BlobTrigger(name = "file",
+                  dataType = "binary",
+                  path = "myblob/filepath",
+                  connection = "myconnvarname") byte[] content,
+    @BindingName("name") String filename,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info("Name: " + name + " Size: " + content.length + " bytes");
+ }
+
+```
+
 
 ## <a name="trigger---attributes"></a>트리거 - 특성
 
@@ -391,6 +431,7 @@ Blob Storage 입력 바인딩을 사용하여 Blob을 읽습니다.
 * [C#](#input---c-example)
 * [C# 스크립트(.csx)](#input---c-script-example)
 * [JavaScript](#input---javascript-example)
+* [Java](#input---java-example)
 
 ### <a name="input---c-example"></a>입력 - C# 예제
 
@@ -505,6 +546,23 @@ module.exports = function(context) {
 };
 ```
 
+### <a name="input---java-example"></a>입력 - Java 예제
+
+다음 예제는 하나의 큐 트리거와 입력 Blob 바인딩을 사용하는 Java 함수입니다. 큐 메시지에는 Blob의 이름이 포함되고 함수는 Blob의 크기를 기록합니다.
+
+```java
+@FunctionName("getBlobSize")
+@StorageAccount("AzureWebJobsStorage")
+public void blobSize(@QueueTrigger(name = "filename",  queueName = "myqueue-items") String filename,
+                    @BlobInput(name = "file", dataType = "binary", path = "samples-workitems/{queueTrigger") byte[] content,
+       final ExecutionContext context) {
+      context.getLogger().info("The size of \"" + filename + "\" is: " + content.length + " bytes");
+ }
+ ```
+
+  [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Blob에서 제공되는 매개 변수에 대한 `@BlobInput` 주석을 사용합니다.  `Optional<T>`을 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다. 
+
+
 ## <a name="input---attributes"></a>입력 - 특성
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)를 사용합니다.
@@ -587,6 +645,7 @@ Blob Storage 출력 바인딩을 사용하여 Blob을 작성합니다.
 * [C#](#output---c-example)
 * [C# 스크립트(.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
+* [Java](#output---java-example)
 
 ### <a name="output---c-example"></a>출력 - C# 예제
 
@@ -718,6 +777,24 @@ module.exports = function(context) {
     context.done();
 };
 ```
+
+### <a name="output---java-example"></a>출력 - Java 예제
+
+다음 예제에서는 Java 함수의 Blob 입력 및 출력 바인딩을 보여 줍니다. 함수는 텍스트 Blob의 복사본을 만듭니다. 함수는 복사할 Blob의 이름을 포함하는 큐 메시지에 의해 트리거됩니다. 새 Blob의 이름은 {originalblobname}-Copy입니다.
+
+```java
+@FunctionName("copyTextBlob")
+@StorageAccount("AzureWebJobsStorage")
+@BlobOutput(name = "target", path = "samples-workitems/{queueTrigger}-Copy")
+public String blobCopy(
+    @QueueTrigger(name = "filename", queueName = "myqueue-items") String filename,
+    @BlobInput(name = "source", path = "samples-workitems/{queueTrigger}") String content ) {
+      return content;
+ }
+ ```
+
+ [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Blob 저장소의 개체에 기록될 함수 매개 변수에 대한 `@BlobOutput` 주석을 사용합니다.  매개 변수 형식은 `OutputBinding<T>`이어야 합니다. 여기서 T는 POJO의 원시 Java 형식입니다.
+
 
 ## <a name="output---attributes"></a>출력 - 특성
 

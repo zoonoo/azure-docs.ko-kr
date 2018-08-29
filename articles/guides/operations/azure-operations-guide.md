@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 06/12/2017
+ms.date: 08/21/2018
 ms.author: mibender
-ms.openlocfilehash: 86f11e7c2d5503a0c474a6c15501a6b872c564e3
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 286b9b133bfbe633ad1fe69f66aa11b9e4c4fc1d
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072337"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42145903"
 ---
-# <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>클라우드 컴퓨팅 및 Microsoft Azure 소개
+# <a name="get-started-for-azure-it-operators"></a>Azure IT 운영자를 위한 시작하기
 
 이 가이드에서는 Microsoft Azure 인프라의 배포 및 관리와 관련된 핵심 개념을 소개합니다. 클라우드 컴퓨팅 또는 Azure 자체를 처음 사용하는 경우 이 가이드를 통해 개념, 배포 및 관리 세부 정보를 빠르게 익힐 수 있습니다. 이 가이드의 여러 섹션에서는 가상 머신 배포 등의 작업을 설명한 후 심층 기술 정보에 대한 링크를 제공합니다.
 
@@ -53,27 +53,33 @@ Azure는 계산 요구 사항의 증가에 따라 신속하게 확장할 수 있
 
 사용 가능한 Azure 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요.
 
-### <a name="cloud-computing-is-classified-into-three-categories-saas-paas-and-iaas"></a>클라우드 컴퓨팅은 SaaS, PaaS 및 IaaS의 세 가지 범주로 분류됩니다.
+### <a name="cloud-computing-model"></a>클라우드 컴퓨팅 모델
 
-#### <a name="saas-software-as-a-service"></a>SaaS: Software as a service
-
-SaaS는 중앙에서 호스트되고 관리되는 소프트웨어입니다. 일반적으로 다중 테넌트 아키텍처를 기반으로 하고 단일 버전의 응용 프로그램이 모든 고객에게 사용됩니다. 모든 위치에서 최상의 성능을 보장하기 위해 여러 인스턴스로 확장할 수 있습니다. SaaS 소프트웨어는 일반적으로 월간 또는 연간 구독을 통해 사용이 허가됩니다.
-
-Microsoft Office 365는 SaaS 제공 사항의 좋은 예입니다. 구독자는 월간 또는 연간 구독료를 지불하고 Microsoft Exchange, Microsoft OneDrive 및 나머지 Microsoft Office 제품군을 서비스로 받습니다. 구독자는 항상 최신 버전을 사용할 수 있으며 Exchange Server는 자동으로 관리됩니다. 이렇게 하면 매년 Office를 설치 및 업그레이드하는 것에 비해 필요한 비용과 노력이 줄어듭니다.
-
-#### <a name="paas-platform-as-a-service"></a>PaaS: Platform as a service
-
-PaaS를 사용하면 클라우드 서비스 공급업체가 제공하는 환경에 응용 프로그램을 배포할 수 있습니다. 모든 인프라 관리는 공급업체에서 수행하므로 응용 프로그램 개발에 집중할 수 있습니다.
-
-Azure는 Azure App Service 및 Azure Cloud Services(웹 및 작업자 역할)의 Web Apps 기능을 포함한 여러 가지 PaaS 계산 제공 사항을 제공합니다. 두 경우 모두 개발자는 지원에 대한 세부적인 지식이 없어도 여러 가지 방법으로 응용 프로그램을 배포할 수 있습니다. 개발자는 VM(가상 머신)을 만들거나 RDP(원격 데스크톱 프로토콜)를 사용하여 각 응용 프로그램에 로그인하거나 응용 프로그램을 설치할 필요가 없습니다. 단추 하나만 누르면(또는 가까이 가면) Microsoft에서 제공하는 도구가 VM을 프로비저닝한 다음 VM에 응용 프로그램을 배포 및 설치합니다.
+Azure는 고객에게 제공되는 서비스 범주를 기준으로 클라우드 컴퓨팅 모델을 사용합니다. 세 가지 서비스 범주에는 IaaS(Infrastructure as a Service), PaaS(Platform as a Service) 및 SaaS(Software as a Service)가 포함됩니다. 공급업체는 이러한 각 범주의 컴퓨팅 스택 구성 요소에 대한 책임 일부 또는 전체를 공유합니다. 클라우드 컴퓨팅에 대한 각 범주를 살펴보겠습니다.
+![클라우드 컴퓨팅 스택 비교](./media/cloud-computing-comparison.png)
 
 #### <a name="iaas-infrastructure-as-a-service"></a>IaaS: 서비스 제공 인프라
 
-IaaS 클라우드 공급업체는 모든 물리적 계산 리소스와 컴퓨터 가상화를 구현하는 데 필요한 소프트웨어를 실행 및 관리합니다. 이 서비스의 고객은 이러한 호스트된 데이터 센터에 가상 머신을 배포합니다. 가상 머신은 오프사이트 데이터 센터에 있지만 IaaS 고객이 가상 머신의 구성 및 관리를 제어할 수 있습니다.
+IaaS 클라우드 공급업체는 모든 물리적 계산 리소스와 컴퓨터 가상화를 구현하는 데 필요한 소프트웨어를 실행 및 관리합니다. 이 서비스의 고객은 이러한 호스트된 데이터 센터에 가상 머신을 배포합니다. 가상 머신은 오프사이트 데이터 센터에 있지만 IaaS 고객이 운영 체제의 구성 및 관리를 제어하고, 기본 인프라 작업은 클라우드 공급업체에 맡길 수 있습니다.
 
 Azure에는 가상 머신, 가상 머신 확장 집합 및 관련 네트워킹 인프라를 포함한 여러 가지 IaaS 솔루션이 포함되어 있습니다. Virtual Machines는 "리프트 앤 시프트(lift and shift)" 마이그레이션 모델을 사용할 수 있기 때문에 서비스를 Azure로 처음 마이그레이션할 때 많이 사용하는 방법입니다. 데이터 센터에서 현재 서비스를 실행 중인 인프라 등의 VM을 구성한 다음 소프트웨어를 새 VM으로 마이그레이션할 수 있습니다. 다른 서비스나 저장소에 대한 URL과 같은 구성 업데이트가 필요할 수도 있지만 이러한 방식으로 많은 응용 프로그램을 마이그레이션할 수 있습니다.
 
 가상 머신 확장 집합은 Azure Virtual Machines 위에 빌드되어 동일한 VM의 클러스터를 손쉽게 배포할 수 있습니다. 또한 가상 머신 확장 집합은 자동 확장을 지원하므로 필요할 때 새 VM을 자동으로 배포할 수 있습니다. 따라서 가상 머신 확장 집합은 Azure Service Fabric 및 Azure Container Service와 같은 상위 수준의 마이크로 서비스 계산 클러스터를 호스트하는 이상적인 플랫폼입니다.
+
+#### <a name="paas-platform-as-a-service"></a>PaaS: Platform as a service
+
+PaaS를 사용하면 클라우드 서비스 공급업체가 제공하는 환경에 응용 프로그램을 배포할 수 있습니다. 모든 인프라 관리는 공급업체에서 수행하므로 응용 프로그램 개발 및 데이터 관리에 집중할 수 있습니다.
+
+Azure는 Azure App Service 및 Azure Cloud Services(웹 및 작업자 역할)의 Web Apps 기능을 포함한 여러 가지 PaaS 계산 제공 사항을 제공합니다. 두 경우 모두 개발자는 지원에 대한 세부적인 지식이 없어도 여러 가지 방법으로 응용 프로그램을 배포할 수 있습니다. 개발자는 VM(가상 머신)을 만들거나 RDP(원격 데스크톱 프로토콜)를 사용하여 각 응용 프로그램에 로그인하거나 응용 프로그램을 설치할 필요가 없습니다. 단추 하나만 누르면(또는 가까이 가면) Microsoft에서 제공하는 도구가 VM을 프로비저닝한 다음 VM에 응용 프로그램을 배포 및 설치합니다.
+
+#### <a name="saas-software-as-a-service"></a>SaaS: Software as a service
+
+SaaS는 중앙에서 호스트되고 관리되는 소프트웨어입니다. 일반적으로 다중 테넌트 아키텍처를 기반으로 하고 단일 버전의 응용 프로그램이 모든 고객에게 사용됩니다. 모든 위치에서 최상의 성능을 보장하기 위해 여러 인스턴스로 확장할 수 있습니다. SaaS 소프트웨어는 일반적으로 월간 또는 연간 구독을 통해 사용이 허가됩니다. SaaS 소프트웨어는 일반적으로 월간 또는 연간 구독을 통해 사용이 허가됩니다. SaaS 소프트웨어 공급업체가 소프트웨어 스택의 모든 구성 요소를 담당하므로 사용자는 제공되는 서비스만 관리하면 됩니다.
+
+Microsoft Office 365는 SaaS 제공 사항의 좋은 예입니다. 구독자는 월간 또는 연간 구독료를 지불하고 Microsoft Exchange, Microsoft OneDrive 및 나머지 Microsoft Office 제품군을 서비스로 받습니다. 구독자는 항상 최신 버전을 사용할 수 있으며 Exchange Server는 자동으로 관리됩니다. 이렇게 하면 매년 Office를 설치 및 업그레이드하는 것에 비해 필요한 비용과 노력이 줄어듭니다.
+
+
+
 
 ## <a name="azure-services"></a>Azure 서비스
 
@@ -175,6 +181,9 @@ Azure 명령줄 인터페이스는 명령줄에서 Azure 리소스를 만들고 
 
 **REST API** Azure는 Azure Portal UI를 지원하는 REST API 집합을 기반으로 합니다. 또한 대부분의 REST API는 인터넷 사용 장치에서 Azure 리소스와 앱을 프로그래밍 방식으로 프로비저닝하고 관리할 수 있도록 지원됩니다. 자세한 내용은 [Azure REST SDK 참조](https://docs.microsoft.com/rest/api/index)를 참조하세요.
 
+### <a name="azure-cloud-shell"></a>Azure Cloud Shell
+
+관리자는 Azure Cloud Shell이라는 브라우저에서 액세스할 수 있는 환경을 통해 Azure PowerShell 및 Azure CLI에 액세스할 수 있습니다. 이 대화형 인터페이스는 Linux 및 Windows 관리자가 Bash 또는 PowerShell 중에서 선택한 명령줄 인터페이스를 사용할 수 있도록 하는 유연한 도구를 제공합니다. Azure Cloud Shell은 포털을 통해, [shell.azure.com](https://shell.azure.com)에서 독립 실행형 웹 인터페이스로서 또는 여러 다른 액세스 지점을 통해 액세스할 수 있습니다. 자세한 내용은 [Azure Cloud Shell 개요](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)를 참조하세요.
 ## <a name="azure-subscriptions"></a>Azure 구독
 
 구독은 Azure 계정에 연결된 Azure 서비스의 논리적 그룹입니다. 단일 Azure 계정에 여러 구독이 포함될 수 있습니다. Azure 서비스에 대한 청구는 구독 단위로 이루어집니다. Azure 구독에는 구독에 대한 모든 권한을 가진 계정 관리자와 구독의 모든 서비스를 제어할 수 있는 서비스 관리자가 있습니다. 관리자 외에도 RBAC를 통해 Azure 리소스를 세부적으로 제어할 수 있는 권한을 개별 계정에 부여할 수 있습니다.
@@ -355,6 +364,7 @@ PowerShell 모듈과 마찬가지로 Azure 명령줄 인터페이스는 배포 �
 
 NSG(네트워크 보안 그룹) 리소스를 사용하여 공용 IP 주소를 통해 가상 머신에 대한 액세스를 관리합니다. NSG는 방화벽과 같은 역할을 하며 정의된 포트 집합의 네트워크 인터페이스 또는 서브넷에서 트래픽을 허용하거나 거부합니다. 예를 들어 Azure VM을 사용하여 원격 데스크톱 세션을 만들려면 포트 3389에서 인바운드 트래픽을 허용하도록 NSG를 구성해야 합니다. 자세한 내용은 [Azure Portal을 사용하여 Azure에서 VM으로 포트 열기](../../virtual-machines/windows/nsg-quickstart-portal.md)를 참조하세요.
 
+
 마지막으로 컴퓨터 시스템 관리와 마찬가지로 보안 자격 증명과 소프트웨어 방화벽을 사용하여 운영 체제에서 Azure 가상 컴퓨터에 대한 보안을 제공해야 합니다.
 
 ## <a name="azure-storage"></a>Azure Storage
@@ -415,7 +425,7 @@ Azure Queue storage는 응용 프로그램 구성 요소 간에 클라우드 메
 
 **포털**
 
-Azure Portal을 사용하여 저장소 계정을 배포하려는 경우 활성 Azure 구독 및 웹 브라우저에 대한 액세스만 필요합니다. 새 저장소 계정을 새 리소스 그룹 또는 기존 리소스 그룹에 배포할 수 있습니다. 저장소 계정을 만든 후에는 포털을 사용하여 Blob 컨테이너 또는 파일 공유를 만들 수 있습니다. 프로그래밍 방식으로 Table 및 Queue Storage 엔터티를 만들 수 있습니다. 자세한 내용은 [저장소 계정 만들기](../../storage/common/storage-create-storage-account.md#create-a-storage-account) 를 참조하세요.
+Azure Portal을 사용하여 저장소 계정을 배포하려는 경우 활성 Azure 구독 및 웹 브라우저에 대한 액세스만 필요합니다. 새 저장소 계정을 새 리소스 그룹 또는 기존 리소스 그룹에 배포할 수 있습니다. 저장소 계정을 만든 후에는 포털을 사용하여 Blob 컨테이너 또는 파일 공유를 만들 수 있습니다. 프로그래밍 방식으로 Table 및 Queue Storage 엔터티를 만들 수 있습니다. 자세한 내용은 [저장소 계정 만들기](../../storage/common/storage-quickstart-create-account.md) 를 참조하세요.
 
 Azure Portal에서 저장소 계정을 배포하는 것 외에도 포털에서 Azure Resource Manager 템플릿을 배포할 수 있습니다. 이렇게 하면 저장소 계정을 포함한 모든 리소스가 템플릿에 정의된 대로 배포되고 구성됩니다. 자세한 내용은 [Resource Manager 템플릿과 Azure Portal로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy-portal.md)를 참조하세요.
 

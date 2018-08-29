@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/13/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 59dc2dad103de60cb7d4b6a44a6d6f7271368391
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 10bcf54da9660da1edcc8358f10289e9678be5cb
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444942"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42145186"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이 설치 및 구성
 동일한 지역에 하나 이상의 Azure Analysis Services 서버를 온-프레미스 데이터 원본에 연결하는 경우 온-프레미스 데이터 게이트웨이가 필요합니다. 게이트웨이에 대한 자세한 내용은 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 참조하세요.
@@ -38,6 +38,7 @@ ms.locfileid: "37444942"
 * 유지되고 대기 상태로 전환되지 않는 컴퓨터에 게이트웨이를 설치합니다.
 * 네트워크에 무선으로 연결된 컴퓨터에 게이트웨이를 설치하지 않습니다. 성능이 감소될 수 있습니다.
 * 게이트웨이를 등록한 구독과 동일한 [테넌트](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)의 Azure AD 계정으로 Azure에 로그인합니다. 게이트웨이를 설치 및 등록할 때 Azure B2B(게스트) 계정은 지원되지 않습니다.
+* 데이터 원본이 Azure VNet(Virtual Network)에 있는 경우 [AlwaysUseGateway](analysis-services-vnet-gateway.md) 서버 속성을 구성해야 합니다.
 * 여기에 설명된 (통합) 게이트웨이는 Azure Government, Azure 독일 및 Azure 중국 자치 지역에서 지원되지 않습니다. 포털에 있는 서버의 **빠른 시작**에서 설치된 **Azure Analysis Services에 대한 전용 온-프레미스 게이트웨이**를 사용합니다. 
 
 
@@ -114,4 +115,5 @@ Azure에서 게이트웨이 리소스를 만들기 위해 게이트웨이 클라
 
 ## <a name="next-steps"></a>다음 단계
 * [Analysis Services 관리](analysis-services-manage.md)   
-* [Azure Analysis Services에서 데이터 가져오기](analysis-services-connect.md)
+* [Azure Analysis Services에서 데이터 가져오기](analysis-services-connect.md)   
+* [Azure Virtual Network에서 데이터 원본에 게이트웨이 사용](analysis-services-vnet-gateway.md)

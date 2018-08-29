@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 53b35fbdc469639b1fdc09293e05247bcc5d8c31
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 78f9ba817008a28e63ec167c4e2ccc7f3859be16
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714488"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146511"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook으로 오류 해결
 
@@ -137,7 +137,43 @@ Exception: A task was canceled.
 
 이 오류는 Azure 모듈을 최신 버전으로 업데이트하여 해결할 수 있습니다.
 
-Automation 계정에서 **모듈**을 클릭하고 **Azure 모듈 업데이트**를 클릭합니다. 업데이트에는 약 15분이 소요되며 완료되면 실패한 Runbook을 다시 실행합니다.
+Automation 계정에서 **모듈**을 클릭하고 **Azure 모듈 업데이트**를 클릭합니다. 업데이트에는 약 15분이 소요되며 완료되면 실패한 Runbook을 다시 실행합니다. 모듈 업데이트에 대해 자세히 알아 보려면 [Azure Automation에서 Azure 모듈 업데이트](../automation-update-azure-modules.md)를 참조하세요.
+
+### <a name="child-runbook-auth-failure"></a>시나리오: 여러 구독으로 처리하는 경우 자식 Runbook에 오류 발생
+
+#### <a name="issue"></a>문제
+
+`Start-AzureRmRunbook`으로 자식 Runbook을 실행하는 경우 자식 Runbook이 Azure 리소스를 관리하지 못합니다.
+
+#### <a name="cause"></a>원인
+
+자식 Runbook을 실행할 때 올바른 컨텍스트를 사용하지 않습니다.
+
+#### <a name="resolution"></a>해결 방법
+
+여러 구독으로 작업할 때 자식 Runbook 호출 시 구독 컨텍스트가 손실될 수 있습니다. 구독 컨텍스트가 자식 Runbook에 전달되도록 하려면 cmdlet에 `DefaultProfile` 매개 변수를 추가하여 컨텍스트를 전달합니다.
+
+```azurepowershell-interactive
+# Connect to Azure with RunAs account
+$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
+
+Add-AzureRmAccount `
+    -ServicePrincipal `
+    -TenantId $ServicePrincipalConnection.TenantId `
+    -ApplicationId $ServicePrincipalConnection.ApplicationId `
+    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
+
+$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+
+$params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
+
+Start-AzureRmAutomationRunbook `
+    –AutomationAccountName 'MyAutomationAccount' `
+    –Name 'Test-ChildRunbook' `
+    -ResourceGroupName 'LabRG' `
+    -DefaultProfile $AzureContext `
+    –Parameters $params –wait
+```
 
 ### <a name="not-recognized-as-cmdlet"></a>시나리오: 누락된 cmdlet으로 인해 Runbook이 실패합니다.
 
@@ -189,6 +225,8 @@ The job was tried three times but it failed
 * 메모리 제한 내에서 작업하는 경우 여러 Runbook 간에 워크로드를 분할하고, 메모리에서 많은 데이터를 처리하지 않고, Runbook에서 불필요한 출력을 작성하지 않으며, PowerShell 워크플로 Runbook에 작성하는 검사점의 수를 고려하는 것이 좋습니다.  
 
 * [Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법](../automation-update-azure-modules.md) 단계에 따라 Azure 모듈을 업데이트합니다.  
+
+* 다른 솔루션은 [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md)에서 Runbook을 실행하는 것입니다. Hybrid Worker는 Azure 샌드박스처럼 [공평 분배](../automation-runbook-execution.md#fair-share) 한도로 제한되지 않습니다.
 
 ### <a name="fails-deserialized-object"></a>시나리오: 역직렬화된 개체로 인해 Runbook 실패
 

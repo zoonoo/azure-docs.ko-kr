@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: glenga
-ms.openlocfilehash: eee60718bf848154b0097294b3c7eb325e96214b
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 20dd9349b9ca5ffb6042156e340019c4483b93e5
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346262"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42147009"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions의 Azure Service Bus 바인딩
 
@@ -53,6 +53,7 @@ Service Bus 트리거를 사용하여 Service Bus 큐 또는 토픽의 메시지
 * [C# 스크립트(.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 ### <a name="trigger---c-example"></a>트리거 - C# 예제
 
@@ -177,6 +178,41 @@ module.exports = function(context, myQueueItem) {
     context.done();
 };
 ```
+
+### <a name="trigger---java-example"></a>트리거 - Java 예제
+
+다음 예제에서는 바인딩을 사용하는 *function.json* 파일과 [Java 함수](functions-reference-java.md)의 Service Bus 트리거 바인딩을 보여 줍니다. Service Bus 큐에 있는 메시지를 통해 함수가 트리거되며, 이 함수는 큐 메시지를 기록합니다.
+
+*function.json* 파일의 바인딩 데이터는 다음과 같습니다.
+
+```json
+{
+"bindings": [
+    {
+    "queueName": "myqueuename",
+    "connection": "MyServiceBusConnection",
+    "name": "msg",
+    "type": "ServiceBusQueueTrigger",
+    "direction": "in"
+    }
+],
+"disabled": false
+}
+```
+
+Java 코드는 다음과 같습니다.
+
+```java
+@FunctionName("sbprocessor")
+ public void serviceBusProcess(
+    @ServiceBusQueueTrigger(name = "msg",
+                             queueName = "myqueuename",
+                             connection = "myconnvarname") String message,
+   final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
 
 ## <a name="trigger---attributes"></a>트리거 - 특성
 
@@ -316,6 +352,7 @@ Azure Service Bus 출력 바인딩을 사용하여 큐 또는 토픽 메시지�
 * [C# 스크립트(.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
+* [Java](#output--java-example)
 
 ### <a name="output---c-example"></a>출력 - C# 예제
 
@@ -470,6 +507,25 @@ module.exports = function (context, myTimer) {
     context.done();
 };
 ```
+
+
+### <a name="output---java-example"></a>출력 - Java 예제
+
+다음 예제에서는 HTTP 요청으로 트리거될 때 `myqueue` Service Bus 큐에 메시지를 보내는 Java 함수를 보여 줍니다.
+
+```java
+@FunctionName("httpToServiceBusQueue")
+@ServiceBusQueueOutput(name = "message", queueName = "myqueue", connection = "AzureServiceBusConnection")
+public String pushToQueue(
+  @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+  final String message,
+  @HttpOutput(name = "response") final OutputBinding<T>; result ) {
+      result.setValue(message + " has been sent.");
+      return message;
+ }
+ ```
+
+ [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Service Bus 큐에 기록될 함수 매개 변수에 대한 `@QueueOutput` 주석을 사용합니다.  매개 변수 형식은 `OutputBinding<T>`이어야 합니다. 여기서 T는 POJO의 원시 Java 형식입니다.
 
 ## <a name="output---attributes"></a>출력 - 특성
 

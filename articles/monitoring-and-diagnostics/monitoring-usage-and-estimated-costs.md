@@ -5,20 +5,26 @@ author: dalekoetke
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/31/2018
+ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.component: ''
-ms.openlocfilehash: edfcc244105403ae33251777c560d4cc21dfe5cb
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 35e7d36043defd236252f86facf4b9e2ed945d67
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264285"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42143553"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>모니터링 사용량 및 예상 비용
 
-Azure Portal의 모니터 허브에서 **사용량 및 예상 비용** 페이지는 [경고, 메트릭, 알림](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) 및 [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/) 등과 같은 핵심 모니터링 기능의 사용량을 설명합니다. 2018년 4월 이전 제공된 요금제 고객의 경우 Insights 및 Analytics 상품을 통해 구매한 Log Analytics 사용량도 여기에 포함됩니다.
+> [!NOTE]
+> 이 문서에서는 다른 가격 책정 모델에 대해 여러 Azure 모니터링 기능에서 사용량 및 예상 비용을 보는 방법을 설명합니다.  관련 정보에 대해서는 다음 문서를 참조하세요.
+> - [Log Analytics에서 데이터 볼륨 및 보존을 제어하여 비용 관리](../log-analytics/log-analytics-manage-cost-storage.md)에서는 데이터 보존 기간을 변경하여 비용을 제어하는 방법을 설명합니다.
+> - [Log Analytics에서 데이터 사용 현황 분석](../log-analytics/log-analytics-usage.md)에서는 데이터 사용량을 분석 및 경고하는 방법을 설명합니다.
+> - [Application Insights에서 가격 책정 및 데이터 볼륨 관리](../application-insights/app-insights-pricing.md)에서는 Application Insights에서 데이터 사용량을 분석하는 방법을 설명합니다.
+
+Azure Portal의 모니터 허브에서 **사용량 및 예상 비용** 페이지는 [경고, 메트릭, 알림](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) 및 [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/) 등과 같은 핵심 모니터링 기능의 사용량을 설명합니다. 2018년 4월 이전 제공된 요금제 고객의 경우 Insights 및 Analytics 제안을 통해 구매한 Log Analytics 사용량도 여기에 포함됩니다.
 
 사용자는 이 페이지에서 구독별로 집계된 지난 31일 간의 리소스 사용량을 볼 수 있습니다. 드릴인은 31일 동안의 사용량 추세를 보여 줍니다. 예상치를 내기 위해서는 상당한 데이터를 취합해야 하므로 페이지 로드에 다소 시간이 소요됩니다.
 

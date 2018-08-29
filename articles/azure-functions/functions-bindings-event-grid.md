@@ -4,7 +4,7 @@ description: Azure Functions에서 Event Grid 이벤트를 처리하는 방법�
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: ''
@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/08/2018
+ms.date: 08/20/2018
 ms.author: glenga
-ms.openlocfilehash: 6afc54bfcbef4d0714e9a09d0aa27ea4829d4dd5
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: f0cb698bad42bcfd035451361b9a20d0f0b5bddf
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715389"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143243"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions의 Event Grid 트리거
 
@@ -53,6 +53,7 @@ Event Grid 트리거에 대한 다음과 같은 언어별 예제를 참조하세
 * [C#](#c-example)
 * [C# 스크립트(.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
+* [Java](#trigger---java-example)
 
 HTTP 트리거 예제에 대해서는 이 문서 뒷부분에 나오는 [HTTP 트리거 사용 방법](#use-an-http-trigger-as-an-event-grid-trigger)을 참조하세요.
 
@@ -180,6 +181,36 @@ module.exports = function (context, eventGridEvent) {
     context.done();
 };
 ```
+
+### <a name="trigger---java-example"></a>트리거 - Java 예제
+
+다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하고 이벤트를 출력하는 [Java 함수](functions-reference-java.md)를 보여줍니다.
+
+```json
+{
+  "bindings": [
+    {
+      "type": "eventGridTrigger",
+      "name": "eventGridEvent",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+Java 코드는 다음과 같습니다.
+
+```java
+@FunctionName("eventGridMonitor")
+  public void logEvent(
+     @EventGridTrigger(name = "event") String content,
+      final ExecutionContext context
+  ) { 
+      context.getLogger().info(content);
+    }
+```
+
+[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 EventGrid에서 제공되는 매개 변수에 대한 `EventGridTrigger` 주석을 사용합니다. 이러한 주석을 사용하는 매개 변수로 인해 이벤트 도착 시 함수가 실행될 수 있습니다.  `Optional<T>`를 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다. 
      
 ## <a name="attributes"></a>특성
 
@@ -263,7 +294,7 @@ Event Grid 이벤트의 데이터는 HTTP 요청 본문에 JSON 개체로 수신
 
 ## <a name="create-a-subscription"></a>구독 만들기
 
-Event Grid HTTP 요청 수신을 시작하려면 함수를 호출하는 끝점 URL을 지정하는 Event Grid 구독을 만듭니다.
+Event Grid HTTP 요청 수신을 시작하려면 함수를 호출하는 엔드포인트 URL을 지정하는 Event Grid 구독을 만듭니다.
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -271,9 +302,9 @@ Event Grid 트리거를 사용하여 Azure Portal에서 개발하는 함수에 �
 
 ![포털에서 구독 만들기](media/functions-bindings-event-grid/portal-sub-create.png)
 
-이 링크를 선택하면 포털에서 끝점 URL로 미리 채워진 **이벤트 구독 만들기** 페이지가 열립니다.
+이 링크를 선택하면 포털에서 엔드포인트 URL로 미리 채워진 **이벤트 구독 만들기** 페이지가 열립니다.
 
-![미리 채워진 끝점 URL](media/functions-bindings-event-grid/endpoint-url.png)
+![미리 채워진 엔드포인트 URL](media/functions-bindings-event-grid/endpoint-url.png)
 
 Azure Portal을 사용하여 구독을 만드는 방법에 대한 자세한 내용은 Event Grid 설명서에서 [사용자 지정 이벤트 만들기 - Azure Portal](../event-grid/custom-event-quickstart-portal.md)을 참조하세요.
 
@@ -281,13 +312,13 @@ Azure Portal을 사용하여 구독을 만드는 방법에 대한 자세한 내�
 
 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)를 사용하여 구독을 만들려면 [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create)를 사용합니다.
 
-이 명령에는 함수를 호출하는 끝점 URL이 필요합니다. 다음 예제에서는 URL 패턴을 보여 줍니다.
+이 명령에는 함수를 호출하는 엔드포인트 URL이 필요합니다. 다음 예제에서는 URL 패턴을 보여 줍니다.
 
 ```
 https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
 ```
 
-시스템 키는 Event Grid 트리거에 대한 끝점 URL에 포함되어야 하는 인증 키입니다. 다음 섹션에서는 시스템 키를 가져오는 방법을 설명합니다.
+시스템 키는 Event Grid 트리거에 대한 엔드포인트 URL에 포함되어야 하는 인증 키입니다. 다음 섹션에서는 시스템 키를 가져오는 방법을 설명합니다.
 
 다음은 Blob 저장소 계정을 구독하는 예제입니다(시스템 키에 대한 자리 표시자 포함).
 
@@ -310,7 +341,7 @@ az eventgrid resource event-subscription create -g myResourceGroup \
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={adminkey}
 ```
 
-이것은 관리자 API로, 사용자의 [관리자 키](functions-bindings-http-webhook.md#authorization-keys)를 입력해야 합니다. 시스템 키(Event Grid 트리거 함수 호출용)와 관리자 키(함수 앱의 관리 작업 수행용)를 혼동하지 마세요. Event Grid 토픽을 구독할 때는 시스템 키를 사용해야 합니다.
+이것은 관리자 API로, 사용자의 함수 앱 [마스터 키](functions-bindings-http-webhook.md#authorization-keys)를 입력해야 합니다. 시스템 키(Event Grid 트리거 함수 호출용)와 마스터 키(함수 앱의 관리 작업 수행용)를 혼동하지 마세요. Event Grid 토픽을 구독할 때는 시스템 키를 사용해야 합니다. 
 
 시스템 키를 제공하는 응답 예제는 다음과 같습니다.
 
@@ -340,7 +371,7 @@ Event Grid 트리거를 로컬로 테스트하려면 클라우드의 원본에�
 4. [요청을 생성](#generate-a-request)하고 뷰어 앱에서 요청 본문을 복사합니다.
 5. Event Grid 트리거 함수의 localhost URL에 [요청을 수동으로 게시](#manually-post-the-request)합니다.
 
-테스트가 완료되면 끝점을 업데이트하여 프로덕션 환경에도 동일한 구독을 사용할 수 있습니다. [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI 명령을 사용합니다.
+테스트가 완료되면 엔드포인트를 업데이트하여 프로덕션 환경에도 동일한 구독을 사용할 수 있습니다. [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI 명령을 사용합니다.
 
 ### <a name="create-a-viewer-web-app"></a>뷰어 웹앱 만들기
 
@@ -358,13 +389,13 @@ Event Grid 트리거를 로컬로 테스트하려면 클라우드의 원본에�
 
 ### <a name="create-an-event-grid-subscription"></a>Event Grid 구독 만들기
 
-테스트할 유형의 Event Grid 구독을 만들고 이벤트 알림의 끝점으로 웹앱의 URL을 지정합니다. 웹앱에 대한 엔드포인트는 접미사 `/api/updates/`를 포함해야 합니다. 따라서 전체 URL은 `https://<your-site-name>.azurewebsites.net/api/updates`입니다.
+테스트할 유형의 Event Grid 구독을 만들고 이벤트 알림의 엔드포인트로 웹앱의 URL을 지정합니다. 웹앱에 대한 엔드포인트는 접미사 `/api/updates/`를 포함해야 합니다. 따라서 전체 URL은 `https://<your-site-name>.azurewebsites.net/api/updates`입니다.
 
 Azure Portal을 사용하여 구독을 만드는 방법에 대한 자세한 내용은 Event Grid 문서에서 [사용자 지정 이벤트 만들기 - Azure Portal](../event-grid/custom-event-quickstart-portal.md)을 참조하세요.
 
 ### <a name="generate-a-request"></a>요청 생성
 
-웹앱 끝점에 대한 HTTP 트래픽을 생성하는 이벤트를 트리거합니다.  예를 들어, Blob 저장소 구독을 만든 경우 Blob을 업로드하거나 삭제합니다. 웹앱에 요청이 표시되면 요청 본문을 복사합니다.
+웹앱 엔드포인트에 대한 HTTP 트래픽을 생성하는 이벤트를 트리거합니다.  예를 들어, Blob 저장소 구독을 만든 경우 Blob을 업로드하거나 삭제합니다. 웹앱에 요청이 표시되면 요청 본문을 복사합니다.
 
 구독 유효성 검사 요청이 먼저 수신됩니다. 유효성 검사 요청은 모두 무시하고 이벤트 요청을 복사합니다.
 
@@ -401,14 +432,14 @@ Event Grid 트리거 함수가 실행되고, 다음 예제와 비슷한 결과�
 
 Event Grid 트리거를 로컬로 테스트하는 다른 방법은 인터넷과 개발 컴퓨터 간의 HTTP 연결을 자동화하는 것입니다. [ngrok](https://ngrok.com/)이라는 오픈 소스 도구를 사용하여 이 작업을 수행할 수 있습니다.
 
-3. [ngrok 끝점을 만듭니다](#create-an-ngrok-endpoint).
+3. [ngrok 엔드포인트를 만듭니다](#create-an-ngrok-endpoint).
 4. [Event Grid 트리거 함수를 실행](#run-the-event-grid-trigger-function)합니다.
-5. ngrok 끝점으로 이벤트를 보내는 [Event Grid 구독을 만듭니다](#create-a-subscription).
+5. ngrok 엔드포인트로 이벤트를 보내는 [Event Grid 구독을 만듭니다](#create-a-subscription).
 6. [이벤트를 트리거](#trigger-an-event)합니다.
 
-테스트가 완료되면 끝점을 업데이트하여 프로덕션 환경에도 동일한 구독을 사용할 수 있습니다. [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI 명령을 사용합니다.
+테스트가 완료되면 엔드포인트를 업데이트하여 프로덕션 환경에도 동일한 구독을 사용할 수 있습니다. [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI 명령을 사용합니다.
 
-### <a name="create-an-ngrok-endpoint"></a>ngrok 끝점 만들기
+### <a name="create-an-ngrok-endpoint"></a>ngrok 엔드포인트 만들기
 
 [ngrok](https://ngrok.com/)에서 *ngrok.exe*를 다운로드하고 다음 명령을 사용해서 실행합니다.
 
@@ -462,7 +493,7 @@ az eventgrid event-subscription create --resource-id /subscriptions/aeb4b7cb-b7c
 
 ### <a name="trigger-an-event"></a>이벤트 트리거
 
-ngrok 끝점으로의 HTTP 트래픽을 생성하는 이벤트를 트리거합니다.  예를 들어, Blob 저장소 구독을 만든 경우 Blob을 업로드하거나 삭제합니다.
+ngrok 엔드포인트로의 HTTP 트래픽을 생성하는 이벤트를 트리거합니다.  예를 들어, Blob 저장소 구독을 만든 경우 Blob을 업로드하거나 삭제합니다.
 
 Event Grid 트리거 함수가 실행되고, 다음 예제와 비슷한 결과를 표시합니다.
 
@@ -470,7 +501,7 @@ Event Grid 트리거 함수가 실행되고, 다음 예제와 비슷한 결과�
 
 ## <a name="use-an-http-trigger-as-an-event-grid-trigger"></a>HTTP 트리거를 Event Grid 트리거로 사용
 
-Event Grid 이벤트는 HTTP 요청으로 수신되므로, Event Grid 트리거 대신 HTTP 트리거를 사용하여 이벤트를 처리할 수 있습니다. 이렇게 하는 한 가지 가능한 이유는 함수를 호출하는 끝점 URL을 보다 강력하게 제어할 수 있기 때문입니다. 다른 이유는 [CloudEvents 스키마](../event-grid/cloudevents-schema.md)에서 이벤트를 수신해야 하는 경우입니다. 현재, Event Grid 트리거는 CloudEvents 스키마를 지원하지 않습니다. 이 섹션의 예제는 Event Grid 스키마와 CloudEvents 스키마 둘 다에 대한 솔루션을 보여 줍니다.
+Event Grid 이벤트는 HTTP 요청으로 수신되므로, Event Grid 트리거 대신 HTTP 트리거를 사용하여 이벤트를 처리할 수 있습니다. 이렇게 하는 한 가지 가능한 이유는 함수를 호출하는 엔드포인트 URL을 보다 강력하게 제어할 수 있기 때문입니다. 다른 이유는 [CloudEvents 스키마](../event-grid/cloudevents-schema.md)에서 이벤트를 수신해야 하는 경우입니다. 현재, Event Grid 트리거는 CloudEvents 스키마를 지원하지 않습니다. 이 섹션의 예제는 Event Grid 스키마와 CloudEvents 스키마 둘 다에 대한 솔루션을 보여 줍니다.
 
 HTTP 트리거를 사용하는 경우, 다음과 같이 Event Grid 트리거가 자동으로 수행하는 작업에 대한 코드를 작성해야 합니다.
 

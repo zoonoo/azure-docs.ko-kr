@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 08/16/2018
 ms.author: douglasl
-ms.openlocfilehash: c3aeb57bf9c613da3edb8c5dda0e88aa308a4b6e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8bbc64a34b5ae95e044b95f921770adc9045574c
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448444"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142855"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Azure Data Factory에서 연속 통합 및 배포
 
@@ -48,6 +48,10 @@ Azure Data Factory에서 연속 통합 및 배포란 다른 환경(개발, 테�
 
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
 
+**연결 문자열** 개별 커넥터에 대한 문서에서 연결 문자열을 만드는 데 필요한 정보를 찾을 수 있습니다. 예를 들어 Azure SQL Database의 경우 [Azure Data Factory를 사용하여 Azure SQL Database 간 데이터 복사](connector-azure-sql-database.md)를 참조하세요. 올바른 연결 문자열을 확인하려면(예: 연결된 서비스의 경우) Data Factory UI에서 리소스에 대한 코드 보기를 열 수도 있습니다. 그러나 코드 보기에서 연결 문자열의 암호 또는 계정 키 부분은 제거됩니다. 코드 보기를 열려면 다음 스크린샷에서 강조 표시된 아이콘을 선택합니다.
+
+![코드 보기를 열어 연결 문자열 확인](media/continuous-integration-deployment/continuous-integration-codeview.png)
+
 ## <a name="continuous-integration-lifecycle"></a>연속 통합 수명 주기
 Data Factory UI에서 VSTS GIT 통합을 사용하도록 설정한 후에 사용할 수 있는 연속 통합 및 배포의 전체 수명 주기는 다음과 같습니다.
 
@@ -71,7 +75,7 @@ Data Factory UI에서 VSTS GIT 통합을 사용하도록 설정한 후에 사용
 
 ### <a name="requirements"></a>요구 사항
 
--   [*Azure Resource Manager 서비스 끝점*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm)을 사용하여 Team Foundation Server 또는 VSTS에 연결된 Azure 구독
+-   [*Azure Resource Manager 서비스 엔드포인트*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm)를 사용하여 Team Foundation Server 또는 VSTS에 연결된 Azure 구독
 
 -   VSTS Git이 구성된 Data Factory
 
@@ -97,7 +101,7 @@ Data Factory UI에서 VSTS GIT 통합을 사용하도록 설정한 후에 사용
 
     a.  새 작업을 만들고, **Azure 리소스 그룹 배포**를 검색하고, 추가합니다.
 
-    나.  배포 작업에서 대상 Data Factory의 구독, 리소스 그룹 및 위치를 선택하고, 필요한 경우 자격 증명을 제공합니다.
+    b.  배포 작업에서 대상 Data Factory의 구독, 리소스 그룹 및 위치를 선택하고, 필요한 경우 자격 증명을 제공합니다.
 
     다.  **리소스 그룹 만들기 또는 업데이트** 작업을 선택합니다.
 
@@ -174,11 +178,7 @@ Azure Key Vault 작업은 액세스 거부 오류를 표시하며 처음으로 �
 
 비슷한 단계를 수행하고 유사한 코드(`Start-AzureRmDataFactoryV2Trigger` 함수 포함)를 사용하여 배포 후에 트리거를 다시 시작할 수 있습니다.
 
-## <a name="sample-template-and-script"></a>샘플 템플릿 및 스크립트
-Data Factory의 연속 통합 및 배포를 시작하는 데 사용할 수 있는 두 개의 샘플은 다음과 같습니다.
-
--   VSTS에서 가져올 수 있는 샘플 배포 템플릿
--   배포하기 전에 트리거를 중지하고 나중에 트리거를 다시 시작하는 샘플 스크립트 스크립트에는 제거된 리소스를 삭제하는 코드도 포함됩니다.
+## <a name="sample-deployment-template"></a>샘플 배포 템플릿
 
 VSTS에서 가져올 수 있는 샘플 배포 템플릿은 다음과 같습니다.
 
@@ -718,7 +718,9 @@ VSTS에서 가져올 수 있는 샘플 배포 템플릿은 다음과 같습니�
 }
 ```
 
-배포하기 전에 트리거를 중지하고 나중에 트리거를 다시 시작하는 샘플 스크립트는 다음과 같습니다.
+## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>트리거를 중지 및 다시 시작하고 정리하는 샘플 스크립트
+
+배포하기 전에 트리거를 중지하고 나중에 트리거를 다시 시작하는 샘플 스크립트는 다음과 같습니다. 스크립트에는 제거된 리소스를 삭제하는 코드도 포함됩니다.
 
 ```powershell
 param

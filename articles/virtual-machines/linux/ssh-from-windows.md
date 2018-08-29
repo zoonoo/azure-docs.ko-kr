@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 08/20/2018
 ms.author: danlep
-ms.openlocfilehash: d0762f80267fa927681344a3e0de78b0800c8306
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fc245d38af90e0c395389e24b14d061fcfe0c10c
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630214"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143147"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Azure에서 Windows를 통해 SSH 키를 사용하는 방법
 
@@ -33,9 +33,9 @@ ms.locfileid: "38630214"
 ## <a name="windows-packages-and-ssh-clients"></a>Windows 패키지 및 SSH 클라이언트
 Azure에서 *SSH 클라이언트*를 통해 Linux VM에 연결하고 관리합니다. Linux 또는 macOS를 실행하는 컴퓨터에는 일반적으로 SSH 연결을 만들고 SSH 키를 생성 및 관리하는 SSH 명령 모음이 있습니다. 
 
-Windows 컴퓨터는 항상 비교 가능한 SSH 명령을 설치하지는 않습니다. [Linux용 Windows 하위 시스템](https://docs.microsoft.com/windows/wsl/about)을 포함하는 Windows 10 버전에서는 Bash 셸 내에 기본적으로 포함된 SSH 클라이언트와 같은 유틸리티를 실행하고 액세스할 수 있습니다. 
+Windows 컴퓨터는 항상 비교 가능한 SSH 명령을 설치하지는 않습니다. Windows 10의 최신 버전은 SSH 키를 만들고 관리하고 명령 프롬프트에서 SSH 연결을 만드는 [OpenSSH 클라이언트 명령](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/)을 제공합니다. 또한 최신 Windows 10 버전은 Bash 셸 내에 기본적으로 포함된 SSH 클라이언트와 같은 유틸리티를 실행하고 액세스하는 [Linux용 Windows 하위 시스템](https://docs.microsoft.com/windows/wsl/about)을 포함합니다. 
 
-Windows용 Bash 이외의 것을 사용하려는 경우 로컬로 설치할 수 있는 공용 Windows SSH 클라이언트는 다음과 같은 패키지에 포함되어 있습니다.
+다른 Windows용 SSH 도구를 사용하려는 경우 로컬로 설치할 수 있는 공용 Windows SSH 클라이언트는 다음과 같은 패키지에 포함되어 있습니다.
 
 * [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
 * [Windows 용 Git](https://git-for-windows.github.io/)
@@ -52,7 +52,7 @@ Windows용 Bash 이외의 것을 사용하려는 경우 로컬로 설치할 수 
 
 ### <a name="create-ssh-keys-with-ssh-keygen"></a>ssh-keygen을 사용하여 SSH 키 만들기
 
-Windows 또는 GitBash용 Bash(또는 Azure Cloud Shell에서 Bash) 같은 명령 셸을 실행하는 경우 `ssh-keygen` 명령을 사용하여 SSH 키 쌍을 만듭니다. 다음 명령을 입력하고 표시되는 메시지에 응답합니다. SSH 키 쌍이 현재 위치에 있으면 이러한 파일은 덮어쓰여집니다. 
+Windows에서 SSH 클라이언트 도구를 지원하는 명령 셸을 실행하는 경우(또는 Azure Cloud Shell을 사용하는 경우) `ssh-keygen` 명령을 사용하여 SSH 키 쌍을 만듭니다. 다음 명령을 입력하고 표시되는 메시지에 응답합니다. SSH 키 쌍이 현재 위치에 있으면 이러한 파일은 덮어쓰여집니다. 
 
 ```bash
 ssh-keygen -t rsa -b 2048

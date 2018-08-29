@@ -1,32 +1,287 @@
 ---
 title: 워크플로 정의 언어에 대한 함수 참조 - Azure Logic Apps | Microsoft Docs
-description: 워크플로 정의 언어를 사용하여 논리 앱을 만드는 함수에 대해 알아봅니다.
+description: Azure Logic Apps에 대한 워크플로 정의 언어 함수에 대해 알아보기
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
 ms.topic: reference
-ms.date: 04/25/2018
+ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 46ccf9484b76ec5f24dba470a194b5b83c32f013
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 6292ea4ccd3780e1da86252b7ec9c09c2eea3982
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263779"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146720"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps의 워크플로 정의 언어에 대한 함수 참조
 
-이 문서에서는 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)로 자동화 워크플로를 만들 때 사용할 수 있는 함수를 설명합니다. 논리 앱 정의의 함수에 대한 자세한 내용은 [Azure Logic Apps에 대한 워크플로 정의 언어](../logic-apps/logic-apps-workflow-definition-language.md#functions)를 참조하세요. 
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md)의 일부 [식](../logic-apps/logic-apps-workflow-definition-language.md#expressions)은 논리 앱 워크플로 정의가 실행되기 시작할 때 존재하지 않을 수도 있는 런타임 작업에서 값을 가져옵니다. 식에서 이러한 값을 사용하거나 참조하려면 [워크플로 정의 언어](../logic-apps/logic-apps-workflow-definition-language.md)가 제공하는 *함수*를 사용하면 됩니다. 예를 들어 정수 또는 부동 소수점에서 합계를 반환하는 [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) 함수 같은 계산용 수식 함수를 사용할 수 있습니다. 다음은 함수로 수행할 수 있는 몇 가지 예제 작업입니다.
+
+| Task | 함수 구문 | 결과 | 
+| ---- | --------------- | ------ | 
+| 문자열을 소문자 형식으로 반환합니다. | toLower('<*text*>') <p>예를 들어: toLower('Hello') | "hello" | 
+| 전역적으로 고유한 식별자(GUID)를 반환합니다. | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" | 
+|||| 
+
+이 문서에서는 논리 앱 정의를 만들 때 사용할 수 있는 함수를 설명합니다.
+[일반 용도를 기반으로](#ordered-by-purpose) 함수를 찾으려면 다음 테이블을 참조하세요. 각 함수에 대한 자세한 내용은 [사전순 목록](#alphabetical-list)을 참조하세요. 
 
 > [!NOTE]
 > 매개 변수 정의 구문에서 매개 변수 뒤에 나오는 물음표(?)는 해당 매개 변수가 선택 사항임을 의미합니다. 예를 들어 [getFutureTime()](#getFutureTime)을 참조하세요.
 
+## <a name="functions-in-expressions"></a>식의 함수
+
+식에서 함수를 사용하는 방법을 보여주기 위해, 이 예제는 식에서 [parameters()](#parameters) 함수를 사용하여 `customerName` 매개 변수에서 값을 가져와 해당 값을 `accountName` 속성에 할당할 수 있는 방법을 보여줍니다.
+
+```json
+"accountName": "@parameters('customerName')"
+```
+
+식에서 함수를 사용할 수 있는 몇 가지 다른 일반적인 방법은 다음과 같습니다.
+
+| Task | 식에서 함수 구문 | 
+| ---- | -------------------------------- | 
+| 함수에 해당 항목을 전달하여 항목으로 작업을 수행합니다. | "\@<*functionName*>(<*item*>)" | 
+| 1. 중첩된 `parameters()` 함수를 사용하여 *parameterName* 값을 가져옵니다. </br>2. 해당 값을 *functionName*에 전달하여 결과로 작업을 수행합니다. | "\@<*functionName*>(parameters('<*parameterName*>'))" | 
+| 1. 중첩된 내부 함수 *functionName*에서 결과를 가져옵니다. </br>2. 외부 함수 *functionName2*에 결과를 전달합니다. | "\@<*functionName2*>(<*functionName*>(<*item*>))" | 
+| 1. *functionName*에서 결과를 가져옵니다. </br>2. 결과가 속성 *propertyName*이 있는 개체인 경우 해당 속성의 값을 가져옵니다. | "\@<*functionName*>(<*item*>).<*propertyName*>" | 
+||| 
+
+예를 들어 `concat()` 함수는 두 개 이상의 문자열 값을 매개 변수로 사용할 수 있습니다. 이 함수는 이러한 문자열을 하나의 문자열로 결합합니다. 문자열 리터럴, 예를 들어 "Sophia" 및 "Owen"을 전달하여 결합된 문자열 "SophiaOwen"을 가져올 수 있습니다.
+
+```json
+"customerName": "@concat('Sophia', 'Owen')"
+```
+
+또는 매개 변수에서 문자열 값을 가져올 수 있습니다. 이 예제는 각 `concat()` 매개 변수 및 `firstName`, `lastName` 매개 변수에서 `parameters()` 함수를 사용합니다. 결과 문자열을 `concat()` 함수에 전달하면 결합된 문자열, 예를 들어 "SophiaOwen"을 가져올 수 있습니다.
+
+```json
+"customerName": "@concat(parameters('firstName'), parameters('lastName'))"
+```
+
+두 예제 중 어느 경우든 결과를 `customerName` 속성에 할당합니다. 
+
+다음은 일반 용도로 정렬된 사용 가능한 함수입니다. 아니면 [사전순](#alphabetical-list)으로 함수를 찾아볼 수 있습니다.
+
+<a name="ordered-by-purpose"></a>
+<a name="string-functions"></a>
+
+## <a name="string-functions"></a>문자열 함수
+
+문자열로 작업하려면 이러한 문자열 함수 및 일부 [컬렉션 함수](#collection-functions)도 사용할 수 있습니다. 문자열 함수는 문자열에서만 작동합니다. 
+
+| 문자열 함수 | Task | 
+| --------------- | ---- | 
+| [concat](../logic-apps/workflow-definition-language-functions-reference.md#concat) | 둘 이상의 문자열을 결합하고 결합된 문자열을 반환합니다. | 
+| [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | 문자열이 지정된 하위 문자열로 끝나는지 여부를 확인합니다. | 
+| [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | 전역적으로 고유한 식별자(GUID)를 문자열로 생성합니다. | 
+| [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | 하위 문자열에 대한 시작 위치를 반환합니다. | 
+| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | 하위 문자열에 대한 종료 위치를 반환합니다. | 
+| [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | 하위 문자열을 지정된 문자열로 바꾸고 업데이트된 문자열을 반환합니다. | 
+| [분할](../logic-apps/workflow-definition-language-functions-reference.md#split) | 문자열에서 모든 문자를 지닌 배열을 반환하고 특정 구분 문자로 각 문자를 구분합니다. | 
+| [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | 문자열이 특정 하위 문자열로 시작하는지 검사합니다. | 
+| [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | 지정된 위치에서 시작하여 문자열에서 문자를 반환합니다. | 
+| [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | 문자열을 소문자 형식으로 반환합니다. | 
+| [toUpper](../logic-apps/workflow-definition-language-functions-reference.md#toUpper) | 문자열을 대문자 형식으로 반환합니다. | 
+| [trim](../logic-apps/workflow-definition-language-functions-reference.md#trim) | 문자열에서 선행 및 후행 공백을 제거하고 업데이트된 문자열을 반환합니다. | 
+||| 
+
+<a name="collection-functions"></a>
+
+## <a name="collection-functions"></a>컬렉션 함수
+
+컬렉션, 일반적으로 배열, 문자열 및 경우에 따라 사전으로 작업하려면 이러한 컬렉션 함수를 사용할 수 있습니다. 
+
+| 컬렉션 함수 | Task | 
+| ------------------- | ---- | 
+| [contains](../logic-apps/workflow-definition-language-functions-reference.md#contains) | 컬렉션에 특정 항목이 있는지 검사합니다. |
+| [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | 컬렉션이 비어 있는지 검사합니다. | 
+| [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | 컬렉션에서 첫 번째 항목을 반환합니다. | 
+| [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | 지정한 컬렉션에서 공통 항목*만* 있는 컬렉션을 반환합니다. | 
+| [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | 지정된 문자로 구분되는 배열에서 *모든* 항목이 들어 있는 문자열을 반환합니다. | 
+| [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | 컬렉션에서 마지막 항목을 반환합니다. | 
+| [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | 문자열 또는 배열에서 항목 수를 반환합니다. | 
+| [skip](../logic-apps/workflow-definition-language-functions-reference.md#skip) | 컬렉션 앞의 항목을 제거하고 *다른 모든* 항목을 반환합니다. | 
+| [take](../logic-apps/workflow-definition-language-functions-reference.md#take) | 컬렉션 앞에서 항목을 반환합니다. | 
+| [union](../logic-apps/workflow-definition-language-functions-reference.md#union) | 지정한 컬렉션에서 *모든* 항목이 있는 컬렉션을 반환합니다. | 
+||| 
+
+<a name="comparison-functions"></a>
+
+## <a name="logical-comparison-functions"></a>논리 비교 함수
+
+조건을 사용하고 값 및 식 결과를 비교하거나 다양한 종류의 논리를 평가하려면 이러한 논리 비교 함수를 사용하면 됩니다. 각 함수에 대한 전체 참조는 [사전순 목록](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)을 참조하세요.
+
+| 논리 비교 함수 | Task | 
+| --------------------------- | ---- | 
+| [and](../logic-apps/workflow-definition-language-functions-reference.md#and) | 모든 식이 true인지 확인합니다. | 
+| [equals](../logic-apps/workflow-definition-language-functions-reference.md#equals) | 두 값이 동일한지 확인합니다. | 
+| [greater](../logic-apps/workflow-definition-language-functions-reference.md#greater) | 첫 번째 값이 두 번째 값보다 큰지 검사합니다. | 
+| [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | 첫 번째 값이 두 번째 값보다 크거나 같은지 검사합니다. | 
+| [if](../logic-apps/workflow-definition-language-functions-reference.md#if) | 식이 true인지 또는 false인지 검사합니다. 결과에 기반해 지정한 값을 반환합니다. | 
+| [less](../logic-apps/workflow-definition-language-functions-reference.md#less) | 첫 번째 값이 두 번째 값보다 작은지 검사합니다. | 
+| [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | 첫 번째 값이 두 번째 값보다 작거나 같은지 검사합니다. | 
+| [not](../logic-apps/workflow-definition-language-functions-reference.md#not) | 식이 false인지 검사합니다. | 
+| [or](../logic-apps/workflow-definition-language-functions-reference.md#or) | 최소 하나의 식이 true인지 검사합니다. |
+||| 
+
+<a name="conversion-functions"></a>
+
+## <a name="conversion-functions"></a>변환 함수
+
+값의 유형 또는 형식을 변경하려면 이러한 변환 함수를 사용할 수 있습니다. 예를 들어 부울에서 정수로 값을 변경할 수 있습니다. 변환 동안 Logic Apps이 콘텐츠 형식을 처리하는 방법을 알아보려면 [콘텐츠 형식 처리](../logic-apps/logic-apps-content-type.md)를 참조합니다. 각 함수에 대한 전체 참조는 [사전순 목록](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)을 참조하세요.
+
+| 변환 함수 | Task | 
+| ------------------- | ---- | 
+| [array](../logic-apps/workflow-definition-language-functions-reference.md#array) | 단일 지정 입력에서 배열을 반환합니다. 여러 입력의 경우 [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray)를 참조합니다. | 
+| [base64](../logic-apps/workflow-definition-language-functions-reference.md#base64) | 문자열에 대한 base64로 인코딩된 버전을 반환합니다. | 
+| [base64ToBinary](../logic-apps/workflow-definition-language-functions-reference.md#base64ToBinary) | Base64로 인코딩된 문자열에 대한 이진 버전을 반환합니다. | 
+| [base64ToString](../logic-apps/workflow-definition-language-functions-reference.md#base64ToString) | Base64로 인코딩된 문자열에 대한 문자열 버전을 반환합니다. | 
+| [binary](../logic-apps/workflow-definition-language-functions-reference.md#binary) | 입력 값에 대한 이진 버전을 반환합니다. | 
+| [bool](../logic-apps/workflow-definition-language-functions-reference.md#bool) | 입력 값에 대한 부울 버전을 반환합니다. | 
+| [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray) | 여러 입력에서 배열을 반환합니다. | 
+| [dataUri](../logic-apps/workflow-definition-language-functions-reference.md#dataUri) | 입력 값에 대한 데이터 URI를 반환합니다. | 
+| [dataUriToBinary](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToBinary) | 데이터 URI에 대한 이진 버전을 반환합니다. | 
+| [dataUriToString](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToString) | 데이터 URI에 대한 문자열 버전을 반환합니다. | 
+| [decodeBase64](../logic-apps/workflow-definition-language-functions-reference.md#decodeBase64) | Base64로 인코딩된 문자열에 대한 문자열 버전을 반환합니다. | 
+| [decodeDataUri](../logic-apps/workflow-definition-language-functions-reference.md#decodeDataUri) | 데이터 URI에 대한 이진 버전을 반환합니다. | 
+| [decodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#decodeUriComponent) | 디코딩된 버전으로 이스케이프 문자를 대체하는 문자열을 반환합니다. | 
+| [encodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#encodeUriComponent) | URL 안전하지 않은 문자를 이스케이프 문자로 대체하는 문자열을 반환합니다. | 
+| [float](../logic-apps/workflow-definition-language-functions-reference.md#float) | 입력 값에 대해 부동 소수점 숫자를 반환합니다. | 
+| [int](../logic-apps/workflow-definition-language-functions-reference.md#int) | 문자열에 대한 정수 버전을 반환합니다. | 
+| [json](../logic-apps/workflow-definition-language-functions-reference.md#json) | JSON(JavaScript Object Notation) 형식 값 또는 문자열이나 XML에 대한 개체를 반환합니다. | 
+| [string](../logic-apps/workflow-definition-language-functions-reference.md#string) | 입력 값에 대한 문자열 버전을 반환합니다. | 
+| [uriComponent](../logic-apps/workflow-definition-language-functions-reference.md#uriComponent) | 이스케이프 문자로 URL 안전하지 않은 문자를 대체하여 입력 값에 대한 URI로 인코딩된 버전을 반환합니다. | 
+| [uriComponentToBinary](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToBinary) | URI로 인코딩된 문자열에 대한 이진 버전을 반환합니다. | 
+| [uriComponentToString](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToString) | URI로 인코딩된 문자열에 대한 문자열 버전을 반환합니다. | 
+| [xml](../logic-apps/workflow-definition-language-functions-reference.md#xml) | 문자열에 대한 XML 버전을 반환합니다. | 
+||| 
+
+<a name="math-functions"></a>
+
+## <a name="math-functions"></a>수학 함수
+
+정수 및 부동 소수점을 사용하려면 이러한 수식 함수를 사용할 수 있습니다. 각 함수에 대한 전체 참조는 [사전순 목록](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)을 참조하세요.
+
+| 수식 함수 | Task | 
+| ------------- | ---- | 
+| [추가](../logic-apps/workflow-definition-language-functions-reference.md#add) | 두 숫자를 더한 결과를 반환합니다. | 
+| [div](../logic-apps/workflow-definition-language-functions-reference.md#div) | 두 숫자를 나눈 결과를 반환합니다. | 
+| [max](../logic-apps/workflow-definition-language-functions-reference.md#max) | 숫자 또는 배열 집합에서 가장 높은 값을 반환합니다. | 
+| [min](../logic-apps/workflow-definition-language-functions-reference.md#min) | 숫자 또는 배열 집합에서 가장 낮은 값을 반환합니다. | 
+| [mod](../logic-apps/workflow-definition-language-functions-reference.md#mod) | 두 숫자를 나눈 나머지를 반환합니다. | 
+| [mul](../logic-apps/workflow-definition-language-functions-reference.md#mul) | 두 숫자를 곱한 결과를 반환합니다. | 
+| [rand](../logic-apps/workflow-definition-language-functions-reference.md#rand) | 지정된 범위에서 임의의 정수를 반환합니다. | 
+| [range](../logic-apps/workflow-definition-language-functions-reference.md#range) | 지정한 정수에서 시작하는 정수 배열을 반환합니다. | 
+| [sub](../logic-apps/workflow-definition-language-functions-reference.md#sub) | 첫 번째 숫자에서 두 번째 숫자를 뺀 결과를 반환합니다. | 
+||| 
+
+<a name="date-time-functions"></a>
+
+## <a name="date-and-time-functions"></a>날짜 및 시간 함수
+
+날짜 및 시간을 사용하려면 이러한 날짜 및 시간 함수를 사용할 수 있습니다.
+각 함수에 대한 전체 참조는 [사전순 목록](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)을 참조하세요.
+
+| 날짜 또는 시간 함수 | Task | 
+| --------------------- | ---- | 
+| [addDays](../logic-apps/workflow-definition-language-functions-reference.md#addDays) | 타임스탬프에 일 수를 추가합니다. | 
+| [addHours](../logic-apps/workflow-definition-language-functions-reference.md#addHours) | 타임스탬프에 시간 수를 추가합니다. | 
+| [addMinutes](../logic-apps/workflow-definition-language-functions-reference.md#addMinutes) | 타임스탬프에 분 수를 추가합니다. | 
+| [addSeconds](../logic-apps/workflow-definition-language-functions-reference.md#addSeconds) | 타임스탬프에 초 수를 추가합니다. |  
+| [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime) | 타임스탬프에 시간 단위 수를 추가합니다. [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime)도 참조합니다. | 
+| [convertFromUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertFromUtc) | UTC(Universal Time Coordinated)의 타임 스탬프를 대상 표준 시간대로 변환합니다. | 
+| [convertTimeZone](../logic-apps/workflow-definition-language-functions-reference.md#convertTimeZone) | 원본 표준 시간대의 타임 스탬프를 대상 표준 시간대로 변환합니다. | 
+| [convertToUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertToUtc) | 원본 표준 시간대의 타임 스탬프를 UTC(Universal Time Coordinated)로 변환합니다. | 
+| [dayOfMonth](../logic-apps/workflow-definition-language-functions-reference.md#dayOfMonth) | 타임 스탬프에서 월 구성 요소인 날짜를 반환합니다. | 
+| [dayOfWeek](../logic-apps/workflow-definition-language-functions-reference.md#dayOfWeek) | 타임 스탬프에서 주 구성 요소인 날짜를 반환합니다. | 
+| [dayOfYear](../logic-apps/workflow-definition-language-functions-reference.md#dayOfYear) | 타임 스탬프에서 연 구성 요소인 날짜를 반환합니다. | 
+| [formatDateTime](../logic-apps/workflow-definition-language-functions-reference.md#formatDateTime) | 타임 스탬프에서 날짜를 반환합니다. | 
+| [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime) | 지정된 시간 단위를 더한 현재 타임 스탬프를 반환합니다. [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime)도 참조합니다. | 
+| [getPastTime](../logic-apps/workflow-definition-language-functions-reference.md#getPastTime) | 지정된 시간 단위을 뺀 현재 타임 스탬프를 반환합니다. [subtractFromTime](../logic-apps/workflow-definition-language-functions-reference.md#subtractFromTime)도 참조합니다. | 
+| [startOfDay](../logic-apps/workflow-definition-language-functions-reference.md#startOfDay) | 타임 스탬프에 대한 날의 시작을 반환합니다. | 
+| [startOfHour](../logic-apps/workflow-definition-language-functions-reference.md#startOfHour) | 타임 스탬프에 대한 시간의 시작을 반환합니다. | 
+| [startOfMonth](../logic-apps/workflow-definition-language-functions-reference.md#startOfMonth) | 타임 스탬프에 대한 분의 시작을 반환합니다. | 
+| [subtractFromTime](../logic-apps/workflow-definition-language-functions-reference.md#subtractFromTime) | 타임스탬프에서 시간 단위 수를 뺍니다. [getPastTime](../logic-apps/workflow-definition-language-functions-reference.md#getPastTime)도 참조합니다. | 
+| [ticks](../logic-apps/workflow-definition-language-functions-reference.md#ticks) | 지정된 타임 스탬프에 대한 `ticks` 속성 값을 반환합니다. | 
+| [utcNow](../logic-apps/workflow-definition-language-functions-reference.md#utcNow) | 현재 타임스탬프를 문자열로 반환합니다. | 
+||| 
+
+<a name="workflow-functions"></a>
+
+## <a name="workflow-functions"></a>워크플로 함수
+
+이러한 워크플로 함수는 다음을 도울 수 있습니다.
+
+* 실행 시간에 워크플로 인스턴스에 대한 세부 정보를 가져옵니다. 
+* 논리 앱을 인스턴스화하는 데 사용된 입력을 사용합니다.
+* 트리거 및 작업에서 출력을 참조합니다.
+
+예를 들어 한 동작에서 출력을 참조하고 이후 작업에서 해당 데이터를 사용할 수 있습니다. 각 함수에 대한 전체 참조는 [사전순 목록](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)을 참조하세요.
+
+| 워크플로 함수 | Task | 
+| ----------------- | ---- | 
+| [action](../logic-apps/workflow-definition-language-functions-reference.md#action) | 런타임 시 현재 작업의 출력 또는 다른 JSON 이름-값 쌍에서 값을 반환합니다. [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions)도 참조합니다. | 
+| [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody) | 런타임 시 작업의 `body` 출력을 반환합니다. [body](../logic-apps/workflow-definition-language-functions-reference.md#body)도 참조합니다. | 
+| [actionOutputs](../logic-apps/workflow-definition-language-functions-reference.md#actionOutputs) | 런타임 시 작업의 출력을 반환합니다. [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions)을 참조합니다. | 
+| [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions) | 런타임 시 작업의 출력 또는 다른 JSON 이름-값 쌍에서 값을 반환합니다. [action](../logic-apps/workflow-definition-language-functions-reference.md#action)도 참조합니다.  | 
+| [body](#body) | 런타임 시 작업의 `body` 출력을 반환합니다. [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody)도 참조합니다. | 
+| [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | *form-data* 또는 *form-encoded* 작업 출력에서 키 이름이 일치하는 값으로 배열을 만듭니다. | 
+| [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | 작업의 *form-data* 또는 *form-encoded*에서 키 이름이 일치하는 단일 값을 반환합니다. | 
+| [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | 배열에 대해 반복 작업 내에 있을 경우 현재 작업 반복하는 동안 배열에서 현재 항목을 반환합니다. | 
+| [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | for-each 또는 do-until-loop 내에 있을 경우 지정된 루프에서 현재 항목을 반환합니다.| 
+| [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | 트리거 또는 동작을 호출하는 "콜백 URL"을 반환합니다. | 
+| [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | 여러 부분으로 구성된 작업의 출력에서 특정 부분에 대한 본문을 반환합니다. | 
+| [매개 변수](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | 논리 앱 정의에 설명된 매개 변수에 대한 값을 반환합니다. | 
+| [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | 런타임 시 또는 다른 JSON 이름-값 쌍에서 트리거 출력을 반환합니다. [triggerOutputs](#triggerOutputs) 및 [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody)도 참조합니다. | 
+| [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | 런타임 시 트리거의 `body` 출력을 반환합니다. [트리거](../logic-apps/workflow-definition-language-functions-reference.md#trigger)를 참조합니다. | 
+| [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | *form-data* 또는 *form-encoded* 트리거 출력에서 키 이름과 일치하는 단일 값을 반환합니다. | 
+| [triggerMultipartBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerMultipartBody) | Trigger의 다중 부분 출력에서 특정 부분에 대한 본문을 반환합니다. | 
+| [triggerFormDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataMultiValues) | *form-data* 또는 *form-encoded* 트리거 출력에서 키 이름이 일치하는 값의 배열을 만듭니다. | 
+| [triggerOutputs](../logic-apps/workflow-definition-language-functions-reference.md#triggerOutputs) | 런타임 시 트리거 출력 또는 다른 JSON 이름-값 쌍에서 값을 반환합니다. [트리거](../logic-apps/workflow-definition-language-functions-reference.md#trigger)를 참조합니다. | 
+| [variables](../logic-apps/workflow-definition-language-functions-reference.md#variables) | 지정한 변수에 대한 값을 반환합니다. | 
+| [워크플로](../logic-apps/workflow-definition-language-functions-reference.md#workflow) | 런타임 동안 워크플로 자체에 대한 모든 세부 정보를 반환합니다. | 
+||| 
+
+<a name="uri-parsing-functions"></a>
+
+## <a name="uri-parsing-functions"></a>URI 구문 분석 기능
+
+URI(uniform resource identifier)를 사용하고 이러한 URI에 대한 다양한 속성 값을 가져오려면 URI 구문 분석 기능을 사용할 수 있습니다. 각 함수에 대한 전체 참조는 [사전순 목록](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)을 참조하세요.
+
+| URI 구문 분석 기능 | Task | 
+| -------------------- | ---- | 
+| [uriHost](../logic-apps/workflow-definition-language-functions-reference.md#uriHost) | URI(Uniform Resource Identifier)에 대한 `host` 값을 반환합니다. | 
+| [uriPath](../logic-apps/workflow-definition-language-functions-reference.md#uriPath) | URI(Uniform Resource Identifier)에 대한 `path` 값을 반환합니다. | 
+| [uriPathAndQuery](../logic-apps/workflow-definition-language-functions-reference.md#uriPathAndQuery) | URI(Uniform Resource Identifier)에 대한 `path` 및 `query` 값을 반환합니다. | 
+| [uriPort](../logic-apps/workflow-definition-language-functions-reference.md#uriPort) | URI(Uniform Resource Identifier)에 대한 `port` 값을 반환합니다. | 
+| [uriQuery](../logic-apps/workflow-definition-language-functions-reference.md#uriQuery) | URI(Uniform Resource Identifier)에 대한 `query` 값을 반환합니다. | 
+| [uriScheme](../logic-apps/workflow-definition-language-functions-reference.md#uriScheme) | URI(Uniform Resource Identifier)에 대한 `scheme` 값을 반환합니다. | 
+||| 
+
+<a name="manipulation-functions"></a>
+
+## <a name="manipulation-functions-json--xml"></a>조작 함수: JSON 및 XML
+
+JSON 개체와 XML 노드를 사용하려면 이러한 조작 함수를 사용할 수 있습니다. 각 함수에 대한 전체 참조는 [사전순 목록](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)을 참조하세요.
+
+| 조작 함수 | Task | 
+| --------------------- | ---- | 
+| [addProperty](../logic-apps/workflow-definition-language-functions-reference.md#addProperty) | JSON 개체에 속성 및 해당 값 또는 이름-값 쌍을 추가하고 업데이트된 개체를 반환합니다. | 
+| [coalesce](../logic-apps/workflow-definition-language-functions-reference.md#coalesce) | 하나 이상의 매개 변수에서 Null이 아닌 첫 번째 값을 반환합니다. | 
+| [removeProperty](../logic-apps/workflow-definition-language-functions-reference.md#removeProperty) | JSON 개체에서 속성을 제거하고 업데이트된 개체를 반환합니다. | 
+| [setProperty](../logic-apps/workflow-definition-language-functions-reference.md#setProperty) | JSON 개체의 속성에 대한 값을 설정하고 업데이트된 개체를 반환합니다. | 
+| [xpath](../logic-apps/workflow-definition-language-functions-reference.md#xpath) | XPath(XML 경로 언어) 식과 일치하는 노드 또는 값에 대한 XML을 확인하고 일치하는 노드 또는 값을 반환합니다. | 
+||| 
+
+<a name="alphabetical-list"></a>
 <a name="action"></a>
 
-## <a name="action"></a>action
+### <a name="action"></a>action
 
 런타임 시 *현재* 작업의 출력 또는 식에 할당할 수 있는 다른 JSON 이름과 값 쌍을 반환합니다. 기본적으로 이 함수는 전체 작업 개체를 참조하지만, 선택적으로 해당 값을 원하는 속성을 지정할 수 있습니다. [actions()](../logic-apps/workflow-definition-language-functions-reference.md#actions)도 함께 참조하세요.
 
@@ -53,7 +308,7 @@ action().outputs.body.<property>
 
 <a name="actionBody"></a>
 
-## <a name="actionbody"></a>actionBody
+### <a name="actionbody"></a>actionBody
 
 런타임 시 작업의 `body` 출력을 반환합니다. `actions('<actionName>').outputs.body`를 줄인 표현입니다. [body()](#body) 및 [actions()](#actions)를 참조하세요.
 
@@ -98,7 +353,7 @@ actionBody('Get_user')
 
 <a name="actionOutputs"></a>
 
-## <a name="actionoutputs"></a>actionOutputs
+### <a name="actionoutputs"></a>actionOutputs
 
 런타임 시 작업의 출력을 반환합니다. `actions('<actionName>').outputs`를 줄인 표현입니다. [actions()](#actions)를 참조하세요.
 
@@ -161,7 +416,7 @@ actionOutputs('Get_user')
 
 <a name="actions"></a>
 
-## <a name="actions"></a>actions
+### <a name="actions"></a>actions
 
 런타임 시 작업의 출력 또는 식에 할당할 수 있는 다른 JSON 이름-값 쌍을 반환합니다. 기본적으로 이 함수는 전체 작업 개체를 참조하지만, 선택적으로 해당 값을 원하는 속성을 지정할 수 있습니다. 줄인 표현에 대해서는 [actionBody()](#actionBody), [actionOutputs()](#actionOutputs) 및 [body()](#body)를 참조하세요. 현재 작업에 대해서는 [action()](#action)을 참조하세요.
 
@@ -196,7 +451,7 @@ actions('Get_user').outputs.body.status
 
 <a name="add"></a>
 
-## <a name="add"></a>추가
+### <a name="add"></a>추가
 
 두 숫자를 더한 결과를 반환합니다.
 
@@ -226,7 +481,7 @@ add(1, 1.5)
 
 <a name="addDays"></a>
 
-## <a name="adddays"></a>addDays
+### <a name="adddays"></a>addDays
 
 타임스탬프에 일 수를 더합니다.
 
@@ -268,7 +523,7 @@ addDays('2018-03-15T00:00:00Z', -5)
 
 <a name="addHours"></a>
 
-## <a name="addhours"></a>addHours
+### <a name="addhours"></a>addHours
 
 타임스탬프에 시간 수를 더합니다.
 
@@ -310,7 +565,7 @@ addHours('2018-03-15T15:00:00Z', -5)
 
 <a name="addMinutes"></a>
 
-## <a name="addminutes"></a>addMinutes
+### <a name="addminutes"></a>addMinutes
 
 타임스탬프에 분 수를 더합니다.
 
@@ -352,7 +607,7 @@ addMinutes('2018-03-15T00:20:00Z', -5)
 
 <a name="addProperty"></a>
 
-## <a name="addproperty"></a>addProperty
+### <a name="addproperty"></a>addProperty
 
 JSON 개체에 속성 및 해당 값 또는 이름-값 쌍을 추가하고 업데이트된 개체를 반환합니다. 런타임 시 개체가 이미 있는 경우 함수에서 오류가 발생합니다.
 
@@ -382,7 +637,7 @@ addProperty(json('customerProfile'), 'accountNumber', guid())
 
 <a name="addSeconds"></a>
 
-## <a name="addseconds"></a>addSeconds
+### <a name="addseconds"></a>addSeconds
 
 타임스탬프에 초 수를 더합니다.
 
@@ -424,7 +679,7 @@ addSeconds('2018-03-15T00:00:30Z', -5)
 
 <a name="addToTime"></a>
 
-## <a name="addtotime"></a>addToTime
+### <a name="addtotime"></a>addToTime
 
 타임스탬프에 시간 단위 수를 더합니다. [getFutureTime()](#getFutureTime)도 함께 참조하세요.
 
@@ -467,7 +722,7 @@ addToTime('2018-01-01T00:00:00Z', 1, 'Day', 'D')
 
 <a name="and"></a>
 
-## <a name="and"></a>and
+### <a name="and"></a>and
 
 모든 식이 true인지 확인합니다. 모든 식이 true이면 true를 반환하거나 식 중의 적어도 개가 false이면 false를 반환합니다.
 
@@ -519,7 +774,7 @@ and(equals(1, 2), equals(1, 3))
 
 <a name="array"></a>
 
-## <a name="array"></a>array
+### <a name="array"></a>array
 
 단일 지정 입력에서 배열을 반환합니다. 여러 입력의 경우 [createArray()](#createArray)를 참조하세요. 
 
@@ -549,7 +804,7 @@ array('hello')
 
 <a name="base64"></a>
 
-## <a name="base64"></a>base64
+### <a name="base64"></a>base64
 
 문자열에 대한 base64로 인코딩된 버전을 반환합니다.
 
@@ -579,7 +834,7 @@ base64('hello')
 
 <a name="base64ToBinary"></a>
 
-## <a name="base64tobinary"></a>base64ToBinary
+### <a name="base64tobinary"></a>base64ToBinary
 
 Base64로 인코딩된 문자열에 대한 이진 버전을 반환합니다.
 
@@ -611,7 +866,7 @@ base64ToBinary('aGVsbG8=')
 
 <a name="base64ToString"></a>
 
-## <a name="base64tostring"></a>base64ToString
+### <a name="base64tostring"></a>base64ToString
 
 base64로 인코딩된 문자열에 대한 문자열 버전을 반환하며, 결과적으로 base64 문자열을 디코딩합니다. [decodeBase64()](#decodeBase64) 대신에 이 함수를 사용합니다. 두 함수 모두 같은 방법으로 작동하지만 `base64ToString()`를 사용하는 것이 좋습니다.
 
@@ -641,7 +896,7 @@ base64ToString('aGVsbG8=')
 
 <a name="binary"></a>
 
-## <a name="binary"></a>binary 
+### <a name="binary"></a>binary 
 
 문자열에 대한 이진 버전을 반환합니다.
 
@@ -673,7 +928,7 @@ binary('hello')
 
 <a name="body"></a>
 
-## <a name="body"></a>본문
+### <a name="body"></a>본문
 
 런타임 시 작업의 `body` 출력을 반환합니다. `actions('<actionName>').outputs.body`를 줄인 표현입니다. [actionBody()](#actionBody) 및 [actions()](#actions)를 참조하세요.
 
@@ -718,7 +973,7 @@ body('Get_user')
 
 <a name="bool"></a>
 
-## <a name="bool"></a>bool
+### <a name="bool"></a>bool
 
 값에 대한 부울 버전을 반환합니다.
 
@@ -752,7 +1007,7 @@ bool(0)
 
 <a name="coalesce"></a>
 
-## <a name="coalesce"></a>coalesce
+### <a name="coalesce"></a>coalesce
 
 하나 이상의 매개 변수에서 Null이 아닌 첫 번째 값을 반환합니다. 빈 문자열, 빈 배열 및 빈 개체는 null이 아닙니다.
 
@@ -788,7 +1043,7 @@ coalesce(null, null, null)
 
 <a name="concat"></a>
 
-## <a name="concat"></a>concat
+### <a name="concat"></a>concat
 
 둘 이상의 문자열을 결합하고 결합된 문자열을 반환합니다. 
 
@@ -818,7 +1073,7 @@ concat('Hello', 'World')
 
 <a name="contains"></a>
 
-## <a name="contains"></a>contains
+### <a name="contains"></a>contains
 
 컬렉션에 특정 항목이 있는지 검사합니다. 항목이 발견되면 true를 반환하거나 발견되지 않으면 false를 반환합니다. 이 함수는 대/소문자를 구분합니다.
 
@@ -862,7 +1117,7 @@ contains('hello world', 'universe')
 
 <a name="convertFromUtc"></a>
 
-## <a name="convertfromutc"></a>convertFromUtc
+### <a name="convertfromutc"></a>convertFromUtc
 
 UTC(Universal Time Coordinated)의 타임스탬프를 대상 표준 시간대로 변환합니다.
 
@@ -904,7 +1159,7 @@ convertFromUtc('2018-01-01T08:00:00.0000000Z', 'Pacific Standard Time', 'D')
 
 <a name="convertTimeZone"></a>
 
-## <a name="converttimezone"></a>convertTimeZone
+### <a name="converttimezone"></a>convertTimeZone
 
 원본 표준 시간대의 타임스탬프를 대상 표준 시간대로 변환합니다.
 
@@ -947,7 +1202,7 @@ convertTimeZone('2018-01-01T80:00:00.0000000Z', 'UTC', 'Pacific Standard Time', 
 
 <a name="convertToUtc"></a>
 
-## <a name="converttoutc"></a>convertToUtc
+### <a name="converttoutc"></a>convertToUtc
 
 원본 표준 시간대의 타임스탬프를 UTC(Universal Time Coordinated)로 변환합니다.
 
@@ -989,7 +1244,7 @@ convertToUtc('01/01/2018 00:00:00', 'Pacific Standard Time', 'D')
 
 <a name="createArray"></a>
 
-## <a name="createarray"></a>createArray
+### <a name="createarray"></a>createArray
 
 여러 입력에서 배열을 반환합니다. 단일 입력 배열의 경우 [array()](#array)를 참조하세요.
 
@@ -1019,7 +1274,7 @@ createArray('h', 'e', 'l', 'l', 'o')
 
 <a name="dataUri"></a>
 
-## <a name="datauri"></a>dataUri
+### <a name="datauri"></a>dataUri
 
 문자열에 대한 데이터 URI(Uniform Resource Identifier)를 반환합니다. 
 
@@ -1049,7 +1304,7 @@ dataUri('hello')
 
 <a name="dataUriToBinary"></a>
 
-## <a name="datauritobinary"></a>dataUriToBinary
+### <a name="datauritobinary"></a>dataUriToBinary
 
 데이터 URI(Uniform Resource Identifier)에 대한 이진 버전을 반환합니다. [decodeDataUri()](#decodeDataUri) 대신에 이 함수를 사용합니다. 두 함수 모두 같은 방법으로 작동하지만 `decodeDataUri()`를 사용하는 것이 좋습니다.
 
@@ -1084,7 +1339,7 @@ dataUriToBinary('data:text/plain;charset=utf-8;base64,aGVsbG8=')
 
 <a name="dataUriToString"></a>
 
-## <a name="datauritostring"></a>dataUriToString
+### <a name="datauritostring"></a>dataUriToString
 
 데이터 URI(Uniform Resource Identifier)에 대한 문자열 버전을 반환합니다.
 
@@ -1114,7 +1369,7 @@ dataUriToString('data:text/plain;charset=utf-8;base64,aGVsbG8=')
 
 <a name="dayOfMonth"></a>
 
-## <a name="dayofmonth"></a>dayOfMonth
+### <a name="dayofmonth"></a>dayOfMonth
 
 타임스탬프에서 월의 날짜를 반환합니다. 
 
@@ -1144,7 +1399,7 @@ dayOfMonth('2018-03-15T13:27:36Z')
 
 <a name="dayOfWeek"></a>
 
-## <a name="dayofweek"></a>dayOfWeek
+### <a name="dayofweek"></a>dayOfWeek
 
 타임스탬프에서 요일을 반환합니다.  
 
@@ -1174,7 +1429,7 @@ dayOfWeek('2018-03-15T13:27:36Z')
 
 <a name="dayOfYear"></a>
 
-## <a name="dayofyear"></a>dayOfYear
+### <a name="dayofyear"></a>dayOfYear
 
 타임스탬프에서 년의 날짜를 반환합니다. 
 
@@ -1204,7 +1459,7 @@ dayOfYear('2018-03-15T13:27:36Z')
 
 <a name="decodeBase64"></a>
 
-## <a name="decodebase64"></a>decodeBase64
+### <a name="decodebase64"></a>decodeBase64
 
 base64로 인코딩된 문자열에 대한 문자열 버전을 반환하며, 결과적으로 base64 문자열을 디코딩합니다. `decodeBase64()` 대신에 [base64ToString()](#base64ToString)의 사용을 검토해 보세요. 두 함수 모두 같은 방법으로 작동하지만 `base64ToString()`를 사용하는 것이 좋습니다.
 
@@ -1234,7 +1489,7 @@ decodeBase64('aGVsbG8=')
 
 <a name="decodeDataUri"></a>
 
-## <a name="decodedatauri"></a>decodeDataUri
+### <a name="decodedatauri"></a>decodeDataUri
 
 데이터 URI(Uniform Resource Identifier)에 대한 이진 버전을 반환합니다. `decodeDataUri()` 대신에 [dataUriToBinary()](#dataUriToBinary)의 사용을 검토해 보세요. 두 함수 모두 같은 방법으로 작동하지만 `dataUriToBinary()`를 사용하는 것이 좋습니다.
 
@@ -1269,7 +1524,7 @@ decodeDataUri('data:text/plain;charset=utf-8;base64,aGVsbG8=')
 
 <a name="decodeUriComponent"></a>
 
-## <a name="decodeuricomponent"></a>decodeUriComponent
+### <a name="decodeuricomponent"></a>decodeUriComponent
 
 디코딩된 버전으로 이스케이프 문자를 바꾸는 문자열을 반환합니다. 
 
@@ -1299,7 +1554,7 @@ decodeUriComponent('http%3A%2F%2Fcontoso.com')
 
 <a name="div"></a>
 
-## <a name="div"></a>div
+### <a name="div"></a>div
 
 두 숫자를 나눈 정수 결과를 반환합니다. 나머지 결과를 얻으려면 [mod()](#mod)를 참조하세요.
 
@@ -1331,7 +1586,7 @@ div(11, 5)
 
 <a name="encodeUriComponent"></a>
 
-## <a name="encodeuricomponent"></a>encodeUriComponent
+### <a name="encodeuricomponent"></a>encodeUriComponent
 
 URL 안전하지 않은 문자를 이스케이프 문자로 바꾸어 문자열에 대한 URI(Uniform Resource Identifier) 인코딩된 버전을 반환합니다. `encodeUriComponent()` 대신에 [uriComponent()](#uriComponent)의 사용을 검토해 보세요. 두 함수 모두 같은 방법으로 작동하지만 `uriComponent()`를 사용하는 것이 좋습니다.
 
@@ -1361,7 +1616,7 @@ encodeUriComponent('https://contoso.com')
 
 <a name="empty"></a>
 
-## <a name="empty"></a>empty
+### <a name="empty"></a>empty
 
 컬렉션이 비어 있는지 검사합니다. 컬렉션이 비어 있으면 true를 반환하거나 비어 있지 않으면 false를 반환합니다.
 
@@ -1396,7 +1651,7 @@ empty('abc')
 
 <a name="endswith"></a>
 
-## <a name="endswith"></a>endsWith
+### <a name="endswith"></a>endsWith
 
 문자열이 특정 하위 문자열로 종료하는지 검사합니다. 하위 문자열이 발견되면 true를 반환하거나 발견되지 않으면 false를 반환합니다. 이 함수는 대/소문자를 구분하지 않습니다.
 
@@ -1437,7 +1692,7 @@ endsWith('hello world', 'universe')
 
 <a name="equals"></a>
 
-## <a name="equals"></a>equals
+### <a name="equals"></a>equals
 
 두 값, 식 또는 개체가 모두 같은지 검사합니다. 둘이 다 같으면 true를 반환하거나 같지 않으면 false를 반환합니다.
 
@@ -1471,7 +1726,7 @@ equals('abc', 'abcd')
 
 <a name="first"></a>
 
-## <a name="first"></a>first
+### <a name="first"></a>first
 
 문자열 또는 배열에서 첫 번째 항목을 반환합니다.
 
@@ -1506,7 +1761,7 @@ first([0, 1, 2])
 
 <a name="float"></a>
 
-## <a name="float"></a>float
+### <a name="float"></a>float
 
 부동 소수점 수에 대한 문자열 버전을 실제 부동 소수점 수로 변환합니다. 이 함수는 논리 앱과 같은 앱에 사용자 지정 매개 변수를 전달할 경우에만 사용할 수 있습니다.
 
@@ -1536,7 +1791,7 @@ float('10.333')
 
 <a name="formatDateTime"></a>
 
-## <a name="formatdatetime"></a>formatDateTime
+### <a name="formatdatetime"></a>formatDateTime
 
 지정한 형식의 타임스탬프를 반환합니다.
 
@@ -1567,7 +1822,7 @@ formatDateTime('03/15/2018 12:00:00', 'yyyy-MM-ddTHH:mm:ss')
 
 <a name="formDataMultiValues"></a>
 
-## <a name="formdatamultivalues"></a>formDataMultiValues
+### <a name="formdatamultivalues"></a>formDataMultiValues
 
 작업의 *양식 데이터* 또는 *양식 인코딩된* 출력의 키 이름과 일치하는 값을 가진 배열을 반환합니다. 
 
@@ -1598,7 +1853,7 @@ formDataMultiValues('Send_an_email', 'Subject')
 
 <a name="formDataValue"></a>
 
-## <a name="formdatavalue"></a>formDataValue
+### <a name="formdatavalue"></a>formDataValue
 
 작업의 *양식 데이터* 또는 *양식 인코딩된* 출력의 키 이름과 일치하는 단일 값을 반환합니다. 함수가 일치하는 항목을 두 개 이상 찾으면 함수에서 오류가 발생합니다.
 
@@ -1629,7 +1884,7 @@ formDataValue('Send_an_email', 'Subject')
 
 <a name="getFutureTime"></a>
 
-## <a name="getfuturetime"></a>getFutureTime
+### <a name="getfuturetime"></a>getFutureTime
 
 지정한 시간 단위를 더한 현재 타임스탬프를 반환합니다.
 
@@ -1671,7 +1926,7 @@ getFutureTime(5, 'Day', 'D')
 
 <a name="getPastTime"></a>
 
-## <a name="getpasttime"></a>getPastTime
+### <a name="getpasttime"></a>getPastTime
 
 지정한 시간 단위를 뺀 현재 타임스탬프를 반환합니다.
 
@@ -1713,7 +1968,7 @@ getPastTime(5, 'Day', 'D')
 
 <a name="greater"></a>
 
-## <a name="greater"></a>greater
+### <a name="greater"></a>greater
 
 첫 번째 값이 두 번째 값보다 큰지 검사합니다. 첫 번째 값이 더 크면 true를 반환하거나 더 작으면 false를 반환합니다.
 
@@ -1749,7 +2004,7 @@ greater('apple', 'banana')
 
 <a name="greaterOrEquals"></a>
 
-## <a name="greaterorequals"></a>greaterOrEquals
+### <a name="greaterorequals"></a>greaterOrEquals
 
 첫 번째 값이 두 번째 값보다 크거나 같은지 검사합니다.
 첫 번째 값이 두 번째 값보다 크거나 같으면 true를 반환하거나 첫 번째 값이 더 작으면 false를 반환합니다.
@@ -1786,7 +2041,7 @@ greaterOrEquals('apple', 'banana')
 
 <a name="guid"></a>
 
-## <a name="guid"></a>GUID
+### <a name="guid"></a>GUID
 
 GUID(전역적으로 고유한 식별자)를 문자열로 생성합니다. 예, "c2ecc88d-88c8-4096-912c-d6f2e2b138ce": 
 
@@ -1822,7 +2077,7 @@ guid('P')
 
 <a name="if"></a>
 
-## <a name="if"></a>if
+### <a name="if"></a>if
 
 식이 true인지 또는 false인지 검사합니다. 결과에 기반해 지정한 값을 반환합니다.
 
@@ -1852,7 +2107,7 @@ if(equals(1, 1), 'yes', 'no')
 
 <a name="indexof"></a>
 
-## <a name="indexof"></a>indexof
+### <a name="indexof"></a>indexof
 
 하위 문자열에 대한 시작 위치 또는 인덱스 값을 반환합니다. 이 함수는 대/소문자를 구분하지 않으며 인덱스는 숫자 0으로 시작합니다. 
 
@@ -1883,7 +2138,7 @@ indexOf('hello world', 'world')
 
 <a name="int"></a>
 
-## <a name="int"></a>int
+### <a name="int"></a>int
 
 문자열에 대한 정수 버전을 반환합니다.
 
@@ -1913,7 +2168,7 @@ int('10')
 
 <a name="item"></a>
 
-## <a name="item"></a>항목
+### <a name="item"></a>항목
 
 배열에 대해 반복 작업 내에 사용하는 경우 작업의 현재 반복 중에 배열의 현재 항목을 반환합니다. 또한 해당 항목의 속성에서 값을 가져올 수 있습니다. 
 
@@ -1936,7 +2191,7 @@ item().body
 
 <a name="items"></a>
 
-## <a name="items"></a>항목
+### <a name="items"></a>항목
 
 for-each 루프의 각 주기에서 현재 항목을 반환합니다. 이 함수를 for-each 루프 내에 사용합니다.
 
@@ -1964,7 +2219,7 @@ items('myForEachLoopName')
 
 <a name="json"></a>
 
-## <a name="json"></a>json :
+### <a name="json"></a>json :
 
 JSON(JavaScript Object Notation) 형식 값 또는 문자열이나 XML에 대한 개체를 반환합니다.
 
@@ -2033,7 +2288,7 @@ json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> 
 
 <a name="intersection"></a>
 
-## <a name="intersection"></a>교집합
+### <a name="intersection"></a>교집합
 
 지정한 컬렉션에서 공통 항목*만* 있는 컬렉션을 반환합니다. 결과에 나타내려면 항목이 이 함수에 전달된 모든 컬렉션에 나타나야 합니다. 같은 이름을 가진 항목이 한 개 이상이면 해당 이름의 마지막 항목이 결과에 나타납니다.
 
@@ -2064,7 +2319,7 @@ intersection([1, 2, 3], [101, 2, 1, 10], [6, 8, 1, 2])
 
 <a name="join"></a>
 
-## <a name="join"></a>join
+### <a name="join"></a>join
 
 배열의 모든 항목을 포함하고 각 문자가 *구분 기호*로 구분된 문자열을 반환합니다.
 
@@ -2095,7 +2350,7 @@ join([a, b, c], '.')
 
 <a name="last"></a>
 
-## <a name="last"></a>last
+### <a name="last"></a>last
 
 컬렉션에서 마지막 항목을 반환합니다.
 
@@ -2130,7 +2385,7 @@ last([0, 1, 2, 3])
 
 <a name="lastindexof"></a>
 
-## <a name="lastindexof"></a>lastindexof
+### <a name="lastindexof"></a>lastindexof
 
 하위 문자열에 대한 종료 위치 또는 인덱스 값을 반환합니다. 이 함수는 대/소문자를 구분하지 않으며 인덱스는 숫자 0으로 시작합니다.
 
@@ -2161,7 +2416,7 @@ lastIndexOf('hello world', 'world')
 
 <a name="length"></a>
 
-## <a name="length"></a>length
+### <a name="length"></a>length
 
 컬렉션의 항목 수를 반환합니다.
 
@@ -2193,7 +2448,7 @@ length([0, 1, 2, 3])
 
 <a name="less"></a>
 
-## <a name="less"></a>less
+### <a name="less"></a>less
 
 첫 번째 값이 두 번째 값보다 작은지 검사합니다.
 첫 번째 값이 두 번째 값보다 작으면 true를 반환하거나 첫 번째 값이 더 크면 false를 반환합니다.
@@ -2230,7 +2485,7 @@ less('banana', 'apple')
 
 <a name="lessOrEquals"></a>
 
-## <a name="lessorequals"></a>lessOrEquals
+### <a name="lessorequals"></a>lessOrEquals
 
 첫 번째 값이 두 번째 값보다 작거나 같은지 검사합니다.
 첫 번째 값이 두 번째 값보다 작으면 true를 반환하거나 첫 번째 값이 더 크면 false를 반환합니다.
@@ -2267,7 +2522,7 @@ lessOrEquals('apply', 'apple')
 
 <a name="listCallbackUrl"></a>
 
-## <a name="listcallbackurl"></a>listCallbackUrl
+### <a name="listcallbackurl"></a>listCallbackUrl
 
 트리거 또는 작업을 호출하는 "콜백 URL"을 반환합니다. 이 함수는 **HttpWebhook** 및 **ApiConnectionWebhook** 커넥터 형식에 대해서만 작동하며, **Manual**, **Recurrence**, **HTTP** 및 **APIConnection** 형식에 대해서는 작동하지 않습니다. 
 
@@ -2288,7 +2543,7 @@ listCallbackUrl()
 
 <a name="max"></a>
 
-## <a name="max"></a>max
+### <a name="max"></a>max
 
 양끝이 포함된 숫자를 가진 목록 또는 배열에서 가장 높은 값을 반환합니다. 
 
@@ -2321,7 +2576,7 @@ max([1, 2, 3])
 
 <a name="min"></a>
 
-## <a name="min"></a>min
+### <a name="min"></a>min
 
 숫자 또는 배열 집합에서 가장 낮은 값을 반환합니다.
 
@@ -2354,7 +2609,7 @@ min([1, 2, 3])
 
 <a name="mod"></a>
 
-## <a name="mod"></a>mod
+### <a name="mod"></a>mod
 
 두 숫자를 나눈 나머지를 반환합니다. 정수 결과를 가져오는 방법은 [div()](#div)를 참조하세요.
 
@@ -2385,7 +2640,7 @@ mod(3, 2)
 
 <a name="mul"></a>
 
-## <a name="mul"></a>mul
+### <a name="mul"></a>mul
 
 두 숫자를 곱한 결과를 반환합니다.
 
@@ -2420,7 +2675,7 @@ mul(1.5, 2)
 
 <a name="multipartBody"></a>
 
-## <a name="multipartbody"></a>multipartBody
+### <a name="multipartbody"></a>multipartBody
 
 여러 부분으로 구성된 작업의 출력에서 특정 부분에 대한 본문을 반환합니다.
 
@@ -2441,7 +2696,7 @@ multipartBody('<actionName>', <index>)
 
 <a name="not"></a>
 
-## <a name="not"></a>not
+### <a name="not"></a>not
 
 식이 false인지 검사합니다. 식이 false이면 true를 반환하거나 true이면 false를 반환합니다.
 
@@ -2489,7 +2744,7 @@ not(equals(1, 1))
 
 <a name="or"></a>
 
-## <a name="or"></a>또는
+### <a name="or"></a>또는
 
 최소 하나의 식이 true인지 검사합니다. 최소 하나의 식이 true이면 true를 반환하거나 모든 식이 false이면 false를 반환합니다.
 
@@ -2537,7 +2792,7 @@ or(equals(1, 2), equals(1, 3))
 
 <a name="parameters"></a>
 
-## <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>매개 변수
 
 논리 앱 정의에 설명된 매개 변수에 대한 값을 반환합니다. 
 
@@ -2575,7 +2830,7 @@ parameters('fullName')
 
 <a name="rand"></a>
 
-## <a name="rand"></a>rand
+### <a name="rand"></a>rand
 
 시작 끝만 포함하는 지정한 범위에서 임의의 정수를 반환합니다.
 
@@ -2606,7 +2861,7 @@ rand(1, 5)
 
 <a name="range"></a>
 
-## <a name="range"></a>range
+### <a name="range"></a>range
 
 지정한 정수에서 시작하는 정수 배열을 반환합니다.
 
@@ -2637,7 +2892,7 @@ range(1, 4)
 
 <a name="replace"></a>
 
-## <a name="replace"></a>replace
+### <a name="replace"></a>replace
 
 하위 문자열을 지정한 문자열로 바꾸고 결과 문자열을 반환합니다. 이 함수는 대/소문자를 구분합니다.
 
@@ -2669,7 +2924,7 @@ replace('the old string', 'old', 'new')
 
 <a name="removeProperty"></a>
 
-## <a name="removeproperty"></a>removeProperty
+### <a name="removeproperty"></a>removeProperty
 
 개체에서 속성을 제거하고 업데이트된 개체를 반환합니다.
 
@@ -2698,7 +2953,7 @@ removeProperty(json('customerProfile'), 'accountLocation')
 
 <a name="setProperty"></a>
 
-## <a name="setproperty"></a>setProperty
+### <a name="setproperty"></a>setProperty
 
 개체의 속성에 대한 값을 설정하고 업데이트된 개체를 반환합니다. 새 속성을 추가하려면 이 함수 또는 [addProperty()](#addProperty) 함수를 사용할 수 있습니다.
 
@@ -2728,7 +2983,7 @@ setProperty(json('customerProfile'), 'accountNumber', guid())
 
 <a name="skip"></a>
 
-## <a name="skip"></a>skip
+### <a name="skip"></a>skip
 
 컬렉션 앞의 항목을 제거하고 *다른 모든* 항목을 반환합니다.
 
@@ -2759,7 +3014,7 @@ skip([0, 1, 2, 3], 1)
 
 <a name="split"></a>
 
-## <a name="split"></a>split
+### <a name="split"></a>split
 
 문자열의 모든 문자를 포함하고 각 문자가 *구분 기호*로 구분된 배열을 반환합니다.
 
@@ -2790,7 +3045,7 @@ split('abc', ',')
 
 <a name="startOfDay"></a>
 
-## <a name="startofday"></a>startOfDay
+### <a name="startofday"></a>startOfDay
 
 타임스탬프에 대한 날의 시작을 반환합니다. 
 
@@ -2821,7 +3076,7 @@ startOfDay('2018-03-15T13:30:30Z')
 
 <a name="startOfHour"></a>
 
-## <a name="startofhour"></a>startOfHour
+### <a name="startofhour"></a>startOfHour
 
 타임스탬프에 대한 시간의 시작을 반환합니다. 
 
@@ -2852,7 +3107,7 @@ startOfHour('2018-03-15T13:30:30Z')
 
 <a name="startOfMonth"></a>
 
-## <a name="startofmonth"></a>startOfMonth
+### <a name="startofmonth"></a>startOfMonth
 
 타임스탬프에 대한 월의 시작을 반환합니다. 
 
@@ -2883,7 +3138,7 @@ startOfMonth('2018-03-15T13:30:30Z')
 
 <a name="startswith"></a>
 
-## <a name="startswith"></a>startswith
+### <a name="startswith"></a>startswith
 
 문자열이 특정 하위 문자열로 시작하는지 검사합니다. 하위 문자열이 발견되면 true를 반환하거나 발견되지 않으면 false를 반환합니다. 이 함수는 대/소문자를 구분하지 않습니다.
 
@@ -2924,7 +3179,7 @@ startsWith('hello world', 'greetings')
 
 <a name="string"></a>
 
-## <a name="string"></a>string
+### <a name="string"></a>string
 
 값에 대한 문자열 버전을 반환합니다.
 
@@ -2964,7 +3219,7 @@ string( { "name": "Sophie Owen" } )
 
 <a name="sub"></a>
 
-## <a name="sub"></a>sub
+### <a name="sub"></a>sub
 
 첫 번째 숫자에서 두 번째 숫자를 뺀 결과를 반환합니다.
 
@@ -2995,7 +3250,7 @@ sub(10.3, .3)
 
 <a name="substring"></a>
 
-## <a name="substring"></a>substring
+### <a name="substring"></a>substring
 
 지정한 위치 또는 인덱스에서 시작하여 문자열에서 문자를 반환합니다. 인덱스 값은 숫자 0으로 시작합니다. 
 
@@ -3027,7 +3282,7 @@ substring('hello world', 6, 5)
 
 <a name="subtractFromTime"></a>
 
-## <a name="subtractfromtime"></a>subtractFromTime
+### <a name="subtractfromtime"></a>subtractFromTime
 
 타임스탬프에서 시간 단위 수를 뺍니다. [getPastTime](#getPastTime)도 함께 참조하세요.
 
@@ -3070,7 +3325,7 @@ subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day', 'D')
 
 <a name="take"></a>
 
-## <a name="take"></a>take
+### <a name="take"></a>take
 
 컬렉션 앞에서 항목을 반환합니다. 
 
@@ -3106,7 +3361,7 @@ take([0, 1, 2, 3, 4], 3)
 
 <a name="ticks"></a>
 
-## <a name="ticks"></a>ticks
+### <a name="ticks"></a>ticks
 
 지정한 타임스탬프에 대한 `ticks` 속성 값을 반환합니다. *tick*은 100나노초 간격입니다.
 
@@ -3126,7 +3381,7 @@ ticks('<timestamp>')
 
 <a name="toLower"></a>
 
-## <a name="tolower"></a>toLower
+### <a name="tolower"></a>toLower
 
 문자열을 소문자 형식으로 반환합니다. 문자열의 문자에 소문자 버전이 없으면 반환된 문자열에 해당 문자가 변경되지 않고 포함됩니다.
 
@@ -3156,7 +3411,7 @@ toLower('Hello World')
 
 <a name="toUpper"></a>
 
-## <a name="toupper"></a>toUpper
+### <a name="toupper"></a>toUpper
 
 문자열을 대문자 형식으로 반환합니다. 문자열의 문자에 대문자 버전이 없으면 반환된 문자열에 해당 문자가 변경되지 않고 포함됩니다.
 
@@ -3164,7 +3419,7 @@ toLower('Hello World')
 toUpper('<text>')
 ```
 
-| 매개 변수 | 필수 | 형식 | 설명 | 
+| 매개 변수 | 필수 | type | 설명 | 
 | --------- | -------- | ---- | ----------- | 
 | <*text*> | yes | 문자열 | 대문자 형식으로 반환할 문자열 | 
 ||||| 
@@ -3186,7 +3441,7 @@ toUpper('Hello World')
 
 <a name="trigger"></a>
 
-## <a name="trigger"></a>trigger
+### <a name="trigger"></a>trigger
 
 런타임 시 트리거의 출력 또는 식에 할당할 수 있는 다른 JSON 이름-값 쌍을 반환합니다. 
 
@@ -3207,7 +3462,7 @@ trigger()
 
 <a name="triggerBody"></a>
 
-## <a name="triggerbody"></a>triggerBody
+### <a name="triggerbody"></a>triggerBody
 
 런타임 시 트리거의 `body` 출력을 반환합니다. `trigger().outputs.body`를 줄인 표현입니다. [trigger()](#trigger)를 참조하세요. 
 
@@ -3222,7 +3477,7 @@ triggerBody()
 
 <a name="triggerFormDataMultiValues"></a>
 
-## <a name="triggerformdatamultivalues"></a>triggerFormDataMultiValues
+### <a name="triggerformdatamultivalues"></a>triggerFormDataMultiValues
 
 트리거의 *양식 데이터* 또는 *양식 인코딩된* 출력의 키 이름과 일치하는 값을 가진 배열을 반환합니다. 
 
@@ -3252,7 +3507,7 @@ triggerFormDataMultiValues('feedUrl')
 
 <a name="triggerFormDataValue"></a>
 
-## <a name="triggerformdatavalue"></a>triggerFormDataValue
+### <a name="triggerformdatavalue"></a>triggerFormDataValue
 
 트리거의 *양식 데이터* 또는 *양식 인코딩된* 출력의 키 이름과 일치하는 단일 값을 가진 문자열을 반환합니다. 함수가 일치하는 항목을 두 개 이상 찾으면 함수에서 오류가 발생합니다.
 
@@ -3300,7 +3555,7 @@ triggerMultipartBody(<index>)
 
 <a name="triggerOutputs"></a>
 
-## <a name="triggeroutputs"></a>triggerOutputs
+### <a name="triggeroutputs"></a>triggerOutputs
 
 런타임 시 트리거 출력 또는 다른 JSON 이름-값 쌍에서 값을 반환합니다. `trigger().outputs`를 줄인 표현입니다. [trigger()](#trigger)를 참조하세요. 
 
@@ -3315,7 +3570,7 @@ triggerOutputs()
 
 <a name="trim"></a>
 
-## <a name="trim"></a>trim
+### <a name="trim"></a>trim
 
 문자열에서 선행 및 후행 공백을 제거하고 업데이트된 문자열을 반환합니다.
 
@@ -3345,7 +3600,7 @@ trim(' Hello World  ')
 
 <a name="union"></a>
 
-## <a name="union"></a>union
+### <a name="union"></a>union
 
 지정한 컬렉션에서 *모든* 항목이 있는 컬렉션을 반환합니다. 결과에 나타내기 위해 항목이 이 함수에 전달된 모든 컬렉션에 나타날 수 있습니다. 같은 이름을 가진 항목이 한 개 이상이면 해당 이름의 마지막 항목이 결과에 나타납니다. 
 
@@ -3376,7 +3631,7 @@ union([1, 2, 3], [1, 2, 10, 101])
 
 <a name="uriComponent"></a>
 
-## <a name="uricomponent"></a>uriComponent
+### <a name="uricomponent"></a>uriComponent
 
 URL 안전하지 않은 문자를 이스케이프 문자로 바꾸어 문자열에 대한 URI(Uniform Resource Identifier) 인코딩된 버전을 반환합니다. [encodeUriComponent()](#encodeUriComponent) 대신에 이 함수를 사용합니다. 두 함수 모두 같은 방법으로 작동하지만 `uriComponent()`를 사용하는 것이 좋습니다.
 
@@ -3406,7 +3661,7 @@ uriComponent('https://contoso.com')
 
 <a name="uriComponentToBinary"></a>
 
-## <a name="uricomponenttobinary"></a>uriComponentToBinary
+### <a name="uricomponenttobinary"></a>uriComponentToBinary
 
 URI(Uniform Resource Identifier) 구성 요소에 대한 이진 버전을 반환합니다.
 
@@ -3441,7 +3696,7 @@ uriComponentToBinary('http%3A%2F%2Fcontoso.com')
 
 <a name="uriComponentToString"></a>
 
-## <a name="uricomponenttostring"></a>uriComponentToString
+### <a name="uricomponenttostring"></a>uriComponentToString
 
 URI(Uniform Resource Identifier) 인코딩된 문자열에 대한 문자열 버전을 반환하며, 결과적으로 URI 인코딩된 문자열을 디코딩합니다.
 
@@ -3471,7 +3726,7 @@ uriComponentToString('http%3A%2F%2Fcontoso.com')
 
 <a name="uriHost"></a>
 
-## <a name="urihost"></a>uriHost
+### <a name="urihost"></a>uriHost
 
 URI(Uniform Resource Identifier)에 대한 `host` 값을 반환합니다.
 
@@ -3501,7 +3756,7 @@ uriHost('https://www.localhost.com:8080')
 
 <a name="uriPath"></a>
 
-## <a name="uripath"></a>uriPath
+### <a name="uripath"></a>uriPath
 
 URI(Uniform Resource Identifier)에 대한 `path` 값을 반환합니다. 
 
@@ -3531,7 +3786,7 @@ uriPath('http://www.contoso.com/catalog/shownew.htm?date=today')
 
 <a name="uriPathAndQuery"></a>
 
-## <a name="uripathandquery"></a>uriPathAndQuery
+### <a name="uripathandquery"></a>uriPathAndQuery
 
 URI(Uniform Resource Identifier)에 대한 `path` 및 `query` 값을 반환합니다.
 
@@ -3561,7 +3816,7 @@ uriPathAndQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
 
 <a name="uriPort"></a>
 
-## <a name="uriport"></a>uriPort
+### <a name="uriport"></a>uriPort
 
 URI(Uniform Resource Identifier)에 대한 `port` 값을 반환합니다.
 
@@ -3591,7 +3846,7 @@ uriPort('http://www.localhost:8080')
 
 <a name="uriQuery"></a>
 
-## <a name="uriquery"></a>uriQuery
+### <a name="uriquery"></a>uriQuery
 
 URI(Uniform Resource Identifier)에 대한 `query` 값을 반환합니다.
 
@@ -3621,7 +3876,7 @@ uriQuery('http://www.contoso.com/catalog/shownew.htm?date=today')
 
 <a name="uriScheme"></a>
 
-## <a name="urischeme"></a>uriScheme
+### <a name="urischeme"></a>uriScheme
 
 URI(Uniform Resource Identifier)에 대한 `scheme` 값을 반환합니다.
 
@@ -3651,7 +3906,7 @@ uriScheme('http://www.contoso.com/catalog/shownew.htm?date=today')
 
 <a name="utcNow"></a>
 
-## <a name="utcnow"></a>utcNow
+### <a name="utcnow"></a>utcNow
 
 현재 타임스탬프를 반환합니다. 
 
@@ -3694,7 +3949,7 @@ utcNow('D')
 
 <a name="variables"></a>
 
-## <a name="variables"></a>variables
+### <a name="variables"></a>variables
 
 지정한 변수에 대한 값을 반환합니다. 
 
@@ -3724,7 +3979,7 @@ variables('numItems')
 
 <a name="workflow"></a>
 
-## <a name="workflow"></a>워크플로
+### <a name="workflow"></a>워크플로
 
 런타임 동안 워크플로 자체에 대한 모든 세부 정보를 반환합니다. 
 
@@ -3747,7 +4002,7 @@ workflow().run.name
 
 <a name="xml"></a>
 
-## <a name="xml"></a>xml
+### <a name="xml"></a>xml
 
 JSON 개체를 포함하는 문자열에 대한 XML 버전을 반환합니다. 
 
@@ -3805,7 +4060,7 @@ xml('<value>')
 
 <a name="xpath"></a>
 
-## <a name="xpath"></a>xpath
+### <a name="xpath"></a>xpath
 
 XPath(XML 경로 언어) 식과 일치하는 노드 또는 값에 대한 XML을 확인하고 일치하는 노드 또는 값을 반환합니다. XPath 식 또는 단순히 "XPath"는 XML 콘텐츠에서 노드를 선택하고 값을 계산할 수 있도록 XML 문서 구조를 탐색하는 데 도움이 됩니다.
 

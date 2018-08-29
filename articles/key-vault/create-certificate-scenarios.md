@@ -3,7 +3,7 @@ title: 인증서 만들기 모니터링 및 관리
 description: Key Vault를 사용하여 인증서 만들기 프로세스를 만들고, 모니터링하고, 상호 작용하기 위한 다양한 옵션을 설명하는 시나리오입니다.
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: 0d0995aa-b60d-4811-be12-ba0a45390197
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: alleonar
-ms.openlocfilehash: e1ea77304fa59b67e0e28a4c7e0b13633eeeff6f
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: bryanla
+ms.openlocfilehash: 80f350b9b83438ee04540527cce0ea6821d148ca
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011986"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141756"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>인증서 만들기 모니터링 및 관리
 Azure에 적용합니다.  
@@ -46,7 +46,7 @@ Azure에 적용합니다.
 |------------|-----------------|  
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|  
 
-다음 예제에는 DigiCert로 발급자 공급자와 함께 키 자격 증명 모음에서 이미 사용할 수 있는 "mydigicert"라는 개체가 필요합니다. 발급자와 작업에 대한 자세한 내용은 [인증서 발급자](/rest/api/keyvault/certificate-issuers.md)를 참조하세요.  
+다음 예제에는 DigiCert로 발급자 공급자와 함께 키 자격 증명 모음에서 이미 사용할 수 있는 "mydigicert"라는 개체가 필요합니다. 인증서 발급자는 Azure KV(Key Vault)에 CertificateIssuer 리소스로 표시되는 엔터티입니다. KV 인증서의 원본에 대한 정보(발급자 이름, 공급자, 자격 증명 및 기타 관리 세부 정보)를 제공하는 데 사용됩니다.  
 
 ### <a name="request"></a>요청  
 
@@ -429,7 +429,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 |요소 이름|필수|type|버전|설명|  
 |------------------|--------------|----------|-------------|-----------------|  
-|x5c|예|array|\<소개 버전>|기본 64 문자열 배열로 X509 인증서 체인|  
+|x5c|yes|array|\<소개 버전>|기본 64 문자열 배열로 X509 인증서 체인|  
 
 ### <a name="response"></a>response  
 

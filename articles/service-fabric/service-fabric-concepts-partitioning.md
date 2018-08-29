@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: bc6f25c7a8a779d949fbd09f9a9a9a37ec83f56a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9072a25b55bf461ad7dcc8393b98a66d87866d48
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206536"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143338"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>서비스 패브릭 Reliable Services 분할
 이 문서에서는 Azure 서비스 패브릭 Reliable Services 분할의 기본 개념에 대한 소개를 제공합니다. 문서에 사용되는 소스 코드는 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)에서도 확인할 수 있습니다.
@@ -41,7 +41,7 @@ ms.locfileid: "34206536"
 이 연습의 나머지 부분에서는 상태 저장 서비스에 중점을 둡니다.
 
 ### <a name="partition-service-fabric-stateful-services"></a>서비스 패브릭 상태 저장 분할 서비스
-서비스 패브릭은 파티션 상태(데이터)에 최상의 방법을 제공하여 확장 가능한 상태 저장 서비스를 쉽게 개발할 수 있습니다. 개념적으로 상태 저장 서비스의 파티션이란 클러스터의 노드에 배포 및 분산된 [복제본](service-fabric-availability-services.md) 을 통해 매우 안정적으로 배율이 조정되는 배율 단위로 생각할 수 있습니다.
+Service Fabric은 파티션 상태(데이터)에 최상의 방법을 제공하여 확장 가능한 상태 저장 서비스를 쉽게 개발할 수 있습니다. 개념적으로 상태 저장 서비스의 파티션이란 클러스터의 노드에 배포 및 분산된 [복제본](service-fabric-availability-services.md) 을 통해 매우 안정적으로 배율이 조정되는 배율 단위로 생각할 수 있습니다.
 
 서비스 패브릭 상태 저장 서비스의 컨텍스트에서 분할은 특정 서비스 파티션이 서비스 전체 상태의 부분을 담당하는 것을 결정하는 프로세스를 말합니다. (앞서 언급했듯이 파티션은 [복제본](service-fabric-availability-services.md)의 집합입니다.) 서비스 패브릭에 대한 흥미로운 사항은 다른 노드에 파티션을 배치하기 때문에 노드의 리소스 제한까지 확장이 가능하다는 점입니다. 데이터 요구 사항이 늘어나고 파티션이 늘어나면 서비스 패브릭이 노드 간에 파티션의 균형을 다시 조정합니다. 따라서 하드웨어 리소스가 계속해서 효율적으로 사용됩니다.
 
@@ -88,12 +88,12 @@ ms.locfileid: "34206536"
 
 그렇다면 실행 중인 클러스터에 리소스 제약이 발생하는 경우 어떻게 됩니까? 단순히 새 요구 사항에 맞게 클러스터를 확장할 수 있습니다.
 
-[용량 계획 가이드](service-fabric-capacity-planning.md) 는 클러스터에서 필요한 노드 수를 결정하는 방법에 대한 지침을 제공합니다.
+[용량 계획 가이드](service-fabric-capacity-planning.md)는 클러스터에서 필요한 노드 수를 결정하는 방법에 대한 지침을 제공합니다.
 
 ## <a name="get-started-with-partitioning"></a>분할 시작
 이 섹션에는 서비스 분할을 시작하는 방법을 설명합니다.
 
-서비스 패브릭은 세 가지 파티션 체계를 제공합니다.
+Service Fabric은 세 가지 파티션 체계를 제공합니다.
 
 * 범위 지정된 분할(UniformInt64Partition이라고도 함)
 * 이름 지정된 분할. 일반적으로 이 모델을 사용한 응용 프로그램에는 제한된 집합 내에 버킷 가능한 데이터가 있습니다. 이름 지정된 파티션 키로 사용되는 데이터 필드의 몇 가지 일반적인 예는 지역, 우편 번호, 고객 그룹 또는 기타 비즈니스 경계입니다.
@@ -149,13 +149,13 @@ ms.locfileid: "34206536"
       </StatefulService>
     </Service>
     ```
-6. 서비스에 액세스할 수 있게 만들려면 아래와 같이 Alphabet.Processing 서비스에 대한 ServiceManifest.xml(PackageRoot 폴더에 있음)의 끝점 요소를 추가하여 포트의 끝점을 엽니다.
+6. 서비스에 액세스할 수 있게 만들려면 아래와 같이 Alphabet.Processing 서비스에 대한 ServiceManifest.xml(PackageRoot 폴더에 있음)의 엔드포인트 요소를 추가하여 포트의 엔드포인트를 엽니다.
    
     ```xml
     <Endpoint Name="ProcessingServiceEndpoint" Port="8089" Protocol="http" Type="Internal" />
     ```
    
-    이제 26 파티션으로 내부 끝점을 수신하도록 서비스가 구성됩니다.
+    이제 26 파티션으로 내부 엔드포인트를 수신하도록 서비스가 구성됩니다.
 7. 다음으로 처리 클래스의 `CreateServiceReplicaListeners()` 메서드를 재정의해야 합니다.
    
    > [!NOTE]
@@ -163,7 +163,7 @@ ms.locfileid: "34206536"
    > 
    > 
 8. 복제본이 수신하는 URL에 대한 권장 패턴은 `{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}`형식입니다.
-    따라서 통신 수신기가 올바른 끝점에서 이 패턴을 사용하여 수신하도록 구성해야 합니다.
+    따라서 통신 수신기가 올바른 엔드포인트에서 이 패턴을 사용하여 수신하도록 구성해야 합니다.
    
     이 서비스의 여러 복제본은 동일한 컴퓨터에서 호스팅될 수 있으므로 이 주소가 복제본에 고유해야 합니다. 이 때문에 URL에 파티션 ID와 복제본 ID가 있습니다. HttpListener는 URL 접두사가 고유하기만 하면 동일한 포트에서 여러 주소를 수신할 수 있습니다.
    
@@ -245,8 +245,8 @@ ms.locfileid: "34206536"
     이 서비스는 쿼리 문자열 매개 변수로 성을 수락하고 파티션 키를 결정하고 처리를 위해 Alphabet.Processing에 이를 보내는 간단한 웹 인터페이스로 제공됩니다.
 11. **서비스 만들기** 대화 상자에서 **상태 비저장** 서비스를 선택하고 아래와 같이 “Alphabet.Web”으로 지정합니다.
     
-    ![상태 비저장 서비스 스크린 샷](./media/service-fabric-concepts-partitioning/createnewstateless.png)에서도 확인할 수 있습니다.
-12. Alphabet.WebApi 서비스의 ServiceManifest.xml에서 끝점 정보를 업데이트하여 아래와 같이 포트를 엽니다.
+    ![상태 비저장 서비스 스크린 샷](./media/service-fabric-concepts-partitioning/createnewstateless.png).
+12. Alphabet.WebApi 서비스의 ServiceManifest.xml에서 엔드포인트 정보를 업데이트하여 아래와 같이 포트를 엽니다.
     
     ```xml
     <Endpoint Name="WebApiServiceEndpoint" Protocol="http" Port="8081"/>
@@ -328,13 +328,13 @@ ms.locfileid: "34206536"
     private readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();
     ```
     
-    `ResolveAsync` 메서드는 매개 변수로 서비스 URI, 파티션 키 및 취소 토큰을 사용합니다. 처리 서비스의 서비스 URI는 `fabric:/AlphabetPartitions/Processing`입니다. 그런 다음 파티션의 끝점을 가져옵니다.
+    `ResolveAsync` 메서드는 매개 변수로 서비스 URI, 파티션 키 및 취소 토큰을 사용합니다. 처리 서비스의 서비스 URI는 `fabric:/AlphabetPartitions/Processing`입니다. 그런 다음 파티션의 엔드포인트를 가져옵니다.
     
     ```CSharp
     ResolvedServiceEndpoint ep = partition.GetEndpoint()
     ```
     
-    마지막으로 끝점 URL 및 쿼리 문자열을 작성하고 처리 서비스를 호출합니다.
+    마지막으로 엔드포인트 URL 및 쿼리 문자열을 작성하고 처리 서비스를 호출합니다.
     
     ```CSharp
     JObject addresses = JObject.Parse(ep.Address);
@@ -363,6 +363,9 @@ ms.locfileid: "34206536"
     ![브라우저 스크린 샷](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
 샘플의 전체 소스 코드는 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)에서 확인할 수 있습니다.
+
+## <a name="reliable-services-and-actor-forking-subprocesses"></a>Reliable Services 및 작업자 포크 하위 프로세스
+Service Fabric은 신뢰할 수 있는 서비스 및 이후의 신뢰할 수 있는 작업자 포크 하위 프로세스를 지원하지 않습니다. 지원되지 않는 이유의 예제는 [CodePackageActivationContext](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet)를 지원되지 않는 하위 프로세스를 등록하는 데 사용할 수 없으며, 취소 토큰은 등록된 프로세스에만 전송되기 때문입니다. 부모 프로세스에서 취소 토큰을 받은 후 하위 프로세스를 닫지 않는 경우 업그레이드 실패와 같은 모든 종류의 문제가 발생합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 서비스 패브릭 개념에 대한 자세한 내용은 다음을 참조하십시오.

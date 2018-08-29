@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: 961126f62c3e8fbb947b9d1b34ac157bf37a8cba
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 610771e659a80e330fbb1c9d6fd97c15ff832386
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480940"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142844"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Functions의 Azure Event Hubs 바인딩
 
@@ -79,6 +79,7 @@ Azure Functions의 현재 크기 조정 논리에서 고유한 점은 N이 파�
 * [C# 스크립트(.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 ### <a name="trigger---c-example"></a>트리거 - C# 예제
 
@@ -312,6 +313,34 @@ module.exports = function (context, eventHubMessages) {
 };
 ```
 
+### <a name="trigger---java-example"></a>트리거 - Java 예제
+
+다음 예제에서는 *function.json* 파일의 Event Hub 트리거 바인딩 및 바인딩을 사용하는 [Java 함수](functions-reference-java.md)를 보여줍니다. 함수는 Event Hub 트리거의 메시지 본문을 기록합니다.
+
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "msg",
+  "direction": "in",
+  "eventHubName": "myeventhubname",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+
+```java
+@FunctionName("ehprocessor")
+public void eventHubProcessor(
+  @EventHubTrigger(name = "msg",
+                  eventHubName = "myeventhubname",
+                  connection = "myconnvarname") String message,
+       final ExecutionContext context ) 
+       {
+          context.getLogger().info(message);
+ }
+ ```
+
+ [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Event Hub에서 제공되는 매개 변수에 대한 `EventHubTrigger` 주석을 사용합니다. 이러한 주석을 사용하는 매개 변수로 인해 이벤트 도착 시 함수가 실행될 수 있습니다.  옵션 <T>를 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다. 
+
 ## <a name="trigger---attributes"></a>트리거 - 특성
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) 특성을 사용합니다.
@@ -381,6 +410,7 @@ Event Hubs 출력 바인딩을 사용하여 이벤트 스트림에 이벤트를 
 * [C# 스크립트(.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
+* [Java](#output---java-example)
 
 ### <a name="output---c-example"></a>출력 - C# 예제
 
@@ -530,6 +560,21 @@ module.exports = function(context) {
     context.done();
 };
 ```
+
+### <a name="output---java-example"></a>출력 - Java 예제
+
+다음 예제에서는 Event Hub에 현재 시간을 포함하는 메시지를 작성하는 Java 함수를 보여줍니다.
+
+```java
+@}FunctionName("sendTime")
+@EventHubOutput(name = "event", eventHubName = "samples-workitems", connection = "AzureEventHubConnection")
+public String sendTime(
+   @TimerTrigger(name = "sendTimeTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo)  {
+     return LocalDateTime.now().toString();
+ }
+ ```
+
+[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Event Hub에 게시되는 매개 변수에 대한 `@EventHubOutput` 주석을 사용합니다.  매개 변수 형식은 `OutputBinding<T>`이어야 합니다. 여기서 T는 POJO 또는 원시 Java 형식입니다. 
 
 ## <a name="output---attributes"></a>출력 - 특성
 

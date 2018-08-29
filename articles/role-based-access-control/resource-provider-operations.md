@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 08/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a4e062b1bc56eada2fa2c27797151e265271022e
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 86a2fba7730a653a254a2fd996f9e45ed322fbe3
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621160"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142850"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 리소스 공급자 작업
 
@@ -391,8 +391,12 @@ ms.locfileid: "39621160"
 > | --- | --- | --- |
 > | 조치 | Microsoft.Authorization/checkAccess/action | 호출자에게 특정 작업을 수행할 권한이 있는지 확인합니다. |
 > | 조치 | Microsoft.Authorization/classicAdministrators/delete | 구독에서 관리자를 제거합니다. |
+> | 조치 | Microsoft.Authorization/classicAdministrators/operationstatuses/read | 관리자가 구독의 작업 상태를 가져옵니다. |
 > | 조치 | Microsoft.Authorization/classicAdministrators/read | 구독에 대한 관리자를 읽습니다. |
 > | 조치 | Microsoft.Authorization/classicAdministrators/write | 구독에 대한 관리자를 추가 또는 수정합니다. |
+> | 조치 | Microsoft.Authorization/denyAssignments/delete | 지정된 범위에서 거부 할당을 삭제합니다. |
+> | 조치 | Microsoft.Authorization/denyAssignments/read | 거부 할당에 대한 정보를 가져옵니다. |
+> | 조치 | Microsoft.Authorization/denyAssignments/write | 지정된 범위에서 거부 할당을 만듭니다. |
 > | 조치 | Microsoft.Authorization/elevateAccess/Action | 테넌트 범위에서 호출자에게 사용자 액세스 관리자 액세스 권한을 부여합니다. |
 > | 조치 | Microsoft.Authorization/locks/delete | 지정된 범위에서 잠금을 삭제합니다. |
 > | 조치 | Microsoft.Authorization/locks/read | 지정된 범위에서 잠금을 가져옵니다. |
@@ -832,9 +836,9 @@ ms.locfileid: "39621160"
 > | 조치 | Microsoft.ClassicCompute/domainNames/internalLoadBalancers/operationStatuses/read | 도메인 이름 내부 부하 분산 장치에 대한 작업 상태를 읽습니다. |
 > | 조치 | Microsoft.ClassicCompute/domainNames/internalLoadBalancers/read | 내부 부하 분산 장치를 가져옵니다. |
 > | 조치 | Microsoft.ClassicCompute/domainNames/internalLoadBalancers/write | 새 내부 부하 분산 장치를 가져옵니다. |
-> | 조치 | Microsoft.ClassicCompute/domainNames/loadBalancedEndpointSets/operationStatuses/read | 도메인 이름 부하 분산 끝점 집합에 대한 작업 상태를 읽습니다. |
-> | 조치 | Microsoft.ClassicCompute/domainNames/loadBalancedEndpointSets/read | 부하가 분산된 끝점 집합을 가져옵니다. |
-> | 조치 | Microsoft.ClassicCompute/domainNames/loadBalancedEndpointSets/write | 부하가 분산된 끝점 집합을 추가합니다. |
+> | 조치 | Microsoft.ClassicCompute/domainNames/loadBalancedEndpointSets/operationStatuses/read | 도메인 이름 부하 분산 엔드포인트 집합에 대한 작업 상태를 읽습니다. |
+> | 조치 | Microsoft.ClassicCompute/domainNames/loadBalancedEndpointSets/read | 부하가 분산된 엔드포인트 집합을 가져옵니다. |
+> | 조치 | Microsoft.ClassicCompute/domainNames/loadBalancedEndpointSets/write | 부하가 분산된 엔드포인트 집합을 추가합니다. |
 > | 조치 | Microsoft.ClassicCompute/domainNames/operationstatuses/read | 도메인 이름의 작업 상태를 가져옵니다. |
 > | 조치 | Microsoft.ClassicCompute/domainNames/operationStatuses/read | 도메인 이름 확장에 대한 작업 상태를 읽습니다. |
 > | 조치 | Microsoft.ClassicCompute/domainNames/read | 리소스에 대한 도메인 이름을 반환합니다. |
@@ -1165,6 +1169,7 @@ ms.locfileid: "39621160"
 > | 조치 | Microsoft.Compute/virtualMachineScaleSets/instanceView/read | 가상 머신 확장 집합의 인스턴스 보기를 가져옵니다. |
 > | 조치 | Microsoft.Compute/virtualMachineScaleSets/manualUpgrade/action | 수동으로 인스턴스를 최신 모델의 가상 머신 확장 집합으로 업데이트합니다. |
 > | 조치 | Microsoft.Compute/virtualMachineScaleSets/networkInterfaces/read | 가상 머신 확장 집합의 모든 네트워크 인터페이스 속성을 가져옵니다. |
+> | 조치 | Microsoft.Compute/virtualMachineScaleSets/osRollingUpgrade/action | 모든 가상 머신 확장 집합 인스턴스를 사용 가능한 최신 플랫폼 이미지 OS 버전으로 이동하도록 롤링 업그레이드를 시작합니다. |
 > | 조치 | Microsoft.Compute/virtualMachineScaleSets/osUpgradeHistory/read | 가상 머신 확장 집합에 대한 OS 업그레이드의 기록을 가져옵니다. |
 > | 조치 | Microsoft.Compute/virtualMachineScaleSets/performMaintenance/action | 가상 머신 확장 집합의 인스턴스에서 계획된 유지 관리를 수행합니다. |
 > | 조치 | Microsoft.Compute/virtualMachineScaleSets/powerOff/action | 가상 머신 확장 집합의 인스턴스를 끕니다. |
@@ -1244,10 +1249,23 @@ ms.locfileid: "39621160"
 > | 조치 | Microsoft.ContainerRegistry/locations/operationResults/read | 비동기 작업 결과를 가져옵니다. |
 > | 조치 | Microsoft.ContainerRegistry/operations/read | 사용 가능한 모든 Azure Container Registry REST API 작업을 나열합니다. |
 > | 조치 | Microsoft.ContainerRegistry/register/action | 컨테이너 레지스트리 리소스 공급자에 대한 구독을 등록하고 컨테이너 레지스트리를 만들도록 설정합니다. |
+> | 조치 | Microsoft.ContainerRegistry/registries/builds/cancel/action | 기존 빌드를 취소합니다. |
+> | 조치 | Microsoft.ContainerRegistry/registries/builds/getLogLink/action | 빌드 로그를 다운로드할 링크를 가져옵니다. |
+> | 조치 | Microsoft.ContainerRegistry/registries/builds/read | 지정된 빌드 속성을 가져오거나 지정된 컨테이너 레지스트리의 모든 빌드를 나열합니다. |
+> | 조치 | Microsoft.ContainerRegistry/registries/builds/write | 지정된 매개 변수를 사용하여 컨테이너 레지스트리에 대한 빌드를 업데이트합니다. |
+> | 조치 | Microsoft.ContainerRegistry/registries/buildTasks/delete | 컨테이너 레지스트리에서 빌드 작업을 삭제합니다. |
+> | 조치 | Microsoft.ContainerRegistry/registries/buildTasks/listSourceRepositoryProperties/action | 빌드 작업에 대한 원본 제어 속성을 나열합니다. |
+> | 조치 | Microsoft.ContainerRegistry/registries/buildTasks/read | 지정된 빌드 작업의 속성을 가져오거나 지정된 컨테이너 레지스트리의 모든 빌드 작업을 나열합니다. |
+> | 조치 | Microsoft.ContainerRegistry/registries/buildTasks/steps/delete | 빌드 작업에서 빌드 단계를 삭제합니다. |
+> | 조치 | Microsoft.ContainerRegistry/registries/buildTasks/steps/listBuildArguments/action | 비밀 인수를 포함하여 빌드 단계에 대한 빌드 인수를 나열합니다. |
+> | 조치 | Microsoft.ContainerRegistry/registries/buildTasks/steps/read | 지정된 빌드 단계의 속성을 가져오거나 지정된 빌드 작업의 모든 빌드 단계를 나열합니다. |
+> | 조치 | Microsoft.ContainerRegistry/registries/buildTasks/steps/write | 지정된 매개 변수를 사용하여 빌드 작업에 대한 빌드 단계를 만들거나 업데이트합니다. |
+> | 조치 | Microsoft.ContainerRegistry/registries/buildTasks/write | 지정된 매개 변수를 사용하여 컨테이너 레지스트리에 대한 빌드 작업을 만들거나 업데이트합니다. |
 > | 조치 | Microsoft.ContainerRegistry/registries/delete | 컨테이너 레지스트리를 삭제합니다. |
 > | 조치 | Microsoft.ContainerRegistry/registries/eventGridFilters/delete | 컨테이너 레지스트리에서 Event Grid 필터를 삭제합니다. |
 > | 조치 | Microsoft.ContainerRegistry/registries/eventGridFilters/read | 지정된 Event Grid 필터의 속성을 가져오거나 지정된 컨테이너 레지스트리의 모든 Event Grid 필터를 나열합니다. |
 > | 조치 | Microsoft.ContainerRegistry/registries/eventGridFilters/write | 지정된 매개 변수를 사용하여 컨테이너 레지스트리에 대한 Event Grid 필터를 만들거나 업데이트합니다. |
+> | 조치 | Microsoft.ContainerRegistry/registries/getBuildSourceUploadUrl/action | 사용자가 원본을 업로드할 수 있는 업로드 위치를 가져옵니다. |
 > | 조치 | Microsoft.ContainerRegistry/registries/importImage/action | 지정된 매개 변수를 사용하여 이미지를 컨테이너 레지스트리에 가져옵니다. |
 > | 조치 | Microsoft.ContainerRegistry/registries/listCredentials/action | 지정된 컨테이너 레지스트리에 대한 로그인 자격 증명을 나열합니다. |
 > | 조치 | Microsoft.ContainerRegistry/registries/listPolicies/read | 지정된 컨테이너 레지스트리에 대한 정책을 나열합니다. |
@@ -1256,12 +1274,18 @@ ms.locfileid: "39621160"
 > | 조치 | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/read | 리소스에 대한 진단 설정을 가져옵니다. |
 > | 조치 | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/write | 리소스에 대한 진단 설정을 만들거나 업데이트합니다. |
 > | 조치 | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/metricDefinitions/read | Microsoft ContainerRegistry에 사용 가능한 메트릭을 가져옵니다. |
+> | 조치 | Microsoft.ContainerRegistry/registries/pull/read | 컨테이너 레지스트리에서 이미지를 끌어오거나 가져옵니다. |
+> | 조치 | Microsoft.ContainerRegistry/registries/push/write | 컨테이너 레지스트리에 이미지를 푸시하거나 작성합니다. |
+> | 조치 | Microsoft.ContainerRegistry/registries/quarantineRead/read | 컨테이너 레지스트리에서 격리된 이미지를 끌어오거나 가져옵니다. |
+> | 조치 | Microsoft.ContainerRegistry/registries/quarantineWrite/write | 격리된 이미지의 격리 상태를 작성/수정합니다. |
+> | 조치 | Microsoft.ContainerRegistry/registries/queueBuild/action | 요청 매개 변수를 기반으로 새 빌드를 만들고 빌드 큐에 추가합니다. |
 > | 조치 | Microsoft.ContainerRegistry/registries/read | 지정된 컨테이너 레지스트리의 속성을 가져오거나 지정된 리소스 그룹 또는 구독에 속한 모든 컨테이너 레지스트리를 나열합니다. |
 > | 조치 | Microsoft.ContainerRegistry/registries/regenerateCredential/action | 지정된 컨테이너 레지스트리에 대한 로그인 자격 증명 중 하나를 다시 생성합니다. |
 > | 조치 | Microsoft.ContainerRegistry/registries/replications/delete | 컨테이너 레지스트리에서 복제를 삭제합니다. |
 > | 조치 | Microsoft.ContainerRegistry/registries/replications/operationStatuses/read | 복제 비동기 작업 상태를 가져옵니다. |
 > | 조치 | Microsoft.ContainerRegistry/registries/replications/read | 지정된 복제 속성을 가져오거나 지정된 컨테이너 레지스트리의 모든 복제를 나열합니다. |
 > | 조치 | Microsoft.ContainerRegistry/registries/replications/write | 지정된 매개 변수를 사용하여 컨테이너 레지스트리에 대한 복제를 만들거나 업데이트합니다. |
+> | 조치 | Microsoft.ContainerRegistry/registries/sign/write | 컨테이너 레지스트리에 대한 콘텐츠 신뢰 메타데이터를 푸시/풀합니다. |
 > | 조치 | Microsoft.ContainerRegistry/registries/updatePolicies/write | 지정된 컨테이너 레지스트리에 대한 정책을 업데이트합니다. |
 > | 조치 | Microsoft.ContainerRegistry/registries/webhooks/delete | 컨테이너 레지스트리에서 웹후크를 삭제합니다. |
 > | 조치 | Microsoft.ContainerRegistry/registries/webhooks/getCallbackConfig/action | 웹후크에 대한 서비스 URI 및 사용자 지정 헤더의 구성을 가져옵니다. |
@@ -1524,9 +1548,11 @@ ms.locfileid: "39621160"
 > | 조치 | Microsoft.DataFactory/factories/pipelineruns/activityruns/read | 지정된 파이프라인 실행 ID에 대한 활동 실행을 읽습니다. |
 > | 조치 | Microsoft.DataFactory/factories/pipelineruns/cancel/action | 실행 ID로 지정된 파이프라인 실행을 취소합니다. |
 > | 조치 | Microsoft.DataFactory/factories/pipelineruns/queryactivityruns/action | 지정된 파이프라인 실행 ID에 대한 활동 실행을 쿼리합니다. |
+> | 조치 | Microsoft.DataFactory/factories/pipelineruns/queryactivityruns/read | 지정된 파이프라인 실행 ID에 대한 쿼리 활동 실행의 결과를 읽습니다. |
 > | 조치 | Microsoft.DataFactory/factories/pipelineruns/read | 파이프라인 실행을 읽습니다. |
 > | 조치 | Microsoft.DataFactory/factories/pipelines/createrun/action | 파이프라인에 대한 실행을 만듭니다. |
 > | 조치 | Microsoft.DataFactory/factories/pipelines/delete | 파이프라인을 삭제합니다. |
+> | 조치 | Microsoft.DataFactory/factories/pipelines/pipelineruns/activityruns/progress/read | 활동 실행의 진행률을 가져옵니다. |
 > | 조치 | Microsoft.DataFactory/factories/pipelines/pipelineruns/read | 파이프라인 실행을 읽습니다. |
 > | 조치 | Microsoft.DataFactory/factories/pipelines/read | 파이프라인을 읽습니다. |
 > | 조치 | Microsoft.DataFactory/factories/pipelines/write | 파이프라인을 만들거나 업데이트합니다. |
@@ -1535,7 +1561,9 @@ ms.locfileid: "39621160"
 > | 조치 | Microsoft.DataFactory/factories/providers/Microsoft.Insights/logDefinitions/read | 팩터리에 사용 가능한 로그를 가져옵니다. |
 > | 조치 | Microsoft.DataFactory/factories/providers/Microsoft.Insights/metricDefinitions/read | 팩터리에 사용 가능한 메트릭을 가져옵니다. |
 > | 조치 | Microsoft.DataFactory/factories/querypipelineruns/action | 파이프라인 실행을 쿼리합니다. |
+> | 조치 | Microsoft.DataFactory/factories/querypipelineruns/read | 쿼리 파이프라인 실행의 결과를 읽습니다. |
 > | 조치 | Microsoft.DataFactory/factories/querytriggerruns/action | 트리거 실행을 쿼리합니다. |
+> | 조치 | Microsoft.DataFactory/factories/querytriggerruns/read | 트리거 실행의 결과를 읽습니다. |
 > | 조치 | Microsoft.DataFactory/factories/read | 데이터 팩터리를 읽습니다. |
 > | 조치 | Microsoft.DataFactory/factories/triggerruns/read | 트리거 실행을 읽습니다. |
 > | 조치 | Microsoft.DataFactory/factories/triggers/delete | 모든 트리거를 삭제합니다. |
@@ -1546,6 +1574,7 @@ ms.locfileid: "39621160"
 > | 조치 | Microsoft.DataFactory/factories/triggers/write | 모든 트리거를 만들거나 업데이트합니다. |
 > | 조치 | Microsoft.DataFactory/factories/write | 데이터 팩터리를 만들거나 업데이트합니다. |
 > | 조치 | Microsoft.DataFactory/locations/configureFactoryRepo/action | 팩터리에 대해 리포지토리를 구성합니다. |
+> | 조치 | Microsoft.DataFactory/operations/read | Microsoft Data Factory 공급자의 모든 작업을 읽습니다. |
 > | 조치 | Microsoft.DataFactory/register/action | Data Factory 리소스 공급자에 대한 구독을 등록합니다. |
 > | 조치 | Microsoft.DataFactory/unregister/action | Data Factory 리소스 공급자에 대한 구독을 등록 취소합니다. |
 
@@ -1730,7 +1759,7 @@ ms.locfileid: "39621160"
 > | 조치 | Microsoft.Devices/elasticPools/iotHubTenants/Read | IotHub 테넌트 리소스를 가져옵니다. |
 > | 조치 | Microsoft.Devices/elasticPools/iotHubTenants/routing/routes/$testall/Action | 모든 기존 경로에 대해 메시지를 테스트합니다. |
 > | 조치 | Microsoft.Devices/elasticPools/iotHubTenants/routing/routes/$testnew/Action | 제공된 테스트 경로에 대해 메시지를 테스트합니다. |
-> | 조치 | Microsoft.Devices/elasticPools/iotHubTenants/routingEndpointsHealth/Read | IotHub에 대한 모든 라우팅 끝점의 상태를 가져옵니다. |
+> | 조치 | Microsoft.Devices/elasticPools/iotHubTenants/routingEndpointsHealth/Read | IotHub에 대한 모든 라우팅 엔드포인트의 상태를 가져옵니다. |
 > | 조치 | Microsoft.Devices/elasticPools/iotHubTenants/Write | IotHub 테넌트 리소스를 만들거나 업데이트합니다. |
 > | 조치 | Microsoft.Devices/ElasticPools/metricDefinitions/read | IotHub 서비스에 대해 사용 가능한 메트릭을 가져옵니다. |
 > | 조치 | Microsoft.Devices/iotHubs/certificates/Delete | 인증서를 삭제합니다. |
@@ -1760,7 +1789,7 @@ ms.locfileid: "39621160"
 > | 조치 | Microsoft.Devices/iotHubs/Read | IotHub 리소스를 가져옵니다. |
 > | 조치 | Microsoft.Devices/iotHubs/routing/$testall/Action | 모든 기존 경로에 대해 메시지를 테스트합니다. |
 > | 조치 | Microsoft.Devices/iotHubs/routing/$testnew/Action | 제공된 테스트 경로에 대해 메시지를 테스트합니다. |
-> | 조치 | Microsoft.Devices/iotHubs/routingEndpointsHealth/Read | IotHub에 대한 모든 라우팅 끝점의 상태를 가져옵니다. |
+> | 조치 | Microsoft.Devices/iotHubs/routingEndpointsHealth/Read | IotHub에 대한 모든 라우팅 엔드포인트의 상태를 가져옵니다. |
 > | 조치 | Microsoft.Devices/iotHubs/skus/Read | 유효한 IotHub SKU를 가져옵니다. |
 > | 조치 | Microsoft.Devices/iotHubs/Write | IotHub 리소스를 만들거나 업데이트합니다. |
 > | 조치 | Microsoft.Devices/locations/operationresults/Read | 작업 결과를 기반으로 위치를 가져옵니다. |
@@ -2070,6 +2099,14 @@ ms.locfileid: "39621160"
 > | 조치 | Microsoft.Features/providers/features/register/action | 지정된 리소스 공급자에서 구독의 기능을 등록합니다. |
 > | 조치 | Microsoft.Features/providers/features/unregister/action | 지정된 리소스 공급자에서 구독의 기능을 등록 취소합니다. |
 > | 조치 | Microsoft.Features/register/action | 구독 기능을 등록합니다. |
+
+## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
+
+> [!div class="mx-tdCol2BreakAll"]
+> | 작업 유형 | 작업 | 설명 |
+> | --- | --- | --- |
+> | 조치 | Microsoft.GuestConfiguration/guestConfigurationAssignments/read | 게스트 구성 할당을 가져옵니다. |
+> | 조치 | Microsoft.GuestConfiguration/guestConfigurationAssignments/write | 새 게스트 구성 할당을 만듭니다. |
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
@@ -2503,6 +2540,7 @@ ms.locfileid: "39621160"
 > | DataAction | Microsoft.LogAnalytics/logs/WindowsFirewall/read | WindowsFirewall 테이블에서 데이터를 읽습니다. |
 > | DataAction | Microsoft.LogAnalytics/logs/WindowsServerAssessmentRecommendation/read | WindowsServerAssessmentRecommendation 테이블에서 데이터를 읽습니다. |
 > | DataAction | Microsoft.LogAnalytics/logs/WireData/read | WireData 테이블에서 데이터를 읽습니다. |
+> | DataAction | Microsoft.LogAnalytics/logs/WorkloadMonitoringPerf/read | WorkloadMonitoringPerf 테이블에서 데이터를 읽습니다. |
 > | DataAction | Microsoft.LogAnalytics/logs/WUDOAggregatedStatus/read | WUDOAggregatedStatus 테이블에서 데이터를 읽습니다. |
 > | DataAction | Microsoft.LogAnalytics/logs/WUDOStatus/read | WUDOStatus 테이블에서 데이터를 읽습니다. |
 
@@ -2715,6 +2753,7 @@ ms.locfileid: "39621160"
 > [!div class="mx-tdCol2BreakAll"]
 > | 작업 유형 | 작업 | 설명 |
 > | --- | --- | --- |
+> | DataAction | Microsoft.Maps/accounts/data/read | Maps 계정에 데이터 읽기 액세스 권한을 부여합니다. |
 > | 조치 | Microsoft.Maps/accounts/delete | Maps 계정을 삭제합니다. |
 > | 조치 | Microsoft.Maps/accounts/listKeys/action | Maps 계정 키를 나열합니다. |
 > | 조치 | Microsoft.Maps/accounts/providers/Microsoft.Insights/diagnosticSettings/read | 리소스에 대한 진단 설정을 가져옵니다. |
@@ -2788,16 +2827,16 @@ ms.locfileid: "39621160"
 > | 조치 | Microsoft.Media/mediaservices/liveEvents/write | 모든 라이브 이벤트를 만들거나 업데이트합니다. |
 > | 조치 | Microsoft.Media/mediaservices/liveOutputOperations/read | 모든 라이브 출력 작업을 읽습니다. |
 > | 조치 | Microsoft.Media/mediaservices/read | Media Services 계정을 읽습니다. |
-> | 조치 | Microsoft.Media/mediaservices/streamingEndpointOperations/read | 모든 스트리밍 끝점 작업을 읽습니다. |
-> | 조치 | Microsoft.Media/mediaservices/streamingEndpoints/delete | 모든 스트리밍 끝점을 삭제합니다. |
+> | 조치 | Microsoft.Media/mediaservices/streamingEndpointOperations/read | 모든 스트리밍 엔드포인트 작업을 읽습니다. |
+> | 조치 | Microsoft.Media/mediaservices/streamingEndpoints/delete | 모든 스트리밍 엔드포인트를 삭제합니다. |
 > | 조치 | Microsoft.Media/mediaservices/streamingEndpoints/providers/Microsoft.Insights/diagnosticSettings/read | 리소스에 대한 진단 설정을 가져옵니다. |
 > | 조치 | Microsoft.Media/mediaservices/streamingEndpoints/providers/Microsoft.Insights/diagnosticSettings/write | 리소스에 대한 진단 설정을 만들거나 업데이트합니다. |
-> | 조치 | Microsoft.Media/mediaservices/streamingEndpoints/providers/Microsoft.Insights/metricDefinitions/read | Media Services 스트리밍 끝점 메트릭 정의 목록을 가져옵니다. |
-> | 조치 | Microsoft.Media/mediaservices/streamingEndpoints/read | 모든 스트리밍 끝점을 읽습니다. |
-> | 조치 | Microsoft.Media/mediaservices/streamingEndpoints/scale/action | 모든 스트리밍 끝점 작업의 크기를 조정합니다. |
-> | 조치 | Microsoft.Media/mediaservices/streamingEndpoints/start/action | 모든 스트리밍 끝점 작업을 시작합니다. |
-> | 조치 | Microsoft.Media/mediaservices/streamingEndpoints/stop/action | 모든 스트리밍 끝점 작업을 중지합니다. |
-> | 조치 | Microsoft.Media/mediaservices/streamingEndpoints/write | 모든 스트리밍 끝점을 만들거나 업데이트합니다. |
+> | 조치 | Microsoft.Media/mediaservices/streamingEndpoints/providers/Microsoft.Insights/metricDefinitions/read | Media Services 스트리밍 엔드포인트 메트릭 정의 목록을 가져옵니다. |
+> | 조치 | Microsoft.Media/mediaservices/streamingEndpoints/read | 모든 스트리밍 엔드포인트를 읽습니다. |
+> | 조치 | Microsoft.Media/mediaservices/streamingEndpoints/scale/action | 모든 스트리밍 엔드포인트 작업의 크기를 조정합니다. |
+> | 조치 | Microsoft.Media/mediaservices/streamingEndpoints/start/action | 모든 스트리밍 엔드포인트 작업을 시작합니다. |
+> | 조치 | Microsoft.Media/mediaservices/streamingEndpoints/stop/action | 모든 스트리밍 엔드포인트 작업을 중지합니다. |
+> | 조치 | Microsoft.Media/mediaservices/streamingEndpoints/write | 모든 스트리밍 엔드포인트를 만들거나 업데이트합니다. |
 > | 조치 | Microsoft.Media/mediaservices/streamingLocators/delete | 모든 스트리밍 로케이터를 삭제합니다. |
 > | 조치 | Microsoft.Media/mediaservices/streamingLocators/listContentKeys/action | 콘텐츠 키를 나열합니다. |
 > | 조치 | Microsoft.Media/mediaservices/streamingLocators/listPaths/action | 경로를 나열합니다. |
@@ -3194,8 +3233,8 @@ ms.locfileid: "39621160"
 > | 조치 | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/diagnosticSettings/write | Traffic Manager 진단 설정을 만들거나 업데이트하며, 이 작업은 Insights 리소스 공급자를 통해 보완됩니다. |
 > | 조치 | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/logDefinitions/read | Traffic Manager에 대한 이벤트를 가져옵니다. |
 > | 조치 | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/metricDefinitions/read | Traffic Manager에 사용 가능한 메트릭을 가져옵니다. |
-> | 조치 | Microsoft.Network/trafficManagerProfiles/read | Traffic Manager 프로필 구성을 가져옵니다. 여기에는 DNS 설정, 트래픽 라우팅 설정, 끝점 모니터링 설정 및 이 Traffic Manager 프로필이 라우팅하는 끝점 목록이 포함됩니다. |
-> | 조치 | Microsoft.Network/trafficManagerProfiles/write | Traffic Manager 프로필을 만들거나 기존 Traffic Manager 프로필의 구성을 수정합니다.<br>여기에는 프로필을 사용하거나 사용하지 않도록 설정, DNS 설정, 트래픽 라우팅 설정 또는 끝점 모니터링 설정의 수정이 포함됩니다.<br>Traffic Manager 프로필이 라우팅하는 끝점을 추가 및 제거하고, 사용하거나 사용하지 않도록 설정할 수 있습니다. |
+> | 조치 | Microsoft.Network/trafficManagerProfiles/read | Traffic Manager 프로필 구성을 가져옵니다. 여기에는 DNS 설정, 트래픽 라우팅 설정, 엔드포인트 모니터링 설정 및 이 Traffic Manager 프로필이 라우팅하는 엔드포인트 목록이 포함됩니다. |
+> | 조치 | Microsoft.Network/trafficManagerProfiles/write | Traffic Manager 프로필을 만들거나 기존 Traffic Manager 프로필의 구성을 수정합니다.<br>여기에는 프로필을 사용하거나 사용하지 않도록 설정, DNS 설정, 트래픽 라우팅 설정 또는 엔드포인트 모니터링 설정의 수정이 포함됩니다.<br>Traffic Manager 프로필이 라우팅하는 엔드포인트를 추가 및 제거하고, 사용하거나 사용하지 않도록 설정할 수 있습니다. |
 > | 조치 | Microsoft.Network/trafficManagerUserMetricsKeys/delete | 실시간 사용자 메트릭 수집에 사용되는 구독 수준 키를 삭제합니다. |
 > | 조치 | Microsoft.Network/trafficManagerUserMetricsKeys/read | 실시간 사용자 메트릭 수집에 사용되는 구독 수준 키를 가져옵니다. |
 > | 조치 | Microsoft.Network/trafficManagerUserMetricsKeys/write | 실시간 사용자 메트릭 수집에 사용할 새로운 구독 수준 키를 만듭니다. |
@@ -3449,8 +3488,11 @@ ms.locfileid: "39621160"
 > | --- | --- | --- |
 > | 조치 | Microsoft.PolicyInsights/asyncOperationResults/read | 비동기 작업 결과를 가져옵니다. |
 > | 조치 | Microsoft.PolicyInsights/policyEvents/queryResults/action | 정책 이벤트에 대한 정보를 쿼리합니다. |
+> | 조치 | Microsoft.PolicyInsights/policyEvents/queryResults/read | 정책 이벤트에 대한 정보를 쿼리합니다. |
 > | 조치 | Microsoft.PolicyInsights/policyStates/queryResults/action | 정책 상태에 대한 정보를 쿼리합니다. |
+> | 조치 | Microsoft.PolicyInsights/policyStates/queryResults/read | 정책 상태에 대한 정보를 쿼리합니다. |
 > | 조치 | Microsoft.PolicyInsights/policyStates/summarize/action | 최신 정책 상태에 대한 요약 정보를 쿼리합니다. |
+> | 조치 | Microsoft.PolicyInsights/policyStates/summarize/read | 최신 정책 상태에 대한 요약 정보를 쿼리합니다. |
 > | 조치 | Microsoft.PolicyInsights/policyStates/triggerEvaluation/action | 선택한 범위에 대한 새 준수 평가를 트리거합니다. |
 > | 조치 | Microsoft.PolicyInsights/register/action | Policy Insights 리소스 공급자를 등록하고 작업을 사용하도록 설정합니다. |
 
@@ -4809,6 +4851,7 @@ ms.locfileid: "39621160"
 > | 조치 | microsoft.web/sites/config/delete | Web Apps 구성을 삭제합니다. |
 > | 조치 | Microsoft.Web/sites/config/list/Action | 게시 자격 증명, 앱 설정 및 연결 문자열과 같은 웹앱 보안 중요 설정을 나열합니다. |
 > | 조치 | Microsoft.Web/sites/config/Read | 웹앱 구성 설정을 가져옵니다. |
+> | 조치 | microsoft.web/sites/config/snapshots/read | Web Apps 구성 스냅숏을 가져옵니다. |
 > | 조치 | Microsoft.Web/sites/config/Write | 웹앱 구성 설정을 업데이트합니다. |
 > | 조치 | microsoft.web/sites/containerlogs/action | 웹앱에 대한 압축된 컨테이너 로그를 가져옵니다. |
 > | 조치 | microsoft.web/sites/continuouswebjobs/delete | Web Apps 연속 웹 작업을 삭제합니다. |
@@ -4857,6 +4900,8 @@ ms.locfileid: "39621160"
 > | 조치 | microsoft.web/sites/hostnamebindings/delete | Web Apps 호스트 이름 바인딩을 삭제합니다. |
 > | 조치 | microsoft.web/sites/hostnamebindings/read | Web Apps 호스트 이름 바인딩을 가져옵니다. |
 > | 조치 | microsoft.web/sites/hostnamebindings/write | Web Apps 호스트 이름 바인딩을 업데이트합니다. |
+> | 조치 | Microsoft.Web/sites/hostruntime/host/_master/read | 관리 작업에 대한 함수 앱의 마스터 키를 가져옵니다. |
+> | 조치 | Microsoft.Web/sites/hostruntime/host/action | 트리거 동기화, 함수 추가, 함수 호출, 함수 삭제 등과 같은 함수 앱 런타임 작업을 수행합니다. |
 > | 조치 | microsoft.web/sites/hybridconnection/delete | Web Apps 하이브리드 연결을 삭제합니다. |
 > | 조치 | microsoft.web/sites/hybridconnection/read | Web Apps 하이브리드 연결을 가져옵니다. |
 > | 조치 | microsoft.web/sites/hybridconnection/write | Web Apps 하이브리드 연결을 업데이트합니다. |
@@ -4871,6 +4916,7 @@ ms.locfileid: "39621160"
 > | 조치 | microsoft.web/sites/instances/extensions/read | Web Apps 인스턴스 확장을 가져옵니다. |
 > | 조치 | microsoft.web/sites/instances/processes/delete | Web Apps 인스턴스 프로세스를 삭제합니다. |
 > | 조치 | microsoft.web/sites/instances/processes/read | Web Apps 인스턴스 프로세스를 가져옵니다. |
+> | 조치 | microsoft.web/sites/instances/processes/threads/read | Web Apps 인스턴스 프로세스 스레드를 가져옵니다. |
 > | 조치 | microsoft.web/sites/instances/read | Web Apps 인스턴스를 가져옵니다. |
 > | 조치 | microsoft.web/sites/listsyncfunctiontriggerstatus/action | 함수 트리거 상태 동기화 Web Apps를 나열합니다. |
 > | 조치 | microsoft.web/sites/metricdefinitions/read | Web Apps 메트릭 정의를 가져옵니다. |
@@ -4886,6 +4932,7 @@ ms.locfileid: "39621160"
 > | 조치 | microsoft.web/sites/premieraddons/delete | Web Apps 프리미어 추가 기능을 삭제합니다. |
 > | 조치 | microsoft.web/sites/premieraddons/read | Web Apps 프리미어 추가 기능을 가져옵니다. |
 > | 조치 | microsoft.web/sites/premieraddons/write | Web Apps 프리미어 추가 기능을 업데이트합니다. |
+> | 조치 | microsoft.web/sites/privateaccess/read | 개인 사이트 액세스 사용 및 사이트에 액세스할 수 있는 승인된 Virtual Networks 관련 데이터를 가져옵니다. |
 > | 조치 | microsoft.web/sites/processes/read | Web Apps 프로세스를 가져옵니다. |
 > | 조치 | microsoft.web/sites/providers/Microsoft.Insights/diagnosticSettings/read | 리소스에 대한 진단 설정을 가져옵니다. |
 > | 조치 | microsoft.web/sites/providers/Microsoft.Insights/diagnosticSettings/write | 리소스에 대한 진단 설정을 만들거나 업데이트합니다. |
@@ -4907,6 +4954,7 @@ ms.locfileid: "39621160"
 > | 조치 | Microsoft.Web/sites/restart/Action | 웹앱을 다시 시작합니다. |
 > | 조치 | microsoft.web/sites/restore/read | Web Apps 복원을 가져옵니다. |
 > | 조치 | microsoft.web/sites/restore/write | Web Apps을 복원합니다. |
+> | 조치 | microsoft.web/sites/restorefrombackupblob/action | 백업 Blob에서 웹앱을 복원합니다. |
 > | 조치 | microsoft.web/sites/restorefromdeletedwebapp/action | 삭제된 앱에서 Web Apps를 복원합니다. |
 > | 조치 | microsoft.web/sites/restoresnapshot/action | Web Apps 스냅숏을 복원합니다. |
 > | 조치 | microsoft.web/sites/siteextensions/delete | Web Apps 사이트 확장을 삭제합니다. |
@@ -4917,6 +4965,7 @@ ms.locfileid: "39621160"
 > | 조치 | Microsoft.Web/sites/slots/backup/Action | 새 웹앱 슬롯 백업을 만듭니다. |
 > | 조치 | microsoft.web/sites/slots/backup/read | Web Apps 슬롯 백업을 가져옵니다. |
 > | 조치 | microsoft.web/sites/slots/backup/write | Web Apps 슬롯 백업을 업데이트합니다. |
+> | 조치 | microsoft.web/sites/slots/backups/action | Web Apps 슬롯 백업을 검색합니다. |
 > | 조치 | microsoft.web/sites/slots/backups/delete | Web Apps 슬롯 백업을 삭제합니다. |
 > | 조치 | microsoft.web/sites/slots/backups/list/action | Web Apps 슬롯 백업을 나열합니다. |
 > | 조치 | Microsoft.Web/sites/slots/backups/Read | 웹앱 슬롯 백업의 속성을 가져옵니다. |
@@ -4925,6 +4974,7 @@ ms.locfileid: "39621160"
 > | 조치 | Microsoft.Web/sites/slots/config/list/Action | 게시 자격 증명, 앱 설정 및 연결 문자열과 같은 웹앱 슬롯 보안 중요 설정을 나열합니다. |
 > | 조치 | Microsoft.Web/sites/slots/config/Read | 웹앱 슬롯의 구성 설정을 가져옵니다. |
 > | 조치 | Microsoft.Web/sites/slots/config/Write | 웹앱 슬롯의 구성 설정을 업데이트합니다. |
+> | 조치 | microsoft.web/sites/slots/containerlogs/action | 웹앱 슬롯에 대한 압축된 컨테이너 로그를 가져옵니다. |
 > | 조치 | microsoft.web/sites/slots/continuouswebjobs/delete | Web Apps 슬롯 연속 웹 작업을 삭제합니다. |
 > | 조치 | microsoft.web/sites/slots/continuouswebjobs/read | Web Apps 슬롯 연속 웹 작업을 가져옵니다. |
 > | 조치 | microsoft.web/sites/slots/continuouswebjobs/start/action | Web Apps 슬롯 연속 웹 작업을 시작합니다. |
@@ -4934,6 +4984,7 @@ ms.locfileid: "39621160"
 > | 조치 | microsoft.web/sites/slots/deployments/log/read | Web Apps 슬롯 배포 로그를 가져옵니다. |
 > | 조치 | microsoft.web/sites/slots/deployments/read | Web Apps 슬롯 배포를 가져옵니다. |
 > | 조치 | microsoft.web/sites/slots/deployments/write | Web Apps 슬롯 배포를 업데이트합니다. |
+> | 조치 | microsoft.web/sites/slots/detectors/read | Web Apps 슬롯 감지기를 가져옵니다. |
 > | 조치 | microsoft.web/sites/slots/diagnostics/analyses/execute/Action | Web Apps 슬롯 진단 분석을 실행합니다. |
 > | 조치 | microsoft.web/sites/slots/diagnostics/analyses/read | Web Apps 슬롯 진단 분석을 가져옵니다. |
 > | 조치 | microsoft.web/sites/slots/diagnostics/aspnetcore/read | ASP.NET Core 앱용 Web Apps 슬롯 진단을 가져옵니다. |
@@ -4958,6 +5009,7 @@ ms.locfileid: "39621160"
 > | 조치 | microsoft.web/sites/slots/diagnostics/workeravailability/read | Web Apps 슬롯 진단 Workeravailability를 가져옵니다. |
 > | 조치 | microsoft.web/sites/slots/diagnostics/workerprocessrecycle/read | Web Apps 슬롯 진단 작업자 프로세스 재활용을 가져옵니다. |
 > | 조치 | microsoft.web/sites/slots/domainownershipidentifiers/read | Web Apps 슬롯 도메인 소유권 식별자를 가져옵니다. |
+> | 조치 | microsoft.web/sites/slots/functions/read | Web Apps 슬롯 함수를 가져옵니다. |
 > | 조치 | microsoft.web/sites/slots/hostnamebindings/delete | Web Apps 슬롯 호스트 이름 바인딩을 삭제합니다. |
 > | 조치 | microsoft.web/sites/slots/hostnamebindings/read | Web Apps 슬롯 호스트 이름 바인딩을 가져옵니다. |
 > | 조치 | microsoft.web/sites/slots/hostnamebindings/write | Web Apps 슬롯 호스트 이름 바인딩을 업데이트합니다. |
@@ -4999,6 +5051,7 @@ ms.locfileid: "39621160"
 > | 조치 | Microsoft.Web/sites/slots/restart/Action | 웹앱 슬롯을 다시 시작합니다. |
 > | 조치 | microsoft.web/sites/slots/restore/read | Web Apps 슬롯 복원을 가져옵니다. |
 > | 조치 | microsoft.web/sites/slots/restore/write | Web Apps 슬롯을 복원합니다. |
+> | 조치 | microsoft.web/sites/slots/restorefrombackupblob/action | 백업 Blob에서 Web Apps 슬롯을 복원합니다. |
 > | 조치 | microsoft.web/sites/slots/restorefromdeletedwebapp/action | 삭제된 앱에서 웹앱 슬롯을 복원합니다. |
 > | 조치 | microsoft.web/sites/slots/restoresnapshot/action | Web Apps 슬롯 스냅숏을 복원합니다. |
 > | 조치 | microsoft.web/sites/slots/siteextensions/delete | Web Apps 슬롯 사이트 확장을 삭제합니다. |
@@ -5057,21 +5110,15 @@ ms.locfileid: "39621160"
 > [!div class="mx-tdCol2BreakAll"]
 > | 작업 유형 | 작업 | 설명 |
 > | --- | --- | --- |
-> | 조치 | Microsoft.WorkloadMonitor/components/read | 작업 리소스를 읽습니다. |
-> | 조치 | Microsoft.WorkloadMonitor/healthInstances/read | 작업 리소스를 읽습니다. |
-> | 조치 | Microsoft.WorkloadMonitor/Operations/read | 작업 리소스를 읽습니다. |
-> | 조치 | Microsoft.WorkloadMonitor/workloadInsights/delete | workloadInsights 리소스를 삭제합니다. |
-> | 조치 | Microsoft.WorkloadMonitor/workloadInsights/delete | workloadInsights 리소스를 삭제합니다. |
-> | 조치 | Microsoft.WorkloadMonitor/workloadInsights/read | workloadInsights 리소스를 읽습니다. |
-> | 조치 | Microsoft.WorkloadMonitor/workloadInsights/read | workloadInsights 리소스를 읽습니다. |
-> | 조치 | Microsoft.WorkloadMonitor/workloadInsights/write | workloadInsights 리소스를 씁니다. |
-> | 조치 | Microsoft.WorkloadMonitor/workloadInsights/write | workloadInsights 리소스를 씁니다. |
-> | 조치 | Microsoft.WorkloadMonitor/workloads/delete |  |
-> | 조치 | Microsoft.WorkloadMonitor/workloads/delete |  |
-> | 조치 | Microsoft.WorkloadMonitor/workloads/read | 워크로드 리소스를 읽습니다. |
-> | 조치 | Microsoft.WorkloadMonitor/workloads/read | 워크로드 리소스를 읽습니다. |
-> | 조치 | Microsoft.WorkloadMonitor/workloads/write | 워크로드 리소스를 씁니다. |
-> | 조치 | Microsoft.WorkloadMonitor/workloads/write | 워크로드 리소스를 씁니다. |
+> | 조치 | Microsoft.WorkloadMonitor/components/read | 리소스에 대한 구성 요소를 가져옵니다. |
+> | 조치 | Microsoft.WorkloadMonitor/componentsSummary/read | 구성 요소의 요약을 가져옵니다. |
+> | 조치 | Microsoft.WorkloadMonitor/monitorInstances/read | 리소스에 대한 모니터의 인스턴스를 가져옵니다. |
+> | 조치 | Microsoft.WorkloadMonitor/monitorInstancesSummary/read | 모니터 인스턴스의 요약을 가져옵니다. |
+> | 조치 | Microsoft.WorkloadMonitor/monitors/read | 리소스에 대한 모니터를 가져옵니다. |
+> | 조치 | Microsoft.WorkloadMonitor/monitors/write | 리소스에 대한 모니터를 구성합니다. |
+> | 조치 | Microsoft.WorkloadMonitor/notificationSettings/read | 리소스에 대한 알림 설정을 가져옵니다. |
+> | 조치 | Microsoft.WorkloadMonitor/notificationSettings/write | 리소스에 대한 알림 설정을 구성합니다. |
+> | 조치 | Microsoft.WorkloadMonitor/operations/read | 지원되는 작업을 가져옵니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

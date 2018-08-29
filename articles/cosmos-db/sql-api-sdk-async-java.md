@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 06/20/2018
+ms.date: 08/16/2018
 ms.author: sngun
-ms.openlocfilehash: 97c7051252ecc8a29cf487f74a68055cd2b3e163
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 9852edfca26e78ad1b373418970dfe9c7ab477d8
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990279"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42147001"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK for SQL API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ SQL API 비동기 Java SDK는 [Netty 라이브러리](http://netty.io/)를 지�
 
 <tr><td>**SDK 다운로드**</td><td>[Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)</td></tr>
 
-<tr><td>**API 설명서**</td><td>[Java API 참조 설명서](https://docs.microsoft.com/java/api/cosmosdb/client/async?view=azure-java-stable)</td></tr>
+<tr><td>**API 설명서**</td><td>[Java API 참조 설명서](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client?view=azure-java-stable)</td></tr>
 
 <tr><td>**SDK에 참여**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java)</td></tr>
 
@@ -52,6 +52,10 @@ SQL API 비동기 Java SDK는 [Netty 라이브러리](http://netty.io/)를 지�
 </table></br>
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name201201"></a><a name="2.0.1"/>2.0.1
+* 영어가 아닌 로캘에 대한 버그가 수정되었습니다([github #51](https://github.com/Azure/azure-cosmosdb-java/issues/51)).
+* 충돌 리소스에 도우미 메서드가 추가되었습니다.
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
 * 성능상의 이유 및 라이선싱 때문에 jackson에 의한 org.json 종속성이 대체되었습니다([github #29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
@@ -99,6 +103,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.0.1](#2.0.1) |2018년 8월 16일|--- |
 | [2.0.0](#2.0.0) |2018년 6월 20일|--- |
 | [1.0.2](#1.0.2) |2018년 5월 18일|--- |
 | [1.0.1](#1.0.1) |2018년 4월 20일|--- |

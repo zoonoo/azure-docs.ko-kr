@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 07/19/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 51b54de39e24cfd69b7823c17dc5f7c9d7e885a9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 31f5b2792aa83d15a1478cf201ca674995816430
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524076"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42144655"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure File Sync를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -89,7 +89,7 @@ ms.locfileid: "39524076"
 
 * <a id="cross-domain-sync"></a>
 **도메인에 가입된 서버와 도메인에 가입되지 않은 서버를 같은 동기화 그룹에 둘 수 있나요?**  
-    예. 동기화 그룹에는 도메인에 가입되지 않은 경우에도 다른 Active Directory 구성원 자격을 갖는 서버 끝점이 포함될 수 있습니다. 이 구성이 기술적으로는 작동하지만, 한 서버의 파일 및 폴더에 대해 정의된 ACL(액세스 제어 목록)은 동기화 그룹의 다른 서버에 의해 적용될 수 없으므로 이러한 구성은 일반적인 구성으로 권장되지 않습니다. 최상의 결과를 얻으려면 동일한 Active Directory 포리스트에 있는 서버 간, 다른 Active Directory 포리스트에 있지만 설정된 트러스트 관계에 있는 서버 간 또는 도메인에 있지 않은 서버 간의 동기화를 권장합니다. 이러한 구성 간의 혼합 사용은 방지하는 것이 좋습니다.
+    예. 동기화 그룹에는 도메인에 가입되지 않은 경우에도 다른 Active Directory 구성원 자격을 갖는 서버 엔드포인트가 포함될 수 있습니다. 이 구성이 기술적으로는 작동하지만, 한 서버의 파일 및 폴더에 대해 정의된 ACL(액세스 제어 목록)은 동기화 그룹의 다른 서버에 의해 적용될 수 없으므로 이러한 구성은 일반적인 구성으로 권장되지 않습니다. 최상의 결과를 얻으려면 동일한 Active Directory 포리스트에 있는 서버 간, 다른 Active Directory 포리스트에 있지만 설정된 트러스트 관계에 있는 서버 간 또는 도메인에 있지 않은 서버 간의 동기화를 권장합니다. 이러한 구성 간의 혼합 사용은 방지하는 것이 좋습니다.
 
 * <a id="afs-change-detection"></a>
 **SMB를 사용하여 또는 포털에서 Azure Files 공유에서 직접 파일을 만들었습니다. 파일을 동기화 그룹의 서버와 동기화하는 데 얼마나 소요되나요?**  
@@ -152,7 +152,7 @@ ms.locfileid: "39524076"
 
 * <a id="afs-force-tiering"></a>
 **파일 또는 디렉터리를 강제로 계층화하려면 어떻게 해야 하나요?**  
-    클라우드 계층화 기능이 활성화된 경우 클라우드 계층화는 클라우드 끝점에 지정된 사용 가능한 볼륨 공간 비율에 맞게 마지막 액세스 및 수정 시간을 기준으로 파일을 자동으로 계층화합니다. 그러나 경우에 따라 파일을 강제로 계층화하려는 경우도 있을 수 있습니다. 장시간 다시 사용하지 않으려는 큰 파일을 저장하고 다른 파일 및 폴더에 사용하기 위해 볼륨 공간을 확보하려는 경우에 이러한 강제 계층화가 유용할 수 있습니다. 다음 PowerShell 명령을 사용하여 강제로 계층화할 수 있습니다.
+    클라우드 계층화 기능이 활성화된 경우 클라우드 계층화는 클라우드 엔드포인트에 지정된 사용 가능한 볼륨 공간 비율에 맞게 마지막 액세스 및 수정 시간을 기준으로 파일을 자동으로 계층화합니다. 그러나 경우에 따라 파일을 강제로 계층화하려는 경우도 있을 수 있습니다. 장시간 다시 사용하지 않으려는 큰 파일을 저장하고 다른 파일 및 폴더에 사용하기 위해 볼륨 공간을 확보하려는 경우에 이러한 강제 계층화가 유용할 수 있습니다. 다음 PowerShell 명령을 사용하여 강제로 계층화할 수 있습니다.
 
     ```PowerShell
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
@@ -191,6 +191,10 @@ ms.locfileid: "39524076"
 * <a id="afs-do-not-delete-server-endpoint"></a>
 **서버의 Azure File Sync에 문제가 발생했습니다(동기화, 클라우드 계층화 등). 서버 엔드포인트를 제거하고 다시 만들어야 하나요?**  
     [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
+    
+* <a id="afs-resource-move"></a>
+**저장소 동기화 서비스 및/또는 저장소 계정을 다른 리소스 그룹이나 구독으로 이동할 수 있나요?**  
+   예, 저장소 동기화 서비스 및/또는 저장소 계정을 다른 리소스 그룹 또는 구독으로 이동할 수 있습니다. 저장소 계정이 이동되는 경우 저장소 계정에 대한 액세스 권한을 하이브리드 파일 동기화 서비스에 부여해야 합니다([Azure 파일 동기화가 저장소 계정에 액세스할 수 있는지 확인합니다.](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac) 참조).
 
 ## <a name="security-authentication-and-access-control"></a>보안, 인증 및 액세스 제어
 * <a id="ad-support"></a>
@@ -199,7 +203,7 @@ ms.locfileid: "39524076"
 
     - SAS(공유 액세스 서명)를 사용하여 특정 사용 권한을 가지며, 지정된 시간 간격에 유효한 토큰을 생성할 수 있습니다. 예를 들어, 만료 시간으로 10분이 있는 특정 파일에 대한 읽기 전용 액세스 권한이 있는 토큰을 생성할 수 있습니다. 토큰이 유효한 동안 토큰을 소유한 사람은 해당 10분 동안 해당 파일에 대한 읽기 전용 액세스 권한을 가집니다. 현재, 공유 액세스 서명 키는 REST API를 통해 또는 클라이언트 라이브러리에서만 지원됩니다. 저장소 계정 키를 사용하여 SMB를 통해 Azure 파일 공유를 탑재해야 합니다.
 
-    - Azure File Sync는 동기화하는 모든 서버 끝점에 대한 모든 임의 ACL 또는 DACL(Active Directory 기반 또는 로컬 여부)을 유지합니다. Windows Server는 Active Directory에서 이미 인증을 받을 수 있으므로 Azure File Sync는 Active Directory 기반 인증 및 ACL의 전체 지원이 제공될 때까지 효과적인 일시적 옵션입니다.
+    - Azure 파일 동기화는 동기화하는 모든 서버 엔드포인트에 대한 모든 임의 ACL 또는 DACL(Active Directory 기반 또는 로컬 여부)을 유지합니다. Windows Server는 Active Directory에서 이미 인증을 받을 수 있으므로 Azure File Sync는 Active Directory 기반 인증 및 ACL의 전체 지원이 제공될 때까지 효과적인 일시적 옵션입니다.
 
     현재 Azure Files는 Active Directory를 직접 지원하지 않습니다.
 
@@ -221,7 +225,7 @@ ms.locfileid: "39524076"
 
 * <a id="data-compliance-policies"></a>
 **Azure Files는 어떤 데이터 규정 준수 정책을 지원하나요?**  
-   Azure Files는 Azure Storage의 다른 저장소 서비스에서 사용되는 동일한 저장소 아키텍처를 기반으로 하여 실행됩니다. Azure Files는 다른 Azure 저장소 서비스에서 사용되는 동일한 데이터 규정 준수 정책을 적용합니다. Azure Storage 데이터 규정 준수에 대한 자세한 내용은 [Microsoft Azure Data Protection 문서](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409)를 다운로드하여 참조하고, [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx)로 이동할 수 있습니다.
+   Azure Files는 Azure Storage의 다른 저장소 서비스에서 사용되는 동일한 저장소 아키텍처를 기반으로 하여 실행됩니다. Azure Files는 다른 Azure 저장소 서비스에서 사용되는 동일한 데이터 규정 준수 정책을 적용합니다. Azure Storage 데이터 규정 준수에 대한 자세한 내용은 [Azure Storage 준수 제품](https://docs.microsoft.com/en-us/azure/storage/common/storage-compliance-offerings)을 참조하고, [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx)로 이동하여 참조할 수 있습니다.
 
 ## <a name="on-premises-access"></a>온-프레미스 액세스
 * <a id="expressroute-not-required"></a>

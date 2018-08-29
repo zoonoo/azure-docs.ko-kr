@@ -10,21 +10,27 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 77f95ef6fb04673d79b01694d1d6f84d2c694e96
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 08179ae21465a57161cc6f18c12a3d9a21449359
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038502"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143376"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>개요: 활성 지역 복제 및 자동 장애 조치(failover) 그룹
+
+활성 지역 복제는 동일하거나 다른 데이터 센터(영역)에서 데이터베이스의 읽기 가능한 복제본을 만들 수 있도록 하는 Azure SQL Database 기능입니다.
+
+![지역에서 복제](./media/sql-database-geo-replication-failover-portal/geo-replication.png )
+
 활성 지역 복제는 데이터 센터 확장 중단이 발생한 경우 응용 프로그램이 빠른 재해 복구를 수행할 수 있도록 하는 비즈니스 연속성 솔루션으로 설계되었습니다. 지역 복제를 사용하는 경우 응용 프로그램이 다른 Azure 지역에서 보조 데이터베이스에 대한 장애 조치를 시작할 수 있습니다. 동일하거나 다른 지역에서 최대 4개의 보조 데이터베이스가 지원되며 보조 데이터베이스는 읽기 전용 액세스 쿼리에 사용될 수도 있습니다. 장애 조치는 응용 프로그램 또는 사용자에 의해 수동으로 시작되어야 합니다. 장애 조치 후 새 주 데이터베이스에는 다른 연결 엔드포인트가 있습니다. 
 
 > [!NOTE]
 > 활성 지역 복제는 모든 지역의 현재 모든 서비스 계층에 있는 모든 데이터베이스에 대해 제공됩니다.
+> 활성 지역 복제는 Managed Instance에서 사용할 수 없습니다.
 >  
 
-자동 장애 조치 그룹은 활성 지역 복제의 확장입니다. 응용 프로그램 시작 장애 조치를 사용하거나 사용자 정의 기준에 따라 SQL Database 서비스에서 수행될 장애 조치를 위임하여 여러 지역 복제 데이터베이스의 장애 조치를 동시에 관리하도록 설계되었습니다. 후자를 사용하면 주 지역에서 SQL Database 서비스의 가용성을 완전히 또는 부분적으로 상실하게 하는 치명적인 오류 또는 계획되지 않은 다른 이벤트가 발생한 후에 보조 지역에서 여러 관련 데이터베이스를 자동으로 복구할 수 있습니다. 또한 읽을 수 있는 보조 데이터베이스를 사용하여 읽기 전용 쿼리 워크로드를 오프로드할 수 있습니다. 자동 장애 조치 그룹에 여러 데이터베이스가 포함되기 때문에 주 서버에서 이러한 데이터베이스를 구성해야 합니다. 장애 조치 그룹에서 데이터베이스에 대한 기본 및 보조 서버는 모두 동일한 구독에 위치해야 합니다. 자동 장애 조치 그룹은 그룹의 모든 데이터베이스를 다른 지역에 있는 하나의 보조 서버로만 복제할 수 있도록 지원합니다.
+자동 장애 조치(failover) 그룹은 활성 지역 복제의 확장입니다. 응용 프로그램 시작 장애 조치를 사용하거나 사용자 정의 기준에 따라 SQL Database 서비스에서 수행될 장애 조치를 위임하여 여러 지역 복제 데이터베이스의 장애 조치를 동시에 관리하도록 설계되었습니다. 후자를 사용하면 주 지역에서 SQL Database 서비스의 가용성을 완전히 또는 부분적으로 상실하게 하는 치명적인 오류 또는 계획되지 않은 다른 이벤트가 발생한 후에 보조 지역에서 여러 관련 데이터베이스를 자동으로 복구할 수 있습니다. 또한 읽을 수 있는 보조 데이터베이스를 사용하여 읽기 전용 쿼리 워크로드를 오프로드할 수 있습니다. 자동 장애 조치 그룹에 여러 데이터베이스가 포함되기 때문에 주 서버에서 이러한 데이터베이스를 구성해야 합니다. 장애 조치 그룹에서 데이터베이스에 대한 기본 및 보조 서버는 모두 동일한 구독에 위치해야 합니다. 자동 장애 조치 그룹은 그룹의 모든 데이터베이스를 다른 지역에 있는 하나의 보조 서버로만 복제할 수 있도록 지원합니다.
 
 > [!NOTE]
 > 여러 보조 데이터베이스가 필요한 경우 활성 지역 복제를 사용합니다.
@@ -35,14 +41,11 @@ ms.locfileid: "40038502"
 활성 지역 복제를 사용하여 서버 또는 탄력적 풀에 있는 개별 데이터베이스 또는 데이터베이스 집합의 복제 및 장애 조치를 관리할 수 있습니다. 다음을 사용하여 수행할 수 있습니다. 
 
 - [Azure Portal](sql-database-geo-replication-portal.md)
-- 
-  [PowerShell: 단일 데이터베이스](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+- [PowerShell: 단일 데이터베이스](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
 - [PowerShell: 탄력적 풀](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
 - [PowerShell: 그룹 장애 조치](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
-- 
-  [Transact-SQL: 단일 데이터베이스 또는 탄력적 풀](/sql/t-sql/statements/alter-database-azure-sql-database)
-- 
-  [REST API: 단일 데이터베이스](/rest/api/sql/replicationlinks/failover)
+- [Transact-SQL: 단일 데이터베이스 또는 탄력적 풀](/sql/t-sql/statements/alter-database-azure-sql-database)
+- [REST API: 단일 데이터베이스](/rest/api/sql/replicationlinks/failover)
 - [REST API: 장애 조치(failover) 그룹](/rest/api/sql/failovergroups/failover) 
  
 장애 조치(failover) 후에는 새로운 주 데이터베이스에서 서버 및 데이터베이스의 인증 요구 사항이 구성되어 있는지 확인합니다. 자세한 내용은 [재해 복구 후의 SQL Database 보안](sql-database-geo-replication-security-config.md)을 참조하세요. 이는 활성 지역 복제 및 자동 장애 조치(failover) 그룹 둘 다에 적용됩니다.
@@ -118,7 +121,7 @@ ms.locfileid: "40038502"
 - **데이터 손실에 대비**: 가동 중지가 검색되는 경우 SQL은 중요한 지식에 대한 데이터 손실이 없으면 읽기-쓰기 장애 조치(failover)를 자동으로 트리거합니다. 그렇지 않으면 **GracePeriodWithDataLossHours**에서 지정한 기간 동안 대기합니다. **GracePeriodWithDataLossHours**를 지정한 경우 데이터 손실에 대비합니다. 일반적으로 중단 시에 Azure에서는 가용성을 우선으로 합니다. 데이터 손실을 방지하려는 경우 **GracePeriodWithDataLossHours**를 24시간과 같은 충분히 큰 숫자로 설정해야 합니다. 
 
 > [!IMPORTANT]
-> 지역에서 복제를 사용하는 800개 이하의 DTU 및 250개 이상의 데이터베이스가 있는 탄력적 풀에는 더 길게 계획된 장애 조치(failover) 및 저하된 성능을 포함한 문제가 발생할 수 있습니다.  이러한 문제는 지역에서 복제 끝점이 지리적으로 광범위하게 분리되어 있거나 여러 보조 끝점이 각 데이터베이스에 대해 사용되는 경우 쓰기 집약적 작업에 발생할 가능성이 높습니다.  이러한 문제의 증상은 지역에서 복제 지연이 시간에 따라 증가하는 경우에 표시됩니다.  이러한 지연은 [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database)를 사용하여 모니터링할 수 있습니다.  이러한 문제가 발생하는 경우 완화 방안에는 풀 DTU의 수를 늘리거나 동일한 풀에 지역에서 복제된 데이터베이스 수를 줄이는 방법이 있습니다.
+> 지역에서 복제를 사용하는 800개 이하의 DTU 및 250개 이상의 데이터베이스가 있는 탄력적 풀에는 더 길게 계획된 장애 조치(failover) 및 저하된 성능을 포함한 문제가 발생할 수 있습니다.  이러한 문제는 지역에서 복제 엔드포인트가 지리적으로 광범위하게 분리되어 있거나 여러 보조 엔드포인트가 각 데이터베이스에 대해 사용되는 경우 쓰기 집약적 작업에 발생할 가능성이 높습니다.  이러한 문제의 증상은 지역에서 복제 지연이 시간에 따라 증가하는 경우에 표시됩니다.  이러한 지연은 [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database)를 사용하여 모니터링할 수 있습니다.  이러한 문제가 발생하는 경우 완화 방안에는 풀 DTU의 수를 늘리거나 동일한 풀에 지역에서 복제된 데이터베이스 수를 줄이는 방법이 있습니다.
 
 ## <a name="failover-groups-and-network-security"></a>장애 조치 그룹 및 네트워크 보안 
 
@@ -126,7 +129,7 @@ ms.locfileid: "40038502"
 
 ### <a name="using-failover-groups-and-virtual-network-rules"></a>장애 조치 그룹 및 가상 네트워크 규칙 사용
 
-[Virtual Network 서비스 엔드포인트 및 규칙](sql-database-vnet-service-endpoint-rule-overview.md)을 사용하여 SQL 데이터베이스에 대한 액세스를 제한하는 경우 각 Virtual Network 서비스 엔드포인트가 하나의 Azure 지역에만 적용됩니다. 끝점을 사용하여 다른 지역이 서브넷에서 보낸 통신을 수락하도록 할 수 없습니다. 따라서 동일한 지역에 배포된 클라이언트 응용 프로그램만 주 데이터베이스에 연결할 수 있습니다. 장애 조치가 SQL 클라이언트 세션을 다른 (보조) 지역의 서버로 다시 라우팅하는 결과를 발생시키므로 해당 지역 외부에 있는 클라이언트에서 시작된 경우 이러한 세션에 실패합니다. 이런 이유로 참여하는 서버가 Virtual Network 규칙에 포함된 경우 자동 장애 조치 정책을 사용할 수 없습니다. 수동 장애 조치를 지원하려면 다음 단계를 수행합니다.
+[Virtual Network 서비스 엔드포인트 및 규칙](sql-database-vnet-service-endpoint-rule-overview.md)을 사용하여 SQL 데이터베이스에 대한 액세스를 제한하는 경우 각 Virtual Network 서비스 엔드포인트가 하나의 Azure 지역에만 적용됩니다. 엔드포인트를 사용하여 다른 지역이 서브넷에서 보낸 통신을 수락하도록 할 수 없습니다. 따라서 동일한 지역에 배포된 클라이언트 응용 프로그램만 주 데이터베이스에 연결할 수 있습니다. 장애 조치가 SQL 클라이언트 세션을 다른 (보조) 지역의 서버로 다시 라우팅하는 결과를 발생시키므로 해당 지역 외부에 있는 클라이언트에서 시작된 경우 이러한 세션에 실패합니다. 이런 이유로 참여하는 서버가 Virtual Network 규칙에 포함된 경우 자동 장애 조치 정책을 사용할 수 없습니다. 수동 장애 조치를 지원하려면 다음 단계를 수행합니다.
 
 1.  보조 지역에서 응용 프로그램(웹 서비스, 가상 머신 등) 프런트 엔드 구성 요소의 중복 복사본을 프로비전합니다.
 2.  기본 및 보조 서버에 대한 [가상 네트워크 규칙](sql-database-vnet-service-endpoint-rule-overview.md)을 개별적으로 구성합니다.
@@ -231,11 +234,9 @@ ms.locfileid: "40038502"
 
 ## <a name="next-steps"></a>다음 단계
 * 샘플 스크립트에 대해서는 다음을 참조하세요.
-   - 
-  [활성 지역 복제를 사용하여 단일 데이터베이스 구성 및 장애 조치(Failover)](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+   - [활성 지역 복제를 사용하여 단일 데이터베이스 구성 및 장애 조치(Failover)](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
    - [활성 지역 복제를 사용하여 풀된 데이터베이스 구성 및 장애 조치(failover)](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
-   - 
-  [단일 데이터베이스에 대한 장애 조치(failover) 그룹 구성 및 장애 조치(failover)](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
+   - [단일 데이터베이스에 대한 장애 조치(failover) 그룹 구성 및 장애 조치(failover)](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
 * 비즈니스 연속성의 개요 및 시나리오를 보려면 [비즈니스 연속성 개요](sql-database-business-continuity.md)
 * Azure SQL Database 자동화 백업에 대한 자세한 내용은 [SQL Database 자동화 백업](sql-database-automated-backups.md)을 참조하세요.
 * 복구를 위해 자동화된 백업을 사용하는 방법을 알아보려면 [서비스에서 시작한 백업에서 데이터베이스 복원](sql-database-recovery-using-backups.md)을 참조하세요.

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2018
+ms.date: 08/21/2018
 ms.author: rithorn
-ms.openlocfilehash: 13eea4f2b5125d7ab25b05a9e20021ebc6a2e0c6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 114c3c03b49468b6130243bbf9f881a5de42740f
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435376"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142683"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>리소스 조직 및 관리에 대한 관리 그룹 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "39435376"
 
 ## <a name="create-a-management-group"></a>관리 그룹 만들기
 
-포털, PowerShell 또는 Azure CLI를 사용하여 관리 그룹을 만들 수 있습니다.
+포털, PowerShell 또는 Azure CLI를 사용하여 관리 그룹을 만들 수 있습니다. 현재 Resource Manager 템플릿을 사용하여 관리 그룹을 만들 수 없습니다.
 
 ### <a name="create-in-portal"></a>포털에서 만들기
 

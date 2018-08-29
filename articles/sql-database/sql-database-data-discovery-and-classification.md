@@ -10,12 +10,12 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: giladm
-ms.openlocfilehash: cc093bebb4b3c39140d6fa5370a78d59168990fa
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 6ef9a701f3a228e4c40da94f83310ef2884a3f59
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950813"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42142202"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL Database 데이터 검색 및 분류
 데이터 검색 및 분류(현재 미리 보기)는 데이터베이스에 있는 중요한 데이터의 **검색**, **분류**, **레이블 지정** & **보호**를 위해 Azure SQL Database에 내장된 고급 기능을 제공합니다.
@@ -107,6 +107,13 @@ T-SQL을 사용하여 열 분류를 추가/제거하고 전체 데이터베이�
 * 하나 이상의 열 분류 추가/업데이트: [ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/en-us/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
 * 하나 이상의 열에서 분류 제거: [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/en-us/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 * 데이터베이스에 대한 모든 분류 보기: [sys.sensitivity_classifications](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+
+또한 REST API를 사용하여 프로그래밍 방식으로 분류를 관리할 수 있습니다. 게시된 REST API는 다음과 같은 작업을 지원합니다.
+* [만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) - 지정된 열의 민감도 레이블을 만들거나 업데이트합니다.
+* [삭제](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) - 지정된 열의 민감도 레이블을 삭제합니다.
+* [가져오기](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) - 지정된 열의 민감도 레이블을 가져옵니다.
+* [데이터베이스별 목록](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listbydatabase) - 지정된 데이터베이스의 민감도 레이블을 가져옵니다.
+
 
 ## <a id="subheading-5"></a>다음 단계
 

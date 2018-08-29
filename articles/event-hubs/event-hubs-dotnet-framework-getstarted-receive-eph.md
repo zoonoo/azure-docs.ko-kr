@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shvija
-ms.openlocfilehash: 8fbce92c8c703b86d86367f83329cfa853bc5e4d
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 15c2ec0aa8b795a826eae29026b7039491dbb64f
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003504"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146501"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>.NET Framework를 사용하여 Azure Event Hubs에서 이벤트 수신
 
@@ -164,7 +164,7 @@ Azure Event Hubs는 연결된 장치 및 응용 프로그램에서 많은 양의
 
 
 > [!NOTE]
-> 이 자습서에서는 [EventProcessorHost][EventProcessorHost]의 단일 인스턴스를 사용합니다. 처리량을 늘리려면 [EventProcessorHost][EventProcessorHost]의 여러 인스턴스를 실행하는 것이 좋습니다. [확장된 이벤트 처리][확장된 이벤트 처리] 샘플을 참조하세요. 이러한 경우 다양한 인스턴스가 자동으로 서로 조정되어 수신된 이벤트의 부하를 분산합니다. 여러 수신기가 각각 이벤트를 *모두* 처리하도록 하려면 **ConsumerGroup** 개념을 사용해야 합니다. 서로 다른 컴퓨터에서 이벤트를 수신하는 경우 [EventProcessorHost][EventProcessorHost] 인스턴스의 이름을 해당 인스턴스가 배포된 컴퓨터 또는 역할을 기준으로 지정하면 유용할 수 있습니다. 이러한 항목에 대한 자세한 내용은 [Event Hubs 개요][Event Hubs overview] 및 [Event Hubs 프로그래밍 가이드][Event Hubs Programming Guide] 항목을 참조하세요.
+> 이 자습서에서는 [EventProcessorHost][EventProcessorHost]의 단일 인스턴스를 사용합니다. 처리량을 늘리려면 [EventProcessorHost][EventProcessorHost]의 여러 인스턴스를 실행하는 것이 좋습니다. [확장된 이벤트 처리](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) 샘플을 참조하세요. 이러한 경우 다양한 인스턴스가 자동으로 서로 조정되어 수신된 이벤트의 부하를 분산합니다. 여러 수신기가 각각 이벤트를 *모두* 처리하도록 하려면 **ConsumerGroup** 개념을 사용해야 합니다. 서로 다른 컴퓨터에서 이벤트를 수신하는 경우 [EventProcessorHost][EventProcessorHost] 인스턴스의 이름을 해당 인스턴스가 배포된 컴퓨터 또는 역할을 기준으로 지정하면 유용할 수 있습니다. 이러한 항목에 대한 자세한 내용은 [Event Hubs 개요][Event Hubs overview] 및 [Event Hubs 프로그래밍 가이드][Event Hubs Programming Guide] 항목을 참조하세요.
 > 
 > 
 

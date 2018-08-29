@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 7a0dc7e92df342789d2c498479aa54b94070c9f4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 436656195e00311dd350a5526b01fffa56ac02ca
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835946"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246745"
 ---
 # <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>연습 5단계: Azure Machine Learning 웹 서비스 배포
 [Azure Machine Learning에서 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)
@@ -106,6 +106,7 @@ Machine Learning Studio는 [분할][split] 모듈을 제거할 때 [R 스크립�
 > 
 > 서비스에 원래 신용 카드 데이터가 필요하지 않은 것은 사실입니다. 하지만 열 수 및 숫자인 열 같은 정보가 포함된 해당 데이터에 대한 스키마는 필요하지 않습니다. 이 스키마 정보는 사용자 데이터를 해석하기 위해 필요합니다. 서비스가 실행 중일 때 점수 매기기 모듈에 데이터 집합 스키마가 포함되도록 이러한 구성 요소를 연결된 상태로 유지합니다. 데이터는 사용되지 않고 스키마만 사용됩니다.  
 > 
+>한 가지 알아두어야 할 중요한 사실은 원래 데이터 집합에 레이블이 포함되어 있다면 웹 입력의 올바른 스키마도 레이블이 있는 열을 기대하게 됩니다. 이 문제를 해결하는 방법은 레이블과 교육 데이터 집합에 있던 다른 데이터를 제거하는 것이지만, 웹 입력과 교육 데이터 집합을 일반 모듈에 연결하기 전에는 웹 입력에 없을 것입니다. 
 > 
 
 마지막으로 실험을 한 번 실행합니다(**실행** 클릭). 모델이 계속 작동 중인지 확인하려면 [모델 점수 매기기][score-model] 모듈의 출력을 클릭하고 **결과 보기**를 선택합니다. 원래 데이터가 신용 위험 값("점수를 매긴 레이블") 및 점수 매기기 확률 값("점수를 매긴 확률")과 함께 표시됩니다. 
@@ -170,13 +171,13 @@ Machine Learning Studio 또는 Machine Learning 웹 서비스 포털에서 기�
 
 #### <a name="test-in-machine-learning-studio"></a>Machine Learning Studio에서 테스트
 
-1. 웹 서비스에 대한 **대시보드** 페이지에서 **기본 끝점**의 **테스트** 단추를 클릭합니다. 서비스에 대한 입력 데이터를 요청하는 대화 상자가 나타납니다. 이는 원래 신용 위험 데이터 집합에 나타난 열과 같습니다.  
+1. 웹 서비스에 대한 **대시보드** 페이지에서 **기본 엔드포인트**의 **테스트** 단추를 클릭합니다. 서비스에 대한 입력 데이터를 요청하는 대화 상자가 나타납니다. 이는 원래 신용 위험 데이터 집합에 나타난 열과 같습니다.  
 
 2. 데이터 집합을 입력하고 **확인**을 클릭합니다. 
 
 #### <a name="test-in-the-machine-learning-web-services-portal"></a>Machine Learning 웹 서비스 포털에서 테스트
 
-1. 웹 서비스에 대한 **대시보드** 페이지에서 **기본 끝점** 아래의 **테스트 미리 보기** 링크를 클릭합니다. 웹 서비스 끝점에 대한 Azure Machine Learning 웹 서비스 포털의 테스트 페이지가 열리고 서비스에 사용할 입력 데이터를 입력하라는 메시지가 표시됩니다. 이는 원래 신용 위험 데이터 집합에 나타난 열과 같습니다.
+1. 웹 서비스에 대한 **대시보드** 페이지에서 **기본 엔드포인트** 아래의 **테스트 미리 보기** 링크를 클릭합니다. 웹 서비스 엔드포인트에 대한 Azure Machine Learning 웹 서비스 포털의 테스트 페이지가 열리고 서비스에 사용할 입력 데이터를 입력하라는 메시지가 표시됩니다. 이는 원래 신용 위험 데이터 집합에 나타난 열과 같습니다.
 
 2. **요청-응답 테스트**를 클릭합니다. 
 

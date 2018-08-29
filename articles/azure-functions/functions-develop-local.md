@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: glenga
-ms.openlocfilehash: e82981471306c9a9d09751da15256e85b770eb1a
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 4425c0594f4a3520f780b723d2ffbd41fc4b62c7
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125042"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143786"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Azure Functions를 로컬에서 코딩 및 테스트
 
@@ -30,7 +30,7 @@ ms.locfileid: "39125042"
 
 |Environment                              |언어         |설명|
 |-----------------------------------------|------------|---|
-| [명령 프롬프트 또는 터미널](functions-run-local.md) | [C#(클래스 라이브러리)](functions-dotnet-class-library.md), [C# 스크립트(.csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md), [Java](functions-reference-java.md) | [Azure Functions 핵심 도구]는 함수를 만들기 위한 핵심 런타임 및 템플릿을 제공하여 로컬 개발을 사용하도록 설정합니다. 버전 2.x는 Linux, MacOS 및 Windows에서 개발을 지원합니다. 모든 환경은 로컬 Functions 런타임에 대한 핵심 도구를 사용합니다. |
+| [명령 프롬프트 또는 터미널](functions-run-local.md) | [C#(클래스 라이브러리)](functions-dotnet-class-library.md), [C# 스크립트(.csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | [Azure Functions 핵심 도구]는 함수를 만들기 위한 핵심 런타임 및 템플릿을 제공하여 로컬 개발을 사용하도록 설정합니다. 버전 2.x는 Linux, MacOS 및 Windows에서 개발을 지원합니다. 모든 환경은 로컬 Functions 런타임에 대한 핵심 도구를 사용합니다. |
 |[Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started)| [C# 스크립트(.csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | [VS Code용 Azure Functions 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)은 VS Code에 Functions 지원을 추가합니다. 핵심 도구가 필요합니다. 2.x 버전의 핵심 도구를 사용하면 Linux, MacOS 및 Windows에서 개발을 지원합니다. 자세한 내용은 [Azure Functions를 사용하여 Azure에 배포](https://code.visualstudio.com/tutorials/functions-extension/getting-started)를 참조하세요.  |
 | [Visual Studio 2017](functions-develop-vs.md) | [C#(클래스 라이브러리)](functions-dotnet-class-library.md) | Azure Functions 도구는 [Visual Studio 2017 버전 15.5](https://www.visualstudio.com/vs/) 이상의 **Azure 개발** 워크로드에 포함되어 있습니다. 클래스 라이브러리에서 함수를 컴파일하고 .dll을 Azure에 게시할 수 있습니다. 로컬 테스트에 대한 핵심 도구를 포함합니다. 자세한 내용은 [Visual Studio를 사용하여 Azure Functions 개발](functions-develop-vs.md)을 참조하세요. |
 | [Maven](functions-create-first-java-maven.md) | [Java](functions-reference-java.md) | 핵심 도구와 통합하여 Java 함수를 개발할 수 있습니다. 버전 2.x는 Linux, MacOS 및 Windows에서 개발을 지원합니다. 자세한 내용은 [Java 및 Maven을 사용하여 Azure에서 첫 번째 함수 만들기](functions-create-first-java-maven.md)를 참조하세요.|

@@ -8,19 +8,19 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: f2a95ac879dd2d6b1af3d50e1be53efac26331c4
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 11cec9621ad72cfeaee45e4cd466430e64b9b836
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525555"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42144075"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>참조 - IoT Hub 할당량 및 제한
 
 ## <a name="quotas-and-throttling"></a>할당량 및 제한
 각 Azure 구독은 IoT Hub 최대 50개와 무료 허브 최대 1개를 가질 수 있습니다.
 
-각 IoT 허브는 특정 계층에서 특정한 단위 수로 프로비전됩니다. 자세한 내용은 [Azure IoT Hub 가격 책정][lnk-pricing]을 참조하세요. 계층과 단위 수는 보낼 수 있는 메시지의 최대 일일 할당량을 결정합니다.
+각 IoT 허브는 특정 계층에서 특정한 단위 수로 프로비전됩니다. 계층과 단위 수는 보낼 수 있는 메시지의 최대 일일 할당량을 결정합니다. 일일 할당량을 계산하는 데 사용되는 메시지 크기는 무료 계층 허브의 경우 0.5KB이며 기타 모든 계층의 경우 4KB입니다. 자세한 내용은 [Azure IoT Hub 가격 책정][lnk-pricing]을 참조하세요.
 
 또한 계층은 IoT Hub가 모든 작업에 강제로 적용하는 조정 제한을 결정합니다.
 
@@ -68,7 +68,7 @@ IoT Hub에는 다른 작업 제한도 적용됩니다.
 | --------- | ----- |
 | 파일 업로드 URI | 10000 SAS URI는 한 번에 저장소 계정에 대해 나올 수 있습니다. <br/> 10 SAS URI/장치는 한 번에 나올 수 있습니다. |
 | 작업<sup>1</sup> | 작업 기록은 30일까지 유지됩니다. <br/> 최대 동시 작업은 1개(무료), S1, 5(S2의 경우), 10(S3의 경우)입니다. |
-| 추가 끝점 | 유료 SKU 허브에는 10개, 무료 SKU 허브에는 하나의 추가 끝점이 있을 수 있습니다. |
+| 추가 엔드포인트 | 유료 SKU 허브에는 10개, 무료 SKU 허브에는 하나의 추가 엔드포인트가 있을 수 있습니다. |
 | 메시지 라우팅 규칙 | 유료 SKU 허브에는 100개, 무료 SKU 허브에는 5개의 라우팅 규칙이 있을 수 있습니다. |
 | 장치-클라우드 메시징 | 최대 메시지 크기 256KB |
 | 클라우드-장치 메시징<sup>1</sup> | 최대 메시지 크기 64KB 배달 보류 중인 최대 메시지 수는 50개입니다. |
@@ -95,7 +95,7 @@ IoT Hub는 모든 작업에 낮은 대기 시간을 제공하기 위해 노력�
 ## <a name="next-steps"></a>다음 단계
 이 IoT Hub 개발자 가이드의 다른 참조 자료:
 
-* [IoT Hub 끝점][lnk-devguide-endpoints]
+* [IoT Hub 엔드포인트][lnk-devguide-endpoints]
 * [장치 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어][lnk-devguide-query]
 * [IoT Hub MQTT 지원][lnk-devguide-mqtt]
 

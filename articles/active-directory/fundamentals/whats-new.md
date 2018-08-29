@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d39d98a39fb8692d696adfbedc9bb1a34f8be4d6
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: d4bbf26f6535f50b15068125d911df6a1ca20a72
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358837"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42144935"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
-> [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [피드](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us)를 구독하면 업데이트를 위해 이 페이지를 다시 방문해야 할 때 알림을 받을 수 있습니다.
+>이 [URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us)을 ![RSS 아이콘](./media/whats-new/feed-icon-16x16.png) 피드 판독기에 추가하여 업데이트를 위해 이 페이지를 다시 방문해야 할 때 알림을 받습니다.
 
 Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확인할 수 있도록 이 문서에서는 다음과 같은 정보를 제공합니다.
 
@@ -38,6 +38,24 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
 ---
 
 ## <a name="july-2018"></a>2018년 7월
+
+### <a name="changes-to-azure-active-directory-ip-address-ranges"></a>Azure Active Directory IP 주소 범위 변경
+
+**유형:** 변경 계획  
+**서비스 범주:** 기타  
+**제품 기능:** 플랫폼
+
+Azure AD에 더 큰 IP 범위를 도입하려고 합니다. 따라서 방화벽, 라우터 또는 네트워크 보안 그룹에 대한 Azure AD IP 주소 범위를 구성한 경우 업데이트해야 합니다. 이 업데이트는 Azure AD에서 새 엔드포인트를 추가하는 경우에 방화벽, 라우터 또는 네트워크 보안 그룹 IP 범위 구성을 다시 변경할 필요가 없도록 하기 위해 진행하고 있습니다. 
+
+네트워크 트래픽은 향후 2개월에 걸쳐 이러한 새 범위로 이동될 것입니다. 서비스를 중단 없이 계속 사용하려면 2018년 9월 10일 전에 이러한 업데이트된 값을 IP 주소에 추가해야 합니다.
+
+- 20.190.128.0/18 
+
+- 40.126.0.0/18 
+
+모든 네트워크 트래픽이 새 범위로 이동될 때까지 이전 IP 주소 범위를 제거하지 않는 것이 좋습니다. 이러한 이동에 대한 업데이트 내용을 확인하고 이전 범위를 제거할 수 있는 시기를 알아보려면 [Office 365 URL 및 IP 주소 범위](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)를 참조하세요.
+
+---
 
 ### <a name="improvements-to-azure-active-directory-email-notifications"></a>Azure Active Directory 메일 알림에 대한 개선
 
@@ -795,7 +813,7 @@ Azure AD는 갤러리 및 비갤러리 응용 프로그램에 대한 인증서�
 
 자세한 내용은 다음을 참조하세요.
 
-- [응용 프로그램 기반 조건부 액세스 설정](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [응용 프로그램 기반 조건부 액세스 설정](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 - [Managed Browser 정책 구성](https://aka.ms/managedbrowser)  
 
@@ -883,7 +901,7 @@ Azure AD 앱 갤러리에 응용 프로그램을 나열하는 방법에 대한 �
 **서비스 범주:** 인증(로그인)  
 **제품 기능:** 사용자 인증
  
-이제 Azure AD 앱은 JWT 또는 SAML 토큰에서 사용자 지정 또는 선택적 클레임을 요청할 수 있습니다.  이러한 클레임은 크기 또는 적용 가능한 제약으로 인해 토큰에 기본적으로 포함되지 않는 사용자 또는 테넌트에 대한 클레임입니다.  현재는 v1.0 및 v2.0 끝점에서 Azure AD 앱에 대한 공개 미리 보기로 사용됩니다.  추가될 수 있는 클레임과 해당 클레임을 요청하도록 응용 프로그램 매니페스트를 편집하는 방법에 대한 내용은 해당 설명서를 참조하세요.  
+이제 Azure AD 앱은 JWT 또는 SAML 토큰에서 사용자 지정 또는 선택적 클레임을 요청할 수 있습니다.  이러한 클레임은 크기 또는 적용 가능한 제약으로 인해 토큰에 기본적으로 포함되지 않는 사용자 또는 테넌트에 대한 클레임입니다.  현재는 v1.0 및 v2.0 엔드포인트에서 Azure AD 앱에 대한 공개 미리 보기로 사용됩니다.  추가될 수 있는 클레임과 해당 클레임을 요청하도록 응용 프로그램 매니페스트를 편집하는 방법에 대한 내용은 해당 설명서를 참조하세요.  
 
 자세한 내용은 [Azure AD의 선택적 클레임](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims)을 참조하세요.
  
@@ -895,7 +913,7 @@ Azure AD 앱 갤러리에 응용 프로그램을 나열하는 방법에 대한 �
 **서비스 범주:** 인증(로그인)  
 **제품 기능:** 사용자 인증
  
-Azure AD 설명서가 OAuth 2.0 권한 부여 코드 부여 흐름 동안 좀 더 안전한 통신을 허용하는 PKCE에 대한 지원 내용을 포함하도록 업데이트되었습니다.  S256 및 일반 텍스트 code_challenges 둘 다 v1.0 및 v2.0 끝점에서 지원됩니다. 
+Azure AD 설명서가 OAuth 2.0 권한 부여 코드 부여 흐름 동안 좀 더 안전한 통신을 허용하는 PKCE에 대한 지원 내용을 포함하도록 업데이트되었습니다.  S256 및 일반 텍스트 code_challenges 둘 다 v1.0 및 v2.0 엔드포인트에서 지원됩니다. 
 
 자세한 내용은 [권한 부여 코드 요청](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-code#request-an-authorization-code)을 참조하세요. 
  
@@ -983,9 +1001,9 @@ Azure AD 활동 로그 보고서는 이제 21Vianet(Azure China 21Vianet) 인스
 
 이러한 로그를 사용하면 환경이 작동하는 방식에 대한 통찰력을 얻을 수 있습니다. 제공된 데이터를 통해 다음을 수행할 수 있습니다.
 
-- 사용자가 앱과 서비스를 활용하는 방식을 결정합니다.
+- 사용자가 앱 및 서비스를 어떻게 활용하는지 정확히 파악할 수 있습니다.
 
-- 사용자가 자신의 작업을 완료하지 못하게 하는 문제를 해결합니다.
+- 사용자의 작업 진행에 장애가 되는 문제를 해결합니다.
 
 이러한 보고서를 사용하는 방법에 대한 자세한 내용은 [Azure Active Directory 보고](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)를 참조하세요.
 
@@ -1100,9 +1118,9 @@ Azure AD Connect는 Windows Server Active Directory 및 LDAP를 포함하여 Azu
 
 - ConfigDB 사용자 지정 작업을 수행하는 동안 액세스 위반이 발생하는 버그가 수정되었습니다.
 
-- SQL 연결 시간 제한에서 복구하는 버그가 수정되었습니다.
+- SQL 연결 시간 제한에서 복구할 버그가 수정되었습니다.
 
-- SAN 와일드카드가 있는 인증서가 필수 구성 요소 검사에 실패하는 버그가 수정되었습니다.
+- SAN 와일드카드가 포함된 인증서에서 필수 구성 요소 검사에 실패하는 버그가 수정되었습니다.
 
 - AAD 커넥터를 내보내는 동안 miiserver.exe가 충돌하는 버그가 수정되었습니다.
 
@@ -1120,7 +1138,7 @@ Azure AD Connect는 Windows Server Active Directory 및 LDAP를 포함하여 Azu
 
 - 자동 업그레이드의 안정성이 향상되고, 서버의 상태를 확인할 수 있도록 추가 원격 분석이 추가되었습니다.
 
-- AD 커넥터 계정에서 권한 있는 계정에 사용할 수 있는 권한이 제한되었습니다. 새로 설치하는 경우 마법사는 MSOL 계정을 만든 후 MSOL 계정에 있는 권한 있는 계정이 갖는 권한을 제한합니다. 이 변경 내용은 자동 생성 계정을 통한 빠른 설치 및 사용자 지정 설치에 영향을 줍니다.
+- AD 커넥터 계정에서 권한 있는 계정에 사용할 수 있는 권한이 제한되었습니다. 새로 설치하는 경우 마법사는 MSOL 계정을 만든 후 권한 있는 계정이 MSOL 계정에 대해 갖는 권한을 제한합니다. 이 변경 내용은 자동 생성 계정을 통한 빠른 설치 및 사용자 지정 설치에 영향을 줍니다.
 
 - AAD Connect를 새로 설치할 때 SA 권한이 필요하지 않도록 설치 관리자가 변경되었습니다.
 
@@ -1155,7 +1173,7 @@ Azure AD Connect는 Windows Server Active Directory 및 LDAP를 포함하여 Azu
 자세한 내용은 다음을 참조하세요.
 
 - [승인된 클라이언트 앱 요구 사항](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Azure AD 앱 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Azure AD 앱 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -1447,13 +1465,13 @@ Intune Managed Browser를 승인된 앱으로 사용하면 Office 365 및 기타
 
 [승인된 클라이언트 앱](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) 목록에는 다음과 같은 앱이 있습니다.
 
-- [Microsoft Kaizala](https://microsoft.com/garage/profiles/kaizala/)
+- [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/)
 - [Microsoft StaffHub](https://staffhub.office.com/what-it-is)
 
 자세한 내용은 다음을 참조하세요.
 
 - [승인된 클라이언트 앱 요구 사항](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Azure AD 앱 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Azure AD 앱 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -1491,9 +1509,9 @@ Intune Managed Browser를 승인된 앱으로 사용하면 Office 365 및 기타
 **서비스 범주:** Azure AD  
 **제품 기능:** ID 보안 및 보호
 
-이제 [Azure AD 앱 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)를 사용하여 Intune 앱 보호 정책을 지원하는 [승인된 클라이언트 앱](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)으로 Office 365 및 기타 Azure AD에 연결된 클라우드 앱의 액세스를 제한할 수 있습니다. 승인된 클라이언트 응용 프로그램에서 기업 데이터를 구성하고 보호하는 데 Intune 앱 보호 정책이 사용됩니다.
+이제 [Azure AD 앱 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)를 사용하여 Intune 앱 보호 정책을 지원하는 [승인된 클라이언트 앱](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)으로 Office 365 및 기타 Azure AD에 연결된 클라우드 앱의 액세스를 제한할 수 있습니다. 승인된 클라이언트 응용 프로그램에서 기업 데이터를 구성하고 보호하는 데 Intune 앱 보호 정책이 사용됩니다.
 
-[앱 기반](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) 조건부 액세스 정책과 [장치 기반](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) 조건부 액세스 정책이 결합됨으로써 개인 장치와 기업 장치의 데이터를 유연하게 보호할 수 있게 됩니다.
+[앱 기반](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) 조건부 액세스 정책과 [장치 기반](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) 조건부 액세스 정책이 결합됨으로써 개인 장치와 기업 장치의 데이터를 유연하게 보호할 수 있게 됩니다.
 
 다음은 앱 기반 조건부 액세스에 사용 가능한 조건과 컨트롤입니다.
 
@@ -1510,7 +1528,7 @@ Intune Managed Browser를 승인된 앱으로 사용하면 Office 365 및 기타
 
 - 승인된 클라이언트 앱 필요
 
-자세한 내용은 [Azure AD 앱 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)를 참조하세요.
+자세한 내용은 [Azure AD 앱 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)를 참조하세요.
  
 ---
 
@@ -1607,7 +1625,7 @@ Azure Multi-Factor Authentication용 네트워크 정책 서버 확장은 기존
 자세한 내용은 다음을 참조하세요.
 
 - [승인된 클라이언트 앱 요구 사항](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Azure AD 앱 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Azure AD 앱 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 
 ---

@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: ba965b0610525f66c24dd6d5bad3fd113a6b6758
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: ffe7337282d06dd9a7e22d6750ac98b3a56964bd
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050868"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142849"
 ---
 # <a name="azure-data-factory-service-identity"></a>Azure Data Factory 서비스 ID
 
@@ -27,10 +27,10 @@ ms.locfileid: "37050868"
 
 데이터 팩터리를 만들 때 팩터리가 만들어지면서 서비스 ID도 생성할 수 있습니다. 서비스 ID는 Azure Activity Directory에 등록된 관리되는 응용 프로그램이고 이 특정 데이터 팩터리를 나타냅니다.
 
-데이터 팩터리 서비스 ID는 다음과 같은 두 가지 기능을 제공합니다.
+데이터 팩터리 서비스 ID는 다음과 같은 기능을 제공합니다.
 
 - [Azure Key Vault에서 자격 증명을 저장](store-credentials-in-key-vault.md)하는 경우에 데이터 팩터리 서비스 ID를 Azure Key Vault 인증에 사용합니다.
-- [Azure Data Lake Store 간에 데이터를 복사](connector-azure-data-lake-store.md)하는 경우 지원되는 Data Lake Store 인증 형식 중 하나로 데이터 팩터리 서비스 ID를 사용할 수 있습니다.
+- [Azure Blob storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure SQL Database](connector-azure-sql-database.md) 및 [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md)를 포함하는 커넥터
 
 ## <a name="generate-service-identity"></a>서비스 ID 생성
 

@@ -9,16 +9,16 @@ ms.author: xshi
 ms.date: 06/26/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a5ab49beed79a8ea3a7ded0848c09acad27a5fb1
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 78e952b5b1eedc1757cfe636eb13e411044dce54
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390540"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42140122"
 ---
 # <a name="develop-and-debug-nodejs-modules-with-azure-iot-edge-for-visual-studio-code"></a>Visual Studio Code용 Azure IoT Edge를 사용하여 Node.js 모듈 개발 및 디버그
 
-Azure IoT Edge용 모듈로 전환하여 비즈니스 논리를 에지에서 작동하도록 전송할 수 있습니다. 이 문서에서는 VS Code(Visual Studio Code)를 주 개발 도구로 사용하여 C# 모듈을 개발하기 위한 자세한 지침을 제공합니다.
+Azure IoT Edge용 모듈로 전환하여 비즈니스 논리를 에지에서 작동하도록 전송할 수 있습니다. 이 문서에서는 VS Code(Visual Studio Code)를 주 개발 도구로 사용하여 Node.js 모듈을 개발하기 위한 자세한 지침을 제공합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 아티클에서는 사용자가 Windows 또는 Linux를 실행하는 컴퓨터 또는 가상 머신을 개발 컴퓨터로 사용한다고 가정합니다. IoT Edge 장치가 다른 물리적 장치가 될 수도 있고, 개발 컴퓨터에서 IoT Edge 장치를 시뮬레이트할 수도 있습니다.
@@ -43,7 +43,7 @@ Azure IoT Edge용 모듈로 전환하여 비즈니스 논리를 에지에서 작
 
 ## <a name="create-a-new-solution-template"></a>새 솔루션 템플릿 만들기
 
-다음 단계는 Visual Studio Code 및 Azure IoT Edge 확장을 사용하여 .NET Core 2.0을 기반으로 IoT Edge 모듈을 만드는 방법을 보여 줍니다. 먼저 솔루션을 만들고 해당 솔루션에 첫 번째 모듈을 생성합니다. 각 솔루션은 여러 모듈을 포함할 수 있습니다. 
+다음 단계는 Visual Studio Code 및 Azure IoT Edge 확장을 사용하여 Node.js를 기반으로 IoT Edge 모듈을 만드는 방법을 보여 줍니다. 먼저 솔루션을 만들고 해당 솔루션에 첫 번째 모듈을 생성합니다. 각 솔루션은 여러 모듈을 포함할 수 있습니다. 
 
 1. Visual Studio Code에서 **보기** > **통합 터미널**을 선택합니다.
 2. 통합 터미널에서 다음 명령을 입력하여 Node.js용 Azure IoT Edge 모듈 템플릿의 최신 버전을 설치(또는 업데이트)합니다.
@@ -67,22 +67,22 @@ VS Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만들고 새 
 솔루션에는 다음 세 개의 항목이 있습니다. 
 * **.vscode** 폴더에는 디버그 구성이 들어 있습니다.
 * **modules** 폴더에는 각 모듈의 하위 폴더가 들어 있습니다. 지금은 모듈이 하나뿐이지만, **Azure IoT Edge: Add IoT Edge Module** 명령을 사용하여 명령 팔레트에서 모듈을 더 추가할 수 있습니다. 
-* **.env** 파일은 환경 변수를 나열합니다. 레지스트리로 ACR을 사용하는 경우 지금은 ACR 사용자 이름과 암호가 들어 있습니다. 
+* **.env** 파일은 환경 변수를 나열합니다. Azure Container Registry가 레지스트리인 경우 거기에 Azure Container Registry 사용자 이름 및 암호가 있습니다.
 
    >[!NOTE]
    >환경 파일은 모듈에 대한 이미지 리포지토리를 제공하는 경우에만 생성됩니다. localhost 기본값을 로컬로 테스트하고 디버그하도록 수락하는 경우 환경 변수를 선언할 필요가 없습니다. 
 
 * **deployment.template.json** 파일은 테스트에 사용할 수 있는 데이터를 시뮬레이트하는 샘플 **tempSensor** 모듈과 함께 새 모듈을 나열합니다. 배포 매니페스트의 작동 방식에 대한 자세한 내용은 [IoT Edge 모듈을 사용, 구성 및 다시 사용하는 방법에 대한 이해](module-composition.md)를 참조하세요.
 
-## <a name="devlop-your-module"></a>모듈 개발
+## <a name="develop-your-module"></a>모듈 개발
 
-솔루션과 함께 제공되는 기본 Azure Function 코드는 **모듈** > **\<모듈 이름\>** > **app.js**에 위치합니다. 모듈 및 deployment.template.json 파일은 솔루션을 빌드하고, 컨테이너 레지스트리에 푸시하고, 장치에 배포하여 코드를 변경하지 않고 테스트를 시작하도록 설정됩니다. 모듈은 단순히 원본에서 입력을 가져오고(이 경우에 데이터를 시뮬레이션하는 tempSensor 모듈) IoT Hub로 파이핑하도록 빌드됩니다. 
+솔루션과 함께 제공되는 기본 Node.js 코드는 **모듈** > **\<모듈 이름\>** > **app.js**에 위치합니다. 모듈 및 deployment.template.json 파일은 솔루션을 빌드하고, 컨테이너 레지스트리에 푸시하고, 장치에 배포하여 코드를 변경하지 않고 테스트를 시작하도록 설정됩니다. 모듈은 단순히 원본에서 입력을 가져오고(이 경우에 데이터를 시뮬레이션하는 tempSensor 모듈) IoT Hub로 파이핑하도록 빌드됩니다. 
 
 고유한 코드를 사용하여 Node.js 템플릿을 사용자 지정할 준비가 된 경우 [Azure IoT Hub SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용하여 보안, 장치 관리 및 안정성 등 IoT 솔루션에 대한 주요 요구 사항을 해결하는 모듈을 빌드합니다. 
 
 ## <a name="build-and-deploy-your-module-for-debugging"></a>디버그를 위해 모듈 빌드 및 배포
 
-각 모듈 폴더에는 서로 다른 컨테이너 유형에 사용되는 여러 Docker 파일이 있습니다. **.debug** 확장명으로 끝나는 이러한 파일을 사용하여 테스트할 모듈을 빌드할 수 있습니다. 현재, C# 모듈은 linux-amd64 컨테이너의 디버깅만 지원합니다.
+각 모듈 폴더에는 서로 다른 컨테이너 유형에 사용되는 여러 Docker 파일이 있습니다. **.debug** 확장명으로 끝나는 이러한 파일을 사용하여 테스트할 모듈을 빌드할 수 있습니다. 현재, Node.js 모듈은 linux-amd64, windows-amd64 및 linux-arm32v7 컨테이너에서만 디버깅을 지원합니다.
 
 1. VS Code에서 `deployment.template.json` 파일로 이동합니다. 끝에 **.debug**를 추가하여 모듈 이미지 URL을 업데이트합니다.
 2. **deployment.template.json**에서 Node.js 모듈의 createOptions를 아래 내용으로 바꾸고 이 파일을 저장합니다. 

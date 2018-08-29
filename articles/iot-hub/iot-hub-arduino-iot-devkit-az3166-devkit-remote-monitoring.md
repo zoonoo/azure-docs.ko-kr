@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 806ae38f614c44ce25b8fcc159b74f1bda3f00f3
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 79a44e3f5303aaf0d337333b482c2df670e0b3da
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343120"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144641"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>MXChip IoT DevKit를 Azure IoT 원격 모니터링 솔루션 가속기에 연결
 
@@ -120,7 +120,7 @@ DevKit는 다시 부팅하고 코드를 실행하기 시작합니다.
 
 ## <a name="change-device-id"></a>장치 ID 변경
 
-[장치 ID 사용자 지정 가이드](https://microsoft.github.io/azure-iot-developer-kit/docs/customize-device-id/)에 따라 IoT Hub의 장치 ID를 변경할 수 있습니다. 코드에서 사용자 지정된 장치 ID로 하드코딩된 **AZ3166**을 변경하려는 경우 표시된 코드 줄 또는 [원격 모니터링 예제](https://github.com/Microsoft/devkit-sdk/blob/master/AZ3166/src/libraries/AzureIoT/examples/RemoteMonitoring/RemoteMonitoring.ino#L23)를 수정합니다.
+코드에서 사용자 지정된 장치 ID로 하드코딩된 **AZ3166**을 변경하려는 경우 [원격 모니터링 예제](https://github.com/Microsoft/devkit-sdk/blob/master/AZ3166/src/libraries/AzureIoT/examples/RemoteMonitoring/RemoteMonitoring.ino#L23)에 표시된 코드 줄을 수정합니다.
 
 ## <a name="problems-and-feedback"></a>문제 및 피드백
 
@@ -136,3 +136,5 @@ DevKit 장치를 Azure IoT 원격 모니터션 솔루션 가속기에 연결하�
 * [Azure IoT 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-suite/)
 
 * [Azure IoT Central 응용 프로그램에 MXChip IoT DevKit 장치 연결](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+
+* [IoT 개발자 키트](https://microsoft.github.io/azure-iot-developer-kit/) 

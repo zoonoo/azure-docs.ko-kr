@@ -11,22 +11,24 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 3b606fc78327035e135e0f037288a817171385dd
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 0d47b89a468aade8cec51ec04709ed99bfd4684c
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857947"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42143721"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Azure VM에서 중첩된 가상화를 사용하는 방법
 
-중첩된 가상화는 Azure Virtual Machines의 Dv3 및 Ev3 시리즈에서 지원됩니다. 이 기능은 개발, 테스트, 교육 및 데모 환경과 같은 시나리오를 지원하는 데 큰 유연성을 제공합니다. 
+중첩된 가상화는 여러 Azure 가상 머신 제품군에서 지원됩니다. 이 기능은 개발, 테스트, 교육 및 데모 환경과 같은 시나리오를 지원하는 데 큰 유연성을 제공합니다.   
 
-모든 Dv3 및 Ev3 계열 가상 머신은 추가된 구성 없이 중첩된 가상화를 지원합니다.  이 문서에서는 Azure VM에서 Hyper-V를 사용하도록 설정하고 해당 게스트 가상 머신에 대한 인터넷 연결을 구성하는 방법을 단계별로 설명합니다.
+이 문서에서는 Azure VM에서 Hyper-V를 사용하도록 설정하고 해당 게스트 가상 머신에 대한 인터넷 연결을 구성하는 방법을 단계별로 설명합니다.
 
-## <a name="create-a-dv3-or-ev3-series-azure-vm"></a>Dv3 또는 Ev3 시리즈 Azure VM 만들기
+## <a name="create-a-nesting-capable-azure-vm"></a>중첩 지원 Azure VM 만들기
 
-새 Windows Server 2016 Azure VM을 만들고 Dv3 또는 Ev3 시리즈에서 크기를 선택합니다. 게스트 가상 머신의 수요를 지원할 만큼 큰 크기를 선택합니다. 이 예제에서는 D3_v3 크기의 Azure VM을 사용합니다. 
+새 Windows Server 2016 Azure VM을 만듭니다.  빠른 참조의 경우 모든 v3 가상 머신은 중첩된 가상화를 지원합니다. 중첩을 지원하는 가상 머신 크기의 전체 목록은 [Azure Compute 단위 문서](acu.md)를 참조하세요.
+
+게스트 가상 머신의 수요를 지원할 만큼 큰 VM 크기를 선택해야 합니다. 이 예제에서는 D3_v3 크기의 Azure VM을 사용합니다. 
 
 Dv3 또는 Ev3 시리즈 가상 머신의 지역별 가용성은 [여기](https://azure.microsoft.com/regions/services/)에서 볼 수 있습니다.
 

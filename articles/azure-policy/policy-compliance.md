@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f2283125aff705aae87b6260b48deee01aa12f0d
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: bd3eeb5ebb9b30ac315fee1597348f3bd34f3bb6
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343555"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142442"
 ---
 # <a name="getting-compliance-data"></a>준수 데이터 가져오기
 
@@ -26,6 +26,9 @@ Azure Policy의 가장 큰 혜택 중 하나는 구독 및 구독의 [데이터 
 - [명령줄](#command_line) 스크립팅을 통함
 
 준수를 보고하는 메서드를 살펴보기 전에 호환성 정보가 업데이트되는 시기 및 평가 주기를 트리거하는 빈도 및 이벤트를 살펴보겠습니다.
+
+> [!WARNING]
+> 준수 상태가 **‘해당 없음’** 으로 보고된 경우 [여기](azure-policy-introduction.md#rbac-permissions-in-azure-policy)에 설명된 대로 **Microsoft.PolicyInsights** 리소스 공급자가 등록되어 있고 사용자에게 적절한 RBAC(역할 기반 액세스 제어) 권한이 있는지 확인합니다.
 
 ## <a name="evaluation-triggers"></a>평가 트리거
 

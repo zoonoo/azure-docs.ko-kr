@@ -8,14 +8,14 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 08/16/2018
 ms.author: byvinyal
-ms.openlocfilehash: 570eee6cc849c474cfeacf5a9ba1798f64f27183
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6b6e713c0da11a3d2c8cfbf388b84940a4542e95
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188081"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42139949"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간 경과에 따라 이 목록은 더 많은 플랫폼에 적용되도록 확장 및 업데이트됩니다.
@@ -35,7 +35,8 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 
 > [!NOTE]
 > Azure 리소스 그룹의 리소스에 대한 할당량은 구독을 통해 지역별로 액세스할 수 있으며, 구독별로는 액세스할 수 없는데 서비스 관리 할당량이 구독별로 액세스되기 때문입니다. vCPU 할당량을 한 예로 살펴보겠습니다. vCPU를 지원하는 할당량 증가를 요청해야 하는 경우 어떤 지역에서 얼마나 많은 vCPU를 사용할 것인지 결정한 다음, 원하는 금액 및 지역에 대한 Azure 리소스 그룹 vCPU 할당량에 대해 특정 요청을 만들어야 합니다. 따라서 유럽 서부 지역에서 30개의 vCPU를 사용하여 응용 프로그램을 실행해야 하는 경우, 유럽 서부에서 30개의 vCPU를 구체적으로 요청해야 합니다. 하지만 다른 지역에는 vCPU 할당량이 증가하지 않고 유럽 서부만 30개의 vCPU 할당량이 갖게 됩니다.
-> <!-- --> 따라서 어떤 한 지역의 워크로드에 필요한 Azure 리소스 그룹 할당량을 결정하고 배포를 고려하는 각 지역에서 해당 금액을 요청하는 것이 유용할 수 있습니다. 특정 지역의 현재 할당량 검색에 대한 자세한 내용은 [배포 문제 해결](resource-manager-common-deployment-errors.md) 을 참조하세요.
+> <!-- -->
+> 따라서 어떤 한 지역에서 워크로드에 필요한 Azure 리소스 그룹 할당량을 결정하고 배포를 고려 중인 각 지역에서 해당 금액을 요청하는 것이 유용할 수 있습니다. 특정 지역의 현재 할당량 검색에 대한 자세한 내용은 [배포 문제 해결](resource-manager-common-deployment-errors.md) 을 참조하세요.
 >
 >
 
@@ -51,6 +52,7 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [Azure Database for PostgreSQL](#azure-database-for-postgresql)
 * [Azure Event Grid](#azure-event-grid-limits)
 * [Azure Maps](#azure-maps-limits)
+* [Azure Policy](#azure-policy-limits)
 * [Azure Redis 캐시(영문)](#azure-redis-cache-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
@@ -67,8 +69,7 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [DNS](#dns-limits)
 * [Event Hubs](#event-hubs-limits)
 * [Azure Firewall](#azure-firewall-limits)
-* 
-  [IoT Hub](#iot-hub-limits)
+* [IoT Hub](#iot-hub-limits)
 * [IoT Hub Device Provisioning 서비스](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
 * [Log Analytics](#log-analytics-limits)
@@ -294,6 +295,9 @@ Azure Database for PostgreSQL 제한은 [Azure Database for PostgreSQL의 제한
 
 ### <a name="azure-maps-limits"></a>Azure Maps 제한
 [!INCLUDE [maps-limits](../includes/maps-limits.md)]
+
+### <a name="azure-policy-limits"></a>Azure Policy 제한
+[!INCLUDE [policy-limits](../includes/azure-policy-limits.md)]
 
 ### <a name="storsimple-system-limits"></a>StorSimple 시스템 제한
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]

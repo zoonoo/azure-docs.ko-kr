@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: f42948f0f3acf1bacf6c80010489890f4b8d122b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 28a6082718080314a769b59c81cf51a20ff7e120
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523668"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146852"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Table Storage 바인딩
 
@@ -58,6 +58,7 @@ Azure Table Storage 입력 바인딩을 사용하여 Azure Storage 계정에서 
 * [C# 스크립트 CloudTable에 바인딩](#input---c-script-example---cloudtable)
 * [F#](#input---f-example)
 * [JavaScript](#input---javascript-example)
+* [Java](#input---java-example)
 
 ### <a name="input---c-example---one-entity"></a>입력 - C# 예제 - 단일 엔터티
 
@@ -414,6 +415,25 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
+### <a name="input---java-example"></a>입력 - Java 예제
+
+다음 예는 Table Storage의 지정된 파티션에 있는 총 항목 수를 반환하는 HTTP 트리거 함수를 보여줍니다.
+
+```java
+@FunctionName("getallcount")
+public int run(
+   @HttpTrigger(name = "req",
+                 methods = {"get"},
+                 authLevel = AuthorizationLevel.ANONYMOUS) Object dummyShouldNotBeUsed,
+   @TableInput(name = "items",
+                tableName = "mytablename",  partitionKey = "myparkey",
+                connection = "myconnvarname") MyItem[] items
+) {
+    return items.length;
+}
+```
+
+
 ## <a name="input---attributes"></a>입력 - 특성
  
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서는 다음 특성을 사용하여 테이블 입력 바인딩을 구성합니다.
@@ -471,6 +491,10 @@ module.exports = function (context, myQueueItem) {
 * 함수에 적용된 `StorageAccount` 특성
 * 클래스에 적용된 `StorageAccount` 특성
 * 함수 앱의 기본 저장소 계정("AzureWebJobsStorage" 앱 설정)
+
+## <a name="input---java-annotations"></a>입력 - Java 주석
+
+[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Table Storage에서 제공되는 매개 변수에 대한 `@TableInput` 주석을 사용합니다.  옵션 <T>를 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다. 
 
 ## <a name="input---configuration"></a>입력 - 구성
 

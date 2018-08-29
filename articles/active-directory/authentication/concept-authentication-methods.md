@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 4a0fb5739812950f3a01a18acae1d797fa4f9158
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 7776ca63dd5c02e470ead35e3dad73c051731fd1
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622255"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42144488"
 ---
 # <a name="what-are-authentication-methods"></a>인증 방법이란?
 
@@ -136,6 +136,8 @@ Microsoft Authenticator 앱을 사용하면 스마트폰 또는 태블릿에 알
 >
 > 두 방법이 필수인 경우 다른 활성화된 방법과 함께 **알림** 또는 **확인** 코드를 사용하여 재설정할 수 있습니다.
 >
+
+모바일 앱을 통한 알림 및 모바일 앱의 확인 코드 둘 다 사용하도록 설정한 경우 알림을 사용하여 Microsoft Authenticator 앱을 등록하려는 사용자는 알림 및 코드 모두를 사용하여 해당 ID를 확인할 수 있습니다.
 
 ### <a name="verification-code-from-mobile-app"></a>모바일 앱의 확인 코드
 

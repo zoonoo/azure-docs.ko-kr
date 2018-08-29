@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 06/12/2018
+ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: 2730ab1d909ead0431f0dd7fd0061d3080834296
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 305a6c805f14e8d3ef9f77fcd90a78a50e0f770c
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443735"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42144885"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Virtual Kubelet 사용
 
@@ -36,31 +36,41 @@ Virtual Kubelet을 설치하려면 [Helm](https://docs.helm.sh/using_helm/#insta
 
 ### <a name="for-rbac-enabled-clusters"></a>RBAC 지원 클러스터의 경우
 
-AKS 클러스터에서 RBAC가 지원될 경우 Tiller에서 사용할 수 있게 서비스 계정 및 역할 바인딩을 만들어야 합니다. 자세한 내용은 [Helm 역할 기반 액세스 제어][helm-rbac].를 참조하세요.
-
-Virtual Kubelet에 대해 *ClusterRoleBinding*도 만들어야 합니다. 바인딩을 만들려면 *rbac-virtualkubelet.yaml*이라는 파일을 만들고 다음 정의를 붙여넣습니다.
+AKS 클러스터에서 RBAC가 지원될 경우 Tiller에서 사용할 수 있게 서비스 계정 및 역할 바인딩을 만들어야 합니다. 자세한 내용은 [Helm 역할 기반 액세스 제어][helm-rbac].를 참조하세요. 서비스 계정과 역할 바인딩을 만들려면 *rbac-virtualkubelet.yaml*이라는 파일을 만들고 다음 정의를 붙여넣습니다.
 
 ```yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: tiller
+  namespace: kube-system
+---
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
 metadata:
-  name: virtual-kubelet
+  name: tiller
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: cluster-admin
 subjects:
-- kind: ServiceAccount
-  name: default
-  namespace: default
+  - kind: ServiceAccount
+    name: tiller
+    namespace: kube-system
 ```
 
-[kubectl apply][kubectl-apply]를 사용하여 바인딩을 적용하고 다음 예제와 같이 *rbac-virtualkubelet.yaml* 파일을 지정합니다.
+[kubectl apply][kubectl-apply]를 사용하여 서비스 계정과 바인딩을 적용하고 다음 예제와 같이 *rbac-virtualkubelet.yaml* 파일을 지정합니다.
 
 ```
 $ kubectl apply -f rbac-virtual-kubelet.yaml
 
-clusterrolebinding.rbac.authorization.k8s.io/virtual-kubelet created
+clusterrolebinding.rbac.authorization.k8s.io/tiller created
+```
+
+Tiller 서비스 계정을 사용하도록 Helm 구성:
+
+```console
+helm init --service-account tiller
 ```
 
 이제 Virtual Kubelet을 AKS 클러스터에 계속 설치할 수 있습니다.
@@ -164,7 +174,7 @@ spec:
     spec:
       containers:
       - name: nanoserver-iis
-        image: nanoserver/iis
+        image: microsoft/iis:nanoserver
         ports:
         - containerPort: 80
       nodeSelector:
@@ -199,7 +209,9 @@ az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --conn
 
 ## <a name="next-steps"></a>다음 단계
 
-[Virtual Kubelet Github 프로젝트][vk-github]에서 Virtual Kubelet에 대해 자세히 읽어보세요.
+Virtual Kubelet에서 발생할 수 있는 문제는 [알려진 단점 및 해결 방법][vk-troubleshooting]을 참조하세요. Virtual Kubelet의 문제를 보고하려면 [GitHub 문제를 개설][vk-issues]하세요.
+
+Virtual Kubelet에 대한 자세한 내용은 [Virtual Kubelet Github 프로젝트][vk-github]를 참조하세요.
 
 <!-- LINKS - internal -->
 [aks-quick-start]: ./kubernetes-walkthrough.md
@@ -215,3 +227,5 @@ az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --conn
 [vk-github]: https://github.com/virtual-kubelet/virtual-kubelet
 [helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[vk-troubleshooting]: https://github.com/virtual-kubelet/virtual-kubelet#known-quirks-and-workarounds
+[vk-issues]: https://github.com/virtual-kubelet/virtual-kubelet/issues

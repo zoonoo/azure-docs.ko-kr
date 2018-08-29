@@ -2,25 +2,22 @@
 title: Azure AD 응용 프로그램 프록시를 사용하여 앱 게시 | Microsoft Docs
 description: Azure Portal에서 Azure AD 응용 프로그램 프록시를 사용하여 클라우드에 온-프레미스 응용 프로그램을 게시합니다.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 08/20/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 1224642bb7e6fc0c51b3f839a78449132db5b4bb
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 973a6201a227e6c2e295e6e5ea2f40c302572504
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364260"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42146865"
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시
 
@@ -72,6 +69,7 @@ Azure AD(Active Directory) 응용 프로그램 프록시를 사용하면 인터�
    ![응용 프로그램 구성](./media/application-proxy-publish-azure-portal/configure-app.png)
 5. 필요한 경우 추가 설정을 구성합니다. 대부분의 응용 프로그램에서는 다음과 같은 설정을 기본 상태로 유지해야 합니다. 
    - **백 엔드 응용 프로그램 시간 제한**: 응용 프로그램의 인증 및 연결 속도가 느린 경우에만 이 값을 **Long**(길게)으로 설정합니다. 
+   - **HTTP 전용 쿠키 사용**: Application Proxy 쿠키가 HTTP 응답 헤더에 HTTPOnly 플래그를 포함하도록 하려면 이 값을 **Yes**(예)로 설정합니다.
    - **헤더의 URL 변환**: 응용 프로그램이 인증 요청에서 원래 호스트 헤더를 요구하지 않는 한 이 값을 **Yes**(예)로 유지합니다.
    - **응용 프로그램 본문의 URL 변환**: 다른 온-프레미스 응용 프로그램에 HTML 링크를 하드 코드하지 않고 사용자 지정 도메인을 사용하지 않는 한 이 값을 **No**(아니요)로 유지합니다. 자세한 내용은 [응용 프로그램 프록시를 사용한 링크 변환](application-proxy-configure-hard-coded-link-translation.md)을 참조하세요.
    

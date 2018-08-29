@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/04/2018
+ms.date: 08/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 582513e7e556859e70c1af9c4f6179e1d60e0139
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 2060239b27ef05c34ea6f5b388b4c4086a44a826
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216745"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42143536"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Azure Automation의 자식 runbook
 
@@ -24,7 +24,7 @@ ms.locfileid: "39216745"
 
 다른 runbook에서 runbook 인라인을 호출하려면 runbook의 이름을 사용하고 활동 또는 cmdlet을 사용하는 것처럼 정확하게 해당 매개 변수에 대한 값을 제공합니다.  같은 Automation 계정에서 모든 runbook이 이런 방식으로 사용할 다른 모든 사용자에게 제공됩니다. 부모 runbook은 다음 줄으로 이동하기 전에 자식 runbook이 완료하기를 기다리고 어떤 출력도 직접 부모에게 반환됩니다.
 
-runbook 인라인을 호출하면 동일한 작업에서 부모 runbook으로 실행됩니다. 실행된 자식 runbook의 작업 기록에는 표시가 없습니다. 자식 runbook에서 모든 예외 및 출력 스트림을 부모와 연결합니다. 자식 runbook에서 throw된 예외 및 해당 스트림 출력 중 하나가 부모 작업과 연결되므로 이것은 더 적은 작업에서 발생하며 쉽게 추적 및 문제 해결이 가능합니다.
+runbook 인라인을 호출하면 동일한 작업에서 부모 runbook으로 실행됩니다. 실행된 자식 runbook의 작업 기록에는 표시가 없습니다. 자식 runbook에서 모든 예외 및 출력 스트림을 부모와 연결합니다. 자식 Runbook에서 throw된 예외 및 해당 스트림 출력 중 하나가 부모 작업과 연결되므로 이것은 더 적은 작업에서 발생하며 쉽게 추적 및 문제 해결이 가능합니다.
 
 runbook이 게시되면 호출하는 모든 자식 runbook은 이미 게시되어야 합니다. runbook이 컴파일될 때 Azure Automation이 모든 자식 runbook과 연결을 빌드하기 때문입니다. 그렇지 않은 경우 부모 runbook은 올바르게 게시되도록 표시하지만 시작되면 예외를 생성합니다. 이 경우 자식 runbook을 제대로 참조하기 위해 부모 runbook을 다시 게시할 수 있습니다. 자식 runbook 중 하나가 변경되면 연결이 이미 만들어지기 때문에 부모 runbook을 다시 게시할 필요가 없습니다.
 
@@ -42,7 +42,7 @@ runbook이 게시되면 호출하는 모든 자식 runbook은 이미 게시되�
 
 * Runbook의 게시 순서는 PowerShell 워크플로 및 그래픽 PowerShell 워크플로 Runbook에서만 중요합니다.
 
-인라인 실행을 사용하여 그래픽 또는 PowerShell 워크플로 자식 Runbook을 호출하는 경우 Runbook의 이름만 사용합니다.  PowerShell 자식 Runbook을 호출할 때 이름 앞에 *를 두어야 합니다.\\* 스크립트가 로컬 디렉터리에 위치하는 것을 지정하기 위해. 
+인라인 실행을 사용하여 그래픽 또는 PowerShell 워크플로 자식 Runbook을 호출하는 경우 Runbook의 이름만 사용합니다.  PowerShell 자식 Runbook을 호출할 때 스크립트가 로컬 디렉터리에 위치하는 것을 지정하도록 *.\\*로 해당 이름을 시작해야 합니다.
 
 ### <a name="example"></a>예
 
@@ -72,25 +72,36 @@ cmdlet으로 시작된 자식 runbook에서 작업은 부모 runbook의 별도 �
 
 [Runbook 매개 변수](automation-starting-a-runbook.md#runbook-parameters)에서 설명한 대로 cmdlet을 사용하여 시작된 자식 Runbook에 대한 매개 변수는 해시 테이블로 제공됩니다. 단순한 데이터 형식만 사용할 수 있습니다. runbook에 복잡한 데이터 형식을 가진 매개 변수가 있는 경우 인라인으로 호출해야 합니다.
 
+여러 구독으로 작업하는 경우 자식 Runbook 호출 시 구독 컨텍스트가 손실될 수 있습니다. 구독 컨텍스트가 자식 Runbook에 전달되도록 하려면 cmdlet에 `DefaultProfile` 매개 변수를 추가하여 컨텍스트를 전달합니다.
+
 ### <a name="example"></a>예
 
-다음 예제는 매개 변수로 자식 runbook를 시작한 다음 Start-AzureRmAutomationRunbook -wait 매개 변수를 사용하여 완료되기를 기다립니다. 완료되면 자식 runbook에서 해당 출력을 수집합니다. `Start-AzureRmAutomationRunbook`을 사용하려면 Azure 구독에서 인증을 받아야 합니다.
+다음 예제는 매개 변수로 자식 runbook를 시작한 다음 Start-AzureRmAutomationRunbook -wait 매개 변수를 사용하여 완료되기를 기다립니다. 완료되면 자식 runbook에서 해당 출력을 수집합니다. `Start-AzureRmAutomationRunbook`을 사용하려면 Azure 구독에 인증해야 합니다.
 
 ```azurepowershell-interactive
 # Connect to Azure with RunAs account
-$conn = Get-AutomationConnection -Name "AzureRunAsConnection"
+$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
-$null = Add-AzureRmAccount `
-  -ServicePrincipal `
-  -TenantId $conn.TenantId `
-  -ApplicationId $conn.ApplicationId `
-  -CertificateThumbprint $conn.CertificateThumbprint
+Add-AzureRmAccount `
+    -ServicePrincipal `
+    -TenantId $ServicePrincipalConnection.TenantId `
+    -ApplicationId $ServicePrincipalConnection.ApplicationId `
+    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
+
+$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
 
 $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
-$joboutput = Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" -ResourceGroupName "LabRG" –Parameters $params –wait
+
+Start-AzureRmAutomationRunbook `
+    –AutomationAccountName 'MyAutomationAccount' `
+    –Name 'Test-ChildRunbook' `
+    -ResourceGroupName 'LabRG' `
+    -DefaultProfile $AzureContext `
+    –Parameters $params –wait
 ```
 
 ## <a name="comparison-of-methods-for-calling-a-child-runbook"></a>자식 runbook을 호출하기 위한 방법 비교
+
 다음 테이블은 다른 runbook에서 runbook을 호출하기 위한 두 메서드 간의 차이점을 요약합니다.
 
 |  | 인라인 | Cmdlet |

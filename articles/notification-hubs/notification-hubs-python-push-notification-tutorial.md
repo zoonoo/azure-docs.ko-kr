@@ -14,17 +14,17 @@ ms.devlang: php
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 32953bacb8fdb135d5f3e0e9324218d2a71b0818
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 339029f14c4fd9a0158f2b7a4fb80bf03bd83cf3
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777021"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42144286"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Python에서 Notification Hubs를 사용하는 방법
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-MSDN [항목 Notification Hubs REST API](http://msdn.microsoft.com/library/dn223264.aspx)에 설명된 대로 Notification Hubs REST 인터페이스를 사용하여 Java/PHP/Python/Ruby 백 엔드에서 모든 Notification Hubs 기능에 액세스할 수 있습니다.
+MSDN 문서 [Notification Hubs REST API](http://msdn.microsoft.com/library/dn223264.aspx)에 설명된 대로 Notification Hubs REST 인터페이스를 사용하여 Java/PHP/Python/Ruby 백 엔드에서 모든 Notification Hubs 기능에 액세스할 수 있습니다.
 
 > [!NOTE]
 > 이는 Python에서 알림 보내기를 구현하기 위한 샘플 참조 구현이며 공식적으로 지원되는 알림 허브 Python SDK가 아닙니다.
@@ -33,7 +33,7 @@ MSDN [항목 Notification Hubs REST API](http://msdn.microsoft.com/library/dn223
 > 
 > 
 
-이 자습서는 다음 방법을 보여줍니다.
+이 문서에서는 다음 방법을 안내합니다.
 
 * Python에서 Notification Hubs 기능에 대한 REST 클라이언트를 빌드하는 방법
 * Python 인터페이스를 사용하여 알림 허브 REST API에 알림을 보냅니다. 
@@ -261,7 +261,7 @@ Windows 알림 메시지를 보내려면
 이러한 메서드는 알림을 보내기 위한 올바른 본문과 헤더가 있는 알림 허브의 /messages 엔드포인트로 HTTP POST 요청을 보냅니다.
 
 ### <a name="using-debug-property-to-enable-detailed-logging"></a>디버그 속성을 통해 자세한 로깅 사용
-알림 허브를 초기화하는 동안 디버그 속성을 사용하면 HTTP 요청 및 응답 덤프에 대한 자세한 로깅 정보 및 자세한 알림 메시지 전송 결과가 기록됩니다. [Notification Hubs TestSend 속성](http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx)은 알림 보내기 결과에 대한 자세한 정보를 반환합니다. 이 속성을 사용하려면 다음 코드를 사용하여 초기화합니다.
+알림 허브를 초기화하는 동안 디버그 속성을 사용하면 HTTP 요청 및 응답 덤프에 대한 자세한 로깅 정보 및 자세한 알림 메시지 전송 결과가 기록됩니다. [Notification Hubs TestSend 속성](https://docs.microsoft.com/en-us/previous-versions/azure/reference/dn495827(v=azure.100))은 알림 보내기 결과에 대한 자세한 정보를 반환합니다. 이 속성을 사용하려면 다음 코드를 사용하여 초기화합니다.
 
     hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: wesmc
-ms.openlocfilehash: 883683f6af7943fa4da49095c9a15aefd5cfa719
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 644a7414365ded53acb20bb2f9ae9d086f263765
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27911373"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42140315"
 ---
 # <a name="how-to-configure-geo-replication-for-azure-redis-cache"></a>Azure Redis Cache에 대해 지역에서 복제를 구성하는 방법
 
@@ -35,7 +35,9 @@ ms.locfileid: "27911373"
 - 주 연결된 캐시에서 클러스터링을 사용하는 경우 보조 연결된 캐시는 분할된 데이터베이스 수가 주 연결된 캐시와 동일한 클러스터링을 사용해야 합니다.
 - 두 캐시 모두 만들어야 하며 실행 중 상태여야 합니다.
 - 어느 캐시에서도 지속성을 사용하도록 설정하면 안 됩니다.
-- 동일한 VNET에 있는 캐시 간의 지역에서 복제가 지원됩니다. VNET의 리소스가 TCP 연결을 통해 서로 연결할 수 있는 방식으로 두 VNET이 구성된 경우에는 다른 VNET에 있는 캐시 간의 지역에서 복제도 지원됩니다.
+- 동일한 VNET에 있는 캐시 간의 지역에서 복제가 지원됩니다. 
+- 동일한 지역 내에서 피어링된 VNET의 캐시 간 지역에서 복제는 현재 미리 보기 기능입니다. 두 VNET은 VNET의 리소스가 서로 TCP 연결을 통해 연결할 수 있도록 구성되어야 합니다.
+- 서로 다른 지역에서 피어링된 VNET의 캐시 간 지역에서 복제는 아직 지원되지 않지만 곧 미리 보기로 제공될 예정입니다.
 
 지역에서 복제를 구성한 후에는 연결된 캐시 쌍에 다음과 같은 제한이 적용됩니다.
 

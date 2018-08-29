@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: b2cdb88ba71b4a3d3005ec9d64b6e94cdb1d1c55
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 8c4ae9c7b8be8cf390ad4ad6d99cd1ec41cd3d08
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857534"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42141770"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Git을 사용하여 API Management 서비스 구성을 저장 및 구성하는 방법
 
@@ -32,7 +32,7 @@ ms.locfileid: "37857534"
 
 ![Git 구성][api-management-git-configure]
 
-Azure Portal, PowerShell cmdlet 또는 REST API를 사용하여 서비스를 변경할 때 다이어그램의 오른쪽과 같이 `https://{name}.management.azure-api.net` 끝점을 사용하여 서비스 구성 데이터베이스를 관리합니다. 다이어그램의 왼쪽은 `https://{name}.scm.azure-api.net`에 있는 서비스에 Git 및 Git 리포지토리를 사용하여 서비스 구성을 관리할 수 있는 방법을 보여 줍니다.
+Azure Portal, PowerShell cmdlet 또는 REST API를 사용하여 서비스를 변경할 때 다이어그램의 오른쪽과 같이 `https://{name}.management.azure-api.net` 엔드포인트를 사용하여 서비스 구성 데이터베이스를 관리합니다. 다이어그램의 왼쪽은 `https://{name}.scm.azure-api.net`에 있는 서비스에 Git 및 Git 리포지토리를 사용하여 서비스 구성을 관리할 수 있는 방법을 보여 줍니다.
 
 다음 단계는 Git을 이용한 API Management 서비스 인스턴스 관리를 간략하게 보여 줍니다.
 
@@ -166,7 +166,7 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 | xml |정책 설명 |
 | css |개발자 포털 사용자 지정에 대한 스타일 시트 |
 
-이 파일을 로컬 파일 시스템에서 생성, 삭제, 편집 및 관리할 수 있으며 변경 내용을 API Management 서비스 인스턴스에 다시 배포할 수 있습니다.
+이러한 파일은 로컬 파일 시스템에서 생성, 삭제, 편집 및 관리할 수 있으며 변경 내용을 API Management 서비스 인스턴스에 다시 배포할 수 있습니다.
 
 > [!NOTE]
 > 다음 엔터티는 Git 리포지토리에 포함되지 않으며 Git를 사용하여 구성할 수 없습니다.
@@ -210,7 +210,7 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 | 위임 설정 | 매핑 대상 |
 | --- | --- |
 | DelegationEnabled |**로그인 및 등록 위임** 확인란 |
-| DelegationUrl |**위임 끝점 URL** 텍스트 상자 |
+| DelegationUrl |**위임 엔드포인트 URL** 텍스트 상자 |
 | DelegatedSubscriptionEnabled |**제품 구독 위임** 확인란 |
 | DelegationValidationKey |**유효성 검사 키 위임** 텍스트 상자 |
 
@@ -259,8 +259,8 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 서비스 인스턴스를 관리하는 다른 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 * 다음 PowerShell cmdlet을 사용하여 서비스 인스턴스 관리
-  * [서비스 배포 PowerShell cmdlet 참조](https://msdn.microsoft.com/library/azure/mt619282.aspx)
-  * [서비스 관리 PowerShell cmdlet 참조](https://msdn.microsoft.com/library/azure/mt613507.aspx)
+  * [서비스 배포 PowerShell cmdlet 참조](https://docs.microsoft.com/powershell/module/wds)
+  * [서비스 관리 PowerShell cmdlet 참조](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
 * REST API를 사용하여 서비스 인스턴스 관리
   * [API Management REST API 참조](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 

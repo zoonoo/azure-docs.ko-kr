@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: a74eab546eefd765b89aae6f12fcff554d9937c4
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: bc9fbf56b37cb8c6690bd036db704532cb8b0437
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036941"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142568"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Windows 운영 체제 패치
 
@@ -235,19 +235,19 @@ RebootRequired | true - 다시 부팅 필요<br> false - 다시 부팅 필요 �
 
 Windows 업데이트 결과를 쿼리하려면 클러스터에 로그인합니다. 그런 다음 주 코디네이터 서비스의 복제본 주소를 찾아 브라우저에서 URL을 입력합니다(http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults).
 
-코디네이터 서비스의 REST 끝점에는 동적 포트가 있습니다. 정확한 URL을 확인하려면 Service Fabric Explorer를 참조하세요. 예를 들어 `http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetWindowsUpdateResults`에 결과가 제공됩니다.
+코디네이터 서비스의 REST 엔드포인트에는 동적 포트가 있습니다. 정확한 URL을 확인하려면 Service Fabric Explorer를 참조하세요. 예를 들어 `http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetWindowsUpdateResults`에 결과가 제공됩니다.
 
-![REST 끝점의 이미지](media/service-fabric-patch-orchestration-application/Rest_Endpoint.png)
+![REST 엔드포인트의 이미지](media/service-fabric-patch-orchestration-application/Rest_Endpoint.png)
 
 
 클러스터에서 역방향 프록시를 사용하는 경우 사용자는 클러스터 외부에서도 URL에 액세스할 수 있습니다.
-적중되어야 하는 끝점은 http://&lt;SERVERURL&gt;:&lt;REVERSEPROXYPORT&gt;/PatchOrchestrationApplication/CoordinatorService/v1/GetWindowsUpdateResults입니다.
+적중되어야 하는 엔드포인트는 http://&lt;SERVERURL&gt;:&lt;REVERSEPROXYPORT&gt;/PatchOrchestrationApplication/CoordinatorService/v1/GetWindowsUpdateResults입니다.
 
 클러스터에서 역방향 프록시를 사용하려면 [Azure Service Fabric의 역방향 프록시](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy)에 있는 단계를 따릅니다. 
 
 > 
 > [!WARNING]
-> 역방향 프록시가 구성된 후에는 HTTP 끝점을 표시하는 클러스터에 있는 모든 마이크로 서비스의 주소를 클러스터 외부에서 지정할 수 있습니다.
+> 역방향 프록시가 구성된 후에는 HTTP 엔드포인트를 표시하는 클러스터에 있는 모든 마이크로 서비스의 주소를 클러스터 외부에서 지정할 수 있습니다.
 
 ## <a name="diagnosticshealth-events"></a>진단/상태 이벤트
 
@@ -391,6 +391,10 @@ a. 아니요, 패치 오케스트레이션 앱을 사용하여 1노드 클러스
 - 복구 중 상태 확인이 예상 대로 작동하지 않는 문제로 인해 RM 작업 생성의 버그 수정
 - Windows 서비스 POANodeSvc 시작 모드를 자동에서 지연 자동으로 변경
 
-### <a name="version-121-latest"></a>버전 1.2.1(최신)
+### <a name="version-121"></a>버전 1.2.1
 
 - 클러스터 축소 워크플로의 버그 수정입니다. 존재하지 않는 노드에 속하는 POA 복구 태스크에 대해 가비지 수집 논리가 도입되었습니다.
+
+### <a name="version-122-latest"></a>버전 1.2.2(최신)
+
+- 기타 버그가 수정되었습니다.

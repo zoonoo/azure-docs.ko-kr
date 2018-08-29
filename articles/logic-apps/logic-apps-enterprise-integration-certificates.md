@@ -1,74 +1,62 @@
 ---
-title: Azure Logic Apps에서 인증서를 사용하여 B2B 메시지 보호 | Microsoft Docs
-description: 인증서를 추가하여 엔터프라이즈 통합 팩을 사용하여 B2B 메시지를 보호합니다.
+title: 인증서를 사용하여 B2B 메시지 보호 - Azure Logic Apps | Microsoft Docs
+description: 인증서를 추가하여 엔터프라이즈 통합 팩을 사용하여 Azure Logic Apps에서 B2B 메시지 보호
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: estfan, LADocs
+manager: jeconnoc
+ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
+ms.suite: integration
 ms.topic: article
-ms.date: 02/03/2016
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 7ba76a15792fe40b2a628b030f06930641d197a3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.date: 08/17/2018
+ms.openlocfilehash: 5ae69d365a183f7d2a219d853241e73c1e27212b
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299337"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42145431"
 ---
 # <a name="secure-b2b-messages-with-certificates"></a>인증서를 사용하여 B2B 메시지 보호
 
-경우에 따라 B2B 통신을 기밀로 유지해야 합니다. 통합 앱(특히, 논리 앱)에서 B2B 통신을 보호할 수 있도록 통합 계정에 인증서를 추가할 수 있습니다. 인증서는 전자 통신에서 참가자의 ID를 확인하는 디지털 문서입니다.
-인증서를 통해 다음과 같은 방법으로 통신을 보호할 수 있습니다.
+B2B 통신을 기밀로 유지해야 할 경우 통합 계정에 인증서를 추가하여 통합 앱(특히, 논리 앱)에서 B2B 통신을 보호할 수 있습니다. 인증서는 전자 통신에서 참가자의 ID를 확인하고 다음과 같은 방식으로 전자 통신을 보호하는 디지털 문서입니다.
 
-* 메시지 콘텐츠 암호화
-* 디지털로 메시지에 서명  
+* 메시지 콘텐츠를 암호화합니다.
+* 디지털로 메시지에 서명합니다. 
 
 엔터프라이즈 통합 앱에서 다음과 같은 인증서를 사용할 수 있습니다.
 
-* 공용 인증서는 CA(인증 기관)에서 구입해야 합니다
-* 개인 인증서는 직접 발행할 수 있습니다. 이러한 인증서를 자체 서명된 인증서라고도 합니다.
+* [공용 인증서](https://en.wikipedia.org/wiki/Public_key_certificate): 공용 인터넷 [CA(인증 기관)](https://en.wikipedia.org/wiki/Certificate_authority)에서 구입해야 하지만 키가 필요하지 않습니다. 
+
+* 개인 인증서 또는 [*자체 서명 된 인증서*](https://en.wikipedia.org/wiki/Self-signed_certificate): 직접 만들고 발급하며 개인 키도 필요합니다. 
 
 ## <a name="upload-a-public-certificate"></a>공용 인증서 업로드
 
 B2B 기능이 포함된 논리 앱에서 *공용 인증서*를 사용하려면 먼저 통합 계정에 인증서를 업로드해야 합니다. 사용자가 만드는 [규약](logic-apps-enterprise-integration-agreements.md)에서 해당 속성을 정의한 후에 인증서를 사용하여 B2B 메시지를 안전하게 보호할 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. Azure 주 메뉴에서 **모든 리소스**를 선택합니다. 검색 상자에 통합 계정 이름을 입력한 후 원하는 통합 계정을 선택합니다.
 
-2. Azure 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에 "통합"을 입력한 다음, **통합 계정**을 선택합니다.
+   ![통합 계정 찾기 및 선택](media/logic-apps-enterprise-integration-certificates/select-integration-account.png)  
 
-   ![통합 계정 찾기](media/logic-apps-enterprise-integration-certificates/overview-1.png)  
+2. **구성 요소** 아래에서 **인증서** 타일을 선택합니다.
 
-3. **통합 계정**에서 인증서를 추가하려는 통합 계정을 선택합니다.
+   !["인증서" 선택](media/logic-apps-enterprise-integration-certificates/add-certificates.png)
 
-   ![인증서를 추가할 통합 계정 선택](media/logic-apps-enterprise-integration-certificates/overview-3.png)  
+3. **인증서** 아래에서 **추가**를 선택합니다. **인증서 추가** 아래에서 인증서에 대한 세부 정보를 입력합니다. 작업을 완료하면 **확인**을 선택합니다.
 
-4. **인증서** 타일을 선택합니다.  
+   | 자산 | 값 | 설명 | 
+   |----------|-------|-------------|
+   | **Name** | <*certificate-name*> | 사용자의 인증서 이름(이 예제의 "publicCert")입니다. | 
+   | **인증서 종류** | 공용 | 인증서의 종류입니다. |
+   | **인증서** | <*certificate-file-name*> | 업로드하려는 인증서 파일을 찾아 선택하려면 **인증서** 상자 옆에 있는 폴더 아이콘을 선택합니다. |
+   ||||
 
-   !["인증서" 선택](media/logic-apps-enterprise-integration-certificates/certificate-1.png)
+   !["추가" 선택, 인증서 세부 정보 제공](media/logic-apps-enterprise-integration-certificates/public-certificate-details.png)
 
-5. **인증서** 아래에서 **추가**를 선택합니다.
+   Azure에서는 사용자의 선택 사항이 유효한지 확인한 후 인증서를 업로드합니다.
 
-   !["추가" 선택](media/logic-apps-enterprise-integration-certificates/certificate-2.png)
-
-6. **인증서 추가** 아래에서 인증서에 대한 세부 정보를 입력합니다.
-   
-   1. 인증서 **이름**을 입력합니다. 인증서 형식에서 **공용**을 선택합니다.
-
-   2. **인증서** 상자의 오른쪽에서 폴더 아이콘을 선택합니다. 
-   업로드하려는 인증서 파일을 찾고 선택합니다. 
-   작업을 완료하면 **확인**을 선택합니다.
-
-      ![공용 인증서 업로드](media/logic-apps-enterprise-integration-certificates/certificate-3.png)
-
-   Azure에서는 선택 사항을 확인한 후에 인증서를 업로드합니다.
-
-   ![새 인증서 표시](media/logic-apps-enterprise-integration-certificates/certificate-4.png) 
+   ![Azure에서 새 인증서 표시](media/logic-apps-enterprise-integration-certificates/new-public-certificate.png) 
 
 ## <a name="upload-a-private-certificate"></a>개인 인증서 업로드
 
@@ -77,7 +65,7 @@ B2B 기능이 포함된 논리 앱에서 *개인 인증서*를 사용하려면 �
 사용자가 만드는 [규약](logic-apps-enterprise-integration-agreements.md)에서 해당 속성을 정의한 후에 인증서를 사용하여 B2B 메시지를 안전하게 보호할 수 있습니다.
 
 > [!NOTE]
-> 개인 인증서의 경우 메시지에 서명하고 암호화하기 위해 [AS2 규약](logic-apps-enterprise-integration-as2.md) 보내기 및 받기 설정에서 표시하도록 해당 공용 인증서를 추가해야 합니다.
+> 개인 인증서의 경우 메시지에 서명하고 암호화하기 위해 [AS2 규약](logic-apps-enterprise-integration-as2.md) **보내기 및 받기** 설정에서 표시하도록 해당 공용 인증서를 추가해야 합니다.
 
 1. [개인 키를 Azure Key Vault에 추가](../key-vault/key-vault-get-started.md#add)하고 **키 이름**을 입력합니다.
    
@@ -86,36 +74,31 @@ B2B 기능이 포함된 논리 앱에서 *개인 인증서*를 사용하려면 �
    `Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
    '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`
  
-3. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+3. [Azure Portal](https://portal.azure.com)에 로그인합니다. Azure 주 메뉴에서 **모든 리소스**를 선택합니다. 검색 상자에 통합 계정 이름을 입력한 후 원하는 통합 계정을 선택합니다.
 
-4. Azure 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에 "통합"을 입력한 다음, **통합 계정**을 선택합니다.
+   ![통합 계정 찾기](media/logic-apps-enterprise-integration-certificates/select-integration-account.png) 
 
-   ![통합 계정 찾기](media/logic-apps-enterprise-integration-certificates/overview-1.png) 
+4. **구성 요소** 아래에서 **인증서** 타일을 선택합니다.  
 
-5. **통합 계정**에서 인증서를 추가하려는 통합 계정을 선택합니다.
+   ![인증서 타일 선택](media/logic-apps-enterprise-integration-certificates/add-certificates.png)
 
-6. **인증서** 타일을 선택합니다.  
+5. **인증서** 아래에서 **추가**를 선택합니다. **인증서 추가** 아래에서 인증서에 대한 세부 정보를 입력합니다. 작업을 완료하면 **확인**을 선택합니다.
 
-   ![인증서 타일 선택](media/logic-apps-enterprise-integration-certificates/certificate-1.png)
+   | 자산 | 값 | 설명 | 
+   |----------|-------|-------------|
+   | **Name** | <*certificate-name*> | 사용자의 인증서 이름(이 예제의 "privateCert")입니다. | 
+   | **인증서 종류** | 개인 | 인증서의 종류입니다. |
+   | **인증서** | <*certificate-file-name*> | 업로드하려는 인증서 파일을 찾아 선택하려면 **인증서** 상자 옆에 있는 폴더 아이콘을 선택합니다. | 
+   | **리소스 그룹** | <*integration-account-resource-group*> | 통합 계정의 리소스 그룹(이 예제의 "MyResourceGroup")입니다. | 
+   | **Key Vault** | <*key-vault-name*> | Azure Key Vault의 이름입니다. |
+   | **키 이름** | <*key-name*> | 키의 이름입니다. |
+   ||||
 
-7. **인증서** 아래에서 **추가**를 선택합니다.   
+   !["추가" 선택, 인증서 세부 정보 제공](media/logic-apps-enterprise-integration-certificates/private-certificate-details.png)
 
-   ![추가 단추 선택](media/logic-apps-enterprise-integration-certificates/certificate-2.png)
+   Azure에서는 사용자의 선택 사항이 유효한지 확인한 후 인증서를 업로드합니다.
 
-8. **인증서 추가** 아래에서 인증서에 대한 세부 정보를 입력합니다.
-   
-   1. 인증서 **이름**을 입력합니다. 인증서 형식에서 **개인**을 선택합니다.
-
-   2. **인증서** 상자의 오른쪽에서 폴더 아이콘을 선택합니다. 
-   업로드하려는 인증서 파일을 찾고 선택합니다. 
-   또한 **리소스 그룹**, **Key Vault** 및 **키 이름**을 선택합니다. 
-   작업을 완료하면 **확인**을 선택합니다.
-
-      ![인증서 추가](media/logic-apps-enterprise-integration-certificates/privatecertificate-1.png)
-
-   Azure에서는 선택 사항을 확인한 후에 인증서를 업로드합니다.
-
-   ![새 인증서 표시](media/logic-apps-enterprise-integration-certificates/privatecertificate-2.png)
+   ![Azure에서 새 인증서 표시](media/logic-apps-enterprise-integration-certificates/new-private-certificate.png) 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,14 +6,14 @@ author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/15/2017
+ms.date: 8/10/2018
 ms.author: markgal
-ms.openlocfilehash: b6195feb25a7206d7c453e31f0ac312e070b3113
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 04b755d7ca1ec72b075ecaa4b32a35f5009a938b
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606174"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42139907"
 ---
 # <a name="recovery-services-vaults-overview"></a>Recovery Services 자격 증명 모음 개요
 
@@ -38,11 +38,17 @@ Recovery Services 자격 증명은 Azure의 Azure Resource Manager 모델을 기
 - **IaaS VM에 대한 인스턴트 복원**: Recovery Services 자격 증명 모음을 사용하여 전체 VM을 복원하지 않고 IaaS VM의 파일 및 폴더를 복원할 수 있습니다. 그러면 복원 시간이 빨라집니다. IaaS VM에 대한 인스턴트 복원은 Windows 및 Linux VM 모두에서 제공됩니다. [자세히 알아보기](http://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
 
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>포털에서 Recovery Services 자격 증명 모음 관리
-Backup 서비스가 Azure 설정 메뉴에서 통합되기 때문에 Azure Portal에서 Recovery Services 자격 증명 모음을 쉽게 만들고 관리할 수 있습니다. 이 통합으로 인해 *대상 서비스의 컨텍스트에서* Recovery Services 자격 증명 모음을 만들거나 관리할 수 있습니다. 예를 들어 VM의 복구 지점을 보려면 해당 VM을 선택하고 설정 메뉴에서 **Backup**을 클릭합니다. 해당 VM에 지정된 백업 정보가 표시됩니다. 다음 예제에서 **ContosoVM**은 가상 컴퓨터의 이름입니다. **ContosoVM-demovault**는 Recovery Services 자격 증명 모음의 이름입니다. 가상 머신에서 이 정보에 액세스할 수 있으므로 복구 지점을 저장하는 Recovery Services 자격 증명 모음의 이름을 기억할 필요가 없습니다.  
+Backup 서비스가 다른 Azure 서비스에 통합되기 때문에 Azure Portal에서 Recovery Services 자격 증명 모음을 쉽게 만들고 관리할 수 있습니다. 이 통합으로 인해 *대상 서비스의 컨텍스트에서* Recovery Services 자격 증명 모음을 만들거나 관리할 수 있습니다. 예를 들어 VM의 복구 지점을 보려면 해당 VM을 선택하고 작업 메뉴에서 **Backup**을 클릭합니다. 
 
-![Recovery Services 자격 증명 모음 세부 정보 VM](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context.png)
+![Recovery Services 자격 증명 모음 세부 정보 VM](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context-vm.png)
 
-동일한 Recovery Services 자격 증명 모음을 사용하여 여러 서버를 보호하는 경우 Recovery Services 자격 증명 모음을 살펴보는 것이 좋습니다. 구독에서 모든 Recovery Services 자격 증명 모음을 검색하고 목록에서 하나를 선택할 수 있습니다.
+VM에 백업이 구성되지 않은 경우 백업을 구성하라는 메시지가 표시됩니다. 백업이 구성된 경우 복원 지점 목록을 포함하여 VM에 대한 백업 정보가 표시 됩니다.  
+
+![Recovery Services 자격 증명 모음 세부 정보 VM](./media/backup-azure-recovery-services-vault-overview/vm-recovery-point-list.png)
+
+이전 예제에서 **ContosoVM**은 가상 머신의 이름입니다. **ContosoVM-demovault**는 Recovery Services 자격 증명 모음의 이름입니다. 가상 머신에서 이 정보에 액세스할 수 있으므로 복구 지점을 저장하는 Recovery Services 자격 증명 모음의 이름을 기억할 필요가 없습니다.  
+
+하나의 Recovery Services 자격 증명 모음이 여러 서버를 보호하는 경우 Recovery Services 자격 증명 모음을 살펴보는 것이 좋습니다. 구독에서 모든 Recovery Services 자격 증명 모음을 검색하고 목록에서 하나를 선택할 수 있습니다.
 
 다음 섹션에는 각 종류의 활동에서 Recovery Services 자격 증명 모음을 사용하는 방법을 설명하는 문서에 대한 링크가 있습니다.
 

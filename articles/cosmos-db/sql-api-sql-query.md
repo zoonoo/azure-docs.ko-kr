@@ -10,44 +10,39 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 08/10/2018
 ms.author: laviswa
-ms.openlocfilehash: f6829d497c85ef1b4e74e26befe42d5d6fa87e36
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 26928e36b09ef0dfe5576a8a8039ffac2dd3fb4a
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205972"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146856"
 ---
-# <a name="sql-queries-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 SQL 쿼리
+# <a name="query-azure-cosmos-db-data-with-sql-queries"></a>SQL 쿼리를 사용하여 Azure Cosmos DB 데이터 쿼리
 
-Microsoft Azure Cosmos DB는 SQL API 계정에서 JSON 쿼리 언어로 SQL(구조적 쿼리 언어)을 사용한 문서 쿼리를 지원합니다. Azure Cosmos DB는 스키마가 없습니다. DocumentDB는 데이터베이스 엔진 내에 직접 JSON 데이터 모델을 커밋하므로 명시적 스키마나 보조 인덱스 생성을 요구하지 않고 JSON 문서의 자동 인덱싱을 제공합니다.
+Microsoft Azure Cosmos DB는 SQL API 계정에서 JSON 쿼리 언어로 SQL(구조적 쿼리 언어)을 사용한 문서 쿼리를 지원합니다. Azure Cosmos DB에 대한 쿼리 언어를 디자인하는 경우 다음 두 가지 목표를 고려합니다.
 
-Cosmos DB용 쿼리 언어를 설계할 때 다음 두 가지 목표를 고려했습니다.
+* 새로운 쿼리 언어를 고안하는 대신 Azure Cosmos DB를 통해 가장 익숙하고 많이 사용되는 쿼리 언어 중 하나인 SQL을 지원하도록 만들었습니다. Azure Cosmos DB SQL은 JSON 문서에 대한 풍부한 쿼리를 위한 공식 프로그래밍 모델을 제공합니다.  
 
-* 새 JSON 쿼리 언어를 고안하는 대신 SQL 언어를 지원하려고 했습니다. SQL은 가장 익숙하고 많이 사용하는 쿼리 언어 중 하나입니다. Cosmos DB SQL은 JSON 문서에 대한 풍부한 쿼리를 위한 공식 프로그래밍 모델을 제공합니다.
-* 데이터베이스 엔진에서 직접 JavaScript를 실행할 수 있는 JSON 문서 데이터베이스로서, JavaScript의 프로그래밍 모델을 쿼리 언어의 기초로 사용하려고 했습니다. SQL API는 JavaScript의 형식 시스템, 식 평가 및 함수 호출을 기반으로 합니다. 따라서 관계형 프로젝션, JSON 문서에 대한 계층적 탐색, 자체 조인, 공간 쿼리, JavaScript로만 작성된 UDF(사용자 정의 함수) 호출 등을 위한 일반 프로그래밍 모델을 제공합니다. 
+* Azure Cosmos DB는 JavaScript의 프로그래밍 모델을 쿼리 언어의 기초로 사용합니다. SQL API는 JavaScript의 형식 시스템, 식 평가 및 함수 호출을 기반으로 합니다. 따라서 관계형 프로젝션, JSON 문서에 대한 계층적 탐색, 자체 조인, 공간 쿼리, JavaScript로만 작성된 UDF(사용자 정의 함수) 호출 등을 위한 일반 프로그래밍 모델을 제공합니다. 
 
-이러한 기능은 응용 프로그램과 데이터베이스 간의 충돌을 줄이는 데 도움이 되며 개발자 생산성에 중요합니다.
-
-Azure Cosmos DB 프로그램 관리자인 Andrew Liu가 Azure Cosmos DB의 쿼리 기능을 보여주고 온라인 [쿼리 실습](http://www.documentdb.com/sql/demo)을 시연하는 다음 비디오를 시청하는 것부터 시작하는 것이 좋습니다. 비디오의 설명에 따라 Azure Cosmos DB를 사용하고 데이터 집합에 SQL 쿼리를 실행해볼 수 있습니다.
+이 문서에서는 간단한 JSON 문서를 사용하여 몇 가지 예제 SQL 쿼리를 설명합니다. Azure Cosmos DB SQL 언어 구문에 대해 자세히 알아보려면 [SQL 구문 참조](sql-api-sql-query-reference.md) 문서를 참조하세요. Azure Cosmos DB의 쿼리 기능을 보여주고 온라인 [쿼리 실습](http://www.documentdb.com/sql/demo)을 설명하는 다음 비디오를 시청하는 것부터 시작할 수도 있습니다.
 
 > [!VIDEO https://www.youtube.com/embed/1LqUQRpHfFI]
 >
 >
 
-후속 비디오에서 고급 쿼리 기법이 시연되는 모습을 볼 수 있습니다.
+다음 비디오에서 고급 쿼리 기법이 시연되는 모습을 볼 수 있습니다.
 
 > [!VIDEO https://www.youtube.com/embed/kASU9NOIR90]
 >
 >
 
-그런 다음 이 문서로 돌아와 SQL 쿼리 자습서로 몇 가지 단순한 JSON 문서 및 SQL 명령을 연습합니다.
+## <a id="GettingStarted"></a> SQL 명령 시작
+두 개의 간단한 JSON 문서와 이 데이터에 대한 쿼리를 작성해 보겠습니다. 가족에 대해 두 개의 JSON 문서를 만들고 이 JSON 문서를 컬렉션에 삽입한 다음, 데이터를 쿼리합니다. 다음은 Andersen과 Wakefield 가족, 부모, 자녀(및 애완 동물), 주소 및 등록 정보에 대한 단순한 JSON 문서입니다. 이 문서에는 문자열, 숫자, 부울, 배열 및 중첩 속성이 있습니다. 
 
-## <a id="GettingStarted"></a>Cosmos DB의 SQL 명령 시작하기
-Cosmos DB SQL의 작동 방식을 확인하기 위해 몇 개의 간단한 JSON 문서로 시작해서 몇 가지 단순한 쿼리를 연습해 보겠습니다. 두 가족에 대한 다음 두 개의 JSON 문서를 고려해 보세요. Cosmos DB를 사용하면 스키마나 보조 인덱스를 명시적으로 만들 필요가 없습니다. Cosmos DB 컬렉션에 JSON 문서를 삽입한 후 쿼리하면 됩니다. 다음은 Andersen 가족, 부모, 자녀(및 애완 동물), 주소 및 등록 정보에 대한 단순한 JSON 문서입니다. 이 문서에는 문자열, 숫자, 부울, 배열 및 중첩 속성이 있습니다. 
-
-**문서**  
+**Document1**  
 
 ```JSON
 {
@@ -73,7 +68,7 @@ Cosmos DB SQL의 작동 방식을 확인하기 위해 몇 개의 간단한 JSON 
 
 다음은 한 가지 미묘한 차이점이 있는 두 번째 문서입니다. `givenName` 및 `familyName`이 `firstName` 및 `lastName` 대신 사용됩니다.
 
-**문서**  
+**Document2**  
 
 ```json
 {
@@ -104,16 +99,19 @@ Cosmos DB SQL의 작동 방식을 확인하기 위해 몇 개의 간단한 JSON 
 }
 ```
 
-이제 Azure Cosmos DB SQL 쿼리 언어의 몇 가지 주요 측면을 이해하기 위해 이 데이터에 대해 몇 가지 쿼리를 시도해 보겠습니다. 예를 들어 다음 쿼리는 ID 필드가 `AndersenFamily`와 일치하는 문서를 반환합니다. 쿼리가 `SELECT *`이므로 쿼리의 출력은 전체 JSON 문서입니다.
+이제 Azure Cosmos DB SQL 쿼리 언어의 몇 가지 주요 측면을 이해하기 위해 이 데이터에 대해 몇 가지 쿼리를 시도해 보겠습니다. 
 
-**쿼리**
+**쿼리1**: 예를 들어 다음 쿼리는 ID 필드가 `AndersenFamily`와 일치하는 문서를 반환합니다. `SELECT *` 문이므로 쿼리 결과는 완전한 JSON 문서입니다. 구문에 대해 자세히 알아보려면 [SELECT 문](sql-api-sql-query-reference.md#select-query)을 참조하세요.
 
+```sql
     SELECT * 
     FROM Families f 
     WHERE f.id = "AndersenFamily"
+```
 
 **결과**
 
+```json
     [{
         "id": "AndersenFamily",
         "lastName": "Andersen",
@@ -131,94 +129,173 @@ Cosmos DB SQL의 작동 방식을 확인하기 위해 몇 개의 간단한 JSON 
         "creationDate": 1431620472,
         "isRegistered": true
     }]
+```
 
+**쿼리2**: 이제 JSON 출력을 다른 형식으로 변경해야 하는 경우를 고려해 보겠습니다. 이 쿼리는 주소의 구/군/시 이름이 시/도와 같은 경우 두 개의 선택한 필드인 이름 및 구/군/시와 함께 새 JSON 개체를 프로젝션합니다. 이 경우 "NY, NY"가 일치합니다.   
 
-이제 JSON 출력을 다른 형식으로 변경해야 하는 경우를 고려해 보겠습니다. 이 쿼리는 주소의 구/군/시 이름이 시/도와 같은 경우 두 개의 선택한 필드인 이름 및 구/군/시와 함께 새 JSON 개체를 프로젝션합니다. 이 경우 "NY, NY"가 일치합니다.
-
-**쿼리**    
-
+```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family 
     FROM Families f 
     WHERE f.address.city = f.address.state
+```
 
 **결과**
 
+```json
     [{
         "Family": {
             "Name": "WakefieldFamily", 
             "City": "NY"
         }
     }]
+```
 
+**쿼리3**: 다음 쿼리는 ID가 거주 도시의 순서로 정렬한 `WakefieldFamily` 와 일치하는 가족의 자녀 이름을 모두 반환합니다.
 
-다음 쿼리는 ID가 거주 도시의 순서로 정렬한 `WakefieldFamily` 와 일치하는 가족의 자녀 이름을 모두 반환합니다.
-
-**쿼리**
-
+```sql
     SELECT c.givenName 
     FROM Families f 
     JOIN c IN f.children 
     WHERE f.id = 'WakefieldFamily'
     ORDER BY f.address.city ASC
+```
 
 **결과**
 
+```json
     [
       { "givenName": "Jesse" }, 
       { "givenName": "Lisa"}
     ]
+```
 
-
-지금까지 확인한 예제를 통해 Cosmos DB 쿼리 언어의 몇 가지 중요한 측면을 살펴보겠습니다.  
+다음은 지금까지 본 예제에서 Cosmos DB 쿼리 언어의 몇 가지 측면입니다.  
 
 * SQL API는 JSON 값에 대해 작동하므로 행과 열 대신 트리 모양의 엔터티를 다룹니다. 따라서 이 언어를 사용하면 임의 깊이의 트리 노드를 참조할 수 있습니다(예: `Node1.Node2.Node3…..Nodem`). 이는 `<table>.<column>`의 두 부분을 참조하는 관계형 SQL과 유사합니다.   
+
 * 구조적 쿼리 언어는 스키마 없는 데이터로 작업합니다. 따라서 형식 시스템을 동적으로 바인딩해야 합니다. 문서에 따라 동일한 식이 다른 형식을 생성할 수 있습니다. 쿼리 결과는 유효한 JSON 값이지만 고정 스키마가 아닐 수 있습니다.  
-* Cosmos DB는 엄격한 JSON 문서만 지원합니다. 즉, 형식 시스템과 식이 JSON 형식만 처리하도록 제한됩니다. 자세한 내용은 [JSON 사양](http://www.json.org/)을 참조하세요.  
+
+* Azure Cosmos DB는 엄격한 JSON 문서만 지원합니다. 즉, 형식 시스템과 식이 JSON 형식만 처리하도록 제한됩니다. 자세한 내용은 [JSON 사양](http://www.json.org/)을 참조하세요.  
+
 * Cosmos DB 컬렉션은 JSON 문서의 스키마 없는 컨테이너입니다. 컬렉션의 문서 내 및 문서 간 데이터 엔터티의 관계는 기본 키 및 외래 키 관계가 아니라 포함을 통해 암시적으로 캡처됩니다. 이것은 이 문서의 뒷부분에서 설명하는 문서 내 조인과 관련해서 주의할 중요한 측면입니다.
 
-## <a id="Indexing"></a> Cosmos DB 인덱싱
-SQL 구문을 시작하기 전에 Azure Cosmos DB의 인덱싱 설계를 살펴보는 것이 좋습니다. 
+## <a id="SelectClause"></a>Select 절
 
-데이터베이스 인덱스의 목적은 우수한 처리량과 짧은 대기 시간을 제공하는 동시에 다양한 형태와 모양의 쿼리를 최소 리소스 사용(예: CPU, 입출력)으로 처리하는 것입니다. 데이터베이스 쿼리에 올바른 인덱스를 선택하려면 대체로 많은 계획과 실험이 필요합니다. 이 접근 방법은 데이터가 엄격한 스키마를 준수하지 않고 빠르게 발전하는 스키마 없는 데이터베이스에 문제를 제기합니다. 
+ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHERE 절로 구성됩니다. 일반적으로 각 쿼리에 대해 FROM 절의 소스가 열거됩니다. 그런 다음 WHERE 절의 필터를 소스에 적용하여 JSON 문서의 하위 집합을 검색합니다. 마지막으로, SELECT 절을 사용하여 선택 목록에서 요청된 JSON 값을 프로젝션합니다. 구문에 대해 자세히 알아보려면 [SELECT 구문](sql-api-sql-query-reference.md#bk_select_query)을 참조하세요.
 
-따라서 Cosmos DB 인덱싱 하위 시스템을 설계할 때 다음 목표를 설정했습니다.
+다음 예제에서는 일반적인 SELECT 쿼리를 보여 줍니다. 
 
-* 스키마가 필요 없는 문서 인덱싱: 인덱싱 하위 시스템에 스키마 정보가 필요 없거나 문서 스키마에 대한 가정을 하지 않습니다. 
-* 효율적이고 풍부한 계층적 관계형 쿼리 지원: 인덱스는 계층적 관계형 프로젝션 지원을 포함하여 Cosmos DB 쿼리 언어를 효율적으로 지원합니다.
-* 지속적인 쓰기 볼륨에서도 일관성 있는 쿼리 지원: 일관성 있는 쿼리와 더불어 높은 쓰기 처리량 워크로드를 위해 지속적인 쓰기 볼륨에서도 인덱스가 온라인에서 효율적으로 증분 업데이트됩니다. 일관성 있는 인덱스 업데이트는 사용자가 문서 서비스를 구성한 일관성 수준으로 쿼리를 처리하는 데 중요합니다.
-* 다중 테넌트 지원: 테넌트의 리소스 거버넌스를 위한 예약 기반 모델을 고려하여 복제본당 할당된 시스템 리소스(CPU, 메모리, 초당 입출력 작업 수) 예산 내에서 인덱스 업데이트가 수행됩니다. 
-* 저장소 효율성: 비용 효율성을 위해 인덱스의 디스크에 있는 저장소 오버헤드가 제한되고 예측 가능합니다. 이 목표는 Cosmos DB를 사용할 경우 개발자가 비용을 기반으로 인덱스 오버헤드와 쿼리 성능 간을 절충할 수 있기 때문에 중요합니다.  
+**쿼리**
 
-컬렉션에 대한 인덱싱 정책을 구성하는 방법을 보여 주는 샘플은 MSDN에서 [Azure Cosmos DB 샘플](https://github.com/Azure/azure-documentdb-net)을 참조하세요. 이제 Azure Cosmos DB SQL 구문의 세부 정보를 살펴보겠습니다.
+```sql
+    SELECT f.address
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
+```
 
-## <a id="Basics"></a>Azure Cosmos DB SQL 쿼리의 기본 사항
-ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHERE 절로 구성됩니다. 일반적으로 각 쿼리에 대해 FROM 절의 소스가 열거됩니다. 그런 다음 WHERE 절의 필터를 소스에 적용하여 JSON 문서의 하위 집합을 검색합니다. 마지막으로, SELECT 절을 사용하여 선택 목록에서 요청된 JSON 값을 프로젝션합니다.
+**결과**
 
-    SELECT <select_list> 
-    [FROM <from_specification>] 
-    [WHERE <filter_condition>]
-    [ORDER BY <sort_specification]    
+```json
+    [{
+      "address": {
+        "state": "WA", 
+        "county": "King", 
+        "city": "seattle"
+      }
+    }]
+```
 
+### <a name="nested-properties"></a>중첩 속성
+다음 예제에서는 두 개의 중첩된 속성 `f.address.state` and `f.address.city`와 일치하는 문서를 반환합니다.
+
+**쿼리**
+
+```sql
+    SELECT f.address.state, f.address.city
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
+```
+
+**결과**
+
+```json
+    [{
+      "state": "WA", 
+      "city": "seattle"
+    }]
+```
+
+다음 예제와 같이 프로젝션은 JSON 식도 지원합니다.
+
+**쿼리**
+
+```sql
+    SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
+```
+
+**결과**
+
+```json
+    [{
+      "$1": {
+        "state": "WA", 
+        "city": "seattle", 
+        "name": "AndersenFamily"
+      }
+    }]
+```
+
+여기서 `$1` 의 역할을 살펴보겠습니다. `SELECT` 절은 JSON 개체를 만들어야 하며 키가 제공되지 않았으므로 `$1`로 시작하는 암시적 인수 변수 이름을 사용합니다. 예를 들어 이 쿼리는 `$1` 및 `$2` 레이블이 지정된 두 개의 암시적 인수 변수를 반환합니다.
+
+**쿼리**
+
+```sql
+    SELECT { "state": f.address.state, "city": f.address.city }, 
+           { "name": f.id }
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
+```
+
+**결과**
+
+```json
+    [{
+      "$1": {
+        "state": "WA", 
+        "city": "seattle"
+      }, 
+      "$2": {
+        "name": "AndersenFamily"
+      }
+    }]
+```
 
 ## <a id="FromClause"></a>FROM 절
-쿼리의 뒷부분에서 소스를 필터링/프로젝션하지 않을 경우 `FROM <from_specification>` 절은 선택 사항입니다. 이 절의 목적은 쿼리가 작동해야 하는 데이터 원본을 지정하는 것입니다. 일반적으로 전체 컬렉션이 소스이지만 컬렉션의 하위 집합을 대신 지정할 수 있습니다. 
 
-`SELECT * FROM Families` 와 유사한 쿼리는 전체 Families 컬렉션이 열거할 소스임을 나타냅니다. 컬렉션 이름을 사용하는 대신 특수 식별자 ROOT를 사용하여 컬렉션을 나타낼 수 있습니다. 다음 목록은 쿼리 단위로 적용되는 규칙입니다.
+쿼리의 뒷부분에서 소스를 필터링/프로젝션하지 않을 경우 FROM <from_specification> 절은 선택 사항입니다. 구문에 대해 자세히 알아보려면 [FROM 구문](sql-api-sql-query-reference.md#bk_from_clause)을 참조하세요. `SELECT * FROM Families` 와 유사한 쿼리는 전체 Families 컬렉션이 열거할 소스임을 나타냅니다. 컬렉션 이름을 사용하는 대신 특수 식별자 ROOT를 사용하여 컬렉션을 나타낼 수 있습니다. 다음 목록은 쿼리 단위로 적용되는 규칙입니다.
 
-* 컬렉션을 별칭으로 `SELECT f.id FROM Families AS f` 또는 간단히 `SELECT f.id FROM Families f`로 지정할 수 있습니다. 여기서 `f`는 `Families`와 같습니다. `AS` 는 식별자를 별칭으로 지정하는 선택적 키워드입니다.
-* 별칭으로 지정한 후에는 원본 소스를 바인딩할 수 없습니다. 예를 들어 `SELECT Families.id FROM Families f` 는 "Families" 식별자를 더 이상 예약할 수 없으므로 구문이 잘못되었습니다.
+* 컬렉션을 별칭으로 `SELECT f.id FROM Families AS f` 또는 간단히 `SELECT f.id FROM Families f`로 지정할 수 있습니다. 여기서 `f`는 `Families`와 같습니다. `AS` 는 식별자를 별칭으로 지정하는 선택적 키워드입니다.  
+
+* 별칭으로 지정한 후에는 원본 소스를 바인딩할 수 없습니다. 예를 들어 `SELECT Families.id FROM Families f` 는 "Families" 식별자를 더 이상 예약할 수 없으므로 구문이 잘못되었습니다.  
+
 * 참조해야 하는 모든 속성을 정규화해야 합니다. 엄격한 스키마 준수가 없을 경우 모호한 바인딩을 방지하기 위해 적용됩니다. 따라서 `SELECT id FROM Families f`는 `id` 속성이 바인딩되지 않았으므로 구문이 잘못되었습니다.
 
-### <a name="subdocuments"></a>하위 문서
+### <a name="get-subdocuments-using-from-clause"></a>FROM 절을 사용하여 하위 문서 가져오기
+
 소스를 더 작은 하위 집합으로 줄일 수도 있습니다. 예를 들어 각 문서에서 하위 트리만을 열거하려는 경우 다음 예제에서처럼 하위 루트가 원본이 될 수 있습니다.
 
 **쿼리**
 
+```sql
     SELECT * 
     FROM Families.children
+```
 
 **결과**  
 
+```json
     [
       [
         {
@@ -247,35 +324,42 @@ ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHER
         }
       ]
     ]
+```
 
 위 예제에서는 배열을 원본으로 사용했지만 다음 예제에 나온 대로 개체를 원본으로 사용할 수도 있습니다. 원본에 있는 유효한 모든 JSON 값(undefined 제외)이 쿼리 결과에 포함되기 위해 고려됩니다. 일부 가족에 `address.state` 값이 없는 경우 쿼리 결과에서 제외됩니다.
 
 **쿼리**
 
+```sql
     SELECT * 
     FROM Families.address.state
+```
 
 **결과**
 
+```json
     [
       "WA", 
       "NY"
     ]
-
+```
 
 ## <a id="WhereClause"></a>WHERE 절
-WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에서 제공하는 JSON 문서가 결과의 일부로 포함되기 위해 충족해야 하는 조건을 지정합니다. JSON 문서가 결과에 고려되려면 지정된 조건이 "true"여야 합니다. WHERE 절은 결과에 포함될 수 있는 소스 문서의 가장 작은 절대 하위 집합을 결정하기 위해 인덱스 계층에서 사용됩니다. 
+WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에서 제공하는 JSON 문서가 결과의 일부로 포함되기 위해 충족해야 하는 조건을 지정합니다. JSON 문서가 결과에 고려되려면 지정된 조건이 "true"여야 합니다. WHERE 절은 결과에 포함될 수 있는 소스 문서의 가장 작은 절대 하위 집합을 결정하기 위해 인덱스 계층에서 사용됩니다. 구문에 대해 자세히 알아보려면 [WHERE 구문](sql-api-sql-query-reference.md#bk_where_clause)을 참조하세요.
 
 다음 쿼리는 이름 속성을 포함하고 속성 값이 `AndersenFamily`인 문서를 요청합니다. 이름 속성이 없거나 값이 `AndersenFamily` 와 일치하지 않는 다른 문서는 모두 제외됩니다. 
 
 **쿼리**
 
+```sql
     SELECT f.address
     FROM Families f 
     WHERE f.id = "AndersenFamily"
+```
 
 **결과**
 
+```json
     [{
       "address": {
         "state": "WA", 
@@ -283,38 +367,23 @@ WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에�
         "city": "seattle"
       }
     }]
-
+```
 
 앞의 예제는 단순한 같음 쿼리를 보여 주었습니다. SQL API는 다양한 스칼라 식도 지원합니다. 가장 일반적으로 사용되는 식은 이항 및 단항 식입니다. 소스 JSON 개체의 속성 참조도 유효한 식입니다. 
 
 현재 지원되며 다음 예제와 같이 쿼리에 사용할 수 있는 이항 연산자는 다음과 같습니다.  
 
-<table>
-<tr>
-<td>산술</td>    
-<td>+,-,*,/,%</td>
-</tr>
-<tr>
-<td>비트</td>    
-<td>|, &, ^, <<, >>, >>>(0 채우기 오른쪽 시프트)</td>
-</tr>
-<tr>
-<td>논리</td>
-<td>AND, OR, NOT</td>
-</tr>
-<tr>
-<td>비교</td>    
-<td>=, !=, &lt;, &gt;, &lt;=, &gt;=, <></td>
-</tr>
-<tr>
-<td>문자열</td>    
-<td>||(연결)</td>
-</tr>
-</table>  
-
+|**연산자 유형**  |**값**  |
+|---------|---------|
+|산술    |   +,-,*,/,%   |
+|비트  |   |, &, ^, <<, >>, >>>(0 채우기 오른쪽 시프트)      |
+|논리   |   AND, OR, NOT      |
+|비교   |    =, !=, &lt;, &gt;, &lt;=, &gt;=, <>     |
+|문자열  |  || (연결)       |
 
 이항 연산자를 사용한 몇 가지 쿼리를 살펴보겠습니다.
 
+```sql
     SELECT * 
     FROM Families.children[0] c
     WHERE c.grade % 2 = 1     -- matching grades == 5, 1
@@ -326,10 +395,11 @@ WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에�
     SELECT *
     FROM Families.children[0] c
     WHERE c.grade >= 5     -- matching grades == 5
-
+```
 
 단항 연산자 +,-, ~ 및 NOT도 지원되며 다음 예제에 표시된 대로 쿼리 내부에 사용할 수 있습니다.
 
+```sql
     SELECT *
     FROM Families.children[0] c
     WHERE NOT(c.grade = 5)  -- matching grades == 1
@@ -337,8 +407,7 @@ WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에�
     SELECT *
     FROM Families.children[0] c
     WHERE (-c.grade = -5)  -- matching grades == 5
-
-
+```
 
 이항 및 단항 연산자뿐 아니라 속성 참조도 허용됩니다. 예를 들어 `SELECT * FROM Families f WHERE f.isRegistered`는 `isRegistered` 속성을 포함하고 속성 값이 JSON `true` 값과 같은 JSON 문서를 반환합니다. 다른 값(false, null, Undefined, `<number>`, `<string>`, `<object>`, `<array>` 등)이면 소스 문서가 결과에서 제외됩니다. 
 
@@ -515,9 +584,9 @@ Undefined </td>
    </tbody>
 </table>
 
-다른 비교 연산자(예: >, >=, !=, < 및 <=)의 경우   
+다른 비교 연산자(예: >, >=, !=, < 및 <=)의 경우:   
 
-* 형식 비교 결과가 Undefined입니다.
+* 형식 비교 결과가 Undefined입니다.  
 * 두 개체 또는 두 배열 간 비교 결과가 Undefined입니다.   
 
 필터의 스칼라 식 결과가 Undefined인 경우 Undefined는 논리적으로 "true"가 아니므로 해당 문서가 결과에 포함되지 않습니다.
@@ -527,21 +596,28 @@ Undefined </td>
 
 예를 들어 이 쿼리는 첫 번째 자식의 등급이 1-5(모두 포함)인 가족 문서를 모두 반환합니다. 
 
+```sql
     SELECT *
     FROM Families.children[0] c
     WHERE c.grade BETWEEN 1 AND 5
+```
 
 ANSI-SQL과 달리, 다음 예제처럼 BETWEEN 절을 FROM 절에서 사용할 수도 있습니다.
 
+```sql
     SELECT (c.grade BETWEEN 0 AND 10)
     FROM Families.children[0] c
-
-쿼리 실행 시간을 단축하려면 BETWEEN 절에서 필터링되는 모든 숫자 속성/경로에 대해 범위 인덱스 형식을 사용하는 인덱싱 정책을 만들어야 합니다. 
+```
 
 SQL API와 ANSI SQL에서 BETWEEN을 사용하는 경우의 주요 차이점은 혼합 형식의 속성에 대해 범위 쿼리를 표현할 수 있다는 점입니다. 예를 들어 일부 문서에서는 “등급”이 숫자(5)이고 다른 문서에서는 문자열(“grade4”)일 수 있습니다. 이러한 경우 JavaScript에서처럼 다른 두 형식 간 비교는 "undefined"가 되고 문서는 건너뜁니다.
 
+> [!NOTE]
+> 쿼리 실행 시간을 단축하려면 BETWEEN 절에서 필터링되는 모든 숫자 속성/경로에 대해 범위 인덱스 형식을 사용하는 인덱싱 정책을 만들어야 합니다. 
+
 ### <a name="logical-and-or-and-not-operators"></a>논리(AND, OR 및 NOT) 연산자
 논리 연산자는 부울 값에 작동합니다. 다음 표에는 이 연산자의 논리적 진위 표가 나와 있습니다.
+
+**OR 연산자**
 
 | 또는 | True | False | Undefined |
 | --- | --- | --- | --- |
@@ -549,11 +625,15 @@ SQL API와 ANSI SQL에서 BETWEEN을 사용하는 경우의 주요 차이점은 
 | False |True |False |Undefined |
 | Undefined |True |Undefined |Undefined |
 
+**AND 연산자**
+
 | AND | True | False | Undefined |
 | --- | --- | --- | --- |
 | True |True |False |Undefined |
 | False |False |False |False |
 | Undefined |Undefined |False |Undefined |
+
+**NOT 연산자**
 
 | NOT |  |
 | --- | --- |
@@ -562,141 +642,75 @@ SQL API와 ANSI SQL에서 BETWEEN을 사용하는 경우의 주요 차이점은 
 | Undefined |Undefined |
 
 ## <a name="in-keyword"></a>IN 키워드
+
 IN 키워드는 지정된 값이 목록에 있는 값과 일치하는지를 확인하는 데 사용할 수 있습니다. 예를 들어 이 쿼리는 id가 "WakefieldFamily" 또는 "AndersenFamily" 중 하나인 가족 문서를 모두 반환합니다. 
 
+```sql
     SELECT *
     FROM Families 
     WHERE Families.id IN ('AndersenFamily', 'WakefieldFamily')
+```
 
 이 예는 상태가 지정된 값인 모든 문서를 반환합니다.
 
+```sql
     SELECT *
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
+```
 
 ## <a name="ternary--and-coalesce--operators"></a>3항(?) 및 병합(??) 연산자
-3항 및 병합 연산자를 사용하여 널리 사용되는 프로그래밍 언어(예: C# 및 JavaScript)와 유사하게 조건식을 작성할 수 있습니다. 
 
-3항(?) 연산자는 새로운 JSON 속성을 즉시 생성할 때 매우 간편하게 사용할 수 있습니다. 예를 들어 쿼리를 작성하여 아래에 표시된 대로 Beginner/Intermediate/Advanced와 같이 사람이 읽을 수 있는 형식으로 클래스 수준을 분류할 수 있습니다.
+3항 및 병합 연산자를 사용하여 널리 사용되는 프로그래밍 언어(예: C# 및 JavaScript)와 유사하게 조건식을 작성할 수 있습니다. 3항(?) 연산자는 새로운 JSON 속성을 즉시 생성할 때 매우 간편하게 사용할 수 있습니다. 예를 들어 쿼리를 작성하여 아래에 표시된 대로 Beginner/Intermediate/Advanced와 같이 사람이 읽을 수 있는 형식으로 클래스 수준을 분류할 수 있습니다.
 
+```sql
      SELECT (c.grade < 5)? "elementary": "other" AS gradeLevel 
      FROM Families.children[0] c
+```
 
 또한 아래 쿼리에서처럼 연산자에 대한 호출을 중첩할 수 있습니다.
 
+```sql
     SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high")  AS gradeLevel 
     FROM Families.children[0] c
+```
 
 다른 쿼리 연산자에서처럼 조건식에서 참조된 속성이 문서에서 누락된 경우 또는 비교할 형식이 다른 경우 해당 문서가 쿼리 결과에서 제외됩니다.
 
 병합(??) 연산자를 사용하면 문서에서 속성의 존재(정의됨)를 효율적으로 확인할 수 있습니다. 이 연산자는 반구조적 데이터나 혼합 형식의 데이터에 대해 쿼리할 때 유용합니다. 예를 들어 이 쿼리는 "lastName"(있는 경우) 또는 "surname"(없는 경우)을 반환합니다.
 
+```sql
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
+```
 
 ## <a id="EscapingReservedKeywords"></a>따옴표 붙은 속성 접근자
 따옴표 붙은 속성 연산자 `[]`를 사용하여 속성에 액세스할 수도 있습니다. 예를 들어 `SELECT c.grade` and `SELECT c["grade"]` 와 동일합니다. 이 구문은 공백, 특수 문자가 포함되어 있거나 SQL 키워드 또는 예약어와 동일한 이름을 공유하는 속성을 이스케이프해야 할 때 유용합니다.
 
+```sql
     SELECT f["lastName"]
     FROM Families f
     WHERE f["id"] = "AndersenFamily"
-
-
-## <a id="SelectClause"></a>SELECT 절
-SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리에서 검색할 값을 지정합니다. 소스 문서에서 필터링된 하위 집합이 프로젝션 단계로 전달되며, 여기서 전달된 각 입력에 대해 지정한 JSON 값이 검색되고 새 JSON 개체가 생성됩니다. 
-
-다음 예제에서는 일반적인 SELECT 쿼리를 보여 줍니다. 
-
-**쿼리**
-
-    SELECT f.address
-    FROM Families f 
-    WHERE f.id = "AndersenFamily"
-
-**결과**
-
-    [{
-      "address": {
-        "state": "WA", 
-        "county": "King", 
-        "city": "seattle"
-      }
-    }]
-
-
-### <a name="nested-properties"></a>중첩 속성
-다음 예제에서는 두 개의 중첩된 속성 `f.address.state` and `f.address.city`와 일치하는 문서를 반환합니다.
-
-**쿼리**
-
-    SELECT f.address.state, f.address.city
-    FROM Families f 
-    WHERE f.id = "AndersenFamily"
-
-**결과**
-
-    [{
-      "state": "WA", 
-      "city": "seattle"
-    }]
-
-
-다음 예제와 같이 프로젝션은 JSON 식도 지원합니다.
-
-**쿼리**
-
-    SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
-    FROM Families f 
-    WHERE f.id = "AndersenFamily"
-
-**결과**
-
-    [{
-      "$1": {
-        "state": "WA", 
-        "city": "seattle", 
-        "name": "AndersenFamily"
-      }
-    }]
-
-
-여기서 `$1` 의 역할을 살펴보겠습니다. `SELECT` 절은 JSON 개체를 만들어야 하며 키가 제공되지 않았으므로 `$1`로 시작하는 암시적 인수 변수 이름을 사용합니다. 예를 들어 이 쿼리는 `$1` 및 `$2` 레이블이 지정된 두 개의 암시적 인수 변수를 반환합니다.
-
-**쿼리**
-
-    SELECT { "state": f.address.state, "city": f.address.city }, 
-           { "name": f.id }
-    FROM Families f 
-    WHERE f.id = "AndersenFamily"
-
-**결과**
-
-    [{
-      "$1": {
-        "state": "WA", 
-        "city": "seattle"
-      }, 
-      "$2": {
-        "name": "AndersenFamily"
-      }
-    }]
-
+```
 
 ## <a name="aliasing"></a>별칭 지정
+
 이제 값의 별칭을 명시적으로 지정하여 위 예제를 확장하겠습니다. AS는 별칭 지정에 사용되는 키워드입니다. 두 번째 값을 `NameInfo`로 프로젝션하는 동안 표시되므로 선택 사항입니다. 
 
 쿼리에 동일한 이름을 가진 두 개의 속성이 있을 경우 프로젝션된 결과에서 구분되도록 별칭 지정을 사용하여 속성 중 하나 또는 둘 다의 이름을 바꾸어야 합니다.
 
 **쿼리**
-
+```sql
     SELECT 
            { "state": f.address.state, "city": f.address.city } AS AddressInfo, 
            { "name": f.id } NameInfo
     FROM Families f 
     WHERE f.id = "AndersenFamily"
+```
 
 **결과**
 
+```json
     [{
       "AddressInfo": {
         "state": "WA", 
@@ -706,44 +720,53 @@ SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리
         "name": "AndersenFamily"
       }
     }]
-
+```
 
 ## <a name="scalar-expressions"></a>스칼라 식
 속성 참조뿐 아니라 SELECT 절은 상수, 산술 식, 논리 식 등의 스칼라 식도 지원합니다. 예를 들어 다음은 단순한 "Hello World" 쿼리입니다.
 
 **쿼리**
 
+```sql
     SELECT "Hello World"
+```
 
 **결과**
 
+```json
     [{
       "$1": "Hello World"
     }]
-
+```
 
 다음은 스칼라 식을 사용하는 보다 복잡한 예제입니다.
 
 **쿼리**
 
+```sql
     SELECT ((2 + 11 % 7)-2)/3    
+```
 
 **결과**
 
+```json
     [{
       "$1": 1.33333
     }]
-
+```
 
 다음 예제에서 스칼라 식의 결과는 부울입니다.
 
 **쿼리**
 
+```sql
     SELECT f.address.city = f.address.state AS AreFromSameCityState
     FROM Families f    
+```
 
 **결과**
 
+```json
     [
       {
         "AreFromSameCityState": false
@@ -752,18 +775,21 @@ SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리
         "AreFromSameCityState": true
       }
     ]
-
+```
 
 ## <a name="object-and-array-creation"></a>개체 및 배열 만들기
 SQL API의 다른 주요 기능은 배열/개체 만들기입니다. 앞의 예제에서는 새 JSON 개체를 만들었습니다. 마찬가지로 아래 예제에 표시된 대로 배열을 생성할 수도 있습니다.
 
 **쿼리**
 
+```sql
     SELECT [f.address.city, f.address.state] AS CityState 
     FROM Families f    
+```
 
 **결과**  
 
+```json
     [
       {
         "CityState": [
@@ -778,30 +804,37 @@ SQL API의 다른 주요 기능은 배열/개체 만들기입니다. 앞의 예�
         ]
       }
     ]
+```
 
 ## <a id="ValueKeyword"></a>VALUE 키워드
 **VALUE** 키워드는 JSON 값을 반환하는 방법을 제공합니다. 예를 들어 아래 표시된 쿼리는 `{$1: "Hello World"}` 대신 스칼라 `"Hello World"`를 반환합니다.
 
 **쿼리**
 
+```sql
     SELECT VALUE "Hello World"
+```
 
 **결과**
 
+```json
     [
       "Hello World"
     ]
-
+```
 
 다음 쿼리는 `"address"` 레이블이 없는 JSON 값을 결과에 반환합니다.
 
 **쿼리**
 
+```sql
     SELECT VALUE f.address
     FROM Families f    
+```
 
 **결과**  
 
+```json
     [
       {
         "state": "WA", 
@@ -814,33 +847,40 @@ SQL API의 다른 주요 기능은 배열/개체 만들기입니다. 앞의 예�
         "city": "NY"
       }
     ]
+```
 
 다음 예제에서는 이 코드를 확장하여 JSON 기본 값(JSON 트리 리프 수준)을 반환하는 방법을 보여 줍니다. 
 
 **쿼리**
 
+```sql
     SELECT VALUE f.address.state
     FROM Families f    
+```
 
 **결과**
 
+```json
     [
       "WA",
       "NY"
     ]
-
+```
 
 ## <a name="-operator"></a>* 연산자
 문서를 있는 그대로 프로젝션하는 특수 연산자(*)를 지원합니다. 사용할 경우 프로젝션되는 유일한 필드여야 `SELECT * FROM Families f`와 같은 쿼리는 유효하지만 `SELECT VALUE * FROM Families f ` 및 `SELECT *, f.id FROM Families f `와 같은 쿼리는 유효하지 않습니다.
 
 **쿼리**
 
+```sql
     SELECT * 
     FROM Families f 
     WHERE f.id = "AndersenFamily"
+```
 
 **결과**
 
+```json
     [{
         "id": "AndersenFamily",
         "lastName": "Andersen",
@@ -858,17 +898,21 @@ SQL API의 다른 주요 기능은 배열/개체 만들기입니다. 앞의 예�
         "creationDate": 1431620472,
         "isRegistered": true
     }]
+```
 
 ## <a id="TopKeyword"></a>TOP 연산자
 쿼리에서 값의 수를 제한하는 데 TOP 키워드를 사용할 수 있습니다. TOP를 ORDER BY 절과 함께 사용하면 결과 집합이 정렬된 값의 처음 N개로 제한되고 그렇지 않은 경우 정의되지 않은 순서의 처음 N개 결과가 반환됩니다. SELECT 문에서는 항상 TOP 절과 함께 ORDER BY 절을 사용하는 것이 좋습니다. TOP의 영향을 받는 행을 예측 가능하게 나타내는 유일한 방법입니다. 
 
 **쿼리**
 
+```sql
     SELECT TOP 1 * 
     FROM Families f 
+```
 
 **결과**
 
+```json
     [{
         "id": "AndersenFamily",
         "lastName": "Andersen",
@@ -886,6 +930,7 @@ SQL API의 다른 주요 기능은 배열/개체 만들기입니다. 앞의 예�
         "creationDate": 1431620472,
         "isRegistered": true
     }]
+```
 
 위에 나와 있는 것처럼 상수 값 또는 매개 변수가 있는 쿼리를 사용하는 변수 값과 함께 TOP를 사용할 수 있습니다. 자세한 내용은 아래의 매개 변수가 있는 쿼리를 참조하세요.
 
@@ -894,37 +939,49 @@ SQL API의 다른 주요 기능은 배열/개체 만들기입니다. 앞의 예�
 
 **쿼리**
 
+```sql
     SELECT COUNT(1) 
     FROM Families f 
+```
 
 **결과**
 
+```json
     [{
         "$1": 2
     }]
+```
 
 `VALUE` 키워드를 사용하여 집계의 스칼라 값을 반환할 수도 있습니다. 예를 들어 다음 쿼리는 단일 숫자로 값의 수를 반환합니다.
 
 **쿼리**
 
+```sql
     SELECT VALUE COUNT(1) 
     FROM Families f 
+```
 
 **결과**
 
+```json
     [ 2 ]
+```
 
 필터와 함께 조합하여 집계를 수행할 수도 있습니다. 예를 들어 다음 쿼리는 워싱턴 주의 주소로 문서 수를 반환합니다.
 
 **쿼리**
 
+```sql
     SELECT VALUE COUNT(1) 
     FROM Families f
     WHERE f.address.state = "WA" 
+```
 
 **결과**
 
+```json
     [ 1 ]
+```
 
 다음 표에서는 SQL API에서 지원되는 집계 함수 목록을 보여 줍니다. `SUM` 및 `AVG`는 숫자 값에 대해 수행되는 반면 `COUNT`, `MIN` 및 `MAX`는 숫자, 문자열, 부울 및 null에 대해 수행될 수 있습니다. 
 
@@ -951,12 +1008,15 @@ ANSI-SQL에서와 마찬가지로 쿼리하는 동안 선택적 Order By 절을 
 
 **쿼리**
 
+```sql
     SELECT f.id, f.address.city
     FROM Families f 
     ORDER BY f.address.city
+```
 
 **결과**
 
+```json
     [
       {
         "id": "WakefieldFamily",
@@ -967,17 +1027,21 @@ ANSI-SQL에서와 마찬가지로 쿼리하는 동안 선택적 Order By 절을 
         "city": "Seattle"    
       }
     ]
+```
 
 다음은 Epoch 시간, 즉 1970년 1월 1일부터 경과된 시간(초 단위)을 나타내는 숫자로 저장된 만든 날짜 순으로 가족을 검색하는 쿼리입니다.
 
 **쿼리**
 
+```sql
     SELECT f.id, f.creationDate
     FROM Families f 
     ORDER BY f.creationDate DESC
+```
 
 **결과**
 
+```json
     [
       {
         "id": "WakefieldFamily",
@@ -988,6 +1052,7 @@ ANSI-SQL에서와 마찬가지로 쿼리하는 동안 선택적 Order By 절을 
         "creationDate": 1431620472    
       }
     ]
+```
 
 ## <a id="Advanced"></a>고급 데이터베이스 개념 및 SQL 쿼리
 
@@ -996,11 +1061,14 @@ JSON 배열 반복을 지원하기 위해 SQL API의 **IN** 키워드를 통해 
 
 **쿼리**
 
+```sql
     SELECT * 
     FROM Families.children
+```
 
 **결과**  
 
+```json
     [
       [
         {
@@ -1025,16 +1093,20 @@ JSON 배열 반복을 지원하기 위해 SQL API의 **IN** 키워드를 통해 
         }
       ]
     ]
+```
 
 이제 컬렉션의 자식을 반복하는 다른 쿼리를 살펴보겠습니다. 출력 배열의 차이점을 확인합니다. 이 예제에서는 `children` 을 분할하고 결과를 단일 배열로 평면화합니다.  
 
 **쿼리**
 
+```sql
     SELECT * 
     FROM c IN Families.children
+```
 
 **결과**  
 
+```json
     [
       {
           "firstName": "Henriette Thaulow",
@@ -1055,35 +1127,44 @@ JSON 배열 반복을 지원하기 위해 SQL API의 **IN** 키워드를 통해 
           "grade": 8
       }
     ]
+```
 
 이 예제를 사용하여 다음 예제에 나온 대로 배열의 각 개별 항목을 필터링할 수도 있습니다.
 
 **쿼리**
 
+```sql
     SELECT c.givenName
     FROM c IN Families.children
     WHERE c.grade = 8
+```
 
 **결과**  
 
+```json
     [{
       "givenName": "Lisa"
     }]
+```
 
 배열 반복의 결과에 대해 집계를 수행할 수도 있습니다. 예를 들어 다음 쿼리는 모든 가족 간의 자식 수를 계산합니다.
 
 **쿼리**
 
+```sql
     SELECT COUNT(child) 
     FROM child IN Families.children
+```
 
 **결과**  
 
+```json
     [
       { 
         "$1": 3
       }
     ]
+```
 
 ### <a id="Joins"></a>조인
 관계형 데이터베이스에서는 테이블 간 조인 요구가 중요합니다. 이는 정규화된 스키마 설계의 필연적인 논리적 결과입니다. 이와 반대로 SQL API는 스키마 없는 문서의 비정규화된 데이터 모델을 처리합니다. 이는 논리적으로 "자체 조인"과 동등합니다.
@@ -1094,26 +1175,32 @@ JSON 배열 반복을 지원하기 위해 SQL API의 **IN** 키워드를 통해 
 
 **쿼리**
 
+```sql
     SELECT f.id
     FROM Families f
     JOIN f.NonExistent
+```
 
 **결과**  
 
+```json
     [{
     }]
-
+```
 
 다음 예제에서는 문서 루트와 `children` 하위 루트 간의 조인이 수행됩니다. 두 JSON 개체 간의 교차곱입니다. 자식 배열인 단일 루트를 다루기 때문에 자식이 배열이라는 사실은 JOIN에 적용되지 않습니다. 따라서 각 문서와 배열의 교차곱에서 정확히 한 개의 문서만 생성하므로 결과에 두 개의 결과만 포함됩니다.
 
 **쿼리**
 
+```sql
     SELECT f.id
     FROM Families f
     JOIN f.children
+```
 
 **결과**
 
+```json
     [
       {
         "id": "AndersenFamily"
@@ -1122,18 +1209,21 @@ JSON 배열 반복을 지원하기 위해 SQL API의 **IN** 키워드를 통해 
         "id": "WakefieldFamily"
       }
     ]
-
+```
 
 다음 예제에서는 보다 기본적인 조인을 보여 줍니다.
 
 **쿼리**
 
+```sql
     SELECT f.id
     FROM Families f
     JOIN c IN f.children 
+```
 
 **결과**
 
+```json
     [
       {
         "id": "AndersenFamily"
@@ -1145,8 +1235,7 @@ JSON 배열 반복을 지원하기 위해 SQL API의 **IN** 키워드를 통해 
         "id": "WakefieldFamily"
       }
     ]
-
-
+```
 
 확인할 첫 번째 사항은 **JOIN** 절의 `from_source`가 반복기라는 것입니다. 따라서 이 경우의 흐름은 다음과 같습니다.  
 
@@ -1160,6 +1249,7 @@ JOIN의 진정한 유용성은 다른 방식으로 프로젝션하기 어려운 
 
 **쿼리**
 
+```sql
     SELECT 
         f.id AS familyName,
         c.givenName AS childGivenName,
@@ -1168,9 +1258,11 @@ JOIN의 진정한 유용성은 다른 방식으로 프로젝션하기 어려운 
     FROM Families f 
     JOIN c IN f.children 
     JOIN p IN c.pets
+```
 
 **결과**
 
+```json
     [
       {
         "familyName": "AndersenFamily", 
@@ -1188,11 +1280,11 @@ JOIN의 진정한 유용성은 다른 방식으로 프로젝션하기 어려운 
        "petName": "Shadow"
       }
     ]
-
-
+```
 
 이 예제는 이전 예제의 일반 확장이며 이중 조인을 수행합니다. 따라서 교차곱을 다음 의사 코드로 볼 수 있습니다.
 
+```
     for-each(Family f in Families)
     {    
         for-each(Child c in f.children)
@@ -1206,6 +1298,7 @@ JOIN의 진정한 유용성은 다른 방식으로 프로젝션하기 어려운 
             }
         }
     }
+```
 
 `AndersenFamily`에는 애완 동물 한 마리를 키우는 자식 한 명이 있습니다. 따라서 이 가족의 교차곱은 하나의 행(1\*1\*1)을 생성합니다. 그러나 WakefieldFamily에는 자녀 두 명이 있지만 그 중에 "Jesse"만 애완 동물을 두 마리 키우고 있습니다. 따라서 이 가족의 교차곱은 1\*1\*2 = 2개의 행을 생성합니다.
 
@@ -1213,6 +1306,7 @@ JOIN의 진정한 유용성은 다른 방식으로 프로젝션하기 어려운 
 
 **쿼리**
 
+```sql
     SELECT 
         f.id AS familyName,
         c.givenName AS childGivenName,
@@ -1222,9 +1316,11 @@ JOIN의 진정한 유용성은 다른 방식으로 프로젝션하기 어려운 
     JOIN c IN f.children 
     JOIN p IN c.pets
     WHERE p.givenName = "Shadow"
+```
 
 **결과**
 
+```json
     [
       {
        "familyName": "WakefieldFamily", 
@@ -1232,7 +1328,7 @@ JOIN의 진정한 유용성은 다른 방식으로 프로젝션하기 어려운 
        "petName": "Shadow"
       }
     ]
-
+```
 
 ## <a id="JavaScriptIntegration"></a>JavaScript 통합
 Azure Cosmos DB는 저장 프로시저 및 트리거 측면에서 컬렉션에 대해 직접 JavaScript 기반 응용 프로그램 논리를 실행하기 위한 프로그래밍 모델을 제공합니다. 이 경우 다음 두 가지 기능을 모두 사용할 수 있습니다.
@@ -1247,6 +1343,7 @@ SQL API는 이 문서에 이미 정의되어 있는 형식과 더불어 UDF(사�
 
 다음은 Cosmos DB 데이터베이스의 문서 컬렉션 아래에 UDF를 등록할 수 있는 방법의 예입니다.
 
+```javascript
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction
        {
            Id = "REGEX_MATCH",
@@ -1258,6 +1355,7 @@ SQL API는 이 문서에 이미 정의되어 있는 형식과 더불어 UDF(사�
        UserDefinedFunction createdUdf = client.CreateUserDefinedFunctionAsync(
            UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
            regexMatchUdf).Result;  
+```
 
 위 예제에서는 이름이 `REGEX_MATCH`인 UDF를 만듭니다. 두 JSON 문자열 값 `input` and `pattern` 을 받아들이고 JavaScript의 string.match() 함수를 사용하여 첫 번째 값이 두 번째 값에 지정된 패턴과 일치하는지를 확인합니다.
 
@@ -1270,11 +1368,14 @@ SQL API는 이 문서에 이미 정의되어 있는 형식과 더불어 UDF(사�
 
 **쿼리**
 
+```sql
     SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")
     FROM Families
+```
 
 **결과**
 
+```json
     [
       {
         "$1": true
@@ -1283,27 +1384,32 @@ SQL API는 이 문서에 이미 정의되어 있는 형식과 더불어 UDF(사�
         "$1": false
       }
     ]
+```
 
 아래 예제와 같이 "udf." 접두사로 한정된 UDF를 필터 내부에 사용할 수도 있습니다.
 
 **쿼리**
 
+```sql
     SELECT Families.id, Families.address.city
     FROM Families
     WHERE udf.REGEX_MATCH(Families.address.city, ".*eattle")
+```
 
 **결과**
 
+```json
     [{
         "id": "AndersenFamily",
         "city": "Seattle"
     }]
-
+```
 
 기본적으로 UDF는 유효한 스칼라 식이며 프로젝션과 필터 둘 다에 사용될 수 있습니다. 
 
 UDF 기능을 확장하기 위해 조건부 논리가 포함된 다른 예제를 살펴보겠습니다.
 
+```javascript
        UserDefinedFunction seaLevelUdf = new UserDefinedFunction()
        {
            Id = "SEALEVEL",
@@ -1323,17 +1429,20 @@ UDF 기능을 확장하기 위해 조건부 논리가 포함된 다른 예제를
             UserDefinedFunction createdUdf = await client.CreateUserDefinedFunctionAsync(
                 UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
                 seaLevelUdf);
-
+```
 
 다음은 UDF를 실행하는 예제입니다.
 
 **쿼리**
 
+```sql
     SELECT f.address.city, udf.SEALEVEL(f.address.city) AS seaLevel
     FROM Families f    
+```
 
 **결과**
 
+```json
      [
       {
         "city": "seattle", 
@@ -1344,7 +1453,7 @@ UDF 기능을 확장하기 위해 조건부 논리가 포함된 다른 예제를
         "seaLevel": 410
       }
     ]
-
+```
 
 앞의 예제에서 소개한 대로 UDF는 JavaScript 언어 기능과 SQL API를 통합하여 기본 제공된 JavaScript 런타임 기능을 통해 복잡한 절차적 조건부 논리를 수행하는 풍부한 프로그래밍 가능 인터페이스를 제공합니다.
 
@@ -1364,12 +1473,15 @@ Cosmos DB는 익숙한 \@ 표기법으로 표현된 매개 변수가 있는 쿼�
 
 예를 들어 성 및 주소 상태를 매개 변수로 사용하는 쿼리를 작성한 다음 사용자 입력에 따라 다양한 성 및 주소 상태 값에 대해 실행할 수 있습니다.
 
+```sql
     SELECT * 
     FROM Families f
     WHERE f.lastName = @lastName AND f.address.state = @addressState
+```
 
 그런 다음 아래와 같이 이 요청을 매개 변수가 있는 JSON 쿼리로 Cosmos DB에 보낼 수 있습니다.
 
+```sql
     {      
         "query": "SELECT * FROM Families f WHERE f.lastName = @lastName AND f.address.state = @addressState",     
         "parameters": [          
@@ -1377,15 +1489,18 @@ Cosmos DB는 익숙한 \@ 표기법으로 표현된 매개 변수가 있는 쿼�
             {"name": "@addressState", "value": "NY"},           
         ] 
     }
+```
 
 아래와 같이 매개 변수가 있는 쿼리를 사용하여 TOP에 대한 인수를 설정할 수 있습니다.
 
+```sql
     {      
         "query": "SELECT TOP @n * FROM Families",     
         "parameters": [          
             {"name": "@n", "value": 10},         
         ] 
     }
+```
 
 매개 변수 값은 유효한 모든 JSON(문자열, 숫자, 부울, null, 짝수 배열 또는 중첩된 JSON)일 수 있습니다. 또한 Cosmos DB는 스키마가 없으므로 모든 형식에 대해 매개 변수의 유효성이 검사되지 않습니다.
 
@@ -1436,12 +1551,15 @@ Cosmos DB는 일반적인 작업을 위해 많은 기본 제공 함수도 지원
 
 **쿼리**
 
+```sql
     SELECT VALUE ABS(-4)
+```
 
 **결과**
 
+```json
     [4]
-
+```
 Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데이터 및 혼합된 스키마 데이터에서 잘 작동하도록 설계되었다는 것입니다. 예를 들어 Size 속성이 없거나 "unknown"과 같은 숫자가 아닌 값을 가진 문서가 있는 경우 오류를 반환하는 대신 문서를 건너뜁니다.
 
 ### <a name="type-checking-functions"></a>형식 검사 함수
@@ -1491,11 +1609,15 @@ Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데�
 
 **쿼리**
 
+```sql
     SELECT VALUE IS_NUMBER(-4)
+```
 
 **결과**
 
+```json
     [true]
+```
 
 ### <a name="string-functions"></a>문자열 함수
 다음 스칼라 함수는 문자열 입력 값에 대해 작업을 수행하고 문자열, 숫자 또는 부울 값을 반환합니다. 기본 제공 문자열 함수의 테이블은 다음과 같습니다.
@@ -1523,25 +1645,32 @@ Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데�
 
 **쿼리**
 
+```sql
     SELECT VALUE UPPER(Families.id)
     FROM Families
+```
 
 **결과**
 
+```json
     [
         "WAKEFIELDFAMILY", 
         "ANDERSENFAMILY"
     ]
+```
 
 또는 이 예제와 같이 문자열을 연결합니다.
 
 **쿼리**
 
+```sql
     SELECT Families.id, CONCAT(Families.address.city, ",", Families.address.state) AS location
     FROM Families
+```
 
 **결과**
 
+```json
     [{
       "id": "WakefieldFamily",
       "location": "NY,NY"
@@ -1550,22 +1679,26 @@ Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데�
       "id": "AndersenFamily",
       "location": "seattle,WA"
     }]
-
+```
 
 또한 다음 예제와 같이 결과를 필터링하려면 WHERE 절에 문자열 함수를 사용할 수 있습니다.
 
 **쿼리**
 
+```sql
     SELECT Families.id, Families.address.city
     FROM Families
     WHERE STARTSWITH(Families.id, "Wakefield")
+```
 
 **결과**
 
+```json
     [{
       "id": "WakefieldFamily",
       "city": "NY"
     }]
+```
 
 ### <a name="array-functions"></a>배열 함수
 다음 스칼라 함수는 배열 입력 값에 대해 작업을 수행하고 숫자, 부울, 또는 배열 값을 반환합니다. 기본 제공 배열 함수의 테이블은 다음과 같습니다.
@@ -1581,40 +1714,50 @@ Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데�
 
 **쿼리**
 
+```sql
     SELECT Families.id 
     FROM Families 
     WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin", familyName: "Wakefield" })
+```
 
 **결과**
 
+```json
     [{
       "id": "WakefieldFamily"
     }]
+```
 
 배열 내의 요소와 일치하는 부분 조각을 지정할 수 있습니다. 다음 쿼리는 `givenName`이 `Robin`인 모든 부모를 찾습니다.
 
 **쿼리**
 
+```sql
     SELECT Families.id 
     FROM Families 
     WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin" }, true)
+```
 
 **결과**
 
+```json
     [{
       "id": "WakefieldFamily"
     }]
-
+```
 
 제품군 당 자녀 수를 가져오는 ARRAY_LENGTH를 사용하는 다른 예는 다음과 같습니다.
 
 **쿼리**
 
+```sql
     SELECT Families.id, ARRAY_LENGTH(Families.children) AS numberOfChildren
     FROM Families 
+```
 
 **결과**
 
+```json
     [{
       "id": "WakefieldFamily",
       "numberOfChildren": 2
@@ -1623,6 +1766,7 @@ Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데�
       "id": "AndersenFamily",
       "numberOfChildren": 1
     }]
+```
 
 ### <a name="spatial-functions"></a>공간 함수
 Cosmos DB는 지리 공간 쿼리를 위해 다음과 같은 OGC(Open Geospatial Consortium) 기본 제공 함수를 지원합니다. 
@@ -1658,15 +1802,19 @@ Cosmos DB는 지리 공간 쿼리를 위해 다음과 같은 OGC(Open Geospatial
 
 **쿼리**
 
+```sql
     SELECT f.id 
     FROM Families f 
     WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000
+```
 
 **결과**
 
+```json
     [{
       "id": "WakefieldFamily"
     }]
+```
 
 Cosmos DB의 지리 공간 지원에 대한 자세한 내용은 [Azure Cosmos DB에서 지리 공간 데이터 작업](geospatial.md)을 참조하세요. 공간 함수 및 Cosmos DB에 대한 SQL 구문을 래핑합니다. 이제 지금까지 나타난 LINQ 쿼리 작동 방법 및 구문 조작 방법을 살펴봤습니다.
 
@@ -1682,6 +1830,7 @@ LINQ는 개체 스트림에 대한 쿼리로 계산을 표현하는 .NET 프로�
 
 **C# 클래스**
 
+```csharp
     public class Family
     {
         [JsonProperty(PropertyName="id")]
@@ -1725,10 +1874,11 @@ LINQ는 개체 스트림에 대한 쿼리로 계산을 표현하는 .NET 프로�
     Pet pet = new Pet { givenName = "Fluffy" };
     Address address = new Address { state = "NY", county = "Manhattan", city = "NY" };
     Family family = new Family { Id = "WakefieldFamily", parents = new Parent [] { mother, father}, children = new Child[] { child }, isRegistered = false };
-
+```
 
 **JSON**  
 
+```json
     {
         "id": "WakefieldFamily",
         "parents": [
@@ -1756,7 +1906,7 @@ LINQ는 개체 스트림에 대한 쿼리로 계산을 표현하는 .NET 프로�
         "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
         "isRegistered": false
     };
-
+```
 
 
 ### <a name="linq-to-sql-translation"></a>LINQ to SQL 변환
@@ -1808,10 +1958,10 @@ Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 매핑�
 
 **SQL** 
 
+```sql
     SELECT VALUE f.parents[0].familyName
     FROM Families f
-
-
+```
 
 **LINQ 람다 식**
 
@@ -1820,9 +1970,10 @@ Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 매핑�
 
 **SQL** 
 
+```sql
     SELECT VALUE f.children[0].grade + c
     FROM Families f 
-
+```
 
 
 **LINQ 람다 식**
@@ -1836,10 +1987,11 @@ Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 매핑�
 
 **SQL** 
 
+```sql
     SELECT VALUE {"name":f.children[0].familyName, 
                   "grade": f.children[0].grade + 3 }
     FROM Families f
-
+```
 
 
 #### <a name="selectmany-operator"></a>SelectMany 연산자
@@ -1851,10 +2003,10 @@ Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 매핑�
 
 **SQL** 
 
+```sql
     SELECT VALUE child
     FROM child IN Families.children
-
-
+```
 
 #### <a name="where-operator"></a>Where 연산자
 구문은 `input.Where(x => f(x))`입니다. 여기서 `f`는 부울 값을 반환하는 스칼라 식입니다.
@@ -1865,11 +2017,11 @@ Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 매핑�
 
 **SQL** 
 
+```sql
     SELECT *
     FROM Families f
     WHERE f.parents[0].familyName = "Smith" 
-
-
+```
 
 **LINQ 람다 식**
 
@@ -1879,11 +2031,12 @@ Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 매핑�
 
 **SQL** 
 
+```sql
     SELECT *
     FROM Families f
     WHERE f.parents[0].familyName = "Smith"
     AND f.children[0].grade < 3
-
+```
 
 ### <a name="composite-sql-queries"></a>복합 SQL 쿼리
 위 연산자를 구성하여 보다 강력한 쿼리를 만들 수 있습니다. Cosmos DB는 중첩된 컬렉션을 지원하므로 해당 컴퍼지션을 연결하거나 중첩할 수 있습니다.
@@ -1898,11 +2051,11 @@ Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 매핑�
 
 **SQL**
 
+```sql
     SELECT *
     FROM Families f
     WHERE f.parents[0].familyName = "Smith"
-
-
+```
 
 **LINQ 람다 식**
 
@@ -1911,10 +2064,11 @@ Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 매핑�
 
 **SQL** 
 
+```sql
     SELECT VALUE f.parents[0].familyName
     FROM Families f
     WHERE f.children[0].grade > 3
-
+```
 
 
 **LINQ 람다 식**
@@ -1924,11 +2078,11 @@ Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 매핑�
 
 **SQL** 
 
+```sql
     SELECT *
     FROM Families f
     WHERE ({grade: f.children[0].grade}.grade > 3)
-
-
+```
 
 **LINQ 람다 식**
 
@@ -1937,10 +2091,11 @@ Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 매핑�
 
 **SQL** 
 
+```sql
     SELECT *
     FROM p IN Families.parents
     WHERE p.familyName = "Smith"
-
+```
 
 
 #### <a name="nesting"></a>중첩
@@ -1955,10 +2110,11 @@ Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 매핑�
 
 **SQL** 
 
+```sql
     SELECT VALUE p.familyName
     FROM Families f
     JOIN p IN f.parents
-
+```
 
 **LINQ 람다 식**
 
@@ -1967,11 +2123,12 @@ Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 매핑�
 
 **SQL** 
 
+```sql
     SELECT *
     FROM Families f
     JOIN c IN f.children
     WHERE c.familyName = "Jeff"
-
+```
 
 
 **LINQ 람다 식**
@@ -1981,11 +2138,12 @@ Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 매핑�
 
 **SQL** 
 
+```sql
     SELECT *
     FROM Families f
     JOIN c IN f.children
     WHERE c.familyName = f.parents[0].familyName
-
+```
 
 ## <a id="ExecutingSqlQueries"></a>SQL 쿼리 실행
 Cosmos DB는 HTTP/HTTPS 요청을 수행할 수 있는 임의의 언어로 호출할 수 있는 REST API를 통해 리소스를 노출합니다. 또한 Cosmos DB는 .NET, Node.js, JavaScript, Python 등 많이 사용되는 여러 언어를 위한 프로그래밍 라이브러리를 제공합니다. REST API 및 다양한 라이브러리가 모두 SQL을 통한 쿼리를 지원합니다. .NET SDK는 SQL뿐 아니라 LINQ 쿼리도 지원합니다.
@@ -2016,6 +2174,7 @@ Cosmos DB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
 
 **결과**
 
+```
     HTTP/1.1 200 Ok
     x-ms-activity-id: 8b4678fa-a947-47d3-8dd3-549a40da6eed
     x-ms-item-count: 1
@@ -2063,7 +2222,7 @@ Cosmos DB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
        ],
        "count":1
     }
-
+```
 
 두 번째 예제에서는 조인의 여러 결과를 반환하는 보다 복잡한 쿼리를 보여 줍니다.
 
@@ -2089,6 +2248,7 @@ Cosmos DB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
 
 **결과**
 
+```
     HTTP/1.1 200 Ok
     x-ms-activity-id: 568f34e3-5695-44d3-9b7d-62f8b83e509d
     x-ms-item-count: 1
@@ -2117,7 +2277,7 @@ Cosmos DB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
        ],
        "count":3
     }
-
+```
 
 쿼리 결과가 단일 결과 페이지에 모두 들어가지 않는 경우 REST API에서 `x-ms-continuation-token` 응답 헤더를 통해 연속 토큰을 반환합니다. 클라이언트는 후속 결과에 헤더를 포함하여 결과에 페이지를 매길 수 있습니다. `x-ms-max-item-count` 숫자 헤더를 통해 페이지당 결과 수를 제어할 수도 있습니다. 지정된 쿼리에 `COUNT`와 같은 집계 함수가 있는 경우 쿼리 페이지는 결과 페이지에 대해 부분적으로 집계된 값을 반환할 수 있습니다. 클라이언트는 최종 결과(예: 총 개수를 반환하는 개별 페이지에서 반환된 개수에 대한 합계)를 생성하는 이러한 결과에 대해 두 번째 수준 집계를 수행해야 합니다.
 

@@ -10,12 +10,12 @@ ms.topic: mirror-maker
 ms.custom: mvc
 ms.date: 05/07/2018
 ms.author: bahariri
-ms.openlocfilehash: eee090e7d539e0dd21f078039b8448cee5440340
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: d9ac8137e1e86edcdfe824ae29c1a8d46126900c
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412198"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42147010"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Apache Kafka용 Event Hubs에서 Kafka MirrorMaker 사용
 
@@ -44,6 +44,7 @@ Azure Event Hubs Kafka 엔드포인트를 사용하면 Kafka 프로토콜(즉, K
 
 이 자습서를 완료하려면 다음이 설치되어 있어야 합니다.
 
+* [Apache Kafka용 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md) 문서를 참조합니다. 
 * Azure 구독. 구독이 없으면 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 * [JDK(Java Development Kit) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
     * Ubuntu에서 `apt-get install default-jdk`를 실행하여 JDK를 설치합니다.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 336e6e163178cd6d244460dbf9bee2a5bc9d714e
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e8005da056c08b21bf0b91dc71b3dafac281de1f
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37935748"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "40238767"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
@@ -67,7 +67,7 @@ Managed Disks는 저장소 계정과 관련된 한도를 없앱니다. 그러나
 
 **Managed Disks가 Azure Portal에서 기본 옵션인가요?**
 
-예. 
+예.
 
 **내가 빈 관리 디스크를 만들 수 있나요?**
 
@@ -101,7 +101,6 @@ Managed Disks에서는 세 가지 주요 기본 역할을 지원합니다.
 
 예. 관리되지 않는 디스크와 Managed Disks가 모두 지원됩니다. 새 워크로드에 대해 Managed Disks를 사용하고 현재 워크로드를 Managed Disks로 마이그레이션하는 것이 좋습니다.
 
-
 **128GB 디스크를 만든 후 130GB로 크기를 증가시키려는 경우 다음 디스크 크기(256GB)에 대한 요금이 부과되나요?**
 
 예.
@@ -130,23 +129,24 @@ Azure Managed Disks에서는 현재 로컬 중복 저장소 Managed Disks만 지
 
 아니요.
 
+**BLOB에서 디스크를 만들 때 해당 원본 BLOB와 지속적으로 유지되는 관계가 있습니까?**
+
+아니요. 새로 생성되는 디스크는 그 당시의 완전 독립형 BLOB 복사본이며, 둘 사이에는 연결 관계가 없습니다. 원할 경우 디스크를 만들면 새로 생성되는 디스크에 어떤 식으로든 영향을 주지 않고 원본 BLOB가 삭제될 수 있습니다.
+
+**관리 또는 비관리 디스크가 생성된 후 이름을 변경할 수 있습니까?**
+
+관리 디스크의 이름은 변경할 수 없습니다. 하지만 현재 VHD 또는 VM에 연결되어 있지 않은 경우에 한해 비관리 디스크의 이름은 변경할 수 있습니다.
+
 ## <a name="standard-ssd-disks-preview"></a>표준 SSD 디스크(미리 보기)
 
 **Azure 표준 SSD 디스크란?**
 표준 SSD 디스크는 반도체 미디어에서 지원되며 더 낮은 IOPS 수준에서 일관된 성능을 필요로 하는 워크로드에 대해 비용 효율적인 저장소로 최적화된 표준 디스크입니다. 미리 보기에서는 제한된 수의 지역에서 제한된 관리 효율성으로 사용할 수 있습니다(Resource Manager 템플릿을 통해 사용 가능).
 
-<a id="standard-ssds-azure-regions"></a>**현재 표준 SSD 디스크(미리 보기)가 지원되는 지역**
-* 북유럽
-* 프랑스 중부
-* 미국 동부 2
-* 미국 중부
-* 캐나다 중부
-* 동아시아
-* 한국 남부
-* 오스트레일리아 동부
+<a id="standard-ssds-azure-regions"></a>**현재 표준 SSD 디스크가 지원되는 지역은 어디입니까?**
+이제 모든 Azure 지역에서 표준 SSD 디스크를 지원합니다.
 
 **표준 SSD 디스크를 만드는 방법**
-현재, Azure Resource Manager 템플릿을 사용하여 표준 SSD 디스크를 만들 수 있습니다. 다음은 Resource Manager 템플릿에서 표준 SSD 디스크를 만드는 데 필요한 매개 변수입니다.
+Azure Resource Manager 템플릿, SDK, PowerShell 또는 CLI를 사용하여 표준 SSD 디스크를 만들 수 있습니다. 다음은 Resource Manager 템플릿에서 표준 SSD 디스크를 만드는 데 필요한 매개 변수입니다.
 
 * Microsoft.Compute에 대한 *apiVersion*은 `2018-04-01` 이상으로 설정해야 합니다.
 * *managedDisk.storageAccountType*을 `StandardSSD_LRS`로 지정합니다.
@@ -171,17 +171,20 @@ Azure Managed Disks에서는 현재 로컬 중복 저장소 Managed Disks만 지
 예, 할 수 있습니다. Managed Disks로 변환하는 방법에 대한 일반 지침을 보려면 [Azure 관리 디스크 저장소를 표준에서 프리미엄으로, 또 그 반대로 변환](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/convert-disk-storage)을 참조하세요. 또한 다음 값을 사용하여 디스크 유형을 표준 SSD로 업데이트하세요.
 -AccountType StandardSSD_LRS
 
+**HDD 대신 표준 SSD 디스크를 사용할 경우의 이점은 무엇입니까?**
+표준 SSD 디스크는 HDD 디스크에 비해 더 빠른 대기 시간과 더 나은 일관성, 가용성 및 안정성을 제공합니다. 따라서 응용 프로그램 워크로드가 표준 SSD에서 훨씬 더 원활하게 실행됩니다. 프리미엄 SSD 디스크는 가장 IO 사용량이 많은 프로덕션 워크로드에 권장되는 솔루션입니다. 
+
 **표준 SSD를 관리되지 않는 디스크로 사용할 수 있나요?**
 아니요. 표준 SSD 디스크는 Managed Disks로만 사용할 수 있습니다.
 
 **표준 SSD 디스크가 "단일 인스턴스 VM SLA"를 지원하나요?**
 아니요. 표준 SSD에는 단일 인스턴스 VM SLA가 없습니다. 단일 인스턴스 VM SLA에는 프리미엄 SSD 디스크를 사용합니다.
 
-## <a name="migrate-to-managed-disks"></a>Managed Disks로 마이그레이션 
+## <a name="migrate-to-managed-disks"></a>Managed Disks로 마이그레이션
 
 **Managed Disks로 마이그레이션하기 전/후에 기존 Azure Backup 서비스 구성에 어떤 변경이 필요한가요?**
 
-변경할 필요가 없습니다. 
+변경할 필요가 없습니다.
 
 **마이그레이션 전에 Azure Backup 서비스를 통해 만든 내 VM 백업은 계속 작동하나요?**
 
@@ -189,15 +192,15 @@ Azure Managed Disks에서는 현재 로컬 중복 저장소 Managed Disks만 지
 
 **Managed Disks로 마이그레이션하기 전/후에 기존 Azure Disk Encryption 구성에 어떤 변경이 필요한가요?**
 
-변경할 필요가 없습니다. 
+변경할 필요가 없습니다.
 
 **기존 VM Scale Sets가 관리되지 않는 디스크에서 Managed Disks로 자동으로 마이그레이션되도록 지원되나요?**
 
-아니요. 관리되지 않는 디스크에서 이전 확장 집합의 이미지를 사용하여 Managed Disks로 새 확장 집합을 만들 수 있습니다. 
+아니요. 관리되지 않는 디스크에서 이전 확장 집합의 이미지를 사용하여 Managed Disks로 새 확장 집합을 만들 수 있습니다.
 
 **Managed Disks로 마이그레이션하기 전에 페이지 Blob 스냅숏에서 Managed Disks를 만들 수 있나요?**
 
-아니요. 페이지 blob 스냅숏을 페이지 blob으로 내보내고 내보낸 페이지 blob에서 Managed Disks를 만들 수 있습니다. 
+아니요. 페이지 blob 스냅숏을 페이지 blob으로 내보내고 내보낸 페이지 blob에서 Managed Disks를 만들 수 있습니다.
 
 **Azure Site Recovery에 의해 보호되는 온-프레미스 컴퓨터를 Managed Disks가 있는 VM으로 장애 조치(Failover)할 수 있나요?**
 
@@ -209,9 +212,9 @@ Azure Managed Disks에서는 현재 로컬 중복 저장소 Managed Disks만 지
 
 **Managed Disks에 이전에 암호화된 저장소 계정에 있는 관리되지 않는 디스크가 있는 VM을 마이그레이션할 수 있나요?**
 
-예
+yes
 
-## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks 및 Storage 서비스 암호화 
+## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks 및 Storage 서비스 암호화
 
 **Managed Disk를 만들 경우 Azure Storage 서비스 암호화를 기본적으로 사용하나요?**
 
@@ -246,7 +249,7 @@ Azure Portal, Azure CLI 및 PowerShell에서 Managed Disk를 만든 시간을 �
 
 **Managed Disks에 이전에 암호화된 저장소 계정에 있는 관리되지 않는 디스크가 있는 VM을 변환할 수 있나요?**
 
-예
+yes
 
 **Managed Disk 또는 스냅숏에서 내보낸 VHD도 암호화되나요?**
 

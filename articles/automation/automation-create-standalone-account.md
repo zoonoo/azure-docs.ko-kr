@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 77d766358135f5cdabfe7e9b62e54513c2604ed3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 021ab6cd29634c2e2f17234e188edce2a14449cf
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193569"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42144311"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>독립 실행형 Azure Automation 계정 만들기
 
@@ -41,7 +41,7 @@ Automation 계정을 만들거나 업데이트하고 이 문서에서 설명한 
 
 사용자는 구독의 전역 관리자/공동 관리자 역할에 추가되기 전에 해당 구독의 Active Directory 인스턴스에 속한 멤버가 아닌 경우 Active Directory에 게스트로 추가됩니다. 이 시나리오에서는 **Automation 계정 추가** 페이지에 "만들 수 있는 권한이 없습니다."라는 메시지가 표시됩니다.
 
-사용자가 전역 관리자/공동 관리자 역할에 먼저 추가된 경우, 구독의 Active Directory 인스턴스에서 제거한 다음 Active Directory의 전체 사용자 역할에 다시 추가할 수 있습니다.
+사용자가 글로벌 관리자/공동 관리자 역할에 먼저 추가된 경우, 구독의 Active Directory 인스턴스에서 제거한 다음, Active Directory의 전체 사용자 역할에 다시 추가할 수 있습니다.
 
 사용자 역할을 확인하려면 다음을 수행합니다.
 
@@ -68,7 +68,7 @@ Azure Portal에서 Azure Automation 계정을 만들려면 다음 단계를 완�
   >
   > ![Automation 계정 경고 추가](media/automation-create-standalone-account/create-account-without-perms.png)
   >
-1. **Automation 계정 추가** 창의 **이름** 상자에 새 Automation 계정의 이름을 입력합니다.
+1. **Automation 계정 추가** 창의 **이름** 상자에 새 Automation 계정의 이름을 입력합니다. 이 이름은 선택 후 변경할 수 없습니다.
 1. 구독이 하나 이상인 경우는 **구독** 상자에서 새 계정에 사용하려는 구독을 지정합니다.
 1. **리소스 그룹**에서 기존 또는 새 리소스 그룹을 입력하거나 선택합니다.
 1. **위치**에서 Azure 데이터 센터 위치를 선택합니다.
@@ -86,7 +86,7 @@ Azure Portal에서 Azure Automation 계정을 만들려면 다음 단계를 완�
 
 ### <a name="resources-included"></a>포함된 리소스
 
-Automation 계정이 성공적으로 만들어지면 몇 가지 리소스가 자동으로 만들어집니다. 만든 Runbook을 유지하지 않으려는 경우 안전하게 삭제할 수 있습니다. 실행 계정은 Runbook에서 사용자 계정으로 인증하는 데 사용할 수 있으며 다른 실행 계정을 만들거나 필요 없는 상황이 아니라면 남겨두는 것이 좋습니다. 다음 표에는 실행 계정에 대한 리소스가 요약되어 있습니다.
+Automation 계정이 성공적으로 만들어지면 몇 가지 리소스가 자동으로 만들어집니다. 이러한 Runbook을 만든 후 유지하지 않으려는 경우 안전하게 삭제할 수 있습니다. 실행 계정은 Runbook에서 사용자 계정으로 인증하는 데 사용할 수 있으며 다른 실행 계정을 만들거나 필요 없는 상황이 아니라면 남겨두는 것이 좋습니다. 다음 표에는 실행 계정에 대한 리소스가 요약되어 있습니다.
 
 | 리소스 | 설명 |
 | --- | --- |

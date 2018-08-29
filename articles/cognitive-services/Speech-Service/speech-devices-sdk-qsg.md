@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 266315a731eec8a2c0ab0a880ce9e1db58331184
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 463a015b7c01dafc5b30de56b95fa0510ffb98e4
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283139"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42424372"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Speech Devices SDK 시작
 
@@ -44,11 +44,11 @@ Speech Devices SDK로 개발을 시작하기 전에 필요한 정보와 소프�
 
 ## <a name="set-up-the-development-kit"></a>개발 키트 설정
 
-1. 개발 키트의 전원 어댑터를 꽂습니다. 상단 보드 아래에서 녹색 전원 표시기가 켜집니다.
+1. PC 또는 전원 어댑터에 연결된 미니 USB 케이블을 사용하여 개발 키트의 전원을 켭니다. 상단 보드 아래에서 녹색 전원 표시기가 켜집니다.
 
-1. 미니 USB 케이블을 사용하여 개발 키트를 컴퓨터에 연결합니다.
+1. 두 번째 미니 USB 케이블을 사용하여 개발 키트를 컴퓨터에 연결합니다.
 
-    ![개발 키트 연결](media/speech-devices-sdk/qsg-1.jpg)
+    ![개발 키트 연결](media/speech-devices-sdk/qsg-1.png)
 
 1. 개발 키트 방향을 적절히 조정합니다.
 
@@ -57,7 +57,7 @@ Speech Devices SDK로 개발을 시작하기 전에 필요한 정보와 소프�
     |순환|수직, 마이크가 천장을 향함|
     |선형|측면, 마이크가 사용자를 향함(아래 표시)|
 
-    ![선형 개발 키트 방향](media/speech-devices-sdk/qsg-2.jpg)
+    ![선형 개발 키트 방향](media/speech-devices-sdk/qsg-2.png)
 
 1. 인증서 및 절전 모드 해제 단어(키워드) 표 파일을 설치하고 사운드 장치의 사용 권한을 설정합니다. 명령 창에서 다음 명령을 입력합니다.
 
@@ -82,9 +82,22 @@ Speech Devices SDK로 개발을 시작하기 전에 필요한 정보와 소프�
 
 1.  사용자 장치가 "장치 선택" 아래에 표시되어야 합니다. 옆에 있는 **보기** 단추를 클릭합니다. 
  
-1.  **설정**을 클릭한 후 **WLAN**을 클릭하여 무선 네트워크에 연결합니다.
+1.  폴더 아이콘, **설정**, **WLAN**을 차례로 클릭하여 무선 네트워크에 연결합니다.
 
     ![Vysor WLAN](media/speech-devices-sdk/qsg-4.png)
+ 
+ > [!NOTE]
+ > Wi-Fi 시스템에 장치를 연결하는 것과 관련된 정책이 회사에 있는 경우 Mac 주소를 얻고 Wi-Fi 시스템에 연결하는 방법에 대해 IT 부서에 문의해야 합니다. 개발 키트의 Mac 주소를 찾으려면 개발 키트의 바탕 화면에 있는 파일 폴더 아이콘을 클릭한 다음, **설정**에서 "Mac 주소"를 검색하고, **Mac 주소**를 클릭하여 **고급 WLAN**에 들어갑니다. 아래쪽에 있는 Mac 주소를 적어 두세요. 또한 일부 회사에는 Wi-Fi 시스템에 장치를 연결하는 데 허용되는 시간 제한이 있을 수 있습니다. 개발 키트의 Wi-Fi 시스템에 대한 등록을 특정 기간(일) 후로 연장해야 할 수도 있습니다.  
+ 
+ 
+   ![Vysor 파일 폴더](media/speech-devices-sdk/qsg-10.png)
+   
+   ![Vysor Mac 주소](media/speech-devices-sdk/qsg-11.png)
+   
+   
+ > 개발 키트에 스피커를 연결하려면 오디오 라인 출력에 연결할 수 있습니다. 고품질 3.5mm 스피커도 선택해야 합니다.
+ 
+   ![Vysor 오디오](media/speech-devices-sdk/qsg-14.png)
  
 ## <a name="run-a-sample-application"></a>샘플 응용 프로그램 실행
 
@@ -126,7 +139,7 @@ Roobo 테스트를 실행하고 개발 키트 설치가 유효한지 확인하�
         exit
         ```
 
-    * 파일 `kws.table`, `kws_g.fst`, `kws_k.fst` 및 `words_kw.txt`를 장치의 \data\keyword\ 폴더에 복사합니다. 명령 창에서 다음 명령을 실행합니다.
+    * 파일 `kws.table`, `kws_g.fst`, `kws_k.fst` 및 `words_kw.txt`를 장치의 \data\keyword\ 폴더에 복사합니다. 명령 창에서 다음 명령을 실행합니다. [사용자 지정 절전 모드 해제 단어](speech-devices-sdk-create-kws.md)를 만든 경우 웹에서 생성된 kws.table 파일은 `kws.table`, `kws_g.fst`, `kws_k.fst` 및 `words_kw.txt` 파일과 동일한 디렉터리에 있습니다. 대신 adb push C:\SDSDK\Android-Sample-Release\keyword\[wake_word_name]\kws.table /data/keyword 명령을 사용하여 kws.table 파일을 개발 키트로 푸시합니다.
 
         ```
         adb push C:\SDSDK\Android-Sample-Release\keyword\kws.table /data/keyword
@@ -179,7 +192,11 @@ Roobo 테스트를 실행하고 개발 키트 설치가 유효한지 확인하�
 
 ## <a name="troubleshooting"></a>문제 해결
 
-Speech Service를 사용할 때 인증서 오류가 발생하면 장치의 날짜와 시간이 올바른지 확인합니다.
+Speech Service를 사용할 때 인증서 오류가 발생하면 장치의 날짜와 시간이 올바른지 확인합니다. **설정**으로 이동하고, [시스템] 아래에서 **날짜 및 시간**을 클릭하고, **표준 시간대 선택**을 현재 표준 시간대로 설정합니다. **자동 날짜 및 시간**은 켜기(ON)로 유지합니다. 개발 키트의 시간이 PC의 시간과 일치하면 개발 키트가 인터넷에 연결되어 있음을 알 수 있습니다. 
+
+ ![Vysor 파일 폴더](media/speech-devices-sdk/qsg-12.png)
+ 
+ ![Vysor 파일 폴더](media/speech-devices-sdk/qsg-13.png)
 
 추가 개발 정보를 보려면 Roobo [개발 가이드](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf)를 참조하세요.
 

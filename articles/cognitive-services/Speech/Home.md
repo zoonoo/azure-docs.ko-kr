@@ -1,5 +1,5 @@
 ---
-title: Microsoft Speech Service | Microsoft Docs
+title: Microsoft Bing Speech Service | Microsoft Docs
 description: Microsoft Speech API를 사용하여 사용자와의 실시간 상호 작용을 포함하여 앱에 음성 기반 작업을 추가합니다.
 services: cognitive-services
 author: zhouwangzw
@@ -9,19 +9,22 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
-ms.openlocfilehash: c041132e992f07e94e4b6669ec7ce174f7c2d0dd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ee328145419aaf8962c08bca2fb9cf1a42daae0c
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373838"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42099881"
 ---
-# <a name="microsoft-speech-api-overview"></a>Microsoft Speech API 개요
+# <a name="microsoft-bing-speech-api-overview"></a>Microsoft Bing Speech API 개요
 
-클라우드 기반 Microsoft Speech API를 사용하면 개발자가 음성 명령 제어, 자연스러운 음성 대화를 사용하는 사용자 대화 및 음성 전사/받아쓰기와 같이 응용 프로그램에서 강력한 음성 사용 기능을 쉽게 만들 수 있습니다. Microsoft Speech API는 *Speech to Text* 및 *Text to Speech* 변환을 모두 지원합니다.
+클라우드 기반 Microsoft Bing Speech API를 사용하면 개발자가 음성 명령 제어, 자연스러운 음성 대화를 사용하는 사용자 대화 및 음성 전사/받아쓰기와 같이 응용 프로그램에서 강력한 음성 사용 기능을 쉽게 만들 수 있습니다. Microsoft Speech API는 *Speech to Text* 및 *Text to Speech* 변환을 모두 지원합니다.
 
 - **Speech to Text**(음성 - 텍스트 변환) API는 인간의 음성을 텍스트로 변환하여 응용 프로그램을 제어하기 위한 입력 또는 명령으로 사용할 수 있습니다.
 - **Text to Speech**(텍스트 음성 변환) API는 텍스트를 오디오 스트림으로 변환하여 응용 프로그램 사용자에게 재생할 수 있습니다.
+
+> [!NOTE] 
+> 2018년 5월 공개 미리 보기에서 새 [Speech Service](/speech-service/overview.md)가 릴리스되었습니다. [체험 평가판을 사용해 보세요](/speech-service/get-started.md).
 
 ## <a name="speech-to-text-speech-recognition"></a>음성 - 텍스트 변환(음성 인식)
 
@@ -32,10 +35,10 @@ Microsoft Speech Recognition API는 오디오 스트림을 응용 프로그램�
 
 | 사용 사례 | [REST API](GetStarted/GetStartedREST.md) | [클라이언트 라이브러리](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| 중간 결과가 없는 짧은 음성 오디오(예: 오디오 길이가 15초 미만인 명령) 변환 | 예 | 예 |
-| 긴 오디오(15초 초과) 변환 | 아니오 | 예 |
-| 중간 결과가 필요한 오디오 스트림 | 아니오 | 예 |
-| LUIS를 사용하여 오디오에서 변환된 텍스트 인식 | 아니오 | 예 |
+| 중간 결과가 없는 짧은 음성 오디오(예: 오디오 길이가 15초 미만인 명령) 변환 | yes | yes |
+| 긴 오디오(15초 초과) 변환 | 아니요 | yes |
+| 중간 결과가 필요한 오디오 스트림 | 아니요 | yes |
+| LUIS를 사용하여 오디오에서 변환된 텍스트 인식 | 아니요 | yes |
 
 개발자가 REST API와 클라이언트 라이브러리 중에서 어느 것을 선택하든 Microsoft Speech Service에서 지원하는 항목은 다음과 같습니다.
 
@@ -43,7 +46,7 @@ Microsoft Speech Recognition API는 오디오 스트림을 응용 프로그램�
 - 실시간 연속 인식. 음성 인식 API를 사용하면 오디오를 텍스트로 실시간으로 전사할 수 있으며, 지금까지 인식된 단어에 대한 중간 결과를 받을 수 있습니다. 음성 끝 감지도 음성 서비스에서 지원합니다. 또한 사용자는 대문자 표시/문장 부호, 불경한 언어 마스킹 및 텍스트 정규화와 같은 추가 형식 지정 기능을 선택할 수 있습니다.
 - *대화형*, *대화* 및 *받아쓰기* 시나리오에 최적화된 음성 인식 결과를 지원합니다. 사용자 지정 언어 모델과 음향 모델이 필요한 사용자 시나리오의 경우 [Custom Speech Service](../custom-speech-service/cognitive-services-custom-speech-home.md)를 사용하면 응용 프로그램과 사용자에 맞게 조정된 음성 모델을 만들 수 있습니다.
 - 여러 방언으로 된 다양한 음성 언어를 지원합니다. 각 인식 모드에서 지원되는 언어의 전체 목록은 [인식 언어](api-reference-rest/supportedlanguages.md)를 참조하세요.
-- 언어 인식과의 통합. *Speech to Text*는 입력 오디오를 텍스트로 변환하는 것 외에도 텍스트의 의미를 인식하는 추가 기능을 응용 프로그램에 제공합니다. [LUIS(Language Understanding Intelligent Service)](../LUIS/Home.md)를 사용하여 인식된 텍스트에서 의도와 엔터티를 추출합니다.
+- 언어 인식과의 통합. *Speech to Text*는 입력 오디오를 텍스트로 변환하는 것 외에도 텍스트의 의미를 인식하는 추가 기능을 응용 프로그램에 제공합니다. [LUIS(Language Understanding Intelligent Service)](../LUIS/what-is-luis.md)를 사용하여 인식된 텍스트에서 의도와 엔터티를 추출합니다.
 
 ### <a name="next-steps"></a>다음 단계
 

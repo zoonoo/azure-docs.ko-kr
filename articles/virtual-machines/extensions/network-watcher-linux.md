@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: db508e2311602a66a2c252ffaa842f8bfb4f670b
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 22b18f77b3d997cdba7b60b53f1968b516701cc1
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076074"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141793"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Linux용 Network Watcher 에이전트 가상 머신 확장
 
@@ -28,7 +28,7 @@ ms.locfileid: "34076074"
 
 [Azure Network Watcher](/azure/network-watcher/)는 Azure 네트워크에 대한 모니터링을 허용하는 네트워크 성능 모니터링, 진단 및 분석 서비스입니다. Network Watcher 에이전트 VM(가상 머신) 확장은 요청 시 네트워크 트래픽 캡처 및 기타 고급 기능 등 Azure VM에서 Network Watcher 일부 기능을 위한 요구 사항입니다.
 
-이 아티클에서는 Linux용 Network Watcher 에이전트 VM 확장에 대해 지원되는 플랫폼 및 배포 옵션을 설명합니다. 에이전트 설치는 VM을 중단하거나, 다시 부팅이 필요하지 않습니다.
+이 아티클에서는 Linux용 Network Watcher 에이전트 VM 확장에 대해 지원되는 플랫폼 및 배포 옵션을 설명합니다. 에이전트 설치는 VM을 중단하거나, 다시 부팅이 필요하지 않습니다. 배포하는 가상 머신에 확장을 배포할 수 있습니다. 가상 머신이 Azure 서비스에서 배포되는 경우 가상 머신에서 확장 설치의 허용 여부를 결정하는 서비스에 대한 설명서를 확인합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -40,7 +40,7 @@ Network Watcher 에이전트 확장은 다음 Linux 배포판에 대해 구성�
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS 및 12.04 LTS |
 | Debian | 7 및 8 |
-| RedHat | 6 및 7 |
+| Red Hat | 6 및 7 |
 | Oracle Linux | 6.8+ 및 7 |
 | SUSE Linux Enterprise Server | 11 및 12 |
 | OpenSUSE Leap | 42.3+ |

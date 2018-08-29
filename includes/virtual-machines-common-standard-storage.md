@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: 4e62342a32456787863da775ea98df178ab1d559
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 70f80b880fadaeb4d5859524b3ba3b55ececbdda
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34806301"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40260507"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>비용 효율적인 Standard Storage와 관리되지 않는 Azure VM 디스크 및 관리 Azure VM 디스크
 
@@ -42,7 +42,7 @@ Managed Disks로 VM을 만드는 방법에 대한 자세한 내용은 다음 문
 
 Standard Storage의 기능 중 일부를 살펴보겠습니다. 자세한 내용은 [Azure Storage 소개](../articles/storage/common/storage-introduction.md)를 참조하세요.
 
-**Standard Storage**: Azure Standard Storage는 Azure Disks, Azure Blobs, Azure Files, Azure Tables 및 Azure Queues를 지원합니다. 표준 저장소 서비스를 사용하려면 [Azure Storage 계정 만들기](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)에서 시작하세요.
+**Standard Storage**: Azure Standard Storage는 Azure Disks, Azure Blobs, Azure Files, Azure Tables 및 Azure Queues를 지원합니다. 표준 저장소 서비스를 사용하려면 [Azure Storage 계정 만들기](../articles/storage/common/storage-quickstart-create-account.md)에서 시작하세요.
 
 **표준 SSD 디스크:** 표준 SSD 디스크는 HDD 표준 디스크보다 더 안정적인 성능을 제공하며, 현재 미리 보기로 사용할 수 있습니다. 표준 SSD 디스크의 지역 가용성에 대한 자세한 내용은 [표준 SSD 디스크(미리 보기)의 지역 가용성](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions)을 참조하세요.
 
@@ -119,7 +119,12 @@ Standard Storage를 사용하는 경우 다음과 같은 청구 고려 사항이
 
 **관리되지 않는 저장소 데이터 및 디스크 크기:** 관리되지 않는 디스크 및 기타 데이터(Blob, 테이블, 큐 및 파일)의 경우 사용하는 공간의 양에 대해서만 요금이 청구됩니다. 예를 들어 VM의 페이지 Blob이 127GB로 프로비전되었는데 VM이 실제로 10GB의 공간만을 사용한다면 10GB의 공간에 대해서만 요금이 청구됩니다. 표준 저장소를 최대 8191GB까지, 표준 관리되지 않는 디스크를 최대 4095GB까지 지원합니다. 
 
-**Managed Disks:** Managed Disks는 프로비전된 크기에 따라 요금이 청구됩니다. 디스크가 10GB 디스크로 프로비전된 경우 5GB만 사용하더라도 프로비전된 크기 즉, 10GB에 대해 요금이 청구됩니다.
+**관리 디스크**: 표준 관리 디스크에 대한 요금 청구는 프로비전된 디스크 크기에 따라 달라집니다. Azure는 프로비전된 크기(올림)를 아래 테이블에 지정된 대로 가장 가까운 Managed Disks 옵션에 매핑합니다. 각각의 관리 디스크는 지원되는 프로비전된 크기 중 하나에 매핑되고 그에 따라 요금이 청구됩니다. 예를 들어 표준 관리 디스크를 만들고 프로비전된 크기를 200GiB로 지정하면 S15 디스크 유형의 가격에 따라 요금이 청구됩니다.
+
+| **표준 HDD 관리 <br>디스크 유형** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------| 
+| 디스크 크기        | 32GiB  | 64GiB  | 128GiB | 256GiB | 512GiB | 1024GiB(1TiB) | 2048GiB(2TiB) | 4095GiB(4TiB) | 
+
 
 **스냅숏**: 표준 디스크의 스냅숏은 스냅숏에 사용된 추가 용량에 대해 요금이 청구됩니다. 스냅숏에 대한 자세한 내용은 [Blob의 스냅숏 만들기](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)를 참조하세요.
 

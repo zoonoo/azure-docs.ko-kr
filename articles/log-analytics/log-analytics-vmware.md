@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 6ba37a026a3c8f50fa47b0775a2ad49ee75f2769
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b6078ac326fe51f4198137eec2de728b6036c271
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424650"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141778"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Log Analytics의 VMware 모니터링(미리 보기) 솔루션
 
@@ -36,7 +36,7 @@ Log Analytics VMware 모니터링 솔루션은 대규모 VMware 로그에 적합
 ## <a name="install-and-configure-the-solution"></a>솔루션 설치 및 구성
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
 
-* [관리 솔루션 추가](log-analytics-add-solutions.md#add-a-management-solution)에 설명된 프로세스를 사용하여 구독에 VMware 모니터링 솔루션을 추가합니다.
+* [관리 솔루션 설치](../monitoring/monitoring-solutions.md#install-a-management-solution)에 설명된 프로세스를 사용하여 구독에 VMware 모니터링 솔루션을 추가합니다.
 
 #### <a name="supported-vmware-esxi-hosts"></a>지원되는 VMware ESXi 호스트
 vSphere ESXi 호스트 5.5, 6.0 및 6.5
@@ -199,7 +199,7 @@ Syslog 타임스탬프에 대한 ESXi 호스트 버그가 있었습니다. 자�
 
     a. `ps -ef | grep oms`를 사용하여 OM 에이전트가 실행 중인지 확인합니다. 실행되고 있지 않은 경우 ` sudo /opt/microsoft/omsagent/bin/service_control start` 명령을 실행하여 프로세스를 시작합니다.
 
-    나. `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` 파일을 엽니다.
+    b. `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` 파일을 엽니다.
 
     다. 적절한 사용자 및 그룹 설정이 유효한지 확인합니다(`-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`와 유사함).
 

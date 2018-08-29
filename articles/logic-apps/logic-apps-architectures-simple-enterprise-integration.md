@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 982a5eabf8c6c3012a9b3e8fdbe2ff32ba439972
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: f73a9e59c0add664128b506172182afe566ca670
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113595"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444513"
 ---
 # <a name="reference-architecture-simple-enterprise-integration"></a>참조 아키텍처: 간단한 엔터프라이즈 통합
 
@@ -38,9 +38,9 @@ ms.locfileid: "39113595"
 - **Azure API Management 개발자 포털**. Azure API Management의 각 인스턴스에는 [개발자 포털](https://docs.microsoft.com/azure/api-management/api-management-customize-styles)에 대한 액세스가 제공됩니다. API Management 개발자 포털을 사용하여 문서 및 코드 샘플에 액세스할 수 있습니다. 개발자 포털에서 API를 테스트할 수도 있습니다.
 - **Azure Logic Apps**. [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)는 서버리스 플랫폼으로, 엔터프라이즈 워크플로 및 통합을 빌드하는 데 사용됩니다.
 - **커넥터**. Logic Apps는 [커넥터](https://docs.microsoft.com/azure/connectors/apis-list)를 사용하여 일반적으로 사용되는 서비스에 연결합니다. Logic Apps에는 이미 수백 개의 다양한 커넥터가 있지만 사용자 지정 커넥터를 만들 수도 있습니다.
-- **IP 주소**. Azure API Management 서비스에는 고정된 공용 [IP 주소](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)와 도메인 이름이 있습니다. 도메인 이름은 azure-api.net의 하위 도메인(예: contoso.azure-api.net)입니다. Logic Apps 및 Service Bus에도 공용 IP 주소가 있습니다. 그러나 이 아키텍처에서는 보안상 API Management의 IP 주소에서만 Logic Apps 끝점을 호출할 수 있습니다. Service Bus 호출은 SAS(공유 액세스 서명)로 보호됩니다.
+- **IP 주소**. Azure API Management 서비스에는 고정된 공용 [IP 주소](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)와 도메인 이름이 있습니다. 주 도메인 이름은 azure-api.net의 하위 도메인(예: contoso.azure-api.net)이지만 [사용자 지정 도메인](https://docs.microsoft.com/azure/api-management/configure-custom-domain)도 구성할 수 있습니다. Logic Apps 및 Service Bus에도 공용 IP 주소가 있습니다. 그러나 이 아키텍처에서는 보안상 API Management의 IP 주소에서만 Logic Apps 엔드포인트를 호출할 수 있습니다. Service Bus 호출은 SAS(공유 액세스 서명)로 보호됩니다.
 - **Azure DNS**. [Azure DNS](https://docs.microsoft.com/azure/dns/)는 DNS 도메인에 대한 호스팅 서비스입니다. Azure DNS는 Microsoft Azure 인프라를 사용하여 이름 확인을 제공합니다. Azure에 도메인을 호스트하면 다른 Azure 서비스에 사용하는 것과 동일한 자격 증명, API, 도구 및 청구를 사용하여 DNS 레코드를 관리할 수 있습니다. 사용자 지정 도메인 이름(예: contoso.com)을 사용하려면 사용자 지정 도메인 이름을 IP 주소에 매핑하는 DNS 레코드를 만듭니다. 자세한 내용은 [API Management에서 사용자 지정 도메인 이름 구성](https://docs.microsoft.com/en-us/azure/api-management/configure-custom-domain)을 참조하세요.
-- **Azure AD(Azure Active Directory)**. 인증을 위해 [Azure AD](https://docs.microsoft.com/azure/active-directory/) 또는 다른 ID 공급자를 사용합니다. Azure AD는 유효성을 검사할 [API Management용 JSON Web Token](https://docs.microsoft.com/azure/api-management/policies/authorize-request-based-on-jwt-claims)을 전달하여 API 끝점 액세스에 대한 인증을 제공합니다. Azure AD는 API Management 개발자 포털에 대한 액세스를 보호할 수 있습니다(표준 및 프리미엄 계층만 해당).
+- **Azure AD(Azure Active Directory)**. 인증을 위해 [Azure AD](https://docs.microsoft.com/azure/active-directory/) 또는 다른 ID 공급자를 사용합니다. Azure AD는 유효성을 검사할 [API Management용 JSON Web Token](https://docs.microsoft.com/azure/api-management/policies/authorize-request-based-on-jwt-claims)을 전달하여 API 엔드포인트 액세스에 대한 인증을 제공합니다. Azure AD는 API Management 개발자 포털에 대한 액세스를 보호할 수 있습니다(표준 및 프리미엄 계층만 해당).
 
 이 아키텍처의 작동에는 기본적인 몇 가지 패턴이 있습니다.
 
@@ -161,7 +161,7 @@ API Management에서 비밀은 ‘명명된 값’ 또는 ‘속성’이라는 
 이 섹션에는 이 문서에서 설명된 Azure 서비스와 관련되고 설명한 대로 아키텍처에 배포된 보안 고려 사항이 나와 있습니다. 보안 모범 사례가 완전히 다 나와 있는 것은 아닙니다.
 
 - RBAC(역할 기반 액세스 제어)를 사용하여 사용자에게 적절한 수준의 액세스를 보장합니다.
-- OAuth/OpenID Connect를 사용하여 API Management에서 공용 API 끝점을 보호합니다. 공용 API 끝점을 보호하려면 ID 공급자를 구성하고 JWT(JSON Web Token) 유효성 검사 정책을 추가합니다.
+- OAuth/OpenID Connect를 사용하여 API Management에서 공용 API 엔드포인트를 보호합니다. 공용 API 엔드포인트를 보호하려면 ID 공급자를 구성하고 JWT(JSON Web Token) 유효성 검사 정책을 추가합니다.
 - 상호 인증서를 사용하여 API Management에서 백 엔드 서비스에 연결합니다.
 - API Management IP 주소를 가리키는 IP 주소 허용 목록을 만들어 HTTP 트리거 기반 논리 앱을 보호합니다. 허용 목록에 포함된 IP 주소는 먼저 API Management를 거치지 않고 공용 인터넷에서 논리 앱을 호출하지 않도록 방지합니다.
 

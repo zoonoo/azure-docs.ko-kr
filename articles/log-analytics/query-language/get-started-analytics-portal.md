@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics에서 분석 포털 시작 | Microsoft Docs
-description: 이 문서에서는 Analytics 포털을 사용하여 Log Analytics에서 쿼리를 작성하는 것에 대한 자습서를 제공합니다.
+title: Azure Portal에서 Log Analytics 페이지 시작 | Microsoft Docs
+description: 이 문서에서는 Log Analytics 페이지를 사용하여 쿼리를 작성하는 것에 대한 자습서를 제공합니다.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 08/20/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 6f6916b27aa251bc0a0c25be060378c11faab607
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 493497476fdfe7d96d6f2dde735bab0147e547a7
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39632910"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142681"
 ---
-# <a name="get-started-with-the-analytics-portal"></a>Analytics 포털 시작
+# <a name="get-started-with-the-log-analytics-page-in-the-azure-portal"></a>Azure Portal에서 Log Analytics 페이지 시작
 
-이 자습서에서는 Analytics 포털을 사용하여 Azure Log Analytics 쿼리를 작성하는 방법을 배웁니다. 다음을 수행하는 방법에 대해 알아봅니다.
+이 자습서에서는 Azure Portal에서 Log Analytics 페이지를 사용하여(현재 미리 보기 상태) Azure Log Analytics 쿼리를 작성하는 방법을 배웁니다. 다음을 수행하는 방법에 대해 알아봅니다.
 
 - 단순 쿼리 작성
 - 데이터의 스키마 이해
@@ -35,12 +35,12 @@ ms.locfileid: "39632910"
 - 쿼리 내보내기 및 공유
 
 
-## <a name="meet-the-analytics-portal"></a>Analytics 포털 둘러보기
-Analytics 포털은 Azure Log Analytics 쿼리를 작성하고 실행하는 데 사용되는 웹 도구입니다. 
+## <a name="meet-the-log-analytics-page"></a>Log Analytics 페이지 충족 
+Log Analytics 페이지는 Azure Log Analytics 쿼리를 작성하고 실행하는 데 사용되는 웹 도구입니다. Log Analytics 메뉴에서 **로그(미리 보기)** 를 선택하여 엽니다. 비어 있는 새 쿼리로 시작합니다.
 
 ![홈 페이지](media/get-started-analytics-portal/homepage.png)
 
-홈 페이지에서는 최근에 저장된 쿼리 및 예제와 같이 유용한 리소스에 손쉽게 액세스할 수 있습니다. 사용자 고유의 쿼리 작성을 시작하려면 새 탭을 엽니다.
+
 
 ## <a name="basic-queries"></a>기본 쿼리
 쿼리는 용어를 검색하고, 추세를 파악하고, 패턴을 분석하며 데이터에 따라 다른 많은 정보를 제공하는 데 사용할 수 있습니다. 기본 쿼리를 시작합니다.
@@ -83,7 +83,7 @@ search in (Event) "error"
 Event
 ```
 
-Analytics 포털은 다음을 기준으로 결과의 범위를 자동으로 정합니다.
+Log Analytics 페이지는 다음을 기준으로 결과의 범위를 자동으로 정합니다.
 
 - 시간 범위: 기본적으로 쿼리는 마지막 24시간으로 제한됩니다.
 - 결과 수: 결과는 최대 10,000개 레코드로 제한됩니다.
@@ -121,7 +121,7 @@ Analytics 포털은 다음을 기준으로 결과의 범위를 자동으로 정�
 
 
 ## <a name="select-a-time-range"></a>시간 범위 선택
-기본적으로 Analytics 포털은 _지난 24시간_ 시간 범위를 적용합니다. 다른 범위를 사용하려면 시간 선택기를 통해 다른 값을 선택하고 **실행**을 클릭합니다. 미리 설정된 값 외에도 쿼리에 대한 절대 범위를 선택하는 _사용자 지정 시간 범위_ 옵션을 사용할 수 있습니다.
+기본적으로 Log Analytics 페이지는 _지난 24시간_ 시간 범위를 적용합니다. 다른 범위를 사용하려면 시간 선택기를 통해 다른 값을 선택하고 **실행**을 클릭합니다. 미리 설정된 값 외에도 쿼리에 대한 절대 범위를 선택하는 _사용자 지정 시간 범위_ 옵션을 사용할 수 있습니다.
 
 ![시간 선택기](media/get-started-analytics-portal/time-picker.png)
 
@@ -183,7 +183,7 @@ Log Analytics 쿼리는 항상 선택한 작업 영역에 저장되고 해당 �
 ![쿼리 탐색기](media/get-started-analytics-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>링크로 내보내기 및 공유
-Analytics 포털은 여러 내보내기 메서드를 지원합니다.
+Log Analytics 페이지는 여러 내보내기 메서드를 지원합니다.
 
 - Excel: 결과를 CSV 파일로 저장합니다.
 - Power BI: Power BI에 결과를 내보냅니다. 자세한 내용은 [Azure Log Analytics 데이터를 Power BI로 가져오기](../log-analytics-powerbi.md)를 참조하세요.

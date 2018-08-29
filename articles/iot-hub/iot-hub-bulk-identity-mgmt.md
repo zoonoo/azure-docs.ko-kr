@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: 63e7fd5807f0cf6d05d81af138d649b75024d9bb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: aedf2d0012f5af8ea2eb8e944f06b20c7f1a6bb8
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634025"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42144070"
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>대량으로 IoT Hub 장치 ID를 관리합니다.
 
-각 IoT Hub에는 서비스에서 장치마다 리소스를 만드는 데 사용할 수 있는 ID 레지스트리가 있습니다. 또한 ID 레지스트리를 통해 장치 지향 끝점에 대한 액세스를 제어할 수 있습니다. 이 문서에서는 ID 레지스트리에서 장치 ID를 대량으로 가져오고 내보내는 방법에 대해 설명합니다.
+각 IoT Hub에는 서비스에서 장치마다 리소스를 만드는 데 사용할 수 있는 ID 레지스트리가 있습니다. 또한 ID 레지스트리를 통해 장치 지향 엔드포인트에 대한 액세스를 제어할 수 있습니다. 이 문서에서는 ID 레지스트리에서 장치 ID를 대량으로 가져오고 내보내는 방법에 대해 설명합니다.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -25,7 +25,7 @@ ms.locfileid: "34634025"
 
 **RegistryManager** 클래스는 **Job** 프레임워크를 사용하는 **ExportDevicesAsync** 및 **ImportDevicesAsync** 메서드를 포함합니다. 이러한 메서드를 사용하면 전체 IoT Hub ID 레지스트리를 내보내고, 가져오고, 동기화할 수 있습니다.
 
-이 항목에서는 **RegistryManager** 클래스 및 **Job** 시스템을 사용하여 IoT Hub의 ID 레지스트리로 장치를 대량으로 내보내거나 이러한 레지스트리에서 장치를 대량으로 가져오는 작업에 대해 설명합니다. 또한 Azure IoT Hub Device Provisioning 서비스를 사용하여 사용자 개입 없이, 하나 이상의 IoT Hub에 대해 무인 Just-In-Time 프로비저닝을 수행할 수도 있습니다. 자세한 내용은 [프로비저닝 서비스 설명서][lnk-dps]를 참조하세요.
+이 항목에서는 **RegistryManager** 클래스 및 **Job** 시스템을 사용하여 IoT Hub의 ID 레지스트리로 장치를 대량으로 내보내거나 이러한 레지스트리에서 장치를 대량으로 가져오는 작업에 대해 설명합니다. 또한 Azure IoT Hub Device Provisioning 서비스를 사용하여 사용자 개입 없이, 하나 이상의 IoT Hub에 대해 무인 Just-In-Time 프로비저닝을 수행할 수도 있습니다. 자세한 내용은 [프로비저닝 서비스 설명서](/azure/iot-dps)를 참조하세요.
 
 
 ## <a name="what-are-jobs"></a>작업이란?
@@ -33,6 +33,7 @@ ms.locfileid: "34634025"
 ID 레지스트리 작업은 다음 작업을 수행할 때 **작업** 시스템을 사용합니다.
 
 * 표준 런타임 작업에 비해 잠재적으로 실행 시간이 깁니다.
+
 * 사용자에게 많은 양의 데이터를 반환합니다.
 
 단일 API 호출을 기다리거나 작업 결과를 차단하는 대신에 작업은 비동기적으로 해당 IoT Hub에 대한 **작업**을 만듭니다. 그런 다음 즉시 **JobProperties** 개체를 반환합니다.
@@ -41,7 +42,8 @@ ID 레지스트리 작업은 다음 작업을 수행할 때 **작업** 시스템
 
 ```csharp
 // Call an export job on the IoT Hub to retrieve all devices
-JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasUri, false);
+JobProperties exportJob = await 
+  registryManager.ExportDevicesAsync(containerSasUri, false);
 ```
 
 > [!NOTE]
@@ -50,14 +52,18 @@ JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasU
 **RegistryManager** 클래스를 사용하면 반환된 **JobProperties** 메타데이터를 사용하는 **작업**의 상태를 쿼리할 수 있습니다. **RegistryManager** 클래스의 인스턴스를 만들려면 **CreateFromConnectionString** 메서드를 사용합니다.
 
 ```csharp
-RegistryManager registryManager = RegistryManager.CreateFromConnectionString("{your IoT Hub connection string}");
+RegistryManager registryManager =
+  RegistryManager.CreateFromConnectionString("{your IoT Hub connection string}");
 ```
 
 IoT Hub에 대한 연결 문자열을 찾으려면 Azure Portal에서 다음을 수행합니다.
 
 - IoT Hub로 이동
+
 - **공유 액세스 정책**을 선택합니다.
+
 - 필요한 사용 권한을 고려하여 정책을 선택합니다.
+
 - 화면 오른쪽의 패널에서 연결 문자열을 복사합니다.
 
 다음 C# 코드 조각은 매 5초마다 폴링하여 작업이 실행을 마쳤는지 여부를 확인하는 방법을 보여 줍니다.
@@ -90,7 +96,8 @@ while(true)
 * Blob 컨테이너의 URI가 포함된 *문자열* . 이 URI는 컨테이너에 대한 쓰기 액세스 권한을 부여하는 SAS 토큰을 포함해야 합니다. 작업은 직렬화된 내보내기 장치 데이터를 저장하기 위해 이 컨테이너에 블록 blob를 만듭니다. SAS 토큰은 이러한 사용 권한을 포함해야 합니다.
 
    ```csharp
-   SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
+   SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
+     | SharedAccessBlobPermissions.Delete
    ```
 
 * 내보내기 데이터에서 인증 키를 제외하려는지 여부를 나타내는 *부울* 값입니다. **false**인 경우 인증 키가 내보내기 출력에 포함됩니다. 그렇지 않으면 키는 **null**로 내보내집니다.
@@ -99,7 +106,8 @@ while(true)
 
 ```csharp
 // Call an export job on the IoT Hub to retrieve all devices
-JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasUri, false);
+JobProperties exportJob = 
+  await registryManager.ExportDevicesAsync(containerSasUri, false);
 
 // Wait until job is finished
 while(true)
@@ -129,7 +137,7 @@ while(true)
 {"id":"Device5","eTag":"MA==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"abc=","secondaryKey":"def="}}}
 ```
 
-장치에 쌍으로 된 데이터가 있는 경우 장치 데이터와 함께 내보내집니다. 다음 예제는 이러한 형식을 보여줍니다. "twinETag" 줄의 모든 데이터는 끝까지 쌍으로 된 데이터입니다.
+장치에 쌍으로 된 데이터가 있는 경우 해당 쌍 데이터를 장치 데이터와 함께 내보냅니다. 다음 예제는 이러한 형식을 보여줍니다. "twinETag" 줄의 모든 데이터는 끝까지 쌍으로 된 데이터입니다.
 
 ```json
 {
@@ -208,10 +216,12 @@ ID 레지스트리에 새 장치를 프로비전할 뿐만 아니라 기존 장�
    ```csharp
    SharedAccessBlobPermissions.Read
    ```
+
 * 작업에서 *출력*으로 사용할 [Azure Storage](https://azure.microsoft.com/documentation/services/storage/) blob 컨테이너의 URI가 포함된 *문자열*. 작업은 이 컨테이너에 완료된 가져오기 **작업**에서 나온 오류 정보를 저장하기 위한 블록 blob를 생성합니다. SAS 토큰은 이러한 사용 권한을 포함해야 합니다.
 
    ```csharp
-   SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Delete
+   SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
+     | SharedAccessBlobPermissions.Delete
    ```
 
 > [!NOTE]
@@ -220,7 +230,8 @@ ID 레지스트리에 새 장치를 프로비전할 뿐만 아니라 기존 장�
 다음 C# 코드 조각은 가져오기 작업을 시작하는 방법을 보여 줍니다.
 
 ```csharp
-JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
+JobProperties importJob = 
+   await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 ```
 
 장치 쌍에 데이터를 가져오는 데도 이 메서드를 사용할 수 있습니다. 데이터 입력의 형식은 **ExportDevicesAsync** 섹션에 나온 형식과 같습니다. 이러한 방식으로 내보낸 데이터를 다시 가져올 수 있습니다. **$metadata**는 선택 사항입니다.
@@ -308,7 +319,8 @@ using (CloudBlobStream stream = await blob.OpenWriteAsync())
 // Call import using the blob to add new devices
 // Log information related to the job is written to the same container
 // This normally takes 1 minute per 100 devices
-JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
+JobProperties importJob =
+   await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
 
 // Wait until job is finished
 while(true)
@@ -407,22 +419,14 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 이 문서에서는 IoT Hub의 ID 레지스트리에 대한 대량 작업을 수행하는 방법을 살펴보았습니다. Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 알아보려면 다음 링크를 따라가세요.
 
-* [IoT Hub 메트릭][lnk-metrics]
-* [작업 모니터링][lnk-monitor]
+* [IoT Hub 메트릭](iot-hub-metrics.md)
+* [작업 모니터링](iot-hub-operations-monitoring.md)
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-* [IoT Hub 개발자 가이드][lnk-devguide]
-* [Azure IoT Edge를 사용하여 에지 장치에 AI 배포][lnk-iotedge]
+* [IoT Hub 개발자 가이드](iot-hub-devguide.md)
+* [Azure IoT Edge를 사용하여 에지 장치에 AI 배포](../iot-edge/tutorial-simulate-device-linux.md)
 
 IoT Hub Device Provisioning 서비스를 사용하여 무인 Just-In-Time 프로비저닝을 수행하는 방법을 알아보려면 다음을 참조하세요. 
 
-* [Azure IoT Hub Device Provisioning 서비스][lnk-dps]
-
-
-[lnk-metrics]: iot-hub-metrics.md
-[lnk-monitor]: iot-hub-operations-monitoring.md
-
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
+* [Azure IoT Hub Device Provisioning 서비스](/azure/iot-dps)

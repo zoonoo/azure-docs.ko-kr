@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: b5028010953b9dbe2386c30e6fa05cc4a94cb971
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6a9b4fc5479dda58dd024cdf93cbdf4853f9c965
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185495"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42144912"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>X.509 CA 인증서를 사용하여 장치 인증
 
@@ -64,7 +64,7 @@ X.509 CA 인증서의 소유자는 암호화 방식으로 중간 CA에 서명하
 
 ## <a name="how-to-create-a-device-on-iot-hub"></a>IoT Hub에서 장치를 만드는 방법
 
-장치 가장을 차단하기 위해 IoT Hub 허브는 예상되는 장치를 알려줄 것을 요구합니다.  이를 위해 IoT Hub 장치 레지스트리에서 장치 항목을 만듭니다.  이 프로세스는 IoT Hub DPS([장치 프로비전 서비스](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/))를 사용하면 자동화됩니다. 
+장치 가장을 차단하기 위해 IoT Hub 허브는 예상되는 장치를 알려줄 것을 요구합니다.  이를 위해 IoT Hub 장치 레지스트리에서 장치 항목을 만듭니다.  이 프로세스는 IoT Hub [Device Provisioning 서비스](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/)를 사용하면 자동화됩니다. 
 
 여기에서는 [IoT Hub에서 수동으로 장치를 만드는](iot-hub-security-x509-get-started.md#createdevice) 방법을 알아봅니다.
 

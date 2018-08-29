@@ -80,8 +80,6 @@ items:
         href: physical-azure-architecture.md
       - name: Azure로 VMware 복제를 위한 다중 테넌트 지원
         href: vmware-azure-multi-tenant-overview.md
-      - name: 모바일 서비스 정보
-        href: vmware-azure-install-mobility-service.md
       - name: 장애 복구(failback) 위치 옵션
         href: concepts-types-of-failback.md
     - name: 보조 사이트로 복제
@@ -190,26 +188,26 @@ items:
       items:
       - name: PowerShell을 사용하여 Azure에 VMware 가상 머신 복제
         href: vmware-azure-disaster-recovery-powershell.md
-      - name: Azure에 대한 물리적 서버의 재해 복구
-        href: physical-azure-disaster-recovery.md
       - name: VMware VM에 대한 원본 환경 설정
         href: vmware-azure-set-up-source.md
-      - name: 물리적 서버에 대한 원본 환경 설정
-        href: physical-azure-set-up-source.md
       - name: VMware 복제를 위한 구성 서버 배포
         href: vmware-azure-deploy-configuration-server.md
       - name: VMware VM에 대한 대상 환경 설정
         href: vmware-azure-set-up-target.md
-      - name: 물리적 서버에 대한 대상 환경 설정
-        href: physical-azure-set-up-target.md
       - name: 복제 설정 구성
         href: vmware-azure-set-up-replication.md
-      - name: 복제에서 디스크 제외
-        href: vmware-azure-exclude-disk.md
       - name: VMware VM 복제 사용
         href: vmware-azure-enable-replication.md
+      - name: 복제에서 디스크 제외
+        href: vmware-azure-exclude-disk.md
       - name: CSP를 통한 다중 테넌트 VMWare VM 복제
         href: vmware-azure-multi-tenant-csp-disaster-recovery.md
+      - name: 물리적 서버에 대한 원본 환경 설정
+        href: physical-azure-set-up-source.md
+      - name: 물리적 서버에 대한 대상 환경 설정
+        href: physical-azure-set-up-target.md
+      - name: Azure에 대한 물리적 서버의 재해 복구
+        href: physical-azure-disaster-recovery.md
     - name: 모바일 서비스 배포
       items:
       - name: 모바일 서비스 개요
@@ -218,24 +216,24 @@ items:
         href: vmware-azure-mobility-install-configuration-mgr.md
     - name: 장애 조치 및 장애 복구
       items:
-      - name: Azure로 재해 복구 훈련 실행
-        href: site-recovery-test-failover-to-azure.md
       - name: 복구 계획 설정
         href: site-recovery-create-recovery-plans.md
       - name: Azure Runbook을 복구 계획에 추가
         href: site-recovery-runbook-automation.md
+      - name: Azure로 재해 복구 훈련 실행
+        href: site-recovery-test-failover-to-azure.md
+      - name: Azure에 대한 장애 조치(Failover) 실행
+        href: site-recovery-failover.md
+      - name: Azure에서 온-프레미스 VMware로 다시 보호
+        href: vmware-azure-reprotect.md
+      - name: Azure에서 VMware로 장애 복구(failback)
+        href: vmware-azure-failback.md
       - name: Azure의 장애 복구(failback) 프로세스 서버 설정 및 관리
         href: vmware-azure-set-up-process-server-azure.md
       - name: 장애 복구(failback)를 위해 Linux 마스터 대상 서버 설정
         href: vmware-azure-install-linux-master-target.md
-      - name: Azure에 대한 장애 조치(Failover) 실행
-        href: site-recovery-failover.md
       - name: 물리적 서버에 대한 장애 조치(failover) 및 장애 복구(failback) 실행
         href: physical-to-azure-failover-failback.md
-      - name: Azure에서 VMware로 장애 복구(failback)
-        href: vmware-azure-failback.md
-      - name: Azure에서 온-프레미스 VMware로 다시 보호
-        href: vmware-azure-reprotect.md
     - name: 관리
       items:
       - name: VMware 복제를 위한 구성 서버 관리
@@ -390,9 +388,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: 서비스 업데이트
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: cdc1990f71a38e7e0740456ccc8fb82e8ed1b5f9
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: f0469d554b25565411bb8c484f3d3937bb9a87f6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42914921"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126073"

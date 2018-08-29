@@ -6,15 +6,15 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 08/17/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c65cfec41c2002fd4d4ff27ea74daf0bb4246b5f
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: b5adf161c99ebe6d7b8b2d7b0c7b5b73c67bec02
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145600"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143906"
 ---
 # <a name="deploy-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 HTTPS 수신 컨트롤러 배포
 
@@ -51,6 +51,40 @@ eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none> 
 수신 규칙은 아직 생성되지 않았습니다. 공용 IP 주소로 이동하면, NGINX 수신 컨트롤러의 기본 404 페이지가 다음 예제와 같이 표시됩니다.
 
 ![기본 NGINX 백 엔드](media/ingress/default-back-end.png)
+
+### <a name="use-an-existing-static-public-ip-address"></a>기존 고정 공용 IP 주소 사용
+
+이전 `helm install` 단계에서 NGINX 수신 컨트롤러를 새로운 동적 공용 IP 주소 할당을 사용하여 만들었습니다. 일반적인 구성 요구 사항은 기존 *고정* 공용 IP 주소를 제공하는 것입니다. 이 방법을 사용하면 일관된 방식으로 기존 DNS 레코드 및 네트워크 구성을 사용할 수 있습니다. 다음의 선택적 단계를 동적 공용 IP 주소가 사용자에 대해 할당된 이전 `helm install` 명령 대신 사용할 수 있습니다.
+
+고정 공용 IP 주소를 만들어야 하는 경우 먼저 [az aks show][az-aks-show] 명령을 사용하여 AKS 클러스터의 리소스 그룹 이름을 가져옵니다.
+
+```azurecli
+az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+```
+
+다음으로, [az network public-ip create][az-network-public-ip-create] 명령을 사용하여 *고정* 할당 메서드로 공용 IP 주소를 만듭니다. 다음 예제에서는 이전 단계에서 가져온 AKS 클러스터 리소스 그룹에 *myAKSPublicIP*라는 공용 IP 주소를 만듭니다.
+
+```azurecli
+az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
+```
+
+이제 Helm을 사용하여 *nginx-ingress* 차트를 배포합니다. `--set controller.service.loadBalancerIP` 매개 변수를 추가하고, 이전 단계에서 만든 사용자 고유의 공용 IP 주소를 지정합니다.
+
+```console
+helm install stable/nginx-ingress --namespace kube-system --set controller.service.loadBalancerIP="40.121.63.72"
+```
+
+NGINX 수신 컨트롤러에 대해 Kubernetes 부하 분산 장치 서비스를 만든 경우 다음 예제 출력에 표시된 대로 고정 IP 주소를 할당합니다.
+
+```
+$ kubectl get service -l app=nginx-ingress --namespace kube-system
+
+NAME                                        TYPE           CLUSTER-IP    EXTERNAL-IP    PORT(S)                      AGE
+dinky-panda-nginx-ingress-controller        LoadBalancer   10.0.232.56   40.121.63.72   80:31978/TCP,443:32037/TCP   3m
+dinky-panda-nginx-ingress-default-backend   ClusterIP      10.0.95.248   <none>         80/TCP                       3m
+```
+
+아직 수신 규칙이 만들어지지 않았으므로 공용 IP 주소를 검색하면 NGINX 수신 컨트롤러의 기본 404 페이지가 표시됩니다. 수신 규칙은 다음 단계에서 구성됩니다.
 
 ## <a name="configure-a-dns-name"></a>DNS 이름 구성
 
@@ -119,10 +153,10 @@ spec:
     http01: {}
 ```
 
-발급자를 만들려면 `kubectl create -f cluster-issuer.yaml` 명령을 사용합니다.
+발급자를 만들려면 `kubectl apply -f cluster-issuer.yaml` 명령을 사용합니다.
 
 ```
-$ kubectl create -f cluster-issuer.yaml
+$ kubectl apply -f cluster-issuer.yaml
 
 clusterissuer.certmanager.k8s.io/letsencrypt-staging created
 ```
@@ -153,10 +187,10 @@ spec:
     kind: ClusterIssuer
 ```
 
-인증서 리소스를 만들려면 `kubectl create -f certificates.yaml` 명령을 사용합니다.
+인증서 리소스를 만들려면 `kubectl apply -f certificates.yaml` 명령을 사용합니다.
 
 ```
-$ kubectl create -f certificates.yaml
+$ kubectl apply -f certificates.yaml
 
 certificate.certmanager.k8s.io/tls-secret created
 ```
@@ -219,10 +253,10 @@ spec:
           servicePort: 80
 ```
 
-`kubectl create -f hello-world-ingress.yaml` 명령을 사용하여 수신 리소스를 만듭니다.
+`kubectl apply -f hello-world-ingress.yaml` 명령을 사용하여 수신 리소스를 만듭니다.
 
 ```
-$ kubectl create -f hello-world-ingress.yaml
+$ kubectl apply -f hello-world-ingress.yaml
 
 ingress.extensions/hello-world-ingress created
 ```
@@ -267,3 +301,5 @@ ingress.extensions/hello-world-ingress created
 <!-- LINKS - internal -->
 [use-helm]: kubernetes-helm.md
 [azure-cli-install]: /cli/azure/install-azure-cli
+[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create

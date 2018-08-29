@@ -4,7 +4,7 @@ description: Azure Functions에서 실행하기 전에 로컬 머신의 명령 �
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: functions
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 08/14/2018
 ms.author: glenga
-ms.openlocfilehash: 57011e1f7633688e00a4639ba36fd4442073161d
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: cb336d6742aab10e1fd8305fd52f1376bb4f2598
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618617"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143790"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -131,13 +131,13 @@ npm install -g azure-functions-core-tools
 func init MyFunctionProj
 ```
 
+프로젝트 이름을 제공하면 해당 이름을 사용한 새 폴더가 생성되고 초기화됩니다. 그렇지 않으면 현재 폴더는 초기화됩니다.  
 버전 2.x에서는 명령을 실행할 때 프로젝트에 대한 런타임을 선택해야 합니다. JavaScript 함수를 개발하려는 경우 **노드**를 선택합니다.
 
 ```output
 Select a worker runtime:
 dotnet
 node
-java
 ```
 
 위쪽/아래쪽 화살표 키를 사용하여 언어를 선택한 다음, Enter 키를 누릅니다. 출력은 JavaScript 프로젝트에 대한 다음 예제와 유사합니다.
@@ -298,19 +298,24 @@ Functions 프로젝트를 실행하려면 Functions 호스트를 실행합니다
 ```bash
 func host start
 ```
+`host` 명령은 버전 1.x에서만 필요합니다.
 
-`func host start`는 다음 옵션을 지원합니다.
+`func host start`은 다음 옵션을 지원합니다.
 
 | 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
-|**`--port -p`** | 수신 대기할 로컬 포트입니다. 기본값: 7071 |
-| **`--debug <type>`** | [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) 또는 [Visual Studio 2017](functions-dotnet-class-library.md)에서 **func.exe** 프로세스에 연결할 수 있도록 디버그 포트를 열어둔 호스트를 시작합니다. *\<형식\>* 옵션은 `VSCode` 및 `VS`입니다.  |
 | **`--cors`** | CORS 원본의 공백 없이 쉼표로 구분된 목록입니다. |
-| **`--nodeDebugPort -n`** | 사용할 노드 디버거의 포트입니다. 기본값: launch.json 값 또는 5858 |
-| **`--debugLevel -d`** | 콘솔 추적 수준입니다(해제, 자세한 정보 표시, 정보, 경고 또는 오류). 기본값: 정보|
+| **`--debug <type>`** | [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) 또는 [Visual Studio 2017](functions-dotnet-class-library.md)에서 **func.exe** 프로세스에 연결할 수 있도록 디버그 포트를 열어둔 호스트를 시작합니다. *\<형식\>* 옵션은 `VSCode` 및 `VS`입니다.  |
+| **`--port -p`** | 수신 대기할 로컬 포트입니다. 기본값: 7071 |
 | **`--timeout -t`** | Functions 호스트를 시작할 제한 시간(초)입니다. 기본값: 20초|
 | **`--useHttps`** | `http://localhost:{port}`가 아닌 `https://localhost:{port}`에 바인딩합니다. 기본적으로 이 옵션은 사용자 컴퓨터에 신뢰할 수 있는 인증서를 만듭니다.|
-| **`--pause-on-error`** | 프로세스를 종료하기 전에 추가 입력에 대해 일시 중지합니다. Visual Studio 또는 VS Code에서 핵심 도구를 시작할 때 사용합니다.|
+| **`--build`** | 실행 전에 현재 프로젝트를 빌드합니다. 버전 2.x 및 C# 프로젝트만 해당됩니다. |
+| **`--cert`** | 개인 키가 포함된 .pfx 파일에 대한 경로입니다. `--useHttps`을 통해서만 사용됩니다. 버전 2.x 전용입니다. | 
+| **`--password`** | .pfx 파일에 대한 암호가 포함된 암호 또는 파일입니다. `--cert`을 통해서만 사용됩니다. 버전 2.x 전용입니다. |
+| **`--language-worker`** | 언어 작업자를 구성하는 인수입니다. 버전 2.x 전용입니다. |
+| **`--nodeDebugPort -n`** | 사용할 노드 디버거의 포트입니다. 기본값: launch.json 값 또는 5858 버전 1.x 전용입니다. |
+
+C# 클래스 라이브러리 프로젝트(.csproj)의 경우 library.dll을 생성하려면 `--build` 옵션을 포함해야 합니다.
 
 Functions 호스트가 시작되면 HTTP 트리거 함수의 URL이 출력됩니다.
 
@@ -324,7 +329,7 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 
 ### <a name="passing-test-data-to-a-function"></a>테스트 데이터를 함수에 전달
 
-로컬로 함수를 테스트하려면 [Functions 호스트를 시작](#start)하고 HTTP 요청을 사용하여 로컬 서버에서 끝점을 호출합니다. 호출하는 끝점은 함수의 형식에 따라 달라집니다.
+로컬로 함수를 테스트하려면 [Functions 호스트를 시작](#start)하고 HTTP 요청을 사용하여 로컬 서버에서 엔드포인트를 호출합니다. 호출하는 엔드포인트는 함수의 형식에 따라 달라집니다.
 
 >[!NOTE]  
 > 이 항목의 예제에서는 cURL 도구를 사용하여 터미널 또는 명령 프롬프트의 HTTP 요청을 보냅니다. 로컬 서버에 HTTP 요청을 보내도록 선택한 도구를 사용할 수 있습니다. cURL 도구는 Linux 기반 시스템에서 기본적으로 사용할 수 있습니다. Windows에서는 먼저 [cURL 도구](https://curl.haxx.se/)를 다운로드한 후 설치해야 합니다.
@@ -333,7 +338,7 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 
 #### <a name="http-and-webhook-triggered-functions"></a>HTTP 및 웹후크 트리거된 함수
 
-다음 끝점을 호출하여 HTTP 및 웹후크 트리거된 함수를 로컬로 실행합니다.
+다음 엔드포인트를 호출하여 HTTP 및 웹후크 트리거된 함수를 로컬로 실행합니다.
 
     http://localhost:{port}/api/{function_name}
 
@@ -354,13 +359,13 @@ curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azu
 
 #### <a name="non-http-triggered-functions"></a>HTTP가 아닌 트리거된 함수
 
-HTTP 트리거와 웹후크가 아닌 다른 모든 종류의 함수에서 관리 끝점을 호출하여 로컬로 함수를 테스트할 수 있습니다. 로컬 서버에서 HTTP POST 요청으로 이 끝점을 호출하면 함수를 트리거합니다. 필요에 따라 POST 요청의 본문에서 실행에 테스트 데이터를 전달할 수 있습니다. 이 기능은 Azure Portal에서 **테스트** 탭과 비슷합니다.  
+HTTP 트리거와 웹후크가 아닌 다른 모든 종류의 함수에서 관리 엔드포인트를 호출하여 로컬로 함수를 테스트할 수 있습니다. 로컬 서버에서 HTTP POST 요청으로 이 엔드포인트를 호출하면 함수를 트리거합니다. 필요에 따라 POST 요청의 본문에서 실행에 테스트 데이터를 전달할 수 있습니다. 이 기능은 Azure Portal에서 **테스트** 탭과 비슷합니다.  
 
-다음 관리자 끝점을 호출하여 HTTP가 아닌 함수를 트리거합니다.
+다음 관리자 엔드포인트를 호출하여 HTTP가 아닌 함수를 트리거합니다.
 
     http://localhost:{port}/admin/functions/{function_name}
 
-함수의 관리자 끝점에 테스트 데이터를 전달하려면 POST 요청 메시지의 본문에서 데이터를 제공해야 합니다. 메시지 본문에는 다음 JSON 형식이 필요합니다.
+함수의 관리자 엔드포인트에 테스트 데이터를 전달하려면 POST 요청 메시지의 본문에서 데이터를 제공해야 합니다. 메시지 본문에는 다음 JSON 형식이 필요합니다.
 
 ```JSON
 {

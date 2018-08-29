@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 08/14/2018
 ms.author: raynew
-ms.openlocfilehash: 709afe03570ca4cf81718fb071778439444d6bf6
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: e363885afb77a60bfc0229a872fdb4e519d5979d
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171986"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42146944"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Azure로의 Hyper-V 복제용 지원 행렬
 
@@ -25,7 +25,7 @@ ms.locfileid: "39171986"
 
 **시나리오** | **세부 정보**
 --- | ---
-Hyper-V(Virtual Machine Manager 있음) | System Center Virtual Machine Manager 패브릭에서 관리되는 Hyper-V 호스트에서 실행 중인 VM에 대해 Azure로의 재해 복구를 수행할 수 있습니다.<br/><br/> Azure Portal에서 또는 PowerShell을 사용하여 이 시나리오를 배포할 수 있습니다.<br/><br/> Virtual Machine Manager에서 Hyper-V 호스트를 관리하는 경우에는 보조 온-프레미스 사이트로의 재해 복구도 수행할 수 있습니다. 이 시나리오에 대해 자세히 알아보려면 [이 자습서](tutorial-vmm-to-vmm.md)를 읽어보세요.
+Hyper-V(Virtual Machine Manager 있음) | System Center Virtual Machine Manager 패브릭에서 관리되는 Hyper-V 호스트에서 실행 중인 VM에 대해 Azure로의 재해 복구를 수행할 수 있습니다.<br/><br/> Azure Portal에서 또는 PowerShell을 사용하여 이 시나리오를 배포할 수 있습니다.<br/><br/> Virtual Machine Manager에서 Hyper-V 호스트를 관리하는 경우에는 보조 온-프레미스 사이트로의 재해 복구도 수행할 수 있습니다. 이 시나리오에 대해 자세히 알아보려면 [이 자습서](hyper-v-vmm-disaster-recovery.md)를 읽어보세요.
 Hyper-V(Virtual Machine Manager 없음) | Virtual Machine Manager에서 관리하지 않는 Hyper-V 호스트에서 실행 중인 VM에 대해 Azure로의 재해 복구를 수행할 수 있습니다.<br/><br/> Azure Portal에서 또는 PowerShell을 사용하여 이 시나리오를 배포할 수 있습니다.
 
 
@@ -44,8 +44,8 @@ Hyper-V(Virtual Machine Manager로 실행 중) | Virtual Machine Manager 2016, V
 
  **구성 요소** | **세부 정보**
 --- | ---
-VM 구성 | Azure로 복제하는 VM은 [Azure 요구 사항](#failed-over-azure-vm-requirements)을 충족해야 합니다.
-게스트 운영 체제 | Azure에서 지원하는 모든 게스트 OS.<br/><br/> Windows Server 2016 Nano Server는 지원되지 않습니다.
+VM 구성 | Azure로 복제하는 VM은 [Azure 요구 사항](#azure-vm-requirements)을 충족해야 합니다.
+게스트 운영 체제 | [Azure에 지원되는](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases) 모든 게스트 OS.<br/><br/> Windows Server 2016 Nano Server는 지원되지 않습니다.
 
 
 ## <a name="vmdisk-management"></a>VM/디스크 관리
@@ -62,12 +62,12 @@ VM 구성 | Azure로 복제하는 VM은 [Azure 요구 사항](#failed-over-azure
 호스트 네트워크: NIC 팀 | yes
 호스트 네트워크: VLAN | yes
 호스트 네트워크: IPv4 | yes
-호스트 네트워크: IPv6 | 아니오
-게스트 VM 네트워크: NIC 팀 | 아니오
+호스트 네트워크: IPv6 | 아니요
+게스트 VM 네트워크: NIC 팀 | 아니요
 게스트 VM 네트워크: IPv4 | yes
-게스트 VM 네트워크: IPv6 | 아니오
+게스트 VM 네트워크: IPv6 | 아니요
 게스트 VM 네트워크: 고정 IP(Windows) | yes
-게스트 VM 네트워크: 고정 IP(Linux) | 아니오
+게스트 VM 네트워크: 고정 IP(Linux) | 아니요
 게스트 VM 네트워크: 다중 NIC | yes
 
 
@@ -84,8 +84,8 @@ Azure Traffic Manager | yes | yes
 예약된 IP | yes | yes
 IPv4 | yes | yes
 원본 IP 주소 유지 | yes | yes
-Azure Virtual Network 서비스 끝점<br/> (Azure Storage 방화벽 없음) | yes | yes
-가속 네트워킹 | 아니오 | 아니오
+Azure Virtual Network 서비스 엔드포인트<br/> (Azure Storage 방화벽 없음) | yes | yes
+가속 네트워킹 | 아니요 | 아니요
 
 
 ## <a name="hyper-v-host-storage"></a>Hyper-V 호스트 저장소
@@ -105,17 +105,18 @@ VMDK | 해당 없음 | 해당 없음
 VHD/VHDX | yes | yes
 2세대 VM | yes | yes
 EFI/UEFI| yes | yes
-공유 클러스터 디스크 | 아니오 | 아니오
-암호화된 디스크 | 아니오 | 아니오
+공유 클러스터 디스크 | 아니요 | 아니요
+암호화된 디스크 | 아니요 | 아니요
 NFS | 해당 없음 | 해당 없음
-SMB 3.0 | 아니오 | 아니오
+SMB 3.0 | 아니요 | 아니요
 RDM | 해당 없음 | 해당 없음
 디스크 1TB 이상 | 예, 최대 4,095GB | 예, 최대 4,095GB
 디스크: 4K 논리/실제 섹터 | 미지원: 1세대/2세대 | 미지원: 1세대/2세대
 디스크: 4K 논리/512바이트 물리 섹터 | yes |  yes
-스트라이프 디스크 포함 볼륨 1TB 이상<br/><br/> 논리 볼륨 관리(LVM) | yes | yes
+논리 볼륨 관리(LVM)입니다. LVM은 데이터 디스크에서만 지원됩니다. Azure는 단일 OS 디스크만 제공합니다. | yes | yes
+스트라이프 디스크 포함 볼륨 1TB 이상 | yes | yes
 저장소 공간 | yes | yes
-디스크 핫 추가/제거 | 아니오 | 아니오
+디스크 핫 추가/제거 | 아니요 | 아니요
 디스크 제외 | yes | yes
 다중 경로(MPIO) | yes | yes
 
@@ -126,13 +127,13 @@ RDM | 해당 없음 | 해당 없음
 로컬 중복 저장소 | yes | yes
 지역 중복 저장소 | yes | yes
 읽기 액세스 지역 중복 저장소 | yes | yes
-쿨 저장소 | 아니오 | 아니오
-핫 저장소| 아니오 | 아니오
-블록 Blob | 아니오 | 아니오
+쿨 저장소 | 아니요 | 아니요
+핫 저장소| 아니요 | 아니요
+블록 Blob | 아니요 | 아니요
 미사용 암호화(SSE)| yes | yes
 Premium Storage | yes | yes
-Import/Export 서비스 | 아니오 | 아니오
-대상 저장소/캐시 저장소(복제 데이터 저장에 사용됨) 계정에 구성된 가상 네트워크용 Azure Storage 방화벽 | 아니오 | 아니오
+Import/Export 서비스 | 아니요 | 아니요
+대상 저장소/캐시 저장소(복제 데이터 저장에 사용됨) 계정에 구성된 가상 네트워크용 Azure Storage 방화벽 | 아니요 | 아니요
 
 
 ## <a name="azure-compute-features"></a>Azure 계산 기능
@@ -167,8 +168,8 @@ VM 형식 | 1세대<br/><br/> 2세대--Windows | 기본 OS 디스크 형식이 �
 
 **작업** |  **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | ---
-리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아니오 | 아니오
-저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니오 | 아니오
+리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아니요 | 아니요
+저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니요 | 아니요
 
 
 ## <a name="provider-and-agent"></a>공급자 및 에이전트

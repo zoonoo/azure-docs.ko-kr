@@ -9,12 +9,12 @@ ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: sashan
-ms.openlocfilehash: 7ca033be8a27802db55aec827509b46fed8e471e
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 2fe27f93bb48e0581902fd380813c878a4883a5c
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090067"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143917"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>읽기 전용 복제본을 사용하여 읽기 전용 쿼리 작업의 부하 분산(미리 보기)
 
@@ -22,7 +22,11 @@ ms.locfileid: "39090067"
 
 ## <a name="overview-of-read-scale-out"></a>읽기 확장 개요
 
-프리미엄 계층([DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)) 또는 중요 비즈니스용 계층([vCore 기반 구매 모델](sql-database-service-tiers-vcore.md))의 각 데이터베이스는 가용성 SLA를 지원하기 위해 여러 개의 AlwaysON 복제본에 자동으로 프로비전됩니다. 이러한 복제본은 일반 데이터베이스 연결에서 사용되는 읽기/쓰기 복제본과 동일한 성능 수준으로 프로비전됩니다. **읽기 확장** 기능을 사용하면 읽기/쓰기 복제본을 공유하는 대신 읽기 전용 복제본 중 하나의 용량을 사용하여 SQL Database 읽기 전용 작업의 부하를 분산할 수 있습니다. 이러한 방식으로 읽기 전용 워크로드는 주 읽기-쓰기 작업에서 격리되고 해당 성능에 영향을 주지 않습니다. 기능은 분석과 같은 논리적으로 구분된 읽기 전용 워크로드를 포함하는 응용 프로그램을 위한 것이므로 추가 비용 없이 이 추가 용량을 사용하여 성능 혜택을 활용할 수 있습니다.
+프리미엄 계층([DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)) 또는 중요 비즈니스용 계층([vCore 기반 구매 모델](sql-database-service-tiers-vcore.md))의 각 데이터베이스는 가용성 SLA를 지원하기 위해 여러 개의 AlwaysON 복제본에 자동으로 프로비전됩니다.
+
+![읽기 전용 복제본](media/sql-database-managed-instance/business-critical-service-tier.png)
+
+이러한 복제본은 일반 데이터베이스 연결에서 사용되는 읽기/쓰기 복제본과 동일한 성능 수준으로 프로비전됩니다. **읽기 확장** 기능을 사용하면 읽기/쓰기 복제본을 공유하는 대신 읽기 전용 복제본 중 하나의 용량을 사용하여 SQL Database 읽기 전용 작업의 부하를 분산할 수 있습니다. 이러한 방식으로 읽기 전용 워크로드는 주 읽기-쓰기 작업에서 격리되고 해당 성능에 영향을 주지 않습니다. 기능은 분석과 같은 논리적으로 구분된 읽기 전용 워크로드를 포함하는 응용 프로그램을 위한 것이므로 추가 비용 없이 이 추가 용량을 사용하여 성능 혜택을 활용할 수 있습니다.
 
 특정 데이터베이스에서 읽기 확장 기능을 사용하려면, 데이터베이스를 만들 때 또는 나중에 [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) 또는 [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet을 호출하는 PowerShell을 사용하거나 [데이터베이스 - 만들기 또는 업데이트](/rest/api/sql/databases/createorupdate) 방법을 사용하는 Azure Resource Manager REST API를 통해 해당 구성을 변경하여 명시적으로 사용하도록 설정해야 합니다. 
 

@@ -3,9 +3,8 @@ title: Azure Advisor 비용 권장 사항 | Microsoft Docs
 description: Azure Advisor를 사용하여 Azure 배포 비용을 최적화합니다.
 services: advisor
 documentationcenter: NA
-author: KumudD
-manager: carmonm
-editor: ''
+author: manbeenkohli
+manager: ''
 ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
@@ -13,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: kumud
-ms.openlocfilehash: ade6ef996c00c0c06d5b8e44815520e6e4ab7e9f
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.author: makohli
+ms.openlocfilehash: 71c380a1caae730b6b01615ce3047c2e22bd6dfb
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735870"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42140325"
 ---
 # <a name="advisor-cost-recommendations"></a>Advisor 비용 권장 사항
 
@@ -35,10 +34,13 @@ Advisor에는 가상 머신을 계속 실행할 때의 예상 비용이 표시�
 ## <a name="reduce-costs-by-eliminating-unprovisioned-expressroute-circuits"></a>프로비저닝되지 않은 ExpressRoute 회로를 제거하여 비용 절감
 Advisor는 공급자 상태가 1개월 이상 *프로비저닝되지 않음*인 ExpressRoute 회로를 식별하고, 연결 공급자로 회로를 프로비저닝할 계획이 아닌 경우 회로를 삭제할 것을 권장합니다.
 
-## <a name="buy-virtual-machine-reserved-instances-to-save-money-over-pay-as-you-go-costs"></a>가상 머신 예약 인스턴스를 구매하여 종량제 비용보다 비용 절약
-Advisor는 지난 30일 동안 가상 머신 사용량을 검토하고 예약 인스턴스를 구매하여 비용을 절감할 수 있는지 확인합니다. Advisor는 잠재적으로 가장 절약할 수 있는 지역 및 크기를 보여주고, 예약 인스턴스 구매로 예상되는 절감을 보여줍니다. 
+## <a name="reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways"></a>유휴 상태의 가상 네트워크 게이트웨이를 삭제하거나 다시 구성하여 비용 절감
+Advisor는 90 일 넘게 유휴 상태를 유지한 가상 네트워크 게이트를 식별합니다. 이러한 게이트웨이는 시간당 요금이 부과되므로 다시 구성하거나, 더 이상 사용하지 않으려는 경우 삭제를 고려해야 합니다. 
 
-예약 인스턴스를 사용하여 가상 머신에 대한 기본 비용을 미리 구입할 수 있습니다. 할인은 예약 인스턴스와 동일한 크기 및 지역이 있는 새로운 또는 기존 VM에 자동으로 적용됩니다. [Azure Reserved VM Instances에 대한 자세한 정보](https://azure.microsoft.com/pricing/reserved-vm-instances/)
+## <a name="buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs"></a>예약 가상 머신 인스턴스를 구매하여 종량제 비용보다 비용 절약
+Advisor는 지난 30일 동안 가상 머신 사용량을 검토하고Azure 예약을 구매하여 비용을 절감할 수 있는지 확인합니다. Advisor는 잠재적으로 가장 절약할 수 있는 지역 및 크기를 보여주고, 예약 구매로 예상되는 절감을 보여줍니다. 
+
+Azure 예약을 사용하여 가상 머신에 대한 기본 비용을 미리 구입할 수 있습니다. 할인은 예약과 동일한 크기 및 지역이 있는 새로운 또는 기존 VM에 자동으로 적용됩니다. [Azure Reserved VM Instances에 대한 자세한 정보](https://azure.microsoft.com/pricing/reserved-vm-instances/)
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Azure Advisor에서 비용 권장 사항에 액세스하는 방법
 

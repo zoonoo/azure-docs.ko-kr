@@ -1,36 +1,36 @@
 ---
 title: Azure Kubernetes Service와 Azure Active Directory 통합
-description: Azure Active Directory 사용 Azure Kubernetes Service 클러스터를 만드는 방법.
+description: Azure Active Directory 사용 AKS(Azure Kubernetes Service) 클러스터를 만드는 방법
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 6/17/2018
+ms.date: 8/9/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2c4e0f8c31299644c912a70fc91bbdfa6da6795b
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 9bbf7ad201a70a315b75ed5e1f35671e4a5604fc
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579030"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142648"
 ---
-# <a name="integrate-azure-active-directory-with-aks---preview"></a>AKS와 Azure Active Directory 통합 - 미리 보기
+# <a name="integrate-azure-active-directory-with-aks"></a>AKS와 Azure Active Directory 통합
 
-사용자 인증을 위해 Azure Active Directory를 사용하도록 AKS(Azure Kubernetes Service)를 구성할 수 있습니다. 이 구성에서 Azure Active Directory 인증 토큰을 사용하여 Azure Kubernetes Service 클러스터에 로그인할 수 있습니다. 또한 클러스터 관리자는 사용자 ID 또는 디렉터리 그룹 구성원 자격에 따라 Kubernetes 역할 기반 액세스 제어를 구성할 수 있습니다.
+사용자 인증을 위해 Azure AD(Active Directory)를 사용하도록 AKS(Azure Kubernetes Service)를 구성할 수 있습니다. 이 구성에서 Azure Active Directory 인증 토큰을 사용하여 AKS 클러스터에 로그인할 수 있습니다. 또한 클러스터 관리자는 사용자 ID 또는 디렉터리 그룹 구성원 자격에 따라 Kubernetes RBAC(역할 기반 액세스 제어)를 구성할 수 있습니다.
 
-이 문서에서는 AKS 및 Azure AD에 대한 모든 필요한 필수 구성 요소 만들기, Azure AD 사용 클러스터 배포 및 AKS 클러스터에서 단순 RBAC 역할 만들기에 대해 자세히 설명합니다. 기존의 RBAC 비지원 AKS 클러스터는 현재 RBAC 사용을 위해 업데이트할 수 없습니다.
+이 문서에서는 AKS 및 Azure AD에 대한 필수 구성 요소를 배포하는 방법, Azure AD 사용 클러스터를 배포하고 AKS 클러스터에서 단순 RBAC 역할을 만드는 방법을 보여줍니다.
 
-> [!IMPORTANT]
-> AKS(Azure Kubernetes Service) RBAC와 Azure AD 통합은 현재 **미리 보기** 상태입니다. [부속 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
->
+다음 제한 사항이 적용됩니다.
+
+- 기존의 RBAC 비지원 AKS 클러스터는 현재 RBAC 사용을 위해 업데이트할 수 없습니다.
+- Azure AD에서 *게스트* 사용자(예: 다른 디렉터리에서 페더레이션된 로그인을 사용하는 경우)는 지원되지 않습니다.
 
 ## <a name="authentication-details"></a>인증 세부 정보
 
-OpenID Connect와 함께 Azure Kubernetes 클러스터에 Azure AD 인증이 제공됩니다. OpenID Connect는 OAuth 2.0 프로토콜을 기반으로 하는 ID 계층입니다. OpenID Connect에 대한 자세한 내용은 [Open ID 연결 설명서][open-id-connect]에서 찾을 수 있습니다.
+OpenID Connect와 함께 AKS 클러스터에 Azure AD 인증이 제공됩니다. OpenID Connect는 OAuth 2.0 프로토콜을 기반으로 하는 ID 계층입니다. OpenID Connect에 대한 자세한 내용은 [Open ID 연결 설명서][open-id-connect]를 참조하세요.
 
-Kubernetes 클러스터 내부에서 인증 토큰을 확인하는 데 Webhook 토큰 인증이 사용됩니다. Webhook 토큰 인증은 AKS 클러스터의 일부로 구성 및 관리됩니다. Webhook 토큰 인증에 대한 자세한 내용은 [webhook 인증 설명서][kubernetes-webhook]에서 찾을 수 있습니다.
+Kubernetes 클러스터 내부에서 인증 토큰을 확인하는 데 Webhook 토큰 인증이 사용됩니다. Webhook 토큰 인증은 AKS 클러스터의 일부로 구성 및 관리됩니다. Webhook 토큰 인증에 대한 자세한 내용은 [webhook 인증 설명서][kubernetes-webhook]를 참조하세요.
 
 > [!NOTE]
 > AKS 인증을 위해 Azure AD를 구성할 때 두 개의 Azure AD 응용 프로그램이 구성됩니다. Azure 테넌트 관리자가 이 작업을 완료해야 합니다.
@@ -72,6 +72,10 @@ Kubernetes 클러스터 내부에서 인증 토큰을 확인하는 데 Webhook �
 7. **완료**를 선택하고 API 목록에서 *Microsoft Graph*를 선택 한 후 **권한 부여**를 선택합니다. 현재 계정이 테넌트 관리자가 아닌 경우 이 단계가 실패합니다.
 
   ![응용 프로그램 그래프 사용 권한 설정](media/aad-integration/grant-permissions.png)
+
+  권한을 성공적으로 부여 받으면 포털에서 다음 알림이 표시됩니다.
+
+  ![성공적인 권한 부여의 알림](media/aad-integration/permissions-granted.png)
 
 8. 응용 프로그램으로 돌아오고 **응용 프로그램 ID**를 기록해 둡니다. Azure AD 사용 AKS 클러스터를 배포할 때 이 값은 `Server application ID`이라고 합니다.
 
@@ -131,7 +135,7 @@ az aks create --resource-group myAKSCluster --name myAKSCluster --generate-ssh-k
 
 ## <a name="create-rbac-binding"></a>RBAC 바인딩 만들기
 
-Azure Active Directory 계정을 AKS 클러스터와 함께 사용하려면 역할 바인딩 또는 클러스터 역할 바인딩을 만들어야 합니다.
+Azure Active Directory 계정을 AKS 클러스터와 함께 사용하려면 역할 바인딩 또는 클러스터 역할 바인딩을 만들어야 합니다. *역할*은 부여할 사용 권한을 정의하고, *바인딩*은 원하는 사용자에게 역할을 적용합니다. 이러한 할당은 주어진 네임스페이스 또는 전체 클러스터에 적용될 수 있습니다. 자세한 내용은 [RBAC 권한 부여 사용][rbac-authorization]을 참조하세요.
 
 먼저 `--admin` 인수와 함께 [az aks get-credentials][az-aks-get-credentials] 명령을 사용하여 관리자 액세스로 클러스터에 로그인합니다.
 
@@ -156,7 +160,7 @@ subjects:
   name: "user@contoso.com"
 ```
 
-Azure AD 그룹의 모든 구성원에 대해 역할 바인딩을 만들 수도 있습니다. Azure AD 그룹은 그룹 개체 ID를 사용하여 합니다.
+Azure AD 그룹의 모든 구성원에 대해 역할 바인딩을 만들 수도 있습니다. 다음 예제에서와 같이 Azure AD 그룹은 그룹 개체 ID를 사용하여 지정됩니다.
 
  ```yaml
 apiVersion: rbac.authorization.k8s.io/v1

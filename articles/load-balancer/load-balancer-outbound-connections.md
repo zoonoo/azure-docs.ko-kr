@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/08/2018
+ms.date: 08/15/2018
 ms.author: kumud
-ms.openlocfilehash: 2e6b8dd5e0ec0ae73fff4a25ad79045e3414e9cc
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e9249f3a5787da9ad54945195b47cf9af0f45fb1
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825002"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42144902"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure에서 아웃바운드 연결
 
@@ -47,7 +47,7 @@ Azure에서는 SNAT(원본 네트워크 주소 변환)를 사용하여 이 기�
 | [2. VM과 연결된 공용 Load Balancer(인스턴스에 인스턴스 수준 공용 IP 주소 없음)](#lb) | Load Balancer 프런트 엔드를 사용하여 포트를 가장하는(PAT) SNAT | TCP, UDP |Azure는 공용 Load Balancer 프런트 엔드의 공용 IP 주소를 여러 개인 IP 주소와 공유합니다. Azure는 프런트 엔드의 삭제 포트를 PAT에 사용합니다. |
 | [3. 독립 실행형 VM(Load Balancer 없음, 인스턴스 수준 공용 IP 주소 없음)](#defaultsnat) | 포트를 가장하는(PAT) SNAT | TCP, UDP | Azure는 자동으로 SNAT에 대한 공용 IP 주소를 지정하고, 이 공용 IP 주소를 가용성 집합의 여러 개인 IP 주소와 공유하고, 이 공용 IP 주소의 삭제 포트를 사용합니다. 이 시나리오는 이전 시나리오의 대체 시나리오입니다. 가시성 및 제어 기능이 필요한 경우에는 권장되지 않습니다. |
 
-VM이 공용 IP 주소 공간에 있는 Azure 외부에서 끝점과 통신하지 않게 하려면 NSG(네트워크 보안 그룹)를 사용하여 필요에 따라 액세스를 차단할 수 있습니다. NSG 사용에 대한 자세한 내용은 [아웃바운드 연결 방지](#preventoutbound)에서 다룹니다. 아웃바운드 액세스 없이 가상 네트워크를 설계, 구현 및 관리하는 방법은 이 문서의 범위를 벗어납니다.
+VM이 공용 IP 주소 공간에 있는 Azure 외부에서 엔드포인트와 통신하지 않게 하려면 NSG(네트워크 보안 그룹)를 사용하여 필요에 따라 액세스를 차단할 수 있습니다. NSG 사용에 대한 자세한 내용은 [아웃바운드 연결 방지](#preventoutbound)에서 다룹니다. 아웃바운드 액세스 없이 가상 네트워크를 설계, 구현 및 관리하는 방법은 이 문서의 범위를 벗어납니다.
 
 ### <a name="ilpip"></a>시나리오 1: 인스턴스 수준 공용 IP 주소가 있는 VM
 
@@ -220,7 +220,7 @@ ILPIP를 할당하면 시나리오가 [VM에 대한 인스턴스 수준 공용 I
 
 예를 들어 백 엔드 풀에 있는 2개의 가상 머신에서 IP 구성당 1024개의 SNAT 포트가 사용 가능하며 총 2048개의 SNAT 포트를 배포에 사용할 수 있습니다.  배포를 50개 가상 머신으로 늘리는 경우, 가상 머신당 미리 할당된 포트 수가 일정한 경우에도 총 51,200(50x1024)개의 SNAT 포트를 사용할 수 있습니다.  배포를 확장하려는 경우, 계층당 [미리 할당된 포트](#preallocatedports) 수를 확인하여 해당 계층의 최댓값까지 확장되도록 합니다.  앞의 예제에서 50개가 아닌 51개의 인스턴스로 확장하도록 선택한 경우, 다음 계층으로 진행하며 합계뿐 아니라 VM당 SNAT 포트 수도 줄어듭니다.
 
-반대로, 할당된 포트를 다시 할당해야 하는 경우 잠재적으로 아웃바운드 연결인 그다음으로 큰 백 엔드 풀 크기 계층으로 확장합니다.  이러한 경우를 방지하려면 배포를 계층 크기에 맞게 조정해야 합니다.  또는 응용 프로그램이 필요에 따라 검색하고 다시 시도할 수 있게 합니다.  TCP Keepalive는 다시 할당되어 SNAT 포트가 더 이상 작동하지 않는 경우의 검색을 지원할 수 있습니다.
+그다음으로 큰 백 엔드 풀 크기 계층으로 확장하는 경우, 할당된 포트를 다시 할당해야 하면 잠재적으로 일부 아웃바운드 연결이 시간 초과될 수 있습니다.  SNAT 포트 중 일부만 사용하는 경우 그다음으로 큰 백 엔드 풀 크기로 확장하는 것이 중요하지 않습니다.  기존 포트 절반은 다음 백 앤드 풀 계층으로 이동할 때마다 다시 할당됩니다.  이러한 경우를 방지하려면 배포를 계층 크기에 맞게 조정해야 합니다.  또는 응용 프로그램이 필요에 따라 검색하고 다시 시도할 수 있게 합니다.  TCP Keepalive는 다시 할당되어 SNAT 포트가 더 이상 작동하지 않는 경우의 검색을 지원할 수 있습니다.
 
 ### <a name="idletimeout"></a>keepalive를 사용하여 아웃바운드 유휴 시간 제한 다시 설정
 

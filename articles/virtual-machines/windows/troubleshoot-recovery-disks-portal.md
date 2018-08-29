@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/07/2018
+ms.date: 08/013/2018
 ms.author: genli
-ms.openlocfilehash: db6a2279347b5746da706e7ad3629b141afd205b
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 09e7a729dbb3e82bce08c06a1af1f0bf3f9c5c2f
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271167"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42145412"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Azure Portal을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Windows VM 문제 해결
 Azure에서 Windows VM(가상 머신)에 부팅 또는 디스크 오류가 발생하는 경우 가상 하드 디스크에서 바로 문제 해결 단계를 수행해야 합니다. 일반적인 예로는 응용 프로그램 업데이트가 실패하여 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에는 가상 하드 디스크를 다른 Windows VM에 연결하여 모든 오류를 수정한 후 원래 VM을 다시 만들기 위해 Azure Portal을 사용하는 방법을 자세히 설명합니다.
@@ -32,7 +32,7 @@ Azure에서 Windows VM(가상 머신)에 부팅 또는 디스크 오류가 발�
 4. 문제 해결 VM에서 가상 하드 디스크를 탑재 해제하고 분리합니다.
 5. 원래 가상 하드 디스크를 사용하여 VM을 만듭니다.
 
-관리 디스크를 사용하는 VM에 대해서는 [새 OS 디스크를 연결하여 Managed Disk VM 문제 해결](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk)을 참조합니다.
+관리되는 디스크를 사용하는 VM의 경우, 이제 Azure PowerShell을 사용하여 VM용 OS 디스크를 변경할 수 있습니다. 더 이상 VM을 삭제하고 다시 만들 필요가 없습니다. 자세한 내용은 [Azure Portal을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Windows VM 문제 해결](troubleshoot-recovery-disks.md)을 참조하세요.
 
 ## <a name="determine-boot-issues"></a>부팅 문제 확인
 VM이 올바르게 부팅할 수 없는 원인을 확인하려면 부팅 진단 VM 스크린샷을 검사합니다. 일반적인 예로는 응용 프로그램 업데이트가 실패하거나 기본 가상 하드 디스크를 삭제 또는 이동하는 것입니다.
@@ -146,13 +146,6 @@ VM을 복구하는 첫 번째 단계는 자체 VM 리소스를 삭제하는 것�
 기존 가상 하드 디스크에서 VM을 만든 경우 부팅 진단을 자동으로 사용할 수 없습니다. 부팅 진단의 상태를 확인하고 필요한 경우 사용하려면 포털에서 VM을 선택합니다. **모니터링**에서 **진단 설정**을 클릭합니다. 상태가 **켜기**이고 **진단 부팅** 옆에 있는 확인 표시가 선택되었는지 확인합니다. 항목을 변경하려면 **저장**을 클릭합니다.
 
 ![부팅 진단 설정 업데이트](./media/troubleshoot-recovery-disks-portal/reenable-boot-diagnostics.png)
-
-## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>새 OS 디스크를 연결하여 Managed Disk VM 문제 해결
-1. 영향을 받는 Managed Disk Windows VM을 중지합니다.
-2. Managed Disk VM의 OS 디스크의 [관리 디스크 스냅숏을 만듭니다](snapshot-copy-managed-disk.md).
-3. [스냅숏에서 새 관리 디스크를 만듭니다](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
-4. [VM의 데이터 디스크로서 관리 디스크를 연결합니다](attach-disk-ps.md).
-5. [4단계의 데이터 디스크를 OS 디스크로 변경합니다](os-disk-swap.md).
 
 ## <a name="next-steps"></a>다음 단계
 VM에 연결하는 데 문제가 있는 경우 [Azure VM에 RDP 연결 문제 해결](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요. VM에서 실행 중인 응용 프로그램에 액세스하는 데 문제가 있는 경우 [Windows VM에서 응용 프로그램 연결 문제 해결](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조하세요.

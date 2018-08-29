@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/14/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: 24d89b617c347bc9443b437c92cb034acb3e05cb
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 2eb7fb82b358d4ec8628bfa546b572ee3cbe47fa
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33901332"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "40210098"
 ---
 VM(가상 머신)을 만들거나 중지된(할당이 취소된) VM을 재시작하거나 VM의 크기를 조정하는 경우 Microsoft Azure에서 구독에 계산 리소스를 할당합니다. 당사는 고객의 요구를 지원할 수 있는 모든 VM 유형을 항상 제공할 수 있도록 추가 인프라와 기능에 지속적으로 투자하고 있습니다. 하지만 Azure 서비스에 대한 수요가 특정 지역에서 전례 없이 증가하여 리소스 할당 오류가 때때로 발생할 수 있습니다. VM이 다음 오류 코드 및 메시지를 표시하는 동안 해당 지역에서 VM을 만들거나 시작하려고 하면 이런 문제가 발생할 수 있습니다.
 
@@ -80,9 +80,10 @@ Azure 인프라가 확장되면서 최신 세대 가상 머신 유형을 지원�
 |레거시 VM 시리즈/크기|권장되는 신규 VM 시리즈/크기|자세한 정보|
 |----------------------|----------------------------|--------------------|
 |Av1 시리즈|[Av2 시리즈](../articles/virtual-machines/windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
-|Dv1 또는 DSv1 시리즈(D1 - D5)|[Dv3 또는 DSv3 시리즈](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-sup1sup)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
-|Dv1 또는 DSv1 시리즈(D11 - D14)|[Ev3 또는 ESv3 시리즈](../articles/virtual-machines/windows/sizes-memory.md#ev3-series)|
-|D15v2 또는 DS15v2|대규모 VM 크기 활용하기 위해 Resource Manager 배포 모델을 사용하는 경우 D16v3/DS16v3 또는 D32v3/DS32v3으로 이동하는 것이 좋습니다. 이러한 항목은 최신 세대 하드웨어에서 실행되도록 설계되었습니다. VM 인스턴스가 단일 고객 전용 하드웨어로 격리되도록 Resource Manager 배포 모델을 사용하는 경우, 최신 세대 하드웨어에서 실행되도록 설계된 신규 격리형 VM 크기인 E64i_v3 또는 E64is_v3으로 이동하는 것이 좋습니다. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
+|Dv1 또는 DSv1 시리즈(D1 - D5)|[Dv3 또는 Dsv3 시리즈](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-sup1sup)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
+|Dv1 또는 DSv1 시리즈(D11 - D14)|[Ev3 또는 Esv3 시리즈](../articles/virtual-machines/windows/sizes-memory.md#esv3-series)|
+|D15v2 또는 DS15v2|대규모 VM 크기 활용하기 위해 Resource Manager 배포 모델을 사용하는 경우 E16v3/E16sv3 또는 E32v3/E32sv3으로 이동하는 것이 좋습니다. 이러한 항목은 최신 세대 하드웨어에서 실행되도록 설계되었습니다. VM 인스턴스가 단일 고객 전용 하드웨어로 격리되도록 Resource Manager 배포 모델을 사용하는 경우, 최신 세대 하드웨어에서 실행되도록 설계된 신규 격리형 VM 크기인 E64i_v3 또는 E64is_v3으로 이동하는 것이 좋습니다. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
+
 
 ## <a name="allocation-failures-for-large-deployments-more-than-500-cores"></a>대량 배포(코어 500개 초과)에 대한 할당 실패
 

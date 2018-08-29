@@ -8,29 +8,27 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: reference
-ms.date: 10/18/2017
+ms.date: 08/19/2018
 ms.author: laviswa
-ms.openlocfilehash: 4e9bdfab3abf9545218e80bf79d1b9b5df0cf2ff
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 33614628926e53354db14886530d7ca44da61f0a
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042013"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145976"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Azure Cosmos DB SQL 구문 참조
 
-Azure Cosmos DB는 명시적 스키마를 요구하거나 보조 인덱스를 만들지 않고 계층적 JSON 문서에 대한 문법과 같은 익숙한 SQL(구조적 쿼리 언어)을 사용하여 문서를 쿼리하는 기능을 지원합니다. 이 항목에서는 SQL API 계정과 호환되는 SQL 쿼리 언어에 대한 참조 설명서를 제공합니다.
-
-SQL 쿼리 언어에 대한 연습은 [SQL queries for Azure Cosmos DB](sql-api-sql-query.md)(Azure Cosmos DB의 SQL 쿼리)를 참조하세요.  
+Azure Cosmos DB는 명시적 스키마를 요구하거나 보조 인덱스를 만들지 않고 계층적 JSON 문서에 대한 문법과 같은 익숙한 SQL(구조적 쿼리 언어)을 사용하여 문서를 쿼리하는 기능을 지원합니다. 이 문서에서는 SQL API 계정과 호환되는 SQL 쿼리 언어에 대한 참조/구문 설명서를 제공합니다. 샘플 데이터를 사용하는 SQL 쿼리 연습에 대해서는 [Azure Cosmos DB 데이터 쿼리](sql-api-sql-query.md)를 참조하세요.  
   
 또한 [Query Playground](http://www.documentdb.com/sql/demo)도 방문하여 Azure Cosmos DB를 체험하고 데이터 집합에 대해 SQL 쿼리를 실행해 보세요.  
   
 ## <a name="select-query"></a>SELECT 쿼리  
-데이터베이스에서 JSON 문서를 검색합니다. 식 평가, 프로젝션, 필터링 및 조인을 지원합니다.  SELECT 문을 설명하는 데 사용되는 규칙은 구문 규칙 섹션에서 표로 작성되어 있습니다.  
+ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHERE 절로 구성됩니다. 일반적으로 각 쿼리에 대해 FROM 절의 소스가 열거됩니다. 그런 다음 WHERE 절의 필터를 소스에 적용하여 JSON 문서의 하위 집합을 검색합니다. 마지막으로, SELECT 절을 사용하여 선택 목록에서 요청된 JSON 값을 프로젝션합니다. SELECT 문을 설명하는 데 사용되는 규칙은 구문 규칙 섹션에서 표로 작성되어 있습니다. 예를 들어 [SELECT 쿼리 예제](sql-api-sql-query.md#SelectClause)를 참조하세요.
   
 **구문**  
   
-```
+```sql
 <select_query> ::=  
 SELECT <select_specification>   
     [ FROM <from_specification>]   
@@ -42,17 +40,14 @@ SELECT <select_specification>
   
  각 절에 대한 자세한 내용은 다음 섹션을 참조하세요.  
   
--   [SELECT 절](#bk_select_query)  
-  
--   [FROM 절](#bk_from_clause)  
-  
--   [WHERE 절](#bk_where_clause)  
-  
+-   [SELECT 절](#bk_select_query)    
+-   [FROM 절](#bk_from_clause)    
+-   [WHERE 절](#bk_where_clause)    
 -   [ORDER BY 절](#bk_orderby_clause)  
   
 SELECT 문의 절은 위에서 표시한 순서대로 지정해야 합니다. 선택적 절 중 하나는 생략할 수 있습니다. 그러나 선택적 절이 사용되면 올바른 순서로 표시되어야 합니다.  
   
-**SELECT 문의 논리적 처리 순서**  
+### <a name="logical-processing-order-of-the-select-statement"></a>SELECT 문의 논리적 처리 순서  
   
 절이 처리되는 순서는 다음과 같습니다.  
 
@@ -63,7 +58,7 @@ SELECT 문의 절은 위에서 표시한 순서대로 지정해야 합니다. �
 
 이 순서는 구문에 표시되는 순서와 다릅니다. 순서를 지정하면 처리된 절에서 도입된 새로운 모든 기호가 표시되고, 나중에 처리되는 절에서 사용될 수 있습니다. 예를 들어 FROM 절에 선언된 별칭은 WHERE 절과 SELECT 절에서 액세스할 수 있습니다.  
 
-**공백 문자 및 주석**  
+### <a name="whitespace-characters-and-comments"></a>공백 문자 및 주석  
 
 따옴표가 붙은 문자열이나 식별자의 일부가 아닌 모든 공백 문자는 언어 문법의 일부가 아니며 구문 분석에서 무시됩니다.  
 
@@ -74,10 +69,11 @@ SELECT 문의 절은 위에서 표시한 순서대로 지정해야 합니다. �
 공백 문자와 주석은 문법에서 아무런 의미가 없지만 토큰을 분리하는 데 사용해야 합니다. 예를 들어 `-1e5`는 단일 숫자 토큰이지만, `: – 1 e5`는 숫자 1과 식별자 e5가 뒤에 나오는 마이너스 토큰입니다.  
 
 ##  <a name="bk_select_query"></a> SELECT 절  
-SELECT 문의 절은 위에서 표시한 순서대로 지정해야 합니다. 선택적 절 중 하나는 생략할 수 있습니다. 그러나 선택적 절이 사용되면 올바른 순서로 표시되어야 합니다.  
+SELECT 문의 절은 위에서 표시한 순서대로 지정해야 합니다. 선택적 절 중 하나는 생략할 수 있습니다. 그러나 선택적 절이 사용되면 올바른 순서로 표시되어야 합니다. 예를 들어 [SELECT 쿼리 예제](sql-api-sql-query.md#SelectClause)를 참조하세요.
 
 **구문**  
-```  
+
+```sql
 SELECT <select_specification>  
 
 <select_specification> ::=   
@@ -92,25 +88,25 @@ SELECT <select_specification>
   
  **인수**  
   
- `<select_specification>`  
+- `<select_specification>`  
+
+  결과 집합에 대해 선택되는 속성 또는 값입니다.  
   
- 결과 집합에 대해 선택되는 속성 또는 값입니다.  
+- `'*'`  
+
+  변경하지 않고 값을 검색하도록 지정합니다. 특히 처리된 값이 개체이면 모든 속성이 검색됩니다.  
   
- `'*'`  
+- `<object_property_list>`  
   
-변경하지 않고 값을 검색하도록 지정합니다. 특히 처리된 값이 개체이면 모든 속성이 검색됩니다.  
+  검색할 속성의 목록을 지정합니다. 반환된 각 값은 지정된 속성이 있는 개체입니다.  
   
- `<object_property_list>`  
+- `VALUE`  
+
+  완전한 JSON 개체 대신 JSON 값을 검색하도록 지정합니다. 이것은 `<property_list>`와 달리 개체에 프로젝션된 값을 래핑하지 않습니다.  
   
-검색할 속성의 목록을 지정합니다. 반환된 각 값은 지정된 속성이 있는 개체입니다.  
-  
-`VALUE`  
-  
-완전한 JSON 개체 대신 JSON 값을 검색하도록 지정합니다. 이것은 `<property_list>`와 달리 개체에 프로젝션된 값을 래핑하지 않습니다.  
-  
-`<scalar_expression>`  
-  
-계산할 값을 나타내는 식입니다. 자세한 내용은 [스칼라 식](#bk_scalar_expressions) 섹션을 참조하세요.  
+- `<scalar_expression>`  
+
+  계산할 값을 나타내는 식입니다. 자세한 내용은 [스칼라 식](#bk_scalar_expressions) 섹션을 참조하세요.  
   
 **설명**  
   
@@ -118,17 +114,17 @@ SELECT <select_specification>
   
 `SELECT <select_list>`과 `SELECT *`는 "syntactic sugar(구문적 설탕)"이며 다음과 같이 간단한 SELECT 문을 사용하여 표현할 수 있습니다.  
   
-1.  `SELECT * FROM ... AS from_alias ...`  
+1. `SELECT * FROM ... AS from_alias ...`  
   
-     이는 다음과 동등합니다.  
+   이는 다음과 동등합니다.  
   
-     `SELECT from_alias FROM ... AS from_alias ...`  
+   `SELECT from_alias FROM ... AS from_alias ...`  
   
-2.  `SELECT <expr1> AS p1, <expr2> AS p2,..., <exprN> AS pN [other clauses...]`  
+2. `SELECT <expr1> AS p1, <expr2> AS p2,..., <exprN> AS pN [other clauses...]`  
   
-     이는 다음과 동등합니다.  
+   이는 다음과 동등합니다.  
   
-     `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
+   `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
   
 **참고 항목**  
   
@@ -136,11 +132,11 @@ SELECT <select_specification>
 [SELECT 절](#bk_select_query)  
   
 ##  <a name="bk_from_clause"></a> FROM 절  
-원본 또는 조인된 원본을 지정합니다. FROM 절은 선택 사항입니다. 지정하지 않으면 FROM 절에서 단일 문서를 제공하는 것처럼 다른 절도 계속 실행됩니다.  
+원본 또는 조인된 원본을 지정합니다. 쿼리의 뒷부분에서 소스를 필터링/프로젝션하지 않을 경우 FROM 절은 선택 사항입니다. 이 절의 목적은 쿼리가 작동해야 하는 데이터 원본을 지정하는 것입니다. 일반적으로 전체 컬렉션이 소스이지만 컬렉션의 하위 집합을 대신 지정할 수 있습니다. 이 절을 지정하지 않으면 FROM 절에서 단일 문서를 제공하는 것처럼 다른 절도 계속 실행됩니다. 예를 들어 [FROM 절 예제](sql-api-sql-query.md#FromClause)를 참조하세요.
   
 **구문**  
   
-```  
+```sql  
 FROM <from_specification>  
   
 <from_specification> ::=   
@@ -160,55 +156,55 @@ FROM <from_specification>
   
 **인수**  
   
-`<from_source>`  
+- `<from_source>`  
   
-별칭이 있거나 없는 데이터 원본을 지정합니다. 별칭을 지정하지 않으면 다음 규칙을 사용하여 `<collection_expression>`에서 유추됩니다.  
+  별칭이 있거나 없는 데이터 원본을 지정합니다. 별칭을 지정하지 않으면 다음 규칙을 사용하여 `<collection_expression>`에서 유추됩니다.  
   
--   식이 collection_name이면 collection_name이 별칭으로 사용됩니다.  
+  -  식이 collection_name이면 collection_name이 별칭으로 사용됩니다.  
   
--   식이 `<collection_expression>`이면 property_name이 별칭으로 사용됩니다. 식이 collection_name이면 collection_name이 별칭으로 사용됩니다.  
+  -  식이 `<collection_expression>`이면 property_name이 별칭으로 사용됩니다. 식이 collection_name이면 collection_name이 별칭으로 사용됩니다.  
   
-AS `input_alias`  
+- AS `input_alias`  
   
-`input_alias`가 기본 컬렉션 식에서 반환되는 값 집합임을 지정합니다.  
+  `input_alias`가 기본 컬렉션 식에서 반환되는 값 집합임을 지정합니다.  
  
-`input_alias` IN  
+- `input_alias` IN  
   
-`input_alias`가 기본 컬렉션 식에서 반환되는 각 배열의 모든 배열 요소를 반복하여 얻는 값 집합을 나타내도록 지정합니다. 배열이 아닌 기본 컬렉션 식에서 반환되는 값은 무시됩니다.  
+  `input_alias`가 기본 컬렉션 식에서 반환되는 각 배열의 모든 배열 요소를 반복하여 얻는 값 집합을 나타내도록 지정합니다. 배열이 아닌 기본 컬렉션 식에서 반환되는 값은 무시됩니다.  
   
-`<collection_expression>`  
+- `<collection_expression>`  
   
-문서를 검색하는 데 사용할 컬렉션 식을 지정합니다.  
+  문서를 검색하는 데 사용할 컬렉션 식을 지정합니다.  
   
-`ROOT`  
+- `ROOT`  
   
-현재 연결된 기본 컬렉션에서 문서를 검색하도록 지정합니다.  
+  현재 연결된 기본 컬렉션에서 문서를 검색하도록 지정합니다.  
   
-`collection_name`  
+- `collection_name`  
   
-제공된 컬렉션에서 문서를 검색하도록 지정합니다. 컬렉션의 이름은 현재 연결된 컬렉션의 이름과 일치해야 합니다.  
+  제공된 컬렉션에서 문서를 검색하도록 지정합니다. 컬렉션의 이름은 현재 연결된 컬렉션의 이름과 일치해야 합니다.  
   
-`input_alias`  
+- `input_alias`  
   
-제공된 별칭으로 정의된 다른 원본에서 문서를 검색하도록 지정합니다.  
+  제공된 별칭으로 정의된 다른 원본에서 문서를 검색하도록 지정합니다.  
   
-`<collection_expression> '.' property_`  
+- `<collection_expression> '.' property_`  
   
-지정된 컬렉션 식으로 검색된 모든 문서에 대해 `property_name` 속성 또는 array_index 배열 요소에 액세스하여 문서를 검색하도록 지정합니다.  
+  지정된 컬렉션 식으로 검색된 모든 문서에 대해 `property_name` 속성 또는 array_index 배열 요소에 액세스하여 문서를 검색하도록 지정합니다.  
   
-`<collection_expression> '[' "property_name" | array_index ']'`  
+- `<collection_expression> '[' "property_name" | array_index ']'`  
   
-지정된 컬렉션 식으로 검색된 모든 문서에 대해 `property_name` 속성 또는 array_index 배열 요소에 액세스하여 문서를 검색하도록 지정합니다.  
+  지정된 컬렉션 식으로 검색된 모든 문서에 대해 `property_name` 속성 또는 array_index 배열 요소에 액세스하여 문서를 검색하도록 지정합니다.  
   
 **설명**  
   
 `<from_source>(`에서 제공되거나 유추되는 모든 별칭은 고유해야 합니다. `<collection_expression>.`property_name 구문은 `<collection_expression>' ['"property_name"']'`과 같습니다. 그러나 속성 이름에 비식별자 문자가 포함되어 있으면 후자의 구문을 사용할 수 있습니다.  
   
-**누락된 속성, 누락된 배열 요소, 정의되지 않은 값 처리**  
+### <a name="handling-missing-properties-missing-array-elements-and-undefined-values"></a>누락된 속성, 누락된 배열 요소, 정의되지 않은 값 처리
   
 컬렉션 식에서 속성이나 배열 요소에 액세스하고 해당 값이 존재하지 않으면 이 값은 무시되고 더 이상 처리되지 않습니다.  
   
-**컬렉션 식 컨텍스트 범위 지정**  
+### <a name="collection-expression-context-scoping"></a>컬렉션 식 컨텍스트 범위 지정  
   
 컬렉션 식은 컬렉션 범위 또는 문서 범위일 수 있습니다.  
   
@@ -216,11 +212,11 @@ AS `input_alias`
   
 -   컬렉션 식의 기본 원본이 쿼리의 앞 부분에 도입된 `input_alias`이면 식은 문서 범위입니다. 이러한 식은 별칭 지정된 컬렉션과 연결된 집합에 속한 각 문서의 범위에서 컬렉션 식을 평가하여 얻는 문서 집합을 나타냅니다.  결과 집합은 기본 집합에 있는 각 문서에 대해 컬렉션 식을 평가하여 얻는 집합의 합집합입니다.  
   
-**조인**  
+### <a name="joins"></a>조인 
   
-현재 릴리스의 Azure Cosmos DB에서는 내부 조인을 지원합니다. 추가 조인 기능이 곧 출시됩니다.
+현재 릴리스의 Azure Cosmos DB에서는 내부 조인을 지원합니다. 추가 조인 기능이 곧 출시됩니다. 
 
-내부 조인은 조인에 참여하는 집합의 완전한 교차곱을 만듭니다. N 방향 조인의 결과는 N 요소 튜플의 집합이며, 여기서 튜플의 각 값은 조인에 참여하는 별칭 지정된 집합과 연결되며 다른 절에서 해당 별칭을 참조하여 액세스할 수 있습니다.  
+내부 조인은 조인에 참여하는 집합의 완전한 교차곱을 만듭니다. N 방향 조인의 결과는 N 요소 튜플의 집합이며, 여기서 튜플의 각 값은 조인에 참여하는 별칭 지정된 집합과 연결되며 다른 절에서 해당 별칭을 참조하여 액세스할 수 있습니다. 예를 들어 [JOIN 키워드 예제](sql-api-sql-query.md#Joins)를 참조하세요.
   
 조인 평가는 참여하는 집합의 컨텍스트 범위에 따라 다릅니다.  
   
@@ -230,13 +226,13 @@ AS `input_alias`
   
  현재 릴리스의 쿼리 프로세서에서는 컬렉션 범위가 지정된 식 하나만 지원합니다.  
   
-**조인 예제:**  
+### <a name="examples-of-joins"></a>조인 예제  
   
 `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>` FROM 절을 살펴보겠습니다.  
   
  각 원본에서 `input_alias1, input_alias2, …, input_aliasN`을 정의하도록 합니다. 이 FROM 절은 N 튜플(N개 값이 포함된 튜플)의 집합을 반환합니다. 각 튜플은 해당 집합에 모든 컬렉션 별칭을 반복하여 생성된 값을 포함합니다.  
   
-*2개 원본이 있는 조인 예제 1:*  
+**예제 1** - 2개 원본  
   
 - 컬렉션 범위로 `<from_source1>`을 지정하고 집합 {A, B, C}를 나타냅니다.  
   
@@ -254,7 +250,7 @@ AS `input_alias`
   
     `(A, 1), (A, 2), (B, 3), (C, 4), (C, 5)`  
   
-*3개 원본이 있는 조인 예제 2:*  
+**예제 2** - 3개 원본  
   
 - 컬렉션 범위로 `<from_source1>`을 지정하고 집합 {A, B, C}를 나타냅니다.  
   
@@ -278,10 +274,10 @@ AS `input_alias`
   
     (A, 1, 100), (A, 1, 200), (B, 3, 300)  
   
-> [!NOTE]
-> `input_alias1`, `input_alias2`의 다른 값에 대한 튜플이 없으므로 `<from_source3>`에서 값을 반환하지 않았습니다.  
+  > [!NOTE]
+  > `input_alias1`, `input_alias2`의 다른 값에 대한 튜플이 없으므로 `<from_source3>`에서 값을 반환하지 않았습니다.  
   
-*3개 원본이 있는 조인 예제 3:*  
+**예제 3** - 3개 원본  
   
 - 컬렉션 범위로 <from_source1>을 지정하고 집합 {A, B, C}를 나타냅니다.  
   
@@ -307,19 +303,19 @@ AS `input_alias`
   
     (A, 1, 100), (A, 1, 200), (A, 2, 100), (A, 2, 200), (C, 4, 300), (C, 5, 300)  
   
-> [!NOTE]
-> 이렇게 하면 `<from_source2>`와 `<from_source3>`의 범위를 모두 동일한 `<from_source1>`로 지정했기 때문에 두 원본의 교차곱을 만들고,  이로 인해 A 값이 있는 4개(2x2) 튜플, B 값이 있는 0개(1x0) 튜플 및 C 값이 있는 2개(2x1) 튜플을 만들었습니다.  
+  > [!NOTE]
+  > 이렇게 하면 `<from_source2>`와 `<from_source3>`의 범위를 모두 동일한 `<from_source1>`로 지정했기 때문에 두 원본의 교차곱을 만들고,  이로 인해 A 값이 있는 4개(2x2) 튜플, B 값이 있는 0개(1x0) 튜플 및 C 값이 있는 2개(2x1) 튜플을 만들었습니다.  
   
 **참고 항목**  
   
  [SELECT 절](#bk_select_query)  
   
 ##  <a name="bk_where_clause"></a> WHERE 절  
- 쿼리에서 반환되는 문서에 대한 검색 조건을 지정합니다.  
+ 쿼리에서 반환되는 문서에 대한 검색 조건을 지정합니다. 예를 들어 [WHERE 절 예제](sql-api-sql-query.md#WhereClause)를 참조하세요.
   
  **구문**  
   
-```  
+```sql  
 WHERE <filter_condition>  
 <filter_condition> ::= <scalar_expression>  
   
@@ -340,11 +336,11 @@ WHERE <filter_condition>
  문서를 반환하려면 필터 조건으로 지정된 식을 true로 평가해야 합니다. true 부울 값만 조건을 충족하고, 다른 값(undefined, null, false, 숫자, 배열 또는 개체)은 조건을 충족하지 않습니다.  
   
 ##  <a name="bk_orderby_clause"></a> ORDER BY 절  
- 쿼리에서 반환되는 결과의 정렬 순서를 지정합니다.  
+ 쿼리에서 반환되는 결과의 정렬 순서를 지정합니다. 예를 들어 [ORDER BY 절 예제](sql-api-sql-query.md#OrderByClause)를 참조하세요.
   
  **구문**  
   
-```  
+```sql  
 ORDER BY <sort_specification>  
 <sort_specification> ::= <sort_expression> [, <sort_expression>]  
 <sort_expression> ::= <scalar_expression> [ASC | DESC]  
@@ -378,13 +374,13 @@ ORDER BY <sort_specification>
  쿼리 문법은 속성 기준으로 여러 가지 순서를 지원하지만, Azure Cosmos DB 쿼리 런타임은 단일 속성에 대해서만 정렬을 지원하며, 계산된 속성이 아니라 속성 이름에 대해서만 정렬을 지원합니다. 또한 정렬하기 위해서는 인덱싱 정책에 속성에 대한 범위 인덱스와 지정된 유형이 최대 정밀도로 포함되어야 합니다. 자세한 내용은 인덱싱 정책 설명서를 참조하세요.  
   
 ##  <a name="bk_scalar_expressions"></a> 스칼라 식  
- 스칼라 식은 단일 값을 얻기 위해 평가될 수 있는 기호와 연산자의 조합입니다. 간단한 식은 상수, 속성 참조, 배열 요소 참조, 별칭 참조 또는 함수 호출일 수 있으며, 연산자를 사용하여 복잡한 식으로 결합될 수 있습니다.  
+ 스칼라 식은 단일 값을 얻기 위해 평가될 수 있는 기호와 연산자의 조합입니다. 간단한 식은 상수, 속성 참조, 배열 요소 참조, 별칭 참조 또는 함수 호출일 수 있으며, 연산자를 사용하여 복잡한 식으로 결합될 수 있습니다. 예를 들어 [스칼라 식 예제](sql-api-sql-query.md#scalar-expressions)를 참조하세요.
   
  스칼라 식에 포함될 수 있는 값에 대한 자세한 내용은 [상수](#bk_constants) 섹션을 참조하세요.  
   
  **구문**  
   
-```  
+```sql  
 <scalar_expression> ::=  
        <constant>   
      | input_alias   
@@ -550,7 +546,7 @@ ORDER BY <sort_specification>
   
  **구문**  
   
-```  
+```sql  
 <constant> ::=  
    <undefined_constant>  
      | <null_constant>   
@@ -580,45 +576,45 @@ ORDER BY <sort_specification>
   
  **인수**  
   
-1.  `<undefined_constant>; undefined`  
+* `<undefined_constant>; undefined`  
   
-     Undefined 형식의 undefined 값을 나타냅니다.  
+  Undefined 형식의 undefined 값을 나타냅니다.  
   
-2.  `<null_constant>; null`  
+* `<null_constant>; null`  
   
-     **Null** 형식의 **null** 값을 나타냅니다.  
+  **Null** 형식의 **null** 값을 나타냅니다.  
   
-3.  `<boolean_constant>`  
+* `<boolean_constant>`  
   
-     Boolean 형식의 상수를 나타냅니다.  
+  Boolean 형식의 상수를 나타냅니다.  
   
-4.  `false`  
+* `false`  
   
-     Boolean 형식의 **false** 값을 나타냅니다.  
+  Boolean 형식의 **false** 값을 나타냅니다.  
   
-5.  `true`  
+* `true`  
   
-     Boolean 형식의 **true** 값을 나타냅니다.  
+  Boolean 형식의 **true** 값을 나타냅니다.  
   
-6.  `<number_constant>`  
+* `<number_constant>`  
   
-     상수를 나타냅니다.  
+  상수를 나타냅니다.  
   
-7.  `decimal_literal`  
+* `decimal_literal`  
   
-     10진 리터럴은 10진수 표기법 또는 과학적 표기법을 사용하여 표현되는 숫자입니다.  
+  10진 리터럴은 10진수 표기법 또는 과학적 표기법을 사용하여 표현되는 숫자입니다.  
   
-8.  `hexadecimal_literal`  
+* `hexadecimal_literal`  
   
-     16진 리터럴은 '0x' 접두사 다음에 하나 이상의 16진수가 나오는 숫자입니다.  
+  16진 리터럴은 '0x' 접두사 다음에 하나 이상의 16진수가 나오는 숫자입니다.  
   
-9. `<string_constant>`  
+* `<string_constant>`  
   
-     String 형식의 상수를 나타냅니다.  
+  String 형식의 상수를 나타냅니다.  
   
-10. `string _literal`  
+* `string _literal`  
   
-     문자열 리터럴은 연속적인 0이상의 유니코드 문자 또는 이스케이프 시퀀스로 표현되는 유니코드 문자열입니다. 문자열 리터럴은 작은따옴표(아포스트로피: ') 또는 큰따옴표(따옴표: ")로 묶어야 합니다.  
+  문자열 리터럴은 연속적인 0이상의 유니코드 문자 또는 이스케이프 시퀀스로 표현되는 유니코드 문자열입니다. 문자열 리터럴은 작은따옴표(아포스트로피: ') 또는 큰따옴표(따옴표: ")로 묶어야 합니다.  
   
  허용되는 이스케이프 시퀀스는 다음과 같습니다.  
   
@@ -1854,7 +1850,7 @@ SELECT
 |[낮은](#bk_lower)|[LTRIM](#bk_ltrim)|[바꾸기](#bk_replace)|  
 |[복제](#bk_replicate)|[역방향](#bk_reverse)|[오른쪽](#bk_right)|  
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[하위 문자열](#bk_substring)|  
-|[ToString](#bk_tostring)|[위](#bk_upper)|||  
+|[ToString](#bk_tostring)|[TRIM](#bk_trim)|[위](#bk_upper)||| 
   
 ####  <a name="bk_concat"></a> CONCAT  
  둘 이상의 문자열 값을 연결한 결과인 문자열을 반환합니다.  
@@ -2440,7 +2436,40 @@ JOIN n IN food.nutrients
 {"nutrientID":"307","nutritionVal":"912"},
 {"nutrientID":"308","nutritionVal":"90"},
 {"nutrientID":"309","nutritionVal":"null"}]
- ```  
+ ``` 
+ 
+####  <a name="bk_trim"></a> TRIM  
+ 선행 및 후행 공백을 제거한 후에 문자열 식을 반환합니다.  
+  
+ **구문**  
+  
+```  
+TRIM(<str_expr>)  
+```  
+  
+ **인수**  
+  
+-   `str_expr`  
+  
+     유효한 문자열 식입니다.  
+  
+ **반환 형식**  
+  
+ 문자열 식을 반환합니다.  
+  
+ **예**  
+  
+ 다음 예제에서는 쿼리 내에서 TRIM을 사용하는 방법을 보여 줍니다.  
+  
+```  
+SELECT TRIM("   abc"), TRIM("   abc   "), TRIM("abc   "), TRIM("abc")   
+```  
+  
+ 결과 집합은 다음과 같습니다.  
+  
+```  
+[{"$1": "abc", "$2": "abc", "$3": "abc", "$4": "abc"}]  
+``` 
 ####  <a name="bk_upper"></a> UPPER  
  소문자 데이터를 대문자로 변환한 후에 문자열 식을 반환합니다.  
   
@@ -2681,7 +2710,7 @@ ST_DISTANCE (<spatial_expr>, <spatial_expr>)
   
  **예**  
   
- 다음 예제에서는 ST_DISTANCE 기본 제공 함수를 사용하여 지정된 위치에서 30Km 이내에 있는 모든 패밀리 문서를 반환하는 방법을 보여 줍니다. 에서도 확인할 수 있습니다.  
+ 다음 예제에서는 ST_DISTANCE 기본 제공 함수를 사용하여 지정된 위치에서 30Km 이내에 있는 모든 패밀리 문서를 반환하는 방법을 보여 줍니다. .  
   
 ```  
 SELECT f.id   

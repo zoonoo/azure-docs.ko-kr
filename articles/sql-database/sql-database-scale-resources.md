@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: a6b987d9815cfabed6dd986a0d9842a97f5b5868
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 2378a4d5bb7d7f52ee2e96224db01e5e386b4c46
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092055"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142970"
 ---
 # <a name="scale-database-resources"></a>데이터베이스 리소스 크기 조정
 
@@ -38,14 +38,16 @@ Azure SQL Database는 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.
 > 동적 확장성은 자동 크기 조정과 다릅니다. 자동 크기 조정은 서비스가 조건에 따라 자동으로 크기를 조정하는 경우인 반면 동적 확장성은 가동 중지 시간 없이 수동 크기 조정을 허용합니다.
 >
 
-
 단일 Azure SQL Database는 수동 동적 확장성을 지원하지만 자동 크기 조정은 지원하지 않습니다. 더 많은 *자동* 환경은 데이터베이스에서 개별 데이터베이스 요구 사항에 따라 풀에 리소스를 공유하도록 허용하는 탄력적 풀을 사용하는 것이 좋습니다.
 그러나 단일 Azure SQL Database에 대한 확장성을 자동화할 수 있는 스크립트가 있습니다. 예제는 [PowerShell을 사용하여 단일 SQL Database 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-powershell.md)을 참조하세요.
 
+응용 프로그램 가동 중지 시간을 최소로 하여 언제든지 [DTU 서비스 계층](sql-database-service-tiers-dtu.md) 또는 [vCore 특성](sql-database-vcore-resource-limits-single-databases.md)을 변경할 수 있습니다(일반적으로 평균 4초 미만). 많은 업무와 앱에서, 특히 사용 패턴이 비교적 예측 가능한 경우 데이터베이스를 만들고 성능을 확장하거나 축소할 수 있으면 충분합니다. 하지만 사용 패턴을 예측할 수 없는 경우 비용과 비즈니스 모델을 관리하기 어려워질 수 있습니다. 이 시나리오에서는 풀의 여러 데이터베이스 간에 공유되는 특정 개수의 eDTU가 포함된 탄력적 풀을 사용합니다.
+
+![SQL Database 소개: 계층 및 수준별 단일 데이터베이스 DTU](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 Azure SQL Database의 세 가지 버전은 모두 데이터베이스 크기를 동적으로 조정할 수 있는 기능을 제공합니다.
--   [Azure SQL 단일 데이터베이스](sql-database-single-database-scale.md)에서는 [DTU](sql-database-dtu-resource-limits-single-databases.md) 또는 [vCore](sql-database-vcore-resource-limits-single-databases.md) 모델 중 하나를 사용하여 각 데이터베이스에 할당되는 최대 리소스 양을 정의할 수 있습니다.
--   [Azure SQL 관리되는 인스턴스](sql-database-managed-instance.md)는 [vCores](/azure/sql-database/sql-database-managed-instance#vcore-based-purchasing-model-preview) 모드를 사용하며, 인스턴스에 할당되는 최대 CPU 코어 수와 최대 저장소 수를 정의할 수 있습니다. 인스턴스 내의 모든 데이터베이스가 인스턴스에 할당된 리소스를 공유합니다.
+-   [Azure SQL Single Database](sql-database-single-database-scale.md)에서는 [DTU](sql-database-dtu-resource-limits-single-databases.md) 또는 [vCore](sql-database-vcore-resource-limits-single-databases.md) 모델 중 하나를 사용하여 각 데이터베이스에 할당되는 최대 리소스 양을 정의할 수 있습니다.
+-   [Azure SQL Managed Instance](sql-database-managed-instance.md)는 [vCores](/azure/sql-database/sql-database-managed-instance#vcore-based-purchasing-model-preview) 모드를 사용하며, 인스턴스에 할당되는 최대 CPU 코어 수와 최대 저장소 수를 정의할 수 있습니다. 인스턴스 내의 모든 데이터베이스가 인스턴스에 할당된 리소스를 공유합니다.
 -   [Azure SQL 탄력적 풀](sql-database-elastic-pool-scale.md)에서는 풀의 데이터베이스 그룹당 최대 리소스 한도를 정의할 수 있습니다.
 
 ## <a name="alternative-scale-methods"></a>대체 크기 조정 방법

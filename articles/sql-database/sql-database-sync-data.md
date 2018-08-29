@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 8fe77522297dc6020cf98f4532aea9f580d8bdb9
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: ba1fdcf64592bdfe23195e781a21d7a2db693325
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004814"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42145618"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스의 데이터 동기화
 
@@ -148,8 +148,8 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 | **차원**                                                      | **제한**              | **해결 방법**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | 데이터베이스가 속할 수 있는 동기화 그룹의 최대 수입니다.       | 5                      |                             |
-| 단일 동기화 그룹에서 끝점의 최대 수입니다.              | 30                     | 여러 동기화 그룹 만들기 |
-| 단일 동기화 그룹에서 온-프레미스 끝점의 최대 수입니다. | 5                      | 여러 동기화 그룹 만들기 |
+| 단일 동기화 그룹에서 엔드포인트의 최대 수입니다.              | 30                     | 여러 동기화 그룹 만들기 |
+| 단일 동기화 그룹에서 온-프레미스 엔드포인트의 최대 수입니다. | 5                      | 여러 동기화 그룹 만들기 |
 | 데이터베이스, 테이블, 스키마 및 열 이름                       | 이름당 50자 |                             |
 | 동기화 그룹의 표                                          | 500                    | 여러 동기화 그룹 만들기 |
 | 동기화 그룹에서 표의 열                              | 1000                   |                             |
@@ -178,7 +178,10 @@ SQL 데이터 동기화는 모든 지역에서 사용할 수 있습니다.
 예. 서로 다른 구독에서 소유하는 리소스 그룹에 속해 있는 SQL Database 간에 동기화를 수행할 수 있습니다.
 -   구독이 동일한 테넌트에 속하며 모든 구독에 대해 사용 권한이 있는 경우, Azure Portal에서 동기화 그룹을 구성할 수 있습니다.
 -   그렇지 않으면 PowerShell을 사용하여 서로 다른 구독에 속하는 동기화 멤버를 추가해야 합니다.
-   
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china"></a>데이터 동기화를 사용해서 서로 다른 클라우드(예: Azure 공용 클라우드 및 Azure 중국)에 속해 있는 SQL Database 간에 동기화를 수행할 수 있나요?
+예. 다른 클라우드에 속해 있는 SQL Database 간에 동기화할 수 있으며, PowerShell을 사용하여 다른 구독에 속하는 동기화 멤버를 추가해야 합니다.
+
 ### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-sync-them"></a>데이터 동기화를 사용하여 프로덕션 데이터베이스에서 빈 데이터베이스로 데이터를 시드한 다음, 동기화할 수 있나요?
 
 예. 원본에서 스크립팅하여 수동으로 새 데이터베이스에 스키마를 만듭니다. 스키마를 만든 후 테이블을 동기화 그룹에 추가하여 데이터를 복사하고 동기화된 상태로 유지합니다.

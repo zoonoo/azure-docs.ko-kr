@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 675316b97e821a81ca4946d57a76d7bce978361b
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 0e1c049596b5231ad72590fc17a73cd5aa457e4d
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714549"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246625"
 ---
 # <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Azure Marketplace용 솔루션 템플릿 만들기 가이드
 1단계 [계정 만들기 및 등록][link-acct-creation]을 완료한 후 [솔루션 템플릿을 만들기 위한 기술 필수 조건](marketplace-publishing-solution-template-creation-prerequisites.md)에서 Azure 호환 솔루션 템플릿 만들기에 대해 안내했습니다. 이제 Azure Marketplace의 [게시 포털][link-pubportal]에서 여러 VM에 대한 솔루션 템플릿을 만드는 단계를 안내합니다.
@@ -61,7 +61,7 @@ ms.locfileid: "39714549"
 다음 관련 문서를 참조할 수도 있습니다.
 
 * VM 이미지: [Azure의 Virtual Machine 이미지 정보](https://msdn.microsoft.com/library/azure/dn790290.aspx)
-* VM 확장: [VM 에이전트 및 VM 확장 개요](https://msdn.microsoft.com/library/azure/dn832621.aspx) 및 [Azure VM 확장 및 기능](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+* VM 확장: [Azure VM 확장 및 기능](../virtual-machines/extensions/features-windows.md)
 * Azure Resource Manager: [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md) 및 [간단한 템플릿 예제](https://github.com/rjmax/ArmExamples)
 * Storage 계정 제한: [Storage 계정 제한을 모니터링하는 방법](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) 및 [Premium storage](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)
 

@@ -14,16 +14,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 522bc9e757abeae930e47eaf53bb6da4bd9d0531
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 1c56f705c07e2001e1ef8f5f9f05c264c33c2c3f
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224112"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42145616"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Visual Studio를 사용하여 Azure App Service에서 웹앱 문제 해결
 ## <a name="overview"></a>개요
-이 자습서에서는 원격으로 [디버그 모드](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx)를 실행하거나 응용 프로그램 로그 및 웹 서버 로그를 확인하여 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714)에서 웹앱을 디버그할 수 있는 Visual Studio 도구를 사용하는 방법을 보여줍니다.
+이 자습서에서는 원격으로 [디버그 모드](https://docs.microsoft.com/visualstudio/debugger/)를 실행하거나 응용 프로그램 로그 및 웹 서버 로그를 확인하여 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714)에서 웹앱을 디버그할 수 있는 Visual Studio 도구를 사용하는 방법을 보여줍니다.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -134,7 +134,8 @@ public ActionResult About()
     return View();
 }
 ```
-4. `ViewBag.Message` 줄에 [중단점을 설정](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx)합니다.
+
+4. `ViewBag.Message` 줄에 [중단점을 설정](https://docs.microsoft.com/visualstudio/debugger/)합니다.
 
 5. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다.
 
@@ -185,7 +186,7 @@ public ActionResult About()
 
 2. ContosoAdsWebJob 프로젝트에서 *Functions.cs*를 엽니다.
 
-3. `GnerateThumbnail` 메서드의 첫 번째 문에 [중단점을 설정](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx)합니다.
+3. `GnerateThumbnail` 메서드의 첫 번째 문에 [중단점을 설정](https://docs.microsoft.com/visualstudio/debugger/)합니다.
 
     ![중단점 설정](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
@@ -250,7 +251,7 @@ public ActionResult About()
   <httpRuntime targetFramework="4.5" />
 </system.web>
 ```
-* 디버거에서 디버그하려는 코드가 단계별로 실행되지 않는 경우 "내 코드만" 설정을 변경해야 할 수 있습니다.  자세한 내용은 [단계별 코드 실행을 내 코드만으로 제한](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code)을 참조하십시오.
+* 디버거에서 디버그하려는 코드가 단계별로 실행되지 않는 경우 "내 코드만" 설정을 변경해야 할 수 있습니다.  자세한 내용은 [Visual Studio에서 Just My Code를 사용하여 사용자 코드만 디버그할지 지정](https://docs.microsoft.com/visualstudio/debugger/just-my-code)을 참조하세요.
 * 원격 디버깅 기능을 사용하도록 설정하면 서버의 타이머가 시작되고 48시간 후 기능이 자동으로 꺼집니다. 이 48시간 제한은 보안 및 성능상의 이유로 제한됩니다. 원하는 횟수만큼 기능을 쉽게 다시 켤 수 있습니다. 디버깅을 활발히 사용하지 않는 경우 이를 사용하지 않는 상태로 두는 것이 좋습니다.
 * 웹 앱 프로세스(w3wp.exe)뿐만 아니라 모든 프로세스에 디버거를 수동으로 연결할 수 있습니다. Visual Studio에서 디버그 모드를 사용하는 방법에 대한 자세한 내용은 [Visual Studio의 디버깅](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx)을 참조하십시오.
 

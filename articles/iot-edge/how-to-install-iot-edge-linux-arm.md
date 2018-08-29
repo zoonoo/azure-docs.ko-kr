@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 08/14/2018
 ms.author: kgremban
-ms.openlocfilehash: e814785af7041ba762f7c383a0cfdc434fce9dce
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 7720e0471c6d8f2ba20f28753773829a28f93c7a
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213875"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140542"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Linux(ARM32v7/armhf)에 Azure IoT Edge 런타임 설치
 
@@ -111,6 +111,9 @@ sudo nano /etc/iotedge/config.yaml
 ```cmd/sh
 sudo systemctl restart iotedge
 ```
+
+>[!TIP]
+>`iotedge` 명령을 실행하려면 상승된 권한이 필요합니다. IoT Edge 런타임을 설치한 후 처음으로 머신에서 로그아웃했다가 다시 로그인하면 권한이 자동으로 업데이트됩니다. 그 전까지는 명령 앞에 **sudo**를 사용합니다. 
 
 ## <a name="verify-successful-installation"></a>성공적인 설치 확인
 

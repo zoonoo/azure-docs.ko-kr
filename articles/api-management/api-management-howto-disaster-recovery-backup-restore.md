@@ -3,7 +3,7 @@ title: Azure API Management에서 백업 및 복원을 사용하여 재해 복�
 description: Azure API Management에서 백업 및 복원을 사용하여 재해 복구를 수행하는 방법에 대해 알아봅니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: erikre
 editor: ''
 ms.service: api-management
@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 4135bd66e839037d7db694cb3c6df8f3905222e6
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: ce3208fed119452ef9383fcb5b5eefb1aac6e224
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283103"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145018"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
 
@@ -39,8 +39,6 @@ API Management 서비스를 호스트하는 지역에 영향을 주는 가용성
 
 > [!IMPORTANT]
 > 백업 및 복원을 위한 REST API는 Azure Resource Manager를 사용하며 API Management 엔터티를 관리하기 위한 REST API와는 다른 인증 메커니즘입니다. 이 섹션의 단계에는 Azure 리소스 관리자 요청을 인증하는 방법을 설명합니다. 자세한 내용은 [Azure 리소스 관리자 요청 인증](http://msdn.microsoft.com/library/azure/dn790557.aspx)을 참조하세요.
->
->
 
 Azure Resource Manager를 사용하여 리소스에서 수행하는 모든 작업은 다음 단계를 사용하여 Azure Active Directory에서 인증되어야 합니다.
 
@@ -111,7 +109,7 @@ namespace GetTokenResourceManagerRequests
 
 1. `{tenant id}`를 만든 Azure Active Directory 응용 프로그램의 테넌트 ID로 바꿉니다. **앱 등록** -> **끝점**을 클릭하여 ID에 액세스할 수 있습니다.
 
-    ![Endpoints][api-management-endpoint]
+    ![엔드포인트][api-management-endpoint]
 2. **설정** 페이지로 이동하여 `{application id}`를 가져온 값으로 바꿉니다.
 3. `{redirect uri}`를 Azure Active Directory 응용 프로그램의 **리디렉션 URI** 탭에 있는 값으로 바꿉니다.
 
@@ -209,15 +207,16 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 > 백업 및 복원 작업은 각각 Powershell *Backup-AzureRmApiManagement* 및 *Restore-AzureRmApiManagement* 명령을 사용하여 수행할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-백업/복원 프로세스의 서로 다른 두 연습에 대한 다음 Microsoft 블로그를 체크아웃합니다.
+
+백업/복원 프로세스의 다른 연습을 위해 다음 리소스를 확인합니다.
 
 * [Azure API Management 계정 복제](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
-* [Azure API Management: 백업 및 복원 구성](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
-  * Stuart에서 구체화된 접근 방식은 공식 지침과 일치하지 않지만 흥미롭습니다.
+* [Logic Apps로 API Management 백업 및 복원 자동화](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
+* [Azure API Management: 구성 백업 및 복원](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
+  *Stuart에서 구체화된 접근 방식은 공식 지침과 일치하지 않지만 흥미롭습니다.*
 
 [Backup an API Management service]: #step1
 [Restore an API Management service]: #step2
-
 
 [Azure API Management REST API]: http://msdn.microsoft.com/library/azure/dn781421.aspx
 

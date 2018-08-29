@@ -12,17 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/27/2018
+ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 1d797df3f03e9b92569d37495310a5c162f5f981
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 3586804a8384273e5c0589bef9c586cee162939e
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130931"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141795"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Log Analytics에서 데이터 볼륨 및 보존을 제어하여 비용 관리
+
+> [!NOTE]
+> 이 문서에서는 데이터 보존 기간을 설정하여 Log Analytics에서 비용을 제어하는 방법을 설명합니다.  관련 정보에 대해서는 다음 문서를 참조하세요.
+> - [Log Analytics에서 데이터 사용 현황 분석](log-analytics-manage-cost-storage.md)에서는 데이터 사용량을 분석 및 경고하는 방법을 설명합니다.
+> - [사용량 및 예상 비용 모니터링](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md)에서는 다른 가격 책정 모델에 대해 여러 Azure 모니터링 기능에서 사용량 및 예상 비용을 보는 방법을 설명합니다. 또한 가격 책정 모델을 변경하는 방법을 설명합니다.
+
 Log Analytics는 Azure에 배포되거나 회사의 모든 원본에서 일당 대량의 데이터를 수집, 인덱싱, 저장하는 것을 크기 조정하고 지원하도록 설계됐습니다.  조직에 대한 주 드라이버인 반면 비용 효율성은 궁극적으로 기본 드라이버입니다. 그 목적을 위해서는 Log Analytisc 작업 영역의 비용이 수집된 데이터 볼륨을 기반으로 하지 않고 선택한 계획에 따라 달라지며, 연결된 소스에서 생성된 데이터를 저장하려고 선택한 기간을 이해하는 것이 중요합니다.  
 
 이 문서에서는 데이터 볼륨 및 저장소 증가를 사전에 모니터링하는 방법 및 해당 관련 비용을 제어하려면 제한을 정의하는 방법을 검토합니다. 

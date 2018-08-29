@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: borisb
-ms.openlocfilehash: 570b820e21df6db70b9cadf33d5a120132be62ed
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4a8bc45b253def1130e5a02dfcd6d359f0e74506
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426754"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42145897"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Azure에서 주문형 Red Hat Enterprise Linux VM에 대한 Red Hat 업데이트 인프라
  [RHUI(Red Hat 업데이트 인프라)](https://access.redhat.com/products/red-hat-update-infrastructure)를 사용하면 클라우드 공급자(예: Azure)가 Red Hat 호스트 리포지토리 콘텐츠를 미러링하고, Azure 관련 콘텐츠를 포함한 사용자 지정 저장소를 만들고, 최종 사용자 VM에 사용할 수 있도록 합니다.
@@ -29,7 +29,7 @@ RHEL(Red Hat Enterprise Linux) 종량제(PAYG) 이미지는 Azure RHUI에 액세
 ## <a name="important-information-about-azure-rhui"></a>Azure RHUI에 대한 중요한 정보
 * 현재 Azure RHUI는 각 RHEL 제품군(RHEL6 또는 RHEL7)의 최신 부 릴리스만 지원합니다. RHUI에 연결된 RHEL VM 인스턴스를 최신 부 버전으로 업그레이드하려면 `sudo yum update`를 실행합니다.
 
-    예를 들어 RHEL 7.2 PAYG 이미지에서 VM을 프로비전하고 `sudo yum update`를 실행하는 경우 RHEL 7.4 VM(RHEL7 제품군에서 최신 부 버전)이 설치됩니다.
+    예를 들어 RHEL 7.2 PAYG 이미지에서 VM을 프로비전하고 `sudo yum update`를 실행하는 경우 RHEL 7.5 VM(RHEL7 제품군에서 최신 부 버전)이 설치됩니다.
 
     이러한 동작을 피하려면 [Azure에 대한 Red Hat 기반 가상 머신 만들기 및 업로드](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 문서에 설명된 대로 사용자 고유의 이미지를 빌드해야 합니다. 그런 다음 다른 업데이트 인프라([Red Hat 콘텐츠 전달 서버에 직접](https://access.redhat.com/solutions/253273) 또는 [Red Hat 위성 서버](https://access.redhat.com/products/red-hat-satellite))에 연결해야 합니다.
 
@@ -65,16 +65,16 @@ RHUI는 RHEL 주문형 이미지를 사용할 수 있는 모든 지역에서 제
 
 2016년 9월에는 업데이트된 Azure RHUI를 배포했습니다. 2017년 4월에는 이전 Azure RHUI를 종료했습니다. 2016년 9월부터 RHEL PAYG 이미지(또는 해당 스냅숏)를 사용한 경우 새 Azure RHUI에 자동으로 연결됩니다. 그러나 VM에 이전 스냅숏이 설치되어 있다면 해당 구성은 다음 섹션에 설명한 대로 Azure RHUI에 액세스하도록 수동으로 업데이트되어야 합니다.
 
-새로운 Azure RHUI 서버가 [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)와 함께 배포됩니다. Traffic Manager에서는 모든 VM에서 하위 지역에 관계없이 단일 끝점(rhui-1.micrsoft.com)을 사용할 수 있습니다. 
+새로운 Azure RHUI 서버가 [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)와 함께 배포됩니다. Traffic Manager에서는 모든 VM에서 하위 지역에 관계없이 단일 엔드포인트(rhui-1.micrsoft.com)를 사용할 수 있습니다. 
 
 ### <a name="troubleshoot-connection-problems-to-azure-rhui"></a>Azure RHUI에 대한 연결 문제 해결
 RHEL PAYG Azure VM에서 Azure RHUI에 연결할 때 문제가 발생하는 경우 다음 단계를 수행합니다.
 
-1. Azure RHUI 끝점에 대한 VM 구성 검사
+1. Azure RHUI 엔드포인트에 대한 VM 구성 검사
 
     a. `/etc/yum.repos.d/rh-cloud.repo` 파일이 해당 파일에 있는 `[rhui-microsoft-azure-rhel*]` 섹션의 `baseurl`에서 `rhui-[1-3].microsoft.com`에 대한 참조를 포함하는지 확인합니다. 그렇다면 새 Azure RHUI를 사용 중입니다.
 
-    나. 다음 `mirrorlist.*cds[1-4].cloudapp.net` 패턴으로 위치를 가리키는 경우 구성 업데이트가 필요합니다. 이전 VM 스냅숏을 사용하는 경우 새 Azure RHUI를 가리키도록 업데이트해야 합니다.
+    b. 다음 `mirrorlist.*cds[1-4].cloudapp.net` 패턴으로 위치를 가리키는 경우 구성 업데이트가 필요합니다. 이전 VM 스냅숏을 사용하는 경우 새 Azure RHUI를 가리키도록 업데이트해야 합니다.
 
 1. Azure 호스티드 RHUI에 대한 액세스는 [Azure 데이터 센터 IP 범위] 내의 VM에 제한됩니다(https://www.microsoft.com/download/details.aspx?id=41653).
  
@@ -143,7 +143,7 @@ RHEL PAYG Azure VM에서 Azure RHUI에 연결할 때 문제가 발생하는 경�
         curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel7/rhui-azure-rhel7-2.1-19.noarch.rpm  
         ```
 
-   나. 확인
+   b. 확인
 
    ```bash
    rpm -Kv azureclient.rpm

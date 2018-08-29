@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/09/2017
+ms.date: 08/09/2018
 ms.author: kgremban
-ms.openlocfilehash: 39171f7d7a7b27ec54f67b592e184e90134a1a52
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c7d8631a8e7b99cca8f84ea1011c361db01e399e
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611374"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42140121"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Azure IoT Hub 상태 모니터링 및 신속한 문제 진단
 
@@ -96,7 +96,7 @@ Azure Monitor는 IoT Hub에서 발생하는 여러 작업을 추적합니다. �
 
 #### <a name="routes"></a>경로
 
-메시지 라우팅 범주는 IoT Hub에서 감지하는 대로 메시지 경로 평가 및 끝점 상태 중에 발생한 오류를 추적합니다. 이 범주에는 규칙이 "undefined"로 평가되는 경우, IoT Hub가 끝점을 데드로 표시한 경우 및 다른 오류가 끝점에서 수신되는 경우와 같은 이벤트가 포함됩니다. 이 범주는 메시지 자체에 대한 특정 오류(예: 장치 제한 오류)를 포함하지 않습니다. 해당 오류는 "장치 원격 분석" 범주 아래에서 보고됩니다.
+메시지 라우팅 범주는 IoT Hub에서 감지하는 대로 메시지 경로 평가 및 엔드포인트 상태 중에 발생한 오류를 추적합니다. 이 범주에는 규칙이 "undefined"로 평가되는 경우, IoT Hub가 엔드포인트를 데드로 표시한 경우 및 다른 오류가 엔드포인트에서 수신되는 경우와 같은 이벤트가 포함됩니다. 이 범주는 메시지 자체에 대한 특정 오류(예: 장치 제한 오류)를 포함하지 않습니다. 해당 오류는 "장치 원격 분석" 범주 아래에서 보고됩니다.
 
 ```json
 {
@@ -155,7 +155,7 @@ Azure Monitor는 IoT Hub에서 발생하는 여러 작업을 추적합니다. �
 
 #### <a name="cloud-to-device-twin-operations"></a>클라우드-장치 쌍 작업
 
-클라우드-장치 쌍 작업 범주는 장치 쌍에서 서비스가 시작한 이벤트를 추적합니다. 이러한 작업에는 쌍 가져오기, 보고된 속성 업데이트, 원하는 속성 구독이 포함될 수 있습니다.
+클라우드-장치 쌍 작업 범주는 장치 쌍에서 서비스가 시작한 이벤트를 추적합니다. 이러한 작업에는 쌍 가져오기, 태그 업데이트 또는 대체, 원하는 속성 업데이트 또는 대체가 포함될 수 있습니다. 
 
 ```json
 {
@@ -172,7 +172,7 @@ Azure Monitor는 IoT Hub에서 발생하는 여러 작업을 추적합니다. �
 
 #### <a name="device-to-cloud-twin-operations"></a>장치-클라우드 쌍 작업
 
-클라우드-장치 쌍 작업 범주는 장치 쌍에서 장치가 시작한 이벤트를 추적합니다. 이러한 작업에는 쌍 가져오기, 태그 업데이트 또는 대체, 원하는 속성 업데이트 또는 대체가 포함될 수 있습니다. 
+클라우드-장치 쌍 작업 범주는 장치 쌍에서 장치가 시작한 이벤트를 추적합니다. 이러한 작업에는 쌍 가져오기, 보고된 속성 업데이트, 원하는 속성 구독이 포함될 수 있습니다.
 
 ```json
 {

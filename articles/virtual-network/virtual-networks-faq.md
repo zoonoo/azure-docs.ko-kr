@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2018
+ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 8dfe313cb82fd0ace7221ea320bb2228be75196c
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 2802a725bca7f63f6956293048b0e854ebfb59b5
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038635"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143015"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -223,6 +223,9 @@ VNet은 서로 격리되고 Azure 인프라에서 호스팅되는 다른 서비�
 
 ## <a name="vnet-peering"></a>VNet 피어링
 
+### <a name="what-is-vnet-peering"></a>VNet 피어링이란?
+VNet 피어링(또는 가상 네트워크 피어링)을 통해 가상 네트워크에 연결할 수 있습니다. 가상 네트워크 간의 VNet 피어링 연결을 사용하면 IPv4 주소를 통해 개인적으로 가상 네트워크 간의 트래픽을 라우팅할 수 있습니다. 피어링된 VNet에서 가상 머신은 동일한 네트워크 내에 있는 것처럼 서로 통신할 수 있습니다. 이러한 가상 네트워크는 동일한 지역 또는 서로 다른 지역에 있을 수 있습니다(글로벌 VNet 피어링으로도 알려짐). Azure 구독 간에 VNet 피어링 연결을 만들 수도 있습니다.
+
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>다른 지역의 VNet에 피어로 연결할 수 있나요?
 예. 글로벌 VNet 피어링을 사용하면 다른 지역의 VNet에 피어로 연결할 수 있습니다. 글로벌 VNet 피어링은 모든 Azure 공용 지역에서 사용할 수 있습니다. Azure 공용 지역에서 글로벌하게 국가별 클라우드에 피어로 연결할 수 없습니다. 글로벌 피어링은 현재 국가별 클라우드에서 제공되지 않습니다.
 
@@ -231,6 +234,9 @@ VNet은 서로 격리되고 Azure 인프라에서 호스팅되는 다른 서비�
 
 ### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>내 VNet 피어링 연결이 *시작됨* 상태입니다. 왜 연결할 수 없나요?
 피어링 연결이 시작됨 상태라면 한 링크만 만든 것입니다. 성공적인 연결을 위해서는 양방향 연결을 만들어야 합니다. 예를 들어, VNet A를 VNet B에 피어로 연결하려면 VNetA로부터 VNetB와, VNetB로부터 VNetA로의 연결을 만들어야 합니다. 두 연결을 만들면 상태가 *연결됨*으로 바뀝니다.
+
+### <a name="my-vnet-peering-connection-is-in-disconnected-state-why-cant-i-create-a-peering-connection"></a>내 VNet 피어링 연결이 *연결 끊김* 상태에 있습니다. 피어링 연결을 만들 수 없는 이유는 무엇인가요?
+VNet 피어링 연결이 연결 끊김 상태에 있는 경우 만들어진 링크 중 하나가 삭제된 것을 의미합니다. 피어링 연결을 다시 설정하기 위해 링크를 삭제하고 다시 만들어야 합니다.
 
 ### <a name="can-i-peer-my-vnet-with-a-vnet-in-a-different-subscription"></a>다른 구독의 VNet과 내 VNet을 피어로 연결할 수 있나요?
 예. 구독 및 지역 간에 VNet을 피어로 연결할 수 있습니다.

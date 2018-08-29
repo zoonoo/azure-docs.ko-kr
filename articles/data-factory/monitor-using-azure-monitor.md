@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2018
+ms.date: 08/22/2018
 ms.author: shlo
-ms.openlocfilehash: 25bb455ea46fdc96e32e34d434dd844779b0b650
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 1023eadbf4b799cd8b0c761c1689b9249cee450a
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495301"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616847"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Azure Monitor를 사용하여 데이터 팩터리 경고 및 모니터링
 클라우드 응용 프로그램은 이동하는 부분이 많아 복잡합니다. 모니터링은 응용 프로그램을 유지하고 정상 상태에서 실행할 수 있는 데이터를 제공합니다. 또한 잠재적 문제를 방지하거나 지난 문제를 해결할 수 있습니다. 또한 응용 프로그램에 대해 깊이 이해하는 데 모니터링 데이터를 사용할 수 있습니다. 이러한 정보를 사용하면 응용 프로그램 성능 또는 유지 관리 편의성을 향상시키거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화할 수 있습니다.
@@ -398,6 +398,70 @@ ADFV2에서 내보내는 메트릭은 다음과 같습니다.
 | TriggerFailedRuns    | 실패한 트리거 실행 메트릭     | 개수    | 합계                | 1분 기간 내에 실패한 총 트리거 실행 수입니다.      |
 
 메트릭에 액세스하려면 다음 문서의 지침을 참조하세요. https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics
+
+## <a name="monitor-data-factory-metrics-with-azure-monitor"></a>Azure Monitor를 사용하여 Data Factory 메트릭 모니터링
+
+Azure Monitor와 Azure Data Factory 통합을 사용하여 Azure Monitor로 데이터를 라우팅할 수 있습니다. 이 통합은 다음과 같은 시나리오에서 유용합니다.
+
+1.  Data Factory에 의해 Azure Monitor에 게시하는 풍부한 메트릭 집합에 대해 복잡한 쿼리를 작성하려고 합니다. Azure Monitor를 통해 이러한 쿼리에서 사용자 지정 경고를 만들 수도 있습니다.
+
+2.  데이터 팩터리를 모니터링하려고 합니다. 여러 데이터 팩터리에서 하나의 Azure Monitor 작업 영역으로 데이터를 라우팅할 수 있습니다.
+
+7분 동안 이 기능의 소개 및 데모에 대한 다음 비디오를 시청하세요.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Monitor-Data-Factory-pipelines-using-Operations-Management-Suite-OMS/player]
+
+### <a name="configure-diagnostic-settings-and-workspace"></a>진단 설정 및 작업 영역 구성
+
+데이터 팩터리에 대한 진단 설정 사용
+
+1.  **Azure Monitor** -> **진단 설정**을 선택하고 -> 데이터 팩터리를 선택하고 -> 진단을 설정합니다.
+
+    ![monitor-oms-image1.png](media/data-factory-monitor-oms/monitor-oms-image1.png)
+
+2.  작업 영역의 구성을 포함한 진단 설정을 제공합니다.
+
+    ![monitor-oms-image2.png](media/data-factory-monitor-oms/monitor-oms-image2.png)
+
+### <a name="install-azure-data-factory-analytics-from-azure-marketplace"></a>Azure Marketplace에서 Azure Data Factory Analytics 설치
+
+![monitor-oms-image3.png](media/data-factory-monitor-oms/monitor-oms-image3.png)
+
+![monitor-oms-image4.png](media/data-factory-monitor-oms/monitor-oms-image4.png)
+
+**만들기**를 클릭하고 작업 영역 및 작업 영역 설정을 선택합니다.
+
+![monitor-oms-image5.png](media/data-factory-monitor-oms/monitor-oms-image5.png)
+
+### <a name="monitor-data-factory-metrics"></a>Data Factory 메트릭 모니터링
+
+**Azure Data Factory Analytics**를 설치하면 다음과 같은 메트릭이 설정된 기본 보기 집합이 생성됩니다.
+
+- ADF 실행- 1) Data Factory의 파이프라인 실행
+
+- ADF 실행- 2) Data Factory의 활동 실행
+
+- ADF 실행- 3) Data Factory의 트리거 실행
+
+- ADF 오류- 1) Data Factory의 상위 10개 파이프라인 오류
+
+- ADF 오류- 2) Data Factory의 상위 10개 활동 실행
+
+- ADF 오류- 3) Data Factory의 상위 10개 트리거 오류
+
+- ADF 통계- 1) 형식별 활동 실행
+
+- ADF 통계- 2) 형식별 트리거 실행
+
+- ADF 통계- 3) 최대 파이프라인 실행 기간
+
+![monitor-oms-image6.png](media/data-factory-monitor-oms/monitor-oms-image6.png)
+
+![monitor-oms-image7.png](media/data-factory-monitor-oms/monitor-oms-image7.png)
+
+위의 메트릭을 시각화하고, 이러한 메트릭에 숨겨진 쿼리를 확인하며, 쿼리를 편집하고, 경고를 생성하는 등의 작업을 수행할 수 있습니다.
+
+![monitor-oms-image8.png](media/data-factory-monitor-oms/monitor-oms-image8.png)
 
 ## <a name="alerts"></a>Alerts
 

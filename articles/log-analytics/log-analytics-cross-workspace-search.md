@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: e7ca3bcb3c3322c0eba12d7f9eb2ee2bc7b7600c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 75116e0ba50c3f195d528d33822af0c446acd5fe
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049850"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145989"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Log Analytics에서 리소스 간 로그 검색 수행  
 
 이전에는 Azure Log Analytics로 현재 작업 영역 내의 데이터만 분석할 수 있었기 때문에 구독에 정의된 여러 작업 영역을 쿼리할 수 없었습니다.  또한 Application Insights에서 직접 또는 Visual Studio에서, Application Insights를 사용하여 웹 기반 응용 프로그램에서 수집된 원격 분석 항목만 검색할 수 있습니다.  이로 인해 운영 및 응용 프로그램 데이터를 고유하게 분석하는 데 어려움이 나타납니다.   
 
-이제 여러 Log Analytics 작업 영역뿐만 아니라 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독의 특정 Application Insights 앱의 데이터도 쿼리가 가능합니다. 이를 통해 시스템 차원의 데이터 보기가 가능합니다.  이러한 유형의 쿼리는 Azure Portal이 아닌 [고급 포털](log-analytics-log-search-portals.md#advanced-analytics-portal)에서만 수행할 수 있습니다. 단일 쿼리에 포함할 수 있는 리소스 (Log Analytics 작업 영역 및 Application Insights 앱)의 수는 100개로 제한됩니다. 
+이제 여러 Log Analytics 작업 영역뿐만 아니라 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독의 특정 Application Insights 앱의 데이터도 쿼리가 가능합니다. 이를 통해 시스템 차원의 데이터 보기가 가능합니다.  이러한 유형의 쿼리는 Azure Portal이 아닌 [Log Analytics 페이지(미리 보기)](log-analytics-log-search-portals.md#log-analytics-page-preview)에서만 수행할 수 있습니다. 단일 쿼리에 포함할 수 있는 리소스 (Log Analytics 작업 영역 및 Application Insights 앱)의 수는 100개로 제한됩니다. 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Log Analytics 작업 영역 전체 및 Application Insights 쿼리
 쿼리에 다른 작업 영역을 참조하려면 [*workspace*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) 식별자를 사용하고 Application Insights의 앱의 경우 [*app*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app()) 식별자를 사용합니다.  

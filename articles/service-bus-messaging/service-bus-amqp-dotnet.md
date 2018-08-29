@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/21/2017
+ms.date: 08/16/2018
 ms.author: sethm
-ms.openlocfilehash: 28b8d7a71f01d8633d020b99fbe6bc5c16f272b4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0013301a33dabc9739eed45a1b801c33b791abb9
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32188500"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42144108"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>AMQP 1.0을 사용하여 .NET에서 Service Bus 사용
 
@@ -29,7 +29,7 @@ AMQP 1.0 지원은 Service Bus 패키지 버전 2.1 이상에서 이용할 수 �
 
 기본적으로 Service Bus .NET 클라이언트 라이브러리는 전용 SOAP 기반 프로토콜을 사용하여 Service Bus 서비스와 통신합니다. 기본 프로토콜 대신 AMQP 1.0을 사용하려면 다음 섹션에서 설명한 대로 Service Bus 연결 문자열에서 이를 명시적으로 구성해야 합니다. AMQP 1.0을 사용하는 경우 이러한 변경 사항 외에는 응용 프로그램 코드가 변경되지 않습니다.
 
-현재 릴리스에는 AMQP 사용 시 지원되지 않는 몇 가지 API 기능이 있습니다. 지원되지 않는 이러한 기능은 뒤에 나오는 [지원되지 않는 기능, 제한 및 동작 차이](#unsupported-features-restrictions-and-behavioral-differences) 섹션에 나열되어 있습니다. AMQP를 사용하는 경우 몇 가지 고급 구성 설정도 다른 의미를 가집니다.
+현재 릴리스에는 AMQP 사용 시 지원되지 않는 몇 가지 API 기능이 있습니다. 이러한 지원되지 않는 기능은[동작의 차이](#behavioral-differences) 섹션에 나열되어 있습니다. AMQP를 사용하는 경우 몇 가지 고급 구성 설정도 다른 의미를 가집니다.
 
 ### <a name="configuration-using-appconfig"></a>App.config를 사용한 구성
 
@@ -45,7 +45,7 @@ AMQP 1.0 지원은 Service Bus 패키지 버전 2.1 이상에서 이용할 수 �
 </configuration>
 ```
 
-ph x="1" /> 설정의 값은 Service Bus에 대한 연결을 구성하는 데 사용되는 Service Bus 연결 문자열입니다. 형식은 다음과 같습니다.
+`Microsoft.ServiceBus.ConnectionString` 설정의 값은 Service Bus에 대한 연결을 구성하는 데 사용되는 Service Bus 연결 문자열입니다. 형식은 다음과 같습니다.
 
 `Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp`
 
@@ -108,7 +108,9 @@ AMQP를 사용하는 경우 기본 프로토콜에 비해 Service Bus .NET API�
 [.NET API](/dotnet/api/)는 AMQP 프로토콜의 동작을 제어하기 위해 여러 설정을 노출합니다.
 
 * **[MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)**: 링크에 적용되는 초기 크레딧을 제어합니다. 기본값은 0입니다.
-* **[MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.maxframesize?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)**: 연결 열기 시간 시 협상 동안 제공되는 최대 AMQP 프레임 크기를 제어합니다. 기본값은 65,536바이트입니다.
+* 
+  **
+  [MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.maxframesize?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)**: 연결 열기 시간 시 협상 동안 제공되는 최대 AMQP 프레임 크기를 제어합니다. 기본값은 65,536바이트입니다.
 * **[MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)**: 전송을 배치로 사용 가능한 경우 이 값은 배치 전송을 위한 최대 지연을 결정합니다. 기본적으로 발신자/수신자를 상속합니다. 개별 발신자/수신자는 기본값 20 밀리초를 재정의할 수 있습니다.
 * **[MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)**: AMQP 연결이 SSL 연결을 통해 설정되는지 여부를 제어합니다. 기본값은 **true**입니다.
 

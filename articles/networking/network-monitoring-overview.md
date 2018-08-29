@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: aea43eed0cb66b0e0d3bb7a393f569714feb475d
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 0656cfcc2dcded284be1a337f797681117f3b313
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850140"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142551"
 ---
 # <a name="network-monitoring-solutions"></a>네트워크 모니터링 솔루션 
 
@@ -35,7 +35,7 @@ NPM(네트워크 성능 모니터)은 응용 프로그램에 대한 네트워크
 * 중요 업무용 다중 계층 응용 프로그램/마이크로 서비스
 * 사용자 위치 및 웹 기반 응용 프로그램(HTTP/HTTPS) 
 
-성능 모니터, ExpressRoute 모니터 및 서비스 엔드포인트 모니터는 NPM 내의 모니터링 기능이며 아래에 설명되어 있습니다.
+성능 모니터, ExpressRoute 모니터 및 서비스 연결 모니터는 NPM 내의 모니터링 기능이며 아래에 설명되어 있습니다.
 
 ## <a name="performance-monitor"></a>성능 모니터링
 
@@ -73,9 +73,9 @@ ExpressRoute를 위한 NPM은 Azure 개인 피어링 및 Microsoft 피어링 연
 * [ExpressRoute에 대한 네트워크 성능 모니터 구성](../expressroute/how-to-npm.md)
 * [블로그 게시물](https://aka.ms/NPMExRmonitorGA)
 
-## <a name="service-endpoint-monitor"></a>서비스 끝점 모니터
+## <a name="service-connectivity-monitor"></a>서비스 연결 모니터
 
-서비스 엔드포인트 모니터링을 사용하면 이제 응용 프로그램의 연결을 테스트하고, 온-프레미스, 통신 회사 네트워크 및 클라우드/개인 데이터 센터에서 성능 병목 상태를 검색할 수 있습니다.
+서비스 연결 모니터링을 사용하면 이제 응용 프로그램의 연결을 테스트하고, 온-프레미스, 통신 회사 네트워크 및 클라우드/개인 데이터 센터에서 성능 병목 상태를 검색할 수 있습니다.
 
 * 응용 프로그램에 대한 종단 간 네트워크 연결 모니터링
 * 응용 프로그램 전달을 네트워크 성능과 연결, 사용자와 응용 프로그램 간의 경로에 따라 성능 저하의 정확한 위치를 감지

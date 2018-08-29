@@ -11,42 +11,26 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/18/2016
+ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: dee3313082fbe75d76bf27105979cf7e869fafad
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: fc651b3bc28e59c5c5a195211d811e206eee3e42
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294125"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246620"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights에서 Power BI 공급
 [Power BI](http://www.powerbi.com/)는 데이터 분석과 통찰력 공유에 도움이 되는 비즈니스 도구 제품군입니다. 모든 장치에서 풍부한 대시보드를 사용할 수 있습니다. [Azure Application Insights](app-insights-overview.md)의 Analytics 쿼리를 포함하여 다양한 원본의 데이터를 포함할 수 있습니다.
 
-Power BI에 Application Insights 데이터를 내보내는 세 가지 권장 방법이 있습니다. 개별적으로 또는 함께 사용할 수 있습니다.
+Power BI에 Application Insights 데이터를 내보내는 세 가지 방법이 있습니다.
 
-* [**Power BI 어댑터**](#power-pi-adapter). 앱에서 원격 분석의 전체 대시보드를 설정합니다. 일련의 차트가 미리 정의되어 있으나, 다른 원본에서 직접 쿼리를 추가할 수 있습니다.
-* [**Analytics 쿼리 내보내기**](#export-analytics-queries). 원하는 쿼리를 작성하여 Power BI에 내보냅니다. Analytics를 사용하여 쿼리를 작성하거나, Usage Funnels에서 작성할 수 있습니다. 이 쿼리를 다른 데이터와 함께 대시보드에 배치할 수 있습니다.
-* [**연속 내보내기 및 Azure Stream Analytics**](app-insights-export-stream-analytics.md). 이 방법은 데이터를 오랜 기간 유지하려는 경우에 유용합니다. 이 방법은 설정 작업이 더 많으므로 그렇지 않은 경우에는 다른 방법을 사용합니다.
+* [**Analytics 쿼리 내보내기**](#export-analytics-queries). 이는 선호되는 방법입니다. 원하는 쿼리를 작성하여 Power BI에 내보냅니다. 이 쿼리를 다른 데이터와 함께 대시보드에 배치할 수 있습니다.
+* [**연속 내보내기 및 Azure Stream Analytics**](app-insights-export-stream-analytics.md). 이 방법은 데이터를 오랜 기간 저장하려는 경우에 유용합니다. 데이터를 오랜 기간 보존해야 할 필요가 없다면 분석 쿼리를 내보내는 방법을 사용하세요. 연속 내보내기 및 Stream Analytics의 경우 추가 설정 작업이 필요하고 저장 오버헤드가 추가로 발생합니다.
+* [**Power BI 어댑터**](#power-pi-adapter). 일련의 차트가 미리 정의되어 있으나, 다른 원본에서 직접 쿼리를 추가할 수 있습니다.
 
-## <a name="power-bi-adapter"></a>Power BI 어댑터
-이 방법은 원격 분석의 전체 대시보드를 만듭니다. 초기 데이터 집합은 미리 정의되어 있으나, 더 많은 데이터를 추가할 수 있습니다.
-
-### <a name="get-the-adapter"></a>어댑터 가져오기
-1. [Power BI](https://app.powerbi.com/)에 로그인합니다.
-2. **데이터 가져오기**, **서비스**, **Application Insights**를 차례로 엽니다.
-   
-    ![Application Insights 데이터 원본에서 가져오기 스크린샷](./media/app-insights-export-power-bi/power-bi-adapter.png)
-3. Application Insights 리소스의 세부 정보를 제공합니다.
-   
-    ![Application Insights 데이터 원본에서 가져오기 스크린샷](./media/app-insights-export-power-bi/azure-subscription-resource-group-name.png)
-4. 데이터를 가져오는 데1, 2분 정도 기다립니다.
-   
-    ![Power BI 어댑터 스크린샷](./media/app-insights-export-power-bi/010.png)
-
-Application Insights 차트를 다른 원본의 차트 및 Analytics 쿼리와 결합하여 대시보드를 편집할 수 있습니다. 시각화 갤러리에서 다른 차트를 가져올 수 있고, 각 차트에는 설정할 수 있는 매개 변수가 있습니다.
-
-초기 가져오기 후에는 대시보드와 보고서가 지속적으로 매일 업데이트됩니다. 데이터 집합에 대한 새로 고침 일정을 제어할 수 있습니다.
+> [!NOTE]
+> Power BI 어댑터는 이제 **사용되지 않습니다**. 이 솔루션의 미리 정의된 파트는 정적이고 편집할 수 없는 쿼리로 채워집니다. 이러한 쿼리는 편집할 수 없으며, 데이터의 특정 속성에 따라 Power BI에 대한 연결이 성공할 수 있지만 데이터는 채워지지 않습니다. 이는 하드 코딩된 쿼리 내에 설정된 제외 기준 때문입니다. 이 솔루션은 일부 고객에게 여전히 효과적일 수 있지만 어댑터 유연성이 결여되어 있기 때문에 [**Analytics 쿼리 내보내기**](#export-analytics-queries) 기능을 사용하는 것이 좋습니다.
 
 ## <a name="export-analytics-queries"></a>Analytics 쿼리 내보내기
 이 경로를 사용하면 원하는 모든 Analytics 쿼리를 작성하거나 Usage Funnels에서 내보낸 다음 Power BI 대시보드로 내보낼 수 있습니다. (어댑터에서 만든 대시보드를 추가할 수 있습니다.)
@@ -83,10 +67,10 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 
 ### <a name="export-a-funnel"></a>깔때기 내보내기
 1. [깔때기를 만듭니다](usage-funnels.md).
-2. **Power BI**를 선택합니다. 
+2. **Power BI**를 선택합니다.
 
    ![Power BI 단추 스크린샷](./media/app-insights-export-power-bi/button.png)
-   
+
 3. Power BI Desktop을 열고 **데이터 가져오기** > **빈 쿼리**를 선택합니다. 그런 다음 쿼리 편집기의 **보기**에서 **고급 편집기**를 선택합니다.
 
    ![쿼리 단추가 강조 표시된 Power BI Desktop 스크린샷](./media/app-insights-export-power-bi/blankquery.png)
@@ -139,6 +123,35 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 ## <a name="about-sampling"></a>샘플링 정보
 응용 프로그램에서 많은 양의 데이터를 전송하는 경우 적응 샘플링 기능이 작동하여 원격 분석의 백분율만 보내려 할 수도 있습니다. 이는 SDK 또는 수집에서 샘플링을 수동으로 설정한 경우에도 마찬가지입니다. [샘플링에 대해 자세히 알아봅니다](app-insights-sampling.md).
 
+## <a name="power-bi-adapter-deprecated"></a>Power BI 어댑터(사용되지 않음)
+이 방법은 원격 분석의 전체 대시보드를 만듭니다. 초기 데이터 집합은 미리 정의되어 있으나, 더 많은 데이터를 추가할 수 있습니다.
+
+### <a name="get-the-adapter"></a>어댑터 가져오기
+1. [Power BI](https://app.powerbi.com/)에 로그인합니다.
+2. **데이터 가져오기** ![왼쪽 하단 모서리의 데이터 가져오기 아이콘 스크린샷](./media/app-insights-export-power-bi/001.png), **서비스**를 엽니다.
+
+    ![Application Insights 데이터 원본에서 가져오기 스크린샷](./media/app-insights-export-power-bi/002.png)
+
+3. Application Insights 아래에서 **지금 가져오기**를 선택합니다.
+
+   ![Application Insights 데이터 원본에서 가져오기 스크린샷](./media/app-insights-export-power-bi/003.png)
+4. Application Insights 리소스의 세부 정보를 제공한 다음, **로그인**합니다.
+
+    ![Application Insights 데이터 원본에서 가져오기 스크린샷](./media/app-insights-export-power-bi/005.png)
+
+     이 정보는 Application Insights 개요 창에서 확인할 수 있습니다.
+
+     ![Application Insights 데이터 원본에서 가져오기 스크린샷](./media/app-insights-export-power-bi/004.png)
+
+5. 새로 생성된 Application Insights Power BI 앱을 엽니다.
+
+6. 데이터를 가져오는 데1, 2분 정도 기다립니다.
+
+    ![Power BI 어댑터 스크린샷](./media/app-insights-export-power-bi/010.png)
+
+Application Insights 차트를 다른 원본의 차트 및 Analytics 쿼리와 결합하여 대시보드를 편집할 수 있습니다. 시각화 갤러리에서 다른 차트를 가져올 수 있고, 각 차트에는 설정할 수 있는 매개 변수가 있습니다.
+
+초기 가져오기 후에는 대시보드와 보고서가 지속적으로 매일 업데이트됩니다. 데이터 집합에 대한 새로 고침 일정을 제어할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Power BI - 알아보기](http://www.powerbi.com/learning/)

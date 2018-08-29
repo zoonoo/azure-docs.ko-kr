@@ -4,22 +4,20 @@ description: Azure Resource Manager를 사용하여 리소스를 새 리소스 �
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/02/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 69614fe84941ea2003d39de165c692b812d10785
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 7ddab3717626df14f491662849d01cb85658791c
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503583"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617293"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -113,11 +111,11 @@ ms.locfileid: "39503583"
 
 새 리소스 그룹 및 구독으로 이동할 수 있게 하는 서비스는 다음과 같습니다.
 
+* Analysis Services
 * API Management
 * App Service 앱(웹앱) - [App Service 제한](#app-service-limitations)
 * App Service Certificates
 * Application Insights
-* Analysis Services
 * Automation
 * Azure Active Directory B2C
 * Azure Cosmos DB
@@ -133,6 +131,8 @@ ms.locfileid: "39503583"
 * Cognitive Services
 * Container Registry
 * Content Moderator
+* Cost Management
+* Customer Insights
 * Data Catalog
 * Data Factory
 * Data Lake Analytics
@@ -141,12 +141,14 @@ ms.locfileid: "39503583"
 * Event Grid
 * Event Hubs
 * HDInsight 클러스터 - [HDInsight 제한 사항](#hdinsight-limitations) 참조
+* Iot Central
 * IoT Hub
 * Key Vault
 * 부하 분산 장치 - [부하 분산 장치 제한 사항](#lb-limitations) 참조
 * Log Analytics
 * Logic Apps
 * 기계 학습 - Machine Learning Studio 웹 서비스는 동일한 구독의 리소스 그룹으로 이동할 수 있지만 다른 구독으로 이동할 수는 없습니다. 다른 Machine Learning 리소스는 구독 간에 이동할 수 있습니다.
+* 관리 ID - 사용자 할당
 * Media Services
 * 모바일 고객 관리
 * Notification Hubs
@@ -160,6 +162,7 @@ ms.locfileid: "39503583"
 * 검색
 * Service Bus
 * Service Fabric
+* Service Fabric Mesh
 * SignalR Service
 * Storage
 * 저장소(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations)
@@ -187,7 +190,10 @@ ms.locfileid: "39503583"
 * Azure Databricks
 * Batch AI
 * 인증서 - App Service Certificate를 이동할 수 있지만 업로드된 인증서에는 [제한](#app-service-limitations)이 있습니다.
+* Container Instances
 * 컨테이너 서비스
+* Data Box
+* Dev Spaces
 * Dynamics LCS
 * Express 경로
 * Kubernetes 서비스
@@ -196,6 +202,7 @@ ms.locfileid: "39503583"
 * Managed Applications
 * Managed Disks - [Virtual Machines 제한 사항](#virtual-machines-limitations) 참조
 * Microsoft Genomics
+* NetApp
 * 공용 IP - [공용 IP 제한 사항](#pip-limitations) 참조
 * Recovery Services 자격 증명 모음 - Recovery Services 자격 증명 모음과 연결된 Compute, Network 및 Storage 리소스도 이동하지 않습니다. [Recovery Services 제한 사항](#recovery-services-limitations)을 참조하세요.
 * Azure의 SAP HANA
@@ -225,7 +232,7 @@ Key Vault에 저장된 인증서가 있는 Virtual Machines는 동일한 구독�
 
 ## <a name="virtual-networks-limitations"></a>Virtual Networks 제한 사항
 
-가상 네트워크를 이동할 때는 해당 종속 리소스도 함께 이동해야 합니다. 예를 들어, 가상 네트워크와 함께 게이트웨이를 이동해야 합니다.
+가상 네트워크를 이동할 때는 해당 종속 리소스도 함께 이동해야 합니다. VPN Gateway의 경우 IP 주소, 가상 네트워크 게이트웨이 및 모든 관련된 연결 리소스를 이동해야 합니다. 로컬 네트워크 게이트웨이는 다른 리소스 그룹에 있을 수 있습니다.
 
 피어링된 가상 네트워크를 이동하려면 먼저 가상 네트워크 피어링을 사용하지 않도록 설정해야 합니다. 사용하지 않도록 설정되면 가상 네트워크를 이동할 수 있습니다. 이동 후에는 가상 네트워크 피어링을 사용하도록 다시 설정합니다.
 

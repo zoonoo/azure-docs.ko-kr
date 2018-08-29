@@ -6,13 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/27/2018
+ms.date: 08/13/2018
 ms.author: babanisa
-ms.openlocfilehash: 783766c3e12da2c6fd77f919cf0ec44aea7db3b7
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: ce0e766a07fd19f523f1f35b9a3cbc865cfb8c71
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141757"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 보안 및 인증 
 
@@ -24,20 +25,32 @@ Azure Event Grid에는 세 가지 유형의 인증이 있습니다.
 
 ## <a name="webhook-event-delivery"></a>WebHook 이벤트 전달
 
-웹후크는 Azure Event Grid에서 이벤트를 수신하는 여러 가지 방법 중 하나입니다. 새 이벤트가 준비되면 Event Grid 웹후크는 본문에 이벤트가 포함되어 구성된 HTTP 엔드포인트로 HTTP 요청을 보냅니다.
+웹후크는 Azure Event Grid에서 이벤트를 수신하는 여러 가지 방법 중 하나입니다. 새 이벤트가 준비되면 EventGrid 서비스는 요청 본문에 이벤트가 포함되어 구성된 엔드포인트로 HTTP 요청을 게시합니다.
 
-Event Grid에서 고유한 웹후크 엔드포인트를 등록하는 경우 엔드포인트의 소유권을 증명하기 위해 간단한 유효성 검사 코드를 포함한 POST 요청을 전송합니다. 앱은 유효성 검사 코드를 다시 반환하여 응답해야 합니다. Event Grid는 유효성 검사를 통과하지 못한 웹후크 엔드포인트에 이벤트를 전달하지 않습니다. 타사 API 서비스를 사용하는 경우(예: [Zapier](https://zapier.com) 또는 [IFTTT](https://ifttt.com/)) 프로그래밍 방식으로 유효성 검사 코드를 에코하지 못할 수 있습니다. 이러한 서비스의 경우 구독 유효성 검사 이벤트에 전송된 유효성 검사 URL을 사용하여 수동으로 구독의 유효성을 검사할 수 있습니다. 해당 URL을 복사하고 REST 클라이언트 또는 웹 브라우저를 통해 GET 요청을 보냅니다.
+웹후크를 지원하는 여러 다른 서비스와 마찬가지로, EventGrid를 사용하려면 해당 엔드포인트로 이벤트 제공을 시작하기 전에 웹후크 엔드포인트에 대한 “소유권”을 증명해야 합니다. 이 요구 사항은 주의 대상이 아닌 엔드포인트가 EventGrid에서 이벤트 배달에 대한 대상 엔드포인트가 되지 않도록 하기 위함입니다. 단, 아래 나열된 세 가지 Azure 서비스를 사용하는 경우 Azure 인프라는 자동으로 이 유효성 검사를 처리합니다.
 
-수동 유효성 검사는 미리 보기 상태입니다. 이 기능을 사용하려면 [AZ CLI 2.0](/cli/azure/install-azure-cli)에 대한 [Event Grid 확장](/cli/azure/azure-cli-extensions-list)을 설치해야 합니다. `az extension add --name eventgrid`를 사용하여 설치할 수 있습니다. REST API를 사용하는 경우 `api-version=2018-05-01-preview`를 사용하고 있는지 확인합니다.
+* Azure Logic Apps,
+* Azure Automation,
+* EventGrid Trigger를 위한 Azure Functions.
+
+HTTP 트리거 기반 Azure 함수와 같은 엔드포인트의 다른 형식을 사용하는 경우, 엔드포인트 코드가 EventGrid를 통해 핸드셰이크 유효성 검사에 참여해야 합니다. EventGrid는 두 개의 서로 다른 유효성 검사 핸드셰이크 모델을 지원합니다.
+
+1. **ValidationCode 핸드셰이크**: 이벤트 구독 생성 시 EventGrid가 “구독 유효성 검사 이벤트”를 사용자 엔드포인트에 게시합니다. 이 이벤트의 스키마는 다른 EventGridEvent와 유사하며, 이 이벤트의 데이터 부분에는 `validationCode` 속성이 포함됩니다. 응용 프로그램이 예상되는 이벤트 구독에 대한 유효성 검사 요청인지를 확인하면, 응용 프로그램 코드는 EventGrid에 유효성 검사 코드를 다시 에코하여 응답해야 합니다. 이 핸드셰이크 메커니즘은 모든 EventGrid 버전에서 지원됩니다.
+
+2. **ValidationURL 핸드셰이크(수동 핸드셰이크)**: 특정 경우에 ValidationCode 기반 핸드셰이크를 구현하도록 엔드포인트의 소스 코드를 제어하지 못할 수도 있습니다. 예를 들어, 타사 서비스를 사용하는 경우(예: [Zapier](https://zapier.com) 또는 [IFTTT](https://ifttt.com/)) 유효성 검사 코드를 통해 프로그래밍 방식으로 다시 응답하지 못할 수 있습니다. 따라서 버전 2018-05-01-미리 보기부터 현재 EventGrid는 수동 유효성 검사 핸드셰이크를 지원합니다. 이 새 API 버전(2018-05-01-미리 보기)을 사용하는 SDK/도구를 사용하여 이벤트 구독을 만드는 경우 EventGrid는 구독 유효성 검사 이벤트에서 데이터 부분의 일부로 `validationUrl` 속성(`validationCode`에 추가)을 전송합니다. 핸드셰이크를 완료하려면 REST 클라이언트를 통하거나 웹 브라우저를 사용하여 해당 URL에서 GET 요청을 수행합니다. 제공된 유효성 검사 URL은 약 10분 동안만 유효합니다. 이 시간 동안 이벤트 구독의 프로비전 상태가 `AwaitingManualAction`입니다. 10분 안에 수동 유효성 검사를 완료하지 않은 경우 프로비전 상태가 `Failed`로 설정됩니다. 수동 유효성 검사를 다시 시도하기 전에 이벤트 구독 만들기를 다시 시도해야 합니다.
+
+수동 유효성 검사의 이 메커니즘은 미리 보기 상태입니다. 이 기능을 사용하려면 [AZ CLI 2.0](/cli/azure/install-azure-cli)에 대한 [Event Grid 확장](/cli/azure/azure-cli-extensions-list)을 설치해야 합니다. `az extension add --name eventgrid`를 사용하여 설치할 수 있습니다. REST API를 사용하는 경우 `api-version=2018-05-01-preview`를 사용하고 있는지 확인합니다.
 
 ### <a name="validation-details"></a>유효성 검사 세부 정보
 
-* 이벤트 구독 생성/업데이트 시 Event Grid는 대상 끝점에 “SubscriptionValidationEvent” 이벤트를 게시합니다.
-* 이벤트에는 “Aeg-Event-Type: SubscriptionValidation” 헤더 값이 포함됩니다.
+* 이벤트 구독 생성/업데이트 시 Event Grid는 대상 엔드포인트에 Subscription Validation Event를 게시합니다. 
+* 이벤트에는 “aeg-event-type: SubscriptionValidation” 헤더 값이 포함됩니다.
 * 이벤트 본문에는 다른 Event Grid 이벤트와 동일한 스키마가 있습니다.
-* 이벤트 데이터에는 임의로 생성된 문자열을 포함한 “validationCode” 속성이 포함됩니다. 예를 들어 “validationCode: acb13...”과 같습니다.
-* 이벤트 데이터는 구독에 대해 수동으로 유효성 검사를 수행하기 위해 URL에 "validationUrl" 속성이 포함되어 있습니다.
+* 이벤트의 eventType 속성은 “Microsoft.EventGrid.SubscriptionValidationEvent”입니다.
+* 이벤트의 데이터 속성에는 임의로 생성된 문자열을 포함한 “validationCode” 속성이 포함됩니다. 예를 들어 “validationCode: acb13...”과 같습니다.
+* API 버전 2018-05-01-미리 보기를 사용하는 경우 이벤트 데이터는 구독에 대해 수동으로 유효성 검사를 수행하기 위해 URL에 `validationUrl` 속성이 포함되어 있습니다.
 * 배열에는 유효성 검사 이벤트만 포함됩니다. 다른 이벤트는 유효성 검사 코드를 에코 백한 후 별도의 요청으로 전송됩니다.
+* EventGrid DataPlane SDK에는 구독 유효성 검사 이벤트 데이터 및 구독 유효성 검사 응답에 해당하는 클래스가 있습니다.
 
 SubscriptionValidationEvent 예가 다음 예제에 나와 있습니다.
 
@@ -65,13 +78,24 @@ SubscriptionValidationEvent 예가 다음 예제에 나와 있습니다.
 }
 ```
 
-또는 유효성 검사 URL에 GET 요청을 수동으로 전송하여 구독이 유효한지 수동으로 검사합니다. 이벤트 구독은 유효성을 검사할 때까지 보류 상태로 유지됩니다.
+또는 유효성 검사 URL에 GET 요청을 전송하여 구독이 유효한지 수동으로 검사할 수 있습니다. 이벤트 구독은 유효성을 검사할 때까지 보류 상태로 유지됩니다.
+
+https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs에서 구독 유효성 검사 핸드셰이크를 처리하는 방법을 보여 주는 C# 샘플을 찾을 수 있습니다.
+
+### <a name="checklist"></a>검사 목록
+
+이벤트 구독을 만드는 동안 “제공된 엔드포인트 https://your-endpoint-here에 대한 유효성 검사 시도가 실패했습니다. 자세한 내용은 https://aka.ms/esvalidation을 방문하세요”와 같은 오류 메시지가 표시되면 유효성 검사 핸드셰이크에서 오류가 있다는 뜻입니다. 이 오류를 해결하려면 다음과 같은 측면을 확인합니다.
+
+* 대상 엔드포인트에서 응용 프로그램 코드를 제어할 수 있습니까? 예를 들어, HTTP 트리거 기반 Azure Function을 작성하는 경우 변경하기 위해 응용 프로그램 코드에 액세스할 수 있습니까?
+* 응용 프로그램 코드에 액세스할 수 있는 경우 위의 샘플에서와 같이 ValidationCode 기반 핸드셰이크 메커니즘을 구현하세요.
+
+* 응용 프로그램 코드에 액세스할 수 없는 경우(예: 웹후크를 지원하는 타사 서비스를 사용하는 경우), 수동 핸드셰이크 메커니즘을 사용할 수 있습니다. 이 작업을 수행하기 위해 유효성 검사 이벤트에서 validationUrl 을 수신하도록 2018-05-01-미리 보기 API 버전을 사용(예: 위에서 설명한 EventGrid CLI 확장 사용)하는지 확인합니다. 수동 유효성 검사 핸드셰이크를 완료하려면 “validationUrl” 속성의 값을 가져오고 웹 브라우저에서 해당 URL을 방문합니다. 유효성 검사에 성공한 경우 유효성 검사가 성공했다는 메시지가 웹 브라우저에 표시되어야 하며 이벤트 구독의 provisioningState가 “성공”으로 표시됩니다. 
 
 ### <a name="event-delivery-security"></a>이벤트 전달 보안
 
-이벤트 구독을 만들 때 Webhook URL에 쿼리 매개 변수를 추가하여 Webhook 끝점을 보호할 수 있습니다. 해당 쿼리 매개 변수 중 하나를 [액세스 토큰](https://en.wikipedia.org/wiki/Access_token) 같은 비밀로 설정하여 Webhook는 이를 사용하여 해당 이벤트가 유효한 권한을 지닌 Event Grid에서 제공되는지 인식할 수 있습니다. Event Grid는 Webhook에 모든 이벤트 전달에서 해당 쿼리 매개 변수를 포함합니다.
+이벤트 구독을 만들 때 Webhook URL에 쿼리 매개 변수를 추가하여 Webhook 엔드포인트를 보호할 수 있습니다. 해당 쿼리 매개 변수 중 하나를 [액세스 토큰](https://en.wikipedia.org/wiki/Access_token) 같은 비밀로 설정하여 Webhook는 이를 사용하여 해당 이벤트가 유효한 권한을 지닌 Event Grid에서 제공되는지 인식할 수 있습니다. Event Grid는 Webhook에 모든 이벤트 전달에서 해당 쿼리 매개 변수를 포함합니다.
 
-이벤트 구독을 편집할 때 [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) 매개 변수가 Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)에 사용되지 않는 한 쿼리 매개 변수는 표시되거나 반환되지 않습니다.
+이벤트 구독을 편집할 때 [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) 매개 변수가 Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)에 사용되지 않는 한 쿼리 매개 변수는 표시되거나 반환되지 않습니다.
 
 마지막으로 Azure Event Grid가 HTTPS 웹후크 엔드포인트를 지원한다는 점에 유의합니다.
 

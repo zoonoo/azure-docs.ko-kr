@@ -8,18 +8,20 @@ manager: timlt
 editor: ''
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/30/2018
+ms.date: 08/17/2018
 ms.author: kgremban
-ms.openlocfilehash: 812ca3ba546112f54a76319fda853d441ce34f1b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4bb33eae53d31701b66d13cb4e810b1a0b8a4b0b
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303541"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42145224"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>IoT Hub에 대한 Azure Event Grid 이벤트 스키마
 
 이 아티클에서는 Azure IoT Hub 이벤트에 대한 속성 및 스키마를 제공합니다. 이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요. 
+
+샘플 스크립트 및 자습서 목록은 [IoT Hub 이벤트 원본](event-sources.md#iot-hub)을 참조하세요.
 
 ## <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
 

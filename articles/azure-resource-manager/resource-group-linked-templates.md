@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2018
+ms.date: 08/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 17f40790343181c592eca7bf6337b0f37d3ec20c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8cac3c8d3a1877ad7c93efc0954c2f07ecaa0a29
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34602818"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42146223"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결 및 중첩된 템플릿 사용
 
@@ -48,6 +48,8 @@ ms.locfileid: "34602818"
 ```
 
 배포 리소스에 제공하는 속성은 외부 템플릿에 연결하는지 또는 기본 템플릿에 인라인 템플릿을 중첩하는지 여부에 따라 달라집니다.
+
+연결된 템플릿 및 중첩된 템플릿 둘 다에서 [증분](deployment-modes.md) 배포 모드만 사용할 수 있습니다.
 
 ### <a name="nested-template"></a>중첩된 템플릿
 

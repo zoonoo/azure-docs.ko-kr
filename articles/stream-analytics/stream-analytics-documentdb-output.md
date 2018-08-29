@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: ff2071a703b0b5e94cd68122a878b51e9d97669a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 95cfc7e6d9515274aa7a3c5fde382244f3b33fab
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112754"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143604"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Cosmos DB에 Azure Stream Analytics 출력  
 비구조화된 JSON 데이터에 대한 데이터 보관 및 짧은 대기 시간 쿼리를 사용하기 위해 Stream Analytics에서 JSON 출력의 대상을 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)로 지정할 수 있습니다. 이 문서에서는 이 구성을 구현하기 위한 몇 가지 모범 사례를 설명합니다.
@@ -40,6 +40,8 @@ Stream Analytics에서는 문서 ID 충돌로 인해 삽입에 실패한 경우�
 
 ## <a name="data-partitioning-in-cosmos-db"></a>Cosmos DB의 데이터 분할
 Azure Cosmos DB는 워크로드에 따라 파티션 크기를 자동으로 조정하므로 Azure Cosmos DB [무제한](../cosmos-db/partition-data.md)은 데이터 분할을 위해 권장되는 방법입니다. 무제한 컨테이너에 쓸 때 Stream Analytics는 이전 쿼리 단계 또는 입력 분할 구성표 수만큼의 병렬 기록기를 사용합니다.
+> [!Note]
+> 이때 Azure Stream Analytics는 최상위 수준에서 파티션 키를 사용하여 무제한 컬렉션만 지원합니다. 예를 들어 `/region`이 지원됩니다. 중첩된 파티션 키(예: `/region/name`)는 지원되지 않습니다. 
 
 고정된 Azure Cosmos DB 컬렉션의 경우, Stream Analytics에서는 컬렉션이 꽉 찰 때 강화하거나 스케일 아웃할 방법이 없습니다. 10GB 및 10,000RU/s의 처리량 상한 값이 적용됩니다.  고정 컨테이너에서 무제한 컨테이너(최소 1,000RU/s 처리량 및 파티션 키가 있는 하나의 컨테이너)로 데이터를 마이그레이션하려면 [데이터 마이그레이션 도구](../cosmos-db/import-data.md) 또는 [변경 피드 라이브러리](../cosmos-db/change-feed.md)를 사용해야 합니다.
 
@@ -54,7 +56,7 @@ Cosmos DB를 Stream Analytics의 출력으로 만들면 아래와 같은 정보�
 필드           | 설명 
 -------------   | -------------
 출력 별칭    | ASA 쿼리에서 이 출력을 참조할 별칭입니다.   
-계정 이름    | Azure Cosmos DB 계정의 이름 또는 끝점 URI입니다. 
+계정 이름    | Azure Cosmos DB 계정의 이름 또는 엔드포인트 URI입니다. 
 계정 키     | Azure Cosmos DB 계정에 대한 공유 액세스 키입니다.
 데이터베이스        | Azure Cosmos DB 데이터베이스 이름입니다.
 컬렉션 이름 | 사용할 컬렉션에 대한 컬렉션 이름입니다. `MyCollection`은 유효한 샘플 입력입니다. `MyCollection`이라는 컬렉션이 하나 있어야 합니다.  

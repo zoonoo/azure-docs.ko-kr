@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: 262c864a9e580ab5e2ebb0d4fc1e6ec16adeacb3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0df23d50fa208482e45d2d35555ec79c587cc80a
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36334329"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42445663"
 ---
-# <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Workday 구성
+# <a name="tutorial-configure-workday-for-automatic-user-provisioning-preview"></a>자습서: 자동 사용자 프로비저닝을 위한 Workday 구성(미리 보기)
 
 이 자습서의 목표는 Workday에서 Active Directory 및 Azure Active Directory로 사람을 가져오기 위해 수행해야 하는 단계, 그리고 선택 사항으로 일부 특성을 Workday에 쓰는 방법을 보여주는 것입니다.
 
@@ -31,9 +31,9 @@ ms.locfileid: "36334329"
 
 * **사용자를 Active Directory에 프로비전** - Workday에서 선택한 사용자 집합을 하나 이상의 Active Directory 포리스트와 동기화합니다.
 
-* **클라우드 전용 사용자를 Azure Active Directory에 프로비전** - Active Directory와 Azure Active Directory에 모두 있는 하이브리드 사용자는 [AAD Connect](../connect/active-directory-aadconnect.md)를 사용하여 Azure Active Directory에 프로비전할 수 있습니다. 그러나 클라우드 전용 사용자는 Azure AD 사용자 프로비전 서비스를 사용하여 Workday에서 직접 Azure Active Directory에 프로비전할 수 있습니다.
+* **Azure Active Directory에 클라우드 전용 사용자 프로비저닝** - 온-프레미스 Active Directory가 사용되지 않는 시나리오에서는 Azure AD 사용자 프로비저닝 서비스를 사용하여 사용자를 Workday에서 Azure Active Directory로 직접 프로비전할 수 있습니다. 
 
-* **Workday에 이메일 주소 쓰기 저장** - Azure AD 사용자 프로비전 서비스는 선택한 Azure AD 사용자 특성(예: 이메일 주소)을 Workday에 쓸 수 있습니다.
+* **Workday에 이메일 주소 쓰기 저장** - Azure AD 사용자 프로비저닝 서비스는 Azure AD 사용자의 이메일 주소를 Workday에 다시 쓸 수 있습니다. 
 
 ### <a name="what-human-resources-scenarios-does-it-cover"></a>여기서 다루는 인적 자원 시나리오
 
@@ -281,7 +281,7 @@ Active Directory 포리스트로 사용자 프로비전을 구성하기 전에 �
 
    * **관리자 암호 –** Workday 통합 시스템 계정의 암호를 입력합니다.
 
-   * **테넌트 URL –** 해당 테넌트의 Workday 웹 서비스 끝점에 대한 URL을 입력합니다. https://wd3-impl-services1.workday.com/ccx/service/contoso4와 같은 형태여야 하며, 여기서 contoso4를 올바른 테넌트 이름으로 바꾸고 wd3-impl을 올바른 환경 문자열로 바꾸면 됩니다.
+   * **테넌트 URL –** 해당 테넌트의 Workday 웹 서비스 엔드포인트에 대한 URL을 입력합니다. https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources와 같은 형태여야 하며, 여기서 contoso4를 올바른 테넌트 이름으로 바꾸고 wd3-impl을 올바른 환경 문자열로 바꾸면 됩니다.
 
    * **Active Directory 포리스트 -** Get-ADForest powershell 명령에서 반환하는 Active Directory 포리스트의 "이름"입니다. 일반적으로 *contoso.com* 형태의 문자열입니다.
 
@@ -407,6 +407,9 @@ Active Directory 온-프레미스로 프로비전하려면 원하는 Active Dire
 * 입력: "디렉터리 이름"으로 파트 \#2에서 입력한 AD 포리스트 이름 입력
 * 입력: Active Directory 포리스트의 관리 사용자 이름 및 암호 입력
 
+>[!TIP]
+> "주 도메인과 트러스트된 도메인 간의 관계가 실패했습니다"라는 오류 메시지가 나타나면, 로컬 머신이 여러 Active Directory 포리스트 또는 도메인이 구성된 환경에 있고 하나 이상 구성된 트러스트 관계가 실패했거나 작동하지 않기 때문입니다. 이 문제를 해결하려면 손상된 트러스트 관계를 수정하거나 제거하세요.
+
 **명령 #3**
 
 > Add-ADSyncAgentAzureActiveDirectoryConfiguration
@@ -418,7 +421,6 @@ Active Directory 온-프레미스로 프로비전하려면 원하는 Active Dire
 
 >[!IMPORTANT]
 >현재 다단계 인증을 사용하도록 설정하는 경우 작동하지 않는 전역 관리자 자격 증명으로 알려진 문제가 있습니다. 해결 방법으로 전역 관리자에 대한 다단계 인증을 사용하지 않도록 설정합니다.
-
 
 **명령 #4**
 
@@ -537,7 +539,7 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 
    * **관리자 암호 –** Workday 통합 시스템 계정의 암호를 입력합니다.
 
-   * **테넌트 URL –** 해당 테넌트의 Workday 웹 서비스 끝점에 대한 URL을 입력합니다. https://wd3-impl-services1.workday.com/ccx/service/contoso4와 같은 형태여야 하며, 여기서 contoso4를 올바른 테넌트 이름으로 바꾸고 wd3-impl을 올바른 환경 문자열로 바꾸면 됩니다. 이 URL을 알 수 없는 경우 Workday 통합 파트너와 협력하거나 지원 담당자에게 문의하여 사용할 올바른 URL을 확인하세요.
+   * **테넌트 URL –** 해당 테넌트의 Workday 웹 서비스 엔드포인트에 대한 URL을 입력합니다. https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources와 같은 형태여야 하며, 여기서 contoso4를 올바른 테넌트 이름으로 바꾸고 wd3-impl을 올바른 환경 문자열로 바꾸면 됩니다. 이 URL을 알 수 없는 경우 Workday 통합 파트너와 협력하거나 지원 담당자에게 문의하여 사용할 올바른 URL을 확인하세요.
 
    * **알림 이메일 –** 이메일 주소를 입력하고 "오류가 발생하면 이메일 보내기" 확인란을 선택합니다.
 
@@ -640,7 +642,7 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 
    * **관리자 암호 –** Workday 통합 시스템 계정의 암호를 입력합니다.
 
-   * **테넌트 URL –** 해당 테넌트의 Workday 웹 서비스 끝점에 대한 URL을 입력합니다. https://wd3-impl-services1.workday.com/ccx/service/contoso4와 같은 형태여야 하며, 여기서 contoso4를 올바른 테넌트 이름으로 바꾸고 wd3-impl을 올바른 환경 문자열로 바꾸면 됩니다(필요한 경우).
+   * **테넌트 URL –** 해당 테넌트의 Workday 웹 서비스 엔드포인트에 대한 URL을 입력합니다. https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources와 같은 형태여야 하며, 여기서 contoso4를 올바른 테넌트 이름으로 바꾸고 wd3-impl을 올바른 환경 문자열로 바꾸면 됩니다(필요한 경우).
 
    * **알림 이메일 –** 이메일 주소를 입력하고 "오류가 발생하면 이메일 보내기" 확인란을 선택합니다.
 
@@ -654,7 +656,7 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 
 2. 선택 사항으로 **원본 개체 범위** 필드에서 Azure Active Directory의 사용자 집합 중 Workday에 이메일 주소를 기록할 사용자 집합을 필터링 할 수 있습니다. 기본 범위는 "Azure AD의 모든 사용자"입니다. 
 
-3. **특성 매핑** 섹션에서 개별 Workday 특성이 Active Directory 특성에 매핑되는 방식을 정의할 수 있습니다. 기본적으로 이메일 주소에 대한 매핑이 있습니다. 그러나 Azure AD의 사용자가 Workday의 해당 항목과 일치하도록 일치 ID를 업데이트해야 합니다. Workday 작업자 ID 또는 직원 ID를 Azure AD의 extensionAttribute1-15와 동기화한 후 Azure AD에서 이 특성을 사용하여 Workday에서 사용자를 다시 일치시키는 방법이 주로 사용됩니다.
+3. **특성 매핑** 섹션에서 Workday 작업자 ID 또는 직원 ID가 저장된 Azure Active Directory의 특성을 나타내도록 일치하는 ID를 업데이트합니다. Workday 작업자 ID 또는 직원 ID를 Azure AD의 extensionAttribute1-15와 동기화한 후 Azure AD에서 이 특성을 사용하여 Workday에서 사용자를 다시 일치시키는 방법이 주로 사용됩니다. 
 
 4. 매핑을 저장하려면 특성 매핑 섹션 맨 위에서 **저장**을 클릭합니다.
 
@@ -794,6 +796,10 @@ Azure AD 프로비저닝 서비스는 인사 API의[Get_Workers](https://communi
 
 * **Add-ADSyncAgentAzureActiveDirectoryConfiguration** Powershell 명령을 실행할 때 현재 사용자 지정 도메인을 사용하는 경우 작동하지 않는 전역 관리자 자격 증명으로 알려진 문제가 있습니다(예: admin@contoso.com). 해결 방법으로 Azure AD에서 onmicrosoft.com 도메인으로 전역 관리자 계정을 만들고 사용합니다(예: admin@contoso.onmicrosoft.com).
 
+* 온-프레미스 Active Directory의 thumbnailPhoto 사용자 특성에 데이터를 쓰는 것은 현재 지원되지 않습니다.
+
+* "Workday-Azure AD" 커넥터는 현재 AAD 커넥터를 사용하도록 설정된 Azure AD 테넌트에서 지원되지 않습니다.  
+
 * 유럽 연합에 있는 Azure AD 테넌트에 표시되지 않는 감사 로그와 관련된 이전 문제는 해결되었습니다. 그러나 EU의 Azure AD 테넌트에 추가 에이전트가 구성이 필요합니다. 자세한 내용은 [3부: 온-프레미스 동기화 에이전트 구성](#Part 3: Configure the on-premises synchronization agent)을 참조하세요.
 
 ## <a name="managing-personal-data"></a>개인 데이터 관리
@@ -805,3 +811,4 @@ Active Directory에 대한 Workday 프로비전 솔루션에는 도메인에 가
 * [프로비전 활동에 대한 로그를 검토하고 보고서를 받아 보는 방법을 살펴봅니다](../active-directory-saas-provisioning-reporting.md).
 * [Workday와 Azure Active Directory 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.](workday-tutorial.md)
 * [Azure Active Directory와 다른 SaaS 응용 프로그램을 통합하는 방법을 알아봅니다.](tutorial-list.md)
+

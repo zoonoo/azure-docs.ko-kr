@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 5039399ac875add02319e1a745d99344956c7bee
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: ec0fc11ac2caf421f331a8fe72f1dacdf6b8a702
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860217"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42312166"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Oracle 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,12 +58,18 @@ Oracle 연결 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | type 속성은 **Oracle**로 설정해야 합니다. | 예 |
-| connectionString | Oracle 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다.<br><br>**지원되는 연결 유형**: 데이터베이스를 식별하기 위해 **Oracle SID** 또는 **Oracle 서비스 이름**을 사용할 수 있습니다.<br>- SID를 사용하는 경우: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- 서비스 이름을 사용하는 경우: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니오 |
+| 형식 | type 속성은 **Oracle**로 설정해야 합니다. | yes |
+| connectionString | Oracle 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다.<br><br>**지원되는 연결 유형**: 데이터베이스를 식별하기 위해 **Oracle SID** 또는 **Oracle 서비스 이름**을 사용할 수 있습니다.<br>- SID를 사용하는 경우: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- 서비스 이름을 사용하는 경우: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | yes |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 >[!TIP]
 >“ORA-01025: UPI parameter out of range”(ORA-01025: UPI 매개 변수가 범위를 벗어남) 오류가 표시되고 Oracle이 8i 버전인 경우 연결 문자열에 `WireProtocolMode=1`을 추가하고 다시 시도합니다.
+
+Oracle 연결에서 암호화를 사용하도록 설정하려면 다음 두 가지 옵션이 있습니다.
+
+1.  Oracle 서버 쪽에서 OAS(Oracle Advanced Security)로 이동하여 3DES(Triple-DES Encryption) 및 AES(Advanced Encryption Standard)를 지원하는 암호화 설정을 구성합니다. 자세한 내용은 [여기](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759)를 참조하세요. ADF Oracle 커넥터는 Oracle에 대한 연결을 설정할 때 OAS에서 구성한 암호화 방법을 사용하도록 해당 암호화 방법을 자동으로 협상합니다.
+
+2.  클라이언트 쪽에서 `EncryptionMethod=1`을 연결 문자열에 추가할 수 있습니다. 이렇게 하면 SSL/TLS가 암호화 방법으로 사용됩니다. 이를 사용하려면 암호화 충돌을 방지하기 위해 Oracle 서버 쪽의 OAS에서 비SSL 암호화 설정을 사용하지 않도록 설정해야 합니다.
 
 **예제:**
 
@@ -94,8 +100,8 @@ Oracle 간에 데이터를 복사하려면 데이터 집합의 형식 속성을 
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 집합의 type 속성을 **OracleTable**로 설정해야 합니다. | 예 |
-| tableName |연결된 서비스가 참조하는 Oracle 데이터베이스에 있는 테이블의 이름입니다. | 예 |
+| 형식 | 데이터 집합의 type 속성을 **OracleTable**로 설정해야 합니다. | yes |
+| tableName |연결된 서비스가 참조하는 Oracle 데이터베이스에 있는 테이블의 이름입니다. | yes |
 
 **예제:**
 
@@ -126,8 +132,8 @@ Oracle에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Or
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 형식 속성을 **OracleSource**로 설정해야 합니다. | 예 |
-| oracleReaderQuery | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예는 `"SELECT * FROM MyTable"`입니다. | 아니오 |
+| 형식 | 복사 작업 원본의 형식 속성을 **OracleSource**로 설정해야 합니다. | yes |
+| oracleReaderQuery | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예는 `"SELECT * FROM MyTable"`입니다. | 아니요 |
 
 “oracleReaderQuery”를 지정하지 않으면 데이터 집합의 “structure” 섹션에 정의된 열은 쿼리(`select column1, column2 from mytable`)를 생성하는 데 사용되어 Oracle 데이터베이스에 대해 실행합니다. 데이터 집합 정의에 "structure"가 없는 경우 테이블에서 모든 열이 선택됩니다.
 
@@ -169,10 +175,10 @@ Oracle에 데이터를 복사하려면 복사 작업의 싱크 형식을 **Oracl
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 싱크의 type 속성은 **OracleSink**로 설정해야 합니다. | 예 |
+| 형식 | 복사 작업 싱크의 type 속성은 **OracleSink**로 설정해야 합니다. | yes |
 | writeBatchSize | 버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입<br/>허용되는 값은 정수(행 수)입니다. |아니요(기본값: 10,000) |
-| writeBatchTimeout | 시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다.<br/>허용되는 값은 시간 범위입니다. 예를 들어 "00:30:00"(30분)입니다. | 아니오 |
-| preCopyScript | 각 실행 시 Oracle에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. | 아니오 |
+| writeBatchTimeout | 시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다.<br/>허용되는 값은 시간 범위입니다. 예를 들어 "00:30:00"(30분)입니다. | 아니요 |
+| preCopyScript | 각 실행 시 Oracle에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. | 아니요 |
 
 **예제:**
 
@@ -209,7 +215,7 @@ Oracle에 데이터를 복사하려면 복사 작업의 싱크 형식을 **Oracl
 
 Oracle 간에 데이터를 복사할 경우 Oracle 데이터 형식에서 데이터 팩터리 중간 데이터 형식으로 다음 매핑이 사용됩니다. 복사 활동에서 원본 스키마와 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
-| Oracle 데이터 형식 | 데이터 팩터리 중간 데이터 형식 |
+| Oracle 데이터 형식 | Data Factory 중간 데이터 형식 |
 |:--- |:--- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(Oracle 10g 이상에서만 지원됨) |

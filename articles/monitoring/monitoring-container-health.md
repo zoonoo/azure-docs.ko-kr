@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/06/2018
+ms.date: 08/15/2018
 ms.author: magoedte
-ms.openlocfilehash: 2ae61d672083508d49e72afd5a015191082c23e9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8027149f3e5ace163bf380bc5362fcb101397986
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521934"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42143550"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>AKS(Azure Kubernetes Service) 컨테이너 상태 모니터링(미리 보기)
 
 이 문서에서는 Azure Monitor 컨테이너 상태를 설정하고 사용하여 Kubernetes 환경에 배포되고 AKS(Azure Kubernetes Service)에서 호스트되는 워크로드의 성능을 모니터링하는 방법을 설명합니다. Kubernetes 클러스터 및 컨테이너를 모니터링하는 것은 중요하며, 특히 여러 응용 프로그램을 사용하여 대규모의 프로덕션 클러스터를 실행하는 경우 그렇습니다.
 
-컨테이너 상태는 메트릭 API를 통해 Kubernetes에서 사용할 수 있는 컨트롤러, 노드 및 컨테이너에서 메모리 및 프로세서 메트릭을 수집하여 성능 모니터링 기능을 제공합니다. 컨테이너 상태를 사용하도록 설정하면, 이러한 메트릭이 Linux용 OMS(Operations Management Suite) 에이전트의 컨테이너화된 버전을 통해 자동으로 수집된 후 [Log Analytics](../log-analytics/log-analytics-overview.md) 작업 영역에 저장됩니다. 포함된 미리 정의된 보기에는 상주하는 컨테이너 워크로드와 Kubernetes 클러스터의 성능 상태에 영향을 미치는 요소가 포함되기 때문에 다음과 같은 작업이 가능합니다.  
+컨테이너 상태는 메트릭 API를 통해 Kubernetes에서 사용할 수 있는 컨트롤러, 노드 및 컨테이너에서 메모리 및 프로세서 메트릭을 수집하여 성능 모니터링 기능을 제공합니다. 컨테이너 상태를 사용하도록 설정하면, 이러한 메트릭이 Linux용 Log Analytics 에이전트의 컨테이너화된 버전을 통해 자동으로 수집된 후 [Log Analytics](../log-analytics/log-analytics-overview.md) 작업 영역에 저장됩니다. 포함된 미리 정의된 보기에는 상주하는 컨테이너 워크로드와 Kubernetes 클러스터의 성능 상태에 영향을 미치는 요소가 포함되기 때문에 다음과 같은 작업이 가능합니다.  
 
 * 노드에서 실행 중인 컨테이너와 평균 프로세서 및 메모리 사용률을 확인합니다. 이 정보를 통해 리소스 병목 상태를 파악할 수 있습니다.
 * 컨트롤러 또는 Pod에서 컨테이너가 상주하는 위치를 확인합니다. 이 정보를 통해 컨트롤러 또는 Pod의 전반적인 성능을 볼 수 있습니다. 
@@ -38,13 +38,15 @@ Docker 및 Windows 컨테이너 호스트를 모니터링하고 관리하여 구
 시작하기 전에 다음 항목이 있는지 확인하십시오.
 
 - 새 또는 기존 AKS 클러스터.
-- Linux용 컨테이너화된 OMS 에이전트 microsoft/oms:ciprod04202018 이상의 버전. 버전 번호는 *mmddyyyy* 형식의 날짜로 표시됩니다. 에이전트는 컨테이너 상태를 온보딩하는 동안 자동으로 설치됩니다. 
+- Linux용 컨테이너화된 Log Analytics 에이전트 microsoft/oms:ciprod04202018 이상의 버전. 버전 번호는 *mmddyyyy* 형식의 날짜로 표시됩니다. 에이전트는 컨테이너 상태를 온보딩하는 동안 자동으로 설치됩니다. 
 - Log Analytics 작업 영역. 새 AKS 클러스터 모니터링을 사용하도록 설정할 때 만들거나 온보드 환경에서 AKS 클러스터 구독의 기본 리소스 그룹에 기본 작업 영역을 만들도록 할 수 있습니다. 직접 만들려면 [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md)를 통해 만들거나 [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json)을 통해 만들거나 [Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md)에서 만들 수 있습니다.
 - 컨테이너 모니터링을 사용하도록 설정하기 위한 Log Analytics 기여자 역할. Log Analytics 작업 영역에 대한 액세스를 제어하는 방법에 대한 자세한 내용은 [작업 영역 관리](../log-analytics/log-analytics-manage-access.md)를 참조하세요.
 
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+
 ## <a name="components"></a>구성 요소 
 
-성능을 모니터링하는 기능은 컨테이너화된 Linux용 OMS 에이전트에 의존합니다. 이를 통해 클러스터의 모든 노드에서 성능 및 이벤트 데이터를 수집합니다. 이 에이전트는 컨테이너 모니터링을 사용하도록 설정한 후에 지정된 Log Analytics 작업 영역에 자동으로 배포되고 등록됩니다. 
+성능을 모니터링하는 기능은 컨테이너화된 Linux용 Log Analytics 에이전트에 의존합니다. 이를 통해 클러스터의 모든 노드에서 성능 및 이벤트 데이터를 수집합니다. 이 에이전트는 컨테이너 모니터링을 사용하도록 설정한 후에 지정된 Log Analytics 작업 영역에 자동으로 배포되고 등록됩니다. 
 
 >[!NOTE] 
 >AKS 클러스터를 이미 배포한 경우, 이 문서의 뒷부분에 설명된 대로, Azure CLI 또는 제공된 Azure Resource Manager 템플릿을 사용하여 모니터링을 사용하도록 설정할 수 있습니다. `kubectl`을 사용하여 에이전트를 업그레이드, 삭제, 다시 배포 또는 배포할 수 없습니다. 
@@ -59,7 +61,7 @@ Docker 및 Windows 컨테이너 호스트를 모니터링하고 관리하여 구
 Azure CLI로 만든 새로운 AKS 클러스터에 대한 모니터링을 활성화하려면 [AKS 클러스터 만들기](../aks/kubernetes-walkthrough.md#create-aks-cluster) 섹션 아래 빠른 시작 문서의 단계를 수행하세요.  
 
 >[!NOTE]
->Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.27 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요. 
+>Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.43 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요. 
 >
 
 모니터링을 사용하도록 설정하고 모든 구성 작업이 성공적으로 완료되면 다음 두 가지 방법 중 하나로 클러스터의 성능을 모니터링할 수 있습니다.
@@ -303,7 +305,7 @@ omsagent   1         1         1            1            3h
 
 ### <a name="agent-version-earlier-than-06072018"></a>06072018 이전 에이전트 버전
 
-*06072018* 이전에 릴리스된 OMS 에이전트 버전이 제대로 배포되었는지 확인하려면 다음 명령을 실행합니다.  
+*06072018* 이전에 릴리스된 Log Analytics 에이전트 버전이 제대로 배포되었는지 확인하려면 다음 명령을 실행합니다.  
 
 ```
 kubectl get ds omsagent --namespace=kube-system

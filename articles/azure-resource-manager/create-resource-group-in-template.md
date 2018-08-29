@@ -9,20 +9,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 90d21ac817f6fd4730ff4a7e98500a80af10ac70
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 003f5d114a233738783d265a18ee7d2ccbfaba10
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623211"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617269"
 ---
 # <a name="create-resource-groups-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 리소스 그룹 만들기
 
-Azure Resource Manager 템플릿에서 리소스 그룹을 만들려면 리소스 그룹의 이름 및 위치를 사용하여 **Microsoft.Resources/resourceGroups** 리소스를 정의합니다. Azure 구독에 템플릿을 배포합니다. 동일한 템플릿에서 해당 리소스 그룹에 리소스를 배포할 수도 있습니다.
+Azure Resource Manager 템플릿에서 리소스 그룹을 만들려면 리소스 그룹의 이름 및 위치를 사용하여 **Microsoft.Resources/resourceGroups** 리소스를 정의합니다. Azure 구독에 템플릿을 배포합니다. 구독 수준 배포에 대한 자세한 내용은 [Azure 구독에 리소스 배포](deploy-to-subscription.md)를 참조하세요.
 
-이 문서에서는 Azure CLI를 사용하여 템플릿을 배포합니다. 현재 PowerShell은 구독에 템플릿 배포를 지원하지 않습니다.
+동일한 템플릿에서 해당 리소스 그룹에 리소스를 배포할 수도 있습니다.
+
+이 아티클에서는 Azure CLI 및 PowerShell을 사용하여 템플릿을 배포합니다.
 
 ## <a name="create-empty-resource-group"></a>빈 리소스 그룹 만들기
 
@@ -62,6 +64,17 @@ az deployment create \
   -l southcentralus \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json \
   --parameters rgName=demoRG rgLocation=northcentralus
+```
+
+PowerShell에서 이 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoEmptyRG `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json `
+  -rgName demogroup `
+  -rgLocation northcentralus
 ```
 
 ## <a name="create-several-resource-groups"></a>여러 리소스 그룹 만들기
@@ -109,6 +122,18 @@ az deployment create \
   -l southcentralus \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json \
   --parameters rgNamePrefix=demoRG rgLocation=northcentralus instanceCount=3
+```
+
+PowerShell에서 이 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoCopyRG `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json `
+  -rgName demogroup `
+  -rgLocation northcentralus `
+  -instanceCount 3
 ```
 
 ## <a name="create-resource-group-and-deploy-resource"></a>리소스 그룹을 만들고 리소스 배포
@@ -190,7 +215,20 @@ az deployment create \
   --parameters rgName=rgStorage rgLocation=northcentralus storagePrefix=storage
 ```
 
+PowerShell에서 이 템플릿을 배포하려면 다음 기능을 사용합니다.
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoRGStorage `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/newRGWithStorage.json `
+  -rgName rgStorage `
+  -rgLocation northcentralus `
+  -storagePrefix storage
+```
+
 ## <a name="next-steps"></a>다음 단계
+* 구독 수준 배포에 대해 알아보려면 [Azure 구독에 리소스 배포](deploy-to-subscription.md)를 참조하세요.
 * 배포 중 종속성 문제 해결에 대해 알아보려면 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](resource-manager-common-deployment-errors.md)을 참조하세요.
 * Azure 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [템플릿 작성](resource-group-authoring-templates.md)을 참조하세요. 
 * 템플릿에서 사용할 수 있는 함수 목록은 [템플릿 함수](resource-group-template-functions.md)를 참조하세요.

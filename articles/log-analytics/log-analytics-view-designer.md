@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: d900a778aa003357fb85d3e8ec8e40dee64f0f9c
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 77c7d9a549b10a56faaf6226062d0e6212ce19c0
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131857"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143769"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Log Analytics에서 뷰 디자이너를 사용하여 사용자 지정 보기 만들기
 [Azure Log Analytics](log-analytics-overview.md)에서 뷰 디자이너를 사용하면 Azure Portal에서 Log Analytics 작업 영역의 데이터를 시각화하는 데 도움이 되는 다양한 사용자 지정 보기를 만들 수 있습니다. 이 문서에는 뷰 디자이너 개요 및 사용자 지정 보기를 만들고 편집하는 절차가 제공됩니다.
@@ -55,7 +55,7 @@ ms.locfileid: "37131857"
 | 옵션 | 설명 |
 |:--|:--|
 | 새로 고침   | 최신 데이터로 보기를 새로 고칩니다. | 
-| 분석 | [Advanced Analytics 포털](log-analytics-log-search-portals.md#advanced-analytics-portal)을 열어서 로그 검색을 통해 데이터를 분석합니다. |
+| 분석 | [Advanced Analytics 포털](log-analytics-log-search-portals.md)을 열어서 로그 쿼리를 통해 데이터를 분석합니다. |
 | 편집       | 뷰 디자이너에서 보기를 열어서 내용과 구성을 편집합니다.  |
 | 복제      | 새 보기를 만든 후 뷰 디자이너에서 엽니다. 새 보기의 이름은 원래 이름과 동일하지만 복사본이 추가됩니다. |
 | 날짜 범위 | 보기에 포함된 데이터의 날짜와 시간 범위 필터를 설정합니다. |

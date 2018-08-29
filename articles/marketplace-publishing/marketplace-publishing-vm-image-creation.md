@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 9199c9fc9a46e6b09eb066be5125c74420ad6cd6
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: bf2ba6d31c170715a52b84439276c45665293c35
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715338"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246811"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure Marketplace에 대한 가상 머신 이미지 만들기 가이드
 이 문서의 **2단계**에서는 Azure Marketplace에 배포할 VHD(가상 하드 디스크)를 준비하는 과정을 안내합니다. VHD는 SKU의 기반입니다. Linux 기반 SKU를 제공할지 Windows 기반 SKU를 제공할지 여부에 따라 프로세스는 다릅니다. 이 문서에서는 두 시나리오를 모두 다룹니다. 이 프로세스는 [계정 만들기 및 등록][link-acct-creation]과 함께 병렬로 수행할 수 있습니다.
@@ -69,9 +69,9 @@ VM 이미지용 운영 체제 VHD는 Windows Server 또는 SQL Server를 포함�
 
 시작하려면 [Microsoft Azure Portal][link-azure-portal]에 있는 다음 이미지 중 하나에서 VM을 만듭니다.
 
-* Windows Server([2012 R2 Datacenter][link-datactr-2012-r2], [2012 Datacenter][link-datactr-2012], [2008 R2 SP1][link-datactr-2008-r2])
-* SQL Server 2014 ([Enterprise][link-sql-2014-ent], [Standard][link-sql-2014-std], [Web][link-sql-2014-web])
-* SQL Server 2012 SP2 ([Enterprise][link-sql-2012-ent], [Standard][link-sql-2012-std], [Web][link-sql-2012-web])
+* Windows Server ([2012 R2 데이터 센터][link-datactr-2012-r2], [2012 데이터 센터][link-datactr-2012], [2008 R2 SP1][link-datactr-2008-r2])
+* SQL Server 2014 
+* SQL Server 2012 SP2 
 
 이러한 링크는 게시 포털의 SKU 페이지 아래에도 있습니다.
 
@@ -323,7 +323,7 @@ Azure Storage Explorer를 사용하여 SAS URL을 생성하는 단계는 다음�
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_03.png)
 
-5. 저장소 계정 이름, 저장소 계정 키 및 저장소 끝점 도메인을 지정합니다. Azure Portal에 대한 VHD를 보관하는 Azure 구독의 저장소 계정입니다.
+5. 저장소 계정 이름, 저장소 계정 키 및 저장소 엔드포인트 도메인을 지정합니다. Azure Portal에 대한 VHD를 보관하는 Azure 구독의 저장소 계정입니다.
 
     ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_04.png)
 
@@ -515,11 +515,11 @@ Azure CLI를 사용하여 SAS URL을 생성하는 단계는 다음과 같습니�
 
 |문제|오류 메시지|해결|문서 링크|
 |---|---|---|---|
-|이미지 복사 중 오류 - "?"가 SAS URL에 없습니다|오류: 이미지 복사 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.|권장 도구를 사용하여 SAS URL 업데이트|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|이미지 복사 중 오류 - "st" 및 "se" 매개 변수가 SAS URL에 없습니다|오류: 이미지 복사 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.|시작 및 종료 날짜로 SAS URL 업데이트|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|이미지 복사 중 오류 - “sp=rl”이 SAS URL에 없습니다|오류: 이미지 복사 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.|"읽기" 및 "나열"로 설정된 사용 권한으로 SAS URL 업데이트|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|이미지 복사 중 오류 - SAS URL은 VHD 이름에 공백을 포함합니다|오류: 이미지 복사 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.|공백 없이 SAS URL 업데이트|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|이미지 복사 중 오류 – SAS URL 권한 부여 오류|오류: 이미지 복사 권한 부여 오류로 인해 Blob을 다운로드할 수 없습니다.|SAS URL 다시 생성|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|이미지 복사 중 오류 - "?"가 SAS URL에 없습니다|오류: 이미지 복사 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.|권장 도구를 사용하여 SAS URL 업데이트|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|이미지 복사 중 오류 - "st" 및 "se" 매개 변수가 SAS URL에 없습니다|오류: 이미지 복사 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.|시작 및 종료 날짜로 SAS URL 업데이트|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|이미지 복사 중 오류 - “sp=rl”이 SAS URL에 없습니다|오류: 이미지 복사 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.|"읽기" 및 "나열"로 설정된 사용 권한으로 SAS URL 업데이트|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|이미지 복사 중 오류 - SAS URL은 VHD 이름에 공백을 포함합니다|오류: 이미지 복사 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.|공백 없이 SAS URL 업데이트|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|이미지 복사 중 오류 – SAS URL 권한 부여 오류|오류: 이미지 복사 권한 부여 오류로 인해 Blob을 다운로드할 수 없습니다.|SAS URL 다시 생성|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |이미지 복사 실패 – SAS Url "st" 및 "se" 매개 변수에 전체 날짜/시간 사양이 없습니다.|오류: 이미지 복사 잘못된 SAS URL로 인해 Blob을 다운로드할 수 없습니다. |SAS Url 시작 및 종료 날짜 매개 변수("st", "se")에는 날짜만 지정하거나 약식 시간 버전을 지정하면 안 되며 전체 날짜/시간 사양(예: 11-02-2017T00:00:00Z)을 지정해야 합니다. Azure CLI 2.0(az 명령)을 사용하는 경우 이러한 시나리오가 발생하기 쉽습니다. 전체 날짜/시간 사양을 제공하고 SAS Url을 다시 생성해야 합니다.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>다음 단계
@@ -558,15 +558,6 @@ SKU 세부 정보를 완료하면 [Azure Marketplace 마케팅 콘텐츠 가이�
 [link-technet-2]:https://msdn.microsoft.com/library/dn495261.aspx
 [link-azure-portal]:https://portal.azure.com
 [link-pubportal]:https://publish.windowsazure.com
-[link-sql-2014-ent]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014enterprisewindowsserver2012r2/
-[link-sql-2014-std]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014standardwindowsserver2012r2/
-[link-sql-2014-web]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014webwindowsserver2012r2/
-[link-sql-2012-ent]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2enterprisewindowsserver2012/
-[link-sql-2012-std]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2standardwindowsserver2012/
-[link-sql-2012-web]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2webwindowsserver2012/
-[link-datactr-2012-r2]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012r2datacenter/
-[link-datactr-2012]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/
-[link-datactr-2008-r2]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
 [link-technet-1]:https://technet.microsoft.com/library/hh848454.aspx
 [link-azure-vm-2]:./virtual-machines-linux-agent-user-guide/

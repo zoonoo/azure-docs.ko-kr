@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: e76ffa3256da5acecf55ad37ea3d927510565ffe
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 41246e434f8adade65f39b3471417888f62d7528
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577291"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144634"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows에서 첫 번째 Service Fabric 컨테이너 응용 프로그램 만들기
 > [!div class="op_single_selector"]
@@ -147,7 +147,7 @@ docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
 docker inspect my-web-site
 ```
 
-실행 중인 컨테이너에 연결합니다. 반환된 IP 주소(예: " http://172.31.194.61 ")를 가리키는 웹 브라우저를 엽니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
+실행 중인 컨테이너에 연결합니다. 반환된 IP 주소(예: "http://172.31.194.61")를 가리키는 웹 브라우저를 엽니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
 
 컨테이너를 중지하려면 다음을 실행합니다.
 
@@ -195,7 +195,7 @@ Service Fabric SDK 및 도구에서는 Service Fabric 클러스터에 컨테이�
 5. 서비스에 이름을 지정하고 **확인**을 클릭합니다.
 
 ## <a name="configure-communication"></a>통신 구성
-컨테이너화된 서비스에는 통신을 위한 끝점이 필요합니다. ServiceManifest.xml 파일에 프로토콜, 포트 및 형식이 포함된 `Endpoint` 요소를 추가합니다. 이 예제에서는 고정된 8081 포트가 사용됩니다. 포트를 지정하지 않으면 응용 프로그램 포트 범위에서 임의의 포트가 선택됩니다. 
+컨테이너화된 서비스에는 통신을 위한 엔드포인트가 필요합니다. ServiceManifest.xml 파일에 프로토콜, 포트 및 형식이 포함된 `Endpoint` 요소를 추가합니다. 이 예제에서는 고정된 8081 포트가 사용됩니다. 포트를 지정하지 않으면 응용 프로그램 포트 범위에서 임의의 포트가 선택됩니다. 
 
 ```xml
 <Resources>
@@ -204,8 +204,10 @@ Service Fabric SDK 및 도구에서는 Service Fabric 클러스터에 컨테이�
   </Endpoints>
 </Resources>
 ```
+> [!NOTE]
+> 적용 가능한 속성 값으로 EndPoint 요소를 추가로 선언하여 서비스에 대한 추가 Endpoint를 추가할 수 있습니다. 각 포트는 프로토콜 값을 하나만 선언할 수 있습니다.
 
-끝점을 정의하면 Service Fabric에서 끝점을 명명 서비스에 게시합니다. 클러스터에서 실행 중인 다른 서비스에서 이 컨테이너를 확인할 수 있습니다. [역방향 프록시](service-fabric-reverseproxy.md)를 사용하여 컨테이너-컨테이너 통신을 수행할 수도 있습니다. 통신은 역방향 프록시 HTTP 수신 대기 포트 및 통신하려는 서비스의 이름을 환경 변수로 제공하여 수행됩니다.
+엔드포인트를 정의하면 Service Fabric에서 엔드포인트를 명명 서비스에 게시합니다. 클러스터에서 실행 중인 다른 서비스에서 이 컨테이너를 확인할 수 있습니다. [역방향 프록시](service-fabric-reverseproxy.md)를 사용하여 컨테이너-컨테이너 통신을 수행할 수도 있습니다. 통신은 역방향 프록시 HTTP 수신 대기 포트 및 통신하려는 서비스의 이름을 환경 변수로 제공하여 수행됩니다.
 
 서비스는 특정 포트에 대해 수신 대기합니다(이 예제에서는 8081). 응용 프로그램이 Azure에서 클러스터를 배포하는 경우 클러스터와 응용 프로그램 모두 Azure 부하 분산 장치 뒤에서 실행됩니다. 응용 프로그램 포트는 인바운드 트래픽이 서비스에 도달할 수 있도록 Azure 부하 분산 장치에서 열려 있어야 합니다.  [PowerShell 스크립트](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) 또는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure 부하 분산 장치에서 이 포트를 열 수 있습니다.
 
@@ -234,7 +236,7 @@ Service Fabric SDK 및 도구에서는 Service Fabric 클러스터에 컨테이�
 ```
 
 ## <a name="configure-container-port-to-host-port-mapping-and-container-to-container-discovery"></a>컨테이너 포트-호스트 포트 매핑 및 컨테이너-컨테이너 검색 구성
-컨테이너와 통신하는 데 사용되는 호스트 포트를 구성합니다. 포트를 바인딩하면 서비스가 컨테이너 내에서 수신 대기 중인 포트를 호스트의 포트에 매핑합니다. ApplicationManifest.xml 파일의 `ContainerHostPolicies` 요소에 `PortBinding` 요소를 추가합니다. 이 문서에서 `ContainerPort`는 80(Dockerfile에서 지정된 대로 컨테이너에서 80 포트를 노출함)이고, `EndpointRef`는 "Guest1TypeEndpoint"(이전에 서비스 매니페스트에서 정의된 끝점임)입니다. 8081 포트에서 서비스로 들어오는 요청은 컨테이너의 80 포트에 매핑됩니다.
+컨테이너와 통신하는 데 사용되는 호스트 포트를 구성합니다. 포트를 바인딩하면 서비스가 컨테이너 내에서 수신 대기 중인 포트를 호스트의 포트에 매핑합니다. ApplicationManifest.xml 파일의 `ContainerHostPolicies` 요소에 `PortBinding` 요소를 추가합니다. 이 문서에서 `ContainerPort`는 80(Dockerfile에서 지정된 대로 컨테이너에서 80 포트를 노출함)이고, `EndpointRef`는 "Guest1TypeEndpoint"(이전에 서비스 매니페스트에서 정의된 엔드포인트임)입니다. 8081 포트에서 서비스로 들어오는 요청은 컨테이너의 80 포트에 매핑됩니다.
 
 ```xml
 <ServiceManifestImport>
@@ -247,6 +249,8 @@ Service Fabric SDK 및 도구에서는 Service Fabric 클러스터에 컨테이�
     ...
 </ServiceManifestImport>
 ```
+> [!NOTE]
+> 적용 가능한 속성 값으로 PortBinding 요소를 추가로 선언하여 서비스에 대한 추가 PortBinding을 추가할 수 있습니다.
 
 ## <a name="configure-container-registry-authentication"></a>컨테이너 레지스트리 인증 구성
 ApplicationManifest.xml 파일의 `ContainerHostPolicies`에 `RepositoryCredentials`를 추가하여 컨테이너 레지스트리 인증을 구성합니다. 서비스에서 리포지토리의 컨테이너 이미지를 다운로드할 수 있게 하는 myregistry.azurecr.io 컨테이너 레지스트리에 대한 계정과 암호를 추가합니다.
@@ -374,7 +378,7 @@ ApplicationManifest에서 **ContainerHostPolicies**의 일부로 **HealthConfig*
 ## <a name="deploy-the-container-application"></a>컨테이너 응용 프로그램 배포
 모든 변경 내용을 저장하고 응용 프로그램을 빌드합니다. 응용 프로그램을 게시하려면 [솔루션 탐색기]에서 **MyFirstContainer**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
-**연결 끝점**에서 클러스터에 대한 관리 끝점을 입력합니다. 예를 들어 "containercluster.westus2.cloudapp.azure.com:19000"이 있습니다. [Azure Portal](https://portal.azure.com)에 있는 클러스터의 개요 탭에서 클라이언트 연결 엔드포인트를 찾을 수 있습니다.
+**연결 엔드포인트**에서 클러스터에 대한 관리 엔드포인트를 입력합니다. 예를 들어 "containercluster.westus2.cloudapp.azure.com:19000"이 있습니다. [Azure Portal](https://portal.azure.com)에 있는 클러스터의 개요 탭에서 클라이언트 연결 엔드포인트를 찾을 수 있습니다.
 
 **게시**를 클릭합니다.
 
@@ -382,7 +386,7 @@ ApplicationManifest에서 **ContainerHostPolicies**의 일부로 **HealthConfig*
 
 응용 프로그램이 ```Ready``` 상태이면 사용할 준비가 되었습니다. ![준비][2]
 
-브라우저를 열고 http://containercluster.westus2.cloudapp.azure.com:8081 로 이동합니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
+브라우저를 열고 http://containercluster.westus2.cloudapp.azure.com:8081로 이동합니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
 
 ## <a name="clean-up"></a>정리
 클러스터가 실행되는 동안 요금이 계속 청구되므로 [클러스터를 삭제](service-fabric-cluster-delete.md)하는 것이 좋습니다. [파티 클러스터](https://try.servicefabric.azure.com/)는 몇 시간 후 자동으로 삭제됩니다.
@@ -410,7 +414,7 @@ Service Fabric 클러스터에 컨테이너를 배포할 때 호스트 OS와 컨
 - 컨테이너 앱에 대해 지정된 격리 모드가 배포 중인 노드의 컨테이너 OS에 대한 지원과 일치하는지 확인합니다.
 - 클러스터 노드 또는 컨테이너에 대한 OS 업그레이드가 호환성에 영향을 미칠 수 있는 방법을 고려합니다. 
 
-다음 연습을 Service Fabric 클러스터에서 컨테이너가 올바르게 배포되는지 확인하는 것이 좋습니다.
+다음 사례로 Service Fabric 클러스터에서 컨테이너가 올바르게 배포되는지 확인하는 것이 좋습니다.
 
 - Docker 이미지와 함께 명시적 이미지 태그 지정을 사용하여 컨테이너가 빌드된 Windows Server OS의 버전을 지정합니다. 
 - 응용 프로그램 매니페스트 파일에서 [OS 태그 지정](#specify-os-build-specific-container-images)을 사용하여 응용 프로그램이 여러 Windows Server 버전 및 업그레이드에서 호환되는지 확인합니다.
@@ -598,13 +602,13 @@ Service Fabric 런타임은 대부분의 컨테이너 이미지에 대해 작동
 
 ```json
 {
-"name": "Hosting",
+        "name": "Hosting",
         "parameters": [
           {
               "name": "ContainerImageDownloadTimeout",
               "value": "1200"
           }
-]
+        ]
 }
 ```
 
@@ -626,7 +630,7 @@ Service Fabric 런타임은 대부분의 컨테이너 이미지에 대해 작동
 
 ```json
 { 
-   "name": "Hosting", 
+        "name": "Hosting", 
         "parameters": [ 
           { 
             "name": "ContainerServiceArguments", 

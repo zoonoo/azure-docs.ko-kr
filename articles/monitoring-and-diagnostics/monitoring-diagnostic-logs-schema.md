@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 7/18/2018
+ms.date: 8/21/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: a075b60c525fc3883f4464f19a8964fb64ce15a0
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 69ff295e434f199f3a15e96f134f92098b1b8b79
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627715"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143926"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 진단 로그에 대해 지원되는 서비스, 스키마 및 범주
 
@@ -53,6 +53,7 @@ ms.locfileid: "39627715"
 | Application Gateway |[Application Gateway에 대한 진단 로깅](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Azure Automation에 대한 Log Analytics](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch 진단 로깅](../batch/batch-diagnostics.md) |
+| Cognitive Services | 스키마를 사용할 수 없음 |
 | Content Delivery Network | [CDN에 대한 Azure 진단 로그](../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Azure Cosmos DB 로깅](../cosmos-db/logging.md) |
 | Data Factory | [Azure Monitor를 사용하여 데이터 팩터리 모니터링](../data-factory/monitor-using-azure-monitor.md) |
@@ -61,13 +62,14 @@ ms.locfileid: "39627715"
 | PostgreSQL용 DB |  스키마를 사용할 수 없음 |
 | Event Hubs |[Azure Event Hubs 진단 로그](../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express 경로 | 스키마를 사용할 수 없음 |
+| Azure Firewall | 스키마를 사용할 수 없음 |
 | IoT Hub | [IoT Hub 작업](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Azure Key Vault 로깅](../key-vault/key-vault-logging.md) |
 | Load Balancer |[Azure Load Balancer에 대한 Log analytics](../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Logic Apps B2B 사용자 지정 추적 스키마](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | 네트워크 보안 그룹 |[NSG(네트워크 보안 그룹)에 대한 로그 분석](../virtual-network/virtual-network-nsg-manage-log.md) |
 | DDOS Protection | [Azure DDoS Protection 표준 관리](../virtual-network/manage-ddos-protection.md) |
-| PowerBI 전용 | 스키마를 사용할 수 없음 |
+| PowerBI 전용 | [Azure에서 Power BI Embedded에 진단 로깅](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Azure Backup용 데이터 모델](../backup/backup-azure-reports-data-model.md)|
 | 검색 |[검색 트래픽 분석 설정 및 사용](../search/search-traffic-analytics.md) |
 | Service Bus |[Azure Service Bus 진단 로그](../service-bus-messaging/service-bus-diagnostic-logs.md) |
@@ -87,7 +89,13 @@ ms.locfileid: "39627715"
 |Microsoft.Automation/automationAccounts|JobStreams|작업 스트림|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|디스크 노드 상태|
 |Microsoft.Batch/batchAccounts|ServiceLog|서비스 로그|
-|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|끝점의 메트릭(예: 대역폭, 송신 등)을 가져옵니다.|
+|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|엔드포인트의 메트릭(예: 대역폭, 송신 등)을 가져옵니다.|
+|Microsoft.ClassicNetwork/networksecuritygroups|네트워크 보안 그룹 규칙 흐름 이벤트|네트워크 보안 그룹 규칙 흐름 이벤트|
+|Microsoft.CognitiveServices/accounts|감사|감사|
+|Microsoft.ContainerService/managedClusters|kube-apiserver|Kubernetes API 서버|
+|Microsoft.ContainerService/managedClusters|kube-controller-manager|Kubernetes 컨트롤러 관리자|
+|Microsoft.ContainerService/managedClusters|kube-scheduler|Kubernetes 스케줄러|
+|Microsoft.ContainerService/managedClusters|가드|인증 Webhook|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataFactory/factories|ActivityRuns|파이프라인 작업 실행 로그|
 |Microsoft.DataFactory/factories|PipelineRuns|파이프라인 실행 로그|
@@ -97,7 +105,6 @@ ms.locfileid: "39627715"
 |Microsoft.DataLakeStore/accounts|감사|감사 로그|
 |Microsoft.DataLakeStore/accounts|요청|요청 로그|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL 서버 로그|
-|Microsoft.DBforPostgreSQL/servers|PostgreSQLBackupEvents|PostgreSQL 백업 이벤트|
 |Microsoft.Devices/IotHubs|연결|연결|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|장치 원격 분석|
 |Microsoft.Devices/IotHubs|C2DCommands|C2D 명령|
@@ -110,6 +117,7 @@ ms.locfileid: "39627715"
 |Microsoft.Devices/IotHubs|JobsOperations|작업 연산|
 |Microsoft.Devices/IotHubs|DirectMethods|직접 메서드|
 |Microsoft.Devices/IotHubs|E2EDiagnostics|E2E 진단(미리 보기)|
+|Microsoft.Devices/IotHubs|구성|구성|
 |Microsoft.Devices/provisioningServices|DeviceOperations|장치 작업|
 |Microsoft.Devices/provisioningServices|ServiceOperations|서비스 작동|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
@@ -130,13 +138,17 @@ ms.locfileid: "39627715"
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Application Gateway 액세스 로그|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Application Gateway 성능 로그|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Application Gateway 방화벽 로그|
+|Microsoft.Network/securegateways|AzureFirewallApplicationRule|Azure Firewall 응용 프로그램 규칙|
+|Microsoft.Network/securegateways|AzureFirewallNetworkRule|Azure Firewall 네트워크 규칙|
+|Microsoft.Network/azurefirewalls|AzureFirewallApplicationRule|Azure Firewall 응용 프로그램 규칙|
+|Microsoft.Network/azurefirewalls|AzureFirewallNetworkRule|Azure Firewall 네트워크 규칙|
 |Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|게이트웨이 진단 로그|
 |Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|터널 진단 로그|
 |Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|경로 진단 로그|
 |Microsoft.Network/virtualNetworkGateways|IKEDiagnosticLog|IKE 진단 로그|
 |Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|P2P 진단 로그|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Traffic Manager 프로브 상태 결과 이벤트|
-|Microsoft.Network/expressRouteCircuits|GWMCountersTable|GWM 카운터 테이블|
+|Microsoft.Network/expressRouteCircuits|PeeringRouteLog|피어링 경로 테이블 로그|
 |Microsoft.PowerBIDedicated/capacities|엔진|엔진|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure Backup 보고 데이터|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery 작업|
@@ -148,15 +160,19 @@ ms.locfileid: "39627715"
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Azure Site Recovery 보호된 디스크 데이터 변동|
 |Microsoft.Search/searchServices|OperationLogs|작업 로그|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|작업 로그|
+|Microsoft.Sql/servers/databases|SQLInsights|SQL 정보|
+|Microsoft.Sql/servers/databases|AutomaticTuning|자동 조정|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|쿼리 저장소 런타임 통계|
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|쿼리 저장소 대기 통계|
 |Microsoft.Sql/servers/databases|오류|오류|
 |Microsoft.Sql/servers/databases|DatabaseWaitStatistics|데이터베이스 대기 통계|
 |Microsoft.Sql/servers/databases|시간 제한|시간 제한|
 |Microsoft.Sql/servers/databases|블록|블록|
-|Microsoft.Sql/servers/databases|SQLInsights|SQL 정보|
+|Microsoft.Sql/servers/databases|교착 상태|교착 상태|
 |Microsoft.Sql/servers/databases|감사|감사 로그|
 |Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|SQL 보안 감사 이벤트|
+|Microsoft.Sql/servers/databases|SqlDw_Requests|SQL DW 요청|
+|Microsoft.Sql/servers/databases|SqlDw_RequestSteps|SQL DW 요청 단계|
 |Microsoft.StreamAnalytics/streamingjobs|실행|실행|
 |Microsoft.StreamAnalytics/streamingjobs|작성|작성|
 

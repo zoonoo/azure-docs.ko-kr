@@ -1,6 +1,6 @@
 ---
-title: 부하 분산 장치에 대한 작업, 이벤트 및 카운터 모니터링 | Microsoft Docs
-description: Azure 부하 분산 장치에 대한 경고 이벤트 및 상태 프로브 상태 로깅을 사용하도록 설정하는 방법에 대해 알아보기
+title: 공용 기본 Load Balancer에 대한 작업, 이벤트 및 카운터 모니터링 | Microsoft Docs
+description: 공용 기본 Load Balancer에 대한 경고 이벤트 및 상태 프로브 상태 로깅을 사용하도록 설정하는 방법에 대해 알아보기
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -12,28 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 08/10/2018
 ms.author: kumud
-ms.openlocfilehash: dabf4bcae957559978e731636bb13554f1a68b73
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5c196a24d5cc9e4343762e55b5885c1264c2fcad
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30179058"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143612"
 ---
-# <a name="log-analytics-for-azure-load-balancer"></a>Azure 부하 분산 장치에 대한 로그 분석
+# <a name="log-analytics-for-public-basic-load-balancer"></a>공용 기본 Load Balancer에 대한 Log Analytics
 
->[!NOTE] 
->Azure Load Balancer는 기본 및 표준이라는 두 가지 형식을 지원합니다. 이 문서는 기본 Load Balancer에 대해 설명합니다. 표준 Load Balancer에 대한 자세한 내용은 [표준 Load Balancer 개요](load-balancer-standard-overview.md)를 참조하세요.
+>[!IMPORTANT] 
+>Azure Load Balancer는 기본 및 표준이라는 두 가지 형식을 지원합니다. 이 문서는 기본 Load Balancer에 대해 설명합니다. 표준 Load Balancer에 대한 자세한 내용은 Azure Monitor에서 다차원 메트릭을 통해 원격 분석을 노출하는 [표준 Load Balancer 개요](load-balancer-standard-overview.md)를 참조하세요.
 
-Azure에서 부하 분산 장치를 관리하고 문제를 해결하는 데 다양한 유형의 로그를 사용할 수 있습니다. 이러한 로그 중 일부는 포털을 통해 액세스할 수 있으며, Azure Blob Storage에서 모든 로그를 추출하고 다양한 도구(예: Excel 및 PowerBI)에서 볼 수 있습니다. 아래 목록에서 다른 종류의 로그에 대해 자세히 알아볼 수 있습니다.
+Azure에서 기본 Load Balancer를 관리하고 문제를 해결하는 데 다양한 유형의 로그를 사용할 수 있습니다. 이러한 로그 중 일부는 포털을 통해 액세스할 수 있으며, Azure Blob Storage에서 모든 로그를 추출하고 다양한 도구(예: Excel 및 PowerBI)에서 볼 수 있습니다. 아래 목록에서 다른 종류의 로그에 대해 자세히 알아볼 수 있습니다.
 
 * **감사 로그:** [Azure 감사 로그](../monitoring-and-diagnostics/insights-debugging-with-events.md) (이전의 작업 로그)를 사용하여 Azure 구독에 제출된 모든 작업과 상태를 볼 수 있습니다. 감사 로그는 기본적으로 사용하도록 설정되며 Azure 포털에서 볼 수 있습니다.
 * **경고 이벤트 로그:** 이 로그를 사용하여 부하 분산 장치에서 발생한 경고를 볼 수 있습니다. 부하 분산 장치에 대한 상태는 5분 마다 수집됩니다. 이 로그는 부하 분산 장치 경고 이벤트가 발생하는 경우에만 기록됩니다.
 * **상태 프로브 로그:** 상태 프로브 오류 때문에 부하 분산 장치에서 요청을 받지 않는 백 엔드 풀에 있는 인스턴스의 수와 같은 상태 프로브에서 발견한 문제를 보기 위해 이 로그를 사용할 수 있습니다. 상태 프로브 상태가 변경되는 경우에 이 로그가 기록됩니다.
 
 > [!IMPORTANT]
-> 로그 분석은 현재 인터넷 연결 부하 분산 장치에 대해서만 작동합니다. 로그는 리소스 관리자 배포 모델에 배포된 리소스에 대해서만 사용할 수 있습니다. 클래식 배포 모델에서 리소스에 대한 로그를 사용할 수 없습니다. 배포 모델에 대한 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](../azure-resource-manager/resource-manager-deployment-model.md)를 참조하세요.
+> 로그 분석은 현재 공용 기본 부하 분산 장치에 대해서만 작동합니다. 로그는 리소스 관리자 배포 모델에 배포된 리소스에 대해서만 사용할 수 있습니다. 클래식 배포 모델에서 리소스에 대한 로그를 사용할 수 없습니다. 배포 모델에 대한 자세한 내용은 [리소스 관리자 배포 및 클래식 배포 이해](../azure-resource-manager/resource-manager-deployment-model.md)를 참조하세요.
 
 ## <a name="enable-logging"></a>로깅 사용
 
@@ -56,7 +56,9 @@ Azure에서 부하 분산 장치를 관리하고 문제를 해결하는 데 다�
 7. **로그** 아래에서 기존 저장소 계정을 선택하거나 새 저장소 계정을 만듭니다. 슬라이더를 사용하여 이벤트 로그에 저장된 이벤트 데이터를 유지할 날짜 수를 결정합니다. 
 8. **저장**을 클릭합니다.
 
-    ![포털 - 진단 로그](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
+진단은 지정된 저장소 계정의 Table Storage에 저장됩니다. 로그가 저장되지 않는 경우 이는 관련 로그가 생성되지 않기 때문입니다.
+
+![포털 - 진단 로그](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
 
 > [!NOTE]
 > 감사 로그에는 별도의 저장소 계정이 필요하지 않습니다. 이벤트 및 상태 프로브 로깅에 대한 저장소를 사용할 경우 서비스 요금이 부과됩니다.

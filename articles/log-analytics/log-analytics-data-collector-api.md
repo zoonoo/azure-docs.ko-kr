@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: a2aab89bcd550cc2b1dcc4f980f09b5c1e0e9464
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 3c4c2d8f49fbddc4875d7a4abf5d7629bc8f942e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436382"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146675"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>HTTP 데이터 수집기 API로 Log Analytics에 데이터 전송(공개 미리 보기)
 이 문서에서는 HTTP 데이터 수집기 API를 사용하여 REST API 클라이언트에서 Log Analytics로 데이터를 전송하는 방법을 보여 줍니다.  스크립트 또는 응용 프로그램에서 수집하는 데이터를 포맷하고 요청에 포함하며 해당 요청을 Log Analytics에서 승인하게 하는 방법을 설명합니다.  PowerShell, C# 및 Python에 예가 제공됩니다.
@@ -471,3 +471,5 @@ post_data(customer_id, shared_key, body, log_type)
 
 ## <a name="next-steps"></a>다음 단계
 - Log Analytics 저장소에서 데이터를 검색하려면 [Log Search API](log-analytics-log-search-api.md)를 사용합니다.
+
+- Log Analytics에 대한 Logic Apps 워크플로를 사용하여 [데이터 수집기 API로 데이터 파이프라인을 만드는 방법](log-analytics-create-pipeline-datacollector-api.md)을 알아봅니다.

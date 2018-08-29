@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: 8725dd1931b120b0369d0810fa49108a00c71e8e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c4c60cccb890c883e9e57c9f146cc93aae99f224
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211068"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143225"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>지문 대신 인증서 일반 이름을 사용하는 Service Fabric 클러스터 배포
 두 인증서가 동일한 지문을 사용하면 안 됩니다. 이렇게 될 경우 클러스터 인증서가 롤오버되거나 관리에 어려움이 발생합니다. 그러나 여러 인증서가 동일한 일반 이름 또는 제목을 사용하는 것은 가능합니다.  인증서 일반 이름을 사용하는 클러스터는 인증서 관리가 훨씬 간단합니다. 이 문서에서는 인증서 지문 대신 인증서 일반 이름을 사용하는 Service Fabric 클러스터를 배포하는 방법을 설명합니다.
@@ -116,7 +116,15 @@ Write-Host "Common Name              :"  $CommName
     "sfrpApiVersion": "2018-02-01",
     ```
 
-3. **Microsoft.Compute/virtualMachineScaleSets** 리소스에서 지문 대신 인증서 설정의 일반 이름을 사용하도록 가상 머신 확장을 업데이트합니다.  **virtualMachineProfile**->**extenstionProfile**->**확장**->**속성** -> **설정**->**인증서**에서 `"commonNames": ["[parameters('certificateCommonName')]"],`을 추가하고 `"thumbprint": "[parameters('certificateThumbprint')]",`를 제거합니다.
+3. **Microsoft.Compute/virtualMachineScaleSets** 리소스에서 지문 대신 인증서 설정의 일반 이름을 사용하도록 가상 머신 확장을 업데이트합니다.  **virtualMachineProfile**->**extenstionProfile**->**확장**->**속성**->**설정**->**인증서**에서 
+    ```json
+       "commonNames": [
+        "[parameters('certificateCommonName')]"
+       ],
+    ```
+
+    `"thumbprint": "[parameters('certificateThumbprint')]",`를 추가하고 제거합니다.
+
     ```json
     "virtualMachineProfile": {
       "extensionProfile": {
@@ -139,7 +147,9 @@ Write-Host "Common Name              :"  $CommName
                 "enableParallelJobs": true,
                 "nicPrefixOverride": "[variables('subnet0Prefix')]",
                 "certificate": {
-                  "commonNames": ["[parameters('certificateCommonName')]"],
+                  "commonNames": [
+                     "[parameters('certificateCommonName')]"
+                  ],
                   "x509StoreName": "[parameters('certificateStoreValue')]"
                 }
               },
@@ -197,5 +207,6 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParame
 * [클러스터 보안](service-fabric-cluster-security.md)에 대해 알아보기
 * [클러스터 인증서 롤오버](service-fabric-cluster-rollover-cert-cn.md) 방법 알아보기
 * [클러스터 인증서 업데이트 및 관리](service-fabric-cluster-security-update-certs-azure.md)
+* [인증서 지문에서 일반 이름으로 클러스터를 변경](service-fabric-cluster-change-cert-thumbprint-to-cn.md)하여 인증서 관리 간소화
 
 [image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png

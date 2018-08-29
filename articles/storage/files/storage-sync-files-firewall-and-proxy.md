@@ -5,15 +5,15 @@ services: storage
 author: fauhse
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 08/08/2018
 ms.author: fauhse
 ms.component: files
-ms.openlocfilehash: 44bfdd192f846b710e378b1f00799eda304cec1e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f5fa68488fa8130ad49da37c91b7f4c04376edb3
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522767"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42440682"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure File Sync 프록시 및 방화벽 설정
 Azure File Sync는 온-프레미스 서버를 Azure Files에 연결하여, 다중 사이트 동기화 및 클라우드 계층화 기능을 사용하도록 설정합니다. 따라서 온-프레미스 서버가 인터넷에 연결되어야 합니다. IT 관리자는 서버가 Azure 클라우드 서비스에 연결하는 최상의 경로를 결정해야 합니다.
@@ -46,15 +46,47 @@ Azure File Sync는 Azure로 연결될 수 있는 모든 방식에 작동하며, 
 ## <a name="proxy"></a>Proxy
 Azure File Sync는 앱별 및 머신 차원의 프록시 설정을 지원합니다.
 
-전체 서버 트래픽이 프록시를 통해 라우팅되므로 머신 차원의 프록시 설정은 Azure File Sync 에이전트에 투명합니다.
-
-앱별 프록시 설정은 Azure File Sync 트래픽에 적절하게 프록시를 구성할 수 있습니다. 앱별 프록시 설정은 에이전트 버전 3.0.12.0 이상에서 지원되며 에이전트 설치 중 또는 Set-StorageSyncProxyConfiguration PowerShell cmdlet을 사용하여 구성될 수 있습니다.
+**앱별 프록시 설정**을 통해 Azure 파일 동기화 트래픽에 대한 프록시를 적절하게 구성할 수 있습니다. 앱별 프록시 설정은 에이전트 버전 3.0.12.0 이상에서 지원되며 에이전트 설치 중 또는 Set-StorageSyncProxyConfiguration PowerShell cmdlet을 사용하여 구성될 수 있습니다.
 
 앱별 프록시 설정을 구성하기 위한 PowerShell 명령입니다.
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCredential <credentials>
 ```
+서버의 전체 트래픽이 프록시를 통해 라우팅되므로 **머신 수준 프록시 설정**은 Azure 파일 동기화 에이전트에 투명합니다.
+
+머신 수준 프록시 설정을 구성하려면 다음 단계를 수행합니다. 
+
+1. .NET 응용 프로그램에 대한 프록시 설정을 구성합니다. 
+
+  - 다음 두 파일을 편집합니다.  
+    C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
+    C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
+
+  - <system.net> 섹션을 machine.config 파일(<system.serviceModel> 섹션 아래)에 추가합니다.  127.0.01:8888을 프록시 서버의 IP 주소와 포트로 변경합니다. 
+  ```
+      <system.net>
+        <defaultProxy enabled="true" useDefaultCredentials="true">
+          <proxy autoDetect="false" bypassonlocal="false" proxyaddress="http://127.0.0.1:8888" usesystemdefault="false" />
+        </defaultProxy>
+      </system.net>
+  ```
+
+2. WinHTTP 프록시 설정을 지정합니다. 
+
+  - 관리자 권한 명령 프롬프트 또는 PowerShell에서 다음 명령을 실행하여 기존 프록시 설정을 확인합니다.   
+
+    netsh winhttp show proxy
+
+  - 관리자 권한 명령 프롬프트 또는 PowerShell에서 다음 명령을 실행하여 프록시 설정을 지정합니다(127.0.01:8888을 프록시 서버의 IP 주소와 포트로 변경).  
+
+    netsh winhttp set proxy 127.0.0.1:8888
+
+3. 관리자 권한 명령 프롬프트 또는 PowerShell에서 다음 명령을 실행하여 Storage 동기화 에이전트 서비스를 다시 시작합니다. 
+
+      net stop filesyncsvc
+
+      참고: Storage 동기화 에이전트(filesyncsvc) 서비스는 중지되면 자동으로 시작됩니다.
 
 ## <a name="firewall"></a>방화벽
 이전 섹션에서 설명한 것처럼 포트 443을 아웃바운드로 열어 두어야 합니다. 데이터 센터, 분기 또는 지역의 정책에 따라, 이 포트를 통한 트래픽을 특정 도메인으로 추가로 제한하는 것이 바람직하거나 필요할 수 있습니다.
@@ -76,7 +108,22 @@ Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCrede
 
 BCDR(비즈니스 연속성 및 재해 복구)을 위해 GRS(지역 중복 저장소) 저장소 계정에서 Azure 파일 공유를 지정했을 수도 있습니다. 이 경우 Azure 파일 공유는 지속적인 지역 정전 시 쌍을 이루는 지역에 장애 조치(failover)됩니다. Azure File Sync는 동일한 지역 쌍을 저장소로 사용합니다. 따라서 GRS 저장소 계정을 사용하는 경우 서버가 Azure File Sync의 쌍을 이루는 지역과 통신할 수 있도록 추가 URL을 설정해야 합니다. 아래 표에서는 이것을 "쌍을 이루는 지역"이라고 부릅니다. 마찬가지로 Traffic Manager 프로필 URL도 사용하도록 설정해야 합니다. 이렇게 하면 장애 조치 시 네트워크 트래픽을 쌍을 이루는 지역으로 원활하게 다시 라우팅할 수 있으며, 이것을 아래 표에서는 "검색 URL"이라고 부릅니다.
 
-| 지역 | 기본 엔드포인트 URL | 쌍을 이루는 지역 | 검색 URL | |---|---| | --------|| ---------------------------------------| | 오스트레일리아 동부 | https://kailani-aue.one.microsoft.com | 오스트레일리아 남동부 | https://kailani-aue.one.microsoft.com | | 오스트레일리아 남동부 | https://kailani-aus.one.microsoft.com | 오스트레일리아 동부 | https://tm-kailani-aus.one.microsoft.com | | 캐나다 중부 | https://kailani-cac.one.microsoft.com | 캐나다 동부 | https://tm-kailani-cac.one.microsoft.com | | 캐나다 동부 | https://kailani-cae.one.microsoft.com | 캐나다 중부 | https://tm-kailani.cae.one.microsoft.com | | 미국 중부 | https://kailani-cus.one.microsoft.com | 미국 동부 2 | https://tm-kailani-cus.one.microsoft.com | | 동아시아 | https://kailani11.one.microsoft.com | 동남 아시아 | https://tm-kailani11.one.microsoft.com | | 미국 동부 | https://kailani1.one.microsoft.com | 미국 서부 | https://tm-kailani1.one.microsoft.com | | 미국 동부 2 | https://kailani-ess.one.microsoft.com | 미국 중부 | https://tm-kailani-ess.one.microsoft.com | | 북유럽 | https://kailani7.one.microsoft.com | 유럽 서부 | https://tm-kailani7.one.microsoft.com | | 동남 아시아 | https://kailani10.one.microsoft.com | 동아시아 | https://tm-kailani10.one.microsoft.com | | 영국 남부 | https://kailani-uks.one.microsoft.com | 영국 서부 | https://tm-kailani-uks.one.microsoft.com | | 영국 서부 | https://kailani-ukw.one.microsoft.com | 영국 남부 | https://tm-kailani-ukw.one.microsoft.com | | 유럽 서부 | https://kailani6.one.microsoft.com | 북유럽 | https://tm-kailani6.one.microsoft.com | | 미국 서부 | https://kailani.one.microsoft.com | 미국 동부 | https://tm-kailani.one.microsoft.com |
+| 지역 | 기본 엔드포인트 URL | 쌍을 이루는 지역 | 검색 URL |
+|--------|---------------------------------------|--------|---------------------------------------|
+| 오스트레일리아 동부 | https://kailani-aue.one.microsoft.com | 오스트레일리아 남동부 | https://kailani-aue.one.microsoft.com |
+| 오스트레일리아 남동부 | https://kailani-aus.one.microsoft.com | 오스트레일리아 동부 | https://tm-kailani-aus.one.microsoft.com |
+| 캐나다 중부 | https://kailani-cac.one.microsoft.com | 캐나다 동부 | https://tm-kailani-cac.one.microsoft.com |
+| 캐나다 동부 | https://kailani-cae.one.microsoft.com | 캐나다 중부 | https://tm-kailani.cae.one.microsoft.com |
+| 미국 중부 | https://kailani-cus.one.microsoft.com | 미국 동부 2 | https://tm-kailani-cus.one.microsoft.com |
+| 동아시아 | https://kailani11.one.microsoft.com | 동남아시아 | https://tm-kailani11.one.microsoft.com |
+| 미국 동부 | https://kailani1.one.microsoft.com | 미국 서부 | https://tm-kailani1.one.microsoft.com |
+| 미국 동부 2 | https://kailani-ess.one.microsoft.com | 미국 중부 | https://tm-kailani-ess.one.microsoft.com |
+| 북유럽 | https://kailani7.one.microsoft.com | 서유럽 | https://tm-kailani7.one.microsoft.com |
+| 동남아시아 | https://kailani10.one.microsoft.com | 동아시아 | https://tm-kailani10.one.microsoft.com |
+| 영국 남부 | https://kailani-uks.one.microsoft.com | 영국 서부 | https://tm-kailani-uks.one.microsoft.com |
+| 영국 서부 | https://kailani-ukw.one.microsoft.com | 영국 남부 | https://tm-kailani-ukw.one.microsoft.com |
+| 서유럽 | https://kailani6.one.microsoft.com | 북유럽 | https://tm-kailani6.one.microsoft.com |
+| 미국 서부 | https://kailani.one.microsoft.com | 미국 동부 | https://tm-kailani.one.microsoft.com |
 
 - LRS(로컬 중복 저장소) 또는 ZRS(영역 중복 저장소) 저장소 계정을 사용하는 경우 "기본 엔드포인트 URL" 아래에 나열된 URL을 사용하도록 설정하기만 하면 됩니다.
 

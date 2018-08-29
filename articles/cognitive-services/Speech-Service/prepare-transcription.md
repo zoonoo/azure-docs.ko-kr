@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: a219db14d659348ef3ed4de1dffa640a948f1954
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: db324b6c5444955debdc6a3e09906a0de47ff819
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283341"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42107356"
 ---
 # <a name="transcription-guidelines-for-using-speech-service"></a>Speech Service 사용에 대한 전사 지침
 
@@ -154,7 +154,7 @@ Speech 서비스는 다음 정규화 규칙을 이행합니다.
 *   소수점 자릿수에는 ","(콤마)를 사용해야 하고 "."(마침표)를 사용하면 안 됨
 *   시간과 분 사이의 시간 구분 기호는 “:”을 사용해야 하고 “.”: 12:00 Uhr을 사용하면 안 됨
 *   ‘ca.’와 같은 약어는 대체되지 않습니다. 전체 형식을 사용하는 것이 좋습니다.
-*   다섯 가지 기본 수학 연산자가 제거됨: +, -, \*, /. 리터럴 형식으로 바꾸는 것이 좋음: plus, minus, mal, geteilt.
+*   네 가지 기본 수학 연산자가 제거됨: +, -, \*, /. 리터럴 형식으로 바꾸는 것이 좋음: plus, minus, mal, geteilt.
 *   비교 연산자(=, <, >) - gleich, kleiner als, grösser als에도 동일하게 적용됨
 *   3/4 등의 분수를 단어 형식(예: ¾ 대신 ‘drei viertel’)으로 사용
 *   € 기호를 단어 형식 “유로”로 바꾸기
@@ -169,5 +169,5 @@ Speech 서비스는 다음 정규화 규칙을 이행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
+- [Speech 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
 - [C#에서 음성 인식](quickstart-csharp-dotnet-windows.md)

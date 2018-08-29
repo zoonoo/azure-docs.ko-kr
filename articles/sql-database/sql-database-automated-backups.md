@@ -11,12 +11,12 @@ ms.workload: Active
 ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 8798d0f17918ecce473afe8dc21b3f60bf0fa4b1
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: ac548d90d5a5ed931dc199b6fed52c7cd8f25239
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620133"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143017"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>자동 SQL Database 백업에 대한 자세한 정보
 
@@ -26,7 +26,7 @@ SQL Database는 데이터베이스 백업을 자동으로 만들고 Azure RA-GRS
 
 ## <a name="what-is-a-sql-database-backup"></a>SQL Database 백업이란?
 
-SQL Database는 SQL Server 기술을 사용하여 PITR(지정 시간 복원)의 목적으로 [전체](https://msdn.microsoft.com/library/ms186289.aspx), [차등](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) 및 [트랜잭션 로그](https://msdn.microsoft.com/library/ms191429.aspx) 백업을 만듭니다. 트랜잭션 로그 백업은 일반적으로 5~10분마다 발생하고 데이터베이스 작업량과 성능 수준에 따라 빈도가 결정되며, 차등 백업은 일반적으로 12시간마다 발생합니다. 전체 및 차등 백업을 사용하는 트랜잭션 로그 백업을 통해 데이터베이스를 호스트하는 동일한 서버로 특정 시점에 대해 데이터베이스를 복원할 수 있습니다. 사용자가 데이터베이스를 복원할 때 서비스에서는 전체, 차등, 트랜잭션 로그 백업 중 무엇을 복원해야 하는지 파악합니다.
+SQL Database는 SQL Server 기술을 사용하여 PITR(지정 시간 복원)의 목적으로 [전체](https://msdn.microsoft.com/library/ms186289.aspx), [차등](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) 및 [트랜잭션 로그](https://msdn.microsoft.com/library/ms191429.aspx) 백업을 만듭니다. 트랜잭션 로그 백업은 일반적으로 5~10분마다 발생하고 데이터베이스 작업량과 성능 수준에 따라 빈도가 결정되며, 차등 백업은 일반적으로 12시간마다 발생합니다. 전체 및 차등 백업을 사용하는 트랜잭션 로그 백업을 통해 데이터베이스를 호스트하는 동일한 서버로 특정 시점에 대해 데이터베이스를 복원할 수 있습니다. 데이터 센터 가동 중단으로부터 보호하기 위해 전체 및 차등 데이터베이스 백업도 [쌍을 이루는 데이터 센터](../best-practices-availability-paired-regions.md)로 복제됩니다. 사용자가 데이터베이스를 복원할 때 서비스에서는 전체, 차등, 트랜잭션 로그 백업 중 무엇을 복원해야 하는지 파악합니다.
 
 
 이러한 백업을 사용하여 다음을 수행할 수 있습니다.
@@ -51,12 +51,14 @@ SQL Database는 SQL Server 기술을 사용하여 PITR(지정 시간 복원)의 
 > [!IMPORTANT]
 > SQL Database를 호스트하는 Azure SQL 서버를 삭제하면 해당 서버에 속하는 모든 탄력적 풀과 데이터베이스도 삭제되어 복구할 수 없습니다. 삭제된 서버는 복원할 수 없습니다. 그러나 장기 보존을 구성한 경우, LTR을 사용하는 데이터베이스의 백업이 삭제되지 않으므로 이러한 데이터베이스는 복원할 수 있습니다.
 
-### <a name="pitr-retention-for-dtu-based-service-tiers"></a>DTU 기반 서비스 계층의 PITR 보존
+### <a name="pitr-retention-period"></a>PITR 보존 기간
 DTU 기반 구매 모델을 사용하여 만든 데이터베이스의 기본 보존 기간은 서비스 계층에 따라 달라집니다.
 
 * 기본 서비스 계층은 1주일입니다.
 * 표준 서비스 계층은 5주입니다.
 * 프리미엄 서비스 계층은 5주입니다.
+
+[vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 사용하는 경우 백업 보존은 최대 35일로 구성할 수 있습니다. 
 
 현재 PITR 보존 기간을 줄이면 새 보존 기간보다 오래된 기존의 모든 백업을 더 이상 사용할 수 없게 됩니다. 
 
