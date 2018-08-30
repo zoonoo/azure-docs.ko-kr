@@ -4,29 +4,23 @@ description: Ansible을 사용하여 가상 머신 확장 집합을 구성하고
 ms.service: ansible
 keywords: ansible, azure, devops, bash, 플레이북, 가상 머신, 가상 머신 확장 집합, vmss
 author: tomarcher
-manager: jpconnock
-editor: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.date: 07/11/2018
+manager: jeconnoc
 ms.author: tarcher
-ms.openlocfilehash: b9c8058606e13c0db4908530e98cddb69d2caf50
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.topic: tutorial
+ms.date: 08/24/2018
+ms.openlocfilehash: 762c14b5b6e30f6410a8d572d69651c803f079c2
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011501"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918089"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Ansible을 사용하여 Azure에서 가상 머신 확장 집합에 응용 프로그램 배포
 Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Ansible을 사용하여 Azure에 응용 프로그램을 배포할 수 있습니다. 이 문서에서는 Azure VMSS(가상 머신 확장 집합)에 Java 응용 프로그램을 배포하는 방법을 보여줍니다.  
 
 ## <a name="prerequisites"></a>필수 조건
 - **Azure 구독** - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
-- **Ansible 구성** - [Azure 자격 증명 만들기 및 Ansible 구성](../virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
-- **Ansible 및 Azure Python SDK 모듈** 
-  - [CentOS 7.4](../virtual-machines/linux/ansible-install-configure.md#centos-74)
-  - [Ubuntu 16.04 LTS](../virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts)
-  - [SLES 12 SP2](../virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 - **가상 머신 확장 집합** - 가상 머신 확장 집합이 아직 없는 경우 [Ansible을 사용하여 가상 머신 확장 집합을 만들](ansible-create-configure-vmss.md) 수 있습니다. 
 - **git** - [git](https://git-scm.com)는 이 자습서에 사용되는 Java 샘플을 다운로드하는 데 사용됩니다.
 - **JDK(Java SE Development Kit)** - JDK는 샘플 Java 프로젝트를 빌드하는 데 사용됩니다.
@@ -159,7 +153,7 @@ Ansible 플레이북의 다음 섹션에서는 **saclesethosts**라는 호스트
   - Ubunto 16.04의 경우 `apt-get install sshpass` 명령을 실행합니다.
   - CentOS 7.4의 경우 `yum install sshpass` 명령을 실행합니다.
 
-**호스트 키 확인이 활성화되었고 sshpass는 이를 지원하지 않으므로 키 대신 SSH 암호를 사용할 수 없습니다.  이 호스트를 관리하려면 known_hosts 파일에 이 호스트의 지문을 추가합니다.** 와 같은 오류가 표시될 수 있습니다. 이 오류가 표시되는 경우 `/etc/ansible/ansible.cfg` 파일 또는 `~/.ansible.cfg` 파일에 다음 줄을 추가하여 호스트 키 확인을 비활성화할 수 있습니다.
+**호스트 키 확인이 활성화되었고 sshpass는 이를 지원하지 않으므로 키 대신 SSH 암호를 사용할 수 없습니다. 이 호스트를 관리하려면 known_hosts 파일에 이 호스트의 지문을 추가합니다.** 와 같은 오류가 표시될 수 있습니다. 이 오류가 표시되는 경우 `/etc/ansible/ansible.cfg` 파일 또는 `~/.ansible.cfg` 파일에 다음 줄을 추가하여 호스트 키 확인을 비활성화할 수 있습니다.
   ```bash
   [defaults]
   host_key_checking = False

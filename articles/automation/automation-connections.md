@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5c865ff5c83626f13bb4fb9df7c1533371733540
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 4ead83dc449f2b32461b0585f276c9f3bfd3f847
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038459"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42919105"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure Automation의 연결 자산
 
@@ -84,7 +84,7 @@ Automation 계정을 만들 때 기본적으로 **AzureServicePrincipal** 연결
   
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>runbook 또는 DSC 구성에서 연결 사용하기
 
-**Get-AutomationConnection** cmdlet를 사용하여 runbook 또는 DSC 구성의 연결을 검색합니다.  [Get-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/Get-AzureRmAutomationConnection?redirectedfrom=msdn) 활동은 사용할 수 없습니다.  이 활동은 연결의 여러 필드값을 검색하고 runbook 또는 DSC 구성의 적절한 명령과 함께 사용될 수 있는 [해시 테이블](http://go.microsoft.com/fwlink/?LinkID=324844) 로 반환합니다.
+**Get-AutomationConnection** cmdlet를 사용하여 runbook 또는 DSC 구성의 연결을 검색합니다.  [Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection) 활동은 사용할 수 없습니다.  이 활동은 연결의 여러 필드값을 검색하고 runbook 또는 DSC 구성의 적절한 명령과 함께 사용될 수 있는 [해시 테이블](http://go.microsoft.com/fwlink/?LinkID=324844) 로 반환합니다.
 
 ### <a name="textual-runbook-sample"></a>텍스트 Runbook 샘플
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
-ms.openlocfilehash: 0626b958a9b822569f4d3b6d27f3395bed853174
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 9855becd7c047788ed310dff4317a5df87cc9b61
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030056"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047631"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Azure App Service의 OS 및 런타임 패치
 
@@ -94,7 +94,7 @@ az webapp config set --java-version 1.8 --java-container Tomcat --java-container
 | Python 버전 | `https://<appname>.scm.azurewebsites.net/DebugConsole`의 명령 프롬프트에서 다음 명령을 실행합니다. <br> `python --version` |  
 
 > [!NOTE]  
-> 레지스트리 위치 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`에 액세스합니다. 여기에는 ["KB" 패치]((https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins))에 대한 정보가 저장되고 잠겨집니다.
+> 레지스트리 위치 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`에 액세스합니다. 여기에는 ["KB" 패치](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins)에 대한 정보가 저장되고 잠겨집니다.
 >
 >
 

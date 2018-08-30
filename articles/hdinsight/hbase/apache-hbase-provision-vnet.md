@@ -1,21 +1,20 @@
 ---
 title: Virtual Network에 HBase 클러스터 만들기 - Azure
 description: Azure HDInsight에서 HBase 사용 시작 Azure Virtual Network에 HDInsight HBase 클러스터를 만드는 방법을 알아봅니다.
-keywords: ''
 services: hdinsight,virtual-network
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jasonh
-ms.openlocfilehash: 33aba330735c53499a472f7e90d350c4edd54c41
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: a3686e99f9bab754cdc9cfc801961ea47560a111
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592910"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43043238"
 ---
 # <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Azure Virtual Network의 HDInsight에서 HBase 클러스터 만들기
 [Azure Virtual Network][1]에서 Azure HDInsight HBase 클러스터를 만드는 방법을 알아봅니다.
@@ -24,7 +23,7 @@ ms.locfileid: "39592910"
 
 * 웹 응용 프로그램을 HBase 클러스터의 노드에 직접 연결하므로 HBase Java RPC(원격 프로시저 호출) API를 통해 통신할 수 있습니다.
 * 트래픽이 여러 게이트웨이 및 부하 분산 장치를 통과하지 않도록 하여 성능을 향상시킵니다.
-* 공용 끝점을 노출하지 않고 중요한 정보를 보다 안전한 방식으로 처리할 수 있습니다.
+* 공용 엔드포인트를 노출하지 않고 중요한 정보를 보다 안전한 방식으로 처리할 수 있습니다.
 
 ### <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에 다음 항목이 있어야 합니다.

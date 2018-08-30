@@ -3,18 +3,18 @@ title: 'Eclipse용 Azure 도구 키트: HDInsight Spark용 Scala 응용 프로�
 description: Eclipse용 Azure 도구 키트의 HDInsight Tools를 사용하여 Scala로 작성된 Spark 응용 프로그램을 개발한 후 Eclipse IDE에서 직접 HDInsight Spark 클러스터로 제출합니다.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: jasonh
-ms.openlocfilehash: 6ddfb7c23e05ea9528a462901fd87faade7371a7
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 836bdccbf3f8887a47da38b47b414722c878be04
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622272"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046015"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Eclipse용 Azure 도구 키트를 사용하여 HDInsight 클러스터용 Spark 응용 프로그램 만들기
 
@@ -139,7 +139,7 @@ Ambari 관리 사용자 이름을 사용하여 일반 클러스터를 연결할 
 1. HDInsight Spark 클러스터에서 응용 프로그램 실행:
    
    a. 패키지 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 다음 **HDInsight에 Spark 응용 프로그램 제출**을 선택합니다.        
-   나. **Spark 제출** 대화 상자에 다음 값을 제공한 다음 **제출**을 선택합니다.
+   b. **Spark 제출** 대화 상자에 다음 값을 제공한 다음 **제출**을 선택합니다.
       
       * **클러스터 이름**의 경우 응용 프로그램을 실행하려는 HDInsight Spark 클러스터를 선택합니다.
       * Eclipse 프로젝트에서 아티팩트를 선택하거나 하드 디스크에서 아티팩트를 선택합니다. 기본값은 패키지 탐색기에서 마우스 오른쪽 단추로 클릭한 항목에 따라 달라집니다.

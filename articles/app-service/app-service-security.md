@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2018
+ms.date: 08/24/2018
 ms.author: cephalin
-ms.openlocfilehash: 2ca1c1518589e60a03570e1c2063381f749ed9aa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 78487061dd49c057e8f569fd2ccdaa6408443fd2
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659825"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885873"
 ---
 # <a name="security-in-azure-app-service-and-azure-functions"></a>App Service 및 Azure Functions의 보안
 
@@ -49,7 +49,7 @@ App Service를 사용하면 [HTTPS](https://wikipedia.org/wiki/HTTPS)를 통해 
 
 암호화되지 않은(HTTP) 모든 연결로부터 앱을 보호하기 위해 App Service에서 한 번 클릭 구성을 제공하여 HTTPS를 적용합니다. 보안되지 않은 요청은 응용 프로그램 코드에 도달하기도 전에 거부됩니다. 자세한 내용은 [HTTPS 적용](app-service-web-tutorial-custom-ssl.md#enforce-https)을 참조하세요.
 
-[TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0은 [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)와 같은 산업 표준에서 더 이상 안전하지 않은 것으로 간주됩니다. App Service를 사용하면 [TLS 1.1/1.2를 적용](app-service-web-tutorial-custom-ssl.md#enforce-tls-1112)하여 오래된 프로토콜을 사용하지 않도록 설정할 수 있습니다.
+[TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0은 [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)와 같은 산업 표준에서 더 이상 안전하지 않은 것으로 간주됩니다. App Service를 사용하면 [TLS 1.1/1.2를 적용](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)하여 오래된 프로토콜을 사용하지 않도록 설정할 수 있습니다.
 
 App Service는 파일을 배포하기 위해 FTP와 FTPS를 모두 지원합니다. 그러나 가능한 경우 FTP 대신 FTPS를 사용해야 합니다. 이러한 프로토콜 중 하나 또는 둘 다 사용하지 않는 경우 [해당 프로토콜을 사용하지 않도록 설정](app-service-deploy-ftp.md#enforce-ftps)해야 합니다.
 

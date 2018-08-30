@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 98c7bd5daf3b84499e8e31c0a7a2da612834b83e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e2ff826f21adf12d48b21acefe4b704866e02c04
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521985"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917961"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Azure에서 SAP HANA 인프라 구성 및 작업
 이 문서에서는 Azure VM(Virtual Machines)에 배포된 SAP HANA 시스템 운영 및 Azure 인프라 구성을 위한 지침을 제공합니다. 또한 M128s VM SKU용 SAP HANA 스케일 아웃을 위한 구성 정보가 포함됩니다. 이 문서는 다음 내용을 포함하는 표준 SAP 설명서를 대체하기 위한 것이 아닙니다.
@@ -45,7 +45,7 @@ Azure의 SAP NetWeaver 및 기타 SAP 구성 요소에 대해 자세히 알아�
 ### <a name="connect-into-azure-virtual-machines"></a>Azure Virtual Machines에 연결
 [Azure Virtual Machines 계획 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)에 설명된 대로 Azure VM에 연결하기 위한 두 가지 기본 방법이 있습니다.
 
-- SAP HANA를 실행하는 VM 또는 Jump VM의 공개 끝점과 인터넷을 통해 연결
+- SAP HANA를 실행하는 VM 또는 Jump VM의 공개 엔드포인트와 인터넷을 통해 연결
 - [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) 또는 Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/)를 통해 연결
 
 VPN 또는 ExpressRoute를 통한 사이트 간 연결은 프로덕션 시나리오에 필요합니다. 이 유형의 연결은 SAP 소프트웨어가 사용되는 프로덕션 시나리오로 제공되는 비프로덕션 시나리오에도 필요합니다. 다음 그림은 사이트 간 연결의 예를 보여 줍니다.
@@ -215,7 +215,7 @@ SAP HANA를 실행할 VM을 설치할 때 VM에는 다음이 필요합니다.
 
 그러나 지속되고 있는 배포의 경우 Azure에서 가상 데이터 센터 네트워크 아키텍처를 만들어야 합니다. 이 아키텍처는 온-프레미스에 연결되어 있는 Azure VNet 게이트웨이를 별도의 Azure VNet으로 분리할 것을 권장합니다. 이 별도의 VNet은 온-프레미스 또는 인터넷 중 하나에 유지되는 모든 트래픽을 호스트해야 합니다. 이 방법을 사용하면 이 별도의 허브 VNet에서 Azure의 가상 데이터 센터로 들어가는 감사 및 로깅 트래픽을 위한 소프트웨어를 배포할 수 있습니다. 따라서 Azure 배포로 들어오고 나가는 트래픽과 관련된 모든 소프트웨어 및 구성을 하나의 VNet이 호스트하도록 해야 합니다.
 
-문서 [Azure Virtual Datacenter: 네트워크 측면](https://docs.microsoft.com/azure/networking/networking-virtual-datacenter) 및 [Azure Virtual Datacenter 및 Enterprise Control Plane](https://docs.microsoft.com/azure/architecture/vdc/)에 가상 데이터 센터 방식 및 관련된 Azure VNet 설계에 대한 더 자세한 정보가 나와 있습니다.
+문서 [Azure Virtual Datacenter: 네트워크 측면](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) 및 [Azure Virtual Datacenter 및 Enterprise Control Plane](https://docs.microsoft.com/azure/architecture/vdc/)에 가상 데이터 센터 방식 및 관련된 Azure VNet 설계에 대한 더 자세한 정보가 나와 있습니다.
 
 
 >[!NOTE]

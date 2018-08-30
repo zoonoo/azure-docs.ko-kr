@@ -3,18 +3,18 @@ title: Azure HDInsight의 Spark 구조적 스트리밍
 description: HDInsight Spark 클러스터에서 Spark 구조적 스트리밍 응용 프로그램을 사용하는 방법입니다.
 services: hdinsight
 author: maxluk
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: maxluk
-ms.openlocfilehash: 79e170349165dac286eda46ac1d4ff6945e71e8f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 7470783ba3ebac652c83c397ba2bbe683023c657
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621602"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041588"
 ---
 # <a name="overview-of-spark-structured-streaming"></a>Spark 구조적 스트리밍 개요
 
@@ -136,7 +136,7 @@ Spark 구조적 스트리밍은 데이터 스트림을 자세히 제한되지 �
 
 ![Spark Streaming 응용 프로그램 배포](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
 
-또한 LIVY 끝점에 대한 GET 요청으로 모든 응용 프로그램의 상태를 확인할 수 있습니다. 마지막으로 LIVY 엔드포인트에 대한 DELETE 요청을 실행하여 실행 중인 응용 프로그램을 종료할 수 있습니다. LIVY API에 대한 자세한 내용은 [LIVY를 사용하는 원격 작업](apache-spark-livy-rest-interface.md)을 참조하세요.
+또한 LIVY 엔드포인트에 대한 GET 요청으로 모든 응용 프로그램의 상태를 확인할 수 있습니다. 마지막으로 LIVY 엔드포인트에 대한 DELETE 요청을 실행하여 실행 중인 응용 프로그램을 종료할 수 있습니다. LIVY API에 대한 자세한 내용은 [LIVY를 사용하는 원격 작업](apache-spark-livy-rest-interface.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

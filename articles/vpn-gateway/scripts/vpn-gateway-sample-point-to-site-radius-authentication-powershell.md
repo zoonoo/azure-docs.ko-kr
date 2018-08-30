@@ -3,24 +3,18 @@ title: Azure PowerShell 스크립트 샘플 - RADIUS 사용자 이름/암호 인
 description: RADIUS 사용자 이름/암호 인증으로 지점 및 사이트 간 VPN을 구성합니다. 이 문서에서는 PowerShell을 사용합니다.
 services: vpn-gateway
 documentationcenter: vpn-gateway
-author: cherylmc
-manager: jpconnock
-editor: ''
-tags: ''
-ms.assetid: ''
+author: anzaman
 ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: ''
-ms.workload: infrastructure
 ms.date: 05/30/2018
-ms.author: anzaman
-ms.openlocfilehash: 445190d86ab5d67132302a274f34a583cd94f937
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: alzam
+ms.openlocfilehash: a9584767ba22bd82ba1ba3703e740329017c52b3
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658515"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885644"
 ---
 # <a name="create-a-vpn-gateway-and-add-point-to-site-configuration-using-powershell"></a>PowerShell을 사용하여 VPN Gateway를 만들고 지점 및 사이트 간 구성 추가
 

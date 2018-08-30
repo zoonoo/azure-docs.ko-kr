@@ -4,17 +4,17 @@ description: IntelliJ용 Azure 도구 키트의 HDInsight 도구를 사용하여
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: d71186dcfd5528de48151804492d8ae51e808a07
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: bc1f1dd577231f5b22474f6cd3dc622480209dd9
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618923"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042921"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-in-hdinsight-through-vpn"></a>IntelliJ용 Azure 도구 키트를 사용하여 VPN을 통해 HDInsight에서 원격으로 Spark 응용 프로그램 디버그
 
@@ -64,7 +64,7 @@ SSH를 통해 원격으로 Spark 응용 프로그램을 디버그하는 것이 �
 
    a. 관리자 권한으로 메모장 파일을 엽니다. **파일** 메뉴에서 **열기**를 선택한 다음 hosts 파일의 위치를 찾습니다. Windows 컴퓨터에서 이 위치는 **C:\Windows\System32\Drivers\etc\hosts**입니다.
 
-   나. **hosts** 파일에 다음 정보를 추가합니다.
+   b. **hosts** 파일에 다음 정보를 추가합니다.
 
            # For headnode0
            192.xxx.xx.xx hn0-nitinp
@@ -88,7 +88,7 @@ SSH를 통해 원격으로 Spark 응용 프로그램을 디버그하는 것이 �
 
     a. **HDInsight** > **HDInsight의 Spark(Scala)** 를 선택합니다.
 
-    나. **다음**을 선택합니다.
+    b. **다음**을 선택합니다.
 1. 다음 **새 프로젝트** 대화 상자에서 다음을 수행한 후 **마침**을 선택합니다.
 
     - 프로젝트 이름 및 위치를 입력합니다.
@@ -103,7 +103,7 @@ SSH를 통해 원격으로 Spark 응용 프로그램을 디버그하는 것이 �
 
     a. **파일** 메뉴에서 **프로젝트 구조**를 선택합니다.
 
-    나. **프로젝트 구조** 대화 상자에서 **아티팩트**를 선택하여 만들어지는 기본 아티팩트를 봅니다. 더하기 기호(**+**)를 선택하여 사용자 고유의 아티팩트를 만들 수도 있습니다.
+    b. **프로젝트 구조** 대화 상자에서 **아티팩트**를 선택하여 만들어지는 기본 아티팩트를 봅니다. 더하기 기호(**+**)를 선택하여 사용자 고유의 아티팩트를 만들 수도 있습니다.
 
    ![JAR 만들기](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/default-artifact.png)
 
@@ -112,7 +112,7 @@ SSH를 통해 원격으로 Spark 응용 프로그램을 디버그하는 것이 �
 
     a. 프로젝트 트리에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 다음 **모듈 설정 열기**를 선택합니다. 
 
-    나. **프로젝트 구조** 대화 상자에서 **라이브러리**를 선택하고 (**+**) 기호를 선택한 후 **Maven에서**를 선택합니다.
+    b. **프로젝트 구조** 대화 상자에서 **라이브러리**를 선택하고 (**+**) 기호를 선택한 후 **Maven에서**를 선택합니다.
 
     ![라이브러리 추가](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/add-library.png)
 
@@ -138,7 +138,7 @@ SSH를 통해 원격으로 Spark 응용 프로그램을 디버그하는 것이 �
                  <name>fs.azure.account.key.hdistoragecentral.blob.core.windows.net</name>
                  <value>access-key-associated-with-the-account</value>
            </property>
-   나. `core-site.xml`에서 다음 항목을 제거합니다.
+   b. `core-site.xml`에서 다음 항목을 제거합니다.
 
            <property>
                  <name>fs.azure.account.keyprovider.hdistoragecentral.blob.core.windows.net</name>

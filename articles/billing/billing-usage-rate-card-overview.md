@@ -15,15 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 5/10/2018
 ms.author: mobandyo
-ms.openlocfilehash: e26d8ad1f08eb711dc22b45d48f8dc326d8c17c7
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 650fac6208adf8f904384454b2e66e26e45893f1
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164978"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918855"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Azure Billing API를 사용하여 프로그래밍 방식으로 Azure 사용량에 대한 통찰력을 얻기
 Azure Billing API를 사용하여 사용량 및 리소스 데이터를 기본 설정된 데이터 분석 도구로 끌어옵니다. Azure 리소스 사용량 및 RateCard API를 통해 비용을 정확하게 예측하고 관리할 수 있습니다. API는 Azure Resource Manager가 노출한 API의 제품군의 일부로서 리소스 공급자로 구현됩니다.  
+
+> [!div class="nextstepaction"]
+> [Azure 청구 문서 개선](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="azure-invoice-download-api-preview"></a>Azure 청구서 다운로드 API(미리 보기)
 [옵트인이 완료되면](billing-manage-access.md#opt-in) 미리 보기 버전의 [청구서 API](/rest/api/billing)를 사용하여 청구서를 다운로드합니다. 기능은 다음과 같습니다.
@@ -32,7 +35,7 @@ Azure Billing API를 사용하여 사용량 및 리소스 데이터를 기본 �
 * **날짜 필터링** - 모든 청구서를 청구일 기간 종료 날짜의 반대 순서로 가져오려면 `$filter` 매개 변수를 사용합니다. 
 
 > [!NOTE]
-> 이 기능은 미리 보기의 첫 번째 버전이며 이전 버전과 호환되지 않는 변경 내용이 적용될 수 있습니다. 현재 특정 구독 제품(EA, CSP, AIO는 지원되지 않음) 및 Azure Germany에서 사용할 수 없습니다.
+> 이 기능은 미리 보기의 첫 번째 버전이며 이전 버전과 호환되지 않는 변경 내용이 적용될 수 있습니다. 현재 특정 구독 제안(EA, CSP, AIO는 지원되지 않음) 및 Azure Germany에서 사용할 수 없습니다.
 
 ## <a name="azure-resource-usage-api-preview"></a>Azure 리소스 사용량 API(미리 보기)
 Azure [리소스 사용량 API](https://msdn.microsoft.com/library/azure/mt219003)를 사용하여 예상된 Azure 사용량 데이터를 가져올 수 있습니다. API에는 다음이 포함됩니다.

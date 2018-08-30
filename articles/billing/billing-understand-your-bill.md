@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/14/2018
 ms.author: tonguyen
-ms.openlocfilehash: 689ea9e0d029bb65bc579fc914c6ed3073b4a96b
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: c782cadadb0250e6c3ca4912dbf8f81e19cb88c5
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064624"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42919057"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Microsoft Azure 청구서 이해
 Azure 청구서를 이해하려면 청구서를 자세한 일별 사용 현황 파일 및 Azure Portal의 비용 관리 보고서와 비교합니다.
@@ -33,6 +33,9 @@ Azure 청구서를 이해하려면 청구서를 자세한 일별 사용 현황 �
 청구서 및 자세한 일별 사용 현황 파일의 세부 용어 및 설명은 [Microsoft Azure 청구서의 용어 이해](billing-understand-your-invoice.md) 및 [Microsoft Azure의 자세한 사용 현황의 용어 이해](billing-understand-your-usage.md)를 참조하세요. 
 
 비용 관리 보고서에 대한 세부 정보는 [Azure Portal 비용 관리](https://docs.microsoft.com/azure/billing/billing-getting-started)를 참조하세요.
+
+> [!div class="nextstepaction"]
+> [Azure 청구 문서 개선](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="charges"></a>청구서의 요금이 올바른지 확인하는 방법은 무엇인가요?
 

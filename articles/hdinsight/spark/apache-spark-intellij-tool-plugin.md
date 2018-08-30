@@ -3,18 +3,18 @@ title: 'Azure Toolkit for IntelliJ: HDInsight 클러스터용 Spark 응용 프�
 description: IntelliJ용 Azure 도구 키트를 사용하여 Scala로 작성된 Spark 응용 프로그램을 개발한 후 HDInsight Spark 클러스터로 제출합니다.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/25/2017
 ms.author: maxluk
-ms.openlocfilehash: c3442a95bed4f589ca8f939767bb0d0581095927
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: ed0118584d51f08d64a88dc1e7e6e2ba5f95cb0a
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618428"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042594"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>IntelliJ용 Azure 도구 키트를 사용하여 HDInsight 클러스터용 Spark 응용 프로그램 만들기
 
@@ -98,7 +98,7 @@ Ambari 관리 사용자 이름을 사용하여 일반 HDInsight 클러스터를 
 
    a. **HDInsight** > **HDInsight의 Spark(Scala)** 를 선택합니다.
 
-   나. **빌드 도구** 목록에서 요구 사항에 따라 다음 중 하나를 선택합니다.
+   b. **빌드 도구** 목록에서 요구 사항에 따라 다음 중 하나를 선택합니다.
 
       * Scala 프로젝트 만들기 마법사 지원에 대해 **Maven**
       * 종속성 관리 및 Scala 프로젝트에 대한 빌드에 대해 **SBT**
@@ -121,7 +121,7 @@ Ambari 관리 사용자 이름을 사용하여 일반 HDInsight 클러스터를 
 
    a. 프로젝트 이름 및 위치를 입력합니다.
 
-   나. **프로젝트 SDK** 드롭다운 목록에서 Spark 2.x 클러스터에 대해 **Java 1.8**을 선택하거나 Spark 1.x 클러스터에 대해 **Java 1.7**을 선택합니다.
+   b. **프로젝트 SDK** 드롭다운 목록에서 Spark 2.x 클러스터에 대해 **Java 1.8**을 선택하거나 Spark 1.x 클러스터에 대해 **Java 1.7**을 선택합니다.
 
    다. **Spark 버전** 드롭다운 목록에서 Scala 프로젝트 생성 마법사는 Spark SDK 및 Scala SDK에 대한 적절한 버전을 통합합니다. Spark 클러스터 2.0 이하 버전을 사용하는 경우 **Spark 1.x**를 선택합니다. 그렇지 않은 경우 **Spark2.x**를 선택합니다. 이 예제에서는 **Spark 2.0.2(Scala 2.11.8)** 를 사용합니다.
 
@@ -131,7 +131,7 @@ Ambari 관리 사용자 이름을 사용하여 일반 HDInsight 클러스터를 
 
    a. **파일** 메뉴에서 **프로젝트 구조**를 선택합니다.
 
-   나. **프로젝트 구조** 대화 상자에서 **아티팩트**를 선택하여 만들어지는 기본 아티팩트를 봅니다. 더하기 기호(**+**)를 선택하여 사용자 고유의 아티팩트를 만들 수도 있습니다.
+   b. **프로젝트 구조** 대화 상자에서 **아티팩트**를 선택하여 만들어지는 기본 아티팩트를 봅니다. 더하기 기호(**+**)를 선택하여 사용자 고유의 아티팩트를 만들 수도 있습니다.
 
       ![대화 상자의 아티팩트 정보](./media/apache-spark-intellij-tool-plugin/default-artifact.png)
       
@@ -141,7 +141,7 @@ Ambari 관리 사용자 이름을 사용하여 일반 HDInsight 클러스터를 
       
       ![프로젝트 탐색기에서 Scala 클래스 만들기에 대한 명령](./media/apache-spark-intellij-tool-plugin/hdi-spark-scala-code.png)
 
-   나. **새 Scala 클래스 만들기** 대화 상자에서 이름을 제공하고 **종류** 상자에 **개체**를 선택한 다음 **확인**을 선택합니다.
+   b. **새 Scala 클래스 만들기** 대화 상자에서 이름을 제공하고 **종류** 상자에 **개체**를 선택한 다음 **확인**을 선택합니다.
       
       ![새 Scala 클래스 만들기 대화 상자](./media/apache-spark-intellij-tool-plugin/hdi-spark-scala-code-object.png)
 
@@ -171,7 +171,7 @@ Ambari 관리 사용자 이름을 사용하여 일반 HDInsight 클러스터를 
       
       ![HDInsight에 Spark 응용 프로그램 제출 명령](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-1.png)
 
-   나. Azure 구독 자격 증명을 입력하라는 메시지가 표시됩니다. **Spark 제출** 대화 상자에 다음 값을 제공한 다음 **제출**을 선택합니다.
+   b. Azure 구독 자격 증명을 입력하라는 메시지가 표시됩니다. **Spark 제출** 대화 상자에 다음 값을 제공한 다음 **제출**을 선택합니다.
       
       * **Spark 클러스터(Linux만 해당)** 의 경우 응용 프로그램을 실행하려는 HDInsight Spark 클러스터를 선택합니다.
 

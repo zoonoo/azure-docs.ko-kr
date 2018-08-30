@@ -3,24 +3,18 @@ title: Azure PowerShell 스크립트 샘플 - 장치 구성 템플릿 다운로�
 description: 장치 구성 템플릿을 다운로드합니다.
 services: vpn-gateway
 documentationcenter: vpn-gateway
-author: cherylmc
-manager: jpconnock
-editor: ''
-tags: ''
-ms.assetid: ''
+author: anzaman
 ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: ''
-ms.workload: infrastructure
-ms.date: 04/30/2018
-ms.author: anzaman
-ms.openlocfilehash: 2a1b05de7e7c5a5a99dae990a34c9368c8b8b9a9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.date: 04/17/2018
+ms.author: alzam
+ms.openlocfilehash: 53f7adcfbaaf84f50a6b724ef143b833a5f9bf78
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211255"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887132"
 ---
 # <a name="download-vpn-device-template-using-powershell"></a>PowerShell을 사용한 VPN 장치 템플릿 다운로드
 

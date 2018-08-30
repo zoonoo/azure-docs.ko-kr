@@ -5,17 +5,16 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: conceptual
 ms.date: 08/02/2017
-ms.openlocfilehash: 6d7ebc8d14e82281e074ff52abd41a16871470c0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 474478c8049dd97558b49b1df4b00655268fc0b3
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623233"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43044101"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics용 작업 브라우저 및 작업 보기 사용
 Azure Data Lake Analytics 서비스는 제출된 작업을 [쿼리 저장소](#query-store)에 보관합니다. 이 문서에서는 Azure Data Lake Tools for Visual Studio에서 작업 브라우저 및 작업 보기를 사용하여 기존 작업 정보를 찾는 방법에 대해 배웁니다. 

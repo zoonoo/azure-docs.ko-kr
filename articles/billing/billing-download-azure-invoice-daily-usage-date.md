@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 59ee992518b5e529f486415f962c6f26881875f1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e2985882b2e72b6e2f23945aa54c7a282137ce4e
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607415"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918985"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Azure 청구서 및 일간 사용 현황 데이터 다운로드 또는 보기
 [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 청구서를 다운로드하거나 전자 메일로 전송할 수 있습니다. 일간 사용 현황을 다운로드하려면 [Azure Account Center](https://account.azure.com/Subscriptions)로 이동합니다. 계정 관리자와 같은 특정 역할만 청구서 및 사용 현황 정보를 확인할 권한이 있습니다. 청구 정보에 액세스하는 방법에 대한 자세한 내용은 [역할을 사용하여 Azure 청구에 대한 액세스 관리](billing-manage-access.md)를 참조하세요.
@@ -29,8 +29,11 @@ ms.locfileid: "34607415"
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
+> [!div class="nextstepaction"]
+> [Azure 청구 문서 개선](https://go.microsoft.com/fwlink/p/?linkid=2010091)
+
 ## <a name="get-your-invoice-in-email-pdf"></a>전자 메일로 청구서 받기(.pdf)
-Azure 청구서를 전자 메일로 받을 추가 수취인을 옵트인하고 구성할 수 있습니다. 지원 서비스, 기업 계약, Azure in Open 등의 특정 구독에는 이 기능이 제공되지 않을 수도 있습니다.
+Azure 청구서를 전자 메일로 받을 추가 수취인을 옵트인하고 구성할 수 있습니다. 지원 제안, 기업 계약, Azure in Open 등의 특정 구독에는 이 기능이 제공되지 않을 수도 있습니다.
 
 1. [구독 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 구독을 선택합니다. 소유하고 있는 각 구독에 대해 옵트인합니다. **청구서**를 클릭한 다음 **전자 메일로 청구서 받기**를 클릭합니다. 
 

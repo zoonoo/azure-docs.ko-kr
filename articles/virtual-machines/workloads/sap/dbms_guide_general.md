@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fdf5685ad8072175bdabf8938ef293bed6f5cc13
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: e7ad93cbfd096cacadaef8666b0ea5b31d7fd992
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075705"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918804"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -263,7 +263,7 @@ Azure 가용성 집합을 설정하는 방법은 [이 자습서](https://docs.mi
 
 
 ## <a name="azure-network-considerations"></a>Azure 네트워크 고려 사항 
-대규모 SAP 배포에서는 조직의 다른 부분에 대한 VNet 구성 및 권한/역할 할당에 [Azure 가상 데이터 센터](https://docs.microsoft.com/azure/networking/networking-virtual-datacenter)의 청사진을 사용하는 것이 좋습니다.
+대규모 SAP 배포에서는 조직의 다른 부분에 대한 VNet 구성 및 권한/역할 할당에 [Azure 가상 데이터 센터](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter)의 청사진을 사용하는 것이 좋습니다.
 
 수백 개의 고객 배포에 따른 다음 몇 가지 모범 사례가 있습니다.
 

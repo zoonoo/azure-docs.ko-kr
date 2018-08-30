@@ -3,7 +3,7 @@ title: 'Azure Cosmos DB: Node.js와 SQL API로 앱 빌드 | Microsoft Docs'
 description: Azure Cosmos DB SQL API에 연결하고 쿼리하는 데 사용할 수 있는 Node.js 코드 샘플을 제공합니다.
 services: cosmos-db
 author: deborahc
-manager: andrl
+manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc
@@ -11,12 +11,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 07/30/2018
 ms.author: dech
-ms.openlocfilehash: 23b7c5d332bd5fb75936c95ab9e38d17e1573999
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 96d09ff6c43a26f1ebf36fa5d5d113627cbc06e9
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42023527"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43043256"
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-app-using-sql-api-javascript-sdk-20-preview-and-the-azure-portal"></a>Azure Cosmos DB: SQL API, JavaScript SDK 2.0(미리 보기) 및 Azure Portal을 사용하여 Node.js 앱 빌드 
 

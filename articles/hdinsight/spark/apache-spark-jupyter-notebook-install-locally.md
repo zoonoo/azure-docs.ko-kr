@@ -4,17 +4,17 @@ description: 컴퓨터에서 로컬로 Jupyter 노트북을 설치하고 Apache 
 services: hdinsight
 ms.service: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: jasonh
-ms.openlocfilehash: 5e1a089f24a3223220b703bd4225e2750c7cae72
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 83e9596f37850ef5b26b530cd4424a024355fc8a
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619246"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042558"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>컴퓨터에 Jupyter 노트북을 설치하고 HDInsight에서 Apache Spark에 연결
 
@@ -113,7 +113,7 @@ Spark Magic, PySpark 및 Spark 커널을 설치 하는 방법에 대한 지침�
 
     ![Jupyter 노트북의 커널](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Jupyter 노트북의 커널")
 
-    나. 다음 코드 조각을 실행합니다.
+    b. 다음 코드 조각을 실행합니다.
 
         %%sql
         SELECT * FROM hivesampletable LIMIT 5

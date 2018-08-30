@@ -5,16 +5,16 @@ services: hdinsight
 ms.service: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 7965a91efe58102268f4d54275e7fa3fc4ff74d3
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 7b3d2d47db733d1290bccca0e44958098451324e
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617788"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046415"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 시작
 
@@ -174,9 +174,9 @@ ML 서비스 클러스터 에지 노드에 연결하기 위한 SSH 명령은 다
 
    `ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net`
 
-클러스터에 대한 SSH 명령을 찾으려면 Azure Portal에서 클러스터 이름을 클릭하고, **SSH + 클러스터 로그인**을 클릭한 다음, **Hostname**에 에지 노드를 선택합니다. 그러면 에지 노드에 대한 SSH 끝점 정보가 표시됩니다.
+클러스터에 대한 SSH 명령을 찾으려면 Azure Portal에서 클러스터 이름을 클릭하고, **SSH + 클러스터 로그인**을 클릭한 다음, **Hostname**에 에지 노드를 선택합니다. 그러면 에지 노드에 대한 SSH 엔드포인트 정보가 표시됩니다.
 
-![에지 노드에 대한 SSH 끝점의 이미지](./media/r-server-get-started/sshendpoint.png)
+![에지 노드에 대한 SSH 엔드포인트의 이미지](./media/r-server-get-started/sshendpoint.png)
 
 SSH 사용자 계정을 보호하는 암호를 사용한 경우 암호를 묻는 메시지가 나타납니다. 공용 키를 사용하는 경우, `-i` 매개 변수를 사용하고 일치하는 개인 키를 지정합니다. 예: 
 

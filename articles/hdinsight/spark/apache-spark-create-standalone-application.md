@@ -4,17 +4,17 @@ description: Apache Maven을 빌드 시스템으로 사용하여 Scala에서 작
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: 1583da76ee1a60ad3ba8a946c1d49c2d5567e43f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: fc1f952128b4cfbb082f4c539a102f40d3b85e8d
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621473"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43040301"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-spark-in-hdinsight-using-intellij"></a>자습서: IntelliJ를 사용하여 HDInsight의 Spark에 대한 Scala Maven 응용 프로그램 만들기
 
@@ -49,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    a. **HDInsight** > **HDInsight의 Spark(Scala)** 를 선택합니다.
 
-   나. **빌드 도구** 목록에서 요구 사항에 따라 다음 중 하나를 선택합니다.
+   b. **빌드 도구** 목록에서 요구 사항에 따라 다음 중 하나를 선택합니다.
 
       * Scala 프로젝트 만들기 마법사 지원에 대해 **Maven**
       * 종속성 관리 및 Scala 프로젝트에 대한 빌드에 대해 **SBT**
@@ -72,7 +72,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    a. 프로젝트 이름 및 위치를 입력합니다.
 
-   나. **프로젝트 SDK** 드롭다운 목록에서 Spark 2.x 클러스터에 대해 **Java 1.8**을 선택하거나 Spark 1.x 클러스터에 대해 **Java 1.7**을 선택합니다.
+   b. **프로젝트 SDK** 드롭다운 목록에서 Spark 2.x 클러스터에 대해 **Java 1.8**을 선택하거나 Spark 1.x 클러스터에 대해 **Java 1.7**을 선택합니다.
 
    다. **Spark 버전** 드롭다운 목록에서 Scala 프로젝트 생성 마법사는 Spark SDK 및 Scala SDK에 대한 적절한 버전을 통합합니다. Spark 클러스터 2.0 이하 버전을 사용하는 경우 **Spark 1.x**를 선택합니다. 그렇지 않은 경우 **Spark2.x**를 선택합니다. 이 예제에서는 **Spark 2.0.2(Scala 2.11.8)** 를 사용합니다.
 
@@ -187,7 +187,7 @@ Scala 플러그 인을 설치하려면 다음 단계를 사용합니다.
 클러스터에서 응용 프로그램을 실행하려면 다음 방법을 사용할 수 있습니다.
 
 * **Azure 저장소 Blob에 응용 프로그램 jar을 복사** 합니다. [**AzCopy**](../../storage/common/storage-use-azcopy.md) 명령줄 유틸리티를 사용하면 이렇게 할 수 있습니다. 데이터를 업로드하는 데 사용할 수 있는 다른 클라이언트도 많이 있습니다. [HDInsight에서 Hadoop 작업용 데이터 업로드](../hdinsight-upload-data.md)에서 자세한 정보를 찾을 수 있습니다.
-* **Livy를 사용하여 응용 프로그램 작업을 원격으로** Spark 클러스터에 제출합니다. HDInsight의 Spark 클러스터에는 Spark 작업을 원격으로 제출하는 REST 끝점을 노출하는 Livy가 포함됩니다. 자세한 내용은 [HDInsight의 Spark 클러스터와 함께 Livy를 사용하여 원격으로 Spark 작업 제출](apache-spark-livy-rest-interface.md)을 참조하세요.
+* **Livy를 사용하여 응용 프로그램 작업을 원격으로** Spark 클러스터에 제출합니다. HDInsight의 Spark 클러스터에는 Spark 작업을 원격으로 제출하는 REST 엔드포인트를 노출하는 Livy가 포함됩니다. 자세한 내용은 [HDInsight의 Spark 클러스터와 함께 Livy를 사용하여 원격으로 Spark 작업 제출](apache-spark-livy-rest-interface.md)을 참조하세요.
 
 ## <a name="next-step"></a>다음 단계
 

@@ -4,23 +4,23 @@ description: Apache Spark REST API를 사용하여 Azure HDInsight 클러스터�
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: d174d6103206129744ba7d932982b5d9dcb8294e
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 677c7d27d34725b75c5dfed70cc377735f5d7d61
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618129"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045215"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Apache Spark REST API를 사용하여 HDInsight Spark 클러스터에 원격 작업 제출
 
 Azure HDInsight Spark 클러스터에 원격 작업을 제출하는 데 사용되는 Livy, Apache Spark REST API를 사용하는 방법을 알아봅니다. 자세한 설명서는 [http://livy.incubator.apache.org/](http://livy.incubator.apache.org/)를 참조하세요.
 
-Livy를 사용하여 대화형 Spark 셸을 실행하거나 Spark에서 실행되도록 배치 작업을 제출할 수 있습니다. 이 문서는 Livy를 사용하여 배치 작업을 제출하는 방법에 대해 설명합니다. 이 문서의 코드 조각은 cURL을 사용하여 Livy Spark 끝점에 대한 REST API를 호출합니다.
+Livy를 사용하여 대화형 Spark 셸을 실행하거나 Spark에서 실행되도록 배치 작업을 제출할 수 있습니다. 이 문서는 Livy를 사용하여 배치 작업을 제출하는 방법에 대해 설명합니다. 이 문서의 코드 조각은 cURL을 사용하여 Livy Spark 엔드포인트에 대한 REST API를 호출합니다.
 
 **필수 조건:**
 
@@ -164,7 +164,7 @@ Livy는 클러스터에서 실행 중인 Spark 작업에 대해 고가용성을 
 
 ## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>Azure Virtual Network 내에서 클러스터에 대한 Livy 작업 제출
 
-Azure Virtual Network 내에서 HDInsight Spark 클러스터에 연결하는 경우 클러스터의 Livy에 직접 연결할 수 있습니다. 이러한 경우 Livy 끝점의 URL은 `http://<IP address of the headnode>:8998/batches`입니다. 여기서 **8998**은 클러스터 헤드 노드에서 Livy가 실행되는 포트입니다. 비공용 포트의 서비스 액세스에 대한 자세한 내용은 [HDInsight의 Hadoop 서비스에서 사용하는 포트](../hdinsight-hadoop-port-settings-for-services.md)를 참조하세요.
+Azure Virtual Network 내에서 HDInsight Spark 클러스터에 연결하는 경우 클러스터의 Livy에 직접 연결할 수 있습니다. 이러한 경우 Livy 엔드포인트의 URL은 `http://<IP address of the headnode>:8998/batches`입니다. 여기서 **8998**은 클러스터 헤드 노드에서 Livy가 실행되는 포트입니다. 비공용 포트의 서비스 액세스에 대한 자세한 내용은 [HDInsight의 Hadoop 서비스에서 사용하는 포트](../hdinsight-hadoop-port-settings-for-services.md)를 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 

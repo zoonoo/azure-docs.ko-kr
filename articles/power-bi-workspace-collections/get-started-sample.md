@@ -2,26 +2,20 @@
 title: 샘플 시작
 description: 이 문서에서 Power BI 작업 영역 컬렉션 시작 샘플을 소개합니다.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: d8a9ef78-ad4e-4bc7-9711-89172dc5c548
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: 4daa675092bed1788025e7e3f7e7e11d02ef1671
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: cd7da8d2bbd684df29432bb924bdae3cd9ac7e64
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31414884"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43044440"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Power BI 작업 영역 컬렉션 시작 샘플
 

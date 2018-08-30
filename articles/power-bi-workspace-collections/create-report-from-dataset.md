@@ -2,26 +2,20 @@
 title: Power BI 작업 영역 컬렉션의 데이터 집합에서 새 보고서 만들기 | Microsoft Docs
 description: Power BI 작업 영역 컬렉션 보고서를 이제 자체 응용 프로그램의 데이터 집합에서 만들 수 있습니다.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: ''
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 5c6a52edd708b6077820f2004e83ac7dee945610
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dbfe8c98dce1879a2e0956fafba32ab6e608bfdb
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409519"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046657"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션의 데이터 집합에서 새 보고서 만들기
 

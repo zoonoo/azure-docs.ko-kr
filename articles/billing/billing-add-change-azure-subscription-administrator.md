@@ -15,16 +15,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: genli
-ms.openlocfilehash: 97210c0d9dba9c4130b1da9ad17a257ff1d81b42
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: b0e24e498acd823242b3613abb62df978466d56d
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449229"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918315"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Azure 구독 관리자 추가 또는 변경
 
 Azure 리소스에 대한 액세스를 관리하려면 적절한 관리자 역할이 있어야 합니다. 이 문서에서는 구독 수준에서 사용자에 대한 관리자 역할을 추가하거나 변경하는 방법에 대해 설명합니다.
+
+> [!div class="nextstepaction"]
+> [Azure 청구 문서 개선](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="what-administrator-role-do-i-use"></a>어떤 관리자 역할을 사용하나요?
 
@@ -90,8 +93,8 @@ Azure 구독에 대한 관리자로 다른 사용자를 추가하려면 구독 �
 
   | 로그인 방법 | Microsoft 계정 사용자를 서비스 관리자로 추가하는가요? | 서비스 관리자와 동일한 조직에 회사 또는 학교 계정을 추가하는가요? | 다른 조직의 회사 또는 학교 계정을 서비스 관리자로 추가하는가요? |
   | --- | --- | --- | --- |
-  |  Microsoft 계정 |예 |아니오 |아니오 |
-  |  회사 또는 학교 계정 |예 |예 |아니오 |
+  |  Microsoft 계정 |yes |아니요 |아니요 |
+  |  회사 또는 학교 계정 |yes |yes |아니요 |
 
 ## <a name="change-the-account-administrator-for-an-azure-subscription"></a>Azure 구독에 대한 계정 관리자 변경
 

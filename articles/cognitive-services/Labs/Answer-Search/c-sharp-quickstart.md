@@ -8,12 +8,12 @@ ms.technology: project-answer-search
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: b05b7745bdb5020a4a0912635e040256415b2626
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c8e2a6a7fc3609932a7a1139d7b34553e5f9c291
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376151"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888326"
 ---
 # <a name="project-answer-search-query-in-c"></a>C#에서 Project Answer Search 쿼리
 
@@ -53,7 +53,7 @@ namespace Answers_csharp
         // Replace the accessKey string value with your valid access key.
         const string accessKey = "YOUR-SUBSCRIPTION-KEY";
 
-        const string uriBase = "https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search "; 
+        const string uriBase = "https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search"; 
 
         const string searchTerm = "third law of calculus"; 
 
@@ -185,7 +185,7 @@ namespace Answers_csharp
 ```
 ## <a name="running-the-application"></a>응용 프로그램 실행
 
-응용 프로그램을 실행하려면
+응용 프로그램을 실행하려면:
 
 1. Visual Studio에서 새 콘솔 솔루션을 만듭니다.
 2. `Program.cs`를 제공된 코드로 바꿉니다.

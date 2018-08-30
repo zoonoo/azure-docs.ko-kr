@@ -6,16 +6,16 @@ services: hdinsight
 ms.service: hdinsight
 author: jejiang
 ms.author: jejiang
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/25/2017
-ms.openlocfilehash: 53094e3f8b489f972dc3e22441c66c8487a01fca
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: f26355f32eeeb6b6e195b838bed502271533f4f4
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622061"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047743"
 ---
 # <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>IntelliJ용 Azure 도구 키트를 사용하여 SSH를 통해 HDInsight 클러스터에서 로컬 또는 원격으로 Spark 응용 프로그램 디버그
 
@@ -33,7 +33,7 @@ ms.locfileid: "39622061"
 
    a. **HDInsight**를 선택합니다. 
 
-   나. 기본 설정에 따라 Java 또는 Scala 템플릿을 선택합니다. 다음 옵션 중에서 선택합니다.
+   b. 기본 설정에 따라 Java 또는 Scala 템플릿을 선택합니다. 다음 옵션 중에서 선택합니다.
 
       - **HDInsight의 Spark(Scala)**
 
@@ -59,7 +59,7 @@ ms.locfileid: "39622061"
 
    a. 프로젝트 이름과 프로젝트 위치를 입력합니다.
 
-   나. **프로젝트 SDK** 드롭다운 목록에서 **Spark 2.x** 클러스터에 대해 **Java 1.8**을 선택하거나 **Spark 1.x** 클러스터에 대해 **Java 1.7**을 선택합니다.
+   b. **프로젝트 SDK** 드롭다운 목록에서 **Spark 2.x** 클러스터에 대해 **Java 1.8**을 선택하거나 **Spark 1.x** 클러스터에 대해 **Java 1.7**을 선택합니다.
 
    다. **Spark 버전** 드롭다운 목록에서 Scala 프로젝트 생성 마법사는 Spark SDK 및 Scala SDK에 대한 올바른 버전을 통합합니다. Spark 클러스터 2.0 이하 버전을 사용하는 경우 **Spark 1.x**를 선택합니다. 그렇지 않은 경우 **Spark 2.x**을 선택합니다. 이 예제에서는 **Spark 2.0.2(Scala 2.11.8)** 를 사용합니다.
 

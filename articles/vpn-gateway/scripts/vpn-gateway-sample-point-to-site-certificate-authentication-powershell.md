@@ -3,24 +3,18 @@ title: Azure PowerShell 스크립트 샘플 - 네이티브 Azure 인증서 인�
 description: 자체 서명된 인증서를 사용하여 네이티브 Azure 인증서 인증으로 지점 및 사이트 간 VPN을 구성합니다. 이 문서에서는 PowerShell을 사용합니다.
 services: vpn-gateway
 documentationcenter: vpn-gateway
-author: cherylmc
-manager: jpconnock
-editor: ''
-tags: ''
-ms.assetid: ''
+author: anzaman
 ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: infrastructure
 ms.date: 04/17/2018
-ms.author: anzaman
-ms.openlocfilehash: e6057ebf0e7a0a0cbad1ac103b8d9e4cbd73e3ee
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.author: alzam
+ms.openlocfilehash: ae83cf4146d5daf11aa9f51ad16d5f05d0be73e8
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41918396"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887754"
 ---
 # <a name="create-a-vpn-gateway-and-add-point-to-site-configuration-using-powershell"></a>PowerShell을 사용하여 VPN Gateway를 만들고 지점 및 사이트 간 구성 추가
 

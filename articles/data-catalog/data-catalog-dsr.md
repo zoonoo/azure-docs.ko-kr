@@ -1,24 +1,19 @@
 ---
-title: Azure Data Catalog에서 지원되는 데이터 원본 | Microsoft Docs
+title: Azure Data Catalog에서 지원되는 데이터 원본
 description: 이 문서에서는 현재 지원되는 데이터 원본의 사양을 나열합니다.
 services: data-catalog
-documentationcenter: ''
 author: steelanddata
-manager: jstevens
-editor: ''
-tags: ''
+ms.author: maroche
 ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: f8d24b896e6cdb39262f2c8a7f93c86f5e79fd33
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 0f7ee285e77b9e54e2ff720f10f0d24c5b764014
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39146539"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042942"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 지원되는 데이터 원본
 
@@ -297,7 +292,7 @@ ms.locfileid: "39146539"
       <td></td>
     </tr>
     <tr>
-      <td>HTTP 끝점</td>
+      <td>HTTP 엔드포인트</td>
       <td>✓</td>
       <td></td>
       <td></td>

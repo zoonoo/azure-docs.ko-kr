@@ -5,16 +5,16 @@ services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.openlocfilehash: e697b0ffe7cde65cd47a2f1b1db5b544b6dc1d3c
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: c13fd979562cc89831d031c5050fe9dbb184267b
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595633"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041135"
 ---
 # <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters"></a>도메인 조인 HDInsight 클러스터 소개를 사용한 Hadoop 보안 소개
 
@@ -39,7 +39,7 @@ HDInsight의 경계 보안은 가상 네트워크와 Azure VPN Gateway 서비스
 ## <a name="authentication"></a>인증
 기업 관리자는 [가상 네트워크](https://azure.microsoft.com/services/virtual-network/)에서 도메인 가입 HDInsight 클러스터를 만들 수 있습니다. HDInsight 클러스터의 모든 노드는 기업에서 관리하는 도메인에 가입됩니다. 이 작업은 [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md)를 사용하여 이루어집니다. 
 
-이 설정을 통해 기업 직원은 해당 도메인 자격 증명을 사용하여 클러스터 노드에 로그온할 수 있습니다. 또한 클러스터와의 상호 작용하기 위해 해당 도메인 자격 증명을 사용하여 Ambari 뷰, ODBC, JDBC, PowerShell 및 REST API와 같은 다른 승인된 엔드포인트로 인증할 수도 있습니다. 관리자는 이러한 끝점을 통해 클러스터와 상호 작용하는 사용자의 수를 완벽히 제한합니다.
+이 설정을 통해 기업 직원은 해당 도메인 자격 증명을 사용하여 클러스터 노드에 로그온할 수 있습니다. 또한 클러스터와의 상호 작용하기 위해 해당 도메인 자격 증명을 사용하여 Ambari 뷰, ODBC, JDBC, PowerShell 및 REST API와 같은 다른 승인된 엔드포인트로 인증할 수도 있습니다. 관리자는 이러한 엔드포인트를 통해 클러스터와 상호 작용하는 사용자의 수를 완벽히 제한합니다.
 
 ## <a name="authorization"></a>권한 부여
 대부분의 기업이 따르는 선택한 모범 사례는 모든 직원에게 기업 리소스에 대한 모든 액세스를 부여하지 않도록 하는 것입니다. 마찬가지로 관리자는 클러스터 리소스에 대한 역할 기반 액세스 제어 정책을 정의할 수 있습니다. 
@@ -49,7 +49,7 @@ HDInsight의 경계 보안은 가상 네트워크와 Azure VPN Gateway 서비스
 ## <a name="auditing"></a>감사
 클러스터 리소스에 대한 모든 액세스를 감사하는 작업은 리소스의 무단 또는 실수로 실행된 액세스를 추적하는 데 필요합니다. 권한 없는 사용자로부터 HDInsight 클러스터 리소스를 보호하고 데이터를 보호하는 것만큼 중요합니다. 
 
-관리자는 HDInsight 클러스터 리소스 및 데이터에 대한 모든 액세스를 확인하고 보고할 수 있습니다. 관리자는 Apache Ranger가 지원되는 끝점에서 만들어진 액세스 제어 정책에 대한 모든 변경 내용을 확인하고 보고할 수도 있습니다. 
+관리자는 HDInsight 클러스터 리소스 및 데이터에 대한 모든 액세스를 확인하고 보고할 수 있습니다. 관리자는 Apache Ranger가 지원되는 엔드포인트에서 만들어진 액세스 제어 정책에 대한 모든 변경 내용을 확인하고 보고할 수도 있습니다. 
 
 도메인 가입 HDInsight 클러스터는 Apache Ranger UI를 사용하여 감사 로그를 검색합니다. Ranger는 백 엔드에서 로그를 저장하고 검색하는 데 [Apache Solr](http://hortonworks.com/apache/solr/)을 사용합니다.
 

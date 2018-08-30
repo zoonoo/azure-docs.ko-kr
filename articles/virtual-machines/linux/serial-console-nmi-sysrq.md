@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 14bf68355550d756bd3f4da1a367133d83ddbf07
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 110bdcacf7433c1e0ab0cb31e1a04734137f9596
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42141594"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885242"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>SysRq 및 NMI 호출에 대한 직렬 콘솔 사용
 
@@ -84,13 +84,17 @@ SysReq 구성을 영구적으로 유지하려면 다음을 수행하여 모든 S
 
 ### <a name="distribution-specific-documentation"></a>배포 관련 설명서 ###
 SysRq의 배포 관련 설명서 및 SysRq “Crash” 명령을 수신하는 경우 크래시 덤프를 만들도록 Linux를 구성하는 단계는 아래 링크를 참조하세요.
+
 #### <a name="ubuntu"></a>Ubuntu ####
  - [커널 크래시 덤프](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
+
 #### <a name="red-hat"></a>Red Hat ####
 - [SysRq 기능이란 무엇이며 어떻게 사용하나요?](https://access.redhat.com/articles/231663)
 - [SysRq 기능을 사용하여 RHEL 서버에서 정보를 수집하는 방법](https://access.redhat.com/solutions/2023)
+
 #### <a name="suse"></a>SUSE ####
 - [커널 코어 덤프 캡처 구성](https://www.suse.com/support/kb/doc/?id=3374462)
+
 #### <a name="coreos"></a>CoreOS ####
 - [크래시 로그 수집](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
@@ -109,16 +113,17 @@ NMI(마스크 불가능 인터럽트)는 가상 머신에 있는 소프트웨어
 
 `unknown_nmi_panic`, `panic_on_io_nmi` 및 `panic_on_unrecovered_nmi`를 비롯한 Linux 커널 구성에 대한 자세한 내용은 [/proc/sys/kernel/에 대한 설명서*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt)를 참조하세요. NMI의 배포 관련 설명서 및 NMI를 수신하는 경우 크래시 덤프를 만들도록 Linux를 구성하는 단계는 아래 링크를 참조하세요.
  
- ### <a name="ubuntu"></a>Ubuntu 
+### <a name="ubuntu"></a>Ubuntu 
  - [커널 크래시 덤프](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
 
- ### <a name="red-hat"></a>Red Hat 
+### <a name="red-hat"></a>Red Hat 
  - [NMI란 무엇이며 어디에 사용할 수 있나요?](https://access.redhat.com/solutions/4127)
  - [NMI 스위치가 푸시될 때 크래시하도록 내 시스템을 구성하는 방법](https://access.redhat.com/solutions/125103)
  - [크래시 덤프 관리자 가이드](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/pdf/kernel_crash_dump_guide/kernel-crash-dump-guide.pdf)
 
 ### <a name="suse"></a>SUSE 
 - [커널 코어 덤프 캡처 구성](https://www.suse.com/support/kb/doc/?id=3374462)
+
 ### <a name="coreos"></a>CoreOS 
 - [크래시 로그 수집](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 

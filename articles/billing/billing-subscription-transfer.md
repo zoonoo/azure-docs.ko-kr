@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 44e4bedd747c5a0010058efee595402448f6a30b
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: b6055dbab85acb1e5fed9679a5072144bc84712c
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39507154"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917126"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Azure 구독의 소유권을 다른 계정으로 양도
 
@@ -31,6 +31,9 @@ ms.locfileid: "39507154"
 > [!IMPORTANT]
 > 
 > 새 Azure AD 테넌트에 구독을 전송하는 경우 원본 테넌트에서 [RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)의 모든 역할 할당을 영구적으로 삭제하고 대상 테넌트에 마이그레이션하지 않습니다.
+
+> [!div class="nextstepaction"]
+> [Azure 청구 문서 개선](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Azure 구독의 소유권 양도
 

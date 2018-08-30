@@ -5,16 +5,16 @@ services: hdinsight
 ms.service: hdinsight
 author: maxluk
 ms.author: maxluk
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: b3420737147f9ee67d5d2d021c28a98d34e209df
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 229c3eff0db4f3689f4e2e3fd457410ecccb8ba7
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617618"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041525"
 ---
 # <a name="overview-of-spark-streaming"></a>Spark 스트리밍 개요
 
@@ -211,7 +211,7 @@ DummySource는 5초마다 하나의 값을 만들고 응용 프로그램이 30�
 
 ![Spark Streaming 응용 프로그램 배포](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
 
-또한 LIVY 끝점에 대한 GET 요청으로 모든 응용 프로그램의 상태를 확인할 수 있습니다. 마지막으로 LIVY 엔드포인트에 대한 DELETE 요청을 실행하여 실행 중인 응용 프로그램을 종료할 수 있습니다. LIVY API에 대한 자세한 내용은 [LIVY를 사용하는 원격 작업](apache-spark-livy-rest-interface.md)을 참조하세요.
+또한 LIVY 엔드포인트에 대한 GET 요청으로 모든 응용 프로그램의 상태를 확인할 수 있습니다. 마지막으로 LIVY 엔드포인트에 대한 DELETE 요청을 실행하여 실행 중인 응용 프로그램을 종료할 수 있습니다. LIVY API에 대한 자세한 내용은 [LIVY를 사용하는 원격 작업](apache-spark-livy-rest-interface.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

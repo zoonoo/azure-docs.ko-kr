@@ -5,16 +5,16 @@ services: hdinsight
 ms.service: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: a07e4ec9fe0d47853a7ccefe337f2df9d3f85a79
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 6f88011bcc3d3c7a97e12a7c96da0b5e3280ad05
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617689"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43044929"
 ---
 # <a name="example-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>HDInsight의 Apache Storm에 대한 Storm 토폴로지 및 구성 요소 예제
 
@@ -32,7 +32,7 @@ ms.locfileid: "39617689"
 | [HDInsight의 Storm을 사용하여 Azure Event Hub에서 HBase로 ETL(추출, 변환 및 로드)][b4b68194] |Event Hubs, HBase |C# |
 | [HDInsight의 Storm에서 Azure 서비스로 작업하는 데 사용되는 템플릿 C# Storm 토폴로지 프로젝트][ce0c02a2] |Event Hub, Cosmos DB SQL Database, HBase, SignalR |C#, Java |
 | [HDInsight의 Storm을 사용하여 Azure Event Hub에서 읽기에 대한 확장성 벤치마크][d6c540e3] |메시지 처리량, Event Hubs, SQL Database |C#, Java |
-| [HDInsight에서 Storm으로 Python 사용](apache-storm-develop-python-topology.md) |Flux 토폴로지를 포함하는 Python 구성 요소 |파이썬 |
+| [HDInsight에서 Storm으로 Python 사용](apache-storm-develop-python-topology.md) |Flux 토폴로지를 포함하는 Python 구성 요소 |Python |
 | [HDInsight의 Storm에서 Kafka 사용](../hdinsight-apache-storm-with-kafka.md) | Apache Kafka에 Apache Storm 읽기 및 쓰기 | 자바 |
 
 > [!WARNING]

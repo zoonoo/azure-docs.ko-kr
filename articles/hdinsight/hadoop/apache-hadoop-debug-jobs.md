@@ -2,19 +2,19 @@
 title: 'HDInsight에서 Hadoop 디버그: 로그 보기 및 오류 메시지 해석 - Azure '
 description: PowerShell을 사용하여 HDInsight를 관리할 때 표시될 수 있는 오류 메시지와 복구를 위해 수행할 수 있는 단계에 대해 알아봅니다.
 services: hdinsight
-editor: jasonwhowell
+ms.reviewer: jasonh
 author: ashishthaps
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 00d09619db11ea0026f5386048f1c10a8f831948
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: cd688ec1f5b7b46138a3b601f52b54dd6f3615e3
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592784"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046493"
 ---
 # <a name="analyze-hadoop-logs"></a>Hadoop 로그 분석
 
@@ -288,11 +288,11 @@ Azure Portal에서 HDInsight HBase 클러스터 이름을 클릭하여 클러스
 * **해결 방법**: 구독 ID가 올바른지 확인한 후 작업을 다시 시도하세요.
 
 ### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
-* **설명**: DNS *yourDnsUrl*을(를) 확인할 수 없습니다. Blob 끝점에 정규화된 URL을 지정했는지 확인하세요.  
+* **설명**: DNS *yourDnsUrl*을(를) 확인할 수 없습니다. Blob 엔드포인트에 정규화된 URL을 지정했는지 확인하세요.  
 * **해결 방법**: 올바른 Blob URL을 제공하세요. URL은 *http://* 로 시작하고 *.com*으로 끝나는 것을 포함하여 완전히 유효해야 합니다.
 
 ### <a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
-* **설명**: *yourDnsUrl*리소스의 위치를 확인할 수 없습니다. Blob 끝점에 정규화된 URL을 지정했는지 확인하세요.  
+* **설명**: *yourDnsUrl*리소스의 위치를 확인할 수 없습니다. Blob 엔드포인트에 정규화된 URL을 지정했는지 확인하세요.  
 * **해결 방법**: 올바른 Blob URL을 제공하세요. URL은 *http://* 로 시작하고 *.com*으로 끝나는 것을 포함하여 완전히 유효해야 합니다.
 
 ### <a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable
