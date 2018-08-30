@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: celested
-ms.reviewer: hirsin, dastrock
+ms.reviewer: hirsin, jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 6d3847f547646ae7c62f98b4cee716af5c6ba5e9
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: f83ca06843b94aecf44a4e4a58959d35f00532c2
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42145033"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125119"
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Azure Active Directory v2.0 엔드포인트의 범위, 사용 권한 및 동의
+
 Azure AD(Azure Active Directory)와 통합된 앱은 사용자가 앱이 데이터에 액세스하는 방법을 제어할 수 있는 권한 부여 모델을 따릅니다. 이 권한 부여 모델의 v2.0 구현이 업데이트되어 앱이 Azure AD와 상호 작용하는 방법이 변경되었습니다. 이 문서에서는 범위, 사용 권한 및 동의를 포함하여 이 권한 부여 모델의 기본 개념에 대해 설명합니다.
 
 > [!NOTE]
 > v2.0 엔드포인트에서는 일부 Azure Active Directory 시나리오 및 기능만 지원합니다. v2.0 엔드포인트를 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
->
->
 
 ## <a name="scopes-and-permissions"></a>범위 및 사용 권한
+
 Azure AD는 [OAuth 2.0](active-directory-v2-protocols.md) 권한 부여 프로토콜을 구현합니다. OAuth 2.0은 사용자 대신 타사 앱에서 웹에 호스트된 리소스에 액세스할 수 있도록 하는 방법입니다. Azure AD와 통합된 웹에 호스트된 리소스에는 리소스 식별자 또는 *응용 프로그램 ID URI*가 있습니다. 예를 들어 웹에 호스트된 몇 가지 Microsoft 리소스는 다음과 같습니다.
 
 * Office 365 통합 메일 API: `https://outlook.office.com`
@@ -56,18 +56,23 @@ Azure AD 및 OAuth에서는 이러한 유형의 사용 권한을 *범위*라고 
 앱은 v2.0 엔드포인트에 대한 요청에 범위를 지정하여 이러한 사용 권한을 요청할 수 있습니다.
 
 ## <a name="openid-connect-scopes"></a>OpenID Connect 범위
+
 OpenID Connect의 v2.0 구현에는 특정 리소스에 적용되지 않는 몇 가지의 잘 정의된 범위 `openid`, `email`, `profile` 및 `offline_access`가 있습니다.
 
 ### <a name="openid"></a>openid
+
 앱이 [OpenID Connect](active-directory-v2-protocols.md)를 사용하여 로그인을 수행하는 경우 `openid` 범위를 요청해야 합니다. `openid` 범위는 작업 계정 동의 페이지에 "로그인" 권한으로 표시되고 Microsoft 계정 동의 페이지에 "Microsoft 계정을 사용하여 프로필 보기 및 앱과 서비스에 연결" 권한으로 표시됩니다. 이 사용 권한을 통해 앱은 `sub` 클레임 형식으로 사용자에 대한 고유 식별자를 받을 수 있습니다. 또한 앱이 UserInfo 엔드포인트에 액세스할 수 있도록 해줍니다. v2.0 토큰 엔드포인트에서 `openid` 범위를 사용하여 ID 토큰을 획득할 수도 있습니다. 이 토큰을 사용하면 앱의 다양한 구성 요소 간 HTTP 호출의 보안을 유지할 수 있습니다.
 
 ### <a name="email"></a>email
+
 `email` 범위는 `openid` 범위 및 다른 모든 범위와 함께 사용될 수 있습니다. 이는 앱이 `email` 클레임의 형식으로 사용자의 기본 전자 메일 주소에 액세스할 수 있도록 해줍니다. 전자 메일 주소가 사용자 계정과 연결된 경우 `email` 클레임은 오직 토큰에만 포함되지만, 항상 그런 것은 아닙니다. `email` 범위를 사용하는 경우 앱에서 `email` 클레임이 토큰에 존재하지 않는 경우를 처리할 수 있도록 준비해야 합니다.
 
 ### <a name="profile"></a>프로필
+
 `profile` 범위는 `openid` 범위 및 다른 모든 범위와 함께 사용될 수 있습니다. 이는 앱이 사용자에 대한 상당한 양의 정보에 액세스할 수 있도록 해줍니다. 액세스할 수 있는 정보에는 사용자 이름, 성, 기본 설정된 사용자 이름, 개체 ID 등이 포함됩니다. 특정 사용자에 대한 id_token 매개 변수에서 사용할 수 있는 프로필 클레임의 전체 목록은 [v2.0 토큰 참조](v2-id-and-access-tokens.md)를 참조하세요.
 
 ### <a name="offlineaccess"></a>offline_access
+
 [`offline_access` 범위](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess)를 사용하면 앱이 연장된 기간 동안 사용자 대신 리소스에 액세스할 수 있습니다. 작업 계정 동의 페이지에서는 이 범위가 "언제든지 데이터 액세스" 권한으로 표시됩니다. 개인 Microsoft 계정 동의 페이지에서는 이 범위가 "언제든지 정보 액세스" 권한으로 표시됩니다. 사용자가 `offline_access` 범위를 승인하면 앱이 v2.0 토큰 엔드포인트에서 새로 고침 토큰을 받을 수 있습니다. 새로 고침 토큰은 장기적으로 존재합니다. 오래된 액세스 토큰이 만료되면 앱에서 새 액세스 토큰을 가져올 수 있습니다.
 
 앱이 `offline_access` 범위를 요청하지 않으면 새로 고침 토큰을 받을 수 없습니다. 즉, [OAuth 2.0 권한 부여 코드 흐름](active-directory-v2-protocols.md)에서 권한 부여 코드를 교환하는 경우 `/token` 엔드포인트에서 액세스 토큰만 받게 됩니다. 액세스 토큰은 짧은 시간 동안 유효합니다. 액세스 토큰은 일반적으로 1시간 후에 만료됩니다. 이 시점에 앱은 사용자를 `/authorize` 엔드포인트로 다시 리디렉션하여 새 권한 부여 코드를 가져와야 합니다. 이 리디렉션 중에 앱 형식에 따라 사용자가 자격 증명을 다시 입력하거나 권한에 다시 동의해야 할 수 있습니다.
@@ -77,7 +82,7 @@ OpenID Connect의 v2.0 구현에는 특정 리소스에 적용되지 않는 몇 
 ## <a name="accessing-v10-resources"></a>V1.0 리소스 액세스
 v2.0 응용 프로그램은 v1.0 응용 프로그램에 대한 토큰 및 동의를 요청할 수 있습니다(예: PowerBI API `https://analysis.windows.net/powerbi/api` 또는 Sharepoint API `https://{tenant}.sharepoint.com`).  이렇게 하려면 `scope` 매개 변수에서 앱 URI 및 범위 문자열을 참조할 수 있습니다.  예를 들어 `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All`은 응용 프로그램에 대해 PowerBI `View all Datasets` 권한을 요청합니다. 
 
-여러 사용 권한을 요청하려면 전체 URI 앞에 공백 또는 `+`를 추가합니다(예: `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://analysis.windows.net/powerbi/api/Report.Read.All`).  이 경우 `View all Datasets` 및 `View all Reports` 권한이 둘 다 요청됩니다.  모든 Azure AD 범위 및 권한과 마찬가지로, 응용 프로그램은 한 번에 하나의 리소스에 대해서만 요청을 수행할 수 있으므로 PowerBI `View all Datasets` 권한 및 비즈니스용 Skype `Initiate conversations` 권한을 둘 다 요청하는 `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://api.skypeforbusiness.com/Conversations.Initiate` 요청은 두 가지 다른 리소스에 대한 권한 요청으로 인해 거부됩니다.  
+여러 사용 권한을 요청하려면 전체 URI 앞에 공백 또는 `+`를 추가합니다(예: `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+ https://analysis.windows.net/powerbi/api/Report.Read.All`).  이 경우 `View all Datasets` 및 `View all Reports` 권한이 둘 다 요청됩니다.  모든 Azure AD 범위 및 권한과 마찬가지로, 응용 프로그램은 한 번에 하나의 리소스에 대해서만 요청을 수행할 수 있으므로 PowerBI `View all Datasets` 권한 및 비즈니스용 Skype `Initiate conversations` 권한을 둘 다 요청하는 `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+ https://api.skypeforbusiness.com/Conversations.Initiate` 요청은 두 가지 다른 리소스에 대한 권한 요청으로 인해 거부됩니다.  
 
 ### <a name="v10-resources-and-tenancy"></a>v1.0 리소스 및 테넌트
 V1.0 및 v2.0 Azure AD 프로토콜 둘 다, URI(`https://login.microsoftonline.com/{tenant}/oauth2/`)에 포함된 `{tenant}` 매개 변수를 사용합니다.  V2.0 엔드포인트를 사용하여 v1.0 조직 리소스에 액세스하는 경우 이러한 리소스가 조직(Azure AD) 계정을 통해서만 액세스할 수 있으므로, `common` 및 `consumers` 테넌트를 사용할 수 없습니다.  따라서 이러한 리소스에 액세스할 경우 테넌트 GUID 또는 `organizations`만 `{tenant}` 매개 변수로 사용할 수 있습니다.  
@@ -88,6 +93,7 @@ V1.0 및 v2.0 Azure AD 프로토콜 둘 다, URI(`https://login.microsoftonline.
 
 
 ## <a name="requesting-individual-user-consent"></a>개별 사용자의 동의 요청
+
 [OpenID Connect 또는 OAuth 2.0](active-directory-v2-protocols.md) 권한 부여 요청에서 앱은 `scope` 쿼리 매개 변수를 사용하여 필요한 사용 권한을 요청할 수 있습니다. 예를 들어 사용자가 앱에 로그인하면 앱이 다음 예제와 같은 요청을 보냅니다(읽기 쉽도록 줄 바꿈 추가).
 
 ```
@@ -111,11 +117,13 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 사용자가 사용 권한을 승인하면 후속 계정 로그인 시 다시 동의할 필요가 없도록 동의가 기록됩니다.
 
 ## <a name="requesting-consent-for-an-entire-tenant"></a>전체 테넌트에 대한 동의 요청
+
 조직이 응용 프로그램에 대한 라이선스 또는 구독을 구입하는 경우 직원들을 위해 응용 프로그램을 완전히 프로비전하려고 합니다. 이 프로세스의 일부로 관리자는 모든 직원을 대신하여 해당 응용 프로그램에 대한 동의를 부여할 수 있습니다. 관리자가 전체 테넌트에 대한 동의를 부여하면 해당 조직의 직원에게는 응용 프로그램에 대한 동의 화면이 표시되지 않습니다.
 
 테넌트에서 모든 사용자에 대한 동의를 요청하기 위해 앱은 관리 동의 엔드포인트를 사용할 수 있습니다.
 
 ## <a name="admin-restricted-scopes"></a>관리 제한 범위
+
 Microsoft 에코시스템에서 일부 높은 수준 사용 권한을 *관리 제한*으로 설정할 수 있습니다. 이러한 종류의 범위에는 다음과 같은 사용 권한이 포함됩니다.
 
 * `Directory.Read`를 사용하여 조직의 디렉터리 데이터 읽기
@@ -129,19 +137,23 @@ Microsoft 에코시스템에서 일부 높은 수준 사용 권한을 *관리 �
 관리자가 관리 동의 엔드포인트를 통해 이러한 사용 권한을 부여할 경우 테넌트에서 모든 사용자에 대한 동의가 부여됩니다.
 
 ## <a name="using-the-admin-consent-endpoint"></a>관리 동의 엔드포인트 사용
+
 다음 단계를 따를 경우 앱은 관리 제한 범위를 포함하여 테넌트의 모든 사용자에 대한 사용 권한을 수집할 수 있습니다. 단계를 구현하는 코드 샘플을 보려면 [관리 제한 범위 샘플](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2)을 참조하세요.
 
 ### <a name="request-the-permissions-in-the-app-registration-portal"></a>앱 등록 포털에서 사용 권한 요청
+
 1. [응용 프로그램 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)에서 응용 프로그램으로 이동하거나 응용 프로그램이 없는 경우 [응용 프로그램을 만듭니다](quickstart-v2-register-an-app.md).
 2. **Microsoft Graph 사용 권한** 섹션으로 이동하여 앱에 필요한 사용 권한을 추가합니다.
-3. 앱 등록을 **저장**해야 합니다.
+3. 앱 등록을 **저장**합니다.
 
 ### <a name="recommended-sign-the-user-in-to-your-app"></a>사용자가 앱에 로그인하는 것이 좋습니다.
+
 일반적으로 관리 동의 엔드포인트를 사용하는 응용 프로그램을 빌드할 때 앱에는 관리자가 앱의 사용 권한을 승인할 수 있는 페이지 또는 보기가 필요합니다. 이 페이지는 앱 로그인 흐름의 일부, 앱 설정의 일부 또는 전용 "연결" 흐름일 수 있습니다. 대부분의 경우에 사용자가 회사 또는 학교 Microsoft 계정으로 로그인한 후에 앱은 이 "연결" 보기만을 표시하게 됩니다.
 
 사용자로 앱에 로그인하면 사용자에게 필요한 사용 권한을 승인하도록 요청하기 전에 관리자가 속해 있는 조직을 식별할 수 있습니다. 반드시 필요하지는 않지만 조직 사용자를 위한 직관적인 환경을 만들 수 있습니다. 사용자가 로그인하려면 [v2.0 프로토콜 자습서](active-directory-v2-protocols.md)를 수행합니다.
 
 ### <a name="request-the-permissions-from-a-directory-admin"></a>디렉터리 관리에서 사용 권한 요청
+
 조직의 관리자에게 사용 권한을 요청할 준비가 되면 v 2.0 *관리 동의 엔드포인트*에 사용자를 리디렉션할 수 있습니다.
 
 ```
@@ -163,14 +175,15 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | 매개 변수 | 조건 | 설명 |
 | --- | --- | --- |
-| tenant |필수 |사용 권한을 요청하려는 디렉터리 테넌트입니다. GUID에서 제공한 이름이거나, 친근한 이름 형식이거나, 예제에서처럼 "common"으로 일반 참조될 수 있습니다. |
-| client_id |필수 |[응용 프로그램 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)에서 앱에 할당한 응용 프로그램 ID입니다. |
-| redirect_uri |필수 |리디렉션 URI는 처리할 앱에 응답을 전송하려는 위치입니다. 앱 등록 포털에 등록한 리디렉션 URI 중 하나와 정확히 일치해야 합니다. |
-| state |권장 |토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 상태를 사용하여 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩할 수 있습니다. |
+| `tenant` | 필수 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. GUID에서 제공한 이름이거나, 친근한 이름 형식이거나, 예제에서처럼 "common"으로 일반 참조될 수 있습니다. |
+| `client_id` | 필수 | [응용 프로그램 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)에서 앱에 할당한 응용 프로그램 ID입니다. |
+| `redirect_uri` | 필수 |리디렉션 URI는 처리할 앱에 응답을 전송하려는 위치입니다. 앱 등록 포털에 등록한 리디렉션 URI 중 하나와 정확히 일치해야 합니다. |
+| `state` | 권장 | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 상태를 사용하여 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩할 수 있습니다. |
 
 이 시점에서 Azure AD는 테넌트 관리자에게 요청을 완료하기 위해 로그인하도록 요구합니다. 관리자에게는 앱 등록 포털에서 앱에 요청한 사용 권한을 모두 승인하라는 메시지가 표시됩니다.
 
 #### <a name="successful-response"></a>성공적인 응답
+
 관리자가 앱에 대한 사용 권한을 승인하는 경우 성공적인 응답은 다음과 같습니다.
 
 ```
@@ -179,11 +192,12 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 
 | 매개 변수 | 설명 |
 | --- | --- | --- |
-| tenant |디렉터리 테넌트는 GUID 형식으로 요청한 권한을 응용 프로그램에 부여합니다. |
-| state |토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 상태는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩하는 데 사용됩니다. |
-| admin_consent |**true**로 설정됩니다. |
+| `tenant` | 디렉터리 테넌트는 GUID 형식으로 요청한 권한을 응용 프로그램에 부여합니다. |
+| `state` | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 상태는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩하는 데 사용됩니다. |
+| `admin_consent` | **true**로 설정됩니다. |
 
 #### <a name="error-response"></a>오류 응답
+
 관리자가 앱에 대한 사용 권한을 승인하지 않는 경우 실패한 응답은 다음과 같습니다.
 
 ```
@@ -192,12 +206,13 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 | 매개 변수 | 설명 |
 | --- | --- | --- |
-| error |발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
-| error_description |개발자가 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
+| `error` |발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
+| `error_description` |개발자가 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
 
 관리 동의 엔드포인트에서 성공적인 응답을 받은 후 앱은 요청한 사용 권한을 얻게 됩니다. 이제 원하는 리소스에 대한 토큰을 요청할 수 있습니다.
 
 ## <a name="using-permissions"></a>사용 권한 사용
+
 사용자가 앱에 대한 사용 권한에 동의하면 앱이 일부 용량으로 리소스에 액세스할 수 있는 앱의 권한을 나타내는 액세스 토큰을 획득할 수 있습니다. 액세스 토큰은 단일 리소스에만 사용할 수 있지만 해당 리소스에 대해 앱에 부여된 모든 사용 권한이 액세스 토큰 안에 인코딩됩니다. 액세스 토큰을 획득하기 위해 앱은 다음과 같이 v2.0 토큰 엔드포인트를 요청할 수 있습니다.
 
 ```

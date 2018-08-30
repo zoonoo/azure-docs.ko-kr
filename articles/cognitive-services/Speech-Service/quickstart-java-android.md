@@ -9,16 +9,16 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: fmegen
-ms.openlocfilehash: bbf10d9bd0912dab22c81e2bb850ede52a3bd9e3
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 9f761fed46f0730a64a984111da1bae1229cc93d
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42093850"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127074"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Android의 Java에서 음성 인식
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 이 문서에서는 Cognitive Services Speech SDK를 사용하여 음성을 텍스트로 변환하는 Android용 Java 응용 프로그램을 만드는 방법을 설명합니다.
 이 응용 프로그램은 Microsoft Cognitive Services Speech SDK Maven Package, 버전 0.6.0 및 Android Studio 3.1을 기준으로 합니다.
@@ -61,7 +61,7 @@ Android Studio를 시작하고 **새 Android Studio 프로젝트 시작**을 선
 
 ## <a name="configure-your-project-for-the-speech-sdk"></a>Speech SDK에 대한 프로젝트 구성
 
-[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 Cognitive Services 음성 SDK의 현재 버전은 `0.6.0`입니다.
 
@@ -154,7 +154,7 @@ https://csspeechstorage.blob.core.windows.net/maven/의 Maven 리포지토리에
 
 이 스크린샷은 Android Quickstart로 끝납니다. 전체 프로젝트 샘플 코드는 샘플 리포지토리에서 다운로드할 수 있습니다.
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 이 예제를 `quickstart/java-android` 폴더에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
