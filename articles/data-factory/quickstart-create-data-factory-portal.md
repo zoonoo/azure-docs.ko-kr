@@ -8,15 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: bc70a7f74fd00910b54891453cfe2c661e8908fc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0638aaa9165bcf760dabca330f6ee396807e4597
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426781"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43087957"
 ---
 # <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Azure Data Factory UI를 사용하여 데이터 팩터리 만들기
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -84,7 +84,7 @@ ms.locfileid: "39426781"
 
    a. **이름**에 대해 **AzureStorageLinkedService**를 입력합니다.
 
-   나. **저장소 계정 이름**에 대해 Azure 저장소 계정의 이름을 선택합니다.
+   b. **저장소 계정 이름**에 대해 Azure 저장소 계정의 이름을 선택합니다.
 
    다. **연결 테스트**를 선택하여 데이터 팩터리 서비스에서 저장소 계정에 연결할 수 있는지 확인합니다. 
 
@@ -113,7 +113,7 @@ ms.locfileid: "39426781"
 
     a. **연결된 서비스**에 대해 **AzureStorageLinkedService**를 선택합니다.
 
-    나. **파일 경로**에 대해 **찾아보기** 단추를 선택합니다.
+    b. **파일 경로**에 대해 **찾아보기** 단추를 선택합니다.
 
     !["연결" 탭 및 "찾아보기" 단추](./media/quickstart-create-data-factory-portal/file-path-browse-button.png) c. **파일 또는 폴더 선택** 창에서 **adftutorial** 컨테이너의 **input** 폴더로 이동하여 **emp.txt** 파일을 선택한 다음 **마침**을 선택합니다.
 
@@ -124,7 +124,7 @@ ms.locfileid: "39426781"
 
    a. **+**(더하기) 단추를 선택한 다음 **데이터 집합**을 선택합니다.
 
-   나. **새 데이터 집합** 페이지에서 **Azure Blob Storage**를 선택한 다음 **마침**을 선택합니다.
+   b. **새 데이터 집합** 페이지에서 **Azure Blob Storage**를 선택한 다음 **마침**을 선택합니다.
 
    다. **일반** 테이블에서 이름으로 **OutputDataset**를 지정합니다.
 

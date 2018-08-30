@@ -3,18 +3,18 @@ title: '자습서: HDInsight Storm의 Apache Kafka - Azure '
 description: HDInsight에서 Apache Storm 및 Apache Kafka를 사용하여 스트리밍 파이프라인을 만드는 방법을 알아봅니다. 이 자습서에서는 KafkaBolt 및 KafkaSpout 구성 요소를 사용하여 Kafka에서 데이터를 스트리밍합니다.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/21/2018
-ms.author: jasonh
-ms.openlocfilehash: a20cf616b119d208c9b2baa0f2cf608aa44c21ad
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 7aa8f0b62459c376113bca5a0c58cc7dd3b5280c
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595164"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43094892"
 ---
 # <a name="tutorial-use-apache-storm-with-kafka-on-hdinsight"></a>자습서: HDInsight의 Kafka에서 Apache Storm 사용
 

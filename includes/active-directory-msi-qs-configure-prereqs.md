@@ -1,1 +1,1 @@
-관리 서비스 ID 기능이 익숙하지 않은 경우 [개요](../articles/active-directory/msi-overview.md)를 참조하세요. Azure 계정이 없으면 계속하기 전에 [체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
+- 관리 서비스 ID 기능이 익숙하지 않은 경우 [개요](../articles/active-directory/msi-overview.md)를 참조하세요. Azure 계정이 없으면 계속하기 전에 [체험 계정에 등록](https://azure.microsoft.com/free/)합니다.

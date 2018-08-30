@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: f4e5a373c7c2388cd77debc6a83759c2d0ef8d48
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189940"
 documentType: LandingData
 title: Load Balancer
 metadata:
@@ -14,12 +20,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/19/2018
   ms.author: kumud
-  ms.openlocfilehash: 497dc23f56e3dd75c6d7e0549fbdef42ff3c3698
-  ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
-  ms.translationtype: HT
-  ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/29/2018
-  ms.locfileid: "37132581"
 abstract:
   description: Azure Load Balancer의 사용 방법에 대해 알아보세요. 빠른 시작, 자습서, 샘플 등은 부하 분산 장치를 배포하고, 가상 머신 및 클라우드 리소스 간 그리고 크로스-프레미스 가상 네트워크의 트래픽 부하를 분산하는 방법을 보여줍니다.
 sections:
@@ -60,17 +60,17 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title: Microsoft Azure Networking 구현
-      href: https://app.pluralsight.com/library/courses/microsoft-azure-networking-implementing/table-of-contents
+    - title: Azure 관리자
+      href: https://go.microsoft.com/fwlink/?linkid=2012827
       image:
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://app.pluralsight.com/library/courses/microsoft-azure-networking-implementing/table-of-contents
-    - title: Microsoft Azure Networking Solutions 계획 및 설계
-      href: https://app.pluralsight.com/library/courses/planning-designing-microsoft-azure-network-solutions/table-of-contents
+        href: https://go.microsoft.com/fwlink/?linkid=2012827
+    - title: Azure 솔루션 설계자
+      href: https://go.microsoft.com/fwlink/?linkid=2012824
       image:
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://app.pluralsight.com/library/courses/planning-designing-microsoft-azure-network-solutions/table-of-contents
-    - title: AWS 관리자용 Microsoft Azure 관리
+        href: https://go.microsoft.com/fwlink/?linkid=2012824
+    - title: AWS 관리자용 Azure 관리
       href: https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents
       image:
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg

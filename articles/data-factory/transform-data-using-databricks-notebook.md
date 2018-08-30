@@ -9,16 +9,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: efef0c4a8fd5a1cd08c5c15d5cb5cea9fc0ee9aa
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7fb94fa9a70faa238c54e7f5e7992ef8404d8de3
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426054"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43087550"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Azure Data Factory에서 Databricks Notebook 작업으로 Databricks Notebook 실행
 
@@ -144,7 +144,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     a. **설정** 탭으로 전환합니다.
 
-    나. 이전 절차에서 만든 **myAzureDatabricks\_LinkedService**를 선택합니다.
+    b. 이전 절차에서 만든 **myAzureDatabricks\_LinkedService**를 선택합니다.
 
     다. Databricks **Notebook 경로**를 선택합니다. 여기서는 노트북을 만들고 경로를 지정해 보겠습니다. 다음 몇 단계를 따라 Notebook 경로를 가져옵니다.
 
@@ -182,7 +182,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
        ![매개 변수 추가](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image17.png)
 
-    나.  매개 변수의 이름을 **input**으로 지정하고 값을 **@pipeline().parameters.name** 식으로 제공합니다.
+    b.  매개 변수의 이름을 **input**으로 지정하고 값을 **@pipeline().parameters.name** 식으로 제공합니다.
 
 1.  파이프라인에 대한 유효성을 검사하려면 도구 모음에서 **유효성 검사** 단추를 선택합니다. 유효성 검사 창을 닫으려면 **\>\>**(오른쪽 화살표) 단추를 선택합니다.
 

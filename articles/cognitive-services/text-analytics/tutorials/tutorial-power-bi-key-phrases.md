@@ -9,12 +9,12 @@ ms.component: text-analytics
 ms.topic: tutorial
 ms.date: 3/07/2018
 ms.author: luisca
-ms.openlocfilehash: 705b7b0eb32777953b365b217550e4591b8c27aa
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 2cdb93d44218627efdcb0360d8cf4a4eeeca177a
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39717283"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42890052"
 ---
 # <a name="text-analytics-with-power-bi"></a>Power BI로 텍스트 분석
 
@@ -96,7 +96,7 @@ Key Phrases API에 제출할 수 있도록 이러한 필드를 JSON(JavaScript O
 이 함수는 매개 변수로 처리할 텍스트를 받습니다. 데이터를 필요한 JSON(JavaScript Object Notation)으로 또는 그 반대로 변환하고 Key Phrases API 엔드포인트에 대한 HTTP 요청을 만듭니다. 응답을 구문 분석한 후 이 함수는 추출된 핵심 문구의 쉼표로 구분된 목록을 포함하는 문자열을 반환합니다.
 
 > [!NOTE]
-> Power BI Desktop 사용자 지정 함수는 [파워 쿼리 M 수식 언어](https://msdn.microsoft.com/library/mt211003.aspx) 또는 줄여서 "M"으로 작성됩니다. M은 [F#](http://www.tryfsharp.org/) 기반의 함수 프로그래밍 언어입니다. 하지만 프로그래머가 아니어도 이 자습서를 완료할 수 있도록 아래에 코드가 포함되어 있습니다.
+> Power BI Desktop 사용자 지정 함수는 [파워 쿼리 M 수식 언어](https://msdn.microsoft.com/library/mt211003.aspx) 또는 줄여서 "M"으로 작성됩니다. M은 [F#](https://docs.microsoft.com/dotnet/fsharp/) 기반의 함수 프로그래밍 언어입니다. 하지만 프로그래머가 아니어도 이 자습서를 완료할 수 있도록 아래에 코드가 포함되어 있습니다.
 
 아직 [쿼리 편집기] 창에 있어야 합니다. [홈] 리본의 [새 쿼리] 리본 그룹에서 **새 원본**을 선택하고, 드롭다운 메뉴에서 **빈 쿼리**를 선택합니다. 
 

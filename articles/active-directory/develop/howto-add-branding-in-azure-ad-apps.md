@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 78a0b9bf7f49cc41c8d78287bcbe54c5c88f0809
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 92990a71a0b138f08c515450ecd71692fa57f297
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "39597908"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43185423"
 ---
 # <a name="branding-guidelines-for-applications"></a>응용 프로그램에 대한 브랜딩 지침
 
@@ -72,11 +72,11 @@ Microsoft는 Azure 또는 Active Directory 브랜드 이름에 최종 사용자�
 
 | 자산                                | PNG 형식 | SVG 형식 |
 | ------------------------------------ | ---------- | ---------- |
-| Microsoft 로고  | ![Microsoft 로고 PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_MSSymbol_19.png) | ![Microsoft 로고 SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_MSSymbol_19.svg) |
+| Microsoft 로고  | ![Microsoft 로고 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.png) | ![Microsoft 로고 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.svg) |
 
 ## <a name="visual-guidance-for-sign-in"></a>로그인에 대한 시각적 지침
 
-앱은 Azure AD와 통합하는 데 사용하는 프로토콜에 해당하는 로그인 끝점으로 사용자를 리디렉션하는 로그인 단추를 표시해야 합니다. 다음 섹션에서는 이 단추의 모양을 자세히 설명합니다.
+앱은 Azure AD와 통합하는 데 사용하는 프로토콜에 해당하는 로그인 엔드포인트로 사용자를 리디렉션하는 로그인 단추를 표시해야 합니다. 다음 섹션에서는 이 단추의 모양을 자세히 설명합니다.
 
 ### <a name="pictogram-and-sign-in-with-microsoft"></a>픽토그램 및 “Microsoft 로그인”
 
@@ -84,16 +84,16 @@ Microsoft 로고와 앱이 지원하는 다른 ID 공급자 중에서 Azure AD�
 
 다음 다이어그램은 앱에서 자산을 사용하는 경우 Microsoft 권장 검토를 보여줍니다. 검토는 "Microsoft에 로그인" 또는 짧은 "로그인" 버전에 적용합니다.
 
-![Microsoft로 로그인 검토](./media/howto-add-branding-in-azure-ad-apps/Sign-in-with-Microsoft-redlines.png)
+![Microsoft로 로그인 검토](./media/howto-add-branding-in-azure-ad-apps/sign-in-with-microsoft-redlines.png)
 
 공식 이미지를 앱에서 사용하기 위해 다운로드하려면 사용할 이미지를 마우스 오른쪽 단추로 클릭한 다음, 컴퓨터에 저장합니다.
 
 | 자산                                | PNG 형식 | SVG 형식 |
 | ------------------------------------ | ---------- | ---------- |
-| Microsoft로 로그인(어두운 테마)  | ![로그인 단추 어두운 테마 PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark.png) | ![Microsoft로 로그인 단추 어두운 테마 SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark.svg) |
-| Microsoft로 로그인(밝은 테마) | ![로그인 단추 밝은 테마 PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light.png) | ![Microsoft로 로그인 단추 밝은 테마 SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light.svg) |
-| 로그인(어두운 테마)                 | ![로그인 단문 단추 어두운 테마 PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark_short.png) | ![로그인 단문 단추 어두운 테마 SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark_short.svg) |
-| 로그인(밝은 테마)                | ![로그인 단문 단추 밝은 테마 PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light_short.png) | ![로그인 단문 단추 밝은 테마 SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light_short.svg) |
+| Microsoft로 로그인(어두운 테마)  | ![로그인 단추 어두운 테마 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.png) | ![Microsoft로 로그인 단추 어두운 테마 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.svg) |
+| Microsoft로 로그인(밝은 테마) | ![로그인 단추 밝은 테마 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![Microsoft로 로그인 단추 밝은 테마 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
+| 로그인(어두운 테마)                 | ![로그인 단문 단추 어두운 테마 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![로그인 단문 단추 어두운 테마 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
+| 로그인(밝은 테마)                | ![로그인 단문 단추 밝은 테마 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![로그인 단문 단추 밝은 테마 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
 
 
 ## <a name="branding-dos-and-donts"></a>브랜딩 관련 할 일과 하지 말아야 할 일
