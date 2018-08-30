@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 584a36e766e9e054af2ad1ce4f2105108fe80525
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 1d96c1e8adee55127a50b2d7c374418c22bfec4c
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415666"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050568"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-windows-10-and-windows-server-2016-devices"></a>Windows 10 및 Windows Server 2016 장치에 조인된 하이브리드 Azure Active Directory 문제 해결 
 
@@ -95,7 +95,7 @@ Windows 10 및 Windows Server 2016의 경우 하이브리드 Azure Active Direct
 
 - 이전에 문서에 설명된 것처럼 다시 확인해야 하는 잘못된 서비스 구성이 있을 수 있습니다. 일반적인 예제는 다음과 같습니다.
 
-    - 페더레이션 서버에서 Ws-Trust 끝점이 사용되도록 설정되어 있지 않습니다.
+    - 페더레이션 서버에서 Ws-Trust 엔드포인트가 사용되도록 설정되어 있지 않습니다.
 
     - 페더레이션 서버는 Windows 통합 인증을 사용한 네트워크 컴퓨터에서의 인바운드 인증을 허용하지 않습니다.
 

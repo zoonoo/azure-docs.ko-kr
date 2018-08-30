@@ -3,18 +3,18 @@ title: Azure HDInsight의 Phoenix 성능
 description: Phoenix 성능을 최적화하는 모범 사례입니다.
 services: hdinsight
 author: ashishthaps
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: db00dcad8f3dffbb958158bef9fdb75423eba2f7
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: ff194ef7f5ae609eba5334eb5c66db02d660ab08
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592274"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049634"
 ---
 # <a name="phoenix-performance-best-practices"></a>Phoenix 성능 모범 사례
 

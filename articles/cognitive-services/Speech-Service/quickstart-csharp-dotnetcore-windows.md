@@ -9,16 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 74fb62ffa707188779bcf827d427c61a0b9a4347
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: ee83443c76851506fffbfcaaa12e72790d077cb0
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576341"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128505"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-core-on-windows-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Windows .NET Core의 C#에서 음성을 인식하는 방법 알아보기
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 이 문서에서는 Cognitive Services Speech SDK를 사용하여 Windows .NET Core에서 음성을 텍스트로 변환하는 C# 콘솔 응용 프로그램을 만드는 방법을 설명합니다.
 응용 프로그램은 [Microsoft Cognitive Services Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2017로 빌드되었습니다.
@@ -79,7 +79,7 @@ ms.locfileid: "39576341"
 
     ![성공적인 인식 후 콘솔 출력](media/sdk/qs-csharp-dotnetcore-windows-07-console-output.png "성공적인 인식 후 콘솔 출력")
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 이 예제를 `quickstart/csharp-dotnetcore-windows` 폴더에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

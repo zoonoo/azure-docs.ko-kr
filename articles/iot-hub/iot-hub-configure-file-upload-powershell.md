@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 9cf13589fb83f100dd024e65dfe9178cb54802f2
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: f468567aa67560eed972fb53669638a17778b307
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42142200"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189957"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Azure PowerShell을 사용하여 IoT Hub 파일 업로드 구성
 
@@ -134,4 +134,4 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 * [IoT Hub 개발자 가이드](iot-hub-devguide.md)
 * [Azure IoT Edge를 사용하여 에지 장치에 AI 배포](../iot-edge/tutorial-simulate-device-linux.md)
-* [처음부터 IoT 솔루션 보안 유지](/../iot-fundamentals/iot-security-ground-up.md)
+* [처음부터 IoT 솔루션 보안 유지](../iot-fundamentals/iot-security-ground-up.md)

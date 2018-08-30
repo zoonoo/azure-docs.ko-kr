@@ -4,17 +4,17 @@ description: HDInsight Spark 클러스터와 Azure SQL Database 간에 연결을
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: f1205566d83e830e2892952e34a1a24d0a4c6758
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 2aec894da6b4e5ffd59fee12bc8476b25955c991
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622758"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045799"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>HDInsight Spark 클러스터를 사용하여 Azure SQL Database에서 데이터 읽기 및 쓰기
 
@@ -159,7 +159,7 @@ Azure HDInsight의 Apache Spark 클러스터를 Azure SQL Database에 연결한 
 
     ![SSMS를 사용하여 SQL Database에 연결](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms.png "SSMS를 사용하여 SQL Database에 연결")
 
-    나. 개체 탐색기에서 Azure SQL Database 및 테이블 노드를 확장하고 생성된 **dbo.hvactable**을 확인합니다.
+    b. 개체 탐색기에서 Azure SQL Database 및 테이블 노드를 확장하고 생성된 **dbo.hvactable**을 확인합니다.
 
     ![SSMS를 사용하여 SQL Database에 연결](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms-locate-table.png "SSMS를 사용하여 SQL Database에 연결")
 

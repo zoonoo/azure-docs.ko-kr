@@ -5,17 +5,17 @@ keywords: hiveql,what is hive,hadoop hiveql,how to use hive,learn hive,what is h
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 0ca968c0412396852e531af3b37f6675e0b519db
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 446bb23e15d908c8afe189a33e4d8a70faad284a
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39596663"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126640"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight의 Apache Hive 및 HiveQL이란?
 
@@ -222,7 +222,7 @@ HDInsight는 Interactive Query 클러스터 형식으로 LLAP를 제공합니다
 
 ### <a name="azure-data-factory"></a>Azure 데이터 팩터리
 
-Azure Data Factory를 사용하면 데이터 팩터리 파이프라인의 일부로 HDInsight를 사용할 수 있습니다. 파이프라인에서 Hive를 사용하는 방법에 대한 자세한 내용은 [Azure Data Factory에서 Hive 활동을 사용하여 데이터 변환](/data-factory/transform-data-using-hadoop-hive.md) 문서를 참조하세요.
+Azure Data Factory를 사용하면 데이터 팩터리 파이프라인의 일부로 HDInsight를 사용할 수 있습니다. 파이프라인에서 Hive를 사용하는 방법에 대한 자세한 내용은 [Azure Data Factory에서 Hive 활동을 사용하여 데이터 변환](../../data-factory/transform-data-using-hadoop-hive.md) 문서를 참조하세요.
 
 ### <a name="hive-jobs-and-sql-server-integration-services"></a>Hive 작업 및 SQL Server Integration Services
 

@@ -4,18 +4,18 @@ description: 브라우저, Azure CLI, Azure PowerShell, REST 또는 SDK에서 HD
 keywords: hadoop 클러스터 설정, kafka 클러스터 설정, spark 클러스터 설정, hadoop에서 클러스터란
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 0cb3840c0ce40e062b4de0b7bbd5c9e324d6081f
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.date: 08/27/2018
+ms.openlocfilehash: 0df38e1bd9c4db1cf988beab31b1c3189da4f0c2
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595844"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127910"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터를 설정
 
@@ -86,7 +86,7 @@ Azure HDInsight는 현재 각각이 특정 기능을 제공하는 구성 요소 
 
 ### <a name="enterprise-security-package"></a>엔터프라이즈 보안 패키지
 
-Hadoop, Spark 및 대화형 쿼리 클러스터 형식의 경우 **엔터프라이즈 보안 패키지**를 사용하도록 선택할 수 있습니다. 이 패키지는 Apache Ranger를 사용하고 Azure Active Direcotry와 통합하여 보다 안전한 클러스터를 설정하는 옵션을 제공합니다. 자세한 내용은 [Azure HDInsight의 엔터프라이즈 보안 패키지](./domain-joined/apache-domain-joined-introduction.md)를 참조하세요.
+Hadoop, Spark 및 대화형 쿼리 클러스터 형식의 경우 **엔터프라이즈 보안 패키지**를 사용하도록 선택할 수 있습니다. 이 패키지는 Apache Ranger를 사용하고 Azure Active Directory와 통합하여 보다 안전한 클러스터를 설정하는 옵션을 제공합니다. 자세한 내용은 [Azure HDInsight의 엔터프라이즈 보안 패키지](./domain-joined/apache-domain-joined-introduction.md)를 참조하세요.
 
 ![HDInsight 생성 옵션 선택 엔터프라이즈 보안 패키지](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-enterprise-security-package.png)
 
@@ -99,22 +99,22 @@ HDInsight 클러스터를 사용하면 클러스터 생성 중에 다음과 같�
 * HTTP 사용자: 기본 사용자 이름은 *admin*입니다. Azure Portal에서 기본 구성을 사용합니다. 경우에 따라 "클러스터 사용자"라고도 합니다.
 * SSH 사용자(Linux 클러스터): SSH를 통해 클러스터에 연결하는 데 사용합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-엔터프라이즈 보안 패키지를 사용하면 Active Directory 및 Apache Ranger와 HDInsight를 통합할 수 있습니다. 엔터프라이즈 보안 패키지를 사용하여 여러 사용자를 만들 수 있습니다.
+엔터프라이즈 보안 패키지를 사용하면 Active Directory 및 Apache Ranger와 HDInsight를 통합할 수 있습니다. Enterprise Security Package를 사용하여 여러 사용자를 만들 수 있습니다.
 
 ## <a name="location"></a>클러스터 및 저장소 위치(영역)
 
 클러스터 위치를 명시적으로 지정할 필요가 없습니다. 클러스터는 기본 저장소와 같은 위치에 있습니다. 지원되는 지역 목록은 **HDInsight 가격** 에서 [지역](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)드롭다운 목록을 클릭하세요.
 
-## <a name="storage-endpoints-for-clusters"></a>클러스터에 대한 저장소 끝점
+## <a name="storage-endpoints-for-clusters"></a>클러스터에 대한 저장소 엔드포인트
 
-Hadoop의 온-프레미스 설치가 클러스터의 저장소에 HDFS(Hadoop 분산 파일 시스템)를 사용하고 있더라도 클라우드에서는 클러스터에 연결된 저장소 끝점을 사용합니다. HDInsight 클러스터는 [Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md) 또는 [Azure Storage의 Blob](hdinsight-hadoop-use-blob-storage.md)을 사용합니다. Azure Storage 또는 Data Lake Store를 사용하면 데이터를 보존하면서 계산에 사용한 HDInsight 클러스터를 안전하게 삭제할 수 있습니다. 
+Hadoop의 온-프레미스 설치가 클러스터의 저장소에 HDFS(Hadoop 분산 파일 시스템)를 사용하고 있더라도 클라우드에서는 클러스터에 연결된 저장소 엔드포인트를 사용합니다. HDInsight 클러스터는 [Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md) 또는 [Azure Storage의 Blob](hdinsight-hadoop-use-blob-storage.md)을 사용합니다. Azure Storage 또는 Data Lake Store를 사용하면 데이터를 보존하면서 계산에 사용한 HDInsight 클러스터를 안전하게 삭제할 수 있습니다. 
 
 > [!WARNING]
 > HDInsight 클러스터와 다른 위치에서는 추가 저장소 계정을 사용할 수 없습니다.
 
-구성하는 동안 기본 저장소 끝점에 대해 Azure Storage 계정 또는 Data Lake Store의 Blob 컨테이너를 지정합니다 기본 저장소에는 응용 프로그램 및 시스템 로그가 포함되어 있습니다. 필요에 따라 클러스터에서 액세스할 수 있는 추가 Azure Storage 계정(연결된 저장소) 및 Data Lake Store 계정을 지정할 수 있습니다. HDInsight 클러스터와 종속된 저장소 계정은 같은 Azure 위치에 있어야 합니다.
+구성하는 동안 기본 저장소 엔드포인트에 대해 Azure Storage 계정 또는 Data Lake Store의 Blob 컨테이너를 지정합니다 기본 저장소에는 응용 프로그램 및 시스템 로그가 포함되어 있습니다. 필요에 따라 클러스터에서 액세스할 수 있는 추가 Azure Storage 계정(연결된 저장소) 및 Data Lake Store 계정을 지정할 수 있습니다. HDInsight 클러스터와 종속된 저장소 계정은 같은 Azure 위치에 있어야 합니다.
 
-![클러스터 저장소 설정: HDFS 호환 저장소 끝점](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
+![클러스터 저장소 설정: HDFS 호환 저장소 엔드포인트](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
@@ -140,10 +140,23 @@ Oozie 사용 시 성능을 높이려면 사용자 지정 Metastore를 사용합�
 > [!IMPORTANT]
 > 사용자 지정 Oozie Metastore는 다시 사용할 수 없습니다. 사용자 지정 Oozie Metastore를 사용하려면 HDInsight 클러스터를 만들 때 빈 Azure SQL Database를 제공해야 합니다.
 
+
+## <a name="custom-cluster-setup"></a>사용자 지정 클러스터 설정
+사용자 지정 클러스터 설정은 빨리 만들기 설정에 빌드되며 다음 옵션을 추가합니다.
+- [HDInsight 응용 프로그램](#install-hdinsight-applications-on-clusters)
+- [클러스터 크기](#configure-cluster-size):
+- [스크립트 동작](#advanced-settings-script-actions)
+- [가상 네트워크](#advanced-settings-extend-clusters-with-a-virtual-network)
+
+## <a name="install-hdinsight-applications-on-clusters"></a>클러스터에 HDInsight 응용 프로그램 설치
+
+HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 사용자가 설치할 수 있는 응용 프로그램입니다. Microsoft, 타사에서 제공하거나 또는 직접 개발한 응용 프로그램을 사용할 수 있습니다. 자세한 내용은 [Azure HDInsight에 타사 Hadoop 응용 프로그램 설치](hdinsight-apps-install-applications.md)를 참조하세요.
+
+HDInsight 응용 프로그램 대부분은 빈 Edge 노드에 설치됩니다.  빈 에지 노드는 헤드 노드에 설치되고 구성된 것과 동일한 클라이언트 도구를 사용하는 Linux 가상 머신입니다. 클러스터에 액세스하고, 클라이언트 응용 프로그램을 테스트하며 클라이언트 응용 프로그램을 호스트하는 데 에지 노드를 사용할 수 있습니다. 자세한 내용은 [HDInsight에서 빈 에지 노드 사용](hdinsight-apps-use-edge-node.md)을 참조하세요.
+
 ## <a name="configure-cluster-size"></a>클러스터 크기 구성
 
 클러스터가 있는 동안 노드 사용량에 대해 청구됩니다. 클러스터가 만들어지면 청구가 시작되고 클러스터가 삭제되면 청구가 중지됩니다. 클러스터의 경우 할당을 취소하거나 보류할 수 없습니다.
-
 
 ### <a name="number-of-nodes-for-each-cluster-type"></a>각 클러스터 유형에 대한 노드 수
 각 클러스터 유형에는 자체 노드 수, 노드에 대한 용어 및 기본 VM 크기가 있습니다. 다음 표에서는 각 노드 유형에 대한 노드 수는 괄호로 묶어서 표시됩니다.
@@ -191,20 +204,6 @@ HDInsight만 사용하려는 경우, 하나의 데이터 노드를 사용하는 
 >
 
 자세한 내용은 [가상 머신의 크기](../virtual-machines/windows/sizes.md)를 참조하세요. 다양한 크기의 가격 책정에 대한 자세한 내용은 [HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight)을 참조하세요.   
-
-## <a name="custom-cluster-setup"></a>사용자 지정 클러스터 설정
-사용자 지정 클러스터 설정은 빨리 만들기 설정에 빌드되며 다음 옵션을 추가합니다.
-- [HDInsight 응용 프로그램](#hdinsight-applications)
-- [클러스터 크기](#cluster-size):
-- 고급 설정
-  - [스크립트 동작](#customize-clusters-using-script-action)
-  - [가상 네트워크](#use-virtual-network)
-
-## <a name="install-hdinsight-applications-on-clusters"></a>클러스터에 HDInsight 응용 프로그램 설치
-
-HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 사용자가 설치할 수 있는 응용 프로그램입니다. Microsoft, 타사에서 제공하거나 또는 직접 개발한 응용 프로그램을 사용할 수 있습니다. 자세한 내용은 [Azure HDInsight에 타사 Hadoop 응용 프로그램 설치](hdinsight-apps-install-applications.md)를 참조하세요.
-
-HDInsight 응용 프로그램 대부분은 빈 Edge 노드에 설치됩니다.  빈 에지 노드는 헤드 노드에 설치되고 구성된 것과 동일한 클라이언트 도구를 사용하는 Linux 가상 머신입니다. 클러스터에 액세스하고, 클라이언트 응용 프로그램을 테스트하며 클라이언트 응용 프로그램을 호스트하는 데 에지 노드를 사용할 수 있습니다. 자세한 내용은 [HDInsight에서 빈 에지 노드 사용](hdinsight-apps-use-edge-node.md)을 참조하세요.
 
 ## <a name="advanced-settings-script-actions"></a>고급 설정: 스크립트 작업
 

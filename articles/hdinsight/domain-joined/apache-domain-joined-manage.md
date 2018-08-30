@@ -5,16 +5,16 @@ services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2018
-ms.openlocfilehash: 51feb7099328e366e59519ce108ccd9afc1e277e
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 494049cffe77e23c33528747e04bf96065fac2e2
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597678"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051607"
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>도메인에 가입된 HDInsight 클러스터 관리
 도메인에 가입된 HDInsight의 사용자 및 역할에 대해 알아보고 도메인에 가입된 HDInsight 클러스터를 관리하는 방법을 알아봅니다.
@@ -106,7 +106,7 @@ Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러�
 표준 API를 사용하면 보안 측면에서 도움이 됩니다. 또한 다음과 같은 이점도 얻을 수 있습니다.
 
 1.  **관리** – 표준 API(Livy, HS2 등)를 사용하여 코드를 관리하고 작업을 자동화할 수 있습니다.
-2.  **감사** – SSH를 사용하면 클러스터에 대해 SSH를 수행한 사용자를 감사할 방법이 없습니다. 작업이 사용자 컨텍스트에서 실행될 때처럼 표준 끝점을 통해 생성되는 경우는 여기에 해당되지 않습니다. 
+2.  **감사** – SSH를 사용하면 클러스터에 대해 SSH를 수행한 사용자를 감사할 방법이 없습니다. 작업이 사용자 컨텍스트에서 실행될 때처럼 표준 엔드포인트를 통해 생성되는 경우는 여기에 해당되지 않습니다. 
 
 
 
@@ -157,7 +157,7 @@ Beeline을 로컬로 설치했고 Azure Virtual Network를 통해 연결하는 �
     다른 AD 사용자도 이러한 권한이 있습니다.
 
     클러스터 내에는 Ranger를 통해 관리되지 않는 끝점(예: Templeton)이 있으며, 따라서 이러한 끝점은 안전하지 않습니다. 이러한 끝점은 클러스터 관리 도메인 사용자를 제외한 모든 사용자에게 잠겨 있습니다.
-* **일반**: 클러스터를 만들 때 여러 Active Directory 그룹을 제공할 수 있습니다. 이러한 그룹의 사용자는 Ranger 및 Ambari와 동기화됩니다. 이러한 사용자는 도메인 사용자이며 Ranger를 통해 관리되는 끝점(예: Hiveserver2)에만 액세스할 수 있습니다. 이러한 사용자에게는 모든 RBAC 정책 및 감사가 적용됩니다.
+* **일반**: 클러스터를 만들 때 여러 Active Directory 그룹을 제공할 수 있습니다. 이러한 그룹의 사용자는 Ranger 및 Ambari와 동기화됩니다. 이러한 사용자는 도메인 사용자이며 Ranger를 통해 관리되는 엔드포인트(예: Hiveserver2)에만 액세스할 수 있습니다. 이러한 사용자에게는 모든 RBAC 정책 및 감사가 적용됩니다.
 
 ## <a name="roles-of-domain-joined-hdinsight-clusters"></a>도메인에 가입된 HDInsight 클러스터의 역할
 도메인에 가입된 HDInsight에는 다음과 같은 역할이 있습니다.

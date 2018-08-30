@@ -2,26 +2,20 @@
 title: JavaScript API를 사용하여 보고서와 상호 작용 | Microsoft Docs
 description: Power BI JavaScript API를 사용하면 응용 프로그램에 Power BI 보고서를 쉽게 포함할 수 있습니다.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: bdd885d3-1b00-4dcf-bdff-531eb1f97bfb
 ms.service: power-bi-embedded
-ms.devlang: NA
-ms.topic: hero-article
-ms.tgt_pltfrm: NA
+ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 0b10f0fc39382e1944f11eef925733cbe5733c32
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 32b72444c620b542262db322c5af94e69c49521e
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31411185"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048676"
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>JavaScript API를 사용하여 Power BI 보고서와 상호 작용
 

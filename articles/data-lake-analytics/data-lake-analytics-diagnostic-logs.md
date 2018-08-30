@@ -5,16 +5,15 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
 ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
-ms.openlocfilehash: e65c6396d859a128777c66cad6a44bb033b50d50
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0bade9f393d879123b7b1485052f70924d9c9b9c
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623488"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045484"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics에 대한 진단 로그에 액세스
 
@@ -47,7 +46,7 @@ ms.locfileid: "34623488"
 
    * __저장소 계정에 보관__의 경우 데이터를 보관할 일 수를 지정합니다.
 
-   * __Save__를 클릭합니다.
+   * __저장__을 클릭합니다.
 
         > [!NOTE]
         > __저장__ 단추를 클릭하기 전에 __저장소 계정에 보관__, __이벤트 허브로 스트리밍__ 또는 __Log Analytics로 보내기__를 선택해야 합니다.

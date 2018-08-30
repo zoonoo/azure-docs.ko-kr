@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 2312b0ed51be7079da3e53b27c269adfb761044d
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 4d2837a99c10f1600eb457e20cd7473f9f931302
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131629"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125990"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights 커넥터관 리 솔루션(미리 보기)
 
@@ -44,10 +44,10 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 
 | 연결된 소스 | 지원됨 | 설명 |
 | --- | --- | --- |
-| [Windows 에이전트](log-analytics-windows-agent.md) | 아니오 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
-| [Linux 에이전트](log-analytics-linux-agents.md) | 아니오 | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
-| [SCOM 관리 그룹](log-analytics-om-agents.md) | 아니오 | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
-| [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니오 | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
+| [Windows 에이전트](log-analytics-windows-agent.md) | 아니요 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
+| [Linux 에이전트](log-analytics-linux-agents.md) | 아니요 | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
+| [SCOM 관리 그룹](log-analytics-om-agents.md) | 아니요 | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
+| [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니요 | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -89,7 +89,6 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 
 표에 표시된 블레이드가 대시보드에 포함되어 있습니다. 각 블레이드에는 지정된 범위 및 시간 범위에 대한 해당 블레이드의 기준과 일치하는 항목이 최대 10개까지 나열됩니다. 블레이드 맨 아래에서 **모두 보기**를 클릭하거나 블레이드 헤더를 클릭하면 모든 레코드를 반환하는 로그 검색을 실행할 수 있습니다.
 
-[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | **열** | **설명** |
 | --- | --- |

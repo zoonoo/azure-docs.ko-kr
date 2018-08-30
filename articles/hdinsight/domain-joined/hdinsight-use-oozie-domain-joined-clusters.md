@@ -5,16 +5,16 @@ services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.openlocfilehash: a7f17aafd7798c1bada9fef01a6c8f1022d291f4
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 69bf885ad5d6244997c7ce9cf61bdee9e05c1826
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39616853"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048977"
 ---
 # <a name="run-apache-oozie-in-domain-joined-hdinsight-hadoop-clusters"></a>도메인에 가입된 HDInsight Hadoop 클러스터에서 Apache Oozie 실행
 Oozie는 Hadoop 작업을 관리하는 워크플로 및 코디네이션 시스템입니다. Oozie는 Hadoop 스택과 통합되며 다음 작업을 지원합니다.
@@ -217,7 +217,7 @@ nano workflow.xml
    ```
   
    a. `domainuser`를 도메인에 대한 사용자 이름으로 바꿉니다.  
-   나. `ClusterShortName`을 클러스터의 약식 이름으로 바꿉니다. 예를 들어 클러스터 이름이 https:// *[예제 링크]* sechadoopcontoso.azurehdisnight.net인 경우 `clustershortname`은 클러스터의 첫 6자인 **sechad**입니다.  
+   b. `ClusterShortName`을 클러스터의 약식 이름으로 바꿉니다. 예를 들어 클러스터 이름이 https:// *[예제 링크]* sechadoopcontoso.azurehdisnight.net인 경우 `clustershortname`은 클러스터의 첫 6자인 **sechad**입니다.  
    다. `jdbcurlvalue`를 Hive 구성의 JDBC URL로 바꿉니다. 예를 들어 jdbc:hive2://headnodehost:10001/;transportMode=http입니다.      
    d. 파일을 저장하려면 Ctrl+X를 선택하고 `Y`를 입력한 후 **Enter** 키를 누릅니다.
 

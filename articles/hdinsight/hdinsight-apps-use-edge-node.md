@@ -2,19 +2,19 @@
 title: HDInsight의 Hadoop 클러스터에서 빈 에지 노드 사용 - Azure
 description: 클라이언트로 사용할 수 있는 HDInsight 클러스터에 빈 에지 노드를 추가한 다음 HDInsight 응용 프로그램을 테스트/호스트하는 방법입니다.
 services: hdinsight
-editor: jasonwhowell
+ms.reviewer: jasonh
 author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: jasonh
-ms.openlocfilehash: 225b08e2d83bfb8bdd102924ecf85c89aa48c217
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 1111f3c21e3c3718a9a010284a42ea469e04473d
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39598200"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43090391"
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>HDInsight의 Hadoop 클러스터에서 빈 에지 노드 사용
 
@@ -119,16 +119,16 @@ HDInsight 클러스터에 빈 에지 노드를 추가하는 방법을 알아봅�
 HDInsight 클러스터에 다중 에지 노드를 추가할 수 있습니다.  다중 에지 노드 구성은 Azure Resource Manager 템플릿을 사용해서만 수행할 수 있습니다.  이 문서의 시작 부분에서 템플릿 샘플을 참조하세요.  만들려는 에지 노드 수를 반영하도록 **targetInstanceCount**를 업데이트해야 합니다.
 
 ## <a name="access-an-edge-node"></a>에지 노드 액세스
-에지 노드 ssh 끝점은 &lt;EdgeNodeName>.&lt;ClusterName>-ssh.azurehdinsight.net:22입니다.  예: new-edgenode.myedgenode0914-ssh.azurehdinsight.net:22
+에지 노드 ssh 엔드포인트는 &lt;EdgeNodeName&gt;.&lt;ClusterName&gt;-ssh.azurehdinsight.net:22입니다.  예: new-edgenode.myedgenode0914-ssh.azurehdinsight.net:22
 
 에지 노드는 Azure Portal에서 응용 프로그램으로 나타납니다.  포털은 SSH를 사용하여 에지 노드에 액세스하는 정보를 제공합니다.
 
-**에지 노드 SSH 끝점을 확인하려면**
+**에지 노드 SSH 엔드포인트를 확인하려면**
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 에지 노드를 사용하여 HDInsight 클러스터를 엽니다.
 3. **응용 프로그램**을 클릭합니다. 에지 노드가 표시됩니다.  기본 이름은 **new-edgenode**입니다.
-4. 에지 노드를 클릭합니다. SSH 끝점이 표시됩니다.
+4. 에지 노드를 클릭합니다. SSH 엔드포인트가 표시됩니다.
 
 **에지 노드에서 Hive를 사용하려면**
 

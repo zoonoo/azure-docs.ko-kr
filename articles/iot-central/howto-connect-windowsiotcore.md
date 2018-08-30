@@ -2,18 +2,18 @@
 title: Azure IoT Central 응용 프로그램에 Windows IoT Core 장치 연결 | Microsoft Docs
 description: 장치 개발자로서 Azure IoT Central 응용 프로그램에 MXChip IoT DevKit 장치를 연결하는 방법을 알아봅니다.
 author: miriambrus
-ms.author: mriamb
+ms.author: miriamb
 ms.date: 04/09/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 39eb6f137750f7f741c88dcdf9a55f34d24eaa59
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 73a23ace23d2373e238c6887c4a41c6037d233de
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205751"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189007"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에 Windows IoT Core 장치 연결
 
@@ -44,7 +44,7 @@ Azure IoT Central 응용 프로그램에서 **Windows IoT Core** 장치 템플�
 
 ### <a name="prepare-the-windows-iot-core-device"></a>Windows IoT Core 장치 준비
 
-Windows IoT Core 장치를 설정하려면 [Windows IoT Core 장치 설정](https://github.com/Microsoft/microsoft-iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device)의 단계별 지침을 따릅니다.
+Windows IoT Core 장치를 설정하려면 [Windows IoT Core 장치 설정](https://github.com/Azure/iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device)의 단계별 지침을 따릅니다.
 
 ### <a name="add-a-real-device"></a>실제 장치 추가
 

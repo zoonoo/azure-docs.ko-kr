@@ -1,25 +1,19 @@
 ---
-title: "Azure Data Catalog에 대한 질문과 대답 | Microsoft Docs"
-description: "데이터 원본 검색, 주석 및 관리에 대한 기능을 포함한 Azure Data Catalog에 대한 질문과 대답입니다."
+title: Azure 데이터 카탈로그에 대한 질문과 대답
+description: 데이터 원본 검색, 주석 및 관리에 대한 기능을 포함한 Azure Data Catalog에 대한 질문과 대답입니다.
 services: data-catalog
-documentationcenter: 
 author: steelanddata
-manager: NA
-editor: 
-tags: 
+ms.author: maroche
 ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: 1f69912e654ac243a0c4f30426d17ce4199e498f
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: bb9223e2eef11d3378c228f8cd5242e6ebbbc74d
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053015"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Azure 데이터 카탈로그에 대한 질문과 대답
 이 문서는 Azure Data Catalog 서비스와 관련된 질문에 대한 대답을 제공합니다.

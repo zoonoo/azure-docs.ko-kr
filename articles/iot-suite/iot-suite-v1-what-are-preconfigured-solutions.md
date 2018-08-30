@@ -1,26 +1,18 @@
 ---
 title: 미리 구성된 Azure IoT 솔루션 | Microsoft Docs
 description: 미리 구성된 Azure IoT 솔루션에 대한 솔루션 및 추가 리소스에 대한 링크와 해당 아키텍처에 대한 설명입니다.
-services: ''
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
-manager: timlt
-editor: ''
-ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
 ms.service: iot-suite
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-suite
+ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: d860c768a73737e6c8c52a8652d6b43434a3a07d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9642bfb8bb6b2e6d63082ff8287c1d5b31bbaefa
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361991"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43191537"
 ---
 # <a name="what-are-the-azure-iot-suite-preconfigured-solutions"></a>미리 구성된 Azure IoT Suite 솔루션은 무엇입니까?
 
@@ -40,9 +32,9 @@ ms.locfileid: "34361991"
 
 | 해결 방법 | 데이터 수집 | 장치 ID | 장치 관리 | 명령 및 컨트롤 | 규칙 및 동작 | 예측 분석 |
 | --- | --- | --- | --- | --- | --- | --- |
-| [원격 모니터링][lnk-getstarted-preconfigured] |예 |예 |예 |예 |예 |- |
-| [예측 유지 관리][lnk-predictive-maintenance] |예 |예 |- |예 |예 |예 |
-| [연결된 공장][lnk-getstarted-factory] |예 |예 |예 |예 |예 |- |
+| [원격 모니터링][lnk-getstarted-preconfigured] |yes |예 |예 |예 |yes |- |
+| [예측 유지 관리][lnk-predictive-maintenance] |yes |예 |- |예 |예 |yes |
+| [연결된 공장][lnk-getstarted-factory] |yes |예 |예 |예 |yes |- |
 
 * *데이터 수집*: 클라우드에 대한 대규모 데이터의 수신입니다.
 * *장치 ID*: 고유한 장치 ID를 관리하고 솔루션에 대한 장치 액세스를 제어합니다.
@@ -97,9 +89,9 @@ ms.locfileid: "34361991"
 
 미리 구성된 솔루션에서 IoT Hub 인스턴스는 일반적인 [IoT 솔루션 아키텍처][lnk-what-is-azure-iot]의 *클라우드 게이트웨이*에 해당됩니다.
 
-IoT hub는 단일 끝점의 장치에서 원격 분석을 수신합니다. 또한 IoT hub는 각 장치가 보내 명령을 검색할 수 있는 장치 특정 끝점을 관리합니다.
+IoT hub는 단일 엔드포인트의 장치에서 원격 분석을 수신합니다. 또한 IoT hub는 각 장치가 보내 명령을 검색할 수 있는 장치 특정 엔드포인트를 관리합니다.
 
-IoT hub를 사용하면 서비스 쪽 원격 분석 읽기 끝점을 통해 수신한 원격 분석을 사용할 수 있습니다.
+IoT hub를 사용하면 서비스 쪽 원격 분석 읽기 엔드포인트를 통해 수신한 원격 분석을 사용할 수 있습니다.
 
 IoT Hub의 장치 관리 기능을 통해 다음과 같은 작업을 수행하는 솔루션 포털 및 일정 작업에서 장치 속성을 관리할 수 있습니다.
 
@@ -165,11 +157,11 @@ IoT 솔루션 아키텍처에 대한 자세한 내용은 [Microsoft Azure IoT �
 [img-dashboard]: ./media/iot-suite-v1-what-are-preconfigured-solutions/dashboard.png
 [lnk-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
+[lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-consumers
 [lnk-web-job]: ../app-service/web-sites-create-web-jobs.md
 [lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
-[lnk-predictive-maintenance]: iot-suite-predictive-overview.md
-[lnk-azureiotsuite]: https://www.azureiotsuite.com/
+[lnk-predictive-maintenance]:../iot-accelerators/iot-accelerators-predictive-overview.md
+[lnk-azureiotsuite]: https://www.azureiotsolutions.com/
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-getstarted-preconfigured]: iot-suite-v1-getstarted-preconfigured-solutions.md
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md

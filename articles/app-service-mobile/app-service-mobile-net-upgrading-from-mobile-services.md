@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 05041637aa5cbb044e6731208825f75edec83352
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 25eb5c732927dcfb18bfd92991391ff99d4e3629
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32157047"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918261"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>기존 .NET Azure 모바일 서비스를 App Service로 업그레이드
 App Service 모바일은 Microsoft Azure를 사용하여 모바일 응용 프로그램을 빌드하는 새로운 방법입니다. 자세한 내용은 [Mobile Apps 정의]를 참조하세요.
@@ -40,7 +40,7 @@ App Service 모바일은 Microsoft Azure를 사용하여 모바일 응용 프로
 새 [Mobile Apps SDK](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/)의 업그레이드는 다음과 같은 이점을 제공합니다.
 
 * NuGet 종속성에서 유연성이 증가합니다. 호스팅 환경이 고유한 버전의 NuGet 패키지를 더 이상 제공하지 않으므로 호환되는 대체 버전을 사용할 수 있습니다. 그러나 모바일 서버 SDK 또는 종속성에 대한 새 주요 오류수정 또는 보안 업데이트가 있는 경우 서비스를 수동으로 업데이트해야 합니다.
-* 모바일 SDK에서 유연성이 증가합니다. 인증, 테이블 API 및 푸시 등록 끝점 등 어떤 기능 및 경로를 설정할 것인지 명시적으로 제어할 수 있습니다. 자세한 내용은 [Azure Mobile Apps용 .NET 서버 SDK를 사용하는 방법](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
+* 모바일 SDK에서 유연성이 증가합니다. 인증, 테이블 API 및 푸시 등록 엔드포인트 등 어떤 기능 및 경로를 설정할 것인지 명시적으로 제어할 수 있습니다. 자세한 내용은 [Azure Mobile Apps용 .NET 서버 SDK를 사용하는 방법](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
 * 다른 ASP.NET 프로젝트 형식 및 경로를 지원합니다. 이제 모바일 백 엔드 프로젝트와 동일한 프로젝트에서 MVC 및 Web API 컨트롤러를 호스팅할 수 있습니다.
 * 새로운 App Service 인증 기능을 지원하며 이는 웹 및 모바일 앱에서 일반 인증 구성을 사용할 수 있게 합니다.
 
@@ -64,16 +64,16 @@ Mobile Services 클라이언트 SDK는 새 Mobile Apps 서버 SDK와 호환할 �
 4. (선택 사항) 원래 마이그레이션된 인스턴스 삭제
 
 ## <a name="mobile-app-version"></a>두 번째 응용 프로그램 인스턴스 만들기
-업그레이드의 첫 번째 단계는 새 버전의 응용 프로그램을 호스트할 모바일 앱 리소스를 만드는 것입니다. 기존 모바일 서비스를 이미 마이그레이션한 경우 동일한 호스팅 계획에 이 버전을 만들려고 합니다. [Azure 포털] 을 열고 마이그레이션된 응용 프로그램으로 이동합니다. App Service 계획에서 실행 중인지 확인합니다.
+업그레이드의 첫 번째 단계는 새 버전의 응용 프로그램을 호스트할 모바일 앱 리소스를 만드는 것입니다. 기존 모바일 서비스를 이미 마이그레이션한 경우 동일한 호스팅 계획에 이 버전을 만들려고 합니다. [Azure Portal] 을 열고 마이그레이션된 응용 프로그램으로 이동합니다. App Service 계획에서 실행 중인지 확인합니다.
 
 다음으로 [.NET 백 엔드 만들기 지침](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app)을 수행하여 두 번째 응용 프로그램 인스턴스를 만듭니다. App Service 계획 또는 "호스팅 계획"을 선택하라는 메시지가 나타나면 마이그레이션된 응용 프로그램의 계획을 선택합니다.
 
-Mobile Services와 동일한 데이터베이스 및 알림 허브를 사용하려는 경우가 많습니다. [Azure 포털]을 열고 원래 응용 프로그램 탐색하여 이러한 값을 복사한 다음 **설정** > **응용 프로그램 설정**을 클릭할 수 있습니다. **연결 문자열**에서 `MS_NotificationHubConnectionString` 및 `MS_TableConnectionString`을 복사합니다. 새 업그레이드 사이트로 이동하고 붙여 넣어 기존 값을 덮어씁니다. 앱에 필요한 다른 응용 프로그램 설정에 이 프로세스를 반복합니다. 마이그레이션된 서비스를 사용하지 않는 경우 **Azure 클래식 포털** 에 있는 Mobile Services 섹션의 [구성]탭에서 연결 문자열 및 앱 설정을 읽을 수 있습니다.
+Mobile Services와 동일한 데이터베이스 및 알림 허브를 사용하려는 경우가 많습니다. [Azure Portal]을 열고 원래 응용 프로그램 탐색하여 이러한 값을 복사한 다음 **설정** > **응용 프로그램 설정**을 클릭할 수 있습니다. **연결 문자열**에서 `MS_NotificationHubConnectionString` 및 `MS_TableConnectionString`을 복사합니다. 새 업그레이드 사이트로 이동하고 붙여 넣어 기존 값을 덮어씁니다. 앱에 필요한 다른 응용 프로그램 설정에 이 프로세스를 반복합니다. 마이그레이션된 서비스를 사용하지 않는 경우 **Azure 클래식 포털** 에 있는 Mobile Services 섹션의 [구성]탭에서 연결 문자열 및 앱 설정을 읽을 수 있습니다.
 
 응용 프로그램에 대한 ASP.NET 프로젝트의 복사본을 만들고 새 사이트에 게시합니다. 새 URL를 통해 업데이트된 클라이언트 응용 프로그램의 복사본을 사용하여 모든 작업이 예상 대로 작동하는 것을 확인합니다.
 
 ## <a name="updating-the-server-project"></a>서버 프로젝트 업데이트
-Mobile Apps는 Mobile Services 런타임과 동일한 기능을 대부분 제공하는 새로운 [Mobile Apps 서버 SDK]를 제공합니다. 먼저 Mobile Services 패키지에 대한 모든 참조를 제거해야 합니다. NuGet 패키지 관리자에서 `WindowsAzure.MobileServices.Backend`를 검색합니다. 대부분의 앱에서 `WindowsAzure.MobileServices.Backend.Tables` 및 `WindowsAzure.MobileServices.Backend.Entity`를 포함하여 여러 패키지가 나타납니다. 이 경우 `Entity`와 같은 종속성 트리에서 가장 낮은 패키지를 시작하고 제거합니다. 메시지가 표시되면 모든 종속 패키지를 제거하지 마십시오. `WindowsAzure.MobileServices.Backend` 자체를 제거할 때까지 이 프로세스를 반복합니다.
+Mobile Apps는 Mobile Services 런타임과 동일한 기능을 대부분 제공하는 새로운 [모바일 앱 서버 SDK]를 제공합니다. 먼저 Mobile Services 패키지에 대한 모든 참조를 제거해야 합니다. NuGet 패키지 관리자에서 `WindowsAzure.MobileServices.Backend`를 검색합니다. 대부분의 앱에서 `WindowsAzure.MobileServices.Backend.Tables` 및 `WindowsAzure.MobileServices.Backend.Entity`를 포함하여 여러 패키지가 나타납니다. 이 경우 `Entity`와 같은 종속성 트리에서 가장 낮은 패키지를 시작하고 제거합니다. 메시지가 표시되면 모든 종속 패키지를 제거하지 마십시오. `WindowsAzure.MobileServices.Backend` 자체를 제거할 때까지 이 프로세스를 반복합니다.
 
 이 시점에서 더 이상 Mobile Services SDK를 참조하지 않는 프로젝트가 있습니다.
 
@@ -201,7 +201,7 @@ Mobile Services는 ASP.NET CORS 솔루션을 래핑하여 CORS에 대한 지원�
 푸시를 위해 서버 SDK에서 누락된 주요 항목은 PushRegistrationHandler 클래스입니다. Mobile Apps에서는 등록이 약간 다르게 처리되며, 기본적으로 태그 없는 등록이 사용됩니다. 사용자 지정 API를 통해 태그를 관리할 수 있습니다. 자세한 정보는 [태그에 대한 등록](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags) 지침을 참조하세요.
 
 ### <a name="scheduled-jobs"></a>예약된 작업
-예약된 작업은 Mobile Apps에 빌드되지 않으므로 .NET 백 엔드에 있는 기존 작업을 모두 개별적으로 업그레이드해야 합니다. 한 가지 옵션은 모바일 앱 코드 사이트에 예약된 [웹 작업] 을 만드는 것입니다. 작업 코드를 포함하는 컨트롤러를 설정하고 예상 일정에 따라 해당 끝점에 도달하도록 [Azure Scheduler]를 구성할 수도 있습니다.
+예약된 작업은 Mobile Apps에 빌드되지 않으므로 .NET 백 엔드에 있는 기존 작업을 모두 개별적으로 업그레이드해야 합니다. 한 가지 옵션은 모바일 앱 코드 사이트에 예약된 [웹 작업] 을 만드는 것입니다. 작업 코드를 포함하는 컨트롤러를 설정하고 예상 일정에 따라 해당 엔드포인트에 도달하도록 [Azure Scheduler]를 구성할 수도 있습니다.
 
 ### <a name="miscellaneous-changes"></a>기타 변경 내용
 모바일 클라이언트에서 사용될 수 있는 모든 ApiControllers에는 이제 `[MobileAppController]` 특성이 있어야 합니다. 더 이상 기본적으로 포함되지 않으므로 다른 ApiControllers는 모바일 포맷터에 의해 영향을 받지 않았습니다.
@@ -258,15 +258,15 @@ AAD, Facebook, Google 등의 일부 공급자의 경우 복사 응용 프로그�
 
 <!-- URLs. -->
 
-[Azure 포털]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [구성]: https://manage.windowsazure.com/
 [Mobile Apps 정의]: app-service-mobile-value-prop.md
 [I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
-[Mobile Apps 서버 SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
+[모바일 앱 서버 SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
 [Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
-[Azure Scheduler]: /en-us/documentation/services/scheduler/
+[Azure Scheduler]: /azure/scheduler/
 [웹 작업]: https://github.com/Azure/azure-webjobs-sdk/wiki
 [.NET 서버 SDK를 사용하는 방법]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md

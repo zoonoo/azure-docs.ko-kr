@@ -2,19 +2,19 @@
 title: Azure HDInsight 릴리스 정보
 description: Azure HDInsight에 대한 최신 릴리스 정보입니다. Hadoop, Spark, R Server, Hive 등에 대한 개발 팁 및 세부 정보를 확인하세요.
 services: hdinsight
-editor: jasonwhowell
+ms.reviewer: jasonh
 author: jasonwhowell
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jasonh
-ms.openlocfilehash: c6c320786611e9e2646000fb2272ced8fa90d194
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 5078ee68e559959390d439ed1ef9f8e199d2f083
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39596038"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43090153"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Azure HDInsight 릴리스 정보
 
@@ -35,7 +35,7 @@ Azure HDInsight는 Azure에서 오픈 소스 Hadoop 및 Spark 분석을 위해 �
 
     a.  [**Spark 2.3의 새로운 기능**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
-    나.  [**Kafka 1.0의 새로운 기능**](https://www.apache.org/dist/kafka/1.0.0/RELEASE_NOTES.html)
+    b.  [**Kafka 1.0의 새로운 기능**](https://www.apache.org/dist/kafka/1.0.0/RELEASE_NOTES.html)
 
 2.  ***R Server 9.1을 Machine Learning Services 9.3으로 업데이트*** - 이 릴리스에서는 데이터 과학자와 엔지니어에게 알고리즘 혁신과 간편한 운영화를 통해 향상된 최상의 오픈 소스를 제공합니다. 모두 원하는 언어로 Apache Spark의 속도로 사용할 수 있습니다. 이 릴리스는 Python에 대한 추가 지원을 통해 R Server에서 제공되는 기능을 확장하므로 클러스터 이름이 R 서버에서 ML 서비스로 변경됩니다. 
 

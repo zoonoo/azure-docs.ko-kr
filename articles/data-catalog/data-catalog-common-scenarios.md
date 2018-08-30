@@ -1,25 +1,19 @@
 ---
-title: "Azure Data Catalog 일반적인 시나리오| Microsoft Docs"
-description: "높은 가치의 데이터 원본 등록 및 검색을 포함한 Azure Data Catalog에 대한 일반적인 시나리오의 개요를 통해 셀프서비스 비즈니스 인텔리전스를 실현하고 데이터 원본과 프로세스에 대한 기존 정보를 획득합니다."
+title: Azure 데이터 카탈로그 일반적인 시나리오
+description: 높은 가치의 데이터 원본 등록 및 검색을 포함한 Azure Data Catalog에 대한 일반적인 시나리오의 개요를 통해 셀프서비스 비즈니스 인텔리전스를 실현하고 데이터 원본과 프로세스에 대한 기존 정보를 획득합니다.
 services: data-catalog
-documentationcenter: 
 author: steelanddata
-manager: NA
-editor: 
-tags: 
+ms.author: maroche
 ms.assetid: 60930d78-d2d4-4d5d-9651-bdda50b0da0e
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: 156710ad50349e8a3632e31c7752387d4449a65d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 4c3fe6f85ec1ae04127e4a420fe1f85b18318aef
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053068"
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Azure 데이터 카탈로그 일반적인 시나리오
 이 문서에서는 조직에서 Azure Data Catalog를 통해 기존 데이터 원본에서 더 많은 가치를 얻을 수 있는 일반적인 시나리오를 보여줍니다.

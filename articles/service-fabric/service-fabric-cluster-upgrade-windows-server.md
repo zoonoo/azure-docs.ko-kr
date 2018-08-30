@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 9c2534644a0627bac9765621691cbba6ffccfe35
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 93b79b7adacdec18912d28bb9725e2dc77737d59
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391314"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050766"
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>Windows Server에서 독립 실행형 Azure Service Fabric 클러스터 업그레이드 
 > [!div class="op_single_selector"]
@@ -162,7 +162,7 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
     Register-ServiceFabricClusterPackage -Code -CodePackagePath <name of the .cab file>
 
     ###### Here is a filled-out example
-    Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
+    Register-ServiceFabricClusterPackage -Code -CodePackagePath .\MicrosoftAzureServiceFabric.5.3.301.9590.cab
 
      ```
 6. 사용 가능한 버전으로의 클러스터 업그레이드를 시작합니다.
@@ -203,7 +203,7 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
 
 ```
 
-끝점, 클러스터 이름, 노드 IP 등의 일부 구성은 업그레이드할 수 없습니다. 새 클러스터 구성 JSON은 이전 JSON과 비교하여 테스트되었으며, 문제가 있으면 PowerShell 창에서 오류가 throw됩니다.
+엔드포인트, 클러스터 이름, 노드 IP 등의 일부 구성은 업그레이드할 수 없습니다. 새 클러스터 구성 JSON은 이전 JSON과 비교하여 테스트되었으며, 문제가 있으면 PowerShell 창에서 오류가 throw됩니다.
 
 클러스터 구성을 업그레이드하려면 [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade)를 실행합니다. 업그레이드 도메인으로 구성 업그레이드가 처리됩니다.
 

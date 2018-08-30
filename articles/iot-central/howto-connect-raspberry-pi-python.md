@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: a3d6ad9f2f442481908bc02252fcc8ab1a74419e
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: aa2d8f50d8fb4ba356af20a290976b8b32601ebf
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205591"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188794"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Azure IoT Central 응용 프로그램에 Raspberry Pi 연결(Python)
 
@@ -53,9 +53,9 @@ Azure IoT Central 응용 프로그램에서 **Raspberry Pi** 장치 템플릿으
 * Azure IoT Central에서 수행된 설정 변경에 응답합니다.
 
 > [!NOTE]
-> Raspberry Pi Python 샘플에 대한 자세한 내용은 GitHub의 [Readme](https://github.com/Microsoft/microsoft-iot-central-firmware/blob/master/RaspberryPi/README.md) 파일을 참조하세요.
+> Raspberry Pi Python 샘플에 대한 자세한 내용은 GitHub의 [Readme](https://github.com/Azure/iot-central-firmware/blob/master/RaspberryPi/README.md) 파일을 참조하세요.
 
-1. Raspberry Pi 데스크톱에서 웹 브라우저를 사용하여 [Azure IoT Central 펌웨어 릴리스](https://github.com/Microsoft/microsoft-iot-central-firmware/releases) 페이지로 이동합니다.
+1. Raspberry Pi 데스크톱에서 웹 브라우저를 사용하여 [Azure IoT Central 펌웨어 릴리스](https://github.com/Azure/iot-central-firmware/releases) 페이지로 이동합니다.
 
 1. 최신 펌웨어가 들어 있는 Zip 파일을 Raspberry Pi의 홈 폴더에 다운로드합니다. 파일 이름은 `RaspberryPi-IoTCentral-X.X.X.zip` 형식입니다.
 

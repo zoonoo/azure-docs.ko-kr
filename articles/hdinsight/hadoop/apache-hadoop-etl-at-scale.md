@@ -3,18 +3,18 @@ title: 규모에 맞게 ETL(추출, 변환 및 로드) - Azure HDInsight
 description: Hadoop과 함께 HDInsight에서 ETL을 사용하는 방법을 알아봅니다.
 services: hdinsight
 author: ashishthaps
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: bae6fde75e0939fc1f3f2f9c14f275d18ea2c4e2
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 6af55bf8311efc14687ee16c3226988fd730081d
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39598615"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049005"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>규모에 맞게 ETL(추출, 변환 및 로드)
 

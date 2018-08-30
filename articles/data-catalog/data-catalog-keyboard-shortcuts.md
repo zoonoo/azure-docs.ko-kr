@@ -1,25 +1,19 @@
 ---
-title: "Azure Data Catalog에 대한 키보드 바로 가기 | Microsoft Docs"
-description: "이 문서는 Azure 데이터 카탈로그에 대한 키보드 바로 가기를 보여줍니다."
+title: Azure 데이터 카탈로그에 대한 키보드 바로 가기
+description: 이 문서는 Azure 데이터 카탈로그에 대한 키보드 바로 가기를 보여줍니다.
 services: data-catalog
-documentationcenter: 
 author: spelluru
-manager: NA
-editor: 
-tags: 
+ms.author: spelluru
 ms.assetid: 00b77c88-fbca-4e6f-a175-d40b5cbbf144
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: spelluru
-ms.openlocfilehash: 537ed3bccf7d3306628b7a64ba0866f0e51a03e5
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 06a93b23738aa7bc5899de8b8618d824fd24c1d1
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43052967"
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Azure 데이터 카탈로그에 대한 키보드 바로 가기
 ## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>데이터 카탈로그 데이터 원본 등록 도구에 대한 바로 가기 키

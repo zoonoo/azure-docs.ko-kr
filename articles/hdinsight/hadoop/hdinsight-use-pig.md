@@ -4,17 +4,17 @@ description: HDInsight에서 Hadoop와 함께 Pig를 사용하는 방법에 대�
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 7f469efb536f8c2dfc95cfe1770544b93c06b29f
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: e97763adbe7998ed93e3ba8b87d89ffe8d8de6aa
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597262"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045448"
 ---
 # <a name="use-pig-with-hadoop-on-hdinsight"></a>HDInsight에서 Hadoop과 Pig 사용
 
@@ -62,7 +62,7 @@ Pig와 UDF를 사용하는 예로, 다음 문서를 참조하십시오:
 
 HDInsight에서는 `/example/data` 및 `/HdiSamples` 디렉터리에 저장되는 다양한 예제 데이터 집합을 제공합니다. 이러한 디렉터리는 클러스터의 기본 저장소에 있습니다. 이 문서의 Pig 예제는 `/example/data/sample.log`의 *log4j* 파일을 사용합니다.
 
-파일 내부의 각 로그는 유형과 심각도를 표시하는 `[LOG LEVEL]` 필드가 포함된 필드의 줄로 구성되어 있습니다. 예를 들어:
+파일 내부의 각 로그는 유형과 심각도를 표시하는 `[LOG LEVEL]`  필드가 포함된 필드의 줄로 구성되어 있습니다. 예를 들어:
 
     2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: b6078ac326fe51f4198137eec2de728b6036c271
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 7cb78647b8ae17e066f05acc32668d5c0c8b4ff5
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141778"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127680"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Log Analytics의 VMware 모니터링(미리 보기) 솔루션
 
@@ -153,8 +153,6 @@ ESXi 호스트마다 가상 머신을 만들고 삭제할 수 있습니다. 이�
 
 #### <a name="common-search-queries"></a>일반적 검색 쿼리
 솔루션에는 대규모 저장소 공간, 저장소 대기 시간, 경로 오류 등 ESXi 호스트를 관리하는 데 유용한 쿼리들이 포함되어 있습니다.
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![쿼리](./media/log-analytics-vmware/queries.png)
 

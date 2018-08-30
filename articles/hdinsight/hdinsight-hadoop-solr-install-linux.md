@@ -3,18 +3,18 @@ title: 스크립트 작업을 사용하여 Linux 기반 HDInsight에 Solr 설치
 description: 스크립트 작업을 사용하여 Linux 기반 HDInsight Hadoop 클러스터에 Solr를 설치하는 방법에 대해 알아봅니다.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: jasonh
-ms.openlocfilehash: 35a7410a5a30e248069ba31ad4213eff58680dcc
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 205983344be8ae5bbe566a208ceb862b2e93cb8d
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597772"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093100"
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터에서 Solr 설치 및 사용
 
@@ -169,7 +169,7 @@ Solr이 설치된 클러스터를 만들려면 [HDInsight 클러스터 만들기
 
 ### <a name="using-the-solr-dashboard"></a>Solr 대시보드 사용
 
-Solr 대시보드는 웹 브라우저를 통해 Solr로 작업할 수 있는 웹 UI입니다. Solr 대시보드는 HDInsight 클러스터에서 인터넷에 직접 드러나지 않지만 SSH 터널을 사용하여 액세스할 수 있습니다. SSH 터널 사용에 대한 자세한 내용은 [HDInsight와 SSH 터널 사용](hdinsight-linux-ambari-ssh-tunnel.md) 문서를 참조하세요.
+Solr 대시보드는  웹 브라우저를 통해 Solr로 작업할 수 있는 웹 UI입니다. Solr 대시보드는 HDInsight 클러스터에서 인터넷에 직접 드러나지 않지만 SSH 터널을 사용하여 액세스할 수 있습니다. SSH 터널 사용에 대한 자세한 내용은 [HDInsight와 SSH 터널 사용](hdinsight-linux-ambari-ssh-tunnel.md) 문서를 참조하세요.
 
 SSH 터널을 설정하면 다음 단계를 수행하여 Solr 대시보드를 사용합니다.
 

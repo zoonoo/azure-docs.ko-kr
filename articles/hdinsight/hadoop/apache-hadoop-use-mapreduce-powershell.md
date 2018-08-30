@@ -3,18 +3,18 @@ title: Hadoop과 MapReduce 및 PowerShell 사용 - Azure HDInsight
 description: PowerShell을 사용하여 HDInsight에서 Hadoop으로 MapReduce 작업을 원격으로 실행하는 방법에 대해 알아봅니다.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: jasonh
-ms.openlocfilehash: cab6fc652fa11db7dd1e9e9ae7f0a1a634dca3b0
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 5f2b6f11a611446ca13dff074b36a4040fb27d62
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591823"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049049"
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>PowerShell을 사용하여 HDInsight에서 Hadoop과 MapReduce 작업 실행
 

@@ -9,12 +9,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: 5542c1c0eee5e4c7c85c566908dc8999b118f06e
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f5b916ba3b6b044f12b84958b2eb69f44e2f8136
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37032442"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888144"
 ---
 # <a name="supported-languages-in-the-microsoft-translator-text-api"></a>Microsoft Translator Text API에서 지원되는 언어
 
@@ -187,8 +187,8 @@ Microsoft Translator Text API는 다음 언어로 텍스트를 번역하도록 �
 | 불가리아어 |
 | 카탈로니아어 |
 | 중국어 |
-| Chinese_Simplified |
-| Chinese_Traditional |
+| 중국어 (간체) |
+| 중국어 (번체) |
 | 크로아티아어 |
 | 체코어 |
 | 덴마크어 |
@@ -201,7 +201,7 @@ Microsoft Translator Text API는 다음 언어로 텍스트를 번역하도록 �
 | 갈리시아어 |
 | 독일어 |
 | 그리스어 |
-| Haitian_Creole |
+| 아이티 크리올 |
 | 히브리어 |
 | 힌디어 |
 | 헝가리어 |
@@ -211,8 +211,8 @@ Microsoft Translator Text API는 다음 언어로 텍스트를 번역하도록 �
 | 이탈리아어 |
 | 일본어 |
 | 한국어 |
-| Kurdish_Arabic |
-| Kurdish_Latin |
+| 쿠르드어(아랍어) |
+| 쿠르드어(라틴 문자) |
 | 라틴어 |
 | 라트비아어 |
 | 리투아니아어 |
@@ -220,15 +220,15 @@ Microsoft Translator Text API는 다음 언어로 텍스트를 번역하도록 �
 | 말레이어 |
 | 몰타어 |
 | 노르웨이어 |
-| Norwegian_Nynorsk |
+| 노르웨이어(니노르스크) |
 | 파슈토어 |
 | 페르시아어 |
 | 폴란드어 |
 | 포르투갈어 |
 | 루마니아어 |
 | 러시아어 |
-| Serbian_Cyrillic |
-| Serbian_Latin |
+| 세르비아어(키릴자모) |
+| 세르비아어(라틴 문자) |
 | 슬로바키아어 |
 | 슬로베니아어 |
 | 소말리아어 |
@@ -240,8 +240,8 @@ Microsoft Translator Text API는 다음 언어로 텍스트를 번역하도록 �
 | 터키어 |
 | 우크라이나어 |
 | 우르두어 |
-| Uzbek_Cyrillic |
-| Uzbek_Latin |
+| 우즈베크어(키릴 자모) |
+| 우즈베크어(라틴 문자) |
 | 베트남어 |
 | 웨일스어 |
 | 이디시어 |

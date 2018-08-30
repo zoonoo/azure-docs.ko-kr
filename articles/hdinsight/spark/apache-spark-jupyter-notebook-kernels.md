@@ -4,18 +4,18 @@ description: Azure HDInsight에서 Spark 클러스터와 함께 Jupyter 노트�
 keywords: spark의 jupyter 노트북, jupyter spark
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jasonh
-ms.openlocfilehash: 76ad70c35fc790d06b12812151346fef485e48e6
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 589c02a78c78f415fe59d911f9f6339bfa3fb293
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619504"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051546"
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight에서 Spark 클러스터의 Jupyter 노트북에 대한 커널 
 
@@ -77,13 +77,13 @@ HDInsight Spark 클러스터는 응용 프로그램 테스트를 위해 Spark에
    | 매직 | 예 | 설명 |
    | --- | --- | --- |
    | help |`%%help` |예제 및 설명과 함께 사용할 수 있는 모든 매직이 포함된 테이블을 생성합니다. |
-   | info |`%%info` |현재 Livy 끝점에 대한 출력 세션 정보 |
+   | info |`%%info` |현재 Livy 엔드포인트에 대한 출력 세션 정보 |
    | 구성 |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |세션 만들기에 대한 매개 변수를 구성합니다. 이미 세션이 만들어진 경우 강제 플래그(-f)가 필수이며 이렇게 하면 세션을 삭제 후 다시 만들 수 있습니다. 유효한 매개 변수 목록은 [Livy의 POST /sessions Request Body](https://github.com/cloudera/livy#request-body) 를 참조하세요. 매개 변수는 JSON 문자열로 전달되어야 하며, 아래 예제 열과 같이 매직 뒤의 다음 줄에 있어야 합니다. |
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |sqlContext에 대해 Hive 쿼리를 실행합니다. `-o` 매개 변수가 전달된 경우 쿼리 결과가 %%local Python 컨텍스트에서 [Pandas](http://pandas.pydata.org/) 데이터 프레임으로 유지됩니다. |
    | local |`%%local`<br>`a=1` |다음 줄의 모든 코드는 로컬로 실행됩니다. 코드는 사용 중인 커널에 관계없이 유효한 Python2 코드여야 합니다. 따라서 Notebook을 만드는 동안 **PySpark3** 또는 **Spark** 커널을 선택하더라도 셀에서 `%%local` 매직을 사용하면 해당 셀은 유효한 Python2 코드만 포함해야 합니다. |
    | 로그 |`%%logs` |현재 Livy 세션에 대한 로그를 출력합니다. |
-   | delete |`%%delete -f -s <session number>` |현재 Livy 끝점의 특정 세션을 삭제합니다. 커널 자체에 대해 시작된 세션은 삭제할 수 없습니다. |
-   | cleanup |`%%cleanup -f` |이 노트북의 세션을 포함하여 현재 Livy 끝점에 대한 모든 세션을 삭제합니다. 강제 플래그 -f는 필수입니다. |
+   | delete |`%%delete -f -s <session number>` |현재 Livy 엔드포인트의 특정 세션을 삭제합니다. 커널 자체에 대해 시작된 세션은 삭제할 수 없습니다. |
+   | cleanup |`%%cleanup -f` |이 노트북의 세션을 포함하여 현재 Livy 엔드포인트에 대한 모든 세션을 삭제합니다. 강제 플래그 -f는 필수입니다. |
 
    > [!NOTE]
    > PySpark 커널에서 추가한 매직 외에도 `%%sh`를 포함하여 [기본 제공 IPython 매직](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics)도 사용할 수 있습니다. `%%sh` 매직을 사용하면 클러스터 헤드 노드에서 스크립트 및 코드 블록을 실행할 수 있습니다.

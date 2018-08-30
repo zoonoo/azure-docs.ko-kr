@@ -2,26 +2,20 @@
 title: Power BI 작업 영역 컬렉션이란?
 description: Power BI Embedded를 사용하면 Power BI 보고서를 웹 또는 모바일 응용 프로그램으로 통합할 수 있으므로 사용자 지정 솔루션을 빌드할 필요가 없습니다.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 03649b72-b7d7-40ca-b077-12356d72d4f3
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 0bd6ba74d176ed1db1e8f1f1b38646182da2c379
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 73b13dcea84ba322072217c3feacebdefb3bf1e6
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31412580"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43052042"
 ---
 # <a name="what-are-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션이란?
 

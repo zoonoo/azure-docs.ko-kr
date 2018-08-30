@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: bdf56a85c43513f573c02e3b28cd93f28217814b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 7ce8afa04751cd38e64b9ed920a6f863781e3ad1
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128965"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126284"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>System Center Operations Manager Health Check(미리 보기) 솔루션을 사용하여 환경 최적화
 
@@ -228,8 +228,6 @@ Log Analytics에서 상태 검사 솔루션을 사용하려면 먼저 솔루션�
 ## <a name="ignore-recommendations"></a>권장 사항 무시
 
 무시하려는 권장 사항이 있는 경우 Log Analytics에서 평가 결과에 권장 사항이 표시되는 것을 방지하는 데 사용할 텍스트 파일을 만들 수 있습니다.
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>무시할 권장 사항을 식별하려면
 1. Azure Portal에서 선택한 작업 영역에 대한 Log Analytics 작업 영역 페이지에서 **로그 검색** 메뉴 항목을 클릭합니다.

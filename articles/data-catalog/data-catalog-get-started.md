@@ -1,25 +1,19 @@
 ---
-title: "데이터 카탈로그 시작 | Microsoft 문서"
-description: "Azure Data Catalog의 시나리오 및 기능을 제공하는 종단간 자습서입니다."
-documentationcenter: 
+title: Azure 데이터 카탈로그 시작
+description: Azure Data Catalog의 시나리오 및 기능을 제공하는 종단간 자습서입니다.
 services: data-catalog
 author: steelanddata
-manager: jhubbard
-editor: 
-tags: 
+ms.author: spelluru
 ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: spelluru
-ms.openlocfilehash: d67f8871bbdd87e8a67057e6e8c5d4d770e5cad6
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: c65f5c2ca3f162c17d036198c4285f9c965bbd53
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053177"
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Azure 데이터 카탈로그 시작
 Azure Data Catalog는 기업 데이터 자산의 등록 시스템 및 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 자세한 개요는 [Azure Data Catalog란](data-catalog-what-is-data-catalog.md)을 참조하세요.
@@ -40,14 +34,14 @@ Azure Data Catalog는 기업 데이터 자산의 등록 시스템 및 검색 시
 ### <a name="azure-subscription"></a>Azure 구독
 Azure Data Catalog를 설정하려면 Azure 구독의 소유자 또는 공동 소유자여야 합니다.
 
-Azure 구독에서는 Azure 데이터 카탈로그와 같은 클라우드 서비스 리소스에 대한 액세스를 구성할 수 있습니다. 리소스 사용을 보고하고, 요금을 청구하고, 지불하는 방식을 제어할 수도 있습니다. 각 구독은 청구 및 지불 설정이 다를 수 있으므로 부서, 프로젝트, 지사 등에 따라 구독 및 계획이 다를 수 있습니다. 모든 클라우드 서비스는 구독에 속하고 Azure 데이터 카탈로그를 설정하기 전에 구독을 보유해야 합니다. 자세한 내용은 [계정, 구독 및 관리 역할 관리](../active-directory/active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
+Azure 구독에서는 Azure 데이터 카탈로그와 같은 클라우드 서비스 리소스에 대한 액세스를 구성할 수 있습니다. 리소스 사용을 보고하고, 요금을 청구하고, 지불하는 방식을 제어할 수도 있습니다. 각 구독은 청구 및 지불 설정이 다를 수 있으므로 부서, 프로젝트, 지사 등에 따라 구독 및 계획이 다를 수 있습니다. 모든 클라우드 서비스는 구독에 속하고 Azure 데이터 카탈로그를 설정하기 전에 구독을 보유해야 합니다. 자세한 내용은 [계정, 구독 및 관리 역할 관리](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
 
 구독이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/) 을 참조하세요.
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 Azure Data Catalog를 설정하려면 Azure Active Directory(Azure AD) 사용자 계정으로 로그인해야 합니다. Azure 구독의 소유자 또는 공동 소유자여야 합니다.  
 
-Azure AD는 클라우드 및 온-프레미스 모두에서 비즈니스가 ID와 액세스를 쉽게 관리하는 방법을 제공합니다. 클라우드 및 온-프레미스 웹 응용 프로그램에 로그인하기 위해 단일 회사 또는 학교 계정을 사용할 수 있습니다. Azure Data Catalog는 로그인 인증에 Azure AD를 사용합니다. 자세히 알아보려면 [Azure Active Directory란](../active-directory/active-directory-whatis.md)을 참조하세요.
+Azure AD는 클라우드 및 온-프레미스 모두에서 비즈니스가 ID와 액세스를 쉽게 관리하는 방법을 제공합니다. 클라우드 및 온-프레미스 웹 응용 프로그램에 로그인하기 위해 단일 회사 또는 학교 계정을 사용할 수 있습니다. Azure Data Catalog는 로그인 인증에 Azure AD를 사용합니다. 자세히 알아보려면 [Azure Active Directory란](../active-directory/fundamentals/active-directory-whatis.md)을 참조하세요.
 
 ### <a name="azure-active-directory-policy-configuration"></a>Azure Active Directory 정책 구성
 Azure Data Catalog 포털에 로그인할 수 있는 상황이 발생할 수 있지만, 데이터 원본 등록 도구에 로그인을 시도할 때 로그인하지 않도록 하는 오류 메시지가 발생합니다. 이 오류는 회사 네트워크에 있거나 회사 네트워크 외부에서 연결 시 발생할 수 있습니다.

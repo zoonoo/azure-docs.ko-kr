@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 86c301748b58e7642df9a738c70b4fe70be3310b
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 5f7477671e7be4e6e8fd736ab94fa7e7b1e99a6e
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400011"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43184410"
 ---
 ZRS(영역 중복 저장소)는 단일 지역에 있는 3개의 저장소 클러스터에서 데이터를 동기적으로 복제합니다. 각 저장소 클러스터는 다른 저장소 클러스터와 물리적으로 분리되어 있으며 자체 AZ(가용성 영역)에 상주합니다. 각 가용성 영역과 그 안에 포함된 ZRS 클러스터는 자율적으로 사용되며, 별도의 유틸리티와 네트워킹 기능을 갖추고 있습니다.
 
@@ -28,6 +28,7 @@ ZRS는 현재 표준 [GPv2(범용 v2)](../articles/storage/common/storage-accoun
 
 ZRS를 일반적으로 사용할 수 있는 지역은 다음과 같습니다.
 
+- 미국 동부
 - 미국 동부 2
 - 미국 서부 2
 - 미국 중부

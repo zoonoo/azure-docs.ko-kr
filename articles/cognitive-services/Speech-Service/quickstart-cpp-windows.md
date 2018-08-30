@@ -9,16 +9,16 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 59c70d33d537742a5918dc1ba55ab8ac1f84e12c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 9fae855de2a746084f4775f194e04c6dbe09f684
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42093825"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127294"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-desktop-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Windows 데스크톱의 C++에서 음성 인식
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 음성 SDK를 사용하는 Windows 데스크톱용 C++ 기반 콘솔 응용 프로그램을 만드는 방법을 설명합니다.
 응용 프로그램은 [Microsoft Cognitive Services Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2017에 기반합니다.
@@ -90,7 +90,7 @@ Visual Studio 2017에서 새로운 Visual C++ Windows 데스크톱 창 콘솔 �
 
    ![성공한 인식 이후 콘솔 출력](media/sdk/qs-cpp-windows-08-console-output-release.png)
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 이 예제를 `quickstart/cpp-windows` 폴더에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

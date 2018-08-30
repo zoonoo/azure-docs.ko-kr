@@ -3,21 +3,20 @@ title: Visual Studio에서 서버리스 앱 빌드 | Microsoft Docs
 description: Visual Studio에서 Azure Logic Apps 및 Azure Functions을 사용하여 첫 번째 서버리스 앱을 빌드, 배포 및 관리합니다.
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.reviewer: jehollan, LADocs
-ms.suite: integration
+ms.reviewer: klam, LADocs
+ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.custom: vs-azure
 ms.topic: article
 ms.date: 08/01/2018
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
-ms.openlocfilehash: ed56e5f2a4a0d9e3a5e8d8c80e0fd20dbfb098bb
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: a69c129d5ae1405462e3a54a24cd2edbad2a86a7
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444789"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126780"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Azure Logic Apps 및 Azure Functions를 사용하여 첫 번째 서버리스 앱 개발 - Visual Studio
 

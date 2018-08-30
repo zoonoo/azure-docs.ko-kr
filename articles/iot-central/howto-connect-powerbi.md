@@ -2,18 +2,17 @@
 title: Power BI 대시보드에서 Azure IoT Central 데이터 시각화 | Microsoft Docs
 description: Azure IoT Central Analytics Power BI 솔루션 템플릿을 사용하여 IoT Central 데이터를 시각화하고 분석합니다.
 ms.service: iot-central
+services: iot-central
 author: viv-liu
 ms.author: viviali
 ms.date: 07/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: peterpr
-ms.openlocfilehash: 85c0432bceef3e94b32fa9b4a2803276b3efee17
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.topic: conceptual
+ms.openlocfilehash: 5cb55e73b379b909811bde728d2ab39e29635bf5
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324326"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190702"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Power BI 대시보드에서 Azure IoT Central 데이터 시각화 및 분석
 

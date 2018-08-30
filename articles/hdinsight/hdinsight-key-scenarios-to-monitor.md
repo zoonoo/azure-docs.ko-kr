@@ -3,18 +3,18 @@ title: 클러스터 성능 모니터링 - Azure HDInsight
 description: HDInsight 클러스터의 용량 및 성능을 모니터링하는 방법을 설명합니다.
 services: hdinsight
 author: maxluk
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/27/2017
 ms.author: maxluk
-ms.openlocfilehash: 5f0c390fb5749ec5a7dbf3ca7eb541c0aa1133e9
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 434b3ecf65aaa5ecea81f5a9773f1bc6e8f6f2be
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599574"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43092330"
 ---
 # <a name="monitor-cluster-performance"></a>클러스터 성능 모니터링
 

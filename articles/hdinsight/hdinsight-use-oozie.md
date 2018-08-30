@@ -3,19 +3,19 @@ title: HDInsight에서 Hadoop Oozie 사용
 description: 빅데이터 서비스인 HDInsight에서 Hadoop Oozie를 사용하는 방법을 알아봅니다. 또한 Oozie 워크플로를 정의하고 Oozie 작업을 제출하는 방법에 대해서도 살펴봅니다.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3e3b3cbbfa8f79908b2ca1ae6a7389bb04034684
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: f5a6616403d7e3fc7944c26bbbcbfa9fbfb4fff5
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39598901"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050498"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Hadoop과 함께 Oozie를 사용하여 HDInsight에서 워크플로 정의 및 실행
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]

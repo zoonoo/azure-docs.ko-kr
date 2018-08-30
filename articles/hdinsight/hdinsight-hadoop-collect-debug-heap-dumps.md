@@ -3,18 +3,18 @@ title: 힙 덤프를 사용하여 Hadoop 서비스 디버깅 및 분석 - Azure
 description: 자동으로 Hadoop 서비스에 대한 힙 덤프를 수집하고 디버깅 및 분석을 위해 Azure Blob 저장소 계정 내부에 배치합니다.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 484cdcb45a835a0a3b76e2c3aeca7500af7c9b7b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 35f7843ebf49e79d9045c72493bb38b218234288
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597007"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43099770"
 ---
 # <a name="collect-heap-dumps-in-blob-storage-to-debug-and-analyze-hadoop-services"></a>Blob 저장소에서 힙 덤프를 수집하여 Hadoop 서비스 디버그 및 분석
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]

@@ -9,16 +9,16 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: fmegen
-ms.openlocfilehash: 11aba1ae6f49d6c00fabd928ae3aefedcbea8ed8
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 923ab3378d5e2d833e11c5111d4dd9964fea6dc4
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234196"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126616"
 ---
 # <a name="quickstart-recognize-speech-in-java-windows-or-linux"></a>빠른 시작: Java(Windows 또는 Linux)에서 음성 인식
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 이 문서에서는 Speech SDK를 활용하는 JRE(Java Run-Time Environment)를 위한 Java 기반 콘솔 응용 프로그램을 만드는 방법을 설명합니다.
 이 응용 프로그램은 Microsoft Cognitive Services SDK Maven Package를 기준으로 합니다.
@@ -107,7 +107,7 @@ F11 키를 누르거나 **실행** \> **디버그**를 선택합니다.
 
 ![성공한 인식 이후 콘솔 출력](media/sdk/qs-java-jre-07-console-output.png)
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 이 예제를 `quickstart/java-jre` 폴더에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

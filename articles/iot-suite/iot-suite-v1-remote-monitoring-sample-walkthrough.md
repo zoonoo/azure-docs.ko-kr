@@ -1,26 +1,18 @@
 ---
 title: 미리 구성된 원격 모니터링 솔루션 연습 | Microsoft Docs
 description: Azure IoT에 대한 설명은 원격 모니터링 솔루션 및 해당 아키텍처를 미리 구성합니다.
-services: ''
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
-manager: timlt
-editor: ''
-ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-suite
+ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: d35052087899925e0e8119ce104345f718cc12bd
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 8cb6c3087bac460069a689f7b109a20aa9125ae9
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858516"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43184916"
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>미리 구성된 원격 모니터링 솔루션 연습
 
@@ -143,7 +135,7 @@ ms.locfileid: "37858516"
 
 원격 모니터링 솔루션에서 ASA([Azure Stream Analytics][lnk-asa])는 처리 또는 저장을 위해 다른 백 엔드 구성 요소에 IoT Hub에서 수신한 장치 메시지를 디스패치합니다. 다른 ASA 작업은 메시지의 내용을 기반으로 특정 기능을 수행합니다.
 
-**작업 1: 장치 정보** 는 들어오는 메시지 스트림에서 장치 정보 메시지를 필터링하고 이벤트 허브 끝점으로 보냅니다. 장치는 시작 시 그리고 **SendDeviceInfo** 명령에 반응하여 장치 정보 메시지를 보냅니다. 이 작업은 다음 쿼리 정의를 사용하여 **장치 정보** 메시지를 식별합니다.
+**작업 1: 장치 정보** 는 들어오는 메시지 스트림에서 장치 정보 메시지를 필터링하고 이벤트 허브 엔드포인트로 보냅니다. 장치는 시작 시 그리고 **SendDeviceInfo** 명령에 반응하여 장치 정보 메시지를 보냅니다. 이 작업은 다음 쿼리 정의를 사용하여 **장치 정보** 메시지를 식별합니다.
 
 ```
 SELECT * FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'DeviceInfo'

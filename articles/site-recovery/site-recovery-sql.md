@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/22/2018
 ms.author: raynew
-ms.openlocfilehash: 23cf9430f82be860cb9acbfac42163f9243b2d0f
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: a734999f0fa473b5f1ee8ed55c4b73950566490d
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42143526"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188776"
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>SQL Server 재해 복구 및 Azure Site Recovery를 사용하여 SQL Server 보호
 
@@ -83,7 +83,6 @@ Site Recovery는 재해 복구 솔루션을 제공하기 위해 표에 요약된
 
 * 지원되는 SQL Server 버전을 실행하는 온-프레미스 SQL Server 배포입니다. 일반적으로 SQL Server에 대한 Active Directory도 필요합니다.
 * 배포하려는 시나리오를 위한 요구 사항입니다. [Azure로 복제](site-recovery-support-matrix-to-azure.md) 및 [온-프레미스](site-recovery-support-matrix.md) 및 [배포 필수 구성 요소](site-recovery-prereq.md)에 대한 지원 요구 사항에 대해 자세히 알아봅니다.
-* Azure에서 복구를 설정하려면 SQL Server 가상 머신의 [Azure Virtual Machine 준비 평가](http://www.microsoft.com/download/details.aspx?id=40898) 도구를 실행하여 Azure 및 Site Recovery와 호환되도록 합니다.
 
 ## <a name="set-up-active-directory"></a>Active Directory 설정
 

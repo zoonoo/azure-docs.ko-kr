@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
 ms.author: daveba
-ms.openlocfilehash: 70a8c9018cdc2929abc85336211beecf82bf32cb
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: a6241c105019f04df09080a89e8fe3b77b5f9385
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188049"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888766"
 ---
 # <a name="create-list-or-delete-a-user-assigned-identity-using-rest-api-calls"></a>REST API 호출을 사용하여 사용자 할당 ID 만들기, 나열 또는 삭제
 
@@ -34,7 +34,7 @@ ms.locfileid: "39188049"
 - 관리 서비스 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 ID와 사용자 할당 ID의 차이점](overview.md#how-does-it-work)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
 - Windows를 사용하는 경우, [Linux용 Windows 하위 시스템](https://msdn.microsoft.com/commandline/wsl/about)을 설치하거나 Azure Portal에서 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용합니다.
-- [Linux용 Windows 하위 시스템](https://msdn.microsoft.com/commandline/wsl/about) 또는 [Linux 배포 OS](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)를 사용하는 경우, [Azure CLI 로컬 콘솔을 설치](/azure/install-azure-cli)합니다.
+- [Linux용 Windows 하위 시스템](https://msdn.microsoft.com/commandline/wsl/about) 또는 [Linux 배포 OS](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)를 사용하는 경우, [Azure CLI 로컬 콘솔을 설치](/cli/azure/install-azure-cli)합니다.
 - Azure CLI 로컬 콘솔을 사용하는 경우, 사용자 할당 관리 ID 정보를 배포하거나 검색하려는 Azure 구독과 연결된 계정으로 `az login`을 사용하여 Azure에 로그인합니다.
 - 이 문서의 관리 작업을 수행하려면 계정에 다음과 같은 역할이 할당되어야 합니다.
     - [관리 ID 기여자](/azure/role-based-access-control/built-in-roles#managed-identity-contributor)는 사용자 할당 ID를 만들고 읽고(나열하고), 업데이트하고 삭제하는 역할을 합니다.

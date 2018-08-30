@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 08/26/2018
 ms.author: juliako
-ms.openlocfilehash: b50ba825f675c84f551f9a1d191aa93eaed9a628
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 49b834325ce819f20978e06d85ee308955510ac1
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070873"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051112"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Azure Media Services v3의 할당량 및 제한 사항
 
@@ -36,7 +36,6 @@ ms.locfileid: "39070873"
 | Media Services 계정당 LiveEvents |5|
 | 단일 구독의 Media Services 계정 | 25(고정) |
 | LiveEvent당 실행 중인 상태의 LiveOutputs |3|
-| LiveEvent 당 정지 상태인 LiveOutputs |50|
 | Storage 계정 | 100<sup>(4)</sup>(고정) |
 | Media Services 계정당 실행 상태인 스트리밍 엔드포인트|2|
 | StreamingPolicies | 100 <sup>(3)</sup> |

@@ -15,12 +15,12 @@ ms.workload: Identity
 ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 20c43669b9da24cea4b0b552a86ec7d5a77dc5a7
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: b730f80faa031b1866d3c11d8a2c885ec67f965e
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264514"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144323"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: 이전 버전에서 최신 버전으로 업그레이드
 이 항목에서는 Azure Active Directory(Azure AD) Connect 설치를 최신 릴리스로 업그레이드하는 데 사용할 수 있는 여러 가지 방법을 설명합니다. Azure AD Connect 릴리스를 최신 상태로 유지하는 것이 좋습니다. [스윙 마이그레이션](#swing-migration) 섹션에 설명된 단계는 상당한 구성 변경을 수행하는 경우에도 사용할 수 있습니다.
@@ -67,7 +67,7 @@ Azure AD Connect를 비표준 커넥터(예: 일반 LDAP 커넥터 및 일반 SQ
 
 ### <a name="use-a-swing-migration-to-upgrade"></a>스윙 마이그레이션을 사용하여 업그레이드
 1. 두 서버 모두에서 Azure AD Connect를 사용하고 구성 변경만 수행하려는 경우 활성 서버와 스테이징 서버에서 동일한 버전을 사용하고 있는지 확인합니다. 그러면 나중에 쉽게 차이를 비교할 수 있습니다. Azure AD Sync에서 업그레이드하는 경우 두 서버는 서로 다른 버전을 사용하게 됩니다. Azure AD Connect 이전 버전에서 업그레이드 하는 경우, 동일한 버전을 사용하는 두 서버로 시작하는 것이 좋지만 필수는 아닙니다.
-2. 일부 사용자 지정 구성을 적용했는데 스테이징 서버에 해당 구성이 없는 경우 [활성 서버에서 스테이징 서버로 사용자 지정 구성 이동](#move-custom-configuration-from-active-to-staging-server)에 설명된 단계를 따릅니다.
+2. 일부 사용자 지정 구성을 적용했는데 스테이징 서버에 해당 구성이 없는 경우 [활성 서버에서 스테이징 서버로 사용자 지정 구성 이동](#move-a-custom-configuration-from-the-active-server-to-the-staging-server)에 설명된 단계를 따릅니다.
 3. Azure AD Connect의 이전 릴리스에서 업그레이드하는 경우 스테이징 서버를 최신 버전으로 업그레이드합니다. Azure AD Sync에서 전환하는 경우 스테이징 서버에 Azure AD Connect를 설치합니다.
 4. 동기화 엔진에서 전체 가져오기를 실행하고 준비 서버에서 전체 동기화를 실행합니다.
 5. [서버의 구성 확인](active-directory-aadconnectsync-operations.md#verify-the-configuration-of-a-server)에서 "확인" 아래의 단계를 사용하여 새 구성으로 인해 예기치 않은 변경이 발생하지 않았는지 확인합니다. 올바르지 않은 항목이 있을 경우 단계를 따라 수정하고, 가져오기 및 동기화를 실행하고, 데이터가 올바르게 될 때까지 확인합니다.

@@ -1,19 +1,18 @@
 ---
 title: Azure IoT Hub IP 연결 필터 | Microsoft Docs
 description: 특정 IP 주소에서 Azure IoT hub로 연결을 차단하도록 IP 필터링을 사용하는 방법입니다. 개별 또는 IP 주소 범위에서 연결을 차단할 수 있습니다.
-author: BeatriceOltean
-manager: ''
+author: rezasherafat
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/23/2017
-ms.author: boltean
-ms.openlocfilehash: fa44fd21eadb910ce90523b46332505c7303751e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: rezas
+ms.openlocfilehash: 864af9cae35912d95f2c0bf0b574a5ca2404a608
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635970"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190644"
 ---
 # <a name="use-ip-filters"></a>IP 필터 사용
 
@@ -21,7 +20,7 @@ ms.locfileid: "34635970"
 
 ## <a name="when-to-use"></a>사용하는 경우
 
-특정 IP 주소에 대해 IoT Hub 끝점을 차단하는 것이 유용한 두 가지 사용 사례가 있습니다.
+특정 IP 주소에 대해 IoT Hub 엔드포인트를 차단하는 것이 유용한 두 가지 사용 사례가 있습니다.
 
 - IoT Hub가 지정된 범위의 IP 주소에서 오는 트래픽만 수신하고 그 밖의 트래픽은 거부합니다. 예를 들어 IoT Hub를 [Azure Express Route]와 사용하여 IoT Hub와 온-프레미스 인프라 간의 개인 연결을 만드는 경우입니다.
 - IoT Hub 관리자에 의해 의심스러운 것으로 식별된 IP 주소에서 오는 트래픽을 거부해야 합니다.
@@ -60,7 +59,7 @@ IP 필터 규칙을 추가하는 경우 다음 값을 입력하라는 메시지�
 > IP 주소를 거부하면 다른 Azure 서비스(예: Azure Stream Analytics, Azure Virtual Machines 또는 포털의 장치 탐색기)가 IoT Hub와 상호 작용하는 것을 막을 수 있습니다.
 
 > [!WARNING]
-> ASA(Azure Stream Analytics)를 사용하여 IP 필터링이 활성화된 IoT Hub에서 메시지를 읽는 경우 ASA 연결 문자열에 이벤트 허브와 호환되는 IoT Hub 이름 및 끝점을 사용합니다.
+> ASA(Azure Stream Analytics)를 사용하여 IP 필터링이 활성화된 IoT Hub에서 메시지를 읽는 경우 ASA 연결 문자열에 이벤트 허브와 호환되는 IoT Hub 이름 및 엔드포인트를 사용합니다.
 
 ## <a name="delete-an-ip-filter-rule"></a>IP 필터 규칙 삭제
 
