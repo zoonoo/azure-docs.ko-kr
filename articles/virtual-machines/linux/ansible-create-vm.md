@@ -7,34 +7,22 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
-ms.date: 08/21/2018
-ms.openlocfilehash: a60ba863dbbd308219f4229319fb98c72180114d
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.date: 08/22/2018
+ms.openlocfilehash: ff9929d8f2da66b8aa24160c321c9158c832dbc0
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40250656"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42815188"
 ---
 # <a name="use-ansible-to-create-a-linux-virtual-machine-in-azure"></a>Azure에서 Ansible을 사용하여 Linux 가상 머신 만들기
 선언적 언어인 Ansible을 사용하면 Ansible *플레이북*을 통해 자동으로 Azure 리소스를 만들고, 구성하고, 배포할 수 있습니다. 이 문서의 각 섹션에서는 Ansible 플레이북의 각 섹션이 Linux 가상 머신의 여러 측면을 만들고 구성하기 위해 어떻게 사용되는지 보여줍니다. [전체 Ansible 플레이북](#complete-sample-ansible-playbook)은 이 문서의 마지막 부분에 나열되어 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-- **Azure 구독** - Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
+- **Azure 구독** - Azure 구독이 아직 없는 경우 [무료 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
-- **Azure Cloud Shell 구성** 또는 **Linux 가상 머신에 Ansible을 설치하고 구성**
-
-  **Azure Cloud Shell 구성**
-
-  1. **Azure Cloud Shell 구성** - Azure Cloud Shell을 처음 사용하는 경우 Cloud Shell을 시작하고 구성하는 방법이 [Azure Cloud Shell의 Bash 빠른 시작](/azure/cloud-shell/quickstart) 문서에 설명되어 있습니다. 
-
-  **--또는--**
-
-  **Linux 가상 머신에 Ansible을 설치하고 구성**
-
-  1. **Ansible 설치** - [지원되는 Linux 플랫폼](/azure/virtual-machines/linux/ansible-install-configure#install-ansible-on-an-azure-linux-virtual-machine)에 Ansible을 설치합니다.
-
-  1. **Ansible 구성** - [Azure 자격 증명 만들기 및 Ansible 구성](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)]
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 Ansible을 사용하려면 리소스가 배포되는 그룹이 필요합니다. 다음 샘플 Ansible 플레이북 섹션에서는 `eastus` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.

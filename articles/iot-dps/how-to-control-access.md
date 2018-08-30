@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: wesmc
-ms.openlocfilehash: 4751a76c39060f48d3b816ecee0de5b58e29bdaa
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: e476ca498e4dc1b36d18927beddc812d6d803120
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42139956"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818513"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning 서비스에 대한 액세스 제어
 
@@ -34,7 +34,7 @@ ms.locfileid: "42139956"
 
 * **공유 액세스 권한 부여 정책**. 공유 액세스 정책은 모든 조합의 [권한](#device-provisioning-service-permissions)을 부여할 수 있습니다. [Azure Portal][lnk-management-portal]에서 또는 프로그래밍 방식으로 [Device Provisioning Service REST API][lnk-resource-provider-apis]를 사용하여 정책을 정의할 수 있습니다. 새로 만든 프로비전 서비스에는 다음과 같은 기본 정책이 있습니다.
 
-   **provisioningserviceowner**: 모든 사용 권한이 있는 정책입니다.
+* **provisioningserviceowner**: 모든 사용 권한이 있는 정책입니다.
 
 > [!NOTE]
 > 자세한 내용은 [사용 권한](#device-provisioning-service-permissions)을 참조하세요.

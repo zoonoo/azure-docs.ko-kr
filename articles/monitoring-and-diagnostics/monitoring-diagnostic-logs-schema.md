@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 8/21/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 69ff295e434f199f3a15e96f134f92098b1b8b79
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 06d9fda01a89340eb019b4900c02e321e0b73cf5
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42143926"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818967"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 진단 로그에 대해 지원되는 서비스, 스키마 및 범주
 
@@ -29,7 +29,7 @@ ms.locfileid: "42143926"
 | ResourceId | 필수 | 이벤트를 내보낸 리소스의 리소스 ID입니다. 테넌트 서비스의 경우 /tenants/tenant-id/providers/provider-name의 형태입니다. |
 | tenantId | 테넌트 로그에 필요 | 이 이벤트가 연결된 Active Directory 테넌트의 테넌트 ID입니다. 이 속성은 테넌트 수준 로그에만 사용되며 리소스 수준 로그에는 나타나지 않습니다. |
 | operationName | 필수 | 이 이벤트가 나타내는 작업의 이름입니다. 이벤트가 RBAC 작업을 나타내는 경우, RBAC 작업 이름입니다(예: Microsoft.Storage/storageAccounts/blobServices/blobs/Read). 실제로 문서화된 리소스 관리자 작업은 아니지만, 일반적으로 리소스 관리자 작업 형태로 모델링됩니다(`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`). |
-| operationVersion | 옵션 | operationName이 API를 사용하여 수행된 경우, 작업과 연결된 api-version입니다(예: http://myservice.windowsazure.net/object?api-version=2016-06-01) 이 작업에 해당하는 API가 없으면, 버전은 작업과 연결된 속성이 나중에 변경될 경우, 해당 작업의 버전을 나타냅니다. |
+| operationVersion | 옵션 | operationName이 API를 사용하여 수행된 경우, 작업과 연결된 api-version입니다(예: `http://myservice.windowsazure.net/object?api-version=2016-06-01`). 이 작업에 해당하는 API가 없으면, 버전은 작업과 연결된 속성이 나중에 변경될 경우, 해당 작업의 버전을 나타냅니다. |
 | 카테고리 | 필수 | 이벤트의 로그 범주입니다. 범주는 특정 리소스에 대해 로그를 사용하거나 사용하지 않도록 설정할 수 있는 세분성입니다. 이벤트의 속성 Blob에 표시되는 속성은 특정 로그 범주 및 리소스 종류 내에서 동일합니다. 일반적인 로그 범주는 “감사”, “작동”, “실행” 및 “요청”입니다. |
 | resultType | 옵션 | 이벤트의 상태입니다. 일반적인 값으로 시작됨, 진행 중, 성공, 실패, 활성 및 확인됨이 있습니다. |
 | resultSignature | 옵션 | 이벤트의 하위 상태입니다. 이 작업이 REST API 호출에 해당하는 경우, 해당 REST 호출의 HTTP 상태 코드입니다. |

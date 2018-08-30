@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: bd3eeb5ebb9b30ac315fee1597348f3bd34f3bb6
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 6b310daec67f41ba589ce279e4a2dad427adb734
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142442"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818895"
 ---
 # <a name="getting-compliance-data"></a>준수 데이터 가져오기
 
@@ -23,7 +23,7 @@ Azure Policy의 가장 큰 혜택 중 하나는 구독 및 구독의 [데이터 
 정책 및 이니셔티브 할당에 의해 생성된 준수 정보에 액세스할 수 있는 여러 가지 방법이 있습니다.
 
 - [Azure Portal](#portal) 사용
-- [명령줄](#command_line) 스크립팅을 통함
+- [명령줄](#command-line) 스크립팅을 통함
 
 준수를 보고하는 메서드를 살펴보기 전에 호환성 정보가 업데이트되는 시기 및 평가 주기를 트리거하는 빈도 및 이벤트를 살펴보겠습니다.
 

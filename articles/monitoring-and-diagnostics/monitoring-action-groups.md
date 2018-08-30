@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/1/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 091a097fc9fafd5bdc6a2521f4fa2a1b6b77ba4c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 998f35c8957b63d73d7a3d15be76711198fa4833
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422556"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745710"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 ## <a name="overview"></a>개요 ##
@@ -51,7 +51,7 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
 
     a. **이름**: 이 작업에 대한 고유 식별자를 입력합니다.
 
-    나. **작업 유형**: 이메일/SMS/푸시/음성, 논리 앱, 웹후크, ITSM 또는 Automation Runbook을 선택합니다.
+    b. **작업 유형**: 이메일/SMS/푸시/음성, 논리 앱, 웹후크, ITSM 또는 Automation Runbook을 선택합니다.
 
     다. **세부 정보**: 작업 유형에 따라 전화 번호, 이메일 주소, 웹후크 URI, Azure 앱, ITSM 연결 또는 Automation Runbook을 입력합니다. ITSM 작업의 경우 **작업 항목** 및 ITSM 도구에 필요한 다른 필드를 추가로 지정합니다.
 
@@ -65,11 +65,11 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
 
 <dt>전자 메일</dt>
 <dd>다음 이메일 주소에서 이메일이 전송됩니다. 이메일 필터링이 적절하게 구성되었는지 확인합니다.
-
-    - azure-noreply@microsoft.com
-    - azureemail-noreply@microsoft.com
-    - alerts-noreply@mail.windowsazure.com
-    
+<ul>
+    <li>azure-noreply@microsoft.com</li>
+    <li>azureemail-noreply@microsoft.com</li>
+    <li>alerts-noreply@mail.windowsazure.com</li>
+</ul>
 </dd>
 <dd>한 작업 그룹에 최대 1000개의 이메일 작업이 허용됩니다.</dd>
 <dd>[속도 제한 정보](./monitoring-alerts-rate-limiting.md) 문서를 참조하세요.</dd>

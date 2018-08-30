@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: d9eeac28b204af0bb7d8e204762aae854055b33a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0f86578e33e5c6a2d6528e2deb1c8068a0c94d01
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599306"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42747108"
 ---
 # <a name="add-a-popup-to-the-map"></a>맵에 팝업 추가
 
@@ -33,22 +33,22 @@ ms.locfileid: "34599306"
 
 세 번째 코드 블록은 팝업에 표시할 콘텐츠를 만듭니다. 팝업 콘텐츠는 HTML 요소입니다. 
 
-네 번째 코드 블록은 `new atlas.Popup()`을 통해 [팝업 개체](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest)를 만듭니다. content 및 position과 같은 팝업 속성은 [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popupoptions?view=azure-iot-typescript-latest)의 일부입니다. PopupOptions는 popup 생성자나 popup 클래스의 [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#setpopupoptions) 함수를 통해 정의할 수 있습니다.
+네 번째 코드 블록은 `new atlas.Popup()`을 통해 [팝업 개체](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)를 만듭니다. content 및 position과 같은 팝업 속성은 [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.popupoptions?view=azure-iot-typescript-latest)의 일부입니다. PopupOptions는 popup 생성자나 popup 클래스의 [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setpopupoptions) 함수를 통해 정의할 수 있습니다.
 
-마지막 코드 블록은 map 클래스의 [addEventListener](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addeventlistener) 함수를 사용하여 핀에서 mouseover 이벤트를 수신하고 popup 클래스의 [open](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#open) 함수를 사용하여 이벤트가 발생하면 팝업을 엽니다.
+마지막 코드 블록은 map 클래스의 [addEventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener) 함수를 사용하여 핀에서 mouseover 이벤트를 수신하고 popup 클래스의 [open](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open) 함수를 사용하여 이벤트가 발생하면 팝업을 엽니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다. 
 
-* [맵](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
-    * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpins)
-    * [addEventListener](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addeventlistener)
-* [팝업](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest)
-    * [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#setpopupoptions)
-    * [열기](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#open)
-    * [닫기](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#close)
+* [맵](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+    * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins)
+    * [addEventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener)
+* [팝업](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
+    * [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setpopupoptions)
+    * [열기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open)
+    * [닫기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#close)
     
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요. 
 * [도형 추가](./map-add-shape.md)

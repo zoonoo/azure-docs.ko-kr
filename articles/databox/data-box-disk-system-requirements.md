@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/10/2018
+ms.date: 08/28/2018
 ms.author: alkohli
-ms.openlocfilehash: 7138fa70c8b5615ad84196703f3bd76009ba5811
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 2fdd574adf3587f11984bee2a2549d9bcd0c4c0d
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011491"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126008"
 ---
 # <a name="azure-data-box-disk-system-requirements-preview"></a>Azure Data Box Disk 시스템 요구 사항(미리 보기)
 
@@ -40,7 +40,8 @@ Data Box Disk에 연결된 클라이언트를 통해 디스크 잠금 해제 및
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
 | Windows |7, 8, 10 |
 | Windows PowerShell |4.0 |
-| .NET Framework |4.5. |
+| .NET Framework |4.5.1 |
+| Windows Management Framework |4.0|
 
 > [!NOTE] 
 > 디스크 잠금 해제 도구를 실행하고 데이터를 복사하는 데 사용되는 클라이언트에서 BitLocker를 활성화해야 합니다.

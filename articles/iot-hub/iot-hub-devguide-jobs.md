@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 460c7d24b2810de41e20ea803ded2ea988613f10
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e2beec1308b9664d35ccd9d355403b7076567f2f
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223799"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745847"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>여러 장치에서 작업 예약
 
-Azure IoT Hub를 통해 [장치 쌍 속성 및 태그][lnk-twin-devguide] 및 [직접 메서드][lnk-dev-methods]와 같은 다양한 구성 요소를 사용할 수 있습니다.  일반적으로, 백 엔드 앱을 사용하면 장치 관리자와 운영자는 IoT 장치를 대량으로 예약된 시간에 업데이트하고 상호 작용할 수 있습니다.  작업은 예약된 시간에 장치 집합에 대해 장치 쌍 업데이트 및 직접 메서드를 실행합니다.  예를 들어 운영자는 빌딩 운영에 지장을 주지 않는 시간에 빌딩 43 및 3층에서 장치 집합을 재부팅하기 위해 작업을 시작 및 추적하는 백 엔드 앱을 사용합니다.
+Azure IoT Hub를 통해 [장치 쌍 속성 및 태그][lnk-twin-devguide] 및 [직접 메서드][lnk-dev-methods]와 같은 다양한 구성 요소를 사용할 수 있습니다. 일반적으로, 백 엔드 앱을 사용하면 장치 관리자와 운영자는 IoT 장치를 대량으로 예약된 시간에 업데이트하고 상호 작용할 수 있습니다.  작업은 예약된 시간에 장치 집합에 대해 장치 쌍 업데이트 및 직접 메서드를 실행합니다.  예를 들어 운영자는 빌딩 운영에 지장을 주지 않는 시간에 빌딩 43 및 3층에서 장치 집합을 재부팅하기 위해 작업을 시작 및 추적하는 백 엔드 앱을 사용합니다.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -126,7 +126,7 @@ queryCondition = "deviceId IN ['MyDevice1']
 ### <a name="additional-reference-material"></a>추가 참조 자료
 이 IoT Hub 개발자 가이드의 다른 참조 자료:
 
-* [IoT Hub 끝점][lnk-endpoints] - 각 IoT Hub에서 런타임 및 관리 작업에 대해 공개하는 다양한 끝점에 대해 설명합니다.
+* [IoT Hub 엔드포인트][lnk-endpoints] - 각 IoT Hub에서 런타임 및 관리 작업에 대해 공개하는 다양한 엔드포인트에 대해 설명합니다.
 * [제한 및 할당량][lnk-quotas] - IoT Hub 서비스에 적용되는 할당량과 서비스를 사용할 때 예상되는 제한 동작에 대해 설명합니다.
 * [Azure IoT 장치 및 서비스 SDK][lnk-sdks] - IoT Hub와 상호 작용하는 장치 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
 * [장치 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어][lnk-query]에서는 IoT Hub 쿼리 언어를 설명합니다. 이 쿼리 언어를 사용하여 IoT Hub에서 장치 쌍 및 작업에 대한 정보를 검색합니다.

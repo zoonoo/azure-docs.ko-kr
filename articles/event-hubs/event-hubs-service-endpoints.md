@@ -1,6 +1,6 @@
 ---
 title: Azure Event Hubs에 대한 가상 네트워크 서비스 엔드포인트 및 규칙 | Microsoft Docs
-description: 가상 네트워크에 Microsoft.EventHub 서비스 끝점을 추가합니다.
+description: 가상 네트워크에 Microsoft.EventHub 서비스 엔드포인트를 추가합니다.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: c5114af69a24ac2f2723becf846ff3712a7afdbb
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: b8c3270149c254898ad3180b92a4ff398f3efb6c
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40002824"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745912"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Azure Event Hubs에서 Virtual Network 서비스 엔드포인트 사용
 
@@ -37,7 +37,7 @@ TCP/IP에서 HTTPS를 수행하는 경로를 비롯한 구획 간의 즉시 IP �
 
 *가상 네트워크 규칙*은 Azure Event Hubs 서버가 특정 가상 네트워크 서브넷의 연결을 수락할지 여부를 제어하는 방화벽 보안 기능입니다.
 
-Virtual Networks에 Event Hubs를 바인딩하는 작업은 2단계 프로세스입니다. 먼저 Virtual Network 서브넷에 **Virtual Network 서비스 끝점**을 만들고, [서비스 끝점 개요][vnet-sep]에 설명된 대로 “Microsoft.EventHub”에 사용하도록 설정해야 합니다. 서비스 엔드포인트를 추가했다면 여기에 *가상 네트워크 규칙*을 사용하여 Event Hubs 네임스페이스를 바인딩합니다.
+Virtual Networks에 Event Hubs를 바인딩하는 작업은 2단계 프로세스입니다. 먼저 Virtual Network 서브넷에 **Virtual Network 서비스 엔드포인트**를 만들고, [서비스 엔드포인트 개요][vnet-sep]에 설명된 대로 “Microsoft.EventHub”에 사용하도록 설정해야 합니다. 서비스 엔드포인트를 추가했다면 여기에 *가상 네트워크 규칙*을 사용하여 Event Hubs 네임스페이스를 바인딩합니다.
 
 가상 네트워크 규칙은 가상 네트워크 서브넷을 사용하는 Event Hubs 네임스페이스의 명명된 연결입니다. 규칙이 있는 한 서브넷에 바인딩된 모든 워크로드는 Event Hubs 네임스페이스에 대한 액세스 권한이 부여됩니다. Event Hubs 자체는 아웃바운드 연결을 설정하지 않고, 액세스 권한을 가져올 필요도 없습니다. 따라서 이 규칙을 사용하여 서브넷에 대한 액세스 권한이 부여되지 않습니다.
 
@@ -94,7 +94,7 @@ Virtual Networks에 Event Hubs를 바인딩하는 작업은 2단계 프로세스
 
 가상 네트워크에 대한 자세한 내용은 다음 링크를 참조하세요.
 
-- [Azure 가상 네트워크 서비스 끝점][vnet-sep]
+- [Azure 가상 네트워크 서비스 엔드포인트][vnet-sep]
 - [Azure Event Hubs IP 필터링][ip-filtering]
 
 [vnet-sep]: ../virtual-network/virtual-network-service-endpoints-overview.md

@@ -7,14 +7,14 @@ author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 08/13/2018
 ms.author: shvija
-ms.openlocfilehash: d44cdf9204ac041a12cecce995efef71272204e6
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 9b952bd96828c4f2c140cb2d75cecb9379895a63
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40007570"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746646"
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>Event Hubs .NET Standard API 개요
 
@@ -25,7 +25,7 @@ ms.locfileid: "40007570"
 
 ## <a name="event-hubs-client"></a>Event Hubs 클라이언트
 
-[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)는 이벤트를 전송하고, 수신기를 만들고, 런타임 정보를 얻는 데 사용하는 기본 개체입니다. 이 클라이언트는 특정 이벤트 허브에 연결되며 Event Hubs 끝점에 대한 새 연결을 만듭니다.
+[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)는 이벤트를 전송하고, 수신기를 만들고, 런타임 정보를 얻는 데 사용하는 기본 개체입니다. 이 클라이언트는 특정 이벤트 허브에 연결되며 Event Hubs 엔드포인트에 대한 새 연결을 만듭니다.
 
 ### <a name="create-an-event-hubs-client"></a>Event Hubs 클라이언트 만들기
 

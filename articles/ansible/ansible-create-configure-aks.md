@@ -7,13 +7,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 08/21/2018
-ms.openlocfilehash: de692b29902145e44a055680d662c16ed90c56c2
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.date: 08/23/2018
+ms.openlocfilehash: f7dbc124781992ada9c3538cf415b836d8764064
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617178"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42810823"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Ansible을 사용하여 Azure에서 Azure Kubernetes Service 클러스터 만들기 및 구성
 Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Ansible을 사용하여 AKS(Azure Kubernetes Service)를 관리할 수 있습니다. 이 문서에서는 Ansible을 사용하여 Azure에서 Azure Kubernetes Service 클러스터를 만들고 구성하는 방법을 보여줍니다.
@@ -22,19 +22,7 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
 - **Azure 구독** - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 - **Azure 서비스 주체** - [서비스 주체를 만들](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal) 경우 다음 값, **appId**, **displayName**, **암호**  및 **테넌트**를 참고합니다.
 
-- **Azure Cloud Shell 구성** 또는 **Linux 가상 머신에 Ansible 설치 및 구성**
-
-  **Azure Cloud Shell 구성**
-
-  1. **Azure Cloud Shell 구성** - Azure Cloud Shell을 처음 사용하는 경우 Cloud Shell을 시작하고 구성하는 방법이 [Azure Cloud Shell의 Bash 빠른 시작](/azure/cloud-shell/quickstart) 아티클에 설명되어 있습니다. 
-
-  **--OR--**
-
-  **Linux 가상 머신에 Ansible 설치 및 구성**
-
-  1. **Ansible 설치** - [지원되는 Linux 플랫폼](/azure/virtual-machines/linux/ansible-install-configure#install-ansible-on-an-azure-linux-virtual-machine)에 Ansible을 설치합니다.
-
-  1. **Ansible 구성** - [Azure 자격 증명 만들기 및 Ansible 구성](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
 > Ansible 2.6은 이 자습서에서 다음의 샘플 플레이북을 실행해야 합니다. 

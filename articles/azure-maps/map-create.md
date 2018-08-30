@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: ec85854e5d9b7ee0d5e2c54881a417ba6cbb366e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b86f29e4d3faa1382ac3a79ed828855a5d9f6d7f
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599816"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42747222"
 ---
 # <a name="create-a-map"></a>맵 만들기
 
@@ -31,7 +31,7 @@ ms.locfileid: "34599816"
 <iframe height='310' scrolling='no' title='CameraOptions를 통해 맵 만들기' src='//codepen.io/azuremaps/embed/qxKBMN/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure LBS(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 펜 <a href='https://codepen.io/azuremaps/pen/qxKBMN/'>CameraOptions를 통해 맵 만들기</a>를 참조하세요.
 </iframe>
 
-위의 코드에서 [맵 개체](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)는 `new atlas.Map()`을 통해 생성됩니다. 중심 및 확대/축소 수준과 같은 맵 속성은 [CameraOptions](https://docs.microsoft.com/javascript/api/azure-maps-javascript/cameraoptions?view=azure-iot-typescript-latest)의 일부입니다. CameraOptions는 맵 생성자에서 정의하거나 맵 클래스의 [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#setcamera) 함수를 통해 정의할 수 있습니다.
+위의 코드에서 [맵 개체](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)는 `new atlas.Map()`을 통해 생성됩니다. 중심 및 확대/축소 수준과 같은 맵 속성은 [CameraOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraoptions?view=azure-iot-typescript-latest)의 일부입니다. CameraOptions는 맵 생성자에서 정의하거나 맵 클래스의 [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera) 함수를 통해 정의할 수 있습니다.
 
 <a id="setCameraBoundsOptions"></a>
 
@@ -40,7 +40,7 @@ ms.locfileid: "34599816"
 <iframe height='310' scrolling='no' title='CameraBoundsOptions를 통해 맵 만들기' src='//codepen.io/azuremaps/embed/ZrRbPg/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 펜 <a href='https://codepen.io/azuremaps/pen/ZrRbPg/'>CameraBoundsOptions를 통해 맵 만들기</a>를 참조하세요.
 </iframe>
 
-위의 코드에서 [맵 개체](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)는 `new atlas.Map()`을 통해 생성됩니다. 경계 상자와 같은 맵 속성은 [CameraBoundsOptions](https://docs.microsoft.com/javascript/api/azure-maps-javascript/cameraboundsoptions?view=azure-iot-typescript-latest)의 일부입니다. CameraBoundsOptions는 맵 클래스의 [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#setcamerabounds) 함수를 통해 정의할 수 있습니다.
+위의 코드에서 [맵 개체](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)는 `new atlas.Map()`을 통해 생성됩니다. 경계 상자와 같은 맵 속성은 [CameraBoundsOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest)의 일부입니다. CameraBoundsOptions는 맵 클래스의 [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds) 함수를 통해 정의할 수 있습니다.
 
 ## <a name="try-out-the-code"></a>코드 사용해 보기 
 
@@ -51,9 +51,9 @@ ms.locfileid: "34599816"
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다. 
-* [맵](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
-    * [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#setcamera)
-    * [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#setcamerabounds)
+* [맵](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+    * [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera)
+    * [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds)
     
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요. 
 * [핀 추가](./map-add-pin.md)

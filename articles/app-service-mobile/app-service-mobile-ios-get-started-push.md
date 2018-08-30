@@ -14,17 +14,19 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: crdun
-ms.openlocfilehash: 1fd90df3b6935d35834e1f571e80b945716b55ff
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b84990d053d92b9408e119b8aba28c8b9f8b046e
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307258"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42819001"
 ---
 # <a name="add-push-notifications-to-your-ios-app"></a>iOS 앱에 푸시 알림 추가
+
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## <a name="overview"></a>개요
+
 이 자습서에서는 푸시 알림을 [iOS 빠른 시작] 프로젝트에 추가하여 레코드가 삽입될 때마다 장치에 푸시 알림이 전송됩니다.
 
 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 푸시 알림 확장 패키지가 필요합니다. 자세한 내용은 [Azure Mobile Apps용 .NET 백 엔드 서버 SDK로 작업](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) 가이드를 참조하세요.
@@ -32,24 +34,31 @@ ms.locfileid: "38307258"
 [iOS 시뮬레이터는 푸시 알림을 지원하지 않습니다](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html). 실제 iOS 장치 및 [Apple 개발자 프로그램 멤버 자격](https://developer.apple.com/programs/ios/)이 필요합니다.
 
 ## <a name="configure-hub"></a>알림 허브 구성
+
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ## <a id="register"></a>푸시 알림을 위한 앱 등록
+
 [!INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
 ## <a name="configure-azure-to-send-push-notifications"></a>푸시 알림을 전송하도록 Azure 구성
+
 [!INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
 ## <a id="update-server"></a>푸시 알림을 전송하도록 백 엔드 업데이트
+
 [!INCLUDE [app-service-mobile-dotnet-backend-configure-push-apns](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
 
 ## <a id="add-push"></a>앱에 푸시 알림 추가
+
 [!INCLUDE [app-service-mobile-add-push-notifications-to-ios-app.md](../../includes/app-service-mobile-add-push-notifications-to-ios-app.md)]
 
 ## <a id="test"></a>테스트 푸시 알림
+
 [!INCLUDE [Test Push Notifications in App](../../includes/test-push-notifications-in-app.md)]
 
 ## <a id="more"></a>추가 정보
+
 * 템플릿은 유연성을 제공하여 플랫폼간 푸시 및 지역화된 푸시를 보냅니다. [Azure Mobile Apps용 iOS 클라이언트 라이브러리 사용 방법](app-service-mobile-ios-how-to-use-client-library.md#templates) 은 템플릿을 등록하는 방법을 보여 줍니다.
 
 <!-- Anchors.  -->

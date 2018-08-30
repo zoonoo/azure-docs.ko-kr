@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 78c0864a8edd8380d30cbf0fa2284e47f3217b01
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 4f4c2ada08c69b6602ff5a300a15c4ca57090a8e
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163700"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42816056"
 ---
 # <a name="what-is-password-writeback"></a>비밀번호 쓰기 저장이란?
 
@@ -25,7 +25,7 @@ ms.locfileid: "39163700"
 
 * [Active Directory Federation Services](../connect/active-directory-aadconnect-federation-management.md)
 * [암호 해시 동기화](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)
-* [통과 인증](/../connect/active-directory-aadconnect-pass-through-authentication.md)
+* [통과 인증](../connect/active-directory-aadconnect-pass-through-authentication.md)
 
 비밀번호 쓰기 저장은 다음 기능을 제공합니다.
 
@@ -67,7 +67,7 @@ ms.locfileid: "39163700"
 3. 사용자는 새 암호를 선택하고 다시 확인합니다.
 4. 사용자가 **제출**을 선택하면 쓰기 저장 설정 프로세스에서 만든 대칭 키로 일반 텍스트 암호가 암호화됩니다.
 5. 암호화된 암호는 HTTPS 채널을 통해 테넌트별 Service Bus Relay(쓰기 저장 설정 프로세스에서 자동으로 설정됨)로 전송되는 페이로드에 포함됩니다. 이 릴레이는 온-프레미스 설치만 알고 있는 임의로 생성된 암호에 의해 보호됩니다.
-6. 메시지가 서비스 버스에 도달하면 암호 재설정 끝점이 자동으로 절전 모드에서 해제되어 보류 중인 재설정 요청이 있는지 확인합니다.
+6. 메시지가 서비스 버스에 도달하면 암호 재설정 엔드포인트가 자동으로 절전 모드에서 해제되어 보류 중인 재설정 요청이 있는지 확인합니다.
 7. 그런 다음, 서비스에서 클라우드 앵커 특성을 사용하여 해당 사용자를 찾습니다. 이 조회가 성공하려면:
 
    * 사용자 개체가 Active Directory 커넥터 공간에 있어야 합니다.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: jeedes
-ms.openlocfilehash: cd1e4b376b634a3e3c7fa2c87723aff05f431a25
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 25e78633e7f1bead1eaa575edc6983a59e9ffa2d
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42143332"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42817904"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>자습서: SharePoint 온-프레미스와 Azure Active Directory 통합
 
@@ -49,12 +49,15 @@ SharePoint 온-프레미스와 Azure AD 통합을 구성하려면 다음 항목�
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.
+이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 SharePoint 온-프레미스 추가
-1. Azure AD Single Sign-on 구성 및 테스트
+2. Azure AD Single Sign-on 구성 및 테스트
 
 ## <a name="adding-sharepoint-on-premises-from-the-gallery"></a>갤러리에서 SharePoint 온-프레미스 추가
+
 SharePoint 온-프레미스의 Azure AD 통합을 구성하려면 갤러리의 SharePoint 온-프레미스를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
 **갤러리에서 SharePoint 온-프레미스를 추가하려면 다음 단계를 수행합니다.**
@@ -63,15 +66,15 @@ SharePoint 온-프레미스의 Azure AD 통합을 구성하려면 갤러리의 S
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
 
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
     ![새 응용 프로그램 단추][3]
 
-1. 검색 상자에 **SharePoint 온-프레미스**를 입력하고 결과 패널에서 **SharePoint 온-프레미스**를 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에 **SharePoint 온-프레미스**를 입력하고 결과 패널에서 **SharePoint 온-프레미스**를 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![결과 목록의 SharePoint 온-프레미스](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_addfromgallery.png)
 
@@ -84,10 +87,10 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 SharePoint 온-프레미스에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-1. **[SharePoint 온-프레미스 테스트 사용자에 대한 액세스 권한 부여](#grant-access-to-sharePoint-on-premises-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 SharePoint 온-프레미스에 만듭니다.
-1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-1. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
+2. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+3. **[SharePoint 온-프레미스 테스트 사용자에 대한 액세스 권한 부여](#grant-access-to-sharePoint-on-premises-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 SharePoint 온-프레미스에 만듭니다.
+4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+5. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -110,6 +113,8 @@ SharePoint 온-프레미스에서 Azure AD Single Sign-On을 구성하고 테스
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<YourSharePointServerURL>/_trust/default.aspx`
 
     b. **식별자** 텍스트 상자에 URL `urn:sharepoint:federation`을 입력합니다.
+
+    다. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<YourSharePointServerURL>/_trust/default.aspx`
 
 4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -183,15 +188,15 @@ SharePoint 온-프레미스에서 Azure AD Single Sign-On을 구성하고 테스
 
     ![Azure Active Directory 단추](./media\sharepoint-on-premises-tutorial/create_aaduser_01.png)
 
-1. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
+2. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](./media\sharepoint-on-premises-tutorial/create_aaduser_02.png)
 
-1. **사용자** 대화 상자를 열려면 **모든 사용자** 대화 상자 위쪽에서 **추가**를 클릭합니다.
+3. **사용자** 대화 상자를 열려면 **모든 사용자** 대화 상자 위쪽에서 **추가**를 클릭합니다.
 
     ![추가 단추](./media\sharepoint-on-premises-tutorial/create_aaduser_03.png)
 
-1. **사용자** 대화 상자에서 다음 단계를 수행합니다.
+4. **사용자** 대화 상자에서 다음 단계를 수행합니다.
 
     ![사용자 대화 상자](./media\sharepoint-on-premises-tutorial/create_aaduser_04.png)
 
@@ -250,9 +255,9 @@ Azure AD에 로그인하고 SharePoint에 액세스할 사용자는 응용 프�
     $t.UseWReplyParameter=$true
     $t.Update()
     ```
-6. 중앙 관리에서 웹 응용 프로그램으로 이동하고 기존의 신뢰할 수 있는 ID 공급자를 사용하도록 설정합니다. 로그인 페이지 URL을 사용자 지정 로그인 페이지 `/_trust/`로 구성해야 합니다.
+6. 중앙 관리에서 웹 응용 프로그램으로 이동하고 기존의 신뢰할 수 있는 ID 공급자를 사용하도록 설정합니다. 로그인 페이지 URL을 사용자 지정 로그인 페이지 `/_trust/`로 구성해야합니다.
 
-7. 중앙 관리에서 웹 응용 프로그램을 클릭하고 **사용자 정책**을 선택합니다. 이 문서에서 이전에 설명한 대로 적절한 사용 권한이 있는 사용자를 추가합니다.
+7. 중앙 관리에서 웹 응용 프로그램을 클릭하고 **사용자 정책**을 선택합니다. 이 아티클에서 이전에 설명한 대로 적절한 사용 권한이 있는 사용자를 추가합니다.
 
 ### <a name="fixing-people-picker"></a>사용자 선택 수정
 
@@ -320,4 +325,3 @@ Azure AD에 로그인하고 SharePoint에 액세스할 사용자는 응용 프�
 [201]: ./media\sharepoint-on-premises-tutorial/tutorial_general_201.png
 [202]: ./media\sharepoint-on-premises-tutorial/tutorial_general_202.png
 [203]: ./media\sharepoint-on-premises-tutorial/tutorial_general_203.png
-

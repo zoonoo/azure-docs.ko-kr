@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: kumud
-ms.openlocfilehash: 3172736edf4e38f53858620ebac95b711857010b
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 39a3f1a400abae4a9a30c07b7352518b55d0daf1
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901268"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746821"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Azure CLI를 사용하여 IPv6로 공용 부하 분산 장치 만들기
 
@@ -39,7 +39,7 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
 * 할당된 IPv4 및 IPv6 주소를 사용하는 각 VM에 대한 가상 네트워크 인터페이스
 * IPv4 및 IPv6 공용 IP 주소를 사용하는 공용 부하 분산 장치
 * 두 개의 VM이 포함된 가용성 집합
-* 공용 VIP를 개인 끝점으로 매핑하기 위한 두 개의 부하 분산 규칙
+* 공용 VIP를 개인 엔드포인트로 매핑하기 위한 두 개의 부하 분산 규칙
 
 ## <a name="deploy-the-solution-by-using-azure-cli"></a>Azure CLI를 사용하여 솔루션 배포
 
@@ -259,7 +259,7 @@ NIC를 만들어 NAT 규칙, 부하 분산 장치 규칙 및 프로브와 연결
     $nic1 = az network nic create --name $nic1Name --resource-group $rgname --location $location --private-ip-address-version "IPv4" --subnet $subnet1Id --lb-address-pools $backendAddressPoolV4Id --lb-inbound-nat-rules $natRule1V4Id
     $nic1IPv6 = az network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-address-version "IPv6" --lb-address-pools $backendAddressPoolV6Id --nic-name $nic1Name
 
-    $nic2 = az network nic create --name $nic2Name --resource-group $rgname --location $location --private-ip-address-version "IPv4" --subnet $subnet1Id --lb-address-pools $backendAddressPoolV4Id --lb-inbound-nat-rules $natRule2V4Id
+    $nic2 = az network nic create --name $nic2Name --resource-group $rgname --location $location --private-ip-address-version "IPv4" --subnet $subnet2Id --lb-address-pools $backendAddressPoolV4Id --lb-inbound-nat-rules $natRule2V4Id
     $nic2IPv6 = az network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-address-version "IPv6" --lb-address-pools $backendAddressPoolV6Id --nic-name $nic2Name
     ```
 

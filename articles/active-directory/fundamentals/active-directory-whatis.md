@@ -16,10 +16,10 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: it-pro
 ms.openlocfilehash: 5087f759d682382bc22b5f95f462fe0f08619cc8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
+ms.lasthandoff: 08/29/2018
 ms.locfileid: "39449997"
 ---
 # <a name="what-is-azure-active-directory"></a>Azure Active Directory란?
@@ -51,8 +51,7 @@ Azure Active Directory를 강화하려면 Azure Active Directory Basic, Premium 
 
 * **Azure Active Directory Basic** - 클라우드를 주로 필요로 하는 작업자를 위해 설계된 이 버전은 클라우드 중심 응용 프로그램 액세스 및 셀프 서비스 ID 관리 솔루션을 제공합니다. Azure Active Directory Basic 버전을 사용하면 그룹 기반 액세스 관리, 클라우드 응용 프로그램에 대한 셀프 서비스 암호 재설정 및 Azure Active Directory 응용 프로그램 프록시(Azure Active Directory를 사용하여 온-프레미스 웹 응용 프로그램을 게시하는 데 필요)와 같은 생산성 강화 및 비용 절감 기능을 활용할 수 있고 이는 모두 엔터프라이즈급의 99.9% 가동 시간 SLA에서 지원됩니다.
 * **Azure Active Directory Premium P1** - ID 및 액세스 관리를 필요로 하는 조직을 지원하도록 설계된 Azure Active Directory Premium Edition은 풍부한 기능의 엔터프라이즈 수준 ID 관리 기능을 추가하고 하이브리드 사용자가 원활하게 온-프레미스 및 클라우드 기능에 액세스할 수 있도록 합니다. 이 버전은 하이브리드 환경에서 응용 프로그램 액세스, 셀프 서비스 ID 및 액세스 관리(IAM), 클라우드에서 ID 보호 및 보안에 대해 정보 작업자 및 ID 관리자를 위해 필요한 모든 것을 포함합니다. 동적 그룹 및 셀프 서비스 그룹 관리와 같은 고급 관리 및 위임 리소스를 지원합니다. 온-프레미스 사용자를 위한 셀프 서비스 암호 재설정과 같은 솔루션을 사용하여 Microsoft ID 관리자(온-프레미스 ID 및 액세스 관리 제품군)를 포함하며 클라우드 쓰기 저장 기능을 제공합니다.
-* 
-  **Azure Active Directory Premium P2** - 모든 사용자와 관리자에 대한 고급 보호로 설계되었으며 이 새 제품은 Azure AD Premium P1의 모든 기능과 ID 보호 및 Privileged Identity Management를 포함합니다. Azure Active Directory ID 보호는 수많은 신호를 활용하여 응용 프로그램 및 중요한 회사 데이터에 위험 기반 조건부 액세스를 제공합니다. 관리자 및 관리자의 리소스에 대한 액세스를 검색, 제한 및 모니터링할 수 있도록 Azure Active Directory Privileged Identity Management를 사용하여 권한 있는 계정을 관리 및 보호할 수 있도록 도움을 주고 필요한 경우 적시에 액세스를 제공합니다.  
+* **Azure Active Directory Premium P2** - 모든 사용자와 관리자에 대한 고급 보호로 설계되었으며 이 새 제품은 Azure AD Premium P1의 모든 기능과 ID 보호 및 Privileged Identity Management를 포함합니다. Azure Active Directory ID 보호는 수많은 신호를 활용하여 응용 프로그램 및 중요한 회사 데이터에 위험 기반 조건부 액세스를 제공합니다. 관리자 및 관리자의 리소스에 대한 액세스를 검색, 제한 및 모니터링할 수 있도록 Azure Active Directory Privileged Identity Management를 사용하여 권한 있는 계정을 관리 및 보호할 수 있도록 도움을 주고 필요한 경우 적시에 액세스를 제공합니다.  
 
 > [!NOTE]
 > 다양한 Azure Active Directory 기능은 "종량제" 버전을 통해 사용할 수 있습니다.

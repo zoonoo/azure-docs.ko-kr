@@ -4,16 +4,16 @@ description: Azure Event Grid를 사용하여 Blob 저장소 이벤트를 구독
 services: storage,event-grid
 author: david-stanford
 ms.author: dastanfo
-ms.date: 07/05/2018
+ms.date: 08/23/2018
 ms.topic: article
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: 502f378bd1eddc0a104438037dce50bafd508ad9
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: c7c5bab9441d59d5d12b9f9c087f3d6d5f78bf39
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42147007"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42747143"
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Powershell로 Blob 저장소 이벤트를 사용자 지정 웹 엔드포인트로 라우팅
 
@@ -79,7 +79,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-message-endpoint"></a>메시지 엔드포인트 만들기
 
-토픽을 구독하기 전에 이벤트 메시지에 대한 엔드포인트를 만들어 보겠습니다. 일반적으로 엔드포인트는 이벤트 데이터를 기반으로 작업을 수행합니다. 이 빠른 시작을 간소화하기 위해 이벤트 메시지를 표시하는 [미리 작성된 웹앱](https://github.com/dbarkol/azure-event-grid-viewer)을 배포합니다. 배포된 솔루션은 App Service 계획, App Service 웹앱 및 GitHub의 소스 코드를 포함합니다.
+토픽을 구독하기 전에 이벤트 메시지에 대한 엔드포인트를 만들어 보겠습니다. 일반적으로 엔드포인트는 이벤트 데이터를 기반으로 작업을 수행합니다. 이 빠른 시작을 간소화하기 위해 이벤트 메시지를 표시하는 [미리 작성된 웹앱](https://github.com/Azure-Samples/azure-event-grid-viewer)을 배포합니다. 배포된 솔루션은 App Service 계획, App Service 웹앱 및 GitHub의 소스 코드를 포함합니다.
 
 `<your-site-name>`을 웹앱의 고유한 이름으로 바꿉니다. 웹앱 이름은 DNS 항목의 일부이므로 고유해야 합니다.
 
@@ -88,7 +88,7 @@ $sitename="<your-site-name>"
 
 New-AzureRmResourceGroupDeployment `
   -ResourceGroupName $resourceGroup `
-  -TemplateUri "https://raw.githubusercontent.com/dbarkol/azure-event-grid-viewer/master/azuredeploy.json" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" `
   -siteName $sitename `
   -hostingPlanName viewerhost
 ```

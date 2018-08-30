@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: 5e9ab73ddc16517e17894cddd9bc102f3941f00c
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 52462c1c5a2a1a9698a2b51708e63b1bb1664f6e
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "35778803"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745539"
 ---
 # <a name="show-directions-from-a-to-b"></a>A에서 B로의 방향 표시 
 
@@ -29,7 +29,7 @@ ms.locfileid: "35778803"
 
 두 번째 코드 블록은 경로의 시작점과 끝점을 나타내기 위해 맵에 핀을 만들고 추가합니다. 지침은 [맵에 핀 추가](map-add-pin.md)를 참조하세요.
 
-세 번째 코드 블록은 map 클래스의 [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#setcamerabounds) 함수를 사용하여 경로의 시작점과 끝점을 기반으로 맵의 경계 상자를 설정합니다.
+세 번째 코드 블록은 map 클래스의 [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds) 함수를 사용하여 경로의 시작점과 끝점을 기반으로 맵의 경계 상자를 설정합니다.
 
 네 번째 코드 블록은 [XMLHttpRequest](https://xhr.spec.whatwg.org/)를 [Azure Maps 경로 API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)로 보냅니다.
 
@@ -39,10 +39,10 @@ ms.locfileid: "35778803"
 
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다. 
 
-* [Map](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
-    * [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#setcamerabounds)
-    * [addLinestrings](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addlinestrings)
-    * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpins)
+* [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+    * [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds)
+    * [addLinestrings](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addlinestrings)
+    * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins)
 
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요. 
 * [맵에 트래픽 표시](./map-show-traffic.md)

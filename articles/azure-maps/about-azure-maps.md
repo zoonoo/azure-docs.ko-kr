@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d0ec146d276f72abf4cbbe3da4d11c0d5539df6d
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 803e82a294b64452ffd788880097b9d86ac1065b
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144196"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745293"
 ---
 # <a name="what-is-azure-maps"></a>Azure Maps란?
 Azure Maps는 웹 및 모바일 응용 프로그램에 정확한 지리적 컨텍스트를 제공할 수 있도록 최신 매핑 데이터로 지원되는 지리 공간적 서비스의 컬렉션입니다. 맵 렌더링, 관심 지점 검색, 관심 지점에 대한 라우팅, 교통 상황, 표준 시간대 및 위치에 대한 IP 서비스를 위한 REST API를 포함합니다. 익숙한 도구로 이러한 API를 사용하여 위치 정보를 Azure 솔루션에 통합하는 솔루션을 신속하게 개발하고 크기를 조정할 수 있습니다. REST API와 함께 여러 미디어를 통한 개발을 쉽고 유연하며 이식 가능하도록 웹 기반 JavaScript 제어를 제공합니다. 
@@ -98,7 +98,7 @@ IP to Location 서비스용 REST API에 대한 정보는 [Azure Maps Geolocation
 
 Azure Maps는 이동성을 위해 빌드되었으며 플랫폼 간 응용 프로그램을 지원할 수 있습니다. 언어에 구애 받지 않는 프로그래밍 모델을 사용하며 [REST API](https://docs.microsoft.com/rest/api/maps/)를 통해 JSON 출력을 지원합니다. 
 
-또한 Azure Maps는 웹 및 모바일 응용 프로그램을 쉽고 빠르게 개발할 수 있는 간단한 프로그래밍 모델이 포함된 편리한 [JavaScript 지도 컨트롤](https://docs.microsoft.com/javascript/api/azure-maps-javascript/?view=azure-iot-typescript-latest)을 제공합니다. 
+또한 Azure Maps는 웹 및 모바일 응용 프로그램을 쉽고 빠르게 개발할 수 있는 간단한 프로그래밍 모델이 포함된 편리한 [JavaScript 지도 컨트롤](https://docs.microsoft.com/javascript/api/azure-maps-control/models?view=azure-iot-typescript-latest)을 제공합니다. 
 
 
 ## <a name="usage"></a>사용 현황

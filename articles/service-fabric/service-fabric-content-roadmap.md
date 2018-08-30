@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 9f37a7665521b69634329078258b00cb9f53c407
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 644089cea4dccc79e67b9117187b553eb4616d9f
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358721"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818217"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Service Fabric에 대해 궁금하신가요?
 Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다.  그러나 Service Fabric은 노출 영역이 대규모이므로 학습할 내용이 많습니다.  이 문서에서는 Service Fabric의 개요를 제공하고 핵심 개념, 프로그래밍 모델, 응용 프로그램 수명 주기, 테스트, 클러스터 및 상태 모니터링에 대해 설명합니다. 내용 소개 및 Service Fabric을 사용하여 마이크로 서비스를 만드는 방법은 [개요](service-fabric-overview.md) 및 [마이크로 서비스란?](service-fabric-overview-microservices.md)을 읽어보세요. 이 문서에는 포괄적인 콘텐츠 목록이 포함되어 있지 않지만 Service Fabric의 모든 영역에 대한 개요 및 시작 문서에 대한 링크가 있습니다. 
@@ -146,12 +146,12 @@ Windows에서는 지원되지만 Linux에서 지원되지 않는 일부 기능�
 ### <a name="standalone-clusters"></a>독립 실행형 클러스터
 Service Fabric은 온-프레미스 또는 클라우드 공급자에서 독립 실행형 Service Fabric 클러스터를 만들 수 있는 설치 패키지를 제공합니다. 독립 실행형 클러스터를 사용하면 원하는 위치에서 클러스터를 호스트할 수 있습니다. 데이터가 규정 준수 또는 규제 제약을 받는 경우 또는 데이터를 로컬로 유지하려는 경우 고유한 클러스터 및 응용 프로그램을 호스트할 수 있습니다. Service Fabric 응용 프로그램은 변경 없이 여러 호스팅 환경에서 실행할 수 있으므로 하나의 호스팅 환경에서 습득한 응용 프로그램 빌드에 대한 정보를 다른 환경에서도 사용할 수 있습니다. 
 
-[첫 번째 Service Fabric 독립 실행형 클러스터 만들기](service-fabric-get-started-standalone-cluster.md)
+[첫 번째 Service Fabric 독립 실행형 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)
 
 Linux 독립 실행형 클러스터는 아직 지원되지 않습니다.
 
 ### <a name="cluster-security"></a>클러스터 보안
-실행 중인 프로덕션 작업이 있을 때 권한 없는 사용자가 클러스터에 연결하지 못하도록 하여 클러스터의 보안을 유지해야 합니다. 보안이 되지 않은 클러스터를 만들 수 있지만, 이렇게 하면 공용 인터넷에 관리 끝점이 노출될 경우 익명 사용자가 클러스터에 연결할 수 있게 됩니다. 보안이 설정되지 않은 클러스터에서 나중에 보안을 설정할 수는 없습니다. 클러스터 보안은 클러스터 작성 시 설정할 수 있습니다.
+실행 중인 프로덕션 작업이 있을 때 권한 없는 사용자가 클러스터에 연결하지 못하도록 하여 클러스터의 보안을 유지해야 합니다. 보안이 되지 않은 클러스터를 만들 수 있지만, 이렇게 하면 공용 인터넷에 관리 엔드포인트가 노출될 경우 익명 사용자가 클러스터에 연결할 수 있게 됩니다. 보안이 설정되지 않은 클러스터에서 나중에 보안을 설정할 수는 없습니다. 클러스터 보안은 클러스터 작성 시 설정할 수 있습니다.
 
 클러스터 보안 시나리오:
 * 노드 간 보안

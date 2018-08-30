@@ -7,36 +7,22 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
-ms.date: 08/21/2018
-ms.openlocfilehash: 66106346b298fae22cce47081916a6c8eec8fd40
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.date: 08/22/2018
+ms.openlocfilehash: 79b10a30eea9e19f7ec21f9f9b7ebb95b4c34bf2
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40250672"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42813388"
 ---
 # <a name="use-ansible-to-manage-a-linux-virtual-machine-in-azure"></a>Azure에서 Ansible을 사용하여 Linux 가상 머신 관리
 Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Ansible을 사용하여 다른 리소스와 동일한 방식으로 Azure 가상 머신을 관리할 수 있습니다. 이 문서에서는 Ansible 플레이북을 사용하여 Linux 가상 머신을 시작 및 중지하는 방법을 보여줍니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
-- **Azure 구독** - Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
+- **Azure 구독** - Azure 구독이 아직 없는 경우 [무료 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
-- **Azure Cloud Shell 구성** 또는 **Linux 가상 머신에 Ansible을 설치하고 구성**
-
-  **Azure Cloud Shell 구성**
-
-  1. **Azure Cloud Shell 구성** - Azure Cloud Shell을 처음 사용하는 경우 Cloud Shell을 시작하고 구성하는 방법이 [Azure Cloud Shell의 Bash 빠른 시작](/azure/cloud-shell/quickstart) 문서에 설명되어 있습니다. 
-
-  1. **Linux 가상 머신** - Linux 가상 머신에 액세스할 수 없는 경우 [Ansible을 사용하여 가상 머신을 만들 수 있습니다](ansible-create-vm.md).
-
-  **--또는--**
-
-  **Linux 가상 머신에 Ansible을 설치하고 구성**
-
-  1. **Ansible 설치** - [지원되는 Linux 플랫폼](/azure/virtual-machines/linux/ansible-install-configure#install-ansible-on-an-azure-linux-virtual-machine)에 Ansible을 설치합니다.
-
-  1. **Ansible 구성** - [Azure 자격 증명 만들기 및 Ansible 구성](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 ## <a name="use-ansible-to-deallocate-stop-an-azure-virtual-machine"></a>Ansible을 사용하여 Azure 가상 머신의 할당 취소(중지)
 이 섹션에서는 Ansible을 사용하여 Azure 가상 머신의 할당을 취소(중지)하는 방법을 보여줍니다.

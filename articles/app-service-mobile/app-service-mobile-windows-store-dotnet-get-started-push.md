@@ -14,25 +14,29 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: 9e3ed6d19b0f830923745ad0263c5c4f920c0f51
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: bfbb72d6fd101932f00e12ad18ab079ec30a0d3a
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38473523"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818823"
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>Windows 앱에 푸시 알림 추가
+
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## <a name="overview"></a>개요
+
 이 자습서에서는 푸시 알림을 [Windows 빠른 시작](app-service-mobile-windows-store-dotnet-get-started.md) 프로젝트에 추가하여 레코드가 삽입될 때마다 장치에 푸시 알림이 전송됩니다.
 
 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 푸시 알림 확장 패키지가 필요합니다. 자세한 내용은 [Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
 
 ## <a name="configure-hub"></a>알림 허브 구성
+
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ## <a name="register-your-app-for-push-notifications"></a>푸시 알림에 대해 앱 등록
+
 Microsoft Store에 앱을 제출한 다음, 푸시를 전송하는 WNS(Windows Notification Services)를 통합하도록 서버 프로젝트를 구성해야 합니다.
 
 1. Visual Studio 솔루션 탐색기에서 UWP 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고 **스토어** > **스토어와 앱을 연결...** 을 클릭합니다.
@@ -48,104 +52,114 @@ Microsoft Store에 앱을 제출한 다음, 푸시를 전송하는 WNS(Windows N
 
    > [!IMPORTANT]
    > 클라이언트 암호와 패키지 SID는 중요한 보안 자격 증명입니다. 다른 사람과 공유하지 말고 앱과 함께 분산하지 마세요. **응용 프로그램 ID** 는 Microsoft 계정 인증을 구성하는 암호와 함게 사용됩니다.
-   >
-   >
 
 ## <a name="configure-the-backend-to-send-push-notifications"></a>푸시 알림을 전송하도록 백 엔드 구성
+
 [!INCLUDE [app-service-mobile-configure-wns](../../includes/app-service-mobile-configure-wns.md)]
 
 ## <a id="update-service"></a>푸시 알림을 전송하도록 서버 업데이트
+
 백 엔드 프로젝트 형식&mdash;([.NET 백 엔드](#dotnet) 또는 [Node.js 백 엔드](#nodejs))과 일치하는 아래의 절차를 사용합니다.
 
 ### <a name="dotnet"></a>.NET 백 엔드 프로젝트
+
 1. Visual Studio에서 서버 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 클릭합니다. Microsoft.Azure.NotificationHubs를 검색한 다음 **설치**를 클릭합니다. Notification Hubs 클라이언트 라이브러리를 설치합니다.
 2. **컨트롤러**를 확장하고 TodoItemController.cs를 열고 다음 using 문을 추가합니다.
 
-        using System.Collections.Generic;
-        using Microsoft.Azure.NotificationHubs;
-        using Microsoft.Azure.Mobile.Server.Config;
+    ```csharp
+    using System.Collections.Generic;
+    using Microsoft.Azure.NotificationHubs;
+    using Microsoft.Azure.Mobile.Server.Config;
+    ```
+
 3. **PostTodoItem** 메서드에서 **InsertAsync**에 대한 호출 뒤에 다음 코드를 추가합니다.
 
-        // Get the settings for the server project.
-        HttpConfiguration config = this.Configuration;
-        MobileAppSettingsDictionary settings =
-            this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
+    ```csharp
+    // Get the settings for the server project.
+    HttpConfiguration config = this.Configuration;
+    MobileAppSettingsDictionary settings =
+        this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
-        // Get the Notification Hubs credentials for the Mobile App.
-        string notificationHubName = settings.NotificationHubName;
-        string notificationHubConnection = settings
-            .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
+    // Get the Notification Hubs credentials for the Mobile App.
+    string notificationHubName = settings.NotificationHubName;
+    string notificationHubConnection = settings
+        .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
 
-        // Create the notification hub client.
-        NotificationHubClient hub = NotificationHubClient
-            .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
+    // Create the notification hub client.
+    NotificationHubClient hub = NotificationHubClient
+        .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-        // Define a WNS payload
-        var windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">"
-                                + item.Text + @"</text></binding></visual></toast>";
-        try
-        {
-            // Send the push notification.
-            var result = await hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
+    // Define a WNS payload
+    var windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">"
+                            + item.Text + @"</text></binding></visual></toast>";
+    try
+    {
+        // Send the push notification.
+        var result = await hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
 
-            // Write the success result to the logs.
-            config.Services.GetTraceWriter().Info(result.State.ToString());
-        }
-        catch (System.Exception ex)
-        {
-            // Write the failure result to the logs.
-            config.Services.GetTraceWriter()
-                .Error(ex.Message, null, "Push.SendAsync Error");
-        }
+        // Write the success result to the logs.
+        config.Services.GetTraceWriter().Info(result.State.ToString());
+    }
+    catch (System.Exception ex)
+    {
+        // Write the failure result to the logs.
+        config.Services.GetTraceWriter()
+            .Error(ex.Message, null, "Push.SendAsync Error");
+    }
+    ```
 
     이 코드는 새 항목을 삽입한 후에 알림 허브에 푸시 알림을 전송하도록 지시합니다.
+
 4. 서버 프로젝트를 다시 게시합니다.
 
 ### <a name="nodejs"></a>Node.js 백 엔드 프로젝트
 1. 아직 수행하지 않은 경우 [빠른 시작 프로젝트를 다운로드](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)하거나 [Azure 포털에서 온라인 편집기](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor)를 사용합니다.
 2. todoitem.js 파일의 기존 코드를 다음으로 바꿉니다.
 
-        var azureMobileApps = require('azure-mobile-apps'),
-        promises = require('azure-mobile-apps/src/utilities/promises'),
-        logger = require('azure-mobile-apps/src/logger');
+    ```javascript
+    var azureMobileApps = require('azure-mobile-apps'),
+    promises = require('azure-mobile-apps/src/utilities/promises'),
+    logger = require('azure-mobile-apps/src/logger');
 
-        var table = azureMobileApps.table();
+    var table = azureMobileApps.table();
 
-        table.insert(function (context) {
-        // For more information about the Notification Hubs JavaScript SDK,
-        // see http://aka.ms/nodejshubs
-        logger.info('Running TodoItem.insert');
+    table.insert(function (context) {
+    // For more information about the Notification Hubs JavaScript SDK,
+    // see http://aka.ms/nodejshubs
+    logger.info('Running TodoItem.insert');
 
-        // Define the WNS payload that contains the new item Text.
-        var payload = "<toast><visual><binding template=\ToastText01\><text id=\"1\">"
-                                    + context.item.text + "</text></binding></visual></toast>";
+    // Define the WNS payload that contains the new item Text.
+    var payload = "<toast><visual><binding template=\ToastText01\><text id=\"1\">"
+                                + context.item.text + "</text></binding></visual></toast>";
 
-        // Execute the insert.  The insert returns the results as a Promise,
-        // Do the push as a post-execute action within the promise flow.
-        return context.execute()
-            .then(function (results) {
-                // Only do the push if configured
-                if (context.push) {
-                    // Send a WNS native toast notification.
-                    context.push.wns.sendToast(null, payload, function (error) {
-                        if (error) {
-                            logger.error('Error while sending push notification: ', error);
-                        } else {
-                            logger.info('Push notification sent successfully!');
-                        }
-                    });
-                }
-                // Don't forget to return the results from the context.execute()
-                return results;
-            })
-            .catch(function (error) {
-                logger.error('Error while running context.execute: ', error);
-            });
+    // Execute the insert.  The insert returns the results as a Promise,
+    // Do the push as a post-execute action within the promise flow.
+    return context.execute()
+        .then(function (results) {
+            // Only do the push if configured
+            if (context.push) {
+                // Send a WNS native toast notification.
+                context.push.wns.sendToast(null, payload, function (error) {
+                    if (error) {
+                        logger.error('Error while sending push notification: ', error);
+                    } else {
+                        logger.info('Push notification sent successfully!');
+                    }
+                });
+            }
+            // Don't forget to return the results from the context.execute()
+            return results;
+        })
+        .catch(function (error) {
+            logger.error('Error while running context.execute: ', error);
         });
+    });
 
-        module.exports = table;
+    module.exports = table;
+    ```
 
     이는 새 todo 항목이 삽입된 경우 item.text가 포함된 WNS 알림 메시지를 보냅니다.
+
 3. 로컬 컴퓨터에서 파일을 편집할 때 서버 프로젝트를 다시 게시합니다.
 
 ## <a id="update-app"></a>앱에 푸시 알림 추가
@@ -153,37 +167,48 @@ Microsoft Store에 앱을 제출한 다음, 푸시를 전송하는 WNS(Windows N
 
 1. **App.xaml.cs** 프로젝트 파일을 열고 다음 `using` 문을 추가합니다.
 
-        using System.Threading.Tasks;
-        using Windows.Networking.PushNotifications;
+    ```csharp
+    using System.Threading.Tasks;
+    using Windows.Networking.PushNotifications;
+    ```
+
 2. 동일한 파일에서 다음 **InitNotificationsAsync** 메서드 정의를 **App** 클래스에 추가합니다.
 
-        private async Task InitNotificationsAsync()
-        {
-            // Get a channel URI from WNS.
-            var channel = await PushNotificationChannelManager
-                .CreatePushNotificationChannelForApplicationAsync();
+    ```csharp
+    private async Task InitNotificationsAsync()
+    {
+        // Get a channel URI from WNS.
+        var channel = await PushNotificationChannelManager
+            .CreatePushNotificationChannelForApplicationAsync();
 
-            // Register the channel URI with Notification Hubs.
-            await App.MobileService.GetPush().RegisterAsync(channel.Uri);
-        }
+        // Register the channel URI with Notification Hubs.
+        await App.MobileService.GetPush().RegisterAsync(channel.Uri);
+    }
+    ```
 
     이 코드는 WNS에서 앱의 ChannelURI를 검색한 후 해당 ChannelURI를 App Service 모바일 앱에 등록합니다.
+
 3. **App.xaml.cs**의 **OnLaunched** 이벤트 처리기 맨 위에서 다음 예제와 같이 메서드 정의에 **비동기** 한정자를 추가하고 새 **InitNotificationsAsync**메서드에 다음 호출을 추가합니다.
 
-        protected async override void OnLaunched(LaunchActivatedEventArgs e)
-        {
-            await InitNotificationsAsync();
+    ```csharp
+    protected async override void OnLaunched(LaunchActivatedEventArgs e)
+    {
+        await InitNotificationsAsync();
 
-            // ...
-        }
+        // ...
+    }
+    ```
 
     이제 응용 프로그램을 시작할 때마다 단기 ChannelURI가 등록됩니다.
+
 4. UWP 앱 프로젝트를 다시 빌드합니다. 이제 앱에서 알림을 받을 수 있습니다.
 
 ## <a id="test"></a>앱에서 푸시 알림 테스트
+
 [!INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
 
 ## <a id="more"></a>다음 단계
+
 푸시 알림에 대해 자세히 알아봅니다.
 
 * [Azure Mobile Apps에 관리되는 클라이언트를 사용하는 방법](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications) 템플릿은 유연성을 제공하여 플랫폼간 푸시 및 지역화된 푸시를 보냅니다. 템플릿을 등록하는 방법에 대해 자세히 알아봅니다.

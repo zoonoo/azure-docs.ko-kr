@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 094abe08c0c88c7561185675ceb8529be2c87a0a
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: be3c9960961b5c4800faf476bd6a21f7395f057d
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294651"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746381"
 ---
 # <a name="add-pins-to-the-map"></a>맵에 핀 추가
 
@@ -27,13 +27,13 @@ ms.locfileid: "35294651"
 
 위의 코드에서 첫 번째 코드 블록은 맵 개체를 만듭니다. [맵 만들기](./map-create.md)에서 지침을 참조할 수 있습니다.
 
-두 번째 코드 블록에서 핀이 생성되고 맵에 추가됩니다. 핀은 원은 기능 속성으로 [PinProperties](https://docs.microsoft.com/javascript/api/azure-maps-javascript/pinproperties?view=azure-iot-typescript-latest)를 사용하는 [Point](https://docs.microsoft.com/javascript/api/azure-maps-javascript/point?view=azure-iot-typescript-latest)의 [기능](https://docs.microsoft.com/javascript/api/azure-maps-javascript/feature?view=azure-iot-typescript-latest)입니다. `new atlas.data.Feature(new atlas.data.Point())`를 사용하여 핀을 만들고 속성을 정의합니다. 핀 계층은 핀의 배열입니다. 맵 클래스의 [addPins](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpins) 기능을 사용하여 맵에 핀 계층을 추가하고 핀 계층의 속성을 정의합니다. [PinLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-javascript/pinlayeroptions?view=azure-iot-typescript-latest)에서 핀 계층의 속성을 참조하세요. 
+두 번째 코드 블록에서 핀이 생성되고 맵에 추가됩니다. 핀은 원은 기능 속성으로 [PinProperties](https://docs.microsoft.com/javascript/api/azure-maps-control/models.pinproperties?view=azure-iot-typescript-latest)를 사용하는 [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.atlas.data.point?view=azure-iot-typescript-latest)의 [기능](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.atlas.data.feature?view=azure-iot-typescript-latest)입니다. `new atlas.data.Feature(new atlas.data.Point())`를 사용하여 핀을 만들고 속성을 정의합니다. 핀 계층은 핀의 배열입니다. 맵 클래스의 [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins) 기능을 사용하여 맵에 핀 계층을 추가하고 핀 계층의 속성을 정의합니다. [PinLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.pinlayeroptions?view=azure-iot-typescript-latest)에서 핀 계층의 속성을 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다. 
-* [맵](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
-    * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpins)
+* [맵](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+    * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins)
     
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요. 
 * [팝업 추가](./map-add-popup.md)

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: cherylmc
 ms.openlocfilehash: 245e5e1048f27fc76141312cf6f9021dc0060ae6
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
+ms.lasthandoff: 08/28/2018
 ms.locfileid: "39359067"
 ---
 # <a name="vpn-gateway-faq"></a>VPN Gateway FAQ
@@ -124,9 +124,9 @@ Azure VPN은 PSK(미리 공유한 키) 인증을 사용합니다. VPN 터널을 
 
 ### <a name="why-are-certain-ports-opened-on-my-vpn-gateway"></a>내 VPN 게이트웨이에서 특정 포트가 열리는 이유는 무엇인가요?
 
-Azure 인프라 통신을 위해 필요합니다. Azure 인증서에 의해 보호(잠김)됩니다. 적절한 인증서가 없는 경우 해당 게이트웨이 고객을 포함하여 외부 엔터티는 해당 끝점에 어떤 영향도 미칠 수 없습니다.
+Azure 인프라 통신을 위해 필요합니다. Azure 인증서에 의해 보호(잠김)됩니다. 적절한 인증서가 없는 경우 해당 게이트웨이 고객을 포함하여 외부 엔터티는 해당 엔드포인트에 어떤 영향도 미칠 수 없습니다.
 
-VPN 게이트웨이는 기본적으로 고객 개인 네트워크에 연결하는 하나의 NIC와 공용 네트워크를 연결하는 하나의 NIC를 갖춘 멀티홈 장치입니다. Azure 인프라 엔터티는 준수 이유로 고객 개인 네트워크에 연결할 수 없으므로 인프라 통신용 공용 끝점을 이용해야 합니다. 공용 끝점은 Azure 보안 감사에서 정기적으로 검색됩니다.
+VPN 게이트웨이는 기본적으로 고객 개인 네트워크에 연결하는 하나의 NIC와 공용 네트워크를 연결하는 하나의 NIC를 갖춘 멀티홈 장치입니다. Azure 인프라 엔터티는 준수 이유로 고객 개인 네트워크에 연결할 수 없으므로 인프라 통신용 공용 엔드포인트를 이용해야 합니다. 공용 엔드포인트는 Azure 보안 감사에서 정기적으로 검색됩니다.
 
 ### <a name="more-information-about-gateway-types-requirements-and-throughput"></a>게이트웨이 유형, 요구 사항 및 처리량에 대한 자세한 내용
 

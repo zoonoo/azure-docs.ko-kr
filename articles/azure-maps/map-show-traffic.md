@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 6ff7a0270509c244fc97bd04d8ba648fd262dc58
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2499822db587dbf47dccedf6039d0fb5823c58b5
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600122"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746081"
 ---
 # <a name="show-traffic-on-the-map"></a>맵에 트래픽 표시
 
@@ -27,13 +27,13 @@ ms.locfileid: "34600122"
 
 위의 코드에서 첫 번째 코드 블록은 맵 개체를 만듭니다. [맵 만들기](map-create.md)에서 지침을 참조할 수 있습니다.
 
-두 번째 코드 블록은 맵 클래스의 [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#settraffic) 기능을 사용하여 맵에 트래픽 흐름 및 인시던트를 렌더링합니다.
+두 번째 코드 블록은 맵 클래스의 [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic) 기능을 사용하여 맵에 트래픽 흐름 및 인시던트를 렌더링합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다. 
-* [맵](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
-    * [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#settraffic)
+* [맵](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+    * [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic)
 
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요. 
 * [맵 - 마우스 이벤트 상호 작용](./map-events.md)

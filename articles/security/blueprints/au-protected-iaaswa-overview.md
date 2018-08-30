@@ -6,19 +6,18 @@ author: meladie
 ms.assetid: f53a25c4-1c75-42d6-a0e7-a91661673891
 ms.service: security
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: 2179398cdd79db99540ce219b8f4eae24f0eca39
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: b269a145c78aaf025ef05a4562cf55124c17e2ee
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246280"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818008"
 ---
 # <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-australia-protected"></a>Azure 보안 및 규정 준수 청사진 - Australia Protected용 IaaS 웹 응용 프로그램
 
 ## <a name="overview"></a>개요
-
 이 Azure 보안 및 규정 준수 청사진은 ASD(Australian Signals Directorate)에서 제작한 호주 정부 ISM(정보 보안 매뉴얼)의 목표에 부합하는 AU-PROTECTED 정부 데이터의 수집, 저장, 검색에 적합한 IaaS(서비스로서의 인프라) 환경 배포에 대한 지침을 제공합니다. 이 청사진은 공통 참조 아키텍처를 소개하며, 안전하고 규정을 준수하는 다중 계층 환경에서 민감한 정부 데이터의 적절한 처리 방법을 보여주는 데 도움이 됩니다.
 
 이 참조 아키텍처, 구현 가이드 및 위협 모델은 고객이 계획과 시스템 승인 프로세스를 수행할 수 있는 기반을 마련해 주어, ASD를 준수하는 방식으로 Azure에 워크로드를 배포하도록 도와줍니다. 고객은 페더레이션된 서비스를 사용하도록 Azure VPN Gateway 또는 ExpressRoute를 구현하고, Azure 리소스와 온-프레미스 리소스를 통합하도록 선택할 수 있습니다. 고객의 온-프레미스 리소스 사용 시 보안 문제를 고려해야 합니다. 각 고객의 구현 세부 사항에 따른 요구 사항을 충족하려면 추가 구성이 필요합니다.
@@ -71,7 +70,6 @@ ASD 규정 준수를 구현하려면 정보 보안 등록 평가자가 시스템
 이 청사진에는 ACSC(Australian Cyber Security Centre)에서 Protected 등급에서 사용을 인증하지 않은 Azure 서비스가 포함되어 있습니다. 이 참조 아키텍처에 포함된 모든 서비스는 DLM(Dissemination Limiting Markers) 수준에서 ACSC의 인증을 받았습니다. Microsoft에서는 이러한 Azure 서비스와 관련하여 게시된 보안 및 감사 보고서를 살펴보고, 위험 관리 프레임워크를 사용하여 해당 Azure 서비스가 내부 승인에 적합하고 Protected 등급에서 사용하기 적합한지 확인할 것을 권장합니다.
 
 ## <a name="deployment-architecture"></a>배포 아키텍처
-
 다음 섹션에서는 개발 및 구현 요소에 대해 자세히 설명합니다.
 
 **요새 호스트**: 요새 호스트는 사용자가 이 환경에서 배포된 리소스에 액세스할 수 있도록 하는 단일 진입점입니다. 요새 호스트는 안전한 목록에 있는 공용 IP 주소의 원격 트래픽만 허용하여 배포된 리소스에 대한 보안 연결을 제공합니다. RDP(원격 데스크톱 프로토콜) 트래픽을 허용하려면 트래픽의 원본을 네트워크 보안 그룹에서 정의해야 합니다.
@@ -84,7 +82,6 @@ ASD 규정 준수를 구현하려면 정보 보안 등록 평가자가 시스템
 -   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard)를 사용하도록 설정하여 자격 증명과 다른 비밀이 실행 중인 운영 체제와 격리된 보호된 환경에서 실행됩니다.
 
 ### <a name="virtual-network"></a>가상 네트워크
-
 아키텍처는 10.200.0.0/16 주소 공간으로 개인 가상 네트워크를 정의합니다.
 
 **네트워크 보안 그룹**: 이 솔루션은 가상 네트워크 내에서 별도의 웹 서브넷, 데이터베이스 서브넷, Active Directory 서브넷 및 관리 서브넷이 있는 아키텍처에 리소스를 배포합니다. 서브넷은 서브넷 간 트래픽을 시스템 및 관리 기능에 필요한 경우로만 제한하기 위해 개별 서브넷에 적용되는 네트워크 보안 그룹 규칙에 의해 논리적으로 구분됩니다.
@@ -105,7 +102,6 @@ Azure는 기본적으로 Azure 데이터 센터와의 모든 통신을 암호화
 또한 Azure 관리 포털을 통한 Azure에 대한 모든 트랜잭션은 TLS 1.2를 사용하는 HTTPS를 통해 발생합니다.
 
 ### <a name="data-at-rest"></a>미사용 데이터
-
 이 아키텍처는 암호화, 데이터베이스 감사 및 다른 방법을 통해 미사용 데이터를 보호합니다.
 
 **Azure Storage**: 암호화된 미사용 데이터 요구 사항을 충족하기 위해 모든 [Azure Storage](https://azure.microsoft.com/services/storage/)에서 [저장소 서비스 암호화](https://docs.microsoft.com/azure/storage/storage-service-encryption)를 사용합니다. 이렇게 하면 호주 정부 ISM에서 정의한 조직의 보안 약정 및 준수 요구 사항을 지지하는 데이터를 안전하게 보호할 수 있습니다.
@@ -113,7 +109,6 @@ Azure는 기본적으로 Azure 데이터 센터와의 모든 통신을 암호화
 **Azure Disk Encryption**: [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)은 Windows의 BitLocker 기능을 활용하여 데이터 디스크에 대한 볼륨 암호화를 제공합니다. 이 솔루션은 Azure Key Vault와 통합되어 디스크 암호화 키를 제어하고 관리하는 데 유용합니다.
 
 **SQL Server**: SQL Server 인스턴스에서 사용하는 데이터베이스 보안 조치는 다음과 같습니다.
-
 -   [SQL Server 감사](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine?view=sql-server-2017)는 데이터베이스 이벤트를 추적하고 감사 로그에 기록합니다.
 -   [투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017)는 데이터베이스, 관련 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 암호 해독을 수행하여 미사용 정보를 보호합니다. 투명한 데이터 암호화는 저장된 데이터가 무단으로 액세스되지 못하게 합니다.
 -   [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)은 적절한 권한이 부여될 때까지 데이터베이스 서버에 대한 모든 액세스를 차단합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다.
@@ -121,7 +116,6 @@ Azure는 기본적으로 Azure 데이터 센터와의 모든 통신을 암호화
 - [동적 데이터 마스킹](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking?view=sql-server-2017)은 권한이 없는 사용자 또는 응용 프로그램에 데이터를 마스킹하여 중요한 데이터가 노출되지 않도록 제한합니다. 동적 데이터 마스킹은 잠재적으로 중요한 데이터를 자동으로 검색하고 적용할 적절한 마스크를 제안할 수 있습니다. 이렇게 하면 중요한 데이터가 무단 액세스를 통해 데이터베이스에서 나가지 않도록 액세스를 줄일 수 있습니다. **고객은 데이터베이스 스키마를 준수하도록 동적 데이터 마스킹 설정을 조정할 책임이 있습니다.**
 
 ### <a name="identity-management"></a>ID 관리
-
 고객은 온-프레미스 Active Directory Federated Services를 활용하여 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스인 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)와 페더레이션할 수 있습니다. [Azure Active Directory Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)는 Azure Active Directory와 온-프레미스 디렉터리를 통합합니다. 이 솔루션의 모든 사용자는 Azure Active Directory 계정이 필요합니다. 사용자는 페더레이션 로그인을 사용하여 Azure Active Directory에 로그인하고 온-프레미스 자격 증명을 사용하여 Azure 리소스에 인증할 수 있습니다.
 
 또한 다음과 같은 Azure Active Directory 기능은 Azure 환경의 데이터에 대한 액세스를 관리하는 데 도움이 됩니다.
@@ -133,7 +127,6 @@ Azure는 기본적으로 Azure 데이터 센터와의 모든 통신을 암호화
 **Azure Multi-Factor Authentication**: ID를 보호하려면 다단계 인증을 구현해야 합니다. [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)은 인증의 두 번째 메서드를 제공하여 사용자를 보호하는 사용하기 쉽고 확장 가능한 신뢰할 수 있는 솔루션입니다. Azure Multi-Factor Authentication은 클라우드의 강력한 기능을 이용하며 온-프레미스 Active Directory와 사용자 지정 응용 프로그램을 통합합니다. 이러한 보호는 고용량 업무상 중요한 시나리오에 확장됩니다.
 
 ### <a name="security"></a>보안
-
 **비밀 관리**: 이 솔루션은 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용하여 키와 비밀을 관리합니다. Azure Key Vault는 클라우드 응용 프로그램 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다. Azure Key Vault 기능을 통해 고객이 이러한 데이터를 보호하고 액세스할 수 있습니다.
 
 - 필요에 따라 고급 액세스 정책이 구성됩니다.
@@ -169,7 +162,6 @@ Azure Security Center에서는 우선 순위가 지정된 보안 경고 및 인�
 - [Azure Security Center](https://azure.microsoft.com/services/security-center) 및 [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations)는 추가적인 보호 및 알림을 제공합니다. Azure Security Center는 평판 시스템도 제공합니다.
 
 ### <a name="business-continuity"></a>비즈니스 연속성
-
 **고가용성**: 이 솔루션은 모든 가상 머신을 [가용성 집합](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets)에 배포합니다. 가용성 집합을 사용하면 가상 머신을 격리된 여러 하드웨어 클러스터에 분산하여 가용성을 높일 수 있습니다. 계획되거나 계획되지 않은 유지 관리 이벤트 중에 99.95% Azure SLA를 충족하는 가상 머신을 하나 이상 사용할 수 있습니다.
 
 **Recovery Services 자격 증명 모음**: [Recovery Services 자격 증명 모음](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview)은 백업 데이터를 저장하며, 이 아키텍처에 있는 Azure Virtual Machines의 모든 구성을 보호합니다. Recovery Services 자격 증명 모음을 사용하면 전체 가상 머신을 복원하지 않고도 IaaS 가상 머신에서 파일과 폴더를 복원할 수 있으므로 복원 시간이 단축됩니다.
@@ -177,7 +169,6 @@ Azure Security Center에서는 우선 순위가 지정된 보안 경고 및 인�
 **클라우드 감시**: [클라우드 감시](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness)는 Azure를 중재 지점으로 활용하는 Windows Server 2016의 장애 조치 클러스터 쿼럼 감시의 한 유형입니다. 다른 모든 쿼럼 감시와 마찬가지로 클라우드 감시는 투표를 받고 쿼럼 계산에 참여할 수 있지만 공개적으로 사용 가능한 표준 Azure Blob Storage를 사용합니다. 따라서 공용 클라우드에서 호스트되는 가상 머신에 대한 추가적인 유지 관리 오버헤드가 필요하지 않습니다.
 
 ### <a name="logging-and-auditing"></a>로깅 및 감사
-
 Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위하게 기록합니다.
 - **활동 로그**: [활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)는 구독에 있는 리소스에서 수행된 작업에 대한 통찰력을 제공합니다. 활동 로그는 작업의 초기자, 발생 시간 및 상태를 결정하는 데 도움이 될 수 있습니다.
 - **진단 로그**: [진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)에는 모든 리소스에서 내보낸 모든 로그가 포함됩니다. 이러한 로그에는 Windows 이벤트 시스템 로그, Azure Storage 로그, Key Vault 감사 로그 및 Application Gateway 액세스 및 방화벽 로그가 포함됩니다. 모든 진단 로그는 보관을 위해 암호화된 중앙 집중식 Azure Storage 계정에 기록됩니다. 보존은 조직 특정 보존 요구 사항에 맞게 최대 730일까지 사용자가 구성할 수 있습니다.
@@ -197,13 +188,11 @@ Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위
 [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Azure Network Watcher는 Azure 가상 네트워크의 리소스를 모니터링 및 진단하고 메트릭을 보고 그에 대한 로그를 활성화 또는 비활성화하는 도구를 제공합니다.  연방 엔터티는 NSG 및 Virtual Machines에 대한 Network Watcher 흐름 로그를 구현해야 합니다. 이러한 로그는 보안 로그만 저장되는 전용 저장소 계정에 저장되어야 하며, 저장소 계정에 대한 액세스는 역할 기반 액세스 제어로 보호되어야 합니다.
 
 ## <a name="threat-model"></a>위협 모델
-
 이 참조 아키텍처에 대한 데이터 흐름 다이어그램은 [다운로드](https://aka.ms/au-protected-iaaswa-tm)에서 사용할 수 있거나 아래에 나와 있습니다. 이 모델을 사용하면 고객이 수정할 때 발생할 수 있는 시스템 인프라의 잠재적 위험 요소를 파악할 수 있습니다.
 
 ![AU-PROTECTED용 IaaS 웹 응용 프로그램 위협 모델](images/au-protected-iaaswa-threat-model.png?raw=true "AU-PROTECTED용 IaaS 웹 응용 프로그램 위협 모델 다이어그램")
 
 ## <a name="compliance-documentation"></a>규정 준수 설명서
-
 이 규정 준수 설명서는 Microsoft에서 제공하는 플랫폼과 서비스를 기반으로 제작한 것입니다. 고객 배포 환경이 매우 다양하기 때문에 이 문서에서는 Azure 환경에서만 호스팅되는 솔루션에 맞게 일반화된 접근법을 제공합니다. 고객은 자신의 고유한 운영 환경과 비즈니스 성과에 따라 대체 제품과 서비스를 식별하여 사용할 수 있습니다. 온-프레미스 리소스를 사용하도록 선택하는 고객은 이러한 온-프레미스 리소스의 보안 및 운영을 처리해야 합니다. 고객은 특정 온-프레미스 및 보안 요구 사항을 해결하기 위해 문서화된 솔루션을 사용자 지정할 수 있습니다.
 
 [Azure 보안 및 규정 준수 청사진 - AU-PROTECTED 고객 책임 매트릭스](https://aka.ms/au-protected-crm)에는 AU-PROTECTED에서 요구하는 모든 보안 제어가 나와 있습니다. 이 매트릭스는 각 제어의 구현이 Microsoft, 고객 또는 둘 모두의 책임인지 여부를 자세히 설명합니다.
@@ -211,9 +200,7 @@ Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위
 [Azure 보안 및 규정 준수 청사진 - AU-PROTECTED IaaS 웹 응용 프로그램 구현 매트릭스](https://aka.ms/au-protected-iaaswa-cim)는 구현이 적용된 각 제어의 요구 사항을 충족시키는 방법에 대한 자세한 설명을 포함하여 IaaS 웹 응용 프로그램 아키텍처에서 처리되는 AU-PROTECTED 제어에 대한 정보를 제공합니다.
 
 ## <a name="guidance-and-recommendations"></a>지침 및 권장 사항
-
 ### <a name="vpn-and-expressroute"></a>VPN 및 ExpressRoute
-
 분류된 정보의 경우 이 IaaS 웹 응용 프로그램 참조 아키텍처의 일부로 배포된 리소스에 대한 연결을 안전하게 설정하도록 보안 IPSec VPN 터널을 구성해야 합니다. IPSec VPN을 적절히 설정하면 고객이 전송 중인 데이터에 대한 보호 레이어를 추가할 수 있습니다.
 
 Azure를 통해 보안 IPSec VPN 터널을 구현하면 온-프레미스 네트워크와 Azure 가상 네트워크 간의 가상 사설 연결을 만들 수 있습니다. 이 연결은 인터넷을 통해 이루어지며, 고객이 고객의 네트워크와 Azure 간에 암호화된 링크 내에서 정보를 안전하게 "터널링"할 수 있습니다. 사이트 간 VPN은 수십 년 동안 모든 규모의 기업에서 배포해 온 안전하고 완성도 높은 기술입니다. 
@@ -244,7 +231,6 @@ VPN 장치 및 IPSec/IKE 매개 변수의 구성 옵션을 [검토](https://docs
 - [실수로 인한 삭제 방지](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-prevent-accidental-deletes) 및 [자동 업그레이드](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-feature-automatic-upgrade)의 기본 설정을 그대로 둡니다.
 
 ## <a name="disclaimer"></a>고지 사항
-
 - 이 문서는 오직 정보 제공을 목적으로 합니다. Microsoft는 이 문서의 정보에 관해 어떠한 명시적, 묵시적 또는 법적 보증도 하지 않습니다. 이 문서는 "있는 그대로" 제공됩니다. URL 및 기타 인터넷 웹 사이트 참조를 포함하여 본 문서에 명시된 정보 및 보기는 통지 없이 변경될 수 있습니다. 이 문서를 읽는 고객은 그 사용에 따른 위험을 감수합니다.
 - 이 문서는 Microsoft 제품 또는 솔루션의 지적 소유권에 대한 법적 권한을 고객에게 제공하지 않습니다.
 - 고객은 이 문서는 내부 참조용으로만 복사 및 사용할 수 있습니다.
