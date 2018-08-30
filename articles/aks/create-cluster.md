@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 5c133c61c989bf19be3e84287cb76a7d110dccc8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6bfe6f9b76693ded79aa9b9d21ddcac4e1a0733e
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440476"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43110307"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터 만들기
 
@@ -48,7 +48,7 @@ az aks create --resource-group myResourceGroup --name myAKSCluster
 | `--enable-rbac` `-r` | Kubernetes 역할 기반 액세스 제어를 활성화합니다. | no |
 | `--generate-ssh-keys` | 없는 경우 SSH 공용 및 개인 키 파일을 생성합니다. | no |
 | `--kubernetes-version` `-k` | '1.7.9' 또는 '1.9.6'처럼 클러스터를 만드는 데 사용할 Kubernetes 버전입니다. | no |
-| `--locaton` `-l` | 자동 생성된 리소스 그룹에 대한 위치 | no |
+| `--location` `-l` | 자동 생성된 리소스 그룹에 대한 위치 | no |
 | `--max-pods` `-m` | 노드로 배포할 수 있는 Pod의 최대 수입니다. | no |
 | `--network-plugin` | 사용할 Kubernetes 네트워크 플러그 인입니다. | no |
 | `--no-ssh-key` `-x` | 로컬 SSH 키를 사용하거나 만들지 마세요. | no |

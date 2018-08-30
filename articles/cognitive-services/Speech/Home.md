@@ -9,12 +9,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
-ms.openlocfilehash: ee328145419aaf8962c08bca2fb9cf1a42daae0c
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: d58642b95a60d4f1c83dfd969d0c76511dca4653
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42099881"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43097398"
 ---
 # <a name="microsoft-bing-speech-api-overview"></a>Microsoft Bing Speech API 개요
 
@@ -24,7 +24,7 @@ ms.locfileid: "42099881"
 - **Text to Speech**(텍스트 음성 변환) API는 텍스트를 오디오 스트림으로 변환하여 응용 프로그램 사용자에게 재생할 수 있습니다.
 
 > [!NOTE] 
-> 2018년 5월 공개 미리 보기에서 새 [Speech Service](/speech-service/overview.md)가 릴리스되었습니다. [체험 평가판을 사용해 보세요](/speech-service/get-started.md).
+> 2018년 5월 공개 미리 보기에서 새 [Speech Service](../speech-service/overview.md)가 릴리스되었습니다. [체험 평가판을 사용해 보세요](../speech-service/get-started.md).
 
 ## <a name="speech-to-text-speech-recognition"></a>음성 - 텍스트 변환(음성 인식)
 

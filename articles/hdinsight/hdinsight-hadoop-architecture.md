@@ -3,18 +3,18 @@ title: Hadoop 아키텍처 - Azure HDInsight
 description: HDInsight 클러스터의 Hadoop 저장소 및 처리에 대해 설명합니다.
 services: hdinsight
 author: ashishthaps
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: 754f4538f7c2a8de6286198094b38d40c466a15f
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 039a16e7c33a1b3c09c91103c372553e282b6028
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599475"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108268"
 ---
 # <a name="hadoop-architecture-in-hdinsight"></a>HDInsight의 Hadoop 아키텍처
 

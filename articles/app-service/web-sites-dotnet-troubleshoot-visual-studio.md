@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 1c56f705c07e2001e1ef8f5f9f05c264c33c2c3f
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: ba84d297420ca5a9b75b4cfa432373d3070e0d01
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42145616"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125247"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Visual Studio를 사용하여 Azure App Service에서 웹앱 문제 해결
 ## <a name="overview"></a>개요
@@ -623,7 +623,7 @@ Visual Studio를 사용하여 Azure 웹 앱에서 생성된 로그를 쉽게 보
 ### <a name="azure-web-app-troubleshooting"></a>Azure 웹 앱 문제 해결
 Azure App Service에서 웹앱 문제 해결에 대한 자세한 내용은 다음 리소스를 참조하십시오.
 
-* [웹 앱을 모니터링하는 방법](/manage/services/web-sites/how-to-monitor-websites/)
+* [웹 앱을 모니터링하는 방법](web-sites-monitor.md)
 * [Visual Studio 2013을 사용하여 Azure Web Apps에서 메모리 누수 검사](http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx) 관리되는 메모리 문제를 분석하는 데 사용되는 Visual Studio 기능에 대한 Microsoft ALM 블로그 게시물입니다.
 * [알아 두면 도움이 되는 Azure Web Apps 온라인 도구](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/) Amit Apple의 블로그 게시물입니다.
 
@@ -674,7 +674,7 @@ catch (Exception ex)
 
 * [Azure 명령줄에서 진단 추적 로깅 스트리밍(Glimpse 포함)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
   이 사용설명서에서 설명한 Visual Studio 관련 작업을 명령줄로 수행하는 방법을 설명합니다. [Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) 는 ASP.NET 응용 프로그램을 디버그하는 데 사용하는 도구입니다.
-* [David Ebbo와 함께 하는 Web Apps 로깅 및 진단](/documentation/videos/azure-web-site-logging-and-diagnostics/) 및 [David Ebbo와 함께 하는 Web Apps에서 로그 스트리밍](/documentation/videos/log-streaming-with-azure-web-sites/)<br>
+* [David Ebbo와 함께 하는 Web Apps 로깅 및 진단](https://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/) 및 [David Ebbo와 함께 하는 Web Apps에서 로그 스트리밍](https://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
   은 Scott Hanselman과 David Ebbo가 제작한 비디오입니다.
 
 오류 로깅과 관련하여, 사용자 자신의 추적 코드를 기록하는 또 다른 방법은 [ELMAH](http://nuget.org/packages/elmah/)같은 오픈 소스 로깅 프레임워크를 사용하는 것입니다. 자세한 내용은 [Scott Hanselman의 ELMAH 관련 블로그 게시물](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx)(영문)을 참조하십시오.

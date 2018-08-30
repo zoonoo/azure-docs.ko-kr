@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 50c6a0cc268e2b638a03494bed96d294789da9ab
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 92e1d94f9d68e6d877e2c39b71151dee77f5a49f
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34794669"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43120621"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-the-azure-rm-powershell-module"></a>빠른 시작: Azure RM PowerShell 모듈을 사용하여 비준수 리소스를 식별하는 정책 할당 만들기
 
@@ -108,7 +108,7 @@ armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/provider
 이 컬렉션의 후속 가이드는 이 빠른 시작에 기반하여 빌드됩니다. 다른 자습서를 계속 사용하려면 이 빠른 시작에서 만든 리소스를 정리하지 마세요. 계속 사용하지 않으려면 다음 명령을 실행하여 만든 할당을 삭제할 수 있습니다.
 
 ```azurepowershell-interactive
-Remove-AzureRmPolicyAssignment -Name 'audit-vm-manageddisks' -Scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
+Remove-AzureRmPolicyAssignment -Name 'audit-vm-manageddisks' -Scope '/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>'
 ```
 
 ## <a name="next-steps"></a>다음 단계

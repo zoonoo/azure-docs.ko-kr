@@ -3,18 +3,18 @@ title: HDInsight를 사용하여 스크립트 작업 개발 - Azure
 description: 스크립트 작업을 사용하여 Hadoop 클러스터를 사용자 지정하는 방법을 알아봅니다. 스크립트 작업은 Hadoop 클러스터에서 실행되는 추가 소프트웨어를 설치하거나 클러스터에 설치된 응용 프로그램의 구성을 변경하기 위해 사용할 수 있습니다.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: f26a11e623148eecc8096b45c6ac9df68b8e102a
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: e14f106c9cd2d2d2f65fb72ad8890c4a9042cb47
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599159"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104103"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>HDInsight Windows 기반 클러스터용 스크립트 작업 스크립트 개발
 HDInsight용 스크립트 작업 스크립트를 작성하는 방법을 알아봅니다. 스크립트 동작 스크립트 사용에 대한 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md)을 참조하세요. Linux 기반 HDInsight 클러스터용으로 작성된 동일한 문서를 보려면 [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.

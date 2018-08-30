@@ -7,18 +7,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 06/27/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: abbf64fadfdd6dd194afe0fb498303ab18a9e069
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 58cd3882eab41934135670f6f99faf3d834c74d7
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425346"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108971"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 Azure-SSIS 통합 런타임 프로비전
 이 자습서에서는 Azure Portal을 사용하여 Azure Data Factory에서 Azure-SSIS IR(통합 런타임)을 프로비전하는 단계를 제공합니다. 그런 다음, SQL Server Data Tools 또는 SQL Server Management Studio를 사용하여 Azure에서 이 런타임에 SSIS(SQL Server Integration Services) 패키지를 배포하고 실행할 수 있습니다. Azure-SSIS IR의 개념 정보는 [Azure-SSIS 통합 런타임 개요](concepts-integration-runtime.md#azure-ssis-integration-runtime)를 참조하세요.
@@ -91,7 +91,7 @@ ms.locfileid: "39425346"
 
    a. **이름**에는 통합 런타임의 이름을 입력합니다. 
 
-   나. **설명**에는 통합 런타임에 대한 설명을 입력합니다. 
+   b. **설명**에는 통합 런타임에 대한 설명을 입력합니다. 
 
    다. **위치**에는 통합 런타임의 위치를 선택합니다. 지원되는 위치만 표시됩니다. SSISDB를 호스트하는 데이터베이스의 서버와 동일한 위치를 선택하는 것이 좋습니다. 
 
@@ -111,7 +111,7 @@ ms.locfileid: "39425346"
 
    a. **구독**에서는 SSISDB를 호스트하는 데이터베이스 서버가 있는 Azure 구독을 선택합니다. 
 
-   나. **위치**에서는 SSISDB를 호스트하는 데이터베이스 서버의 위치를 선택합니다. 통합 런타임과 동일한 위치를 선택하는 것이 좋습니다. 
+   b. **위치**에서는 SSISDB를 호스트하는 데이터베이스 서버의 위치를 선택합니다. 통합 런타임과 동일한 위치를 선택하는 것이 좋습니다. 
 
    다. **카탈로그 데이터베이스 서버 엔드포인트**로는 SSISDB를 호스트하는 데이터베이스 서버의 엔드포인트를 선택합니다. 선택한 데이터베이스 서버에 따라, 가상 네트워크를 조인하여 SSISDB를 자동으로 독립 실행형 데이터베이스로, 탄력적 풀의 일부로 또는 Managed Instance(미리 보기)에 만들고 공용 네트워크에서 액세스할 수 있습니다. SSISDB를 호스팅할 데이터베이스 서버의 유형을 선택하는 방법에 대한 지침은 [SQL Database 및 Managed Instance(미리 보기) 비교](create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview)를 참조하세요. 가상 네트워크 서비스 엔드포인트/Managed Instance(미리 보기)가 포함된 Azure SQL Database를 선택하여 SSISDB를 호스팅하거나 온-프레미스 데이터에 액세스해야 하는 경우 Azure-SSIS IR을 가상 네트워크에 조인해야 합니다. [가상 네트워크에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요. 
 
@@ -131,7 +131,7 @@ ms.locfileid: "39425346"
 
    a. **노드당 최대 병렬 실행 수**로는 통합 런타임 클러스터에서 노드당 동시에 실행할 최대 패키지 수를 선택합니다. 지원되는 패키지 수만 표시됩니다. 계산/메모리 사용량이 많은 단일 대형/무거운 패키지를 실행하는 데 코어를 2개 이상 사용하려는 경우 낮은 값을 선택합니다. 단일 코어에서 소형/가벼운 패키지를 하나 이상 실행하려는 경우 높은 값을 선택합니다. 
 
-   나. **사용자 지정 설치 컨테이너 SAS URI**에는 필요에 따라 설치 스크립트 및 관련 파일이 저장되는 Azure Storage Blob 컨테이너의 SAS(공유 액세스 서명) URI(Uniform Resource Identifier)를 입력합니다. [Azure-SSIS IR에 대한 사용자 지정 설치](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup)를 참조하세요. 
+   b. **사용자 지정 설치 컨테이너 SAS URI**에는 필요에 따라 설치 스크립트 및 관련 파일이 저장되는 Azure Storage Blob 컨테이너의 SAS(공유 액세스 서명) URI(Uniform Resource Identifier)를 입력합니다. [Azure-SSIS IR에 대한 사용자 지정 설치](https://docs.microsoft.com/en-us/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup)를 참조하세요. 
 
    다. **VNet 선택...** 확인란에서 통합 런타임을 가상 네트워크에 조인할 것인지 선택합니다. Azure SQL Database를 가상 네트워크 서비스 엔드포인트/Managed Instance(미리 보기)와 함께 사용하여 SSISDB를 호스트할 것인지 아니면 온-프레미스 데이터에 액세스하도록 요구할 것인지 선택해야 합니다. [가상 네트워크에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요. 
 

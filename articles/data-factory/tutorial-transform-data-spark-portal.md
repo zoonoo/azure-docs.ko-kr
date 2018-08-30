@@ -9,15 +9,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/10/2018
 ms.author: douglasl
-ms.openlocfilehash: 52b1ec9a1f69273723129050820bb3b4efd7f36d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c6817fa20d4177efd3e38f1454f3142f6d40a07d
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441343"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108621"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Azure Data Factory에서 Spark 작업을 사용하여 클라우드의 데이터 변환
 이 자습서에서는 Azure Portal을 사용하여 Azure Data Factory 파이프라인을 만듭니다. 이 파이프라인은 Spark 활동 및 주문형 HDInsight 연결된 서비스를 사용하여 데이터를 변환합니다. 
@@ -141,7 +141,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
    a. **이름**에 **AzureHDInsightLinkedService**를 입력합니다.
    
-   나. **유형**에 **주문형 HDInsight**가 선택되었는지 확인합니다.
+   b. **유형**에 **주문형 HDInsight**가 선택되었는지 확인합니다.
    
    다. **Azure Storage 연결된 서비스**에 **AzureStorage1**을 선택합니다. 이 연결된 서비스는 앞에서 먼저 만들었습니다. 다른 이름을 사용한 경우 여기에 올바른 이름을 지정합니다. 
    
@@ -180,14 +180,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
    a. **HDI 클러스터** 탭으로 전환합니다.
    
-   나. 이전 절차에서 만든 **AzureHDInsightLinkedService**를 선택합니다. 
+   b. 이전 절차에서 만든 **AzureHDInsightLinkedService**를 선택합니다. 
         
    ![HDInsight 연결된 서비스 지정](./media/tutorial-transform-data-spark-portal/select-hdinsight-linked-service.png)
 1. **스크립트/Jar** 탭으로 전환하고 다음 단계를 완료합니다. 
 
    a. **작업 연결된 서비스**에 **AzureStorage1**을 선택합니다.
    
-   나. **저장소 찾아보기**를 선택합니다.
+   b. **저장소 찾아보기**를 선택합니다.
 
    !["스크립트/Jar" 탭에서 Spark 스크립트 지정](./media/tutorial-transform-data-spark-portal/specify-spark-script.png)
    

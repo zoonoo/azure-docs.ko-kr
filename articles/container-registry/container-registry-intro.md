@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/08/2018
 ms.author: stevelas
 ms.custom: mvc
-ms.openlocfilehash: 394297e87ef03541725aad0689f11bca17c05ed9
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: f282d7d6950278d0c270009256cf054a0d630e60
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576303"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43120638"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure의 개인 Docker 컨테이너 레지스트리 소개
 
@@ -29,7 +29,7 @@ Docker 및 컨테이너에 대한 배경 지식은 [Docker 개요](https://docs.
 Azure Container Registry에서 다양한 배포 대상으로 이미지 끌어오기:
 
 * **확장성 있는 오케스트레이션 시스템**: [DC/OS](https://docs.mesosphere.com/), [Docker Swarm](https://docs.docker.com/swarm/) 및 [Kubernetes](http://kubernetes.io/docs/)를 포함하는 호스트 클러스터에서 컨테이너화된 응용 프로그램을 관리합니다.
-* [AKS(Azure Kubernetes Service)](../aks/index.yml), [App Service](/app-service/index.md), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/) 및 기타 서비스를 포함한 응용 프로그램을 대규모로 빌드하고 실행할 수 있도록 지원하는 **Azure 서비스**.
+* [AKS(Azure Kubernetes Service)](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/) 및 기타 서비스를 포함한 응용 프로그램을 대규모로 빌드하고 실행할 수 있도록 지원하는 **Azure 서비스**.
 
 개발자는 컨테이너 개발 워크플로의 일환으로 컨테이너 레지스트리에 밀어넣을 수도 있습니다. 예를 들어 [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) 또는 [Jenkins](https://jenkins.io/)와 같은 배포 도구 및 지속적인 통합의 컨테이너 레지스트리를 대상으로 합니다.
 

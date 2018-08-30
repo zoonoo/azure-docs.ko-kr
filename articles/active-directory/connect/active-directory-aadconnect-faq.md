@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4f3ffb3c769adeabd1edc10ce064653f7b336330
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 963f0ebdddab9fe7519b34153b7fd787da0fe7dd
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42142993"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43112088"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect FAQ
 
@@ -190,7 +190,7 @@ Office 팀은 Office 포털 업데이트에서 현재 제품 이름을 반영하
 ## <a name="troubleshooting"></a>문제 해결
 **Q: Azure AD Connect에 대한 도움을 받으려면 어떻게 합니까?**
 
-[Microsoft KB(기술 자료) 검색](https://www.microsoft.com/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
+[Microsoft KB(기술 자료) 검색](https://www.microsoft.com/en-us/search/result.aspx?q=azure+active+directory+connect)
 
 * KB(기술 자료)에서 Azure AD Connect 지원에 대한 일반적인 고장 수리 문제에 대한 기술 솔루션을 검색하세요.
 

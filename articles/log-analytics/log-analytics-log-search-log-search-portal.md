@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: e97bab36a9a1a18cab1d45abfa451139323b2320
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 532df20a7639f42d8ba1c840a5fd19f0ad0e4042
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42144361"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246336"
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>로그 검색 포털을 사용하여 Azure Log Analytics에서 로그 검색 만들기
 
@@ -38,9 +38,8 @@ ms.locfileid: "42144361"
 
 1. Azure Portal을 엽니다.
 2. Log Analytics로 이동한 후 작업 영역을 선택합니다.
-3. **로그 검색**을 선택합니다.
+3. **로그**를 선택합니다.
 
-![로그 검색 단추](media/log-analytics-log-search-log-search-portal/log-search-button.png)
 
 ## <a name="create-a-simple-search"></a>단순 검색 만들기
 사용할 데이터를 가장 빠르게 검색할 수 있는 방법은 테이블의 모든 레코드를 반환하는 단순 쿼리를 사용하는 것입니다.  Windows 또는 Linux 클라이언트가 작업 영역에 연결되어 있으면 Event(Windows) 또는 Syslog(Linux) 테이블에 데이터가 포함되어 있습니다.

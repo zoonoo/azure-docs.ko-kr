@@ -3,18 +3,18 @@ title: Azure Portal을 사용하여 HDInsight의 Windows 기반 Hadoop 클러스
 description: HDInsight 서비스를 관리하는 방법에 대해 알아봅니다. HDInsight 클러스터를 만들고 대화형 JavaScript 콘솔을 열고 Hadoop 명령 콘솔을 여는 방법에 대해 설명합니다.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: a4cbc0c14d0f6c505b391becf33c56dd95bfc251
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 7b39724c3d382637a048dc4fb9a3436ac1dbeae8
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592223"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108027"
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portal을 사용하여 HDInsight의 Windows 기반 Hadoop 클러스터 관리
 
@@ -226,7 +226,7 @@ HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습
     ![HDinsight 변경 클러스터 사용자 사용자 이름 암호 http 사용자](./media/hdinsight-administer-use-management-portal/hdinsight.portal.change.username.password.png)
 
 ## <a name="grantrevoke-access"></a>액세스 권한 부여/해지
-HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다(이러한 모든 서비스에 RESTful 끝점이 있음).
+HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다(이러한 모든 서비스에 RESTful 엔드포인트가 있음).
 
 * ODBC
 * JDBC

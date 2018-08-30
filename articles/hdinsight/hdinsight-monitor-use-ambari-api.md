@@ -3,18 +3,18 @@ title: Ambari API를 사용하여 HDInsight에서 Hadoop 클러스터 모니터�
 description: Hadoop 클러스터를 생성, 관리 및 모니터링하는 데 Apache Ambari API를 사용합니다. 직관적 운영자 도구와 API를 사용하면 Hadoop의 복잡한 작업을 간편하게 수행할 수 있습니다.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: f55ee02ada5bb53d4634d119311fb9230ff15105
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 23da477fc24eaea4a6f987f13ad055022d2ba032
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592825"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108640"
 ---
 # <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>Ambari API를 사용하여 HDInsight에서 Hadoop 클러스터 모니터링
 Ambari API를 사용하여 HDInsight 클러스터를 모니터링하는 방법을 알아봅니다.
@@ -117,7 +117,7 @@ Ambari를 사용하여 HDInsight 클러스터를 모니터링하는 몇 가지 �
 
 **2014/10/8 릴리스**:
 
-Ambari 끝점 "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}"을 사용할 때 *host_name* 필드에서 호스트 이름만이 아니라 노드의 FQDN(정규화된 도메인 이름)을 반환합니다. 10/8/2014 릴리스 이전 버전에서는 이 예가 "**headnode0**"만 반환했습니다. 10/8/2014 릴리스부터는 위의 예에 나와 있는 것처럼 FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**"이 반환됩니다. 이 변경은 HBase, Hadoop 등의 여러 클러스터 유형을 VNET(가상 네트워크) 하나에 배포할 수 있는 시나리오를 원활하게 수행하기 위해 필요한 작업이었습니다. 예를 들어 Hadoop의 백 엔드 플랫폼으로 HBase를 사용하는 등의 경우 이 변경이 적용됩니다.
+Ambari 엔드포인트 "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}"을 사용할 때 *host_name* 필드에서 호스트 이름만이 아니라 노드의 FQDN(정규화된 도메인 이름)을 반환합니다. 10/8/2014 릴리스 이전 버전에서는 이 예가 "**headnode0**"만 반환했습니다. 10/8/2014 릴리스부터는 위의 예에 나와 있는 것처럼 FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**"이 반환됩니다. 이 변경은 HBase, Hadoop 등의 여러 클러스터 유형을 VNET(가상 네트워크) 하나에 배포할 수 있는 시나리오를 원활하게 수행하기 위해 필요한 작업이었습니다. 예를 들어 Hadoop의 백 엔드 플랫폼으로 HBase를 사용하는 등의 경우 이 변경이 적용됩니다.
 
 ## <a name="ambari-monitoring-apis"></a>Ambari 모니터링 API
 다음 테이블은 가장 일반적으로 사용되는 Ambari 모니터링 API 호출을 나열합니다. API에 대한 자세한 내용은 [Ambari API 참조][ambari-api-reference]를 참조하세요.

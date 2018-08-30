@@ -3,24 +3,24 @@ title: 사용자에게 Ambari 보기에 대한 권한 부여 - Azure HDInsight
 description: 도메인에 가입된 HDInsight 클러스터에 대한 Ambari 사용자 및 그룹 권한을 관리하는 방법을 설명합니다.
 services: hdinsight
 author: maxluk
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: a0f8cf062ed08f0dfa57107baf29724a8e58d0af
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 7734848035eeab3c38a57b9999f8cda77f6a4e24
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592128"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43107159"
 ---
 # <a name="authorize-users-for-ambari-views"></a>사용자에게 Ambari 보기에 대한 권한 부여
 
 [도메인에 가입된 HDInsight 클러스터](./domain-joined/apache-domain-joined-introduction.md)는 Azure Active Directory 기반 인증을 비롯한 엔터프라이즈급 기능을 제공합니다. 클러스터에 대한 액세스를 제공 받은 Azure AD 그룹에 추가된 [새 사용자를 동기화](hdinsight-sync-aad-users-to-cluster.md)하여 특정 사용자가 특정 작업을 수행할 수 있게 할 수 있습니다. Ambari의 사용자, 그룹, 권한 작업은 도메인 조인 HDInsight 클러스터와 표준 HDInsight 클러스터 모두에 대해 지원됩니다.
 
-Active Directory 사용자는 자신의 도메인 자격 증명을 사용하여 클러스터 노드에 로그온할 수 있습니다. 또한 자신의 도메인 자격 증명을 사용하여 Hue, Ambari 보기, ODBC, JDBC, PowerShell, REST API 등 다른 승인된 끝점과의 클러스터 상호 작용을 인증할 수 있습니다.
+Active Directory 사용자는 자신의 도메인 자격 증명을 사용하여 클러스터 노드에 로그온할 수 있습니다. 또한 자신의 도메인 자격 증명을 사용하여 Hue, Ambari 보기, ODBC, JDBC, PowerShell, REST API 등 다른 승인된 엔드포인트와의 클러스터 상호 작용을 인증할 수 있습니다.
 
 > [!WARNING]
 > Linux 기반 HDInsight 클러스터에서 Ambari watchdog(hdinsightwatchdog)의 암호는 변경하지 마세요. 암호를 변경하면 스크립트 동작을 사용하거나 클러스터에서 크기 조정 작업을 수행하는 기능이 중단됩니다.

@@ -3,18 +3,18 @@ title: Azure 가상 네트워크에서 HBase 클러스터 복제 설정
 description: 부하 분산, 고가용성, 무중단 마이그레이션/업데이트 및 재해 복구를 위해 한 HDInsight 버전에서 다른 HDInsight 버전으로 HBase 복제를 설정하는 방법을 알아봅니다.
 services: hdinsight,virtual-network
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: jasonh
-ms.openlocfilehash: 535b5dcc62020119cda3db36bfdbd707badfe549
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 624165f5ee1140ade9b9ce03c5249d297c8d83f1
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600308"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047486"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure 가상 네트워크에서 HBase 클러스터 복제 설정
 

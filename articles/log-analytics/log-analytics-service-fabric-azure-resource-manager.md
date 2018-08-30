@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: nini
 ms.component: na
-ms.openlocfilehash: 9bc1f7d9eab73a086e664dcc520ecf26befbbf0e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7c86c1006d7139356426c0cfb8fc5e684a4c9be6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432894"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125681"
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Azure Portal에서 Service Fabric 응용 프로그램 및 마이크로 서비스 평가
 
@@ -81,8 +81,6 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 노드에서 성능 데이터를 보려면:
 
 
-[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
-
 - Azure 포털에서 Log Analytics 작업 영역을 시작합니다.
   ![Service Fabric](./media/log-analytics-service-fabric/6.png)
 - 왼쪽 창의 설정으로 이동하고 데이터 >> Windows 성능 카운터 >> "Add the selected performance counters(선택한 성능 카운터 추가)": ![Service Fabric](./media/log-analytics-service-fabric/7.png)을 선택합니다.
@@ -96,7 +94,7 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 
     ![Service Fabric](./media/log-analytics-service-fabric/10.png)
 
-    나. 다음 쿼리로 각 노드에서 사용 가능한 메모리에 대한 비슷한 꺾은선형 차트를 확인합니다.
+    b. 다음 쿼리로 각 노드에서 사용 가능한 메모리에 대한 비슷한 꺾은선형 차트를 확인합니다.
 
     ```
     Type=Perf ObjectName=Memory CounterName="Available MBytes Memory" | measure avg(CounterValue) by Computer Interval 1HOUR.

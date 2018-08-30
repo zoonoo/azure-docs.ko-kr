@@ -3,18 +3,18 @@ title: Azure Portal을 사용하여 HDInsight의 Hadoop 클러스터 관리
 description: Azure Portal을 사용하여 HDInsight 클러스터를 만들고 관리하는 방법에 대해 알아봅니다.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: jasonh
-ms.openlocfilehash: 20a48dcd4a9c3dd4c89390c1048ec4fd5f5783ae
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 0e584343e568c5cd0d91a1e6ff51dc899c5434d7
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597211"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106532"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리
 
@@ -283,7 +283,7 @@ Ambari는 클러스터의 모든 노드에 대해 암호를 변경합니다.
 5. **만들기**를 선택하여 스크립트를 적용합니다. 스크립트가 완료되면 새 암호와 함께 SSH를 사용하여 클러스터에 연결할 수 있습니다.
 
 ## <a name="grantrevoke-access"></a>액세스 권한 부여/해지
-HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다(이러한 모든 서비스에 RESTful 끝점이 있음).
+HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다(이러한 모든 서비스에 RESTful 엔드포인트가 있음).
 
 * ODBC
 * JDBC

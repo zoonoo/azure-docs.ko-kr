@@ -9,12 +9,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
-ms.openlocfilehash: f4b6a97260c6dc176600af8844001e4de819ff7c
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 6fb490def6807204943a1ce3ba3c53186055102b
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42357513"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048460"
 ---
 # <a name="get-started-with-bing-speech-service-client-libraries"></a>Bing Speech Service 클라이언트 라이브러리 시작
 
@@ -33,7 +33,7 @@ Bing Speech Service는 REST API를 통해 직접 HTTP를 요청하는 것 외에
 - [iOS용 Objective-C 라이브러리](Get-Started-ObjectiveC-iOS.md)
 
 > [!NOTE] 
-2018년 5월 공개 미리 보기에서 새 [Speech Service](/speech-service/overview.md)도 릴리스되었습니다. [체험 평가판을 사용해 보세요](/speech-service/get-started.md). 
+2018년 5월 공개 미리 보기에서 새 [Speech Service](../../speech-service/index.yml)도 릴리스되었습니다. [체험 평가판을 사용해 보세요](../../speech-service/get-started.md). 
 
 ## <a name="additional-resources"></a>추가 리소스
 

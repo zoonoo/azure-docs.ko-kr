@@ -3,18 +3,18 @@ title: 스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지�
 description: '스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터에 사용자 지정 구성 요소를 추가합니다. 스크립트 동작은 클러스터 구성을 사용자 지정하거나 다른 서비스 및 유틸리티(예: Hue, Solr 또는 R)를 추가하는 데 사용할 수 있는 Bash 스크립트입니다.'
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: jasonh
-ms.openlocfilehash: 0837029cbe22ba7f659efefb113ed47ae1cf2dfe
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: e12379dbb63e57ee12e1cebb1761f0b103d50ef1
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038675"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43110530"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정
 

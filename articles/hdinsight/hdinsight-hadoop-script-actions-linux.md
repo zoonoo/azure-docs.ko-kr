@@ -3,18 +3,18 @@ title: Linux 기반 HDInsight를 사용하여 스크립트 작업 개발 - Azure
 description: Bash 스크립트를 사용하여 Linux 기반 HDInsight 클러스터를 사용자 지정하는 방법을 알아봅니다. HDInsight의 스크립트 작업 기능을 사용하면 클러스터를 생성하는 동안 또는 생성한 후에 스크립트를 실행할 수 있습니다. 클러스터 구성 설정을 변경하거나 추가 소프트웨어를 설치하는 데 스크립트를 사용할 수 있습니다.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: jasonh
-ms.openlocfilehash: 35d54970e41a7e1533f3d5adc09fc60dc1bbd68d
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 0225115fb6c74f736e6a5fba09414dc2ebafd84e
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600492"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104826"
 ---
 # <a name="script-action-development-with-hdinsight"></a>HDInsight를 사용하여 스크립트 작업 개발
 

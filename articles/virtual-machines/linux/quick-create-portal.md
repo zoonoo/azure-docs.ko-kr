@@ -16,18 +16,18 @@ ms.workload: infrastructure
 ms.date: 07/03/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 03d4ad081a788299bab563ca6b956edc347732da
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f659c424f7d5e705343c113d2ba0971164ca622a
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447961"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108809"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Linux 가상 머신 만들기
 
 Azure Portal을 통해 Azure VM(가상 머신)을 만들 수 있습니다. 이 방법은 VM 및 관련 리소스를 만드는 브라우저 기반 사용자 인터페이스를 제공합니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Ubuntu를 실행하는 Azure에서 Linux VM(가상 머신)을 배포하는 방법을 보여줍니다. 작업에서 VM을 보려면 VM에 SSH를 수행하고 NGINX 웹 서버를 설치합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="create-ssh-key-pair"></a>SSH 키 쌍 만들기
 
@@ -53,7 +53,7 @@ http://portal.azure.com에서 Azure Portal에 로그인
 
 3. VM 이름(예: *myVM*)을 입력하고, 디스크 형식은 *SSD*를 유지하고, 사용자 이름(예: *azureuser*)을 입력합니다.
 
-4. 에서도 확인할 수 있습니다. **인증 형식**으로 **SSH 공개 키**를 선택한 다음, 공개 키를 텍스트 상자에 붙여넣습니다. 공개 키에서 선행 또는 후행 공백을 모두 제거해야 합니다.
+4. **인증 형식**으로 **SSH 공개 키**를 선택한 다음, 공개 키를 텍스트 상자에 붙여넣습니다. 공개 키에서 선행 또는 후행 공백을 모두 제거해야 합니다.
 
     ![포털 블레이드에서 VM에 대한 기본 정보 입력](./media/quick-create-portal/create-vm-portal-basic-blade.png)
 

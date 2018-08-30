@@ -3,18 +3,18 @@ title: Windows 기반 HDInsight에서 Tez UI 사용 - Azure
 description: Windows 기반 HDInsight 클러스터에서 Tez UI를 사용하여 Tez 작업 디버깅하는 방법을 알아봅니다.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: f54cc60f9490b8a5ca1872a290c3895ea8b0c5e4
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: ff47d0a71e97ce4ec9fd04e1d0cb9e5592192d53
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590904"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43112190"
 ---
 # <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Windows 기반 HDInsight 클러스터에서 Tez UI를 사용하여 Tez 작업 디버깅
 Tez UI는 실행 엔진으로 Tez를 사용하는 Hive 작업을 디버그하는 데 사용할 수 있습니다. Tez UI를 사용하면 연결된 항목의 그래프로 작업을 시각화하고 각 항목을 자세히 알아보며 통계 및 로깅 정보를 검색할 수 있습니다.

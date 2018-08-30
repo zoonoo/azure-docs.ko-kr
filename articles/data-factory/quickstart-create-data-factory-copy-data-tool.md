@@ -8,15 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 401f5fb6eeff2b9ca033dd24872ea88bd696253c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d314c04a40155fccc99660bacdb9f646ce77b22f
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443207"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43107591"
 ---
 # <a name="use-the-copy-data-tool-to-copy-data"></a>데이터 복사 도구를 사용하여 데이터 복사 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -78,7 +78,7 @@ ms.locfileid: "39443207"
 
     !["원본 데이터 저장소" 페이지](./media/quickstart-create-data-factory-copy-data-tool/new-source-linked-service.png)
 
-    나. 갤러리에서 **Azure Blob Storage**를 선택한 후 **다음**을 선택합니다.
+    b. 갤러리에서 **Azure Blob Storage**를 선택한 후 **다음**을 선택합니다.
 
     ![갤러리에서 blob 저장소 선택](./media/quickstart-create-data-factory-copy-data-tool/select-blob-source.png)
 

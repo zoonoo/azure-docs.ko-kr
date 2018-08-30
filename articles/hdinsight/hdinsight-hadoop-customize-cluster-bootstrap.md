@@ -3,18 +3,18 @@ title: 부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정 -
 description: 부트스트랩을 사용하여 HDInsight 클러스터를 사용자 지정하는 방법을 알아봅니다.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 03c9ebad61756cba1de36c9bde4612c19330fb3a
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: f0fe09a6d67d2ad72a1984168b669f34c8d8f3ef
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39594661"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43107408"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정
 

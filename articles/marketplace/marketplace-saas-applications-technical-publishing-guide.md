@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: 69f11c77d01f546aecdcb5f0560f6f89483ac204
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f1a6825cdfab2375f1a6f1858ef14684d374dae2
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056405"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123485"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS 응용 프로그램 제품 게시 가이드
 
@@ -32,16 +32,16 @@ SaaS 응용 프로그램은 모두 Azure 상점에서 사용할 수 있습니다
 | 상점 옵션 | 나열 | 평가판/거래 |  
 | --- | --- | --- |  
 | AppSource | 예(연락처) | 예(PowerBI/Dynamics) |
-| Azure 마켓플레이스 | 아니오 | 예(SaaS 앱) |   
+| Azure 마켓플레이스 | 아니요 | 예(SaaS 앱) |   
 
 **목록:** 나열 게시 옵션은 연락처 제품 형식으로 이루어지고 평가판 또는 거래 수준의 참여가 불가능할 때 사용됩니다. 이 방식은 마켓 내 솔루션의 게시자가 비즈니스 수익을 창출하는 거래를 할 수 있는 잠재 고객을 바로 받을 수 있다는 장점이 있습니다.  
 **평가판/트랜잭션:** 고객은 솔루션에 대한 평가판을 직접 구입하거나 요청할 수 있습니다. 평가판 환경을 제공하면 고객에게 제공되는 참여 수준이 높아지고 고객이 솔루션을 구입하기 전에 탐색할 수 있습니다. 평가판 환경을 사용할 경우 상점에서 홍보할 기회를 갖고 고객 참여를 통해 보다 풍부하고 많은 잠재 고객을 창출할 수 있습니다. 체험의 경우 적어도 체험 기간 동안 무료 지원이 포함되어야 합니다.  
 
 | SaaS 앱 제품 | 비즈니스 요구 사항 | 기술적인 요구 사항 |  
 | --- | --- | --- |  
-| **문의처** | 예 | 아니오 |  
-| **PowerBI/Dynamics** | 예 | 예(Azure AD 통합) |  
-| **SaaS 앱**| 예 | 예(Azure AD 통합) |     
+| **문의처** | yes | 아니요 |  
+| **PowerBI/Dynamics** | yes | 예(Azure AD 통합) |  
+| **SaaS 앱**| yes | 예(Azure AD 통합) |     
 
 ## <a name="saas-list"></a>SaaS 목록
 
@@ -97,7 +97,7 @@ SaaS 응용 프로그램에 대한 기술 요구 사항은 간단합니다. 게�
 * [IT 전문가용 Microsoft Azure 콘텐츠 시리즈: Azure Active Directory](https://mva.microsoft.com/en-US/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
 
 또한 Azure Active Directory에서는 서비스 업데이트를 확인하는 사이트를 제공합니다.   
-* [Azure AD 서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory)|
+* [Azure AD 서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory)
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Azure Active Directory를 사용하여 체험 지원  
 

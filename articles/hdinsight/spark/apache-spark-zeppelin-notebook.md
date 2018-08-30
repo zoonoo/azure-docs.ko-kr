@@ -4,17 +4,17 @@ description: Azure HDInsight에서 Apache Spark 클러스터와 함께 Zeppelin 
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: dfb2711dd7c61494a2fe097856fa344c740cf891
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 9b076709ee24c61b2699672d28bd61204c88a744
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618255"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048044"
 ---
 # <a name="use-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터와 함께 Zeppelin Notebook 사용
 
@@ -126,7 +126,7 @@ HDInsight(Linux)의 Apache Spark 클러스터에서 Zeppelin Notebook을 구성�
    
     a. Maven Repository에서 패키지를 찾습니다. 이 자습서에서는 [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar)를 사용했습니다.
    
-    나. 해당 리포지토리에서 **GroupId**, **ArtifactId** 및 **Version** 값을 수집합니다.
+    b. 해당 리포지토리에서 **GroupId**, **ArtifactId** 및 **Version** 값을 수집합니다.
    
     ![Jupyter Notebook에서 외부 패키지 사용](./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "Jupyter Notebook에서 외부 패키지 사용")
    

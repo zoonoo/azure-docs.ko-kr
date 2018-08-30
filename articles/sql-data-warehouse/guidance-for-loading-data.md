@@ -3,19 +3,19 @@ title: 데이터 로드 모범 사례 - Azure SQL Data Warehouse | Microsoft Doc
 description: Azure SQL Data Warehouse를 사용하여 데이터를 로드하기 위한 권장 사항 및 성능 최적화입니다.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 5ccf0ce0cc94f0ae08213167ee54628a9d059859
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: a2cc5b02744c04752ba11cbba14fe95c487d737c
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34701521"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248120"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 데이터를 로드하는 모범 사례
 Azure SQL Data Warehouse를 사용하여 데이터를 로드하기 위한 권장 사항 및 성능 최적화입니다. 
@@ -118,7 +118,7 @@ Azure Storage 계정 키를 회전하려면:
 
 키가 변경된 각 저장소 계정에 대해 [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql)을 실행합니다.
 
-예:
+예제:
 
 원래 키를 만드는 경우
 

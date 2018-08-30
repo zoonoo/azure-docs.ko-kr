@@ -2,25 +2,20 @@
 title: Azure Logic Apps용 배포 템플릿 만들기 | Microsoft Docs
 description: 논리 앱 배포를 위한 Azure Resource Manager 템플릿 만들기
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: jeconnoc
-editor: ''
-ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.custom: H1Hack27Feb2017
+ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.author: LADocs; estfan
-ms.openlocfilehash: 647ffeb05542e12d19cefa3fa0dbf55e5585109a
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 68e655490470db6aade53c6f3523d0c9d87c3fbd
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297916"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123468"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>논리 앱 배포를 위한 Azure Resource Manager 템플릿 만들기
 
@@ -78,7 +73,7 @@ PowerShell을 설치한 후 다음 명령을 사용하여 템플릿을 생성합
 `$SubscriptionId` 은(는) Azure 구독 ID입니다. 이 줄은 ARMClient를 통해 액세스 토큰을 가져온 다음 PowerShell 스크립트로 실행시키고, JSON 파일로 템플릿을 만듭니다.
 
 ## <a name="add-parameters-to-a-logic-app-template"></a>논리 앱 템플릿에 매개 변수 추가
-논리 앱 템플릿을 만든 다음 필요한 매개 변수를 추가하거나 수정할 수 있습니다. 예를 들어 정의에 단일 배포로 배포할 계획인 중첩된 워크플로 또는 Azure Function에 대한 리소스 ID가 포함된 경우, 템플릿에 추가 리소스를 추가하고 필요에 따라 ID를 매개 변수화할 수 있습니다. 각 리소스 그룹과 함께 배포할 예정인 Swagger 끝점 또는 사용자 지정 API에 대한 참조도 마찬가지입니다.
+논리 앱 템플릿을 만든 다음 필요한 매개 변수를 추가하거나 수정할 수 있습니다. 예를 들어 정의에 단일 배포로 배포할 계획인 중첩된 워크플로 또는 Azure Function에 대한 리소스 ID가 포함된 경우, 템플릿에 추가 리소스를 추가하고 필요에 따라 ID를 매개 변수화할 수 있습니다. 각 리소스 그룹과 함께 배포할 예정인 Swagger 엔드포인트 또는 사용자 지정 API에 대한 참조도 마찬가지입니다.
 
 ### <a name="add-references-for-dependent-resources-to-visual-studio-deployment-templates"></a>Visual Studio 배포 템플릿에 종속 리소스에 대한 참조 추가
 

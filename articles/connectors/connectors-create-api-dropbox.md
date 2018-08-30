@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 77203788a6329ed4c5b58419fbcf48a48da91b30
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 256a0b34d5050e17abe5bb98ca0c13ab0b61787e
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295050"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43094441"
 ---
 # <a name="get-started-with-the-dropbox-connector"></a>Dropbox 커넥터 시작
 Dropbox에 연결하여 파일을 관리합니다. Dropbox에서 파일 업로드, 업데이트, 가져오기 및 삭제와 같은 다양한 작업을 수행할 수 있습니다.
@@ -24,7 +24,7 @@ Dropbox에 연결하여 파일을 관리합니다. Dropbox에서 파일 업로�
 [커넥터](apis-list.md)를 사용하려면 먼저 논리 앱을 만들어야 합니다. [지금 논리 앱을 만들어](../logic-apps/quickstart-create-first-logic-app-workflow.md) 시작할 수 있습니다.
 
 ## <a name="connect-to-dropbox"></a>Dropbox에 연결
-논리 앱에서 서비스에 액세스하려면 먼저 서비스에 대한 *연결*을 만들어야 합니다. 연결은 논리 앱과 다른 서비스 간의 연결을 제공합니다. 예를 들어 Dropbox에 연결하려면 먼저 Dropbox *연결*이 필요합니다. 연결을 만들려면 연결하려는 서비스에 액세스할 때 일반적으로 사용하는 자격 증명을 제공해야 합니다. 따라서 Dropbox 예제에서는 Dropbox에 대한 연결을 만들기 위해 Dropbox 계정에 대한 자격 증명이 필요합니다. [연결에 대한 자세한 정보]()
+논리 앱에서 서비스에 액세스하려면 먼저 서비스에 대한 *연결*을 만들어야 합니다. 연결은 논리 앱과 다른 서비스 간의 연결을 제공합니다. 예를 들어 Dropbox에 연결하려면 먼저 Dropbox *연결*이 필요합니다. 연결을 만들려면 연결하려는 서비스에 액세스할 때 일반적으로 사용하는 자격 증명을 제공해야 합니다. 따라서 Dropbox 예제에서는 Dropbox에 대한 연결을 만들기 위해 Dropbox 계정에 대한 자격 증명이 필요합니다. 
 
 ### <a name="create-a-connection-to-dropbox"></a>Dropbox에 대한 연결 만들기
 > [!INCLUDE [Steps to create a connection to Dropbox](../../includes/connectors-create-api-dropbox.md)]

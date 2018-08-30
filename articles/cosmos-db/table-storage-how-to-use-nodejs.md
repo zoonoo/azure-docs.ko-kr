@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 19e152b8cb8f18a616af647b31a4f35998f47858
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 2b88bd3c86d520b10c27746319f807d2f6208bfa
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798222"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048178"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Node.js에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -69,8 +69,8 @@ Azure 모듈은 AZURE_STORAGE_ACCOUNT 및 AZURE_STORAGE_ACCESS_KEY 또는 AZURE_
 var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
-## <a name="add-an-azure-comsos-db-connection"></a>Azure Cosmos DB 연결 추가
-Azure Cosmos DB 연결을 추가하려면 **TableService** 개체를 만들고 계정 이름, 기본 키 및 끝점을 지정합니다. Cosmos DB 계정에 대한 Azure Portal의 **설정** > **연결 문자열**에서 이러한 값을 복사할 수 있습니다. 예: 
+## <a name="add-an-azure-cosmos-db-connection"></a>Azure Cosmos DB 연결 추가
+Azure Cosmos DB 연결을 추가하려면 **TableService** 개체를 만들고 계정 이름, 기본 키 및 엔드포인트를 지정합니다. Cosmos DB 계정에 대한 Azure Portal의 **설정** > **연결 문자열**에서 이러한 값을 복사할 수 있습니다. 예: 
 
 ```nodejs
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');

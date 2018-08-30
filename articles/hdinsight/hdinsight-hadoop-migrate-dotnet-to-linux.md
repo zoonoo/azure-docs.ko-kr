@@ -3,18 +3,18 @@ title: Linux 기반 HDInsight에서 Hadoop MapReduce와 함께 .NET 사용 - Azu
 description: Linux 기반 HDInsight에서 MapReduce 스트리밍을 위해 .NET 응용 프로그램을 사용하는 방법에 대해 알아보세요.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: jasonh
-ms.openlocfilehash: 8650bad4d980efba78fe753200bca364bda26488
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: f8a29c744d0ebfbab4127c421d0dba22e8d7ff52
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595980"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43111094"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Windows 기반 HDInsight용 .NET 솔루션을 Linux 기반 HDInsight로 마이그레이션
 

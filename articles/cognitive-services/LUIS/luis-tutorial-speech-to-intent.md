@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: diberry;
-ms.openlocfilehash: 286efcd97c0c9ab95a8241215bc36799c486a8b6
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.author: diberry
+ms.openlocfilehash: aadca428fa076d697cc0f893673672850ddc27d4
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247718"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124399"
 ---
 # <a name="integrate-speech-service"></a>Speech Service 통합
 [Speech Service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/)를 사용하면 단일 요청을 통해 오디오를 수신하고 LUIS 예측 JSON 개체를 반환할 수 있습니다.
@@ -24,7 +24,7 @@ ms.locfileid: "39247718"
 
 이 문서에서는 응용 프로그램을 가져오기 위해 무료 [LUIS][LUIS] 웹 사이트 계정이 필요합니다.
 
-## <a name="create-luis-endpoint-key"></a>LUIS 끝점 키 만들기
+## <a name="create-luis-endpoint-key"></a>LUIS 엔드포인트 키 만들기
 Azure Portal에서 LUIS(**Language Understanding**) 키를 [만듭니다](luis-how-to-azure-subscription.md#create-luis-endpoint-key). 
 
 ## <a name="import-human-resources-luis-app"></a>Human Resources LUIS 앱 가져오기
@@ -47,13 +47,13 @@ Do I have any paid time off?
 
 2. **게시**를 선택하여 게시 페이지로 이동합니다. 
 
-3. **게시** 페이지 아래쪽에서 [LUIS 끝점 키 만들기](#create-luis-endpoint-key) 섹션에서 만든 LUIS 키를 추가합니다.
+3. **게시** 페이지 아래쪽에서 [LUIS 엔드포인트 키 만들기](#create-luis-endpoint-key) 섹션에서 만든 LUIS 키를 추가합니다.
 
 4. 게시 슬롯 오른쪽에 있는 **게시** 단추를 선택하여 LUIS 앱을 게시합니다. 
 
-  **게시** 페이지에서 [LUIS 끝점 키 만들기](#create-luis-endpoint-key) 섹션에서 만든 LUIS 키의 앱 ID를 게시 지역 및 구독 ID를 수집합니다. 이 문서의 뒷부분에 나오는 이러한 값을 사용하도록 코드를 수정해야 합니다. 
+  **게시** 페이지에서 [LUIS 엔드포인트 키 만들기](#create-luis-endpoint-key) 섹션에서 만든 LUIS 키의 앱 ID를 게시 지역 및 구독 ID를 수집합니다. 이 문서의 뒷부분에 나오는 이러한 값을 사용하도록 코드를 수정해야 합니다. 
 
-  이러한 모든 값은 만든 키에 대한 **게시** 페이지 맨 아래에 있는 끝점 URL에 포함됩니다. 
+  이러한 모든 값은 만든 키에 대한 **게시** 페이지 맨 아래에 있는 엔드포인트 URL에 포함됩니다. 
   
   이 연습을 위해 무료 시작 키를 사용하지 **않도록** 합니다. Azure Portal에서 만든 **Language Understanding** 키만 이 연습에서 작동됩니다. 
 
@@ -74,9 +74,9 @@ Speech SDK는 이미 참조로 포함되어 있습니다.
 
 |변수 이름|목적|
 |--|--|
-|luisSubscriptionKey|게시 페이지에서 끝점 URL 등록 키 값에 해당합니다.|
-|luisRegion|끝점 URL의 첫 번째 하위 도메인에 해당합니다.|
-|luisAppId|**app/** 다음의 끝점 URL 경로에 해당합니다.|
+|luisSubscriptionKey|게시 페이지에서 엔드포인트 URL 등록 키 값에 해당합니다.|
+|luisRegion|엔드포인트 URL의 첫 번째 하위 도메인에 해당합니다.|
+|luisAppId|**app/** 다음의 엔드포인트 URL 경로에 해당합니다.|
 
 [![](./media/luis-tutorial-speech-to-intent/change-variables.png "LUIS_samples.cs 변수를 표시하는 Visual Studio 2017 스크린샷")](./media/luis-tutorial-speech-to-intent/change-variables.png#lightbox)
 

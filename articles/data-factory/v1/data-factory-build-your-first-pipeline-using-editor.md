@@ -11,16 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d6d6282c3e997a41a27fb65ed7c06fd1bc7916f2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 332ba810aa9da611f998e5865344655c3c87c5d1
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444663"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43109424"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 첫 번째 데이터 팩터리 빌드
 > [!div class="op_single_selector"]
@@ -159,7 +159,7 @@ ms.locfileid: "39444663"
 
      a. 데이터 팩터리는 JSON 속성으로 사용자에게 Linux 기반 HDInsight 클러스터를 만들어 줍니다. 자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 참조하세요.
 
-     나. 주문형 HDInsight 클러스터를 사용하는 대신 고유의 HDInsight 클러스터를 사용할 수 있습니다. 자세한 내용은 [HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)를 참조하세요.
+     b. 주문형 HDInsight 클러스터를 사용하는 대신 고유의 HDInsight 클러스터를 사용할 수 있습니다. 자세한 내용은 [HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)를 참조하세요.
 
      다. HDInsight 클러스터는 JSON 속성(**linkedServiceName**)에서 지정한 Blob Storage에 기본 컨테이너를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 이 동작은 의도된 것입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(**timeToLive**)가 없는 경우 조각을 처리할 때마다 HDInsight 클러스터가 만들어집니다. 클러스터는 처리가 완료되면 자동으로 삭제됩니다.
 
@@ -337,7 +337,7 @@ ms.locfileid: "39444663"
 
    a. **input.log** 파일은 Blob Storage에서 **adfgetstarted** 컨테이너의 **inputdata** 폴더에 있습니다.
 
-   나. **partitionweblogs.hql** 파일은 Blob Storage에서 **adfgetstarted** 컨테이너의 **script** 폴더에 있습니다. 파일이 표시되지 않는 경우 [자습서 개요](data-factory-build-your-first-pipeline.md)의 “필수 구성 요소” 섹션의 단계를 완료합니다.
+   b. **partitionweblogs.hql** 파일은 Blob Storage에서 **adfgetstarted** 컨테이너의 **script** 폴더에 있습니다. 파일이 표시되지 않는 경우 [자습서 개요](data-factory-build-your-first-pipeline.md)의 “필수 구성 요소” 섹션의 단계를 완료합니다.
 
    다. **storageaccountname**을 파이프라인 JSON의 저장소 계정 이름으로 변경했습니다.
 

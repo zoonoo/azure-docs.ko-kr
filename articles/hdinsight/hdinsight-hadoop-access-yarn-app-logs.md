@@ -3,18 +3,18 @@ title: 프로그래밍 방식으로 Hadoop YARN 응용 프로그램 로그에 �
 description: HDInsight의 Hadoop 클러스터에서 프로그래밍 방식으로 응용 프로그램 로그에 액세스합니다.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 42484f2a93ab5effdcafca0f0769c3fb4cdbb926
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: e92f9f7bb49b0b7cc33c73a9c5eb2d0ca7532592
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600186"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43094404"
 ---
 # <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>Windows 기반 HDInsight에서 YARN 응용 프로그램 로그에 액세스
 이 문서에서는 Azure HDInsight의 Windows 기반 Hadoop 클러스터에서 완료된 YARN 응용 프로그램에 대한 로그에 액세스하는 방법에 대해 설명합니다.

@@ -3,18 +3,18 @@ title: Azure HDInsight에 사용자 지정 Hadoop 응용 프로그램 설치
 description: HDInsight 응용 프로그램에서 HDInsight 응용 프로그램을 설치하는 방법을 알아봅니다.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 23fbbdc4fc41329efadc4fc7953afa0659e79465
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 9df3b20cd72236d7001aac94bae302b5a6f9eb8d
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595902"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43110575"
 ---
 # <a name="install-custom-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 사용자 지정 Hadoop 응용 프로그램 설치
 
@@ -69,7 +69,7 @@ HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 사용�
 Azure Portal 외에도 [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-powershell) 및 [Azure CLI](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-cli)를 사용하여 Resource Manager 템플릿을 호출할 수도 있습니다.
 
 ## <a name="validate-the-installation"></a>설치 유효성 검사
-Azure 포털에서 응용 프로그램 상태를 확인하여 응용 프로그램 설치를 확인할 수 있습니다. 또한 예상 대로 나타난 HTTP 끝점 및 웹 페이지가 존재하는 경우 확인할 수도 있습니다.
+Azure 포털에서 응용 프로그램 상태를 확인하여 응용 프로그램 설치를 확인할 수 있습니다. 또한 예상 대로 나타난 HTTP 엔드포인트 및 웹 페이지가 존재하는 경우 확인할 수도 있습니다.
 
 **Hue 포털을 열려면**
 
@@ -78,7 +78,7 @@ Azure 포털에서 응용 프로그램 상태를 확인하여 응용 프로그�
 3. 응용 프로그램을 설치한 클러스터를 클릭합니다.
 4. **설정** 블레이드에서 **일반** 범주에 있는 **응용 프로그램**을 클릭합니다. **설치된 앱** 블레이드에 나열된 **Hue**가 표시됩니다.
 5. 목록에서 **Hue** 를 클릭하여 속성을 나열합니다.  
-6. 웹 페이지 링크를 클릭하여 웹 사이트의 유효성을 검사합니다. 브라우저에서 HTTP 끝점을 열어 Hue 웹 UI의 유효성을 검사하고 SSH를 사용하여 SSH 끝점을 엽니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+6. 웹 페이지 링크를 클릭하여 웹 사이트의 유효성을 검사합니다. 브라우저에서 HTTP 엔드포인트를 열어 Hue 웹 UI의 유효성을 검사하고 SSH를 사용하여 SSH 엔드포인트를 엽니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 ## <a name="troubleshoot-the-installation"></a>설치 문제 해결
 포털 알림에서 응용 프로그램 설치 상태를 확인할 수 있습니다(포털 맨 위에 있는 종 모양 아이콘 클릭).

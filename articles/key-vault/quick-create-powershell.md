@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/10/2018
+ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: 381cda9072e1433048611628c692fa72ede3dceb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 50448691fb136278cf7fdf3687ffb3b13fbb54ca
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42022411"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122266"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 
@@ -31,7 +31,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 로컬에서 PowerShell을 설치하고 사용하도록 선택하려는 경우 이 자습서를 진행하려면 Azure PowerShell 모듈 버전 5.1.1 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
-```azurepowershell
+```azurepowershell-interactive
 Login-AzureRmAccount
 ```
 
@@ -39,7 +39,7 @@ Login-AzureRmAccount
 
 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
 
-```azurepowershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -Name ContosoResourceGroup -Location EastUS
 ```
 
@@ -53,7 +53,7 @@ New-AzureRmResourceGroup -Name ContosoResourceGroup -Location EastUS
 - **리소스 그룹 이름**은 ContosoResourceGroup입니다.
 - **위치**는 미국 동부입니다.
 
-```azurepowershell
+```azurepowershell-interactive
 New-AzureRmKeyVault -VaultName 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
 ```
 
@@ -72,19 +72,19 @@ New-AzureRmKeyVault -VaultName 'Contoso-Vault2' -ResourceGroupName 'ContosoResou
 
 먼저 다음을 입력하여 Pa$$w0rd 값을 보안 문자열로 변환합니다.
 
-```azurepowershell
+```azurepowershell-interactive
 $secretvalue = ConvertTo-SecureString 'Pa$$w0rd' -AsPlainText -Force
 ```
 
 그런 다음, 아래의 PowerShell 명령을 입력하여 Key Vault에 **Pa$$w0rd**라는 값을 가진 **ExamplePassword**라는 비밀을 만듭니다.
 
-```azurepowershell
+```azurepowershell-interactive
 $secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'ExamplePassword' -SecretValue $secretvalue
 ```
 
 비밀에 들어 있는 값을 일반 텍스트로 보려면:
 
-```azurepowershell
+```azurepowershell-interactive
 (Get-AzureKeyVaultSecret -vaultName "Contosokeyvault" -name "ExamplePassword").SecretValueText
 ```
 
@@ -96,7 +96,7 @@ $secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'ExamplePas
 
 더 이상 필요하지 않은 경우 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 명령을 사용하여 리소스 그룹, Key Vault 및 모든 관련 리소스를 제거할 수 있습니다.
 
-```azurepowershell
+```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name ContosoResourceGroup
 ```
 

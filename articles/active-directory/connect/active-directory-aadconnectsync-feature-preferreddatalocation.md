@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2018
+ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5eae173e02c92bd43faaa9533ce29489d40f1389
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6272cc8b2f34211aa6e5b85dbb508ade74cee637
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592928"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247573"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect 동기화: Office 365 리소스에 대한 기본 데이터 위치 구성
 이 항목의 목적은 Azure AD(Azure Active Directory) Connect 동기화에서 기본 데이터 위치에 대한 특성을 구성하는 방법을 안내하는 것입니다. Office 365에서 다중 지역 기능을 사용하는 경우, 이 특성을 사용하여 사용자의 Office 365 데이터의 지리적 위치를 지정할 수 있습니다. *region(지역)* 과 *Geo(지역)* 라는 용어는 서로 바꿔 사용할 수 있습니다.
@@ -45,6 +45,7 @@ Office 365의 모든 지역 목록은 [데이터 위치](https://aka.ms/datamaps
 | 오스트레일리아 | AUS |
 | 캐나다 | CAN |
 | 유럽 연합 | EUR |
+| 프랑스 | FRA |
 | 인도 | IND |
 | 일본 | JPN |
 | 한국 | KOR |
@@ -215,7 +216,7 @@ Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **prefe
    2. **커넥터 공간 검색** 대화 상자에서:
 
         a. **범위**를 **보류 중인 내보내기**로 설정합니다.<br>
-        나. **추가, 수정 및 삭제**를 포함한 세 개의 확인란을 모두 선택합니다.<br>
+        b. **추가, 수정 및 삭제**를 포함한 세 개의 확인란을 모두 선택합니다.<br>
         다. 내보낼 변경 내용이 있는 개체의 목록을 보려면 **검색**을 선택합니다. 지정된 개체에 대한 변경 내용을 검사하려면 해당 개체를 두 번 클릭합니다.<br>
         d. 필요한 변경 내용인지 확인합니다.
 

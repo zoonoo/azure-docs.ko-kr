@@ -2,19 +2,19 @@
 title: Azure HDInsight에 대한 보관 릴리스 정보
 description: Azure HDInsight에 대한 보관 릴리스 정보 및 버전입니다.
 services: hdinsight
-editor: jasonwhowell
+ms.reviewer: jasonh
 author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jasonh
-ms.openlocfilehash: 34536316fef5f30df4ef1e3c89ddaaafed188c5d
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 1dd0e33b3ec6cc5521d5087d48e9e5467911c2b6
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600087"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43109766"
 ---
 # <a name="archived-release-notes-for-azure-hdinsight"></a>Azure HDInsight에 대한 보관 릴리스 정보
 
@@ -31,7 +31,7 @@ HDInsight의 2018년 6월 릴리스는 고객을 위한 많은 새로운 업데�
 - **Hadoop 및 기타 오픈 소스 프로젝트 업데이트** - 20개 이상의 소스 프로젝트에서 1000개 이상의 버그 수정 이외에 이 업데이트는 새로운 버전의 Spark(2.3) 및 Kafka(1.0)를 포함합니다.
 - **R Server 9.1을 Machine Learning Services 9.3으로 업데이트** - 이 릴리스에서는 데이터 과학자와 엔지니어에게 알고리즘 혁신과 간편한 운영화를 통해 향상된 최상의 오픈 소스를, 선호하는 언어의 Apache Spark의 속도로 제공합니다. 이 릴리스는 Python에 대한 추가 지원을 통해 R Server에서 제공되는 기능을 확장하므로 클러스터 이름이 R 서버에서 ML 서비스로 변경됩니다. 
 - **Azure Data Lake Storage Gen2에 대한 지원** - HDInsight는 Azure Data Lake Storage Gen2의 미리 보기 릴리스를 지원합니다. 사용 가능한 지역에서 고객은 HDInsight 클러스터용 저장소로 ADLS Gen2 계정을 선택할 수 있습니다.
-- **HDInsight Enterprise Security Package 업데이트(미리 보기)** - (미리 보기) Azure Blob Storage, ADLS Gen1, Cosmos DB 및 Azure DB에 대한 가상 네트워크 서비스 끝점이 지원됩니다. 
+- **HDInsight Enterprise Security Package 업데이트(미리 보기)** - (미리 보기) Azure Blob Storage, ADLS Gen1, Cosmos DB 및 Azure DB에 대한 가상 네트워크 서비스 엔드포인트가 지원됩니다. 
 
 ## <a name="notes-for-03202018---release-of-spark-22-on-hdinsight-36"></a>HDInsight 3.6에서 Spark 2.2의 2018/03/20 릴리스 정보
 

@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 93ced2d0c79d80a631ad90aa3f5d2dc9f8c79c7e
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: a266055c7685dca87d985775584a9ea7a4bda883
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390197"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128523"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding FAQ
 
@@ -42,7 +42,7 @@ ms.locfileid: "39390197"
 [Bing Spell Check API V7](luis-tutorial-bing-spellcheck.md) 자습서를 참조하세요. LUIS는 Bing Spell Check API v7에 따라 부여되는 제한을 적용합니다. 
 
 ### <a name="how-do-i-edit-my-luis-app-programmatically"></a>프로그래밍 방식으로 LUIS 앱을 편집하려면 어떻게 해야 하나요?
-프로그래밍 방식으로 LUIS 앱을 편집하려면 [작성 API](https://aka.ms/luis-authoring-apis)를 사용합니다. 작성 API 호출 방법에 대한 예제를 보려면 [LUIS 작성 API 호출](./luis-quickstart-node-add-utterance.md) 및 [Node.js를 사용하여 프로그래밍 방식으로 LUIS 앱 빌드](./luis-tutorial-node-import-utterances-csv.md)를 참조하세요. 작성 API에서는 끝점 키가 아닌 [작성 키](luis-concept-keys.md#authoring-key)를 사용해야 합니다. 프로그래밍 방식으로 작성할 경우 매월 최대 1,000,000개 호출과 초당 5개의 트랜잭션이 허용됩니다. LUIS에서 사용하는 키에 대한 자세한 내용은 [키 관리](./luis-concept-keys.md)를 참조하세요.
+프로그래밍 방식으로 LUIS 앱을 편집하려면 [작성 API](https://aka.ms/luis-authoring-apis)를 사용합니다. 작성 API 호출 방법에 대한 예제를 보려면 [LUIS 작성 API 호출](./luis-quickstart-node-add-utterance.md) 및 [Node.js를 사용하여 프로그래밍 방식으로 LUIS 앱 빌드](./luis-tutorial-node-import-utterances-csv.md)를 참조하세요. 작성 API에서는 엔드포인트 키가 아닌 [작성 키](luis-concept-keys.md#authoring-key)를 사용해야 합니다. 프로그래밍 방식으로 작성할 경우 매월 최대 1,000,000개 호출과 초당 5개의 트랜잭션이 허용됩니다. LUIS에서 사용하는 키에 대한 자세한 내용은 [키 관리](./luis-concept-keys.md)를 참조하세요.
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>정규식 일치를 제공하는 패턴 기능은 어디에 있나요?
 이전 **패턴 기능**이 현재는 더 이상 사용되지 않으며 **[패턴](luis-concept-patterns.md)** 으로 바뀌었습니다. 
@@ -57,27 +57,27 @@ ms.locfileid: "39390197"
 
 Cortana의 미리 빌드된 앱은 2017년부터 더 이상 사용되지 않습니다. 따라서 더 이상 지원되지 않습니다. 
 
-## <a name="luis-endpoint"></a>LUIS 끝점
+## <a name="luis-endpoint"></a>LUIS 엔드포인트
 
 ### <a name="why-does-luis-add-spaces-to-the-query-around-or-in-the-middle-of-words"></a>LUIS가 쿼리 주변 또는 단어 중간에 공백을 추가하는 이유는 무엇인가요?
 LUIS는 [문화권](luis-supported-languages.md#tokenization)에 따라 발언을 [토큰화](luis-glossary.md#token)합니다. 원래 값과 토큰화된 값 둘다 [데이터 추출](luis-concept-data-extraction.md#tokenized-entity-returned)에 사용할 수 있습니다.
 
-### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>LUIS 끝점 키를 만들고 할당하려면 어떻게 해야 하나요?
-Azure에서 [서비스](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) 수준에 대해 [끝점 키를 만듭니다](luis-how-to-azure-subscription.md#create-luis-endpoint-key). **[게시](luis-how-to-publish-app.md)** 페이지에서 [키를 할당](luis-how-to-manage-keys.md#assign-endpoint-key)합니다. 이 작업에 해당하는 API는 없습니다. 그런 후 끝점에 대한 HTTP 요청을 [새 끝점 키를 사용하도록](luis-concept-keys.md#use-endpoint-key-in-query) 변경해야 합니다.
+### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>LUIS 엔드포인트 키를 만들고 할당하려면 어떻게 해야 하나요?
+Azure에서 [서비스](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) 수준에 대해 [엔드포인트 키를 만듭니다](luis-how-to-azure-subscription.md#create-luis-endpoint-key). **[게시](luis-how-to-publish-app.md)** 페이지에서 [키를 할당](luis-how-to-manage-keys.md#assign-endpoint-key)합니다. 이 작업에 해당하는 API는 없습니다. 그런 후 엔드포인트에 대한 HTTP 요청을 [새 엔드포인트 키를 사용하도록](luis-concept-keys.md#use-endpoint-key-in-query) 변경해야 합니다.
 
 ### <a name="how-do-i-interpret-luis-scores"></a>LUIS 점수는 어떻게 해석할 수 있나요? 
 시스템은 해당 값에 관계 없이 점수가 가장 높은 의도를 사용해야 합니다. 예를 들어, 0.5(50%) 미만 점수라고 해서 LUIS가 반드시 낮은 신뢰도를 갖는다는 것을 의미하는 것은 아닙니다. 더 많은 학습 데이터를 제공하면 가능성이 가장 높은 의도의 점수를 높일 수 있습니다.
 
-### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>내 앱의 대시보드에서 끝점 적중이 표시되지 않는 이유는 무엇인가요?
+### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>내 앱의 대시보드에서 엔드포인트 적중이 표시되지 않는 이유는 무엇인가요?
 앱의 대시보드에 표시되는 총 끝점 적중은 주기적으로 업데이트되지만 Azure Portal의 LUIS 끝점 키와 연결된 메트릭은 좀 더 자주 업데이트됩니다. 
 
 대시보드에서 업데이트된 끝점 적중이 표시되지 않으면 Azure Portal에 로그인하고 LUIS 끝점 키와 연결된 리소스를 찾은 후 **메트릭**을 열어 **총 호출** 메트릭을 선택합니다. 끝점 키가 둘 이상의 LUIS 앱에 사용되는 경우 Azure Portal의 메트릭은 해당 메트릭을 사용하는 모든 LUIS 앱의 집계된 호출 수를 나타냅니다.
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>내 LUIS 앱이 어제도 작동했으나 오늘 403 오류가 발생하고 있습니다. 앱을 변경한 적도 없었습니다. 이 문제를 어떻게 해결하나요? 
-다음은 LUIS 끝점 키 만들고 앱에 할당하기 위한 다음 FAQ의 [지침](#how-do-i-create-and-assign-a-luis-endpoint-key)입니다. 그런 후 끝점에 대한 HTTP 요청을 [새 끝점 키를 사용하도록](luis-concept-keys.md#use-endpoint-key-in-query) 변경해야 합니다.
+다음은 LUIS 엔드포인트 키 만들고 앱에 할당하기 위한 다음 FAQ의 [지침](#how-do-i-create-and-assign-a-luis-endpoint-key)입니다. 그런 후 엔드포인트에 대한 HTTP 요청을 [새 엔드포인트 키를 사용하도록](luis-concept-keys.md#use-endpoint-key-in-query) 변경해야 합니다.
 
-### <a name="how-do-i-secure-my-luis-endpoint"></a>내 LUIS 끝점을 어떻게 보호하나요? 
-[끝점 보안](luis-concept-security.md#securing-the-endpoint)을 참조하세요.
+### <a name="how-do-i-secure-my-luis-endpoint"></a>내 LUIS 엔드포인트를 어떻게 보호하나요? 
+[엔드포인트 보안](luis-concept-security.md#securing-the-endpoint)을 참조하세요.
 
 ## <a name="working-within-luis-limits"></a>LUIS 제한 내에서 작업
 
@@ -129,14 +129,14 @@ Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을
 LUIS 앱을 다른 Azure 구독으로 이전하려면 LUIS 앱을 내보낸 후 새 계정을 사용하여 가져옵니다. LUIS 앱을 호출하는 클라이언트 응용 프로그램에서 해당 앱 ID를 업데이트합니다. 새 앱은 원래 앱과는 약간 다른 LUIS 점수를 반환할 수 있습니다. 
 
 ### <a name="how-do-i-download-a-log-of-user-utterances"></a>사용자 발언의 로그를 다운로드하려면 어떻게 해야 하나요?
-기본적으로 LUIS 앱은 사용자의 발언을 로깅합니다. 사용자가 LUIS 앱으로 전송하는 발언 로그를 다운로드하려면 **내 앱**으로 이동한 후 앱에 대한 목록에서 줄임표(***...***)를 클릭합니다. 그런 후 **끝점 로그 내보내기**를 클릭합니다. 로그 형식은 쉼표로 구분된 값(CSV) 파일로 지정됩니다.
+기본적으로 LUIS 앱은 사용자의 발언을 로깅합니다. 사용자가 LUIS 앱으로 전송하는 발언 로그를 다운로드하려면 **내 앱**으로 이동한 후 앱에 대한 목록에서 줄임표(***...***)를 클릭합니다. 그런 후 **엔드포인트 로그 내보내기**를 클릭합니다. 로그 형식은 쉼표로 구분된 값(CSV) 파일로 지정됩니다.
 
 ### <a name="how-can-i-disable-the-logging-of-utterances"></a>발언 로깅을 사용하지 않도록 설정하려면 어떻게 해야 하나요?
-클라이언트 응용 프로그램이 LUIS를 쿼리하는 사용하는 끝점 URL에서 `log=false`를 설정하여 사용자 발언의 로깅을 해제할 수 있습니다. 그렇지만 로깅을 해제하면 [활성 학습](luis-concept-review-endpoint-utterances.md#what-is-active-learning)에 따라 발언을 제안하거나 성능을 향상시키는 LUIS 앱 기능을 사용할 수 없게 됩니다. 데이터 개인 정보 문제 때문에 `log=false`를 설정하는 경우 LUIS에서 해당 사용자 발언의 기록을 다운로드하거나 해당 발언을 사용하여 앱을 향상시킬 수 없습니다.
+클라이언트 응용 프로그램이 LUIS를 쿼리하는 사용하는 엔드포인트 URL에서 `log=false`를 설정하여 사용자 발언의 로깅을 해제할 수 있습니다. 그렇지만 로깅을 해제하면 [활성 학습](luis-concept-review-endpoint-utterances.md#what-is-active-learning)에 따라 발언을 제안하거나 성능을 향상시키는 LUIS 앱 기능을 사용할 수 없게 됩니다. 데이터 개인 정보 문제 때문에 `log=false`를 설정하는 경우 LUIS에서 해당 사용자 발언의 기록을 다운로드하거나 해당 발언을 사용하여 앱을 향상시킬 수 없습니다.
 
 로깅은 발언의 유일한 저장소입니다. 
 
-### <a name="why-dont-i-want-all-my-endpoint-utterances-logged"></a>모든 내 끝점 발언을 로깅하지 않아도 되는 이유는 무엇인가요?
+### <a name="why-dont-i-want-all-my-endpoint-utterances-logged"></a>모든 내 엔드포인트 발언을 로깅하지 않아도 되는 이유는 무엇인가요?
 예측 분석을 위해 로그를 사용하는 경우에는 로그에 테스트 발언을 캡처하지 않도록 합니다.
 
 ## <a name="data-management"></a>데이터 관리
@@ -144,14 +144,14 @@ LUIS 앱을 다른 Azure 구독으로 이전하려면 LUIS 앱을 내보낸 후 
 ### <a name="can-i-delete-data-from-luis"></a>LUIS에서 데이터를 삭제할 수 있나요? 
 
 * LUIS를 학습시키는 데 사용되는 예제 발언은 항상 삭제할 수 있습니다. LUIS 앱에서 예제 발언을 삭제하면 LUIS 웹 서비스에서 제거되고 내보낼 수 없게 됩니다.
-* **끝점 발언 검토** 페이지에서 LUIS가 제안하는 사용자 발언 목록에 있는 발언을 삭제할 수 있습니다. 이 목록에서 발언을 삭제하면 제안되지 않지만 로그에서 삭제되지는 않습니다.
+* **엔드포인트 발언 검토** 페이지에서 LUIS가 제안하는 사용자 발언 목록에 있는 발언을 삭제할 수 있습니다. 이 목록에서 발언을 삭제하면 제안되지 않지만 로그에서 삭제되지는 않습니다.
 * 계정을 삭제하면 모든 앱과 예제 발언 및 로그가 함께 삭제됩니다. 데이터는 영구적으로 삭제하기 전에 60일 동안 서버에 유지됩니다.
 
 ### <a name="does-microsoft-access-my-luis-app-data-for-its-own-purposes-for-example-to-enhance-luis-or-microsoft-in-general"></a>Microsoft는 자체적인 목적(예: LUIS 또는 Microsoft를 일반적으로 향상시키기 위해)을 위해 LUIS 앱 데이터에 액세스하나요? 
 
 아니요. LUIS 앱의 데이터 모델은 LUIS에서 플랫폼으로 LUIS를 향상시키기 위해 사용되거나 Microsoft에서 어떤 방식으로도 사용되지 않습니다. 각 앱의 데이터는 분리되며 사용자와 협력자만 소유합니다. 
 
-[사용자 개인 정보](luis-reference-gdpr.md), [추가적인 보안 규정 준수](luis-concept-security.md#security-compliance) 및 [데이터 저장소](luis-concept-data-storage.md)에 대해 자세히 알아보세요.
+[사용자 개인 정보](luis-user-privacy.md), [추가적인 보안 규정 준수](luis-concept-security.md#security-compliance) 및 [데이터 저장소](luis-concept-data-storage.md)에 대해 자세히 알아보세요.
 
 ## <a name="language-and-translation-support"></a>언어 및 번역 지원 
 
@@ -164,7 +164,7 @@ LUIS 앱을 다른 Azure 구독으로 이전하려면 LUIS 앱을 내보낸 후 
 ## <a name="app-notification"></a>앱 알림
 
 ### <a name="why-did-i-get-an-email-saying-im-almost-out-of-quota"></a>할당량이 거의 초과되려고 한다는 전자 메일이 수신되는 이유는 무엇인가요?
-작성/시작 키는 매월 1,000개의 끝점 쿼리만 허용합니다. LUIS 끝점 키(무료 또는 유료)를 만들고 끝점 쿼리를 만들 때 해당 키를 사용합니다. 봇이나 다른 클라이언트 응용 프로그램에서 끝점 쿼리를 만드는 경우 해당 위치에서 LUIS 끝점을 변경해야 합니다. 
+작성/시작 키는 매월 1,000개의 엔드포인트 쿼리만 허용합니다. LUIS 끝점 키(무료 또는 유료)를 만들고 끝점 쿼리를 만들 때 해당 키를 사용합니다. 봇이나 다른 클라이언트 응용 프로그램에서 엔드포인트 쿼리를 만드는 경우 해당 위치에서 LUIS 엔드포인트를 변경해야 합니다. 
 
 ## <a name="integrating-luis"></a>LUIS 통합
 

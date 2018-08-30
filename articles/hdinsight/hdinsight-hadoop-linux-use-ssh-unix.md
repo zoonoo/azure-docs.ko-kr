@@ -3,19 +3,19 @@ title: Hadoop에서 SSH 사용 - Azure HDInsight
 description: SSH(보안 셸)를 사용하여 HDInsight에 액세스할 수 있습니다. 이 문서에서는 Windows, Linux, Unix 또는 macOS 클라이언트의 ssh 및 scp 명령을 사용하여 HDInsight에 연결하는 방법에 대해 설명합니다.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 keywords: Linux의 Hadoop 명령, Hadoop Linux 명령, Hadoop macOS, SSH Hadoop, SSH Hadoop 클러스터
 ms.service: hdinsight
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 7685c68aeaac745528bc38fde160270b36913ec3
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: f7e6651e0aa776c4bbcac1fc70017139c21a7512
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41918253"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105023"
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>SSH를 사용하여 HDInsight(Hadoop)에 연결
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: b15d4980875b805b49f7dc1cdb941e607232f3cb
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: e17a9275792e3a7fdbea6e3b95e596eaa15f4359
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258042"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105814"
 ---
 # <a name="using-applications-in-azure-blockchain-workbench"></a>Azure Blockchain Workbench에서 응용 프로그램 사용
 
@@ -24,7 +24,7 @@ Blockchain Workbench를 사용하여 계약에서 만들고 작업을 수행할 
 ## <a name="prerequisites"></a>필수 조건
 
 * Blockchain Workbench 배포. 자세한 내용은 배포에 대한 세부 사항을 위한 [Azure Blockchain Workbench 배포](blockchain-workbench-deploy.md)를 참조하세요.
-* Blockchain Workbench에 배포된 블록체인 응용 프로그램. [Azure Blockchain Workbench에서 블록체인 응용 프로그램 만들기]()를 참조하세요.
+* Blockchain Workbench에 배포된 블록체인 응용 프로그램. [Azure Blockchain Workbench에서 블록체인 응용 프로그램 만들기](blockchain-workbench-create-app.md)를 참조하세요.
 
 브라우저에서 [Blockchain Workbench를 엽니다](blockchain-workbench-deploy.md#blockchain-workbench-web-url).
 

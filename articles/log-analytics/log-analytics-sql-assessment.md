@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: e83a722ee58f49c20871faaca6aae7d7a5678361
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 2dcbd0cab055e8a2b2128b1f83f5c080a0887b85
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130610"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122523"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Log Analytics에서 SQL Server Health Check 솔루션을 사용하여 사용자 SQL 환경 최적화
 
@@ -174,8 +174,6 @@ Log Analytics에서 평가 솔루션을 사용하려면 먼저 솔루션이 설�
 
 ## <a name="ignore-recommendations"></a>권장 사항 무시
 무시하려는 권장 사항이 있는 경우 Log Analytics에서 평가 결과에 권장 사항이 표시되는 것을 방지하는 데 사용할 텍스트 파일을 만들 수 있습니다.
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>무시할 권장 사항을 식별하려면
 1. Azure Portal에서 선택한 작업 영역에 대한 Log Analytics 작업 영역 페이지에서 **로그 검색** 타일을 클릭합니다.

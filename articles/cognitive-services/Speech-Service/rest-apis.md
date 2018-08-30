@@ -8,29 +8,29 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 9991e0a1fc54e6aa4a99b8bfbd93abdfe974b01b
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 64dce26303c0e700da54d371af5cb275b1613d70
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283072"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122106"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API
 
-통합 Speech Service의 REST API는 [Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech)(이전의 Bing Speech Service)가 제공하는 API와 비슷합니다. 끝점은 이전 Speech Service에서 사용되는 끝점과 다릅니다.
+통합 Speech Service의 REST API는 [Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech)(이전의 Bing Speech Service)가 제공하는 API와 비슷합니다. 엔드포인트는 이전 Speech Service에서 사용되는 엔드포인트와 다릅니다.
 
 ## <a name="speech-to-text"></a>음성을 텍스트로 변환
 
-Speech to Text API에서는 사용되는 끝점만 이전 Speech Service의 Speech Recognition API와 다릅니다. 새 끝점은 아래 표에 나와 있습니다. 사용자 구독 지역과 일치하는 끝점을 사용하세요.
+Speech to Text API에서는 사용되는 엔드포인트만 이전 Speech Service의 Speech Recognition API와 다릅니다. 새 엔드포인트는 아래 표에 나와 있습니다. 사용자 구독 지역과 일치하는 끝점을 사용하세요.
 
-[!include[](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 그 외에 Speech to Text API는 이전 Speech API에 대한 [REST API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest)와 비슷합니다.
 
 Speech to Text REST API는 짧은 발언만 지원합니다. 요청은 최대 10초의 오디오를 포함할 수 있고 전체적으로 최대 14초 동안 지속될 수 있습니다. REST API는 부분적 또는 중간 결과가 아닌 최종 결과만 반환합니다.
 
 > [!NOTE]
-> 음향 모델 또는 언어 모델이나 발음을 사용자 지정한 경우, 대신 사용자 지정 끝점을 사용합니다.
+> 음향 모델 또는 언어 모델이나 발음을 사용자 지정한 경우, 대신 사용자 지정 엔드포인트를 사용합니다.
 
 ## <a name="text-to-speech"></a>텍스트에서 음성 변환
 
@@ -52,17 +52,17 @@ Speech to Text REST API는 짧은 발언만 지원합니다. 요청은 최대 10
 ko-KR  | 영어 | Female | “Microsoft Server Speech Text to Speech Voice(en-US, Jessa24kRUS)” 
 ko-KR  | 영어 | Male   | “Microsoft Server Speech Text to Speech Voice(en-US, Guy24kRUS)”
 
-다음은 통합된 Speech service Text to Speech API에 대한 REST 끝점입니다. 사용자 구독 지역과 일치하는 끝점을 사용하세요.
+다음은 통합된 Speech service Text to Speech API에 대한 REST 엔드포인트입니다. 사용자 구독 지역과 일치하는 엔드포인트를 사용하세요.
 
-[!include[](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 이전 Speech API에 대한 [REST API 설명서](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput)를 참조할 때는 이러한 차이점에 유의하세요.
 
 ## <a name="authentication"></a>인증
 
-Speech Service의 REST API에 요청을 보내려면 액세스 토큰이 필요합니다. 아래 표와 같이 국가별 Speech Service `issueToken` 끝점에 구독 키를 제공하여 토큰을 획득합니다. 사용자 구독 지역과 일치하는 끝점을 사용하세요.
+Speech Service의 REST API에 요청을 보내려면 액세스 토큰이 필요합니다. 아래 표와 같이 국가별 Speech Service `issueToken` 엔드포인트에 구독 키를 제공하여 토큰을 획득합니다. 사용자 구독 지역과 일치하는 엔드포인트를 사용하세요.
 
-[!include[](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
 각 액세스 토큰은 10분 동안 유효합니다. 원할 경우, 모든 Speech REST API 요청 직전을 비롯하여 언제든지 새 토큰을 획득할 수 있습니다. 그러나 네트워크 트래픽 및 대기 시간을 최소화하려면 9분 동안 동일한 토큰을 사용하는 것이 좋습니다.
 

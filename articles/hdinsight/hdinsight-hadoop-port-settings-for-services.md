@@ -3,18 +3,18 @@ title: HDInsight에서 Hadoop 서비스에서 사용하는 포트 - Azure
 description: HDInsight에서 실행 중인 Hadoop 서비스에 사용된 포트 목록입니다.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jasonh
-ms.openlocfilehash: 78aed9d74325dfae0a02a4b95082baf60f6af603
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 3dea97d674c2027307ac7eb7cae34b6664e40b0b
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599251"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108123"
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>HDInsight의 Hadoop 서비스에서 사용하는 포트
 

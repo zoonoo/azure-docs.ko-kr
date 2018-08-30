@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/03/2018
 ms.reviewers: billgib
 ms.author: genemi
-ms.openlocfilehash: 816cde31e84eeda8110c042f4e0640f12fb4cc53
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 026f3450535e4bed6a636fc5ae6ee9d821dbbb72
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645993"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247669"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>분할된 다중 테넌트 SQL 데이터베이스를 사용하는 SaaS 응용 프로그램에서 스키마 관리
 
@@ -168,7 +168,6 @@ SSMS에서 *tenants1-mt-&lt;user&gt;* 서버에 있는 테넌트 데이터베이
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-에서도 확인할 수 있습니다.
 > * 여러 데이터베이스에서 T-SQL 작업을 실행하는 작업 에이전트 만들기
 > * 모든 테넌트 데이터베이스에서 참조 데이터 업데이트하기
 > * 모든 테넌트 데이터베이스의 테이블에서 인덱스 만들기

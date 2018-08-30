@@ -3,18 +3,18 @@ title: 게시된 응용 프로그램 설치 - Datameer - Azure HDInsight
 description: Datameer 타사 Hadoop 응용 프로그램을 설치하고 사용합니다.
 services: hdinsight
 author: ashishthaps
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 7b75170349f41b0fa611d5e748353484c7fea2e0
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: a428bb7bc9cc6a6a2e28989271ad1998700438cf
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39598591"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43107751"
 ---
 # <a name="install-published-application---datameer"></a>게시된 응용 프로그램 설치 - Datameer
 

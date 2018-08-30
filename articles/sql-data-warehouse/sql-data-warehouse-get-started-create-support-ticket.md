@@ -3,19 +3,19 @@ title: Azure SQL Data Warehouse에 대한 지원 티켓을 만드는 방법 | Mi
 description: Azure SQL Data Warehouse에서 지원 티켓을 만드는 방법
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 406281fb3d52cc327166693740cdbaec446e8667
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 12b12ff6a6dc616ec3bb592f54862535b1318e49
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31523050"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247320"
 ---
 # <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>SQL Data Warehouse에 대한 지원 티켓을 만드는 방법
 SQL Data Warehouse에 문제가 발생한 경우 엔지니어링 지원 팀이 도움을 드릴 수 있도록 지원 티켓을 만드세요.

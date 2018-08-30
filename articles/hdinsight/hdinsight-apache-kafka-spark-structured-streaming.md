@@ -3,18 +3,18 @@ title: '자습서: Kafka의 Apache Spark 구조적 스트림 - Azure HDInsight '
 description: Apache Spark 스트림을 사용하여 Apache Kafka 간에 데이터를 이동하는 방법을 알아봅니다. 이 자습서에서는 HDInsight의 Spark에서 Jupyter Notebook을 사용하여 데이터를 스트리밍합니다.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: jasonh
-ms.openlocfilehash: 47879350c56b9e8b943e1bff61359727746b697d
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 11169e45d5fbdc5e51b81c06d814524a7b09c614
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39598311"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108292"
 ---
 # <a name="tutorial-use-spark-structured-streaming-with-kafka-on-hdinsight"></a>자습서: HDInsight의 Kafka에서 Spark Structured Streaming 사용
 

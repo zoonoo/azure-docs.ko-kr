@@ -3,18 +3,18 @@ title: Azure HDInsight Linux 클러스터에 Presto 설치
 description: 스크립트 작업을 사용하여 Linux 기반 HDInsight Hadoop 클러스터에 Presto 및 Airpal을 설치하는 방법에 대해 알아봅니다.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: jasonh
-ms.openlocfilehash: ea777b13348b84aaeb7cb7628a4d0aac9f5705bd
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 1569b5931a24048fa7a88c4a546bbf88547208d1
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591424"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43109619"
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터에 Presto 설치 및 사용
 

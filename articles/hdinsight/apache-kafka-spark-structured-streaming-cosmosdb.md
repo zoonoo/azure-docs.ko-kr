@@ -3,18 +3,18 @@ title: Kafka에서 Azure Cosmos DB로 Apache Spark 구조적 스트림 - Azure H
 description: Apache Spark 구조적 스트림을 사용하여 Apache Kafka에서 데이터를 읽고 Azure Cosmos DB로 저장하는 방법을 알아봅니다. 이 예제에서는 HDInsight의 Spark에서 Jupyter Notebook을 사용하여 데이터를 스트리밍합니다.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: jasonh
-ms.openlocfilehash: a02f517c72d1d9e07c8cc434cf57066bc828a684
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: c18234e50711b2496b793263ca8d314f16347cbe
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600475"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43107798"
 ---
 # <a name="use-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>Kafka 및 Azure Cosmos DB에서 Spark 구조적 스트리밍 사용
 
@@ -102,7 +102,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
 
 ## <a name="create-the-cosmos-db-database-and-collection"></a>Cosmos DB 데이터베이스 및 컬렉션 만들기
 
-이 문서에 사용되는 프로젝트는 Cosmos DB에 데이터를 저장합니다. 코드를 실행하기 전에 먼저 Cosmos DB 인스턴스에서 _데이터베이스_ 및 _컬렉션_을 만들어야 합니다. Cosmos DB에 대한 요청을 인증하는 데 사용된 문서 끝점 및 _키_도 검색해야 합니다. 
+이 문서에 사용되는 프로젝트는 Cosmos DB에 데이터를 저장합니다. 코드를 실행하기 전에 먼저 Cosmos DB 인스턴스에서 _데이터베이스_ 및 _컬렉션_을 만들어야 합니다. Cosmos DB에 대한 요청을 인증하는 데 사용된 문서 엔드포인트 및 _키_도 검색해야 합니다. 
 
 이 작업을 수행하는 한 가지 방법은 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)을 사용하는 것입니다. 다음 스크립트는 `kafkadata`라는 데이터베이스 및 `kafkacollection`이라는 컬렉션을 만듭니다. 그런 다음, 기본 키를 반환합니다.
 
@@ -131,7 +131,7 @@ az cosmosdb show --name $name --resource-group $resourceGroupName --query docume
 az cosmosdb list-keys --name $name --resource-group $resourceGroupName --query primaryMasterKey
 ```
 
-문서 끝점 및 기본 키 정보는 다음 텍스트와 유사합니다.
+문서 엔드포인트 및 기본 키 정보는 다음 텍스트와 유사합니다.
 
 ```text
 # endpoint
@@ -141,7 +141,7 @@ az cosmosdb list-keys --name $name --resource-group $resourceGroupName --query p
 ```
 
 > [!IMPORTANT]
-> Jupyter Notebooks에 필요한 끝점 및 키 값을 저장합니다.
+> Jupyter Notebooks에 필요한 엔드포인트 및 키 값을 저장합니다.
 
 ## <a name="get-the-kafka-brokers"></a>Kafka broker를 가져옵니다.
 

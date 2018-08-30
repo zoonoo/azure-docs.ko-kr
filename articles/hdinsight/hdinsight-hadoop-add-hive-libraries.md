@@ -3,18 +3,18 @@ title: HDInsight 클러스터를 만드는 동안 Hive 라이브러리 추가 - 
 description: 클러스터를 만드는 동안 HDInsight 클러스터에 Hive 라이브러리(jar 파일)를 추가하는 방법을 알아봅니다.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: fe7cb2c3990a5aa161665519490ede90be04e1ee
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 40650c813efc8fe7389b0445c72007dbd97e3ce8
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39594611"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108689"
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>HDInsight 클러스터를 만들 때 사용자 지정 Hive 라이브러리에 추가
 

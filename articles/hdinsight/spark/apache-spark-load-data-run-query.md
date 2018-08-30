@@ -3,18 +3,18 @@ title: '자습서: Azure HDInsight의 Apache Spark 클러스터에서 데이터 
 description: Azure HDInsight의 Spark 클러스터에서 데이터를 로드하고 대화형 쿼리를 실행하는 방법을 알아봅니다.
 services: azure-hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: jasonh
 ms.date: 05/17/2018
-ms.openlocfilehash: e83c7a4ed5987108a74153897abe4839dd24418c
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d59f04c5dde522f3d193f345ac59147ece9d86f0
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619433"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047560"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>자습서: Azure HDInsight의 Apache Spark 클러스터에서 데이터 로드 및 쿼리 실행
 

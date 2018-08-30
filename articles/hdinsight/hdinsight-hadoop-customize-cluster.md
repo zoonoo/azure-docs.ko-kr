@@ -3,18 +3,18 @@ title: 스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지�
 description: 스크립트 작업을 사용하여 HDInsight 클러스터를 사용자 지정하는 방법을 알아봅니다.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0f49284782ab5ab17476f37ae5ae40a753ee107b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 6c4652e65f0f320063d989f97a5428510913005b
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597418"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105927"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>스크립트 작업을 사용하여 Windows 기반 HDInsight 클러스터 사용자 지정
 **스크립트 동작** 은 클러스터 생성 과정 중 클러스터에 추가 소프트웨어를 설치하기 위해 [사용자 지정 스크립트](hdinsight-hadoop-script-actions.md) 를 호출하는 데 사용될 수 있습니다.

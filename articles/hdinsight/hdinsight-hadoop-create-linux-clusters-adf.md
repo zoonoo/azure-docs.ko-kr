@@ -3,18 +3,18 @@ title: '자습서: Data Factory를 사용하여 Azure HDInsight에서 주문형 
 description: Azure Data Factory를 사용하여 HDInsight에서 주문형 Hadoop 클러스터를 만드는 방법을 알아봅니다.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: jasonh
-ms.openlocfilehash: bddcaa7eb4c5bbb699218e781df848722917ba6e
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: b8a177ad2bbd463d2dcb94a01ff2a29a95d86693
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599652"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105286"
 ---
 # <a name="tutorial-create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>자습서: Azure Data Factory를 사용하여 HDInsight에서 주문형 Hadoop 클러스터 만들기
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -268,7 +268,7 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
 
     a. **스크립트 연결된 서비스**에 대해 **HDIStorageLinkedService**를 선택합니다. 이 값은 이전에 만든 저장소 연결된 서비스입니다.
 
-    나. **파일 경로**로 **저장소 찾아보기**를 선택하고 샘플 Hive 스크립트를 사용할 수 있는 위치로 이동합니다. 이전에 PowerShell 스크립트를 실행한 경우 이 위치는 `adfgetstarted/hivescripts/hivescript.hql`입니다.
+    b. **파일 경로**로 **저장소 찾아보기**를 선택하고 샘플 Hive 스크립트를 사용할 수 있는 위치로 이동합니다. 이전에 PowerShell 스크립트를 실행한 경우 이 위치는 `adfgetstarted/hivescripts/hivescript.hql`입니다.
 
     ![파이프라인의 Hive 스크립트 세부 정보 제공](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-path.png "파이프라인의 Hive 스크립트 세부 정보 제공")
 

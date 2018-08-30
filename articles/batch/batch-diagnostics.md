@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 54034b9a851fc6f06f97be9cfd5f261465bad455
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 85bda9e1a936f19a37be2f2c1c42f948cab727d6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248265"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122470"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>진단 평가 및 모니터링을 위한 일괄 처리 메트릭, 경고 및 로그
 
@@ -64,7 +64,7 @@ Azure Portal에서 배치 계정에 대한 메트릭을 봅니다. 기본적으�
 2. **모니터링**에서 **경고 규칙** > **메트릭 경고 추가**를 클릭합니다.
 3. 메트릭, 경고 조건(예: 메트릭이 일정 기간 동안 특정 값을 초과하는 경우) 및 하나 이상의 알림을 선택합니다.
 
-또한 [REST API]()를 사용하여 거의 실시간으로 경고를 구성할 수 있습니다. 자세한 내용은 [Azure Portal에서 Azure 서비스에 대한 최신 메트릭 경고 사용](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)을 참조하세요.
+또한 [REST API](https://docs.microsoft.com/rest/api/monitor/)를 사용하여 거의 실시간으로 경고를 구성할 수 있습니다. 자세한 내용은 [Azure Portal에서 Azure 서비스에 대한 최신 메트릭 경고 사용](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)을 참조하세요.
 ## <a name="batch-diagnostics"></a>일괄 처리 진단
 
 진단 로그에는 각 리소스의 작업을 설명하는 Azure 리소스에서 내보낸 정보가 포함됩니다. 일괄 처리의 경우 다음 로그를 수집할 수 있습니다.

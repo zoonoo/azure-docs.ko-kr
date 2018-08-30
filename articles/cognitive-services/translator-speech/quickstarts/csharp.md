@@ -9,12 +9,12 @@ ms.component: translator-speech
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 0a6d3775238512cacc21fb3e47f395e37c3fd29b
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: c8c1945d8343ad966fe4b09f67099bccdae4be29
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42093882"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128540"
 ---
 # <a name="quickstart-for-microsoft-translator-speech-api-with-c"></a>C#을 사용한 Microsoft Translator Speech API 빠른 시작 
 <a name="HOLTop"></a>
@@ -25,7 +25,7 @@ ms.locfileid: "42093882"
 
 Windows에서 이 코드를 실행하려면 [Visual Studio 2017](https://www.visualstudio.com/downloads/)이 필요합니다. (Community Edition 평가판이 작동합니다.)
 
-아래 코드에서 컴파일하는 실행 파일과 동일한 폴더에 "speak.wav"라는 .wav 파일이 필요합니다. 이 .wav 파일은 표준 PCM, 16비트, 16kHz, 모노 형식이어야 합니다. 이러한 .wav 파일은 [Text to Speech API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech)에서 가져올 수 있습니다.
+아래 코드에서 컴파일하는 실행 파일과 동일한 폴더에 "speak.wav"라는 .wav 파일이 필요합니다. 이 .wav 파일은 표준 PCM, 16비트, 16kHz, 모노 형식이어야 합니다.
 
 **Microsoft Translator Speech API**와 함께 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. [Azure 대시보드](https://portal.azure.com/#create/Microsoft.CognitiveServices)에서 유료 구독 키가 필요합니다.
 

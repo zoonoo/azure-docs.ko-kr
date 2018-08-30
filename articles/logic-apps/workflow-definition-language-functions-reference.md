@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 6292ea4ccd3780e1da86252b7ec9c09c2eea3982
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 78e991fcac87d59ed7b84180192899ddbdf330f2
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42146720"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105642"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps의 워크플로 정의 언어에 대한 함수 참조
 
@@ -3536,6 +3536,8 @@ triggerFormDataValue('feedUrl')
 그리고 이 문자열을 예제 결과로 반환합니다. `"http://feeds.reuters.com/reuters/topNews"` 
 
 <a name="triggerMultipartBody"></a>
+
+### <a name="triggermultipartbody"></a>triggerMultipartBody
 
 여러 부분으로 구성된 트리거의 출력에서 특정 부분에 대한 본문을 반환합니다. 
 

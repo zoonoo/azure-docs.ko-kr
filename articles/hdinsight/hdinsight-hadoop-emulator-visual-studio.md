@@ -3,18 +3,18 @@ title: Visual Studio용 Data Lake 도구 및 Hortonworks 샌드박스 - Azure HD
 description: Hortonworks Sandbox(로컬 VM에서 실행됨)와 Azure Data Lake tools for Visual Studio를 사용하는 방법을 알아봅니다. 이러한 도구로 샌드박스에 대한 Hive 및 Pig 작업을 만들고 실행하며 작업 출력 및 기록을 볼 수 있습니다.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: jasonh
-ms.openlocfilehash: 53bd629bcdf272e97c03dfb60c2693158698b837
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: c657048d22ca3bee6b41b7351d8fdc5bacdb44be
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246795"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106297"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Hortonworks Sandbox와 Azure Data Lake tools for Visual Studio 사용
 

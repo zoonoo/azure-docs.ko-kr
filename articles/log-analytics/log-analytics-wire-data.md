@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 1cf67b61d330363690aea1da706e8cce4700ddcd
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 32e76d1593f8bda0ebf745e76373908970aeb181
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618685"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124172"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Log Analytics에서 Wire Data 2.0(미리 보기) 솔루션
 
@@ -82,8 +82,7 @@ Windows 또는 Linux 머신을 서비스에 직접 연결할 수 없으면, OMS 
 
 ## <a name="prerequisites"></a>필수 조건
 
-- 
-  [Insight and Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing) 솔루션 제품이 필요합니다.
+- [Insight and Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing) 솔루션 제품이 필요합니다.
 - 이전 버전의 Wire Data 솔루션을 사용하는 경우 먼저 이전 버전을 제거해야 합니다. 그러나 원래 Wire Data 솔루션을 통해 캡처된 모든 데이터는 Wire Data 2.0 및 로그 검색에서 계속 사용할 수 있습니다.
 - 종속성 에이전트를 설치 또는 제거하려면 관리자 권한이 필요합니다.
 - 종속성 에이전트는 64비트 운영 체제의 컴퓨터에 설치되어야 합니다.
@@ -387,8 +386,6 @@ Azure Portal의 사용자 Log Analytics 작업 영역에 대한 **개요** 페�
 | 네트워크 트래픽을 캡처하는 에이전트 | 네트워크 트래픽을 캡처하는 에이전트의 수를 표시하고 트래픽을 캡처하는 상위 10개의 컴퓨터를 나열합니다. <code>Type:WireData &#124; measure Sum(TotalBytes) by Computer &#124; top 500000</code>에 대한 로그 검색을 실행할 번호를 클릭합니다. 목록에서 컴퓨터를 클릭하여 캡처된 바이트의 총 수를 반환하는 로그 검색을 실행합니다. |
 | 로컬 서브넷 | 에이전트가 검색한 로컬 서브넷의 수를 보여 줍니다.  각각을 통해 전송된 바이트의 수와 함께 모든 서브넷을 나열하는 <code>Type:WireData &#124; Measure Sum(TotalBytes) by LocalSubnet</code>에 대한 로그 검색을 실행할 번호를 클릭합니다. 목록에서 서브넷을 클릭하여 서브넷을 통해 전송된 바이트의 총 수를 반환하는 로그 검색을 실행합니다. |
 | 응용 프로그램 수준 프로토콜 | 에이전트에서 검색된 것으로 사용 중인 응용 프로그램 수준 프로토콜의 수를 보여 줍니다. <code>Type:WireData &#124; Measure Sum(TotalBytes) by ApplicationProtocol</code>에 대한 로그 검색을 실행할 번호를 클릭합니다. 프로토콜을 클릭하여 프로토콜을 사용하여 전송된 바이트의 총 수를 반환하는 로그 검색을 실행합니다. |
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Wire Data 대시보드](./media/log-analytics-wire-data/wire-data-dash.png)
 

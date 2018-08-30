@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: danlep
-ms.openlocfilehash: 69990ab7852999dca2b586fd28ef74c44cc283fd
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: f562a6647cadbde6c46eba87b180dfb4cbb3fb90
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116983"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126315"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Batch 서비스 API를 사용하여 Azure Storage에 태스크 데이터 유지
 
@@ -34,7 +34,7 @@ Azure Batch는 태스크 출력을 유지하는 한 가지 이상의 방법을 �
 - 태스크가 실행되는 응용 프로그램을 수정하지 않고 클라이언트 응용 프로그램 내에서 태스크 출력을 유지하는 코드를 작성하려고 합니다.
 - 가상 컴퓨터 구성으로 만든 풀에서 Batch 태스크 및 작업 관리자 태스크의 출력을 유지하려고 합니다.
 - Azure Storage 컨테이너에 임의의 이름으로 출력을 유지하려고 합니다.
-- [Batch 파일 규칙 표준](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions)(영문)에 따라 명명된 Azure Storage 컨테이너에 출력을 유지하려고 합니다. 
+- [Batch 파일 규칙 표준](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)(영문)에 따라 명명된 Azure Storage 컨테이너에 출력을 유지하려고 합니다. 
 
 위에서 나열한 시나리오와 다른 시나리오이면 다른 방법을 고려해야 할 수도 있습니다. 예를 들어 Batch 서비스 API는 현재 태스크가 실행되는 동안 Azure Storage에 대한 스트리밍 출력을 지원하지 않습니다. 출력을 스트리밍하려면 .NET에서 사용할 수 있는 Batch 파일 규칙 라이브러리를 사용하는 것이 좋습니다. 다른 언어의 경우 사용자 고유의 자체 솔루션을 구현해야 합니다. 태스크 출력을 유지하기 위한 다른 옵션에 대한 자세한 내용은 [Azure Storage에 작업 및 태스크 출력 유지](batch-task-output.md)를 참조하세요. 
 
@@ -164,7 +164,7 @@ Message: One of the specified Azure container(s) was not found while attempting 
 
 ## <a name="use-the-batch-service-api-with-the-batch-file-conventions-standard"></a>Batch 파일 규칙 표준과 함께 Batch 서비스 API 사용
 
-Batch 서비스 API를 사용하여 태스크 출력을 유지할 때 원하는 대로 대상 컨테이너 및 Blob의 이름을 지정할 수 있습니다. 또한 [Batch 파일 규칙 표준](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions)(영문)에 따라 이름을 지정하도록 선택할 수도 있습니다. 파일 규칙 표준에서는 지정된 출력 파일에 대한 Azure Storage 대상 컨테이너 및 Blob의 이름을 작업 및 태스크의 이름을 기반으로 하여 결정합니다. 파일 규칙 표준을 사용하여 출력 파일 이름을 지정하면 [Azure Portal](https://portal.azure.com)에서 출력 파일을 볼 수 있습니다.
+Batch 서비스 API를 사용하여 태스크 출력을 유지할 때 원하는 대로 대상 컨테이너 및 Blob의 이름을 지정할 수 있습니다. 또한 [Batch 파일 규칙 표준](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)(영문)에 따라 이름을 지정하도록 선택할 수도 있습니다. 파일 규칙 표준에서는 지정된 출력 파일에 대한 Azure Storage 대상 컨테이너 및 Blob의 이름을 작업 및 태스크의 이름을 기반으로 하여 결정합니다. 파일 규칙 표준을 사용하여 출력 파일 이름을 지정하면 [Azure Portal](https://portal.azure.com)에서 출력 파일을 볼 수 있습니다.
 
 C#에서 개발하는 경우 [.NET용 Batch 파일 규칙 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files)(영문)에 기본 제공된 메서드를 사용할 수 있습니다. 이 라이브러리는 적절하게 명명된 컨테이너와 Blob 경로를 만듭니다. 예를 들어 API를 호출하여 작업 이름에 기반한 올바른 컨테이너 이름을 가져올 수 있습니다.
 

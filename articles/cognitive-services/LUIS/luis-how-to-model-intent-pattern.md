@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: diberry;
-ms.openlocfilehash: bf1931355fd873eaeac6c313b70717dfa99814c6
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.author: diberry
+ms.openlocfilehash: 8926ce48a8426aa667787f7bbe104e27e1a68669
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222599"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124687"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>패턴을 추가하여 예측 정확도를 개선하는 방법
-LUIS 앱이 끝점 발화를 수신한 후 패턴의 [개념](luis-concept-patterns.md)을 사용하여 단어 순서 및 단어 선택에 패턴을 노출하는 발화에 대한 예측 정확도를 개선합니다. 패턴은 [엔터티](luis-concept-entity-types.md) 및 해당 역할을 사용하여 특정 패턴 구문을 통해 데이터를 추출합니다. 
+LUIS 앱이 엔드포인트 발화를 수신한 후 패턴의 [개념](luis-concept-patterns.md)을 사용하여 단어 순서 및 단어 선택에 패턴을 노출하는 발화에 대한 예측 정확도를 개선합니다. 패턴은 [엔터티](luis-concept-entity-types.md) 및 해당 역할을 사용하여 특정 패턴 구문을 통해 데이터를 추출합니다. 
 
 ## <a name="add-template-utterance-to-create-pattern"></a>템플릿 발화를 추가하여 패턴 만들기
 1. **내 앱** 페이지에서 이름을 선택하여 앱을 열고 왼쪽 패널의 **앱 성능 개선** 아래에서 **패턴**을 선택합니다.
@@ -132,7 +132,7 @@ LUIS 앱이 끝점 발화를 수신한 후 패턴의 [개념](luis-concept-patte
     ![엔터티별로 필터링된 패턴 스크린샷](./media/luis-how-to-model-intent-pattern/confirm-patterns-modal.png)
 
 ## <a name="train-your-app-after-changing-model-with-patterns"></a>패턴이 포함된 모델을 변경한 후 앱 학습
-패턴을 추가, 편집, 제거 또는 다시 할당한 후 변경 내용을 끝점 쿼리에 적용하려면 앱을 [학습](luis-how-to-train.md)시키고 [게시](luis-how-to-publish-app.md)합니다. 
+패턴을 추가, 편집, 제거 또는 다시 할당한 후 변경 내용을 엔드포인트 쿼리에 적용하려면 앱을 [학습](luis-how-to-train.md)시키고 [게시](luis-how-to-publish-app.md)합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,18 +3,18 @@ title: Azure HDInsight 응용 프로그램 게시
 description: HDInsight 응용 프로그램을 만든 다음 Azure Marketplace에 게시하는 방법을 알아봅니다.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 9b25452565a66fbd2edec51626bc636bed3d2e53
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 1cfefc3463fee6e432170a16034175bb4267fad5
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599788"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43103573"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Azure Marketplace에 HDInsight 응용 프로그램 게시
 Azure HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 설치할 수 있습니다. 이 문서에서는 HDInsight 응용 프로그램을 Azure Marketplace에 게시하는 방법에 대해 알아봅니다. Azure Marketplace에 게시하는 방법에 대한 일반적인 내용은 [Azure Marketplace에 제품 게시](../marketplace/marketplace-publishers-guide.md)를 참조하세요.
@@ -82,7 +82,7 @@ HDInsight 응용 프로그램을 설치하는 데 필요한 모든 파일을 포
 * 필요한 모든 스크립트
 
 > [!NOTE]
-> 공개적으로 액세스할 수 있는 끝점에서 응용 프로그램 파일(모든 웹앱 파일 포함)을 호스팅할 수 있습니다.
+> 공개적으로 액세스할 수 있는 엔드포인트에서 응용 프로그램 파일(모든 웹앱 파일 포함)을 호스팅할 수 있습니다.
 > 
 
 ## <a name="publish-the-application"></a>응용 프로그램 게시

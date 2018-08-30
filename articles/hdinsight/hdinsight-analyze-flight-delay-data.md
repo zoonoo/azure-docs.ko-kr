@@ -3,18 +3,18 @@ title: HDInsight의 Hadoop을 사용하여 비행 지연 데이터 분석 - Azur
 description: 하나의 Windows PowerShell 스크립트를 사용하여 HDInsight 클러스터를 만들고, Hive 작업을 실행하고, Sqoop 작업을 실행하고, 클러스터를 삭제하는 방법을 알아봅니다.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7d1ab85f3efeaa17abbe1cc93157e63bbca1a0b9
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 1d39fd1cf40834781375b2c7bd6cb801ccd3cb97
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592257"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43091901"
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>HDInsight의 Hive를 사용하여 비행 지연 데이터 분석
 Hive에서는 대규모 데이터의 요약, 쿼리, 분석에 적용할 수 있는 SQL 스타일 스크립트 언어인 *[HiveQL][hadoop-hiveql]* 을 통해 Hadoop MapReduce 작업을 실행할 수 있습니다.

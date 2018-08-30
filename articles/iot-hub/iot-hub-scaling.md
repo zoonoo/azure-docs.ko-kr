@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 01aeaee03a4cfabbda3a29cddd17febdc8a16e45
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 6ae0217ed4b8833eb42a4719a1f2525461f9dcdd
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003535"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143651"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>솔루션에 대한 올바른 IoT Hub 계층 선택
 
@@ -43,7 +43,7 @@ IoT 허브를 만들면 기존 작업을 중단하지 않고 기본 계층에서
 | [모니터링 및 진단](iot-hub-monitor-resource-health.md) | yes | yes |
 | [클라우드-장치 메시징](iot-hub-devguide-c2d-guidance.md) |   | yes |
 | [장치 쌍](iot-hub-devguide-device-twins.md), [모듈 쌍](iot-hub-devguide-module-twins.md) 및 [장치 관리](iot-hub-device-management-overview.md) |   | yes |
-| [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | yes |
+| [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | yes |
 
 IoT Hub는 또한 테스트와 평가를 위한 무료 계층을 제공합니다. 제한된 메시징 허용 개수로 표준 계층의 모든 기능을 포함합니다. 무료 계층에서 기본 또는 표준 계층으로 업그레이드할 수 없습니다. 
 

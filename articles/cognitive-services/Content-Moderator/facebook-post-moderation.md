@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: sajagtap
-ms.openlocfilehash: 4570b514bef33c8dfa6d220ee4cd88ad068ba4d0
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 66caea65c21bb1f8bb6efa9b50c917599bb71e2f
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42093853"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093980"
 ---
 # <a name="facebook-content-moderation-with-content-moderator"></a>Content Moderator를 사용하여 Facebook 콘텐츠 조정
 
@@ -67,7 +67,7 @@ ms.locfileid: "42093853"
 | 앱 설정 | 설명   | 
 | -------------------- |-------------|
 | cm:TeamId   | Content Moderator 팀 ID  | 
-| cm:SubscriptionKey | Content Moderator 구독 키 - [자격 증명](/review-tool-user-guide/credentials.md) 참조 | 
+| cm:SubscriptionKey | Content Moderator 구독 키 - [자격 증명](review-tool-user-guide/credentials.md) 참조 | 
 | cm:Region | Content Moderator 지역 이름(공백 없이) 위의 참고를 참조하세요. |
 | cm:ImageWorkflow | 이미지에서 실행할 워크플로의 이름 |
 | cm:TextWorkflow | 텍스트에서 실행할 워크플로의 이름 |
