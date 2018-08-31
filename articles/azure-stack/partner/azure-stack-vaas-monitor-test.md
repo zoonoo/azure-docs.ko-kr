@@ -1,6 +1,6 @@
 ---
 title: 서비스로 Azure Stack 유효성 검사를 사용 하 여 테스트를 모니터링 합니다. | Microsoft Docs
-description: 알려진 문제 서비스로 Azure Stack 유효성 검사 테스트를 모니터링 합니다.
+description: 서비스로 Azure Stack 유효성 검사를 사용 하 여 테스트를 모니터링 합니다.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 0bc45ea23cfb3f9b8cf7b117b5c3427d9945878e
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 553d2a0e4bf6b23f5d8ab200f533d9245bf72d36
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235416"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286587"
 ---
 # <a name="monitor-a-test-with-azure-stack-validation-as-a-service"></a>모니터 서비스로 Azure Stack 유효성 검사를 사용 하 여 테스트
 

@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: c5d0bc6a0e7e885f61ba28be0575697b03fece09
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 4aaba753a8d61d60cb053a4aa164b5be0a3c50fa
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917145"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307611"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure 데이터 센터 통합 스택-끝점 게시
 Azure Stack 인프라 역할에 대 한 가상 IP 주소 (Vip)를 설정합니다. 이러한 Vip의 공용 IP 주소 풀에서 할당 됩니다. 각 VIP는 소프트웨어 정의 네트워크 계층에서 액세스 제어 목록 (ACL)을 사용 하 여 보호 됩니다. Acl은 솔루션 강화 (에서 및 BMC) 실제 스위치 간에 사용 됩니다. 배포 시 지정 된 외부 DNS 영역에서 각 끝점에 대 한 DNS 항목을 생성 됩니다.
@@ -27,7 +27,7 @@ Azure Stack 인프라 역할에 대 한 가상 IP 주소 (Vip)를 설정합니�
 
 ## <a name="ports-and-protocols-inbound"></a>포트 및 프로토콜 (인바운드)
 
-Vip는 외부 네트워크에 Azure Stack 끝점 게시에 필요한 인프라의 집합입니다. 합니다 *끝점 (VIP)* 표에서 각 끝점에서 필요한 포트 및 프로토콜입니다. SQL 리소스 공급자와 같은 추가 리소스 공급자를 필요로 하는 끝점에 대 한 특정 리소스 공급자 배포 설명서를 참조 하십시오.
+인프라 집합이 Vip 외부 네트워크에 Azure Stack 끝점 게시에 필요 합니다. 합니다 *끝점 (VIP)* 표에서 각 끝점에서 필요한 포트 및 프로토콜입니다. SQL 리소스 공급자와 같은 추가 리소스 공급자를 필요로 하는 끝점에 대 한 특정 리소스 공급자 배포 설명서를 참조 하십시오.
 
 내부 인프라 Vip 게시 Azure Stack에 대 한 필수 이기 때문에 표시 되지 않습니다.
 
@@ -76,7 +76,8 @@ Azure Stack은 투명 프록시 서버만 지원 합니다. 배포의 경우 기
 |DNS|     |TCP<br>UDP|53|
 |     |     |     |     |
 
-
+> [!Note]  
+> 아웃 바운드 Url은 부하가 분산 된 Azure traffic manager를 사용 하 여 지리적 위치에 따라 가능한 최적의 연결을 제공 합니다. 부하 분산된 Url을 Microsoft에서 업데이트 하 고 고객에 게 영향을 주지 않고 백 엔드 끝점을 변경할 수 있습니다. Microsoft는 부하 분산 Url에 대 한 IP 주소 목록을 공유 하지 않습니다. IP 대신 하 여 URL 필터링을 지 원하는 장치를 사용 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
