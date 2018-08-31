@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 08/24/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: e2411a91174fd0b52227b4cfe8783c8c74c4039e
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 58c8568da0a818f87a5bb3d6966d2d4a6c977fd9
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42139339"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247826"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure를 사용 하 여 Azure Stack 등록
 
@@ -84,13 +84,12 @@ Azure Stack 배포 될 수 있습니다 *연결 된* 하거나 *끊어진*합니
 
  - **연결됨**  
  인터넷 및 Azure에 연결할 수 있도록 Azure Stack을 배포한 의미를 연결 합니다. Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)에 id 저장소에 대 한 중 하나 있는 합니다. 연결 된 배포를 사용 하 여 두 가지 청구 모델에서 선택할 수 있습니다.-수-종 또는 용량 기반 합니다.
-    - [연결 된 Azure Stack을 사용 하 여 Azure 등록 합니다 **-수-종** 청구 모델](#register-a-connected-azure-stack-with-azure-using-the-pay-as-you-use-billing-model)
-    - [연결 된 Azure Stack을 사용 하 여 Azure 등록 합니다 **용량** 청구 모델](#register-a-connected-azure-stack-with-azure-using-the-capacity-billing-model)
+    - [연결 된 Azure Stack을 사용 하 여 Azure 등록 합니다 **-수-종** 청구 모델](#register-connected-with-pay-as-you-go-billing)
+    - [연결 된 Azure Stack을 사용 하 여 Azure 등록 합니다 **용량** 청구 모델](#register-connected-with-capacity-billing)
 
  - **연결 끊김**  
  연결 되지 않은 사용 하 여 Azure 배포 옵션에서 배포를 인터넷에 연결 하지 않고 Azure Stack을 사용 합니다. 그러나 연결이 끊긴된 배포는 AD FS id 저장소 및 용량 기반 청구 모델에 제한 됩니다.
-    - [사용 하 여 연결이 끊긴 Azure Stack 등록 합니다 **용량** 청구 모델 ](#register-a-disconnected-Azure-Stack-using-the-capacity-billing-model
-)
+    - [사용 하 여 연결이 끊긴 Azure Stack 등록 합니다 **용량** 청구 모델 ](#register-disconnected-with-capacity-billing)
 
 ## <a name="register-connected-with-pay-as-you-go-billing"></a>종 량 제 청구를 사용 하 여 연결 된 등록
 
@@ -218,7 +217,7 @@ Azure Stack 환경에서 등록 토큰 가져오기 및 다음 해당 토큰을 
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
-   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -EnableUsageReporting False $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
+   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -UsageReportingEnabled:$False $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
    Get-AzsRegistrationToken cmdlet에 대 한 자세한 내용은 참조 하세요. [등록 참조](#registration-reference)합니다.
 
@@ -358,7 +357,7 @@ Azure Stack에서 정품 인증 리소스를 제거 하려면 Azure Stack 환경
 
 ### <a name="disable-or-enable-usage-reporting"></a>또는 사용 현황 보고 사용 안 함
 
-용량 요금 청구 모델을 사용 하는 Azure Stack 환경에 대 한 사용 보고 설정 합니다 **EnableUsageReporting** 중 하나를 사용 하 여 매개 변수를 **집합 AzsRegistration** 또는  **Get-AzsRegistrationToken** cmdlet. Azure Stack 기본적으로 사용 메트릭을 보고합니다. 연산자를 사용 하 여 용량 또는 연결이 끊어진된 환경 지원 사용 보고를 해제 해야 합니다.
+용량 요금 청구 모델을 사용 하는 Azure Stack 환경에 대 한 사용 보고 설정 합니다 **UsageReportingEnabled** 중 하나를 사용 하 여 매개 변수를 **집합 AzsRegistration** 또는  **Get-AzsRegistrationToken** cmdlet. Azure Stack 기본적으로 사용 메트릭을 보고합니다. 연산자를 사용 하 여 용량 또는 연결이 끊어진된 환경 지원 사용 보고를 해제 해야 합니다.
 
 #### <a name="with-a-connected-azure-stack"></a>연결 된 Azure Stack을 사용 하 여
 
@@ -378,7 +377,7 @@ Azure Stack에서 정품 인증 리소스를 제거 하려면 Azure Stack 환경
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
-   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -EnableUsageReporting False
+   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -UsageReportingEnabled:$False
    $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
 
