@@ -72,16 +72,18 @@ items:
       items:
       - name: VMware에서 Azure로 복제에 대한 일반적인 질문
         href: vmware-azure-common-questions.md
-      - name: VMware/물리적 서버에서 Azure로 지원 매트릭스
+      - name: 지원 매트릭스
         href: vmware-physical-azure-support-matrix.md
       - name: VMware에서 Azure로 아키텍처
         href: vmware-azure-architecture.md
       - name: 물리적 서버에서 Azure로 아키텍처
         href: physical-azure-architecture.md
-      - name: Azure로 VMware 복제를 위한 다중 테넌트 지원
-        href: vmware-azure-multi-tenant-overview.md
-      - name: 장애 복구(failback) 위치 옵션
+      - name: 재해 복구 정보
+        href: vmware-azure-about-disaster-recovery.md
+      - name: 장애 복구(failback) 위치 옵션 정보
         href: concepts-types-of-failback.md
+      - name: VMware에 대한 다중 테넌트 지원 정보
+        href: vmware-azure-multi-tenant-overview.md
     - name: 보조 사이트로 복제
       items:
       - name: VMware/물리적 서버에서 보조 사이트로 지원 매트릭스
@@ -388,9 +390,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: 서비스 업데이트
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: f0469d554b25565411bb8c484f3d3937bb9a87f6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 63d404406e3b33d4022974246a227cad1e6535a6
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126073"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43285109"

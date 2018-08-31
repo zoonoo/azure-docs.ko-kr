@@ -24,7 +24,7 @@ items:
   items:
   - name: PIM 사용 시작
     href: pim-getting-started.md
-  - name: 역할 활성화
+  - name: 내 역할 활성화
     items:
     - name: 내 디렉터리 역할 활성화
       href: pim-how-to-activate-role.md
@@ -91,9 +91,9 @@ items:
       - name: 액세스 검토 완료
         href: pim-resource-roles-complete-access-review.md
   expanded: true
-ms.openlocfilehash: 7a8fafb4782a02da5b1fbe189cba8cadf7c22bfe
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 85abb73fa2b86c0f4901a28849d000ad42033572
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191241"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43282916"
