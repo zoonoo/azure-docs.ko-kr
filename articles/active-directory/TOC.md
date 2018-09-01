@@ -123,10 +123,6 @@
 #### [인증서 사용](reports-monitoring/tutorial-access-api-with-certificates.md)
 
 ## [암호 관리](authentication/concept-sspr-howitworks.md)
-### 사용자 문서
-#### [암호 재설정 또는 변경](user-help/active-directory-passwords-update-your-own-password.md)
-#### [셀프 서비스 암호 재설정 등록](user-help/active-directory-passwords-reset-register.md)
-
 
 ## 앱 관리
 ### [개요](manage-apps/what-is-application-management.md)
@@ -338,10 +334,6 @@
 ### [액세스 검토 결과 검색](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## ID 보안
-### 인증서 기반 인증
-#### [Android](active-directory-certificate-based-authentication-android.md)
-#### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [시작](active-directory-certificate-based-authentication-get-started.md)
 
 ### Azure AD ID 보호
 #### [개요](identity-protection/overview.md)

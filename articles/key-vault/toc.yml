@@ -39,6 +39,8 @@ items:
     href: key-vault-ovw-storage-keys.md
   - name: 제한
     href: key-vault-ovw-throttling.md
+  - name: Virtual Network 서비스 엔드포인트
+    href: key-vault-overview-vnet-service-endpoints.md
   - name: 키, 비밀 및 인증서 정보
     href: about-keys-secrets-and-certificates.md
     items:
@@ -68,6 +70,8 @@ items:
     href: key-vault-group-permissions-for-apps.md
   - name: 키 자격 증명 모음 보안
     href: key-vault-secure-your-key-vault.md
+  - name: 방화벽 및 가상 네트워크 구성
+    href: key-vault-network-security.md
 - name: 참고 자료
   items:
   - name: Azure PowerShell
@@ -80,7 +84,7 @@ items:
     href: /java/api/overview/azure/keyvault?view=azure-java-stable
   - name: Node.js
     href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
-  - name: 파이썬
+  - name: Python
     href: /python/api/overview/azure/key-vault?view=azure-python
   - name: REST (영문)
     href: /rest/api/keyvault
@@ -128,9 +132,9 @@ items:
     href: https://feedback.azure.com/forums/906355-azure-key-vault
 - name: 릴리스 정보
   href: key-vault-versions.md
-ms.openlocfilehash: c6ddd725ce9a1c11c4e5ca6515c31ab8616b2bbf
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: cd88b2ce876e462140f9d25833678e2f3b7f7805
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090448"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340016"
