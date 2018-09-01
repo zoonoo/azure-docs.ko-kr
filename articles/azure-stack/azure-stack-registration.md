@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 58c8568da0a818f87a5bb3d6966d2d4a6c977fd9
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: ebf10c7f0fb90d976062300854f69369dba946fa
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247826"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340169"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure를 사용 하 여 Azure Stack 등록
 
@@ -58,7 +58,7 @@ Azure Stack에 Azure를 등록 하기 전에 다음이 필요 합니다.
 
 ### <a name="powershell-language-mode"></a>PowerShell 언어 모드
 
-Azure Stack을 성공적으로 등록 하려면 PowerShell 언어 모드 설정 해야 합니다 **FullLanguageMode**합니다.  전체 관리자 권한 PowerShell 창을 열고 다음 PowerShell cmdlt을 실행 하려면 현재 언어 모드를 설정 되어 있는지 확인 합니다.
+Azure Stack을 성공적으로 등록 하려면 PowerShell 언어 모드 설정 해야 합니다 **FullLanguageMode**합니다.  전체 관리자 권한 PowerShell 창을 열고 다음 PowerShell cmdlet을 실행 하려면 현재 언어 모드를 설정 되어 있는지 확인 합니다.
 
 ```PowerShell  
 $ExecutionContext.SessionState.LanguageMode
@@ -100,7 +100,7 @@ Azure Stack 배포 될 수 있습니다 *연결 된* 하거나 *끊어진*합니
 
 연결 된 환경 인터넷 및 Azure에 액세스할 수 있습니다. 이러한 환경에서는 Azure를 사용 하 여 Azure Stack 리소스 공급자를 등록 하 고 다음 청구 모델을 구성 해야 합니다.
 
-1. Azure를 사용 하 여 Azure Stack 리소스 공급자를 등록 하려면 관리자 권한으로 PowerShell ISE를 시작 하 고 사용 하 여 다음 PowerShell cmdlt을 사용 합니다 **EnvironmentName** 적절 한 Azure 구독 유형 (참조로 매개 변수 설정 매개 변수 아래)입니다.
+1. Azure를 사용 하 여 Azure Stack 리소스 공급자를 등록 하려면 관리자 권한으로 PowerShell ISE를 시작 하 고 사용 하 여 다음 PowerShell cmdlet을 사용 합니다 **EnvironmentName** 적절 한 Azure 구독 유형 (참조로 매개 변수 설정 매개 변수 아래)입니다.
 
 2. Azure Stack 등록을 사용 하는 Azure 계정을 추가 합니다. 실행 계정을 추가 합니다 **Add-azurermaccount** cmdlet. Azure 전역 관리자 계정 자격 증명을 입력 하 라는 메시지가 표시 됩니다 하 고 계정 구성에 따라 2 단계 인증을 사용 해야 합니다.
 
@@ -160,7 +160,7 @@ Azure Stack 배포 될 수 있습니다 *연결 된* 하거나 *끊어진*합니
 
 연결 된 환경 인터넷 및 Azure에 액세스할 수 있습니다. 이러한 환경에서는 Azure를 사용 하 여 Azure Stack 리소스 공급자를 등록 하 고 다음 청구 모델을 구성 해야 합니다.
 
-1. Azure를 사용 하 여 Azure Stack 리소스 공급자를 등록 하려면 관리자 권한으로 PowerShell ISE를 시작 하 고 사용 하 여 다음 PowerShell cmdlt을 사용 합니다 **EnvironmentName** 적절 한 Azure 구독 유형 (참조로 매개 변수 설정 매개 변수 아래)입니다.
+1. Azure를 사용 하 여 Azure Stack 리소스 공급자를 등록 하려면 관리자 권한으로 PowerShell ISE를 시작 하 고 사용 하 여 다음 PowerShell cmdlet을 사용 합니다 **EnvironmentName** 적절 한 Azure 구독 유형 (참조로 매개 변수 설정 매개 변수 아래)입니다.
 
 2. Azure Stack 등록을 사용 하는 Azure 계정을 추가 합니다. 실행 계정을 추가 합니다 **Add-azurermaccount** cmdlet. Azure 전역 관리자 계정 자격 증명을 입력 하 라는 메시지가 표시 됩니다 하 고 계정 구성에 따라 2 단계 인증을 사용 해야 합니다.
 
@@ -213,7 +213,7 @@ Azure Stack 환경에서 등록 토큰 가져오기 및 다음 해당 토큰을 
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-2. 등록 토큰을 가져오려면 다음 PowerShell cmdlt을 실행 합니다.  
+2. 등록 토큰을 가져오려면 다음 PowerShell cmdlet을 실행 합니다.  
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
@@ -250,7 +250,7 @@ Azure Stack 환경에서 등록 토큰 가져오기 및 다음 해당 토큰을 
 
 다음으로, AzsEnvironment 등록 중에 Azure에서 만든 등록 리소스에서 활성화 키를 검색 해야 합니다.
 
-정품 인증 키를 가져오려면 다음 PowerShell cmdlt을 실행 합니다.  
+정품 인증 키를 가져오려면 다음 PowerShell cmdlet을 실행 합니다.  
 
   ```Powershell
   $RegistrationResourceName = "AzureStack-<Cloud Id for the Environment to register>"
@@ -263,7 +263,7 @@ Azure Stack 환경에서 등록 토큰 가져오기 및 다음 해당 토큰을 
 
 ### <a name="create-an-activation-resource-in-azure-stack"></a>Azure Stack에서 정품 인증 리소스 만들기
 
-Get-AzsActivationKey에서 만든 정품 인증 키에서 파일 또는 텍스트를 사용 하 여 Azure Stack 환경에 반환 합니다. 그런 다음 해당 정품 인증 키를 사용 하 여 Azure Stack에서 정품 인증 리소스를 만들어집니다. 정품 인증 리소스를 만들려면 다음 PowerShell cmdlt을 실행 합니다.  
+Get-AzsActivationKey에서 만든 정품 인증 키에서 파일 또는 텍스트를 사용 하 여 Azure Stack 환경에 반환 합니다. 그런 다음 해당 정품 인증 키를 사용 하 여 Azure Stack에서 정품 인증 리소스를 만들어집니다. 정품 인증 리소스를 만들려면 다음 PowerShell cmdlet을 실행 합니다.  
 
   ```Powershell
   $ActivationKey = "<activation key>"
@@ -329,13 +329,13 @@ Get-AzsActivationKey에서 만든 정품 인증 키에서 파일 또는 텍스�
 
 먼저 Azure Stack 및 Azure에서 등록 리소스에서 정품 인증 리소스를 제거 해야 합니다.  
 
-Azure Stack에서 정품 인증 리소스를 제거 하려면 Azure Stack 환경에서 다음 PowerShell cmdlt을 실행 합니다.  
+Azure Stack에서 정품 인증 리소스를 제거 하려면 Azure Stack 환경에서 다음 PowerShell cmdlet을 실행 합니다.  
 
   ```Powershell
   Remove-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   ```
 
-다음으로 Azure에 등록 리소스를 제거 하려면 Azure 연결 인지를 확인 컴퓨터를 올바른 Azure PowerShell 컨텍스트에 로그인 하 고 아래 설명 된 대로 적절 한 PowerShell cmdlt을 실행 합니다.
+다음으로 Azure에 등록 리소스를 제거 하려면 Azure 연결 인지를 확인 컴퓨터를 올바른 Azure PowerShell 컨텍스트에 로그인 하 고 아래 설명 된 대로 적절 한 PowerShell cmdlet을 실행 합니다.
 
 리소스를 만드는 데 등록 토큰을 사용할 수 있습니다.  
 
@@ -386,6 +386,8 @@ Azure Stack에서 정품 인증 리소스를 제거 하려면 Azure Stack 환경
 
 2. Azure 사용에 대 한이 등록 토큰 저장 컴퓨터를 연결 합니다. $FilePathForRegistrationToken에서 텍스트 또는 파일을 복사할 수 있습니다.
 
+## <a name="move-a-registration-resource"></a>등록 리소스 이동
+동일한 구독에서 리소스 그룹을 사용 하 여 등록 리소스를 이동할 **는** 모든 환경에 대 한 지원. 그러나 등록 리소스를 구독 간에 이동 하는 경우에 지원 Csp에 대 한 동일한 파트너 id와 같습니다. 두 구독 모두 해결 새 리소스 그룹에 리소스를 이동 하는 방법에 대 한 자세한 내용은 참조 하세요. [새 리소스 그룹 또는 구독으로 리소스 이동](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)합니다.
 
 ## <a name="registration-reference"></a>등록 참조
 

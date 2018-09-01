@@ -3,7 +3,7 @@ title: 사용 및 클라우드 서비스 공급자로 Azure Stack에 대 한 청
 description: Azure Stack으로 공급자 (CSP (클라우드)을 등록 하 고 고객 청구에 대 한 추가 연습
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 08/30/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: 66bab9f4b5099099039aa0f60cd86ef23e73cd1f
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 9bb4a4ea81f2dc0fb11e2f7cae1b9d02b0edfdde
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715688"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341438"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>사용량 및 클라우드 서비스 공급자로 Azure Stack에 대 한 청구를 관리 합니다. 
 
@@ -58,7 +58,7 @@ CSPSS 구독 공유 서비스 테 넌 트와 연결 됩니다. Azure Stack을 �
 
 ## <a name="register-azure-stack"></a>Azure Stack 등록
 
-Azure Stack 등록을 참조 하세요 [Azure 구독을 사용 하 여 Azure Stack 등록](azure-stack-registration.md)합니다.
+Azure를 사용 하 여 Azure Stack 등록 CSPSS 만든 구독에는 이전 섹션의 정보를 사용 합니다. 자세한 내용은 [Azure 구독을 사용 하 여 Azure Stack 등록](azure-stack-registration.md)합니다.
 
 ## <a name="add-end-customer"></a>최종 사용자를 추가 합니다.
 

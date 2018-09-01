@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: d5f775761def1c06063cd02b4141c5de2a752cce
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: d3fc3ef6c5fdcf5a87c691c73169ef2bec95805e
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089913"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382691"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>사용량에 대 한 테 넌 트를 추가 하 고 Azure Stack에 대 한 청구
 
@@ -91,5 +91,5 @@ Azure Stack에 새 고객을 추가한 또는 최종 고객 테 넌 트 소유�
 ## <a name="next-steps"></a>다음 단계
 
  - 등록 프로세스에서 트리거되는 경우 오류 메시지를 검토, 참조 [등록 오류 메시지를 테 넌 트](azure-stack-csp-ref-infrastructure.md#usage-and-billing-error-codes)합니다.
- - Azure Stack에서 리소스 사용 정보를 검색 하는 방법에 대 한 자세한 내용은 참조 하세요 [사용 및 Azure Stack에서 청구](/azure-stack-billing-and-chargeback.md)합니다.
+ - Azure Stack에서 리소스 사용 정보를 검색 하는 방법에 대 한 자세한 내용은 참조 하세요 [사용 및 Azure Stack에서 청구](azure-stack-billing-and-chargeback.md)합니다.
  - 최종 고객 수 추가 방법, CSP로를 검토 하려면 테 넌 트의 관리자가 Azure Stack에 대 한 내용은 [Azure Stack 구독을 관리 하는 클라우드 서비스 공급자를 사용 하도록 설정](user\azure-stack-csp-enable-billing-usage-tracking.md)합니다.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/14/2018
 ms.author: brenduns
-ms.openlocfilehash: e9e474fe4a32bb99673fba2a88f28a3161f23362
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 6380936766bb0f3848811be305783c274867b0fc
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139688"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381870"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure Stack에 대 한 VPN gateway 구성 설정
 
@@ -27,7 +27,7 @@ ms.locfileid: "42139688"
 
 VPN gateway는 Azure Stack에서 가상 네트워크와 원격 VPN gateway 간에 암호화 된 트래픽을 보내는 가상 네트워크 게이트웨이의 유형입니다. 원격 VPN gateway는 azure에서 데이터 센터에서 장치 또는 다른 사이트에서 장치를 수 있습니다.  두 끝점 간에 네트워크 연결이 없는 경우에 두 네트워크 간에 보안 사이트 간 (S2S) VPN 연결을 설정할 수 있습니다.
 
-VPN Gateway 연결은 각각이 구성 가능한 설정을 포함하는 여러 리소스의 구성에 따라 좌우됩니다. 이 문서의 섹션에서는 Resource Manager 배포 모델에서 생성된 가상 네트워크의 VPN Gateway와 관련된 리소스 및 설정에 대해 설명합니다. 각 연결 솔루션에 대 한 설명 및 토폴로지 다이어그램을 찾을 수 있습니다 [Azure Stack에 대 한 VPN Gateway에 대 한](azure-stack-vpn-gateway-about-vpn-gateways.md)합니다.
+VPN Gateway 연결은 각각이 구성 가능한 설정을 포함하는 여러 리소스의 구성에 따라 좌우됩니다. 이 문서에서는 Resource Manager 배포 모델에서 만든 가상 네트워크에 대 한 VPN gateway와 관련 된 설정을 확인 하 고 리소스를 설명 합니다. 각 연결 솔루션에 대 한 설명 및 토폴로지 다이어그램을 찾을 수 있습니다 [Azure Stack에 대 한 VPN Gateway에 대 한](azure-stack-vpn-gateway-about-vpn-gateways.md)합니다.
 
 ## <a name="vpn-gateway-settings"></a>VPN gateway 설정
 
@@ -100,7 +100,7 @@ VPN Gateway 구성에 대한 가상 네트워크 게이트웨이 만들 때 VPN 
 >
 > 또한 Azure Stack 지원 하지 않습니다 이때 경로 기반 게이트웨이 위한 정책 기반 트래픽 선택기를 사용 하 여 사용자 지정 IPSec/IKE 정책 구성에 지원 되지 않습니다.
 
-* **PolicyBased**: 정책 기반 Vpn 암호화 하 고 온-프레미스 네트워크와 Azure Stack VNet 간의 주소 접두사의 조합으로 구성 된 IPsec 정책에 따라 IPsec 터널을 통해 패킷을 전달 합니다. 정책 또는 트래픽 선택기는 일반적으로 VPN 장치 구성에서 액세스 목록으로 정의 됩니다.
+* **PolicyBased**: 정책 기반 Vpn 암호화 하 고 온-프레미스 네트워크와 Azure Stack VNet 간의 주소 접두사의 조합으로 구성 된 IPsec 정책에 따라 IPsec 터널을 통해 패킷을 전달 합니다. 정책 또는 트래픽 선택기는 일반적으로 VPN 장치 구성에서 액세스 목록.
 
   >[!NOTE]
   >정책 기반 Azure Stack 아니라 Azure에서 지원 됩니다.
@@ -163,7 +163,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 
 ## <a name="ipsecike-parameters"></a>IPsec/IKE 매개 변수
 
-Azure Stack에 VPN 연결을 설정 하면 양쪽 끝에서 연결을 구성 해야 합니다.  Azure Stack 및 스위치 또는 라우터 역할을 하는 VPN Gateway, 같은 하드웨어 장치 간에 VPN 연결을 구성 하는 경우 해당 장치 추가 설정은 요청할 수 있습니다.
+Azure Stack에 VPN 연결을 설정 하면 양쪽 끝에서 연결을 구성 해야 합니다.  Azure Stack 및 스위치 또는 VPN 게이트웨이 역할을 하는 라우터 같은 하드웨어 장치 간에 VPN 연결을 구성 하는 경우 해당 장치 추가 설정의 요청할 수 있습니다.
 
 개시자와 응답자 모두로 제품을 여러 개를 지 원하는, Azure와 달리 Azure Stack에 제품 하나에 지원 합니다.
 
@@ -184,14 +184,12 @@ Azure Stack에 VPN 연결을 설정 하면 양쪽 끝에서 연결을 구성 해
 |IKE 버전 |IKEv2 |
 |암호화 및 해싱 알고리즘 (암호화)     | GCMAES256|
 |암호화 및 해싱 알고리즘 (인증) | GCMAES256|
-|SA 수명(시간)  | 27,000 초<sup>참고 1 참조</sup> |
-|SA 수명(바이트) | 33,553,408<sup>참고 2 참조</sup>     |
-|PFS(Perfect Forward Secrecy) |None<sup>참고 3 참조</sup> |
+|SA 수명(시간)  | 27,000초  |
+|SA 수명(바이트) | 33,553,408     |
+|PFS(Perfect Forward Secrecy) |None<sup>참고 1 참조</sup> |
 |작동하지 않는 피어 검색 | 지원됨|  
 
-* *참고 1:* 버전 1803에서 Azure Stack을 사용 하 여 14,400 값 SA 수명 (시간).
-* *참고 2:* 버전 1803에서 Azure Stack을 사용 하 여 819,200 값 SA 수명 (바이트)입니다.
-* *참고 3:* 버전 1807, Azure Stack 사용 하 여 PFS2048 값에 대 한는 Secrecy PFS (Perfect Forward).
+* *참고 1:* 버전 1807, Azure Stack 사용 하 여 PFS2048 값에 대 한는 Secrecy PFS (Perfect Forward).
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/08/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 3fcede7f813e97885d8fc3d7e0bc04776f2d0d12
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 5fbce0c20e66eec0e7d7023344051fcf302af677
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39582139"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382615"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack에 앱 배포
 
@@ -108,7 +108,10 @@ Visual Studio Team Services (VSTS)에 대 한 Azure Resource Manager는 서비�
 
 ### <a name="create-a-service-principal"></a>서비스 주체 만들기
 
-참조를 [서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) 를 선택 및 서비스 주체를 만드는 지침 **웹 앱/a p I** 응용 프로그램 형식에 대 한 합니다.
+참조를 [서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) 서비스 주체를 만들고 다음을 선택 하는 지침은 **웹 앱/a p I** 응용 프로그램 형식 또는 [가PowerShell스크립트를사용하여](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5)설명 했 듯이 [여기](https://docs.microsoft.com/en-us/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal)합니다.
+
+ > [!Note]
+ > 에 전달 해야 하는 스크립트는 Azure Stack Azure Resource Manager 끝점을 만드는 데를 사용 하는 경우는 `-azureStackManagementURL` 하 고 `-environmentName` 매개 변수는 https://management.local.azurestack.external/ 및 *azurestack의 경우*합니다.
 
 ### <a name="create-an-access-key"></a>액세스 키 만들기
 
@@ -261,7 +264,19 @@ Azure 역할 기반 Access Control (RBAC)는 Azure에 대 한 세분화 된 액�
 9. **사용자 및 그룹 추가**사용자 이름을 입력 하 고 사용자 목록에서 해당 사용자를 선택 합니다.
 10. **변경 내용 저장**을 선택합니다.
 
-끝점 정보가 했으므로 Azure Stack 연결 VSTS 사용할 준비가 되었습니다. Azure Stack에서 빌드 에이전트는 VSTS에서 지침을 가져옵니다. 에이전트에서 Azure Stack을 사용 하 여 통신에 대 한 끝점 정보를 전달 하는 다음을
+## <a name="create-azure-stack-endpoint"></a>Azure Stack 끝점 만들기
+
+확인할 [이](https://docs.microsoft.com/en-us/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) 서비스 연결을 사용 하 여 기존 서비스 주체 만들고 다음 매핑을 사용 하는 설명서:
+
+- 환경: azurestack의 경우
+- 환경 URL 같이 `https://management.local.azurestack.external`
+- Azure Stack에서 구독 ID: 사용자 구독 ID
+- 구독 이름: Azure Stack에서 사용자 구독 이름
+- 서비스 주체 클라이언트 ID:에서 보안 주체 ID [이](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) 이 문서의 섹션입니다.
+- 서비스 주체 키: 동일한 문서 (또는 스크립트를 사용 하는 경우 암호)의 키입니다.
+- 테 넌 트 ID: 테 넌 트 ID를 가져온 [여기](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id)합니다.
+
+이제 끝점을 만들었으므로 VSTS Azure Stack 연결에 사용할 준비가 되었습니다. Azure Stack에서 빌드 에이전트는 VSTS에서 지침을 가져옵니다. 에이전트에서 Azure Stack을 사용 하 여 통신에 대 한 끝점 정보를 전달 하는 다음을
 
 ![빌드 에이전트](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
 
