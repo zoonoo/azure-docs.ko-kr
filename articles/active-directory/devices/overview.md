@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory의 장치 관리 소개 | Microsoft Docs
+title: Azure Active Directory에서 장치 관리란? | Microsoft Docs
 description: 사용자 환경의 리소스에 액세스하는 장치를 제어하는 데 장치 관리가 어떻게 도움이 되는지에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/21/2018
+ms.topic: overview
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 7e71ff5f5da17165d5127f3547d8eb0756411b8c
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 456b28c50bd5e7d69c3f16dd3e76a9ced20112f9
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597696"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048865"
 ---
-# <a name="introduction-to-device-management-in-azure-active-directory"></a>Azure Active Directory의 장치 관리 소개
+# <a name="what-is-device-management-in-azure-active-directory"></a>Azure Active Directory에서 장치 관리란?
 
 모바일 우선, 클라우드 우선 세계에서 Azure AD(Active Directory)는 어디에서나 장치, 앱 및 서비스에 대한 Single Sign-On을 가능하게 합니다. BYOD(Bring Your Own Device)를 포함하는 장치의 확산에 따라 IT 전문가는 다음 두 가지 대립되는 목표에 직면하고 있습니다.
 

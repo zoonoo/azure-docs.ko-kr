@@ -1,6 +1,6 @@
 ---
 title: Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기 | Microsoft Docs
-description: Azure Resource Manager 도구 확장을 사용하여 Resource Manager 템플릿에서 사용합니다.
+description: Visual Studio Code와 Azure Resource Manager 도구 확장을 사용하여 Resource Manager 템플릿에 대해 작업합니다.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/17/2018
+ms.date: 08/24/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: d50b84ac61210fc89665341ae0c2de3fc4ce0c11
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 540aabc9164e43776d2166926430f4512dd23f49
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42023173"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106052"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기
 
@@ -89,32 +89,49 @@ Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 알아보
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-템플릿을 배포하는 방법에는 여러 가지가 있습니다.  이 빠른 시작에서는 Azure Portal에서 Cloud Shell을 사용합니다. Cloud Shell은 Azure CLI와 Azure PowerShell을 모두 지원합니다. 여기에 제공되는 지침에서는 CLI를 사용합니다.
+템플릿을 배포하는 방법에는 여러 가지가 있습니다.  이 빠른 시작에서는 Azure Portal의 Azure Cloud Shell을 사용합니다. Cloud Shell은 Azure CLI와 Azure PowerShell을 모두 지원합니다. 
 
 1. [Azure 포털](https://portal.azure.com)
 2. 다음 이미지와 같이 오른쪽 위 모서리에서 **Cloud Shell**을 선택합니다.
 
     ![Azure Portal - Cloud Shell](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell.png)
 
-3. 아래쪽 화살표를 선택한 다음, **Bash**를 선택하여 PowerShell에서 CLI로 전환합니다.
+    Cloud Shell은 화면 아래쪽에 열려 있습니다.
+
+3. Cloud Shell의 왼쪽 위 모서리에는 **PowerShell** 또는 **Bash**가 표시됩니다. CLI를 사용하려면 Bash 세션을 열어야 합니다. PowerShell을 실행하려면 PowerShell 세션을 열어야 합니다. 전환하려면 아래쪽 화살표를 선택한 다음, 인터프리터를 선택합니다. 다음 이미지에서는 PowerShell에서 Bash로의 전환을 보여 줍니다.
 
     ![Azure Portal - Cloud Shell에서 CLI로 전환](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
-4. **다시 시작**을 선택하여 셸을 다시 시작합니다.
-5. **파일 업로드/다운로드**를 선택한 다음, **업로드**를 선택합니다.
+
+    전환하는 경우 셸을 다시 시작해야 합니다.
+4. **파일 업로드/다운로드**를 선택한 다음, **업로드**를 선택합니다.
 
     ![Azure Portal - Cloud Shell 파일 업로드](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file.png)
-4. 빠른 시작의 앞부분에서 저장한 파일을 선택합니다. 기본 이름은 **azuredeploy.json**입니다.
-5. Cloud Shell에서 **ls** 명령을 실행하여 파일이 성공적으로 업로드되었는지 확인합니다. **cat** 명령을 사용하여 템플릿 내용을 확인할 수도 있습니다.
+
+    셸에서 템플릿 파일을 배포하려면 먼저 업로드해야 합니다.
+5. 빠른 시작의 앞부분에서 저장한 파일을 선택합니다. 기본 이름은 **azuredeploy.json**입니다.
+6. Cloud Shell에서 **ls** 명령을 실행하여 파일이 성공적으로 업로드되었는지 확인합니다. **cat** 명령을 사용하여 템플릿 내용을 확인할 수도 있습니다. 다음 이미지에서는 Bash에서 명령을 실행하는 것을 보여 줍니다.  PowerShell 세션에서 동일한 명령을 사용합니다.
 
     ![Azure Portal - Cloud Shell 파일 나열](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file.png)
-6. Cloud Shell에서 다음 명령을 실행합니다.
+7. Cloud Shell에서 다음 명령을 실행합니다. 탭을 선택하여 PowerShell 코드 또는 CLI 코드를 표시합니다.
 
+    # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```cli
     az group create --name <ResourceGroupName> --location <AzureLocation>
 
     az group deployment create --name <DeploymentName> --resource-group <ResourceGroupName> --template-file <TemplateFileName>
     ```
-    샘플 배포의 스크린샷은 다음과 같습니다.
+   
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+    
+    ```powershell
+    New-AzureRmResourceGroup -Name <ResourceGroupName> -Location <AzureLocation>
+
+    New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroupName> -TemplateFile <TemplateFileName>
+    ```
+    
+    ---
+
+    다음 스크린샷에서는 CLI 배포 샘플을 보여 줍니다.
 
     ![Azure Portal - Cloud Shell 템플릿 배포](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template.png)
 
@@ -127,11 +144,20 @@ Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 알아보
 
     스크린샷 출력에서 저장소 계정 이름은 *3tqebj3slyfyestandardsa*입니다. 
 
-7. 다음 CLI 명령을 실행하여 새로 만든 저장소 계정을 나열합니다.
+7. 다음 CLI 또는 PowerShell 명령을 실행하여 새로 만든 저장소 계정을 나열합니다.
 
+    # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```cli
     az storage account show --resource-group <ResourceGroupName> --name <StorageAccountName>
     ```
+   
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+    
+    ```powershell
+    Get-AzureRmStorageAccount -ResourceGroupName <ResourceGroupName> -Name <StorageAccountName>
+    ```
+    
+    ---
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -144,7 +170,7 @@ Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Visual Studio Code를 사용하여 템플릿을 만드는 방법과 Azure Portal Cloud Shell을 사용하여 템플릿을 배포하는 방법을 알아보았습니다. 다음 자습서에서는 템플릿을 개발하는 방법과 템플릿 참조를 사용하는 방법을 자세히 알아봅니다.
+이 자습서는 Visual Studio Code를 사용하여 Azure 빠른 시작 템플릿에서 기존 템플릿을 편집하는 데 집중하고 있습니다. 또한 Azure Cloud Shell의 CLI 또는 PowerShell을 사용하여 템플릿을 배포하는 방법도 알아보았습니다. Azure 빠른 시작 템플릿의 템플릿은 필요한 모든 것을 제공하지 않을 수도 있습니다. 다음 자습서에서는 템플릿 참조에서 정보를 찾아 암호화된 Azure Storage 계정을 만드는 방법을 보여 줍니다.
 
 > [!div class="nextstepaction"]
 > [암호화된 저장소 계정 만들기](./resource-manager-tutorial-create-encrypted-storage-accounts.md)

@@ -14,21 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: daveba
-ms.openlocfilehash: 05b31dffbe51dcbcd76c13a17f6ecc640b63569b
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 5f7a0f2bd6820ce65490ae9241dac519fb635da2
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248971"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885461"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-cosmos-db"></a>자습서: Windows VM 관리 서비스 ID를 사용하여 Azure Cosmos DB에 액세스
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-이 자습서에서는 Windows VM 관리 서비스 ID를 만들고 사용하여 Cosmos DB에 액세스하는 방법을 보여 줍니다. 다음 방법에 대해 알아봅니다.
+이 자습서에서는 Windows VM(가상 머신)에 대한 시스템 할당 ID를 사용하여 Cosmos DB에 액세스하는 방법을 보여 줍니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 관리 서비스 ID 지원 Windows VM 만들기 
 > * Cosmos DB 계정 만들기
 > * Cosmos DB 계정 액세스 키에 대한 Windows VM 관리 서비스 ID 액세스 권한 부여
 > * Windows VM의 관리 서비스 ID를 통해 액세스 토큰을 가져온 후 Azure Resource Manager 호출
@@ -40,33 +39,11 @@ ms.locfileid: "39248971"
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
+- [Azure Portal에 로그인](https://portal.azure.com)
 
-## <a name="sign-in-to-azure"></a>Azure에 로그인
+- [Windows 가상 머신 만들기](/azure/virtual-machines/windows/quick-create-portal)
 
-[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
-
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>새 리소스 그룹에 Windows 가상 머신 만들기
-
-이 자습서에서는 새 Windows VM을 만듭니다.  또한 기존 VM에서 관리 서비스 ID를 사용하도록 설정할 수 있습니다.
-
-1. Azure Portal의 왼쪽 위에 있는 **리소스 만들기** 단추를 클릭합니다.
-2. **Compute**를 선택한 후 **Windows Server 2016 Datacenter**를 선택합니다. 
-3. 가상 머신 정보를 입력합니다. 여기서 만드는 **사용자 이름** 및 **암호**는 가상 머신에 로그인하는 데 사용하는 자격 증명입니다.
-4. 드롭다운에서 가상 머신의 적절한 **구독**을 선택합니다.
-5. 가상 컴퓨터를 만들 새 **리소스 그룹**을 선택하려면 **새로 만들기**를 선택합니다. 완료되면 **확인**을 클릭합니다.
-6. VM의 크기를 선택합니다. 더 많은 크기를 보려면 **모두 보기**를 선택하거나 **지원되는 디스크 형식** 필터를 변경합니다. 설정 페이지에서 기본값을 그대로 유지하고 **확인**을 클릭합니다.
-
-   ![대체 이미지 텍스트](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>VM에서 관리 서비스 ID를 사용하도록 설정 
-
-Virtual Machine 관리 서비스 ID를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure AD에서 액세스 토큰을 가져올 수 있습니다. 내부적으로 Azure Portal을 통해 Virtual Machine에서 관리 서비스 ID를 사용하도록 설정하면 두 가지 작업이 수행됩니다. 즉, VM이 Azure AD에 등록되어 관리 ID를 생성하고, 해당 VM에서 ID가 구성됩니다.
-
-1. 관리 서비스 ID를 사용하도록 설정할 **Virtual Machine**을 선택합니다.  
-2. 왼쪽 탐색 모음에서 **구성**을 클릭합니다. 
-3. **관리 서비스 ID**가 표시됩니다. 관리 서비스 ID를 등록하고 사용하도록 설정하려면 **예**를 선택하고, 사용하지 않도록 설정하려면 아니요를 선택합니다. 
-4. **저장**을 클릭하여 구성을 저장합니다.  
-   ![대체 이미지 텍스트](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+- [가상 머신에서 시스템 할당 ID를 사용하도록 설정](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="create-a-cosmos-db-account"></a>Cosmos DB 계정 만들기 
 

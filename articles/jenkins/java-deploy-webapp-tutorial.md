@@ -1,19 +1,19 @@
 ---
 title: Jenkins를 사용하여 Azure에 웹앱 배포
 description: Jenkins 및 Docker를 사용하여 Java 웹앱에 대해 GitHub에서 Azure App Service로 지속적인 통합을 설정합니다.
-ms.topic: tutorial
-ms.author: tarcher
+ms.service: jenkins
+keywords: Jenkins, Azure, DevOps, App Service, 지속적인 통합, CI, 지속적인 배포, CD
 author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: e880d84c3ae0fd23c11bb9b30733544bd5f28872
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: b1af82060d316a18cd6427f70695ca4fa982064d
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389945"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106800"
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Jenkins를 사용하여 Azure App Service로 지속적인 통합 및 배포 설정
 
@@ -102,7 +102,7 @@ ms.locfileid: "39389945"
 ## <a name="configure-the-azure-app-service-jenkins-plug-in"></a>Azure App Service Jenkins 플러그 인 구성
 
 1. Jenkins 웹 콘솔에서 사용자가 만든 **MyJavaApp** 작업을 선택한 다음, 페이지의 왼쪽에서 **구성**을 선택합니다.
-2. **빌드 후 작업**으로 스크롤한 다음, **빌드 후 작업 추가**를 선택하고 **Azure Wep App 게시**를 선택합니다.
+2. **빌드 후 작업**으로 아래로 스크롤하고, **빌드 후 작업 추가**를 선택하고, **Azure Wep App 게시**를 선택합니다.
 3. **Azure 프로필 구성**에서 **Azure 자격 증명** 옆에 있는 **추가**를 선택하고 **Jenkins**를 선택합니다.
 4. **자격 증명 추가** 대화 상자에 있는 **종류** 드롭다운에서 **Microsoft Azure 서비스 주체**를 선택합니다.
 5. Azure CLI 또는 [Cloud Shell](/azure/cloud-shell/overview)에서 Active Directory Service 주체를 만듭니다.
@@ -164,7 +164,7 @@ ms.locfileid: "39389945"
 ## <a name="deploy-the-app-from-github"></a>GitHub에서 앱 배포
 
 1. Jenkins 프로젝트에서 **지금 빌드**를 선택하여 샘플 앱을 Azure에 배포합니다.
-2. 빌드가 완료되면 앱이 Azure에서 게시 URL(예: http://myjavaapp.azurewebsites.net)에 나타납니다.   
+2. 빌드가 완료되면 앱이 Azure의 게시 URL(예: http://myjavaapp.azurewebsites.net)에서 활성 상태로 있습니다.   
    ![Azure에서 배포된 앱 보기](media/jenkins-java-quickstart/hello_docker_world_unedited.png)
 
 ## <a name="push-changes-and-redeploy"></a>변경 내용 푸시 및 재배포

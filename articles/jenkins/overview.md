@@ -1,25 +1,25 @@
 ---
-title: Jenkins 및 Azure 개요 | Microsoft Docs
+title: Jenkins 및 Azure 개요
 description: Azure에서 Jenkins 빌드 및 배포 자동화 서버를 호스트하고 Azure 계산 및 저장소 리소스를 사용하여 CI/CD(지속적인 통합 및 배포) 파이프라인을 확장합니다.
-ms.topic: overview
-ms.author: tarcher
+ms.service: jenkins
+keywords: Jenkins, Azure, DevOps, 개요
 author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: overview
 ms.date: 07/25/2018
-ms.openlocfilehash: ecb4ea7aee005cb539910b2cb25f0b84de7ba510
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: cb4082046e57ac16abd6cdef3d5779525e7cfc82
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281558"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105532"
 ---
 # <a name="azure-and-jenkins"></a>Azure 및 Jenkins
 
 [Jenkins](https://jenkins.io/)는 소프트웨어 프로젝트에 대해 CI/CD(지속적인 통합 및 배포)를 설정하는 데 사용되는 인기 있는 오픈 소스 자동화 서버입니다. Azure에서 Jenkins 배포를 호스트하거나 Azure 리소스를 사용하여 기존 Jenkins 구성을 확장할 수 있습니다. 응용 프로그램의 CI/CD를 Azure로 간소화하기 위해 Jenkins 플러그 인도 사용할 수 있습니다.
 
-이 문서는 Azure와 Jenkins를 함께 사용하는 것을 소개하며 Jenkins 사용자에게 제공되는 주요 Azure 기능에 대해 자세히 설명합니다. Azure에서 사용자 고유의 Jenkins 서버를 시작하려면 [빠른 시작](install-jenkins-solution-template.md)을 참조하세요.
+이 문서는 Azure와 Jenkins를 함께 사용하는 것을 소개하며 Jenkins 사용자에게 제공되는 주요 Azure 기능에 대해 자세히 설명합니다. Azure에서 사용자 고유의 Jenkins 서버를 시작하는 방법에 대한 자세한 내용은 [Azure에서 Jenkins 서버 만들기](install-jenkins-solution-template.md)를 참조하세요.
 
 ## <a name="host-your-jenkins-servers-in-azure"></a>Azure에서 Jenkins 서버 호스트
 

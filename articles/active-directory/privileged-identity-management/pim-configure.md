@@ -1,6 +1,6 @@
 ---
-title: Azure AD Privileged Identity Management 구성 | Microsoft Docs
-description: Azure AD Privileged Identity Management가 무엇이고 클라우드 보안을 개선하기 위한 PIM 사용 방법을 설명하는 항목입니다.
+title: Azure AD Privileged Identity Management란? | Microsoft Docs
+description: Azure Active Directory PIM(Privileged Identity Management)에 대해 간략히 설명합니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8ac1dad9413d9e2710722127c2e837223a5b6f7f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: ff4e5322ac9ccc0bbfd0706ca9f4863670bbf1b5
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618855"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186214"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management란?
 
@@ -51,6 +51,35 @@ Azure AD에서 Azure AD Privileged Identity Management는 전역 관리자와 �
 ## <a name="just-in-time-administrator-access"></a>시간에 맞추는 관리자 액세스
 
 지금까지 Azure Portal, 다른 Microsoft Online Services 포털 또는 Windows PowerShell의 Azure AD cmdlet을 통해 사용자를 관리자 역할에 할당할 수 있었습니다. 그 결과, 해당 사용자는 **영구 관리자**가 되어 할당된 역할에 항상 활성 상태가 됩니다. Azure AD Privileged Identity Management는 **적격인 관리자**개념을 소개합니다. 적격 관리자는 때때로 권한 있는 액세스 권한이 필요하지만 매일 하루 종일 액세스할 필요가 없는 사용자여야 합니다. 역할은 사용자가 액세스가 필요할 때까지 비활성으로 있다가, 활성화 프로세스를 완료하고 미리 정해진 시간 동안 활성 관리자가 됩니다. 점점 더 많은 조직에서 이 방법을 사용하여 권한 있는 역할에 대한 "지속적인 관리자 액세스"를 줄이거나 제거합니다.
+
+
+## <a name="terminology"></a>용어
+
+*적격 역할 사용자* – 적법한 Azure AD 역할(역할에 대한 활성화 필요)로 할당된 조직 내 사용자입니다.
+
+*위임된 승인자* – Azure AD 내에서 역할을 활성화하도록 요청을 승인하는 작업을 담당하는 하나 이상의 개인 또는 그룹입니다.
+
+## <a name="scenarios"></a>시나리오
+
+Privileged Identity Management에서 지원하는 시나리오는 다음과 같습니다.
+
+**권한 있는 역할 관리자는 다음을 수행할 수 있습니다.**
+
+- 특정 역할에 대한 승인을 사용하도록 설정
+- 요청을 승인할 승인자 사용자 및/또는 그룹 지정
+- 모든 권한 있는 역할에 대한 요청 및 승인 기록 보기
+
+**지정된 승인자는 다음을 수행할 수 있습니다.**
+
+- 보류 중인 승인(요청) 보기
+- 역할 상승 요청(단일 및/또는 대량) 승인 또는 거부
+- 승인/거부에 대한 근거 제공 
+
+**적격 역할 사용자는 다음을 수행할 수 있습니다.**
+
+- 승인이 필요한 역할의 활성화 요청
+- 활성화 요청 상태 보기
+- 활성화가 승인되면 Azure AD에서 작업 수행
 
 ## <a name="enable-privileged-identity-management-for-your-directory"></a>디렉터리에서 Privileged Identity Management 사용
 
@@ -157,4 +186,6 @@ Azure AD PIM을 사용하기 전에 테넌트에 Azure AD Premium P2(또는 EMS 
 
 ## <a name="next-steps"></a>다음 단계
 
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+- [PIM을 사용하기 위한 구독 요구 사항](subscription-requirements.md)
+- [PIM에서 관리할 수 있는 Azure AD 디렉터리 역할](pim-roles.md)
+- [Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)

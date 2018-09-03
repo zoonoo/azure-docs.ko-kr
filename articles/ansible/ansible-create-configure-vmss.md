@@ -4,29 +4,23 @@ description: Azure에서 Ansible을 사용하여 가상 머신 확장 집합을 
 ms.service: ansible
 keywords: ansible, azure, devops, bash, 플레이북, 가상 머신, 가상 머신 확장 집합, vmss
 author: tomarcher
-manager: jpconnock
-editor: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.date: 07/11/2018
+manager: jeconnoc
 ms.author: tarcher
-ms.openlocfilehash: 5f915f7b1b425a3bd6e5d62eb70bb3f633b7eda8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.topic: tutorial
+ms.date: 08/24/2018
+ms.openlocfilehash: f3b08c41d3bf083c7cca5897cee11a1a4b9c9092
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011711"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918578"
 ---
 # <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>Ansible을 사용하여 Azure에서 가상 머신 확장 집합 만들기
 Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Ansible을 사용하여 다른 Azure 리소스와 동일한 방식으로 Azure에서 가상 머신 확장 집합(VMSS)을 관리할 수 있습니다. 이 문서에서는 Ansible을 사용하여 가상 머신 확장 집합을 만들고 확장하는 방법을 보여줍니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 - **Azure 구독** - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
-- **Ansible 구성** - [Azure 자격 증명 만들기 및 Ansible 구성](../virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
-- **Ansible 및 Azure Python SDK 모듈** 
-  - [CentOS 7.4](../virtual-machines/linux/ansible-install-configure.md#centos-74)
-  - [Ubuntu 16.04 LTS](../virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts)
-  - [SLES 12 SP2](../virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
 > Ansible 2.6은 이 자습서에서 다음의 샘플 플레이북을 실행해야 합니다. 
@@ -186,7 +180,7 @@ Ansible 플레이북을 실행하려면 다음과 같이 **ansible-playbook** �
   az vmss show -n myVMSS -g myResourceGroup --query '{"capacity":sku.capacity}' 
   ```
 
-다음과 유사하게 출력되어야 합니다.
+다음 출력과 비슷한 결과가 표시됩니다.
 
   ```bash
   {
@@ -271,7 +265,7 @@ Azure Portal에서 구성한 가상 머신 확장 집합으로 이동하는 경�
   az vmss show -n myVMSS -g myResourceGroup --query '{"capacity":sku.capacity}' 
   ```
 
-Cloud Shell에서 명령을 실행한 결과는 이제 세 개의 인스턴스가 있음을 보여줍니다. 
+Cloud Shell에서 명령을 실행한 결과에서는 이제 세 개의 인스턴스가 있음을 보여 줍니다. 
 
   ```bash
   {

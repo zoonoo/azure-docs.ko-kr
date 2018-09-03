@@ -12,19 +12,19 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/15/2018
+ms.date: 08/28/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: e48c2aceb2a8f45d01b922a186900780c1c5ef51
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: cee0bdffb99076903df988d30fcaa4f6cb2234c6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968759"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123193"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Azure에서 정적 HTML 웹앱 만들기
 
-[Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작에서는 기본적인 HTML+CSS 사이트를 Azure Web Apps에 배포하는 방법을 보여 줍니다. [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)에서 이 빠른 시작을 완료하지만 [Azure CLI](/cli/azure/install-azure-cli)를 사용하여 이러한 명령을 로컬로 실행할 수도 있습니다.
+[Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 기본적인 HTML+CSS 사이트를 Azure Web Apps에 배포하는 방법을 보여 줍니다. [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)에서 이 빠른 시작을 완료하지만 [Azure CLI](/cli/azure/install-azure-cli)를 사용하여 이러한 명령을 로컬로 실행할 수도 있습니다.
 
 ![샘플 앱의 홈 페이지](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
@@ -39,7 +39,7 @@ ms.locfileid: "38968759"
 웹앱 확장을 설치하려면 다음 명령을 실행합니다.
 
 ```bash
-az extension add -n webapp
+az extension add --name webapp
 ```
 
 확장이 설치되면 Cloud Shell은 다음 예제에 대한 정보를 표시합니다.
@@ -73,7 +73,7 @@ git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 ```bash
 cd html-docs-hello-world
 
-az webapp up -n <app_name>
+az webapp up --location westeurope --name <app_name>
 ```
 
 `az webapp up` 명령에는 다음 작업이 포함됩니다.
@@ -91,13 +91,13 @@ az webapp up -n <app_name>
 ```json
 {
   "app_url": "https://<app_name>.azurewebsites.net",
-  "location": "Central US",
+  "location": "westeurope",
   "name": "<app_name>",
   "os": "Windows",
-  "resourcegroup": "appsvc_rg_Windows_CentralUS ",
-  "serverfarm": "appsvc_asp_Windows_CentralUS",
+  "resourcegroup": "appsvc_rg_Windows_westeurope",
+  "serverfarm": "appsvc_asp_Windows_westeurope",
   "sku": "FREE",
-  "src_path": "/home/username/quickstart/html-docs-hello-world ",
+  "src_path": "/home/<username>/quickstart/html-docs-hello-world ",
   < JSON data removed for brevity. >
 }
 ```
@@ -116,7 +116,7 @@ az webapp up -n <app_name>
 
 ## <a name="update-and-redeploy-the-app"></a>앱 업데이트 및 다시 배포
 
-Cloud Shell에서 `nano index.html`을 입력하여 Nano 텍스트 편집기를 엽니다. 아래와 같이 H1 제목에서 "Azure App Service - 샘플 정적 HTML 사이트"를 "Azure App Service"로 변경합니다.
+Cloud Shell에서 `nano index.html`을 입력하여 Nano 텍스트 편집기를 엽니다. 아래와 같이 `<h1>` 제목 태그에서 "Azure App Service - 샘플 정적 HTML 사이트"를 "Azure App Service"로 변경합니다.
 
 ![Nano index.html](media/app-service-web-get-started-html/nano-index-html.png)
 
@@ -125,7 +125,7 @@ Cloud Shell에서 `nano index.html`을 입력하여 Nano 텍스트 편집기를 
 이제 동일한 `az webapp up` 명령을 사용하여 앱을 다시 배포합니다.
 
 ```bash
-az webapp up -n <app_name>
+az webapp up --location westeurope --name <app_name>
 ```
 
 배포가 완료되면 **앱으로 이동** 단계에서 열린 브라우저 창으로 다시 전환하고 페이지를 새로 고칩니다.
@@ -151,7 +151,7 @@ az webapp up -n <app_name>
 이전 단계에서 Azure 리소스를 리소스 그룹에 만들었습니다. 나중에 이러한 리소스가 필요하지 않을 것 같으면 Cloud Shell에서 다음 명령을 실행하여 리소스 그룹을 삭제합니다. 리소스 그룹 이름은 [웹앱 만들기](#create-a-web-app) 단계에서 자동으로 생성되었습니다.
 
 ```bash
-az group delete --name appsvc_rg_Windows_CentralUS
+az group delete --name appsvc_rg_Windows_westeurope
 ```
 
 이 명령을 실행하는 데 1분 정도 걸릴 수 있습니다.

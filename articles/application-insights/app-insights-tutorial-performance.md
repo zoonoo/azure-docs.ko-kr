@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 8489992303425cc00c15994b55ade958d77549e4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 4ce4c9e2479c8d570766169ce5094dcc2b4bc511
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29969137"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42812874"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Azure Application Insights를 사용하여 성능 문제 찾기 및 진단
 
@@ -53,27 +53,20 @@ Application Insights는 응용 프로그램에서 다른 작업에 대한 성능
 
     ![성능 패널](media/app-insights-tutorial-performance/performance-blade.png)
 
-3. 그래프는 현재 시간에 따라 모든 작업의 평균 기간을 보여 줍니다.  그래프에 고정하여 관심이 있는 작업을 추가합니다.  일부 조사할 가치가 있는 최대치가 있다는 것을 보여 줍니다.  그래프의 시간 창을 축소하여 이를 더 분리합니다.
+3. 현재 그래프에는 일정 기간 동안의 선택한 작업에 대한 평균 기간이 표시되어 있습니다. 95번째 백분위수로 전환하여 성능 문제를 찾을 수 있습니다. 그래프에 고정하여 관심이 있는 작업을 추가합니다.  일부 조사할 가치가 있는 최대치가 있다는 것을 보여 줍니다.  그래프의 시간 창을 축소하여 이를 더 분리합니다.
 
     ![고정 작업](media/app-insights-tutorial-performance/pin-operations.png)
 
-4.  작업을 클릭하여 오른쪽에서 해당 성능 패널을 봅니다. 다른 요청에 대한 기간의 분포를 보여 줍니다.  사용자는 일반적으로 약 0.5초에서 성능 저하를 알아차리므로 500밀리초 이상의 요청으로 창을 축소합니다.  
+4.  오른쪽의 성능 패널에는 선택한 작업에의 다양한 요청에 대한 시간 분포를 보여 줍니다.  창을 줄여 95번째 백분위수에서 시작합니다. "상위 3개 종속성" 인사이트 카드에서 외부 종속성이 느린 트랜잭션에 영향을 줄 수 있음을 한눈에 알 수 있습니다.  샘플 목록을 보려면 샘플 수가 있는 단추를 클릭합니다. 그런 다음, 샘플을 선택하여 트랜잭션 세부 정보를 확인하면 됩니다.
 
     ![기간 배포](media/app-insights-tutorial-performance/duration-distribution.png)
 
-5.  이 예제에서는 상당한 요청의 수가 처리되는 데 1초 이상이 소요되는 것을 볼 수 있습니다. **작업 세부 정보**를 클릭하여 이 작업의 세부 정보를 볼 수 있습니다.
+5.  Fabrikamaccount Azure 테이블에 대한 호출이 전체 트랜잭션 기간에 가장 많이 영향을 주고 있음을 한눈에 볼 수 있습니다. 또한 예외로 인해 실패한 호출도 볼 수 있습니다. 목록에서 항목을 클릭하면 오른쪽에서 해당 세부 정보를 볼 수 있습니다. [트랜잭션 진단 환경에 대한 자세한 정보](app-insights-transaction-diagnostics.md)
 
     ![작업 세부 정보](media/app-insights-tutorial-performance/operation-details.png)
+    
 
-    > [!NOTE]
-    “통합된 세부 정보: E2E 트랜잭션 진단” [미리 보기 환경](app-insights-previews.md)을 사용하도록 설정하여 요청, 종속성, 예외, 추적, 이벤트 등과 같은 모든 관련 서버 쪽 원격 분석을 하나의 전체 화면 보기에서 확인할 수 있습니다. 
-
-    미리 보기를 사용하도록 설정하면 통합된 환경에서 오류 또는 예외와 함께 종속성 호출에 소요된 시간을 볼 수 있습니다. 구성 요소 간 트랜잭션의 경우 세부 정보 창 함께 Gantt 차트를 통해 근본 원인 구성 요소, 종속성 또는 예외를 신속하게 진단할 수 있습니다. 아래쪽 섹션을 확장하여 선택한 구성 요소 작업에 수집된 모든 추적 또는 이벤트의 시간 시퀀스를 확인할 수 있습니다. [새 환경에 대해 자세히 알아보세요](app-insights-transaction-diagnostics.md).  
-
-    ![트랜잭션 진단](media/app-insights-tutorial-performance/e2e-transaction-preview.png)
-
-
-6.  지금까지 수집한 정보는 성능 저하가 있다는 것만을 확인하지만 근본 원인에 조금 접근합니다.  **프로파일러**는 작업에 대해 실행되는 실제 코드 및 각 단계에 필요한 시간을 표시하여 이를 돕습니다. 일부 작업은 프로파일러가 주기적으로 실행되므로 추적이 없을 수 있습니다.  시간이 지남에 따라 더 많은 작업에 추적이 있어야 합니다.  작업에 대한 프로파일러를 시작하려면 **프로파일러 추적**을 클릭합니다.
+6.  **프로파일러**는 작업에 대해 실행된 실제 코드 및 각 단계에 필요한 시간을 표시하여 코드 수준 진단을 더 자세히 수행하는 데 도움이 됩니다. 일부 작업은 프로파일러가 주기적으로 실행되므로 추적이 없을 수 있습니다.  시간이 지남에 따라 더 많은 작업에 추적이 있어야 합니다.  작업에 대한 프로파일러를 시작하려면 **프로파일러 추적**을 클릭합니다.
 5.  추적은 각 작업에 대한 개별 이벤트를 보여주므로 전반적인 작업의 기간에 대한 근본 원인을 진단할 수 있습니다.  가장 긴 기간을 포함하는 상위 예 중 하나를 클릭합니다.
 6.  **실행 부하 과다 경로 표시**를 클릭하여 작업의 총 기간에 가장 큰 영향을 주는 이벤트의 특정 경로를 강조 표시합니다.  이 예에서는 가장 느린 호출이 *FabrikamFiberAzureStorage.GetStorageTableData* 메서드에서 비롯되었음을 확인할 수 있습니다. 대부분의 시간을 사용하는 파트는 *CloudTable.CreateIfNotExist* 메서드입니다. 함수가 호출될 때마다 이 코드 줄을 실행하면 불필요한 네트워크 호출 및 CPU 리소스가 사용됩니다. 코드를 수정하는 가장 좋은 방법은 한 번만 실행하는 일부 시작 메서드에 이 줄을 배치하는 것입니다. 
 

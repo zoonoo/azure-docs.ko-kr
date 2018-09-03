@@ -14,21 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: f5d4a5e26ecf4bde286a5163bf5ec7da492e474d
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: a472a0f1fe052b0bc8130f5d81c91692c7723377
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247916"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885891"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-data-lake-store"></a>자습서: Windows VM 관리 서비스 ID를 사용하여 Azure Data Lake Store에 액세스
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-이 자습서에서는 Windows VM(가상 머신)에 대해 관리 서비스 ID를 사용하여 Azure Data Lake Store에 액세스하는 방법을 보여줍니다. Azure에서 자동으로 관리되는 관리 서비스 ID를 사용하면 Azure AD 인증을 지원하는 서비스에 인증할 수 있으므로 코드에 자격 증명을 삽입할 필요가 없습니다. 다음 방법에 대해 알아봅니다.
+이 자습서에서는 Windows VM(가상 머신)에 대한 시스템 할당 ID를 사용하여 Azure Data Lake Store에 액세스하는 방법을 보여 줍니다. Azure에서 자동으로 관리되는 관리 서비스 ID를 사용하면 Azure AD 인증을 지원하는 서비스에 인증할 수 있으므로 코드에 자격 증명을 삽입할 필요가 없습니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * Windows VM에서 관리 서비스 ID를 사용하도록 설정 
 > * VM에 Azure Data Lake Store에 대한 액세스 권한 부여
 > * VM ID를 사용하여 액세스 토큰 가져오기 및 Azure Data Lake Store에 액세스하는 데 사용하기
 
@@ -38,36 +37,11 @@ ms.locfileid: "39247916"
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Azure에 로그인
+- [Azure Portal에 로그인](https://portal.azure.com)
 
-[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
+- [Windows 가상 머신 만들기](/azure/virtual-machines/windows/quick-create-portal)
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>새 리소스 그룹에 Windows 가상 머신 만들기
-
-이 자습서에서는 새 Windows VM을 만듭니다.  또한 기존 VM에서 관리 서비스 ID를 사용하도록 설정할 수 있습니다.
-
-1. Azure Portal의 왼쪽 위에 있는 **리소스 만들기** 단추를 클릭합니다.
-2. **Compute**를 선택한 후 **Windows Server 2016 Datacenter**를 선택합니다. 
-3. 가상 머신 정보를 입력합니다. 여기서 만드는 **사용자 이름** 및 **암호**는 가상 머신에 로그인하는 데 사용하는 자격 증명입니다.
-4. 드롭다운에서 가상 머신의 적절한 **구독**을 선택합니다.
-5. 가상 컴퓨터를 만들 새 **리소스 그룹**을 선택하려면 **새로 만들기**를 선택합니다. 완료되면 **확인**을 클릭합니다.
-6. VM의 크기를 선택합니다. 더 많은 크기를 보려면 **모두 보기**를 선택하거나 **지원되는 디스크 형식** 필터를 변경합니다. 설정 페이지에서 기본값을 그대로 유지하고 **확인**을 클릭합니다.
-
-   ![대체 이미지 텍스트](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>VM에서 관리 서비스 ID를 사용하도록 설정 
-
-VM 관리 서비스 ID를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure AD에서 액세스 토큰을 가져올 수 있습니다. 관리 서비스 ID를 사용하도록 설정하면 VM용으로 관리 ID를 만들도록 Azure에 지시하게 됩니다. 내부적으로 관리 서비스 ID를 사용하도록 설정하면 해당 관리 ID를 만들기 위해 VM이 Azure Active Directory에 등록되고, VM에서 ID가 구성되는 두 가지 작업이 수행됩니다.
-
-1. 관리 서비스 ID를 사용하도록 설정할 **Virtual Machine**을 선택합니다.  
-2. 왼쪽 탐색 모음에서 **구성**을 클릭합니다. 
-3. **관리 서비스 ID**가 표시됩니다. 관리 서비스 ID를 등록하고 사용하도록 설정하려면 **예**를 선택하고, 사용하지 않도록 설정하려면 아니요를 선택합니다. 
-4. **저장**을 클릭하여 구성을 저장합니다.  
-   ![대체 이미지 텍스트](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. 이 VM에 있는 확장을 확인하려면 **확장**을 클릭합니다. 관리 서비스 ID를 사용하도록 설정된 경우 목록에 **ManagedIdentityExtensionforWindows**가 표시됩니다.
-
-   ![대체 이미지 텍스트](media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
+- [가상 머신에서 시스템 할당 ID를 사용하도록 설정](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>VM에 Azure Data Lake Store에 대한 액세스 권한 부여
 
@@ -91,7 +65,7 @@ VM 관리 서비스 ID는 사용자가 만든 폴더에 있는 파일에서 모�
 
 ## <a name="get-an-access-token-using-the-vm-managed-service-identity-and-use-it-to-call-the-azure-data-lake-store-filesystem"></a>VM 관리 서비스 ID를 사용하여 액세스 토큰 가져오기 및 Azure Data Lake Store 파일 시스템을 호출하는 데 사용하기
 
-Azure Data Lake Store는 기본적으로 Azure AD 인증을 지원하므로 관리 서비스 ID를 사용하여 획득한 액세스 토큰을 직접 수락할 수 있습니다.  Data Lake Store 파일 시스템에 인증하려면 "Bearer <ACCESS_TOKEN_VALUE>" 형식의 권한 부여 헤더에 있는 Data Lake Store 파일 시스템 끝점에 Azure AD에서 발급한 액세스 토큰을 보냅니다.  Azure AD 인증을 위한 Data Lake Store 지원에 대한 자세한 내용을 보려면 [Azure Active Directory를 사용하여 Data Lake Store 인증](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)을 참고하세요.
+Azure Data Lake Store는 기본적으로 Azure AD 인증을 지원하므로 관리 서비스 ID를 사용하여 획득한 액세스 토큰을 직접 수락할 수 있습니다.  Data Lake Store 파일 시스템에 인증하려면 "Bearer &lt;ACCESS_TOKEN_VALUE&gt;" 형식의 권한 부여 헤더에 있는 Data Lake Store 파일 시스템 엔드포인트에 Azure AD에서 발급한 액세스 토큰을 보냅니다.  Azure AD 인증을 위한 Data Lake Store 지원에 대한 자세한 내용을 보려면 [Azure Active Directory를 사용하여 Data Lake Store 인증](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)을 참고하세요.
 
 > [!NOTE]
 > Data Lake Store 파일 시스템 클라이언트 SDK는 서비스 ID 관리를 아직 지원하지 않습니다.  이 자습서는 지원이 SDK에 추가될 때 업데이트됩니다.
@@ -119,7 +93,7 @@ Azure Data Lake Store는 기본적으로 Azure AD 인증을 지원하므로 관�
    $AccessToken = $content.access_token
    ```
 
-5. PowerShell의 'Invoke-WebRequest'를 사용하여 Data Lake Store의 REST 끝점에 요청하여 루트 폴더에서 폴더를 나열합니다.  모든 항목이 올바르게 구성되었는지 확인하는 간단한 방법입니다.  인증 헤더의 "Bearer" 문자열에 대문자 "B"가 있어야 합니다.  Azure Portal에 있는 Data Lake Store 블레이드의 **개요** 섹션에서 Data Lake Store의 이름을 찾을 수 있습니다.
+5. PowerShell의 'Invoke-WebRequest'를 사용하여 Data Lake Store의 REST 엔드포인트에 요청하여 루트 폴더에서 폴더를 나열합니다.  모든 항목이 올바르게 구성되었는지 확인하는 간단한 방법입니다.  인증 헤더의 "Bearer" 문자열에 대문자 "B"가 있어야 합니다.  Azure Portal에 있는 Data Lake Store 블레이드의 **개요** 섹션에서 Data Lake Store의 이름을 찾을 수 있습니다.
 
    ```powershell
    Invoke-WebRequest -Uri https://<YOUR_ADLS_NAME>.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS -Headers @{Authorization="Bearer $AccessToken"}
@@ -154,7 +128,7 @@ Azure Data Lake Store는 기본적으로 Azure AD 인증을 지원하므로 관�
    echo "Test file." > Test1.txt
    ```
 
-7. PowerShell의 `Invoke-WebRequest`를 사용하여 이전에 만든 폴더에 파일을 업로드하도록 Data Lake Store의 REST 끝점에 요청합니다.  이 요청은 두 단계로 이루어집니다.  첫 번째 단계에서는 요청하고 파일을 업로드해야 하는 리디렉션을 가져옵니다.  두 번째 단계에서는 실제로 파일을 업로드합니다.  이 자습서와 다른 값을 사용하는 경우 폴더 및 파일의 이름을 적절하게 설정해야 합니다. 
+7. PowerShell의 `Invoke-WebRequest`를 사용하여 이전에 만든 폴더에 파일을 업로드하도록 Data Lake Store의 REST 엔드포인트에 요청합니다.  이 요청은 두 단계로 이루어집니다.  첫 번째 단계에서는 요청하고 파일을 업로드해야 하는 리디렉션을 가져옵니다.  두 번째 단계에서는 실제로 파일을 업로드합니다.  이 자습서와 다른 값을 사용하는 경우 폴더 및 파일의 이름을 적절하게 설정해야 합니다. 
 
    ```powershell
    $HdfsRedirectResponse = Invoke-WebRequest -Uri https://<YOUR_ADLS_NAME>.azuredatalakestore.net/webhdfs/v1/TestFolder/Test1.txt?op=CREATE -Method PUT -Headers @{Authorization="Bearer $AccessToken"} -Infile Test1.txt -MaximumRedirection 0
@@ -180,7 +154,7 @@ Azure Data Lake Store는 기본적으로 Azure AD 인증을 지원하므로 관�
    RawContentLength  : 0
    ```
 
-   리디렉션 끝점에 요청을 보내어 업로드를 완료합니다.
+   리디렉션 엔드포인트에 요청을 보내어 업로드를 완료합니다.
 
    ```powershell
    Invoke-WebRequest -Uri $HdfsRedirectResponse.Headers.Location -Method PUT -Headers @{Authorization="Bearer $AccessToken"} -Infile Test1.txt -MaximumRedirection 0

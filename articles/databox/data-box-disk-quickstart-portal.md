@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 08/28/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 20dc414c5cdd309434ba53acf2d7f6716d3edfe5
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 596c4b15ea6ef76d4471bca6994377bf4d5ddc01
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009929"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143426"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>빠른 시작: Azure Portal(미리 보기)을 사용하여 Azure Data Box Disk 배포
 
@@ -54,7 +54,6 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
 
 주문이 만들어지면 배송을 위해 디스크가 준비됩니다. 
 
-
 ## <a name="unpack"></a>압축 풀기
 
 이 단계에는 약 5분 정도가 걸립니다.
@@ -64,7 +63,6 @@ Data Box Disk는 UPS Express 상자에 배송됩니다. 상자를 열고 상자�
 - 완충재로 포장된 1~5개의 USB 디스크
 - 디스크당 1개의 연결 케이블 
 - 반송 배송을 위한 포장용 레이블
- 
 
 ## <a name="connect-and-unlock"></a>연결 및 잠금 해제
 
@@ -75,10 +73,8 @@ Data Box Disk는 UPS Express 상자에 배송됩니다. 상자를 열고 상자�
 
     1. Azure Portal에서 **일반 > 장치 세부 정보**로 이동하여 암호를 가져옵니다.
     2. 디스크에 데이터 디스크를 복사하는 데 사용되는 컴퓨터에서 Data Box Disk 잠금 해제 도구를 다운로드하고 추출합니다. 
-    3. *DataBoxDiskUnlock.exe*를 실행하여 암호를 제공합니다. 모든 디스크 다시 삽입을 위해 단계를 반복합니다.
+    3. *DataBoxDiskUnlock.exe*를 실행하여 암호를 제공합니다. 디스크를 다시 삽입하려면 잠금 해제 도구를 다시 실행하고 암호를 제공합니다. **BitLocker 대화 상자 또는 BitLocker 키를 사용하여 디스크를 잠금 해제하지 마세요.** 
     4. 디스크에 할당한 드라이브 문자가 도구에 의해 표시됩니다. 디스크 드라이브 문자를 기록해 둡니다. 이후 단계에서 사용됩니다.
-
-
 
 ## <a name="copy-data-and-verify"></a>데이터를 복사 및 확인
 
@@ -92,7 +88,7 @@ Data Box Disk는 UPS Express 상자에 배송됩니다. 상자를 열고 상자�
     > - 모든 컨테이너 및 Blob은 [Azure 명명 규칙](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions)을 준수해야 합니다. 이러한 규칙을 따르지 않는 경우 Azure로 데이터 업로드에 실패합니다.
     > - 파일이 블록 Blob에 대해 4.7TiB 및 페이지 Blob에 대해 8TiB를 초과하지 않도록 합니다.
 
-2. (선택 사항) 복사가 완료된 후 *AzureImportExport* 폴더에 제공된 `AzureExpressDiskService.ps1`을 실행하여 유효성 검사에 대한 체크섬을 생성하는 것이 좋습니다. 데이터 크기에 따라 이 단계는 시간이 걸릴 수 있습니다. 
+2. (선택 사항) 복사가 완료된 후 *AzureImportExport* 폴더에 제공된 `AzureExpressDiskService.cmd`을 실행하여 유효성 검사에 대한 체크섬을 생성하는 것이 좋습니다. 데이터 크기에 따라 이 단계는 시간이 걸릴 수 있습니다. 
 3. 드라이브를 분리합니다. 
 
 
@@ -116,7 +112,6 @@ Data Box Disk 서비스가 이메일 알림을 보내고 Azure Portal에서 작�
     1. 모든 오류에 대한 오류 로그를 확인하고 적절한 조치를 수행합니다.
     2. 원본에서 데이터를 삭제하기 전에 데이터 저장소 계정에 있는지 확인합니다.
 
-
 ## <a name="clean-up-resources"></a>리소스 정리
 
 이 단계를 완료하려면 2-3분이 걸립니다.
@@ -131,7 +126,7 @@ Data Box Disk 서비스가 이메일 알림을 보내고 Azure Portal에서 작�
 
     주문을 삭제하려면 **개요**로 이동하고 명령 모음에서 **삭제**를 클릭합니다.
 
-## <a name="next-step"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 
 이 빠른 시작에서는 데이터를 Azure로 가져올 수 있도록 Azure Data Box Disk를 배포했습니다. Azure Data Box Disk 관리에 대해 자세히 알아보려면 다음 자습서로 진행합니다. 
 

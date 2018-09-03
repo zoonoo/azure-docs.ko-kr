@@ -1,26 +1,19 @@
 ---
-title: Jenkins로 Azure CLI 실행 | Microsoft Docs
+title: Jenkins로 Azure CLI 실행
 description: Azure CLI를 사용하여 Jenkins 파이프라인을 통해 Azure에 Java 웹앱을 배포하는 방법을 알아봅니다.
-services: app-service\web
-documentationcenter: ''
-author: mlearned
-manager: douge
-editor: ''
-ms.assetid: ''
 ms.service: jenkins
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: web
+keywords: Jenkins, Azure, DevOps, App Service, CLI
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 6/7/2017
-ms.author: mlearned
-ms.custom: Jenkins
-ms.openlocfilehash: 1796e9f76e39334c8bbdd03463a0f91e9b47cb17
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7d9565db8fe46ee26fafa7bd021d771e728e9a77
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421307"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43101615"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Jenkins 및 Azure CLI를 사용해 Azure App Service에 배포
 Azure에 Java 웹앱을 배포하기 위해 [Jenkins 파이프라인](https://jenkins.io/doc/book/pipeline/)에서 Azure CLI를 사용할 수 있습니다. 이 자습서에서는 Azure VM에서 CI/CD 파이프라인을 만들며 다음 방법이 포함됩니다.
@@ -57,7 +50,7 @@ sudo apt-get install -y maven
 Azure CLI를 실행하려면 Azure 자격 증명이 필요합니다.
 
 * Jenkins 대시보드 내에서 **자격 증명->시스템->** 을 클릭합니다. **전역 자격 증명(제한 없음)** 을 클릭합니다.
-* **자격 증명 추가**를 클릭한 다음 구독 ID, 클라이언트 ID, 클라이언트 암호 및 OAuth 2.0 토큰 끝점을 입력하여 [Microsoft Azure 서비스 주체](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)를 추가합니다. 이후 단계에서 사용할 ID를 제공합니다.
+* **자격 증명 추가**를 클릭한 다음 구독 ID, 클라이언트 ID, 클라이언트 암호 및 OAuth 2.0 토큰 엔드포인트를 입력하여 [Microsoft Azure 서비스 주체](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)를 추가합니다. 이후 단계에서 사용할 ID를 제공합니다.
 
 ![자격 증명 추가](./media/execute-cli-jenkins-pipeline/add-credentials.png)
 
@@ -122,7 +115,7 @@ az webapp create \
 
 ### <a name="configure-java"></a>Java 구성 
 
-[az appservice web config update](/cli/azure/appservice/web/config#az-appservice-web-config-update) 명령으로 앱에 필요한 Java 런타임 구성을 설정합니다.
+[az appservice web config update](/cli/azure/webapp/config#az-appservice-web-config-update) 명령으로 앱에 필요한 Java 런타임 구성을 설정합니다.
 
 다음 명령은 최근 Java 8 JDK 및 [Apache Tomcat](http://tomcat.apache.org/) 8.0에서 실행되도록 웹앱을 구성합니다.
 

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: aa0736452d7dc06c5a1a6c2710024a5fdc626af1
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 97009f526d405fe99fc732963e44c607f53018b6
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258714"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887819"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>자습서: Linux VM 관리 서비스 ID를 사용하여 액세스 키를 통해 Azure Storage 액세스
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-이 자습서에서는 Linux Virtual Machine에 대해 관리 서비스 ID를 사용하도록 설정한 다음, 해당 ID를 사용하여 저장소 계정 액세스 키를 검색하는 방법을 보여줍니다. Storage SDK를 사용하는 등의 저장소 작업을 수행할 때 일반적인 방식으로 저장소 액세스 키를 사용할 수 있습니다. 이 자습서의 경우 Azure CLI를 사용하여 Blob을 업로드하고 다운로드합니다. 다음 방법을 알게 됩니다.
+이 자습서에서는 Linux VM(가상 머신)에 대한 시스템 할당 ID를 사용하여 저장소 계정 액세스 키를 검색하는 방법을 보여 줍니다. Storage SDK를 사용하는 등의 저장소 작업을 수행할 때 일반적인 방식으로 저장소 액세스 키를 사용할 수 있습니다. 이 자습서의 경우 Azure CLI를 사용하여 Blob을 업로드하고 다운로드합니다. 다음 방법을 알게 됩니다.
 
 > [!div class="checklist"]
 > * Linux Virtual Machine에서 관리 서비스 ID를 사용하도록 설정 
@@ -38,34 +38,11 @@ ms.locfileid: "39258714"
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Azure에 로그인
-[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
+- [Azure Portal에 로그인](https://portal.azure.com)
 
+- [Linux 가상 머신 만들기](/azure/virtual-machines/linux/quick-create-portal)
 
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>새 리소스 그룹에 Linux 가상 머신 만들기
-
-이 자습서에서는 새 Linux VM을 만듭니다. 또한 기존 VM에서 관리 서비스 ID를 사용하도록 설정할 수 있습니다.
-
-1. Azure Portal의 왼쪽 위에 있는 **+/새 서비스 만들기** 단추를 클릭합니다.
-2. **Compute**를 선택한 후 **Ubuntu Server 16.04 LTS**를 선택합니다.
-3. 가상 머신 정보를 입력합니다. **인증 유형**으로 **SSH 공용 키** 또는 **암호**를 선택합니다. 생성된 자격 증명을 사용하면 VM에 로그인할 수 있습니다.
-
-    ![대체 이미지 텍스트](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
-
-4. 드롭다운에서 가상 머신의 **구독**을 선택합니다.
-5. 가상 머신을 만들 새 **리소스 그룹**을 선택하려면 **새로 만들기**를 선택합니다. 완료되면 **확인**을 클릭합니다.
-6. VM의 크기를 선택합니다. 더 많은 크기를 보려면 **모두 보기**를 선택하거나 지원되는 디스크 형식 필터를 변경합니다. 설정 블레이드에서 기본값을 그대로 유지하고 **확인**을 클릭합니다.
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>VM에서 관리 서비스 ID를 사용하도록 설정
-
-Virtual Machine 관리 서비스 ID를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure AD에서 액세스 토큰을 가져올 수 있습니다. VM에서 관리 서비스 ID를 사용하도록 설정하면 해당 관리 ID를 만들기 위해 VM이 Azure Active Directory에 등록되고, VM에서 ID가 구성되는 두 가지 작업이 수행됩니다.  
-
-1. 새 가상 머신의 리소스 그룹을 찾고 이전 단계에서 만든 가상 머신을 선택합니다.
-2. 왼쪽에 있는 VM “설정”에서 **구성**을 클릭합니다.
-3. 관리 서비스 ID를 등록하고 사용하도록 설정하려면 **예**를 선택하고, 사용하지 않도록 설정하려면 아니요를 선택합니다.
-4. **저장**을 클릭하여 구성을 저장합니다.
-
-    ![대체 이미지 텍스트](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+- [가상 머신에서 시스템 할당 ID를 사용하도록 설정](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기 
 

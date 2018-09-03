@@ -1,5 +1,5 @@
 ---
-title: Azure Data Box 포털 관리자 가이드 | Microsoft Docs
+title: Azure Data Box Disk 포털 관리자 가이드 | Microsoft Docs
 description: Azure Portal을 사용하여 Azure Data Box를 관리하는 방법을 설명합니다.
 services: databox
 documentationcenter: NA
@@ -13,16 +13,16 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/10/2018
+ms.date: 08/28/2018
 ms.author: alkohli
-ms.openlocfilehash: c76d8bc6af808fd1257e44ad296e3e2d65b8695d
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 7bf88a4e9d7af1033f014939d95783f9430dd84a
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238117"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124966"
 ---
-# <a name="use-azure-portal-to-administer-your-data-box-preview"></a>Azure Portal을 사용하여 Data Box 관리(미리 보기)
+# <a name="use-azure-portal-to-administer-your-data-box-disk-preview"></a>Azure Portal을 사용하여 Data Box Disk 관리(미리 보기)
 
 이 문서의 자습서는 미리 보기 기간 동안 Microsoft Azure Data Box Disk에 적용됩니다. 이 문서는 Data Box Disk에서 수행할 수 있는 복잡한 워크플로 및 관리 작업 중 일부를 설명합니다. 
 

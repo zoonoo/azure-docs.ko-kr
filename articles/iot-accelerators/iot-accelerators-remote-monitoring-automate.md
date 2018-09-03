@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: d94f8d38ef771bd5ab03f4d3cef25233c33e7546
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 6759568a678394f7cec4ac9f0bdd99d8ed1db9de
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282620"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886793"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>자습서: 모니터링 솔루션에 연결된 장치를 사용하여 문제 검색
 
@@ -33,7 +33,7 @@ ms.locfileid: "39282620"
 > * 기존 규칙 편집
 > * 규칙 설정 및 해제 전환
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
@@ -112,11 +112,23 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="disable-a-rule"></a>규칙 사용 안 함
 
-규칙을 일시적으로 해제하기 위해 규칙 목록에서 비활성화할 수 있습니다. 비활성화할 규칙을 선택한 다음 **사용 안 함**을 선택합니다. 목록에서 규칙의 **상태**가 규칙이 이제 비활성화됨을 나타내기 위해 변경됩니다. 동일한 절차를 사용하여 이전에 비활성화한 규칙을 다시 활성화할 수 있습니다.
+규칙을 일시적으로 해제하기 위해 규칙 목록에서 비활성화할 수 있습니다. 사용하지 않도록 설정할 규칙을 선택한 다음, **사용 안 함**을 선택합니다. 목록에서 규칙의 **상태**가 규칙이 이제 비활성화됨을 나타내기 위해 변경됩니다. 동일한 절차를 사용하여 이전에 비활성화한 규칙을 다시 활성화할 수 있습니다.
 
 [![규칙 사용 안 함](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-expanded.png#lightbox)
 
 목록에서 여러 규칙을 선택하여 동시에 여러 규칙을 활성화 및 비활성화할 수 있습니다.
+
+## <a name="delete-a-rule"></a>규칙 삭제
+
+규칙을 영구적으로 삭제하려면 규칙 목록에서 삭제하면 됩니다. 사용하지 않도록 설정할 규칙을 선택한 다음, **사용 안 함**을 선택합니다.
+
+[![규칙 삭제](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
+
+규칙을 삭제할지 확인한 후에는 **유지 관리** 페이지에서 해당 규칙과 관련된 모든 경고를 삭제할 수 있습니다.
+
+[![규칙 삭제](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdeletetidy-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdeletetidy-expanded.png#lightbox)
+
+한 번에 하나의 규칙만 삭제할 수 있습니다.
 
 [!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 

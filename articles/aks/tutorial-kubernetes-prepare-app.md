@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 7bf3b5f8eb066428b382b9b2e742b919595bdffc
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: b2bb187e5ad55b466da0b9b06ffbb047ac539717
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41918652"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105002"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에 대한 응용 프로그램 준비
 
@@ -96,7 +96,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-응용 프로그램 기능의 유효성을 검사했으므로 실행 중인 컨테이너를 중지하고 제거할 수 있습니다. 컨테이너 이미지를 삭제하지 마세요. 그 다음 자습서에서 *azure-vote-front* 이미지를 Azure Container Registry 인스턴스에 업로드할 것입니다.
+응용 프로그램 기능의 유효성을 검사했으므로 실행 중인 컨테이너를 중지하고 제거할 수 있습니다. 컨테이너 이미지는 삭제하지 마세요. 다음 자습서에서 *azure-vote-front* 이미지가 Azure Container Registry 인스턴스에 업로드됩니다.
 
 [docker-compose down][docker-compose-down] 명령을 사용하여 컨테이너 인스턴스 및 리소스를 중지하고 제거합니다.
 

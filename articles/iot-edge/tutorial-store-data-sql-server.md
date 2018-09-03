@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/26/2018
+ms.date: 08/22/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1bd6f048682b93e3dfa1e19f6b3c50bff2ed232e
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 7e02caf9706a5127d3729256fcc238f467eb2991
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "41918369"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143503"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>자습서: SQL Server 데이터베이스로 에지에 데이터 저장
 
@@ -73,7 +73,7 @@ Azure IoT Edge 장치:
 다음 단계는 Visual Studio Code 및 Azure IoT Edge 확장을 사용하여 IoT Edge 함수를 만드는 방법을 보여 줍니다.
 
 1. Visual Studio Code를 엽니다.
-2. **보기** > **통합된 터미널**을 선택하여 VS Code 통합 터미널을 엽니다.
+2. **보기** > **터미널**을 차례로 선택하여 VS Code 통합 터미널을 엽니다.
 3. **보기** > **명령 팔레트**를 차례로 선택하여 VS Code 명령 팔레트를 엽니다.
 4. 명령 팔레트에서 **Azure: 로그인** 명령을 입력 및 실행하고, 지침에 따라 Azure 계정에 로그인합니다. 이미 로그인한 경우 이 단계는 건너뛸 수 있습니다.
 3. 명령 팔레트에서 **Azure IoT Edge: 새 IoT Edge 솔루션** 명령을 입력하고 실행합니다. 명령 팔레트에서 다음 정보를 제공하여 솔루션을 만듭니다. 
@@ -253,15 +253,15 @@ IoT Hub를 통해 장치에서 모듈을 설정할 수 있지만 Visual Studio C
 2. 표시되는 메시지에 따라 Azure 계정에 로그인합니다. 
 3. 명령 팔레트에서 Azure 구독을 선택한 다음, IoT Hub를 선택합니다. 
 4. VS Code 탐색기에서 **Azure IoT Hub 장치** 섹션을 펼칩니다. 
-5. 배포에서 대상으로 지정하려는 장치를 마우스 오른쪽 단추로 클릭하고, **IoT Edge 장치에 대한 배포 만들기**를 선택합니다. 
+5. 배포에서 대상으로 지정하려는 장치를 마우스 오른쪽 단추로 클릭하고, **단일 장치 배포 만들기**를 선택합니다. 
 6. 파일 탐색기에서는 솔루션 내의 **config** 폴더로 이동하고, **deployment.json**을 선택합니다. **에지 배포 매니페스트 선택**을 클릭합니다. 
 
 배포가 성공하는 경우 VS Code 출력에 확인 메시지가 출력됩니다. 모든 모듈이 장치에서 실행되는지를 확인할 수도 있습니다. 
 
 IoT Edge 장치에서 다음 명령을 실행하여 모듈의 상태를 확인합니다. 몇 분이 걸릴 수 있습니다.
 
-   ```bash
-   sudo iotedge list
+   ```PowerShell
+   iotedge list
    ```
 
 ## <a name="create-the-sql-database"></a>SQL 데이터베이스 만들기

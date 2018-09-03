@@ -12,18 +12,19 @@ ms.topic: tutorial
 ms.date: 03/30/2018
 ms.author: dech
 ms.custom: mvc
-ms.openlocfilehash: 43092a12535ed18a5c91f924e3fdf72ad6d47d7b
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: ea8bb1db53deaa546f4174ddc04d9a270aa96d9a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41920357"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43187786"
 ---
-# <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: 데이터 마이그레이션 도구
+# <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>데이터 마이그레이션 도구를 사용하여 Azure Cosmos DB로 데이터 마이그레이션 
 
 이 자습서에서는 다양한 원본에서 Azure Cosmos DB 컬렉션 및 테이블로 데이터를 가져올 수 있는 Azure Cosmos DB 데이터 마이그레이션 도구를 사용하는 지침을 제공합니다. JSON 파일, CSV 파일, SQL, MongoDB, Azure Table Storage, Amazon DynamoDB 및 Azure Cosmos DB SQL API 컬렉션에서 데이터를 가져올 수 있습니다. 또한 해당 데이터를 Azure Cosmos DB와 함께 사용할 컬렉션 및 테이블로 마이그레이션할 수 있습니다. 또한 데이터 마이그레이션 도구는 단일 파티션 컬렉션에서 SQL API용 다중 파티션 컬렉션으로 마이그레이션하는 경우에도 사용할 수 있습니다.
 
 Azure Cosmos DB와 함께 사용할 API는 무엇인가요? 
+
 * **[SQL API](documentdb-introduction.md)** - 데이터 마이그레이션 도구에서 제공되는 원본 옵션 중 하나를 사용하여 데이터를 가져올 수 있습니다.
 * **[Table API](table-introduction.md)** - 데이터 마이그레이션 도구 또는 AzCopy를 사용하여 데이터를 가져올 수 있습니다. 자세한 정보는 [Azure Cosmos DB Table API와 함께 사용할 데이터 가져오기](table-import.md)를 참조하세요.
 * **[MongoDB API](mongodb-introduction.md)** - 데이터 마이그레이션 도구는 현재 원본 또는 대상으로 Azure Cosmos DB MongoDB API를 지원하지 않습니다. Azure Cosmos DB의 MongoDB API 컬렉션에서 데이터를 마이그레이션하거나 내보내려는 경우 자세한 내용은 [Azure Cosmos DB: MongoDB API에 대한 데이터를 마이그레이션하는 방법](mongodb-migrate.md)을 참조하세요. 데이터 마이그레이션 도구를 사용하여 SQL API와 함께 사용할 수 있도록 MongoDB에서 Azure Cosmos DB SQL API 컬렉션으로 데이터를 내보낼 수 있습니다. 
@@ -77,8 +78,8 @@ Azure Cosmos DB와 함께 사용할 API는 무엇인가요?
 * [Blob](#BlobImport)
 * [Azure Cosmos DB 컬렉션](#SQLSource)
 * [HBase](#HBaseSource)
-* [Azure Cosmos DB 대량 가져오기](#SQLBulkImport)
-* [Azure Cosmos DB 순차 레코드 가져오기](#DocumentDSeqTarget)
+* [Azure Cosmos DB 대량 가져오기](#SQLBulkTarget)
+* [Azure Cosmos DB 순차 레코드 가져오기](#SQLSeqTarget)
 
 
 ## <a id="JSON"></a>JSON 파일 가져오기

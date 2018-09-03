@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 04/06/2018
+ms.date: 08/22/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d404e3a300a953ccc1cfb691cbde6f6d7ee54b26
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f1c933c9dcb3e3e2c2cb267073386d4b9c4e2022
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216311"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746021"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch를 사용하여 대규모 병렬 계산 솔루션 개발
 
@@ -288,7 +288,7 @@ Batch에서 만드는 작업에 우선 순위를 할당할 수 있습니다. Bat
 기존 풀에 시작 태스크를 추가하거나 업데이트하는 경우 노드에 적용할 시작 태스크에 대한 해당 계산 노드를 다시 부팅해야 합니다.
 
 >[!NOTE]
-> 리소스 파일 및 환경 변수를 포함한 시작 태스크의 전체 크기는 32768자 이하여야 합니다. 시작 태스크가 이러한 요구 사항을 충족하도록 하려면 두 가지 방법 중 하나를 사용할 수 있습니다.
+> Batch는 리소스 파일과 환경 변수가 포함된 시작 태스크의 전체 크기를 제한합니다. 시작 태스크의 크기를 줄이려면 다음 두 가지 방법 중 하나를 사용할 수 있습니다.
 >
 > 1. 응용 프로그램 패키지를 사용하여 Batch 풀의 각 노드에 응용 프로그램 또는 데이터를 배포할 수 있습니다. 응용 프로그램 패키지에 대한 자세한 내용은 [Batch 응용 프로그램 패키지를 사용하여 계산 노드에 응용 프로그램 배포](batch-application-packages.md)를 참조하세요.
 > 2. 응용 프로그램 파일이 포함된 압축 보관 파일을 수동으로 만들 수 있습니다. 압축 보관 파일을 Azure Storage에 BLOB으로 업로드하세요. 압축 보관 파일을 시작 작업에 대한 리소스 파일로 지정합니다. 시작 작업을 위해 명령줄을 실행하기 전에 명령줄에서 보관 파일의 압축을 푸세요. 

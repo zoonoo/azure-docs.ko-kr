@@ -9,12 +9,12 @@ ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 05c30504eb9b4440694f78ee979d4b25f30f65dc
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6246e951cb9b1e0b4dac656fef6acf8027e79271
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237967"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126554"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>자습서: PowerShell 및 토픽/구독을 사용하여 재고 업데이트
 
@@ -32,7 +32,7 @@ Microsoft Azure Service Bus는 응용 프로그램과 서비스 간에 정보를
 
 이 시나리오의 예는 여러 소매점에 대한 재고 분류 업데이트입니다. 이 시나리오에서 각 상점 또는 상점 집합은 해당 분류를 업데이트하기 위한 메시지를 받습니다. 이 자습서에서는 구독과 필터를 사용하여 이 시나리오를 구현하는 방법을 보여 줍니다. 먼저 3개의 구독이 포함된 토픽을 만들고. 몇 가지 규칙과 필터를 추가한 다음, 토픽과 구독에서 메시지를 보내고 받습니다.
 
-![큐](./media/service-bus-quickstart-powershell/quick-start-queue.png)
+![토픽](./media/service-bus-tutorial-topics-subscriptions-powershell/about-service-bus-topic.png)
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 만듭니다.
 
@@ -47,9 +47,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 �
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-다음 명령을 실행하여 Azure에 로그온합니다. Cloud Shell에서 PowerShell 명령을 실행하는 경우에는 다음 단계가 필요하지 않습니다. 
+다음 명령을 실행하여 Azure에 로그인합니다. Cloud Shell에서 PowerShell 명령을 실행하는 경우에는 다음 단계가 필요하지 않습니다. 
 
 1. Service Bus PowerShell 모듈을 설치합니다.
 

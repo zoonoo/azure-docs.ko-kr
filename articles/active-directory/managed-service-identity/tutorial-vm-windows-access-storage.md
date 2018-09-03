@@ -14,22 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2018
 ms.author: daveba
-ms.openlocfilehash: e001907b9df77eff1455043a3fd7ce5533838fcc
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 0781bf3fe9806c2c8aaa911433c4d6eddcafe04c
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056177"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885496"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-identity-to-access-azure-storage"></a>자습서: Windows VM 관리 ID를 사용하여 Azure Storage에 액세스
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-이 자습서에서는 Windows 가상 머신에 대해 관리 ID를 사용하도록 설정하고, 해당 ID를 사용하여 Azure Storage에 액세스하는 방법을 보여줍니다.  다음 방법에 대해 알아봅니다.
+이 자습서에서는 Windows VM(가상 머신)에 대한 시스템 할당 ID를 사용하여 Azure Storage에 액세스하는 방법을 보여 줍니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 새 리소스 그룹에 Windows 가상 머신 만들기 
-> * Windows VM(가상 머신)에서 관리 ID를 사용하도록 설정
 > * 저장소 계정에 Blob 컨테이너 만들기
 > * 저장소 계정에 Windows VM의 관리 ID 액세스 부여 
 > * 액세스 가져오기 및 액세스를 사용하여 Azure Storage 호출 
@@ -43,31 +41,11 @@ ms.locfileid: "39056177"
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Azure에 로그인
+- [Azure Portal에 로그인](https://portal.azure.com)
 
-[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
+- [Windows 가상 머신 만들기](/azure/virtual-machines/windows/quick-create-portal)
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>새 리소스 그룹에 Windows 가상 머신 만들기
-
-이 섹션에서는 나중에 관리 ID를 부여한 Windows VM을 만듭니다.
-
-1.  Azure Portal의 왼쪽 위에 있는 **+/새 서비스 만들기** 단추를 클릭합니다.
-2.  **Compute**를 선택한 후 **Windows Server 2016 Datacenter**를 선택합니다. 
-3.  가상 머신 정보를 입력합니다. 여기서 만드는 **사용자 이름** 및 **암호**는 가상 머신에 로그인하는 데 사용하는 자격 증명입니다.
-4.  드롭다운에서 가상 머신의 적절한 **구독**을 선택합니다.
-5.  가상 머신을 만들 새 **리소스 그룹**을 선택하려면 **새로 만들기**를 선택합니다. 완료되면 **확인**을 클릭합니다.
-6.  VM의 크기를 선택합니다. 더 많은 크기를 보려면 **모두 보기**를 선택하거나 **지원되는 디스크 형식** 필터를 변경합니다. 설정 블레이드에서 기본값을 그대로 유지하고 **확인**을 클릭합니다.
-
-    ![대체 이미지 텍스트](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-identity-on-your-vm"></a>VM에서 관리 ID 활성화
-
-가상 머신 관리 ID를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure AD에서 액세스 토큰을 가져올 수 있습니다. 내부적으로 Azure Portal을 통해 가상 머신에서 관리 ID를 사용하도록 설정하면 두 가지 작업이 수행됩니다. 즉, VM이 Azure AD에 등록되어 관리 ID를 생성하고, 해당 VM에서 ID가 구성됩니다. 
-
-1. 새 가상 머신의 리소스 그룹을 찾고 이전 단계에서 만든 가상 머신을 선택합니다.
-2. **설정** 범주 아래에서 **구성**을 클릭합니다.
-3. 관리 ID를 활성화하려면 **예**를 선택합니다.
-4. **저장**을 클릭하여 구성을 적용합니다. 
+- [가상 머신에서 시스템 할당 ID를 사용하도록 설정](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기 
 

@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/13/2017
+ms.date: 08/24/2018
 ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 31c1ba30eaff66016202888f8488b0e9e2bdc679
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 63e65ffc17ba71a5d2cf00cb5f04e3e0f87c1bfe
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439054"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43184383"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Azure에서 Node.js 웹앱 만들기
 
@@ -33,8 +33,6 @@ ms.locfileid: "39439054"
 ![Azure에서 실행되는 샘플 앱](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
 Mac, Windows 또는 Linux 컴퓨터를 사용하여 여기서 설명하는 단계를 수행하면 됩니다. 필수 구성 요소가 설치된 후 단계를 완료하는 데는 약 5분 정도 걸립니다.   
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-Node-Developers/Create-a-Nodejs-app-in-Azure-Quickstart/player]   
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -52,7 +50,7 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 여기서 설명하는 단�
 
 ## <a name="run-the-app-locally"></a>로컬에서 앱 실행
 
-Node.js HTTP 서버에서 기본 제공을 시작하려면 터미널 창을 열고 `npm start` 스크립트를 사용하여 응용 프로그램을 로컬로 실행합니다.
+응용 프로그램을 로컬로 실행하여 Azure에 응용 프로그램을 배포할 때 표시되는 모양을 확인합니다. 터미널 창을 열고 `npm start` 스크립트를 사용하여 기본 제공 Node.js HTTP 서버를 시작합니다.
 
 ```bash
 npm start
@@ -65,6 +63,9 @@ npm start
 ![로컬로 실행되는 샘플 앱](media/app-service-web-get-started-nodejs-poc/localhost-hello-world-in-browser.png)
 
 터미널 창에서 **Ctrl+C**를 눌러 웹 서버를 종료합니다.
+
+> [!NOTE]
+> Azure App Service에서 앱은 [iisnode](https://github.com/tjanczuk/iisnode)를 사용하여 IIS에서 실행됩니다. iisnode를 통해 앱을 실행하도록 설정하려면 루트 앱 디렉터리 web.config 파일이 있어야 합니다. 이 파일은 IIS에서 읽을 수 있으며, iisnode 관련 설정은 [iisnode GitHub 리포지토리](https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/web.config)에 설명되어 있습니다.
 
 [!INCLUDE [Create ZIP file](../../includes/app-service-web-create-zip.md)]
 
@@ -166,6 +167,12 @@ Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
 ![Azure Portal의 App Service 페이지](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
 왼쪽 메뉴는 앱 구성을 위한 다양한 페이지를 제공합니다. 
+
+## <a name="video"></a>비디오
+
+비디오를 시청하여 이 빠른 시작의 작동 방식을 확인한 다음, 단계에 따라 첫 번째 .Node.js 앱을 Azure에 직접 게시해 보세요.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-Node-Developers/Create-a-Nodejs-app-in-Azure-Quickstart/player]   
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

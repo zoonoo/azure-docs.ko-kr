@@ -4,15 +4,15 @@ description: Azure Migrate 서비스를 사용하여 Azure로의 마이그레이
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/20/2018
+ms.date: 08/20/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: fab8e4f09062f671714dabd1dae86a1979e356d2
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 65f1d6b448e6c0f16d51e1a4b8b897f52052ff15
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172350"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127633"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Azure로의 마이그레이션에 대한 온-프레미스 VMware VM 검색 및 평가
 
@@ -49,7 +49,7 @@ Azure Migrate에서 평가를 위해 VM을 자동으로 검색하려면 VMware �
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure 포털](https://portal.azure.com) 에 로그인합니다.
+[Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 ## <a name="create-a-project"></a>프로젝트 만들기
 
@@ -151,7 +151,7 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
     - VM이 프록시를 통해 인터넷에 액세스하는 경우 **프록시 설정**을 클릭하고, 프록시 주소 및 수신 대기 포트를 지정합니다. 프록시에 인증이 필요한 경우 자격 증명을 지정합니다. 인터넷 연결 요구 사항 및 수집기가 액세스하는 URL 목록에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity).
 
     > [!NOTE]
-    > 프록시 주소는 http://ProxyIPAddress 또는 http://ProxyFQDN 형식으로 입력해야 합니다. HTTP 프록시만 지원됩니다.
+    > 프록시 주소는 http://ProxyIPAddress 또는 http://ProxyFQDN 형식으로 입력해야 합니다. HTTP 프록시만 지원됩니다. 가로채는 프록시가 있는 경우 프록시 인증서를 가져오지 않으면 인터넷 연결이 처음 실패할 수 있습니다. 수집기 VM에서 프록시 인증서를 신뢰할 수 있는 인증서로 가져와서 이 문제를 해결할 수 있는 방법에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy).
 
     - 수집기는 collectorservice가 실행 중인지 확인합니다. 서비스는 수집기 VM에 기본적으로 설치됩니다.
     - VMware PowerCLI를 다운로드하여 설치합니다.

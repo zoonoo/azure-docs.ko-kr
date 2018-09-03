@@ -10,15 +10,15 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/15/2018
-ms.openlocfilehash: 4d2714305f1852a91614ce29ec5e74f489487c5a
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.date: 08/24/2018
+ms.openlocfilehash: dbf71b1fcc15743f4670c4072921f1a167a90e97
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41919558"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887305"
 ---
-# <a name="migrate-sql-server-to-azure-sql-database-managed-instance-using-dms"></a>DMS를 사용하여 Azure SQL Database Managed Instance로 SQL Server 마이그레이션
+# <a name="migrate-sql-server-to-azure-sql-database-managed-instance-offline-using-dms"></a>DMS를 사용하여 SQL Server를 Azure SQL Database Managed Instance로 오프라인으로 마이그레이션
 Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인스턴스에서 [Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance.md)로 마이그레이션할 수 있습니다. 수동 작업이 필요한 추가적인 방법은 [SQL Server 인스턴스를 Azure SQL Database Managed Instance로 마이그레이션](../sql-database/sql-database-managed-instance-migrate.md) 문서를 참조하세요.
 
 > [!IMPORTANT]
@@ -37,13 +37,12 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 완료하려면 다음이 필요합니다.
 
-- Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service용 VNET을 만듭니다. 이를 통해 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 온-프레미스 원본 서버에서 사이트 간 연결을 제공합니다. 
-  [Azure Database Migration Service를 사용한 Azure SQL DB Managed Instance 마이그레이션에 대한 네트워크 토폴로지에 대해 알아봅니다](https://aka.ms/dmsnetworkformi).
+- Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service용 VNET을 만듭니다. 이를 통해 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 온-프레미스 원본 서버에서 사이트 간 연결을 제공합니다. [Azure Database Migration Service를 사용한 Azure SQL DB Managed Instance 마이그레이션에 대한 네트워크 토폴로지에 대해 알아봅니다](https://aka.ms/dmsnetworkformi).
 - Azure VNET(Virtual Network) 네트워크 보안 그룹 규칙이 443, 53, 9354, 445, 12000과 같은 통신 포트를 차단하지 않는지 확인합니다. Azure VNET NSG 트래픽 필터링에 대한 자세한 정보는 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 문서를 참조하세요.
 - [소스 데이터베이스 엔진 액세스를 위한 Windows 방화벽](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성합니다.
 - Azure Database Migration Service가 기본적으로 TCP 포트 1433인 원본 SQL Server에 액세스하도록 허용하려면 Windows 방화벽을 엽니다.
-- 동적 포트를 사용하여 명명된 여러 SQL Server 인스턴스를 실행하는 경우 SQL Browser 서비스를 사용하도록 설정하고 Azure Database Migration Service가 원본 서버에서 명명된 인스턴스에 연결할 수 있도록 방화벽을 통해 UDP 포트 1434에 액세스할 수 있습니다.
-- 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우, Azure Database Migration Service가 마이그레이션을 위해 SMB 포트 445를 통한 파일뿐만 아니라 원본 데이터베이스에 액세스할 수 있게 허용하는 방화벽 규칙을 추가해야 합니다.
+- 동적 포트를 사용하여 명명된 여러 SQL Server 인스턴스를 실행하는 경우, SQL Browser 서비스를 사용하도록 설정하고 방화벽을 통해 1434 UDP 포트에 액세스하도록 허용하여 Azure Database Migration Service가 원본 서버에서 명명된 인스턴스에 연결할 수 있습니다.
+- 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우, Azure Database Migration Service에서 마이그레이션을 위해 445 SMB 포트를 통해 파일뿐만 아니라 원본 데이터베이스에 액세스할 수 있도록 허용하는 방화벽 규칙을 추가해야 합니다.
 - [Azure Portal에서 Azure SQL Database Managed Instance 만들기](https://aka.ms/sqldbmi) 문서의 세부 지침에 따라 Azure SQL Database Managed Instance를 만듭니다.
 - 원본 SQL Server와 대상 Managed Instance를 연결하는 데 사용되는 로그인이 sysadmin 서버 역할의 구성원인지 확인합니다.
 - Azure Database Migration Service가 원본 데이터베이스를 백업하는 데 사용할 수 있는 네트워크 공유를 만듭니다.
@@ -53,7 +52,7 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Microsoft.DataMigration 리소스 공급자 등록
 
-1. Azure Portal에 로그인하고 **모든 서비스**를 선택한 후 **구독**을 선택합니다.
+1. Azure Portal에 로그인하고, **모든 서비스**를 선택한 다음, **구독**을 선택합니다.
 
     ![포털 구독 표시](media\tutorial-sql-server-to-managed-instance\portal-select-subscriptions.png)        
 
@@ -101,7 +100,7 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
 
 1. Azure Portal에서 **모든 서비스**를 선택하고, Azure Database Migration Service를 검색하고 나서, **Azure Database Migration Services**를 선택합니다.
 
-    ![Azure Database Migration Service의 모든 인스턴스 찾기](media\tutorial-sql-server-to-azure-sql\dms-search.png)
+    ![Azure Database Migration Service의 모든 인스턴스 찾기](media\tutorial-sql-server-to-managed-instance\dms-search.png)
 
 2. **Azure Database Migration Services** 화면에서 방금 만든 인스턴스를 검색하고 인스턴스를 선택합니다.
  
@@ -119,7 +118,7 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
 
 2. 서버에 신뢰할 수 있는 인증서가 설치되지 않은 경우 **서버 인증서 신뢰** 확인란을 선택합니다.
 
-    신뢰할 수 있는 인증서가 설치되지 않은 경우 인스턴스가 시작될 때SQL Server가 자체 서명 인증서를 생성합니다. 이 인증서는 클라이언트 연결에 대한 자격 증명을 암호화하는 데 사용됩니다.
+    신뢰할 수 있는 인증서가 설치되어 있지 않으면 인스턴스가 시작될 때 SQL Server에서 자체 서명 인증서를 생성합니다. 이 인증서는 클라이언트 연결에 대한 자격 증명을 암호화하는 데 사용됩니다.
 
     > [!CAUTION]
     > 자체 서명 인증서를 사용하여 암호화된 SSL 연결은 강력한 보안을 제공하지 않습니다. 메시지 가로채기(man-in-the-middle) 공격을 받기 쉽습니다. 프로덕션 환경이나 인터넷에 연결된 서버에서 자체 서명 인증서를 사용하는 SSL을 신뢰해서는 안 됩니다.
@@ -136,7 +135,7 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
 
 ## <a name="specify-target-details"></a>대상 세부 정보 지정
 
-1.  **마이그레이션 대상 세부 정보** 화면에서 대상에 대한 연결 세부 정보를 지정합니다. 대상은 **AdventureWorks2012** 데이터베이스가 마이그레이션될 미리 프로비전된 Azure SQL Database Managed Instance입니다.
+1.  **마이그레이션 대상 세부 정보** 화면에서 대상에 대한 연결 세부 정보를 지정합니다. 이 대상은 **AdventureWorks2012** 데이터베이스를 마이그레이션할 미리 프로비전된 Azure SQL Database Managed Instance입니다.
 
     Azure SQL Database Managed Instance를 아직 프로비저닝하지 않은 경우 인스턴스를 프로비저닝하는 데 도움이 되는 링크에 대해 **아니요**를 선택합니다. 프로젝트 생성은 계속 진행할 수 있으며, Azure SQL Database Managed Instance가 준비되면 이 특정 프로젝트로 돌아가서 마이그레이션을 실행합니다.   
  
@@ -169,9 +168,9 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
 
     | | |
     |--------|---------|
-    |**원본 백업 옵션 선택** | DMS가 데이터베이스 마이그레이션에 사용할 수 있는 전체 백업 파일이 이미 있으면 **최신 백업 파일을 제공합니다** 옵션을 선택합니다. DMS가 원본 데이터베이스 전체 백업을 만들어서 마이그레이션에 사용하게 하려면 **Azure Database Migration Service를 통해 백업 파일을 만들려고 합니다** 옵션을 선택합니다. |
+    |**원본 백업 옵션 선택** | DMS가 데이터베이스 마이그레이션에 사용할 수 있는 전체 백업 파일이 이미 있으면 **최신 백업 파일을 제공합니다** 옵션을 선택합니다. DMS에서 원본 데이터베이스 전체 백업을 처음으로 수행하고 마이그레이션에 이 백업을 사용하도록 하려면 **Azure Database Migration Service를 통해 백업 파일을 만들려고 합니다** 옵션을 선택합니다. |
     |**네트워크 위치 공유** | Azure Database Migration Service가 원본 데이터베이스를 백업하는 데 사용할 수 있는 로컬 SMB 네트워크 공유입니다. 원본 SQL Server 인스턴스를 실행하는 서비스 계정에는 이 네트워크 공유에 대한 쓰기 권한이 있어야 합니다. 네트워크 공유에 있는 서버의 FQDN 또는 IP 주소를 입력합니다(예: '\\\servername.domainname.com\backupfolder' 또는 '\\\IP address\backupfolder').|
-    |**사용자 이름** | Windows 사용자가 위에서 입력한 네트워크 공유에 대한 전체 제어 권한을 갖고 있는지 확인합니다. Azure Database Migration Service는 사용자 자격 증명을 가장하여 복원 작업을 위한 Azure Storage 컨테이너에 백업 파일을 업로드합니다. TDE 가능 데이터베이스를 마이그레이션하기로 선택하는 경우 인증서 파일을 업로드하고 삭제할 수 있도록 위의 Windows 사용자가 기본 제공 관리자 계정이어야 하고, Azure Database Migration Service에 [사용자 계정 컨트롤](https://docs.microsoft.com/en-us/windows/security/identity-protection/user-account-control/user-account-control-overview)을 사용하지 않도록 설정해야 합니다. |
+    |**사용자 이름** | Windows 사용자가 위에서 입력한 네트워크 공유에 대한 전체 제어 권한을 갖고 있는지 확인합니다. Azure Database Migration Service는 사용자 자격 증명을 가장하여 복원 작업을 위한 Azure Storage 컨테이너에 백업 파일을 업로드합니다. TDE 가능 데이터베이스를 마이그레이션하기로 선택하는 경우 인증서 파일을 업로드하고 삭제할 수 있도록 위의 Windows 사용자가 기본 제공 관리자 계정이어야 하고, Azure Database Migration Service에 [사용자 계정 컨트롤](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/user-account-control-overview)을 사용하지 않도록 설정해야 합니다. |
     |**암호** | 사용자에 대한 암호입니다. |
     |**저장소 계정 설정** | Azure SQL Database Managed Instance로 데이터베이스를 마이그레이션하는 데 사용되며 백업 파일을 업로드하는 저장소 계정 컨테이너에 대한 액세스 권한이 있는 Azure Database Migration Service를 제공하는 SAS URI입니다. [Blob 컨테이너에 대한 SAS URI를 가져오는 방법을 알아봅니다](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).|
     |**TDE 설정** | TDE(투명한 데이터 암호화)가 설정된 원본 데이터베이스를 마이그레이션하려면 대상 Azure SQL DB Managed Instance에 대한 쓰기 권한이 필요합니다.  드롭다운 메뉴에서 Azure SQL DB Managed Instance가 프로비전되는 구독을 선택합니다.  드롭다운 메뉴에서 대상 Azure SQL DB Managed Instance 인스턴스를 선택합니다. |

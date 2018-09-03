@@ -6,15 +6,15 @@ author: zjalexander
 ms.service: automation
 ms.component: update-management
 ms.topic: tutorial
-ms.date: 02/28/2018
+ms.date: 08/29/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 4d5222889d5e840bd03bf77a56584dac48bb740c
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 8458aaee9f8d328d959fb47fb3e32af176d545b1
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41920361"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247371"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Azure Automation을 사용하여 Windows 업데이트 관리
 
@@ -82,9 +82,19 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 ## <a name="configure-alerts"></a>경고 구성
 
-이 단계에서는 업데이트가 성공적으로 배포되면 그 사실을 알려주는 경고를 설정합니다. 여기서 만드는 경고는 Log Analytics 쿼리를 기반으로 합니다. 다양한 시나리오를 포함하도록 추가 경고에 대한 사용자 지정 쿼리를 작성할 수 있습니다. Azure Portal에서 **모니터**로 이동한 다음, **경고 만들기**를 선택합니다. 
+이 단계에서는 Log Analytics 쿼리를 통하거나 마스터 런타임에서 실패한 배포에 대한 업데이트 관리를 추적하여 업데이트가 성공적으로 배포되었는지 알려주는 경고를 설정합니다.
 
-**규칙 만들기**의 **1 이하입니다. 경고 조건**을 정의하고 **대상 선택**을 선택합니다. **리소스 종류별로 필터링**에서 **Log Analytics**를 선택합니다. Log Analytics 작업 영역을 선택한 다음, **완료**를 선택합니다.
+### <a name="alert-conditions"></a>경고 조건
+
+각 경고 유형에는 정의해야 할 다양한 경고 조건이 있습니다.
+
+#### <a name="log-analytics-query-alert"></a>Log Analytics 쿼리 경고
+
+성공적인 배포의 경우 Log Analytics 쿼리를 기반으로 하는 경고를 만들 수 있습니다. 실패한 배포의 경우 [Runbook 경고](#runbook-alert) 단계를 사용하여 오케스트레이터에서 배포를 업데이트하는 마스터 Runbook에 오류가 발생할 때 이를 알릴 수 있습니다. 다양한 시나리오를 포함하도록 추가 경고에 대한 사용자 지정 쿼리를 작성할 수 있습니다.
+
+Azure Portal에서 **모니터**로 이동한 다음, **경고 만들기**를 선택합니다.
+
+**1. 경고 조건 정의** 아래에서 **대상 선택**을 클릭합니다. **리소스 종류별로 필터링**에서 **Log Analytics**를 선택합니다. Log Analytics 작업 영역을 선택한 다음, **완료**를 선택합니다.
 
 ![경고 만들기](./media/automation-tutorial-update-management/create-alert.png)
 
@@ -104,7 +114,21 @@ UpdateRunProgress
 
 ![신호 논리 구성](./media/automation-tutorial-update-management/signal-logic.png)
 
-**2. 경고 세부 정보**를 정의하고 경고의 이름과 설명을 입력합니다. 실행 성공에 대한 경고이므로 **심각도**를 **정보(심각도 2)** 로 설정합니다.
+#### <a name="runbook-alert"></a>Runbook 경고
+
+실패한 배포의 경우 마스터 실행 실패에 대해 경고해야 합니다. Azure Portal에서 **모니터**로 이동한 다음, **경고 만들기**를 선택합니다.
+
+**1. 경고 조건 정의** 아래에서 **대상 선택**을 클릭합니다. **리소스 종류별로 필터링** 아래에서 **Automation 계정**을 선택합니다. Automation 계정을 선택한 다음, **완료**를 선택합니다.
+
+**Runbook 이름**에 대해 **\+** 기호를 클릭하고, 사용자 지정 이름으로 **Patch-MicrosoftOMSComputers**를 입력합니다. **상태**에 대해 **실패**를 선택하거나, **\+** 기호를 클릭하여 **실패**를 입력합니다.
+
+![Runbook에 대한 신호 논리 구성](./media/automation-tutorial-update-management/signal-logic-runbook.png)
+
+**논리 경고** 아래에서 **임계값**으로 **1**을 입력합니다. 완료되면 **완료**를 선택합니다.
+
+### <a name="alert-details"></a>경고 세부 정보
+
+**2. 경고 세부 정보**를 정의하고 경고의 이름과 설명을 입력합니다. **심각도**는 성공적인 실행에 대해 **Informational(Sev 2)** 로 설정하거나, 실패한 실행에 대해 **Informational(Sev 1)** 로 설정합니다.
 
 ![신호 논리 구성](./media/automation-tutorial-update-management/define-alert-details.png)
 
@@ -134,7 +158,7 @@ VM에 대한 새 업데이트 배포를 예약하려면 **업데이트 관리**�
 
 * **운영 체제**: 업데이트 배포의 대상 OS를 선택합니다.
 
-* **업데이트할 머신**: 저장된 검색, 가져온 그룹을 선택하거나 드롭다운에서 머신을 선택하고 개별 머신을 선택합니다. **머신**을 선택하면 머신의 준비 상태가 **업데이트 에이전트 준비** 열에 표시됩니다. Log Analytics에서 머신 그룹을 만드는 다른 방법은 [Log Analytics의 머신 그룹](../log-analytics/log-analytics-computer-groups.md)을 참조하세요.
+* **업데이트할 머신**: 저장된 검색, 가져온 그룹을 선택하거나 드롭다운에서 머신을 선택하고 개별 머신을 선택합니다. **머신**을 선택한 경우 머신의 준비는 **업데이트 에이전트 준비** 열에 표시됩니다. Log Analytics에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Log Analytics의 컴퓨터 그룹](../log-analytics/log-analytics-computer-groups.md)을 참조하세요.
 
 * **업데이트 분류**: 배포에 포함되는 업데이트 배포 소프트웨어의 종류를 선택합니다. 이 자습서에서는 모든 종류가 선택된 상태로 둡니다.
 
@@ -153,7 +177,7 @@ VM에 대한 새 업데이트 배포를 예약하려면 **업데이트 관리**�
 
 * **유지 관리 기간(분)**: 기본값으로 그대로 둡니다. 업데이트 배포를 수행하려는 기간을 설정할 수 있습니다. 이 설정을 통해 정해진 서비스 기간 내에 변경 내용을 수행할 수 있습니다.
 
-* **다시 부팅 옵션**: 이 설정은 다시 부팅을 처리하는 방식을 결정합니다. 사용 가능한 옵션은 다음과 같습니다.
+* **다시 부팅 옵션**: 다시 부팅을 처리하는 방법을 결정합니다. 사용 가능한 옵션은 다음과 같습니다.
   * 필요한 경우 다시 부팅(기본값)
   * 항상 다시 부팅
   * 다시 부팅 안 함

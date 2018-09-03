@@ -1,6 +1,6 @@
 ---
 title: Linux Virtual Machines 개요 | Microsoft Docs
-description: Azure Portal 내에 있는 Linux 가상 컴퓨터의 도움말 콘텐츠 개요
+description: Azure Portal 내에 있는 Linux 가상 머신의 도움말 콘텐츠 개요
 services: virtual-machines-linux
 author: sewatson
 manager: lwelicki
@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 0de3fc4cab53564d7d131666e4a8c0ace8a64fb8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a61b5d25d554ea7e39490b0ca64cde3dcb396d6
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23073914"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186492"
 ---
 # <a name="linux-virtual-machines-documentation"></a>Linux Virtual Machines 설명서
 
@@ -23,7 +23,7 @@ Azure Linux Virtual Machines는 Red Hat, Ubuntu 또는 원하는 Linux 배포를
 
 Ubuntu를 실행하는 Virtual Machine 내에 NGINX 웹 서버를 배포하는 방법을 알아봅니다.
 
-- [Azure 포털](/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Azure Portal](/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure PowerShell](/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure CLI](/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -35,7 +35,7 @@ Azure에서 Linux VM을 배포하고 관리하며 확장하는 방법에 대해 
 - [VM 디스크 생성 및 관리](/azure/virtual-machines/linux/tutorial-manage-disks)
 - [VM 구성 자동화](/azure/virtual-machines/linux/tutorial-automate-vm-deployment)
 - [사용자 지정 VM 이미지 만들기](/azure/virtual-machines/linux/tutorial-custom-images)
-- [항상 사용 가능한 VM 만들기](/azure/virtual-machines/linux/tutorial-availability-sets)
+- [고가용성 VM 만들기](/azure/virtual-machines/linux/tutorial-availability-sets)
 - [VM 확장 집합 만들기](/azure/virtual-machines/linux/tutorial-create-vmss)
 - [VM 부하 분산](/azure/virtual-machines/linux/tutorial-load-balancer)
 - [VM 및 가상 네트워크 관리](/azure/virtual-machines/linux/tutorial-virtual-network)
@@ -44,11 +44,9 @@ Azure에서 Linux VM을 배포하고 관리하며 확장하는 방법에 대해 
 - [VM에 대한 보안 관리](/azure/virtual-machines/linux/tutorial-azure-security)
 - [Jenkins, Docker 및 GitHub을 사용하여 CI/CD 인프라 만들기](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd)
 
-## <a name="free-pluralsight-video-training"></a>Pluralsight 비디오 교육 체험
+## <a name="free-pluralsight-video-training"></a>무료 Pluralsight 동영상 교육
 
-- [인프라 관리](https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02)
-- [가상 컴퓨터 시작](https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02)
-- [IaaS 모니터링 시작](https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02")
+- [Azure 관리자](https://go.microsoft.com/fwlink/?linkid=2012827)
 
 ## <a name="samples"></a>샘플 
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 06/21/2018
+ms.date: 08/27/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 07768dbc8beb7a851d442e9e0c3e7538bf12b766
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: ae2d312feb0fcefab85bcbbd2db7ac46c328213f
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937940"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104985"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 
@@ -81,13 +81,13 @@ Azure Analysis Services는 전 세계 지역에서 지원됩니다. 지원되는
 |브라질 남부     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |캐나다 중부    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |미국 동부     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|미국 동부 2     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
+|미국 동부 2     |     B1, B2, S0, S1, S2, S4, D1  <br>S8, S9   |    7<br>1    |
 |미국 중북부     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |미국 중부     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |미국 중남부     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |미국 중서부   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
-|미국 서부     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
-|미국 서부2    |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    3     |
+|미국 서부     |    B1, B2, S0, S1, S2, S4, D1  <br>S8, S9   |    7<br>2  |
+|미국 서부2    |    B1, B2, S0, S1, S2, S4, D1   <br>S8, S9  |    3<br>1     |
 
 ### <a name="europe"></a>유럽
 
@@ -95,7 +95,7 @@ Azure Analysis Services는 전 세계 지역에서 지원됩니다. 지원되는
 |---------|---------|:---------:|
 |북유럽     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
 |영국 남부   |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|서유럽     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1      |    7     |
+|서유럽     |    B1, B2, S0, S1, S2, S4, D1   <br>S8, S9    |    7<br>1     |
 
 ### <a name="asia-pacific"></a>아시아 태평양 
 
@@ -103,10 +103,8 @@ Azure Analysis Services는 전 세계 지역에서 지원됩니다. 지원되는
 |---------|---------|:---------:|
 |오스트레일리아 남동부     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |일본 동부  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|동남아시아     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |   1      |
+|동남아시아     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   1      |
 |인도 서부     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-
-\* 표준 계층에서 S8 및 S9 계획은 한 쿼리 복제본을 지원합니다.
 
 ## <a name="scale-to-your-needs"></a>사용자의 요구 사항에 맞게 규모 조정
 

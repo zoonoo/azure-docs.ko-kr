@@ -12,18 +12,18 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/15/2018
+ms.topic: tutorial
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1376f011d056aac33333f6ac31ee2eaadaf3ef4a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: eaf0b3e3b607145598660dbb64cadd5a277360cb
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415796"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046325"
 ---
-# <a name="join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>첫 번째 실행 동안 Azure AD에 새 Windows 10 장치 조인
+# <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>자습서: 처음 실행 시 Azure AD에 새 Windows 10 장치 조인
 
 Azure AD(Active Directory)의 장치 관리를 사용하면 보안 및 규정 준수에 대한 표준을 충족하는 장치에서 사용자 리소스에 액세스할 수 있습니다. 자세한 내용은 [Azure Active Directory의 장치 관리 소개](overview.md)를 참조하세요.
 
@@ -34,9 +34,13 @@ Windows 10 Professional 또는 Windows 10 Enterprise가 장치에 설치된 경�
 
 Windows *기본 환경*에서 온-프레미스 AD(Active Directory) 도메인 조인은 지원되지 않습니다. 컴퓨터를 AD 도메인에 조인하려는 경우 **로컬 계정을 사용하여 Windows 설정** 링크를 선택해야 합니다. 그런 다음 컴퓨터의 설정에서 도메인에 조인할 수 있습니다.
  
+이 자습서에서는 FRX 중에 장치를 Azure AD에 조인하는 방법에 대해 알아봅니다.
+ > [!div class="checklist"]
+> * 필수 조건
+> * 장치 조인
+> * 확인
 
-
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="prerequisites"></a>필수 조건
 
 Windows 10 장치를 조인하려면 장치를 등록할 수 있도록 장치 등록 서비스를 구성해야 합니다. Azure AD 테넌트에 장치를 조인할 수 있는 권한이 필요한 것 외에도, 구성된 장치 최대 수보다 적은 수의 장치를 등록해야 합니다. 자세한 내용은 [장치 설정 구성](device-management-azure-portal.md#configure-device-settings)을 참조하세요.
 

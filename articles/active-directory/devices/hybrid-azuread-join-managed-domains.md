@@ -12,16 +12,16 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/08/2018
+ms.topic: tutorial
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 55818bf3c6997925fbac32f913d573d630bc20f4
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: b1f1c85cea9aa7c48478ef6ee1c9a4609a3df8e0
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004381"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045129"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>자습서: 관리되는 도메인용 하이브리드 Azure Active Directory 조인 구성
 
@@ -54,7 +54,8 @@ Azure AD에 장치를 가져오면 클라우드와 온-프레미스 리소스에
   
 
 이 문서의 시나리오를 구성하려면 [최신 버전의 Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)(1.1.819.0 이상)를 설치해야 합니다. 
- 
+
+Azure AD Connect에서 Azure AD에 조인된 하이브리드 Azure AD가 되려는 장치의 컴퓨터 개체를 동기화했는지 확인합니다. 컴퓨터 개체가 특정 OU(조직 구성 단위)에 속한 경우 Azure AD Connect에서 이러한 OU를 동기화하기 위해 구성해야 합니다.
 
 버전 1.1.819.0부터 Azure AD Connect는 하이브리드 Azure AD 조인을 구성하는 마법사를 제공합니다. 마법사를 사용하면 구성 프로세스를 크게 간소화할 수 있습니다. 관련 마법사는 장치 등록을 위한 SCP(서비스 연결 지점)를 구성합니다.
 

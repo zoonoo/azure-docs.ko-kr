@@ -14,23 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: daveba
-ms.openlocfilehash: d4daccfdcb2bc11831e960aa20533e32801db946
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5117444b6312d96f87f9e1edf8ce26d0360417ef
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049340"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885754"
 ---
 # <a name="tutorial-use-a-linux-vms-managed-identity-to-access-azure-storage"></a>자습서: Linux VM 관리 ID를 사용하여 Azure Storage에 액세스 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-
-이 자습서에서는 Linux VM 관리 ID를 만들고 사용하여 Azure Storage에 액세스하는 방법을 보여 줍니다. 다음 방법에 대해 알아봅니다.
+이 자습서에서는 Linux VM(가상 머신)에 대한 시스템 할당 ID를 사용하여 Azure Storage에 액세스하는 방법을 보여 줍니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 새 리소스 그룹에 Linux 가상 머신 만들기
-> * Linux VM(Virtual Machine)에서 관리 ID를 사용하도록 설정
+> * 저장소 계정 만들기
 > * 저장소 계정에 Blob 컨테이너 만들기
 > * Azure Storage 컨테이너에 대한 Linux VM의 관리 ID 액세스 권한 부여
 > * 액세스 토큰 가져오기 및 액세스 토큰을 사용하여 Azure Storage 호출
@@ -40,41 +38,20 @@ ms.locfileid: "39049340"
 
 ## <a name="prerequisites"></a>필수 조건
 
-아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com)에 등록해야 합니다.
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-[!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
+[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
+- [Azure Portal에 로그인](https://portal.azure.com)
+
+- [Linux 가상 머신 만들기](/azure/virtual-machines/linux/quick-create-portal)
+
+- [가상 머신에서 시스템 할당 ID를 사용하도록 설정](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 이 자습서의 CLI 스크립트 예제는 두 가지 옵션을 통해 실행할 수 있습니다.
 
 - Azure Portal에서 또는 각 코드 블록의 오른쪽 상단 모서리에 있는 **사용해 보세요** 단추를 통해 [Azure Cloud Shell](~/articles/cloud-shell/overview.md)을 사용합니다.
 - 로컬 CLI 콘솔을 사용하려는 경우 [CLI 2.0의 최신 버전(2.0.23 이상)을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
-
-## <a name="sign-in-to-azure"></a>Azure에 로그인
-
-[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
-
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>새 리소스 그룹에 Linux 가상 머신 만들기
-
-이 섹션에서는 나중에 관리 ID를 부여한 Linux VM을 만듭니다.
-
-1. Azure Portal의 왼쪽 상단 모서리에 있는 **새로 만들기** 단추를 선택합니다.
-2. **Compute**를 선택한 후 **Ubuntu Server 16.04 LTS**를 선택합니다.
-3. 가상 머신 정보를 입력합니다. **인증 유형**으로 **SSH 공용 키** 또는 **암호**를 선택합니다. 생성된 자격 증명을 사용하면 VM에 로그인할 수 있습니다.
-
-   ![가상 머신 생성용 "기본" 창](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
-
-4. **구독** 목록에서 가상 머신에 대한 구독을 선택합니다.
-5. 가상 머신을 만들 대상이 되는 새 리소스 그룹을 선택하려면 **리소스 그룹** > **새로 만들기**를 선택합니다. 완료하면 **확인**을 선택합니다.
-6. VM의 크기를 선택합니다. 더 많은 크기를 보려면 **모두 보기**를 선택하거나 **지원되는 디스크 형식** 필터를 변경합니다. 설정 창에서 기본값을 유지하고 **확인**을 선택합니다.
-
-## <a name="enable-managed-identity-on-your-vm"></a>VM에서 관리 ID 활성화
-
-가상 머신 관리 ID를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure AD에서 액세스 토큰을 가져올 수 있습니다. 내부적으로 Azure Portal을 통해 가상 머신에서 관리 ID를 사용하도록 설정하면 두 가지 작업이 수행됩니다. 즉, VM이 Azure AD에 등록되어 관리 ID를 생성하고, 해당 VM에서 ID가 구성됩니다.
-
-1. 새 가상 머신의 리소스 그룹을 찾고 이전 단계에서 만든 가상 머신을 선택합니다.
-2. **설정** 범주 아래에서 **구성**을 클릭합니다.
-3. 관리 ID를 활성화하려면 **예**를 선택합니다.
-4. **저장**을 클릭하여 구성을 적용합니다. 
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기 
 

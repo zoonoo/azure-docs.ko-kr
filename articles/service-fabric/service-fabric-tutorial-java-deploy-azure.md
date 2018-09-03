@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: afa9aa4ef4d3d8d8a6816d194b69271fdf0d928a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 4614eedd08eabf5c1c2eec6f26e542e20b0875bf
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109677"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43040506"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>자습서: Azure의 Service Fabric 클러스터에 Java 응용 프로그램 배포
 
@@ -173,7 +173,7 @@ ms.locfileid: "37109677"
 
     EventHubs에 대한 SAS URL은 다음 https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken> 구조를 따릅니다. 예를 들어 https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
 
-12. *sfdeploy.parameters.json* 파일을 열고 이전 단계에서 다음 내용을 바꾸기
+12. *sfdeploy.parameters.json* 파일을 열고 이전 단계에서 다음 내용을 바꿉니다. [SAS-URL-STORAGE-ACCOUNT]는 8단계에서 적어 두었습니다. [SAS-URL-EVENT-HUBS]는 11단계에서 적어 두었습니다.
 
     ```json
     "applicationDiagnosticsStorageAccountName": {
@@ -187,7 +187,12 @@ ms.locfileid: "37109677"
     }
     ```
 
-13. Service Fabric 클러스터를 만들려면 다음 명령 실행
+13. **sfdeploy.parameters.json**이 열립니다. 다음 매개 변수를 변경한 다음, 파일을 저장합니다.
+    - **clusterName**. 소문자와 숫자만 사용합니다.
+    - **adminUserName**(빈 값이 아닌 값)
+    - **adminPassword**(빈 값이 아닌 값)
+
+14. Service Fabric 클러스터를 만들려면 다음 명령 실행
 
     ```bash
     az sf cluster create --location 'westus' --resource-group 'testlinux' --template-file sfdeploy.json --parameter-file sfdeploy.parameters.json --secret-identifier <certificate_url_from_step4>
@@ -206,13 +211,13 @@ ms.locfileid: "37109677"
 2. 이 클러스터에 응용 프로그램을 배포하려면 클러스터에 연결을 설정할 SFCTL을 사용해야 합니다. SFCTL은 클러스터에 연결하기 위해 공용 및 개인 키가 있는 PEM 파일이 필요합니다. 다음 명령을 실행하여 공용 및 개인 키가 있는 PEM 파일을 생성합니다. 
 
     ```bash
-    openssl pkcs12 -in testservicefabric.westus.cloudapp.azure.com.pfx -out sfctlconnection.pem -nodes -passin pass:<password>
+    openssl pkcs12 -in <clustername>.<region>.cloudapp.azure.com.pfx -out sfctlconnection.pem -nodes -passin pass:<password>
     ```
 
 3. 다음 명령을 실행하여 클러스터에 연결합니다.
 
     ```bash
-    sfctl cluster select --endpoint https://testlinuxcluster.westus.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
+    sfctl cluster select --endpoint https://<clustername>.<region>.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
     ```
 
 4. 응용 프로그램을 배포하려면 *Voting/Scripts* 폴더로 이동해 **install.sh** 스크립트를 실행합니다.
@@ -221,7 +226,7 @@ ms.locfileid: "37109677"
     ./install.sh
     ```
 
-5. Service Fabric Explorer에 액세스하려면 좋아하는 브라우저를 열고 https://testlinuxcluster.westus.cloudapp.azure.com:19080에 입력합니다. 이 끝점에 연결하는 데 사용하려는 인증서 저장소에서 인증서를 선택합니다. Linux 컴퓨터를 사용하는 경우 Service Fabric Explorer를 보려면 *new-service-fabric-cluster-certificate.sh* 스크립트에서 생성한 인증서를 크롬으로 가져와야 합니다. Mac을 사용하는 경우 Keychain에 PFX 파일을 설치해야 합니다. 응용 프로그램이 클러스터에 설치됐음을 알립니다.
+5. Service Fabric Explorer에 액세스하려면 좋아하는 브라우저를 열고 https://testlinuxcluster.westus.cloudapp.azure.com:19080에 입력합니다. 이 엔드포인트에 연결하는 데 사용하려는 인증서 저장소에서 인증서를 선택합니다. Linux 컴퓨터를 사용하는 경우 Service Fabric Explorer를 보려면 *new-service-fabric-cluster-certificate.sh* 스크립트에서 생성한 인증서를 크롬으로 가져와야 합니다. Mac을 사용하는 경우 Keychain에 PFX 파일을 설치해야 합니다. 응용 프로그램이 클러스터에 설치됐음을 알립니다.
 
     ![SFX Java Azure](./media/service-fabric-tutorial-java-deploy-azure/sfxjavaonazure.png)
 

@@ -3,7 +3,7 @@ title: Azure Security Center 문제 해결 가이드 | Microsoft Docs
 description: 이 문서는 Azure Security Center의 문제를 해결하는 데 도움이 됩니다.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2018
-ms.author: yurid
-ms.openlocfilehash: 0cbc0db7e982ad85dd1e3514def8cf13be595f24
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 08/26/2018
+ms.author: rkarlin
+ms.openlocfilehash: eebdff338454b1fb50b27d5b3d8c1c37d28f6b6f
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779229"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43121205"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure Security Center 문제 해결 가이드
 이 가이드는 Azure Security Center를 사용 중인 정보 기술(IT) 전문가, 정보 보안 분석가 및 클라우드 관리자를 대상으로 하고 문제와 관련된 Security Center 문제를 해결해야 합니다.
@@ -64,7 +64,7 @@ Security Center는 Microsoft Monitoring Agent(Log Analytics 서비스에서 사�
 > 두 번째 시나리오에서 설명한 동작을 방지하려면 최신 버전의 에이전트를 다운로드해야 합니다.
 >
 
-## <a name="monitoring-agent-health-issues"></a>에이전트 상태 문제 모니터링
+## 에이전트 상태 문제 모니터링 <a name="mon-agent"></a>
 **모니터링 상태**는 Security Center에서 자동 프로비전을 위해 초기화된 VM 및 컴퓨터를 성공적으로 모니터링할 수 없는 이유를 정의합니다. 다음 표에서는 **모니터링 상태** 값, 설명 및 해결 단계를 보여 줍니다.
 
 | 모니터링 상태 | 설명 | 해결 단계: |
@@ -81,7 +81,7 @@ Security Center는 Microsoft Monitoring Agent(Log Analytics 서비스에서 사�
 | 에이전트가 설치되지 않음 | 데이터 수집을 사용하지 않도록 설정되었습니다. | 보안 정책에서 데이터 수집을 사용하도록 설정하거나 Microsoft Monitoring Agent를 수동으로 설치합니다. |
 
 
-## <a name="troubleshooting-monitoring-agent-network-requirements"></a>모니터링 에이전트 네트워크 요구 사항 문제 해결
+## 모니터링 에이전트 네트워크 요구 사항 문제 해결 <a name="mon-network-req"></a>
 에이전트를 Security Center에 연결하고 등록한 경우 포트 번호 및 도메인 URL을 비롯한 네트워크 리소스에 대한 액세스 권한을 가져야 합니다.
 
 - 프록시 서버의 경우 적절한 프록시 서버 리소스가 에이전트 설정에 구성되어 있는지 확인해야 합니다. [프록시 설정을 변경하는 방법](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings)에 대한 자세한 내용은 이 문서를 참조하세요.
@@ -91,15 +91,15 @@ Security Center는 Microsoft Monitoring Agent(Log Analytics 서비스에서 사�
 
 | 에이전트 리소스 | 포트 | HTTPS 검사 무시 |
 |---|---|---|
-| *.ods.opinsights.azure.com | 443 | 예 |
-| *.oms.opinsights.azure.com | 443 | 예 |
-| \*.blob.core.windows.net | 443 | 예 |
-| *.azure-automation.net | 443 | 예 |
+| *.ods.opinsights.azure.com | 443 | yes |
+| *.oms.opinsights.azure.com | 443 | yes |
+| \*.blob.core.windows.net | 443 | yes |
+| *.azure-automation.net | 443 | yes |
 
 에이전트와 온보딩 문제가 발생하는 경우 [Operations Management Suite 온보딩 문제를 해결하는 방법](https://support.microsoft.com/en-us/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) 문서를 참조하도록 합니다.
 
 
-## <a name="troubleshooting-endpoint-protection-not-working-properly"></a>제대로 작동하지 않는 끝점 보호 문제 해결
+## <a name="troubleshooting-endpoint-protection-not-working-properly"></a>제대로 작동하지 않는 엔드포인트 보호 문제 해결
 
 게스트 에이전트는 [Microsoft 맬웨어 방지 프로그램](../security/azure-security-antimalware.md) 확장에서 수행하는 모든 작업의 부모 프로세스입니다. 게스트 에이전트 프로세스가 실패하면 게스트 에이전트의 자식 프로세스로 실행되는 Microsoft 맬웨어 방지 프로그램도 실패할 수 있습니다.  이와 같은 경우 다음 옵션을 확인하는 것이 좋습니다.
 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 08/29/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 4a5e613169bf3173b7585b49803fc7ac7f5186ce
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: ec56f9fdf21459857c8115222da921b6681a3ac5
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297974"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247239"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Azure Cost Management로 Azure 구독 및 계정 활성화
 
@@ -69,7 +69,7 @@ Azure 구독에서 CloudynCollector 응용 프로그램을 할당하려면 계�
     1. Azure Portal의 오른쪽 위에서 사용자 정보를 클릭한 다음 **내 청구서 보기**를 클릭합니다.
     2. **대금 청구 계정** 아래에서 **구독**을 클릭합니다.
     3. **내 구독** 아래에서 구독을 선택합니다.
-    4. 요율 ID가 **제공 ID** 아래에 표시됩니다. 구독에 대한 제공 ID를 복사합니다.
+    4. 요율 ID가 **제공 ID** 아래에 표시됩니다. 구독에 대한 제안 ID를 복사합니다.
 4. 새 계정 추가(또는 구독 편집) 상자에서 **저장**(또는 **다음**)을 클릭합니다. Azure Portal로 리디렉션됩니다.
 5. 포털에 로그인합니다. Azure Cost Management Collector가 사용자의 Azure 계정에 액세스하도록 권한을 부여하려면 **Accept**를 클릭합니다.
 
@@ -103,7 +103,7 @@ Azure Cost Management를 설정하기 위해 Azure Enterprise Agreement API 키�
 
 부서 관리자, 계정 소유자 및 엔터프라이즈 관리자에게 청구 API로 _요금 보기_ 권한을 부여해야 할 수도 있습니다.
 
-Azure 서비스 관리자만 Cost Management를 사용하도록 설정할 수 있습니다. 공동 관리자 권한이 충분하지 않습니다. 그러나 관리자 요구 사항을 해결할 수 있습니다. Azure Active Directory 관리자가 PowerShell 스크립트를 사용하여 **CloudynAzureCollector** 권한을 부여할 수 있도록 요청할 수 있습니다. 다음 스크립트에서는 Azure Active Directory 서비스 사용자인 **CloudynAzureCollector**를 등록할 수 있는 권한을 부여합니다.
+Azure 서비스 관리자만 Cost Management를 사용하도록 설정할 수 있습니다. 공동 관리자 권한이 충분하지 않습니다. 그러나 관리자 요구 사항을 해결할 수 있습니다. Azure Active Directory 관리자가 PowerShell 스크립트를 사용하여 **CloudynAzureCollector** 권한을 부여할 수 있도록 요청할 수 있습니다. 다음 스크립트에서는 Azure Active Directory 서비스 사용자인 **CloudynAzureCollector**를 등록할 수 있는 권한을 부여합니다. 성공적으로 실행되면 http://localhost:8080/CloudynJava URL을 표시하는 브라우저에서 작업이 종료됩니다.
 
 ```
 #THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

@@ -14,22 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ca920a93d754254390a5c5c5a066be3144b47fc7
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: b6b2985bf72d9ecb2041d51852b5a4230e11d8be
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41917974"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886056"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-sql"></a>자습서: Windows VM 관리 서비스 ID를 사용하여 Azure SQL 액세스
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-이 자습서에서는 Windows VM(가상 머신)에 대해 관리 서비스 ID를 사용하여 Azure SQL Server에 액세스하는 방법을 보여 줍니다. Azure에서 자동으로 관리되는 관리 서비스 ID를 사용하면 Azure AD 인증을 지원하는 서비스에 인증할 수 있으므로 코드에 자격 증명을 삽입할 필요가 없습니다. 다음 방법에 대해 알아봅니다.
+이 자습서에서는 Windows VM(가상 머신)에 대한 시스템 할당 ID를 사용하여 Azure SQL 서버에 액세스하는 방법을 보여 줍니다. Azure에서 자동으로 관리되는 관리 서비스 ID를 사용하면 Azure AD 인증을 지원하는 서비스에 인증할 수 있으므로 코드에 자격 증명을 삽입할 필요가 없습니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * Windows VM에서 관리 서비스 ID를 사용하도록 설정 
 > * VM에 Azure SQL Server에 대한 액세스 권한 부여
+> * Azure AD에서 그룹을 만들고 VM 관리 서비스 ID를 그룹의 구성원으로 만들기
+> * SQL Server에 대해 Azure AD 인증 사용
+> * Azure AD 그룹을 나타내는 데이터베이스에 포함된 사용자를 만듭니다.
 > * VM ID를 사용하여 액세스 토큰을 가져온 다음 Azure SQL Server를 쿼리하는 데 사용
 
 ## <a name="prerequisites"></a>필수 조건
@@ -38,32 +40,11 @@ ms.locfileid: "41917974"
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Azure에 로그인
+- [Azure Portal에 로그인](https://portal.azure.com)
 
-[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
+- [Windows 가상 머신 만들기](/azure/virtual-machines/windows/quick-create-portal)
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>새 리소스 그룹에 Windows 가상 머신 만들기
-
-이 자습서에서는 새 Windows VM을 만듭니다.  또한 기존 VM에서 관리 서비스 ID를 사용하도록 설정할 수 있습니다.
-
-1.  Azure Portal의 왼쪽 위에 있는 **리소스 만들기** 단추를 클릭합니다.
-2.  **Compute**를 선택한 후 **Windows Server 2016 Datacenter**를 선택합니다. 
-3.  가상 머신 정보를 입력합니다. 여기서 만드는 **사용자 이름** 및 **암호**는 가상 머신에 로그인하는 데 사용하는 자격 증명입니다.
-4.  드롭다운에서 가상 머신의 적절한 **구독**을 선택합니다.
-5.  가상 컴퓨터를 만들 새 **리소스 그룹**을 선택하려면 **새로 만들기**를 선택합니다. 완료되면 **확인**을 클릭합니다.
-6.  VM의 크기를 선택합니다. 더 많은 크기를 보려면 **모두 보기**를 선택하거나 **지원되는 디스크 형식** 필터를 변경합니다. 설정 페이지에서 기본값을 그대로 유지하고 **확인**을 클릭합니다.
-
-    ![대체 이미지 텍스트](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>VM에서 관리 서비스 ID를 사용하도록 설정 
-
-VM 관리 서비스 ID를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure AD에서 액세스 토큰을 가져올 수 있습니다. 관리 서비스 ID를 사용하도록 설정하면 VM용으로 관리 ID를 만들도록 Azure에 지시하게 됩니다. 내부적으로 관리 서비스 ID를 사용하도록 설정하면 해당 관리 ID를 만들기 위해 VM이 Azure Active Directory에 등록되고, VM에서 ID가 구성되는 두 가지 작업이 수행됩니다.
-
-1.  관리 서비스 ID를 사용하도록 설정할 **Virtual Machine**을 선택합니다.  
-2.  왼쪽 탐색 모음에서 **구성**을 클릭합니다. 
-3.  **관리 서비스 ID**가 표시됩니다. 관리 서비스 ID를 등록하고 사용하도록 설정하려면 **예**를 선택하고, 사용하지 않도록 설정하려면 아니요를 선택합니다. 
-4.  **저장**을 클릭하여 구성을 저장합니다.  
-    ![대체 이미지 텍스트](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+- [가상 머신에서 시스템 할당 ID를 사용하도록 설정](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>VM에 Azure SQL Server의 데이터베이스에 대한 액세스 권한 부여
 
@@ -78,7 +59,7 @@ VM에 데이터베이스에 대한 액세스 권한을 부여하는 과정은 �
 > 일반적으로 VM의 관리 서비스 ID에 직접 매핑되는 포함된 사용자를 만듭니다.  현재 Azure SQL은 포함된 사용자에 매핑될 VM 관리 서비스 ID를 나타내는 Azure AD 서비스 주체를 허용하지 않습니다.  지원되는 해결 방법으로, VM 관리 서비스 ID를 Azure AD 그룹의 구성원으로 만든 다음, 해당 그룹을 나타내는 데이터베이스에 포함된 사용자를 만듭니다.
 
 
-### <a name="create-a-group-in-azure-ad-and-make-the-vm-managed-service-identity-a-member-of-the-group"></a>Azure AD에서 그룹을 만들고 VM 관리 서비스 ID를 그룹의 구성원으로 만들기
+## <a name="create-a-group-in-azure-ad-and-make-the-vm-managed-service-identity-a-member-of-the-group"></a>Azure AD에서 그룹을 만들고 VM 관리 서비스 ID를 그룹의 구성원으로 만들기
 
 기존 Azure AD 그룹을 사용하거나 Azure AD PowerShell을 사용하여 새로 만들 수 있습니다.  
 
@@ -132,7 +113,7 @@ ObjectId                             AppId                                Displa
 b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTestWinVM
 ```
 
-### <a name="enable-azure-ad-authentication-for-the-sql-server"></a>SQL Server에 대해 Azure AD 인증 사용
+## <a name="enable-azure-ad-authentication-for-the-sql-server"></a>SQL Server에 대해 Azure AD 인증 사용
 
 그룹을 만들고 그룹 구성원 자격에 VM 관리 서비스 ID를 추가했으므로 다음 단계를 사용하여 [SQL Server에 대해 Azure AD 인증을 구성](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server)할 수 있습니다.
 
@@ -143,7 +124,7 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 5.  서버 관리자로 만들 Azure AD 사용자 계정을 선택하고 **선택**을 클릭합니다.
 6.  명령 모음에서 **저장**을 클릭합니다.
 
-### <a name="create-a-contained-user-in-the-database-that-represents-the-azure-ad-group"></a>Azure AD 그룹을 나타내는 데이터베이스에 포함된 사용자를 만듭니다.
+## <a name="create-a-contained-user-in-the-database-that-represents-the-azure-ad-group"></a>Azure AD 그룹을 나타내는 데이터베이스에 포함된 사용자를 만듭니다.
 
 이 다음 단계를 위해 [Microsoft SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)가 필요합니다. 시작하기 전에 다음 문서를 검토하여 Azure AD 통합의 배경 정보를 숙지하면 도움이 될 수 있습니다.
 

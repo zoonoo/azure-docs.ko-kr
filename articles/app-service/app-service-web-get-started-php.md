@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/13/2017
+ms.date: 08/24/2018
 ms.author: cephalin;cfowler
 ms.custom: mvc
-ms.openlocfilehash: 1d2be80ad922e7a2ceb0b25f86cae6fbb9fa9c2c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0dd8f90a39abc18263fcaa5bdb63a5b743728952
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444037"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42884967"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Azure에서 PHP 웹앱 만들기
 
@@ -45,7 +45,7 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 여기서 설명하는 단�
 
 ## <a name="download-the-sample-locally"></a>로컬로 샘플 다운로드
 
-터미널 창에서 다음 명령을 실행합니다. 그러면 응용 프로그램 예제가 로컬 컴퓨터에 복제되고 샘플 코드가 들어 있는 디렉터리로 이동합니다.
+터미널 창에서 다음 명령을 실행합니다. 그러면 응용 프로그램 예제가 로컬 컴퓨터에 복제되고 샘플 코드가 들어 있는 디렉터리로 이동합니다. 
 
 ```bash
 git clone https://github.com/Azure-Samples/php-docs-hello-world
@@ -54,7 +54,7 @@ cd php-docs-hello-world
 
 ## <a name="run-the-app-locally"></a>로컬에서 앱 실행
 
-PHP 웹 서버에서 기본 제공을 시작하려면 터미널 창을 열고 `php` 명령을 사용하여 응용 프로그램을 로컬로 실행합니다.
+응용 프로그램을 로컬로 실행하여 Azure에 응용 프로그램을 배포할 때 표시되는 모양을 확인합니다. 터미널 창을 열고 `php` 명령을 사용하여 기본 제공 PHP 웹 서버를 시작합니다.
 
 ```bash
 php -S localhost:8080

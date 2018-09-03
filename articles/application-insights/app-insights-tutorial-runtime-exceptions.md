@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 115611c5d4eeffb0f0600dd0a792ee9f80247e36
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 7c2e67605cd2489f2c8d9da5ac80386056464afa
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2018
-ms.locfileid: "27998052"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42815116"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Azure Application Insights를 사용하여 런타임 예외 찾기 및 진단
 
@@ -43,7 +43,7 @@ Azure Application Insights는 응용 프로그램에서 원격 분석을 수집�
 - 자습서는 응용 프로그램에서 예외의 ID를 추적하여 개발 또는 테스트 환경에서 코드를 수정하여 예외를 생성합니다. 
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
-[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
+Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인합니다.
 
 
 ## <a name="analyze-failures"></a>실패 분석
@@ -62,20 +62,17 @@ Application Insights는 응용 프로그램에서 모든 오류를 수집하고 
 
     ![실패한 요청 창](media/app-insights-tutorial-runtime-exceptions/failed-requests-window.png)
 
-5. **세부 정보 보기**를 클릭하여 작업에 대한 세부 정보를 확인합니다.  이는 완료되는 데 전체적으로 거의 0.5초가 소요되는 두 개의 실패한 종속성을 보여 주는 Gantt 차트를 포함합니다.  자습서 [Azure Application Insights를 사용하여 성능 문제 찾기 및 진단](app-insights-tutorial-performance.md)을 완료하여 성능 문제 분석에 대한 자세한 내용을 확인할 수 있습니다.
+5. 필터링된 결과의 수가 있는 단추를 클릭하여 관련 샘플을 봅니다. "제안된" 샘플에는 모든 구성 요소와 관련된 원격 분석이 있으며, 이러한 샘플 중 어느 하나에 샘플링이 적용되었을 수도 있습니다. 실패한 요청에 대한 세부 정보를 보려면 검색 결과를 클릭합니다.
 
-    ![실패한 요청 세부 정보](media/app-insights-tutorial-runtime-exceptions/failed-requests-details.png)
+    ![실패한 요청 샘플](media/app-insights-tutorial-runtime-exceptions/failed-requests-search.png)
 
-6. 또한 작업 세부 정보는 실패를 야기한 것으로 보이는 FormatException을 보여 줍니다.  예외 또는 **상위 3개 예외 유형** 수를 클릭하여 해당 세부 정보를 볼 수 있습니다.  잘못된 우편 번호 때문임을 확인할 수 있습니다.
+6. 실패한 요청에 대한 세부 정보는 Gantt 차트를 보여 줍니다. 이 차트에서는 전체 트랜잭션 기간의 50% 이상을 차지함으로써 발생한 두 개의 종속성 오류가 이 트랜잭션에 있음을 보여 줍니다. 이 환경은 이 작업 ID와 관련된 분산 응용 프로그램의 구성 요소 간에 모든 원격 분석을 제공합니다. [새 환경에 대해 자세히 알아보세요](app-insights-transaction-diagnostics.md). 항목 중 하나를 선택하여 세부 정보를 볼 수 있습니다. 
+
+    ![실패한 요청 세부 정보](media/app-insights-tutorial-runtime-exceptions/failed-request-details.png)
+
+7. 또한 작업 세부 정보는 실패를 야기한 것으로 보이는 FormatException을 보여 줍니다.  잘못된 우편 번호 때문임을 확인할 수 있습니다. 디버그 스냅숏을 열어 Visual Studio에서 코드 수준 디버그 정보를 볼 수 있습니다.
 
     ![예외 세부 정보](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
-
-> [!NOTE]
-“통합된 세부 정보: E2E 트랜잭션 진단” [미리 보기 환경](app-insights-previews.md)을 사용하도록 설정하여 요청, 종속성, 예외, 추적, 이벤트 등과 같은 모든 관련 서버 쪽 원격 분석을 하나의 전체 화면 보기에서 확인할 수 있습니다. 
-
-미리 보기를 사용하도록 설정하면 통합된 환경에서 오류 또는 예외와 함께 종속성 호출에 소요된 시간을 볼 수 있습니다. 구성 요소 간 트랜잭션의 경우 세부 정보 창 함께 Gantt 차트를 통해 근본 원인 구성 요소, 종속성 또는 예외를 신속하게 진단할 수 있습니다. 아래쪽 섹션을 확장하여 선택한 구성 요소 작업에 수집된 모든 추적 또는 이벤트의 시간 시퀀스를 확인할 수 있습니다. [새 환경에 대해 자세히 알아보세요](app-insights-transaction-diagnostics.md).  
-
-![트랜잭션 진단](media/app-insights-tutorial-runtime-exceptions/e2e-transaction-preview.png)
 
 ## <a name="identify-failing-code"></a>실패 코드 식별
 스냅숏 디버거는 응용 프로그램에서 가장 빈번한 예외의 스냅숏을 수집하여 프로덕션에서 해당 근본 원인을 진단하는 데 도움을 줍니다.  포털에서 디버그 스냅숏을 확인하여 호출 스택을 보고 각 호출 스택 프레임에서 변수를 검사할 수 있습니다. 그런 다음 스냅숏을 다운로드하고 Visual Studio 2017에서 열어 소스 코드를 디버깅할 수 있습니다.
@@ -104,15 +101,6 @@ Application Insights에 의해 수집된 모든 데이터는 여러 가지 방�
     ![코드](media/app-insights-tutorial-runtime-exceptions/codelens.png)
 
 9. **영향 분석**을 클릭하여 Application Insights Analytics를 엽니다.  영향을 받는 사용자, 브라우저 및 지역과 같은 실패한 요청의 세부 정보를 제공하는 여러 쿼리로 채워집니다.<br><br>![분석](media/app-insights-tutorial-runtime-exceptions/analytics.png)<br>
-
-## <a name="add-work-item"></a>작업 항목 추가
-Application Insights를 Visual Studio Team Services 또는 GitHub와 같은 추적 시스템에 연결하는 경우 Application Insights에서 직접 작업 항목을 만들 수 있습니다.
-
-1. Application Insights의 **예외 속성** 패널로 돌아옵니다.
-2. **새 작업 항목**을 클릭합니다.
-3. **새 작업 항목** 패널이 이미 채워진 예외에 대한 세부 정보와 함께 열립니다.  저장하기 전에 추가 정보를 추가할 수 있습니다.
-
-    ![새 작업 항목](media/app-insights-tutorial-runtime-exceptions/new-work-item.png)
 
 ## <a name="next-steps"></a>다음 단계
 이제 런타임 예외를 식별하는 방법을 배웠으므로 성능 문제를 식별하고 진단하는 방법을 알아보는 다음 자습서로 진행합니다.

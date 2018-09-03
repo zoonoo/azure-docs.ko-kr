@@ -196,20 +196,22 @@ items:
         href: vmware-azure-deploy-configuration-server.md
       - name: VMware VM에 대한 대상 환경 설정
         href: vmware-azure-set-up-target.md
-      - name: 복제 설정 구성
+      - name: VMware에 대한 복제 설정 구성
         href: vmware-azure-set-up-replication.md
-      - name: VMware VM 복제 사용
+      - name: VMware VM에 대한 복제 사용하도록 설정
         href: vmware-azure-enable-replication.md
-      - name: 복제에서 디스크 제외
+      - name: VMware VM 복제에서 디스크 제외
         href: vmware-azure-exclude-disk.md
-      - name: CSP를 통한 다중 테넌트 VMWare VM 복제
+      - name: 다중 테넌트 및 CSP를 사용하여 VMWare VM에 대한 복제 설정
         href: vmware-azure-multi-tenant-csp-disaster-recovery.md
-      - name: 물리적 서버에 대한 원본 환경 설정
-        href: physical-azure-set-up-source.md
-      - name: 물리적 서버에 대한 대상 환경 설정
-        href: physical-azure-set-up-target.md
-      - name: Azure에 대한 물리적 서버의 재해 복구
+      - name: Azure에 대한 물리적 서버의 재해 복구 설정
         href: physical-azure-disaster-recovery.md
+      - name: 물리적 서버 복제에 대한 원본 환경 설정
+        href: physical-azure-set-up-source.md
+      - name: 물리적 서버 복제에 대한 대상 환경 설정
+        href: physical-azure-set-up-target.md
+      - name: Azure Stack VM에 재해 복구 설정
+        href: azure-stack-site-recovery.md
     - name: 모바일 서비스 배포
       items:
       - name: 모바일 서비스 개요
@@ -390,9 +392,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: 서비스 업데이트
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 63d404406e3b33d4022974246a227cad1e6535a6
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 01f369aede31d44ff404c1ff5e7d2d1e9bb92950
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43285109"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343976"

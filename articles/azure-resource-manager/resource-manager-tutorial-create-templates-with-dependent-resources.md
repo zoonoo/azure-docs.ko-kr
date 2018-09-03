@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/20/2018
+ms.date: 08/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: bd559cb9f0140706a4b9735c642367e03616a14d
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 7509ed46ba07cd8250f82f8eb258d18e3f4a1ee6
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188168"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43107108"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>자습서: 종속 리소스가 있는 Azure Resource Manager 템플릿 만들기
 
@@ -56,12 +56,27 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
 
 ## <a name="explore-the-template"></a>템플릿 탐색
 
+이 섹션의 템플릿을 탐색하는 경우 다음 질문에 대답해 보세요.
+
+- 이 템플릿에 정의되는 Azure 리소스는 얼마나 되나요?
+- 리소스 중 하나는 Azure 저장소 계정입니다.  마지막 자습서에서 사용한 것과 비슷한 같은 정의인가요?
+- 이 템플릿에 정의된 리소스에 대한 템플릿 참조를 찾을 수 있나요?
+- 리소스의 종속성을 찾을 수 있나요?
+
 1. Visual Studio Code에서 **리소스** 내부에 첫 번째 수준 요소와 두 번째 수준 요소만 표시될 때까지 요소를 축소합니다.
 
     ![Visual Studio Code Azure Resource Manager 템플릿](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
     템플릿에 5개 리소스가 정의되어 있습니다.
-2. 네 번째 요소를 확장합니다.
+2. 첫 번째 리소스를 확장합니다. 저장소 계정입니다. 정의는 마지막 자습서의 시작 부분에서 사용한 것과 동일해야 합니다.
+
+    ![Visual Studio Code Azure Resource Manager 템플릿 - 저장소 계정 정의](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
+
+3. 두 번째 리소스를 확장합니다. 리소스 종류는 **Microsoft.Network/publicIPAddresses**입니다. 템플릿 참조를 찾으려면 [템플릿 참조](https://docs.microsoft.com/azure/templates/)로 이동하고, **제목으로 필터링** 필드에서 **public ip address** 또는 **public ip addresses**를 입력합니다. 리소스 정의를 템플릿 참조와 비교합니다.
+
+    ![Visual Studio Code Azure Resource Manager 템플릿 - 공용 IP 주소 정의](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
+4. 이 템플릿에 정의된 다른 리소스에 대한 템플릿 참조를 찾으려면 마지막 단계를 반복합니다.  리소스 정의와 참조를 비교합니다.
+5. 네 번째 리소스를 확장합니다.
 
     ![Visual Studio Code Azure Resource Manager 템플릿 dependson](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
 
@@ -70,7 +85,7 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
     * publicIPAddress
     * virtualNetwork
 
-3. 다섯 번째 요소를 확장합니다. 이 리소스는 가상 머신입니다. 이 리소스는 다음과 같은 두 리소스에 종속됩니다.
+6. 다섯 번째 리소스를 확장합니다. 이 리소스는 가상 머신입니다. 이 리소스는 다음과 같은 두 리소스에 종속됩니다.
 
     * storageAccount
     * networkInterface

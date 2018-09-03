@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 1cbd29b480c80c93f750b97d47ccb3c09c984942
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5fdf277eb8f99f2d52600140601b413b51bcdfd8
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306789"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885908"
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Linux의 App Service에서 PHP 웹앱 만들기
 
@@ -54,7 +54,7 @@ cd php-docs-hello-world
 
 ## <a name="run-the-app-locally"></a>로컬에서 앱 실행
 
-PHP 웹 서버에서 기본 제공을 시작하려면 터미널 창을 열고 `php` 명령을 사용하여 응용 프로그램을 로컬로 실행합니다.
+응용 프로그램을 로컬로 실행하여 Azure에 응용 프로그램을 배포할 때 표시되는 모양을 확인합니다. 터미널 창을 열고 `php` 명령을 사용하여 기본 제공 PHP 웹 서버를 시작합니다.
 
 ```bash
 php -S localhost:8080

@@ -1,26 +1,19 @@
 ---
 title: Jenkins와 파란색/녹색 배포 패턴을 사용하여 AKS(Azure Kubernetes Service) 배포
 description: Jenkins와 파란색/녹색 배포 패턴을 사용하여 AKS(Azure Kubernetes Service) 배포하는 방법에 대해 알아봅니다.
-services: app-service\web
-documentationcenter: ''
+ms.service: jenkins
+keywords: Jenkins, Azure, DevOps, Kubernetes, k8s, AKS, 파란색/녹색 배포, 지속적인 업데이트, CD
 author: tomarcher
-manager: jpconnock
-editor: ''
-ms.assetid: ''
-ms.service: multiple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: web
-ms.date: 07/23/2018
+manager: jeconnoc
 ms.author: tarcher
-ms.custom: jenkins
-ms.openlocfilehash: 384681ae0ba212b485022ac81743528f96075ec8
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.topic: tutorial
+ms.date: 07/23/2018
+ms.openlocfilehash: d3d3ed8aaac16bc0a8cf817f4972ed3b771ed8d0
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716461"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093557"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Jenkins와 파란색/녹색 배포 패턴을 사용하여 AKS(Azure Kubernetes Service) 배포
 

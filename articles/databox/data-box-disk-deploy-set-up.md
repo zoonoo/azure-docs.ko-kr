@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/10/2018
+ms.date: 08/28/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7f382e3b6e70aadf8c6a090a3d5c049f6b5c0337
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 6fcc7823a7e2f2f1e280622a1fa05d4417a71546
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010364"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143485"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>자습서: Azure Data Box Disk 압축 풀기, 연결 및 잠금 해제
 
@@ -41,7 +41,9 @@ ms.locfileid: "39010364"
 3. Data Box Disk 잠금 해제 도구를 설치할 수 있는 호스트 컴퓨터가 있습니다. 호스트 컴퓨터는 다음 사항이 필수입니다.
     - [지원되는 운영 체제](data-box-disk-system-requirements.md)를 실행합니다.
     - [Windows PowerShell 4가 설치되어](https://www.microsoft.com/download/details.aspx?id=40855) 있습니다.
-    - [.NET Framework 4.5가 설치되어](https://www.microsoft.com/download/details.aspx?id=30653) 있습니다.
+    - [.NET Framework 4.5.1이 설치](https://www.microsoft.com/download/details.aspx?id=30653)되어 있습니다.
+    - [BitLocker를 사용하도록 설정](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-how-to-deploy-on-windows-server)되어 있습니다.
+    - [Windows Management Framework 4가 설치](https://www.microsoft.com/en-us/download/details.aspx?id=40855)되어 있습니다. 
 
 ## <a name="unpack-your-disks"></a>디스크 압축 풀기
 

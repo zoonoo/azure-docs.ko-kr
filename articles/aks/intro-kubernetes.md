@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 06/13/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e6f67c8900a7ee1728b474651b47d278cdfa51eb
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 161ea6698ecc46e50d1c70f922e2fb505e78278c
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42022630"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43087707"
 ---
 # <a name="azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)
 
@@ -54,7 +54,7 @@ Azure Kubernetes Service는 여러 Kubernetes 버전을 제공합니다. AKS에�
 
 ## <a name="http-application-routing"></a>HTTP 응용 프로그램 라우팅
 
-HTTP 응용 프로그램 라우팅 솔루션을 사용하면 AKS 클러스터에 배포된 응용 프로그램에 쉽게 액세스할 수 있습니다. HTTP 응용 프로그램 라우팅 솔루션이 설정되면 AKS 클러스터에 수신 컨트롤러를 구성합니다. 응용 프로그램을 배포하면 공개적으로 액세스할 수 있는 DNS 이름을 자동으로 구성합니다.
+HTTP 응용 프로그램 라우팅 솔루션을 사용하면 AKS 클러스터에 배포된 응용 프로그램에 쉽게 액세스할 수 있습니다. HTTP 응용 프로그램 라우팅 솔루션이 설정되면 AKS 클러스터에 수신 컨트롤러를 구성합니다. 응용 프로그램이 배포되면 공개적으로 액세스할 수 있는 DNS 이름이 자동으로 구성됩니다.
 
 자세한 내용은 [HTTP 응용 프로그램 라우팅][aks-http-routing]을 참조하세요.
 

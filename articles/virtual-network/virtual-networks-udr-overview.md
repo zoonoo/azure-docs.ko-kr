@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 7ff4c6ce5e42154b3ded9c05ef1437d30f9477f0
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: b206d93d7c72f5d8ff3dd3baa277cd0db33ba583
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41919964"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42811916"
 ---
 # <a name="virtual-network-traffic-routing"></a>가상 네트워크 트래픽 라우팅
 
@@ -167,7 +167,7 @@ BGP를 사용하여 Azure와 경로를 교환하면 보급된 각 접두사에 �
         - 네트워크 주소 변환 및 전달, 또는 서브넷의 대상 리소스로 트래픽 프록시를 수행하고, 인터넷에 트래픽을 다시 반환할 수 있어야 합니다. 
     - **가상 네트워크 게이트웨이**: 게이트웨이가 ExpressRoute 가상 네트워크 게이트웨이인 경우 인터넷에 연결된 온-프레미스 장치는 ExpressRoute의 [사설 피어링](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering)을 통해 네트워크 주소 변환 및 전달 또는 서브넷의 대상 리소스로 트래픽 프록시를 수행할 수 있습니다. 
 
-가상 네트워크가 Azure VPN 게이트웨이에 연결된 경우 대상이 0.0.0.0/0인 경로가 포함된 [GatewaySubnet](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)에 경로 테이블을 연결하지 않습니다. 그러면 게이트웨이가 제대로 작동하지 못할 수 있습니다.
+가상 네트워크가 Azure VPN 게이트웨이에 연결된 경우 대상이 0.0.0.0/0인 경로가 포함된 [게이트웨이 서브넷](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)에 경로 테이블을 연결하지 않습니다. 그러면 게이트웨이가 제대로 작동하지 못할 수 있습니다. 자세한 내용은 [VPN Gateway FAQ](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#why-are-certain-ports-opened-on-my-vpn-gateway)에서 *내 VPN Gateway에서 특정 포트가 열리는 이유는 무엇인가요?* 질문을 참조하세요.
 
 인터넷과 Azure 간에 가상 네트워크 게이트웨이 및 가상 어플라이언스를 사용하는 경우 [Azure와 온-프레미스 데이터 센터 간의 DMZ](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [Azure와 인터넷 간의 DMZ](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 

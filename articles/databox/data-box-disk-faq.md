@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/17/2018
+ms.date: 08/28/2018
 ms.author: alkohli
-ms.openlocfilehash: 5288e9900c75eae7601b84f7366edf9ac739d5da
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 931b3fd4730ed9ca3a901b423d6c804dfa7e5305
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125806"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143545"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>Azure Data Box Disk란? (미리 보기)
 
@@ -60,10 +60,10 @@ a.  Azure Data Box Disk를 얻으려면 먼저 [Data Box Disk 미리 보기](htt
 a. 각각 8TB(사용 가능한 용량: 7TB) 크기의 5개 디스크에 대해 사용 가능한 최대 용량은 35TB입니다. 따라서 한 인스턴스에서 35TB의 데이터를 전송할 수 있습니다.  더 많은 데이터를 전송하려면 디스크를 더 많이 주문해야 합니다.
 
 ### <a name="q-how-can-i-check-if-data-box-disks-are-available-in-my-region"></a>Q. 내 지역에서 Data Box Disk를 사용할 수 있는지 확인하려면 어떻게 해야 할까요? 
-a.  미리 보기 단계에 있는 동안에는 미국 및 유럽 연합의 모든 국가에서 Data Box Disk를 사용할 수 있습니다.  
+a.  Data Box Disk는 미리 보기로 있는 동안 미국, 캐나다 및 유럽 연합의 모든 국가에서 사용할 수 있습니다.  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>Q. Data Box Disk에 데이터를 저장할 수 있는 지역은 어떻게 되나요?
-a. Data Box Disk는 미국, 유럽 서부 및 유럽 북부 내의 모든 지역에서 미리 보기로 지원됩니다. Azure 공용 클라우드 지역만 지원됩니다. Azure Government 또는 다른 소버린 클라우드는 지원되지 않습니다.
+a. Data Box Disk는 미국, 캐나다, 서유럽 및 북유럽 내의 모든 지역에서 미리 보기로 지원됩니다. Azure 공용 클라우드 지역만 지원됩니다. Azure Government 또는 다른 소버린 클라우드는 지원되지 않습니다.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>Q. Data Box Disk에 문제가 발생하면 누구에게 연락해야 하나요?
 a. Data Box Disk에 문제가 발생하면 [Data Box Disk 고객 지원팀](mailto:expresspodsupport@microsoft.com)에 문의하세요.

@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: aeb4ff26b05a5542fd77ac32589c8f8efb622798
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4c4a5b66fe35da01a3661715e17a9fda20bc2411
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40166486"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43184708"
 ---
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Azure Dev Space에 사용하도록 설정된 Kubernetes 클러스터 만들기
 
@@ -42,7 +42,7 @@ ms.locfileid: "40166486"
 
    ![Http 응용 프로그램 라우팅 사용](../media/common/Kubernetes-Create-Cluster-3.PNG)
 
-    > [!IMPORTANT]
-    > AKS 클러스터를 만들 때 Http 응용 프로그램 라우팅을 사용하도록 설정해야 합니다. 이 설정은 나중에 변경할 수 없습니다.
+    > [!Note]
+    > 기존 클러스터에서 [Http 응용 프로그램 라우팅](/azure/aks/http-application-routing)을 사용하도록 설정하려면 `az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing` 명령을 사용합니다.
 
 1. **검토 + 만들기**를 선택한 후 완료되면 **만들기**를 선택합니다.

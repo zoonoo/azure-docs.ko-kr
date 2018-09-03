@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sclyon
 ms.custom: mvc
-ms.openlocfilehash: ffb15c3a608cb7b7be275913cf9dec84e655334a
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: e133dde4defdec51d33fda70c0ac6d6fbeff18fe
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41917952"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189388"
 ---
-# <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB: MongoDB 데이터 가져오기 
+# <a name="migrate-your-data-to-azure-cosmos-db-mongodb-api-account"></a>Azure Cosmos DB MongoDB API 계정으로 데이터 마이그레이션
 
 MongoDB API와 함께 사용하기 위해 MongoDB에서 Azure Cosmos DB 계정으로 데이터를 마이그레이션하려면 다음을 수행해야 합니다.
 
@@ -42,7 +42,7 @@ MongoDB에서 데이터를 가져와 Azure Cosmos DB SQL API에 사용하려는 
 
 * SSL 사용: Azure Cosmos DB에는 엄격한 보안 요구 사항과 표준이 있습니다. 계정과 상호 작용하는 경우 SSL을 사용해야 합니다. 나머지 문서의 절차에서는 mongoimport 및 mongorestore에 대해 SSL을 사용하도록 설정하는 방법을 설명합니다.
 
-## <a name="find-your-connection-string-information-host-port-username-and-password"></a>연결 문자열 정보(호스트, 포트, 사용자 이름 및 암호) 찾기
+## <a name="get-your-connection-string"></a>연결 문자열 가져오기 
 
 1. [Azure Portal](https://portal.azure.com)의 왼쪽 창에서 **Azure Cosmos DB** 항목을 클릭합니다.
 1. **구독** 창에서 계정 이름을 선택합니다.
@@ -52,43 +52,51 @@ MongoDB에서 데이터를 가져와 Azure Cosmos DB SQL API에 사용하려는 
 
    ![연결 문자열 블레이드](./media/mongodb-migrate/ConnectionStringBlade.png)
 
-## <a name="import-data-to-the-api-for-mongodb-by-using-mongoimport"></a>mongoimport를 사용하여 MongoDB API로 데이터 가져오기
+## <a name="migrate-data-by-using-mongoimport"></a>mongoimport를 사용하여 데이터 마이그레이션
 
 데이터를 Azure Cosmos DB 계정으로 가져오려면 다음 템플릿을 사용합니다. *호스트*, *사용자 이름* 및 *암호*를 계정과 관련된 값으로 채웁니다.  
 
 템플릿:
 
-    mongoimport.exe --host <your_hostname>:10255 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates --type json --file C:\sample.json
+```bash
+    mongoimport.exe --host <your_hostname>:10255 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates --type json --file "C:\sample.json"
+```
 
 예제:  
 
-    mongoimport.exe --host comsosdb-mongodb-account.documents.azure.com:10255 -u comsosdb-mongodb-account -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates --db sampleDB --collection sampleColl --type json --file C:\Users\admin\Desktop\*.json
+```bash
+    mongoimport.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates --db sampleDB --collection sampleColl --type json --file "C:\Users\admin\Desktop\*.json"
+```
 
-## <a name="import-data-to-the-api-for-mongodb-by-using-mongorestore"></a>mongorestore를 사용하여 MongoDB API로 데이터 가져오기
+## <a name="migrate-data-by-using-mongorestore"></a>mongorestore를 사용하여 데이터 마이그레이션
 
 데이터를 MongoDB API 계정으로 복원하려면 다음 템플릿을 사용하여 가져오기를 실행합니다. *호스트*, *사용자 이름* 및 *암호*를 계정과 관련된 값으로 채웁니다.
 
 템플릿:
 
+```bash
     mongorestore.exe --host <your_hostname>:10255 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates <path_to_backup>
+```
 
 예제:
 
-    mongorestore.exe --host comsosdb-mongodb-account.documents.azure.com:10255 -u comsosdb-mongodb-account -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
+```bash
+    mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
+```
     
-## <a name="guide-for-a-successful-migration"></a>성공적인 마이그레이션 가이드
+## <a name="steps-for-a-successful-migration"></a>성공적인 마이그레이션을 위한 단계
 
 1. 컬렉션을 미리 만들어 크기 조정:
         
-    * 기본적으로 Azure Cosmos DB는 1,000RU(요청 단위)/초로 새 MongoDB 컬렉션을 프로비전합니다. mongoimport, mongorestore 또는 mongomirror를 사용하여 마이그레이션을 시작하기 전에 [Azure Portal](https://portal.azure.com) 또는 MongoDB 드라이버 및 도구에서 모든 컬렉션을 미리 만듭니다. 컬렉션이 10GB보다 큰 경우 적절한 분할 키로 [분할/파티션된 컬렉션](partition-data.md)을 만들어야 합니다.
+    * 기본적으로 Azure Cosmos DB는 1,000RU(요청 단위)/초로 새 MongoDB 컬렉션을 프로비전합니다. mongoimport, mongorestore를 사용하여 마이그레이션을 시작하기 전에 [Azure Portal](https://portal.azure.com) 또는 MongoDB 드라이버 및 도구에서 모든 컬렉션을 미리 만듭니다. 데이터 크기가 10GB보다 큰 경우 적절한 분할 키를 사용하여 [분할(파티션)된 컬렉션](partition-data.md)을 만들어야 합니다.
 
-    * [Azure Portal](https://portal.azure.com)에서 단일 파티션 컬렉션에 대해 1,000RU/초 및 분할된 컬렉션에 대해 2,500RU/초부터 컬렉션의 처리량을 증가시킵니다. 처리량이 높을수록 속도 제한을 피하고 마이그레이션 시간을 단축할 수 있습니다. Azure Cosmos DB에서는 시간당 청구되므로 마이그레이션 후 바로 처리량을 줄여 비용을 절감할 수 있습니다.
+    * [Azure Portal](https://portal.azure.com)에서 마이그레이션을 위해서만 단일 파티션 컬렉션의 경우 1,000RU/초에서, 분할된 컬렉션의 경우 2,500RU/초에서 컬렉션 처리량을 늘립니다. 처리량이 높을수록 속도 제한을 피하고 마이그레이션 시간을 단축할 수 있습니다. 마이그레이션 후 즉시 처리량을 줄여 비용을 절감할 수 있습니다.
 
     * 컬렉션 수준에서 RU/초를 프로비전하는 것 외에도, 부모 데이터베이스 수준에서 컬렉션 집합에 대한 RU/초를 프로비전할 수도 있습니다. 이렇게 하려면 데이터베이스 및 컬렉션을 미리 만들고, 각 컬렉션에 대해 분할 키를 정의해야 합니다.
 
     * 선호하는 도구, 드라이버 또는 SDK를 통해 분할된 컬렉션을 만들 수 있습니다. 이 예제에서는 Mongo Shell을 사용하여 분할된 컬렉션을 만듭니다.
 
-        ```
+        ```bash
         db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
         ```
     
@@ -104,15 +112,17 @@ MongoDB에서 데이터를 가져와 Azure Cosmos DB SQL API에 사용하려는 
 
 1. 단일 문서 쓰기에 대해 대략적인 RU 요금 계산:
 
-    a. MongoDB 셸에서 Azure Cosmos DB MongoDB 데이터베이스에 연결합니다. [Azure Cosmos DB에 MongoDB 응용 프로그램 연결](connect-mongodb-account.md)에서 지침을 찾을 수 있습니다.
+   a. MongoDB 셸에서 Azure Cosmos DB MongoDB API 계정에 연결합니다. [Azure Cosmos DB에 MongoDB 응용 프로그램 연결](connect-mongodb-account.md)에서 지침을 찾을 수 있습니다.
     
-    b. MongoDB 셸에서 샘플 문서 중 하나를 사용하여 샘플 삽입 명령을 실행합니다.
-    
-        ```db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })```
+   b. MongoDB 셸에서 샘플 문서 중 하나를 사용하여 샘플 삽입 명령을 실행합니다.
+   
+      ```bash
+      db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })
+      ```
         
-    다. ```db.runCommand({getLastRequestStatistics: 1})```를 실행하고 다음과 같은 응답을 수신합니다.
+   다. ```db.runCommand({getLastRequestStatistics: 1})```를 실행하고 다음과 같은 응답을 수신합니다.
      
-        ```
+      ```bash
         globaldb:PRIMARY> db.runCommand({getLastRequestStatistics: 1})
         {
             "_t": "GetRequestStatisticsResponse",
@@ -121,7 +131,7 @@ MongoDB에서 데이터를 가져와 Azure Cosmos DB SQL API에 사용하려는 
             "RequestCharge": 10,
             "RequestDurationInMilliSeconds": NumberLong(50)
         }
-        ```
+      ```
         
     d. 요청 요금을 기록해 둡니다.
     
@@ -159,13 +169,13 @@ MongoDB에서 데이터를 가져와 Azure Cosmos DB SQL API에 사용하려는 
 
 1. 최종 마이그레이션 명령을 실행합니다.
 
-   ```
-   mongoimport.exe --host comsosdb-mongodb-account.documents.azure.com:10255 -u comsosdb-mongodb-account -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24
+   ```bash
+   mongoimport.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24
    ```
    또는 mongorestore 사용(모든 컬렉션에 이전 계산에서 사용된 RU 규모 이상의 처리량이 설정되어 있어야 함):
    
-   ```
-   mongorestore.exe --host comsosdb-mongodb-account.documents.azure.com:10255 -u comsosdb-mongodb-account -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07 --numInsertionWorkersPerCollection 4 --batchSize 24
+   ```bash
+   mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07 --numInsertionWorkersPerCollection 4 --batchSize 24
    ```
 
 ## <a name="next-steps"></a>다음 단계

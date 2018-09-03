@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 07/13/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: ce84498ab89891bd7b96cfcc6b0c7ac029c93cbd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9a623156ad2a27abf7fa5e865f8b7452e2c70b3c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423082"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124521"
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Azure에서 Docker Python 및 PostgreSQL 웹앱 빌드
 
@@ -135,7 +135,7 @@ Flask 샘플 응용 프로그램은 데이터베이스에 사용자 데이터를
 
 Cloud Shell에서 [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create) 명령을 사용하여 PostgreSQL 서버를 만듭니다.
 
-다음 명령 예제에서 *\<postgresql_name>* 을 고유한 서버 이름으로 바꾸고, *\<admin_username>* 및 *\<admin_password>* 를 원하는 사용자 자격 증명으로 바꿉니다. 서버 이름은 PostgreSQL 끝점(`https://<postgresql_name>.postgres.database.azure.com`)의 일부로 사용되므로 이름은 Azure의 모든 서버에서 고유해야 합니다. 사용자 자격 증명은 데이터베이스 관리 사용자 계정을 위한 것입니다. 
+다음 명령 예제에서 *\<postgresql_name>* 을 고유한 서버 이름으로 바꾸고, *\<admin_username>* 및 *\<admin_password>* 를 원하는 사용자 자격 증명으로 바꿉니다. 서버 이름은 PostgreSQL 엔드포인트(`https://<postgresql_name>.postgres.database.azure.com`)의 일부로 사용되므로 이름은 Azure의 모든 서버에서 고유해야 합니다. 사용자 자격 증명은 데이터베이스 관리 사용자 계정을 위한 것입니다. 
 
 ```azurecli-interactive
 az postgres server create --resource-group myResourceGroup --name <postgresql_name> --location "West Europe" --admin-user <admin_username> --admin-password <admin_password> --sku-name GP_Gen4_2
@@ -169,7 +169,9 @@ PostgreSQL용 Azure 데이터베이스 서버를 만들면 Azure CLI는 다음 �
 
 ### <a name="create-a-firewall-rule-for-the-postgresql-server"></a>PostgreSQL 서버에 대한 방화벽 규칙 만들기
 
-Cloud Shell에서 다음 Azure CLI 명령을 실행하여 모든 IP 주소에서 데이터베이스에 액세스할 수 있게 합니다. 시작 IP 및 끝 IP가 `0.0.0.0`으로 설정되면 방화벽이 다른 Azure 리소스에 대해서만 열립니다. 
+Cloud Shell에서 다음 Azure CLI 명령을 실행하여 모든 IP 주소에서 데이터베이스에 액세스할 수 있게 합니다. 
+> [!Note]
+> 모든 포트를 데이터베이스에 열어 두거나 데이터베이스를 인터넷에 연결하는 것은 권장되지 않습니다.  프로덕션에 사용할 새 데이터베이스를 제대로 보호하려면 다른 [Azure 보안 문서](https://docs.microsoft.com/azure/security/)를 참조하세요.  
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=0.0.0.0 --name AllowAzureIPs

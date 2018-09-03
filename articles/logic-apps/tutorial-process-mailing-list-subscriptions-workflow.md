@@ -1,26 +1,21 @@
 ---
 title: 메일 그룹 요청을 처리하는 승인 워크플로 만들기 - Azure Logic Apps | Microsoft Docs
-description: 이 자습서에서는 Azure Logic Apps로 메일 그룹 구독을 처리하는 자동화된 승인 워크플로를 만드는 방법을 보여줍니다.
-author: ecfan
-manager: jeconnoc
-editor: ''
+description: '자습서: Azure Logic Apps를 사용하여 메일 그룹 구독을 처리하는 자동화된 승인 워크플로를 만드는 방법입니다.'
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: e31be6ac24b7b194ab77856cb7376f9431a79f24
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 4ac5861dabbc473099886b4f099824cde60f38b9
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300677"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122872"
 ---
 # <a name="manage-mailing-list-requests-with-a-logic-app"></a>논리 앱으로 메일 그룹 요청 관리
 

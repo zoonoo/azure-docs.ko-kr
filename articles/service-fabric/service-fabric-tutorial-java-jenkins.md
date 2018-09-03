@@ -12,15 +12,15 @@ ms.devlang: java
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/26/2018
+ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 925a1af53438e21282e65418edc9ea365ad6a653
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b8c114ec3fe9b27d0318bf11a8b1fa8e3ce5f1c3
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432442"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124983"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>자습서: Service Fabric에서 Java 응용 프로그램에 CI/CD를 사용하도록 Jenkins 환경 구성
 
@@ -53,10 +53,10 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
 
 1. Service Fabric Jenkins 컨테이너 이미지를 끌어옵니다. ``docker pull rapatchi/jenkins:v10`` 이 이미지는 미리 설치된 Service Fabric Jenkins 플러그 인과 함께 제공됩니다.
 
-1. 탑재된 로컬 컴퓨터에 인증서가 있는 위치를 사용하여 컨테이너 이미지 실행
+1. Azure 인증서가 탑재된 로컬 머신에 저장된 위치를 사용하여 컨테이너 이미지를 실행합니다.
 
     ```bash
-    docker run -itd -p 8080:8080 -v /Users/suhuruli/Documents/Work/Samples/service-fabric-java-quickstart/AzureCluster:/tmp/myCerts rapatchi/jenkins:v10
+    docker run -itd -p 8080:8080 -v /service-fabric-java-quickstart/AzureCluster rapatchi/jenkins:v10
     ```
 
 1. 컨테이너 이미지 인스턴스 ID를 가져옵니다. 명령 ``docker ps –a``를 사용하여 모든 Docker 컨테이너를 나열할 수 있습니다.
@@ -86,7 +86,7 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
 
 1. 첫째, Github에서 Voting 프로젝트를 호스팅하는 데 사용할 수 있는 리포지토리가 없는 경우 만드세요. 리포지토리는 이 자습서의 나머지에 대해 **dev_test**라고 합니다.
 
-1. Jenkins 대시보드에 **새 항목**을 만듭니다.
+1. ``http://<HOST-IP>:8080``의 Jenkins 대시보드에 **새 항목**을 만듭니다.
 
 1. 항목 이름을 입력합니다(예: **MyJob**). **자유로운 프로젝트**를 선택하고 **확인**을 클릭합니다.
 
@@ -94,13 +94,13 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
 
    a. 일반 섹션에서 **GitHub 프로젝트**에 대한 확인란을 선택하고 GitHub 프로젝트 URL을 지정합니다. 이 URL은 Jenkins CI/CD(연속 통합, 연속 배포) 흐름과 통합하려는 Service Fabric Java 응용 프로그램을 호스트합니다(예: ``https://github.com/testaccount/dev_test``).
 
-   나. **소스 코드 관리** 섹션 아래에서 **Git**를 선택합니다. Jenkins CI/CD 흐름과 통합하려는 Service Fabric Java 응용 프로그램을 호스트하는 리포지토리 URL을 지정합니다(예: *https://github.com/testaccount/dev_test.git*). 또한 여기에서 빌드할 분기를 지정할 수 있습니다(예: **/master**).
+   b. **소스 코드 관리** 섹션 아래에서 **Git**를 선택합니다. Jenkins CI/CD 흐름과 통합하려는 Service Fabric Java 응용 프로그램을 호스트하는 리포지토리 URL을 지정합니다(예: *https://github.com/testaccount/dev_test.git*). 또한 여기에서 빌드할 분기를 지정할 수 있습니다(예: **/master**).
 
 1. Jenkins와 통신할 수 있도록 리포지토리를 호스팅하는 *GitHub*을 구성합니다. 다음 단계를 사용하세요.
 
    a. GitHub 리포지토리 페이지로 이동합니다. **설정** > **통합 및 서비스**로 이동합니다.
 
-   나. **서비스 추가**를 선택하고 **Jenkins**를 입력하고 **Jenkins-GitHub 플러그 인**을 선택합니다.
+   b. **서비스 추가**를 선택하고 **Jenkins**를 입력하고 **Jenkins-GitHub 플러그 인**을 선택합니다.
 
    다. Jenkins Webhook URL을 입력합니다(기본적으로 ``http://<PublicIPorFQDN>:8081/github-webhook/``이여야 함). **서비스 추가/업데이트**를 클릭합니다.
 
@@ -123,6 +123,8 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
     > [!NOTE]
     > 이 클러스터는 Service Fabric을 사용하여 Jenkins 컨테이너 이미지를 배포하는 경우에 Jenkins 컨테이너 응용 프로그램을 호스팅하는 것과 동일할 수 있습니다.
     >
+
+1. **저장**을 클릭합니다.
 
 ## <a name="update-your-existing-application"></a>기존 응용 프로그램 업데이트
 

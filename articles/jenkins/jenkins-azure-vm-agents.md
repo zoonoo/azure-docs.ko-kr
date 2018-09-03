@@ -1,19 +1,19 @@
 ---
 title: Azure VM 에이전트를 통해 Jenkins 배포의 크기를 조정합니다.
 description: Jenkins Azure VM 에이전트 플러그 인과 함께 Azure Virtual Machines를 사용하여 Jenkins 파이프라인에 추가 용량을 추가합니다.
-ms.topic: tutorial
-ms.author: tarcher
+ms.service: jenkins
+keywords: Jenkins, Azure, DevOps, 가상 머신, 에이전트
 author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 069c6df38f9caa73a30fbc25baafdf7efbd2f402
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 46710b3a669b6a00dc1826c55e8d35fe700f312f
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429399"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106226"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Azure VM 에이전트를 통해 요구 사항을 충족하도록 Jenkins 배포의 비율 크기 조정
 
@@ -53,7 +53,7 @@ ms.locfileid: "39429399"
 1. **Azure 자격 증명** 섹션에 있는 **추가** 드롭다운에서 기존 서비스 주체를 선택합니다. 아무것도 나열되지 않는 경우 다음 단계를 수행하여 Azure 계정에 대한 [서비스 주체를 만들어](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager) Jenkins 구성에 추가합니다.   
 
     a. **Azure 자격 증명** 옆에 있는 **추가**를 선택하고 **Jenkins**를 선택합니다.   
-    나. **자격 증명 추가** 대화 상자에 있는 **종류** 드롭다운에서 **Microsoft Azure 서비스 주체**를 선택합니다.   
+    b. **자격 증명 추가** 대화 상자에 있는 **종류** 드롭다운에서 **Microsoft Azure 서비스 주체**를 선택합니다.   
     다. Azure CLI 또는 [Cloud Shell](/azure/cloud-shell/overview)에서 Active Directory Service 주체를 만듭니다.
     
     ```azurecli-interactive

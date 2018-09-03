@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 08/24/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ee38fe542ca6e2e4e1f8e09b54717d4390b453d0
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 48714d71edcf54726eb362c7f56950a1350fd52b
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37922660"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885328"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS(Amazon Web Services)에서 Azure로 VM 마이그레이션
 
@@ -33,10 +33,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 - 마이그레이션할 VM이 지원되는 OS 버전을 실행하고 있는지 확인합니다. 지원되는 버전은 다음과 같습니다. 
-    - Windows Server 2016
-    - Red Hat Enterprise Linux 6.7(HVM 가상화된 인스턴스만 해당) 및 Citrix PV 또는 AWS PV 드라이버만 포함해야 합니다. Red Hat PV 드라이버를 실행하는 인스턴스는 지원되지 **않습니다**.
-
-- 복제하려는 각 VM에 모바일 서비스가 설치되어야 합니다. 
+  - Windows Server 2016 
+  - Windows Server 2012 R2
+  - Windows Server 2012 
+  - 64비트 버전의 Windows Server 2008 R2 SP1 이상
+  - Red Hat Enterprise Linux 6.7(HVM 가상화된 인스턴스만 해당)(Citrix PV 또는 AWS PV 드라이버 포함). RedHat PV 드라이버를 실행하는 인스턴스는 지원되지 *않습니다*.
+ - 복제하려는 각 VM에 모바일 서비스가 설치되어야 합니다. 
 
     > [!IMPORTANT]
     > Site Recovery에서 VM에 대한 복제를 사용하도록 설정하면 이 서비스를 자동으로 설치합니다. 자동 설치가 되려면 Site Recovery가 VM에 액세스하는 데 사용할 EC2 인스턴스 계정을 준비해야 합니다. 도메인 또는 로컬 계정을 사용할 수 있습니다. 

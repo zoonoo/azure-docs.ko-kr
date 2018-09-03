@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: SEO champ와 상담하지 않고 키워드를 추가하거나 편집하지 마세요.
 author: rwike77
 ms.author: ryanwi
-ms.date: 07/12/2018
+ms.date: 08/24/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: a740672ea948bd86efce92c534e0f95f65563438
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: f5b834f92b2a126f68780a7647fda4d8b35dfe43
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42022409"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886447"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>빠른 시작: Service Fabric Mesh에 Hello World 배포
 
@@ -45,11 +45,18 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="deploy-the-application"></a>응용 프로그램 배포
-`az mesh deployment create` 명령을 사용하여 리소스 그룹에 응용 프로그램을 만듭니다.
+`az mesh deployment create` 명령을 사용하여 리소스 그룹에 응용 프로그램을 만듭니다.  Bash 콘솔을 사용하는 경우 다음을 실행합니다.
 
 ```azurecli-interactive
 az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}}" 
 ```
+
+PowerShell 콘솔을 사용하는 경우 다음을 실행합니다.
+
+```azurecli-interactive
+az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{'location': {'value': 'eastus'}}"
+```
+
 이전 명령은 [mesh_rp.linux.json 템플릿](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json)을 사용하여 Linux 응용 프로그램을 배포합니다. Windows 응용 프로그램을 배포하려면 [mesh_rp.windows.json 템플릿](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json)을 사용합니다. Windows 컨테이너 이미지가 Linux 컨테이너 이미지보다 크므로 배포하는 데 시간이 더 걸릴 수 있습니다.
 
 잠시 후에 명령은 다음을 반환합니다.

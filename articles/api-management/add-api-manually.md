@@ -3,7 +3,7 @@ title: Azure Portal을 사용하여 수동으로 API 추가 | Microsoft Docs
 description: 이 자습서에서는 APIM(API Management)을 사용하여 API를 수동으로 추가하는 방법을 보여 줍니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,16 +11,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 08/27/2018
 ms.author: apimpm
-ms.openlocfilehash: ef7cfa0f30eaaa426c312b21ce0a73aa4409d2ec
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 35b4777c7de4db1f8514b24e7b1e4d11775d0ca0
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307451"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247905"
 ---
-# <a name="add-an-api-manually"></a>API를 수동으로 추가 
+# <a name="add-an-api-manually"></a>API를 수동으로 추가
 
 이 문서의 단계에서는 Azure Portal을 사용하여 APIM(API Management) 인스턴스에 수동으로 API를 추가하는 방법을 보여 줍니다. 빈 API를 만들고 수동으로 정의하려는 일반적인 시나리오는 모의 API를 만들려는 경우입니다. 모의 API 만들기에 대한 자세한 내용은 [모의 API 응답 만들기](mock-api-responses.md)를 참조하세요.
 
@@ -54,17 +54,16 @@ ms.locfileid: "38307451"
     |**제품**|"*Unlimited*" |API를 제품에 연결하여 API를 게시합니다. API를 게시하고 개발자가 사용할 수 있게 하려면 제품에 추가합니다. API를 만드는 동안 이 작업을 수행할 수도 있고 나중에 설정할 수도 있습니다.<br/><br/>제품은 하나 이상의 API와 연결됩니다. 다양한 API를 포함하고 개발자 포털을 통해 개발자에게 제공할 수 있습니다. <br/>개발자는 API에 액세스하려면 먼저 제품을 구독해야 합니다. 구독할 경우 해당 제품의 모든 API에 적절한 구독 키를 받게 됩니다. APIM 인스턴스를 만든 경우 사용자는 이미 관리자이므로 기본적으로 모든 제품을 구독한 상태가 됩니다.<br/><br/> 기본적으로 각 API Management 인스턴스는 두 개의 샘플 제품인 **Starter** 및 **Unlimited**와 함께 제공됩니다.| 
 5. **만들기**를 선택합니다.
 
-이때 백 엔드 API의 작업에 매핑되는 APIM의 작업은 없습니다. APIM을 통해서가 아니라 백 엔드를 통해 노출되는 작업을 호출하는 경우 **404**가 표시됩니다. 
+이때 백 엔드 API의 작업에 매핑되는 APIM의 작업은 없습니다. APIM을 통해서가 아니라 백 엔드를 통해 노출되는 작업을 호출하는 경우 **404**가 표시됩니다.
 
 >[!NOTE] 
 > 기본적으로 추가한 API가 일부 백 엔드 서비스에 연결되더라도 허용 목록에 추가할 때까지 APIM는 어떤 작업도 공개하지 않습니다. 백 엔드 서비스의 작업을 허용 목록에 추가하려면 백 엔드 작업에 매핑되는 APIM 작업을 만듭니다.
->
 
 ## <a name="add-and-test-an-operation"></a>작업 추가 및 테스트
 
 이 섹션에서는 백 엔드 "http://httpbin.org/get" 작업에 매핑하기 위해 "/get" 작업을 추가하는 방법을 보여줍니다.
 
-### <a name="add-the-operation"></a>작업 추가
+### <a name="add-an-operation"></a>작업 추가
 
 1. 이전 단계에서 만든 API를 선택합니다.
 2. **+ 작업 추가**를 클릭합니다.
@@ -72,7 +71,7 @@ ms.locfileid: "38307451"
 4. **표시 이름**으로 "*FetchData*"를 입력합니다.
 5. **저장**을 선택합니다.
 
-### <a name="test-the-operation"></a>작업 테스트
+### <a name="test-an-operation"></a>작업 테스트
 
 Azure Portal에서 작업을 테스트합니다. 또는 **개발자 포털**에서 테스트할 수도 있습니다.
 

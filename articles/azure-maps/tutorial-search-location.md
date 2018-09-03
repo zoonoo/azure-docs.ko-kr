@@ -3,18 +3,18 @@ title: Azure Maps를 사용하여 검색 | Microsoft Docs
 description: Azure Maps를 사용하여 주변 관심 지점 검색
 author: dsk-2015
 ms.author: dkshir
-ms.date: 05/07/2018
+ms.date: 08/23/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ffc4b7625a6c43f8e2801313c61f14c785a3ec5f
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: e30d84c70f786a5bea25073c70a29b63c9a00ae9
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988877"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917665"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Azure Maps를 사용하여 주변 관심 지점 검색
 
@@ -29,7 +29,7 @@ ms.locfileid: "38988877"
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
-[Azure 포털](https://portal.azure.com) 에 로그인합니다.
+[Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 <a id="createaccount"></a>
 
@@ -81,8 +81,9 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
         <meta name="viewport" content="width=device-width, user-scalable=no" />
         <title>Map Search</title>
 
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1.0" type="text/css" />
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1.0"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" /> 
+        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script> 
+        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.min.js?api-version=1"></script> 
 
         <style>
             html,
@@ -131,10 +132,12 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
 
 ## <a name="add-search-capabilities"></a>검색 기능 추가
 
-이 섹션에서는 Maps 검색 API를 사용하여 지도에서 관심 지점을 찾는 방법을 보여 줍니다. 개발자가 주소, 관심 지점 및 기타 지역 정보를 검색할 수 있도록 설계된 RESTful API입니다. 검색 서비스에서 지정된 주소에 위도와 경도 정보를 할당합니다. 
+이 섹션에서는 Maps 검색 API를 사용하여 지도에서 관심 지점을 찾는 방법을 보여 줍니다. 개발자가 주소, 관심 지점 및 기타 지역 정보를 검색할 수 있도록 설계된 RESTful API입니다. 검색 서비스에서 지정된 주소에 위도와 경도 정보를 할당합니다. 아래에서 설명하는 **서비스 모듈**은 Maps Search API를 사용하여 위치를 검색하는 데 사용할 수 있습니다.
 
-1. 지도에 새 레이어를 추가하여 검색 결과를 표시합니다. 지도를 초기화하는 코드 뒤에 있는 *script* 블록에 다음 JavaScript 코드를 추가합니다. 
+### <a name="service-module"></a>서비스 모듈
 
+1. 지도에 새 레이어를 추가하여 검색 결과를 표시합니다. 지도를 초기화하는 코드 뒤에 있는 스크립트 블록에 다음 JavaScript 코드를 추가합니다. 
+    
     ```JavaScript
     // Initialize the pin layer for search results to the map
     var searchLayerName = "search-results";
@@ -145,69 +148,50 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
     });
     ```
 
-2. [XMLHttpRequest](https://xhr.spec.whatwg.org/)를 만들고, 이벤트 처리기를 추가하여 Maps 검색 서비스에서 보낸 JSON 응답을 구문 분석합니다. 다음 코드 조각에서는 이벤트 처리기를 빌드하여 `searchPins` 변수에 반환된 각 위치에 대한 주소, 이름, 위도 및 경도 정보를 수집합니다. 마지막으로 이 위치 지점의 컬렉션을 `map` 컨트롤에 핀으로 추가합니다. 
+2. 클라이언트 서비스를 인스턴스화하려면 지도를 초기화하는 코드 뒤에 있는 스크립트 블록에 다음 JavaScript 코드를 추가합니다.
 
     ```JavaScript
-    // Perform a request to the search service and create a pin on the map for each result
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        var searchPins = [];
-
-        if (this.readyState === 4 && this.status === 200) {
-            var response = JSON.parse(this.responseText);
-
-            var poiResults = response.results.filter((result) => { return result.type === "POI" }) || [];
-
-            searchPins = poiResults.map((poiResult) => {
-                var poiPosition = [poiResult.position.lon, poiResult.position.lat];
-                return new atlas.data.Feature(new atlas.data.Point(poiPosition), {
-                    name: poiResult.poi.name,
-                    address: poiResult.address.freeformAddress,
-                    position: poiResult.position.lat + ", " + poiResult.position.lon
-                });
-            });
-
-            map.addPins(searchPins, {
-                name: searchLayerName
-            });
-
-            var lons = searchPins.map((pin) => { return pin.geometry.coordinates[0] });
-            var lats = searchPins.map((pin) => { return pin.geometry.coordinates[1] });
-
-            var swLon = Math.min.apply(null, lons);
-            var swLat = Math.min.apply(null, lats);
-            var neLon = Math.max.apply(null, lons);
-            var neLat = Math.max.apply(null, lats);
-
-            map.setCameraBounds({
-                bounds: [swLon, swLat, neLon, neLat],
-                padding: 50
-            });
-        }
-    };
+    var client = new atlas.service.Client(subscriptionKey);
     ```
 
-3. 다음 코드를 *script* 블록에 추가하여 쿼리를 작성하고 XMLHttpRequest를 Maps 검색 서비스로 보냅니다.
+3. 다음 스크립트 블록을 추가하여 쿼리를 작성합니다. Search Service의 기본 검색 API인 유사 항목 검색 서비스를 사용합니다. 유사 항목 검색 서비스는 주소와 POI(관심 지점) 토큰의 조합과 같은 대부분의 유사 항목 입력을 처리합니다. 지정된 반경 내에서 가까운 주유소를 검색합니다. 그러면 응답이 GeoJSON 형식으로 구문 분석되고 지점 기능으로 변환되어 지도에 핀으로 추가됩니다. 스크립트의 마지막 부분에서는 Map의 [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) 속성을 사용하여 지도에 대한 카메라 한도를 추가합니다.
 
     ```JavaScript
-    var url = "https://atlas.microsoft.com/search/fuzzy/json?";
-    url += "api-version=1.0";
-    url += "&query=gasoline%20station";
-    url += "&subscription-key=" + MapsAccountKey;
-    url += "&lat=47.6292";
-    url += "&lon=-122.2337";
-    url += "&radius=100000";
-
-    xhttp.open("GET", url, true);
-    xhttp.send();
-    ``` 
-    이 코드 조각은 **Fuzzy Search**이라는 Search Service의 기본 검색 API를 사용합니다. 주소 또는 POI(관심 지점) 토큰의 조합을 포함하여 가장 유사한 입력 항목을 처리합니다. 지정된 위도와 경도 좌표의 지정된 반경 내에서 인접한 **주유소**를 검색합니다. 예제 파일의 앞부분에서 제공된 계정의 기본 키를 사용하여 Maps를 호출합니다. 찾은 위치에 대해 위도/경도 쌍으로 결과를 반환합니다. 
-    
+    client.search.getSearchFuzzy("gasoline station", {
+     lat: 47.6292,
+     lon: -122.2337,
+     radius: 100000
+    }).then(response => {
+       // Parse the response into GeoJSON 
+       var geojsonResponse = new atlas.service.geojson.GeoJsonSearchResponse(response); 
+ 
+       // Create the point features that will be added to the map as pins 
+       var searchPins = geojsonResponse.getGeoJsonResults().features.map(poiResult => { 
+           var poiPosition = [poiResult.properties.position.lon, poiResult.properties.position.lat]; 
+           return new atlas.data.Feature(new atlas.data.Point(poiPosition), { 
+                name: poiResult.properties.poi.name, 
+                address: poiResult.properties.address.freeformAddress, 
+                position: poiPosition[1] + ", " + poiPosition[0] 
+           }); 
+       }); 
+ 
+       // Add pins to the map for each POI 
+       map.addPins(searchPins, { 
+           name: searchLayerName 
+       }); 
+ 
+       // Set the camera bounds 
+       map.setCameraBounds({ 
+           bounds: geojsonResponse.getGeoJsonResults().bbox, 
+           padding: 50 
+       ); 
+    }); 
+    ```
 4. **MapSearch.html** 파일을 저장하고, 브라우저를 새로 고칩니다. 이제 지도가 시애틀 중심부에 있고 파란색 핀이 해당 영역의 주유소 위치를 표시하고 있습니다. 
 
    ![검색 결과가 포함된 지도 보기](./media/tutorial-search-location/pins-map.png)
 
-5. 파일에 작성한 XMLHTTPRequest를 사용하고 브라우저에 입력하여 지도에서 렌더링하는 원시 데이터를 볼 수 있습니다. \<계정 키\>를 기본 키로 바꿉니다. 
+5. 브라우저에 다음 HTTPRequest를 입력하여 지도에서 렌더링하는 원시 데이터를 볼 수 있습니다. \<계정 키\>를 기본 키로 바꿉니다. 
 
    ```http
    https://atlas.microsoft.com/search/fuzzy/json?api-version=1.0&query=gasoline%20station&subscription-key=<your account key>&lat=47.6292&lon=-122.2337&radius=100000
@@ -237,7 +221,7 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
         popupContentElement.appendChild(popupAddressElement);
 
         var popupPositionElement = document.createElement("div");
-        popupPositionElement.innerText = e.features[0].properties.name;
+        popupPositionElement.innerText = e.features[0].properties.position;
         popupContentElement.appendChild(popupPositionElement);
 
         popup.setPopupOptions({
