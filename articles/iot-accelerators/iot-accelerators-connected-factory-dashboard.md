@@ -33,7 +33,7 @@ ms.locfileid: "39075569"
 
 1. 그러면 필터가 적용됩니다. 추가 깔때기형 아이콘은 필터가 적용되었음을 나타냅니다.
 
-    [연결된 팩터리 솔루션 가속기 - 필터 적용![](./media/iot-accelerators-connected-factory-dashboard/filterapplied-inline.png)](./media/iot-accelerators-connected-factory-dashboard/filterapplied-expanded.png#lightbox)
+    [![연결된 팩터리 솔루션 가속기 - 필터 적용](./media/iot-accelerators-connected-factory-dashboard/filterapplied-inline.png)](./media/iot-accelerators-connected-factory-dashboard/filterapplied-expanded.png#lightbox)
 
     > [!NOTE]
     > 활성 필터는 표시된 OEE 및 KPI 값에는 영향을 주지 않고 목록 내용만 필터링합니다.
