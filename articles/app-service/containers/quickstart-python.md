@@ -20,7 +20,7 @@ ms.locfileid: "39433445"
 ---
 # <a name="deploy-a-python-web-app-in-web-app-for-containers"></a>Web App for Containers에 Python 웹앱 배포
 
-[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 사용하여 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 사용자 지정 Docker 허브 이미지를 사용하여 웹앱을 만들고 간단한 Flask 앱을 배포하는 방법을 설명합니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만듭니다.
+[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 기반으로 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 사용자 지정 Docker 허브 이미지를 사용하여 웹앱을 만들고 간단한 Flask 앱을 배포하는 방법을 설명합니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만듭니다.
 
 ![Azure에서 실행되는 샘플 앱](media/quickstart-python/hello-world-in-browser.png)
 
@@ -36,14 +36,14 @@ ms.locfileid: "39433445"
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 
-터미널 창에서 다음 명령을 실행하여 샘플 응용 프로그램이 로컬 컴퓨터에 복제하고 샘플 코드가 들어 있는 디렉터리로 이동합니다.
+터미널 창에서 다음 명령을 실행하여, 샘플 응용 프로그램을 로컬 컴퓨터에 복제하고 샘플 코드가 들어 있는 디렉터리로 이동합니다.
 
 ```bash
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 cd python-docs-hello-world
 ```
 
-이 리포지토리는 _/app_ 폴더의 간단한 Flask 응용 프로그램과 다음 세 가지를 지정하는 _Dockerfile_을 포함하고 있습니다.
+이 리포지토리의 _/app_ 폴더는 간단한 Flask 응용 프로그램과 다음 세 가지를 지정하는 _Dockerfile_을 포함하고 있습니다.
 
 - [tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/) 기본 이미지를 사용합니다.
 - 컨테이너는 포트 8000에서 수신 대기해야 합니다.
@@ -51,7 +51,7 @@ cd python-docs-hello-world
 
 구성은 [기본 이미지에 대한 지침](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/)을 따릅니다.
 
-## <a name="run-the-app-locally"></a>로컬에서 앱 실행
+## <a name="run-the-app-locally"></a>로컬에서 앱 실행하기
 
 Docker 컨테이너에서 앱을 실행합니다.
 
@@ -62,13 +62,13 @@ docker run --rm -it -p 8000:8000 flask-quickstart
 
 웹 브라우저를 열고 `http://localhost:8000`의 샘플 앱으로 이동합니다.
 
-이 페이지에 표시된 샘플 앱에서 **Hello World** 메시지를 볼 수 있습니다.
+이 페이지에 표시된 샘플 앱에서 **Hello,Azure!** 메시지를 볼 수 있습니다.
 
 ![로컬로 실행되는 샘플 앱](media/quickstart-python/localhost-hello-world-in-browser.png)
 
 터미널 창에서 **Ctrl+C**를 눌러 컨테이너를 중지합니다.
 
-## <a name="deploy-image-to-docker-hub"></a>Docker 허브에 이미지 배포
+## <a name="deploy-image-to-docker-hub"></a>Docker 허브에 이미지 배포하기
 
 Docker 허브 계정에 로그인합니다. 프롬프트를 따라 Docker 허브 자격 증명을 입력합니다.
 
@@ -119,7 +119,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 }
 ```
 
-앞에서 개인 리포지토리에 업로드한 경우 App Service에서 Docker 허브 자격 증명도 구성해야 합니다. 자세한 내용은 [Docker 허브에서 개인 이미지 사용](tutorial-custom-docker-image.md#use-a-private-image-from-docker-hub-optional)을 참조하세요.
+앞에서 개인 리포지토리에 업로드한 경우, App Service에서 Docker 허브 자격 증명도 구성해야 합니다. 자세한 내용은 [Docker 허브에서 개인 이미지 사용](tutorial-custom-docker-image.md#use-a-private-image-from-docker-hub-optional)을 참조하세요.
 
 ### <a name="specify-container-port"></a>컨테이너 포트 지정
 
