@@ -43,8 +43,7 @@ Azure-SSIS IR의 인스턴스를 프로비전하는 경우 Azure Feature Pack fo
 ## <a name="prerequisites"></a>필수 조건 
 - **Azure 구독**. 구독이 없는 경우 [평가판](http://azure.microsoft.com/pricing/free-trial/) 계정을 만들 수 있습니다. 
 
-- 
-  **Azure SQL Database 서버/Managed Instance(미리 보기)**. 데이터베이스 서버가 아직 없는 경우 시작하기 전에 Azure Portal에서 이 서버를 만듭니다. 이 서버는 SSISDB(SSIS 카탈로그 데이터베이스)를 호스팅합니다. Integration Runtime과 동일한 Azure 지역에 데이터베이스 서버를 만드는 것이 좋습니다. 이 구성을 사용하면 Integration Runtime에서 Azure 지역을 벗어나지 않고 SSISDB에 실행 로그를 쓸 수 있습니다. SSISDB는 선택한 데이터베이스 서버에 따라 사용자를 대신하여 공용 네트워크에서 액세스하거나 가상 네트워크를 조인하여 단일 데이터베이스, 탄력적 풀의 일부 또는 Managed Instance(미리 보기)로 만들 수 있습니다. Azure SQL Database에 지원되는 가격 책정 계층의 목록은 [SQL Database 리소스 제한](../sql-database/sql-database-resource-limits.md)을 참조하세요. 
+- **Azure SQL Database 서버/Managed Instance(미리 보기)**. 데이터베이스 서버가 아직 없는 경우 시작하기 전에 Azure Portal에서 이 서버를 만듭니다. 이 서버는 SSISDB(SSIS 카탈로그 데이터베이스)를 호스팅합니다. Integration Runtime과 동일한 Azure 지역에 데이터베이스 서버를 만드는 것이 좋습니다. 이 구성을 사용하면 Integration Runtime에서 Azure 지역을 벗어나지 않고 SSISDB에 실행 로그를 쓸 수 있습니다. SSISDB는 선택한 데이터베이스 서버에 따라 사용자를 대신하여 공용 네트워크에서 액세스하거나 가상 네트워크를 조인하여 단일 데이터베이스, 탄력적 풀의 일부 또는 Managed Instance(미리 보기)로 만들 수 있습니다. Azure SQL Database에 지원되는 가격 책정 계층의 목록은 [SQL Database 리소스 제한](../sql-database/sql-database-resource-limits.md)을 참조하세요. 
 
     Azure SQL Database 서버 또는 Managed Instance(미리 보기)에 SSIS 카탈로그(SSIDB 데이터베이스)가 없는지 확인합니다. Azure-SSIS IR 프로비전은 기존 SSIS 카탈로그 사용을 지원하지 않습니다. 
 
@@ -66,11 +65,9 @@ Azure-SSIS Integration Runtime을 현재 사용할 수 있는 Azure 지역 목�
 | 기능 | SQL Database | Managed Instance |
 |---------|--------------|------------------|
 | **일정 계획** | SQL Server 에이전트를 사용할 수 없습니다.<br/><br/>[Azure Data Factory 파이프라인의 일부로 패키지 예약](/sql/integration-services/lift-shift/ssis-azure-schedule-packages#activity)을 참조하세요.| SQL Server 에이전트를 사용할 수 있습니다. |
-| **인증** | **dbmanager** 역할의 모든 Azure Active Directory 사용자를 나타내는 포함된 데이터베이스 사용자 계정을 사용하여 데이터베이스를 만들 수 있습니다.<br/><br/>[Azure SQL Database에서 Azure AD 활성화](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database)를 참조하세요. | Azure AD 관리자가 아닌 모든 Azure Active Directory 사용자를 나타내는 포함된 데이터베이스 사용자 계정을 사용하여 데이터베이스를 만들 수 없습니다. <br/><br/>
-  [Azure SQL Database Managed Instance에서 Azure AD 활성화](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance)를 참조하세요. |
+| **인증** | **dbmanager** 역할의 모든 Azure Active Directory 사용자를 나타내는 포함된 데이터베이스 사용자 계정을 사용하여 데이터베이스를 만들 수 있습니다.<br/><br/>[Azure SQL Database에서 Azure AD 활성화](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database)를 참조하세요. | Azure AD 관리자가 아닌 모든 Azure Active Directory 사용자를 나타내는 포함된 데이터베이스 사용자 계정을 사용하여 데이터베이스를 만들 수 없습니다. <br/><br/>[Azure SQL Database Managed Instance에서 Azure AD 활성화](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance)를 참조하세요. |
 | **서비스 계층** | SQL Database에서 Azure-SSIS IR을 만들 때 SSISDB의 서비스 계층을 선택할 수 있습니다. 여러 서비스 계층이 있습니다. | Managed Instance에서 Azure-SSIS IR을 만들 때 SSISDB의 서비스 계층을 선택할 수 없습니다. 동일한 Managed Instance의 모든 데이터베이스는 해당 인스턴스에 할당된 동일한 리소스를 공유합니다. |
-| **가상 네트워크** | Azure Resource Manager 및 클래식 가상 네트워크가 둘 다 지원됩니다. | Azure Resource Manager 가상 네트워크만 지원됩니다. 가상 네트워크가 필요합니다.<br/><br/>Azure-SSIS IR을 Managed Instance와 동일한 가상 네트워크에 조인하는 경우에는 Azure-SSIS IR이 Managed Instance와 다른 서브넷에 있어야 합니다. Azure-SSIS IR을 Managed Instance와 다른 가상 네트워크에 조인하는 경우에는 가상 네트워크 피어링(동일한 지역으로 제한됨) 또는 가상 네트워크에서 가상 네트워크로 연결을 사용하는 것이 좋습니다. 
-  [응용 프로그램을 Azure SQL Database Managed Instance에 연결](../sql-database/sql-database-managed-instance-connect-app.md)을 참조하세요. |
+| **가상 네트워크** | Azure Resource Manager 및 클래식 가상 네트워크가 둘 다 지원됩니다. | Azure Resource Manager 가상 네트워크만 지원됩니다. 가상 네트워크가 필요합니다.<br/><br/>Azure-SSIS IR을 Managed Instance와 동일한 가상 네트워크에 조인하는 경우에는 Azure-SSIS IR이 Managed Instance와 다른 서브넷에 있어야 합니다. Azure-SSIS IR을 Managed Instance와 다른 가상 네트워크에 조인하는 경우에는 가상 네트워크 피어링(동일한 지역으로 제한됨) 또는 가상 네트워크에서 가상 네트워크로 연결을 사용하는 것이 좋습니다. [응용 프로그램을 Azure SQL Database Managed Instance에 연결](../sql-database/sql-database-managed-instance-connect-app.md)을 참조하세요. |
 | **분산 트랜잭션** | MSDTC(Microsoft Distributed Transaction Coordinator) 트랜잭션은 지원되지 않습니다. 패키지에서 MSDTC를 사용하여 분산 트랜잭션을 조정하는 경우 SQL Database용 Elastic 탄력적 트랜잭션을 사용하여 임시 솔루션을 구현할 수 있습니다. 현재 SSIS는 기본적으로 탄력적 트랜잭션을 지원하지 않습니다. SSIS 패키지에 탄력적 트랜잭션을 사용하려면 스크립트 작업에서 사용자 지정 ADO.NET 코드를 작성해야 합니다. 이 스크립트 작업에는 트랜잭션의 시작과 끝, 그리고 트랜잭션 내에서 발생해야 하는 모든 동작이 포함되어야 합니다.<br/><br/>탄력적 트랜잭션 코딩에 대한 자세한 내용은 [Azure SQL Database를 사용한 탄력적 데이터베이스 트랜잭션](https://azure.microsoft.com/en-us/blog/elastic-database-transactions-with-azure-sql-database/)을 참조하세요. 탄력적 트랜잭션에 대한 일반적인 내용은 [클라우드 데이터베이스의 분산 트랜잭션](../sql-database/sql-database-elastic-transactions-overview.md)을 참조하세요. | 지원되지 않습니다. |
 | | | |
 
