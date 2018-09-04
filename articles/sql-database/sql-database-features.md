@@ -29,8 +29,7 @@ Microsoft는 Azure SQL Database에 계속해서 기능을 추가하고 있습니
 
 다음 표에서는 SQL Server의 주요 기능을 나열하고, 기능이 부분적으로 지원되는지 또는 완전히 지원되는지에 대한 정보 및 기능에 대한 자세한 정보로 링크를 제공합니다. 
 
-| **SQL 기능** | **Azure SQL Database/논리 서버에서 지원됨** | 
-  **Azure SQL Database/Managed Instance(미리 보기)에서 지원됨** |
+| **SQL 기능** | **Azure SQL Database/논리 서버에서 지원됨** | **Azure SQL Database/Managed Instance(미리 보기)에서 지원됨** |
 | --- | --- | --- |
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | 예 - [인증서 저장소](sql-database-always-encrypted.md) 및 [키 자격 증명 모음](sql-database-always-encrypted-azure-key-vault.md) 참조 | 예 - [인증서 저장소](sql-database-always-encrypted.md) 및 [키 자격 증명 모음](sql-database-always-encrypted-azure-key-vault.md) 참조 |
 | [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [고가용성](sql-database-high-availability.md)은 모든 데이터베이스에 포함됩니다. 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md)에서 설명합니다. | [고가용성](sql-database-high-availability.md)은 모든 데이터베이스에 포함됩니다. 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md)에서 설명합니다. |
