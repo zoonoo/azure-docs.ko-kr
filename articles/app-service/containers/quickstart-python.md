@@ -62,7 +62,7 @@ docker run --rm -it -p 8000:8000 flask-quickstart
 
 웹 브라우저를 열고 `http://localhost:8000`의 샘플 앱으로 이동합니다.
 
-이 페이지에 표시된 샘플 앱에서 **Hello,Azure!** 메시지를 볼 수 있습니다.
+이 페이지에 표시된 샘플 앱에서 **Hello World** 메시지를 볼 수 있습니다.
 
 ![로컬로 실행되는 샘플 앱](media/quickstart-python/localhost-hello-world-in-browser.png)
 
