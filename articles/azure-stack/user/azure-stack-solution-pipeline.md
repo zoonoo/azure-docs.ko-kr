@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/08/2018
+ms.date: 09/04/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 5fbce0c20e66eec0e7d7023344051fcf302af677
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 391cc4ca4b34149aeda54a60bfe6f6949e5a379b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382615"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697750"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack에 앱 배포
 
@@ -108,10 +108,11 @@ Visual Studio Team Services (VSTS)에 대 한 Azure Resource Manager는 서비�
 
 ### <a name="create-a-service-principal"></a>서비스 주체 만들기
 
-참조를 [서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) 서비스 주체를 만들고 다음을 선택 하는 지침은 **웹 앱/a p I** 응용 프로그램 형식 또는 [가PowerShell스크립트를사용하여](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5)설명 했 듯이 [여기](https://docs.microsoft.com/en-us/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal)합니다.
+참조를 [서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) 를 서비스 주체를 만드는 지침입니다. 선택할 **웹 앱/a p I** 응용 프로그램 형식 또는 [PowerShell 스크립트를 사용 하 여](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5) 문서에 설명 된 대로 [기존 서비스를 사용 하 여 Azure Resource Manager 서비스 연결을 만들기 주 ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal)합니다.
 
- > [!Note]
- > 에 전달 해야 하는 스크립트는 Azure Stack Azure Resource Manager 끝점을 만드는 데를 사용 하는 경우는 `-azureStackManagementURL` 하 고 `-environmentName` 매개 변수는 https://management.local.azurestack.external/ 및 *azurestack의 경우*합니다.
+ > [!Note]  
+ > 전달 해야 하는 Azure Stack Azure Resource Manager 끝점을 만드는 스크립트를 사용 합니다 **-azureStackManagementURL** 매개 변수 및 **-environmentName** 매개 변수입니다. 예:   
+> `-azureStackManagementURL https://management.local.azurestack.external -environmentName AzureStack`
 
 ### <a name="create-an-access-key"></a>액세스 키 만들기
 
@@ -264,17 +265,17 @@ Azure 역할 기반 Access Control (RBAC)는 Azure에 대 한 세분화 된 액�
 9. **사용자 및 그룹 추가**사용자 이름을 입력 하 고 사용자 목록에서 해당 사용자를 선택 합니다.
 10. **변경 내용 저장**을 선택합니다.
 
-## <a name="create-azure-stack-endpoint"></a>Azure Stack 끝점 만들기
+## <a name="create-an-azure-stack-endpoint"></a>Azure Stack 끝점 만들기
 
-확인할 [이](https://docs.microsoft.com/en-us/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) 서비스 연결을 사용 하 여 기존 서비스 주체 만들고 다음 매핑을 사용 하는 설명서:
+지침에 따르면 [Azure Resource Manager 서비스 연결을 기존 서비스 주체 만들기 ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) 문서에서는 서비스 연결을 사용 하 여 기존 서비스 주체 만들고 다음 매핑을 사용 합니다.
 
 - 환경: azurestack의 경우
 - 환경 URL 같이 `https://management.local.azurestack.external`
 - Azure Stack에서 구독 ID: 사용자 구독 ID
 - 구독 이름: Azure Stack에서 사용자 구독 이름
-- 서비스 주체 클라이언트 ID:에서 보안 주체 ID [이](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) 이 문서의 섹션입니다.
+- 서비스 주체 클라이언트 ID:에서 보안 주체 ID [이](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) 이 문서의 섹션입니다.
 - 서비스 주체 키: 동일한 문서 (또는 스크립트를 사용 하는 경우 암호)의 키입니다.
-- 테 넌 트 ID: 테 넌 트 ID를 가져온 [여기](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id)합니다.
+- 테 넌 트 ID: 테 넌 트 ID를 검색할 있습니다 명령에 다음 [테 넌 트 ID 가져오기](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id)합니다.
 
 이제 끝점을 만들었으므로 VSTS Azure Stack 연결에 사용할 준비가 되었습니다. Azure Stack에서 빌드 에이전트는 VSTS에서 지침을 가져옵니다. 에이전트에서 Azure Stack을 사용 하 여 통신에 대 한 끝점 정보를 전달 하는 다음을
 
@@ -454,7 +455,7 @@ Visual Studio Team Services (VSTS) 및 Team Foundation Server (TFS) 제공 항�
 
     사용자 아이콘을 선택할 수 있습니다는 **작업** 열 배포를 승인 (또는 거부)가 참조 하는 제공 된 메시지는 배포 전 또는 배포 후 승인 합니다.
 
-2. 배포가 완료 되 면 전체 로그 파일은 오른쪽 창에 표시 됩니다. 선택할 수 있습니다 **단계** 초기화 "작업을"와 같은 단일 단계에 대 한 로그 파일을 보려면 왼쪽된 창에서. 개별 로그를 참조 하는 기능 쉽게 추적 및 전체 배포의 부분을 디버깅 합니다. 할 수도 있습니다 **저장할** 단계에 대 한 로그 파일 또는 **모든 로그를 zip으로 다운로드**합니다.
+2. 배포가 완료 되 면 전체 로그 파일은 오른쪽 창에 표시 됩니다. 선택할 수 있습니다 **단계** 초기화 "작업을" 예: 한 번에 대 한 로그 파일을 보려면 왼쪽된 창에서. 개별 로그를 참조 하는 기능 쉽게 추적 및 전체 배포의 부분을 디버깅 합니다. 할 수도 있습니다 **저장할** 단계에 대 한 로그 파일 또는 **모든 로그를 zip으로 다운로드**합니다.
 
     ![릴리스 로그](media\azure-stack-solution-hybrid-pipeline\203.png)
 

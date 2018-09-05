@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 09/04/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 2f5661ddac16a3024335bd633623f7ada2fc5870
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 6d6ee22bd1691f1af6956330b3299a1483c588f7
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139355"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696645"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Azure Stack에서 MySQL 리소스 공급자 배포
 
@@ -38,21 +38,20 @@ Azure Stack MySQL 리소스 공급자를 배포 하기 전에 준비에서 되�
   >[!NOTE]
   >인터넷 액세스가 없는 시스템에서 MySQL 공급자를 배포 하려면 다음을 복사 합니다 [mysql 커넥터-net 6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) 파일로 로컬 경로입니다. 사용 하 여 경로 이름을 제공 합니다 **DependencyFilesLocalPath** 매개 변수입니다.
 
-* 리소스 공급자에는 빌드를 최소 해당 Azure Stack에 있습니다. 실행 중인 Azure Stack의 버전에 대 한 올바른 이진 파일을 다운로드 해야 합니다.
+* 리소스 공급자에는 빌드를 최소 해당 Azure Stack에 있습니다.
 
-    | Azure Stack 버전 | MySQL RP 버전|
+    | Azure Stack의 최소 버전 | MySQL RP 버전|
     | --- | --- |
     | 버전 1804 (1.0.180513.1)|[MySQL 버전 1.1.24.0 RP](https://aka.ms/azurestackmysqlrp1804) |
-    | 버전 1802 (1.0.180302.1) | [MySQL 버전 1.1.18.0 RP](https://aka.ms/azurestackmysqlrp1802)|
     |     |     |
 
-- 데이터 센터 통합 필수 구성 요소가 충족 되는지 확인 합니다.
+* 데이터 센터 통합 필수 구성 요소가 충족 되는지 확인 합니다.
 
     |필수 요소|참조|
     |-----|-----|
     |조건부 DNS 전달이 올바르게 설정 됩니다.|[Azure Stack 데이터 센터 통합-DNS](azure-stack-integrate-dns.md)|
     |리소스 공급자에 대 한 인바운드 포트가 열려 있습니다.|[Azure 데이터 센터 통합 스택-끝점 게시](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
-    |PKI 인증서 주체 및 SAN이 올바르게 설정 됩니다.|[Azure Stack 배포 필수 PKI 필수 조건](azure-stack-pki-certs.md#mandatory-certificates)<br>[Azure Stack 배포 PaaS 인증서 필수 구성 요소](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |PKI 인증서 주체 및 SAN이 올바르게 설정 됩니다.|[Azure Stack 배포 필수 PKI 필수 조건](azure-stack-pki-certs.md#mandatory-certificates)[Azure Stack 배포 PaaS 인증서 필수 구성 요소](azure-stack-pki-certs.md#optional-paas-certificates)|
     |     |     |
 
 ### <a name="certificates"></a>인증서
@@ -87,12 +86,13 @@ MySQL 리소스 공급자를 배포 하려면 (PowerShell ISE 없습니다 ()를
 | **AzCredential** | Azure Stack에 대 한 자격 증명을 서비스 관리자 계정입니다. Azure Stack 배포에 사용한 동일한 자격 증명을 사용 합니다. | _필수_ |
 | **VMLocalCredential** | MySQL 리소스 공급자 VM의 로컬 관리자 계정의 자격 증명입니다. | _필수_ |
 | **PrivilegedEndpoint** | IP 주소 또는 권한 있는 끝점의 DNS 이름입니다. |  _필수_ |
+| **AzureEnvironment** | Azure Stack을 배포 하기 위한 사용 하는 서비스 관리자 계정의 azure 환경입니다. ADFS 없으면에 필요 합니다. 지원 되는 환경 이름은 **AzureCloud**를 **AzureUSGovernment**, 중국 Azure Active Directory를 사용 하는 경우 또는 **AzureChinaCloud**합니다. | AzureCloud |
 | **DependencyFilesLocalPath** | 통합된 시스템만을 위한 인증서.pfx 파일을이 디렉터리에 배치 되어야 합니다. 연결이 끊어진된 환경과 다운로드 [mysql 커넥터-net 6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) 이 디렉터리에 있습니다. 필요에 따라 하나의 Windows 업데이트 MSU이 패키지를 복사할 수 있습니다. | _선택적_ (_필수_ 통합된 시스템 또는 연결이 끊어진된 환경에 대 한) |
 | **DefaultSSLCertificatePassword** | .Pfx 인증서에 대 한 암호입니다. | _필수_ |
 | **MaxRetryCount** | 오류가 발생 하는 경우 각 작업을 다시 시도 하려는 횟수입니다.| 2 |
 | **RetryDuration** | 시간 (초)에서 재시도 사이의 시간 제한 간격입니다. | 120 |
-| **제거** | 리소스 공급자와 연결 된 모든 리소스 (아래 참고 참조)를 제거 합니다. | 아니요 |
-| **DebugMode** | 실패 한 경우 자동 정리를 방지합니다. | 아니요 |
+| **제거** | 리소스 공급자와 연결 된 모든 리소스 (아래 참고 참조)를 제거 합니다. | 아닙니다. |
+| **DebugMode** | 실패 한 경우 자동 정리를 방지합니다. | 아닙니다. |
 | **AcceptLicense** | GPL 라이선스에 동의 하는 메시지를 건너뜁니다.  <http://www.gnu.org/licenses/old-licenses/gpl-2.0.html> | |
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>사용자 지정 스크립트를 사용 하 여 MySQL 리소스 공급자 배포
