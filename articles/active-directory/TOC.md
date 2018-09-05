@@ -103,6 +103,7 @@
 #### [Azure 이벤트 허브로 활동 로그 경로 지정](reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)
 #### [Azure Storage 계정에 활동 로그 보관](reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 #### [Azure Monitor를 사용하여 활동 로그를 Splunk와 통합](reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md)
+#### [Azure Monitor를 사용하여 활동 로그를 SumoLogic과 통합](reports-monitoring/howto-integrate-activity-logs-with-sumologic.md)
 
 ### 참고 자료
 #### [보존](reports-monitoring/reference-reports-data-retention.md)
@@ -332,6 +333,8 @@
 ### [검토로 사용자 액세스 관리](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 ### [프로그램 및 컨트롤 관리](active-directory-azure-ad-controls-manage-programs-controls.md)
 ### [액세스 검토 결과 검색](active-directory-azure-ad-controls-retrieve-access-review.md)
+
+## [사용 약관](active-directory-tou.md)
 
 ## ID 보안
 

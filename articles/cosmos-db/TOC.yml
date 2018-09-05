@@ -37,7 +37,7 @@ items:
       href: create-mongodb-golang.md
   - name: Gremlin
     items:
-    - name: Gremlin 콘솔 사용
+    - name: Gremlin 콘솔
       href: create-graph-gremlin-console.md
     - name: .NET
       href: create-graph-dotnet.md
@@ -78,6 +78,9 @@ items:
     href: distribute-data-globally.md
   - name: 처리량
     href: request-units.md
+    items:
+    - name: 처리량 가져오기 및 설정
+      href: set-throughput.md
   - name: 분할
     href: partition-data.md
   - name: 인덱싱
@@ -86,11 +89,11 @@ items:
     href: consistency-levels.md
   - name: 다중 마스터
     href: multi-region-writers.md
+    items:
+    - name: 다중 마스터 설치
+      href: multi-master-workaround.md
   - name: 변경 피드
     href: change-feed.md
-    items:
-    - name: 변경 피드 전자 상거래 솔루션
-      href: changefeed-ecommerce-solution.md
   - name: TTL(Time to live)
     href: time-to-live.md
   - name: 고유 키
@@ -104,18 +107,16 @@ items:
       href: secure-access-to-data.md
     - name: 방화벽 지원
       href: firewall-support.md
-    - name: 가상 네트워크 서비스 엔드포인트 설정
+    - name: VNet 엔드포인트 설정
       href: vnet-service-endpoint.md
-    - name: 비밀을 저장할 키 자격 증명 모음
+    - name: 키 자격 증명 모음 지원
       href: access-secrets-from-keyvault.md
 - name: 다중 모델 API
   items:
   - name: SQL API 문서
     items:
     - name: 개요
-      items:
-      - name: SQL API 정보
-        href: sql-api-introduction.md
+      href: sql-api-introduction.md
     - name: 자습서
       items:
       - name: 1 - 계정 만들기
@@ -172,22 +173,16 @@ items:
         href: powershell-samples.md
       - name: Azure CLI
         href: cli-samples.md
-    - name: 개념
-      items:
-      - name: 모델 문서 데이터
-        href: modeling-data.md
     - name: 방법 가이드
       items:
-      - name: Bulk Executor 사용 - .NET 라이브러리
+      - name: Bulk Executor - .NET 라이브러리
         href: bulk-executor-dot-net.md
-      - name: Bulk Executor 사용 - Java 라이브러리
+      - name: Bulk Executor - Java 라이브러리
         href: bulk-executor-java.md
       - name: SQL 쿼리 작성
         href: sql-api-sql-query.md
       - name: 쿼리 성능 조정
         href: sql-api-sql-query-metrics.md
-      - name: SQL 데이터 분할
-        href: sql-api-partition-data.md
       - name: 데이터 형식
         items:
         - name: Datetime
@@ -220,16 +215,11 @@ items:
         href: /rest/api/cosmos-db-resource-provider/
       - name: SQL 언어 구문
         href: sql-api-sql-query-reference.md
-    - name: 리소스
-      items:
-      - name: SQL 실습
-        href: https://aka.ms/cosmos-db-playground
   - name: MongoDB API 문서
     items:
     - name: 개요
+      href: mongodb-introduction.md
       items:
-      - name: MongoDB API 정보
-        href: mongodb-introduction.md
       - name: MongoDB 지원
         href: mongodb-feature-support.md
     - name: 자습서
@@ -276,16 +266,11 @@ items:
         href: mongodb-time-to-live.md
       - name: 데이터 인덱싱 관리
         href: mongodb-indexing.md
-    - name: 리소스
-      items:
-      - name: Visual Studio Code 확장
-        href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
   - name: Gremlin API 문서
     items:
     - name: 개요
+      href: graph-introduction.md
       items:
-      - name: Gremlin API 정보
-        href: graph-introduction.md
       - name: Gremlin 지원
         href: gremlin-support.md
     - name: 자습서
@@ -296,14 +281,10 @@ items:
       items:
       - name: 그래프 데이터 가져오기
         href: bulk-executor-graph-dotnet.md
-      - name: 그래프 데이터 분할
-        href: graph-partitioning.md
   - name: Cassandra API 문서
     items:
     - name: 개요
-      items:
-      - name: Cassandra API 정보
-        href: cassandra-introduction.md
+      href: cassandra-introduction.md
     - name: 자습서
       items:
       - name: 1 - 계정 만들기
@@ -313,9 +294,7 @@ items:
   - name: Table API 문서
     items:
     - name: 개요
-      items:
-      - name: Table API 정보
-        href: table-introduction.md
+      href: table-introduction.md
     - name: 자습서
       items:
       - name: 1 - 계정 만들기
@@ -373,10 +352,8 @@ items:
       href: storage-explorer.md
     - name: 데이터 탐색기를 사용하여 관리
       href: data-explorer.md
-    - name: 관리 키 및 일관성 수준
+    - name: 계정 관리
       href: manage-account.md
-    - name: 처리량 가져오기 및 설정
-      href: set-throughput.md
   - name: 로깅
     items:
     - name: 진단 로깅
@@ -407,6 +384,14 @@ items:
       href: performance-tips-async-java.md
     - name: 성능 테스트 - 샘플 앱
       href: performance-testing.md
+  - name: 모범 사례
+    items:
+    - name: 모델 문서 데이터
+      href: modeling-data.md
+    - name: SQL 데이터 분할
+      href: sql-api-partition-data.md
+    - name: 그래프 데이터 분할
+      href: graph-partitioning.md
   - name: 빅 데이터 및 분석
     items:
     - name: 람다 아키텍처
@@ -415,9 +400,11 @@ items:
       href: spark-connector.md
     - name: Spark, Kafka, 및 Azure Cosmos DB
       href: https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json
+    - name: 변경 피드 전자 상거래 솔루션
+      href: changefeed-ecommerce-solution.md
   - name: 다른 Azure 서비스와 통합
     items:
-    - name: Azure App Service로 웹 사이트 배포
+    - name: Azure App Service
       href: create-website.md
     - name: Azure Search 인덱서
       href: https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json
@@ -427,7 +414,7 @@ items:
         href: serverless-computing-database.md
       - name: Azure 함수 바인딩
         href: https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb?toc=/azure/cosmos-db/toc.json
-    - name: Azure Data Factory를 사용하여 데이터 이동
+    - name: Azure 데이터 팩터리
       href: https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db?toc=/azure/cosmos-db/toc.json
     - name: Azure Stream Analytics
       href: ../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db
@@ -449,8 +436,6 @@ items:
     href: regional-failover.md
   - name: 저장 프로시저, 트리거 및 UDF
     href: programming.md
-  - name: 다중 마스터 설치
-    href: multi-master-workaround.md
   - name: Bulk Executor 라이브러리 정보
     href: bulk-executor-overview.md
   - name: 비용 효율적인 읽기 및 쓰기
@@ -459,8 +444,8 @@ items:
   items:
   - name: 쿼리 참고 자료
     href: query-cheat-sheet.md
-  - name: 20일 팁
-    href: 20-days-of-tips.md
+  - name: SQL 실습
+    href: https://aka.ms/cosmos-db-playground
   - name: FAQ
     href: faq.md
   - name: 백서
@@ -478,9 +463,9 @@ items:
     href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
   - name: 소셜 미디어 앱
     href: social-media-apps.md
-ms.openlocfilehash: 882b7d69a8282beb2fcbbce0ed788810210236ca
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 8837d9bc6cf492a146d96d917d9157e51bffa0f5
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43184898"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695985"

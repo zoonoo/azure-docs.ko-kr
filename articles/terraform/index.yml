@@ -1,24 +1,23 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 38f55894925febb66a50f019de15f8e7dcd9ef23
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666982"
 documentType: LandingData
-title: Azure 문서의 Terraform
+title: Azure의 Terraform 설명서
 metadata:
-  title: Azure 문서의 Terraform -자습서 및 참조
-  meta.description: Learn how to use Terraform to reliably provision virtual machines and other infrastructure on Azure.
+  title: Azure의 Terraform 설명서 - 자습서, 샘플, 참조 및 리소스
+  description: Terraform을 사용하여 Azure에서 가상 머신 및 다른 인프라를 안정적으로 프로비전하는 방법을 알아봅니다.
   services: terraform
-  author: rloutlaw
-  manager: justhe
   ms.service: terraform
-  ms.tgt_pltfrm: na
-  ms.devlang: devops
+  keywords: Terraform, Azure, DevOps, 자습서, 샘플, 참조
+  author: tomarcher
+  manager: jeconnoc
+  ms.author: tarcher
   ms.topic: landing-page
-  ms.date: 09/21/2017
-  ms.author: routlaw
-  ms.openlocfilehash: b12e9b8f611bb456d0eda04a1b9e8d42d1256d0a
-  ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-  ms.translationtype: HT
-  ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/11/2018
-  ms.locfileid: "35300612"
+  ms.date: 08/31/2018
 abstract:
   description: Terraform을 사용하여 Azure에서 안정적으로 인프라를 업그레이드하고 만듭니다. 빠른 시작 및 자습서를 사용하여 리소스를 만들고, Azure Terraform 모듈을 사용하고, 코드와 인프라를 유지하는 방법을 알아봅니다.
 sections:
