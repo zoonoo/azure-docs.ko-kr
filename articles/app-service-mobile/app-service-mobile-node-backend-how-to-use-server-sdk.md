@@ -14,19 +14,21 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 292540100096b26a652094cb0ea8d8f585961a22
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: cbedb17bb7563620d0d9db81333d9a79301b4ee0
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422436"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42817511"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Mobile Apps Node.js SDK를 사용하는 방법
+
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
 
 이 문서에서는 Azure App Service의 Mobile Apps 기능에서 Node.js 백 엔드로 작업하는 방법을 보여 주는 자세한 정보와 예를 제공합니다.
 
 ## <a name="Introduction"></a>소개
+
 Mobile Apps는 모바일에 최적화된 데이터 액세스 Web API를 웹 응용 프로그램에 추가하는 기능을 제공합니다. Mobile Apps SDK는 ASP.NET 및 Node.js 웹 응용 프로그램에 대해 제공됩니다. SDK는 다음 작업을 제공합니다.
 
 * 데이터 액세스를 위한 테이블 작업(읽기, 삽입, 업데이트, 삭제)
@@ -37,6 +39,7 @@ Mobile Apps는 모바일에 최적화된 데이터 액세스 Web API를 웹 응�
 [GitHub의 샘플 디렉터리]에서 각 사용 사례에 대한 샘플을 찾을 수 있습니다.
 
 ## <a name="supported-platforms"></a>지원되는 플랫폼
+
 Mobile Apps Node.js SDK는 노드의 최신 LTS 릴리스 이상을 지원합니다. 현재 최신 LTS 버전은 노드 v4.5.0입니다. 다른 버전의 노드는 작동할 수는 있지만 지원되지 않습니다.
 
 Mobile Apps Node.js SDK는 두 개의 데이터베이스 드라이버를 지원합니다. 
@@ -45,11 +48,13 @@ Mobile Apps Node.js SDK는 두 개의 데이터베이스 드라이버를 지원�
 * sqlite3 드라이버는 단일 인스턴스에서만 SQLite 데이터베이스를 지원합니다.
 
 ### <a name="howto-cmdline-basicapp"></a>명령줄을 사용하여 기본 Node.js 백 엔드 만들기
+
 모든 Mobile Apps Node.js 백 엔드는 ExpressJS 응용 프로그램으로 시작합니다. ExpressJS는 Node.js에 사용할 수 있는 가장 인기 있는 웹 서비스 프레임워크입니다. 다음과 같이 기본 [Express] 응용 프로그램을 만들 수 있습니다.
 
 1. 명령 창 또는 PowerShell 창에서 프로젝트의 디렉터리를 만듭니다.
 
         mkdir basicapp
+
 1. `npm init`를 실행하여 패키지 구조를 초기화합니다.
 
         cd basicapp
@@ -58,25 +63,29 @@ Mobile Apps Node.js SDK는 두 개의 데이터베이스 드라이버를 지원�
    `npm init` 명령은 프로젝트를 초기화하기 위해 몇 가지 질문을 합니다. 예제 출력을 참조하세요.
 
    ![Npm init 출력][0]
+
 1. npm 리포지토리에서 `express` 및 `azure-mobile-apps` 라이브러리를 설치합니다.
 
         npm install --save express azure-mobile-apps
+
 1. app.js 파일을 만들어서 기본 모바일 서버를 구현합니다.
 
-        var express = require('express'),
-            azureMobileApps = require('azure-mobile-apps');
+    ```javascript
+    var express = require('express'),
+        azureMobileApps = require('azure-mobile-apps');
 
-        var app = express(),
-            mobile = azureMobileApps();
+    var app = express(),
+        mobile = azureMobileApps();
 
-        // Define a TodoItem table.
-        mobile.tables.add('TodoItem');
+    // Define a TodoItem table.
+    mobile.tables.add('TodoItem');
 
-        // Add the Mobile API so it is accessible as a Web API.
-        app.use(mobile);
+    // Add the Mobile API so it is accessible as a Web API.
+    app.use(mobile);
 
-        // Start listening on HTTP.
-        app.listen(process.env.PORT || 3000);
+    // Start listening on HTTP.
+    app.listen(process.env.PORT || 3000);
+    ```
 
 이 응용 프로그램은 동적 스키마를 사용하여 기본 SQL 데이터 저장소에 대한 인증되지 않은 액세스를 제공하는 단일 엔드포인트(`/tables/TodoItem`)로 모바일에 최적화된 WebAPI를 만듭니다. 다음의 클라이언트 라이브러리 빠른 시작에 적합합니다.
 
@@ -91,6 +100,7 @@ Mobile Apps Node.js SDK는 두 개의 데이터베이스 드라이버를 지원�
 [GitHub의 기본 앱 샘플]에서 이 기본 응용 프로그램에 대한 코드를 찾을 수 있습니다.
 
 ### <a name="howto-vs2015-basicapp"></a>Visual Studio 2015를 사용하여 Node.js 백 엔드 만들기
+
 Visual Studio 2015는 IDE 내에서 Node.js 응용 프로그램 개발하도록 확장이 필요합니다. 시작하려면 [Visual Studio용 Node.js Tools 1.1]을 설치합니다. 설치를 완료하면 Express 4.x 응용 프로그램을 만듭니다.
 
 1. **새 프로젝트** 대화를 엽니다(**파일** > **새로 만들기** > **프로젝트**에서).
@@ -107,22 +117,28 @@ Visual Studio 2015는 IDE 내에서 Node.js 응용 프로그램 개발하도록 
 1. **닫기**를 선택합니다.
 1. app.js 파일을 열고 Mobile Apps SDK에 대한 지원을 추가합니다. 라이브러리 `require` 문의 맨 아래 6줄에 다음 코드를 추가합니다.
 
-        var bodyParser = require('body-parser');
-        var azureMobileApps = require('azure-mobile-apps');
+    ```javascript
+    var bodyParser = require('body-parser');
+    var azureMobileApps = require('azure-mobile-apps');
+    ```
 
-   다른 `app.use` 문 뒤 약 27줄에 다음 코드를 추가합니다.
+    다른 `app.use` 문 뒤 약 27줄에 다음 코드를 추가합니다.
 
-        app.use('/users', users);
+    ```javascript
+    app.use('/users', users);
 
-        // Mobile Apps initialization
-        var mobile = azureMobileApps();
-        mobile.tables.add('TodoItem');
-        app.use(mobile);
+    // Mobile Apps initialization
+    var mobile = azureMobileApps();
+    mobile.tables.add('TodoItem');
+    app.use(mobile);
+    ```
 
-   파일을 저장합니다.
+    파일을 저장합니다.
+
 1. 응용 프로그램을 로컬로 실행하거나(API가 http://localhost:3000) 에서 제공됨) Azure에 게시합니다.
 
 ### <a name="create-node-backend-portal"></a>Azure Portal을 사용하여 Node.js 백 엔드 만들기
+
 [Azure Portal]에서 바로 Mobile Apps 백 엔드를 만들 수 있습니다. 다음 단계를 완료하거나 [모바일 앱 만들기](app-service-mobile-ios-get-started.md) 자습서에 따라 클라이언트 및 서버를 함께 만들 수 있습니다. 자습서는 이러한 지침의 단순화된 버전을 포함하고 있으며 개념 증명 프로젝트에 가장 적합합니다.
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
@@ -131,7 +147,8 @@ Visual Studio 2015는 IDE 내에서 Node.js 응용 프로그램 개발하도록 
 **이렇게 하면 모든 사이트 콘텐츠를 덮어쓴다는 것을 인정합니다.** 라는 상자를 선택한 다음, **TodoItem 테이블 만들기**를 선택합니다.
 
 ### <a name="download-quickstart"></a>Git를 사용하여 Node.js 백 엔드 빠른 시작 코드 프로젝트 다운로드
-포털의 **빠른 시작** 창을 사용하여 Node.js Mobile Apps 백 엔드를 만들 때 Node.js 프로젝트가 생성되어 사이트에 배포됩니다. 포털에서 테이블 및 API를 추가하고 Node.js 백 엔드에 대한 코드 파일을 편집할 수 있습니다. 또한 다양한 배포 도구를 사용하여 백 엔드 프로젝트를 다운로드할 수 있으므로 테이블 및 API를 추가하거나 수정한 다음, 프로젝트를 다시 게시할 수 있습니다. 자세한 내용은 [Azure App Service 배포 가이드]를 참조하세요. 
+
+포털의 **빠른 시작** 창을 사용하여 Node.js Mobile Apps 백 엔드를 만들 때 Node.js 프로젝트가 생성되어 사이트에 배포됩니다. 포털에서 테이블 및 API를 추가하고 Node.js 백 엔드에 대한 코드 파일을 편집할 수 있습니다. 또한 다양한 배포 도구를 사용하여 백 엔드 프로젝트를 다운로드할 수 있으므로 테이블 및 API를 추가하거나 수정한 다음, 프로젝트를 다시 게시할 수 있습니다. 자세한 내용은 [Azure App Service 배포 가이드]를 참조하세요.
 
 다음 절차에서는 Git 리포지토리를 사용하여 빠른 시작 프로젝트 코드를 다운로드합니다.
 
@@ -141,6 +158,7 @@ Visual Studio 2015는 IDE 내에서 Node.js 응용 프로그램 개발하도록 
 1. Git 복제 URL을 사용하여 `git clone` 명령을 실행합니다. 다음 예제와 같이 필요한 경우 암호를 입력합니다.
 
         $ git clone https://username@todolist.scm.azurewebsites.net:443/todolist.git
+
 1. 로컬 디렉터리를 찾고(앞의 예제에서는 `/todolist`), 프로젝트 파일이 다운로드되었는지 확인합니다. `/tables` 디렉터리에서 todoitem.json 파일을 찾습니다. 이 파일은 테이블의 사용 권한을 정의합니다. 또한 동일한 디렉터리에서 todoitem.js 파일을 찾습니다. 테이블에 대한 CRUD 작업 스크립트를 정의합니다.
 1. 프로젝트 파일을 변경한 후에 다음 명령을 실행하여 다음 사이트에 변경 내용을 추가, 커밋한 다음, 업로드합니다.
 
@@ -152,6 +170,7 @@ Visual Studio 2015는 IDE 내에서 Node.js 응용 프로그램 개발하도록 
 사이트는 사이트에 새로운 커밋 집합이 푸시될 때마다 다시 게시됩니다.
 
 ### <a name="howto-publish-to-azure"></a>Azure에 Node.js 백 엔드 게시
+
 Microsoft Azure는 Mobile Apps Node.js 백 엔드를 Azure 서비스에 게시하기 위한 여러 메커니즘을 제공합니다. 이러한 메커니즘은 원본 제어에 따라 Visual Studio, 명령줄 도구 및 연속 배포 옵션에 통합된 배포 도구를 포함합니다. 자세한 내용은 [Azure App Service 배포 가이드]를 참조하세요.
 
 Azure App Service에는 백 엔드를 게시하기 전에 검토해야 하는 Node.js 응용 프로그램에 대한 구체적인 조언이 있습니다.
@@ -160,13 +179,17 @@ Azure App Service에는 백 엔드를 게시하기 전에 검토해야 하는 No
 * [노드 모듈 사용]
 
 ### <a name="howto-enable-homepage"></a>응용 프로그램에 대한 홈페이지 사용
+
 대부분의 응용 프로그램은 웹 및 모바일 앱의 조합입니다. ExpressJS 프레임워크를 사용하여 두 가지 측면을 결합할 수 있습니다. 그러나 때로는 모바일 인터페이스를 구현하려고 할 수 있습니다. 앱 서비스를 실행하도록 하기 위해 홈페이지를 제공하는 것이 유용합니다. 고유한 홈 페이지에 제공하거나 임시 홈 페이지를 사용할 수 있습니다. 임시 홈페이지를 사용하려면 다음 코드를 사용하여 Mobile Apps를 인스턴스화합니다.
 
-    var mobile = azureMobileApps({ homePage: true });
+```javascript
+var mobile = azureMobileApps({ homePage: true });
+```
 
 로컬로 개발할 때에만 이 옵션을 사용하려면 이 설정을 azureMobile.js 파일에 추가합니다.
 
 ## <a name="TableOperations"></a>테이블 작업
+
 azure-mobile-apps Node.js 서버 SDK는 Azure SQL Database에 저장된 데이터 테이블을 Web API로 노출하는 메커니즘을 제공합니다. 다섯 가지 작업을 제공합니다.
 
 | 작업 | 설명 |
@@ -180,64 +203,73 @@ azure-mobile-apps Node.js 서버 SDK는 Azure SQL Database에 저장된 데이�
 이 Web API는 [OData]를 지원하고 테이블 스키마를 확장하여 [오프라인 데이터 동기화]를 지원합니다.
 
 ### <a name="howto-dynamicschema"></a>동적 스키마를 사용하여 테이블 정의
+
 테이블을 사용하려면 먼저 정의해야 합니다. 정적 스키마(스키마 내에서 열을 정의하는 위치)를 사용하거나 동적으로(SDK가 들어오는 요청에 따라 스키마를 제어하는 위치) 테이블을 정의할 수 있습니다. 또한 정의에 JavaScript 코드를 추가하여 Web API의 특정 측면을 제어할 수 있습니다.
 
 모범 사례로 `tables` 디렉터리의 JavaScript 파일에 각 테이블을 정의한 다음, `tables.import()` 메서드를 사용하여 테이블을 가져와야 합니다. basic-app 샘플을 확장하면 app.js 파일은 조정됩니다.
 
-    var express = require('express'),
-        azureMobileApps = require('azure-mobile-apps');
+```javascript
+var express = require('express'),
+    azureMobileApps = require('azure-mobile-apps');
 
-    var app = express(),
-        mobile = azureMobileApps();
+var app = express(),
+    mobile = azureMobileApps();
 
-    // Define the database schema that is exposed.
-    mobile.tables.import('./tables');
+// Define the database schema that is exposed.
+mobile.tables.import('./tables');
 
-    // Provide initialization of any tables that are statically defined.
-    mobile.tables.initialize().then(function () {
-        // Add the Mobile API so it is accessible as a Web API.
-        app.use(mobile);
+// Provide initialization of any tables that are statically defined.
+mobile.tables.initialize().then(function () {
+    // Add the Mobile API so it is accessible as a Web API.
+    app.use(mobile);
 
-        // Start listening on HTTP.
-        app.listen(process.env.PORT || 3000);
-    });
+    // Start listening on HTTP.
+    app.listen(process.env.PORT || 3000);
+});
+```
 
 ./tables/TodoItem.js에서 테이블을 정의합니다.
 
-    var azureMobileApps = require('azure-mobile-apps');
+```javascript
+var azureMobileApps = require('azure-mobile-apps');
 
-    var table = azureMobileApps.table();
+var table = azureMobileApps.table();
 
-    // Additional configuration for the table goes here.
+// Additional configuration for the table goes here.
 
-    module.exports = table;
+module.exports = table;
+```
 
 테이블은 기본적으로 동적 스키마를 사용합니다. 동적 스키마를 전역적으로 해제하려면 `MS_DynamicSchema` 앱 설정을 Azure Portal 내에서 false로 설정합니다.
 
 [GitHub의 할 일 샘플]에서 전체 예제를 찾을 수 있습니다.
 
 ### <a name="howto-staticschema"></a>정적 스키마를 사용하여 테이블 정의
+
 열을 명시적으로 정의하여 Web API를 통해 노출할 수 있습니다. azure-mobile-apps Node.js SDK는 오프라인 데이터 동기화에 필요한 모든 열을 사용자가 제공하는 목록에 자동으로 추가합니다. 예를 들어 빠른 시작 클라이언트 응용 프로그램은 `text`(문자열) 및 `complete`(부울)라는 두 열이 있는 테이블이 필요합니다.  
 이 테이블은 다음과 같이 테이블 정의 JavaScript 파일(`tables` 디렉터리에 위치)에서 정의할 수 있습니다.
 
-    var azureMobileApps = require('azure-mobile-apps');
+```javascript
+var azureMobileApps = require('azure-mobile-apps');
 
-    var table = azureMobileApps.table();
+var table = azureMobileApps.table();
 
-    // Define the columns within the table.
-    table.columns = {
-        "text": "string",
-        "complete": "boolean"
-    };
+// Define the columns within the table.
+table.columns = {
+    "text": "string",
+    "complete": "boolean"
+};
 
-    // Turn off the dynamic schema.
-    table.dynamicSchema = false;
+// Turn off the dynamic schema.
+table.dynamicSchema = false;
 
-    module.exports = table;
+module.exports = table;
+```
 
 또한 정적으로 테이블을 정의하는 경우 `tables.initialize()` 메서드를 호출하여 시작 시 데이터베이스 스키마를 만들어야 합니다. 데이터베이스가 초기화되기 전에 웹 서비스가 요청을 처리하지 않도록 하기 위해 `tables.initialize()` 메서드는 [promise]를 반환합니다.
 
 ### <a name="howto-sqlexpress-setup"></a>로컬 컴퓨터에서 개발 데이터 저장소로 SQL Server Express 사용
+
 Mobile Apps Node.js SDK는 즉시 데이터를 처리하기 위한 세 가지 옵션을 제공합니다.
 
 * **메모리** 드라이버를 사용하여 비 영구적 예제 저장소를 제공합니다.
@@ -248,15 +280,13 @@ Mobile Apps Node.js SDK는 [mssql Node.js 패키지]를 사용하여 SQL Server 
 
 > [!TIP]
 > 메모리 드라이버는 테스트하기 위한 완전한 기능 집합을 제공하지 않습니다. 백 엔드 로컬로 테스트하려는 경우 SQL Server Express 데이터 저장소 및 mssql 드라이버를 사용하는 것이 좋습니다.
->
->
 
 1. [Microsoft SQL Server 2014 Express]를 다운로드하고 설치합니다. Tools Edition을 사용하여 SQL Server 2014 Express를 설치하도록 합니다. 64비트를 지원하도록 명시적으로 요구하지 않는 한 32비트 버전이 실행할 때 메모리를 적게 사용합니다.
 1. SQL Server 2014 구성 관리자를 실행합니다.
 
    a. 트리 메뉴에서 **SQL Server 네트워크 구성** 노드를 확장합니다.
 
-   나. **SQLEXPRESS에 대한 프로토콜**을 선택합니다.
+   b. **SQLEXPRESS에 대한 프로토콜**을 선택합니다.
 
    다. 마우스 오른쪽 단추로 **TCP/IP**를 클릭하고 **사용**을 선택합니다. 팝업 대화 상자에서 **확인**을 선택합니다.
 
@@ -275,6 +305,7 @@ Mobile Apps Node.js SDK는 [mssql Node.js 패키지]를 사용하여 SQL Server 
    i. 마우스 오른쪽 단추로 **SQL Server (SQLEXPRESS)** 를 클릭하고 **다시 시작**을 선택합니다.
 
    j. SQL Server 2014 구성 관리자를 닫습니다.
+
 1. SQL Server 2014 Management Studio를 실행하고 로컬 SQL Server Express 인스턴스에 연결합니다.
 
    1. 개체 탐색기에서 마우스 오른쪽 단추로 인스턴스를 클릭하고 **속성**을 선택합니다.
@@ -304,7 +335,8 @@ Node.js 응용 프로그램은 이 데이터베이스의 연결 문자열을 읽
 TCP/IP 연결을 통해 데이터베이스에 액세스합니다. 연결에 대한 사용자 이름 및 암호를 제공합니다.
 
 ### <a name="howto-config-localdev"></a>로컬 개발에 대한 프로젝트 구성
-Mobile Apps는 로컬 파일 시스템에서 *azureMobile.js*라는 JavaScript 파일을 읽습니다. 이 파일을 사용하여 프로덕션에서 Mobile Apps SDK를 구성하지 마십시오. 대신 [Azure Portal]에서 **앱 설정**을 사용합니다. 
+
+Mobile Apps는 로컬 파일 시스템에서 *azureMobile.js*라는 JavaScript 파일을 읽습니다. 이 파일을 사용하여 프로덕션에서 Mobile Apps SDK를 구성하지 마십시오. 대신 [Azure Portal]에서 **앱 설정**을 사용합니다.
 
 azureMobile.js 파일은 구성 개체를 내보내야 합니다. 가장 일반적인 설정은 다음과 같습니다.
 
@@ -312,27 +344,30 @@ azureMobile.js 파일은 구성 개체를 내보내야 합니다. 가장 일반�
 * 진단 로깅 설정
 * 대체 CORS 설정
 
-이 예제 azureMobile.js 파일은 앞의 데이터베이스 설정을 구현합니다.
+이 예제 **azureMobile.js** 파일은 앞의 데이터베이스 설정을 구현합니다.
 
-    module.exports = {
-        cors: {
-            origins: [ 'localhost' ]
-        },
-        data: {
-            provider: 'mssql',
-            server: '127.0.0.1',
-            database: 'mytestdatabase',
-            user: 'azuremobile',
-            password: 'T3stPa55word'
-        },
-        logging: {
-            level: 'verbose'
-        }
-    };
+```javascript
+module.exports = {
+    cors: {
+        origins: [ 'localhost' ]
+    },
+    data: {
+        provider: 'mssql',
+        server: '127.0.0.1',
+        database: 'mytestdatabase',
+        user: 'azuremobile',
+        password: 'T3stPa55word'
+    },
+    logging: {
+        level: 'verbose'
+    }
+};
+```
 
-.gitignore 파일에 azureMobile.js를 추가하여(또는 기타 소스 코드 제어 무시 파일) 암호가 클라우드에 저장되지 않도록 합니다. [Azure Portal] 내의 **앱 설정**에서 프로덕션 설정을 항상 구성합니다.
+**.gitignore** 파일에 **azureMobile.js**를 추가하여(또는 기타 소스 코드 제어 무시 파일) 암호가 클라우드에 저장되지 않도록 합니다. [Azure Portal] 내의 **앱 설정**에서 프로덕션 설정을 항상 구성합니다.
 
 ### <a name="howto-appsettings"></a>모바일 앱에 대한 앱 설정 구성
+
 azureMobile.js 파일에서 대부분의 설정은 [Azure Portal]에서 동일한 앱 설정을 포함합니다. 다음 목록을 사용하여 **앱 설정**에서 앱을 구성합니다.
 
 | 앱 설정 | azureMobile.js 설정 | 설명 | 유효한 값 |
@@ -359,6 +394,7 @@ azureMobile.js 파일에서 대부분의 설정은 [Azure Portal]에서 동일�
 대부분의 앱은 설정 변경 후 서비스를 다시 시작해야 합니다.
 
 ### <a name="howto-use-sqlazure"></a>프로덕션 데이터 저장소로 SQL Database 사용
+
 <!--- ALTERNATE INCLUDE - we can't use ../includes/app-service-mobile-dotnet-backend-create-new-service.md - slightly different semantics -->
 
 Azure SQL Database를 데이터 저장소로 사용하면 모든 Azure App Service 응용 프로그램 형식에 걸쳐 동일합니다. 아직 수행하지 않은 경우 다음 단계에 따라 Mobile Apps 백 엔드를 만듭니다.
@@ -368,16 +404,16 @@ Azure SQL Database를 데이터 저장소로 사용하면 모든 Azure App Servi
 1. **리소스 그룹** 상자에 앱과 동일한 이름을 입력합니다.
 1. 기본 App Service 계획이 선택됩니다. App Service 계획을 변경하려면:
 
-   a. **App Service 계획** > **+새로 만들기**를 선택합니다. 
-   
-   나. 새 App Service 계획의 이름을 입력하고 적절한 위치를 선택합니다. 
-   
-   다. 서비스에 대한 적절한 가격 책정 계층을 선택합니다. **무료** 및 **공유** 등의 더 많은 가격 책정 옵션을 보려면 **모두 보기**를 선택합니다. 
-   
-   d. **선택** 단추를 클릭합니다. 
-   
+   a. **App Service 계획** > **+새로 만들기**를 선택합니다.
+
+   b. 새 App Service 계획의 이름을 입력하고 적절한 위치를 선택합니다.
+
+   다. 서비스에 대한 적절한 가격 책정 계층을 선택합니다. **무료** 및 **공유** 등의 더 많은 가격 책정 옵션을 보려면 **모두 보기**를 선택합니다.
+
+   d. **선택** 단추를 클릭합니다.
+
    e. **App Service 계획** 창으로 돌아가서 **확인**을 선택합니다.
-1. **만들기**를 선택합니다. 
+1. **만들기**를 선택합니다.
 
 Mobile Apps 백 엔드를 프로비저닝하는 데 몇 분 정도 걸릴 수 있습니다. Mobile Apps 백 엔드가 프로비전되면 포털에서 Mobile Apps 백 엔드에 대한 **설정** 창이 열립니다.
 
@@ -385,8 +421,6 @@ Mobile Apps 백 엔드에 기존 SQL 데이터베이스를 연결하거나 새 S
 
 > [!NOTE]
 > Mobile Apps 백 엔드와 동일한 위치에 데이터베이스가 이미 있다면 대신 **기존 데이터베이스 사용**을 선택한 다음, 해당 데이터베이스를 선택할 수 있습니다. 다른 위치에 있는 데이터베이스는 대기 시간이 높기 때문에 권장하지 않습니다.
->
->
 
 1. 새 Mobile Apps 백 엔드에서 **설정** > **모바일 앱** > **데이터** > **+추가**를 선택합니다.
 1. **데이터 연결 추가** 창에서 **SQL Database - 필요한 설정 구성** > **새 데이터베이스를 만들기**를 선택합니다. **이름** 상자에 새 데이터베이스 이름을 입력합니다.
@@ -402,6 +436,7 @@ Mobile Apps 백 엔드에 기존 SQL 데이터베이스를 연결하거나 새 S
 데이터베이스를 만드는 데 몇 분 정도 걸릴 수 있습니다. **알림** 영역을 사용하여 배포의 진행률을 모니터링합니다. 데이터베이스가 성공적으로 배포될 때까지 진행하지 마세요. 데이터베이스가 배포되면 Mobile Apps 백 엔드 앱 설정에서 SQL Database 인스턴스에 대한 연결 문자열이 생성됩니다. **설정** > **응용 프로그램 설정** > **연결 문자열**에서 이 앱 설정을 볼 수 있습니다.
 
 ### <a name="howto-tables-auth"></a>테이블에 대한 액세스 인증 요구
+
 `tables` 엔드포인트를 사용하여 App Service 인증을 사용하려는 경우 [Azure Portal]에서 우선 App Service 인증을 구성해야 합니다. 자세한 내용은 사용하려고 하는 ID 공급자에 대한 구성 가이드를 참조하세요.
 
 * [Azure Active Directory 인증 구성]
@@ -412,23 +447,25 @@ Mobile Apps 백 엔드에 기존 SQL 데이터베이스를 연결하거나 새 S
 
 각 테이블에는 테이블에 대한 액세스를 제어하는 데 사용할 수 있는 액세스 속성이 있습니다. 다음 샘플에서는 필요한 인증을 사용하여 정적으로 정의된 테이블을 보여줍니다.
 
-    var azureMobileApps = require('azure-mobile-apps');
+```javascript
+var azureMobileApps = require('azure-mobile-apps');
 
-    var table = azureMobileApps.table();
+var table = azureMobileApps.table();
 
-    // Define the columns within the table.
-    table.columns = {
-        "text": "string",
-        "complete": "boolean"
-    };
+// Define the columns within the table.
+table.columns = {
+    "text": "string",
+    "complete": "boolean"
+};
 
-    // Turn off the dynamic schema.
-    table.dynamicSchema = false;
+// Turn off the dynamic schema.
+table.dynamicSchema = false;
 
-    // Require authentication to access the table.
-    table.access = 'authenticated';
+// Require authentication to access the table.
+table.access = 'authenticated';
 
-    module.exports = table;
+module.exports = table;
+```
 
 액세스 속성은 세 가지 값 중 하나를 사용할 수 있습니다.
 
@@ -443,62 +480,65 @@ Mobile Apps 백 엔드에 기존 SQL 데이터베이스를 연결하거나 새 S
 
 예를 들어 Microsoft 계정 인증을 설정하고 메일 주소 클레임을 요청하는 경우 다음 테이블 컨트롤러를 사용하여 레코드에 이메일 주소를 추가할 수 있습니다.
 
-    var azureMobileApps = require('azure-mobile-apps');
+```javascript
+var azureMobileApps = require('azure-mobile-apps');
 
-    // Create a new table definition.
-    var table = azureMobileApps.table();
+// Create a new table definition.
+var table = azureMobileApps.table();
 
-    table.columns = {
-        "emailAddress": "string",
-        "text": "string",
-        "complete": "boolean"
-    };
-    table.dynamicSchema = false;
-    table.access = 'authenticated';
+table.columns = {
+    "emailAddress": "string",
+    "text": "string",
+    "complete": "boolean"
+};
+table.dynamicSchema = false;
+table.access = 'authenticated';
 
-    /**
-    * Limit the context query to those records with the authenticated user email address
-    * @param {Context} context the operation context
-    * @returns {Promise} context execution Promise
-    */
-    function queryContextForEmail(context) {
-        return context.user.getIdentity().then((data) => {
-            context.query.where({ emailAddress: data.microsoftaccount.claims.emailaddress });
-            return context.execute();
-        });
-    }
+/**
+* Limit the context query to those records with the authenticated user email address
+* @param {Context} context the operation context
+* @returns {Promise} context execution Promise
+*/
+function queryContextForEmail(context) {
+    return context.user.getIdentity().then((data) => {
+        context.query.where({ emailAddress: data.microsoftaccount.claims.emailaddress });
+        return context.execute();
+    });
+}
 
-    /**
-    * Adds the email address from the claims to the context item - used for
-    * insert operations
-    * @param {Context} context the operation context
-    * @returns {Promise} context execution Promise
-    */
-    function addEmailToContext(context) {
-        return context.user.getIdentity().then((data) => {
-            context.item.emailAddress = data.microsoftaccount.claims.emailaddress;
-            return context.execute();
-        });
-    }
+/**
+* Adds the email address from the claims to the context item - used for
+* insert operations
+* @param {Context} context the operation context
+* @returns {Promise} context execution Promise
+*/
+function addEmailToContext(context) {
+    return context.user.getIdentity().then((data) => {
+        context.item.emailAddress = data.microsoftaccount.claims.emailaddress;
+        return context.execute();
+    });
+}
 
-    // Configure specific code when the client does a request.
-    // READ: only return records that belong to the authenticated user.
-    table.read(queryContextForEmail);
+// Configure specific code when the client does a request.
+// READ: only return records that belong to the authenticated user.
+table.read(queryContextForEmail);
 
-    // CREATE: add or overwrite the userId based on the authenticated user.
-    table.insert(addEmailToContext);
+// CREATE: add or overwrite the userId based on the authenticated user.
+table.insert(addEmailToContext);
 
-    // UPDATE: only allow updating of records that belong to the authenticated user.
-    table.update(queryContextForEmail);
+// UPDATE: only allow updating of records that belong to the authenticated user.
+table.update(queryContextForEmail);
 
-    // DELETE: only allow deletion of records that belong to the authenticated user.
-    table.delete(queryContextForEmail);
+// DELETE: only allow deletion of records that belong to the authenticated user.
+table.delete(queryContextForEmail);
 
-    module.exports = table;
+module.exports = table;
+```
 
-사용할 수 있는 클레임을 보려면 웹 브라우저를 사용하여 사이트의 `/.auth/me` 끝점을 봅니다.
+사용할 수 있는 클레임을 보려면 웹 브라우저를 사용하여 사이트의 `/.auth/me` 엔드포인트를 봅니다.
 
 ### <a name="howto-tables-disabled"></a>특정 테이블 작업에 대한 액세스 사용 안 함
+
 테이블에 나타나는 것 외에도 액세스 속성은 개별 작업을 제어하는 데 사용될 수 있습니다. 네 가지 작업이 있습니다.
 
 * `read`는 테이블의 RESTful GET 작업입니다.
@@ -508,104 +548,117 @@ Mobile Apps 백 엔드에 기존 SQL 데이터베이스를 연결하거나 새 S
 
 예를 들어 읽기 전용 인증되지 않은 테이블을 제공하려 할 수도 있습니다.
 
-    var azureMobileApps = require('azure-mobile-apps');
+```javascript
+var azureMobileApps = require('azure-mobile-apps');
 
-    var table = azureMobileApps.table();
+var table = azureMobileApps.table();
 
-    // Read-only table. Only allow READ operations.
-    table.read.access = 'anonymous';
-    table.insert.access = 'disabled';
-    table.update.access = 'disabled';
-    table.delete.access = 'disabled';
+// Read-only table. Only allow READ operations.
+table.read.access = 'anonymous';
+table.insert.access = 'disabled';
+table.update.access = 'disabled';
+table.delete.access = 'disabled';
 
-    module.exports = table;
+module.exports = table;
+```
 
 ### <a name="howto-tables-query"></a>테이블 작업에 사용되는 쿼리 조정
+
 테이블 작업에 대한 일반적인 요구 사항은 데이터의 제한된 보기를 제공하는 것입니다. 예를 들어 사용자가 본인의 레코드를 읽거나 업데이트하는 것만 가능하도록 인증된 사용자 ID로 태그가 지정된 테이블을 제공할 수 있습니다. 다음 테이블 정의는 이 기능을 제공합니다.
 
-    var azureMobileApps = require('azure-mobile-apps');
+```javascript
+var azureMobileApps = require('azure-mobile-apps');
 
-    var table = azureMobileApps.table();
+var table = azureMobileApps.table();
 
-    // Define a static schema for the table.
-    table.columns = {
-        "userId": "string",
-        "text": "string",
-        "complete": "boolean"
-    };
-    table.dynamicSchema = false;
+// Define a static schema for the table.
+table.columns = {
+    "userId": "string",
+    "text": "string",
+    "complete": "boolean"
+};
+table.dynamicSchema = false;
 
-    // Require authentication for this table.
-    table.access = 'authenticated';
+// Require authentication for this table.
+table.access = 'authenticated';
 
-    // Ensure that only records for the authenticated user are retrieved.
-    table.read(function (context) {
-        context.query.where({ userId: context.user.id });
-        return context.execute();
-    });
+// Ensure that only records for the authenticated user are retrieved.
+table.read(function (context) {
+    context.query.where({ userId: context.user.id });
+    return context.execute();
+});
 
-    // When adding records, add or overwrite the userId with the authenticated user.
-    table.insert(function (context) {
-        context.item.userId = context.user.id;
-        return context.execute();
-    });
+// When adding records, add or overwrite the userId with the authenticated user.
+table.insert(function (context) {
+    context.item.userId = context.user.id;
+    return context.execute();
+});
 
-    module.exports = table;
+module.exports = table;
+```
 
 일반적으로 쿼리를 실행하는 작업에는 `where` 절을 사용하여 조정할 수 있는 쿼리 속성이 있습니다. 쿼리 속성은 데이터 백 엔드가 처리할 수 있는 무언가에 OData 쿼리를 변환하는 데 사용되는 [QueryJS] 개체입니다. 앞의 예처럼 간단한 같은 쿼리의 경우 맵을 사용할 수 있습니다. 또한 특정 SQL 절을 추가할 수 있습니다.
 
-    context.query.where('myfield eq ?', 'value');
+```javascript
+context.query.where('myfield eq ?', 'value');
+```
 
 ### <a name="howto-tables-softdelete"></a>테이블에 일시 삭제 구성
+
 일시 삭제는 레코드를 실제로 삭제하지 않습니다. 대신 삭제된 열을 true로 설정하여 데이터베이스 내에서 삭제된 것으로 표시합니다. 모바일 클라이언트 SDK가 `IncludeDeleted()`를 사용하지 않는 경우 Mobile Apps SDK는 일시 삭제된 레코드를 결과에서 자동으로 삭제합니다. 일시 삭제에 대한 테이블을 구성하려면 테이블 정의 파일에서 `softDelete` 속성을 설정합니다.
 
-    var azureMobileApps = require('azure-mobile-apps');
+```javascript
+var azureMobileApps = require('azure-mobile-apps');
 
-    var table = azureMobileApps.table();
+var table = azureMobileApps.table();
 
-    // Define the columns within the table.
-    table.columns = {
-        "text": "string",
-        "complete": "boolean"
-    };
+// Define the columns within the table.
+table.columns = {
+    "text": "string",
+    "complete": "boolean"
+};
 
-    // Turn off the dynamic schema.
-    table.dynamicSchema = false;
+// Turn off the dynamic schema.
+table.dynamicSchema = false;
 
-    // Turn on soft delete.
-    table.softDelete = true;
+// Turn on soft delete.
+table.softDelete = true;
 
-    // Require authentication to access the table.
-    table.access = 'authenticated';
+// Require authentication to access the table.
+table.access = 'authenticated';
 
-    module.exports = table;
+module.exports = table;
+```
 
 레코드: 클라이언트 응용 프로그램, WebJob, Azure 함수 또는 사용자 지정 API를 삭제하는 메커니즘을 설정해야 합니다.
 
 ### <a name="howto-tables-seeding"></a>데이터를 사용하여 데이터베이스 시드
+
 새 응용 프로그램을 만들 때 데이터가 있는 테이블을 시드할 수 있습니다. 다음과 같이 테이블 정의 JavaScript 파일 내에서 수행할 수 있습니다.
 
-    var azureMobileApps = require('azure-mobile-apps');
+```javascript
+var azureMobileApps = require('azure-mobile-apps');
 
-    var table = azureMobileApps.table();
+var table = azureMobileApps.table();
 
-    // Define the columns within the table.
-    table.columns = {
-        "text": "string",
-        "complete": "boolean"
-    };
-    table.seed = [
-        { text: 'Example 1', complete: false },
-        { text: 'Example 2', complete: true }
-    ];
+// Define the columns within the table.
+table.columns = {
+    "text": "string",
+    "complete": "boolean"
+};
+table.seed = [
+    { text: 'Example 1', complete: false },
+    { text: 'Example 2', complete: true }
+];
 
-    // Turn off the dynamic schema.
-    table.dynamicSchema = false;
+// Turn off the dynamic schema.
+table.dynamicSchema = false;
 
-    // Require authentication to access the table.
-    table.access = 'authenticated';
+// Require authentication to access the table.
+table.access = 'authenticated';
 
-    module.exports = table;
+module.exports = table;
+```
 
 데이터 시드는 테이블을 만드는 데 Mobile Apps SDK를 사용한 경우에만 발생합니다. 테이블이 데이터베이스에 이미 있으면 데이터는 테이블에 삽입되지 않습니다. 동적 스키마를 설정한 경우 스키마는 시드된 데이터에서 유추됩니다.
 
@@ -618,68 +671,81 @@ Mobile Apps는 기본 제공 [Swagger]를 지원합니다. Swagger 지원을 사
 
 그런 다음, Mobile Apps 생성자에서 Swagger 지원을 사용할 수 있습니다.
 
-    var mobile = azureMobileApps({ swagger: true });
+```javascript
+var mobile = azureMobileApps({ swagger: true });
+```
 
 개발 버전에서 Swagger 지원을 사용하려 합니다. `NODE_ENV` 앱 설정을 활용하여 수행할 수 있습니다.
 
-    var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
+```javascript
+var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
+```
 
-`swagger` 엔드포인트는 http://*yoursite*.azurewebsites.net/swagger에 위치합니다. `/swagger/ui` 끝점을 통해 Swagger UI에 액세스할 수 있습니다. 전체 응용 프로그램에서 인증을 요구하도록 선택하면 Swagger가 오류를 생성합니다. 최상의 결과를 위해 `table.access` 속성을 사용하여 Azure App Service 인증/권한 부여 설정 및 제어 인증에서 인증되지 않은 요청을 허용하도록 선택합니다.
+`swagger` 엔드포인트는 http://*yoursite*.azurewebsites.net/swagger에 위치합니다. ph x="1" /&gt; 엔드포인트를 통해 Swagger UI에 액세스할 수 있습니다. 전체 응용 프로그램에서 인증을 요구하도록 선택하면 Swagger가 오류를 생성합니다. 최상의 결과를 위해 `table.access` 속성을 사용하여 Azure App Service 인증/권한 부여 설정 및 제어 인증에서 인증되지 않은 요청을 허용하도록 선택합니다.
 
 또한 로컬로 개발을 위해 Swagger 지원을 원하는 경우 azureMobile.js 파일에 Swagger 옵션을 추가할 수도 있습니다.
 
-## <a name="a-namepushpush-notifications"></a><a name="push">푸시 알림
+## <a name="a-namepushpush-notifications"></a><a name="push"/>푸시 알림
+
 Mobile Apps는 수많은 모든 주요 플랫폼의 장치에 대상 푸시 알림을 보낼 수 있도록 Azure Notification Hubs와 통합됩니다. Notification Hubs를 사용하여 iOS, Android 및 Windows 장치에 푸시 알림을 보낼 수 있습니다. Notification Hubs를 통해 수행할 수 있는 모든 것에 대한 자세한 내용은 [Notification Hubs 개요](../notification-hubs/notification-hubs-push-notification-overview.md)를 참조하세요.
 
-### </a><a name="send-push"></a>푸시 알림 보내기
+### <a name="send-push"></a>푸시 알림 보내기
+
 다음 코드는 등록된 iOS 장치에 브로드캐스트 푸시 알림을 보내기 위해 `push` 개체를 사용하는 방법을 보여 줍니다.
 
-    // Create an APNS payload.
-    var payload = '{"aps": {"alert": "This is an APNS payload."}}';
+```javascript
+// Create an APNS payload.
+var payload = '{"aps": {"alert": "This is an APNS payload."}}';
 
-    // Only do the push if configured.
-    if (context.push) {
-        // Send a push notification by using APNS.
-        context.push.apns.send(null, payload, function (error) {
-            if (error) {
-                // Do something or log the error.
-            }
-        });
-    }
+// Only do the push if configured.
+if (context.push) {
+    // Send a push notification by using APNS.
+    context.push.apns.send(null, payload, function (error) {
+        if (error) {
+            // Do something or log the error.
+        }
+    });
+}
+```
 
 클라이언트에서 템플릿 푸시 등록을 만들면 지원되는 모든 플랫폼의 장치에 템플릿 푸시 메시지를 대신 보낼 수 있습니다. 다음 코드는 템플릿 알림을 보내는 방법을 보여 줍니다.
 
-    // Define the template payload.
-    var payload = '{"messageParam": "This is a template payload."}';
+```javascript
+// Define the template payload.
+var payload = '{"messageParam": "This is a template payload."}';
 
-    // Only do the push if configured.
-    if (context.push) {
-        // Send a template notification.
-        context.push.send(null, payload, function (error) {
-            if (error) {
-                // Do something or log the error.
-            }
-        });
-    }
-
+// Only do the push if configured.
+if (context.push) {
+    // Send a template notification.
+    context.push.send(null, payload, function (error) {
+        if (error) {
+            // Do something or log the error.
+        }
+    });
+}
+```
 
 ### <a name="push-user"></a>태그를 사용하여 인증된 사용자에게 푸시 알림 보내기
 인증된 사용자가 푸시 알림에 등록하면 사용자 ID 태그가 등록에 자동으로 추가됩니다. 이 태그를 사용하여 특정 사용자가 등록된 모든 장치에 푸시 알림을 보낼 수 있습니다. 다음 코드는 요청을 만드는 사용자의 SID를 가져오고 해당 사용자에 대한 모든 장치 등록에 템플릿 푸시 알림을 보냅니다.
 
-    // Only do the push if configured.
-    if (context.push) {
-        // Send a notification to the current user.
-        context.push.send(context.user.id, payload, function (error) {
-            if (error) {
-                // Do something or log the error.
-            }
-        });
-    }
+```javascript
+// Only do the push if configured.
+if (context.push) {
+    // Send a notification to the current user.
+    context.push.send(context.user.id, payload, function (error) {
+        if (error) {
+            // Do something or log the error.
+        }
+    });
+}
+```
 
 인증된 클라이언트의 푸시 알림을 등록할 때 등록을 시도하기 전에 인증이 완료되었는지 확인합니다.
 
 ## <a name="CustomAPI"></a> 사용자 지정 API
+
 ### <a name="howto-customapi-basic"></a>사용자 지정 API 정의
+
 `/tables` 엔드포인트를 통한 데이터 액세스 API 외에도 Mobile Apps는 사용자 지정 API 범위를 제공할 수 있습니다. 사용자 지정 API는 유사한 방식으로 테이블 정의에 정의되고 인증을 비롯한 동일한 시설에 액세스할 수 있습니다.
 
 사용자 지정 API를 사용하여 App Service 인증을 사용하려는 경우 [Azure Portal]에서 우선 App Service 인증을 구성해야 합니다. 자세한 내용은 사용하려고 하는 ID 공급자에 대한 구성 가이드를 참조하세요.
@@ -698,120 +764,137 @@ Mobile Apps는 수많은 모든 주요 플랫폼의 장치에 대상 푸시 알�
 
 다음은 이전에 사용된 기본 앱 샘플에 따른 프로토타입 API 정의입니다.
 
-    var express = require('express'),
-        azureMobileApps = require('azure-mobile-apps');
+```javascript
+var express = require('express'),
+    azureMobileApps = require('azure-mobile-apps');
 
-    var app = express(),
-        mobile = azureMobileApps();
+var app = express(),
+    mobile = azureMobileApps();
 
-    // Import the custom API.
-    mobile.api.import('./api');
+// Import the custom API.
+mobile.api.import('./api');
 
-    // Add the Mobile API so it is accessible as a Web API.
-    app.use(mobile);
+// Add the Mobile API so it is accessible as a Web API.
+app.use(mobile);
 
-    // Start listening on HTTP
-    app.listen(process.env.PORT || 3000);
+// Start listening on HTTP
+app.listen(process.env.PORT || 3000);
+```
 
 `Date.now()` 메서드를 사용하여 서버 날짜를 반환하는 API 예제를 살펴보겠습니다. 다음은 api/date.js 파일입니다.
 
-    var api = {
-        get: function (req, res, next) {
-            var date = { currentTime: Date.now() };
-            res.status(200).type('application/json').send(date);
-        });
-    };
+```javascript
+var api = {
+    get: function (req, res, next) {
+        var date = { currentTime: Date.now() };
+        res.status(200).type('application/json').send(date);
+    });
+};
 
-    module.exports = api;
+module.exports = api;
+```
 
 각 매개 변수는 GET, POST, PATCH 또는 DELETE와 같은 RESTful 표준 동사의 하나입니다. 메서드는 필요한 출력을 전송하는 표준 [ExpressJS 미들웨어] 함수입니다.
 
 ### <a name="howto-customapi-auth"></a>사용자 지정 API에 대한 액세스 인증 요구
+
 Mobile Apps SDK는 `tables` 엔드포인트 및 사용자 지정 API에 대해 동일한 방식으로 인증을 구현합니다. 이전 섹션에서 개발된 API에 인증을 추가하려면 `access` 속성을 추가합니다.
 
-    var api = {
-        get: function (req, res, next) {
-            var date = { currentTime: Date.now() };
-            res.status(200).type('application/json').send(date);
-        });
-    };
-    // All methods must be authenticated.
-    api.access = 'authenticated';
+```javascript
+var api = {
+    get: function (req, res, next) {
+        var date = { currentTime: Date.now() };
+        res.status(200).type('application/json').send(date);
+    });
+};
+// All methods must be authenticated.
+api.access = 'authenticated';
 
-    module.exports = api;
+module.exports = api;
+```
 
 또한 특정 작업에 인증을 지정할 수 있습니다.
 
-    var api = {
-        get: function (req, res, next) {
-            var date = { currentTime: Date.now() };
-            res.status(200).type('application/json').send(date);
-        }
-    };
-    // The GET methods must be authenticated.
-    api.get.access = 'authenticated';
+```javascript
+var api = {
+    get: function (req, res, next) {
+        var date = { currentTime: Date.now() };
+        res.status(200).type('application/json').send(date);
+    }
+};
+// The GET methods must be authenticated.
+api.get.access = 'authenticated';
 
-    module.exports = api;
+module.exports = api;
+```
 
 `tables` 엔드포인트에 사용되는 동일한 토큰은 인증을 요구하는 사용자 지정 API에 사용되어야 합니다.
 
 ### <a name="howto-customapi-auth"></a>대용량 파일 업로드 처리
+
 Mobile Apps SDK는 [body-parser middleware](https://github.com/expressjs/body-parser)를 사용하여 제출하는 본문 내용을 허용 및 디코딩합니다. 더 큰 파일 업로드를 허용하도록 body-parser를 미리 구성할 수 있습니다.
 
-    var express = require('express'),
-        bodyParser = require('body-parser'),
-        azureMobileApps = require('azure-mobile-apps');
+```javascript
+var express = require('express'),
+    bodyParser = require('body-parser'),
+    azureMobileApps = require('azure-mobile-apps');
 
-    var app = express(),
-        mobile = azureMobileApps();
+var app = express(),
+    mobile = azureMobileApps();
 
-    // Set up large body content handling.
-    app.use(bodyParser.json({ limit: '50mb' }));
-    app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+// Set up large body content handling.
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
-    // Import the custom API.
-    mobile.api.import('./api');
+// Import the custom API.
+mobile.api.import('./api');
 
-    // Add the Mobile API so it is accessible as a Web API.
-    app.use(mobile);
+// Add the Mobile API so it is accessible as a Web API.
+app.use(mobile);
 
-    // Start listening on HTTP.
-    app.listen(process.env.PORT || 3000);
+// Start listening on HTTP.
+app.listen(process.env.PORT || 3000);
+```
 
 이 파일은 Base-64로 인코딩된 후 전송됩니다. 이 인코딩은 실제 업로드의 크기를 증가시킵니다(고려해야 할 크기도 증가).
 
 ### <a name="howto-customapi-sql"></a>사용자 지정 SQL 문 실행
+
 Mobile Apps SDK는 요청 개체를 통해 전체 컨텍스트에 대한 액세스를 허용합니다. 정의된 데이터 공급자에 대한 매개 변수가 있는 SQL 문을 쉽게 실행할 수 있습니다.
 
-    var api = {
-        get: function (request, response, next) {
-            // Check for parameters. If not there, pass on to a later API call.
-            if (typeof request.params.completed === 'undefined')
-                return next();
+```javascript
+var api = {
+    get: function (request, response, next) {
+        // Check for parameters. If not there, pass on to a later API call.
+        if (typeof request.params.completed === 'undefined')
+            return next();
 
-            // Define the query. Anything that the mssql
-            // driver can handle is allowed.
-            var query = {
-                sql: 'UPDATE TodoItem SET complete=@completed',
-                parameters: [{
-                    completed: request.params.completed
-                }]
-            };
+        // Define the query. Anything that the mssql
+        // driver can handle is allowed.
+        var query = {
+            sql: 'UPDATE TodoItem SET complete=@completed',
+            parameters: [{
+                completed: request.params.completed
+            }]
+        };
 
-            // Execute the query. The context for Mobile Apps is available through
-            // request.azureMobile. The data object contains the configured data provider.
-            request.azureMobile.data.execute(query)
-            .then(function (results) {
-                response.json(results);
-            });
-        }
-    };
+        // Execute the query. The context for Mobile Apps is available through
+        // request.azureMobile. The data object contains the configured data provider.
+        request.azureMobile.data.execute(query)
+        .then(function (results) {
+            response.json(results);
+        });
+    }
+};
 
-    api.get.access = 'authenticated';
-    module.exports = api;
+api.get.access = 'authenticated';
+module.exports = api;
+```
 
 ## <a name="Debugging"></a>디버깅, 쉬운 테이블 및 간편한 API
+
 ### <a name="howto-diagnostic-logs"></a>Mobile Apps의 디버깅, 진단 및 문제 해결
+
 Azure App Service는 Node.js 응용 프로그램에 대한 여러 디버깅 및 문제 해결 기술을 제공합니다.
 Node.js Mobile Apps 백 엔드 문제 해결에서 시작하려면 다음 문서를 참조하세요.
 
@@ -822,6 +905,7 @@ Node.js Mobile Apps 백 엔드 문제 해결에서 시작하려면 다음 문서
 Node.js 응용 프로그램은 넓은 범위의 진단 로그 도구에 액세스합니다. 내부적으로 Mobile Apps Node.js SDK는 진단 로깅에 [윈스턴]을 사용합니다. [Azure Portal]에서 디버그 모드를 사용하거나 `MS_DebugMode` 앱 설정을 true로 설정할 때 로깅이 자동으로 활성화됩니다. 생성된 로그는 [Azure Portal]의 진단 로그에 표시됩니다.
 
 ### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Azure Portal에서 쉬운 테이블 작업
+
 쉬운 테이블을 사용하여 포털에서 테이블을 만들고 작업할 수 있습니다. 데이터 집합을 CSV 형식의 쉬운 테이블로 업로드할 수 있습니다. Mobile Apps 백 엔드의 시스템 속성 이름과 충돌하는 속성 이름(CSV 데이터 집합)은 사용할 수 없습니다. 시스템 속성 이름은 다음과 같습니다.
 * createdAt
 * updatedAt
@@ -843,6 +927,7 @@ App Service 편집기를 사용하여 테이블 작업을 편집할 수도 있�
 * **스트리밍 로그 보기**: 사이트에 대한 스트리밍 로그 서비스에 연결할 수 있습니다.
 
 ### <a name="work-easy-apis"></a>Azure Portal에서 쉬운 API 작업
+
 쉬운 API를 사용하여 포털에서 사용자 지정 API를 만들고 작업할 수 있습니다. App Service 편집기를 사용하여 API 스크립트를 편집할 수 있습니다.
 
 백 엔드 사이트 설정에서 **쉬운 API**를 선택하면 사용자 지정 API 엔드포인트를 추가, 수정 또는 삭제할 수 있습니다.
@@ -852,6 +937,7 @@ App Service 편집기를 사용하여 테이블 작업을 편집할 수도 있�
 포털에서 HTTP 작업에 대한 액세스 권한을 변경하거나, App Service 편집기에서 API 스크립트 파일을 편집하거나, 스트리밍 로그를 볼 수 있습니다.
 
 ### <a name="online-editor"></a>App Service 편집기에서 코드 편집
+
 Azure Portal을 사용하여 로컬 컴퓨터에 프로젝트를 다운로드하지 않고도 App Service 편집기에서 Node.js 백 엔드 스크립트 파일을 편집할 수 있습니다. 온라인 편집기에서 스크립트 파일을 편집하려면
 
 1. Mobile Apps 백 엔드에 대한 창에서 **모든 설정** > **쉬운 테이블** 또는 **쉬운 API**를 선택합니다. 테이블 또는 API를 선택한 다음, **스크립트 편집**을 선택합니다. 스크립트 파일이 App Service 편집기에서 열립니다.
