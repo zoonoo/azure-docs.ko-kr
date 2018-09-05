@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 00484fd11d1bf7a25b5e6cd8029366794e44c16c
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695298"
 documentType: LandingData
 title: Azure Service Bus 메시징 설명서
 metadata:
@@ -6,20 +12,14 @@ metadata:
   title: Azure Service Bus 메시징 설명서 - 자습서, 빠른 시작, API 참조
   meta.description: Learn how to set up messaging that connects applications and services across on-premises and cloud environments.
   services: service-bus-messaging
-  author: sethmanheim
-  manager: timlt
+  author: spelluru
+  manager: femila
   ms.service: service-bus-messaging
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 05/16/2018
-  ms.author: sethm
-  ms.openlocfilehash: 7746b2259f4c4c411e52d236f9734825355750d5
-  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-  ms.translationtype: HT
-  ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/01/2018
-  ms.locfileid: "34648594"
+  ms.author: spelluru
 abstract:
   description: Azure Service Bus는 응용 프로그램과 서비스 간에 정보를 전송하는 다중 테넌트 클라우드 메시징 서비스입니다. 비동기 작업을 통해 유연한 조정된 메시징이 가능하고, 구조적 FIFO(선입 선출) 메시징 및 게시/구독 기능도 가능합니다.
   aside:
@@ -61,8 +61,7 @@ sections:
     - html: <a href="/azure/service-bus-messaging/service-bus-tutorial-topics-subscriptions-cli">토픽 및 구독을 사용하여 Azure CLI로 인벤토리 분류 업데이트</a>
     - html: <a href="/azure/service-bus-messaging/service-bus-tutorial-topics-subscriptions-portal">토픽 및 구독을 사용하여 Azure Portal로 인벤토리 분류 업데이트</a>
     - html: <a href="/azure/service-bus-messaging/service-bus-tutorial-topics-subscriptions-powershell">토픽 및 구독을 사용하여 Azure PowerShell로 인벤토리 분류 업데이트</a>
-- title: >
-    무료 Pluralsight 동영상 교육
+- title: 무료 Pluralsight 동영상 교육
   items:
   - type: list
     style: cards
