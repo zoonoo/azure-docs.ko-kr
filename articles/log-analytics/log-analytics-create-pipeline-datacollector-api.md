@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5f2674aeb83fbb7679d9d0c2574a93484a352e9d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 180f1a39b92dd699fa114cb98a5842b0ab0dc89a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40161833"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190541"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>데이터 수집기 API를 사용하여 데이터 파이프라인 만들기
 
@@ -42,7 +42,7 @@ ms.locfileid: "40161833"
 
 이 아티클에서는 데이터를 만들거나 [Azure Blob Storage 계정에 업로드](../storage/blobs/storage-upload-process-images.md)하는 방법을 다루지 않습니다. 대신 새 파일이 Blob에 업로드되는 즉시 흐름을 선택합니다. 여기에서부터:
 
-1. 프로세스는 새 데이터가 업로드되었는지 검색합니다.  예제에서는 [Azure 논리 앱](../logic-apps/logic-apps-overview.md)을 사용합니다. 여기에서는 새 데이터가 Blob에 업로드되었는지 검색하는 트리거를 사용할 수 있습니다.
+1. 프로세스는 새 데이터가 업로드되었는지 검색합니다.  이 예에서는 [Azure 논리 앱](../logic-apps/logic-apps-overview.md)을 사용하며, 이 앱은 Blob에 업로드되는 새 데이터를 검색하는 트리거를 사용할 수 있습니다.
 
 2. 프로세서가 새 데이터를 읽고 Log Analytics에서 필요한 형식인 JSON으로 변환합니다.  이 예제에서는 [Azure Function](../azure-functions/functions-overview.md)를 처리 코드를 실행하는 간단하고 비용 효율적인 방법으로 사용합니다. 이 함수는 새 데이터를 검색하는 데 사용한 동일한 논리 앱에서 시작합니다.
 

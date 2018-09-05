@@ -4,12 +4,12 @@ ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 08-07-2018
-ms.openlocfilehash: 19a153a5cdc9d5f878494984313baebd12dbcbb5
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 764470bbf47c18a2ec66dc91d433f8dd14b99a8f
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39631166"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43039288"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제
 
@@ -30,6 +30,9 @@ ms.locfileid: "39631166"
 
 예약 VM 인스턴스는 대부분의 VM 크기에서 이용할 수 있지만 몇 가지 예외가 있습니다.
 
+- 클래식 VM 및 Cloud Services는 예약 할인이 적용되지 않습니다.
+- 표시되지 않은 VM은 예약 할인이 적용되지 않습니다.
+- 다음 VM 시리즈는 예약 할인이 적용되지 않습니다. A 시리즈, Av2 시리즈 또는 G 시리즈.
 - 미리 보기 상태의 VM: 미리 보기로 제공되는 VM 시리즈 또는 크기는 예약 구매에 사용할 수 없습니다.
 - 클라우드: 예약은 Azure 미국 정부, 독일 또는 중국 지역에서 구매에 사용할 수 없습니다.
 - 할당량 부족: 단일 구독으로 범위가 한정되는 예약은 vCPU 할당량을 새 RI에 대한 구독에서 사용할 수 있어야 합니다. 예를 들어 대상 구독에서 D 시리즈에 대한 할당량 한도가 10개 vCPU인 경우 11개의 Standard_D1 인스턴스에 대해 예약을 구입할 수 없습니다. 예약에 대한 할당량 확인에는 구독에 이미 배포된 VM이 포함됩니다. 예를 들어, 구독에서 D 시리즈에 대한 할당량 한도가 10개 vCPU이고 두 개의 standard_D1 인스턴스가 배포된 경우 이 구독에서 10개의 standard_D1 인스턴스에 대해 예약을 구입할 수 있습니다. 
@@ -69,13 +72,13 @@ ms.locfileid: "39631166"
 
 Azure 예약에 대한 자세한 내용은 다음 아티클을 참조하세요.
 
-- [Azure 예약이란?](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Azure Reservations란?](../articles/billing/billing-save-compute-costs-reservations.md)
 - [Azure에서 예약 관리](../articles/billing/billing-manage-reserved-vm-instance.md)
-- [예약 할인이 적용되는 방법 이해](../articles/billing/billing-understand-vm-reservation-charges.md)
-- [종량제 구독의 예약 사용 이해](../articles/billing/billing-understand-reserved-instance-usage.md)
-- [엔터프라이즈 등록의 예약 사용 이해](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
+- [예약 할인이 적용되는 방식 이해](../articles/billing/billing-understand-vm-reservation-charges.md)
+- [종량제 구독의 예약 사용량 이해](../articles/billing/billing-understand-reserved-instance-usage.md)
+- [엔터프라이즈 등록에서 예약 사용량 이해](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
 - [예약에 포함되지 않는 Windows 소프트웨어 비용](../articles/billing/billing-reserved-instance-windows-software-costs.md)
-- [파트너 센터 CSP(클라우드 솔루션 공급자) 프로그램의 Azure 예약](https://docs.microsoft.com/partner-center/azure-reservations)
+- [파트너 센터 CSP(클라우드 솔루션 공급자) 프로그램의 Azure Reservations](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 

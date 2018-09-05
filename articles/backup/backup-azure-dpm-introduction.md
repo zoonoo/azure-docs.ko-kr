@@ -1,20 +1,20 @@
 ---
-title: DPM을 사용하여 Azure Portal에 워크로드 백업
-description: Azure Backup 서비스를 사용하여 DPM 서버를 백업하는 방법 소개
+title: DPM을 사용하여 Azure에 워크로드 백업
+description: Azure Recovery Services 자격 증명 모음에 DPM 데이터를 백업하는 내용을 소개합니다.
 services: backup
 author: adigan
 manager: nkolli
 keywords: System Center Data Protection Manager, 데이터 보호 관리자, dpm 백업
 ms.service: backup
 ms.topic: conceptual
-ms.date: 08/15/2017
+ms.date: 8/22/2018
 ms.author: adigan
-ms.openlocfilehash: ffb3a5a5729e97e1a9b00072624d7e51842f61f8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 873e7066bcf51b32c3a7a54e845ffd5a744f407f
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605052"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745438"
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>DPM을 통해 Azure에서 워크로드 백업 준비
 > [!div class="op_single_selector"]
@@ -23,9 +23,9 @@ ms.locfileid: "34605052"
 >
 >
 
-이 문서에서는 Microsoft Azure Backup을 사용하여 System Center Data Protection Manager(DPM) 서버와 워크로드를 보호하는 방법을 소개합니다. 이 문서를 읽어 보면 다음을 이해하게 됩니다.
+이 문서에서는 다음을 포함하여 System Center DPM(Data Protection Manager) 데이터를 Azure에 백업하는 방법을 설명합니다.
 
-* Azure DPM 서버 백업 작동 방식
+* Azure로 DPM 서버 데이터를 백업하는 방법
 * 원활한 백업 경험을 위한 필수 조건
 * 발생하는 일반적인 오류 및 오류를 처리하는 방법
 * 지원되는 시나리오
@@ -37,7 +37,7 @@ ms.locfileid: "34605052"
 
 [System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview)는 파일 및 응용 프로그램 데이터를 백업합니다. 지원되는 워크로드에 관한 자세한 내용은 [여기](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix)에서 찾을 수 있습니다. DPM에 백업된 데이터는 테이프나 디스크에 저장하거나 Microsoft Azure Backup을 사용하여 Azure에 백업할 수 있습니다. DPM 은 Azure Backup과 다음과 같이 상호작용합니다.
 
-* **물리적 서버 또는 온-프레미스 가상 머신으로 배포하는 DPM** — DPM을 물리적 서버 또는 온-프레미스 Hyper-V 가상 머신으로 배포하는 경우, 디스크나 테이프 백업에 더해 데이터를 Recovery Services 자격 증명 모음에 백업할 수 있습니다.
+* **물리적 서버 또는 온-프레미스 가상 머신으로 배포하는 DPM** — 물리적 서버 또는 온-프레미스 Hyper-V 가상 머신으로 배포하는 DPM은 디스크나 테이프 백업 외에도 데이터를 Recovery Services 자격 증명 모음에 백업합니다.
 * **Azure 가상 머신으로 배포하는 DPM** — System Center 2012 R2 업데이트 3부터 Azure 가상 머신에 DPM을 배포할 수 있습니다. DPM을 Azure 가상 머신으로 배포하는 경우, VM에 연결된 Azure 디스크에 데이터를 백업하거나 Recovery Services 자격 증명 모음에 백업하여 데이터 저장소를 오프로드할 수 있습니다.
 
 ## <a name="why-back-up-dpm-to-azure"></a>DPM을 Azure에 백업하는 이유?
@@ -64,66 +64,55 @@ DPM용 Azure에서 백업에 대한 몇 가지 주요 정의는 다음과 같습
 3. **보안 PIN** - 자격 증명 모음의 [보안 설정](https://docs.microsoft.com/azure/backup/backup-azure-security-feature)을 사용하는 경우 보안 PIN은 중요한 백업 작업을 수행하는 데 필요합니다. Multi-Factor Authentication은 다른 보안 계층을 추가합니다. 
 4. **복구 폴더** - 클라우드의 백업이 클라우드 복구 중에 일시적으로 다운로드되는 구입니다. 해당 크기는 병렬로 복구하려는 백업 항목의 크기와 동일해야 합니다.
 
+[!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
 
-### <a name="1-create-a-recovery-services-vault"></a>1. 복구 서비스 자격 증명 모음 만들기
-복구 서비스 자격 증명 모음을 만들려면:
+## <a name="edit-storage-replication"></a>저장소 복제 편집
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. 허브 메뉴에서 **찾아보기**를 클릭하고 리소스 목록에서 **Recovery Services**를 입력합니다. 입력을 시작하면 목록이 입력에 따라 필터링됩니다. **Recovery Services 자격 증명 모음**을 클릭합니다.
-
-    ![Recovery Services 자격 증명 모음 만들기 1단계](./media/backup-azure-dpm-introduction/open-recovery-services-vault.png)
-
-    Recovery Services 자격 증명 모음의 목록이 표시됩니다.
-3. **Recovery Services 자격 증명 모음** 메뉴에서 **추가**를 클릭합니다.
-
-    ![Recovery Services 자격 증명 모음 만들기 2단계](./media/backup-azure-dpm-introduction/rs-vault-menu.png)
-
-    Recovery Services 자격 증명 모음 메뉴가 열리고 **이름**, **구독**, **리소스 그룹** 및 **위치**를 입력하라는 메시지가 표시됩니다.
-
-    ![Recovery Services 자격 증명 모음 만들기 5단계](./media/backup-azure-dpm-introduction/rs-vault-attributes.png)
-4. **이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 이름은 Azure 구독에 대해 고유해야 합니다. 이름을 2~50자 사이로 입력합니다. 문자로 시작해야 하며, 문자, 숫자, 하이픈만 사용할 수 있습니다.
-5. **구독** 을 클릭하여 사용 가능한 구독 목록을 볼 수 있습니다. 사용할 구독을 잘 모르는 경우 기본(또는 제안된) 구독을 사용합니다. 조직 계정이 여러 Azure 구독과 연결된 경우에만 여러 항목을 선택할 수 있습니다.
-6. **리소스 그룹**을 클릭하여 사용 가능한 리소스 그룹 목록을 표시하거나 **새로 만들기**를 클릭하여 새 리소스 그룹을 만듭니다. 리소스 그룹에 대한 전체 내용은 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
-7. **위치** 를 클릭하여 자격 증명 모음에 대한 지리적 지역을 선택합니다.
-8. **만들기**를 클릭합니다. Recovery Services 자격 증명 모음을 만드는 데 시간이 걸릴 수 있습니다. 포털의 오른쪽 위 영역에 있는 상태 알림을 모니터링합니다.
-   사용자 자격 증명 모음을 만들면 포털에서 열립니다.
-
-### <a name="set-storage-replication"></a>저장소 복제 설정
-저장소 복제 옵션을 사용하면 지역 중복 저장소와 로컬 중복 저장소 중에서 선택할 수 있습니다. 기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다. 기본 백업인 경우 지역 중복 저장소 옵션이 설정된 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 저장소를 선택합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 저장소 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조하세요.
+저장소 복제를 사용하면 지역 중복 저장소와 로컬 중복 저장소 중에서 선택할 수 있습니다. 기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다. 자격 증명 모음이 기본 백업인 경우 지역 중복 저장소 옵션이 설정된 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 다음 절차에 따라 로컬 중복 저장소를 구성합니다. [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 저장소 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조하세요.
 
 저장소 복제 설정을 편집하려면
 
-1. 자격 증명 모음 대시보드 및 설정 메뉴를 열 자격 증명 모음을 선택합니다. **설정** 메뉴가 열리지 않을 경우 자격 증명 모음 대시보드에서 **모든 설정**을 클릭합니다.
-2. **설정** 메뉴에서 **Backup 인프라** > **Backup 구성**을 클릭하여 **Backup 구성** 메뉴를 엽니다. **백업 구성** 메뉴에서 자격 증명 모음에 대한 저장소 복제 옵션을 선택합니다.
+> [!NOTE] 
+> 초기 백업을 트리거하기 전에 저장소 복제를 구성합니다. 보호된 항목을 백업한 후 저장소 복제 구성을 변경하려면 저장소 구성을 전환하기 전에 자격 증명 모음 보호를 중지해야 합니다.
+>  
 
-    ![백업 자격 증명 모음 목록](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
+1. 자격 증명 모음을 선택하고 자격 증명 모음 대시보드를 엽니다.
+
+2. **관리** 섹션에서 **백업 인프라**를 클릭합니다.
+
+3. **백업 구성** 메뉴에서 자격 증명 모음에 대한 저장소 복제 옵션을 선택합니다.
+
+    ![백업 자격 증명 모음 목록](./media/backup-azure-dpm-introduction/choose-storage-configuration-rs-vault.png)
 
     자격 증명 모음에 대한 저장소 옵션을 선택하면 자격 증명 모음이 있는 VM에 연결할 준비가 됩니다. 연결을 시작하려면 Azure 가상 머신을 검색하고 등록해야 합니다.
 
-### <a name="2-download-vault-credentials"></a>2. 저장소 자격 증명 다운로드
-자격 증명 모음 자격 증명 파일은 포털에서 각 백업 자격 증명 모음에 대해 생성하는 인증서입니다. 그런 다음 포털은 Access Control Service(ACS)에 공개 키를 업로드합니다. 컴퓨터 등록 워크플로에서 입력으로 제공된 워크플로의 일부로 사용자에게 인증서의 개인 키가 제공됩니다. 이는 Azure Backup 서비스의 식별된 자격 증명 모음에 백업 데이터를 보내도록 컴퓨터를 인증합니다.
+## <a name="download-vault-credentials"></a>저장소 자격 증명 다운로드
+자격 증명 모음 자격 증명 파일은 포털에서 각 백업 자격 증명 모음에 대해 생성하는 인증서입니다. 그런 다음 포털은 Access Control Service(ACS)에 공개 키를 업로드합니다. 머신 등록 워크플로 중에 머신을 인증하는 인증서의 개인 키가 사용자에게 제공됩니다. 인증에 따라 Azure Backup 서비스는 식별된 자격 증명 모음으로 데이터를 전송합니다.
 
-자격 증명 모음 자격 증명은 등록 워크플로 중에만 사용됩니다. 자격 증명 모음 자격 증명 파일이 손상되지 않도록 하는 것은 사용자의 책임입니다. 악의적인 사용자의 손에 들어갈 경우 자격 증명 모음 자격 증명 파일을 사용하여 동일한 자격 증명 모음에 다른 컴퓨터를 등록할 수 있습니다. 그러나 백업 데이터는 고객이 소유한 암호를 사용 하여 암호화되므로 기존 백업 데이터는 손상되지 않습니다. 이 문제를 완화하려면 보관 자격 증명을 48시간에 만료되도록 설정합니다. 복구 서비스의 보관 자격 증명은 여러 번 다운로드할 수 있지만 등록 워크플로 중에는 최신 보관 자격 증명 파일만 적용할 수 있습니다.
+자격 증명 모음 자격 증명은 등록 워크플로 중에만 사용됩니다. 보관 자격 증명 파일이 손상되지 않도록 하는 것은 사용자의 책임입니다. 자격 증명을 제어할 수 없으면 보관 자격 증명을 사용하여 다른 머신을 자격 증명 모음에 등록할 수 있습니다. 그러나 백업 데이터는 고객이 소유한 암호를 사용하여 암호화되므로 기존 백업 데이터는 손상되지 않습니다. 이 문제를 완화하기 위해 보관 자격 증명은 48시간 후에 만료됩니다. 필요에 따라 새로운 보관 자격 증명을 여러 번 다운로드하세요. 그러나 등록 워크플로 중에 최신 보관 자격 증명 파일만 사용할 수 있습니다.
 
-자격 증명 모음 자격 증명 파일은 Azure 포털에서 보안 채널을 통해 다운로드됩니다. Azure Backup 서비스는 인증서의 개인 키를 인식하지 않으며 개인 키는 포털 또는 서비스에 보관되지 않습니다. 로컬 컴퓨터에 자격 증명 모음 자격 증명 파일을 다운로드하려면 다음 단계를 따르십시오.
+자격 증명 모음 자격 증명 파일은 Azure 포털에서 보안 채널을 통해 다운로드됩니다. Azure Backup 서비스는 인증서의 개인 키를 인식하지 않으며 개인 키는 포털 또는 서비스에서 사용할 수 없습니다. 로컬 컴퓨터에 자격 증명 모음 자격 증명 파일을 다운로드하려면 다음 단계를 따르십시오.
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. DPM 컴퓨터를 등록할 Recovery Services 자격 증명 모음을 엽니다.
-3. 설정 메뉴가 기본적으로 열립니다. 닫혀있으면, 자격 증명 모음 대시보드의 **설정**을 클릭하고 설정 메뉴를 엽니다. 설정 메뉴에서 **속성**을 클릭합니다.
+
+2. DPM 서버에 등록할 Recovery Services 자격 증명 모음을 엽니다.
+
+3. 설정 메뉴가 기본적으로 열립니다. 닫혀있으면, 자격 증명 모음 대시보드의 **설정**을 클릭하고 메뉴를 엽니다. **설정** 메뉴에서 **속성**을 클릭합니다.
 
     ![자격 증명 모음 메뉴 열기](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
+
 4. [속성] 페이지에서 **Backup 자격 증명** 아래쪽에 있는 **다운로드**를 클릭합니다. 포털에서 다운로드할 수 있는 자격 증명 모음 자격 증명 파일을 생성합니다.
 
     ![다운로드](./media/backup-azure-dpm-introduction/vault-credentials.png)
 
-포털에서는 저장소 이름과 현재 날짜를 조합하여 저자격 증명 모음 자격 증명을 생성합니다. **저장** 을 클릭하여 자격 증명 모음 자격 증명을 로컬 계정의 다운로드 폴더로 다운로드하거나, 저장 메뉴에서 다른 이름으로 저장을 선택하여 자격 증명 모음 자격 증명을 저장할 위치를 지정합니다. 파일이 생성되기 까지 최대 1분이 소요됩니다.
+포털에서는 자격 증명 모음 이름과 현재 날짜를 조합하여 보관 자격 증명을 생성합니다. **저장** 을 클릭하여 자격 증명 모음 자격 증명을 로컬 계정의 다운로드 폴더로 다운로드하거나, 저장 메뉴에서 다른 이름으로 저장을 선택하여 자격 증명 모음 자격 증명을 저장할 위치를 지정합니다. 파일이 생성되기 까지 최대 1분이 소요됩니다.
 
 ### <a name="note"></a>참고
 * 보관 자격 증명 파일이 컴퓨터에서 액세스할 수 있는 위치에 저장되었는지 확인하세요. 파일 공유/SMB에 저장된 경우 액세스 권한을 확인합니다.
 * 자격 증명 모음 자격 증명 파일은 등록 워크플로 중에만 사용됩니다.
 * 자격 증명 모음 자격 증명 파일은 48시간 후에 만료되고, 만료된 후에는 포털에서 다운로드할 수 있습니다.
 
-### <a name="3-install-backup-agent"></a>3. Backup 에이전트 설치
+## <a name="install-backup-agent"></a>Backup 에이전트 설치
 Azure Backup 자격 증명 모음을 만든 후에는 각 Windows 컴퓨터(Windows Server, Windows 클라이언트, 시스템 센터, Data Protection Manager 서버 또는 Azure Backup 서버 컴퓨터)에 Azure에 데이터 및 응용 프로그램을 백업할 수 있게 해주는 에이전트가 설치되어야 합니다.
 
 1. DPM 컴퓨터를 등록할 Recovery Services 자격 증명 모음을 엽니다.
@@ -135,12 +124,17 @@ Azure Backup 자격 증명 모음을 만든 후에는 각 Windows 컴퓨터(Wind
     ![다운로드](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
    에이전트가 다운로드되면 MARSAgentInstaller.exe를 실행하여 Azure Backup 에이전트를 설치하기 시작합니다. 설치 폴더 및 에이전트에 필요한 스크래치 폴더를 선택합니다. 지정된 캐시 위치에 백업 데이터의 5% 이상이 되는 여유 공간이 있어야 합니다.
+
 4. 프록시 서버를 사용하여 인터넷에 연결하는 경우 **프록시 구성** 화면에서 프록시 서버 세부 정보를 입력합니다. 인증된 프록시를 사용하는 경우 이 화면에 사용자 이름 및 암호 세부 정보를 입력합니다.
+
 5. Azure Backup 에이전트가 .NET Framework 4.5 및 Windows PowerShell(아직 설치되지 않은 경우)을 설치하여 설치를 완료합니다.
+
 6. 에이전트가 설치되면 창을 **닫습니다** .
 
    ![닫습니다](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
+
 7. 자격 증명 모음에 **DPM 서버를 등록**하려면 **관리** 탭에서 **온라인**을 클릭합니다. 그런 다음 **등록**을 선택합니다. 설치 프로그램 등록 마법사가 열립니다.
+
 8. 프록시 서버를 사용하여 인터넷에 연결하는 경우 **프록시 구성** 화면에서 프록시 서버 세부 정보를 입력합니다. 인증된 프록시를 사용하는 경우 이 화면에 사용자 이름 및 암호 세부 정보를 입력합니다.
 
     ![프록시 구성](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Proxy.png)
@@ -153,12 +147,15 @@ Azure Backup 자격 증명 모음을 만든 후에는 각 Windows 컴퓨터(Wind
     설치 응용 프로그램에서 액세스할 수 있는 위치에 있는 자격 증명 모음 자격 증명 파일인지 확인합니다. 액세스 관련 오류가 발생할 경우 이 컴퓨터의 임시 위치에 자격 증명 모음 자격 증명 파일을 복사하고 작업을 다시 시도합니다.
 
     잘못된 자격 증명 모음 자격 증명 오류(예: "잘못된 자격 증명 모음 자격 증명을 제공했습니다.")가 발생한 경우 파일이 손상되었거나 복구 서비스와 연결된 최신 자격 증명이 없습니다. 포털에서 새 자격 증명 모음 자격 증명 파일을 다운로드한 후에 작업을 다시 시도합니다. 이 오류는 일반적으로 사용자가 Azure 포털에서 **자격 증명 모음 자격 증명 다운로드** 옵션을 빠르게 연속적으로 클릭할 경우에 표시됩니다. 이 경우 두 번째 자격 증명 모음 자격 증명 파일만 유효합니다.
+
 10. 근무 시간 및 휴무 시간 동안 네트워크 대역폭의 사용량을 제어하려면 **제한 설정** 화면에서 대역폭 사용 제한을 설정하고 근무 시간 및 휴무 시간을 정의하면 됩니다.
 
     ![제한 설정](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Throttling.png)
+
 11. **복구 폴더 설정** 화면에서 Azure에서 다운로드한 파일을 일시적으로 스테이징할 폴더를 찾아봅니다.
 
     ![복구 폴더 설정](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_RecoveryFolder.png)
+
 12. **암호화 설정** 화면에서 전달 구를 생성하거나 제공합니다(최소 16자). 암호를 안전한 위치에 저장해야 합니다.
 
     ![암호화](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Encryption.png)
@@ -167,7 +164,9 @@ Azure Backup 자격 증명 모음을 만든 후에는 각 Windows 컴퓨터(Wind
     > 암호를 분실하거나 잊어버린 경우 Microsoft는 백업 데이터 복구를 도와드릴 수 없습니다. 암호화 암호는 최종 사용자가 소유하며 Microsoft는 최종 사용자가 사용하는 암호를 전혀 볼 수 없습니다. 이 파일은 복구 작업에 필요하므로 안전한 위치에 저장하십시오.
     >
     >
+
 13. **등록** 단추를 클릭하면 컴퓨터가 자격 증명 모음에 성공적으로 등록되고 이제 Microsoft Azure에 백업을 시작할 준비가 완료된 것입니다.
+
 14. Data Protection Manager를 사용하는 경우 **구성** 옵션을 클릭하고 **관리** 탭 아래쪽에 있는 **온라인**을 선택하여 등록 워크플로 중에 지정된 설정을 수정할 수 있습니다.
 
 ## <a name="requirements-and-limitations"></a>요구 사항(및 제한 사항)
@@ -198,6 +197,6 @@ Azure Backup 자격 증명 모음을 만든 후에는 각 Windows 컴퓨터(Wind
 * 스파스 스트림
 
 > [!NOTE]
-> System Center 2012 DPM SP1부터는 DPM으로 보호되는 워크로드를 Microsoft Azure Backup을 사용하여 Azure에 백업할 수 있습니다.
+> System Center 2012 DPM SP1부터는 보호된 워크로드를 Azure에 백업할 수 있습니다.
 >
 >

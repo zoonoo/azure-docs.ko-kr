@@ -1,28 +1,23 @@
 ---
 title: Azure Logic Apps용 웹 API 및 REST API 만들기 | Microsoft Docs
-description: 시스템 통합을 위해 논리 앱 워크플로에서 API, 서비스 또는 시스템을 호출하는 웹 API 및 REST API를 만듭니다.
-keywords: 웹 API, REST API, 워크플로, 시스템 통합
+description: Azure Logic Apps에서 시스템 통합을 위해 API, 서비스 또는 시스템을 호출하는 웹 API 및 REST API 만들기
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
-ms.date: 5/26/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 748070d43c34b501af3455d03429be1f44178b7f
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
+ms.date: 05/26/2017
+ms.openlocfilehash: a761e384a356a0cbf5531eee7340ddbbd1526909
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172020"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122249"
 ---
-# <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>논리 앱 워크플로에서 호출할 수 있는 사용자 지정 API 만들기
+# <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Azure Logic Apps에서 호출할 수 있는 사용자 지정 API 만들기
 
 Azure Logic Apps는 논리 앱 워크플로에서 사용할 수 있는[100개 이상의 기본 제공 커넥터](../connectors/apis-list.md)를 제공하지만, 커넥터로 사용할 수 없는 API, 시스템 및 서비스를 호출하는 것이 좋을 수도 있습니다. 논리 앱에서 사용할 동작과 트리거를 제공하는 자체 API는 직접 만들 수 있습니다. 논리 앱 워크플로에서 호출할 수 있는 API를 직접 만들려는 다른 이유는 다음가 같습니다.
 
@@ -30,7 +25,7 @@ Azure Logic Apps는 논리 앱 워크플로에서 사용할 수 있는[100개 �
 * 고객이 서비스를 사용하여 전문적이거나 개인적인 작업을 관리할 수 있도록 지원합니다.
 * 서비스에 대한 범위, 검색 기능 및 사용을 확장합니다.
 
-기본적으로 커넥터는 플러그형 인터페이스에 대한 REST, 문서에 대한 [Swagger 메타데이터 형식](http://swagger.io/specification/) 및 JSON(데이터 교환 형식)을 사용하는 웹 API입니다. 커넥터는 HTTP 끝점을 통해 통신하는 REST API이므로 .NET, Java 또는 Node.js와 같은 언어를 사용하여 커넥터를 빌드할 수 있습니다. API 호스팅을 위한 가장 쉽고, 확장성 있는, 최상의 방법 중 하나를 제공하는 PaaS(Platform-as-a-Service) 제품인 [Azure App Service](../app-service/app-service-web-overview.md)에서 API를 호스팅할 수도 있습니다. 
+기본적으로 커넥터는 플러그형 인터페이스에 대한 REST, 문서에 대한 [Swagger 메타데이터 형식](http://swagger.io/specification/) 및 JSON(데이터 교환 형식)을 사용하는 웹 API입니다. 커넥터는 HTTP 엔드포인트를 통해 통신하는 REST API이므로 .NET, Java 또는 Node.js와 같은 언어를 사용하여 커넥터를 빌드할 수 있습니다. API 호스팅을 위한 가장 쉽고, 확장성 있는, 최상의 방법 중 하나를 제공하는 PaaS(Platform-as-a-Service) 제품인 [Azure App Service](../app-service/app-service-web-overview.md)에서 API를 호스팅할 수도 있습니다. 
 
 사용자 지정 API가 논리 앱에서 작동하려면 API가 논리 앱 워크플로에서 특정 작업을 수행하는 [*동작*](./logic-apps-overview.md#logic-app-concepts)을 제공할 수 있습니다. 또한 API는 [*트리거*](./logic-apps-overview.md#logic-app-concepts)의 역할을 수행하여 새 데이터 또는 이벤트가 지정된 조건을 충족할 때 논리 앱 워크플로를 시작할 수도 있습니다. 이 항목에서는 API에서 제공할 동작에 따라 API에서 동작과 트리거를 빌드할 때 따라야 하는 일반적인 패턴에 대해 설명합니다.
 
@@ -50,9 +45,9 @@ Azure Logic Apps는 논리 앱 워크플로에서 사용할 수 있는[100개 �
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>사용자 지정 API는 사용자 지정 커넥터와 어떻게 다른가요?
 
-사용자 지정 API 및 [사용자 지정 커넥터](../logic-apps/custom-connector-overview.md)는 플러그형 인터페이스에 대한 REST, 문서에 대한 [Swagger 메타데이터 형식](http://swagger.io/specification/) 및 JSON(데이터 교환 형식)을 사용하는 웹 API입니다. 또한 이러한 API 및 커넥터는 HTTP 끝점을 통해 통신하는 REST API이므로 .NET, Java 또는 Node.js와 같은 언어를 사용하여 사용자 지정 API 및 커넥터를 빌드할 수 있습니다.
+사용자 지정 API 및 [사용자 지정 커넥터](../logic-apps/custom-connector-overview.md)는 플러그형 인터페이스에 대한 REST, 문서에 대한 [Swagger 메타데이터 형식](http://swagger.io/specification/) 및 JSON(데이터 교환 형식)을 사용하는 웹 API입니다. 또한 이러한 API 및 커넥터는 HTTP 엔드포인트를 통해 통신하는 REST API이므로 .NET, Java 또는 Node.js와 같은 언어를 사용하여 사용자 지정 API 및 커넥터를 빌드할 수 있습니다.
 
-사용자 지정 API는 커넥터가 아닌 API를 호출할 수 있도록 하고, HTTP + Swagger, Azure SAPI Management 또는 App Services를 사용하여 호출할 수 있는 끝점을 제공합니다. 사용자 지정 커넥터는 사용자 지정 API처럼 작동하지만 다음과 같은 특성도 있습니다.
+사용자 지정 API는 커넥터가 아닌 API를 호출할 수 있도록 하고, HTTP + Swagger, Azure SAPI Management 또는 App Services를 사용하여 호출할 수 있는 엔드포인트를 제공합니다. 사용자 지정 커넥터는 사용자 지정 API처럼 작동하지만 다음과 같은 특성도 있습니다.
 
 * Azure에서 Logic Apps 커넥터 리소스로 등록됩니다.
 * Logic Apps 디자이너에서 Microsoft 관리 커넥터와 함께 아이콘으로 표시됩니다.
@@ -137,16 +132,16 @@ API가 이 패턴을 따르는 경우 작업 상태를 계속 확인하기 위�
 이 웹후크 패턴을 다시 매핑하는 경우 빵집은 사용자 지정 API를 나타내고, 케이크를 주문한 고객은 Logic Apps 엔진을 나타냅니다. 엔진에서 요청을 통해 API를 호출하고 "콜백" URL을 포함합니다.
 작업이 완료되면 API에서 URL을 사용하여 엔진에 알리고, 논리 앱에 데이터를 반환하고, 워크플로를 계속 진행합니다. 
 
-이 패턴의 경우 컨트롤러에 두 개의 끝점(`subscribe` 및 `unsubscribe`)을 설정합니다.
+이 패턴의 경우 컨트롤러에 두 개의 엔드포인트(`subscribe` 및 `unsubscribe`)를 설정합니다.
 
-*  `subscribe` 끝점: 실행이 워크플로의 API 동작에 도달하면 Logic Apps 엔진에서 `subscribe` 끝점을 호출합니다. 이 단계에서는 논리 앱이 API에서 저장하는 콜백 URL을 만든 다음, 작업이 완료될 때 API로부터 콜백을 기다립니다. 그런 다음 API에서 URL에 대한 HTTP POST를 통해 콜백하고 반환된 모든 내용과 헤더를 논리 앱에 대한 입력으로 전달합니다.
+*  `subscribe` 엔드포인트: 실행이 워크플로의 API 동작에 도달하면 Logic Apps 엔진에서 `subscribe` 엔드포인트를 호출합니다. 이 단계에서는 논리 앱이 API에서 저장하는 콜백 URL을 만든 다음, 작업이 완료될 때 API로부터 콜백을 기다립니다. 그런 다음 API에서 URL에 대한 HTTP POST를 통해 콜백하고 반환된 모든 내용과 헤더를 논리 앱에 대한 입력으로 전달합니다.
 
-* `unsubscribe` 끝점: 논리 앱이 실행 취소되면 Logic Apps 엔진에서 `unsubscribe` 끝점을 호출합니다. 그런 다음 API에서 콜백 URL을 등록 취소하고 필요에 따라 모든 프로세스를 중지할 수 있습니다.
+* `unsubscribe` 엔드포인트: 논리 앱이 실행 취소되면 Logic Apps 엔진에서 `unsubscribe` 엔드포인트를 호출합니다. 그런 다음 API에서 콜백 URL을 등록 취소하고 필요에 따라 모든 프로세스를 중지할 수 있습니다.
 
 ![웹후크 동작 패턴](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
 > [!NOTE]
-> 현재 Logic App Designer는 Swagger를 통한 웹후크 끝점 검색을 지원하지 않습니다. 따라서 이 패턴의 경우 [**웹후크** 동작](../connectors/connectors-native-webhook.md)을 추가하고 요청에 대한 URL, 헤더 및 본문을 지정해야 합니다. [워크플로 작업 및 트리거](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action)도 참조하세요. 콜백 URL을 전달하려면 필요에 따라 이전 필드 중 하나에서 `@listCallbackUrl()` 워크플로 함수를 사용할 수 있습니다.
+> 현재 Logic App Designer는 Swagger를 통한 웹후크 엔드포인트 검색을 지원하지 않습니다. 따라서 이 패턴의 경우 [**웹후크** 동작](../connectors/connectors-native-webhook.md)을 추가하고 요청에 대한 URL, 헤더 및 본문을 지정해야 합니다. [워크플로 작업 및 트리거](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action)도 참조하세요. 콜백 URL을 전달하려면 필요에 따라 이전 필드 중 하나에서 `@listCallbackUrl()` 워크플로 함수를 사용할 수 있습니다.
 
 > [!TIP]
 > 웹후크 패턴 예제는 [GitHub의 웹후크 트리거 샘플](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs)(영문)을 검토하세요.
@@ -155,13 +150,13 @@ API가 이 패턴을 따르는 경우 작업 상태를 계속 확인하기 위�
 
 ## <a name="trigger-patterns"></a>트리거 패턴
 
-사용자 지정 API는 [*트리거*](./logic-apps-overview.md#logic-app-concepts)의 역할을 수행하여 새 데이터 또는 이벤트가 지정된 조건을 충족할 때 논리 앱을 시작할 수 있습니다. 이 트리거는 서비스 끝점에서 새 데이터 또는 이벤트를 정기적으로 확인하거나 대기 및 수신 대기할 수 있습니다. 새 데이터 또는 이벤트가 지정된 조건을 충족하면 트리거가 시작되고 해당 트리거를 수신하는 논리 앱이 시작됩니다. 이러한 방식으로 논리 앱을 시작하려면 API에서 [*폴링 트리거*](#polling-triggers) 또는 [*웹후크 트리거*](#webhook-triggers) 패턴을 따르면 됩니다. 이러한 패턴은 [폴링 동작](#async-pattern) 및 [웹후크 동작](#webhook-actions)의 해당 패턴과 비슷합니다. 또한 [트리거 사용량 측정](logic-apps-pricing.md)에 대해서도 자세히 알아보세요.
+사용자 지정 API는 [*트리거*](./logic-apps-overview.md#logic-app-concepts)의 역할을 수행하여 새 데이터 또는 이벤트가 지정된 조건을 충족할 때 논리 앱을 시작할 수 있습니다. 이 트리거는 서비스 엔드포인트에서 새 데이터 또는 이벤트를 정기적으로 확인하거나 대기 및 수신 대기할 수 있습니다. 새 데이터 또는 이벤트가 지정된 조건을 충족하면 트리거가 시작되고 해당 트리거를 수신하는 논리 앱이 시작됩니다. 이러한 방식으로 논리 앱을 시작하려면 API에서 [*폴링 트리거*](#polling-triggers) 또는 [*웹후크 트리거*](#webhook-triggers) 패턴을 따르면 됩니다. 이러한 패턴은 [폴링 동작](#async-pattern) 및 [웹후크 동작](#webhook-actions)의 해당 패턴과 비슷합니다. 또한 [트리거 사용량 측정](logic-apps-pricing.md)에 대해서도 자세히 알아보세요.
 
 <a name="polling-triggers"></a>
 
 ### <a name="check-for-new-data-or-events-regularly-with-the-polling-trigger-pattern"></a>폴링 트리거 패턴으로 정기적인 새 데이터 또는 이벤트 확인
 
-*폴링 트리거*는 이 항목의 앞부분에서 설명한 [폴링 동작](#async-pattern)과 매우 비슷하게 작동합니다. Logic Apps 엔진에서는 새 데이터 또는 이벤트에 대한 트리거 끝점을 정기적으로 호출하고 확인합니다. 엔진에서 지정된 조건을 충족하는 새 데이터 또는 이벤트를 발견하면 트리거가 실행됩니다. 그런 다음 엔진에서 데이터를 입력으로 처리하는 논리 앱 인스턴스를 만듭니다. 
+*폴링 트리거*는 이 항목의 앞부분에서 설명한 [폴링 동작](#async-pattern)과 매우 비슷하게 작동합니다. Logic Apps 엔진에서는 새 데이터 또는 이벤트에 대한 트리거 엔드포인트를 정기적으로 호출하고 확인합니다. 엔진에서 지정된 조건을 충족하는 새 데이터 또는 이벤트를 발견하면 트리거가 실행됩니다. 그런 다음 엔진에서 데이터를 입력으로 처리하는 논리 앱 인스턴스를 만듭니다. 
 
 ![폴링 트리거 패턴](./media/logic-apps-create-api-app/custom-api-polling-trigger-pattern.png)
 
@@ -180,7 +175,7 @@ API의 관점에서 설명하는 폴링 트리거의 구체적인 단계는 다�
 
 | 요청에 `triggerState`가 있습니까? | API 응답 | 
 | -------------------------------- | -------------| 
-| 아니오 | HTTP `202 ACCEPTED` 상태 및 현재 시간으로 설정된 `triggerState`와 15초로 설정된 `retry-after` 간격이 포함된 `location` 헤더를 반환합니다. | 
+| 아니요 | HTTP `202 ACCEPTED` 상태 및 현재 시간으로 설정된 `triggerState`와 15초로 설정된 `retry-after` 간격이 포함된 `location` 헤더를 반환합니다. | 
 | yes | `triggerState`에 대한 `DateTime` 이후에 추가된 파일에 대한 서비스를 확인합니다. | 
 ||| 
 
@@ -198,17 +193,17 @@ API의 관점에서 설명하는 폴링 트리거의 구체적인 단계는 다�
 
 ### <a name="wait-and-listen-for-new-data-or-events-with-the-webhook-trigger-pattern"></a>웹후크 트리거 패턴으로 새 데이터 또는 이벤트 대기 및 수신 대기
 
-웹후크 트리거는 서비스 끝점에서 새 데이터 또는 이벤트를 대기하고 수신 대기하는 *푸시 트리거*입니다. 새 데이터 또는 이벤트가 지정된 조건을 충족하면 트리거가 실행되고, 논리 앱 인스턴스가 만들어지고, 데이터가 입력으로 처리됩니다.
-웹후크 트리거는 이 항목의 앞부분에서 설명한 [웹후크 동작](#webhook-actions)과 매우 비슷하게 작동하며 `subscribe` 및 `unsubscribe` 끝점으로 설정됩니다. 
+웹후크 트리거는 서비스 엔드포인트에서 새 데이터 또는 이벤트를 대기하고 수신 대기하는 *푸시 트리거*입니다. 새 데이터 또는 이벤트가 지정된 조건을 충족하면 트리거가 실행되고, 논리 앱 인스턴스가 만들어지고, 데이터가 입력으로 처리됩니다.
+웹후크 트리거는 이 항목의 앞부분에서 설명한 [웹후크 동작](#webhook-actions)과 매우 비슷하게 작동하며 `subscribe` 및 `unsubscribe` 엔드포인트로 설정됩니다. 
 
-* `subscribe` 끝점: 논리 앱에 웹후크 트리거를 추가하고 저장하면 Logic Apps 엔진에서 `subscribe` 끝점을 호출합니다. 이 단계에서는 논리 앱이 API에서 저장하는 콜백 URL을 만듭니다. 지정된 조건을 충족하는 새 데이터 또는 이벤트가 있으면 API에서 URL에 대한 HTTP POST를 통해 콜백합니다. 콘텐츠 페이로드와 헤더는 입력으로 논리 앱에 전달됩니다.
+* `subscribe` 엔드포인트: 논리 앱에 웹후크 트리거를 추가하고 저장하면 Logic Apps 엔진에서 `subscribe` 엔드포인트를 호출합니다. 이 단계에서는 논리 앱이 API에서 저장하는 콜백 URL을 만듭니다. 지정된 조건을 충족하는 새 데이터 또는 이벤트가 있으면 API에서 URL에 대한 HTTP POST를 통해 콜백합니다. 콘텐츠 페이로드와 헤더는 입력으로 논리 앱에 전달됩니다.
 
-* `unsubscribe` 끝점: 웹후크 트리거 또는 전체 논리 앱이 삭제되면 Logic Apps 엔진에서 `unsubscribe` 끝점을 호출합니다. 그런 다음 API에서 콜백 URL을 등록 취소하고 필요에 따라 모든 프로세스를 중지할 수 있습니다.
+* `unsubscribe` 엔드포인트: 웹후크 트리거 또는 전체 논리 앱이 삭제되면 Logic Apps 엔진에서 `unsubscribe` 엔드포인트를 호출합니다. 그런 다음 API에서 콜백 URL을 등록 취소하고 필요에 따라 모든 프로세스를 중지할 수 있습니다.
 
 ![웹후크 트리거 패턴](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 
 > [!NOTE]
-> 현재 Logic App Designer는 Swagger를 통한 웹후크 끝점 검색을 지원하지 않습니다. 따라서 이 패턴의 경우 [**웹후크** 트리거](../connectors/connectors-native-webhook.md)를 추가하고 요청에 대한 URL, 헤더 및 본문을 지정해야 합니다. [HTTPWebhook 트리거](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger)도 참조하세요. 콜백 URL을 전달하려면 필요에 따라 이전 필드 중 하나에서 `@listCallbackUrl()` 워크플로 함수를 사용할 수 있습니다.
+> 현재 Logic App Designer는 Swagger를 통한 웹후크 엔드포인트 검색을 지원하지 않습니다. 따라서 이 패턴의 경우 [**웹후크** 트리거](../connectors/connectors-native-webhook.md)를 추가하고 요청에 대한 URL, 헤더 및 본문을 지정해야 합니다. [HTTPWebhook 트리거](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger)도 참조하세요. 콜백 URL을 전달하려면 필요에 따라 이전 필드 중 하나에서 `@listCallbackUrl()` 워크플로 함수를 사용할 수 있습니다.
 >
 > 동일한 데이터를 여러 번 처리하지 않도록 방지하려면 트리거에서 이미 읽고 논리 앱에 전달된 데이터를 정리해야 합니다.
 
@@ -240,5 +235,5 @@ API의 관점에서 설명하는 폴링 트리거의 구체적인 단계는 다�
 ## <a name="next-steps"></a>다음 단계
 
 * [오류 및 예외 처리](../logic-apps/logic-apps-exception-handling.md)
-* [HTTP 끝점을 통해 논리 앱 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)
+* [HTTP 엔드포인트를 통해 논리 앱 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)
 * [동작 및 트리거에 대한 사용량 측정](../logic-apps/logic-apps-pricing.md)

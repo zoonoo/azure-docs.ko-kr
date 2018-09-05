@@ -1,28 +1,23 @@
 ---
-title: 서버를 사용하지 않는 시나리오 - Azure를 사용하여 Customer Insights 대시보드 만들기 | Microsoft Docs
-description: Azure Logic Apps 및 Azure Functions를 사용한 고객 대시보드를 빌드하여 고객 피드백, 소셜 미디어 데이터 등을 관리할 수 있는 방법에 대해 알아봅니다.
-keywords: ''
+title: 서버를 사용하지 않는 시나리오 - Azure 서비스를 사용하여 사용자 지정 인사이트 대시보드 만들기 | Microsoft Docs
+description: Azure Logic Apps 및 Azure Functions로 고객 대시보드를 빌드하여 고객 피드백, 소셜 미디어 데이터 등을 관리
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: jeffhollan
+ms.author: jehollan
+ms.reviewer: estfan, LADocs
+ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.author: jehollan; LADocs
-ms.openlocfilehash: 3ee3ec3107cf8aad834e8201405c9aa833d838af
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 9d6d74c4afb4d1cd62e5946b7e6f8c401e7ef2aa
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299963"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124647"
 ---
-# <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Azure Logic Apps 및 Azure Functions를 사용하여 스트리밍 Customer Insights 대시보드 만들기
+# <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Azure Logic Apps 및 Azure Functions를 사용하여 스트리밍 Customer Insights 대시보드 만들기
 
 Azure는 인프라에 대한 염려 없이 클라우드에서 앱을 빠르게 빌드하고 호스팅하는 데 도움이 되는 서버를 사용하지 않는 도구를 제공합니다. 이 자습서에서는 고객 피드백을 트리거하고 Machine Learning으로 피드백을 분석하고 Power BI 또는 Azure Data Lake와 같은 원본 정보를 게시하는 대시보드를 만들 수 있습니다.
 

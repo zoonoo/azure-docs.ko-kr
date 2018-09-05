@@ -4,16 +4,16 @@ description: 정책이 언제 적용되고 어떤 영향이 있는지 설명함�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/03/2018
+ms.date: 08/16/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: ced8ebad0122973595cdede4497cd200e3090043
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ac561be75306cab6b73b457a7d450bd640aac067
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524110"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818700"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -107,7 +107,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 - `"existingResourceGroups"`
 - `"omsWorkspace"`
 
-정책 규칙에서 다음 구문을 사용하여 매개 변수를 참조할 수 있습니다.
+정책 규칙에서 다음 `parameters` 배포 값 함수 구문을 사용하여 매개 변수를 참조합니다.
 
 ```json
 {
@@ -245,6 +245,53 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 가상 머신 확장이 배포되지 않은 경우의 감사 예제는 [확장이 존재하지 않을 경우 감사](scripts/audit-ext-not-exist.md)를 참조하세요.
 
 각 효과, 평가 순서, 속성 및 예제에 대한 자세한 내용은 [정책 효과 이해](policy-effects.md)를 참조하세요.
+
+### <a name="policy-functions"></a>정책 함수
+
+정책 규칙 내에서 [Resource Manager 템플릿 함수](../azure-resource-manager/resource-group-template-functions.md)의 하위 집합을 사용할 수 있습니다. 현재 지원되는 함수는 다음과 같습니다.
+
+- [매개 변수](../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
+- [concat](../azure-resource-manager/resource-group-template-functions-array.md#concat)
+- [resourceGroup](../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
+- [subscription](../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
+
+`field` 함수도 정책 규칙에 사용할 수 있습니다. 이 함수는 주로 평가 중인 리소스의 필드를 참조하기 위해 **AuditIfNotExists** 및 **DeployIfNotExists**와 함께 사용할 수 있습니다. 이 예제는 [ DeployIfNotExists 예제](policy-effects.md#deployifnotexists-example)에서 볼 수 있습니다.
+
+#### <a name="policy-function-examples"></a>정책 함수 예제
+
+이 정책 규칙 예제에서는 `resourceGroup` 리소스 함수를 `concat` 배열 및 개체 함수와 함께 사용하여 **name** 속성을 가져오고 리소스 이름을 리소스 그룹 이름으로 시작하도록 하는 `like` 조건을 작성합니다.
+
+```json
+{
+    "if": {
+        "not": {
+            "field": "name",
+            "like": "[concat(resourceGroup().name,'*')]"
+        }
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+이 정책 규칙 예제에서는 `resourceGroup` 리소스 함수를 사용하여 리소스 그룹에서 **CostCenter** 태그의 **tags** 속성 배열 값을 가져오고 **CostCenter** 태그를 새 리소스에 추가합니다.
+
+```json
+{
+    "if": {
+        "field": "tags.CostCenter",
+        "exists": "false"
+    },
+    "then": {
+        "effect": "append",
+        "details": [{
+            "field": "tags.CostCenter",
+            "value": "[resourceGroup().tags.CostCenter]"
+        }]
+    }
+}
+```
 
 ## <a name="aliases"></a>Aliases
 

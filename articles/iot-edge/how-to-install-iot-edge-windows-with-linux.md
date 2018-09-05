@@ -7,20 +7,22 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: ea576c0d434d4db7077fc41bc1f5bbbc89e7779e
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d6852b5b1fe3d0b3c248fc1948fa4c3a9428de89
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576650"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125411"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Linux 컨테이너에서 사용하기 위해 Windows에 Azure IoT Edge 런타임 설치
 
-Azure IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 세 가지 구성 요소가 있습니다. **IoT Edge 보안 디먼**은 Edge 장치에서 보안 표준을 제공하고 유지 관리합니다. 디먼은 부팅할 때마다 시작되며, IoT Edge 에이전트를 시작하여 장치를 부트스트랩합니다. **IoT Edge 에이전트**는 IoT Edge 허브를 포함하여 IoT Edge 장치에서 모듈을 쉽게 배포하고 모니터링할 수 있게 합니다. **IoT Edge 허브**는 IoT Edge 장치의 모듈 간 통신과 장치와 IoT Hub 간의 통신을 관리합니다.
+Azure IoT Edge 런타임은 장치를 IoT Edge 장치로 바꿔줍니다. 런타임은 Raspberry Pi처럼 작은 장치 또는 산업용 서버처럼 큰 장치에 배포할 수 있습니다. IoT Edge 런타임을 사용하여 장치를 구성하면 클라우드에서 장치에 비즈니스 논리를 배포할 수 있습니다. 
 
-이 문서에는 Windows x64(AMD/Intel) 시스템에 Azure IoT Edge 런타임을 설치하는 단계가 나와 있습니다. Windows 지원은 현재 미리 보기로 제공되고 있습니다.
+IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자세한 내용은 [Azure IoT Edge 런타임 및 해당 아키텍처 이해](iot-edge-runtime.md)를 참조하세요.
+
+이 문서에는 Windows x64(AMD/Intel) 시스템에 Linux 컨테이너가 포함된 Azure IoT Edge 런타임을 설치하는 단계가 나와 있습니다. Windows 지원은 현재 미리 보기로 제공되고 있습니다.
 
 >[!NOTE]
 Windows 시스템에서 Linux 컨테이너를 사용하는 것은 Azure IoT Edge에 대해 권장되거나 지원되는 프로덕션 구성이 아닙니다. 그러나 개발 및 테스트 용도로만 사용할 수 있습니다.
@@ -29,6 +31,8 @@ Windows 시스템에서 Linux 컨테이너를 사용하는 것은 Azure IoT Edge
 Azure IoT Edge는 Linux 컨테이너를 사용할 때 Windows의 다음 버전에서 개발 및 테스트용으로 사용할 수 있습니다.
   * Windows 10 이상 데스크톱 운영 체제
   * Windows Server 2016 이상 서버 운영 체제
+
+현재 지원되는 운영 체제에 대한 자세한 내용은 [Azure IoT Edge 지원](support.md#operating-systems)을 참조하세요. 
 
 ## <a name="install-the-container-runtime"></a>컨테이너 런타임 설치 
 
@@ -43,7 +47,7 @@ Azure IoT Edge는 [OCI 호환][lnk-oci] 컨테이너 런타임(예: Docker)을 �
 
 IoT Hub에서 제공하는 장치 연결 문자열을 사용하여 단일 IoT Edge 장치를 수동으로 프로비전할 수 있습니다. 또는 Device Provisioning Service를 사용하여 자동으로 장치를 프로비전할 수 있습니다. 이는 많은 장치를 프로비전할 때 유용합니다. 프로비전 선택 사항에 따라 적절한 설치 스크립트를 선택합니다. 
 
-### <a name="install-and-manually-provision"></a>설치 및 수동으로 프로비전
+### <a name="option-1-install-and-manually-provision"></a>옵션 1: 설치 및 수동으로 프로비전
 
 1. [새 Azure IoT Edge 장치 등록][lnk-dcs]의 단계를 따라 장치를 등록하고 장치 연결 문자열을 검색합니다. 
 
@@ -58,7 +62,7 @@ IoT Hub에서 제공하는 장치 연결 문자열을 사용하여 단일 IoT Ed
 
 4. **DeviceConnectionString**을 요청하는 메시지가 표시되면 IoT Hub에서 검색한 연결 문자열을 입력합니다. 연결 문자열 옆에 따옴표를 포함하지 마세요. 
 
-### <a name="install-and-automatically-provision"></a>설치 및 자동으로 프로비전
+### <a name="option-2-install-and-automatically-provision"></a>옵션 2: 설치 및 자동으로 프로비전
 
 1. [Windows에서 시뮬레이션된 TPM 에지 장치 만들기 및 프로비전][lnk-dps]의 단계를 따라 Device Provisioning Service를 설정하고 해당 **범위 ID**를 검색하고, TPM 장치를 시뮬레이션하고 해당 **등록 ID**를 검색한 다음, 개별 등록을 만듭니다. 장치가 IoT Hub에 등록되면 설치를 계속합니다.  
 

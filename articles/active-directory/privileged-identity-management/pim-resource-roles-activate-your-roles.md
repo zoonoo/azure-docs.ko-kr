@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management를 사용하여 Azure 리소스에 대한 역할 활성화 | Microsoft Docs
-description: PIM의 역할을 활성화하는 방법을 설명합니다.
+title: PIM에서 Azure 리소스 역할 활성화 | Microsoft Docs
+description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스 역할을 활성화하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 04/02/2018
+ms.date: 08/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 45a2747a60df4d91c2fe1c5247e1d4ac82ff819f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 234c1d71f0ec17d15a4dd589e3db92fd9bf68df2
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617152"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189492"
 ---
-# <a name="activate-roles-for-azure-resources-by-using-privileged-identity-management"></a>Privileged Identity Management를 사용하여 Azure 리소스에 대한 역할 활성화
+# <a name="activate-my-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스 역할 활성화
 PIM(Privileged Identity Management)은 Azure 리소스에 대한 역할을 활성화하는 새로운 환경을 소개합니다. 적격 역할 멤버는 미래의 날짜 및 시간에 대한 활성화를 예약할 수 있습니다. 또한 최대(관리자로 구성됨) 내에서 특정 활성화 기간을 선택할 수도 있습니다. 자세한 내용은 [Azure AD Privileged Identity Management에서 역할을 활성화하거나 비활성화하는 방법](pim-how-to-activate-role.md)을 참조하세요.
 
-## <a name="activate-roles"></a>역할 활성화
+## <a name="activate-a-role"></a>역할 활성화
 왼쪽 창에서 **내 역할** 섹션으로 이동합니다. 활성화하려는 역할에 대해 **활성화**를 선택합니다.
 
 !["내 역할" 창에서 "적격 역할" 탭입니다.](media/azure-pim-resource-rbac/rbac-roles.png)
@@ -39,6 +39,19 @@ PIM(Privileged Identity Management)은 Azure 리소스에 대한 역할을 활�
 
 !["취소" 단추가 있는 보류 중인 요청의 목록](media/azure-pim-resource-rbac/rbac-activate-pending.png)
 
+## <a name="use-a-role-immediately-after-activation"></a>활성화 즉시 역할 사용
+
+캐싱으로 인해 활성화는 Azure Portal에서 새로 고쳐야 즉시 발생합니다. 역할이 활성화된 후에 지연 가능성을 줄이기 위해 포털에서 **응용 프로그램 액세스** 페이지를 사용할 수 있습니다. 이 페이지에서 액세스되는 응용 프로그램은 새 역할 할당을 즉시 확인합니다.
+
+1. Azure AD Privileged Identity Management를 엽니다.
+
+1. **응용 프로그램 액세스** 페이지를 클릭합니다.
+
+    ![PIM 응용 프로그램 액세스 - 스크린샷](./media/pim-resource-roles-activate-your-roles/pim-application-access.png)
+
+1. **모든 리소스** 페이지에서 포털을 다시 열려면 **Azure 리소스**를 클릭합니다.
+
+    이 링크를 클릭하면 강제로 새로 고쳐 새 Azure 리소스 역할 할당을 확인합니다.
 
 ## <a name="apply-just-enough-administration-practices"></a>Just Enough Administration 사례 적용
 
@@ -51,3 +64,7 @@ Azure 리소스용 PIM을 사용하면 리소스 역할 할당에 대한 JEA(Jus
 왼쪽 창에서 **내 역할**을 선택하고 활성화할 적절한 역할을 선택합니다. 리소스 그룹이 아닌 구독에 역할이 할당되었으므로 할당 유형이 **상속됨**입니다.
 
 ![할당 형식이 강조 표시된 적격 역할 할당의 목록](media/azure-pim-resource-rbac/my-roles-02.png)
+
+## <a name="next-steps"></a>다음 단계
+
+- [PIM에서 Azure AD 디렉터리 역할 활성화](pim-how-to-activate-role.md)

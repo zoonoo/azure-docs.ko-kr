@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 87970e1c5e8487f9afca2acc680bdfeb610dc89f
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 32644fe0cf0a6e1666d2d1ee6efb826bf753f001
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42093807"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42814866"
 ---
 # <a name="call-bing-custom-search-endpoint-c"></a>Bing Custom Search 엔드포인트 호출(C#)
 
@@ -123,7 +123,8 @@ ms.locfileid: "42093807"
     <pre>
     dotnet build 
     </pre>
-7. 다음 명령을 사용하여 응용 프로그램을 실행합니다. **PATH TO OUTPUT**을 빌드 단계에서 참조되는 경로로 바꿉니다.
+    
+7. 다음 명령을 사용하여 응용 프로그램을 실행합니다. 이때 **PATH TO OUTPUT**을 빌드 단계에서 참조되는 경로로 바꿉니다.
 
     <pre>    
     dotnet **PATH TO OUTPUT**

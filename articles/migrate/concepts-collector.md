@@ -4,15 +4,15 @@ description: Collector 어플라이언스에 대한 개요 및 구성 방법을 
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 08/25/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: c99d0f74dbb8cc28cabebae60fe10645f4bdb3b6
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 551276f88f5c27cd860a400a5769c95f4d94cbbb
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308462"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122890"
 ---
 # <a name="collector-appliance"></a>Collector 어플라이언스
 
@@ -58,6 +58,30 @@ Collector는 Azure Migrate 서비스에 연결하여 검색된 데이터를 업�
 
 > [!NOTE]
 > HTTPS 기반 프록시 서버는 수집기에서 지원되지 않습니다.
+
+#### <a name="internet-connectivity-with-intercepting-proxy"></a>가로채는 프록시를 사용하여 인터넷 연결
+
+인터넷에 연결하기 위해 사용하는 프록시 서버가 가로채는 프록시인 경우 프록시 인증서를 수집기 VM으로 가져와야 합니다. 다음은 수집기 VM으로 인증서를 가져오는 단계입니다.
+
+1. 수집기 VM에서 **시작 메뉴**로 이동하고, **컴퓨터 인증서 관리**를 찾아서 엽니다.
+2. 인증서 도구에서, 왼쪽 창의 **인증서 - 로컬 컴퓨터** 아래에서 **신뢰할 수 있는 게시자**를 찾습니다. **신뢰할 수 있는 게시자** 아래에서 **인증서**를 클릭하고 오른쪽 창에서 인증서 목록을 확인합니다.
+
+    ![인증서 도구](./media/concepts-intercepting-proxy/certificates-tool.png)
+
+3. 프록시 인증서를 수집기 VM으로 복사합니다. 이 인증서를 얻으려면 소속 조직의 네트워크 관리자 팀에 문의해야 합니다.
+4. 인증서를 두 번 클릭하여 엽니다. **인증서 설치**를 클릭합니다. 인증서 가져오기 마법사가 시작됩니다.
+5. 인증서 가져오기 마법사에서 저장 위치로 **로컬 머신**을 선택합니다. **다음을 클릭**합니다.
+
+    ![인증서 저장 위치](./media/concepts-intercepting-proxy/certificate-store-location.png)
+
+6. **모든 인증서를 다음 저장소에 저장** 옵션을 선택합니다. **찾아보기**를 클릭하고, 나타나는 인증서 목록에서 **신뢰할 수 있는 게시자**를 선택합니다. **다음**을 클릭합니다.
+
+    ![인증서 저장소](./media/concepts-intercepting-proxy/certificate-store.png)
+    
+7. **Finish**를 클릭합니다. 그러면 인증서 가져오기가 수행됩니다. 
+8. 필요에 따라 위의 1-2 단계에서 했던 것처럼 인증서 도구를 열어서 인증서 가져오기가 성공했는지 확인할 수 있습니다.
+9. Azure Migrate 수집기 앱에서 인터넷 연결 필수 조건 검사가 성공했는지 확인합니다.
+
 
 #### <a name="whitelisting-urls-for-internet-connection"></a>인터넷 연결을 위한 URL 허용 목록
 

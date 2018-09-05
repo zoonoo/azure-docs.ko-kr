@@ -1,6 +1,6 @@
 ---
 title: Azure Load Balancer 개요 | Microsoft Docs
-description: Azure Load Balancer 기능, 아키텍처 및 구현에 대한 개요입니다. 부하 분산 장치의 작동 방식과 클라우드에서의 활용에 대해 알아봅니다.
+description: Azure Load Balancer 기능, 아키텍처 및 구현에 대한 개요입니다. Load Balancer의 작동 방식과 클라우드에서의 활용에 대해 알아봅니다.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 47509cd0a9208f41a52bf1a07c460bcdda2cb479
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 618b00906a799e1b8cfcfac5ee6bcc3a714c2f87
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143607"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918745"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure Load Balancer란?
 
@@ -29,7 +29,7 @@ Azure Load Balancer를 사용하여 응용 프로그램 크기를 조정하고 �
 
 Load Balancer는 규칙 및 상태 프로브에 따라, Load Balancer의 프런트 엔드에 도착하는 새 인바운드 흐름을 백 엔드 풀 인스턴스에 분산합니다. 
 
-또한 공용 Load Balancer는 개인 IP 주소를 공용 IP 주소로 변환하여 가상 네트워크 내에서 가상 머신(VM)에 대한 아웃바운드 연결을 제공할 수 있습니다.
+또한 공용 Load Balancer는 개인 IP 주소를 공용 IP 주소로 변환하여 가상 네트워크 내에서 VM(가상 머신)에 대한 아웃바운드 연결을 제공할 수 있습니다.
 
 Azure Load Balancer는 기본 및 표준이라는 두 SKU에서 사용할 수 있습니다. 크기 조정, 기능 및 가격 측면에서 차이가 있습니다. 접근 방식은 약간 다를 수 있지만 기본 Load Balancer로 가능한 모든 시나리오를 표준 Load Balancer로도 만들 수 있습니다. Load Balancer에 대해 배울 때는 기본 사항 및 SKU 관련 차이점을 이해하는 것이 중요합니다.
 
@@ -37,20 +37,20 @@ Azure Load Balancer는 기본 및 표준이라는 두 SKU에서 사용할 수 �
 
 Azure Load Balancer를 다음에 사용할 수 있습니다.
 
-* 들어오는 인터넷 트래픽을 VM에 부하 분산합니다. 이 구성을 [공용 부하 분산 장치](#publicloadbalancer)라고 합니다.
-* 트래픽을 가상 네트워크 내 VM 전체에 부하 분산합니다. 하이브리드 시나리오의 온-프레미스 네트워크에서 부하 분상 장치 프런트 엔드에 연결할 수도 있습니다. 두 시나리오 모두 [내부 부하 분상 장치](#internalloadbalancer)라고 하는 구성을 사용합니다.
+* 들어오는 인터넷 트래픽을 VM에 부하 분산합니다. 이 구성을 [공용 Load Balancer](#publicloadbalancer)라고 합니다.
+* 트래픽을 가상 네트워크 내 VM 전체에 부하 분산합니다. 하이브리드 시나리오의 온-프레미스 네트워크에서 Load Balancer 프런트 엔드에 연결할 수도 있습니다. 두 시나리오 모두 [내부 Load Balancer](#internalloadbalancer)라고 하는 구성을 사용합니다.
 * 인바운드 NAT(Network Address Translation) 규칙을 사용하여 특정 VM의 특정 포트에 트래픽을 전달합니다.
-* 공용 부하 분산 장치를 사용하여 가상 네트워크 내의 VM에 대해 [아웃바운드 연결](load-balancer-outbound-connections.md)을 제공합니다.
+* 공용 Load Balancer를 사용하여 가상 네트워크 내의 VM에 대해 [아웃바운드 연결](load-balancer-outbound-connections.md)을 제공합니다.
 
 
 >[!NOTE]
 > Azure는 사용자 시나리오를 위한 완전히 관리되는 부하 분산 솔루션 모음을 제공합니다. TLS(Transport Layer Security) 프로토콜 종료("SSL 오프로드") 또는 HTTP/HTTPS 요청별 응용 프로그램 계층 처리를 확인하려는 경우 [Application Gateway](../application-gateway/application-gateway-introduction.md)를 검토하세요. 전역 DNS 부하 분산을 확인하려는 경우 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 검토하세요. 필요에 따라 종단 간 시나리오에서 이러한 솔루션을 조합하여 이점을 얻을 수 있습니다.
 
-## <a name="what-are-load-balancer-resources"></a>부하 분산 장치 리소스란?
+## <a name="what-are-load-balancer-resources"></a>Load Balancer 리소스란?
 
-부하 분산 장치 리소스는 공용 부하 분산 장치 또는 내부 부하 분산 장치로 존재할 수 있습니다. 부하 분산 장치 리소스의 함수는 프런트 엔드, 규칙, 상태 프로브 및 백 엔드 풀 정의로 표현됩니다. VM에서 백 엔드 풀을 지정하여 VM을 백 엔드 풀에 배치합니다.
+Load Balancer 리소스는 공용 Load Balancer 또는 내부 Load Balancer로 존재할 수 있습니다. Load Balancer 리소스의 함수는 프런트 엔드, 규칙, 상태 프로브 및 백 엔드 풀 정의로 표현됩니다. VM에서 백 엔드 풀을 지정하여 VM을 백 엔드 풀에 배치합니다.
 
-부하 분산 장치 리소스는 만들려는 시나리오를 달성하기 위해 Azure에서 다중 테넌트 인프라를 프로그래밍해야 하는 방법을 표현할 수 있는 개체입니다. 부하 분산 장치 리소스와 실제 인프라 사이에는 직접적인 관계가 없습니다. 부하 분산 장치를 만들어도 인스턴스가 만들어지지 않고 용량은 늘 사용가능합니다. 
+Load Balancer 리소스는 만들려는 시나리오를 달성하기 위해 Azure에서 다중 테넌트 인프라를 프로그래밍해야 하는 방법을 표현할 수 있는 개체입니다. Load Balancer 리소스와 실제 인프라 사이에는 직접적인 관계가 없습니다. Load Balancer를 만들어도 인스턴스가 만들어지지 않고 용량은 늘 사용할 수 있습니다. 
 
 ## <a name="fundamental-load-balancer-features"></a>기본적인 Load Balancer 기능
 
@@ -82,11 +82,11 @@ Load Balancer는 TCP 및 UDP 응용 프로그램에 대해 다음과 같은 기�
 
 * **자동 재구성**
 
-    Load Balancer는 인스턴스를 확장 또는 축소하는 경우 즉시 재구성됩니다. 백 엔드 풀에서 VM을 추가 또는 제거하면 부하 분산 장치 리소스에 대한 추가 작업 없이도 부하 분산 장치가 다시 구성됩니다.
+    Load Balancer는 인스턴스를 확장 또는 축소하는 경우 즉시 재구성됩니다. 백 엔드 풀에서 VM을 추가 또는 제거하면 Load Balancer 리소스에 대한 추가 작업 없이도 Load Balancer가 다시 구성됩니다.
 
 * **상태 프로브**
 
-    백 엔드 풀에 있는 인스턴스의 상태를 확인하려면 Load Balancer는 사용자가 정의한 상태 프로브를 사용합니다. 프로브가 응답하지 않으면 부하 분산 장치는 비정상 인스턴스에 새 연결의 전송을 중지합니다. 기존 연결은 영향을 받지 않으며, 응용 프로그램이 흐름을 종료하거나, 유휴 시간 제한이 발생하거나, VM이 종료될 때까지 계속됩니다.
+    백 엔드 풀에 있는 인스턴스의 상태를 확인하려면 Load Balancer는 사용자가 정의한 상태 프로브를 사용합니다. 프로브가 응답하지 않으면 Load Balancer는 비정상 인스턴스에 새 연결의 전송을 중지합니다. 기존 연결은 영향을 받지 않으며, 응용 프로그램이 흐름을 종료하거나, 유휴 시간 제한이 발생하거나, VM이 종료될 때까지 계속됩니다.
      
     Load Balancer는 TCP, HTTP 및 HTTPS 엔드포인트에 대한 [다양한 상태 프로브 유형](load-balancer-custom-probe-overview.md#types)을 제공합니다.
 
@@ -94,7 +94,7 @@ Load Balancer는 TCP 및 UDP 응용 프로그램에 대해 다음과 같은 기�
     
 * **아웃바운드 연결(SNAT)**
 
-    Virtual Network 내의 개인 IP 주소에서 인터넷의 공용 IP 주소로 전달되는 모든 아웃바운드 흐름은 Load Balancer의 프런트 엔드 IP 주소로 변환될 수 있습니다. 공용 프런트 엔드가 부하 분산 규칙을 통해 백 엔드 VM에 연결되면 Azure는 공용 프런트 엔드 IP 주소로 자동으로 변환되도록 아웃바운드 연결을 프로그래밍합니다.
+    가상 네트워크 내의 개인 IP 주소에서 인터넷의 공용 IP 주소로 전달되는 모든 아웃바운드 흐름은 Load Balancer의 프런트 엔드 IP 주소로 변환될 수 있습니다. 공용 프런트 엔드가 부하 분산 규칙을 통해 백 엔드 VM에 연결되면 Azure는 공용 프런트 엔드 IP 주소로 자동으로 변환되도록 아웃바운드 연결을 프로그래밍합니다.
 
     * 프런트 엔드를 서비스의 다른 인스턴스에 동적으로 매핑할 수 있으므로 서비스의 업그레이드 및 재해 복구가 용이합니다.
     * ACL(액세스 제어 목록)을 보다 쉽게 관리할 수 있습니다. 프런트 엔드 IP로 표현되는 ACL은 서비스를 확장, 축소하거나 다시 배포해도 변경되지 않습니다.  컴퓨터가 허용 목록 부담을 줄일 수 있는 것보다 적은 수의 IP 주소에 아웃바운드 연결을 변환합니다.
@@ -125,34 +125,34 @@ _아직 필수적인 것은 아니지만 SKU를 명시적으로 지정하는 것
 
 ## <a name="concepts"></a>개념
 
-### <a name = "publicloadbalancer"></a>공용 부하 분산 장치
+### <a name = "publicloadbalancer"></a>공용 Load Balancer
 
-공용 부하 분산 장치는 들어오는 트래픽의 공용 IP 주소 및 포트 번호를 VM의 개인 IP 주소 및 포트 번호로 매핑하고 VM에서 오는 응답 트래픽의 경우 반대 방향으로 매핑합니다. 부하 분산 규칙을 적용하여 특정 유형의 트래픽을 여러 VM 또는 서비스에 배포할 수 있습니다. 예를 들어 웹 요청 트래픽의 부하를 여러 웹 서버에 분산할 수 있습니다.
+공용 Load Balancer는 들어오는 트래픽의 공용 IP 주소 및 포트 번호를 VM의 개인 IP 주소 및 포트 번호로 매핑하고 VM에서 오는 응답 트래픽의 경우 반대 방향으로 매핑합니다. 부하 분산 규칙을 적용하여 특정 유형의 트래픽을 여러 VM 또는 서비스에 배포할 수 있습니다. 예를 들어 웹 요청 트래픽의 부하를 여러 웹 서버에 분산할 수 있습니다.
 
 다음 그림에서는 공용 TCP 포트 80에 대해 3개의 VM 간에 공유되는 웹 트래픽의 부하가 분산된 엔드포인트를 보여줍니다. 이 세 대의 VM은 부하 분산 집합에 속합니다.
 
-![공용 부하 분산 장치 예](./media/load-balancer-overview/IC727496.png)
+![공용 Load Balancer 예](./media/load-balancer-overview/IC727496.png)
 
-*그림: 공용 부하 분산 장치를 사용하여 웹 트래픽 부하 분산*
+*그림: 공용 Load Balancer를 사용하여 웹 트래픽 부하 분산*
 
-인터넷 클라이언트가 TCP 포트 80에서 웹앱의 공용 IP 주소에 웹 페이지 요청을 보내면 Azure Load Balancer가 부하 분산 집합에 있는 3개의 VM에 요청을 분산합니다. 부하 분산 알고리즘에 대한 자세한 내용은 이 문서의 [Load Balancer 기능](load-balancer-overview.md##fundamental-load-balancer-features) 섹션을 참조하세요.
+인터넷 클라이언트가 TCP 포트 80에서 웹앱의 공용 IP 주소에 웹 페이지 요청을 보내면 Azure Load Balancer가 부하 분산 집합에 있는 3개의 VM에 요청을 분산합니다. Load Balancer 알고리즘에 대한 자세한 내용은 이 문서의 [Load Balancer 기능](load-balancer-overview.md##fundamental-load-balancer-features) 섹션을 참조하세요.
 
 기본적으로 Azure Load Balancer는 네트워크 트래픽을 여러 VM 인스턴스에 고르게 분산시킵니다. 세션 선호도를 구성할 수도 있습니다. 자세한 내용은 [Load Balancer 배포 모드](load-balancer-distribution-mode.md)를 참조하세요.
 
-### <a name = "internalloadbalancer"></a>내부 부하 분산 장치
+### <a name = "internalloadbalancer"></a> 내부 Load Balancer
 
-내부 부하 분산 장치는 가상 네트워크 내부에 있는 리소스 또는 VPN을 사용하여 Azure 인프라에 액세스하는 리소스로만 트래픽을 보냅니다. 이런 측면에서 내부 부하 분산 장치는 공용 부하 분산 장치와 다릅니다. Azure 인프라는 가상 네트워크의 부하가 분산된 프런트 엔드 IP 주소에 대한 액세스를 제한합니다. 프런트 엔드 IP 주소와 가상 네트워크는 인터넷 엔드포인트에 직접 노출되지 않습니다. 내부 LOB(기간 업무) 응용 프로그램은 Azure에서 실행되며 Azure 내에서 또는 온-프레미스 리소스에서 액세스 할 수 있습니다.
+내부 Load Balancer는 가상 네트워크 내부에 있는 리소스 또는 VPN을 사용하여 Azure 인프라에 액세스하는 리소스로만 트래픽을 보냅니다. 이런 측면에서 내부 Load Balancer는 공용 Load Balancer와 다릅니다. Azure 인프라는 가상 네트워크의 부하가 분산된 프런트 엔드 IP 주소에 대한 액세스를 제한합니다. 프런트 엔드 IP 주소와 가상 네트워크는 인터넷 엔드포인트에 직접 노출되지 않습니다. 내부 LOB(기간 업무) 응용 프로그램은 Azure에서 실행되며 Azure 내에서 또는 온-프레미스 리소스에서 액세스 할 수 있습니다.
 
-내부 부하 분산 장치를 통해 다음과 같은 유형의 부하 분산을 사용할 수 있습니다.
+내부 Load Balancer를 통해 다음과 같은 유형의 부하 분산을 사용할 수 있습니다.
 
 * **가상 네트워크 내에서**: 가상 네트워크의 VM에서 동일한 가상 네트워크 내에 있는 VM 집합으로 부하 분산.
 * **크로스-프레미스 가상 네트워크의 경우**: 온-프레미스 컴퓨터에서 동일한 가상 네트워크 내에 있는 VM 집합으로 부하 분산. 
 * **다중 계층 응용 프로그램의 경우**: 백 엔드 계층이 인터넷에 연결되어 있지 않은 인터넷 연결 다중 계층 응용 프로그램의 부하 분산. 백 엔드 계층에는 인터넷 연결 계층의 트래픽 부하 분산이 필요합니다(다음 그림 참조).
 * **LOB(기간 업무) 응용 프로그램의 경우**: 추가적인 부하 분산 장치 하드웨어 또는 소프트웨어 없이 Azure에서 호스트되는 LOB(기간 업무) 응용 프로그램의 부하 분산. 이 시나리오는 트래픽 부하가 분산되는 컴퓨터 집합에 있는 온-프레미스 서버를 포함합니다.
 
-![내부 부하 분산 장치 예제](./media/load-balancer-overview/IC744147.png)
+![내부 Load Balancer 예제](./media/load-balancer-overview/IC744147.png)
 
-*그림: 공용 및 내부 부하 분산 장치를 둘 다 사용하여 다중 계층 응용 프로그램 부하 분산*
+*그림: 공용 및 내부 Load Balancer를 둘 다 사용하여 다중 계층 응용 프로그램 부하 분산*
 
 ## <a name="pricing"></a>가격
 표준 Load Balancer 사용량은 구성된 부하 분산 규칙 수와 인바운드 및 아웃바운드 처리 데이터의 양에 따라 청구됩니다. 표준 Load Balancer 가격 정보에 대해서는 [Load Balancer 가격](https://azure.microsoft.com/pricing/details/load-balancer/) 페이지를 참조하세요.
@@ -170,4 +170,4 @@ _아직 필수적인 것은 아니지만 SKU를 명시적으로 지정하는 것
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Azure Load Balancer를 대략적으로 이해하게 되었을 것입니다. 부하 분산 장치를 사용하여 시작하려면 VM 하나를 만들고, 사용자 지정 IIS 확장이 설치된 VM을 만들고, VM 간 웹앱 부하를 분산합니다. 방법을 알려면 [기본 Load Balancer 만들기](quickstart-create-basic-load-balancer-portal.md) 빠른 시작을 참조합니다.
+이제 Azure Load Balancer를 대략적으로 이해하게 되었을 것입니다. Load Balancer를 사용하여 시작하려면 VM 하나를 만들고, 사용자 지정 IIS 확장이 설치된 VM을 만들고, VM 간 웹앱 부하를 분산합니다. 방법을 알려면 [기본 Load Balancer 만들기](quickstart-create-basic-load-balancer-portal.md) 빠른 시작을 참조합니다.

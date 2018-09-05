@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: d0dbf603c600639679e121723556a7f3ceb17e37
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 67806563dcd67876d4d922c7f2c76379f7ad7222
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158984"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125516"
 ---
 # <a name="billing-options-in-the-azure-marketplace"></a>Azure Marketplace의 청구 옵션
 
@@ -70,7 +70,7 @@ Marketplace에서 거래 게시 옵션을 사용할 때 얻을 수 있는 중요
 이 시나리오에서는 Microsoft가 게시자를 대신하여 요금을 청구 및 수금합니다. Microsoft 청구를 통해 사용자가 고객과의 자체 조달 관계를 만들 필요가 없어집니다. 단일 청구로 여러분의 시간과 리소스를 절약할 수 있습니다. 요금 징수 대신 판매 활동에 집중할 수 있다는 이점도 있습니다. 
 
 ## <a name="enterprise-agreement"></a>기업 계약  
-Microsoft 기업계약 고객인 경우 기업계약을 사용하여 Microsoft 제품 대금을 결제할 수 있습니다. Azure 사용량을 비롯한 제품 대금을 청구 받을 수 있습니다. 기업계약을 이용한 결제는 3년 이상 소프트웨어 및 클라우드 서비스 라이선스를 허가하려는 조직을 위해 설계되었습니다. 게시자는 선불 일시불 대신 할부로 결제합니다. 종량제 게시 옵션을 사용할 경우 소프트웨어 라이선스 비용 청구는 분기별 기업계약 초과분 청구 주기를 따릅니다.  
+Microsoft 기업계약 고객인 경우 기업계약을 사용하여 Microsoft 제품 대금을 결제할 수 있습니다. Azure 사용량을 비롯한 제품 대금을 청구 받을 수 있습니다. 기업계약을 이용한 결제는 3년 이상 소프트웨어 및 클라우드 서비스 라이선스를 허가하려는 조직을 위해 설계되었습니다. 선불 일시불 대신 할부로 결제합니다. 종량제 게시 옵션을 사용할 경우 소프트웨어 라이선스 비용 청구는 분기별 기업계약 초과분 청구 주기를 따릅니다.  
 
 ### <a name="monetary-commitment"></a>금액 약정
 기업계약 고객인 경우 계약에 Azure를 추가할 수 있습니다. Azure에 선행 현금 약정을 체결하여 Azure를 계약에 추가합니다. 현금 약정은 1년 동안 사용됩니다. 약정에는 모든 Azure 서비스 사용 조합이 포함됩니다.

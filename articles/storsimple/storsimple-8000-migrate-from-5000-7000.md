@@ -4,25 +4,26 @@ description: 마이그레이션 기능의 개요와 필수 구성 요소를 설�
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: jeconnoc
+manager: twooley
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/11/2017
+ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 378eaea4c0cf19c48f47067e4f548f2d7f530377
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 23fde5fab8f223ff1d958a8fac6a31818f1fdd7c
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856691"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818919"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>StorSimple 5000-7000 시리즈에서 8000 시리즈 장치로 데이터 마이그레이션
 
 > [!IMPORTANT]
+> - 2019년 7월 31일부로, StorSimple 5000/7000 시리즈는 지원 종료(EOS) 상태에 도달합니다. StorSimple 5000/7000 시리즈 고객은 이 문서에 설명된 대안 제품 중 하나로 마이그레이션하는 것이 좋습니다.
 > - 마이그레이션은 현재 지원형 작업입니다. StorSimple 5000-7000 시리즈 장치에서 8000 시리즈 장치로 데이터를 마이그레이션하려면 Microsoft 지원에 마이그레이션을 예약해야 합니다. 그러면 Microsoft 지원에서 구독을 마이그레이션할 수 있도록 설정합니다. 자세한 내용은 [지원 티켓 열기](storsimple-8000-contact-microsoft-support.md)를 참조하세요.
 > - 서비스 요청을 제출한 후 마이그레이션 계획을 실행하고 마이그레이션이 실제로 시작될 때까지 몇 주가 걸릴 수 있습니다.
 > - Microsoft 지원에 문의하기 전에 이 문서에 언급된 [마이그레이션 필수 구성 요소](#migration-prerequisites)를 끝까지 검토하시기 바랍니다.

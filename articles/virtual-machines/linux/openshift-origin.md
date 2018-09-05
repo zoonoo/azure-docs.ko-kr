@@ -1,6 +1,6 @@
 ---
-title: Azure에 OpenShift Origin 배포 | Microsoft Docs
-description: Azure에서 OpenShift Origin을 배포합니다.
+title: Azure에서 OKD 배포 | Microsoft Docs
+description: Azure에서 OKD를 배포합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: f7a668f30d7acb1ea14fe9fd8921066d40a6669b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0d3a9f05802bef7d6dfc99fcfae6668044f214c8
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29123122"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190307"
 ---
-# <a name="deploy-openshift-origin-in-azure"></a>Azure에서 OpenShift Origin 배포
+# <a name="deploy-okd-in-azure"></a>Azure에서 OKD 배포
 
-Azure에서 OpenShift Origin을 배포하는 두 가지 방법 중 하나를 사용할 수 있습니다.
+Azure에서 OKD(이전의 OpenShift Origin)를 배포하는 두 가지 방법 중 하나를 사용할 수 있습니다.
 
-- 필요한 모든 Azure 인프라 구성 요소를 수동으로 배포한 다음 OpenShift Origin [설명서](https://docs.openshift.org/3.6/welcome/index.html)를 따릅니다.
-- OpenShift Origin 클러스터 배포를 간소화하는 기존 [Resource Manager 템플릿](https://github.com/Microsoft/openshift-origin)을 사용할 수도 있습니다.
+- 필요한 모든 Azure 인프라 구성 요소를 수동으로 배포한 다음, OKD [설명서](https://docs.okd.io/3.10/welcome/index.html)를 따릅니다.
+- 또한 기존 [Resource Manager 템플릿](https://github.com/Microsoft/openshift-origin)을 사용하여 OKD 클러스터의 배포를 간소화할 수도 있습니다.
 
-## <a name="deploy-by-using-the-openshift-origin-template"></a>OpenShift Origin 템플릿을 사용하여 배포
+## <a name="deploy-by-using-the-okd-template"></a>OKD 템플릿을 사용하여 배포
 
 `aadClientId` 매개 변수에 대해 이전에 만든 서비스 주체에서 `appId` 값을 사용합니다.
 
@@ -101,7 +101,7 @@ Azure에서 OpenShift Origin을 배포하는 두 가지 방법 중 하나를 사
 > [!NOTE] 
 > 다음 명령은 Azure CLI 2.0.8 이상이 필요합니다. CLI 버전은 `az --version` 명령으로 확인할 수 있습니다. CLI 버전을 업데이트하려면 [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
 
-다음 예제에서는 myResourceGroup이라는 리소스 그룹에 myOpenShiftCluster라는 배포 이름을 사용하여 OpenShift 클러스터 및 모든 관련 리소스를 배포합니다. 템플릿은 azuredeploy.parameters.json이라는 로컬 매개 변수 파일을 사용하여 GitHub 리포지토리에서 직접 참조됩니다.
+다음 예제에서는 myResourceGroup이라는 리소스 그룹에 배포 이름 myOpenShiftCluster를 사용하여 OKD 클러스터 및 모든 관련 리소스를 배포합니다. 템플릿은 azuredeploy.parameters.json이라는 로컬 매개 변수 파일을 사용하여 GitHub 리포지토리에서 직접 참조됩니다.
 
 ```azurecli 
 az group deployment create -g myResourceGroup --name myOpenShiftCluster \
@@ -109,7 +109,7 @@ az group deployment create -g myResourceGroup --name myOpenShiftCluster \
       --parameters @./azuredeploy.parameters.json
 ```
 
-배포를 마치려면 배포되는 전체 노드 수에 따라 25분 이상이 걸립니다. 배포를 마치면 OpenShift 콘솔의 URL과 OpenShift 마스터의 DNS 이름이 터미널에 출력됩니다.
+배포를 마치려면 배포되는 전체 노드 수에 따라 25분 이상이 걸립니다. 배포를 마치면 OKD 콘솔의 URL과 OpenShift 마스터의 DNS 이름이 터미널에 출력됩니다.
 
 ```json
 {
@@ -118,9 +118,9 @@ az group deployment create -g myResourceGroup --name myOpenShiftCluster \
 }
 ```
 
-## <a name="connect-to-the-openshift-cluster"></a>OpenShift 클러스터에 연결
+## <a name="connect-to-the-okd-cluster"></a>OKD 클러스터에 연결
 
-배포를 마치면 브라우저에서 `OpenShift Console Uri`를 사용하여 OpenShift 콘솔에 연결합니다. 또는 다음 명령을 사용하여 OpenShift 마스터에 연결할 수 있습니다.
+배포를 마치면 브라우저에서 `OpenShift Console Uri`를 사용하여 OKD 콘솔에 연결합니다. 또는 다음 명령을 사용하여 OKD 마스터에 연결할 수 있습니다.
 
 ```bash
 $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
@@ -138,4 +138,4 @@ az group delete --name myResourceGroup
 
 - [배포 후 작업](./openshift-post-deployment.md)
 - [OpenShift 배포 문제 해결](./openshift-troubleshooting.md)
-- [OpenShift Origin 시작](https://docs.openshift.org/latest/getting_started/index.html)
+- [OKD 시작](https://docs.okd.io/latest/getting_started/index.html)

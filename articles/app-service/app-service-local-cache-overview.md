@@ -16,17 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
-ms.openlocfilehash: 59fe70e4d2a710160751ab8e7a83c9f86310dc24
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 4959e4e3a0692837a7775eaf813a8fcff925312d
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597733"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918019"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure App Service 로컬 캐시 개요
 
 > [!NOTE]
-> 로컬 캐시는 [Linux의 App Service](containers/app-service-linux-intro.md)와 같은 컨테이너화된 App Service 앱에서 지원되지 않습니다.
+> 로컬 캐시는 [Linux의 App Service](containers/app-service-linux-intro.md)와 같은 컨테이너화된 App Service 앱 또는 함수 앱에서 지원되지 않습니다.
+
 
 Azure 웹앱의 콘텐츠는 Azure Storage에 저장되며 영구적 방식으로 콘텐츠 공유로 표시됩니다. 이 디자인은 다양한 앱으로 작업하기 위한 것이며, 다음과 같은 특성을 가집니다.  
 

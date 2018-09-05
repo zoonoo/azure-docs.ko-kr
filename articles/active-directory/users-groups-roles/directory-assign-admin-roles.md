@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 08/27/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 6c97d7c2f901110421f9fc5d0a1d4468d832c472
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 9b56f540af2b8d35258a4db79502c9edf83cdb45
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42146067"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128469"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 할당
 
@@ -75,6 +75,8 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 * **[Information Protection 관리자](#information-protection-administrator)**: 이 역할의 사용자는 Azure Information Protection 서비스에 대한 모든 권한을 가집니다. 이 역할은 Azure Information Protection 정책에 대한 레이블을 구성하고, 보호 템플릿을 관리하고, 보호를 활성화하는 권한을 갖습니다. 이 역할은 ID 보호 센터, Privileged Identity Management, Office 365 Service Health 또는 Office 365 보안 및 준수 센터에서 어느 권한도 부여하지 않습니다.
 
 * **[Intune 서비스 관리자](#intune-service-administrator)**: 이 역할의 사용자는 해당 서비스가 있는 경우 Microsoft Intune Online 내에서 전역 사용 권한을 가집니다. 또한 이 역할은 정책을 연결하고 그룹을 만들고 관리하기 위해 사용자와 장치를 관리하는 기능을 포함합니다. 자세한 내용은 [Microsoft Intune에서 RBAC(역할 기반 관리 제어)](https://docs.microsoft.com/intune/role-based-access-control)를 참조하세요
+
+* **[라이선스 관리자](#license-administrator)**: 이 역할의 사용자는 사용자 및 그룹의(그룹 기반 라이선스를 사용하여) 라이선스 할당을 추가, 제거 및 업데이트하고, 사용자의 사용 위치를 관리합니다. 이 역할은 사용 위치를 벗어나서 구독을 구매 또는 관리하고, 그룹을 만들거나 관리하고, 사용자를 만들거나 관리하는 기능을 부여하지 않습니다.
 
 * **[메시지 센터 읽기 권한자](#message-center-reader)**: 이 역할의 사용자는 Exchange, Intune, Microsoft Teams 등 구성된 서비스의 조직에 대한 [Office 365 메시지 센터](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093)에서 알림 및 자문 상태 업데이트를 모니터링할 수 있습니다. 메시지 센터 읽기 권한자는 게시물 및 업데이트 이메일 다이제스트를 매주 수신하며, 메시지 센터 게시물을 Office 365에서 공유할 수 있습니다. Azure AD에서 이 역할에 할당된 사용자는 Azure AD 서비스에서 사용자 및 그룹처럼 읽기 전용 권한만 있습니다. 
 
@@ -610,6 +612,23 @@ Intune 제품의 모든 측면을 관리할 수 있습니다.
 | microsoft.aad.directory/User/Update/Manager | Azure Active Directory에서 Users.Manager 속성을 업데이트합니다. |
 | microsoft.aad.supporttickets/AllEntities/AllActions | Office 365 지원 티켓을 만들고 관리합니다. |
 | microsoft.intune/AllEntities/AllActions | Intune의 모든 측면을 관리합니다. |
+
+
+### <a name="license-administrator"></a>라이선스 관리자
+사용자 및 그룹의 제품 라이선스를 관리할 수 있습니다.
+ 
+  > [!NOTE]
+  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
+  >
+  >
+ 
+| **Actions** | **설명** |
+| --- | --- |
+| microsoft.aad.directory/users/assignLicense | Azure Active Directory에서 사용자의 라이선스를 관리합니다. |
+| microsoft.aad.directory/users/usageLocation/update | Azure Active Directory에서 users.usageLocation 속성을 업데이트합니다. |
+| microsoft.azure.accessService/allEntities/allTasks | Azure 액세스 서비스의 모든 측면을 관리합니다. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 
 ### <a name="lync-service-administrator"></a>Lync 서비스 관리자
 비즈니스용 Skype 제품의 모든 측면을 관리할 수 있습니다.

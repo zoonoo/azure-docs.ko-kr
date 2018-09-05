@@ -9,13 +9,13 @@ ms.reviewer: douglasl
 ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
-ms.date: 08/20/2018
-ms.openlocfilehash: 4bfa6ef778f51446146de4c10575ac7a287c68dc
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.date: 08/27/2018
+ms.openlocfilehash: 443edcaf1d087028120f4996ba5abef00b1d2c94
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246821"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041340"
 ---
 # <a name="what-is-the-azure-database-migration-service"></a>Azure Database Migration Service란 무엇인가요?
 Azure Database Migration Service는 가동 중지 시간을 최소화하면서 여러 데이터베이스 소스에서 Azure 데이터 플랫폼으로 원활하게 마이그레이션할 수 있도록 설계된 완벽하게 관리되는 서비스입니다.
@@ -25,6 +25,12 @@ Azure Database Migration Service는 기존 도구 및 서비스의 일부 기능
 
 ## <a name="regional-availability"></a>국가별 가용성
 Database Migration Service를 사용할 수 있는 지역에 대한 최신 정보는 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 참조하세요.
+
+> [!NOTE]
+> 온라인 마이그레이션 및 SKU 권장 사항 기능은 현재 다음 지역에서만 사용할 수 있습니다.
+> - 미국 중부
+> - 미국 동부2
+> - 서유럽
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Portal을 사용하여 Azure Database Migration Service 인스턴스를 만듭니다](quickstart-create-data-migration-service-portal.md).

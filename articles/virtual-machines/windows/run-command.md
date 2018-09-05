@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: ad0366d333266af0b16a7acaaa4519f20a951a80
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 60cdcbeba0c4149d8f049bbab553bd658c965338
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342711"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128598"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>명령 실행을 사용하여 Windows VM에서 PowerShell 스크립트 실행
 
@@ -63,7 +63,6 @@ ms.locfileid: "37342711"
 |**EnableAdminAccount**|로컬 관리자 계정이 비활성화됐는지 확인하여 그렇다면 활성화합니다.|
 |**IPConfig**| TCP/IP에 바인딩된 각 어댑터에 대해 IP 주소, 서브넷 마스크 및 기본 게이트웨이에 대한 자세한 정보를 표시합니다.|
 |**RDPSettings**|레지스트리 설정 및 도메인 정책 설정을 확인합니다. 컴퓨터가 도메인의 일부인 경우 또는 설정을 기본값으로 수정하는 경우 정책 작업을 제안합니다.|
-|**ResetAccountPassword**| 기본 제공 Administrator 계정 암호를 재설정합니다.|
 |**ResetRDPCert**|RDP 수신기에 연결된 SSL 인증서를 제거하고 RDP 수신기 보안을 기본값으로 복원합니다. 인증서에 문제가 있는 경우 이 스크립트를 사용합니다.|
 |**SetRDPPort**|원격 데스크톱 연결에 대한 기본 또는 사용자 지정 포트 번호를 설정합니다. 포트에 인바운드 액세스를 위한 방화벽 규칙을 사용하도록 설정합니다.|
 

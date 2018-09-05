@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: bc9fbf56b37cb8c6690bd036db704532cb8b0437
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: f43715b9c419aab1f5b95e140eac72642ef74198
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42142568"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746900"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Windows 운영 체제 패치
 
@@ -139,7 +139,7 @@ ms.locfileid: "42142568"
 
 설치 스크립트와 함께 응용 프로그램을 [보관 링크](https://go.microsoft.com/fwlink/?linkid=869566)에서 다운로드할 수 있습니다.
 
-sfpkg 형식의 응용 프로그램은 [sfpkg 링크](https://go.microsoft.com/fwlink/?linkid=869567)에서 다운로드할 수 있습니다. 이 링크를 통해 [Azure Resource Manager 기반 응용 프로그램을 쉽게 배포](service-fabric-application-arm-resource.md)할 수 있습니다.
+sfpkg 형식의 응용 프로그램은 [sfpkg 링크](https://aka.ms/POA/POA_v1.2.2.sfpkg)에서 다운로드할 수 있습니다. 이 링크를 통해 [Azure Resource Manager 기반 응용 프로그램을 쉽게 배포](service-fabric-application-arm-resource.md)할 수 있습니다.
 
 ## <a name="configure-the-app"></a>앱 구성
 
@@ -398,3 +398,5 @@ a. 아니요, 패치 오케스트레이션 앱을 사용하여 1노드 클러스
 ### <a name="version-122-latest"></a>버전 1.2.2(최신)
 
 - 기타 버그가 수정되었습니다.
+- 이제 이진 파일이 서명됩니다.
+- 이제 sfpkg 다운로드 링크는 특정 버전을 가리킵니다.

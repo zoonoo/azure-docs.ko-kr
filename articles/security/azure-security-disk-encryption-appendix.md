@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
+ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: cf3e9ce055219bccb44c19fd8e77fe39c938c968
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 9efd8730af292e6f720c3bacd5707c48f0eab7ac
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39392600"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887936"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Azure Disk Encryption에 대한 부록 
 이 문서는 [IaaS VM용 Azure Disk Encryption](azure-security-disk-encryption-overview.md)에 대한 부록입니다. 컨텍스트를 이해하려면 먼저 IaaS VM용 Azure Disk Encryption 문서를 읽어야 합니다. 이 문서에서는 미리 암호화된 VHD 및 기타 작업을 준비하는 방법을 설명합니다.
 
 ## <a name="connect-to-your-subscription"></a>구독에 연결
-진행하기 전에 [필수 조건](azure-security-disk-encryption-prerequisites.md) 문서를 검토하세요. 모든 필수 조건이 충족되면 다음 cmdlet을 수행하여 구독에 연결합니다.
+시작하기 전에 [필수 조건](azure-security-disk-encryption-prerequisites.md) 문서를 검토하세요. 모든 필수 조건이 충족된 후 다음 cmdlet을 실행하여 구독에 연결합니다.
 
 ### <a name="bkmk_ConnectPSH"></a> PowerShell을 통해 구독에 연결
 
@@ -106,33 +106,77 @@ ms.locfileid: "39392600"
      Get-AzureKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('DiskEncryptionKeyFileName')} | format-table @{Label="MachineName"; Expression={$_.Tags['MachineName']}}, @{Label="VolumeLetter"; Expression={$_.Tags['VolumeLetter']}}, @{Label="EncryptionKeyURL"; Expression={$_.Id}}
      ```
 
+### <a name="bkmk_prereq-script"></a> Azure Disk Encryption 필수 구성 요소 PowerShell 스크립트 사용
+Azure Disk Encryption에 대한 필수 구성 요소에 이미 익숙한 경우 [Azure Disk Encryption 필수 구성 요소 PowerShell 스크립트](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 )를 사용할 수 있습니다. 이 PowerShell 스크립트 사용의 예는 [VM 암호화 빠른 시작](quick-encrypt-vm-powershell.md)를 참조하세요. 줄 211에서 시작하는 스크립트의 섹션에서 주석을 제거하여 기존 리소스 그룹의 기존 VM에 대한 모든 디스크를 암호화할 수 있습니다. 
+
+다음 표는 PowerShell 스크립트에서 사용할 수 있는 매개 변수를 보여줍니다. 
+
+
+|매개 변수|설명|필수입니다.|
+|------|------|------|
+|$resourceGroupName| KeyVault가 속해 있는 리소스 그룹의 이름입니다.  이 이름을 가진 새 리소스 그룹이 없는 경우 생성됩니다.| True|
+|$keyVaultName|암호화 키가 배치된 KeyVault의 이름입니다. 이 이름을 가진 새 자격 증명 모음이 없는 경우 생성됩니다.| True|
+|$location|KeyVault의 위치입니다. 암호화할 KeyVault 및 VM이 동일한 위치에 있는지 확인합니다. `Get-AzureRMLocation`을 사용하여 위치 목록을 가져옵니다.|True|
+|$subscriptionId|사용할 Azure 구독의 식별자입니다.  구독 ID는 `Get-AzureRMSubscription`을 사용하여 가져올 수 있습니다.|True|
+|$aadAppName|KeyVault에 비밀을 쓰는 데 사용할 Azure AD 응용 프로그램의 이름입니다. 이 이름을 가진 새 응용 프로그램이 없는 경우 생성됩니다. 이 앱이 이미 있는 경우 스크립트에 aadClientSecret 매개 변수를 전달합니다.|False|
+|$aadClientSecret|이전에 만든 Azure AD 응용 프로그램의 클라이언트 비밀입니다.|False|
+|$keyEncryptionKeyName|KeyVault의 선택적 키 암호화 키의 이름입니다. 이 이름을 가진 새 키가 없는 경우 생성됩니다.|False|
+
+
 ## <a name="resource-manager-templates"></a>리소스 관리자 템플릿
 
-- [키 자격 증명 모음 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create) 
+<!--   - [Create a key vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create) -->
+
+### <a name="encrypt-or-decrypt-vms-without-an-azure-ad-app"></a>Azure AD 앱 없이 VM을 암호화 또는 암호 해독
+
+
+- [기존 또는 실행 중인 IaaS Windows VM에서 디스크 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad)
+- [기존 또는 실행 중인 IaaS Windows VM에서 디스크 암호화 사용 안 함](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad)
+- [기존 또는 실행 중인 IaaS Linux VM에서 디스크 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)  
+ -  [실행 중인 Linux VM에서 디스크 암호화 사용 안 함](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
+    - 암호화 사용 안 함은 Linux VM용 데이터 볼륨에서만 허용됩니다.  
+
+### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Azure AD 앱으로 VM을 암호화 또는 암호 해독(이전 릴리스) 
  
-- [Marketplace의 새 IaaS Windows VM에 디스크 암호화를 사용하도록 설정](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image)
-    - 이 템플릿은 Windows Server 2012 갤러리 이미지를 사용하는 새 암호화된 Windows VM을 만듭니다.
-
-- [전체 디스크 암호화로 RHEL 7.2 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel)
-    - 이 템플릿은 /mnt/raidencrypted에 탑재된 200GB RAID-0 배열 및 30GB 암호화된 OS 드라이브로 Azure에 완전히 암호화된 RHEL 7.2 VM 을 생성합니다. 지원되는 Linux 서버 배포판은 [FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) 문서를 참조하세요. 
-
-- [Windows 또는 Linux용 미리 암호화된 VHD에서 디스크 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-pre-encrypted-vm)
-
 - [기존 또는 실행 중인 IaaS Windows VM에서 디스크 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)
 
-- [기존 또는 실행 중인 IaaS Linux VM에서 디스크 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrt-running-linux-vm)    
+- [기존 또는 실행 중인 IaaS Linux VM에서 디스크 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)    
 
 - [실행 중인 Windows IaaS에서 디스크 암호화 사용 안 함](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm) 
 
--  [실행 중인 Linux VM에서 디스크 암호화 사용 안 함](https://aka.ms/decrypt-linuxvm) 
+-  [실행 중인 Linux VM에서 디스크 암호화 사용 안 함](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm) 
     - 암호화 사용 안 함은 Linux VM용 데이터 볼륨에서만 허용됩니다. 
 
-- [미리 암호화된 VHD/저장소 Blob에서 새로운 암호화된 관리 디스크 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
-    - 미리 암호화된 VHD 및 해당 암호화 설정을 제공하는 암호화된 관리 디스크 새로 만들기
+- [Marketplace의 새 IaaS Windows VM에 디스크 암호화를 사용하도록 설정](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image)
+    - 이 템플릿은 Windows Server 2012 갤러리 이미지를 사용하는 새 암호화된 Windows VM을 만듭니다.
 
 - [갤러리 이미지에서 암호화된 Windows IaaS 관리 디스크 VM 새로 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks)
     - 이 템플릿은 Windows Server 2012 갤러리 이미지를 사용하여 관리 디스크로 암호화된 Windows VM을 새로 만듭니다.
+
+- [관리 디스크로 전체 디스크 암호화의 RHEL 7.2 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel)
+    - 이 템플릿은 관리 디스크를 사용하여 Azure에서 완벽하게 암호화된 RHEL 7.2 VM을 만듭니다. /mnt/raidencrypted에 탑재된 암호화된 30GB OS 드라이브 및 암호화된 200GB 배열(RAID-0)을 포함합니다. 지원되는 Linux 서버 배포판은 [FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) 문서를 참조하세요. 
+
+- [관리되지 않은 디스크로 전체 디스크 암호화의 RHEL 7.2 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel-unmanaged)
+    - 이 템플릿은 /mnt/raidencrypted에 탑재된 암호화된 200GB 배열(RAID-0) 및 암호화된 30GB OS 드라이브로 Azure에서 완전히 암호화된 RHEL 7.2 VM을 생성합니다. 지원되는 Linux 서버 배포판은 [FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) 문서를 참조하세요. 
+
+- [Windows 또는 Linux용 미리 암호화된 VHD에서 디스크 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-pre-encrypted-vm)
+
+- [미리 암호화된 VHD/저장소 Blob에서 새로운 암호화된 관리 디스크 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
+    - 미리 암호화된 VHD 및 해당 암호화 설정을 제공하는 새로운 암호화된 관리 디스크 만들기
+
+- [Azure AD 클라이언트 인증서 지문을 사용하여 실행 중인 Windows VM에서 디스크 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-aad-client-cert)
     
+- [실행 중인 Linux 가상 머신 확장 집합에서 디스크 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
+
+- [실행 중인 Windows 가상 머신 확장 집합에서 디스크 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
+
+ - [jumpbox를 통해 Linux VM의 VM 확장 집합 배포 및 Linux VMSS에서 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+
+ - [jumpbox를 통해 Windows VM의 VM 확장 집합 배포 및 Windows VMSS에서 암호화 사용](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+
+- [실행 중인 Linux 가상 머신 확장 집합에서 디스크 암호화 사용 안 함](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+
+- [실행 중인 Windows 가상 머신 확장 집합에서 디스크 암호화 사용 안 함](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
 ## <a name="bkmk_preWin"></a> 미리 암호화된 Windows VHD 준비
 Azure IaaS에서 암호화된 VHD로 배포용으로 사전에 암호화된 Windows VHD를 준비하려면 이어지는 섹션이 필요합니다. 이 정보를 사용하여 Azure Site Recovery 또는 Azure에서 최신 Windows VM(VHD)을 준비 및 부팅합니다. VHD를 준비하고 업로드하는 방법에 대한 자세한 내용은 [일반화된 VHD를 업로드하고 사용하여 Azure에서 새 VM 만들기](../virtual-machines/windows/upload-generalized-managed.md)를 참조하세요.
@@ -197,7 +241,7 @@ OS 파티션을 압축하고 BitLocker용 머신을 준비하려면 필요한 �
 
 5. [다음 섹션](#monitoring-os-encryption-progress)의 지침에 따라 암호화 진행 상태를 주기적으로 모니터링합니다.
 
-6. Get-AzureRmVmDiskEncryptionStatus에 "VMRestartPending"이 표시되면 VM에 로그인하거나 포털, PowerShell 또는 CLI를 사용하여 VM을 다시 시작합니다.
+6. Get-AzureRmVmDiskEncryptionStatus에 “VMRestartPending”이 표시된 후 VM에 로그인하거나 포털, PowerShell 또는 CLI를 사용하여 VM을 다시 시작합니다.
     ```powershell
     C:\> Get-AzureRmVmDiskEncryptionStatus  -ResourceGroupName $ResourceGroupName -VMName $VMName
     -ExtensionName $ExtensionName
@@ -253,7 +297,7 @@ OS 암호화 진행 상태를 모니터링하는 방법은 세 가지가 있습�
 미리 암호화된 VHD에 대한 준비는 배포에 따라 달라질 수 있습니다. [Ubuntu 16](#bkmk_Ubuntu), [openSUSE 13.2](#bkmk_openSUSE) 및 [CentOS 7](#bkmk_CentOS) 준비에 대한 예제를 참고할 수 있습니다. 
 
 ### <a name="bkmk_Ubuntu"></a> Ubuntu 16
-다음을 수행하여 배포 설치 중에 암호화를 구성합니다.
+다음 단계를 수행하여 배포를 설치하는 도중에 암호화를 구성합니다.
 
 1. 디스크를 분할할 때 **암호화된 볼륨 구성**을 선택합니다.
 
@@ -345,7 +389,7 @@ OS 암호화 진행 상태를 모니터링하는 방법은 세 가지가 있습�
 
 ### <a name="bkmk_openSUSE"></a>  openSUSE 13.2
 배포 설치 중에 암호화를 구성하려면 다음 단계를 수행합니다.
-1. 디스크를 파티션하는 경우 **볼륨 그룹 암호화**를 선택하고 암호를 입력합니다. Key Vault에 업로드할 암호입니다.
+1. 디스크를 파티션하는 경우 **볼륨 그룹 암호화**를 선택하고 암호를 입력합니다. 키 자격 증명 모음에 업로드할 암호입니다.
 
  ![openSUSE 13.2 설치](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
 
@@ -465,7 +509,7 @@ to
 ```
     if [ 1 ]; then
 ```
-4. /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh를 편집하고 "# Open LUKS device" 뒤에 추가합니다.
+4. /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh를 편집하고 “# Open LUKS device” 뒤에 다음을 추가합니다.
     ```
     MountPoint=/tmp-keydisk-mount
     KeyFileName=LinuxPassPhraseFileName
@@ -496,7 +540,7 @@ BitLocker 암호화 또는 DM-Crypt 암호화를 사용하도록 설정한 후�
     Add-AzureRmVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 ```
 ## <a name="bkmk_UploadSecret"></a> 미리 암호화된 VM에 대한 비밀을 키 자격 증명 모음에 업로드
-이전에 가져온 디스크 암호화 비밀을 Key Vault에 비밀 업로드해야 합니다. Key Vault에는 디스크 암호화 및 Azure AD 클라이언트를 위해 설정된 사용 권한이 있어야 합니다.
+Azure AD 앱(이전 릴리스)을 사용하여 암호화하는 경우 이전에 가져온 디스크 암호화 비밀을 키 자격 증명 모음에 비밀로 업로드해야 합니다. Key Vault에는 디스크 암호화 및 Azure AD 클라이언트를 위해 설정된 사용 권한이 있어야 합니다.
 
 ```powershell 
  $AadClientId = "My-AAD-Client-Id"

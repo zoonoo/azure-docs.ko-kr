@@ -1,6 +1,6 @@
 ---
-title: Azure AD Privileged Identity Management 보안 마법사
-description: Azure Active Directory Privileged Identity Management 확장을 처음 실행하면 보안 마법사가 표시됩니다. 이 문서는 마법사를 사용하는 단계를 설명합니다.
+title: PIM의 보안 마법사 - Azure | Microsoft Docs
+description: Azure AD PIM(Privileged Identity Management)을 처음 사용할 때 나타나는 보안 마법사를 설명합니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 02/27/2017
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
-ms.openlocfilehash: 19eb2b36b217dc67fabcc3c2c4721fb13b2224ec
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 178a4c5e978075f2a59b22a1cccf462138527964
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617009"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189082"
 ---
-# <a name="using-the-security-wizard-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management에서 보안 마법사 사용 
+# <a name="security-wizard-in-pim"></a>PIM의 보안 마법사
 조직에 대해 Azure PIM(Privileged Identity Management)을 처음 실행하면 마법사가 표시됩니다. 마법사는 권한 있는 ID에 대한 보안 위험을 이해하고 위험을 줄이도록 PIM을 사용하는 방법을 이해하도록 도와줍니다. 나중에 작업하려는 경우 마법사에서 기존 역할 할당을 변경할 필요가 없습니다.
 
 ## <a name="what-to-expect"></a>예상 프로그램
@@ -40,5 +40,7 @@ ms.locfileid: "39617009"
 * 더 많은 사용자에게 PIM을 관리하기 위해 액세스 권한을 제공하려면 [PIM을 관리하기 위해 액세스 권한을 제공하는 방법](pim-how-to-give-access-to-pim.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
 
+- [PIM 사용 시작](pim-getting-started.md)
+- [PIM에서 Azure AD 디렉터리 역할 할당](pim-how-to-add-role-to-user.md)
+- [PIM 관리를 위해 다른 관리자에게 액세스 권한 부여](pim-how-to-give-access-to-pim.md)

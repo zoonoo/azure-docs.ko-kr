@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: b05eef79e94cff74b1e02243cd7c8d94e5acbb3c
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: c9cebd16d34758550144a50b6ff26da84924a964
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493973"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745671"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data Factory에서 데이터 이동을 위한 보안 고려 사항
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,6 +58,11 @@ Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있
 
 > [!NOTE]
 > Azure SQL Database와 Azure SQL Data Warehouse에 대한 모든 연결은 항상 데이터를 데이터베이스로/에서 전송하는 중에 암호화(SSL/TLS)가 필요합니다. JSON을 사용하여 파이프라인을 작성하는 동안 암호화 속성을 추가하고 연결 문자열에서 **true**로 설정합니다. Azure Storage의 경우 연결 문자열에 **HTTPS**를 사용할 수 있습니다.
+
+> [!NOTE]
+> Oracle에서 데이터를 이동하면서 전송 중에 암호화를 사용하려면 아래 옵션 중 하나를 따르세요.
+> 1. Oracle 서버에서 OAS(Oracle Advanced Security)로 이동하여 3DES(Triple-DES Encryption) 및 AES(Advanced Encryption Standard)를 지원하는 암호화 설정을 구성합니다. 자세한 내용은 [여기](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759)를 참조하세요. ADF는 Oracle에 대한 연결을 설정할 때 OAS에서 구성한 암호화 방법을 사용하도록 해당 암호화 방법을 자동으로 협상합니다.
+> 2. ADF에서는 연결 문자열에 EncryptionMethod=1을 추가할 수 있습니다(연결된 서비스). 이렇게 하면 SSL/TLS가 암호화 방법으로 사용됩니다. 이를 사용하려면 암호화 충돌을 방지하기 위해 Oracle 서버 쪽의 OAS에서 비SSL 암호화 설정을 사용하지 않도록 설정해야 합니다.
 
 > [!NOTE]
 > 사용된 TLS 버전은 1.2입니다.
@@ -125,7 +130,7 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | IPSec VPN(지점 및 사이트 간 또는 사이트 간) | 자체 호스팅 통합 런타임은 가상 네트워크의 온-프레미스 또는 Azure 가상 머신에 설치할 수 있습니다. |
 | 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | ExpressRoute(개인 피어링)           | 자체 호스팅 통합 런타임은 가상 네트워크의 온-프레미스 또는 Azure 가상 머신에 설치할 수 있습니다. |
-| 온-프레미스 | 공개 끝점이 있는 Azure 기반 서비스 | ExpressRoute(공용 피어링)            | 자체 호스팅 통합 런타임을 온-프레미스에 설치해야 합니다. |
+| 온-프레미스 | 공개 엔드포인트가 있는 Azure 기반 서비스 | ExpressRoute(공용 피어링)            | 자체 호스팅 통합 런타임을 온-프레미스에 설치해야 합니다. |
 
 다음 이미지는 ExpressRoute 및 IPSec VPN(Azure Virtual Network 사용)을 사용하여 온-프레미스 데이터베이스와 Azure 서비스 간에 데이터를 이동시키기 위한 자체 호스팅 통합 런타임의 사용법을 보여 줍니다.
 

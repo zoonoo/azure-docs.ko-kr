@@ -1,27 +1,23 @@
 ---
-title: B2B에 대한 엔터프라이즈 통합 - Azure Logic Apps | Microsoft Docs
-description: 엔터프라이즈 통합 팩을 사용한 Logic Apps에 대한 B2B 워크플로 작성 및 엔터프라이즈 통합 시나리오 지원
+title: B2B 엔터프라이즈 통합 개요 - Azure Logic Apps | Microsoft Docs
+description: Azure Logic Apps 및 엔터프라이즈 통합 팩을 사용하여 엔터프라이즈 통합 솔루션용 자동화 B2B 워크플로 빌드
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: jeconnoc
-editor: cgronlun
-ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.date: 09/08/2016
-ms.author: LADocs; padmavc
-ms.openlocfilehash: c4f83d2bf082b5f1358b4eee6468d470b5cb8088
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: b2e2c81914e8c0440b358d59c7f0248db46b6c50
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42146966"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124295"
 ---
-# <a name="overview-b2b-scenarios-and-communication-with-the-enterprise-integration-pack"></a>개요: 엔터프라이즈 통합 팩을 사용한 B2B 시나리오 및 통신
+# <a name="overview-b2b-enterprise-integration-scenarios-in-azure-logic-apps-with-enterprise-integration-pack"></a>개요: 엔터프라이즈 통합 팩이 포함된 Azure Logic Apps을 사용한 B2B 엔터프라이즈 통합 시나리오
 
 Azure Logic Apps에 대한 B2B(기업 간) 워크플로 및 원활한 통신을 위해 Microsoft의 클라우드 기반 솔루션인 엔터프라이즈 통합 팩을 통한 엔터프라이즈 통합 시나리오를 사용하도록 설정할 수 있습니다. 조직에서는 다른 프로토콜 및 형식을 사용하더라도 전자 방식으로 메시지를 교환할 수 있습니다. 이 팩은 여려 다른 형식을 조직의 시스템에서 해석하고 처리할 수 있는 형식으로 변환합니다. 조직은 [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) 및 [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md)를 비롯한 업계 표준 프로토콜을 통해 메시지를 교환할 수 있습니다. 암호화 및 디지털 서명 둘 다를 사용하여 메시지를 보호할 수 있습니다.
 

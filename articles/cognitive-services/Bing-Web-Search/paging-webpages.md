@@ -1,6 +1,6 @@
 ---
-title: 사용 가능한 웹 페이지를 페이징하는 방법 | Microsoft Docs
-description: Bing이 반환할 수 있는 모든 웹 페이지를 페이징하는 방법을 보여줍니다.
+title: Bing Web Search API 결과를 통해 페이징하는 방법 | Microsoft Docs
+description: Bing Web Search API 결과를 통해 페이징하는 방법을 알아봅니다.
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
@@ -8,22 +8,22 @@ ms.assetid: 26CA595B-0866-43E8-93A2-F2B5E09D1F3B
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 04/15/2017
-ms.author: scottwhi
-ms.openlocfilehash: bf29783246c603270d59b20b63027fccdbd45b89
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 08/20/2018
+ms.author: erhopf
+ms.openlocfilehash: cd03b3af08746674dd2ba2d4af593e19e066efca
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372934"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888244"
 ---
-# <a name="paging-webpages"></a>웹 페이지 페이징 
+# <a name="how-to-page-through-bing-web-search-api-results"></a>Bing Web Search API 결과를 통해 페이징하는 방법
 
-Web Search API를 호출하면 Bing이 결과 목록을 반환합니다. 이 목록은 쿼리와 관련된 총 결과 수의 하위 집합입니다. 예상되는 사용 가능한 총 결과 수를 가져오려면 응답 개체의 [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#totalestimatedmatches) 필드에 액세스해야 합니다.  
+Web Search API를 호출하면 Bing이 결과 목록을 반환합니다. 이 목록은 쿼리와 관련된 총 결과 수의 하위 집합입니다. 예상되는 총 사용 가능한 결과 수를 가져오려면 응답 개체의 [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#totalestimatedmatches) 필드에 액세스해야 합니다.  
   
 다음 예제는 웹 응답에 포함되는 `totalEstimatedMatches` 필드를 보여줍니다.  
   
-```  
+```
 {
     "_type" : "SearchResponse",
     "webPages" : {
@@ -32,7 +32,7 @@ Web Search API를 호출하면 Bing이 결과 목록을 반환합니다. 이 목
         "value" : [...]
     }
 }  
-```  
+```
   
 사용 가능한 웹 페이지를 페이징하려면 [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#count) 및 [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#offset) 쿼리 매개 변수를 사용합니다.  
   

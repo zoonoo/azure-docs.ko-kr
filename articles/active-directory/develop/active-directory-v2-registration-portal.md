@@ -13,25 +13,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 08/28/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: 9d38f6e6d6b9fa47b1cd1497820f7ff887954ad5
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: bebabad4c7beb27022e12e5d48b77d88fc054fc2
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156190"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190118"
 ---
 # <a name="app-registration-reference"></a>앱 등록 참조
-이 문서에서는 Microsoft 앱 등록 포털([https://apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/))에 있는 다양한 기능에 대한 컨텍스트와 설명을 제공합니다.
+이 문서에서는 [Microsoft 앱 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/)에 있는 다양한 기능에 대한 컨텍스트와 설명을 제공합니다.
 
-## <a name="my-applications"></a>내 응용 프로그램
-이 목록에는 Azure AD v2.0 끝점에서 사용하도록 등록된 모든 응용 프로그램이 포함되어 있습니다. 이러한 응용 프로그램은 Azure Active Directory에서 개인 Microsoft 계정 및 회사/학교 계정 모두를 사용하는 사용자를 로그인할 수 있습니다. Azure AD v2.0 엔드포인트에 대한 자세한 내용은 [v2.0 개요](active-directory-appmodel-v2-overview.md)를 참조하세요. 이러한 응용 프로그램을 사용하여 Microsoft 계정 인증 끝점인 `https://login.live.com`과 통합할 수도 있습니다.
+## <a name="my-applications-or-converged-applications"></a>내 응용 프로그램 또는 수렴된 응용 프로그램
+이 목록에는 Azure AD v2.0 엔드포인트에서 사용하도록 등록된 모든 응용 프로그램이 포함되어 있습니다. 이러한 응용 프로그램은 Azure Active Directory에서 개인 Microsoft 계정 및 회사/학교 계정 모두를 사용하는 사용자를 로그인할 수 있습니다. Azure AD v2.0 엔드포인트에 대한 자세한 내용은 [v2.0 개요](active-directory-appmodel-v2-overview.md)를 참조하세요. 이러한 응용 프로그램을 사용하여 Microsoft 계정 인증 엔드포인트인 `https://login.live.com`과 통합할 수도 있습니다.
+
+## <a name="azure-ad-only-applications"></a>Azure AD 전용 응용 프로그램
+이 목록에는 Azure AD v1.0 엔드포인트에서 사용하도록 등록된 모든 응용 프로그램이 포함되어 있습니다. 이러한 응용 프로그램에는 Azure Active Directory에서 회사/학교 계정을 사용하여 사용자를 로그인하는 기능만 있습니다. 이 목록에는 [Azure Portal](https://portal.azure.com)의 **앱 등록** 환경을 사용하여 등록된 응용 프로그램이 포함됩니다.
 
 ## <a name="live-sdk-applications"></a>Live SDK 응용 프로그램
-이 목록에는 Microsoft 계정으로만 사용하도록 등록된 모든 응용 프로그램이 포함되어 있습니다. Azure Active Directory에는 사용할 수 없습니다. 여기서는 이전에 `https://account.live.com/developers/applications`의 MSA 개발자 포털에 등록된 모든 응용 프로그램을 찾을 수 있습니다. 이전에 `https://account.live.com/developers/applications`에서 수행한 모든 함수를 이제 이 새 포털 `https://apps.dev.microsoft.com`에서 수행할 수 있습니다. Microsoft 계정 응용 프로그램에 대한 추가 질문이 있으면 문의해 주세요.
+이 목록에는 Microsoft 계정으로만 사용하도록 등록된 모든 응용 프로그램이 포함되어 있습니다. Azure Active Directory에는 사용할 수 없습니다. 여기서는 이전에 `https://account.live.com/developers/applications`의 MSA 개발자 포털에 등록된 모든 응용 프로그램을 찾을 수 있습니다. 이전에 `https://account.live.com/developers/applications`에서 수행한 모든 함수를 이제 이 새 포털 `https://apps.dev.microsoft.com`에서 수행할 수 있습니다.
 
 ## <a name="application-secrets"></a>응용 프로그램 암호
 응용 프로그램 암호는 Azure AD에서 응용 프로그램에서 신뢰할 수 있는 [클라이언트 인증](http://tools.ietf.org/html/rfc6749#section-2.3) 이 되도록 하는 자격 증명입니다. OAuth 및 OpenID Connect에서 응용 프로그램 비밀은 일반적으로 `client_secret`라고 합니다. v2.0 프로토콜에서, 웹 주소 지정 가능한 위치에서 `https` 구성표를 사용하여 보안 토큰을 받는 모든 응용 프로그램에서는 해당 보안 토큰 상환 시 Azure AD에서 자신을 식별할 수 있도록 응용 프로그램 암호를 사용해야 합니다. 또한 장치에서 토큰을 받는 모든 네이티브 클라이언트는 응용 프로그램 비밀을 사용하여 클라이언트 인증을 수행할 수 없도록 금지됩니다. 이에 따라 안전하지 않은 환경에서 비밀을 저장할 필요가 없습니다.
@@ -49,5 +52,5 @@ ms.locfileid: "34156190"
 
 Live SDK 지원을 사용하지 않도록 설정하면 응용 프로그램 비밀만 Azure AD 데이터 저장소에 기록됩니다. Azure AD 데이터 저장소는 FISMA 규정 준수 등의 특정 표준을 충족하는 엔터프라이즈급 규정을 포함합니다. Live SDK 지원을 사용하도록 설정하면 응용 프로그램이 이러한 일부 표준을 준수하지 못할 수 있습니다.
 
-Azure AD v2.0 끝점만 사용하려면 안전하게 Live SDK 지원을 사용하지 않도록 설정할 수 있습니다.
+Azure AD v2.0 엔드포인트만 사용하려면 안전하게 Live SDK 지원을 사용하지 않도록 설정할 수 있습니다.
 

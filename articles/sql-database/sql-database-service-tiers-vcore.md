@@ -6,15 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 08/27/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: e833cb0e7f98933fd106a92a9aac6c4c2677d50d
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 3d0eca6e1c680dd703f4dceac6abcb70144bac37
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443585"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125000"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>vCore 서비스 계층, 계산, 메모리, 저장소 및 IO 리소스 선택
 
@@ -35,8 +35,8 @@ vCore 모델은 범용 및 중요 비즈니스용이라는 두 가지 서비스 
 |적합한 대상|대부분의 비즈니스 워크로드. 예산 중심의 균형 잡히고 확장 가능한 계산 및 저장소 옵션을 제공합니다.|IO 요구 사항이 높은 비즈니스 응용 프로그램입니다. 여러 개의 격리된 복제본을 사용하여 실패에 대한 최고 수준의 복원력을 제공합니다.|
 |컴퓨팅|4세대: 1-24개 vCore<br/>5세대: 1-80개 vCore|4세대: 1-24개 vCore<br/>5세대: 1-80개 vCore|
 |메모리|Gen4: 코어당 7GB<br>Gen5: 코어당 5.5GB | Gen4: 코어당 7GB<br>Gen5: 코어당 5.5GB |
-|Storage|[프리미엄 원격 저장소](../virtual-machines/windows/premium-storage.md),<br/>싱글톤 데이터베이스: 5GB – 4TB<br/>Managed Instance: 32GB - 8TB |로컬 SSD 저장소,<br/>Single Database: 5GB – 4TB<br/>Managed Instance: 32GB - 4TB |
-|IO 처리량(근사치)|싱글톤 데이터베이스: vCore당 500IOPS(최대 7,000IOPS)</br>Managed Instance: [파일 크기](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)에 따라 다름|vCore당 5000 IOPS(최대 200,000 IOPS)|
+|Storage|[프리미엄 원격 저장소](../virtual-machines/windows/premium-storage.md),<br/>Single Database: 5GB – 4TB<br/>Managed Instance: 32GB - 8TB |로컬 SSD 저장소,<br/>Single Database: 5GB – 1TB<br/>Managed Instance: 32GB - 4TB |
+|IO 처리량(근사치)|Single Database: vCore당 500 IOPS(최대 7,000 IOPS)</br>Managed Instance: [파일 크기](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)에 따라 다름|vCore당 5000 IOPS(최대 200,000 IOPS)|
 |가용성|1개 복제본, 읽기 크기 조정 없음|3개 복제본, 1개 [읽기 크기 조정 복제본](sql-database-read-scale-out.md),<br/>영역 중복 HA|
 |Backup|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35일(기본값: 7일)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35일(기본값: 7일)|
 |메모리 내|해당 없음|지원됨|
@@ -53,8 +53,8 @@ vCore 모델은 범용 및 중요 비즈니스용이라는 두 가지 서비스 
 
 다음을 고려해 보세요.
 - 할당된 저장소는 데이터 파일(MDF) 및 로그 파일(LDF) 파일에서 사용됩니다.
-- 각 싱글톤 데이터베이스 성능 수준은 최대 데이터베이스 크기를 지원하며 기본 최대 크기는 32GB입니다.
-- 필요한 싱글톤 데이터베이스 크기(MDF 크기)를 구성하면 추가 저장소의 30%가 LDF를 지원하도록 자동으로 추가됩니다
+- 각 싱글 데이터베이스 성능 수준은 최대 데이터베이스 크기를 지원하며 기본 최대 크기는 32GB입니다.
+- 필요한 싱글 데이터베이스 크기(MDF 크기)를 구성하면 추가 저장소의 30%가 LDF를 지원하도록 자동으로 추가됩니다
 - Managed Instance의 저장소 크기는 32GB의 배수로 지정해야 합니다.
 - 싱글톤 데이터베이스 크기는 10GB와 지원되는 최대 크기 사이에서 선택할 수 있습니다.
  - 표준 저장소의 경우, 크기는 10GB 증분 단위로 늘리거나 줄입니다.
@@ -75,8 +75,7 @@ MDF 및 LDF의 현재 총 크기를 모니터링하려면 [sp_spaceused](https:/
 데이터베이스 백업용 저장소는 SQL Database의 PITR(특정 시점 복원) 및 [LTR(장기 보존)](sql-database-long-term-retention.md) 기능을 지원하도록 할당됩니다. 이 저장소는 각 데이터베이스에 대해 개별적으로 할당되며 데이터베이스당 별도의 두 가지 요금으로 청구됩니다. 
 
 - **PITR**: 개별 데이터베이스 백업은 [RA-GRS 저장소](../storage/common/storage-designing-ha-apps-with-ragrs.md)에 자동으로 복사됩니다. 새 백업이 만들어지면 저장소 크기가 동적으로 증가합니다.  저장소는 주별 전체 백업, 일별 차등 백업 및 5분마다 복사되는 트랜잭션 로그 백업에 사용됩니다. 저장소 사용량은 데이터베이스 변경률과 보존 기간에 따라 다릅니다. 각 데이터베이스에 대한 개별적인 보존 기간은 7-35일 사이에서 구성할 수 있습니다. 데이터 크기의 1배에 해당하는 최소 저장소 크기는 추가 비용 없이 제공됩니다. 대부분의 데이터베이스에서 이 크기는 7일간의 백업을 저장하기에 충분합니다.
-- 
-  **LTR**: SQL Database는 전체 백업의 장기 보존을 최대 10년 동안 구성하는 옵션을 제공합니다. LTR 정책을 사용하도록 설정하면 이러한 백업이 RA-GRS 저장소에 자동으로 저장되지만 백업이 복사되는 빈도를 제어할 수 있습니다. 서로 다른 준수 요구 사항을 충족하려면 주별, 월별 및/또는 연도별 백업에 대해 다른 보존 기간을 선택할 수 있습니다. 이 구성은 LTR 백업에 사용되는 저장소의 크기를 정의합니다. LTR 가격 계산기를 사용하여 LTR 저장소 비용을 추정할 수 있습니다. 자세한 내용은 [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
+- **LTR**: SQL Database는 전체 백업의 장기 보존을 최대 10년 동안 구성하는 옵션을 제공합니다. LTR 정책을 사용하도록 설정하면 이러한 백업이 RA-GRS 저장소에 자동으로 저장되지만 백업이 복사되는 빈도를 제어할 수 있습니다. 서로 다른 준수 요구 사항을 충족하려면 주별, 월별 및/또는 연도별 백업에 대해 다른 보존 기간을 선택할 수 있습니다. 이 구성은 LTR 백업에 사용되는 저장소의 크기를 정의합니다. LTR 가격 계산기를 사용하여 LTR 저장소 비용을 추정할 수 있습니다. 자세한 내용은 [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
 
 ## <a name="azure-hybrid-use-benefit"></a>AHUB(Azure Hybrid Use Benefit)
 

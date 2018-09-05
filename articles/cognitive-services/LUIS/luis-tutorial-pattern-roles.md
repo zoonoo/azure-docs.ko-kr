@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 08/03/2018
 ms.author: diberry
-ms.openlocfilehash: 2fd473226dca2576be79b90bc05d66599f759713
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 633bf16790437ba83e9a2a99f33a23fef9255364
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524147"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43090529"
 ---
 # <a name="tutorial-improve-app-with-pattern-roles"></a>자습서: 패턴 역할을 사용하여 앱 개선
 
@@ -52,7 +52,7 @@ ms.locfileid: "39524147"
 |[계층 구조(역할 없음)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from **a-2349** to **b-1298**|a-2349, b-1298|
 |이 자습서(역할 있음)|Move Billy Patterson from **Yuma** to **Denver**.|Yuma, Denver|
 
-부모에서는 계층적 부모만 사용되므로 패턴에서 계층 구조 엔터티를 사용할 수 없습니다. 출발지 및 목적지의 명명된 위치를 반환하기 위해서는 패턴을 사용해야 합니다.
+패턴에서는 계층적 부모만 사용되므로 패턴에서 계층 구조 엔터티를 사용할 수 없습니다. 출발지 및 목적지의 명명된 위치를 반환하기 위해서는 패턴을 사용해야 합니다.
 
 ### <a name="simple-entity-for-new-employee-name"></a>새 직원 이름에 대한 단순 엔터티
 새 직원의 이름인 Billy Patterson은 아직 **Employee** 목록 엔터티에 속하지 않습니다. 이름을 외부 시스템으로 전송하여 회사 자격 증명을 만들기 위해 먼저 새 직원 이름이 추출됩니다. 회사 자격 증명이 만들어진 후에는 직원 자격 증명이 **Employee** 목록 엔터티에 추가됩니다.

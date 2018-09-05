@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2018
 ms.author: glenga
-ms.openlocfilehash: c2e066ddf444cb81d7f0033641a300d18b266f62
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: ce520c5972bf27c30ecb175d58b6b6071bf804db
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397850"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818295"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Azure Functions의 IP 주소
 
@@ -39,7 +39,7 @@ IP 주소는 개별 함수가 아니라 함수 앱과 연결됩니다. 들어오
 3. **플랫폼 기능**을 선택합니다.
 4. **속성**을 선택합니다. 그러면 **가상 IP 주소** 아래에 인바운드 IP 주소가 표시됩니다.
 
-## <a name="function-app-outbound-ip-addresses"></a>함수 앱 아웃바운드 IP 주소
+## <a name="find-outbound-ip-addresses"></a>함수 앱 아웃바운드 IP 주소
 
 각 함수 앱에는 사용 가능한 아웃바운드 IP 주소 집합이 있습니다. 백 엔드 데이터베이스와 같이 함수의 아웃바운드 연결은 사용 가능한 아웃바운드 IP 주소 중 하나를 원본 IP 주소로 사용합니다. 지정된 연결에서 사용할 IP 주소는 미리 알 수 없습니다. 따라서 백 엔드 서비스에서 모든 함수 앱의 아웃바운드 IP 주소에 대해 방화벽을 열어야 합니다.
 

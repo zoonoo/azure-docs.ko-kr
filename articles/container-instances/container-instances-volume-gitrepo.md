@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/16/2018
+ms.date: 06/15/2018
 ms.author: marsma
-ms.openlocfilehash: e40d841c07534c9c0074c038d1e3c6e435265564
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 34036c5ec9ccd8c502104ce862e4749c59be62b9
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32166782"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105195"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Azure Container Instances에서 gitRepo 볼륨 탑재
 
@@ -30,9 +30,9 @@ ms.locfileid: "32166782"
 
 | 자산 | 필수 | 설명 |
 | -------- | -------- | ----------- |
-| `repository` | 예 | 복제할 Git 리포지토리의 `http://` 또는 `https://`를 포함한 전체 URL입니다.|
-| `directory` | 아니오 | 리포지토리를 복제해야 하는 디렉터리입니다. 경로는 "`..`"을 포함하거나 이것으로 시작되지 않아야 합니다.  "`.`"을 지정하면 리포지토리가 볼륨의 디렉터리에 복제됩니다. 그렇지 않을 경우 Git 리포지토리가 볼륨 디렉터리 내 지정된 이름의 하위 디렉터리에 복제됩니다. |
-| `revision` | 아니오 | 복제될 수정 내용의 커밋 해시입니다. 지정하지 않으면 `HEAD` 수정 내용이 복제됩니다. |
+| `repository` | yes | 복제할 Git 리포지토리의 `http://` 또는 `https://`를 포함한 전체 URL입니다.|
+| `directory` | 아니요 | 리포지토리를 복제해야 하는 디렉터리입니다. 경로는 "`..`"을 포함하거나 이것으로 시작되지 않아야 합니다.  "`.`"을 지정하면 리포지토리가 볼륨의 디렉터리에 복제됩니다. 그렇지 않을 경우 Git 리포지토리가 볼륨 디렉터리 내 지정된 이름의 하위 디렉터리에 복제됩니다. |
+| `revision` | 아니요 | 복제될 수정 내용의 커밋 해시입니다. 지정하지 않으면 `HEAD` 수정 내용이 복제됩니다. |
 
 ## <a name="mount-gitrepo-volume-azure-cli"></a>gitRepo 볼륨 탑재: Azure CLI
 
@@ -69,8 +69,7 @@ drwxr-xr-x    2 root     root          4096 Apr 16 16:35 app
 
 예를 들어 다음과 같은 Resource Manager 템플릿은 단일 컨테이너로 구성된 컨테이너 그룹을 만듭니다. 컨테이너는 *gitRepo* 볼륨 블록으로 지정된 GitHub 리포지토리 두 개를 복제합니다. 두 번째 볼륨에는 복제할 디렉터리를 지정하는 추가 속성과 복제할 특정 수정 내용의 커밋 해시가 포함됩니다.
 
-<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-gitrepo.json -->
-[!code-json[volume-gitrepo](~/azure-docs-json-samples/container-instances/aci-deploy-volume-gitrepo.json)]
+<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-gitrepo.json --> [!code-json[volume-gitrepo](~/azure-docs-json-samples/container-instances/aci-deploy-volume-gitrepo.json)]
 
 이전 템플릿에 정의된 두 복제 리포지토리의 결과 디렉터리 구조는 다음과 같습니다.
 
@@ -80,6 +79,28 @@ drwxr-xr-x    2 root     root          4096 Apr 16 16:35 app
 ```
 
 Azure Resource Manager 템플릿을 사용하는 컨테이너 인스턴스 배포의 예제를 보려면 [Azure Container Instances에서 다중 컨테이너 그룹 배포](container-instances-multi-container-group.md)를 참조하세요.
+
+## <a name="private-git-repo-authentication"></a>개인 Git 리포지토리 인증
+
+개인 Git 리포지토리에 대한 gitRepo 볼륨을 탑재하려면 리포지토리 URL에서 자격 증명을 지정합니다. 일반적으로 자격 증명은 사용자 이름의 형식이며 리포지토리에 대한 범위가 지정된 액세스 권한을 부여하는 PAT(개인용 액세스 토큰)입니다.
+
+예를 들어 개인 GitHub 리포지토리에 대한 Azure CLI `--gitrepo-url` 매개 변수는 다음과 비슷하게 표시됩니다(여기에서 "gituser"는 GitHub 사용자 이름이며, "abcdef1234fdsa4321abcdef"는 사용자의 개인용 액세스 토큰임).
+
+```azurecli
+--gitrepo-url https://gituser:abcdef1234fdsa4321abcdef@github.com/GitUser/some-private-repository
+```
+
+VSTS Git 리포지토리의 경우 유효한 PAT와 함께 사용자 이름을 지정합니다(다음 예제와 같이 "vstsuser"를 사용할 수 있음).
+
+```azurecli
+--gitrepo-url https://vstsuser:abcdef1234fdsa4321abcdef@vstsaccountname.visualstudio.com/_git/some-private-repository
+```
+
+GitHub 및 VSTS의 개인용 액세스 토큰에 대한 자세한 내용은 다음을 참조하세요.
+
+GitHub: [명령줄에 대한 개인용 액세스 토큰 만들기][pat-github]
+
+VSTS: [액세스 인증을 위한 개인용 액세스 토큰 만들기][pat-vsts]
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -91,6 +112,8 @@ Azure Container Instances에서 다른 볼륨 유형을 탑재하는 방법을 �
 
 <!-- LINKS - External -->
 [aci-helloworld]: https://github.com/Azure-Samples/aci-helloworld
+[pat-github]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
+[pat-vsts]: https://docs.microsoft.com/vsts/organizations/accounts/use-personal-access-tokens-to-authenticate
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

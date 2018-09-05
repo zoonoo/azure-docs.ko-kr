@@ -6,14 +6,14 @@ author: meladie
 ms.assetid: 708aa129-b226-4e02-85c6-1f86e54564e4
 ms.service: security
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: a8d2eca785ad166aa4cff26bce876e41770a3427
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 7d200cfa6a529c33555a18cd6598183fedbfd2fc
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246284"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818276"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Azure 보안 및 규정 준수 청사진 - Australia PROTECTED용 PaaS 웹 응용 프로그램
 
@@ -36,7 +36,7 @@ ASD 규정 준수를 구현하려면 정보 보안 등록 평가자가 시스템
 
 솔루션은 고객이 미사용 데이터의 기밀성을 유지하려면 저장소 서비스 암호화를 사용하도록 구성할 수 있는 Azure Storage 계정을 사용합니다. Azure는 데이터 복원력을 위해 고객이 선택한 지역 내에 데이터 복사본 3부를 저장합니다. Azure 지역은 탄력적인 지역 쌍에 배포되며, 지리적 중복 저장소는 복사본 3부와 함께 두 번째 지역에 복제됩니다. 따라서 고객의 주 데이터 위치에서 데이터 손실을 유발하는 부정적인 이벤트를 방지합니다.
 
-보안 향상을 위해 이 솔루션의 모든 Azure 리소스는 Azure Resource Manager를 통해 리소스 그룹으로 관리됩니다. Azure Active Directory 역할 기반 액세스 제어는 Azure Key Vault의 키 및 배포된 리소스에 대한 액세스를 제어하는 데 사용됩니다. 시스템 상태는 Azure Security Center 및 Azure Monitor를 통해 모니터링됩니다. 고객은 로그를 캡처하고 쉽게 탐색할 수 있는 단일 대시보드에 시스템 상태를 표시하도록 두 모니터링 서비스를 구성합니다. Azure Application Gateway는 방지 모드에서 방화벽으로 구성되고 TLSv1.2 이상이 아닌 트래픽을 허용하지 않습니다. 솔루션은 비다중 테넌트 환경에서 웹 계층을 격리하기 위해 Azure Application Service Environment v2를 사용합니다.
+보안 향상을 위해 이 솔루션의 모든 Azure 리소스는 Azure Resource Manager를 통해 리소스 그룹으로 관리됩니다. Azure Active Directory 역할 기반 액세스 제어는 Azure Key Vault의 키 및 배포된 리소스에 대한 액세스를 제어하는 데 사용됩니다. 시스템 상태는 Azure Security Center 및 Azure Monitor를 통해 모니터링됩니다. 고객은 로그를 캡처하고 쉽게 탐색할 수 있는 단일 대시보드에 시스템 상태를 표시하도록 두 모니터링 서비스를 구성합니다. Azure Application Gateway는 방지 모드에서 방화벽으로 구성되고 TLS v1.2 이상이 아닌 트래픽을 허용하지 않습니다. 솔루션은 비다중 테넌트 환경에서 웹 계층을 격리하기 위해 Azure Application Service Environment v2를 사용합니다.
 
 ![용 PaaS 웹 응용 프로그램 참조 아키텍처](images/au-protected-paaswa-architecture.png?raw=true "AU-PROTECTED용 PaaS 웹 응용 프로그램 참조 아키텍처 다이어그램")
 
@@ -95,7 +95,7 @@ App Service Environment는 단일 고객의 응용 프로그램만 실행하도�
 - 보안된 Azure 가상 네트워크에서 호스트 및 네트워크 보안 규칙
 - HTTPS 통신을 위해 자체 서명된 내부 부하 분산 장치 인증서로 구성된 App Service Environment. 모범 사례로, Microsoft에서는 보안 강화를 위해 신뢰할 수 있는 인증 기관을 사용하는 것을 권장합니다.
 - [내부 부하 분산 모드](https://docs.microsoft.com/azure/app-service-web/app-service-environment-with-internal-load-balancer)(모드 3)
-- [TLS 1.0](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings) 사용 안 함
+- [TLS v1.0 및 v1.1](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings) 사용 안 함
 - [TLS 암호화](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings) 변경
 - [인바운드 트래픽 N/W 포트](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-control-inbound-traffic) 제어
 - [웹 응용 프로그램 방화벽 – 데이터 제한](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
@@ -128,11 +128,9 @@ Azure는 기본적으로 Azure 데이터 센터와의 모든 통신을 암호화
 
 이 아키텍처는 고객 소유의 네트워크에서 전송되는 Protected 데이터에 IPSEC가 구성된 VPN Gateway를 사용하는 인터넷 또는 ExpressRoute를 사용합니다.
 
-또한 Azure 관리 포털을 통한 Azure에 대한 모든 트랜잭션은 TLS 1.2를 사용하는 HTTPS를 통해 발생합니다.
-미사용 데이터
+또한 Azure 관리 포털을 통한 Azure에 대한 모든 트랜잭션은 TLS v1.2를 사용하는 HTTPS를 통해 발생합니다.
 
 ### <a name="data-at-rest"></a>미사용 데이터
-
 이 아키텍처는 암호화, 데이터베이스 감사 및 다른 방법을 통해 미사용 데이터를 보호합니다.
 
 **Azure Storage**: 암호화된 미사용 데이터 요구 사항을 충족하기 위해 모든 [Azure Storage](https://azure.microsoft.com/services/storage/)에서 [저장소 서비스 암호화](https://docs.microsoft.com/azure/storage/storage-service-encryption)를 사용합니다. 이렇게 하면 호주 정부 ISM에서 정의한 조직의 보안 약정 및 준수 요구 사항을 지지하는 데이터를 안전하게 보호할 수 있습니다.
@@ -204,7 +202,7 @@ Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위
 
 **Azure Monitor**: [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) 를 사용하면 사용자의 Azure 리소스에서 API 호출을 추적하는 것을 포함하여 조직에서 감사, 경고 만들기 및 데이터 보관을 수행할 수 있도록 하여 사용자가 성능을 추적하고, 보안을 유지하고, 추세를 식별할 수 있습니다.
 
-Azure Network Watcher: [Azure Network Watcher]9https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview)는 Azure 가상 네트워크의 리소스를 모니터링 및 진단하고 메트릭을 보고 그에 대한 로그를 활성화 또는 비활성화하는 도구를 제공합니다.  연방 엔터티는 NSG 및 Virtual Machines에 대한 Network Watcher 흐름 로그를 구현해야 합니다. 이러한 로그는 보안 로그만 저장되는 전용 저장소 계정에 저장되어야 하며, 저장소 계정에 대한 액세스는 역할 기반 액세스 제어로 보호되어야 합니다.
+Azure Network Watcher: [Azure Network Watcher]9 https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview)는 Azure 가상 네트워크의 리소스를 모니터링 및 진단하고 메트릭을 보고 그에 대한 로그를 활성화 또는 비활성화하는 도구를 제공합니다.  연방 엔터티는 NSG 및 Virtual Machines에 대한 Network Watcher 흐름 로그를 구현해야 합니다. 이러한 로그는 보안 로그만 저장되는 전용 저장소 계정에 저장되어야 하며, 저장소 계정에 대한 액세스는 역할 기반 액세스 제어로 보호되어야 합니다.
 
 ## <a name="threat-model"></a>위협 모델
 

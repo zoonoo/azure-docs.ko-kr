@@ -1,27 +1,22 @@
 ---
-title: Log Analytics에서 B2B 메시지 쿼리 - Azure Logic Apps | Microsoft Docs
-description: Log Analytics에서 AS2, X12 및 EDIFACT 메시지를 추적하는 쿼리 만들기
-author: padmavc
-manager: jeconnoc
-editor: ''
+title: Log Analytics에서 B2B 메시지 쿼리 만들기 - Azure Logic Apps | Microsoft Docs
+description: Azure Logic Apps용 Log Analytics를 사용하여 AS2, X12 및 EDIFACT 메시지를 추적하는 쿼리 만들기
 services: logic-apps
-documentationcenter: ''
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/19/2018
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 48cca9919bd09906bdcc3faaaef186ec109c9169
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: baccd255fc2812eae0de3a98dfcef3dcbc7e1b46
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294312"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124273"
 ---
-# <a name="query-for-as2-x12-and-edifact-messages-in-log-analytics"></a>Log Analytics에서 AS2, X12 및 EDIFACT 메시지 쿼리
+# <a name="create-queries-for-tracking-as2-x12-and-edifact-messages-in-log-analytics-for-azure-logic-apps"></a>Azure Logic Apps용 Log Analytics를 사용하여 AS2, X12 및 EDIFACT 메시지 추적을 위한 쿼리 만들기
 
 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)를 사용하여 추적 중인 AS2, X12 또는 EDIFACT 메시지를 찾기 위해 특정 조건에 따라 작업을 필터링하는 쿼리를 만들 수 있습니다. 예를 들어 특정 교환 컨트롤 번호에 따라 메시지를 찾을 수 있습니다.
 

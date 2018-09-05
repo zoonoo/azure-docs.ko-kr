@@ -10,12 +10,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 08/17/2018
 ms.author: kgremban
-ms.openlocfilehash: 4bb33eae53d31701b66d13cb4e810b1a0b8a4b0b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: a86b22b3327b2353dd37a9f9863337d12a009434
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145224"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143576"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>IoT Hub에 대한 Azure Event Grid 이벤트 스키마
 
@@ -31,8 +31,33 @@ Azure IoT Hub는 다음과 같은 이벤트 유형을 내보냅니다.
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | IoT 허브에 장치를 등록하는 경우 게시합니다. |
 | Microsoft.Devices.DeviceDeleted | IoT 허브에서 장치를 삭제하는 경우 게시합니다. | 
+| Microsoft.Devices.DeviceConnected | IoT Hub에 장치가 연결되는 경우 게시합니다. |
+| Microsoft.Devices.DeviceDisconnected | IoT Hub와 장치의 연결이 해제되는 경우 게시합니다. | 
 
 ## <a name="example-event"></a>예제 이벤트
+
+DeviceConnected 및 DeviceDisconnected 이벤트에 대한 스키마는 구조가 동일합니다. 이 샘플 이벤트는 장치가 IoT 허브에 연결될 때 발생하는 이벤트의 스키마를 보여줍니다.
+
+```json
+[{
+  "id": "f6bbf8f4-d365-520d-a878-17bf7238abd8", 
+  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>", 
+  "subject": "devices/LogicAppTestDevice", 
+  "eventType": "Microsoft.Devices.DeviceConnected", 
+  "eventTime": "2018-06-02T19:17:44.4383997Z", 
+  "data": {
+    "deviceConnectionStateEventInfo": {
+      "sequenceNumber":
+        "000000000000000001D4132452F67CE200000002000000000000000000000001"
+    },
+    "hubName": "egtesthub1",
+    "deviceId": "LogicAppTestDevice",
+    "moduleId" : "DeviceModuleID"
+  }, 
+  "dataVersion": "1", 
+  "metadataVersion": "1" 
+}]
+```
 
 DeviceCreated 및 DeviceDeleted 이벤트에 대한 스키마는 구조가 동일합니다. 이 샘플 이벤트는 장치가 IoT 허브에 등록될 때 발생하는 이벤트의 스키마를 보여 줍니다.
 
@@ -47,6 +72,7 @@ DeviceCreated 및 DeviceDeleted 이벤트에 대한 스키마는 구조가 동�
     "twin": {
       "deviceId": "LogicAppTestDevice",
       "etag": "AAAAAAAAAAE=",
+      "deviceEtag": "null",
       "status": "enabled",
       "statusUpdateTime": "0001-01-01T00:00:00",
       "connectionState": "Disconnected",
@@ -74,11 +100,9 @@ DeviceCreated 및 DeviceDeleted 이벤트에 대한 스키마는 구조가 동�
       }
     },
     "hubName": "egtesthub1",
-    "deviceId": "LogicAppTestDevice",
-    "operationTimestamp": "2018-01-02T19:17:44.4383997Z",
-    "opType": "DeviceCreated"
+    "deviceId": "LogicAppTestDevice"
   },
-  "dataVersion": "",
+  "dataVersion": "1",
   "metadataVersion": "1"
 }]
 ```
@@ -98,17 +122,29 @@ DeviceCreated 및 DeviceDeleted 이벤트에 대한 스키마는 구조가 동�
 | dataVersion | string | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
 | metadataVersion | string | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
 
-데이터 개체의 내용은 각 이벤트 게시자에 따라 다릅니다. IoT Hub 이벤트의 경우 데이터 개체에 다음 속성이 포함됩니다.
+모든 IoT Hub 이벤트의 경우 데이터 개체에 다음 속성이 포함됩니다.
 
 | 자산 | type | 설명 |
 | -------- | ---- | ----------- |
 | hubName | string | 장치가 만들어지거나 삭제된 IoT Hub의 이름입니다. |
 | deviceId | string | 장치의 고유 식별자입니다. 이 대/소문자 구분 문자열은 최대 128자까지 가능하며, ASCII 7 비트 영숫자 문자 + 다음 특수 문자 `- : . + % _ # * ? ! ( ) , = @ ; $ '`을 지원합니다. |
-| operationTimestamp | string | ISO8601 작업 타임스탬프입니다. |
-| opType | string | IoT Hub에서 이 작업에 대해 지정한 이벤트 유형은 `DeviceCreated` 또는 `DeviceDeleted`입니다.
+
+데이터 개체의 내용은 각 이벤트 게시자에 따라 다릅니다. **Device Connected** 및 **Device Disconnected** IoT Hub 이벤트의 경우 데이터 개체에 다음 속성이 포함됩니다.
+
+| 자산 | type | 설명 |
+| -------- | ---- | ----------- |
+| moduleId | string | 모듈의 고유 식별자입니다. 이 필드는 모듈 장치에 대해서만 출력됩니다. 이 대/소문자 구분 문자열은 최대 128자까지 가능하며, ASCII 7 비트 영숫자 문자 + 다음 특수 문자 `- : . + % _ # * ? ! ( ) , = @ ; $ '`을 지원합니다. |
+| deviceConnectionStateEventInfo | object | 장치 연결 상태 이벤트 정보
+| sequenceNumber | string | 연결된 장치 또는 장치 분리 이벤트의 순서를 나타내는 데 도움이 되는 숫자입니다. 최신 이벤트는 이전 이벤트보다 시퀀스 번호가 높습니다. 이 숫자는 1을 초과하여 변경될 수 있지만 엄격하게 증가합니다. [시퀀스 번호 사용 방법](../iot-hub/iot-hub-how-to-order-connection-state-events.md)을 참조하세요. |
+
+데이터 개체의 내용은 각 이벤트 게시자에 따라 다릅니다. **장치가 생성됨** 및 **장치가 삭제됨** IoT Hub 이벤트의 경우 데이터 개체에 다음 속성이 포함됩니다.
+
+| 자산 | type | 설명 |
+| -------- | ---- | ----------- |
 | 쌍 | object | 응용 프로그램 장치 메타데이터의 클라우드 표현인 장치 쌍에 관한 정보입니다. | 
 | deviceID | string | 장치 쌍의 고유 식별자입니다. | 
-| etag | string | 장치 쌍의 내용을 설명하는 정보입니다. 각 etag은 장치 쌍마다 고유합니다. | 
+| etag | string | 장치 쌍에 대한 업데이트의 일관성을 확인하는 유효성 검사기입니다. 각 etag은 장치 쌍마다 고유합니다. |  
+| deviceEtag| string | 장치 레지스트리에 대한 업데이트의 일관성을 확인하는 유효성 검사기입니다. 각 deviceEtag는 장치 레지스트리마다 고유해야 합니다. |
 | status | string | 장치 쌍의 활성화 여부를 나타냅니다. | 
 | statusUpdateTime | string | 마지막 장치 쌍 상태 업데이트의 ISO8601 타임 스탬프입니다. |
 | connectionState | string | 장치의 연결 여부를 나타냅니다. | 

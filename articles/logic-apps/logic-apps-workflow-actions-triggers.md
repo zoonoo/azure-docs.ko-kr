@@ -5,17 +5,16 @@ services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: reference
-ms.date: 06/22/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 427964a6651dd4ab71d0029f89e40afdd34d162a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.topic: reference
+ms.date: 06/22/2018
+ms.openlocfilehash: 8adfd0b3d6d87834441ab87af194de141b77af34
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390707"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093621"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps의 워크플로 정의 언어에 대한 트리거 및 작업 형식 참조
 
@@ -158,6 +157,7 @@ ms.locfileid: "39390707"
 |---------|------|-------------| 
 | headers | JSON 개체 | 응답의 헤더입니다. | 
 | 본문 | JSON 개체 | 응답의 본문입니다. | 
+| 상태 코드 | 정수  | 응답의 상태 코드 | 
 |||| 
 
 *예제*
@@ -330,6 +330,7 @@ ms.locfileid: "39390707"
 |---------|------|-------------| 
 | headers | JSON 개체 | 응답의 헤더입니다. | 
 | 본문 | JSON 개체 | 응답의 본문입니다. | 
+| 상태 코드 | 정수  | 응답의 상태 코드 | 
 |||| 
 
 *들어오는 요청에 대한 요구 사항*
@@ -337,7 +338,7 @@ ms.locfileid: "39390707"
 논리 앱에서 잘 작동하려면 끝점은 특정 트리거 패턴 또는 계약을 준수하고, 다음 속성을 인식해야 합니다.  
   
 | response | 필수 | 설명 | 
-|----------|----------|-------------|  
+|----------|----------|-------------| 
 | 상태 코드 | yes | “200 확인” 상태 코드가 실행을 시작합니다. 다른 상태 코드는 실행을 시작하지 않습니다. | 
 | Retry-after 헤더 | 아니요 | 논리 앱이 엔드포인트를 다시 폴링할 때까지의 시간(초) | 
 | 위치 헤더 | 아니요 | 다음 폴링 간격에서 호출할 URL입니다. 지정하지 않으면 원래 URL이 사용됩니다. | 
@@ -424,6 +425,7 @@ ms.locfileid: "39390707"
 |---------|------|-------------| 
 | headers | JSON 개체 | 응답의 헤더입니다. | 
 | 본문 | JSON 개체 | 응답의 본문입니다. | 
+| 상태 코드 | 정수  | 응답의 상태 코드 | 
 |||| 
 
 *예제*
@@ -845,7 +847,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 ### <a name="control-workflow-actions"></a>워크플로 제어 작업
 
-이러한 작업은 워크플로 실행을 제어하고 다른 작업을 포함하도록 도와줍니다. 워크플로 제어 작업 외부에서, 해당 워크플로 제어 작업 내부의 작업을 직접 참조할 수 있습니다. 예를 들어, `Http` 작업이 범위 내에 있는 경우 워크플로의 어디에서든지 `@body('Http')` 식을 참조할 수 있습니다. 그러나 워크플로 제어 작업 내에서 존재하는 작업은 동일한 워크플로 제작어 업 구조 내에 있는 다른 작업 "이후에만 실행"될 수 있습니다.
+이러한 작업은 워크플로 실행을 제어하고 다른 작업을 포함하도록 도와줍니다. 워크플로 제어 작업 외부에서, 해당 워크플로 제어 작업 내부의 작업을 직접 참조할 수 있습니다. 예를 들어, `Http` 작업이 범위 내에 있는 경우 워크플로의 어디에서든지 `@body('Http')` 식을 참조할 수 있습니다. 그러나 워크플로 제어 작업 내에서 존재하는 작업은 동일한 워크플로 제어 작업 구조 내에 있는 다른 작업 "이후에만 실행"될 수 있습니다.
 
 | 작업 유형 | 설명 | 
 |-------------|-------------| 
@@ -1378,7 +1380,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 | 값 | type | 설명 | 
 |-------|------|-------------| 
-| <*response-status-code*> | 정수  | 들어오는 요청으로 전송되는 HTTP 상태 코드입니다. 기본 코드는 "200 정상"이지만 3xxx를 제외하고 2xx, 4xx 또는 5xx로시작 되는 어떤 유효한 상태 코드도 될 수 있습니다. | 
+| <*response-status-code*> | 정수  | 들어오는 요청으로 전송되는 HTTP 상태 코드입니다. 기본 코드는 "200 정상"이지만 3xxx를 제외하고 2xx, 4xx 또는 5xx로 시작되는 어떤 유효한 상태 코드도 될 수 있습니다. | 
 |||| 
 
 *선택 사항*
@@ -2314,7 +2316,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 <a name="change-trigger-concurrency"></a>
 
-### <a name="change-trigger-concurrency"></a>트리거 동시성 변경경
+### <a name="change-trigger-concurrency"></a>트리거 동시성 변경
 
 기본적으로 논리 앱 인스턴스는 동시에 또는 병렬로 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지 실행됩니다. 따라서 각 트리거 인스턴스는 이전에 활성 상태이던 논리 앱 인스턴스 실행이 완료되기 전에 발생합니다. 이 제한은 백 엔드 시스템에서 수신하는 요청 수를 제한하는 데 도움이 됩니다. 
 
@@ -2552,6 +2554,159 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
    "runAfter": {}
 }
 ```
+
+<a name="connector-authentication"></a>
+
+## <a name="authenticate-triggers-or-actions"></a>트리거 또는 작업 인증
+
+HTTP 엔드포인트는 다양한 종류의 인증을 지원합니다. 이러한 HTTP 트리거 및 작업에 대한 인증을 설정할 수 있습니다.
+
+* [HTTP](../connectors/connectors-native-http.md)
+* [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)
+* [HTTP 웹후크](../connectors/connectors-native-webhook.md)
+
+설정할 수 있는 인증의 종류는 다음과 같습니다.
+
+* [기본 인증](#basic-authentication)
+* [클라이언트 인증서 인증](#client-certificate-authentication)
+* [Azure AD(Azure Active Directory) OAuth 인증](#azure-active-directory-oauth-authentication)
+
+<a name="basic-authentication"></a>
+
+### <a name="basic-authentication"></a>기본 인증
+
+이 인증 유형의 경우 트리거 또는 작업 정의는 이러한 속성이 있는 `authentication` JSON 개체를 포함할 수 있습니다.
+
+| 자산 | 필수 | 값 | 설명 | 
+|----------|----------|-------|-------------| 
+| **type** | yes | "Basic" | 사용할 인증 유형입니다. 여기에서는 "Basic"입니다. | 
+| **사용자 이름** | yes | "@parameters('userNameParam')" | 대상 서비스 엔드포인트 액세스를 위해 인증할 사용자 이름을 전달하는 매개 변수 |
+| **암호** | yes | "@parameters('passwordParam')" | 대상 서비스 엔드포인트 액세스를 위해 인증할 암호를 전달하는 매개 변수 |
+||||| 
+
+예를 들어 트리거 또는 작업 정의에서 `authentication` 개체에 대한 형식은 다음과 같습니다. 매개 변수 보호에 대한 자세한 내용은 [중요한 정보 보호](#secure-info)를 참조하세요. 
+
+```javascript
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "http://www.microsoft.com",
+      "authentication": {
+         "type": "Basic",
+         "username": "@parameters('userNameParam')",
+         "password": "@parameters('passwordParam')"
+      }
+  },
+  "runAfter": {}
+}
+```
+
+<a name="client-certificate-authentication"></a>
+
+### <a name="client-certificate-authentication"></a>클라이언트 인증서 인증
+
+이 인증 유형의 경우 트리거 또는 작업 정의는 이러한 속성이 있는 `authentication` JSON 개체를 포함할 수 있습니다.
+
+| 자산 | 필수 | 값 | 설명 | 
+|----------|----------|-------|-------------| 
+| **type** | yes | "ClientCertificate" | SSL(Secure Sockets Layer) 클라이언트 인증서에 사용할 인증 유형 | 
+| **pfx** | yes | <*base64-encoded-pfx-file*> | PFX(개인 정보 교환) 파일의 base64로 인코딩된 콘텐츠 |
+| **암호** | yes | "@parameters('passwordParam')" | PFX 파일에 액세스하기 위한 암호가 있는 매개 변수 |
+||||| 
+
+예를 들어 트리거 또는 작업 정의에서 `authentication` 개체에 대한 형식은 다음과 같습니다. 매개 변수 보호에 대한 자세한 내용은 [중요한 정보 보호](#secure-info)를 참조하세요. 
+
+```javascript
+"authentication": {
+   "password": "@parameters('passwordParam')",
+   "pfx": "aGVsbG8g...d29ybGQ=",
+   "type": "ClientCertificate"
+}
+```
+
+<a name="azure-active-directory-oauth-authentication"></a>
+
+### <a name="azure-active-directory-ad-oauth-authentication"></a>Azure AD(Active Directory) OAuth 인증
+
+이 인증 유형의 경우 트리거 또는 작업 정의는 이러한 속성이 있는 `authentication` JSON 개체를 포함할 수 있습니다.
+
+| 자산 | 필수 | 값 | 설명 | 
+|----------|----------|-------|-------------| 
+| **type** | yes | `ActiveDirectoryOAuth` | 사용할 인증 유형, Azure AD OAuth의 경우 "ActiveDirectoryOAuth" | 
+| **authority** | 아니요 | <*URL-for-authority-token-issuer*> | 인증 토큰을 제공하는 기관의 URL |  
+| **테넌트** | yes | <*tenant-ID*> | Azure AD 테넌트의 테넌트 ID | 
+| **대상** | yes | <*resource-to-authorize*> | 사용하도록 권한을 부여하려는 리소스(예: `https://management.core.windows.net/`) | 
+| **clientId** | yes | <*client-ID*> | 권한 부여를 요청하는 앱에 대한 클라이언트 ID | 
+| **credentialType** | yes | "Secret" 또는 "Certificate" | 클라이언트에서 권한 부여 요청에 대해 사용하는 자격 증명 유형 이 속성 및 값은 기본 정의에 표시되지 않지만 자격 증명 형식에 대한 필수 매개 변수를 결정합니다. | 
+| **암호** | 예, "Certificate" 자격 증명 유형의 경우 | "@parameters('passwordParam')" | PFX 파일에 액세스하기 위한 암호가 있는 매개 변수 | 
+| **pfx** | 예, "Certificate" 자격 증명 유형의 경우 | <*base64-encoded-pfx-file*> | PFX(개인 정보 교환) 파일의 base64로 인코딩된 콘텐츠 |
+| **암호** | 예, "Secret" 자격 증명 유형의 경우 | <*secret-for-authentication*> | 클라이언트에서 권한 부여 요청에 대해 사용하는 base64로 인코딩된 비밀 |
+||||| 
+
+예를 들어 다음은 트리거 또는 작업 정의에서 "Secret" 자격 증명 유형을 사용하는 경우 `authentication` 개체에 대한 양식입니다. 매개 변수 보호에 대한 자세한 내용은 [중요한 정보 보호](#secure-info)를 참조하세요. 
+
+```javascript
+"authentication": {
+   "audience": "https://management.core.windows.net/",
+   "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
+   "secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
+   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+   "type": "ActiveDirectoryOAuth"
+}
+```
+
+<a name="secure-info"></a>
+
+## <a name="secure-sensitive-information"></a>중요한 정보 보호
+
+트리거 및 작업 정의에서 사용자 이름 및 암호와 같은 인증에 사용하는 중요한 정보를 보호하려면 논리 앱을 저장한 후 이 정보가 보이지 않도록 매개 변수 및 `@parameters()` 식을 사용할 수 있습니다. 
+
+예를 들어 트리거 또는 작업 정의에서 "Basic" 인증을 사용한다고 가정합니다. 다음은 사용자 이름 및 암호를 지정하는 예제 `authentication` 개체입니다.
+
+```javascript
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "http://www.microsoft.com",
+      "authentication": {
+         "type": "Basic",
+         "username": "@parameters('userNameParam')",
+         "password": "@parameters('passwordParam')"
+      }
+  },
+  "runAfter": {}
+}
+```
+
+논리 앱 정의에 대한 `parameters` 섹션에서 트리거 또는 작업 정의에 사용한 매개 변수를 정의합니다.
+
+```javascript
+"definition": {
+   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+   "actions": {
+      "HTTP": {
+      }
+   },
+   "parameters": {
+      "passwordParam": {
+         "type": "securestring"
+      },
+      "userNameParam": {
+         "type": "securestring"
+      }
+   },
+   "triggers": {
+      "HTTP": {
+      }
+   },
+   "contentVersion": "1.0.0.0",
+   "outputs": {}
+},
+```
+
+Azure Resource Manager 배포 템플릿을 만들거나 사용하는 경우 템플릿 정의에 대해 외부 `parameters` 섹션도 포함해야 합니다. 매개 변수 보호에 대한 자세한 내용은 [논리 앱에 대한 액세스 보호](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,25 +1,21 @@
 ---
 title: 예제 및 일반적인 시나리오 - Azure Logic Apps | Microsoft Docs
-description: 예제, 시나리오, 자습서 및 연습을 통해 논리 앱에 대해 자세히 알아보세요.
+description: Azure Logic Apps의 예제, 시나리오, 자습서 및 연습
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: logic-apps
+ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.date: 01/31/18
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 8b340db5f89f93869486bf7541acbc3d580868a3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f35822351a1ff5176548d67c8d94ada02f470421
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300041"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123711"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Azure Logic Apps의 일반적인 시나리오, 예제, 자습서 및 연습
 
@@ -31,9 +27,9 @@ ms.locfileid: "35300041"
 
 모든 논리 앱은 하나의 [*트리거*](../logic-apps/logic-apps-overview.md#logic-app-concepts)로 시작하며 논리 앱 워크플로를 시작하고 트리거의 일부로 데이터를 전달합니다. 일부 커넥터는 다음과 같은 유형의 트리거를 제공합니다.
 
-* *폴링 트리거*: 서비스 끝점에서 정기적으로 새 데이터를 확인합니다. 새 데이터가 존재하면 트리거는 해당 데이터를 입력으로 사용하여 새 워크플로 인스턴스를 만들고 실행합니다.
+* *폴링 트리거*: 서비스 엔드포인트에서 정기적으로 새 데이터를 확인합니다. 새 데이터가 존재하면 트리거는 해당 데이터를 입력으로 사용하여 새 워크플로 인스턴스를 만들고 실행합니다.
 
-* *푸시 트리거*: 서비스 끝점에서 데이터를 수신 대기하고 특정 이벤트가 발생할 때까지 대기합니다. 이벤트가 발생하면 트리거가 즉시 실행되어 사용 가능한 데이터를 입력으로 사용하는 새 워크플로 인스턴스를 만들고 실행합니다.
+* *푸시 트리거*: 서비스 엔드포인트에서 데이터를 수신 대기하고 특정 이벤트가 발생할 때까지 대기합니다. 이벤트가 발생하면 트리거가 즉시 실행되어 사용 가능한 데이터를 입력으로 사용하는 새 워크플로 인스턴스를 만들고 실행합니다.
 
 다음은 많이 사용되는 트리거 예제입니다.
 
@@ -44,13 +40,13 @@ ms.locfileid: "35300041"
 
   * "전자 메일이 수신될 때" 트리거를 사용하면 Logic Apps에 지원되는 모든 전자 메일 공급자(예: [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), [Gmail](https://docs.microsoft.com/connectors/gmail/), [Outlook.com](https://docs.microsoft.com/connectors/outlook/) 등)의 새 전자 메일을 논리 앱에서 확인할 수 있습니다.
 
-  * [**HTTP** 트리거](../connectors/connectors-native-http.md)를 사용하면 논리 앱은 HTTP 통신을 통해 지정된 서비스 끝점을 확인할 수 있습니다.
+  * [**HTTP** 트리거](../connectors/connectors-native-http.md)를 사용하면 논리 앱은 HTTP 통신을 통해 지정된 서비스 엔드포인트를 확인할 수 있습니다.
   
 * 푸시:
 
   * [**요청/응답 - 요청** 트리거](../connectors/connectors-native-reqres.md)를 사용하면 논리 앱이 HTTP 요청을 수신하고 어떤 식으로든 이벤트에 실시간으로 응답할 수 있습니다.
 
-  * [**HTTP 웹후크** 트리거](../connectors/connectors-native-webhook.md)는 해당 서비스에 *콜백 URL*을 등록하여 서비스 끝점을 구독합니다. 
+  * [**HTTP 웹후크** 트리거](../connectors/connectors-native-webhook.md)는 해당 서비스에 *콜백 URL*을 등록하여 서비스 엔드포인트를 구독합니다. 
   서비스가 이런 방식으로 지정된 이벤트가 발생할 때 트리거에 알릴 수 있으므로 트리거가 서비스를 폴링할 필요가 없습니다.
 
 새 데이터 또는 이벤트에 대한 알림을 수신하면 트리거가 실행되고 새 논리 앱 워크플로 인스턴스가 만들어지고 워크플로에서 작업이 실행됩니다. 워크플로 전체 트리거의 모든 데이터에 액세스할 수 있습니다. 예를 들어 "새 트윗에서" 트리거는 트윗 콘텐츠를 논리 앱 실행으로 전달합니다. 
@@ -96,7 +92,7 @@ Azure Logic Apps [워크플로 정의 언어](http://aka.ms/logicappsdocs)의 �
 
 ## <a name="other-integrations-and-capabilities"></a>기타 통합 및 기능
 
-논리 앱에서는 Azure Functions, Azure API Management, Azure App Services와 같은 다양한 서비스 및 사용자 지정 HTTP 끝점(REST 및 SOAP)과 통합도 제공합니다.
+논리 앱에서는 Azure Functions, Azure API Management, Azure App Services와 같은 다양한 서비스 및 사용자 지정 HTTP 엔드포인트(REST 및 SOAP)와 통합도 제공합니다.
 
 * [Azure 서버를 사용하지 않고 실시간 소셜 대시보드 만들기](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [논리 앱에서 Azure Functions 호출](../logic-apps/logic-apps-azure-functions.md)
@@ -104,7 +100,7 @@ Azure Logic Apps [워크플로 정의 언어](http://aka.ms/logicappsdocs)의 �
 * [자습서: Azure Event Grid 및 Logic Apps를 사용하여 가상 머신 변경 모니터링](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
 * [자습서: Azure Logic Apps 및 Microsoft Cognitive Services와 통합하여 Twitter 게시물 감정을 분석하는 함수 만들기](../azure-functions/functions-twitter-email.md)
 * [자습서: Azure Logic Apps로 IoT Hub와 사서함을 연결하여 IoT 원격 모니터링 및 알림](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
-* [블로그: 논리 앱에서 SOAP 끝점 호출](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
+* [블로그: 논리 앱에서 SOAP 엔드포인트 호출](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
 ## <a name="end-to-end-scenarios"></a>종단 간 시나리오
 

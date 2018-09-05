@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/27/2018
+ms.date: 08/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ecef13f0ce97c7cec5a6583479911a08a99b0877
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 1d335e135551b7b6faed8ee566acb14b46fd6c81
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110731"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43107514"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Azure(큰 인스턴스)에서 SAP HANA를 설치하고 구성하는 방법
 
@@ -32,8 +32,7 @@ ms.locfileid: "37110731"
 
 자주 사용하는 다른 정의는 다음과 같습니다.
 - **큰 인스턴스 스탬프:** SAP HANA TDI 인증을 받았고 Azure 내에서 SAP HANA 인스턴스를 전용으로 실행하는 하드웨어 인프라 스택입니다.
-- 
-  **Azure(큰 인스턴스)에서 SAP HANA:** 다양한 Azure 지역에서 큰 인스턴스 스탬프로 배포된 SAP HANA TDI 인증 하드웨어에서 HANA 인스턴스를 실행하는 Azure 제품에 대한 공식적인 이름입니다. 관련 용어인 **HANA 큰 인스턴스**는 Azure(큰 인스턴스)에서 SAP HANA의 줄임말이며 기술 배포 가이드에 널리 사용됩니다.
+- **Azure(큰 인스턴스)에서 SAP HANA:** 다양한 Azure 지역에서 큰 인스턴스 스탬프로 배포된 SAP HANA TDI 인증 하드웨어에서 HANA 인스턴스를 실행하는 Azure 제품에 대한 공식적인 이름입니다. 관련 용어인 **HANA 큰 인스턴스**는 Azure(큰 인스턴스)에서 SAP HANA의 줄임말이며 기술 배포 가이드에 널리 사용됩니다.
 
 
 SAP HANA 설치는 사용자가 진행하며 Azure(큰 인스턴스) 서버에 새 SAP HANA가 전달된 후에 작업을 시작할 수 있습니다. 그리고 Azure VNet과 HANA 큰 인스턴스 유닛 사이의 연결이 설정된 후에 가능합니다. 
@@ -42,6 +41,9 @@ SAP HANA 설치는 사용자가 진행하며 Azure(큰 인스턴스) 서버에 �
 > SAP 정책에 따라 SAP HANA 설치는 SAP HANA 설치를 수행하도록 인증된 사람이 수행해야 합니다. Certified SAP Technology Associate 시험, SAP HANA 설치 인증 시험에 합격한 사람 또는 SAP 인증 SI(시스템 통합자).
 
 특히 HANA 2.0을 설치할 때 설치하기로 결정한 SAP HANA 릴리스에서 지원되는 OS를 확인하려면 [SAP Support Note # 2235581 - SAP HANA: 지원되는 운영 체제](https://launchpad.support.sap.com/#/notes/2235581/E)를 다시 확인하세요. HANA 2.0에서 지원되는 OS는 HANA 1.0에서 지원되는 OS보다 더 제한적이라는 것을 알고 있습니다. 
+
+> [!IMPORTANT] 
+> 유형 II 단위의 경우 SLES 12 SP2 OS 버전만 지원됩니다. 
 
 ## <a name="first-steps-after-receiving-the-hana-large-instance-units"></a>HANA 큰 인스턴스 단위를 받은 후 첫 번째 단계
 
@@ -144,6 +146,9 @@ SAP HANA 2.0에서는 hdbparam 프레임워크가 사용되지 않습니다. 따
 
 ## <a name="operating-system"></a>운영 체제
 
+> [!IMPORTANT] 
+> 유형 II 단위의 경우 SLES 12 SP2 OS 버전만 지원됩니다. 
+
 제공되는 OS 이미지의 스왑 공간은 [SAP Support Note #1999997 - FAQ: SAP HANA 메모리](https://launchpad.support.sap.com/#/notes/1999997/E)(영문)에 따라 2GB로 설정됩니다. 원하는 다른 모든 설정은 고객이 설정해야 합니다.
 
 [SUSE Linux Enterprise Server 12 SP1 for SAP Applications](https://www.suse.com/products/sles-for-sap/hana)는 Azure(큰 인스턴스)에서 SAP HANA에 대해 설치되는 Linux 배포판입니다. 이 특정 배포판은 SAP 관련 기능을 &quot;바로 사용할 수 있게&quot; 제공합니다(SLES에서 SAP을 효과적으로 실행하기 위해 미리 설정된 매개 변수 포함).
@@ -164,8 +169,7 @@ SLES 12에서 SAP HANA 구현에 적용할 수 있는 SAP Support Note:
 - [SAP Support Note #171356 – SAP Software on Linux: 일반 정보](https://launchpad.support.sap.com/#/notes/1984787)(영문)
 - [SAP Support Note #1391070 – Linux UUID 솔루션](https://launchpad.support.sap.com/#/notes/1391070)(영문)
 
-
-  [SAP HANA용 Red Hat Enterprise Linux](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana)(영문)는 HANA 큰 인스턴스에서 SAP HANA를 실행하기 위한 또 다른 제품입니다. RHEL 6.7 및 7.2 릴리스를 사용할 수 있습니다. RHEL 7.2 및 최신 릴리스만 지원되는 기본 Azure VM에 비해 HANA Large Instances는 RHEL 6.7도 지원합니다. 그러나 RHEL 7.x 버전을 사용하는 것이 좋습니다.
+[SAP HANA용 Red Hat Enterprise Linux](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana)(영문)는 HANA 큰 인스턴스에서 SAP HANA를 실행하기 위한 또 다른 제품입니다. RHEL 6.7 및 7.2 릴리스를 사용할 수 있습니다. RHEL 7.2 및 최신 릴리스만 지원되는 기본 Azure VM에 비해 HANA Large Instances는 RHEL 6.7도 지원합니다. 그러나 RHEL 7.x 버전을 사용하는 것이 좋습니다.
 
 Red Hat 관련 링크에 있는 유용한 추가 SAP 정보:
 - [Red Hat Linux 사이트의 SAP HANA](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+Red+Hat)

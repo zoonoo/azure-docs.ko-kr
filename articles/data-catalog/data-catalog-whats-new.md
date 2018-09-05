@@ -1,24 +1,19 @@
 ---
-title: Azure Data Catalog의 새로운 기능 | Microsoft Docs
+title: Azure Data Catalog의 새로운 기능
 description: 이 문서는 Azure Data Catalog에 추가된 새로운 기능의 개요를 제공합니다.
 services: data-catalog
-documentationcenter: ''
 author: steelanddata
-manager: NA
-editor: ''
-tags: ''
+ms.author: maroche
 ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: 3d2c0d21d0cf4cc0654c8f7ee2debee4f0320461
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 61f837fbe7f53cdf9f313e5498c6f99ea14203a7
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577065"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047008"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Azure 데이터 카탈로그의 새로운 기능
 **Azure Data Catalog**에 대한 업데이트는 정기적으로 릴리스됩니다. 일부 릴리스에서 백 엔드 서비스 기능에 초점을 맞추므로 모든 릴리스는 새로운 사용자용 기능을 포함하지 않습니다. 이 페이지는 Azure Data Catalog 서비스에 추가된 새로운 사용자용 기능을 강조 표시합니다.
@@ -151,7 +146,7 @@ ms.locfileid: "39577065"
 ## <a name="whats-new-for-march-2016"></a>2016년 3월의 새로운 기능
 2016년 3월을 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
 
-* Azure Data Catalog 서비스의 검색 기능 및 카탈로그 자산 관리 기능에 프로그래밍 방식으로 액세스하기 위한 통합 REST API 끝점. 이 검색 API 끝점 및 카탈로그 API 끝점은 더 이상 사용되지 않으며 2016년 3월 21일에 중단되었습니다. API의 의미 체계에 대한 변경 사항은 없습니다. 끝점 URI만 변경되었습니다. 자세한 내용은 [Azure Data Catalog REST API 참조](https://msdn.microsoft.com/library/azure/mt267595.aspx)를 참조하세요. API 샘플을 보려면 [Azure Data Catalog 개발자 샘플](data-catalog-samples.md)을 참조하세요.
+* Azure Data Catalog 서비스의 검색 기능 및 카탈로그 자산 관리 기능에 프로그래밍 방식으로 액세스하기 위한 통합 REST API 엔드포인트. 이 검색 API 엔드포인트 및 카탈로그 API 엔드포인트는 더 이상 사용되지 않으며 2016년 3월 21일에 중단되었습니다. API의 의미 체계에 대한 변경 사항은 없습니다. 엔드포인트 URI만 변경되었습니다. 자세한 내용은 [Azure Data Catalog REST API 참조](https://msdn.microsoft.com/library/azure/mt267595.aspx)를 참조하세요. API 샘플을 보려면 [Azure Data Catalog 개발자 샘플](data-catalog-samples.md)을 참조하세요.
 
 ## <a name="whats-new-for-february-2016"></a>2016년 2월의 새로운 기능
 2016년 2월을 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
@@ -166,7 +161,7 @@ ms.locfileid: "39577065"
 
 * 추가 데이터 원본의 수동 등록을 지원합니다. 사용자는 이제 Azure Data Catalog 포털에서 "수동 항목 만들기"를 사용하거나 Azure Data Catalog REST API를 사용하여 다음 데이터 원본을 등록할 수 있습니다.
   * OData - 함수, 엔터티 집합 및 엔터티 컨테이너
-  * HTTP - 파일, 끝점, 보고서 및 사이트
+  * HTTP - 파일, 엔드포인트, 보고서 및 사이트
   * 파일 시스템 - 파일
   * SharePoint - 목록
   * FTP - 파일 및 디렉터리

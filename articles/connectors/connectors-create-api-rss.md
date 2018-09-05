@@ -1,39 +1,67 @@
 ---
-title: Azure Logic Apps의 RSS 커넥터 | Microsoft Docs
-description: Azure 앱 서비스로 논리 앱을 만듭니다. RSS 커넥터를 사용하여 사용자가 피드 항목을 게시 및 검색할 수 있습니다. 또한 새 항목이 피드에 게시된 경우 사용자가 작업을 트리거할 수 있습니다.
+title: Azure Logic Apps에서 RSS 피드에 연결 | Microsoft Docs
+description: Azure Logic Apps를 사용하여 RSS 피드를 모니터링하고 관리하는 작업 및 워크플로 자동화
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: a10a6277-ed29-4e68-a881-ccdad6fd0ad8
 ms.service: logic-apps
-ms.devlang: multiple
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.suite: integration
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 08/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 268fa6d260f1107659208ea07ce3e43c27eca2d3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.assetid: a10a6277-ed29-4e68-a881-ccdad6fd0ad8
+tags: connectors
+ms.date: 08/24/2018
+ms.openlocfilehash: c8d1122572764dda1fc550a06ae254109e3bf033
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295730"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885801"
 ---
-# <a name="get-started-with-the-rss-connector"></a>RSS 커넥터 시작
-RSS는 블로그 항목 및 뉴스 헤드라인처럼 자주 업데이트되는 콘텐츠를 게시하는 데 사용되는 인기 있는 웹 배포 형식입니다.  많은 콘텐츠 게시자는 사용자가 구독할 수 있는 RSS 피드를 제공합니다.  RSS 커넥터를 사용하여 피드 정보를 검색하고 RSS 피드에 새 항목이 게시될 때 흐름을 트리거합니다.
+# <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 RSS 피드 관리
 
-이제 논리 앱을 만들어 시작할 수 있습니다. [논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 참조하세요.
+Azure Logic Apps 및 RSS 커넥터를 통해 모든 RSS 피드에 대한 자동화된 작업 및 워크플로를 만들 수 있습니다. 예를 들어:
 
-## <a name="create-a-connection-to-rss"></a>RSS에 대한 연결 만들기
-> [!INCLUDE [Steps to create a connection to an RSS feed](../../includes/connectors-create-api-rss.md)]
-> 
+* RSS 피드 항목이 게시될 때 모니터링합니다.
+* 모든 RSS 피드 항목을 나열합니다.
 
-## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
+Really Simple Syndication이라고도 하는 RSS(Rich Site Summary)는 웹 배포를 위한 인기 있는 형식으로서, 블로그 게시물 및 뉴스 헤드라인 같이 자주 업데이트되는 콘텐츠를 게시하는 데 사용됩니다. 많은 콘텐츠 게시자는 사용자가 해당 콘텐츠를 구독할 수 있도록 RSS 피드를 제공합니다. 
 
-[커넥터 세부 정보](/connectors/rss/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다.
+RSS 트리거를 사용하여 RSS 피드에서 응답을 가져오고 출력을 다른 작업에 사용할 수 있게 할 수 있습니다. 논리 앱에서 RSS 동작을 사용하여 RSS 피드에서 작업을 수행할 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
-## <a name="more-connectors"></a>추가 커넥터
-[API 목록](apis-list.md)으로 돌아갑니다.
+## <a name="prerequisites"></a>필수 조건
+
+* Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 
+
+* RSS 피드의 URL
+
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
+
+* RSS 피드에 액세스하려는 논리 앱입니다. RSS 트리거를 시작하려면 [빈 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md). RSS 동작을 사용하려면, 예를 들어 **되풀이** 트리거 같은 다른 트리거를 통해 논리 앱을 시작합니다.
+
+## <a name="connect-to-an-rss-feed"></a>RSS 피드에 연결
+
+1. [Azure Portal](https://portal.azure.com)에 로그인하고 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
+
+1. 경로를 선택합니다. 
+
+   * 빈 논리 앱의 경우 검색 상자에서 필터로 "rss"를 입력합니다. 트리거 목록에서 원하는 트리거를 선택합니다. 
+
+     또는
+
+   * 기존 논리 앱의 경우 작업을 추가하려는 단계에서 **새 단계**를 선택합니다. 검색 상자에서 필터로 "rss"를 입력합니다. 작업 목록에서 원하는 작업을 선택합니다.
+
+1. 선택한 트리거 또는 작업에 대해 필요한 세부 정보를 제공하고 논리 앱의 워크플로를 계속 빌드합니다.
+
+## <a name="connector-reference"></a>커넥터 참조
+
+커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/rss/)를 참조하세요.
+
+## <a name="get-support"></a>지원 받기
+
+* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
+* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](http://aka.ms/logicapps-wish)를 방문하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+* 다른 [Logic Apps 커넥터](../connectors/apis-list.md)에 대해 알아봅니다.

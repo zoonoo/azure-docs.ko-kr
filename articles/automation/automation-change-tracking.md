@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 08/27/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86b8f76bd221be9f30a5b9336af858359ae0af8f
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 8066612db20d1569920835a67d84b27d1b852e6e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238882"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128129"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적
 
@@ -94,8 +94,18 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 |사용     | 설정이 적용되는지 여부를 결정합니다.        |
 |Item Name     | 추적할 파일의 이름입니다.        |
 |그룹     | 논리적으로 파일을 그룹화하는 그룹 이름입니다.        |
-|경로 입력     | 파일을 확인할 경로입니다. 예: "c:\temp\myfile.txt"       |
+|경로 입력     | 파일을 확인할 경로입니다(예: "c:\temp\\\*.txt").<br>"%winDir%\System32\\\*.*"와 같은 환경 변수도 사용할 수 있습니다.       |
+|재귀     | 추적할 항목을 찾을 때 재귀가 사용되는지 결정합니다.        |
 |모든 설정에 대한 파일 콘텐츠 업로드| 추적된 변경 내용에 대해 파일 콘텐츠 업로드를 설정 또는 해제합니다. 사용 가능한 옵션: **True** 또는 **False**입니다.|
+
+## <a name="wildcard-recursion-and-environment-settings"></a>와일드 카드, 재귀 및 환경 설정
+
+재귀를 사용하면 와일드 카드를 지정하여 디렉터리 추적을 간소화할 수 있고, 환경 변수를 사용하면 여러 또는 동적 드라이브 이름이 있는 환경에서 파일을 추적할 수 있습니다. 다음은 재귀를 구성할 때 알아야 할 일반적인 정보 목록입니다.
+
+* 와일드 카드는 여러 파일을 추적하는 데 필요
+* 와일드 카드를 사용하는 경우 경로의 마지막 세그먼트에만 사용할 수 있습니다. (예: C:\folder\\**file** 또는 /etc/*.conf)
+* 환경 변수의 경로가 잘못된 경우 유효성 검사는 성공하지만 인벤토리를 실행하면 해당 경로가 실패합니다.
+* 경로를 설정할 때 `c:\*.*` 같은 일반 경로를 사용하면 너무 많은 폴더가 트래버스되므로 사용하면 안 됩니다.
 
 ## <a name="configure-file-content-tracking"></a>파일 콘텐츠 추적 구성
 
@@ -122,13 +132,8 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 
 현재 변경 내용 추적 솔루션은 다음 항목을 지원하지 않습니다.
 
-* Windows 파일 추적을 위한 폴더(디렉터리)
-* Windows 파일 추적을 위한 재귀
-* Windows 파일 추적을 위한 와일드카드
 * Windows 레지스트리 추적을 위한 재귀
-* 경로 변수
 * 네트워크 파일 시스템
-* File Content(파일 내용)
 
 기타 제한 사항은 다음과 같습니다.
 

@@ -5,58 +5,60 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 08/29/2018
 ms.author: raynew
-ms.openlocfilehash: 6d1d90ff0f9a49d3db9f4dc8894c9837942658f0
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f854c269eaf65335fb5654709fe98857d11865b2
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215002"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190138"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-visual-studio-team-services-vsts"></a>Contoso 마이그레이션: Team Foundation Server 배포를 VSTS(Visual Studio Team Services)로 리팩터링
 
-이 문서에서는 Contoso가 Azure에서 온-프레미스 TFS(Team Foundation Server)를 VSTS(Visual Studio Team Services)로 마이그레이션하여 리팩터링하는 방법을 보여줍니다. Contoso의 개발 팀은 지난 5년 동안 TFS를 팀 공동 작업 및 소스 제어에 사용했습니다. 이제 Contoso는 개발 및 테스트 작업과 소스 제어에 클라우드 기반 솔루션을 사용하도록 바꾸려고 합니다. Contoso가 DevOps 모델로 전환하고 새로운 클라우드 네이티브 앱을 개발할 때 VSTS가 한몫을 담당합니다.
+이 문서에서는 Contoso가 Azure에서 온-프레미스 TFS(Team Foundation Server)를 VSTS(Visual Studio Team Services)로 마이그레이션하여 리팩터링하는 방법을 보여 줍니다. Contoso의 개발 팀은 지난 5년 동안 TFS를 팀 공동 작업 및 소스 제어에 사용했습니다. 이제 팀에서 개발 및 테스트 작업과 소스 제어를 위한 클라우드 기반 솔루션으로 전환하려고 합니다. 팀이 DevOps 모델로 전환하고 새 클라우드 네이티브 앱을 개발할 때 VSTS에서 역할을 수행합니다.
 
-이 문서는 가상 회사 Contoso가 온-프레미스 리소스를 Microsoft Azure 클라우드로 마이그레이션하는 방법을 보여주는 문서 시리즈 중 11번째입니다. 시리즈에는 배경 정보 및 마이그레이션 인프라를 설정하고 다양한 유형의 마이그레이션을 실행하는 방법을 보여 주는 시나리오가 포함되어 있습니다. 시나리오가 점점 더 복잡해지므로 점차 문서를 추가할 예정입니다.
+이 문서는 가상 회사 Contoso가 온-프레미스 리소스를 Microsoft Azure 클라우드로 마이그레이션하는 방법을 보여주는 문서 시리즈 중 하나입니다. 시리즈에는 배경 정보 및 마이그레이션 인프라를 설정하고 다양한 유형의 마이그레이션을 실행하는 방법을 보여 주는 시나리오가 포함되어 있습니다. 시나리오가 복잡해지고 있으며, 시간이 지남에 따라 추가 문서가 추가됩니다.
+
 
 **문서** | **세부 정보** | **상태**
 --- | --- | ---
-[문서 1: 개요](contoso-migration-overview.md) | Contoso 마이그레이션 전략, 문서 시리즈 및 사용할 샘플 앱에 대해 간략히 설명합니다. | 사용 가능
-[문서 2: Azure 인프라 배포](contoso-migration-infrastructure.md) | Contoso에서 마이그레이션을 위해 온-프레미스 및 Azure 인프라를 준비하는 방법에 대해 설명합니다. 동일한 인프라가 모든 Contoso 마이그레이션 시나리오에 사용됩니다. | 사용 가능
-[문서 3: 온-프레미스 리소스 평가](contoso-migration-assessment.md)  | VMware에서 실행되는 온-프레미스 2계층 SmartHotel 앱 평가를 Contoso에서 실행하는 방법을 보여 줍니다. [Azure Migrate](migrate-overview.md) 서비스를 사용하여 앱 VM을 평가하고, [Azure Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)를 사용하여 앱 SQL Server 데이터베이스를 평가합니다. | 사용 가능
-[문서 4: Azure VM 및 SQL 관리되는 인스턴스에 다시 호스팅](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso가 SmartHotel 앱을 Azure로 마이그레이션하는 방법을 보여 줍니다. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하여 앱 웹 VM을 마이그레이션하고 [Azure Database Migration](https://docs.microsoft.com/azure/dms/dms-overview) Service를 사용하여 앱 데이터베이스를 SQL 관리되는 인스턴스로 마이그레이션합니다. | 사용 가능
-[문서 5: Azure VM에 다시 호스팅](contoso-migration-rehost-vm.md) | Contoso가 Site Recovery 서비스를 사용하여 SmartHotel을 Azure IaaS VM으로 마이그레이션하는 방법을 보여 줍니다.
-[문서 6: Azure VM 및 SQL Server 가용성 그룹에 다시 호스트](contoso-migration-rehost-vm-sql-ag.md) | Contoso에서 SmartHotel 앱을 마이그레이션하는 방법을 보여 줍니다. Site Recovery와 Database Migration Service를 사용하여 각각 앱 VM과 앱 데이터베이스를 SQL Server 가용성 그룹으로 마이그레이션합니다. | 사용 가능
-[문서 7: Azure VM에 Linux 앱 다시 호스팅](contoso-migration-rehost-linux-vm.md) | Contoso가 Azure Site Recovery를 사용하여 osTicket Linux 앱을 Azure IaaS VM으로 마이그레이션하는 방법을 보여 줍니다.
-[문서 8: Azure VM 및 Azure MySQL 서버에 Linux 앱 다시 호스팅](contoso-migration-rehost-linux-vm-mysql.md) | Contoso가 osTicket Linux 앱을 마이그레이션하는 방법을 보여 줍니다. Site Recovery를 사용하여 VM을 마이그레이션하고 MySQL Workbench를 사용하여 Azure MySQL 서버 인스턴스로 마이그레이션합니다. | 사용 가능
-[문서 9: Azure 웹앱 및 Azure SQL 데이터베이스에 앱 리팩터링](contoso-migration-refactor-web-app-sql.md) | Contoso가 SmartHotel 앱을 Azure 컨테이너 기반 웹앱으로 마이그레이션하고, 앱 데이터베이스를 Azure SQL Server로 마이그레이션하는 방법을 보여줍니다. | 사용 가능
-[문서 10: Linux 앱을 Azure App Service 및 Azure MySQL Server로 리팩터링](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso가 PHP 7.0 Docker 컨테이너를 사용하여 osTicket Linux 앱을 Azure App Service로 마이그레이션하는 방법을 보여줍니다. 배포용 코드 베이스는 GitHub로 마이그레이션됩니다. 앱 데이터는 Azure MySQL로 마이그레이션됩니다. | 사용 가능
-문서 11: VSTS에서 TFS 배포 리팩터링 | Azure에서 개발자 앱 TFS를 VSTS로 마이그레이션 | 이 문서의 내용
-[문서 12: Azure 컨테이너 및 Azure SQL Database에서 앱 아키텍처 변경](contoso-migration-rearchitect-container-sql.md) | Contoso가 SmartHotel 앱을 Azure로 마이그레이션하고 아키텍처를 변경하는 방법을 보여줍니다. 앱 웹 계층의 아키텍처를 Windows 컨테이너 및 Azure SQL Database의 앱 데이터베이스로 변경합니다. | 사용 가능
-[문서 13: Azure에서 앱 다시 빌드](contoso-migration-rebuild.md) | Contoso가 App Services, Azure Kubernetes, Azure Functions, Cognitive services 및 Cosmos DB를 포함한 다양한 Azure 기능 및 서비스를 사용하여 자체 SmartHotel 앱을 다시 빌드하는 방법을 보여줍니다. | 사용 가능
+[문서 1: 개요](contoso-migration-overview.md) | 문서 시리즈, Contoso의 마이그레이션 전략 및 시리즈에서 사용되는 샘플 앱에 대해 간략히 설명합니다. | 사용 가능
+[문서 2: Azure 인프라 배포](contoso-migration-infrastructure.md) | Contoso에서 마이그레이션을 위해 온-프레미스 인프라와 Azure 인프라를 준비합니다. 이 시리즈의 모든 마이그레이션 관련 문서에서 동일한 인프라가 사용됩니다. | 사용 가능
+[문서 3: Azure로 마이그레이션할 온-프레미스 리소스 평가](contoso-migration-assessment.md)  | Contoso가 VMware에서 실행되는 온-프레미스 SmartHotel 앱의 평가를 실행합니다. Contoso에서 Azure Migrate 서비스를 사용하여 앱 VM을 평가하고, Database Migration Assistant를 사용하여 앱 SQL Server 데이터베이스를 평가합니다. | 사용 가능
+[문서 4: Azure VM 및 SQL Database Managed Instance에서 앱 다시 호스트](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso가 온-프레미스 SmartHotel 앱을 Azure로 리프트 앤 시프트 방식으로 마이그레이션합니다. Contoso에서 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하여 앱 프런트 엔드 VM을 마이그레이션하고, [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)를 사용하여 앱 데이터베이스를 Azure SQL Database Managed Instance로 마이그레이션합니다. | 사용 가능  
+[문서 5: 앱을 Azure VM에 다시 호스트](contoso-migration-rehost-vm.md) | Contoso에서 Site Recovery 서비스를 사용하여 SmartHotel 앱 VM을 Azure VM으로 마이그레이션합니다. | 사용 가능
+[문서 6: Azure VM 및 SQL Server 가용성 그룹에 다시 호스팅](contoso-migration-rehost-vm-sql-ag.md) | Contoso가 SmartHotel 앱을 마이그레이션합니다. Contoso에서 Site Recovery를 사용하여 앱 VM을 마이그레이션하고, Database Migration Service를 사용하여 앱 데이터베이스를 AlwaysOn 가용성 그룹으로 보호되는 SQL Server 클러스터로 마이그레이션합니다. | 사용 가능
+[문서 7: Azure VM에서 Linux 앱 다시 호스트](contoso-migration-rehost-linux-vm.md) | Contoso에서 Azure Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 리프트 앤 시프트 방식으로 마이그레이션합니다. | 사용 가능
+[문서 8: Azure VM 및 Azure MySQL 서버에 Linux 앱 다시 호스트](contoso-migration-rehost-linux-vm-mysql.md) | Contoso에서 Azure Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 마이그레이션하고, MySQL Workbench를 사용하여 앱 데이터베이스를 Azure MySQL 서버 인스턴스로 마이그레이션합니다. | 사용 가능
+[문서 9: Azure Web Apps 및 Azure SQL 데이터베이스에서 앱 리팩터링](contoso-migration-refactor-web-app-sql.md) | Contoso에서 SmartHotel 앱을 Azure Web App으로 마이그레이션하고, Database Migration Assistant를 사용하여 앱 데이터베이스를 Azure SQL Server 인스턴스로 마이그레이션합니다. | 사용 가능
+[문서 10: Azure Web Apps 및 Azure MySQL에서 Linux 앱 리팩터링](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso에서 지속적인 업데이트를 위해 GitHub와 통합된 Azure Traffic Manager를 사용하여 Linux osTicket 앱을 여러 Azure 지역의 Azure 웹앱으로 마이그레이션합니다. Contoso에서 앱 데이터베이스를 Azure Database for MySQL 인스턴스로 마이그레이션합니다. | 사용 가능 
+문서 11: VSTS에서 TFS 리팩터링 | Contoso에서 온-프레미스 Team Foundation Server 배포를 Azure의 Visual Studio Team Services로 마이그레이션합니다. | 이 문서의 내용:
+[문서 12: Azure 컨테이너 및 Azure SQL Database에서 앱 아키텍처 변경](contoso-migration-rearchitect-container-sql.md) | Contoso에서 SmartHotel 앱을 Azure로 마이그레이션합니다. 그런 다음, 웹앱 계층을 Azure Service Fabric에서 실행되는 Windows 컨테이너로 재설계하고 Azure SQL Database를 사용하여 데이터베이스를 재설계합니다. | 사용 가능
+[문서 13: Azure에서 앱 다시 빌드](contoso-migration-rebuild.md) | Contoso에서 다양한 Azure 기능과 서비스(Azure App Service, AKS(Azure Kubernetes Service), Azure Functions, Azure Cognitive Services 및 Azure Cosmos DB 포함)를 사용하여 SmartHotel 앱을 다시 빌드합니다. | 사용 가능
+
 
 
 ## <a name="business-drivers"></a>비즈니스 영향 요소
 
-IT 리더십 팀은 회사와 긴밀하게 협력하여 향후 목표를 식별했습니다. 비즈니스 파트너는 개발 도구 및 기술에 별 관심이 없지만, 다음과 같은 사항을 포착했습니다.
+IT 리더십 팀은 비즈니스 파트너와 긴밀하게 협력하여 향후 목표를 식별했습니다. 파트너는 개발 도구 및 기술에 별로 관심이 없지만, 다음과 같은 사항을 포착했습니다.
 
 - **소프트웨어**: Contoso를 포함한 모든 회사는 핵심 비즈니스에 관계없이 소프트웨어 회사입니다. 회사 경영진은 IT가 어떻게 사용자에 대한 새로운 작업 관례 및 고객 경험의 측면에서 회사에 도움이 될 수 있는지에 관심이 있습니다.
-- **효율성**: Contoso는 프로세스를 간소화하고 개발자 및 사용자에 대한 불필요한 프로시저를 제거해야 합니다. 이렇게 하면 고객 요구 사항을 보다 효율적으로 이행할 수 있습니다. 회사에서는 시간 또는 비용 낭비 없는 빠른 IT를 원합니다.
+- **효율성**: Contoso는 프로세스를 간소화하고 개발자 및 사용자에 대한 불필요한 프로시저를 제거해야 합니다. 이렇게 하면 회사에서 고객 요구 사항에 더 효율적으로 부응할 수 있습니다. 회사에서는 시간 또는 비용 낭비 없는 빠른 IT를 원합니다.
 - **민첩성**: 글로벌 경제에서 성공을 거두려면 Contoso IT는 마켓플레이스보다 빠르게 비즈니스 요구 사항에 대응하고 반응해야 합니다. IT는 비즈니스의 방해 요소가 되어서는 안 됩니다.
 
 ## <a name="migration-goals"></a>마이그레이션 목표
 
 Contoso 클라우드 팀은 VSTS 마이그레이션에 대한 목표를 확정했습니다.
 
-- 데이터를 클라우드로 마이그레이션하기 위한 도구가 필요합니다. 수동 프로세스가 거의 없어야 합니다.
+- 팀에는 데이터를 클라우드로 마이그레이션하기 위한 도구가 필요합니다. 수동 프로세스가 거의 없어야 합니다.
 - 작년의 작업 항목 데이터 및 기록을 마이그레이션해야 합니다.
-- 사용자 이름 및 암호를 새로 설정하기를 원하지 않습니다. 모든 현재 시스템 할당이 유지되어야 합니다.
-- TFVC(Team Foundation 버전 제어)에서 소스 제어용 Git으로 전환하기를 원합니다.
-- Git으로의 전환은 최신 버전의 소스 코드만 가져오는 "팁 마이그레이션"이 될 것입니다. 코드 베이스가 변경되면 모든 작업이 중단되는 가동 중지 시간에 마이그레이션이 진행됩니다. Contoso는 이동 후에는 현재 마스터 분기 기록만 사용할 수 있다는 것을 이해합니다.
-- 변화에 대해 염려하고 전체 이동을 수행하기 전에 테스트하기를 원합니다. VSTS로 이동한 후에도 TFS에 계속 액세스할 수 있기를 원합니다.
-- 여러 컬렉션을 갖고 있으며, 프로세스를 보다 정확하게 이해하기 위해 프로젝트 몇 개만 있는 컬렉션으로 시작하려 합니다.
-- TFS 컬렉션이 VSTS 계정과 일대일 관계이므로 URL이 여러 개라는 것을 이해합니다. 하지만 이것은 코드 베이스 및 프로젝트에 대한 현재 모델 분류와 일치합니다.
+- 팀에서 사용자 이름 및 암호를 새로 설정하기를 원하지 않습니다. 모든 현재 시스템 할당이 유지되어야 합니다.
+- 팀은 TFVC(Team Foundation 버전 제어)에서 소스 제어용 Git으로 전환하기를 원합니다.
+- Git으로의 전환은 최신 버전의 소스 코드만 가져오는 "팁 마이그레이션"이 될 것입니다. 코드 베이스가 변경되면 모든 작업이 중단되는 가동 중지 시간에 마이그레이션이 진행됩니다. 팀은 이동 후에는 현재 마스터 분기 기록만 사용할 수 있다는 것을 이해합니다.
+- 팀은 변화에 대해 염려하고 전체 이동을 수행하기 전에 테스트하기를 원합니다. 팀은 VSTS로 이동한 후에도 TFS에 계속 액세스할 수 있기를 원합니다.
+- Contoso는 여러 컬렉션을 갖고 있으며, 프로세스를 더 잘 이해할 수 있는 프로젝트 몇 개만 있는 컬렉션으로 시작하려고 합니다.
+- 팀은 TFS 컬렉션이 여러 URL을 사용하여 VSTS 계정과 일대일 관계임을 이해합니다. 하지만 이것은 코드 베이스 및 프로젝트에 대한 현재 모델 분류와 일치합니다.
 
 
 ## <a name="proposed-architecture"></a>제안된 아키텍처
@@ -65,7 +67,7 @@ Contoso 클라우드 팀은 VSTS 마이그레이션에 대한 목표를 확정�
 - TFS는 VSTS로 마이그레이션됩니다.
 - 현재 Contoso는 **ContosoDev**라는 TFS 컬렉션을 갖고 있으며, 이 컬렉션은 **contosodevmigration.visualstudio.com**이라는 VSTS 계정으로 마이그레이션될 것입니다.
 - 작년의 프로젝트, 작업 항목, 버그 및 반복은 VSTS로 마이그레이션됩니다.
-- Contoso는 마이그레이션 계획 초기에 [Azure 인프라를 배포](contoso-migration-infrastructure.md)할 때 설정한 Azure Active Directory를 활용할 예정입니다. 
+- Contoso는 마이그레이션 계획을 시작할 때 [Azure 인프라를 배포](contoso-migration-infrastructure.md)하는 동안 설정한 Azure Active Directory를 활용합니다. 
 
 
 ![시나리오 아키텍처](./media/contoso-migration-tfs-vsts/architecture.png) 
@@ -75,29 +77,29 @@ Contoso 클라우드 팀은 VSTS 마이그레이션에 대한 목표를 확정�
 
 Contoso는 다음과 같이 마이그레이션 프로세스를 완료합니다.
 
-1. 준비할 것이 많습니다. 첫 번째 단계로, Contoso는 TFS 구현을 지원되는 수준으로 업그레이드해야 합니다. 현재 TFS 2017 업데이트 3를 실행 중이지만, 데이터베이스 마이그레이션을 사용하려면 최신 업데이트가 설치된 지원되는 2018 버전을 실행해야 합니다.
-2. 업그레이드 후에는 TFS 마이그레이션 도구를 실행하고 컬렉션의 유효성을 검사할 것입니다.
-3. 일련의 준비 파일을 빌드하고, 테스트를 위한 마이그레이션 시험 실행을 수행할 것입니다.
-4. 그 후에는 작업 항목, 버그, 스프린트 및 코드가 포함된 전체 마이그레이션을 실행할 것입니다.
-5. 마이그레이션 후에는 TFVC에서 Git으로 코드를 이동할 것입니다.
+1. 준비할 것이 많습니다. 첫 번째 단계로, Contoso는 TFS 구현을 지원되는 수준으로 업그레이드해야 합니다. Contoso는 현재 TFS 2017 업데이트 3를 실행 중이지만, 데이터베이스 마이그레이션을 사용하려면 최신 업데이트가 설치된 지원되는 2018 버전을 실행해야 합니다.
+2. 업그레이드 후에는 Contoso에서 TFS 마이그레이션 도구를 실행하고 컬렉션의 유효성을 검사할 것입니다.
+3. Contoso는 일련의 준비 파일을 빌드하고, 테스트를 위한 마이그레이션 시험 실행을 수행할 것입니다.
+4. 그 후에는 Contoso에서 작업 항목, 버그, 스프린트 및 코드가 포함된 전체 마이그레이션을 실행할 것입니다.
+5. 마이그레이션 후에는 Contoso는 TFVC에서 Git으로 코드를 이동할 것입니다.
 
 ![마이그레이션 프로세스](./media/contoso-migration-tfs-vsts/migration-process.png) 
 
 
 ## <a name="scenario-steps"></a>시나리오 단계
 
-Azure가 마이그레이션을 완료하는 방법은 다음과 같습니다.
+Contoso에서 마이그레이션을 수행하는 방법은 다음과 같습니다.
 
 > [!div class="checklist"]
 > * **1단계: Azure 저장소 계정 만들기**: 이 저장소 계정은 마이그레이션 프로세스에서 사용됩니다.
-> * **2단계: TFS 업그레이드**: 배포를 TFS 2018 업그레이드 2로 업그레이드합니다. 
-> * **3단계: 컬렉션 유효성 검사**: 마이그레이션 준비 과정으로 TFS 컬렉션의 유효성을 검사합니다.
-> * **4단계: 준비 파일 빌드**: TFS 마이그레이션 도구를 사용하여 마이그레이션 파일을 만듭니다. 
+> * **2단계: TFS 업그레이드**: Contoso는 배포를 TFS 2018 업그레이드 2로 업그레이드합니다. 
+> * **3단계: 컬렉션 유효성 검사**: Contoso는마이그레이션 준비 과정으로 TFS 컬렉션의 유효성을 검사합니다.
+> * **4단계: 준비 파일 빌드**: Contoso는 TFS 마이그레이션 도구를 사용하여 마이그레이션 파일을 만듭니다. 
 
 
 ## <a name="step-1-create-a-storage-account"></a>1 단계: 저장소 계정 만들기
 
-1. Azure Portal에서 Contoso는 저장소 계정(**contosodevmigration**)을 만듭니다.
+1. Azure Portal에서 Contoso 관리자는 저장소 계정(**contosodevmigration**)을 만듭니다.
 2. 장애 조치(failover)에 사용하는 보조 지역인 미국 중부에 계정을 배치합니다. 로컬 중복 저장소를 사용하는 범용 표준 계정을 사용합니다.
 
     ![Storage 계정](./media/contoso-migration-tfs-vsts/storage1.png) 
@@ -111,7 +113,7 @@ Azure가 마이그레이션을 완료하는 방법은 다음과 같습니다.
 
 ## <a name="step-2-upgrade-tfs"></a>2단계: TFS 업그레이드
 
-Contoso는 TFS 서버를 TFS 2018 업데이트 2로 업그레이드합니다. 시작하기 전에 할 일:
+Contoso 관리자는 TFS 서버를 TFS 2018 업데이트 2로 업그레이드합니다. 시작하기 전에 할 일:
 
 - [TFS 2018 업데이트 2](https://visualstudio.microsoft.com/downloads/)를 다운로드합니다.
 - [하드웨어 요구 사항](https://docs.microsoft.com/tfs/server/requirements)을 확인하고, [릴리스 정보](https://docs.microsoft.com/visualstudio/releasenotes/tfs2018-relnotes) 및 [업그레이드 문제](https://docs.microsoft.com/tfs/server/upgrade/get-started#before-you-upgrade-to-tfs-2018)를 읽어봅니다.
@@ -134,7 +136,7 @@ Contoso는 TFS 서버를 TFS 2018 업데이트 2로 업그레이드합니다. �
 
      ![TFS](./media/contoso-migration-tfs-vsts/upgrade4.png) 
 
-5. Contoso는 프로젝트, 작업 항목 및 코드를 검토하여 TFS 설치를 확인합니다.
+5. 프로젝트, 작업 항목 및 코드를 검토하여 TFS 설치를 확인합니다.
 
      ![TFS](./media/contoso-migration-tfs-vsts/upgrade5.png) 
 
@@ -147,9 +149,9 @@ Contoso는 TFS 서버를 TFS 2018 업데이트 2로 업그레이드합니다. �
 
 ## <a name="step-3-validate-the-tfs-collection"></a>3단계: TFS 컬렉션의 유효성 검사
 
-Contoso는 마이그레이션 전에 ContosoDev 컬렉션 데이터베이스를 대상으로 TFS 마이그레이션 도구를 실행하여 유효성을 검사합니다.
+Contoso 관리자는 마이그레이션 전에 ContosoDev 컬렉션 데이터베이스를 대상으로 TFS 마이그레이션 도구를 실행하여 유효성을 검사합니다.
 
-1. Contoso는 [TFS 마이그레이션 도구](https://www.microsoft.com/download/details.aspx?id=54274)를 다운로드하고 압축을 풉니다. 실행 중인 TFS 업데이트에 맞는 버전을 다운로드해야 합니다. 버전은 관리 콘솔에서 확인할 수 있습니다.
+1. [TFS 마이그레이션 도구](https://www.microsoft.com/download/details.aspx?id=54274)를 다운로드하고 압축을 풉니다. 실행 중인 TFS 업데이트에 맞는 버전을 다운로드해야 합니다. 버전은 관리 콘솔에서 확인할 수 있습니다.
 
     ![TFS](./media/contoso-migration-tfs-vsts/collection1.png)
 
@@ -166,11 +168,11 @@ Contoso는 마이그레이션 전에 ContosoDev 컬렉션 데이터베이스를 
 
     ![TFS](./media/contoso-migration-tfs-vsts/collection3.png)
 
-4. Contoso는 이 항목이 ID와 관련된 것을 발견합니다.
+4. ID와 관련된 이 항목을 찾습니다.
 
     ![TFS](./media/contoso-migration-tfs-vsts/collection4.png)
 
-5. Contoso는 명령줄에서 **TfsMigration validate /help**를 실행하고, ID의 유효성을 검사하려면 **/tenantDomainName**이 필요한 것을 확인합니다.
+5. 명령줄에서 **TfsMigration validate /help**를 실행하고, ID의 유효성을 검사하려면 **/tenantDomainName**이 필요한 것을 확인합니다.
 
      ![TFS](./media/contoso-migration-tfs-vsts/collection5.png)
 
@@ -190,7 +192,7 @@ Contoso는 마이그레이션 전에 ContosoDev 컬렉션 데이터베이스를 
 
 ## <a name="step-4-create-the-migration-files"></a>4단계: 마이그레이션 파일 만들기
 
-유효성 검사가 완료되면 Contoso는 TFS 마이그레이션 도구를 사용하여 마이그레이션 파일을 빌드할 수 있습니다.
+유효성 검사가 완료되면 Contoso 관리자는 TFS 마이그레이션 도구를 사용하여 마이그레이션 파일을 빌드할 수 있습니다.
 
 1. 도구에서 준비 단계를 실행합니다.
 
@@ -203,7 +205,7 @@ Contoso는 마이그레이션 전에 ContosoDev 컬렉션 데이터베이스를 
     - Azure Active Directory에 대한 연결을 준비하고 각 ID와 일치하는 항목을 찾습니다.
     - Contoso는 이미 AD Connect를 사용하여 Azure AD를 배포하고 동기화했기 때문에 준비 과정에서 일치하는 ID를 찾아서 활성으로 표시할 수 있습니다.
 
-2. Azure AD 로그인 화면이 나타나고, Contoso는 전역 관리자의 자격 증명을 입력합니다.
+2. Azure AD 로그인 화면이 표시되면 글로벌 관리자의 자격 증명을 입력합니다.
 
     ![준비](./media/contoso-migration-tfs-vsts/prep2.png)
 
@@ -211,11 +213,11 @@ Contoso는 마이그레이션 전에 ContosoDev 컬렉션 데이터베이스를 
 
     ![준비](./media/contoso-migration-tfs-vsts/prep3.png)
 
-4. 이제 Contoso는 IdentityMapLog.csv 및 import.json 파일이 새 폴더에 만들어진 것을 볼 수 있습니다.
+4. 이제 IdentityMapLog.csv 및 import.json 파일이 새 폴더에 만들어진 것을 볼 수 있습니다.
 
     ![준비](./media/contoso-migration-tfs-vsts/prep4.png)
 
-5. Import.json 파일은 가져오기 설정을 제공합니다. 이 파일에는 원하는 계정 이름, 저장소 계정 정보 등의 정보가 포함됩니다. 대부분의 필드가 자동으로 채워집니다. 일부 필드에는 사용자 입력이 필요합니다. Contoso는 파일을 열고, 만들려는 VSTS 계정 이름 **contosodevmigration**을 추가합니다. 이 이름을 추가하면 VSTS URL은 **contosodevmigration.visualstudio.com**이 됩니다.
+5. Import.json 파일은 가져오기 설정을 제공합니다. 이 파일에는 원하는 계정 이름, 저장소 계정 정보 등의 정보가 포함됩니다. 대부분의 필드가 자동으로 채워집니다. 일부 필드에는 사용자 입력이 필요합니다. 파일을 열고, 만들려는 VSTS 계정 이름 **contosodevmigration**을 추가합니다. 이 이름을 추가하면 VSTS URL은 **contosodevmigration.visualstudio.com**이 됩니다.
 
     ![준비](./media/contoso-migration-tfs-vsts/prep5.png)
 
@@ -234,22 +236,22 @@ Contoso는 마이그레이션 전에 ContosoDev 컬렉션 데이터베이스를 
 
 ## <a name="step-5-migrate-to-vsts"></a>5단계: VSTS로 마이그레이션
 
-준비가 완료되었으니, Contoso는 이제 마이그레이션에 집중할 수 있습니다. 마이그레이션 후 버전 제어에 TFVC 대신 Git을 사용하도록 전환할 것입니다.
+준비가 완료되면 Contoso 관리자는 이제 마이그레이션에 집중할 수 있습니다. 마이그레이션 후 버전 제어에 TFVC 대신 Git을 사용하도록 전환할 것입니다.
 
-시작하기 전에 Contoso는 개발 팀과 의논하여 마이그레이션 동안 컬렉션을 오프라인으로 전환할 가동 중지 시간을 예약합니다. 다음은 마이그레이션 프로세스의 단계입니다.
+시작하기 전에 관리자는 개발 팀과 의논하여 마이그레이션 동안 컬렉션을 오프라인으로 전환할 가동 중지 시간을 예약합니다. 다음은 마이그레이션 프로세스의 단계입니다.
 
 1. **컬렉션 분리**: 컬렉션이 연결되어 온라인 상태인 동안에는 컬렉션의 ID 데이터가 TFS 서버 구성 데이터베이스에 상주합니다. 컬렉션은 TFS 서버에서 분리되면 해당 ID 데이터의 복사본을 만들고, 전송할 컬렉션과 함께 패키징합니다. 이 데이터가 없으면 가져오기의 ID 부분을 실행할 수 없습니다. 가져오는 동안 발생한 변경 내용을 가져올 수 있는 방법이 없으므로 가져오기가 완료될 때까지는 컬렉션을 분리 상태로 유지하는 것이 좋습니다.
-2. **백업 생성**: 마이그레이션 프로세스의 그 다음 단계는 VSTS로 가져올 수 있는 백업을 생성하는 것입니다. DACPAC(데이터 계층 응용 프로그램 패키지)는 데이터베이스 변경 내용을 단일 파일에 패키징하고 다른 SQL 인스턴스에 배포할 수 있는 SQL Server 기능입니다. VSTS에 직접 복원할 수도 있으며, 따라서 컬렉션 데이터를 클라우드로 가져오는 패키징 방법으로 사용됩니다. Contoso는 SqlPackage.exe 도구를 사용하여 DACPAC을 생성합니다. 이 도구는 SQL Server Data Tools에 포함되어 있습니다.
-3. **저장소에 업로드**: DACPAC이 만들어지면 Azure Storage에 업로드합니다. 업로드가 완료되면 SAS(공유 액세스 서명)를 얻게 되므로 TFS 마이그레이션 도구가 저장소에 액세스할 수 있습니다.
-4. **가져오기 채우기**: 이제 Contoso는 DACPAC 설정을 포함하여 가져오기 파일에서 누락된 필드를 채울 수 있습니다. 시작하기에 앞서 **DryRun** 가져오기를 수행하고 싶다고 지정하여 모든 것이 정상적으로 작동하는지 확인한 후 전체 마이그레이션을 진행합니다.
+2. **백업 생성**: 마이그레이션 프로세스의 다음 단계는 VSTS로 가져올 수 있는 백업을 생성하는 것입니다. DACPAC(데이터 계층 응용 프로그램 패키지)는 데이터베이스 변경 내용을 단일 파일에 패키징하고 다른 SQL 인스턴스에 배포할 수 있는 SQL Server 기능입니다. VSTS에 직접 복원할 수도 있으며, 따라서 컬렉션 데이터를 클라우드로 가져오는 패키징 방법으로 사용됩니다. Contoso는 SqlPackage.exe 도구를 사용하여 DACPAC을 생성합니다. 이 도구는 SQL Server Data Tools에 포함되어 있습니다.
+3. **저장소에 업로드**: DACPAC가 만들어지면 Azure Storage에 업로드합니다. 업로드가 완료되면 SAS(공유 액세스 서명)를 얻게 되므로 TFS 마이그레이션 도구가 저장소에 액세스할 수 있습니다.
+4. **가져오기 채우기**: 이제 DACPAC 설정을 포함하여 가져오기 파일에서 누락된 필드를 채울 수 있습니다. 시작하기에 앞서 **DryRun** 가져오기를 수행하고 싶다고 지정하여 모든 것이 정상적으로 작동하는지 확인한 후 전체 마이그레이션을 진행합니다.
 5. **시험 실행**: 시험 실행 가져오기를 통해 컬렉션 마이그레이션을 테스트할 수 있습니다. 시험 실행은 수명이 제한되어 있고, 프로덕션 마이그레이션 실행 전에 삭제됩니다. 설정된 시간이 지나면 자동으로 삭제됩니다. 시험 실행이 삭제되는 시점에 대한 내용은 가져오기가 완료된 후 도착하는 성공 이메일에 포함되어 있습니다. 내용을 살펴보고 그에 따라 계획을 세우면 됩니다.
-6. **프로덕션 마이그레이션 완료**: 시험 실행 마이그레이션이 완료되면 Contoso는 import.json을 업데이트하고 가져오기를 다시 실행하여 최종 마이그레이션을 수행합니다.
+6. **프로덕션 마이그레이션 완료**: 시험 실행 마이그레이션이 완료되면 Contoso 관리자는 import.json을 업데이트하고 가져오기를 다시 실행하여 최종 마이그레이션을 수행합니다.
 
 
 
 ### <a name="detach-the-collection"></a>컬렉션 분리
 
-시작하기에 앞서, Contoso는 컬렉션을 분리하기 전에 로컬 SQL Server 백업 및 TFS 서버의 VMware 스냅숏을 만듭니다.
+시작하기에 앞서, Contoso 관리자는 컬렉션을 분리하기 전에 로컬 SQL Server 백업 및 TFS 서버의 VMware 스냅숏을 만듭니다.
 
 1.  TFS 관리 콘솔에서 분리할 컬렉션(**ContosoDev**)을 선택합니다.
 
@@ -282,13 +284,13 @@ Contoso는 마이그레이션 전에 ContosoDev 컬렉션 데이터베이스를 
 
 ### <a name="generate-a-dacpac"></a>DACPAC 생성
 
-Contoso는 VSTS로 가져올 백업(DACPAC)을 만듭니다.
+Contoso 관리자는 VSTS로 가져올 백업(DACPAC)을 만듭니다.
 
 - SQL Server Data Tools의 SqlPackage.exe는 DACPAC을 만드는 데 사용됩니다. SQL Server Data Tools에 설치된 여러 SqlPackage.exe 버전이 있으며 120, 130, 140 같은 이름의 폴더 아래에 있습니다. 올바른 버전을 사용하여 DACPAC을 준비 하는 것이 반드시 합니다.
 - TFS 2018 imports 140 폴더에서 이상 SqlPackage.exe를 사용 해야 합니다.  CONTOSOTFS의 경우 이 파일은 **C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\140** 폴더에 있습니다.
 
 
-Contoso는 다음과 같이 DACPAC을 생성합니다.
+Contoso 관리자는 다음과 같이 DACPAC를 생성합니다.
 
 1. 명령 프롬프트를 열고 SQLPackage.exe 위치로 이동합니다. 다음 명령을 입력하여 DACPAC를 생성합니다.
 
@@ -338,7 +340,7 @@ DACPAC이 생성되면 Contoso는 DACPAC을 Azure Storage에 업로드합니다.
 
 ### <a name="fill-in-the-import-settings"></a>가져오기 설정 입력
 
-앞에서 Contoso는 가져오기 사양 파일(import.json)의 일부를 입력했습니다. 이제 나머지 설정을 추가해야 합니다.
+앞에서 Contoso 관리자는 가져오기 사양 파일(import.json)의 일부를 입력했습니다. 이제 나머지 설정을 추가해야 합니다.
 
 Import.json 파일을 열고 다음 필드를 채웁니다. • Location: 위에서 생성된 SAS 키의 위치.
 • Dacpac: 저장소 계정에 업로드한 DACPAC 파일로 이름을 설정합니다. ".dacpac" 확장명을 포함해야 합니다.
@@ -350,7 +352,7 @@ Import.json 파일을 열고 다음 필드를 채웁니다. • Location: 위에
 
 ### <a name="do-a-dry-run-migration"></a>시험 실행 마이그레이션 수행
 
-Contoso는 시험 실행 마이그레이션을 시작하여 모든 것이 예상대로 작동하는지 확인합니다.
+Contoso 관리자는 시험 실행 마이그레이션을 시작하여 모든 것이 예상대로 작동하는지 확인합니다.
 
 1. 명령 프롬프트를 열고 TfsMigration 위치(C:\TFSMigrator)를 찾습니다.
 2. 첫 번째 단계로 가져오기 파일의 유효성을 검사합니다. 파일 형식이 올바르게 지정되었는지, SAS 키가 제대로 작동하는지 확인해야 합니다.
@@ -387,7 +389,7 @@ Contoso는 시험 실행 마이그레이션을 시작하여 모든 것이 예상
 
     ![시험 실행](./media/contoso-migration-tfs-vsts/test6.png)
 
-11. 약 15분 후 Contoso는 URL로 이동하여 다음 정보를 봅니다.
+11. 약 15분 후 URL로 이동하여 다음 정보를 봅니다.
 
      ![시험 실행](./media/contoso-migration-tfs-vsts/test7.png)
 
@@ -399,18 +401,18 @@ Contoso는 시험 실행 마이그레이션을 시작하여 모든 것이 예상
 
     ![시험 실행](./media/contoso-migration-tfs-vsts/test9.png)
 
-14. 수석 개발자는 프로젝트 중 하나를 열고 **작업 항목** > **내게 할당됨**을 엽니다. 그의 ID와 함께 작업 항목 데이터가 마이그레이션되었다고 표시됩니다.
+14. 수석 개발자는 프로젝트 중 하나를 열고 **작업 항목** > **내게 할당됨**을 엽니다. ID와 함께 작업 항목 데이터가 마이그레이션되었다고 표시됩니다.
 
     ![시험 실행](./media/contoso-migration-tfs-vsts/test10.png)
 
-15. 수석 개발자는 다른 프로젝트와 코드도 검사하여 소스 코드 및 기록이 마이그레이션된 것을 확인합니다.
+15. 또한 수석 개발자는 다른 프로젝트와 코드도 검사하여 소스 코드 및 기록이 마이그레이션된 것을 확인합니다.
 
     ![시험 실행](./media/contoso-migration-tfs-vsts/test11.png)
 
 
 ### <a name="run-the-production-migration"></a>프로덕션 마이그레이션 실행
 
-시험 실행이 완료되면 Contoso는 프로덕션 마이그레이션으로 이동합니다. 시험 실행을 삭제하고, 가져오기 설정을 업데이트하고, 가져오기를 다시 실행합니다.
+시험 실행이 완료되면 Contoso 관리자는 프로덕션 마이그레이션으로 이동합니다. 시험 실행을 삭제하고, 가져오기 설정을 업데이트하고, 가져오기를 다시 실행합니다.
 
 1. VSTS 포털에서 시험 실행 계정을 삭제합니다.
 2. import.json 파일을 업데이트하여 **ImportType**을 **ProductionRun**으로 설정합니다.
@@ -422,7 +424,7 @@ Contoso는 시험 실행 마이그레이션을 시작하여 모든 것이 예상
 
     ![프로덕션](./media/contoso-migration-tfs-vsts/full2.png)
 
-5. Azure AD 로그인에서 Contoso는 Contoso 관리자 로그인을 지정합니다.
+5. Azure AD 로그인에서 Contoso 관리자 로그인을 지정합니다.
 
     ![프로덕션](./media/contoso-migration-tfs-vsts/full3.png)
 
@@ -430,7 +432,7 @@ Contoso는 시험 실행 마이그레이션을 시작하여 모든 것이 예상
 
     ![프로덕션](./media/contoso-migration-tfs-vsts/full4.png)
 
-7. 약 15분 후 Contoso는 URL로 이동하여 다음 정보를 살펴봅니다.
+7. 약 15분 후 URL로 이동하여 다음 정보를 살펴봅니다.
 
     ![프로덕션](./media/contoso-migration-tfs-vsts/full5.png)
 
@@ -438,22 +440,22 @@ Contoso는 시험 실행 마이그레이션을 시작하여 모든 것이 예상
 
     ![프로덕션](./media/contoso-migration-tfs-vsts/full6.png)
 
-8. 수석 개발자는 프로젝트 중 하나를 열고 **작업 항목** > **내게 할당됨**을 엽니다. 그의 ID와 함께 작업 항목 데이터가 마이그레이션되었다고 표시됩니다.
+8. 수석 개발자는 프로젝트 중 하나를 열고 **작업 항목** > **내게 할당됨**을 엽니다. ID와 함께 작업 항목 데이터가 마이그레이션되었다고 표시됩니다.
 
     ![프로덕션](./media/contoso-migration-tfs-vsts/full7.png)
 
-9. 다른 작업 항목을 검사하고 확인합니다.
+9. 수석 개발자는 다른 작업 항목을 검사하고 확인합니다.
 
     ![프로덕션](./media/contoso-migration-tfs-vsts/full8.png)
 
-15. 수석 개발자는 다른 프로젝트와 코드도 검사하여 소스 코드 및 기록이 마이그레이션된 것을 확인합니다.
+15. 또한 수석 개발자는 다른 프로젝트와 코드도 검사하여 소스 코드 및 기록이 마이그레이션된 것을 확인합니다.
 
     ![프로덕션](./media/contoso-migration-tfs-vsts/full9.png)
 
 
 ### <a name="move-source-control-from-tfvc-to-git"></a>소스 제어를 TFVC에서 GIT으로 이동
 
-마이그레이션이 완료된 후 Contoso는 소스 코드 관리를 TFVC에서 Git으로 이동하려 합니다. 동일한 계정에서 VSTS 계정의 현재 소스 코드를 Git 리포지토리로 가져와야 합니다.
+마이그레이션이 완료된 후 Contoso는 소스 코드 관리를 TFVC에서 Git으로 이동하려 합니다. Contoso 관리자는 동일한 계정에서 VSTS 계정의 현재 소스 코드를 Git 리포지토리로 가져와야 합니다.
 
 1. VSTS 포털에서 TFVC 리포지토리(**$/ PolicyConnect**) 중 하나를 열고 검토합니다.
 
@@ -468,9 +470,9 @@ Contoso는 시험 실행 마이그레이션을 시작하여 모든 것이 예상
     ![Git](./media/contoso-migration-tfs-vsts/git3.png)
 
     > [!NOTE]
-    > TFVC와 Git이 버전 제어 정보를 저장하는 방식이 다르기 때문에 기록을 마이그레이션하지 않는 것이 좋습니다. Microsoft가 Windows 및 기타 제품을 중앙 집중식 버전 제어에서 Git으로 마이그레이션할 때 이 방법을 사용합니다.
+    > TFVC와 Git에서 버전 제어 정보를 저장하는 방법이 다르기 때문에 Contoso에서 기록을 마이그레이션하지 않는 것이 좋습니다. Microsoft가 Windows 및 기타 제품을 중앙 집중식 버전 제어에서 Git으로 마이그레이션할 때 이 방법을 사용합니다.
 
-4. 가져오기 후 Contoso는 코드를 검토합니다.
+4. 가져온 후에 관리자는 코드를 검토합니다.
 
     ![Git](./media/contoso-migration-tfs-vsts/git4.png)
 

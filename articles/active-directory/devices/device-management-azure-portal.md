@@ -1,5 +1,5 @@
 ---
-title: Azure Portal을 사용하여 장치 관리 | Microsoft Docs
+title: Azure Portal을 사용하여 장치를 관리하는 방법 | Microsoft Docs
 description: Azure Portal을 사용하여 장치를 관리하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: bc29fbd0946f0abfe692e2270d145cd2cb292356
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: ff1d51021038909c132bef4cb680589b9951f218
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42140163"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041428"
 ---
-# <a name="managing-devices-using-the-azure-portal"></a>Azure Portal을 사용하여 장치 관리
+# <a name="how-to-manage-devices-using-the-azure-portal"></a>Azure Portal을 사용하여 장치를 관리하는 방법
 
 
 Azure AD(Active Directory)의 장치 관리를 사용하면 보안 및 규정 준수에 대한 표준을 충족하는 장치에서 사용자 리소스에 액세스할 수 있습니다. 

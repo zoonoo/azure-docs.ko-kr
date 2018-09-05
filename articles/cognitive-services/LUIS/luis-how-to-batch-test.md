@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: diberry
-ms.openlocfilehash: 2c648cdd82f89a9646fa0b311a7f1f68dd4bc4a9
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 07c38aa5f66fc8c38392c5407449ec6911e80d47
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223584"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888629"
 ---
 # <a name="batch-testing"></a>일괄 테스트
  일괄 테스트는 현재 학습된 모델의 포괄적인 테스트로, LUIS에서 성능을 측정할 수 있습니다. 
@@ -49,7 +49,7 @@ ms.locfileid: "39223584"
 
 다운로드 가능한 데이터 집합은 일괄 테스트용으로 업로드된 파일과 동일합니다.
 
-|시스템 상태|의미|
+|상태|의미|
 |--|--|
 |![테스트 성공 녹색 원 아이콘](./media/luis-how-to-batch-test/batch-test-result-green.png)|모든 발화가 성공했습니다.|
 |![테스트 실패 빨간색 x 아이콘](./media/luis-how-to-batch-test/batch-test-result-red.png)|하나 이상의 발화 의도가 예측과 일치하지 않습니다.|
@@ -61,22 +61,11 @@ ms.locfileid: "39223584"
 
 ![일괄 테스트 결과](./media/luis-how-to-batch-test/run-test-results.png)
 
-<!--
- Select the **See results** link that appears after you run the test. A scatter graph known as an error matrix displays. The data points represent the utterances in the dataset. 
-
-Green points indicate correct prediction, and red ones indicate incorrect prediction.
-
-The filtering panel on the right side of the screen displays a list of all intents and entities in the app, with a green point for intents/entities that were predicted correctly in all dataset utterances, and a red point for those items with errors. Also, for each intent/entity, you can see the number of correct predictions out of the total utterances.
-
--->
+<!-- Select the **See results** link that appears after you run the test. A scatter graph known as an error matrix displays. The data points represent the utterances in the dataset. Green points indicate correct prediction, and red ones indicate incorrect prediction. The filtering panel on the right side of the screen displays a list of all intents and entities in the app, with a green point for intents/entities that were predicted correctly in all dataset utterances, and a red point for those items with errors. Also, for each intent/entity, you can see the number of correct predictions out of the total utterances.-->
 
 
-<a name="filter-chart-results-by-intent-or-entity">
-
-
-
-
-</a> ## 차트 결과 필터링
+<a name="filter-chart-results-by-intent-or-entity"></a>  
+## <a name="filter-chart-results"></a>차트 결과 필터링
 
 특정 의도 또는 엔터티별로 차트를 필터링하려면 오른쪽 필터링 패널에서 의도 또는 엔터티를 선택합니다. 선택 항목에 따라 그래프에서 데이터 요소 및 해당 배포가 업데이트됩니다. 
  

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: c8e740a66271c88b3abb036867d1760cc9e77607
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e3ab060c1cea28f83c18dc89aeea7716ec86572a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944504"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190346"
 ---
 # <a name="openshift-in-azure"></a>Azure의 OpenShift
 
@@ -34,16 +34,16 @@ OpenShift는 컨테이너 오케스트레이션 및 관리를 위한 Kubernetes�
 
 OpenShift의 여러 버전을 사용할 수 있습니다.
 
-- OpenShift Origin
+- OKD(이전의 OpenShift Origin)
 - OpenShift Container Platform
 - OpenShift Online
 - OpenShift Dedicated
 
 이 아티클에 설명된 4가지 버전 중 2가지 즉, OpenShift Origin 및 OpenShift Container Platform은 고객이 Azure에서 배포할 수 있습니다.
 
-## <a name="openshift-origin"></a>OpenShift Origin
+## <a name="okd-formerly-openshift-origin"></a>OKD(이전의 OpenShift Origin)
 
-Origin은 커뮤니티가 지원하는 OpenShift의 [오픈 소스](https://www.openshift.org/) 업스트림 프로젝트입니다. Origin은 CentOS 또는 RHEL(Red Hat Enterprise Linux)에 설치할 수 있습니다.
+OKD는 커뮤니티가 지원하는 OpenShift의 [오픈 소스](https://www.okd.io/) 업스트림 프로젝트입니다. OKD는 CentOS 또는 RHEL(Red Hat Enterprise Linux)에 설치할 수 있습니다.
 
 ## <a name="openshift-container-platform"></a>OpenShift Container Platform
 

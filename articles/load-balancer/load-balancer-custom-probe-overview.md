@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/10/2018
+ms.date: 08/28/2018
 ms.author: kumud
-ms.openlocfilehash: 91c7d16296653aea2381793f2e52f2b33b831185
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 5ceddb1bcd6ce89f7014e034b56c873f02cc2007
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42141545"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190736"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer 상태 프로브
 
@@ -181,7 +181,12 @@ UDP는 비연결형이며 UDP에 대해 추적된 흐름 상태가 없습니다.
 
 ## <a name="probesource"></a>원본 IP 주소 프로브
 
-모든 Load Balancer 상태 프로브는 해당 원본으로 168.63.129.16 IP 주소에서 시작됩니다.  Azure의 Virtual Network에 사용자 고유의 IP 주소를 가져오는 경우 이 상태 프로브 원본 IP 주소는 Microsoft에서 글로벌하게 예약되어 있으므로 고유하게 보장됩니다.  이 주소는 모든 지역에서 동일하며 변경되지 않습니다. 내부 Azure 플랫폼만 이 IP 주소에서 패킷을 소싱할 수 있으므로 이를 보안 위험으로 간주하면 안 됩니다. 
+Load Balancer는 내부 상태 모델에 분산 프로빙 서비스를 사용합니다. VM이 상주하는 각 호스트는 고객 구성별로 상태 프로브를 생성하도록 프로그래밍할 수 있습니다. 상태 프로브 트래픽은 상태 프로브를 생성하는 인프라 구성 요소와 고객 VM 간에 직접 발생합니다. 모든 Load Balancer 상태 프로브는 해당 원본으로 168.63.129.16 IP 주소에서 시작됩니다.  Azure의 Virtual Network에 사용자 고유의 IP 주소를 가져오는 경우 이 상태 프로브 원본 IP 주소는 Microsoft에서 글로벌하게 예약되어 있으므로 고유하게 보장됩니다.  이 주소는 모든 지역에서 동일하며 변경되지 않습니다. 내부 Azure 플랫폼만 이 IP 주소에서 패킷을 소싱할 수 있으므로 이를 보안 위험으로 간주하면 안 됩니다. 
+
+이 IP 주소는 Load Balancer 상태 프로브 외에도 다음 작업에서 사용합니다.
+
+- VM 에이전트에서 플랫폼과 통신하도록 설정하여 "준비" 상태에 있음을 알립니다.
+- DNS 가상 서버와 통신하도록 설정하여 사용자 지정 DNS 서버를 정의하지 않은 고객에게 필터링된 이름 확인을 제공합니다.  이 필터링을 통해 고객은 배포의 호스트 이름만 확인할 수 있습니다.
 
 Load Balancer의 상태 프로브에서 인스턴스를 표시하려면 모든 Azure [보안 그룹](../virtual-network/security-overview.md) 및 로컬 방화벽 정책에서 이 IP 주소를 **허용해야 합니다**.
 

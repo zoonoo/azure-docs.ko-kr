@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f54001c26938ea508111542b930b189342303633
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: f8ac885444c0ba52802024be9a78dfc0737e2673
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186865"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247686"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>투명한 게이트웨이 역할을 하는 Linux IoT Edge 장치 만들기
 
@@ -80,9 +80,9 @@ ms.locfileid: "39186865"
    >[!NOTE]
    > 게이트웨이의 DNS 호스트 이름과 동일한 이름을 사용하지 **마십시오**. 이렇게 하면 이러한 인증서에 대한 클라이언트 인증이 실패합니다.
 
-      ```cmd
-      ./certGen.sh create_edge_device_certificate "<gateway device name>"
-      ```
+   ```cmd
+   ./certGen.sh create_edge_device_certificate "<gateway device name>"
+   ```
 
    스크립트 실행의 결과 다음과 같은 인증서 및 키가 생성됩니다.
    * `$WRKDIR/certs/new-edge-device.*`
@@ -101,18 +101,24 @@ ms.locfileid: "39186865"
    * 장치 CA 인증서 - `$WRKDIR/certs/new-edge-device-full-chain.cert.pem`
    * 장치 CA 개인 키 - `$WRKDIR/private/new-edge-device.key.pem`
    * 소유자 CA - `$WRKDIR/certs/azure-iot-test-only.root.ca.cert.pem`
+   
+2. IoT Edge 구성 파일을 엽니다. 이 파일은 보호된 파일이므로 승격된 권한을 사용하여 액세스해야 할 수 있습니다.
+   
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
 
-2.  보안 디먼 구성 YAML 파일의 `certificate` 속성을 인증서 및 키 파일을 배치할 경로로 설정합니다.
+3.  보안 디먼 구성 YAML 파일의 `certificate` 속성을 인증서 및 키 파일을 배치한 경로로 설정합니다.
 
-```yaml
-certificates:
-  device_ca_cert: "$CERTDIR/certs/new-edge-device-full-chain.cert.pem"
-  device_ca_pk: "$CERTDIR/private/new-edge-device.key.pem"
-  trusted_ca_certs: "$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem"
-```
+   ```yaml
+   certificates:
+     device_ca_cert: "$CERTDIR/certs/new-edge-device-full-chain.cert.pem"
+     device_ca_pk: "$CERTDIR/private/new-edge-device.key.pem"
+     trusted_ca_certs: "$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem"
+   ```
 
 ## <a name="deploy-edgehub-to-the-gateway"></a>게이트웨이에 Edge Hub 배포
-Azure IoT Edge의 주요 기능 중 하나는 클라우드에서 IoT Edge 장치에 모듈을 배포할 수 있다는 것입니다. 이 섹션에서는 비어 있는 배포를 만들었습니다. 그러나 다른 모듈을 표시하지 않더라도 Edge Hub는 자동으로 모든 배포에 추가됩니다. Edge Hub는 Edge 장치에서 투명한 게이트웨이로 작동시키는 데 필요한 유일한 모듈입니다. 따라서 비어 있는 배포를 만들면 충분합니다. 
+Azure IoT Edge의 주요 기능 중 하나는 클라우드에서 IoT Edge 장치에 모듈을 배포할 수 있다는 것입니다. 이 섹션에서는 비어 있는 배포를 만들었습니다. 그러나 다른 모듈이 없는 경우에도 Edge Hub는 모든 배포에 자동으로 추가됩니다. Edge Hub는 Edge 장치에서 투명한 게이트웨이로 작동시키는 데 필요한 유일한 모듈입니다. 따라서 비어 있는 배포를 만들면 충분합니다. 
 1. Azure Portal에서 IoT Hub로 이동합니다.
 2. **IoT Edge**로 이동하고 게이트웨이로 사용할 IoT Edge 장치를 선택합니다.
 3. **모듈 설정**을 선택합니다.

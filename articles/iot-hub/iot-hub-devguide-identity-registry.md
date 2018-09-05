@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 2039b7760704de35c688dda41e3b75425e5ec0e8
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 4e23b70c8dc5fdacfd609fb4664a78293b9e2362
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186274"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247648"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>IoT Hub의 ID 레지스트리 이해
 
@@ -26,7 +26,7 @@ ID 레지스트리에 저장된 장치 또는 모듈 ID는 대/소문자를 구�
 다음과 같은 작업이 필요할 때 ID 레지스트리를 사용합니다.
 
 * IoT Hub에 연결되는 장치 또는 모듈을 프로비전합니다.
-* 허브의 장치 또는 모듈 지향 끝점에 대한 장치별/모듈별 액세스를 제어합니다.
+* 허브의 장치 또는 모듈 지향 엔드포인트에 대한 장치별/모듈별 액세스를 제어합니다.
 
 > [!NOTE]
 > ID 레지스트리에는 응용 프로그램별 메타데이터가 없습니다.
@@ -71,9 +71,9 @@ ID 레지스트리에서 ID의 **상태** 속성을 업데이트하여 장치를
 
 ## <a name="import-and-export-device-identities"></a>장치 ID 가져오기 및 내보내기
 
-[IoT Hub 리소스 공급자 끝점][lnk-endpoints]에서 비동기 작업을 사용하여 IoT Hub의 ID 레지스트리에서 장치 ID를 대량으로 내보낼 수 있습니다. 내보내기는 고객이 제공한 Blob 컨테이너를 사용하여 ID 레지스터에서 읽은 장치 ID 데이터를 저장하는 장기 실행 작업입니다.
+[IoT Hub 리소스 공급자 엔드포인트][lnk-endpoints]에서 비동기 작업을 사용하여 IoT Hub의 ID 레지스트리에서 장치 ID를 대량으로 내보낼 수 있습니다. 내보내기는 고객이 제공한 Blob 컨테이너를 사용하여 ID 레지스터에서 읽은 장치 ID 데이터를 저장하는 장기 실행 작업입니다.
 
-[IoT Hub 리소스 공급자 끝점][lnk-endpoints]에서 비동기 작업을 사용하여 IoT Hub의 ID 레지스트리로 장치 ID를 대량으로 가져올 수 있습니다. 가져오기는 고객이 제공한 Blob 컨테이너의 데이터를 사용하여 장치 ID 데이터를 ID 레지스트리에 쓰는 장기 실행 작업입니다.
+[IoT Hub 리소스 공급자 엔드포인트][lnk-endpoints]에서 비동기 작업을 사용하여 IoT Hub의 ID 레지스트리로 장치 ID를 대량으로 가져올 수 있습니다. 가져오기는 고객이 제공한 Blob 컨테이너의 데이터를 사용하여 장치 ID 데이터를 ID 레지스트리에 쓰는 장기 실행 작업입니다.
 
 API를 가져오고 내보내는 작업에 대한 자세한 정보는 [IoT Hub 리소스 공급자 REST API][lnk-resource-provider-apis]를 참조하세요. 가져오기 및 내보내기 작업 실행에 대한 자세한 내용은 [IoT Hub 장치 ID의 대량 관리][lnk-bulk-identity]를 참조하세요.
 
@@ -85,10 +85,9 @@ API를 가져오고 내보내는 작업에 대한 자세한 정보는 [IoT Hub �
 
 ## <a name="device-heartbeat"></a>장치 하트비트
 
-IoT Hub ID 레지스트리는 **connectionState**라는 필드를 포함합니다. 개발 및 디버깅하는 동안 **connectionState** 필드만 사용합니다. IoT 솔루션은 런타임에 필드를 쿼리하면 안 됩니다. 예를 들어 클라우드-장치 메시지 또는 SMS를 보내기 전에 장치가 연결되었는지 확인하기 위해 **connectionState** 필드를 쿼리하지 마세요.
+IoT Hub ID 레지스트리는 **connectionState**라는 필드를 포함합니다. 개발 및 디버깅하는 동안 **connectionState** 필드만 사용합니다. IoT 솔루션은 런타임에 필드를 쿼리하면 안 됩니다. 예를 들어 클라우드-장치 메시지 또는 SMS를 보내기 전에 장치가 연결되었는지 확인하기 위해 **connectionState** 필드를 쿼리하지 마세요. 경고를 받고 장치 연결 상태를 모니터링하려면 Event Grid에서 [**장치 연결 끊김** 이벤트 ](https://docs.microsoft.com/azure/iot-hub/iot-hub-event-grid#event-types)를 구독하는 것이 좋습니다. 이 [자습서](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps)를 사용하여 IoT Hub의 이벤트를 IoT 솔루션에 통합하는 방법을 알아봅니다.
 
-IoT 솔루션에서 장치가 연결되었는지 여부를 알아야 하는 경우 *하트비트 패턴*을 구현할 수 있습니다.
-
+IoT 솔루션에서 장치 연결 여부를 파악해야 하는 경우 *하트비트 패턴*을 구현할 수 있습니다.
 하트비트 패턴에서 장치는 정해진 시간에 최소 한 번(예: 1시간마다 최소 한 번) 장치-클라우드 메시지를 보냅니다. 따라서 장치가 보낼 데이터가 없는 경우 빈 장치-클라우드 메시지(이를 하트비트로 식별하는 속성을 가짐)라도 보낸다는 의미입니다. 서비스 쪽에서 솔루션은 각 장치에 대해 받은 마지막 하트비트와 함께 맵을 유지 관리합니다. 솔루션은 예상된 시간 내에 장치에서 보낸 하트비트 메시지를 받지 않을 경우 장치에 문제가 있다고 가정합니다.
 
 좀 더 복잡한 구현에서는 연결 또는 통신을 시도했지만 실패한 장치를 식별하기 위해 [작업 모니터링][lnk-devguide-opmon] 정보를 포함할 수 있습니다. 하트비트 패턴을 구현하는 경우 [IoT Hub 할당량 및 제한][lnk-quotas]을 확인해야 합니다.
@@ -187,7 +186,7 @@ iothub-message-schema | moduleLifecycleNotification |
 | etag |필요한 경우 읽기 전용 |[RFC7232][lnk-rfc7232]에 따라 장치 ID에 대해 약한 ETag를 나타내는 문자열입니다. |
 | auth |선택 사항 |인증 정보 및 보안 자료를 포함하는 복합 개체입니다. |
 | auth.symkey |선택 사항 |base64 형식으로 저장된 기본 및 보조 키를 포함하는 복합 개체입니다. |
-| status |필수 |액세스 표시기입니다. **사용** 또는 **사용 안 함**으로 설정할 수 있습니다. **사용**이면 장치를 연결할 수 있습니다. **사용 안 함**이면 이 장치는 장치 연결 끝점에 액세스할 수 없습니다. |
+| status |필수 |액세스 표시기입니다. **사용** 또는 **사용 안 함**으로 설정할 수 있습니다. **사용**이면 장치를 연결할 수 있습니다. **사용 안 함**이면 이 장치는 장치 연결 엔드포인트에 액세스할 수 없습니다. |
 | statusReason |선택 사항 |장치 ID 상태의 원인을 저장하는 128자 길이의 문자열입니다. UTF-8 문자를 모두 허용합니다. |
 | statusUpdateTime |읽기 전용 |마지막 상태 업데이트의 시간과 날짜를 보여 주는 임시 표시기입니다. |
 | connectionState |읽기 전용 |연결 상태를 나타내는 필드: **연결됨** 또는 **연결 끊김**. 이 필드는 장치 연결 상태의 IoT Hub 뷰를 나타냅니다. **중요**: 이 필드는 개발/디버깅 용도로만 사용해야 합니다. 연결 상태는 MQTT 또는 AMQP를 사용하여 장치에 대해서만 업데이트됩니다. 또한 이는 프로토콜 수준의 ping(MQTT ping 또는 AMQP ping)을 기반으로 하고 있으며 최대 5분 동안만 지연이 될 수 있습니다. 이러한 이유로, 연결되었지만 연결이 끊긴 것으로 보고된 장치와 같이 거짓 긍정이 있을 수 있습니다. |
@@ -209,7 +208,7 @@ iothub-message-schema | moduleLifecycleNotification |
 | etag |필요한 경우 읽기 전용 |[RFC7232][lnk-rfc7232]에 따라 장치 ID에 대해 약한 ETag를 나타내는 문자열입니다. |
 | auth |선택 사항 |인증 정보 및 보안 자료를 포함하는 복합 개체입니다. |
 | auth.symkey |선택 사항 |base64 형식으로 저장된 기본 및 보조 키를 포함하는 복합 개체입니다. |
-| status |필수 |액세스 표시기입니다. **사용** 또는 **사용 안 함**으로 설정할 수 있습니다. **사용**이면 장치를 연결할 수 있습니다. **사용 안 함**이면 이 장치는 장치 연결 끝점에 액세스할 수 없습니다. |
+| status |필수 |액세스 표시기입니다. **사용** 또는 **사용 안 함**으로 설정할 수 있습니다. **사용**이면 장치를 연결할 수 있습니다. **사용 안 함**이면 이 장치는 장치 연결 엔드포인트에 액세스할 수 없습니다. |
 | statusReason |선택 사항 |장치 ID 상태의 원인을 저장하는 128자 길이의 문자열입니다. UTF-8 문자를 모두 허용합니다. |
 | statusUpdateTime |읽기 전용 |마지막 상태 업데이트의 시간과 날짜를 보여 주는 임시 표시기입니다. |
 | connectionState |읽기 전용 |연결 상태를 나타내는 필드: **연결됨** 또는 **연결 끊김**. 이 필드는 장치 연결 상태의 IoT Hub 뷰를 나타냅니다. **중요**: 이 필드는 개발/디버깅 용도로만 사용해야 합니다. 연결 상태는 MQTT 또는 AMQP를 사용하여 장치에 대해서만 업데이트됩니다. 또한 이는 프로토콜 수준의 ping(MQTT ping 또는 AMQP ping)을 기반으로 하고 있으며 최대 5분 동안만 지연이 될 수 있습니다. 이러한 이유로, 연결되었지만 연결이 끊긴 것으로 보고된 장치와 같이 거짓 긍정이 있을 수 있습니다. |
@@ -220,7 +219,7 @@ iothub-message-schema | moduleLifecycleNotification |
 
 이 IoT Hub 개발자 가이드의 다른 참조 자료:
 
-* [IoT Hub 끝점][lnk-endpoints] - 각 IoT Hub에서 런타임 및 관리 작업에 대해 공개하는 다양한 끝점에 대해 설명합니다.
+* [IoT Hub 엔드포인트][lnk-endpoints] - 각 IoT Hub에서 런타임 및 관리 작업에 대해 공개하는 다양한 엔드포인트에 대해 설명합니다.
 * [제한 및 할당량][lnk-quotas]은 IoT Hub 서비스에 적용되는 할당량과 제한 동작에 대해 설명합니다.
 * [Azure IoT 장치 및 서비스 SDK][lnk-sdks] - IoT Hub와 상호 작용하는 장치 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
 * [IoT Hub 쿼리 언어][lnk-query]는 IoT Hub에서 장치 쌍 및 작업에 대한 정보를 검색하는 데 사용할 수 있는 쿼리 언어에 대해 설명합니다.

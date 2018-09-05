@@ -4,14 +4,14 @@ description: Azure Migrate 서비스를 사용하여 많은 수의 온-프레미
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/25/2018
 ms.author: raynew
-ms.openlocfilehash: 06905a2f16a23e5a7c4612f4b567aaf86322924d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 553e0d6569a3a35802703ef58e1460878dcd930b
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139940"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127517"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>대규모 VMware 환경 검색 및 평가
 
@@ -22,7 +22,7 @@ Azure Migrate에는 프로젝트당 1500개의 컴퓨터 제한이 있습니다.
 - **VMware**: 마이그레이션하려는 VM은 vCenter Server 버전 5.5, 6.0 또는 6.5에서 관리되어야 합니다. 또한 수집기 VM을 배포하려면 5.0 이상을 실행하는 ESXi 호스트가 하나 필요합니다.
 - **vCenter 계정**: vCenter Server에 액세스하려면 읽기 전용 계정이 필요합니다. Azure Migrate는 이 계정을 사용하여 온-프레미스 VM을 검색합니다.
 - **사용 권한**: vCenter Server에서 .OVA 형식으로 파일을 가져와 VM을 만들려면 사용 권한이 필요합니다.
-- **통계 구성**: vCenter Server에 대한 통계 설정은 배포를 시작하기 전에 수준 3으로 설정되어야 합니다. 수준이 3보다 낮은 경우 평가가 작동하지만 저장소 및 네트워크에 대한 성능 데이터는 수집되지 않습니다. 이 경우에 권장되는 크기는 CPU 및 메모리의 성능 데이터와 디스크 및 네트워크 어댑터의 구성 데이터를 기반으로 합니다.
+- **통계 구성**: vCenter Server에 대한 통계 설정은 배포를 시작하기 전에 수준 3으로 설정되어야 합니다. 통계 수준은 각 일, 주, 월 수집 간격에 대해 3으로 설정해야 합니다. 세 수집 간격 중 하나라도 수준이 3보다 낮으면 평가가 작동하기는 하지만 저장소 및 네트워크에 대한 성능 데이터는 수집되지 않습니다. 이 경우 권장 크기는 CPU 및 메모리의 성능 데이터와 디스크 및 네트워크 어댑터의 구성 데이터를 기반으로 합니다.
 
 
 ### <a name="set-up-permissions"></a>권한 설정

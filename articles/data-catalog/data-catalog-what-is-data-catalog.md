@@ -1,25 +1,19 @@
 ---
-title: "Azure Data Catalog 소개 | Microsoft Docs"
-description: "이 문서는 해당 기능 및 다룰 문제를 포함하여 Microsoft Azure Data Catalog의 개요를 제공합니다. 데이터 카탈로그를 통해 모든 사용자가 데이터 원본을 등록, 검색, 파악 및 사용할 수 있습니다."
+title: Azure Data Catalog 소개
+description: 이 문서는 해당 기능 및 다룰 문제를 포함하여 Microsoft Azure Data Catalog의 개요를 제공합니다. 데이터 카탈로그를 통해 모든 사용자가 데이터 원본을 등록, 검색, 파악 및 사용할 수 있습니다.
 services: data-catalog
-documentationcenter: 
 author: steelanddata
-manager: NA
-editor: 
-tags: 
+ms.author: maroche
 ms.assetid: cc733907-17ec-4153-9f0c-5b3754b2db19
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: edf6e1d8b86d9773b54353bb70f000bcdf40e5ec
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ba9cce1c63145bea25e657cb690287e1cbf5a4e4
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43052977"
 ---
 # <a name="what-is-azure-data-catalog"></a>Azure 데이터 카탈로그란?
 Azure Data Catalog는 사용자가 필요한 데이터 원본을 검색하고 찾은 데이터 원본을 파악할 수 있는 완전히 관리되는 클라우드 서비스입니다. 이와 동시에, 데이터 카탈로그를 통해 조직은 기존 투자에서 더 많은 가치를 창출할 수 있습니다. 

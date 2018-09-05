@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 08/21/2018
+ms.date: 08/27/2018
 ms.author: carlrab
-ms.openlocfilehash: 03e24679ea01dabb78a0d7028d49b624b2e3bf64
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 7f784689e8437d92cf4fc4974983d3ae1455f11b
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246780"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43091827"
 ---
 # <a name="sql-database-faq"></a>SQL Database FAQ
 
@@ -63,8 +63,7 @@ SQL Server에 대한 Azure 하이브리드 혜택과 관련하여 SQL Database �
 |||
 
 ## <a name="is-the-vcore-based-model-available-to-sql-database-managed-instance"></a>vCore 기반 모델은 SQL Database Managed Instance에서 사용할 수 있나요?
-
-  [Managed Instance](sql-database-managed-instance.md)는 vCore 기반 모델에서만 사용할 수 있습니다. 자세한 내용은 [SQL Database 가격 페이지](https://azure.microsoft.com/pricing/details/sql-database/managed/)도 참조하세요. 
+[Managed Instance](sql-database-managed-instance.md)는 vCore 기반 모델에서만 사용할 수 있습니다. 자세한 내용은 [SQL Database 가격 페이지](https://azure.microsoft.com/pricing/details/sql-database/managed/)도 참조하세요. 
 
 ## <a name="does-the-cost-of-compute-and-storage-depend-on-the-service-tier-that-i-choose"></a>내가 선택한 서비스 계층에 따라 계산 및 저장소 비용이 달라지나요?
 계산 비용은 응용 프로그램에 프로비전되는 총 계산 용량을 반영합니다. 중요 비즈니스 서비스 계층에서는 3개 이상의 Always ON 복제본이 자동으로 할당됩니다. 이러한 추가 계산 리소스 할당을 반영하기 위해 중요 비즈니스 계층에서 vCore 가격은 약 2.7배 더 높습니다. 같은 이유로, 중요 비즈니스 계층에서 GB당 저장소 가격이 더 높을수록 SSD 저장소의 높은 IO 및 짧은 대기 시간이 반영됩니다. 이와 동시에 두 경우 모두에서 표준 저장소 클래스를 사용하므로 백업 저장소 비용이 다릅니다.
@@ -156,7 +155,7 @@ vCore 기반 모델에서 서비스 요금은 서비스 계층, 프로비전된 
 - 8개 vCore를 사용하여 범용 계층에서 Managed Instance를 만든 다음, 즉시 16개 vCore로 업그레이드하는 경우 처음 1시간 사용에 대해 16개 vCore 요금이 청구됩니다.
 
 > [!NOTE]
-> 2018년 6월 30일까지로 제한된 기간 동안 백업 요금 및 IO 요금은 무료입니다.
+> 제한된 기간 동안 백업 요금 및 IO 요금은 무료입니다.
 
 ## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>탄력적 풀에서 활성 지역 복제의 사용량은 청구서에 어떻게 표시되나요?
 단일 데이터베이스와 달리, 탄력적 데이터베이스의 [활성 지역 복제](sql-database-geo-replication-overview.md)를 사용해도 청구서에 직접적인 영향은 없습니다.  각 풀(주 풀 및 보조 풀)에 프로비전된 리소스에 대해서만 요금이 청구됩니다.

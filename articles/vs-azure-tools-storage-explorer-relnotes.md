@@ -14,44 +14,50 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 94ade24f1761700b93ab79d497e273c64c51bddf
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: e3efb19010f36a6ef1fa0a191695a0e2c9f39d19
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990900"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190524"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Storage 탐색기 릴리스 정보
 
-이 문서는 Azure Storage 탐색기 1.2.0 릴리스에 대한 릴리스 정보 및 이전 버전에 대한 릴리스 정보를 포함합니다.
+이 문서는 Azure Storage 탐색기 1.4.1 릴리스에 대한 릴리스 정보 및 이전 버전에 대한 릴리스 정보를 포함합니다.
 
 [Microsoft Azure Storage 탐색기](./vs-azure-tools-storage-manage-with-storage-explorer.md) 는 Windows, macOS 및 Linux에서 Azure Storage 데이터를 쉽게 사용할 수 있게 하는 독립 실행형 앱입니다.
 
-## <a name="version-130"></a>버전 1.3.0
-07/09/2018
+## <a name="version-141"></a>버전 1.4.1
+2018년 08월 28일
 
-### <a name="download-azure-storage-explorer-130"></a>Azure Storage 탐색기 1.3.0 다운로드
-- [Windows용 Azure Storage 탐색기 1.3.0](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Mac용 Azure Storage 탐색기 1.3.0](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Linux용 Azure Storage 탐색기 1.3.0](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-141"></a>Azure Storage 탐색기 1.4.1 다운로드
+- [Windows용 Azure Storage 탐색기 1.4.1](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Mac용 Azure Storage 탐색기 1.4.1](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Linux용 Azure Storage 탐색기 1.4.1](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="hotfixes"></a>핫픽스
+* Storage 탐색기는 처음 시작할 때 중요한 데이터를 암호화하는 데 사용되는 키를 생성할 수 없었습니다. 이로 인해 빠른 액세스를 사용하고 리소스를 연결할 때 문제가 발생할 수 있습니다. [#535](https://github.com/Microsoft/AzureStorageExplorer/issues/535)
+* 계정에서 홈 테넌트에 대해 MFA를 요구하지 않았지만 다른 일부 테넌트에 대해서는 MFA를 요구한 경우 Storage 탐색기는 구독을 나열할 수 없습니다. 이제 이러한 계정으로 로그인하면 Storage 탐색기에서 자격 증명을 다시 입력하고 MFA를 수행하도록 요청합니다. [#74](https://github.com/Microsoft/AzureStorageExplorer/issues/74)
+* Storage 탐색기에서 Azure Germany 및 Azure US Government의 리소스를 연결할 수 없습니다. [#572](https://github.com/Microsoft/AzureStorageExplorer/issues/572)
+* 이메일 주소가 동일한 두 개의 계정에 로그인하면 경우에 따라 Storage 탐색기에서 리소스를 트리 보기에 표시하지 못할 수도 있습니다. [#580](https://github.com/Microsoft/AzureStorageExplorer/issues/580)
+* 느린 Windows 머신에서 경우에 따라 시작 화면이 표시되는 데 상당한 시간이 걸릴 수 있습니다. [#586](https://github.com/Microsoft/AzureStorageExplorer/issues/586)
+* 연결된 계정 또는 서비스가 있는 경우에도 연결 대화 상자가 표시됩니다. [#588](https://github.com/Microsoft/AzureStorageExplorer/issues/588)
 
 ### <a name="new"></a>새로 만들기
-* 정적 웹 사이트에서 사용하는 $web 컨테이너 액세스가 현재 지원됩니다. 이제 웹 사이트에서 사용되는 파일 및 폴더를 손쉽게 업로드하고 관리할 수 있습니다. [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
-* macOS에서 앱 표시줄이 재구성되었습니다. 변경 내용에는 파일 메뉴, 일부 바로 가기 키 변경 및 앱 메뉴의 몇 가지 새로운 명령이 포함됩니다. [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
-* Azure US Government에 로그인하기 위한 인증 기관 엔드포인트가 https://login.microsoftonline.us/로 변경되었습니다.
-* 접근성: 화면 판독기가 활성 상태인 경우 키보드 탐색이 이제 오른쪽에 항목을 표시하는 데 사용되는 테이블과 함께 작동합니다. 화살표 키를 사용하여 행과 열을 탐색하고, Enter 키를 사용하여 기본 작업 항목을 호출하고, 바로 가기 메뉴 키를 사용하여 항목에 대한 바로 가기 메뉴를 열고, Shift 키 또는 컨트롤을 사용하여 다중 선택할 수 있습니다. [#103](https://github.com/Microsoft/AzureStorageExplorer/issues/103)
+* SAS 연결 및 에뮬레이터와 같은 외부 리소스 연결이 크게 향상되었습니다. 이제 다음을 수행할 수 있습니다.
+   * 연결하는 리소스의 표시 이름을 사용자 지정합니다. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * 다른 포트를 사용하여 여러 로컬 에뮬레이터에 연결합니다. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * 연결된 리소스를 빠른 액세스에 추가합니다. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* 이제 Storage 탐색기에서 일시 삭제를 지원합니다. 다음을 수행할 수 있습니다.
+   * Storage 계정에 대한 Blob 컨테이너 노드를 마우스 오른쪽 단추로 클릭하여 일시 삭제 정책을 구성합니다.
+   * 탐색 모음 옆에 있는 드롭다운에서 "활성 및 삭제된 Blob"을 선택하여 Blob 편집기에서 일시 삭제된 Blob을 봅니다.
+   * 일시 삭제된 Blob을 삭제 취소합니다.
 
 ### <a name="fixes"></a>수정 프로그램
-*  일부 머신에서 자식 프로세스를 시작하려면 오랜 시간이 소요되었습니다. 이 현상이 발생하는 경우 “자식 프로세스가 적시에 시작하지 못함” 오류가 나타납니다. 자식 프로세스를 시작하는 데 할당된 시간이 이제 20초에서 90초로 증가되었습니다. 이 문제가 아직 해결되지 않은 경우 연결된 GitHub 문제에 의견을 남겨주세요. [#281](https://github.com/Microsoft/AzureStorageExplorer/issues/281)
-* 읽기 권한이 없는 SAS를 사용하는 경우 큰 blob을 업로드할 수 없었습니다. 업로드에 대한 논리가 이 시나리오에서 작동하도록 수정되었습니다. [#305](https://github.com/Microsoft/AzureStorageExplorer/issues/305)
-* 컨테이너에 대한 공용 액세스 수준 설정에서 모든 액세스 정책을 제거하고, 그 반대의 경우도 마찬가지입니다. 이제 공용 액세스 수준 및 액세스 정책은 둘 중 하나를 설정하는 경우 유지됩니다. [#197](https://github.com/Microsoft/AzureStorageExplorer/issues/197)
-* 속성 대화 상자에서 “AccessTierChangeTime”이 잘렸습니다. 이 문제가 해결되었습니다. [#145](https://github.com/Microsoft/AzureStorageExplorer/issues/145)
-* “Microsoft Azure Storage 탐색기 -” 접두사가 새 디렉터리 만들기 대화 상자에서 누락되었습니다. 이 문제가 해결되었습니다. [#299](https://github.com/Microsoft/AzureStorageExplorer/issues/299)
-* 접근성: 엔터티 추가 대화 상자가 VoiceOver를 사용하는 경우 탐색하기 어려웠습니다. 개선이 이루어졌습니다. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
-* 접근성: 작업 및 속성 창에 대한 축소/확장 단추의 배경색이 고대비 검정 테마의 유사한 UI 컨트롤과 불일치합니다. 색상이 변경되었습니다. [#123](https://github.com/Microsoft/AzureStorageExplorer/issues/123)
-* 접근성: 고대비 검정 테마에서 속성 대화 상자의 ‘X’ 단추에 대한 포커스 스타일링이 표시되지 않습니다. 이 문제가 해결되었습니다. [#243](https://github.com/Microsoft/AzureStorageExplorer/issues/243)
-* 접근성: 작업 및 속성 탭에서 수준 이하의 화면 판독기 환경에서 발생하는 몇 가지 aria 값이 누락되었습니다. 이제 누락된 aria 값이 추가되었습니다. [#316](https://github.com/Microsoft/AzureStorageExplorer/issues/316)
-* 접근성: 왼쪽에 축소된 트리 노드에 false의 aria 확장 값이 부여되지 않았습니다. 이 문제가 해결되었습니다. [#352](https://github.com/Microsoft/AzureStorageExplorer/issues/352)
+* Premium Storage 계정이 CORS를 지원하지 않으므로 "CORS 설정 구성" 작업은 Premium Storage 계정에서 더 이상 사용할 수 없습니다. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* 이제 SAS 연결 서비스에 대한 공유 액세스 서명 속성이 있습니다. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* "기본 액세스 계층 설정" 작업은 이제 빠른 액세스에 고정된 Blob 및 GPV2 저장소 계정에 대해 사용할 수 있습니다. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* 경우에 따라 Storage 탐색기에서 클래식 저장소 계정을 표시하지 못할 수도 있습니다. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
 
 ### <a name="known-issues"></a>알려진 문제
 * Azure Storage 에뮬레이터 또는 Azurite와 같은 에뮬레이터를 사용하는 경우 해당 기본 포트에 대한 연결을 수신하도록 해야 합니다. 그렇지 않으면 Storage 탐색기에서 연결할 수 없습니다.
@@ -88,6 +94,7 @@ ms.locfileid: "38990900"
 
 ## <a name="previous-releases"></a>이전 릴리스
 
+* [버전 1.3.0](#version-130)
 * [버전 1.2.0](#version-120)
 * [버전 1.1.0](#version-110)
 * [Version 1.0.0](#version-100)
@@ -113,6 +120,63 @@ ms.locfileid: "38990900"
 * [버전 0.7.20160129.1](#version-07201601291)
 * [버전 0.7.20160105.0](#version-07201601050)
 * [버전 0.7.20151116.0](#version-07201511160)
+
+## <a name="version-130"></a>버전 1.3.0
+07/09/2018
+
+### <a name="new"></a>새로 만들기
+* 정적 웹 사이트에서 사용하는 $web 컨테이너 액세스가 현재 지원됩니다. 이제 웹 사이트에서 사용되는 파일 및 폴더를 손쉽게 업로드하고 관리할 수 있습니다. [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
+* macOS에서 앱 표시줄이 재구성되었습니다. 변경 내용에는 파일 메뉴, 일부 바로 가기 키 변경 및 앱 메뉴의 몇 가지 새로운 명령이 포함됩니다. [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
+* Azure US Government에 로그인하기 위한 인증 기관 엔드포인트가 https://login.microsoftonline.us/로 변경되었습니다.
+* 접근성: 화면 판독기가 활성 상태인 경우 키보드 탐색이 이제 오른쪽에 항목을 표시하는 데 사용되는 테이블과 함께 작동합니다. 화살표 키를 사용하여 행과 열을 탐색하고, Enter 키를 사용하여 기본 작업 항목을 호출하고, 바로 가기 메뉴 키를 사용하여 항목에 대한 바로 가기 메뉴를 열고, Shift 키 또는 컨트롤을 사용하여 다중 선택할 수 있습니다. [#103](https://github.com/Microsoft/AzureStorageExplorer/issues/103)
+
+### <a name="fixes"></a>수정 프로그램
+*  일부 머신에서 자식 프로세스를 시작하려면 오랜 시간이 소요되었습니다. 이 현상이 발생하는 경우 “자식 프로세스가 적시에 시작하지 못함” 오류가 나타납니다. 자식 프로세스를 시작하는 데 할당된 시간이 이제 20초에서 90초로 증가되었습니다. 이 문제가 아직 해결되지 않은 경우 연결된 GitHub 문제에 의견을 남겨주세요. [#281](https://github.com/Microsoft/AzureStorageExplorer/issues/281)
+* 읽기 권한이 없는 SAS를 사용하는 경우 큰 blob을 업로드할 수 없었습니다. 업로드에 대한 논리가 이 시나리오에서 작동하도록 수정되었습니다. [#305](https://github.com/Microsoft/AzureStorageExplorer/issues/305)
+* 컨테이너에 대한 공용 액세스 수준 설정에서 모든 액세스 정책을 제거하고, 그 반대의 경우도 마찬가지입니다. 이제 공용 액세스 수준 및 액세스 정책은 둘 중 하나를 설정하는 경우 유지됩니다. [#197](https://github.com/Microsoft/AzureStorageExplorer/issues/197)
+* 속성 대화 상자에서 “AccessTierChangeTime”이 잘렸습니다. 이 문제가 해결되었습니다. [#145](https://github.com/Microsoft/AzureStorageExplorer/issues/145)
+* “Microsoft Azure Storage 탐색기 -” 접두사가 새 디렉터리 만들기 대화 상자에서 누락되었습니다. 이 문제가 해결되었습니다. [#299](https://github.com/Microsoft/AzureStorageExplorer/issues/299)
+* 접근성: 엔터티 추가 대화 상자가 VoiceOver를 사용하는 경우 탐색하기 어려웠습니다. 개선이 이루어졌습니다. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
+* 접근성: 작업 및 속성 창에 대한 축소/확장 단추의 배경색이 고대비 검정 테마의 유사한 UI 컨트롤과 불일치합니다. 색상이 변경되었습니다. [#123](https://github.com/Microsoft/AzureStorageExplorer/issues/123)
+* 접근성: 고대비 검정 테마에서 속성 대화 상자의 ‘X’ 단추에 대한 포커스 스타일링이 표시되지 않습니다. 이 문제가 해결되었습니다. [#243](https://github.com/Microsoft/AzureStorageExplorer/issues/243)
+* 접근성: 작업 및 속성 탭에서 수준 이하의 화면 판독기 환경에서 발생하는 몇 가지 aria 값이 누락되었습니다. 이제 누락된 aria 값이 추가되었습니다. [#316](https://github.com/Microsoft/AzureStorageExplorer/issues/316)
+* 접근성: 왼쪽에 축소된 트리 노드에 false의 aria 확장 값이 부여되지 않았습니다. 이 문제가 해결되었습니다. [#352](https://github.com/Microsoft/AzureStorageExplorer/issues/352)
+
+### <a name="known-issues"></a>알려진 문제
+* Blob 컨테이너와 같은 SAS URI를 통해 연결된 리소스에서 분리하면 다른 첨부 파일이 올바르게 표시되지 않도록 하는 오류가 발생할 수 있습니다. 이 문제를 해결하려면 그룹 노드를 새로 고칩니다. 자세한 내용은 [이 문제](https://github.com/Microsoft/AzureStorageExplorer/issues/537)를 참조하세요.
+* Mac용 VS를 사용하고 사용자 지정 AAD 구성을 만든 적이 있으면 로그인이 불가능할 수 있습니다. 이 문제를 해결하려면 ~/.IdentityService/AadConfigurations의 내용을 삭제합니다. 이렇게 해도 차단이 해제되지 않으면 [이 문제](https://github.com/Microsoft/AzureStorageExplorer/issues/97)에 의견을 남겨주세요.
+* Azurite는 모든 저장소 API에 아직 완전히 구현되지 않았습니다. 그래서 개발 저장소에 Azurite를 사용하는 경우 예상치 못한 오류나 동작이 발생할 수 있습니다.
+* 드물지만, 트리 포커스가 빠른 액세스에 고정될 수 있습니다. 모두 새로 고침을 사용하여 고정을 풀 수 있습니다.
+* NodeJS의 버그로 인해 OneDrive 폴더에서 업로드가 수행되지 않습니다. 이 버그는 수정되었지만 Electron에 아직 통합되지 않았습니다.
+* Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
+* 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. [여기](https://github.com/Azure/azure-storage-node/issues/317) 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* Azure Stack은 다음 기능을 지원하지 않으며, Azure Stack에서 작업하는 동안 이러한 기능을 사용하려고 하면 예기치 않은 오류가 발생할 수 있습니다.
+   * 파일 공유
+   * 액세스 계층
+   * 일시 삭제
+* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Linux 사용자의 경우 [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)을 설치해야 합니다.
+* Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Ubuntu 17.04 사용자의 경우에는 GConf를 설치해야 합니다. 이렇게 하려면 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-120"></a>버전 1.2.0
 2018/06/12
@@ -428,7 +492,7 @@ ms.locfileid: "38990900"
 * 현지 표준 시간대에 따라 테이블 엔터티에 대한 Edm.DateTime 값을 편집할 때, 예기치 않은 데이터 변경이 가능합니다. 이제 편집기는 Edm.DateTime 값에 대해 정확하고 일관된 제어를 제공하는 일반 텍스트 상자를 사용합니다.
 * 이름과 키로 첨부될 때 BLOB 그룹 업로드/다운로드가 시작되지 않습니다. 이 문제가 해결되었습니다.
 * 이전에 Microsoft Azure Storage 탐색기는 계정 구독을 하나 이상 선택한 경우 다만 오래된 계정을 다시 인증하도록 메시지를 표시합니다. 이제 Microsoft Azure Storage 탐색기는 계정이 완벽하게 필터링되었는지 묻는 메시지가 표시됩니다.
-* Azure US Government에 대 한 끝점 도메인이 잘못 되었습니다. 이 문제가 해결되었습니다.
+* Azure US Government에 대 한 엔드포인트 도메인이 잘못 되었습니다. 이 문제가 해결되었습니다.
 * Manage Accounts 패널에서 [적용] 단추는 때로 클릭하기 힘듭니다. 이 문제가 더 이상 일어나지 않을 것입니다.
 
 ### <a name="new"></a>새로 만들기
@@ -962,7 +1026,7 @@ ms.locfileid: "38990900"
 * Linux 지원이 추가되었습니다(OSX에 대한 패리티 기능).
 * SAS(공유 액세스 서명) 키를 사용하여 Blob 컨테이너를 추가할 수 있습니다.
 * Azure 중국의 Storage 계정을 추가할 수 있습니다.
-* 사용자 지정 끝점이 있는 Storage 계정을 추가할 수 있습니다.
+* 사용자 지정 엔드포인트가 있는 Storage 계정을 추가할 수 있습니다.
 * 내용 텍스트 및 그림 blob 열기 및 보기
 * blob 속성 및 메타데이터 보기 및 편집
 

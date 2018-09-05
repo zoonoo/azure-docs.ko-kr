@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 08/23/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
-ms.openlocfilehash: a1ff4364e394b3807cf767722ee934ae024399b0
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: bac728f286c90550107b27da76a070623577ed82
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114347"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918903"
 ---
 # <a name="configure-virtual-wan-automation---for-virtual-wan-partners-preview"></a>Virtual WAN 자동화 구성 - Virtual WAN 파트너용(미리 보기)
 
@@ -23,7 +23,7 @@ ms.locfileid: "39114347"
 
 ##  <a name="access"></a>액세스 제어
 
-고객은 장치 UI에서 Virtual WAN에 적절한 액세스 제어를 설정할 수 있어야 합니다. 이 경우, Azure 서비스 주체를 사용하는 것이 좋습니다. 서비스 주체 기반 액세스는 분기 정보 업로드에 적합한 인증을 장치 컨트롤러에 제공합니다.
+고객은 장치 UI에서 Virtual WAN에 적절한 액세스 제어를 설정할 수 있어야 합니다. 이 경우, Azure 서비스 주체를 사용하는 것이 좋습니다. 서비스 주체 기반 액세스는 분기 정보 업로드에 적합한 인증을 장치 컨트롤러에 제공합니다. 자세한 내용은 [서비스 주체 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)를 참조하세요.
 
 ##  <a name="site"></a>분기 정보 업로드
 

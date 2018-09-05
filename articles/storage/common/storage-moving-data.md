@@ -2,18 +2,18 @@
 title: Azure에서 클라우드 저장소 내부/외부로 대량의 데이터 이동 | Microsoft Docs
 description: Azure Storage 내부/외부로 데이터를 이동하는 다양한 방법에 대한 개요입니다.
 services: storage
-author: JarrettRenshaw
+author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/30/2017
-ms.author: jarrettr
+ms.date: 08/26/2018
+ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 81d7b5cf03e56ecc54db71b09af335d6cb794806
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 1df237a65a8b5312b20de19a99399b3a3dd075ff
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525538"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049613"
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Azure Storage의 데이터 이동
 온-프레미스 데이터를 Azure Storage로(또는 그 반대로) 이동하는 여러 방법이 있습니다. 가장 적합한 방법은 시나리오에 따라 달라집니다. 이 문서에서는 다양한 시나리오 그리고 각 시나리오에 적합한 방법을 신속하게 살펴보겠습니다.
@@ -21,7 +21,7 @@ ms.locfileid: "39525538"
 ## <a name="building-applications"></a>응용 프로그램 빌드
 응용 프로그램을 빌드하는 경우 REST API 또는 Microsoft의 여러 클라이언트 라이브러리 중 하나에 대해 개발하면 Azure Storage의 데이터를 쉽게 이동할 수 있습니다.
 
-Azure Storage는 .NET, iOS, Java, Android, UWP(Universal Windows Platform), Xamarin, C++, Node.JS, PHP, Ruby 및 Python에 대한 풍부한 클라이언트 라이브러리를 제공합니다. 이 클라이언트 라이브러리는 재시도 논리, 로깅, 병렬 업로드와 같은 고급 기능을 제공합니다. HTTP/HTTPS 요청이 가능한 모든 언어로 호출할 수 있는 REST API에 대해 바로 개발할 수도 있습니다.
+Azure Storage는 .NET, Java, Android, Go, Xamarin, C++, Node.JS, PHP, Ruby, Python 및 iOS를 비롯한 다양한 인기 있는 언어에 대한 다양한 클라이언트 라이브러리를 제공합니다. 이 클라이언트 라이브러리는 재시도 논리, 로깅, 병렬 업로드와 같은 고급 기능을 제공합니다. HTTP/HTTPS 요청이 가능한 모든 언어로 호출할 수 있는 REST API에 대해 바로 개발할 수도 있습니다.
 
 자세한 내용은 [Azure Blob Storage 시작](../blobs/storage-dotnet-how-to-use-blobs.md) 을 참조하세요.
 

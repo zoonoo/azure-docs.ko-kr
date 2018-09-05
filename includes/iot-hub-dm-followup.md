@@ -1,3 +1,20 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: iot-hub
+ms.service: iot-hub
+author: dominicbetts
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 3cdfa74c5f124e57b125399e39b7981b1dfb6d09
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43100228"
+---
 ## <a name="customize-and-extend-the-device-management-actions"></a>장치 관리 작업 사용자 지정 및 확장
 
 IoT 솔루션에서 정의된 장치 관리 패턴 집합을 확장하거나 장치 쌍 및 클라우드-장치 메서드 기본 형식을 사용하여 사용자 지정 패턴을 활성화하도록 설정할 수 있습니다. 장치 관리 작업의 다른 예로 공장 재설정, 펌웨어 업데이트, 소프트웨어 업데이트, 전원 관리, 네트워크 및 연결 관리, 데이터 암호화가 있습니다.
@@ -12,12 +29,8 @@ IoT 솔루션에서 정의된 장치 관리 패턴 집합을 확장하거나 장
 
 IoT Hub 및 장치 관리 패턴(예: 원격 무선 펌웨어 업데이트)을 계속 시작하려면 다음을 참조하세요
 
-[자습서: 펌웨어 업데이트를 수행하는 방법][lnk-fwupdate]
+[자습서: 펌웨어 업데이트를 수행하는 방법](../articles/iot-hub/tutorial-firmware-update.md)
 
-IoT 솔루션을 확장하고 여러 장치에서 메서드 호출을 예약하는 방법을 알아보려면 [jobs 예약 및 브로드캐스트][lnk-tutorial-jobs] 자습서를 참조하세요.
+IoT 솔루션을 확장하고 여러 장치에서 메서드 호출을 예약하는 방법을 알아보려면 [jobs 예약 및 브로드캐스트](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md) 자습서를 참조하세요.
 
-계속해서 IoT Hub를 시작하려면 [IoT Edge 시작][lnk-iot-edge]을 참조하세요.
-
-[lnk-fwupdate]: ../articles/iot-hub/tutorial-firmware-update.md
-[lnk-tutorial-jobs]: ../articles/iot-hub/iot-hub-node-node-schedule-jobs.md
-[lnk-iot-edge]: ../articles/iot-edge/tutorial-simulate-device-linux.md
+계속해서 IoT Hub를 시작하려면 [IoT Edge 시작](../articles/iot-edge/tutorial-simulate-device-linux.md)을 참조하세요.

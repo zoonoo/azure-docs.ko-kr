@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 9845476e23396eecc4149f3e856c40b0f80f13cb
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: f099eefbc6d196f25c2b09669cdc1c3cdec68a12
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004769"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050017"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Azure PowerShell을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Windows VM 문제 해결
 Azure에서 Windows 가상 머신(VM)에 부팅 또는 디스크 오류가 발생하는 경우 디스크 자체에서 문제 해결 단계를 수행해야 할 수 있습니다. 일반적인 예로는 응용 프로그램 업데이트가 실패하여 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에서는 디스크를 다른 Windows VM에 연결하여 모든 오류를 수정한 다음, 원래 VM을 복구하기 위해 Azure PowerShell을 사용하는 방법을 자세히 설명합니다. 
@@ -39,6 +39,8 @@ Azure에서 Windows 가상 머신(VM)에 부팅 또는 디스크 오류가 발�
 5. 복구 VM에 연결합니다. 파일을 편집하거나 도구를 실행하여 복사된 OS 디스크에서 문제를 수정합니다.
 6. 복구 VM에서 디스크를 탑재 해제하고 분리합니다.
 7. 영향을 받는 VM용 OS 디스크를 변경합니다.
+
+VM 복구 스크립트를 사용하여 1, 2, 3, 4, 6 및 7단계를 자동화할 수 있습니다. 자세한 설명서 및 지침은 [Resource Manager VM에 대한 VM Resource Manager](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager)를 참조하세요.
 
 먼저 [최신 Azure PowerShell](/powershell/azure/overview)을 설치하고 구독에 로그인했는지 확인합니다.
 

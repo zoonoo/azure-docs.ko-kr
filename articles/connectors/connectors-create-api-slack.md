@@ -1,67 +1,82 @@
 ---
-title: Logic Apps에서 Slack 커넥터 사용 | Microsoft Docs
-description: Logic Apps에서 Slack에 연결
+title: Azure Logic Apps에서 Slack에 연결 | Microsoft Docs
+description: Azure Logic Apps를 사용하여 Slack 계정에서 채널, 그룹 및 메시지를 관리하고 파일을 모니터링하는 작업 및 워크플로 자동화
 services: logic-apps
-documentationcenter: ''
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 88b134a90ac385ad957d76f420fe85dc2dbbf751
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+tags: connectors
+ms.date: 08/25/2018
+ms.openlocfilehash: 7af2db528866d687064e854e00e43e81d2601b2b
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296226"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042328"
 ---
-# <a name="get-started-with-the-slack-connector"></a>Slack 커넥터 시작
-Slack은 팀의 모든 통신을 한데 모아, 어디서나 즉시 검색 및 사용할 수 있는 팀 통신 도구입니다. 
+# <a name="monitor-and-manage-slack-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Slack을 모니터링 및 관리
 
-논리 앱을 만들어 시작합니다. [논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 참조하세요.
+Azure Logic Apps 및 Slack 커넥터를 사용하면 다음과 같이 Slack 채널, 메시지, 그룹 등을 관리하고 Slack 파일을 모니터링하는 자동화된 작업 및 워크플로를 만들 수 있습니다.
 
-## <a name="create-a-connection-to-slack"></a>Slack에 대한 연결 만들기
-Slack 커넥터를 사용하려면 먼저 **연결** 을 만든 다음 이러한 속성에 대한 세부 정보를 제공합니다. 
+* 새 파일이 생성될 때 모니터링합니다.
+* 채널을 만들고, 나열하고, 조인합니다. 
+* 메시지를 게시합니다.
+* 그룹을 만들고 방해 금지를 설정합니다.
 
-| 자산 | 필수 | 설명 |
-| --- | --- | --- |
-| 신뢰 |예 |Slack 자격 증명 제공 |
+트리거를 사용하여 Slack 계정에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. Slack 계정을 사용하여 작업을 수행하는 작업을 사용할 수 있습니다. 또한 다른 작업에서 Slack 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 새 파일이 생성되면 Office 365 Outlook 커넥터를 사용하여 이메일을 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토하세요.
 
-다음 단계를 사용하여 Slack에 로그인하고 논리 앱에서 Slack **연결**의 구성을 완료합니다.
+## <a name="prerequisites"></a>필수 조건
 
-1. **되풀이**
-2. **빈도**를 선택하고 **간격**을 입력합니다.
-3. **작업 추가**를 선택합니다.  
-   ![Slack 구성][1]  
-4. 검색 상자에 Slack을 입력하고 이름에 Slack이 있는 모든 항목이 반환될 때까지 검색을 기다립니다.
-5. **Slack-메시지 게시**
-6. **Slack에 로그인**을 선택합니다.  
-   ![Slack 구성][2]
-7. Slack 자격 증명을 제공하여 로그인하고 응용 프로그램에 권한을 부여합니다.    
-   ![Slack 구성][3]  
-8. 조직의 로그인 페이지로 리디렉션됩니다. 논리 앱과 상호 작용하도록 Slack에 **권한을 부여**합니다.      
-   ![Slack 구성][5] 
-9. 권한 부여가 완료된 후에 **Slack - 모든 메시지 가져오기** 섹션을 구성하여 완료할 논리 앱으로 리디렉션됩니다. 필요한 다른 트리거 및 작업을 추가합니다.  
-   ![Slack 구성][6]
-10. 위쪽 메뉴에서 **저장**을 선택하여 작업을 저장합니다.
+* Azure 구독. Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 
 
-## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
+* [Slack](https://slack.com/) 계정 및 사용자 자격 증명
 
-[커넥터 세부 정보](/connectors/slack/)에서 swagger에 정의된 모든 트리거 및 작업과 제한 사항도 확인할 수 있습니다.
+  자격 증명을 통해 Slack 계정에 대한 연결을 만들고 액세스하는 권한이 논리 앱에 부여됩니다.
 
-## <a name="more-connectors"></a>추가 커넥터
-[API 목록](apis-list.md)으로 돌아갑니다.
+* [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
-[1]: ./media/connectors-create-api-slack/connectionconfig1.png
-[2]: ./media/connectors-create-api-slack/connectionconfig2.png 
-[3]: ./media/connectors-create-api-slack/connectionconfig3.png
-[4]: ./media/connectors-create-api-slack/connectionconfig4.png
-[5]: ./media/connectors-create-api-slack/connectionconfig5.png
-[6]: ./media/connectors-create-api-slack/connectionconfig6.png
+* Slack 계정에 액세스하려는 논리 앱입니다. Slack 트리거를 시작하려면 [빈 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md). Slack 작업을 사용하려면 트리거(예: Slack 트리거 또는 **되풀이** 트리거와 같은 다른 트리거)를 통해 논리 앱을 시작합니다.
+
+## <a name="connect-to-slack"></a>Slack에 연결
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+1. [Azure Portal](https://portal.azure.com)에 로그인하고 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
+
+1. 빈 논리 앱의 경우 검색 상자에서 필터로 “slack”을 입력합니다. 트리거 목록에서 원하는 트리거를 선택합니다. 
+
+   또는
+
+   기존 논리 앱의 경우 작업을 추가하려는 마지막 단계에서 **새 단계**를 선택합니다. 
+   검색 상자에서 필터로 “slack”을 입력합니다. 
+   작업 목록에서 원하는 작업을 선택합니다.
+
+   단계 사이에서 작업을 추가하려면 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 
+   표시되는 더하기 기호(**+**)를 선택한 다음, **작업 추가**를 선택합니다.
+
+1. Slack에 로그인하라는 메시지가 표시되면 Slack 작업 영역에 로그인합니다. 
+
+   ![Slack 작업 영역에 로그인](./media/connectors-create-api-slack/slack-sign-in-workspace.png)
+
+1. 논리 앱에 대한 액세스 권한을 부여합니다.
+
+   ![Slack에 대한 액세스 권한 부여](./media/connectors-create-api-slack/slack-authorize-access.png)
+
+1. 선택한 트리거 또는 작업에 필요한 세부 정보를 입력합니다. 논리 앱의 워크플로를 계속 빌드하려면 더 많은 작업을 추가합니다.
+
+## <a name="connector-reference"></a>커넥터 참조
+
+커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/slack/)를 검토하세요.
+
+## <a name="get-support"></a>지원 받기
+
+* 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
+* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](http://aka.ms/logicapps-wish)를 방문하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+* 다른 [Logic Apps 커넥터](../connectors/apis-list.md)에 대해 알아봅니다.

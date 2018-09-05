@@ -1,6 +1,6 @@
 ---
-title: Azure AD PIM에서 이메일 알림 | Microsoft Docs
-description: Azure AD PIM(Privileged Identity Management)에서 이메일 알림을 설명합니다.
+title: PIM에서 이메일 알림 - Azure | Microsoft Docs
+description: Azure AD PIM(Privileged Identity Management)의 이메일 알림에 대해 설명합니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 07/24/2018
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 7943b4fb8c2027b50ce04c30d21f1b0a58f98ace
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 1a1635e0ba16bdc0fa6dc90aa0e1a417f43e04ac
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621585"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190179"
 ---
-# <a name="email-notifications-in-azure-ad-pim"></a>Azure AD PIM에서 이메일 알림
+# <a name="email-notifications-in-pim"></a>PIM에서 이메일 알림
 
 Azure AD PIM(Privileged Identity Management)에서 주요 이벤트가 발생할 때 이메일 알림이 관련 관리자 또는 사용자에게 전송됩니다. 예를 들어 PIM은 다음과 같은 이벤트에 대한 이메일을 보냅니다.
 
@@ -74,5 +74,5 @@ Azure AD PIM(Privileged Identity Management)에서 주요 이벤트가 발생할
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD PIM에서 역할 활성화 설정을 관리하는 방법](pim-how-to-change-default-settings.md)
-- [Azure AD PIM의 승인](azure-ad-pim-approval-workflow.md)
+- [PIM에서 Azure AD 디렉터리 역할 설정 구성](pim-how-to-change-default-settings.md)
+- [PIM에서 Azure AD 디렉터리 역할에 대한 요청 승인 또는 거부](azure-ad-pim-approval-workflow.md)

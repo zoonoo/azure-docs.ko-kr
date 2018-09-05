@@ -1,25 +1,21 @@
 ---
-title: 로컬 머신에서 Azure Data Lake U-SQL 스크립트 실행 | Microsoft Docs
+title: 로컬 머신에서 Azure Data Lake U-SQL 스크립트 실행
 description: 로컬 컴퓨터에서 Azure Data Lake Tools for Visual Studio를 사용하여 U-SQL 작업을 실행하는 방법을 알아봅니다.
 services: data-lake-analytics
-documentationcenter: ''
 author: yanancai
-manager: ''
-editor: ''
+ms.author: yanacai
+ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.author: yanacai
-ms.openlocfilehash: 892147f3668ee811e3c43044478c650d2f37587a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 8f110a88558b4479d8fdadb2967c7dedeca60ce9
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630318"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43043560"
 ---
 # <a name="run-u-sql-scripts-on-your-local-machine"></a>로컬 머신에서 U-SQL 스크립트 실행
 

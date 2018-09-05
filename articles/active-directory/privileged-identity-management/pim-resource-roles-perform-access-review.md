@@ -1,6 +1,6 @@
 ---
-title: Azure 리소스에 대한 Privileged Identity Management에서 액세스 검토 수행 | Microsoft Docs
-description: 이 문서에서는 리소스 역할에 따라 Azure 리소스에 대한 PIM에서 액세스 검토를 수행하는 방법을 설명합니다.
+title: PIM에서 Azure 리소스 역할에 대한 액세스 검토 수행 | Microsoft Docs
+description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스 역할에 대한 액세스 검토를 수행하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 336ad1d7eff8eee0f2370e206eb98f20b4efb45b
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: a96a1de7828797f1124280fca95a3358210b55b7
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617227"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189721"
 ---
-# <a name="perform-an-access-review-in-pim-according-to-resource-role"></a>리소스 역할에 따라 PIM에서 액세스 검토 수행
+# <a name="perform-an-access-review-of-my-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스 역할에 대한 액세스 검토 수행
 Azure 리소스에 대한 PIM(Privileged Identity Management)에서는 기업이 Azure에서 리소스에 대해 권한 있는 액세스를 관리하는 방법을 간소화합니다. 
 
 관리 역할에 할당된 경우 조직의 권한 있는 역할 관리자가 작업에 해당 역할이 여전히 필요한지 정기적으로 확인하도록 요청할 수 있습니다. 링크가 포함된 메일을 받거나 [Azure 포털](https://portal.azure.com)로 바로 이동할 수 있습니다. 할당된 역할을 자체 검토하려면 이 문서의 단계를 따릅니다.
@@ -50,3 +50,7 @@ Azure 리소스에 대한 PIM(Privileged Identity Management)에서는 기업이
 4. **승인** 또는 **거부**를 선택합니다. **이유 설명** 상자에 결정 이유를 입력해야 할 수도 있습니다.
 
    ![세부 정보 검토 페이지의 스크린샷](media/azure-pim-resource-rbac/rbac-access-review-choice.png)
+
+## <a name="next-steps"></a>다음 단계
+
+- [PIM에서 Azure AD 디렉터리 역할에 대한 액세스 검토 수행](pim-how-to-perform-security-review.md)

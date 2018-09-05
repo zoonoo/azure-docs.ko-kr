@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: kumud
-ms.openlocfilehash: e9249f3a5787da9ad54945195b47cf9af0f45fb1
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 1f7e605cbf5aa3d519e04c4fdfd737a4c0926a3e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42144902"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122579"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure에서 아웃바운드 연결
 
@@ -122,13 +122,23 @@ Load Balancer 표준은 [여러 (공개) IP 프런트 엔드](load-balancer-mult
 
 공용 Load Balancer 리소스가 VM 인스턴스와 연결된 경우 각 아웃바운드 연결 원본이 다시 작성됩니다. 원본은 가상 네트워크 개인 IP 주소 공간에서 부하 분산 장치의 프런트 엔드 공용 IP 주소로 다시 작성됩니다. 공용 IP 주소 공간에서 흐름의 5튜플(원본 IP 주소, 원본 포트, IP 전송 프로토콜, 대상 IP 주소, 대상 포트)은 고유해야 합니다.  포트 가장 SNAT는 TCP 또는 UDP IP 프로토콜과 함께 사용할 수 있습니다.
 
-여러 흐름이 단일 공용 IP 주소에서 시작되므로 삭제 포트(SNAT 포트)는 개인 원본 IP 주소를 다시 작성한 후 이 목적에 사용됩니다. 
+여러 흐름이 단일 공용 IP 주소에서 시작되므로 삭제 포트(SNAT 포트)는 개인 원본 IP 주소를 다시 작성한 후 이 목적에 사용됩니다. 포트 위장 SNAT 알고리즘은 UDP와 TCP의 SNAT 포트를 다르게 할당합니다.
 
-단일 대상 IP 주소, 포트 및 프로토콜에 대한 흐름 당 하나의 SNAT 포트가 사용됩니다. 동일한 대상 IP 주소, 포트 및 프로토콜에 대한 여러 흐름의 경우 각 흐름은 단일 SNAT 포트를 사용합니다. 이렇게 하면 흐름이 동일한 대상 IP 주소에서 시작하여 동일한 대상 IP 주소, 포트 및 프로토콜로 이동하는 경우 흐름의 고유성이 보장됩니다. 
+#### <a name="tcp"></a>TCP SNAT 포트
+
+단일 대상 IP 주소, 포트에 대한 흐름당 하나의 SNAT 포트가 사용됩니다. 동일한 대상 IP 주소, 포트 및 프로토콜에 대한 여러 TCP 흐름의 경우 각 TCP 흐름은 단일 SNAT 포트를 사용합니다. 이렇게 하면 흐름이 동일한 대상 IP 주소에서 시작하여 동일한 대상 IP 주소, 포트 및 프로토콜로 이동하는 경우 흐름의 고유성이 보장됩니다. 
 
 서로 다른 대상 IP 주소, 포트 및 프로토콜에 대한 여러 흐름은 단일 SNAT 포트를 공유합니다. 대상 IP 주소, 포트 및 프로토콜은 공용 IP 주소 공간에서 흐름을 구분하는 추가 원본 포트를 사용하지 않고도 흐름을 고유하게 만들어줍니다.
 
+#### <a name="udp"></a> UDP SNAT 포트
+
+UDP SNAT 포트는 TCP SNAT 포트와는 다른 알고리즘을 통해 관리됩니다.  부하 분산 장치는 UDP에 "포트 제한 원뿔형 NAT"이라고 하는 알고리즘을 사용합니다.  대상 IP 주소, 포트에 관계없이 각 흐름당 하나의 SNAT 포트가 사용됩니다.
+
+#### <a name="exhaustion"></a>고갈
+
 SNAT 포트 리소스가 고갈되면 기존 흐름에서 SNAT 포트를 릴리스할 때까지 아웃바운드 흐름이 실패합니다. Load Balancer는 흐름이 닫히면 SNAT 포트를 회수하고 유휴 흐름에서 SNAT 포트를 회수하기 위해 [4분 유휴 시간 제한](#idletimeout)을 사용합니다.
+
+사용되는 알고리즘의 차이로 인해 일반적으로 UDP SNAT 포트가 TCP SNAT 포트보다 훨씬 빠르게 고갈됩니다. 이러한 차이를 염두에 두고 테스트를 설계하고 규모를 결정해야 합니다.
 
 흔히 SNAT 포트 고갈로 이어지는 조건을 완화하는 패턴은 [SNAT 관리](#snatexhaust) 섹션을 검토하세요.
 
@@ -136,7 +146,7 @@ SNAT 포트 리소스가 고갈되면 기존 흐름에서 SNAT 포트를 릴리�
 
 Azure는 포트 가장 SNAT([PAT](#pat))을 사용할 때 백 엔드 풀의 크기에 따라 사용 가능한 미리 할당 SNAT 포트 수를 결정하는 알고리즘을 사용합니다. SNAT 포트는 특정 공용 IP 원본 주소에 사용할 수 있는 삭제 포트입니다.
 
-동일한 수의 SNAT 포트가 UDP 및 TCP에 대해 각각 미리 할당되고 IP 전송 프로토콜별로 독립적으로 사용됩니다. 
+동일한 수의 SNAT 포트가 UDP 및 TCP에 대해 각각 미리 할당되고 IP 전송 프로토콜별로 독립적으로 사용됩니다.  그러나 SNAT 포트 사용은 흐름이 UDP인지 아니면 TCP인지에 따라 다릅니다.
 
 >[!IMPORTANT]
 >표준 SKU SNAT 프로그래밍은 IP 전송 프로토콜별로 사용되며 부하 분산 규칙에서 파생됩니다.  TCP 부하 분산 규칙만 존재하는 경우, TCP에만 SNAT를 사용할 수 있습니다. TCP 부하 분산 규칙만 있고 UDP에 대한 아웃바운드 SNAT가 필요한 경우, 동일한 프런트 엔드 풀에서 동일한 백 엔드 풀로의 UDP 부하 분산 규칙을 만듭니다.  이렇게 하면 UDP에 대한 SNAT 프로그래밍이 트리거됩니다.  작업 규칙 또는 상태 프로브는 필요하지 않습니다.  기본 SKU SNAT는 부하 분산 규칙에 지정된 전송 프로토콜과 관계없이 항상 IP 전송 프로토콜 둘 다에 대해 SNAT를 프로그래밍합니다.

@@ -1,27 +1,23 @@
 ---
 title: X12 메시지 인코딩 - Azure Logic Apps | Microsoft Docs
-description: Azure Logic Apps의 엔터프라이즈 통합 팩에서 X12 메시지 인코더를 사용하여 EDI 유효성 검사 및 XML 디코딩 메시지 변환
+description: 엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 X12 메시지 인코더를 사용하여 EDI 유효성을 검사하고 XML 디코딩 메시지 변환
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: a01e9ca9-816b-479e-ab11-4a984f10f62d
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: a01e9ca9-816b-479e-ab11-4a984f10f62d
 ms.date: 01/27/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: ec350560f4aca4e9a0b4f00892b690012c9f08dd
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 3ed5cb61fef5f07913f11c4e4df309d720d5b901
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299018"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123508"
 ---
-# <a name="encode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에 대한 X12 메시지 인코딩
+# <a name="encode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 X12 메시지 인코딩
 
 X12 메시지 인코딩 커넥터를 사용하여 EDI 및 파트너 관련 속성의 유효성을 검사하고 XML로 인코딩된 메시지를 교환에서 EDI 트랜잭션 집합으로 변환하며 기술 승인, 기능 승인 또는 둘 다를 요청할 수 있습니다.
 이 커넥터를 사용하려면 논리 앱에서 기존 트리거에 커넥터를 추가해야 합니다.

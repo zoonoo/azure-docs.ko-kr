@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 00e5f5a73973a34a8611143719c91a2b1ad0c8eb
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0aadb5964b5fe08b02397588dd9b2695fb4db4ce
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971269"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746720"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Linux 운영 체제 패치
 
@@ -121,7 +121,7 @@ Ubuntu의 경우 [무인 업그레이드](https://help.ubuntu.com/community/Auto
 
 설치 스크립트와 함께 응용 프로그램을 [보관 링크](https://go.microsoft.com/fwlink/?linkid=867984)에서 다운로드할 수 있습니다.
 
-sfpkg 형식의 응용 프로그램은 [sfpkg 링크](https://go.microsoft.com/fwlink/?linkid=867984&pc=sfpkg)에서 다운로드할 수 있습니다. 이 링크를 통해 [Azure Resource Manager 기반 응용 프로그램을 쉽게 배포](service-fabric-application-arm-resource.md)할 수 있습니다.
+sfpkg 형식의 응용 프로그램은 [sfpkg 링크](https://aka.ms/POA/POA_v2.0.2.sfpkg)에서 다운로드할 수 있습니다. 이 링크를 통해 [Azure Resource Manager 기반 응용 프로그램을 쉽게 배포](service-fabric-application-arm-resource.md)할 수 있습니다.
 
 ## <a name="configure-the-app"></a>앱 구성
 
@@ -234,9 +234,9 @@ RejectedList | 기본값은 ""입니다. | 이 업데이트에 대한 거부된 
 
 업데이트 결과를 쿼리하려면 클러스터에 로그인합니다. 그런 다음, 주 코디네이터 서비스의 복제본 주소를 찾아 브라우저에서 URL을 입력합니다(http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetResults).
 
-코디네이터 서비스의 REST 끝점에는 동적 포트가 있습니다. 정확한 URL을 확인하려면 Service Fabric Explorer를 참조하세요. 예를 들어 `http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetResults`에 결과가 제공됩니다.
+코디네이터 서비스의 REST 엔드포인트에는 동적 포트가 있습니다. 정확한 URL을 확인하려면 Service Fabric Explorer를 참조하세요. 예를 들어 `http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetResults`에 결과가 제공됩니다.
 
-![REST 끝점의 이미지](media/service-fabric-patch-orchestration-application/Rest_Endpoint.png)
+![REST 엔드포인트의 이미지](media/service-fabric-patch-orchestration-application/Rest_Endpoint.png)
 
 ## <a name="diagnosticshealth-events"></a>진단/상태 이벤트
 
@@ -370,5 +370,8 @@ a. 아니요, 패치 오케스트레이션 앱을 사용하여 1노드 클러스
 ### <a name="version-200"></a>버전 2.0.0
 - 공개 릴리스
 
-### <a name="version-201-latest"></a>버전 2.0.1(최신)
+### <a name="version-201"></a>버전 2.0.1
 - 최신 Service Fabric SDK를 사용하여 앱을 다시 컴파일함
+
+### <a name="version-202-latest"></a>버전 2.0.2(최신)
+- 다시 시작하는 동안 상태 경고가 남아 있는 문제가 해결되었습니다.

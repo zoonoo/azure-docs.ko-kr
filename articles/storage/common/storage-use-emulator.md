@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 543f581659d54bd14ccb2a818fd74e379bcc8cfe
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: af2a3da788fd26387ccdcc36422ffa5b11893212
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140148"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888086"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>개발 및 테스트에 Azure Storage 에뮬레이터 사용
 
@@ -26,9 +26,8 @@ Microsoft Azure 저장소 에뮬레이터는 개발 목적으로 Azure Blob, 큐
 
 > [!NOTE]
 > 저장소 에뮬레이터의 어느 한 버전으로 작성한 데이터에 다른 버전으로 반드시 액세스할 수 있는 것은 아닙니다. 장기간 보존하려는 데이터는 저장소 에뮬레이터가 아닌 Azure Storage 계정에 저장하는 것이 좋습니다.
-> <p/>
+> 
 > 저장소 에뮬레이터는 OData 라이브러리의 특정 버전에 따라 달라집니다. 저장소 에뮬레이터에서 사용되는 OData DLL을 다른 버전으로 바꾸는 것은 지원되지 않으며 예기치 않은 동작을 초래합니다. 그러나 저장소 서비스가 지원하는 어떤 버전의 OData도 에뮬레이터에 요청을 보내는 데 사용할 수 있습니다.
->
 
 ## <a name="how-the-storage-emulator-works"></a>저장소 에뮬레이터의 작동 원리
 저장소 에뮬레이터는 로컬 Microsoft SQL Server 인스턴스와 로컬 파일 시스템을 사용하여 Azure Storage 서비스를 에뮬레이트합니다. 기본적으로 저장소 에뮬레이터는 Microsoft SQL Server 2012 Express LocalDB의 데이터베이스를 사용합니다. 저장소 에뮬레이터가 LocalDB가 아닌 SQL Server의 로컬 인스턴스에 액세스하도록 구성할 수 있습니다. 자세한 내용은 이 문서 다음에 나오는 [저장소 에뮬레이터 시작 및 초기화](#start-and-initialize-the-storage-emulator) 섹션을 참조하세요.
@@ -187,6 +186,7 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 다음과 같은 차이점이 에뮬레이터의 Blob 저장소에 적용됩니다.
 
 * 저장소 에뮬레이터는 blob 크기를 최대 2GB까지만 지원합니다.
+* 저장소 에뮬레이터에서 blob 이름의 최대 길이는 256자인 반면, Azure Storage에서 blob 이름의 최대 길이는 1024자입니다.
 * 증분 복사를 사용하면 덮어쓴 Blob의 스냅숏을 복사할 수 있으며 이로 인해 서비스에 오류가 반환됩니다.
 * Get Page Ranges Diff는 Incremental Copy Blob을 사용하여 복사한 스냅숏 간에는 작동하지 않습니다.
 * 임대 ID가 요청에 지정되어 있지 않은 경우에도 Put Blob 작업은 저장소 에뮬레이터에 있으며 활성 임대가 있는 blob에 대해 성공할 수 있습니다.

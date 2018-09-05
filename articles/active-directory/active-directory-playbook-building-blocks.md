@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 3ae2e883e3e27adc167b7e831ca53d3cd1572257
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 4618c8a0298afdac28e7511e9521cf1e26238734
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038686"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189041"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 개념 증명 플레이 북: 문서 블록
 
@@ -480,7 +480,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | https://portal.azure.com에 GA(전역 관리자)로 로그인하고 PIM 블레이드를 부트스트랩합니다. 이 단계를 수행하는 전역 관리자는 보안 관리자로 시드됩니다.  이 행위자 GA1을 호출해 보겠습니다. | [Azure AD Privileged Identity Management에서 보안 마법사 사용](privileged-identity-management/pim-security-wizard.md) |
 | 전역 관리자를 식별하고 영구에서 적격으로 이동합니다. 분명한 설명을 위해 이 관리자는 1단계에서 사용된 관리자와 달라야 합니다. 이 행위자 GA2를 호출해 보겠습니다. | [Azure AD Privileged Identity Management: 사용자 역할을 추가 또는 제거하는 방법](privileged-identity-management/pim-how-to-add-role-to-user.md)<br/>[Azure AD Privileged Identity Management란?: 역할 활성화 설정 구성](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)  |
 | 이제 GA2로 https://portal.azure.com에 로그인하고 “사용자 설정”을 변경해 봅니다. 일부 옵션이 회색으로 표시되는 것을 알 수 있습니다. | |
-| 새 탭 및 3단계와 같은 세션에서 https://portal.azure.com로 이동하고 PIM 블레이드를 대시보드에 추가합니다. | [Azure AD Privileged Identity Management 역할을 활성화하거나 비활성화하는 방법: Privileged Identity Management 응용 프로그램 추가](privileged-identity-management/pim-how-to-activate-role.md#add-the-privileged-identity-management-application) |
+| 새 탭 및 3단계와 같은 세션에서 https://portal.azure.com로 이동하고 PIM 블레이드를 대시보드에 추가합니다. | [PIM 사용 시작](privileged-identity-management/pim-getting-started.md) |
 | 전역 관리자 역할에 대한 활성화 요청 | [Azure AD Privileged Identity Management 역할을 활성화하거나 비활성화하는 방법: 역할 활성화](privileged-identity-management/pim-how-to-activate-role.md#activate-a-role) |
 | GA2가 MFA에 등록한 적이 없는 경우에는 Azure MFA에 대한 등록이 필요합니다. |  |
 | 3단계의 원래 탭으로 돌아가서 브라우저에서 [새로 고침] 단추를 클릭합니다. 이제 “사용자 설정”을 변경할 수 있습니다. | |

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 14cdb2d3e433da38913ffa29b3b150bdb264278b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1948fb927c00e928a46c347bc6f1a01a43e155df
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658709"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43112142"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>빠른 시작: Azure VMs에서 단일 인스턴스 SAP HANA 수동 설치
 ## <a name="introduction"></a>소개
@@ -41,7 +41,7 @@ ms.locfileid: "34658709"
 * 다음 개념 및 절차:
    * Azure에서의 SAP 배포 계획(Azure Virtual Network 계획 및 Azure Storage 사용 포함) - [Azure VMs(Virtual Machines)에서 SAP NetWeaver - 계획 및 구현 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) 참조
    * Azure에 VM을 배포하는 배포 원칙 및 방법 - [SAP용 Azure Virtual Machines 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide) 참조
-   * Azure의 SAP NetWeaver ASCS(ABAP SAP Central Services), SCS(SAP Central Services) 및 ERS(입고 기준 자동 정산)에 대한 고가용성 - [Azure VM에서 SAP NetWeaver에 대한 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide) 참조
+   * Azure의 SAP NetWeaver ASCS(ABAP SAP Central Services), SCS(SAP Central Services) 및 ERS(Enqueue Replication Server)에 대한 고가용성 [Azure VM에서 SAP NetWeaver에 대한 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide) 참조
    * Azure에서 ASCS/SCS의 다중 SID 설치를 활용하여 효율성을 향상시키는 방법에 대한 세부 정보 - [SAP NetWeaver 다중 SID 구성 만들기](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-multi-sid) 참조 
    * Azure에서 Linux 기반 VM에 기반한 SAP NetWeaver 실행 원칙 - [Microsoft Azure SUSE Linux VM에서 SAP NetWeaver 실행](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/suse-quickstart) 참조. 이 가이드에서는 Azure VM의 Linux에 대한 특정 설정과 Linux VM에 Azure 저장소 디스크를 Linux VM에 올바르게 연결하는 방법에 대해 자세히 설명합니다.
 

@@ -14,26 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 5e0002437b4fc22d9dfdcdca9a587bf420a7d8fa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: cb4f738fd63b8b013f674557a0c5f5639c26391e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207685"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126887"
 ---
 # <a name="differences-between-service-fabric-on-linux-and-windows"></a>Linux와 Windows의 Service Fabric 간의 차이점
 
-일부 기능 Windows에서는 지원되지만 Linux에서는 지원되지 않습니다. 결국 기능 집합은 동격이며 이러한 기능 차이는 각 릴리스에서 축소될 예정입니다. 제공되는 최신 릴리스(즉, Windows에서 버전 6.0 및 Linux에서 버전 6.0) 간에는 다음과 같은 차이점이 있습니다. 
+일부 기능 Windows에서는 지원되지만 Linux에서는 지원되지 않습니다. 결국 기능 집합은 동격이며 이러한 기능 차이는 각 릴리스에서 축소될 예정입니다. 사용 가능한 최신 릴리스 간에 다음과 같은 차이점이 있습니다.
 
-* 모든 프로그래밍 모델이 미리 보기 상태임(Java / C# Reliable Actors, 신뢰할 수 있는 상태 비저장 서비스 및 신뢰할 수 있는 상태 저장 서비스)
-* Envoy(ReverseProxy)가 Linux에서 미리 보기 상태임
+* Envoy(Reverse Proxy)는 Linux에서 미리 보기 상태
 * Linux용 독립 실행형 설치 관리자를 Linux에서 사용할 수 없음
 * 콘솔 리디렉션(Linux나 Windows 프로덕션 클러스터에서 지원되지 않음)
 * Linux의 FAS(오류 분석 서비스)
 * Service Fabric 서비스에 대한 DNS 서비스(DNS 서비스는 Linux의 컨테이너에 지원됨)
 * 특정 Powershell 명령에 해당하는 CLI 명령(아래 목록은 대부분 독립 실행형 클러스터에만 적용됨)
-
-Windows와 Linux의 개발 도구도 서로 다릅니다. Visual Studio, Powershell, VSTS 및 ETW는 Windows에서 사용되고 Yeoman, Eclipse, Jenkins 및 LTTng는 Linux에서 사용됩니다.
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>Linux Service Fabric 클러스터에서 작동하지 않는 PowerShell cmdlet
 

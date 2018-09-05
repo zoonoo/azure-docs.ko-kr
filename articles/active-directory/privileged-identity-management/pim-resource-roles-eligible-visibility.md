@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management에서 Azure에 대한 적격 할당 및 리소스 표시 유형 | Microsoft Docs
-description: PIM을 사용할 때 리소스 역할에 멤버를 적격으로 할당하는 방법을 설명합니다.
+title: PIM의 적격 할당 및 리소스 표시 유형 - Azure | Microsoft Docs
+description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스 역할에 적격인 멤버를 할당하는 방법을 설명합니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 336453c1ef6ef8d0295d00f31afc6a5e7e42e8b6
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 3551c3231a94f8a844d26a713cbf171ca7653815
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621551"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189217"
 ---
-# <a name="eligible-assignments-and-resource-visibility-with-privileged-identity-management"></a>Privileged Identity Management를 사용하여 적격 할당 및 리소스 표시 유형
+# <a name="eligible-assignments-and-resource-visibility-in-pim"></a>PIM의 적격 할당 및 리소스 표시 유형
 
 Azure 리소스 역할에 대한 PIM(Privileged Identity Management)은 중요한 Azure 리소스가 있는 조직에 대한 향상된 보안을 제공합니다. 리소스 관리자는 PIM을 사용하여 리소스 역할에 멤버를 적격으로 할당할 수 있습니다. 다음 섹션에서 Azure 리소스 역할에 대한 다른 할당 형식 및 할당 상태에 대해 자세히 알아봅니다. 
 
@@ -70,4 +70,4 @@ Azure 리소스에서 PIM에는 **내 역할**, **역할** 및 PIM의 **멤버**
 
 ## <a name="next-steps"></a>다음 단계
 
-[Privileged Identity Manager의 역할 할당](pim-resource-roles-assign-roles.md)
+- [PIM에서 Azure 리소스 역할 할당](pim-resource-roles-assign-roles.md)

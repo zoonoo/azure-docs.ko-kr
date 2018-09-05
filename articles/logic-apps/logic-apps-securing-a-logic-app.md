@@ -1,35 +1,31 @@
 ---
 title: Azure Logic Apps에 대한 액세스 보호 | Microsoft Docs
-description: Azure Logic Apps에서 워크플로와 함께 사용되는 트리거, 입력 및 출력, 작업 매개 변수 및 서비스에 대한 액세스를 보호하기 위한 보안을 추가합니다.
+description: Azure Logic Apps의 워크플로에서 트리거, 입력 및 출력, 작업 매개 변수 및 서비스에 대한 액세스를 보호합니다.
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: kevinlam1
+ms.author: klam
+ms.reviewer: estfan, LADocs
+ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
 ms.date: 11/22/2016
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 2052e58dab7241836409fb013778f9702004021c
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: fc4fdff5080e6ebe13850157e8d560a1d31e7719
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299912"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127482"
 ---
-# <a name="secure-access-to-your-logic-apps"></a>논리 앱에 대한 액세스 보호
+# <a name="secure-access-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 보호
 
-논리 앱을 보호하는 데 사용할 수 있는 많은 도구가 있습니다.
+다음과 같은 다양한 방법으로 논리 앱의 다양한 구성 요소에 대한 액세스를 보호할 수 있습니다.
 
-* 논리 앱(HTTP 요청 트리거)을 트리거하는 액세스 보안
-* 논리 앱을 관리, 편집 또는 읽기 위한 액세스 보안
-* 실행에 대한 입력 및 출력의 콘텐츠에 대한 액세스 보안
-* 워크플로에서 작업 내에서 매개 변수 또는 입력 보안
-* 워크플로에서 요청을 수신하는 서비스에 대한 액세스 보안
+* HTTP 요청 트리거를 사용하여 논리 앱 워크플로를 트리거하는 액세스를 보호합니다.
+* 논리 앱을 관리, 편집 또는 읽기 위핸 액세스를 보호합니다.
+* 논리 앱 실행을 위한 입력 및 출력 내부 콘텐츠에 대한 액세스를 보호합니다.
+* 논리 앱 워크플로의 작업에 대한 매개 변수 또는 입력을 보호합니다.
+* 논리 앱 워크플로에서 요청을 수신하는 서비스에 대한 액세스를 보호합니다.
 
 ## <a name="secure-access-to-trigger"></a>트리거에 대한 보안 액세스
 
@@ -37,7 +33,7 @@ HTTP 요청([요청](../connectors/connectors-native-reqres.md) 또는 [WebHook]
 
 ### <a name="shared-access-signature"></a>공유 액세스 서명
 
-논리 앱에 대한 모든 요청 끝점은 URL의 일부로서 [SAS(공유 액세스 서명](../storage/common/storage-dotnet-shared-access-signature-part-1.md))를 포함합니다. 각 URL은 `sp`, `sv` 및 `sig` 쿼리 매개 변수를 포함합니다. 권한은 `sp`에 의해 지정되고 허용된 HTTP 메서드에 해당하며, `sv`는 생성하는 데 사용된 버전이며, `sig`는 트리거하는 액세스를 인증하는 데 사용됩니다. 서명은 모든 URL 경로 및 속성에 관한 암호 키를 포함한 SHA256 알고리즘을 사용하여 생성됩니다. 비밀 키 암호는 절대 노출되거나 공개되지 않으며 논리 앱의 일부로서 암호화되고 저장됩니다. 논리 앱은 암호 키로 만들어진 유효한 서명을 포함하는 트리거에 권한을 부여합니다.
+논리 앱에 대한 모든 요청 엔드포인트는 URL의 일부로서 [SAS(공유 액세스 서명](../storage/common/storage-dotnet-shared-access-signature-part-1.md))를 포함합니다. 각 URL은 `sp`, `sv` 및 `sig` 쿼리 매개 변수를 포함합니다. 권한은 `sp`에 의해 지정되고 허용된 HTTP 메서드에 해당하며, `sv`는 생성하는 데 사용된 버전이며, `sig`는 트리거하는 액세스를 인증하는 데 사용됩니다. 서명은 모든 URL 경로 및 속성에 관한 암호 키를 포함한 SHA256 알고리즘을 사용하여 생성됩니다. 비밀 키 암호는 절대 노출되거나 공개되지 않으며 논리 앱의 일부로서 암호화되고 저장됩니다. 논리 앱은 암호 키로 만들어진 유효한 서명을 포함하는 트리거에 권한을 부여합니다.
 
 #### <a name="regenerate-access-keys"></a>액세스 키 다시 생성
 
@@ -73,7 +69,7 @@ POST
 
 ### <a name="restrict-incoming-ip-addresses"></a>받는 IP 주소 제한
 
-공유 액세스 서명 외에도 특정 클라이언트의 논리 앱 호출만 제한하려는 경우가 있습니다.  예를 들어 Azure API Management를 통해 끝점을 관리하는 경우 API Management 인스턴스 IP 주소에서 요청이 들어오면 요청을 수락하도록 논리 앱을 제한할 수 있습니다.
+공유 액세스 서명 외에도 특정 클라이언트의 논리 앱 호출만 제한하려는 경우가 있습니다.  예를 들어 Azure API Management를 통해 엔드포인트를 관리하는 경우 API Management 인스턴스 IP 주소에서 요청이 들어오면 요청을 수락하도록 논리 앱을 제한할 수 있습니다.
 
 이 설정은 논리 앱 설정 내에서 구성할 수 있습니다.
 
@@ -116,7 +112,7 @@ POST
 
 ### <a name="adding-azure-active-directory-oauth-or-other-security"></a>Azure Active Directory, OAuth 또는 기타 보안 추가
 
-논리 앱을 기반으로 권한 부여 프로토콜을 추가하기 위해 [Azure API Management](https://azure.microsoft.com/services/api-management/)에서는 논리 앱을 API로 노출하는 기능을 사용하여 모든 끝점에 대한 다양한 모니터링, 보안, 정책 및 설명서를 제공합니다. Azure API Management는 Azure Active Directory, 인증서, OAuth 또는 기타 보안 표준을 사용할 수 있는 논리 앱에 대한 공용 또는 개인 끝점을 노출할 수 있습니다. 요청을 받으면 Azure API Management는 해당 요청을 논리 앱에 전달합니다(필요한 모든 변환 또는 진행 중인 제한 수행). API Management에서만 논리 앱이 트리거되도록 논리 앱에서 받는 IP 범위 설정을 사용할 수 있습니다.
+논리 앱을 기반으로 권한 부여 프로토콜을 추가하기 위해 [Azure API Management](https://azure.microsoft.com/services/api-management/)에서는 논리 앱을 API로 노출하는 기능을 사용하여 모든 엔드포인트에 대한 다양한 모니터링, 보안, 정책 및 설명서를 제공합니다. Azure API Management는 Azure Active Directory, 인증서, OAuth 또는 기타 보안 표준을 사용할 수 있는 논리 앱에 대한 공용 또는 개인 엔드포인트를 노출할 수 있습니다. 요청을 받으면 Azure API Management는 해당 요청을 논리 앱에 전달합니다(필요한 모든 변환 또는 진행 중인 제한 수행). API Management에서만 논리 앱이 트리거되도록 논리 앱에서 받는 IP 범위 설정을 사용할 수 있습니다.
 
 ## <a name="secure-access-to-manage-or-edit-logic-apps"></a>논리 앱을 관리하거나 편집하기 위한 액세스 보호
 
@@ -245,7 +241,7 @@ Azure Portal의 리소스 설정 내에서 이 설정을 구성할 수 있습니
 
 ## <a name="secure-access-to-services-receiving-requests-from-a-workflow"></a>워크플로에서 요청을 수신하는 서비스에 대한 액세스 보안
 
-논리 앱이 액세스해야 하는 모든 끝점을 보호하는 데는 여러 가지 방법이 있습니다.
+논리 앱이 액세스해야 하는 모든 엔드포인트를 보호하는 데는 여러 가지 방법이 있습니다.
 
 ### <a name="using-authentication-on-outbound-requests"></a>아웃바운드 요청에 대한 인증 사용
 

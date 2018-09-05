@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 705f2ce674a31d7dda4d87d893078a2ade26e327
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: e708ae741c6835395e8eb35f6835c2d8c7002780
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443393"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43044733"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임을 만들고 구성하는 방법
 IR(Integration Runtime)은 서로 다른 네트워크 환경에서 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다. IR에 대한 세부 정보는 [Integration Runtime 개요](concepts-integration-runtime.md)를 참조하세요.
@@ -156,6 +156,8 @@ Integration Runtime 노드 간의 통신 보안에 사용되는 TLS/SSL 인증�
 
    ![](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
 
+   ![](media\create-self-hosted-integration-runtime\3_rbac_permissions.png)
+
 2. 공유되는 자체 호스팅 IR의 **리소스 ID**를 적어 둡니다.
 
    ![](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
@@ -167,6 +169,20 @@ Integration Runtime 노드 간의 통신 보안에 사용되는 TLS/SSL 인증�
    ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
 
    ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
+
+#### <a name="monitoring"></a>모니터링 
+
+- **공유된 IR**
+
+  ![](media\create-self-hosted-integration-runtime\Contoso-shared-IR.png)
+
+  ![](media\create-self-hosted-integration-runtime\contoso-shared-ir-monitoring.png)
+
+- **연결된 IR**
+
+  ![](media\create-self-hosted-integration-runtime\Contoso-linked-ir.png)
+
+  ![](media\create-self-hosted-integration-runtime\Contoso-linked-ir-monitoring.png)
 
 #### <a name="known-limitations-of-self-hosted-ir-sharing"></a>자체 호스팅 IR 공유에 대해 알려진 제한 사항
 
@@ -182,6 +198,8 @@ Integration Runtime 노드 간의 통신 보안에 사용되는 TLS/SSL 인증�
 5. 이 기능을 지원하는 ADF .Net SDK는 1.1.0 버전 이상입니다.
 
 6. 이 기능을 지원하는 Azure PowerShell은 6.6.0 버전 이상(AzureRM.DataFactoryV2 0.5.7 이상)입니다.
+
+7. 권한을 부여하려면 사용자가 “소유자” 역할이거나 공유된 IR이 있는 Data Factory에서 상속된 “소유자” 역할이어야 합니다. 
 
   > [!NOTE]
   > 이 기능은 Azure Data Factory 버전 2에서만 사용할 수 있습니다. 

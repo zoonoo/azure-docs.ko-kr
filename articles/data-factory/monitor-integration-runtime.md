@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 9bcc73d262f4bc455c923fe0eb7c04c7cf090830
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 8ca7ce2586513373c58552bb1f56b94715f15076
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505364"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128452"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임 모니터링  
 **통합 런타임**은 서로 다른 네트워크 환경에서 다양한 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다. Data Factory는 세 가지 유형의 통합 런타임을 제공합니다.
@@ -44,7 +44,7 @@ Azure 통합 런타임의 계산 리소스는 Azure에서 완전히 탄력적으
 | 자산 | 설명 |
 -------- | ------------- | 
 | Name | Azure 통합 런타임의 이름. |  
-| 시스템 상태 | Azure 통합 런타임의 상태. | 
+| 상태 | Azure 통합 런타임의 상태. | 
 | 위치 | Azure 통합 런타임의 위치. Azure 통합 런타임의 위치에 대한 자세한 내용은 [통합 런타임 소개](concepts-integration-runtime.md)를 참조하세요. |
 | DataFactoryName | Azure 통합 런타임이 속한 데이터 팩터리의 이름. | 
 | ResourceGroupName | 데이터 팩터리가 속한 리소스 그룹의 이름.  |
@@ -163,12 +163,12 @@ Azure-SSIS 통합 런타임은 SSIS 패키지 실행 전용 Azure 가상 머신(
 | 노드 | 노드별 상태(시작 중/사용 가능/재생 중/사용할 수 없음)와 조치 가능한 오류가 있는 Azure-SSIS 통합 런타임의 할당 된/사용 가능한 노드. |
 | OtherErrors | Azure-SSIS 통합 런타임의 비 노드별 조치 가능한 오류. |
 | LastOperation | 실패한 경우 조치 가능한 오류가 있는 Azure-SSIS 통합 런타임의 마지막 시작/중지 작업의 결과. |
-| 시스템 상태 | Azure-SSIS 통합 런타임의 전반적인 상태(초기/시작 중/시작됨/중지 중/중지됨). |
+| 상태 | Azure-SSIS 통합 런타임의 전반적인 상태(초기/시작 중/시작됨/중지 중/중지됨). |
 | 위치 | Azure-SSIS 통합 런타임의 위치. |
 | NodeSize | Azure-SSIS 통합 런타임의 각 노드의 크기. |
 | NodeCount | Azure-SSIS 통합 런타임의 노드 수. |
 | MaxParallelExecutionsPerNode | Azure-SSIS 통합 런타임의 노드당 병렬 실행 수. |
-| CatalogServerEndpoint | 기존 Azure SQL Database/SSISDB를 호스트할 Managed Instance(미리 보기) 서버의 엔드포인트. |
+| CatalogServerEndpoint | 기존 Azure SQL Database/SSISDB를 호스트할 관리되는 인스턴스(미리 보기) 서버의 엔드포인트. |
 | CatalogAdminUserName | 기존 Azure SQL Database/Managed Instance(미리 보기) 서버의 관리 사용자 이름. Data Factory 서비스는 이 정보를 사용하여 사용자 대신 SSISDB를 준비하고 관리합니다. |
 | CatalogAdminPassword | 기존 Azure SQL Database/Managed Instance(미리 보기) 서버의 관리자 암호. |
 | CatalogPricingTier | 기존 Azure SQL Database 서버에서 호스트하는 SSISDB의 가격 책정 계층.  SSISDB를 호스트하는 Azure SQL Managed Instance(미리 보기)에는 해당되지 않습니다. |

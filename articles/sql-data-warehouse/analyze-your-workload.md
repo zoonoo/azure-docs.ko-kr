@@ -3,19 +3,19 @@ title: 워크로드 분석 - Azure SQL Data Warehouse | Microsoft Docs
 description: Azure SQL Data Warehouse의 워크로드에 대한 쿼리 우선 순위 지정 분석 기술.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6b0d39b81b72615a9522e95558a59007b10bf109
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 4ce84e9714b580bcc243285dc1da5ae24a27e8e5
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795360"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248096"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 워크로드 분석
 Azure SQL Data Warehouse의 워크로드에 대한 쿼리 우선 순위 지정 분석 기술.
@@ -39,8 +39,7 @@ SQL Data Warehouse는 워크로드 그룹을 사용하여 리소스 클래스를
 | SloDWGroupC07   | 128                      | 12,800                         | 32,000                      | 높음               |
 | SloDWGroupC08   | 256                      | 25,600                         | 64,000                      | 높음               |
 
-<!-- where are the allocation and consumption of concurrency slots charts? -->
-**동시성 슬롯의 할당 및 사용량** 차트는 DW500이 smallrc, mediumrc, largerc 및 xlargerc 각각에 대해 1, 4, 8 또는 16의 동시성 슬롯을 사용한다는 사실을 보여 줍니다. 각 리소스 클래스에 대한 중요도를 확인하기 위해 위 차트에서 해당 값을 확인할 수 있습니다.
+<!-- where are the allocation and consumption of concurrency slots charts? --> **동시성 슬롯의 할당 및 사용량** 차트는 DW500에서 smallrc, mediumrc, largerc 및 xlargerc 각각에 대해 1, 4, 8 또는 16개의 동시성 슬롯을 사용한다는 것을 보여 줍니다. 각 리소스 클래스에 대한 중요도를 확인하기 위해 위 차트에서 해당 값을 확인할 수 있습니다.
 
 ### <a name="dw500-mapping-of-resource-classes-to-importance"></a>DW500의 리소스 클래스와 중요도 관계
 | 리소스 클래스 | 워크로드 그룹 | 사용된 동시성 슬롯 수 | MB/배포 | 중요도 |

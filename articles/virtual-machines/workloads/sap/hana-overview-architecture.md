@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/27/2018
+ms.date: 08/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3918096a977cfd48e2128646d7c552e842ab8834
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9d28b6ea5612a3db539c51d2603c3f12282ca519
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063683"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43090419"
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스) 개요 및 아키텍처
 
@@ -325,6 +325,10 @@ HANA 대규모 인스턴스에 대한 크기 조정은 일반적으로 HANA에 �
 Linux 버전이 다른 여러 SAP HANA 버전에 대한 지원 매트릭스는 [SAP Note #2235581](https://launchpad.support.sap.com/#/notes/2235581)을 참조하세요.
 
 운영 체제 및 HLI 펌웨어/드라이버 버전의 호환성 매트릭스는 [HLI에 대한 OS 업그레이드](os-upgrade-hana-large-instance.md)를 참조하세요.
+
+
+> [!IMPORTANT] 
+> 유형 II 단위의 경우 SLES 12 SP2 OS 버전만 지원됩니다. 
 
 
 **데이터베이스**

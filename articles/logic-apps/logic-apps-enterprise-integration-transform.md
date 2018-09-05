@@ -1,28 +1,24 @@
 ---
-title: 변환을 사용하여 XML 데이터 변환 - Azure Logic Apps | Microsoft Docs
-description: 엔터프라이즈 통합 SDK를 사용하여 Logic Apps에서 XML 데이터를 다른 형식으로 변환하기 위한 변환 또는 맵 만들기
+title: 형식 간에 XML 변환 - Azure Logic Apps | Microsoft Docs
+description: 엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 XML 간에 변환하는 변환 또는 맵 만들기
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: jeconnoc
-editor: cgronlun
-ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde
 ms.date: 07/08/2016
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 1621843d58954aa05a572f43fdab0fb16097332e
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 9dd471f70407191734b4c5a3aa84d5365a7beab8
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299456"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125298"
 ---
-# <a name="enterprise-integration-with-xml-transforms"></a>XML 변환과 엔터프라이즈 통합
-## <a name="overview"></a>개요
+# <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 XML 간에 변환하는 맵 만들기
+
 엔터프라이즈 통합 변환 커넥터에서는 데이터의 형식을 변환합니다. 예를 들어 YearMonthDay 형식의 현재 날짜가 포함된 들어오는 메시지가 있을 수 있습니다. 날짜를 MonthDayYear 형식으로 변경하는 데 사용할 수 있습니다.
 
 ## <a name="what-does-a-transform-do"></a>변환의 기능은 무엇인가요?
@@ -63,7 +59,7 @@ Visual Studio [엔터프라이즈 통합 SDK](https://aka.ms/vsmapsandschemas)�
 
 이 시점에서 맵의 설정이 완료됩니다. 실제 응용 프로그램에서는 SalesForce와 같은 LOB 응용 프로그램에 변환한 데이터를 저장할 수 있습니다. Salesforce에 변환의 출력을 보내는 작업을 쉽게 수행할 수 있습니다. 
 
-이제 HTTP 끝점에 요청하여 변환을 테스트할 수 있습니다.  
+이제 HTTP 엔드포인트에 요청하여 변환을 테스트할 수 있습니다.  
 
 
 ## <a name="features-and-use-cases"></a>기능 및 사용 사례

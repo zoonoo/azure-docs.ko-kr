@@ -1,5 +1,5 @@
 ---
-title: Azure의 Bing Web Search API에 대해 지원되는 국가/지역 및 언어 | Microsoft Docs
+title: Bing Web Search API에서 지원하는 국가, 지역 및 언어
 description: Bing Web Search API에서 지원하는 국가/지역 및 언어를 확인합니다.
 services: cognitive-services
 author: v-jerkin
@@ -7,24 +7,24 @@ manager: jhubbard
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 10/06/2017
-ms.author: v-jerkin
-ms.openlocfilehash: e1994ddf3bf71d01adeac4ff8688bdd1e6eac660
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.date: 8/16/2018
+ms.author: erhopf
+ms.openlocfilehash: 87384a8aeabfe0c4a178344235debcc586cdf3de
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001721"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888474"
 ---
-# <a name="bing-web-search-countriesregions-and-languages"></a>Bing Web Search 국가/지역 및 언어
+# <a name="countries-regions-and-languages-supported-by-the-bing-web-search-api"></a>Bing Web Search API에서 지원하는 국가, 지역 및 언어
 
-Bing Web Search API는 수십 개의 국가/지역을 지원하며, 이 중에는 둘 이상의 언어를 사용하는 국가/지역도 많습니다. 쿼리를 통한 국가/지역 지정은 해당 국가/지역의 관심 분야에 따라 검색 결과를 구체화하는 데 주로 사용됩니다. 또한 결과는 Bing에 대한 링크를 포함할 수 있으며 이러한 링크는 지정된 국가/지역 또는 언어에 따라 Bing 사용자 경험을 지역화할 수 있습니다.
+Bing Web Search API는 수십 개의 국가 또는 지역을 지원하며, 이 중에는 둘 이상의 언어를 사용하는 국가/지역도 많습니다. 쿼리를 통한 국가 또는 지역 지정은 해당 국가 또는 지역의 관심 분야에 따라 검색 결과를 구체화하는 데 유용합니다. 결과는 Bing에 대한 링크를 포함할 수 있으며 이러한 링크는 지정된 국가/지역 또는 언어에 따라 Bing 사용자 경험을 지역화할 수 있습니다.
 
-`cc` 쿼리 매개 변수를 사용하여 국가/지역을 지정할 수 있습니다. 국가/지역을 지정하는 경우 `Accept-Language` HTTP 헤더를 사용하여 언어 코드도 하나 이상 지정해야 합니다. 지원되는 언어는 국가/지역마다 다르며, 지역/국가 표에서 각 국가/지역에 대해 제공됩니다.
+`cc` 쿼리 매개 변수를 사용하여 국가 또는 지역을 지정할 수 있습니다. 국가 또는 지역이 지정된 경우 [`Accept-Language` 헤더](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#headers)를 사용하여 하나 이상의 언어 코드를 지정해야 합니다. 각 시장에서 지원되는 언어 목록에 대한 [시장 테이블](#Markets)을 사용합니다.
 
-또는 **지역/국가** 표에서 `mkt` 쿼리 매개 변수 및 코드를 사용하여 지역/국가를 지정할 수 있습니다. 지역/국가 지정은 동시에 국가/지역 및 기본 언어를 지정합니다. `setLang` 쿼리 매개 변수는 이 경우 언어 코드로 설정할 수 있습니다. 사용자가 Bing을 다른 언어로 보길 선호하지 않는 한 주로 `mkt`에 의해 지정된 동일한 언어입니다.
+또는 **시장** 테이블에서 `mkt` 쿼리 매개 변수 및 코드를 사용하여 시장을 지정할 수 있습니다. 시장을 지정하면 동시에 국가 또는 지역 및 기본 언어가 지정됩니다. `setLang` 쿼리 매개 변수로 언어를 명시적으로 설정할 수 있습니다.
 
-## <a name="countries"></a>국가
+## <a name="countriesregions"></a>국가/지역
 
 |국가/지역|코드|
 |-------|----|
@@ -64,7 +64,6 @@ Bing Web Search API는 수십 개의 국가/지역을 지원하며, 이 중에�
 |터키|TR|
 |영국|GB|
 |미국|US|
-
 
 ## <a name="markets"></a>시장
 

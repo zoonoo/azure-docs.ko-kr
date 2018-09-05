@@ -1,6 +1,6 @@
 ---
-title: 보안 경고를 구성하는 방법 | Microsoft Docs
-description: Azure Privileged Identity Management 확장에 대한 보안 경고를 구성하는 방법 배우기
+title: PIM에서 Azure AD 디렉터리 역할에 대한 보안 경고 구성 | Microsoft Docs
+description: Azure AD PIM(Privileged Identity Management)에서 Azure AD 디렉터리 역할에 대한 보안 경고를 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8df9bc7c332a83e9761ea71dddfbfbfaa3ae5154
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: fc39b6ad2dd63d45995b76011f4ebbe0228b4c2d
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622156"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190394"
 ---
-# <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management 에서 보안 경고를 구성하는 방법
+# <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>PIM에서 Azure AD 디렉터리 역할에 대한 보안 경고 구성
 ## <a name="security-alerts"></a>보안 경고
 Azure Privileged Identity Management(PIM)은 사용자의 환경에 의심스럽거나 안전하지 않은 활동이 있을 때 경고를 생성합니다. 경고가 트리거될 때 PIM 대시보드에 표시됩니다. 경고를 선택하여 경고를 트리거하는 사용자 또는 역할을 나열하는 보고서를 확인합니다.
 
@@ -65,4 +65,6 @@ PIM은 서로 다른 두 조건이 충족되고, 그 두 조건을 모두 구성
 * **일 수**: 사용자가 역할을 활성화하지 않고 지낼 수 있는 일 수를 0 과 100 사이에서 지정합니다.
 
 ## <a name="next-steps"></a>다음 단계
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [PIM에서 Azure AD 디렉터리 역할 설정 구성](pim-how-to-change-default-settings.md)
+- [PIM에서 Azure AD 디렉터리 역할에 대한 다단계 인증 필요](pim-how-to-require-mfa.md)

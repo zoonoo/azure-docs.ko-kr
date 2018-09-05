@@ -1,5 +1,5 @@
 ---
-title: Azure File Sync 배포에 대한 계획 | Microsoft Docs
+title: Azure 파일 동기화 배포에 대한 계획 | Microsoft Docs
 description: Azure Files 배포를 계획할 때 고려할 사항을 알아봅니다.
 services: storage
 author: wmgries
@@ -8,34 +8,34 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a98c8ac65de930eabcedea2a009769ed6d245216
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: a7d62531492695be6ec148c3bf7b9786b2a428cf
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617195"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247398"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
-Azure File Sync를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure File Sync는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
+Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
 
-이 문서에서는 Azure File Sync 배포에 대한 중요 고려 사항을 설명합니다. [Azure Files 배포에 대한 계획](storage-files-planning.md)도 읽어보는 것이 좋습니다. 
+이 문서에서는 Azure 파일 동기화 배포에 대한 중요 고려 사항을 설명합니다. [Azure Files 배포에 대한 계획](storage-files-planning.md)도 읽어보는 것이 좋습니다. 
 
-## <a name="azure-file-sync-terminology"></a>Azure File Sync 용어
-Azure File Sync 배포 계획을 세부적으로 알아보기 전에 용어를 이해하는 것이 중요합니다.
+## <a name="azure-file-sync-terminology"></a>Azure 파일 동기화 용어
+Azure 파일 동기화 배포 계획을 세부적으로 알아보기 전에 용어를 이해하는 것이 중요합니다.
 
 ### <a name="storage-sync-service"></a>저장소 동기화 서비스
-저장소 동기화 서비스는 Azure File Sync의 최상위 Azure 리소스입니다. Storage 동기화 서비스 리소스는 저장소 계정 리소스의 피어로, Azure 리소스 그룹에 쉽게 배포할 수 있습니다. Storage 동기화 서비스는 여러 동기화 그룹을 통해 여러 저장소 계정과 동기화 관계를 만들 수 있기 때문에 저장소 계정 리소스와는 별개의 최상위 수준 리소스가 필요합니다. 하나의 구독으로 여러 저장소 동기화 서비스 리소스가 배포될 수 있습니다.
+저장소 동기화 서비스는 Azure 파일 동기화의 최상위 Azure 리소스입니다. Storage 동기화 서비스 리소스는 저장소 계정 리소스의 피어로, Azure 리소스 그룹에 쉽게 배포할 수 있습니다. Storage 동기화 서비스는 여러 동기화 그룹을 통해 여러 저장소 계정과 동기화 관계를 만들 수 있기 때문에 저장소 계정 리소스와는 별개의 최상위 수준 리소스가 필요합니다. 하나의 구독으로 여러 저장소 동기화 서비스 리소스가 배포될 수 있습니다.
 
 ### <a name="sync-group"></a>동기화 그룹
-동기화 그룹은 파일 집합에 대한 동기화 토폴로지를 정의합니다. 동기화 그룹 내 엔드포인트는 서로 동기화된 상태를 유지합니다. 예를 들어 Azure File Sync를 사용하여 관리하려는 2개의 고유한 파일 집합이 있는 경우 2개의 동기화 그룹을 만들고 각 동기화 그룹에 다른 엔드포인트를 추가합니다. 저장소 동기화 서비스는 필요한 만큼의 동기화 그룹을 호스트할 수 있습니다.  
+동기화 그룹은 파일 집합에 대한 동기화 토폴로지를 정의합니다. 동기화 그룹 내 엔드포인트는 서로 동기화된 상태를 유지합니다. 예를 들어 Azure 파일 동기화를 사용하여 관리하려는 2개의 고유한 파일 집합이 있는 경우 2개의 동기화 그룹을 만들고 각 동기화 그룹에 다른 엔드포인트를 추가합니다. 저장소 동기화 서비스는 필요한 만큼의 동기화 그룹을 호스트할 수 있습니다.  
 
 ### <a name="registered-server"></a>등록된 서버
 등록된 서버 개체는 서버(또는 클러스터)와 Storage 동기화 서비스 간의 신뢰 관계를 나타냅니다. 원하는 수 만큼의 서버를 Storage 동기화 서비스 인스턴스에 등록할 수 있습니다. 그렇지만 한 번에 하나의 서버(또는 클러스터)만 하나의 Storage 동기화 서비스에 등록될 수 있습니다.
 
 ### <a name="azure-file-sync-agent"></a>Azure 파일 동기화 에이전트
-Azure File Sync 에이전트는 Windows Server가 Azure 파일 공유와 동기화되도록 하는 다운로드 가능 패키지입니다. Azure File Sync 에이전트는 다음 3가지 주요 구성 요소로 이루어집니다. 
+Azure 파일 동기화 에이전트는 Windows Server가 Azure 파일 공유와 동기화되도록 하는 다운로드 가능 패키지입니다. Azure 파일 동기화 에이전트는 다음 3가지 주요 구성 요소로 이루어집니다. 
 - **FileSyncSvc.exe**: 서버 엔드포인트의 변경 내용을 모니터링하고 Azure와의 동기화 세션을 시작하는 백그라운드 Windows 서비스입니다.
-- **StorageSync.sys**: Azure Files로의 파일 계층화를 담당하는 Azure File Sync 파일 시스템 필터입니다(클라우드 계층화가 사용될 경우).
+- **StorageSync.sys**: Azure Files로의 파일 계층화를 담당하는 Azure 파일 동기화 파일 시스템 필터입니다(클라우드 계층화가 사용될 경우).
 - **PowerShell 관리 cmdlet**: Microsoft.StorageSync Azure 리소스 공급자와 상호 작용하는 데 사용하는 PowerShell cmdlet입니다. 다음(기본) 위치에서 이러한 항목을 찾을 수 있습니다.
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
@@ -59,34 +59,82 @@ Azure File Sync 에이전트는 Windows Server가 Azure 파일 공유와 동기�
 클라우드 엔드포인트는 동기화 그룹의 일부인 Azure 파일 공유입니다. 전체 Azure 파일 공유가 동기화되며, Azure 파일 공유는 하나의 클라우드 엔드포인트의 구성원만 될 수 있습니다. 따라서 Azure 파일 공유는 하나의 동기화 그룹의 구성원만 될 수 있습니다. 기존 파일 집합이 있는 Azure 파일 공유를 동기화 그룹에 클라우드 엔드포인트로 추가하는 경우 기존 파일은 동기화 그룹의 다른 엔드포인트에 이미 있는 다른 파일에 병합됩니다.
 
 > [!Important]  
-> Azure File Sync는 Azure 파일 공유를 직접 변경하도록 지원합니다. 그러나 먼저 Azure 파일 공유의 변경 내용이 Azure File Sync 변경 검색 작업에서 검색되어야 합니다. 변경 내용 검색 작업은 클라우드 엔드포인트에 대해 24시간마다 한 번씩만 시작됩니다. 또한 REST 프로토콜을 통해 수행한 Azure 파일 공유 변경 내용은 SMB 마지막 수정 시간을 업데이트하지 않으며 동기화 기능에서 변경 내용으로 표시되지 않습니다. 자세한 내용은 [Azure Files 질문과 대답](storage-files-faq.md#afs-change-detection)을 참조하세요.
+> Azure 파일 동기화는 Azure 파일 공유를 직접 변경하도록 지원합니다. 그러나 먼저 Azure 파일 공유의 변경 내용이 Azure 파일 동기화 변경 검색 작업에서 검색되어야 합니다. 변경 내용 검색 작업은 클라우드 엔드포인트에 대해 24시간마다 한 번씩만 시작됩니다. 또한 REST 프로토콜을 통해 수행한 Azure 파일 공유 변경 내용은 SMB 마지막 수정 시간을 업데이트하지 않으며 동기화 기능에서 변경 내용으로 표시되지 않습니다. 자세한 내용은 [Azure Files 질문과 대답](storage-files-faq.md#afs-change-detection)을 참조하세요.
 
 ### <a name="cloud-tiering"></a>클라우드 계층화 
-클라우드 계층화는 Azure File Sync의 선택적 기능으로, 크기가 64KiB보다 크고 덜 자주 사용하거나 액세스하는 파일을 Azure Files로 계층화할 수 있도록 합니다. 파일을 계층화할 경우 Azure File Sync 파일 시스템 필터(StorageSync.sys)는 파일을 포인터 또는 재분석 지점으로 로컬로 대체합니다. 재분석 지점은 Azure Files의 파일에 대한 URL을 나타냅니다. 계층화된 파일은 NTFS에서 "오프라인" 특성이 설정되므로 타사 응용 프로그램이 계층화된 파일을 식별할 수 있습니다. 사용자가 계층화된 파일을 열 때 파일이 시스템에 로컬로 저장되어 있지 않다는 사실을 모르더라도 Azure File Sync는 Azure Files에서 파일 데이터를 원활하게 회수합니다. 이 기능을 HSM(계층적 저장소 관리)이라고도 합니다.
+클라우드 계층화는 Azure 파일 동기화의 선택적 기능으로, 크기가 64KiB보다 크고 덜 자주 사용하거나 액세스하는 파일을 Azure Files로 계층화할 수 있도록 합니다. 파일을 계층화할 경우 Azure 파일 동기화 파일 시스템 필터(StorageSync.sys)는 파일을 포인터 또는 재분석 지점으로 로컬로 대체합니다. 재분석 지점은 Azure Files의 파일에 대한 URL을 나타냅니다. 계층화된 파일은 NTFS에서 "오프라인" 특성이 설정되므로 타사 응용 프로그램이 계층화된 파일을 식별할 수 있습니다. 사용자가 계층화된 파일을 열 때 파일이 시스템에 로컬로 저장되어 있지 않다는 사실을 모르더라도 Azure 파일 동기화는 Azure Files에서 파일 데이터를 원활하게 회수합니다. 이 기능을 HSM(계층적 저장소 관리)이라고도 합니다.
 
 > [!Important]  
 > 클라우드 계층화는 Windows 시스템 볼륨의 서버 엔드포인트에서 지원되지 않습니다.
 
-## <a name="azure-file-sync-interoperability"></a>Azure File Sync 상호 운용성 
-이 섹션에서는 Windows Server 기능/역할 및 타사 솔루션과의 Azure File Sync 상호 운용성에 대해 설명합니다.
+## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Azure 파일 동기화 시스템 요구 사항 및 상호 운용성 
+이 섹션에서는 Azure 파일 동기화 에이전트 시스템 요구 사항 및 Windows Server 기능과 역할 및 타사 솔루션과의 상호 운용성에 대해 설명합니다.
 
-### <a name="supported-versions-of-windows-server"></a>지원되는 Windows Server 버전
-현재 Azure File Sync에서 지원되는 Windows Server 버전은 다음과 같습니다.
+### <a name="evaluation-tool"></a>평가 도구
+Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도구를 사용하여 시스템과 호환되는지 여부를 평가해야 합니다. 이 도구는 AzureRM PowerShell cmdlet이며, 지원되지 않는 문자 또는 지원되지 않는 OS 버전과 같은 파일 시스템과 데이터 집합과 관련된 잠재적인 문제를 확인합니다. 이 검사에는 아래에 언급된 기능 전부는 아니지만 대부분이 포함됩니다. 이 섹션의 나머지 부분을 자세히 참조하여 배포가 원활하게 진행되도록 하는 것이 좋습니다. 
 
-| 버전 | 지원되는 SKU | 지원되는 배포 옵션 |
-|---------|----------------|------------------------------|
-| Windows Server 2016 | Datacenter 및 Standard | 전체(UI가 있는 서버) |
-| Windows Server 2012 R2 | Datacenter 및 Standard | 전체(UI가 있는 서버) |
+#### <a name="download-instructions"></a>다운로드 지침
+1. 최신 버전의 PackageManagement와 PowerShellGet이 설치되어 있는지 확인합니다(이 경우 미리 보기 모듈을 설치할 수 있음).
+    
+    ```PowerShell
+        Install-Module -Name PackageManagement -Repository PSGallery -Force
+        Install-Module -Name PowerShellGet -Repository PSGallery -Force
+    ```
+ 
+2. PowerShell을 다시 시작합니다.
+3. 모듈 설치
+    
+    ```PowerShell
+        Install-Module -Name AzureRM.StorageSync -AllowPrerelease
+    ```
 
-이후 버전의 Windows Server는 출시되면 추가될 예정입니다. 이전 버전의 Windows는 사용자의 의견에 따라 추가될 수 있습니다.
+#### <a name="usage"></a>사용 현황  
+평가 도구는 몇 가지 다른 방법으로 호출할 수 있습니다. 즉 시스템 검사, 데이터 집합 검사 또는 둘 다를 수행할 수 있습니다. 시스템 검사 및 데이터 집합 검사를 모두 수행하려면 다음을 수행합니다. 
+
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -Path <path>
+```
+
+데이터 집합만 테스트하려면 다음을 수행합니다.
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
+```
+ 
+시스템 요구 사항만 테스트하려면 다음을 수행합니다.
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -ComputerName <computer name>
+```
+ 
+결과를 CSV 형식으로 표시하려면 다음을 수행합니다.
+```PowerShell
+    $errors = Invoke-AzureRmStorageSyncCompatibilityCheck […]
+    $errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
+```
+
+### <a name="system-requirements"></a>시스템 요구 사항
+- Windows Server 2012 R2 또는 Windows Server 2016을 실행하는 서버 
+
+    | 버전 | 지원되는 SKU | 지원되는 배포 옵션 |
+    |---------|----------------|------------------------------|
+    | Windows Server 2016 | Datacenter 및 Standard | 전체(UI가 있는 서버) |
+    | Windows Server 2012 R2 | Datacenter 및 Standard | 전체(UI가 있는 서버) |
+
+    이후 버전의 Windows Server는 출시되면 추가될 예정입니다. 이전 버전의 Windows는 사용자의 의견에 따라 추가될 수 있습니다.
+
+- 2GB 이상의 메모리가 있는 서버
+
+    > [!Important]  
+    > 서버가 동적 메모리를 사용하도록 설정된 가상 머신에서 실행되는 경우 VM을 2,048MB 이상의 메모리로 구성해야 합니다.
+    
+- NTFS 파일 시스템으로 포맷되어 로컬로 연결된 볼륨
 
 > [!Important]  
-> Windows 업데이트의 최신 업데이트를 사용하여 Azure File Sync와 함께 사용되는 모든 서버를 최신 상태로 유지하는 것이 좋습니다. 
+> Windows 업데이트의 최신 업데이트를 사용하여 Azure 파일 동기화와 함께 사용되는 모든 서버를 최신 상태로 유지하는 것이 좋습니다. 
 
 ### <a name="file-system-features"></a>파일 시스템 기능
 | 기능 | 상태 지원 | 메모 |
 |---------|----------------|-------|
-| ACL(액세스 제어 목록) | 완전하게 지원 | Windows ACL은 Azure File Sync에 의해 유지되며 서버 엔드포인트에서 Windows Server에 의해 적용됩니다. 파일이 클라우드에서 직접 액세스될 경우 Azure Files에서 Windows ACL을 (아직) 지원하지 않는 것입니다. |
+| ACL(액세스 제어 목록) | 완전하게 지원 | Windows ACL은 Azure 파일 동기화에 의해 유지되며 서버 엔드포인트에서 Windows Server에 의해 적용됩니다. 파일이 클라우드에서 직접 액세스될 경우 Azure Files에서 Windows ACL을 (아직) 지원하지 않는 것입니다. |
 | 하드 링크 | 생략 | |
 | 바로 가기 링크 | 생략 | |
 | 탑재 지점 | 부분적으로 지원됨 | 탑재 지점은 서버 엔드포인트의 루트일 수 있지만, 서버 엔드포인트의 네임스페이스에 포함된 경우 건너뜁니다. |
@@ -116,31 +164,31 @@ Azure File Sync 에이전트는 Windows Server가 Azure 파일 공유와 동기�
 Windows Server 장애 조치(Failover) 클러스터링은 "범용 파일 서버" 배포 옵션의 Azure 파일 동기화에서 지원됩니다. 장애 조치(Failover) 클러스터링은 "응용 프로그램 데이터용 스케일 아웃 파일 서버" 또는 "CSV(클러스터된 공유 볼륨)"에서는 지원되지 않습니다.
 
 > [!Note]  
-> 동기화가 제대로 작동하려면 장애 조치(Failover) 클러스터의 모든 노드에 Azure File Sync 에이전트를 설치해야 합니다.
+> 동기화가 제대로 작동하려면 장애 조치(Failover) 클러스터의 모든 노드에 Azure 파일 동기화 에이전트를 설치해야 합니다.
 
 ### <a name="data-deduplication"></a>데이터 중복 제거
-클라우드 계층화를 사용하도록 설정하지 않은 볼륨의 경우 Azure File Sync는 볼륨에 Windows Server 데이터 중복 제거를 사용하도록 지원합니다. 현재, 클라우드 계층화가 사용되도록 설정된 Azure File Sync와 데이터 중복 제거 간에는 상호 운용성이 지원되지 않습니다.
+클라우드 계층화를 사용하도록 설정하지 않은 볼륨의 경우 Azure 파일 동기화는 볼륨에 Windows Server 데이터 중복 제거를 사용하도록 지원합니다. 현재, 클라우드 계층화가 사용되도록 설정된 Azure 파일 동기화와 데이터 중복 제거 간에는 상호 운용성이 지원되지 않습니다.
 
 ### <a name="distributed-file-system-dfs"></a>분산 파일 시스템(DFS)
-Azure File Sync에서는 [Azure File Sync 에이전트 1.2](https://go.microsoft.com/fwlink/?linkid=864522)부터 DFS 네임스페이스(DFS-N) 및 DFS 복제(DFS-R)와의 상호 작용을 지원합니다.
+Azure 파일 동기화에서는 [Azure 파일 동기화 에이전트 1.2](https://go.microsoft.com/fwlink/?linkid=864522)부터 DFS 네임스페이스(DFS-N) 및 DFS 복제(DFS-R)와의 상호 작용을 지원합니다.
 
-**DFS 네임 스페이스(DFS-N)**: DFS-N 서버에서 Azure File Sync가 완전히 지원됩니다. 하나 이상의 DFS-N 멤버에 Azure File Sync 에이전트를 설치하면 서버 엔드포인트 및 클라우드 엔드포인트 간에 데이터를 동기화할 수 있습니다. 자세한 내용은 [DFS 네임스페이스 개요](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview)를 참조하세요.
+**DFS 네임 스페이스(DFS-N)**: DFS-N 서버에서 Azure 파일 동기화가 완전히 지원됩니다. 하나 이상의 DFS-N 멤버에 Azure 파일 동기화 에이전트를 설치하면 서버 엔드포인트 및 클라우드 엔드포인트 간에 데이터를 동기화할 수 있습니다. 자세한 내용은 [DFS 네임스페이스 개요](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview)를 참조하세요.
  
-**DFS 복제(DFS-R)**: DFS-R 및 Azure File Sync는 모두 복제 솔루션이므로 대부분의 경우, DFS-R을 Azure File Sync로 대체하는 것이 좋습니다. 하지만 DFS-R과 Azure File Sync를 함께 사용해야 하는 몇 가지 시나리오가 있습니다.
+**DFS 복제(DFS-R)**: DFS-R 및 Azure 파일 동기화는 모두 복제 솔루션이므로 대부분의 경우, DFS-R을 Azure 파일 동기화로 대체하는 것이 좋습니다. 하지만 DFS-R과 Azure 파일 동기화를 함께 사용해야 하는 몇 가지 시나리오가 있습니다.
 
-- DFS-R 배포에서 Azure File Sync 배포로 마이그레이션하는 중입니다. 자세한 내용은 [DFS 복제(DFS-R) 배포를 Azure File Sync로 마이그레이션](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync)을 참조하세요.
+- DFS-R 배포에서 Azure 파일 동기화 배포로 마이그레이션하는 중입니다. 자세한 내용은 [DFS 복제(DFS-R) 배포를 Azure 파일 동기화로 마이그레이션](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync)을 참조하세요.
 - 파일 데이터의 복사본을 필요로 하는 모든 온-프레미스 서버를 인터넷에 직접 연결할 수는 없습니다.
-- 분기 서버는 Azure File Sync를 사용할 단일 허브 서버에 데이터를 통합합니다.
+- 분기 서버는 Azure 파일 동기화를 사용할 단일 허브 서버에 데이터를 통합합니다.
 
-Azure File Sync 및 DFS-R을 나란히 사용하려면
+Azure 파일 동기화 및 DFS-R을 나란히 사용하려면
 
-1. Azure File Sync 클라우드 계층화는 DFS-R 복제 폴더를 포함하는 볼륨에서 사용하지 않도록 설정해야 합니다.
+1. Azure 파일 동기화 클라우드 계층화는 DFS-R 복제 폴더를 포함하는 볼륨에서 사용하지 않도록 설정해야 합니다.
 2. 서버 엔드포인트는 DFS-R 읽기 전용 복제 폴더에 대해 구성할 수 없습니다.
 
 자세한 내용은 [DFS 복제 개요](https://technet.microsoft.com/library/jj127250)를 참조하세요.
 
 ### <a name="sysprep"></a>Sysprep
-Azure File Sync 에이전트가 설치되어 있는 서버에서 sysprep 사용은 지원되지 않으며 예기치 않은 결과가 발생할 수 있습니다. 에이전트 설치 및 서버 등록은 서버 이미지 배포 및 sysprep 최소 설치 완료 후 발생해야 합니다.
+Azure 파일 동기화 에이전트가 설치되어 있는 서버에서 sysprep 사용은 지원되지 않으며 예기치 않은 결과가 발생할 수 있습니다. 에이전트 설치 및 서버 등록은 서버 이미지 배포 및 sysprep 최소 설치 완료 후 발생해야 합니다.
 
 ### <a name="windows-search"></a>Windows 검색
 클라우드 계층화가 서버 엔드포인트에서 활성화되면 계층화된 파일은 건너뛰고 Windows 검색을 통해 인덱싱되지 않습니다. 계층화되지 않은 파일은 제대로 인덱싱됩니다.
@@ -178,13 +226,13 @@ Azure 파일 동기화와 함께 작동하지 않는 기능
 
 - NTFS EFS(암호화 파일 시스템)
 
-일반적으로 Azure File Sync는 BitLocker처럼 파일 시스템 아래에 있는 암호화 솔루션 및 Azure Information Protection과 같은 파일 형식으로 구현된 솔루션과의 상호 운용성을 지원해야 합니다. 파일 시스템 위에 있는 솔루션(예: NTFS EFS)에 대해서는 특별한 상호 운용성이 설정되지 않았습니다.
+일반적으로 Azure 파일 동기화는 BitLocker처럼 파일 시스템 아래에 있는 암호화 솔루션 및 Azure Information Protection과 같은 파일 형식으로 구현된 솔루션과의 상호 운용성을 지원해야 합니다. 파일 시스템 위에 있는 솔루션(예: NTFS EFS)에 대해서는 특별한 상호 운용성이 설정되지 않았습니다.
 
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>다른 HSM(계층적 저장소 관리) 솔루션
-다른 HSM 솔루션은 Azure File Sync와 함께 사용하면 안 됩니다.
+다른 HSM 솔루션은 Azure 파일 동기화와 함께 사용하면 안 됩니다.
 
 ## <a name="region-availability"></a>지역 가용성
-Azure File Sync는 다음 지역에서만 사용할 수 있습니다.
+Azure 파일 동기화는 다음 지역에서만 사용할 수 있습니다.
 
 | 지역 | 데이터 센터 위치 |
 |--------|---------------------|
@@ -205,12 +253,12 @@ Azure File Sync는 다음 지역에서만 사용할 수 있습니다.
 | 서유럽 | 네덜란드 |
 | 미국 서부 | 캘리포니아 |
 
-Azure File Sync에서는 Storage 동기화 서비스와 동일한 지역에 있는 Azure 파일 공유와의 동기화만 지원합니다.
+Azure 파일 동기화에서는 Storage 동기화 서비스와 동일한 지역에 있는 Azure 파일 공유와의 동기화만 지원합니다.
 
 ### <a name="azure-disaster-recovery"></a>Azure 재해 복구
-Azure 지역의 손실에 대해 보호하려면 Azure File Sync가 [GRS(지역 중복 저장소) 중복](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 옵션과 통합해야 합니다. GRS 저장소는 일반적으로 상호 작용하는 주 지역의 저장소 및 쌍을 이루는 보조 지역의 저장소 간에 비동기 블록 복제를 사용하여 작동합니다. Azure 지역이 일시적 또는 영구적으로 오프라인으로 전환하게 하는 재해 발생 시 Microsoft는 쌍을 이루는 지역에 저장소를 장애 조치(failover)합니다. 
+Azure 지역의 손실에 대해 보호하려면 Azure 파일 동기화가 [GRS(지역 중복 저장소) 중복](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 옵션과 통합해야 합니다. GRS 저장소는 일반적으로 상호 작용하는 주 지역의 저장소 및 쌍을 이루는 보조 지역의 저장소 간에 비동기 블록 복제를 사용하여 작동합니다. Azure 지역이 일시적 또는 영구적으로 오프라인으로 전환하게 하는 재해 발생 시 Microsoft는 쌍을 이루는 지역에 저장소를 장애 조치(failover)합니다. 
 
-지역 중복 저장소 및 Azure File Sync 간의 장애 조치 통합을 지원하려면 모든 Azure File Sync 지역이 저장소로 사용되는 보조 지역과 일치하는 해당 보조 지역과 쌍을 이루어야 합니다. 이러한 쌍은 다음과 같습니다.
+지역 중복 저장소 및 Azure 파일 동기화 간의 장애 조치 통합을 지원하려면 모든 Azure 파일 동기화 지역이 저장소로 사용되는 보조 지역과 일치하는 해당 보조 지역과 쌍을 이루어야 합니다. 이러한 쌍은 다음과 같습니다.
 
 | 주 지역      | 쌍을 이루는 지역      |
 |---------------------|--------------------|
@@ -238,4 +286,4 @@ Azure 지역의 손실에 대해 보호하려면 Azure File Sync가 [GRS(지역 
 * [방화벽 및 프록시 설정 고려](storage-sync-files-firewall-and-proxy.md)
 * [Azure 파일 배포에 대한 계획](storage-files-planning.md)
 * [Azure Files 배포](storage-files-deployment-guide.md)
-* [Azure File Sync 배포](storage-sync-files-deployment-guide.md)
+* [Azure 파일 동기화 배포](storage-sync-files-deployment-guide.md)

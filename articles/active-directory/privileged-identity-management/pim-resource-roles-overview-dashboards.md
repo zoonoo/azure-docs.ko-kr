@@ -1,6 +1,6 @@
 ---
-title: '개요: Azure 리소스에 대한 Privileged Identity Management에서 액세스 검토 수행 | Microsoft Docs'
-description: 이 문서에서는 Azure 리소스에 대한 PIM에서 액세스 검토를 수행하는 방법을 설명합니다.
+title: 리소스 대시보드를 사용하여 액세스 검토 수행 - Azure | Microsoft Docs
+description: 리소스 대시보드를 사용하여 Azure AD PIM(Privileged Identity Management)에서 액세스 검토를 수행하는 방법을 설명합니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,12 +15,12 @@ ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 40fe6a4b0bec2540afee635b16ee3482a182a2df
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 20172cf7413397aedc4b3c32d0f1419531a2588a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621491"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188500"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review"></a>리소스 대시보드를 사용하여 액세스 검토 수행
 
@@ -40,4 +40,6 @@ ms.locfileid: "39621491"
 
 차트 아래에는 지난 30일 동안 새 역할 할당이 있는 사용자 및 그룹의 수와 총 할당 수로 정렬된 역할 목록(내림차순)이 표시됩니다.
 
+## <a name="next-steps"></a>다음 단계
 
+- [PIM에서 Azure 리소스 역할에 대한 액세스 검토 시작](pim-resource-roles-start-access-review.md) 

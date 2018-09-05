@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
 ms.component: alerts
-ms.openlocfilehash: 6e1a72c428425c73ff0446fc0d41b1b18333c3e3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 221434a391f963a764ef36b9533cc8cfd0e16c01
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423891"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123451"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>서비스 알림에 대한 활동 로그 경고 만들기
 ## <a name="overview"></a>개요
@@ -72,7 +72,7 @@ Azure 리소스 관리자 템플릿을 사용하여 서비스 상태 알림 경�
 
     a. **이름**: 받는 사람의 이름, 별칭 또는 식별자를 입력합니다.
 
-    나. **작업 유형**: SMS, 메일, 웹후크, Azure 앱 등을 선택합니다.
+    b. **작업 유형**: SMS, 메일, 웹후크, Azure 앱 등을 선택합니다.
 
     다. **세부 정보**: 선택한 작업 유형에 따라 전화 번호, 메일 주소, 웹후크 URI 등을 입력합니다.
 
@@ -96,6 +96,96 @@ Azure 리소스 관리자 템플릿을 사용하여 서비스 상태 알림 경�
 1. **추가**를 선택하여 작업 그룹을 추가한 다음, **경고 규칙 만들기**를 선택하여 경고를 완성합니다.
 
 몇 분 이내에 경고가 활성화되고 만들 때 지정한 조건에 따라 트리거를 시작합니다.
+
+## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-by-using-the-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 새 작업 그룹에 대한 서비스 상태 알림의 경고 만들기
+
+다음은 이메일 대상을 사용하여 작업 그룹을 만들고 대상 구독에 모든 서비스 상태 알림을 사용하도록 설정하는 예제입니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "actionGroups_name": {
+            "defaultValue": "SubHealth",
+            "type": "String"
+        },
+        "activityLogAlerts_name": {
+            "defaultValue": "ServiceHealthActivityLogAlert",
+            "type": "String"
+        },
+        "emailAddress":{
+            "type":"string"
+        }
+    },
+    "variables": {
+        "alertScope":"[concat('/','subscriptions','/',subscription().subscriptionId)]"
+    },
+    "resources": [
+        {
+            "comments": "Action Group",
+            "type": "microsoft.insights/actionGroups",
+            "name": "[parameters('actionGroups_name')]",
+            "apiVersion": "2017-04-01",
+            "location": "Global",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "groupShortName": "[parameters('actionGroups_name')]",
+                "enabled": true,
+                "emailReceivers": [
+                    {
+                        "name": "[parameters('actionGroups_name')]",
+                        "emailAddress": "[parameters('emailAddress')]"
+                    }
+                ],
+                "smsReceivers": [],
+                "webhookReceivers": []
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Service Health Activity Log Alert",
+            "type": "microsoft.insights/activityLogAlerts",
+            "name": "[parameters('activityLogAlerts_name')]",
+            "apiVersion": "2017-04-01",
+            "location": "Global",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "scopes": [
+                    "[variables('alertScope')]"
+                ],
+                "condition": {
+                    "allOf": [
+                        {
+                            "field": "category",
+                            "equals": "ServiceHealth"
+                        },
+                        {
+                            "field": "properties.incidentType",
+                            "equals": "Incident"
+                        }
+                    ]
+                },
+                "actions": {
+                    "actionGroups": [
+                        {
+                            "actionGroupId": "[resourceId('microsoft.insights/actionGroups', parameters('actionGroups_name'))]",
+                            "webhookProperties": {}
+                        }
+                    ]
+                },
+                "enabled": true,
+                "description": ""
+            },
+            "dependsOn": [
+                "[resourceId('microsoft.insights/actionGroups', parameters('actionGroups_name'))]"
+            ]
+        }
+    ]
+}
+```
 
 ## <a name="manage-your-alerts"></a>경고 관리
 

@@ -1,28 +1,23 @@
 ---
-title: Azure 서버를 사용하지 않음 개요 | Microsoft Docs
-description: 인프라에 대한 염려 없이 클라우드에서 강력한 솔루션을 만듭니다.
-keywords: ''
+title: Azure Serverless 개요 | Microsoft Docs
+description: 인프라에 대한 걱정 없이 클라우드에서 강력한 솔루션을 만드는 방법 알아보기
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: jeffhollan
+ms.author: jehollan
+ms.reviewer: klam, estfan, LADocs
+ms.custom: vs-azure
 ms.topic: article
 ms.date: 03/30/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 84ff855676215e6b69ec97a1527d14366e763b07
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 97c928c34a18a5d4f3549c348a273df268ee1db0
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299929"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123311"
 ---
-# <a name="overview-of-azure-serverless-with-functions-and-logic-apps"></a>함수 및 Logic Apps로 Azure 서버를 사용하지 않음 개요
+# <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>개요: Azure Logic Apps 및 Azure Functions를 사용하는 Azure Serverless
 
 서버를 사용하지 않는 응용 프로그램은 개발 속도 향상, 필요한 코드 감소 및 규모 간소화의 이점을 제공합니다.  이 문서는 서버를 사용하지 않는 솔루션과 Azure 서버를 사용하지 않는 제품의 다른 특성을 살펴봅니다.
 

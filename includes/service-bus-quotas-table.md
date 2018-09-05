@@ -2,18 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 06/04/2018
-ms.author: sethm
+ms.date: 08/29/2018
+ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 0ff1e31e52c7db5c41f92cb9e4cb1a17f28dea6f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 481ae07ae9f8877ff93b2fee948849076c054906
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38756194"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43187022"
 ---
 다음 표에는 Service Bus 메시징에 특정한 할당량 정보가 나와 있습니다. Service Bus에 대한 가격 책정 및 기타 할당량에 대한 정보는 [Service Bus 가격 책정](https://azure.microsoft.com/pricing/details/service-bus/) 개요를 참조하세요.
 
@@ -24,7 +24,7 @@ ms.locfileid: "38756194"
 | 큐/토픽 크기 |엔터티 |큐/토픽을 만들 때 정의됨 <br/><br/> 들어오는 후속 메시지가 거부되며 호출 코드에서 예외를 수신합니다. |1, 2, 3, 4GB 또는 5GB<br /><br />프리미엄 SKU에서 [분할](/azure/service-bus-messaging/service-bus-partitioning) 가능하게 설정된 표준뿐만 아니라 최대 큐/토픽 크기는 80GB입니다. |
 | 네임스페이스에 대한 동시 연결 수 |네임스페이스 |추가 연결에 대한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. REST 작업은 동시 TCP 연결 계산에 포함되지 않습니다. |NetMessaging: 1,000<br /><br />AMQP: 5,000 |
 | 큐/토픽/구독 엔터티의 동시 수신 요청 수 |엔터티 |후속 수신 요청이 거부되며 호출 코드에서 예외를 수신합니다. 이 할당량은 항목의 모든 구독 전반에 걸쳐 종합된 동시 수신 명령 수에 적용됩니다. |5,000 |
-| 네임스페이스당 토픽/큐 수 |네임스페이스 |네임스페이스에 새 토픽 또는 큐를 만들기 위한 후속 요청이 거부됩니다. 따라서 [Azure Portal][Azure portal]을 통해 구성된 경우 오류 메시지가 생성됩니다. 관리 API에서 호출되는 경우 호출 코드에서 예외가 수신됩니다. |10000<br /><br />네임스페이스에서 토픽 및 큐의 총수는 10,000 이하이어야 합니다. |
+| 네임스페이스당 토픽/큐 수 |네임스페이스 |네임스페이스에 새 토픽 또는 큐를 만들기 위한 후속 요청이 거부됩니다. 따라서 [Azure Portal][Azure portal]을 통해 구성된 경우 오류 메시지가 생성됩니다. 관리 API에서 호출되는 경우 호출 코드에서 예외가 수신됩니다. |10,000(기본/표준 계층) 네임스페이스에서 토픽 및 큐의 총수는 10,000 이하이어야 합니다. <br/><br/>프리미엄 계층의 경우, MU(메시징 단위)당 1000입니다. 최대 한도는 4000입니다. |
 | 네임스페이스당 [분할된 토픽/큐](/azure/service-bus-messaging/service-bus-partitioning) 수 |네임스페이스 |네임스페이스에 분할된 새 토픽 또는 큐를 만들기 위한 후속 요청이 거부됩니다. 따라서 [Azure Portal][Azure portal]을 통해 구성된 경우 오류 메시지가 생성됩니다. 관리 API에서 호출되는 경우 호출 코드에서 **QuotaExceededException** 예외가 수신됩니다. |기본 및 표준 계층 - 100<br/><br/>분할된 엔터티는 [프리미엄](../articles/service-bus-messaging/service-bus-premium-messaging.md) 계층에서 지원되지 않습니다.<br/><br />각 분할된 큐 또는 토픽은 네임스페이스 당 10,000개의 엔터티를 할당량으로 계산합니다. |
 | 모든 메시징 엔터티 경로의 최대 크기: 큐 또는 토픽 |엔터티 |- |260자 |
 | 모든 메시징 엔터티 이름의 최대 크기: 네임스페이스, 구독 또는 구독 규칙 |엔터티 |- |50자 |

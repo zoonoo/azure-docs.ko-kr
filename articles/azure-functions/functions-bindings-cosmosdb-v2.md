@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: e562b694b2d3f226d0b4f5bc03b54d6562e52244
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 3fc00400590582d21590aadc9741cf0eaf048240
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143131"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047217"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x-preview"></a>Azure Functions 2.x에 대한 Azure Cosmos DB 바인딩(미리 보기)
 
@@ -36,6 +36,10 @@ ms.locfileid: "42143131"
 > 이 바인딩의 원래 이름은 DocumentDB입니다. Functions 버전 2.x에서는 트리거, 바인딩 및 패키지의 이름이 모두 Cosmos DB로 지정됩니다.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="supported-apis"></a>지원되는 API
+
+[!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ## <a name="packages---functions-2x"></a>패키지 - Functions 2.x
 
@@ -254,10 +258,7 @@ Java 코드는 다음과 같습니다.
 
 ## <a name="input"></a>입력
 
-Azure Cosmos DB 입력 바인딩은 하나 이상의 Azure Cosmos DB 문서를 검색하여 함수의 입력 매개 변수에 전달합니다. 문서 ID 또는 쿼리 매개 변수는 함수를 호출하는 트리거를 기반으로 결정할 수 있습니다. 
-
->[!NOTE]
-> Cosmos DB 계정에서 MongoDB API를 사용하는 경우 Azure Cosmos DB 입력 또는 출력 바인딩을 사용하지 마세요. 데이터가 손상될 수 있습니다.
+Azure Cosmos DB 입력 바인딩은 SQL API를 사용하여 하나 이상의 Azure Cosmos DB 문서를 검색하고, 함수의 입력 매개 변수에 전달합니다. 문서 ID 또는 쿼리 매개 변수는 함수를 호출하는 트리거를 기반으로 결정할 수 있습니다. 
 
 ## <a name="input---examples"></a>입력 - 예제
 
@@ -1092,7 +1093,7 @@ module.exports = function (context, req, toDoItem) {
 
 JavaScript 코드는 다음과 같습니다.
 
-```cs
+```javascript
 module.exports = function (context, req, toDoItem) {
     context.log('JavaScript queue trigger function processed work item');
     if (!toDoItem)
@@ -1253,10 +1254,7 @@ JavaScript 함수에서는 함수 종료 시 자동으로 업데이트되지 않
 
 ## <a name="output"></a>출력
 
-Azure Cosmos DB 출력 바인딩을 사용하면 Azure Cosmos DB 데이터베이스에 새 문서를 작성할 수 있습니다. 
-
->[!NOTE]
-> Cosmos DB 계정에서 MongoDB API를 사용하는 경우 Azure Cosmos DB 입력 또는 출력 바인딩을 사용하지 마세요. 데이터가 손상될 수 있습니다.
+Azure Cosmos DB 출력 바인딩을 사용하면 Azure Cosmos DB 데이터베이스에 SQL API를 사용하여 새 문서를 작성할 수 있습니다. 
 
 ## <a name="output---examples"></a>출력 - 예제
 

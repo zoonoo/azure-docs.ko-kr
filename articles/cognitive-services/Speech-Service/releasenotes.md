@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 0900588f818855d72e415678338c96fb6505318d
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: bbf3c5930de2ec6c709b6b527ae3eac107382420
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42093840"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047802"
 ---
 # <a name="release-notes"></a>릴리스 정보
 
@@ -78,7 +78,7 @@ ms.locfileid: "42093840"
 
 * `RecognizeAsync()` 시간이 초과될 때 결과에 잘못 표시되던 반환 값이 수정되었습니다.
 * Windows에서 미디어 파운데이션 라이브러리에 대한 종속성이 제거되었습니다. 이제 SDK는 핵심 오디오 API를 사용합니다.
-* 설명서 수정 사항: 지원되는 지역을 설명하는 지역 페이지가 추가되었습니다.
+* 설명서 수정 사항: 지원되는 지역을 설명하는 [지역](regions.md) 페이지가 추가되었습니다.
 
 **알려진 문제**
 

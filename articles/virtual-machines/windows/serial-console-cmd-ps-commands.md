@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 83b3aa1efdde367577a563b477403c313a51d4fe
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: a6f8984086771fea4df4851b2a878d480b2050ea
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177538"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918520"
 ---
-# <a name="windows-commands---cmd"></a>Windows 명령-CMD 
+# <a name="windows-commands---cmd-and-powershell"></a>Windows 명령 - CMD 및 PowerShell
 
 이 섹션에는 RDP 연결 오류 문제를 해결해야 할 때와 같이 Windows VM에 액세스하는 데 SAC를 사용할 수 있는 시나리오에서 일반적인 작업 수행에 대한 명령의 예를 포함합니다.
 
@@ -91,6 +91,8 @@ SAC의 제한된 화면 버퍼 때문에 더 긴 명령은 로컬 텍스트 편�
 `netsh interface set interface name="<interface name>" admin=enabled`
 ### <a name="set-nic-to-use-dhcp"></a>NIC가 DHCP를 사용하도록 설정
 `netsh interface ip set address name="<interface name>" source=dhcp`
+
+`netsh`에 대한 자세한 내용은 [여기를 클릭](https://docs.microsoft.com/windows-server/networking/technologies/netsh/netsh-contexts)하세요.
 
 Azure VM은 IP 주소를 얻는 데 DHCP를 사용하려면 항상 게스트 운영 체제에서 구성돼야 합니다. Azure 고정 IP 설정은 여전히 DHCP를 사용하여 고정 IP를 VM에 제공합니다.
 ### <a name="ping"></a>Ping

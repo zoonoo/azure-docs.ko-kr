@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8886c08e88c1dd46d2b325b9ba8e9e0b8ae104f9
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 956cb80ddbf96f23585dd52f3dc1013c7a665113
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40007698"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886313"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기에서 역할 기반 액세스 제어 구성
 
@@ -51,7 +51,7 @@ Azure Portal을 사용하여 원격 모니터링 솔루션에 사용자를 추�
 
 1. 사용 중인[디렉터리에 사용자가 있는지](../active-directory/fundamentals/add-users-azure-active-directory.md) 확인합니다. 사용할 디렉터리는 [Microsoft Azure IoT Solution Accelerators](https://www.azureiotsolutions.com/Accelerators) 사이트에 로그인할 때 선택합니다. 디렉터리 이름은 해당 [페이지](https://www.azureiotsolutions.com/Accelerators)의 오른쪽 위 모서리에서 볼 수 있습니다.
 
-1. Azure Portal에서 솔루션에 대한 **엔터프라이즈 응용프로그램**을 찾습니다. 응용 프로그램 이름은 원격 모니터링 솔루션의 이름입니다. 다음 스크린샷에서 솔루션과 응용 프로그램 표시 이름은 **contoso-rm4**입니다.
+1. Azure Portal에서 솔루션에 대한 **엔터프라이즈 응용프로그램**을 찾습니다. 찾으면 **응용 프로그램 유형**을 **모든 응용 프로그램**으로 설정하여 목록을 필터링합니다. 응용 프로그램 이름으로 응용 프로그램을 검색합니다. 응용 프로그램 이름은 원격 모니터링 솔루션의 이름입니다. 다음 스크린샷에서 솔루션과 응용 프로그램 표시 이름은 **contoso-rm4**입니다.
 
     ![엔터프라이즈 응용 프로그램](media/iot-accelerators-remote-monitoring-rbac/appregistration.png)
 

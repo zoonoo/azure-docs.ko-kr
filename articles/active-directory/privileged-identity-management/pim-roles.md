@@ -1,6 +1,6 @@
 ---
-title: Azure AD Privileged Identity Management의 역할 | Microsoft Docs
-description: Azure 권위 있는 ID 관리 확장을 사용하여 권한 있는 ID에 사용되는 역할을 알아봅니다.
+title: PIM에서 관리할 수 있는 Azure AD 디렉터리 역할 | Microsoft Docs
+description: Azure AD PIM(Privileged Identity Management)에서 관리할 수 있는 Azure AD 디렉터리 역할을 설명합니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: f8045d70ab4926cdc0e28a9a2290685c4f11205a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: c8870e4da63dc52d5926bdfd5f7c9b3218e5f53a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618566"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188989"
 ---
-# <a name="directory-roles-you-can-manage-using-azure-ad-pim"></a>Azure AD PIM을 사용하여 관리할 수 있는 디렉터리 역할
+# <a name="azure-ad-directory-roles-you-can-manage-in-pim"></a>PIM에서 관리할 수 있는 Azure AD 디렉터리 역할
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
 조직의 사용자를 Azure AD의 다른 관리 역할에 할당할 수 있습니다. 이러한 역할 할당은 사용자를 추가 또는 제거하거나 서비스 설정을 변경하는 등 사용자가 Azure AD, Office 365, 기타 Microsoft Online Services, 연결된 응용 프로그램에서 수행할 수 있는 작업을 제어합니다.  
@@ -86,5 +86,7 @@ Microsoft Online Services에 액세스하려면 서비스 포털을 열거나 �
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>다음 단계
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [PIM 사용 시작](pim-getting-started.md)
+- [PIM에서 Azure AD 디렉터리 역할 할당](pim-how-to-add-role-to-user.md)
 

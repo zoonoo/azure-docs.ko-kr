@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/27/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4cb7b165311f57fadd63770646907ddfc0378844
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f89a6bdbe906d490231725cf528396928faebe47
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445023"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43092097"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 규모 확장
 
@@ -37,19 +37,7 @@ ms.locfileid: "37445023"
 
 ## <a name="region-limits"></a>지역 제한
 
-사용자가 구성할 수 있는 쿼리 복제본 수는 서버가 있는 지역에 따라 제한됩니다. 다음과 같은 제한이 적용됩니다.
-
-|지역  |최대 복제본 수  |
-|---------|---------|
-|미국 동부 2    |    7     |
-|미국 중서부     |    7     |
-|서유럽     |    7     |
-|미국 서부     |     7    |
-|미국 중부     |     3    |
-|동남아시아    |     3    |
-|다른 모든 하위 지역  |   1    |
-
-
+사용자가 구성할 수 있는 쿼리 복제본 수는 서버가 있는 지역에 따라 제한됩니다. 자세히 알아보려면 [지역별 가용성](analysis-services-overview.md#availability-by-region)을 참조하세요.
 
 ## <a name="monitor-qpu-usage"></a>QPU 사용량 모니터링
 

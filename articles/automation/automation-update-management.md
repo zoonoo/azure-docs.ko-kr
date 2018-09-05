@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/28/2018
+ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ea96898e36080096c91285f3ff7621f84bf81edf
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: e0d92cc52b34e1e04f13e03ec2196d13961fb7de
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42143705"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247939"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -35,6 +35,8 @@ Azure Automation 계정에서 직접 가상 머신에 업데이트 관리를 사
 
 ![업데이트 관리 프로세스 흐름](media/automation-update-management/update-mgmt-updateworkflow.png)
 
+업데이트 관리는 동일한 테넌트의 여러 구독에 있는 머신을 기본적으로 등록하는 데 사용할 수 있습니다. 다른 테넌트의 머신을 관리하려면 해당 머신을 [비Azure 머신](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine)으로 등록해야 합니다.
+
 컴퓨터에서 업데이트 준수를 검색한 후 에이전트에서 Azure Log Analytics에 정보를 대량으로 전달합니다. Windows 컴퓨터에서 준수 검사는 기본적으로 12시간마다 수행됩니다.
 
 검사 일정 외에도, MMA가 다시 시작되면 업데이트 설치 전과 업데이트 설치 후 15분 내에 업데이트 준수 검사가 시작됩니다.
@@ -48,7 +50,7 @@ Linux 컴퓨터에서 준수 검사는 기본적으로 3시간마다 수행됩�
 
 예약 배포를 만들어서 업데이트가 필요한 컴퓨터에 소프트웨어 업데이트를 배포하고 설치할 수 있습니다. *선택 사항*으로 분류된 업데이트는 Windows 컴퓨터의 배포 범위에 포함되지 않습니다. 배포 범위에는 필수 업데이트만 포함됩니다. 
 
-예약 배포는 컴퓨터를 명시적으로 지정하거나 특정 컴퓨터 집합의 로그 검색을 기반으로 하는 [컴퓨터 그룹](../log-analytics/log-analytics-computer-groups.md)을 선택하여 해당 업데이트를 받는 대상 컴퓨터를 정의합니다. 또한 업데이트를 설치할 수 있는 기간을 승인하고 지정하는 일정을 지정합니다. 
+예약 배포는 컴퓨터를 명시적으로 지정하거나 특정 컴퓨터 집합의 로그 검색을 기반으로 하는 [컴퓨터 그룹](../log-analytics/log-analytics-computer-groups.md)을 선택하여 해당 업데이트를 받는 대상 컴퓨터를 정의합니다. 또한 업데이트를 설치할 수 있는 기간을 승인하고 지정하는 일정을 지정합니다.
 
 Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Runbook은 볼 수 없으며 구성이 필요하지 않습니다. 업데이트 배포가 생성되면 업데이트 배포는 포함된 컴퓨터에 대해 지정된 시간에 마스터 업데이트 Runbook을 시작하는 일정을 만듭니다. 이 마스터 Runbook은 필수 업데이트를 설치하는 각 에이전트에서 하위 Runbook을 시작합니다.
 
@@ -220,7 +222,7 @@ Azure Marketplace에서 사용할 수 있는 RHEL(주문형 Red Hat Enterprise L
 |제외할 업데이트|제외할 업데이트를 입력합니다. Windows의 경우 ‘KB’ 접두사 없이 KB를 입력합니다. Linux의 경우 패키지 이름을 입력하거나 와일드카드를 사용합니다.  |
 |일정 설정|시작 시간을 선택하고 되풀이에 대해 [한 번] 또는 [정기]를 선택합니다.|
 | 유지 관리 기간 |업데이트에 대해 설정되는 시간(분)입니다. 값은 30분 이상 6시간 이하여야 합니다. |
-| 컨트롤 다시 부팅| 다시 부팅을 처리해야 하는 방법에 따라 달라집니다.</br>사용 가능한 옵션은 다음과 같습니다.</br>필요한 경우 다시 부팅(기본값)</br>항상 다시 부팅</br>다시 부팅 안 함</br>다시 부팅만 - 업데이트 설치 안 함|
+| 다시 부팅 제어| 다시 부팅을 처리하는 방법을 결정합니다. 사용 가능한 옵션은 다음과 같습니다.</br>필요한 경우 다시 부팅(기본값)</br>항상 다시 부팅</br>다시 부팅 안 함</br>다시 부팅만 - 업데이트 설치 안 함|
 
 ## <a name="update-classifications"></a>업데이트 분류
 
@@ -310,7 +312,7 @@ Update
 
 #### <a name="single-azure-vm-assessment-queries-linux"></a>단일 Azure VM 평가 쿼리(Linux)
 
-일부 Linux 배포판에서는 Azure Resource Manager에서 가져온 VMUUID 값과 Log Analytics에 저장된 값 사이에서 [엔디언](https://en.wikipedia.org/wiki/Endianness) 불일치가 발생합니다. 다음 쿼리는 엔디언의 일치 여부를 확인합니다. 결과를 적절히 반환하려면 VMUUID 값을 GUID의 big-endian 및 little-endian 형식으로 바꿉니다. Log Analytics에서 다음 쿼리를 실행하여 사용해야 하는 VMUUID를 찾을 수 있습니다. `Update | where Computer == "<machine name>"
+일부 Linux 배포판의 경우 Azure Resource Manager에서 가져온 VMUUID 값과 Log Analytics에 저장된 값이 [엔디언](https://en.wikipedia.org/wiki/Endianness)과 일치하지 않습니다. 다음 쿼리는 엔디언의 일치 여부를 확인합니다. 결과를 적절히 반환하려면 VMUUID 값을 GUID의 big-endian 및 little-endian 형식으로 바꿉니다. Log Analytics에서 다음 쿼리를 실행하여 사용해야 하는 VMUUID를 찾을 수 있습니다. `Update | where Computer == "<machine name>"
 | summarize by Computer, VMUUID`
 
 ##### <a name="missing-updates-summary"></a>누락 업데이트 요약
@@ -510,7 +512,7 @@ Linux 컴퓨터에 업데이트를 배포할 때 업데이트 분류를 선택�
 
 그러나 업데이트 관리는 관련 업데이트에 대한 추가 정보가 있으므로 해당 컴퓨터를 호환되지 않는 것으로 보고할 수 있습니다.
 
-업데이트 분류에 따라 업데이트를 배포하는 것은 CentOS에서 기본적으로 지원되지 않습니다. SUSE의 경우 분류로 ‘기타 업데이트’*만* 선택하면 zypper(패키지 관리자)와 관련된 보안 업데이트나 해당 종속성이 먼저 필요한 경우에도 일부 보안 업데이트가 설치될 수 있습니다. 이것은 zypper의 제한 사항입니다. 경우에 따라 업데이트 로그를 확인하기 위해 업데이트 배포를 다시 실행해야 할 수 있습니다.
+업데이트 분류에 따라 업데이트를 배포하는 것은 CentOS에서 기본적으로 지원되지 않습니다. SUSE의 경우 분류로 ‘기타 업데이트’*만* 선택하면 zypper(패키지 관리자)와 관련된 보안 업데이트나 해당 종속성이 먼저 필요한 경우에도 일부 보안 업데이트가 설치될 수 있습니다. 이것은 zypper의 제한 사항입니다. 경우에 따라 업데이트 로그를 확인하기 위해 업데이트 배포를 다시 실행해야 할 수도 있습니다.
 
 ## <a name="troubleshoot"></a>문제 해결
 

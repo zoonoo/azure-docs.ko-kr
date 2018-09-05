@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/25/2018
+ms.date: 08/27/2018
 ms.author: aljo
-ms.openlocfilehash: 9e4d65875085ec293813e2683acde095ae112b75
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: ed904f7d4de9406e60de1652cefeb5bb84e5a1d8
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503709"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144041"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric 클러스터 설정 사용자 지정
 이 문서에서는 Service Fabric 클러스터에 대한 다양한 패브릭 설정을 사용자 지정하는 방법을 설명합니다. Azure에서 호스팅된 클러스터의 경우 [Azure Portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 설정을 사용자 지정할 수 있습니다. 독립 실행형 클러스터의 경우 ClusterConfig.json 파일을 업데이트하고 클러스터에서 구성 업그레이드를 수행하여 설정을 사용자 지정합니다. 
@@ -94,10 +94,10 @@ ClusterConfig.json 파일의 설정을 수정한 후 [클러스터 구성 업그
 |CrlCheckingFlag|uint, 기본값: 0x40000000 |동적| 응용 프로그램/서비스 인증서 체인 유효성 검사에 대한 플래그입니다. 예: CRL 확인 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 0으로 설정하면 CRL 확인이 해제됩니다. 지원되는 전체 값 목록은 CertGetCertificateChain의 dwFlags에서 문서화되어 있습니다(http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx).  |
 |DefaultHttpRequestTimeout |시간(초). 기본값은 120입니다. |동적|시간 간격은 초 단위로 지정합니다.  http 앱 게이트웨이에서 처리 중인 http 요청에 대한 기본 요청 시간 제한을 지정합니다. |
 |ForwardClientCertificate|bool, 기본값: FALSE|동적|false로 설정된 경우 역방향 프록시는 클라이언트 인증서에 대해 요청하지 않습니다. true로 설정된 경우 역방향 프록시는 SSL 핸드셰이크 중 클라이언트 인증서에 대해 요청하며 X-Client-Certificate라는 헤더의 서비스에 base64로 인코딩된 PEM 형식의 문자열을 전달합니다. 서비스는 인증서 데이터를 검사한 후 적절한 상태 코드로 요청에 실패할 수 있습니다. true이고 클라이언트가 인증서를 제시하지 않으면 역방향 프록시는 빈 헤더를 전달하고 서비스에서 처리하도록 합니다. 역방향 프록시는 투명한 계층처럼 작동합니다. 자세한 정보는 [클라이언트 인증서 인증 설정](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy)을 참조하세요. |
-|GatewayAuthCredentialType |string, 기본값: "None" |공용| http 앱 게이트웨이 끝점에서 사용할 보안 자격 증명의 유형을 나타냅니다. 유효한 값: "None/X509" |
+|GatewayAuthCredentialType |string, 기본값: "None" |공용| http 앱 게이트웨이 엔드포인트에서 사용할 보안 자격 증명의 유형을 나타냅니다. 유효한 값: "None/X509" |
 |GatewayX509CertificateFindType |string, 기본값: "FindByThumbprint" |동적| GatewayX509CertificateStoreName에 지정한 저장소에서 인증서를 검색하는 방법을 나타냅니다. 지원되는 값: FindByThumbprint, FindBySubjectName |
-|GatewayX509CertificateFindValue | string, 기본값: "" |동적| http 앱 게이트웨이 인증서를 찾는 데 사용되는 검색 필터 값. 이 인증서는 https 끝점에서 구성되며, 서비스에서 필요한 경우 앱 ID를 확인하는 데 사용할 수도 있습니다. FindValue를 먼저 조회하고, 이 FindValue가 없으면 FindValueSecondary를 조회합니다. |
-|GatewayX509CertificateFindValueSecondary | string, 기본값: "" |동적|http 앱 게이트웨이 인증서를 찾는 데 사용되는 검색 필터 값. 이 인증서는 https 끝점에서 구성되며, 서비스에서 필요한 경우 앱 ID를 확인하는 데 사용할 수도 있습니다. FindValue를 먼저 조회하고, 이 FindValue가 없으면 FindValueSecondary를 조회합니다.|
+|GatewayX509CertificateFindValue | string, 기본값: "" |동적| http 앱 게이트웨이 인증서를 찾는 데 사용되는 검색 필터 값. 이 인증서는 https 엔드포인트에서 구성되며, 서비스에서 필요한 경우 앱 ID를 확인하는 데 사용할 수도 있습니다. FindValue를 먼저 조회하고, 이 FindValue가 없으면 FindValueSecondary를 조회합니다. |
+|GatewayX509CertificateFindValueSecondary | string, 기본값: "" |동적|http 앱 게이트웨이 인증서를 찾는 데 사용되는 검색 필터 값. 이 인증서는 https 엔드포인트에서 구성되며, 서비스에서 필요한 경우 앱 ID를 확인하는 데 사용할 수도 있습니다. FindValue를 먼저 조회하고, 이 FindValue가 없으면 FindValueSecondary를 조회합니다.|
 |GatewayX509CertificateStoreName |string, 기본값: "My" |동적| http 앱 게이트웨이에 대한 서버 인증서가 있는 X.509 인증서 저장소의 이름 |
 |HttpRequestConnectTimeout|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(5)|동적|시간 간격은 초 단위로 지정합니다.  http 응용 프로그램 게이트웨이에서 보내는 http 요청에 대한 연결 시간 제한을 제공합니다.  |
 |IgnoreCrlOfflineError|bool, 기본값: TRUE|동적|응용 프로그램/서비스 인증서 확인에 대한 CRL 오프라인 오류를 무시할지 여부 |
@@ -105,7 +105,7 @@ ClusterConfig.json 파일의 설정을 수정한 후 [클러스터 구성 업그
 |NumberOfParallelOperations | Uint, 기본값: 5000 |공용|http 서버 큐에 게시할 읽기 수. HttpGateway에서 충족할 수 있는 동시 요청 수를 제어합니다. |
 |RemoveServiceResponseHeaders|string, 기본값: "Date; Server"|공용|클라이언트에 전달하기 전에 서비스 응답에서 제거될 세미콜론/쉼표로 구분된 응답 헤더 목록입니다. 이 값을 빈 문자열로 설정하면 현재 서비스에서 반환된 모든 헤더를 있는 그대로 전달합니다. 예: Date와 Server를 덮어쓰지 않음 |
 |ResolveServiceBackoffInterval |time(초), 기본값: 5 |동적|시간 간격은 초 단위로 지정합니다.  실패한 서비스 확인 작업을 다시 시도하기 전의 기본 백오프 간격을 지정합니다. |
-|SecureOnlyMode|bool, 기본값: FALSE|동적| SecureOnlyMode: true: 역방향 프록시에서 보안 끝점을 게시하는 서비스에만 전달합니다. false: 역방향 프록시에서 보안/비보안 끝점에 요청을 전달할 수 있습니다. 자세한 정보는 [역방향 프록시 엔드포인트 선택 논리](service-fabric-reverseproxy-configure-secure-communication.md#endpoint-selection-logic-when-services-expose-secure-as-well-as-unsecured-endpoints)를 참조하세요.  |
+|SecureOnlyMode|bool, 기본값: FALSE|동적| SecureOnlyMode: true: 역방향 프록시에서 보안 엔드포인트를 게시하는 서비스에만 전달합니다. false: 역방향 프록시에서 보안/비보안 엔드포인트에 요청을 전달할 수 있습니다. 자세한 정보는 [역방향 프록시 엔드포인트 선택 논리](service-fabric-reverseproxy-configure-secure-communication.md#endpoint-selection-logic-when-services-expose-secure-as-well-as-unsecured-endpoints)를 참조하세요.  |
 |ServiceCertificateThumbprints|string, 기본값: ""|동적|역방향 프록시에서 신뢰할 수 있는 원격 인증서의 쉼표로 구분된 지문 목록입니다. 자세한 정보는 [역방향 프록시 보안 연결](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services)을 참조하세요. |
 
 ## <a name="applicationgatewayhttpservicecommonnameandissuer"></a>ApplicationGateway/Http/ServiceCommonNameAndIssuer
@@ -187,9 +187,10 @@ ClusterConfig.json 파일의 설정을 수정한 후 [클러스터 구성 업그
 ## <a name="dnsservice"></a>DnsService
 | **매개 변수** | **허용되는 값** |**업그레이드 정책**| **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
-|InstanceCount|int, 기본값: -1|공용|기본값: -1, DnsService가 모든 노드에서 실행되고 있습니다. OneBox는 DnsService에서 잘 알려진 포트 53을 사용하므로 1로 설정되어야 합니다. 따라서 동일한 컴퓨터에 여러 인스턴스를 가질 수 없습니다.|
+|EnablePartitionedQuery|bool, 기본값: FALSE|공용|분할된 서비스에 대한 DNS 쿼리 지원이 가능하도록 설정하는 플래그입니다. 이 기능은 기본적으로 꺼져 있습니다. 자세한 내용은 [Service Fabric DNS 서비스](service-fabric-dnsservice.md)를 참조하세요.|
+|InstanceCount|int, 기본값: -1|공용|기본값은 -1이며, DnsService가 모든 노드에서 실행된다는 의미입니다. OneBox는 DnsService에서 잘 알려진 포트 53을 사용하므로 1로 설정되어야 합니다. 따라서 동일한 컴퓨터에 여러 인스턴스를 가질 수 없습니다.|
 |IsEnabled|bool, 기본값: FALSE|공용|DnsService를 활성화하거나 비활성화합니다. DnsService는 기본적으로 비활성화되며, 이 구성을 활성화하도록 설정해야 합니다. |
-|PartitionPrefix|string, 기본값: "-"|공용|분할된 서비스에 대한 DNS 쿼리의 파티션 접두사 문자열 값을 제어합니다. 값: <ul><li>DNS 쿼리의 일부이므로 RFC를 준수해야 합니다.</li><li>점은 DNS 접미사 동작을 방해하므로 점('.')을 포함하지 않아야 합니다.</li><li>5자를 초과할 수 없습니다.</li><li>빈 문자열일 수 없습니다.</li><li>PartitionPrefix 설정이 재정의된 경우 PartitionSuffix를 재정의하고 그 반대로 해야 합니다.</li></ul>자세한 내용은 [Service Fabric DNS 서비스](service-fabric-dnsservice.md)를 참조하세요.|
+|PartitionPrefix|string, 기본값은 "--"입니다.|공용|분할된 서비스에 대한 DNS 쿼리의 파티션 접두사 문자열 값을 제어합니다. 값: <ul><li>DNS 쿼리의 일부이므로 RFC를 준수해야 합니다.</li><li>점은 DNS 접미사 동작을 방해하므로 점('.')을 포함하지 않아야 합니다.</li><li>5자를 초과할 수 없습니다.</li><li>빈 문자열일 수 없습니다.</li><li>PartitionPrefix 설정이 재정의된 경우 PartitionSuffix를 재정의하고 그 반대로 해야 합니다.</li></ul>자세한 내용은 [Service Fabric DNS 서비스](service-fabric-dnsservice.md)를 참조하세요.|
 |PartitionSuffix|string, 기본값: ""|공용|분할된 서비스에 대한 DNS 쿼리의 파티션 접미사 문자열 값을 제어합니다. 값: <ul><li>DNS 쿼리의 일부이므로 RFC를 준수해야 합니다.</li><li>점은 DNS 접미사 동작을 방해하므로 점('.')을 포함하지 않아야 합니다.</li><li>5자를 초과할 수 없습니다.</li><li>PartitionPrefix 설정이 재정의된 경우 PartitionSuffix를 재정의하고 그 반대로 해야 합니다.</li></ul>자세한 내용은 [Service Fabric DNS 서비스](service-fabric-dnsservice.md)를 참조하세요. |
 
 ## <a name="fabricclient"></a>FabricClient
@@ -350,6 +351,9 @@ ClusterConfig.json 파일의 설정을 수정한 후 [클러스터 구성 업그
 |ApplicationHostCloseTimeout| TimeSpan, 기본값: Common::TimeSpan::FromSeconds(120)|동적| 시간 간격은 초 단위로 지정합니다. 자체 활성화된 프로세스에서 Fabric 종료가 감지되면 FabricRuntime에서 사용자의 호스트(applicationhost) 프로세스에서 모든 복제본을 닫습니다. 닫기 작업에 대한 시간 제한입니다. |
 |ApplicationUpgradeTimeout| TimeSpan, 기본값: Common::TimeSpan::FromSeconds(360)|동적| 시간 간격은 초 단위로 지정합니다. 응용 프로그램 업그레이드에 대한 시간 제한입니다. 시간 제한이 "ActivationTimeout"보다 작으면 배포자가 실패합니다. |
 |ContainerServiceArguments|string, 기본값: "-H localhost:2375 -H npipe://"|공용|SF(서비스 패브릭)는 docker 디먼을 관리합니다(Win10 같은 Windows 클라이언트 컴퓨터는 제외). 이 구성을 통해 사용자는 시작할 때 docker 디먼에 전달되어야 하는 사용자 지정 인수를 지정할 수 있습니다. 사용자 지정 인수가 지정되면 Service Fabric은 Docker 엔진에 '--pidfile' 인수를 제외한 다른 인수를 전달하지 않습니다. 따라서 사용자는 '-pidfile' 인수를 자신의 고객 인수의 일부로 지정할 수 없습니다. 또한 사용자 지정 인수는 Service Fabric이 디먼과 통신할 수 있도록 docker 디먼이 Windows의 기본 이름 파이프(또는 Linux의 UNIX 도메인 소켓)를 수신 대기하도록 해야 합니다.|
+|ContainerServiceLogFileMaxSizeInKb|int, 기본값은 32768입니다.|공용|Docker 컨테이너에서 생성된 로그 파일의 최대 파일 크기입니다.  Windows만 해당됩니다.|
+|ContainerServiceLogFileNamePrefix|string, 기본값은 "sfcontainerlogs"입니다.|공용|Docker 컨테이너에서 생성된 로그 파일의 파일 이름 접두사입니다.  Windows만 해당됩니다.|
+|ContainerServiceLogFileRetentionCount|int, 기본값: 10|공용|로그 파일을 덮어쓰기 전에 Docker 컨테이너에서 생성된 로그 파일의 수입니다.  Windows만 해당됩니다.|
 |CreateFabricRuntimeTimeout|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(120)|동적| 시간 간격은 초 단위로 지정합니다. 동기화 FabricCreateRuntime 호출에 대한 시간 제한 값입니다. |
 |DefaultContainerRepositoryAccountName|string, 기본값: ""|공용|ApplicationManifest.xml에 지정된 자격 증명 대신 사용하는 기본 자격 증명 |
 |DefaultContainerRepositoryPassword|string, 기본값: ""|공용|ApplicationManifest.xml에 지정된 자격 증명 대신 사용하는 기본 암호 자격 증명|
@@ -357,11 +361,12 @@ ClusterConfig.json 파일의 설정을 수정한 후 [클러스터 구성 업그
 |DeploymentMaxRetryInterval| TimeSpan, 기본값: Common::TimeSpan::FromSeconds(3600)|동적| 시간 간격은 초 단위로 지정합니다. 배포에 대한 최대 다시 시도 간격입니다. 모든 연속 실패에서 다시 시도 간격은 Min(DeploymentMaxRetryInterval, 연속 실패 횟수 * DeploymentRetryBackoffInterval)으로 계산됩니다. |
 |DeploymentRetryBackoffInterval| TimeSpan, 기본값: Common::TimeSpan::FromSeconds(10)|동적|시간 간격은 초 단위로 지정합니다. 배포 실패에 대한 백오프 간격입니다. 모든 연속 배포 실패에서 시스템은 최대 MaxDeploymentFailureCount회까지 배포를 다시 시도합니다. 다시 시도 간격은 연속 배포 실패와 배포 백오프 간격의 곱입니다. |
 |EnableActivateNoWindow| bool, 기본값: FALSE|동적| 활성화된 프로세스가 콘솔 없이 백그라운드에서 만들어집니다. |
+|EnableContainerServiceDebugMode|bool, 기본값: TRUE|공용|Docker 컨테이너에 대한 로깅을 사용/사용하지 않도록 설정합니다.  Windows만 해당됩니다.|
 |EnableDockerHealthCheckIntegration|bool, 기본값: TRUE|공용|Docker HealthCheck 이벤트를 Service Fabric 시스템 상태 보고서와 통합할 수 있도록 합니다. |
 |EnableProcessDebugging|bool, 기본값: FALSE|동적| 디버거에서 응용 프로그램 호스트를 시작할 수 있습니다. |
-|EndpointProviderEnabled| bool, 기본값: FALSE|공용| 끝점 리소스를 Fabric별로 관리할 수 있습니다. FabricNode에서 응용 프로그램 포트의 시작 및 끝 범위를 지정해야 합니다. |
+|EndpointProviderEnabled| bool, 기본값: FALSE|공용| 엔드포인트 리소스를 Fabric별로 관리할 수 있습니다. FabricNode에서 응용 프로그램 포트의 시작 및 끝 범위를 지정해야 합니다. |
 |FabricContainerAppsEnabled| bool, 기본값: FALSE|공용| |
-|FirewallPolicyEnabled|bool, 기본값: FALSE|공용| ServiceManifest에 지정된 명시적 포트가 있는 끝점 리소스에 대한 방화벽 포트를 열 수 있습니다. |
+|FirewallPolicyEnabled|bool, 기본값: FALSE|공용| ServiceManifest에 지정된 명시적 포트가 있는 엔드포인트 리소스에 대한 방화벽 포트를 열 수 있습니다. |
 |GetCodePackageActivationContextTimeout|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(120)|동적|시간 간격은 초 단위로 지정합니다. CodePackageActivationContext 호출에 대한 시간 제한 값입니다. 임시 서비스에는 적용되지 않습니다. |
 |IPProviderEnabled|bool, 기본값: FALSE|공용|IP 주소를 관리할 수 있습니다. |
 |IsDefaultContainerRepositoryPasswordEncrypted|bool, 기본값: FALSE|공용|DefaultContainerRepositoryPassword가 암호화되는지 여부|
@@ -578,9 +583,9 @@ ClusterConfig.json 파일의 설정을 수정한 후 [클러스터 구성 업그
 |MaxSecondaryReplicationQueueSize|uint, 기본값: 2048|공용|보조 복제 큐에 존재할 수 있는 작업의 최대 수. 2의 거듭제곱이어야 합니다.|
 |QueueHealthMonitoringInterval|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(30)|공용|시간 간격은 초 단위로 지정합니다. 이 값은 복제자에서 복제 작업 큐의 경고/오류 상태 이벤트를 모니터링하는 데 사용하는 기간을 결정합니다. '0' 값은 상태 모니터링을 사용하지 않도록 설정합니다. |
 |QueueHealthWarningAtUsagePercent|uint, 기본값: 80|공용|이 값은 높은 큐 사용량에 대한 경고를 보고하는 복제 큐 사용량(백분율)을 결정합니다. 이는 QueueHealthMonitoringInterval의 유예 간격 이후에 수행됩니다. 큐 사용량이 유예 간격에서 이 백분율 미만일 경우|
-|ReplicatorAddress|string, 기본값: "localhost:0"|공용|Windows Fabric 복제자에서 작업을 보내거나 받기 위해 다른 복제본과의 연결을 설정하는 데 사용되는 문자열 형식의 끝점입니다(예: 'IP:Port').|
-|ReplicatorListenAddress|string, 기본값: "localhost:0"|공용|Windows Fabric 복제자에서 다른 복제본으로부터 작업을 받는 데 사용하는 문자열 형식의 끝점입니다(예: 'IP:Port').|
-|ReplicatorPublishAddress|string, 기본값: "localhost:0"|공용|Windows Fabric 복제자에서 다른 복제본으로 작업을 보내는 데 사용하는 문자열 형식의 끝점입니다(예: 'IP:Port').|
+|ReplicatorAddress|string, 기본값: "localhost:0"|공용|Windows Fabric 복제자에서 작업을 보내거나 받기 위해 다른 복제본과의 연결을 설정하는 데 사용되는 문자열 형식의 엔드포인트입니다(예: 'IP:Port').|
+|ReplicatorListenAddress|string, 기본값: "localhost:0"|공용|Windows Fabric 복제자에서 다른 복제본으로부터 작업을 받는 데 사용하는 문자열 형식의 엔드포인트입니다(예: 'IP:Port').|
+|ReplicatorPublishAddress|string, 기본값: "localhost:0"|공용|Windows Fabric 복제자에서 다른 복제본으로 작업을 보내는 데 사용하는 문자열 형식의 엔드포인트입니다(예: 'IP:Port').|
 |RetryInterval|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(5)|공용|시간 간격은 초 단위로 지정합니다. 작업이 손실되거나 거부되면 이 타이머에서 복제자가 작업 전송을 다시 시도하는 빈도를 결정합니다.|
 
 ## <a name="resourcemonitorservice"></a>ResourceMonitorService
@@ -814,7 +819,7 @@ ClusterConfig.json 파일의 설정을 수정한 후 [클러스터 구성 업그
 |MaxReplicationMessageSize |uint, 기본값: 52428800 | 공용 | 복제 작업의 최대 메시지 크기. 기본값은 50MB입니다. |
 |MaxSecondaryReplicationQueueMemorySize |uint, 기본값: 0 | 공용 |보조 복제 큐의 최대 값(바이트) |
 |MaxSecondaryReplicationQueueSize |uint, 기본값: 16384 | 공용 |보조 복제 큐에 존재할 수 있는 작업의 최대 수. 2의 거듭제곱이어야 합니다. |
-|ReplicatorAddress |string, 기본값: "localhost:0" | 공용 | Windows Fabric 복제자에서 작업을 보내거나 받기 위해 다른 복제본과의 연결을 설정하는 데 사용되는 문자열 형식의 끝점입니다(예: 'IP:Port'). |
+|ReplicatorAddress |string, 기본값: "localhost:0" | 공용 | Windows Fabric 복제자에서 작업을 보내거나 받기 위해 다른 복제본과의 연결을 설정하는 데 사용되는 문자열 형식의 엔드포인트입니다(예: 'IP:Port'). |
 
 ## <a name="transport"></a>전송
 | **매개 변수** | **허용되는 값** |**업그레이드 정책** |**지침 또는 간단한 설명** |

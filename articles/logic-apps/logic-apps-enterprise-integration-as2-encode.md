@@ -1,27 +1,23 @@
 ---
 title: AS2 메시지 인코딩 - Azure Logic Apps | Microsoft Docs
-description: Azure Logic Apps의 엔터프라이즈 통합 팩에 포함된 AS2 인코더를 사용하는 방법
+description: 엔터프라이즈 통합 팩이 포함된 Azure Logic Apps를 사용하여 AS 메시지 인코딩
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: 332fb9e3-576c-4683-bd10-d177a0ebe9a3
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 332fb9e3-576c-4683-bd10-d177a0ebe9a3
 ms.date: 08/08/2018
-ms.author: LADocs; padmavc
-ms.openlocfilehash: b3b57b2505c4185f3a81530cbc9eeb464dcfa518
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 6bb19199929a004ee5668a3a6e057a69c24dd752
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42144849"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122716"
 ---
-# <a name="encode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에 대한 AS2 메시지 인코딩
+# <a name="encode-as2-messages-with-azure-logic-apps-and-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps를 사용하여 AS2 메시지 인코딩
 
 메시지를 전송하는 동안 보안 및 안정성을 설정하려면 AS2 메시지 인코딩 커넥터를 사용합니다. 이 커넥터에서는 MDN(메시지 처리 알림)을 통해 디지털 서명, 암호화 및 승인을 제공하며 부인 방지에 대한 지원도 제공합니다.
 

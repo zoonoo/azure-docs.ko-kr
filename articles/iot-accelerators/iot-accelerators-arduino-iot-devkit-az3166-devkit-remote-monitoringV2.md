@@ -1,5 +1,5 @@
 ---
-title: 'IoT DevKit에서 클라우드로: IoT DevKit AZ3166을 원격 모니터링 IoT 솔루션 가속기에 연결 | Microsoft Docs'
+title: IoT DevKit에서 클라우드로 -- IoT DevKit AZ3166을 원격 모니터링 IoT 솔루션 가속기에 연결 | Microsoft Docs
 description: 이 자습서에서는 모니터링 및 시각화를 위해 IoT DevKit AZ3166에서 센서의 상태를 원격 모니터링 IoT 솔루션 가속기로 보내는 방법을 알아봅니다.
 author: isabelcabezasm
 manager: ''
@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: isacabe
-ms.openlocfilehash: 88ce34125009665d346cf034f5d02ba7e21f48fc
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 92ce85a3cc94702468a13348d3a41667498c68f5
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143328"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43187394"
 ---
 # <a name="connect-mxchip-iot-devkit-az3166-to-the-iot-remote-monitoring-solution-accelerator"></a>MXChip IoT DevKit AZ3166을 IoT 원격 모니터링 솔루션 가속기에 연결
 

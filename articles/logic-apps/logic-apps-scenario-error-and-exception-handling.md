@@ -1,27 +1,21 @@
 ---
 title: 예외 처리 및 오류 로깅 시나리오 - Azure Logic Apps | Microsoft Docs
-description: Azure Logic Apps에 대한 고급 예외 처리 및 오류 로깅에 대한 실제 사용 사례에 대해 설명합니다.
-keywords: ''
+description: 다음은 Azure Logic Apps에 대한 고급 예외 처리 및 오류 로깅에 대한 실제 사용 사례입니다.
 services: logic-apps
-author: hedidin
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: hedidin
+ms.author: b-hoedid
+ms.reviewer: estfan, LADocs
+ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
-ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
-ms.author: LADocs; b-hoedid
-ms.openlocfilehash: c4114e32053410689c0482816a46376947023972
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 0c6062fb9e9708b0fa6aef7a6d7390287cbf69d4
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930276"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124038"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>시나리오: 논리 앱에 대한 예외 처리 및 오류 로깅
 

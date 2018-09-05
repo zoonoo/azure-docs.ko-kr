@@ -1,6 +1,6 @@
 ---
-title: Azure의 SQL Server에 대한 성능 모범 사례 | Microsoft Docs
-description: Microsoft Azure VM에서 SQL Server 성능을 최적화하기 위한 모범 사례를 제공합니다.
+title: Azure의 SQL Server에 대한 성능 지침 | Microsoft Docs
+description: Microsoft Azure VM에서 SQL Server 성능을 최적화하기 위한 지침을 제공합니다.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/19/2018
+ms.date: 08/24/2018
 ms.author: jroth
-ms.openlocfilehash: a7a24bde6cc34befee7de3bcbf13b96c8b641af2
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 3a61c20b922b60e3135d9f9e53928462887a602e
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888911"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886188"
 ---
-# <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례
+# <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server의 성능 지침
 
 ## <a name="overview"></a>개요
 

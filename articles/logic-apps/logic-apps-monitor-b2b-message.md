@@ -1,28 +1,23 @@
 ---
-title: B2B 트랜잭션 모니터링 및 로깅 설정 - Azure Logic Apps | Microsoft Docs
-description: AS2, X12 및 EDIFACT 메시지 모니터링, 통합 계정에 대한 진단 로깅 시작
-author: padmavc
-manager: jeconnoc
-editor: ''
+title: B2B 메시지 모니터링 및 로깅 설정 - Azure Logic Apps | Microsoft Docs
+description: AS2, X12 및 EDIFACT 메시지를 모니터링합니다. Azure Logic Apps에서 통합 계정에 대한 진단 로깅을 설정합니다.
 services: logic-apps
-documentationcenter: ''
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.custom: H1Hack27Feb2017
+ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 07/21/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 399c7b91949a854f3a152e9a3788d9163c565934
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: decc0271ae0e7c359f72648d7c4d0076892285da
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299320"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125178"
 ---
-# <a name="monitor-and-set-up-diagnostics-logging-for-b2b-communication-in-integration-accounts"></a>통합 계정에서 B2B 통신에 대한 진단 로깅 모니터링 및 설정
+# <a name="monitor-b2b-messages-and-set-up-logging-for-integration-accounts-in-azure-logic-apps"></a>Azure Logic Apps에서 B2B 메시지를 모니터링하고 통합 계정에 대한 로깅 설정
 
 통합 계정을 통해 실행 중인 두 비즈니스 프로세스 또는 응용 프로그램 간의 B2B 통신을 설정한 후 해당 엔터티는 서로 메시지를 교환할 수 있습니다. 이 통신이 예상대로 작동하는지 확인하기 위해 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 서비스를 통해 통합 계정에 대한 진단 로깅과 함께 AS2, X12 및 EDIFACT 메시지에 대한 모니터링을 설정할 수 있습니다. 이 서비스는 해당 가용성 및 성능을 유지할 수 있도록 클라우드 및 온-프레미스 환경을 모니터링하고 런타임 세부 정보 및 보다 풍부한 디버깅에 대한 이벤트를 수집합니다. 또한 Azure Storage 및 Azure Event Hub와 같은 [다른 서비스와 함께 진단 데이터를 사용](#extend-diagnostic-data)할 수도 있습니다.
 

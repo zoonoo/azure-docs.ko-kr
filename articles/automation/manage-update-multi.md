@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/20/2018
+ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e06db4e356de6a4572721d1652d6a2666e7cfefc
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 231a9876c7a84953a7d9a88b761a1da9475d1f48
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146854"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248144"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>여러 컴퓨터의 업데이트 관리
 
@@ -127,7 +127,7 @@ Azure Portal에서 Automation 계정을 연 후 **업데이트 관리**를 선�
 
 - **이름**: 업데이트 배포를 식별하는 고유 이름을 제공합니다.
 - **운영 체제**: **Windows** 또는 **Linux**를 선택합니다.
-- **업데이트할 컴퓨터**: 저장된 검색, 가져온 그룹 또는 머신을 선택하여 업데이트할 머신을 선택합니다. **머신**을 선택한 경우 머신의 준비 상태가 **업데이트 에이전트 준비** 열에 표시됩니다. 업데이트 배포를 예약하기 전에 컴퓨터의 상태를 확인할 수 있습니다. Log Analytics에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Log Analytics의 컴퓨터 그룹](../log-analytics/log-analytics-computer-groups.md)을 참조하세요.
+- **업데이트할 컴퓨터**: 저장된 검색, 가져온 그룹 또는 머신을 선택하여 업데이트할 머신을 선택합니다. **머신**을 선택한 경우 머신의 준비는 **업데이트 에이전트 준비** 열에 표시됩니다. 업데이트 배포를 예약하기 전에 컴퓨터의 상태를 확인할 수 있습니다. Log Analytics에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Log Analytics의 컴퓨터 그룹](../log-analytics/log-analytics-computer-groups.md)을 참조하세요.
 
   ![새 업데이트 배포 창](./media/manage-update-multi/update-select-computers.png)
 
@@ -154,9 +154,9 @@ Azure Portal에서 Automation 계정을 연 후 **업데이트 관리**를 선�
 
    |옵션|설명|
    |---|---|
-   |필요한 경우 다시 부팅| **(기본값)** 필요한 경우, 유지 관리 기간이 허용되면 다시 부팅이 시작됩니다.|
+   |필요한 경우 다시 부팅| **(기본값)** 필요한 경우 유지 관리 기간이 허용되면 다시 부팅이 시작됩니다.|
    |항상 다시 부팅|필요 여부에 관계없이 다시 부팅이 시작됩니다. |
-   |다시 부팅 안 함|다시 부팅 필요 여부와 관계없이 다시 부팅이 무시됩니다.|
+   |다시 부팅 안 함|다시 부팅이 필요한지 여부와 관계없이 다시 부팅이 무시됩니다.|
    |다시 부팅만 - 업데이트 설치 안 함|이 옵션은 업데이트 설치를 무시하고 다시 부팅만 시작합니다.|
 
 일정 구성을 완료한 후에 **만들기** 단추를 선택하여 상태 대시보드로 돌아갑니다. **예약됨** 표에는 만든 배포 일정이 표시됩니다.

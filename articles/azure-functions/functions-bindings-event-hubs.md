@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: 610771e659a80e330fbb1c9d6fd97c15ff832386
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 3ff4c23c0538adcc3a064503431cb18016db04cd
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142844"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42747047"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Functions의 Azure Event Hubs 바인딩
 
@@ -52,24 +52,24 @@ Event Hubs 트리거 함수를 트리거하는 경우 트리거되는 메시지�
 
 ## <a name="trigger---scaling"></a>트리거 - 크기 조정
 
-Event Hub-Triggered 함수의 각 인스턴스는 하나의 EPH(EventProcessorHost) 인스턴스에서 지원됩니다. Event Hubs는 하나의 EPH가 지정된 파티션에 임대를 가져올 수 있도록 합니다.
+이벤트 허브 트리거 함수의 각 인스턴스는 하나의 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) 인스턴스에서 지원됩니다. Event Hubs는 하나의 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) 인스턴스가 지정된 파티션에 임대를 가져올 수 있도록 합니다.
 
-예를 들어 Event Hub에 다음과 같은 설정 및 가정을 시작하겠습니다.
+예를 들어, 다음과 같은 Event Hub를 고려합니다.
 
-1. 10개의 파티션
-1. 모든 파티션에 고르게 분산된 1000개의 이벤트 => 각 파티션에 100개의 메시지
+* 10개의 파티션
+* 모든 파티션에 고르게 분산된 1000개의 이벤트(각 파티션에 100개의 메시지 포함)
 
-기능을 처음 사용하는 경우 함수 인스턴스 1개가 있습니다. 이 기능 인스턴스를 Function_0이라고 하겠습니다. Function_0에는 10개의 모든 파티션에 대해 임대를 가져오도록 관리하는 하나의 EPH가 있습니다. 0-9 파티션에서 이벤트를 읽기 시작합니다. 이 지점부터 다음 중 하나가 발생합니다.
+함수를 처음 사용하는 경우 함수 인스턴스가 하나만 있습니다. 이 함수 인스턴스를 `Function_0`이라고 하겠습니다. `Function_0`은 10개의 모든 파티션에서 임대를 포함하는 단일 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) 인스턴스를 포함합니다. 이 인스턴스는 파티션 0-9에서 이벤트를 읽습니다. 이 지점부터 다음 중 하나가 발생합니다.
 
-* **하나의 함수 인스턴스가 필요함** - Function_0은 Azure Functions의 크기 조정 논리가 시작하기 전에 1000개를 모두 처리할 수 있습니다. 따라서 모든 1000개의 메시지는 Function_0에서 처리됩니다.
+* **새로운 함수 인스턴스가 필요함**: `Function_0`은 Functions의 크기 조정 논리가 시작되기 전에 1000개 이벤트를 모두 처리할 수 있습니다. 이 경우 모든 1000개의 메시지는 `Function_0`에서 처리됩니다.
 
-* **하나의 기능 인스턴스 추가** - Azure Functions의 크기 조정 논리는 Function_0에 처리할 수 있는 것보다 더 많은 메시지가 있는지를 확인하고 Function_1이라는 새 인스턴스를 만듭니다. Event Hubs는 새 EPH 인스턴스에서 메시지를 읽으려는 시도를 감지합니다. Event Hubs는 EPH 인스턴스에서 파티션의 부하를 분산하기 시작합니다(예: 파티션 0-4를 Function_0에 할당하고 파티션 5-9를 Function_1에 할당함). 
+* **추가 함수 인스턴스가 추가됨**: Functions의 크기 조정 논리는 `Function_0`이 처리할 수 있는 것보다 더 많은 메시지가 있는지 확인합니다. 이 경우 새 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) 인스턴스와 함께 새 함수 앱 인스턴스(`Function_1`)가 만들어집니다. Event Hubs는 새 호스트 인스턴스에서 메시지를 읽으려는 시도를 감지합니다. Event Hubs는 파티션을 호스트 인스턴스 전체로 부하 분산합니다. 예를 들어, 파티션 0-4는 `Function_0`에, 파티션 5-9는 `Function_1`에 할당할 수 있습니다. 
 
-* **N 이상 함수 인스턴스 추가** - Azure Functions의 크기 조정 논리는 Function_0와 Function_1 모두에 처리할 수 있는 것보다 더 많은 메시지가 있는지 확인합니다. Function_2...N에 대해 다시 크기를 조정합니다. 여기서 N은 Event Hub 파티션보다 큽니다. Event Hubs는 Function_0...9 인스턴스에서 파티션의 부하를 분산합니다.
+* **N 이상 함수 인스턴스 추가됨**: Functions의 크기 조정 논리는 `Function_0` 및 `Function_1` 모두에서 처리할 수 있는 것보다 더 많은 메시지가 있는지 확인합니다. 새 함수 앱 인스턴스 `Function_2`...`Functions_N`가 만들어지고 여기서 `N`은 이벤트 허브 파티션 수보다 큽니다. 이 예에서 Event Hubs는 다시 파티션을 부하 분산합니다(이 경우, 인스턴스 `Function_0`...`Functions_9`로). 
 
-Azure Functions의 현재 크기 조정 논리에서 고유한 점은 N이 파티션 수보다 크다는 사실입니다. EPH의 인스턴스를 다른 인스턴스에서 사용할 수 있게 되면 해당 인스턴스를 사용하여 파티션에서 잠금을 신속하게 수행할 수 있도록 수행합니다. 사용자에게는 함수 인스턴스가 실행될 때 사용되는 리소스에 대한 요금이 청구되고 과도한 프로비전에 대한 비용이 청구되지 않습니다.
+Functions가 이벤트 허브 파티션 수보다 큰 `N` 인스턴스로 크기 조정됩니다. 이렇게 하면 다른 인스턴스에서 사용할 수 있으므로 파티션에 대한 잠금을 확보하기 위해 항상 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) 인스턴스가 사용 가능하도록 합니다. 사용자에게는 함수 인스턴스가 실행될 때 사용되는 리소스에 대한 요금이 청구되고 과도한 프로비전에 대한 비용이 청구되지 않습니다.
 
-모든 함수 실행이 오류 없이 성공하면 연결된 저장소 계정에 검사점이 추가됩니다. 검사점이 성공하면 모든 1000개의 메시지는 다시 검색되지 않아야 합니다.
+모든 함수 실행이 오류 없이 완료되면 연결된 저장소 계정에 검사점이 추가됩니다. 검사점이 성공하면 모든 1000개의 메시지는 다시 검색되지 않습니다.
 
 ## <a name="trigger---example"></a>트리거 - 예제
 

@@ -10,15 +10,15 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: diberry
-ms.openlocfilehash: cb68ad57302f151975c1ca6616a24db9804a6a68
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e7460a0eaf51e839accf08b6f8b07a112033af17
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223058"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43130478"
 ---
 # <a name="api-v2-migration-guide"></a>API v2 마이그레이션 가이드
-버전 1 [끝점](https://aka.ms/v1-endpoint-api-docs) 및 [작성](https://aka.ms/v1-authoring-api-docs) API는 더 이상 사용되지 않습니다. 이 가이드를 사용하여 버전 2 [끝점](https://aka.ms/luis-endpoint-apis) 및 [작성](https://aka.ms/luis-authoring-apis) API로 마이그레이션하는 방법을 이해합니다. 
+버전 1 [엔드포인트](https://aka.ms/v1-endpoint-api-docs) 및 [작성](https://aka.ms/v1-authoring-api-docs) API는 더 이상 사용되지 않습니다. 이 가이드를 사용하여 버전 2 [엔드포인트](https://aka.ms/luis-endpoint-apis) 및 [작성](https://aka.ms/luis-authoring-apis) API로 마이그레이션하는 방법을 이해합니다. 
 
 ## <a name="new-azure-regions"></a>새 Azure 지역
 LUIS에는 LUIS API에 제공된 새로운 [지역](https://aka.ms/LUIS-regions)이 있습니다. LUIS는 지역 그룹에 다른 웹 사이트를 제공합니다. 응용 프로그램은 쿼리할 것으로 예상되는 같은 지역에서 작성해야 합니다. 응용 프로그램은 지역을 자동으로 마이그레이션하지 않습니다. 한 지역에서 앱을 내보낸 다음, 새 지역에서 사용할 수 있도록 다른 지역으로 가져옵니다.
@@ -33,8 +33,8 @@ LUIS에는 LUIS API에 제공된 새로운 [지역](https://aka.ms/LUIS-regions)
 |2|/luis/**api**/v2.0/apps|
 
 
-## <a name="endpoint-route-changes"></a>끝점 경로 변경 내용
-끝점 API에는 다른 응답과 함께 새 쿼리 문자열 매개 변수가 포함됩니다. verbose 플래그가 true이면 점수에 관계없이 모든 의도가 topScoringIntent 외에 intents라는 배열로 반환됩니다.
+## <a name="endpoint-route-changes"></a>엔드포인트 경로 변경 내용
+엔드포인트 API에는 다른 응답과 함께 새 쿼리 문자열 매개 변수가 포함됩니다. verbose 플래그가 true이면 점수에 관계없이 모든 의도가 topScoringIntent 외에 intents라는 배열로 반환됩니다.
 
 | 버전 | GET 경로 |
 |--|--|
@@ -42,7 +42,7 @@ LUIS에는 LUIS API에 제공된 새로운 [지역](https://aka.ms/LUIS-regions)
 |2|/luis/v2.0/apps/{appId}?q={q}[&timezoneOffset][&verbose][&spellCheck][&staging][&bing-spell-check-subscription-key][&log]|
 
 
-v1 끝점 성공 응답:
+v1 엔드포인트 성공 응답:
 ```JSON
 {
   "odata.metadata":"https://dialogice.cloudapp.net/odata/$metadata#domain","value":[
@@ -53,7 +53,7 @@ v1 끝점 성공 응답:
 }
 ```
 
-v2 끝점 성공 응답:
+v2 엔드포인트 성공 응답:
 ```JSON
 {
   "query": "forward to frank 30 dollars through HSBC",
@@ -133,7 +133,7 @@ LUIS 메타데이터를 반환하는 여러 API에 새 이름이 사용됩니다
 
 
 ## <a name="sample-renamed-to-suggest"></a>“Sample”에서 “suggest”로 이름이 바뀜
-LUIS는 모델을 향상시킬 수 있는 기존 [끝점 발화](luis-how-to-review-endoint-utt.md)를 기반으로 발화를 제안합니다. 이전 버전에서는 이것을 **sample**이라고 했습니다. 새 버전에서는 이름이 sample에서 **suggest**로 변경됩니다. LUIS 웹 사이트에서는 이를 **[끝점 발화 검토](luis-how-to-review-endoint-utt.md)** 라고 합니다.
+LUIS는 모델을 향상시킬 수 있는 기존 [엔드포인트 발화](luis-how-to-review-endoint-utt.md)를 기반으로 발화를 제안합니다. 이전 버전에서는 이것을 **sample**이라고 했습니다. 새 버전에서는 이름이 sample에서 **suggest**로 변경됩니다. LUIS 웹 사이트에서는 이를 **[엔드포인트 발화 검토](luis-how-to-review-endoint-utt.md)** 라고 합니다.
 
 | 버전 | 경로 |
 |--|--|
@@ -168,6 +168,6 @@ V1은 레이블이 지정된 발화가 단어나 구문의 시작 또는 끝에 
 
 ## <a name="next-steps"></a>다음 단계
 
-v2 API 설명서를 사용하여 LIUS [끝점](https://aka.ms/luis-endpoint-apis) 및 [작성](https://aka.ms/luis-authoring-apis) API의 기존 REST 호출을 업데이트합니다. 
+v2 API 설명서를 사용하여 LUIS [엔드포인트](https://aka.ms/luis-endpoint-apis) 및 [작성](https://aka.ms/luis-authoring-apis) API의 기존 REST 호출을 업데이트합니다. 
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

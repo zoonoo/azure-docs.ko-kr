@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management 구독 - Azure | Microsoft Docs
-description: 테넌트에서 Azure AD Privileged Identity Management를 관리하고 사용하기 위한 구독 및 라이선스 요구 사항에 대해 설명합니다.
+title: PIM을 사용하기 위한 구독 요구 사항 - Azure | Microsoft Docs
+description: Azure AD PIM(Privileged Identity Management)을 사용하기 위한 구독 및 라이선스 요구 사항에 대해 설명합니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.component: pim
 ms.date: 06/01/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: dbe4efa57a7c4c31b2bdca84665eef8179564a8f
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 1554895dcba0c09a3a2e19c284a1cd6f0416cfe1
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617072"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190613"
 ---
-# <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Azure Active Directory Privileged Identity Management 구독 요구 사항
+# <a name="subscription-requirements-to-use-pim"></a>PIM을 사용하기 위한 구독 요구 사항
 
 Azure AD Privileged Identity Management는 Azure AD의 Premium P2 버전의 일부로 사용할 수 있습니다. P2의 다른 기능과 Premium P1과 비교한 결과에 대한 자세한 내용은 [Azure Active Directory 버전](../active-directory-editions.md)을 참조하세요.
 
@@ -61,5 +61,5 @@ Azure AD Premium P2 구독 또는 EMS E5 구독이 만료되거나 미리 보기
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD Privileged Identity Management 시작](pim-getting-started.md)
-- [Azure AD Privileged Identity Management의 역할](pim-roles.md)
+- [PIM 사용](pim-getting-started.md)
+- [PIM에서 관리할 수 있는 Azure AD 디렉터리 역할](pim-roles.md)

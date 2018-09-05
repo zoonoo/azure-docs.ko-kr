@@ -12,19 +12,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/21/2018
+ms.date: 08/21/2018
 ms.author: ryanwi
-ms.openlocfilehash: cad3723f3109fa2fa7e6a1a7ab61d5c7eaca2674
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 8e1c194ea2ebc0e06918c8389c9ee6f72afb3e86
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623191"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887791"
 ---
 # <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>Virtual Machine Scale Set을 추가하여 Service Fabric 클러스터 확장
 이 문서에서는 기존 클러스터에 새 가상 머신 확장 집합을 추가하여 Azure Service Fabric 클러스터를 확장하는 방법을 설명합니다. Service Fabric 클러스터는 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 머신 집합입니다. 클러스터의 일부인 머신 또는 VM을 노드라고 합니다. 가상 머신 확장 집합은 가상 머신의 모음을 집합으로 배포하고 관리하는 데 사용할 수 있는 Azure 계산 리소스입니다. Azure 클러스터에 정의된 모든 노드 유형은 [별도의 확장 집합으로 설정](service-fabric-cluster-nodetypes.md)됩니다. 각 노드 형식을 별도로 관리할 수 있습니다. Service Fabric 클러스터가 만들어지면 클러스터 노드 유형을 수직으로 확장하거나(노드의 리소스 변경), 노드 유형 VM의 운영 체제를 업그레이드하거나, 기존 클러스터에 새 가상 머신 확장 집합을 추가할 수 있습니다.  클러스터에서 워크로드가 실행되는 경우에도 언제든지 클러스터의 크기를 조정할 수 있습니다.  클러스터의 크기를 조정하면 응용 프로그램 크기도 자동으로 조정됩니다.
 
 > [!WARNING]
+> 클러스터 상태가 비정상인 경우 주 노드 형식 VM SKU 변경을 시작하지 마세요. 클러스터 상태가 비정상인 경우 VM SKU를 변경하려고 시도하면 클러스터만 더 불안정하게 됩니다.
+>
 > [실버 내구성 이상](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster)에서 실행되는 경우가 아니면 확장 집합/노드 형식의 VM SKU를 변경하지 않는 것이 좋습니다. VM SKU 크기 변경은 데이터 파괴적 내부 인프라 작업입니다. 이러한 변경을 지연하거나 모니터링하는 기능이 없으면 이러한 작업으로 인해 상태 저장 서비스에 대해 데이터 손실이 발생하거나 상태 비저장 워크로드의 경우에도 예기치 못한 다른 작동 문제가 발생할 수 있습니다. 즉, 상태 저장 서비스 패브릭 시스템 서비스를 실행하는 주 노드 유형 또는 상태 저장 응용 프로그램 작업을 실행하는 노드 유형이 로드됩니다.
 >
 

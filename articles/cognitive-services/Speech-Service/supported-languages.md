@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 2a768846958f73ace22971f2f2ca8f886c9df252
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 7e2634db33d760207e9190b9955bd1f2ead179be
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282159"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123157"
 ---
 # <a name="supported-languages-for-speech-service"></a>Speech Service에 대해 지원되는 언어
 
@@ -51,11 +51,11 @@ cs-CZ | 체코어 | Male | “Microsoft Server Speech Text to Speech Voice(cs-CZ
 da-DK | 덴마크어 | Female | “Microsoft Server Speech Text to Speech Voice(da-DK, HelleRUS)”
 de-AT | 독일어(오스트리아) | Male | “Microsoft Server Speech Text to Speech Voice(de-AT, Michael)”
 de-CH | 독일어(스위스) | Male | “Microsoft Server Speech Text to Speech Voice(de-CH, Karsten)”
-de-DE | 독일어(독일) | Female | "Microsoft Server Speech Text to Speech Voice(de-DE, Hedda) "
+de-DE | 독일어(독일) | Female | "Microsoft Server Speech Text to Speech Voice(de-DE, Hedda)"
 | | | Female | "Microsoft Server Speech Text to Speech Voice(de-DE, HeddaRUS)"
-| | | Male | “Microsoft Server Speech Text to Speech Voice(de-DE, Stefan, Apollo)”
+| | | Male | "Microsoft Server Speech Text to Speech Voice(de-DE, Stefan, Apollo)"
 el-GR | 그리스어 | Male | “Microsoft Server Speech Text to Speech Voice(el-GR, Stefanos)”
-en-AU | 영어(오스트레일리아) | Female | “Microsoft Server Speech Text to Speech Voice(en-AU, Catherine)”
+en-AU | 영어(오스트레일리아) | Female | "Microsoft Server Speech Text to Speech Voice(en-AU, Catherine)"
 | | | Female | “Microsoft Server Speech Text to Speech Voice(en-AU, HayleyRUS)”
 en-CA | 영어(캐나다) | Female | "Microsoft Server Speech Text to Speech Voice(en-CA, Linda)"
 | | | Female | “Microsoft Server Speech Text to Speech Voice(en-CA, HeatherRUS)”
@@ -134,7 +134,7 @@ zh-TW | 중국어(대만)|Female | “Microsoft Server Speech Text to Speech Voi
 
 **Speech Translation** API는 음성 간 음성 및 음성을 텍스트로 번역에 대해 다른 언어를 지원합니다. 원본 언어는 항상 아래의 음성 언어 테이블에 나와 있는 것이어야 합니다. 사용 가능한 대상 언어는 번역 대상이 음성인지 또는 텍스트인지에 따라 달라집니다.
 
-프로그래밍 방식으로 또는 REST API의 언어 끝점을 사용하여 언어 목록을 가져올 수 있습니다. 목록에서는 영어 또는 지원되는 다른 언어의 언어 이름뿐만 아니라 각 언어 코드도 제공합니다. 이 목록은 새 언어를 사용할 수 있을 때마다 Microsoft Translator 서비스에서 업데이트됩니다.
+프로그래밍 방식으로 또는 REST API의 언어 엔드포인트를 사용하여 언어 목록을 가져올 수 있습니다. 목록에서는 영어 또는 지원되는 다른 언어의 언어 이름뿐만 아니라 각 언어 코드도 제공합니다. 이 목록은 새 언어를 사용할 수 있을 때마다 Microsoft Translator 서비스에서 업데이트됩니다.
 
 ### <a name="speech-languages"></a>음성 언어
 

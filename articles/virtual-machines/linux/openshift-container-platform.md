@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: f1ba6a3d3b9e576d513b55beac4e9365102433e9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a275df4567053149688694315ff24ac1ad7f711f
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29125744"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186917"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Azure에서 OpenShift Container Platform 배포
 
 Azure에서 OpenShift Container Platform을 배포하는 몇 가지 방법 중 하나를 사용할 수 있습니다.
 
-- 필요한 Azure 인프라 구성 요소를 수동으로 배포한 다음 OpenShift Container Platform [설명서](https://docs.openshift.com/container-platform/3.6/welcome/index.html)를 따르는 방법이 있습니다.
+- 필요한 Azure 인프라 구성 요소를 수동으로 배포한 다음 OpenShift Container Platform [설명서](https://docs.openshift.com/container-platform/3.10/welcome/index.html)를 따르는 방법이 있습니다.
 - OpenShift Container Platform 클러스터의 배포를 간소화하는 기존 [Resource Manager 템플릿](https://github.com/Microsoft/openshift-container-platform/)을 사용할 수도 있습니다.
 - 다른 방법은 [Azure Marketplace 제품](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview)을 사용하는 것입니다.
 

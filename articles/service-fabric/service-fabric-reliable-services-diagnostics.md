@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/28/2018
+ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: 51895731efd466a314877e963a5fd2c6d868ec02
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: a7ba92d871bb440b7b8c8a12c1e90f9aa10df3be
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110875"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105344"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>상태 저장 Reliable Services의 진단 기능
 Azure Service Fabric 상태 저장 Reliable Services StatefulServiceBase 클래스는 서비스를 디버그하는 데 사용할 수 있는 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 이벤트를 내보내고, 런타임이 작동하는 방법에 대한 고급 정보를 제공하고 문제 해결에 도움을 줍니다.
@@ -117,7 +117,10 @@ Reliable Services 런타임은 `Service Fabric TStore` 범주 아래에 다음 �
 
  카운터 이름 | 설명 |
 | --- | --- |
-| 항목 개수 | 스토어에 있는 키의 수입니다.|
+| 항목 개수 | 스토어에 있는 항목의 수|
+| 디스크 크기 | 저장소에 대한 검사점 파일의 전체 디스크 크기(바이트)|
+| 검사점 파일 쓰기(바이트/초) | 가장 최근 검사점 파일에 쓴 초당 바이트 수|
+| 복사본 디스크 전송(바이트/초) | 저장소 복사 중 초당 읽거나(주 복제본에서) 쓴(보조 복제본에서) 디스크 바이트 수|
 
 ## <a name="next-steps"></a>다음 단계
 [PerfView의 EventSource 공급자](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

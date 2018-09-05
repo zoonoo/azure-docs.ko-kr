@@ -3,9 +3,9 @@ title: Log Analytics의 Azure SQL Analytics 솔루션 | Microsoft Docs
 description: Azure SQL 분석 솔루션을 통해 Azure SQL Database 관리
 services: log-analytics
 documentationcenter: ''
-author: mgoedtel
+author: danimir
 manager: carmonm
-editor: ''
+ms.reviewer: carlrab
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
 ms.service: log-analytics
 ms.workload: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
-ms.author: magoedte
+ms.author: v-daljep
 ms.component: na
-ms.openlocfilehash: 440e16416b8567178c61c3d6ce2155e0e331521c
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 47069f0af7409d87cb2d4fbbbce9dda0b1c2056e
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216328"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886563"
 ---
 # <a name="monitor-azure-sql-databases-using-azure-sql-analytics-preview"></a>Azure SQL 분석을 사용하여 Azure SQL Database 모니터링(미리 보기)
 
@@ -39,15 +39,15 @@ Azure SQL Analytics 솔루션 사용에 대한 실무 중심 개요와 일반적
 
 ## <a name="connected-sources"></a>연결된 소스
 
-Azure SQL 분석은 Azure SQL Database 및 탄력적 풀에 대한 진단 원격 분석의 스트리밍을 지원하는 클라우드 모니터링 솔루션입니다. Log Analytics 서비스에 연결하기 위해 에이전트를 사용하지 않으므로 솔루션은 Windows, Linux 또는 SCOM 리소스를 사용하여 연결을 지원하지 않습니다(아래 호환성 테이블을 참조하세요.)
+Azure SQL 분석은 Azure SQL Database 및 탄력적 풀에 대한 진단 원격 분석의 스트리밍을 지원하는 클라우드 모니터링 솔루션입니다. Log Analytics 서비스에 연결하기 위해 에이전트를 사용하지 않으므로 솔루션은 Windows, Linux 또는 SCOM 리소스를 통한 연결을 지원하지 않습니다(아래 호환성 테이블을 참조하세요.)
 
 | 연결된 소스 | 지원 | 설명 |
 | --- | --- | --- |
 | **[Azure 진단](log-analytics-azure-storage.md)** | **예** | Azure 메트릭 및 로그 데이터는 Azure에 의해 직접 Log Analytics에 전송됩니다. |
-| [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니오 | Log Analytics는 저장소 계정의 데이터를 읽지 않습니다. |
-| [Windows 에이전트](log-analytics-windows-agent.md) | 아니오 | 직접 Windows 에이전트는 솔루션에 사용되지 않습니다. |
-| [Linux 에이전트](log-analytics-linux-agents.md) | 아니오 | 직접 Linux 에이전트는 솔루션에 사용되지 않습니다. |
-| [SCOM 관리 그룹](log-analytics-om-agents.md) | 아니오 | SCOM 에이전트에서 Log Analytics로 직접 연결은 솔루션에 사용되지 않습니다. |
+| [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니요 | Log Analytics는 저장소 계정에서 데이터를 읽지 않습니다. |
+| [Windows 에이전트](log-analytics-windows-agent.md) | 아니요 | 직접 Windows 에이전트는 솔루션에서 사용되지 않습니다. |
+| [Linux 에이전트](log-analytics-linux-agents.md) | 아니요 | 직접 Linux 에이전트는 솔루션에서 사용되지 않습니다. |
+| [SCOM 관리 그룹](log-analytics-om-agents.md) | 아니요 | SCOM 에이전트에서 Log Analytics로 직접 연결은 솔루션에 사용되지 않습니다. |
 
 ## <a name="configuration"></a>구성
 
@@ -119,7 +119,7 @@ Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intellige
 
 ### <a name="elastic-pool-and-database-reports"></a>탄력적 풀 및 데이터베이스 보고서
 
-탄력적 풀과 데이터베이스 모두 지정된 시간에 리소스에 대해 수집된 데이터를 모두 보여 주는 고유한 특정 보고서를 포함합니다.
+탄력적 풀과 데이터베이스 모두 지정된 시간에 리소스에 대해 수집된 데이터를 모두 보여주는 고유한 특정 보고서를 포함합니다.
 
 ![Azure SQL 분석 데이터베이스](./media/log-analytics-azure-sql/azure-sql-sol-database.png)
 
@@ -135,27 +135,77 @@ Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intellige
 
 Azure SQL Database 리소스에서 가져온 데이터와 [경고를 쉽게 만들](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) 수 있습니다. 다음은 로그 경고와 함께 사용할 수 있는 몇 가지 유용한 [로그 검색](log-analytics-log-searches.md) 쿼리입니다.
 
-
-
-*Azure SQL Database에 대한 높은 DTU*
+*Azure SQL Database의 높은 CPU*
 
 ```
 AzureMetrics 
-| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" 
+| where ResourceProvider=="MICROSOFT.SQL"
+| where ResourceId contains "/DATABASES/"
+| where MetricName=="cpu_percent" 
 | summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
 | render timechart
 ```
 
-*Azure SQL Database 탄력적 풀에 대한 높은 DTU*
+> [!NOTE]
+> - 이 경고 설정에 대한 사전 요구 사항은 솔루션에 대해 모니터링된 해당 데이터베이스 스트림 진단 메트릭("모든 메트릭" 옵션)입니다.
+> - 대신 높은 DTU 결과를 얻으려면 MetricName 값 cpu_percent를 dtu_consumption_percent로 바꿉니다.
+
+*Azure SQL Database 탄력적 풀의 높은 CPU*
 
 ```
 AzureMetrics 
-| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" 
+| where ResourceProvider=="MICROSOFT.SQL"
+| where ResourceId contains "/ELASTICPOOLS/"
+| where MetricName=="cpu_percent" 
 | summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
 | render timechart
 ```
 
+> [!NOTE]
+> - 이 경고 설정에 대한 사전 요구 사항은 솔루션에 대해 모니터링된 해당 데이터베이스 스트림 진단 메트릭("모든 메트릭" 옵션)입니다.
+> - 대신 높은 DTU 결과를 얻으려면 MetricName 값 cpu_percent를 dtu_consumption_percent로 바꿉니다.
 
+*마지막 1시간에 평균 95% 이상인 Azure SQL Database 저장소*
+
+```
+let time_range = 1h;
+let storage_threshold = 95;
+AzureMetrics
+| where ResourceId contains "/DATABASES/"
+| where MetricName == "storage_percent"
+| summarize max_storage = max(Average) by ResourceId, bin(TimeGenerated, time_range)
+| where max_storage > storage_threshold
+| distinct ResourceId
+```
+
+> [!NOTE]
+> - 이 경고 설정에 대한 사전 요구 사항은 솔루션에 대해 모니터링된 해당 데이터베이스 스트림 진단 메트릭("모든 메트릭" 옵션)입니다.
+> - 쿼리에서 조건이 일부 데이터베이스에 있는지를 나타내는 결과(> 0 결과)가 있는 경우 이 경고는 경고를 해제하도록 설정한 경고 규칙이 필요합니다. 출력은 정의된 time_range 내의 storage_threshold 위쪽에 있는 데이터베이스 리소스의 목록입니다.
+> - 출력은 정의된 time_range 내의 storage_threshold 위쪽에 있는 데이터베이스 리소스의 목록입니다.
+
+*Intelligent Insights에 대한 경고*
+
+```
+let alert_run_interval = 1h;
+let insights_string = "hitting its CPU limits";
+AzureDiagnostics
+| where Category == "SQLInsights" and status_s == "Active" 
+| where TimeGenerated > ago(alert_run_interval)
+| where rootCauseAnalysis_s contains insights_string
+| distinct ResourceId
+```
+
+> [!NOTE]
+> - 이 경고 설정에 대한 사전 요구 사항은 솔루션에 대해 모니터링된 해당 데이터베이스 스트림 SQLInsights 진단 로그입니다.
+> - 이 쿼리는 중복 결과를 방지하기 위해 alert_run_interval과 동일한 빈도로 실행하도록 설정한 경고 규칙이 필요합니다. 규칙은 쿼리에서 결과(> 0 결과)가 있으면 경고를 해제하도록 설정해야 합니다.
+> - 솔루션에 SQLInsights 로그를 스트림하도록 구성된 데이터베이스에서 조건이 발생했는지 확인하려면 시간 범위를 지정하기 위한 alert_run_interval을 사용자 지정합니다.
+> - Insights 근본 원인 분석 텍스트의 출력을 캡처하려면 insights_string을 사용자 지정합니다. 기존 인사이트에서 사용할 수 있는 솔루션의 UI에 표시된 동일한 텍스트입니다. 또는 구독에서 생성된 모든 Insights의 텍스트를 보려면 아래 쿼리를 사용할 수 있습니다. 쿼리의 출력을 사용하여 Insights에 대한 경고를 설정하기 위한 고유 문자열을 수집합니다.
+
+```
+AzureDiagnostics
+| where Category == "SQLInsights" and status_s == "Active" 
+| distinct rootCauseAnalysis_s
+```
 
 ## <a name="next-steps"></a>다음 단계
 

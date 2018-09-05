@@ -1,6 +1,6 @@
 ---
-title: Azure 리소스에 대한 Privileged Identity Management 설정을 대상으로 사용자 지정 역할 사용 | Microsoft Docs
-description: PIM을 사용하여 Azure 리소스에 대해 사용자 지정 역할을 사용하는 방법을 설명합니다.
+title: PIM에서 Azure 리소스에 사용자 지정 역할 사용 | Microsoft Docs
+description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스에 사용자 지정 역할을 사용하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 03091b50eb4fb368ae0277344317b261991c4bd1
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: b01e785ac85c71b2982561e8b5e118775750fc69
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622690"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189876"
 ---
-# <a name="use-custom-roles-to-target-privileged-identity-management-settings"></a>Privileged Identity Management 설정을 대상으로 사용자 지정 역할 사용
+# <a name="use-custom-roles-for-azure-resources-in-pim"></a>PIM에서 Azure 리소스에 사용자 지정 역할 사용
 
 다른 사용자에게 더 많은 자율성을 제공하면서 엄격한 PIM(Privileged Identity Management) 설정을 역할의 일부 멤버에게 적용해야 할 수도 있습니다. Azure 구독에서 실행될 응용 프로그램 개발을 지원하기 위해 조직이 일부 계약 직원을 채용하는 시나리오를 가정합니다.
 
@@ -49,4 +49,5 @@ ms.locfileid: "39622690"
 
 ## <a name="next-steps"></a>다음 단계
 
-[구독 소유자 및 액세스 검토](pim-resource-roles-perform-access-review.md)
+- [PIM에서 Azure 리소스 역할 설정 구성](pim-resource-roles-configure-role-settings.md)
+- [Azure의 사용자 지정 역할](../../role-based-access-control/custom-roles.md)

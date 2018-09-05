@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 0715f1723f7bb43b0d11e55e8af01202fc8a92be
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: d408456373c8124e1a385879852d6198caf0813c
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344463"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050193"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure Functions 1.x의 Azure Cosmos DB 바인딩
 
@@ -36,6 +36,10 @@ ms.locfileid: "39344463"
 >이 바인딩의 원래 이름은 DocumentDB입니다. 함수 버전 1.x에서 트리거만 Cosmos DB로 명명되었습니다. 입력 바인딩, 출력 바인딩 및 NuGet 패키지는 DocumentDB 이름을 유지합니다.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="supported-apis"></a>지원되는 API
+
+[!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ## <a name="packages---functions-1x"></a>패키지 - Functions 1.x
 
@@ -216,10 +220,7 @@ JavaScript 코드는 다음과 같습니다.
 
 ## <a name="input"></a>입력
 
-Azure Cosmos DB 입력 바인딩은 하나 이상의 Azure Cosmos DB 문서를 검색하여 함수의 입력 매개 변수에 전달합니다. 문서 ID 또는 쿼리 매개 변수는 함수를 호출하는 트리거를 기반으로 결정할 수 있습니다. 
-
->[!NOTE]
-> Cosmos DB 계정에서 MongoDB API를 사용하는 경우 Azure Cosmos DB 입력 또는 출력 바인딩을 사용하지 마세요. 데이터가 손상될 수 있습니다.
+Azure Cosmos DB 입력 바인딩은 SQL API를 사용하여 하나 이상의 Azure Cosmos DB 문서를 검색하고, 함수의 입력 매개 변수에 전달합니다. 문서 ID 또는 쿼리 매개 변수는 함수를 호출하는 트리거를 기반으로 결정할 수 있습니다.
 
 ## <a name="input---examples"></a>입력 - 예제
 
@@ -1185,10 +1186,7 @@ JavaScript 함수에서는 함수 종료 시 자동으로 업데이트되지 않
 
 ## <a name="output"></a>출력
 
-Azure Cosmos DB 출력 바인딩을 사용하면 Azure Cosmos DB 데이터베이스에 새 문서를 작성할 수 있습니다. 
-
->[!NOTE]
-> Cosmos DB 계정에서 MongoDB API를 사용하는 경우 Azure Cosmos DB 입력 또는 출력 바인딩을 사용하지 마세요. 데이터가 손상될 수 있습니다.
+Azure Cosmos DB 출력 바인딩을 사용하면 Azure Cosmos DB 데이터베이스에 SQL API를 사용하여 새 문서를 작성할 수 있습니다. 
 
 ## <a name="output---examples"></a>출력 - 예제
 

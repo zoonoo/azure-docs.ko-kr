@@ -1,28 +1,24 @@
 ---
-title: Azure Logic Apps용 웹후크 커넥터 | Microsoft Docs
-description: 웹후크 동작 및 트리거를 사용하여 Logic Apps에서 필터 배열과 같은 동작을 수행하는 방법
+title: 이벤트 기반 워크플로 또는 작업 만들기 - Azure Logic Apps | Microsoft Docs
+description: 웹후크 및 Azure Logic Apps를 사용하여 이벤트 기반 워크플로 또는 작업 자동화
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-tags: connectors
-ms.assetid: 71775384-6c3a-482c-a484-6624cbe4fcc7
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
+ms.assetid: 71775384-6c3a-482c-a484-6624cbe4fcc7
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+tags: connectors
 ms.date: 07/21/2016
-ms.author: jehollan; LADocs
-ms.openlocfilehash: 647dcebdd8d66ca49e14b51633e6a4a3ce6cb32b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 7b1886321ca4afd4b4710bd9fddf16d2d5eb224b
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296563"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126590"
 ---
-# <a name="get-started-with-the-webhook-connector"></a>웹후크 커넥터 시작
+# <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>웹후크 및 Azure Logic Apps를 사용하여 이벤트 기반 워크플로 또는 작업 만들기
 
 웹후크 동작 및 트리거를 사용하여 다음 작업을 수행하기 위한 흐름을 시작, 일시 중지 및 계속할 수 있습니다.
 
@@ -47,7 +43,7 @@ ms.locfileid: "35296563"
      ![HTTP 트리거](./media/connectors-native-webhook/using-trigger.png)
 
 3. 하나 이상의 동작을 추가합니다.
-4. **저장**을 클릭하여 논리 앱을 게시합니다. 이 단계를 수행하면 이 Logic App을 트리거하는 데 필요한 콜백 URL을 사용하여 구독 끝점이 호출됩니다.
+4. **저장**을 클릭하여 논리 앱을 게시합니다. 이 단계를 수행하면 이 Logic App을 트리거하는 데 필요한 콜백 URL을 사용하여 구독 엔드포인트가 호출됩니다.
 5. 서비스에서 콜백 URL에 댛 `HTTP POST` 를 수행할 때마다 논리 앱이 실행됩니다(논리 앱에는 요청에 전달된 모든 데이터가 포함됨).
 
 ## <a name="use-the-webhook-action"></a>웹후크 동작 사용
@@ -70,7 +66,7 @@ ms.locfileid: "35296563"
 
      ![쿼리 동작 완료](./media/connectors-native-webhook/using-action-2.png)
    
-   런타임 시 논리 앱은 해당 단계에 도달한 후 구독 끝점을 호출합니다.
+   런타임 시 논리 앱은 해당 단계에 도달한 후 구독 엔드포인트를 호출합니다.
 
 4. **저장**을 클릭하여 논리 앱을 게시합니다.
 

@@ -1,6 +1,6 @@
 ---
-title: 다단계 인증을 요구하는 방법 | Microsoft Docs
-description: Azure Active Directory Privileged Identity Management 확장을 사용하여 권한 있는 ID에 대해 MFA(Multi-Factor Authentication)를 요구하는 방법을 알아봅니다.
+title: PIM에서 Azure AD 디렉터리 역할에 대한 다단계 인증 요구 | Microsoft Docs
+description: Azure AD PIM(Privileged Identity Management)에서 Azure AD 디렉터리 역할에 대해 MFA(다단계 인증)을 요구하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8e1c0fa212b31c05fcc4559f9f8d42b627f0da0e
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 9777a7d2ed07ea2edf4bea661a5065c808de9f2b
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622850"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188356"
 ---
-# <a name="how-to-require-mfa-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management에서 MFA를 요구하는 방법
+# <a name="require-multi-factor-authentication-for-azure-ad-directory-roles-in-pim"></a>PIM에서 Azure AD 디렉터리 역할에 대한 다단계 인증 요구
 모든 관리자에 대해 Multi-Factor Authentication(MFA)을 요구하는 것이 좋습니다. 이렇게 하면 손상된 암호로 인한 공격의 위험이 줄어듭니다.
 
 사용자가 로그인할 때 MFA 챌린지를 완료하도록 요구할 수 있습니다. 블로그 게시물 [MFA for Office 365 and MFA for Azure(Office 365용 MFA 및 Azure용 MFA)](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/)에서는 Microsoft Azure Multi-Factor Authentication 제안에 포함된 기능과 Office 및 Azure 구독에 포함된 항목을 비교합니다.
@@ -46,5 +46,6 @@ ms.locfileid: "39622850"
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>다음 단계
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
 
+- [PIM에서 Azure AD 디렉터리 역할 설정 구성](pim-how-to-change-default-settings.md)
+- [PIM에서 Azure AD 디렉터리 역할에 대한 보안 경고 구성](pim-how-to-configure-security-alerts.md)

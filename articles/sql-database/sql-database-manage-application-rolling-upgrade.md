@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 08/23/2018
 ms.author: sashan
-ms.openlocfilehash: a73284d679b4be1fbae6d5e1688915c98cbf2392
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 37960995c89c2b30d90ac45dcd8cc44d80088398
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649502"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818619"
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>SQL Database 활성 지역 복제를 사용하여 클라우드 응용 프로그램의 롤링 업그레이드 관리
 > [!NOTE]
@@ -31,10 +31,10 @@ SQL Database에서 [지역에서 복제](sql-database-geo-replication-overview.m
 * 총 달러 비용.  여기에는 업그레이드 프로세스에서 사용되는 임시 구성 요소의 추가 중복 및 증분 비용이 포함됩니다. 
 
 ## <a name="upgrading-applications-that-rely-on-database-backups-for-disaster-recovery"></a>재해 복구에 대해 데이터베이스 백업을 사용하는 응용 프로그램 업그레이드
-응용 프로그램이 재해 복구에 대해 자동 데이터베이스 백업을 사용하고 지역 복원을 사용하는 경우 일반적으로 단일 Azure 지역에 배포됩니다. 이 경우 업그레이드 프로세스에는 업그레이드에 포함된 모든 응용 프로그램 구성 요소의 백업 배포를 만드는 것이 포함됩니다. 최종 사용자 중단을 최소화하려면 장애 조치(failover) 프로필에 Azure Traffic Manager(WATM)를 활용합니다.  다음 다이어그램에서는 업그레이드 프로세스 전의 운영 환경을 보여 줍니다. <i>contoso-1.azurewebsites.net</i> 끝점은 업그레이드해야 하는 응용 프로그램의 프로덕션 슬롯을 나타냅니다. 업그레이드를 롤백할 수 있는 기능을 사용하려면 응용 프로그램의 완전히 동기화된 복사본으로 스테이지 슬롯을 만들어야 합니다. 다음 단계는 업그레이드에 대해 응용 프로그램을 준비하는 데 필요합니다.
+응용 프로그램이 재해 복구에 대해 자동 데이터베이스 백업을 사용하고 지역 복원을 사용하는 경우 일반적으로 단일 Azure 지역에 배포됩니다. 이 경우 업그레이드 프로세스에는 업그레이드에 포함된 모든 응용 프로그램 구성 요소의 백업 배포를 만드는 것이 포함됩니다. 최종 사용자 중단을 최소화하려면 장애 조치(failover) 프로필에 ATM(Azure Traffic Manager)을 활용합니다.  다음 다이어그램에서는 업그레이드 프로세스 전의 운영 환경을 보여 줍니다. <i>contoso-1.azurewebsites.net</i> 엔드포인트는 업그레이드해야 하는 응용 프로그램의 프로덕션 슬롯을 나타냅니다. 업그레이드를 롤백할 수 있는 기능을 사용하려면 응용 프로그램의 완전히 동기화된 복사본으로 스테이지 슬롯을 만들어야 합니다. 다음 단계는 업그레이드에 대해 응용 프로그램을 준비하는 데 필요합니다.
 
 1. 업그레이드에 대한 스테이지 슬롯을 만듭니다. 이를 수행하려면 보조 데이터베이스(1)를 만들고 동일한 Azure 지역에서 동일한 웹 사이트를 배포합니다. 보조 데이터베이스를 모니터링하여 시딩 프로세스가 완료되었는지 확인합니다.
-2. <i>contoso-1.azurewebsites.net</i>을 온라인 끝점으로 하고 <i>contoso-2.azurewebsites.net</i>을 오프라인으로 하여 WATM에서 장애 조치(failover) 프로필을 만듭니다. 
+2. <i>contoso-1.azurewebsites.net</i>을 온라인 엔드포인트로 하고 <i>contoso-2.azurewebsites.net</i>을 오프라인으로 하여 ATM에서 장애 조치(failover) 프로필을 만듭니다. 
 
 > [!NOTE]
 > 준비 단계는 프로덕션 슬롯의 응용 프로그램에 영향을 주지 않으며 모든 권한 모드에서 작동할 수 있습니다.
@@ -52,7 +52,7 @@ SQL Database에서 [지역에서 복제](sql-database-geo-replication-overview.m
 
 업그레이드가 완료되면 이제 최종 사용자를 응용 프로그램의 준비된 복사본으로 전환할 준비가 된 것입니다. 이제 응용 프로그램의 프로덕션 슬롯이 됩니다.  여기에 다음 다이어그램에 설명된 것과 같이 몇 가지 추가 단계가 포함됩니다.
 
-1. WATM 프로필의 온라인 끝점을 V2 버전의 웹 사이트를 가리키는 <i>contoso-2.azurewebsites.net</i>으로 전환합니다(6). 이제 V2 응용 프로그램이 포함된 프로덕션 슬롯이 되며 최종 사용자 트래픽이 여기로 이동됩니다.  
+1. ATM 프로필의 온라인 엔드포인트를 V2 버전의 웹 사이트를 가리키는 <i>contoso-2.azurewebsites.net</i>으로 전환합니다(6). 이제 V2 응용 프로그램이 포함된 프로덕션 슬롯이 되며 최종 사용자 트래픽이 여기로 이동됩니다.  
 2. 더 이상 V1 응용 프로그램 구성 요소가 필요하지 않은 경우 안전하게 제거할 수 있습니다(7).   
 
 ![SQL Database 지역에서 복제 구성 클라우드 재해 복구](media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
@@ -65,7 +65,7 @@ SQL Database에서 [지역에서 복제](sql-database-geo-replication-overview.m
 이 시점에서 응용 프로그램은 완벽하게 작동하며 업그레이드 단계는 반복할 수 있습니다.
 
 > [!NOTE]
-> 롤백은 이미 <i>contoso-1.azurewebsites.net</i>을 활성 끝점으로 가리키고 있으므로 WATM 프로필의 변경이 필요하지 않습니다.
+> 롤백은 이미 <i>contoso-1.azurewebsites.net</i>을 활성 엔드포인트로 가리키고 있으므로 ATM 프로필의 변경이 필요하지 않습니다.
 > 
 > 
 
@@ -79,12 +79,12 @@ SQL Database에서 [지역에서 복제](sql-database-geo-replication-overview.m
 * 응용 프로그램이 업그레이드 프로세스 중에 치명적인 오류로부터 항상 보호된 상태로 유지됨
 * 응용 프로그램의 지역 중복 구성 요소가 활성화된 구성 요소와 함께 병렬로 업그레이드됨
 
-이러한 목표를 달성하기 위해 하나의 활성 및 세 개의 백업 끝점과 함께 장애 조치(failover) 프로필을 사용하여 Azure Traffic Manager(WATM)를 활용하게 됩니다.  다음 다이어그램에서는 업그레이드 프로세스 전의 운영 환경을 보여 줍니다. <i>contoso-1.azurewebsites.net</i> 및 <i>contoso-dr.azurewebsites.net</i> 웹 사이트는 전체 지역 중복이 포함된 응용 프로그램의 프로덕션 슬롯을 나타냅니다. 업그레이드를 롤백할 수 있는 기능을 사용하려면 응용 프로그램의 완전히 동기화된 복사본으로 스테이지 슬롯을 만들어야 합니다. 업그레이드 프로세스 중에 치명적인 오류가 발생할 경우 응용 프로그램이 빠르게 복구될 수 있음을 보장해야 하기 때문에 스테이지 슬롯도 지역 중복이어야 합니다. 다음 단계는 업그레이드에 대해 응용 프로그램을 준비하는 데 필요합니다.
+이러한 목표를 달성하기 위해 하나의 활성 및 세 개의 백업 엔드포인트와 함께 장애 조치(failover) 프로필을 사용하여 ATM(Azure Traffic Manager)을 활용하게 됩니다.  다음 다이어그램에서는 업그레이드 프로세스 전의 운영 환경을 보여 줍니다. <i>contoso-1.azurewebsites.net</i> 및 <i>contoso-dr.azurewebsites.net</i> 웹 사이트는 전체 지역 중복이 포함된 응용 프로그램의 프로덕션 슬롯을 나타냅니다. 업그레이드를 롤백할 수 있는 기능을 사용하려면 응용 프로그램의 완전히 동기화된 복사본으로 스테이지 슬롯을 만들어야 합니다. 업그레이드 프로세스 중에 치명적인 오류가 발생할 경우 응용 프로그램이 빠르게 복구될 수 있음을 보장해야 하기 때문에 스테이지 슬롯도 지역 중복이어야 합니다. 다음 단계는 업그레이드에 대해 응용 프로그램을 준비하는 데 필요합니다.
 
 1. 업그레이드에 대한 스테이지 슬롯을 만듭니다. 이를 수행하려면 보조 데이터베이스(1)를 만들고 동일한 Azure 지역에서 웹 사이트의 동일한 복사본을 배포합니다. 보조 데이터베이스를 모니터링하여 시딩 프로세스가 완료되었는지 확인합니다.
 2. 보조 데이터베이스를 백업 지역에 지역 복제하여 스테이지 슬롯에서 지역 중복 보조 데이터베이스를 만듭니다("연결된 지역에서 복제"라고 함). 백업 보조 데이터베이스를 모니터링하여 시딩 프로세스가 완료되었는지 확인합니다(3).
 3. 백업 지역에 웹 사이트의 대기 복사본을 만들고 지역 중복 보조 데이터베이스에 연결합니다(4).  
-4. <i>contoso-2.azurewebsites.net</i> 및 <i>contoso-3.azurewebsites.net</i> 추가 끝점을 WATM의 장애 조치(failover) 프로필에 오프라인 끝점으로 추가합니다(5). 
+4. <i>contoso-2.azurewebsites.net</i> 및 <i>contoso-3.azurewebsites.net</i> 추가 엔드포인트를 ATM의 장애 조치(failover) 프로필에 오프라인 엔드포인트로 추가합니다(5). 
 
 > [!NOTE]
 > 준비 단계는 프로덕션 슬롯의 응용 프로그램에 영향을 주지 않으며 모든 권한 모드에서 작동할 수 있습니다.
@@ -103,7 +103,7 @@ SQL Database에서 [지역에서 복제](sql-database-geo-replication-overview.m
 
 업그레이드가 완료되면 이제 최종 사용자를 응용 프로그램의 V2 버전으로 전환할 준비가 된 것입니다. 다음 다이어그램은 관련 단계를 보여 줍니다.
 
-1. WATM 프로필의 활성 끝점을 이제 V2 버전의 웹 사이트를 가리키는 <i>contoso-2.azurewebsites.net</i>으로 전환합니다(9). 이제 V2 응용 프로그램이 포함된 프로덕션 슬롯이 되며 최종 사용자 트래픽이 여기로 이동됩니다. 
+1. ATM 프로필의 활성 엔드포인트를 이제 V2 버전의 웹 사이트를 가리키는 <i>contoso-2.azurewebsites.net</i>으로 전환합니다(9). 이제 V2 응용 프로그램이 포함된 프로덕션 슬롯이 되며 최종 사용자 트래픽이 여기로 이동됩니다. 
 2. 더 이상 V1 응용 프로그램이 필요하지 않은 경우 안전하게 제거할 수 있습니다(10, 11).  
 
 ![SQL Database 지역에서 복제 구성 클라우드 재해 복구](media/sql-database-manage-application-rolling-upgrade/Option2-3.png)
@@ -116,7 +116,7 @@ SQL Database에서 [지역에서 복제](sql-database-geo-replication-overview.m
 이 시점에서 응용 프로그램은 완벽하게 작동하며 업그레이드 단계는 반복할 수 있습니다.
 
 > [!NOTE]
-> 롤백은 이미 <i>contoso-1.azurewebsites.net</i>을 활성 끝점으로 가리키고 있으므로 WATM 프로필의 변경이 필요하지 않습니다.
+> 롤백은 이미 <i>contoso-1.azurewebsites.net</i>을 활성 엔드포인트로 가리키고 있으므로 ATM 프로필의 변경이 필요하지 않습니다.
 > 
 > 
 

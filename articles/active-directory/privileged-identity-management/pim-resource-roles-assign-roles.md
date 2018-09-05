@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management를 사용하여 Azure 리소스에 대한 역할 할당 | Microsoft Docs
-description: PIM의 역할을 할당하는 방법을 설명합니다.
+title: PIM에서 Azure 리소스 역할 할당 | Microsoft Docs
+description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스 역할을 할당하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,25 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 52320fe160fc1df2997dd419b406fce24f43b786
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 7019a6f97a9590d3b652584015f3077f4ed075af
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622979"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188923"
 ---
-# <a name="assign-roles-for-azure-resources-by-using-privileged-identity-management"></a>Privileged Identity Management를 사용하여 Azure 리소스에 대한 역할 할당
+# <a name="assign-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스 역할 할당
+
+Azure AD PIM에서는 기본 제공 Azure 리소스 역할뿐만 아니라 사용자 지정 역할(다음을 포함하지만 이에 국한되지 않음)도 관리할 수 있습니다.
+
+- 소유자
+- 사용자 액세스 관리자
+- 참가자
+- 보안 관리자
+- 보안 관리자 등
+
+>[!NOTE]
+소유자 또는 사용자 액세스 관리자 역할에 할당된 사용자 또는 그룹 구성원 및 Azure AD에서 구독 관리를 사용할 수 있는 전역 관리자는 리소스 관리자입니다. 이러한 관리자는 Azure Resources용 PIM을 사용하여 역할을 할당하고, 역할 설정을 구성하며, 액세스를 검토할 수 있습니다. [Azure 리소스에 대한 기본 제공 역할](../../role-based-access-control/built-in-roles.md) 목록을 참조하세요.
 
 ## <a name="assign-roles"></a>역할 할당
 
@@ -76,3 +87,8 @@ ms.locfileid: "39622979"
 사용자/그룹 세부 정보 보기에서 기존 할당을 수정하려면 작업 모음에서 **설정 변경**을 선택합니다. 할당 유형을 **Just-In-Time** 또 **직접**으로 변경합니다.
 
 ![“설정 변경” 단추가 있는 “사용자 세부 정보” 창](media/azure-pim-resource-rbac/rbac-assign-role-manage.png)
+
+## <a name="next-steps"></a>다음 단계
+
+- [PIM에서 Azure 리소스 역할 설정 구성](pim-resource-roles-configure-role-settings.md)
+- [PIM에서 Azure AD 디렉터리 역할 할당](pim-how-to-add-role-to-user.md)

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2018
+ms.date: 08/28/2018
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: luleon
-ms.openlocfilehash: 90b8a9bd45d2c6a8551e3af84a5bfa915f4c3cea
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.reviewer: celested
+ms.openlocfilehash: c9db5169a978875cf639f6c534ce7920909c896e
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592206"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188243"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Azure Active Directory와 응용 프로그램 통합
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -83,9 +83,9 @@ OAuth 2.0 권한 부여에서 동의 프레임워크를 사용하는 방법에 �
    
   ![다른 응용 프로그램에 대한 권한](./media/quickstart-v1-integrate-apps-with-azure-ad/requiredpermissions.png)
     
-2. 응용 프로그램의 사용 권한이 업데이트되었고 응용 프로그램이 실행 중이며 사용자가 처음으로 사용하는 것임을 고려하세요. 먼저 응용 프로그램은 Azure AD의 `/authorize` 끝점에서 권한 부여 코드를 가져와야 합니다. 그런 다음 권한 부여 코드를 사용하여 새로운 액세스 토큰 및 새로 고침 토큰을 획득할 수 있습니다.
+2. 응용 프로그램의 사용 권한이 업데이트되었고 응용 프로그램이 실행 중이며 사용자가 처음으로 사용하는 것임을 고려하세요. 먼저 응용 프로그램은 Azure AD의 `/authorize` 엔드포인트에서 권한 부여 코드를 가져와야 합니다. 그런 다음 권한 부여 코드를 사용하여 새로운 액세스 토큰 및 새로 고침 토큰을 획득할 수 있습니다.
 
-3. 사용자가 인증되지 않은 경우 Azure AD의 `/authorize` 끝점은 로그인하라는 메시지를 표시합니다.
+3. 사용자가 인증되지 않은 경우 Azure AD의 `/authorize` 엔드포인트는 로그인하라는 메시지를 표시합니다.
    
   ![사용자 또는 관리자가 Azure AD에 로그인](./media/quickstart-v1-integrate-apps-with-azure-ad/usersignin.png)
 
@@ -100,7 +100,7 @@ OAuth 2.0 권한 부여에서 동의 프레임워크를 사용하는 방법에 �
   ![명시적 관리자 동의를 위한 권한 부여](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
     
   > [!NOTE]
-  > **사용 권한 부여** 단추를 사용하는 명시적 동의 부여는 현재 ADAL.js를 사용하는 SPA(단일 페이지 응용 프로그램)에 필요합니다. 그렇지 않고 액세스 토큰을 요청하는 경우 응용 프로그램이 실패합니다. 
+  > **권한 부여** 단추를 사용하는 명시적 동의 부여는 현재 ADAL.js를 사용하는 SPA(단일 페이지 응용 프로그램)에 필요합니다. 그렇지 않고 액세스 토큰을 요청하는 경우 응용 프로그램이 실패합니다. 
 
 ### <a name="configure-a-client-application-to-access-web-apis"></a>웹 API에 액세스하는 클라이언트 응용 프로그램 구성
 웹/기밀 클라이언트 응용 프로그램이 인증을 요구하고 액세스 토큰을 얻는 권한 부여 흐름에 참여하려면 보안 자격 증명을 설정해야 합니다. Azure Portal에서 지원하는 기본 인증 방법은 클라이언트 ID + 비밀 키입니다. 이 섹션에서는 비밀 키로 클라이언트의 자격 증명을 제공하는 데 필요한 구성 단계에 대해 설명합니다.
@@ -112,7 +112,7 @@ OAuth 2.0 권한 부여에서 동의 프레임워크를 사용하는 방법에 �
 - 위임된 권한: 클라이언트 응용 프로그램이 로그인된 사용자로 웹 API에 액세스해야 하지만 이 액세스는 선택한 권한에 따라 제한됩니다. 이 형식의 사용 권한은 관리자의 동의를 필요로 하지 않는 한 사용자가 부여할 수 있습니다. 
 
   > [!NOTE]
-  > 위임된 권한을 응용 프로그램에 추가할 경우 테넌트 내의 사용자에게 자동으로 동의를 부여하지 않습니다. 관리자가 Azure Portal의 응용 프로그램 페이지에 있는 **필수 사용 권한** 섹션에서 **권한 부여** 단추를 클릭하지 않는다면, 사용자는 런타임에 추가된 위임 권한에 직접 동의해야 합니다. 
+  > 위임된 권한을 응용 프로그램에 추가할 경우 테넌트 내의 사용자에게 자동으로 동의를 부여하지 않습니다. 관리자가 모든 사용자를 대신하여 동의를 허락하지 않는 한 사용자는 런타임에 추가로 위임된 사용 권한에 대해 수동으로 동의해야 합니다.
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>웹 API에 액세스할 수 있는 응용 프로그램 자격 증명 또는 권한을 추가하려면
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
@@ -121,16 +121,18 @@ OAuth 2.0 권한 부여에서 동의 프레임워크를 사용하는 방법에 �
 
    ![응용 프로그램의 등록 업데이트](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration.png)
 
-4. 응용 프로그램의 기본 등록 페이지로 이동하면 응용 프로그램의 **설정** 페이지를 엽니다. 웹 응용 프로그램의 자격 증명에 비밀 키를 추가하려면:
+4. 응용 프로그램의 기본 등록 페이지로 이동하면 응용 프로그램의 **설정** 페이지를 엽니다. 웹 응용 프로그램에 대한 자격 증명을 추가하려면:
   - **설정** 페이지에서 **키** 섹션을 클릭합니다. 
-  - 키에 대한 설명을 추가합니다.
-  - 1년 또는 2년 중에 선택합니다.
-  - **저장**을 클릭합니다. 구성 변경 사항을 저장하면 맨 오른쪽 열에 키 값이 포함됩니다. 이 페이지를 벗어나면 액세스할 수 없으므로 클라이언트 응용 프로그램 코드에서 사용할 **키를 복사해야 합니다**.
-
-  ![응용 프로그램의 등록 업데이트 - 키](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-keys.png)
+  - 인증서를 추가하려면:
+    - **공개 키 업로드**를 선택합니다.
+    - 업로드할 파일을 선택합니다. cer, .pem, .crt 중 한 가지 파일 형식이어야 합니다.
+  - 암호를 추가하려면:
+    - 키에 대한 설명을 추가합니다.
+    - 기간을 선택합니다.
+    - **저장**을 클릭합니다. 구성 변경 사항을 저장하면 맨 오른쪽 열에 키 값이 포함됩니다. 이 페이지를 벗어나면 액세스할 수 없으므로 클라이언트 응용 프로그램 코드에서 사용할 **키를 복사해야 합니다**.
 
 5. 클라이언트에서 리소스 API에 액세스하는 사용 권한을 추가하려면
-  - **설정** 페이지에서 **필수 사용 권한** 섹션을 클릭합니다. 
+  - **설정** 페이지에서 **필수 권한** 섹션을 클릭합니다. 
   - **추가** 단추를 클릭합니다.
   - **API 선택**을 클릭하고 선택할 리소스 유형을 선택합니다.
   - 사용 가능한 API 목록을 탐색하거나 검색 상자를 사용하여 Web API를 공개하는 디렉터리에서 사용 가능한 리소스 응용 프로그램 중에서 선택할 수 있습니다. 관심 있는 리소스를 클릭한 후 **선택**을 클릭합니다.
@@ -141,11 +143,6 @@ OAuth 2.0 권한 부여에서 동의 프레임워크를 사용하는 방법에 �
   ![응용 프로그램의 등록 업데이트 - permissions perms](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
 
 6. 작업을 마치면 **액세스 사용** 페이지에서 **선택** 단추를 클릭하고 **API 액세스 추가** 페이지에서 **완료** 단추를 클릭합니다. **필수 사용 권한** 페이지로 돌아가게 됩니다. 여기서 새 리소스를 API 목록에 추가합니다.
-
-  > [!NOTE]
-  > **완료** 단추를 클릭해도 구성한 다른 응용 프로그램에 대한 권한을 기반으로 디렉토리 내 응용 프로그램에 대한 사용 권한이 자동으로 설정됩니다. 응용 프로그램 **설정** 페이지에서 이러한 응용 프로그램 사용 권한을 확인할 수 있습니다.
-  > 
-  > 
 
 ### <a name="configuring-a-resource-application-to-expose-web-apis"></a>웹 API를 공개하는 리소스 응용 프로그램 구성
 
@@ -255,7 +252,7 @@ Azure AD에서 응용 프로그램을 등록하는 경우 조직 내의 사용�
 
 - 관리자가 "회사를 등록"하는 기능 "관리자 동의"라고 하는 이 환경은 조직의 *모든 사용자*를 대신하여 관리자에게 동의를 부여할 수 있는 기능을 제공합니다. 전역 관리자 역할에 속해 있는 계정으로 인증하는 사용자만이 관리자 동의를 제공할 수 있으며, 다른 사용자에게는 오류가 발생합니다.
 
-- 사용자의 등록 환경입니다. 사용자에게 Azure AD OAuth2.0 `/authorize` 끝점 또는 OpenID Connect `/userinfo` 끝점에 브라우저를 리디렉션하는 "등록" 단추를 제공할 예정입니다. 이러한 끝점은 id_token을 검사하여 응용 프로그램이 새 사용자에 대한 정보를 얻을 수 있도록 지원합니다. 등록 단계를 따라 [동의 프레임워크 개요](#overview-of-the-consent-framework) 섹션에 표시된 프롬프트와 유사한 동의 프롬프트가 사용자에게 표시됩니다.
+- 사용자의 등록 환경입니다. 사용자에게 Azure AD OAuth2.0 `/authorize` 엔드포인트 또는 OpenID Connect `/userinfo` 엔드포인트에 브라우저를 리디렉션하는 "등록" 단추를 제공할 예정입니다. 이러한 엔드포인트는 id_token을 검사하여 응용 프로그램이 새 사용자에 대한 정보를 얻을 수 있도록 지원합니다. 등록 단계를 따라 [동의 프레임워크 개요](#overview-of-the-consent-framework) 섹션에 표시된 프롬프트와 유사한 동의 프롬프트가 사용자에게 표시됩니다.
 
 다중 테넌트 액세스 및 로그인/등록 환경을 지원하는 데 필요한 응용 프로그램 변경 내용에 대한 자세한 내용은 다음을 참조하세요.
 

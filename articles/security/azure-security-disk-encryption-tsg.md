@@ -11,30 +11,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
+ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: e669fb5da0e3fd3c6a14ffed5cbdf80b8a4d9590
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: e63d798c24159777711c9cdd765e40b44826a530
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390724"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888732"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure Disk Encryption 문제 해결 가이드
 
-이 가이드는 조직에서 Azure Disk Encryption을 사용하는 IT 전문가, 정보 보안 분석가 및 클라우드 관리자를 위한 것입니다. 이 문서는 디스크 암호화 관련 문제를 해결하기 위한 지침을 제공하기 위해 작성되었습니다.
+이 가이드는 조직에서 Azure Disk Encryption을 사용하는 IT 전문가, 정보 보안 분석가 및 클라우드 관리자를 위한 것입니다. 이 문서는 디스크 암호화 관련 문제를 해결하는 데 도움을 드리기 위해 작성되었습니다.
 
 ## <a name="troubleshooting-linux-os-disk-encryption"></a>Linux OS 디스크 암호화 문제 해결
 
 Linux OS(운영 체제) 디스크 암호화에서는 전체 디스크 암호화 프로세스를 실행하기 전에 OS 드라이브를 분리해야 합니다. 드라이브를 분리할 수 없는 경우 "... 후 분리하지 못했습니다."라는 오류 메시지가 발생할 수 있습니다.
 
-이 오류는 지원되는 재고 갤러리 이미지에서 변경된 대상 VM 환경에서 OS 디스크 암호화를 시도할 때 발생할 수 있습니다. OS 확장을 분리하는 확장의 기능을 방해할 수 있는 지원되는 이미지로부터의 편차 예제에는 다음과 같은 이유가 포함됩니다.
+이 오류는 지원되는 재고 갤러리 이미지에서 변경된 대상 VM 환경에서 OS 디스크 암호화를 시도할 때 발생할 수 있습니다. OS 드라이브를 분리하는 확장의 기능을 방해할 수 있는 지원되는 이미지로부터의 편차. 편차 예는 다음 항목을 포함할 수 있습니다.
 - 지원되는 파일 시스템 또는 파티션 구성표와 더 이상 일치하지 않는 사용자 지정 이미지
-- SAP, MongoDB, Apache Cassandra 및 Docker와 같은 대규모 응용 프로그램이 암호화하기 전에 OS에 설치되고 실행되는 경우 지원되지 않습니다. Azure Disk Encryption은 디스크 암호화에서 OS 드라이브를 준비할 때 필요한 대로 이러한 프로세스를 안전하게 종료할 수 없습니다. OS 드라이브에 대한 오픈 파일 핸들을 보유하는 활성 프로세스가 있는 경우 OS 드라이브는 탑재될 수 없습니다. 따라서 OS 드라이브를 암호화하는 데 실패합니다. 
+- SAP, MongoDB, Apache Cassandra 및 Docker와 같은 대규모 응용 프로그램은 암호화하기 전에 OS에 설치되고 실행되는 경우 지원되지 않습니다. Azure Disk Encryption은 디스크 암호화에서 OS 드라이브를 준비할 때 필요한 대로 이러한 프로세스를 안전하게 종료할 수 없습니다. OS 드라이브에 대한 오픈 파일 핸들을 보유하는 활성 프로세스가 있는 경우 OS 드라이브는 탑재될 수 없습니다. 따라서 OS 드라이브를 암호화하는 데 실패합니다. 
 - 암호화가 활성화된 시간에 근접하여 실행하는 사용자 지정 스크립트 또는 암호화 프로세스 중에 다른 변경 작업이 VM에서 수행되고 있는 경우 이 충돌은 Azure Resource Manager 템플릿에서 동시에 실행하도록 여러 확장을 정의하거나 사용자 지정 스크립트 확장 또는 다른 작업을 디스크 암호화와 동시에 실행할 때 발생할 수 있습니다. 이러한 단계를 직렬화하고 격리하면 문제가 해결될 수 있습니다.
 - 암호화를 활성화하기 전에 SELinux(Security Enhanced Linux)가 비활성화되지 않았으므로 분리 단계가 실패합니다. 암호화가 완료되면 SELinux를 다시 활성화할 수 있습니다.
 - OS 디스크는 LVM(논리 볼륨 관리자) 구성표를 사용합니다. 제한된 LVM 데이터 디스크 지원은 사용할 수 있지만, LVM OS 디스크는 사용할 수 없습니다.
-- 최소 메모리 요구 사항이 충족되지 않습니다(OS 디스크 암호화에 권장되는 메모리 크기는 7GB임).
+- 최소 메모리 요구 사항이 충족되지 않았습니다(OS 디스크 암호화에 권장되는 메모리 크기는 7GB임).
 - 데이터 드라이브가 /mnt/ 디렉터리 또는 다른 디렉터리(예: /mnt/data1, /mnt/data2, /data3 + /data3/data4) 아래에 재귀적으로 탑재되었습니다.
 - Linux에 대한 다른 Azure Disk Encryption [필수 구성 요소](azure-security-disk-encryption-prerequisites.md)가 충족되지 않습니다.
 
@@ -73,7 +73,7 @@ VM을 다시 부팅하라는 메시지가 표시된 후, VM이 다시 시작된 
 방화벽, 프록시 요구 사항 또는 NSG(네트워크 보안 그룹) 설정으로 연결이 제한되면 필요한 작업을 수행할 수 있는 확장의 기능이 중단될 수 있습니다. 이로 인해 "VM에서 사용할 수 없는 확장 상태"와 같은 상태 메시지가 표시됩니다. 예상된 시나리오에서 암호화가 완료되지 못할 수 있습니다. 다음 섹션에서는 조사할 수 있는 몇 가지 일반적인 방화벽 문제가 나와 있습니다.
 
 ### <a name="network-security-groups"></a>네트워크 보안 그룹
-적용되는 모든 네트워크 보안 그룹 설정은 끝점에서도 디스크 암호화에 대해 문서화된 네트워크 구성 [필수 조건](azure-security-disk-encryption-prerequisites.md#bkmk_GPO)을 충족해야 합니다.
+적용되는 모든 네트워크 보안 그룹 설정은 엔드포인트에서도 디스크 암호화에 대해 문서화된 네트워크 구성 [필수 조건](azure-security-disk-encryption-prerequisites.md#bkmk_GPO)을 충족해야 합니다.
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>방화벽 뒤에 있는 Azure Key Vault
 VM에서 키 자격 증명 모음에 액세스할 수 있어야 합니다. [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md) 팀이 유지 관리하는 방화벽 뒤에서 키 자격 증명 모음에 액세스하는 방법에 대한 지침을 참조하세요. 
@@ -117,14 +117,14 @@ DISKPART> list vol
   Volume 1                      NTFS   Partition    550 MB  Healthy    System
   Volume 2     D   Temporary S  NTFS   Partition     13 GB  Healthy    Pagefile
 ```
-## <a name="troubleshooting-encryption-status"></a>암호화 상태 문제 해결
+<!-- ## Troubleshooting encryption status
 
-예상된 암호화 상태가 포털에서 보고되는 것과 일치하지 않는 경우 [암호화 상태가 Azure 관리 포털에 올바르게 표시되지 않습니다.](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por) 지원 문서를 참조하세요.
+If the expected encryption state does not match what is being reported in the portal, see the following support article:
+[Encryption status is displayed incorrectly on the Azure Management Portal](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por) --> 
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 일반적인 Azure Disk Encryption 문제와 해당 문제 해결 방법에 대해 자세히 알아보았습니다. 이 서비스 및 기능에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure Security Center에서 디스크 암호화 적용](../security-center/security-center-apply-disk-encryption.md)
-- [Azure 가상 머신 암호화](../security-center/security-center-disk-encryption.md)
 - [휴지 상태의 Azure 데이터 암호화](azure-security-encryption-atrest.md)
