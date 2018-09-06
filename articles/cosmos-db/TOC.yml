@@ -81,7 +81,7 @@ items:
     items:
     - name: 처리량 가져오기 및 설정
       href: set-throughput.md
-  - name: 분할
+  - name: 분할 및 데이터 배포
     href: partition-data.md
   - name: 인덱싱
     href: indexing-policies.md
@@ -111,12 +111,20 @@ items:
       href: vnet-service-endpoint.md
     - name: 키 자격 증명 모음 지원
       href: access-secrets-from-keyvault.md
+  - name: Backup 및 복원
+    href: online-backup-and-restore.md
+  - name: 고가용성
+    href: regional-failover.md
 - name: 다중 모델 API
   items:
   - name: SQL API 문서
     items:
     - name: 개요
       href: sql-api-introduction.md
+    - name: SQL 쿼리 작성
+      href: sql-api-sql-query.md
+    - name: 모델 문서 데이터
+      href: modeling-data.md
     - name: 자습서
       items:
       - name: 1 - 계정 만들기
@@ -175,14 +183,10 @@ items:
         href: cli-samples.md
     - name: 방법 가이드
       items:
-      - name: Bulk Executor - .NET 라이브러리
-        href: bulk-executor-dot-net.md
-      - name: Bulk Executor - Java 라이브러리
-        href: bulk-executor-java.md
-      - name: SQL 쿼리 작성
-        href: sql-api-sql-query.md
       - name: 쿼리 성능 조정
         href: sql-api-sql-query-metrics.md
+      - name: 저장 프로시저, 트리거 및 UDF
+        href: programming.md
       - name: 데이터 형식
         items:
         - name: Datetime
@@ -374,36 +378,30 @@ items:
       href: local-emulator-export-ssl-certificates.md
     - name: Visual Studio Code 확장
       href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
-  - name: 성능 조정
-    items:
-    - name: .NET SDK용 성능 팁
-      href: performance-tips.md
-    - name: Java SDK용 성능 팁
-      href: performance-tips-java.md
-    - name: 비동기 Java SDK용 성능 팁
-      href: performance-tips-async-java.md
-    - name: 성능 테스트 - 샘플 앱
-      href: performance-testing.md
+  - name: VSTS CI/CD 파이프라인 설정
+    href: tutorial-setup-ci-cd.md
   - name: 모범 사례
     items:
-    - name: 모델 문서 데이터
-      href: modeling-data.md
+    - name: 성능 팁
+      items:
+      - name: .NET SDK용 성능 팁
+        href: performance-tips.md
+      - name: Java SDK용 성능 팁
+        href: performance-tips-java.md
+      - name: 비동기 Java SDK용 성능 팁
+        href: performance-tips-async-java.md
+      - name: 성능 테스트 - 샘플 앱
+        href: performance-testing.md
+    - name: 비용 효율적인 읽기 및 쓰기
+      href: key-value-store-cost.md
     - name: SQL 데이터 분할
       href: sql-api-partition-data.md
     - name: 그래프 데이터 분할
       href: graph-partitioning.md
-  - name: 빅 데이터 및 분석
-    items:
-    - name: 람다 아키텍처
-      href: lambda-architecture.md
-    - name: Spark 커넥터
-      href: spark-connector.md
-    - name: Spark, Kafka, 및 Azure Cosmos DB
-      href: https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json
-    - name: 변경 피드 전자 상거래 솔루션
-      href: changefeed-ecommerce-solution.md
   - name: 다른 Azure 서비스와 통합
     items:
+    - name: 변경 피드 전자 상거래 솔루션
+      href: changefeed-ecommerce-solution.md
     - name: Azure App Service
       href: create-website.md
     - name: Azure Search 인덱서
@@ -424,22 +422,24 @@ items:
       href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
     - name: Spring Boot Starter 사용
       href: https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json
-  - name: 데이터 가상화
-    items:
-    - name: Power BI 커넥터를 사용하여 시각화
+    - name: 람다 아키텍처
+      href: lambda-architecture.md
+    - name: Azure Databricks(Spark 커넥터)
+      href: spark-connector.md
+    - name: Spark 및 Kafka
+      href: https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json
+    - name: Power BI 커넥터
       href: powerbi-visualize.md
-    - name: ODBC 드라이버를 사용하여 시각화
+    - name: ODBC 드라이버
       href: odbc-driver.md
-  - name: Backup 및 복원
-    href: online-backup-and-restore.md
-  - name: 고가용성
-    href: regional-failover.md
-  - name: 저장 프로시저, 트리거 및 UDF
-    href: programming.md
-  - name: Bulk Executor 라이브러리 정보
-    href: bulk-executor-overview.md
-  - name: 비용 효율적인 읽기 및 쓰기
-    href: key-value-store-cost.md
+  - name: Bulk Executor 라이브러리
+    items:
+    - name: Bulk Executor 라이브러리 정보
+      href: bulk-executor-overview.md
+    - name: Bulk Executor - .NET 라이브러리
+      href: bulk-executor-dot-net.md
+    - name: Bulk Executor - Java 라이브러리
+      href: bulk-executor-java.md
 - name: 리소스
   items:
   - name: 쿼리 참고 자료
@@ -463,9 +463,9 @@ items:
     href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
   - name: 소셜 미디어 앱
     href: social-media-apps.md
-ms.openlocfilehash: 8837d9bc6cf492a146d96d917d9157e51bffa0f5
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: afa2ccd0998ba78aa0f9e75bb87691ead8b96697
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/05/2018
-ms.locfileid: "43695985"
+ms.locfileid: "43783259"
