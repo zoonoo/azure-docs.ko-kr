@@ -40,7 +40,7 @@ ms.locfileid: "40190986"
 print "this is a 'string' literal in double \" quotes"
 ```
 
-"\\"가 이스케이프 문자로 사용되지 않도록 하기 위해 문자열의 접두사로 "@"을 추가합니다.
+"\\"가 이스케이프 문자로 사용되지 않도록 하기 위해 문자열의 접두사로 \"\@\" 을 추가합니다.
 
 ```OQL
 print @"C:\backslash\not\escaped\with @ prefix"
