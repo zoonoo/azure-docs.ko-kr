@@ -12,19 +12,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: ebf10c7f0fb90d976062300854f69369dba946fa
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 5a6dcddce3337989a7a34515570ac3277aa1edd5
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340169"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841933"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure를 사용 하 여 Azure Stack 등록
 
 Azure를 사용 하 여 Azure Stack 등록 하면 Azure에서 마켓플레이스 항목을 다운로드 하 고 Microsoft에 다시 보고 하는 전자 상거래 데이터를 설정 합니다. Azure Stack 등록 한 후에 사용량 Azure 상거래에 보고 되 고 등록에 사용 되는 구독에서 볼 수 있습니다.
+
+이 문서에서 설명 Azure 사용 하 여 Azure Stack 통합 시스템을 등록 합니다. ASDK Azure를 사용 하 여 등록 하는 방법에 대 한 내용은 [Azure Stack 등록](.\asdk\asdk-register.md) ASDK 설명서에서.
 
 > [!IMPORTANT]  
 > Marketplace에서 항목을 제공 하는 포함 하 여 전체 Azure Stack 기능을 지원 하려면 등록이 필요 합니다. 또한 Azure Stack-수-종 청구 모델을 사용 하는 경우 등록 하지 않은 경우 사용 조건에 위반에서 됩니다. Azure Stack 라이선스 모델에 대 한 자세한 내용은 참조 하십시오 합니다 [구입 방법 페이지](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)합니다.

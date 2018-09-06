@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: e057d7a649397083240e9f67080808a3057c7f50
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: d3bfe2c472d48a68bd818ac06874db136528b470
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139327"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43840272"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK 설치 후 구성 작업
 
@@ -140,16 +140,6 @@ ASDK 배포 성공 했는지를 확인 하려면 다음이 단계를 수행 하 
 ![test-azurestack](media/asdk-post-deploy/test-azurestack.png)
 
 오류가 있는 경우 도움말을 보려면 문제 해결 단계를 수행 합니다.
-
-## <a name="activate-the-administrator-and-tenant-portals"></a>관리자 및 테 넌 트 포털 활성화
-Azure AD를 사용 하는 배포 후 Azure Stack 관리자 및 테 넌 트 포털 모두 활성화 해야 합니다. 이 활성화 된 Azure Stack 포털과 Azure Resource Manager 정확한 권한을 제공 (동의 페이지에 나열 된) 모든 사용자에 대 한 디렉터리의에 동의 합니다.
-
-- 관리자 포털을 이동 https://adminportal.local.azurestack.external/guest/signup정보를 읽고 클릭 **Accept**합니다. 를 수락 하면 디렉터리 테 넌 트 관리자가 아닌 서비스 관리자를 추가할 수 있습니다.
-
-- 테 넌 트 포털에 대 한 이동 https://portal.local.azurestack.external/guest/signup정보를 읽고 클릭 **Accept**합니다. 를 수락 하면 디렉터리의 사용자는 테 넌 트 포털에 로그인 수 있습니다. 
-
-> [!NOTE] 
-> 포털 활성화 되지 않으면, 디렉터리 관리자만 로그인 하 고 포털을 사용할 수 있습니다. 다른 사용자가 로그인 하는 경우는 관리자 권한을 부여 받지 다른 사용자에 게 알리는 오류가 표시 됩니다. 관리자는 기본적으로 Azure Stack에 등록 하는 디렉터리에 속하지 않습니다, Azure Stack 디렉터리 활성화 URL에 추가 해야 합니다. Azure Stack은 fabrikam.onmicrosoft.com 관리 사용자를 등록 하는 경우는 예를 들어 admin@contoso.com, 이동할 https://portal.local.azurestack.external/guest/signup/fabrikam.onmicrosoft.com 포털을 활성화 하려면. 
 
 ## <a name="reset-the-password-expiration-policy"></a>암호 만료 정책 다시 설정 
 개발 키트 호스트에 대 한 암호에 평가 기간이 종료 되기 전에 만료 되지 않습니다는 있는지,는 ASDK를 배포한 후 다음이 단계를 수행 합니다.

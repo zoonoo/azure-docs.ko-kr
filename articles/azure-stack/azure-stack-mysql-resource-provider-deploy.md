@@ -11,19 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 6d6ee22bd1691f1af6956330b3299a1483c588f7
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 722df244135d045e18b9f2d0dd88066ba00b7d49
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696645"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841882"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Azure Stack에서 MySQL 리소스 공급자 배포
 
 MySQL Server 리소스 공급자를 사용 하 여 Azure Stack 서비스로 MySQL 데이터베이스를 표시 합니다. MySQL 리소스 공급자는 Windows Server 2016 Server Core 가상 머신 (VM)에서 서비스로 실행 됩니다.
+
+> [!IMPORTANT]
+> 항목을 만드는 서버에서 해당 호스트 SQL 또는 MySQL 리소스 공급자에만 사용할 수 있습니다. 리소스 공급자에 의해 생성 되지 않은 호스트 서버에서 생성 하는 항목 일치 하지 않는 상태가 될 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -150,6 +153,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 2. 선택 **리소스 그룹**
 3. 선택 된 **시스템.\< 위치\>.mysqladapter** 리소스 그룹입니다.
 4. 리소스 그룹 개요에 대 한 요약 페이지에 실패 한 배포가 없는 없어야 합니다.
+5. 마지막으로 선택 **가상 머신** 확인 하려면 관리 포털에서 VM의 MySQL 리소스 공급자는 성공적을 만들고 실행 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

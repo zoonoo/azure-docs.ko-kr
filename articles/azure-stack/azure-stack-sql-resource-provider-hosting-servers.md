@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: de2e1defeff9ab2dd78bdf019009b62955f73b88
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 4dfeff0e22a541a39a59c37c869af41a7e444fa6
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970554"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842501"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL 리소스 공급자에 대 한 호스팅 서버를 추가 합니다.
 
@@ -78,15 +78,15 @@ SQL sysadmin 보다 낮은 권한을 가진 관리자를 만들 수 있습니다
 
 1. 서비스 관리자로 Azure Stack 연산자 포털에 로그인 합니다.
 
-2. 선택 **찾아보기** &gt; **관리 리소스** &gt; **SQL 호스팅 서버**합니다.
+2. 선택 **모든 서비스** &gt; **관리 리소스** &gt; **SQL 호스팅 서버**합니다.
 
    ![SQL 호스팅 서버](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
-   아래 **SQL 호스팅 서버**, 리소스 공급자의 백 엔드로 사용 되는 SQL Server의 인스턴스에 SQL 리소스 공급자를 연결할 수 있습니다.
+   아래 **SQL 호스팅 서버**, 리소스 공급자의 백 엔드로 사용할 SQL Server 인스턴스의 SQL 리소스 공급자를 연결할 수 있습니다.
 
-   ![SQL 어댑터 대시보드](./media/azure-stack-sql-rp-deploy/sqladapterdashboard.png)
+   ![SQL 어댑터 대시보드](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.png)
 
-3. 온 **SQL 호스팅 서버 추가**, SQL Server 인스턴스에 대 한 연결 세부 정보를 제공 합니다.
+3. 클릭 **추가** 후에 SQL Server 인스턴스에 대 한 연결 세부 정보를 제공 하 고는 **SQL 호스팅 서버 추가** 블레이드입니다.
 
    ![SQL 호스팅 서버를 추가 합니다.](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
