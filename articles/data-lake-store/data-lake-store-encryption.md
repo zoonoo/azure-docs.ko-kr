@@ -4,21 +4,16 @@ description: Azure Data Lake Store의 암호화를 통해 데이터를 보고하
 services: data-lake-store
 documentationcenter: ''
 author: esung22
-manager: ''
-editor: ''
-ms.assetid: ''
 ms.service: data-lake-store
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: 2328f7e233025d9f9ee9113aa28fb74754dd9193
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c3f79348cb5d80639d76ad1a8ba82fcfa56ebed1
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43310906"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Azure Data Lake Store의 데이터 암호화
 
@@ -61,8 +56,8 @@ Data Lake Store는 MEK(마스터 암호화 키)를 관리하는 두 가지 모�
 | --- | --- | --- |
 |데이터가 어떻게 저장되나요?|저장하기 전에 항상 암호화됩니다.|저장하기 전에 항상 암호화됩니다.|
 |마스터 암호화 키가 어디에 저장되나요?|Key Vault|Key Vault|
-|Key Vault 외부에 저장되는 암호화 키가 있나요? |아니오|아니오|
-|Key Vault에서 MEK를 검색할 수 있나요?|번호 MEK는 Key Vault에 저장된 후에 암호화 및 암호 해독에만 사용할 수 있습니다.|안 됩니다. MEK는 Key Vault에 저장된 후에 암호화 및 암호 해독에만 사용할 수 있습니다.|
+|Key Vault 외부에 저장되는 암호화 키가 있나요? |아니요|아니요|
+|Key Vault에서 MEK를 검색할 수 있나요?|아니요. MEK는 Key Vault에 저장된 후에 암호화 및 암호 해독에만 사용할 수 있습니다.|안 됩니다. MEK는 Key Vault에 저장된 후에 암호화 및 암호 해독에만 사용할 수 있습니다.|
 |Key Vault 인스턴스 및 MEK 소유자는 누구인가요?|Data Lake Store 서비스|사용자는 고유한 Azure 구독에 속한 Key Vault 인스턴스를 소유합니다. Key Vault의 MEK는 소프트웨어 또는 하드웨어로 관리할 수 있습니다.|
 |사용자가 Data Lake Store 서비스의 MEK에 대한 액세스를 취소할 수 있나요?|아니요|예. 사용자는 Key Vault의 액세스 제어 목록을 관리하고 Data Lake Store 서비스의 서비스 ID에 대한 액세스 제어 항목을 제거할 수 있습니다.|
 |MEK를 영구적으로 삭제할 수 있나요?|아니요|예. Key Vault에서 MEK를 삭제하면 Data Lake Store 서비스를 포함하여 누구도 Data Lake Store 계정의 데이터를 해독할 수 없습니다. <br><br> Key Vault에서 MEK를 삭제하기 전에 명시적으로 백업하면 MEK를 복원하고 데이터 복구할 수 있습니다. 그러나 Key Vault에서 MEK를 삭제하기 전에 백업하지 않으면 이후에 Data Lake Store 계정의 데이터를 해독할 수 없습니다.|

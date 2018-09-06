@@ -84,7 +84,6 @@
 
 ## [그룹 및 구성원 관리](fundamentals/active-directory-manage-groups.md)
 ### [그룹 관리](fundamentals/active-directory-groups-create-azure-portal.md)
-### [삭제된 Office 365 그룹 복원](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [그룹 설정 관리](fundamentals/active-directory-groups-settings-azure-portal.md)
 ## [보고서 관리](reports-monitoring/overview-reports.md)
 ### [로그인 활동](reports-monitoring/concept-sign-ins.md)

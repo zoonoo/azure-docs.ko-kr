@@ -14,12 +14,12 @@ ms.date: 03/09/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 656577211a992432366033326362c9892f7ba6ef
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 29a53101bff8c384d01f952c4498e09d9d970ee3
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861227"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841737"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Office 365 그룹에 대한 만료 정책 구성
 
@@ -43,7 +43,7 @@ Azure AD PowerShell cmdlet을 다운로드하여 설치하는 방법에 대한 �
 전역 관리자 또는 사용자 계정 관리자 | Office 365 그룹 만료 정책 설정을 만들거나, 읽거나, 업데이트하거나, 삭제할 수 있음<br>Office 365 그룹을 갱신할 수 있음
 사용자 | 소유하는 Office 365 그룹을 갱신할 수 있음<br>소유하는 Office 365 그룹을 복원할 수 있음<br>만료 정책 설정을 읽을 수 있음
 
-삭제된 그룹을 복원하는 권한에 대한 자세한 내용은 [Azure Active Directory에서 삭제된 Office 365 그룹 복원](../fundamentals/active-directory-groups-restore-azure-portal.md)을 참조하세요.
+삭제된 그룹을 복원하는 권한에 대한 자세한 내용은 [Azure Active Directory에서 삭제된 Office 365 그룹 복원](groups-restore-deleted.md)을 참조하세요.
 
 ## <a name="set-group-expiration"></a>그룹 만료 설정
 
@@ -71,7 +71,7 @@ Azure AD PowerShell cmdlet을 다운로드하여 설치하는 방법에 대한 �
 
 ![그룹 삭제 전자 메일 알림](./media/groups-lifecycle/deletion-notification.png)
 
-[Azure Active Directory에서 삭제된 Office 365 그룹 복원](../fundamentals/active-directory-groups-restore-azure-portal.md)에서 설명된 대로 **그룹 복원**을 선택하거나 PowerShell cmdlet을 사용하여 30일 내에 그룹을 복원할 수 있습니다.
+[Azure Active Directory에서 삭제된 Office 365 그룹 복원](groups-restore-deleted.md)에서 설명된 대로 **그룹 복원**을 선택하거나 PowerShell cmdlet을 사용하여 30일 내에 그룹을 복원할 수 있습니다.
     
 복원하는 그룹에 문서, SharePoint 사이트 또는 기타 영구 개체가 포함된 경우 그룹 및 해당 내용을 완전히 복원하는 데 최대 24시간이 걸릴 수 있습니다.
 

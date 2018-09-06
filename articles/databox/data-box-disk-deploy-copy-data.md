@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 09/05/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b0769ba70f495728df5c38b43bae4059b27de88b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f25d0b3522658d5fcd4b34110cb03b624dd9e7b1
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010823"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841508"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>자습서: Azure Data Box Disk에 데이터 복사 및 확인
 
@@ -76,8 +76,8 @@ ms.locfileid: "39010823"
     
     |매개 변수/옵션  |설명 |
     |--------------------|------------|
-    |<Source>            | 원본 디렉터리에 대한 경로를 지정합니다.        |
-    |<Destination>       | 대상 디렉터리에 대한 경로를 지정합니다.        |
+    |원본            | 원본 디렉터리에 대한 경로를 지정합니다.        |
+    |대상       | 대상 디렉터리에 대한 경로를 지정합니다.        |
     |/E                  | 빈 디렉터리를 포함하는 하위 디렉터리를 복사합니다. |
     |/MT[:N]             | N 스레드를 사용하여 다중 스레드 복사본을 만듭니다. 여기서 N은 1에서 128 사이의 정수입니다. <br>N의 기본값은 8입니다.        |
     |/R: <N>             | 실패한 복사에 대한 재시도 횟수를 지정합니다. N의 기본값은 1,000,000입니다(백만 번의 다시 시도).        |
