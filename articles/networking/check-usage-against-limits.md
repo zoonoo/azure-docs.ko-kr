@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jdial
-ms.openlocfilehash: 0c51f48576c665fbe67f2f18198d6422fe872895
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 30b0c1bdd23858b5cc6224deb2698b5f180359eb
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34811804"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288233"
 ---
 # <a name="check-resource-usage-against-limits"></a>제한에 대해 리소스 사용량 확인
 
@@ -49,7 +49,7 @@ ms.locfileid: "34811804"
 
 [Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령을 실행하거나 또는 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행하는 경우 *AzureRM* PowerShell 모듈 버전 6.0.1 이상이 필요합니다. 컴퓨터에서 `Get-Module -ListAvailable AzureRM`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure에 로그인해야 합니다.
 
-[Get-AzureRmNetworkUsage](/powershell/module/azurerm.network/powershell/module/azurerm.network/get-azurermnetworkusage)를 사용하여 제한에 대한 사용량을 봅니다. 다음 예제에서는 미국 동부 위치에 배포된 리소스가 하나 이상 있는 리소스에 대한 사용량을 가져옵니다.
+[Get-AzureRmNetworkUsage](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.8.0)를 사용하여 제한에 대한 사용량을 봅니다. 다음 예제에서는 미국 동부 위치에 배포된 리소스가 하나 이상 있는 리소스에 대한 사용량을 가져옵니다.
 
 ```azurepowershell-interactive
 Get-AzureRmNetworkUsage `

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 35210a8e93b8437ea4d8c3b5f002c81c549d3afe
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 061e2257200b6d660a421a86c540f43597112c5e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444833"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337888"
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C: 토큰, 세션 및 Single Sign-On 구성
 
@@ -69,8 +69,8 @@ Azure AD B2C는 보호된 리소스에 대한 보안 액세스를 활성화하�
 Azure AD B2C에서 내보낸 보안 토큰에서 중요한 클레임에 대한 형식을 변경했습니다. 이는 표준 프로토콜 지원을 개선하고 타사 ID 라이브러리와의 상호 운용성을 향상시키기 위해 수행되었습니다. 그러나 기존 앱을 손상시키지 않기 위해 고객이 필요에 따라 옵트인할 수 있도록 다음과 같은 속성을 만들었습니다.
 
 * **발급자(iss) 클레임**: 토큰을 발급한 Azure AD B2C 테넌트를 식별합니다.
-  * `https://login.microsoftonline.com/{B2C tenant GUID}/v2.0/`: 기본값입니다.
-  * `https://login.microsoftonline.com/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/`: 이 값에는 B2C 테넌트 및 토큰 요청에 사용된 정책에 대한 ID가 포함됩니다. 앱이나 라이브러리에 [OpenID Connect 검색 1.0 사양](http://openid.net/specs/openid-connect-discovery-1_0.html)과 호환되도록 Azure AD B2C가 필요한 경우 이 값을 사용합니다.
+  * `https://<domain>/{B2C tenant GUID}/v2.0/`: 기본값입니다.
+  * `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/`: 이 값에는 B2C 테넌트 및 토큰 요청에 사용된 정책에 대한 ID가 포함됩니다. 앱이나 라이브러리에 [OpenID Connect 검색 1.0 사양](http://openid.net/specs/openid-connect-discovery-1_0.html)과 호환되도록 Azure AD B2C가 필요한 경우 이 값을 사용합니다.
 * **주체(sub) 클레임**: 토큰에서 정보를 어설션하는 엔터티, 즉 사용자를 식별합니다.
   * **ObjectID**: 기본값입니다. 디렉터리에 있는 사용자의 개체 ID를 토큰의 `sub` 클레임에 채웁니다.
   * **지원되지 않음**: 이전 버전과의 호환성을 위해서만 제공되므로 가능한 한 빨리 **ObjectID**로 전환하는 것이 좋습니다.

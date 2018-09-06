@@ -2,18 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
 ms.date: 07/03/2018
-ms.author: sethm
+ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 6fb9b5cd1379f39796f984f0436900f629c66436
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 377ea6629223c365ef3d00c756929bf23ddffde5
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40209662"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702648"
 ---
 Azure에서 Service Bus 메시징 엔터티 사용을 시작하려면 먼저 Azure에서 고유한 이름인 네임스페이스를 만들어야 합니다. 네임스페이스는 응용 프로그램 내에서 Service Bus 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다.
 

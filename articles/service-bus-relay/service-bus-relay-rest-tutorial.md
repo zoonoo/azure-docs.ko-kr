@@ -3,7 +3,7 @@ title: Azure Relay를 사용하는 REST 자습서 | Microsoft Docs
 description: REST 기반 인터페이스를 표시하는 간단한 Azure Service Bus Relay 호스트 응용 프로그램을 구축합니다.
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 1312b2db-94c4-4a48-b815-c5deb5b77a6a
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
-ms.author: sethm
-ms.openlocfilehash: 7a5a2916514a125d0b7443ced42e5ec600c68857
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.author: spelluru
+ms.openlocfilehash: fa5b4ba02eda75d16243c9aebbf38dfb30afe53d
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
-ms.locfileid: "24008039"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695411"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Azure WCF 릴레이 REST 자습서
 
@@ -102,7 +102,7 @@ WCF 계약과 REST 스타일 계약의 주요 차이는 [OperationContractAttrib
     채널은 서비스 및 클라이언트가 서로 정보를 전달하는 WCF 개체입니다. 나중에 호스트 응용 프로그램에서 채널을 만듭니다. Azure Relay는 이 채널을 사용하여 브라우저의 HTTP GET 요청을 **GetImage** 구현으로 전달합니다. 릴레이는 이 채널을 사용하여 **GetImage** 반환 값을 가져와서 클라이언트 브라우저에 대한 HTTP GETRESPONSE로 해석하기도 합니다.
 12. **빌드** 메뉴에서 **솔루션 빌드**를 클릭하여 지금까지 수행한 작업이 정확한지 확인합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 다음 코드는 WCF 릴레이 계약을 정의하는 기본 인터페이스를 보여 줍니다.
 
 ```csharp
@@ -210,8 +210,8 @@ REST 스타일 WCF 릴레이 서비스를 만들려면 첫째로 계약을 만�
 ### <a name="to-define-the-configuration-for-running-the-web-service-on-service-bus"></a>Service Bus에서 웹 서비스를 실행하기 위한 구성을 정의하려면
 1. **솔루션 탐색기**에서 **App.config**를 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
    
-    **App.config** 파일에는 서비스 이름, 끝점(즉, 클라이언트와 호스트가 서로 통신하도록 Azure Relay가 노출하는 위치) 및 바인딩(통신에 사용되는 프로토콜 유형)이 포함되어 있습니다. 여기서 주요 차이점은 구성된 서비스 끝점이 [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) 바인딩을 참조한다는 것입니다.
-2. `<system.serviceModel>` XML 요소는 하나 이상의 서비스를 정의하는 WCF 요소입니다. 여기서 서비스 이름 및 끝점을 정의하는데 사용됩니다. `<system.serviceModel>` 요소의 아래에(여전히 `<system.serviceModel>` 내에서) 다음과 같은 콘텐츠를 포함하는 `<bindings>` 요소를 추가합니다. 이것은 응용 프로그램에서 사용되는 바인딩을 정의합니다. 여러 바인딩을 정의할 수 있지만 이 자습서에서는 하나만 정의합니다.
+    **App.config** 파일에는 서비스 이름, 엔드포인트(즉, 클라이언트와 호스트가 서로 통신하도록 Azure Relay가 노출하는 위치) 및 바인딩(통신에 사용되는 프로토콜 유형)이 포함되어 있습니다. 여기서 주요 차이점은 구성된 서비스 엔드포인트가 [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) 바인딩을 참조한다는 것입니다.
+2. `<system.serviceModel>` XML 요소는 하나 이상의 서비스를 정의하는 WCF 요소입니다. 여기서 서비스 이름 및 엔드포인트를 정의하는데 사용됩니다. `<system.serviceModel>` 요소의 아래에(여전히 `<system.serviceModel>` 내에서) 다음과 같은 콘텐츠를 포함하는 `<bindings>` 요소를 추가합니다. 이것은 응용 프로그램에서 사용되는 바인딩을 정의합니다. 여러 바인딩을 정의할 수 있지만 이 자습서에서는 하나만 정의합니다.
    
     ```xml
     <bindings>
@@ -224,7 +224,7 @@ REST 스타일 WCF 릴레이 서비스를 만들려면 첫째로 계약을 만�
     </bindings>
     ```
    
-    이전 코드는 WCF 릴레이 [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) 바인딩과 **relayClientAuthenticationType** 세트를 **None**으로 정의합니다. 이 설정은 이 바인딩을 사용하는 끝점에 클라이언트 자격 증명이 필요 없다는 것을 나타냅니다.
+    이전 코드는 WCF 릴레이 [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) 바인딩과 **relayClientAuthenticationType** 세트를 **None**으로 정의합니다. 이 설정은 이 바인딩을 사용하는 엔드포인트에 클라이언트 자격 증명이 필요 없다는 것을 나타냅니다.
 3. `<bindings>` 요소 다음에 `<services>` 요소를 추가합니다. 바인딩과 유사하게 단일 구성 파일 내에 여러 서비스를 정의할 수 있습니다. 하지만 이 자습서에서는 하나만 정의합니다.
    
     ```xml

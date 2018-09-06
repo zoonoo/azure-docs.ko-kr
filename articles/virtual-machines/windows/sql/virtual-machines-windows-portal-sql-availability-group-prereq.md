@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: f2a0af65af068f3a78a08e46e0e42caefd87d7b1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d75bb780a17653aaacbc74413fb4240a8052a983
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30322899"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371488"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Azure Virtual Machines에 Always On 가용성 그룹을 만들기 위한 필수 구성 요소 완료
 
@@ -39,7 +39,7 @@ ms.locfileid: "30322899"
 
 
 ## <a name="create-an-azure-account"></a>Azure 계정 만들기
-Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](/pricing/free-trial/?WT.mc_id=A261C142F) 또는 [Visual Studio 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
+Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](https://signup.azure.com/signup?offer=ms-azr-0044p&appId=102&ref=azureplat-generic&redirectURL=https:%2F%2Fazure.microsoft.com%2Fget-started%2Fwelcome-to-azure%2F&correlationId=24f9d452-1909-40d7-b609-2245aa7351a6&l=en-US) 또는 [Visual Studio 구독자 혜택을 활성화](https://docs.microsoft.com/visualstudio/subscriptions/subscriber-benefits)할 수 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 1. [Azure 포털](http://portal.azure.com)에 로그인합니다.
@@ -471,7 +471,7 @@ SQL Server 가용성 그룹의 경우 각 SQL Server VM은 도메인 계정으�
    SQL Server의 기본 인스턴스의 경우 포트 1433입니다.
 - **Azure Load Balancer 프로브:**<br/>
    사용 가능한 모든 포트입니다. 예제는 59999를 자주 사용합니다.
-- **데이터베이스 미러링 끝점:** <br/>
+- **데이터베이스 미러링 엔드포인트:** <br/>
    사용 가능한 모든 포트입니다. 예제는 5022를 자주 사용합니다.
 
 방화벽 포트는 두 SQL Server VM에서 열려야 합니다.

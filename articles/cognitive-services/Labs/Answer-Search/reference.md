@@ -1,6 +1,6 @@
 ---
 title: Project Answer Search 참조 - Microsoft Cognitive Services | Microsoft Docs
-description: Project Answer Search 끝점에 대한 참조입니다.
+description: Project Answer Search 엔드포인트에 대한 참조입니다.
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -9,25 +9,25 @@ ms.technology: project-answer-search
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: a12761c2d913cd7ffaa2cbc2cd42576c6bc96434
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 28a73918b50d7b13248fe5b6a17f2c95287a1ba4
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866987"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666291"
 ---
 # <a name="project-answer-search-v7-reference"></a>Project Answer Search v7 참조
 
 Bing Answer SearchAPI는 쿼리 매개 변수를 사용하며 `answerType`이 `facts` 또는 `entities`인 `searchResponse`를 반환합니다. 
 
-Answer Search API를 사용하는 응용 프로그램은 쿼리 매개 변수에 미리 보기할 URL을 사용하여 요청을 끝점으로 보냅니다.  요청에는 `q=searchTerm` 매개 변수와 *Ocp-Apim-Subscription-Key* 헤더가 포함되어야 합니다.   
+Answer Search API를 사용하는 응용 프로그램은 쿼리 매개 변수에 미리 보기할 URL을 사용하여 요청을 엔드포인트로 보냅니다.  요청에는 `q=searchTerm` 매개 변수와 *Ocp-Apim-Subscription-Key* 헤더가 포함되어야 합니다.   
 
 검색 개체에 대한 세부 정보를 포함하는 팩트 및 엔터티에 대해 JSON 응답을 구문 분석할 수 있습니다.
 
-## <a name="endpoint"></a>끝점
-Answer Search 결과를 요청하려면 다음 끝점으로 요청을 보냅니다. 헤더 및 URL 매개 변수를 사용하여 추가 사양을 정의합니다.
+## <a name="endpoint"></a>엔드포인트
+Answer Search 결과를 요청하려면 다음 엔드포인트로 요청을 보냅니다. 헤더 및 URL 매개 변수를 사용하여 추가 사양을 정의합니다.
 
-끝점 GET: 
+엔드포인트 GET: 
 ````
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>&subscription-key=0123456789ABCDEF&mkt=en-us
 
@@ -84,11 +84,11 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
   
 |Name|값|type|필수|  
 |----------|-----------|----------|--------------|  
-|<a name="mkt" />mkt|결과가 나오는 지역/국가입니다. <br /><br />가능한 지역/국가 값 목록은 [지역/국가 코드](#market-codes)를 참조하세요.<br /><br /> **참고:** URL Preview API는 현재 en-us 지역/국가와 언어만 지원합니다.<br /><br />|문자열|예|  
-|<a name="query" />q|미리 보기할 URL입니다.|문자열|예|  
-|<a name="responseformat" />responseFormat|응답에 사용할 미디어 형식입니다. 다음은 대/소문자를 구분하지 않는 가능한 값입니다.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> 기본값은 JSON입니다. 응답에 포함된 JSON 개체에 대한 자세한 내용은 [응답 개체](#response-objects)를 참조하세요.<br /><br />  JsonLd를 지정하는 경우 응답 본문에 검색 결과를 포함하는 JSON-LD 개체가 포함됩니다. JSON-LD에 대한 자세한 내용은 [JSON-LD](http://json-ld.org/)를 참조하세요.|문자열|아니오|  
-|<a name="safesearch" />safeSearch|성인 콘텐츠를 필터링하는 데 사용되는 필터입니다. 다음은 대/소문자를 구분하지 않는 가능한 필터 값입니다.<br /><ul><li>Off&mdash;성인 텍스트, 이미지 또는 비디오를 포함하는 웹 페이지를 반환합니다.<br /><br/></li><li>Moderate&mdash;성인 텍스트만 포함하고 성인 이미지 또는 비디오는 포함하지 않는 웹 페이지를 반환합니다.<br /><br/></li><li>Strict&mdash;성인 텍스트, 이미지 또는 비디오를 포함하는 웹 페이지를 반환하지 않습니다.</li></ul><br /> 기본값은 Moderate입니다.<br /><br /> **참고:** Bing의 성인 정책에 따라 `safeSearch`가 Strict로 설정되어야 하는 지역/국가에서 요청이 나온 경우 Bing은 `safeSearch` 값을 무시하고 Strict를 사용합니다.<br/><br/>**참고:** `site:` 쿼리 연산자를 사용하는 경우 `safeSearch` 쿼리 매개 변수가 설정된 값에 관계없이 응답에 성인 콘텐츠가 포함될 수 있는 가능성이 있습니다. 사이트의 콘텐츠를 알고 있고 시나리오가 성인 컨텐츠를 지원하는 경우에만 `site:`를 사용합니다. |문자열|아니오|  
-|<a name="setlang" />setLang|사용자 인터페이스 문자열에 사용할 언어입니다. ISO 639-1 2자 언어 코드를 사용하여 언어를 지정합니다. 예를 들어 영어의 언어 코드는 EN입니다. 기본값은 EN(영어)입니다.<br /><br /> 선택 사항이지만, 언어를 항상 지정해야 합니다. 일반적으로, 사용자가 사용자 인터페이스 문자열을 다른 언어로 표시하려는 경우가 아니면 `setLang`을 `mkt`에 지정된 것과 동일한 언어로 설정합니다.<br /><br /> 이 매개 변수와 [Accept-Language](#acceptlanguage) 헤더는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다.<br /><br /> 사용자 인터페이스 문자열은 사용자 인터페이스에서 레이블로 사용되는 문자열입니다. JSON 응답 개체에는 몇 개의 사용자 인터페이스 문자열이 있습니다. 또한, 응답 개체에서 Bing.com 속성에 대한 링크는 지정된 언어를 적용합니다.|문자열|아니오| 
+|<a name="mkt" />mkt|결과가 나오는 지역/국가입니다. <br /><br />가능한 지역/국가 값 목록은 [지역/국가 코드](#market-codes)를 참조하세요.<br /><br /> **참고:** URL Preview API는 현재 en-us 지역/국가와 언어만 지원합니다.<br /><br />|문자열|yes|  
+|<a name="query" />q|미리 보기할 URL입니다.|문자열|yes|  
+|<a name="responseformat" />responseFormat|응답에 사용할 미디어 형식입니다. 다음은 대/소문자를 구분하지 않는 가능한 값입니다.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> 기본값은 JSON입니다. 응답에 포함된 JSON 개체에 대한 자세한 내용은 [응답 개체](#response-objects)를 참조하세요.<br /><br />  JsonLd를 지정하는 경우 응답 본문에 검색 결과를 포함하는 JSON-LD 개체가 포함됩니다. JSON-LD에 대한 자세한 내용은 [JSON-LD](http://json-ld.org/)를 참조하세요.|문자열|아니요|  
+|<a name="safesearch" />safeSearch|성인 콘텐츠를 필터링하는 데 사용되는 필터입니다. 다음은 대/소문자를 구분하지 않는 가능한 필터 값입니다.<br /><ul><li>Off&mdash;성인 텍스트, 이미지 또는 비디오를 포함하는 웹 페이지를 반환합니다.<br /><br/></li><li>Moderate&mdash;성인 텍스트만 포함하고 성인 이미지 또는 비디오는 포함하지 않는 웹 페이지를 반환합니다.<br /><br/></li><li>Strict&mdash;성인 텍스트, 이미지 또는 비디오를 포함하는 웹 페이지를 반환하지 않습니다.</li></ul><br /> 기본값은 Moderate입니다.<br /><br /> **참고:** Bing의 성인 정책에 따라 `safeSearch`가 Strict로 설정되어야 하는 지역/국가에서 요청이 나온 경우 Bing은 `safeSearch` 값을 무시하고 Strict를 사용합니다.<br/><br/>**참고:** `site:` 쿼리 연산자를 사용하는 경우 `safeSearch` 쿼리 매개 변수가 설정된 값에 관계없이 응답에 성인 콘텐츠가 포함될 수 있는 가능성이 있습니다. 사이트의 콘텐츠를 알고 있고 시나리오가 성인 컨텐츠를 지원하는 경우에만 `site:`를 사용합니다. |문자열|아니요|  
+|<a name="setlang" />setLang|사용자 인터페이스 문자열에 사용할 언어입니다. ISO 639-1 2자 언어 코드를 사용하여 언어를 지정합니다. 예를 들어 영어의 언어 코드는 EN입니다. 기본값은 EN(영어)입니다.<br /><br /> 선택 사항이지만, 언어를 항상 지정해야 합니다. 일반적으로, 사용자가 사용자 인터페이스 문자열을 다른 언어로 표시하려는 경우가 아니면 `setLang`을 `mkt`에 지정된 것과 동일한 언어로 설정합니다.<br /><br /> 이 매개 변수와 [Accept-Language](#acceptlanguage) 헤더는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다.<br /><br /> 사용자 인터페이스 문자열은 사용자 인터페이스에서 레이블로 사용되는 문자열입니다. JSON 응답 개체에는 몇 개의 사용자 인터페이스 문자열이 있습니다. 또한, 응답 개체에서 Bing.com 속성에 대한 링크는 지정된 언어를 적용합니다.|문자열|아니요| 
 
 
 ## <a name="response-objects"></a>응답 개체  
@@ -121,7 +121,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 |Name|값|type|  
 |----------|-----------|----------|  
 |_type|유형 힌트입니다.|문자열|  
-|<a name="errors" />errors|요청이 실패한 이유를 설명하는 오류 목록입니다.|[Error](#error)[]|  
+|<a name="errors" />errors|요청이 실패한 이유를 설명하는 오류 목록입니다.|[오류](#error)|  
 
   
   
@@ -272,7 +272,7 @@ mainline과 같은 검색 결과 그룹을 정의합니다.
 |상태 코드|설명|  
 |-----------------|-----------------|  
 |200|성공.|  
-|400|쿼리 매개 변수 중 하나가 없거나 잘못되었습니다.|  
+|400|쿼리 매개 변수 중 하나가 누락되었거나 유효하지 않습니다.|  
 |401|구독 키가 없거나 잘못되었습니다.|  
 |403|사용자가 인증되었지만(예: 유효한 구독 키를 사용함), 요청된 리소스에 대한 권한이 없습니다.<br /><br /> Bing은 호출자가 월별 쿼리 할당량을 초과한 경우에도 이 상태를 반환할 수 있습니다.|  
 |410|요청이 HTTPS 프로토콜 대신 HTTP를 사용했습니다. HTTPS 프로토콜만 지원됩니다.|  

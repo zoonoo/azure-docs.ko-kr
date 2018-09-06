@@ -3,25 +3,27 @@ title: 최신 세대 Azure SQL Data Warehouse로 업그레이드 | Microsoft Doc
 description: Azure SQL Data Warehouse를 최신 세대 Azure 하드웨어와 저장소 아키텍처로 업그레이드합니다.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 08/22/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1e2993e1f4d28fd5d281ea510121686d3bc37a8c
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: b7765182a89e08a2b2b8fcdbdfed82c64893fc27
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746965"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306983"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>SQL Data Warehouse를 업그레이드하여 성능 최적화
 Azure SQL Data Warehouse를 최신 세대 Azure 하드웨어와 저장소 아키텍처로 업그레이드합니다.
 
 ## <a name="why-upgrade"></a>업그레이드가 필요한 이유
 이제 Azure Portal에서 SQL Data Warehouse 계산에 최적화된 Gen2 계층으로 원활하게 업그레이드할 수 있습니다. 계산에 최적화된 Gen1 계층 데이터 웨어하우스가 있는 경우 업그레이드하는 것이 좋습니다. 업그레이드하여 최신 버전의 Azure 하드웨어 및 향상된 저장소 아키텍처를 사용할 수 있습니다. 더 빠른 성능, 더 높은 확장성 및 제한 없는 열 형식의 저장소를 활용할 수 있습니다. 
+
+> [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
 ## <a name="applies-to"></a>적용 대상
 이 업그레이드는 계산에 최적화된 Gen1 계층 데이터 웨어하우스에 적용됩니다.

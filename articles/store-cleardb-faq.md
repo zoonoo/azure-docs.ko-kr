@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f078cad95d39c18a8391bc32100d08accc53c37c
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f145e879dab4484d647cf8ea21582958df0f0cd4
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215206"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665725"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Azure App Service를 사용하는 ClearDB MySQLl 데이터베이스에 대한 FAQ
 이 FAQ는 Azure Web Apps용 ClearDB MySQL 데이터베이스의 사용 및 구매에 대한 일반적인 질문에 답변합니다.
@@ -41,7 +41,7 @@ ClearDB는 MySQL 호스팅 서비스이며 MySQL 인프라를 관리합니다. A
 ## <a name="do-i-need-a-credit-card-for-the-web-app--mysql-template-in-the-azure-marketplace"></a>Azure Marketplace의 웹앱 + MySQL 템플릿에 신용 카드가 필요한가요?
 사용하고 있는 구독 유형에 따라 다릅니다. 다음은 일반적으로 사용되는 구독 유형입니다.
 
-* [종량제](/offers/ms-azr-0003p/): 신용 카드가 필요하며 유료 MySQL 데이터베이스를 구매하는 경우 신용 카드로 요금이 청구됩니다.
+* [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/): 신용 카드가 필요하며 유료 MySQL 데이터베이스를 구매하는 경우 신용 카드로 요금이 청구됩니다.
 * [무료 평가판](https://azure.microsoft.com/pricing/free-trial/): Microsoft Azure 서비스에서 사용할 크레딧이 포함되어 있지만 타사 리소스의 구매에는 사용할 수 없습니다. 타사 서비스 또는 유료 MySQL 데이터베이스를 구매하려면 신용 카드가 설정된 구독을 사용해야 합니다. Web Apps의 경우 무료 ClearDB MySQL 데이터베이스를 만들 수 있습니다.
 * [MSDN 구독](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) 및 **MSDN 개발 테스트 종량제**: 무료 평가판과 유사한 MSDN 구독을 사용하려면 신용 카드로 ClearDB의 유료 MySQL 솔루션을 구매해야 합니다.
 * [EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/): EA 고객은 Azure Marketplace(타사)에서 구매한 모든 제품에 대해 EA 분기별로 별도의 통합 청구서로 청구됩니다. 모든 마켓플레이스에서 구매한 제품은 현금 약정 금액과 별도로 청구됩니다. 현재 아제르바이잔, 크로아티아, 노르웨이 및 푸에르토리코에서 등록한 고객은 Azure 저장소를 사용할 수 없습니다. 
@@ -109,5 +109,5 @@ EA Azure 등록 관리자가 관리할 수 있는 타사 서비스용 Azure Mark
 EA 등록에서 요금 청구와 관련된 사항은 [엔터프라이즈 고객 지원](http://aka.ms/AzureEntSupport) 에 문의하세요. EA 포털 지원 팀이 질문에 대답하거나 문제를 해결하는데 도움을 줄 것입니다.
 
 ## <a name="more-information"></a>자세한 정보
-[Azure Marketplace FAQ](/marketplace/faq/)
+[Azure Marketplace FAQ](https://azure.microsoft.com/marketplace/faq/)
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: 8c7acbe12c6bfed2066f6edb4ef7358b2180aeb3
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 7d5f2246eec20144a30e0abbc31038bdf04ab2b0
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39212938"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339279"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-python"></a>빠른 시작: 장치에서 IoT 허브로 원격 분석을 보내고 백 엔드 응용 프로그램(Python)으로 허브에서 원격 분석을 읽습니다.
 
@@ -127,7 +127,7 @@ npm install -g iothub-explorer
 또 다른 터미널 창에서 `{your hub service connection string}`을 이전에 적어둔 서비스 연결 문자열로 대체하는 다음 명령을 실행합니다.
 
 ```cmd/sh
-iothub-explorer monitor-events MyPythonDevice --login {your hub service connection string}
+iothub-explorer monitor-events MyPythonDevice --login "{your hub service connection string}"
 ```
 
 다음 스크린 샷은 시뮬레이션된 장치가 허브에 보낸 원격 분석을 유틸리티가 수신할 때 출력을 보여줍니다.

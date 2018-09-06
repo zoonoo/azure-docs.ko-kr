@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 3c6adc3f27e49facec124401f03a036269b7c7a9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e87b791dda03521def32ca7473336d7d37644773
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524450"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666022"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Azure Import/Export 서비스에 대한 가져오기 작업 만들기
 
@@ -57,7 +57,7 @@ REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 가�
 
 ## <a name="obtaining-your-shipping-location"></a>배송 위치 가져오기
 
-가져오기 작업을 만들기 전에 [위치 나열](/rest/api/storageimportexport/listlocations) 연산을 호출하여 배송 위치 이름 및 주소를 가져와야 합니다. `List Locations`는 위치 목록과 해당 우편 발송 주소 목록을 반환합니다. 반환된 목록에서 위치를 선택하고 해당 주소로 하드 드라이브 배송할 수 있습니다. `Get Location` 연산을 사용하여 특정 위치에 대한 배송 주소를 직접 얻을 수도 있습니다.
+가져오기 작업을 만들기 전에 [위치 나열](https://docs.microsoft.com/rest/api/storageimportexport/locations/list) 연산을 호출하여 배송 위치 이름 및 주소를 가져와야 합니다. `List Locations`는 위치 목록과 해당 우편 발송 주소 목록을 반환합니다. 반환된 목록에서 위치를 선택하고 해당 주소로 하드 드라이브 배송할 수 있습니다. `Get Location` 연산을 사용하여 특정 위치에 대한 배송 주소를 직접 얻을 수도 있습니다.
 
  배송 위치를 가져오려면 다음 단계를 수행합니다.
 

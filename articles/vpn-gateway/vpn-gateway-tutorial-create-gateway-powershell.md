@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/14/2018
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: 0f10384e7e21d65b3a16869a10f8294b9643c74c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b1435773f8d05f9cc730e5745c1a916d9b74321f
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38705686"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340596"
 ---
 # <a name="create-and-manage-vpn-gateway-with-the-azure-powershell-module"></a>Azure PowerShell 모듈을 사용하여 VPN 게이트웨이 만들기 및 관리
 
@@ -145,7 +145,7 @@ Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gateway
 
 ## <a name="get-the-gateway-public-ip-address"></a>게이트웨이 공용 IP 주소 가져오기
 
-공용 IP 주소의 이름을 알고 있는 경우 [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/Reset-AzureRmPublicIpAddress) 명령을 사용하여 게이트웨이에 할당된 공용 IP 주소를 표시합니다.
+공용 IP 주소의 이름을 알고 있는 경우 [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-6.8.1) 명령을 사용하여 게이트웨이에 할당된 공용 IP 주소를 표시합니다.
 
 ```azurepowershell-interactive
 $myGwIp = Get-AzureRmPublicIpAddress -Name $GwIP1 -ResourceGroup $RG1

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: 62e928525c8bd63258ea079830585db0f0ffc358
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 4a84e8f7460d3a339be783be6a12353770ced1b8
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716494"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665826"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Azure Stream Analytics의 입력 이해
 
@@ -42,7 +42,7 @@ Stream Analytics은 *참조 데이터*라는 입력도 지원합니다. 참조 �
 
 참조 데이터 입력에 대한 자세한 내용은 [Stream Analytics에서 조회에 대한 참조 데이터 사용](stream-analytics-use-reference-data.md)을 참조하세요.
 
-이 문서는 [Stream Analytics 학습 경로](/documentation/learning-paths/stream-analytics/)의 한 단계입니다.
+이 문서는 [Stream Analytics 학습 경로](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)의 한 단계입니다.
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]

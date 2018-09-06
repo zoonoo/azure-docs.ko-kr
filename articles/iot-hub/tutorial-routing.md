@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 6e421aa630dc121589dece789e2e0d7f9a56bbe6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a52ab4ff65312088e65d56006b6f99a7470b88f6
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434842"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287253"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>자습서: IoT Hub로 메시지 라우팅 구성
 
@@ -184,7 +184,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 ### <a name="powershell-instructions"></a>PowerShell 지침
 
-이 스크립트를 사용하는 가장 쉬운 방법은 [PowerShell ISE](/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise.md)를 열고, 스크립트를 클립보드에 복사한 다음, 전체 스크립트를 스크립트 창에 붙여넣습니다. 그런 다음, 리소스 이름에 대한 값을 변경하고(원하는 경우) 전체 스크립트를 실행할 수 있습니다. 
+이 스크립트를 사용하는 가장 쉬운 방법은 [PowerShell ISE](https://docs.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise?view=powershell-6)를 열고, 스크립트를 클립보드에 복사한 다음, 전체 스크립트를 스크립트 창에 붙여넣습니다. 그런 다음, 리소스 이름에 대한 값을 변경하고(원하는 경우) 전체 스크립트를 실행할 수 있습니다. 
 
 ```azurepowershell-interactive
 # Log into Azure account.
@@ -291,7 +291,7 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
 이제 저장소 계정에 대한 라우팅을 설정합니다. 엔드포인트를 정의한 다음, 해당 엔드포인트에 대한 경로를 설정합니다. **수준** 속성이 **저장소**로 설정된 메시지는 저장소 계정에 자동으로 작성됩니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **리소스 그룹**을 클릭한 다음, 사용자의 리소스 그룹을 선택합니다. 이 자습서에서는 **ContosoResources**를 사용합니다. 리소스 목록에서 IoT Hub를 클릭합니다. 이 자습서에서는 **ContosoTestHub**를 사용합니다. **Endpoints**를 클릭합니다. **엔드포인트** 창에서 **+추가**를 클릭합니다. 다음 정보를 입력합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **리소스 그룹**을 클릭한 다음, 사용자의 리소스 그룹을 선택합니다. 이 자습서에서는 **ContosoResources**를 사용합니다. 리소스 목록에서 IoT Hub를 클릭합니다. 이 자습서에서는 **ContosoTestHub**를 사용합니다. **엔드포인트**를 클릭합니다. **엔드포인트** 창에서 **+추가**를 클릭합니다. 다음 정보를 입력합니다.
 
    **이름**: 엔드포인트에 사용할 이름을 입력합니다. 이 자습서에서는 **StorageContainer**를 사용합니다.
    
@@ -555,7 +555,7 @@ Power BI 보고서를 설정하려면 장치를 만들고 장치 시뮬레이션
 
    ![시각화 및 필드를 보여주는 스크린샷.](./media/tutorial-routing/power-bi-visualizations-and-fields.png)
 
-   나. **필드** 창에서 Stream Analytics 작업의 출력을 만들 때 지정한 테이블을 확장합니다. 이 자습서에서는 **contosotable**을 사용합니다.
+   b. **필드** 창에서 Stream Analytics 작업의 출력을 만들 때 지정한 테이블을 확장합니다. 이 자습서에서는 **contosotable**을 사용합니다.
 
    다. **시각화** 창에서 **EventEnqueuedUtcTime**을 **축**으로 끌어갑니다.
 
@@ -587,14 +587,14 @@ Power BI 창 위쪽의 새로 고침 단추를 클릭하면 차트를 새로 고
 
 ### <a name="clean-up-resources-using-azure-cli"></a>Azure CLI를 사용하여 리소스 정리
 
-리소스 그룹을 제거하려면 [az group delete](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az-group-delete) 명령을 사용합니다.
+리소스 그룹을 제거하려면 [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) 명령을 사용합니다.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
 ```
 ### <a name="clean-up-resources-using-powershell"></a>PowerShell을 사용하여 리소스 정리
 
-리소스 그룹을 제거하려면 [Remove-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup) 명령을 사용합니다. $resourceGroup은 이 자습서의 시작 부분에서 **ContosoIoTRG1**로 다시 설정되었습니다.
+리소스 그룹을 제거하려면 [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) 명령을 사용합니다. $resourceGroup은 이 자습서의 시작 부분에서 **ContosoIoTRG1**로 다시 설정되었습니다.
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name $resourceGroup

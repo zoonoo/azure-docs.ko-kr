@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: c153153313511640f7969938f63ea9fbe7b0847c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: f312f29e14c371e7b500f3eee6471151e3544513
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282654"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338858"
 ---
 # <a name="understand-the-device-model-schema"></a>장치 모델 스키마 이해
 
@@ -24,7 +24,7 @@ ms.locfileid: "39282654"
 다음 문서는 현재 문서와 관련이 있습니다.
 
 * [장치 모델 동작 구현](iot-accelerators-remote-monitoring-device-behavior.md)에서는 시뮬레이션된 장치의 동작을 구현하는 데 사용하는 JavaScript 파일에 대해 설명합니다.
-* [새 시뮬레이션된 장치 만들기](iot-accelerators-remote-monitoring-test.md)에서는 장치를 만들고 새 시뮬레이션된 장치 유형을 솔루션에 배포하는 방법을 보여 줍니다.
+* [새 시뮬레이션된 장치 만들기](iot-accelerators-remote-monitoring-create-simulated-device.md)에서는 장치를 만들고 새 시뮬레이션된 장치 유형을 솔루션에 배포하는 방법을 보여 줍니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 

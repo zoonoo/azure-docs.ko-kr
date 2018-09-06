@@ -3,7 +3,7 @@ title: Azure Service Bus RBAC(역할 기반 액세스 제어) 미리 보기 | Mi
 description: Azure Service Bus 역할 기반 액세스 제어
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2017
-ms.author: sethm
-ms.openlocfilehash: 80c226b4b4295a232a6cefb4da12e1db23adae66
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: spelluru
+ms.openlocfilehash: 8d2ef626afb780d9bd1df9bc64f23b3278652aa9
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505236"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699569"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 역할 기반 액세스 제어(미리 보기)
 

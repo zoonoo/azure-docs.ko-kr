@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/11/2018
 ms.author: rolyon
-ms.openlocfilehash: 5012ce22204c3ac32b22fe2cd842ce1300b426f8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 8bb06493683dabb92dfe75f371f96db14a7951b3
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295816"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301006"
 ---
 # <a name="tutorial-grant-access-for-a-group-using-rbac-and-azure-powershell"></a>자습서: RBAC 및 Azure PowerShell을 사용하여 그룹에 액세스 권한 부여
 
@@ -31,7 +31,7 @@ ms.locfileid: "36295816"
 > * 액세스 권한 나열
 > * 액세스 권한 제거
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -122,7 +122,7 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
     $groupId = "11111111-1111-1111-1111-111111111111"
     ```
 
-1. [Get-AzureRmSubscription](/powershell/module/azurerm.resources/get-azurermsubscription) 명령을 사용하여 구독 ID를 가져옵니다.
+1. [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription) 명령을 사용하여 구독 ID를 가져옵니다.
 
     ```azurepowershell
     Get-AzureRmSubscription

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: ed47a5d1449ba634f90e93a82f15daf6e44a553e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 57ad5541bb7b61f8d26002168bb069fad3058965
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793864"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339078"
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>네트워크 구성 파일을 사용하여 가상 네트워크(클래식) 구성
 > [!IMPORTANT]
@@ -37,7 +37,7 @@ PowerShell 또는 Azure CLI를 사용하여 네트워크 구성 파일을 내보
 
 ### <a name="powershell"></a>PowerShell
  
-1. [Azure PowerShell 설치 및 Azure에 로그인](/powershell/azure/install-azure-ps?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. [Azure PowerShell 설치 및 Azure에 로그인](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
 2. 다음 명령에서 디렉터리(있는지 확인) 및 파일 이름을 원하는 대로 변경한 후 명령을 실행하여 네트워크 구성 파일을 내보냅니다.
 
     ```powershell
@@ -125,7 +125,7 @@ PowerShell 또는 Azure CLI를 사용하여 네트워크 구성 파일을 가져
 
 ### <a name="powershell"></a>PowerShell
  
-1. [Azure PowerShell 설치 및 Azure에 로그인](/powershell/azure/install-azure-ps?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. [Azure PowerShell 설치 및 Azure에 로그인](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
 2. 필요에 따라 다음 명령에서 디렉터리 및 파일 이름을 변경한 후 명령을 실행하여 네트워크 구성 파일을 가져옵니다.
  
     ```powershell

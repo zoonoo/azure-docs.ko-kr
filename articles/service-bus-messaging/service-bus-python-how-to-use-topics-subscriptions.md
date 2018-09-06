@@ -3,7 +3,7 @@ title: Python과 함께 Azure Service Bus 토픽을 사용하는 방법 | Micros
 description: Python에서 Azure Service Bus 토픽 및 구독을 사용하는 방법에 대해 알아봅니다.
 services: service-bus-messaging
 documentationcenter: python
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: c4f1d76c-7567-4b33-9193-3788f82934e4
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 04/20/2018
-ms.author: sethm
-ms.openlocfilehash: 6f262a63de9409d6b355d9783ca958e4715b1ea5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: spelluru
+ms.openlocfilehash: 66d0e10765976503ae7222eeb024890916e42af1
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38479319"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698301"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Python에서 Service Bus 토픽 및 구독을 사용하는 방법
 

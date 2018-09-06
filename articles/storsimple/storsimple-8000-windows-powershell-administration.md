@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 291de21d3d98bf9eb65adc7d506f3549171ee0a0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9408531a9e24af93359b562ed022b3d8253851e8
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696823"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665687"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>StorSimple용 Windows PowerShell을 사용하여 장치 관리
 
@@ -37,7 +37,7 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 장치를 관리�
 
 > [!NOTE]
 > * StorSimple용 Windows PowerShell cmdlet을 사용하면 직렬 콘솔에서 또는 Windows PowerShell 원격을 통해 원격으로 StorSimple 장치를 관리할 수 있습니다. 이 인터페이스에서 사용할 수 있는 개별 cmdlet에 대한 자세한 내용은 [StorSimple용 Windows PowerShell에 대한 cmdlet 참조](https://technet.microsoft.com/library/dn688168.aspx)를 참조하세요.
-> * Azure PowerShell StorSimple cmdlet은 명령줄에서 StorSimple 서비스 수준 및 마이그레이션 작업을 자동화할 수 있게 해주는 다른 cmdlet 컬렉션입니다. StorSimple용 Azure PowerShell cmdlet에 대한 자세한 내용은 [Azure StorSimplecmdlet 참조](https://docs.microsoft.com/powershell/servicemanagement/azure.storsimple/v3.1.0/azure.storsimple)를 참조하세요.
+> * Azure PowerShell StorSimple cmdlet은 명령줄에서 StorSimple 서비스 수준 및 마이그레이션 작업을 자동화할 수 있게 해주는 다른 cmdlet 컬렉션입니다. StorSimple용 Azure PowerShell cmdlet에 대한 자세한 내용은 [Azure StorSimplecmdlet 참조](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0&viewFallbackFrom=azuresmps-3.7.0#azure)를 참조하세요.
 
 
 다음 방법 중 하나를 사용하여 StorSimple용 Windows PowerShell에 액세스할 수 있습니다.
@@ -68,13 +68,13 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 장치를 관리�
    | 추가 키보드 기능 사용 |Ctrl-Alt는 AltGr과 다름 |
    
     ![지원되는 Putty 설정](./media/storsimple-windows-powershell-administration/IC740877.png)
-3. **Apply**를 클릭합니다.
+3. **적용**을 클릭합니다.
 4. **범주** 창에서 **변환**을 선택합니다.
 5. **원격 문자 집합** 목록 상자에서 **UTF-8**을 선택합니다.
 6. **선 그리기 문자 처리** 아래에서 **유니코드 선 그리기 코드 포인트 사용**을 선택합니다. 다음 스크린샷은 올바른 PuTTY 선택 항목을 보여 줍니다.
    
     ![UTF Putty 설정](./media/storsimple-windows-powershell-administration/IC740878.png)
-7. **Apply**를 클릭합니다.
+7. **적용**을 클릭합니다.
 
 이제 PuTTY에서 다음 단계를 수행하여 장치 직렬 콘솔에 연결할 수 있습니다.
 

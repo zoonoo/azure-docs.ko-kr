@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2018
 ms.author: mstewart
-ms.openlocfilehash: 62ae0bcfb30e39b3b2cfcf94b3877cce9cadf9d1
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 701418c4c2f17d151061ffde704b5a7f05551d9c
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128006"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338464"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Azure Disk Encryption 필수 구성 요소(이전 릴리스)
 
@@ -204,7 +204,7 @@ Azure Disk Encryption은 [Azure Key Vault](https://azure.microsoft.com/documenta
 
 
 ## <a name="bkmk_ADapp"></a> Azure AD 응용 프로그램 및 서비스 주체 설정 
-Azure에서 실행 중인 VM에서 암호화를 사용하도록 설정해야 하는 경우 Azure Disk Encryption이 암호화 키를 생성하고 Key Vault에 기록합니다. Key Vault에서 암호화 키를 관리하려면 Azure AD 인증이 필요합니다. 이를 위해 Azure AD 응용 프로그램을 만듭니다. 인증을 위해 클라이언트 비밀 기반 인증 또는 [클라이언트 인증서 기반 Azure AD 인증](../active-directory/active-directory-certificate-based-authentication-get-started.md)을 사용할 수 있습니다.
+Azure에서 실행 중인 VM에서 암호화를 사용하도록 설정해야 하는 경우 Azure Disk Encryption이 암호화 키를 생성하고 Key Vault에 기록합니다. Key Vault에서 암호화 키를 관리하려면 Azure AD 인증이 필요합니다. 이를 위해 Azure AD 응용 프로그램을 만듭니다. 인증을 위해 클라이언트 비밀 기반 인증 또는 [클라이언트 인증서 기반 Azure AD 인증](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md)을 사용할 수 있습니다.
 
 
 ### <a name="bkmk_ADappPSH"></a> Azure PowerShell을 사용하여 Azure AD 응용 프로그램 및 서비스 주체 설정 

@@ -2,19 +2,19 @@
 title: 자습서 - Azure Portal에서 게시/구독 채널 및 토픽 필터를 사용하여 소매점 재고 분류 업데이트 | Microsoft Docs
 description: 이 자습서에서는 토픽과 구독에서 메시지를 보내고 받는 방법과 .NET을 사용하여 필터 규칙을 추가하고 사용하는 방법을 알아봅니다.
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
-ms.author: sethm
+ms.author: spelluru
 ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 654cb09621837c360deccecb7778c5d467592dd1
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 2496c931da734c019801e3fa6deee127d8e571df
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124217"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697056"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>자습서: Azure Portal 및 토픽/구독을 사용하여 재고 업데이트
 

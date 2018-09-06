@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4cfd11499efb5978359fd98204271477c52491b5
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 519f13d668f09fb2d83e8f64767e195e2544fc1e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621993"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343289"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Azure AD B2C에서 리소스 소유자 암호 자격 증명 흐름 구성
 
@@ -46,7 +46,7 @@ Azure AD(Azure Active Directory) B2C에서 지원되는 옵션은 다음과 같�
 
    다음 예제와 같은 엔드포인트가 표시됩니다.
 
-   `https://login.microsoftonline.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_ROPC_Auth`
+   `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_ROPC_Auth`
 
 
 ## <a name="register-an-application"></a>응용 프로그램 등록
@@ -64,7 +64,7 @@ Azure AD(Azure Active Directory) B2C에서 지원되는 옵션은 다음과 같�
 - *\<B2C_1A_ROPC_Auth>* 를 리소스 소유자 암호 자격 증명 정책의 전체 이름으로 바꿉니다.
 - *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* 을 등록의 응용 프로그램 ID로 바꿉니다.
 
-`https://login.microsoftonline.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
 | 키 | 값 |
 | --- | ----- |
@@ -81,7 +81,7 @@ Azure AD(Azure Active Directory) B2C에서 지원되는 옵션은 다음과 같�
 
 ```
 POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
-Host: login.microsoftonline.com
+Host: yourtenant.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
@@ -104,7 +104,7 @@ offline-access의 성공적인 응답은 다음 예제와 같습니다.
 
 다음 표의 정보를 사용하여 아래에 표시된 것과 POST 호출을 요청의 본문으로 구성합니다.
 
-`https://login.microsoftonline.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
 | 키 | 값 |
 | --- | ----- |

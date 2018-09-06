@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.openlocfilehash: 8c9253caad8b85b25e3142429c1e23be6f92dd64
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1716ebf1d3490511d7102c8c756c78c0f0c55291
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652402"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43670073"
 ---
 # <a name="design-considerations-for-scale-sets"></a>확장 집합 디자인 고려 사항
 이 문서에서는 Virtual Machine Scale Sets를 설계할 때 고려할 사항에 대해 논의합니다. Virtual Machine Scale Sets에 대한 자세한 내용은 [Virtual Machine Scale Sets 개요](virtual-machine-scale-sets-overview.md)를 참조하세요.
@@ -33,8 +33,8 @@ ms.locfileid: "34652402"
 
 - 확장 집합 구성을 지정하고 나면 추가 VM을 병렬로 배포하도록 *용량* 속성을 업데이트할 수 있습니다. 이 방법은 다수의 개별 VM을 병렬로 배포하는 작업을 오케스트레이션하는 스크립트를 작성하는 것보다 좋습니다.
 - [Azure 자동 크기 조정을 사용하여 확장 집합의 크기를 자동으로 조정](./virtual-machine-scale-sets-autoscale-overview.md)할 수 있지만 개별 VM의 경우는 불가능합니다.
-- [확장 집합 VM을 이미지로 다시 설치](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-a-vm)할 수 있지만 [개별 VM의 경우는 불가능합니다](https://docs.microsoft.com/rest/api/compute/virtualmachines).
-- 안정성 향상과 배포 시간 단축을 위해 확장 집합 VM을 [오버프로비전](./virtual-machine-scale-sets-design-overview.md)할 수 있습니다. 이 작업을 수행하는 사용자 지정 코드를 작성하지 않는 한 개별 VM을 과도하게 프로비전할 수 없습니다.
+- [확장 집합 VM을 이미지로 다시 설치](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/reimage)할 수 있지만 [개별 VM의 경우는 불가능합니다](https://docs.microsoft.com/rest/api/compute/virtualmachines).
+- 안정성 향상과 배포 시간 단축을 위해 확장 집합 VM을 [오버프로비전](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning)할 수 있습니다. 이 작업을 수행하는 사용자 지정 코드를 작성하지 않는 한 개별 VM을 과도하게 프로비전할 수 없습니다.
 - 확장 집합 내 전체 VM에 대한 업그레이드 롤아웃을 수월하게 만들도록 [업그레이드 정책](./virtual-machine-scale-sets-upgrade-scale-set.md)을 지정할 수 있습니다. 개별 VM의 경우 업데이트를 직접 오케스트레이션해야 합니다.
 
 ### <a name="vm-specific-features"></a>VM 특정 기능

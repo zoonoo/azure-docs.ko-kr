@@ -1,18 +1,20 @@
 ---
 title: Terraform을 사용하여 Azure Virtual Machine Scale Set 만들기
-description: Terraform을 사용하여 가상 네트워크 및 관리되는 연결 디스크로 구성되는 Azure 가상 머신 확장 집합을 구성하고 버전을 지정하는 작업에 대한 자습서
+description: Terraform을 사용하여 가상 네트워크 및 관리되는 연결 디스크로 구성된 Azure 가상 머신 확장 집합을 구성하고 버전을 지정하는 작업에 대한 자습서
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, 가상 머신, Azure, 확장 집합, 네트워크, 저장소, 모듈
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
 ms.date: 06/04/2018
-ms.topic: article
-ms.openlocfilehash: 5922bad24c50a9d315aae42ce11a33801b9dbcaf
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9b6a7187827622443c3cb29566dfb5eef840d595
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971836"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666198"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Terraform을 사용하여 Azure Virtual Machine Scale Set 만들기
 
@@ -221,14 +223,14 @@ Azure Cloud Shell 내에서 다음 단계를 수행합니다.
 
 1. Terraform은 `output.tf` 파일에 정의된 대로 출력을 인쇄합니다. 다음 스크린샷과 같이 FQDN은 &lt;id>.&lt;location>.cloudapp.azure.com의 형식을 사용합니다. id 값은 계산된 값이고 location은 Terraform을 실행할 때 입력한 값입니다.
 
-  ![공용 IP 주소에 대한 가상 머신 확장 집합 정규화된 도메인 이름](./media/terraform-create-vm-scaleset-network-disks-hcl/fqdn.png)
+  ![가상 머신 확장 집합의 공용 IP 주소에 대한 정규화된 도메인 이름](./media/terraform-create-vm-scaleset-network-disks-hcl/fqdn.png)
 
 1. Azure Portal의 주 메뉴에서 **리소스 그룹**을 선택합니다.
 
 1. **리소스 그룹** 탭에서 **myResourceGroup**을 선택하여 Terraform에서 만든 리소스를 표시합니다.
-  ![가상 머신 확장 집합 네트워크 인터페이스](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-resources.png)
+  ![가상 머신 확장 집합 네트워크 리소스](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-resources.png)
 
-## <a name="add-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 시작
+## <a name="add-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 추가
 
 이 섹션에서는 다음 리소스를 템플릿에 추가하는 방법에 대해 알아봅니다.
 
@@ -362,7 +364,7 @@ Cloud Shell에서 다음 단계를 수행합니다.
     vi web.conf
     ```
 
-1. I 키를 선택하여 삽입 모드를시작합니다.
+1. I 키를 선택하여 삽입 모드를 시작합니다.
 
 1. 다음 코드를 편집기에 붙여 넣습니다.
 
@@ -439,7 +441,7 @@ Cloud Shell에서 다음 단계를 수행합니다.
   ![FQDN 검색 결과](./media/terraform-create-vm-scaleset-network-disks-hcl/browser-fqdn.png)
 
 ## <a name="add-an-ssh-jumpbox"></a>SSH jumpbox 추가
-SSH *jumpbox*는 네트워크상의 다른 서버에 액세스하기 위해 "이동"할 단일 서버입니다. 이 단계에서는 다음 리소스를 구성합니다.
+SSH *jumpbox*는 네트워크상의 다른 서버에 액세스하기 위해 "점프"할 단일 서버입니다. 이 단계에서는 다음 리소스를 구성합니다.
 
 - 가상 머신 확장 집합과 동일한 서브넷에 연결된 네트워크 인터페이스(또는 Jumpbox)
 

@@ -3,14 +3,14 @@ title: Azure Site Recovery의 VMware와 Azure 간 복제 아키텍처 | Microsof
 description: 이 문서에서는 Azure Site Recovery를 사용하여 온-프레미스 VMware VM을 Azure로 복제할 때 사용되는 구성 요소 및 아키텍처에 대한 개요를 제공합니다.
 author: rayne-wiselman
 ms.service: site-recovery
-ms.date: 07/06/2018
+ms.date: 08/29/2018
 ms.author: raynew
-ms.openlocfilehash: 48adf61dc0f1796b820e1e14ca509d4618c6256b
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4a97c44226d875a08f81a6306fc9ddd4ee29c409
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920570"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288144"
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>VMware에서 Azure로 복제 아키텍처
 
@@ -32,27 +32,12 @@ ms.locfileid: "37920570"
 
 ![구성 요소](./media/vmware-azure-architecture/arch-enhanced.png)
 
-## <a name="configuration-steps"></a>구성 단계
 
-VMware-Azure 재해 복구 또는 VMware-마이그레이션을 설정하는 광범위한 단계는 다음과 같습니다.
-
-1. **Azure 구성 요소 설정**. 올바른 권한의 Azure 계정, Azure Storage 계정, Azure VIrtual Network 및 Recovery Services 자격 증명 모음이 필요합니다. [자세히 알아보기](tutorial-prepare-azure.md).
-2. **온-프레미스 설정**. 여기에는 Site Recovery에서 복제할 VM을 자동으로 검색할 수 있도록 VMware 서버에서 계정을 설정하고, 복제하려는 VM에 모바일 서비스 구성 요소를 설치하는 데 사용할 수 있는 계정을 설정하고, VMware 서버 및 VM이 필수 조건을 준수하는지 확인하는 작업이 포함됩니다. 또한 필요에 따라 장애 조치(Failover) 후에 이러한 Azure VM에 연결하도록 준비할 수 있습니다. Site Recovery는 Azure Storage 계정에 VM 데이터를 복제하고, Azure에 대한 장애 조치(Failover)를 실행할 때 해당 데이터를 사용하여 Azure VM을 만듭니다. [자세히 알아보기](vmware-azure-tutorial-prepare-on-premises.md).
-3. **복제 설정**. 복제할 위치를 선택합니다. 필요한 모든 온-프레미스 Site Recovery 구성 요소를 실행하는 단일 온-프레미스 VMware VM(구성 서버)을 설정하여 원본 복제 환경을 구성합니다. 설정 후에 Recovery Services 자격 증명 모음에서 구성 서버 컴퓨터를 등록합니다. 그런 후 대상 설정을 선택합니다. [자세히 알아보기](vmware-azure-tutorial.md).
-4. **복제 정책 만들기**. 복제가 수행되는 방식을 지정하는 복제 정책을 만듭니다. 
-    - **RPO 임계값**: 이 모니터링 설정은 지정된 시간 내에 복제가 발생하지 않을 경우 경고(및 필요에 따라 전자 메일)가 실행됨을 나타냅니다. 예를 들어, RPO 임계값을 30분으로 설정했으며, 문제로 인해 30분 동안 복제가 발생하지 않을 경우 이벤트가 생성됩니다. 이 설정은 복제에 영향을 주지 않습니다. 복제는 연속적이며, 복구 지점은 몇 분 간격으로 생성됩니다.
-    - **보존**: 복구 지점 보존은 Azure에서 복구 지점이 유지되는 기간을 지정합니다. 프리미엄 저장소에 대해 0~24시간 사이의 값을 지정하거나, 표준 저장소에 대해 최대 72시간을 지정할 수 있습니다. 0보다 큰 값을 설정하는 경우 최신 복구 지점으로 또는 저장된 지점으로 장애 조치(Failover)할 수 있습니다. 보존 기간 후에는 복구 지점이 제거됩니다.
-    - **크래시 일치 스냅숏**: 기본적으로 Site Recovery는 크래시 일치 스냅숏을 생성하고, 이 스냅숏을 사용해서 몇 분 간격으로 복구 지점을 만듭니다. 상호 연관된 모든 데이터 구성 요소의 쓰기 순서가 일치하는 경우가 복구 지점이 생성되었을 때에 해당되므로 복구 지점은 크래시 일치 상태입니다. 좀 더 잘 이해하기 위해 정전 또는 비슷한 이벤트 이후의 PC 하드 드라이브 데이터 상태를 가정해보겠습니다. 응용 프로그램이 데이터 불일치 없이 크래시에서 복구되도록 설계된 경우라는 대부분은 크래시 일치 복구 지점이면 충분합니다.
-    - **앱 일치 스냅숏**: 이 값이 0이 아닌 경우 VM에서 실행되는 모바일 서비스는 파일 시스템 일치 스냅숏 및 복구 지점을 생성하려고 합니다. 첫 번째 스냅숏은 초기 복제가 완료된 후에 생성됩니다. 그런 후에는 지정한 빈도로 스냅숏이 생성됩니다. 복구 지점은 쓰기 순서 일치 외에도, 실행 중인 응용 프로그램이 모든 작업을 완료하고 해당 버퍼를 디스크에 플러시하는 경우(응용 프로그램 정지) 응용 프로그램 일치 상태가 됩니다. 앱 일치 복구 지점은 SQL, Oracle, Exchange 등의 데이터베이스 응용 프로그램에 권장됩니다. 크래시 일치 스냅숏으로 충분한 경우 이 값을 0으로 설정할 수 있습니다.  
-    - **다중 VM 일치**: 필요에 따라 복제 그룹을 만들 수 있습니다. 그런 다음, 복제를 사용하도록 설정하면 해당 그룹으로 VM을 수집할 수 있습니다. 복제 그룹의 VM은 함께 복제되고 장애 조치(Failover) 시 공유 크래시 일치 및 앱 일치 복구 지점을 갖습니다. 스냅숏은 여러 컴퓨터에서 수집되어야 하므로 워크로드 성능에 영향을 줄 수 있습니다. 따라서 이 옵션은 신중하게 사용해야 합니다. VM이 동일한 워크로드를 실행하고 일관되어야 하며 비슷한 변동을 나타내는 경우에만 이 옵션을 사용하세요. 하나의 그룹에 최대 8개의 VM을 추가할 수 있습니다. 
-5. **VM 복제를 사용하도록 설정**. 마지막으로, 온-프레미스 VMware VM에 대해 복제를 사용하도록 설정합니다. 모바일 서비스를 설치하기 위한 계정을 만들고 Site Recovery가 강제 설치를 수행하도록 지정한 경우, 모바일 서비스는 복제를 사용하도록 설정한 각 VM에 설치됩니다. [자세히 알아보기](vmware-azure-tutorial.md#enable-replication). 다중 VM 일치를 위해 복제 그룹을 만든 경우 해당 그룹에 VM을 추가할 수 있습니다.
-6. **테스트 장애 조치(Failover)**. 모든 항목을 설정한 후 테스트 장애 조치(Failover)를 수행하여 VM이 예상대로 Azure로 장애 조치(Failover)되는지 확인할 수 있습니다. [자세히 알아보기](tutorial-dr-drill-azure.md).
-7. **장애 조치(Failover)**. VM을 Azure로 마이그레이션하기만 하려는 경우 이 작업을 위해 전체 장애 조치(Failover)를 실행합니다. 재해 복구를 설정하는 경우에는 필요할 때 전체 장애 조치(Failover)를 실행할 수 있습니다. 전체 재해 복구의 경우 Azure로 장애 조치(Failover)한 후에 가능할 때 온-프레미스 사이트로 다시 장애 복구(Failback)할 수 있습니다. [자세히 알아보기](vmware-azure-tutorial-failover-failback.md).
 
 ## <a name="replication-process"></a>복제 프로세스
 
 1. VM에 대한 복제를 사용하도록 설정하면 복제 정책에 따라 복제되기 시작합니다. 
-2. 트래픽은 인터넷을 통해 Azure Storage 공용 끝점에 복제됩니다. Azure ExpressRoute과 [공용 피어링](../expressroute/expressroute-circuit-peerings.md#azure-public-peering)을 함께 사용할 수도 있습니다. 온-프레미스 사이트에서 Azure로의 사이트 간 VPN(가상 사설망)을 통한 트래픽 복제는 지원되지 않습니다.
+2. 트래픽은 인터넷을 통해 Azure Storage 공용 엔드포인트에 복제됩니다. Azure ExpressRoute과 [공용 피어링](../expressroute/expressroute-circuit-peerings.md#azure-public-peering)을 함께 사용할 수도 있습니다. 온-프레미스 사이트에서 Azure로의 사이트 간 VPN(가상 사설망)을 통한 트래픽 복제는 지원되지 않습니다.
 3. VM 데이터의 초기 복사본은 Azure Storage에 복제됩니다.
 4. 초기 복제가 완료되면 Azure에 대한 델타 변경 내용의 복제가 시작됩니다. .hrl 파일에는 컴퓨터에 대한 추적된 변경 내용이 유지됩니다.
 5. 다음과 같이 통신이 발생합니다.

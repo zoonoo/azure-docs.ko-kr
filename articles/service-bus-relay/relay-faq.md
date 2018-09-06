@@ -3,7 +3,7 @@ title: Azure Relay FAQ | Microsoft Docs
 description: Azure Relay에 대해 자주 묻는 일부 질문에 답변합니다.
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 886d2c7f-838f-4938-bd23-466662fb1c8e
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
-ms.author: sethm
-ms.openlocfilehash: 1795c1ec0b4129e3c99fff3fc893148e191ce83e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: spelluru
+ms.openlocfilehash: e30e8c94547ac0f9106a69f1e99cf9a7c03abea5
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641495"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695900"
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay FAQ
 
@@ -80,8 +80,8 @@ Service Bus Relay에 메시지를 보내는 경우 메시지를 수신하는 릴
 | 할당량 이름 | 범위 |  메모 | 값 |
 | --- | --- | --- | --- |
 | 릴레이의 동시 수신기 |엔터티 |추가 연결에 대한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. |25 |
-| 서비스 네임스페이스의 모든 릴레이 끝점당 동시 릴레이 연결 |네임스페이스 |- |5,000 |
-| 서비스 네임스페이스당 릴레이 끝점 |네임스페이스 |- |10000 |
+| 서비스 네임스페이스의 모든 릴레이 엔드포인트당 동시 릴레이 연결 |네임스페이스 |- |5,000 |
+| 서비스 네임스페이스당 릴레이 엔드포인트 |네임스페이스 |- |10000 |
 | [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) and [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) 릴레이의 메시지 크기 |네임스페이스 |이러한 할당량을 초과하는 들어오는 메시지가 거부되며 호출 코드에서 예외를 수신합니다. |64KB |
 | [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) 및 [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) 릴레이의 메시지 크기 |네임스페이스 |메시지 크기에 제한이 없습니다. |Unlimited |
 
@@ -127,7 +127,7 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>공유 액세스 서명이란 무엇이고 어떤 언어를 사용하여 서명을 생성할 수 있나요?
 공유 액세스 서명(SAS)은 SHA-256 보안 해시 또는 URI에 따른 인증 메커니즘입니다. Node, PHP, Java, C 및 C#에서 자신의 서명을 생성하는 방법에 대한 내용은 [공유 액세스 서명을 사용한 Service Bus 인증][Shared Access Signatures] 문서를 참조하세요.
 
-### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>릴레이 끝점을 허용 목록에 추가할 수 있나요?
+### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>릴레이 엔드포인트를 허용 목록에 추가할 수 있나요?
 예. 릴레이 클라이언트는 FQDN(정규화된 도메인 이름)을 사용하여 Azure Relay 서비스에 연결합니다. 고객은 DNS 허용 목록을 지원하는 방화벽에 `*.servicebus.windows.net`에 대한 항목을 추가할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

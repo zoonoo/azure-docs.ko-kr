@@ -3,19 +3,19 @@ title: Azure Service Bus를 사용하는 .NET 다중 계층 응용 프로그램 
 description: Azure에서 Service Bus 큐를 사용하여 계층 간에 통신하는 다중 계층 응용 프로그램을 개발하는 데 도움이 되는 .NET 자습서입니다.
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2018
-ms.author: sethm
-ms.openlocfilehash: 34b647c0405e4d0997eca12758c10b60cf862a5f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: spelluru
+ms.openlocfilehash: cd451f50406c8ee9e20420b02988fd63366f9061
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611235"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699916"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Azure Service Bus 큐를 사용하는 .NET 다중 계층 응용 프로그램
 
@@ -315,10 +315,10 @@ Service Bus는 조정된 메시징을 지원하는 두 개의 엔터티인 큐�
 4. **새 역할 프로젝트 추가** 대화 상자에서 **Service Bus 큐가 있는 작업자 역할**을 클릭합니다.
    
    ![][23]
-5. **이름** 상자에서 프로젝트 이름을 **OrderProcessingRole**로 지정합니다. 그런 다음 **추가**를 클릭합니다.
+5. **이름** 상자에서 프로젝트 이름을 **OrderProcessingRole**로 지정합니다. 그런 다음, **추가**를 클릭합니다.
 6. "Service Bus 네임스페이스 만들기" 섹션의 9단계에서 얻은 연결 문자열을 클립보드에 복사합니다.
 7. **솔루션 탐색기**에서, 5단계에서 만든 **OrderProcessingRole**을 마우스 오른쪽 단추로 클릭합니다. 이때 클래스가 아니라 **역할**에서 **OrderProcessingRole**을 마우스 오른쪽 단추로 클릭해야 합니다. 그런 다음 **속성**을 클릭합니다.
-8. **속성** 대화 상자의 **설정** 탭에서 **Microsoft.ServiceBus.ConnectionString**의 **값** 상자 내부를 클릭한 다음 6단계에서 복사한 끝점 값을 붙여 넣습니다.
+8. **속성** 대화 상자의 **설정** 탭에서 **Microsoft.ServiceBus.ConnectionString**의 **값** 상자 내부를 클릭한 다음 6단계에서 복사한 엔드포인트 값을 붙여 넣습니다.
    
    ![][25]
 9. **OnlineOrder** 클래스를 만들어 큐에서 처리할 때 주문을 나타냅니다. 이미 만든 클래스를 다시 사용할 수 있습니다. **솔루션 탐색기**에서 **OrderProcessingRole** 클래스를 마우스 오른쪽 단추로 클릭합니다(역할이 아닌 클래스 아이콘을 마우스 오른쪽 단추로 클릭). **추가**를 클릭한 후 **기존 항목**을 클릭합니다.

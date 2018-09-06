@@ -3,7 +3,7 @@ title: Azure Service Bus 인증 및 권한 부여 | Microsoft Docs
 description: SAS(공유 액세스 서명) 인증을 사용하여 Service Bus에 대해 앱을 인증합니다.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 18bad0ed-1cee-4a5c-a377-facc4785c8c9
@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2017
-ms.author: sethm
-ms.openlocfilehash: b8b5887f2003dd793ae7a50f066b893f685002a0
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.author: spelluru
+ms.openlocfilehash: e98d980747edfb9987430a635ff3118cdd455828
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
-ms.locfileid: "24813932"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702326"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Service Bus 인증 및 권한 부여
 
 응용 프로그램은 SAS(공유 액세스 서명) 토큰 인증을 사용하여 Azure Service Bus 리소스에 액세스할 수 있습니다. SAS를 사용하면 응용 프로그램은 토큰 발급자 및 Service Bus(또한 “공유”) 모두에 알려진 대칭 키를 사용하여 서명된 Service Bus에 대한 토큰 및 메시지를 수신/수신 대기하거나 보내는 사용 권한 등 특정 액세스 권한을 부여하는 규칙과 직접 연결된 키를 나타냅니다. SAS 규칙은 네임스페이스 또는 큐나 항목과 같은 엔터티에 직접 구성되어 세분화된 액세스 제어를 허용합니다.
 
-SAS 토큰은 Service Bus 클라이언트에 의해 직접 생성되거나 또는 클라이언트에서 상호 작용하는 끝점을 발급하는 일부 중간 토큰에 의해 생성될 수 있습니다. 예를 들어, 시스템은 해당 ID 및 시스템 액세스 권한을 증명하기 위해 클라이언트에서 Active Directory 권한 부여 보호 웹 서비스 끝점을 호출해야 할 수 있습니다. 웹 서비스는 적절한 Service Bus 토큰을 반환합니다. 이 SAS 토큰은 Azure SDK에 포함된 Service Bus 토큰 공급자를 사용하여 쉽게 생성할 수 있습니다. 
+SAS 토큰은 Service Bus 클라이언트에 의해 직접 생성되거나 또는 클라이언트에서 상호 작용하는 엔드포인트를 발급하는 일부 중간 토큰에 의해 생성될 수 있습니다. 예를 들어, 시스템은 해당 ID 및 시스템 액세스 권한을 증명하기 위해 클라이언트에서 Active Directory 권한 부여 보호 웹 서비스 엔드포인트를 호출해야 할 수 있습니다. 웹 서비스는 적절한 Service Bus 토큰을 반환합니다. 이 SAS 토큰은 Azure SDK에 포함된 Service Bus 토큰 공급자를 사용하여 쉽게 생성할 수 있습니다. 
 
 > [!IMPORTANT]
 > Azure Active Directory Access Control(Access Control Service 또는 ACS라고도 함)을 Service Bus와 함께 사용하는 경우 이제 이 메서드에 대한 지원이 제한되고 SAS를 사용하려면 응용 프로그램을 마이그레이션해야 합니다. 자세한 내용은 [이 블로그 게시물](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/) 및 [이 문서](service-bus-migrate-acs-sas.md)를 참조하세요.

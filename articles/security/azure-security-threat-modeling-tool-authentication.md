@@ -3,23 +3,23 @@ title: 인증 - Microsoft 위협 모델링 도구 - Azure | Microsoft Docs
 description: 위협 모델링 도구에 노출되는 위협 완화
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: d53ade1e5c31ca25636b95d4f8b9e0fe29f9d081
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.date: 02/07/2017
+ms.author: jegeib
+ms.openlocfilehash: 23e219fa49146158c97f392427eee7c42c347a7a
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031110"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307423"
 ---
 # <a name="security-frame-authentication--mitigations"></a>보안 프레임: 인증 | 완화 
 | 제품/서비스 | 문서 |
@@ -190,7 +190,7 @@ ms.locfileid: "37031110"
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 환경 - Azure  |
 | **참조**              | [Service Fabric 클러스터 보안 시나리오](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security) |
-| **단계** | <p>항상 실행 중인 프로덕션 작업이 있을 때 권한 없는 사용자가 클러스터에 연결하지 못하도록 하여 클러스터의 보안을 유지합니다.</p><p>Service Fabric 클러스터를 만드는 동안에는 보안 모드가 "secure"로 설정되고 필요한 X.509 서버 인증서를 구성해야 합니다. "insecure" 클러스터를 만들면 공용 인터넷에 관리 끝점이 노출될 경우 익명 사용자가 클러스터에 연결할 수 있게 됩니다.</p>|
+| **단계** | <p>항상 실행 중인 프로덕션 작업이 있을 때 권한 없는 사용자가 클러스터에 연결하지 못하도록 하여 클러스터의 보안을 유지합니다.</p><p>Service Fabric 클러스터를 만드는 동안에는 보안 모드가 "secure"로 설정되고 필요한 X.509 서버 인증서를 구성해야 합니다. "insecure" 클러스터를 만들면 공용 인터넷에 관리 엔드포인트가 노출될 경우 익명 사용자가 클러스터에 연결할 수 있게 됩니다.</p>|
 
 ## <a id="fabric-cn-nn"></a>Service Fabric 클라이언트-노드 인증서가 노드-노드 인증서와 다른지 확인
 
@@ -212,7 +212,7 @@ ms.locfileid: "37031110"
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 환경 - Azure |
 | **참조**              | [클러스터 보안 시나리오 - 보안 권장 사항](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#security-recommendations) |
-| **단계** | 또한 Azure에서 실행되는 클라이언트는 클라이언트 인증서와 별도로, AAD(Azure Active Directory)를 사용하여 관리 끝점에 안전하게 액세스할 수 있습니다. Azure 클러스터의 경우 AAD 보안을 사용하여 노드 간 보안에 대해 클라이언트 및 인증서를 인증하는 것이 좋습니다.|
+| **단계** | 또한 Azure에서 실행되는 클라이언트는 클라이언트 인증서와 별도로, AAD(Azure Active Directory)를 사용하여 관리 엔드포인트에 안전하게 액세스할 수 있습니다. Azure 클러스터의 경우 AAD 보안을 사용하여 노드 간 보안에 대해 클라이언트 및 인증서를 인증하는 것이 좋습니다.|
 
 ## <a id="fabric-cert-ca"></a>Service Fabric 인증서가 승인된 인증 기관(CA)에서 가져온 것인지 확인
 
@@ -372,7 +372,7 @@ ms.locfileid: "37031110"
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [웹 응용 프로그램에 대한 Azure Active Directory의 최신 인증](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/)(영문) |
-| **단계** | <p>TokenReplayCache 속성을 통해 개발자는 토큰 재생 캐시를 정의할 수 있으며 두 번 이상 사용할 수 있는 토큰이 없음을 확인할 용도로 토큰을 저장하는 데 사용할 수 있는 저장소를 정의할 수 있습니다.</p><p>일반적인 공격 즉, 토큰 재생 공격에 대한 조치입니다. 로그인 시 전송된 토큰을 가로채는 공격자는 새로운 세션을 설정하기 위해 토큰을 다시 앱에 전송("재생")하려고 할 수 있습니다. 예를 들어, OIDC 코드 부여 흐름에서 사용자가 성공적으로 인증된 후 신뢰 당사자의 "/signin-oidc" 끝점에 대한 요청은 "id_token", "code" 및 "state" 매개 변수로 구성됩니다.</p><p>신뢰 당사자는 이 요청을 확인하고 새 세션을 설정합니다. 이 요청을 악의적으로 캡처하고 재생한 공격자는 성공적인 세션을 설정하여 사용자를 스푸핑할 수 있습니다. OpenID Connect에서 nonce의 존재를 제한할 수는 있지만 공격을 성공적으로 적용할 수 있는 환경이 완전히 사라지지는 않습니다. 이러한 응용 프로그램을 보호하려면 개발자는 ITokenReplayCache의 구현을 제공하고 인스턴스를 TokenReplayCache에 할당할 수 있습니다.</p>|
+| **단계** | <p>TokenReplayCache 속성을 통해 개발자는 토큰 재생 캐시를 정의할 수 있으며 두 번 이상 사용할 수 있는 토큰이 없음을 확인할 용도로 토큰을 저장하는 데 사용할 수 있는 저장소를 정의할 수 있습니다.</p><p>일반적인 공격 즉, 토큰 재생 공격에 대한 조치입니다. 로그인 시 전송된 토큰을 가로채는 공격자는 새로운 세션을 설정하기 위해 토큰을 다시 앱에 전송("재생")하려고 할 수 있습니다. 예를 들어, OIDC 코드 부여 흐름에서 사용자가 성공적으로 인증된 후 신뢰 당사자의 "/signin-oidc" 엔드포인트에 대한 요청은 "id_token", "code" 및 "state" 매개 변수로 구성됩니다.</p><p>신뢰 당사자는 이 요청을 확인하고 새 세션을 설정합니다. 이 요청을 악의적으로 캡처하고 재생한 공격자는 성공적인 세션을 설정하여 사용자를 스푸핑할 수 있습니다. OpenID Connect에서 nonce의 존재를 제한할 수는 있지만 공격을 성공적으로 적용할 수 있는 환경이 완전히 사라지지는 않습니다. 이러한 응용 프로그램을 보호하려면 개발자는 ITokenReplayCache의 구현을 제공하고 인스턴스를 TokenReplayCache에 할당할 수 있습니다.</p>|
 
 ### <a name="example"></a>예
 ```csharp
@@ -422,7 +422,7 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 }
 ```
 
-이 구성의 효율성을 테스트하려면 OIDC로 보호되는 로컬 응용 프로그램에 로그인하고 fiddler에서 `"/signin-oidc"` 끝점에 대한 요청을 캡처합니다. 보호 조치가 없는 경우 fiddler에서 이 요청을 재생하면 새로운 세션 쿠키가 설정됩니다. TokenReplayCache 보호를 추가한 후 요청이 재생되면 다음과 같이 응용 프로그램에서 예외가 throw됩니다. `SecurityTokenReplayDetectedException: IDX10228: The securityToken has previously been validated, securityToken: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ1......`
+이 구성의 효율성을 테스트하려면 OIDC로 보호되는 로컬 응용 프로그램에 로그인하고 fiddler에서 `"/signin-oidc"` 엔드포인트에 대한 요청을 캡처합니다. 보호 조치가 없는 경우 fiddler에서 이 요청을 재생하면 새로운 세션 쿠키가 설정됩니다. TokenReplayCache 보호를 추가한 후 요청이 재생되면 다음과 같이 응용 프로그램에서 예외가 throw됩니다. `SecurityTokenReplayDetectedException: IDX10228: The securityToken has previously been validated, securityToken: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ1......`
 
 ## <a id="adal-oauth2"></a>ADAL 라이브러리를 사용하여 OAuth2 클라이언트에서 AAD(또는 온-프레미스 AD)로 토큰 요청 관리
 

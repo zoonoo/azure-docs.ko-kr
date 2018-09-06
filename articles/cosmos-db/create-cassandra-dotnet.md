@@ -11,14 +11,21 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 1b7021987c1c58c7b08798a28643ac647569e2bc
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6ab7c0fa5f7e4d10b38ecee8f75372dda3b11a1c
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38485551"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700583"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-and-azure-cosmos-db"></a>빠른 시작: .NET 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
+
+> [!div class="op_single_selector"]
+> * [.NET](create-cassandra-dotnet.md)
+> * [Java](create-cassandra-java.md)
+> * [Node.js](create-cassandra-nodejs.md)
+> * [Python](create-cassandra-python.md)
+>  
 
 이 빠른 시작에서는 GitHub에서 예제를 복제하여 프로필 앱을 빌드하기 위해 .NET과 Azure Cosmos DB [Cassandra API](cassandra-introduction.md)를 사용하는 방법을 보여 줍니다. 이 빠른 시작에서는 또한 웹 기반 Azure Portal을 사용하여 Azure Cosmos DB 계정을 만드는 과정을 안내합니다.   
 
@@ -66,9 +73,9 @@ Azure Cosmos DB Cassandra API 미리 보기 프로그램에 액세스합니다. 
 
 ## <a name="review-the-code"></a>코드 검토
 
-이 단계는 옵션입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 코드 조각은 모두 C:\git-samples\azure-cosmos-db-cassandra-dotnet-getting-started\CassandraQuickStartSample 폴더에 설치된 Program.cs 파일에서 가져옵니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-string)로 건너뛸 수 있습니다.
+이 단계는 선택 사항입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 코드 조각은 모두 C:\git-samples\azure-cosmos-db-cassandra-dotnet-getting-started\CassandraQuickStartSample 폴더에 설치된 Program.cs 파일에서 가져옵니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-string)로 건너뛸 수 있습니다.
 
-* Cassandra 클러스터 끝점에 연결하여 세션을 초기화합니다. Azure Cosmos DB의 Cassandra API는 TLSv1.2만 지원합니다. 
+* Cassandra 클러스터 엔드포인트에 연결하여 세션을 초기화합니다. Azure Cosmos DB의 Cassandra API는 TLSv1.2만 지원합니다. 
 
   ```csharp
    var options = new Cassandra.SSLOptions(SslProtocols.Tls12, true, ValidateServerCertificate);

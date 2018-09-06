@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 3ee1f394536061cecaa5d775650149b30098560e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5060839be244f55700b40735e598964a0b7b6709
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600224"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382048"
 ---
 # <a name="add-custom-html-to-the-map"></a>지도에 사용자 지정 HTML 추가
 
@@ -29,13 +29,13 @@ ms.locfileid: "34600224"
 
 두 번째 코드 블록은 이미지에서 HTML 요소를 만듭니다.
 
-마지막 코드 블록은 map 클래스의 [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addhtml) 함수를 사용하여 지도의 지정된 위치에 이미지를 추가합니다.
+마지막 코드 블록은 map 클래스의 [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addhtml) 함수를 사용하여 지도의 지정된 위치에 이미지를 추가합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다. 
-* [Map](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
-    * [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addhtml)
+* [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+    * [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addhtml)
     
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요. 
 * [검색 결과 표시](./map-search-location.md)

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 7ca0e8eb2d496bdcd8eff7dbee2af2e549f123dd
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 988c264ef6052b4b41de493944ac8d39a197a083
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626858"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698760"
 ---
 # <a name="data-management-gateway"></a>데이터 관리 게이트웨이
 > [!NOTE]
@@ -142,7 +142,7 @@ ms.locfileid: "39626858"
 
 | 도메인 이름 | 포트 | 설명 |
 | --- | --- | --- |
-| *.servicebus.windows.net |443, 80 |데이터 이동 서비스 백 엔드와 통신에 사용됨 |
+| \*.servicebus.windows.net |443 |데이터 이동 서비스 백 엔드와 통신에 사용됨 |
 | *.core.windows.net |443 |Azure Blob를 사용하여 준비된 복사에 사용됨(구성된 경우)|
 | *.frontend.clouddatahub.net |443 |데이터 이동 서비스 백 엔드와 통신에 사용됨 |
 | \*.servicebus.windows.net |9350-9354, 5671 |복사 마법사에서 사용하는 TCP에 대한 선택적 Service Bus Relay |
@@ -322,7 +322,7 @@ Azure Portal에서 온-프레미스 연결된 서비스를 설정할 때 **자�
 설정 페이지를 통해 다음 작업을 수행할 수 있습니다.
 
 * 게이트웨이에서 사용한 **인증서**를 보고 변경하고 내보냅니다. 이 인증서는 데이터 원본 자격 증명을 암호화하는 데 사용됩니다.
-* 끝점에 대한 **HTTPS 포트**를 변경합니다. 게이트웨이는 데이터 원본 자격 증명을 설정하기 위한 포트를 엽니다.
+* 엔드포인트에 대한 **HTTPS 포트**를 변경합니다. 게이트웨이는 데이터 원본 자격 증명을 설정하기 위한 포트를 엽니다.
 * **상태** 
 * **SSL 인증서**는 포털과 게이트웨이 간의 SSL 통신에서 데이터 원본에 대한 자격 증명을 설정하는 데 사용됩니다.  
 

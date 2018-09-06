@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 62d821894521c5dea8e7577b75d9590adc829263
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b32e9628b80705a99a2a8cf77534ed37a47515c8
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212418"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669099"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>X.509 인증서를 사용하여 Windows에서 독립 실행형 클러스터 보호
 이 문서에서는 독립 실행형 Windows 클러스터의 다양한 노드 간 통신을 보호하는 방법에 대해 설명합니다. 또한 X.509 인증서를 사용하여 이 클러스터에 연결하는 클라이언트를 인증하는 방법에 대해서도 설명합니다. 인증을 통해 권한 있는 사용자만 클러스터 및 배포된 응용 프로그램에 액세스하고 관리 작업을 수행할 수 있습니다. 인증서 보안은 클러스터가 만들어지기 전에 클러스터에서 사용되어야 합니다.  
@@ -354,7 +354,7 @@ $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $Tru
 Connect-ServiceFabricCluster $ConnectArgs
 ```
 
-그런 다음 다른 PowerShell 명령을 실행하면 이 클러스터에 대해 작업할 수 있습니다. 예를 들어 [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode.md?view=azureservicefabricps)를 실행하여 이 보안 클러스터의 노드 목록을 표시할 수 있습니다.
+그런 다음 다른 PowerShell 명령을 실행하면 이 클러스터에 대해 작업할 수 있습니다. 예를 들어 [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps)를 실행하여 이 보안 클러스터의 노드 목록을 표시할 수 있습니다.
 
 
 클러스터를 제거하려면 Service Fabric 패키지를 다운로드한 클러스터의 노드에 연결하고, 명령줄을 열고, 패키지 폴더로 이동합니다. 이제 다음 명령을 실행합니다.

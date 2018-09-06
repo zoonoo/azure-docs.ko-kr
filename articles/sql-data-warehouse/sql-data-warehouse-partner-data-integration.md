@@ -3,19 +3,19 @@ title: SQL Data Warehouse 데이터 통합 파트너 | Microsoft Docs
 description: Azure SQL Data Warehouse를 지원하는 데이터 통합 솔루션을 제공하는 타사 파트너 목록
 services: sql-data-warehouse
 author: jrowlandjones
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 1329fe4b30070111354adb87b32be6f694f316c5
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: d92d230be1ec0e85894a1e9e4d8635aa71afa514
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141567"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307707"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>SQL Data Warehouse 데이터 통합 파트너
 데이터 웨어하우스 솔루션을 만들려면 다양한 업계 최고의 도구에서 선택합니다. 이 문서에서는 Azure SQL Data Warehouse를 지원하는 데이터 통합 솔루션을 제공하는 Microsoft 파트너 기업을 중점적으로 소개합니다.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 41d0d3826acdd374a86588fbd8e7a23d03810fda
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 5513e0ff434862ea7eee42cb94ff2a0f67f6d390
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113783"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338747"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: 사용자 지정 프로필 편집 정책에서 특성 사용
 
@@ -247,7 +247,7 @@ Azure AD B2C는 각 사용자 계정에 저장된 특성 집합을 확장합니�
   "exp": 1493585187,
   "nbf": 1493581587,
   "ver": "1.0",
-  "iss": "https://login.microsoftonline.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+  "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
   "sub": "a58e7c6c-7535-4074-93da-b0023fbaf3ac",
   "aud": "4e87c1dd-e5f5-4ac8-8368-bc6a98751b8b",
   "acr": "b2c_1a_trustframeworkprofileedit",
@@ -272,7 +272,7 @@ Azure AD B2C는 각 사용자 계정에 저장된 특성 집합을 확장합니�
 2. 기본 제공 및 사용자 지정 정책 간에 동일한 확장 특성을 사용합니다. 포털 환경을 통해 확장 특성이나 사용자 지정 특성을 추가하는 경우, 해당 특성은 모든 B2C 테넌트에 존재하는 **b2c-extensions-app**을 사용하여 등록됩니다. 사용자 지정 정책에서 확장 특성을 사용하려면 다음 단계를 수행합니다.
 
   a. portal.azure.com의 B2C 테넌트 내에서 **Azure Active Directory**로 이동하고 **앱 등록**을 선택합니다.  
-  나. **b2c-extensions-app**을 찾고 선택합니다.  
+  b. **b2c-extensions-app**을 찾고 선택합니다.  
   다. **Essentials** 아래에서 **응용 프로그램 ID** 및 **개체 ID**를 입력합니다.  
   d. **AAD-Common** TechnicalProfile 메타데이터에 포함합니다.  
 
@@ -303,6 +303,6 @@ Azure AD B2C는 각 사용자 계정에 저장된 특성 집합을 확장합니�
 확장 속성에 대한 자세한 내용은 [디렉터리 스키마 확장 | Graph API 개념](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) 문서를 참조하세요.
 
 > [!NOTE]
-> * **TechnicalProfile**은 끝점의 이름, 메타데이터 및 프로토콜을 정의하는 요소 형식 또는 함수입니다. **TechnicalProfile**은 ID 경험 프레임워크가 수행하는 클레임의 교환을 설명합니다. 오케스트레이션 단계 또는 다른 **TechnicalProfile**에서 이 함수를 호출하면 **InputClaims** 및 **OutputClaims**가 호출자의 매개 변수로 제공됩니다.  
+> * **TechnicalProfile**은 엔드포인트의 이름, 메타데이터 및 프로토콜을 정의하는 요소 형식 또는 함수입니다. **TechnicalProfile**은 ID 경험 프레임워크가 수행하는 클레임의 교환을 설명합니다. 오케스트레이션 단계 또는 다른 **TechnicalProfile**에서 이 함수를 호출하면 **InputClaims** 및 **OutputClaims**가 호출자의 매개 변수로 제공됩니다.  
 > * Graph API의 확장 특성은 `extension_ApplicationObjectID_attributename` 규칙을 사용하여 명명됩니다.  
 > * 사용자 지정 정책은 확장 특성을 **extension_attributename**으로 참조합니다. 이 참조는 XML에서 **ApplicationObjectId**를 생략합니다.

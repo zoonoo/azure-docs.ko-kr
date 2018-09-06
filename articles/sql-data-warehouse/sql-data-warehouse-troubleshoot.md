@@ -3,19 +3,19 @@ title: Azure SQL Data Warehouse 문제 해결 | Microsoft Docs
 description: Azure SQL Data Warehouse 문제 해결
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 27445eb754a5e985485db101c9d0fe1ba8aa2451
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: befb4cc075841d45cae769b5ddf924434e65eff3
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525250"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307250"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse 문제 해결
 이 항목에서는 일반적인 문제 해결 질문을 나열합니다.

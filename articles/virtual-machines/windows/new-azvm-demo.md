@@ -16,18 +16,18 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: ede8fab67c04eb7ce8d26280de2d1563b6cc8ad2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: defc871caed429eeda1f8672323b48a9c0007c8e
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38678743"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371740"
 ---
 # <a name="create-a-windows-virtual-machine-with-the-simplified-new-azurermvm-cmdlet-in-cloud-shell"></a>Cloud Shell에서 간소화된 New-AzureRMVM cmdlet을 사용하여 Windows 가상 머신 만들기 
 
-[New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) cmdlet은 PowerShell을 사용하여 새 VM을 만드는 간소화된 집합의 매개 변수를 추가했습니다. 이 항목에서는 최신 버전의 New-AzureVM cmdlet이 사전 설치된 Azure Cloud Shell에서 PowerShell을 사용하여 새 VM을 만드는 방법을 보여줍니다. 스마트 기본값을 사용하여 필요한 모든 리소스를 자동으로 만드는 간소화된 매개 변수 집합을 사용합니다. 
+[New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm?view=azurermps-6.8.1) cmdlet은 PowerShell을 사용하여 새 VM을 만드는 간소화된 집합의 매개 변수를 추가했습니다. 이 항목에서는 최신 버전의 New-AzureVM cmdlet이 사전 설치된 Azure Cloud Shell에서 PowerShell을 사용하여 새 VM을 만드는 방법을 보여줍니다. 스마트 기본값을 사용하여 필요한 모든 리소스를 자동으로 만드는 간소화된 매개 변수 집합을 사용합니다. 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 
 [!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]
@@ -36,7 +36,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 자습
 
 ## <a name="create-the-vm"></a>VM 만들기
 
-[New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) cmdlet을 사용하여 Azure Marketplace의 Windows Server 2016 데이터 센터 이미지 사용을 포함하는 스마트 기본값으로 VM을 만들 수 있습니다. **-Name** 매개 변수와 함께 New-AzureRMVM을 사용할 수 있으며 모든 리소스 이름에 해당 값을 사용합니다. 이 예에서 *myVM*으로 **-Name** 매개 변수를 설정합니다. 
+[New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm?view=azurermps-6.8.1) cmdlet을 사용하여 Azure Marketplace의 Windows Server 2016 데이터 센터 이미지 사용을 포함하는 스마트 기본값으로 VM을 만들 수 있습니다. **-Name** 매개 변수와 함께 New-AzureRMVM을 사용할 수 있으며 모든 리소스 이름에 해당 값을 사용합니다. 이 예에서 *myVM*으로 **-Name** 매개 변수를 설정합니다. 
 
 Cloud Shell 및 형식에서 **PowerShell**이 선택되었는지 확인합니다.
 

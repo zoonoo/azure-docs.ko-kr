@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 70d3a19b715052fe658102929a1c29cf3db2d595
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e09ad89f3225af9de40781fafc022c8326f80619
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443732"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338641"
 ---
 # <a name="azure-active-directory-b2c-sign-in-using-azure-ad-accounts-through-a-built-in-policy"></a>Azure Active Directory B2C: 기본 제공 정책을 통해 Azure AD 계정을 사용하여 로그인
 
@@ -37,13 +37,13 @@ ms.locfileid: "37443732"
 1. **새 응용 프로그램 등록**을 선택합니다.
 1. 응용 프로그램의 이름(예: `Azure AD B2C App`)을 입력합니다.
 1. 응용 프로그램 종류에 대해 **웹앱/API**를 선택합니다.
-1. **로그온 URL**에 대해 다음 URL을 입력합니다. 여기서 `yourtenant`는 Azure AD B2C 테넌트의 이름(`fabrikamb2c.onmicrosoft.com`)으로 바뀝니다.
+1. **로그온 URL**에 대해 다음 URL을 입력합니다. 여기서 `yourtenant`는 Azure AD B2C 테넌트의 이름(`fabrikamb2c`)으로 바뀝니다.
 
     >[!NOTE]
     >"yourtenant"의 값은 **로그온 URL**에서 모두 소문자여야 합니다.
 
     ```Console
-    https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
+    https://yourtenant.b2clogin.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
 1. 응용 프로그램 ID를 저장합니다. 이 ID를 다음 섹션에서 클라이언트 ID로 사용하게 됩니다.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ca4da794aaa6c96908976400d9a8452f6a644f39
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 5b7621bde0be02b4656c4678438b94499bb82b5b
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42142827"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43345040"
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-salesforce-accounts-via-saml"></a>Azure Active Directory B2C: SAML을 통해 Salesforce 계정을 사용하여 로그인
 
@@ -66,11 +66,11 @@ Azure AD B2C가 Salesforce와 통신하도록 지원하려면 Salesforce 메타�
 4. **Web App 설정**아래에서 **SAML 설정** 확인란을 선택합니다.
 5. **엔터티 ID** 필드에 다음 URL을 입력합니다. `tenantName`에 대한 값을 바꾸어야 합니다.
       ```
-      https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase
+      https://tenantName.b2clogin.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase
       ```
 6. **ACS URL** 필드에 다음 URL을 입력합니다. `tenantName`에 대한 값을 바꾸어야 합니다.
       ```
-      https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
+      https://tenantName.b2clogin.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
       ```
 7. 다른 모든 설정에 대한 기본값을 그대로 둡니다.
 8. 목록 아래쪽으로 스크롤한 다음 **저장**을 클릭합니다.

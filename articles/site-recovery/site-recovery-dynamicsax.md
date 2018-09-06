@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: 931cc628dccc77a026791b27a7a8159b37c585d4
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: eb6f7d9b34e00ce1efd8c871439c2504e5f550d5
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919566"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669445"
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 다중 계층 Dynamics AX 응용 프로그램 복제
 
@@ -52,9 +52,9 @@ Site Recovery를 사용하여 Dynamics AX 응용 프로그램의 재해 복구�
 
 **시나리오** | **보조 사이트로** | **Azure로**
 --- | --- | ---
-**Hyper-V** | 예 | 예
-**VMware** | 예 | 예
-**물리적 서버** | 예 | 예
+**Hyper-V** | yes | yes
+**VMware** | yes | yes
+**물리적 서버** | yes | yes
 
 ## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>Site Recovery를 사용하여 Dynamics AX 응용 프로그램의 재해 복구를 활성화
 ### <a name="protect-your-dynamics-ax-application"></a>Dynamics AX 응용 프로그램 보호
@@ -99,7 +99,7 @@ Dynamics AX 클라이언트 및 Application Object Server VM의 경우 Site Reco
 
 * 고정 IP를 사용하는 경우 **대상 IP** 텍스트 상자에 VM이 사용할 IP를 지정합니다.
 
-    ![네트워크 설정 ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)에서도 확인할 수 있습니다.
+    ![네트워크 설정 ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
 
 
 ### <a name="5-create-a-recovery-plan"></a>5. 복구 계획 만들기

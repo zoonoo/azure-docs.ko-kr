@@ -3,7 +3,7 @@ title: 공유 액세스 서명을 사용한 Azure Service Bus 액세스 제어 |
 description: 공유 액세스 서명을 사용한 Azure Service Bus 액세스 제어 개요, Azure Service Bus를 사용한 SAS 권한 부여 상세 정보
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2018
-ms.author: sethm
-ms.openlocfilehash: 420f4573fbe8b5139a4e1e5fa4dea3404c4e099d
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: spelluru
+ms.openlocfilehash: 2905bff56c5ab49c91f85e0816b84018b27bbb57
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312528"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700242"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>공유 액세스 서명을 사용한 Service Bus 액세스 제어
 

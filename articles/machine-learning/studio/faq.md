@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.openlocfilehash: 01635b184903b88fa12e23c370caa65bb1eb377c
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 31676ea43acc495bf0cb6a249901e5b64ef217b7
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37024730"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782933"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning 질문과 대답: 대금 청구, 기능, 제한 사항 및 지원
 Azure Machine Learning, 예측 모델 개발을 위한 클라우드 서비스 및 웹 서비스를 통한 운용성 솔루션에 대한 질문(FAQ)과 해당하는 대답입니다. 이 FAQ는 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용 방법에 대한 질문을 제공합니다.
@@ -249,7 +249,7 @@ RRS의 경우 웹 서비스 응답은 일반적으로 결과를 보는 위치입
 ## <a name="scalability"></a>확장성
 **웹 서비스의 확장성이란 무엇인가요?**
 
-현재 기본 끝점은 끝점당 20개의 동시 RRS 요청으로 프로비전됩니다. [웹 서비스 확장](scaling-webservice.md)에 설명된 것처럼 끝점당 동시 요청 수를 200개까지 확장할 수 있으며 웹 서비스당 10,000개 끝점으로 각 웹 서비스를 확장할 수 있습니다. BES의 경우 각 끝점은 한 번에 40개의 요청을 처리할 수 있으며 40개를 초과하는 추가 요청은 큐에 대기됩니다. 이러한 큐에 대기 중인 요청은 큐에서 나옴과 동시에 자동으로 실행됩니다.
+현재 기본 엔드포인트는 엔드포인트당 20개의 동시 RRS 요청으로 프로비전됩니다. [웹 서비스 확장](scaling-webservice.md)에 설명된 것처럼 엔드포인트당 동시 요청 수를 200개까지 확장할 수 있으며 웹 서비스당 10,000개 엔드포인트로 각 웹 서비스를 확장할 수 있습니다. BES의 경우 각 엔드포인트는 한 번에 40개의 요청을 처리할 수 있으며 40개를 초과하는 추가 요청은 큐에 대기됩니다. 이러한 큐에 대기 중인 요청은 큐에서 나옴과 동시에 자동으로 실행됩니다.
 
 **R 작업은 노드 간에 분산되나요?**
 
@@ -285,9 +285,9 @@ Machine Learning Studio의 모듈은 일반적인 사용 사례의 경우 최대
 아니요.  
 
 ## <a name="security-and-availability"></a>보안 및 사용 가능성
-**웹 서비스에 대한 http 끝점에 기본적으로 액세스할 수 있는 사람은 누구인가요? 끝점에 대한 액세스는 어떻게 제한하나요?**
+**웹 서비스에 대한 http 엔드포인트에 기본적으로 액세스할 수 있는 사람은 누구인가요? 엔드포인트에 대한 액세스는 어떻게 제한하나요?**
 
-웹 서비스가 배포된 후 해당 서비스에 대한 기본 끝점이 만들어집니다. 기본 끝점은 API 키를 사용하여 호출할 수 있습니다. 웹 서비스 포털에서 또는 웹 서비스 관리 API를 사용하여 프로그래밍 방식으로 해당 고유 키로 엔드포인트를 더 추가할 수 있습니다. 액세스 키는 웹 서비스를 호출하는 데 필요합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 사용 방법](consume-web-services.md)을 참조하세요.
+웹 서비스가 배포된 후 해당 서비스에 대한 기본 엔드포인트가 만들어집니다. 기본 엔드포인트는 API 키를 사용하여 호출할 수 있습니다. 웹 서비스 포털에서 또는 웹 서비스 관리 API를 사용하여 프로그래밍 방식으로 해당 고유 키로 엔드포인트를 더 추가할 수 있습니다. 액세스 키는 웹 서비스를 호출하는 데 필요합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 사용 방법](consume-web-services.md)을 참조하세요.
 
 **내 Azure Storage 계정을 찾을 수 없는 경우 어떻게 되나요?**
 
@@ -312,7 +312,7 @@ Microsoft는 Machine Learning Center에 새로운 자료를 추가하고 있습�
 
 **Azure Machine Learning에 대한 지원을 받으려면 어떻게 해야 하나요?**
 
-Azure Machine Learning에 대한 기술 지원을 받으려면 [Azure 지원](/support/options/) 으로 이동하여 **기계 학습**을 선택합니다.
+Azure Machine Learning에 대한 기술 지원을 받으려면 [Azure 지원](https://azure.microsoft.com/support/options/) 으로 이동하여 **기계 학습**을 선택합니다.
 
 또한 Azure Machine Learning은 MSDN에 커뮤니티 포럼을 갖고 있으며, 여기에서 Azure 기계 학습 관련 질문을 할 수 있습니다. Azure Machine Learning 팀에서 포럼을 모니터링합니다. [Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning)으로 이동하세요.
 
@@ -521,11 +521,11 @@ Microsoft 계정만 있으면 됩니다. [Azure Machine Learning 홈](https://az
 
 **무료 계층에서 내 기계 학습 모델을 API로 배포할 수 있나요?**
 
-예, 무료 계층의 일부로서 스테이징 API 서비스에 기계 학습 모델을 운영할 수 있습니다. 스테이징 API 서비스를 프로덕션하고 운영 서비스에 대한 프로덕션 끝점을 가져오려면 표준 계층을 사용해야 합니다.
+예, 무료 계층의 일부로서 스테이징 API 서비스에 기계 학습 모델을 운영할 수 있습니다. 스테이징 API 서비스를 프로덕션하고 운영 서비스에 대한 프로덕션 엔드포인트를 가져오려면 표준 계층을 사용해야 합니다.
 
 **Azure 무료 평가판과 Azure Machine Learning 무료 계층의 차이점은 무엇인가요?**
 
-[Microsoft Azure 무료 평가판](https://azure.microsoft.com/free/)은 한 달 동안 모든 Azure 서비스에 적용할 수 있는 크레딧을 제공합니다. Azure Machine Learning 무료 계층은 프로덕션 워크로드가 아닌 경우 Azure Machine Learning에 특별히 지속적인 액세스를 제공합니다.
+[Microsoft Azure 평가판](https://azure.microsoft.com/free/)은 한 달 동안 모든 Azure 서비스에 적용할 수 있는 크레딧을 제공합니다. Azure Machine Learning 무료 계층은 프로덕션 워크로드가 아닌 경우 Azure Machine Learning에 특별히 지속적인 액세스를 제공합니다.
 
 **무료 계층에서 표준 계층으로 실험을 이동하려면 어떻게 하나요?**
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 06/15/2018
 ms.author: genli
-ms.openlocfilehash: 6049e3614b63bfabee6721dcaa83008eb3306493
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 448622f0406eb709c8d94d60722edb4ef00f42de
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069985"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43670004"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Azure 지출 한도의 작동 방식 및 제거 방법 이해
 
@@ -48,8 +48,7 @@ Azure에서 지출 한도는 크레딧 액수를 초과하여 지출하는 것�
 지출 한도를 제거하려면 다음 단계를 수행합니다.
 
 1. [계정 센터](https://account.windowsazure.com/Subscriptions)에 로그인합니다.
-1. 구독을 선택합니다.
-에서도 확인할 수 있습니다. 지출 한도에 도달하여 구독이 비활성화된 경우 "구독이 지출 한도에 도달하여 요금이 부과되지 않도록 비활성화되었습니다."라는 알림을 클릭합니다. 그렇지 않으면 **구독 상태** 영역에서 **지출 한도 제거**를 클릭합니다.
+1. 구독을 선택합니다. 지출 한도에 도달하여 구독이 비활성화된 경우 "구독이 지출 한도에 도달하여 요금이 부과되지 않도록 비활성화되었습니다."라는 알림을 클릭합니다. 그렇지 않으면 **구독 상태** 영역에서 **지출 한도 제거**를 클릭합니다.
 1. 적절한 옵션을 선택합니다.
 
 ![지출 한도 제거를 위한 옵션 선택](./media/billing-spending-limit/remove-spending-limit.PNG)

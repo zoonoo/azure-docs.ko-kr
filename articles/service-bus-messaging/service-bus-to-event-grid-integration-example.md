@@ -3,7 +3,7 @@ title: Azure Service Bus-Event Grid 통합 예제 | Microsoft Docs
 description: 이 아티클에서는 Service Bus 메시지 및 Event Grid 통합 예제를 제공합니다.
 services: service-bus-messaging
 documentationcenter: .net
-author: ChristianWolf42
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
-ms.author: chwolf
-ms.openlocfilehash: 72a9cc905adda5146cf943d8f0ed2789c3088422
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: spelluru
+ms.openlocfilehash: ca4a6bfcc0f1041e76c07b3b240d7c641ef8f587
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447393"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699871"
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Azure Service Bus-Azure Event Grid 통합 예제
 
@@ -199,7 +199,7 @@ Azure Event Grid 구독을 만들려면 다음을 수행합니다.
 
     a. **리소스 이름** 상자에서 고유한 네임스페이스 이름을 입력합니다. 
 
-    나. **고급 옵션** 아래 **접미사 필터** 상자에서 구독에 대한 필터를 입력합니다.
+    b. **고급 옵션** 아래 **접미사 필터** 상자에서 구독에 대한 필터를 입력합니다.
 
 1. 토픽 구독에서 메시지를 수신하려면 Service Bus 수신 작업을 추가합니다.  
     마지막 작업이 다음 이미지에 표시됩니다.

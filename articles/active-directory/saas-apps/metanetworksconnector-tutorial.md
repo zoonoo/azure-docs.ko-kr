@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 8e27ba7d5b245d8857f0c07bfe2923afe9d7e3a0
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: a3f40624e51ef287d70bed547eba7ec9e0882b0e
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39267534"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669198"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>자습서: Meta Networks Connector와 Azure Active Directory 통합
 
@@ -52,7 +52,7 @@ Meta Networks Connector와 Azure AD의 통합을 구성하려면 다음 항목�
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Meta Networks Connector 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+1. Azure AD Single Sign-on 구성 및 테스트
 
 ## <a name="adding-meta-networks-connector-from-the-gallery"></a>갤러리에서 Meta Networks Connector 추가
 Meta Networks Connector가 Azure AD에 통합되도록 구성하려면 갤러리의 Meta Networks Connector를 관리되는 SaaS 앱 목록에 추가해야 합니다.
@@ -60,19 +60,19 @@ Meta Networks Connector가 Azure AD에 통합되도록 구성하려면 갤러리
 **갤러리에서 Meta Networks Connector를 추가하려면 다음 단계를 수행합니다.**
 
 1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
-
+    
     ![Azure Active Directory 단추][1]
-
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
-
+    
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+    
     ![엔터프라이즈 응용 프로그램 블레이드][2]
     
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
-
+1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+    
     ![새 응용 프로그램 단추][3]
-
-4. 검색 상자에 **Meta Networks Connector**를 입력하고 결과 패널에서 **Meta Networks Connector**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
-
+    
+1. 검색 상자에 **Meta Networks Connector**를 입력하고 결과 패널에서 **Meta Networks Connector**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+    
     ![결과 목록의 Meta Networks Connector](./media/metanetworksconnector-tutorial/tutorial_metanetworksconnector_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
@@ -84,10 +84,10 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 Meta Networks Connector에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-3. **[Meta Networks Connector 테스트 사용자 만들기](#create-a-meta-networks-connector-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Meta Networks Connector에 만듭니다.
-4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
+1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+1. **[Meta Networks Connector 테스트 사용자 만들기](#create-a-meta-networks-connector-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Meta Networks Connector에 만듭니다.
+1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+1. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -99,35 +99,35 @@ Meta Networks Connector에서 Azure AD Single Sign-On을 구성하고 테스트�
 
     ![Single Sign-On 구성 링크][4]
 
-2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
+1. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
     ![Single Sign-On 대화 상자](./media/metanetworksconnector-tutorial/tutorial_metanetworksconnector_samlbase.png)
 
-3. **Meta Networks Connector 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
+1. **Meta Networks Connector 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
 
     ![Meta Networks Connector 도메인 및 URL Single Sign-On 정보](./media/metanetworksconnector-tutorial/tutorial_metanetworksconnector_url.png)
 
-    a. **식별자** 텍스트 상자에서 `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata` 패턴을 사용하여 URL을 입력합니다.
-
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/sso/saml`
-
-4. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
+    1. **식별자** 텍스트 상자에서 `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata` 패턴을 사용하여 URL을 입력합니다.
+    
+    1. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/sso/saml`
+    
+1. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
 
     ![Meta Networks Connector 도메인 및 URL Single Sign-On 정보](./media/metanetworksconnector-tutorial/tutorial_metanetworksconnector_url1.png)
 
-    a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`
-
-    나. **릴레이 상태** 텍스트 상자에서 `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/#/` 패턴을 사용하여 URL을 입력합니다.
-
+    1. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`
+    
+    1. **릴레이 상태** 텍스트 상자에서 `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/#/` 패턴을 사용하여 URL을 입력합니다.
+    
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 자습서 뒷부분에 설명된 실제 식별자, 응답 URL 및 로그온 URL로 이 값을 업데이트합니다.
-
-5. Meta Networks Connector 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
-
+    
+1. Meta Networks Connector 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
+    
     ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/tutorial_metanetworksconnector_attribute.png)
-
-6. **Single sign-on** 대화 상자의 **사용자 특성** 섹션에서 위의 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
-
+    
+1. **Single sign-on** 대화 상자의 **사용자 특성** 섹션에서 위의 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
+    
     | 특성 이름 | 특성 값 | NAMESPACE|
     | ---------------| --------------- | -------- |
     | firstname | user.givenname | |
@@ -136,105 +136,105 @@ Meta Networks Connector에서 Azure AD Single Sign-On을 구성하고 테스트�
     | 이름 | user.userprincipalname| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | phone | user.telephonenumber | |
 
-    a. **특성 추가**를 클릭하여 **특성 추가** 대화 상자를 엽니다.
+    1. **특성 추가**를 클릭하여 **특성 추가** 대화 상자를 엽니다.
 
-    ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/tutorial_attribute_04.png)
-
-    ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/tutorial_attribute_05.png)
-
-    나. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
-
-    다. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
-
-    d. **네임스페이스** 텍스트 상자에 해당 행에 대해 표시되는 네임스페이스 값을 입력합니다.
-
-    e. **확인**을 클릭합니다.
-
-7. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
-
+        ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/tutorial_attribute_04.png)
+    
+        ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/tutorial_attribute_05.png)   
+    
+    1. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
+    
+    1. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
+    
+    1. **네임스페이스** 텍스트 상자에 해당 행에 대해 표시되는 네임스페이스 값을 입력합니다.
+    
+    1. **확인**을 클릭합니다.
+    
+1. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+    
     ![인증서 다운로드 링크](./media/metanetworksconnector-tutorial/tutorial_metanetworksconnector_certificate.png)
-
-8. **Meta Networks Connector 구성** 섹션에서 **Meta Networks Connector 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
-
+    
+1. **Meta Networks Connector 구성** 섹션에서 **Meta Networks Connector 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
+    
     ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/tutorial_metanetworksconnector_configure.png)
-
-9. **저장** 단추를 클릭합니다.
-
+    
+1. **저장** 단추를 클릭합니다.
+    
     ![Single Sign-On 구성 저장 단추](./media/metanetworksconnector-tutorial/tutorial_general_400.png)
-
-10. 브라우저에서 새 탭을 열고 Meta Networks Connector 관리자 계정으로 로그인합니다.
-
+    
+1. 브라우저에서 새 탭을 열고 Meta Networks Connector 관리자 계정으로 로그인합니다.
+    
     > [!NOTE]
     > Meta Networks Connector는 보안 시스템입니다. 따라서 해당 포털에 액세스하기 전에 공용 IP 주소가 해당 허용 목록에 추가되어야 합니다. 공용 IP 주소를 가져오려면 [여기](https://whatismyipaddress.com/)에 지정된 아래 링크를 따릅니다. IP 주소를 [Meta Networks Connector 클라이언트 지원팀](mailto:support@metanetworks.com)으로 보내 IP 주소가 허용 목록에 포함되도록 합니다.
-
-11. **관리자**로 이동한 후 **설정**을 선택합니다.
-
+    
+1. **관리자**로 이동한 후 **설정**을 선택합니다.
+    
     ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure3.png)
-
-12. **인터넷 트래픽 로깅** 및 **Force VPN MFA**(강제 VPN MFA)를 해제로 설정해야 합니다.
-
+    
+1. **인터넷 트래픽 로깅** 및 **Force VPN MFA**(강제 VPN MFA)를 해제로 설정해야 합니다.
+    
     ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure1.png)
-
-13. **관리자**로 이동한 후 **SAML**을 선택합니다.
-
+    
+1. **관리자**로 이동한 후 **SAML**을 선택합니다.
+    
     ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure4.png)
-
-14. **세부 정보** 페이지에서 다음 단계를 수행합니다.
-
+    
+1. **세부 정보** 페이지에서 다음 단계를 수행합니다.
+    
     ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure2.png)
-
-    a. **SSO URL** 값을 복사한 후 **Meta Networks Connector 도메인 및 URL** 섹션의 **로그인 URL** 텍스트 상자에 붙여넣습니다.
-
-    나. **받는 사람 URL** 값을 복사한 후 **Meta Networks Connector 도메인 및 URL** 섹션의 **회신 URL** 텍스트 상자에 붙여넣습니다.
-
-    다. **대상 URL(SP 엔터티 ID)** 값을 복사한 후 **Meta Networks Connector 도메인 및 URL** 섹션의 **식별자(엔터티 ID)** 텍스트 상자에 붙여넣습니다.
-
-    d. SAML 사용
-
-15. **일반** 탭에서 다음 단계를 수행합니다.
+    
+    1. **SSO URL** 값을 복사한 후 **Meta Networks Connector 도메인 및 URL** 섹션의 **로그인 URL** 텍스트 상자에 붙여넣습니다.
+    
+    1. **받는 사람 URL** 값을 복사한 후 **Meta Networks Connector 도메인 및 URL** 섹션의 **회신 URL** 텍스트 상자에 붙여넣습니다.
+    
+    1. **대상 URL(SP 엔터티 ID)** 값을 복사한 후 **Meta Networks Connector 도메인 및 URL** 섹션의 **식별자(엔터티 ID)** 텍스트 상자에 붙여넣습니다.
+    
+    1. SAML 사용
+    
+1. **일반** 탭에서 다음 단계를 수행합니다.
 
     ![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure5.png)
 
-    a. **ID 공급자 Single Sign-On URL**에 Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 붙여넣습니다.
+    1. **ID 공급자 Single Sign-On URL**에 Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 붙여넣습니다.
 
-    나. Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 **ID 공급자 발급자**에 붙여넣습니다.
+    1. Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 **ID 공급자 발급자**에 붙여넣습니다.
 
-    다. Azure Portal에서 다운로드한 인증서를 메모장에서 열고 **X 509 인증서** 텍스트 상자에 붙여넣습니다.
+    1. Azure Portal에서 다운로드한 인증서를 메모장에서 열고 **X 509 인증서** 텍스트 상자에 붙여넣습니다.
 
-    d. **Just-in-Time 프로비전**을 사용하도록 설정합니다.
+    1. **Just-in-Time 프로비전**을 사용하도록 설정합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
-
-   ![Azure AD 테스트 사용자 만들기][100]
-
+    
+![Azure AD 테스트 사용자 만들기][100]
+    
 **Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
 
 1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** 단추를 클릭합니다.
-
+    
     ![Azure Active Directory 단추](./media/metanetworksconnector-tutorial/create_aaduser_01.png)
-
-2. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
-
+    
+1. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
+    
     !["사용자 및 그룹" 및 "모든 사용자" 링크](./media/metanetworksconnector-tutorial/create_aaduser_02.png)
-
-3. **사용자** 대화 상자를 열려면 **모든 사용자** 대화 상자 위쪽에서 **추가**를 클릭합니다.
-
+    
+1. **사용자** 대화 상자를 열려면 **모든 사용자** 대화 상자 위쪽에서 **추가**를 클릭합니다.
+    
     ![추가 단추](./media/metanetworksconnector-tutorial/create_aaduser_03.png)
-
-4. **사용자** 대화 상자에서 다음 단계를 수행합니다.
+    
+1. **사용자** 대화 상자에서 다음 단계를 수행합니다.
 
     ![사용자 대화 상자](./media/metanetworksconnector-tutorial/create_aaduser_04.png)
+    
+    1. **이름** 상자에 **BrittaSimon**을 입력합니다.
 
-    a. **이름** 상자에 **BrittaSimon**을 입력합니다.
-
-    나. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
-
-    다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
-
-    d. **만들기**를 클릭합니다.
-
+    1. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
+    
+    1. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
+    
+    1. **만들기**를 클릭합니다.
+    
 ### <a name="create-a-meta-networks-connector-test-user"></a>Meta Networks Connector 테스트 사용자 만들기
 
 이 섹션은 Meta Networks Connector에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Meta Networks Connector는 Just-In-Time 프로비전을 지원하며 기본적으로 사용하도록 설정합니다. 이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 Meta Networks Connector에 액세스하는 동안 만들어집니다.
@@ -251,27 +251,27 @@ Meta Networks Connector에서 Azure AD Single Sign-On을 구성하고 테스트�
 **Britta Simon을 Meta Networks Connector에 할당하려면 다음 단계를 수행합니다.**
 
 1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
-
+    
     ![사용자 할당][201]
-
-2. 응용 프로그램 목록에서 **Meta Networks Connector**를 선택합니다.
-
+    
+1. 응용 프로그램 목록에서 **Meta Networks Connector**를 선택합니다.
+    
     ![응용 프로그램 목록의 Meta Networks Connector 링크](./media/metanetworksconnector-tutorial/tutorial_metanetworksconnector_app.png)  
-
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
-
+    
+1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+    
     !["사용자 및 그룹" 링크][202]
-
-4. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
-
+    
+1. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+    
     ![할당 추가 창][203]
-
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
-
-6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
-
-7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
-
+    
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
+    
+1. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
+    
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+    
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
@@ -281,8 +281,8 @@ Meta Networks Connector에서 Azure AD Single Sign-On을 구성하고 테스트�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
+- [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

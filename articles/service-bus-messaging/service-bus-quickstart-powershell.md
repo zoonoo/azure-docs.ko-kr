@@ -2,20 +2,20 @@
 title: 빠른 시작 - Azure Service Bus에서 메시지 보내기 및 받기 | Microsoft Docs
 description: 이 빠른 시작에서는 PowerShell과 .NET Standard 클라이언트를 사용하여 Service Bus 메시지를 보내고 받는 방법을 알아봅니다.
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/22/2018
-ms.author: sethm
-ms.openlocfilehash: b22bf2acc83f46eda1aa74981377e66261d13394
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: spelluru
+ms.openlocfilehash: 5652069e7a81f54936a41ddb563b49fe6131e7e0
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660624"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696839"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-powershell-and-net"></a>빠른 시작: Azure PowerShell 및 .NET을 사용하여 메시지 보내기 및 받기
 

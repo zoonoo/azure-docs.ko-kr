@@ -3,23 +3,23 @@ title: Microsoft 위협 모델링 도구 - Azure | Microsoft Docs
 description: 도구를 시작하는 정보 및 위협 모델링 프로세스를 포함하는 Microsoft 위협 모델링 도구에 대한 기본 페이지
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: 6e26b0af2a16a872c8e02b736e24019b47ed5780
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/16/2017
+ms.author: jegeib
+ms.openlocfilehash: 8b0700e76bbcc0913b376e607f706f540b1df2bb
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23043358"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307078"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Microsoft 위협 모델링 도구
 
@@ -33,7 +33,7 @@ ms.locfileid: "23043358"
 
 일부 도구 기능 및 혁신 기능은 다음과 같습니다.
 
-* **자동화:** 모형 그리기에 대한 지침 및 피드백
+* **Automation:** 모형 그리기에 대한 지침 및 피드백
 * **요소 기준 STRIDE:** 위협 및 해결 방법에 대한 단계별 분석
 * **보고:** 확인 단계의 보안 작업 및 테스트
 * **고유한 방법:** 위협을 보다 잘 시각화하고 이해하도록 지원

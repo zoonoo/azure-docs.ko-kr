@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
-ms.openlocfilehash: 78487061dd49c057e8f569fd2ccdaa6408443fd2
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 40fdd22bdbb3fc0676688430069d58c0422a7ca2
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885873"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382119"
 ---
 # <a name="security-in-azure-app-service-and-azure-functions"></a>App Service 및 Azure Functions의 보안
 
@@ -29,7 +29,7 @@ Azure VM, 저장소, 네트워크 연결, 웹 프레임워크, 관리 및 통합
 
 - 사용자의 앱 리소스는 다른 고객의 Azure 리소스로부터 [보호](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)됩니다.
 - 새로 검색된 취약성을 처리하기 위해 [VM 인스턴스 및 런타임 소프트웨어가 정기적으로 업데이트됩니다](app-service-patch-os-runtime.md). 
-- 앱과 다른 Azure 리소스(예: [SQL Database](/services/sql-database/)) 간의 비밀(예: 연결 문자열) 통신이 Azure 내에서 유지되며 네트워크 경계를 벗어나지 않습니다. 비밀은 저장될 때 항상 암호화됩니다.
+- 앱과 다른 Azure 리소스(예: [SQL Database](https://azure.microsoft.com/services/sql-database/)) 간의 비밀(예: 연결 문자열) 통신이 Azure 내에서 유지되며 네트워크 경계를 벗어나지 않습니다. 비밀은 저장될 때 항상 암호화됩니다.
 - [하이브리드 연결](app-service-hybrid-connections.md)과 같은 App Service 연결 기능을 통한 모든 통신이 암호화됩니다. 
 - Azure PowerShell, Azure CLI, Azure SDK, REST API와 같은 원격 관리 도구와의 연결이 모두 암호화됩니다.
 - 24시간 위협 관리를 통해 맬웨어, DDoS(배포된 서비스 거부), MITM(메시지 가로채기) 및 기타 위협으로부터 인프라와 플랫폼을 보호합니다.
@@ -84,7 +84,7 @@ App Service는 백 엔드 서비스를 인증할 때 필요에 따라 별도의 
 
 ### <a name="azure-resources"></a>Azure 리소스
 
-앱에서 [SQL Database](/services/sql-database/) 및 [Azure Storage](/azure/storage/)와 같은 Azure 리소스에 연결하는 경우 해당 연결은 Azure 내에서 유지되며 네트워크 경계를 벗어나지 않습니다. 그러나 Azure에서 공유 네트워킹을 통해 연결되므로 연결이 항상 암호화되어 있어야 합니다. 
+앱에서 [SQL Database](https://azure.microsoft.com/services/sql-database/) 및 [Azure Storage](/azure/storage/)와 같은 Azure 리소스에 연결하는 경우 해당 연결은 Azure 내에서 유지되며 네트워크 경계를 벗어나지 않습니다. 그러나 Azure에서 공유 네트워킹을 통해 연결되므로 연결이 항상 암호화되어 있어야 합니다. 
 
 [App Service 환경](environment/intro.md)에서 앱이 호스팅되는 경우 [Virtual Network 서비스 엔드포인트를 사용하여 지원되는 Azure 서비스에 연결](../virtual-network/virtual-network-service-endpoints-overview.md)해야 합니다.
 
@@ -117,4 +117,4 @@ Azure의 공유 네트워크에서 리소스 연결을 완전히 분리하려면
 - ILB(내부 부하 분산 장치)를 사용하여 내부 응용 프로그램을 제공합니다. 이렇게 하면 Azure Virtual Network 내에서만 해당 응용 프로그램을 액세스할 수 있습니다. ILB에는 인터넷으로부터 응용 프로그램을 완전히 격리하는 개인 서브넷의 IP 주소가 있습니다.
 - [WAF(웹 응용 프로그램 방화벽) 뒤에서 ILB를 사용합니다](environment/integrate-with-application-gateway.md). WAF는 공용 응용 프로그램에 대한 엔터프라이즈 수준의 보호(예: DDoS 보호, URI 필터링 및 SQL 삽입 방지)를 제공합니다.
 
-자세한 내용은 [Azure App Service Environment 소개](environment/intro.md)를 참조하세요.
+자세한 내용은 [Azure App Service Environment 소개](environment/intro.md)를 참조하세요. 

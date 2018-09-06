@@ -2,20 +2,20 @@
 title: 빠른 시작 - Azure Portal을 사용하여 Azure Service Bus에서 메시지 보내기 및 받기 | Microsoft Docs
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Service Bus 메시지를 보내고 받는 방법을 알아봅니다.
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/22/2018
-ms.author: sethm
-ms.openlocfilehash: 3f8979687747453354f60eda15d73b20b2c745a0
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: spelluru
+ms.openlocfilehash: 05c19b2b602e8541a21d5be508e0346c63714544
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867208"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700432"
 ---
 # <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>빠른 시작: Azure Portal 및 .NET을 사용하여 메시지 보내기 및 받기
 

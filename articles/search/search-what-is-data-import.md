@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: heidist
-ms.openlocfilehash: 6c3756e721847a8cb746f5dc755ccd90bfebe9f0
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: b518d86d5cb08f85beecd4afe30efc9e4f70e1f7
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008277"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371471"
 ---
 # <a name="indexing-in-azure-search"></a>Azure Search의 인덱싱
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Azure Search에서는 [검색 인덱스](search-what-is-an-index.md)에 로드�
 
 ### <a name="how-to-pull-data-into-an-azure-search-index"></a>Azure Search 인덱스로 데이터를 끌어오는 방법
 
-인덱서 기능은 [Azure Portal](search-import-data-portal.md), [REST API](/rest/api/searchservice/Indexer-operations) 및 [.NET SDK](/dotnet/api/microsoft.azure.search.indexersoperations)에서 공개되어 있습니다. 
+인덱서 기능은 [Azure Portal](search-import-data-portal.md), [REST API](/rest/api/searchservice/Indexer-operations) 및 [.NET SDK](/dotnet/api/microsoft.azure.search.indexersoperationsextensions)에서 공개되어 있습니다. 
 
 포털을 사용하는 한 가지 장점으로 Azure Search에서 일반적으로 원본 데이터 집합의 메타데이터를 읽음으로써 기본 인덱스 스키마를 생성할 수 있다는 것입니다. 인덱스를 처리할 때까지 생성된 인덱스를 수정할 수 있으며, 그 후에는 다시 인덱싱할 필요가 없는 스키마만 편집할 수 있습니다. 스키마에 직접 적용하려는 변경 내용이 있으면 인덱스를 다시 작성해야 합니다. 
 

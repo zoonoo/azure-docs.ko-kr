@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/28/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: f2e1a59584507b52d0a834af1869e3e9f2db5f07
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: b1beb0e9a5a0435bdf298eddbefc230b2f95ed0a
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127367"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698505"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>Azure Data Box Disk란? (미리 보기)
 
@@ -106,14 +106,14 @@ Data Box Disk는 네트워크에 아무런 영향을 주지 않고 대량의 데
 
 |Azure 지역  |Azure 지역  |
 |---------|---------|
-|미국 중서부     |미국 동부        |        
-|미국 서부2     |미국 동부2          |     
+|미국 중서부     |캐나다 중부       |        
+|미국 서부2     |캐나다 동부         |     
 |미국 서부     | 서유럽        |      
 |미국 중남부   |북유럽     |         
-|미국 중부     |캐나다 동부|
-|미국 중북부  |캐나다 중부    |
-
-
+|미국 중부     |오스트레일리아 동부|
+|미국 중북부  |오스트레일리아 남동부   |
+|미국 동부      |오스트레일리아 중부 |
+|미국 동부2     |오스트레일리아 중부 2|
 
 
 ## <a name="pricing"></a>가격

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 0fa7bd1135c099f853b9a3bb66661c0a57a0f7eb
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: d38ec87fb634e1809959b85f0382935e8a78bf3b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271419"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697167"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>PowerShell을 사용하여 응용 프로그램 배포 및 제거
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ ms.locfileid: "34271419"
 
 응용 프로그램을 배포하는 또 다른 방법은 외부 프로비전을 사용하는 것입니다. 응용 프로그램 패키지는 [`sfpkg`으로 패키지](service-fabric-package-apps.md#create-an-sfpkg)되거나 외부 저장소에 업로드될 수 있습니다. 이 경우 이미지 저장소에 업로드할 필요가 없습니다. 배포에는 다음 단계가 필요합니다.
 
-1. `sfpkg`를 외부 저장소에 업로드합니다. 외부 저장소는 REST http 또는 https 끝점을 노출하는 어떤 저장소도 될 수 있습니다.
+1. `sfpkg`를 외부 저장소에 업로드합니다. 외부 저장소는 REST http 또는 https 엔드포인트를 노출하는 어떤 저장소도 될 수 있습니다.
 2. 외부 다운로드 URI 및 응용 프로그램 유형 정보를 사용하여 응용 프로그램 유형을 등록합니다.
 2. 응용 프로그램 인스턴스를 만듭니다.
 
@@ -226,7 +226,7 @@ ApplicationParameters  : {}
 ```
 등록된 응용 프로그램 형식의 주어진 어떤 버전에 대해서도 여러 개의 응용 프로그램 인스턴스를 만들 수 있습니다. 각 응용 프로그램 인스턴스는 자체 작업 디렉터리 및 프로세스와는 별도로 실행됩니다.
 
-클러스터에서 실행 중인 명명된 응용 프로그램과 서비스를 확인하려면 [Get-ServiceFabricApplication](/powershell/servicefabric/vlatest/get-servicefabricapplication) 및 [Get-ServiceFabricService](/powershell/module/servicefabric/get-servicefabricservice?view=azureservicefabricps) cmdlet을 실행합니다.
+클러스터에서 실행 중인 명명된 응용 프로그램과 서비스를 확인하려면 [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication) 및 [Get-ServiceFabricService](/powershell/module/servicefabric/get-servicefabricservice?view=azureservicefabricps) cmdlet을 실행합니다.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplication  

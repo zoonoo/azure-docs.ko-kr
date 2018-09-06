@@ -14,12 +14,12 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 33bd13421b0c1574475516da942abe4e8c71ed52
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 2fa63cf2fa05f2cde4558f0bea38bfd7f17df3ae
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188835"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43342065"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스에 대한 보안 경고 구성
 Azure 리소스에 대한 PIM(Privileged Identity Management)은 사용자의 환경에 의심스럽거나 안전하지 않은 활동이 있을 때 경고를 생성합니다. 경고가 트리거될 때 경고 페이지에 표시됩니다. 
@@ -53,5 +53,4 @@ Azure 리소스에 대한 PIM(Privileged Identity Management)은 사용자의 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [PIM에서 Azure 리소스 역할에 대한 다단계 인증 요구](pim-resource-roles-require-mfa.md)
 - [PIM에서 Azure 리소스에 대한 보안 경고 구성](pim-resource-roles-configure-alerts.md)

@@ -3,7 +3,7 @@ title: Azure Service Bus 메시징 엔터티 자동 전달 | Microsoft Docs
 description: Service Bus 큐 또는 구독을 다른 큐 또는 토픽에 연결하는 방법
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: f7060778-3421-402c-97c7-735dbf6a61e8
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
-ms.author: sethm
-ms.openlocfilehash: be23d919b0c96d6c9b96ee328d1b18ad978a9dcc
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.author: spelluru
+ms.openlocfilehash: 563fa6f38bb5baffb9a4ae86f944b7597d325d30
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
-ms.locfileid: "29558095"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698998"
 ---
 # <a name="chaining-service-bus-entities-with-auto-forwarding"></a>자동 전달을 사용한 Service Bus 엔터티 연결
 

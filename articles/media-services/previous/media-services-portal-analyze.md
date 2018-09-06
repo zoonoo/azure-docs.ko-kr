@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 60da24b5b0bb7d83414539f07936c61a196e0b62
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d8c3bb07c88dc96b7ca779ca0f4dfe09052ab290
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783692"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666173"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Azure Portal을 사용하여 미디어 분석
 > [!NOTE]
@@ -35,7 +35,7 @@ Azure Media Services Analytics는 조직과 기업이 비디오 파일에서 실
 ## <a name="choose-an-asset-that-you-want-to-analyze"></a>분석하려는 자산을 선택
 1. [Azure Portal](https://portal.azure.com/)에서 Azure Media Services 계정을 선택합니다.
 2. **설정** 창에서 **자산**을 선택합니다.  
-   에서도 확인할 수 있습니다.
+   
     ![비디오 분석](./media/media-services-portal-analyze/media-services-portal-analyze001.png)
 3. 분석할 자산을 선택하고 **분석** 단추를 누릅니다.
    

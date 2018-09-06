@@ -2,19 +2,19 @@
 title: 자습서 - Azure PowerShell에서 게시/구독 채널 및 토픽 필터를 사용하여 소매점 재고 분류 업데이트 | Microsoft Docs
 description: 이 자습서에서는 토픽과 구독에서 메시지를 보내고 받는 방법과 Azure PowerShell을 사용하여 필터 규칙을 추가하고 사용하는 방법을 알아봅니다.
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
-ms.author: sethm
+ms.author: spelluru
 ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 6246e951cb9b1e0b4dac656fef6acf8027e79271
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 14f3fe81ab613f05154365b832d860808c3184bf
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126554"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702190"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>자습서: PowerShell 및 토픽/구독을 사용하여 재고 업데이트
 

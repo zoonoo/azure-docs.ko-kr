@@ -3,19 +3,19 @@ title: '자습서: Azure SQL Data Warehouse의 탄력적 쿼리 | Microsoft Docs
 description: 이 자습서에서는 탄력적 쿼리 기능을 사용하여 Azure SQL 데이터베이스에서 Azure SQL Data Warehouse로 쿼리합니다.
 services: sql-data-warehouse
 author: hirokib
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/14/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: a31f035b5ec086a046028956c4a9c0de0d6a313d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 355ae1c27d0af8f77c2c9bda61c3581562050fc4
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526195"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307095"
 ---
 # <a name="tutorial-use-elastic-query-to-access-data-in-azure-sql-data-warehouse-from-azure-sql-database"></a>자습서: 탄력적 쿼리를 사용하여 Azure SQL Database에서 Azure SQL Data Warehouse의 데이터에 액세스
 

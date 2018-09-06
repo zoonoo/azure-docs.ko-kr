@@ -14,19 +14,19 @@ ms.service: sql-database
 ms.custom: ''
 ms.tgt_pltfrm: ''
 ms.topic: conceptual
-ms.date: 06/28/2018
+ms.date: 08/30/2018
 ms.author: aliceku
 monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: d3e8d34599600512a1d9d0308c0d6014691bf519
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 30ef71d0fc98b168000f7e7b936e4efc6c441498
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442725"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307933"
 ---
 # <a name="transparent-data-encryption-with-bring-your-own-key-support-for-azure-sql-database-and-data-warehouse"></a>Azure SQL Database 및 Data Warehouse에서 BYOK(Bring Your Own Key) 지원을 통한 투명한 데이터 암호화
 
-[TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/transparent-data-encryption)에 대한 BYOK(Bring Your Own Key) 지원을 사용하면 TDE 보호기라는 비대칭 키를 사용하여 DEK(데이터베이스 암호화 키)를 암호화할 수 있습니다.  TDE 보호기는 사용자의 제어 하에 Azure의 클라우드 기반 외부 키 관리 시스템인 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)에 저장됩니다. Azure Key Vault는 TDE에서 BYOK 지원을 통합한 최초의 키 관리 서비스입니다. 데이터베이스의 부팅 페이지에 저장된 TDE DEK는 TDE 보호기에서 암호화되고 해독됩니다. TDE 보호기는 Azure Key Vault에 저장되며 키 자격 증명 모음을 벗어나지 않습니다. 서버의 키 자격 증명 모음에 대한 액세스가 철회되면 데이터베이스를 해독하여 메모리로 읽을 수 없습니다.  TDE 보호기는 논리 서버 수준에서 설정되며 해당 서버와 연결된 모든 데이터베이스에서 상속됩니다. 
+[TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)에 대한 BYOK(Bring Your Own Key) 지원을 사용하면 TDE 보호기라는 비대칭 키를 사용하여 DEK(데이터베이스 암호화 키)를 암호화할 수 있습니다.  TDE 보호기는 사용자의 제어 하에 Azure의 클라우드 기반 외부 키 관리 시스템인 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)에 저장됩니다. Azure Key Vault는 TDE에서 BYOK 지원을 통합한 최초의 키 관리 서비스입니다. 데이터베이스의 부팅 페이지에 저장된 TDE DEK는 TDE 보호기에서 암호화되고 해독됩니다. TDE 보호기는 Azure Key Vault에 저장되며 키 자격 증명 모음을 벗어나지 않습니다. 서버의 키 자격 증명 모음에 대한 액세스가 철회되면 데이터베이스를 해독하여 메모리로 읽을 수 없습니다.  TDE 보호기는 논리 서버 수준에서 설정되며 해당 서버와 연결된 모든 데이터베이스에서 상속됩니다. 
 
 BYOK 지원을 사용하면 사용자는 키 회전, 키 자격 증명 모음 권한, 키 삭제를 포함한 키 관리 작업을 제어하고, Azure Key Vault 기능을 사용하여 모든 TDE 보호기에 대한 감사/보고를 사용하도록 설정할 수 있습니다. Key Vault는 중앙 집중식 키 관리를 제공하고 긴밀하게 모니터링되는 HSM(하드웨어 보안 모듈)을 활용하며, 키와 데이터 관리 간의 역할 분리를 촉진하여 규정을 준수할 수 있도록 합니다.  
 
