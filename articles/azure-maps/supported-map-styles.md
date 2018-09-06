@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 33b0f5df57623f0b4433a4a09c7cd15688783485
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 04c8f43e3b484ceeb942ae13ea95baf7f0215b53
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191586"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344838"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Azure Maps에서 지원되는 지도 스타일
 Azure Maps는 서로 다른 네 가지 기본 제공 지도 스타일을 지원합니다. 이러한 스타일은 설명과 함께 아래에 나와 있습니다.
@@ -52,4 +52,4 @@ Azure Maps는 서로 다른 네 가지 기본 제공 지도 스타일을 지원�
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
 
 **적용 가능한 API:**
-* JS 지도 컨트롤
+* JS 지도 컨트롤 

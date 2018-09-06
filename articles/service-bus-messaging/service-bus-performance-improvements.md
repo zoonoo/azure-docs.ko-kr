@@ -3,18 +3,18 @@ title: Azure Service Bus를 사용하여 성능을 향상하는 모범 사례 | 
 description: broker 저장 메시지를 교환할 때 Azure Service Bus를 사용하여 성능을 최적화하는 방법에 대해 설명합니다.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 06/14/2018
-ms.author: sethm
-ms.openlocfilehash: e168dcab182f9eb30291b58bdde252ec66d18e8c
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.author: spelluru
+ms.openlocfilehash: 9dd9150411b465d210c7e02dc52d6851f670845f
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301804"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697638"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Service Bus 메시징을 사용한 성능 향상의 모범 사례
 

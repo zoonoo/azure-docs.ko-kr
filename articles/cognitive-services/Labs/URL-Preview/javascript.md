@@ -8,12 +8,12 @@ ms.technology: project-url-preview
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 9041a88a292fb2dabead69195ebc3074e2ecf486
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: dda6f7c105dfbadc3c22f0c008aa8759fe12fa03
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376262"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301355"
 ---
 # <a name="url-preview-in-javascript"></a>JavaScript의 URL 미리 보기 
 
@@ -21,10 +21,10 @@ ms.locfileid: "35376262"
 
 ## <a name="prerequisites"></a>필수 조건
 
-[Cognitive Services Labs](https://aka.ms/answersearchsubscription) 체험 평가판에 대한 액세스 키 가져오기
+[Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-url-preview) 평가판에 대한 액세스 키 가져오기
 
 ## <a name="code-scenario"></a>코드 시나리오
-다음 JavaScript 예제에는 사용자가 미리 보기할 URL을 입력하는 텍스트 상자 입력 개체가 포함되어 있습니다.  사용자가 **미리 보기** 단추를 클릭하면 onclick 메서드가 `getPreview`로 라우팅됩니다. 여기서 코드를 통해 **UrlPreview** 끝점에 대한 웹 요청이 생성됩니다.
+다음 JavaScript 예제에는 사용자가 미리 보기할 URL을 입력하는 텍스트 상자 입력 개체가 포함되어 있습니다.  사용자가 **미리 보기** 단추를 클릭하면 onclick 메서드가 `getPreview`로 라우팅됩니다. 여기서 코드를 통해 **UrlPreview** 엔드포인트에 대한 웹 요청이 생성됩니다.
 
 코드에서 *XMLHttpRequest*를 만들고 *Ocp-Apim-Subscription-Key* 헤더와 키를 추가한 다음, 요청을 전송합니다.  응답을 처리하기 위한 비동기 이벤트 처리기가 추가됩니다.
 
@@ -52,7 +52,7 @@ ms.locfileid: "35376262"
 
 ## <a name="running-the-application"></a>응용 프로그램 실행
 
-응용 프로그램을 실행하려면
+응용 프로그램을 실행하려면:
 
 1. `YOUR-SUBSCRIPTION-KEY` 값을 구독에 유효한 액세스 키로 바꿉니다.
 2. HTML 및 스크립트를 확장명이 .html인 파일에 저장합니다.

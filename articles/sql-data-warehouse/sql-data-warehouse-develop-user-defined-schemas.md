@@ -3,19 +3,19 @@ title: SQL Data Warehouse의 사용자 정의 스키마 사용 | Microsoft Docs
 description: 솔루션 개발을 위해 Azure SQL Data Warehouse의 T-SQL 사용자 정의 스키마 사용을 위한 팁입니다.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: c18e6d34416390ae7e93b69b28d508a540f7b1ab
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d46f41e75538fae230219068d3530b7181564ac0
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31522710"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302644"
 ---
 # <a name="using-user-defined-schemas-in-sql-data-warehouse"></a>SQL Data Warehouse의 사용자 정의 스키마 사용
 솔루션 개발을 위해 Azure SQL Data Warehouse의 T-SQL 사용자 정의 스키마 사용을 위한 팁입니다.

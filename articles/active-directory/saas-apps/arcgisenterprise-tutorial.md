@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: jeedes
-ms.openlocfilehash: ca5bf7ae49cf120c0566419ccadeff92433c6467
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: ea2b32b43fedacba7b8a60db29762c32fda65aa5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42819433"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306345"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>자습서: ArcGIS Enterprise와 Azure Active Directory 통합
 
@@ -120,7 +120,7 @@ ArcGIS Enterprise에서 Azure AD Single Sign-On을 구성하고 테스트하려�
     **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [ArcGIS Enterprise 클라이언트 지원 팀](mailto:nshampur@esri.com)에 문의하세요. 이 자습서의 뒷부분에 설명된 식별자 값을 **ID 공급자 설정** 섹션에서 가져옵니다.
+    > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [ArcGIS Enterprise 클라이언트 지원 팀](mailto:support@esri.com)에 문의하세요. 이 자습서의 뒷부분에 설명된 식별자 값을 **ID 공급자 설정** 섹션에서 가져옵니다.
 
 5. **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사하고 메모장에 붙여넣습니다.
 
@@ -195,7 +195,7 @@ ArcGIS Enterprise에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 이 섹션의 목적은 ArcGIS Enterprise에서 Britta Simon이라는 사용자를 만들기 위함입니다. ArcGIS Enterprise는 Just-In-Time 프로비전을 지원하며 기본적으로 사용하도록 설정합니다. 이 섹션에 작업 항목이 없습니다. 새 사용자가 존재하지 않는 경우, ArcGIS Enterprise에 액세스하는 동안 만들어질 수 있습니다.
 
 > [!Note]
-> 사용자를 수동으로 만들어야 하는 경우 [ArcGIS Enterprise 지원 팀](mailto:nshampur@esri.com)에 문의하세요.
+> 사용자를 수동으로 만들어야 하는 경우 [ArcGIS Enterprise 지원 팀](mailto:support@esri.com)에 문의하세요.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 

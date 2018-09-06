@@ -3,18 +3,18 @@ title: Azure Service Bus 기본 사항 개요 | Microsoft Docs
 description: Service Bus를 사용하여 Azure 응용 프로그램을 다른 소프트웨어에 연결에 대해 소개합니다.
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: get-started-article
 ms.date: 05/23/2018
-ms.author: sethm
-ms.openlocfilehash: bef88f09f182b1bb450ee0e045985ed59d5b5648
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.author: spelluru
+ms.openlocfilehash: 1f9362ae102ffce6fb9ccc31362973d58964610f
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41924814"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697229"
 ---
 # <a name="azure-service-bus"></a>Azure Service Bus
 

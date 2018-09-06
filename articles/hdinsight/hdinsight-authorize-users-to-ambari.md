@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 7734848035eeab3c38a57b9999f8cda77f6a4e24
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: f1aa80ec9df8faee4cf5ea98910e28cfc11a7920
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107159"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782130"
 ---
 # <a name="authorize-users-for-ambari-views"></a>사용자에게 Ambari 보기에 대한 권한 부여
 
@@ -116,7 +116,7 @@ Tez 보기 인스턴스에 사용자 및 그룹을 할당하려면 앞서 설명
 
     ![역할 목록 보기 - 사용자](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-* 목록 보기의 그룹 범주에는 모든 그룹 그리고 각 그룹에 할당된 역할이 표시됩니다. 이 예제에서는 클러스터 도메인 설정의 **사용자 그룹 액세스** 속성에 지정된 Microsoft Azure Active Directory 그룹에서 그룹 목록이 동기화됩니다. [도메인 가입 HDInsight 클러스터 만들기](/domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster)를 참조하세요.
+* 목록 보기의 그룹 범주에는 모든 그룹 그리고 각 그룹에 할당된 역할이 표시됩니다. 이 예제에서는 클러스터 도메인 설정의 **사용자 그룹 액세스** 속성에 지정된 Microsoft Azure Active Directory 그룹에서 그룹 목록이 동기화됩니다. [도메인 가입 HDInsight 클러스터 만들기](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster)를 참조하세요.
 
     ![역할 목록 보기 - 그룹](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 

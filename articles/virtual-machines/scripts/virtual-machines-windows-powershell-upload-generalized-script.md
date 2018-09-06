@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 832b32ebc4cf99d17df4669b421415d0d0ca0560
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 786dbb258fa4299f80f7ff9d24a1c129a9506bb7
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112851"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43663748"
 ---
 # <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>Azure에 VHD를 업로드하고 새 VM을 만드는 샘플 스크립트
 
@@ -147,7 +147,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 | [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage)                           | 가상 머신에 대한 이미지를 지정합니다.                                                                                                                                            |
 | [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk)                                     | 가상 머신의 운영 체제 디스크 속성을 설정합니다.                                                                                                                      |
 | [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem)                   | 가상 머신의 운영 체제 디스크 속성을 설정합니다.                                                                                                                      |
-| [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.network/add-azurermvmnetworkinterface)                 | 가상 머신에 네트워크 인터페이스를 추가합니다.                                                                                                                                       |
+| [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmnetworkinterface?view=azurermps-6.8.1)                 | 가상 머신에 네트워크 인터페이스를 추가합니다.                                                                                                                                       |
 | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)                                                 | 가상 머신을 만듭니다.                                                                                                                                                            |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup)                     | 리소스 그룹 및 포함된 모든 리소스를 제거합니다.                                                                                                                         |
 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: 6ec0feeac9364b416709b45af09c79773a87d0e1
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: f2f2257d3ddc22a80600882d2078210ac27cb15d
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42022403"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43284925"
 ---
 # <a name="introduction-to-azure-cosmos-db-apache-cassandra-api"></a>Azure Cosmos DB 소개: Apache Cassandra API
 
@@ -34,10 +34,7 @@ Azure Cosmos DB는 Apache Cassandra API를 사용하여 [Apache Cassandra](https
 
 ![Azure Cosmos DB Cassandra API](./media/cassandra-introduction/cosmosdb-cassandra.png)
 
-Cassandra API를 사용하면 이미 익숙한 Cassandra 쿼리 언어 기반 도구(예: CQLSH) 및 Cassandra 클라이언트 드라이버를 사용하여 Azure Cosmos DB에 저장된 데이터와 상호 작용할 수 있습니다. 수석 엔지니어링 매니저인 Kirill Gavrylyuk이 진행하는 Microsoft Mechanics 비디오에서 자세히 알아보세요.
-
-> [!VIDEO https://www.youtube.com/embed/1Sf4McGN1AQ]
->
+Cassandra API를 사용하면 이미 익숙한 Cassandra 쿼리 언어 기반 도구(예: CQLSH) 및 Cassandra 클라이언트 드라이버를 사용하여 Azure Cosmos DB에 저장된 데이터와 상호 작용할 수 있습니다. 
 
 ## <a name="what-is-the-benefit-of-using-apache-cassandra-api-for-azure-cosmos-db"></a>Azure Cosmos DB용 Apache Cassandra API를 사용하는 이점은 무엇인가요?
 

@@ -9,12 +9,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.openlocfilehash: 9989f33721d4fc18529e63b6d1417180a8d58a9a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 052afbe185f9c66af3759775b38b6bf0f2c2e6b2
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049471"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783324"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Hadoop과 함께 Oozie를 사용하여 Linux 기반 Azure HDInsight에서 워크플로 정의 및 실행
 
@@ -35,7 +35,7 @@ Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스�
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **HDInsight 클러스터**: [Linux에서 HDInsight 시작](/hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* **HDInsight 클러스터**: [Linux에서 HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
 > [!IMPORTANT]
 > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.

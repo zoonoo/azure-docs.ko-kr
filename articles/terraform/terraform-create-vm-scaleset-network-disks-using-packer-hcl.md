@@ -1,21 +1,24 @@
 ---
-title: Terraform을 사용하여 Packer 사용자 지정 이미지에서 Azure 가상 컴퓨터 확장 집합 만들기
-description: Terraform을 사용하여 Packer에서 생성한 사용자 지정 이미지에서 Azure 가상 컴퓨터 확장 집합을 구성하고 버전을 지정합니다(가상 네트워크 및 관리되는 연결 디스크로 완성).
-keywords: terraform, devops, 확장 집합, 가상 컴퓨터, 네트워크, 저장소, 모듈, 사용자 지정 이미지, packer
-author: VaijanathB
+title: Terraform을 사용하여 Packer 사용자 지정 이미지에서 Azure 가상 머신 확장 집합 만들기
+description: Terraform을 사용하여 Packer에서 생성한 사용자 지정 이미지에서 Azure 가상 머신 확장 집합을 구성하고 버전을 지정합니다(가상 네트워크 및 관리되는 연결 디스크로 완성).
+services: terraform
+ms.service: terraform
+keywords: terraform, devops, 확장 집합, 가상 머신, 네트워크, 저장소, 모듈, 사용자 지정 이미지, packer
+author: tomarcher
+manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
 ms.date: 10/29/2017
-ms.topic: article
-ms.openlocfilehash: 284eae93de36986e41ba80f98f86495d8f34f57b
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 9e999ba8a36edd990bbab4648d9d4d98e3301153
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
-ms.locfileid: "23655395"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668634"
 ---
-# <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Terraform을 사용하여 Packer 사용자 지정 이미지에서 Azure 가상 컴퓨터 확장 집합 만들기
+# <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Terraform을 사용하여 Packer 사용자 지정 이미지에서 Azure 가상 머신 확장 집합 만들기
 
-이 자습서에서는 HCL([HashiCorp Configuration Language](https://www.terraform.io/docs/configuration/syntax.html))을 사용하는 Managed Disks에서 [Packer](https://www.packer.io/intro/index.html)를 사용하여 생성된 사용자 지정 이미지로 만든 [Azure 가상 컴퓨터 확장 집합](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview)을 만들고 배포하는 데 [Terraform](https://www.terraform.io/)을 사용합니다.  
+이 자습서에서는 HCL([HashiCorp Configuration Language](https://www.terraform.io/docs/configuration/syntax.html))을 사용하는 Managed Disks에서 [Packer](https://www.packer.io/intro/index.html)를 사용하여 생성된 사용자 지정 이미지로 만든 [Azure 가상 머신 확장 집합](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview)을 만들고 배포하는 데 [Terraform](https://www.terraform.io/)을 사용합니다.  
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -23,11 +26,11 @@ ms.locfileid: "23655395"
 > * Terraform 배포 설정
 > * Terraform 배포용 변수 및 출력 사용 
 > * 네트워크 인프라 만들기 및 배포
-> * Packer를 사용하여 사용자 지정 가상 컴퓨터 이미지 만들기
-> * 사용자 지정 이미지를 사용하여 가상 컴퓨터 확장 집합 만들기 및 배포
+> * Packer를 사용하여 사용자 지정 가상 머신 이미지 만들기
+> * 사용자 지정 이미지를 사용하여 가상 머신 확장 집합 만들기 및 배포
 > * jumpbox 만들기 및 배포 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 > * [Terraform을 설치하고 Azure에 대한 액세스 구성](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure)
@@ -69,7 +72,7 @@ variable "resource_group_name" {
 
 Terraform 템플릿을 배포하는 경우 응용 프로그램에 액세스하는 데 사용되는 정규화된 도메인 이름을 가져오려고 합니다. Terraform의 ```output``` 리소스 형식을 사용하고 리소스의 ```fqdn``` 속성을 가져옵니다. 
 
-`output.tf` 파일을 편집하고 다음 코드를 복사하여 가상 컴퓨터의 정규화된 도메인 이름을 노출합니다. 
+`output.tf` 파일을 편집하고 다음 코드를 복사하여 가상 머신의 정규화된 도메인 이름을 노출합니다. 
 
 ```hcl 
 output "vmss_public_ip" {
@@ -82,7 +85,7 @@ output "vmss_public_ip" {
 이 단계에서는 새 Azure 리소스 그룹에 다음과 같은 네트워크 인프라를 만듭니다. 
   - 주소 공간이 10.0.0.0/16인 VNET 1개 
   - 주소 공간이 10.0.2.0/24인 서브넷 1개
-  - 2개의 공용 IP 주소. 하나는 가상 컴퓨터 확장 집합 부하 분산 장치에서 사용되고 다른 하나는 SSH jumpbox에 연결하는 데 사용됩니다.
+  - 2개의 공용 IP 주소. 하나는 가상 머신 확장 집합 부하 분산 장치에서 사용되고 다른 하나는 SSH jumpbox에 연결하는 데 사용됩니다.
 
 모든 리소스를 만드는 리소스 그룹이 필요합니다. 
 
@@ -152,15 +155,15 @@ terraform apply
 
 공용 IP 주소의 정규화된 도메인 이름이 구성에 해당하는지 확인합니다.
 
-![공용 IP 주소에 대한 가상 컴퓨터 확장 집합 Terraform 정규화된 도메인 이름](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step4-fqdn.png)
+![공용 IP 주소에 대한 가상 머신 확장 집합 Terraform 정규화된 도메인 이름](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step4-fqdn.png)
 
 리소스 그룹에는 다음 리소스가 포함됩니다.
 
-![가상 컴퓨터 확장 집합 Terraform 네트워크 리소스](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step4-rg.png)
+![가상 머신 확장 집합 Terraform 네트워크 리소스](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step4-rg.png)
 
 
 ## <a name="create-an-azure-image-using-packer"></a>Packer를 사용하여 Azure 이미지 만들기
-[Packer를 사용하여 Azure에서 Linux 가상 컴퓨터 이미지를 만드는 방법](https://docs.microsoft.com/azure/virtual-machines/linux/build-image-with-packer) 자습서에 설명된 단계를 사용하여 사용자 지정 Linux 이미지를 만듭니다.
+[Packer를 사용하여 Azure에서 Linux 가상 머신 이미지를 만드는 방법](https://docs.microsoft.com/azure/virtual-machines/linux/build-image-with-packer) 자습서에 설명된 단계를 사용하여 사용자 지정 Linux 이미지를 만듭니다.
  
 자습서를 수행하여 NGINX를 설치한 프로비전 해제된 Ubuntu 이미지를 만듭니다.
 
@@ -169,15 +172,15 @@ terraform apply
 > [!NOTE]
 > 이 자습서의 목표대로 Packer 이미지에서 명령을 실행하여 nginx를 설치합니다. 만드는 동안 고유한 스크립트를 실행할 수도 있습니다.
 
-## <a name="edit-the-infrastructure-to-add-the-virtual-machine-scale-set"></a>인프라를 편집하여 가상 컴퓨터 확장 집합 추가
+## <a name="edit-the-infrastructure-to-add-the-virtual-machine-scale-set"></a>인프라를 편집하여 가상 머신 확장 집합 추가
 
 이 단계에서는 이전에 배포한 네트워크에서 다음 리소스를 만듭니다.
 - Azure Load Balancer를 응용 프로그램에 제공 및 4단계에서 배포된 공용 IP 주소에 연결
 - 하나의 Azure Load Balancer 및 응용 프로그램을 제공하여 이전에 구성된 공용 IP 주소에 연결하는 규칙
 - Azure 백 엔드 주소 풀 및 이를 부하 분산 장치에 할당 
 - 응용 프로그램에서 사용되고 부하 분산 장치에 구성된 상태 프로브 포트 
-- 이전에 배포한 vnet에서 실행 중인, 부하 분산 장치 뒤에 있는 가상 컴퓨터 확장 집합
-- 사용자 지정 이미지에서 설치된 가상 컴퓨터 확장 노드의 [Nginx](http://nginx.org/)
+- 이전에 배포한 vnet에서 실행 중인, 부하 분산 장치 뒤에 있는 가상 머신 확장 집합
+- 사용자 지정 이미지에서 설치된 가상 머신 확장 노드의 [Nginx](http://nginx.org/)
 
 
 `vmss.tf` 파일의 끝에 다음 코드를 추가합니다.
@@ -312,9 +315,9 @@ variable "admin_password" {
 ``` 
 
 
-## <a name="deploy-the-virtual-machine-scale-set-in-azure"></a>Azure에서 가상 컴퓨터 확장 집합 배포
+## <a name="deploy-the-virtual-machine-scale-set-in-azure"></a>Azure에서 가상 머신 확장 집합 배포
 
-다음 명령을 실행하여 가상 컴퓨터 확장 집합 배포를 시각화합니다.
+다음 명령을 실행하여 가상 머신 확장 집합 배포를 시각화합니다.
 
 ```bash
 terraform plan
@@ -322,7 +325,7 @@ terraform plan
 
 명령 출력은 다음 이미지와 같습니다.
 
-![Terraform 가상 컴퓨터 확장 집합 계획 추가](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step6-plan.png)
+![Terraform 가상 머신 확장 집합 계획 추가](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step6-plan.png)
 
 Azure에서 추가 리소스를 배포합니다. 
 
@@ -332,18 +335,18 @@ terraform apply
 
 리소스 그룹의 내용은 다음 이미지와 같습니다.
 
-![Terraform 가상 컴퓨터 확장 집합 리소스 그룹](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step6-apply.png)
+![Terraform 가상 머신 확장 집합 리소스 그룹](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-vmss-step6-apply.png)
 
 브라우저를 열고 명령에 의해 반환된 정규화된 도메인 이름에 연결합니다. 
 
 
 ## <a name="add-a-jumpbox-to-the-existing-network"></a>기존 네트워크에 jumpbox 추가 
 
-이 선택적 단계를 사용하면 SSH에서 jumpbox를 사용하여 가상 컴퓨터 확장 집합의 인스턴스에 액세스할 수 있습니다.
+이 선택적 단계를 사용하면 SSH에서 jumpbox를 사용하여 가상 머신 확장 집합의 인스턴스에 액세스할 수 있습니다.
 
 기존 배포에 다음 리소스를 추가합니다.
-- 가상 컴퓨터 확장 집합과 동일한 서브넷에 연결된 네트워크 인터페이스
-- 이 네트워크 인터페이스와 가상 컴퓨터
+- 가상 머신 확장 집합과 동일한 서브넷에 연결된 네트워크 인터페이스
+- 이 네트워크 인터페이스와 가상 머신
 
 `vmss.tf` 파일의 끝에 다음 코드를 추가합니다.
 
@@ -437,10 +440,10 @@ terraform apply
 
 배포가 완료된 후 리소스 그룹의 콘텐츠는 다음 이미지와 같습니다.
 
-![Terraform 가상 컴퓨터 확장 집합 리소스 그룹](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-create-vmss-step8.png)
+![Terraform 가상 머신 확장 집합 리소스 그룹](./media/terraform-create-vm-scaleset-network-disks-using-packer-hcl/tf-create-create-vmss-step8.png)
 
 > [!NOTE]
-> 배포한 가상 컴퓨터 확장 집합 및 jumpbox에서 암호를 사용하여 로그인할 수 없습니다. VM에 액세스하려면 SSH를 사용하여 로그인합니다.
+> 배포한 가상 머신 확장 집합 및 jumpbox에서 암호를 사용하여 로그인할 수 없습니다. VM에 액세스하려면 SSH를 사용하여 로그인합니다.
 
 ## <a name="clean-up-the-environment"></a>환경 정리
 
@@ -454,12 +457,12 @@ terraform destroy
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Terraform을 사용하여 Azure에서 가상 컴퓨터 확장 집합 및 jumpbox를 배포했습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 Terraform을 사용하여 Azure에서 가상 머신 확장 집합 및 jumpbox를 배포했습니다. 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * Terraform 배포 초기화
 > * Terraform 배포용 변수 및 출력 사용 
 > * 네트워크 인프라 만들기 및 배포
-> * Packer를 사용하여 사용자 지정 가상 컴퓨터 이미지 만들기
-> * 사용자 지정 이미지를 사용하여 가상 컴퓨터 확장 집합 만들기 및 배포
+> * Packer를 사용하여 사용자 지정 가상 머신 이미지 만들기
+> * 사용자 지정 이미지를 사용하여 가상 머신 확장 집합 만들기 및 배포
 > * jumpbox 만들기 및 배포 

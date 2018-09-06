@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: cynthn
-ms.openlocfilehash: be7933b038fb5a648249e9b0c73415bff778930b
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 34bfe7733c60337d6ab7d81c498d2fb0fd15e1fd
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012787"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338489"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-using-powershell"></a>PowerShell을 사용하여 특수 디스크에서 Windows VM 만들기
 
@@ -47,7 +47,7 @@ Install-Module AzureRM -RequiredVersion 6.0.0
 
 ## <a name="option-1-use-an-existing-disk"></a>옵션 1: 기존 디스크 사용
 
-삭제한 VM이 있고 OS 디스크를 다시 사용하여 새 VM을 만들려는 경우 [Get-AzureRmDisk](/azure/powershell/get-azurermdisk)를 사용합니다.
+삭제한 VM이 있고 OS 디스크를 다시 사용하여 새 VM을 만들려는 경우 [Get-AzureRmDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermdisk?view=azurermps-6.8.1)를 사용합니다.
 
 ```powershell
 $resourceGroupName = 'myResourceGroup'
@@ -289,7 +289,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
     
 ```
 
-끝점 및 NSG 규칙에 대한 자세한 내용은 [PowerShell을 사용하여 Azure에서 VM으로 포트 열기](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+엔드포인트 및 NSG 규칙에 대한 자세한 내용은 [PowerShell을 사용하여 Azure에서 VM으로 포트 열기](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 ### <a name="create-a-public-ip-address-and-nic"></a>공용 IP 주소 및 NIC 만들기
 가상 네트워크에서 가상 머신과 통신하려면 [공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) 및 네트워크 인터페이스가 필요합니다.

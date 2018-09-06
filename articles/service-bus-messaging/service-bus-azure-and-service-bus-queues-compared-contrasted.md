@@ -3,7 +3,7 @@ title: Azure Storage 및 Service Bus 큐 비교 및 대조 | Microsoft Docs
 description: Azure에서 제공하는 두 가지 유형의 큐 사이의 차이점과 유사점을 분석합니다.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/05/2018
-ms.author: sethm
-ms.openlocfilehash: 0b9a79919a63056bbc17e44ef0da3697001d227f
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.author: spelluru
+ms.openlocfilehash: 49694780f4fe32f8068c1d7c4cc87cfb88f77fe5
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802359"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700983"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Azure 큐 및 Service Bus 큐 - 비교 및 대조
 이 문서는 현재 Microsoft Azure에서 제공하는 두 가지 유형의 큐인 Storage 큐와 Service Bus 큐 사이의 차이점과 유사점을 분석합니다. 이 정보를 사용하여 각각의 기술을 비교 및 대조하고 요구에 가장 적합한 솔루션이 어떤 것인지 더 합리적으로 결정할 수 있습니다.

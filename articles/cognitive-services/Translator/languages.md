@@ -9,12 +9,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: f5b916ba3b6b044f12b84958b2eb69f44e2f8136
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 15e01dd55a0fe297eab69417074dc58a15b469c4
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888144"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783215"
 ---
 # <a name="supported-languages-in-the-microsoft-translator-text-api"></a>Microsoft Translator Text API에서 지원되는 언어
 
@@ -80,6 +80,7 @@ Microsoft Translator Text API는 다음 언어로 텍스트를 번역하도록 �
 | 스웨덴어        |  신경 |`sv`          |
 | 타히티어      | 통계 |`ty`          |
 | 타밀어      | 통계 |`ta`          |
+| 텔루구어   | 신경   | `te` |
 | 태국어      | 신경 |`th`          |
 | 통가어      | 통계 |`to`          |
 | 터키어       |  신경 |`tr`          |
@@ -236,6 +237,7 @@ Microsoft Translator Text API는 다음 언어로 텍스트를 번역하도록 �
 | 스와힐리어 |
 | 스웨덴어 |
 | 타갈로그어 |
+| 텔루구어 |
 | 태국어 |
 | 터키어 |
 | 우크라이나어 |

@@ -3,19 +3,19 @@ title: SQL Data Warehouse에 SQL 코드 마이그레이션| Microsoft Docs
 description: 솔루션 개발을 위한 Azure SQL Data Warehouse로 SQL 코드를 마이그레이션하기 위한 팁
 services: sql-data-warehouse
 author: jrowlandjones
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: b17e8e306c01bef4c58658b35f3a67d0e721633c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 2f16f9448da2dab9670908f74935bb5fb31a0547
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31527456"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301374"
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>SQL Data Warehouse에 SQL 코드 마이그레이션
 이 문서는 다른 데이터베이스에서 SQL Data Warehouse로 코드를 마이그레이션하는 경우 수행해야 하는 코드 변경 사항을 설명합니다. 일부 SQL Data Warehouse 기능은 원래 분산 방식으로 작동하도록 디자인되었기 때문에 크게 성능을 향상시킬 수 있습니다. 그러나 성능 및 확장을 유지하려면 일부 기능은 사용할 수 없습니다.

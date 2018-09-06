@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ramkris
-ms.openlocfilehash: 20fea7f4f4ccf852045d53ba06c3f8fcbdd1d60d
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: c926c67a330648e09c1fd8133164f64582ad9a34
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959834"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701078"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB: Azure 플랫폼에 람다 아키텍처 구현 
 
@@ -29,11 +29,6 @@ Azure에서 람다 아키텍처를 구현하려면 다음 기술을 결합하여
 * [Spark-Azure Cosmos DB 커넥터](spark-connector.md)
 
 이 문서에서는 원래의 다중 계층 설계를 기반으로 한 람다 아키텍처의 기본 사항과 작업을 간소화하는 "재개발된" 람다 아키텍처의 이점에 대해 설명합니다.  
-
-람다 아키텍처와 람다 아키텍처 샘플에서 사용할 수 있는 리소스에 대한 개요는 다음 비디오를 참조하세요.
-
-> [!VIDEO https:///channel9.msdn.com/Events/Connect/2017/T135/player]
->
 
 ## <a name="what-is-a-lambda-architecture"></a>람다 아키텍처란?
 [Nathan Marz](https://twitter.com/nathanmarz)가 기술한 대로, 람다 아키텍처는 일괄 처리 및 짧은 대기 시간 시나리오를 처리하기 위한 확장 가능하고 내결함성이 있는 일반적인 데이터 처리 아키텍처입니다.
@@ -206,7 +201,7 @@ tweets_bytags.write.mode(SaveMode.Overwrite).cosmosDB(writeConfig)
  
 #### <a name="resources"></a>리소스
 
-완전한 코드 샘플은 [azure-cosmosdb-spark/lambda/samples](vhttps://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/lambda)를 참조하세요.
+완전한 코드 샘플은 [azure-cosmosdb-spark/lambda/samples](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/lambda)를 참조하세요.
 * 여기에는 람다 아키텍처 재개발 - 일괄 처리 계층 [HTML](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html) | [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) 및
 * 람다 아키텍처 재개발 - 일괄 처리 및 서비스 계층 [HTML](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html) | [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb)가 있습니다.
 

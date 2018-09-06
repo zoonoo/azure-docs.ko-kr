@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/14/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2a8a23245a17c9a80c70860588a8312dbbb5e926
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 68eab85c7f67ad3af18c6066c29e1250e1be3d23
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446078"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344409"
 ---
 # <a name="azure-active-directory-b2c-allow-users-to-sign-in-to-a-multi-tenant-azure-ad-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 사용자가 다중 테넌트 Azure AD ID 공급자에 로그인할 수 있게 함
 
@@ -54,7 +54,7 @@ ms.locfileid: "37446078"
     >"yourtenant"의 값은 **로그온 URL**에서 모두 소문자여야 합니다.
 
     ```
-    https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
+    https://yourtenant.b2clogin.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
 1. 응용 프로그램 ID를 저장합니다.
@@ -81,7 +81,7 @@ Azure AD B2C 설정에서 응용 프로그램 키를 등록해야 합니다. 다
 
 ## <a name="step-3-add-a-claims-provider-in-your-base-policy"></a>3단계. 기본 정책에서 클레임 공급자 추가
 
-사용자가 Azure AD를 사용하여 로그인하도록 하려면 Azure AD를 클레임 공급자로 정의해야 합니다. 즉, Azure AD B2C가 통신하는 끝점을 지정해야 합니다. 끝점은 Azure AD B2C에서 사용하는 일단의 클레임을 제공하여 특정 사용자가 인증했는지 확인합니다. 
+사용자가 Azure AD를 사용하여 로그인하도록 하려면 Azure AD를 클레임 공급자로 정의해야 합니다. 즉, Azure AD B2C가 통신하는 엔드포인트를 지정해야 합니다. 엔드포인트는 Azure AD B2C에서 사용하는 일단의 클레임을 제공하여 특정 사용자가 인증했는지 확인합니다. 
 
 정책의 확장 파일에서 `<ClaimsProvider>` 노드에 Azure AD를 추가하여 Azure AD를 클레임 공급자로 정의할 수 있습니다.
 

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 368caa063ea0487923af8a29f67aa73cae7ed75e
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 355f80479ba7c6d6399bb25f7ba1511c6b18599b
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952895"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43285230"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos DB 에뮬레이터 사용
 
@@ -52,15 +52,9 @@ Azure Cosmos DB 에뮬레이터는 개발 목적으로 Azure Cosmos DB 서비스
 > * 추적 파일 수집
 > * 문제 해결
 
-Kirill Gavrylyuk가 Azure Cosmos DB 에뮬레이터를 시작하는 방법을 보여 주는 다음 비디오를 시청하는 것으로 시작하는 것이 좋습니다. 이 비디오는 DocumentDB 에뮬레이터를 참조하지만 비디오를 탭한 후에는 도구 자체의 이름이 Azure Cosmos DB 에뮬레이터로 바뀝니다. 비디오의 모든 정보는 Azure Cosmos DB 에뮬레이터에 대해 정확합니다. 
-
-> [!VIDEO https://channel9.msdn.com/Events/Connect/2016/192/player]
-> 
-> 
-
 ## <a name="how-the-emulator-works"></a>에뮬레이터의 작동 원리
 
-Azure Cosmos DB 에뮬레이터는 신뢰도 있는 Azure Cosmos DB 서비스의 에뮬레이션을 제공합니다. JSON 문서 만들기 및 쿼리, 컬렉션 프로비전 및 확장, 저장 프로시저 및 트리거 실행을 비롯하여 Azure Cosmos DB으로 동일한 기능을 지원합니다. Azure Cosmos DB 에뮬레이터를 사용하여 응용 프로그램을 개발 및 테스트하고 Azure Cosmos DB에 대한 연결 끝점에 대한 단일 구성을 변경하여 글로벌 규모로 Azure에 배포할 수 있습니다.
+Azure Cosmos DB 에뮬레이터는 신뢰도 있는 Azure Cosmos DB 서비스의 에뮬레이션을 제공합니다. JSON 문서 만들기 및 쿼리, 컬렉션 프로비전 및 확장, 저장 프로시저 및 트리거 실행을 비롯하여 Azure Cosmos DB으로 동일한 기능을 지원합니다. Azure Cosmos DB 에뮬레이터를 사용하여 응용 프로그램을 개발 및 테스트하고 Azure Cosmos DB에 대한 연결 엔드포인트에 대한 단일 구성을 변경하여 글로벌 규모로 Azure에 배포할 수 있습니다.
 
 Azure Cosmos DB 서비스의 에뮬레이션이 충실한 경우 에뮬레이터의 구현은 서비스와 다릅니다. 예를 들어 에뮬레이터는 로컬 파일 시스템(지속성) 및 HTTPS 프로토콜 스택(연결성)과 같은 표준 OS 구성 요소를 사용합니다. 따라서 전역 복제, 한 자리 밀리초 읽기/쓰기 대기 시간, 튜닝 가능한 일관성 수준 등 Azure 인프라를 기반으로 하는 기능은 사용할 수 없습니다.
 
@@ -435,7 +429,7 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 
 에뮬레이터가 시작된 후 대화형 셸을 닫으면 에뮬레이터의 컨테이너가 종료됩니다.
 
-데이터 탐색기를 열려면 브라우저에서 다음 URL로 이동합니다. 에뮬레이터 끝점이 위에 표시된 응답 메시지에 제공됩니다.
+데이터 탐색기를 열려면 브라우저에서 다음 URL로 이동합니다. 에뮬레이터 엔드포인트가 위에 표시된 응답 메시지에 제공됩니다.
 
     https://<emulator endpoint provided in response>/_explorer/index.html
 

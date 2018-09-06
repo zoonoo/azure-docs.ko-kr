@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: e708ae741c6835395e8eb35f6835c2d8c7002780
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: af7d4253b4e631295f8c04c96601e932595af9c1
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044733"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697767"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임을 만들고 구성하는 방법
 IR(Integration Runtime)은 서로 다른 네트워크 환경에서 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다. IR에 대한 세부 정보는 [Integration Runtime 개요](concepts-integration-runtime.md)를 참조하세요.
@@ -219,7 +219,7 @@ Integration Runtime 노드 간의 통신 보안에 사용되는 TLS/SSL 인증�
 
 도메인 이름 | 포트 | 설명
 ------------ | ----- | ------------
-*.servicebus.windows.net | 443, 80 | 데이터 이동 서비스 백 엔드와 통신에 사용됨
+\*.servicebus.windows.net | 443 | 데이터 이동 서비스 백 엔드와 통신에 사용됨
 *.core.windows.net | 443 | Azure Blob를 사용하여 준비된 복사에 사용됨(구성된 경우)
 *.frontend.clouddatahub.net | 443 | 데이터 이동 서비스 백 엔드와 통신에 사용됨
 download.microsoft.com | 443 | 업데이트 다운로드에 사용됨

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/06/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ee341fd3b54d748849da34cd11db30e5ea758fb1
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: b00eb1b2d25187dc50be53425ebae347edde33b4
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445272"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344814"
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: OAuth 2.0 암시적 흐름을 사용하여 단일 페이지 앱 로그인
 
@@ -25,7 +25,7 @@ ms.locfileid: "37445272"
 * 많은 권한 부여 서버 및 ID 공급자에서 CORS(원본 간 리소스 공유) 요청을 지원하지 않습니다.
 * 앱에서 전체 페이지 브라우저를 리디렉션하면 사용자 환경에 상당히 침투할 수 있습니다.
 
-이러한 응용 프로그램을 지원하기 위해 Azure AD B2C(Azure Active Directory B2C)에서는 OAuth 2.0 암시적 흐름을 사용합니다. OAuth 2.0 암시적 권한 부여 흐름은 [OAuth 2.0 사양의 4.2 섹션](http://tools.ietf.org/html/rfc6749)(영문)에서 설명하고 있습니다. 암시적 흐름에서 앱은 서버 간 교환 없이 Azure AD(Azure Active Directory) 권한 부여 끝점에서 직접 토큰을 받습니다. 모든 인증 논리 및 세션 처리는 추가 페이지 리디렉션 없이 JavaScript 클라이언트에서 전적으로 수행됩니다.
+이러한 응용 프로그램을 지원하기 위해 Azure AD B2C(Azure Active Directory B2C)에서는 OAuth 2.0 암시적 흐름을 사용합니다. OAuth 2.0 암시적 권한 부여 흐름은 [OAuth 2.0 사양의 4.2 섹션](http://tools.ietf.org/html/rfc6749)(영문)에서 설명하고 있습니다. 암시적 흐름에서 앱은 서버 간 교환 없이 Azure AD(Azure Active Directory) 권한 부여 엔드포인트에서 직접 토큰을 받습니다. 모든 인증 논리 및 세션 처리는 추가 페이지 리디렉션 없이 JavaScript 클라이언트에서 전적으로 수행됩니다.
 
 Azure AD B2C는 표준 OAuth 2.0 암시적 흐름을 확장하여 단순한 인증 및 권한 부여보다 더 많은 작업을 수행합니다. Azure AD B2C는 [정책 매개 변수](active-directory-b2c-reference-policies.md)를 도입했습니다. 정책 매개 변수를 사용하면 OAuth 2.0을 통해 등록, 로그인 및 프로필 관리와 같은 사용자 환경을 앱에 추가할 수 있습니다. 여기서는 암시적 흐름과 Azure AD를 사용하여 단일 페이지 응용 프로그램에서 이러한 환경 각각을 구현하는 방법을 보여 줍니다. 시작하는 데 도움이 되도록 [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) 및 [Microsoft .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) 샘플을 살펴보세요.
 
@@ -40,13 +40,13 @@ Azure AD B2C는 표준 OAuth 2.0 암시적 흐름을 확장하여 단순한 인�
 ![OpenID Connect 스윔 레인](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
 ## <a name="send-authentication-requests"></a>인증 요청 보내기
-웹앱에서 사용자를 인증하고 정책을 실행해야 하는 경우 사용자를 `/authorize` 끝점으로 지정합니다. 이는 정책에 따라 사용자가 실제로 작업을 수행하는 흐름의 대화형 부분입니다. 사용자는 Azure AD 끝점에서 ID 토큰을 가져옵니다.
+웹앱에서 사용자를 인증하고 정책을 실행해야 하는 경우 사용자를 `/authorize` 엔드포인트로 지정합니다. 이는 정책에 따라 사용자가 실제로 작업을 수행하는 흐름의 대화형 부분입니다. 사용자는 Azure AD 엔드포인트에서 ID 토큰을 가져옵니다.
 
 이 요청에서 클라이언트는 사용자로부터 얻어야 하는 권한을 `scope` 매개 변수에 표시합니다. `p` 매개 변수에서 실행할 정책을 나타냅니다. 다음 세 가지 예제(쉽게 읽을 수 있도록 줄 바꿈 적용)에서는 각각 다른 정책을 사용합니다. 각 요청의 작동 방식에 대해 이해하려면 요청을 브라우저에 붙여 넣고 실행합니다.
 
 ### <a name="use-a-sign-in-policy"></a>로그인 정책 사용
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=id_token+token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -59,7 +59,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 ### <a name="use-a-sign-up-policy"></a>등록 정책 사용
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=id_token+token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -72,7 +72,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 ### <a name="use-an-edit-profile-policy"></a>편집 프로필 정책 사용
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=id_token+token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -86,7 +86,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | 매개 변수 | Required? | 설명 |
 | --- | --- | --- |
 | client_id |필수 |[Azure Portal](https://portal.azure.com)에서 앱에 할당된 응용 프로그램 ID입니다. |
-| response_type |필수 |OpenID Connect 로그인을 위한 `id_token` 이 포함되어야 합니다. `token` 응답 형식이 포함될 수도 있습니다. `token`을 사용하면 앱에서 권한 부여 끝점에 대한 두 번째 요청을 수행하지 않고도 권한 부여 끝점에서 액세스 토큰을 즉시 받을 수 있습니다.  `token` 응답 형식을 사용하는 경우 `scope` 매개 변수에는 토큰을 발급할 리소스를 나타내는 범위가 포함되어야 합니다. |
+| response_type |필수 |OpenID Connect 로그인을 위한 `id_token` 이 포함되어야 합니다. `token` 응답 형식이 포함될 수도 있습니다. `token`을 사용하면 앱에서 권한 부여 엔드포인트에 대한 두 번째 요청을 수행하지 않고도 권한 부여 엔드포인트에서 액세스 토큰을 즉시 받을 수 있습니다.  `token` 응답 형식을 사용하는 경우 `scope` 매개 변수에는 토큰을 발급할 리소스를 나타내는 범위가 포함되어야 합니다. |
 | redirect_uri |권장 |앱이 인증 응답을 보내고 받을 수 있는 앱의 리디렉션 URI입니다. URL로 인코딩해야 한다는 점을 제외하고는 포털에서 등록한 리디렉션 URI 중 하나와 정확히 일치해야 합니다. |
 | response_mode |권장 |결과 토큰을 앱으로 다시 보내는 데 사용할 메서드를 지정합니다.  암시적 흐름의 경우 `fragment`를 사용합니다. |
 | scope |필수 |공백으로 구분된 범위 목록입니다. 단일 범위 값은 요청된 사용 권한을 모두 Azure AD에 나타냅니다. `openid` 범위는 사용자에게 로그인하고 ID 토큰 형식으로 사용자에 대한 데이터를 가져올 권한을 나타냅니다. (이 문서의 뒷부분에서 자세히 알아보겠습니다.) `offline_access` 범위는 웹앱에 대한 선택 사항입니다. 리소스에 장기간 액세스하기 위한 새로 고침 토큰이 앱에 필요함을 나타냅니다. |
@@ -142,17 +142,17 @@ ID 토큰을 받는 것만으로는 사용자를 인증할 수 없습니다. ID 
 
 사용하려는 언어에 따라 JWT의 유효성을 검사하는 데 사용할 수 있는 다양한 오픈 소스 라이브러리가 있습니다. 사용자 고유의 유효성 검사 논리를 구현하는 대신 사용 가능한 오픈 소스 라이브러리를 탐색하는 것이 좋습니다. 이 문서의 정보를 통해 이러한 라이브러리를 올바르게 사용하는 방법을 알아볼 수 있습니다.
 
-Azure AD B2C에는 OpenID Connect 메타데이터 끝점이 있습니다. 앱에서 런타임에 Azure AD B2C에 대한 정보를 가져오는 데 끝점을 사용할 수 있습니다. 이 정보에는 끝점, 토큰 콘텐츠 및 토큰 서명 키가 포함됩니다. Azure AD B2C 테넌트의 각 정책에 대한 JSON 메타데이터 문서가 있습니다. 예를 들어 fabrikamb2c.onmicrosoft.com 테넌트의 b2c_1_sign_in 정책에 대한 메타데이터 문서는 다음 위치에 있습니다.
+Azure AD B2C에는 OpenID Connect 메타데이터 엔드포인트가 있습니다. 앱에서 런타임에 Azure AD B2C에 대한 정보를 가져오는 데 엔드포인트를 사용할 수 있습니다. 이 정보에는 엔드포인트, 토큰 콘텐츠 및 토큰 서명 키가 포함됩니다. Azure AD B2C 테넌트의 각 정책에 대한 JSON 메타데이터 문서가 있습니다. 예를 들어 fabrikamb2c.onmicrosoft.com 테넌트의 b2c_1_sign_in 정책에 대한 메타데이터 문서는 다음 위치에 있습니다.
 
-`https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
+`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
 
 이 구성 문서의 속성 중 하나가 `jwks_uri`입니다. 동일한 정책에 대한 값은 다음과 같습니다.
 
-`https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`
+`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`
 
 ID 토큰에 서명하는 데 사용된 정책(및 메타데이터를 가져올 위치)을 결정하려면 두 가지 옵션이 있습니다. 먼저 `id_token`의 `acr` 클레임에 정책 이름을 포함합니다. ID 토큰에서 클레임을 구문 분석하는 방법에 대한 내용은 [Azure AD B2C 토큰 참조](active-directory-b2c-reference-tokens.md)를 참조하세요. 다른 옵션은 요청을 발급할 때 정책을 `state` 매개 변수의 값으로 인코딩한 다음, `state` 매개 변수를 디코딩하여 어떤 정책이 사용되었는지 확인하는 것입니다. 두 방법 중 하나는 유효합니다.
 
-OpenID Connect 메타데이터 끝점에서 메타데이터 문서를 가져오면 이 끝점에 있는 RSA-256 공개 키를 사용하여 ID 토큰의 서명에 대한 유효성을 검사할 수 있습니다. 지정된 시간에 이 끝점에 나열된 키가 여러 개 있을 수 있으며, 각 키는 `kid`로 식별됩니다. `id_token`의 헤더에는 `kid` 클레임도 포함되어 있으며, 이는 이러한 키 중에서 ID 토큰 서명에 사용된 키를 나타냅니다. [토큰 유효성을 검사하는 방법](active-directory-b2c-reference-tokens.md)을 포함하여 자세한 내용은 [Azure AD B2C 토큰 참조](active-directory-b2c-reference-tokens.md#token-validation)를 참조하세요.
+OpenID Connect 메타데이터 엔드포인트에서 메타데이터 문서를 가져오면 이 엔드포인트에 있는 RSA-256 공개 키를 사용하여 ID 토큰의 서명에 대한 유효성을 검사할 수 있습니다. 지정된 시간에 이 엔드포인트에 나열된 키가 여러 개 있을 수 있으며, 각 키는 `kid`로 식별됩니다. `id_token`의 헤더에는 `kid` 클레임도 포함되어 있으며, 이는 이러한 키 중에서 ID 토큰 서명에 사용된 키를 나타냅니다. [토큰 유효성을 검사하는 방법](active-directory-b2c-reference-tokens.md)을 포함하여 자세한 내용은 [Azure AD B2C 토큰 참조](active-directory-b2c-reference-tokens.md#token-validation)를 참조하세요.
 <!--TODO: Improve the information on this-->
 
 ID 토큰의 서명에 대한 유효성을 검사한 후에는 확인해야 할 몇 가지 클레임이 있습니다. 예: 
@@ -176,11 +176,11 @@ ID 토큰의 유효성을 완전히 검사한 후에는 사용자와 세션을 �
 
 사용자가 단일 페이지 앱에 로그인되도록 했으므로 Azure AD를 통해 보안이 유지되는 웹 API를 호출하기 위한 액세스 토큰을 가져올 수 있습니다. `token` 응답 형식을 사용하여 토큰을 이미 받았더라도 이 메서드를 사용하여 사용자가 다시 로그인하도록 리디렉션하지 않고도 추가 리소스에 대한 토큰을 얻을 수 있습니다.
 
-일반적인 웹앱 흐름에서는 `/token` 끝점에 요청하여 이 작업을 수행합니다.  하지만 끝점은 CORS 요청을 지원하지 않으므로 AJAX 호출을 통해 토큰을 가져오고 새로 고치는 것은 옵션이 아닙니다. 대신 숨겨진 HTML iFrame 요소에서 암시적 흐름을 사용하여 다른 웹 API에 대한 새 토큰을 가져올 수 있습니다. 다음은 쉽게 읽을 수 있도록 줄 바꿈을 적용한 예제입니다.
+일반적인 웹앱 흐름에서는 `/token` 엔드포인트에 요청하여 이 작업을 수행합니다.  하지만 엔드포인트는 CORS 요청을 지원하지 않으므로 AJAX 호출을 통해 토큰을 가져오고 새로 고치는 것은 옵션이 아닙니다. 대신 숨겨진 HTML iFrame 요소에서 암시적 흐름을 사용하여 다른 웹 API에 대한 새 토큰을 가져올 수 있습니다. 다음은 쉽게 읽을 수 있도록 줄 바꿈을 적용한 예제입니다.
 
 ```
 
-https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -197,7 +197,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | 매개 변수 | Required? | 설명 |
 | --- | --- | --- |
 | client_id |필수 |[Azure Portal](https://portal.azure.com)에서 앱에 할당된 응용 프로그램 ID입니다. |
-| response_type |필수 |OpenID Connect 로그인을 위한 `id_token` 이 포함되어야 합니다.  `token` 응답 형식이 포함될 수도 있습니다. 여기서 `token`을 사용하면 앱에서 권한 부여 끝점에 대한 두 번째 요청을 수행하지 않고도 권한 부여 끝점에서 액세스 토큰을 즉시 받을 수 있습니다. `token` 응답 형식을 사용하는 경우 `scope` 매개 변수에는 토큰을 발급할 리소스를 나타내는 범위가 포함되어야 합니다. |
+| response_type |필수 |OpenID Connect 로그인을 위한 `id_token` 이 포함되어야 합니다.  `token` 응답 형식이 포함될 수도 있습니다. 여기서 `token`을 사용하면 앱에서 권한 부여 엔드포인트에 대한 두 번째 요청을 수행하지 않고도 권한 부여 엔드포인트에서 액세스 토큰을 즉시 받을 수 있습니다. `token` 응답 형식을 사용하는 경우 `scope` 매개 변수에는 토큰을 발급할 리소스를 나타내는 범위가 포함되어야 합니다. |
 | redirect_uri |권장 |앱이 인증 응답을 보내고 받을 수 있는 앱의 리디렉션 URI입니다. URL로 인코딩해야 한다는 점을 제외하고는 포털에서 등록한 리디렉션 URI 중 하나와 정확히 일치해야 합니다. |
 | scope |필수 |공백으로 구분된 범위 목록입니다.  토큰을 가져오려면 원하는 리소스에 필요한 모든 범위를 포함합니다. |
 | response_mode |권장 |결과 토큰을 앱으로 다시 보내는 데 사용되는 메서드를 지정합니다.  `query`, `form_post` 또는 `fragment`일 수 있습니다. |
@@ -254,7 +254,7 @@ ID 토큰 및 액세스 토큰은 모두 짧은 기간 후에 만료됩니다. �
 [ID 토큰 유효성 검사](#validate-the-id-token)에서 설명한 동일한 OpenID Connect 메타데이터 문서에 나열된 `end_session_endpoint`로 사용자를 리디렉션할 수 있습니다. 예: 
 
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
 p=b2c_1_sign_in
 &post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```

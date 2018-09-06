@@ -3,19 +3,19 @@ title: Azure SQL Data Warehouse의 데이터 웨어하우스 단위(DWU, cDWU) |
 description: 가격 및 성능을 최적화하기 위한 이상적인 데이터 웨어하우스 단위(DWU, cDWU) 수 선택에 대한 권장 사항 및 단위 수를 변경하는 방법
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 94791e4dc3d3c841dde4685d34d4e3fdaf7d9af7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 50e70ab9be87c15816dc6471a2a29afd0f17d907
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32185963"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301248"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>DWU(데이터 웨어하우스 단위) 및 cDWU(계산 데이터 웨어하우스 단위)
 가격 및 성능을 최적화하기 위한 이상적인 데이터 웨어하우스 단위(DWU, cDWU) 수 선택에 대한 권장 사항 및 단위 수를 변경하는 방법 
@@ -163,7 +163,7 @@ Content-Type: application/json; charset=UTF-8
 
 DWU 변경을 완료하는 데는 몇 분 정도 걸릴 수 있습니다. 자동으로 크기를 조정하는 경우 다른 작업을 진행하기 전에 특정 작업이 완료되었는지 확인하는 논리를 구현하는 것이 좋습니다. 
 
-다양한 끝점을 통해 데이터베이스 상태를 확인하면 자동화를 올바르게 구현할 수 있습니다. 포털에서는 작업 완료 시의 알림과 데이터베이스 현재 상태를 제공하지만 프로그래밍 방식으로 상태를 확인할 수는 없습니다. 
+다양한 엔드포인트를 통해 데이터베이스 상태를 확인하면 자동화를 올바르게 구현할 수 있습니다. 포털에서는 작업 완료 시의 알림과 데이터베이스 현재 상태를 제공하지만 프로그래밍 방식으로 상태를 확인할 수는 없습니다. 
 
 Azure Portal에서 스케일 아웃 작업에 대한 데이터베이스 상태를 확인할 수 없습니다.
 

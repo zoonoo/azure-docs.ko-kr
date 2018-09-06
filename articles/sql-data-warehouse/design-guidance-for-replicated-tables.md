@@ -3,22 +3,24 @@ title: 복제 테이블에 대한 디자인 지침 - Azure SQL Data Warehouse | 
 description: Azure SQL Data Warehouse 스키마로 복제 테이블을 디자인하기 위한 권장 사항입니다.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/23/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 1cc796061056ff017e3d778ebb2e50e13d55a4c1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dfbfc61b9088535d6b50a9897b908572d88d6676
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32189567"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302765"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 복제 테이블 사용에 대한 디자인 지침
 이 문서는 SQL Data Warehouse 스키마로 복제 테이블을 디자인하기 위한 권장 사항을 제공합니다. 이러한 권장 사항을 사용하여 데이터 이동 및 쿼리 복잡성을 줄여서 쿼리 성능을 향상시킵니다.
+
+> [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
 
 ## <a name="prerequisites"></a>필수 조건
 이 문서에서는 사용자가 SQL Data Warehouse의 데이터 배포 및 데이터 이동 개념에 익숙하다고 가정합니다.  자세한 내용은 [아키텍처](massively-parallel-processing-mpp-architecture.md) 문서를 참조하세요. 

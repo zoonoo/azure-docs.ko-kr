@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 89343f3e4ec91dd32b24cdea6632cecd855cc6f8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: bbd250e9ee987403d670b2605fdb8deda8c19092
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523226"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782056"
 ---
 # <a name="use-azure-files-with-linux"></a>Linux에서 Azure Files 사용
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 [SMB 커널 클라이언트](https://wiki.samba.org/index.php/LinuxCIFS)를 사용하여 Linux 배포판에 탑재할 수 있습니다. 이 문서에서는 Azure 파일 공유를 탑재하는 두 가지 방법을 보여 줍니다. 하나는 요청 시 `mount` 명령을 사용하여 탑재하고, 다른 하나는 `/etc/fstab`에 항목을 만들어 부팅 시 탑재하는 방법입니다.
@@ -107,7 +107,7 @@ ms.locfileid: "39523226"
 3. **파일 공유를 위한 사용자 이름(저장소 계정 이름) 및 암호(저장소 계정 키)를 저장할 자격 증명 파일을 만듭니다.** `<storage-account-name>` 및 `<storage-account-key>`를 사용자 환경에 대한 적절한 정보로 바꾸어야 합니다. 
 
     ```bash
-    if [ -d "/etc/smbcredentials" ]; then
+    if [ ! -d "/etc/smbcredentials" ]; then
         sudo mkdir /etc/smbcredentials
     fi
 

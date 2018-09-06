@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 18f921fb718aeb7ae4add2836fbb6ffabd66668f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1a37a37dbed3b5ef9733f1105444529b4d255bcf
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445061"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336784"
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: 페이지 UI(사용자 인터페이스) 사용자 지정 기능을 설명하기 위해 사용된 도우미 도구
 이 문서는 Azure AD(Azure Active Directory) B2C의 [주요 UI 사용자 지정 문서](active-directory-b2c-reference-ui-customization.md) 에 동반됩니다. 다음 단계는 제공되는 샘플 HTML 및 CSS 콘텐츠를 사용하여 페이지 UI 사용자 지정 기능을 연습하는 방법을 설명합니다.
@@ -74,7 +74,7 @@ Azure Blob Storage를 사용하여 페이지 콘텐츠를 호스팅하려는 경
 git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 ```
 
-이 리포지토리는 예제 HTML, CSS 및 이미지를 포함하는 `sample_templates\wingtip` 디렉터리를 포함합니다. 이러한 템플릿에서 Azure Blob Storage 계정을 참조하도록 하려면 HTML 파일을 편집해야 합니다. `unified.html` 및 `selfasserted.html`을 열어서 `https://localhost` 인스턴스를 이전 단계에서 적어둔 컨테이너의 URL로 교체합니다. 이런 경우 `https://login.microsoftonline.com`도메인의 Azure AD에서 HTML이 제공되기 때문에 HTML 파일의 절대 경로를 사용해야 합니다.
+이 리포지토리는 예제 HTML, CSS 및 이미지를 포함하는 `sample_templates\wingtip` 디렉터리를 포함합니다. 이러한 템플릿에서 Azure Blob Storage 계정을 참조하도록 하려면 HTML 파일을 편집해야 합니다. `unified.html` 및 `selfasserted.html`을 열어서 `https://localhost` 인스턴스를 이전 단계에서 적어둔 컨테이너의 URL로 교체합니다. 이런 경우 `tenantname.b2clogin.com`도메인의 Azure AD에서 HTML이 제공되기 때문에 HTML 파일의 절대 경로를 사용해야 합니다.
 
 ### <a name="upload-the-sample-files"></a>샘플 파일 업로드
 동일한 리포지토리에서 `B2CAzureStorageClient.zip`의 압축을 풀고 그 안에 포함된 `B2CAzureStorageClient.exe` 파일을 실행합니다. 이 프로그램은 저장소 계정에 사용자가 지정한 디렉터리의 모든 파일을 업로드하고 해당 파일에 대한 CORS 액세스가 가능하도록 합니다. 위 단계를 따랐다면 HTML 및 CSS 파일은 이제 사용자의 저장소 계정을 가리킵니다. 저장소 계정 이름은 `blob.core.windows.net` 앞에 오는 부분(예: `contoso`)입니다. 브라우저에서 `https://{storage-account-name}.blob.core.windows.net/{container-name}/wingtip/unified.html` 에 액세스를 시도하여 콘텐츠를 제대로 업로드했는지 확인할 수 있습니다. 또한 [http://test-cors.org/](http://test-cors.org/)를 사용하여 콘텐츠가 CORS를 사용하도록 설정했는지 확인합니다. (결과에서 "XHR 상태: 200"을 찾습니다.)

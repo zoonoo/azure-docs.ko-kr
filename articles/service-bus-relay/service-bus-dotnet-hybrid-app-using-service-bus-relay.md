@@ -3,7 +3,7 @@ title: Azure WCF Relay 하이브리드 온-프레미스/클라우드 응용 프�
 description: Azure WCF 릴레이를 사용하여 .NET 온-프레미스/클라우드 하이브리드 응용 프로그램을 만드는 방법에 대해 알아봅니다.
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 9ed02f7c-ebfb-4f39-9c97-b7dc15bcb4c1
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 11/02/2017
-ms.author: sethm
-ms.openlocfilehash: fe13de5f83fe18a85f8d46d0eee039159e1a60e9
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.author: spelluru
+ms.openlocfilehash: 23e0e487914b6e8810d8db00462c353c99955665
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
-ms.locfileid: "29346444"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697471"
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Azure WCF 릴레이를 사용하는 .NET 온-프레미스/클라우드 하이브리드 응용 프로그램
 
@@ -84,7 +84,7 @@ Azure에서 릴레이 기능 사용을 시작하려면 먼저 서비스 네임�
 
    필요한 클라이언트 어셈블리가 이제 참조됩니다.
 8. 제품 계약의 새 클래스를 추가합니다. 솔루션 탐색기에서 **ProductsServer** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 다음 **클래스**를 클릭합니다.
-9. **이름** 상자에서 이름을 **ProductsContract.cs**로 입력합니다. 그런 다음 **추가**를 클릭합니다.
+9. **이름** 상자에서 이름을 **ProductsContract.cs**로 입력합니다. 그런 다음, **추가**를 클릭합니다.
 10. **ProductsContract.cs**에서 네임스페이스 정의를 다음 코드로 바꿉니다. 이 코드는 서비스의 계약을 정의합니다.
 
     ```csharp
@@ -233,7 +233,7 @@ Azure에서 릴레이 기능 사용을 시작하려면 먼저 서비스 네임�
 
 7. **새 ASP.NET 웹 응용 프로그램** 대화 상자로 돌아와서 **확인**을 클릭하여 MVC 앱을 만듭니다.
 8. 이제 새 웹앱에 대한 Azure 리소스를 구성해야 합니다. [이 문서의 Azure 섹션에 게시](../app-service/app-service-web-get-started-dotnet-framework.md#publish-to-azure)의 단계에 따릅니다. 그런 다음, 이 자습서로 돌아가 다음 단계를 진행합니다.
-10. 솔루션 탐색기에서 **모델**을 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 다음 **클래스**를 클릭합니다. **이름** 상자에서 이름을 **Product.cs**로 입력합니다. 그런 다음 **추가**를 클릭합니다.
+10. 솔루션 탐색기에서 **모델**을 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 다음 **클래스**를 클릭합니다. **이름** 상자에서 이름을 **Product.cs**로 입력합니다. 그런 다음, **추가**를 클릭합니다.
 
     ![][17]
 

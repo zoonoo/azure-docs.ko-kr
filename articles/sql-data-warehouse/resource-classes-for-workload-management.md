@@ -3,19 +3,19 @@ title: 워크로드 관리를 위한 리소스 클래스 - Azure SQL Data Wareho
 description: Azure SQL Data Warehouse의 쿼리에 대한 계산 리소스 및 동시성 리소스를 관리하는 리소스 클래스 사용 지침입니다.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/26/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 09fd39865a52767195ebf7dad13f24d883af476a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8d0138d20e1a30ab3efc509eb71f17a6b1e4e8e5
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32192784"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287475"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 리소스 클래스로 워크로드 관리
 Azure SQL Data Warehouse에서 리소스 클래스를 사용하여 메모리 및 쿼리의 동시성을 관리하기 위한 지침입니다.  

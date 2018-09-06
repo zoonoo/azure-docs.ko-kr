@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5c05f2617025d5cb4f1328f04c8d71049e1efcc7
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: a983c7307308534140ab8999593ac4c8c6992a42
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284778"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338509"
 ---
 # <a name="implement-the-device-model-behavior"></a>장치 모델 동작 구현
 
@@ -41,7 +41,7 @@ ms.locfileid: "39284778"
 > * 시뮬레이션된 장치가 원격 모니터링 솔루션의 메서드 호출에 응답하는 방법 정의
 > * 스크립트 디버그
 
-이제 시뮬레이션된 장치의 동작을 지정하는 방법을 배웠으므로 다음 단계에서는 [시뮬레이션된 장치를 만드는](iot-accelerators-remote-monitoring-test.md) 방법을 알아보는 것이 좋습니다.
+이제 시뮬레이션된 장치의 동작을 지정하는 방법을 배웠으므로 다음 단계에서는 [시뮬레이션된 장치를 만드는](iot-accelerators-remote-monitoring-create-simulated-device.md) 방법을 알아보는 것이 좋습니다.
 
 원격 모니터링 솔루션에 대한 자세한 개발자 정보는 다음을 참조하세요.
 

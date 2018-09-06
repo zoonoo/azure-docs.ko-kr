@@ -3,7 +3,7 @@ title: Azure 릴레이 정의 및 사용 이유 개요 | Microsoft Docs
 description: Azure 릴레이 개요
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 05/02/2018
-ms.author: sethm
-ms.openlocfilehash: 2b179f8f5de9a0020ea6457c11bb6f48f3a51320
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.author: spelluru
+ms.openlocfilehash: dc616f18033014a5dcc9e5d15434497978484bc1
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33896543"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695968"
 ---
 # <a name="what-is-azure-relay"></a>Azure 릴레이란?
 
@@ -29,9 +29,9 @@ Azure 릴레이 서비스는 방화벽 연결을 열거나 회사 네트워크 �
 
 릴레이된 데이터 전송 패턴에서는 온-프레미스 서비스가 아웃바운드 포트를 통해 릴레이 서비스에 연결하고 특정 랑데부 주소와 연결된 통신에 사용할 양방향 소켓을 만듭니다. 그러면 클라이언트는 랑데부 주소를 대상으로 하는 릴레이 서비스에 트래픽을 전송하여 온-프레미스 서비스와 통신할 수 있습니다. 그 후 릴레이 서비스는 각 클라이언트 전용 양방향 소켓을 통해 온-프레미스 서비스에 데이터를 "릴레이"합니다. 클라이언트는 온-프레미스 서비스에 대한 직접 연결이 필요 없고, 서비스가 상주하는 위치를 알 필요가 없고, 온-프레미스 서비스는 방화벽에 열려 있는 인바운드 포트가 필요 없습니다.
 
-릴레이가 제공하는 주요 기능 요소는 TCP와 유사한 제한, 끝점 검색, 연결 상태, 중복된 끝점 보안을 갖춘 네트워크 경계에서 양방향의 버퍼링이 없는 통신입니다.
+릴레이가 제공하는 주요 기능 요소는 TCP와 유사한 제한, 엔드포인트 검색, 연결 상태, 중복된 엔드포인트 보안을 갖춘 네트워크 경계에서 양방향의 버퍼링이 없는 통신입니다.
 
-릴레이의 기능은 VPN이 네트워크 환경 변화에 좌우되기 때문에 VPN 기술이 훨씬 침입적인 반면, 단일 컴퓨터의 단일 응용 프로그램 끝점에 범위를 지정할 수 있는 VPN과 같은 네트워크 수준의 통합 기술과 다릅니다.
+릴레이의 기능은 VPN이 네트워크 환경 변화에 좌우되기 때문에 VPN 기술이 훨씬 침입적인 반면, 단일 컴퓨터의 단일 응용 프로그램 엔드포인트에 범위를 지정할 수 있는 VPN과 같은 네트워크 수준의 통합 기술과 다릅니다.
 
 Azure 릴레이에는 다음과 같은 두 가지 기능이 있습니다.
 

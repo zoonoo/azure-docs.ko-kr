@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 3501c8d35968ecf8e32c806dfb05ccfebc7f4386
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: d61ac48aa7c51bc4b215a7d56b1bbedfdc613f9f
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264224"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287559"
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Microsoft Azure의 메트릭 개요
 이 문서에서는 Microsoft Azure의 메트릭에 대해 설명하고 그 이점과 사용 방법을 소개합니다.  
@@ -107,7 +107,7 @@ Resource Manager 템플릿, [PowerShell](insights-powershell-samples.md), [Azure
 
  ![Azure Monitor의 메트릭 및 경고 규칙](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
-최신 메트릭 경고에는 리소스에 대한 여러 메트릭 및 임계값을 모니터링한 다음, [작업 그룹](/monitoring-action-groups.md)을 통해 알려주는 기능이 있습니다. [여기에서 최신 경고](https://aka.ms/azuremonitor/near-real-time-alerts)에 대해 자세히 알아봅니다.
+최신 메트릭 경고에는 리소스에 대한 여러 메트릭 및 임계값을 모니터링한 다음, [작업 그룹](monitoring-action-groups.md)을 통해 알려주는 기능이 있습니다. [여기에서 최신 경고](https://aka.ms/azuremonitor/near-real-time-alerts)에 대해 자세히 알아봅니다.
 
 
 ### <a name="autoscale-your-azure-resources"></a>Azure 리소스에서 자동 크기 조정

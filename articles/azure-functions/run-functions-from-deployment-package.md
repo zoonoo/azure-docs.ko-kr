@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: na
 ms.date: 08/22/2018
 ms.author: glenga
-ms.openlocfilehash: 273b1a84b5ebe5f5751a05ef24e4721e7226bca6
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 2b9cc3618bf21eac268e3c25f08b80124d52e6af
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42819429"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669294"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>패키지에서 Azure Functions 실행
 
@@ -63,7 +63,7 @@ Azure의 함수 앱의 배포 패키지 파일에서 직접 함수를 실행할 
 
 ## <a name="adding-the-websiterunfromzip-setting"></a>WEBSITE_RUN_FROM_ZIP 설정 추가
 
-[!INCLUDE [함수 앱 설정](../../includes/functions-app-settings.md]
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 58a0a1e8be7ad5a119204b52b5263943dcef0192
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9cd5789cd2ee6e167f3d3ed05c2fde077f7ec9a3
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441229"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344944"
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: 액세스 토큰 요청
 
@@ -73,13 +73,13 @@ API가 범위를 게시하도록 구성되면 클라이언트 응용 프로그�
 
 ## <a name="requesting-a-token"></a>토큰 요청
 
-액세스 토큰을 요청할 때 클라이언트 응용 프로그램에서 요청의 **범위** 매개 변수에서 원하는 권한을 지정해야 합니다. 예를 들어 `https://contoso.onmicrosoft.com/notes`의 **앱 ID URI**가 있는 API에 대한 **범위 값** "읽기"를 지정하기 위해 범위는 `https://contoso.onmicrosoft.com/notes/read`가 됩니다. 다음은 `/authorize` 끝점에 대한 인증 코드 요청의 예입니다.
+액세스 토큰을 요청할 때 클라이언트 응용 프로그램에서 요청의 **범위** 매개 변수에서 원하는 권한을 지정해야 합니다. 예를 들어 `https://contoso.onmicrosoft.com/notes`의 **앱 ID URI**가 있는 API에 대한 **범위 값** "읽기"를 지정하기 위해 범위는 `https://contoso.onmicrosoft.com/notes/read`가 됩니다. 다음은 `/authorize` 엔드포인트에 대한 인증 코드 요청의 예입니다.
 
 > [!NOTE]
 > 현재 사용자 지정 도메인은 액세스 토큰과 함께 지원되지 않습니다. 요청 URL에서 tenantName.onmicrosoft.com 도메인을 사용해야 합니다.
 
 ```
-https://login.microsoftonline.com/tfp/<tenantName>.onmicrosoft.com/<yourPolicyId>/oauth2/v2.0/authorize?client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
+https://<tenantName>.b2clogin.com/tfp/<tenantName>.onmicrosoft.com/<yourPolicyId>/oauth2/v2.0/authorize?client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
 ```
 
 같은 요청에 여러 권한을 얻기 위해 단일 **범위** 매개 변수에 공백으로 구분된 여러 항목을 추가할 수 있습니다. 예: 
@@ -112,7 +112,7 @@ OpenID Connect 표준은 몇 가지 특별한 "범위" 값을 지정합니다. �
 
 ## <a name="the-returned-token"></a>반환된 토큰
 
-성공적으로 생성된 **액세스\_토큰**(`/authorize` 또는 `/token` 끝점에서)에 다음 클레임이 표시됩니다.
+성공적으로 생성된 **액세스\_토큰**(`/authorize` 또는 `/token` 엔드포인트에서)에 다음 클레임이 표시됩니다.
 
 | Name | 클레임 | 설명 |
 | --- | --- | --- |

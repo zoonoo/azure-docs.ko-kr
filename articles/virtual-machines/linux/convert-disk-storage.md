@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 5c06de6b757da63bb35a4f094e5912e8dcd786f9
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 783dd82041e21242ac4ac136a5d9c91fc9b94e84
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005053"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666780"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Azure 관리 디스크 저장소를 표준에서 프리미엄으로, 또 그 반대로 변환
 
-Managed Disks는 세 가지 저장소 옵션인 [프리미엄 SSD](../windows/premium-storage.md), 표준 SSD(미리 보기) 및 [표준 HDD](../windows/standard-storage.md)를 제공합니다. 성능 요구 사항에 따라 최소한의 가동 중지 시간으로 옵션 사이를 쉽게 전환할 수 있습니다. 이 항목은 현재 관리되지 않는 디스크에 지원되지 않습니다. 하지만 디스크 유형 사이를 쉽게 전환하도록 [Managed Disks로 변환](convert-unmanaged-to-managed-disks.md)할 수 있습니다.
+Managed Disks는 세 가지 저장소 옵션인 [프리미엄 SSD](../windows/premium-storage.md), 표준 SSD(미리 보기) 및 [표준 HDD](../windows/standard-storage.md)를 제공합니다. 성능 요구 사항에 따라 최소한의 가동 중지 시간으로 옵션 사이를 쉽게 전환할 수 있습니다. 이 항목은 현재 관리되지 않는 디스크에 지원되지 않습니다. 하지만 디스크 유형 사이를 쉽게 전환하도록 [관리 디스크로 변환](convert-unmanaged-to-managed-disks.md)할 수 있습니다.
 
-이 문서는 Azure CLI를 사용하여 관리 디스크를 표준에서 프리미엄으로, 또 그 반대로 변환하는 방법을 설명합니다. CLI를 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli.md)를 참조하세요. 
+이 문서는 Azure CLI를 사용하여 관리 디스크를 표준에서 프리미엄으로, 또 그 반대로 변환하는 방법을 설명합니다. CLI를 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요. 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -139,9 +139,9 @@ Azure Portal을 사용하여 관리되지 않는 디스크에서 관리 디스�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 포털의 VM 목록에서 VM을 선택합니다.
-3. VM에 대한 블레이드의 메뉴에서 **디스크**를 선택합니다.
+3. VM 블레이드의 메뉴에서 **디스크**를 선택합니다.
 4. **디스크** 블레이드 상단에서 **관리 디스크로 마이그레이션**을 선택합니다.
-5. VM이 가용성 집합에 있으면 **관리 디스크로 마이그레이션** 블레이드에 가용성 집합을 먼저 변환해야 한다는 경고가 표시됩니다. 경고는 가용성 집합을 변환하도록 클릭할 수 있는 링크가 있어야 합니다. 가용성 집합이 변환되거나 VM이 가용성 집합에 없는 경우 **마이그레이션**을 클릭하여 디스크를 관리 디스크로 마이그레이션하는 프로세스를 시작합니다. 
+5. VM이 가용성 집합에 있으면 **관리 디스크로 마이그레이션** 블레이드에 가용성 집합을 먼저 변환해야 한다는 경고가 표시됩니다. 경고에는 클릭하여 가용성 집합을 변환할 수 있는 링크가 있습니다. 가용성 집합이 변환되거나 VM이 가용성 집합에 없는 경우에는 **마이그레이션**을 클릭하여 디스크를 관리 디스크로 마이그레이션하는 프로세스를 시작합니다. 
 
 VM이 중지되고 마이그레이션이 완료된 후 다시 시작됩니다.
 

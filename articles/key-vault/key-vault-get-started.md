@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: fcf3c7d47e43adc94d2de933430f16d64ec987a2
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 3f3adb1230d6ca6b3a7e616a0beed15d66895124
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "41918938"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43283000"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Azure Key Vault 시작
 이 문서는 PowerShell을 사용하여 Azure Key Vault를 시작할 수 있도록 하고 다음 활동을 따르는 과정을 안내합니다.
@@ -34,7 +34,7 @@ Azure Key Vault는 대부분 지역에서 사용할 수 있습니다. 자세한 
 ## <a name="requirements"></a>요구 사항
 문서를 진행하기 전에 다음이 있는지 확인합니다.
 
-- **Azure 구독**. 아직 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
+- **Azure 구독**. 아직 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/en-us/free/)을 등록할 수 있습니다.
 - **Microsoft Azure PowerShell**, **최소 버전 1.1.0**. Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요. 이미 Azure PowerShell가 설치되어 있고 버전을 알 수 없는 경우, Azure PowerShell 콘솔에서 `(Get-Module azure -ListAvailable).Version`을 입력합니다. Azure PowerShell 버전 0.9.1 ~ 0.9.8이 설치된 경우, 일부 약간의 변경이 있지만 이 자습서를 계속 사용할 수 있습니다. 예를 들어, `Switch-AzureMode AzureResourceManager` 명령을 사용해야 하고 Azure Key Vault 명령의 일부가 변경되었습니다. 버전 0.9.1 ~ 0.9.8에 대한 키 자격 증명 모음 목록은 [Azure Key Vault Cmdlets](/powershell/module/azurerm.keyvault/#key_vault)을 참조하세요.
 - **Key Vault를 사용하도록 구성할 수 있는 응용 프로그램**. 샘플 응용 프로그램은 [Microsoft 다운로드 센터](http://www.microsoft.com/download/details.aspx?id=45343)에서 사용할 수 있습니다. 자세한 내용은 해당 **추가 정보** 파일을 참조하세요.
 

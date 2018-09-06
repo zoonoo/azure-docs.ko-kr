@@ -3,19 +3,19 @@ title: 계획된 유지 관리 - Azure SQL Data Warehouse | Microsoft Docs
 description: Azure SQL Data Warehouse에 대한 계획된 유지 관리 이벤트를 준비하는 방법을 알아봅니다.
 services: sql-data-warehouse
 author: antvgski
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/19/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: a273ad4c256267865d3af324f0ef755a6cb75c5c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 8b5b94c959ae9820cab338f3ee3317fb3ee166d6
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799894"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286604"
 ---
 # <a name="planning-for-maintenance-on-your-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 유지 관리 계획 수집
 

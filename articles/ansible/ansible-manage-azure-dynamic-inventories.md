@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: 2757dea5e73f226efc13b7788ce1ab0702aa2e61
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 1b8c1ba80b4c69f36e8304cbe978452a359ac911
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104700"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698081"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Ansible을 사용하여 Azure 동적 인벤토리 관리
 Ansible은 다양한 원본(Azure와 같은 클라우드 원본 포함)에서 *동적 인벤토리*로 인벤토리 정보를 가져오는 데 사용할 수 있습니다. 이 문서에서는 [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md)을 사용하여 두 개의 가상 머신을 만들고, 해당 가상 머신 각각에 태그를 지정하고, 태그가 지정된 가상 머신에 Nginx를 설치하는 Ansible Azure 동적 인벤토리를 구성합니다.
@@ -137,25 +137,26 @@ ansible-inventory-test-vm1 | SUCCESS => {
 1. 새로 만든 `nginx.yml` 파일에 다음 코드를 삽입합니다.
 
     ```yml
+    ---
     - name: Install and start Nginx on an Azure virtual machine
     hosts: azure
     become: yes
     tasks:
     - name: install nginx
-        apt: pkg=nginx state=installed
-        notify:
-        - start nginx
+      apt: pkg=nginx state=installed
+      notify:
+      - start nginx
 
     handlers:
     - name: start nginx
-        service: name=nginx state=started
+      service: name=nginx state=started
     ```
 
 1. `nginx.yml` 플레이북을 실행합니다.
 
-  ```azurecli-interactive
-  ansible-playbook -i azure_rm.py nginx.yml
-  ```
+    ```azurecli-interactive
+    ansible-playbook -i azure_rm.py nginx.yml
+    ```
 
 1. 플레이북이 실행되면 다음 출력과 비슷한 결과가 표시됩니다.
 

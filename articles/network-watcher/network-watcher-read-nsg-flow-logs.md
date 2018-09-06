@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
-ms.openlocfilehash: b43c082b5c4925fee2b1145956a2847e7f30bb11
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 63407382762a814ded4529caa109d76e987c9505
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143013"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286447"
 ---
 # <a name="read-nsg-flow-logs"></a>NSG 흐름 로그 읽기
 
 PowerShell을 사용하여 NSG 흐름 로그 항목을 읽는 방법을 설명합니다.
 
-NSG 흐름 로그는 저장소 계정의 [블록 Blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs.md#about-block-blobs)에 저장됩니다. 블록 Blob는 더 작은 여러 블록으로 구성되어 있습니다. 각 로그는 1시간마다 생성되는 개별 블록 Blob입니다. 1시간마다 새 로그가 생성되며 몇 분마다 로그가 새 항목으로 업데이트되어 최신 데이터가 포함됩니다. 이 문서에서는 흐름 로그의 각 부분을 읽는 방법에 대해 알아봅니다.
+NSG 흐름 로그는 저장소 계정의 [블록 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)에 저장됩니다. 블록 Blob는 더 작은 여러 블록으로 구성되어 있습니다. 각 로그는 1시간마다 생성되는 개별 블록 Blob입니다. 1시간마다 새 로그가 생성되며 몇 분마다 로그가 새 항목으로 업데이트되어 최신 데이터가 포함됩니다. 이 문서에서는 흐름 로그의 각 부분을 읽는 방법에 대해 알아봅니다.
 
 ## <a name="scenario"></a>시나리오
 

@@ -2,19 +2,19 @@
 title: 빠른 시작 - Azure CLI와 Java를 사용하여 Azure Service Bus에서 메시지 보내기 및 받기 | Microsoft Docs
 description: 이 빠른 시작에서는 Azure CLI 및 Java 응용 프로그램 샘플을 사용하여 Azure Service Bus 메시지를 보내고 받는 방법을 알아봅니다.
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/22/2018
-ms.author: sethm
-ms.openlocfilehash: 717ac3c61ba4e362f01bad91f52ecb217cdbe1cd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: spelluru
+ms.openlocfilehash: a39b93a0b778de6fb6e09e4359678713cc308aac
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630388"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701652"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>빠른 시작: Azure CLI 및 Java를 사용하여 메시지 보내기 및 받기
 
@@ -26,7 +26,7 @@ Microsoft Azure Service Bus는 안전한 메시징과 안정성을 제공하는 
 
 이 빠른 시작에서는 Azure CLI 및 Service Bus Java 라이브러리를 사용하여 Service Bus에서 메시지를 보내고 받는 방법에 대해 설명합니다. 마지막으로, 더 많은 기술적 세부 정보에 관심이 있으면 샘플 코드의 주요 요소에 대한 [설명을 참조](#understand-the-sample-code)할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][]을 만들 수 있습니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 만들 수 있습니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -268,7 +268,7 @@ void registerReceiver(QueueClient queueClient) throws Exception {
 > [!div class="nextstepaction"]
 > [CLI 및 Java를 사용하여 재고 업데이트](./service-bus-tutorial-topics-subscriptions-cli.md)
 
-[체험 계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[무료 계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Install Azure CLI 2.0]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create

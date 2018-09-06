@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 4618c8a0298afdac28e7511e9521cf1e26238734
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 41d495e38a8360609afe924bb49ccf2f6aea086e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189041"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340042"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 개념 증명 플레이 북: 문서 블록
 
@@ -560,7 +560,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 단계 | 리소스 |
 | --- | --- |
 | ADFS에서 “인증서 인증”을 사용하도록 설정합니다. | [Configure Authentication Policies: To configure primary authentication globally in Windows Server 2012 R2](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-authentication-policies#to-configure-primary-authentication-globally-in-windows-server-2012-r2)(인증 정책 구성: Windows Server 2012 R2에서 기본 인증을 전역으로 구성하려면) |
-| 선택 사항: Azure AD에서 Exchange Active Sync 클라이언트에 대해 인증서 인증을 사용하도록 설정합니다. | [Azure Active Directory에서 인증서 기반 인증 시작](active-directory-certificate-based-authentication-get-started.md) |
+| 선택 사항: Azure AD에서 Exchange Active Sync 클라이언트에 대해 인증서 인증을 사용하도록 설정합니다. | [Azure Active Directory에서 인증서 기반 인증 시작](./authentication/active-directory-certificate-based-authentication-get-started.md) |
 | 액세스 패널로 이동하고 사용자 인증서를 사용하여 인증합니다. | https://myapps.microsoft.com |
 
 ### <a name="considerations"></a>고려 사항

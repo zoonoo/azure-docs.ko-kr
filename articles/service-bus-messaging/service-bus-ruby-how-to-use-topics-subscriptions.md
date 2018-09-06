@@ -3,7 +3,7 @@ title: Service Bus 토픽을 사용하는 방법(Ruby) | Microsoft Docs
 description: Azure에서 Service Bus 토픽 및 구독을 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Ruby 응용 프로그램용으로 작성되었습니다.
 services: service-bus-messaging
 documentationcenter: ruby
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 3ef2295e-7c5f-4c54-a13b-a69c8045d4b6
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: sethm
-ms.openlocfilehash: 4a4c9949843b16ae6be2f516de4fd1e3f7415959
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: spelluru
+ms.openlocfilehash: 7370de72c0015314fb083b6705d5275f0acc4fc4
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38712968"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698202"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Ruby에서 Service Bus 토픽 및 구독을 사용하는 방법
  

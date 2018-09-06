@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/06/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 86ef621eccc7e6ba999318348f940a6a3931274e
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 716cf9e47cd71d003513066d390f9dccb5c83dcb
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442409"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344129"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>Azure AD B2C: Android 응용 프로그램을 사용하여 로그인
 
@@ -66,18 +66,18 @@ Azure AD B2C에서 모든 사용자 환경은 [정책](active-directory-b2c-refe
 
 ### <a name="configuration"></a>구성
 
-검색 URI를 지정하거나 권한 부여 끝점과 토큰 끝점 URI를 모두 지정하여 Azure AD B2C와의 통신을 구성할 수 있습니다. 두 경우 모두 다음 정보를 제공해야 합니다.
+검색 URI를 지정하거나 권한 부여 엔드포인트와 토큰 엔드포인트 URI를 모두 지정하여 Azure AD B2C와의 통신을 구성할 수 있습니다. 두 경우 모두 다음 정보를 제공해야 합니다.
 
 * 테넌트 ID(예: contoso.onmicrosoft.com)
 * 정책 이름(예: B2C\_1\_SignUpIn)
 
-권한 부여 및 토큰 끝점 URI를 자동으로 검색하려는 경우 검색 URI에서 정보를 가져와야 합니다. 검색 URI는 다음 URL에서 테넌트\_ID 및 정책\_이름을 바꿔서 만들 수 있습니다.
+권한 부여 및 토큰 엔드포인트 URI를 자동으로 검색하려는 경우 검색 URI에서 정보를 가져와야 합니다. 검색 URI는 다음 URL에서 테넌트\_ID 및 정책\_이름을 바꿔서 만들 수 있습니다.
 
 ```java
-String mDiscoveryURI = "https://login.microsoftonline.com/<Tenant_ID>/v2.0/.well-known/openid-configuration?p=<Policy_Name>";
+String mDiscoveryURI = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/v2.0/.well-known/openid-configuration?p=<Policy_Name>";
 ```
 
-다음을 실행하면 권한 부여 및 토큰 끝점 URI를 획득하고 AuthorizationServiceConfiguration 개체를 만들 수 있습니다.
+다음을 실행하면 권한 부여 및 토큰 엔드포인트 URI를 획득하고 AuthorizationServiceConfiguration 개체를 만들 수 있습니다.
 
 ```java
 final Uri issuerUri = Uri.parse(mDiscoveryURI);
@@ -98,12 +98,12 @@ AuthorizationServiceConfiguration.fetchFromIssuer(
   });
 ```
 
-권한 부여 및 토큰 끝점 URI를 가져오기 위해 검색을 사용하는 대신 아래 URL에서 테넌트\_ID 및 정책\_이름을 바꾸면 명시적으로 지정할 수 있습니다.
+권한 부여 및 토큰 엔드포인트 URI를 가져오기 위해 검색을 사용하는 대신 아래 URL에서 테넌트\_ID 및 정책\_이름을 바꾸면 명시적으로 지정할 수 있습니다.
 
 ```java
-String mAuthEndpoint = "https://login.microsoftonline.com/<Tenant_ID>/oauth2/v2.0/authorize?p=<Policy_Name>";
+String mAuthEndpoint = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/oauth2/v2.0/authorize?p=<Policy_Name>";
 
-String mTokenEndpoint = "https://login.microsoftonline.com/<Tenant_ID>/oauth2/v2.0/token?p=<Policy_Name>";
+String mTokenEndpoint = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/oauth2/v2.0/token?p=<Policy_Name>";
 ```
 
 다음 코드를 실행하여 AuthorizationServiceConfiguration 개체를 만듭니다.

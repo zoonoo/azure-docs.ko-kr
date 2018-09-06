@@ -11,21 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 3c5629dc1ad87456583f5a713f16e696bc9b7b1e
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e4bc8af7533b3d18f9e04f431d6c9f97e0982ae5
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858666"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286672"
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버깅
 
 Azure Cosmos DB는 처리량, 저장소, 일관성, 가용성 및 대기 시간에 대한 메트릭을 제공합니다. [Azure Portal](https://portal.azure.com)에서는 이러한 메트릭의 집계 보기를 제공합니다. 보다 세부적인 메트릭을 위해 클라이언트 SDK와 [진단 로그](./logging.md) 둘 다를 사용할 수 있습니다.
-
-새 메트릭에 대한 개요를 가져오고 데이터베이스에서 핫 파티션을 찾는 방법을 알아보려면 다음 Azure Friday 비디오를 시청하세요.
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Cosmos-DB-Get-the-Most-Out-of-Provisioned-Throughput/player]
-> 
 
 이 문서에서는 일반적인 사용 사례와 Azure Cosmos DB 메트릭을 사용하여 이러한 문제를 분석 및 디버그할 수 있는 방법을 안내합니다. 메트릭은 5분마다 수집되고 7일 동안 유지됩니다.
 

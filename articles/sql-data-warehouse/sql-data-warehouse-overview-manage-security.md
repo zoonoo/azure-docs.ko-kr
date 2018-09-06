@@ -3,19 +3,19 @@ title: SQL Data Warehouse에서 데이터베이스 보호 | Microsoft Docs
 description: 솔루션 개발을 위해 Azure SQL Data Warehouse에서 데이터베이스를 보호하는 팁
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: c42b065a307d5e10882c621191318a667e78795c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 8abb40b0c1a5b9cd3f8d1e23124090c00e8cfadb
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31524896"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302542"
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>SQL Data Warehouse에서 데이터베이스 보호
 > [!div class="op_single_selector"]

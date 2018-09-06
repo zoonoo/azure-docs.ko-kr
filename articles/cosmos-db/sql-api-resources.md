@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 21b1e69573d2ddd31979e6c23dd7f3bd130cadbe
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 3ba02e7760d7400b5168a902415f16c4b276b3a7
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798019"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287956"
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Azure Cosmos DB 계층적 리소스 모델 및 핵심 개념
 
@@ -30,12 +30,6 @@ Azure Cosmos DB에서 관리하는 데이터베이스 엔터티를 **리소스**
 * 리소스를 어떻게 해결하나요?
 * 컬렉션을 어떻게 사용하나요?
 * 저장 프로시저, 트리거 및 UDF(사용자 정의 함수)를 사용하려면 어떻게 하나요?
-
-다음 비디오에서는 Azure Cosmos DB 프로그램 관리자인 Andrew Liu가 Azure Cosmos DB 리소스 모델을 안내합니다. 
-
-> [!VIDEO https://www.youtube.com/embed/luWFgTP0IL4]
->
->
 
 ## <a name="hierarchical-resource-model"></a>계층적 리소스 모델
 다음 다이어그램에 표시된 대로, Azure Cosmos DB의 계층적 **리소스 모델**은 단일 데이터베이스 계정 아래에 있고 각각 논리적이고 안정적인 URI를 통해 주소 지정이 가능한 리소스 집합으로 구성됩니다. 이 문서에서는 리소스 집합을 **피드**라고 합니다. 

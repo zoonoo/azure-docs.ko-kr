@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 04/16/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 300a8a15552fe1e8ec9d6b434a14a31b3d827f19
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c77feed3b86358c74f741b53aa03ecb454dc9a62
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445588"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337105"
 ---
 # <a name="track-user-behavior-in-azure-ad-b2c-journeys-by-using-application-insights"></a>Application Insights를 사용하여 Azure AD B2C 경험의 사용자 동작 추적
 
@@ -300,7 +300,7 @@ OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 
 다음은 응용 프로그램의 샘플 요청입니다.
 
 ```
-https://login.microsoftonline.com/sampletenant.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_signup_signin&client_id=e1d2612f-c2bc-4599-8e7b-d874eaca1ae1&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&app_session=0a2b45c&loyalty_number=1234567
+https://sampletenant.b2clogin.com/tfp/sampletenant.onmicrosoft.com/B2C_1A_signup_signin/oauth2/v2.0/authorize?client_id=e1d2612f-c2bc-4599-8e7b-d874eaca1ae1&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&app_session=0a2b45c&loyalty_number=1234567
 
 ```
 Application Insights 이벤트에 `Input Claim` 요소를 추가하여 클레임을 추가할 수 있습니다. 이벤트의 속성은 {property:NAME} 구문을 통해 추가되며, 여기서 NAME은 이벤트에 추가되는 속성입니다. 예: 

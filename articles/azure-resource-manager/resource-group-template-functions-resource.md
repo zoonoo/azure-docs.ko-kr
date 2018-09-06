@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: d3d2375b0b633beb56232e518202b09777f60cc8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4e454030f77a22236da18c8d8a5215667784f7c5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524511"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301443"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 리소스 함수
 
@@ -127,6 +127,7 @@ list 작업이 있는 리소스 유형을 확인할 수 있게 다음 PowerShell
                 "signedExpiry": "2018-08-20T11:00:00Z",
                 "signedResourceTypes": "s"
             }
+        }
     },
     "resources": [
         {
@@ -296,7 +297,7 @@ reference 함수는 런타임 상태에서 값을 파생하므로 변수 섹션�
 
 리소스 유형에 대한 속성 이름 및 값을 보려면 outputs 섹션에서 개체를 반환하는 템플릿을 만듭니다. 해당 유형의 기존 리소스가 있는 경우 템플릿은 새로운 리소스를 배포하지 않고 개체를 반환합니다. 
 
-일반적으로 **reference** 함수를 사용하여 blob 끝점 URI 또는 정규화된 도메인 이름과 같은 개체의 특정 값을 반환합니다.
+일반적으로 **reference** 함수를 사용하여 blob 엔드포인트 URI 또는 정규화된 도메인 이름과 같은 개체의 특정 값을 반환합니다.
 
 ```json
 "outputs": {

@@ -17,18 +17,18 @@ ms.date: 06/06/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b0f8568dd67dd292ccca3972a402a110cd4a46fb
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: da13b7b7b9bd39692db422a315383e0f12aae453
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39580694"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344879"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 및 OAuth 2.0 On-Behalf-Of 흐름
 OAuth 2.0 On-Behalf-Of 흐름은 응용 프로그램이 서비스/웹 API를 호출하고 차례로 다른 서비스/웹 API를 호출해야 하는 사용 사례를 제공합니다. 요청 체인을 통해 위임된 사용자 ID 및 사용 권한을 전파하는 개념입니다. 중간 계층 서비스가 다운스트림 서비스에 대해 인증된 요청을 수행하도록 하려면 사용자를 대신하여 Azure AD(Azure Active Directory)에서 액세스 토큰을 보호해야 합니다.
 
 > [!NOTE]
-> v2.0 끝점에서는 일부 Azure Active Directory 시나리오 및 기능만 지원합니다. v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
+> v2.0 엔드포인트에서는 일부 Azure Active Directory 시나리오 및 기능만 지원합니다. v2.0 엔드포인트를 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
 >
 
 
@@ -40,12 +40,12 @@ OAuth 2.0 On-Behalf-Of 흐름은 응용 프로그램이 서비스/웹 API를 호
 
 다음 단계는 On-Behalf-Of 흐름을 구성하며 다음 다이어그램을 통해 쉽게 이해할 수 있습니다.
 
-![OAuth2.0 On-Behalf-Of 흐름](/media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+![OAuth2.0 On-Behalf-Of 흐름](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 
 1. 클라이언트 응용 프로그램은 토큰 A(API A의 `aud` 클레임 포함)를 사용하여 API A에 요청합니다.
-2. API A는 Azure AD 토큰 발급 끝점을 인증하고 API B에 액세스하기 위해 토큰을 요청합니다.
-3. Azure AD 토큰 발급 끝점은 토큰 A와 함께 API A의 자격 증명의 유효성을 검사하고 API B(토큰 B)에 대한 액세스 토큰을 발급합니다.
+2. API A는 Azure AD 토큰 발급 엔드포인트를 인증하고 API B에 액세스하기 위해 토큰을 요청합니다.
+3. Azure AD 토큰 발급 엔드포인트는 토큰 A와 함께 API A의 자격 증명의 유효성을 검사하고 API B(토큰 B)에 대한 액세스 토큰을 발급합니다.
 4. 토큰 B는 API B에 대한 요청의 권한 부여 헤더에 설정됩니다.
 5. 보안 리소스의 데이터가 API B에 의해 반환됩니다.
 
@@ -54,7 +54,7 @@ OAuth 2.0 On-Behalf-Of 흐름은 응용 프로그램이 서비스/웹 API를 호
 >
 
 ## <a name="service-to-service-access-token-request"></a>서비스 간 액세스 토큰 요청
-액세스 토큰을 요청하려면 다음 매개 변수로 테넌트별 Azure AD v2.0 끝점에 HTTP POST를 만듭니다.
+액세스 토큰을 요청하려면 다음 매개 변수로 테넌트별 Azure AD v2.0 엔드포인트에 HTTP POST를 만듭니다.
 
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
@@ -156,7 +156,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 
 ### <a name="error-response-example"></a>오류 응답 예제
-다운스트림 API에 설정된 Multi-Factor Authentication과 같은 조건부 액세스 정책이 있는 경우, 다운스트림 API에 대한 액세스 토큰을 얻으려고 할 때 Azure AD 토큰 끝점에서 오류 응답이 반환됩니다. 중간 계층 서비스는 이 오류를 클라이언트 응용 프로그램에 전달하여 클라이언트 응용 프로그램이 조건부 액세스 정책을 충족시키기 위해 사용자 상호 작용을 제공할 수 있도록 해야 합니다.
+다운스트림 API에 설정된 Multi-Factor Authentication과 같은 조건부 액세스 정책이 있는 경우, 다운스트림 API에 대한 액세스 토큰을 얻으려고 할 때 Azure AD 토큰 엔드포인트에서 오류 응답이 반환됩니다. 중간 계층 서비스는 이 오류를 클라이언트 응용 프로그램에 전달하여 클라이언트 응용 프로그램이 조건부 액세스 정책을 충족시키기 위해 사용자 상호 작용을 제공할 수 있도록 해야 합니다.
 
 ```
 {

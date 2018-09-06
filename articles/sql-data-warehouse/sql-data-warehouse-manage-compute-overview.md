@@ -3,19 +3,19 @@ title: Azure SQL Data Warehouse에서 계산 리소스 관리 | Microsoft Docs
 description: Azure SQL Data Warehouse의 성능 확장 기능을 알아봅니다. DWU를 조정하여 확장하거나 데이터 웨어하우스를 일시 중지하여 비용을 절약합니다.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ca6d34d3b670bfd05a9b65fe9e6b260120e3a5b8
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 53a801a367e6948c3070224b7ff36a013a1faab3
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31528497"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300853"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 계산 관리
 Azure SQL Data Warehouse에서 계산 리소스를 관리하는 방법에 대해 알아봅니다. 데이터 웨어하우스를 일시 중지하여 비용을 절약하거나 성능 요구 사항에 맞게 데이터 웨어하우스의 크기를 조정합니다. 

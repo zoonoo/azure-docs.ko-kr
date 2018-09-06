@@ -3,19 +3,19 @@ title: SQL Data Warehouse와 통합된 솔루션 구축 | Microsoft Docs
 description: 'SQL Data Warehouse와 통합된 솔루션과 파트너 및 도구 '
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: f198a99fc03a079be77c7f8167580bb7b758579e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 221d5d05906e7e162013c0d4cdddc01a95f4024c
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31599835"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302705"
 ---
 # <a name="integrate-other-services-with-sql-data-warehouse"></a>SQL Data Warehouse와 기타 서비스 통합
 핵심 기능 외에도 SQL Data Warehouse는 사용자가 Azure에서 다양한 기타 서비스를 통합할 수 있게 설정합니다. 일부 이러한 서비스에는 다음이 포함됩니다.

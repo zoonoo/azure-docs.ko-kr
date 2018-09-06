@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 04db7655f3f4b63edffcb731d0e92db25f1847b9
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 7ef57960b81e13eefebfab4430eec4db0c1eb2e8
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42140762"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344896"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>경로 테이블 만들기, 변경 또는 삭제
 
@@ -128,7 +128,7 @@ Azure 위치와 구독별로 만들 수 있는 경로 테이블 수에 제한이
 **명령**
 
 - Azure CLI: [az network route-table delete](/cli/azure/network/route-table/route#az_network_route_table_delete)
-- PowerShell: [Delete-AzureRmRouteTable](/powershell/module/azurerm.network/delete-azurermroutetable) 
+- PowerShell: [Remove-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermroutetable?view=azurermps-6.8.1) 
 
 ## <a name="create-a-route"></a>경로 만들기
 

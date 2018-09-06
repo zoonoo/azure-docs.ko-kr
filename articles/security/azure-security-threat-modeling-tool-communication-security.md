@@ -3,23 +3,23 @@ title: 통신 보안 - Microsoft 위협 모델링 도구 - Azure | Microsoft Doc
 description: 위협 모델링 도구에 노출되는 위협 완화
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: c361f74147862585074f3c4475209ba6eb0c1e0c
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.date: 02/07/2017
+ms.author: jegeib
+ms.openlocfilehash: 7e8afc02c738a2bba445b1d84b7cb899dfbb93a0
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029801"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301557"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>보안 프레임: 통신 보안 | 완화 
 | 제품/서비스 | 문서 |

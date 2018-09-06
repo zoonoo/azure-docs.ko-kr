@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: cshoe
-ms.openlocfilehash: acf332209ca0588ab7722ddcfdcfe7b6715d672c
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 21e09ea231853826155d1ab12d9c992d85ef568a
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397935"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43664215"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>빠른 시작: Node.js를 사용하여 Blob 업로드, 다운로드 및 나열
 
@@ -100,11 +100,11 @@ const blobName = path.basename(sourceFilePath, path.extname(sourceFilePath));
 - *sourceFilePath*는 업로드할 파일의 절대 경로로 설정됩니다.
 - *blobName*은 파일 이름을 가져와서 파일 확장명을 제거하여 만들어집니다.
 
-다음 구현에서는 [Azure Storage API](/nodejs/api/azure-storage/blobservice)의 콜백 특성을 간소화하기 위해 각 *blobService* 함수가 *Promise*에 래핑되어 JavaScript의 *async* 함수와 *await* 연산자에 액세스할 수 있습니다. 각 함수에 대한 응답이 성공적으로 반환되면, 프라미스에서 작업과 관련된 메시지와 함께 관련 데이터를 사용하여 확인합니다.
+다음 구현에서는 [Azure Storage API](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest)의 콜백 특성을 간소화하기 위해 각 *blobService* 함수가 *Promise*에 래핑되어 JavaScript의 *async* 함수와 *await* 연산자에 액세스할 수 있습니다. 각 함수에 대한 응답이 성공적으로 반환되면, 프라미스에서 작업과 관련된 메시지와 함께 관련 데이터를 사용하여 확인합니다.
 
 ### <a name="create-a-blob-container"></a>Blob 컨테이너 만들기
 
-*createContainer* 함수는 [createContainerIfNotExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists)를 호출하고 Blob에 적절한 액세스 수준을 설정합니다.
+*createContainer* 함수는 [createContainerIfNotExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createcontainerifnotexists)를 호출하고 Blob에 적절한 액세스 수준을 설정합니다.
 
 ```javascript
 const createContainer = () => {
@@ -120,13 +120,13 @@ const createContainer = () => {
 };
 ```
 
-**createContainerIfNotExists**에 대한 두 번째 매개 변수(*options*)는 [publicAccessLevel](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists)에 대한 값을 수락합니다. *publicAccessLevel*에 대한 *blob* 값은 특정 Blob 데이터가 공개적으로 노출되도록 지정합니다. 이 설정은 *컨테이너* 수준 액세스와 달리 컨테이너의 내용을 나열하는 기능을 부여합니다.
+**createContainerIfNotExists**에 대한 두 번째 매개 변수(*options*)는 [publicAccessLevel](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createcontainerifnotexists)에 대한 값을 수락합니다. *publicAccessLevel*에 대한 *blob* 값은 특정 Blob 데이터가 공개적으로 노출되도록 지정합니다. 이 설정은 *컨테이너* 수준 액세스와 달리 컨테이너의 내용을 나열하는 기능을 부여합니다.
 
 **createContainerIfNotExists**를 사용하면 컨테이너가 이미 있을 때 응용 프로그램에서 오류를 반환하지 않고 *createContainer* 명령을 여러 번 실행할 수 있습니다. 프로덕션 환경에서는 응용 프로그램 전체에서 동일한 컨테이너가 사용되므로 **createContainerIfNotExists**만 호출하는 경우가 많습니다. 이러한 경우 포털 또는 Azure CLI를 통해 컨테이너를 미리 만들 수 있습니다.
 
 ### <a name="upload-a-blob-to-the-container"></a>컨테이너에 Blob 업로드
 
-*upload* 함수는 [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromLocalFile) 함수를 사용하여 파일을 파일 시스템에서 Blob 저장소에 업로드하고 쓰거나 덮어씁니다. 
+*upload* 함수는 [createBlockBlobFromLocalFile](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromlocalfile) 함수를 사용하여 파일을 파일 시스템에서 Blob 저장소에 업로드하고 쓰거나 덮어씁니다. 
 
 ```javascript
 const upload = () => {
@@ -141,13 +141,13 @@ const upload = () => {
     });
 };
 ```
-샘플 응용 프로그램의 컨텍스트에서 *example.txt*라는 파일이 *test-container*라는 컨테이너의 *example*이라는 Blob에 업로드됩니다. 콘텐츠를 Blob에 업로드하는 데 사용할 수 있는 다른 방법은 [text](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) 및 [streams](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromStream)를 사용하는 것입니다.
+샘플 응용 프로그램의 컨텍스트에서 *example.txt*라는 파일이 *test-container*라는 컨테이너의 *example*이라는 Blob에 업로드됩니다. 콘텐츠를 Blob에 업로드하는 데 사용할 수 있는 다른 방법은 [text](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromtext) 및 [streams](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromstream)를 사용하는 것입니다.
 
 파일이 Blob 저장소에 업로드되었는지 확인하려면 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 계정의 데이터를 확인하면 됩니다.
 
 ### <a name="list-the-blobs-in-a-container"></a>컨테이너의 Blob 나열
 
-*list* 함수는 [listBlobsSegmented](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) 메서드를 호출하여 컨테이너의 Blob 메타데이터 목록을 반환합니다. 
+*list* 함수는 [listBlobsSegmented](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#listblobssegmented) 메서드를 호출하여 컨테이너의 Blob 메타데이터 목록을 반환합니다. 
 
 ```javascript
 const list = () => {
@@ -163,11 +163,11 @@ const list = () => {
 };
 ```
 
-*listBlobsSegmented*를 호출하면 Blob 메타데이터가 [BlobResult](/nodejs/api/azure-storage/blobresult) 인스턴스의 배열로 반환됩니다. 결과는 5,000개의 증분 일괄 처리(세그먼트)로 반환됩니다. 컨테이너에 5,000개보다 많은 Blob이 있는 경우 **continuationToken**에 대한 값이 결과에 포함됩니다. Blob 컨테이너에서 후속 세그먼트를 나열하려면 연속 토큰을 두 번째 인수로 **listBlobSegmented**에 다시 전달할 수 있습니다.
+*listBlobsSegmented*를 호출하면 Blob 메타데이터가 [BlobResult](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.blobresult?view=azure-node-latest) 인스턴스의 배열로 반환됩니다. 결과는 5,000개의 증분 일괄 처리(세그먼트)로 반환됩니다. 컨테이너에 5,000개보다 많은 Blob이 있는 경우 **continuationToken**에 대한 값이 결과에 포함됩니다. Blob 컨테이너에서 후속 세그먼트를 나열하려면 연속 토큰을 두 번째 인수로 **listBlobSegmented**에 다시 전달할 수 있습니다.
 
 ### <a name="download-a-blob-from-the-container"></a>컨테이너에서 Blob 다운로드
 
-*download* 함수는 [getBlobToLocalFile](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_getBlobToLocalFile)을 사용하여 Blob의 내용을 지정된 절대 파일 경로로 다운로드합니다.
+*download* 함수는 [getBlobToLocalFile](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#getblobtolocalfile)을 사용하여 Blob의 내용을 지정된 절대 파일 경로로 다운로드합니다.
 
 ```javascript
 const download = () => {
@@ -187,7 +187,7 @@ const download = () => {
 
 ### <a name="delete-blobs-in-the-container"></a>컨테이너에서 Blob 삭제
 
-*deleteBlock* 함수(*delete* 콘솔 명령으로 별칭이 지정됨)는 [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists) 함수를 호출합니다. 이름에서 알 수 있듯이 이 함수는 Blob이 이미 삭제된 오류를 반환하지 않습니다.
+*deleteBlock* 함수(*delete* 콘솔 명령으로 별칭이 지정됨)는 [deleteBlobIfExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deleteblobifexists) 함수를 호출합니다. 이름에서 알 수 있듯이 이 함수는 Blob이 이미 삭제된 오류를 반환하지 않습니다.
 
 ```javascript
 const deleteBlock = () => {
@@ -272,7 +272,7 @@ try {
 ```
 
 ## <a name="clean-up-resources"></a>리소스 정리
-이 문서에서 만든 데이터 또는 계정을 사용하지 않으려는 경우 원하지 않는 요금 청구를 방지하기 위해 삭제하는 것이 좋습니다. Blob 및 컨테이너를 삭제하려면 [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice?view=azure-node-latest#deleteBlobIfExists_container__blob__options__callback_) 및 [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice?view=azure-node-latest#deleteContainerIfExists_container__options__callback_) 메서드를 사용할 수 있습니다. [포털을 통해](../common/storage-create-storage-account.md) 저장소 계정을 삭제할 수도 있습니다.
+이 문서에서 만든 데이터 또는 계정을 사용하지 않으려는 경우 원하지 않는 요금 청구를 방지하기 위해 삭제하는 것이 좋습니다. Blob 및 컨테이너를 삭제하려면 [deleteBlobIfExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deleteblobifexists) 및 [deleteContainerIfExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deletecontainerifexists) 메서드를 사용할 수 있습니다. [포털을 통해](../common/storage-create-storage-account.md) 저장소 계정을 삭제할 수도 있습니다.
 
 ## <a name="resources-for-developing-nodejs-applications-with-blobs"></a>Blob을 사용하여 Node.js 응용 프로그램을 개발하기 위한 리소스
 

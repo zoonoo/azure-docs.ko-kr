@@ -1,18 +1,20 @@
 ---
 title: AKS(Azure Kubernetes Service) 및 Terraform을 사용하여 Kubernetes 클러스터 만들기
 description: Azure Kubernetes Service 및 Terraform을 사용하여 Kubernetes 클러스터를 만드는 방법을 설명하는 자습서
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, 가상 머신, Azure, kubernetes
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
 ms.date: 06/11/2018
-ms.topic: article
-ms.openlocfilehash: bd00a0cc8446802a03570edd58949a46c0769101
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 8a997c88943b0273d3136dbf02a784fbdb982527
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303236"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666810"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Azure Kubernetes Service 및 Terraform을 사용하여 Kubernetes 클러스터 만들기
 [AKS(Azure Kubernetes Service)](/azure/aks/)는 호스팅된 Kubernetes 환경을 관리하므로 컨테이너 오케스트레이션에 대한 전문 지식 없이 컨테이너화된 응용 프로그램을 빠르고 쉽게 배포하고 관리할 수 있습니다. 또한 응용 프로그램을 오프라인으로 변경하지 않고 주문형 리소스를 프로비전하고, 업그레이드하고, 크기 조정하여 진행 중인 작업 및 유지 관리 부담을 제거합니다.
@@ -68,7 +70,7 @@ Azure 공급자를 선언하는 Terraform 구성 파일을 만듭니다.
     vi main.tf
     ```
 
-1. I 키를 선택하여 삽입 모드를시작합니다.
+1. I 키를 선택하여 삽입 모드를 시작합니다.
 
 1. 다음 코드를 편집기에 붙여 넣습니다.
 
@@ -100,7 +102,7 @@ Kubernetes 클러스터용 리소스를 선언하는 Terraform 구성 파일을 
     vi k8s.tf
     ```
 
-1. I 키를 선택하여 삽입 모드를시작합니다.
+1. I 키를 선택하여 삽입 모드를 시작합니다.
 
 1. 다음 코드를 편집기에 붙여 넣습니다.
 
@@ -165,7 +167,7 @@ Kubernetes 클러스터용 리소스를 선언하는 Terraform 구성 파일을 
     vi variables.tf
     ```
 
-1. I 키를 선택하여 삽입 모드를시작합니다.
+1. I 키를 선택하여 삽입 모드를 시작합니다.
 
 1. 다음 코드를 편집기에 붙여 넣습니다.
 
@@ -215,7 +217,7 @@ Kubernetes 클러스터용 리소스를 선언하는 Terraform 구성 파일을 
     vi output.tf
     ```
 
-1. I 키를 선택하여 삽입 모드를시작합니다.
+1. I 키를 선택하여 삽입 모드를 시작합니다.
 
 1. 다음 코드를 편집기에 붙여 넣습니다.
 

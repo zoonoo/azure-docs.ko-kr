@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rimman
-ms.openlocfilehash: 160ff4e09f70036fd261c07fa59e13772bc00660
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 66beeb2cc724f75d17a4c155f1cdb888153e8fbf
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053330"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286768"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB의 요청 단위
 
@@ -40,12 +40,6 @@ Azure Cosmos DB는 다중 모델 데이터베이스이므로 이 문서는 Azure
 Azure Cosmos DB는 응용 프로그램의 처리량 수요를 충족하도록 리소스를 예약하여 신속하고 예측 가능한 성능을 제공합니다. 응용 프로그램 부하 및 액세스 패턴은 시간이 지남에 따라 변경됩니다. Azure Cosmos DB는 응용 프로그램에 사용할 수 있는 예약된 처리량을 쉽게 늘이거나 줄이는 데 유용합니다.
 
 Azure Cosmos DB에서는 예약된 처리량이 초당 처리되는 요청 단위로 지정됩니다. 요청 단위는 처리량 통화로 생각할 수 있습니다. 초 단위별로 응용 프로그램에 사용할 수 있도록 보장된 요청 단위의 수를 예약합니다. 문서 작성, 쿼리 수행, 문서 업데이트를 비롯한 Azure Cosmos DB의 각 작업에서는 CPU, 메모리 및 IOPS를 사용합니다. 즉, 각 작업이 요청 요금을 발생시키고, 요청 요금은 요청 단위로 표시됩니다. 요청 단위 요금에 영향을 주는 요소와 응용 프로그램의 처리량 요구 사항을 이해하면 응용 프로그램을 최대한 경제적으로 실행할 수 있습니다. 
-
-시작에 도움을 드리기 위해 다음 비디오에서는 Azure Cosmos DB 프로그램 관리자 Andrew Liu가 요청 단위에 대해 설명합니다. 비디오의 요청 단위 예에는 약간의 철자 오류가 있습니다. 100,000개 레코드가 있는 1KB 데이터를 사용할 때 총 저장소는 100GB가 아닌 100MB입니다. <br /><br />
-
-> [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
-> 
-> 
 
 ## <a name="throughput-isolation-in-globally-distributed-databases"></a>전역적으로 분산된 데이터베이스의 처리량 격리
 

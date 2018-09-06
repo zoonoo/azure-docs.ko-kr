@@ -3,19 +3,19 @@ title: Azure SQL Data Warehouse의 REST를 사용한 일시 중지, 다시 시�
 description: REST API를 통해 SQL Data Warehouse에서 계산 능력을 관리합니다.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 21423d69bf2cf06bcd208082ce492bf5dd038e29
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 8db4d5cb69b65e60cd77d85d743798168bc6d813
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790664"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300836"
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse용 REST API
 Azure SQL Data Warehouse에서 계산을 관리하기 위한 REST API입니다.

@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/31/2018
 ms.author: mbullwin
-ms.openlocfilehash: cf7c151121ddf8b2dc57d5db66a62f4d46e463de
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 313be519662570debdd7c78a43bbfe7c27e63296
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970975"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344633"
 ---
 # <a name="application-insights-overview-dashboard"></a>Application Insights 개요 대시보드
 
@@ -50,7 +50,7 @@ Application Insights에는 응용 프로그램의 상태 및 성능을 한 눈�
 
 대시보드에 처음 액세스하는 경우 기본 보기가 시작됩니다.
 
-![대시보드 보기](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-06.png)
+![대시보드 보기](.\media\app-insights-overview-dashboard\0001-dashboard.png)
 
 원하는 경우 기본 보기를 유지할 수 있습니다. 또는 팀의 요구에 가장 적합하도록 대시보드에서 추가하고 삭제할 수도 있습니다.
 

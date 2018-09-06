@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: v-gedod
-ms.openlocfilehash: 51797f4b674224b4348f3f51518a5b087fd2329a
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: bb245f9eab0f367a0e1b69af88352c54132ea29d
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961899"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782443"
 ---
 # <a name="visual-search-sdk-node-quickstart"></a>Visual Search SDK Node 빠른 시작
 
@@ -28,7 +28,7 @@ Bing Visual Search SDK는 웹 요청 및 구문 분석 결과에 대한 REST API
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Cognitive Services API 키는 SDK 호출을 인증하는 데 필요합니다. [평가판 키]((https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7))에 등록합니다. 평가판 키는 초당 한 번의 호출로 7일 동안 유효합니다. 프로덕션 시나리오의 경우 [액세스 키를 구입하세요](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). [가격 책정 정보](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/)도 참조하세요.
+* Cognitive Services API 키는 SDK 호출을 인증하는 데 필요합니다. [평가판 키](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7)에 등록합니다. 평가판 키는 초당 한 번의 호출로 7일 동안 유효합니다. 프로덕션 시나리오의 경우 [액세스 키를 구입하세요](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). [가격 책정 정보](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/)도 참조하세요.
 
 ## <a name="application-dependencies"></a>응용 프로그램 종속성
 

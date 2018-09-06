@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: raynew
-ms.openlocfilehash: 7ffcf5e3c7e6f0cb3d344b7d148b6024e8469eff
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 092f0844854c13898fd7f07ce9b7ddea98ff01ed
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263012"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286276"
 ---
 # <a name="assessment-calculations"></a>평가 계산
 
@@ -40,7 +40,7 @@ Azure Migrate는 온-프레미스 VM의 다음 속성을 검토하여 Azure에�
 --- | --- | ---
 **부팅 유형** | Azure는 부팅 유형이 BIOS인 VM을 지원하지만 UEFI인 VM은 지원하지 않습니다. | 부팅 유형이 UEFI인 경우 조건부 준비 완료입니다.
 **코어 수** | 컴퓨터의 코어 수는 Azure VM에서 지원되는 최대 코어 수(32)와 같거나 작아야 합니다.<br/><br/> 성능 기록을 사용할 수 있으면 Azure Migrate는 사용된 코어 수와 비교합니다. 쾌적 인자가 평가 설정에 지정되어 있는 경우 사용된 코어 수와 쾌적 인자를 곱합니다.<br/><br/> 성능 기록이 없으면 Azure Migrate는 쾌적 인자를 적용하지 않고 할당된 코어 수를 사용합니다. | 제한보다 작거나 같은 경우 준비 완료입니다.
-**메모리** | 컴퓨터 메모리 크기는 Azure VM에 허용되는 최대 메모리 크기(Azure M 시리즈 Standard_M128m&nbsp;<sup>2</sup>에서 3892GB)와 같거나 작아야 합니다. [자세히 알아보기](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory.md#m-series).<br/><br/> 성능 기록을 사용할 수 있으면 Azure Migrate는 사용된 메모리 크기와 비교합니다. 쾌적 인자가 지정되어 있는 경우 사용된 메모리 크기와 쾌적 인자를 곱합니다.<br/><br/> 기록이 없으면 쾌적 인자를 적용하지 않고 할당된 메모리 크기를 사용합니다.<br/><br/> | 제한 내에 있는 경우 준비 완료입니다.
+**메모리** | 컴퓨터 메모리 크기는 Azure VM에 허용되는 최대 메모리 크기(Azure M 시리즈 Standard_M128m&nbsp;<sup>2</sup>에서 3892GB)와 같거나 작아야 합니다. [자세히 알아보기](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).<br/><br/> 성능 기록을 사용할 수 있으면 Azure Migrate는 사용된 메모리 크기와 비교합니다. 쾌적 인자가 지정되어 있는 경우 사용된 메모리 크기와 쾌적 인자를 곱합니다.<br/><br/> 기록이 없으면 쾌적 인자를 적용하지 않고 할당된 메모리 크기를 사용합니다.<br/><br/> | 제한 내에 있는 경우 준비 완료입니다.
 **저장소 디스크** | 할당된 디스크 크기는 4TB(4,096GB) 이하여야 합니다.<br/><br/> 컴퓨터에 연결되는 디스크의 수는 OS 디스크를 포함하여 65개 이하여야 합니다. | 제한 내에 있는 경우 준비 완료입니다.
 **네트워킹** | 컴퓨터에는 32개 이하의 NIC가 연결되어야 합니다. | 제한 내에 있는 경우 준비 완료입니다.
 

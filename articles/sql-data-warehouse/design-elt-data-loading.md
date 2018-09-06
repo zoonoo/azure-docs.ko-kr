@@ -3,23 +3,25 @@ title: ETL 대신 Azure SQL Data Warehouse용 ELT 설계 | Microsoft Docs
 description: ETL 대신 Azure SQL 데이터 웨어하우스 또는 데이터를 로드하기 위한 추출, 로드 및 변환(ELT) 프로세스를 설계합니다.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 33e4a405547fcdd797ddfdf6aba6c6c1c126b742
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: facd9a98b2f2d866574dd1f9bf180fa2a9618f31
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42144867"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301333"
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 ELT(추출, 로드 및 변환) 설계
 
 추출, 변환 및 로드(ETL) 대신 Azure SQL Data Warehouse로 데이터를 로드하기 위한 추출, 로드 및 변환(ELT) 프로세스를 설계합니다. 이 문서에서는 Azure 데이터 웨어하우스로 데이터를 이동하는 ELT 프로세스를 설계하는 방법을 소개합니다.
+
+> [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
 ## <a name="what-is-elt"></a>ELT란 무엇인가요?
 

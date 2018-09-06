@@ -10,20 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: ramkris
-ms.openlocfilehash: 57ad621006a79148aaa6e9435d6ede446539c648
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: e7ed0049e64a7740063f2fab7bdfddff38d45ed9
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714756"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287713"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Apache Spark-Azure Cosmos DB 커넥터를 사용하여 빅 데이터 분석 가속화
  
 Apache Spark-Azure Cosmos DB 커넥터를 사용하면 Azure Cosmos DB가 Apache Spark 작업의 입력 또는 출력이 될 수 있습니다. [Spark](http://spark.apache.org/)를 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)에 연결하면 빠르게 움직이는 데이터 과학 문제를 해결하는 능력을 가속화합니다. Azure Cosmos DB를 사용하여 데이터를 신속하게 저장하고 쿼리할 수 있습니다. 커넥터는 네이티브 Azure Cosmos DB 관리 인덱스를 효율적으로 사용합니다. 인덱스는 급변하는 글로벌 분산 데이터에 대한 분석 및 푸시다운 조건자 필터링을 수행할 때 업데이트할 수 있는 열을 사용할 수 있도록 합니다. 이러한 종류의 데이터는 IoT(사물 인터넷)에서 데이터 과학 및 분석 시나리오에 이를 수 있습니다.
-
-이 비디오에서 커넥터에 대해 자세히 알아봅니다.
-
-> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T135/player] 
 
 ## <a name="connector-components"></a>커넥터 구성 요소
 

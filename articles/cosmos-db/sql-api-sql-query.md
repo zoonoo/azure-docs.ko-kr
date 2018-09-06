@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: laviswa
-ms.openlocfilehash: 26928e36b09ef0dfe5576a8a8039ffac2dd3fb4a
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: a3a1f376c36004851d6e64f2fa037bebfc24665b
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146856"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287761"
 ---
 # <a name="query-azure-cosmos-db-data-with-sql-queries"></a>SQL 쿼리를 사용하여 Azure Cosmos DB 데이터 쿼리
 
@@ -27,17 +27,7 @@ Microsoft Azure Cosmos DB는 SQL API 계정에서 JSON 쿼리 언어로 SQL(구�
 
 * Azure Cosmos DB는 JavaScript의 프로그래밍 모델을 쿼리 언어의 기초로 사용합니다. SQL API는 JavaScript의 형식 시스템, 식 평가 및 함수 호출을 기반으로 합니다. 따라서 관계형 프로젝션, JSON 문서에 대한 계층적 탐색, 자체 조인, 공간 쿼리, JavaScript로만 작성된 UDF(사용자 정의 함수) 호출 등을 위한 일반 프로그래밍 모델을 제공합니다. 
 
-이 문서에서는 간단한 JSON 문서를 사용하여 몇 가지 예제 SQL 쿼리를 설명합니다. Azure Cosmos DB SQL 언어 구문에 대해 자세히 알아보려면 [SQL 구문 참조](sql-api-sql-query-reference.md) 문서를 참조하세요. Azure Cosmos DB의 쿼리 기능을 보여주고 온라인 [쿼리 실습](http://www.documentdb.com/sql/demo)을 설명하는 다음 비디오를 시청하는 것부터 시작할 수도 있습니다.
-
-> [!VIDEO https://www.youtube.com/embed/1LqUQRpHfFI]
->
->
-
-다음 비디오에서 고급 쿼리 기법이 시연되는 모습을 볼 수 있습니다.
-
-> [!VIDEO https://www.youtube.com/embed/kASU9NOIR90]
->
->
+이 문서에서는 간단한 JSON 문서를 사용하여 몇 가지 예제 SQL 쿼리를 설명합니다. Azure Cosmos DB SQL 언어 구문에 대해 자세히 알아보려면 [SQL 구문 참조](sql-api-sql-query-reference.md) 문서를 참조하세요. 
 
 ## <a id="GettingStarted"></a> SQL 명령 시작
 두 개의 간단한 JSON 문서와 이 데이터에 대한 쿼리를 작성해 보겠습니다. 가족에 대해 두 개의 JSON 문서를 만들고 이 JSON 문서를 컬렉션에 삽입한 다음, 데이터를 쿼리합니다. 다음은 Andersen과 Wakefield 가족, 부모, 자녀(및 애완 동물), 주소 및 등록 정보에 대한 단순한 JSON 문서입니다. 이 문서에는 문자열, 숫자, 부울, 배열 및 중첩 속성이 있습니다. 

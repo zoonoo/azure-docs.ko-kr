@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/12/2018
 ms.author: sclyon
-ms.openlocfilehash: 3a5978603ae57a6975b76a0736dc4e2d1f133d30
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: b0fba3cee298e55702629815da4649d9af315b25
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42023069"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43283029"
 ---
 # <a name="introduction-to-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB 소개: MongoDB API
 
@@ -49,11 +49,6 @@ Azure Cosmos DB 데이터베이스는 [MongoDB](https://docs.mongodb.com/manual/
 **자동 인덱싱:** Azure Cosmos DB는 기본적으로 MongoDB 데이터베이스에 있는 문서 내의 모든 속성을 자동으로 인덱싱하고, 스키마 또는 보조 인덱스 생성을 기대하거나 요구하지 않습니다. 또한 고유 인덱스 기능을 통해 Azure Cosmos DB에서 이미 자동 인덱싱된 모든 문서 필드에 고유성 제약 조건을 적용할 수 있습니다.
 
 **엔터프라이즈급** - Azure Cosmos DB는 로컬 및 하위 지역 장애에 대비하여 99.99% 가용성 및 데이터 보호 기능을 제공하기 위해 다중 로컬 복제본을 지원합니다. Azure Cosmos DB에는 엔터프라이즈급 [규정 준수 인증서](https://www.microsoft.com/trustcenter) 및 보안 기능이 있습니다. 
-
-이 비디오에서 Azure Cosmos DB 선임 프로그램 관리자 Aleksey Savateyev와 함께 자세히 알아보세요.
-
-> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T136/player]
-> 
 
 ## <a name="how-to-get-started"></a>시작하는 방법
 

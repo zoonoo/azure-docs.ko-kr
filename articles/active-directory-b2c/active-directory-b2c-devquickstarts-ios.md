@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d9be99278797911ce7b49a176861ce6a39c28a1d
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5f95b71497b59eafff09d4add2b4bb1c20656592
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443752"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339361"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: iOS 응용 프로그램을 사용하여 로그인
 
@@ -62,20 +62,20 @@ Azure AD B2C에서 모든 사용자 환경은 [정책](active-directory-b2c-refe
 
 ### <a name="configuration"></a>구성
 
-권한 부여 끝점과 토큰 끝점 URI를 모두 지정하여 Azure AD B2C와의 통신을 구성할 수 있습니다.  이러한 URI를 생성하려면 다음 정보가 필요합니다.
+권한 부여 엔드포인트와 토큰 엔드포인트 URI를 모두 지정하여 Azure AD B2C와의 통신을 구성할 수 있습니다.  이러한 URI를 생성하려면 다음 정보가 필요합니다.
 * 테넌트 ID(예: contoso.onmicrosoft.com)
 * 정책 이름(예: B2C\_1\_SignUpIn)
 
-토큰 끝점 URI는 다음 URL에서 테넌트\_ID 및 정책\_이름을 바꿔서 만들 수 있습니다.
+토큰 엔드포인트 URI는 다음 URL에서 테넌트\_ID 및 정책\_이름을 바꿔서 만들 수 있습니다.
 
 ```objc
-static NSString *const tokenEndpoint = @"https://login.microsoftonline.com/te/<Tenant_ID>/<Policy_Name>/oauth2/v2.0/token";
+static NSString *const tokenEndpoint = @"https://<Tenant_name>.b2clogin.com/te/<Tenant_ID>/<Policy_Name>/oauth2/v2.0/token";
 ```
 
-권한 부여 끝점 URI는 다음 URL에서 테넌트\_ID 및 정책\_이름을 바꿔서 만들 수 있습니다.
+권한 부여 엔드포인트 URI는 다음 URL에서 테넌트\_ID 및 정책\_이름을 바꿔서 만들 수 있습니다.
 
 ```objc
-static NSString *const authorizationEndpoint = @"https://login.microsoftonline.com/te/<Tenant_ID>/<Policy_Name>/oauth2/v2.0/authorize";
+static NSString *const authorizationEndpoint = @"https://<Tenant_name>.b2clogin.com/te/<Tenant_ID>/<Policy_Name>/oauth2/v2.0/authorize";
 ```
 
 다음 코드를 실행하여 AuthorizationServiceConfiguration 개체를 만듭니다.

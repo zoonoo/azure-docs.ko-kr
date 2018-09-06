@@ -3,7 +3,7 @@ title: Azure SignalR Service 사용 방법을 배우기 위한 빠른 시작 | M
 description: Azure SignalR Service를 사용하여 ASP.NET Core MVC 앱으로 대화방을 만들기 위한 빠른 시작입니다.
 services: signalr
 documentationcenter: ''
-author: wesmc7777
+author: sffamily
 manager: cfowler
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
 ms.date: 06/13/2018
-ms.author: wesmc
-ms.openlocfilehash: cf47b2d6bd17fa5a9f7cbe98ab7db2799f6e8287
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.author: zhshang
+ms.openlocfilehash: 398ba001bfe9c8b2dd77b66535f5cb4aaf5f6270
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42916303"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667351"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>빠른 시작: SignalR Service를 사용하여 채팅방 만들기
 

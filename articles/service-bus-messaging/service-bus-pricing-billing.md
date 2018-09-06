@@ -3,7 +3,7 @@ title: Service Bus 가격 및 대금 청구 | Microsoft Docs
 description: Service Bus 가격 구조 개요
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 7c45b112-e911-45ab-9203-a2e5abccd6e0
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
-ms.author: sethm
-ms.openlocfilehash: 4faf37394b8e4f6c4e463acb11aea898a29fef80
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.author: spelluru
+ms.openlocfilehash: 9f899afef175afa2509dc60e0920dc387f8a7c5e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448410"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702564"
 ---
 # <a name="service-bus-pricing-and-billing"></a>Service Bus 가격 및 대금 청구
 
@@ -32,7 +32,7 @@ Azure Service Bus는 표준 및 [프리미엄](service-bus-premium-messaging.md)
 
 Service Bus는 다음 두 미터를 큐와 토픽/구독에 사용합니다.
 
-1. **메시징 운영**: 큐 또는 토픽/구독 서비스 끝점에 대한 API 호출로 정의됩니다. 이 미터는 보내거나 받은 메시지를 큐 및 토픽/구독에 대한 청구 가능 사용량의 주 단위로 대체합니다.
+1. **메시징 운영**: 큐 또는 토픽/구독 서비스 엔드포인트에 대한 API 호출로 정의됩니다. 이 미터는 보내거나 받은 메시지를 큐 및 토픽/구독에 대한 청구 가능 사용량의 주 단위로 대체합니다.
 2. **조정된 연결**: 특정 1시간 샘플링 기간 동안 큐, 토픽 또는 구독에 대해 열린 영구 연결의 최대 수로 정의합니다. 이 미터는 명시적 연결당 비용에 대해 추가적인 연결을 열 수 있는 표준 계층에만 적용됩니다(이전에는 연결이 큐/토픽/구독당 100개로 제한되었음).
 
 **표준** 계층은 최고 사용량 수준에서 최대 80% 수준의 볼륨 기반 할인이 가능한 큐 및 토픽/구독에서 수행한 작업에 대해 누진 가격 책정을 도입하고 있습니다. 추가 비용 없이 최대 1250만 개의 작업을 수행할 수 있는 매월 10달러의 표준 계층 기본 요금도 있습니다.
@@ -48,7 +48,7 @@ Service Bus는 다음 두 미터를 큐와 토픽/구독에 사용합니다.
 
 ## <a name="messaging-operations"></a>메시징 운영
 
-큐 및 토픽/구독은 메시지가 아닌 "작업" 기준으로 요금이 청구됩니다. "작업"은 큐나 토픽/구독 서비스 끝점에 대한 모든 API 호출을 의미합니다. 여기에는 관리, 송신/수신 및 세션 상태 작업이 포함됩니다.
+큐 및 토픽/구독은 메시지가 아닌 "작업" 기준으로 요금이 청구됩니다. "작업"은 큐나 토픽/구독 서비스 엔드포인트에 대한 모든 API 호출을 의미합니다. 여기에는 관리, 송신/수신 및 세션 상태 작업이 포함됩니다.
 
 | 작업 유형 | 설명 |
 | --- | --- |

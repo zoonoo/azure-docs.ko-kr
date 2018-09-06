@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c4f1b63e2d564f0480508c3ec5a5a24c76ea6bc4
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 7ae235ea52c5c505e535cc3fad2306167d349ee9
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41917592"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782263"
 ---
 # <a name="azure-container-service-tutorial---manage-dcos"></a>Azure Container Service 자습서 - DC/OS 관리
 
@@ -238,7 +238,7 @@ az network public-ip list --resource-group myResourceGroup --query "[?contains(n
 
 ## <a name="scale-dcos-cluster"></a>DC/OS 클러스터 크기 조정
 
-이전의 예에서 응용 프로그램은 여러 인스턴스로 확장되었습니다. 더 많거나 적은 계산 수용작업량을 제공하도록 DC/OS 인프라를 확장할 수도 있습니다. 그러려면 [az acs scale]() 명령을 사용합니다. 
+이전의 예에서 응용 프로그램은 여러 인스턴스로 확장되었습니다. 더 많거나 적은 계산 수용작업량을 제공하도록 DC/OS 인프라를 확장할 수도 있습니다. 그러려면 [az acs scale](/cli/azure/acs#az-acs-scale) 명령을 사용합니다. 
 
 DC/OS 에이전트의 현재 수를 보려면 [az acs show](/cli/azure/acs#az-acs-show) 명령을 사용합니다.
 

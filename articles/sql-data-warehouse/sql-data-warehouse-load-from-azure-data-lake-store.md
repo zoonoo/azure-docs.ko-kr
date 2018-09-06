@@ -3,19 +3,19 @@ title: '자습서: Azure Data Lake Store에서 Azure SQL Data Warehouse로 로�
 description: PolyBase 외부 테이블을 사용하여 Azure Data Lake Store에서 Azure SQL Data Warehouse로 데이터를 로드합니다.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: c6030d1951c22dddfe6df01225c63cf503a370ac
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 04676db3048cf747e9a20d91a404f29c6cfc6853
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32188381"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306396"
 ---
 # <a name="load-data-from-azure-data-lake-store-to-sql-data-warehouse"></a>Azure Data Lake Store에서 SQL Data Warehouse로 데이터 로드
 PolyBase 외부 테이블을 사용하여 Azure Data Lake Store에서 Azure SQL Data Warehouse로 데이터를 로드합니다. ADLS에 저장된 데이터에서 임시 쿼리를 실행할 수 있지만 최상의 성능을 위해 SQL Data Warehouse로 데이터를 가져오는 것이 좋습니다.
@@ -35,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 * 서비스 간 인증에 사용할 Azure Active Directory 응용 프로그램. 만들려면 [Active Directory 인증](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 따릅니다.
 
 >[!NOTE] 
-> SQL Data Warehouse에서 Azure Data Lake에 연결하려면 클라이언트 ID, 키 및 Active Directory 응용 프로그램의 OAuth2.0 토큰 끝점 값이 필요합니다. 이러한 값을 가져오는 방법에 대한 세부 정보는 위의 링크에 있습니다. Azure Active Directory 앱 등록의 경우 '응용 프로그램 ID'를 클라이언트 ID로 사용합니다.
+> SQL Data Warehouse에서 Azure Data Lake에 연결하려면 클라이언트 ID, 키 및 Active Directory 응용 프로그램의 OAuth2.0 토큰 엔드포인트 값이 필요합니다. 이러한 값을 가져오는 방법에 대한 세부 정보는 위의 링크에 있습니다. Azure Active Directory 앱 등록의 경우 '응용 프로그램 ID'를 클라이언트 ID로 사용합니다.
 > 
 
 * Azure SQL Data Warehouse입니다. [Azure SQL Data Warehouse 쿼리 및 만들기](create-data-warehouse-portal.md)를 참조합니다.

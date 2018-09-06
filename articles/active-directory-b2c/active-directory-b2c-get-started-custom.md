@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e25103d2fcbfc70be7f96f5c0e5fa6abe13fe393
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 36fad697758273246d567dfa1010f0e6bfc68939
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446744"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344565"
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책 시작
 
@@ -36,7 +36,7 @@ ms.locfileid: "37446744"
 2. **정책 키**를 선택하여 테넌트에 사용 가능한 키를 봅니다.
 3. B2C_1A_TokenSigningKeyContainer가 없으면 만듭니다.<br>
     a. **추가**를 선택합니다. <br>
-    나. **생성**을 선택합니다.<br>
+    b. **생성**을 선택합니다.<br>
     다. **이름**에는 `TokenSigningKeyContainer`를 사용합니다. <br> 
     `B2C_1A_` 접두사가 자동으로 추가될 수 있습니다.<br>
     d. **키 유형**에는 **RSA**를 사용합니다.<br>
@@ -45,7 +45,7 @@ ms.locfileid: "37446744"
     g. **만들기**를 선택합니다.<br>
 4. B2C_1A_TokenEncryptionKeyContainer가 없으면 만듭니다.<br>
  a. **추가**를 선택합니다.<br>
- 나. **생성**을 선택합니다.<br>
+ b. **생성**을 선택합니다.<br>
  다. **이름**에는 `TokenEncryptionKeyContainer`를 사용합니다. <br>
    `B2C_1A`_ 접두사가 자동으로 추가될 수 있습니다.<br>
  d. **키 유형**에는 **RSA**를 사용합니다.<br>
@@ -55,7 +55,7 @@ ms.locfileid: "37446744"
 5. B2C_1A_FacebookSecret를 만듭니다. <br>
 Facebook 응용 프로그램 비밀이 이미 있을 경우 해당 비밀을 정책 키로 테넌트에 추가합니다. 그렇지 않으면 정책이 유효성 검사를 통과하도록 자리 표시자 값이 있는 키를 만들어야 합니다.<br>
  a. **추가**를 선택합니다.<br>
- 나. **옵션**에는 **수동**을 사용합니다.<br>
+ b. **옵션**에는 **수동**을 사용합니다.<br>
  다. **이름**에는 `FacebookSecret`를 사용합니다. <br>
  `B2C_1A_` 접두사가 자동으로 추가될 수 있습니다.<br>
  d. **비밀** 상자에서 developers.facebook.com의 FacebookSecret 또는 `0`을 자리 표시자로 입력합니다. *Facebook 앱 ID가 아닙니다.* <br>
@@ -77,7 +77,7 @@ Azure AD B2C에서는 엔진에서 사용자를 등록하고 로그인하는 데
 4. **새 응용 프로그램 등록**을 선택합니다.
    * **이름**에는 `IdentityExperienceFramework`를 사용합니다.
    * **응용 프로그램 종류**에는 **웹앱/API**를 사용합니다.
-   * **로그온 URL**에는 `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`을 사용합니다. 여기서 `yourtenant`는 Azure AD B2C 테넌트 도메인 이름입니다.
+   * **로그온 URL**에는 `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com`을 사용합니다. 여기서 `yourtenant`는 Azure AD B2C 테넌트 도메인 이름입니다.
 5. **만들기**를 선택합니다.
 6. 만들어졌으면 새로 만든 **IdentityExperienceFramework** 응용 프로그램을 선택합니다.<br>
    * **속성**을 선택합니다.<br>
@@ -89,7 +89,7 @@ Azure AD B2C에서는 엔진에서 사용자를 등록하고 로그인하는 데
 1. **새 응용 프로그램 등록**을 선택합니다.
    * **이름**에는 `ProxyIdentityExperienceFramework`를 사용합니다.
    * **응용 프로그램 종류**에는 **네이티브**를 사용합니다.
-   * **리디렉션 URI**에는 `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`을 사용합니다. 여기서 `yourtenant`는 Azure AD B2C 테넌트입니다.
+   * **리디렉션 URI**에는 `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com`을 사용합니다. 여기서 `yourtenant`는 Azure AD B2C 테넌트입니다.
 1. **만들기**를 선택합니다.
 1. 만들어졌으면 **ProxyIdentityExperienceFramework** 응용 프로그램을 선택합니다.<br>
    * **속성**을 선택합니다. <br>

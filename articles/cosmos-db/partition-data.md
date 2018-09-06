@@ -10,21 +10,16 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c9c1379cd457dcba37246985058b01e85633f968
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 3cc2794105eff196c3e1db02d664a89c9b37e318
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038475"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286988"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Azure Cosmos DB의 파티션 및 확장
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)는 신속하고 예측 가능한 성능을 위해 세계적으로 배포된 다중 모델 데이터베이스 서비스입니다. 응용 프로그램에 따라 자연스럽게 확장됩니다. 이 문서에서는 Azure Cosmos DB의 모든 데이터 모델에서 분할이 어떻게 작동하는지에 대한 개요를 제공합니다. 또한 효과적으로 응용 프로그램을 확장하기 위해 Azure Cosmos DB 컨테이너를 구성하는 방법에 대해서도 설명합니다.
-
-이 비디오에서는 분할 및 파티션 키를 설명합니다.
-
-> [!VIDEO https://www.youtube.com/embed/SS6WrQ-HJ30]
-> 
 
 ## <a name="partitioning-in-azure-cosmos-db"></a>Azure Cosmos DB에서 분할
 Azure Cosmos DB는 컬렉션(문서의 경우), 그래프 또는 테이블이라는 데이터 저장용 컨테이너를 제공합니다. 컨테이너는 하나 이상의 물리적 파티션 또는 서버에 걸쳐 있을 수 있는 논리적 리소스입니다. 파티션 수는 컨테이너 또는 컨테이너 집합에 대해 프로비전된 저장소 크기 및 처리량에 따라 Azure Cosmos DB에 의해 결정됩니다. 

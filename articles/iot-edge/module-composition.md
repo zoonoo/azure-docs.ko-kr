@@ -8,12 +8,12 @@ ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ddeee70d29f54a0691b0a13ad299003b3da338a1
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: af4a831c084ae10b381b8e08fd0ce4798b21b394
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345021"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382174"
 ---
 # <a name="learn-how-to-use-deployment-manifests-to-deploy-modules-and-establish-routes"></a>배포 매니페스트를 사용하여 모듈을 배포하고 경로를 설정하는 방법 알아보기
 
@@ -153,7 +153,7 @@ IoT Edge의 모듈 간에 전달되는 메시지는 장치와 Azure IoT Hub 간�
 IoT Edge에 특정되는 예제는 리프 장치에서 게이트웨이 장치에 도착하는 메시지를 필터링하려는 경우입니다. 모듈에서 발생한 메시지에는 **connectionModuleId**라는 시스템 속성이 포함되어 있습니다. 따라서 리프 장치에서 IoT Hub로 직접 메시지를 라우팅하려는 경우 다음 경로를 사용하여 모듈 메시지를 제외합니다.
 
 ```sql
-FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
+FROM /messages/\* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 ```
 
 ### <a name="sink"></a>sink

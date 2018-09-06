@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/07/2018
 ms.author: erikre
-ms.openlocfilehash: c37ff7e2f81b3dbca42193777287dae873768e24
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 88b7909e78f8bd36ce456eee60587acbbb94b6cd
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630503"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286751"
 ---
 # <a name="azure-consumption-api-overview"></a>Azure Consumption API 개요 
 
@@ -81,7 +81,7 @@ API에는 다음이 포함됩니다.
 -   **기업 고객만** - 이 API는 EA 고객에게만 제공됩니다. 
     - 고객이 이 API를 호출하려면 엔터프라이즈 관리자 권한이 있어야 합니다. 
 
-자세한 내용은 [잔액 API](https://docs.microsoft.com/rest/api/consumption/getbalancesbybillingaccount)의 기술 사양을 참조하세요.
+자세한 내용은 [잔액 API](https://docs.microsoft.com/rest/api/consumption/balances)의 기술 사양을 참조하세요.
 
 ## <a name="budgets-api"></a>예산 API
 

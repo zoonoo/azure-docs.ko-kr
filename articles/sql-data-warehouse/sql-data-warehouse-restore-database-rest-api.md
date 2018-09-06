@@ -3,19 +3,19 @@ title: Azure SQL Data Warehouse 복원 - REST API | Microsoft Docs
 description: REST API를 사용하여 Azure SQL Data Warehouse를 복원합니다.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 2e1874fdf7c11d98d369072739c5937caffe6e96
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 71236afd3f72497887f42667f971539ed294bef1
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31524427"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307539"
 ---
 # <a name="restore-an-azure-sql-data-warehouse-with-rest-apis"></a>REST API로 Azure SQL Data Warehouse 복원
 REST API를 사용하여 Azure SQL Data Warehouse를 복원합니다.

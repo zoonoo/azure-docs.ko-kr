@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: b68550bce1f4e3fbe3845c21598720083c8e384c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 43edbc653ddbd55aab5e722071de1f2cf4bcd1c4
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295277"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344519"
 ---
 # <a name="implement-the-device-model-behavior"></a>장치 모델 동작 구현
 
@@ -41,6 +41,6 @@ ms.locfileid: "39295277"
 > * 시뮬레이션된 장치가 원격 연결된 IoT Hub의 메서드 호출에 응답하는 방법 정의
 > * 스크립트 디버그
 
-이제 시뮬레이션된 장치의 동작을 지정하는 방법을 배웠으므로 다음 단계에서는 [시뮬레이션된 장치를 만드는](iot-accelerators-remote-monitoring-test.md) 방법을 알아보는 것이 좋습니다.
+이제 시뮬레이션된 장치의 동작을 지정하는 방법을 배웠으므로 다음 단계에서는 [시뮬레이션된 장치를 만드는](iot-accelerators-device-simulation-create-simulated-device.md) 방법을 알아보는 것이 좋습니다.
 
 장치 시뮬레이션 솔루션에 대한 자세한 개발자 정보는 [개발자 참조 가이드](https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide)를 참조합니다.
