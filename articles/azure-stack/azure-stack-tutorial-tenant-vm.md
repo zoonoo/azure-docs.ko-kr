@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/07/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 6bd722801202f5cdff2882c29895ae06fecbbcb8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 09b9126125006fb70f5e2560f04b815b4a874405
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425366"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027302"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>자습서: 사용자에 게 가상 머신을 사용할 수 있는 Azure Stack
 
@@ -106,8 +106,7 @@ Marketplace에 다양 한 항목을 추가 하는 방법에 대 한 내용은 [T
 
 제품을 만들었으므로 이제이 테스트할 수 있습니다. 사용자로 로그인 하 게 됩니다 제품을 구독 하 고 가상 컴퓨터를 추가 합니다.
 
-1. 
-  **제품 구독**
+1. **제품 구독**
 
    a. 사용자 계정 사용 하 여 사용자 포털에 로그인 하 고 선택 합니다 **구독** 바둑판식으로 배열 합니다.
    - 통합된 시스템에 대 한 URL을 연산자의 지역 및 외부 도메인 이름에 따라 달라 집니다 및 형식 이어야 합니다 https://portal.&lt; *지역*&gt;.&lt; *FQDN*&gt;합니다.
@@ -115,11 +114,11 @@ Marketplace에 다양 한 항목을 추가 하는 방법에 대 한 내용은 [T
 
    ![구독 가져오기](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 
-   나. **Subscription 얻기**에서 구독의 이름을 입력 합니다 **표시 이름** 필드입니다. 선택 **제공**에서 제안 중 하나를 선택 합니다 **제품을 선택** 목록. **만들기**를 선택합니다.
+   b. **Subscription 얻기**에서 구독의 이름을 입력 합니다 **표시 이름** 필드입니다. 선택 **제공**에서 제안 중 하나를 선택 합니다 **제품을 선택** 목록. **만들기**를 선택합니다.
 
    ![제품 만들기](media/azure-stack-subscribe-plan-provision-vm/image02.png)
 
-   다. 선택 된 구독을 보려면 **더 많은 서비스**를 선택한 후 **구독**합니다. 서비스 구독에 포함 된 참조를 새 구독을 선택 합니다.
+   다. 구독을 보려면 선택 **모든 서비스**, 한 다음는 **일반** 범주 선택 **구독**합니다. 서비스 구독에 포함 된 참조를 새 구독을 선택 합니다.
 
    >[!NOTE]
    >제품 구독 후 새 구독의 일부인 서비스를 확인 하려면 포털을 새로 고치려면 해야 합니다.
@@ -132,7 +131,7 @@ Marketplace에 다양 한 항목을 추가 하는 방법에 대 한 내용은 [T
       - 통합된 시스템에 대 한 URL을 연산자의 지역 및 외부 도메인 이름에 따라 달라 집니다 및 형식 이어야 합니다 https://portal.&lt; *지역*&gt;.&lt; *FQDN*&gt;합니다.
    - Azure Stack 개발 키트를 사용 하는 경우 포털 주소가 https://portal.local.azurestack.external합니다.
 
-   나.  대시보드에서 선택 **새로 만들기** > **계산** > **Windows Server 2016 Datacenter 평가판**를 선택한 후 **만들기**.
+   b.  대시보드에서 선택 **새로 만들기** > **계산** > **Windows Server 2016 Datacenter 평가판**를 선택한 후 **만들기**.
 
    다. **기본 사항**, 다음 정보를 제공 합니다.
       - 입력을 **이름**

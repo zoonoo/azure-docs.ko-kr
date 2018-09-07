@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: jiahan
-ms.openlocfilehash: fc17ce0ebd13fb7e89405fcf4d6633551f340a27
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: bdf31c72fbcd8941161e6b9df0a490df7f6a16e0
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139291"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026521"
 ---
 # <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Azure Stack에서 virtual machine 디스크 저장소를 프로 비전
 
@@ -30,9 +30,13 @@ ms.locfileid: "42139291"
 
 ## <a name="overview"></a>개요
 
-Azure Stack의 사용을 지원 [관리 되지 않는 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) 운영 체제 (OS) 및 데이터 디스크를 가상 머신에서 합니다.
+1808 버전 부터는 Azure Stack는 운영 체제 (OS) 및 데이터 디스크를 가상 머신에서 managed disks와 관리 되지 않는 디스크의 사용을 지원 합니다. 이전 버전 1808에서는 관리 되지 않는 디스크 에서만 지원 됩니다. 
 
-만든 관리 되지 않는 디스크를 사용 하는 [저장소 계정](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) 디스크를 저장 합니다. 만든 디스크는 VM 디스크 라고도 하며 저장소 계정의 컨테이너에 저장 됩니다.
+**[관리 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#managed-disks)**  VM 디스크와 연결 된 저장소 계정을 관리 하 여 Azure IaaS Vm 용 디스크 관리를 간소화 합니다. 크기를 지정 하기만 하면 필요한 디스크의 및 Azure Stack을 만들고 디스크를 관리 합니다.
+
+**[관리 되지 않는 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks)** 를 만들도록 요구를 [저장소 계정](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) 디스크를 저장 합니다. 만든 디스크는 VM 디스크 라고도 하며 저장소 계정의 컨테이너에 저장 됩니다.
+
+ 
 
 ### <a name="best-practice-guidelines"></a>모범 사례 지침
 

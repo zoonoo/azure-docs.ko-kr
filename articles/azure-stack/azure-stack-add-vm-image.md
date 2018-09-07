@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 08/30/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 7f16f53af7d1c2f46c5c61974601833fafc8f828
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: ba4c53f03350995544eb95917102bd7123a077d2
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698777"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022767"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>가상 머신 이미지를 Azure Stack에서 사용할 수 있도록
 
@@ -54,7 +54,7 @@ Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용�
 
    ![Public에 대 한 집합 blob 액세스](./media/azure-stack-add-vm-image/image2.png)
 
-2. Operator 자격으로 Azure Stack에 로그인 합니다. 메뉴에서 선택 **더 많은 서비스**합니다. 그런 다음 선택 **계산** > **VM 이미지** > **추가**합니다.
+2. Operator 자격으로 Azure Stack에 로그인 합니다. 메뉴에서 선택 **모든 서비스**합니다. 그런 다음 합니다 **관리** 범주 선택 **Compute** > **VM 이미지** > **추가**합니다.
 
 3. 아래 **VM 이미지를 추가**, 게시자, 제품, SKU 및 가상 머신 이미지의 버전을 입력 합니다. 이러한 이름 세그먼트 Resource Manager 템플릿에서 VM 이미지를 참조 하세요. 선택 되어 있는지 확인 합니다 **osType** 올바르게 값입니다. 에 대 한 **운영 체제 디스크 Blob URI**, 여기서 이미지 업로드 된 Blob URI를 입력 합니다. 그런 다음 선택 **만들기** VM 이미지를 만들기 시작 합니다.
 
@@ -115,7 +115,7 @@ Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용�
     자세한 내용은 참조에 대 한 PowerShell 참조를 [추가 AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) cmdlet 및 [새로 만들기-DataDiskObject](https://docs.microsoft.com/powershell/module/Azs.Compute.Admin/New-DataDiskObject) cmdlet.
 
 ## <a name="add-a-custom-vm-image-to-the-marketplace-by-using-powershell"></a>PowerShell을 사용 하 여 사용자 지정 VM 이미지를 Marketplace에 추가
-
+ 
 1. [Azure Stack 용 PowerShell 설치](azure-stack-powershell-install.md)합니다.
 
   ```PowerShell  

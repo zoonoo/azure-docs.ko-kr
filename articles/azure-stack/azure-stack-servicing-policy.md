@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: harik
-ms.openlocfilehash: a76cf1394dc2c4900b370b52f3479dc03d1d8afe
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: f74a4ad0507f1c1f029befff88d733ffa719a763
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139711"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023514"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 서비스 정책
 이 문서에서는 Azure Stack 통합 시스템 및 지원 되는 상태 시스템을 유지 하기 위해 해야 할 항목에 대 한 서비스 정책을 설명 합니다. 
@@ -38,9 +38,10 @@ ms.locfileid: "42139711"
 Microsoft는 매월 주기로 소프트웨어 업데이트 패키지를 해제 하려면 필요 합니다. 그러나 한 달에 없거나 여러 업데이트 릴리스를 가질 수 것입니다. OEM 하드웨어 공급 업체는 필요에 따라 해당 업데이트를 릴리스 합니다. 
 
 현재 버전을 확인 하는 방법에 대 한 계획 및 업데이트를 관리 하는 방법에 대 한 설명서 [관리 업데이트 개요](azure-stack-updates.md)합니다. 를 다운로드 하는 방법을 비롯 한 특정 업데이트에 대 한 정보 업데이트에 대 한 릴리스 정보를 참조 하세요. 
+- [Azure Stack 1808 업데이트](azure-stack-update-1808.md)
 - [Azure Stack 1807 업데이트](azure-stack-update-1807.md)
 - [Azure Stack 1805 업데이트](azure-stack-update-1805.md)
-- [Azure Stack 1804 업데이트](azure-stack-update-1804.md)
+
 
 ## <a name="hotfixes"></a>핫픽스
 경우에 따라 Microsoft는 핫픽스 Azure Stack에 대 한 해당 주소는 예방 또는 시간이 중요 한 특정 문제를 합니다.  각 핫픽스 문제, 원인 및 해결을 자세히 설명 하는 해당 Microsoft 기술 자료 문서를 사용 하 여 해제 됩니다. 

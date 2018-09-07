@@ -7,16 +7,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: c692bc461c116b4c0497c2378ae4e21e1b841c8f
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: e82c3de4461e2d663496cd4ae4a98c10e7819466
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139458"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025413"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>빠른 시작: Azure Stack 포털을 사용 하 여 Linux 서버 가상 머신 만들기
 
@@ -27,6 +27,10 @@ Azure Stack 포털을 사용 하 여 Ubuntu Server 16.04 LTS 가상 컴퓨터를
 * 원격 클라이언트를 사용 하 여 가상 컴퓨터에 연결 합니다.
 * NGINX 웹 서버를 설치 합니다.
 * 리소스를 정리 합니다.
+
+> [!NOTE]  
+> 이 문서의 화면 이미지는 Azure Stack 버전 1808 도입 된 변경 내용과 일치 하도록 업데이트 됩니다. 1808 사용에 대 한 지원 추가 *관리 디스크* 관리 되지 않는 디스크 외에도 합니다. 이전 버전을 사용 하는 경우이 문서에 표시 되는 내용을 다른 디스크 선택 등의 작업에 대 한 일부 이미지 됩니다.  
+
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -66,7 +70,9 @@ Azure Stack 포털에 로그인 합니다. Azure Stack 포털의 주소는 Azure
 1. 클릭 **리소스 만들기** Azure Stack 포털의 왼쪽 위 모서리에 있습니다.
 
 2. **Compute**를 선택한 후 **Ubuntu Server 16.04 LTS**를 선택합니다.
-3. **만들기**를 클릭합니다.
+   
+   ![Linux 서버 선택](media/azure-stack-quick-linux-portal/select.png)
+1. **만들기**를 클릭합니다.
 
 4. 가상 머신 정보를 입력 합니다. **인증 유형**으로 **SSH 공용 키**를 선택합니다. 클릭 하 여 저장 하는 SSH 공개 키를 붙여 넣습니다 **확인**합니다.
 
@@ -75,24 +81,28 @@ Azure Stack 포털에 로그인 합니다. Azure Stack 포털의 주소는 Azure
 
    ![기본 패널-가상 컴퓨터를 구성 합니다.](media/azure-stack-quick-linux-portal/linux-01.PNG)
 
-5. 선택 **D1_V2** 가상 머신에 대 한 합니다.
+5. 선택 **D1** 가상 머신에 대 한 합니다.
 
    ![패널 크기-가상 머신 크기 선택](media/azure-stack-quick-linux-portal/linux-02.PNG)
 
-6. 에 **설정을** 페이지에서 기본값을 그대로 유지 하 고 클릭 **확인**합니다.
+6. 에 **설정을** 페이지에서 기본값을 원하는 대로 변경 합니다.
+   
+    - Azure Stack 버전 1808부터 구성할 수 있습니다 **스토리지** 사용 하도록 선택할 수 있는 *관리 디스크*합니다. 이전 버전 1808 관리 되지 않는 디스크에만 사용할 수 있습니다.    
+      ![관리 되는 디스크에 대 한 저장소 구성](media/azure-stack-quick-linux-portal/linux-03.PNG)
+    
+    구성 준비 되 면 선택 **확인** 를 계속 합니다.
 
-7. 에 **요약** 페이지에서 클릭 **확인** 가상 머신 배포를 시작 합니다.
+7. 에 **요약** 페이지에서 클릭 **확인** 가상 머신 배포를 시작 합니다.  
+   ![배포](media/azure-stack-quick-linux-portal/deploy.png)
 
 ## <a name="connect-to-the-virtual-machine"></a>가상 머신에 연결
 
-1. 클릭 **Connect** 가상 컴퓨터 페이지입니다. 이 가상 머신에 연결 해야 하는 SSH 연결 문자열을 표시 합니다.
-
-   ![가상 컴퓨터 연결](media/azure-stack-quick-linux-portal/linux-03.PNG)
+1. 클릭 **Connect** 가상 컴퓨터 페이지입니다. 이 가상 머신에 연결 해야 하는 SSH 연결 문자열을 표시 합니다. 
 
 2. PuTTY를 엽니다.
-3. 에 **PuTTY 구성** 사용 하 여 화면을 **범주** 위로 또는 아래로 스크롤해야 할 합니다. 아래로 스크롤하여 **SSH**, 확장 **SSH**를 클릭 하 고 **Auth**합니다. 클릭 **찾아보기** 저장 된 개인 키 파일을 선택 합니다.
 
-   ![PuTTY 개인 키를 선택 합니다.](media/azure-stack-quick-linux-portal/Putty03.PNG)
+3. 에 **PuTTY 구성** 사용 하 여 화면을 **범주** 위로 또는 아래로 스크롤해야 할 합니다. 아래로 스크롤하여 **SSH**, 확장 **SSH**를 클릭 하 고 **Auth**합니다. 클릭 **찾아보기** 저장 된 개인 키 파일을 선택 합니다.
+   ![가상 컴퓨터 연결](media/azure-stack-quick-linux-portal/putty03.PNG)
 
 4. 위로 스크롤 합니다 **범주** 창에서 마우스 클릭 **세션**합니다.
 5. 에 **호스트 이름 (또는 IP 주소)** 상자에 Azure Stack 포털에 표시 되는 연결 문자열을 붙여넣습니다. 이 예제에서는 문자열은 ```asadmin@192.168.102.34```합니다.
@@ -136,7 +146,7 @@ NGINX를 설치 및 포트 80 열어서 가상 머신에서 사용 하 여 가�
 
 웹 브라우저를 열고 ```http://<public IP address>```합니다.
 
-![NGINX 웹 서버에 대 한 시작 페이지](media/azure-stack-quick-linux-portal/linux-04.PNG)
+![NGINX 웹 서버에 대 한 시작 페이지](media/azure-stack-quick-linux-portal/linux-05.PNG)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

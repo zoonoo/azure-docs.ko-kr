@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 09/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: da8261d27ae7fad3c5ff30e4e1cce3f1bca2b70a
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: ca07c3aca106f6c92187fea5a3ebf7bf172cddcc
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035336"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026205"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Azure Stack의 업데이트 적용
 
@@ -42,7 +42,7 @@ Azure Stack에 대 한 Microsoft 또는 OEM 업데이트 패키지를 사용할 
 > [!IMPORTANT]
 > 유지 관리 작업을 사용자에 게 알림 및 예약 하는 일반적인 유지 관리 기간 동안 업무 외 시간 최대한 많은 것이 좋습니다. 유지 관리 작업 사용자 워크 로드와 포털 작업에 영향을 줄 수 있습니다.
 
-1. 관리자 포털에서 선택 **더 많은 서비스**합니다. 그런 다음 합니다 **데이터 + 저장소** 범주를 선택한 **저장소 계정**합니다. (필터 상자에 입력 하기 시작 하거나 **저장소 계정**를 선택 합니다.)
+1. 관리자 포털에서 선택 **모든 서비스**합니다. 그런 다음 합니다 **데이터 + 저장소** 범주를 선택한 **저장소 계정**합니다. (필터 상자에 입력 하기 시작 하거나 **저장소 계정**를 선택 합니다.)
 
     ![포털에서 저장소 계정을 찾을 수 있는 위치를 보여 줍니다.](media/azure-stack-apply-updates/ApplyUpdates1.png)
 

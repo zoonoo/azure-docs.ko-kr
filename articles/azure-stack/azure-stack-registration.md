@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 5a6dcddce3337989a7a34515570ac3277aa1edd5
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 52d0706177482e162d1f4bc038c967a4596fd3b3
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841933"
+ms.locfileid: "44024861"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure를 사용 하 여 Azure Stack 등록
 
@@ -45,7 +45,7 @@ Azure를 사용 하 여 Azure Stack 등록 하면 Azure에서 마켓플레이스
 
 Azure Stack에 Azure를 등록 하기 전에 다음이 필요 합니다.
 
-- Azure 구독에 대 한 구독 ID입니다. ID를 가져오려면 Azure에 로그인을 클릭 **더 많은 서비스** > **구독**를 사용 하려는 구독을 클릭 하 **Essentials** 찾을 수 있습니다는 구독 id입니다.
+- Azure 구독에 대 한 구독 ID입니다. ID를 가져오려면 Azure에 로그인, 클릭 **모든 서비스**합니다. 그런 다음 합니다 **일반** 범주를 선택한 **구독**를 사용 하려는 구독을 클릭 및 아래 **Essentials** id입니다. 구독을 찾을 수 있습니다
 
   > [!Note]  
   > 독일 클라우드 구독은 현재 지원 되지 않습니다.
@@ -284,7 +284,7 @@ Get-AzsActivationKey에서 만든 정품 인증 키에서 파일 또는 텍스�
 이러한 단계를 사용 하 여 Azure를 사용 하 여 Azure Stack이 성공적으로 등록 되었는지 확인 합니다.
 
 1. Azure Stack에 로그인 [관리자 포털](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;/ / adminportal. *&lt;지역 >. &lt;fqdn >* 합니다.
-2. 선택 **더 많은 서비스** > **Marketplace Management** > **Azure에서 추가**합니다.
+2. 선택 **모든 서비스**를 선택한 다음는 **관리** 범주를 선택한 **Marketplace 관리** > **Azure에서추가**.
 
 (예: WordPress)는 Azure에서 사용할 수 있는 항목의 목록을 표시를 활성화가 했습니다. 그러나 연결이 끊어진된 환경에서 표시 되지 않습니다 Azure Stack marketplace에서 Azure marketplace 항목.
 

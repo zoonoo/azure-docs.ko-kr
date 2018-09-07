@@ -7,20 +7,20 @@ manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: kivenkat
-ms.openlocfilehash: 4e77e187d969af7ea2a12754b18d4a218daceed6
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 3fbc3047688fed877280ca2d0f079ddea66bceb8
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39411909"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024734"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Azure Stack에서 Virtual Machine Scale Sets 사용 가능
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
-
+  
 가상 머신 확장 집합은 Azure Stack 계산 리소스입니다. 배포 하 고 동일한 가상 머신 집합을 관리 하 사용할 수 있습니다. 모든 가상 머신과 동일 하 게 구성, 확장 집합 가상 머신의 미리 프로 비전 필요 하지 않습니다. 큰 계산, 빅 데이터 및 컨테이너 화 된 워크 로드를 대상으로 하는 대규모 서비스를 빌드하는 것이 쉽습니다.
 
 이 문서에서는 Azure Stack Marketplace에서 확장 집합을 사용할 수 있도록 하는 프로세스를 안내 합니다. 이 절차를 완료 하면 해당 구독에 가상 머신 확장 집합에 사용자를 추가할 수 있습니다.
@@ -36,9 +36,31 @@ Azure Stack에 가상 머신 확장 집합 자동 크기 조정을 지원 하지
 - **Marketplace**  
     Marketplace에서 항목의 가용성을 사용 하도록 설정 하려면 전역 Azure를 사용 하 여 Azure Stack을 등록 합니다. 지침을 따릅니다 [Azure 사용 하 여 Azure Stack 등록](azure-stack-registration.md)합니다.
 - **운영 체제 이미지**  
-    Azure Stack Marketplace에는 운영 체제 이미지를 추가 하지 않은 [Azure에서 Azure Stack marketplace 항목 추가](asdk/asdk-marketplace-item.md)합니다.
+  가상 머신 확장 집합 (VMSS)을 만들 수 있습니다, 전에에서 VMSS에서 사용할 VM 이미지를 다운로드 해야 합니다 [Azure Stack Marketplace](azure-stack-download-azure-marketplace-item.md)합니다. 이미지를 이미 있어야 사용자는 새 VMSS를 만들 수 있습니다. 
 
-## <a name="add-the-virtual-machine-scale-set"></a>가상 머신 확장 집합을 추가 합니다.
+
+## <a name="use-the-azure-stack-portal"></a>Azure Stack 포털 사용 
+
+>[!NOTE]  
+> 이 섹션의 정보에는 Azure Stack 1808 이후 버전을 사용 하는 경우 적용 됩니다. 버전 1807 이하의 경우 참조 [1808) (이전 가상 머신 확장 집합 추가](#add-the-virtual-machine-scale-set-(prior-to-version-1808))합니다.
+
+1. Azure Stack 포털에 로그인 합니다. 그런 다음로 이동 **모든 서비스** > **가상 머신 확장 집합**, 한 다음 *계산*선택, **가상 머신 확장 집합**. 
+   ![선택 된 가상 머신 확장 집합](media/azure-stack-compute-add-scalesets/all-services.png)
+
+2. 만들기를 선택 ***가상 머신 확장 집합***합니다.
+   ![가상 머신 확장 집합 만들기](media/azure-stack-compute-add-scalesets/create-scale-set.png)
+
+3. 빈 필드를 채우고에 대 한 드롭다운 목록에서 선택 *운영 체제 디스크 이미지*하십시오 *구독*, 및 *인스턴스 크기*. 선택 **Yes** 에 대 한 *managed disks 사용*합니다. 그런 다음 **만들기**를 선택합니다.
+    ![구성 및 만들기](media/azure-stack-compute-add-scalesets/create.png)
+
+4. 새 가상 머신 확장 집합로 이동 하십시오 **모든 리소스**, 가상 머신 확장 집합 이름, 검색 및 검색에서 해당 이름을 클릭 합니다. 
+   ![확장 집합을 보려면](media/azure-stack-compute-add-scalesets/search.png)
+
+
+
+## <a name="add-the-virtual-machine-scale-set-prior-to-version-1808"></a>(이전 버전 1808) 가상 머신 확장 집합 추가
+>[!NOTE]  
+> 이 섹션의 정보에는 Azure Stack의 1808 이전 버전을 사용 하는 경우 적용 됩니다. 1808 이상 버전을 사용 하는 경우 참조 [Azure Stack 포털을 사용 하 여](#use-the-azure-stack-portal)입니다.
 
 1. Azure Stack Marketplace를 열고 Azure에 연결 합니다. 선택 **Marketplace management**> **+ Azure에서 추가**합니다.
 
@@ -56,7 +78,7 @@ Azure Stack에 가상 머신 확장 집합 자동 크기 조정을 지원 하지
 
    경우는 *버전* 으로 설정 됩니다 **최신** 에 *imageReference* 확장에 대 한 템플릿의 섹션 설정, 사용 가능한 최신 버전을 사용 하는 확장 집합에 대 한 작업을 강화 눈금에 대 한 이미지의 인스턴스를 설정 합니다. 수직 확장을 완료 되 면 이전 가상 머신 확장 집합 인스턴스를 삭제할 수 있습니다.  (값 *게시자*를 *제공*, 및 *sku* 그대로 유지). 
 
-   다음은 지정 하는 예가 *최신*:  
+   지정 하는 다음 JSON 예제 *최신*:  
 
     ```Json  
     "imageReference": {
@@ -81,6 +103,17 @@ Azure Stack에 가상 머신 확장 집합 자동 크기 조정을 지원 하지
     최신 버전 (변경 하는 사용 가능한 버전)를 사용 하 여 이미지를 다운로드 하는 경우 확장 집합 확장할 수 없습니다. 이 의도적인 확장 집합 템플릿에서 지정 된 이미지 버전을 사용할 수 있어야 합니다.  
 
 자세한 내용은 [운영 체제 디스크 및 이미지](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images)합니다.  
+
+
+## <a name="scale-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 확장
+크기를 조정할 수는 *가상 머신 확장 집합* 크게 또는 작게 되도록 합니다.  
+
+1. 포털의 확장 집합을 선택 하 고 선택한 **크기 조정**합니다.
+2. 슬라이드 막대를 사용 하 여이 가상 머신 확장 집합에 대 한 크기 조정에 대 한 새로운 수준의 설정 하 고 선택한 **저장할**합니다.
+     ![확장 집합](media/azure-stack-compute-add-scalesets/scale.png)
+
+
+
 
 
 ## <a name="remove-a-virtual-machine-scale-set"></a>가상 머신 확장 집합을 제거 합니다.

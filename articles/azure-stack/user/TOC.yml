@@ -98,6 +98,13 @@ items:
         href: azure-stack-kv-push-secret-into-vm.md
       - name: Key Vault 샘플 앱
         href: azure-stack-kv-sample-app.md
+    - name: Azure Stack 모니터
+      href: azure-stack-metrics-azure-data.md
+      items:
+      - name: 지원되는 메트릭
+        href: azure-stack-metrics-supported.md
+      - name: Azure 모니터링 데이터를 사용 합니다.
+        href: azure-stack-metrics-monitor.md
     - name: 솔루션 템플릿
       items:
       - name: Service Fabric 클러스터 배포
@@ -131,7 +138,7 @@ items:
           href: azure-stack-version-profiles-go.md
         - name: Ruby
           href: azure-stack-version-profiles-ruby.md
-        - name: 파이썬
+        - name: Python
           href: azure-stack-version-profiles-python.md
         - name: 리소스 공급자 프로필에서 지원 되는 Api
           href: azure-stack-profiles-azure-resource-manager-versions.md
@@ -181,9 +188,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: 교육 및 인증
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 343847c800ce888cd211f6d2314af71c45189b50
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 7bf5ef3ab2270d059a6d426cba3551cf21ce16e0
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42915375"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026716"

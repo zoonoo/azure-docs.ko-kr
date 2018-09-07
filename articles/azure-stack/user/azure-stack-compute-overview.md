@@ -6,15 +6,15 @@ author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: d478ccd0895ad067657bce56469a3a61d4ea0e17
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 143e6c2856485e33022254abfcf0cf3806b30cef
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139472"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025776"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Azure Stack 가상 머신 소개
 
@@ -99,11 +99,11 @@ VM 확장 배포 후 구성 및 자동화 된 작업을 통해 VM 추가 기능�
 |리소스|필수|설명|
 |---------|---------|---------|
 |리소스 그룹|예|VM은 리소스 그룹에 포함되어야 합니다.|
-|Storage 계정|예|가상 하드 디스크를 저장하기 위해 VM에 저장소 계정이 필요합니다.|
+|Storage 계정|아닙니다.|VM에는 Managed Disks를 사용 하는 경우 해당 가상 하드 디스크를 저장 하려면 저장소 계정이 필요는 없습니다. <br>VM에는 관리 되지 않는 디스크를 사용 하는 경우 해당 가상 하드 디스크를 저장 하려면 저장소 계정이 필요지 않습니다.|
 |가상 네트워크|예|VM은 가상 네트워크의 구성원이어야 합니다.|
-|공용 IP 주소|아니요|원격으로 액세스하기 위해 VM에 할당된 공용 IP 주소가 있을 수 있습니다.|
+|공용 IP 주소|아닙니다.|원격으로 액세스하기 위해 VM에 할당된 공용 IP 주소가 있을 수 있습니다.|
 |Linux|예|네트워크에서 통신하기 위해 VM에 네트워크 인터페이스가 필요합니다.|
-|데이터 디스크|아니요|VM은 저장소 기능을 확장하기 위해 데이터 디스크를 포함할 수 있습니다.|
+|데이터 디스크|아닙니다.|VM은 저장소 기능을 확장하기 위해 데이터 디스크를 포함할 수 있습니다.|
 
 ## <a name="create-your-first-vm"></a>첫 번째 VM 만들기
 

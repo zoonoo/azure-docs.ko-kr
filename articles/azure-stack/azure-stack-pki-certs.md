@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 13bc82caf5e10f5b35df29d085349ec4c80628a2
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: d4322e5a7f9d587049e9225c3adde08d04325afc
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917455"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024307"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 공개 키 인프라 인증서 요구 사항
 
@@ -76,6 +76,8 @@ Azure Stack에는 소수의 Azure Stack 서비스 및 테 넌 트 Vm에 할당 �
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(와일드 카드 SSL 인증서) | Queue Storage | queue.&lt;region>.&lt;fqdn> |
 | KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(와일드 카드 SSL 인증서) | Key Vault | vault.&lt;region>.&lt;fqdn> |
 | KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(와일드 카드 SSL 인증서) |  내부 Keyvault |  adminvault.&lt;region>.&lt;fqdn> |
+| 관리 확장 호스트 | *.adminhosting 합니다. \<지역 >. \<fqdn > (와일드 카드 SSL 인증서) | 관리 확장 호스트 | adminhosting 합니다. \<지역 >. \<fqdn > |
+| 공용 확장 호스트 | *.hosting 합니다. \<지역 >. \<fqdn > (와일드 카드 SSL 인증서) | 공용 확장 호스트 | 호스팅. \<지역 >. \<fqdn > |
 
 Azure AD 배포 모드를 사용 하 여 Azure Stack을 배포 하는 경우 이전 표에 나열 된 인증서를 요청 해야 합니다. 그러나 AD FS 배포 모드를 사용 하 여 Azure Stack을 배포 하는 경우 다음 표에 설명 된 인증서를 요청 해야 합니다.
 

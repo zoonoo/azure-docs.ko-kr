@@ -6,18 +6,19 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: 4aaba753a8d61d60cb053a4aa164b5be0a3c50fa
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 26ee1c8f02a0a4e5aa5048a7a02929c448106ffd
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307611"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024961"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure 데이터 센터 통합 스택-끝점 게시
+
 Azure Stack 인프라 역할에 대 한 가상 IP 주소 (Vip)를 설정합니다. 이러한 Vip의 공용 IP 주소 풀에서 할당 됩니다. 각 VIP는 소프트웨어 정의 네트워크 계층에서 액세스 제어 목록 (ACL)을 사용 하 여 보호 됩니다. Acl은 솔루션 강화 (에서 및 BMC) 실제 스위치 간에 사용 됩니다. 배포 시 지정 된 외부 DNS 영역에서 각 끝점에 대 한 DNS 항목을 생성 됩니다.
 
 
@@ -39,12 +40,14 @@ Azure Stack 인프라 역할에 대 한 가상 IP 주소 (Vip)를 설정합니�
 |---------|---------|---------|---------|
 |AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |포털 (관리자)|Adminportal 합니다.  *&lt;지역 >.&lt; fqdn >*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015|
+|Adminhosting | *.adminhosting 합니다. \<지역 >. \<fqdn > | HTTPS | 443 |
 |Azure 리소스 관리자 (관리자)|Adminmanagement 합니다.  *&lt;지역 >.&lt; fqdn >*|HTTPS|443<br>30024|
 |포털 (사용자)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003|
 |Azure Resource Manager (사용자)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
 |그래프|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |인증서 해지 목록|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
 |DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP 및 UDP|53|
+|Hosting | *.hosting 합니다. \<지역 >. \<fqdn > | HTTPS | 443 |
 |Key Vault (사용자)|&#42;.vault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Key Vault (관리자)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |저장소 큐|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|

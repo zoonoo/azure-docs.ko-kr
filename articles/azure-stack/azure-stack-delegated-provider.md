@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: 112586d3ee5f49eab9adb72d41a210e2dd9828d8
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: b58118a3ed4fba5017e0eb630d822ec59f04aa16
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139421"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024779"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Azure Stack에서 제안 위임
 
@@ -128,7 +128,7 @@ Azure Stack 운영자 담당 사용자를 등록 하 고 구독을 만들어 다
 
 4. 공용 위임 된 제안을 위임 된 포털을 통해서만 표시 됩니다. 찾아서이 URL을 변경
 
-    a.  선택 **찾아보기** > **더 많은 서비스** > **구독**합니다. 위임 된 공급자 구독을 선택 합니다. 예를 들어 **DPSubscription** > **속성**합니다.
+    a.  선택 **찾아보기** > **모든 서비스**를 선택한 다음 합니다 **일반** 범주를 선택한 **구독**합니다. 위임 된 공급자 구독을 선택 합니다. 예를 들어 **DPSubscription** > **속성**합니다.
 
     b.  포털 복사 메모장과 같은 별도 위치에 대 한 URL입니다.
 

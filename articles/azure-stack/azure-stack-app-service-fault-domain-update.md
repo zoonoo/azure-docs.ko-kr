@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 09/05/2018
 ms.author: anwestg
-ms.openlocfilehash: 53766099f283f802482fe8e84144502d386b1d69
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: acadd1adec93d10d64712a2fbedb89e098998294
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440154"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025965"
 ---
 # <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>장애 도메인과 Azure App Service on Azure Stack을 재배포 하는 방법
 
@@ -48,8 +48,8 @@ App Service 리소스 공급자에 대해 배포 된 확장 집합을 재배포 
 확장 집합을 확장 하려면 다음이 단계를 수행 합니다.
 
 1. Azure Stack 관리자 포털에 로그인 합니다.
-1. **추가 서비스**를 선택합니다.
-1. 계산 선택 **가상 머신 확장 집합**합니다. App Service 배포의 일부분으로 배포 하는 기존 확장 집합 인스턴스 수 정보를 사용 하 여 나열 됩니다. 다음 화면 캡처에는 확장 집합의 예가 나와 있습니다.
+1. **모든 서비스**를 선택합니다.
+2. 에 **계산** 범주를 선택한 **가상 머신 확장 집합**합니다. App Service 배포의 일부분으로 배포 하는 기존 확장 집합 인스턴스 수 정보를 사용 하 여 나열 됩니다. 다음 화면 캡처에는 확장 집합의 예가 나와 있습니다.
 
       ![가상 머신 확장 집합 UX에 나열 된 azure App Service 확장 집합][1]
 

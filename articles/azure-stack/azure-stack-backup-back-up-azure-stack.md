@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 578bb864f56b788db77d1201533e73d3b9616669
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: a11de2a4580515f6a358438a706e5be3f5543e28
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139374"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025313"
 ---
 # <a name="back-up-azure-stack"></a>Azure Stack 백업
 
@@ -81,7 +81,7 @@ ms.locfileid: "42139374"
 Azure Stack 관리 포털을 사용 하 여 이러한 단계를 수행 하 여 해당 백업을 성공적으로 완료 되었는지 확인 하려면:
 
 1. 엽니다는 [Azure Stack 관리 포털](azure-stack-manage-portals.md)합니다.
-2. 선택 **더 많은 서비스** > **인프라 백업**합니다. 선택 **Configuration** 에 **인프라 백업** 블레이드입니다.
+2. 선택 **모든 서비스**를 선택한 다음는 **관리** 범주 선택 > **인프라 백업**합니다. 선택 **Configuration** 에 **인프라 백업** 블레이드입니다.
 3. 찾을 합니다 **이름** 하 고 **완료 날짜** 백업 **사용 가능한 백업** 목록.
 4. 확인 합니다 **상태** 됩니다 **Succeeded**합니다.
 

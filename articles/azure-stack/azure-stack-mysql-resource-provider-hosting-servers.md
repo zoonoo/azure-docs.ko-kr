@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: bccc2dcad8e326cd29cfe031a95a7c2d0cf5ec7f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: aacf99afef344564d028e78892091c6618c7d495
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38302316"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026692"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>MySQL 리소스 공급자에 대 한 호스팅 서버를 추가 합니다.
 
@@ -32,8 +32,8 @@ MySQL 버전 5.6, 5.7 및 8.0 호스팅 서버에 대해 사용할 수 있습니
 시스템 관리자 권한이 있는 계정의 자격 증명이 있는지 확인 합니다. 호스팅 서버를 추가 하려면 다음이 단계를 수행 합니다.
 
 1. 서비스 관리자로 Azure Stack 연산자 포털에 로그인
-2. **추가 서비스**를 선택합니다.
-3. 선택 **관리 리소스** > **MySQL 호스팅 서버** > **+ 추가**합니다. 열립니다는 **MySQL 호스팅 서버 추가** 대화 상자에서 다음 화면 캡처에 표시 합니다.
+2. **모든 서비스**를 선택합니다.
+3. 아래는 **관리 리소스** 범주 선택 **MySQL 호스팅 서버** > **+ 추가**합니다. 열립니다는 **MySQL 호스팅 서버 추가** 대화 상자에서 다음 화면 캡처에 표시 합니다.
 
    ![호스팅 서버를 구성 합니다.](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
 

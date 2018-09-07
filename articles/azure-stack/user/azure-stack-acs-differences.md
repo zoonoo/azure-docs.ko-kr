@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 6c0c42763ec3d124850555500c3a322073af2479
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 89f6a0c1adaded724f159ffbf33aae98969ab9fe
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139660"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027172"
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Azure stack 저장소: 차이점 및 고려 사항
+# <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack 저장소: 차이점 및 고려 사항
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
-Azure stack 저장소는 Microsoft Azure Stack의 storage 클라우드 서비스의 집합입니다. Azure stack 저장소 blob, 테이블, 큐 및 Azure와 일관 된 의미 체계를 사용 하 여 계정 관리 기능을 제공합니다.
+Azure Stack 저장소는 Microsoft Azure Stack의 storage 클라우드 서비스의 집합입니다. Azure Stack 저장소 blob, 테이블, 큐 및 Azure와 일관 된 의미 체계를 사용 하 여 계정 관리 기능을 제공합니다.
 
-이 문서는 Azure Storage 서비스에서 알려진된 Azure Stack 저장소의 차이 요약합니다. 또한 Azure Stack을 배포 하는 경우를 고려해 야 할 사항을 나열 합니다. 전역 Azure 및 Azure Stack 간의 대략적인 차이 대 한 자세한 내용은 참조는 [고려 사항 키](azure-stack-considerations.md) 항목입니다.
+이 문서는 Azure Storage 서비스에서 알려진된 Azure Stack 저장소의 차이 요약합니다. 또한 Azure Stack을 배포 하는 경우를 고려해 야 할 사항을 나열 합니다. 전역 Azure 및 Azure Stack 간의 대략적인 차이 대 한 자세한 내용은 참조는 [고려 사항 키](azure-stack-considerations.md) 문서.
 
 ## <a name="cheat-sheet-storage-differences"></a>치트 시트: 저장소의 차이
 
@@ -38,7 +38,7 @@ Azure stack 저장소는 Microsoft Azure Stack의 storage 클라우드 서비스
 |Storage 계정 유형|범용 및 Azure blob storage 계정|범용만 합니다.
 |복제 옵션|로컬 중복 저장소, 지역 중복 저장소, 읽기 액세스 지역 중복 저장소 및 영역 중복 저장소|로컬 중복 저장소입니다.
 |Premium Storage|완전하게 지원|성능 제한이 있지만 프로비저닝할 수 있습니다 하거나 보장 합니다.
-|관리 디스크|프리미엄 및 표준 지원|아직 지원 되지 않습니다.
+|관리 디스크|프리미엄 및 표준 지원|1808 이상 버전을 사용할 때 지원 됩니다.
 |Blob 이름|1,024 자 (2,048 바이트)|880 문자 (1,760 바이트)
 |블록 blob의 최대 크기|4.75TB (100 X 50,000 개 블록)|4.75TB 1802 업데이트 또는 최신 버전 (100 x 50,000 개 블록) 추가 합니다. 50,000 X 4MB((약 195GB) 이전 버전에 대 한 합니다.
 |페이지 blob 스냅숏 복사|지원 되는 실행 중인 VM에 연결 된 백업 Azure 관리 되지 않는 VM 디스크|아직 지원 되지 않습니다.
@@ -90,7 +90,7 @@ Azure Stack 저장소 클라이언트 라이브러리를 지원합니다.
 | Node.js        | 2.7.0 1.1.0에서           | NPM 링크:<br>https://www.npmjs.com/package/azure-storage<br>(예: 실행 "npm 설치 azure-storage@2.7.0")<br> <br>Github 릴리스:<br>https://github.com/Azure/azure-storage-node/releases                                                                                                                                         | 서비스 인스턴스 선언 |
 | C++            | 3.1.0 2.4.0에서           | Nuget 패키지:<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>GitHub 릴리스:<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | 연결 문자열 설정      |
 | PHP            | 1.0.0 0.15.0에서          | GitHub 릴리스:<br>https://github.com/Azure/azure-storage-php/releases<br> <br>작성기를 통해 설치 (아래 세부 정보 참조)                                                                                                                                                                                                                  | 연결 문자열 설정      |
-| 파이썬         | 1.0.0 0.30.0에서          | GitHub 릴리스:<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | 서비스 인스턴스 선언 |
+| Python         | 1.0.0 0.30.0에서          | GitHub 릴리스:<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | 서비스 인스턴스 선언 |
 | Ruby           | 1.0.1 0.12.1에서          | RubyGems 패키지:<br>일반적인:<br>https://rubygems.org/gems/azure-storage-common/<br>Blob: https://rubygems.org/gems/azure-storage-blob/<br>큐: https://rubygems.org/gems/azure-storage-queue/<br>테이블: https://rubygems.org/gems/azure-storage-table/<br> <br>GitHub 릴리스:<br>https://github.com/Azure/azure-storage-ruby/releases | 연결 문자열 설정      |
 
 ## <a name="next-steps"></a>다음 단계

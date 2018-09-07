@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: bff0140d173fc3393ac56ec3d709c3c067842a2a
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 9287eb0925556d382410f95caf16a9ca478ca2da
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42139436"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054420"
 ---
 # <a name="add-a-kubernetes-cluster-to-the-azure-stack-marketplace"></a>Azure Stack Marketplace를 Kubernetes 클러스터를 추가 합니다.
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 > [!note]  
-> Azure Stack에서 Azure Kubernetes 서비스 (AKS) Kubernetes 비공개 미리 보기입니다. 이 문서의 지침을 수행 하는 데 필요한 Kubernetes Marketplace 항목에 대 한 액세스를 요청 하려면 [액세스 요청을 제출](https://aka.ms/azsk8)합니다.
+> Azure Stack의 AKS (Azure Kubernetes Service) 엔진 비공개 미리 보기입니다. 이 문서의 지침을 수행 하는 데 필요한 Kubernetes Marketplace 항목에 대 한 액세스를 요청 하려면 [액세스 요청을 제출](https://aka.ms/azsk8)합니다.
 
 사용자에 게 Marketplace 항목으로 Kubernetes 클러스터를 제공할 수 있습니다. 사용자가 단일의 조정 된 작업에서 Kubernetes를 배포할 수 있습니다.
 
@@ -66,7 +66,7 @@ Marketplace에는 다음 Ubuntu Server 이미지를 추가 합니다.
 
 1. 에 로그인 합니다 [관리 포털](https://adminportal.local.azurestack.external)합니다.
 
-1. 선택 **더 많은 서비스** > **Marketplace 관리**합니다.
+1. 선택 **모든 서비스**를 선택한 다음는 **관리** 범주를 선택한 **Marketplace 관리**합니다.
 
 1. 선택 **+ Azure에서 추가**합니다.
 
@@ -89,7 +89,7 @@ Marketplace에서 Kubernetes 클러스터를 추가 합니다.
 
 1. 엽니다는 [관리 포털](https://adminportal.local.azurestack.external)합니다.
 
-1. 선택 **더 많은 서비스** > **Marketplace 관리**합니다.
+1. 선택 **모든 서비스** 한 다음는 **관리** 범주를 선택한 **Marketplace 관리**합니다.
 
 1. 선택 **+ Azure에서 추가**합니다.
 
@@ -110,7 +110,7 @@ Marketplace에서 Kubernetes 클러스터를 추가 합니다.
 
 1. 엽니다는 [관리 포털](https://adminportal.local.azurestack.external)합니다.
 
-1. 선택 **더 많은 서비스** > **Marketplace 관리**합니다.
+1. 선택 **A; services** 한 다음는 **관리** 범주를 선택한 **Marketplace 관리**합니다.
 
 1. 선택 **+ Azure에서 추가**합니다.
 

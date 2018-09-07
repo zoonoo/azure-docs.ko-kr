@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/27/2018
+ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 418b2f6b156853c1a2820271808bdba922d41a87
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 290b3daf73e323b3f5a7e1ef81299e72bf1c5f1d
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412902"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024803"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure에서 Azure Stack marketplace 항목 다운로드
 
@@ -151,7 +151,7 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
 2. Marketplace 항목 패키지 (.azpkg 파일) Azure Stack Blob storage에 업로드 하는 관리 포털을 사용 합니다. 패키지의 업로드가 사용할 수 있도록 Azure Stack에 항목을 게시할 수 있도록 Azure Stack Marketplace.
 
    업로드 해야 공개적으로 액세스 가능한 컨테이너를 사용 하 여 저장소 계정 (이 시나리오에 대 한 필수 조건 참조)   
-   1. Azure Stack 관리 포털에서로 이동 **더 많은 서비스** > **저장소 계정**합니다.  
+   1. Azure Stack 관리 포털에서로 이동 **모든 서비스** 한 다음는 **데이터 + 저장소** 범주를 선택한 **저장소 계정**합니다.  
    
    2. 선택한 저장소 계정 구독에서 다음 아래 **BLOB SERVICE**를 선택 **컨테이너**합니다.  
       ![Blob 서비스](media/azure-stack-download-azure-marketplace-item/blob-service.png)  
@@ -198,7 +198,7 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      –Verbose
     ```
-5. 갤러리 항목을 게시 한 후에서 볼 수 있습니다 **더 많은 서비스** > **Marketplace**합니다.  다운로드를 솔루션 템플릿, 하는 경우 해당 솔루션 템플릿에 대 한 모든 종속 VHD 이미지를 추가 해야 합니다.  
+5. 으로 이동 하 여 해당 갤러리 항목을 게시 한 후 **모든 서비스**합니다. 다음으로, 합니다 **일반적인** 범주를 선택한 **Marketplace**합니다.  다운로드를 솔루션 템플릿, 하는 경우 해당 솔루션 템플릿에 대 한 모든 종속 VHD 이미지를 추가 해야 합니다.  
   ![보기 marketplace](media/azure-stack-download-azure-marketplace-item/view-marketplace.png)  
 
 > [!NOTE]
