@@ -38,9 +38,9 @@
 ### [서버 관리](analysis-services-manage.md)
 ### [서버 메트릭 모니터링](analysis-services-monitor.md)
 ### [진단 로깅 설정](analysis-services-logging.md)
-### [서비스 사용자 만들기 - Azure Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-### [서비스 사용자 만들기 - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
-### [서버 관리자 역할에 서비스 사용자 추가](analysis-services-addservprinc-admins.md)
+### [서비스 주체 만들기 - Azure Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+### [서비스 주체 만들기 - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [서버 관리자 역할에 서비스 주체 추가](analysis-services-addservprinc-admins.md)
 
 ## 모델
 ### [Power BI Desktop 파일 가져오기](analysis-services-import-pbix.md)

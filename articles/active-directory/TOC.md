@@ -49,7 +49,6 @@
 ### [사용자 암호 다시 설정](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [공유 계정](active-directory-sharing-accounts.md)
 ### [관리자 역할에 사용자 할당](fundamentals/active-directory-users-assign-role-azure-portal.md)
-### [삭제된 사용자 복원](fundamentals/active-directory-users-restore.md)
 ### [다른 디렉터리(B2B)에서 게스트 사용자 추가](b2b/what-is-b2b.md)
 #### [B2B 사용자를 추가하는 관리자](b2b/add-users-administrator.md)
 #### [B2B 사용자를 추가하는 지식 근로자](b2b/add-users-information-worker.md)
@@ -163,7 +162,7 @@
 ##### [자동 설치](manage-apps/application-proxy-register-connector-powershell.md)
 ##### [사용자 지정 홈 페이지](manage-apps/application-proxy-configure-custom-home-page.md)
 ##### [인라인 링크 변환](manage-apps/application-proxy-configure-hard-coded-link-translation.md)
-##### [와일드카드](active-directory-application-proxy-wildcard.md)
+##### [와일드카드](manage-apps/application-proxy-wildcard.md)
 ##### [개인 데이터 제거](manage-apps/application-proxy-remove-personal-data.md)
 
 
@@ -172,7 +171,7 @@
 ##### [SharePoint](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 ##### [Microsoft 팀](manage-apps/application-proxy-integrate-with-teams.md)
 ##### [Tableau](manage-apps/application-proxy-integrate-with-tableau.md)
-##### [Qlik](active-directory-application-proxy-qlik.md)
+##### [Qlik](manage-apps/application-proxy-qlik.md)
 #### [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) 
 
 #### [문제 해결](manage-apps/application-proxy-troubleshoot.md)
