@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 46e4956aa145aa082de86191ede4adaf9a43fca9
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 5ff4ddee3d8af15caf082be56a51b1aa0d36f02a
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309029"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339980"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: 토큰 참조
 
@@ -36,7 +36,7 @@ Azure AD B2C에서 발급된 토큰은 대부분 JSON 웹 토큰(JWT)으로 구�
 
 ### <a name="id-tokens"></a>ID 토큰
 
-ID 토큰은 Azure AD B2C `/authorize` 및 `/token` 끝점에서 앱이 수신하는 보안 토큰의 형태입니다. ID 토큰은 [JWT](#types-of-tokens)로 표시되며 사용자를 앱에서 식별하는 데 사용할 수 있는 클레임을 포함합니다. `/authorize` 끝점에서 ID 토큰을 획득하는 경우 JavaScript 기반 웹 응용 프로그램에 로그인하는 사용자가 자주 사용하는 [암시적 흐름](active-directory-b2c-reference-spa.md)을 사용하도록 합니다. `/token` 끝점에서 ID 토큰을 획득하는 경우 브라우저에서 숨겨진 토큰을 유지하는 [기밀 코드 흐름](active-directory-b2c-reference-oidc.md)을 사용하도록 합니다. 이렇게 하면 토큰을 동일한 응용 프로그램 또는 서비스의 두 구성 요소 간의 통신에 대한 HTTP 요청에 안전하게 보낼 수 있습니다. 필요에 따라 ID 토큰에서 클레임을 사용할 수 있습니다. 계정 정보를 표시하거나 앱에서 액세스 제어를 결정할 수 있도록 하는 데 일반적으로 사용됩니다.  
+ID 토큰은 Azure AD B2C `/authorize` 및 `/token` 엔드포인트에서 앱이 수신하는 보안 토큰의 형태입니다. ID 토큰은 [JWT](#types-of-tokens)로 표시되며 사용자를 앱에서 식별하는 데 사용할 수 있는 클레임을 포함합니다. `/authorize` 엔드포인트에서 ID 토큰을 획득하는 경우 JavaScript 기반 웹 응용 프로그램에 로그인하는 사용자가 자주 사용하는 [암시적 흐름](active-directory-b2c-reference-spa.md)을 사용하도록 합니다. `/token` 엔드포인트에서 ID 토큰을 획득하는 경우 브라우저에서 숨겨진 토큰을 유지하는 [기밀 코드 흐름](active-directory-b2c-reference-oidc.md)을 사용하도록 합니다. 이렇게 하면 토큰을 동일한 응용 프로그램 또는 서비스의 두 구성 요소 간의 통신에 대한 HTTP 요청에 안전하게 보낼 수 있습니다. 필요에 따라 ID 토큰에서 클레임을 사용할 수 있습니다. 계정 정보를 표시하거나 앱에서 액세스 제어를 결정할 수 있도록 하는 데 일반적으로 사용됩니다.  
 
 ID 토큰은 서명되어 있지만, 현재 암호화되지 않습니다. 앱 또는 API에서 ID 토큰을 받으면 [서명의 유효성을 검사](#token-validation) 하여 토큰이 인증되었음을 증명해야 합니다. 앱 또는 API도 토큰에서도 일부 클레임의 유효성을 검사하여 유효하다는 것을 입증해야 합니다. 앱에서 유효성을 검사하는 클레임은 시나리오 요구 사항에 따라 다를 수 있지만 앱은 모든 시나리오에서 몇 가지 [일반적인 클레임 유효성 검사](#token-validation) 를 수행해야 합니다.
 
@@ -60,7 +60,7 @@ CQhoFA
 
 ### <a name="access-tokens"></a>액세스 토큰
 
-액세스 토큰은 또한 Azure AD B2C `/authorize` 및 `/token` 끝점에서 앱이 수신하는 보안 토큰의 형태입니다. 액세스 토큰은 또한 [JWT](#types-of-tokens)로 표시되며 API에 대한 부여된 권한을 식별하는 데 사용할 수 있는 클레임을 포함합니다. 액세스 토큰은 서명되어 있지만, 현재 암호화되지 않습니다. API 및 리소스 서버에 대한 액세스를 제공하는 데 액세스 토큰을 사용해야 합니다. [액세스 토큰을 사용하는 방법](active-directory-b2c-access-tokens.md)에 대해 자세히 알아보세요. 
+액세스 토큰은 또한 Azure AD B2C `/authorize` 및 `/token` 엔드포인트에서 앱이 수신하는 보안 토큰의 형태입니다. 액세스 토큰은 또한 [JWT](#types-of-tokens)로 표시되며 API에 대한 부여된 권한을 식별하는 데 사용할 수 있는 클레임을 포함합니다. 액세스 토큰은 서명되어 있지만, 현재 암호화되지 않습니다. API 및 리소스 서버에 대한 액세스를 제공하는 데 액세스 토큰을 사용해야 합니다. [액세스 토큰을 사용하는 방법](active-directory-b2c-access-tokens.md)에 대해 자세히 알아보세요. 
 
 API에서 액세스 토큰을 받으면 [서명의 유효성을 검사](#token-validation) 하여 토큰이 인증되었음을 증명해야 합니다. API는 또한 토큰에서 일부 클레임의 유효성을 검사하여 유효하다는 것을 입증해야 합니다. 앱에서 유효성을 검사하는 클레임은 시나리오 요구 사항에 따라 다를 수 있지만 앱은 모든 시나리오에서 몇 가지 [일반적인 클레임 유효성 검사](#token-validation) 를 수행해야 합니다.
 
@@ -73,7 +73,7 @@ ID 토큰에 있는 클레임은 특정 순서로 반환되지 않습니다. 또
 | Name | 클레임 | 예제 값 | 설명 |
 | --- | --- | --- | --- |
 | 대상 |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |대상 클레임은 토큰의 의도된 수신자를 식별합니다. Azure AD B2C의 경우 대상은 앱 등록 포털에서 앱에 할당된 앱의 응용 프로그램 ID입니다. 앱은 이 값의 유효성을 검사하고 일치하지 않을 경우 토큰을 거부해야 합니다. 대상은 리소스와 동의어입니다. |
-| 발급자 |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |이 클레임은 토큰을 생성하고 반환하는 STS(보안 토큰 서비스)를 식별합니다. 또한 사용자가 인증하는 Azure AD 디렉터리도 식별합니다. 앱에서 발급자 클레임의 유효성을 검사하여 Azure Active Directory v2.0 끝점에서 제공한 토큰인지 확인해야 합니다. |
+| 발급자 |`iss` |`https://{tenantname}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |이 클레임은 토큰을 생성하고 반환하는 STS(보안 토큰 서비스)를 식별합니다. 또한 사용자가 인증하는 Azure AD 디렉터리도 식별합니다. 앱에서 발급자 클레임의 유효성을 검사하여 Azure Active Directory v2.0 엔드포인트에서 제공한 토큰인지 확인해야 합니다. |
 | 발급 시간 |`iat` |`1438535543` |이 클레임은 epoch 시간으로 표시된, 토큰이 발급된 시간입니다. |
 | 만료 시간 |`exp` |`1438539443` |만료 시간 클레임은 epoch 시간으로 표시된, 토큰이 무효화되는 시간입니다. 앱은 이 클레임을 사용하여 토큰 수명의 유효성을 확인해야 합니다. |
 | 이전이 아님 |`nbf` |`1438535543` |이 클레임은 epoch 시간으로 표시된, 토큰이 유효화되는 시간입니다. 일반적으로 토큰이 발급된 시간과 같습니다. 앱은 이 클레임을 사용하여 토큰 수명의 유효성을 확인해야 합니다. |
@@ -117,18 +117,18 @@ Azure AD B2C 토큰은 RSA 256 등의 업계 표준 비대칭 암호화 알고�
 
 Azure AD는 특정 시점에서 공개-개인 키 쌍의 특정 집합 중 하나를 사용하여 토큰에 서명할 수 있습니다. Azure AD는 주기적으로 가능한 키 집합을 순환하므로 이러한 키 변경을 자동으로 처리하도록 앱을 작성해야 합니다. Azure AD에서 사용된 공개 키에 대한 업데이트를 확인하는 적절한 빈도는 24시간마다입니다.
 
-Azure AD B2C에는 OpenID Connect 메타데이터 끝점이 있습니다. 이를 통해 앱은 런타임 시 Azure AD B2C에 대한 정보를 가져올 수 있습니다. 이 정보에는 끝점, 토큰 콘텐츠 및 토큰 서명 키가 포함됩니다. B2C 디렉터리에 각 정책에 대한 JSON 메타데이터 문서가 있습니다. 예를 들어 `fabrikamb2c.onmicrosoft.com`의 `b2c_1_sign_in` 정책에 대한 메타데이터 문서는 다음 위치에 있습니다.
+Azure AD B2C에는 OpenID Connect 메타데이터 엔드포인트가 있습니다. 이를 통해 앱은 런타임 시 Azure AD B2C에 대한 정보를 가져올 수 있습니다. 이 정보에는 엔드포인트, 토큰 콘텐츠 및 토큰 서명 키가 포함됩니다. B2C 디렉터리에 각 정책에 대한 JSON 메타데이터 문서가 있습니다. 예를 들어 `fabrikamb2c.onmicrosoft.com`의 `b2c_1_sign_in` 정책에 대한 메타데이터 문서는 다음 위치에 있습니다.
 
 ```
-https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in
 ```
 
 `fabrikamb2c.onmicrosoft.com`은 사용자를 인증하는 데 사용되는 B2C 디렉터리이고 `b2c_1_sign_in`는 토큰을 가져오는 데 사용되는 정책입니다. 토큰을 서명하는 데 어떤 정책을 사용할지(그리고 메타데이터를 가져오기 위해 이동하는 위치)를 결정하기 위해 두 가지 옵션이 있습니다. 먼저 정책 이름은 토큰의 `acr` 클레임에 포함됩니다. base-64로 본문을 디코딩하고 결과 JSON 문자열을 역직렬화하여 JWT의 본문에서 클레임을 구문 분석할 수 있습니다. `acr` 클레임은 토큰을 발급하는 데 사용된 정책의 이름입니다.  다른 옵션은 요청을 실행할 때 `state` 매개 변수의 값에 정책을 인코딩한 다음 이를 디코딩하여 어떤 정책을 사용할지 결정하는 것입니다. 두 방법 중 하나는 유효합니다.
 
-메타데이터 문서는 몇 가지 유용한 정보를 포함하는 JSON 개체입니다. 여기에는 OpenID Connect 인증을 수행하는 데 필요한 끝점의 위치가 포함됩니다. 토큰 서명에 사용되는 공개 키 집합의 위치를 제공하는 `jwks_uri`도 포함합니다. 해당 위치는 여기에 제공되어 있지만 메타데이터 문서를 사용하고 `jwks_uri`를 구문 분석하여 위치를 동적으로 가져오는 것이 가장 좋습니다.
+메타데이터 문서는 몇 가지 유용한 정보를 포함하는 JSON 개체입니다. 여기에는 OpenID Connect 인증을 수행하는 데 필요한 엔드포인트의 위치가 포함됩니다. 토큰 서명에 사용되는 공개 키 집합의 위치를 제공하는 `jwks_uri`도 포함합니다. 해당 위치는 여기에 제공되어 있지만 메타데이터 문서를 사용하고 `jwks_uri`를 구문 분석하여 위치를 동적으로 가져오는 것이 가장 좋습니다.
 
 ```
-https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in
 ```
 
 이 URL에 있는 JSON 문서에는 특정 시점에서 사용 중인 공개 키 정보가 모두 포함되어 있습니다. 앱은 JWT 헤더에 `kid` 클레임을 사용하여 특정 토큰 서명에 사용된 JSON 문서의 공개 키를 선택할 수 있습니다. 그런 다음 올바른 공개 키와 표시된 알고리즘을 사용하여 서명 유효성 검사를 수행할 수 있습니다.

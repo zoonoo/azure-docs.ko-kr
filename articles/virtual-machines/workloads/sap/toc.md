@@ -2,7 +2,19 @@
 ## [시작](get-started.md)
 ## [인증서](sap-certifications.md)
 # Azure(큰 인스턴스)에서 SAP HANA 사용
-## [개요 및 아키텍처](hana-overview-architecture.md)
+## 개요
+### [SAP HANA on Azure(대규모 인스턴스)란?](hana-overview-architecture.md)
+### [약관을 알고 있습니다.](hana-know-terms.md)
+### [인증](hana-certification.md)
+### [HLI에 사용 가능한 SKU](hana-available-skus.md)
+### [크기 조정](hana-sizing.md)
+### [온보딩 요구 사항](hana-onboarding-requirements.md)
+### [SAP HANA 데이터 계층화 및 확장 노드](hana-data-tiering-extension-nodes.md)
+### [작업 모델 및 책임](hana-operations-model.md)
+## 아키텍처
+### [일반 아키텍처](hana-architecture.md)
+### [네트워크 아키텍처](hana-network-architecture.md)
+### [Storage 아키텍처](hana-storage-architecture.md)
 ### [HLI 지원 시나리오](hana-supported-scenario.md)
 ## [인프라 및 연결](hana-overview-infrastructure-connectivity.md)
 ## [SAP HANA 설치](hana-installation.md)
