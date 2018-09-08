@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 65cae4d10a4683207474008a18bac39751ce8e96
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 9f042779e3463f0d75dc6327b3553156edbf162a
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235355"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162226"
 ---
 # <a name="test-parameters-for-validation-as-a-service-azure-stack"></a>테스트 유효성 검사 서비스로 Azure Stack에 대 한 매개 변수
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 모든 테스트 도구 모음에서 유효성 검사 (VaaS) 서비스를 실행 하기 전에 솔루션을 선택 하 고 테스트 패스를 만듭니다.
 

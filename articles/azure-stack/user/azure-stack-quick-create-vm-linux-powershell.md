@@ -1,6 +1,6 @@
 ---
-title: Azure 스택에서 PowerShell을 사용 하 여 Linux 가상 컴퓨터 만들기 | Microsoft Docs
-description: Azure 스택에서 PowerShell과 함께 Linux 가상 컴퓨터를 만듭니다.
+title: Azure Stack에서 PowerShell을 사용 하 여 Linux 가상 머신 만들기 | Microsoft Docs
+description: Azure Stack에서 PowerShell을 사용 하 여 Linux 가상 머신을 만듭니다.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,39 +12,41 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/24/2018
+ms.date: 09/07/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 9d3c063dab11f31b10762e8399a1f11f2c28c3cd
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bb356a8b485817daae803d14b30832e7b1322f29
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226999"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158911"
 ---
-# <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>빠른 시작: Azure 스택에서 PowerShell을 사용 하 여 Linux 서버 가상 컴퓨터 만들기
+# <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>빠른 시작: Azure Stack에서 PowerShell을 사용 하 여 Linux 서버 가상 머신 만들기
 
-*적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
+*적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
-Azure 스택 PowerShell을 사용 하 여 서버 16.04 Ubuntu LTS 가상 컴퓨터를 만들 수 있습니다. 이 문서를 만들고 가상 컴퓨터를 사용의 단계를 수행 합니다.  이 문서의 단계를 제공합니다.
+Azure Stack PowerShell을 사용 하 여 Ubuntu Server 16.04 LTS 가상 컴퓨터를 만들 수 있습니다. 만들고 가상 머신을 사용 하려면이 문서의 단계를 수행 합니다.  이 문서에서는 단계를 제공 합니다.
 
-* 가상 컴퓨터 원격 클라이언트와 연결 합니다.
-* NGINX 웹 서버를 설치 하 고 기본 홈 페이지를 봅니다.
+* 원격 클라이언트를 사용 하 여 가상 컴퓨터에 연결 합니다.
+* NGINX 웹 서버를 설치 하 고 기본 홈페이지를 봅니다.
 * 사용 되지 않는 리소스를 정리 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **Azure 스택 마켓플레이스에서 Linux 이미지**
+* **Azure Stack marketplace에서 Linux 이미지**
 
-   Azure 스택 마켓플레이스 기본적으로 Linux 이미지를 포함 하지 않습니다. 가져올 수 있도록 Azure 스택 연산자는 **Ubuntu Server 16.04 LTS** 필요한 이미지입니다. 연산자에 설명 된 단계를 사용할 수는 [스택에 Azure에서 Azure 마켓플레이스 항목을 다운로드](../azure-stack-download-azure-marketplace-item.md) 문서.
+   Azure Stack marketplace에는 기본적으로 Linux 이미지를 포함 하지 않습니다. 가져올 수 있도록 Azure Stack 운영자를 **Ubuntu Server 16.04 LTS** 해야 하는 이미지입니다. 연산자에 설명 된 단계를 사용할 수는 [Azure에서 Azure Stack marketplace 항목 다운로드](../azure-stack-download-azure-marketplace-item.md) 문서.
 
-* Azure 스택 특정 버전의 Azure PowerShell을 만들고 리소스를 관리할 필요 합니다. Azure 스택에 대해 구성 된 PowerShell가 없는 경우에 로그인는 [개발 키트](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), 또는 Windows 기반 외부 클라이언트 있다면 [VPN을 통해 연결](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) 단계에 따라 [ 설치](azure-stack-powershell-install.md) 및 [구성](azure-stack-powershell-configure-user.md) PowerShell 합니다.
+* Azure Stack 리소스를 만들고 관리 하려면 Azure PowerShell의 특정 버전에 필요 합니다. Azure Stack에 대해 구성 된 PowerShell가 없는 경우 수행 하는 단계 [설치](azure-stack-powershell-install.md) PowerShell.
 
-* 이름 id_rsa.pub Windows 사용자 프로필의.ssh 디렉터리에 저장 된 공용 SSH 키입니다. SSH 키를 만드는 방법에 대 한 자세한 내용은 참조 [Windows에서 만드는 SSH 키](../../virtual-machines/linux/ssh-from-windows.md)합니다.
+* 설정 된 Azure Stack PowerShell을 사용 하 여 Azure Stack 환경에 연결 해야 합니다. 명령 참조 [사용자로 PowerShell 사용 하 여 Azure Stack에 연결](azure-stack-powershell-configure-user.md)합니다.
+
+* Windows 사용자 프로필의.ssh 디렉터리에 저장 하는 이름 id_rsa.pub 인 공용 SSH 키입니다. SSH 키를 만드는 방법에 대 한 자세한 내용은 참조 하세요. [Windows에서 만드는 SSH 키](../../virtual-machines/linux/ssh-from-windows.md)합니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-리소스 그룹은 배포 하 고 Azure 스택 리소스를 관리할 수 있는 논리적 컨테이너입니다. 개발 키트 또는 Azure 스택 통합 시스템에서 리소스 그룹을 만들려면 다음 코드 블록을 실행 합니다. 이 문서에서 모든 변수의 값이 할당 됩니다, 그리고 이러한 값을 사용 하거나 새 값을 할당할 수 있습니다.
+리소스 그룹은 배포 하 고 Azure Stack 리소스를 관리할 수 있는 논리적 컨테이너입니다. Azure Stack 통합 시스템, 개발 키트에서 리소스 그룹을 만들려면 다음 코드 블록을 실행 합니다. 이 문서에서 모든 변수에 대해 할당 된 값, 이러한 값을 사용 하거나 새 값을 할당할 수 있습니다.
 
 ```powershell
 # Create variables to store the location and resource group names.
@@ -85,7 +87,7 @@ $container = New-AzureStorageContainer `
 
 ## <a name="create-networking-resources"></a>네트워킹 리소스 만들기
 
-가상 네트워크, 서브넷 및 공용 IP 주소를 만듭니다. 이러한 리소스는 가상 컴퓨터에 네트워크 연결을 제공 하는 데 사용 됩니다.
+가상 네트워크, 서브넷 및 공용 IP 주소를 만듭니다. 이러한 리소스는 가상 머신에 네트워크 연결을 제공 하는 데 사용 됩니다.
 
 ```powershell
 # Create a subnet configuration
@@ -113,7 +115,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>네트워크 보안 그룹 및 네트워크 보안 그룹 규칙 만들기
 
-네트워크 보안 그룹 인바운드 및 아웃 바운드 규칙을 사용 하 여 가상 컴퓨터를 보호 합니다. 포트 3389 들어오는 원격 데스크톱 연결을 허용 하도록에 대 한 인바운드 규칙 및 포트 80에 들어오는 웹 트래픽을 허용 하는 인바운드 규칙을 만듭니다.
+네트워크 보안 그룹 인바운드 및 아웃 바운드 규칙을 사용 하 여 가상 컴퓨터를 보호 합니다. 들어오는 원격 데스크톱 연결을 허용 하도록 3389 포트에 대 한 인바운드 규칙을 만들고 들어오는 웹 트래픽을 허용 하도록 80 포트에 대 한 인바운드 규칙을 만듭니다.
 
 ```powershell
 # Create variables to store the network security group and rules names.
@@ -154,7 +156,7 @@ $nic = New-AzureRmNetworkInterface `
 
 ## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
-가상 머신 구성을 만듭니다. 이 구성은 가상 컴퓨터를 배포할 때 사용 되는 설정을 포함 합니다. 예: 사용자 자격 증명, 크기 및 가상 컴퓨터 이미지입니다.
+가상 머신 구성을 만듭니다. 이 구성은 가상 컴퓨터를 배포할 때 사용 하는 설정을 포함 합니다. 예를 들어: 사용자 자격 증명, 크기 및 가상 머신 이미지입니다.
 
 ```powershell
 # Define a credential object.
@@ -214,7 +216,7 @@ New-AzureRmVM `
 ## <a name="quick-create-virtual-machine---full-script"></a>빠른 가상 컴퓨터 만들기-전체 스크립트
 
 > [!NOTE]
-> 이 파티션이 병합 위의 코드 보다 이지만 SSH 아닌 암호와 함께 인증에 대 한 키.
+> 이 병합 위의 코드 보다 이지만 SSH 대신 암호 인증에 대 한 키.
 
 ```powershell
 ## Create a resource group
@@ -382,23 +384,23 @@ New-AzureRmVM `
 
 ## <a name="connect-to-the-virtual-machine"></a>가상 머신에 연결
 
-가상 컴퓨터를 배포한 후 가상 컴퓨터에 대 한 SSH 연결을 구성 합니다. [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-4.3.1) 명령을 사용하여 가상 머신의 공용 IP 주소를 반환합니다.
+가상 컴퓨터를 배포한 후 가상 컴퓨터에 SSH 연결을 구성 합니다. [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-4.3.1) 명령을 사용하여 가상 머신의 공용 IP 주소를 반환합니다.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-SSH 설치 된 클라이언트 시스템에서 다음 명령을 사용 하 여 가상 컴퓨터에 연결 합니다. Windows에서 작업 하는 경우 사용할 수 있습니다 [Putty](http://www.putty.org/) 연결을 만듭니다.
+설치 하는 SSH 사용 하 여 클라이언트 시스템에서 다음 명령을 사용 하 여 가상 머신에 연결 합니다. Windows에서 작업할 경우 사용할 수 있습니다 [Putty](http://www.putty.org/) 연결을 만듭니다.
 
 ```
 ssh <Public IP Address>
 ```
 
-메시지가 표시 되 면 로그인 사용자로 azureuser를 입력 합니다. SSH 키를 만들 때 암호를 사용한 경우에 암호를 제공 해야 합니다.
+메시지가 표시 되 면 로그인 한 사용자로 azureuser를 입력 합니다. SSH 키를 만들 때 암호를 사용한 경우 암호를 제공 해야 합니다.
 
-## <a name="install-the-nginx-web-server"></a>NGINX 웹 서버를 설치 합니다.
+## <a name="install-the-nginx-web-server"></a>NGINX 웹 서버 설치
 
-패키지 리소스를 업데이트 하 고 최신 NGINX 패키지 설치를 하려면 다음 스크립트를 실행 합니다.
+패키지 리소스를 업데이트 하 고 최신 NGINX 패키지를 설치 하려면 다음 스크립트를 실행 합니다.
 
 ```bash
 #!/bin/bash
@@ -412,13 +414,13 @@ apt-get -y install nginx
 
 ## <a name="view-the-nginx-welcome-page"></a>NGINX 시작 페이지 보기
 
-설치 NGINX 및 포트 80 가상 컴퓨터에서 열려 사용 하 여 가상 컴퓨터의 공용 IP 주소를 사용 하 여 웹 서버를 액세스할 수 있습니다. 웹 브라우저를 열고 ```http://<public IP address>```합니다.
+NGINX를 설치 및 포트 80 열어서 가상 머신에서 사용 하 여 가상 머신의 공용 IP 주소를 사용 하 여 웹 서버를 액세스할 수 있습니다. 웹 브라우저를 열고 ```http://<public IP address>```합니다.
 
 ![NGINX 웹 서버에 대 한 시작 페이지](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요 하지 않은 리소스를 정리 합니다. 사용할 수는 [제거 AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup?view=azurermps-4.3.1) 명령 이러한 리소스를 제거 합니다. 리소스 그룹 및 모든 리소스를 삭제 하려면 다음 명령을 실행 합니다.
+더 이상 필요 하지 않은 리소스를 정리 합니다. 사용할 수는 [Remove-azurermresourcegroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup?view=azurermps-4.3.1) 이러한 리소스를 제거 하는 명령입니다. 리소스 그룹 및 모든 해당 리소스를 삭제 하려면 다음 명령을 실행 합니다.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -426,4 +428,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 기본 Linux 서버 가상 컴퓨터를 배포 합니다. 로 이동 스택 Azure 가상 컴퓨터에 대 한 자세한 내용은 [스택 Azure의에서 가상 컴퓨터에 대 한 고려 사항](azure-stack-vm-considerations.md)합니다.
+이 빠른 시작에서는 기본 Linux server 가상 컴퓨터를 배포 했습니다. Azure Stack virtual machines에 대 한 자세한 내용은로 이동 [Azure Stack에서 Virtual Machines에 대 한 고려 사항](azure-stack-vm-considerations.md)합니다.

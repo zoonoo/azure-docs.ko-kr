@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 사용자의 PowerShell 환경을 구성 | Microsoft Docs
-description: Azure Stack 사용자의 PowerShell 환경 구성
+title: 사용자로 PowerShell 사용 하 여 Azure Stack에 연결 | Microsoft Docs
+description: 사용자의 Azure Stack 인스턴스에 연결 하는 단계입니다.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 09/07/2018
 ms.author: sethm
 ms.reviewer: Balsu.G
-ms.openlocfilehash: d8b245666989552208f8cbcf0dddfdfc310f65e0
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: acdad9788737f4f552cedc1b5f42e03e2288dba8
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42139740"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159082"
 ---
-# <a name="configure-the-azure-stack-users-powershell-environment"></a>Azure Stack 사용자의 PowerShell 환경 구성
+# <a name="connect-to-azure-stack-with-powershell-as-a-user"></a>사용자로 PowerShell 사용 하 여 Azure Stack에 연결
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 

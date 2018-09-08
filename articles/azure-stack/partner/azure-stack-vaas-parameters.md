@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 81a7be973739cfd6eb3f8fb8dc7a0723623c2b8e
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: c50e4b5c9eb81c9386e2cb0db96a88de70dcb9e9
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235316"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44157806"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>서비스로 Azure Stack 유효성 검사에 대 한 워크플로 일반 매개 변수
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 환경 변수 및 사용자와 같은 값을 포함 하는 일반 매개 변수 유효성 검사 (VaaS) 서비스로에서 모든 테스트에 필요한 자격 증명입니다. 워크플로 수준에서 이러한 값을 정의 합니다. 생성 또는 워크플로 수정 하는 경우 값을 저장 합니다. 예약 된 시간에 워크플로 테스트에 대 한 값을 로드합니다. 
 

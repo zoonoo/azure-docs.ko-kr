@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 0f681070df4b4b3384171c05edb3851abec2ab5c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 8ff78f46283d3ee4baa7310aa56bcdabde85f2cc
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235408"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159625"
 ---
 # <a name="quickstart-use-the-validation-as-a-service-portal-to-schedule-your-first-test"></a>빠른 시작: 첫 번째 테스트를 예약 하려면 서비스 포털로 유효성 검사 사용
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 하드웨어를 확인 하려면 서비스 (VaaS) 포털로 유효성 검사를 사용 하 여 첫 번째 테스트를 예약 하는 방법에 알아봅니다. 로컬 에이전트는 유효성 검사 테스트를 실행 하기 전에 유효성이 검사 되는 Azure Stack 솔루션에 배포 되어야 합니다.
 

@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: a9e1bb2f134e0e51803266f5e7f94c05ab6966f2
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 6ef8c0486a694ac44c53375b24893812b10343e4
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235407"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158486"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Microsoft의 소프트웨어 업데이트의 유효성을 검사합니다
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Microsoft은 Azure Stack 소프트웨어 업데이트를 주기적으로 해제 됩니다. 이러한 업데이트는 해당 솔루션에 대 한 업데이트의 유효성을 검사 하 고 Microsoft에 피드백을 제공할 수 있도록 공개적으로 제공 되 전에 Azure Stack 공동 엔지니어링 파트너에 게 제공 됩니다.
 

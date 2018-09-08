@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/07/2018
 ms.author: mabrigg
-ms.openlocfilehash: ca07c3aca106f6c92187fea5a3ebf7bf172cddcc
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 8e4c86a3c9ff40f23a2a758b450d685b81dabc1a
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44026205"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091903"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Azure Stack의 업데이트 적용
 
@@ -65,7 +65,7 @@ Azure Stack에 대 한 Microsoft 또는 OEM 업데이트 패키지를 사용할 
 6. 아래 **blob 업로드**폴더 아이콘을 클릭, 업데이트 패키지의.exe 파일을 찾아서 클릭 **오픈** 파일 탐색기 창에서.
   
 7. 아래 **blob 업로드**, 클릭 **업로드**합니다. 
- 
+  
     ![각 패키지 파일을 업로드 하는 위치를 보여 줍니다.](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
 8. 6-7 단계를 반복 합니다 *PackageName*.bin 및 Metadata.xml 파일입니다. 포함 하는 경우 추가 Notice.txt 파일을 가져오지 않습니다.
@@ -74,6 +74,8 @@ Azure Stack에 대 한 Microsoft 또는 OEM 업데이트 패키지를 사용할 
 11. 업데이트를 설치 하려면로 표시 된 패키지를 선택 **준비** 패키지를 마우스 오른쪽 단추로 클릭 하 고 선택 **지금 업데이트**를 클릭 하거나 합니다 **지금 업데이트** 위쪽에 있는 작업 .
 12. 상태를 볼 수 업데이트 패키지를 설치를 클릭 합니다 **업데이트 실행 세부 정보** 영역입니다. 여기에서 클릭할 수도 있습니다 **전체 로그 다운로드** 로그 파일을 다운로드 합니다.
 13. 업데이트가 완료 되 면 업데이트 타일에는 업데이트 된 Azure Stack 버전을 표시 합니다.
+
+Azure Stack에 설치한 후 저장소 계정에서 업데이트를 수동으로 삭제할 수 있습니다. Azure Stack는 정기적으로 오래 된 업데이트 패키지가 있는지 확인 하 고 저장소에서 제거 합니다. Azure Stack 걸릴 이전 패키지를 제거 하려면 2 주입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

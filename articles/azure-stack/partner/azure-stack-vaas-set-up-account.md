@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 3f87721dcf7485e15a473e82597f6bf4baeca659
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: b94d37d528739247cb4f94a17dadf3876c4db6bd
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42139634"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158511"
 ---
 # <a name="set-up-your-validation-as-a-service-account"></a>서비스 계정으로 유효성 검사 설정
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 유효성 검사 (VaaS) 서비스로 설계, 개발, 유효성 검사, 판매, 배포 및 시장에서 Azure Stack 솔루션을 지원 하려면 Microsoft와 공동 엔지니어링 계약을가지고 있는 Microsoft Azure Stack 파트너에 게 제공 되는 Azure 서비스입니다.
 

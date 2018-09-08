@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 553d2a0e4bf6b23f5d8ab200f533d9245bf72d36
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 2dc4d3f2855864ff80648b5b9635ff28c0dacbb7
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286587"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163332"
 ---
 # <a name="monitor-a-test-with-azure-stack-validation-as-a-service"></a>모니터 서비스로 Azure Stack 유효성 검사를 사용 하 여 테스트
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 확인 하 여 테스트 실행을 모니터링할 수 있습니다 합니다 **Operations** 진행에서 중이거나 완료 하는 테스트 도구 모음에 대 한 페이지입니다. 이 페이지에는 테스트 및 해당 작업의 상태를 자세히 설명합니다.
 

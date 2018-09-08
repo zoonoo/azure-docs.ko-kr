@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: c96e7385356354d398108ad69492603d38667e46
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 56251245a23df031f3bc8fe3d36de43e194fbcc7
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235307"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159676"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack"></a>Azure Stack에 대 한 서비스와 유효성 검사는 무엇입니까?
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 유효성 검사 (VaaS) 서비스로 microsoft Azure Stack 제품 엔지니어링 배치 된 파트너 솔루션을 위한 네이티브 Azure 서비스입니다. 솔루션 파트너 솔루션 Microsoft의 요구 사항을 충족 하 고 Azure Stack을 사용 하 여 예상 대로 작동을 확인 하려면 서비스를 사용할 수 있습니다.
 

@@ -11,22 +11,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
+ms.date: 09/06/2018
 ms.author: sethm
-ms.openlocfilehash: f7233d6a27b9ec3d58f33f7032bbec7a646d24f7
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 65fa9593b35af45ee9b8568bac5e4886909314e1
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42366122"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092547"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Azure Stack에 대한 액세스를 응용 프로그램에 제공합니다.
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
-응용 프로그램에서 배포 하거나 Azure Stack에서 Azure Resource Manager를 통해 리소스 구성에 대 한 액세스를 필요한 경우 응용 프로그램에 대 한 자격 증명 하는 서비스 주체를 만듭니다.  그런 다음 해당 서비스 주체에만 필요한 권한을 위임할 수 있습니다.  
+응용 프로그램에서 배포 하거나 Azure Stack에서 Azure Resource Manager를 통해 리소스 구성에 대 한 액세스를 필요한 경우 응용 프로그램에 대 한 자격 증명 하는 서비스 주체를 만듭니다. 그런 다음 해당 서비스 주체에만 필요한 권한을 위임할 수 있습니다.  
 
-예를 들어, Azure Resource Manager를 사용 하 여 Azure 리소스를 인벤토리 하는 구성 관리 도구를 할 수 있습니다.  이 시나리오에서는 서비스 주체 만들기, 해당 서비스 주체의 읽기 권한자 역할을 부여 및 구성 관리 도구 읽기 전용 액세스를 제한할 수 있습니다. 
+예를 들어, Azure Resource Manager를 사용 하 여 Azure 리소스를 인벤토리 하는 구성 관리 도구를 할 수 있습니다. 이 시나리오에서는 서비스 주체 만들기, 해당 서비스 주체의 읽기 권한자 역할을 부여 및 구성 관리 도구 읽기 전용 액세스를 제한할 수 있습니다. 
 
 서비스 주체는 때문에 사용자 고유의 자격 증명으로 앱을 실행 하는 것이 좋습니다.
 
@@ -36,17 +36,17 @@ ms.locfileid: "42366122"
 
 ## <a name="getting-started"></a>시작
 
-Azure Stack을 배포 방법에 따라 서비스 주체 만들기에서 시작 합니다.  이 문서 모두에 대 한 서비스 주체를 만드는 과정 안내 [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) 하 고 [Active Directory 페더레이션 Services(AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs)합니다.  AD FS와 Azure Active Directory에 공통 단계 집합이에 사용 되는 서비스 주체를 만든 후 [권한을 위임할](azure-stack-create-service-principals.md#assign-role-to-service-principal) 역할을 합니다.     
+Azure Stack을 배포 방법에 따라 서비스 주체 만들기에서 시작 합니다. 이 문서에서는 둘 다에 대 한 서비스 주체를 만들면 [Azure Active Directory (Azure AD)](#create-service-principal-for-azure-ad) 하 고 [Active Directory 페더레이션 Services(AD FS)](#create-service-principal-for-ad-fs)합니다. AD FS와 Azure Active Directory에 공통 단계 집합이에 사용 되는 서비스 주체를 만든 후 [권한을 위임할](#assign-role-to-service-principal) 역할을 합니다.     
 
 ## <a name="create-service-principal-for-azure-ad"></a>Azure AD에 대 한 서비스 주체 만들기
 
-Azure AD id 저장소로 사용 하 여 Azure Stack을 배포한 경우 Azure에 대해 수행 하는 것 처럼 서비스 주체를 만들 수 있습니다.  이 섹션에서는 포털을 통해 단계를 수행 하는 방법을 보여 줍니다.  있는지 확인 합니다 [필요한 Azure AD 권한](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) 시작 하기 전에 합니다.
+Azure AD id 저장소로 사용 하 여 Azure Stack을 배포한 경우 Azure에 대해 수행 하는 것 처럼 서비스 주체를 만들 수 있습니다. 이 섹션에서는 포털을 통해 단계를 수행 하는 방법을 보여 줍니다. 있는지 확인 합니다 [필요한 Azure AD 권한](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) 시작 하기 전에 합니다.
 
 ### <a name="create-service-principal"></a>서비스 주체 만들기
 이 섹션에서는 응용 프로그램을 나타내는 Azure AD에서 응용 프로그램 (서비스 주체)를 만듭니다.
 
 1. 통해 Azure 계정에 로그인 합니다 [Azure portal](https://portal.azure.com)합니다.
-2. 선택 **Azure Active Directory** > **앱 등록** > **추가**   
+2. 선택 **Azure Active Directory** > **앱 등록** > **새 응용 프로그램 등록**   
 3. 응용 프로그램에 대한 이름 및 URL을 제공합니다. 만들려는 응용 프로그램 유형으로 **웹앱/API** 또는 **네이티브**를 선택합니다. 값을 설정한 후 **만들기**를 선택합니다.
 
 응용 프로그램에 대 한 서비스 주체를 만들었습니다.
@@ -63,23 +63,21 @@ Azure AD id 저장소로 사용 하 여 Azure Stack을 배포한 경우 Azure에
 
 4. 키에 대한 설명 및 키의 기간을 제공합니다. 완료되면 **저장**을 선택합니다.
 
-키를 저장하면 키 값이 표시됩니다. 나중에 키를 검색할 수 없으므로 이 값을 복사해둡니다. 응용 프로그램으로 로그인 하려면 응용 프로그램 ID를 사용 하 여 키 값을 제공 합니다. 응용 프로그램에서 검색할 수 있는 위치에 키 값을 저장합니다.
+키를 저장하면 키 값이 표시됩니다. 나중에 키를 검색할 수 없습니다 때문에 메모장 또는 다른 몇 가지 임시 위치에이 값을 복사 합니다. 응용 프로그램으로 로그인 하려면 응용 프로그램 ID를 사용 하 여 키 값을 제공 합니다. 응용 프로그램 검색할 수 있는 위치에서 키 값을 저장 합니다.
 
 ![공유 키](./media/azure-stack-create-service-principal/image15.png)
 
-
-완료 되 면 진행 [응용 프로그램 역할 할당](azure-stack-create-service-principals.md#assign-role-to-service-principal)합니다.
+완료 되 면 진행 [응용 프로그램 역할 할당](#assign-role-to-service-principal)합니다.
 
 ## <a name="create-service-principal-for-ad-fs"></a>AD FS에 대 한 서비스 주체 만들기
 AD FS 사용 하 여 Azure Stack을 배포한 경우에 서비스 주체 만들기, 액세스에 대 한 역할 할당 및 해당 id를 사용 하 여 PowerShell에서 로그인 하려면 PowerShell을 사용할 수 있습니다.
 
 스크립트는 권한 있는 끝점에서 ERCS 가상 머신에서 실행 됩니다.
 
-
 Requirements:
 - 인증서가 필요 합니다.
 
-**매개 변수**
+#### <a name="parameters"></a>매개 변수
 
 다음 정보를 반드시 automation 매개 변수에 대 한 입력으로:
 
@@ -88,36 +86,36 @@ Requirements:
 |---------|---------|---------|
 |이름|SPN 계정의 이름|MyAPP|
 |ClientCertificates|인증서 개체의 배열|X509 인증서|
-|ClientRedirectUris<br>(선택 사항)|응용 프로그램 리디렉션 URI|         |
+|ClientRedirectUris<br>(선택 사항)|응용 프로그램 리디렉션 URI|-|
 
-**예제**
+#### <a name="example"></a>예
 
 1. 관리자 권한 Windows PowerShell 세션을 열고 다음 명령을 실행 합니다.
 
    > [!NOTE]
-   > 이 예제에서는 자체 서명 된 인증서를 만듭니다. 이러한 명령은 프로덕션 배포에서를 실행 하면 사용 하려는 인증서에 대 한 인증서 개체를 검색 하려면 Get-인증서를 사용 합니다.
+   > 이 예제에서는 자체 서명 된 인증서를 만듭니다. 이러한 명령은 프로덕션 배포에서를 실행 하면 사용 [Get-certificate](/powershell/module/pkiclient/get-certificate) 사용 하려는 인증서에 대 한 인증서 개체를 검색 합니다.
 
    ```PowerShell  
-    # Credential for accessing the ERCS PrivilegedEndpoint typically domain\cloudadmin
+    # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
     $creds = Get-Credential
 
     # Creating a PSSession to the ERCS PrivilegedEndpoint
     $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
 
-    # This produces a self signed cert for testing purposes.  It is prefered to use a managed certificate for this.
+    # This produces a self signed cert for testing purposes. It is prefered to use a managed certificate for this.
     $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
 
     $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name '<yourappname>' -ClientCertificates $using:cert}
     $AzureStackInfo = Invoke-Command -Session $session -ScriptBlock { get-azurestackstampinformation }
     $session|remove-pssession
 
-    # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. We will read this from the AzureStackStampInformation output of the ERCS VM.
+    # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. This is read from the AzureStackStampInformation output of the ERCS VM.
     $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
 
-    # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. We will read this from the AzureStackStampInformation output of the ERCS VM.
+    # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. This is read from the AzureStackStampInformation output of the ERCS VM.
     $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
 
-    # TenantID for the stamp. We will read this from the AzureStackStampInformation output of the ERCS VM.
+    # TenantID for the stamp. This is read from the AzureStackStampInformation output of the ERCS VM.
     $TenantID = $AzureStackInfo.AADTenantID
 
     # Register an AzureRM environment that targets your Azure Stack instance
@@ -146,7 +144,7 @@ Requirements:
 
    예: 
 
-   ```
+   ```shell
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
    ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
    Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
@@ -156,7 +154,7 @@ Requirements:
    ```
 
 ### <a name="assign-a-role"></a>역할 할당
-서비스 주체를 만든 후 해야 [역할에 할당](azure-stack-create-service-principals.md#assign-role-to-service-principal)
+서비스 주체를 만든 후 해야 [역할에 할당할](#assign-role-to-service-principal)합니다.
 
 ### <a name="sign-in-through-powershell"></a>PowerShell을 통해 로그인
 역할을 할당 한 후 다음 명령을 사용 하 여 서비스 주체를 사용 하 여 Azure Stack에 로그인 할 수 있습니다.

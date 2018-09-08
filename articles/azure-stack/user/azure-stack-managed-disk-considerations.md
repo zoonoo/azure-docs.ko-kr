@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 4fd2a26d9119e52fc75918abc1ca97e6f9888169
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: a2ad07809963560b1225ff07b095509c93618996
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028829"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160424"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack의 Managed Disks: 차이점 및 고려 사항
 이 문서에서는 Azure Stack의 Managed Disks 및 azure Managed Disks의 알려진된 차이점을 요약 합니다. Azure Stack 및 Azure 간의 대략적인 차이 대 한 자세한 내용은 참조는 [고려 사항 키](azure-stack-considerations.md) 문서.
@@ -28,7 +28,7 @@ ms.locfileid: "44028829"
 Managed Disks를 관리 하 여 IaaS Vm 용 디스크 관리를 간소화 합니다 [저장소 계정](/azure/azure-stack/azure-stack-manage-storage-accounts) 는 VM 디스크와 연결 합니다.
   
 
-## <a name="cheat-sheet-virtual-machine-differences"></a>치트 시트: 가상 머신 차이점
+## <a name="cheat-sheet-managed-disk-differences"></a>치트 시트: 관리 디스크 차이점
 
 | 기능 | Azure (전역) | Azure Stack |
 | --- | --- | --- |
