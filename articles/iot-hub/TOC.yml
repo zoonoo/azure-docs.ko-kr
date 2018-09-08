@@ -159,7 +159,7 @@ items:
         href: iot-hub-java-java-c2d.md
       - name: Node.js
         href: iot-hub-node-node-c2d.md
-      - name: 파이썬
+      - name: Python
         href: iot-hub-python-python-c2d.md
       - name: iOS
         href: iot-hub-ios-swift-c2d.md
@@ -171,7 +171,7 @@ items:
         href: iot-hub-java-java-file-upload.md
       - name: Node.js
         href: iot-hub-node-node-file-upload.md
-      - name: 파이썬
+      - name: Python
         href: iot-hub-python-python-file-upload.md
     - name: 쌍 장치 시작
       items:
@@ -181,7 +181,7 @@ items:
         href: iot-hub-csharp-csharp-twin-getstarted.md
       - name: 자바
         href: iot-hub-java-java-twin-getstarted.md
-      - name: 파이썬
+      - name: Python
         href: iot-hub-python-twin-getstarted.md
     - name: 모듈 트윈스 시작
       items:
@@ -189,7 +189,7 @@ items:
         href: iot-hub-portal-csharp-module-twin-getstarted.md
       - name: .NET
         href: iot-hub-csharp-csharp-module-twin-getstarted.md
-      - name: 파이썬
+      - name: Python
         href: iot-hub-python-python-module-twin-getstarted.md
       - name: C
         href: iot-hub-c-c-module-twin-getstarted.md
@@ -203,7 +203,7 @@ items:
         href: iot-hub-csharp-csharp-device-management-get-started.md
       - name: 자바
         href: iot-hub-java-java-device-management-getstarted.md
-      - name: 파이썬
+      - name: Python
         href: iot-hub-python-python-device-management-get-started.md
     - name: 작업 예약 및 브로드캐스트
       items:
@@ -213,7 +213,7 @@ items:
         href: iot-hub-csharp-csharp-schedule-jobs.md
       - name: 자바
         href: iot-hub-java-java-schedule-jobs.md
-      - name: 파이썬
+      - name: Python
         href: iot-hub-python-python-schedule-jobs.md
   - name: 관리
     items:
@@ -301,8 +301,6 @@ items:
         href: iot-hub-arduino-iot-devkit-az3166-door-monitor.md
     - name: 확장된 IoT 시나리오
       items:
-      - name: iothub-explorer를 사용하여 클라우드 장치 메시지 관리
-        href: iot-hub-explorer-cloud-device-messaging.md
       - name: VS Code용 Azure IoT Toolkit으로 클라우드 장치 메시징 관리
         href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
       - name: Azure Blob Storage에 IoT Hub 메시지 저장
@@ -315,8 +313,6 @@ items:
         href: iot-hub-weather-forecast-machine-learning.md
       - name: VS Code용 Azure IoT Toolkit를 사용하여 장치 관리
         href: iot-hub-device-management-iot-toolkit.md
-      - name: iothub-explorer를 사용하여 장치 관리
-        href: iot-hub-device-management-iothub-explorer.md
       - name: Azure CLI 2.0용 IoT 확장을 사용하여 장치 관리
         href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
       - name: Logic Apps를 사용하여 원격 모니터링 및 알림
@@ -405,8 +401,6 @@ items:
     href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
   - name: iothub-diagnostics 도구
     href: https://github.com/Azure/iothub-diagnostics
-  - name: iothub-explorer tool
-    href: https://github.com/Azure/iothub-explorer
   - name: 학습 경로
     href: https://azure.microsoft.com/documentation/learning-paths/iot-hub/
   - name: MSDN 포럼
@@ -423,9 +417,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: f9ec05dade065966d6ea1b3aa2a63598ca7c859c
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 2e2057fc75b808bf5989d263ce561d3cec4b8e2c
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143409"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160986"
