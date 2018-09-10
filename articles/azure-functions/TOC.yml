@@ -5,7 +5,7 @@ items:
   items:
   - name: 함수 정보
     href: functions-overview.md
-  - name: 서버를 사용하지 않는 비교
+  - name: 서버리스 비교
     href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: 빠른 시작
   items:
