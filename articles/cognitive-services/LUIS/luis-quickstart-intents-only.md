@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: de295a93d395cee4c4dfbea4f2e7f7338036feb8
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 3f23ade2b0256c72c344e2a619227a79e3c79a47
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494376"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160118"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>자습서: 1. 사용자 지정 도메인으로 앱 빌드
 이 자습서에서는 **의도**를 사용하여 사용자가 앱에 제출한 발화(텍스트)를 기초로 사용자의 _의도_를 판단하는 방법을 보여 주는 앱을 만듭니다. 마치면 클라우드에서 실행되는 LUIS 엔드포인트를 갖게 됩니다.
@@ -32,7 +32,7 @@ ms.locfileid: "39494376"
 > * ApplyForJob 의도에 발화 예제 추가 
 > * 엔드포인트 학습, 게시 및 다시 쿼리 
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="purpose-of-the-app"></a>앱의 용도
 이 앱에는 몇 가지 의도가 있습니다. 첫 번째 의도 **`GetJobInformation`** 은 사용자가 회사 내에서 제공하는 업무에 관한 정보가 필요한 시점을 식별합니다. 두 번째 의도 **`None`** 은 모든 다른 발화의 형식을 식별합니다. 이 빠른 시작의 뒷부분에 나오는 세 번째 의도 `ApplyForJob`이 추가됩니다. 
@@ -85,15 +85,15 @@ ms.locfileid: "39494376"
 
 ## <a name="train-and-publish-the-app"></a>앱 학습 및 게시
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-app-to-endpoint"></a>엔드포인트에 앱 게시
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## <a name="query-endpoint-for-getjobinformation-intent"></a>GetJobInformation 의도의 쿼리 엔드포인트
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. 주소의 URL 끝으로 이동하고 `I'm looking for a job with Natual Language Processing`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 `q`로 발화 **쿼리**입니다. 이 발화는 4단계의 에제 발화와 전혀 다르므로 테스트에 적합하며 최고 점수 의도로 `GetJobInformation` 의도를 반환하게 됩니다. 
 
@@ -147,7 +147,7 @@ LUIS 웹 사이트에 대한 브라우저 탭으로 돌아가 업무에 지원�
 
 ## <a name="query-endpoint-for-applyforjob-intent"></a>ApplyForJob 의도에 대한 쿼리 엔드포인트
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. 새 브라우저 창에서 URL의 마지막에 `Can I submit my resume for job 235986`을 입력합니다. 
 
@@ -186,7 +186,7 @@ LUIS는 이 요청을 통해 수행됩니다. 챗봇 같은 호출 응용 프로
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

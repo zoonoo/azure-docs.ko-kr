@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 41f74ff00e4fad751d4a2b7ae96ebb048bbcdfcd
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 65c7aabb984ad0a6b3e77d0f98003803821e06cc
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492701"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158622"
 ---
 # <a name="tutorial-5-add-hierarchical-entity"></a>자습서: 5. 계층적 엔터티 추가
 이 자습서에서는 컨텍스트에 따라 관련 데이터 부분을 찾는 방법을 보여 주는 앱을 만듭니다. 
@@ -27,7 +27,7 @@ ms.locfileid: "39492701"
 > * 앱 학습 및 게시
 > * 앱의 엔드포인트를 쿼리하여 계층적 자식이 포함된 LUIS JSON 응답 확인 
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>시작하기 전에
 [목록 엔터티](luis-quickstart-intent-and-list-entity.md) 자습서의 인사 관리 앱이 없는 경우 JSON을 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 새 앱으로 [가져옵니다](luis-how-to-start-new-app.md#import-new-app). 가져올 앱은 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json) Github 리포지토리에 있습니다.
@@ -120,15 +120,15 @@ LUIS는 발언의 원래 위치와 대상 위치에 레이블을 지정하여 �
 
 ## <a name="train-the-luis-app"></a>LUIS 앱 학습
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>앱을 게시하여 엔드포인트 URL 가져오기
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>다른 발화를 사용하여 엔드포인트 쿼리
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 
 2. 주소 표시줄의 URL 끝으로 이동하여 `Please relocation jill-jones@mycompany.com from x-2345 to g-23456`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 이 발화는 레이블이 있는 발화와 같지 않으므로 좋은 테스트이므로 추출된 계층적 엔터티와 함께 `MoveEmployee` 의도를 반환해야 합니다.
@@ -237,7 +237,7 @@ LUIS는 발언의 원래 위치와 대상 위치에 레이블을 지정하여 �
 
 ## <a name="patterns-with-roles"></a>역할을 사용하는 패턴
 
-[!include[LUIS Compare hierarchical entities to patterns with roles](../../../includes/cognitive-services-luis-hier-roles.md)]
+[!INCLUDE [LUIS Compare hierarchical entities to patterns with roles](../../../includes/cognitive-services-luis-hier-roles.md)]
 
 ## <a name="what-has-this-luis-app-accomplished"></a>이 LUIS 앱에서 수행한 작업은?
 이 앱은 고작 몇 개의 의도와 계층적 엔터티를 사용하여 자연어 쿼리 의도를 확인하고 추출된 데이터를 반환했습니다. 
@@ -249,7 +249,7 @@ LUIS는 이 요청을 통해 수행됩니다. 챗봇과 같은 호출 응용 프
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"] 

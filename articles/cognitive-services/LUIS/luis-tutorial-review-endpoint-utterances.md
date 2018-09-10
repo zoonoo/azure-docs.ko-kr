@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 08/03/2018
 ms.author: diberry
-ms.openlocfilehash: 5ce08861934305cccca9933a822fccf642746a59
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: db44bfad5ece59ed3373699c10d6134201bf1879
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527707"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160084"
 ---
 # <a name="tutorial-review-endpoint-utterances"></a>자습서: 엔드포인트 발언 검토
 이 자습서에서는 LUIS HTTP 엔드포인트를 통해 수신된 발언을 확인하거나 수정하여 앱 예측을 향상시키는 방법을 학습합니다. 
@@ -23,11 +23,11 @@ ms.locfileid: "39527707"
 > [!div class="checklist"]
 > * 엔드포인트 발언 검토 이해 
 > * HR(인사 관리) 도메인에 대한 LUIS 앱 사용 
-> * 끝점 발화 검토
+> * 엔드포인트 utterances 검토
 > * 앱 학습 및 게시
 > * 앱의 엔드포인트를 쿼리하여 LUIS JSON 응답 확인
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>시작하기 전에
 [감정](luis-quickstart-intent-and-sentiment-analysis.md) 자습서의 인사 관리 앱이 없는 경우 [LUIS 샘플](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-sentiment-HumanResources.json) Github 리포지토리에서 앱을 가져옵니다. 이 자습서를 새롭게 가져온 앱으로 사용하는 경우, 발언을 학습하고 게시한 다음, [스크립트](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js)를 사용하거나 브라우저의 엔드포인트에서 가져온 엔드포인트에 추가해야 합니다. 추가할 발언은 다음과 같습니다.
@@ -47,7 +47,7 @@ ms.locfileid: "39527707"
 
 엔드포인트 발언을 검토하여 발언의 예측된 의도를 확인하거나 수정합니다. 또한 예측되지 않은 사용자 지정 엔터티에도 레이블을 지정합니다. 
 
-## <a name="review-endpoint-utterances"></a>끝점 발화 검토
+## <a name="review-endpoint-utterances"></a>엔드포인트 utterances 검토
 
 1. 인사 관리 앱이 LUIS의 **빌드** 섹션에 있는지 확인합니다. 오른쪽 위의 메뉴 표시줄에서 **빌드**를 선택하여 이 섹션으로 변경할 수 있습니다. 
 
@@ -104,19 +104,19 @@ ms.locfileid: "39527707"
 
 LUIS는 학습할 때까지 변경 내용을 알지 못합니다. 
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>앱을 게시하여 엔드포인트 URL 가져오기
 
 이 앱을 가져온 경우 **감정 분석**을 선택해야 합니다.
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-an-utterance"></a>발언을 사용하여 엔드포인트 쿼리
 
 수정된 발언에 가까운 발언을 시도합니다. 
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. 주소의 URL 끝으로 이동하고 `Are there any natural language processing jobs in my department right now?`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 
 
@@ -230,7 +230,7 @@ LUIS는 학습할 때까지 변경 내용을 알지 못합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
