@@ -2,11 +2,15 @@
 ## [개요](azure-dev-spaces.md)
 
 ## 빠른 시작
+### [Java(VS 코드 & CLI)](quickstart-java.md)
 ### [.NET Core(VS 코드 & CLI)](quickstart-netcore.md)
 ### [.NET Core(Visual Studio 2017)](quickstart-netcore-visualstudio.md)
 ### [Node.js(VS 코드 & CLI)](quickstart-nodejs.md)
 
 ## 자습서
+### Java(VS 코드 & CLI)
+#### [1 - 시작하기](get-started-java.md)
+#### [2 - 팀 개발](team-development-java.md)
 ### .NET Core(VS 코드 & CLI)
 #### [1 - 시작하기](get-started-netcore.md)
 #### [2 - 팀 개발](team-development-netcore.md)

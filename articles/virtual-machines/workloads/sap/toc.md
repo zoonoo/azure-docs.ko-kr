@@ -16,14 +16,21 @@
 ### [네트워크 아키텍처](hana-network-architecture.md)
 ### [Storage 아키텍처](hana-storage-architecture.md)
 ### [HLI 지원 시나리오](hana-supported-scenario.md)
-## [인프라 및 연결](hana-overview-infrastructure-connectivity.md)
-## [SAP HANA 설치](hana-installation.md)
+## 인프라 및 연결
+### [HLI 배포](hana-overview-infrastructure-connectivity.md)
+### [Azure VM을 HANA 큰 인스턴스에 연결](hana-connect-azure-vm-large-instances.md)
+### [VNet을 HANA 큰 인스턴스 ExpressRoute에 연결](hana-connect-vnet-express-route.md)
+### [추가 네트워크 요구 사항](hana-additional-network-requirements.md)
+## SAP HANA 설치
+### [구성 유효성 검사](hana-installation.md)
+### [샘플 HANA 설치](hana-example-installation.md)
 ## [고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md)
 ## [문제 해결 및 모니터링](troubleshooting-monitoring.md)
 ## 방법
 ### [STONITH로 HA 설치](ha-setup-with-stonith.md)
 ### [Type II SKU용 OS 백업](os-backup-type-ii-skus.md)
 ### [HANA 대형 인스턴스를 위한 OS 업그레이드](os-upgrade-hana-large-instance.md)
+### [SUSE Linux용 SMT 서버 설정](hana-setup-smt.md)
 # Azure Virtual Machines의 SAP HANA
 ## [단일 인스턴스 SAP HANA 설치](hana-get-started.md)
 ## [S/4 HANA 또는 BW/4 HANA SAP CAL 배포 가이드](cal-s4h.md)

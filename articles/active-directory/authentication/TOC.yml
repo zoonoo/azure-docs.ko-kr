@@ -27,7 +27,7 @@ items:
     href: concept-authentication-methods.md
   - name: 등록 수렴
     href: concept-registration-mfa-sspr-converged.md
-  - name: 셀프 서비스 암호 재설정
+  - name: 암호 재설정
     items:
     - name: 암호 재설정 작동 방법
       href: concept-sspr-howitworks.md
@@ -47,7 +47,7 @@ items:
       href: concept-mfa-whichversion.md
     - name: 사용자 라이선스
       href: concept-mfa-licensing.md
-    - name: 인증 공급자 만들기
+    - name: 인증 공급자 관리
       href: concept-mfa-authprovider.md
     - name: 보안 지침
       href: multi-factor-authentication-security-best-practices.md
@@ -64,9 +64,9 @@ items:
   expanded: true
 - name: 방법 가이드
   items:
-  - name: 암호 재설정
+  - name: 셀프 서비스 암호 재설정
     items:
-    - name: 암호 재설정 배포
+    - name: 셀프 서비스 암호 재설정 배포
       href: howto-sspr-deployment.md
     - name: 인증 데이터 미리 등록
       href: howto-sspr-authenticationdata.md
@@ -211,9 +211,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-active-directory
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: 39be14a49ecdf30d75cc49a37aa9fc7bc55304cc
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 83ad45c90c964df880c2b7fb79fcd3fdff214fbe
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338948"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091546"

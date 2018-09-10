@@ -57,7 +57,7 @@ items:
     href: /azure/event-hubs/event-hubs-managed-service-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
 - name: 방법 가이드
   items:
-  - name: Azure VM에 대한 ID 구성
+  - name: VM에서 관리되는 ID 구성
     items:
     - name: 포털
       href: qs-configure-portal-windows-vm.md
@@ -71,7 +71,7 @@ items:
       href: qs-configure-rest-vm.md
     - name: Azure SDK
       href: qs-configure-sdk-windows-vm.md
-  - name: Azure VMSS에 대한 ID 구성
+  - name: 가상 머신 확장 집합에서 관리되는 ID 구성
     items:
     - name: 포털
       href: qs-configure-portal-windows-vmss.md
@@ -83,7 +83,7 @@ items:
       href: qs-configure-template-windows-vmss.md
     - name: REST (영문)
       href: qs-configure-rest-vmss.md
-  - name: VM 관리 ID 사용
+  - name: VM에서 관리되는 ID 사용
     items:
     - name: 액세스 토큰 획득
       href: how-to-use-vm-token.md
@@ -131,9 +131,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-msi
   - name: AAD 개발자 포럼
     href: https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences
-ms.openlocfilehash: f64ce80ca45f847e76c5ec28e28a9271b19ed008
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 44506baf79a9e5b5c35bca677968a312ec8aff15
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44029397"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44156913"
