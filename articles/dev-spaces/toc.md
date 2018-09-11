@@ -1,5 +1,5 @@
 # Azure Dev 공간
-## [개요](azure-dev-spaces.md)
+## [개요](index.yml)
 
 ## 빠른 시작
 ### [Java(VS 코드 & CLI)](quickstart-java.md)
