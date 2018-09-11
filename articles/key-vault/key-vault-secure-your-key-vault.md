@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 08/31/2018
 ms.author: ambapat
-ms.openlocfilehash: df577222fb8f9d13bd33c5705e6234362519d351
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 9b8b0da6e1572ab79ffb369497f64aad2cd249b9
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41919818"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343465"
 ---
 # <a name="secure-your-key-vault"></a>키 자격 증명 모음 보안
 Azure Key Vault는 클라우드 응용 프로그램에 대한 암호화 키와 암호(예: 인증서, 연결 문자열, 암호)를 보호하는 클라우드 서비스입니다. 이 데이터는 민감하고 업무상 중요하기 때문에 권한이 부여된 응용 프로그램과 사용자만 키 자격 증명 모음에 액세스할 수 있도록 키 자격 증명 모음에 대한 액세스를 보호해야 합니다. 이 문서에서는 키 자격 증명 모음 액세스 모델의 개요를 제공하고, 인증 및 권한 부여에 대해 설명한 다음 예제를 사용하여 클라우드 응용 프로그램의 키 자격 증명 모음에 대한 액세스를 보호하는 방법을 설명합니다.
@@ -94,8 +94,8 @@ Azure Resource Manager 모델을 사용하면 리소스 그룹에 키 자격 증
 
 > [!IMPORTANT]
 > 키 자격 증명 모음 액세스 정책은 자격 증명 모음 수준에 적용됩니다. 예를 들어 사용자에게 키를 만들고 삭제하는 권한이 부여되면 해당 사용자는 키 자격 증명 모음의 모든 키에 대해 이러한 작업을 수행할 수 있습니다.
-> 
-> 
+
+액세스 정책 외에도 데이터 평면 액세스는 보안의 추가 레이어에 대한 [방화벽 및 가상 네트워크 규칙](key-vault-network-security.md)을 구성하여 [Azure Key Vault에 대한 Virtual Network 서비스 엔드포인트](key-vault-overview-vnet-service-endpoints.md)를 사용하여 제한될 수도 있습니다.
 
 ## <a name="example"></a>예
 SSL에는 인증서를, 데이터 저장에는 Azure 저장소를, 로그인 작업에는 RSA 2048비트 키를 사용하는 응용 프로그램을 개발하고, VM(또는 VM 확장 집합)에서 이 응용 프로그램을 실행한다고 가정해 보겠습니다. 이 경우 키 자격 증명 모음을 사용하면 모든 응용 프로그램 암호를 저장하고, 키 자격 증명 모음을 사용하면 응용 프로그램에서 Azure Active Directory를 통해 인증하는 데 사용하는 부트스트랩 인증서를 저장할 수 있습니다.
@@ -201,8 +201,8 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 
 > [!NOTE]
 > 참고: 이 예제에서는 프로덕션 환경에서 키 자격 증명 모음 액세스를 잠글 수도 있습니다. 개발자는 개발한 응용 프로그램에 속한 자격 증명 모음, VM 및 저장소 계정을 관리할 수 있는 모든 권한을 갖춘 구독 또는 리소스 그룹을 가지고 있어야 합니다.
-> 
-> 
+
+[Key Vault 방화벽 및 가상 네트워크를 구성](key-vault-network-security.md)하여 키 자격 증명 모음에 대한 액세스를 더 보호하는 것이 좋습니다.
 
 ## <a name="resources"></a>리소스
 * [Azure Active Directory 역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md)
@@ -243,6 +243,8 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
   키 자격 증명 모음 액세스 정책을 관리하는 PowerShell cmdlet 참조 문서에 대한 링크입니다.
 
 ## <a name="next-steps"></a>다음 단계
+[키 자격 증명 모음 방화벽 및 가상 네트워크 구성](key-vault-network-security.md)
+
 관리자를 위한 시작 자습서에 대해서는 [Azure 키 자격 증명 모음 시작](key-vault-get-started.md)을 참조하십시오.
 
 키 자격 증명 모음의 사용 현황 로깅에 대한 자세한 내용은 [Azure 키 자격 증명 모음 로깅](key-vault-logging.md)을 참조하십시오.

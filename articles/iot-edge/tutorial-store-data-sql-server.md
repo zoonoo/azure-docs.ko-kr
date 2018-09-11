@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/22/2018
+ms.date: 08/30/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7e02caf9706a5127d3729256fcc238f467eb2991
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 2b393a5b60ba534fba8115ab3ef0f35a26ad3ed4
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143503"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300356"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>자습서: SQL Server 데이터베이스로 에지에 데이터 저장
 
@@ -176,7 +176,11 @@ Azure IoT Edge 장치:
 
 1. Visual Studio Code 탐색기에서 **deployment.template.json** 파일을 엽니다. 
 2. **moduleContent.$edgeAgent.properties.desired.modules** 섹션을 찾습니다. 시뮬레이션된 데이터를 생성하는 **tempSensor** 및 **sqlFunction** 모듈 등 두 개의 모듈이 나열되어야 합니다.
-3. 다음 코드를 추가하여 세 번째 모듈을 선언합니다.
+3. Windows 컨테이너를 사용하는 경우 **sqlFunction.settings.image** 섹션을 수정합니다.
+    ```json
+    "image": "${MODULES.sqlFunction.windows-amd64}"
+    ```
+4. 다음 코드를 추가하여 세 번째 모듈을 선언합니다. sqlFunction 섹션 뒤에 쉼표를 추가하고 다음을 삽입합니다.
 
    ```json
    "sql": {
@@ -191,16 +195,18 @@ Azure IoT Edge 장치:
    }
    ```
 
-4. IoT Edge 장치의 운영 체제에 따라 **sql.settings** 매개 변수를 다음 코드로 업데이트합니다.
+   다음은 JSON 요소를 추가하는 데 혼란이 있는 경우의 예제입니다. ![SQL 서버 컨테이너 추가](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
-   * Windows:
+5. IoT Edge 장치의 Docker 컨테이너 유형에 따라 **sql.settings** 매개 변수를 다음 코드로 업데이트합니다.
+
+   * Windows 컨테이너:
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
-   * Linux:
+   * Linux 컨테이너:
 
       ```json
       "image": "microsoft/mssql-server-linux:2017-latest",
@@ -210,28 +216,20 @@ Azure IoT Edge 장치:
    >[!Tip]
    >프로덕션 환경에서 SQL Server 컨테이너를 만들 때마다 [기본 시스템 관리자 암호를 변경](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password)해야 합니다.
 
-5. **deployment.template.json** 파일을 저장합니다. 
+6. **deployment.template.json** 파일을 저장합니다.
 
 ## <a name="build-your-iot-edge-solution"></a>IoT Edge 솔루션 빌드
 
 이전 섹션에서는 하나의 모듈을 사용하여 솔루션을 만든 다음, 배포 매니페스트 템플릿에 다른 솔루션을 추가했습니다. 이제 솔루션을 빌드하고, 모듈에 대한 컨테이너 이미지를 만들고, 컨테이너 레지스트리에 이미지를 푸시해야 합니다. 
 
-1. deployment.template.json 파일에서 IoT Edge 런타임에 레지스트리 자격 증명을 제공하여 모듈 이미지에 액세스할 수 있도록 합니다. **moduleContent.$edgeAgent.properties.desired.runtime.settings** 섹션을 찾습니다. 
-2. **loggingOptions** 뒤에 다음 JSON 코드를 삽입합니다.
+1. .env 파일에서 모듈 이미지에 액세스할 수 있도록 IoT Edge 런타임에 레지스트리 자격 증명을 제공합니다. **CONTAINER_REGISTRY_USERNAME** 및 **CONTAINER_REGISTRY_PASSWORD** 섹션을 찾고 등호 기호 뒤에 자격 증명을 삽입합니다. 
 
-   ```JSON
-   "registryCredentials": {
-       "myRegistry": {
-           "username": "",
-           "password": "",
-           "address": ""
-       }
-   }
+   ```env
+   CONTAINER_REGISTRY_USERNAME_yourContainerReg=<username>
+   CONTAINER_REGISTRY_PASSWORD_yourContainerReg=<password>
    ```
-
-3. **사용자 이름**, **암호** 및 **주소** 필드에 레지스트리 자격 증명을 삽입합니다. 자습서의 시작 부분에서 Azure Container Registry를 만들 때 복사한 값을 사용합니다.
-4. **deployment.template.json** 파일을 저장합니다.
-5. 이미지를 레지스트리에 푸시할 수 있도록 Visual Studio Code의 컨테이너 레지스트리에 로그인합니다. 배포 매니페스트에 추가한 동일한 자격 증명을 사용합니다. 통합 터미널에서 다음 명령을 입력합니다. 
+2. .env 파일을 저장합니다.
+3. 이미지를 레지스트리에 푸시할 수 있도록 Visual Studio Code에서 컨테이너 레지스트리에 로그인합니다. .env 파일에 추가한 것과 동일한 자격 증명을 사용합니다. 통합 터미널에서 다음 명령을 입력합니다.
 
     ```csh/sh
     docker login -u <ACR username> <ACR login server>
@@ -243,7 +241,7 @@ Azure IoT Edge 장치:
     Login Succeeded
     ```
 
-6. VS Code 탐색기에서 **deployment.template.json** 파일을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 솔루션 빌드**를 선택합니다. 
+4. VS Code 탐색기에서 **deployment.template.json** 파일을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 솔루션 빌드 및 푸시**를 선택합니다. 
 
 ## <a name="deploy-the-solution-to-a-device"></a>장치에 솔루션 배포
 
@@ -287,7 +285,7 @@ IoT Edge 장치에서 다음 명령을 실행하여 모듈의 상태를 확인�
    * Windows 컨테이너:
 
       ```cmd
-      sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
+      sqlcmd -S localhost -U SA -P "Strong!Passw0rd"
       ```
 
    * Linux 컨테이너: 

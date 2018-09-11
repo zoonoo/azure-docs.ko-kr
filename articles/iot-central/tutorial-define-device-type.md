@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 4c850cd98280940c53a07c70c9c478f9e20e2963
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a2601f55bbc7e99321689afdafcab3135b94bd5b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41920598"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702547"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>자습서: Azure IoT Central 응용 프로그램에서 새 장치 유형 정의
 
@@ -280,22 +280,22 @@ ms.locfileid: "41920598"
 
 ## <a name="use-properties--device-properties"></a>속성 / 장치 속성 사용
 
-*속성*을 사용하여 응용 프로그램에서 장치에 대한 정보를 저장합니다. 이 섹션에서는 **연결된 공조 장치** 템플릿에 장치 속성을 추가하여 장치 일련 번호 및 펌웨어 버전을 저장합니다. 이 두 가지 모두 장치에서 보고된 읽기 전용 속성이므로 값을 할당할 수 없습니다. 장치의 위치, 소유권 정보 및 장치의 마지막 서비스 날짜/시간을 포함하도록 값을 할당하여 사용할 수 있는 속성입니다.
+*속성*을 사용하여 응용 프로그램에서 장치에 대한 정보를 저장합니다. 이 섹션에서는 **연결된 공조 장치** 템플릿에 클라우드 속성을 추가하여 장치 위치 및 마지막 서비스 날짜를 저장합니다. 둘 다 편집 가능한 장치 속성입니다. 장치 일련 번호나 펌웨어 버전처럼 장치에서 변경할 수 없는 읽기 전용 속성도 있습니다.
  
 1. **연결된 공조 장치** 템플릿에 대한 **속성** 페이지로 이동합니다.
 
     ![속성 추가 준비](./media/tutorial-define-device-type/deviceaddproperty.png)
 
-    숫자 또는 텍스트 등 다른 형식의 장치 속성을 만들 수 있습니다. 장치 템플릿에 일련 번호 속성을 추가하려면 **텍스트**를 선택합니다.
+    숫자 또는 텍스트 등 다른 형식의 장치 속성을 만들 수 있습니다. 장치 템플릿에 위치 속성을 추가하려면 **위치**를 선택합니다.
 
-2. 일련 번호 속성을 구성하려면 다음 표의 정보를 사용합니다.
+2. 위치 속성을 구성하려면 다음 표의 정보를 사용합니다.
 
     | 필드                | 값                |
     | -------------------- | -------------------- |
-    | 표시 이름         | 일련 번호        |
-    | 필드 이름           | serialNumber         |
-    | 초기 값        | cac00001             |
-    | 설명          | 장치 일련 번호 |
+    | 표시 이름         | 위치             |
+    | 필드 이름           | location             |
+    | 초기 값        | 시애틀, WA          |
+    | 설명          | 장치 위치      |
 
     다른 필드는 기본값 그대로 둡니다.
 
@@ -303,16 +303,16 @@ ms.locfileid: "41920598"
 
     **저장**을 선택합니다.
 
-3. 장치 템플릿에 대한 장치 속성에 펌웨어 버전을 추가하려면 **텍스트**를 선택합니다.
+3. 장치 템플릿에 마지막 서비스 날짜 속성을 추가하려면 **날짜**를 선택합니다.
 
-4. 펌웨어 버전 장치 속성을 구성하려면 다음 표의 정보를 사용합니다.
+4. 마지막 서비스 날짜 속성을 구성하려면 다음 표의 정보를 사용합니다.
 
     | 필드                | 값                   |
     | -------------------- | ----------------------- |
-    | 표시 이름         | 펌웨어 버전        |
-    | 필드 이름           | firmwareVersion         |
-    | 초기 값        | 0.1                     |
-    | 설명          | 장치 펌웨어 버전 |
+    | 표시 이름         | 마지막 서비스 날짜       |
+    | 필드 이름           | serviceDate             |
+    | 초기 값        | 2018/1/1                |
+    | 설명          | 마지막 서비스 날짜           |
 
     ![장치 속성 구성](./media/tutorial-define-device-type/configureproperties2.png)
 

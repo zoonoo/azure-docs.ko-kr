@@ -1,336 +1,300 @@
 ---
-title: Web Search SDK Java 빠른 시작 | Microsoft Docs
-description: Web Search SDK 콘솔 응용 프로그램을 설치합니다.
-titleSuffix: Azure Cognitive Services
+title: '빠른 시작: Java용 Bing Web Search SDK 사용'
+description: Java용 Bing Web Search SDK를 사용하는 방법을 알아봅니다.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
-ms.date: 02/16/2018
-ms.author: v-gedod
-ms.openlocfilehash: 73af92ca0d6ed1a270eaea26e79c7341680dce17
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.topic: quickstart
+ms.date: 08/22/2018
+ms.author: erhopf
+ms.openlocfilehash: cc7335b9f8b5596edef895ff5a42a1018b06a381
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35378022"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186730"
 ---
-# <a name="web-search-sdk-java-quickstart"></a>Web Search SDK Java 빠른 시작
+# <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>빠른 시작: Java용 Bing Web Search SDK 사용
 
-Bing Web Search SDK는 웹 쿼리 및 구문 분석 결과에 대한 REST API 기능을 포함하고 있습니다. 
+Bing Web Search SDK를 사용하면 Bing Web Search를 Java 응용 프로그램에 쉽게 통합할 수 있습니다. 이 빠른 시작에서는 요청을 보내고, JSON 응답을 받고, 결과를 필터링 및 구문 분석하는 방법에 대해 알아봅니다.
 
-[Java Bing Web Search SDK 소스 코드 샘플](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch)은 Git Hub에서 얻을 수 있습니다.
+지금 코드를 보시겠나요? [Java용 Bing Web Search SDK 샘플](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/)은 GitHub에서 사용할 수 있습니다.
 
-## <a name="application-dependencies"></a>응용 프로그램 종속성
-*검색* 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다. Maven, Gradle 또는 기타 종속성 관리 시스템을 사용하여 Bing Web Search SDK 종속성을 설치합니다. Maven POM 파일에는 다음이 필요합니다.
-```
+[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
+
+## <a name="prerequisites"></a>필수 조건
+
+이 빠른 시작을 실행하기 전에 필요한 몇 가지 조건은 다음과 같습니다.
+
+* [JDK 7 또는 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Apache Maven](https://maven.apache.org/download.cgi) 또는 즐겨찾는 빌드 자동화 도구
+* 구독 키
+
+## <a name="create-a-project-and-configure-your-pom-file"></a>프로젝트 만들기 및 POM 파일 구성
+
+Maven 또는 즐겨찾는 빌드 자동화 도구를 사용하여 새 Java 프로젝트를 만듭니다. Maven을 사용한다고 가정하는 경우 POM 파일에 다음 줄을 추가합니다. `mainClass`의 모든 인스턴스를 응용 프로그램으로 바꿉니다.
+
+```xml
+<build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.4.0</version>
+        <configuration>
+          <!--Your comment
+            Replace the mainClass with the path to your java application.
+            It should begin with com and doesn't require the .java extension.
+            For example: com.bingwebsearch.app.BingWebSearchSample. This maps to
+            The following directory structure:
+            src/main/java/com/bingwebsearch/app/BingWebSearchSample.java.
+          -->
+          <mainClass>com.path.to.your.app.APP_NAME</mainClass>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.0</version>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>attached</goal>
+            </goals>
+            <configuration>
+              <descriptorRefs>
+                <descriptorRef>jar-with-dependencies</descriptorRef>
+              </descriptorRefs>
+              <archive>
+                <manifest>
+                  <!--Your comment
+                    Replace the mainClass with the path to your java application.
+                    For example: com.bingwebsearch.app.BingWebSearchSample.java.
+                    This maps to the following directory structure:
+                    src/main/java/com/bingwebsearch/app/BingWebSearchSample.java.
+                  -->
+                  <mainClass>com.path.to.your.app.APP_NAME.java</mainClass>
+                </manifest>
+              </archive>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
   <dependencies>
     <dependency>
-        <groupId>com.microsoft.azure.cognitiveservices</groupId>
-        <artifactId>azure-cognitiveservices-websearch</artifactId>
-        <version>0.0.1-beta-SNAPSHOT</version>
+      <groupId>com.microsoft.azure</groupId>
+      <artifactId>azure</artifactId>
+      <version>1.9.0</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-net</groupId>
+      <artifactId>commons-net</artifactId>
+      <version>3.3</version>
+    </dependency>
+    <dependency>
+      <groupId>com.microsoft.azure.cognitiveservices</groupId>
+      <artifactId>azure-cognitiveservices-websearch</artifactId>
+      <version>1.0.1</version>
     </dependency>
   </dependencies>
 ```
-## <a name="web-search-client"></a>Web Search 클라이언트
-클래스 구현에 가져오기를 추가합니다.
+
+## <a name="declare-dependencies"></a>종속성 선언
+
+즐겨찾는 IDE 또는 편집기에서 프로젝트를 열고, 다음과 같은 종속성을 가져옵니다.
+
+```java
+import com.microsoft.azure.cognitiveservices.search.websearch.BingWebSearchAPI;
+import com.microsoft.azure.cognitiveservices.search.websearch.BingWebSearchManager;
+import com.microsoft.azure.cognitiveservices.search.websearch.models.ImageObject;
+import com.microsoft.azure.cognitiveservices.search.websearch.models.NewsArticle;
+import com.microsoft.azure.cognitiveservices.search.websearch.models.SearchResponse;
+import com.microsoft.azure.cognitiveservices.search.websearch.models.VideoObject;
+import com.microsoft.azure.cognitiveservices.search.websearch.models.WebPage;
 ```
-import com.microsoft.azure.cognitiveservices.websearch.*;
-import com.microsoft.azure.cognitiveservices.websearch.implementation.SearchResponseInner;
-import com.microsoft.azure.cognitiveservices.websearch.implementation.WebSearchAPIImpl;
-import com.microsoft.rest.credentials.ServiceClientCredentials;
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+Maven을 사용하여 프로젝트를 만든 경우 패키지가 이미 선언되어 있습니다. 그렇지 않은 경우 지금 패키지를 선언합니다. 예: 
+
+```java
+package com.bingwebsearch.app
 ```
-`WebSearchAPIImpl` 클라이언트를 구현합니다. 이를 위해 `ServiceClientCredentials`의 인스턴스가 필요합니다.
-```
-public static WebSearchAPIImpl getClient(final String subscriptionKey) {
-    return new WebSearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
-            new ServiceClientCredentials() {
-                @Override
-                public void applyCredentialsFilter(OkHttpClient.Builder builder) {
-                    builder.addNetworkInterceptor(
-                            new Interceptor() {
-                                @Override
-                                public Response intercept(Chain chain) throws IOException {
-                                    Request request = null;
-                                    Request original = chain.request();
-                                    // Request customization: add request headers
-                                    Request.Builder requestBuilder = original.newBuilder()
-                                            .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-                                    request = requestBuilder.build();
-                                    return chain.proceed(request);
-                                }
-                            });
-                }
-            });
-}
 
-```
-결과를 검색합니다.  다음 메서드는 단일 쿼리 "Xbox"를 사용하여 검색을 수행하고 첫 번째 웹, 이미지, 뉴스 및 비디오 결과에 대한 `name` 및 `URL`을 출력합니다.
-```
-public static void WebSearchResultTypesLookup(String subscriptionKey)
-{
-    WebSearchAPIImpl client = getClient(subscriptionKey);
+## <a name="declare-the-bingwebsearchsample-class"></a>BingWebSearchSample 클래스 선언
 
-    try
-    {
-        SearchResponseInner webData = client.webs().search("Yosemite");
-        System.out.println("\r\nSearched for Query# \" Yosemite \"");
+`BingWebSearchSample` 클래스를 선언합니다. `main` 메서드를 포함한 대부분의 코드가 포함됩니다.  
 
-        //WebPages
-        if (webData.webPages().value().size() > 0)
-        {
-            // find the first web page
-            WebPage firstWebPagesResult = webData.webPages().value().get(0);
+```java
+public class BingWebSearchSample {
 
-            if (firstWebPagesResult != null)
-            {
-                System.out.println(String.format("Webpage Results#%d", webData.webPages().value().size()));
-                System.out.println(String.format("First web page name: %s ", firstWebPagesResult.name()));
-                System.out.println(String.format("First web page URL: %s ", firstWebPagesResult.url()));
-            }
-            else
-            {
-                System.out.println("Couldn't find web results!");
-            }
-        }
-        else
-        {
-            System.out.println("Didn't see any Web data..");
-        }
-
-        //Images
-        if (webData.images().value().size() > 0)
-        {
-            // find the first image result
-            ImageObject firstImageResult = webData.images().value().get(0);
-
-            if (firstImageResult != null)
-            {
-                System.out.println(String.format("Image Results#%d", webData.images().value().size()));
-                System.out.println(String.format("First Image result name: %s ", firstImageResult.name()));
-                System.out.println(String.format("First Image result URL: %s ", firstImageResult.contentUrl()));
-            }
-            else
-            {
-                System.out.println("Couldn't find first image results!");
-            }
-        }
-        else
-        {
-            System.out.println("Didn't see any image data..");
-        }
-
-        //News
-        if (webData.news().value().size() > 0)
-        {
-            // find the first news result
-            NewsArticle firstNewsResult = webData.news().value().get(0);
-
-            if (firstNewsResult != null)
-            {
-                System.out.println(String.format("News Results#%d", webData.news().value().size()));
-                System.out.println(String.format("First news result name: %s ", firstNewsResult.name()));
-                System.out.println(String.format("First news result URL: %s ", firstNewsResult.url()));
-            }
-            else
-            {
-                System.out.println("Couldn't find any News results!");
-            }
-        }
-        else
-        {
-            System.out.println("Didn't see first news data..");
-        }
-
-        //Videos
-        if (webData.videos() != null && webData.videos().value().size() > 0)
-        {
-            // find the first video result
-            VideoObject firstVideoResult = webData.videos().value().get(0);
-
-            if (firstVideoResult != null)
-            {
-                System.out.println(String.format("Video Results#%s", webData.videos().value().size()));
-                System.out.println(String.format("First Video result name: %s ", firstVideoResult.name()));
-                System.out.println(String.format("First Video result URL: %s ", firstVideoResult.contentUrl()));
-            }
-            else
-            {
-                System.out.println("Couldn't find first video results!");
-            }
-        }
-        else
-        {
-            System.out.println("Didn't see any video data..");
-        }
-    }
-
-    catch (ErrorResponseException ex)
-    {
-        System.out.println("Encountered exception. " + ex.getLocalizedMessage());
-    }
+// The code in the following sections goes here.
 
 }
-
 ```
-"Best restaurants in Seattle"을 검색하고, 결과 수를 확인하고, 첫 번째 결과의 `name` 및 `URL`을 출력합니다.
+
+## <a name="construct-a-request"></a>요청 구성
+
+`BingWebSearchSample` 클래스에 있는 `runSample` 메서드는 요청을 구성합니다. 이 코드를 응용 프로그램에 복사합니다.
+
+```java
+public static boolean runSample(BingWebSearchAPI client) {
+    /*
+     * This function performs the search.
+     *
+     * @param client instance of the Bing Web Search API client
+     * @return true if sample runs successfully
+     */
+    try {
+        /*
+         * Performs a search based on the .withQuery and prints the name and
+         * url for the first web pages, image, news, and video result
+         * included in the response.
+         */
+        System.out.println("Searched Web for \"Xbox\"");
+        // Construct the request.
+        SearchResponse webData = client.bingWebs().search()
+            .withQuery("Xbox")
+            .withMarket("en-us")
+            .withCount(10)
+            .execute();
+
+// Code continues in the next section...
 ```
-public static void WebResultsWithCountAndOffset(String subscriptionKey)
-{
-    WebSearchAPIImpl client = getClient(subscriptionKey);
 
-    try
-    {
-        SearchResponseInner webData = client.webs().search(
-                "Best restaurants in Seattle", null, null, null, null, null, 10, null, 20, null, "en-us", null,
-                        null, null, SafeSearch.STRICT, null, null, null);
-        System.out.println("\r\nSearched for Query# \" Best restaurants in Seattle \"");
+## <a name="handle-the-response"></a>응답 처리
 
-        if (webData.webPages().value().size() > 0)
-        {
-            // find the first web page
-            WebPage firstWebPagesResult = webData.webPages().value().get(0);
+다음으로, 응답을 구문 분석하고 결과를 출력하는 코드를 추가해 보겠습니다. 첫 번째 웹 페이지, 이미지, 뉴스 기사 및 비디오에 대한 `name` 및 `url`이 응답 개체에 포함되면 출력됩니다.
 
-            if (firstWebPagesResult != null)
-            {
-                System.out.println(String.format("Web Results#%d", webData.webPages().value().size()));
-                System.out.println(String.format("First web page name: %s ", firstWebPagesResult.name()));
-                System.out.println(String.format("First web page URL: %s ", firstWebPagesResult.url()));
-            }
-            else
-            {
-                System.out.println("Couldn't find first web result!");
-            }
-        }
-        else
-        {
-            System.out.println("Didn't see any Web data..");
-        }
+```java
+/*
+* WebPages
+* If the search response contains web pages, the first result's name
+* and url are printed.
+*/
+if (webData != null && webData.webPages() != null && webData.webPages().value() != null &&
+        webData.webPages().value().size() > 0) {
+    // find the first web page
+    WebPage firstWebPagesResult = webData.webPages().value().get(0);
+
+    if (firstWebPagesResult != null) {
+        System.out.println(String.format("Webpage Results#%d", webData.webPages().value().size()));
+        System.out.println(String.format("First web page name: %s ", firstWebPagesResult.name()));
+        System.out.println(String.format("First web page URL: %s ", firstWebPagesResult.url()));
+    } else {
+        System.out.println("Couldn't find the first web result!");
     }
-    catch (ErrorResponseException ex)
-    {
-        System.out.println("Encountered exception. " + ex.getLocalizedMessage());
+} else {
+    System.out.println("Didn't find any web pages...");
+}
+/*
+ * Images
+ * If the search response contains images, the first result's name
+ * and url are printed.
+ */
+if (webData != null && webData.images() != null && webData.images().value() != null &&
+        webData.images().value().size() > 0) {
+    // find the first image result
+    ImageObject firstImageResult = webData.images().value().get(0);
+
+    if (firstImageResult != null) {
+        System.out.println(String.format("Image Results#%d", webData.images().value().size()));
+        System.out.println(String.format("First Image result name: %s ", firstImageResult.name()));
+        System.out.println(String.format("First Image result URL: %s ", firstImageResult.contentUrl()));
+    } else {
+        System.out.println("Couldn't find the first image result!");
     }
+} else {
+    System.out.println("Didn't find any images...");
+}
+/*
+ * News
+ * If the search response contains news articles, the first result's name
+ * and url are printed.
+ */
+if (webData != null && webData.news() != null && webData.news().value() != null &&
+        webData.news().value().size() > 0) {
+    // find the first news result
+    NewsArticle firstNewsResult = webData.news().value().get(0);
+    if (firstNewsResult != null) {
+        System.out.println(String.format("News Results#%d", webData.news().value().size()));
+        System.out.println(String.format("First news result name: %s ", firstNewsResult.name()));
+        System.out.println(String.format("First news result URL: %s ", firstNewsResult.url()));
+    } else {
+        System.out.println("Couldn't find the first news result!");
+    }
+} else {
+    System.out.println("Didn't find any news articles...");
 }
 
-```
-`news`에 할당된 하는 응답 필터를 사용하여 "Microsoft"를 검색합니다. 첫 번째 뉴스 항목의 세부 정보를 출력합니다.
-```
-public static void WebSearchWithResponseFilter(String subscriptionKey)
-{
-    WebSearchAPIImpl client = getClient(subscriptionKey);
+/*
+ * Videos
+ * If the search response contains videos, the first result's name
+ * and url are printed.
+ */
+if (webData != null && webData.videos() != null && webData.videos().value() != null &&
+        webData.videos().value().size() > 0) {
+    // find the first video result
+    VideoObject firstVideoResult = webData.videos().value().get(0);
 
-    try
-    {
-        List<AnswerType> responseFilterstrings = new ArrayList<AnswerType>();
-        responseFilterstrings.add(AnswerType.NEWS);
-        SearchResponseInner webData = client.webs().search(
-        "Best restaurants in Seattle", null, null, null, null, null, 10, null, 20, null, "en-us", null,
-                null, responseFilterstrings, SafeSearch.STRICT, null, null, null);
-
-        System.out.println("\\r\\nSearched for Query# \" Microsoft \" with response filters \"news\"");
-
-        //News
-        if (webData.news() != null && webData.news().value().size() > 0)
-        {
-            // find the first news result
-            NewsArticle firstNewsResult = webData.news().value().get(0);
-
-            if (firstNewsResult != null)
-            {
-                System.out.println(String.format("News Results#%d", webData.news().value().size()));
-                System.out.println(String.format("First news result name: %s ", firstNewsResult.name()));
-                System.out.println(String.format("First news result URL: %s ", firstNewsResult.url()));
-            }
-            else
-            {
-                System.out.println("Couldn't find first News results!");
-            }
-        }
-        else
-        {
-            System.out.println("Didn't see any News data..");
-        }
-
+    if (firstVideoResult != null) {
+        System.out.println(String.format("Video Results#%s", webData.videos().value().size()));
+        System.out.println(String.format("First Video result name: %s ", firstVideoResult.name()));
+        System.out.println(String.format("First Video result URL: %s ", firstVideoResult.contentUrl()));
+    } else {
+        System.out.println("Couldn't find the first video result!");
     }
-    catch (ErrorResponseException ex)
-    {
-        System.out.println("Encountered exception. " + ex.getLocalizedMessage());
-    }
-}
-
-```
-`answerCount` 및 `promote` 매개 변수를 사용하여 "Niagara Falls" 쿼리로 검색합니다. 결과의 세부 정보를 출력합니다.
-```
-public static void WebSearchWithAnswerCountPromoteAndSafeSearch(String subscriptionKey)
-{
-    WebSearchAPIImpl client = getClient(subscriptionKey);
-
-    try
-    {
-        List<AnswerType> promoteAnswertypeStrings = new ArrayList<AnswerType>();
-        promoteAnswertypeStrings.add(AnswerType.VIDEOS);
-        SearchResponseInner webData = client.webs().search(
-            "Niagara Falls", null, null, null, null, null, 10, null, 20, null, "en-us", null,
-            promoteAnswertypeStrings, null, SafeSearch.STRICT, null, null, null);
-        System.out.println("\r\nSearched for Query# \" Niagara Falls \"");
-
-        if (webData.videos().value().size() > 0)
-        {
-            VideoObject firstVideosResult = webData.videos().value().get(0);
-
-            if (firstVideosResult != null)
-            {
-                System.out.println(String.format("Video Results#%d", webData.videos().value().size()));
-                System.out.println(String.format("First Video result name: %s ", firstVideosResult.name()));
-                System.out.println(String.format("First Video result URL: %s ", firstVideosResult.contentUrl()));
-            }
-            else
-            {
-                System.out.println("Couldn't find videos results!");
-            }
-        }
-        else
-        {
-            System.out.println("Didn't see any data..");
-        }
-    }
-    catch (ErrorResponseException ex)
-    {
-        System.out.println("Encountered exception. " + ex.getLocalizedMessage());
-    }
-}
-
-```
-main 함수를 통해 클래스에 이전 메서드를 추가하여 다음 코드를 실행합니다.
-```
-package javaWebSDK;
-import com.microsoft.azure.cognitiveservices.websearch.*;
-public class webSDK{
-    
-    public static void main(String [ ] args) {
-        
-        WebSearchResultTypesLookup("YOUR-SUBSCRIPTION-KEY");
-        WebResultsWithCountAndOffset("YOUR-SUBSCRIPTION-KEY");
-        WebSearchWithResponseFilter("YOUR-SUBSCRIPTION-KEY");
-        WebSearchWithAnswerCountPromoteAndSafeSearch("YOUR-SUBSCRIPTION-KEY");
-        
-    }
-    // Add methods previoiusly documented.
+} else {
+    System.out.println("Didn't find any videos...");
 }
 ```
+
+## <a name="declare-the-main-method"></a>main 메서드 선언
+
+이 응용 프로그램에서 main 메서드는 클라이언트를 인스턴스화하고, `subscriptionKey`의 유효성을 검사하고, `runSample`을 호출하는 코드를 포함합니다. 계속하기 전에 Azure 계정에 유효한 구독 키를 입력했는지 확인합니다.
+
+```java
+public static void main(String[] args) {
+    try {
+        // Enter a valid subscription key for your account.
+        final String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+        // Instantiate the client.
+        BingWebSearchAPI client = BingWebSearchManager.authenticate(subscriptionKey);
+        // Make a call to the Bing Web Search API.
+        runSample(client);
+    } catch (Exception e) {
+        System.out.println(e.getMessage());
+        e.printStackTrace();
+    }
+}
+```
+
+## <a name="run-the-program"></a>프로그램 실행
+
+마지막 단계는 프로그램을 실행하는 것입니다!
+
+```console
+mvn compile exec:java
+```
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 프로젝트가 완료되면 프로그램의 코드에서 구독 키를 제거해야 합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
-[Cognitive Services Java SDK 샘플](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+> [!div class="nextstepaction"]
+> [Cognitive Services Java SDK 샘플](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch)
 
+## <a name="see-also"></a>참고 항목
 
+* [Azure Java SDK 참조](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/websearch)

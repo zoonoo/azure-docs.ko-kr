@@ -1,20 +1,20 @@
 ---
 title: Terraform 및 HCL을 사용하여 VM 클러스터 만들기
 description: Terraform 및 HCL(HashiCorp Configuration Language)을 사용하여 Azure에서 부하 분산 장치가 있는 Linux 가상 머신 클러스터 만들기
-keywords: terraform, devops, 가상 컴퓨터, 네트워크, 모듈
+services: terraform
+ms.service: terraform
+keywords: terraform, devops, 가상 머신, 네트워크, 모듈
 author: tomarcher
-manager: routlaw
-ms.service: virtual-machines-linux
-ms.custom: devops
-ms.topic: article
-ms.date: 11/13/2017
+manager: jeconnoc
 ms.author: tarcher
-ms.openlocfilehash: 2435d694e6a1671a234d02f90860e5cafe98c2df
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.topic: tutorial
+ms.date: 11/13/2017
+ms.openlocfilehash: fffaf275a98791885b87ee8ffdc275e911b26341
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2017
-ms.locfileid: "24518803"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667603"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Terraform 및 HCL을 사용하여 VM 클러스터 만들기
 
@@ -220,7 +220,7 @@ ms.locfileid: "24518803"
 
 ## <a name="3-initialize-terraform"></a>3. Terraform 초기화 
 
-[terraform init 명령](https://www.terraform.io/docs/commands/init.html)은 이전 섹션에서 만든 Terraform 구성 파일이 담긴 디렉터리를 초기화하는 데 사용됩니다. 새 Terraform 구성 파일을 작성한 후에는 항상 `terraform init` 명령을 실행해야 합니다. 
+[terraform init 명령](https://www.terraform.io/docs/commands/init.html)은 이전 섹션에서 만든 Terraform 구성 파일이 담긴 디렉터리를 초기화하는 데 사용됩니다. 새 Terraform 구성 파일을 작성한 후에는 항상 `terraform init` 명령을 실행하는 것이 좋습니다. 
 
 > [!TIP]
 > `terraform init` 명령은 멱등으로, 동일한 결과 생성하는 동안 반복적으로 호출될 수 있습니다. 따라서 공동 작업 환경에 있으며 구성 파일의 변경 가능성이 있는 경우 계획을 실행하거나 적용하기 전에 항상 `terraform init` 명령을 호출하는 것이 좋습니다.
@@ -278,4 +278,4 @@ Terraform 변수 파일의 이름이 `terraform.tfvars`가 아니고 `*.auto.tfv
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Terraform 모듈](https://registry.terraform.io/modules/Azure) 목록 찾아보기
-- [Terraform으로 가상 컴퓨터 확장 집합](terraform-create-vm-scaleset-network-disks-hcl.md) 만들기
+- [Terraform으로 가상 머신 확장 집합](terraform-create-vm-scaleset-network-disks-hcl.md) 만들기

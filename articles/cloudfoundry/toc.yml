@@ -1,29 +1,36 @@
+items:
 - name: Cloud Foundry 설명서
   href: index.md
 - name: 빠른 시작
-  expanded: true
   items:
-    - name: Marketplace 템플릿
-      href: 'https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry'
+  - name: Marketplace 템플릿
+    href: https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry
+  expanded: true
 - name: 자습서
   items:
-    - name: Azure에 CF 앱 배포
-      href: /azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app
-    - name: Azure의 CloudFoundry
-      href: /azure/virtual-machines/linux/cloudfoundry-get-started
-    - name: CF OMS 노즐 배포
-      href: /azure/cloudfoundry/cloudfoundry-oms-nozzle
-    - name: Azure와 Cloud Foundry 통합
-      href: /azure/cloudfoundry/how-cloud-foundry-integrates-with-azure
+  - name: Azure에 CF 앱 배포
+    href: /azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app
+  - name: Azure의 CloudFoundry
+    href: /azure/virtual-machines/linux/cloudfoundry-get-started
+  - name: CF OMS 노즐 배포
+    href: /azure/cloudfoundry/cloudfoundry-oms-nozzle
+  - name: Azure와 Cloud Foundry 통합
+    href: /azure/cloudfoundry/how-cloud-foundry-integrates-with-azure
 - name: 리소스
   items:
-    - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Cloud Foundry 사이트
-      href: 'https://docs.cloudfoundry.org/'
-    - name: Azure에 CF 설치
-      href: 'https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html'
-    - name: Pivotal 및 Azure
-      href: 'https://pivotal.io/partners/microsoft'
-    - name: CF용 VSTS 플러그인
-      href: 'https://github.com/Microsoft/vsts-cloudfoundry'
+  - name: Azure 로드맵
+    href: https://azure.microsoft.com/roadmap/
+  - name: Cloud Foundry 사이트
+    href: https://docs.cloudfoundry.org/
+  - name: Azure에 CF 설치
+    href: https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html
+  - name: Pivotal 및 Azure
+    href: https://pivotal.io/partners/microsoft
+  - name: Cloud Foundry에 대한 Azure DevOps 플러그 인
+    href: https://github.com/Microsoft/vsts-cloudfoundry
+ms.openlocfilehash: ee63fd4e7387777a042c41a8b457f2d9d0ace8e5
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294242"

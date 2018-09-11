@@ -12,19 +12,19 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f46a3ecb3c4ef6ace31b7010ba9068ab04a43315
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 37130e946aad00ef4eca14b7ce7942a8e435e6cd
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126544"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782331"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk-preview"></a>자습서: Azure Data Box Disk 주문(미리 보기)
 
-Azure Data Box Disk는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레미스 데이터를 Azure로 가져올 수 있는 클라우드 솔루션입니다. 데이터를 Microsoft에서 제공하는 SSD(반도체 디스크)로 전송하고 이 디스크를 반송합니다. 그런 다음, 이 데이터는 Azure에 업로드됩니다. 
+Azure Data Box Disk는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레미스 데이터를 Azure로 가져올 수 있는 하이브리드 클라우드 솔루션입니다. 데이터를 Microsoft에서 제공하는 SSD(반도체 디스크)로 전송하고 이 디스크를 반송합니다. 그런 다음, 이 데이터는 Azure에 업로드됩니다. 
 
 이 자습서에서는 Azure Data Box Disk를 주문하는 방법에 대해 설명합니다. 이 자습서에서는 다음에 대해 알아봅니다.
 
@@ -34,11 +34,11 @@ Azure Data Box Disk는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-�
 > * 주문 추적
 > * 주문 취소
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 > [!IMPORTANT]
-> - Data Box Disk는 미리 보기로 있습니다. 이 솔루션을 주문하고 배포하기 전에 [미리 보기에 대한 Azure 서비스 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요. 
-> - 미리 보기 동안 Data Box Disk는 미국 및 유럽 연합의 고객에게 배송될 수 있습니다. 자세한 내용은 [지역 가용성](data-box-disk-overview.md#region-availability)을 참조하세요.
+> - Data Box Disk는 미리 보기로 제공됩니다. 이 솔루션을 주문하고 배포하기 전에 [미리 보기에 대한 Azure 서비스 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요. 
+> - Data Box Disk는 미리 보기 상태로 제공되며 미국, 서유럽, 북유럽, 캐나다 및 오스트레일리아의 고객에게 제공될 수 있습니다. 자세한 내용은 [지역 가용성](data-box-disk-overview.md#region-availability)을 참조하세요.
 
 ## <a name="sign-up"></a>등록 
 
@@ -80,7 +80,7 @@ Data Box Disk를 주문하려면 [Azure Portal](https://aka.ms/azuredataboxfromd
     |---|---|
     |Name|주문을 추적하는 데 친숙한 이름을 입력합니다.<br> 이 이름은 2~24자 사이의 문자, 숫자 및 하이픈일 수 있습니다. <br> 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. |
     |리소스 그룹| 기존 그룹을 사용하거나 새 그룹을 만듭니다. <br> 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다. |
-    |대상 Azure 지역| 저장소 계정에 대한 지역을 선택합니다.<br> 현재 모든 미국, 유럽 서부 및 유럽 북부 지역의 저장소 계정이 지원됩니다. |
+    |대상 Azure 지역| 저장소 계정에 대한 지역을 선택합니다.<br> 현재 미국, 서유럽, 북유럽, 캐나다 및 오스트레일리아 모든 지역의 저장소 계정이 지원됩니다. |
     |저장소 계정|지정한 Azure 지역에 따라 필터링된 기존 저장소 계정 목록에서 선택합니다. <br>새 범용 v1 또는 범용 v2 계정도 만들 수 있습니다. |
     |TB 단위의 데이터 크기 추정됨| 추정값을 TB 단위로 입력합니다. <br>데이터 크기에 따라 Microsoft에서 적절한 개수의 8TB SSD(사용 가능한 용량: 7TB)를 보냅니다. <br>5개 디스크에서 사용 가능한 최대 용량은 최대 35TB입니다. |
 

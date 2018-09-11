@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB Graph API 소개 | Microsoft Docs
+title: Azure Cosmos DB Gremlin API 소개 | Microsoft Docs
 description: Azure Cosmos DB를 사용하여 Apache TinkerPop의 Gremlin 그래프 쿼리 언어로 대기 시간을 단축하면서 대량의 그래프를 저장하고 쿼리하고 트래버스하는 방법을 알아봅니다.
 services: cosmos-db
 author: LuisBosquez
@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/05/2017
 ms.author: lbosq
-ms.openlocfilehash: 333bb4074ac741e854ff56c7c397b0e3be247f1b
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: a0eec8aec315eefcbcc859828fa68ea0ccee6190
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857153"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695353"
 ---
-# <a name="introduction-to-azure-cosmos-db-graph-api"></a>Azure Cosmos DB: Graph API 소개
+# <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB: Gremlin API 소개
 
 [Azure Cosmos DB](introduction.md)는 중요 업무용 응용 프로그램에 사용할 수 있도록 Microsoft에서 제공하는 전역 분산 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB는 다음과 같은 기능을 제공합니다. 해당 기능은 [업계 최고의 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/)에 의해 지원됩니다.
 
@@ -29,13 +29,7 @@ ms.locfileid: "37857153"
 
 Azure Cosmos DB는 사용자가 스키마 및 인덱스 관리를 처리하지 않아도 되도록 [데이터를 자동으로 인덱싱](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)합니다. 또한 다중 모델 방식이며, 문서, 키-값, 그래프 및 열 형식 데이터 모델을 지원합니다.
 
-Kirill Gavrylyuk가 Azure Cosmos DB에서 그래프를 시작하는 방법을 설명하는 다음 비디오를 시청하는 것이 좋습니다.
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Graphs-with-Azure-Cosmos-DB-Gremlin-API/player]
-> 
-> 
-
-Azure Cosmos DB Graph API에서는 다음을 제공합니다.
+Azure Cosmos DB Gremlin API에서는 다음을 제공합니다.
 
 - 그래프 모델링
 - 순회 API
@@ -47,7 +41,7 @@ Azure Cosmos DB Graph API에서는 다음을 제공합니다.
 
 Azure Cosmos DB를 쿼리하려면 [Apache TinkerPop](http://tinkerpop.apache.org) 그래프 순회 언어나 [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)을 사용합니다.
 
-이 문서에서는 Azure Cosmos DB Graph API의 개요와 이 API를 사용하여 수십억 개의 꼭짓점 및 에지가 포함된 대량의 그래프를 저장하는 방법을 설명합니다. 밀리초 단위 대기 시간 내에 그래프를 쿼리하고 그래프 구조 및 스키마를 쉽게 발전시킬 수 있습니다.
+이 문서에서는 Azure Cosmos DB Gremlin API의 개요와 이 API를 사용하여 수십억 개의 꼭짓점 및 에지가 포함된 대량의 그래프를 저장하는 방법을 설명합니다. 밀리초 단위 대기 시간 내에 그래프를 쿼리하고 그래프 구조 및 스키마를 쉽게 발전시킬 수 있습니다.
 
 ## <a name="graph-database"></a>그래프 데이터베이스
 실제 환경의 경우처럼 데이터는 자연스럽게 연결되어 있습니다. 기존의 데이터 모델링은 엔터티에 중점을 둡니다. 또한 대부분의 응용 프로그램에서는 기본적으로 엔터티 및 관계를 모두 모델링해야 합니다.
@@ -102,7 +96,7 @@ Azure Cosmos DB는 시중에 판매되는 다른 그래프 데이터베이스에
 Azure Cosmos DB는 동일한 컨테이너/데이터베이스 내에서 문서 및 그래프와 같은 여러 모델을 사용할 수도 있습니다. 문서 컨테이너를 사용하여 그래프 데이터를 문서와 나란히 저장할 수 있습니다. JSON에 대한 SQL 쿼리와 Gremlin 쿼리를 둘 다 사용하여 그래프와 동일한 데이터를 쿼리할 수 있습니다.
 
 ## <a name="get-started"></a>시작하기
-Graph API에 대한 지원을 포함하는 Azure CLI(명령줄 인터페이스), Azure PowerShell 또는 Azure Portal을 사용하여 Azure Cosmos DB 계정을 만들 수 있습니다. 계정을 만들면 Azure Portal에서 Gremlin에 대한 WebSocket 프런트 엔드를 제공하는 `https://<youraccount>.gremlin.cosmosdb.azure.com`과 같은 서비스 끝점을 제공합니다. 이 끝점에 연결하고 Java, Node.js 또는 임의 Gremlin 클라이언트 드라이버에서 응용 프로그램을 빌드하도록 [Gremin 콘솔](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console)과 같은 TinkerPop 호환 도구를 구성할 수 있습니다.
+Gremlin API에 대한 지원을 포함하는 Azure CLI(명령줄 인터페이스), Azure PowerShell 또는 Azure Portal을 사용하여 Azure Cosmos DB 계정을 만들 수 있습니다. 계정을 만들면 Azure Portal에서 Gremlin에 대한 WebSocket 프런트 엔드를 제공하는 `https://<youraccount>.gremlin.cosmosdb.azure.com`과 같은 서비스 엔드포인트를 제공합니다. 이 엔드포인트에 연결하고 Java, Node.js 또는 임의 Gremlin 클라이언트 드라이버에서 응용 프로그램을 빌드하도록 [Gremin 콘솔](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console)과 같은 TinkerPop 호환 도구를 구성할 수 있습니다.
 
 다음 표에서는 Azure Cosmos DB에 대해 사용할 수 있는 인기 있는 Gremlin 드라이버를 보여 줍니다.
 

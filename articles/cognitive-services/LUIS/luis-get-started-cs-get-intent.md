@@ -1,77 +1,75 @@
 ---
-title: C#을 사용하여 LUIS(Language Understanding) 앱을 호출하는 방법을 알아보는 자습서 | Microsoft Docs
-description: 이 자습서에서는 C#을 사용하여 LUIS 앱을 호출하는 방법을 알아봅니다.
+title: C#을 사용하여 LUIS(Language Understanding)에서 자연어 텍스트 분석 - Azure Cognitive Services | Microsoft Docs
+description: 이 빠른 시작에서는 사용 가능한 공용 LUIS 앱을 통해 대화형 텍스트에서 사용자의 의도를 판단합니다. C#을 사용하여 공용 앱의 HTTP 예측 엔드포인트에 사용자의 의도를 텍스트로 보냅니다. 엔드포인트에서 LUIS는 공용 앱의 모델을 적용하여 자연어 텍스트의 의미를 분석하고 전반적인 의도를 판단하여 앱의 주체 도메인에 적절한 데이터를 추출합니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: tutorial
-ms.date: 12/13/2017
-ms.author: v-geberr
-ms.openlocfilehash: 0416d19d27810a2ab8eeb20e16b2f921fc7826ee
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.topic: quickstart
+ms.date: 08/23/2018
+ms.author: diberry
+ms.openlocfilehash: 676546a215bbb8964f1cb2d26ae0fb9fd2ed9289
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263492"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "43750560"
 ---
-# <a name="tutorial-call-a-luis-endpoint-using-c"></a>자습서: C#을 사용하여 LUIS 엔드포인트 호출
+# <a name="quickstart-analyze-text-using-c"></a>빠른 시작: C#을 사용하여 텍스트 분석
 
-발언을 LUIS 엔드포인트로 전달하고 의도와 엔터티를 다시 가져옵니다.
+[!include[Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * LUIS 구독 만들기 및 나중에 사용할 키 값 복사
-> * 공개 IoT 앱 샘플에서 브라우저의 LUIS 엔드포인트 결과 보기
-> * HTTP 엔드포인트에 대한 HTTPS 호출을 수행하는 Visual Studio C# 콘솔 앱 만들기
+<a name="create-luis-subscription-key"></a>
 
-<!-- link to free account -->이 아티클에서는 LUIS 앱을 작성하기 위해 체험 [LUIS][LUIS] 계정이 필요합니다.
+## <a name="prerequisites"></a>필수 조건
 
-## <a name="create-luis-subscription-key"></a>LUIS 구독 키 만들기
-1. 먼저 Azure Portal에서 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)을 만들어야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-
-2. Azure Portal ( https://portal.azure.com ) 에 로그인합니다. 
-
-3. [Azure를 사용하여 구독 키 만들기](./luis-how-to-azure-subscription.md)의 단계에 따라 키를 가져옵니다.
-
-4. [LUIS](luis-reference-regions.md) 웹 사이트로 돌아갑니다. Azure 계정을 사용하여 로그인합니다. 
-
-    [![](media/luis-get-started-cs-get-intent/app-list.png "앱 목록 스크린샷")](media/luis-get-started-cs-get-intent/app-list.png)
-
-## <a name="understand-what-luis-returns"></a>LUIS에서 반환하는 결과에 대한 이해
-
-LUIS 앱에서 무엇을 반환하는지 파악하기 위해 LUIS 앱 샘플의 URL을 브라우저 창에 붙여넣을 수 있습니다. 샘플 앱은 사용자가 라이트를 켜는지 여부를 검색하는 IoT 앱입니다.
-
-1. 샘플 앱의 엔드포인트는 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=<YOUR_API_KEY>&verbose=false&q=turn%20on%20the%20bedroom%20light` 형식으로입니다. URL을 복사하고 `subscription-key` 필드의 값을 구독 키의 값으로 대체합니다.
-2. 브라우저 창에 URL을 붙여넣고 Enter 키를 누릅니다. LUIS에서 `HomeAutomation.TurnOn` 의도 및 `bedroom` 값이 있는 `HomeAutomation.Room` 엔터티를 검색한다고 나타내는 JSON 결과가 브라우저에 표시됩니다.
-
-    ![JSON 결과에서 TurnOn 의도 검색](./media/luis-get-started-cs-get-intent/turn-on-bedroom.png)
-3. URL에서 `q=` 매개 변수 값을 `turn off the living room light`로 변경하고 Enter 키를 누릅니다. 이제 결과에는 LUIS에서 `HomeAutomation.TurnOff` 의도 및 `living room` 값이 있는 `HomeAutomation.Room` 엔터티를 검색했다고 표시됩니다. 
-
-    ![JSON 결과에서 TurnOff 의도 검색](./media/luis-get-started-cs-get-intent/turn-off-living-room.png)
+* [Visual Studio Community 2017 버전(Edition)](https://visualstudio.microsoft.com/vs/community/)
+* C# 프로그래밍 언어(VS Community 2017에 포함됨)
+* 공용 앱 ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
 
-## <a name="consume-a-luis-result-using-the-endpoint-api-with-c"></a>C#에서 엔드포인트 API를 사용하여 LUIS 결과 사용 
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
-C#을 사용하여 이전 단계의 브라우저 창에서 본 것과 동일한 결과에 액세스할 수 있습니다. 
+## <a name="get-luis-key"></a>LUIS 키 가져오기
 
-1. Visual Studio에서 새 콘솔 응용 프로그램을 만듭니다. 다음 코드를 복사하여 *.cs 파일에 저장합니다.
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+
+## <a name="analyze-text-with-browser"></a>브라우저로 텍스트 분석
+
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
+
+## <a name="analyze-text-with-c"></a>C#으로 텍스트 분석 
+
+C#을 사용하여 예측 엔드포인트 GET [API](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)를 쿼리하여 이전 섹션의 브라우저 창에 표시된 것과 동일한 결과를 냅니다. 
+
+1. Visual Studio에서 새 콘솔 응용 프로그램을 만듭니다. 
+
+    ![LUIS 사용자 설정 메뉴 액세스](media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
+
+2. Visual Studio 프로젝트의 솔루션 탐색기에서 **참조 추가**를 선택한 다음, 어셈블리 탭에서 **System.Web**을 선택합니다.
+
+    ![LUIS 사용자 설정 메뉴 액세스](media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
+
+3. Program.cs를 다음 코드로 덮어씁니다.
     
-   [!code-csharp[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/endpoint-api-samples/csharp/Program.cs)]
-1. `subscriptionKey` 변수 값을 LUIS 구독 키로 바꿉니다.
+   [!code-csharp[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/quickstarts/analyze-text/csharp/Program.cs)]
 
-3. Visual Studio 프로젝트에서 **System.Web**에 대한 참조를 추가합니다.
+4. `YOUR_KEY` 값을 LUIS 키로 대체합니다.
 
-4. 콘솔 응용 프로그램을 실행합니다. 브라우저 창에서 앞서 본 것과 동일한 JSON을 표시합니다.
+5. 콘솔 응용 프로그램을 작성하고 실행합니다. 브라우저 창에서 앞서 본 것과 동일한 JSON을 표시합니다.
 
-![콘솔 창에서는 LUIS의 JSON 결과를 표시합니다.](./media/luis-get-started-cs-get-intent/console-turn-on.png)
+    ![콘솔 창에서는 LUIS의 JSON 결과를 표시합니다.](./media/luis-get-started-cs-get-intent/console-turn-on.png)
+
+## <a name="luis-keys"></a>LUIS 키
+
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
 
 ## <a name="clean-up-resources"></a>리소스 정리
-이 자습서에서 만든 두 개의 리소스는 LUIS 구독 키와 C# 프로젝트입니다. Azure Portal에서 LUIS 구독 키를 삭제합니다. Visual Studio 프로젝트를 닫고 파일 시스템에서 해당 디렉터리를 제거합니다. 
+
+이 빠른 시작을 마치면 Visual Studio를 닫고 프로젝트 디렉터리를 파일 시스템에서 제거하세요. 
 
 ## <a name="next-steps"></a>다음 단계
-> [!div class="nextstepaction"]
-> [발언 추가](luis-get-started-cs-add-utterance.md)
 
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+> [!div class="nextstepaction"]
+> [C#으로 발언 및 학습 추가](luis-get-started-cs-add-utterance.md)

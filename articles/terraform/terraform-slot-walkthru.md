@@ -1,18 +1,20 @@
 ---
 title: Azure 공급자 배포 슬롯과 Terraform
 description: Azure 공급자 배포 슬롯에서 Terraform을 사용하는 방법에 대한 자습서
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, 가상 머신, Azure, 배포 슬롯
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
 ms.date: 4/05/2018
-ms.topic: article
-ms.openlocfilehash: 3a018dbaf90801604b13efcf8bd7afb6dbc68659
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bbd06ae8927e6c21607ac1c997f1e5cf37f092bf
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31416866"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667239"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Terraform을 사용하여 Azure 배포 슬롯으로 인프라 프로비전
 
@@ -68,7 +70,7 @@ ms.locfileid: "31416866"
     vi deploy.tf
     ```
 
-1. I 키를 선택하여 삽입 모드를시작합니다.
+1. I 키를 선택하여 삽입 모드를 시작합니다.
 
 1. 다음 코드를 편집기에 붙여 넣습니다.
 
@@ -217,7 +219,7 @@ ms.locfileid: "31416866"
 
 이전 섹션에서는 GitHub의 다른 분기에서 배포할 두 개의 슬롯인 **slotAppService** 및 **slotAppServiceSlotOne**을 설정했습니다. 웹앱을 미리 보면서 성공적으로 배포되었는지 확인합니다.
 
-다음 단계를 2번 수행합니다. 3단계에서 첫 번째에서 **slotAppService**를 선택한 다음, 두 번째에서 **slotAppServiceSlotOne**을 선택합니다.
+다음 단계를 두 번 수행합니다. 3단계에서 첫 번째에서 **slotAppService**를 선택한 다음, 두 번째에서 **slotAppServiceSlotOne**을 선택합니다.
 
 1. Azure Portal의 주 메뉴에서 **리소스 그룹**을 선택합니다.
 
@@ -260,7 +262,7 @@ ms.locfileid: "31416866"
     vi swap.tf
     ```
 
-1. I 키를 선택하여 삽입 모드를시작합니다.
+1. I 키를 선택하여 삽입 모드를 시작합니다.
 
 1. 다음 코드를 편집기에 붙여 넣습니다.
 

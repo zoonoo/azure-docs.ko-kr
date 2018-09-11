@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017, mvc
 ms.topic: overview
 ms.date: 05/07/2018
-ms.openlocfilehash: 3bf1b4c9ea0db3a51f2455edf3e1e70aaa3dcdab
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 634abb107ce3578de4baccdfdec2c5bdde166f11
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595735"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668295"
 ---
 # <a name="what-is-azure-hdinsight-and-the-hadoop-technology-stack"></a>Azure HDInsight 및 Hadoop 기술 스택이란?
 
@@ -109,10 +109,21 @@ HDInsight 클러스터, 즉 Spark, HBase, Kafka, Hadoop 및 기타 클러스터�
 
 |프로그래밍 언어  |정보  |
 |---------|---------|
-|기본 프로그래밍 언어 지원     | 기본적으로 HDInsight 클러스터는 다음을 지원합니다.<ul><li>자바</li><li>파이썬</li></ul> 추가 언어는 [스크립트 동작](../hdinsight-hadoop-script-actions-linux.md)을 사용하여 설치할 수 있습니다.       |
+|기본 프로그래밍 언어 지원     | 기본적으로 HDInsight 클러스터는 다음을 지원합니다.<ul><li>자바</li><li>Python</li></ul> 추가 언어는 [스크립트 동작](../hdinsight-hadoop-script-actions-linux.md)을 사용하여 설치할 수 있습니다.       |
 |Java 가상 머신(JVM) 언어     | Java 이외의 여러 언어는 JVM(Java Virtual Machine)에서 실행할 수 있습니다. 그러나 이러한 언어 중 일부를 실행하는 경우 클러스터에서 추가 구성 요소를 설치해야 할 수 있습니다. 이러한 JVM 기반 언어는 HDInsight 클러스터에서 지원됩니다. <ul><li>Clojure</li><li>Jython(Java용 Python)</li><li>스칼라</li></ul>     |
 |Hadoop 관련 언어     | HDInsight 클러스터는 Hadoop 기술 스택에만 적용되는 다음 언어를 지원합니다. <ul><li>Pig 작업에 대한 Pig Latin</li><li>Hive 작업에 대한 HiveQL 및 SparkSQL</li></ul>        |
  
+
+## <a name="development-tools-for-hdinsight"></a>HDInsight에 대한 개발 도구 
+IntelliJ, Eclipse, Visual Studio Code 및 Visual Studio를 포함하여 HDInsight 개발 도구를 사용하여 Azure와의 원활한 통합으로 HDInsight 데이터 쿼리 및 작업을 작성하고 제출할 수 있습니다.
+
+* [IntelliJ용 Azure 도구 키트](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-intellij-tool-plugin)
+
+* [Eclipse용 Azure 도구 키트](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-eclipse-tool-plugin)
+
+* [VS Code용 Azure HDInsight 도구](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-for-vscode?branch=pr-en-us-22999)
+
+* [Visual Studio용 Azure Data Lake 도구](https://docs.microsoft.com/en-us/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started)
 
 ## <a name="business-intelligence-on-hdinsight"></a>HDInsight의 비즈니스 인텔리전스
 익숙한 BI(비즈니스 인텔리전스) 도구는 파워 쿼리 추가 기능이나 Microsoft Hive ODBC Driver를 사용하여 HDInsight와 통합된 데이터를 검색, 분석 및 보고합니다.

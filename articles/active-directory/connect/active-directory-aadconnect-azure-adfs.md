@@ -17,12 +17,12 @@ ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2ebe6c7a70e4e574ea4953ca9ed01801190f80e
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 924269e16ab09cfd144955d3bd462cab7b37aaaf
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917138"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381757"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Azure에서 Active Directory Federation Services 배포
 AD FS는 간편하고 안전한 ID 페더레이션 및 웹 Single Sign-on(SSO) 기능을 제공합니다. 사용자는 Azure AD 또는 O365와 함께 페더레이션을 통해 온-프레미스 자격 증명을 사용하여 인증하고 클라우드에서 모든 리소스에 액세스할 수 있습니다. 결과적으로 온-프레미스 및 클라우드에서 리소스에 대한 액세스를 보장하는 항상 사용 가능한 AD FS 인프라가 있는 것이 중요합니다. Azure에서 AD FS를 배포하면 필요한 최소한의 노력으로 고가용성을 실현할 수 있습니다.
@@ -187,12 +187,14 @@ ILB를 배포하려면 Azure Portal에서 부하 분산 장치를 선택하고 �
 
 **6.3. 프로브 구성**
 
-ILB 설정 패널에서 프로브를 선택합니다.
+ILB 설정 패널에서 상태 프로브를 선택합니다.
 
 1. 추가를 클릭합니다.
-2. 프로브에 대한 세부 정보를 제공합니다. a. **이름**: 이름을 검색합니다. b. **프로토콜**: TCP c. **포트**: 443(HTTPS) d. **간격**: 기본값 5는 ILB가 백 엔드 풀에 있는 컴퓨터를 검색하는 간격입니다. e. **비정상 임계값 제한**: 기본값 2는 ILB가 백 엔드 풀에 있는 컴퓨터를 응답하지 않는다고 선언하고 트래픽을 보내지 않고 나서 연속 프로브 오류가 발생하는 임계값입니다.
+2. 프로브에 대한 세부 정보를 제공합니다. a. **이름**: 이름을 검색합니다. b. **프로토콜**: HTTP c. **포트**: 80(HTTP) d. **경로**: /adfs/probe e. **간격**: 기본값 5는 ILB가 백 엔드 풀에 있는 머신을 검색하는 간격입니다. f. **비정상 임계값 제한**: 기본값 2는 ILB가 백 엔드 풀에 있는 컴퓨터를 응답하지 않는다고 선언하고 트래픽을 보내지 않고 나서 연속 프로브 오류가 발생하는 임계값입니다.
 
 ![ILB 프로브 구성](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
+
+전체 HTTPS 경로 검사가 발생할 수 없는 AD FS 환경에서 상태 검사에 대해 명시적으로 만들어진 /adfs/probe 엔드포인트를 사용합니다.  최신 AD FS 배포의 상태를 정확하게 반영하지 않는 기본 포트 443 검사보다 훨씬 좋습니다.  이에 대한 자세한 내용은 https://blogs.technet.microsoft.com/applicationproxyblog/2014/10/17/hardware-load-balancer-health-checks-and-web-application-proxy-ad-fs-2012-r2/에서 찾을 수 있습니다.
 
 **6.4. 부하 분산 규칙 만들기**
 

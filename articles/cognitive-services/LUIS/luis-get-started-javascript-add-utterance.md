@@ -1,53 +1,48 @@
 ---
-title: JavaScript를 사용하여 LUIS 앱에 발화를 추가하는 방법을 알아보는 자습서 | Microsoft Docs
-description: 이 자습서에서는 JavaScript를 사용하여 LUIS 앱을 호출하는 방법을 알아봅니다.
+title: JavaScript를 사용하여 LUIS 앱에 발언을 추가하는 방법을 알아보는 빠른 시작 - Azure Cognitive Services| Microsoft Docs
+description: 이 빠른 시작에서는 JavaScript를 사용하여 LUIS 앱을 호출하는 방법을 알아봅니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: tutorial
-ms.date: 12/18/2017
-ms.author: v-geberr
-ms.openlocfilehash: b6d021dcfdddb5449aa989c6aa06d7faf326befb
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.topic: quickstart
+ms.date: 08/24/2018
+ms.author: diberry
+ms.openlocfilehash: ffc19d12c1d3fbb24c514ac87f298d1a52d23eb8
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265462"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43750593"
 ---
-# <a name="tutorial-add-utterances-to-app-using-javascript"></a>자습서: JavaScript를 사용하여 앱에 발화 추가
-이 자습서에서는 Javascript에서 제작 API를 사용하여 의도에 발화를 추가하는 프로그램을 작성합니다.
+# <a name="quickstart-change-model-using-javascript"></a>빠른 시작: JavaScript를 사용하여 모델 변경
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Visual Studio 콘솔 프로젝트 만들기 
-> * LUIS API를 호출하여 발화를 추가하는 메서드 추가 및 앱 학습
-> * BookFlight 의도에 대한 발화 예제가 있는 JSON 파일 추가
-> * 콘솔 실행 및 발화 학습 상태 확인
-
-자세한 내용은 [의도에 발화 예제 추가](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [학습](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45) 및 [학습 상태](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) API에 대한 기술 설명서를 참조하세요.
-
-이 문서에서는 LUIS 앱을 작성하기 위해 체험 [LUIS][LUIS] 계정이 필요합니다.
+[!include[Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 ## <a name="prerequisites"></a>필수 조건
-* LUIS [**제작 키**](luis-concept-keys.md#authoring-key). 
-* 기존 LUIS **응용 프로그램 ID** 및 **버전 ID**. 
-* VSCode의 `add-utterances.html`이라는 새 파일
 
-> [!NOTE] 
-> 완전한 `add-utterances.html` 파일은 [**LUIS-Samples** Github 리포지토리](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/authoring-api-samples/javascript/add-utterance.html)에서 사용할 수 있습니다.
+[!include[Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
+* [Visual Studio Code](https://code.visualstudio.com/)
+
+[!include[Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+
+## <a name="example-utterances-json-file"></a>예제 발언 JSON 파일
+
+[!include[Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
 
 
-## <a name="write-the-code"></a>코드 작성
+## <a name="create-quickstart-code"></a>빠른 시작 코드 만들기
+
 `add-utterances.html`을 만들고 다음 코드를 추가합니다.
 
-   [!code-javascript[Java Dependencies](~/samples-luis/documentation-samples/authoring-api-samples/javascript/add-utterance.html "Java Dependencies")]
+   [!code-html[Html code](~/samples-luis/documentation-samples/quickstarts/change-model/javascript/add-utterance.html "Javascript code")]
 
-## <a name="view-in-browser"></a>브라우저에서 보기
+## <a name="run-code"></a>코드 실행
+
 1. 브라우저에서 파일을 엽니다.
 
-2. LUIS 제작 ID와 LUIS 응용 프로그램 ID를 추가하고 `0.1` 버전이 아닌 경우 해당 버전을 변경합니다.
+2. LUIS 작성 ID, LUIS 응용 프로그램 ID를 추가합니다.
 
 3. 응용 프로그램에 추가할 **발화 배열**을 수정합니다. 이러한 발화는 utteranceJSON 변수에 저장됩니다. 사용자 고유의 도메인 및 발화 요구 사항에 맞게 이러한 값을 변경합니다. 
 
@@ -80,13 +75,11 @@ ms.locfileid: "36265462"
 
 6. 학습 상태를 확인하려면 `Train Status` 단추를 선택합니다. 
 
-![Add-utterances.html](./media/luis-quickstart-javascript-add-utterance/add-utterance.png)
+    ![Add-utterances.html](./media/luis-quickstart-javascript-add-utterance/add-utterance.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
-자습서를 완료하여 더 이상 필요하지 않은 경우 Visual Studio 및 콘솔 응용 프로그램을 제거합니다. 
+빠른 시작을 완료하면 이 빠른 시작에서 생성된 모든 파일을 제거하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
 > [봇과 LUIS 통합](luis-csharp-tutorial-build-bot-framework-sample.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

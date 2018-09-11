@@ -1,0 +1,121 @@
+---
+title: 10분 안에 첫 번째 LUIS(Language Understanding) 앱 만들기 - Cognitive Services LUIS | Microsoft Docs
+description: 이 빠른 시작에서는 미리 작성된 도메인 `HomeAutomation`를 사용하여 조명 및 어플라이언스를 켜고 끄는 LUIS 응용 프로그램을 만듭니다. 미리 작성된 도메인에는 의도, 엔터티 및 예제 발언이 제공됩니다. 마치면 클라우드에서 LUIS 엔드포인트를 실행하게 됩니다.
+services: cognitive-services
+author: diberry
+manager: cjgronlund
+ms.service: cognitive-services
+ms.component: language-understanding
+ms.topic: quickstart
+ms.date: 08/22/2018
+ms.author: diberry
+ms.openlocfilehash: 457f23936dec0cf85e9aebbf3e54bba37c2f3ca3
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "43750558"
+---
+# <a name="quickstart-use-prebuilt-home-automation-app"></a>빠른 시작: 미리 작성된 Home automation 앱 사용
+
+이 빠른 시작에서는 미리 작성된 도메인 `HomeAutomation`를 사용하여 조명 및 어플라이언스를 켜고 끄는 LUIS 응용 프로그램을 만듭니다. 미리 작성된 도메인에는 의도, 엔터티 및 예제 발언이 제공됩니다. 마치면 클라우드에서 LUIS 엔드포인트를 실행하게 됩니다.
+
+## <a name="prerequisites"></a>필수 조건
+
+이 문서에서는 [http://www.luis.ai](http://www.luis.ai)의 LUIS 포털에 만들어진 무료 LUIS 계정이 필요합니다. 
+
+## <a name="create-a-new-app"></a>새 앱 만들기
+응용 프로그램은 **내 앱**에서 만들고 관리할 수 있습니다. 
+
+1. LUIS 포털에 로그인합니다.
+
+2. **새 앱 만들기**를 선택합니다.
+
+    [![](media/luis-quickstart-new-app/app-list.png "앱 목록 스크린샷")](media/luis-quickstart-new-app/app-list.png)
+
+3. 대화 상자에서 응용 프로그램 이름을 "Home Automation"으로 지정합니다.
+
+    [![](media/luis-quickstart-new-app/create-new-app-dialog.png "새 앱 만들기 팝업 대화 상자의 스크린샷")](media/luis-quickstart-new-app/create-new-app-dialog.png)
+
+4. 응용 프로그램 문화권을 선택합니다. Home Automation 앱의 경우 영어를 선택합니다. 그런 후 **완료**를 선택합니다. LUIS에서 Home Automation 앱이 만들어집니다. 
+
+    >[!NOTE]
+    >응용 프로그램을 만든 후에는 문화권을 변경할 수 없습니다. 
+
+## <a name="add-prebuilt-domain"></a>미리 빌드된 도메인 추가
+
+왼쪽 탐색 창에서 **미리 작성된 도메인**을 선택합니다. 그런 다음, "Home"을 검색합니다. **도메인 추가**를 선택합니다.
+
+[![](media/luis-quickstart-new-app/home-automation.png "미리 작성된 도메인에서 호출된 Home Automation의 스크린샷")](media/luis-quickstart-new-app/home-automation.png)
+
+도메인 추가에 성공하면 미리 작성된 도메인 상자에 **도메인 제거** 단추가 표시됩니다.
+
+[![](media/luis-quickstart-new-app/remove-domain.png "도메인 제거 단추가 있는 Home Automation 도메인의 스크린샷")](media/luis-quickstart-new-app/remove-domain.png)
+
+## <a name="intents-and-entities"></a>의도 및 엔터티
+
+왼쪽 탐색 창에서 **의도**를 선택하여 HomeAutomation 도메인 의도를 검토합니다. 
+
+[![](media/luis-quickstart-new-app/home-automation-intents.png "테이블의 의도 이름이 강조 표시된 의도 목록의 스크린샷")](media/luis-quickstart-new-app/home-automation-intents.png)
+
+의도마다 예제 발언이 있습니다.
+
+> [!NOTE]
+> **없음**은 모든 LUIS 앱에 제공되는 의도입니다. 이것은 앱에 제공되는 기능과 일치하지 않는 발언을 처리하는 데 사용됩니다. 
+
+**HomeAutomation.TurnOff** 의도를 선택합니다. 엔터티를 사용하여 레이블이 지정된 발언 목록이 의도에 포함된 것을 볼 수 있습니다.
+
+[![](media/luis-quickstart-new-app/home-automation-turnon.png "HomeAutomation.TurnOff 의도의 스크린샷")](media/luis-quickstart-new-app/home-automation-turnon.png)
+
+## <a name="train-your-app"></a>앱 학습
+
+위쪽 탐색에서 **학습**을 선택합니다.
+
+[![](media/luis-quickstart-new-app/trained.png "녹색 성공 알림이 있는 HomeAutomation.TurnOff 의도의 스크린샷")](media/luis-quickstart-new-app/trained.png)
+
+## <a name="test-your-app"></a>앱 테스트
+앱을 학습시킨 후에는 테스트할 수 있습니다. 맨 위 탐색에서 **테스트**를 선택합니다. 대화형 테스트 창에 테스트 발언(예: "Turn off the lights")을 입력하고 Enter 키를 누릅니다. 
+
+```
+Turn off the lights
+```
+
+점수가 가장 높은 의도가 각 테스트 발언에 대한 의도와 일치하는지 확인합니다.
+
+이 예제에서 "Turn off the lights"는 "HomeAutomation.TurnOff"의 최고 득점 의도로 올바르게 식별되었습니다.
+
+[![](media/luis-quickstart-new-app/test.png "발언이 강조 표시된 테스트 패널의 스크린샷")](media/luis-quickstart-new-app/test.png)
+
+
+**테스트**를 다시 선택하여 테스트 창을 접습니다. 
+
+## <a name="publish-your-app"></a>앱 게시
+맨 위 탐색에서 **게시**를 선택합니다. 
+
+[![](media/luis-quickstart-new-app/publish.png "게시 단추가 강조 표시된 앱의 스크린샷")](media/luis-quickstart-new-app/publish.png)
+
+프로덕션 슬롯과 **게시** 단추를 선택합니다.
+
+맨 위에 있는 녹색 알림 표시줄은 앱 게시가 성공한 것을 나타냅니다.
+
+[![](media/luis-quickstart-new-app/published.png "게시가 성공한 앱의 스크린샷")](media/luis-quickstart-new-app/published.png)
+
+게시에 성공하면 **앱 게시** 페이지에 표시된 엔드포인트 URL을 사용할 수 있습니다.
+
+[![](media/luis-quickstart-new-app/endpoint.png "엔드포인트 URL이 강조 표시된 게시 페이지의 스크린샷")](media/luis-quickstart-new-app/endpoint.png)
+
+## <a name="use-your-app"></a>앱 사용
+생성된 URL을 사용하여 브라우저에서 게시된 엔드포인트를 테스트할 수 있습니다. 브라우저에서 이 URL을 열고 URL 매개 변수 "&q"를 테스트 쿼리로 설정합니다. 예를 들어, URL의 끝에 `turn off the living room light`를 추가한 다음, Enter 키를 누릅니다. 브라우저는 HTTP 엔드포인트의 JSON 응답을 표시합니다.
+
+
+[![](media/luis-quickstart-new-app/turn-off-living-room.png "JSON 결과에서 TurnOff 의도가 검색된 브라우저의 스크린샷")](media/luis-quickstart-new-app/turn-off-living-room.png)
+
+## <a name="clean-up-resources"></a>리소스 정리
+더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 이렇게 하려면 앱 목록에서 앱 이름 오른쪽에 있는 줄임표(***...***) 단추를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+다음 코드에서 엔드포인트를 호출할 수 있습니다.
+
+> [!div class="nextstepaction"]
+> [코드를 사용하여 LUIS 엔드포인트 호출](luis-get-started-cs-get-intent.md)

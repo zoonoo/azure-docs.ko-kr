@@ -1,0 +1,65 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: b275387e5d884f8ca6484690b7caf5a84759e9e2
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44326017"
+documentType: LandingData
+title: Azure Dev 공간
+metadata:
+  title: Azure Dev 공간 | Microsoft Docs
+  meta.description: Rapid Kubernetes development with containers and microservices on Azure.
+  services: azure-dev-spaces
+  author: ghogen
+  manager: douge
+  ms.service: azure-dev-spaces
+  ms.topic: landing-page
+  ms.date: 08/23/2018
+  ms.author: ghogen
+sections:
+- title: 팀에 대한 신속하고 반복적인 Kubernetes 개발 환경입니다.
+  items:
+  - type: paragraph
+    text: 최소한의 개발 컴퓨터 설정을 통해 AKS(Azure Kubernetes Service)에서 바로 컨테이너를 반복적으로 실행하고 디버그할 수 있습니다.  공유 Kubernetes 클러스터에서 팀과 공동 작업을 수행하고, 종속성을 복제하거나 모의하지 않고 다른 구성 요소를 사용하여 종단 간 테스트를 수행할 수도 있습니다. Azure Dev Spaces를 사용하면 Windows, Mac 또는 Linux에서 Visual Studio, Visual Studio Code 또는 명령줄과 같은 익숙한 도구를 사용하여 개발할 수 있습니다.
+  - type: markdown
+    text: >-
+      > [!IMPORTANT]
+
+      > Azure Dev Spaces는 현재 미리 보기 상태이며 **미국 동부**, **미국 중부**, **미국 서부 2**, **유럽 서부**, **캐나다 중부** 및 **캐나다 동부** 지역의 AKS 클러스터에서만 지원됩니다. [부속 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
+- title: Azure Dev Spaces에서 시작
+  items:
+  - type: paragraph
+    text: 시작하려면 언어별 가이드를 선택하세요.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_java.svg
+      text: 자바
+      href: quickstart-java.md
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_NETcore.svg
+      text: .NET 및 VS Code
+      href: quickstart-netcore.md
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
+      text: .NET 및 Visual Studio
+      href: quickstart-netcore-visualstudio.md
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_nodejs.svg
+      text: Node.js
+      href: quickstart-nodejs.md
+- title: Azure Dev 공간이 Kubernetes 개발을 단순화하는 방법
+  items:
+  - type: paragraph
+    text: Azure Dev Spaces는 다음과 같은 방식으로 개발 팀이 Kubernetes에서 생산성을 높이도록 지원합니다.
+  - type: list
+    style: unordered
+    items:
+    - text: 각 팀 멤버의 로컬 개발 컴퓨터 설정을 최소화하고 Azure의 관리되는 Kubernetes 클러스터인 AKS에서 바로 작업합니다.
+    - text: Visual Studio 2017 또는 Visual Studio Code를 사용하여 Kubernetes에서 바로 코드를 반복하고 디버깅합니다.
+    - text: 개발 단계부터 프로덕션 단계까지 사용할 수 있는 Docker 및 Kubernetes configuration-as-code 자산을 생성합니다.
+    - text: 팀과 관리되는 Kubernetes 클러스터를 공유하고 공동 작업합니다. 격리 상태에서 코드를 개발하고, 종속성을 복제하거나 목업하지 않고 다른 구성 요소로 통합형 테스트를 수행합니다.
+  - type: markdown
+    text: '![](media/azure-dev-spaces/vscode-overview.png)'

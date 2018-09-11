@@ -1,18 +1,20 @@
 ---
 title: Azure Marketplace 이미지를 사용하여 관리 서비스 ID가 있는 Terraform Linux 가상 머신 만들기
 description: Marketplace 이미지를 사용하여 관리 서비스 ID 및 원격 상태 관리가 있는 Terraform Linux 가상 머신을 만들어 Azure에 리소스를 쉽게 배포합니다.
+services: terraform
+ms.service: terraform
 keywords: Terraform, DevOps, MSI, 가상 머신, 원격 상태, Azure
-author: VaijanathB
-manager: rloutlaw
+author: tomarcher
+manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
 ms.date: 3/12/2018
-ms.topic: article
-ms.openlocfilehash: 5f0ee2904c1072a5ad8c5f7ae1c90e649cc4813c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0136966576e3fbb22855d74cc1866e48b4ac24c9
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31413799"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669390"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-service-identity"></a>Azure Marketplace 이미지를 사용하여 관리 서비스 ID가 있는 Terraform Linux 가상 머신 만들기
 

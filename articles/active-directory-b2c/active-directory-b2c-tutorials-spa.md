@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: fffffbf7ce654c263976378da01f032599145a94
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 4953cb0db428de19268cdd90661f7818b06b6945
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591570"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343865"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 단일 페이지 앱으로 계정을 인증하도록 설정
 
@@ -24,24 +24,24 @@ ms.locfileid: "39591570"
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 샘플 단일 페이지 응용 프로그램을 Azure AD B2C 테넌트에 등록합니다.
+> * 샘플 단일 페이지 응용 프로그램을 Azure AD B2C 디렉터리에 등록합니다.
 > * 사용자 등록, 로그인, 프로필 편집 및 암호 재설정에 대한 정책을 만듭니다.
-> * Azure AD B2C 테넌트를 사용하도록 응용 프로그램 예제를 구성합니다.
+> * Azure AD B2C 디렉터리를 사용하도록 응용 프로그램 예제를 구성합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
-* 사용자 고유의 [Azure AD B2C 테넌트](active-directory-b2c-get-started.md)를 만듭니다.
+* 사용자 고유의 [Azure AD B2C 디렉터리](active-directory-b2c-get-started.md) 만들기
 * **ASP.NET 및 웹 개발** 워크로드가 있는 [Visual Studio 2017](https://www.visualstudio.com/downloads/)을 설치합니다.
 * [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) 이상
 * [Node.js](https://nodejs.org/en/download/)
 
 ## <a name="register-single-page-app"></a>단일 페이지 앱 등록
 
-Azure Active Directory에서 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)을 받으려면 먼저 응용 프로그램을 테넌트에 [등록](../active-directory/develop/developer-glossary.md#application-registration)해야 합니다. 앱을 등록하면 테넌트에서 앱에 대한 [응용 프로그램 ID](../active-directory/develop/developer-glossary.md#application-id-client-id)가 만들어집니다. 
+Azure Active Directory에서 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)을 받으려면 먼저 응용 프로그램을 디렉터리에 [등록](../active-directory/develop/developer-glossary.md#application-registration)해야 합니다. 앱을 등록하면 디렉터리에서 앱에 대한 [응용 프로그램 ID](../active-directory/develop/developer-glossary.md#application-id-client-id)가 만들어집니다. 
 
-Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+Azure AD B2C 디렉터리의 글로벌 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
@@ -49,7 +49,7 @@ Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azur
 
 2. B2C 설정에서 **응용 프로그램**, **추가**를 차례로 클릭합니다. 
 
-    샘플 웹앱을 테넌트에 등록하려면 다음 설정을 사용합니다.
+    샘플 웹앱을 디렉터리에 등록하려면 다음 설정을 사용합니다.
     
     ![새 앱 추가](media/active-directory-b2c-tutorials-spa/spa-registration.png)
     
@@ -63,7 +63,7 @@ Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azur
     
 3. **만들기** 를 클릭하여 앱을 등록합니다.
 
-등록된 앱은 Azure AD B2C 테넌트에 대한 응용 프로그램 목록에 표시됩니다. 목록에서 해당하는 단일 페이지 앱을 선택합니다. 등록된 단일 페이지 앱의 속성 창이 표시됩니다.
+등록된 앱은 Azure AD B2C 디렉터리에 대한 응용 프로그램 목록에 표시됩니다. 목록에서 해당하는 단일 페이지 앱을 선택합니다. 등록된 단일 페이지 앱의 속성 창이 표시됩니다.
 
 ![단일 페이지 앱 속성](./media/active-directory-b2c-tutorials-spa/b2c-spa-properties.png)
 
@@ -127,25 +127,25 @@ Azure AD B2C 정책은 사용자 워크플로를 정의합니다. 예를 들어 
 
 ## <a name="update-single-page-app-code"></a>단일 페이지 앱 코드 업데이트
 
-앱을 등록하고 정책을 만들었으니, Azure AD B2C 테넌트를 사용하도록 앱을 구성해야 합니다. 이 자습서에서는 GitHub에서 다운로드할 수 있는 샘플 SPA JavaScript 앱을 구성합니다. 
+앱을 등록하고 정책을 만들었으니, Azure AD B2C 디렉터리를 사용하도록 앱을 구성해야 합니다. 이 자습서에서는 GitHub에서 다운로드할 수 있는 샘플 SPA JavaScript 앱을 구성합니다. 
 
 GitHub에서 [Zip 파일을 다운로드](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip)하거나 샘플 웹앱을 복제합니다.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
 ```
-샘플 앱은 단일 페이지 앱에서 등록, 로그인 및 보호되는 Web API 호출에 Azure AD B2C를 사용하는 방법을 보여줍니다. 테넌트에서 앱 등록을 사용하도록 앱을 변경하고 앞에서 만든 정책을 구성해야 합니다. 
+샘플 앱은 단일 페이지 앱에서 등록, 로그인 및 보호되는 Web API 호출에 Azure AD B2C를 사용하는 방법을 보여줍니다. 디렉터리에서 앱 등록을 사용하도록 앱을 변경하고 앞에서 만든 정책을 구성해야 합니다. 
 
 앱 설정을 변경하려면 다음을 수행합니다.
 
 1. Node.js 단일 페이지 앱 샘플에서 `index.html` 파일을 엽니다.
-2. Azure AD B2C 테넌트 등록 정보를 사용하여 샘플을 구성합니다. 다음 코드 줄을 변경합니다.
+2. Azure AD B2C 디렉터리 등록 정보를 사용하여 샘플을 구성합니다. 코드의 다음 줄을 변경합니다(디렉터리 및 API의 이름으로 값을 바꿔야 함).
 
     ```javascript
-    // The current application coordinates were pre-registered in a B2C tenant.
+    // The current application coordinates were pre-registered in a B2C directory.
     var applicationConfig = {
         clientID: '<Application ID for your SPA obtained from portal app registration>',
-        authority: "https://login.microsoftonline.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
+        authority: "https://fabrikamb2c.b2clogin.com/tfp/fabrikamb2c.onmicrosoft.com/B2C_1_SiUpIn",
         b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/demoapi/demo.read"],
         webApi: 'https://fabrikamb2chello.azurewebsites.net/hello',
     };
@@ -185,20 +185,20 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
     ![등록 워크플로](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
 
-4. **만들기**를 클릭하여 로컬 계정을 Azure AD B2C 테넌트에 만듭니다.
+4. **만들기**를 클릭하여 로컬 계정을 Azure AD B2C 디렉터리에 만듭니다.
 
 이제 사용자는 이메일 주소를 사용하여 로그인하고 SPA 앱을 사용할 수 있습니다.
 
 > [!NOTE]
-> 로그인하면 앱에 "권한 부족" 오류가 표시됩니다. 데모 테넌트에서 리소스에 액세스하려고 시도하기 때문에 이 오류가 표시되는 것입니다. 액세스 토큰이 Azure AD 테넌트에만 유효하므로 API 호출에 권한이 부여되지 않습니다. 그 다음 자습서를 계속 진행하여 테넌트의 보호되는 웹 API 키를 만드세요. 
+> 로그인하면 앱에 "권한 부족" 오류가 표시됩니다. 데모 디렉터리에서 리소스에 액세스하려고 시도하기 때문에 이 오류가 표시되는 것입니다. 액세스 토큰이 Azure AD 디렉터리에만 유효하므로 API 호출에 권한이 부여되지 않습니다. 그 다음 자습서를 계속 진행하여 디렉터리의 보호되는 웹 API 키를 만드세요. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다른 Azure AD B2C 자습서를 사용하려는 경우 Azure AD B2C 테넌트를 사용할 수 있습니다. 더 이상 필요하지 않으면 [Azure AD B2C 테넌트를 삭제](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant)할 수 있습니다.
+다른 Azure AD B2C 자습서를 사용하려는 경우 Azure AD B2C 디렉터리를 사용할 수 있습니다. 더 이상 필요하지 않으면 [Azure AD B2C 디렉터리를 삭제](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant)할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure AD B2C 테넌트를 만들고, 정책을 만들고, Azure AD B2C 테넌트를 사용하도록 샘플 단일 페이지 앱을 업데이트하는 방법을 알아보았습니다. 그 다음 자습서로 넘어가서 데스크톱 앱에서 보호되는 Web API를 등록, 구성 및 호출하는 방법을 알아보세요.
+이 자습서에서는 Azure AD B2C 디렉터리를 만들고, 정책을 만들고, Azure AD B2C 디렉터리를 사용하도록 샘플 단일 페이지 앱을 업데이트하는 방법을 알아보았습니다. 그 다음 자습서로 넘어가서 데스크톱 앱에서 보호되는 Web API를 등록, 구성 및 호출하는 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
 > 

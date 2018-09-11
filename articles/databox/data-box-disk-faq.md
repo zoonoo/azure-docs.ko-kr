@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/28/2018
+ms.date: 09/04/2018
 ms.author: alkohli
-ms.openlocfilehash: 931b3fd4730ed9ca3a901b423d6c804dfa7e5305
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 26f8f59d940c1e4a25e24229c2a3df75052e63e4
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143545"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783293"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>Azure Data Box Disk란? (미리 보기)
 
@@ -48,7 +48,7 @@ a. Azure Data Box Disk를 사용하면 Azure에서 테라바이트 단위의 데
 디스크는 Microsoft BitLocker 드라이브 암호화를 통해 암호화되고, 암호화 키는 SSL을 통해 Azure Portal에서 관리됩니다. 그런 다음, 고객의 서버에서 데이터를 복사합니다. 데이터 센터에서 Microsoft는 빠른 사설망 업로드 링크를 사용하여 데이터를 드라이브에서 클라우드로 마이그레이션하고 Azure에 업로드합니다.
 
 ### <a name="q-when-should-i-use-data-box-disks"></a>Q. Data Box Disk는 언제 사용해야 하나요?
-a. Azure로 전송하려는 데이터가 35TB 이하이면 Data Box Disk를 사용하는 것이 좋습니다.
+a. Azure로 전송하려는 데이터가 40TB 이하이면 Data Box Disk를 사용하는 것이 좋습니다.
 
 ### <a name="q-what-is-the-price-of-data-box-disks"></a>Q. Data Box Disk 가격은 어떻게 되나요?
 a. 미리 보기 동안에는 Data Box Disk를 추가 비용 없이 사용할 수 있습니다. 또한 배송료는 무료이지만, Azure 저장소에 대한 비용이 부과됩니다.
@@ -60,10 +60,10 @@ a.  Azure Data Box Disk를 얻으려면 먼저 [Data Box Disk 미리 보기](htt
 a. 각각 8TB(사용 가능한 용량: 7TB) 크기의 5개 디스크에 대해 사용 가능한 최대 용량은 35TB입니다. 따라서 한 인스턴스에서 35TB의 데이터를 전송할 수 있습니다.  더 많은 데이터를 전송하려면 디스크를 더 많이 주문해야 합니다.
 
 ### <a name="q-how-can-i-check-if-data-box-disks-are-available-in-my-region"></a>Q. 내 지역에서 Data Box Disk를 사용할 수 있는지 확인하려면 어떻게 해야 할까요? 
-a.  Data Box Disk는 미리 보기로 있는 동안 미국, 캐나다 및 유럽 연합의 모든 국가에서 사용할 수 있습니다.  
+a.  Data Box Disk는 미리 보기로 있는 동안 미국, 캐나다, 오스트레일리아 및 유럽 연합의 모든 국가에서 사용할 수 있습니다.  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>Q. Data Box Disk에 데이터를 저장할 수 있는 지역은 어떻게 되나요?
-a. Data Box Disk는 미국, 캐나다, 서유럽 및 북유럽 내의 모든 지역에서 미리 보기로 지원됩니다. Azure 공용 클라우드 지역만 지원됩니다. Azure Government 또는 다른 소버린 클라우드는 지원되지 않습니다.
+a. Data Box Disk는 미국, 캐나다, 오스트레일리아, 서유럽 및 북유럽 내의 모든 지역에서 미리 보기로 지원됩니다. Azure 공용 클라우드 지역만 지원됩니다. Azure Government 또는 다른 소버린 클라우드는 지원되지 않습니다.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>Q. Data Box Disk에 문제가 발생하면 누구에게 연락해야 하나요?
 a. Data Box Disk에 문제가 발생하면 [Data Box Disk 고객 지원팀](mailto:expresspodsupport@microsoft.com)에 문의하세요.

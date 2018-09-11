@@ -1,78 +1,73 @@
 ---
-title: 호출 및 응답 - Azure Cognitive Services용 PHP 빠른 시작, Bing Web Search API | Microsoft Docs
-description: Azure의 Microsoft Cognitive Services에서 Bing Web Search API를 사용하여 신속하게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
+title: '빠른 시작: PHP를 사용하여 Bing Web Search API 호출'
+description: 이 빠른 시작에서는 PHP를 사용하여 Bing Web Search API를 처음 호출하고 JSON 응답을 받는 방법을 알아봅니다.
 services: cognitive-services
-documentationcenter: ''
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
-ms.date: 9/18/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 2e54db4ba59d89271077d243589243768bf8b7fc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.topic: quickstart
+ms.date: 8/16/2018
+ms.author: erhopf
+ms.openlocfilehash: ef5263ce65efccdab0fb461165e66156dd4fce52
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374071"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888432"
 ---
-# <a name="call-and-response-your-first-bing-web-search-query-in-php"></a>호출 및 응답: PHP에서 첫 번째 Bing Web Search 쿼리
+# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>빠른 시작: PHP를 사용하여 Bing Web Search API 호출  
 
-Bing Web Search API는 사용자의 쿼리와 관련있다고 Bing이 확인하는 검색 결과를 반환하여 Bing.com/Search와 유사한 환경을 제공합니다. 결과에는 웹 페이지, 이미지, 비디오, 뉴스 및 엔터티와 함께 관련 검색 쿼리, 맞춤법 수정, 표준 시간대, 단위 변환, 번역 및 계산이 포함될 수 있습니다. 사용자가 얻는 결과의 종류는 사용자가 구독한 Bing Search API의 계층과 관련성에 따릅니다.
+이 빠른 시작을 사용하여 Bing Web Search API를 처음 호출하고 10분 내에 JSON 응답을 받습니다.  
 
-이 문서에는 Bing Web Search API 쿼리를 수행하고 JSON 형식의 반환된 원시 검색 결과를 표시하는 간단한 콘솔 응용 프로그램이 포함됩니다. PHP에서 이 응용 프로그램이 작성되는 반면 API는 RESTful 웹 서비스로서 HTTP를 요청하고 JSON을 구문 분석할 수 있는 모든 프로그래밍 언어와 호환됩니다. 
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 코드를 실행하려면 [PHP 5.6.x](http://php.net/downloads.php)가 필요합니다.
+이 빠른 시작을 실행하기 전에 필요한 몇 가지 조건은 다음과 같습니다.
 
-**Bing Search API**를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)이면 충분합니다. 평가판을 활성화할 때 제공된 액세스 키가 필요하며, Azure 대시보드에서 유료 구독 키를 사용해도 됩니다.
+* [PHP 5.6.x](http://php.net/downloads.php) 이상
+* 구독 키  
 
-## <a name="running-the-application"></a>응용 프로그램 실행
+## <a name="enable-secure-http-support"></a>보안 HTTP 지원 사용
 
-응용 프로그램을 실행하려면 다음 단계를 따릅니다.
+시작하기 전에 `php.ini`를 찾고 이 줄의 주석 처리를 제거합니다.
 
-1. 코드 주석에 설명된 대로 `php.ini`에서 안전한 HTTP 지원이 사용되도록 설정됐는지 확인합니다. Windows에서 이 파일은 `C:\windows`에 있습니다.
-2. 즐겨찾는 IDE 또는 편집기에서 새 PHP 프로젝트를 만듭니다.
-3. 제공된 코드를 추가합니다.
-4. `accessKey` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
-5. 프로그램을 실행합니다.
+```
+;extension=php_openssl.dll
+```
+
+## <a name="create-a-project-and-define-variables"></a>프로젝트 만들기 및 변수 정의  
+
+즐겨 찾는 IDE 또는 편집기에서 새 PHP 프로젝트를 만듭니다. 여는 `<?php` 태그 및 닫는 `?>` 태그를 추가하는 것을 잊지 마세요.
+
+계속하기 전에 몇 가지 변수를 설정해야 합니다. `$endpoint`가 올바른지 확인하고 `$accesskey` 값을 Azure 계정의 유효한 구독 키로 바꿉니다. `$term` 값을 바꿔 검색 쿼리를 사용자 지정할 수 있습니다.
 
 ```php
-<?php
-
-// NOTE: Be sure to uncomment the following line in your php.ini file.
-// ;extension=php_openssl.dll
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the accessKey string value with your valid access key.
 $accessKey = 'enter key here';
-
-// Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-// search APIs.  In the future, regional endpoints may be available.  If you
-// encounter unexpected authorization errors, double-check this value against
-// the endpoint for your Bing Web search instance in your Azure dashboard.
 $endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/search';
-
 $term = 'Microsoft Cognitive Services';
+```
 
+## <a name="construct-a-request"></a>요청 구성
+
+이 코드는 Bing Web Search API에 대한 요청을 구성하는 데 사용되는 `BingWebSearch`라는 함수를 선언합니다. `$url`, `$key` 및 `$query`의 세 가지 인수를 사용합니다.
+
+```php
 function BingWebSearch ($url, $key, $query) {
-    // Prepare HTTP request
-    // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    /* Prepare the HTTP request.
+     * NOTE: Use the key 'http' even if you are making an HTTPS request.
+     * See: http://php.net/manual/en/function.stream-context-create.php.
+     */
     $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
     $options = array ('http' => array (
                           'header' => $headers,
                            'method' => 'GET'));
 
-    // Perform the Web request and get the JSON response
+    // Perform the request and get a JSON response.
     $context = stream_context_create($options);
     $result = file_get_contents($url . "?q=" . urlencode($query), false, $context);
 
-    // Extract Bing HTTP headers
+    // Extract Bing HTTP headers.
     $headers = array();
     foreach ($http_response_header as $k => $v) {
         $h = explode(":", $v, 2);
@@ -83,18 +78,25 @@ function BingWebSearch ($url, $key, $query) {
 
     return array($headers, $result);
 }
+```
 
+## <a name="make-a-request-and-print-the-response"></a>요청 및 응답 출력
+
+이 코드는 구독 키의 유효성을 검사하고, 요청하고, 응답을 출력합니다.
+
+```php
+// Validates the subscription key.
 if (strlen($accessKey) == 32) {
 
     print "Searching the Web for: " . $term . "\n";
-    
+    // Makes the request.
     list($headers, $json) = BingWebSearch($endpoint, $accessKey, $term);
-    
+
     print "\nRelevant Headers:\n\n";
     foreach ($headers as $k => $v) {
         print $k . ": " . $v . "\n";
     }
-    
+    // Prints JSON encoded response.
     print "\nJSON Response:\n\n";
     echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 
@@ -104,12 +106,55 @@ if (strlen($accessKey) == 32) {
     print("Please paste yours into the source code.\n");
 
 }
+```
+
+## <a name="put-it-all-together"></a>모든 요소 결합
+
+마지막 단계는 코드의 유효성을 검사하고 실행하는 것입니다! 자신의 코드와 비교하려면 여기에 있는 완전한 프로그램을 사용하세요.
+
+```php
+<?php
+$accessKey = 'enter key here';
+$endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/search';
+$term = 'Microsoft Cognitive Services';
+
+function BingWebSearch ($url, $key, $query) {
+    $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
+    $options = array ('http' => array (
+                          'header' => $headers,
+                           'method' => 'GET'));
+    $context = stream_context_create($options);
+    $result = file_get_contents($url . "?q=" . urlencode($query), false, $context);
+    $headers = array();
+    foreach ($http_response_header as $k => $v) {
+        $h = explode(":", $v, 2);
+        if (isset($h[1]))
+            if (preg_match("/^BingAPIs-/", $h[0]) || preg_match("/^X-MSEdge-/", $h[0]))
+                $headers[trim($h[0])] = trim($h[1]);
+    }
+    return array($headers, $result);
+}
+
+if (strlen($accessKey) == 32) {
+    print "Searching the Web for: " . $term . "\n";
+    list($headers, $json) = BingWebSearch($endpoint, $accessKey, $term);
+    print "\nRelevant Headers:\n\n";
+    foreach ($headers as $k => $v) {
+        print $k . ": " . $v . "\n";
+    }
+    print "\nJSON Response:\n\n";
+    echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
+
+} else {
+    print("Invalid Bing Search API subscription key!\n");
+    print("Please paste yours into the source code.\n");
+}
 ?>
 ```
 
-## <a name="json-response"></a>JSON 응답
+## <a name="sample-response"></a>샘플 응답
 
-샘플 응답은 다음과 같습니다. JSON의 길이를 제한하기 위해 단일 결과만 표시하고 응답의 다른 부분은 잘라냈습니다. 
+Bing Web Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답은 단일 결과를 표시하도록 잘렸습니다.  
 
 ```json
 {
@@ -238,9 +283,4 @@ if (strlen($accessKey) == 32) {
 > [!div class="nextstepaction"]
 > [Bing Web Search 단일 페이지 앱 자습서](../tutorial-bing-web-search-single-page-app.md)
 
-## <a name="see-also"></a>참고 항목 
-
-[Bing Web Search 개요](../overview.md)  
-[사용해 보세요](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)  
-[평가판 액세스 키 받기](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)  
-[Bing Web Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
+[!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

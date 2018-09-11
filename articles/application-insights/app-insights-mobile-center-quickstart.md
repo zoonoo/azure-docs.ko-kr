@@ -11,12 +11,12 @@ ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: fd594e65de79844720462996a89477e0a6237ceb
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: e69cf8753fb0cc9326e047ec97cbe08ee6f26610
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988928"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668464"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>App Center 및 Application Insights를 사용하여 모바일 앱 분석 시작
 
@@ -68,9 +68,9 @@ Analytics.trackEvent("Video clicked")
 앱에서 사용자 지정 이벤트를 보내고 App Center에서 이러한 이벤트를 수신하면 Azure Portal에서 App Center 유형의 Application Insights 리소스를 만들어야 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **리소스 만들기** > **모니터링 + 관리** > **Application Insights**를 선택합니다.
+2. **리소스 만들기** > **관리 도구** > **Application Insights**를 선택합니다.
 
-    ![Application Insights 리소스 추가](./media/app-insights-mobile-center-quickstart/add.png)
+    ![Application Insights 리소스 추가](./media/app-insights-mobile-center-quickstart/add-b.png)
 
     구성 상자가 표시됩니다. 아래 표를 사용하여 입력 필드를 채웁니다.
 

@@ -162,7 +162,7 @@ items:
       href: devtest-lab-scale-lab.md
     - name: CI/CD와 통합
       items:
-      - name: VSTS CI/CD 파이프라인에 랩 통합
+      - name: Azure DevOps CI/CD 파이프라인에 랩 통합
         href: devtest-lab-integrate-ci-cd-vsts.md
     - name: Resource Manager 템플릿을 사용하여 랩 만들기 또는 수정
       href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
@@ -194,9 +194,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab
   - name: 가격
     href: https://azure.microsoft.com/pricing/details/devtest-lab/
-ms.openlocfilehash: a3e6dcc959474c79aeb06d05e7f722695471fd9f
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: c3beef6f5f955347459e30cc039fa78422a9902a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024451"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301121"

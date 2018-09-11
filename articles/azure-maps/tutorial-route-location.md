@@ -3,18 +3,18 @@ title: Azure Maps로 경로 찾기 | Microsoft Docs
 description: Azure Maps를 사용하여 관심 지점으로 라우팅
 author: dsk-2015
 ms.author: dkshir
-ms.date: 05/07/2018
+ms.date: 09/04/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 09828fade464c3b7b5f6eedaa16513e9eab49467
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 1ef4467862f47a833e0592c94c662170ca2946d8
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989645"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781452"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Azure Maps를 사용하여 관심 지점으로 라우팅
 
@@ -45,8 +45,9 @@ ms.locfileid: "38989645"
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, user-scalable=no" />
         <title>Map Route</title>
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1.0" type="text/css" />
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1.0"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css"/> 
+        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script> 
+        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.min.js?api-version=1"></script> 
         <style>
             html,
             body {
@@ -159,42 +160,39 @@ ms.locfileid: "38989645"
     });
     ```
 
-2. [XMLHttpRequest](https://xhr.spec.whatwg.org/)를 만들고, 이벤트 처리기를 추가하여 Maps 경로 서비스에서 보낸 JSON 응답을 구문 분석합니다. 이 코드는 경로의 선 세그먼트에 대한 좌표 배열을 만든 다음, 지도의 Linestring 계층에 좌표 집합을 추가합니다. 
-
+2.  스크립트 블록에 다음 Javascript 코드를 추가하여 클라이언트 서비스를 인스턴스합니다.
     ```JavaScript
-    // Perform a request to the route service and draw the resulting route on the map
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            var response = JSON.parse(xhttp.responseText);
-
-            var route = response.routes[0];
-            var routeCoordinates = [];
-            for (var leg of route.legs) {
-                var legCoordinates = leg.points.map((point) => [point.longitude, point.latitude]);
-                routeCoordinates = routeCoordinates.concat(legCoordinates);
-            }
-
-            var routeLinestring = new atlas.data.LineString(routeCoordinates);
-            map.addLinestrings([new atlas.data.Feature(routeLinestring)], { name: routeLinesLayerName });
-        }
-    };
+    var client = new atlas.service.Client(subscriptionKey);
     ```
 
-3. 다음 코드를 추가하여 쿼리를 작성하고 XMLHttpRequest를 Maps 경로 서비스로 보냅니다.
-
+3. 다음 블록의 코드를 추가하여 경로 쿼리 문자열을 생성합니다.
     ```JavaScript
-    var url = "https://atlas.microsoft.com/route/directions/json?";
-    url += "api-version=1.0";
-    url += "&subscription-key=" + MapsAccountKey;
-    url += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
-        destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
-
-    xhttp.open("GET", url, true);
-    xhttp.send();
+    // Construct the route query string 
+        var routeQuery = startPoint.coordinates[1] + 
+            "," + 
+            startPoint.coordinates[0] + 
+            ":" + 
+            destinationPoint.coordinates[1] + 
+            "," + 
+            destinationPoint.coordinates[0];     
     ```
 
-3. **MapRoute.html** 파일을 저장하고, 웹 브라우저를 새로 고칩니다. Maps API와 성공적으로 연결되면 다음과 비슷한 지도가 표시됩니다. 
+4. 경로를 가져오려면 다음 블록의 코드를 스크립트에 추가합니다. [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) 메서드를 통해 Azure Maps 라우팅 서비스를 쿼리한 다음, [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes)를 사용하여 GeoJSON 형식으로 응답을 구문 분석합니다. 그런 다음, 모든 응답 선을 맵에 추가하여 경로를 렌더링합니다. 자세한 내용은 [맵에 선 추가](./map-add-shape.md#addALine)를 참조하면 됩니다.
+
+    ```JavaScript
+    // Execute the query then add the route to the map once a response is received  
+    client.route.getRouteDirections(routeQuery).then(response => { 
+         // Parse the response into GeoJSON 
+         var geoJsonResponse = new atlas.service.geojson.GeoJsonRouteDirectionsResponse(response); 
+ 
+         // Get the first in the array of routes and add it to the map 
+         map.addLinestrings([geoJsonResponse.getGeoJsonRoutes().features[0]], { 
+             name: routeLinesLayerName 
+         }); 
+    }); 
+    ```
+
+5. **MapRoute.html** 파일을 저장하고, 웹 브라우저를 새로 고칩니다. Maps API와 성공적으로 연결되면 다음과 비슷한 지도가 표시됩니다.
 
     ![Azure 맵 컨트롤 및 Route Service](./media/tutorial-route-location/map-route.png)
 

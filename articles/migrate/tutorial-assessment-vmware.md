@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 08/20/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 65f1d6b448e6c0f16d51e1a4b8b897f52052ff15
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 00d416d6211d9a67a69eb22620bdac6a501e23e7
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127633"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666667"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Azure로의 마이그레이션에 대한 온-프레미스 VMware VM 검색 및 평가
 
@@ -82,6 +82,14 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. 생성된 해시는 이러한 설정에 일치해야 합니다.
+
+  OVA 버전 1.0.9.14의 경우
+
+    **알고리즘** | **해시 값**
+    --- | ---
+    MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
+    SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
+    SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
 
   OVA 버전 1.0.9.12의 경우
 

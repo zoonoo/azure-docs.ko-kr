@@ -12,20 +12,22 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: sngun
 ms.custom: devcenter
-ms.openlocfilehash: be8b99f8cf291d2e09187344aa458420db92364e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d433eeb7d63282868b8919ee8c53283080bf8b59
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38237650"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701061"
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB: SQL API 및 .NET Core 시작
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [MongoDB용 Node.js](mongodb-samples.md)
+> * [Java](sql-api-java-get-started.md)
+> * [비동기 Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
-> * [Java](sql-api-java-get-started.md)  
+> * [Node.js- v2](sql-api-nodejs-get-started-preview.md) 
 > 
 
 Azure Cosmos DB SQL API .NET Core 시작 자습서를 시작합니다. 이 자습서를 따라 하면 Azure Cosmos DB 리소스를 만들고 쿼리하는 콘솔 응용 프로그램이 생깁니다.
@@ -114,7 +116,7 @@ class Program
 
 Azure Portal에서 Azure Cosmos DB 계정으로 이동한 다음 **키**를 클릭합니다.
 
-포털에서 URI를 복사하고 program.cs 파일의 `<your endpoint URI>` 에 붙여 넣습니다. 그런 다음 포털에서 기본 키를 복사하고 `<your key>`에 붙여 넣습니다. Azure Cosmos DB 에뮬레이터를 사용하는 경우 끝점으로 `https://localhost:8081`과, [Azure Cosmos DB 에뮬레이터를 사용한 개발 방법](local-emulator.md)에서 잘 정의된 권한 부여 키를 사용합니다. < 및 >를 반드시 제거하고 끝점 및 키를 묶은 큰따옴표는 유지합니다.
+포털에서 URI를 복사하고 program.cs 파일의 `<your endpoint URI>` 에 붙여 넣습니다. 그런 다음 포털에서 기본 키를 복사하고 `<your key>`에 붙여 넣습니다. Azure Cosmos DB 에뮬레이터를 사용하는 경우 엔드포인트로 `https://localhost:8081`과, [Azure Cosmos DB 에뮬레이터를 사용한 개발 방법](local-emulator.md)에서 잘 정의된 권한 부여 키를 사용합니다. &lt; 및 &gt;를 반드시 제거하고 엔드포인트 및 키를 묶은 큰따옴표는 유지합니다.
 
 ![C# 콘솔 응용 프로그램을 만들기 위해 NoSQL 자습서에서 사용하는 Azure Portal의 스크린샷 액티브 허브, Azure Cosmos DB 계정 페이지의 키 단추 및 키 페이지의 URI, 기본 키 및 보조 키 값이 강조 표시된 Azure Cosmos DB 계정을 보여 줌][keys]
 

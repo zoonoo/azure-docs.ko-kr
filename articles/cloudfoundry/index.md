@@ -11,12 +11,12 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
 ms.author: carolz
-ms.openlocfilehash: 307f9988246f94c26e63bf8a26052890867aabbc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 850ed1418a8880e30273f62aec3b3420c41b2ef6
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608987"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294520"
 ---
 <div class="content">
     <h1>Azure의 Cloud Foundry</h1>
@@ -38,7 +38,7 @@ Cloud Foundry는 다양한 언어 및 프레임워크로 개발되는 12개 요�
 <a href="https://pivotal.io/partners/microsoft">Azure의 Pivotal Cloud Foundry</a><br/>
 <a href="/azure/cloudfoundry/how-cloud-foundry-integrates-with-azure">Azure와 Cloud Foundry 통합</a><br/>
 <a href="https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html">Azure에 Cloud Foundry 설치</a><br/>
-<a href="https://github.com/Microsoft/vsts-cloudfoundry">Cloud Foundry용 Visual Studio Team Services 플러그인</a><br/>
+<a href="https://github.com/Microsoft/vsts-cloudfoundry">Cloud Foundry에 대한 Azure DevOps 플러그 인</a><br/>
 <a href="https://github.com/Azure/oms-log-analytics-firehose-nozzle">Cloud Foundry용 Microsoft Log Analytics 노즐</a><br/>
 <a href="https://docs.cloudfoundry.org/">Cloud Foundry에 대해 알아보기</a><br/>
 </div>

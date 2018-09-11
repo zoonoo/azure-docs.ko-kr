@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f6f3d9625e5469823a9c0c6eb6b549a6eaaeb0e9
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 1a7f91a0d15dd67d86f83485b4aad01a3bae37b3
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41924815"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699072"
 ---
 # <a name="tutorial-stream-azure-ad-logs-to-an-azure-event-hub-preview"></a>자습서: Azure 이벤트 허브로 Azure AD 로그 스트리밍(미리 보기)
 
@@ -34,7 +34,7 @@ ms.locfileid: "41924815"
 * Azure 구독. Azure 구독이 없으면 [평가판](https://azure.microsoft.com/free/)에 등록할 수 있습니다.
 * Azure AD 테넌트.
 * Azure AD 테넌트의 *글로벌 관리자* 또는 *보안 관리자*인 사용자.
-* Azure 구독의 Event Hubs 네임스페이스 및 이벤트 허브. [이벤트 허브를 만드는 방법](https://docs.microsoft.com/azure/event-hubs/event-hubs-create.md)을 알아봅니다.
+* Azure 구독의 Event Hubs 네임스페이스 및 이벤트 허브. [이벤트 허브를 만드는 방법](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)을 알아봅니다.
 
 ## <a name="archive-logs-to-an-event-hub"></a>이벤트 허브에 로그 보관
 
@@ -87,6 +87,6 @@ ms.locfileid: "41924815"
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Monitor를 사용하여 Splunk와 Azure AD 로그 통합](tutorial-integrate-activity-logs-with-splunk.md)
-* [Azure AD Sumo Logic 앱을 설치하고 대시보드 보기](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards)
+* [Azure Monitor를 사용하여 SumoLogic과 Azure AD 로그 통합](howto-integrate-activity-logs-with-sumologic.md)
 * [Azure Monitor에서 감사 로그 스키마 해석](reference-azure-monitor-audit-log-schema.md)
 * [Azure Monitor에서 로그인 로그 스키마 해석](reference-azure-monitor-sign-ins-log-schema.md)

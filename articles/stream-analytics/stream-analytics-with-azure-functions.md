@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: jasonh
 ms.reviewer: jasonh
-ms.openlocfilehash: 1d33c3f0a4c36dc681aaa42bc68ae56eec234401
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0408ea6ead1ddf482ce0a07c21859af80ab6ca43
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31416026"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697818"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업에서 Azure Functions 실행 
 
@@ -62,7 +62,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. Functions 설명서의 [함수 앱 만들기](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) 섹션을 참조하십시오. 이 연습에서는 CSharp 언어를 사용하여 [Azure Functions에서 함수 앱 및 HTTP 트리거 함수](../azure-functions/functions-create-first-azure-function.md#create-function)를 만드는 방법을 살펴봅니다.  
 
-2. **run.csx** 함수를 찾습니다. 다음 코드로 업데이트합니다. (“\<redis 캐시 연결 문자열이 여기에 표시됩니다.\>”를 이전 섹션에서 검색한 Azure Redis Cache 기본 연결 문자열로 바꿉니다.)  
+2. **run.csx** 함수를 찾습니다. 다음 코드로 업데이트합니다. ("\<redis 캐시 연결 문자열이 여기에 표시됩니다.\>"를 이전 섹션에서 검색한 Azure Redis Cache 기본 연결 문자열로 바꿉니다.)  
 
    ```csharp
    using System;
@@ -166,7 +166,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 3. 출력 별칭의 이름을 제공합니다. 이 자습서에서는 이름을 **saop1**이라고 지정합니다(원하는 이름을 사용할 수 있음). 기타 세부 정보를 채웁니다.  
 
-4. Stream Analytics 작업을 열고 쿼리를 다음과 같이 업데이트합니다. (출력 싱크 이름을 다르게 지정한 경우 “saop1” 텍스트를 바꾸는지 확인합니다.)  
+4. Stream Analytics 작업을 열고 쿼리를 다음과 같이 업데이트합니다. (출력 싱크 이름을 다르게 지정한 경우 "saop1" 텍스트를 바꾸는지 확인합니다.)  
 
    ```sql
     SELECT 
@@ -203,7 +203,7 @@ Azure 포털에서 최대 일괄 처리 크기/최대 일괄 처리 수 값을 �
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않으면 리소스 그룹, 스트리밍 작업 및 모든 관련 리소스를 삭제합니다. 작업을 삭제하면 작업에서 사용된 스트리밍 단위에 대한 청구를 방지합니다. 작업을 나중에 사용하려는 경우 중지하고 필요할 때 나중에 다시 시작할 수 있습니다. 이 작업을 계속 사용하지 않으려면 다음 단계를 사용하여 이 빠른 시작에서 만든 리소스를 모두 삭제합니다.
+더 이상 필요하지 않으면 리소스 그룹, 스트리밍 작업 및 모든 관련 리소스를 삭제합니다. 작업을 삭제하면 작업에서 사용되는 스트리밍 단위에 대한 청구를 방지합니다. 작업을 나중에 사용하려는 경우 중지하고 필요할 때 나중에 다시 시작할 수 있습니다. 이 작업을 계속 사용하지 않으려면 다음 단계를 사용하여 이 빠른 시작에서 만든 리소스를 모두 삭제합니다.
 
 1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 클릭한 다음 만든 리소스의 이름을 클릭합니다.  
 2. 리소스 그룹 페이지에서 **삭제**를 클릭하고 텍스트 상자에서 삭제할 리소스의 이름을 입력한 다음 **삭제**를 클릭합니다.

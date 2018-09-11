@@ -12,22 +12,23 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 07/30/2018
 ms.author: dech
-ms.openlocfilehash: f959bec42bf225f6893a5f29135dde37e5b9ebba
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: bb7c5c48a137c559cd0276de69cc2964bb6ed574
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43043019"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698233"
 ---
 # <a name="nodejs-tutorial-create-a-nodejs-console-application-with-azure-cosmos-db-sql-api-and-javascript-sdk-20-preview"></a>Node.js 자습서: Azure Cosmos DB SQL API 및 JavaScript SDK 2.0(미리 보기)을 사용하여 Node.js 콘솔 응용 프로그램 만들기
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [Node.js](sql-api-nodejs-get-started.md)
-> * [Node.js - v2.0 미리 보기](sql-api-nodejs-get-started-preview.md)
-> * [MongoDB용 Node.js](mongodb-samples.md)
 > * [Java](sql-api-java-get-started.md)
+> * [비동기 Java](sql-api-async-java-get-started.md)
+> * [Node.js](sql-api-nodejs-get-started.md)
+> * [Node.js- v2](sql-api-nodejs-get-started-preview.md) 
+> 
 
 
 Azure Cosmos DB JavaScript SDK용 Node.js 자습서를 시작합니다. 이 자습서를 따라 하면 Azure Cosmos DB 리소스를 만들고 쿼리하는 콘솔 응용 프로그램이 생깁니다.

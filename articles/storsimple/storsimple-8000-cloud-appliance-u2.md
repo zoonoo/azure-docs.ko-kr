@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 4d47b5426da5d857085991767faa5fb227476408
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 77154d596eb9202c4f9d1063ba7f4e1ec4855181
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852339"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665008"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Azure에서 StorSimple Cloud Appliance 배포 및 관리(업데이트 3 이상)
 
@@ -168,22 +168,22 @@ Windows PowerShell 인터페이스를 통한 클라우드 어플라이언스에 
 
 ### <a name="step-2-remotely-access-the-cloud-appliance"></a>2단계: 클라우드 어플라이언스에 원격으로 액세스
 
-클라우드 어플라이언스에서 원격 관리를 사용하도록 설정한 후 Windows PowerShell 원격을 사용하여 동일한 가상 네트워크 내 다른 가상 머신에서 어플라이언스에 연결합니다. 예를 들어 iSCSI 연결을 위해 구성 및 사용한 호스트 VM에서 연결할 수 있습니다. 대부분의 배포에서는 클라우드 어플라이언스에 액세스하기 위해 사용할 수 있는 호스트 VM에 액세스하기 위해 공용 끝점이 열려 있습니다.
+클라우드 어플라이언스에서 원격 관리를 사용하도록 설정한 후 Windows PowerShell 원격을 사용하여 동일한 가상 네트워크 내 다른 가상 머신에서 어플라이언스에 연결합니다. 예를 들어 iSCSI 연결을 위해 구성 및 사용한 호스트 VM에서 연결할 수 있습니다. 대부분의 배포에서는 클라우드 어플라이언스에 액세스하기 위해 사용할 수 있는 호스트 VM에 액세스하기 위해 공용 엔드포인트가 열려 있습니다.
 
 > [!WARNING]
-> **보안 강화를 위해 끝점에 연결할 때 HTTPS를 사용하고 PowerShell 원격 세션을 완료한 후 끝점을 삭제하는 것이 좋습니다.**
+> **보안 강화를 위해 엔드포인트에 연결할 때 HTTPS를 사용하고 PowerShell 원격 세션을 완료한 후 엔드포인트를 삭제하는 것이 좋습니다.**
 
 [StorSimple 장치에 원격으로 연결](storsimple-8000-remote-connect.md)의 절차에 따라 클라우드 어플라이언스에 대한 원격 서비스를 설정해야 합니다.
 
 ## <a name="connect-directly-to-the-cloud-appliance"></a>클라우드 어플라이언스에 직접 연결
 
-클라우드 어플라이언스에 직접 연결할 수도 있습니다. Microsoft Azure 환경 외부 또는 가상 네트워크 외부의 다른 컴퓨터에서 클라우드 어플라이언스에 직접 연결하려는 경우 추가 끝점을 만들어야 합니다.
+클라우드 어플라이언스에 직접 연결할 수도 있습니다. Microsoft Azure 환경 외부 또는 가상 네트워크 외부의 다른 컴퓨터에서 클라우드 어플라이언스에 직접 연결하려는 경우 추가 엔드포인트를 만들어야 합니다.
 
-클라우드 어플라이언스에 공용 끝점을 만들려면 다음 단계를 수행합니다.
+클라우드 어플라이언스에 공용 엔드포인트를 만들려면 다음 단계를 수행합니다.
 
 [!INCLUDE [Create public endpoints on a cloud appliance](../../includes/storsimple-8000-create-public-endpoints-cloud-appliance.md)]
 
-가상 네트워크의 공용 끝점의 수를 최소화하기 때문에 동일한 가상 네트워크 내 다른 가상 머신에서 연결하는 것이 좋습니다. 이 경우, 원격 데스크톱 세션을 통해 연결한 다음 로컬 네트워크의 다른 Windows 클라이언트와 같이 가상 머신을 사용하도록 구성하면 됩니다. 포트를 이미 알 수 있으므로 공용 포트 번호를 추가할 필요가 없습니다.
+가상 네트워크의 공용 엔드포인트의 수를 최소화하기 때문에 동일한 가상 네트워크 내 다른 가상 머신에서 연결하는 것이 좋습니다. 이 경우, 원격 데스크톱 세션을 통해 연결한 다음 로컬 네트워크의 다른 Windows 클라이언트와 같이 가상 머신을 사용하도록 구성하면 됩니다. 포트를 이미 알 수 있으므로 공용 포트 번호를 추가할 필요가 없습니다.
 
 ## <a name="get-private-ip-for-the-cloud-appliance"></a>클라우드 어플라이언스에 대한 개인 IP 가져오기
 
@@ -265,7 +265,7 @@ StorSimple Cloud Appliance를 이전에 구성하고 사용했지만 이제 용�
 ## <a name="troubleshoot-internet-connectivity-errors"></a>인터넷 연결 오류 문제 해결
 클라우드 어플라이언스를 만드는 동안 인터넷에 연결되지 않은 경우 생성 단계가 실패합니다. 인터넷 연결 오류 문제를 해결하려면 Azure Portal에서 다음 단계를 수행합니다.
 
-1. [Azure에서 Windows Server 2012 가상 머신을 만듭니다](/articles/virtual-machines/windows/quick-create-portal.md). 이 가상 머신은 클라우드 어플라이언스에서 사용한 동일한 저장소 계정, VNet 및 서브넷을 사용해야 합니다. Azure에서 동일한 저장소 계정, VNet 및 서브넷을 사용하는 기존 Windows Server 호스트가 있는 경우 인터넷 연결 문제를 해결하는 데 사용할 수 있습니다.
+1. [Azure Portal에서 Windows 가상 머신 만들기](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal) 이 가상 머신은 클라우드 어플라이언스에서 사용한 동일한 저장소 계정, VNet 및 서브넷을 사용해야 합니다. Azure에서 동일한 저장소 계정, VNet 및 서브넷을 사용하는 기존 Windows Server 호스트가 있는 경우 인터넷 연결 문제를 해결하는 데 사용할 수 있습니다.
 2. 이전 단계에서 만든 가상 머신에 원격 로그인합니다.
 3. 가상 머신 내의 명령 창을 엽니다(Win + R 및 `cmd`을 입력).
 4. 프롬프트에서 다음 cmd를 실행합니다.

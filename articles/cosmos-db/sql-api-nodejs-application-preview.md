@@ -11,21 +11,22 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 07/31/2018
 ms.author: sngun
-ms.openlocfilehash: 43c5b8beef523684a405f1396ad0a9d862c123e8
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 8e788207e99a87e9635fbf668ad99c21ca101ecf
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41918837"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697118"
 ---
 # <a name="_Toc395783175"></a>Azure Cosmos DB 및 Node.js SDK(미리 보기)를 사용하여 Node.js 웹 응용 프로그램 빌드
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
-> * [Node.js](sql-api-nodejs-application.md)
-> * [Node.js - v2.0 미리 보기](sql-api-nodejs-application-preview.md)
 > * [Java](sql-api-java-application.md)
+> * [Node.js](sql-api-nodejs-application.md)
+> * [Node.js- v2](sql-api-nodejs-application-preview.md)
 > * [Python](sql-api-python-application.md)
-> 
+> * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
 이 Node.js 자습서에서는 Azure Cosmos DB SQL API 계정을 사용하여 Azure Websites에 호스트되는 Node.js Express 응용 프로그램의 데이터를 저장하고 액세스하는 방법을 보여줍니다. 이 자습서에서는 작업을 만들고 검색하고 완료할 수 있는 간단한 웹 기반 응용 프로그램(Todo 앱)을 빌드하겠습니다. 작업은 Azure Cosmos DB에 JSON 문서로 저장됩니다. 다음 이미지는 Todo 응용 프로그램의 스크린샷을 보여줍니다.
