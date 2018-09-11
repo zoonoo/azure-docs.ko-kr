@@ -9,29 +9,29 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 08/24/2018
 ms.author: diberry
-ms.openlocfilehash: c6ad30340e0800e475af9a9fefa0af7df1769f6c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: fbd8b467fa3894d9cf58e1c8cb78ee00ebd0965e
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43750584"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44156856"
 ---
 # <a name="quickstart-change-model-using-nodejs"></a>빠른 시작: Node.js를 사용하여 모델 변경
 
-[!include[Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+[!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
-[!include[Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
+[!INCLUDE [Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 * NPM를 사용하는 최신 [**Node.js**](https://nodejs.org/en/download/)
 * 이 아티클에 대한 NPM 종속성은 [**request**](https://www.npmjs.com/package/request), [**request-promise**](https://www.npmjs.com/package/request-promise), [**fs-extra**](https://www.npmjs.com/package/fs-extra)입니다.  
 * [Visual Studio Code](https://code.visualstudio.com/)
 
-[!include[Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+[!INCLUDE [Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
 ## <a name="example-utterances-json-file"></a>예제 발언 JSON 파일
 
-[!include[Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
+[!INCLUDE [Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
 
 ## <a name="create-quickstart-code"></a>빠른 시작 코드 만들기 
 
@@ -83,7 +83,7 @@ Node.js를 사용하여 명령줄의 응용 프로그램을 실행합니다.
 
 이 명령줄은 add utterances API를 호출한 결과를 표시합니다. 
 
-[!include[Quickstart response from API calls](../../../includes/cognitive-services-luis-qs-change-model-json-results.md)]
+[!INCLUDE [Quickstart response from API calls](../../../includes/cognitive-services-luis-qs-change-model-json-results.md)]
 
 
 ## <a name="clean-up-resources"></a>리소스 정리

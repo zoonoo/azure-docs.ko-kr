@@ -9,28 +9,28 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 08/24/2018
 ms.author: diberry
-ms.openlocfilehash: 2554854507d127a7cf3ce016ed38310049b2c958
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: ddb22bce77dda55ad6e83efa8c0ca2c476f78836
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43750592"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161121"
 ---
 # <a name="quickstart-change-model-using-java"></a>빠른 시작: Java를 사용하여 모델 변경 
 
-[!include[Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
-[!include[Quickstart prerequisites for endpoint](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
+[!INCLUDE [Quickstart prerequisites for endpoint](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 * [JDK SE](http://www.oracle.com/technetwork/java/javase/downloads/index.html)(Java Development Kit, Standard Edition)
 * [Google의 GSON JSON 라이브러리](https://github.com/google/gson)
 
-[!include[Quickstart note about code repository](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+[!INCLUDE [Quickstart note about code repository](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
 ## <a name="example-utterances-json-file"></a>예제 발언 JSON 파일
 
-[!include[Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
+[!INCLUDE [Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
 
 ## <a name="create-quickstart-code"></a>빠른 시작 코드 만들기
 
@@ -83,7 +83,7 @@ ms.locfileid: "43750592"
 
 이 명령줄은 add utterances API를 호출한 결과를 표시합니다. 
 
-[!include[Quickstart response from API calls](../../../includes/cognitive-services-luis-qs-change-model-json-results.md)]
+[!INCLUDE [Quickstart response from API calls](../../../includes/cognitive-services-luis-qs-change-model-json-results.md)]
 
 ## <a name="clean-up-resources"></a>리소스 정리
 빠른 시작을 완료하면 이 빠른 시작에서 생성된 모든 파일을 제거하세요. 

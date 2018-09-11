@@ -9,28 +9,28 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 08/24/2018
 ms.author: diberry
-ms.openlocfilehash: ae2d3624cb3f8314a613af356730fb1d8b5d4b29
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 31840f34b99bbb474776ce81a7f87df94a0e338e
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43750585"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44156990"
 ---
 # <a name="quickstart-change-model-using-php"></a>빠른 시작: PHP를 사용하여 모델 변경 
 
-[!include[Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+[!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
-[!include[Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
+[!INCLUDE [Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 * 최신 [**PHP**](http://php.net/)
 * Openssl이 PHP에 대한 종속성으로 지원되는지 확인합니다.  
 
-[!include[Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+[!INCLUDE [Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
 ## <a name="example-utterances-json-file"></a>예제 발언 JSON 파일
 
-[!include[Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
+[!INCLUDE [Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
 
 ## <a name="create-quickstart-code"></a>빠른 시작 코드 만들기 
 

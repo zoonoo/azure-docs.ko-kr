@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: a2ad07809963560b1225ff07b095509c93618996
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 26f8880d01da00780317ee2a6f66ee5007576a50
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160424"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347667"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack의 Managed Disks: 차이점 및 고려 사항
 이 문서에서는 Azure Stack의 Managed Disks 및 azure Managed Disks의 알려진된 차이점을 요약 합니다. Azure Stack 및 Azure 간의 대략적인 차이 대 한 자세한 내용은 참조는 [고려 사항 키](azure-stack-considerations.md) 문서.
@@ -38,7 +38,7 @@ Managed Disks를 관리 하 여 IaaS Vm 용 디스크 관리를 간소화 합니
 |재해 복구 옵션 |Azure Site Recovery 지원 |아직 지원 되지 않음|
 |디스크 유형     |Premium SSD, 표준 SSD (미리 보기) 및 표준 HDD |Premium SSD, HDD 표준 |
 |프리미엄 디스크  |완전하게 지원 |성능 제한이 있지만 프로비저닝할 수 있습니다 또는 보장  |
-|프리미엄 디스크  |IOPs  |종속 디스크 크기 2300 IOPs 디스크 |
+|프리미엄 디스크 IOPs  |디스크 크기에 따라 달라 집니다.  |디스크당 IOPs는 2300까지 |
 |프리미엄 디스크 처리량 |디스크 크기에 따라 달라 집니다. |디스크당 초당 145 MB |
 |디스크의 최대 크기  |4 TB       |1TB       |
 |디스크 성능 분석 |메트릭을 집계 하 고 지원 되는 디스크 메트릭 당 |아직 지원 되지 않음 |

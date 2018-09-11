@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: af7c0f9d7e02e4a3074f2fddbdf8a6e0ab52d423
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: ec3b1f43c7b89a545ee5bb26c4cc0d068a993021
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024327"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295856"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>Azure Stack에서 Azure CLI 2.0을 사용 하 여 API 버전 프로필 사용
 
@@ -160,8 +160,11 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
 
    ```azurecli
    az cloud update \
-     --profile 2017-03-09-profile
+     --profile 2018-03-01-hybrid
    ```
+
+    >[!NOTE]  
+    >API 버전 프로필을 사용 하는 1808 빌드 전에 Azure Stack의 버전을 실행 하는 경우 **2017-03-09-profile** API 버전 프로필 대신 **2018-03-01-하이브리드**합니다.
 
 1. 사용 하 여 Azure Stack 환경에 로그인 합니다 `az login` 명령입니다. 로그인 할 수 있습니다 Azure Stack 환경에 사용자 또는으로 [서비스 주체](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects)합니다. 
 

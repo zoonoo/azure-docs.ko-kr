@@ -9,29 +9,29 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 08/24/2018
 ms.author: diberry
-ms.openlocfilehash: fee0f9009e7ce6cef839010f68ae3487067152b9
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 0c631fe281587c86f26643367aead14683b699df
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43750589"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160918"
 ---
 # <a name="quickstart-change-model-using-c"></a>빠른 시작: C#을 사용하여 모델 변경
 
-[!include[Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-change-model-intro-para.md)]
+[!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-change-model-intro-para.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
-[!include[Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
+[!INCLUDE [Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 * 최신 [**Visual Studio Community Edition**](https://www.visualstudio.com/downloads/)
 * C# 프로그래밍 언어가 설치되어 있습니다.
 * [JsonFormatterPlus](https://www.nuget.org/packages/JsonFormatterPlus) 및 [CommandLine](https://www.nuget.org/packages/CommandLineParser/) NuGet 패키지
 
-[!include[Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+[!INCLUDE [Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
 ## <a name="example-utterances-json-file"></a>예제 발언 JSON 파일
 
-[!include[Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
+[!INCLUDE [Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
 
 ## <a name="create-quickstart-code"></a>빠른 시작 코드 만들기 
 
@@ -133,7 +133,7 @@ ConsoleApp\bin\Debug> ConsoleApp1.exe --add utterances.json --train --status
 
 이 명령줄은 add utterances API를 호출한 결과를 표시합니다. 
 
-[!include[Quickstart response from API calls](../../../includes/cognitive-services-luis-qs-change-model-json-results.md)]
+[!INCLUDE [Quickstart response from API calls](../../../includes/cognitive-services-luis-qs-change-model-json-results.md)]
 
 ## <a name="clean-up-resources"></a>리소스 정리
 빠른 시작을 완료하면 이 빠른 시작에서 생성된 모든 파일을 제거하세요. 

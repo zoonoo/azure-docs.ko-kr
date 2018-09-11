@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-stack
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 0e03b524834f528ddb7555a344fbebe720b4d9ff
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d3c89e2028986e05d5d3957c9805d22f07a840b3
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446978"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298117"
 ---
 # <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Azure Stack Ethereum 블록 체인 솔루션 템플릿
 
@@ -25,16 +25,14 @@ Ethereum 솔루션 템플릿에 쉽고 빠르게 배포 하 고 한 지식이 �
 
 ## <a name="prerequisites"></a>필수 조건
 
-다음을 다운로드 [마켓플레이스에서](azure-stack-download-azure-marketplace-item.md):
+최신 항목을 다운로드 [마켓플레이스에서](azure-stack-download-azure-marketplace-item.md):
 
-* Ubuntu Server 16.04 LTS 버전 16.04.201802220
-* Windows Server 2016 
-* Linux 2.0에 대 한 사용자 지정 스크립트 
-* 사용자 지정 스크립트 확장 
+* Ubuntu Server 16.04 LTS
+* Windows Server 2016
+* Linux 2.0에 대 한 사용자 지정 스크립트
+* Windows용 사용자 지정 스크립트 확장
 
-Azure에서 블록 체인 시나리오에 대 한 자세한 내용은 참조 [Ethereum 작업 증명 컨소시엄 솔루션 템플릿](../blockchain-workbench/ethereum-deployment-guide.md)합니다.
-
-여러 virtual machines 배포를 지원할 수 있는 Azure 구독이 필요 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
+블록 체인 시나리오에 대 한 자세한 내용은 참조 하세요. [Ethereum 작업 증명 컨소시엄 솔루션 템플릿](../blockchain-workbench/ethereum-deployment-guide.md)합니다.
 
 ## <a name="deployment-architecture"></a>배포 아키텍처
 
@@ -43,6 +41,7 @@ Azure에서 블록 체인 시나리오에 대 한 자세한 내용은 참조 [Et
 ## <a name="deployment-use-cases"></a>배포 사용 사례
 
 템플릿을 리더 및 다양 한 방법으로 멤버 조인에 대 한 Ethereum 컨소시엄을 배포할 수, 테스트를 거친 것 같습니다.
+
 - Azure AD 또는 AD FS 사용 하 여 다중 노드 Azure Stack 배포 리더와 동일한 구독을 사용 하 여 멤버 또는 다른 구독을 사용 하 여 합니다.
 - (사용 하 여 Azure AD)는 단일 노드 Azure Stack에서 잠재 고객 및 동일한 구독을 사용 하 여 멤버를 배포 합니다.
 

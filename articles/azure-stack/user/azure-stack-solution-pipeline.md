@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/04/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 391cc4ca4b34149aeda54a60bfe6f6949e5a379b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 773acd3a22244403548ef4ce35164291f5c0be7d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697750"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300838"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack에 앱 배포
 
@@ -30,7 +30,7 @@ Azure 및 하이브리드 지속적인 통합/지속적인 업데이트 (CI/CD) 
 이 자습서에서는 샘플 환경을 만듭니다.
 
 > [!div class="checklist"]
-> * Visual Studio Team Services (VSTS) 리포지토리에 코드 커밋을 기반으로 새 빌드를 시작 합니다.
+> * Azure DevOps 서비스 리포지토리에 코드 커밋을 기반으로 새 빌드를 시작 합니다.
 > * 자동으로 사용자 수용 테스트에 대 한 전역 Azure에 앱을 배포 합니다.
 > * 코드 테스트에 통과 하면 자동으로 Azure Stack에 앱을 배포 합니다.
 
@@ -81,30 +81,30 @@ CI 및 CD에 대 한 자세한 정보를 알아보려면:
  * 만들 [계획/제품](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) Azure Stack의 합니다.
  * 만들기는 [테 넌 트 구독](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) Azure Stack에서.
  * 테 넌 트 구독에 웹 앱을 만듭니다. 나중에 사용 하 여 새 웹 앱 url에 대 한 참고를 확인 합니다.
- * 테 넌 트 구독에 VSTS 가상 컴퓨터를 배포 합니다.
+ * 테 넌 트 구독에 Azure DevOps 서비스 가상 컴퓨터를 배포 합니다.
 * 가상 컴퓨터 (VM)를 위한.NET 3.5를 사용 하 여 Windows Server 2016 이미지를 제공 합니다. 개인 빌드 에이전트로이 VM에 Azure Stack에서 빌드됩니다.
 
 ### <a name="developer-tool-requirements"></a>개발자 도구 요구 사항
 
-* 만들기는 [VSTS 작업 영역](https://docs.microsoft.com/vsts/repos/tfvc/create-work-workspaces)합니다. 등록 프로세스 라는 프로젝트를 만듭니다 **MyFirstProject**합니다.
-* [Visual Studio 2017 설치](https://docs.microsoft.com/visualstudio/install/install-visual-studio) 하 고 [VSTS에 로그인](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services)합니다.
+* 만들기는 [Azure DevOps 서비스 작업 영역](https://docs.microsoft.com/azure/devops/repos/tfvc/create-work-workspaces)합니다. 등록 프로세스 라는 프로젝트를 만듭니다 **MyFirstProject**합니다.
+* [Visual Studio 2017 설치](https://docs.microsoft.com/visualstudio/install/install-visual-studio) 하 고 [Azure DevOps 서비스에 로그인](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services)합니다.
 * 프로젝트에 연결 하 고 [로컬로 복제할](https://www.visualstudio.com/docs/git/gitquickstart)합니다.
 
  > [!Note]
  > Azure Stack 환경과 Windows Server 및 SQL Server를 실행 하려면 신디케이티드 올바른 이미지가 필요 합니다. App Service에서 배포도 있어야 합니다.
 
-## <a name="prepare-the-private-build-and-release-agent-for-visual-studio-team-services-integration"></a>개인 빌드 및 릴리스 에이전트를 Visual Studio Team Services 통합을 준비
+## <a name="prepare-the-private-azure-pipelines-agent-for-azure-devops-services-integration"></a>Azure DevOps 서비스 통합에 대 한 개인 Azure 파이프라인 에이전트 준비
 
 ### <a name="prerequisites"></a>필수 조건
 
-Visual Studio Team Services (VSTS)에 대 한 Azure Resource Manager는 서비스 주체를 사용 하 여 인증 합니다. VSTS에 있어야 합니다 **참가자** Azure Stack 구독에 리소스를 프로 비전 하는 역할입니다.
+Azure DevOps 서비스에 대 한 Azure Resource Manager는 서비스 주체를 사용 하 여 인증 합니다. Azure DevOps 서비스에 있어야 합니다 **참가자** Azure Stack 구독에 리소스를 프로 비전 하는 역할입니다.
 
 다음 단계 인증을 구성 하는 데 필요한 항목을 설명 합니다.
 
 1. 서비스 주체를 만들거나 기존 서비스 주체를 사용 합니다.
 2. 서비스 주체에 대 한 인증 키를 만듭니다.
 3. 주체 이름 SPN (서비스)는 참가자 역할의 일부가 되도록 수 있도록 역할 기반 Access Control 통해 Azure Stack 구독을 확인 합니다.
-4. Azure Stack 끝점 및 SPN 정보를 사용 하 여 VSTS에서 새 서비스 정의 만듭니다.
+4. Azure Stack 끝점 및 SPN 정보를 사용 하 여 Azure DevOps 서비스에서 새 서비스 정의 만듭니다.
 
 ### <a name="create-a-service-principal"></a>서비스 주체 만들기
 
@@ -122,7 +122,7 @@ Visual Studio Team Services (VSTS)에 대 한 Azure Resource Manager는 서비�
 
     ![응용 프로그램 선택](media\azure-stack-solution-hybrid-pipeline\000_01.png)
 
-2. 값을 기록해 **응용 프로그램 ID**합니다. VSTS에서 서비스 끝점을 구성 하는 경우 해당 값을 사용 합니다.
+2. 값을 기록해 **응용 프로그램 ID**합니다. Azure DevOps 서비스에서 서비스 끝점을 구성 하는 경우 해당 값을 사용 합니다.
 
     ![응용 프로그램 UI](media\azure-stack-solution-hybrid-pipeline\000_02.png)
 
@@ -144,7 +144,7 @@ Visual Studio Team Services (VSTS)에 대 한 Azure Resource Manager는 서비�
 
 ### <a name="get-the-tenant-id"></a>테 넌 트 ID를 가져옵니다.
 
-VSTS 서비스 끝점 구성의 일부로 필요 합니다 **테 넌 트 ID** 에 Azure Stack 스탬프에 배포 되는 AAD 디렉터리에 해당 하는 합니다. 다음 단계를 사용 하 여 id입니다. 테 넌 트 가져오기
+Azure DevOps 서비스를 실행 하려면 서비스 끝점 구성의 일부로 합니다 **테 넌 트 ID** 에 Azure Stack 스탬프에 배포 되는 AAD 디렉터리에 해당 하는 합니다. 다음 단계를 사용 하 여 id입니다. 테 넌 트 가져오기
 
 1. **Azure Active Directory**를 선택합니다.
 
@@ -194,20 +194,21 @@ VSTS 서비스 끝점 구성의 일부로 필요 합니다 **테 넌 트 ID** �
 
 Azure 역할 기반 Access Control (RBAC)는 Azure에 대 한 세분화 된 액세스 관리를 제공합니다. RBAC를 사용 하 여 사용자가 작업을 수행 해야 하는 액세스 수준을 제어할 수 있습니다. 역할 기반 Access Control에 대 한 자세한 내용은 참조 하세요. [Azure 구독 리소스에 대 한 액세스 관리](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?toc=%252fazure%252factive-directory%252ftoc.json)합니다.
 
-### <a name="vsts-agent-pools"></a>VSTS 에이전트 풀
+### <a name="azure-devops-services-agent-pools"></a>Azure DevOps 서비스 에이전트 풀
 
-각 에이전트를 별도로 관리 하는 대신 에이전트 풀에 에이전트를 구성할 수 있습니다. 해당 풀의 모든 에이전트에 대 한 공유 경계를 정의 하는 에이전트 풀입니다. VSTS에서 에이전트 풀 에이전트 풀을 팀 프로젝트 간에 공유할 수 있다는 의미는 VSTS 계정에 범위가 지정 됩니다. 에이전트 풀에 대 한 자세한 내용은 참조 하세요 [에이전트 풀 만들기 및 큐](https://docs.microsoft.com/vsts/build-release/concepts/agents/pools-queues?view=vsts)합니다.
+각 에이전트를 별도로 관리 하는 대신 에이전트 풀에 에이전트를 구성할 수 있습니다. 해당 풀의 모든 에이전트에 대 한 공유 경계를 정의 하는 에이전트 풀입니다. Azure DevOps 서비스에서 에이전트 풀 에이전트 풀을 프로젝트 간에 공유할 수 있습니다 즉 Azure DevOps 서비스 조직에 범위가 지정 됩니다. 에이전트 풀에 대 한 자세한 내용은 참조 하세요 [에이전트 풀 만들기 및 큐](https://docs.microsoft.com/azure/devops/pipelines/agents/pools-queues?view=vsts)합니다.
 
 ### <a name="add-a-personal-access-token-pat-for-azure-stack"></a>Azure Stack에 대 한 개인용 액세스 토큰 (PAT)를 추가 합니다.
 
-개인 액세스 토큰을 VSTS에 액세스할 만듭니다.
+개인 액세스 토큰을 Azure DevOps 서비스에 액세스 하도록 만듭니다.
 
-1. VSTS 계정에 로그인 한 계정 프로필 이름을 선택 합니다.
+1. Azure DevOps 서비스 조직에 로그인 하 고 조직 프로필 이름을 선택 합니다.
+
 2. 선택 **보안 관리** 액세스 토큰 생성 페이지에 있습니다.
 
     ![사용자 로그인](media\azure-stack-solution-hybrid-pipeline\000_17.png)
 
-    ![팀 프로젝트 선택](media\azure-stack-solution-hybrid-pipeline\000_18.png)
+    ![프로젝트 선택](media\azure-stack-solution-hybrid-pipeline\000_18.png)
 
     ![개인용 액세스 토큰 추가](media\azure-stack-solution-hybrid-pipeline\000_18a.png)
 
@@ -220,7 +221,7 @@ Azure 역할 기반 Access Control (RBAC)는 Azure에 대 한 세분화 된 액�
 
     ![개인용 액세스 토큰](media\azure-stack-solution-hybrid-pipeline\000_19.png)
 
-### <a name="install-the-vsts-build-agent-on-the-azure-stack-hosted-build-server"></a>Azure Stack에는 VSTS 빌드 에이전트 설치 호스팅된 빌드 서버
+### <a name="install-the-azure-devops-services-build-agent-on-the-azure-stack-hosted-build-server"></a>Azure Stack에서 Azure DevOps 서비스 빌드 에이전트 설치 호스팅된 빌드 서버
 
 1. Azure Stack 호스트에 배포 된 빌드 서버에 연결 합니다.
 2. 다운로드 및 배포 개인을 사용 하 여 서비스로 빌드 에이전트 액세스 토큰 (PAT) 및 VM 관리자 계정으로 실행 합니다.
@@ -237,17 +238,17 @@ Azure 역할 기반 Access Control (RBAC)는 Azure에 대 한 세분화 된 액�
 
     ![빌드 에이전트 폴더 업데이트](media\azure-stack-solution-hybrid-pipeline\009_token_file.png)
 
-    VSTS 폴더에서 에이전트를 볼 수 있습니다.
+    Azure DevOps 서비스 폴더에서 에이전트를 볼 수 있습니다.
 
 ## <a name="endpoint-creation-permissions"></a>끝점 만들기 권한
 
-끝점을 만들면 Visual Studio Online (VSTO) 빌드는 Azure Stack에 Azure 서비스 앱을 배포할 수 있습니다. VSTS는 Azure Stack에 연결 하는 빌드 에이전트에 연결 합니다.
+끝점을 만들면 Visual Studio Online (VSTO) 빌드는 Azure Stack에 Azure 서비스 앱을 배포할 수 있습니다. Azure DevOps 서비스는 Azure Stack에 연결 하는 빌드 에이전트에 연결 합니다.
 
 ![VSTO에서 NorthwindCloud 샘플 앱](media\azure-stack-solution-hybrid-pipeline\012_securityendpoints.png)
 
 1. VSTO에 로그인 하 고 앱 설정 페이지로 이동 합니다.
 2. 온 **설정을**를 선택 **보안**합니다.
-3. **VSTS 그룹**를 선택 **의해 끝점 작성자**합니다.
+3. **Azure DevOps 서비스 그룹**를 선택 **의해 끝점 작성자**합니다.
 
     ![NorthwindCloud 끝점 작성자](media\azure-stack-solution-hybrid-pipeline\013_endpoint_creators.png)
 
@@ -257,7 +258,7 @@ Azure 역할 기반 Access Control (RBAC)는 Azure에 대 한 세분화 된 액�
 
 5. **사용자 및 그룹 추가**사용자 이름을 입력 하 고 사용자 목록에서 해당 사용자를 선택 합니다.
 6. **변경 내용 저장**을 선택합니다.
-7. 에 **VSTS 그룹** 목록에서 **끝점 관리자**합니다.
+7. 에 **Azure DevOps 서비스 그룹** 목록에서 **끝점 관리자**합니다.
 
     ![NorthwindCloud 끝점 관리자](media\azure-stack-solution-hybrid-pipeline\015_save_endpoint.png)
 
@@ -265,6 +266,7 @@ Azure 역할 기반 Access Control (RBAC)는 Azure에 대 한 세분화 된 액�
 9. **사용자 및 그룹 추가**사용자 이름을 입력 하 고 사용자 목록에서 해당 사용자를 선택 합니다.
 10. **변경 내용 저장**을 선택합니다.
 
+끝점 정보가 했으므로 Azure DevOps 서비스가 Azure Stack 연결에 사용할 준비가 되었습니다. Azure Stack에서 빌드 에이전트는 지침을 Azure DevOps 서비스에서 가져오고 에이전트에서 Azure Stack을 사용 하 여 통신에 대 한 끝점 정보를 전달 하는 다음 합니다.
 ## <a name="create-an-azure-stack-endpoint"></a>Azure Stack 끝점 만들기
 
 지침에 따르면 [Azure Resource Manager 서비스 연결을 기존 서비스 주체 만들기 ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) 문서에서는 서비스 연결을 사용 하 여 기존 서비스 주체 만들고 다음 매핑을 사용 합니다.
@@ -285,18 +287,18 @@ Azure 역할 기반 Access Control (RBAC)는 Azure에 대 한 세분화 된 액�
 
 이 자습서의이 부분에서는 다음을 수행 해야합니다.
 
-* VSTS 프로젝트에 코드를 추가 합니다.
+* Azure DevOps 서비스 프로젝트에 코드를 추가 합니다.
 * 자체 포함 된 웹 앱 배포를 만듭니다.
 * 연속 배포 프로세스를 구성 합니다.
 
 > [!Note]
  > Azure Stack 환경과 Windows Server 및 SQL Server를 실행 하려면 신디케이티드 올바른 이미지가 필요 합니다. App Service에서 배포도 있어야 합니다. Azure Stack 연산자 요구 사항에 대 한 App Service 설명서 "전제 조건" 섹션을 검토 합니다.
 
-CI/CD 하이브리드 응용 프로그램 코드와 인프라 코드를 적용할 수 있습니다. 사용 하 여 [웹과 같은 Azure Resource Manager 템플릿 ](https://azure.microsoft.com/resources/templates/) 두 클라우드 모두에 배포 하는 VSTS에서 앱 코드입니다.
+CI/CD 하이브리드 응용 프로그램 코드와 인프라 코드를 적용할 수 있습니다. 사용 하 여 [웹과 같은 Azure Resource Manager 템플릿 ](https://azure.microsoft.com/resources/templates/) 두 클라우드 모두에 배포 하려면 Azure DevOps 서비스에서 앱 코드입니다.
 
-### <a name="add-code-to-a-vsts-project"></a>VSTS 프로젝트에 코드 추가
+### <a name="add-code-to-an-azure-devops-services-project"></a>Azure DevOps 서비스 프로젝트에 코드 추가
 
-1. Azure Stack에 대 한 프로젝트 만들기 권한이 있는 계정으로 VSTS에 로그인 합니다. 다음 화면 캡처 HybridCICD 프로젝트에 연결 하는 방법을 보여 줍니다.
+1. Azure Stack에서 프로젝트 만들기 권한이 있는 조직을 사용 하 여 Azure DevOps 서비스에 로그인 합니다. 다음 화면 캡처 HybridCICD 프로젝트에 연결 하는 방법을 보여 줍니다.
 
     ![프로젝트에 연결](media\azure-stack-solution-hybrid-pipeline\017_connect_to_project.png)
 
@@ -310,37 +312,38 @@ CI/CD 하이브리드 응용 프로그램 코드와 인프라 코드를 적용�
 
     ![Runtimeidentifier-구성](media\azure-stack-solution-hybrid-pipeline\019_runtimeidentifer.png)
 
-2. 팀 탐색기를 사용 하 여 VSTS에 코드를 확인 합니다.
+2. 팀 탐색기를 사용 하 여 Azure DevOps 서비스에 코드를 확인 합니다.
 
-3. Visual Studio Team Services에 응용 프로그램 코드를 체크 인 있는지 확인 합니다.
+3. Azure DevOps 서비스에 응용 프로그램 코드를 체크 인 있는지 확인 합니다.
 
-### <a name="create-the-build-definition"></a>빌드 정의 만들기
+### <a name="create-the-build-pipeline"></a>빌드 파이프라인 만들기
 
-1. 빌드 정의 만들 수 있는 계정으로 VSTS에 로그인 합니다.
+1. 빌드 파이프라인을 만들 수 있는 조직을 사용 하 여 Azure DevOps 서비스에 로그인 합니다.
+
 2. 로 이동 합니다 **웹 응용 프로그램 빌드** 프로젝트에 대 한 페이지입니다.
 
 3. **인수**에 추가 **-r win10-x64** 코드입니다. .NET Core를 사용 하 여 자체 포함된 배포를 트리거하려면 반드시 확인 해야 합니다.
 
-    ![인수 빌드 정의 추가 합니다.](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
+    ![인수 빌드 파이프라인 추가](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
 
 4. 빌드를 실행 합니다. 합니다 [자체 포함된 배포 빌드](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) 프로세스는 Azure 및 Azure Stack에서 실행 될 수 있는 아티팩트를 게시 합니다.
 
 ### <a name="use-an-azure-hosted-build-agent"></a>Azure를 사용 하 여 호스트 된 빌드 에이전트
 
-VSTS에서 호스트 된 빌드 에이전트를 사용 하는 웹 앱 빌드 및 배포에 대 한 편리한 옵션입니다. 에이전트 유지 관리 및 업그레이드를 중단 없이 연속적으로 연속 개발 주기를 사용 하도록 설정 하는 Microsoft Azure에서 자동으로 수행 됩니다.
+Azure DevOps 서비스에서 호스트 된 빌드 에이전트를 사용 하는 것은 웹 앱 빌드 및 배포에 대 한 편리 합니다. 에이전트 유지 관리 및 업그레이드를 중단 없이 연속적으로 연속 개발 주기를 사용 하도록 설정 하는 Microsoft Azure에서 자동으로 수행 됩니다.
 
 ### <a name="configure-the-continuous-deployment-cd-process"></a>연속 배포 (CD) 프로세스를 구성 합니다.
 
-Visual Studio Team Services (VSTS) 및 Team Foundation Server (TFS) 제공 항상 구성 및 관리 가능한 파이프라인 개발과 같은 여러 환경에 릴리스를 스테이징, QA (품질 보증), 및 프로덕션 합니다. 이 프로세스는 응용 프로그램 수명 주기의 특정 단계에서 승인 필요를 포함할 수 있습니다.
+Azure DevOps 서비스 및 Team Foundation Server (TFS)는 항상 구성 및 관리 가능한 파이프라인 개발, 스테이징, QA (품질 보증), 및 프로덕션과 같은 여러 환경에 릴리스를 제공합니다. 이 프로세스는 응용 프로그램 수명 주기의 특정 단계에서 승인 필요를 포함할 수 있습니다.
 
-### <a name="create-release-definition"></a>릴리스 정의 만들기
+### <a name="create-release-pipeline"></a>릴리스 파이프라인 만들기
 
-릴리스 정의 만드는 경우 응용 프로그램의 마지막 단계는 빌드 프로세스 이 릴리스 정의 릴리스를 만들고 빌드 배포에 사용 됩니다.
+릴리스 파이프라인을 만드는 경우 응용 프로그램의 마지막 단계는 빌드 프로세스 이 릴리스 파이프라인은 릴리스를 만들고 빌드 배포에 사용 됩니다.
 
-1. VSTS에 로그인 하 고 이동할 **빌드 및 릴리스** 프로젝트에 대 한 합니다.
+1. Azure DevOps 서비스에 로그인 하 고 이동할 **Azure 파이프라인** 프로젝트에 대 한 합니다.
 2. 에 **릴리스에서** 탭을 선택  **\[ +]** 선택 하 고 **릴리스 정의 만들기**합니다.
 
-   ![릴리스 정의 만들기](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
+   ![릴리스 파이프라인 만들기](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
 
 3. **템플릿을 선택**, 선택 **Azure App Service 배포**를 선택한 후 **적용**합니다.
 
@@ -427,11 +430,11 @@ Visual Studio Team Services (VSTS) 및 Team Foundation Server (TFS) 제공 항�
 23. 변경 내용을 모두 저장합니다.
 
 > [!Note]
-> 릴리스 작업에 대 한 일부 설정을 수 자동으로 정의 된 [환경 변수](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) 템플릿에서 릴리스 정의 만들 때. 작업 설정에서 이러한 설정은 수정할 수 없습니다. 그러나 부모 환경 항목에서 이러한 설정을 편집할 수 있습니다.
+> 릴리스 작업에 대 한 일부 설정을 수 자동으로 정의 된 [환경 변수](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts#custom-variables) 템플릿에서 릴리스 파이프라인을 만들 때. 작업 설정에서 이러한 설정은 수정할 수 없습니다. 그러나 부모 환경 항목에서 이러한 설정을 편집할 수 있습니다.
 
 ## <a name="create-a-release"></a>릴리스를 만듭니다.
 
-이제 릴리스 정의에 수정 작업을 완료 하면 배포를 시작 하는 시간입니다. 이 작업을 수행 하려면 릴리스 정의에서 릴리스를 만들어야 합니다. 릴리스를 자동으로 만들 수 있습니다. 예를 들어, 연속 배포 트리거는 릴리스 정의에서 설정 됩니다. 즉, 소스 코드를 수정 합니다. 새 빌드를 시작 하는 새 릴리스에서. 그러나이 섹션에서 수동으로 새 릴리스를 만들가 있습니다.
+이제 릴리스 파이프라인에 수정 작업을 완료 하면 배포를 시작 하는 시간입니다. 이 작업을 수행 하려면 릴리스 파이프라인에서 릴리스를 만들어야 합니다. 릴리스를 자동으로 만들 수 있습니다. 예를 들어, 연속 배포 트리거는 릴리스 파이프라인에서 설정 됩니다. 즉, 소스 코드를 수정 합니다. 새 빌드를 시작 하는 새 릴리스에서. 그러나이 섹션에서 수동으로 새 릴리스를 만들가 있습니다.
 
 1. 에 **파이프라인** 탭을 열고 합니다 **릴리스** 드롭 다운 나열 하 고 선택 **릴리스 만들기**.
 
