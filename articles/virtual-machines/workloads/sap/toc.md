@@ -25,7 +25,9 @@
 ### [구성 유효성 검사](hana-installation.md)
 ### [샘플 HANA 설치](hana-example-installation.md)
 ## [고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md)
-## [문제 해결 및 모니터링](troubleshooting-monitoring.md)
+## 문제 해결 및 모니터링
+### [모니터링 HLI](troubleshooting-monitoring.md)
+### [HANA 쪽에서 모니터링 및 문제 해결](hana-monitor-troubleshoot.md)
 ## 방법
 ### [STONITH로 HA 설치](ha-setup-with-stonith.md)
 ### [Type II SKU용 OS 백업](os-backup-type-ii-skus.md)
