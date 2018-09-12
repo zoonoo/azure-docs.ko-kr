@@ -10,19 +10,18 @@ ms.topic: conceptual
 ms.date: 0813/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: f05f6f785ec8466fc6d0ae2c94c975312ef37fa2
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 57c6b52df3e8f6c47eb794cda4b47bfa2d7de374
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42145598"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051241"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance 및 SQL Server 간의 T-SQL 차이점 
 
 Azure SQL Database Managed Instance(미리 보기)는 온-프레미스 SQL Server 데이터베이스 엔진과의 높은 호환성을 제공합니다. 대부분의 SQL Server 데이터베이스 엔진 기능은 Managed Instance에서 지원됩니다. 구문과 동작에는 여전히 몇 가지 차이점이 있으므로 이 문서에서는 이러한 차이점을 요약하고 설명합니다.
  - [T-SQL 차이점 및 지원되지 않는 기능](#Differences)
- - 
-  [Managed Instance에서 동작이 다른 기능](#Changes)
+ - [Managed Instance에서 동작이 다른 기능](#Changes)
  - [임시 제한 사항 및 알려진 문제](#Issues)
 
 ## <a name="Differences"></a> SQL Server와의 T-SQL 차이점 
@@ -31,8 +30,7 @@ Azure SQL Database Managed Instance(미리 보기)는 온-프레미스 SQL Serve
 
 ### <a name="always-on-availability"></a>Always-On 가용성
 
-
-  [고가용성](sql-database-high-availability.md)은 Managed Instance에 기본적으로 제공되며 사용자가 제어할 수 없습니다. 지원되지 않는 명령문은 다음과 같습니다.
+[고가용성](sql-database-high-availability.md)은 Managed Instance에 기본적으로 제공되며 사용자가 제어할 수 없습니다. 지원되지 않는 명령문은 다음과 같습니다.
  - [CREATE ENDPOINT … FOR DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql)
  - [CREATE AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/create-availability-group-transact-sql)
  - [ALTER AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/alter-availability-group-transact-sql)
@@ -427,4 +425,4 @@ Managed Instance는 복원 중 또는 일부 오류 메시지에서 데이터베
 
 - Managed Instance에 대한 자세한 내용은 [Managed Instance란?](sql-database-managed-instance.md)을 참조하세요.
 - 기능 및 비교 목록은 [SQL 일반 기능](sql-database-features.md)을 참조하세요.
-- Managed Instance를 새로 만드는 방법을 보여 주는 자습서에 대해서는 [Managed Instance 만들기](sql-database-managed-instance-create-tutorial-portal.md)를 참조하세요.
+- Managed Instance를 새로 만드는 방법을 보여 주는 자습서에 대해서는 [Managed Instance 만들기](sql-database-managed-instance-get-started.md)를 참조하세요.
