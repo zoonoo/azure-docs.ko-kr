@@ -23,7 +23,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 03/28/2018
 ms.locfileid: "30247378"
 ---
-# <a name="what-are-virtual-machine-scale-sets"></a>가상 머신 크기 집합이란?
+# <a name="what-are-virtual-machine-scale-sets"></a>가상 머신 확장 집합이란?
 Azure 가상 머신 확장 집합을 사용하면 부하 분산된 동일한 VM 그룹을 만들고 관리할 수 있습니다. VM 인스턴스의 수는 요구 또는 정의된 일정에 따라 자동으로 늘리거나 줄일 수 있습니다. 확장 집합은 응용 프로그램에 고가용성을 제공하고 많은 수의 VM을 중앙에서 관리, 구성 및 업데이트할 수 있게 합니다. 가상 머신 확장 집합을 사용하면 컴퓨팅, 빅 데이터 및 컨테이너 작업과 같은 영역에 대한 대규모 서비스를 구축할 수 있습니다.
 
 
