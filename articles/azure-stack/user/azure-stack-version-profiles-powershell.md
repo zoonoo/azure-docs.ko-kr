@@ -15,18 +15,20 @@ ms.topic: article
 ms.date: 08/15/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 8da02641cc54f9308f8e0bbb8d2b28da9a930aa2
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 994893eb73356fde9acc593569dc5fb1c5a0106f
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139457"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391133"
 ---
 # <a name="use-api-version-profiles-for-powershell-in-azure-stack"></a>Azure Stack에서 PowerShell에 대 한 API 버전 프로필 사용
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 API 버전 프로필에는 Azure 및 Azure Stack의 버전 차이 관리 하는 방법을 제공 합니다. API 버전 프로필을는 특정 API 버전을 사용 하 여 AzureRM PowerShell 모듈의 집합입니다. 각 클라우드 플랫폼에 지원 되는 API 버전 프로필 집합이 있습니다. 예를 들어 Azure 스택에서 특정 날짜가 지정 된 프로필 버전을 같은 **2017-03-09-프로필**, Azure 지원 합니다 **최신** API 버전 프로필입니다. 프로필을 설치할 때 지정된 된 프로필에 해당 하는 AzureRM PowerShell 모듈이 설치 됩니다.
+
+ 
 
 ## <a name="install-the-powershell-module-required-to-use-api-version-profiles"></a>API 버전 프로필을 사용 하는 데 필요한 PowerShell 모듈 설치
 

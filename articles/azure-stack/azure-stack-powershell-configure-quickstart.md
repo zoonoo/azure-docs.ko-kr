@@ -6,20 +6,19 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 6996DFC1-5E05-423A-968F-A9427C24317C
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 09/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 70c1fd72df437ade3bc12cd23db923f6d449e7fb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5d988e8a8a32924b8424a07cf20c75f0e8f8cf4d
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38465746"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391077"
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Azure Stack에서 PowerShell을 사용 하 여 즉시 가동 및 실행
 
@@ -27,12 +26,14 @@ ms.locfileid: "38465746"
 
 이 빠른 시작 설치 및 PowerShell을 사용 하 여 Azure Stack 환경을 구성할 수 있습니다. 이 문서에서 제공 하는 스크립트 범위를 지정 합니다 **Azure Stack 운영자** 만 합니다.
 
-이 문서는에 설명 된 단계를 간략하게 합니다 [PowerShell 설치]( azure-stack-powershell-install.md), [도구를 다운로드]( azure-stack-powershell-download.md), 및 [AzureStack운영자의PowerShell환경구성]( azure-stack-powershell-configure-admin.md) 문서. 이 항목의 스크립트를 사용 하 여 Azure Active Directory 또는 Active Directory Federation Services (AD FS)를 사용 하 여 배포 된 Azure Stack 환경에 대 한 PowerShell을 설정할 수 있습니다.  
+이 문서는에 설명 된 단계를 간략하게 합니다 [PowerShell 설치]( azure-stack-powershell-install.md), [도구를 다운로드]( azure-stack-powershell-download.md), 및 [AzureStack운영자의PowerShell환경구성]( azure-stack-powershell-configure-admin.md) 문서. 이 문서의 스크립트를 사용 하면 Azure Active Directory 또는 Active Directory Federation Services (AD FS)를 사용 하 여 배포 된 Azure Stack 환경에 대 한 PowerShell을 설정할 수 있습니다.  
 
 
 ## <a name="set-up-powershell-for-azure-active-directory-based-deployments"></a>Azure Active Directory 기반 배포에 대 한 PowerShell 설정
 
-VPN을 통해 연결 되어 있는 경우 Azure Stack Development Kit 또는 Windows 기반 외부 클라이언트에 로그인 합니다. 관리자 권한 PowerShell ISE 세션을 열고 다음 스크립트를 실행 합니다. 업데이트 해야 합니다 **TenantName**를 **ArmEndpoint**, 및 **GraphAudience** 환경 구성에 대해 필요에 따라 변수:
+<a name="sign-in-to-your-azure-stack-development-kit-or-a-windows-based-external-client-if-you-are-connected-through-vpn-open-an-elevated-powershell-ise-session-and-then-run-the-following-script"></a>VPN을 통해 연결 되어 있는 경우 Azure Stack Development Kit 또는 Windows 기반 외부 클라이언트에 로그인 합니다. 관리자 권한 PowerShell ISE 세션을 열고 다음 스크립트를 실행 합니다. 
+-  
+- 업데이트 해야 합니다 **TenantName**를 **ArmEndpoint**, 및 **GraphAudience** 환경 구성에 대해 필요에 따라 변수:
 
 ```powershell
 # Specify Azure Active Directory tenant name.

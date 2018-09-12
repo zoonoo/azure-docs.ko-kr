@@ -238,12 +238,79 @@ items:
       items:
       - name: 릴리스 정보
         href: active-directory-b2c-developer-notes-custom.md
-      - name: SSO 세션 공급자
-        href: active-directory-b2c-reference-sso-custom.md
-      - name: 언어 사용자 지정
-        href: active-directory-b2c-language-customization-custom.md
       - name: 보안 프레임워크 정의
         href: active-directory-b2c-reference-trustframeworks-defined-ief-custom.md
+      - name: ID 경험 프레임워크 스키마
+        items:
+        - name: TrustFrameworkPolicy
+          href: trustframeworkpolicy.md
+        - name: BuildingBlocks
+          href: buildingblocks.md
+          items:
+          - name: ClaimsSchema
+            href: claimsschema.md
+          - name: ClaimsTransformations
+            href: claimstransformations.md
+            items:
+            - name: BOOLEAN
+              href: boolean-transformations.md
+            - name: Date
+              href: date-transformations.md
+            - name: 일반
+              href: general-transformations.md
+            - name: '정수 '
+              href: integer-transformations.md
+            - name: JSON
+              href: json-transformations.md
+            - name: 소셜 계정
+              href: social-transformations.md
+            - name: StringCollection
+              href: stringcollection-transformations.md
+            - name: 문자열
+              href: string-transformations.md
+          - name: 조건자
+            href: predicates.md
+          - name: ContentDefinitions
+            href: contentdefinitions.md
+          - name: 지역화
+            href: localization.md
+            items:
+            - name: 지역화 문자열 ID
+              href: localization-string-ids.md
+        - name: ClaimsProviders
+          href: claimsproviders.md
+          items:
+          - name: TechnicalProfiles
+            href: technicalprofiles.md
+            items:
+            - name: 기술 프로필 정보
+              href: technical-profiles-overview.md
+            - name: Azure Active Directory
+              href: active-directory-technical-profile.md
+            - name: 클레임 변환
+              href: claims-transformation-technical-profile.md
+            - name: JWT 토큰 발급자
+              href: jwt-issuer-technical-profile.md
+            - name: OAuth1
+              href: oauth1-technical-profile.md
+            - name: OAuth2
+              href: oauth2-technical-profile.md
+            - name: OpenId Connect
+              href: openid-connect-technical-profile.md
+            - name: REST (영문)
+              href: restful-technical-profile.md
+            - name: SAML
+              href: saml-technical-profile.md
+            - name: 자체 어설션
+              href: self-asserted-technical-profile.md
+            - name: SSO 세션
+              href: active-directory-b2c-reference-sso-custom.md
+            - name: 유효성 검사
+              href: validation-technical-profile.md
+        - name: UserJourneys
+          href: userjourneys.md
+        - name: RelyingParty
+          href: relyingparty.md
   - name: 참고 자료
     items:
     - name: 코드 샘플
@@ -280,9 +347,9 @@ items:
     href: active-directory-b2c-support.md
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: 485e7c5bbcfb1bde0b6626cab45eb2ad533f229d
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 322272a48d228e102981b4e7f194704f39443953
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090628"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378689"

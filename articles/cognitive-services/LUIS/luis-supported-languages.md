@@ -27,7 +27,7 @@ LUIS는 서비스 내에 다양한 기능을 포함합니다. 모든 기능이 �
 LUIS는 발화를 다음 언어로 이해합니다.
 
 
-| 언어 |로캘  |  미리 빌드된 도메인 | 미리 빌드된 엔터티 | 구문 제안 | **[Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(감정 및<br>키워드)| 
+| 언어 |로캘  |  미리 빌드된 도메인 | 미리 빌드된 엔터티 | 구문 제안 | \**[Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(감정 및<br>키워드)| 
 |--|--|:--:|:--:|:--:|:--:|
 | 미국 영어 |`en-US` | ✔ | ✔  |✔|✔|
 | 캐나다 프랑스어 |`fr-CA` |-|   -   |-|✔|
@@ -58,7 +58,7 @@ LUIS는 발화를 다음 언어로 이해합니다.
      - でございます는 です와 같지 않습니다. 
      - です는 だ와 같지 않습니다. 
 
-### <a name="text-analytics-support-notes"></a>**Text Analytics 지원 노트
+### <a name="text-analytics-support-notes"></a>\*\*Text Analytics 지원 노트
 Text Analytics에는 keyPhrase 미리 빌드된 엔터티 및 감정 분석이 포함되어 있습니다. 하위 문화권에는 포르투갈어만 지원됩니다. `pt-PT` 및 `pt-BR`. 다른 모든 문화권은 기본 문화권 수준에서 지원됩니다. Text Analytics [지원되는 언어](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)에 대해 자세히 알아봅니다. 
 
 ### <a name="speech-api-supported-languages"></a>Speech API 지원되는 언어

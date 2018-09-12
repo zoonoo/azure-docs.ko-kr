@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 9d33ccf9262d4432ac7255121e97f318d00b5145
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: bc57d445c334baeb32dbffda814cb10a35956d03
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050652"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380219"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Azure Stack의 프로필에서 지 원하는 리소스 공급자 API 버전
 
@@ -54,9 +54,9 @@ Azure Stack에 대 한 API 프로필 버전 릴리스 작업 리듬에 한 설�
 | Resources_Locks | 2016-10-01 |
 | 구독 | 2016-10-01 |
 
-더 api 프로필에서 공급자에 대 한 각 리소스 종류에 대 한 버전의 목록은 참조 하세요 [2018-03-01-하이브리드에 대 한 세부 정보](#details-for-the-2018-03-01-hybrid) 프로필입니다.
+더 API 프로필에서 공급자에 대 한 각 리소스 종류에 대 한 버전의 목록은 참조 하세요 [2018-03-01-하이브리드에 대 한 세부 정보](#details-for-the-2018-03-01-hybrid) 프로필입니다.
 
-## <a name="overview-of-2017-03-09-profile"></a>2017-03-09-프로필의 개요
+## <a name="overview-of-2018-03-01-hybrid"></a>2018-03-01-하이브리드 개요
 
 | 리소스 공급자 | Api 버전 |
 |------------------------------------------------|------------------------------|
@@ -76,7 +76,7 @@ Azure Stack에 대 한 API 프로필 버전 릴리스 작업 리듬에 한 설�
 | Resources_Locks | 2016-09-01 |
 | 구독 | 2016-06-1 |
 
-더 api 프로필에서 공급자에 대 한 각 리소스 종류에 대 한 버전의 목록은 참조 하세요. [2017-03-09-프로필에 대 한 세부 정보](#details-for-the-2017-03-09-profile)
+더 api 프로필에서 공급자에 대 한 각 리소스 종류에 대 한 버전의 목록은 참조 하세요. [2018-03-01-하이브리드에 대 한 세부 정보](#details-for-the-2018-03-01-hybrid)
 
 ## <a name="details-for-the-2018-03-01-hybrid"></a>2018-03-01-하이브리드에 대 한 세부 정보
 
@@ -231,7 +231,7 @@ Azure Resource Manager를 사용하면 Azure 솔루션 인프라를 배포하고
 | StorageAccounts | 2016-01-01 |
 | 사용 | 2016-01-01 |
 
-## <a name="details-for-the-2017-03-09-profile"></a>2017-03-09-프로필에 대 한 세부 정보
+## <a name="details-for-the-2018-03-01-hybrid"></a>2018-03-01-하이브리드에 대 한 세부 정보
 
 ### <a name="microsoft-authorization"></a>Microsoft 인증
 

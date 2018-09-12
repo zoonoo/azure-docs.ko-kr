@@ -24,7 +24,11 @@
 ## SAP HANA 설치
 ### [구성 유효성 검사](hana-installation.md)
 ### [샘플 HANA 설치](hana-example-installation.md)
-## [고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md)
+## 고가용성 및 재해 복구
+### [옵션 및 고려 사항](hana-overview-high-availability-disaster-recovery.md)
+### [Backup 및 복원](hana-backup-restore.md)
+### [원칙 및 준비](hana-concept-preparation.md)
+### [재해 복구 장애 조치(failover) 프로시저](hana-failover-procedure.md)
 ## 문제 해결 및 모니터링
 ### [모니터링 HLI](troubleshooting-monitoring.md)
 ### [HANA 쪽에서 모니터링 및 문제 해결](hana-monitor-troubleshoot.md)

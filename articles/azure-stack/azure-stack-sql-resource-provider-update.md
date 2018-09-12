@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/04/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 017ac3214046b812ce003ab7a190f2f2b3f4f2e2
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 3517114d5bc267aa32cea49161d0d34156a2ed1e
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697944"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44390912"
 ---
 # <a name="update-the-sql-resource-provider"></a>SQL 리소스 공급자 업데이트
 
@@ -49,7 +49,9 @@ ms.locfileid: "43697944"
 
 ### <a name="update-script-powershell-example"></a>PowerShell 예제 스크립트를 업데이트 합니다.
 
-편집 하 고는 관리자 권한으로 PowerShell ISE에서 다음 스크립트를 실행할 수 있습니다. 계정 정보 및 사용자 환경에 대 한 필요에 따라 암호를 변경 해야 합니다.
+<a name="you-can-edit-and-run-the-following-script-from-an-elevated-powershell-ise"></a>편집 하 고는 관리자 권한으로 PowerShell ISE에서 다음 스크립트를 실행할 수 있습니다. 
+-  
+- 계정 정보 및 사용자 환경에 대 한 필요에 따라 암호를 변경 해야 합니다.
 
 > [!NOTE]
 > 이 업데이트 프로세스는 Azure Stack 통합 시스템에만 적용 됩니다.

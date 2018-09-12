@@ -197,6 +197,7 @@
 #### [테넌트 제한 사항](manage-apps/tenant-restrictions.md)
 #### [SCIM 프로비전 사용자 사용](manage-apps/use-scim-to-provision-users-and-groups.md)
 
+### [Azure AD 응용 프로그램 동의 환경 이해](application-consent-experience.md)
 
 ### 문제 해결
 
