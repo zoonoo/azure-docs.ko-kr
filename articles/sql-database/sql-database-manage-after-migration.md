@@ -11,13 +11,13 @@ ms.date: 06/20/2018
 ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
-ms.component: migration
-ms.openlocfilehash: ab6a66821905901515258842176ce24e485a54e3
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.component: data-movement
+ms.openlocfilehash: 133cba72a93d692851043f1c66d6a4a38e18b324
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110615"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379468"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>클라우드의 새 DBA - Azure SQL Database의 데이터베이스 관리
 
@@ -66,8 +66,7 @@ SQL Database는 보안 및 개인 정보 보호를 매우 중대하게 실행합
 - 실제 데이터 보호([TDE[투명한 데이터 암호화]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) 및 [AE[Always Encrypted]](/sql/relational-databases/security/encryption/always-encrypted-database-engine)). 
 - 중요 및 권한 있는 데이터에 대한 액세스 제어([행 수준 보안](/sql/relational-databases/security/row-level-security) 및 [동적 데이터 마스킹](/sql/relational-databases/security/dynamic-data-masking)).
 
-
-  [Azure Security Center](https://azure.microsoft.com/services/security-center/)는 Azure, 온-프레미스 및 기타 클라우드에서 실행되는 작업 전반에 걸친 중앙 집중식 보안 관리를 제공합니다. [감사](sql-database-auditing.md) 및 [TDE[투명한 데이터 암호화]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)와 같은 필수 SQL Database 보호가 모든 리소스에 구성되었는지 보고, 고유의 요구 사항에 따라 정책을 만들 수 있습니다.
+[Azure Security Center](https://azure.microsoft.com/services/security-center/)는 Azure, 온-프레미스 및 기타 클라우드에서 실행되는 작업 전반에 걸친 중앙 집중식 보안 관리를 제공합니다. [감사](sql-database-auditing.md) 및 [TDE[투명한 데이터 암호화]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)와 같은 필수 SQL Database 보호가 모든 리소스에 구성되었는지 보고, 고유의 요구 사항에 따라 정책을 만들 수 있습니다.
 
 ### <a name="what-user-authentication-methods-are-offered-in-sql-database"></a>어떤 사용자 인증 방법이 Microsoft Azure SQL Database에서 제공됩니까?
 SQL Database에서 [두 가지 사용자 인증 방법](sql-database-control-access.md#authentication)이 제공됩니다. 
@@ -90,7 +89,7 @@ SQL Database에서 [두 가지 사용자 인증 방법](sql-database-control-acc
 ### <a name="how-do-i-limit-or-control-connectivity-access-to-my-database"></a>내 데이터베이스에 대한 연결 액세스를 제한 또는 제어하려면 어떻게 해야 합니까?
 용도에 맞는 최적의 연결 구성을 획득하기 위해 원하는 대로 사용할 수 있는 여러 기술이 있습니다. 
 - 방화벽 규칙
-- VNET 서비스 끝점
+- VNET 서비스 엔드포인트
 - 예약된 IP
 
 #### <a name="firewall"></a>방화벽
@@ -98,12 +97,12 @@ SQL Database에서 [두 가지 사용자 인증 방법](sql-database-control-acc
 
 서버 및 데이터베이스 수준의 방화벽 규칙을 만들 수 있습니다. 포털 또는 SSMS를 통해 서버 수준 방화벽 규칙을 만들 수 있습니다. 서버 및 데이터베이스 수준 방화벽 규칙을 설정하는 방법에 대해 자세히 알아보려면 [SQL Database에서 방화벽 규칙 만들기](sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal)를 참조하세요.
 
-#### <a name="service-endpoints"></a>서비스 끝점
-기본적으로 SQL Database는 "모든 Azure 서비스 허용"으로 구성되는데, 이는 Azure의 모든 가상 머신이 데이터베이스에 연결을 시도할 것임을 의미합니다. 이러한 시도는 여전히 인증을 받아야 합니다. 그러나 모든 Azure IP가 데이터베이스에 액세스하는 것을 원하지 않는 경우 "모든 Azure 서비스 허용"을 비활성화할 수 있습니다. 또한 [VNet 서비스 끝점](sql-database-vnet-service-endpoint-rule-overview.md)을 구성할 수 있습니다.
+#### <a name="service-endpoints"></a>서비스 엔드포인트
+기본적으로 SQL Database는 "모든 Azure 서비스 허용"으로 구성되는데, 이는 Azure의 모든 가상 머신이 데이터베이스에 연결을 시도할 것임을 의미합니다. 이러한 시도는 여전히 인증을 받아야 합니다. 그러나 모든 Azure IP가 데이터베이스에 액세스하는 것을 원하지 않는 경우 "모든 Azure 서비스 허용"을 비활성화할 수 있습니다. 또한 [VNet 서비스 엔드포인트](sql-database-vnet-service-endpoint-rule-overview.md)를 구성할 수 있습니다.
 
-서비스 끝점(SE)을 사용하면 중요 Azure 자원을 Azure의 자신의 개인 가상 네트워크에 대해서만 노출할 수 있습니다. 그렇게 하면 기본적으로 사용자의 리소스에 대한 공용 액세스가 제거됩니다. 가상 네트워크와 Azure 간의 트래픽은 Azure 백본 네트워크에서 유지됩니다. SE가 없으면 강제 적용 터널링 패킷 라우팅을 하게 됩니다. 사용자의 가상 네트워크는 인터넷 트래픽을 강제로 사용자의 조직으로 이동하며 Azure 서비스 트래픽은 같은 경로를 통해 이동합니다. 서비스 끝점을 사용하면 패킷이 사용자의 가상 네트워크에서 Azure 백본 네트워크의 서비스로 곧장 흐르므로 이 작업을 최적화할 수 있습니다.
+서비스 엔드포인트(SE)를 사용하면 중요 Azure 자원을 Azure의 자신의 개인 가상 네트워크에 대해서만 노출할 수 있습니다. 그렇게 하면 기본적으로 사용자의 리소스에 대한 공용 액세스가 제거됩니다. 가상 네트워크와 Azure 간의 트래픽은 Azure 백본 네트워크에서 유지됩니다. SE가 없으면 강제 적용 터널링 패킷 라우팅을 하게 됩니다. 사용자의 가상 네트워크는 인터넷 트래픽을 강제로 사용자의 조직으로 이동하며 Azure 서비스 트래픽은 같은 경로를 통해 이동합니다. 서비스 엔드포인트를 사용하면 패킷이 사용자의 가상 네트워크에서 Azure 백본 네트워크의 서비스로 곧장 흐르므로 이 작업을 최적화할 수 있습니다.
 
-![VNET 서비스 끝점](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
+![VNET 서비스 엔드포인트](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
 
 #### <a name="reserved-ips"></a>예약된 IP
 다른 옵션은 VM에 대해 [예약된 IP](../virtual-network/virtual-networks-reserved-public-ip.md)를 프로비전하고, 서버 방화벽 설정에 있는 특정 VM IP 주소를 허용목록에 넣습니다. 예약된 IP를 할당하면 IP 주소 변경에 따라 방화벽 규칙을 직접 업데이트해야 할 필요가 없습니다.
@@ -128,7 +127,7 @@ SQL Database에서 기본적으로 저장소 하위 시스템에 있는 데이�
 |**특성**|**Always Encrypted**|**투명한 데이터 암호화**|
 |---|---|---|
 |**암호화 범위**|종단간|미사용 데이터|
-|**데이터베이스 서버는 중요 데이터에 액세스 가능**|아니오|예, 암호화는 미사용 데이터를 위한 것이므로|
+|**데이터베이스 서버는 중요 데이터에 액세스 가능**|아니요|예, 암호화는 미사용 데이터를 위한 것이므로|
 |**허용되는 T-SQL 작업**|같음 비교|모든 T-SQL 노출 영역을 사용할 수 있음|
 |**기능을 사용하려면 앱 변경이 필요함**|최소|아주 미미함|
 |**암호화 세분성**|열 수준|데이터베이스 수준|
@@ -203,7 +202,7 @@ SQL Database에서는 플랫폼의 지능적인 정보를 활용하여 성능을
 
    ![모니터링 차트 2](./media/sql-database-manage-after-migration/chart.png)
 
-또한 이 차트로부터 리소스로 경고를 구성할 수도 있습니다. 이러한 경고를 통해 사용자는 전자 메일로 리소스 조건에 대응하거나 HTTPS/HTTP 끝점에 쓰거나 작업을 수행할 수 있습니다. 자세한 내용은 [SQL Database에서 데이터베이스 성능 모니터링](sql-database-single-database-monitor.md)을 참조하세요.
+또한 이 차트로부터 리소스로 경고를 구성할 수도 있습니다. 이러한 경고를 통해 사용자는 전자 메일로 리소스 조건에 대응하거나 HTTPS/HTTP 엔드포인트에 쓰거나 작업을 수행할 수 있습니다. 자세한 내용은 [SQL Database에서 데이터베이스 성능 모니터링](sql-database-single-database-monitor.md)을 참조하세요.
 
 - **동적 관리 뷰**: 지난 1시간 동안의 리소스 소비 통계 기록을 반환하려면 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 동적 관리 뷰를, 그리고 지난 14일에 대한 기록을 반환하려면 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 시스템 카탈로그 뷰를 쿼리할 수 있습니다.
 - **Query Performance Insight**: [Query Performance Insight](sql-database-query-performance.md)를 사용하면 상위 리소스 소비량 쿼리 및 특정 데이터베이스에 대한 장기 실행 쿼리 기록을 볼 수 있습니다. 리소스 사용률, 기간 및 실행 빈도별로 최상위 쿼리를 신속하게 식별할 수 있습니다. 쿼리를 추적하고 재발을 검색할 수 있습니다. 이 기능을 사용하려면 [쿼리 저장소](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)가 데이터베이스에 대해 사용할 수 있도록 설정되고 활성화되어야 합니다.

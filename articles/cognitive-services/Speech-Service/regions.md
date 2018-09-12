@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: mahilleb
-ms.openlocfilehash: 082002b25b02e1e496221f4686d0e636630dd438
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 1cb00035dc8f1cdeabd1beb22ca69f47bf4bd89e
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324394"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379573"
 ---
 # <a name="regions-of-the-speech-service"></a>Speech 서비스의 지역
 
@@ -35,11 +35,16 @@ REST API를 사용하여 적절한 지역별 끝점을 선택합니다.
 
 아래 표에는 **음성 인식** 및 **번역** 서비스를 사용할 수 있는 지역이 나와 있습니다.
 
-지역| Speech SDK의 지역 매개 변수 값
+지역| Speech SDK의 지역 매개 변수 값| 포털
 -|-
-미국 서부| `westus`
-동아시아| `eastasia`
-북유럽| `northeurope`
+미국 서부| `westus`| https://westus.cris.ai
+미국 서부2| `westus2`| https://westus2.cris.ai
+미국 동부| `eastus`| https://eastus.cris.ai
+미국 동부2| `eastus2`| https://eastus2.cris.ai
+동아시아| `eastasia`| https://eastasia.cris.ai
+동남아시아| `southeastasia`| https://southeastasia.cris.ai
+북유럽| `northeurope`| https://northeurope.cris.ai
+서유럽|  `westeurope`| https://westeurope.cris.ai
 
 ### <a name="regions-for-intent-recognition"></a>의도 인식 지역
 

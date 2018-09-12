@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: 550f655f6eac5a114636978255578eb3753e0d4b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fe05ab36f971105cf72342b8df5e2a82de7fc2b8
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30918135"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391796"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Azure Portal을 사용하여 경로 기반 VPN 게이트웨이 만들기
 
@@ -54,12 +54,12 @@ ms.locfileid: "30918135"
 2. 가상 네트워크 페이지에서 **서브넷**을 클릭하여 **VNet1 - 서브넷** 페이지를 확장합니다.
 3. 맨 위에 있는 **+게이트웨이 서브넷**을 클릭하여 **서브넷 추가** 페이지를 엽니다.
 
-  ![게이트웨이 서브넷 추가](./media/create-routebased-vpn-gateway-portal/add-gateway-subnet.png "게이트웨이 서브넷 추가")
+  ![게이트웨이 서브넷 추가](./media/create-routebased-vpn-gateway-portal/gateway-subnet.png "게이트웨이 서브넷 추가")
 4. 서브넷의 **이름**에 필수 값 ‘GatewaySubnet’이 자동으로 채워집니다. 자동으로 채워진 **주소 범위** 값을 다음 값과 일치하도록 조정합니다.
 
   **주소 범위(CIDR 블록)**: 10.1.255.0/27
 
-  ![게이트웨이 서브넷 추가](./media/create-routebased-vpn-gateway-portal/gateway-subnet.png "게이트웨이 서브넷 추가")
+  ![게이트웨이 서브넷 추가](./media/create-routebased-vpn-gateway-portal/add-gateway-subnet.png "게이트웨이 서브넷 추가")
 5. 게이트웨이 서브넷을 만들려면 페이지 맨 아래에서 **확인**을 클릭합니다.
 
 ## <a name="gwvalues"></a>게이트웨이 설정 구성

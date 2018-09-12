@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: mikhegn
-ms.openlocfilehash: 06cfb375c6c18082a0d0316cfcb742a7779fc8a8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d69e02126564388bf045693b9960e6e574307641
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206381"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391337"
 ---
 # <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Service Fabric에서 매개 변수를 사용하여 서비스의 포트 번호를 지정하는 방법
 
@@ -31,9 +31,9 @@ ms.locfileid: "34206381"
 1. 상태 비저장 ASP.NET Core 템플릿을 선택합니다.
 1. 웹 API를 선택합니다.
 1. ServiceManifest.xml 파일을 엽니다.
-1. 서비스에 대해 지정된 끝점의 이름을 기록해 둡니다. 기본값은 `ServiceEndpoint`입니다.
+1. 서비스에 대해 지정된 엔드포인트의 이름을 기록해 둡니다. 기본값은 `ServiceEndpoint`입니다.
 1. ApplicationManifest.xml 파일 열기
-1. ServiceManifest.xml 파일의 `ServiceManifestImport` 요소에서 끝점에 대한 참조를 사용하여 새 `RessourceOverrides` 요소를 추가합니다.
+1. ServiceManifest.xml 파일의 `ServiceManifestImport` 요소에서 엔드포인트에 대한 참조를 사용하여 새 `RessourceOverrides` 요소를 추가합니다.
 
     ```xml
       <ServiceManifestImport>
@@ -82,7 +82,7 @@ ms.locfileid: "34206381"
 
     ```xml
       <Parameters>
-        <Parameter Name="MyWebAPI_PortNumber" DefaultValue="80" />
+        <Parameter Name="MyWebAPI_PortNumber" Value="80" />
       </Parameters>
     ```
 
