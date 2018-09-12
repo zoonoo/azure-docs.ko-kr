@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: d56bb10041e3baffddf6fd4121a6e1f7ba8e0632
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 367f21c63eac3969fb19eada91eae9a8577921de
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206323"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348483"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Azure Service Fabric 호스팅 모델
 이 아티클에서는 Azure Service Fabric에서 제공하는 응용 프로그램 호스팅 모델을 간략하게 설명하고 **공유 프로세스** 및 **단독 프로세스** 모델 간의 차이점을 설명합니다. 배포된 응용 프로그램이 Service Fabric 노드에 표시되는 방식과 서비스 복제본(또는 인스턴스) 및 서비스-호스트 프로세스 간의 관계를 설명합니다.
@@ -201,11 +201,11 @@ Service Fabric은 [게스트 실행 파일][a2] 및 [컨테이너][a3] 응용 �
 [c1]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync
 [c2]: https://docs.microsoft.com/dotnet/api/system.fabric.description.statelessservicedescription.instancecount
 
-[p1]: https://docs.microsoft.com/powershell/servicefabric/vlatest/new-servicefabricservice
-[p2]: https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricservicedescription
-[p3]: https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricdeployedservicePackage
-[p4]: https://docs.microsoft.com/powershell/servicefabric/vlatest/send-servicefabricdeployedservicepackagehealthreport
-[p5]: https://docs.microsoft.com/powershell/servicefabric/vlatest/restart-servicefabricdeployedcodepackage
-[p6]: https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricdeployedservicetype
-[p7]: https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricdeployedreplica
-[p8]: https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricdeployedcodepackage
+[p1]: https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice
+[p2]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricservicedescription
+[p3]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicePackage
+[p4]: https://docs.microsoft.com/powershell/module/servicefabric/send-servicefabricdeployedservicepackagehealthreport
+[p5]: https://docs.microsoft.com/powershell/module/servicefabric/restart-servicefabricdeployedcodepackage
+[p6]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicetype
+[p7]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedreplica
+[p8]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedcodepackage

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: 0df23d50fa208482e45d2d35555ec79c587cc80a
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 930ca49a63e34214ec197d8dd37f38361b34fe90
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445663"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347038"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-preview"></a>자습서: 자동 사용자 프로비저닝을 위한 Workday 구성(미리 보기)
 
@@ -27,7 +27,7 @@ ms.locfileid: "42445663"
 
 ## <a name="overview"></a>개요
 
-[Azure Active Directory 사용자 프로비전 서비스](../active-directory-saas-app-provisioning.md)는 사용자 계정을 프로비전하기 위해 [Workday 인적 자원 API](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html)와 통합됩니다. Azure AD는 이 연결을 사용하여 다음 사용자 프로비전 워크플로를 가능하게 합니다.
+[Azure Active Directory 사용자 프로비전 서비스](../manage-apps/user-provisioning.md)는 사용자 계정을 프로비전하기 위해 [Workday 인적 자원 API](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html)와 통합됩니다. Azure AD는 이 연결을 사용하여 다음 사용자 프로비전 워크플로를 가능하게 합니다.
 
 * **사용자를 Active Directory에 프로비전** - Workday에서 선택한 사용자 집합을 하나 이상의 Active Directory 포리스트와 동기화합니다.
 
@@ -39,13 +39,13 @@ ms.locfileid: "42445663"
 
 Azure AD 사용자 프로비전 서비스에서 지원되는 Workday 사용자 프로비전 워크플로는 다음과 같은 인적 자원 및 ID 수명 주기 관리 시나리오의 자동화를 지원합니다.
 
-* **신규 직원 고용** - 신규 직원이 Workday에 추가되면 Active Directory, Azure Active Directory 그리고 선택적으로 Office 365 및 [Azure AD에서 지원하는 기타 SaaS 응용 프로그램](../active-directory-saas-app-provisioning.md)에서 사용자 계정이 자동으로 생성되며, Workday에 이메일 주소를 다시 씁니다.
+* **신규 직원 고용** - 신규 직원이 Workday에 추가되면 Active Directory, Azure Active Directory 그리고 선택적으로 Office 365 및 [Azure AD에서 지원하는 기타 SaaS 응용 프로그램](../manage-apps/user-provisioning.md)에서 사용자 계정이 자동으로 생성되며, Workday에 이메일 주소를 다시 씁니다.
 
-* **직원 특성 및 프로필 업데이트** - Workday에서 이름, 직함, 관리자 등의 직원 레코드가 업데이트되면 Active Directory, Azure Active Directory 그리고 선택적으로 Office 365 및 [Azure AD에서 지원하는 기타 SaaS 응용 프로그램](../active-directory-saas-app-provisioning.md)에서 해당 사용자 계정이 자동으로 업데이트됩니다.
+* **직원 특성 및 프로필 업데이트** - Workday에서 이름, 직함, 관리자 등의 직원 레코드가 업데이트되면 Active Directory, Azure Active Directory 그리고 선택적으로 Office 365 및 [Azure AD에서 지원하는 기타 SaaS 응용 프로그램](../manage-apps/user-provisioning.md)에서 해당 사용자 계정이 자동으로 업데이트됩니다.
 
-* **직원 퇴사** - Workday에서 직원이 퇴사하면 Active Directory, Azure Active Directory 그리고 선택적으로 Office 365 및 [Azure AD에서 지원하는 기타 SaaS 응용 프로그램](../active-directory-saas-app-provisioning.md)에서 해당 사용자 계정이 자동으로 비활성화됩니다.
+* **직원 퇴사** - Workday에서 직원이 퇴사하면 Active Directory, Azure Active Directory 그리고 선택적으로 Office 365 및 [Azure AD에서 지원하는 기타 SaaS 응용 프로그램](../manage-apps/user-provisioning.md)에서 해당 사용자 계정이 자동으로 비활성화됩니다.
 
-* **직원 재고용** - Workday에서 직원이 다시 고용되면 Active Directory, Azure Active Directory 그리고 선택적으로 Office 365 및 [Azure AD에서 지원하는 기타 SaaS 응용 프로그램](../active-directory-saas-app-provisioning.md)에서 해당 직원의 기존 계정이 자동으로 다시 활성화되거나 다시 프로비전됩니다(기본 설정에 따라).
+* **직원 재고용** - Workday에서 직원이 다시 고용되면 Active Directory, Azure Active Directory 그리고 선택적으로 Office 365 및 [Azure AD에서 지원하는 기타 SaaS 응용 프로그램](../manage-apps/user-provisioning.md)에서 해당 직원의 기존 계정이 자동으로 다시 활성화되거나 다시 프로비전됩니다(기본 설정에 따라).
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>이 사용자 프로비전 솔루션에 가장 적합한 사용자
 
@@ -327,7 +327,7 @@ Active Directory 포리스트로 사용자 프로비전을 구성하기 전에 �
 
          * **상수** - AD 특성에 고정적인 상수 문자열 값을 씁니다.
 
-         * **식** – 하나 이상의 Workday 특성에 따라 AD 특성에 사용자 지정 값을 쓸 수 있습니다. [자세한 내용은 식에 대한 이 문서를 참조하세요](../active-directory-saas-writing-expressions-for-attribute-mappings.md).
+         * **식** – 하나 이상의 Workday 특성에 따라 AD 특성에 사용자 지정 값을 쓸 수 있습니다. [자세한 내용은 식에 대한 이 문서를 참조하세요](../manage-apps/functions-for-customizing-application-data.md).
 
       * **원본 특성** - Workday의 사용자 특성입니다. 원하는 특성이 없는 경우 [Workday 사용자 특성 목록 사용자 지정](#customizing-the-list-of-workday-user-attributes)을 참조하세요.
 
@@ -356,7 +356,7 @@ Active Directory 포리스트로 사용자 프로비전을 구성하기 전에 �
 
 -   도메인 접미사가 있는 Workday 사용자 ID를 연결하여 Active Directory의 userPrincipalName 특성을 생성합니다.
 
--   [식 작성에 대한 설명서는 여기에 있습니다](../active-directory-saas-writing-expressions-for-attribute-mappings.md). 여기에는 특수 문자를 제거하는 방법에 대한 예제가 포함되어 있습니다.
+-   [식 작성에 대한 설명서는 여기에 있습니다](../manage-apps/functions-for-customizing-application-data.md). 여기에는 특수 문자를 제거하는 방법에 대한 예제가 포함되어 있습니다.
 
   
 | WORKDAY 특성 | ACTIVE DIRECTORY 특성 |  ID 일치 여부 | 만들기/업데이트 |
@@ -490,7 +490,7 @@ Powershell 명령에서 제공하는 Active Directory 또는 Azure Active Direct
 
 3. 그러면 초기 동기화가 시작되며, Workday에 있는 사용자 수에 따라 동기화에 걸리는 시간이 달라질 수 있습니다.
 
-4. 언제든지 Azure Portal에서 **감사 로그** 탭을 확인하여 프로비전 서비스에서 수행한 작업을 확인합니다. 감사 로그는 Workday에서 어떤 사용자를 읽은 후 Active Directory에 추가 또는 업데이트되는지와 같은 프로비전 서비스에서 수행한 모든 개별 동기화 이벤트를 나열합니다. **[감사 로그를 읽는 방법에 대한 자세한 지침은 프로비전 보고 가이드 참조](../active-directory-saas-provisioning-reporting.md)**
+4. 언제든지 Azure Portal에서 **감사 로그** 탭을 확인하여 프로비전 서비스에서 수행한 작업을 확인합니다. 감사 로그는 Workday에서 어떤 사용자를 읽은 후 Active Directory에 추가 또는 업데이트되는지와 같은 프로비전 서비스에서 수행한 모든 개별 동기화 이벤트를 나열합니다. **[감사 로그를 읽는 방법에 대한 자세한 지침은 프로비전 보고 가이드 참조](../manage-apps/check-status-user-account-provisioning.md)**
 
 1.  새로운 오류나 경고에 대해 에이전트를 호스팅하는 Windows Server 컴퓨터에서 [Windows 이벤트 로그](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx)를 확인합니다. 이러한 이벤트는 서버에서 **Eventvwr.msc**를 시작하고 **Windows 로그 > 응용 프로그램**을 선택하여 볼 수 있습니다. 모든 프로비전 관련 메시지는 원본 **AADSyncAgent** 아래에서 로깅됩니다.
 
@@ -581,7 +581,7 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 
       * **상수** - AD 특성에 고정적인 상수 문자열 값을 씁니다.
 
-      * **식** – 하나 이상의 Workday 특성에 따라 AD 특성에 사용자 지정 값을 쓸 수 있습니다. [자세한 내용은 식에 대한 이 문서를 참조하세요](../active-directory-saas-writing-expressions-for-attribute-mappings.md).
+      * **식** – 하나 이상의 Workday 특성에 따라 AD 특성에 사용자 지정 값을 쓸 수 있습니다. [자세한 내용은 식에 대한 이 문서를 참조하세요](../manage-apps/functions-for-customizing-application-data.md).
 
    * **원본 특성** - Workday의 사용자 특성입니다. 원하는 특성이 없는 경우 [Workday 사용자 특성 목록 사용자 지정](#customizing-the-list-of-workday-user-attributes)을 참조하세요.
 
@@ -611,7 +611,7 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 
 3. 그러면 초기 동기화가 시작되며, Workday에 있는 사용자 수에 따라 동기화에 걸리는 시간이 달라질 수 있습니다.
 
-4. 개별 동기화 이벤트는 **감사 로그** 탭에서 볼 수 있습니다. **[감사 로그를 읽는 방법에 대한 자세한 지침은 프로비전 보고 가이드 참조](../active-directory-saas-provisioning-reporting.md)**
+4. 개별 동기화 이벤트는 **감사 로그** 탭에서 볼 수 있습니다. **[감사 로그를 읽는 방법에 대한 자세한 지침은 프로비전 보고 가이드 참조](../manage-apps/check-status-user-account-provisioning.md)**
 
 5. 작업이 완료되면 아래와 같이 **프로비전** 탭에 감사 요약 보고서가 작성됩니다.
 
@@ -669,7 +669,7 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 
 3. 그러면 초기 동기화가 시작되며, Workday에 있는 사용자 수에 따라 동기화에 걸리는 시간이 달라질 수 있습니다.
 
-4. 개별 동기화 이벤트는 **감사 로그** 탭에서 볼 수 있습니다. **[감사 로그를 읽는 방법에 대한 자세한 지침은 프로비전 보고 가이드 참조](../active-directory-saas-provisioning-reporting.md)**
+4. 개별 동기화 이벤트는 **감사 로그** 탭에서 볼 수 있습니다. **[감사 로그를 읽는 방법에 대한 자세한 지침은 프로비전 보고 가이드 참조](../manage-apps/check-status-user-account-provisioning.md)**
 
 5. 작업이 완료되면 아래와 같이 **프로비전** 탭에 감사 요약 보고서가 작성됩니다.
 
@@ -808,7 +808,7 @@ Active Directory에 대한 Workday 프로비전 솔루션에는 도메인에 가
 
 ## <a name="next-steps"></a>다음 단계
 
-* [프로비전 활동에 대한 로그를 검토하고 보고서를 받아 보는 방법을 살펴봅니다](../active-directory-saas-provisioning-reporting.md).
+* [프로비전 활동에 대한 로그를 검토하고 보고서를 받아 보는 방법을 살펴봅니다](../manage-apps/check-status-user-account-provisioning.md).
 * [Workday와 Azure Active Directory 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.](workday-tutorial.md)
 * [Azure Active Directory와 다른 SaaS 응용 프로그램을 통합하는 방법을 알아봅니다.](tutorial-list.md)
 

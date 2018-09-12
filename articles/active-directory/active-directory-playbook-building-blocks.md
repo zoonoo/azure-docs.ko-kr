@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 41d495e38a8360609afe924bb49ccf2f6aea086e
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 4c8f2966df9c33ec227b14c00996f84f39043cdb
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340042"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44349231"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 개념 증명 플레이 북: 문서 블록
 
@@ -340,7 +340,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 단계 | 리소스 |
 | --- | --- |
 | 앱이 할당된 그룹에서 사용자를 제거합니다. | [Azure Active Directory 테넌트의 사용자에 대한 그룹 멤버 자격 관리](fundamentals/active-directory-groups-members-azure-portal.md) |
-| 프로비전이 해제되는 동안 몇 분 정도 기다립니다. | [Azure AD에서 SaaS 앱 사용자를 자동으로 프로비전: 자동 프로비전은 어떻게 수행되나요?](active-directory-saas-app-provisioning.md#how-does-automatic-provisioning-work) |
+| 프로비전이 해제되는 동안 몇 분 정도 기다립니다. | [Azure AD에서 SaaS 앱 사용자를 자동으로 프로비전: 자동 프로비전은 어떻게 수행되나요?](manage-apps/user-provisioning.md#how-does-automatic-provisioning-work) |
 | 별도의 브라우저 세션에서 정보 근로자로 My Apps 포털에 로그인하고 타일이 없는지 확인합니다. | http://myapps.microsoft.com |
 
 

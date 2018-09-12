@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: d22b86ad33db600eb5273e3ab09e71a1b1fd527b
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: cdce0ae223a637ac30ed472d2bf711aa36958414
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577499"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346766"
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>AD FS 온-프레미스 앱을 Azure로 마이그레이션 
 
@@ -55,7 +55,7 @@ ms.locfileid: "39577499"
 - Azure AD는 SaaS 앱에 대한 ID 공급자로서 다음과 같은 추가 기능을 지원합니다.
   - 응용 프로그램별 토큰 서명 인증서
   - [구성 가능한 인증서 만료 날짜](manage-certificates-for-federated-single-sign-on.md)
-  - Azure AD ID에 기반한 사용자 계정의 [자동 프로비전](../active-directory-saas-app-provisioning.md)(주요 Azure Marketplace 앱에서).
+  - Azure AD ID에 기반한 사용자 계정의 [자동 프로비전](user-provisioning.md)(주요 Azure Marketplace 앱에서).
 
 **온-프레미스 ID 공급자의 혜택 유지**
 - Azure AD 혜택을 받고 있는 동안에는 인증을 위해 온-프레미스 솔루션을 계속 사용할 수 있습니다. 이렇게 하면 온-프레미스 Multi-Factor Authentication 솔루션, 로깅 및 감사와 같은 혜택이 그대로 유지됩니다. 
@@ -232,7 +232,7 @@ Azure AD 포털에서 사용자를 할당하려면 SaaS 앱의 페이지로 이�
 ![Azure AD를 인증 서비스로 선택](media/migrate-adfs-apps-to-azure/migrate10.png)
 
 ### <a name="optional-configure-user-provisioning-in-azure-ad"></a>선택 사항: Azure AD에서 사용자 프로비저닝 구성
-Azure AD에서 SaaS 응용 프로그램에 대한 사용자 프로비저닝을 직접 처리하게 하려면 [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비전 및 프로비전 해제](../active-directory-saas-app-provisioning.md)를 참조하세요.
+Azure AD에서 SaaS 응용 프로그램에 대한 사용자 프로비저닝을 직접 처리하게 하려면 [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비전 및 프로비전 해제](user-provisioning.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

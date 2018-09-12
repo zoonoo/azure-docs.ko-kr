@@ -4,23 +4,19 @@ description: Azure Functions를 사용하여 Azure SQL Database에 연결하여 
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: 2947fc6da0c4559e81cf97255b8375b020e0b657
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a257948c97437d6045f705acb02054928d22ff89
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30231279"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092872"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Azure Functions를 사용하여 Azure SQL Database에 연결
 이 항목에서는 Azure Functions를 사용하여 Azure SQL Database의 테이블에서 행을 정리하는 예약된 작업을 만드는 방법을 보여 줍니다. 새 C# 스크립트 함수는 Azure Portal에서 미리 정의된 타이머 트리거 템플릿을 기반으로 생성됩니다. 이 시나리오를 지원하려면 함수 앱에서 데이터베이스 연결 문자열을 앱 설정으로 설정해야 합니다. 이 시나리오는 데이터베이스에 대한 대량 작업을 사용합니다. 

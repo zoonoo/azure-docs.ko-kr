@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.subservice: single-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/07/2018
 ms.author: carlrab
-ms.openlocfilehash: 483ac248619a6d8a0f403592b1b4e55ad5e973da
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 20039c32ed7bb740ba5d1185d195d7590cff39e2
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841865"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051258"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Azure SQL Database에서 논리 서버 및 단일 데이터베이스 만들기 및 관리 
 
@@ -38,7 +38,7 @@ Azure SQL Database의 리소스 그룹을 미리 만들거나 서버 자체를 �
 > [!IMPORTANT]
 > 데이터베이스의 가격 책정 계층 선택에 대한 자세한 내용은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 참조하세요.
 
-Managed Instance를 만들려면 [Managed Instance 만들기](sql-database-managed-instance-create-tutorial-portal.md)를 참조하세요.
+Managed Instance를 만들려면 [Managed Instance 만들기](sql-database-managed-instance-get-started.md)를 참조하세요.
 
 ### <a name="manage-an-existing-sql-server"></a>기존 SQL Server 관리
 
@@ -85,7 +85,7 @@ Azure PowerShell을 사용하여 Azure SQL Server, 데이터베이스 및 방화
 [Azure CLI](/cli/azure)를 사용하여 Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 다음 [Azure CLI SQL Database](/cli/azure/sql/db) 명령을 사용합니다. [Cloud Shell](/azure/cloud-shell/overview)을 사용하여 CLI 브라우저에서 실행하거나 macOS, Linux 또는 Windows에서 [설치](/cli/azure/install-azure-cli)합니다. 탄력적 풀 만들기 및 관리에 대해서는 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
 
 > [!TIP]
-> Azure CLI 빠른 시작은 [Azure CLI를 사용하여 단일 Azure SQL Database 만들기](sql-database-get-started-cli.md)를 참조하세요. Azure CLI 예제 스크립트에 대해서는 [CLI를 사용하여 단일 Azure SQL Database 만들기 및 방화벽 규칙 구성](scripts/sql-database-create-and-configure-database-cli.md) 및 [CLI를 사용하여 단일 SQL Database 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-cli.md)을 참조하세요.
+> Azure CLI 빠른 시작은 [Azure CLI를 사용하여 단일 Azure SQL Database 만들기](sql-database-cli-samples.md)를 참조하세요. Azure CLI 예제 스크립트에 대해서는 [CLI를 사용하여 단일 Azure SQL Database 만들기 및 방화벽 규칙 구성](scripts/sql-database-create-and-configure-database-cli.md) 및 [CLI를 사용하여 단일 SQL Database 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-cli.md)을 참조하세요.
 >
 
 | Cmdlet | 설명 |

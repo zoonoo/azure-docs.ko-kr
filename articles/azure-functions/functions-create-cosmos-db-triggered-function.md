@@ -4,24 +4,20 @@ description: Azure Functions를 사용하여 Azure Cosmos DB의 데이터베이�
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
-ms.service: functions; cosmos-db
+ms.service: azure-functions; cosmos-db
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 03/27/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: ec594a4ba3a794ca1b4c52962ff190b86dce5a81
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 5ae81824c2f35dd2ad26d64f3a343fecc549d805
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051360"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44095218"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Azure Cosmos DB에 의해 트리거되는 함수 만들기
 
@@ -115,7 +111,7 @@ ms.locfileid: "43051360"
     | **컬렉션 ID** | 항목 | 새 컬렉션의 이름입니다. 함수 바인딩에 정의된 이름과 일치해야 합니다.  |
     | **저장소 용량** | 고정(10GB)|기본값을 사용합니다. 이 값은 데이터베이스의 저장소 용량입니다. |
     | **처리량** |400RU| 기본값을 사용합니다. 대기 시간을 줄이면 나중에 처리량을 늘릴 수 있습니다. |
-    | **[파티션 키](../cosmos-db/partition-data.md#design-for-scale)** | /category|각 파티션에 데이터를 균등하게 배포하는 파티션 키입니다. 올바른 파티션 키를 선택하는 것은 성능이 뛰어난 컬렉션을 만드는 데 중요합니다. | 
+    | **[파티션 키](../cosmos-db/partition-data.md#best-practices-when-choosing-a-partition-key)** | /category|각 파티션에 데이터를 균등하게 배포하는 파티션 키입니다. 올바른 파티션 키를 선택하는 것은 성능이 뛰어난 컬렉션을 만드는 데 중요합니다. | 
 
 1. **확인**을 클릭하여 **작업** 컬렉션을 만듭니다. 컬렉션이 생성될 때까지 잠시 시간이 걸릴 수 있습니다.
 

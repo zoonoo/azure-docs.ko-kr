@@ -4,25 +4,21 @@ description: Azure Functions에 대한 모범 사례 및 패턴에 알아봅니�
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: Azure Functions, 패턴, 모범 사례, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b11d4ab7188141b36b998e16429329c33f09cee
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9fe8b2cc09c7a08ab6d897a0fe1f1204d1903eca
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599571"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44090866"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Azure Functions의 성능 및 안정성 최적화
 

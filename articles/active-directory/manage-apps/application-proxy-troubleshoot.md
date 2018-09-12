@@ -15,12 +15,12 @@ ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 20cc91a1754c3d68b447430abf21a3aad5925e05
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: aa7962e3659618b8c5a4f161d667c5e90477acc9
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365351"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347650"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>응용 프로그램 프록시 문제 및 오류 메시지 문제 해결
 게시된 응용 프로그램에 액세스할 때나 응용 프로그램을 게시할 때 오류가 발생한다면 다음 옵션을 확인하여 Microsoft Azure AD 응용 프로그램 프록시가 올바르게 작동하는지 확인합니다.
@@ -67,7 +67,7 @@ Azure AD 문제 해결 도구에 대한 자세한 내용은 [커넥터 네트워
 | 13016 - 에지 토큰이나 액세스 토큰에 UPN이 없기 때문에 Azure AD에서 사용자를 대신해서 Kerberos 티켓을 검색할 수 없습니다. | STS 구성에 문제가 있습니다. STS에서 UPN 클레임 구성을 수정합니다. |
 | 13019 - 다음과 같은 일반적인 API 오류로 인해 Azure AD에서 사용자를 대신해서 Kerberos 티켓을 검색할 수 없습니다. | 이 이벤트는 Azure AD와 도메인 컨트롤러 서버 간의 잘못된 구성 또는 두 컴퓨터 모두에서 날짜 및 시간 구성에 문제가 있음을 나타냅니다. 도메인 컨트롤러가 Azure AD에서 생성한 Kerberos 티켓을 거부했습니다. Azure AD 및 백 엔드 응용 프로그램 서버, 특히 SPN 구성이 올바르게 구성되어 있는지 확인합니다. Azure AD가 도메인 컨트롤러와 동일한 도메인에 도메인 가입되어 있는지 확인하여 도메인 컨트롤러가 Azure AD와 신뢰를 구축할 수 있게 하세요. Azure AD 및 도메인 컨트롤러상의 시간 및 날짜 구성이 동기화되었는지 확인합니다. |
 | 13020 - 백 엔드 서버 SPN이 정의되어 있지 않기 때문에 Azure AD에서 사용자를 대신해서 Kerberos 티켓을 검색할 수 없습니다. | 이 이벤트는 Azure AD와 도메인 컨트롤러 서버 간의 잘못된 구성 또는 두 컴퓨터 모두에서 날짜 및 시간 구성에 문제가 있음을 나타냅니다. 도메인 컨트롤러가 Azure AD에서 생성한 Kerberos 티켓을 거부했습니다. Azure AD 및 백 엔드 응용 프로그램 서버, 특히 SPN 구성이 올바르게 구성되어 있는지 확인합니다. Azure AD가 도메인 컨트롤러와 동일한 도메인에 도메인 가입되어 있는지 확인하여 도메인 컨트롤러가 Azure AD와 신뢰를 구축할 수 있게 하세요. Azure AD 및 도메인 컨트롤러상의 시간 및 날짜 구성이 동기화되었는지 확인합니다. |
-| 13022 - 백 엔드 서버가 HTTP 401 오류와 함께 Kerberos 인증 시도에 응답하기 때문에 Azure AD에서 사용자를 인증할 수 없습니다. | 이 이벤트는 Azure AD와 백 엔드 응용 프로그램 서버 간의 잘못된 구성 또는 두 컴퓨터 모두에서 날짜 및 시간 구성에 문제가 있음을 나타냅니다. 백 엔드 서버가 Azure AD에서 생성한 Kerberos 티켓을 거부했습니다. Azure AD 및 백 엔드 응용 프로그램 서버가 올바르게 구성되어 있는지 확인합니다. Azure AD 및 백 엔드 응용 프로그램 서버상의 시간 및 날짜 구성이 동기화되었는지 확인합니다. 자세한 내용은 [응용 프로그램 프록시에 대한 Kerberos 제한 위임 구성 문제 해결](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md)을 참조하세요.  |
+| 13022 - 백 엔드 서버가 HTTP 401 오류와 함께 Kerberos 인증 시도에 응답하기 때문에 Azure AD에서 사용자를 인증할 수 없습니다. | 이 이벤트는 Azure AD와 백 엔드 응용 프로그램 서버 간의 잘못된 구성 또는 두 컴퓨터 모두에서 날짜 및 시간 구성에 문제가 있음을 나타냅니다. 백 엔드 서버가 Azure AD에서 생성한 Kerberos 티켓을 거부했습니다. Azure AD 및 백 엔드 응용 프로그램 서버가 올바르게 구성되어 있는지 확인합니다. Azure AD 및 백 엔드 응용 프로그램 서버상의 시간 및 날짜 구성이 동기화되었는지 확인합니다. 자세한 내용은 [응용 프로그램 프록시에 대한 Kerberos 제한 위임 구성 문제 해결](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)을 참조하세요.  |
 
 ## <a name="end-user-errors"></a>최종 사용자 오류
 

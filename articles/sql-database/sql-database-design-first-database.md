@@ -9,12 +9,12 @@ ms.custom: mvc,develop databases
 ms.topic: tutorial
 ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 6f12c44c2d65eef7e8d3345ec79b812304fe9791
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: ed2d4654163881b3258c4a98632d48acd0e80fb5
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091546"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055372"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>자습서: SSMS를 사용하여 첫 번째 Azure SQL Database 디자인
 
@@ -41,7 +41,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure Portal](https://portal.azure.com/)에 로그인합니다.
+[Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-a-blank-sql-database"></a>빈 SQL 데이터베이스 만들기
 
@@ -131,7 +131,7 @@ Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-d
 
 Azure Portal에 있는 Azure SQL Database 서버의 정규화된 서버 이름을 가져옵니다. 정규화된 서버 이름을 사용하여 SQL Server Management Studio를 사용하는 서버에 연결합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **SQL Database**를 선택하고, **SQL Database** 페이지에서 데이터베이스를 클릭합니다. 
 3. 데이터베이스의 경우 Azure Portal의 **Essentials** 창에서 **서버 이름**을 찾고 복사합니다.
 

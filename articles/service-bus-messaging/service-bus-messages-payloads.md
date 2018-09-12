@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: spelluru
-ms.openlocfilehash: 100559f86a72cd5a5148d1db99764e5b04f3e3b1
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 44c25aa589b757ec29dad6863ff1969e76aed872
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702479"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346239"
 ---
 # <a name="messages-payloads-and-serialization"></a>메시지, 페이로드 및 serialization
 
@@ -36,7 +36,7 @@ AMQP 프로토콜 수준에서 사용되는 해당 이름은 괄호로 묶어 �
 |---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  [ContentType](/dotnet/api/microsoft.azure.servicebus.message.contenttype)(content-type)           | 필요에 따라 RFC2045, 섹션 5의 형식(예: `application/json`)에 따라 설명자를 사용하여 메시지의 페이로드를 설명합니다.                                                                                                                                                                                                                                                                                             |
 |  [CorrelationId](/dotnet/api/microsoft.azure.servicebus.message.correlationid#Microsoft_Azure_ServiceBus_Message_CorrelationId)(correlation-id)       | 응용 프로그램이 상관 관계(예: 회신되는 메시지의 **MessageId** 반영)를 위해 메시지에 대한 컨텍스트를 지정할 수 있도록 합니다.                                                                                                                                                                                                                                                                  |
-| [DeadLetterSource](/dotnet/api/microsoft.azure.servicebus.message.deadlettersource)                      | 배달 못 한 메시지로 처리되고 이후에 배달 못 한 메시지 큐에서 다른 엔터티로 자동 전달된 메시지에만 설정됩니다. 메시지가 배달 못 한 메시지로 처리된 엔터티를 나타냅니다. 이 속성은 읽기 전용입니다.                                                                                                                                                                                                                                  |
+| [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource)                      | 배달 못 한 메시지로 처리되고 이후에 배달 못 한 메시지 큐에서 다른 엔터티로 자동 전달된 메시지에만 설정됩니다. 메시지가 배달 못 한 메시지로 처리된 엔터티를 나타냅니다. 이 속성은 읽기 전용입니다.                                                                                                                                                                                                                                  |
 | [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deliverycount)                         | 이 메시지에 대해 시도된 배달 횟수입니다. 메시지 잠금이 만료되거나 메시지가 수신자에 의해 명시적으로 중단될 때 이 횟수가 증가합니다. 이 속성은 읽기 전용입니다.                                                                                                                                                                                                                                                  |
 | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber)                | 자동 전달된 메시지의 경우, 이 속성은 원래 전송 지점에서 메시지에 처음 할당된 시퀀스 번호를 반영합니다. 이 속성은 읽기 전용입니다.                                                                                                                                                                                                                                                                |
 | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc)                       | 메시지가 수락되고 엔터티에 저장된 UTC 인스턴트입니다. 이 값은 수신자가 보낸 사람의 클럭을 신뢰하지 않으려고 할 때 신뢰할 수 있는 중립 도착 시간 표시로 사용할 수 있습니다. 이 속성은 읽기 전용입니다.                                                                                                                                                                                                   |

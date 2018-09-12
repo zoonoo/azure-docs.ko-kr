@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 48b99015-4db8-4ce8-85e4-b544c0fa203e
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 25601b01489b95de0e86b314b4b934d3cffd38c2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ff5c667318f961dddcab02cb1b2b679285d8c790
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36330743"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294020"
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Azure Security Center에서 차세대 방화벽 추가
 Azure Security Center에서는 보안 보호를 증가시키기 위해 Microsoft 파트너의 차세대 방화벽(NGFW)을 추가하도록 권장할 수 있습니다. 이 문서에서는 이를 수행하는 방법의 예를 보여 줍니다.
@@ -32,8 +32,8 @@ Azure Security Center에서는 보안 보호를 증가시키기 위해 Microsoft
 ## <a name="implement-the-recommendation"></a>권장 사항 구현
 1. **권장 사항** 블레이드에서 **차세대 방화벽 추가**를 선택합니다.
    ![차세대 방화벽 추가][1]
-2. **차세대 방화벽 추가** 블레이드에서 끝점을 선택합니다.
-   ![끝점 선택][2]
+2. **차세대 방화벽 추가** 블레이드에서 엔드포인트를 선택합니다.
+   ![엔드포인트 선택][2]
 3. 두 번째 **차세대 방화벽 추가** 블레이드가 열립니다. 새 솔루션을 사용할 수 있거나 만들 수 있는 경우 기존 솔루션을 사용하도록 선택할 수 있습니다. 이 예제에서는 사용할 수 있는 기존 솔루션이 없으므로 NGFW를 만들어 보겠습니다.
    ![차세대 방화벽 만들기][3]
 4. NGFW를 만들려면 통합 파트너 목록에서 솔루션을 선택합니다. 이 예제에서는 **검사점**을 선택합니다.
@@ -44,13 +44,13 @@ Azure Security Center에서는 보안 보호를 증가시키기 위해 Microsoft
    ![NGFW를 실행하기 위해 가상 머신 만들기][6]
 
 ## <a name="route-traffic-through-ngfw-only"></a>NGFW를 통해서만 트래픽 라우팅
-**권장 사항** 블레이드로 돌아갑니다. Security Center를 통해 NGFW를 추가한 후 **NGFW를 통해서만 트래픽 라우팅**이라는 새 항목이 생성되었습니다. 이 권장 사항은 보안 센터를 통해 NGFW를 설치한 경우에만 생성됩니다. 인터넷 끝점이 있는 경우 Security Center는 NGFW를 통해 인바운드 트래픽을 VM으로 강제하는 네트워크 보안 그룹 규칙을 구성할 것을 권장합니다.
+**권장 사항** 블레이드로 돌아갑니다. Security Center를 통해 NGFW를 추가한 후 **NGFW를 통해서만 트래픽 라우팅**이라는 새 항목이 생성되었습니다. 이 권장 사항은 보안 센터를 통해 NGFW를 설치한 경우에만 생성됩니다. 인터넷 엔드포인트가 있는 경우 Security Center는 NGFW를 통해 인바운드 트래픽을 VM으로 강제하는 네트워크 보안 그룹 규칙을 구성할 것을 권장합니다.
 
 1. **권장 사항 블레이드**에서 **NGFW를 통해서만 트래픽 라우팅**을 선택합니다.
    ![NGFW를 통해서만 트래픽 라우팅][7]
 2. 트래픽을 라우팅할 수 있는 VM을 나열하는 **NGFW를 통해서만 트래픽 라우팅** 블레이드가 열립니다. 목록에서 VM을 선택합니다.
    ![VM 선택][8]
-3. 선택된 VM에 대한 블레이드가 열리고 관련 인바운드 규칙을 표시합니다. 설명은 가능한 다음 단계에 대한 자세한 내용을 제공합니다. **인바운드 규칙 편집** 을 선택하여 인바운드 규칙 편집을 계속 진행합니다. NGFW로 연결된 인터넷 연결 끝점의 경우 **원본**이 **모두**로 설정되지 않아야 합니다. 인바운드 규칙의 속성에 대한 자세한 내용은 [보안 규칙](../virtual-network/security-overview.md#security-rules)을 참조하세요.
+3. 선택된 VM에 대한 블레이드가 열리고 관련 인바운드 규칙을 표시합니다. 설명은 가능한 다음 단계에 대한 자세한 내용을 제공합니다. **인바운드 규칙 편집** 을 선택하여 인바운드 규칙 편집을 계속 진행합니다. NGFW로 연결된 인터넷 연결 엔드포인트의 경우 **원본**이 **모두**로 설정되지 않아야 합니다. 인바운드 규칙의 속성에 대한 자세한 내용은 [보안 규칙](../virtual-network/security-overview.md#security-rules)을 참조하세요.
    ![액세스를 제한하는 규칙 구성][9]
    ![인바운드 규칙 편집][10]
 

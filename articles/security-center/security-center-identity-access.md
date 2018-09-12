@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: rkarlin
-ms.openlocfilehash: 4a934bd69e63605fd624d06533c4e411bc94b531
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 17fd9907a5e3e3f4485b35c8e74d6e46fecb7fda
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630921"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303509"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Azure Security Center에서 ID 및 액세스 모니터링(미리 보기)
 이 문서를 통해 Azure Security Center를 사용하여 사용자의 ID를 모니터링하고 작업에 액세스할 수 있습니다.

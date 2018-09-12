@@ -11,12 +11,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: e0816e8609ba1ab0ef1b4f685731339378fee844
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8bfe069ba03aec2476d437f25ebb00f8a934c845
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525589"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025556"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>빠른 시작: HDInsight에서 클러스터 설정
 
@@ -105,16 +105,16 @@ HDInsight 클러스터를 사용하면 클러스터 생성 중에 다음과 같�
 
 클러스터 위치를 명시적으로 지정할 필요가 없습니다. 클러스터는 기본 저장소와 같은 위치에 있습니다. 지원되는 지역 목록은 **HDInsight 가격** 에서 [지역](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)드롭다운 목록을 클릭하세요.
 
-## <a name="storage-endpoints-for-clusters"></a>클러스터에 대한 저장소 끝점
+## <a name="storage-endpoints-for-clusters"></a>클러스터에 대한 저장소 엔드포인트
 
-Hadoop의 온-프레미스 설치가 클러스터의 저장소에 HDFS(Hadoop 분산 파일 시스템)를 사용하고 있더라도 클라우드에서는 클러스터에 연결된 저장소 끝점을 사용합니다. HDInsight 클러스터는 [Data Lake Storage Gen2](abfs-driver.md) 또는 [Azure Storage의 Blob](../../hdinsight/hdinsight-hadoop-use-blob-storage.md)을 사용합니다. Azure Storage 또는 Data Lake Storage를 사용하면 데이터를 보존하면서 계산에 사용한 HDInsight 클러스터를 안전하게 삭제할 수 있습니다.
+Hadoop의 온-프레미스 설치가 클러스터의 저장소에 HDFS(Hadoop 분산 파일 시스템)를 사용하고 있더라도 클라우드에서는 클러스터에 연결된 저장소 엔드포인트를 사용합니다. HDInsight 클러스터는 [Data Lake Storage Gen2](abfs-driver.md) 또는 [Azure Storage의 Blob](../../hdinsight/hdinsight-hadoop-use-blob-storage.md)을 사용합니다. Azure Storage 또는 Data Lake Storage를 사용하면 데이터를 보존하면서 계산에 사용한 HDInsight 클러스터를 안전하게 삭제할 수 있습니다.
 
 > [!WARNING]
 > HDInsight 클러스터와 다른 위치에서는 추가 저장소 계정을 사용할 수 없습니다.
 
-구성하는 동안 기본 저장소 끝점에 대해 Data Lake Storage를 지정합니다. 기본 저장소에는 응용 프로그램 및 시스템 로그가 포함되어 있습니다. 필요에 따라 클러스터에서 액세스할 수 있는 연결된 Azure Data Lake Storage 계정을 추가로 지정할 수 있습니다. HDInsight 클러스터와 종속된 저장소 계정은 같은 Azure 위치에 있어야 합니다.
+구성하는 동안 기본 저장소 엔드포인트에 대해 Data Lake Storage를 지정합니다. 기본 저장소에는 응용 프로그램 및 시스템 로그가 포함되어 있습니다. 필요에 따라 클러스터에서 액세스할 수 있는 연결된 Azure Data Lake Storage 계정을 추가로 지정할 수 있습니다. HDInsight 클러스터와 종속된 저장소 계정은 같은 Azure 위치에 있어야 합니다.
 
-![클러스터 저장소 설정: HDFS 호환 저장소 끝점](media/quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
+![클러스터 저장소 설정: HDFS 호환 저장소 엔드포인트](media/quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 
 > [!IMPORTANT]
 > **Data Lake Store 액세스를 사용하지 않도록 설정**해야 합니다. 이 설정은 이전 *Data Lake Store* 기능을 나타내고 *Data Lake Storage* 기능이 제대로 작동하려면 사용하지 않도록 설정되어야 합니다.
@@ -242,7 +242,7 @@ Mahout, Cascading 등의 일부 네이티브 Java 구성 요소는 클러스터�
 자세한 내용은 [부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정](../../hdinsight/hdinsight-hadoop-customize-cluster-bootstrap.md)을 참조하세요.
 
 ## <a name="advanced-settings-extend-clusters-with-a-virtual-network"></a>고급 설정: 가상 네트워크를 사용하여 클러스터 확장
-사용자 솔루션에 여러 유형의 HDInsight 클러스터에 분산되어 있는 기술이 필요한 경우, [Azure Virtual Network](../../hdinsight/https://docs.microsoft.com/azure/virtual-network)는 필요한 클러스터 유형을 연결할 수 있습니다. 이 구성은 클러스터를 허용하며, 배포하는 임의의 코드가 서로 직접 통신하도록 허용합니다.
+사용자 솔루션에 여러 유형의 HDInsight 클러스터에 분산되어 있는 기술이 필요한 경우, [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network)는 필요한 클러스터 유형을 연결할 수 있습니다. 이 구성은 클러스터를 허용하며, 배포하는 임의의 코드가 서로 직접 통신하도록 허용합니다.
 
 HDInsight와 함께 Azure Virtual Network를 사용하는 방법에 대한 자세한 내용은 [Azure Virtual Network를 사용하여 HDInsight 확장](../../hdinsight/hdinsight-extend-hadoop-virtual-network.md)을 참조하세요.
 

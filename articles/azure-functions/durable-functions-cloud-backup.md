@@ -3,23 +3,19 @@ title: 지속성 함수의 팬아웃/팬인 시나리오 - Azure
 description: Azure Functions의 지속성 함수 확장에서 팬아웃/팬인 시나리오를 구현하는 방법을 알아봅니다.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4e7b7b6af1f41eb0077d8a8605eb2a553c251f8e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: eec75ad9cf0f568e674b2a4f12d962982f84294f
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763851"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092668"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>지속성 함수의 팬아웃/팬인 시나리오 - 클라우드 백업 예제
 

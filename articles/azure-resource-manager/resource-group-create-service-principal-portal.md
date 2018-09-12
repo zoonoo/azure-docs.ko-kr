@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 57d017e2320e5cfea15f1716bc3b6518606e2ea4
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: fc0ccd84f493fd69c84515331386592ec11a887e
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282249"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025296"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "39282249"
 이 문서에서는 포털을 통해 이러한 단계를 수행하는 방법을 보여 줍니다. 여기서는 응용 프로그램을 하나의 조직 내에서만 실행하게 되는 단일 테넌트 응용 프로그램을 중점적으로 다룹니다. 일반적으로 단일 조직 내에서 실행되는 LOB(기간 업무) 응용 프로그램에 대해 단일 테넌트 응용 프로그램을 사용하게 됩니다.
 
 > [!IMPORTANT]
-> 서비스 주체를 만드는 대신 응용 프로그램 ID에 Azure AD 관리되는 서비스 ID를 사용하는 것이 좋습니다. Azure AD MSI는 코드에 대한 ID 만들기를 간소화하는 Azure Active Directory의 공개 미리 보기 기능입니다. 코드가 Azure AD MSI를 지원하는 서비스에서 실행되고 Azure Active Directory 인증을 지원하는 리소스에 액세스하는 경우 Azure AD MSI를 사용하는 것이 좋습니다. 현재 지원되는 서비스를 비롯하여 Azure AD MSI에 대한 자세한 내용은 [Azure 리소스에 대한 관리 서비스 ID](../active-directory/managed-service-identity/overview.md)를 참조하세요.
+> 서비스 주체를 만드는 대신 응용 프로그램 ID에 Azure AD 관리되는 서비스 ID를 사용하는 것이 좋습니다. Azure AD MSI는 코드에 대한 ID 만들기를 간소화하는 Azure Active Directory의 공개 미리 보기 기능입니다. 코드가 Azure AD MSI를 지원하는 서비스에서 실행되고 Azure Active Directory 인증을 지원하는 리소스에 액세스하는 경우 Azure AD MSI를 사용하는 것이 좋습니다. 현재 지원되는 서비스를 비롯하여 Azure AD MSI에 대한 자세한 내용은 [Azure 리소스에 대한 관리 서비스 ID](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
 
 ## <a name="required-permissions"></a>필요한 사용 권한
 

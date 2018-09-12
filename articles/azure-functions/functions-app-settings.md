@@ -4,22 +4,18 @@ description: Azure Functions 앱 설정 또는 환경 변수에 대한 참조 �
 services: functions
 author: ggailey777
 manager: jeconnoc
-editor: ''
-tags: ''
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 08/22/2018
 ms.author: glenga
-ms.openlocfilehash: 46c1cb0a0cb3104e3705e4a7d4ef0dd894a7c2d7
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 9f6746f1bf8fb65e39933afa00b74a2b8266a1a9
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42819049"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44095439"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions에 대한 앱 설정 참조
 

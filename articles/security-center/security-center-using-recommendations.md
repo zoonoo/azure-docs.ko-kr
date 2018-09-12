@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: terrylan
-ms.openlocfilehash: 0616f5e501324bfd821c1455ce234602f1fcf1bd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d5689e6b9b4d808c24bc4952f65904654b5e99f8
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23040978"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297369"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Azure Security Center 권장 사항을 사용하여 보안 강화
 보안 정책을 구성한 다음 Azure Security Center에서 제공한 권장 사항을 구현하여 중요한 보안 이벤트의 가능성을 줄일 수 있습니다. 이 문서에서는 Security Center에서 보안 정책 및 권장 사항을 사용하여 보안 공격을 완화할 수 있는 방법을 보여 줍니다.
@@ -47,7 +47,7 @@ ms.locfileid: "23040978"
 
 보안 센터에서는 Azure 리소스의 보안 상태를 분석합니다. Security Center가 잠재적인 보안 취약점을 식별하는 경우 보안 정책에서 설정된 컨트롤에 따라 권장 사항을 만듭니다. 권장 사항은 필요한 보안 컨트롤을 구성하는 과정을 안내합니다.
 
-현재 Security Center의 정책 권장 사항은 시스템 업데이트, OS 구성, 네트워크 서브넷 및 VM(가상 컴퓨터)의 네트워크 보안 그룹, SQL Database 감사, SQL Database TDE 및 웹 응용 프로그램 방화벽에 집중되어 있습니다. Security Center 권장 사항의 최신 적용 범위는 [Security Center에서 보안 권장 사항 관리](security-center-recommendations.md)를 참조하세요.
+현재 Security Center의 정책 권장 사항은 시스템 업데이트, OS 구성, 네트워크 서브넷 및 VM(가상 머신)의 네트워크 보안 그룹, SQL Database 감사, SQL Database TDE 및 웹 응용 프로그램 방화벽에 집중되어 있습니다. Security Center 권장 사항의 최신 적용 범위는 [Security Center에서 보안 권장 사항 관리](security-center-recommendations.md)를 참조하세요.
 
 ## <a name="scenario"></a>시나리오
 이 시나리오에서는 Security Center 권장 사항을 모니터링하고 조치를 취하여 중요한 보안 인시던트가 발생할 가능성을 줄일 수 있도록 Security Center를 사용하는 방법을 보여 줍니다. 시나리오는 Security Center [계획 및 운영 가이드](security-center-planning-and-operations-guide.md#security-roles-and-access-controls)에서 제공된 가상의 회사, Contoso 및 역할을 사용합니다. 역할은 Security Center를 사용하여 다른 보안 관련 작업을 수행할 수 있는 개인 및 팀을 나타냅니다. 역할은 다음과 같습니다.

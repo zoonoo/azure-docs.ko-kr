@@ -8,18 +8,18 @@ manager: mbaldwin
 editor: ''
 ms.assetid: 8af12f1c-4dce-4212-8ac4-170d4313492d
 ms.service: security-center
-ms.topic: hero-article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: yurid
-ms.openlocfilehash: 8564dd8a86cab1229f31e77e072ddd4e776947e7
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: d398edb8e7c009e38265525fb1924acd8fa68d9c
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029699"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161257"
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>사고 대응에 Azure Security Center 사용
 대부분의 조직은 공격을 받은 후에 보안 사고에 대응하는 방법을 알아봅니다. 비용과 손상을 줄이려면 공격이 발생하기 전에 사고 대응 계획을 적절히 수립하는 것이 중요합니다. Azure Security Center는 사고에 대응하는 여러 단계에서 사용할 수 있습니다.

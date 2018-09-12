@@ -3,26 +3,21 @@ title: Microsoft Flow에서 Azure 함수 호출 | Microsoft Docs
 description: 사용자 지정 커넥터를 만든 후 해당 커넥터를 사용하여 함수를 호출합니다.
 services: functions
 keywords: 클라우드 앱, 클라우드 서비스, Microsoft Flow, 비즈니스 프로세스, 비즈니스 응용 프로그램
-documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.service: azure-functions
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 57d80ad836a16b8821ba0cce42c822728c654dfd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 662c78fc7074b0dafc53c393962aa4b578779095
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38467747"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092261"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Microsoft Flow에서 함수 호출
 
@@ -234,7 +229,7 @@ PowerApps에서 동일한 함수를 호출하는 방법에 대한 내용은 [Pow
     | **제목**           | Turbine 60 |
     | **LastServiceDate** | 08/04/2017 |
     | **MaxOutput**       | 2500 |
-    | **ServiceRequired** | 예 |
+    | **ServiceRequired** | yes |
     | **EstimatedEffort** | 10 |
 
 3. **Done**을 클릭합니다.

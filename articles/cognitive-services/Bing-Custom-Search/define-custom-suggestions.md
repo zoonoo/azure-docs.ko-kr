@@ -9,12 +9,12 @@ ms.technology: bing-custom-search
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: a41b4e5b6c268ec68488c6764d4192cf8d2345a4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e7a62a79bdc2e486fb6bfca34eb4addeba2bde0e
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374694"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158316"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Custom Autosuggest 환경 구성
 적절한 수준에서 Custom Search를 구독한 경우([가격 책정 페이지](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) 참조) Custom Search 환경의 검색 제안을 사용자 지정할 수 있습니다. Custom Autosuggest는 사용자가 제공하는 부분 쿼리 문자열을 기준으로 제안된 쿼리 목록을 반환합니다. Custom Autosuggest를 사용하는 경우 검색 환경과 관련된 사용자 지정 검색 제안을 제공합니다. 사용자 지정 제안만 반환할지 또는 Bing 제안도 포함할지를 지정합니다. Bing 제안을 포함하는 경우 사용자 지정 제안이 Bing 제안보다 먼저 표시됩니다. Bing 제안은 Custom Search 인스턴스의 컨텍스트로 제한됩니다.
@@ -38,7 +38,7 @@ Bing 제안을 사용하려면 **자동 Bing 제안** 슬라이더를 켬 위치
 ## <a name="remove-suggestions"></a>제안 제거
 제안을 제거하려면 제거할 제안 옆에 있는 제거 아이콘을 클릭합니다.
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
   >[!NOTE]  
   >Custom Autosuggest 구성 변경 내용을 적용하는 데 최대 24시간이 걸릴 수 있습니다.

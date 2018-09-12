@@ -11,22 +11,22 @@ ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스가 있는 Kubernetes 개발 환경을 빠르게 만듭니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: douge
-ms.openlocfilehash: bb8914b524846b1df5d8955bb4717873004ca4a5
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f441f18ab72485feca9356f7218a35b2c351dd40
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41920741"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44157898"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Azure Dev Spaces에서 Node.js를 사용하여 시작
 
-[!INCLUDE[](includes/learning-objectives.md)]
+[!INCLUDE [](includes/learning-objectives.md)]
 
-[!INCLUDE[](includes/see-troubleshooting.md)]
+[!INCLUDE [](includes/see-troubleshooting.md)]
 
 이제 Azure에서 Kubernetes 기반 개발 환경을 만들 준비가 되었습니다.
 
-[!INCLUDE[](includes/portal-aks-cluster.md)]
+[!INCLUDE [](includes/portal-aks-cluster.md)]
 
 ## <a name="install-the-azure-cli"></a>Azure CLI 설치
 Azure Dev Spaces에는 최소한의 로컬 컴퓨터 설정이 필요합니다. 개발 환경의 구성은 대부분 클라우드에 저장되며 다른 사용자와 공유할 수 있습니다. 로컬 머신은 Windows, Mac 또는 Linux를 실행할 수 있습니다. Linux에 지원되는 배포판은 Ubuntu(18.04, 16.04, 14.04), Debian 8 및 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2 및 SLES 12입니다.
@@ -36,11 +36,11 @@ Azure Dev Spaces에는 최소한의 로컬 컴퓨터 설정이 필요합니다. 
 > [!IMPORTANT]
 > Azure CLI가 이미 설치되어 있는 경우 2.0.43 이상 버전을 사용하고 있는지 확인합니다.
 
-[!INCLUDE[](includes/sign-into-azure.md)]
+[!INCLUDE [](includes/sign-into-azure.md)]
 
-[!INCLUDE[](includes/use-dev-spaces.md)]
+[!INCLUDE [](includes/use-dev-spaces.md)]
 
-[!INCLUDE[](includes/install-vscode-extension.md)]
+[!INCLUDE [](includes/install-vscode-extension.md)]
 
 클러스터가 만들어질 때까지 기다리는 동안 코드 작성을 시작할 수 있습니다.
 
@@ -51,9 +51,9 @@ Azure Dev Spaces에는 최소한의 로컬 컴퓨터 설정이 필요합니다. 
 ### <a name="create-a-nodejs-web-app"></a>Node.js 웹앱 만들기
 https://github.com/Azure/dev-spaces로 이동하여 GitHub에서 코드를 다운로드하고 **복제 또는 다운로드**을 선택하여 GitHub 리포지토리를 로컬 환경으로 다운로드합니다. 이 가이드의 코드는 `samples/nodejs/getting-started/webfrontend`에 있습니다.
 
-[!INCLUDE[](includes/azds-prep.md)]
+[!INCLUDE [](includes/azds-prep.md)]
 
-[!INCLUDE[](includes/build-run-k8s-cli.md)]
+[!INCLUDE [](includes/build-run-k8s-cli.md)]
 
 ### <a name="update-a-content-file"></a>콘텐츠 파일 업데이트
 Azure Dev Spaces는 Kubernetes에서 단순히 코드를 실행하는 것이 아니라, 클라우드의 Kubernetes 환경에서 코드 변경 내용을 신속하고 반복적으로 확인할 수 있게 해주는 것입니다.
@@ -107,9 +107,9 @@ Node.js 앱을 다시 시작해야 하므로 서버 쪽 코드 파일을 업데�
 
 ## <a name="debug-a-container-in-kubernetes"></a>Kubernetes에서 컨테이너 디버깅
 
-[!INCLUDE[](includes/debug-intro.md)]
+[!INCLUDE [](includes/debug-intro.md)]
 
-[!INCLUDE[](includes/init-debug-assets-vscode.md)]
+[!INCLUDE [](includes/init-debug-assets-vscode.md)]
 
 ### <a name="select-the-azds-debug-configuration"></a>AZDS 디버그 구성 선택
 1. 디버그 보기를 열려면 VS Code 측면의 **활동 표시줄**에서 디버그 아이콘을 클릭합니다.
@@ -125,7 +125,7 @@ Node.js 앱을 다시 시작해야 하므로 서버 쪽 코드 파일을 업데�
 
 `up` 명령과 마찬가지로 디버깅을 시작할 때 코드가 개발 환경에 동기화되고, 컨테이너가 빌드되어 Kubernetes에 배포됩니다. 이번에는 디버거가 원격 컨테이너에 연결됩니다.
 
-[!INCLUDE[](includes/tip-vscode-status-bar-url.md)]
+[!INCLUDE [](includes/tip-vscode-status-bar-url.md)]
 
 서버 측 코드 파일(예: `server.js`의 `app.get('/api'...`)에 중단점을 설정합니다. 브라우저 페이지를 새로 고치거나 '다시 말하기' 단추를 누르면 중단점을 맞추고 코드를 단계별로 실행할 수 있습니다.
 

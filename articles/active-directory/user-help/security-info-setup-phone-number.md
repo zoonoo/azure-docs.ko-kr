@@ -11,16 +11,16 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 701a47a3907c77dbf5d51692e5d1ddc0c49ab985
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 78b085bfad4dd3bab9d8b83f540b6ea315f911b9
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390105"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162107"
 ---
 # <a name="set-up-security-info-to-use-phone-calls-preview"></a>전화 통화를 사용하도록 보안 정보 설정(미리 보기)
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 보안 정보를 설정하면 회사 또는 학교 계정에 로그인한 다음, 등록 프로세스를 완료해야 합니다. 보안 정보를 설정하지 않은 경우 지금 수행할 것인지 묻는 메시지가 표시됩니다.
 
@@ -60,7 +60,7 @@ ms.locfileid: "39390105"
 
 - **이메일 주소.** 회사 또는 학교 이메일 주소를 입력하여 암호 재설정을 위한 이메일을 받습니다. 이 옵션은 2단계 인증에 사용할 수 없습니다. 이메일을 설정하는 방법에 대한 단계별 지침은 [이메일을 사용하도록 보안 정보 설정](security-info-setup-email.md)을 참조하세요.
 
-- **본인 확인 질문.** 조직을 위해 관리자가 만든 몇 가지 본인 확인 질문에 답변합니다. 이 옵션은 암호 재설정에만 사용할 수 있고, 2단계 인증에는 사용할 수 없습니다. 본인 확인 질문을 설정하는 방법에 대한 단계별 지침을 보려면 [본인 확인 질문을 사용하도록 보안 정보 설정](security-info-setup-questions.md) 문서를 참조하세요.
+- **본인 확인 질문.** 조직의 관리자가 만든 몇 가지 보안 질문에 대답합니다. 이 옵션은 2단계 인증이 아닌 암호 재설정에만 사용할 수 있습니다. 보안 질문을 설정하는 방법에 대한 단계별 지침은 [보안 질문을 사용하도록 보안 정보 설정](security-info-setup-questions.md) 문서를 참조하세요.
     
     >[!Note]
     >이러한 옵션 중 일부가 누락된 경우 사용자의 조직에서 해당 방법을 허용하지 않았을 가능성이 있습니다. 이 경우 사용 가능한 방법을 선택하거나 관리자에게 문의하여 자세한 도움을 받아야 합니다.

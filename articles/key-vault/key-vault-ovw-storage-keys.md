@@ -2,19 +2,19 @@
 ms.assetid: ''
 title: Azure Key Vault Storage 계정 키
 description: 저장소 계정 키는 Azure Key Vault 간의 원활한 통합과 Azure Storage 계정에 대한 키 기반 액세스를 제공합니다.
-ms.topic: article
+ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
 author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 08/21/2017
-ms.openlocfilehash: 0112d48647c031845bc89ccebfcdd40954c59f14
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 7545a035541a4e464a6c82acb9fa9de18cf8e86d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42143383"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304325"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault Storage 계정 키
 

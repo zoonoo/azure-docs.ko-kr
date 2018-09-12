@@ -11,16 +11,16 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 56d207dc47b9e055782568f1c4a4cedc4d19a288
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e527a0eaec433b96b5c37c5ec22f392a7166dfe8
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348210"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162447"
 ---
 # <a name="manage-app-passwords-using-security-info-preview"></a>보안 정보를 사용하여 앱 암호 관리(미리 보기)
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 Outlook 2010과 같은 특정 비 브라우저 앱은 2단계 인증을 지원하지 않습니다. 따라서 2단계 인증을 사용하는 경우 앱이 작동하지 않습니다. 이 문제를 해결하려면 사용자의 일반 암호와는 별도로 자동으로 생성된 암호를 만들어 각 비 브라우저 앱과 함께 사용할 수 있습니다.
 
@@ -81,6 +81,6 @@ Outlook 2010과 같은 특정 비 브라우저 앱은 2단계 인증을 지원�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 보안 정보를 업데이트해야 하는 경우 [보안 정보 관리](security-info-manage-settings.md) 문서의 지침을 따릅니다.
+- 보안 정보를 업데이트해야 하는 경우 [보안 정보 관리](security-info-manage-settings.md) 문서의 지침에 따릅니다.
 
 - 보안 정보 및 수행 가능한 작업에 대한 일반적인 내용은 [보안 정보 개요](user-help-security-info-overview.md)를 참조하세요. 

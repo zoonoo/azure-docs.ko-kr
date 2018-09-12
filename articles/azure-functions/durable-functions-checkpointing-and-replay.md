@@ -3,23 +3,19 @@ title: 지속성 함수의 검사점 및 재생 - Azure
 description: Azure Functions의 지속성 함수 확장에서 검사점 설정 및 회신이 작동하는 방법을 알아봅니다.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 39cdb9b2c6eae9a3176aedc64b8d187e298fdfdd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 90860759e8a20bca03d3eb74e4859d0b26d14da1
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764573"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091869"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>지속성 함수의 검사점 및 재생(Azure Functions)
 
@@ -127,7 +123,7 @@ module.exports = df(function*(context) {
 
 재생 동작은 오케스트레이터 함수에 작성될 수 있는 코드 형식에 대한 제약 조건을 만듭니다.
 
-* 오케스트레이터 코드는 **결정적**이어야 합니다. 여러 번 재생되며 매번 동일한 결과가 생성되어야 합니다. 예를 들어 현재 날짜/시간을 가져오거나, 난수를 가져오거나, 임의의 GUID를 생성하거나, 원격 끝점으로 호출하는 직접 호출이 없습니다.
+* 오케스트레이터 코드는 **결정적**이어야 합니다. 여러 번 재생되며 매번 동일한 결과가 생성되어야 합니다. 예를 들어 현재 날짜/시간을 가져오거나, 난수를 가져오거나, 임의의 GUID를 생성하거나, 원격 엔드포인트로 호출하는 직접 호출이 없습니다.
 
   오케스트레이터 코드에서 현재 날짜/시간을 가져와야 하는 경우 안전하게 재생할 수 있는 [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) API를 사용해야 합니다.
 

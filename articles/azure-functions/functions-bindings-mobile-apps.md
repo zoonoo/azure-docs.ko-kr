@@ -4,23 +4,19 @@ description: Azure Functions에서 Azure Mobile Apps 바인딩을 사용하는 �
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 67adec7f30c8e4b24d0726ebdefa613fcefa7d3e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d43032f854aa37f150945c25515c03ec97277b41
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602520"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091308"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Azure Functions의 Mobile Apps 바인딩 
 
@@ -44,7 +40,7 @@ Mobile Apps는 [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.
 
 ## <a name="input"></a>입력
 
-Mobile Apps 입력 바인딩은 모바일 테이블 끝점에서 레코드를 로드하여 함수에 전달합니다. C# 및 F# 함수에서 함수가 성공적으로 종료되면 레코드에 변경한 내용을 자동으로 다시 테이블에 전송합니다.
+Mobile Apps 입력 바인딩은 모바일 테이블 엔드포인트에서 레코드를 로드하여 함수에 전달합니다. C# 및 F# 함수에서 함수가 성공적으로 종료되면 레코드에 변경한 내용을 자동으로 다시 테이블에 전송합니다.
 
 ## <a name="input---example"></a>입력 - 예제
 

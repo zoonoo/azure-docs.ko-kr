@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: ee606540bef47b11ad8fd9e820af2f5b51d47b0b
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 00b2b249f5889888f34d57fd1577ccfea776d00c
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493024"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347973"
 ---
 # <a name="securing-paas-databases-in-azure"></a>Azure에서 PaaS 데이터베이스 보안 유지
 
@@ -79,7 +79,7 @@ Azure SQL 방화벽 및 IP 제한에 대한 자세한 내용은 다음을 참조
 ### <a name="encryption-of-data-at-rest"></a>미사용 데이터 암호화
 [TDE(투명한 데이터 암호화)](https://msdn.microsoft.com/library/azure/bb934049)는 기본적으로 사용되도록 설정됩니다. TDE는 SQL Server, Azure SQL Database 및 Azure SQL Data Warehouse 데이터 및 로그 파일을 암호화합니다. TDE는 파일 또는 해당 백업에 대한 직접 액세스에 따른 손상으로부터 보호합니다. 이를 통해 기존 응용 프로그램을 변경하지 않고 미사용 데이터를 암호화할 수 있습니다. TDE는 항상 사용하도록 설정하는 것이 좋습니다. 그렇지만 이렇게 하더라도 정상적인 액세스 경로를 사용하는 공격자는 막을 수 없습니다. TDE는 다양한 산업 분야에서 제정된 많은 법률, 규정 및 지침을 준수하는 기능을 제공합니다.
 
-Azure SQL은 TDE와 관련된 주요 문제를 관리합니다. TDE를 사용할 경우 데이터베이스를 이동할 때 복구 가능성을 보장하기 위해 온-프레미스에서 특별히 주의해야 합니다. 좀 더 복잡한 시나리오에서 확장 가능한 키 관리를 통해 Azure Key Vault에서 키를 명시적으로 관리할 수 있습니다([EKM을 사용하여 SQL Server에서 TDE 사용](/security/encryption/enable-tde-on-sql-server-using-ekm) 참조). 이 경우 Azure Key Vault를 통한 BYOK(Bring Your Own Key)도 허용됩니다.
+Azure SQL은 TDE와 관련된 주요 문제를 관리합니다. TDE를 사용할 경우 데이터베이스를 이동할 때 복구 가능성을 보장하기 위해 온-프레미스에서 특별히 주의해야 합니다. 좀 더 복잡한 시나리오에서 확장 가능한 키 관리를 통해 Azure Key Vault에서 키를 명시적으로 관리할 수 있습니다([EKM을 사용하여 SQL Server에서 TDE 사용](/sql/relational-databases/security/encryption/enable-tde-on-sql-server-using-ekm) 참조). 이 경우 Azure Key Vault를 통한 BYOK(Bring Your Own Key)도 허용됩니다.
 
 Azure SQL은 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)를 통해 열에 대한 암호화를 제공합니다. 이를 통해 승인된 응용 프로그램만 중요한 열에 액세스할 수 있습니다. 이러한 종류의 암호화를 사용하면 암호화된 열에 대한 SQL 쿼리가 동등 기반 값으로 제한됩니다.
 

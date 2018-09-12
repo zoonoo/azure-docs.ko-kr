@@ -3,23 +3,19 @@ title: 지속성 함수의 모니터 - Azure
 description: Azure Functions의 지속성 함수 확장을 사용하여 상태 모니터를 구현하는 방법을 알아봅니다.
 services: functions
 author: kashimiz
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 02c068fc70748584583b2c71659b1a1abdc0a46d
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: f59fcecbb1f321c447e15469cf5584c5be8d7b96
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035774"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094355"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>지속성 함수의 모니터 시나리오 - 날씨 관찰 앱 샘플
 

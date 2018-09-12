@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: abd2984574f80f03f276861782ff9ee51348d07e
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: f9a77c1f3fbce295a40db366619d7485d44efc4f
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391380"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162719"
 ---
 # <a name="manage-your-security-info-preview"></a>보안 정보 관리(미리 보기)
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 보안 정보를 사용하여 회사 또는 학교 계정에 로그인하거나 암호를 재설정할 수 있습니다.
 

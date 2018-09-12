@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: e4bc8af7533b3d18f9e04f431d6c9f97e0982ae5
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 792e0b3f8fdfe4ab1b79fec5f45d0587033eca0d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286672"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055202"
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버깅
 
@@ -69,7 +69,7 @@ SQL API SDK에서 Azure Cosmos DB는 쿼리 실행 통계를 제공합니다.
 ```csharp
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
  UriFactory.CreateDocumentCollectionUri(DatabaseName, CollectionName), 
- “SELECT * FROM c WHERE c.city = ‘Seattle’”, 
+ "SELECT * FROM c WHERE c.city = 'Seattle'", 
  new FeedOptions 
  { 
  PopulateQueryMetrics = true, 

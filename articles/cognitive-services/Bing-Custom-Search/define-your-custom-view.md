@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: 8ffe3087df398d6310828e41d0c6992199fafbed
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8ef8aabc7363db88317a6428301512b0a0d4c055
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374767"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158775"
 ---
 # <a name="configure-your-custom-search-experience"></a>사용자 지정 검색 환경 구성
 Custom Search 인스턴스를 사용하면 사용자가 관심 있는 웹 사이트의 콘텐츠만 포함하도록 검색 환경을 조정할 수 있습니다. 웹 전체 검색을 수행하는 대신 Bing이 관심 있는 웹 조각만 검색합니다.
@@ -83,7 +83,7 @@ Image Search 환경에서는 순위 조정을 사용할 수 없습니다.
 
 활성 목록에서 순위 조정 컨트롤을 사용하거나 미리 보기 창에서 승격 및 강등 컨트롤을 사용하여 항목을 수퍼 승격, 승격 또는 강등할 수 있습니다. 활성 목록에 조각이 추가되고 그에 따라 순위가 조정됩니다.
 
-수퍼 승격, 승격 및 강등 변경 내용은 자동으로 저장되고 사용자 지정 검색 끝점에 즉시 반영됩니다. 
+수퍼 승격, 승격 및 강등 변경 내용은 자동으로 저장되고 사용자 지정 검색 엔드포인트에 즉시 반영됩니다. 
 
 Image Search 환경에서는 수퍼 승격, 승격 및 강등을 사용할 수 없습니다.
 
@@ -113,10 +113,10 @@ Bing을 사용하여 Custom Search 인스턴스에 조각을 추가하려면 다
 5.  포함하려는 결과 옆에 있는 **사이트 추가**를 클릭합니다.
 6.  **확인** 단추를 클릭합니다.
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 ## <a name="view-statistics"></a>통계 보기
-적절한 수준에서 Custom Search를 구독한 경우([가격 책정 페이지](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) 참조) **통계** 탭이 프로덕션 인스턴스에 추가됩니다. 통계 탭에는 호출량, 상위 쿼리, 지리적 분포, 응답 코드 및 유해 정보 차단을 포함하여 Custom Search 끝점의 사용 현황에 대한 세부 정보가 표시됩니다. 제공된 컨트롤을 사용하여 세부 정보를 필터링할 수 있습니다.
+적절한 수준에서 Custom Search를 구독한 경우([가격 책정 페이지](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) 참조) **통계** 탭이 프로덕션 인스턴스에 추가됩니다. 통계 탭에는 호출량, 상위 쿼리, 지리적 분포, 응답 코드 및 유해 정보 차단을 포함하여 Custom Search 엔드포인트의 사용 현황에 대한 세부 정보가 표시됩니다. 제공된 컨트롤을 사용하여 세부 정보를 필터링할 수 있습니다.
 
 ## <a name="understanding-quota"></a>할당량 이해
 - 각 사용자 지정 검색 인스턴스에서 **활성** 및 **차단됨** 조각에 대해 수행할 수 있는 최대 순위 조정 수는 400으로 제한됩니다.

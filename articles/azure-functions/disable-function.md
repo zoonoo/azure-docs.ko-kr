@@ -3,21 +3,18 @@ title: Azure Functions에서 함수를 사용하지 않도록 설정하는 방�
 description: Azure Functions 1.x 및 2.x에서 함수를 사용하지 않도록 설정하고 사용하도록 설정하는 방법을 알아봅니다.
 services: functions
 documentationcenter: ''
-author: tdykstra
-manager: cfowler
-editor: ''
-ms.service: functions
-ms.workload: na
-ms.devlang: na
-ms.topic: article
+author: ggailey777
+manager: jeconnoc
+ms.service: azure-functions
+ms.topic: conceptual
 ms.date: 07/24/2018
-ms.author: tdykstra
-ms.openlocfilehash: be30a97c9c94031ea526385326c220fbf0d316b7
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.author: glenga
+ms.openlocfilehash: ab9cf429a0af69db116fe910ab90b83d404afbb7
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40007557"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093637"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Azure Functions에서 함수를 사용하지 않도록 설정하는 방법
 

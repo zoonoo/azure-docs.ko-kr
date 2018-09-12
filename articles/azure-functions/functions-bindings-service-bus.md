@@ -4,24 +4,20 @@ description: Azure Functions에서 Azure Service Bus 트리거 및 바인딩을 
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 04/01/2017
 ms.author: glenga
-ms.openlocfilehash: 20dd9349b9ca5ffb6042156e340019c4483b93e5
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: ee5b11bc04a7e13354c30b64dc55c165eea4f028
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42147009"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303968"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions의 Azure Service Bus 바인딩
 
@@ -519,7 +515,7 @@ module.exports = function (context, myTimer) {
 public String pushToQueue(
   @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
   final String message,
-  @HttpOutput(name = "response") final OutputBinding<T>; result ) {
+  @HttpOutput(name = "response") final OutputBinding<T> result ) {
       result.setValue(message + " has been sent.");
       return message;
  }

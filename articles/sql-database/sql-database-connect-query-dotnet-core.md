@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 9336de3e244f7a7373f7c1ca3ac8eedd06473d3c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: eadab6972a18af65cc510ad76b6f80a1de35ebf1
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630138"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051950"
 ---
 # <a name="use-net-core-c-to-query-an-azure-sql-database"></a>.NET Core(C#)를 사용하여 Azure SQL 데이터베이스 쿼리
 
@@ -27,7 +27,7 @@ ms.locfileid: "38630138"
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- 이 빠른 시작에서 사용하는 컴퓨터의 공용 IP 주소에 대한 [서버 수준 방화벽 규칙](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)
+- 이 빠른 시작에서 사용하는 컴퓨터의 공용 IP 주소에 대한 [서버 수준 방화벽 규칙](sql-database-get-started-portal-firewall.md)
 
 - 설치된 [해당 운영 체제용 .NET Core](https://www.microsoft.com/net/core) 
 
@@ -44,7 +44,7 @@ ms.locfileid: "38630138"
     ![ADO.NET 연결 문자열](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
 
 > [!IMPORTANT]
-> 이 자습서를 수행하는 컴퓨터의 공용 IP 주소에 대한 방화벽 규칙이 있어야 합니다. 다른 컴퓨터에 있거나 다른 공용 IP 주소가 있으면 [Azure Portal을 사용하여 서버 수준 방화벽 규칙을 만듭니다](sql-database-get-started-portal.md#create-a-server-level-firewall-rule). 
+> 이 자습서를 수행하는 컴퓨터의 공용 IP 주소에 대한 방화벽 규칙이 있어야 합니다. 다른 컴퓨터에 있거나 다른 공용 IP 주소가 있으면 [Azure Portal을 사용하여 서버 수준 방화벽 규칙을 만듭니다](sql-database-get-started-portal-firewall.md). 
 >
   
 ## <a name="create-a-new-net-project"></a>새 .NET 프로젝트 만들기

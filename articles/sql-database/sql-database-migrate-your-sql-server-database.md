@@ -9,19 +9,19 @@ ms.custom: mvc,migrate
 ms.topic: tutorial
 ms.date: 07/02/2018
 ms.author: carlrab
-ms.openlocfilehash: ceab627d98149774a3eb767ee56d688f9c11ff99
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1d8ec772293354c059f21aaae8006f5c40540058
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346844"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050207"
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>DMA를 사용하여 SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션
 
 SQL Server 데이터베이스를 Azure SQL Database 단일 데이터베이스로 이동하는 것은 Azure에서 빈 SQL 데이터베이스를 만든 다음, DMA([Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595))를 사용하여 데이터베이스를 Azure로 가져오는 것만큼 간단합니다. 추가 마이그레이션 옵션은 [데이터베이스를 Azure SQL Database로 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
 
 > [!IMPORTANT]
-> Azure SQL Database 관리되는 인스턴스로 마이그레이션하려면 [SQL Server에서 관리되는 인스턴스로 마이그레이션](sql-database-managed-instance-migrate.md)을 참조하세요.
+> Azure SQL Database Managed Instance로 마이그레이션하려면 [SQL Server에서 Managed Instance로 마이그레이션](sql-database-managed-instance-migrate.md)을 참조하세요.
 
 이 자습서에서는 다음에 대해 알아봅니다.
 
@@ -43,7 +43,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure Portal](https://portal.azure.com/)에 로그인합니다.
+[Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-a-blank-sql-database"></a>빈 SQL 데이터베이스 만들기
 
@@ -133,7 +133,7 @@ Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-d
 
 Azure Portal에 있는 Azure SQL Database 서버의 정규화된 서버 이름을 가져옵니다. 정규화된 서버 이름을 사용하여 Data Migration Assistance 및 SQL Server Management Studio 등의 클라이언트 도구를 통해 Azure SQL Server에 연결합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 클릭합니다. 
 3. 데이터베이스의 경우 Azure Portal의 **Essentials** 창에서 **서버 이름**을 찾고 복사합니다.
 

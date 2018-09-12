@@ -11,15 +11,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: barclayn
-ms.openlocfilehash: e7dcb3778de31258f4aa3c946ffa214d87cb858a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e86d68107278641e40346327fa3a8cb7059b7d71
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32178826"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159591"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault 로깅
 Azure Key Vault는 대부분 지역에서 사용할 수 있습니다. 자세한 내용은 [키 자격 증명 모음 가격 책정 페이지](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요.
@@ -235,7 +235,7 @@ Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 �
 
 | operationName | REST API 명령 |
 | --- | --- |
-| 인증 |Azure Active Directory 끝점을 통해 |
+| 인증 |Azure Active Directory 엔드포인트를 통해 |
 | VaultGet |[키 자격 증명 모음에 대한 정보 가져오기](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
 | VaultPut |[키 자격 증명 모음 만들기 또는 업데이트](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
 | VaultDelete |[키 자격 증명 모음 삭제](https://msdn.microsoft.com/library/azure/mt620022.aspx) |

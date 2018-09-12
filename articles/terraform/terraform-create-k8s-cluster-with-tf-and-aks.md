@@ -8,13 +8,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 06/11/2018
-ms.openlocfilehash: 8a997c88943b0273d3136dbf02a784fbdb982527
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.date: 09/06/2018
+ms.openlocfilehash: cd1219fda7821fdc99e334de58826317113415d4
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666810"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053644"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Azure Kubernetes Service 및 Terraform을 사용하여 Kubernetes 클러스터 만들기
 [AKS(Azure Kubernetes Service)](/azure/aks/)는 호스팅된 Kubernetes 환경을 관리하므로 컨테이너 오케스트레이션에 대한 전문 지식 없이 컨테이너화된 응용 프로그램을 빠르고 쉽게 배포하고 관리할 수 있습니다. 또한 응용 프로그램을 오프라인으로 변경하지 않고 주문형 리소스를 프로비전하고, 업그레이드하고, 크기 조정하여 진행 중인 작업 및 유지 관리 부담을 제거합니다.
@@ -76,7 +76,7 @@ Azure 공급자를 선언하는 Terraform 구성 파일을 만듭니다.
 
     ```JSON
     provider "azurerm" {
-        version = "=1.5.0"
+        version = "~>1.5"
     }
 
     terraform {
@@ -129,7 +129,7 @@ Kubernetes 클러스터용 리소스를 선언하는 Terraform 구성 파일을 
         agent_pool_profile {
             name            = "default"
             count           = "${var.agent_count}"
-            vm_size         = "Standard_D2"
+            vm_size         = "Standard_DS2_v2"
             os_type         = "Linux"
             os_disk_size_gb = 30
         }

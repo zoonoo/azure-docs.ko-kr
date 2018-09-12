@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 3dac2b1c90f6555abc71a52d75f8d58958d978c7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e14f74f3dd6d49b882dedcb2ae01029a50a459a3
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449506"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346749"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Netsuite 구성
 
@@ -72,7 +72,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
    
     a. **관리자 사용자 이름** 텍스트 상자에서 Netsuite.com에서 할당된 **시스템 관리자** 프로필을 가진 Netsuite 계정 이름을 입력합니다.
    
-    나. **관리자 암호** 텍스트 상자에 이 계정의 암호를 입력합니다.
+    b. **관리자 암호** 텍스트 상자에 이 계정의 암호를 입력합니다.
       
 1. Azure Portal에서 **연결 테스트**를 클릭하여 Azure AD가 Netsuite 앱에 연결할 수 있는지 확인합니다.
 
@@ -90,7 +90,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 [사용자 및 그룹] 섹션에서 Netsuite에 할당된 모든 사용자 및/또는 그룹의 초기 동기화가 시작됩니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 클릭하여 Netsuite 앱의 프로비전 서비스에서 수행한 모든 작업을 설명하는 프로비전 활동 로그를 확인할 수 있습니다.
 
-Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../active-directory-saas-provisioning-reporting.md)를 참조하세요.
+Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

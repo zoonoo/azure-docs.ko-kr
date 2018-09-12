@@ -5,16 +5,16 @@ description: CLI 코드 캡처를 통한 일시 삭제의 사용 사례 예제
 author: bryanla
 manager: mbaldwin
 ms.service: key-vault
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: bryanla
-ms.openlocfilehash: c328726dfd6f6682e40ad8ff302bb23b78cac7db
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 0554e2e184ce3f3140d3b9e90eb33c20774ed789
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42140939"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303007"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>CLI로 Key Vault 일시 삭제를 사용하는 방법
 

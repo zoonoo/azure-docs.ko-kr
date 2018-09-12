@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 10f4749524c4d4b35b83e5637d35f4ef9a8f9ab6
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 7edfe5a115caf4ee6e4677e5fd7f324b8f3873ee
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041333"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159047"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-replicon"></a>자습서: Replicon과 Azure Active Directory 통합
 
@@ -112,7 +112,7 @@ Replicon에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://na2.replicon.com/<companyname>/saml2/sp-sso/post`
 
-    나. **식별자** 텍스트 상자에서 `https://global.replicon.com/<companyname>` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://global.replicon.com/<companyname>` 패턴을 사용하여 URL을 입력합니다.
 
     다. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://global.replicon.com/!/saml2/<companyname>/sso/post`
 
@@ -137,7 +137,7 @@ Replicon에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     * 전체 URL의 스키마는 다음과 같습니다. `https://na2.replicon.com/\<YourCompanyKey\>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
 
-   나. **+** 을(를) 클릭하여 **v20Configuration** 섹션을 확장합니다.
+   b. **+** 을(를) 클릭하여 **v20Configuration** 섹션을 확장합니다.
 
    다. **+** 을(를) 클릭하여 **metaDataConfiguration** 섹션을 확장합니다.
 
@@ -177,7 +177,7 @@ Replicon에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 ### <a name="create-a-replicon-test-user"></a>Replicon 테스트 사용자 만들기
 
-이 섹션은 Replicon에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Replicon은 기본적으로 사용하도록 설정되어 있는 자동 사용자 프로비저닝을 지원합니다. 자동 사용자 프로비저닝을 구성하는 방법에 대한 자세한 내용은 [여기서](replicon-provisioning-tutorial.md) 확인할 수 있습니다.
+이 섹션은 Replicon에서 Britta Simon이라는 사용자를 만들기 위한 것입니다.
 
 **사용자를 수동으로 만들어야 할 경우 다음 단계를 수행합니다.**
 
@@ -197,7 +197,7 @@ Replicon에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **로그인 이름** 텍스트 상자에 프로비전하려는 Azure AD 사용자의 Azure AD 메일 주소를 입력합니다(예: **BrittaSimon@contoso.com**).
 
-    나. **인증 유형**으로 **SSO**를 선택합니다.
+    b. **인증 유형**으로 **SSO**를 선택합니다.
 
     다. **부서** 텍스트 상자에 사용자의 부서를 입력합니다.
 
@@ -249,7 +249,6 @@ Replicon에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
-* [사용자 프로비저닝 구성](replicon-provisioning-tutorial.md)
 
 <!--Image references-->
 

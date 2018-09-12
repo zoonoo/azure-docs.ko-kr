@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 1b52c64db29e17a0c52eb63721be81844e856b64
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: cd022677da59588eca910a508b2596aa513eff4b
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42146426"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302812"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Azure API Management에서 OAuth 2.0을 사용하여 개발자 계정에 권한을 부여하는 방법
 
@@ -63,9 +63,9 @@ ms.locfileid: "42146426"
 
     ![OAuth 2.0 새 서버](./media/api-management-howto-oauth2/oauth-03.png)
 
-    Azure Active Directory OAuth 2.0 서버의 경우 **토큰 엔드포인트 URL**의 형식은 다음과 같습니다. `<APPID>`의 형식은 `yourapp.onmicrosoft.com`입니다.
+    Azure Active Directory OAuth 2.0 서버의 경우 **토큰 엔드포인트 URL**의 형식은 다음과 같습니다. `<TenantID>`의 형식은 `yourapp.onmicrosoft.com`입니다.
 
-    `https://login.microsoftonline.com/<APPID>/oauth2/token`
+    `https://login.microsoftonline.com/<TenantID>/oauth2/token`
 
     **클라이언트 인증 방법**의 기본 설정은 **기본**이고 **액세스 토큰 전송 방법**의 기본 설정은 **권한 부여 헤더**입니다. 양식의 이 섹션에서 **기본 범위**와 함께 이러한 값을 구성합니다.
 

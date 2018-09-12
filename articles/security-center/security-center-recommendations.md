@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2018
 ms.author: rkarlin
-ms.openlocfilehash: 0581ddc4289f604533bae3650618fada15e02bef
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 6aba94627d0676917664dc654507dce286a4e685
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522240"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304563"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Azure Security Center에서 보안 권장 사항 관리
 이 문서에서는 Azure Security Center의 권장 사항을 사용하여 Azure 리소스를 보호하는 데 도움이 되는 방법을 안내합니다.
@@ -80,13 +80,13 @@ Security Center에서는 Azure 리소스의 보안 상태를 주기적으로 분
 | [시스템 업데이트 적용](security-center-apply-system-updates.md) |누락된 시스템 보안 및 중요 업데이트를 Windows 및 Linux VM과 컴퓨터에 배포하는 것이 좋습니다. |
 | [Just-In-Time 네트워크 액세스 제어 적용](security-center-just-in-time.md) | Just-In-Time VM 액세스만 적용해야 합니다. Just-In-Time 기능은 Security Center의 표준 계층에서 사용할 수 있습니다. Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요. |
 | [시스템 업데이트 후 다시 부팅](security-center-apply-system-updates.md#reboot-after-system-updates) |시스템 업데이트 적용 프로세스를 완료하려면 VM을 다시 부팅하는 것이 좋습니다. |
-| [웹 응용 프로그램 방화벽 추가](security-center-add-web-application-firewall.md) |웹 끝점에 WAF(웹 응용 프로그램 방화벽)를 배포하는 것이 좋습니다. 공개 인바운드 웹 포트(80,443)으로 연결된 네트워크 보안 그룹에 있는 모든 공용 연결 IP(인스턴스 수준 IP 또는 부하 분산된 IP)에 대해 WAF 권장 사항이 표시됩니다. </br>Security Center에서는 가상 머신과 App Service 환경에 있는 웹 응용 프로그램을 대상으로 한 공격을 방어할 수 있도록 WAF를 프로비전할 것을 권장합니다. ASE(App Service 환경)는 Azure App Service의 [프리미엄](https://azure.microsoft.com/pricing/details/app-service/) 서비스 계획 옵션으로, Azure App Service 앱의 안전한 실행을 위해 완전히 격리된 전용 환경을 제공합니다. ASE에 대한 자세한 내용을 보려면 [App Service Environment 설명서](../app-service/environment/intro.md)를 참조하세요.</br>기존 WAF 배포에 이러한 응용 프로그램을 추가하여 보안 센터에서 여러 웹 응용 프로그램을 보호할 수 있습니다. |
+| [웹 응용 프로그램 방화벽 추가](security-center-add-web-application-firewall.md) |웹 엔드포인트에 WAF(웹 응용 프로그램 방화벽)를 배포하는 것이 좋습니다. 공개 인바운드 웹 포트(80,443)으로 연결된 네트워크 보안 그룹에 있는 모든 공용 연결 IP(인스턴스 수준 IP 또는 부하 분산된 IP)에 대해 WAF 권장 사항이 표시됩니다. </br>Security Center에서는 가상 머신과 App Service 환경에 있는 웹 응용 프로그램을 대상으로 한 공격을 방어할 수 있도록 WAF를 프로비전할 것을 권장합니다. ASE(App Service 환경)는 Azure App Service의 [프리미엄](https://azure.microsoft.com/pricing/details/app-service/) 서비스 계획 옵션으로, Azure App Service 앱의 안전한 실행을 위해 완전히 격리된 전용 환경을 제공합니다. ASE에 대한 자세한 내용을 보려면 [App Service Environment 설명서](../app-service/environment/intro.md)를 참조하세요.</br>기존 WAF 배포에 이러한 응용 프로그램을 추가하여 보안 센터에서 여러 웹 응용 프로그램을 보호할 수 있습니다. |
 | [응용 프로그램 보호 완료](security-center-add-web-application-firewall.md#finalize-application-protection) |WAF 구성을 완료하려면 트래픽 경로가 WAF 어플라이언스로 전환되어야 합니다. 이 권장 사항을 따르면 필요한 설정 변경이 완료됩니다. |
 | [차세대 방화벽 추가](security-center-add-next-generation-firewall.md) |보안 보호를 증가시키기 위해 Microsoft 파트너의 차세대 방화벽(NGFW)을 추가하라는 권장 사항입니다. |
 | [NGFW를 통해서만 트래픽 라우팅](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only) |인바운드 트래픽이 NGFW를 통해 VM로 강제하도록 네트워크 보안 그룹(NSG) 규칙을 구성하는 것이 좋습니다. |
 | [Endpoint Protection 설치](security-center-install-endpoint-protection.md) |VM(Windows VM만 해당)에 맬웨어 방지 프로그램을 프로비전하는 것이 좋습니다. |
 | [서브넷 또는 가상 머신에서 네트워크 보안 그룹 활성화](security-center-enable-network-security-groups.md) |서브넷 또는 VM에서 NSG를 활성화하는 것이 좋습니다. |
-| [인터넷 끝점을 통한 액세스 제한](security-center-restrict-access-through-internet-facing-endpoints.md) |NSG에 대한 인바운드 트래픽 규칙을 구성하라는 권장 사항입니다. |
+| [인터넷 엔드포인트를 통한 액세스 제한](security-center-restrict-access-through-internet-facing-endpoints.md) |NSG에 대한 인바운드 트래픽 규칙을 구성하라는 권장 사항입니다. |
 | [SQL Server에서 감사 및 위협 감지 사용](security-center-enable-auditing-on-sql-servers.md) |Azure SQL 서버에 대한 감사 및 위협 감지를 켜는 것이 좋습니다. (Azure SQL 서비스에만 해당됩니다. 가상 머신에서 실행 중인 SQL을 포함하지 않습니다.) |
 | [SQL Database에서 감사 및 위협 감지 사용](security-center-enable-auditing-on-sql-databases.md) |Azure SQL Database에 대한 감사 및 위협 감지를 켜는 것이 좋습니다. (Azure SQL 서비스에만 해당됩니다. 가상 머신에서 실행 중인 SQL을 포함하지 않습니다.) |
 | [SQL 데이터베이스에서 투명한 데이터 암호화 활성화](security-center-enable-transparent-data-encryption.md) |SQL Database에 대해 암호화를 활성화하는 것이 좋습니다. (Azure SQL 서비스에만 해당됩니다.) |
@@ -107,7 +107,7 @@ Security Center에서는 Azure 리소스의 보안 상태를 주기적으로 분
 | 웹 응용 프로그램에 대해 지원되는 최신 .NET Framework 사용 | 최신 보안 클래스에 대해 최신 .NET Framework 버전을 사용하는 것이 좋습니다. 오래된 클래스 및 형식을 사용하면 응용 프로그램이 취약해질 수 있습니다. |
 | 웹 응용 프로그램에 대해 지원되는 최신 Java 버전 사용 | 최신 보안 클래스에 대해 최신 Java 버전을 사용하는 것이 좋습니다. 오래된 클래스 및 형식을 사용하면 응용 프로그램이 취약해질 수 있습니다. |
 | 웹 응용 프로그램에 대해 지원되는 최신 PHP 버전 사용 | 최신 보안 클래스에 대해 최신 PHP 버전을 사용하는 것이 좋습니다. 오래된 클래스 및 형식을 사용하면 응용 프로그램이 취약해질 수 있습니다. |
-| [웹 응용 프로그램 방화벽 추가](security-center-add-web-application-firewall.md) |웹 끝점에 WAF(웹 응용 프로그램 방화벽)를 배포하는 것이 좋습니다. 공개 인바운드 웹 포트(80,443)으로 연결된 네트워크 보안 그룹에 있는 모든 공용 연결 IP(인스턴스 수준 IP 또는 부하 분산된 IP)에 대해 WAF 권장 사항이 표시됩니다.</br></br>Security Center에서는 가상 머신과 App Service 환경에 있는 웹 응용 프로그램을 대상으로 한 공격을 방어할 수 있도록 WAF를 프로비전할 것을 권장합니다. ASE(App Service 환경)는 Azure App Service의 [프리미엄](https://azure.microsoft.com/pricing/details/app-service/) 서비스 계획 옵션으로, Azure App Service 앱의 안전한 실행을 위해 완전히 격리된 전용 환경을 제공합니다. ASE에 대한 자세한 내용을 보려면 [App Service Environment 설명서](../app-service/environment/intro.md)를 참조하세요.</br></br>기존 WAF 배포에 이러한 응용 프로그램을 추가하여 보안 센터에서 여러 웹 응용 프로그램을 보호할 수 있습니다. |
+| [웹 응용 프로그램 방화벽 추가](security-center-add-web-application-firewall.md) |웹 엔드포인트에 WAF(웹 응용 프로그램 방화벽)를 배포하는 것이 좋습니다. 공개 인바운드 웹 포트(80,443)으로 연결된 네트워크 보안 그룹에 있는 모든 공용 연결 IP(인스턴스 수준 IP 또는 부하 분산된 IP)에 대해 WAF 권장 사항이 표시됩니다.</br></br>Security Center에서는 가상 머신과 App Service 환경에 있는 웹 응용 프로그램을 대상으로 한 공격을 방어할 수 있도록 WAF를 프로비전할 것을 권장합니다. ASE(App Service 환경)는 Azure App Service의 [프리미엄](https://azure.microsoft.com/pricing/details/app-service/) 서비스 계획 옵션으로, Azure App Service 앱의 안전한 실행을 위해 완전히 격리된 전용 환경을 제공합니다. ASE에 대한 자세한 내용을 보려면 [App Service Environment 설명서](../app-service/environment/intro.md)를 참조하세요.</br></br>기존 WAF 배포에 이러한 응용 프로그램을 추가하여 보안 센터에서 여러 웹 응용 프로그램을 보호할 수 있습니다. |
 | [응용 프로그램 보호 완료](security-center-add-web-application-firewall.md#finalize-application-protection) |WAF 구성을 완료하려면 트래픽 경로가 WAF 어플라이언스로 전환되어야 합니다. 이 권장 사항을 따르면 필요한 설정 변경이 완료됩니다. |
 | 웹 응용 프로그램에 대해 지원되는 최신 Node.js 버전 사용 | 최신 보안 클래스에 대해 최신 Node.js 버전을 사용하는 것이 좋습니다. 오래된 클래스 및 형식을 사용하면 응용 프로그램이 취약해질 수 있습니다. |
 | CORS에서 모든 리소스가 함수 앱에 액세스하도록 허용하지 않아야 함 | 필요한 도메인만 웹 응용 프로그램과 상호 작용할 수 있도록 하는 것이 좋습니다. CORS(교차 원본 리소스 공유)는 함수 응용 프로그램에 액세스하는 모든 도메인을 허용하지 않아야 합니다. |

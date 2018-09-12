@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: douge
-ms.openlocfilehash: 1bdc0b450a0d36c5de00050559750ded61edd7e5
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: b4c355c864f83bcd76c310fecb0f26dd3372e760
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188897"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162753"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Azure Dev Spaces로 팀 개발
 
@@ -76,7 +76,7 @@ ms.locfileid: "43188897"
 
 ## <a name="learn-about-team-development"></a>팀 개발 알아보기
 
-[!INCLUDE[](includes/team-development-1.md)]
+[!INCLUDE [](includes/team-development-1.md)]
 
 이제 작동을 확인합니다.
 1. `mywebapi`에 대한 VS Code 창으로 이동하고, 기본 `/` GET 처리기에 대한 코드를 편집합니다. 예를 들어 다음과 같습니다.
@@ -87,11 +87,11 @@ ms.locfileid: "43188897"
     });
     ```
 
-[!INCLUDE[](includes/team-development-2.md)]
+[!INCLUDE [](includes/team-development-2.md)]
 
-[!INCLUDE[](includes/well-done.md)]
+[!INCLUDE [](includes/well-done.md)]
 
-[!INCLUDE[](includes/clean-up.md)]
+[!INCLUDE [](includes/clean-up.md)]
 
 
 

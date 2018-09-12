@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 050e8efed38c40d8c7da292c0d6865869a07c9f9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 2a4bae196e956d92548944637509b23f78ceb5d2
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43121712"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348007"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonlycom"></a>자습서: Lessonly.com과 Azure Active Directory 통합
 
@@ -126,7 +126,7 @@ Lessonly.com에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     | `https://<companyname>.lessonly.com/auth/saml/metadata`|
 
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Lessonly.com 클라이언트 지원 팀](mailto:dev@lessonly.com)에 문의하세요. 
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Lessonly.com 클라이언트 지원 팀](mailto:support@lessonly.com)에 문의하세요. 
 
 1. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -165,7 +165,7 @@ Lessonly.com에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     ![Configure Single Sign-On](./media/lessonly-tutorial/tutorial_lessonly.com_configure.png)
 
-1. **Lessonly.com** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64)**, **로그아웃 URL, SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 [Lessonly.com 지원 팀](mailto:dev@lessonly.com)에 보내야 합니다.
+1. **Lessonly.com** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64)**, **로그아웃 URL, SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 [Lessonly.com 지원 팀](mailto:support@lessonly.com)에 보내야 합니다.
 
 > [!TIP]
 > 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
@@ -208,7 +208,7 @@ Lessonly.com에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 Lessonly.com에 액세스하는 동안 만들어질 수 있습니다.
 
 > [!NOTE]
-> 사용자를 수동으로 만들어야 하는 경우 [Lessonly.com 지원 팀](mailto:dev@lessonly.com)에 문의해야 합니다.
+> 사용자를 수동으로 만들어야 하는 경우 [Lessonly.com 지원 팀](mailto:support@lessonly.com)에 문의해야 합니다.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 

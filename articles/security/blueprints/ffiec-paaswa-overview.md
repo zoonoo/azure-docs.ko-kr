@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
-ms.openlocfilehash: 4a124299b8f70ce5c5b1518d923efb2f8e75097f
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: f31bb6fe713514b7b34f5b16693cf7ea31db757f
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906359"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302429"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-ffiec-financial-services"></a>Azure 보안 및 규정 준수 청사진: FFIEC Financial Services용 PaaS 웹 응용 프로그램
 
@@ -103,7 +103,7 @@ App Service Environment는 단일 고객의 응용 프로그램만 실행하도�
 - [웹 응용 프로그램 방화벽 – 데이터 제한](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
 - [Azure SQL Database 트래픽](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview) 허용
 
-**Azure Web App**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/)를 사용하면 고객이 인프라를 관리할 필요 없이 선택한 프로그래밍 언어로 웹 응용 프로그램을 빌드하고 호스팅할 수 있습니다. Azure Web Apps는 자동 크기 조정 및 고가용성을 제공하고, Windows 및 Linux를 지원하며, GitHub, Visual Studio Team Services 또는 Git 리포지토리에서 자동화된 배포를 지원합니다.
+**Azure Web App**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/)를 사용하면 고객이 인프라를 관리할 필요 없이 선택한 프로그래밍 언어로 웹 응용 프로그램을 빌드하고 호스팅할 수 있습니다. 여기서는 자동 크기 조정 및 고가용성을 제공하고, Windows 및 Linux를 모두 지원하며, GitHub, Azure DevOps 또는 Git 리포지토리에서 자동화된 배포를 사용합니다.
 
 ### <a name="virtual-network"></a>Virtual Network
 
@@ -119,7 +119,7 @@ App Service Environment는 단일 고객의 응용 프로그램만 실행하도�
 각 네트워크 보안 그룹에는 솔루션이 안전하고 올바르게 작동할 수 있도록 특정 포트 및 프로토콜이 열려 있습니다. 또한 각 네트워크 보안 그룹에 대해 다음과 같은 구성을 사용합니다.
 
 - [진단 로그 및 이벤트](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)는 저장소 계정에 사용되고 저장됩니다.
-- Log Analytics가 [네트워크 보안 그룹의 진단 로그](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)에 연결됨
+- Log Analytics는 [네트워크 보안 그룹의 진단 로그](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)에 연결됨
 
 **서브넷**: 각 서브넷이 해당 네트워크 보안 그룹에 연결됩니다.
 

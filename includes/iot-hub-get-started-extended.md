@@ -1,10 +1,26 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: iot-hub
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 09/07/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 73b7604e3072e76c69383481259e1cd8990f4df4
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44168351"
+---
 ## <a name="extended-iot-scenarios"></a>확장된 IoT 시나리오
 
 다른 Azure 서비스 및 도구를 사용합니다. 장치를 IoT Hub에 연결할 때 다른 Azure 도구 및 서비스를 사용하는 추가 시나리오를 탐색할 수 있습니다.
 
 | 시나리오                                                   | Azure 서비스 또는 도구              |
 |----------------------------------------------------------- |------------------------------------|
-| [IoT Hub 메시지 관리][Mg_IoT_Hub_Msg]                  | iothub-explorer tool               |
 | [IoT Hub 메시지 관리][Mg_IoT_Toolkit]                  | VS Code Azure IoT Toolkit 확장|
 | [IoT 장치 관리][Mg_IoT_Dv]                        | Azure CLI 2.0 및 IoT 확장|
 | [IoT 장치 관리][Mg_IoT_Dv_Toolkit]                | VS Code Azure IoT Toolkit 확장|
@@ -19,7 +35,6 @@
 이러한 자습서를 완료한 후 [개발자 가이드][lnk-dev-guide]에서 IoT Hub의 기능을 추가로 탐색할 수 있습니다. [방법][lnk-how-to] 섹션에서 추가 자습서를 찾을 수 있습니다.
 
 
-[Mg_IoT_Hub_Msg]: ../articles/iot-hub/iot-hub-explorer-cloud-device-messaging.md
 [Mg_IoT_Toolkit]: ../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
 [Mg_IoT_Dv]: ../articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md
 [Mg_IoT_Dv_Toolkit]: ../articles/iot-hub/iot-hub-device-management-iot-toolkit.md

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: deba3ad8a283b111dc94a5361f3fa4e73d95c0b8
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: a74d91ad986b606a36a8040ac849e7fcbec03f16
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187386"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093195"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure VNET(Virtual Network)을 사용하면 인터넷에서 사용할 수 없고 라우팅할 있는 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있습니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)부터 참조하세요.
@@ -62,9 +62,9 @@ Azure API Management가 네트워크 내의 백 엔드 서비스에 액세스할
     이제 API Management 서비스가 프로비전되는 모든 지역 목록이 보입니다. VNET 및 모든 지역에 대한 서브넷을 선택합니다. 이 목록은 사용자가 구성하고 있는 하위 지역에 설정된 Azure 구독에서 사용할 수 있는 클래식 및 Resource Manager 가상 네트워크로 채워집니다.
 
     > [!NOTE]
-    > 위 다이어그램의 **서비스 끝점**에는 게이트웨이/프록시, Azure Portal, 개발자 포털, GIT 및 직접 관리 끝점이 포함되어 있습니다.
-    > 위 다이어그램에서 **관리 끝점**은 Azure Portal 및 Powershell을 통해 구성을 관리하기 위해 서비스에서 호스팅하는 끝점입니다.
-    > 또한 이 다이어그램은 다양한 끝점에 대한 IP 주소를 보여주지만, API Management 서비스**만** 이 구성된 호스트 이름에서 응답합니다.
+    > 위 다이어그램의 **서비스 엔드포인트**에는 게이트웨이/프록시, Azure Portal, 개발자 포털, GIT 및 직접 관리 엔드포인트가 포함되어 있습니다.
+    > 위 다이어그램에서 **관리 엔드포인트**는 Azure Portal 및 Powershell을 통해 구성을 관리하기 위해 서비스에서 호스팅하는 엔드포인트입니다.
+    > 또한 이 다이어그램은 다양한 엔드포인트에 대한 IP 주소를 보여주지만, API Management 서비스**만** 이 구성된 호스트 이름에서 응답합니다.
 
     > [!IMPORTANT]
     > Resource Manager VNET에 Azure API Management 인스턴스를 배포할 때 서비스는 Azure API Management 인스턴스를 제외한 다른 리소스가 포함되어 있는 전용 서브넷에 있어야 합니다. 다른 리소스가 포함된 Resource Manager VNET 서브넷에 Azure API Management 인스턴스를 배포하려고 하면 배포가 실패합니다.
@@ -109,9 +109,9 @@ API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표�
 | 소스/대상 포트 | 방향 | 전송 프로토콜 | 원본 / 대상 | 목적( * ) | 가상 네트워크 유형 |
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |인바운드 |TCP |인터넷 / VIRTUAL_NETWORK|API Management에 대한 클라이언트 통신|외부 |
-| * / 3443 |인바운드 |TCP |인터넷 / VIRTUAL_NETWORK|Azure Portal 및 Powershell용 관리 끝점 |내부 |
+| * / 3443 |인바운드 |TCP |인터넷 / VIRTUAL_NETWORK|Azure Portal 및 Powershell용 관리 엔드포인트 |외부 및 내부 |
 | * / 80, 443 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|**Azure Storage, Azure Service Bus 및 Azure Active Directory에 대한 종속성**(해당되는 경우).|외부 및 내부 |
-| * / 1433 |아웃바운드 |TCP |VIRTUAL_NETWORK / SQL|**Azure SQL 끝점에 대한 액세스** |외부 및 내부 |
+| * / 1433 |아웃바운드 |TCP |VIRTUAL_NETWORK / SQL|**Azure SQL 엔드포인트에 대한 액세스** |외부 및 내부 |
 | * / 5672 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|이벤트 허브 정책 및 모니터링 에이전트에 대한 로그의 종속성 |외부 및 내부 |
 | * / 445 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|GIT의 Azure 파일 공유에 대한 종속성 |외부 및 내부 |
 | * / 1886 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|리소스 상태에 상태를 게시하는 데 필요 |외부 및 내부 |
@@ -128,13 +128,13 @@ API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표�
 
 * **메트릭 및 상태 모니터링**: Azure Monitoring 엔드포인트에 대한 아웃바운드 네트워크 연결은 다음 도메인에서 확인합니다. 
 
-    | Azure 환경 | Endpoints |
+    | Azure 환경 | 엔드포인트 |
     | --- | --- |
     | Azure 공용 | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li></ul> |
     | Azure Government | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul> |
     | Azure China | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul> |
 
-* **Express Route 설정**: 고객의 일반적인 구성은 온-프레미스 흐름 대신 아웃바운드 인터넷 트래픽을 강제하는 기본 경로(0.0.0.0/0)로 정의되어 있습니다. 이 트래픽 흐름은 변함없이 Azure API Management와의 연결을 끊습니다. 그 이유는 아웃바운드 트래픽이 온-프레미스에서 막히거나 다양한 Azure 끝점에서 더 이상 작동하지 않는 인식 불가능한 주소 집합으로 NAT되기 때문입니다. 해결책은 하나의(또는 그 이상) [UDR][UDRs](사용자 정의 경로)을 Azure API Management를 포함하는 서브넷에 정의하는 것입니다. UDR이 정의한 특정 서브넷 경로는 기본 경로대신 적용됩니다.
+* **Express Route 설정**: 고객의 일반적인 구성은 온-프레미스 흐름 대신 아웃바운드 인터넷 트래픽을 강제하는 기본 경로(0.0.0.0/0)로 정의되어 있습니다. 이 트래픽 흐름은 변함없이 Azure API Management와의 연결을 끊습니다. 그 이유는 아웃바운드 트래픽이 온-프레미스에서 막히거나 다양한 Azure 엔드포인트에서 더 이상 작동하지 않는 인식 불가능한 주소 집합으로 NAT되기 때문입니다. 해결책은 하나의(또는 그 이상) [UDR][UDRs](사용자 정의 경로)을 Azure API Management를 포함하는 서브넷에 정의하는 것입니다. UDR이 정의한 특정 서브넷 경로는 기본 경로대신 적용됩니다.
   가능하면 다음 구성을 사용하는 것이 좋습니다.
  * ExpressRoute 구성은 0.0.0.0/0을 보급하고 기본적으로 모든 아웃바운드 트래픽 온-프레미스를 강제로 터널링합니다.
  * Azure API Management를 포함하는 서브넷에 적용된 UDR은 다음 홉 형식을 갖는 인터넷으로 0.0.0.0/0을 정의합니다.
@@ -169,7 +169,7 @@ Azure VNET 인프라에 사용되는 IP 주소 외에도, 서브넷의 각 API M
 API Management가 배포될 수 있는 서브넷의 최소 크기 이상으로 계산하면 /29이며 3개의 IP 주소를 제공합니다.
 
 ## <a name="routing"> </a> 라우팅
-+ 모든 서비스 끝점에 대한 액세스를 제공하기 위해 부하 분산된 VIP(공용 IP 주소)가 예약됩니다.
++ 모든 서비스 엔드포인트에 대한 액세스를 제공하기 위해 부하 분산된 VIP(공용 IP 주소)가 예약됩니다.
 + 서브넷 IP 범위의 IP 주소(DIP)는 VNet 내의 리소스에 액세스하는 데 사용되고 Vnet과 공용 IP 주소(VIP)는 VNet 외부 리소스에 액세스하는 데 사용됩니다.
 + 부하 분산된 공용 IP 주소는 Azure Portal의 개요/기본 정보 블레이드에서 확인할 수 있습니다.
 

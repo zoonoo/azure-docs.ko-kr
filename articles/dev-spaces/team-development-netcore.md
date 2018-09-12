@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: douge
-ms.openlocfilehash: 818d11e49b0223d42179b4d409f946776dcb73aa
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 602e2a691dfa150c2e8332cb6dca070dbdd57901
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43185719"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162090"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Azure Dev Spaces로 팀 개발
 
@@ -82,7 +82,7 @@ ms.locfileid: "43185719"
 
 ## <a name="learn-about-team-development"></a>팀 개발 알아보기
 
-[!INCLUDE[](includes/team-development-1.md)]
+[!INCLUDE [](includes/team-development-1.md)]
 
 작동을 확인합니다. `mywebapi`에 대한 VS Code 창으로 이동하고, `string Get(int id)` 메서드에 대한 코드를 편집합니다. 예를 들어 다음과 같습니다.
 
@@ -95,8 +95,8 @@ public string Get(int id)
 ```
 
 
-[!INCLUDE[](includes/team-development-2.md)]
+[!INCLUDE [](includes/team-development-2.md)]
 
-[!INCLUDE[](includes/well-done.md)]
+[!INCLUDE [](includes/well-done.md)]
 
-[!INCLUDE[](includes/clean-up.md)]
+[!INCLUDE [](includes/clean-up.md)]

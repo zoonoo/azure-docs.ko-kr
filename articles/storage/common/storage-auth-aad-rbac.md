@@ -5,21 +5,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 09/07/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: be3fd304e04a66e6564141b6a20efea88cf62553
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 2a85277c72b63f248fa6d2b06cc1daa1ccbf5ce5
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42144908"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298678"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>RBAC를 사용하여 Azure Storage 데이터에 대한 액세스 권한 관리(미리 보기)
 
 Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/overview)를 통해 보호된 리소스에 액세스 권한을 부여합니다. Azure Storage는 컨테이너 또는 큐에 액세스하는 데 사용되는 사용 권한의 공통 집합을 포함하는 기본 제공 RBAC 역할 집합을 정의합니다. RBAC 역할이 Azure AD ID에 할당되면 ID에는 지정된 범위에 따라 해당 리소스에 대한 액세스 권한이 부여됩니다. 액세스 권한은 구독, 리소스 그룹, 저장소 계정 또는 개별 컨테이너나 큐의 수준에 범위를 지정할 수 있습니다. Azure Portal, Azure 명령줄 도구 또는 Azure Management API를 사용하여 Azure Storage 리소스에 액세스 권한을 할당할 수 있습니다. 
 
-Azure AD ID는 사용자, 그룹 또는 응용 프로그램 서비스 주체일 수도 있고, *관리 서비스 ID*일 수도 있습니다. 보안 주체는 사용자, 그룹 또는 응용 프로그램 서비스 사용자일 수 있습니다. [관리 서비스 ID](../../active-directory/managed-service-identity/overview.md)는 Azure 가상 머신, 기능 앱, 가상 머신 확장 집합 및 기타 기능에서 실행 중인 응용 프로그램에서 인증하는 데 사용되는 자동으로 관리되는 ID입니다. Azure AD에서 ID는 [Azure ID 솔루션 이해](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions)를 참조하세요.
+Azure AD ID는 사용자, 그룹 또는 응용 프로그램 서비스 주체일 수도 있고, *관리 서비스 ID*일 수도 있습니다. 보안 주체는 사용자, 그룹 또는 응용 프로그램 서비스 사용자일 수 있습니다. [관리 서비스 ID](../../active-directory/managed-identities-azure-resources/overview.md)는 Azure 가상 머신, 기능 앱, 가상 머신 확장 집합 및 기타 기능에서 실행 중인 응용 프로그램에서 인증하는 데 사용되는 자동으로 관리되는 ID입니다. Azure AD에서 ID는 [Azure ID 솔루션 이해](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions)를 참조하세요.
 
 ## <a name="rbac-roles-for-azure-storage"></a>Azure Storage에 대한 RBAC 역할
 
@@ -34,10 +34,7 @@ Azure Storage는 기본 제공 및 사용자 지정 RBAC 역할을 지원합니�
 
 또한 컨테이너 및 큐와 함께 사용하기 위해 사용자 지정 역할을 정의할 수 있습니다. 자세한 내용은 [Azure 역할 기반 액세스 제어의 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)을 참조하세요. 
 
-> [!IMPORTANT]
-> 이 미리 보기는 프로덕션 이외 용도로 사용해야 합니다. Azure Storage에 대한 Azure AD 통합이 일반 공급 버전으로 선언되어야만 프로덕션 SLA(서비스 수준 계약)를 사용할 수 있습니다. 사용자 시나리오에서 Azure AD 통합이 아직 지원되지 않는 경우, 응용 프로그램에서 공유 키 인증 또는 SAS 토큰을 계속 사용합니다. 미리 보기에 대한 자세한 내용은 [Azure Active Directory를 사용하여 Azure Storage에 대한 액세스 인증(미리 보기)](storage-auth-aad.md)을 참조하세요.
->
-> 미리 보기 동안 RBAC 역할 할당을 전파하는 데 최대 5분이 소요될 수 있습니다.
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="assign-a-role-to-a-security-principal"></a>보안 주체에 역할 할당
 

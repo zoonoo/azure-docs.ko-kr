@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/07/2018
 ms.author: carlrab
-ms.openlocfilehash: 9213f82a8e3a350312d4830aa2a8e5f695852ca5
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: f30d15c70b33200565f1933a4d8ebe8ed654638c
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841845"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055236"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Azure SQL Database 논리 서버 및 이 서버에 대한 관리
 
@@ -62,7 +62,7 @@ Azure SQL Database의 리소스 그룹을 미리 만들거나 서버 자체를 �
 > [!IMPORTANT]
 > 데이터베이스의 가격 책정 계층 선택에 대한 자세한 내용은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 참조하세요.
 
-Managed Instance를 만들려면 [Managed Instance 만들기](sql-database-managed-instance-create-tutorial-portal.md)를 참조하세요.
+Managed Instance를 만들려면 [Managed Instance 만들기](sql-database-managed-instance-get-started.md)를 참조하세요.
 
 ### <a name="manage-an-existing-sql-server"></a>기존 SQL Server 관리
 
@@ -132,7 +132,7 @@ Azure PowerShell을 사용하여 Azure SQL Server, 데이터베이스 및 방화
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|방화벽 규칙 삭제|
 
 > [!TIP]
-> Azure CLI 빠른 시작은 [Azure CLI를 사용하여 단일 Azure SQL Database 만들기](sql-database-get-started-cli.md)를 참조하세요. Azure CLI 예제 스크립트에 대해서는 [CLI를 사용하여 단일 Azure SQL Database 만들기 및 방화벽 규칙 구성](scripts/sql-database-create-and-configure-database-cli.md) 및 [CLI를 사용하여 단일 SQL Database 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-cli.md)을 참조하세요.
+> Azure CLI 빠른 시작은 [Azure CLI를 사용하여 단일 Azure SQL Database 만들기](sql-database-cli-samples.md)를 참조하세요. Azure CLI 예제 스크립트에 대해서는 [CLI를 사용하여 단일 Azure SQL Database 만들기 및 방화벽 규칙 구성](scripts/sql-database-create-and-configure-database-cli.md) 및 [CLI를 사용하여 단일 SQL Database 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-cli.md)을 참조하세요.
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-transact-sql"></a>Transact-SQL을 사용하여 Azure SQL Server, 데이터베이스 및 방화벽 관리

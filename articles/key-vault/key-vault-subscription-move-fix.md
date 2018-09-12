@@ -11,15 +11,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: 06cc3aa1b21b4d0ed0d4a6f0362ac1d95518a97c
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: e9acd011c76ea23dbbee2c52c5d1909168878d69
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576120"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161614"
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>구독 이동 후에 주요 자격 증명 모음 테넌트 ID 변경
 ### <a name="q-my-subscription-was-moved-from-tenant-a-to-tenant-b-how-do-i-change-the-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b"></a>Q: 내 구독이 테넌트 A에서 테넌트 B로 이동했습니다. 내 기존 주요 자격 증명 모음에 대한 테넌트 ID를 변경하고 테넌트 B에서 주체에 대한 올바른 ACL을 설정하려면 어떻게 해야 하나요?

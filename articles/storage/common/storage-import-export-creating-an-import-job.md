@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: e87b791dda03521def32ca7473336d7d37644773
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: c1effeba7e4b0750d5af3a5a82b755704379af68
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666022"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021849"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Azure Import/Export 서비스에 대한 가져오기 작업 만들기
 
@@ -97,7 +97,7 @@ REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 가�
 >  패키지의 추적 번호를 제공하는 지원 운송업체 서비스를 통해 드라이브를 배송해야 합니다.
 
 ## <a name="updating-the-import-job-with-your-shipping-information"></a>배송 정보로 가져오기 작업 업데이트
-추적 번호가 있으면 [작업 속성 업데이트](/api/storageimportexport/jobs#Jobs_Update) 연산을 호출하여 배송업체 이름, 작업의 추적 번호 및 반송을 위한 배송업체 계정 번호를 업데이트합니다. 경우에 따라 드라이브 개수 및 배송 날짜를 지정할 수도 있습니다.
+추적 번호가 있으면 [작업 속성 업데이트](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Update) 연산을 호출하여 배송업체 이름, 작업의 추적 번호 및 반송을 위한 배송업체 계정 번호를 업데이트합니다. 경우에 따라 드라이브 개수 및 배송 날짜를 지정할 수도 있습니다.
 
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 

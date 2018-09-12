@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: b52a447bf643510528e1bd8c6d473bf5d77731fe
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: ead6202b0365df770382077618795cd6b6e57cd2
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42142643"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346732"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -300,7 +300,7 @@ Azure 로그 통합을 사용하면 Azure 리소스의 원시 로그를 조직�
 
 #### <a name="implement-user-provisioning-for-connected-apps"></a>연결된 앱에 대한 사용자 프로비저닝 구현
 
-Azure AD를 사용하면 Dropbox, Salesforce, ServiceNow 등과 같은 클라우드 응용 프로그램(SaaS)에서 사용자 ID 만들기, 유지 관리 및 제거를 자동화할 수 있습니다. 자세한 내용은 [Azure AD를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../active-directory-saas-app-provisioning.md)를 참조하세요.
+Azure AD를 사용하면 Dropbox, Salesforce, ServiceNow 등과 같은 클라우드 응용 프로그램(SaaS)에서 사용자 ID 만들기, 유지 관리 및 제거를 자동화할 수 있습니다. 자세한 내용은 [Azure AD를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요.
 
 #### <a name="integrate-information-protection"></a>정보 보호 통합
 
@@ -442,8 +442,7 @@ Microsoft Office 365에서 보안 인시던트를 처리하는 방법에 대한 
 
 * [Microsoft 보안 센터 - 제품 보안](https://www.microsoft.com/trustcenter/security) – Microsoft 클라우드 제품 및 서비스의 보안 기능
 
-* 
-  [Microsoft 보안 센터 - 준수](https://www.microsoft.com/trustcenter/compliance/complianceofferings) – 클라우드 서비스를 위한 포괄적인 Microsoft 규정 준수 제품 집합
+* [Microsoft 보안 센터 - 준수](https://www.microsoft.com/trustcenter/compliance/complianceofferings) – 클라우드 서비스를 위한 포괄적인 Microsoft 규정 준수 제품 집합
 
 * [위험 평가 수행 방법에 대한 지침](https://www.microsoft.com/trustcenter/guidance/risk-assessment) - Microsoft 클라우드 서비스에 대한 보안 및 규정 준수 요구 사항 관리
 

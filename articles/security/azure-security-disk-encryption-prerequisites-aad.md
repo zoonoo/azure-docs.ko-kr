@@ -1,24 +1,18 @@
 ---
 title: Azure AD 앱을 포함한 Azure Disk Encryption 필수 구성 요소(이전 릴리스) | Microsoft Docs
 description: 이 문서에서는 IaaS VM용 Microsoft Azure Disk Encryption을 사용하기 위한 필수 구성 요소를 설명합니다.
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 973cbdc1-12bc-4e0e-90cd-f19b045417a2
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/28/2018
 ms.author: mstewart
-ms.openlocfilehash: 701418c4c2f17d151061ffde704b5a7f05551d9c
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.date: 09/10/2018
+ms.openlocfilehash: 510ca032f77da25238ec060d4122a25345c9fb90
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338464"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346651"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Azure Disk Encryption 필수 구성 요소(이전 릴리스)
 

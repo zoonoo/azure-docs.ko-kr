@@ -4,23 +4,19 @@ description: Azure Functions에서 Azure Cosmos DB 트리거 및 바인딩을 �
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처
-ms.service: functions; cosmos-db
+ms.service: azure-functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: d408456373c8124e1a385879852d6198caf0813c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 50a8e491998b37a7ffebd5551cf755e8a9ca738a
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050193"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093314"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure Functions 1.x의 Azure Cosmos DB 바인딩
 

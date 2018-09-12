@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: juliako
-ms.openlocfilehash: 757ba9e999bfbb46be96e653e7939d91bdf67679
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 015b8570e9cbb06a33107de7a8cb9ae00d60cacb
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287128"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053991"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>REST를 사용한 주문형 콘텐츠 제공 시작
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -54,7 +54,7 @@ Media Services REST API를 사용하여 개발을 시작하려면 다음 필수 
 >[!NOTE]
 >다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 유지되는 로케이터에 대한 정책) 동일한 정책 ID를 사용합니다. 자세한 내용은 [이](media-services-dotnet-manage-entities.md#limit-access-policies) 문서를 참조하세요.
 
-이 문서에 사용된 AMS REST 엔터티에 대한 자세한 내용은 [Azure Media Services REST API 참조](https://docs.microsoft.com/en-us/rest/api/media/services/azure-media-services-rest-api-reference)를 참조하세요. 참고 항목: [Azure Media Services 개념](media-services-concepts.md)
+이 문서에 사용된 AMS REST 엔터티에 대한 자세한 내용은 [Azure Media Services REST API 참조](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)를 참조하세요. 참고 항목: [Azure Media Services 개념](media-services-concepts.md)
 
 >[!NOTE]
 >Media Services에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [Media Services REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
@@ -405,7 +405,7 @@ Azure 저장소 Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST A
 
 ## <a id="encode"></a>원본 파일을 적응 비트 전송률 MP4 파일 집합으로 인코딩
 
-Media Services에 자산을 삽입하고 나면 미디어를 클라이언트에 배달하기 전에 인코딩, 트랜스믹싱, 워터마크 지정 등을 수행할 수 있습니다. 이러한 활동은 높은 성능과 가용성을 보장하기 위해 여러 백그라운드 역할 인스턴스에 대해 예약 및 실행합니다. 이러한 활동을 작업이라고 하며 각 작업은 자산 파일에서 실제 작업을 수행하는 원자성 작업으로 구성됩니다(자세한 내용은 [작업](https://docs.microsoft.com/en-us/rest/api/media/operations/job), [태스크](https://docs.microsoft.com/en-us/rest/api/media/operations/task) 설명 참조).
+Media Services에 자산을 삽입하고 나면 미디어를 클라이언트에 배달하기 전에 인코딩, 트랜스믹싱, 워터마크 지정 등을 수행할 수 있습니다. 이러한 활동은 높은 성능과 가용성을 보장하기 위해 여러 백그라운드 역할 인스턴스에 대해 예약 및 실행합니다. 이러한 활동을 작업이라고 하며 각 작업은 자산 파일에서 실제 작업을 수행하는 원자성 작업으로 구성됩니다(자세한 내용은 [작업](https://docs.microsoft.com/rest/api/media/operations/job), [태스크](https://docs.microsoft.com/rest/api/media/operations/task) 설명 참조).
 
 앞에서 언급한 대로, Azure Media Services 작업 시 가장 일반적인 시나리오 중 하나는 적응 비트 전송률 스트리밍을 클라이언트에 제공하는 것입니다. Media Services는 적응 비트 전송률 MP4 파일을 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍, MPEG DASH 형식 중 하나로 동적 패키징합니다.
 

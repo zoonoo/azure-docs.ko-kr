@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: e907a1f5ad8e75e018149e53ae0c2f9faff10a89
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 5abaeaee87d54e82df29e75b89c83522b8746730
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493108"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158248"
 ---
 # <a name="improve-app-with-batch-test"></a>일괄 테스트로 앱 개선
 
@@ -31,7 +31,7 @@ ms.locfileid: "39493108"
 * 오류 수정 
 * 다시 일괄 테스트
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -228,7 +228,7 @@ ms.locfileid: "39493108"
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

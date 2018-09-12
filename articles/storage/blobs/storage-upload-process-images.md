@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 1756ac4ddbbc6d93307839e8447da84deb0716f7
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 2537e7cd6d59dfd38cac6b18009ce7d6a311ed10
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398730"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027149"
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드
 
@@ -77,9 +77,9 @@ az storage account create --name <blob_storage_account> \
 이 경우 `<blob_storage_account>`는 만든 BLOB 저장소 계정의 이름입니다. _이미지_ 컨테이너 공용 액세스는 `off`로 설정되고, _썸네일_ 컨테이너 공용 액세스는 `container`로 설정됩니다. `container` 공용 액세스 설정을 사용하면 웹 페이지를 방문하는 모든 사람이 해당 썸네일을 볼 수 있습니다.
  
 ```azurecli-interactive 
-$blobStorageAccount="<blob_storage_account>"
+blobStorageAccount=<blob_storage_account>
 
-$blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
+blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 -n $blobStorageAccount --query [0].value --output tsv) 
 
 az storage container create -n images --account-name $blobStorageAccount \

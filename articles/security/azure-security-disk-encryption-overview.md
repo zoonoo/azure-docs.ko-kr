@@ -1,24 +1,18 @@
 ---
 title: IaaS VM용 Azure Disk Encryption 개요 | Microsoft Docs
 description: 이 문서에서는 IaaS VM용 Microsoft Azure Disk Encryption에 대해 간략히 설명합니다.
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 30324adb-e24c-433a-9214-2d1465cbdf45
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: 88500be4bae83049e8a7060719f4f85e7622c645
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.date: 09/10/2018
+ms.openlocfilehash: ea72e4ac778e52d4f6e4f5597d38a1de59ba43fc
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886994"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348942"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>IaaS VM용 Azure Disk Encryption 
 Microsoft Azure는 데이터 프라이버시, 데이터 독립성을 보장하고, 암호화 키를 암호화, 제어 및 관리하고 데이터 액세스를 제어 및 감사하는 다양한 고급 기술을 통해 Azure 호스팅 데이터를 제어할 수 있도록 노력하고 있습니다. Azure 고객은 이러한 제어를 통해 비즈니스 요구에 가장 적합한 솔루션을 유연하게 선택할 수 있습니다. 이 문서에서는 조직의 보안 및 규정 준수 약정에 따라 데이터를 보호할 수 있도록 하는 기술 솔루션인 "Windows 및 Linux IaaS VM용 Azure Disk Encryption"을 소개합니다. 

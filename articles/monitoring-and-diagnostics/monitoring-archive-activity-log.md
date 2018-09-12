@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: d7ed440ba794bcdfab4744e0ac4864aab6896ca8
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 6743d03b623084675f5043a7e158fa99e8aa39d2
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42145888"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054008"
 ---
 # <a name="archive-the-azure-activity-log"></a>Azure 활동 로그 보관
 이 문서에서는 Azure 포털, PowerShell Cmdlet 또는 플랫폼 간 CLI를 사용하여 저장소 계정에서 [**Azure 활동 로그**](monitoring-overview-activity-logs.md)를 보관하는 방법을 보여 줍니다. 이 옵션은 감사, 정적 분석 또는 백업을 위해 활동 로그를 90일 이상(보존 정책에 대해 모든 권한으로) 유지하려는 경우에 유용합니다. 90일 이내로 이벤트를 보관해야 하는 경우 활동 로그는 보관 활성화 없이 Azure 플랫폼에 90일 동안 보관되므로 저장소 계정에 보관을 설정할 필요가 없습니다.
@@ -67,7 +67,7 @@ ms.locfileid: "42145888"
 | StorageAccountId |yes |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
 | 위치 |yes |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. `(Get-AzureRmLocation).Location`을 사용하여 구독에 대한 모든 지역 목록을 볼 수 있습니다. |
 | RetentionInDays |아니요 |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한(영원히) 저장합니다. |
-| 범주 |아니요 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다.  지정하지 않으면 가능한 모든 값을 가정합니다. |
+| Category |아니요 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다.  지정하지 않으면 가능한 모든 값을 가정합니다. |
 
 ## <a name="archive-the-activity-log-via-cli"></a>CLI를 통해 활동 로그 보관
 

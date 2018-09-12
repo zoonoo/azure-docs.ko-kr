@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: f109adfd-daed-4257-9692-2042a1399480
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: b507a62db9a80866005cb63d2008fb14612b516f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d8be831469659993da4f9f392e23b9408eb283e3
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31415948"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302223"
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Azure Security Center 및 Azure SQL Database 서비스
 [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/)를 통해 위협을 예방하고 감지하며 대응할 수 있습니다. 이는 Azure 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
@@ -96,7 +96,7 @@ Security Center는 [Azure SQL 위협 감지](../sql-database/sql-database-threat
 경고를 보려면 보안 센터 블레이드에서 **보안 경고** 타일을 선택합니다. **보안 경고** 블레이드에서 경고를 선택하고 해당 경고를 트리거하는 이벤트 및 공격을 완화하기 위해 수행해야 하는 단계(있는 경우)에 대해 자세히 알아봅니다. 이 예제에서는 **잠재적인 SQL 삽입**을 선택하겠습니다.
 ![보안 경고][7]
 
-아래와 같이, 보안 센터에서는 수정 방법에 대한 원본 IP 주소 및 권장 사항을 적용할 수 있는 경우 경고인 대상 리소스를 트리거한 항목에 대한 정보를 제공하는 추가 정보를 제공합니다.
+아래와 같이, Security Center에서는 수정 방법에 대한 원본 IP 주소 및 권장 사항을 적용할 수 있는 경우 경고인 대상 리소스를 트리거한 항목에 대한 정보를 제공하는 추가 정보를 제공합니다.
 ![잠재적인 SQL 삽입][8]
 
 자세한 내용은 [보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)을 참조하세요.

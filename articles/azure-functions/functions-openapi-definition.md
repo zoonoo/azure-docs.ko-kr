@@ -3,26 +3,21 @@ title: 함수에 대한 OpenAPI 정의 만들기 | Microsoft Docs
 description: 다른 앱 및 서비스를 사용하도록 설정하여 Azure에서 함수를 호출할 수 있도록 하는 OpenAPI 정의를 만듭니다.
 services: functions
 keywords: OpenAPI, Swagger, 클라우드 앱, 클라우드 서비스,
-documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 3205fc8597d4d501b19ace7d50c4807a47d31d03
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f2f4e7d96c4d8725d9d34314854665440d86ce8d
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602618"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44095082"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>함수에 대한 OpenAPI 정의 만들기
 REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다(이전의 [Swagger](http://swagger.io/) 파일). 이 정의에는 API에서 사용할 수 있는 작업 및 API에 대한 요청 및 응답 데이터가 구성되는 방식에 대한 정보가 포함됩니다.
@@ -137,7 +132,7 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다(이전의 [Swa
 
     ![API 정의 원본](media/functions-openapi-definition/api-definition-source.png)
 
-    이 단계에서는 함수 앱의 도메인에서 OpenAPI 파일을 호스팅하는 끝점, [OpenAPI 편집기](http://editor.swagger.io)의 인라인 복사, API 정의 템플릿 생성기를 포함하여 함수 앱의 OpenAPI 옵션을 사용하도록 설정합니다.
+    이 단계에서는 함수 앱의 도메인에서 OpenAPI 파일을 호스팅하는 엔드포인트, [OpenAPI 편집기](http://editor.swagger.io)의 인라인 복사, API 정의 템플릿 생성기를 포함하여 함수 앱의 OpenAPI 옵션을 사용하도록 설정합니다.
 
 1. **API 정의 템플릿 생성** > **저장**을 클릭합니다.
 

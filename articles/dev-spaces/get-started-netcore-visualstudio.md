@@ -13,12 +13,12 @@ ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: douge
-ms.openlocfilehash: 155f823b53ac6a6e391b1f4f71994d896070092a
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: ac1872cf3f5ee8b83da9fa4c489188504aa8ad22
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42110190"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161546"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Azure Dev Spaces에서 .NET Core 및 Visual Studio를 사용하여 시작
 
@@ -29,9 +29,9 @@ ms.locfileid: "42110190"
 - 독립적으로 별도의 두 서비스를 개발하고, Kubernetes의 DNS 서비스 검색을 사용하여 다른 서비스를 호출합니다.
 - 팀 환경에서 코드를 생산적으로 개발하고 테스트합니다.
 
-[!INCLUDE[](includes/see-troubleshooting.md)]
+[!INCLUDE [](includes/see-troubleshooting.md)]
 
-[!INCLUDE[](includes/portal-aks-cluster.md)]
+[!INCLUDE [](includes/portal-aks-cluster.md)]
 
 ## <a name="get-the-visual-studio-tools"></a>Visual Studio 도구 가져오기
 1. 최신 버전의 [Visual Studio 2017](https://www.visualstudio.com/vs/) 설치

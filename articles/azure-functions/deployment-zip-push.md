@@ -5,21 +5,17 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-editor: ''
-tags: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 08/12/2018
 ms.author: glenga
-ms.openlocfilehash: 06124a0a0db47d76552ddf2172a7f656c6d869cf
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: d7396ddb94017048247050726f83b0302e946633
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818470"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347123"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Azure Functions에 대한 Zip 배포
 
@@ -97,7 +93,7 @@ az functionapp deployment source config-zip  -g myResourceGroup -n \
 > [!NOTE]
 > 배포 패키지에서 함수 앱을 실행할 수 있는 기능은 미리 보기 상태입니다.
 
-Zip 배치는 이 기능과 통합되어 있으며 함수 앱 설정 `WEBSITE_RUN_FROM_ZIP`을 값 `1`로 설정하여 활성화할 수 있습니다. 자세한 내용은 [배포 패키지 파일에서 함수 실행](run-functions-from-deployment-package.md)을 참조하세요.
+Zip 배치는 이 기능과 통합되어 있으며 함수 앱 설정 `WEBSITE_RUN_FROM_PACKAGE`을 값 `1`로 설정하여 활성화할 수 있습니다. 자세한 내용은 [배포 패키지 파일에서 함수 실행](run-functions-from-deployment-package.md)을 참조하세요.
 
 [!INCLUDE [app-service-deploy-zip-push-custom](../../includes/app-service-deploy-zip-push-custom.md)]
 

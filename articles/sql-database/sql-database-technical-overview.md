@@ -7,14 +7,14 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.topic: overview
-ms.date: 08/01/2018
+ms.date: 09/07/2018
 ms.author: carlrab
-ms.openlocfilehash: f7a314b3de112ad1fa7a5a356c2325846e9371b1
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 6e793c0227300b836c0a14b4252eeaf63c1bc949
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413385"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054583"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Azure SQL Database 서비스란? 
 
@@ -40,14 +40,14 @@ SQL Database는 해당 코드 베이스를 [Microsoft SQL Server 데이터베이
 SQL Database는 가동 중지 시간 없이 기본 제공 지능형 최적화, 전역 확장성과 가용성 및 고급 보안 옵션을 포함하여 동적 확장성을 제공하는 여러 서비스 수준에서 별도로 관리하지 않고도 예측 가능한 성능을 제공합니다. 이러한 기능을 사용하면 가상 머신과 인프라를 관리하는 데 귀중한 시간과 리소스를 할당하는 대신 빠른 앱 개발에 집중하고 시장 출시 시간을 단축할 수 있습니다. SQL Database는 현재 전 세계에서 38개의 데이터 센터에 제공되며, 주변의 데이터 센터에서 데이터베이스를 실행할 수 있도록 정기적으로 더 많은 데이터 센터가 온라인될 예정입니다.
 
 > [!NOTE]
-> SQL Database 관리되는 인스턴스는 현재 미리 보기 상태이며 단일 서비스 수준에서만 사용할 수 있습니다. 자세한 내용은 [SQL Database 관리되는 인스턴스](sql-database-managed-instance.md)를 참조하세요.
+> SQL Database Managed Instance는 현재 미리 보기 상태이며 단일 서비스 수준에서만 사용할 수 있습니다. 자세한 내용은 [SQL Database Managed Instance](sql-database-managed-instance.md)를 참조하세요.
 >
 
 ## <a name="scalable-performance-and-pools"></a>확장 가능한 성능 및 풀
 
 SQL Database에서 각 데이터베이스는 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 또는 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md) 및 보장된 성능 수준 내에서 고유한 서비스 계층으로 서로 격리되고 이식 가능합니다. SQL Database는 다른 요구 사항에 대해 다른 성능 수준을 제공하며 데이터베이스가 리소스 사용을 최대화하고 비용을 절감하도록 풀링할 수 있습니다.
 
-SQL Database 관리되는 인스턴스를 통해 각 인스턴스는 보장된 리소스로 다른 인스턴스로부터 격리됩니다. 자세한 내용은 [SQL Database 관리되는 인스턴스](sql-database-managed-instance.md)를 참조하세요. 
+SQL Database Managed Instance를 통해 각 인스턴스는 보장된 리소스로 다른 인스턴스로부터 격리됩니다. 자세한 내용은 [SQL Database Managed Instance](sql-database-managed-instance.md)를 참조하세요. 
 
 ### <a name="adjust-performance-and-scale-without-downtime"></a>가동 중지 시간 없이 성능 및 규모 조정
 
@@ -59,7 +59,7 @@ SQL Database는 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) �
 
 동적 확장성은 자동 크기 조정과 다릅니다. 자동 크기 조정은 서비스가 조건에 따라 자동으로 크기를 조정하는 경우인 반면 동적 확장성은 가동 중지 시간 없이 수동 크기 조정을 허용합니다. 단일 Azure SQL Database는 수동 동적 확장성을 지원하지만 자동 크기 조정은 지원하지 않습니다. 더 많은 *자동* 환경은 데이터베이스에서 개별 데이터베이스 요구 사항에 따라 풀에 리소스를 공유하도록 허용하는 탄력적 풀을 사용하는 것이 좋습니다. 그러나 단일 Azure SQL Database에 대한 확장성을 자동화할 수 있는 스크립트가 있습니다. 예제는 [PowerShell을 사용하여 단일 SQL Database 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-powershell.md)을 참조하세요. 
 
-SQL Database 관리되는 인스턴스는 미리 보기 상태이며 단일 서비스 계층을 제공합니다. 자세한 내용은 [SQL Database 관리되는 인스턴스](sql-database-managed-instance.md)를 참조하세요.
+SQL Database Managed Instance는 미리 보기 상태이며 단일 서비스 계층을 제공합니다. 자세한 내용은 [SQL Database Managed Instance](sql-database-managed-instance.md)를 참조하세요.
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>리소스 사용률 극대화를 위한 탄력적 풀
 
@@ -72,7 +72,7 @@ SQL Database 관리되는 인스턴스는 미리 보기 상태이며 단일 서�
 스크립트는 탄력적 풀 모니터링 및 크기 조정에 도움을 줄 수 있습니다. 예제는 [PowerShell을 사용하여 Azure SQL Database에서 SQL 탄력적 풀 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-pool-powershell.md)을 참조하세요.
 
 > [!IMPORTANT]
-> SQL Database 관리되는 인스턴스 탄력적 풀을 지원하지 않습니다.
+> SQL Database Managed Instance 탄력적 풀을 지원하지 않습니다.
 
 ### <a name="blend-single-databases-with-pooled-databases"></a>단일 데이터베이스와 풀링된 데이터베이스의 혼합
 
@@ -177,8 +177,8 @@ SQL Database는 MacOS, Linux 및 Windows에서 Python, Java, Node.js, PHP, Ruby 
 - 이러한 빠른 시작을 참조하여 다음 항목을 시작하세요.
 
   - [Azure Portal에서 SQL Database 만들기](sql-database-get-started-portal.md)  
-  - [Azure CLI를 사용하여 SQL Database 만들기](sql-database-get-started-cli.md)
-  - [PowerShell을 사용하여 SQL Database 만들기](sql-database-get-started-powershell.md)
+  - [Azure CLI를 사용하여 SQL Database 만들기](sql-database-cli-samples.md)
+  - [PowerShell을 사용하여 SQL Database 만들기](sql-database-powershell-samples.md)
 
 - 일련의 Azure CLI 및 PowerShell 샘플은 다음을 참조하세요.
   - [SQL Database에 대한 Azure CLI 샘플](sql-database-cli-samples.md)

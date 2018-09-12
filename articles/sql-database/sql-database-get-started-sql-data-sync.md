@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 7cb7ce0ea81cf99c2ee14a6f209864894563d237
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: ccdffaf0c224cc4579f24ca5f3ca60a6c53f3bd6
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111782"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160406"
 ---
 # <a name="set-up-sql-data-sync"></a>SQL 데이터 동기화 설정
 이 자습서에서는 Azure SQL Database와 SQL Server 인스턴스를 모두 포함하는 하이브리드 동기화 그룹을 만들어 Azure SQL 데이터 동기화를 설정하는 방법에 대해 설명합니다. 새 동기화 그룹을 완벽하게 구성하고 설정한 일정에 동기화합니다.
@@ -152,7 +152,7 @@ SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제는 다음 �
         ![에이전트 키 및 서버 자격 증명을 입력합니다.](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 
         >   [!NOTE] 
-        >   이 시점에서 방화벽 오류가 발생하면 Azure에 대해 SQL Server 컴퓨터에서 들어오는 트래픽을 허용하는 방화벽 규칙을 만들어야 합니다. 포털에서 규칙을 수동으로 만들 수 있지만 SSMS(SQL Server Management Studio)에서 더 쉽게 만들 수 있습니다. SSMS에서 Azure의 허브 데이터베이스에 연결하려고 합니다. 데이터베이스 이름을 <hub_database_name>.database.windows.net으로 입력합니다. Azure 방화벽 규칙을 구성하려면 대화 상자의 단계를 따릅니다. 그런 다음 클라이언트 동기화 에이전트 앱에 반환합니다.
+        >   이 시점에서 방화벽 오류가 발생하면 Azure에 대해 SQL Server 컴퓨터에서 들어오는 트래픽을 허용하는 방화벽 규칙을 만들어야 합니다. 포털에서 규칙을 수동으로 만들 수 있지만 SSMS(SQL Server Management Studio)에서 더 쉽게 만들 수 있습니다. SSMS에서 Azure의 허브 데이터베이스에 연결하려고 합니다. 데이터베이스 이름을 <hub_database_name>.database.windows.net으로 입력합니다. Azure Firewall 규칙을 구성하려면 대화 상자의 단계를 따릅니다. 그런 다음 클라이언트 동기화 에이전트 앱에 반환합니다.
 
     9.  클라이언트 동기화 에이전트 앱에서 **등록**을 클릭하여 에이전트와 SQL Server 데이터베이스를 등록합니다. **SQL Server 구성** 대화 상자가 열립니다.
 
@@ -239,7 +239,7 @@ SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제는 다음 �
 
 ### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>데이터 동기화를 사용하여 데이터베이스를 어떻게 내보내고 가져오나요?
 데이터베이스를 `.bacpac` 파일로 내보내고 새 데이터베이스를 만들기 위해 파일을 가져온 후에 새 데이터베이스에서 데이터 동기화를 사용하려면 다음 두 가지 작업을 수행해야 합니다.
-1.  [이 스크립트](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql)를 사용하여 **새 데이터베이스**에서 데이터 동기화 개체와 파생 테이블을 정리합니다. 이 스크립트는 데이터베이스에서 모든 필요한 데이터 동기화 개체를 삭제합니다.
+1.  [이 스크립트](https://github.com/vitomaz-msft/DataSyncMetadataCleanup/blob/master/Data%20Sync%20complete%20cleanup.sql)를 사용하여 **새 데이터베이스**에서 데이터 동기화 개체와 파생 테이블을 정리합니다. 이 스크립트는 데이터베이스에서 모든 필요한 데이터 동기화 개체를 삭제합니다.
 2.  새 데이터베이스를 통해 동기화 그룹을 다시 만듭니다. 더 이상 기존 동기화 그룹이 필요하지 않으면 삭제합니다.
 
 ## <a name="faq-about-the-client-agent"></a>클라이언트 에이전트에 대한 질문과 대답

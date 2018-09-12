@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: diberry
-ms.openlocfilehash: 355c1edd4fa7433e68a9c0e903f4f782203326fe
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 9c14f2121cd83cec802f4fd4a92661d58eb7efb3
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365881"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159575"
 ---
 # <a name="tutorial-improve-app-with-patterns"></a>자습서: 패턴을 사용하여 앱 개선
 
@@ -26,7 +26,7 @@ ms.locfileid: "39365881"
 * 패턴을 만드는 방법
 * 패턴 예측 개선 사항을 확인하는 방법
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -114,15 +114,15 @@ OrgChart-Manager(employee){
 
 ## <a name="train-the-luis-app"></a>LUIS 앱 학습
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>앱을 게시하여 엔드포인트 URL 가져오기
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>다른 발화를 사용하여 엔드포인트 쿼리
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. 주소의 URL 끝으로 이동하고 `Who is the boss of Jill Jones?`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 
 
@@ -424,7 +424,7 @@ OrgChart-Manager(employee){
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

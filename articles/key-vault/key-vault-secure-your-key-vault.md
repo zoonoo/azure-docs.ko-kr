@@ -11,15 +11,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: ambapat
-ms.openlocfilehash: 9b8b0da6e1572ab79ffb369497f64aad2cd249b9
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: d8c5e660b460e763fb4a500463543316c8c914ed
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43343465"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159410"
 ---
 # <a name="secure-your-key-vault"></a>키 자격 증명 모음 보안
 Azure Key Vault는 클라우드 응용 프로그램에 대한 암호화 키와 암호(예: 인증서, 연결 문자열, 암호)를 보호하는 클라우드 서비스입니다. 이 데이터는 민감하고 업무상 중요하기 때문에 권한이 부여된 응용 프로그램과 사용자만 키 자격 증명 모음에 액세스할 수 있도록 키 자격 증명 모음에 대한 액세스를 보호해야 합니다. 이 문서에서는 키 자격 증명 모음 액세스 모델의 개요를 제공하고, 인증 및 권한 부여에 대해 설명한 다음 예제를 사용하여 클라우드 응용 프로그램의 키 자격 증명 모음에 대한 액세스를 보호하는 방법을 설명합니다.

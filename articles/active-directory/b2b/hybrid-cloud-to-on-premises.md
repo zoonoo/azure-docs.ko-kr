@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 9c9cde23f8f8dc557b99d2f1508c923aaa2dce91
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: b7b1279dbb1256269705da3f8be6f6d2c1151368
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42146989"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346341"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Azure AD의 B2B 사용자에게 온-프레미스 응용 프로그램에 대한 액세스 권한 부여
 
@@ -27,7 +27,7 @@ Azure AD(Azure Active Directory) B2B 공동 작업 기능을 사용하여 파트
 
 다음을 모두 수행해야 합니다.
 
-- [Azure Active Directory 응용 프로그램 갤러리에 없는 응용 프로그램에 Single Sign-On 구성](../active-directory-saas-custom-apps.md)에 설명된 대로 비갤러리 응용 프로그램 템플릿을 사용하여 SAML 앱을 통합합니다. **로그온 URL** 값에 사용하는 값을 알고 있어야 합니다.
+- [Azure Active Directory 응용 프로그램 갤러리에 없는 응용 프로그램에 Single Sign-On 구성](../manage-apps/configure-single-sign-on-non-gallery-applications.md)에 설명된 대로 비갤러리 응용 프로그램 템플릿을 사용하여 SAML 앱을 통합합니다. **로그온 URL** 값에 사용하는 값을 알고 있어야 합니다.
 -  Azure AD 응용 프로그램 프록시를 사용하여 인증 원본으로 구성된 **Azure Active Directory**와 함께 온-프레미스 앱을 게시합니다. 지침은 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](../manage-apps/application-proxy-publish-azure-portal.md)를 참조하세요. 
 
    **내부 URL** 설정을 구성하는 경우 비갤러리 응용 프로그램 템플릿에 지정된 로그온 URL을 사용합니다. 이 방식으로 사용자는 조직 경계 외부에서 응용 프로그램에 액세스할 수 있습니다. 응용 프로그램 프록시는 온-프레미스 앱에 대해 SAML Single Sign-On을 수행합니다.

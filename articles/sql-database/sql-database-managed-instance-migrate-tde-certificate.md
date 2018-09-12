@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 08/09/2018
 ms.author: mlandzic
 manager: craigg
-ms.openlocfilehash: afecd69cdf9832e1c6dc294ca01968ee50a3eabd
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 73990d6feeed56114bc3c66164bbb53c093bbe21
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41920749"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050614"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-managed-instance"></a>TDE 보호 데이터베이스의 인증서를 Azure SQL Managed Instance로 마이그레이션
 
@@ -141,4 +141,4 @@ ms.locfileid: "41920749"
 
 이 문서에서는 투명한 데이터 암호화를 사용하여 데이터베이스의 인증서 보호 암호화 키를 온-프레미스 또는 IaaS SQL Server에서 Azure SQL Managed Instance로 마이그레이션하는 방법을 알아보았습니다.
 
-Azure SQL Database Managed Instance로 데이터베이스 백업을 복원하는 방법을 알아보려면 [Azure SQL Database 관리되는 인스턴스에 데이터베이스 백업 복원](sql-database-managed-instance-restore-from-backup-tutorial.md)을 참조하세요.
+Azure SQL Database Managed Instance로 데이터베이스 백업을 복원하는 방법을 알아보려면 [Azure SQL Database 관리되는 인스턴스에 데이터베이스 백업 복원](sql-database-managed-instance-get-started-restore.md)을 참조하세요.

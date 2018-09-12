@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: 7fc5b164792907644a0a41615436806f998a8b1e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 2f5396826da88fd2efdd3588babdbdfdeb42252a
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398712"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026146"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java-sdk-v7"></a>빠른 시작: Java SDK V7을 사용하여 BLOB 업로드, 다운로드 및 나열
 
@@ -29,7 +29,7 @@ ms.locfileid: "39398712"
 
 이 자습서에서는 "Java 개발자를 위한 Eclipse IDE" 구성으로 [Eclipse](http://www.eclipse.org/downloads/)를 사용합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
@@ -208,7 +208,7 @@ sourceFile.deleteOnExit();
 
 > [!div class="nextstepaction"]
 > [Java용 Azure Storage SDK](https://github.com/azure/azure-storage-java) 
-> [API 참조](https://docs.microsoft.com/en-us/java/api/storage/client?view=azure-java-stable)
+> [API 참조](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
 > [Java용 샘플 코드](../common/storage-samples-java.md)
 
 * Storage 탐색기 및 Blob에 대한 자세한 내용은 [Storage 탐색기를 사용하여 Azure Blob Storage 리소스 관리](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.

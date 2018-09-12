@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 510bf383848725f3864c40af02c2b309370237f0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 855f147b0622ecc0831f2bc464e83d245af9e574
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438089"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158674"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>자습서: Clarizen과 Azure Active Directory 통합
 
@@ -100,7 +100,7 @@ Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Clari
 
     a. **식별자** 상자에 해당 값으로 **Clarizen**을 입력합니다.
 
-    나. **회신 URL** 상자에 **https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx** 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 상자에 **https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx** 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL을 사용해야 합니다. 식별자에는 고유한 문자열 값을 사용하는 것이 좋습니다. 실제 값을 확인하려면 [Clarizen 지원 팀](https://success.clarizen.com/hc/en-us/requests/new)에 문의하세요.
@@ -147,7 +147,7 @@ Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Clari
 
     a. **페더레이션 인증 사용**을 선택합니다.
 
-    나. 다운로드한 인증서를 업로드하려면 **업로드** 를 클릭합니다.
+    b. 다운로드한 인증서를 업로드하려면 **업로드** 를 클릭합니다.
 
     다. **로그인 URL** 상자에 Azure AD 응용 프로그램 구성 창의 **SAML Single Sign-on 서비스 URL** 값을 입력합니다.
 
@@ -180,7 +180,7 @@ Azure Portal에서 Britta Simon이라는 테스트 사용자를 만듭니다.
 
     a. **이름** 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 상자에 Britta Simon 계정의 전자 메일 주소를 입력합니다.
+    b. **사용자 이름** 상자에 Britta Simon 계정의 전자 메일 주소를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -188,7 +188,7 @@ Azure Portal에서 Britta Simon이라는 테스트 사용자를 만듭니다.
 
 ### <a name="create-a-clarizen-test-user"></a>Clarizen 테스트 사용자 만들기
 
-이 섹션은 Clarizen에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Clarizen은 자동 사용자 프로비전을 지원하며 기본적으로 사용하도록 설정되어 있습니다. 자동 사용자 프로비전 구성 방법에 대한 자세한 내용은 [여기](clarizen-provisioning-tutorial.md)에서 제공합니다.
+이 섹션은 Clarizen에서 Britta Simon이라는 사용자를 만들기 위한 것입니다.
 
 **사용자를 수동으로 만들어야 할 경우 다음 단계를 수행합니다.**
 
@@ -196,11 +196,11 @@ Azure AD 사용자가 Clarizen에 로그인할 수 있도록 하려면 사용자
 
 1. Clarizen 회사 사이트에 관리자 권한으로 로그인합니다.
 
-1. **피플**을 클릭합니다.
+2. **피플**을 클릭합니다.
 
     !["피플" 클릭](./media/clarizen-tutorial/create_aaduser_001.png "피플")
 
-1. **사용자 초대**를 클릭합니다.
+3. **사용자 초대**를 클릭합니다.
 
     !["사용자 초대" 단추](./media/clarizen-tutorial/create_aaduser_002.png "사용자 초대")
 
@@ -210,7 +210,7 @@ Azure AD 사용자가 Clarizen에 로그인할 수 있도록 하려면 사용자
 
     a. **전자 메일** 상자에 Britta Simon 계정의 전자 메일 주소를 입력합니다.
 
-    나. **초대**를 클릭합니다.
+    b. **초대**를 클릭합니다.
 
     > [!NOTE]
     > Azure Active Directory 계정 보유자는 활성화되기 전에 전자 메일을 받고 링크를 따라 계정을 확인합니다.
@@ -251,7 +251,6 @@ Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Clarizen에 �
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
-* [사용자 프로비저닝 구성](clarizen-provisioning-tutorial.md)
 
 <!--Image references-->
 

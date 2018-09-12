@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: cde70518164c386697127b079979b5b3b76ae088
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: cd95a1f1e0631340fa9844fd31c3d8c0af1168dd
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42143109"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347055"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스
 이 페이지는 Azure AD(Azure Active Directory)에서 다양한 응용 프로그램 관련 기능에 대해 작성된 모든 문서의 전체 목록을 제공합니다.
@@ -42,7 +42,7 @@ ms.locfileid: "42143109"
 | 기능 영역 |  |
 |:---:| --- |
 | 페더레이션된 Single Sign-On |[SAML 기반 Single Sign-On 문제 해결](develop/howto-v1-debug-saml-sso-issues.md) |
-| 암호 기반 Single Sign-On |[Internet Explorer용 액세스 패널 확장 문제 해결](active-directory-saas-ie-troubleshooting.md) |
+| 암호 기반 Single Sign-On |[Internet Explorer용 액세스 패널 확장 문제 해결](manage-apps/manage-access-panel-browser-extension.md) |
 | 응용 프로그램 프록시 |[앱 프록시 문제 해결 가이드](manage-apps/application-proxy-troubleshoot.md) |
 | 온-프레미스 AD 및 Azure AD 간의 Single Sign-On |[암호 해시 동기화 문제 해결](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[비밀번호 쓰기 저장 문제 해결](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | 동적 그룹 멤버 자격 |[동적 그룹 멤버 자격 문제 해결](users-groups-roles/groups-troubleshooting.md) |
@@ -56,7 +56,7 @@ Single Sign-On을 사용하면 사용자가 하나의 자격 증명 집합을 �
 | 페더레이션 및 다른 형식의 로그온 소개 |[Azure AD로 Single Sign-On](manage-apps/what-is-single-sign-on.md) |
 | Single Sign-On 구성 단계로 단순하게 Azure AD와 사전 통합된 수천 개의 SaaS 앱 |[Azure AD 응용 프로그램 갤러리 시작](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[페더레이션을 지원하는 사전 통합된 앱의 전체 목록](saas-apps/tutorial-list.md)<br /><br />[Azure AD 앱 갤러리에 앱을 추가하는 방법](develop/howto-app-gallery-listing.md) |
 | [Salesforce](saas-apps/salesforce-tutorial.md), [ServiceNow](saas-apps/servicenow-tutorial.md), [Google Apps](saas-apps/google-apps-tutorial.md), [Workday](saas-apps/workday-tutorial.md) 등과 같이 앱에 Single Sign-On을 구성하는 방법에 대한 150개 이상의 앱 자습서 |[Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](saas-apps/tutorial-list.md) |
-| Single Sign-On 구성을 수동으로 설정하고 사용자 지정하는 방법 |[Azure Active Directory 응용 프로그램 갤러리에 없는 앱에 대한 Single Sign-On을 구성하는 방법](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[사전 통합된 앱에 대해 SAML 토큰에서 발급된 클레임을 사용자 지정하는 방법](active-directory-saml-claims-customization.md) |
+| Single Sign-On 구성을 수동으로 설정하고 사용자 지정하는 방법 |[Azure Active Directory 응용 프로그램 갤러리에 없는 앱에 대한 Single Sign-On을 구성하는 방법](manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)<br /><br />[사전 통합된 앱에 대해 SAML 토큰에서 발급된 클레임을 사용자 지정하는 방법](active-directory-saml-claims-customization.md) |
 | SAML 프로토콜을 사용하는 페더레이션된 앱에 대한 문제 해결 가이드 |[SAML 기반 Single Sign-On 문제 해결](develop/howto-v1-debug-saml-sso-issues.md) |
 | 앱 인증서의 만료 날짜를 구성하는 방법 및 인증서를 갱신하는 방법 |[Azure Active Directory에서 페더레이션된 Single Sign-On에 대한 인증서 관리](manage-apps/manage-certificates-for-federated-single-sign-on.md) |
 
@@ -70,7 +70,7 @@ Single Sign-On을 사용하면 사용자가 하나의 자격 증명 집합을 �
 | 암호 기반 SSO의 작동 방법 소개 및 간략한 기술 개요 |[Azure AD를 사용한 암호 기반 Single Sign-On](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on) |
 | 계정 공유 및 Azure AD에서 이러한 문제를 해결할 방법과 관련된 시나리오의 요약 |[Azure AD와 계정 공유](active-directory-sharing-accounts.md) |
 | 일정한 간격으로 특정 앱에 대한 암호 자동 변경 |[자동화된 암호 롤오버(미리 보기)](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
-| Azure AD 암호 관리 확장의 Internet Explorer 버전에 대한 배포 및 문제 해결 가이드 |[그룹 정책을 사용하여 Internet Explorer용 액세스 패널 확장을 배포하는 방법](active-directory-saas-ie-group-policy.md)<br /><br />[Internet Explorer용 액세스 패널 확장 문제 해결](active-directory-saas-ie-troubleshooting.md) |
+| Azure AD 암호 관리 확장의 Internet Explorer 버전에 대한 배포 및 문제 해결 가이드 |[그룹 정책을 사용하여 Internet Explorer용 액세스 패널 확장을 배포하는 방법](manage-apps/deploy-access-panel-browser-extension.md)<br /><br />[Internet Explorer용 액세스 패널 확장 문제 해결](manage-apps/manage-access-panel-browser-extension.md) |
 
 암호 기반 Single Sign-On은 사용자 당 최대 열 개의 앱에서 Azure AD의 모든 버전에 사용할 수 있습니다. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 은 응용 프로그램을 무제한 지원합니다. 조직에 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 또는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)이 있는 경우 [그룹을 사용하여 응용 프로그램에 액세스 권한을 할당](#managing-access-to-applications)할 수 있습니다. 자동화된 암호 롤오버는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 기능입니다.
 
@@ -130,11 +130,11 @@ Dropbox, Salesforce, ServiceNow 등과 같은 SaaS 응용 프로그램의 사용
 
 | 문서 가이드 |  |
 |:---:| --- |
-| 작동 방법에 대해 알아보고 일반적인 질문에 대한 답 찾기 |[SaaS 앱에 자동화된 사용자 프로비전 및 프로비전 해제](active-directory-saas-app-provisioning.md) |
-| Azure AD와 SaaS 앱 간에 매핑되는 정보 방식 구성 |[특성 매핑 사용자 지정](active-directory-saas-customizing-attribute-mappings.md)<br><br>[특성 매핑에 대한 식 작성](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
+| 작동 방법에 대해 알아보고 일반적인 질문에 대한 답 찾기 |[SaaS 앱에 자동화된 사용자 프로비전 및 프로비전 해제](manage-apps/user-provisioning.md) |
+| Azure AD와 SaaS 앱 간에 매핑되는 정보 방식 구성 |[특성 매핑 사용자 지정](manage-apps/customize-application-attributes.md)<br><br>[특성 매핑에 대한 식 작성](manage-apps/functions-for-customizing-application-data.md) |
 | SCIM 프로토콜을 지원하는 앱에 자동화된 프로비전을 사용하는 방법 |[SCIM 사용한 앱에 자동화된 사용자 프로비전 설정](manage-apps/use-scim-to-provision-users-and-groups.md) |
-| 사용자 프로비전에 대해 보고하고 문제를 해결하는 방법 |[자동 사용자 프로비전 보고](active-directory-saas-provisioning-reporting.md)<br><br>[사용자 프로비전 문제 해결](active-directory-application-provisioning-content-map.md) |
-| 특성 값에 따라 응용 프로그램에 프로비전된 제한 |[범위 지정 필터](active-directory-saas-scoping-filters.md) |
+| 사용자 프로비전에 대해 보고하고 문제를 해결하는 방법 |[자동 사용자 프로비전 보고](manage-apps/check-status-user-account-provisioning.md)<br><br>[사용자 프로비전 문제 해결](active-directory-application-provisioning-content-map.md) |
+| 특성 값에 따라 응용 프로그램에 프로비전된 제한 |[범위 지정 필터](manage-apps/define-conditional-rules-for-provisioning-user-accounts.md) |
 
 자동화된 사용자 프로비전은 사용자 당 최대 열 개의 앱에서 Azure AD의 모든 버전에 사용할 수 있습니다. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 은 응용 프로그램을 무제한 지원합니다. 조직에 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 또는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)이 있는 경우 [그룹을 사용하여 프로비전되는 사용자를 관리](#managing-access-to-applications)할 수 있습니다.
 

@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: a8c45ddf-5c4c-4393-b6e9-46ed1f91bf5f
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: yurid
-ms.openlocfilehash: 1d6fee9cb46fcfec32c0ecdb91eec09a56063c4e
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: b9040158679b99ca71a6b973dec9804869351938
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779280"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158299"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Azure Security Center의 보안 플레이북(미리 보기)
 이 문서를 통해 Azure Security Center에서 보안 플레이북을 사용하여 보안 관련 문제에 응답할 수 있습니다.

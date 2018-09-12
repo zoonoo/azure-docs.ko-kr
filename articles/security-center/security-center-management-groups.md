@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: b85c0e93-9982-48ad-b23f-53b367f22b10
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 91d1be062dbf05f4c7c9c5c4a1eb3dfcfdb001af
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: caab7e3d15f6d82ee4daf6eb343601ff849bfde5
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42441697"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298781"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Azure Security Center에 대한 테넌트 수준 가시성 얻기
 이 문서에서는 Azure Security Center에서 제공하는 혜택을 최대화하는 여러 작업을 수행하여 시작하도록 돕습니다. 이러한 작업을 수행하면 Azure Active Directory 테넌트에 연결된 모든 Azure 구독에 대한 가시성을 얻고 집합적 방식으로 여러 구독에 보안 정책을 적용하여 모든 규모에서 조직의 보안 상태를 효율적으로 관리할 수 있습니다.

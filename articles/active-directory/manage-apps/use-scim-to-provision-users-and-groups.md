@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: b696325c19d4e1d9c9fe6b85a3c46add756340ea
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4247ef1ffd1b8d5c5ec393e3ebff20c3e04e32b3
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443514"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347701"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>SCIM(System for Cross-Domain Identity Management)을 사용하여 사용자 및 그룹을 Azure Active Directory에서 응용 프로그램으로 자동 프로비전
 
@@ -70,9 +70,9 @@ Azure AD 응용 프로그램 갤러리에 있는 "비-갤러리 응용 프로그
   ![][2]
   *그림 3: Azure Portal에서 프로비전 구성*
     
-6. **테넌트 URL** 필드에 응용 프로그램의 SCIM 끝점 URL을 입력합니다. 예제: https://api.contoso.com/scim/v2/
-7. SCIM 끝점에 Azure AD가 아닌 다른 발급자의 OAuth 전달자 토큰이 필요한 경우 필요한 OAuth 전달자 토큰을 **비밀 토큰** 필드(선택 사항)에 복사합니다. 이 필드를 비워 두면 Azure AD에 각 요청에 따라 Azure AD에서 발급한 OAuth 전달자 토큰이 포함됩니다. ID 공급자로 Azure AD를 사용하는 앱은 Azure AD에서 발급한 토큰의 유효성을 검사할 수 있습니다.
-8. **연결 테스트** 단추를 클릭하여 Azure Active Directory에서 SCIM 끝점에 연결을 시도합니다. 시도가 실패하면 오류 정보가 표시됩니다.  
+6. **테넌트 URL** 필드에 응용 프로그램의 SCIM 엔드포인트 URL을 입력합니다. 예제: https://api.contoso.com/scim/v2/
+7. SCIM 엔드포인트에 Azure AD가 아닌 다른 발급자의 OAuth 전달자 토큰이 필요한 경우 필요한 OAuth 전달자 토큰을 **비밀 토큰** 필드(선택 사항)에 복사합니다. 이 필드를 비워 두면 Azure AD에 각 요청에 따라 Azure AD에서 발급한 OAuth 전달자 토큰이 포함됩니다. ID 공급자로 Azure AD를 사용하는 앱은 Azure AD에서 발급한 토큰의 유효성을 검사할 수 있습니다.
+8. **연결 테스트** 단추를 클릭하여 Azure Active Directory에서 SCIM 엔드포인트에 연결을 시도합니다. 시도가 실패하면 오류 정보가 표시됩니다.  
 9. 응용 프로그램에 연결 시도가 성공하면 **저장**을 클릭하여 관리자 자격 증명을 저장합니다.
 10. **매핑** 섹션에는 선택 가능한 특성 매핑 집합이 두 개 있는데, 하나는 사용자 개체용이고 다른 하나는 그룹 개체용입니다. 각 특성 매핑을 선택하여 Azure Active Directory에서 앱으로 동기화되는 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 앱의 사용자와 그룹을 일치시키는 데 사용됩니다. 저장 단추를 선택하여 변경 내용을 커밋합니다.
 
@@ -84,7 +84,7 @@ Azure AD 응용 프로그램 갤러리에 있는 "비-갤러리 응용 프로그
 13. **저장**을 클릭하여 Azure AD 프로비전 서비스를 시작합니다. 
 14. 할당된 사용자 및 그룹만 동기화하는 경우(권장) **사용자 및 그룹** 탭을 선택하고 동기화하려는 사용자 및/또는 그룹을 할당합니다.
 
-초기 동기화가 시작되면 **감사 로그** 탭을 사용하여 진행 상황을 모니터링할 수 있습니다. 이 탭에는 앱의 프로비전 서비스에서 수행하는 모든 작업이 표시됩니다. Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../active-directory-saas-provisioning-reporting.md)를 참조하세요.
+초기 동기화가 시작되면 **감사 로그** 탭을 사용하여 진행 상황을 모니터링할 수 있습니다. 이 탭에는 앱의 프로비전 서비스에서 수행하는 모든 작업이 표시됩니다. Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](check-status-user-account-provisioning.md)를 참조하세요.
 
 >[!NOTE]
 >초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. 
@@ -95,9 +95,9 @@ Azure Active Directory와 상호 작용하는 SCIM 웹 서비스를 만들어서
 
 방법은 다음과 같습니다.
 
-1. Azure AD는 [Microsoft.SystemForCrossDomainIdentityManagement](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/)로 명명된 공용 언어 인프라 라이브러리를 제공합니다. 시스템 통합 업체 및 개발자는 이 라이브러리를 사용하여 응용 프로그램 ID 저장소에 Azure AD를 연결할 수 있는 SCIM 기반 웹 서비스 끝점을 만들고 배포할 수 있습니다.
+1. Azure AD는 [Microsoft.SystemForCrossDomainIdentityManagement](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/)로 명명된 공용 언어 인프라 라이브러리를 제공합니다. 시스템 통합 업체 및 개발자는 이 라이브러리를 사용하여 응용 프로그램 ID 저장소에 Azure AD를 연결할 수 있는 SCIM 기반 웹 서비스 엔드포인트를 만들고 배포할 수 있습니다.
 2. 매핑은 웹 서비스에서 구현되어 스키마에 응용 프로그램에서 필요한 사용자 스키마 및 프로토콜에 표준화된 사용자 스키마를 매핑합니다.
-3. 끝점 URL은 응용 프로그램 갤러리에서 사용자 지정 응용 프로그램의 일부로 Azure AD에 등록됩니다.
+3. 엔드포인트 URL은 응용 프로그램 갤러리에서 사용자 지정 응용 프로그램의 일부로 Azure AD에 등록됩니다.
 4. 사용자 및 그룹은 Azure AD에서 이 응용 프로그램에 할당됩니다. 할당 시 큐에 저장하여 대상 응용 프로그램에 동기화됩니다. 큐를 처리하는 동기화 프로세스는 40분마다 실행됩니다.
 
 ### <a name="code-samples"></a>코드 샘플
@@ -107,13 +107,13 @@ Azure Active Directory와 상호 작용하는 SCIM 웹 서비스를 만들어서
 
 * Visual Studio 2013 이상
 * [Azure SDK for .NET](https://azure.microsoft.com/downloads/)
-* ASP.NET framework 4.5를 SCIM 끝점으로 사용하도록 지원하는 Windows 컴퓨터입니다. 이 컴퓨터는 클라우드에서 액세스할 수 있어야 합니다.
+* ASP.NET framework 4.5를 SCIM 엔드포인트로 사용하도록 지원하는 Windows 컴퓨터입니다. 이 컴퓨터는 클라우드에서 액세스할 수 있어야 합니다.
 * [Azure AD Premium의 평가판 또는 사용이 허가된 버전의 Azure 구독](https://azure.microsoft.com/services/active-directory/)
 
 ### <a name="getting-started"></a>시작하기
-Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 끝점을 구현하는 가장 쉬운 방법은 쉼표로 구분된 값(CSV) 파일에 프로비전된 사용자를 출력하는 코드 샘플을 빌드하고 배포하는 것입니다.
+Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 엔드포인트를 구현하는 가장 쉬운 방법은 쉼표로 구분된 값(CSV) 파일에 프로비전된 사용자를 출력하는 코드 샘플을 빌드하고 배포하는 것입니다.
 
-**샘플 SCIM 끝점을 만들려면:**
+**샘플 SCIM 엔드포인트를 만들려면:**
 
 1. [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)에서 코드 샘플 패키지를 다운로드합니다.
 2. 패키지의 압축을 풀고 C:\AzureAD-BYOA-Provisioning-Samples와 같은 위치에서 Windows 컴퓨터에 넣습니다.
@@ -131,20 +131,20 @@ Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 끝점을 구현
 8. Windows의 **Windows 설정 > 네트워크 및 인터넷 설정**에서 **Windows 방화벽 > 고급 설정**을 선택하고 포트 9000에 인바운드 액세스를 허용하는 **인바운드 규칙**을 만듭니다.
 9. Windows 컴퓨터가 라우터 뒤에 있는 경우 라우터는 인터넷에 노출되는 포트 9000과 Windows 컴퓨터에 있는 포트 9000 사이의 네트워크 액세스 변환을 수행하도록 구성되어야 합니다. Azure AD의 경우 클라우드에서 이 엔드포인트에 액세스할 수 있으려면 이 구성이 필요합니다.
 
-**Azure AD에서 샘플 SCIM 끝점을 등록하려면:**
+**Azure AD에서 샘플 SCIM 엔드포인트를 등록하려면:**
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 2. **Azure Active Directory > Enterprise 응용 프로그램**을 찾아서 **새 응용 프로그램 > 모두 > 비-갤러리 응용 프로그램**을 선택합니다.
-3. 응용 프로그램의 이름을 입력하고 **추가** 아이콘을 클릭하여 앱 개체를 만듭니다. 만든 응용 프로그램 개체는 SCIM 끝점뿐 아니라 Single Sign-On을 프로비전하고 구현하려는 대상 앱을 나타내는 데 사용됩니다.
+3. 응용 프로그램의 이름을 입력하고 **추가** 아이콘을 클릭하여 앱 개체를 만듭니다. 만든 응용 프로그램 개체는 SCIM 엔드포인트뿐 아니라 Single Sign-On을 프로비전하고 구현하려는 대상 앱을 나타내는 데 사용됩니다.
 4. 결과 화면에서 왼쪽 열의 **프로비전** 탭을 선택합니다.
 5. **프로비전 모드** 메뉴에서 **자동**을 선택합니다.
     
   ![][2]
   *그림 4: Azure Portal에서 프로비전 구성*
     
-6. **테넌트 URL** 필드에 인터넷에 노출된 URL 및 SCIM 끝점의 포트를 입력합니다. 이 항목은 http://testmachine.contoso.com:9000 또는 http://<ip-address>:9000/과 유사합니다. 여기서 <ip-address>는 인터넷에 노출된 IP 주소입니다.  
-7. SCIM 끝점에 Azure AD가 아닌 다른 발급자의 OAuth 전달자 토큰이 필요한 경우 필요한 OAuth 전달자 토큰을 **비밀 토큰** 필드(선택 사항)에 복사합니다. 이 필드를 비워 두면 Azure AD에 각 요청에 따라 Azure AD에서 발급한 OAuth 전달자 토큰이 포함됩니다. ID 공급자로 Azure AD를 사용하는 앱은 Azure AD에서 발급한 토큰의 유효성을 검사할 수 있습니다.
-8. **연결 테스트** 단추를 클릭하여 Azure Active Directory에서 SCIM 끝점에 연결을 시도합니다. 시도가 실패하면 오류 정보가 표시됩니다.  
+6. **테넌트 URL** 필드에 인터넷에 노출된 URL 및 SCIM 엔드포인트의 포트를 입력합니다. 이 항목은 http://testmachine.contoso.com:9000 또는 http://<ip-address>:9000/과 유사합니다. 여기서 <ip-address>는 인터넷에 노출된 IP 주소입니다.  
+7. SCIM 엔드포인트에 Azure AD가 아닌 다른 발급자의 OAuth 전달자 토큰이 필요한 경우 필요한 OAuth 전달자 토큰을 **비밀 토큰** 필드(선택 사항)에 복사합니다. 이 필드를 비워 두면 Azure AD에 각 요청에 따라 Azure AD에서 발급한 OAuth 전달자 토큰이 포함됩니다. ID 공급자로 Azure AD를 사용하는 앱은 Azure AD에서 발급한 토큰의 유효성을 검사할 수 있습니다.
+8. **연결 테스트** 단추를 클릭하여 Azure Active Directory에서 SCIM 엔드포인트에 연결을 시도합니다. 시도가 실패하면 오류 정보가 표시됩니다.  
 9. 응용 프로그램에 연결 시도가 성공하면 **저장**을 클릭하여 관리자 자격 증명을 저장합니다.
 10. **매핑** 섹션에는 선택 가능한 특성 매핑 집합이 두 개 있는데, 하나는 사용자 개체용이고 다른 하나는 그룹 개체용입니다. 각 특성 매핑을 선택하여 Azure Active Directory에서 앱으로 동기화되는 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 앱의 사용자와 그룹을 일치시키는 데 사용됩니다. 저장 단추를 선택하여 변경 내용을 커밋합니다.
 11. **설정** 아래의 **범위** 필드는 동기화되는 사용자 및 그룹을 정의합니다. "할당된 사용자 및 그룹만 동기화"(권장)를 선택하면 **사용자 및 그룹** 탭에서 할당된 사용자 및 그룹만 동기화됩니다.
@@ -152,7 +152,7 @@ Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 끝점을 구현
 13. **저장**을 클릭하여 Azure AD 프로비전 서비스를 시작합니다. 
 14. 할당된 사용자 및 그룹만 동기화하는 경우(권장) **사용자 및 그룹** 탭을 선택하고 동기화하려는 사용자 및/또는 그룹을 할당합니다.
 
-초기 동기화가 시작되면 **감사 로그** 탭을 사용하여 진행 상황을 모니터링할 수 있습니다. 이 탭에는 앱의 프로비전 서비스에서 수행하는 모든 작업이 표시됩니다. Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../active-directory-saas-provisioning-reporting.md)를 참조하세요.
+초기 동기화가 시작되면 **감사 로그** 탭을 사용하여 진행 상황을 모니터링할 수 있습니다. 이 탭에는 앱의 프로비전 서비스에서 수행하는 모든 작업이 표시됩니다. Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](check-status-user-account-provisioning.md)를 참조하세요.
 
 이 샘플을 확인하는 마지막 단계는 Windows 컴퓨터에서 \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug 폴더에 TargetFile.csv 파일을 여는 것입니다. 프로비전 프로세스가 실행되면 이 파일은 할당되고 프로비전된 모든 사용자 및 그룹의 세부 사항을 표시합니다.
 
@@ -165,7 +165,7 @@ SCIM 사양을 준수하는 웹 서비스를 개발하려면 먼저 개발 프�
   
 2. [기본 경로 처리기](http://expressjs.com/guide/routing.html)는 node.js 웹 서비스에 수행된(SCIM 사양에 정의된 대로) 호출을 나타내는 node.js 요청 개체를 구문 분석하는 데 사용할 수 있습니다.   
 
-### <a name="building-a-custom-scim-endpoint"></a>사용자 지정 SCIM 끝점 빌드
+### <a name="building-a-custom-scim-endpoint"></a>사용자 지정 SCIM 엔드포인트 빌드
 CLI 라이브러리를 사용하는 개발자는 실행 가능한 공용 언어 인프라 어셈블리 또는 인터넷 정보 서비스 내에서 해당 서비스를 호스트할 수 있습니다. 다음은 http://localhost:9000: 주소에 있는 실행 가능한 어셈블리 내에서 서비스를 호스트하기 위한 샘플 코드입니다. 
 
     private static void Main(string[] arguments)
@@ -285,7 +285,7 @@ CLI 라이브러리를 사용하는 개발자는 실행 가능한 공용 언어 
     }
     }
 
-### <a name="handling-endpoint-authentication"></a>끝점 인증 처리
+### <a name="handling-endpoint-authentication"></a>엔드포인트 인증 처리
 Azure Active Directory에서 요청은 OAuth 2.0 전달자 토큰을 포함합니다.   요청을 받는 모든 서비스는 예상된 Azure Active Directory 테넌트 대신 Azure Active Directory의 Graph 웹 서비스에 액세스하는 데 대해 발급자를 Azure Active Directory로 인증해야 합니다.  토큰에서 발급자는 "iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"와 같은 iss 클레임으로 식별됩니다.  이 예제에서 상대 주소 세그먼트인 cbb1a5ac-f33b-45fa-9bf5-f37db0fed422가 토큰이 발급된 대신 Azure Active Directory 테넌트의 고유한 발급자인 반면 클레임 값의 기본 주소인 https://sts.windows.net은 Azure Active Directory를 발급자로 식별합니다.  토큰이 Azure Active Directory Graph 웹 서비스에 액세스하기 위해 발급되었다면 해당 서비스의 식별자인 00000002-0000-0000-c000-000000000000는 토큰의 aud 클레임의 값에 있어야 합니다.  
 
 SCIM 서비스 구축을 위해 Microsoft에서 제공하는 CLA 라이브러리를 사용하는 개발자는 Microsoft.Owin.Security.ActiveDirectory 패키지로 다음 단계를 수행하여 Azure Active Directory에서 요청을 인증할 수 있습니다. 
@@ -308,7 +308,7 @@ SCIM 서비스 구축을 위해 Microsoft에서 제공하는 CLA 라이브러리
     }
   ````
 
-2. 해당 메서드에 다음 코드를 추가하여 지정된 테넌트 대신 인증된 서비스의 끝점 중 하나가 Azure AD Graph 웹 서비스에 액세스하는 데 대해 Azure Active Directory에서 발급한 토큰을 갖도록 요청합니다. 
+2. 해당 메서드에 다음 코드를 추가하여 지정된 테넌트 대신 인증된 서비스의 엔드포인트 중 하나가 Azure AD Graph 웹 서비스에 액세스하는 데 대해 Azure Active Directory에서 발급한 토큰을 갖도록 요청합니다. 
 
   ````
     private void OnServiceStartup(
@@ -692,11 +692,11 @@ Azure Active Directory는 두 형식의 리소스를 SCIM 웹 서비스에 프�
 
 ## <a name="related-articles"></a>관련 문서
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](../active-directory-apps-index.md)
-* [SaaS 앱에 자동화된 사용자 프로비전/프로비전 해제](../active-directory-saas-app-provisioning.md)
-* [사용자 프로비저닝에 대한 특성 매핑 사용자 지정](../active-directory-saas-customizing-attribute-mappings.md)
-* [특성 매핑에 대한 식 작성](../active-directory-saas-writing-expressions-for-attribute-mappings.md)
-* [사용자 프로 비전에 대 한 필터 범위 지정](../active-directory-saas-scoping-filters.md)
-* [계정 프로비전 알림](../active-directory-saas-app-provisioning.md)
+* [SaaS 앱에 자동화된 사용자 프로비전/프로비전 해제](user-provisioning.md)
+* [사용자 프로비저닝에 대한 특성 매핑 사용자 지정](customize-application-attributes.md)
+* [특성 매핑에 대한 식 작성](functions-for-customizing-application-data.md)
+* [사용자 프로 비전에 대 한 필터 범위 지정](define-conditional-rules-for-provisioning-user-accounts.md)
+* [계정 프로비전 알림](user-provisioning.md)
 * [SaaS App을 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)
 
 <!--Image references-->

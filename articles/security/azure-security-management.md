@@ -9,26 +9,26 @@ editor: TomSh
 ms.assetid: 2431feba-3364-4a63-8e66-858926061dd3
 ms.service: security
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: edfabf1f93c78cf29ff3561f437053df11e15bd5
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 21ad417b9b3b8d0354333962c4e811d0eebba4e9
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857483"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159336"
 ---
 # <a name="security-management-in-azure"></a>Azure의 보안 관리
-Azure 구독자는 관리 워크스테이션, 개발자 PC, 심지어 작업별 사용 권한을 가진 최종 사용자 장치 등 여러 장치에서 자신의 클라우드 환경을 관리할 수 있습니다. 경우에 따라, 관리 기능은 [Azure Portal](https://azure.microsoft.com/features/azure-portal/)과 같은 웹 기반 콘솔을 통해 수행됩니다. 다른 경우, 가상 사설망(VPN), 터미널 서비스, 클라이언트 응용 프로그램 프로토콜 또는 (프로그래밍 방식의) Azure 서비스 관리 API(SMAPI)를 통해 온-프레미스 시스템에서 Azure에 직접 연결할 수 있습니다. 또한 클라이언트 끝점은 태블릿이나 스마트폰 같이 조인 또는 격리되고 관리되지 않는 도메인이 될 수 있습니다.
+Azure 구독자는 관리 워크스테이션, 개발자 PC, 심지어 작업별 사용 권한을 가진 최종 사용자 장치 등 여러 장치에서 자신의 클라우드 환경을 관리할 수 있습니다. 경우에 따라, 관리 기능은 [Azure Portal](https://azure.microsoft.com/features/azure-portal/)과 같은 웹 기반 콘솔을 통해 수행됩니다. 다른 경우, 가상 사설망(VPN), 터미널 서비스, 클라이언트 응용 프로그램 프로토콜 또는 (프로그래밍 방식의) Azure 서비스 관리 API(SMAPI)를 통해 온-프레미스 시스템에서 Azure에 직접 연결할 수 있습니다. 또한 클라이언트 엔드포인트는 태블릿이나 스마트폰 같이 조인 또는 격리되고 관리되지 않는 도메인이 될 수 있습니다.
 
-여러 액세스 및 관리 기능은 다양한 옵션을 제공하지만, 이러한 가변성은 클라우드 배포에 상당한 위험을 더할 수 있습니다. 관리 작업을 관리, 추적 및 감사하기 어려울 수 있습니다. 이 가변성은 또한 클라우드 서비스 관리에 사용되는 클라이언트 끝점에 대한 액세스를 규제하지 않음으로써 보안 위협을 들여올 수 있습니다. 인프라를 개발 및 관리하기 위한 일반 또는 개인 워크스테이션을 사용 하면 웹 검색(예: 워터링 홀 공격) 또는 전자 메일(예: 소셜 엔지니어링 및 피싱 공격)와 같이 예측할 수 없는 위협 벡터를 열게 됩니다.
+여러 액세스 및 관리 기능은 다양한 옵션을 제공하지만, 이러한 가변성은 클라우드 배포에 상당한 위험을 더할 수 있습니다. 관리 작업을 관리, 추적 및 감사하기 어려울 수 있습니다. 이 가변성은 또한 클라우드 서비스 관리에 사용되는 클라이언트 엔드포인트에 대한 액세스를 규제하지 않음으로써 보안 위협을 들여올 수 있습니다. 인프라를 개발 및 관리하기 위한 일반 또는 개인 워크스테이션을 사용 하면 웹 검색(예: 워터링 홀 공격) 또는 전자 메일(예: 소셜 엔지니어링 및 피싱 공격)와 같이 예측할 수 없는 위협 벡터를 열게 됩니다.
 
 ![][1]
 
-이러한 유형의 환경에서는 매우 다양한 끝점으로부터 Azure 인터페이스(예: SMAPI)에 대한 액세스를 적절하게 관리하기 위해 보안 정책 및 메커니즘을 생성하는 것이 어렵기 때문에 공격 받을 가능성이 높습니다.
+이러한 유형의 환경에서는 매우 다양한 엔드포인트로부터 Azure 인터페이스(예: SMAPI)에 대한 액세스를 적절하게 관리하기 위해 보안 정책 및 메커니즘을 생성하는 것이 어렵기 때문에 공격 받을 가능성이 높습니다.
 
 ### <a name="remote-management-threats"></a>원격 관리 위협
 공격자는 종종 계정 자격 증명을 손상시키거나(예: 암호 무차별 대입, 피싱 및 자격 증명 수집) 사용자를 속여 유해한 코드(예: 드라이브 바이 다운로드 방식을 통해 유해한 웹 사이트 또는 유해한 전자 메일 첨부 파일로부터 감염)를 실행하게 함으로써 권한 있는 액세스를 시도하려 합니다. 원격으로 관리되는 클라우드 환경에서 계정 보안 위험은 언제 어디서나 액세스로 인해 큰 위험으로 이어질 수 있습니다.
@@ -47,7 +47,7 @@ Azure 구독자는 관리 워크스테이션, 개발자 PC, 심지어 작업별 
 * 관리 작업은 손상으로 이어질 수 있는 작업과 함께 수행하면 안 됩니다(예: 인프라 서버를 감염시키는 관리자의 전자 메일 내의 맬웨어).
 * 매우 민감한 작업에 사용되는 워크스테이션은 인터넷 검색 등 위험도가 높은 용도에 사용하는 시스템으로 사용하면 안 됩니다.
 
-불필요한 소프트웨어를 제거하여 시스템의 공격 노출 영역을 줄입니다. 예:
+불필요한 소프트웨어를 제거하여 시스템의 공격 노출 영역을 줄입니다. 예제:
 
 * 장치의 주요 목적이 클라우드 서비스를 관리하는 것인 경우 모든 표준 관리, 지원 또는 개발 워크스테이션은 전자 메일 클라이언트 또는 기타 생산성 응용 프로그램을 설치할 필요가 없습니다.
 
@@ -60,7 +60,7 @@ Azure 구독자는 관리 워크스테이션, 개발자 PC, 심지어 작업별 
 * 맬웨어 방지 소프트웨어를 사용합니다.
 * Multi-Factor Authentication을 구현하여 도난 된 자격 증명의 위험성을 줄입니다.
 
-또한 액세스 리소스를 통합하고 관리되지 않는 끝점을 제거하면 관리 작업을 단순화할 수 있습니다.
+또한 액세스 리소스를 통합하고 관리되지 않는 엔드포인트를 제거하면 관리 작업을 단순화할 수 있습니다.
 
 ### <a name="providing-security-for-azure-remote-management"></a>Azure의 원격 관리를 위한 보안 제공
 Azure는 Azure 클라우드 서비스 및 가상 머신을 관리하는 관리자를 지원하기 위해 보안 메커니즘을 제공합니다. 이러한 메커니즘은 다음을 포함합니다.
@@ -112,7 +112,7 @@ Virtual Machine–배포 응용 프로그램은 필요에 따라 MMC(Microsoft M
 * [클라이언트 연결 권한 부여 정책](http://technet.microsoft.com/library/cc753324.aspx)을 구성하여 RD 게이트웨이가 클라이언트 컴퓨터 이름이 유효하고(도메인에 조인됨) Azure Portal에 액세스할 수 있도록 허용되었는지 확인하도록 합니다.
 * [Azure VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/)에 대한 IPsec을 사용하여 도청 및 토큰 도난으로부터 관리 트래픽을 보호하거나 [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/)를 통해 격리된 인터넷 링크를 고려합니다.
 * Multi-Factor Authentication([Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)을 통해) 또는 RD 게이트웨이를 통해 로그인하는 관리자를 위한 스마트 카드 인증을 사용합니다.
-* Azure에서 원본 [IP 주소 제한](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) 또는 [네트워크 보안 그룹](../virtual-network/security-overview.md)을 구성하여 허용된 관리 끝점의 수를 최소화합니다.
+* Azure에서 원본 [IP 주소 제한](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) 또는 [네트워크 보안 그룹](../virtual-network/security-overview.md)을 구성하여 허용된 관리 엔드포인트의 수를 최소화합니다.
 
 ## <a name="security-guidelines"></a>보안 지침
 일반적으로 클라우드와 함께 사용하기 위해 관리자 워크스테이션의 보안을 강화하는 작업은 모든 워크스테이션 온-프레미스에 적용되는 작업(예: 최소화된 빌드 및 제한적인 권한)과 유사합니다. 클라우드 관리의 몇 가지 고유한 측면은 원격 또는 대역 외 엔터프라이즈 관리와 비슷합니다. 여기에는 자격 증명의 사용 및 감사, 보안 향상된 원격 액세스, 위협 요소 탐지 및 대응이 있습니다.
@@ -171,7 +171,7 @@ RD 게이트웨이를 통해 Azure에 연결되지 않은 독립 실행형 강�
 회사 PC 가상 머신은 보호된 공간에서 실행되고 사용자 응용 프로그램을 제공합니다. 호스트는 "정리 소스"로 유지되고 루트 운영 체제에서 엄격한 네트워크 정책을 적용합니다(예: 가상 머신으로부터 RDP 액세스 차단).
 
 ### <a name="windows-to-go"></a>Windows To Go
-독립 실행형 강화된 워크스테이션을 요구하는 다른 대안은 [Windows To Go](https://technet.microsoft.com/library/hh831833.aspx) 드라이브를 사용하는 것으로, 클라이언트 쪽 USB 부팅 기능을 지원하는 기능입니다. Windows To Go를 사용하면 사용자는 암호화된 USB 플래시 드라이브에서 실행되는 격리된 시스템 이미지와 호환되는 PC를 부팅할 수 있습니다. 이는 이미지가 엄격한 보안 정책, 최소 OS 빌드, TPM 지원 등을 통해 회사 IT 그룹에서 완전히 관리할 수 있기 때문에, 원격 관리 끝점에 대한 추가적인 제어 기능을 제공합니다.
+독립 실행형 강화된 워크스테이션을 요구하는 다른 대안은 [Windows To Go](https://technet.microsoft.com/library/hh831833.aspx) 드라이브를 사용하는 것으로, 클라이언트 쪽 USB 부팅 기능을 지원하는 기능입니다. Windows To Go를 사용하면 사용자는 암호화된 USB 플래시 드라이브에서 실행되는 격리된 시스템 이미지와 호환되는 PC를 부팅할 수 있습니다. 이는 이미지가 엄격한 보안 정책, 최소 OS 빌드, TPM 지원 등을 통해 회사 IT 그룹에서 완전히 관리할 수 있기 때문에, 원격 관리 엔드포인트에 대한 추가적인 제어 기능을 제공합니다.
 
 아래 그림에서 이식 가능 이미지는 도메인에 추가된 시스템으로 Azure에만 연결되도록 미리 구성되어 있으며, 다단계 인증을 요구하고 모든 비 관리 트래픽을 차단합니다. 사용자가 표준 회사 이미지와 동일한 PC를 부팅하여 Azure 관리 도구 사용을 위해 RD 게이트웨이 액세스를 시도하는 경우, 해당 세션은 차단됩니다. Windows To Go는 루트 수준의 운영 체제가 되며, 외부 공격에 더 취약할 수 있는 추가 계층이 필요하지 않습니다(호스트 운영 체제, 하이퍼바이저, 가상 컴퓨터).
 

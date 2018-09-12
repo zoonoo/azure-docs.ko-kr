@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: meladie
-ms.openlocfilehash: ee1a127696f20e2d67d61be2c598e5ee9386c069
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 523d326c3bfc799bc6a170275011ef8e134894a0
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906229"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300769"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-pci-dss"></a>Azure 보안 및 규정 준수 청사진: PCI DSS용 PaaS 웹 응용 프로그램
 
@@ -103,7 +103,7 @@ App Service Environment는 단일 고객의 응용 프로그램만 실행하도�
 - [웹 응용 프로그램 방화벽 – 데이터 제한](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
 - [Azure SQL Database 트래픽](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview) 허용
 
-**Azure Web App**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/)를 사용하면 고객이 인프라를 관리할 필요 없이 선택한 프로그래밍 언어로 웹 응용 프로그램을 빌드하고 호스팅할 수 있습니다. Azure Web Apps는 자동 크기 조정 및 고가용성을 제공하고, Windows 및 Linux를 지원하며, GitHub, Visual Studio Team Services 또는 Git 리포지토리에서 자동화된 배포를 지원합니다.
+**Azure Web App**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/)를 사용하면 고객이 인프라를 관리할 필요 없이 선택한 프로그래밍 언어로 웹 응용 프로그램을 빌드하고 호스팅할 수 있습니다. 여기서는 자동 크기 조정 및 고가용성을 제공하고, Windows 및 Linux를 모두 지원하며, GitHub, Azure DevOps 또는 Git 리포지토리에서 자동화된 배포를 사용합니다.
 
 ### <a name="virtual-network"></a>Virtual Network
 

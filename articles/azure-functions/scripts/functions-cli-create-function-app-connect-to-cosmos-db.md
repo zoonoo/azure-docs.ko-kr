@@ -4,24 +4,20 @@ description: Azure CLI 스크립트 샘플 - Azure Cosmos DB에 연결하는 Azu
 services: functions
 documentationcenter: functions
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: functions
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: ''
 ms.date: 07/03/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 9154cef897d38e617c2f9dccdc8a47fe1af72104
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 6001fc5737ee901ab1ab5af0dd2f913f05380ac2
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989464"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161410"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Azure Cosmos DB에 연결하는 Azure Function 만들기
 
@@ -35,7 +31,7 @@ ms.locfileid: "38989464"
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-이 샘플은 Azure 함수 앱을 만들고 앱 설정에 Cosmos DB 끝점 및 액세스 키를 추가합니다.
+이 샘플은 Azure 함수 앱을 만들고 앱 설정에 Cosmos DB 엔드포인트 및 액세스 키를 추가합니다.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-cosmos-db/create-function-app-connect-to-cosmos-db.sh "Create an Azure Function that connects to an Azure Cosmos DB")]
 

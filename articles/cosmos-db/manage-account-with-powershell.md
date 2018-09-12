@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/21/2017
 ms.author: dimakwan
-ms.openlocfilehash: 833202353901fb9822b756f54fbcbcc155533108
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 90de671d8e57244765f1da439649e57485814533
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611965"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051666"
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos DB 계정 만들기
 
@@ -51,7 +51,7 @@ ms.locfileid: "34611965"
 * `<resource-group-location>` - 새 Azure Cosmos DB 데이터베이스 계정이 속하는 Azure 리소스 그룹의 위치입니다.
 * `<database-account-name>` - 만들어질 Azure Cosmos DB 데이터베이스 계정의 이름입니다. 소문자, 숫자, '-'(대시) 문자만 사용할 수 있으며, 3-50자여야 합니다.
 
-예: 
+예제: 
 
     $locations = @(@{"locationName"="West US"; "failoverPriority"=0}, @{"locationName"="East US"; "failoverPriority"=1})
     $iprangefilter = ""
@@ -86,7 +86,7 @@ ms.locfileid: "34611965"
 * `<resource-group-location>` - 새 Azure Cosmos DB 데이터베이스 계정이 속하는 Azure 리소스 그룹의 위치입니다.
 * `<database-account-name>` - 업데이트할 Azure Cosmos DB 데이터베이스 계정의 이름입니다.
 
-예: 
+예제: 
 
     $locations = @(@{"locationName"="West US"; "failoverPriority"=0}, @{"locationName"="East US"; "failoverPriority"=1})
     $iprangefilter = ""
@@ -103,7 +103,7 @@ ms.locfileid: "34611965"
 * `<resource-group-name>` - 새 Azure Cosmos DB 데이터베이스 계정이 속하는 [Azure 리소스 그룹][azure-resource-groups]의 이름입니다.
 * `<database-account-name>` - 삭제할 Azure Cosmos DB 데이터베이스 계정의 이름입니다.
 
-예:
+예제:
 
     Remove-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
@@ -116,7 +116,7 @@ ms.locfileid: "34611965"
 * `<resource-group-name>` - 새 Azure Cosmos DB 데이터베이스 계정이 속하는 [Azure 리소스 그룹][azure-resource-groups]의 이름입니다.
 * `<database-account-name>` - Azure Cosmos DB 데이터베이스 계정의 이름입니다.
 
-예:
+예제:
 
     Get-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
@@ -127,10 +127,10 @@ ms.locfileid: "34611965"
 > [!NOTE]
 > 이 명령은 `-Tags` 플래그에 해당 매개 변수를 추가하여 만들기 또는 업데이트 명령과 결합할 수 있습니다.
 
-예:
+예제:
 
-    $tags = @{"dept" = "Finance”; environment = “Production”}
-    Set-AzureRmResource -ResourceType “Microsoft.DocumentDB/databaseAccounts”  -ResourceGroupName "rg-test" -Name "docdb-test" -Tags $tags
+    $tags = @{"dept" = "Finance"; environment = "Production"}
+    Set-AzureRmResource -ResourceType "Microsoft.DocumentDB/databaseAccounts"  -ResourceGroupName "rg-test" -Name "docdb-test" -Tags $tags
 
 ## <a id="list-account-keys-powershell"></a> 계정 키 나열
 
@@ -141,7 +141,7 @@ Azure Cosmos DB 계정을 만들면 해당 서비스에서 Azure Cosmos DB 계�
 * `<resource-group-name>` - 새 Azure Cosmos DB 데이터베이스 계정이 속하는 [Azure 리소스 그룹][azure-resource-groups]의 이름입니다.
 * `<database-account-name>` - Azure Cosmos DB 데이터베이스 계정의 이름입니다.
 
-예:
+예제:
 
     $keys = Invoke-AzureRmResourceAction -Action listKeys -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
@@ -154,7 +154,7 @@ MongoDB 계정의 경우 MongoDB 앱을 데이터베이스 계정에 연결하�
 * `<resource-group-name>` - 새 Azure Cosmos DB 데이터베이스 계정이 속하는 [Azure 리소스 그룹][azure-resource-groups]의 이름입니다.
 * `<database-account-name>` - Azure Cosmos DB 데이터베이스 계정의 이름입니다.
 
-예:
+예제:
 
     $keys = Invoke-AzureRmResourceAction -Action listConnectionStrings -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
@@ -168,7 +168,7 @@ MongoDB 계정의 경우 MongoDB 앱을 데이터베이스 계정에 연결하�
 * `<database-account-name>` - Azure Cosmos DB 데이터베이스 계정의 이름입니다.
 * `<key-kind>` - 다시 생성할 네 가지 유형의 키, 즉 ["Primary"|"Secondary"|"PrimaryReadonly"|"SecondaryReadonly"] 중 하나입니다.
 
-예:
+예제:
 
     Invoke-AzureRmResourceAction -Action regenerateKey -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Parameters @{"keyKind"="Primary"}
 
@@ -184,7 +184,7 @@ MongoDB 계정의 경우 MongoDB 앱을 데이터베이스 계정에 연결하�
 * `<resource-group-name>` - 새 Azure Cosmos DB 데이터베이스 계정이 속하는 [Azure 리소스 그룹][azure-resource-groups]의 이름입니다.
 * `<database-account-name>` - Azure Cosmos DB 데이터베이스 계정의 이름입니다.
 
-예:
+예제:
 
     $failoverPolicies = @(@{"locationName"="East US"; "failoverPriority"=0},@{"locationName"="West US"; "failoverPriority"=1})
     Invoke-AzureRmResourceAction -Action failoverPriorityChange -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Parameters @{"failoverPolicies"=$failoverPolicies}

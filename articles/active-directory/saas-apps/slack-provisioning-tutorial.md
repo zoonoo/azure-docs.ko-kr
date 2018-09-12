@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 9763c7a9e79f4c9e9d6296efb79e944205e8a99c
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 7d6056987ee05f68eecf026e954327a2f62cf886
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264150"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348908"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Slack 구성
 
@@ -111,7 +111,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 이제 **사용자 및 그룹** 섹션의 Slack에 할당된 모든 그룹 개체는 Azure AD에서 Slack으로 완전하게 동기화됩니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 Slack 앱에서 프로비전 서비스에서 수행하는 모든 작업을 설명하는 프로비전 작업 로그에 연결된 링크를 이용할 수 있습니다.
 
-Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../active-directory-saas-provisioning-reporting.md)를 참조하세요.
+Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
 
 
 ## <a name="additional-resources"></a>추가 리소스

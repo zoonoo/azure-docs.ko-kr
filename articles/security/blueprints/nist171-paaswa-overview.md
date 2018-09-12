@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: 8411e9d2d4118c4e1f656b5bc6e9dafb311aeb26
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 8212788eb775e86918c7111265f3276c7bd99d91
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39392590"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304223"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-nist-special-publication-800-171"></a>Azure 보안 및 규정 준수 청사진 - NIST 특별 발행물 800-171용 PaaS 웹 응용 프로그램
 
@@ -83,7 +83,7 @@ Azure SQL Database는 일반적으로 보안 VPN 또는 ExpressRoute 연결을 �
 -   사용하지 않을 때 가상 머신 사용을 줄이는 [자동 종료 정책](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/)
 -   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard)를 사용하도록 설정하여 자격 증명과 다른 비밀이 실행 중인 운영 체제와 격리된 보호된 환경에서 실행됩니다.
 
-**Azure Web App**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/)를 사용하면 고객이 인프라를 관리할 필요 없이 선택한 프로그래밍 언어로 웹 응용 프로그램을 빌드하고 호스팅할 수 있습니다. Azure Web Apps는 자동 크기 조정 및 고가용성을 제공하고, Windows 및 Linux를 지원하며, GitHub, Visual Studio Team Services 또는 Git 리포지토리에서 자동화된 배포를 지원합니다.
+**Azure Web App**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/)를 사용하면 고객이 인프라를 관리할 필요 없이 선택한 프로그래밍 언어로 웹 응용 프로그램을 빌드하고 호스팅할 수 있습니다. 여기서는 자동 크기 조정 및 고가용성을 제공하고, Windows 및 Linux를 모두 지원하며, GitHub, Azure DevOps 또는 Git 리포지토리에서 자동화된 배포를 사용합니다.
 
 **Application Service Environment v2**: [Azure Application Service Environment](https://docs.microsoft.com/azure/app-service/environment/intro)는 App Service 응용 프로그램을 대규모로 안전하게 실행하기 위해 완전히 격리된 전용 환경을 제공하는 App Service 기능입니다.
 

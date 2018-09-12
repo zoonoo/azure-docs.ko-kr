@@ -4,23 +4,19 @@ description: Azure Functions에서 Azure 알림 허브 바인딩을 사용하는
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 4208a7be3c002bcefed273015d002cb1aee0fecd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 85992c0d89634c866012ba7fdaa982e46747ba0e
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38467667"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092461"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Azure Functions에 대한 Notification Hubs 출력 바인딩
 

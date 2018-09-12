@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: d140cbdb0548de869c7aab6ba5da281046a215f9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a235b85887e64e0a5ca35aae8f31734250a78bb5
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434115"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160237"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>자습서: xMatters OnDemand와 Azure Active Directory 통합
 
@@ -121,7 +121,7 @@ xMatters OnDemand에서 Azure AD Single Sign-On을 구성하고 테스트하려�
     | `https://www.xmatters.com`|
     | `https://<companyname>.xmatters.com.au/`|
 
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
     | |
     |--|
     | `https://<companyname>.au1.xmatters.com.au`|
@@ -159,7 +159,7 @@ xMatters OnDemand에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     a. **SAML 사용**을 선택합니다.
 
-    나. Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 **ID 공급자 ID** 텍스트 상자에 붙여넣습니다.
+    b. Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 **ID 공급자 ID** 텍스트 상자에 붙여넣습니다.
 
     다. **Single Sign On URL** 텍스트 상자에 Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 붙여넣습니다.
 
@@ -194,7 +194,7 @@ xMatters OnDemand에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -202,7 +202,7 @@ xMatters OnDemand에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 ### <a name="creating-a-xmatters-ondemand-test-user"></a>xMatters OnDemand 테스트 사용자 만들기
 
-이 섹션은 xMatters OnDemand에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. xMatters OnDemand는 자동 사용자 프로비전을 지원하며 기본적으로 사용하도록 설정되어 있습니다. 자동 사용자 프로비전 구성 방법에 대한 자세한 내용은 [여기](xmatters-ondemand-provisioning-tutorial.md)에서 제공합니다.
+이 섹션은 xMatters OnDemand에서 Britta Simon이라는 사용자를 만들기 위한 것입니다.
 
 **사용자를 수동으로 만들어야 할 경우 다음 단계를 수행합니다.**
 
@@ -218,7 +218,7 @@ xMatters OnDemand에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     a. **활성**을 선택합니다.
 
-    나. **사용자 ID** 텍스트 상자에 사용자의 ID(예: Brittasimon@contoso.com)를 입력합니다.
+    b. **사용자 ID** 텍스트 상자에 사용자의 ID(예: Brittasimon@contoso.com)를 입력합니다.
 
     다. **이름** 텍스트 상자에 사용자의 이름(예: Britta)을 입력합니다.
 
@@ -269,7 +269,6 @@ xMatters OnDemand에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
-* [사용자 프로비저닝 구성](xmatters-ondemand-provisioning-tutorial.md)
 
 <!--Image references-->
 

@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2018
 ms.author: rkarlin
-ms.openlocfilehash: eebdff338454b1fb50b27d5b3d8c1c37d28f6b6f
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: d196cddb4c68895ea549846a7c23e4f13d9b5055
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43121205"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44157264"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure Security Center 문제 해결 가이드
 이 가이드는 Azure Security Center를 사용 중인 정보 기술(IT) 전문가, 정보 보안 분석가 및 클라우드 관리자를 대상으로 하고 문제와 관련된 Security Center 문제를 해결해야 합니다.
@@ -57,7 +57,7 @@ Security Center는 Microsoft Monitoring Agent(Log Analytics 서비스에서 사�
 컴퓨터에 Microsoft Monitoring Agent를 설치하는 경우 다른 결과 생성할 수 있는 두 가지 설치 시나리오가 있습니다. 지원되는 시나리오는 다음과 같습니다.
 
 * **Security Center에서 자동으로 설치되는 에이전트**: 이 시나리오에서는 위치, Security Center 및 로그 검색에서 경고를 볼 수 있습니다. 리소스가 속한 구독의 보안 정책에 구성된 전자 메일 주소로 전자 메일 알림을 받게 됩니다.
-등 4가지 유형의 클러스터가 제공됩니다.
+.
 * **Azure에 있는 VM에 수동으로 설치된 에이전트**: 이 시나리오에서 2017년 2월 이전에 수동으로 다운로드하고 설치한 에이전트를 사용하는 경우 작업 영역이 속한 구독에서 필터링할 때에만 Security Center 포털의 경고를 볼 수 있습니다. 리소스가 속한 구독에서 필터링하는 경우 경고를 볼 수 없습니다. 작업 영역이 속한 구독의 보안 정책에 구성된 전자 메일 주소로 전자 메일 알림을 받게 됩니다.
 
 >[!NOTE]

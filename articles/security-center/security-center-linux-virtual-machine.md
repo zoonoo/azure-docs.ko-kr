@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 5fe5a12c-5d25-430c-9d47-df9438b1d7c5
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: yurid
-ms.openlocfilehash: d75750372c240edfa821c692cd6254f4ad60f4c4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c3be92f7363430c6c6c93245625c0bfd00f9f94d
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895996"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159982"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>Linux에 설치된 Azure Security Center 및 Azure Virtual Machines
 [Azure Security Center](https://azure.microsoft.com/services/security-center/)를 통해 위협을 예방하고 감지하며 대응할 수 있습니다. 이는 Azure 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
@@ -31,7 +31,7 @@ Security Center를 사용하면 가상 머신의 보안 설정에 가시성을 �
 
 * 권장된 구성 규칙으로 운영 체제(OS) 보안 설정
 * 시스템 보안 및 누락된 중요 업데이트
-* 끝점 보호 권장 사항
+* 엔드포인트 보호 권장 사항
 * 디스크 암호화 유효성 검사
 * 네트워크 기반 공격([표준 버전](https://azure.microsoft.com/pricing/details/security-center/)에서만 사용할 수 있음)
 
@@ -85,7 +85,7 @@ Azure Security Center에서 구성한 보안 정책을 기반으로 생성된 �
 ![보안 상태](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
 ## <a name="manage-and-respond-to-security-alerts"></a>보안 경고 관리 및 응답
-보안 센터는 방화벽 및 끝점 보호 솔루션과 같은 Azure 리소스, 네트워크 및 연결된 파트너 솔루션의 로그 데이터를 자동으로 수집하고 분석하며 통합하여 실제 위협을 감지하고 가양성을 줄입니다. [검색 기능](security-center-detection-capabilities.md)의 다양한 집계를 활용하여 보안 센터는 신속하게 문제를 조사하고 가능한 공격을 해결하는 방법에 대한 권장 사항을 제공할 수 있도록 우선 순위가 지정된 보안 경고를 생성할 수 있습니다.
+보안 센터는 방화벽 및 엔드포인트 보호 솔루션과 같은 Azure 리소스, 네트워크 및 연결된 파트너 솔루션의 로그 데이터를 자동으로 수집하고 분석하며 통합하여 실제 위협을 감지하고 가양성을 줄입니다. [검색 기능](security-center-detection-capabilities.md)의 다양한 집계를 활용하여 보안 센터는 신속하게 문제를 조사하고 가능한 공격을 해결하는 방법에 대한 권장 사항을 제공할 수 있도록 우선 순위가 지정된 보안 경고를 생성할 수 있습니다.
 
 ![보안 경고](./media/security-center-virtual-machine/security-center-virtual-machine-fig3.png)
 

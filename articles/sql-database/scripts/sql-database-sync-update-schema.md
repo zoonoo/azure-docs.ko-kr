@@ -17,33 +17,32 @@ ms.workload: database
 ms.date: 01/10/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: c121204e054618eef1435e64c28d959c0fe50ea9
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 7a913b2e55c681d0905db76eb0f0e0e99baf3142
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617907"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054658"
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>PowerShell을 사용하여 기존 동기화 그룹의 동기화 스키마 업데이트
 
-이 PowerShell 예제에서는 기존 SQL 데이터 동기화의 동기화 그룹의 동기화 스키마를 업데이트합니다. 여러 테이블을 동기화하는 경우 이 스크립트는 동기화 스키마를 효과적으로 업데이트하는 데 도움이 됩니다.
+이 PowerShell 예제에서는 기존 SQL 데이터 동기화의 동기화 그룹의 동기화 스키마를 업데이트합니다. 여러 테이블을 동기화하는 경우 이 스크립트는 동기화 스키마를 효과적으로 업데이트하는 데 도움이 됩니다. 이 예제는 GitHub에서 [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1)으로 사용할 수 있는 **UpdateSyncSchema** 스크립트의 사용을 보여 줍니다.
 
-이 예제는 GitHub에서 [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1)으로 사용할 수 있는 **UpdateSyncSchema** 스크립트의 사용을 보여 줍니다.
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure PowerShell 모듈 버전이 5.7.0 이상이어야 합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
+
 
 SQL 데이터 동기화에 대한 개요는 [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](../sql-database-sync-data.md)를 참조하세요.
-## <a name="prerequisites"></a>필수 조건
 
-이 샘플에는 Azure PowerShell 모듈 버전 4.2 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)를 참조하세요.
- 
-`Connect-AzureRmAccount`를 실행하여 Azure와 연결합니다.
-
-## <a name="examples"></a>예
+## <a name="sample-script"></a>샘플 스크립트
 
 ### <a name="example-1---add-all-tables-to-the-sync-schema"></a>예제 1 - 동기화 스키마에 모든 테이블 추가
 
 다음 예제에서는 데이터베이스 스키마를 새로 고치고 허브 데이터베이스의 모든 유효한 테이블을 동기화 스키마에 추가합니다.
 
-```powershell
+```powershell-interactive
 UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resource_group_name> -ServerName <server_name> -DatabaseName <database_name> -SyncGroupName <sync_group_name> -RefreshDatabaseSchema $true -AddAllTables $true
 ```
 
@@ -51,7 +50,7 @@ UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resou
 
 다음 예제에서는 동기화 스키마에 `[dbo].[Table1]` 및 `[dbo].[Table2].[Column1]`을 추가하고 `[dbo].[Table3]`를 제거합니다.
 
-```powershell
+```powershell-interactive
 UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resource_group_name> -ServerName <server_name> -DatabaseName <database_name> -SyncGroupName <sync_group_name> -TablesAndColumnsToAdd "[dbo].[Table1],[dbo].[Table2].[Column1]" -TablesAndColumnsToRemove "[dbo].[Table3]"
 ```
 

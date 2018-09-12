@@ -14,12 +14,12 @@ ms.component: fundamentals
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 118f8258673c8a19d5f06e5fc62ff56d0fb44ea1
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: ec84cdb4e226eea4d16d28d63acd7be59241b973
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398367"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346919"
 ---
 # <a name="understand-azure-identity-solutions"></a>Azure ID 솔루션 이해
 Microsoft Azure AD(Azure Active Directory)는 디렉터리 서비스, ID 관리 및 응용 프로그램 액세스 관리를 제공하는 ID 및 액세스 관리 클라우드 솔루션입니다. Azure AD는 [Azure AD 응용 프로그램 갤러리](https://azure.microsoft.com/marketplace/active-directory/all/)에 있는 수천 개의 사전 통합된 상용 및 사용자 지정 앱에 대해 신속하게 [SSO(single sign-on)를 사용](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso)합니다. 이러한 앱은 대부분 Office 365, Salesforce.com, Box, ServiceNow 및 Workday와 같이 이미 사용하고 있는 앱들입니다.
@@ -110,10 +110,10 @@ Azure AD에 대한 자세한 내용을 알아볼 수 있도록 수많은 리소�
 
 * [Azure AD Connect를 사용하여 디렉터리를 하이브리드로 관리](../connect/active-directory-aadconnect.md)
 * [연결된 적이 있는 세계에 대한 추가 보안](../authentication/multi-factor-authentication.md)
-* [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../active-directory-saas-app-provisioning.md)
+* [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)
 * [어디에서나 암호 관리](../user-help/active-directory-passwords-update-your-own-password.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
-* [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../active-directory-saas-app-provisioning.md)
+* [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)
 * [온-프레미스 응용 프로그램에 보안된 원격 액세스를 제공하는 방법](../manage-apps/application-proxy.md)
 * [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](active-directory-manage-groups.md)
 * [Microsoft Azure Active Directory 라이선스란?](active-directory-licensing-whatis-azure-portal.md)

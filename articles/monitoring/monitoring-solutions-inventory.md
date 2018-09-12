@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 40b8f51c66ebe98cd1c312002b7bd5e96e5032bd
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 3154a2f8b283f68ec3e10ba621ccba3ee6d77de2
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112708"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44324753"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Azure의 관리 솔루션에 대한 데이터 수집 상세 정보
 이 문서에는 Microsoft에서 제공하는 [관리 솔루션](monitoring-solutions.md) 목록과 자세한 설명서 링크가 포함되어 있습니다.  메서드 및 Log Analytics로 데이터를 수집하는 빈도에 대한 정보도 제공합니다.  이 문서의 정보를 사용하여 제공되는 여러 솔루션을 식별하고 여러 관리 솔루션의 데이터 흐름 및 연결 요구 사항을 이해할 수 있습니다. 
@@ -65,7 +65,7 @@ ms.locfileid: "39112708"
 | [네트워크 성능 모니터](../log-analytics/log-analytics-network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | TCP는 5초마다 핸드셰이크를 수행하며 3분마다 데이터가 전송됩니다. |
 | [Office 365 분석(미리 보기)](../operations-management-suite/oms-solution-office-365.md) |Windows | | | | | |알림 시 |
 | **관리 솔루션** | **플랫폼** | **Microsoft 모니터링 에이전트** | **Operations Manager 에이전트** | **Azure 저장소** | **Operations Manager 필요 여부** | **관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터** | **수집 빈도** |
-| [Service Fabric 분석(미리 보기)](../log-analytics/log-analytics-service-fabric.md) |Windows | | |&#8226; | | |5분 |
+| [Service Fabric Analytics](../service-fabric/service-fabric-diagnostics-oms-setup.md) |Windows | | |&#8226; | | |5분 |
 | [서비스 맵](../operations-management-suite/operations-management-suite-service-map.md) | Windows 및 Linux | &#8226; | &#8226; |  |  |  | 15초 |
 | [SQL 평가](../log-analytics/log-analytics-sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 일 |
 | [SurfaceHub](../log-analytics/log-analytics-surface-hubs.md) |Windows |&#8226; | | | | |도착 시 |

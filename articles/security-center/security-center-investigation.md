@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: a8e894a9-8781-4749-ae8f-8c8e01658566
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 010c641c247552a8994c9d1c945cd585148fadf9
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 8c236b995d71cd067546cea5eeaaebe6d5dc4fab
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37340793"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300650"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Azure Security Center에서 인시던트 및 경고 조사(미리 보기)
 이 문서를 통해 Azure Security Center에서 조사 기능을 사용하여 보안 인시던트 및 경고를 조사할 수 있습니다.

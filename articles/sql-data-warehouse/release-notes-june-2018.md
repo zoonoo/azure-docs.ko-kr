@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 6dff2d1886a560e3a7e2758816a884782e33787f
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 12023216575b08732f3ef2d04bac9e825621f720
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287973"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44376972"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Azure SQL Data Warehouse의 새로운 기능 2018년 6월
 Azure SQL Data Warehouse는 지속적으로 개선 사항을 수신합니다. 이 문서에서는 2018년 6월에 도입된 새로운 기능과 변경 사항에 대해 설명합니다. 
@@ -23,7 +23,7 @@ Azure SQL Data Warehouse는 지속적으로 개선 사항을 수신합니다. �
 ## <a name="user-defined-restore-points"></a>사용자 정의 복원 지점
 SQL Data Warehouse는 8시간 간격으로 데이터 웨어하우스의 스냅숏을 자동으로 만들어 8시간 RPO(복구 지점 목표)를 보장합니다. 이 자동화 스냅숏은 데이터 웨어하우스 실행에 따른 관리 부담을 완화하지만, 비즈니스 필요에 따라 중대한 시간에 스냅숏을 생성할 필요가 있습니다. 예를 들어, 데이터 부하가 아주 높아지기 직전이나 데이터 웨어하우스에 새 스크립트를 배포하기 직전에 스냅숏을 생성하면 해당 작업 바로 직전의 복원 지점을 사용할 수 있습니다. 
 
-이제 SQL Data Warehouse에서는 [New-AzureRmSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoin) cmdlet을 통해 [사용자 정의 복원 지점](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/)을 지원합니다.
+이제 SQL Data Warehouse에서는 [New-AzureRmSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint) cmdlet을 통해 [사용자 정의 복원 지점](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/)을 지원합니다.
 
 ```PowerShell
 New-AzureRmSqlDatabaseRestorePoint
@@ -50,7 +50,7 @@ The SELECT permission was denied on the column 'SSN' of the object 'Membership',
 ```
 
 ## <a name="objectschemaname"></a>OBJECT_SCHEMA_NAME
-[OBJECT_SCHEMA_NAME()]() 함수는 스키마 범위 개체에 대한 데이터베이스 스키마 이름을 반환합니다. 이 함수는 개체 스키마 유효성 검사를 수행할 때 ETL 도구와 비슷합니다. 
+[OBJECT_SCHEMA_NAME()](https://docs.microsoft.com/sql/t-sql/functions/object-schema-name-transact-sql) 함수는 스키마 범위 개체에 대한 데이터베이스 스키마 이름을 반환합니다. 이 함수는 개체 스키마 유효성 검사를 수행할 때 ETL 도구와 비슷합니다. 
 
 ```sql
 SELECT

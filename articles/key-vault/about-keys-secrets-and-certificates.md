@@ -11,15 +11,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: bryanla
-ms.openlocfilehash: f36e0e3ddc605d960ed764252308cbf09578832c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 60b8689e602f0716cdd1a383ab6568979a37e7c0
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126145"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302948"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>키, 비밀 및 인증서 정보
 Azure Key Vault를 사용하면 Microsoft Azure 환경 내에서 암호화 키를 저장하고 사용할 수 있습니다. Key Vault는 여러 키 유형과 알고리즘을 지원하며, 고부가 가치 키에 HSM(하드웨어 보안 모듈)을 사용할 수 있습니다. 또한 Key Vault를 통해 사용자는 비밀을 안전하게 저장할 수 있습니다. 비밀은 특정 의미 체계가 없는 제한된 크기의 옥텟 개체입니다. Key Vault는 키와 비밀을 기반으로 하는 인증서를 지원하고 자동 갱신 기능을 추가합니다.

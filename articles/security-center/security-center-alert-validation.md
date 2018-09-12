@@ -9,23 +9,23 @@ editor: ''
 ms.assetid: f8f17a55-e672-4d86-8ba9-6c3ce2e71a57
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/07/2017
 ms.author: yurid
-ms.openlocfilehash: 1eb1bc78f233cbe37e8fdb1b05ac3cb90e8574da
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 749d0f5001a704d3d5c8c12c135d6a90c862d2b5
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32774848"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162362"
 ---
 # <a name="alerts-validation-in-azure-security-center"></a>Azure Security Center에서 경고 유효성 검사
 이 문서에서는 시스템이 Azure Security Center 경고에 대해 제대로 구성되었는지 확인하는 방법을 알아봅니다.
 
 ## <a name="what-are-security-alerts"></a>보안 경고란?
-Security Center는 방화벽 및 끝점 보호 솔루션과 같은 Azure 리소스, 네트워크 및 연결된 파트너 솔루션의 로그 데이터를 자동으로 수집하고 분석하며 통합하여 위협을 감지하고 사용자에게 경고해 줍니다. 보안 경고에 대한 자세한 내용은 [Azure 보안 센터에서 보안 경고 관리 및 대응](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)을 읽어보고 [Azure Security Center에서 보안 경고 관리 및 대응](https://docs.microsoft.com/azure/security-center/security-center-alerts-type)에서 다양한 경고 유형에 대해 알아봅니다.
+Security Center는 방화벽 및 엔드포인트 보호 솔루션과 같은 Azure 리소스, 네트워크 및 연결된 파트너 솔루션의 로그 데이터를 자동으로 수집하고 분석하며 통합하여 위협을 감지하고 사용자에게 경고해 줍니다. 보안 경고에 대한 자세한 내용은 [Azure 보안 센터에서 보안 경고 관리 및 대응](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)을 읽어보고 [Azure Security Center에서 보안 경고 관리 및 대응](https://docs.microsoft.com/azure/security-center/security-center-alerts-type)에서 다양한 경고 유형에 대해 알아봅니다.
 
 ## <a name="alert-validation"></a>경고 유효성 검사
 Security Center 에이전트가 컴퓨터에 설치된 경우 경고의 공격받은 리소스에 해당하는 컴퓨터에서 아래 단계를 따릅니다.

@@ -15,12 +15,12 @@ ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock, smalser
-ms.openlocfilehash: 5895e918fbd3b67074069ccc81bd794a75725c9a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 388337fa80d174cb17dae12fa9d5f2fbdfe7e737
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620939"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347786"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory에서 SAML 기반 Single Sign-On을 응용 프로그램에 디버그
 
@@ -96,11 +96,11 @@ AAD 및 대상 응용 프로그램 간 SAML 기반 Single Sign-On을 테스트�
     - 토큰에서 발급된 클레임
     - 토큰에 서명하는 데 사용된 인증서입니다. SAML 응답을 검토하는 방법에 대한 자세한 내용은 [Single Sign-On SAML 프로토콜](single-sign-on-saml-protocol.md)을 참조합니다.
 4. SAML 응답에 대한 자세한 내용은 [Single Sign-On SAML 프로토콜](single-sign-on-saml-protocol.md)을 참조합니다.
-5. SAML 응답을 검토했으므로 문제 해결에 대한 지침은 [로그인한 후 응용 프로그램 페이지의 오류](../application-sign-in-problem-application-error.md)를 참조합니다. 
+5. SAML 응답을 검토했으므로 문제 해결에 대한 지침은 [로그인한 후 응용 프로그램 페이지의 오류](../manage-apps/application-sign-in-problem-application-error.md)를 참조합니다. 
 6. 아직 성공적으로 로그인할 수 없는 경우 SAML 응답에서 누락된 것을 응용 프로그램 공급업체에 요청할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
-Single Sign-On이 응용 프로그램에 대해 작동하므로 [SaaS 응용 프로그램에 대한 사용자 프로비전 및 프로비전 해제를 자동화](../active-directory-saas-app-provisioning.md)하거나 [조건부 액세스를 시작](../conditional-access/app-based-conditional-access.md)할 수 있습니다.
+Single Sign-On이 응용 프로그램에 대해 작동하므로 [SaaS 응용 프로그램에 대한 사용자 프로비전 및 프로비전 해제를 자동화](../manage-apps/user-provisioning.md)하거나 [조건부 액세스를 시작](../conditional-access/app-based-conditional-access.md)할 수 있습니다.
 
 

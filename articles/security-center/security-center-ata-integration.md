@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 5d80bf91-16c3-40b3-82fc-e0805e6708db
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: yurid
-ms.openlocfilehash: a3444b9d42ffdd5f81568f0e9e09557096b4415f
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 1922bc25eb7072341848dd7081c31ba6b1f07a3c
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32775924"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298831"
 ---
 # <a name="connecting-microsoft-advanced-threat-analytics-to-azure-security-center"></a>Azure Security Center에 Microsoft Advanced Threat Analytics 연결
 이 문서는 Microsoft Advanced Threat Analytics와 Azure Security Center 간에 통합을 구성하는 데 도움이 됩니다.
@@ -35,7 +35,7 @@ ATA을 이미 설치했으며 온-프레미스에서 제대로 작동된다고 �
 
     ![Syslog 서버](./media/security-center-ata-integration/security-center-ata-integration-fig1.png)
 
-3. **Syslog 서버 끝점** 필드에 127.0.0.7(이 주소여야 함)을 입력하고 포트에 5114(권장)를 입력합니다. 포트 번호는 권장 사항이지만 고유한 모든 포트가 작동해야 합니다. 다른 모든 옵션은 현재 상태로 두고 **저장**을 클릭합니다.
+3. **Syslog 서버 엔드포인트** 필드에 127.0.0.7(이 주소여야 함)을 입력하고 포트에 5114(권장)를 입력합니다. 포트 번호는 권장 사항이지만 고유한 모든 포트가 작동해야 합니다. 다른 모든 옵션은 현재 상태로 두고 **저장**을 클릭합니다.
 4. 왼쪽 창에서 **알림**을 클릭하고 다음 이미지와 같이 모든 Syslog 알림을 사용하도록 설정합니다(권장).
 
     ![공지](./media/security-center-ata-integration/security-center-ata-integration-fig2.png)

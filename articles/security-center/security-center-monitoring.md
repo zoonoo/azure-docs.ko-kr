@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 3bd5b122-1695-495f-ad9a-7c2a4cd1c808
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/26/2018
 ms.author: terrylan
-ms.openlocfilehash: 434b73d4625f86fab195dbda1fed9c841791f5b6
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 8fe2195559d807ef72b54603c8b4118ada705880
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099462"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162872"
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Azure Security Center에서 보안 상태 모니터링
 이 문서는 Azure Security Center의 모니터링 기능을 사용하여 정책 준수를 모니터링하는 데 도움이 됩니다.
@@ -53,8 +53,8 @@ ms.locfileid: "37099462"
 * 차세대 방화벽(NGFW)이 설치되지 않음
 * 서브넷에서 NSG(네트워크 보안 그룹) 사용 안 함
 * VM에서 NSG 사용 안 함
-* 공용 외부 끝점을 통한 외부 액세스 제한
-* 정상 인터넷 연결 끝점
+* 공용 외부 엔드포인트를 통한 외부 액세스 제한
+* 정상 인터넷 연결 엔드포인트
 
 권장 사항 중 하나를 클릭하면 다음 예제와 같이 권장 사항에 대한 자세한 내용이 표시됩니다.
 
@@ -62,12 +62,12 @@ ms.locfileid: "37099462"
 
 이 예에서 **서브넷에 누락된 네트워크 보안 그룹 구성**에는 네트워크 보안 그룹 보호가 누락된 서브넷 및 가상 머신의 목록이 있습니다. 네트워크 보안 그룹을 적용하려는 서브넷을 클릭하면 **네트워크 보안 그룹 선택**이 표시됩니다. 여기에서 서브넷에 적절한 네트워크 보안 그룹을 선택하거나 새 네트워크 보안 그룹을 만들 수 있습니다.
 
-#### <a name="internet-facing-endpoints-section"></a>인터넷 연결 끝점 섹션
-**인터넷 연결 끝점** 섹션에서 현재 인터넷 연결 끝점으로 구성된 VM 및 해당 현재 상태를 볼 수 있습니다.
+#### <a name="internet-facing-endpoints-section"></a>인터넷 연결 엔드포인트 섹션
+**인터넷 연결 엔드포인트** 섹션에서 현재 인터넷 연결 엔드포인트로 구성된 VM 및 해당 현재 상태를 볼 수 있습니다.
 
-![인터넷 연결 끝점으로 구성된 가상 머신 및 상태](./media/security-center-monitoring/security-center-monitoring-fig10-ga.png)
+![인터넷 연결 엔드포인트로 구성된 가상 머신 및 상태](./media/security-center-monitoring/security-center-monitoring-fig10-ga.png)
 
-이 테이블에는 VM, 인터넷 연결 IP 주소, NSG 및 NGFW의 현재 심각도 상태를 보여 주는 끝점 이름이 있습니다. 다음과 같이 심각도 별로 테이블이 정렬됩니다.
+이 테이블에는 VM, 인터넷 연결 IP 주소, NSG 및 NGFW의 현재 심각도 상태를 보여 주는 엔드포인트 이름이 있습니다. 다음과 같이 심각도 별로 테이블이 정렬됩니다.
 
 * 빨간색(최우선): 높은 우선 순위이며 즉시 해결해야 합니다.
 * 주황색: 보통 우선 순위이며 가능한 한 빨리 해결해야 합니다.

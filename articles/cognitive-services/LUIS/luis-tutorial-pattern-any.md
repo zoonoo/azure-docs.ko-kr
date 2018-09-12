@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 1587debecd82072c29d4caffc2b81629b1f52b0e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 43f169ae11191c2e98c4538189bce781821de980
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527367"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44157857"
 ---
 # <a name="tutorial-improve-app-with-patternany-entity"></a>자습서: pattern.any 엔터티를 사용하여 앱 개선
 
@@ -26,7 +26,7 @@ ms.locfileid: "39527367"
 * pattern.any를 사용하는 패턴 만들기
 * 예측 개선 여부를 확인하는 방법
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>시작하기 전에
 [패턴 역할](luis-tutorial-pattern-roles.md) 자습서의 Human Resources 앱이 없는 경우 JSON을 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 새 앱으로 [가져옵니다](luis-how-to-start-new-app.md#import-new-app). 가져올 앱은 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-roles-HumanResources.json) GitHub 리포지토리에 있습니다.
@@ -108,7 +108,7 @@ Pattern.any 엔터티는 다양한 길이의 엔터티를 추출합니다. 패�
 
 ## <a name="train-the-luis-app"></a>LUIS 앱 학습
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="test-the-new-pattern-for-free-form-data-extraction"></a>자유 형식 데이터 추출의 새 패턴 테스트
 1. 위쪽 막대에서 **테스트**를 선택하여 테스트 패널을 엽니다. 
@@ -125,7 +125,7 @@ Pattern.any 엔터티는 다양한 길이의 엔터티를 추출합니다. 패�
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

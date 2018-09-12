@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: fece670cc-df70-445d-9773-b32cbaba8d4a
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 8726aae7545809573b63f29cd8ef568c34aee5b4
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 73ed6976450ef89fb87dd054147325c8b250d1a7
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109174"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161512"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Azure Security Center 준비 로드맵
 이 문서에서는 Azure Security Center를 시작하는 데 도움이 되는 준비 로드맵을 제공합니다.
@@ -61,7 +61,7 @@ Security Center에서는 Security Center 표준 계층이 적용되지 않은 �
 * [Azure Security Center 하이브리드 - 개요](https://youtu.be/NMa4L_M597k)
 
 ## <a name="mitigating-security-issues-using-security-center"></a>Security Center를 사용하여 보안 문제 완화
-보안 센터는 방화벽 및 끝점 보호 솔루션과 같은 Azure 리소스, 네트워크 및 연결된 파트너 솔루션의 로그 데이터를 자동으로 수집하고 분석하며 통합하여 실제 위협을 감지하고 가양성을 줄입니다.
+보안 센터는 방화벽 및 엔드포인트 보호 솔루션과 같은 Azure 리소스, 네트워크 및 연결된 파트너 솔루션의 로그 데이터를 자동으로 수집하고 분석하며 통합하여 실제 위협을 감지하고 가양성을 줄입니다.
 
 다음 리소스를 사용하여 보안 경고를 관리하고 리소스를 보호할 수 있습니다.
 

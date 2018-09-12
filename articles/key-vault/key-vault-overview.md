@@ -14,22 +14,21 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 07/17/2018
 ms.author: barclayn
-ms.openlocfilehash: a55c99764cf9d77ab3ee269e3f5b0c2a13ec1ac7
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: b509bf9575c3fdeedd1673d4ffe1395d46e3d919
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42022995"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051615"
 ---
 # <a name="what-is-azure-key-vault"></a>Azure Key Vault란?
 
-Azure Key Vault는 보안 비밀 저장소로 작동하는 클라우드 서비스입니다.
+Azure Key Vault는 다음 문제를 해결하는 데 도움이 됩니다.
+- Azure Key Vault는 토큰, 암호, 인증서, API 키 및 기타 비밀에 대한 액세스를 안전하게 저장하고 엄격히 제어하는 데 사용할 수 있습니다
+- Azure Key Vault는 키 관리 솔루션으로 사용할 수도 있습니다. Azure Key Vault를 사용하면 데이터를 암호화하는 데 사용되는 암호화 키를 쉽게 만들고 제어할 수 있습니다. 
+- Azure Key Vault는 Azure 및 내부 연결 리소스와 함께 사용할 공용/개인 SSL/TLS(Secure Sockets Layer/전송 계층 보안) 인증서를 쉽게 프로비전, 관리 및 배포할 수 있게 하는 서비스입니다. 
+- 비밀과 키는 HSM의 유효성을 검사하는 소프트웨어 또는 FIPS 140-2 수준 2를 통해 보호할 수 있습니다
 
-암호, 연결 문자열 및 응용 프로그램을 작동시키는 데 필요한 기타 정보가 있습니다. 이러한 정보가 있는데 보안을 유지하려고 하는 경우 Azure Key Vault가 효과적일 수 있습니다. Azure Key Vault는 응용 프로그램 비밀을 안전하게 저장하고 관리하는 데 도움을 줍니다.
-
-Key Vault를 사용하면 자격 증명 모음이라는 보안 컨테이너를 여러 개 만들 수 있습니다. 이러한 자격 증명 모음은 HSM(하드웨어 보안 모듈)에 의해 백업됩니다. 자격 증명 모음은 응용 프로그램 비밀을 중앙 집중식으로 저장하여 보안 정보의 우발적인 손실 가능성을 줄이는 데 도움이 됩니다. Key Vault는 또한 저장된 모든 것에 대한 액세스를 제어하고 기록합니다. Azure Key Vault는 TLS(전송 계층 보안) 인증서의 요청 및 갱신을 처리할 수 있으므로, 강력한 인증서 수명 주기 관리 솔루션에 필요한 기능을 제공합니다.
-
- Azure Key Vault는 모든 종류의 비밀을 지원하도록 설계되었습니다. 즉, Key Vault는 소프트웨어 또는 HSM으로 보호되는 암호, 데이터베이스 자격 증명, API 키 및 자격 증명을 저장하는 데 사용할 수 있습니다.
 ## <a name="why-use-azure-key-vault"></a>Azure Key Vault를 사용하는 이유는?
 
 ### <a name="centralize-application-secrets"></a>응용 프로그램 비밀 중앙 집중화

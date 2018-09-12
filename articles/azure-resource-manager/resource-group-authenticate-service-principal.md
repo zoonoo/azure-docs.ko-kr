@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: df1cf093a154b4f7adf59fae93f90fbc70459788
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 57cfa44a0eb114503b89733b2c3e309b65d5b7e5
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038595"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023327"
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Azure PowerShell을 사용하여 인증서로 서비스 주체 만들기
 
@@ -29,7 +29,7 @@ ms.locfileid: "40038595"
 * 무인 스크립트를 실행할 때 인증을 위해 인증서를 사용합니다.
 
 > [!IMPORTANT]
-> 서비스 주체를 만드는 대신 응용 프로그램 ID에 Azure AD 관리되는 서비스 ID를 사용하는 것이 좋습니다. Azure AD MSI는 코드에 대한 ID 만들기를 간소화하는 Azure Active Directory의 공개 미리 보기 기능입니다. 코드가 Azure AD MSI를 지원하는 서비스에서 실행되고 Azure Active Directory 인증을 지원하는 리소스에 액세스하는 경우 Azure AD MSI를 사용하는 것이 좋습니다. 현재 지원되는 서비스를 비롯하여 Azure AD MSI에 대한 자세한 내용은 [Azure 리소스에 대한 관리 서비스 ID](../active-directory/managed-service-identity/overview.md)를 참조하세요.
+> 서비스 주체를 만드는 대신 응용 프로그램 ID에 Azure AD 관리되는 서비스 ID를 사용하는 것이 좋습니다. Azure AD MSI는 코드에 대한 ID 만들기를 간소화하는 Azure Active Directory의 공개 미리 보기 기능입니다. 코드가 Azure AD MSI를 지원하는 서비스에서 실행되고 Azure Active Directory 인증을 지원하는 리소스에 액세스하는 경우 Azure AD MSI를 사용하는 것이 좋습니다. 현재 지원되는 서비스를 비롯하여 Azure AD MSI에 대한 자세한 내용은 [Azure 리소스에 대한 관리 서비스 ID](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
 
 이 아티클에서는 인증서로 인증하는 서비스 주체를 만드는 방법을 보여줍니다. 암호를 사용하여 서비스 주체를 설정하려면 [Azure PowerShell을 사용하여 Azure 서비스 주체 만들기](/powershell/azure/create-azure-service-principal-azureps)를 참조하세요.
 

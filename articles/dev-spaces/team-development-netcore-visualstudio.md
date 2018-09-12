@@ -13,12 +13,12 @@ ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: douge
-ms.openlocfilehash: 1b603db552edd14dab2c86e6b005184eb88e74bb
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 97b052833946b373e2333491c4b516b3a088130b
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42154818"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158469"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Azure Dev Spaces로 팀 개발
 
@@ -163,6 +163,6 @@ Visual Studio 내에서 서비스를 F5 또는 Ctrl+F5로 누르면 사용할 �
 
 이제 URL에 "scott.s" 부분을 추가하여 http://scott.s.webfrontend.123456abcdef.eastus.aksapp.io와 비슷한 내용을 읽고 브라우저를 새로 고칩니다. `mywebapi` 프로젝트에서 설정한 중단점에 적중되어야 합니다. F5 키를 클릭하여 계속 진행합니다. 그러면 브라우저에서 "Hello with webfrontend and mywebapi(webfrontend 및 mywebapi를 통한 Hello)"라는 새 메시지가 표시됩니다. 이는 `mywebapi`의 업데이트된 코드 경로가 `default/scott` 공간에서 실행되기 때문입니다.
 
-[!INCLUDE[](includes/well-done.md)]
+[!INCLUDE [](includes/well-done.md)]
 
-[!INCLUDE[](includes/clean-up.md)]
+[!INCLUDE [](includes/clean-up.md)]

@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 0d3bdb6cc56b90d1975af73be1bb8cc1f73e1213
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 9e0dfccd98592243623613648cdbd076e429dafb
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40129126"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44164286"
 ---
 지금까지 응용 프로그램에서 작업하는 유일한 개발자인 것처럼 응용 프로그램 코드를 실행했습니다. 이 섹션에서는 Azure Dev Spaces에서 팀 개발을 간소화하는 방법에 대해 알아봅니다.
 * 필요에 따라 공유 개발 공간 또는 고유한 개발 공간에서 작업하여 개발자 팀이 동일한 환경에서 작업하도록 설정합니다.
@@ -48,11 +48,12 @@ Azure Dev Spaces를 사용하면 Azure에서 *공유* 개발 공간을 설정할
 서비스가 현재 실행 중인 곳을 자세히 살펴보겠습니다. `azds list-up` 명령을 실행하면 다음과 유사한 결과가 표시됩니다.
 
 ```
-Name                          DevSpace  Type     Updated      Status
-----------------------------  --------  -------  -----------  ----------------
-mywebapi                      default   Service  10m 1s ago   Running
-mywebapi-54f9cf5b59-bjnkm     default   Pod      10m 4s ago   Running
-webfrontend-5b697958d6-b6v96  default   Pod      26m 38s ago  Init:1/3:mindaro-build
+Name                          DevSpace  Type     Updated  Status
+----------------------------  --------  -------  -------  -------
+mywebapi                      default   Service  3m ago   Running
+mywebapi-56c8f45d9-zs4mw      default   Pod      3m ago   Running
+webfrontend                   default   Service  1m ago   Running
+webfrontend-6b6ddbb98f-fgvnc  default   Pod      1m ago   Running
 ```
 
 DevSpace 열은 두 서비스 모두 `default`라는 공간에서 실행되고 있음을 보여줍니다. 공용 URL을 열고 웹앱으로 이동하는 모든 사용자는 이전에 작성한 코드 경로를 호출하며, 이 코드는 두 서비스 모두를 통해 실행됩니다. 이제 `mywebapi` 개발을 계속하려는 경우를 가정해 보겠습니다. 개발 환경을 사용하는 다른 개발자에게 영향을 주지 않으면서 코드를 변경하고 이를 테스트하려면 어떻게 해야 할까요? 이렇게 하려면 자신만의 고유한 공간을 설정합니다.

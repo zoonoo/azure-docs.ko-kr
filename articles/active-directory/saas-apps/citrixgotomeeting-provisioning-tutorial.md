@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 7b655ee21fccb0031137d7c3d71b89c82bf4abec
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3d2dafd409c6c7b2be06a6f18c3d392aff681efe
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430239"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345780"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 GoToMeeting 구성
 
@@ -70,7 +70,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
    
     a. **GoToMeeting 관리자 사용자 이름** 텍스트 상자에 관리자의 사용자 이름을 입력합니다.
 
-    나. **GoToMeeting 관리자 암호** 텍스트 상자에 관리자의 암호를 입력입니다.
+    b. **GoToMeeting 관리자 암호** 텍스트 상자에 관리자의 암호를 입력입니다.
 
 1. Azure Portal에서 **연결 테스트**를 클릭하여 Azure AD가 GoToMeeting 앱에 연결할 수 있는지 확인합니다. 연결에 실패하면 사용자의 GoToMeeting 계정에 팀 관리자 권한이 있는지 확인하고 **"관리자 자격 증명"** 단계를 다시 시도합니다.
 
@@ -88,7 +88,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 사용자 및 그룹 섹션에서 GoToMeeting에 할당된 모든 사용자 및/또는 그룹의 초기 동기화가 시작됩니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 GoToMeeting 앱의 프로비전 서비스에서 수행하는 모든 작업을 설명하는 프로비전 활동 로그에 연결된 링크를 따를 수 있습니다.
 
-Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../active-directory-saas-provisioning-reporting.md)를 참조하세요.
+Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -3,25 +3,20 @@ title: Azure Logic Apps와 통합하는 함수 만들기 | Microsoft Docs
 description: Azure Logic Apps 및 Azure Cognitive Services와 통합하는 함수를 만들어 트윗 감정을 분류하고 감정이 나쁠 경우 알림을 보냅니다.
 services: functions, logic-apps, cognitive-services
 keywords: 워크플로, 클라우드 앱, 클라우드 서비스, 비즈니스 프로세스, 시스템 통합, Enterprise Application Integration, EAI
-documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 16a46b4c49687186e25c399dcc2c5c168e7c5004
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 23db8d307892b100f291a1f32c9b77c73a60f23e
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38586877"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44090766"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Azure Logic Apps와 통합하는 함수 만들기
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 1db7219beead4d7ee228baff4c802c105419ba1c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 248ec73b09c25c162c5bdc77ceb18e610d604b77
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524606"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052176"
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Azure Storage 확장성 및 성능 목표
 ## <a name="overview"></a>개요
@@ -41,11 +41,13 @@ ms.locfileid: "39524606"
 [!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
 
 ## <a name="azure-files-scale-targets"></a>Azure Files 크기 조정 목표
-Azure File 및 Azure File Sync의 크기 조정 및 성능 목표에 대한 자세한 내용은 [Azure Files 확장성 및 성능 목표](../files/storage-files-scale-targets.md)를 참조하세요.
+Azure File 및 Azure 파일 동기화의 크기 조정 및 성능 목표에 대한 자세한 내용은 [Azure Files 확장성 및 성능 목표](../files/storage-files-scale-targets.md)를 참조하세요.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
-### <a name="azure-file-sync-scale-targets"></a>Azure File Sync 크기 조정 목표
+### <a name="azure-file-sync-scale-targets"></a>Azure 파일 동기화의 크기 조정 목표
+Azure 파일 동기화를 사용하면 최대한 무제한으로 사용할 수 있도록 디자인하려고 했지만 가능한 것은 아닙니다. 아래 표에서는 테스트의 한계 및 실제적인 목표인 하드 한도를 나타냅니다.
+
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
 ## <a name="azure-queue-storage-scale-targets"></a>Azure Queue 저장소 크기 조정 목표

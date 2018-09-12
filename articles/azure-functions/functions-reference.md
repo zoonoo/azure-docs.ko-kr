@@ -4,24 +4,20 @@ description: 프로그래밍 언어 및 바인딩에 관계 없이 Azure에서 �
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: 개발자 가이드, Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 5214a59b6a1aa27c80759c5af3d91ad4711de660
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: d2b05c83f77a58e224760d90d111b270d71a6514
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343980"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092430"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions 개발자 가이드
 Azure Functions에서 특정 함수는 사용하는 언어나 바인딩에 관계없이 몇 가지 핵심적 기술 개념과 구성 요소를 공유합니다. 특정 언어나 바인딩에 해당하는 세부 정보를 학습하기 전에, 모든 항목에 해당하는 이 개요를 꼼꼼히 읽어 보시기 바랍니다.
@@ -87,7 +83,7 @@ Azure 포털에 기본 제공되는 함수 편집기를 사용하면 함수에 �
    App Service 편집기가 로드된 후에 *host.json* 파일과 *wwwroot* 하위의 함수 폴더를 볼 수 있습니다. 
 5. 파일을 열어서 편집하거나, 배포 컴퓨터에서 끌어서 놓기로 파일을 업로드합니다.
 
-#### <a name="to-use-the-function-apps-scm-kudu-endpoint"></a>함수 앱의 SCM(Kudu) 끝점을 사용하려면
+#### <a name="to-use-the-function-apps-scm-kudu-endpoint"></a>함수 앱의 SCM(Kudu) 엔드포인트를 사용하려면
 1. `https://<function_app_name>.scm.azurewebsites.net`로 이동합니다.
 2. **디버그 콘솔 > CMD**를 클릭합니다.
 3. `D:\home\site\wwwroot\`으로 이동하여 *host.json*을 업데이트하거나 `D:\home\site\wwwroot\<function_name>`로 이동하여 함수 파일을 업데이트합니다.

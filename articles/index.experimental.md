@@ -3,12 +3,12 @@ layout: HubPage
 hide_bc: true
 title: Microsoft Azure 설명서
 description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다.
-ms.openlocfilehash: 37b60b41859432543ed14b8529bebc15ec215115
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 16d1466180e90d45b7c2adf00ab699bb39d5d785
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189566"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302459"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -640,7 +640,7 @@ ms.locfileid: "43189566"
                                         <li>
                                             <a href="/azure/cognitive-services/speaker-recognition/home">
                                                 <img src="media/index/API_Spc_SpeakerRecognition.svg" alt="" />
-                                                <p>화자 인식</p>
+                                                <p>Speaker Recognition</p>
                                             </a>
                                         </li>
                                         <li>
@@ -779,7 +779,7 @@ ms.locfileid: "43189566"
                                         <li>
                                             <a href="https://www.visualstudio.com/docs/overview">
                                                 <img src="media/index/VisualStudioTeamServices.svg" alt="" />
-                                                <p>Visual Studio Team Services</p>
+                                                <p>Azure DevOps</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2737,7 +2737,7 @@ ms.locfileid: "43189566"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Visual Studio Team Services</h3>
+                                                    <h3>Azure DevOps</h3>
                                                     <p>팀에서 서비스를 통해 코드 공유, 작업 추적 및 소프트웨어 릴리스 가능</p>
                                                 </div>
                                             </div>
@@ -3433,7 +3433,7 @@ ms.locfileid: "43189566"
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780681">Visual Studio Code용 다운로드 </a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Team Services용 다운로드</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Azure DevOps용 다운로드</a>
                                                 </p>
                                             </div>
                                         </div>

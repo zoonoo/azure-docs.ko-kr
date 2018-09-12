@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: mahender
-ms.openlocfilehash: fc1251cafcb2a535ccaf8354cb5c7c8b6a4afd33
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: c7a819f987de41ba7705d21bb6de95475cd3f9c8
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43337537"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027189"
 ---
 # <a name="how-to-use-azure-managed-service-identity-in-app-service-and-azure-functions"></a>App Service 및 Azure Functions에서 Azure 관리 서비스 ID를 사용하는 방법
 
@@ -26,7 +26,7 @@ ms.locfileid: "43337537"
 > [!Important] 
 > 앱이 구독/테넌트 간에 마이그레이션되는 경우 App Service 및 Azure Functions에 대한 관리 서비스 ID가 예상대로 작동하지 않습니다. 앱에서 새 ID를 확보해야 하며 해당 기능을 사용 중지했다가 다시 사용하도록 설정하여 확보할 수 있습니다. 아래 [ID 제거](#remove)를 참조하세요. 다운스트림 리소스에도 새 ID를 사용하려면 액세스 정책을 업데이트해야 합니다.
 
-이 토픽에서는 App Service 및 Azure Functions 응용 프로그램에 대한 관리되는 앱 ID를 만들어서 다른 리소스에 액세스하는 데 사용하는 방법을 보여줍니다. Azure Active Directory의 관리되는 서비스 ID를 사용하면 앱이 Azure Key Vault처럼 AAD로 보호되는 다른 리소스에 쉽게 액세스할 수 있습니다. ID는 Azure 플랫폼에서 관리하며 비밀을 프로비전하거나 회전할 필요가 없습니다. Managed Service Identity에 대한 자세한 내용은 [Managed Service Identity 개요](../active-directory/managed-service-identity/overview.md)를 참조하세요.
+이 토픽에서는 App Service 및 Azure Functions 응용 프로그램에 대한 관리되는 앱 ID를 만들어서 다른 리소스에 액세스하는 데 사용하는 방법을 보여줍니다. Azure Active Directory의 관리되는 서비스 ID를 사용하면 앱이 Azure Key Vault처럼 AAD로 보호되는 다른 리소스에 쉽게 액세스할 수 있습니다. ID는 Azure 플랫폼에서 관리하며 비밀을 프로비전하거나 회전할 필요가 없습니다. Managed Service Identity에 대한 자세한 내용은 [Managed Service Identity 개요](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
 
 ## <a name="creating-an-app-with-an-identity"></a>ID를 사용하여 앱 만들기
 
@@ -151,7 +151,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스 배포를 자�
 앱은 자체 ID를 사용하여 Azure Key Vault 같은 AAD로 보호되는 다른 리소스의 토큰을 가져올 수 있습니다. 이러한 토큰은 응용 프로그램의 특정 사용자가 아닌 리소스에 액세스하는 응용 프로그램을 나타냅니다. 
 
 > [!IMPORTANT]
-> 응용 프로그램의 액세스를 허용하도록 대상 리소스를 구성해야 할 수도 있습니다. 예를 들어 Key Vault 토큰을 요청할 때에는 응용 프로그램의 ID를 포함하는 액세스 정책을 추가했는지 확인해야 합니다. 그렇지 않으면 토큰이 포함되어 있더라도 Key Vault 호출이 거부됩니다. 어떤 리소스가 Managed Service Identity 토큰을 지원하는지 자세히 알아보려면 [Azure AD 인증을 지원하는 Azure 서비스](../active-directory/managed-service-identity/services-support-msi.md#azure-services-that-support-azure-ad-authentication)를 참조하세요.
+> 응용 프로그램의 액세스를 허용하도록 대상 리소스를 구성해야 할 수도 있습니다. 예를 들어 Key Vault 토큰을 요청할 때에는 응용 프로그램의 ID를 포함하는 액세스 정책을 추가했는지 확인해야 합니다. 그렇지 않으면 토큰이 포함되어 있더라도 Key Vault 호출이 거부됩니다. 어떤 리소스가 Managed Service Identity 토큰을 지원하는지 자세히 알아보려면 [Azure AD 인증을 지원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication)를 참조하세요.
 
 App Service 및 Azure Functions에서 토큰을 가져오는 간단한 REST 프로토콜이 있습니다. .NET 응용 프로그램의 경우 Microsoft.Azure.Services.AppAuthentication 라이브러리에서 이 프로토콜에 대한 추상화를 제공하고 로컬 개발 환경을 지원합니다.
 

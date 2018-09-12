@@ -4,24 +4,20 @@ description: Azure Functions를 사용하여 Azure의 웹후크에 의해 호출
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: fafc10c0-84da-4404-b4fa-eea03c7bf2b1
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 83e751cc0c5b6c53d409dc61556a6bcdbed2415a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3ac16c1abd72b62a979e35b3fb86547a53417667
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38467812"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346128"
 ---
 # <a name="create-a-function-triggered-by-a-generic-webhook"></a>제네릭 웹후크를 통해 트리거되는 함수 만들기
 
@@ -33,7 +29,7 @@ Azure Functions를 사용하면 먼저 VM을 만들거나 웹 응용 프로그�
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-+ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
++ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="create-an-azure-function-app"></a>Azure Function 앱 만들기
 
@@ -59,7 +55,7 @@ Azure Functions를 사용하면 먼저 VM을 만들거나 웹 응용 프로그�
 
     ![함수 코드 검토](./media/functions-create-generic-webhook-triggered-function/functions-copy-function-url.png)
          
-다음으로 Azure Monitor의 활동 로그 경고에서 웹후크 끝점을 만듭니다. 
+다음으로 Azure Monitor의 활동 로그 경고에서 웹후크 엔드포인트를 만듭니다. 
 
 ## <a name="create-an-activity-log-alert"></a>활동 로그 경고 만들기
 
@@ -125,7 +121,8 @@ Azure Functions를 사용하면 먼저 VM을 만들거나 웹 응용 프로그�
     
         // Return an error if the resource in the activity log isn't a resource group. 
         if (activityLog == null || !string.Equals((string)activityLog["resourceType"], 
-            "Microsoft.Resources/subscriptions/resourcegroups"))
+            "Microsoft.Resources/subscriptions/resourceGroups", 
+            System.StringComparison.OrdinalIgnoreCase))
         {
             log.Error("An error occurred");
             return req.CreateResponse(HttpStatusCode.BadRequest, new

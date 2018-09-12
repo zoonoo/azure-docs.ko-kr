@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/22/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 6a2d067625e96aefdcb0197e1abb13b0c41fbe7f
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: edaff86531a9c40064d25a046bbbb70f48b75c84
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521441"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027132"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure Import/Export 서비스: 질문과 대답 
 Azure Import/Export 서비스를 사용하여 Azure Storage에 데이터를 전송할 때 발생할 수 있는 질문 및 답변은 다음과 같습니다. 질문과 대답은 다음과 같은 범주로 정렬됩니다.
@@ -119,7 +119,7 @@ Azure Portal 또는 [저장소 탐색기](https://docs.microsoft.com/azure/vs-az
 경우에 따라 다릅니다. 드라이브를 준비할 때 데이터 집합 CSV 파일에 있는 Disposition:<rename|no-overwrite|overwrite>라는 필드를 사용하여 대상 파일을 덮어쓰거나 무시해야 하는지를 지정할 수 있습니다. 기본적으로 서비스는 기존 Blob 또는 파일을 덮어쓰지 않고 새 파일의 이름을 변경합니다.
 
 ### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>WAImportExport 도구는 32비트 운영 체제와 호환되나요?
-아니요. WAImportExport 도구는 64비트 Windows 운영 체제에서만 호환됩니다. 지원되는 OS의 전체 목록은 [지원되는 운영 체제]()로 이동합니다. 
+아니요. WAImportExport 도구는 64비트 Windows 운영 체제에서만 호환됩니다. 지원되는 OS의 전체 목록은 [지원되는 운영 체제](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements)로 이동합니다. 
 
 
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Azure Import/Export에서 지원하는 최대 블록 Blob 및 페이지 Blob 크기는 무엇인가요?

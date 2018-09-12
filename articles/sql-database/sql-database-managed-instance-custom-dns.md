@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: af9afcbf97df5f3d7fa82f6ea0163c714fa4f582
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: be32bc4b3f91fbc71305ee9f16fec17ff472cd4c
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051744"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049578"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance에 대한 사용자 지정 DNS 구성
 
@@ -41,5 +41,5 @@ Azure [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.m
 ## <a name="next-steps"></a>다음 단계
 
 - 개요는 [Managed Instance란?](sql-database-managed-instance.md)을 참조하세요.
-- Managed Instance를 새로 만드는 방법을 보여 주는 자습서에 대해서는 [Managed Instance 만들기](sql-database-managed-instance-create-tutorial-portal.md)를 참조하세요.
+- Managed Instance를 새로 만드는 방법을 보여 주는 자습서에 대해서는 [Managed Instance 만들기](sql-database-managed-instance-get-started.md)를 참조하세요.
 - Managed Instance에 대해 VNet을 구성하는 방법에 대한 내용은 [Managed Instance의 VNet 구성](sql-database-managed-instance-vnet-configuration.md)을 참조하세요.

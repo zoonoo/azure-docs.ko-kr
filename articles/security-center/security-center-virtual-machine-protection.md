@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7cf5f86d9a2d121ff54c40e27c6bc50847a4dfdf
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 1692e111d48a6e4574b2b114c0de84d9bc9f3203
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43132609"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299834"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Azure Security Center에서 머신 및 응용 프로그램 보호
 Azure Security Center에서는 Azure 리소스의 보안 상태를 분석합니다. 보안 센터가 잠재적인 보안 취약점을 식별하는 경우 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다. 이러한 권장 사항은 VM(가상 머신)과 컴퓨터, 응용 프로그램, 네트워킹, SQL과 ID 및 액세스 등의 Azure 리소스 유형에 적용됩니다.

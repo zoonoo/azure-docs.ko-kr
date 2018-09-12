@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 11/22/2016
-ms.openlocfilehash: fc4fdff5080e6ebe13850157e8d560a1d31e7719
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 1307b6df22c51af9710d44abb23178d65e3507aa
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127482"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377397"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 보호
 
@@ -77,7 +77,7 @@ POST
 1. **설정**에서 **워크플로 설정** 메뉴 항목을 클릭합니다.
 1. 트리거에 의해 허용되는 IP 주소 범위 목록을 지정합니다.
 
-유효한 IP 범위 형식은 `192.168.1.1/255`입니다. 논리 앱을 중첩된 논리 앱으로서 실행하려는 경우 **다른 논리 앱만** 옵션을 선택합니다. 이 옵션은 빈 배열을 리소스에 작성할 수 있으며, 이는 서비스 자체(부모 논리 앱)의 호출만 성공적으로 실행된다는 의미입니다.
+유효한 IP 범위 형식은 `192.168.1.1/32`입니다. 논리 앱을 중첩된 논리 앱으로서 실행하려는 경우 **다른 논리 앱만** 옵션을 선택합니다. 이 옵션은 빈 배열을 리소스에 작성할 수 있으며, 이는 서비스 자체(부모 논리 앱)의 호출만 성공적으로 실행된다는 의미입니다.
 
 > [!NOTE]
 > 요청 트리거가 있는 논리 앱은 IP에 관계 없이 REST API/Management `/triggers/{triggerName}/run`을 통해 실행될 수 있습니다. 이 시나리오에는 Azure REST API에 대한 인증이 필요하며 모든 이벤트는 Azure Audit Log에 나타납니다. 그에 따라 액세스 제어 정책을 설정합니다.

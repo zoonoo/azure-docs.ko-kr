@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 8d05e314cb31aaba96e7db79e0e4dd287e6d2184
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b3ef6e2a6b9b51c271372aa3c9342b52a4260788
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426907"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348109"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 ServiceNow 구성
 
 이 자습서에서는 사용자 계정을 Azure AD에서 ServiceNow로 자동으로 프로비전 및 프로비전 해제하도록 ServiceNow 및 Azure AD에서 수행해야 하는 단계를 설명합니다.
 
 > [!NOTE]
-> 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](./../active-directory-saas-app-provisioning.md)를 참조하세요.
+> 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -80,7 +80,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
    
     a. **ServiceNow 인스턴스 이름** 텍스트 상자에 ServiceNow 인스턴스 이름을 입력합니다.
 
-    나. **ServiceNow 관리자 사용자 이름** 텍스트 상자에 관리자의 사용자 이름을 입력합니다.
+    b. **ServiceNow 관리자 사용자 이름** 텍스트 상자에 관리자의 사용자 이름을 입력합니다.
 
     다. **ServiceNow 관리자 암호** 텍스트 상자에 관리자의 암호를 입력합니다.
 
@@ -100,7 +100,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 사용자 및 그룹 섹션에서 Provisioning Status에 할당된 모든 사용자 및/또는 그룹의 초기 동기화가 시작됩니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 클릭하여 ServiceNow 앱의 프로비전 서비스에서 수행한 모든 작업을 설명하는 프로비전 작업 로그를 확인할 수 있습니다.
 
-Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../active-directory-saas-provisioning-reporting.md)를 참조하세요.
+Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 2a2bb427e00e735e5f0dfaa0c85e60afbe890ea6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f7fa4c9b0926d796c0c12b39d0056fe72e4028c7
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230423"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44349027"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Box 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 Box로 자동으로 프로비전 및 프로비전 해제하도록 Box 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다.
 
 > [!NOTE]
-> 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](./../active-directory-saas-app-provisioning.md)를 참조하세요.
+> 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -122,7 +122,7 @@ Azure Portal의 **Box > 사용자 및 그룹** 탭에서 Box에 대한 액세스
 
 [사용자 및 그룹] 섹션에서 Box에 할당된 모든 사용자 및/또는 그룹의 초기 동기화가 시작됩니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 Box 앱의 프로비전 서비스에서 수행하는 모든 작업을 설명하는 프로비전 활동 로그에 연결된 링크를 따를 수 있습니다.
 
-Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../active-directory-saas-provisioning-reporting.md)를 참조하세요.
+Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
 
 Box 테넌트에서 동기화된 사용자가 **관리 콘솔**의 **관리된 사용자**에 나열됩니다.
 

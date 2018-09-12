@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: v-brapel
-ms.openlocfilehash: c1431ec852cab943e00d3933ef4f0500a4fdb151
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1f9b689ac6127bc2f7d1e810356ae9a23b8e0996
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374758"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162396"
 ---
 # <a name="build-a-custom-search-web-page"></a>Custom Search 웹 페이지 빌드
 Bing Custom Search를 사용하면 관심 있는 토픽에 대한 맞춤형 검색 경험을 만들 수 있습니다. 예를 들어 검색 환경을 제공하는 무술 웹 사이트를 소유하고 있는 경우 Bing에서 검색하는 도메인, 하위 사이트 및 웹 페이지를 지정할 수 있습니다. 사용자는 관련 없는 콘텐츠를 포함할 수 있는 일반적인 검색 결과를 페이징할 필요 없이 관심 있는 콘텐츠에 맞게 조정된 검색 결과를 보게 됩니다. 
@@ -96,14 +96,14 @@ Custom Search는 사용자 지정 검색 인스턴스의 JSON 응답을 렌더�
 
     ![호스트된 UI 추가 구성 단계 스크린샷](./media/custom-search-hosted-ui-subscription-key.png)
 
-[!INCLUDE[publish or revert](../includes/publish-revert.md)]
+[!INCLUDE [publish or revert](../includes/publish-revert.md)]
 
 <a name="consuminghostedui"></a>
 ## <a name="consuming-hosted-ui"></a>호스트된 UI 사용
 호스트된 UI를 사용하는 방법에는 두 가지가 있습니다.  
 
 - 옵션 1: 제공된 JavaScript 코드 조각을 응용 프로그램에 통합합니다.
-- 옵션 2: 제공된 HTML 끝점을 사용합니다.
+- 옵션 2: 제공된 HTML 엔드포인트를 사용합니다.
 
 이 자습서의 나머지 부분에서는 **옵션 1: Javascript 코드 조각**을 보여 줍니다.  
 
@@ -188,7 +188,7 @@ Custom Search는 사용자 지정 검색 인스턴스의 JSON 응답을 렌더�
 > - 고정된 항목 추가함
 > - 웹 페이지에 사용자 지정 검색 통합함
 
-이제 프로그래밍 방식으로 Bing Custom Search 끝점을 호출하는 작업을 진행할 수 있습니다.
+이제 프로그래밍 방식으로 Bing Custom Search 엔드포인트를 호출하는 작업을 진행할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [Bing Custom Search 끝점 호출(C#)](../call-endpoint-csharp.md)
+> [Bing Custom Search 엔드포인트 호출(C#)](../call-endpoint-csharp.md)

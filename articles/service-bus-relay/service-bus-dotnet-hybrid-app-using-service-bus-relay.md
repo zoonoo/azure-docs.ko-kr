@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 11/02/2017
 ms.author: spelluru
-ms.openlocfilehash: 23e0e487914b6e8810d8db00462c353c99955665
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: fa8c4b07f79564a1e9aa4e78b2323789283d4e73
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697471"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054624"
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Azure WCF 릴레이를 사용하는 .NET 온-프레미스/클라우드 하이브리드 응용 프로그램
 
@@ -232,7 +232,7 @@ Azure에서 릴레이 기능 사용을 시작하려면 먼저 서비스 네임�
     ![][18]
 
 7. **새 ASP.NET 웹 응용 프로그램** 대화 상자로 돌아와서 **확인**을 클릭하여 MVC 앱을 만듭니다.
-8. 이제 새 웹앱에 대한 Azure 리소스를 구성해야 합니다. [이 문서의 Azure 섹션에 게시](../app-service/app-service-web-get-started-dotnet-framework.md#publish-to-azure)의 단계에 따릅니다. 그런 다음, 이 자습서로 돌아가 다음 단계를 진행합니다.
+8. 이제 새 웹앱에 대한 Azure 리소스를 구성해야 합니다. [이 문서의 Azure 섹션에 게시](../app-service/app-service-web-get-started-dotnet-framework.md#launch-the-publish-wizard)의 단계에 따릅니다. 그런 다음, 이 자습서로 돌아가 다음 단계를 진행합니다.
 10. 솔루션 탐색기에서 **모델**을 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 다음 **클래스**를 클릭합니다. **이름** 상자에서 이름을 **Product.cs**로 입력합니다. 그런 다음, **추가**를 클릭합니다.
 
     ![][17]
@@ -318,7 +318,7 @@ Azure에서 릴레이 기능 사용을 시작하려면 먼저 서비스 네임�
    ```
 8. 지금까지 진행한 작업의 정확도를 확인하려면 **Ctrl+Shift+B**를 눌러 프로젝트를 빌드하면 됩니다.
 
-### <a name="run-the-app-locally"></a>로컬에서 앱 실행
+### <a name="run-the-app-locally"></a>로컬에서 앱 실행하기
 
 응용 프로그램을 실행하여 작동하는지 확인합니다.
 

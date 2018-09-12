@@ -3,31 +3,26 @@ title: Azure Functions 모니터링
 description: Azure Application Insights를 Azure Functions와 함께 사용하여 함수 실행을 모니터링하는 방법을 알아봅니다.
 services: functions
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서버가 없는 아키텍처
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: glenga
-ms.openlocfilehash: ba820c594b5afb34c050c74de30300b0dfc8c3a6
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 9c39d621bfc8df338a4556fd412ae54489982074
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344058"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092770"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
 ## <a name="overview"></a>개요 
 
-
-  [Azure Functions](functions-overview.md)는 함수를 모니터링할 수 있도록 [Azure Application Insights](../application-insights/app-insights-overview.md)와 기본적으로 통합됩니다. 이 문서에서는 Application Insights에 원격 분석 데이터를 보내도록 Functions를 구성하는 방법을 보여줍니다.
+[Azure Functions](functions-overview.md)는 함수를 모니터링할 수 있도록 [Azure Application Insights](../application-insights/app-insights-overview.md)와 기본적으로 통합됩니다. 이 문서에서는 Application Insights에 원격 분석 데이터를 보내도록 Functions를 구성하는 방법을 보여줍니다.
 
 ![Application Insights 메트릭 탐색기](media/functions-monitoring/metrics-explorer.png)
 

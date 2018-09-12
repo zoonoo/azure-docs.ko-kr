@@ -15,12 +15,12 @@ ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: 4ce76f1156d4d8d85f5e10bb750b012f93ba7afb
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 1178d85f295c6ac01f367db8adc2c9b855cdc829
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366683"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347834"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>응용 프로그램 프록시를 사용하여 앱에 Single Sign-On에 대한 Kerberos 제한된 위임
 
@@ -135,12 +135,12 @@ Kerberos에 대한 자세한 내용은 [KCD(Kerberos Constrained Delegation)에 
    * 온-프레미스 SAM 계정 이름(도메인 컨트롤러 구성에 따라 지정)
 
 ### <a name="troubleshooting-sso-for-different-identities"></a>다른 ID에 대한 SSO 문제 해결
-SSO 프로세스에 오류가 있으면 [문제 해결](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md)에서 설명한 대로 커넥터 컴퓨터 이벤트 로그에 표시됩니다.
+SSO 프로세스에 오류가 있으면 [문제 해결](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)에서 설명한 대로 커넥터 컴퓨터 이벤트 로그에 표시됩니다.
 그러나 어떤 경우에는 백 엔드 응용 프로그램에 요청을 성공적으로 보내는 반면 해당 응용 프로그램에서 다양한 다른 HTTP 응답으로 회신합니다. 이러한 경우 문제를 해결하려면 응용 프로그램 프록시 세션 이벤트 로그에서 커넥터 컴퓨터에 있는 이벤트 번호 24029의 검사를 시작해야 합니다. 위임에 사용된 사용자 ID는 이벤트 세부 정보의 "user" 필드에 표시됩니다. 세션 로그를 켜려면 이벤트 뷰어 보기 메뉴에서 **분석 및 디버그 로그 표시** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Kerberos 제한된 위임을 사용하도록 응용 프로그램 프록시 응용 프로그램을 구성하는 방법](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
+* [Kerberos 제한된 위임을 사용하도록 응용 프로그램 프록시 응용 프로그램을 구성하는 방법](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [응용 프로그램 프록시에서 발생한 문제 해결](application-proxy-troubleshoot.md)
 
 

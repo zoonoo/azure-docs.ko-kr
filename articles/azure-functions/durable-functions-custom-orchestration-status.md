@@ -3,23 +3,19 @@ title: 지속성 함수의 사용자 지정 오케스트레이션 상태 - Azure
 description: 지속성 함수의 사용자 지정 오케스트레이션 상태를 구성하고 사용하는 방법을 알아봅니다.
 services: functions
 author: kadimitr
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 840b96b9cfdb28ca1b17f54698677f4d491342c8
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: c8eb2be6836e11ddbaed81970024ea7200ea819d
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32310315"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093094"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>지속성 함수의 사용자 지정 오케스트레이션 상태(Azure Functions)
 

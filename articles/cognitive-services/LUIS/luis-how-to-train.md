@@ -1,20 +1,21 @@
 ---
-title: LUIS 앱 학습 - Azure | Microsoft Docs
-description: LUIS(Language Understanding)를 사용하여 모델을 학습합니다.
+title: LUIS 앱 학습
+titleSuffix: Azure Cognitive Services
+description: 학습은 해당 자연어 이해를 개선하기 위해 LUIS(Language Understanding) 앱을 교육하는 과정입니다. 엔터티, 의도 또는 발언을 추가하거나, 편집하거나, 레이블 지정하거나 삭제하는 등 모델에 대한 업데이트 후에 LUIS 앱을 학습합니다.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: e947df20141b0b9870f318f410488aea23bafcf5
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 42cff3dd8237598da5aa71ed1a4d6462c5b4c25d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223187"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049134"
 ---
 # <a name="train-your-luis-app"></a>LUIS 앱 학습
 
@@ -32,11 +33,7 @@ When you train a LUIS app by example, LUIS generalizes from the examples you hav
 
 2. 앱의 위쪽 패널에서 **학습**을 선택합니다. 
 
-    ![학습 단추](./media/luis-how-to-train/train-button.png)
-
 3. 학습이 완료되면 녹색 알림 표시줄이 브라우저의 위쪽에 나타납니다.
-
-    ![앱 학습 및 테스트 페이지](./media/luis-how-to-train/train-success.png)
 
 <!-- The following note refers to what might cause the error message "Training failed: FewLabels for model: <ModelName>" -->
 

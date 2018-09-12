@@ -9,14 +9,14 @@ ms.service: sql-database
 ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 09/07/2018
 ms.author: carlrab
-ms.openlocfilehash: 7dbd2585628c64f5baf7df6083e38217d00953be
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4abdbac44f4730d15c36d587190db1f95ea54d19
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141160"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050734"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>SQL Database 및 SQL Data Warehouse에 대한 액세스 제어 및 권한 부여
 
@@ -49,7 +49,7 @@ Azure SQL 서버를 만들 때 **서버 관리자 로그인**을 지정해야 �
 - `sys.sql_logins` 시스템 테이블을 볼 수 있습니다.
 
 ### <a name="configuring-the-firewall"></a>방화벽 구성
-서버 수준 방화벽을 개별 IP 주소 또는 범위로 구성하면 **SQL 서버 관리자** 및 **Azure Active Directory 관리자**는 master 데이터베이스와 모든 사용자 데이터베이스에 연결할 수 있습니다. 초기 서버 수준 방화벽은 [Azure Portal](sql-database-get-started-portal.md)을 통하거나 [PowerShell](sql-database-get-started-powershell.md) 또는 [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx)를 사용하여 구성할 수 있습니다. 연결이 설정되면 [Transact-SQL](sql-database-configure-firewall-settings.md)을 사용하여 추가 서버 수준 방화벽 규칙도 구성할 수 있습니다.
+서버 수준 방화벽을 개별 IP 주소 또는 범위로 구성하면 **SQL 서버 관리자** 및 **Azure Active Directory 관리자**는 master 데이터베이스와 모든 사용자 데이터베이스에 연결할 수 있습니다. 초기 서버 수준 방화벽은 [Azure Portal](sql-database-get-started-portal.md)을 통하거나 [PowerShell](sql-database-powershell-samples.md) 또는 [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx)를 사용하여 구성할 수 있습니다. 연결이 설정되면 [Transact-SQL](sql-database-configure-firewall-settings.md)을 사용하여 추가 서버 수준 방화벽 규칙도 구성할 수 있습니다.
 
 ### <a name="administrator-access-path"></a>관리자 액세스 경로
 서버 수준 방화벽이 제대로 구성되면 **SQL 서버 관리자** 및 **Azure Active Directory 관리자**가 SQL Server Management Studio 또는 SQL Server Data Tools와 같은 클라이언트 도구를 사용하여 연결할 수 있습니다. 최신 도구만 모든 특징 및 기능을 제공합니다. 다음 다이어그램에서는 두 명의 관리자 계정에 대한 일반적인 구성을 보여 줍니다.

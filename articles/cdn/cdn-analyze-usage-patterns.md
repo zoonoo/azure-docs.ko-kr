@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: fa828bfa736d677fb4881e5cc2628c0e03eb8749
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: d10a40d03f0f76676e70afdec94e9adfaa0dd09f
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26345250"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162073"
 ---
 # <a name="core-reports-from-verizon"></a>Verizon의 코어 보고서
 
-[!INCLUDE[cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+[!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
 Verizon 프로필에 대한 관리 포털을 통해 Verizon 코어 보고서를 사용하면 다음과 같은 보고서와 함께 CDN에 대한 사용 패턴을 볼 수 있습니다.
 

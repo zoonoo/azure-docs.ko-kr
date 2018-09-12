@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 08/27/2018
+ms.date: 09/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7509ed46ba07cd8250f82f8eb258d18e3f4a1ee6
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: e5ced038d5f1ab57939221a0392ab436560c348d
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107108"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160513"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>자습서: 종속 리소스가 있는 Azure Resource Manager 템플릿 만들기
 
@@ -26,11 +26,12 @@ ms.locfileid: "43107108"
 
 일부 리소스는 다른 리소스가 존재하기 전에는 배포할 수 없습니다. 예를 들어 저장소 계정 및 네트워크 인터페이스가 없으면 가상 머신을 만들 수 없습니다. 한 리소스를 다른 리소스의 종속 리소스로 만들어서 이 관계를 정의할 수 있습니다. Resource Manager는 리소스 간의 종속성을 평가한 후 종속된 순서에 따라 리소스를 배포합니다. 리소스가 서로 종속되어 있지 않은 경우 Resource Manager는 이를 병렬로 배포합니다. 자세한 내용은 [Azure Resource Manager 템플릿에서 리소스를 배포하는 순서 정의](./resource-group-define-dependencies.md)를 참조하세요.
 
+이 자습서에서 다루는 작업은 다음과 같습니다.
+
 > [!div class="checklist"]
 > * 빠른 시작 템플릿 열기
 > * 템플릿 탐색
 > * 템플릿 배포
-> * 리소스 정리
 
 이 자습서의 지침에서는 가상 머신, 가상 네트워크 및 몇 가지 종속 리소스를 만듭니다. 
 

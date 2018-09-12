@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: 6fbc49584b040f952fdff147207864d2d1f6377e
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 5aca1400ddfe1522cd9dc8d68d8cba8a222e4d21
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887443"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44095201"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>System Center Operations Manager와 서비스 맵 통합
   > [!NOTE]
@@ -34,7 +34,7 @@ ms.locfileid: "33887443"
 * 일련의 서버를 관리하는 Operations Manager 관리 그룹(2012 R2 이상)
 * 서비스 맵 솔루션이 사용하도록 설정된 Log Analytics 작업 영역.
 * Operations Manager로 관리되고 있고 서비스 맵으로 데이터를 전송하는 서버 집합(하나 이상의 서버) Windows 및 Linux 서버가 지원됩니다.
-* Log Analytics 작업 영역과 연결된 Azure 구독에 액세스할 수 있는 서비스 주체. 자세한 내용은 [서비스 주체 만들기](#creating-a-service-principal)로 이동합니다.
+* Log Analytics 작업 영역과 연결된 Azure 구독에 액세스할 수 있는 서비스 주체. 자세한 내용은 [서비스 주체 만들기](#create-a-service-principal)로 이동합니다.
 
 ## <a name="install-the-service-map-management-pack"></a>서비스 맵 관리 팩 설치
 Operations Manager와 서비스 맵의 통합은 Microsoft.SystemCenter.ServiceMap 관리 팩 번들(Microsoft.SystemCenter.ServiceMap.mpb)을 가져와야 가능합니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=55763)에서 관리 팩 번들을 다운로드할 수 있습니다. 이 번들에는 다음 관리 팩이 포함됩니다.

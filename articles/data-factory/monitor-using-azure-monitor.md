@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/22/2018
 ms.author: shlo
-ms.openlocfilehash: 1023eadbf4b799cd8b0c761c1689b9249cee450a
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: d0f36551fb06e04b50af464bac6953dda64c6202
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616847"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054151"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Azure Monitor를 사용하여 데이터 팩터리 경고 및 모니터링
 클라우드 응용 프로그램은 이동하는 부분이 많아 복잡합니다. 모니터링은 응용 프로그램을 유지하고 정상 상태에서 실행할 수 있는 데이터를 제공합니다. 또한 잠재적 문제를 방지하거나 지난 문제를 해결할 수 있습니다. 또한 응용 프로그램에 대해 깊이 이해하는 데 모니터링 데이터를 사용할 수 있습니다. 이러한 정보를 사용하면 응용 프로그램 성능 또는 유지 관리 편의성을 향상시키거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화할 수 있습니다.
@@ -392,7 +392,7 @@ ADFV2에서 내보내는 메트릭은 다음과 같습니다.
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
 | PipelineSucceededRun | 성공한 파이프라인 실행 메트릭 | 개수    | 합계                | 1분 기간 내에 성공한 총 파이프라인 실행 수입니다. |
 | PipelineFailedRuns   | 실패한 파이프라인 실행 메트릭    | 개수    | 합계                | 1분 기간 내에 실패한 총 파이프라인 실행 수입니다.    |
-| ActiviySucceededRuns | 성공한 활동 실행 메트릭 | 개수    | 합계                | 1분 기간 내에 성공한 총 활동 실행 수입니다.  |
+| ActivitySucceededRuns | 성공한 활동 실행 메트릭 | 개수    | 합계                | 1분 기간 내에 성공한 총 활동 실행 수입니다.  |
 | ActivityFailedRuns   | 실패한 활동 실행 메트릭    | 개수    | 합계                | 1분 기간 내에 실패한 총 활동 실행 수입니다.     |
 | TriggerSucceededRuns | 성공한 트리거 실행 메트릭  | 개수    | 합계                | 1분 기간 내에 성공한 총 트리거 실행 수입니다.   |
 | TriggerFailedRuns    | 실패한 트리거 실행 메트릭     | 개수    | 합계                | 1분 기간 내에 실패한 총 트리거 실행 수입니다.      |

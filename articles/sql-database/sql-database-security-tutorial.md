@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,security
 ms.topic: tutorial
-ms.date: 04/24/2018
+ms.date: 09/07/2018
 ms.author: daredis
-ms.openlocfilehash: 54ec3c1386d6ce2023106367a6af1915e754948f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6d805a39831ce2eea204689a4daa069d10b757e8
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193464"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054073"
 ---
 # <a name="secure-your-azure-sql-database"></a>Azure SQL Database 보안
 
@@ -46,11 +46,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 - SSMS([SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms))의 최신 버전 
 - Microsoft Excel
-- Azure SQL Server 및 Database - [Azure Portal에서 Azure SQL Database 만들기](sql-database-get-started-portal.md), [Azure CLI를 사용하여 단일 Azure SQL Database 만들기](sql-database-get-started-cli.md) 및 [PowerShell을 사용하여 단일 Azure SQL Database 만들기](sql-database-get-started-powershell.md)를 참조하세요. 
+- Azure SQL Server 및 Database - [Azure Portal에서 Azure SQL Database 만들기](sql-database-get-started-portal.md), [Azure CLI를 사용하여 단일 Azure SQL Database 만들기](sql-database-cli-samples.md) 및 [PowerShell을 사용하여 단일 Azure SQL Database 만들기](sql-database-powershell-samples.md)를 참조하세요. 
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure Portal](https://portal.azure.com/)에 로그인합니다.
+[Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Azure Portal에서 서버 수준 방화벽 규칙 만들기
 

@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 0d4b77c2-dba4-4e46-8f55-ab04ddd92496
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: b15508acea92c165cba85e39ab907fa524088164
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 6ab3611d47b32eddd41736df69a3e7382c2b220d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32774185"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298764"
 ---
 # <a name="connecting-azure-active-directory-identity-protection-to-azure-security-center"></a>Azure Security Center에 Azure Active Directory Identity Protection 연결
 이 문서는 Azure AD(Active Directory) Identity Protection과 Azure Security Center 간에 통합을 구성하는 데 도움이 됩니다.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 2c641703547c391618d75fabfa181dff0b98f74f
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: c8bab609212c837802be6f70e7fc74df6b5eaf2e
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918773"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346256"
 ---
 # <a name="introduction-to-application-groups"></a>응용 프로그램 그룹 소개
 Service Fabric의 Cluster Resource Manager는 일반적으로 부하([메트릭](service-fabric-cluster-resource-manager-metrics.md)을 통해 표시됨)를 클러스터 전체에 균등하게 분산하여 클러스터 리소스를 관리합니다. Service Fabric은 클러스터에서 노드의 용량과 [용량](service-fabric-cluster-resource-manager-cluster-description.md)을 통해 전체적으로 클러스터를 관리합니다. 메트릭과 용량은 다양한 워크로드에 잘 적용되지만 서로 다른 Service Fabric 응용 프로그램 인스턴스를 과도하게 사용하는 패턴은 때때로 추가 요구 사항을 가져옵니다. 예를 들어 다음을 원할 수 있습니다.
@@ -47,7 +47,7 @@ PowerShell
 
 ``` posh
 New-ServiceFabricApplication -ApplicationName fabric:/AppName -ApplicationTypeName AppType1 -ApplicationTypeVersion 1.0.0.0 -MaximumNodes 3
-Update-ServiceFabricApplication –Name fabric:/AppName –MaximumNodes 5
+Update-ServiceFabricApplication –ApplicationName fabric:/AppName –MaximumNodes 5
 ```
 
 C#

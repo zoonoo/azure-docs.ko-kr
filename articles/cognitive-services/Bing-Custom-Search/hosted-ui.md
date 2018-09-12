@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: 593ea4d23f8ddcec8efc4be632afa2aab1a5210f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7f2b97479ffcdb7ec8b3a1a635562d1fe68c3269
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374734"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158424"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>호스트된 UI 환경 구성
 사용자 지정 검색 인스턴스를 구성한 후 Custom Search API를 호출하여 검색 결과를 가져오고 앱에 표시할 수 있습니다. 또는 앱이 웹앱인 경우 Custom Search에서 제공하는 호스트된 UI를 사용할 수 있습니다.   
@@ -58,7 +58,7 @@ ms.locfileid: "35374734"
 > [!NOTE]
 > 사용자 지정 호스트된 UI 구성을 변경하면 오른쪽 창에 변경 내용에 대한 시각적 참조가 제공됩니다. 표시된 검색 결과는 인스턴스에 대한 실제 결과가 아닙니다.
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 ## <a name="consume-custom-ui"></a>사용자 지정 UI 사용
 호스트된 UI를 사용하려면 다음 중 하나를 수행합니다. 
@@ -80,7 +80,7 @@ ms.locfileid: "35374734"
   > [!IMPORTANT]
   > 페이지에 개인정보처리방침이나 기타 고지 사항 및 사용 약관을 표시할 수 없습니다. 사용 적합성은 각기 다를 수 있습니다.  
 
-사용자 지정 구성 ID를 포함하여 추가 정보를 보려면 **프로덕션** 탭 아래의 **끝점**으로 이동합니다.
+사용자 지정 구성 ID를 포함하여 추가 정보를 보려면 **프로덕션** 탭 아래의 **엔드포인트**로 이동합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [장식 표식을 사용하여 텍스트 강조 표시](./hit-highlighting.md)
