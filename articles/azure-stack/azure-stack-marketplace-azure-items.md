@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: bb2dc0d5500778372de674c749b44267fb512a2e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 406d5965c02ceddc617c8729bad95ac7819af30e
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701156"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722064"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack에서 사용할 수 있는 azure Marketplace 항목
 
@@ -101,6 +101,7 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 
 |  | 항목 이름 | 설명 | 게시자 |
 | --- | --- | --- | --- |
+| ![Arista vEOS 라우터](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS 라우터](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | Arista vEOS 라우터 기능 다양 한 다중 클라우드 및 엔터프라이즈 및 클라우드 공급자 일관 되 고 매우 안전한 빌드할 수 있는 다중 하이퍼바이저 가상 라우터 및 확장 가능한 하이브리드 네트워크 됩니다. | Arista Networks |
 | ![AbanteCart](media/azure-stack-marketplace-azure-items/abantecart.png) | [AbanteCart](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.abantecart) | 오픈 소스 전자 상거래 쇼핑 카트입니다. | Bitnami |
 | ![ActiveMQ](media/azure-stack-marketplace-azure-items/activemq.png) | [ActiveMQ](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.activemq) | Java에서 오픈 소스 메시지 브로커입니다. | Bitnami |
 | ![Akeneo](media/azure-stack-marketplace-azure-items/akeneo.png) | [Akeneo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.akeneo) | 강력한 PIM 관리 프로세스를 간소화 하도록 설계 되었습니다. | Bitnami |
@@ -156,6 +157,7 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![Memcached 여러 인스턴스](media/azure-stack-marketplace-azure-items/memcached.png) | [Memcached 여러 인스턴스](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.memcached-multipleinstances) | Memcached는 고성능, 분산 메모리 개체 캐싱 시스템입니다. 이 솔루션에는 높은 성능, 응용 프로그램에 대 한 오류에 대비한 분산된 캐시를 만들려면 여러 Memcached 노드 프로 비전 합니다. **이 솔루션 템플릿에 Linux 2.0 확장에 대 한 Debian 8 및 사용자 지정 스크립트도 필요합니다.** | Bitnami |
 | ![MODX](media/azure-stack-marketplace-azure-items/modx.png) | [MODX](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.modx) | 직관적인 웹 CMS입니다. | Bitnami |
 | ![MongoDB](media/azure-stack-marketplace-azure-items/mongodb.png) | [MongoDB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mongodb) | C + +로 작성 된 고성능 오픈 소스 NoSQL 데이터베이스입니다. | Bitnami |
+| ![복제를 사용 하 여 MongoDB](media/azure-stack-marketplace-azure-items/mongodb.png) | [복제를 사용 하 여 MongoDB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-mongodb) | C + +로 작성 된 고성능 오픈 소스 NoSQL 데이터베이스입니다. **이 솔루션 템플릿에 1807 이상 버전 이어야 하 여 Azure Stack와도 Linux 2.0 확장에 대 한 Debian 8 및 사용자 지정 스크립트를 필요 합니다.** | Bitnami |
 | ![Moodle](media/azure-stack-marketplace-azure-items/moodle.png) | [Moodle](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.moodle) | 온라인 학습 커뮤니티를 위한 효과적인 CMS입니다. | Bitnami |
 | ![Multicraft](media/azure-stack-marketplace-azure-items/multicraft.png) | [Multicraft](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.multicraft) | Minecraft 서버 호스팅 솔루션과 컨트롤 패널입니다. | Bitnami |
 | ![MyBB](media/azure-stack-marketplace-azure-items/mybb.png) | [MyBB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mybb) | 무료 및 오픈 소스 포럼 소프트웨어입니다. | Bitnami |
@@ -194,6 +196,7 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![RabbitMQ 클러스터](media/azure-stack-marketplace-azure-items/rabbitmq.png) | [RabbitMQ 클러스터](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.rabbitmq-cluster) | RabbitMQ는 응용 프로그램에 메시지 및 안전을 받을 때까지 라이브 배치 메시지를 수신 하는 일반적인 플랫폼을 제공 하는 메시징 broker입니다. 이 솔루션을 단일 논리 브로커를 구성 하기 위해 RabbitMQ 클러스터에서 여러 노드 프로 비전 할 여러 Vm을 사용 합니다. **이 솔루션 템플릿에 Linux 2.0 확장에 대 한 Debian 8 및 사용자 지정 스크립트도 필요합니다.** | Bitnami |
 | ![다시: 대시](media/azure-stack-marketplace-azure-items/redash.png) | [다시: 대시](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redash) | 오픈 소스 데이터 시각화 및 공동 작업 플랫폼입니다. | Bitnami |
 | ![Redis](media/azure-stack-marketplace-azure-items/redis.png) | [Redis](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redis) | 강력한 오픈 소스 키-값 저장소입니다. | Bitnami |
+| ![고가용성 redis](media/azure-stack-marketplace-azure-items/redis.png) | [고가용성 redis](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-redis) | 강력한 오픈 소스 키-값 저장소입니다. **이 솔루션 템플릿에 1807 이상 버전 이어야 하 여 Azure Stack와도 Linux 2.0 확장에 대 한 Debian 8 및 사용자 지정 스크립트를 필요 합니다.** | Bitnami |
 | ![Redmine](media/azure-stack-marketplace-azure-items/redmine.png) | [Redmine](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redmine) | 강력한 프로젝트 관리 웹 앱 | Bitnami |
 | ![Redmine+Agile](media/azure-stack-marketplace-azure-items/redmineagile.png) | [Redmine+Agile](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redmineplusagile) | Agile 플러그 인을 사용 하 여 미리 구성 된 프로젝트 관리 응용 프로그램입니다. | Bitnami |
 | ![ReportServer 커뮤니티](media/azure-stack-marketplace-azure-items/reportserver.png) | [ReportServer 커뮤니티](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.reportserver) | 오픈 소스 비즈니스 인텔리전스 플랫폼입니다. | Bitnami |

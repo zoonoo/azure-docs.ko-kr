@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 09/11/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: c4fb8e1972286776a5fc7a13c5e9a8c91e370dd3
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: eacf8fc9335af2dacffa3e13da47ea39a2776f2b
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338622"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714567"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack 등록
 Azure에서 마켓플레이스 항목을 다운로드 하 고 Microsoft에 다시 보고 하는 전자 상거래 데이터를 설정 하는 Azure를 사용 하 여 Azure Stack 개발 키트 ASDK () 설치를 등록할 수 있습니다. 마켓플레이스 배포를 포함 하 여 전체 Azure Stack 기능을 지원 하려면 등록이 필요 합니다. 마켓플레이스 배포 및 사용 보고와 같은 중요 한 Azure Stack 기능을 테스트할 수 있기 때문에 등록을 사용 하는 것이 좋습니다. Azure Stack 등록 한 후 Azure 상거래에 사용량이 보고 됩니다. 등록에 사용한 구독에서 볼 수 있습니다. 그러나 ASDK 사용자가 보고 하는 사용량에 대 한 요금이 청구 되지 않습니다.
 
-ASDK 프로그램을 등록 하지 않은 경우 발생할 수 있습니다는 **활성화 필요** Azure Stack 개발 키트를 등록 해야 한다는 경고 합니다. 이 동작은 예상 됩니다.
+ASDK 프로그램을 등록 하지 않은 경우 발생할 수 있습니다는 **활성화 필요** Azure Stack 개발 키트를 등록 해야 한다는 경고 합니다. 이는 정상적인 동작입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이러한 지침을 ASDK Azure를 사용 하 여 등록을 사용 하기 전에 Azure Stack PowerShell 설치 되어 있고에 설명 된 대로 Azure Stack 도구를 다운로드를 확인 합니다 [사후 배포 구성](asdk-post-deploy.md) 문서.
@@ -45,12 +45,11 @@ Azure는 ASDK 등록 하려면 다음이 단계를 따릅니다.
 
 1. 관리자 권한으로 PowerShell 콘솔을 엽니다.  
 
-2. Azure를 사용 하 여 ASDK 설치를 등록 하려면 다음 PowerShell 명령을 실행 합니다. Azure 구독 및 로컬 ASDK 설치 모두에 로그인 해야 합니다. 아직 Azure 구독이 없는 할 수 있습니다 [여기서 무료 Azure 계정을 만들](https://azure.microsoft.com/free/?b=17.06)합니다. Azure Stack 등록 비용 없이 Azure 구독에서 발생 합니다.  
+2. Azure를 사용 하 여 ASDK 설치를 등록 하려면 다음 PowerShell 명령을 실행 합니다. Azure 구독 및 로컬 ASDK 설치 모두에 로그인 해야 합니다. 아직 Azure 구독이 없는 할 수 있습니다 [여기서 무료 Azure 계정을 만들](https://azure.microsoft.com/free/?b=17.06)합니다. Azure Stack 등록 비용 없이 Azure 구독에서 발생 합니다.<br><br>실행 하는 경우 등록 스크립트를 Azure Stack의 둘 이상의 인스턴스에서 동일한 Azure 구독 ID를 사용 하 여를 실행 하는 경우 등록에 대 한 고유한 이름을 설정 합니다 **집합 AzsRegistration** cmdlet. 합니다 **RegistrationName** 매개 변수는 기본값인 **AzureStackRegistration**합니다. 그러나 Azure Stack의 둘 이상의 인스턴스에서 같은 이름을 사용할 경우 스크립트가 실패 합니다.
 
-실행 하는 경우 등록 스크립트를 Azure Stack의 둘 이상의 인스턴스에서 동일한 Azure 구독 ID를 사용 하 여를 실행 하는 경우 등록에 대 한 고유한 이름을 설정 합니다 **집합 AzsRegistration** cmdlet. 합니다 **RegistrationName** 매개 변수는 기본값인 **AzureStackRegistration**합니다. 그러나 Azure Stack의 둘 이상의 인스턴스에서 같은 이름을 사용할 경우 스크립트가 실패 합니다.
-
-  ```PowerShell  
-    # Add the Azure cloud subscription environment name. Supported environment names are AzureCloud or, if using a China Azure Subscription, AzureChinaCloud.
+    ```PowerShell  
+    # Add the Azure cloud subscription environment name. 
+    # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
     Add-AzureRmAccount -EnvironmentName "AzureCloud"
 
     # Register the Azure Stack resource provider in your Azure subscription
@@ -67,7 +66,7 @@ Azure는 ASDK 등록 하려면 다음이 단계를 따릅니다.
     -PrivilegedEndpoint AzS-ERCS01 `
     -BillingModel Development `
     -RegistrationName "<Unique-name>"
-  ```
+    ```
 3. 스크립트가 완료 되 면이 메시지가 표시 됩니다: **환경의 이제 등록 되 고 제공된 된 매개 변수를 사용 하 여 활성화 합니다.**
 
     ![환경의 지금 등록](media/asdk-register/1.PNG)

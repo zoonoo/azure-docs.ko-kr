@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 5026a7a753ec744d281266b2fb30a70a66a7f9db
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 0b3ba5c3a091cf673d8b3dbc413d36cb5fb75de5
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139425"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713411"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>자습서: 커뮤니티 템플릿을 사용 하 여 VM 만들기
 Azure Stack 연산자 또는 사용자를 만들 수 있습니다 사용 하 여 VM [사용자 지정 GitHub 빠른 시작 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates) Azure Stack marketplace에서 수동으로 배포 하는 대신 합니다.
@@ -43,14 +43,15 @@ Azure Stack 빠른 시작 템플릿은에 저장 됩니다는 [공용 azurestack
 
 GitHub에 Azure Resource Manager 템플릿을 제공 하려는 경우 작성 글 확인 해야 합니다 [azure-빠른 시작 템플릿 리포지토리](https://github.com/Azure/AzureStack-QuickStart-Templates)합니다.
 
-GitHub 리포지토리 및이 여기에 기여 하는 방법에 대 한 자세한 내용은 참조는 [리포지토리의 추가 정보 파일](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/README.md)합니다. 
+GitHub 리포지토리 및이 여기에 기여 하는 방법에 대 한 자세한 내용은 참조는 [readme 파일](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/README.md)합니다. 
 
 
 ## <a name="create-a-vm-using-a-custom-github-template"></a>사용자 지정 GitHub 템플릿을 사용 하 여 VM 만들기
-이 예제에서는 자습서는 [101-vm-linux-minikube](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-linux-minikube) kubenetes 클러스터를 관리 하려면 Minikube 실행 azurestack의 경우에는 Ubuntu 16.04 가상 머신을 배포 Azure Stack 빠른 시작 템플릿을 사용 합니다.
+이 예제에서는 자습서는 [101-vm-linux-minikube](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-linux-minikube) Minikube Kubernetes 클러스터를 관리 하려면를 실행 하는 Azure Stack에 Ubuntu 16.04 가상 컴퓨터를 배포 하려면 Azure Stack 빠른 시작 템플릿이 사용 됩니다.
 
-Minikube는 쉽게 Kubernetes를 로컬로 실행할 수 있는 도구입니다. Minikube 일상적인 Kubernetes 사용해 또는를 사용 하 여 개발 하려는 사용자에 대 한 VM 내에서 단일 노드 Kubernetes 클러스터를 실행 합니다. 단순, Linux VM에서 실행 하는 하나의 노드만 Kubernetes 클러스터를 지원 합니다. 실행 하는 모든 기능을 갖춘 Kubernetes 클러스터를 가져오려는 가장 빠르고 가장 직접적인 방법입니다. 개발자가 개발 하 고 해당 로컬 컴퓨터에서 Kubernetes 기반 응용 프로그램 배포를 테스트할 수 있습니다. 아키텍처 측면에서 Minikube VM 마스터 및 에이전트 노드 구성 요소를 모두 로컬로 실행 합니다.
-- API 서버, 스케줄러 등 etcd 서버 마스터 노드 구성 요소는 LocalKube 이라는 단일 Linux 프로세스에서 실행 됩니다.
+Minikube는 쉽게 Kubernetes를 로컬로 실행할 수 있는 도구입니다. Minikube 실행 VM 내에서 단일 노드 Kubernetes 클러스터를 Kubernetes 사용해 또는를 사용 하 여 개발할 수 있도록 일상적인 합니다. Linux VM에서 실행 하는 간단 하 고 1 개 노드 Kubernetes 클러스터를 지원 합니다. Minikube는 실행 하는 모든 기능을 갖춘 Kubernetes 클러스터를 가져오려는 가장 빠르고 가장 간단한 방법입니다. 개발자가 개발 하 고 해당 로컬 컴퓨터에서 Kubernetes 기반 응용 프로그램 배포를 테스트할 수 있습니다. 아키텍처 측면에서 Minikube VM 마스터 및 에이전트 노드 구성 요소를 모두 로컬로 실행 합니다.
+
+- 스케줄러 API 서버와 같은 마스터 노드 구성 요소 및 [etcd Server](https://coreos.com/etcd/) LocalKube 이라는 단일 Linux 프로세스에서 실행 됩니다.
 - 에이전트 노드 구성 요소는 일반 에이전트 노드에서 실행 됩니다 대로 정확 하 게 docker 컨테이너 내에서 실행 됩니다. 응용 프로그램 배포 관점에서 차이가 Minikube 또는 일반 Kubernetes 클러스터에 응용 프로그램을 배포할 때입니다.
 
 이 템플릿은 다음 구성 요소를 설치 합니다.
@@ -65,65 +66,65 @@ Minikube는 쉽게 Kubernetes를 로컬로 실행할 수 있는 도구입니다.
 > [!IMPORTANT]
 > Ubuntu VM 이미지 (이 예제의 Ubuntu Server 16.04 LTS) 해야 이미 추가한 Azure Stack marketplace에 이러한 단계를 시작 하기 전에 합니다.
 
-1.  클릭 **+ 새로 만들기** > **Custom** > **템플릿 배포**합니다.
+1.  클릭 **+ 리소스 만들기** > **Custom** > **템플릿 배포**합니다.
 
     ![](media/azure-stack-create-vm-template/1.PNG) 
 
 2. 클릭 **템플릿 편집**합니다.
 
-   ![](media/azure-stack-create-vm-template/2.PNG) 
+    ![](media/azure-stack-create-vm-template/2.PNG) 
 
 3.  클릭 **빠른 시작 템플릿**합니다.
 
-       ![](media/azure-stack-create-vm-template/3.PNG)
+    ![](media/azure-stack-create-vm-template/3.PNG)
 
 4. 선택 **101-vm-linux-minikube** 를 사용 하 여 사용 가능한 템플릿에서 합니다 **템플릿을 선택** 드롭다운 목록 및 클릭 **확인**합니다.  
 
-   ![](media/azure-stack-create-vm-template/4.PNG)
+    ![](media/azure-stack-create-vm-template/4.PNG)
 
 5. 그렇지 않은 경우이 수행 하거나 완료 되 면 JSON 템플릿에서를 수정 하려는 경우 **저장할** 편집 템플릿 대화 상자를 닫습니다.
 
-   ![](media/azure-stack-create-vm-template/5.PNG) 
+    ![](media/azure-stack-create-vm-template/5.PNG) 
 
 6.  클릭할 **매개 변수**를 입력 하거나 필요에 따라 사용 가능한 필드를 수정 하 고 클릭 **확인**합니다. 구독 사용, 만들기 또는 기존 리소스 그룹 이름을 선택 및 클릭을 선택 **만들기** 템플릿 배포를 시작 합니다.
 
-       ![](media/azure-stack-create-vm-template/6.PNG)
+    ![](media/azure-stack-create-vm-template/6.PNG)
 
 7. 구독 사용, 만들기 또는 기존 리소스 그룹 이름을 선택 및 클릭을 선택 **만들기** 템플릿 배포를 시작 합니다.
 
-   ![](media/azure-stack-create-vm-template/7.PNG)
+    ![](media/azure-stack-create-vm-template/7.PNG)
 
 8. 리소스 그룹 배포를 사용자 지정 템플릿 기반 VM을 만드는 데 몇 분 정도 걸립니다. 알림을 통해 및 리소스 그룹 속성에서 설치 상태를 모니터링할 수 있습니다. 
 
-   ![](media/azure-stack-create-vm-template/8.PNG)
+    ![](media/azure-stack-create-vm-template/8.PNG)
 
-   >[!NOTE]
-   > VM은 배포가 완료 되 면 실행 됩니다. 
+    >[!NOTE]
+    > VM은 배포가 완료 되 면 실행 됩니다. 
 
 ## <a name="start-minikube-and-install-an-application"></a>Minikube를 시작 하 고 응용 프로그램 설치
 Linux VM에 성공적으로 생성 된 했으므로 minikube를 시작 하 고 응용 프로그램 설치 서명할 수 있습니다. 
 
 1. 배포가 완료 되 면 클릭 **Connect** Linux VM에 연결 하는 데 사용할 공용 IP 주소를 볼 수 있습니다. 
 
-   ![](media/azure-stack-create-vm-template/9.PNG)
+    ![](media/azure-stack-create-vm-template/9.PNG)
 
 2. 관리자 권한 명령 프롬프트에서 실행할 **mstsc.exe** 원격 데스크톱 연결을 열고 이전 단계에서 검색 된 Linux VM의 공용 IP 주소에 연결 합니다. XRDP에 로그인 하는 메시지가 표시 되 면 VM을 만들 때 지정한 자격 증명을 사용 합니다.
 
-   ![](media/azure-stack-create-vm-template/10.PNG)
+    ![](media/azure-stack-create-vm-template/10.PNG)
 
 3. 터미널 에뮬레이터를 열고 다음 명령을 minikube를 시작 하려면 입력 합니다.
 
-    >    `sudo minikube start --vm-driver=none`
-    >   
-    >    `sudo minikube addons enable dashboard`
-    >    
-    >    `sudo minikube dashboard --url`
+    ```shell
+    sudo minikube start --vm-driver=none
+    sudo minikube addons enable dashboard
+    sudo minikube dashboard --url
+    ```
 
-   ![](media/azure-stack-create-vm-template/11.PNG)
+    ![](media/azure-stack-create-vm-template/11.PNG)
 
-4. 웹 브라우저를 열고 kubernetes 대시보드 주소를 방문 합니다. 축, 이제 작동 하는 완벽 하 게 kubernetes 설치가 minikube를 사용 하 여!
+4. 웹 브라우저를 열고 Kubernetes 대시보드 주소를 방문 합니다. 축, 이제 완벽 하 게 작동 minikube를 사용 하 여 Kubernetes 설치!
 
-   ![](media/azure-stack-create-vm-template/12.PNG)
+    ![](media/azure-stack-create-vm-template/12.PNG)
 
 5. 샘플 응용 프로그램을 배포 하려는 경우 kubernetes의 공식 설명서 페이지를 방문 하십시오, 이미 만들었으므로 하나 위의 "Minikube 클러스터 만들기" 섹션을 건너뜁니다. 단순히 섹션으로 이동할 "Node.js 응용 프로그램 만들기"에서 https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/합니다.
 

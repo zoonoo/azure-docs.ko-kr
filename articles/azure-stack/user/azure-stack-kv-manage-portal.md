@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/12/2018
 ms.author: sethm
-ms.openlocfilehash: 91035f84d02810d838127ecf6a2f6424ef5df6cf
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 51c04a567ff953c4e84930e3feae448f78627683
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139624"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713938"
 ---
 # <a name="manage-key-vault-in-azure-stack-by-using-the-portal"></a>포털을 사용 하 여 Azure Stack에서 Key Vault를 관리 합니다.
 
@@ -33,7 +33,7 @@ Azure Key Vault 서비스를 포함 하는 제품을 구독 해야 합니다.
 
 1. 에 로그인 합니다 [사용자 포털](https://portal.local.azurestack.external)합니다.
 
-2. 대시보드에서 선택 **새로 만들기** > **보안 + Id** > **Key Vault**합니다.
+2. 대시보드에서 선택 **+ 리소스 만들기** > **보안 + Id** > **Key Vault**합니다.
 
     ![Key Vault 화면](media/azure-stack-kv-manage-portal/image1.png)
 
@@ -41,7 +41,7 @@ Azure Key Vault 서비스를 포함 하는 제품을 구독 해야 합니다.
 
 4. 선택 된 **구독** 사용 가능한 구독 목록에서. Key Vault 서비스를 제공 하는 모든 구독 드롭다운 목록에 표시 됩니다.
 
-5. 기존 선택 **리소스 그룹** 하거나 새로 만듭니다.
+5. 기존 **리소스 그룹**을 선택하거나 새 리소스 그룹을 만듭니다.
 
 6. 선택 된 **가격 책정 계층**합니다.
     >[!NOTE]

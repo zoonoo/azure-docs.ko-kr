@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: 9e36e470c3516c55089ce1e44540b6b1eacbb6b2
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4b6ad2e237d73d5d8ca414bffc3a679ee552105f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139753"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718732"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>AD FS에서 보안이 유지 되는 연결이 끊긴된 Azure Stack 환경에는 App Service 리소스 공급자 추가
 
@@ -226,7 +226,7 @@ App Service 리소스 공급자에 오프 라인 Azure Stack 배포를 추가 �
 >
 세 번째 technical preview를 기준으로 만들 웹, API 및 Azure 함수 앱, 테 넌 트 포털을 사용 하 고 테 넌 트 구독을 보유 해야 합니다.
 
-1. Azure Stack 테 넌 트 포털에서 클릭 **새로 만들기** > **웹 + 모바일** > **Webapp**합니다.
+1. Azure Stack 테 넌 트 포털에서 클릭 **+ 리소스 만들기** > **웹 + 모바일** > **Webapp**합니다.
 
 2. 에 **웹 앱** 블레이드에서에 이름을 입력 합니다 **웹 앱** 상자입니다.
 

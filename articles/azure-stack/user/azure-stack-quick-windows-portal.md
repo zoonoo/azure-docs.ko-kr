@@ -6,16 +6,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/05/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 7277aeb97409815e2e218da8f233cd836bccc72b
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: e4e3fdbdd3bc9eb982f993a9be60ba0812c68a9d
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022419"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713746"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-with-the-azure-stack-portal"></a>빠른 시작: Azure Stack 포털을 사용 하 여 Windows server 가상 머신 만들기
 
@@ -36,7 +36,7 @@ Azure Stack 포털에 로그인 합니다. Azure Stack 포털의 주소에 연�
 
 ## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
-1. 클릭 **새** > **계산** > **Windows Server 2016 Datacenter –-수-종** > **만들기**. 표시 되지 않는 경우 **-수-종 – Windows Server 2016 Datacenter** 항목이 귀하가 Azure Stack 운영자에 게 문의 합니다. 추가 하는 것을 marketplace에 설명 된 대로 요청을 [Windows Server 2016 VM 이미지를 Azure Stack 마켓플레이스에 추가할](../azure-stack-add-default-image.md) 문서.
+1. 클릭 **+ 리소스 만들기** > **계산** > **Windows Server 2016 Datacenter –-수-종**  >   **만들**합니다. 표시 되지 않는 경우 **-수-종 – Windows Server 2016 Datacenter** 항목이 귀하가 Azure Stack 운영자에 게 문의 합니다. 추가 하는 것을 marketplace에 설명 된 대로 요청을 [Windows Server 2016 VM 이미지를 Azure Stack 마켓플레이스에 추가할](../azure-stack-add-default-image.md) 문서.
 
     ![포털에서 Windows 가상 컴퓨터를 만드는 단계](media/azure-stack-quick-windows-portal/image01.png)
 2. 아래 **기본 사항**를 입력 **이름**를 **사용자 이름**, 및 **암호**합니다. **구독**을 선택합니다. 만들기는 **리소스 그룹**를 기존 하나를 선택 하거나를 **위치**를 클릭 하 고 **확인**합니다.

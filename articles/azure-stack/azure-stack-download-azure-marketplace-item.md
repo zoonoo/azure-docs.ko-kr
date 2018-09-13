@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/05/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 290b3daf73e323b3f5a7e1ef81299e72bf1c5f1d
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
-ms.translationtype: MT
+ms.openlocfilehash: ddb1fcd91ff0c0018bcab9988a5ab063b882cf36
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024803"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714670"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure에서 Azure Stack marketplace 항목 다운로드
 
@@ -66,7 +66,7 @@ Azure Stack 배포 인터넷 연결을가지고 있어야 [Azure에 등록 된](
 
     다운로드가 완료 되 면 Azure Stack 연산자 또는 사용자로 새 마켓플레이스 항목을 배포할 수 있습니다.
 
-5. 다운로드 한 항목을 배포 하려면 선택 **+ 새로 만들기**, 한 다음 새 마켓플레이스 항목에 대 한 범주 중에서 검색 합니다. 다음 배포 프로세스를 시작 하려면 항목을 선택 합니다. 다른 marketplace 항목에 대 한 프로세스 달라 집니다. 
+5. 다운로드 한 항목을 배포 하려면 선택 **+ 리소스 만들기**, 한 다음 새 마켓플레이스 항목에 대 한 범주 중에서 검색 합니다. 다음 배포 프로세스를 시작 하려면 항목을 선택 합니다. 다른 marketplace 항목에 대 한 프로세스 달라 집니다. 
 
 ## <a name="disconnected-or-a-partially-connected-scenario"></a>연결 끊김 또는 부분적으로 연결 된 경우
 

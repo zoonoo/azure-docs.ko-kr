@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/11/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 24f237a04d19d03ab7357db6fb9c7ab60036f3d2
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 4eadbe38eede505a3339d4b6090d0a34c12a5fc2
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390996"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721962"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK 설치 후 구성 작업
 
@@ -162,6 +162,11 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 
 ![그룹 정책 관리 콘솔](media/asdk-post-deploy/gpmc.png)
 
+## <a name="enable-multi-tenancy"></a>다중 테넌트 사용
+Azure AD를 사용 하 여 배포 해야 [다중 테 넌 트 활성화](.\.\azure-stack-enable-multitenancy.md#enable-multi-tenancy) ASDK 설치 합니다.
+
+> [!NOTE]
+> Azure Stack 등록에 사용 된 도메인 이름을 포털에 추가 되어야 하는 Azure Stack 포털에 로그인 할 Azure Stack 등록을 사용 하는 것 이외의 도메인의 관리자 또는 사용자 계정이 사용 되 면 url입니다. 예를 들어 fabrikam.onmicrosoft.com Azure Stack에 등록 된 경우 사용자 계정 로그인 이며 admin@contoso.com에 사용자 포털에 로그인 하는 데 url: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure 사용 하 여 ASDK 등록](asdk-register.md)

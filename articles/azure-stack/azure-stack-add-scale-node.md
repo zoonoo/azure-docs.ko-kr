@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: thoroet
-ms.openlocfilehash: 02602243bcb4e426ebf4984e387da8e8c148232e
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 0899b1784c796e5f6265dda842ca8955615a1584
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42139632"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718103"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Azure Stack에서 확장할 단위 노드를 추가 합니다.
 
@@ -64,7 +64,7 @@ Azure Stack 1807 이상을 추가 하려면 추가 확장 단위 노드에서 �
 ### <a name="use-the-admin-portal"></a>관리자 포털 사용
 
 1. Azure Stack 운영자로 서 Azure Stack 관리 포털에 로그인 합니다.
-2. 이동할 **새** > **용량** > **단위 노드를 확장**합니다.
+2. 이동할 **+ 리소스 만들기** > **용량** > **배율 단위 노드**합니다.
    ![배율 단위 노드](media/azure-stack-add-scale-node/select-node1.png)
 3. 에 **노드 추가** 창을 *지역*를 선택한 후는 *배율 단위* 노드를 추가 하려면. 도 지정 합니다 *BMC IP 주소* 추가 하는 배율 단위 노드에 대 한 합니다. 만 한 번에 하나의 노드를 추가할 수 있습니다.
    ![노드 자세히 보기를 추가 합니다.](media/azure-stack-add-scale-node/select-node2.png)

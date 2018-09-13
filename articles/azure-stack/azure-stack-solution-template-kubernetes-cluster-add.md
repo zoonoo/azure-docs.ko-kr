@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 9287eb0925556d382410f95caf16a9ca478ca2da
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: c9429f5909e5ba3fd66681fa62cf16125922d075
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054420"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721775"
 ---
 # <a name="add-a-kubernetes-cluster-to-the-azure-stack-marketplace"></a>Azure Stack Marketplace를 Kubernetes 클러스터를 추가 합니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "44054420"
 
 1. 선택 **상태 변경**합니다. 선택 **공용**합니다.
 
-1. 선택 **+ 새로 만들기** > **제공 하 고 계획** > **구독** 새 구독을 만듭니다.
+1. 선택 **+ 리소스 만들기** > **제공 하 고 계획** > **구독** 새 구독을 만듭니다.
 
     a. 입력 한 **표시 이름**합니다.
 

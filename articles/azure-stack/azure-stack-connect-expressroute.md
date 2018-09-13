@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/14/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 878b7952938c7ec534bc09e27ee8b859c1aaeefb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: db9f19154668fa33bb94e59a4da6735b1a6d3d49
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139471"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720500"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Azure Stack Azure ExpressRoute를 사용 하 여 Azure에 연결
 
@@ -98,7 +98,7 @@ Azure Stack 구성 시작 하기 전에 다음을 수행 해야 합니다.
 #### <a name="create-the-virtual-network-and-vm-subnet"></a>가상 네트워크 및 VM 서브넷 만들기
 
 1. 사용자 (테 넌 트) 계정 사용 하 여 사용자 포털에 로그인 합니다.
-1. 포털에서 선택 **새로 만들기**합니다.
+1. 포털에서 선택 **+ 리소스 만들기**합니다.
 
 1. 아래 **Azure Marketplace**를 선택 **네트워킹**합니다.
 
@@ -131,7 +131,7 @@ Azure Stack 구성 시작 하기 전에 다음을 수행 해야 합니다.
 
 #### <a name="create-the-virtual-network-gateway"></a>가상 네트워크 게이트웨이 만들기
 
-1. Azure Stack 사용자 포털에서 선택 **새로 만들기**합니다.
+1. Azure Stack 사용자 포털에서 선택 **+ 리소스 만들기**합니다.
 1. 아래 **Azure Marketplace**를 선택 **네트워킹**합니다.
 1. 네트워크 리소스 목록에서 **가상 네트워크 게이트웨이**를 선택합니다.
 1. 에 **이름을** 필드를 입력 합니다 **GW1**합니다.
@@ -146,7 +146,7 @@ Azure Stack 구성 시작 하기 전에 다음을 수행 해야 합니다.
 
 로컬 네트워크 게이트웨이 리소스에 VPN 연결의 반대쪽 끝에 있는 원격 게이트웨이 식별합니다. 예를 들어 연결의 원격 끝에 ExpressRoute 라우터의 LAN 하위 인터페이스가 됩니다. 테 넌 트 1에 표시 *그림 2*, 원격 주소는 10.60.3.255 합니다.
 
-1. 선택한 사용자 계정으로 Azure Stack 사용자 포털에 로그인 **새로 만들기**합니다.
+1. 선택한 사용자 계정으로 Azure Stack 사용자 포털에 로그인 **+ 리소스 만들기**합니다.
 1. 아래 **Azure Marketplace**를 선택 **네트워킹**합니다.
 1. 리소스 목록에서 **로컬 네트워크 게이트웨이**를 선택합니다.
 1. 에 **이름을** 필드를 입력 합니다 **ER-라우터-GW**합니다.
@@ -163,7 +163,7 @@ Azure Stack 구성 시작 하기 전에 다음을 수행 해야 합니다.
 
 #### <a name="create-the-connection"></a>연결 만들기
 
-1. Azure Stack 사용자 포털에서 선택 **새로 만들기**합니다.
+1. Azure Stack 사용자 포털에서 선택 **+ 리소스 만들기**합니다.
 1. 아래 **Azure Marketplace**를 선택 **네트워킹**합니다.
 1. 리소스 목록에서 **연결**을 선택합니다.
 1. 아래 **기본 사항을**, 선택 **사이트-사이트 간 (IPSec)** 으로 **연결 형식**합니다.
@@ -187,7 +187,7 @@ Azure Stack 구성 시작 하기 전에 다음을 수행 해야 합니다.
 
 VPN 연결을 통한 데이터 트래픽이 테스트 가상 컴퓨터는 Azure Stack VNet의 데이터를 받고 보내는 데 필요 합니다. 가상 머신을 만들고 가상 네트워크에 VM 서브넷에 배포 합니다.
 
-1. Azure Stack 사용자 포털에서 선택 **새로 만들기**합니다.
+1. Azure Stack 사용자 포털에서 선택 **+ 리소스 만들기**합니다.
 1. 아래 **Azure Marketplace**를 선택 **계산**합니다.
 1. 가상 머신 이미지 목록에서 선택 합니다 **Windows Server 2016 Datacenter 평가판** 이미지입니다.
 

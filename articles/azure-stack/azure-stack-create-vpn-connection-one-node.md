@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 7/10/2017
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: scottnap
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6225a12b50ebb7bf0a0cb9244153800ba734d93a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a219f44cb27bb6ebe4e17079ad487457ae8852f0
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006906"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718120"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>다른 Azure Stack 개발 키트 환경의 두 가상 네트워크 간의 사이트 간 VPN 연결 만들기
 ## <a name="overview"></a>개요
@@ -92,10 +92,7 @@ ms.locfileid: "39006906"
 
 ### <a name="create-the-virtual-network-and-vm-subnet"></a>가상 네트워크 및 VM 서브넷 만들기
 1. 사용자 포털에 로그인 할 테 넌 트 계정을 사용 합니다.
-2. 사용자 포털에서 선택 **새로 만들기**합니다.
-
-    ![새 가상 네트워크 만들기](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
-
+2. 사용자 포털에서 선택 **+ 리소스 만들기**합니다.
 3. 로 이동 **Marketplace**를 선택한 후 **네트워킹**합니다.
 4. **가상 네트워크**를 선택합니다.
 5. 에 대 한 **이름을**를 **주소 공간**를 **서브넷 이름**, 및 **서브넷 주소 범위**, 네트워크의 앞부분에서 표시 되는 값을 사용 하 여 구성 테이블입니다.
@@ -118,7 +115,7 @@ ms.locfileid: "39006906"
 6. 선택 **확인** 게이트웨이 서브넷을 만들어야 합니다.
 
 ### <a name="create-the-virtual-network-gateway"></a>가상 네트워크 게이트웨이 만들기
-1. Azure portal에서 선택 **새로 만들기**합니다. 
+1. Azure portal에서 선택 **+ 리소스 만들기**합니다. 
 2. 로 이동 **Marketplace**를 선택한 후 **네트워킹**합니다.
 3. 네트워크 리소스의 목록에서 선택 **가상 네트워크 게이트웨이**합니다.
 4. **이름을**를 입력 **GW1**합니다.
@@ -140,7 +137,7 @@ Azure 배포에서 로컬 네트워크 게이트웨이 온-프레미스 (테 넌
 
 ### <a name="create-the-local-network-gateway-resource"></a>로컬 네트워크 게이트웨이 리소스 만들기
 1. POC1에 대 한 Azure Stack 물리적 컴퓨터에 로그인 합니다.
-2. 사용자 포털에서 선택 **새로 만들기**합니다.
+2. 사용자 포털에서 선택 **+ 리소스 만들기**합니다.
 3. 로 이동 **Marketplace**를 선택한 후 **네트워킹**합니다.
 4. 리소스 목록에서 선택 **로컬 네트워크 게이트웨이**합니다.
 5. **이름을**를 입력 **POC2-GW**합니다.
@@ -149,7 +146,7 @@ Azure 배포에서 로컬 네트워크 게이트웨이 온-프레미스 (테 넌
 8. 확인 프로그램 **구독**를 **리소스 그룹**, 및 **위치** 올바른지를 선택한 **만들기**합니다.
 
 ### <a name="create-the-connection"></a>연결 만들기
-1. 사용자 포털에서 선택 **새로 만들기**합니다.
+1. 사용자 포털에서 선택 **+ 리소스 만들기**합니다.
 2. 로 이동 **Marketplace**를 선택한 후 **네트워킹**합니다.
 3. 리소스 목록에서 선택 **연결**합니다.
 4. 에 **기본 사항** 설정 블레이드에서 대 한 합니다 **연결 형식**를 선택 **사이트-사이트 간 (IPSec)** 합니다.
@@ -163,7 +160,7 @@ Azure 배포에서 로컬 네트워크 게이트웨이 온-프레미스 (테 넌
 ### <a name="create-a-vm"></a>VM 만들기
 VPN 연결을 통해 전송 되는 데이터의 유효성을 검사 하려면 각 Azure Stack 개발 키트에서 데이터를 받고 보내는 데 가상 컴퓨터를 해야 합니다. 이제 POC1의 가상 머신 만들기 및 다음에서 가상 네트워크에 배치 VM 서브넷입니다.
 
-1. Azure portal에서 선택 **새로 만들기**합니다.
+1. Azure portal에서 선택 **+ 리소스 만들기**합니다.
 2. 로 이동 **Marketplace**를 선택한 후 **계산**합니다.
 3. 가상 머신 이미지 목록에서 선택 합니다 **Windows Server 2016 Datacenter 평가판** 이미지입니다.
 4. 에 **기본 사항** 블레이드, **이름**를 입력 **VM01**합니다.
@@ -185,7 +182,7 @@ VPN 연결을 통해 전송 되는 데이터의 유효성을 검사 하려면 �
 ### <a name="create-the-virtual-network-and-vm-subnet"></a>가상 네트워크 및 VM 서브넷 만들기
 
 1. 테 넌 트 계정을 사용 하 여 로그인 합니다.
-2. 사용자 포털에서 선택 **새로 만들기**합니다.
+2. 사용자 포털에서 선택 **+ 리소스 만들기**합니다.
 3. 로 이동 **Marketplace**를 선택한 후 **네트워킹**합니다.
 4. **가상 네트워크**를 선택합니다.
 5. 네트워크 구성 테이블 앞에 표시 되는 정보를 사용 하 여는 POC2에 대 한 값을 식별 **이름을**를 **주소 공간**를 **서브넷 이름**, 및 **서브넷 주소 범위**합니다.
@@ -205,7 +202,7 @@ VPN 연결을 통해 전송 되는 데이터의 유효성을 검사 하려면 �
 6. 선택 **확인** 게이트웨이 서브넷을 만들어야 합니다.
 
 ### <a name="create-the-virtual-network-gateway"></a>가상 네트워크 게이트웨이 만들기
-1. Azure portal에서 선택 **새로 만들기**합니다.  
+1. Azure portal에서 선택 **+ 리소스 만들기**합니다.  
 2. 로 이동 **Marketplace**를 선택한 후 **네트워킹**합니다.
 3. 네트워크 리소스의 목록에서 선택 **가상 네트워크 게이트웨이**합니다.
 4. **이름을**를 입력 **GW2**합니다.
@@ -218,7 +215,7 @@ VPN 연결을 통해 전송 되는 데이터의 유효성을 검사 하려면 �
 
 ### <a name="create-the-local-network-gateway-resource"></a>로컬 네트워크 게이트웨이 리소스 만들기
 
-1. POC2 사용자 포털에서 선택 **새로 만들기**합니다. 
+1. POC2 사용자 포털에서 선택 **+ 리소스 만들기**합니다. 
 4. 로 이동 **Marketplace**를 선택한 후 **네트워킹**합니다.
 5. 리소스 목록에서 선택 **로컬 네트워크 게이트웨이**합니다.
 6. **이름을**를 입력 **POC1-GW**합니다.
@@ -227,7 +224,7 @@ VPN 연결을 통해 전송 되는 데이터의 유효성을 검사 하려면 �
 9. 확인 프로그램 **구독**를 **리소스 그룹**, 및 **위치** 올바른지를 선택한 **만들기**합니다.
 
 ## <a name="create-the-connection"></a>연결 만들기
-1. 사용자 포털에서 선택 **새로 만들기**합니다. 
+1. 사용자 포털에서 선택 **+ 리소스 만들기**합니다. 
 2. 로 이동 **Marketplace**를 선택한 후 **네트워킹**합니다.
 3. 리소스 목록에서 선택 **연결**합니다.
 4. 에 **기본** 설정 블레이드에서 대 한 합니다 **연결 형식**, 선택 **사이트-사이트 간 (IPSec)** 합니다.
@@ -241,7 +238,7 @@ VPN 연결을 통해 전송 되는 데이터의 유효성을 검사 하려면 �
 ## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 이제 POC2의 가상 머신 만들기 및 가상 네트워크의 VM 서브넷에 배치 합니다.
 
-1. Azure portal에서 선택 **새로 만들기**합니다.
+1. Azure portal에서 선택 **+ 리소스 만들기**합니다.
 2. 로 이동 **Marketplace**를 선택한 후 **계산**합니다.
 3. 가상 머신 이미지 목록에서 선택 합니다 **Windows Server 2016 Datacenter 평가판** 이미지입니다.
 4. 에 **기본 사항을** 블레이드에서 대 한 **이름**를 입력 **VM02**합니다.

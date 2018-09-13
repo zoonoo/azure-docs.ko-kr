@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: c0c625852ff131aaa26e424ded75fbe51f94f23d
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 00c3fd0d1f637575904ebaa8031159344adf7e9f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159302"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718579"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>Azure Stack에 Kubernetes 클러스터 배포
 
@@ -106,7 +106,7 @@ Kubernetes에서 사용할 수 있습니다.
 
 1. 엽니다는 [Azure Stack 포털](https://portal.local.azurestack.external)합니다.
 
-1. 선택 **+ 새로 만들기** > **계산** > **Kubernetes 클러스터**합니다. **만들기**를 클릭합니다.
+1. 선택 **+ 리소스 만들기** > **계산** > **Kubernetes 클러스터**합니다. **만들기**를 클릭합니다.
 
     ![솔루션 템플릿 배포](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 

@@ -3,23 +3,22 @@ title: Azure Stack 보안 제어 이해 | Microsoft Docs
 description: 서비스 관리자로 Azure Stack에 적용 된 보안 제어에 알아봅니다
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: PatAltimore
 manager: femila
 editor: ''
-ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
-ms.author: mabrigg
-ms.openlocfilehash: a3bd314a1df3c45c76b2e3a5acb31c1474d0fdf5
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.date: 09/12/2018
+ms.author: patricka
+ms.openlocfilehash: 048a2e8204b3b8776b5a7e0e425dbc5fdf3d504c
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009476"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719021"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure Stack 인프라의 보안 상태
 
@@ -87,3 +86,5 @@ Azure Stack 인프라의 네트워크 액세스 제어 List(ACL) 여러 계층�
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Stack에서 암호를 회전 하는 방법에 알아봅니다.](azure-stack-rotate-secrets.md)
+- [PCI-DSS 및 CSA-CCM 문서를 Azure Stack](https://servicetrust.microsoft.com/ViewPage/TrustDocuments)
+- [Azure Stack에 대 한 DoD 및 NIST 문서](https://servicetrust.microsoft.com/ViewPage/Blueprint)

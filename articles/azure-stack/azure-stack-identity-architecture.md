@@ -3,7 +3,7 @@ title: Azure Stack에 대 한 id 아키텍처 | Microsoft Docs
 description: Azure Stack과 함께 사용할 수 있습니다 id 아키텍처에 알아봅니다.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: PatAltimore
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/01/2018
-ms.author: brenduns
+ms.author: patricka
 ms.reviewer: ''
-ms.openlocfilehash: bf69c71a8b361e4a147263bc60324573c710818f
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: f2d843b343fa830adf41352ae692ea98bed52ecc
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412699"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713649"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Azure Stack에 대 한 id 아키텍처
 Azure Stack을 사용 하는 id 공급자를 선택 하기 전에 Azure Active Directory (Azure AD)의 옵션 및 Active Directory Federation Services (AD FS)의 중요 한 차이점을 이해 합니다. 
@@ -33,14 +33,14 @@ Azure Stack을 사용 하는 id 공급자를 선택 하기 전에 Azure Active D
 |기능 또는 시나리오        |Azure AD  |AD FS  |
 |------------------------------|----------|-------|
 |인터넷에 연결     |예       |옵션|
-|다중 테 넌 트에 대 한 지원     |예       |아니요      |
+|다중 테 넌 트에 대 한 지원     |예       |아닙니다.      |
 |Marketplace에서 제품 항목 |예       |예. 사용 해야 합니다 [오프 라인 마켓플레이스 배포](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) 도구입니다.|
 |Active Directory 인증 라이브러리 (ADAL)에 대 한 지원 |예 |예|
 |Azure CLI, Visual Studio 및 PowerShell 같은 도구에 대 한 지원  |예 |예|
-|Azure portal 통해 서비스 주체 만들기     |예 |아니요|
+|Azure portal 통해 서비스 주체 만들기     |예 |아닙니다.|
 |인증서를 사용 하 여 서비스 주체 만들기      |예 |예|
-|암호 (키)를 사용 하 여 서비스 주체 만들기    |예 |아니요|
-|그래프 서비스를 사용 하 여 응용 프로그램           |예 |아니요|
+|암호 (키)를 사용 하 여 서비스 주체 만들기    |예 |아닙니다.|
+|그래프 서비스를 사용 하 여 응용 프로그램           |예 |아닙니다.|
 |응용 프로그램 로그인에 대 한 id 공급자를 사용할 수 있습니다. |예 |예. 응용 프로그램을 온-프레미스와 페더레이션 해야 AD FS 인스턴스. |
 
 ## <a name="topologies"></a>토폴로지

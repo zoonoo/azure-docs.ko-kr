@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.author: sethm
-ms.openlocfilehash: a8d211992f52c9719cad76f16133e23eba24d422
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 9f229caa76059db403ced5b74c7a35ec2f0b8e9d
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139668"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721894"
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>주요 고려 사항: 서비스를 사용 하 여 또는 Azure Stack에 대 한 앱 빌드
 
@@ -33,7 +33,7 @@ Azure Stack은 회사 또는 서비스 공급자의 데이터 센터에서 Azure
 
 Azure 기술 콘텐츠는 Azure Stack 대신 Azure 서비스에 대 한 앱이 개발 되는 가정 합니다. 를 빌드 및 Azure Stack에 앱 배포와 같은 몇 가지 주요 차이점을 이해 해야 합니다.
 
-* Azure Stack 서비스 및 Azure에서 사용할 수 있는 기능의 하위 집합을 제공 합니다.
+* Azure Stack이 제공 된 **하위 집합** 서비스 및 Azure에서 사용할 수 있는 기능.
 * 회사 또는 서비스 공급자를 제공 하고자 하는 서비스를 선택할 수 있습니다. 사용 가능한 옵션은 사용자 지정된 서비스 또는 응용 프로그램에 포함 될 수 있습니다. 자체 사용자 지정 된 설명서를 제공할 수 있습니다.
 * 올바른 사용 해야 합니다 (예: 포털 주소 및 Azure Resource Manager 끝점의 Url) Azure Stack 별 끝점입니다.
 * Azure Stack에서 지원 되는 PowerShell 및 API 버전을 사용 해야 합니다. 지원 되는 버전을 사용 하 여 Azure Stack 및 Azure 둘 다에서 앱은 작동 하는지 확인 합니다.
@@ -75,11 +75,11 @@ Azure Stack 특정 버전의 Azure PowerShell 및 Azure 서비스 Api 지원합�
 사용 하 여 올바른 버전의 Azure PowerShell 사용 [API 버전 프로필](azure-stack-version-profiles.md)합니다. 사용할 수 있는 최신 API 버전 프로필을 확인 하려면 사용 하는 Azure Stack의 빌드에 대해 알아봅니다. Azure Stack 관리자에 게이 정보를 가져올 수 있습니다.
 
 >[!NOTE]
- Azure Stack Development Kit를 사용 하는 경우 관리자 권한이의 "현재 버전 확인" 섹션을 참조 하세요 [업데이트 관리](https://docs.microsoft.com/azure/azure-stack/azure-stack-updates#determine-the-current-version) Azure Stack 빌드를 확인 하려면.
+ Azure Stack Development Kit를 사용 하는 경우 관리자 권한이의 "현재 버전 확인" 섹션을 참조 하세요 [업데이트 관리](../azure-stack-updates.md#determine-the-current-version) Azure Stack 빌드를 확인 하려면.
 
 다른 Api에 대 한 네임 스페이스, 리소스 유형 및 Azure Stack 구독에 지원 되는 API 버전을 출력 하려면 다음 PowerShell 명령을 실행 합니다. 여기에 메모 속성 수준에서 차이 수 있습니다. (이 명령이 작동 하려면 해야 이미 [설치](azure-stack-powershell-install.md) 하 고 [구성](azure-stack-powershell-configure-user.md) Azure Stack 환경에 대 한 PowerShell. 또한 해야 Azure Stack 제품을 구독 합니다.)
 
- ```powershell
+```powershell
 Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
 Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} 
 ```

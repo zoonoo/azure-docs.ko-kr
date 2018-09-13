@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 931c3d8beb9f2ed12228c74f09f84bbdee1798b8
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: b2f4fbca2dcbdd537302746c7b6109e467ea31d7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42139631"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720228"
 ---
 # <a name="deploy-templates-using-the-azure-stack-portal"></a>Azure Stack 포털을 사용하여 템플릿 배포
 
@@ -30,7 +30,7 @@ Azure Stack에 Azure Resource Manager 템플릿을 배포 하려면 포털을 �
 
 ## <a name="to-deploy-a-template"></a>템플릿을 배포 하려면
 
-1. 포털에 로그인 **새로 만들기**를 선택한 후 **사용자 지정**합니다.
+1. 포털에 로그인 **+ 리소스 만들기**를 선택한 후 **사용자 지정**합니다.
 2. 선택 **템플릿 배포**합니다.
 3. 선택 **템플릿 편집**, JSON 템플릿 코드의 코드 창에 붙여넣습니다. **저장**을 선택합니다.
 4. 선택 **매개 변수 편집**에 표시 되 고 선택한 매개 변수의 값을 제공할 **확인**합니다.

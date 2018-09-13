@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/08/2018
+ms.date: 09/12/2018
 ms.author: mattbriggs
 ms.reviewer: shnatara
-ms.openlocfilehash: 9feb2e538d3578fe259aa3fbc693a1e953f2f894
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3d3701c670236d67697f4109a59fa31900037a0d
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440354"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720940"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Azure Stack에서 Service Fabric 클러스터 배포
 
@@ -120,7 +120,7 @@ Service Fabric 클러스터를 배포 하려면 올바른 KeyVault를 지정 해
 
 ## <a name="deploy-the-marketplace-item"></a>Marketplace 항목 배포
 
-1. 사용자 포털에서로 이동 **새로 만들기** > **계산** > **Service Fabric 클러스터**합니다. 
+1. 사용자 포털에서로 이동 **+ 리소스 만들기** > **계산** > **Service Fabric 클러스터**합니다. 
 
    ![Service Fabric 클러스터를 선택 합니다.](./media/azure-stack-solution-template-service-fabric-cluster/image2.png)
 
@@ -158,7 +158,7 @@ Service Fabric Explorer 또는 Service Fabric PowerShell을 사용 하 여 Servi
 
     a. Internet Explorer를 열고 이동할 **인터넷 옵션** > **콘텐츠** > **인증서**합니다.
   
-    나. 인증서 선택 **가져오기** 시작 하는 *인증서 가져오기 마법사*를 클릭 하 고 **다음**합니다. 에 *가져올 파일* 페이지 **찾아보기**, 선택한를 **관리자 클라이언트 인증서** Azure Resource Manager 템플릿에 제공 합니다.
+    b. 인증서 선택 **가져오기** 시작 하는 *인증서 가져오기 마법사*를 클릭 하 고 **다음**합니다. 에 *가져올 파일* 페이지 **찾아보기**, 선택한를 **관리자 클라이언트 인증서** Azure Resource Manager 템플릿에 제공 합니다.
         
        > [!NOTE]  
        > 이 인증서는 이전에 KeyVault에 추가 된 클러스터 인증서 없습니다.  
@@ -175,7 +175,7 @@ Service Fabric Explorer 또는 Service Fabric PowerShell을 사용 하 여 Servi
 
       ![공용 IP 주소](media/azure-stack-solution-template-service-fabric-cluster/image10.png)   
 
-    나. 공용 IP 주소 블레이드에서 FQDN으로 표시 *DNS 이름*합니다.  
+    b. 공용 IP 주소 블레이드에서 FQDN으로 표시 *DNS 이름*합니다.  
 
       ![DNS 이름](media/azure-stack-solution-template-service-fabric-cluster/image11.png)  
 
@@ -200,7 +200,7 @@ Service Fabric Explorer 또는 Service Fabric PowerShell을 사용 하 여 Servi
     
       ![제어판](media/azure-stack-solution-template-service-fabric-cluster/image15.png) 
 
-    나. 에 **고급** 탭의 *시스템 속성*를 선택 **환경 변수**합니다.  
+    b. 에 **고급** 탭의 *시스템 속성*를 선택 **환경 변수**합니다.  
 
     다. 에 대 한 *시스템 변수*을 편집 **경로** 했는지 **c:\\Program Files\\Microsoft Service Fabric\\bin\\패브릭 \\Fabric.Code** 환경 변수의 목록 맨 위에 있는 됩니다.  
 

@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 07/03/2018
+ms.date: 09/12/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: d3c89e2028986e05d5d3957c9805d22f07a840b3
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: b4c8ff113ff76586cc4a91adfe568b07327a2d94
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298117"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721986"
 ---
 # <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Azure Stack Ethereum 블록 체인 솔루션 템플릿
 
@@ -50,7 +50,7 @@ Ethereum 솔루션 템플릿에 쉽고 빠르게 배포 하 고 한 지식이 �
 컨소시엄 리더 템플릿 네트워크의 첫 번째 멤버의 공간을 구성합니다. 
 
 1. 다운로드는 [리더 템플릿은 GitHub에서](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/ConsortiumLeader/mainTemplate.json)
-2. Azure Stack 관리 포털에서 선택 **새로 만들기 > 템플릿 배포** 사용자 지정 템플릿에서 배포 합니다.
+2. Azure Stack 관리 포털에서 선택 **+ 리소스 만들기 > 템플릿 배포** 사용자 지정 템플릿에서 배포 합니다.
 3. 선택 **템플릿 편집** 새 사용자 지정 템플릿을 편집 합니다.
 4. 오른쪽의 편집 창에서 복사한 리더 템플릿을 이전에 다운로드 한 JSON를 붙여 넣습니다.
     
@@ -105,7 +105,7 @@ Ethereum 솔루션 템플릿에 쉽고 빠르게 배포 하 고 한 지식이 �
 ### <a name="joining-consortium-member-deployment"></a>조인 컨소시엄 멤버 배포
 
 1. 다운로드는 [컨소시엄 멤버 템플릿은 GitHub에서](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/JoiningMember/mainTemplate.json)
-2. Azure Stack 관리 포털에서 선택 **새로 만들기 > 템플릿 배포** 사용자 지정 템플릿에서 배포 합니다.
+2. Azure Stack 관리 포털에서 선택 **+ 리소스 만들기 > 템플릿 배포** 사용자 지정 템플릿에서 배포 합니다.
 3. 선택 **템플릿 편집** 새 사용자 지정 템플릿을 편집 합니다.
 4. 오른쪽의 편집 창에서 복사한 리더 템플릿을 이전에 다운로드 한 JSON를 붙여 넣습니다.
 5. **저장**을 선택합니다.
@@ -157,7 +157,7 @@ Ethereum 솔루션 템플릿에 쉽고 빠르게 배포 하 고 한 지식이 �
 이 템플릿은 원격 멤버로 리더에서 연결을 만듭니다. 
 
 1. 다운로드는 [멤버 및 리더 템플릿은 GitHub에서 연결](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/Connection/mainTemplate.json)
-2. Azure Stack 관리 포털에서 선택 **새로 만들기 > 템플릿 배포** 사용자 지정 템플릿에서 배포 합니다.
+2. Azure Stack 관리 포털에서 선택 **+ 리소스 만들기 > 템플릿 배포** 사용자 지정 템플릿에서 배포 합니다.
 3. 선택 **템플릿 편집** 새 사용자 지정 템플릿을 편집 합니다.
 4. 오른쪽의 편집 창에서 복사한 리더 템플릿을 이전에 다운로드 한 JSON를 붙여 넣습니다.
     

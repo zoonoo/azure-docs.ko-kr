@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/20/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: efemmano
-ms.openlocfilehash: 66a89c3cb14dd642ae993cbf3c45885635f59759
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 7b26afa99e9ab14db83aee5c0487c1c405243962
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42139633"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719769"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Azure Stack에서 제안 만들기
 
 [제공](azure-stack-key-features.md) 그룹 공급자를 구입 하거나 구독 하는 사용자에 게 제공 하는 하나 이상의 계획입니다. 이 문서를 포함 하는 제품을 만드는 방법을 보여 줍니다.는 [사용자가 만든 계획](azure-stack-create-plan.md)합니다. 이 제안은 구독자가 가상 컴퓨터를 설정 하는 기능을 제공 합니다.
 
-1. Azure Stack 관리자 포털에 로그인 (https://adminportal.local.azurestack.external) 선택한 **새로 만들기** > **테 넌 트 제공 + 계획** > **제공**합니다.
+1. Azure Stack 관리자 포털에 로그인 (https://adminportal.local.azurestack.external) 선택한 **+ 리소스 만들기** > **테 넌 트 제공 + 계획** > **제공**.
 
    ![제품 만들기](media/azure-stack-create-offer/image01.png)
   

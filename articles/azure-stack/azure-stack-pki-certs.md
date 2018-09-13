@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: d4322e5a7f9d587049e9225c3adde08d04325afc
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 8de34e4ac01dea9cf4a0c718883e8cc828be6403
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024307"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714620"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 공개 키 인프라 인증서 요구 사항
 
@@ -40,7 +40,7 @@ Azure Stack에는 소수의 Azure Stack 서비스 및 테 넌 트 Vm에 할당 �
 - 인증서 배포 또는 위의 모든 공용 인증 기관에서 제공 하는 인증서에 서명 하는 데 사용 되는 동일한 내부 인증 기관에서 발급 하거나 해야 인증서를 회전 하는 경우
 - 자체 서명 된 인증서의 사용은 지원 되지 않습니다.
 - 배포 및 회전 하거나 인증서의 주체 이름과 주체 대체 이름 (SAN) 필드에서 모든 네임 스페이스를 포함 하는 단일 인증서를 사용 하거나 사용할 수에 대 한 개인 인증서 아래에 네임 스페이스의 각 Azure Stack 서비스를 활용 하려면 필요 합니다. 참고: 두 방법 모두는와 같은 필요한 끝점에 대 한 와일드 카드를 사용 해야 **KeyVault** 하 고 **KeyVaultInternal**합니다. 
-- 인증서 서명 알고리즘을 강화 해야 하므로 SHA1 일 수 없습니다. 
+- 인증서 서명 알고리즘은 3DES 이어야 합니다. 알고리즘 보다 강력한 해야 하므로 SHA1 일 수 없습니다. 
 - 인증서 형식 공개 및 개인 키는 모두 Azure Stack 설치에 필요한으로 PFX 여야 합니다. 
 - 인증서 pfx 파일에는 해당 "Key Usage" 필드에 "KeyEncipherment" 및 "디지털 시그니처" 값을 있어야 합니다.
 - 인증서 pfx 파일에는 "확장 된 키 사용" 필드에 "서버 인증 (1.3.6.1.5.5.7.3.1)" 및 "클라이언트 인증 (1.3.6.1.5.5.7.3.2)" 값 있어야 합니다.

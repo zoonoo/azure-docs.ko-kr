@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: f3cf1232861239069894a8e5fa60c911053f038d
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 41d27b9a173cc019549f1dea0c66ffcaa51fbb10
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841984"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719446"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack 배포의 계획 고려 사항
 Azure Stack 개발 키트 (ASDK)를 배포 하기 전에 개발 키트 호스트 컴퓨터에는이 문서에 설명 된 요구 사항을 충족 해야 합니다.
@@ -93,6 +93,8 @@ Azure AD 계정을 사용 하 여 Azure Stack을 배포 하려면 배포 PowerSh
    | 유효한 공용 Azure 구독의 Microsoft 계정 |예 |
    | 유효한 중국 Azure 구독을 사용 하 여 회사 또는 학교 계정 |예 |
    | 유효한 미국 정부 Azure 구독을 사용 하 여 회사 또는 학교 계정 |예 |
+
+배포 후 Azure Active Directory 전역 관리자 권한이 필요 하지 않습니다. 그러나 일부 작업에는 전역 관리자 자격 증명을 필요할 수 있습니다. 예를 들어, 리소스 공급자 설치 관리자 스크립트 또는 권한 부여 요청을 새로운 기능. 일시적으로 계정의 전역 관리자 권한이 다시 설정 하거나의 소유자가 별도 전역 관리자 계정을 사용 합니다 *공급자 구독을 기본*입니다.
 
 ## <a name="network"></a>네트워크
 ### <a name="switch"></a>Switch

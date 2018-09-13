@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 09/12/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 77dca29b0c60726f0a072dd662aba0d12730502a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 650fead700afcc1f6d1d18c7356324074fb9365b
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413691"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716454"
 ---
 # <a name="create-mysql-databases"></a>MySQL 데이터베이스 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "39413691"
 ## <a name="test-your-deployment-by-creating-a-mysql-database"></a>MySQL 데이터베이스를 만들고 배포를 테스트 합니다.
 
 1. Azure Stack 사용자 포털에 로그인 합니다.
-2. 선택 **+ 새로 만들기** > **데이터 + 저장소** > **MySQL Database** > **추가**합니다.
+2. 선택 **+ 리소스 만들기** > **데이터 + 저장소** > **MySQL Database** > **추가**합니다.
 3. 아래 **MySQL 데이터베이스 만들기**, 데이터베이스 이름을 입력 하 고 사용자 환경에 대 한 필요에 따라 다른 설정을 구성 합니다.
 
     ![테스트 MySQL 데이터베이스 만들기](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)

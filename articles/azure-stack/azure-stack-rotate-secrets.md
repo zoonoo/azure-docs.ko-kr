@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: dacfa738a99eb2d580d825957d09b2b1a3111e93
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: b0fe9acc187aab87e8ee0528cf998e2ef923f897
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051396"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722013"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Azure Stack에서 암호를 회전 합니다.
 
@@ -110,6 +110,8 @@ Azure Stack 다음 경우에 새 인증 기관 (CA)에서 외부 인증서를 �
     보안 문자열에 만든 pfx 인증서 파일을 모두 사용 되는 암호입니다.
 4. 암호를 회전 하는 동안 기다립니다.  
 비밀 회전 성공적으로 완료 되 면 콘솔에 표시 됩니다 **전반적인 작업 상태: 성공**합니다. 
+    > [!note]  
+    > 비밀 회전 실패 하면 오류 메시지의 지침에 따라 하 고 다시 시작-secretrotation 사용 하 여를 실행 합니다 **-다시 실행** 매개 변수입니다. 비밀 회전 오류가 반복 하는 발생 하는 경우 지원에 문의 하세요. 
 5. 비밀 회전을 성공적으로 완료 한 후 전 단계에서 만든 공유에서 인증서를 제거 하 고 안전한 백업 위치에 저장 합니다. 
 
 ## <a name="walkthrough-of-secret-rotation"></a>비밀 회전 연습
@@ -136,6 +138,10 @@ Azure Stack의 내부 비밀만을 회전 합니다.
 
 1. PowerShell 세션을 만듭니다는 [Privileged 끝점](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint)합니다.
 2. 권한 있는 끝점 세션에서 실행할 **시작 SecretRotation** 인수 없이 합니다.
+3. 암호를 회전 하는 동안 기다립니다.  
+비밀 회전 성공적으로 완료 되 면 콘솔에 표시 됩니다 **전반적인 작업 상태: 성공**합니다. 
+    > [!note]  
+    > 비밀 회전 실패 하면 오류 메시지의 지침에 따라 하 고 사용 하 여 시작 secretrotation 다시 실행 합니다 **-다시 실행** 매개 변수입니다. 비밀 회전 오류가 반복 하는 발생 하는 경우 지원에 문의 하세요. 
 
 ## <a name="start-secretrotation-reference"></a>시작-SecretRotation 참조
 

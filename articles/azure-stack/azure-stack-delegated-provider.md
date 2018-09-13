@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: b58118a3ed4fba5017e0eb630d822ec59f04aa16
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: d3e3bcc9f637ed0a93091c0b0b8797d667459f11
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024779"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716196"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Azure Stack에서 제안 위임
 
@@ -113,7 +113,7 @@ Azure Stack 운영자 담당 사용자를 등록 하 고 구독을 만들어 다
 
 위임 된 공급자로 사용자 포털에 로그인 하 고 위임된 된 제안을 템플릿으로 사용 하 여 새 제품을 만듭니다.
 
-1. 선택 **새** > **테 넌 트 제공 + 계획** > **제공**합니다.
+1. 선택 **+ 리소스 만들기** > **테 넌 트 제공 + 계획** > **제공**합니다.
 
     ![새 제안 만들기](media/azure-stack-delegated-provider/image5.png)
 
