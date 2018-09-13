@@ -232,11 +232,11 @@
 
 
 #### 응용 프로그램 등록
-##### [응용 프로그램 개체에 대한 필드 입력](application-dev-registration-config-specific-application-property-how-to.md)
-##### [토큰 수명 기본값 변경](application-dev-registration-config-change-token-lifetime-how-to.md)
+##### [응용 프로그램 개체에 대한 필드 입력](develop/registration-config-specific-application-property-how-to.md)
+##### [토큰 수명 기본값 변경](develop/registration-config-change-token-lifetime-how-to.md)
 
 #### 인증
-##### [엔드포인트 구성](application-dev-registration-config-how-to.md)
+##### [엔드포인트 구성](develop/registration-config-how-to.md)
 
 #### 조건부 액세스
 ##### [고객이 장치 등록 사전 요구 사항을 충족시키지 못함](active-directory-conditional-access.md)
@@ -248,7 +248,7 @@
 ##### [조건부 액세스가 지원되는 응용 프로그램](active-directory-conditional-access-supported-apps.md)
 
 #### API 찾기
-##### [API 찾기](application-dev-api-find-an-api-how-to.md)
+##### [API 찾기](develop/api-find-an-api-how-to.md)
 
 #### 액세스 관리
 ##### [사용자 및 그룹을 앱에 할당](manage-apps/methods-for-assigning-users-and-groups.md)
@@ -258,14 +258,14 @@
 ##### [응용 프로그램 목록의 예기치 않은 앱](manage-apps/application-types.md)
 
 #### 다중 테넌트 앱
-##### [새 앱 구성](application-dev-setup-multi-tenant-app.md)
-##### [앱 갤러리에 추가](application-dev-registration-config-multi-tenant-application-add-to-gallery-how-to.md)
+##### [새 앱 구성](develop/setup-multi-tenant-app.md)
+##### [앱 갤러리에 추가](develop/registration-config-multi-tenant-application-add-to-gallery-how-to.md)
 
 #### 권한
-##### [API에 대한 사용 권한 선택](application-dev-perms-for-given-api.md)
-##### [내 앱에 권한 부여](application-dev-registration-config-grant-permissions-how-to.md)
-##### [위임된 권한 대 응용 프로그램 권한](application-dev-delegated-and-app-perms.md)
-##### [응용 프로그램 동의](application-dev-consent-framework.md)
+##### [API에 대한 사용 권한 선택](develop/perms-for-given-api.md)
+##### [내 앱에 권한 부여](develop/registration-config-grant-permissions-how-to.md)
+##### [위임된 권한 대 응용 프로그램 권한](develop/delegated-and-app-perms.md)
+##### [응용 프로그램 동의](develop/consent-framework.md)
 
 #### 프로비전
 ##### [소요되는 시간](manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md)
@@ -278,7 +278,7 @@
 
 #### SSO(Single sign-on)
 ##### [메서드 선택](manage-apps/single-sign-on-modes.md)
-##### [구성](application-dev-registration-config-sso-how-to.md)
+##### [구성](develop/registration-config-sso-how-to.md)
 ##### [페더레이션 구성 - 갤러리 앱](manage-apps/configure-federated-single-sign-on-gallery-applications.md)
 ##### [페더레이션된 일반적인 문제 구성 - 갤러리 앱](manage-apps/configure-federated-single-sign-on-gallery-applications-problems.md)
 ##### [페더레이션된 구성 - 비갤러리 앱](manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
@@ -303,7 +303,7 @@
 ##### [온-프레미스 앱의 문제 - 응용 프로그램 프록시](manage-apps/application-sign-in-problem-on-premises-application-proxy.md)
 
 ### [앱 개발](active-directory-applications-guiding-developers-for-lob-applications.md)
-### [문서 라이브러리](active-directory-apps-index.md)
+
 
 ## 디렉터리 관리
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
