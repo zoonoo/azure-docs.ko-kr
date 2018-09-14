@@ -1,37 +1,43 @@
 ---
-title: SQL의 Virtual Network 서비스 끝점 및 규칙에 PowerShell 사용 | Microsoft Docs
-description: Azure SQL Database에 대한 가상 서비스 끝점을 만들고 관리할 수 있는 PowerShell 스크립트를 제공합니다.
+title: Azure SQL의 Virtual Network 서비스 엔드포인트 및 규칙에 대한 PowerShell | Microsoft Docs
+description: Azure SQL Database 및 SQL Data Warehouse에 대한 가상 서비스 엔드포인트를 만들고 관리할 수 있는 PowerShell 스크립트를 제공합니다.
 services: sql-database
-author: MightyPen
+author: DhruvMsft
 manager: craigg
 ms.service: sql-database
+ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: VNet Service endpoints
 ms.topic: conceptual
-ms.date: 02/05/2018
-ms.reviewer: genemi
+ms.date: 06/14/2018
+ms.reviewer: genemi, carlrab
 ms.author: dmalik
-ms.openlocfilehash: 503aef620679c9bf3f65cd7f463ba604c6b9e451
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 364dd2709c9000aae082976f3ec28396f92850da
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649519"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43670120"
 ---
-# <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database"></a>PowerShell을 사용하여 Azure SQL Database에 대한 가상 서비스 끝점 및 규칙 만들기
+# <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database-and-sql-data-warehouse"></a>PowerShell을 사용하여 Azure SQL Database 및 SQL Data Warehouse에 대한 가상 서비스 엔드포인트 및 규칙 만들기
+
+Azure [SQL Database](sql-database-technical-overview.md) 및 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)는 모두 가상 서비스 엔드포인트를 지원합니다. 
+
+> [!NOTE]
+> 이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
 
 이 문서에서는 다음 작업을 수행하는 PowerShell 스크립트를 제공하고 설명합니다.
 
-1. 서브넷에서 Microsoft Azure *가상 서비스 끝점*을 만듭니다.
-2. Azure SQL Database 서버의 방화벽에 끝점을 추가하여 *가상 네트워크 규칙*을 만듭니다.
+1. 서브넷에서 Microsoft Azure *가상 서비스 엔드포인트*를 만듭니다.
+2. Azure SQL Database 서버의 방화벽에 엔드포인트를 추가하여 *가상 네트워크 규칙*을 만듭니다.
 
-규칙을 만들기 위한 동기는 [Azure SQL Database에 대한 가상 서비스 끝점][sql-db-vnet-service-endpoint-rule-overview-735r]에서 설명됩니다.
+규칙을 만들기 위한 동기는 [Azure SQL Database에 대한 가상 서비스 엔드포인트][sql-db-vnet-service-endpoint-rule-overview-735r]에서 설명됩니다.
 
 > [!TIP]
-> 서브넷에서 SQL Database에 대한 가상 서비스 끝점 *형식 이름*을 평가하거나 추가하기만 할 경우에는 더 많은 [직접 PowerShell 스크립트](#a-verify-subnet-is-endpoint-ps-100)로 바로 건너뛸 수 있습니다.
+> 서브넷에서 SQL Database에 대한 가상 서비스 엔드포인트 *형식 이름*을 평가하거나 추가하기만 할 경우에는 더 많은 [직접 PowerShell 스크립트](#a-verify-subnet-is-endpoint-ps-100)로 바로 건너뛸 수 있습니다.
 
 #### <a name="major-cmdlets"></a>주요 cmdlet
 
-이 문서에서는 규칙을 만드는 데 사용되는 Azure SQL Database 서버의 ACL(액세스 제어 목록)에 서브넷 끝점을 추가하는 **New-AzureRmSqlServerVirtualNetworkRule** cmdlet을 중점적으로 설명합니다.
+이 문서에서는 규칙을 만드는 데 사용되는 Azure SQL Database 서버의 ACL(액세스 제어 목록)에 서브넷 엔드포인트를 추가하는 **New-AzureRmSqlServerVirtualNetworkRule** cmdlet을 중점적으로 설명합니다.
 
 다음 목록은 **New-AzureRmSqlServerVirtualNetworkRule** 호출을 준비하기 위해 실행해야 하는 *주요* cmdlet의 시퀀스를 보여 줍니다. 이 문서에서 이러한 호출은 [스크립트 3 “가상 네트워크 규칙”](#a-script-30)에서 수행됩니다.
 
@@ -39,11 +45,11 @@ ms.locfileid: "34649519"
 
 2. [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork): 가상 네트워크를 만들어 가상 네트워크에 서브넷을 제공합니다.
 
-3. [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetworkSubnetConfig): 가상 서비스 끝점을 서브넷에 할당합니다.
+3. [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetworkSubnetConfig): 가상 서비스 엔드포인트를 서브넷에 할당합니다.
 
 4. [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork): 가상 네트워크에 적용된 업데이트를 유지합니다.
 
-5. [New-AzureRmSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlservervirtualnetworkrule): 서브넷이 끝점이 된 후 서브넷을 가상 네트워크 규칙으로 Azure SQL Database 서버의 ACL에 추가합니다.
+5. [New-AzureRmSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlservervirtualnetworkrule): 서브넷이 엔드포인트가 된 후 서브넷을 가상 네트워크 규칙으로 Azure SQL Database 서버의 ACL에 추가합니다.
     - Azure RM PowerShell 모듈 버전 5.1.1에서 시작하는 **-IgnoreMissingVnetServiceEndpoint** 매개 변수를 제공합니다.
 
 #### <a name="prerequisites-for-running-powershell"></a>PowerShell을 실행하기 위한 필수 구성 요소
@@ -120,7 +126,7 @@ Write-Host 'Completed script 1, the "Variables".';
 
 ## <a name="script-2-prerequisites"></a>스크립트 2: 필수 구성 요소
 
-이 스크립트는 끝점 작업을 나타내는 다음 스크립트를 준비합니다. 이 스크립트는 다음과 같은 나열된 항목이 없는 경우 해당 항목을 만듭니다. 이러한 항목이 이미 있다고 확신할 경우 스크립트 2를 건너뛸 수 있습니다.
+이 스크립트는 엔드포인트 작업을 나타내는 다음 스크립트를 준비합니다. 이 스크립트는 다음과 같은 나열된 항목이 없는 경우 해당 항목을 만듭니다. 이러한 항목이 이미 있다고 확신할 경우 스크립트 2를 건너뛸 수 있습니다.
 
 - Azure 리소스 그룹
 - Azure SQL Database 서버
@@ -214,9 +220,9 @@ Write-Host 'Completed script 2, the "Prerequisites".';
 
 <a name="a-script-30" />
 
-## <a name="script-3-create-an-endpoint-and-a-rule"></a>스크립트 3: 끝점 및 규칙 만들기
+## <a name="script-3-create-an-endpoint-and-a-rule"></a>스크립트 3: 엔드포인트 및 규칙 만들기
 
-이 스크립트는 서브넷이 있는 가상 네트워크를 만듭니다. 그런 다음 **Microsoft.Sql** 끝점 형식을 서브넷에 할당합니다. 마지막으로 이 스크립트는 규칙을 만드는 데 사용되는 SQL Database 서버의 ACL(액세스 제어 목록)에 서브넷을 추가합니다.
+이 스크립트는 서브넷이 있는 가상 네트워크를 만듭니다. 그런 다음 **Microsoft.Sql** 엔드포인트 형식을 서브넷에 할당합니다. 마지막으로 이 스크립트는 규칙을 만드는 데 사용되는 SQL Database 서버의 ACL(액세스 제어 목록)에 서브넷을 추가합니다.
 
 #### <a name="powershell-script-3-source-code"></a>PowerShell 스크립트 3 소스 코드
 
@@ -493,9 +499,9 @@ Completed script 4, the "Clean-Up".
 
 <a name="a-verify-subnet-is-endpoint-ps-100" />
 
-## <a name="verify-your-subnet-is-an-endpoint"></a>서브넷이 끝점인지 확인
+## <a name="verify-your-subnet-is-an-endpoint"></a>서브넷이 엔드포인트인지 확인
 
-이미 가상 서비스 끝점임을 의미하는 **Microsoft.Sql** 형식 이름이 할당된 서브넷이 있을 수 있습니다. [Azure Portal][http-azure-portal-link-ref-477t]을 사용하여 끝점에서 가상 네트워크 규칙을 만들 수 있습니다.
+이미 가상 서비스 엔드포인트임을 의미하는 **Microsoft.Sql** 형식 이름이 할당된 서브넷이 있을 수 있습니다. [Azure Portal][http-azure-portal-link-ref-477t]을 사용하여 엔드포인트에서 가상 네트워크 규칙을 만들 수 있습니다.
 
 또는 서브넷에 **Microsoft.Sql** 형식 이름이 있는지 확실하지 않을 수 있습니다. 다음 PowerShell 스크립트를 실행하여 이러한 작업을 수행합니다.
 
@@ -509,8 +515,8 @@ Completed script 4, the "Clean-Up".
 
 1. Azure 계정에 로그인합니다(PS 세션당 한 번만 필요).  변수를 할당합니다.
 2. 가상 네트워크를 검색하고 서브넷을 검색합니다.
-3. **Microsoft.Sql** 끝점 서버 형식으로 태그가 지정된 서브넷이 있나요?
-4. 서브넷에서 **Microsoft.Sql** 형식 이름의 가상 서비스 끝점을 추가합니다.
+3. **Microsoft.Sql** 엔드포인트 서버 형식으로 태그가 지정된 서브넷이 있나요?
+4. 서브넷에서 **Microsoft.Sql** 형식 이름의 가상 서비스 엔드포인트를 추가합니다.
 
 > [!IMPORTANT]
 > 이 스크립트를 실행하기 전에 스크립트 위쪽에서 $ 변수에 할당된 값을 편집해야 합니다.

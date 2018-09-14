@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 16e4dbac4c8146b048d4d9b76544677a6111e2a5
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 338c2a197cb50091c3b272e0ce590341ffda1d7f
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900832"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341086"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Microsoft 계정으로 등록 설정 및 로그인
 
@@ -28,7 +28,7 @@ Azure AD(Azure Active Directory) B2C에서 Microsoft 계정을 ID 공급자로 �
 3. 응용 프로그램에 대한 **이름**을 제공하고 **만들기**를 클릭합니다.
 4. 등록 페이지에서 **응용 프로그램 ID** 값을 복사합니다. 테넌트에서 Microsoft 계정을 ID 공급자로 구성하려면 이 값이 필요합니다.
 5. **플랫폼 추가**를 선택하고 **웹**을 선택합니다.
-6. **리디렉션 URL**에 `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`를 입력합니다. **{tenant}** 를 사용자의 테넌트 이름(예: contosob2c.onmicrosoft.com)으로 바꿉니다.
+6. **리디렉션 URL**에 `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp`를 입력합니다. **{tenant}** 를 사용자의 테넌트 이름(예: contosob2c)으로 바꿉니다.
 7. **응용 프로그램 암호** 아래에서 **새 암호 생성**을 선택합니다. 화면에 표시되는 새 암호를 복사합니다. 테넌트에서 Microsoft 계정을 ID 공급자로 구성하려면 이 값이 필요합니다. 이 암호는 중요한 보안 자격 증명입니다.
 
 ## <a name="configure-a-microsoft-account-as-an-identity-provider"></a>Microsoft 계정을 ID 공급자로 구성

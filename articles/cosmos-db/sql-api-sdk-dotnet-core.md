@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c62869d1ec0dca1859972e817fe1e5e2c1f4c1eb
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: b8004500df2e29ab865a8eb78adf278ef61d5ee8
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797865"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702438"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK for SQL API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -52,6 +52,18 @@ ms.locfileid: "34797865"
 ## <a name="release-notes"></a>릴리스 정보
 
 Azure Cosmos DB .NET Core SDK에는 [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md)의 최신 버전에 대응하는 기능이 있습니다.
+
+### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
+
+* 요청 취소 지원이 추가되었습니다.
+* 지역에 따라 기본 설정 위치를 자동으로 채우는 SetCurrentLocation이 ConnectionPolicy에 추가되었습니다.
+* 개별 파티션의 문서를 일치시키지 않는 필터 및 Min/Max를 사용한 파티션 간 쿼리의 버그가 수정되었습니다.
+
+### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-preview
+
+* 이제 DocumentClient 메서드에는 IDocumentClient를 포함하는 패리티가 있습니다.
+* 설정된 연결 수를 줄이도록 직접 TCP 전송 스택이 업데이트되었습니다.
+* 비 Windows 클라이언트에 대한 직접 모드 TCP에 대한 지원이 추가되었습니다.
 
 ### <a name="a-name11001100"></a><a name="1.10.0"/>1.10.0
 
@@ -174,6 +186,8 @@ Azure Cosmos DB .NET Core Preview SDK에는 [Azure Cosmos DB .NET SDK](sql-api-s
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.0.0-preview2](#2.0.0-preview2) |2018년 7월 26일 |--- |
+| [2.0.0-preview](#2.0.0-preview) |2018년 5월 11일 |--- |
 | [1.9.1](#1.9.1) |2018년 3월 9일 |--- |
 | [1.8.2](#1.8.2) |2018년 2월 21일 |--- |
 | [1.8.1](#1.8.1) |2018년 2월 5일 |--- |

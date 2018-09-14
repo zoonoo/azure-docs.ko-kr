@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 08/22/2018
+ms.date: 09/04/2018
 ms.author: rolyon
-ms.openlocfilehash: 69313adea1719324e2b22b45c6a45535ea65097f
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: fbed0f5fb213a18f4450ee3aa96c3b8485b16e8b
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125045"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781329"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 사용 약관 기능
 Azure AD 사용 약관은 조직이 최종 사용자에게 정보를 제공하는 데 사용할 수 있는 간단한 방법을 제공합니다. 이 프레젠테이션은 사용자가 법률 또는 규정 준수 요구 사항에 대한 관련 고지 사항을 볼 수 있게 해줍니다. 이 문서는 Azure AD 사용 약관을 시작하는 방법을 설명합니다.
@@ -223,7 +223,7 @@ A: 기존 사용 약관 문서는 현재 업데이트할 수 없습니다. 사�
 A: PDF는 기본적으로 JPEG로 렌더링되므로 하이퍼링크를 클릭할 수 없습니다. 사용자는 **보는 데 문제가 있나요? 여기를 클릭하세요.** 를 선택하여 하이퍼링크가 지원되는 네이티브 PDF를 렌더링할 수 있습니다.
 
 **Q: 사용 약관에서 다중 언어를 지원할 수 있나요?**</br>
-A: 예.  현재 관리자가 단일 사용 약관에 대해 구성할 수는 18개의 다른 언어가 있습니다. 
+A: 예. 현재 관리자가 단일 사용 약관에 대해 구성할 수는 108개의 다른 언어가 있습니다.
 
 **Q: 사용 약관은 언제 트리거되나요?**</br>
 A: 사용 약관은 로그인 환경 중에 트리거됩니다.

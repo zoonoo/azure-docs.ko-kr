@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 08/29/2018
 ms.author: dobett
-ms.openlocfilehash: 4e23b70c8dc5fdacfd609fb4664a78293b9e2362
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 78956c8e9d9248708ec326fc07d46f48e51e0f83
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247648"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341263"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>IoT Hub의 ID 레지스트리 이해
 
@@ -85,12 +85,12 @@ API를 가져오고 내보내는 작업에 대한 자세한 정보는 [IoT Hub �
 
 ## <a name="device-heartbeat"></a>장치 하트비트
 
-IoT Hub ID 레지스트리는 **connectionState**라는 필드를 포함합니다. 개발 및 디버깅하는 동안 **connectionState** 필드만 사용합니다. IoT 솔루션은 런타임에 필드를 쿼리하면 안 됩니다. 예를 들어 클라우드-장치 메시지 또는 SMS를 보내기 전에 장치가 연결되었는지 확인하기 위해 **connectionState** 필드를 쿼리하지 마세요. 경고를 받고 장치 연결 상태를 모니터링하려면 Event Grid에서 [**장치 연결 끊김** 이벤트 ](https://docs.microsoft.com/azure/iot-hub/iot-hub-event-grid#event-types)를 구독하는 것이 좋습니다. 이 [자습서](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps)를 사용하여 IoT Hub의 이벤트를 IoT 솔루션에 통합하는 방법을 알아봅니다.
+IoT Hub ID 레지스트리는 **connectionState**라는 필드를 포함합니다. 개발 및 디버깅하는 동안 **connectionState** 필드만 사용합니다. IoT 솔루션은 런타임에 필드를 쿼리하면 안 됩니다. 예를 들어 클라우드-장치 메시지 또는 SMS를 보내기 전에 장치가 연결되었는지 확인하기 위해 **connectionState** 필드를 쿼리하지 마세요. 경고를 받고 장치 연결 상태를 모니터링하려면 Event Grid에서 [**장치 연결 끊김** 이벤트][lnk-devguide-evgrid-evtype]를 구독하는 것이 좋습니다. 이 [자습서][lnk-howto-evgrid-connstate]를 사용하여 IoT Hub의 장치 연결된 이벤트 및 장치 연결 해제된 이벤트를 IoT 솔루션에 통합하는 방법을 알아봅니다.
 
 IoT 솔루션에서 장치 연결 여부를 파악해야 하는 경우 *하트비트 패턴*을 구현할 수 있습니다.
 하트비트 패턴에서 장치는 정해진 시간에 최소 한 번(예: 1시간마다 최소 한 번) 장치-클라우드 메시지를 보냅니다. 따라서 장치가 보낼 데이터가 없는 경우 빈 장치-클라우드 메시지(이를 하트비트로 식별하는 속성을 가짐)라도 보낸다는 의미입니다. 서비스 쪽에서 솔루션은 각 장치에 대해 받은 마지막 하트비트와 함께 맵을 유지 관리합니다. 솔루션은 예상된 시간 내에 장치에서 보낸 하트비트 메시지를 받지 않을 경우 장치에 문제가 있다고 가정합니다.
 
-좀 더 복잡한 구현에서는 연결 또는 통신을 시도했지만 실패한 장치를 식별하기 위해 [작업 모니터링][lnk-devguide-opmon] 정보를 포함할 수 있습니다. 하트비트 패턴을 구현하는 경우 [IoT Hub 할당량 및 제한][lnk-quotas]을 확인해야 합니다.
+좀 더 복잡한 구현에서는 연결 또는 통신을 시도했지만 실패한 장치를 식별하기 위해 [Azure Monitor][lnk-AM] 및 [Azure Resource Health][lnk-ARH] 정보를 포함할 수 있습니다. [진단을 사용하여 모니터링][lnk-devguide-mon] 가이드를 확인하세요. 하트비트 패턴을 구현하는 경우 [IoT Hub 할당량 및 제한][lnk-quotas]을 확인해야 합니다.
 
 > [!NOTE]
 > IoT 솔루션에서 연결 상태만 사용하여 클라우드-장치 메시지를 보낼지 여부를 결정해야 하고 메시지가 큰 장치 집합으로 브로드캐스트되지 않는 경우 단순한 *짧은 만료 시간* 패턴 사용을 고려하세요. 이렇게 하면 이 패턴은 더 효율적으로 유지되면서 하트비트 패턴을 사용하여 장치 연결 상태 레지스트리를 유지 관리하는 것과 동일한 결과를 얻을 수 있습니다. 메시지 승인을 요청하면 IoT Hub는 메시지를 수신할 수 있는 장치와 수신할 수 없는 장치에 대해 알릴 수 있습니다.
@@ -256,7 +256,7 @@ IoT Hub Device Provisioning 서비스를 사용하여 무인 Just-In-Time 프로
 [lnk-rfc7232]: https://tools.ietf.org/html/rfc7232
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
 [lnk-export]: iot-hub-devguide-identity-registry.md#import-and-export-device-identities
-[lnk-devguide-opmon]: iot-hub-operations-monitoring.md
+[lnk-devguide-mon]: iot-hub-monitor-resource-health.md
 
 [lnk-devguide-security]: iot-hub-devguide-security.md
 [lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
@@ -265,3 +265,8 @@ IoT Hub Device Provisioning 서비스를 사용하여 무인 Just-In-Time 프로
 
 [lnk-getstarted-tutorial]: quickstart-send-telemetry-dotnet.md
 [lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
+
+[lnk-AM]: ../monitoring-and-diagnostics/index.yml
+[lnk-ARH]: ../service-health/resource-health-overview.md
+[lnk-devguide-evgrid-evtype]: iot-hub-event-grid.md#event-types
+[lnk-howto-evgrid-connstate]: iot-hub-how-to-order-connection-state-events.md

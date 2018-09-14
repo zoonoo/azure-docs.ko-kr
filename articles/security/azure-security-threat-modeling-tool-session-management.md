@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: cd843f1826ad65098a7c0f6d30383113ccd28f6a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 97953779f1132d89c7ad07abdb4e08c0f476f4b9
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306442"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841816"
 ---
-# <a name="security-frame-session-management--articles"></a>보안 프레임: 세션 관리 | Articles 
+# <a name="security-frame-session-management"></a>보안 프레임: 세션 관리
 | 제품/서비스 | 문서 |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[Azure AD를 사용하는 경우에 ADAL 메서드를 사용하여 적절한 로그아웃 구현](#logout-adal)</li></ul> |
@@ -380,36 +380,42 @@ void Page_Init (object sender, EventArgs e) {
 | **단계** | 세션 제한 시간은 사용자가 웹 서버에서 정의되는 간격 내에 웹 사이트에서 아무 작업도 수행하지 않는 경우 발생하는 이벤트를 나타냅니다. 서버 쪽의 이벤트는 사용자 세션의 상태를 '잘못됨'(즉, "더 이상 사용되지 않는")으로 변경하고 웹 서버가 해당 항목을 삭제하도록 지시합니다(포함된 모든 데이터 삭제). 다음 코드 예제에서는 Web.config 파일에서 시간 제한 세션 특성을 15분으로 설정합니다.|
 
 ### <a name="example"></a>예
-```XML 코드 <configuration> <system.web> <sessionState mode="InProc" cookieless="true" timeout="15" /> </system.web> </configuration>
+```XML 
+<configuration>
+  <system.web>
+    <sessionState mode="InProc" cookieless="true" timeout="15" />
+  </system.web>
+</configuration>
 ```
 
-## <a id="threat-detection"></a>Enable Threat detection on Azure SQL
-```
-
-| 제목                   | 세부 정보      |
-| ----------------------- | ------------ |
-| **구성 요소**               | 웹 응용 프로그램 | 
-| **SDL 단계**               | 빌드 |  
-| **적용 가능한 기술** | 웹 양식 |
-| **특성**              | 해당 없음  |
-| **참조**              | [인증(ASP.NET 설정 스키마)에 대한 양식 요소](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
-| **단계** | 양식 인증 티켓 쿠키 시간 제한을 15분으로 설정|
-
-### <a name="example"></a>예
-```XML 코드 <forms  name=".ASPXAUTH" loginUrl="login.aspx"  defaultUrl="default.aspx" protection="All" timeout="15" path="/" requireSSL="true" slidingExpiration="true"/>
-</forms>
+## <a id="threat-detection"></a>Azure SQL에서 위협 감지 사용
 ```
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
 | **Component**               | Web Application | 
 | **SDL Phase**               | Build |  
-| **Applicable Technologies** | Web Forms, MVC5 |
-| **Attributes**              | EnvironmentType - OnPrem |
-| **References**              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
-| **Steps** | When the web application is Relying Party and ADFS is the STS, the lifetime of the authentication cookies - FedAuth tokens - can be set by the following configuration in web.config:|
+| **Applicable Technologies** | Web Forms |
+| **Attributes**              | N/A  |
+| **References**              | [forms Element for authentication (ASP.NET Settings Schema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
+| **Steps** | Set the Forms Authentication Ticket cookie timeout to 15 minutes|
 
 ### Example
+```XML
+<forms  name=".ASPXAUTH" loginUrl="login.aspx"  defaultUrl="default.aspx" protection="All" timeout="15" path="/" requireSSL="true" slidingExpiration="true"/>
+</forms>
+```
+
+| 제목                   | 세부 정보      |
+| ----------------------- | ------------ |
+| **구성 요소**               | 웹 응용 프로그램 | 
+| **SDL 단계**               | 빌드 |  
+| **적용 가능한 기술** | 웹 양식, MVC5 |
+| **특성**              | EnvironmentType - OnPrem |
+| **참조**              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
+| **단계** | 웹 응용 프로그램이 신뢰 당사자이고, ADFS가 STS인 경우 인증 쿠키(FedAuth 토큰)의 수명은 web.config에서 다음 구성으로 설정할 수 있습니다.|
+
+### <a name="example"></a>예
 ```XML
   <system.identityModel.services>
     <federationConfiguration>

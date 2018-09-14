@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: dfca26f36287cfd856beb98edeb2b2362f36bc4b
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b54a302c022a8af84c1964c13ffadc52b45c4ca4
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858809"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696822"
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Azure Functions를 통한, 서버를 사용하지 않는 데이터베이스 컴퓨팅
 
@@ -31,7 +31,7 @@ Azure Cosmos DB 및 Azure Functions를 사용하면 다음과 같은 방법으�
 * **출력 바인딩**을 사용하여 함수를 Azure Cosmos DB 컨테이너에 바인딩합니다. 출력 바인딩은 함수가 완료될 때 컨테이너에 데이터를 씁니다.
 
 > [!NOTE]
-> 이때 Azure Cosmos DB 트리거, 입력 바인딩 및 출력 바인딩은 SQL API 및 Graph API 계정에서만 작동합니다.
+> 이때 Azure Cosmos DB 트리거, 입력 바인딩 및 출력 바인딩은 SQL API 및 Gremlin API 계정에서만 작동합니다.
 
 다음 다이어그램은 다음 세 가지 통합을 각각 보여 줍니다. 
 
@@ -82,7 +82,7 @@ IoT 구현에서는 검사 엔진 라이트가 커넥티드 자동차에 표시�
 
 ### <a name="gaming-use-case---azure-cosmos-db-trigger-and-output-binding"></a>게임 사용 사례 - Azure Cosmos DB 트리거 및 출력 바인딩
 
-게임에서 새 사용자가 생성되면 [Azure Cosmos DB Graph API](graph-introduction.md)를 사용하여 알 수 있는 다른 사용자를 검색할 수 있습니다. 그런 다음 검색하기 쉽도록 [Azure Cosmos DB SQL 데이터베이스]에 결과를 쓸 수 있습니다.
+게임에서 새 사용자가 생성되면 [Azure Cosmos DB Gremlin API](graph-introduction.md)를 사용하여 알 수 있는 다른 사용자를 검색할 수 있습니다. 그런 다음 검색하기 쉽도록 [Azure Cosmos DB SQL 데이터베이스]에 결과를 쓸 수 있습니다.
 
 **구현:** Azure Cosmos DB 트리거 및 출력 바인딩 사용
 

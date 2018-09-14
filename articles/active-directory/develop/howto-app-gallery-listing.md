@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/14/2018
+ms.date: 08/31/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 8c9d1ee51acdfff188e0d6483f723fbb08e17bd5
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: e5db7b9bed674011c2922f026c301172f347f53f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39601207"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666311"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory 응용 프로그램 갤러리에 응용 프로그램 나열
 
@@ -45,11 +45,23 @@ Azure AD(Azure Active Directory)는 클라우드 기반 ID 서비스입니다. [
 
 *  SCIM를 사용하는 고객은 동일한 앱에 프로비전을 사용할 수 있습니다.
 
-##  <a name="prerequisites-implement-federation-protocol"></a>필수 구성 요소: 페더레이션 프로토콜 구현
+## <a name="prerequisites"></a>필수 조건
+
+- 페더레이션 응용 프로그램(Open ID 및 SAML/WS-Fed)의 경우 응용 프로그램은 Azure AD 갤러리에 나열된 SaaS 모델을 지원해야 합니다. 엔터프라이즈 갤러리 응용 프로그램은 특정 고객이 아닌 여러 고객 구성을 지원해야 합니다.
+
+- Open ID Connect의 경우 응용 프로그램은 다중 테넌트화되어야 하며, [Azure AD 동의 프레임워크](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework)는 응용 프로그램에 대해 올바르게 구현되어야 합니다. 모든 고객이 응용 프로그램에 동의를 제공할 수 있도록 사용자가 공통 엔드포인트에 로그인 요청을 보낼 수 있습니다. 토큰에 수신된 테넌트 ID 및 사용자의 UPN을 기반으로 사용자 액세스를 제어할 수 있습니다.
+
+- SAML 2.0/WS-Fed의 경우 SP 또는 IDP 모드에서 SAML/WS-Fed SSO 통합을 수행하는 기능이 응용 프로그램에 있어야 합니다. 요청을 제출하기 전에 제대로 작동하는지 확인하세요.
+
+- 암호 SSO의 경우 암호 보관을 수행하여 Single Sign-On이 예상대로 작동할 수 있도록 응용 프로그램이 폼 인증을 지원하는지 확인하세요.
+
+- 자동 사용자 프로비전 요청의 경우 응용 프로그램이 위에서 설명한 페더레이션 프로토콜 중 하나를 사용하여 Single Sign-On 기능이 활성화된 갤러리에 나열되어야 합니다. 아직 나열되어 있지 않은 경우 포털에서 SSO 및 사용자 프로비저닝을 함께 요청할 수 있습니다.
+
+##  <a name="implementing-sso-using-federation-protocol"></a>페더레이션 프로토콜을 사용하여 SSO 구현
 
 Azure AD 앱 갤러리에 응용 프로그램을 나열하려면 먼저 Azure AD에서 지원하는 다음 페더레이션 프로토콜 중 하나를 구현하고 Azure AD 응용 프로그램 갤러리 사용 약관에 동의해야 합니다.  Azure AD 응용 프로그램 갤러리의 사용 약관은 [여기](https://azure.microsoft.com/en-us/support/legal/active-directory-app-gallery-terms/)에서 확인하세요.
 
-*   **OpenID Connect**: Azure AD에서 다중 테넌트 응용 프로그램을 만들고 응용 프로그램에 [Azure AD 승인 프레임워크](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework)를 구현합니다. 모든 고객이 응용 프로그램에 동의를 제공할 수 있도록 공통 끝점에 로그인 요청을 보냅니다. 토큰에 수신된 테넌트 ID 및 사용자의 UPN을 기반으로 사용자 액세스를 제어할 수 있습니다. 응용 프로그램과 Azure AD를 통합하려면 [개발자 지침](authentication-scenarios.md)을 수행합니다.
+*   **OpenID Connect**: Open ID Connect 프로토콜을 사용하여 Azure AD를 통해 응용 프로그램을 통합하려면 [개발자 지침](authentication-scenarios.md)을 수행합니다.
 
     ![갤러리에 OpenID Connect 응용 프로그램을 나열하는 타임라인](./media/howto-app-gallery-listing/openid.png)
 
@@ -57,21 +69,23 @@ Azure AD 앱 갤러리에 응용 프로그램을 나열하려면 먼저 Azure AD
 
     * 액세스 관련 문제가 발생하면 [Azure AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의하세요. 
 
-*   **SAML 2.0** 또는 **WS-Fed**: SP 또는 IDP 모드에서 SAML/WS-Fed SSO 통합을 수행하는 기능이 응용 프로그램에 있어야 합니다. 앱이 SAML 2.0을 지원하는 경우 [사용자 지정 응용 프로그램을 추가하는 지침](../active-directory-saas-custom-apps.md)을 사용하여 Azure AD 테넌트와 직접 통합할 수 있습니다.
+*   **SAML 2.0** 또는 **WS-Fed**: 앱이 SAML 2.0을 지원하는 경우 [사용자 지정 응용 프로그램을 추가하는 지침](../active-directory-saas-custom-apps.md)을 사용하여 Azure AD 테넌트와 직접 통합할 수 있습니다.
 
     ![갤러리에 SAML 2.0 또는 WS-Fed 응용 프로그램을 나열하는 타임라인](./media/howto-app-gallery-listing/saml.png)
 
     * **SAML 2.0** 또는 **WS-Fed**를 사용하여 갤러리에 나열할 응용 프로그램을 추가하려면 위와 같이 **SAMl 2.0/WS-Fed**를 선택합니다.
 
-    * 액세스 관련 문제가 발생하면 [Azure AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의하세요. 
-
-*   **암호 SSO**: HTML 로그인 페이지가 있는 웹 응용 프로그램을 만들어서 [암호 기반 SSO(Single Sign-On)](../manage-apps/what-is-single-sign-on.md)를 구성합니다. 암호 보관이라고도 하는 암호 기반 SSO를 사용하면 ID 페더레이션을 지원하지 않는 웹 응용 프로그램에 대한 사용자 액세스 및 암호를 관리할 수 있습니다. 여러 사용자가 조직의 소셜 미디어 앱 계정과 같은 단일 계정을 공유해야 하는 시나리오에도 유용합니다.
-
-    ![갤러리에 암호 SSO 응용 프로그램을 나열하는 타임라인](./media/howto-app-gallery-listing/passwordsso.png)
-
-    * 암호 SSO를 사용하여 갤러리에 나열할 응용 프로그램을 추가하려면 위와 같이 **암호 SSO**를 선택합니다.
-
     * 액세스 관련 문제가 발생하면 [Azure AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의하세요.
+
+## <a name="implementing-sso-using-password-sso"></a>암호 SSO를 사용하여 SSO 구현
+
+HTML 로그인 페이지가 있는 웹 응용 프로그램을 만들어서 [암호 기반 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 구성합니다. 암호 보관이라고도 하는 암호 기반 SSO를 사용하면 ID 페더레이션을 지원하지 않는 웹 응용 프로그램에 대한 사용자 액세스 및 암호를 관리할 수 있습니다. 여러 사용자가 조직의 소셜 미디어 앱 계정과 같은 단일 계정을 공유해야 하는 시나리오에도 유용합니다.
+
+![갤러리에 암호 SSO 응용 프로그램을 나열하는 타임라인](./media/howto-app-gallery-listing/passwordsso.png)
+
+* 암호 SSO를 사용하여 갤러리에 나열할 응용 프로그램을 추가하려면 위와 같이 **암호 SSO**를 선택합니다.
+
+* 액세스 관련 문제가 발생하면 [Azure AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의하세요.
 
 ##  <a name="updateremove-existing-listing"></a>기존 목록 업데이트/제거
 
@@ -80,7 +94,7 @@ Azure AD 앱 갤러리에서 기존 응용 프로그램을 업데이트 또는 �
 * 아래 이미지에서 적절한 옵션 선택
 
     ![SAML 응용 프로그램을 갤러리 목록에 올리는 타임라인](./media/howto-app-gallery-listing/updateorremove.png)
-    
+
     * 기존 응용 프로그램을 업데이트하려는 경우 **기존 응용 프로그램 목록 업데이트**를 선택합니다.
 
     * Azure AD 갤러리에서 기존 응용 프로그램을 제거하려는 경우 **기존 응용 프로그램 목록 제거**를 선택합니다.

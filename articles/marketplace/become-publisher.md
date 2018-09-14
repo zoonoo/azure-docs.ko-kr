@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4d37aba665fd9b6de89f683ce2785a14b1b6f60b
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: c6f074b84b099f6ea5023967fdae7e44d5e9d545
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412018"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666387"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>클라우드 Marketplace 게시자 되기
 
@@ -74,7 +74,8 @@ Microsoft 계정(예: *@outlook.com 또는 @live.com*)은 많은 Microsoft 장�
 
 ---  
 ## <a name="4-sign-into-cloud-partner-portal"></a>4. Cloud 파트너 포털에 로그인
-| 1-3일 | Marketplace 온보딩 팀은 3단계에서 제공된 마켓플레이스 등록 세부 정보를 검토하고 유효성을 검사합니다. 승인되면 계정 자격 증명 및 [Cloud 파트너 포털](https://cloudpartner.azure.com)에 로그인에 대한 지침이 포함된 환영 이메일을 받습니다.
+| 1-3일 | <br>
+Marketplace 온보딩 팀은 3단계에서 제공된 Marketplace 등록 세부 정보를 검토하고 유효성을 검사합니다. 승인되면 계정 자격 증명 및 [Cloud 파트너 포털](https://cloudpartner.azure.com)에 로그인에 대한 지침이 포함된 환영 이메일을 받습니다.
 
 [Cloud 파트너 포털](https://cloudpartner.azure.com)을 사용하여 마켓플레이스 제품을 만들고, 게시 및 관리합니다. 승인 환영 이메일을 받으면 즉시 Microsoft 계정으로 [Cloud 파트너 포털](https://cloudpartner.azure.com)에 로그인하여 마켓플레이스에 게시 및 제품 만들기에 대한 추가 기술 정보에 액세스할 수 있습니다. 
 *   Cloud 파트너 포털 사용에 대한 자세한 내용은 [학습 섹션에서 시작 문서를 방문](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal)하세요. 이러한 세부 정보에 액세스하려면 Cloud 파트너 포털에 로그인해야 합니다.

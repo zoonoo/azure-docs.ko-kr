@@ -11,16 +11,24 @@ ms.topic: article
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: douge
-ms.openlocfilehash: 001d58aa22d4fc52acebfc88ba07d2467c1be08e
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: b66e43c0f40f184bfb2c62327f5742346ff8b187
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141566"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841612"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
 
 이 가이드는 Azure Dev Spaces를 사용할 때 발생할 수 있는 일반적인 문제에 대한 정보를 포함합니다.
+
+## <a name="enabling-detailed-logging"></a>자세한 로깅 사용
+
+문제를 더 효과적으로 해결하기 위해 검토에 대한 더 자세한 로그를 만드는 게 유용할 수 있습니다.
+
+Visual Studio 확장의 경우 `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` 환경 변수를 1로 설정하면 이를 수행할 수 있습니다. 환경 변수가 적용되도록 Visual Studio를 다시 시작해야 합니다. 사용하도록 설정하면 자세한 로그가 사용자 `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` 디렉터리에 작성됩니다.
+
+CLI에서 `--verbose` 전환을 사용하여 명령을 실행하는 동안 자세한 정보를 출력할 수 있습니다.
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>'Azure Dev Spaces 컨트롤러를 만들지 못했음' 오류
 
@@ -106,6 +114,16 @@ azds.exe가 설치되지 않았거나 올바르게 구성되지 않은 경우 �
     ```cmd
     az aks use-dev-spaces -n <cluster-name> -g <resource-group>
     ```
+
+## <a name="warning-dockerfile-could-not-be-generated-due-to-unsupported-language"></a>경고 ‘지원되지 않는 언어로 인해 Dockerfile을 생성할 수 없습니다’
+Azure Dev Spaces는 C# 및 Node.js에 대해 네이티브 지원을 제공합니다. 이러한 언어 중 하나로 작성된 코드를 포함하는 디렉터리에서 *azds prep*를 실행할 때 Azure Dev Spaces는 자동으로 적절한 Dockerfile을 만듭니다.
+
+다른 언어로 작성된 코드를 사용하여 Azure Dev Spaces를 계속 사용할 수 있지만, 처음으로 *azds up*을 실행하기 전에는 Dockerfile을 직접 만들어야 합니다.
+
+### <a name="try"></a>다음을 시도해 보세요.
+응용 프로그램이 Azure Dev Spaces가 고유하게 지원하지 않는 언어로 작성된 경우 코드를 실행하는 컨테이너 이미지를 빌드하기 위해 적절한 Dockerfile을 제공해야 합니다. Docker는 이를 수행하는 데 유용할 수 있는 [Dockerfile 참조](https://docs.docker.com/engine/reference/builder/)와 함께 [Dockerfile 작성에 대한 모범 사례 목록](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)을 제공합니다.
+
+적절한 Dockerfile을 만들고 나면 *azds up*을 계속 실행하여 Azure Dev Spaces에서 응용 프로그램을 실행할 수 있습니다.
 
 ## <a name="error-upstream-connect-error-or-disconnectreset-before-headers"></a>오류 '업스트림 연결 오류 또는 헤더 전에 연결 끊김/다시 설정'
 서비스에 액세스하려고 할 때 이 오류가 표시될 수 있습니다. 예를 들어 브라우저에서 서비스의 URL로 이동하는 경우입니다. 

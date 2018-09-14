@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4710e30ad38485f47c115ac2e0e914e91c96d582
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8cab491a874094ee195f12ba6fe7f19a87f09ef2
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522184"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841952"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory Seamless Single Sign-On: 빠른 시작
 
@@ -42,6 +42,9 @@ Seamless SSO를 배포하려면 다음 단계를 수행합니다.
     >Azure AD Connect 버전 1.1.557.0, 1.1.558.0, 1.1.561.0 및 1.1.614.0에는 암호 해시 동기화와 관련된 문제가 있습니다. 암호 해시 동기화를 통과 인증과 함께 사용하지 _않으려는_ 경우 자세한 내용은 [Azure AD Connect 릴리스 정보](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470)를 참조하세요.
 
 * **지원되는 Azure AD Connect 토폴로지 사용**: [여기](active-directory-aadconnect-topologies.md)에서 설명한 Azure AD Connect의 지원되는 토폴로지 중 하나를 사용하는지 확인합니다.
+
+    >[!NOTE]
+    >Seamless SSO는 서로 간에 AD 트러스트가 있는지 여부를 나타내는 여러 AD 포리스트를 지원합니다.
 
 * **도메인 관리자 자격 증명 설정**: 각 Active Directory 포리스트에 대한 도메인 관리자 자격 증명이 있어야 합니다.
     * Azure AD Connect를 통해 Azure AD에 동기화합니다.
@@ -180,7 +183,7 @@ Mozilla Firefox는 Kerberos 인증을 자동으로 사용하지 않습니다. �
 
 #### <a name="safari-macos"></a>Safari(macOS)
 
-macOS를 실행하는 머신이 AD에 가입되어 있는지 확인합니다. AD 가입에 지침은 [Active Directory와 통합 OS X에 대한 모범 사례](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf)를 참조하세요.
+macOS를 실행하는 머신이 AD에 가입되어 있는지 확인합니다. macOS 장치의 AD 가입에 대한 지침은 이 문서에서 다루지 않습니다.
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome(모든 플랫폼)
 

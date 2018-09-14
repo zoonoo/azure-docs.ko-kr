@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 7bbcaa82b1072b8cbdea015195a8da03ceb3a25f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: bd456e0f881f606f36f2b4d80e704ce138f7db0f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056762"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666435"
 ---
 # <a name="deploy-a-configuration-server"></a>구성 서버 배포
 
@@ -42,7 +42,7 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
 | 12개 vCPU(2개 소켓 * 6코어 \@ 2.5GHz) |18GB |600GB |500GB ~ 1TB |100 ~ 150대 컴퓨터를 복제합니다. |
 | 16개 vCPU(2개 소켓 * 8코어 \@ 2.5GHz) |32GB |1TB |1TB ~ 2TB |150 ~ 200대 컴퓨터를 복제합니다. |
 
-둘 이상의 VMware VM을 복제하는 경우 [용량 계획 고려 사항](/site-recovery-plan-capacity-vmware.md)을 참조하세요. VMware 복제를 위한 [Deployment Planner 도구](site-recovery-deployment-planner.md)를 실행합니다.
+둘 이상의 VMware VM을 복제하는 경우 [용량 계획 고려 사항](https://docs.microsoft.com/azure/site-recovery/site-recovery-plan-capacity-vmware)을 참조하세요. VMware 복제를 위한 [Deployment Planner 도구](site-recovery-deployment-planner.md)를 실행합니다.
 
 ## <a name="download-the-template"></a>템플릿 다운로드
 
@@ -81,7 +81,7 @@ OVA 템플릿과 함께 제공되는 라이선스는 180일 동안 유효한 평
 
 1. VSphere 클라이언트 인벤토리에서 VM을 마우스 오른쪽 단추로 클릭하고 **설정 편집**을 선택합니다.
 2. **하드웨어**에서 **추가** > **이더넷 어댑터**를 선택합니다. 그런 후 **다음**을 선택합니다.
-3. 어댑터 유형 및 네트워크를 선택합니다. 
+3. 어댑터 유형 및 네트워크를 선택합니다.
 4. VM이 켜질 때 가상 NIC에 연결하려면 **전원이 켜지면 연결**을 선택합니다. 그런 다음, **다음** > **마침** > **확인**을 선택합니다.
 
 ## <a name="register-the-configuration-server-with-azure-site-recovery-services"></a>Azure Site Recovery 서비스에 구성 서버 등록
@@ -102,7 +102,7 @@ OVA 템플릿과 함께 제공되는 라이선스는 180일 동안 유효한 평
 
     > [!NOTE]
     > Recovery Services 자격 증명 모음은 등록되면 변경할 수 없습니다.
-    
+
 3. **타사 소프트웨어 설치**에서 다음을 수행합니다.
 
     |시나리오   |수행할 단계  |
@@ -144,6 +144,10 @@ OVA 템플릿과 함께 제공되는 라이선스는 180일 동안 유효한 평
 ## <a name="upgrade-the-configuration-server"></a>구성 서버 업그레이드
 
 구성 서버를 최신 버전으로 업그레이드하려면 [여기에서](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) 지정된 단계를 읽어 보세요.
+
+## <a name="manage-the-configuration-server"></a>구성 서버 관리
+
+진행 중인 복제가 중단되지 않도록 하려면 구성 서버가 자격 증명 모음에 등록된 후 구성 서버의 IP 주소가 변경되지 않아야 합니다. [여기](vmware-azure-manage-configuration-server.md)에서 일반 구성 서버 관리 작업에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="troubleshoot-deployment-issues"></a>배포 문제 해결
 

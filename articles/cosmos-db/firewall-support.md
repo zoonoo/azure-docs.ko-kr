@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: govindk
-ms.openlocfilehash: 7c9367cccf8d59d60dfa474f02567d59b9c8c8c2
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: b21debdd6baa0a6587318ad861a821840ec6879c
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038422"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666700"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Azure Cosmos DB 방화벽 지원
 Azure Cosmos DB 데이터베이스 계정에 저장된 데이터를 보호하기 위해 Azure Cosmos DB는 강력한 HMAC(해시 기반 메시지 인증 코드)를 활용하는 암호 기반 [권한 부여 모델](https://msdn.microsoft.com/library/azure/dn783368.aspx)을 지원했습니다. 이제 Azure Cosmos DB는 암호 기반 권한 부여 모델 외에도 인바운드 방화벽 지원에 대한 정책 중심 IP 기반 액세스 제어를 지원합니다. 이 모델은 기존 데이터베이스 시스템의 방화벽 규칙과 유사하며 Azure Cosmos DB 데이터베이스 계정에 추가 보안 수준을 제공합니다. 이제 이 모델에서는 승인된 컴퓨터 및/또는 클라우드 서비스에서만 액세스할 수 있도록 Azure Cosmos DB 데이터베이스 계정을 구성할 수 있습니다. 이러한 승인된 컴퓨터 및 서비스에서 Azure Cosmos DB 리소스에 액세스하려면 여전히 호출자가 유효한 권한 부여 토큰을 제공해야 합니다.
@@ -57,7 +57,12 @@ Azure Portal에서 방화벽 설정을 **선택한 네트워크**로 변경하�
 ![Azure Portal 액세스를 사용하도록 설정하는 방법을 보여 주는 스크린샷](./media/firewall-support/enable-azure-portal.png)
 
 ## <a name="connections-from-global-azure-datacenters-or-azure-paas-services"></a>전역 Azure 데이터 센터 또는 Azure PaaS 서비스에서 연결
-Azure에서 Azure Stream Analytics, Azure Functions 및 Azure App Service 같은 PaaS 서비스는 Azure Cosmos DB와 함께 사용됩니다. IP 주소를 즉시 사용할 수 없는 서비스에서 Azure Cosmos DB 데이터베이스 계정에 액세스할 수 있게 하려면 Azure Cosmos DB 데이터베이스 계정과 프로그래밍 방식으로 연결된 허용되는 IP 주소 목록에 IP 주소 0.0.0.0을 추가해야 합니다. 
+
+Azure Stream Analytics와 같은 Azure PaaS 서비스인 Azure Functions 등은 Azure Cosmos DB와 함께 사용됩니다. 다른 Azure PaaS 서비스의 응용 프로그램을 Azure Cosmos DB 리소스에 연결하도록 허용하려면 방화벽 설정을 사용하도록 설정해야 합니다. 이 방화벽 설정을 사용하도록 설정하려면 허용되는 IP 주소 목록에 IP 주소 0.0.0.0을 추가합니다. 0.0.0.0은 Azure Cosmos DB 계정에서 Azure 데이터 센터 IP 범위로의 연결을 제한합니다. 이 설정은 Azure Cosmos DB 계정에 대한 다른 IP 범위의 액세스를 허용하지 않습니다.
+
+> [!IMPORTANT]
+> 이 옵션은 다른 고객 구독에서의 연결을 포함하여 Azure에서의 모든 연결을 허용하도록 방화벽을 구성합니다. 이 옵션을 선택할 때 로그인 및 사용자 권한이 부여된 사용자만으로 액세스를 제한하는지 확인합니다.
+> 
 
 Azure Portal에서 방화벽 설정을 **선택한 네트워크**로 변경하면, 기본적으로 전역 Azure 데이터 센터 내에서 연결에 대한 액세스를 사용하도록 설정됩니다. 
 

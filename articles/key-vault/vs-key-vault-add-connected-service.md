@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: 5b3cea87e7762e492432722c54a1a8aaa342b84a
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: d2ab34b3737ec00e4adc464f6d2255203fb6ae08
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42142534"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43840622"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Visual Studio 연결된 서비스를 사용하여 웹 응용 프로그램에 Key Vault 추가
 
@@ -74,6 +74,10 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
 
 ## <a name="access-your-secrets-in-code-aspnet-core-projects"></a>코드에서 비밀에 액세스(ASP.NET Core 프로젝트)
 
+Key Vault에 대한 연결은 [IHostingStartup을 사용하여 ASP.NET Core에서 외부 어셈블리에서 앱 강화](/aspnet/core/fundamentals/host/platform-specific-configuration)에 설명된 시작 동작 확장 방법을 사용하여 [Microsoft.AspNetCore.Hosting.IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup?view=aspnetcore-2.1)을 구현하는 클래스에서 시작할 때 설정됩니다. 시작 클래스는 다음과 같은 Key Vault 연결 정보를 포함하는 두 개의 환경 변수 사용합니다. true로 설정된 ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONENABLED 및 Key Vault URL로 설정된 ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONVAULT. 이러한 항목은 **연결된 서비스 추가** 프로세스를 통해 실행할 때 launchsettings.json 파일에 추가됩니다.
+
+비밀에 액세스하려면:
+
 1. Visual Studio의 ASP.NET Core 프로젝트에서 이제 코드에 다음 식을 사용하여 이러한 비밀을 참조할 수 있습니다.
  
    ```csharp
@@ -99,6 +103,10 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
 1. 웹 응용 프로그램을 빌드 및 실행하고, 정보 페이지로 이동한 다음, “비밀” 값을 확인합니다.
 
 ## <a name="access-your-secrets-in-code-aspnet-471-projects"></a>코드에서 비밀에 액세스(ASP.NET 4.7.1 프로젝트)
+
+Key Vault에 대한 연결은 **연결된 서비스 추가** 프로세스를 통해 실행할 때 web.config 파일에 추가된 정보를 사용하여 ConfigurationBuilder 클래스에 의해 설정됩니다.
+
+비밀에 액세스하려면:
 
 1. web.config를 다음과 같이 수정합니다. 키는 Key Vault의 암호 값을 사용하여 AzureKeyVault ConfigurationBuilder로 바뀌는 자리 표시자입니다.
 

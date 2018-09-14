@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/25/2018
 ms.author: saurse
-ms.openlocfilehash: e7a63167285c06fdfe632e7d45d9fddd3cca7842
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 2c8978cfba8fc56d4dbc565cb3a91c75d9d54679
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248525"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700198"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent-issues"></a>MARS(Microsoft Azure Recovery Services) 에이전트 문제 해결
 ## <a name="recommended-steps"></a>권장되는 단계
@@ -66,7 +66,10 @@ MARS 에이전트를 사용하여 구성, 등록, 백업 및 복원 중 오류�
 <li>'Microsoft OnlineBackup' 작업을 두 번 클릭하고 '트리거' 탭으로 이동합니다.
 <li>작업의 '상태'가 '사용'으로 설정되어 있는지 확인합니다. 그렇지 않은 경우 '편집'을 클릭하고 '사용' 확인란을 선택합니다.
 <li>*일반* 탭의 *보안 옵션* 섹션으로 이동합니다. 
-<li>작업을 실행하도록 선택된 사용자 계정이 서버에서 *시스템* 또는 로컬 관리자 그룹인지 확인합니다. > [!TIP] 위의 단계를 수행한 후에는 변경 내용이 일관되게 적용되도록 다시 부팅하는 것이 좋습니다.
+<li>작업 실행을 위해 선택한 사용자 계정이 *시스템* 또는 서버의 로컬 관리자 그룹 중 하나인지 확인합니다.
+
+> [!TIP]
+> 변경 내용이 일관되게 적용되었는지 확인하려면 위의 단계를 수행한 후 서버를 다시 부팅하는 것이 좋습니다.
 
 
 ## <a name="troubleshooting-restore-issues"></a>복원 문제 해결

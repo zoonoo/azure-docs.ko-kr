@@ -10,12 +10,12 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 04/21/2018
 ms.author: saneppal
-ms.openlocfilehash: 0a0eeb3815b793ed81f60b2b239bc459e5574788
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 18eae69867dc9774f63b11c762b22df4595bdce6
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376375"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781750"
 ---
 # <a name="integrate-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>QnA Maker와 LUIS를 통합하여 기술 자료 배포
 QnA Maker 기술 자료가 확장되면 단일 모놀리식 집합으로 유지 관리하기가 어려워지며, 기술 자료를 보다 작은 논리적 청크로 분할해야 합니다.
@@ -32,8 +32,8 @@ QnA Maker에서 간단하게 여러 기술 자료를 만들 수 있지만, 들�
 - [LUIS](https://www.luis.ai/) 포털에 로그인하고 [앱을 만듭니다](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/create-new-app).
 - 시나리오에 따라 [의도를 추가](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-intents)합니다.
 - LUIS 앱을 [학습](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-train)하고 [게시](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/publishapp)합니다.
-- [QnA Maker](https://qnamaker.ai)에 로그인하고 시나리오에 따라 [기술 자료를 만듭니다]().
-- 기술 자료를 [테스트]()하고 [게시]()합니다.
+- [QnA Maker](https://qnamaker.ai)에 로그인하고 시나리오에 따라 기술 자료를 [만듭니다](https://www.qnamaker.ai/Create).
+- 기술 자료를 테스트하고 게시합니다.
 
 ## <a name="qna-maker--luis-bot"></a>QnA Maker + LUIS 봇
 1. 먼저 LUIS 템플릿을 사용하여 웹앱 봇을 만들고, 위에서 만든 LUIS 앱과 연결한 다음, 의도를 수정합니다. [여기](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample)에서 자세한 단계를 참조하세요.

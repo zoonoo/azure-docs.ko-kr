@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/17/2018
 ms.author: tomsh
-ms.openlocfilehash: 933d0f60b902ae2cb0abcde2ca39a58e59457c6b
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: cc922762f84b3a0658d503c4bfa6eb0079173e4e
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42143340"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841550"
 ---
 # <a name="azure-security-white-papers"></a>Azure 보안 백서
 | | |
@@ -30,7 +30,8 @@ ms.locfileid: "42143340"
 |[Azure 로깅 및 감사](azure-log-audit.md)|Azure에 호스트된 서비스에서 보안 로그를 생성, 수집 및 분석하는 방법을 소개합니다. 이러한 로그는 Azure 배포에 대한 보안 정보를 얻는 데 유용할 수 있습니다. |
 |[Azure 네트워크 보안](abstract-azure-network-security.md)|Azure에 배포하는 솔루션의 보안을 강화하기 위해 구성할 수 있는 다양한 네트워크 제어를 소개합니다. 고객용 네트워크 보안 제어를 중점적으로 설명합니다.|
 |[Azure Functions 및 서버를 사용하지 않는 플랫폼 보안](https://gallery.technet.microsoft.com/Azure-Functions-and-c6449f8d/file/202175/1/Microsoft%20Serverless%20Platform.pdf)|다운로드가 가능한 이 백서에서는 Azure의 컨텍스트에서 보안 고려 사항 및 완화 방법 뿐만 아니라 서버 없는 컴퓨팅의 이점을 설명합니다. |
-|[Azure 운영 보안](azure-operational-security.md)|Azure에서 사용할 수 있는 고객용 운영 보안 기술 및 서비스에 대해 포괄적으로 설명합니다.|
+|[Microsoft Azure의 컨테이너 보안](abstract-container-security-microsoft-azure.md)|컨테이너, 컨테이너 배포 및 관리, 네이티브 플랫폼 서비스를 설명합니다. 또한 Azure 플랫폼에서 컨테이너 사용과 관련하여 발생하는 런타임 보안 문제를 설명합니다. |
+|[Azure 운영 보안](abstract-azure-operational-security.md)|Azure에서 사용할 수 있는 고객용 운영 보안 기술 및 서비스에 대해 포괄적으로 설명합니다.|
 |[Azure 보안 기술 기능](azure-security-technical-capabilities.md)|Azure Storage, Azure SQL Database, Azure 가상 머신 모델, 이 모두를 관리하는 도구 및 인프라를 지원하는 보안 기능 및 특성을 중점적으로 설명합니다.|
 |[Azure Storage 보안 가이드](https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |Azure Storage에서 사용할 수 있는 각 보안 기능에 대해 간략히 설명합니다. 관리 평면 보안, 데이터 평면 보안, 미사용 시 암호화, 즉시 암호화, 저장소 분석 등을 다룹니다.|
 |[클라우드 준비를 위한 데이터 분류](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03/file/172083/1/Data%20Classification%20for%20Cloud%20Readiness%20(2017-04-11).pdf)  |이 문서는 다운로드할 수 있으며 클라우드 컴퓨팅 컨텍스트에서 데이터 분류의 기본 사항과 가치를 소개합니다. 향후 사용할 클라우드 컴퓨팅을 평가하는 조직이나 현재 클라우드 서비스를 사용 중이며 데이터 관리를 최적화하는 방법을 찾고 있는 조직은 이 문서를 참조하면 도움을 얻을 수 있습니다.|

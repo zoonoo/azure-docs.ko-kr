@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: 0e1ebd8868cfe5ef69a09219ffc82092fb85a4c8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f14ffc7bfbdabdd93e7743c7932dae1af7730e60
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527089"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781567"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Azure Key Vault의 고객 관리 키를 사용하는 Storage 서비스 암호화
 Microsoft Azure는 고객 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호하도록 지원하는 데 최선을 다하고 있습니다. Azure 저장소 플랫폼이 데이터를 보호하는 한 가지 방법은 데이터를 저장소에 쓸 때 암호화하고 데이터를 검색할 때 암호를 해독하는 SSE(저장소 서비스 암호화)를 사용하는 것입니다. 암호화 및 암호 해독은 자동으로 적용되며 투명하고, 사용 가능한 가장 강력한 블록 암호 중 하나인 256비트 [AES 암호화](https://wikipedia.org/wiki/Advanced_Encryption_Standard)를 사용합니다.
@@ -34,7 +34,7 @@ SSE에서 고객 관리 키를 사용하려면 새 Key Vault 및 키를 만들 �
 저장소 계정이 아직 없는 경우 먼저 저장소 계정을 만듭니다. 자세한 내용은 [새 저장소 계정 만들기](storage-quickstart-create-account.md)를 참조하세요.
 
 ### <a name="step-2-enable-sse-for-blob-and-file-storage"></a>2단계: Blob 및 파일 저장소에 SSE 사용
-고객 관리 키를 사용하여 SSE를 사용하려면 2개의 키 보호 기능인 일시 삭제 및 삭제 안 함도 사용하도록 설정해야 합니다. 이러한 설정은 키를 실수로 또는 의도적으로 삭제할 수 없도록 합니다. 악의적인 행위자 또는 랜섬웨어 공격으로부터 사용자를 보호하기 위해 키의 최대 보존 기간은 90일로 설정됩니다.
+고객 관리 키를 사용하여 SSE를 활성화하려면 Azure Key Vault에서 2개의 키 보호 기능인 일시 삭제 및 삭제 안 함도 사용하도록 설정해야 합니다. 이러한 설정은 키를 실수로 또는 의도적으로 삭제할 수 없도록 합니다. 악의적인 행위자 또는 랜섬웨어 공격으로부터 사용자를 보호하기 위해 키의 최대 보존 기간은 90일로 설정됩니다.
 
 SSE를 위한 고객 관리 키를 프로그래밍 방식으로 확인하려면 [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp), [.NET용 Storage Resource Provider 클라이언트 라이브러리](https://docs.microsoft.com/dotnet/api), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 또는 [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli)를 사용할 수 있습니다.
 

@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/14/2018
 ms.author: jaredmoo
-ms.openlocfilehash: ca21355c836a58591bbbd09874d0c5d0b5c17435
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: ae5dafcebd50ecd22309a7771b0edf01a97fd7a7
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126428"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842624"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>T-SQL(Transact-SQL)을 사용하여 Elastic Database 작업 만들기 및 관리
 
@@ -184,7 +184,13 @@ CREATE TABLE [dbo].[Test]([TestId] [int] NOT NULL);',
 
 ## <a name="monitor-database-performance"></a>데이터베이스 성능 모니터링
 
-다음 예제에서는 새 데이터베이스를 만들어 여러 데이터베이스에서 성능 데이터를 수집합니다.  
+다음 예제에서는 새 데이터베이스를 만들어 여러 데이터베이스에서 성능 데이터를 수집합니다.
+
+기본적으로 작업 에이전트는 반환된 결과를 저장할 테이블을 만듭니다. 결과적으로 출력 자격 증명에 사용되는 자격 증명과 관련된 로그인을 위해서는 이를 수행할 충분한 권한이 있어야 합니다. 테이블을 미리 수동으로 만들려는 경우 다음 속성이 있어야 합니다.
+1. 결과 집합에 대한 데이터 형식 및 올바른 이름을 사용하는 열입니다.
+2. 고유 식별자의 데이터 형식을 사용하는 internal_execution_id에 대한 추가 열입니다.
+3. internal_execution_id 열에서 “IX_<TableName>_Internal_Execution_ID”로 명명된 비클러스터형 인덱스입니다.
+
 [*작업 데이터베이스*](elastic-jobs-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
 
 ```sql

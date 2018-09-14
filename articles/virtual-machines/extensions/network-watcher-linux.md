@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 22b18f77b3d997cdba7b60b53f1968b516701cc1
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: efd512395b49d3c274bb5aa409d1cbd527673659
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141793"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781890"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Linux용 Network Watcher 에이전트 가상 머신 확장
 
@@ -38,7 +38,7 @@ Network Watcher 에이전트 확장은 다음 Linux 배포판에 대해 구성�
 
 | 배포 | 버전 |
 |---|---|
-| Ubuntu | 16.04 LTS, 14.04 LTS 및 12.04 LTS |
+| Ubuntu | 12+ |
 | Debian | 7 및 8 |
 | Red Hat | 6 및 7 |
 | Oracle Linux | 6.8+ 및 7 |
@@ -47,7 +47,6 @@ Network Watcher 에이전트 확장은 다음 Linux 배포판에 대해 구성�
 | CentOS | 6.5+ 및 7 |
 | CoreOS | 899.17.0+ |
 
-CoreOS는 지원되지 않습니다.
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 

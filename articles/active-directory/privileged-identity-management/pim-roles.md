@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: c8870e4da63dc52d5926bdfd5f7c9b3218e5f53a
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: fc45cde1a5f0f287274302541ac0115569e2239d
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188989"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666339"
 ---
 # <a name="azure-ad-directory-roles-you-can-manage-in-pim"></a>PIM에서 관리할 수 있는 Azure AD 디렉터리 역할
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -76,13 +76,36 @@ Azure Portal에 액세스하려면 사용자가 Azure 구독을 관리할 필요
 Microsoft Online Services에 액세스하려면 서비스 포털을 열거나 관리 작업을 수행하기 전에 사용자에게 라이선스도 할당되어야 합니다.
 
 ## <a name="assign-a-license-to-a-user-in-azure-ad"></a>Azure AD에서 사용자에게 라이선스 할당
-1. 전역 관리자 계정 또는 공동 관리자 계정을 사용하여 [Azure Portal](http://portal.azure.com)에 로그인합니다.
-3. Azure AD를 선택하고, 이에 연결된 라이선스가 있는 작업할 디렉터리를 선택합니다.
-4. 왼쪽에서 **라이선스**를 선택합니다. 사용 가능한 라이선스 목록이 나타납니다.
-5. 배포하려는 라이선스가 포함된 라이선스 계획을 선택합니다.
-6. **사용자 할당**을 선택합니다.
-7. 라이선스를 할당하려는 사용자를 선택합니다.
-8. **할당** 단추를 클릭합니다.  이제 사용자가 Azure에 로그인할 수 있습니다.
+
+1. 글로벌 관리자 계정 또는 공동 관리자 계정을 사용하여 [Azure Portal](http://portal.azure.com)에 로그인합니다.
+
+1. 연결된 라이선스가 있고, 사용하려는 Azure AD 디렉터리를 선택합니다.
+
+1. 왼쪽 탐색 메뉴에서 **Azure Active Directory**를 클릭합니다.
+
+1. **라이선스**를 클릭합니다. 사용 가능한 라이선스 목록이 나타납니다.
+
+    ![Azure Active Directory 라이선스](./media/pim-roles/licenses-overview.png)
+
+1. **제품**을 클릭합니다.
+
+1. 배포하려는 라이선스가 포함된 라이선스 계획을 클릭합니다.
+
+    ![라이선스 제품](./media/pim-roles/licenses-products.png)
+
+1. **할당**을 클릭하여 라이선스 할당 창을 엽니다.
+
+    ![사용 허가된 사용자](./media/pim-roles/licenses-licensed-users.png)
+
+1. 라이선스를 할당하려는 사용자 또는 그룹을 선택합니다.
+
+    ![라이선스 할당](./media/pim-roles/licenses-assign-license.png)
+
+1. **할당 옵션**을 클릭하여 할당 옵션을 구성합니다.
+
+    ![할당 옵션](./media/pim-roles/licenses-assignment-options.png)
+
+1. **할당**을 클릭하여 라이선스를 할당합니다. 이제 사용자가 사용 허가되었습니다.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>다음 단계

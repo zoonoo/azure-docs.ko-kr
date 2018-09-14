@@ -4,12 +4,12 @@ ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 08-07-2018
-ms.openlocfilehash: 764470bbf47c18a2ec66dc91d433f8dd14b99a8f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6be00937a6645fbdd266ac0b1aa1ce95ecc6c3d9
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43039288"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301902"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제
 
@@ -68,12 +68,12 @@ ms.locfileid: "43039288"
 
 예약 할인은 예약 범위 및 특성과 일치하는 실행 중인 가상 머신 수에 자동으로 적용됩니다. [Azure Portal](https://portal.azure.com), PowerShell, CLI 또는 API를 통해 예약의 범위를 업데이트할 수 있습니다.
 
-예약을 관리하는 방법을 알아보려면 [Azure 예약 관리](../articles/billing/billing-manage-reserved-vm-instance.md)를 참조합니다.
+예약을 관리하는 방법을 알아보려면 [Azure Reservations 관리](../articles/billing/billing-manage-reserved-vm-instance.md)를 참조하세요.
 
-Azure 예약에 대한 자세한 내용은 다음 아티클을 참조하세요.
+Azure Reservations에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure Reservations란?](../articles/billing/billing-save-compute-costs-reservations.md)
-- [Azure에서 예약 관리](../articles/billing/billing-manage-reserved-vm-instance.md)
+- [Azure에서 Reservations 관리](../articles/billing/billing-manage-reserved-vm-instance.md)
 - [예약 할인이 적용되는 방식 이해](../articles/billing/billing-understand-vm-reservation-charges.md)
 - [종량제 구독의 예약 사용량 이해](../articles/billing/billing-understand-reserved-instance-usage.md)
 - [엔터프라이즈 등록에서 예약 사용량 이해](../articles/billing/billing-understand-reserved-instance-usage-ea.md)

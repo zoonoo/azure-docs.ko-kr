@@ -1,25 +1,24 @@
 ---
 title: 온-프레미스 데이터 게이트웨이 설치 - Azure Logic Apps | Microsoft Docs
-description: 논리 앱에서 온-프레미스의 데이터에 액세스하기 전에 온-프레미스 데이터 게이트웨이를 다운로드하고 설치하는 방법
+description: Azure Logic Apps에서 온-프레미스의 데이터에 액세스하려면 온-프레미스 데이터 게이트웨이를 다운로드하고 설치해야 합니다.
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: yshoukry, LADocs
 ms.topic: article
 ms.date: 07/20/2018
-ms.reviewer: yshoukry, LADocs
-ms.suite: integration
-ms.openlocfilehash: 616e3d81d577fd30e65117ec15c65250d3b3e27e
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d4fbbcb81433876e4c57763b8a90b3ff1168a699
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503651"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842450"
 ---
-# <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
+# <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
 
-논리 앱을 온-프레미스 데이터 원본에 연결하려면 먼저 로컬 컴퓨터에 온-프레미스 데이터 게이트웨이를 다운로드하고 설치합니다. 게이트웨이는 온-프레미스(클라우드 아님) 데이터 원본과 논리 앱 간에 빠른 데이터 전송 및 암호화를 제공하는 브리지 역할을 합니다. 이 문서에서는 온-프레미스 데이터 게이트웨이를 다운로드하고, 설치하고, 설정하는 방법을 설명합니다. 
+Azure Logic Apps에서 온-프레미스 데이터 원본에 연결하려면 로컬 컴퓨터에 온-프레미스 데이터 게이트웨이를 다운로드하고 설치합니다. 게이트웨이는 온-프레미스(클라우드 아님) 데이터 원본과 논리 앱 간에 빠른 데이터 전송 및 암호화를 제공하는 브리지 역할을 합니다. 이 문서에서는 온-프레미스 데이터 게이트웨이를 다운로드하고, 설치하고, 설정하는 방법을 설명합니다. 
 
 Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타 서비스에도 동일한 게이트웨이 설치를 사용할 수 있습니다. [데이터 게이트웨이 작동 원리](#gateway-cloud-service)에 대해 자세히 알아봅니다.
 
@@ -52,7 +51,11 @@ Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Azure 구독](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer)이 있는 [회사 또는 학교 계정](../active-directory/fundamentals/sign-up-organization.md). 게이트웨이 설치를 Azure 구독에 연결할 수 있도록 게이트웨이 설치 동안 이 계정에 로그인합니다. 나중에 Azure Portal에서 게이트웨이 설치를 위한 Azure 리소스를 만들 때도 동일한 계정을 사용합니다. 아직 Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다.
+* [Azure 구독](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer)이 있는 [회사 또는 학교 계정](../active-directory/fundamentals/sign-up-organization.md) 
+
+  게이트웨이 설치를 Azure 구독에 연결할 수 있도록 게이트웨이 설치 동안 이 계정에 로그인합니다. 
+  나중에 Azure Portal에서 게이트웨이 설치를 위한 Azure 리소스를 만들 때도 동일한 계정을 사용합니다. 
+  아직 Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다.
 
 * 로컬 컴퓨터에 대한 요구 사항은 다음과 같습니다.
 
@@ -72,8 +75,7 @@ Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타
     > [!TIP]
     > 대기 시간을 최소화하려면 권한이 있다고 가정하여 가능하면 데이터 원본과 가깝게 또는 동일한 컴퓨터에 게이트웨이를 설치하면 됩니다.
 
-  * 절전 모드이거나, 인터넷에 대한 연결이 끊어져 있는 컴퓨터에는 게이트웨이를 설치하지 *않도록 합니다*. 게이트웨이는 이러한 상황에서 실행될 수 없습니다. 
-  또한 무선 네트워크에서는 게이트웨이 성능이 저하될 수 있습니다.
+  * 항상 켜져 있는 인터넷에 연결된 컴퓨터에 게이트웨이를 설치하고 절전 모드로 전환하지 *마세요*. 그렇지 않은 경우 게이트웨이를 실행할 수 없습니다. 또한 무선 네트워크에서는 성능이 저하될 수 있습니다.
 
   * 설치하는 동안 Microsoft 계정이 아니라 Azure Active Directory(Azure AD)에서 관리하는 [회사 또는 학교 계정](../active-directory/sign-up-organization.md)으로만 로그인할 수 있습니다. 
   또한 이 계정이 Azure B2B(게스트) 계정이 아닌지 확인합니다. 

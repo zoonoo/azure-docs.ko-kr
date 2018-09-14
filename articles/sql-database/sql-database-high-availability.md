@@ -6,19 +6,19 @@ author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 08/29/2018
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
-ms.openlocfilehash: 329af89e52af6f3599e2d86e6ac6d28b8b63f333
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 7a60d800ce76f8ff9a903cc068fa7bc87cd33f3f
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42143331"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700638"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>고가용성 및 Azure SQL Database
 
-Azure SQL Database는 가용성이 뛰어난 데이터베이스 PaaS(Platform as a Service)로 유지 관리 및 가동 중지 시간에 관계없이 99.99%의 시간 동안 데이터베이스가 작동 및 실행되도록 보장합니다. 워크로드에 영향을 주지 않으면서 SQL Server 데이터베이스가 항상 업그레이드/패치되도록 보장하는 Azure 클라우드에서 호스팅되는 완전히 관리되는 SQL Server 데이터베이스 엔진 프로세스입니다. Azure SQL Database는 가장 심각한 상황에서도 신속한 복구가 가능하기 때문에 데이터를 항상 사용할 수 있습니다.
+Azure SQL Database는 가용성이 뛰어난 데이터베이스 PaaS(Platform as a Service)로 유지 관리 및 가동 중지 시간에 관계없이 99.99%의 시간 동안 데이터베이스가 작동 및 실행되도록 보장합니다. 워크로드에 영향을 주지 않으면서 SQL Server 데이터베이스가 항상 업그레이/패치되도록 보장하는 Azure 클라우드에서 호스팅되는 완전히 관리되는 SQL Server 데이터베이스 엔진 프로세스입니다. 인스턴스가 패치되거나 장애 조치되면 앱에서 [재시도 논리를 사용](sql-database-develop-overview.md#resiliency)하는 경우 가동 중지 시간은 일반적으로 크지 않습니다. 장애 조치를 완료하는 시간이 60초 이상인 경우 지원 사례를 열어야 합니다. Azure SQL Database는 가장 심각한 상황에서도 신속한 복구가 가능하기 때문에 데이터를 항상 사용할 수 있습니다.
 
 Azure 플랫폼은 모든 Azure SQL Database를 완전하게 관리하고 데이터 무손실 및 높은 데이터 가용성을 보장합니다. Azure는 패치, 백업, 복제, 오류 감지, 기본 하드웨어, 소프트웨어 또는 네트워크 오류, 배포 버그 픽스, 장애 조치(failover), 데이터베이스 업그레이드 및 기타 유지 관리 작업을 자동으로 처리합니다. SQL Server 엔지니어는 모든 유지 관리 작업이 데이터베이스 수명 중 0.01% 미만의 시간 내에 완료될 수 있도록 가장 많이 알려진 사례를 구현했습니다. 이 아키텍처는 커밋한 데이터가 손실되지 않고 워크로드에 영향을 주지 않으면서 유지 관리 작업이 수행되도록 설계되었습니다. 데이터베이스를 업그레이드하거나 유지 관리하는 동안 워크로드를 중지해야 하는 유지 관리 기간이나 가동 중지 시간이 없습니다. Azure SQL Database에 내장된 고가용성 덕분에 소프트웨어 아키텍처에서 데이터베이스가 단일 실패 지점이 되지 않도록 보장됩니다.
 
@@ -41,7 +41,7 @@ Azure는 사용자의 가동 중단 시간을 최소화하면서 운영 체제, 
 - 상태 비저장 계산 레이어: sqlserver.exe 프로세스를 실행하고 일시적인 데이터와 캐시된 데이터(예: 계획 캐시, 버퍼 풀, 열 저장 풀)만 포함합니다. 상태 비저장 SQL Server 노드는 프로세스를 초기화하고 노드의 상태를 제어하며 필요한 경우 다른 위치로 장애 조치(failover)를 수행하는 Azure Service Fabric에서 운영됩니다.
 - 상태 저장 데이터 레이어에는 데이터베이스 파일(.mdf/.ldf)이 있으며 Azure Premium Storage에 저장됩니다. Azure Storage는 데이터베이스 파일에 배치된 모든 레코드의 데이터가 손실되지 않도록 보장합니다. Azure Storage에는 SQL Server 프로세스가 중단 되더라도 로그 파일의 모든 레코드나 데이터 파일의 페이지가 보존되도록 하는 데이터 가용성/백업 기능이 기본 제공됩니다.
 
-데이터베이스 엔진이나 운영 체제가 업그레이드되고, 기본 인프라의 일부 부분은 실패하거나 SQL Server 프로세스에서 심각한 문제가 감지될 때마다, Azure Service Fabric은 상태 비저장 SQL Server 프로세스를 다른 상태 비저장 계산 노드로 옮깁니다. 장애 조치(failover) 시간을 최소화하기 위해 장애 조치(failover) 시 새 계산 서비스를 실행하려고 대기하는 예비 노드 집합이 있습니다. Azure Storage 레이어의 데이터는 영향을 받지 않으며 데이터/로그 파일은 새로 초기화된 SQL Server 프로세스에 연결됩니다. 예상되는 장애 조치(failover) 시간은 초 단위로 측정할 수 있습니다. 이 프로세스는 99.99%의 가용성을 보장하지만 전환 시간 및 새 SQL Server 노드가 콜드 캐시로 시작된다는 사실로 인해 실행 중인 과도한 워크로드의 성능에 영향을 미칠 수 있습니다.
+데이터베이스 엔진이나 운영 체제가 업그레이드되고, 기본 인프라의 일부 부분은 실패하거나 SQL Server 프로세스에서 심각한 문제가 감지될 때마다, Azure Service Fabric은 상태 비저장 SQL Server 프로세스를 다른 상태 비저장 계산 노드로 옮깁니다. 장애 조치(failover) 시간을 최소화하기 위해 장애 조치(failover) 시 새 계산 서비스를 실행하려고 대기하는 예비 노드 집합이 있습니다. Azure Storage 레이어의 데이터는 영향을 받지 않으며 데이터/로그 파일은 새로 초기화된 SQL Server 프로세스에 연결됩니다. 이 프로세스는 99.99%의 가용성을 보장하지만 전환 시간 및 새 SQL Server 노드가 콜드 캐시로 시작된다는 사실로 인해 실행 중인 과도한 워크로드의 성능에 영향을 미칠 수 있습니다.
 
 ## <a name="premiumbusiness-critical-availability"></a>프리미엄/중요 비즈니스용 가용성
 
@@ -51,7 +51,7 @@ Azure는 사용자의 가동 중단 시간을 최소화하면서 운영 체제, 
 
 ![데이터베이스 엔진 노드의 클러스터](media/sql-database-managed-instance/business-critical-service-tier.png)
 
-SQL Server 데이터베이스 엔진 프로세스와 기본 mdf/ldf 파일이 SSD 저장소가 로컬에 연결되어 있는 동일한 노드에 배치되기 때문에 워크로드에 대한 대기 시간이 짧습니다. 고가용성은 표준 [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)을 사용하여 구현됩니다. 모든 데이터베이스는 고객 워크로드에 액세스할 수 있는 주 데이터베이스 하나와 데이터 복사본을 포함하는 보조 프로세스 세 개가 있는 데이터베이스 노드의 클러스터입니다. 주 노드는 어떤 이유로든 주 노드의 작동이 중단되는 경우 보조 복제본의 데이터를 사용할 수 있도록 하기 위해 변경 내용을 보조 노드로 지속적으로 푸시합니다 장애 조치(failover)는 SQL Server 데이터베이스 엔진에 의해 처리됩니다. 보조 복제본 하나가 주 노드가 되고 클러스터에 충분한 노드를 보장하기 위해 새로운 보조 복제본이 만들어집니다. 워크로드는 새로운 주 노드에 자동으로 리디렉션됩니다. 장애 조치(failover) 시간은 밀리초 단위로 측정되며 새로운 주 인스턴스는 즉시 요청을 처리할 준비가 됩니다.
+SQL Server 데이터베이스 엔진 프로세스와 기본 mdf/ldf 파일이 SSD 저장소가 로컬에 연결되어 있는 동일한 노드에 배치되기 때문에 워크로드에 대한 대기 시간이 짧습니다. 고가용성은 표준 [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)을 사용하여 구현됩니다. 모든 데이터베이스는 고객 워크로드에 액세스할 수 있는 주 데이터베이스 하나와 데이터 복사본을 포함하는 보조 프로세스 세 개가 있는 데이터베이스 노드의 클러스터입니다. 주 노드는 어떤 이유로든 주 노드의 작동이 중단되는 경우 보조 복제본의 데이터를 사용할 수 있도록 하기 위해 변경 내용을 보조 노드로 지속적으로 푸시합니다 장애 조치(failover)는 SQL Server 데이터베이스 엔진에 의해 처리됩니다. 보조 복제본 하나가 주 노드가 되고 클러스터에 충분한 노드를 보장하기 위해 새로운 보조 복제본이 만들어집니다. 워크로드는 새로운 주 노드에 자동으로 리디렉션됩니다.
 
 또한 중요 비즈니스용 클러스터는 기본 워크로드의 성능에 영향을 주면 안 되는 읽기 전용 쿼리(예: 보고서)를 실행하는 데 사용될 수 있는 기본 읽기 전용 노드를 제공합니다. 
 

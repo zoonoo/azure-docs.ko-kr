@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rayne
-ms.openlocfilehash: 95941b3f9333273c11208c56a63c62d5d37a9386
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: d5282e5954aa50ce67d6341b194177a89bdbe6cc
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213557"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666404"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Hyper-V와 Azure 간 복제 및 장애 조치(Failover) 문제 해결
 
@@ -22,17 +22,17 @@ ms.locfileid: "39213557"
 
 ## <a name="enable-protection-issues"></a>보호 사용 문제
 
-Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생하면 다음을 확인하세요.
+Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생하면 다음 권장 사항을 확인하세요.
 
-1. Hyper-V 호스트 및 VM이 모든 [요구 사항 및 필수 구성 요소](hyper-v-azure-support-matrix.md)를 준수하는지 확인합니다.
+1. Hyper-V 호스트 및 VM이 모든 [요구 사항 및 필수 구성 요소](hyper-v-azure-support-matrix.md)를 충족하는지 확인합니다.
 2. Hyper-V 서버가 System Center VMM(Virtual Machine Manager) 클라우드에 있는 경우 [VMM 서버](hyper-v-prepare-on-premises-tutorial.md#prepare-vmm-optional)가 준비되어 있는지 확인합니다.
 3. Hyper-V 호스트에서 Hyper-V Virtual Machine Management 서비스가 실행되고 있는지 확인합니다.
-4. VM의 Hyper-V-VMMS\Admin 로그에 표시되는 문제를 확인합니다. 이 로그는 **Applications and Services Logs** > **Microsoft** > **Windows**에 있습니다.
+4. VM의 Hyper-V-VMMS\Admin 로그인에 표시되는 문제를 확인합니다. 이 로그는 **Applications and Services Logs** > **Microsoft** > **Windows**에 있습니다.
 5. 게스트 VM에서 WMI가 사용되도록 설정되어 있고 액세스 가능한지 확인합니다.
   - 기본 WMI 테스트에 대해 [자세히 알아봅니다](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/).
   - WMI [문제를 해결합니다](https://aka.ms/WMiTshooting).
   - WMI 스크립트 및 서비스 관련 [문제를 해결합니다](https://technet.microsoft.com/library/ff406382.aspx#H22).
-5. 게스트 VM에 최신 버전의 Integration Services가 실행되고 있는지 확인합니다.
+6. 게스트 VM에 최신 버전의 Integration Services가 실행되고 있는지 확인합니다.
     - 최신 버전이 있는지 [확인합니다](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
     - Integration Services를 최신 상태로 [유지합니다](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date).
     
@@ -54,8 +54,8 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
     - 작업 환경에서 VMM을 사용하여 복제하는 경우 다음 서비스가 실행되고 있는지 확인합니다.
         - Hyper-V 호스트에서 Virtual Machine Management 서비스, Microsoft Azure Recovery Services Agent 및 WMI Provider Host 서비스가 실행되고 있는지 확인합니다.
         - VMM 서버에서 System Center Virtual Machine Manager 서비스가 실행되고 있는지 확인합니다.
-4. Hyper-V 서버와 Azure 간의 연결을 확인합니다. 연결을 확인하려면 Hyper-V 호스트에서 작업 관리자를 엽니다. **성능** 탭에서 **리소스 모니터 열기**를 클릭합니다. **네트워크** 탭 > **네트워크 활동이 있는 프로세스**에서 cbengine.exe가 대용량(Mb)의 데이터를 전송하고 있는지를 확인합니다.
-5. Hyper-V 호스트가 Azure Storage Blob URL에 연결할 수 있는지 확인합니다. 이를 위해 **cbengine.exe**를 선택하고 확인합니다. **TCP 연결**에서 호스트-Azure Storage Blob 간 연결을 확인합니다.
+4. Hyper-V 서버와 Azure 간의 연결을 확인합니다. 연결을 확인하려면 Hyper-V 호스트에서 작업 관리자를 엽니다. **성능** 탭에서 **리소스 모니터 열기**를 클릭합니다. **네트워크** 탭 > **네트워크 활동이 있는 프로세스**에서 cbengine.exe가 대용량(Mbs)의 데이터를 전송하고 있는지를 확인합니다.
+5. Hyper-V 호스트가 Azure Storage Blob URL에 연결할 수 있는지 확인합니다. 호스트를 연결할 수 있는지 확인하려면 **cbengine.exe**를 선택하고 확인합니다. **TCP 연결**에서 호스트-Azure Storage Blob 간 연결을 확인합니다.
 6. 아래 설명된 대로 성능 문제를 확인합니다.
     
 ### <a name="performance-issues"></a>성능 문제
@@ -92,7 +92,7 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 
 1. 최신 버전의 Integration Services가 설치되고 실행 중인지 확인합니다.  Hyper-V 호스트의 관리자 권한 PowerShell 프롬프트에서 **get-vm  | select Name, State, IntegrationServicesState** 명령을 실행하여 업데이트를 사용할 수 있는지 확인합니다.
 2. VSS 서비스가 실행되고 있으며 정상 상태인지 확인합니다.
-    - 이를 위해 게스트 VM에 로그온합니다. 그런 다음, 관리자 명령 프롬프트를 열고 다음 명령을 실행하여 모든 VSS 기록기가 정상 상태인지 확인합니다.
+    - 서비스를 확인하려면 게스트 VM에 로그인합니다. 그런 다음, 관리자 명령 프롬프트를 열고 다음 명령을 실행하여 모든 VSS 기록기가 정상 상태인지 확인합니다.
         - **Vssadmin list writers**
         - **Vssadmin list shadows**
         - **Vssadmin list providers**
@@ -108,10 +108,10 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
     ![동적 디스크](media/hyper-v-azure-troubleshoot/dynamic-disk.png)
     
 4. VM에 연결된 iSCSI 디스크가 없는지 확인합니다. 지원되지 않습니다.
-5. Backup 서비스가 사용되도록 설정되어 있는지 확인합니다. 이 내용은 **Hyper-V 설정** > **Integration Services**에서 확인합니다.
+5. Backup 서비스가 사용되도록 설정되어 있는지 확인합니다. **Hyper-V 설정** > **Integration Services**에서 사용하도록 설정되어 있는지 확인합니다.
 6. VSS 스냅숏을 만드는 앱과 충돌하지 않는지 확인합니다. 여러 앱이 VSS 스냅숏을 동시에 만들려고 하면 충돌이 발생할 수 있습니다. 예를 들어, 복제 정책에 따라 Site Recovery가 스냅숏을 만들도록 예약되어 있을 때 Backup 앱이 VSS 스냅숏을 만드는 경우가 여기에 해당합니다.   
 7. VM에서 높은 변동률이 발생하는지 확인합니다.
-    - Hyper-V 호스트에서 성능 카운터를 사용하여 게스트 VM에 대한 일일 데이터 변경률을 측정할 수 있습니다. 이 작업을 수행하려면 다음 카운터를 사용하도록 설정합니다. 5-15분 동안 VM 디스크에서 이 값의 샘플을 집계하여 VM 변동을 얻습니다.
+    - Hyper-V 호스트에서 성능 카운터를 사용하여 게스트 VM에 대한 일일 데이터 변경률을 측정할 수 있습니다. 데이터 변경률을 측정하려면 다음 카운터를 사용하도록 설정합니다. 5-15분 동안 VM 디스크에서 이 값의 샘플을 집계하여 VM 변동을 얻습니다.
         - 범주: "Hyper-V 가상 저장소 장치"
         - 카운터: "Write Bytes / Sec"</br>
         - 이 데이터 변동률은 VM 및 해당 앱의 작업량에 따라 증가하거나 높은 수준을 유지합니다.
@@ -138,7 +138,7 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 **오류 코드** | **메시지** | **세부 정보**
 --- | --- | ---
 **0x800700EA** | "Hyper-V가 가상 머신에 대한 VSS 스냅숏 집합을 생성하지 못했습니다. 추가 데이터를 사용할 수 있습니다. (0x800700EA). 백업 작업이 진행 중인 경우 VSS 스냅숏 집합 생성이 실패할 수 있습니다.<br/><br/> 가상 머신에 대한 복제 작업이 실패했습니다. 추가 데이터를 사용할 수 있습니다.” | VM의 동적 디스크가 사용되도록 설정되어 있는지 확인합니다. 지원되지 않습니다.
-**0x80070032** | Hyper-V 볼륨 섀도 복사본 요청자가 해당 버전이 Hyper-V에서 요구하는 버전과 일치하지 않으므로 가상 머신 <./VMname>에 연결하지 못했습니다. | 최신 Windows 업데이트가 설치되어 있는지 확인합니다.<br/><br/> 최신 버전의 Integration Services로 [업그레이드](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services.md#keep-integration-services-up-to-date)합니다.
+**0x80070032** | Hyper-V 볼륨 섀도 복사본 요청자가 해당 버전이 Hyper-V에서 요구하는 버전과 일치하지 않으므로 가상 머신 <./VMname>에 연결하지 못했습니다. | 최신 Windows 업데이트가 설치되어 있는지 확인합니다.<br/><br/> 최신 버전의 Integration Services로 [업그레이드](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date)합니다.
 
 
 
@@ -146,7 +146,7 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 
 모든 Hyper-V 복제 이벤트는 **Applications and Services Logs** > **Microsoft** > **Windows**에 있는 Hyper-V-VMMS\Admin 로그에 기록됩니다. 또한 다음과 같이 Hyper-V Virtual Machine 관리 서비스에 대한 분석 로그를 사용할 수 있습니다.
 
-1. 이벤트 뷰어에서 분석 및 디버그 로그가 표시되도록 합니다. 이를 위해서 이벤트 뷰어에서 **보기** > **분석 및 디버그 로그 표시**를 클릭합니다. 분석 로그가 **Hyper-V-VMMS** 아래에 표시됩니다.
+1. 이벤트 뷰어에서 분석 및 디버그 로그가 표시되도록 합니다. 로그를 사용할 수 있도록 하려면 이벤트 뷰어에서 **보기** > **분석 및 디버그 로그 표시**를 클릭합니다. 분석 로그가 **Hyper-V-VMMS** 아래에 표시됩니다.
 2. **작업** 창에서 **로그 사용**을 클릭합니다. 
 
     ![로그 사용](media/hyper-v-azure-troubleshoot/enable-log.png)

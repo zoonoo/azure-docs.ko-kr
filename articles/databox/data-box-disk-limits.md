@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/12/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 358f81498d8caad7c0a67519bbb776efa153249f
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 3b26c5f9a6d75725fb102d89192e77988b295dea
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42140522"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782028"
 ---
 # <a name="azure-data-box-disk-limits-preview"></a>Azure Data Box Disk 제한(미리 보기)
 
@@ -33,7 +33,7 @@ Microsoft Azure Data Box Disk 솔루션을 배포 및 운영하면서 이러한 
 
 ## <a name="data-box-service-limits"></a>Data Box 서비스 제한
 
- - Data Box 서비스는 Azure 공용 클라우드에 대한 모든 Azure 지역 가운데 미국과 EU에서만 사용할 수 있습니다.
+ - Data Box 서비스는 Azure 공용 클라우드에 대한 모든 Azure 지역 가운데 미국, EU, 캐나다 및 호주에서만 사용할 수 있습니다.
  - 단일 저장소 계정은 Data Box Disk를 통해 지원됩니다.
 
 ## <a name="data-box-disk-performance"></a>Data Box Disk 성능
