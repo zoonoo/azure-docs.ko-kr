@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2018
+ms.date: 09/13/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: ddb1fcd91ff0c0018bcab9988a5ab063b882cf36
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
-ms.translationtype: HT
+ms.openlocfilehash: e396fc82754188ea655c70b44d4bf937a3c3163c
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714670"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544214"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure에서 Azure Stack marketplace 항목 다운로드
 
@@ -148,9 +148,9 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
 ### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>다운로드를 가져오고 Azure Stack Marketplace에 게시
 1. 가상 머신 이미지에 있는 솔루션 템플릿 파일 [이전에 다운로드 한](#use-the-marketplace-syndication-tool-to-download-marketplace-items) Azure Stack 환경에 로컬로 사용할 수 있어야 합니다.  
 
-2. Marketplace 항목 패키지 (.azpkg 파일) Azure Stack Blob storage에 업로드 하는 관리 포털을 사용 합니다. 패키지의 업로드가 사용할 수 있도록 Azure Stack에 항목을 게시할 수 있도록 Azure Stack Marketplace.
+2. Marketplace 항목 패키지 (.azpkg 파일) 및 가상 하드 디스크 이미지 (.vhd 파일) Azure Stack Blob storage에 업로드 하는 관리 포털을 사용 합니다. 패키지의 업로드 하 고 디스크 파일 사용할 수 있게 Azure Stack에 Azure Stack Marketplace에 항목을 게시할 수 있도록 합니다.
 
-   업로드 해야 공개적으로 액세스 가능한 컨테이너를 사용 하 여 저장소 계정 (이 시나리오에 대 한 필수 조건 참조)   
+   업로드 해야 공개적으로 액세스 가능한 컨테이너를 사용 하 여 저장소 계정 (이 시나리오에 대 한 필수 조건 참조).  
    1. Azure Stack 관리 포털에서로 이동 **모든 서비스** 한 다음는 **데이터 + 저장소** 범주를 선택한 **저장소 계정**합니다.  
    
    2. 선택한 저장소 계정 구독에서 다음 아래 **BLOB SERVICE**를 선택 **컨테이너**합니다.  
@@ -159,7 +159,7 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
    3. 사용 하 여 선택한 컨테이너를 선택 **업로드** 열려는 합니다 **blob 업로드** 창입니다.  
       ![컨테이너](media/azure-stack-download-azure-marketplace-item/container.png)  
    
-   4. 저장소에 로드 하 고 클릭 하려는 파일 업로드 blob 창에서 이동할 **업로드**합니다.  
+   4. 패키지 및 디스크 파일을 저장소로 로드 하 고 선택한 업로드 blob 창에서 이동할 **업로드**합니다.  
       ![upload](media/azure-stack-download-azure-marketplace-item/upload.png)  
 
    5. 업로드 된 파일 컨테이너 창에 나타납니다. 파일을 선택 하 고 다음에서 URL을 복사 합니다 **Blob 속성** 창입니다. Azure Stack에 마켓플레이스 항목을 가져올 때 다음 단계에서이 URL을 사용 합니다.  다음 이미지는 컨테이너는 *blob-테스트-저장소* 있고 파일이 *Microsoft.WindowsServer2016DatacenterServerCore ARM.1.0.801.azpkg*합니다.  파일 URL *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*합니다.  
@@ -169,7 +169,7 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
 
    가져올 수 있습니다 합니다 *게시자*를 *제공*, 및 *sku* AZPKG 파일을 다운로드 하는 텍스트 파일에서 이미지의 값입니다. 텍스트 파일의 대상 위치에 저장 됩니다. 합니다 *버전* 값은 Azure에서 이전 절차에서 항목을 다운로드 하는 경우 명시 버전입니다. 
  
-   다음 예제 스크립트에서는 서버 코어 가상 머신에서 Windows Server 2016 Datacenter-에 대 한 값이 사용 됩니다. 바꿉니다 *URI_path* 항목에 대 한 blob 저장소 위치에 경로 사용 하 여 합니다.
+   다음 예제 스크립트에서는 서버 코어 가상 머신에서 Windows Server 2016 Datacenter-에 대 한 값이 사용 됩니다. 에 대 한 값 *-Osuri* 항목에 대 한 blob 저장소 위치를 예제 경로입니다.
 
    ```PowerShell  
    Add-AzsPlatformimage `
@@ -178,7 +178,7 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
     -sku "2016-Datacenter-Server-Core" `
     -osType Windows `
     -Version "2016.127.20171215" `
-    -OsUri "URI_path"  
+    -OsUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.vhd"  
    ```
    **솔루션 템플릿에 대 한:** 일부 템플릿에서 작은 3MB를 포함할 수 있습니다. VHD 파일 이름의 **fixed3.vhd**합니다. Azure Stack에 해당 파일을 가져올 필요가 없습니다. Fixed3.vhd 합니다.  이 파일은 Azure Marketplace에 대 한 게시 요구 사항에 맞게 일부 솔루션 템플릿을 사용 하 여 포함 합니다.
 
@@ -198,7 +198,7 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      –Verbose
     ```
-5. 으로 이동 하 여 해당 갤러리 항목을 게시 한 후 **모든 서비스**합니다. 다음으로, 합니다 **일반적인** 범주를 선택한 **Marketplace**합니다.  다운로드를 솔루션 템플릿, 하는 경우 해당 솔루션 템플릿에 대 한 모든 종속 VHD 이미지를 추가 해야 합니다.  
+5. 갤러리 항목을 게시 한 후 사용 하 여 출시 되었습니다. 갤러리 항목이 게시 된를 확인 하려면로 이동 **모든 서비스**를 선택한 다음는 **일반** 범주를 선택한 **Marketplace**합니다.  다운로드를 솔루션 템플릿, 하는 경우 해당 솔루션 템플릿에 대 한 모든 종속 VHD 이미지를 추가 해야 합니다.  
   ![보기 marketplace](media/azure-stack-download-azure-marketplace-item/view-marketplace.png)  
 
 > [!NOTE]

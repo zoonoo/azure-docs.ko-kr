@@ -1,27 +1,34 @@
 ---
 title: Azure Stack Ethereum 블록 체인 솔루션 템플릿
-description: 사용자 지정 솔루션 템플릿을 사용 하 여 Azure Stack에서 컨소시엄 Ethereum 블록 체인 네트워크를 구성 및 배포
+description: 사용자 지정 솔루션 템플릿을 사용 하 여 배포 하 고 Azure Stack에서 컨소시엄 Ethereum 블록 체인 네트워크를 구성 자습서
 services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/12/2018
-ms.topic: article
+ms.date: 09/13/2018
+ms.topic: tutorial
 ms.service: azure-stack
-ms.reviewer: coborn
+ms.reviewer: seyadava
+ms.custom: mvc
 manager: femila
-ms.openlocfilehash: b4c8ff113ff76586cc4a91adfe568b07327a2d94
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b21a9ca58fc29a3da62ea08e81e628368fe5385f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721986"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580772"
 ---
-# <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Azure Stack Ethereum 블록 체인 솔루션 템플릿
+# <a name="tutorial-use-the-azure-stack-ethereum-blockchain-solution-template"></a>자습서: Azure Stack Ethereum 블록 체인 솔루션 템플릿을 사용 하 여
 
 Ethereum 솔루션 템플릿에 쉽고 빠르게 배포 하 고 한 지식이 별로 없더라도 Azure 및 Ethereum 다중 멤버 컨소시엄 Ethereum 블록 체인 네트워크를 구성 하도록 설계 되었습니다.
 
 소수의 사용자 입력 및 Azure Stack 테 넌 트 포털을 통해 한 번 클릭 배포의 각 멤버는 해당 네트워크 사용 공간을 프로비저닝할 수 있습니다. 각 구성원의 네트워크 사용 공간 트랜잭션 부하 분산 된 노드 집합으로 구성 하는 응용 프로그램이 나 사용자 상호 작용할 수 트랜잭션, 레코드 트랜잭션에서 마이닝 노드 집합 및 네트워크 가상 어플라이언스 (NVA)를 제출 하려면 사용 하 여 합니다. 후속 연결 단계를 완전히 구성 된 다중 멤버 블록 체인 네트워크를 만들려는 Nva를 연결 합니다.
+
+이 설정 하려면 다음을 수행 해야 합니다.
+
+> [!div class="checklist"]
+> * 배포 아키텍처를 선택 합니다.
+> * 독립 실행형, 컨소시엄 리더 또는 컨소시엄 멤버 네트워크 배포
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -198,5 +205,13 @@ Ethereum 솔루션 템플릿에 쉽고 빠르게 배포 하 고 한 지식이 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- Ethereum 및 Azure에 대 한 자세한 내용은를 참조 하세요. [블록 체인 기술 및 응용 프로그램 | Microsoft Azure](https://azure.microsoft.com/solutions/blockchain/)합니다.
-- Azure에서 블록 체인 시나리오에 대 한 자세한 내용은 참조 [Ethereum 작업 증명 컨소시엄 솔루션 템플릿](../blockchain-workbench/ethereum-deployment-guide.md)합니다.
+이 자습서에서는 다음 방법에 대해 알아보았습니다.
+
+> [!div class="checklist"]
+> * 배포 아키텍처를 선택 합니다.
+> * 독립 실행형, 컨소시엄 리더 또는 컨소시엄 멤버 네트워크 배포
+
+Ethereum 및 Azure에 대 한 자세한 내용은 다음을 참조 하세요.
+
+> [!div class="nextstepaction"]
+> [블록 체인 기술 및 응용 프로그램](https://azure.microsoft.com/solutions/blockchain/)

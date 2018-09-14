@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/04/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 773acd3a22244403548ef4ce35164291f5c0be7d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: ad40f3efc123d313b2fd759889b0aa2621b3d7aa
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300838"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542504"
 ---
-# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack에 앱 배포
+# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>자습서: Azure 및 Azure에 앱을 배포 스택
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
@@ -81,7 +81,7 @@ CI 및 CD에 대 한 자세한 정보를 알아보려면:
  * 만들 [계획/제품](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) Azure Stack의 합니다.
  * 만들기는 [테 넌 트 구독](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) Azure Stack에서.
  * 테 넌 트 구독에 웹 앱을 만듭니다. 나중에 사용 하 여 새 웹 앱 url에 대 한 참고를 확인 합니다.
- * 테 넌 트 구독에 Azure DevOps 서비스 가상 컴퓨터를 배포 합니다.
+ * 테 넌 트 구독에는 Windows Server 2012 가상 머신을 배포 합니다. Azure DevOps 서비스를 실행 하 여 빌드 서버와이 서버를 사용 합니다.
 * 가상 컴퓨터 (VM)를 위한.NET 3.5를 사용 하 여 Windows Server 2016 이미지를 제공 합니다. 개인 빌드 에이전트로이 VM에 Azure Stack에서 빌드됩니다.
 
 ### <a name="developer-tool-requirements"></a>개발자 도구 요구 사항

@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: ba4c53f03350995544eb95917102bd7123a077d2
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 7a5c6875f080655e69f549e45ec474958128754f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022767"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575816"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>가상 머신 이미지를 Azure Stack에서 사용할 수 있도록
 
@@ -75,7 +75,7 @@ Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용�
 ## <a name="add-a-vm-image-to-the-marketplace-by-using-powershell"></a>PowerShell을 사용 하 여 Marketplace VM 이미지 추가
 
 > [!Note]  
-> 템플릿 및 PowerShell 배포만 사용할 수 있습니다 Azure 리소스 관리자에 대 한 이미지 기반 추가할 때 사용 합니다. 이미지를 사용할 수 있도록를 marketplace 항목으로 사용자는 문서의 단계를 사용 하 여 마켓플레이스 항목 게시 [만들기 및 마켓플레이스 항목 게시](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-and-publish-marketplace-item)
+> 템플릿 및 PowerShell 배포만 사용할 수 있습니다 Azure 리소스 관리자에 대 한 이미지 기반 추가할 때 사용 합니다. 이미지를 사용할 수 있도록를 marketplace 항목으로 사용자는 문서의 단계를 사용 하 여 마켓플레이스 항목 게시 [만들기 및 마켓플레이스 항목 게시](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-and-publish-marketplace-item)
 
 1. [Azure Stack 용 PowerShell 설치](azure-stack-powershell-install.md)합니다.  
 

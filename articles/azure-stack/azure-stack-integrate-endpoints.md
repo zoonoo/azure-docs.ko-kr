@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: 26ee1c8f02a0a4e5aa5048a7a02929c448106ffd
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 253598373512b1508482235be028b12163a85a9a
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024961"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580687"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure 데이터 센터 통합 스택-끝점 게시
 
@@ -32,9 +32,8 @@ Azure Stack 인프라 역할에 대 한 가상 IP 주소 (Vip)를 설정합니�
 
 내부 인프라 Vip 게시 Azure Stack에 대 한 필수 이기 때문에 표시 되지 않습니다.
 
-> [!NOTE]
+> [!Note]  
 > 사용자 Vip는 Azure Stack 연산자가 없는 컨트롤을 사용 하 여 사용자가 정의 하는 동적입니다.
-
 
 |끝점 (VIP)|DNS 호스트 A 레코드|프로토콜|포트|
 |---------|---------|---------|---------|
@@ -66,6 +65,8 @@ Azure Stack 인프라 역할에 대 한 가상 IP 주소 (Vip)를 설정합니�
 
 Azure Stack은 투명 프록시 서버만 지원 합니다. 배포의 경우 기존 프록시 서버에 투명 프록시 업링크를 허용 해야 합니다 다음 포트 및 Url 아웃 바운드 통신에:
 
+> [!Note]  
+> Azure Stack 다음 표에 나열 된 Azure 서비스에 연결할 Expressroute를 사용 하는 것을 지원 하지 않습니다.
 
 |목적|URL|프로토콜|포트|
 |---------|---------|---------|---------|

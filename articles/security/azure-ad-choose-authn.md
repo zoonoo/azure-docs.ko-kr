@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: c6e82dfef55a49a8db70bdbefd0d7150b4fbac40
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: c08dba56e3a7d9590ea95e7e4c569839f3a32100
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43305185"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44324855"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory 하이브리드 ID 솔루션에 적합한 인증 방법 선택 
 
@@ -171,7 +171,7 @@ Azure AD에서 확인할 수 없는 라우팅 불가능한 도메인의 경우 �
 |조건부 액세스 옵션이란 무엇인가요?|[Azure AD 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Azure AD 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Azure AD 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)<br><br>[AD FS 클레임 규칙](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
 |레거시 프로토콜 차단이 지원되나요?|[예](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[예](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[예](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
 |로그인 페이지에서 로고, 이미지 및 설명을 사용자 지정할 수 있나요?|[예(Azure AD Premium의 경우)](https://docs.microsoft.com/azure/active-directory/customize-branding)|[예(Azure AD Premium의 경우)](https://docs.microsoft.com/azure/active-directory/customize-branding)|[예](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-management#customlogo)|
-|지원되는 고급 시나리오는 무엇인가요?|[스마트 암호 잠금](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords)<br><br>[유출된 자격 증명 보고서](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events)|[스마트 암호 잠금](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout)|다중 사이트 낮은 대기 시간 인증 시스템<br><br>[AD FS 엑스트라넷 잠금](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-lockout-protection)<br><br>[타사 ID 시스템과 통합](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility)|
+|지원되는 고급 시나리오는 무엇인가요?|[스마트 암호 잠금](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords)<br><br>[유출된 자격 증명 보고서](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events)|[스마트 암호 잠금](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout)|다중 사이트 낮은 대기 시간 인증 시스템<br><br>[AD FS 엑스트라넷 잠금](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)<br><br>[타사 ID 시스템과 통합](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility)|
 
 > [!NOTE] 
 > 현재, Azure AD 조건부 액세스의 사용자 지정 컨트롤은 장치 등록을 지원하지 않습니다.

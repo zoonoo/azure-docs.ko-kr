@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 8a7a58581133d98738403bee2e659fae056e1a7f
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: f2b6ba4b7faaeb7092c24d964d32c69946264906
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782484"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023296"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -301,7 +301,7 @@ resourceGroupName | Virtual Machine에 대한 [리소스 그룹](../../azure-res
 placementGroupId | 가상 머신 확장 집합의 [배치 그룹](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
 계획 | [계획](Azure Marketplace 이미지에서 VM에 대한 https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/createorupdate#plan)에는 이름, 제품 및 게시자가 포함됩니다.) | 2017-04-02
 publicKeys | VM 및 경로에 할당된 공개 키 컬렉션[https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/createorupdate#sshpublickey] | 2017-04-02
-vmScaleSetName | 가상 머신 확장 집합의 [가상 머신 확장 집합 이름] (../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
+vmScaleSetName | 가상 머신 확장 집합의 [가상 머신 확장 집합 이름](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
 영역 | 가상 머신의 [가용성 영역](../../availability-zones/az-overview.md) | 2017-12-01 
 ipv4/privateIpAddress | VM의 로컬 IPv4 주소 | 2017-04-02
 ipv4/publicIpAddress | VM의 공용 IPv4 주소 | 2017-04-02
@@ -310,7 +310,7 @@ subnet/prefix | 서브넷 접두사, 예:24 | 2017-04-02
 ipv6/ipaddress | VM의 로컬 IPv6 주소 | 2017-04-02 
 macAddress | VM MAC 주소 | 2017-04-02 
 scheduledevents | [예정된 이벤트](scheduled-events.md) 참조 | 2017-08-01
-ID | (미리 보기) 관리 서비스 ID [액세스 토큰 획득](../../active-directory/managed-service-identity/how-to-use-vm-token.md)을 참조하세요. | 2018-02-01 
+ID | (미리 보기) 관리 서비스 ID [액세스 토큰 획득](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)을 참조하세요. | 2018-02-01 
 
 ## <a name="example-scenarios-for-usage"></a>사용법을 위한 예제 시나리오  
 

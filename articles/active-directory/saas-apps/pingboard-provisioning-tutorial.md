@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 93c3b0cbc3ce063aaeb086d089631a8810293bbe
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: e96ea7d212f1a34bb6d10f8c49a15e1b34bfc469
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382536"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348959"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Pingboard 구성
 
@@ -89,7 +89,7 @@ Azure AD는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택�
 
 1. **매핑** 섹션에서 **Azure Active Directory 사용자를 Pingboard에 동기화**를 선택합니다.
 
-1. **특성 매핑** 섹션에서 Azure AD에서 Pingboard로 동기화할 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Pingboard의 사용자 계정을 일치시키는 데 사용됩니다. 변경 내용을 커밋하려면 **저장**을 선택합니다. 자세한 내용은 [사용자 프로비전 특성 매핑 사용자 지정](../active-directory-saas-customizing-attribute-mappings.md)을 참조하세요.
+1. **특성 매핑** 섹션에서 Azure AD에서 Pingboard로 동기화할 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Pingboard의 사용자 계정을 일치시키는 데 사용됩니다. 변경 내용을 커밋하려면 **저장**을 선택합니다. 자세한 내용은 [사용자 프로비전 특성 매핑 사용자 지정](../manage-apps/customize-application-attributes.md)을 참조하세요.
 
 1. Pingboard에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
 
@@ -97,7 +97,7 @@ Azure AD는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택�
 
 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 통해 프로비전 작업 로그를 확인합니다. 로그는 Pingboard 앱에서 프로비전 서비스가 수행하는 모든 작업을 설명합니다.
 
-Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../active-directory-saas-provisioning-reporting.md)를 참조하세요.
+Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -6,14 +6,14 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 08/23/2018
+ms.date: 09/07/2018
 ms.author: danlep
-ms.openlocfilehash: 0ef3cc373b3b87bbd1dde5682fbc076e6b77d6a0
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e1d6f2d6181e70fde75907191664dcf6cd0b7252
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698386"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391762"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>상태별로 노드 및 작업을 계산하여 Batch 솔루션 모니터링
 
@@ -53,11 +53,9 @@ Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
 
 REST 및 기타 지원되는 언어에 유사한 패턴을 사용하여 작업에 대한 태스크 수를 가져올 수 있습니다. 
 
-### <a name="counts-for-large-numbers-of-tasks"></a>많은 태스크의 개수
-
-태스크 수 가져오기 작업은 특정 시점에 시스템에 있는 태스크 상태 수를 반환합니다. 작업에 많은 수의 태스크가 있는 경우 태스크 수 가져오기를 통해 반환된 개수는 실제 태스크 상태 시간을 몇 초까지 지연시킬 수 있습니다. 일괄 처리는 태스크 수 가져오기의 결과와 실제 작업 상태(List Tasks API를 통해 쿼리할 수 있음) 간의 최종 일관성을 보장합니다. 그러나 작업에 매우 많은 수의 태스크가 있는 경우(200,000개 초과), 대신 List Tasks API와 [필터링된 쿼리](batch-efficient-list-queries.md)를 사용하는 것이 좋습니다. 이러한 쿼리는 좀 더 최신 정보를 제공합니다. 
-
-2018-08-01.7.0 이전의 Batch Service API 또한 태스크 수 가져오기 응답에서 `validationStatus` 속성을 반환합니다. 이 속성은 Batch가 상태 수와 List Tasks API에 보고된 상태의 일관성 여부를 확인했는지 여부를 나타냅니다. `validated` 값은 Batch가 작업에 대해 1번 이상 일관성을 확인했는지만 나타냅니다. `validationStatus` 속성 값은 태스크 수 가져오기가 반환하는 개수가 현재 최신 상태인지 여부는 나타내지 않습니다.
+> [!NOTE]
+> 2018-08-01.7.0 이전의 Batch Service API 또한 태스크 수 가져오기 응답에서 `validationStatus` 속성을 반환합니다. 이 속성은 Batch가 상태 수와 List Tasks API에 보고된 상태의 일관성 여부를 확인했는지 여부를 나타냅니다. `validated` 값은 Batch가 작업에 대해 1번 이상 일관성을 확인했는지만 나타냅니다. `validationStatus` 속성 값은 태스크 수 가져오기가 반환하는 개수가 현재 최신 상태인지 여부는 나타내지 않습니다.
+>
 
 ## <a name="node-state-counts"></a>노드 상태 수
 

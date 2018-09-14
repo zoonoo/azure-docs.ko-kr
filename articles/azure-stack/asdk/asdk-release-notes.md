@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/12/2018
 git ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: 1d3e4724820f7109eb9b695fe06d221a2796c26f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
-ms.translationtype: HT
+ms.openlocfilehash: 9c9b93b5e7877d853a2f27678af61774171c01cb
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722207"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543332"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure Stack 개발 키트 릴리스 정보  
 이 문서에서는 향상 된 기능, 수정 및 Azure Stack 개발 키트의 알려진된 문제에 대 한 정보를 제공 합니다. 실행 중인 버전을 잘 모를 경우 [포털을 사용 하 여 확인](.\.\azure-stack-updates.md#determine-the-current-version)합니다.
@@ -65,7 +65,7 @@ ms.locfileid: "44722207"
 
 - <!-- 2515955   | IS ,ASDK--> *모든 서비스* 바꿉니다 *더 많은 서비스* Azure Stack 관리자 및 사용자 포털에 있습니다. 이제 사용할 수 있습니다 *모든 서비스* Azure 포털에서 수행한 동일한 방식으로 Azure Stack 포털에 이동 하는 대신 합니다.
 
-- <!-- TBD | IS, ASDK --> **+ 리소스 만들기** 바꿉니다 **+ 새로 만들기** Azure Stack 관리자 및 사용자 포털에 있습니다.  이제 사용할 수 있습니다 *+ 리소스 만들기* Azure 포털에서 수행한 동일한 방식으로 Azure Stack 포털에 이동 하는 대신 합니다. 
+- <!-- TBD | IS, ASDK --> *+ 리소스 만들기* 바꿉니다 *+ 새로 만들기* Azure Stack 관리자 및 사용자 포털에 있습니다.  이제 사용할 수 있습니다 *+ 리소스 만들기* Azure 포털에서 수행한 동일한 방식으로 Azure Stack 포털에 이동 하는 대신 합니다. 
 
 - <!--  TBD – IS, ASDK --> *기본 A* 가상 머신 크기에 대 한 현재 퇴직 [virtual machine scale sets 만들기](.\.\azure-stack-compute-add-scalesets.md) (VMSS) 포털을 통해. 이 크기를 사용 하 여 VMSS를 만들려면, PowerShell 또는 템플릿을 사용 합니다. 
 

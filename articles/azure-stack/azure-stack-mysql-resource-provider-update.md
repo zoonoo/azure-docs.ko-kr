@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: fb9f022f0af821d81e5b61b99ecb52b7f7151b5f
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 5ea865a6a0f3f671d92d9ef3bf60cd8cfe90bddb
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391558"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578895"
 ---
 # <a name="update-the-mysql-resource-provider"></a>MySQL 리소스 공급자 업데이트 
 
@@ -62,6 +62,9 @@ $domain = "AzureStack"
 # For integrated systems, use the IP address of one of the ERCS virtual machines 
 $privilegedEndpoint = "AzS-ERCS01" 
 
+# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+$AzureEnvironment = "<EnvironmentName>"
+
 # Point to the directory where the resource provider installation files were extracted. 
 $tempDir = 'C:\TEMP\MYSQLRP' 
 
@@ -87,6 +90,7 @@ $tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
 -VMLocalCredential $vmLocalAdminCreds ` 
 -CloudAdminCredential $cloudAdminCreds ` 
 -PrivilegedEndpoint $privilegedEndpoint ` 
+-AzureEnvironment $AzureEnvironment `
 -DefaultSSLCertificatePassword $PfxPass ` 
 -DependencyFilesLocalPath $tempDir\cert ` 
 -AcceptLicense 
@@ -101,7 +105,7 @@ $tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
 | **AzCredential** | Azure Stack에 대 한 자격 증명을 서비스 관리자 계정입니다. Azure Stack 배포에 사용한 것과 동일한 자격 증명을 사용 합니다. | _필수_ | 
 | **VMLocalCredential** |SQL 리소스 공급자 VM의 로컬 관리자 계정의 자격 증명입니다. | _필수_ | 
 | **PrivilegedEndpoint** | IP 주소 또는 권한 있는 끝점의 DNS 이름입니다. |  _필수_ | 
-| **AzureEnvironment** | Azure Stack을 배포 하기 위한 사용 하는 서비스 관리자 계정의 azure 환경입니다. ADFS 없으면에 필요 합니다. 지원 되는 환경 이름은 **AzureCloud**를 **AzureUSGovernment**, 중국 Azure Active Directory를 사용 하는 경우 또는 **AzureChinaCloud**합니다. | AzureCloud |
+| **AzureEnvironment** | Azure Stack을 배포 하기 위한 사용 하는 서비스 관리자 계정의 Azure 환경입니다. Azure AD 배포에만 필요합니다. 지원 되는 환경 이름은 **AzureCloud**를 **AzureUSGovernment**에 중국의 Azure AD를 사용 하는 경우 또는 **AzureChinaCloud**합니다. | AzureCloud |
 | **DependencyFilesLocalPath** | 인증서.pfx 파일에서이 디렉터리에 배치 되어야 합니다. | _선택적_ (_필수_ 다중 노드) | 
 | **DefaultSSLCertificatePassword** | .Pfx 인증서에 대 한 암호입니다. | _필수_ | 
 | **MaxRetryCount** | 오류가 발생 하는 경우 각 작업을 다시 시도 하려는 횟수입니다.| 2 | 

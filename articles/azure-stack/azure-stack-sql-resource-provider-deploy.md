@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: d063e4b79819a881dbf018979654d4d7d96b904a
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 47d31ac08d2cda59eac6ee5c939894b58d4576a0
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390930"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576989"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Azure Stack에 SQL Server 리소스 공급자 배포
 
@@ -83,7 +83,7 @@ SQL 리소스 공급자를 배포 하려면 엽니다는 **새** 관리자 권�
 | **AzCredential** | Azure Stack에 대 한 자격 증명을 서비스 관리자 계정입니다. Azure Stack 배포에 사용한 동일한 자격 증명을 사용 합니다. | _필수_ |
 | **VMLocalCredential** | SQL 리소스 공급자 VM의 로컬 관리자 계정의 자격 증명입니다. | _필수_ |
 | **PrivilegedEndpoint** | IP 주소 또는 권한 있는 끝점의 DNS 이름입니다. |  _필수_ |
-| **AzureEnvironment** | Azure Stack을 배포 하기 위한 사용 하는 서비스 관리자 계정의 azure 환경입니다. ADFS 없으면에 필요 합니다. 지원 되는 환경 이름은 **AzureCloud**를 **AzureUSGovernment**, 중국 Azure Active Directory를 사용 하는 경우 또는 **AzureChinaCloud**합니다. | AzureCloud |
+| **AzureEnvironment** | Azure Stack을 배포 하기 위한 사용 하는 서비스 관리자 계정의 Azure 환경입니다. Azure AD 배포에만 필요합니다. 지원 되는 환경 이름은 **AzureCloud**를 **AzureUSGovernment**, 중국 Azure Active Directory를 사용 하는 경우 또는 **AzureChinaCloud**합니다. | AzureCloud |
 | **DependencyFilesLocalPath** | 통합된 시스템만을 위한 인증서.pfx 파일을이 디렉터리에 배치 되어야 합니다. 필요에 따라 하나의 Windows 업데이트 MSU이 패키지를 복사할 수 있습니다. | _선택적_ (_필수_ 통합 시스템용) |
 | **DefaultSSLCertificatePassword** | .Pfx 인증서에 대 한 암호입니다. | _필수_ |
 | **MaxRetryCount** | 오류가 발생 하는 경우 각 작업을 다시 시도 하려는 횟수입니다.| 2 |
@@ -93,9 +93,9 @@ SQL 리소스 공급자를 배포 하려면 엽니다는 **새** 관리자 권�
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>사용자 지정 스크립트를 사용 하 여 SQL 리소스 공급자 배포
 
-<a name="to-eliminate-any-manual-configuration-when-deploying-the-resource-provider-you-can-customize-the-following-script"></a>수동 구성 리소스 공급자를 배포 하는 경우을 제거 하려면 다음 스크립트를 사용자 지정할 수 있습니다.  
--  
-- Azure Stack 배포에 필요한 기본 계정 정보 및 암호를 변경 합니다.
+수동 구성 리소스 공급자를 배포 하는 경우을 제거 하려면 다음 스크립트를 사용자 지정할 수 있습니다.  
+
+Azure Stack 배포에 필요한 기본 계정 정보 및 암호를 변경 합니다.
 
 
 ```powershell
@@ -109,6 +109,9 @@ $domain = "AzureStack"
 
 # For integrated systems, use the IP address of one of the ERCS virtual machines
 $privilegedEndpoint = "AzS-ERCS01"
+
+# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+$AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\SQLRP'
@@ -135,6 +138,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
     -VMLocalCredential $vmLocalAdminCreds `
     -CloudAdminCredential $cloudAdminCreds `
     -PrivilegedEndpoint $privilegedEndpoint `
+    -AzureEnvironment $AzureEnvironment `
     -DefaultSSLCertificatePassword $PfxPass `
     -DependencyFilesLocalPath $tempDir\cert
 

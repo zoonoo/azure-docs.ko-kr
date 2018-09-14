@@ -3,17 +3,17 @@ title: Azure Maps 맵 컨트롤을 사용하는 방법 | Microsoft Docs
 description: Azure Maps 맵 컨트롤 클라이언트 쪽 Javascript 라이브러리를 사용하는 방법을 알아봅니다.
 author: dsk-2015
 ms.author: dkshir
-ms.date: 05/07/2018
+ms.date: 09/05/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 619dda44b5ad74ba1dcb62cfb3318687aa6ec4d5
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 5b8703c218790549a0cf5a319345132a0eca66ce
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340138"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025192"
 ---
 # <a name="how-to-use-the-azure-maps-map-control"></a>Azure Maps 맵 컨트롤을 사용하는 방법
 맵 컨트롤 클라이언트 쪽 Javascript 라이브러리를 사용하면 맵 및 포함된 Azure Maps 기능을 웹 또는 모바일 응용 프로그램에 렌더링할 수 있습니다. 
@@ -27,8 +27,8 @@ ms.locfileid: "43340138"
 2. 파일의 `<head>` 요소에 Azure Maps 스타일시트 및 스크립트 소스 참조를 추가합니다.
 
     ```html
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1.0" type="text/css" />
-    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1.0"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
+    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
     ```
     
 3. 브라우저에서 새 맵을 렌더링하려면 `<style>` 요소에 **#map** 참조를 추가합니다.

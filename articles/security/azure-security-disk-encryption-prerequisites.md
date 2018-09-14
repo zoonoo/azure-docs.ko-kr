@@ -1,24 +1,18 @@
 ---
 title: Azure Disk Encryption 필수 구성 요소 | Microsoft Docs
 description: 이 문서에서는 IaaS VM용 Microsoft Azure Disk Encryption을 사용하기 위한 필수 구성 요소를 설명합니다.
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 1b2daefc-1326-44dd-9c8b-10e413769af7
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/29/2018
 ms.author: mstewart
-ms.openlocfilehash: 67c3591b0218beac6343b49ba7867294ebeb3f44
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.date: 09/10/2018
+ms.openlocfilehash: 0750ea0877d5f27a8ceb091f8c3904048c9314aa
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43381983"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348279"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure Disk Encryption 필수 구성 요소 
  'Azure Disk Encryption 필수 구성 요소'라는 이 문서에서는 Azure Disk Encryption을 사용하기 전에 필요한 항목에 대해 설명합니다. Azure Disk Encryption은 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/)와 통합되어 암호화 키를 관리하는 데 도움이 됩니다. [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure/) 또는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure Disk Encryption을 구성할 수 있습니다.

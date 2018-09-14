@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4d8a79862dac53429acda14f81818f92a96df529
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 5b0dbf5ad78ff345d386024ff873618a781917ac
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44376853"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579040"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Azure Stack 개요에 대 한 업데이트 관리
 
@@ -34,7 +34,7 @@ Microsoft update 패키지 일반적으로 Azure Stack 통합 시스템에 대 �
 지원 시스템을 유지 하려면 특정 버전 수준으로 업데이트 하는 Azure Stack을 유지 해야 합니다. 검토 하 고 있는지 확인 합니다 [Azure Stack 서비스 정책](azure-stack-servicing-policy.md)합니다.
 
 > [!NOTE]
-> Azure Stack 개발 키트 Azure Stack 업데이트 패키지에 적용할 수 없습니다. 업데이트 패키지는 통합된 시스템을 위한 설계 되었습니다. 정보를 참조 하세요 [재배포는 ASDK](https://docs.microsoft.com/en-us/azure/azure-stack/asdk)합니다.
+> Azure Stack 개발 키트 Azure Stack 업데이트 패키지에 적용할 수 없습니다. 업데이트 패키지는 통합된 시스템을 위한 설계 되었습니다. 정보를 참조 하세요 [재배포는 ASDK](https://docs.microsoft.com/azure/azure-stack/asdk)합니다.
 
 ## <a name="the-update-resource-provider"></a>업데이트 리소스 공급자
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: d64233883d2dd6fb174c55467fcfcd276b452775
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: ccaa6e79d9a24409b8c905561b265c70ea781dc2
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782993"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022578"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -310,7 +310,7 @@ subnet/prefix | 서브넷 접두사, 예:24 | 2017-04-02
 ipv6/ipaddress | VM의 로컬 IPv6 주소 | 2017-04-02 
 macAddress | VM MAC 주소 | 2017-04-02 
 scheduledevents | [예정된 이벤트](scheduled-events.md) 참조 | 2017-08-01
-ID | (미리 보기) 관리 서비스 ID [액세스 토큰 획득](../../active-directory/managed-service-identity/how-to-use-vm-token.md)을 참조하세요. | 2018-02-01
+ID | (미리 보기) 관리 서비스 ID [액세스 토큰 획득](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)을 참조하세요. | 2018-02-01
 
 ## <a name="example-scenarios-for-usage"></a>사용법을 위한 예제 시나리오  
 

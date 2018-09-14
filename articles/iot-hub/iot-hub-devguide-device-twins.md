@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: b5e0a0caacab2413b640c58575673e555eeb76a4
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: dfdffaad63d23ecf9968292cd2a8075b9cd374bc
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288281"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022356"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>IoT Hub의 장치 쌍 이해 및 사용
 
@@ -90,7 +90,7 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
             "telemetryConfig": {
                 "sendFrequency": "5m",
                 "status": "success"
-            }
+            },
             "batteryLevel": 55,
             "$metadata" : {...},
             "$version": 4

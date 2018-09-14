@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 722df244135d045e18b9f2d0dd88066ba00b7d49
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 50e48200d2e818cc52a1629986c620a3be1eb7b1
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841882"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578208"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Azure Stack에서 MySQL 리소스 공급자 배포
 
@@ -89,7 +89,7 @@ MySQL 리소스 공급자를 배포 하려면 (PowerShell ISE 없습니다 ()를
 | **AzCredential** | Azure Stack에 대 한 자격 증명을 서비스 관리자 계정입니다. Azure Stack 배포에 사용한 동일한 자격 증명을 사용 합니다. | _필수_ |
 | **VMLocalCredential** | MySQL 리소스 공급자 VM의 로컬 관리자 계정의 자격 증명입니다. | _필수_ |
 | **PrivilegedEndpoint** | IP 주소 또는 권한 있는 끝점의 DNS 이름입니다. |  _필수_ |
-| **AzureEnvironment** | Azure Stack을 배포 하기 위한 사용 하는 서비스 관리자 계정의 azure 환경입니다. ADFS 없으면에 필요 합니다. 지원 되는 환경 이름은 **AzureCloud**를 **AzureUSGovernment**, 중국 Azure Active Directory를 사용 하는 경우 또는 **AzureChinaCloud**합니다. | AzureCloud |
+| **AzureEnvironment** | Azure Stack을 배포 하기 위한 사용 하는 서비스 관리자 계정의 Azure 환경입니다. Azure AD 배포에만 필요합니다. 지원 되는 환경 이름은 **AzureCloud**를 **AzureUSGovernment**에 중국의 Azure AD를 사용 하는 경우 또는 **AzureChinaCloud**합니다. | AzureCloud |
 | **DependencyFilesLocalPath** | 통합된 시스템만을 위한 인증서.pfx 파일을이 디렉터리에 배치 되어야 합니다. 연결이 끊어진된 환경과 다운로드 [mysql 커넥터-net 6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) 이 디렉터리에 있습니다. 필요에 따라 하나의 Windows 업데이트 MSU이 패키지를 복사할 수 있습니다. | _선택적_ (_필수_ 통합된 시스템 또는 연결이 끊어진된 환경에 대 한) |
 | **DefaultSSLCertificatePassword** | .Pfx 인증서에 대 한 암호입니다. | _필수_ |
 | **MaxRetryCount** | 오류가 발생 하는 경우 각 작업을 다시 시도 하려는 횟수입니다.| 2 |
@@ -111,8 +111,11 @@ Install-Module -Name AzureStack -RequiredVersion 1.4.0
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"  
 
-# For integrated systems, use the IP address of one of the ERCS virtual machines
+# For integrated systems, use the IP address of one of the ERCS virtual machines.
 $privilegedEndpoint = "AzS-ERCS01"
+
+# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+$AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\MYSQLRP'
@@ -139,6 +142,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
     -VMLocalCredential $vmLocalAdminCreds `
     -CloudAdminCredential $cloudAdminCreds `
     -PrivilegedEndpoint $privilegedEndpoint `
+    -AzureEnvironment $AzureEnvironment `
     -DefaultSSLCertificatePassword $PfxPass `
     -DependencyFilesLocalPath $tempDir\cert `
     -AcceptLicense
