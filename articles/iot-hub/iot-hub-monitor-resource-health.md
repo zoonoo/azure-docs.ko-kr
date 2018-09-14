@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: kgremban
-ms.openlocfilehash: c7d8631a8e7b99cca8f84ea1011c361db01e399e
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 4f7eefc7d6b067c360fdc3ce12b9a7ae36080bd8
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42140121"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336877"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Azure IoT Hub 상태 모니터링 및 신속한 문제 진단
 
@@ -45,6 +45,9 @@ Azure Monitor는 IoT Hub에서 발생하는 여러 작업을 추적합니다. �
 #### <a name="connections"></a>연결
 
 연결 범주는 오류뿐 아니라 IoT Hub에서의 장치 연결 및 이벤트 분리를 추적합니다. 이 범주를 추적하는 것은 무단 연결 시도를 식별하고 연결 상태가 좋지 않은 영역에서 장치의 연결이 끊어졌을 때 추적하는 데 유용합니다.
+
+> [!NOTE]
+> 장치의 신뢰할 수 있는 연결 상태에 대해서는 [장치 하트비트][lnk-devguide-heartbeat]를 확인합니다.
 
 ```json
 {
@@ -334,3 +337,4 @@ IoT Hub의 상태를 확인하려면 다음 단계를 수행합니다.
 [lnk-AM-schemas]: ../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md
 [lnk-ARH-checks]: ../service-health/resource-health-checks-resource-types.md
 [lnk-monitoring-notifications]: iot-hub-monitoring-notifications-with-azure-logic-apps.md
+[lnk-devguide-heartbeat]: iot-hub-devguide-identity-registry.md#device-heartbeat

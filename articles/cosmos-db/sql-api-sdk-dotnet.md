@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cd460d92430f8ab011e90b969495972b744162df
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: d25f46804c3320b7d941a945f3c4d9a5dfb6970c
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798715"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702132"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK for SQL API: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -50,6 +50,18 @@ ms.locfileid: "34798715"
 </table></br>
 
 ## <a name="release-notes"></a>릴리스 정보
+### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
+
+* 요청 취소 지원이 추가되었습니다.
+* 지역에 따라 기본 설정 위치를 자동으로 채우는 SetCurrentLocation이 ConnectionPolicy에 추가되었습니다.
+* 개별 파티션의 문서를 일치시키지 않는 필터 및 Min/Max를 사용한 파티션 간 쿼리의 버그가 수정되었습니다.
+
+### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-preview
+
+* 이제 DocumentClient 메서드에는 IDocumentClient를 포함하는 패리티가 있습니다.
+* 설정된 연결 수를 줄이도록 직접 TCP 전송 스택이 업데이트되었습니다.
+* 비 Windows 클라이언트에 대한 직접 모드 TCP에 대한 지원이 추가되었습니다.
+
 ### <a name="a-name12201220"></a><a name="1.22.0"/>1.22.0
 
 * FeedOptions에 ConsistencyLevel 속성이 추가되었습니다.
@@ -206,7 +218,7 @@ ms.locfileid: "34798715"
 * 다중 지역 데이터베이스 계정에 대한 지원이 추가되었습니다.
 * 정제된 요청에 대한 재시도 지원이 추가되었습니다.  사용자가 ConnectionPolicy.RetryOptions 속성을 구성하여 재시도 횟수와 최대 대기 시간을 지정할 수 있습니다.
 * 모든 DocumentClient 속성 및 메서드의 시그니처를 정의하는 새로운 IDocumentClient 인터페이스가 추가되었습니다.  이러한 변경의 일환으로 DocumentClient 클래스 자체에서 IQueryable과 IOrderedQueryable을 메서드로 만드는 확장 메서드도 변경되었습니다.
-* 특정 Azure Cosmos DB 끝점 Uri에 대해 ServicePoint.ConnectionLimit를 설정하는 구성 옵션이 추가되었습니다.  ConnectionPolicy.MaxConnectionLimit를 사용하여 기본값(50)을 변경합니다.
+* 특정 Azure Cosmos DB 엔드포인트 Uri에 대해 ServicePoint.ConnectionLimit를 설정하는 구성 옵션이 추가되었습니다.  ConnectionPolicy.MaxConnectionLimit를 사용하여 기본값(50)을 변경합니다.
 * IPartitionResolver와 해당 구현의 사용이 중단되었습니다.  IPartitionResolver 지원이 중단되었습니다. 보다 큰 저장소 및 처리량에는 파티션된 컬렉션을 사용하는 것이 좋습니다.
 
 ### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
@@ -222,7 +234,7 @@ ms.locfileid: "34798715"
 * [분할된 컬렉션](partition-data.md) 및 [사용자 정의 성능 수준](performance-levels.md)이 구현되었습니다. 
 
 ### <a name="a-name153153"></a><a name="1.5.3"/>1.5.3
-* **[수정됨]** Azure Cosmos DB 끝점을 쿼리하면 'System.Net.Http.HttpRequestException: 스트림에 콘텐츠를 복사하는 중 오류가 발생했습니다.'가 나타납니다.
+* **[수정됨]** Azure Cosmos DB 엔드포인트를 쿼리하면 'System.Net.Http.HttpRequestException: 스트림에 콘텐츠를 복사하는 중 오류가 발생했습니다.'가 나타납니다.
 
 ### <a name="a-name152152"></a><a name="1.5.2"/>1.5.2
 * 페이징, 조건식 및 범위 비교에 대한 새 연산자를 포함하는 LINQ 지원이 확장되었습니다.
@@ -297,6 +309,8 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.0.0-preview2](#2.0.0-preview2) |2018년 7월 26일 |--- |
+| [2.0.0-preview](#2.0.0-preview) |2018년 5월 11일 |--- |
 | [1.22.0](#1.22.0) |2018년 4월 19일 |--- |
 | [1.21.1](#1.20.1) |2018년 3월 9일 |--- |
 | [1.20.2](#1.20.1) |2018년 2월 21일 |--- |

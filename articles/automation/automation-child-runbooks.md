@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2060239b27ef05c34ea6f5b388b4c4086a44a826
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 037c2714d146bd59b30573df874794342d743e03
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42143536"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782235"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Azure Automation의 자식 runbook
 
@@ -72,7 +72,9 @@ cmdlet으로 시작된 자식 runbook에서 작업은 부모 runbook의 별도 �
 
 [Runbook 매개 변수](automation-starting-a-runbook.md#runbook-parameters)에서 설명한 대로 cmdlet을 사용하여 시작된 자식 Runbook에 대한 매개 변수는 해시 테이블로 제공됩니다. 단순한 데이터 형식만 사용할 수 있습니다. runbook에 복잡한 데이터 형식을 가진 매개 변수가 있는 경우 인라인으로 호출해야 합니다.
 
-여러 구독으로 작업하는 경우 자식 Runbook 호출 시 구독 컨텍스트가 손실될 수 있습니다. 구독 컨텍스트가 자식 Runbook에 전달되도록 하려면 cmdlet에 `DefaultProfile` 매개 변수를 추가하여 컨텍스트를 전달합니다.
+자식 Runbook을 별도 작업으로 호출할 때 구독 컨텍스트가 손실될 수 있습니다. 자식 Runbook은 원하는 Azure 구독에 대해 Azure RM cmdlet을 호출하려면 부모 Runbook과는 별도로 이 구독에서 인증을 받아야 합니다.
+
+동일한 Automation 계정 내의 작업이 여러 구독을 사용하는 경우 하나의 작업에서 구독을 선택하면 다른 작업에 대해서도 현재 선택한 구독 컨텍스트가 변경될 수 있으며 이것은 일반적으로 원치 않는 동작일 수 있습니다. 이 문제를 방지하려면 `Select-AzureRmSubscription` cmdlet 호출 결과를 저장하고 이 개체를 모든 후속 Azure RM cmdlet 호출의 `DefaultProfile` 매개 변수에 전달합니다. 이 패턴은 이 Automation 계정에서 실행 중인 모든 Runbook에 일관되게 적용되어야 합니다.
 
 ### <a name="example"></a>예
 

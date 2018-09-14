@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 84b1ad2ecd2c027c7d8a105579059ceb957f41c6
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e1949c32833bb1d5e6603a6f5e36e22dc58e8cec
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929001"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336931"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 LinkedIn 계정으로 등록 설정 및 로그인
 
@@ -28,7 +28,7 @@ Azure AD(Azure Active Directory) B2C에서 LinkedIn 계정을 ID 공급자로 �
 3. **회사 이름**, **응용 프로그램 이름**, **응용 프로그램 설명**, **응용 프로그램 로고**, **응용 프로그램 사용**, **웹 사이트 URL**, **회사 전자 메일** 및 **회사 전화**를 입력합니다.
 4. **LinkedIn API 사용 조건**에 동의하고 **제출**을 클릭합니다.
 5. **클라이언트 ID** 및 **클라이언트 비밀** 값을 복사합니다. **인증 키** 아래에서 찾을 수 있습니다. 테넌트에서 LinkedIn을 ID 공급자로 구성하려면 둘 다 필요합니다. **클라이언트 암호** 는 중요한 보안 자격 증명입니다.
-6. **권한이 부여된 리디렉션 URL**에 `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`를 입력합니다. **{tenant}** 를 사용자의 테넌트 이름(예: contoso.onmicrosoft.com)으로 바꿉니다. **추가**를 선택한 후 **업데이트**를 클릭합니다.
+6. **권한이 부여된 리디렉션 URL**에 `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp`를 입력합니다. **{tenant}** 를 사용자의 테넌트 이름(예: contosob2c)으로 바꿉니다. **추가**를 선택한 후 **업데이트**를 클릭합니다.
 
 ## <a name="configure-a-linkedin-account-as-an-identity-provider"></a>LinkedIn 계정을 ID 공급자로 구성
 
@@ -42,7 +42,7 @@ Azure AD(Azure Active Directory) B2C에서 LinkedIn 계정을 ID 공급자로 �
     ![디렉터리 선택](./media/active-directory-b2c-setup-li-app/select-directory.png)
 
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-4. **ID 공급자**를 선택한 다음 **추가**를 선택합니다.
+4. **ID 공급자**를 선택한 다음, **추가**를 선택합니다.
 5. **이름**을 제공합니다. 예를 들어, *LinkedIn*을 입력합니다.
 6. **ID 공급자 형식**을 선택하고 **LinkedIn**을 선택한 다음, **확인**을 클릭합니다.
 7. **이 ID 공급자 설정**을 선택하고 이전에 기록한 클라이언트 ID를 **클라이언트 ID**로 입력한 후, 기록한 클라이언트 암호를 이전에 만든 LinkedIn 계정 응용 프로그램의 **클라이언트 암호**로 입력합니다.

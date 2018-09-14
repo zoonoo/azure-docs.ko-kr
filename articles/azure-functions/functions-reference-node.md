@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: 1a4b970b07514619b2d81a0483546ac64d07927f
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 6099a818651cf75a75159f43748720b3eb01e4de
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005478"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287824"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
@@ -30,27 +30,28 @@ Azure Functions의 JavaScript 환경은 런타임과 통신하고 바인딩을 �
 이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽었다고 가정합니다.
 
 ## <a name="exporting-a-function"></a>함수 내보내기
-모든 JavaScript 함수는 런타임에 대한 `module.exports`를 통해 단일 `function`을 내보내 함수를 찾고 실행해야 합니다. 이 함수에는 `context` 개체가 항상 포함되어야 합니다.
+각 JavaScript 함수는 런타임에 대한 `module.exports`를 통해 단일 `function`을 내보내 함수를 찾고 실행해야 합니다. 이 함수는 `context` 개체를 항상 첫 번째 매개 변수로 사용해야 합니다.
 
 ```javascript
-// You must include a context, but other arguments are optional
-module.exports = function(context) {
-    // Additional inputs can be accessed by the arguments property
-    if(arguments.length === 4) {
-        context.log('This function has 4 inputs');
-    }
-};
-// or you can include additional inputs in your arguments
+// You must include a context, other arguments are optional
 module.exports = function(context, myTrigger, myInput, myOtherInput) {
     // function logic goes here :)
+    context.done();
+};
+// You can also use 'arguments' to dynamically handle inputs
+module.exports = function(context) {
+    context.log('Number of inputs: ' + arguments.length);
+    // Iterates through trigger and input binding data
+    for (i = 1; i < arguments.length; i++){
+        context.log(arguments[i]);
+    }
+    context.done();
 };
 ```
 
-`direction === "in"`의 바인딩은 함수 인수로 전달됩니다. 즉, [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx)를 사용하여 동적으로 새 입력을 처리할 수 있습니다(예: 모든 입력에 대해 반복되는 `arguments.length` 사용). 이 기능은 `context` 개체를 참조하지 않고 트리거 데이터에 예측 가능한 방식으로 액세스할 수 있으므로 트리거만 있고 추가 입력이 없는 경우에 편리합니다.
+입력 및 트리거 바인딩(`direction === "in"` 바인딩)은 매개 변수로 함수에 전달될 수 있습니다. 이러한 항목은 *function.json*에 정의된 순서대로 함수에 전달됩니다. JavaScript [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) 개체를 사용하여 입력을 동적으로 처리할 수 있습니다. 예를 들어 `function(context, a, b)`을 `function(context, a)`으로 변경하는 경우 `arguments[2]`를 참조하여 여전히 함수 코드의 `b` 값을 가져올 수 있습니다.
 
-내보내기 문에 인수를 지정하지 않은 경우에도 *function.json*에서 발생하는 순서에 따라 인수가 항상 함수에 전달됩니다. 예를 들어 `function(context, a, b)`을 `function(context, a)`으로 변경하는 경우 `arguments[2]`를 참조하여 여전히 함수 코드의 `b` 값을 가져올 수 있습니다.
-
-또한 방향에 관계없이 모든 바인딩은 `context` 개체로 전달됩니다(다음 스크립트 참조). 
+또한 방향에 관계없이 모든 바인딩은 `context.bindings` 속성을 사용하여 `context` 개체로 전달됩니다.
 
 ## <a name="context-object"></a>context 개체
 런타임은 함수로 데이터를 전달하거나 전달받으며 사용자가 런타임과 통신할 수 있도록 하는 `context` 개체를 사용합니다.
@@ -61,6 +62,7 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 // You must include a context, but other arguments are optional
 module.exports = function(context) {
     // function logic goes here :)
+    context.done();
 };
 ```
 

@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: byvinyal
-ms.openlocfilehash: 6b6e713c0da11a3d2c8cfbf388b84940a4542e95
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 00955d5de314e6efb0e491e33708495fbdd14f3b
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42139949"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782593"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간 경과에 따라 이 목록은 더 많은 플랫폼에 적용되도록 확장 및 업데이트됩니다.
@@ -172,7 +172,7 @@ Azure Files 한도에 대한 자세한 내용은 [Azure Files 확장성 및 성�
 
 [!INCLUDE [storage-files-scale-targets](../includes/storage-files-scale-targets.md)]
 
-#### <a name="azure-file-sync-limits"></a>Azure File Sync 한도
+#### <a name="azure-file-sync-limits"></a>Azure 파일 동기화 한도
 [!INCLUDE [storage-sync-files-scale-targets](../includes/storage-sync-files-scale-targets.md)]
 
 #### <a name="azure-queue-storage-limits"></a>Azure Queue 저장소 용량 한도
@@ -201,7 +201,7 @@ Azure Files 한도에 대한 자세한 내용은 [Azure Files 확장성 및 성�
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
 
 ### <a name="app-service-limits"></a>App Service 제한
-다음 App Service 제한에는 Web Apps, Mobile Apps, API Apps 및 Logic Apps에 대한 제한이 포함됩니다.
+다음 App Service 제한에는 Web Apps, Mobile Apps 및 API Apps에 대한 제한이 포함됩니다.
 
 [!INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 

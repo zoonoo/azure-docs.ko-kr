@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 19b7f708d43907ac45450a64f988b2a517293511
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f076a906ba38e6c8e8c9530baba1607553b41ea6
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446710"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338331"
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 OAuth2 ID 공급자로 Google+ 추가
 
@@ -78,7 +78,7 @@ Azure AD(Azure Active Directory) B2C에서 Google+를 ID 공급자로 사용하�
 
     ![Google+ - 응용 프로그램 형식 선택](media/active-directory-b2c-custom-setup-goog-idp/goog-web-app.png)
 
-13.  응용 프로그램에 대한 **이름**을 제공하고 **권한이 부여된 JavaScript 원본** 필드에 `https://login.microsoftonline.com`을 입력하고 **권한이 부여된 리디렉션 URI** 필드에 `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`를 입력합니다. **{tenant}** 를 사용자의 테넌트 이름(예: contosob2c.onmicrosoft.com)으로 바꿉니다. **{tenant}** 값은 대/소문자를 구분합니다. **만들기**를 클릭합니다.
+13.  응용 프로그램에 대한 **이름**을 제공하고 **권한이 부여된 JavaScript 원본** 필드에 `https://{tenant}.b2clogin.com`을 입력하고 **권한이 부여된 리디렉션 URI** 필드에 `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp`를 입력합니다. **{tenant}** 를 사용자의 테넌트 이름(예: contosob2c)으로 바꿉니다. **{tenant}** 값은 대/소문자를 구분합니다. **만들기**를 클릭합니다.
 
     ![Google+ - 승인된 JavaScript 원본 및 리디렉션 URI 제공](media/active-directory-b2c-custom-setup-goog-idp/goog-create-client-id.png)
 
@@ -102,7 +102,7 @@ Google+ 계정으로 페더레이션하려면 응용 프로그램 대신 Azure A
 
 ## <a name="add-a-claims-provider-in-your-extension-policy"></a>확장 정책에서 클레임 공급자 추가
 
-사용자가 Google+ 계정을 사용하여 로그인하도록 하려면 Google+ 계정을 클레임 공급자로 정의해야 합니다. 즉, Azure AD B2C가 통신하는 끝점을 지정해야 합니다. 끝점은 Azure AD B2C에서 사용하는 일련의 클레임을 제공하여 특정 사용자가 인증했는지 확인합니다.
+사용자가 Google+ 계정을 사용하여 로그인하도록 하려면 Google+ 계정을 클레임 공급자로 정의해야 합니다. 즉, Azure AD B2C가 통신하는 엔드포인트를 지정해야 합니다. 엔드포인트는 Azure AD B2C에서 사용하는 일련의 클레임을 제공하여 특정 사용자가 인증했는지 확인합니다.
 
 확장 정책 파일에서 `<ClaimsProvider>` 노드를 추가하여 Google+ 계정을 클레임 공급자로 정의합니다.
 

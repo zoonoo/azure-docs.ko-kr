@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 09/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 8ecb2008b85bb6a7ac35b5f95deaf0fb321ce155
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: e5915157c1ff2c1f58779e5c3b1d784241464b32
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42143581"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669049"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 획득 방법
 
@@ -32,7 +32,10 @@ ms.locfileid: "42143581"
 | --- | --- |
 | Office 365용 Multi-Factor Authentication |이 버전은 Office 365 응용프로그램에서만 작동되며 Office 365 포털에서 관리됩니다. 관리자는 [2단계 인증을 사용하여 Office 365 리소스의 보안을 유지](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)할 수 있습니다. 이 버전은 Office 365 구독에 포함되어 있습니다. |
 | Azure AD 관리자를 위한 Multi-Factor Authentication | Azure AD 테넌트에서 Azure AD 전역 관리자 역할이 할당된 사용자는 추가 비용 없이 2단계 인증을 사용하도록 설정할 수 있습니다.|
-| Azure Multi-Factor Authentication | 대개 "전체" 버전이라고 하는 Azure Multi-factor Authentication은 가장 다양한 기능을 제공합니다. [Azure Portal](https://portal.azure.com), 고급 보고, 다양한 온-프레미스 및 클라우드 응용 프로그램 지원을 통해 추가 구성 옵션을 제공합니다. Azure Multi-Factor Authentication은 [Azure Active Directory Premium 계획](https://www.microsoft.com/cloud-platform/azure-active-directory-features)에 포함되며 클라우드 또는 온-프레미스에 배포할 수 있습니다. |
+| Azure Multi-Factor Authentication | 대개 "전체" 버전이라고 하는 Azure Multi-factor Authentication은 가장 다양한 기능을 제공합니다. [Azure Portal](https://portal.azure.com), 고급 보고, 다양한 온-프레미스 및 클라우드 응용 프로그램 지원을 통해 추가 구성 옵션을 제공합니다. Azure Multi-Factor Authentication은 [Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features)의 기능이며 클라우드 또는 온-프레미스에 배포할 수 있습니다. |
+
+> [!NOTE]
+> 신규 고객은 2018년 9월 1일부터 제공되는 독립 제품 형태의 Azure Multi-Factor Authentication을 더 이상 구매할 수 없습니다. Multi-Factor Authentication은 Azure AD Premium 라이선스에서 계속 사용할 수 있게 지원됩니다.
 
 ## <a name="feature-comparison-of-versions"></a>버전 기능 비교
 
@@ -77,9 +80,12 @@ Azure Active Directory Premium 또는 Azure AD Premium이 포함된 라이선스
 
 ### <a name="option-2---mfa-consumption-based-model"></a>옵션 2 - MFA 사용량 기반 모델
 
+> [!NOTE]
+> 2018년 9월 1일부터, 새 인증 공급자는 더 이상 생성되지 않을 수 있습니다. 기존 인증 공급자는 계속 사용하고 업데이트할 수 있습니다. Multi-Factor Authentication은 Azure AD Premium 라이선스에서 계속 사용할 수 있게 지원됩니다.
+
 Azure 구독 내에서 Azure Multi-Factor Authentication 공급자를 만듭니다. Azure MFA 공급자는 모든 다른 Azure 리소스처럼 기업계약, Azure 약정 금액 또는 신용 카드에 대해 청구되는 Azure 리소스입니다. 이러한 공급자는 전체 Azure 구독에만 만들 수 있으며 $0 지출 한도를 포함하는 Azure 구독으로 제한되지 않습니다. 옵션 1처럼 라이선스를 활성화하면 제한된 구독이 만들어집니다.
 
-Azure Multi-Factor Authentication 제공자를 사용하는 경우 Azure 구독을 통해 청구되는 두 가지 사용 모델을 사용할 수 있습니다. 
+Azure Multi-Factor Authentication 제공자를 사용하는 경우 Azure 구독을 통해 청구되는 두 가지 사용 모델을 사용할 수 있습니다.
 
 1. **활성화된 사용자별** - 규칙적으로 인증이 필요한 고정된 수의 직원에 대해 2단계 인증을 사용하려는 기업에 적합합니다. 사용자당 요금 청구는 Azure AD 테넌트 및 Azure MFA 서버에서 MFA에 대해 활성화된 사용자 수를 기반으로 합니다. 사용자가 Azure AD 및 Azure MFA 서버 모두에서 MFA에 대해 활성화되고 도메인 동기화(Azure AD Connect)가 사용하도록 설정된 경우 더 많은 사용자 집합을 계산합니다. 도메인 동기화를 사용할 수 없는 경우 Azure AD 및 Azure MFA 서버에서 MFA에 대해 활성화된 모든 사용자의 합계를 계산합니다. 대금 청구는 매일 계산되어 상거래 시스템에 보고됩니다.
 
@@ -93,7 +99,7 @@ Azure Multi-Factor Authentication 제공자를 사용하는 경우 Azure 구독�
   > [!NOTE]
   > 대금 청구 예3: 오늘, Azure MFA 서비스가 3,105개의 2단계 인증 요청을 수신했습니다. Azure 구독에는 310.5개 인증 팩에 대한 요금이 청구됩니다.
 
-Azure MFA 라이선스를 포함할 수 있지만 사용량 기반 구성에 따라 요금이 청구된다는 점을 고려해야 합니다. 인증당 Azure MFA 공급자를 설정했다면 라이선스가 있는 사용자가 수행했어도 2단계 인증 요청마다 요금이 청구됩니다. Azure AD 테넌트에 연결되지 않은 도메인에서 사용자당 Azure MFA 공급자를 설정하면 사용자에게 Azure AD에 대한 라이선스가 있어도 활성화된 사용자당 요금이 청구됩니다.
+사용자에게 라이선스가 있을 수 있지만 사용량 기반 구성에 따라 요금이 청구된다는 점을 고려해야 합니다. 인증당 Azure MFA 공급자를 설정했다면 라이선스가 있는 사용자가 수행했어도 2단계 인증 요청마다 요금이 청구됩니다. Azure AD 테넌트에 연결되지 않은 도메인에서 사용자당 Azure MFA 공급자를 설정하면 사용자에게 Azure AD에 대한 라이선스가 있어도 활성화된 사용자당 요금이 청구됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

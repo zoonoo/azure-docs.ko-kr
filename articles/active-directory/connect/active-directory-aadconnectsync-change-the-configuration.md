@@ -12,18 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 08/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bad1cbe0b142e146ada28f2af5d152973100e919
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4795e21c4279b6d313ba56296bafc49daf7bbb48
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595107"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288175"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 변경
 이 문서의 목적은 Azure AD(Active Directory) Connect 동기화에서 기본 구성 변경 방법을 안내하는 것입니다. 몇 가지 일반적인 시나리오를 위한 단계를 제공합니다. 이러한 지식을 바탕으로 사용자의 고유한 비즈니스 규칙에 따라 자체 구성에 대해 간단한 내용을 변경할 수 있습니다.
+
+> [!WARNING]
+> 기본 동기화 규칙을 변경하는 경우 다음번에 Azure AD Connect가 업데이트될 때 이러한 변경 내용이 덮어쓰여지므로 예기치 않거나 원치 않은 동기화 결과가 발생하게 됩니다.
+>
+> 기본 동기화 규칙에는 지문이 포함되어 있습니다. 이들 규칙을 변경하면 지문이 더 이상 일치하지 않습니다. 나중에 Azure AD Connect의 새 릴리스를 적용할 때 문제가 될 수 있습니다. 이 문서에 유일하게 변경하는 방법이 설명되어 있습니다.
 
 ## <a name="synchronization-rules-editor"></a>동기화 규칙 편집기
 동기화 규칙 편집기는 기본 구성을 확인하고 변경하는 데 사용됩니다. **Azure AD Connect** 그룹 아래에 있는 **시작** 메뉴에서 찾을 수 있습니다.  

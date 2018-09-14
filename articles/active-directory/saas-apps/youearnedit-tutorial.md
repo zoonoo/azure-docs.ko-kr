@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: jeedes
-ms.openlocfilehash: f860036f1a69b2d1ab6ac8de763a49380f8fe4bf
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 3a394c13092547991bf7f8ae98e5c69e92077701
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42140530"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344787"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>자습서: Azure Active Directory와 YouEarnedIt 통합
 
@@ -139,7 +139,7 @@ YouEarnedIt에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
     ![YouEarnedIt 구성](./media/youearnedit-tutorial/tutorial_youearnedit_configure.png) 
 
-7. **YouEarnedIt** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64)** 및 **SAML Single Sign-On 서비스 URL**을 할당된 YouEarnedIt 고객 성공 관리자에게 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+7. **YouEarnedIt** 쪽에서 Single Sign-On을 구성하려면 다운로드한 ***인증서(Base64)*** 및 ***SAML Single Sign-On 서비스 URL***을 할당된 **YouEarnedIt** 고객 성공 관리자에게 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 

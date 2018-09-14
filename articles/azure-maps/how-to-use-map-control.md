@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 228d2d3331b510a0f07dbd3ca278715466d747af
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 619dda44b5ad74ba1dcb62cfb3318687aa6ec4d5
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988894"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340138"
 ---
 # <a name="how-to-use-the-azure-maps-map-control"></a>Azure Maps 맵 컨트롤을 사용하는 방법
 맵 컨트롤 클라이언트 쪽 Javascript 라이브러리를 사용하면 맵 및 포함된 Azure Maps 기능을 웹 또는 모바일 응용 프로그램에 렌더링할 수 있습니다. 
@@ -62,4 +62,4 @@ ms.locfileid: "38988894"
 이 문서에서는 Azure Maps 키로 기본 맵을 만드는 방법을 보았습니다. 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요. 
 
 * [맵 만들기](map-create.md)
-* [핀 추가](map-add-pin.md)
+* [지도 스타일 선택](choose-map-style.md)

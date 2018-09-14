@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory에서 My Apps 포털 액세스 및 사용에 대한 지원 | Microsoft Docs
+title: Azure Active Directory에서 MyApps 포털 액세스 및 사용에 대한 지원 | Microsoft Docs
 description: 액세스 패널에서 로그인하고 일반적인 작업을 수행할 수 있도록 도움을 받습니다.
 services: active-directory
 author: eross-msft
@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
-ms.openlocfilehash: a6ac780625f6a109797cbdab78dc555e21e18bee
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 5503681b051066f6601be97bda246128763e7bc7
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343613"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306413"
 ---
-# <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>My Apps 포털 액세스 및 사용과 관련된 문제 해결
+# <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>MyApps 포털 액세스 및 사용과 관련된 문제 해결
 
-My Apps 포털에 로그인하거나 사용하는 데 문제가 있으면 기술 지원팀 또는 관리자에게 문의하기 전에 다음 문제 해결 팁을 사용해 보세요.
+MyApps 포털에 로그인하거나 사용하는 데 문제가 있으면 기술 지원팀 또는 관리자에게 문의하기 전에 다음 문제 해결 팁을 사용해 보세요.
 
-## <a name="i-am-having-trouble-signing-into-the-my-apps-portal"></a>MyApps portal에 로그인하는 데 문제가 발생했습니다.
+## <a name="i-am-having-trouble-signing-into-the-myapps-portal"></a>MyApps 포털에 로그인하는 데 문제가 발생했습니다.
 
 여기서 설명하는 일반 도움말을 참조해 보세요.
 
@@ -45,7 +45,7 @@ SSPR(셀프 서비스 암호 재설정)을 사용하여 다른 사람에게 문�
 
 ## <a name="i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>내 앱 보안 로그인 확장을 설치하는 데 문제가 있습니다.
 
-My Apps 포털에는 JavaScript를 지원하고 CSS를 사용하도록 설정된 브라우저가 필요합니다. 암호 기반 Single Sign-On 앱을 사용하는 경우 포함되는 확장도 설치해야 합니다. 이 확장은 암호 기반 Single Sign-On 앱에 구성된 응용 프로그램을 시작할 때 자동으로 다운로드됩니다.
+MyApps 포털에는 JavaScript를 지원하고 CSS를 사용하도록 설정된 브라우저가 필요합니다. 암호 기반 Single Sign-On 앱을 사용하는 경우 포함되는 확장도 설치해야 합니다. 이 확장은 암호 기반 Single Sign-On 앱에 구성된 응용 프로그램을 시작할 때 자동으로 다운로드됩니다.
 
 다음 브라우저 요구 사항을 충족하는지 확인합니다.
 
@@ -63,8 +63,8 @@ My Apps 포털에는 JavaScript를 지원하고 CSS를 사용하도록 설정된
 확장을 설치했지만 여전히 문제가 발생하는 경우 다음을 시도해 보세요.
 
 - 브라우저 확장 설정을 확인하여 확장을 사용하도록 설정되어 있는지 확인합니다.
-- 브라우저를 다시 시작하고 My Apps 포털에 로그인합니다.
-- 브라우저의 쿠키를 지우고 My Apps 포털에 로그인합니다.
+- 브라우저를 다시 시작하고 MyApps 포털에 로그인합니다.
+- 브라우저의 쿠키를 지우고 MyApps 포털에 로그인합니다.
 - 진단 도구에 대한 액세스 및 Internet Explorer용 확장을 구성하는 단계별 지침은 [Internet Explorer용 액세스 패널 확장 문제 해결](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting)을 참조하세요.
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>My Apps 보안 로그인 확장 사용
@@ -85,7 +85,7 @@ My Apps 포털에는 JavaScript를 지원하고 CSS를 사용하도록 설정된
 * 확장에서 앱을 시작하려면 다음을 수행합니다.
    1. 확장이 설치되면 **시작하려면 로그인하세요**를 선택하여 확장에 로그인합니다.
    2. 확장 아이콘을 선택하여 해당 메뉴를 엽니다.
-   3. My Apps 포털에서 사용할 수 있는 앱을 검색합니다.
+   3. MyApps 포털에서 사용할 수 있는 앱을 검색합니다.
    4. 검색 결과 목록에서 앱을 선택합니다.  
        마지막으로 사용한 세 개의 앱이 **최근에 사용한 항목** 바로 가기 목록에 표시됩니다.
 

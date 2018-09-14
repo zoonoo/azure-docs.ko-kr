@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 08/28/2018
+ms.date: 08/30/2018
 ms.author: marsma
-ms.openlocfilehash: 5c10c961519614d1560f27c41ba57237085261ba
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: eb3a1745677871211df05d18e28d32061f360bac
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190411"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301819"
 ---
 # <a name="azure-container-registry-skus"></a>Azure Container Registry SKU
 
@@ -21,9 +21,9 @@ ACR(Azure Container Registry)은 다중 서비스 계층(즉, SKU)에서 사용 
 
 | SKU | 관리 | 설명 |
 | --- | :-------: | ----------- |
-| **Basic** | yes | 개발자가 Azure Container Registry에 대해 배울 수 있는 비용 최적화된 진입점입니다. Basic 레지스트리는 Standard 및 Premium(Azure Active Directory 인증 통합, 이미지 삭제 및 웹 후크)과 동일한 프로그래밍 성능을 가지고 있지만 크기와 사용량 제약이 있습니다. |
-| **Standard** | yes | Standard 레지스트리는 Basic과 동일한 성능을 제공하되, 저장소 제한과 이미지 처리량이 증가합니다. Standard 레지스트리는 대부분의 프로덕션 시나리오 요구를 충족합니다. |
-| **Premium** | yes | Premium 레지스트리는 저장소 및 동시 작업 수 등의 제약에 더 높은 한도를 제공하여 대규모 시나리오가 가능합니다. Premium은 많은 이미지 처리 수용작업량을 제공하는 것 이외에도, 여러 지역 전반에서 단일 레지스트리를 관리하기 위한 [지역에서 복제][container-registry-geo-replication]와 같은 기능을 추가하여 각 배포에서 네트워크에 가까운 레지스트리를 유지합니다. |
+| **Basic** | yes | 개발자가 Azure Container Registry에 대해 배울 수 있는 비용 최적화된 진입점입니다. Basic 레지스트리는 Standard 및 Premium(Azure Active Directory 인증 통합, 이미지 삭제 및 웹 후크)과 동일한 프로그래밍 성능을 갖습니다. 그렇지만 포함된 저장소 및 이미지 처리량은 더 낮은 사용량 시나리오에 가장 적합합니다. |
+| **Standard** | yes | Standard 레지스트리는 Basic과 동일한 성능을 제공하되, 포함된 저장소 제한과 이미지 처리량은 더 높습니다. Standard 레지스트리는 대부분의 프로덕션 시나리오 요구를 충족합니다. |
+| **Premium** | yes | Premium 레지스트리는 포함된 저장소 및 동시 작업 수가 가장 높으며 고용량 시나리오를 지원합니다. Premium은 많은 이미지 처리량을 제공하는 것 외에도, 여러 지역 전반에서 단일 레지스트리를 관리하기 위한 [지역에서 복제][container-registry-geo-replication] 및 이미지 태그 서명을 위한 [콘텐츠 신뢰(미리 보기)](container-registry-content-trust.md)와 같은 기능을 추가적으로 제공합니다. |
 | 클래식<sup>1</sup> | 아니요 | SKU는 Azure에서 Azure Container Registry 서비스의 초기 릴리스를 지원했습니다. Classic 레지스트리는 사용자 구독에서 Azure가 만드는 저장소 계정에서 지원하며 ACR가 처리량 증가 및 지역에서 복제 등의 더 높은 수준의 기능을 제공할 수 있는 기능을 제한합니다. |
 
 <sup>1</sup> 클래식 SKU는 **2019년 3월**부터 **사용되지 않습니다**. 모든 새 컨테이너 레지스트리에는 기본, 표준 또는 프리미엄을 사용하세요.

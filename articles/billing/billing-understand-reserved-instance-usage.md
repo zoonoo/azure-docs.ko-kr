@@ -1,5 +1,5 @@
 ---
-title: 종량제 구독에서 Azure Reservations 사용량 이해 | Microsoft Docs
+title: 종량제 구독의 Azure 예약 사용량 이해 | Microsoft Docs
 description: 종량제 구독에서 Azure Reservations의 적용 방법을 이해하기 위해 사용량을 판독하는 방법을 알아봅니다.
 services: billing
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: manshuk
-ms.openlocfilehash: cf1d7c67fe6033bf41317e75a33349ae07ecf643
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 1226b2f73d556da2ff7d73f6f322e0bd1590f915
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627886"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307061"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>종량제 구독의 Azure Reservations 사용량 이해
 
@@ -93,12 +93,12 @@ CSV 파일의 이 섹션에서는 예약에 대한 총 사용량을 보여 줍�
 
 ## <a name="next-steps"></a>다음 단계
 
-예약에 대해 자세히 알아보려면 다음 문서를 참조하세요.
+Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure Reservations란?](billing-save-compute-costs-reservations.md)
+- [Azure 예약이란?](billing-save-compute-costs-reservations.md)
 - [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Azure SQL Database 예약된 용량을 사용하여 SQL Database 계산 리소스 요금 선결제](../sql-database/sql-database-reserved-capacity.md)
-- [Azure에서 예약 관리](billing-manage-reserved-vm-instance.md)
+- [Azure Reservations 관리](billing-manage-reserved-vm-instance.md)
 - [예약 할인이 적용되는 방식 이해](billing-understand-vm-reservation-charges.md)
 - [엔터프라이즈 등록에서 예약 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
 - [예약에 포함되지 않는 Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)

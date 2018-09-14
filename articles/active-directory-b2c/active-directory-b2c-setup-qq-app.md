@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 82668446f139a5a003c33178e2d415a9314c61bc
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 11bb5bf132103bed9e154a12c0e628177ca6a57a
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952180"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344927"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 QQ 계정으로 등록 설정 및 로그인
 
@@ -40,7 +40,7 @@ Azure AD(Azure Active Directory) B2C에서 QQ 계정을 ID 공급자로 사용�
 1. [https://connect.qq.com/index.html](https://connect.qq.com/index.html)로 이동합니다.
 2. **应用管理**(앱 관리)를 선택합니다.
 5. **创建应用**(앱 만들기)를 선택한 후 필수 정보를 입력합니다.
-7. **授权回调域**(콜백 URL)에 `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp`를 입력합니다. 예를 들어 `tenant_name`이 contoso.onmicrosoft.com인 경우 URL을 `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`가 되도록 설정합니다.
+7. **授权回调域**(콜백 URL)에 `https://{tenant_name}.b2clogin.com/te/{tenant_name}.onmicrosoft.com/oauth2/authresp`를 입력합니다. 예를 들어 `tenant_name`이 contoso인 경우 URL을 `https://contoso.b2clogin.com/te/contoso.onmicrosoft.com/oauth2/authresp`가 되도록 설정합니다.
 8. **创建应用**(앱 만들기)를 선택합니다.
 9. 확인 페이지에서 **应用管理**(앱 관리)를 선택하여 앱 관리 페이지로 돌아갑니다.
 10. 만든 앱 옆에 있는 **查看**(보기)를 선택합니다.

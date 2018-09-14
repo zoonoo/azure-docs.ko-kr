@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/29/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2c2fc3bcba4b685fba36683f89c0b6ad877dbb1d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0668eb33fe33b062c941ec4f2bff47c5ed77fb51
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595141"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287887"
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 변경에 대한 모범 사례
 이 항목에서는 Azure AD Connect 동기화에 지원되거나 지원되지 않는 변경사항을 설명합니다.
@@ -37,6 +37,9 @@ Azure AD Connect 동기화는 설치 마법사에서 만든 서비스 계정에�
 
 ## <a name="changes-to-synchronization-rules"></a>동기화 규칙 변경
 설치 마법사는 가장 일반적인 시나리오에 대한 작업으로 간주되는 구성을 제공합니다. 구성을 변경해야 할 경우에도 여전히 지원되는 구성이 포함된 이 규칙을 따라야 합니다.
+
+> [!WARNING]
+> 기본 동기화 규칙을 변경하는 경우 다음번에 Azure AD Connect가 업데이트될 때 이러한 변경 내용이 덮어쓰여지므로 예기치 않거나 원치 않은 동기화 결과가 발생하게 됩니다.
 
 * 기본 직접 특성 흐름이 조직에 적합하지 않은 경우 [특성 흐름을 변경](active-directory-aadconnectsync-change-the-configuration.md#other-common-attribute-flow-changes) 할 수 있습니다.
 * [특성을 전달되지 않도록](active-directory-aadconnectsync-change-the-configuration.md#do-not-flow-an-attribute) 하고 Azure AD에서 기존 특성 값을 제거하려면 이 시나리오에 대한 규칙을 만들어야 합니다.

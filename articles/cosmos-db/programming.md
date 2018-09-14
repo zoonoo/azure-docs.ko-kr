@@ -10,24 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 6296eb423f24762ed32a21ef40852dc1a9dd8f36
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 8377b13014e2f97518bbc779ee809aaa10d6eb45
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142561"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287447"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB 서버 쪽 프로그래밍: 저장 프로시저, 데이터베이스 트리거 및 UDF
 
 Azure Cosmos DB가 언어 통합 트랜잭션 방식으로 JavaScript를 실행하므로 개발자가 기본적으로 [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript로 **저장 프로시저**, **트리거** 및 **UDF(사용자 정의 함수)** 를 작성할 수 있는 방법을 알아봅니다. Javascript 통합을 사용하여 데이터베이스 저장소 파티션 내에서 직접 전달되고 실행될 수 있는 프로그램 논리를 작성할 수 있습니다. 
 
-먼저 Andrew Liu가 Azure Cosmos DB의 서버 쪽 데이터베이스 프로그래밍 모델을 소개하는 다음 비디오를 시청하시기 바랍니다. 
-
-> [!VIDEO https://www.youtube.com/embed/s0cXdHNlVI0]
->
-> 
-
-그런 다음 이 문서로 돌아와서 다음 내용을 살펴보세요.  
+이 문서에서는 다음 질문에 대한 답변을 알아봅니다.  
 
 * JavaScript를 사용해서 저장 프로시저, 트리거 또는 UDF를 작성하려면 어떻게 하나요?
 * Cosmos DB는 ACID를 어떻게 보장하나요?

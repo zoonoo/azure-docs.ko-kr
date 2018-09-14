@@ -15,22 +15,22 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: na
-ms.openlocfilehash: 47069f0af7409d87cb2d4fbbbce9dda0b1c2056e
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 82845f475857f9a911febd496e86eb2a60f69c25
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886563"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782246"
 ---
 # <a name="monitor-azure-sql-databases-using-azure-sql-analytics-preview"></a>Azure SQL 분석을 사용하여 Azure SQL Database 모니터링(미리 보기)
 
 ![Azure SQL 분석 기호](./media/log-analytics-azure-sql/azure-sql-symbol.png)
 
-Azure SQL 분석은 여러 탄력적 풀 및 구독 간 규모에 맞게 Azure SQL Database의 성능을 모니터링하기 위한 클라우드 모니터링 솔루션입니다. 이 솔루션은 성능 문제 해결에 대한 기본 제공 인텔리전스를 사용하여 중요한 Azure SQL Database 성능 메트릭을 수집하고 시각화합니다. 
+Azure SQL 분석은 여러 구독 간 규모에 맞게 Azure SQL Database, 탄력적 풀 및 관리되는 인스턴스의 성능을 모니터링하기 위한 클라우드 모니터링 솔루션입니다. 이 솔루션은 성능 문제 해결에 대한 기본 제공 인텔리전스를 사용하여 중요한 Azure SQL Database 성능 메트릭을 수집하고 시각화합니다.
 
-솔루션으로 수집한 메트릭을 사용하여 사용자 지정 모니터링 규칙 및 경고를 만들 수 있습니다. 솔루션은 응용 프로그램 스택의 각 계층에서 문제를 식별할 수 있습니다. Azure 진단 메트릭과 Log Analytics 뷰를 함께 사용하여 모든 Azure SQL Databases 및 탄력적 풀에 대한 데이터를 단일 Log Analytics 작업 영역에 표시합니다. Log Analytics를 통해 구조적 및 비구조적 데이터를 수집하고, 상관 관계를 지정하며 시각화할 수 있습니다.
+솔루션으로 수집한 메트릭을 사용하여 사용자 지정 모니터링 규칙 및 경고를 만들 수 있습니다. 솔루션은 응용 프로그램 스택의 각 계층에서 문제를 식별할 수 있습니다. Azure 진단 메트릭과 Log Analytics 뷰를 함께 사용하여 모든 Azure SQL Databases, 탄력적 풀 및 관리되는 인스턴스의 데이터베이스에 대한 데이터를 단일 Log Analytics 작업 영역에 표시합니다. Log Analytics를 통해 구조적 및 비구조적 데이터를 수집하고, 상관 관계를 지정하며 시각화할 수 있습니다.
 
-현재, 이 미리 보기 솔루션은 작업 영역당 최대 150,000개의 Azure SQL Database 및 5,000개의 SQL 탄력적 풀을 지원합니다.
+현재, 이 미리 보기 솔루션은 작업 영역당 최대 200,000개의 Azure SQL Database 및 5,000개의 SQL 탄력적 풀을 지원합니다.
 
 Azure SQL Analytics 솔루션 사용에 대한 실무 중심 개요와 일반적인 사용 시나리오에 대해서는 포함된 비디오를 참조하세요.
 
@@ -39,9 +39,9 @@ Azure SQL Analytics 솔루션 사용에 대한 실무 중심 개요와 일반적
 
 ## <a name="connected-sources"></a>연결된 소스
 
-Azure SQL 분석은 Azure SQL Database 및 탄력적 풀에 대한 진단 원격 분석의 스트리밍을 지원하는 클라우드 모니터링 솔루션입니다. Log Analytics 서비스에 연결하기 위해 에이전트를 사용하지 않으므로 솔루션은 Windows, Linux 또는 SCOM 리소스를 통한 연결을 지원하지 않습니다(아래 호환성 테이블을 참조하세요.)
+Azure SQL 분석은 Azure SQL Database, 탄력적 풀 및 관리되는 인스턴스에 대한 진단 원격 분석의 스트리밍을 지원하는 클라우드 전용 모니터링 솔루션입니다. Log Analytics 서비스에 연결하기 위해 에이전트를 사용하지 않으므로 솔루션은 온-프레미스 SQL Server 또는 VM의 모니터링을 지원하지 않습니다. 아래의 호환성 표를 참조하세요.
 
-| 연결된 소스 | 지원 | 설명 |
+| 연결된 소스 | 지원됨 | 설명 |
 | --- | --- | --- |
 | **[Azure 진단](log-analytics-azure-storage.md)** | **예** | Azure 메트릭 및 로그 데이터는 Azure에 의해 직접 Log Analytics에 전송됩니다. |
 | [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니요 | Log Analytics는 저장소 계정에서 데이터를 읽지 않습니다. |

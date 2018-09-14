@@ -8,17 +8,17 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/20/2018
-ms.openlocfilehash: e099597eae419653a2a40c7f01ee7abbbc4657f0
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.date: 08/31/2018
+ms.openlocfilehash: 83d970cf41dde4141fcba84c39b9b750783e54e0
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294424"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667160"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Azure Database for MySQL 데이터 내부 복제를 구성하는 방법
 
-이 문서에서는 주 서버와 복제본 서버를 구성하여 Azure Database for MySQL 서비스에서 데이터 내부 복제를 설정하는 방법을 알아봅니다. 데이터 내부 복제를 사용하면 다른 클라우드 공급자가 호스팅하는 가상 머신 또는 데이터베이스 서비스에서 온-프레미스를 실행하는 기본 MySQL 서버의 데이터를 Azure Database for MySQL 서비스에 있는 복제본으로 동기화할 수 있습니다. 
+이 문서에서는 마스터 서버와 복제본 서버를 구성하여 Azure Database for MySQL 서비스에서 데이터 내부 복제를 설정하는 방법을 알아봅니다. 데이터 내부 복제를 사용하면 다른 클라우드 공급자가 호스팅하는 가상 머신 또는 데이터베이스 서비스에서 온-프레미스를 실행하는 마스터 MySQL 서버의 데이터를 Azure Database for MySQL 서비스에 있는 복제본으로 동기화할 수 있습니다. 
 
 이 문서에서는 이전에 MySQL 서버 및 데이터베이스를 사용한 경험이 몇 번이라도 있다고 가정합니다.
 
@@ -34,14 +34,14 @@ ms.locfileid: "36294424"
 
 2. 동일한 사용자 계정 및 해당 권한 만들기
 
-   사용자 계정은 주 서버에서 복제본 서버로 복제되지 않습니다. 복제본 서버에 대한 액세스 권한을 사용자에게 제공하려는 경우, 새로 만든 이 Azure Database for MySQL 서버에서 모든 계정과 해당 권한을 수동으로 만들어야 합니다.
+   사용자 계정은 마스터 서버에서 복제본 서버로 복제되지 않습니다. 복제본 서버에 대한 액세스 권한을 사용자에게 제공하려는 경우, 새로 만든 이 Azure Database for MySQL 서버에서 모든 계정과 해당 권한을 수동으로 만들어야 합니다.
 
-## <a name="configure-the-primary-server"></a>주 서버 구성
-다음 단계에서는 데이터 내부 복제를 위해 다른 클라우드 공급자가 호스팅하는 가상 머신 또는 데이터베이스 서비스에서 온-프레미스 호스팅 MySQL 서버를 준비하고 구성합니다. 이 서버는 데이터 내부 복제의 "기본" 서버입니다. 
+## <a name="configure-the-master-server"></a>마스터 서버 구성
+다음 단계에서는 데이터 내부 복제를 위해 다른 클라우드 공급자가 호스팅하는 가상 머신 또는 데이터베이스 서비스에서 온-프레미스 호스팅 MySQL 서버를 준비하고 구성합니다. 이 서버는 데이터 내부 복제의 “마스터” 서버입니다. 
 
 1. 이진 로깅 켜기
 
-   다음 명령을 실행하여 주 서버에서 이진 로깅을 사용할 수 있는지 확인합니다. 
+   다음 명령을 실행하여 마스터 서버에서 이진 로깅을 사용할 수 있는지 확인합니다. 
 
    ```sql
    SHOW VARIABLES LIKE 'log_bin';
@@ -51,9 +51,9 @@ ms.locfileid: "36294424"
 
    `log_bin`이 “OFF” 값으로 반환되는 경우 `log_bin=ON`으로 my.cnf 파일을 편집하여 이진 로깅을 켜고 서버를 다시 시작하여 변경 내용을 적용합니다.
 
-2. 주 서버 설정
+2. 마스터 서버 설정
 
-   데이터 내부 복제를 사용하려면 주 서버와 복제본 서버 간에 `lower_case_table_names` 매개 변수가 일치해야 합니다. Azure Database for MySQL에서 이 매개 변수는 기본적으로 1입니다. 
+   데이터 내부 복제를 사용하려면 마스터 서버와 복제본 서버 간에 `lower_case_table_names` 매개 변수가 일치해야 합니다. Azure Database for MySQL에서 이 매개 변수는 기본적으로 1입니다. 
 
    ```sql
    SET GLOBAL lower_case_table_names = 1;
@@ -61,9 +61,9 @@ ms.locfileid: "36294424"
 
 3. 새 복제 역할 만들기 및 권한 설정
 
-   주 서버에서 복제 권한으로 구성된 사용자 계정을 만듭니다. 이 작업은 MySQL Workbench와 같은 도구 또는 SQL 명령을 통해 수행할 수 있습니다. 사용자를 만들 때 지정해야 하므로 SSL을 사용하여 복제할지 여부를 고려합니다. 주 서버에서 [사용자 계정을 추가](https://dev.mysql.com/doc/refman/5.7/en/adding-users.html)하는 방법을 이해하려면 MySQL 설명서를 참조하세요. 
+   마스터 서버에서 복제 권한으로 구성된 사용자 계정을 만듭니다. 이 작업은 MySQL Workbench와 같은 도구 또는 SQL 명령을 통해 수행할 수 있습니다. 사용자를 만들 때 지정해야 하므로 SSL을 사용하여 복제할지 여부를 고려합니다. 마스터 서버에서 [사용자 계정을 추가](https://dev.mysql.com/doc/refman/5.7/en/adding-users.html)하는 방법을 이해하려면 MySQL 설명서를 참조하세요. 
 
-   아래 명령에서 새로 생성된 복제 역할은 주 서버 자체를 호스트하는 머신뿐 아니라 모든 머신에서 주 서버에 액세스할 수 있습니다. 이 작업은 create user 명령에 “syncuser@’%’”를 지정하여 수행합니다. [계정 이름 지정](https://dev.mysql.com/doc/refman/5.7/en/account-names.html)에 대한 자세한 내용은 MySQL 설명서를 참조하세요.
+   아래 명령에서 새로 생성된 복제 역할은 마스터 서버 자체를 호스트하는 머신뿐 아니라 모든 머신에서 마스터 서버에 액세스할 수 있습니다. 이 작업은 create user 명령에 “syncuser@’%’”를 지정하여 수행합니다. [계정 이름 지정](https://dev.mysql.com/doc/refman/5.7/en/account-names.html)에 대한 자세한 내용은 MySQL 설명서를 참조하세요.
 
    **SQL 명령**
 
@@ -95,14 +95,14 @@ ms.locfileid: "36294424"
 
    ![사용자 동기화](./media/howto-data-in-replication/syncuser.png)
  
-   **관리 역할** 패널을 클릭하고 **전역 권한** 목록에서 **복제 슬레이브**를 선택합니다. 그런 다음, **적용**을 클릭하여 복제 역할을 만듭니다.
+   **관리 역할** 패널을 클릭하고 **전역 권한** 목록에서 **복제 슬레이브**를 선택합니다. 그런 다음, **적용** 을 클릭하여 복제 역할을 만듭니다.
 
    ![복제 슬레이브](./media/howto-data-in-replication/replicationslave.png)
 
 
-4. 주 서버를 읽기 전용 모드로 설정
+4. 마스터 서버를 읽기 전용 모드로 설정
 
-   데이터베이스를 덤프하기 전에 서버를 읽기 전용 모드로 설정해야 합니다. 읽기 전용 모드에서는 주 서버가 쓰기 트랜잭션을 처리할 수 없습니다. 비즈니스에 미치는 영향을 평가하고, 필요한 경우 사용량이 적은 시간에 읽기 전용 창을 예약합니다.
+   데이터베이스를 덤프하기 전에 서버를 읽기 전용 모드로 설정해야 합니다. 읽기 전용 모드에서는 마스터 서버가 쓰기 트랜잭션을 처리할 수 없습니다. 비즈니스에 미치는 영향을 평가하고, 필요한 경우 사용량이 적은 시간에 읽기 전용 창을 예약합니다.
 
    ```sql
    FLUSH TABLES WITH READ LOCK;
@@ -120,15 +120,15 @@ ms.locfileid: "36294424"
 
    ![마스터 상태 결과](./media/howto-data-in-replication/masterstatus.png)
  
-## <a name="dump-and-restore-primary-server"></a>주 서버 덤프 및 복원
+## <a name="dump-and-restore-master-server"></a>마스터 서버 덤프 및 복원
 
-1. 주 서버에서 모든 데이터베이스 덤프
+1. 마스터 서버에서 모든 데이터베이스 덤프
 
-   mysqldump를 사용하여 주 서버에서 데이터베이스를 덤프할 수 있습니다. 자세한 내용은 [덤프 및 복원](concepts-migrate-dump-restore.md)을 참조하세요. MySQL 라이브러리 및 테스트 라이브러리는 덤프할 필요가 없습니다.
+   mysqldump를 사용하여 마스터 서버에서 데이터베이스를 덤프할 수 있습니다. 자세한 내용은 [덤프 및 복원](concepts-migrate-dump-restore.md)을 참조하세요. MySQL 라이브러리 및 테스트 라이브러리는 덤프할 필요가 없습니다.
 
-2. 주 서버를 읽기/쓰기 모드로 설정
+2. 마스터 서버를 읽기/쓰기 모드로 설정
 
-   데이터베이스가 덤프되면 주 MySQL 서버를 다시 읽기/쓰기 모드로 변경합니다.
+   데이터베이스가 덤프되면 마스터 MySQL 서버를 다시 읽기/쓰기 모드로 변경합니다.
 
    ```sql
    SET GLOBAL read_only = OFF;
@@ -139,21 +139,21 @@ ms.locfileid: "36294424"
 
    덤프 파일을 Azure Database for MySQL 서비스에서 생성된 서버로 복원합니다. 덤프 파일을 MySQL 서버로 복원하는 방법은 [덤프 및 복원](concepts-migrate-dump-restore.md)을 참조하세요. 덤프 파일이 큰 경우, 복제본 서버와 동일한 지역 내의 Azure 가상 머신에 업로드합니다. 가상 머신에서 Azure Database for MySQL 서버로 복원합니다.
 
-## <a name="link-primary-and-replica-servers-to-start-data-in-replication"></a>주 서버와 복제본 서버를 연결하여 데이터 내부 복제 시작
+## <a name="link-master-and-replica-servers-to-start-data-in-replication"></a>마스터 서버와 복제본 서버를 연결하여 데이터 내부 복제 시작
 
-1. 주 서버 설정
+1. 마스터 서버 설정
 
    모든 데이터 내부 복제 기능은 저장 프로시저에 의해 수행됩니다. [데이터 내부 복제 저장 프로시저](reference-data-in-stored-procedures.md)에서 모든 프로시저를 확인할 수 있습니다. 저장 프로시저는 MySQL 셸 또는 MySQL Workbench에서 실행할 수 있습니다. 
 
-   두 서버를 연결하고 복제를 시작하려면 Azure DB for MySQL 서비스에서 대상 복제본 서버에 로그인하고 외부 인스턴스를 주 서버로 설정합니다. 이 작업은 Azure DB for MySQL 서버의 `mysql.az_replication_change_primary` 저장 프로시저를 사용하여 수행합니다.
+   두 서버를 연결하고 복제를 시작하려면 Azure DB for MySQL 서비스에서 대상 복제본 서버에 로그인하고 외부 인스턴스를 마스터 서버로 설정합니다. 이 작업은 Azure DB for MySQL 서버의 `mysql.az_replication_change_master` 저장 프로시저를 사용하여 수행합니다.
 
    ```sql
-   CALL mysql.az_replication_change_primary('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
+   CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
    ```
 
-   - master_host: 주 서버의 호스트 이름
-   - master_user: 주 서버의 사용자 이름
-   - master_password: 주 서버의 암호
+   - master_host: 마스터 서버의 호스트 이름
+   - master_user: 마스터 서버의 사용자 이름
+   - master_password: 마스터 서버의 암호
    - master_log_file: 실행 중인 `show master status`의 이진 로그 파일 이름
    - master_log_pos: 실행 중인 `show master status`의 이진 로그 위치
    - master_ssl_ca: CA 인증서의 컨텍스트 SSL을 사용하지 않는 경우 빈 문자열을 전달합니다.
@@ -171,17 +171,17 @@ ms.locfileid: "36294424"
    -----END CERTIFICATE-----'
    ```
 
-   SSL을 사용한 복제는 “companya.com” 도메인에 호스트된 주 서버와 Azure Database for MySQL에 호스트된 복제본 서버 간에 설정됩니다. 이 저장 프로시저는 복제본에서 실행됩니다. 
+   SSL을 사용한 복제는 “companya.com” 도메인에 호스트된 마스터 서버와 Azure Database for MySQL에 호스트된 복제본 서버 간에 설정됩니다. 이 저장 프로시저는 복제본에서 실행됩니다. 
 
    ```sql
-   CALL mysql.az_replication_change_primary('primary.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
+   CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
    ```
    *SSL 없이 복제*
 
-   SSL을 사용하지 않는 복제는 “companya.com” 도메인에 호스트된 주 서버와 Azure Database for MySQL에 호스트된 복제본 서버 간에 설정됩니다. 이 저장 프로시저는 복제본에서 실행됩니다.
+   SSL을 사용하지 않는 복제는 “companya.com” 도메인에 호스트된 마스터 서버와 Azure Database for MySQL에 호스트된 복제본 서버 간에 설정됩니다. 이 저장 프로시저는 복제본에서 실행됩니다.
 
    ```sql
-   CALL mysql.az_replication_change_primary('primary.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
+   CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
    ```
 
 2. 복제 시작
@@ -206,7 +206,7 @@ ms.locfileid: "36294424"
 
 ### <a name="stop-replication"></a>복제 중지
 
-주 서버와 복제본 서버 간의 복제를 중지하려면 다음 저장 프로시저를 사용합니다.
+마스터 서버와 복제본 서버 간의 복제를 중지하려면 다음 저장 프로시저를 사용합니다.
 
 ```sql
 CALL mysql.az_replication_stop;
@@ -214,10 +214,10 @@ CALL mysql.az_replication_stop;
 
 ### <a name="remove-replication-relationship"></a>복제 관계 제거
 
-주 서버와 복제본 서버 간의 관계를 제거하려면 다음 저장 프로시저를 사용합니다.
+마스터 서버와 복제본 서버 간의 관계를 제거하려면 다음 저장 프로시저를 사용합니다.
 
 ```sql
-CALL mysql.az_replication_remove_primary;
+CALL mysql.az_replication_remove_master;
 ```
 
 ### <a name="skip-replication-error"></a>복제 오류 건너뛰기

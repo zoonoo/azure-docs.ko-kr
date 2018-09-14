@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: maquaran
-ms.openlocfilehash: f81a087a2595db41dbe84a54ad1fd01adf043515
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 7925ef15dc7b3ce25ae919810a5ed2220184fe6e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060406"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700846"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 소셜 네트워크 디자인
 광범위하게 상호 연결된 사회에서 살고 있다는 것은 삶의 어느 시점에서 **소셜 네트워크**의 일부가 된다는 것을 의미합니다. 소셜 네트워크를 사용하여 친구, 동료, 가족 등과 연락하거나, 때로는 공통의 관심사를 가진 사람들과 열정을 공유합니다.
@@ -39,7 +39,7 @@ ms.locfileid: "37060406"
 물론 이 많은 조인으로 수천 개의 쿼리를 해결할 정도의 엄청난 SQL 인스턴스를 사용하여 콘텐츠를 제공할 수 있지만 보다 간단한 솔루션이 있는 데 그래야 하는 이유가 있을까요?
 
 ## <a name="the-nosql-road"></a>NoSQL
-이 문서에서는 Azure의 NoSQL 데이터베이스 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)를 사용하여 비용 효율적인 방법으로 소셜 플랫폼의 데이터를 모델링하고 [Gremlin Graph API](../cosmos-db/graph-introduction.md) 같은 다른 Azure Cosmos DB 기능을 활용하는 방법을 안내합니다. [NoSQL](https://en.wikipedia.org/wiki/NoSQL) 접근 방식을 사용하여 데이터를 JSON 형식으로 저장하고 [역정규화](https://en.wikipedia.org/wiki/Denormalization)를 적용하면 이전의 복잡한 게시물을 단일 [문서](https://en.wikipedia.org/wiki/Document-oriented_database)로 변환할 수 있습니다.
+이 문서에서는 Azure의 NoSQL 데이터베이스 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)를 사용하여 비용 효율적인 방법으로 소셜 플랫폼의 데이터를 모델링하고 [Gremlin API](../cosmos-db/graph-introduction.md) 같은 다른 Azure Cosmos DB 기능을 활용하는 방법을 안내합니다. [NoSQL](https://en.wikipedia.org/wiki/NoSQL) 접근 방식을 사용하여 데이터를 JSON 형식으로 저장하고 [역정규화](https://en.wikipedia.org/wiki/Denormalization)를 적용하면 이전의 복잡한 게시물을 단일 [문서](https://en.wikipedia.org/wiki/Document-oriented_database)로 변환할 수 있습니다.
 
 
     {
@@ -130,7 +130,7 @@ Azure Cosmos DB는 모든 속성이 자체 자동 인덱싱을 통해 인덱싱�
         "totalPoints":11342
     }
 
-Azure Cosmos DB [Gremlin Graph API](../cosmos-db/graph-introduction.md)를 사용하여 팔로워의 실제 그래프를 저장하고, 각 사용자에 대한 [꼭짓점](http://mathworld.wolfram.com/GraphVertex.html)을 만들고, "A가 B를 팔로우" 관계를 유지하는 [가장자리](http://mathworld.wolfram.com/GraphEdge.html)를 만들 수 있습니다. Graph API를 사용하여 특정 사용자의 팔로워를 가져올 수 있을 뿐 아니라 공통점이 있는 사람들을 제안하는 좀 더 복잡한 쿼리도 만들 수 있습니다. 그래프에 사람들이 좋아하는 콘텐츠 범주를 추가하면 스마트 콘텐츠 검색이 포함된 환경을 만들어서 우리가 팔로우 또는 좋아하는 콘텐츠를 제안하거나 공통점이 많을 것 같은 사람을 찾을 수 있습니다.
+Azure Cosmos DB [Gremlin API](../cosmos-db/graph-introduction.md)를 사용하여 팔로워의 실제 그래프를 저장하고, 각 사용자에 대한 [꼭짓점](http://mathworld.wolfram.com/GraphVertex.html)을 만들고, "A가 B를 팔로우" 관계를 유지하는 [가장자리](http://mathworld.wolfram.com/GraphEdge.html)를 만들 수 있습니다. Gremlin API를 사용하여 특정 사용자의 팔로워를 가져올 수 있을 뿐 아니라 공통점이 있는 사람들을 제안하는 좀 더 복잡한 쿼리도 만들 수 있습니다. 그래프에 사람들이 좋아하는 콘텐츠 범주를 추가하면 스마트 콘텐츠 검색이 포함된 환경을 만들어서 우리가 팔로우 또는 좋아하는 콘텐츠를 제안하거나 공통점이 많을 것 같은 사람을 찾을 수 있습니다.
 
 사용자 통계 문서는 여전히 UI 또는 빠른 프로필 미리 보기에서 카드를 만드는 데 사용할 수 있습니다.
 

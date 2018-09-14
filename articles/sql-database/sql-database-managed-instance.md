@@ -9,14 +9,14 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 08/30/2018
 ms.author: bonova
-ms.openlocfilehash: 2c6cdcd5d8d50a54a87e3dabd2aa09eccc646738
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 2e1fd7c87931f804433708b6ac30a5960e6006ae
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42147008"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287666"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Managed Instance(미리 보기)란?
 
@@ -71,7 +71,7 @@ Managed Instance는 두 개의 서비스 계층에서 사용할 수 있습니다
 - **범용**: 일반적인 성능 및 IO 대기 시간 요구 사항이 있는 응용 프로그램용으로 설계됩니다.
 - **중요 비즈니스용**: IO 대기 시간 요구 사항이 낮고 기본 유지 관리 작업으로 워크로드에 미치는 영향이 최소화된 응용 프로그램용으로 설계되었습니다.
 
-두 서비스 계층은 모두 99.99% 가용성을 보장하며 저장소 크기와 계산 용량을 독립적으로 선택할 수 있습니다. 
+두 서비스 계층은 모두 99.99% 가용성을 보장하며 저장소 크기와 계산 용량을 독립적으로 선택할 수 있습니다. Azure SQL Database의 고가용성 아키텍처에 대한 자세한 내용은 [고가용성 및 Azure SQL Database](sql-database-high-availability.md)를 참조하세요.
 
 > [!IMPORTANT]
 > 서비스 계층을 범용에서 중요 비즈니스용으로 변경하거나 그 반대로 변경하는 기능은 공개 미리 보기에서 지원되지 않습니다. 데이터베이스를 다른 서비스 계층의 인스턴스로 마이그레이션하려면 새 인스턴스를 만들고, 원본 인스턴스에서 특정 시점 복원으로 데이터베이스를 복원한 후, 더 이상 필요하지 않은 경우, 원본 인스턴스를 삭제할 수 있습니다. 
@@ -97,7 +97,7 @@ Managed Instance는 두 개의 서비스 계층에서 사용할 수 있습니다
 | 데이터베이스당 데이터 파일(행) 수 | 여러 접두사 | 
 | 데이터베이스당 로그 파일(로그) 수 | 1 | 
 | 관리되는 자동 백업 | yes |
-| HA | 원격 저장소 및 [Azure Service Fabric](../service-fabric/service-fabric-overview.md) 기반 |
+| HA | Azure Storage 및 [Azure Service Fabric](../service-fabric/service-fabric-overview.md)에 저장된 데이터 |
 | 기본 제공 인스턴스/데이터베이스 모니터링 및 메트릭 | yes |
 | 자동 소프트웨어 패치 | yes |
 | VNet - Azure Resource Manager 배포 | yes |
@@ -105,8 +105,7 @@ Managed Instance는 두 개의 서비스 계층에서 사용할 수 있습니다
 | 포털 지원 | yes|
 |||
 
-
-  \* 가상 코어는 하드웨어 세대를 선택할 수 있는 옵션이 함께 제공되는 논리 CPU를 나타냅니다. Gen 4 논리 CPU는 Intel E5-2673 v3(Haswell) 2.4GHz 프로세서를 기반으로 하며, Gen 5 논리 CPU는 Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서를 기반으로 합니다. 
+\* 가상 코어는 하드웨어 세대를 선택할 수 있는 옵션이 함께 제공되는 논리 CPU를 나타냅니다. Gen 4 논리 CPU는 Intel E5-2673 v3(Haswell) 2.4GHz 프로세서를 기반으로 하며, Gen 5 논리 CPU는 Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서를 기반으로 합니다. 
 
 자세한 내용은 Azure SQL Database의 [표준/범용 가용성 및 아키텍처](sql-database-high-availability.md#standardgeneral-purpose-availability)를 참조하세요.
 
@@ -132,7 +131,7 @@ Managed Instance는 두 개의 서비스 계층에서 사용할 수 있습니다
 | 데이터베이스당 데이터 파일(행) 수 | 여러 접두사 | 
 | 데이터베이스당 로그 파일(로그) 수 | 1 | 
 | 관리되는 자동 백업 | yes |
-| HA | [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) 및 [Azure Service Fabric](../service-fabric/service-fabric-overview.md)을 기반으로 함 |
+| HA | 로컬 SSD에 저장된 데이터 및 [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) 및 [Azure Service Fabric](../service-fabric/service-fabric-overview.md) 사용 |
 | 기본 제공 인스턴스/데이터베이스 모니터링 및 메트릭 | yes |
 | 자동 소프트웨어 패치 | yes |
 | VNet - Azure Resource Manager 배포 | yes |
@@ -206,8 +205,7 @@ Managed Instance는 온-프레미스 또는 IaaS 데이터베이스 구현에서
   
 ### <a name="data-migration-service"></a>데이터 마이그레이션 서비스
 
-Azure Database Migration Service는 가동 중지 시간을 최소화하면서 여러 데이터베이스 소스에서 Azure 데이터 플랫폼으로 원활하게 마이그레이션할 수 있도록 설계된 완벽하게 관리되는 서비스입니다. 이 서비스는 기존 타사 및 SQL Server 데이터베이스를 Azure로 이동하는 데 필요한 작업을 간소화합니다. 공개 미리 보기의 배포 옵션으로는 Azure VM의 Azure SQL Database, Managed Instance, SQL Server가 있습니다. 
-  [DMS를 사용하여 온-프레미스 데이터베이스를 Managed Instance로 마이그레이션하는 방법](https://aka.ms/migratetoMIusingDMS)을 참조하세요.
+Azure Database Migration Service는 가동 중지 시간을 최소화하면서 여러 데이터베이스 소스에서 Azure 데이터 플랫폼으로 원활하게 마이그레이션할 수 있도록 설계된 완벽하게 관리되는 서비스입니다. 이 서비스는 기존 타사 및 SQL Server 데이터베이스를 Azure로 이동하는 데 필요한 작업을 간소화합니다. 공개 미리 보기의 배포 옵션으로는 Azure VM의 Azure SQL Database, Managed Instance, SQL Server가 있습니다. [DMS를 사용하여 온-프레미스 데이터베이스를 Managed Instance로 마이그레이션하는 방법](https://aka.ms/migratetoMIusingDMS)을 참조하세요.
 
 ## <a name="sql-features-supported"></a>지원되는 SQL 기능 
 

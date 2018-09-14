@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: 29d04781d166abdd1fc1fc506077e6257f6551a6
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: aab985270cf17b94d6353536c96a3825b5e3b73f
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42144358"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287345"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기 
 > [!div class="op_single_selector"]
@@ -259,7 +259,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ### <a name="use-a-pointer-to-a-secret-uploaded-into-a-key-vault"></a>키 자격 증명 모음에 업로드된 비밀에 대해 포인터 사용
 
-기존 키 자격 증명 모음을 사용하려면 연산 리소스 공급자가 인증서를 가져와 클러스터 노드에 설치할 수 있도록 키 자격 증명 모음이 [배포에 대해 사용하도록 설정](../key-vault/key-vault-manage-with-cli2.md#bkmk_KVperCLI)되어야 합니다.
+기존 Key Vault를 사용하려면 연산 리소스 공급자가 인증서를 가져와 클러스터 노드에 설치할 수 있도록 Key Vault가 [배포에 대해 사용하도록 설정](../key-vault/key-vault-manage-with-cli2.md#bkmk_KVperCLI)되어야 합니다.
 
 PowerShell을 사용하여 클러스터 배포
 

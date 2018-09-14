@@ -6,7 +6,7 @@
 ## [Data Lake Storage Gen1과 Azure Storage 비교](data-lake-store-comparison-with-blob-storage.md)
 ## [빅 데이터 처리를 위한 Data Lake Storage Gen1](data-lake-store-data-scenarios.md)
 ## [Data Lake Storage Gen1에서 작동하는 오픈 소스 응용 프로그램](data-lake-store-compatible-oss-other-applications.md)
-## [Data Lake Storage Gen1을 사용하는 모범 사례](data-lake-store-best-practices.md)
+## [모범 사례](data-lake-store-best-practices.md)
 
 # 시작하기
 ## [포털 사용](data-lake-store-get-started-portal.md)
@@ -26,8 +26,8 @@
 
 ## 데이터 보호
 ### [보안 개요](data-lake-store-security-overview.md)
-### [Data Lake Storage Gen1에서 액세스 제어](data-lake-store-access-control.md)
-### [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)
+### [액세스 제어](data-lake-store-access-control.md)
+### [저장된 데이터 보호](data-lake-store-secure-data.md)
 ### [암호화](data-lake-store-encryption.md)
 
 ## Data Lake Storage Gen1을 사용하여 인증
@@ -55,12 +55,12 @@
 #### [Python 사용](data-lake-store-data-operations-python.md)
 
 ## 성능
-### [Azure Data Lake Storage Gen1에 대한 성능 조정 지침](data-lake-store-performance-tuning-guidance.md)
-### [Data Lake Storage Gen1에서 PowerShell을 사용하기 위한 성능 조정 지침](data-lake-store-performance-tuning-powershell.md)
-### [HDInsight의 Spark 및 Data Lake Storage Gen1에 대한 성능 조정 지침](data-lake-store-performance-tuning-spark.md)
-### [HDInsight의 Hive 및 Data Lake Storage Gen1에 대한 성능 조정 지침](data-lake-store-performance-tuning-hive.md)
-### [HDInsight의 MapReduce 및 Data Lake Storage Gen1에 대한 성능 조정 지침](data-lake-store-performance-tuning-mapreduce.md)
-### [HDInsight의 Storm 및 Data Lake Storage Gen1에 대한 성능 조정 지침](data-lake-store-performance-tuning-storm.md)
+### [개요](data-lake-store-performance-tuning-guidance.md)
+### [Azure PowerShell 사용](data-lake-store-performance-tuning-powershell.md)
+### [HDInsight의 Spark 사용](data-lake-store-performance-tuning-spark.md)
+### [HDInsight의 Hive 사용](data-lake-store-performance-tuning-hive.md).
+### [HDInsight에서 Hive 사용](data-lake-store-performance-tuning-mapreduce.md).
+### [HDInsight의 Storm 사용](data-lake-store-performance-tuning-storm.md)
 
 ## Azure 서비스와의 통합
 ### HDInsight 사용

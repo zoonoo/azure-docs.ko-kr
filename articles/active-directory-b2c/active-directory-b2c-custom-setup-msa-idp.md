@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7a83ace83176d75abdac03b354c4c4ac71eb4238
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6a981f112c97ee35b476c92f6f698e68a12a1363
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449381"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336824"
 ---
 # <a name="azure-active-directory-b2c-add-microsoft-account-msa-as-an-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 ID 공급자로 MSA(Microsoft 계정) 추가
 
@@ -58,7 +58,7 @@ Azure AD(Active Directory) B2C에서 Microsoft 계정을 ID 공급자로 사용�
 
     ![Microsoft 계정 - 플랫폼 목록에서 웹 선택](media/active-directory-b2c-custom-setup-ms-account-idp/msa-web.png)
 
-7.  **URI 리디렉션** 필드에 `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`를 입력합니다. **{tenant}** 를 사용자의 테넌트 이름(예: contosob2c.onmicrosoft.com)으로 바꿉니다.
+7.  **URI 리디렉션** 필드에 `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp`를 입력합니다. **{tenant}** 를 사용자의 테넌트 이름(예: contosob2c)으로 바꿉니다.
 
     ![Microsoft 계정 - 리디렉션 URL 설정](media/active-directory-b2c-custom-setup-ms-account-idp/msa-redirect-url.png)
 
@@ -87,7 +87,7 @@ Microsoft 계정으로 페더레이션하려면 응용 프로그램 대신 Azure
 9.  `B2C_1A_MSASecret` 키를 만들었는지 확인합니다.
 
 ## <a name="add-a-claims-provider-in-your-extension-policy"></a>확장 정책에서 클레임 공급자 추가
-사용자가 Microsoft 계정을 사용하여 로그인하도록 하려면 Microsoft 계정을 클레임 공급자로 정의해야 합니다. 즉, Azure AD B2C가 통신하는 끝점을 지정해야 합니다. 끝점은 Azure AD B2C에서 사용하는 일련의 클레임을 제공하여 특정 사용자가 인증했는지 확인합니다.
+사용자가 Microsoft 계정을 사용하여 로그인하도록 하려면 Microsoft 계정을 클레임 공급자로 정의해야 합니다. 즉, Azure AD B2C가 통신하는 엔드포인트를 지정해야 합니다. 엔드포인트는 Azure AD B2C에서 사용하는 일련의 클레임을 제공하여 특정 사용자가 인증했는지 확인합니다.
 
 확장 정책 파일에서 `<ClaimsProvider>` 노드를 추가하여 Microsoft 계정을 클레임 공급자로 정의합니다.
 

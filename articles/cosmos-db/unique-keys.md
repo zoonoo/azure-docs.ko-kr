@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: rafats
-ms.openlocfilehash: 796971ff541b62a22a70df4022ab78817e7158e9
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 5811cb1e08ed5d02038da2a4460ae4b63580833b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003320"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696142"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Azure Cosmos DB의 고유 키
 
 개발자는 고유 키를 사용하여 데이터베이스에 데이터 무결성 레이어를 추가할 수 있습니다. 컨테이너를 만들 때 고유 키 정책을 만들면 [파티션 키](partition-data.md)마다 하나 이상의 값이 고유하도록 보장됩니다. 고유 키 정책을 사용하여 컨테이너가 생성되면 고유 키 제약 조건으로 지정된 값을 가진 새 항목 또는 업데이트된 항목을 생성할 수 없습니다.   
 
 > [!NOTE]
-> 고유 키는 최신 버전의 [.NET](sql-api-sdk-dotnet.md) 및 [.NET Core](sql-api-sdk-dotnet-core.md) SQL SDK와 [MongoDB API](mongodb-feature-support.md#unique-indexes)에서 지원됩니다. Table API 및 Graph API는 아직 고유 키를 지원하지 않습니다. 
+> 고유 키는 최신 버전의 [.NET](sql-api-sdk-dotnet.md) 및 [.NET Core](sql-api-sdk-dotnet-core.md) SQL SDK와 [MongoDB API](mongodb-feature-support.md#unique-indexes)에서 지원됩니다. Table API 및 Gremlin API는 아직 고유 키를 지원하지 않습니다. 
 > 
 >
 

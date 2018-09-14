@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a7d62531492695be6ec148c3bf7b9786b2a428cf
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: d5b01566f672309837f738e185820a0f13eda1c1
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247398"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382257"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -112,7 +112,7 @@ Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도�
 ```
 
 ### <a name="system-requirements"></a>시스템 요구 사항
-- Windows Server 2012 R2 또는 Windows Server 2016을 실행하는 서버 
+- Windows Server 2012 R2 또는 Windows Server 2016을 실행하는 서버
 
     | 버전 | 지원되는 SKU | 지원되는 배포 옵션 |
     |---------|----------------|------------------------------|
@@ -121,15 +121,15 @@ Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도�
 
     이후 버전의 Windows Server는 출시되면 추가될 예정입니다. 이전 버전의 Windows는 사용자의 의견에 따라 추가될 수 있습니다.
 
-- 2GB 이상의 메모리가 있는 서버
+    > [!Important]  
+    > Windows 업데이트의 최신 업데이트를 사용하여 Azure 파일 동기화와 함께 사용되는 모든 서버를 최신 상태로 유지하는 것이 좋습니다. 
+
+- 2GiB 이상의 메모리가 있는 서버
 
     > [!Important]  
-    > 서버가 동적 메모리를 사용하도록 설정된 가상 머신에서 실행되는 경우 VM을 2,048MB 이상의 메모리로 구성해야 합니다.
+    > 서버가 동적 메모리를 사용하도록 설정된 가상 머신에서 실행되는 경우 VM을 2,048MiB 이상의 메모리로 구성해야 합니다.
     
 - NTFS 파일 시스템으로 포맷되어 로컬로 연결된 볼륨
-
-> [!Important]  
-> Windows 업데이트의 최신 업데이트를 사용하여 Azure 파일 동기화와 함께 사용되는 모든 서버를 최신 상태로 유지하는 것이 좋습니다. 
 
 ### <a name="file-system-features"></a>파일 시스템 기능
 | 기능 | 상태 지원 | 메모 |

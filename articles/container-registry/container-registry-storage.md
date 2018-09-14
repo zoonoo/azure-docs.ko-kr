@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: marsma
-ms.openlocfilehash: 92e60b4213cb80d193a7c35f68b8f9fd099481d7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 65ff60be992440c69e50a084b467a8efbb19574e
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165098"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307152"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Azure Container Registry의 컨테이너 이미지 저장소
 
@@ -43,7 +43,7 @@ Azure는 지역 중복 저장소 체계를 사용하여 컨테이너 이미지�
 | 태그들 | 제한 없음|
 | Storage | 5TB |
 
-저장소 및 태그 수가 매우 많으면 레지스트리 성능에 영향을 줄 수 있습니다. [Azure CLI](/cli/azure/acr), ACR [REST API](/rest/api/containerregistry/) 또는 [Azure Portal][portal]을 레지스트리 유지 관리 루틴의 일부로 활용하여 사용하지 않는 리포지토리, 태그 및 이미지를 주기적으로 삭제합니다. 리포지토리, 이미지 및 태그와 같은 삭제된 레지스트리 리소스는 삭제 후 복구할 수 *없습니다*.
+저장소 및 태그 수가 매우 많으면 레지스트리 성능에 영향을 줄 수 있습니다. 레지스트리 유지 관리 루틴의 일환으로 사용하지 않은 리포지토리, 태그 및 이미지를 주기적으로 삭제합니다. 리포지토리, 이미지 및 태그와 같은 삭제된 레지스트리 리소스는 삭제 후 복구할 수 *없습니다*. 레지스트리 리소스를 삭제하는 방법에 대한 자세한 내용은 [Azure Container Registry에서 컨테이너 이미지 삭제](container-registry-delete.md)를 참조하세요.
 
 ## <a name="storage-cost"></a>저장소 비용
 

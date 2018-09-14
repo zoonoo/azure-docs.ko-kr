@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: ddd30729aa2bcb616efab814dc4046d2817c64fa
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 4e93e455e309771ed3e33382ee49cdc144036fb1
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128680"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782416"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>가상 머신 직렬 콘솔(미리 보기) 
 
 
-Azure의 가상 머신 직렬 콘솔은 Linux 및 Windows 가상 머신용 텍스트 기반 콘솔에 대한 액세스를 제공합니다. 직렬 연결은 가상 머신의 COM1 직렬 포트에 연결되며, 가상 머신에 대한 액세스를 제공하고 가상 머신의 네트워크/운영 체제 상태와 관련이 없습니다. 가상 머신의 직렬 콘솔에 대한 액세스는 현재 Azure Portal을 통해서만 가능하며 가상 머신에 대해 VM 참가자 이상의 액세스 권한이 있는 사용자에게만 허용됩니다. 
+Azure의 가상 머신 직렬 콘솔은 Windows 가상 머신용 텍스트 기반 콘솔에 대한 액세스를 제공합니다. 직렬 연결은 가상 머신의 COM1 직렬 포트에 연결되며, 가상 머신의 네트워크 또는 운영 체제 상태와는 관련이 없는 가상 머신에 대한 액세스를 제공합니다. 가상 머신의 직렬 콘솔에 대한 액세스는 현재 Azure Portal을 통해서만 가능하며 가상 머신에 대해 VM 참가자 이상의 액세스 권한이 있는 사용자에게만 허용됩니다. 
 
 Linux VM에 대한 직렬 콘솔 설명서를 보려면 [여기를 클릭](../linux/serial-console.md)하세요.
 
@@ -39,14 +39,14 @@ Linux VM에 대한 직렬 콘솔 설명서를 보려면 [여기를 클릭](../li
 * 가상 머신에 [부트 진단](boot-diagnostics.md)을 사용하도록 설정되어 있어야 합니다. 
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
-    
+
 * 직렬 콘솔을 사용하는 계정에는 VM에 대한 [참가자 역할](../../role-based-access-control/built-in-roles.md)과 [부트 진단](boot-diagnostics.md) 저장소 계정이 있어야 합니다. 
 * 직렬 콘솔에 액세스하는 가상 머신에도 암호 기반 계정이 있어야 합니다. VM 액세스 확장의 [암호 재설정](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) 기능으로 이러한 계정을 만들 수 있습니다. 아래 스크린샷을 참조하세요.
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
-## <a name="get-started-with-serial-console"></a>직렬 콘솔 시작하기
-가상 머신의 직렬 콘솔은 [Azure Portal](https://portal.azure.com)을 통해서만 액세스할 수 있습니다. 다음은 포털을 통해 가상 머신의 직렬 콘솔에 액세스하는 단계입니다. 
+## <a name="get-started-with-serial-console"></a>직렬 콘솔 시작
+가상 머신의 직렬 콘솔은 [Azure Portal](https://portal.azure.com)을 통해서만 액세스할 수 있습니다. 다음은 포털을 통해 가상 머신의 직렬 콘솔에 액세스하는 단계입니다.
 
   1. Azure 포털 열기
   2. 왼쪽 메뉴에서 가상 머신을 선택합니다.
@@ -55,8 +55,8 @@ Linux VM에 대한 직렬 콘솔 설명서를 보려면 [여기를 클릭](../li
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
-## <a name="configure-serial-console-for-windows"></a>Windows의 직렬 콘솔 구성 
-Azure의 최신 Windows Server 이미지에는 기본적으로 SAC([Special Administrative Console](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx))가 사용되도록 설정되어 있습니다. SAC는 서버 버전의 Windows에서 지원되지만, 클라이언트 버전(예: Windows 10, Windows 8 또는 Windows 7)에서는 사용할 수 없습니다. Feb2018 이하의 이미지를 사용하여 만든 Windows 가상 머신용 직렬 콘솔을 사용하도록 설정하려면 다음 단계를 사용하세요. 
+## <a name="enable-serial-console-in-custom-or-older-images"></a>사용자 지정 또는 이전 이미지에서 직렬 콘솔 사용
+Azure의 최신 Windows Server 이미지에는 기본적으로 SAC([Special Administrative Console](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx))가 사용되도록 설정되어 있습니다. SAC는 서버 버전의 Windows에서 지원되지만, 클라이언트 버전(예: Windows 10, Windows 8 또는 Windows 7)에서는 사용할 수 없습니다. 2018년 2월 이전에 만든 Windows 가상 머신용 직렬 콘솔을 사용하도록 설정하려면 다음 단계를 사용하세요. 
 
 1. 원격 데스크톱을 통해 Windows 가상 머신에 연결
 2. 관리자 명령 프롬프트에서 다음 명령 실행 
@@ -73,13 +73,13 @@ Azure의 최신 Windows Server 이미지에는 기본적으로 SAC([Special Admi
 * `bcdedit /store <mountedvolume>\boot\bcd /ems {default} on`
 * `bcdedit /store <mountedvolume>\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 
-### <a name="how-do-i-know-if-sac-is-enabled-or-not"></a>SAC이 사용되도록 설정되어 있는지를 확인하는 방법 
+### <a name="how-do-i-know-if-sac-is-enabled"></a>SAC이 사용되도록 설정되어 있는지를 확인하는 방법
 
-[SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx)이 사용되도록 설정되어 있지 않으면 직렬 콘솔에 SAC 프롬프트가 표시되지 않습니다. 경우에 따라 VM 상태 정보가 표시될 수도 있고 비어 있을 수도 있습니다.  
+[SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx)이 사용되도록 설정되어 있지 않으면 직렬 콘솔에 SAC 프롬프트가 표시되지 않습니다. VM 상태 정보가 표시될 때도 있고 비어 있을 때도 있습니다.  
 
-### <a name="enabling-boot-menu-to-show-in-the-serial-console"></a>부팅 메뉴를 사용하도록 설정하여 직렬 콘솔에 표시 
+## <a name="enable-the-windows-boot-menu-in-serial-console"></a>직렬 콘솔에서 Windows 부팅 메뉴 사용 
 
-Windows 부팅 로더 프롬프트를 사용하도록 설정하여 직렬 콘솔에 표시해야 할 경우 Windows 부팅 로더에 대해 다음과 같은 추가 옵션을 추가할 수 있습니다.
+Windows 부팅 로더 프롬프트를 사용하도록 설정하여 직렬 콘솔에 표시해야 할 경우 부팅 구성 데이터에 다음과 같은 추가 옵션을 추가할 수 있습니다. 자세한 내용은 [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set)을 참조하세요.
 
 1. 원격 데스크톱을 통해 Windows 가상 머신에 연결
 2. 관리자 명령 프롬프트에서 다음 명령 실행 
@@ -88,8 +88,14 @@ Windows 부팅 로더 프롬프트를 사용하도록 설정하여 직렬 콘솔
 * `bcdedit /set {bootmgr} bootems yes`
 3. 시스템을 다시 부팅하여 부팅 메뉴를 사용하도록 설정
 
-> [!NOTE] 
-> 지금은 함수 키에 대한 지원이 사용되도록 설정되어 있지 않습니다. 고급 부팅 옵션이 필요한 경우 bcdedit /set {current} onetimeadvancedoptions on을 사용하세요. 자세한 내용은 [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set)을 참조하세요.
+## <a name="use-serial-console-for-nmi-calls-in-windows-vms"></a>Windows VM에서 NMI 호출에 대해 직렬 콘솔 사용
+NMI(마스크 불가능 인터럽트)는 가상 머신에 있는 소프트웨어가 무시하는 신호를 만들도록 설계되었습니다. 지금까지 NMI는 특정 응답 시간이 필요한 시스템에서 하드웨어 문제를 모니터링하는 데 사용되었습니다.  현재, 프로그래머 및 시스템 관리자는 종종 중지된 시스템을 디버그하거나 문제를 해결하기 위한 메커니즘으로 NMI를 사용합니다.
+
+아래 표시된 명령줄에서 키보드 아이콘을 사용하여 NMI를 Azure Virtual Machine에 전송하는 데 직렬 콘솔을 사용할 수 있습니다. NMI가 전달되면 가상 머신 구성이 시스템의 응답을 제어하게 됩니다. NMI를 받는 경우 메모리 덤프의 작동을 중단하고 메모리 덤프를 만들도록 Windows를 구성할 수 있습니다.
+
+![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
+
+NMI를 받을 때 크래시 덤프를 만들도록 Windows 구성에 대한 정보는 [Windows 기반 시스템에서 NMI를 사용하여 전체 크래시 덤프 파일 또는 커널 크래시 덤프 파일을 생성하는 방법](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)을 참조하세요.
 
 ## <a name="disable-serial-console"></a>직렬 콘솔 비활성화
 기본적으로 모든 구독에는 모든 VM에 대한 직렬 콘솔 액세스가 활성화되어 있습니다. 구독 수준 또는 VM 수준에서 직렬 콘솔을 비활성화할 수 있습니다.
@@ -149,18 +155,26 @@ Windows 부팅 로더 프롬프트를 사용하도록 설정하여 직렬 콘솔
 >[!CAUTION] 
 즉, 연결이 끊긴 사용자는 로그아웃되지 않습니다. 연결 해제 시 로그아웃을 강제 적용하는 기능은(SIGHUP 또는 유사한 메커니즘을 통해) 아직 계획 중입니다. Windows의 경우 SAC에 자동 시간 제한을 사용하도록 설정되어 있지만 Linux에서는 터미널 시간 제한 설정을 구성할 수 있습니다. 
 
-## <a name="using-serial-console-for-nmi-calls-in-windows-vms"></a>Windows VM에서 NMI 호출에 대해 직렬 콘솔 사용
-NMI(마스크 불가능 인터럽트)는 가상 머신에 있는 소프트웨어가 무시하는 신호를 만들도록 설계되었습니다. 지금까지 NMI는 특정 응답 시간이 필요한 시스템에서 하드웨어 문제를 모니터링하는 데 사용되었습니다.  현재, 프로그래머 및 시스템 관리자는 종종 중지된 시스템을 디버그하거나 문제를 해결하기 위한 메커니즘으로 NMI를 사용합니다.
+## <a name="common-scenarios-for-accessing-serial-console"></a>직렬 콘솔에 액세스하는 일반적인 시나리오 
+시나리오          | 직렬 콘솔의 작업                
+:------------------|:-----------------------------------------
+잘못된 방화벽 규칙 | 직렬 콘솔에 액세스하여 Windows 방화벽 규칙을 수정합니다. 
+파일 시스템 손상/검사 | 직렬 콘솔에 액세스하여 파일 시스템을 복구합니다. 
+RDP 구성 문제 | 직렬 콘솔에 액세스하고 설정을 변경합니다. 시작하려면 [RDP 설명서](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access)로 이동합니다.
+네트워크 시스템 잠금| 포털을 통해 직렬 콘솔에 액세스하여 시스템을 관리합니다. 일부 네트워크 명령이 [직렬 콘솔 CMD 및 PowerShell 설명서](./serial-console-cmd-ps-commands.md)에 나와 있습니다. 
+부팅 로더와 상호 작용 | 직렬 콘솔을 통해 BCD에 액세스합니다. 시작하려면 [부팅 메뉴를 사용하도록 설정하여 직렬 콘솔에 표시](#enabling-boot-menu-to-show-in-the-serial-console)로 이동합니다. 
 
-아래 표시된 명령줄에서 키보드 아이콘을 사용하여 NMI를 Azure 가상 머신에 전송하는 데 직렬 콘솔을 사용할 수 있습니다. NMI가 전달되면 가상 머신 구성이 시스템의 응답을 제어하게 됩니다. NMI를 받는 경우 메모리 덤프의 작동을 중단하고 메모리 덤프를 만들도록 Windows를 구성할 수 있습니다.
+## <a name="accessibility"></a>접근성
+접근성은 Azure 직렬 콘솔의 핵심 기능입니다. 이를 위해 마우스를 사용하지 못할 수 있는 사용자 뿐만 아니라 시력 및 청력 장애가 있는 사용자가 직렬 콘솔에 액세스할 수 있도록 했습니다.
 
-![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
+### <a name="keyboard-navigation"></a>키보드 탐색
+키보드의 `tab` 키를 사용하여 Azure Portal 내의 직렬 콘솔 인터페이스를 탐색합니다. 사용자 위치는 화면에서 강조 표시됩니다. 직렬 콘솔 블레이드 외부로 포커스를 이동하려면 키보드에서 `Ctrl + F6`를 누릅니다.
 
-NMI를 받을 때 크래시 덤프를 만들도록 Windows 구성에 대한 정보는 [Windows 기반 시스템에서 NMI를 사용하여 전체 크래시 덤프 파일 또는 커널 크래시 덤프 파일을 생성하는 방법](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)을 참조하세요.
-
+### <a name="use-serial-console-with-a-screen-reader"></a>화면 읽기 프로그램에서 직렬 콘솔 사용
+직렬 콘솔은 기본적으로 화면 읽기 프로그램을 지원합니다. 화면 읽기 프로그램을 켠 상태로 탐색하면 화면 읽기 프로그램은 현재 선택한 단추에 대한 alt 텍스트를 큰 소리로 읽을 수 있습니다.
 
 ## <a name="errors"></a>오류
-대부분의 오류는 본래 일시적이며 연결을 다시 시도하면 문제가 해결됩니다. 아래 표에는 오류 및 해결 방법 목록이 있습니다.
+대부분의 오류는 본래 일시적이며 연결을 다시 시도하면 문제가 해결됩니다. 아래 테이블에는 오류 및 해결 방법 목록이 있습니다.
 
 오류                            |   해결 방법 
 :---------------------------------|:--------------------------------------------|

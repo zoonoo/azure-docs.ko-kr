@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 7401355c7920729933d0fcc3dd4cc8ce610c399e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b51f0c1e0c6ef713bf8d3ff0a124300f446a9373
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199078"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306811"
 ---
 # <a name="disaster-recovery-guidance-for-data-in-data-lake-store"></a>Data Lake Store의 데이터에 대한 재해 복구 가이드
 
-Azure Data Lake Store는 LRS(로컬 중복 저장소)를 제공합니다. 따라서 Azure Data Lake Store 계정의 데이터는 자동화된 복제본을 통해 지역 내에서 일시적인 하드웨어 장애에 대한 복원력이 있습니다. 이렇게 하면 Azure Data Lake Store SLA를 충족하는 내구성 및 고가용성을 사용할 수 있습니다. 이 문서에서는 드물게 발생하는 전체 지역 가동 중단 또는 삭제 실수로부터 데이터를 보호하는 방법에 대한 지침을 제공합니다.
+Azure Data Lake Store는 LRS(로컬 중복 저장소)를 제공합니다. 따라서 Azure Data Lake Store 계정의 데이터는 자동화된 복제본을 통해 데이터 센터 내에서 일시적인 하드웨어 장애에 대한 복원력이 있습니다. 이렇게 하면 Azure Data Lake Store SLA를 충족하는 내구성 및 고가용성을 사용할 수 있습니다. 이 문서에서는 드물게 발생하는 전체 지역 가동 중단 또는 삭제 실수로부터 데이터를 보호하는 방법에 대한 지침을 제공합니다.
 
 ## <a name="disaster-recovery-guidance"></a>재해 복구 지침
 모든 고객은 자체적으로 재해 복구 계획을 준비하는 것이 중요합니다. 재해 복구 계획을 빌드하려면 이 아티클의 정보를 참고합니다. 여기에는 고유한 계획을 직접 만들 수 있는 리소스가 있습니다.

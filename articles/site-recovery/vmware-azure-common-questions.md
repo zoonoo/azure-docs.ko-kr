@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 07/19/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: e8d30ae6cde7c787f1aa950506e0eb74bac0c12d
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: fe20cae4c316462e3af3f0a5e7e6052f6ba5719d
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238811"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344426"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>일반적인 질문 - VMware에서 Azure로 복제
 
@@ -45,7 +45,7 @@ LRS 또는 GRS 저장소 계정이 필요합니다. 지역 정전이 발생하�
 
 
 
-## <a name="on-premises"></a>온-프레미스 
+## <a name="on-premises"></a>온-프레미스
 
 ### <a name="what-do-i-need-on-premises"></a>온-프레미스에는 무엇이 필요한가요?
 온-프레미스에는 단일 VMware VM에 설치된 Site Recovery 구성 요소가 필요합니다. 하나 이상의 ESXi 호스트가 있는 VMware 인프라가 필요하며 vCenter 서버를 사용하는 것이 좋습니다. 또한 복제할 하나 이상의 VMware VM도 필요합니다. VMware에서 Azure로 복제 아키텍처에 대해 [자세히 알아보세요](vmware-azure-architecture.md).
@@ -72,7 +72,7 @@ Site Recovery는 공용 엔드포인트를 통하거나 ExpressRoute 공용 피�
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>VPN을 통해 복제할 수 없는 이유는 무엇인가요?
 
-Azure에 복제하는 경우 복제 트래픽이 Azure Storage 계정의 공용 엔드포인트에 도달하므로, ExpressRoute(공용 피어링)를 사용하여 공용 인터넷을 통해서만 복제할 수 있으며 VPN은 작동하지 않습니다. 
+Azure에 복제하는 경우 복제 트래픽이 Azure Storage 계정의 공용 엔드포인트에 도달하므로, ExpressRoute(공용 피어링)를 사용하여 공용 인터넷을 통해서만 복제할 수 있으며 VPN은 작동하지 않습니다.
 
 
 
@@ -90,7 +90,7 @@ VMware VM을 Azure에 복제하는 경우에는 복제가 계속됩니다.
 지원되지 않습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)을 통해 이 기능에 대한 의견을 보내 주세요.
 
 ### <a name="can-i-exclude-disks"></a>디스크를 제외할 수 있나요?
-예, 디스크는 복제에서 제외할 수 있습니다. 
+예, 디스크는 복제에서 제외할 수 있습니다.
 
 ### <a name="can-i-replicate-vms-with-dynamic-disks"></a>동적 디스크를 사용하여 VM을 복제할 수 있나요?
 예, 동적 디스크는 복제할 수 있습니다. 운영 체제 디스크는 기본 디스크여야 합니다.
@@ -105,7 +105,7 @@ Azure로 VMware 복제의 경우 디스크 크기를 수정할 수 있습니다.
 ## <a name="configuration-server"></a>구성 서버
 
 ### <a name="what-does-the-configuration-server-do"></a>구성 서버에서 수행하는 작업은 무엇인가요?
-구성 서버는 다음을 포함하여 온-프레미스 Site Recovery 구성 요소를 실행합니다. 
+구성 서버는 다음을 포함하여 온-프레미스 Site Recovery 구성 요소를 실행합니다.
 - 구성 서버 - 온-프레미스와 Azure 간의 통신을 조정하고 데이터 복제를 관리합니다.
 - 프로세스 서버 - 복제 게이트웨이의 역할을 합니다. 즉 복제 데이터를 수신하고, 캐싱, 압축 및 암호화를 통해 최적화하며, Azure 저장소로 보냅니다. 또한 프로세스 서버는 복제하려는 VM에 모바일 서비스를 설치하고, 온-프레미스 VMware VM에 대한 자동 검색을 수행합니다.
 - 마스터 대상 서버 - Azure에서 장애 복구 중에 복제 데이터를 처리합니다.
@@ -118,13 +118,13 @@ Azure로 VMware 복제의 경우 디스크 크기를 수정할 수 있습니다.
 [필수 구성 요소](vmware-azure-deploy-configuration-server.md#prerequisites)를 검토하세요.
 
 ### <a name="can-i-manually-set-up-the-configuration-server-instead-of-using-a-template"></a>구성 서버는 템플릿을 사용하는 대신 수동으로 설정할 수 있나요?
-최신 버전의 OVF 템플릿을 사용하여 [구성 서버 VM을 만드는](vmware-azure-deploy-configuration-server.md) 것이 좋습니다. VMware 서버에 대한 액세스 권한이 없는 것처럼 어떤 이유로 액세스할 수 없는 경우 포털에서 [통합 설치 파일을 다운로드](physical-azure-set-up-source.md)하여 VM에서 실행할 수 있습니다. 
+최신 버전의 OVF 템플릿을 사용하여 [구성 서버 VM을 만드는](vmware-azure-deploy-configuration-server.md) 것이 좋습니다. VMware 서버에 대한 액세스 권한이 없는 것처럼 어떤 이유로 액세스할 수 없는 경우 포털에서 [통합 설치 파일을 다운로드](physical-azure-set-up-source.md)하여 VM에서 실행할 수 있습니다.
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>구성 서버에서 둘 이상의 지역에 복제할 수 있나요?
 아니요. 이렇게 하려면 각 지역마다 구성 서버를 설정해야 합니다.
 
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>Azure에서 구성 서버를 호스팅할 수 있나요?
-가능한 경우 구성 서버를 실행하는 Azure VM에서 온-프레미스 VMware 인프라 및 VM과 통신해야 합니다. 아마도 오버헤드가 실용적이지 않을 것입니다.
+가능한 경우 구성 서버를 실행하는 Azure VM에서 온-프레미스 VMware 인프라 및 VM과 통신해야 합니다. 이로 인해 대기 시간이 늘어나고 진행 중인 복제에 영향을 줄 수 있습니다.
 
 
 ### <a name="where-can-i-get-the-latest-version-of-the-configuration-server-template"></a>최신 버전의 구성 서버 템플릿은 어디서 구할 수 있나요?
@@ -132,6 +132,9 @@ Azure로 VMware 복제의 경우 디스크 크기를 수정할 수 있습니다.
 
 ### <a name="how-do-i-update-the-configuration-server"></a>구성 서버를 업데이트하려면 어떻게 할까요?
 업데이트 롤업을 설치합니다. 최신 업데이트 정보는 [wiki 업데이트 페이지](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)에서 찾을 수 있습니다.
+
+### <a name="should-i-backup-the-deployed-configuration-server"></a>배포된 구성 서버를 백업해야 하나요?
+구성 서버의 예약된 정기 백업을 수행하는 것이 좋습니다. 성공적인 장애 복구(Failover)를 위해서는 장애 복구(Failover)하려는 가상 머신이 구성 서버 데이터베이스에 있어야 하고 구성 서버가 실행 중이고 연결된 상태여야 합니다. [여기](vmware-azure-manage-configuration-server.md)에서 일반 구성 서버 관리 작업에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="mobility-service"></a>모바일 서비스
 
@@ -191,7 +194,7 @@ Azure는 복원을 위해 디자인되었습니다. Site Recovery는 Azure SLA�
 
 ### <a name="why-do-i-need-a-vpn-or-expressroute-to-fail-back"></a>장애 복구하는 데 VPN 또는 ExpressRoute가 필요한 이유는 무엇인가요?
 
-Azure에서 장애 복구하는 경우 Azure의 데이터가 온-프레미스 VM으로 다시 복사되고 개인 액세스가 필요합니다. 
+Azure에서 장애 복구하는 경우 Azure의 데이터가 온-프레미스 VM으로 다시 복사되고 개인 액세스가 필요합니다.
 
 
 

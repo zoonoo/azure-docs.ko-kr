@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 08/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 7c990fc0d385af9527bf55339b2fa617e589ec0e
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 59dab4651366c3ad6579e0da660baee0c653d1a3
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190589"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666005"
 ---
 # <a name="activate-my-azure-ad-directory-roles-in-pim"></a>PIM에서 Azure AD 디렉터리 역할 활성화
 
@@ -26,11 +26,11 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용�
 
 관리 역할에 대해 적격이 되었다면 권한이 필요한 작업을 수행해야 하는 경우 해당 역할을 활성화할 수 있다는 의미입니다. 예를 들어 경우에 따라 Office 365 기능을 관리하는 경우 조직의 권한 있는 역할 관리자는 해당 역할이 다른 서비스에도 또한 영향을 주므로 사용자를 영구적인 전역 관리자로 만들지 못할 수 있습니다. 대신 Exchange Online 관리자와 같은 Azure AD 역할에 대한 자격을 줍니다. 이러한 권한이 필요한 경우 해당 역할을 활성화하도록 요청하고 미리 결정된 기간 동안 제어할 수 있는 관리자 권한을 부여받습니다.
 
-이 문서는 PIM에서 역할을 활성화해야 하는 관리자를 대상으로 합니다.
+이 문서는 PIM에서 Azure AD 디렉터리 역할을 활성화해야 하는 관리자를 대상으로 합니다.
 
 ## <a name="activate-a-role"></a>역할 활성화
 
-역할을 담당해야 하는 경우 PIM에서 **내 역할** 탐색 옵션을 사용하여 활성화를 요청할 수 있습니다.
+Azure AD 디렉터리 역할을 담당해야 하는 경우 PIM에서 **내 역할** 탐색 옵션을 사용하여 활성화를 요청할 수 있습니다.
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 

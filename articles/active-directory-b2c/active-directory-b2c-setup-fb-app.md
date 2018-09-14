@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: de059e3875b5f15526cb176d43a019fd2d9ee9b9
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 985285b463d66770f97a431705d5b9198b632592
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901384"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344609"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Facebook 계정으로 등록 설정 및 로그인
 
@@ -30,13 +30,13 @@ Azure AD(Azure Active Directory) B2C에서 Facebook 계정을 ID 공급자로 �
 5. **앱 ID 만들기**를 클릭합니다. Facebook 플랫폼 정책을 수용하고 온라인 보안 검사를 완료해야 합니다.
 6. **설정** > **기본**을 선택합니다.
 7. 페이지의 맨 아래에서 **플랫폼 추가**를 선택한 후 **웹 사이트**를 선택합니다.
-8. **사이트 URL**에 `https://login.microsoftonline.com/`을 입력합니다. **개인 정보 취급 방침 URL**의 URL(예: `http://www.contoso.com`)을 입력합니다.
+8. **사이트 URL**에 `https://{tenantname}.b2clogin.com/`을 입력합니다. **개인 정보 취급 방침 URL**의 URL(예: `http://www.contoso.com`)을 입력합니다.
 9. **변경 내용 저장**을 선택합니다.
 11. 페이지의 맨 위에서 **앱 ID** 값을 복사합니다. 
 12. **표시**를 클릭하고 **앱 비밀** 값을 복사합니다. 테넌트에서 Facebook을 ID 공급자로 구성하려면 둘 다 사용합니다. **앱 암호** 는 중요한 보안 자격 증명입니다.
 13. **제품**을 선택한 후 **Facebook 로그인** 아래에서 **설정**을 선택합니다.
 14. **Facebook 로그인** 아래에서 **설정**을 선택합니다.
-15. **유효한 OAuth 리디렉션 URI**에 `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`를 입력합니다. **{tenant}** 를 사용자의 테넌트 이름(예: contosob2c.onmicrosoft.com)으로 바꿉니다. 페이지 아래쪽에 있는 **변경 내용 저장** 을 클릭합니다.
+15. **유효한 OAuth 리디렉션 URI**에 `https://{tenantname}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp`를 입력합니다. **{tenant}** 를 사용자의 테넌트 이름(예: contosob2c)으로 바꿉니다. 페이지 아래쪽에 있는 **변경 내용 저장** 을 클릭합니다.
 16. Azure AD B2C에서 Facebook 응용 프로그램을 사용할 수 있도록 하려면 **앱 검토**를 선택하고 **Make My Application public?**(내 응용 프로그램을 공용으로 만들기)를 **예**로 설정하고 범주(예: `Business and Pages`)를 선택한 후 **확인**을 클릭합니다.
 
 ## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Facebook 계정을 ID 공급자로 구성

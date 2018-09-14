@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 334f696d79cf801facf7c5301b2240b69f7134f7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 58a595c697b6e1a70089a6683493835e0d3a9780
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444381"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344321"
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 ID 공급자로 LinkedIn 추가
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -36,11 +36,11 @@ Azure AD B2C(Azure Active Directory B2C)에서 LinkedIn을 ID 공급자로 사�
 
     a. **회사 이름**, 회사에 대한 설명이 포함된 **이름** 및 새 앱의 **설명**을 입력합니다.
 
-    나. **응용 프로그램 로고**를 업로드합니다.
+    b. **응용 프로그램 로고**를 업로드합니다.
 
     다. **응용 프로그램 사용**을 선택합니다.
 
-    d. **웹 사이트 URL** 상자에 **https://login.microsoftonline.com**을 붙여넣습니다.
+    d. **웹 사이트 URL** 상자에 **https://{tenant}.b2clogin.com**을 붙여넣습니다.  여기서 {*tenant*}는 테넌트의 이름(예: contoso.b2clogin.com)입니다.
 
     e. **비즈니스 전자 메일** 주소 및 **회사 전화** 번호를 입력합니다.
 
@@ -50,7 +50,7 @@ Azure AD B2C(Azure Active Directory B2C)에서 LinkedIn을 ID 공급자로 사�
 
 3. **인증**을 선택한 다음 **클라이언트 ID** 및 **클라이언트 비밀** 값을 적어 둡니다.
 
-4. **권한이 부여된 리디렉션 URL** 상자에 **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**를 붙여넣습니다. {*tenant*}를 사용자의 테넌트 이름(예: contosob2c.onmicrosoft.com)으로 바꿉니다. HTTPS 체계를 사용 중인지 확인합니다. 
+4. **권한이 부여된 리디렉션 URL** 상자에 **https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**를 붙여넣습니다. {*tenant*}를 사용자의 테넌트 이름(예: contosob2c.onmicrosoft.com)으로 바꿉니다. HTTPS 체계를 사용 중인지 확인합니다. 
 
     ![LinkedIn 계정 - 권한이 부여된 리디렉션 URL 설정](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app3.png)
 
@@ -86,7 +86,7 @@ LinkedIn 계정으로 페더레이션하려면 응용 프로그램 대신 Azure 
 9. `B2C_1A_LinkedInSecret` 키를 만들었는지 확인합니다.
 
 ## <a name="step-3-add-a-claims-provider-in-your-extension-policy"></a>3단계: 확장 정책에서 클레임 공급자 추가
-사용자가 LinkedIn 계정을 사용하여 로그인하도록 하려면 LinkedIn을 클레임 공급자로 정의해야 합니다. 즉, Azure AD B2C가 통신하는 끝점을 지정해야 합니다. 끝점은 Azure AD B2C에서 사용하는 일련의 클레임을 제공하여 특정 사용자가 인증했는지 확인합니다.
+사용자가 LinkedIn 계정을 사용하여 로그인하도록 하려면 LinkedIn을 클레임 공급자로 정의해야 합니다. 즉, Azure AD B2C가 통신하는 엔드포인트를 지정해야 합니다. 엔드포인트는 Azure AD B2C에서 사용하는 일련의 클레임을 제공하여 특정 사용자가 인증했는지 확인합니다.
 
 확장 정책 파일에서 `<ClaimsProvider>` 노드를 추가하여 LinkedIn을 클레임 공급자로 정의합니다.
 

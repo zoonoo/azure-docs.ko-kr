@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: iainfou
-ms.openlocfilehash: b910b6cdf55ae7c2a220543bdb555d8e9bff59a0
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: f4bc7724c0bc288ab269d1b3ec054bd1a6ba26e3
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42145878"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701197"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -58,7 +58,7 @@ ms.locfileid: "42145878"
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>MC_* 리소그스 룹에서 태그 및 AKS 리소스의 다른 속성을 수정할 수 있나요?
 
-*MC_** 리소스 그룹에서 태그 및 리소스의 기타 속성을 수정 및 삭제하면 크기 조정 및 업그레이드 오류와 같은 예기치 않은 결과가 발생할 수 있습니다. AKS 클러스터의 *MC_** 아래에서 리소스를 수정하면 SLO가 중단됩니다.
+*MC_** 리소스 그룹에서 리소스의 Azure 생성 태그 및 기타 속성을 수정 및 삭제하면 크기 조정 및 업그레이드 오류와 같은 예기치 않은 결과가 발생할 수 있습니다. 비즈니스 단위 또는 비용 센터 할당과 같은 추가 사용자 지정 태그를 만들고 수정하도록 지원됩니다. AKS 클러스터의 *MC_** 아래에서 리소스를 수정하면 SLO가 중단됩니다.
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>AKS가 지원하는 Kubernetes 허용 컨트롤러는 무엇인가요? 허용 컨트롤러를 추가하거나 제거할 수 있나요?
 

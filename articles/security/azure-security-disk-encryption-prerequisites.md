@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: mstewart
-ms.openlocfilehash: d248a97235ead134f29e468aaafcd04211590e02
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 67c3591b0218beac6343b49ba7867294ebeb3f44
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247493"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381983"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure Disk Encryption 필수 구성 요소 
  'Azure Disk Encryption 필수 구성 요소'라는 이 문서에서는 Azure Disk Encryption을 사용하기 전에 필요한 항목에 대해 설명합니다. Azure Disk Encryption은 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/)와 통합되어 암호화 키를 관리하는 데 도움이 됩니다. [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure/) 또는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure Disk Encryption을 구성할 수 있습니다.
@@ -47,7 +47,7 @@ Azure Disk Encryption이 지원되는 운영 체제는 다음과 같습니다.
     - Azure Disk Encryption 프로세스는 암호화 프로세스의 일환으로 탑재 정보를 /etc/fstab에서 자체의 구성 파일로 이동합니다. 데이터 드라이브 암호화가 완료된 후 /etc/fstab에서 누락된 항목을 보고 놀라지 마세요.
     -  다시 부팅한 후 Azure Disk Encryption 프로세스에서 새로 암호화된 디스크를 탑재하는 데 시간이 걸립니다. 이러한 디스크는 다시 부팅한 후에 즉시 사용할 수 없습니다. 다른 프로세스가 액세스할 수 있게 되기 전에 이 프로세스에서 암호화된 드라이브를 시작, 잠금 해제 및 탑재하는 데 시간이 필요합니다. 이 프로세스는 시스템 특성에 따라 다시 부팅 후 2분 이상 걸릴 수 있습니다.
 
-데이터 디스크를 탑재하고 필요한 /etc/fstab 항목을 만드는 데 사용할 수 있는 명령의 예제는 [이 스크립트 파일의 197-205번째 줄](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L197-L205)에 있습니다. 
+데이터 디스크를 탑재하고 필요한 /etc/fstab 항목을 만드는 데 사용할 수 있는 명령의 예제는 [이 스크립트 파일의 244-248번째 줄](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L244-L248)에 있습니다. 
 
 
 ## <a name="bkmk_GPO"></a> 네트워킹 및 그룹 정책
@@ -147,7 +147,7 @@ Azure Disk Encryption은 [Azure Key Vault](https://azure.microsoft.com/documenta
 [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/New-AzureRmKeyVault) cmdlet을 사용하여 Azure PowerShell을 통해 키 자격 증명 모음을 만들 수 있습니다. Key Vault에 대한 추가 cmdlet은 [AzureRM.KeyVault](/powershell/module/azurerm.keyvault/)를 참조하세요. 
 
 1. 필요한 경우 [Azure 구독에 연결](azure-security-disk-encryption-appendix.md#bkmk_ConnectPSH)합니다. 
-2. 필요한 경우 [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup)을 사용하여 새 리소스 그룹을 만듭니다.  데이터 센터 위치를 나열하려면 [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocationn)을 사용합니다. 
+2. 필요한 경우 [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup)을 사용하여 새 리소스 그룹을 만듭니다.  데이터 센터 위치를 나열하려면 [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation)을 사용합니다. 
      
      ```azurepowershell-interactive
      # Get-AzureRmLocation 

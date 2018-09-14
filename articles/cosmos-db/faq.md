@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: a8d9704c48801b98800abb71769ba0954e727848
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 375990f095d3a6cbbbfa18db70466c274fd7e17b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190459"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702598"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB FAQ
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos 기본 사항
@@ -28,7 +28,7 @@ Azure Cosmos DB DocumentDB API 또는 SQL(DocumentDB) API는 이제 Azure Cosmos
 
 ### <a name="what-happened-to-azure-documentdb-as-a-service"></a>Azure DocumentDB as a Service의 변경된 내용
 
-Azure DocumentDB 서비스는 이제 Azure Cosmos DB 서비스의 일부이며 SQL API의 형식으로 나타납니다. Azure DocumentDB에 대해 빌드된 응용 프로그램은 Azure Cosmos DB SQL API를 변경하지 않고 실행됩니다. 또한 Azure Cosmos DB는 Graph API, 테이블 API, MongoDB API 및 Cassandra API(미리 보기)를 지원합니다.
+Azure DocumentDB 서비스는 이제 Azure Cosmos DB 서비스의 일부이며 SQL API의 형식으로 나타납니다. Azure DocumentDB에 대해 빌드된 응용 프로그램은 Azure Cosmos DB SQL API를 변경하지 않고 실행됩니다. 또한 Azure Cosmos DB는 Gremlin API, 테이블 API, MongoDB API 및 Cassandra API(미리 보기)를 지원합니다.
 
 ### <a name="what-are-the-typical-use-cases-for-azure-cosmos-db"></a>Azure Cosmos DB의 대표적인 사용 사례는 무엇인가요?
 Azure Cosmos DB는 자동 크기 조정, 예측 가능한 성능, 밀리초 응답 시간의 빠른 주문, 스키마 제약 없는 데이터에 대한 쿼리 기능 등이 중요한 경우 새로운 웹, 모바일, 게임 및 IoT 응용 프로그램에 적합한 솔루션입니다. Azure Cosmos DB는 응용 프로그램 데이터 모델의 신속한 개발 및 연속적인 반복 지원에 적합합니다. 사용자 생성 콘텐츠 및 데이터를 관리하는 응용 프로그램은 [Azure Cosmos DB의 일반적인 사용 사례](use-cases.md)입니다. 
@@ -36,11 +36,11 @@ Azure Cosmos DB는 자동 크기 조정, 예측 가능한 성능, 밀리초 응�
 ### <a name="how-does-azure-cosmos-db-offer-predictable-performance"></a>Azure Cosmos DB는 어떻게 예측 가능한 성능을 제공하나요?
 RU([요청 단위](request-units.md))는 Azure Cosmos DB의 처리량 측정 단위입니다. 1RU 처리량은 1KB 문서의 GET 처리량에 해당합니다. 읽기, 쓰기, SQL 쿼리, 저장 프로시저 실행 등 Azure Cosmos DB에서의 모든 작업에는 작업을 완료하는 데 필요한 처리량을 기반으로 하는 결정적 RU 값이 있습니다. CPU, IO 및 메모리와 이 각각이 응용 프로그램 처리량에 미치는 영향을 고려하는 대신 단일 RU 측정값 측면에서 고려할 수 있습니다.
 
-초당 RU 처리량 면에서 프로비전된 처리량으로 각 Azure Cosmos DB 컨테이너를 예약할 수 있습니다. 모든 규모의 응용 프로그램에 대해 개별 요청을 벤치마킹하여 해당 RU 값을 측정하고 모든 요청에서 총 요청 단위 합계를 처리하도록 컨테이너를 프로비전할 수 있습니다. 또한 응용 프로그램 요구 사항이 진화함에 따라 컨테이너의 처리량을 확장하거나 축소할 수 있습니다. 요청 단위에 대한 자세한 내용은 [필요한 처리량 예측](request-units.md#estimating-throughput-needs)을 참조하고, 컨테이너 요구 사항을 계산하려면 [처리량 계산기](https://www.documentdb.com/capacityplanner)를 사용하세요. 여기서 *컨테이너*라는 용어는 SQL API 컬렉션, Graph API 그래프, MongoDB API 컬렉션 및 테이블 API 테이블을 의미합니다. 
+초당 RU 처리량 면에서 프로비전된 처리량으로 각 Azure Cosmos DB 컨테이너를 예약할 수 있습니다. 모든 규모의 응용 프로그램에 대해 개별 요청을 벤치마킹하여 해당 RU 값을 측정하고 모든 요청에서 총 요청 단위 합계를 처리하도록 컨테이너를 프로비전할 수 있습니다. 또한 응용 프로그램 요구 사항이 진화함에 따라 컨테이너의 처리량을 확장하거나 축소할 수 있습니다. 요청 단위에 대한 자세한 내용은 [필요한 처리량 예측](request-units.md#estimating-throughput-needs)을 참조하고, 컨테이너 요구 사항을 계산하려면 [처리량 계산기](https://www.documentdb.com/capacityplanner)를 사용하세요. 여기서 *컨테이너*라는 용어는 SQL API 컬렉션, Gremlin API 그래프, MongoDB API 컬렉션 및 테이블 API 테이블을 의미합니다. 
 
 ### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-keyvalue-columnar-document-and-graph"></a>Azure Cosmos DB에서는 키/값, 열 형식, 문서 및 그래프와 같은 다양한 데이터 모델을 어떻게 지원하나요?
 
-Azure Cosmos DB는 ARS(아톰, 레코드 및 시퀀스)를 기반으로 하므로 키/값(테이블), 열 형식, 문서 및 그래프 데이터 모델을 기본적으로 모두 지원합니다. 아톰, 레코드 및 시퀀스는 다양한 데이터 모델에 쉽게 매핑 및 프로젝션할 수 있습니다. 모델의 하위 집합에 대한 API는 현재 사용 가능하며(SQL, MongoDB, 테이블 및 Graph API) 추가 데이터 모델과 관련된 기타 사항은 향후 제공될 예정입니다.
+Azure Cosmos DB는 ARS(아톰, 레코드 및 시퀀스)를 기반으로 하므로 키/값(테이블), 열 형식, 문서 및 그래프 데이터 모델을 기본적으로 모두 지원합니다. 아톰, 레코드 및 시퀀스는 다양한 데이터 모델에 쉽게 매핑 및 프로젝션할 수 있습니다. 모델의 하위 집합에 대한 API는 현재 사용 가능하며(SQL, MongoDB, 테이블 및 Gremlin API) 추가 데이터 모델과 관련된 기타 사항은 향후 제공될 예정입니다.
 
 Azure Cosmos DB에는 개발자로부터 스키마 또는 보조 인덱스를 요구하지 않고도 수집되는 모든 데이터를 자동으로 인덱싱할 수 있는 스키마 독립적인 인덱싱 엔진을 포함합니다. 이 엔진은 인덱스 및 쿼리 처리 하위 시스템에서 저장소 레이아웃을 분리하는 논리적 인덱스 레이아웃 집합(반전됨, 열 형식, 트리)을 기반으로 합니다. Cosmos DB는 유선 프로토콜과 API 집합을 확장 가능한 방식으로 지원하고 핵심 데이터 모델(1)과 논리적 인덱스 레이아웃(2)으로 효율적으로 변환하여 기본적으로 여러 데이터 모델을 고유하게 지원할 수 있도록 합니다.
 
@@ -57,7 +57,7 @@ Azure Cosmos DB에는 개발자로부터 스키마 또는 보조 인덱스를 �
 예, 두 모드는 항상 완벽하게 암호화됩니다. 
 
 ### <a name="how-much-does-azure-cosmos-db-cost"></a>Azure Cosmos DB 비용은 얼마인가요?
-자세한 내용은 [Azure Cosmos DB 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cosmos-db/) 페이지를 참조하세요. Azure Cosmos DB 사용 요금은 프로비전된 컨테이너 수, 컨테이너가 온라인이었던 시간 및 각 컨테이너의 프로비전된 처리량에 따라 결정됩니다. 여기서 *컨테이너*라는 용어는 SQL API 컬렉션, Graph API 그래프, MongoDB API 컬렉션 및 테이블 API 테이블을 의미합니다. 
+자세한 내용은 [Azure Cosmos DB 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cosmos-db/) 페이지를 참조하세요. Azure Cosmos DB 사용 요금은 프로비전된 컨테이너 수, 컨테이너가 온라인이었던 시간 및 각 컨테이너의 프로비전된 처리량에 따라 결정됩니다. 여기서 *컨테이너*라는 용어는 SQL API 컬렉션, Gremlin API(Graph), MongoDB API 컬렉션 및 테이블 API 테이블을 의미합니다. 
 
 ### <a name="is-a-free-account-available"></a>무료 계정을 사용할 수 있나요?
 예, 약정이나 비용 없이 시간이 제한된 계정에 등록할 수 있습니다. 등록하려면 [무료로 Azure Cosmos DB 사용](https://azure.microsoft.com/try/cosmosdb/)을 방문하거나 [Azure Cosmos DB FAQ 사용](#try-cosmos-db)을 자세히 참조하세요.
@@ -87,7 +87,7 @@ Azure Cosmos DB 구독 사용이 사용자 ID와 연결된 다른 구독의 옆�
 
 다음 조건은 Azure Cosmos DB 구독 사용에 적용됩니다.
 
-* SQL, Gremlin(Graph API) 및 테이블 계정의 구독당 하나의 컨테이너
+* SQL, Gremlin API 및 테이블 계정의 구독당 하나의 컨테이너
 * MongoDB 계정의 구독당 최대 3개의 컬렉션
 * 10GB 저장소 용량
 * 전역 복제는 미국 중부, 유럽 북부 및 동남 아시아와 같은 [Azure 지역](https://azure.microsoft.com/regions/)에서 사용할 수 있습니다.
@@ -97,7 +97,7 @@ Azure Cosmos DB 구독 사용이 사용자 ID와 연결된 다른 구독의 옆�
 
 ## <a name="set-up-azure-cosmos-db"></a>Azure Cosmos DB 설정
 ### <a name="how-do-i-sign-up-for-azure-cosmos-db"></a>Azure Cosmos DB에는 어떻게 등록하나요?
-Azure Cosmos DB는 Azure Portal에서 사용할 수 있습니다. 먼저 Azure 구독에 등록합니다. 등록한 후에는 Azure 구독에 SQL API, Graph API, 테이블 API, MongoDB API 또는 Cassandra API 계정을 추가할 수 있습니다.
+Azure Cosmos DB는 Azure Portal에서 사용할 수 있습니다. 먼저 Azure 구독에 등록합니다. 등록한 후에는 Azure 구독에 SQL API, Gremlin API, 테이블 API, MongoDB API 또는 Cassandra API 계정을 추가할 수 있습니다.
 
 ### <a name="what-is-a-master-key"></a>마스터 키란 무엇인가요?
 마스터 키는 계정의 모든 리소스에 액세스할 수 있는 보안 토큰입니다. 이 키가 있는 개인은 데이터베이스 계정의 모든 리소스에 대해 읽기 및 쓰기 액세스 권한을 가집니다. 마스터 키를 배포할 때 주의하세요. 주 마스터 키 및 보조 마스터 키는 [Azure Portal][azure-portal]의 **키** 블레이드에서 사용할 수 있습니다. 키에 대한 자세한 내용은 [액세스 키 보기, 복사 및 다시 생성](manage-account.md#keys)을 참조하세요.
@@ -440,15 +440,15 @@ Azure Table Storage 및 Azure Cosmos DB Table API는 동일한 SDK를 사용합�
 ### <a name="why-do-i-get-throttled-when-i-try-to-create-lot-of-tables-one-after-another-in-the-table-api"></a>Tables API에서 많은 수의 테이블을 차례로 만들려고 하면 제한되는 이유는 무엇인가요?
 Azure Cosmos DB는 SLA 기반 시스템으로, 대기 시간, 처리량, 가용성 및 일관성을 보장하며, 프로비전된 시스템이기 때문에 이러한 요구 사항을 보장하기 위해 리소스를 예약해 둡니다. 따라서 빠른 테이블 만들기 속도가 감지되고 제한됩니다. 테이블 만들기 속도를 살펴보고 분당 5 미만으로 낮추는 것이 좋습니다. Table API는 프로비전된 시스템입니다. 프로비전하는 순간 비용이 발생하기 시작합니다. 
 
-## <a name="graph-api"></a>그래프 API
-### <a name="how-can-i-apply-the-functionality-of-graph-api-to-azure-cosmos-db"></a>Azure Cosmos DB에 Graph API의 기능을 적용하려면 어떻게 해야 하나요?
-확장 라이브러리를 사용하여 Graph API 기능을 적용할 수 있습니다. 이 라이브러리를 Microsoft Azure Graph라고 하며 [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Graphs)에서 사용할 수 있습니다. 
+## <a name="gremlin-api"></a>Gremlin API
+### <a name="how-can-i-apply-the-functionality-of-gremlin-api-to-azure-cosmos-db"></a>Azure Cosmos DB에 Gremlin API의 기능을 적용하려면 어떻게 해야 하나요?
+확장 라이브러리를 사용하여 Gremlin API 기능을 적용할 수 있습니다. 이 라이브러리를 Microsoft Azure Graph라고 하며 [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Graphs)에서 사용할 수 있습니다. 
 
 ### <a name="it-looks-like-you-support-the-gremlin-graph-traversal-language-do-you-plan-to-add-more-forms-of-query"></a>이는 Gremlin 그래프 통과 언어를 지원하는 것과 같습니다. 더 많은 형식의 쿼리를 추가할 계획이 있나요?
 예, 향후에 쿼리를 위한 다른 메커니즘을 추가할 계획입니다. 
 
-### <a name="how-can-i-use-the-new-graph-api-offering"></a>새 Graph API 기능은 어떻게 사용할 수 있나요? 
-시작하려면 [Graph API](../cosmos-db/create-graph-dotnet.md) 빠른 시작 문서를 완료하세요.
+### <a name="how-can-i-use-the-new-gremlin-api-offering"></a>새 Gremlin API 기능은 어떻게 사용할 수 있나요? 
+시작하려면 [Gremlin API](../cosmos-db/create-graph-dotnet.md) 빠른 시작 문서를 완료하세요.
 
 
 ## <a id="cassandra"></a>Cassandra API

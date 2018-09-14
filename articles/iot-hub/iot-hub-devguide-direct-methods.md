@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: nberdy
-ms.openlocfilehash: 0b84d7b0e7bbd2021ea4d3e3e804c739be59b48a
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 4d55c152bdc938d943c90a3e51af37b45f6a8eb5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186882"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301399"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>IoT Hub의 직접 메서드 호출 및 이해
 IoT Hub를 사용하면 클라우드의 장치에서 직접 메서드를 호출할 수 있습니다. 직접 메서드는 사용자가 지정한 시간 제한을 초과하는 즉시 성공하거나 실패한다는 점에서 HTTP 호출과 비슷한 디바이스와의 요청-응답 상호 작용을 나타냅니다. 이 방법은 즉각적인 조치 과정이 장치의 응답 여부에 따라 달라지는 시나리오에서 유용합니다.
@@ -105,7 +105,7 @@ curl -X POST \
     `status`와 `body`는 모두 장치에 의해 제공되며 장치 자체의 상태 코드 및/또는 설명으로 응답하는 데 사용됩니다.
 
 ### <a name="method-invocation-for-iot-edge-modules"></a>IoT Edge 모듈에 대한 메서드 호출
-모듈 ID를 사용하여 직접 메서드를 호출하는 작업은 C# 미리 보기 SDK에서 지원됩니다([여기](https://www.nuget.org/packages/Microsoft.Azure.Devices/1.16.0-preview-004)에서 사용 가능함).
+모듈 ID를 사용하여 직접 메서드를 호출하는 작업은 C# SDK에서 지원됩니다([여기](https://www.nuget.org/packages/Microsoft.Azure.Devices/)에서 사용 가능함).
 
 이 작업의 경우 `ServiceClient.InvokeDeviceMethodAsync()` 메서드를 사용하고 `deviceId` 및 `moduleId`에서 매개 변수로 전달합니다.
 
@@ -153,7 +153,7 @@ AMQP 메시지는 메서드 요청을 나타내는 수신 링크에 도착하며
 ## <a name="additional-reference-material"></a>추가 참조 자료
 이 IoT Hub 개발자 가이드의 다른 참조 자료:
 
-* [IoT Hub 끝점][lnk-endpoints] - 각 IoT Hub에서 런타임 및 관리 작업에 대해 공개하는 다양한 끝점에 대해 설명합니다.
+* [IoT Hub 엔드포인트][lnk-endpoints] - 각 IoT Hub에서 런타임 및 관리 작업에 대해 공개하는 다양한 엔드포인트에 대해 설명합니다.
 * [제한 및 할당량][lnk-quotas] - IoT Hub를 사용할 때 적용되는 할당량과 예상되는 제한 동작에 대해 설명합니다.
 * [Azure IoT 장치 및 서비스 SDK][lnk-sdks] - IoT Hub와 상호 작용하는 장치 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
 * [장치 쌍, 작업 및 메시지 라우팅을 위한 IoT Hub 쿼리 언어][lnk-query]에서는 IoT Hub에서 장치 쌍 및 작업에 대한 정보를 검색하는 데 사용할 수 있는 IoT Hub 쿼리 언어에 대해 설명합니다.

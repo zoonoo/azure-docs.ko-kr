@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 426d7b15cd4a98d958ed02329f40becdfb177ceb
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: ea4d33b569ae0932d6091869c4825cf2b5e69664
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259282"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697716"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>IoT 장치에서 데이터를 처리하도록 Azure Stream Analytics 시작
 이 자습서에서는 IoT(사물 인터넷) 장치에서 데이터를 수집하기 위한 스트림 처리 논리를 만드는 방법을 배웁니다. 실제, IoT(사물 인터넷) 사용 사례를 사용하여 솔루션을 신속하고 경제적으로 구축하는 방법을 보여 줍니다.
@@ -87,7 +87,7 @@ Contoso는 산업용 자동화 공간의 회사로, 제조 프로세스를 완�
     ![테스트 결과](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
 
 ### <a name="query-filter-the-data-based-on-a-condition"></a>쿼리: 조건에 따라 데이터 필터링
-조건에 따라 결과를 필터링해 보겠습니다. "sensorA"에서 가져온 해당 이벤트에 대한 결과만 표시하려고 합니다. 쿼리는 Filtering.txt 파일에 있습니다.
+조건에 따라 결과를 필터링해 보겠습니다. “sensorA”에서 가져온 해당 이벤트에 대한 결과만 표시하려고 합니다. 쿼리는 Filtering.txt 파일에 있습니다.
 
 ![데이터 스트림 필터링](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-08.png)
 

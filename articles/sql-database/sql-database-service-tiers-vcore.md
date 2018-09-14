@@ -6,21 +6,21 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 08/30/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 3d0eca6e1c680dd703f4dceac6abcb70144bac37
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 8266d9e3530969154ac9c8c877badda9f8b4fed3
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125000"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307275"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>vCore 서비스 계층, 계산, 메모리, 저장소 및 IO 리소스 선택
 
 vCore 기반 구매 모델을 사용하면 계산 및 저장소 리소스의 크기를 독립적으로 조정하고, 온-프레미스 성능에 맞추고, 가격을 최적화할 수 있습니다. 또한 다음과 같은 하드웨어 생성을 선택할 수 있습니다.
 - 4세대 - 최대 24개 논리적 CPU(Intel E5-2673 v3(Haswell) 2.4GHz 프로세서 기반), vCore = 1PP(물리적 코어), 코어당 7GB, SSD 연결
-- 5세대 - 최대 80개 논리적 CPU(Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서 기반), vCore = 1LP(하이퍼스레드), 코어당 5.5GB, 고속 eNVM SSD
+- 5세대 - 최대 80개 논리적 CPU(Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서 기반), vCore = 1LP(하이퍼스레드), 코어당 5.1GB, 고속 eNVM SSD
 
 또한 vCore 모델을 사용하면 [SQL Server용 Azure 하이브리드 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 사용하여 비용을 절약할 수 있습니다.
 
@@ -34,7 +34,7 @@ vCore 모델은 범용 및 중요 비즈니스용이라는 두 가지 서비스 
 |---|---|---|
 |적합한 대상|대부분의 비즈니스 워크로드. 예산 중심의 균형 잡히고 확장 가능한 계산 및 저장소 옵션을 제공합니다.|IO 요구 사항이 높은 비즈니스 응용 프로그램입니다. 여러 개의 격리된 복제본을 사용하여 실패에 대한 최고 수준의 복원력을 제공합니다.|
 |컴퓨팅|4세대: 1-24개 vCore<br/>5세대: 1-80개 vCore|4세대: 1-24개 vCore<br/>5세대: 1-80개 vCore|
-|메모리|Gen4: 코어당 7GB<br>Gen5: 코어당 5.5GB | Gen4: 코어당 7GB<br>Gen5: 코어당 5.5GB |
+|메모리|Gen4: 코어당 7GB<br>Gen5: 코어당 5.1GB | Gen4: 코어당 7GB<br>Gen5: 코어당 5.1GB |
 |Storage|[프리미엄 원격 저장소](../virtual-machines/windows/premium-storage.md),<br/>Single Database: 5GB – 4TB<br/>Managed Instance: 32GB - 8TB |로컬 SSD 저장소,<br/>Single Database: 5GB – 1TB<br/>Managed Instance: 32GB - 4TB |
 |IO 처리량(근사치)|Single Database: vCore당 500 IOPS(최대 7,000 IOPS)</br>Managed Instance: [파일 크기](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)에 따라 다름|vCore당 5000 IOPS(최대 200,000 IOPS)|
 |가용성|1개 복제본, 읽기 크기 조정 없음|3개 복제본, 1개 [읽기 크기 조정 복제본](sql-database-read-scale-out.md),<br/>영역 중복 HA|

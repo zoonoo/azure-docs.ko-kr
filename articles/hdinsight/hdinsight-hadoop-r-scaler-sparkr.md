@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: 38b7808f880bb346aeddbe87e5fb17499708d092
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: c59ac5efab8b46463f97c375d999a131667d3cea
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599081"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699552"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>HDInsight에서 ScaleR과 SparkR 결합
 
@@ -331,7 +331,7 @@ joinedDF5 <- rename(joinedDF4,
 
 ## <a name="save-results-to-csv-for-exchange-with-scaler"></a>ScaleR과 교환하기 위해 CSV로 결과 저장
 
-이것으로 SparkR을 사용하는 데 필요한 조인이 완료됩니다. ScaleR에 입력할 수 있도록 최종적인 "joinedDF5" Spark DataFrame의 데이터를 CSV로 저장한 다음 SparkR 세션을 닫습니다. 80개의 개별 파티션에 결과 CSV를 저장하도록 SparkR에 명시적으로 지시하여 ScaleR 처리에서 병렬로 충분하게 처리할 수 있도록 합니다.
+이것으로 SparkR을 사용하는 데 필요한 조인이 완료됩니다. ScaleR에 입력할 수 있도록 최종적인 “joinedDF5” Spark DataFrame의 데이터를 CSV로 저장한 다음 SparkR 세션을 닫습니다. 80개의 개별 파티션에 결과 CSV를 저장하도록 SparkR에 명시적으로 지시하여 ScaleR 처리에서 병렬로 충분하게 처리할 수 있도록 합니다.
 
 ```
 logmsg('output the joined data from Spark to CSV') 

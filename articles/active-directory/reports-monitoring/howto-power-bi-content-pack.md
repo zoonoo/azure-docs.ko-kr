@@ -14,14 +14,19 @@ ms.component: report-monitor
 ms.date: 12/06/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 090e7419f80bc734ee2b1cb4f976911792046a9c
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 752e71f3c6b22a6d9f1e2392b58c01deef9de89c
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42145437"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782167"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Azure Active Directory Power BI 콘텐츠 팩 사용 방법
+
+|  |
+|--|
+|현재, Azure AD Power BI 콘텐츠 팩은 Azure AD Graph API를 사용하여 Azure AD 테넌트에 데이터를 검색합니다. 결과적으로, 콘텐츠 팩에서 사용할 수 있는 데이터와 [보고용 Microsoft Graph API](concept-reporting-api.md)를 사용하여 검색한 데이터 간에 몇 가지 불일치를 확인할 수 있습니다. |
+|  |
 
 사용자가 Azure Active Directory 기능을 채택하고 사용하는 방법을 이해하는 것은 IT 관리자로서 중요한 일입니다. IT 인프라와 통신을 계획하여 사용량을 늘리고 AAD 기능을 최대한 활용할 수 있습니다. Azure Active Directory용 Power BI 콘텐츠 팩을 통해 사용자는 데이터를 보다 세부적으로 분석하여 이 데이터를 사용하는 방법을 이해하고 Azure Active Directory를 통해 사용자가 크게 의존하는 다양한 기능의 상황에 대해 더 많은 정보를 수집할 수 있습니다.  Azure Active Directory API를 Power BI에 통합하면 미리 빌드된 콘텐츠 팩을 쉽게 다운로드하고 Power BI가 제공하는 풍부한 시각화 환경을 사용하여 Azure Active Directory 내에서 모든 작업에 대한 정보를 얻을 수 있습니다. 사용자 고유의 대시보드를 만들고 조직 내 사람들과 쉽게 공유할 수 있습니다. 
 

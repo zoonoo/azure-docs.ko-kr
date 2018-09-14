@@ -3,24 +3,26 @@ title: Azure SQL Data Warehouse 열 수준 보안 | Microsoft Docs
 description: 고객은 CLS(열 수준 보안)을 통해 사용자의 실행 컨텍스트 또는 해당 그룹 구성원에 따라 데이터베이스 테이블 열에 대한 액세스를 제어할 수 있습니다. CLS는 응용 프로그램에서 보안의 설계 및 코딩을 간소화합니다. CLS를 사용하면 열 액세스에 대한 제한을 구현할 수 있습니다.
 services: sql-data-warehouse
 author: KavithaJonnakuti
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 06/15/2018
 ms.author: kavithaj
 ms.reviewer: igorstan, carlrab
-ms.openlocfilehash: 5a916132f705f3c517ee6789b61a3972b2445b62
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 1765c92ad10fa35af98e7c7314eb44c3a119f422
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36940018"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301058"
 ---
 # <a name="column-level-security"></a>열 수준 보안 
 고객은 CLS(열 수준 보안)을 통해 사용자의 실행 컨텍스트 또는 해당 그룹 구성원에 따라 데이터베이스 테이블 열에 대한 액세스를 제어할 수 있습니다.  
 
-CLS는 응용 프로그램에서 보안의 설계 및 코딩을 간소화합니다. CLS를 사용하면 열 액세스에 대한 제한을 구현하여 중요한 데이터를 보호할 수 있습니다. 예를 들어 특정 사용자가 해당 부서와 관련된 테이블의 특정 열에만 액세스할 수 있도록 합니다. 액세스 제한 논리는 다른 응용 프로그램 계층의 데이터가 아닌 데이터베이스 계층에 있습니다. 데이터베이스는 모든 계층에서 데이터 액세스를 시도할 때마다 액세스 제한을 적용합니다. 이렇게 하면 전체 보안 시스템의 노출 영역을 줄임으로써 보안 시스템을 보다 안정적이고 강력하게 만들 수 있습니다. 또한 사용자에게 액세스 제한을 적용하기 위해 열을 필터링하는 뷰를 도입할 필요가 없습니다. 
+> [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
+
+CLS는 응용 프로그램에서 보안의 설계 및 코딩을 간소화합니다. CLS를 사용하면 열 액세스에 대한 제한을 구현하여 중요한 데이터를 보호할 수 있습니다. 예를 들어 특정 사용자가 해당 부서와 관련된 테이블의 특정 열에만 액세스할 수 있도록 합니다. 액세스 제한 논리는 다른 응용 프로그램 계층의 데이터가 아닌 데이터베이스 계층에 있습니다. 데이터베이스는 모든 계층에서 데이터 액세스를 시도할 때마다 액세스 제한을 적용합니다. 이렇게 제한하면 전체 보안 시스템의 노출 영역이 줄어들어 보안 시스템을 보다 안정적이고 강력하게 만들 수 있습니다. 또한 CLS를 사용하면 사용자에게 액세스 제한을 적용하기 위해 열을 필터링하는 뷰를 도입할 필요가 없습니다. 
 
 [GRANT](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) T-SQL 문을 사용하여 CLS를 구현할 수 있습니다. 이 메커니즘을 사용하면 SQL 및 AAD(Azure Active Directory) 인증이 모두 지원됩니다.
 

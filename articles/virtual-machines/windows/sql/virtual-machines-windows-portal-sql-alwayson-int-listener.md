@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: 7ef26dc5fa7676ca590d56978c735bf4a195440b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e87b58ecd72291365f9eba70c807e3018c02ae07
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698053"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382742"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Azure에서 Always On 가용성 그룹에 대한 부하 분산 장치 구성
 이 문서에서는 Azure Resource Manager로 실행 중인 Azure Virtual Machines에서 SQL Server Always On 가용성 그룹에 대한 부하 분산 장치를 만드는 방법을 설명합니다. SQL Server 인스턴스가 Azure 가상 머신에 있는 경우 가용성 그룹을 사용하려면 부하 분산 장치가 필요합니다. 부하 분산 장치는 가용성 그룹 수신기의 IP 주소를 저장합니다. 가용성 그룹이 여러 지역에 분산된 경우 각 지역에 부하 분산 장치가 있어야 합니다.
@@ -289,7 +289,7 @@ Azure Portal을 사용하여 부하 분산 장치에 IP 주소를 추가하려�
    |**Name** |분산 가용성 그룹에 대한 부하 분산 규칙을 식별하는 이름입니다. 
    |**프런트 엔드 IP 주소** |가용성 그룹과 동일한 프런트 엔드 IP 주소를 사용합니다.
    |**프로토콜** |TCP
-   |**포트** |5022 - [분산 가용성 그룹 끝점 수신기](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups)의 포트입니다.</br> 사용 가능한 모든 포트일 수 있습니다.  
+   |**포트** |5022 - [분산 가용성 그룹 엔드포인트 수신기](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups)의 포트입니다.</br> 사용 가능한 모든 포트일 수 있습니다.  
    |**백 엔드 포트** | 5022 - **포트**와 동일한 값을 사용합니다.
    |**백 엔드 풀** |SQL Server 인스턴스가 포함된 가상 머신을 포함하는 풀입니다. 
    |**상태 프로브** |만든 프로브를 선택합니다.
@@ -298,6 +298,8 @@ Azure Portal을 사용하여 부하 분산 장치에 IP 주소를 추가하려�
    |**부동 IP(Direct Server Return)** | 사용
 
 분산 가용성 그룹에 참여하는 다른 가용성 그룹의 부하 분산 장치에 대해 이 단계를 반복합니다.
+
+Azure 네트워크 보안 그룹을 사용하여 액세스를 제한하는 경우 허용 규칙에 백 엔드 SQL Server VM IP 주소, AG 수신기에 대한 Load Balancer 부동 IP 주소 및 클러스터 코어 IP 주소가 포함되는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

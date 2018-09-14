@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: e94b023275f3992bea9595195688eebf42f0f229
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b5e0a0caacab2413b640c58575673e555eeb76a4
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186791"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288281"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>IoT Hub의 장치 쌍 이해 및 사용
 
@@ -254,7 +254,7 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
     }
     ```
 
-* 모든 문자열 값의 길이는 최대 4KB입니다.
+* 모든 문자열 값의 길이는 최대 512바이트입니다.
 
 ## <a name="device-twin-size"></a>장치 쌍 크기
 IoT Hub는 `tags`, `properties/desired` 및 `properties/reported`의 총 값 각각에 8KB의 크기 제한을 적용합니다. 읽기 전용 요소는 제외됩니다.
@@ -337,7 +337,7 @@ IoT Hub는 연결되지 않은 장치에 대한 desired 속성 업데이트 알�
 ## <a name="additional-reference-material"></a>추가 참조 자료
 이 IoT Hub 개발자 가이드의 다른 참조 자료:
 
-* [IoT Hub 끝점][lnk-endpoints] 문서에서는 각 IoT Hub가 런타임 및 관리 작업에 노출하는 다양한 끝점을 설명합니다.
+* [IoT Hub 엔드포인트][lnk-endpoints] 문서에서는 각 IoT Hub가 런타임 및 관리 작업에 노출하는 다양한 엔드포인트를 설명합니다.
 * [제한 및 할당량][lnk-quotas] 문서에서는 IoT Hub 서비스에 적용되는 할당량과 서비스를 사용할 때 예상되는 제한 동작에 대해 설명합니다.
 * [Azure IoT 장치 및 서비스 SDK][lnk-sdks] 문서에서는 IoT Hub와 상호 작용하는 장치 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
 * [장치 쌍, 작업 및 메시지 라우팅을 위한 IoT Hub 쿼리 언어][lnk-query] 문서에서는 IoT Hub에서 장치 쌍 및 작업에 대한 정보를 검색하는 데 사용할 수 있는 IoT Hub 쿼리 언어에 대해 설명합니다.
@@ -354,6 +354,7 @@ IoT Hub는 연결되지 않은 장치에 대한 desired 속성 업데이트 알�
 
 * [장치 쌍을 사용하는 방법][lnk-twin-tutorial]
 * [장치 쌍 속성을 사용하는 방법][lnk-twin-properties]
+* [VS Code용 Azure IoT Toolkit을 사용하여 장치 관리][lnk-twin-vscode]
 
 <!-- links and images -->
 
@@ -377,6 +378,7 @@ IoT Hub는 연결되지 않은 장치에 대한 desired 속성 업데이트 알�
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-properties]: tutorial-device-twins.md
+[lnk-twin-vscode]: iot-hub-device-management-iot-toolkit.md
 [lnk-twin-metadata]: iot-hub-devguide-device-twins.md#device-twin-metadata
 [lnk-concurrency]: iot-hub-devguide-device-twins.md#optimistic-concurrency
 [lnk-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow

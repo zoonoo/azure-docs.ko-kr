@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: c5cc20b4f20e3a4f746ab15aa5f139c8e7201a2c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 93c3b0cbc3ce063aaeb086d089631a8810293bbe
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447169"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382536"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Pingboard 구성
 
@@ -36,7 +36,7 @@ ms.locfileid: "39447169"
 *   관리자 권한이 있는 Pingboard의 사용자 계정 
 
 > [!NOTE] 
-> Azure AD 프로비전 통합은 사용자 계정에 제공되는 [Pingboard API](`https://your_domain.pingboard.com/scim/v2`)를 사용합니다.
+> Azure AD 프로비전 통합은 사용자 계정에 제공되는 [Pingboard API](https://pingboard.docs.apiary.io/#)를 사용합니다.
 
 ## <a name="assign-users-to-pingboard"></a>Pingboard에 사용자 할당
 
@@ -73,7 +73,7 @@ Azure AD는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택�
 
     a. **테넌트 URL**에 `https://your_domain.pingboard.com/scim/v2`를 입력하고 your_domain을 실제 도메인으로 바꿉니다.
 
-    나. 관리자 계정을 사용하여 [Pingboard](https://pingboard.com/)에 로그인합니다.
+    b. 관리자 계정을 사용하여 [Pingboard](https://pingboard.com/)에 로그인합니다.
 
     다. **추가 기능** > **통합** > **Azure Active Directory**를 선택합니다.
 
@@ -81,7 +81,7 @@ Azure AD는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택�
 
     e. **OAuth 전달자 토큰**에서 토큰을 복사하여 **암호 토큰**에 입력합니다.
 
-1. Azure Portal에서 **연결 테스트**를 선택하여 Azure AD가 Pingboard 앱에 연결할 수 있는지 확인합니다. 연결에 실패하면 Pingboard 계정에 관리자 권한이 있는지 확인하고 **연결 테스트** 단계를 다시 시도합니다.
+1. Azure Portal에서 **연결 테스트**를 선택하여 Azure AD가 Pingboard 앱에 연결할 수 있는지 테스트합니다. 연결에 실패하면 Pingboard 계정에 관리자 권한이 있는지 테스트하고 **연결 테스트** 단계를 다시 시도합니다.
 
 1. 프로비전 오류 알림을 받을 개인 또는 그룹의 전자 메일 주소를 **알림 메일**에 입력합니다. 아래 확인란을 선택합니다.
 

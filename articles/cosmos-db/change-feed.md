@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: e53f1e62b9265d2eec2f49537cc05c865e1436f3
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 3170ee1b48aa332a8730ba835396761ca5ef44c7
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902965"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287328"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Azure Cosmos DB에서 변경 피드 지원 사용
 
@@ -31,12 +31,6 @@ Azure Cosmos DB의 **변경 피드 지원**을 사용하면 다음 그림과 같
 
 > [!NOTE]
 > Azure Cosmos DB의 모든 데이터 모델 및 컨테이너에 대해 변경 피드 지원이 제공됩니다. 하지만 변경 피드는 SQL 클라이언트를 사용하여 읽고 항목을 JSON 형식으로 직렬화합니다. MongoDB 클라이언트는 JSON 형식으로 인해 BSON 형식 문서와 JSON 형식의 변경 피드 간 불일치가 나타납니다.
-
-다음 비디오에서는 Azure Cosmos DB 프로그램 관리자인 Andrew Liu가 Azure Cosmos DB 변경 피드 작동 방법을 설명합니다.
-
-> [!VIDEO https://www.youtube.com/embed/mFnxoxeXlaU]
->
->
 
 ## <a name="how-does-change-feed-work"></a>변경 피드의 작동 방식
 
@@ -96,7 +90,7 @@ Azure Cosmos DB의 [SQL SDK](sql-api-sdk-dotnet.md)는 변경 피드를 읽고 �
 
 이 섹션은 SQL SDK를 사용하여 변경 피드를 사용하는 방법을 안내합니다.
 
-1. 가장 먼저 appconfig의 다음 리소스를 읽습니다. 끝점 및 인증 키 검색에 대한 소개는 [연결 문자열 업데이트](create-sql-api-dotnet.md#update-your-connection-string)에서 확인할 수 있습니다.
+1. 가장 먼저 appconfig의 다음 리소스를 읽습니다. 엔드포인트 및 인증 키 검색에 대한 소개는 [연결 문자열 업데이트](create-sql-api-dotnet.md#update-your-connection-string)에서 확인할 수 있습니다.
 
     ``` csharp
     DocumentClient client;
@@ -401,7 +395,7 @@ Azure Cosmos DB의 [SQL SDK](sql-api-sdk-dotnet.md)는 변경 피드를 읽고 �
 
 * **[Azure Cosmos DB SQL API .NET SDK 사용](#sql-sdk)**
    
-   이 방법은 변경 피드에 대한 제어 수준이 낮습니다. 검사점을 관리하고, 특정 파티션 키에 액세스할 수 있습니다. 복수의 reader가 있는 경우 [ChangeFeedOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet)를 사용하여 읽기 로드를 다른 스레드 또는 다른 클라이언트로 분산할 수 있습니다. 에서도 확인할 수 있습니다.
+   이 방법은 변경 피드에 대한 제어 수준이 낮습니다. 검사점을 관리하고, 특정 파티션 키에 액세스할 수 있습니다. 복수의 reader가 있는 경우 [ChangeFeedOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet)를 사용하여 읽기 로드를 다른 스레드 또는 다른 클라이언트로 분산할 수 있습니다. .
 
 * **[Azure Cosmos DB 변경 피드 프로세서 라이브러리 사용](#change-feed-processor)**
 
@@ -510,7 +504,7 @@ query.executeNext((err, results, headers) =&gt; {
 
 _etag 형식은 내부적이며 언제든지 변경될 수 있으므로 의존하면 안 됩니다(구문 분석하지 말 것).
 _ts는 수정 또는 생성 타임스탬프입니다. _ts를 시간순 비교에 사용할 수 있습니다.
-_lsn은 변경 피드에 대해서만 추가되는 일괄 처리 id로, 저장소의 트랜잭션 id를 나타냅니다. 여러 문서의 _lsn이 같을 수 있습니다.
+_lsn은 변경 피드에 대해서만 추가되는 일괄 처리 ID로, 저장소의 트랜잭션 ID를 나타냅니다. 여러 문서의 _lsn이 같을 수 있습니다.
 한 가지 더 말씀드리자면, FeedResponse의 ETag는 문서에 보이는 _etag와 다릅니다. _etag는 동시성에 사용되는 내부 식별자로 문서의 버전을 알려주며, ETag는 피드 시퀀싱에 사용됩니다.
 
 ### <a name="does-reading-change-feed-add-any-additional-cost-"></a>변경 피드를 읽으면 추가 비용이 발생하나요?

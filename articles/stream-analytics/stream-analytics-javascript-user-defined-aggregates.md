@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: eb433a322f8077c947fd6db1aaa0e2266a109938
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: bdf5b5188dd584c5eb20f72ff4a98ba6904bc53e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187057"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702377"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Azure Stream Analytics JavaScript 사용자 정의 집계(미리 보기)
  
@@ -80,7 +80,7 @@ function main() {
 
 ### <a name="function-alias"></a>함수 별칭
 
-함수 별칭은 UDA 식별자입니다. Stream Analytics 쿼리에서 호출되는 경우 항상 "uda"와 함께 UDA 별칭을 사용합니다. 식별됩니다.
+함수 별칭은 UDA 식별자입니다. Stream Analytics 쿼리에서 호출되는 경우 항상 “uda”와 함께 UDA 별칭을 사용합니다. 식별됩니다.
 
 ### <a name="function-type"></a>함수 유형
 
@@ -175,7 +175,7 @@ JavaScript UDA 데이터 형식의 경우 [JavaScript UDF 통합](stream-analyti
 
 ## <a name="calling-javascript-uda-in-asa-query"></a>ASA 쿼리에서 JavaScript UDA 호출
 
-Azure Portal에서 작업을 열고, 쿼리를 편집하고, 자동 인출 접두사 "uda"로 TWA() 함수를 호출합니다. 예: 
+Azure Portal에서 작업을 열고, 쿼리를 편집하고, 자동 인출 접두사 “uda”로 TWA() 함수를 호출합니다. 예: 
 
 ````SQL
 WITH value AS

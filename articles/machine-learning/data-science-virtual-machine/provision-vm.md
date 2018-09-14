@@ -11,14 +11,14 @@ ms.component: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 08/30/2018
 ms.author: gokuma
-ms.openlocfilehash: f0fe2bde039cd209514d0cbc4842b20cd4b5fb99
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 8131122f78f743d04e332bfc8dfeba87a8c34236
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444045"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782657"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Azure에서 Windows 데이터 과학 Virtual Machine 프로비전
 Microsoft DSVM(Data Science Virtual Machine)은 Microsoft Azure VM(가상 머신) 이미지입니다. 사전 설치되고 데이터 분석 및 기계 학습에 사용되는 여러 가지 도구로 구성됩니다. 포함된 도구는 다음과 같습니다.
@@ -66,7 +66,7 @@ Microsoft Data Science Virtual Machine를 만들려면 Azure 구독이 있어야
 ## <a name="create-your-microsoft-data-science-virtual-machine"></a>Microsoft 데이터 과학 Virtual Machine 만들기
 Microsoft 데이터 과학 Virtual Machine의 인스턴스를 만들려면 다음 단계를 따르세요.
 
-1. [Azure 포털](https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016)에서 가상 머신 목록으로 이동합니다.
+1. [Azure 포털](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016)에서 가상 머신 목록으로 이동합니다. 아직 로그인하지 않은 경우 Azure 계정에 로그인하라는 메시지가 표시될 수 있습니다.
 1. 아래쪽에 있는 **만들기** 단추를 선택하여 마법사로 이동합니다.
 
   ![configure-data-science-vm](./media/provision-vm/configure-data-science-virtual-machine.png) 
@@ -118,7 +118,7 @@ Machine Learning Server는 다양한 빅 데이터 통계, 예측 모델링 및 
 
 Machine Learning Server는 데이터에 대한 병렬 및 청크 분할 처리를 추가하여 오픈 소스 R의 메모리 내 한도를 해결합니다. 따라서 주 메모리에 적합한 것보다 훨씬 더 큰 빅 데이터에 대한 분석을 실행할 수 있습니다. Visual Studio Community는 VM에 포함되어 있습니다. R 또는 Python을 통해 작업할 수 있는 완벽한 IDE를 제공하는 Visual Studio용 R 도구와 PTVS(Visual Studio용 Python Tools) 확장이 있습니다. 또한 [RStudio](http://www.rstudio.com) 및 [PyCharm Community 버전](https://www.jetbrains.com/pycharm/)과 같은 다른 IDE도 VM에 제공됩니다. 
 
-### <a name="python"></a>파이썬
+### <a name="python"></a>Python
 Python을 사용하여 개발할 수 있도록 Anaconda Python 배포 2.7 및 3.6이 설치되었습니다. 이러한 배포에는 가장 인기 있는 약 300개의 수학, 엔지니어링 및 데이터 분석 패키지와 함께 기본 Python이 있습니다. Visual Studio Community 2017에 설치된 PTVS를 사용할 수 있습니다. 또는 Anaconda와 함께 번들로 제공되는 IDE(예: IDLE 또는 Spyder) 중 하나를 사용할 수 있습니다. 이러한 패키지 중 하나를 검색하여 시작합니다(Win+S).
 
 > [!NOTE]
@@ -126,7 +126,7 @@ Python을 사용하여 개발할 수 있도록 Anaconda Python 배포 2.7 및 3.
 > 
 > 
 
-Anaconda Python 3.6은 **C:\Anaconda**에 설치됩니다. Anaconda Python 2.7은 **c:\Anaconda\envs\python2**에 설치됩니다. 자세한 단계는 [PTVS 설명서](/visualstudio/python/installing-python-interpreters.md)를 참조하세요. 
+Anaconda Python 3.6은 **C:\Anaconda**에 설치됩니다. Anaconda Python 2.7은 **c:\Anaconda\envs\python2**에 설치됩니다. 자세한 단계는 [PTVS 설명서](https://docs.microsoft.com/visualstudio/python/installing-python-interpreters)를 참조하세요. 
 
 ### <a name="the-jupyter-notebook"></a>Jupyter Notebook
 Anaconda 배포는 코드와 분석을 공유하는 환경인 Jupyter Notebook과 함께 제공됩니다. Jupyter Notebook 서버는 Python 2.7, Python 3.x, PySpark, Julia 및 R 커널로 미리 구성되어 있습니다. Jupyter 서버를 시작하고 브라우저를 시작하여 노트북 서버에 액세스하려면 **Jupyter Notebook**이라는 바탕 화면 아이콘이 있습니다. 

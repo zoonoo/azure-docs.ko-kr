@@ -6,18 +6,18 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 08/23/2018
 ms.author: danlep
-ms.openlocfilehash: f4bad3d7058e82a246afce9502d275c7d485cb88
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 0ef3cc373b3b87bbd1dde5682fbc076e6b77d6a0
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011951"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698386"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>상태별로 노드 및 작업을 계산하여 Batch 솔루션 모니터링
 
-대규모 Azure Batch 솔루션을 모니터링 및 관리하려면 다양한 상태의 리소스의 정확한 개수가 필요합니다. Azure Batch는 효율적인 작업을 제공하여 Batch *작업* 및 *계산 노드*의 이러한 개수를 가져옵니다. 잠재적으로 시간이 오래 걸리는 API 호출 대신 이러한 작업을 사용하여 노드 또는 작업의 대형 컬렉션에 대한 자세한 정보를 반환합니다.
+대규모 Azure Batch 솔루션을 모니터링 및 관리하려면 다양한 상태의 리소스의 정확한 개수가 필요합니다. Azure Batch는 효율적인 작업을 제공하여 Batch *작업* 및 *계산 노드*의 이러한 개수를 가져옵니다. 잠재적으로 시간이 오래 걸리는 목록 쿼리 대신 이러한 작업을 사용하여 노드 또는 작업의 대형 컬렉션에 대한 자세한 정보를 반환합니다.
 
 * [Get Task Counts][rest_get_task_counts]는 성공 또는 실패한 작업 및 작업에서 활성, 실행 및 완료된 태스크의 집계 수를 가져옵니다. 
 
@@ -49,19 +49,15 @@ Console.WriteLine("Task count in preparing or running state: {0}", taskCounts.Ru
 Console.WriteLine("Task count in completed state: {0}", taskCounts.Completed);
 Console.WriteLine("Succeeded task count: {0}", taskCounts.Succeeded);
 Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
-Console.WriteLine("ValidationStatus: {0}", taskCounts.ValidationStatus);
 ```
 
 REST 및 기타 지원되는 언어에 유사한 패턴을 사용하여 작업에 대한 태스크 수를 가져올 수 있습니다. 
- 
 
-### <a name="consistency-checking-for-task-counts"></a>태스크 수에 대한 일관성 확인
+### <a name="counts-for-large-numbers-of-tasks"></a>많은 태스크의 개수
 
-Batch는 시스템의 여러 구성 요소에 대한 일관성 검사를 수행하여 태스크 상태 수에 대한 추가적인 검증을 제공합니다. 드물게 일관성 검사에서 오류가 발견되면 Batch는 일관성 검사의 결과를 기준으로 Get Tasks Counts 연산의 결과를 수정합니다.
+태스크 수 가져오기 작업은 특정 시점에 시스템에 있는 태스크 상태 수를 반환합니다. 작업에 많은 수의 태스크가 있는 경우 태스크 수 가져오기를 통해 반환된 개수는 실제 태스크 상태 시간을 몇 초까지 지연시킬 수 있습니다. 일괄 처리는 태스크 수 가져오기의 결과와 실제 작업 상태(List Tasks API를 통해 쿼리할 수 있음) 간의 최종 일관성을 보장합니다. 그러나 작업에 매우 많은 수의 태스크가 있는 경우(200,000개 초과), 대신 List Tasks API와 [필터링된 쿼리](batch-efficient-list-queries.md)를 사용하는 것이 좋습니다. 이러한 쿼리는 좀 더 최신 정보를 제공합니다. 
 
-응답에서 `validationStatus` 속성은 Batch가 일관성 검사를 수행했는지 여부를 나타냅니다. Batch가 시스템에 포함된 실제 상태를 기준으로 상태 수를 확인하지 못했다면 `validationStatus` 속성은 `unvalidated`로 설정됩니다. 성능상의 이유로, 작업에 200,000개를 초과하는 태스크가 포함되어 있는 경우 Batch가 일관성 검사를 수행하지 않으므로, 이 경우 `validationStatus` 속성을 `unvalidated`로 설정할 수 있습니다. (이 경우에는 제한된 데이터 손실 가능성이 없으므로, 태스크 수가 틀릴 수도 있습니다.) 
-
-태스크 상태가 변경되면 집계 파이프라인은 몇 초 이내에 변경 사항을 처리합니다. Get Task Counts 연산은 해당 기간 이내에 업데이트된 태스크 수를 반영합니다. 그러나 집계 파이프라인이 태스크 상태의 변경을 놓칠 경우 해당 변경 사항은 다음 유효성 검사에 통과할 때까지 등록되지 않습니다. 이 시간 동안 태스크 수는 누락된 이벤트로 인해 약간 정확하지 않을 수 있지만, 다음 유효성 검사 통과 시 수정됩니다.
+2018-08-01.7.0 이전의 Batch Service API 또한 태스크 수 가져오기 응답에서 `validationStatus` 속성을 반환합니다. 이 속성은 Batch가 상태 수와 List Tasks API에 보고된 상태의 일관성 여부를 확인했는지 여부를 나타냅니다. `validated` 값은 Batch가 작업에 대해 1번 이상 일관성을 확인했는지만 나타냅니다. `validationStatus` 속성 값은 태스크 수 가져오기가 반환하는 개수가 현재 최신 상태인지 여부는 나타내지 않습니다.
 
 ## <a name="node-state-counts"></a>노드 상태 수
 

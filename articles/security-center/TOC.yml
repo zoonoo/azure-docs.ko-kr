@@ -34,7 +34,7 @@ items:
   items:
   - name: 고급 보안으로 업그레이드
     href: security-center-onboarding.md
-  - name: WATP를 사용하여 서버 보호(미리 보기)
+  - name: Windows Defender ATP를 사용하여 서버 보호(미리 보기)
     href: security-center-wdatp.md
   - name: 보안 정책 설정
   - name: 보안 정책 설정
@@ -150,12 +150,14 @@ items:
       href: security-center-alert-validation.md
     - name: 경고 신뢰도 점수
       href: security-center-confidence-score.md
-    - name: 위협 인텔리전스 맵
+    - name: 보안 경고 맵 및 위협 인텔리전스
       href: security-center-threat-intel.md
     - name: 조사
       href: security-center-investigation.md
     - name: 조사 사용자 데이터 관리
       href: security-center-investigation-user-data.md
+    - name: Azure 리소스와 사용자에 대한 UEBA
+      href: security-center-ueba-mcas.md
   - name: 보안 워크플로 자동화
     items:
     - name: Logic Apps 플레이북
@@ -210,9 +212,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=security-center
   - name: 국가별 가용성
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 2d35c25f9afb743b7c0d2d466bc7943d1cab1419
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 12f463c36edef411f42ff17f2126284a0c89983e
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053743"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716896"

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 37edf60ed0b63b4ff97094a496a08a592cb46fc0
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 4fd85135ea16a5183b1b0d5220d1c160044e8841
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715423"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701017"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics의 출력 이해
 이 문서에서는 Azure Stream Analytics 작업에 사용할 수 있는 다양한 유형의 출력을 설명합니다. 출력을 사용하여 Stream Analytics 작업의 결과를 저장할 수 있습니다. 출력 데이터를 사용하여 추가 비즈니스 분석 및 데이터의 데이터 웨어하우징을 수행할 수 있습니다. 
@@ -148,7 +148,7 @@ Power BI 계정의 인증을 설정하면 사용자가 Power BI 출력에 대한
 | 속성 이름 | description |
 | --- | --- |
 | 출력 별칭 |쿼리 출력을 이 PowerBI 출력으로 보내기 위해 쿼리에서 사용되는 식별 이름입니다. |
-| 그룹 작업 영역 |다른 Power BI 사용자와 데이터를 공유할 수 있게 하려면 Power BI 계정 내에서 그룹을 선택하거나 그룹에 작성하지 않으려면 "내 작업 영역"을 선택할 수 있습니다.  기존 그룹을 업데이트하려면 Power BI 인증을 갱신해야 합니다. |
+| 그룹 작업 영역 |다른 Power BI 사용자와 데이터를 공유할 수 있게 하려면 Power BI 계정 내에서 그룹을 선택하거나 그룹에 작성하지 않으려면 “내 작업 영역”을 선택할 수 있습니다.  기존 그룹을 업데이트하려면 Power BI 인증을 갱신해야 합니다. |
 | 데이터 집합 이름 |Power BI 출력에 사용할 데이터 집합 이름을 제공합니다. |
 | 테이블 이름 |Power BI 출력의 데이터 집합 아래에 테이블 이름을 제공합니다. 현재, Stream Analytics 작업의 Power BI 출력에는 하나의 데이터 집합에 하나의 테이블만 있을 수 있습니다. |
 
@@ -172,7 +172,7 @@ bigint | Int64
 nvarchar(max) | 문자열
 Datetime | DateTime
 float | Double
-레코드 배열 | 문자열 형식, 상수 값 "IRecord" 또는 "IArray"
+레코드 배열 | 문자열 형식, 상수 값 “IRecord” 또는 “IArray”
 
 ### <a name="schema-update"></a>스키마 업데이트
 Stream Analytics는 출력의 첫 번째 이벤트 집합을 기반으로 데이터 모델 스키마를 유추합니다. 나중에 필요한 경우 데이터 모델 스키마는 들어오는 이벤트에 맞게 업데이트되며 이는 원래 스키마에 맞지 않을 수 있습니다.
@@ -198,8 +198,7 @@ Stream Analytics 작업을 만들거나 마지막으로 인증한 후 Power BI �
   ![Power BI 갱신 권한 부여](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
 
 ## <a name="table-storage"></a>Table Storage
-
-  [Azure Table Storage](../storage/common/storage-introduction.md)는 가용성이 높고 확장성이 큰 저장소를 제공하므로, 응용 프로그램이 사용자 요구에 맞게 자동으로 확장할 수 있습니다. 테이블 저장소는 스키마에 대한 제약 조건이 적은 구조화된 데이터에 활용할 수 있는 Microsoft의 NoSQL 키/특성 저장소입니다. Azure 테이블 저장소는 지속적이고 효율적인 검색을 위해 데이터를 저장하는 데 사용할 수 있습니다.
+[Azure Table Storage](../storage/common/storage-introduction.md)는 가용성이 높고 확장성이 큰 저장소를 제공하므로, 응용 프로그램이 사용자 요구에 맞게 자동으로 확장할 수 있습니다. 테이블 저장소는 스키마에 대한 제약 조건이 적은 구조화된 데이터에 활용할 수 있는 Microsoft의 NoSQL 키/특성 저장소입니다. Azure 테이블 저장소는 지속적이고 효율적인 검색을 위해 데이터를 저장하는 데 사용할 수 있습니다.
 
 다음 테이블은 테이블 출력을 만들기 위한 속성 이름 및 해당 설명을 나열합니다.
 
@@ -214,8 +213,7 @@ Stream Analytics 작업을 만들거나 마지막으로 인증한 후 Power BI �
 | Batch 크기 |배치 작업에 대한 레코드 수입니다. 기본값(100)은 대부분의 작업에 충분합니다. 이 설정을 수정하는 방법에 대한 자세한 내용은 [테이블 Batch 작업 사양](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx)을 참조하세요. |
  
 ## <a name="service-bus-queues"></a>Service Bus 큐
-
-  [Service Bus 큐](https://msdn.microsoft.com/library/azure/hh367516.aspx)는 하나 이상의 경쟁 소비자에게 FIFO(선입선출) 메시지 배달을 제공합니다. 일반적으로 메시지가 큐에 추가된 임시 순서대로 받는 사람이 메시지를 받고 처리하며, 각 메시지가 하나의 메시지 소비자에 의해서만 수신 및 처리됩니다.
+[Service Bus 큐](https://msdn.microsoft.com/library/azure/hh367516.aspx)는 하나 이상의 경쟁 소비자에게 FIFO(선입선출) 메시지 배달을 제공합니다. 일반적으로 메시지가 큐에 추가된 임시 순서대로 받는 사람이 메시지를 받고 처리하며, 각 메시지가 하나의 메시지 소비자에 의해서만 수신 및 처리됩니다.
 
 다음 테이블은 큐 출력을 만들기 위한 속성 이름 및 해당 설명을 나열합니다.
 
@@ -252,8 +250,7 @@ Service Bus 큐는 보낸 사람에서 받는 사람으로의 일대일 통신 �
 파티션 수는 [Service Bus SKU 및 크기에 따라](../service-bus-messaging/service-bus-partitioning.md) 달라집니다. 파티션 키는 각 파티션에 대한 고유 정수 값입니다.
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
-
-  [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)는 세계적으로 분산된 다중 모델 데이터베이스 서비스로서, 제한없는 탄력적 크기 조정을 전 세계적으로 제공하고 스키마 제약 없는 데이터 모델에 대한 자동 인덱싱 및 다양한 쿼리, 낮은 대기 시간 보장과 업계 최고의 포괄적인 SLA를 제공합니다. Stream Analytics의 Cosmos DB 수집 옵션에 대해 알아 보려면 [Cosmos DB를 출력으로 사용하는 Stream Analytics](stream-analytics-documentdb-output.md) 문서를 참조하세요.
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)는 세계적으로 분산된 다중 모델 데이터베이스 서비스로서, 제한없는 탄력적 크기 조정을 전 세계적으로 제공하고 스키마 제약 없는 데이터 모델에 대한 자동 인덱싱 및 다양한 쿼리, 낮은 대기 시간 보장과 업계 최고의 포괄적인 SLA를 제공합니다. Stream Analytics의 Cosmos DB 수집 옵션에 대해 알아 보려면 [Cosmos DB를 출력으로 사용하는 Stream Analytics](stream-analytics-documentdb-output.md) 문서를 참조하세요.
 
 Stream Analytics의 Azure Cosmos DB 출력은 현재 Azure 중국(21Vianet) 및 Azure 독일(T-Systems International) 영역에서 사용할 수 없습니다.
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: 2eefabcc0484fca0e6e3ad1dd5037684a759d010
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: b1b5d0af3f2b149959bcb97ddaf29ba2fe1f4668
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850449"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702224"
 ---
 # <a name="troubleshooting-guide-for-azure-stream-analytics"></a>Azure Stream Analytics 문제 해결 가이드
 
@@ -66,7 +66,7 @@ Stream Analytics 작업 문제 해결에서 최상의 결과를 얻으려면 다
                 - 쿼리 처리로 제로 출력 이벤트가 발생했습니다.
                 - 이벤트 또는 그 필드가 잘못되어 쿼리 처리 후 제로 출력이 발생할 수 있습니다.
                 - 작업이 연결 또는 인증 이유로 데이터를 [출력 싱크](stream-analytics-select-into.md)에 푸시할 수 없습니다.
-        - 이전에 언급한 모든 오류 사례에서 작업 로그 메시지는 쿼리 논리가 모든 이벤트를 필터링하는 경우 외에 추가 정보(발생하는 상황 포함)를 설명합니다. 여러 이벤트 처리에서 오류가 발생하면 Stream Analytics는 작업 로그에 10분 이내 동일한 형식의 첫 세 개의 오류 메시지를 기록합니다. 그런 다음 “오류가 너무 빠르게 발생하고 억제되고 있습니다”라는 메시지로 동일한 추가 오류를 표시하지 않습니다.
+        - 이전에 언급한 모든 오류 사례에서 작업 로그 메시지는 쿼리 논리가 모든 이벤트를 필터링하는 경우 외에 추가 정보(발생하는 상황 포함)를 설명합니다. 여러 이벤트 처리에서 오류가 발생하면 Stream Analytics는 작업 로그에 10분 이내 동일한 형식의 첫 세 개의 오류 메시지를 기록합니다. 그런 다음, “오류가 너무 빠르게 발생하고 억제되고 있습니다.”라는 메시지로 동일한 추가 오류를 표시하지 않습니다.
 
 8. 감사 및 진단 로그를 사용하여 디버그합니다.
     - [감사 로그](../azure-resource-manager/resource-group-audit.md)를 사용하고 필터링하여 오류를 식별하고 디버그합니다.

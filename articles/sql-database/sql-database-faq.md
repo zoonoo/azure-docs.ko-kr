@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 08/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 7f784689e8437d92cf4fc4974983d3ae1455f11b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a7837ac6af82b5c67ea5779340aedc16cb78d156
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43091827"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286335"
 ---
 # <a name="sql-database-faq"></a>SQL Database FAQ
 
@@ -22,8 +22,10 @@ ms.locfileid: "43091827"
 SQL Database의 현재 버전은 V12입니다. 버전 V11은 만료되었습니다.
 
 ## <a name="what-is-the-sla-for-sql-database"></a>SQL Database에 대한 SLA란 무엇인가요?
-99.99% 이상의 시간을 보장하며, 서비스 계층에 관계없이 Microsoft Azure SQL Database와 인터넷 게이트웨이를 연결할 수 있습니다. 자세한 내용은 [SLA](http://azure.microsoft.com/support/legal/sla/)를 참조하세요.
+99.99% 이상의 시간을 보장하며, 서비스 계층에 관계없이 Microsoft Azure SQL Database와 인터넷 게이트웨이를 연결할 수 있습니다. 0.01%는 패치, 업그레이드 및 장애 조치(Failover)용으로 예약되어 있습니다. 자세한 내용은 [SLA](http://azure.microsoft.com/support/legal/sla/)를 참조하세요. Azure SQL Database의 가용성 아키텍처에 대한 내용은 [고가용성 및 Azure SQL Database](sql-database-high-availability.md)를 참조하세요. 
 
+## <a name="can-i-control-when-patching-downtime-occurs"></a>패치 가동 중지 시간이 발생하는 경우를 제어할 수 있나요?
+아니요. 일반적으로 패치 적용에 따른 영향은 앱에서 [다시 시도 논리를 사용](sql-database-develop-overview.md#resiliency)하면 두드러지지 않습니다.
 ## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>Azure SQL Database에 대한 새 vCore 기반 구매 모델이란?
 
 새 구매 모델이 기존 DTU 기반 모델에 추가되었습니다. vCore 기반 모델은 고객에게 유연성, 제어, 투명성 및 온-프레미스 워크로드 요구 사항을 클라우드로 변환하는 간단한 방법을 제공하도록 설계되었습니다. 또한 고객이 워크로드 요구 사항에 따라 해당 계산 및 저장소 리소스의 크기를 조정할 수 있습니다. vCore 모델을 사용하는 단일 데이터베이스 및 탄력적 풀 옵션도 [SQL Server에 대한 Azure 하이브리드 사용 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 통해 비용을 최대 30%까지 절약할 수 있습니다. 자세한 내용은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 참조하세요. 

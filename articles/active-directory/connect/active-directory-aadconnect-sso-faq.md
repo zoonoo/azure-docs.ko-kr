@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 29ed96044ceaa914db3f8b7090a1be5f65827e54
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 5f654ce8730af1e66e0186d7087aa130b00afd2b
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627477"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782111"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory Seamless Single Sign-On: FAQ(질문과 대답)
 
@@ -48,7 +48,7 @@ Seamless SSO는 [암호 해시 동기화](active-directory-aadconnectsync-implem
 | 웹용 Outlook | https://outlook.office365.com/contoso.com |
 | Office 365 포털 | https://portal.office.com?domain_hint=contoso.com |
 
-또한 응용 프로그램이 Azure AD의 공통 끝점(즉, https://login.microsoftonline.com/common/<...>) 대신 Azure AD의 테넌트 끝점(즉, https://login.microsoftonline.com/contoso.com/<..> 또는 https://login.microsoftonline.com/<tenant_ID>/<..>)으로 로그인 요청을 전송할 경우 사용자는 자동 로그온 환경을 사용합니다. 이러한 형식의 로그인을 요청하는 응용 프로그램의 부분 목록이 아래에 나열됩니다.
+또한 응용 프로그램이 Azure AD의 공통 엔드포인트(즉, https://login.microsoftonline.com/common/<...>) 대신 Azure AD의 테넌트 엔드포인트(즉, https://login.microsoftonline.com/contoso.com/<..> 또는 https://login.microsoftonline.com/<tenant_ID>/<..>)로 로그인 요청을 전송할 경우 사용자는 자동 로그온 환경을 사용합니다. 이러한 형식의 로그인을 요청하는 응용 프로그램의 부분 목록이 아래에 나열됩니다.
 
 | 응용 프로그램 이름 | 사용할 응용 프로그램 URL |
 | -- | -- |
@@ -84,12 +84,11 @@ Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를
 
 ### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>1단계. Seamless SSO가 사용하도록 설정된 AD 포리스트 목록을 가져옵니다.
 
-1. 먼저 [Microsoft Online Services 로그인 도우미](http://go.microsoft.com/fwlink/?LinkID=286152)를 다운로드하여 설치합니다.
-2. 그런 다음 [Windows PowerShell 용 64비트 Azure Active Directory 모듈](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0)을 다운로드하고 설치합니다.
-3. `%programfiles%\Microsoft Azure Active Directory Connect` 폴더로 이동합니다.
-4. 다음 명령을 사용하여 Seamless SSO PowerShell 모듈을 가져옵니다. `Import-Module .\AzureADSSO.psd1`
-5. 관리자 권한으로 PowerShell을 실행합니다. PowerShell에서 `New-AzureADSSOAuthenticationContext`를 호출합니다. 이 명령으로 테넌트의 전역 관리자 자격 증명을 입력하라는 팝업 메시지가 표시됩니다.
-6. `Get-AzureADSSOStatus`를 호출합니다. 사용하도록 설정된 AD 포리스트 목록("도메인" 목록에 있음)이 표시됩니다.
+1. 먼저 [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview)을 다운로드한 후 설치합니다.
+2. `%programfiles%\Microsoft Azure Active Directory Connect` 폴더로 이동합니다.
+3. 다음 명령을 사용하여 Seamless SSO PowerShell 모듈을 가져옵니다. `Import-Module .\AzureADSSO.psd1`
+4. 관리자 권한으로 PowerShell을 실행합니다. PowerShell에서 `New-AzureADSSOAuthenticationContext`를 호출합니다. 이 명령으로 테넌트의 전역 관리자 자격 증명을 입력하라는 팝업 메시지가 표시됩니다.
+5. `Get-AzureADSSOStatus`를 호출합니다. 사용하도록 설정된 AD 포리스트 목록("도메인" 목록에 있음)이 표시됩니다.
 
 ### <a name="step-2-update-the-kerberos-decryption-key-on-each-ad-forest-that-it-was-set-it-up-on"></a>2단계. 설정된 각 AD 포리스트에서 Kerberos 암호 해독 키를 업데이트합니다.
 
@@ -123,26 +122,24 @@ Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를
 
 Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를 실행합니다.
 
-1. 먼저 [Microsoft Online Services 로그인 도우미](http://go.microsoft.com/fwlink/?LinkID=286152)를 다운로드하여 설치합니다.
-2. 그런 다음 [Windows PowerShell 용 64비트 Azure Active Directory 모듈](http://go.microsoft.com/fwlink/p/?linkid=236297)을 다운로드하고 설치합니다.
-3. `%programfiles%\Microsoft Azure Active Directory Connect` 폴더로 이동합니다.
-4. 다음 명령을 사용하여 Seamless SSO PowerShell 모듈을 가져옵니다. `Import-Module .\AzureADSSO.psd1`
-5. 관리자 권한으로 PowerShell을 실행합니다. PowerShell에서 `New-AzureADSSOAuthenticationContext`를 호출합니다. 이 명령으로 테넌트의 전역 관리자 자격 증명을 입력하라는 팝업 메시지가 표시됩니다.
-6. `Enable-AzureADSSO -Enable $false`를 호출합니다.
+1. 먼저 [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview)을 다운로드한 후 설치합니다.
+2. `%programfiles%\Microsoft Azure Active Directory Connect` 폴더로 이동합니다.
+3. 다음 명령을 사용하여 Seamless SSO PowerShell 모듈을 가져옵니다. `Import-Module .\AzureADSSO.psd1`
+4. 관리자 권한으로 PowerShell을 실행합니다. PowerShell에서 `New-AzureADSSOAuthenticationContext`를 호출합니다. 이 명령으로 테넌트의 전역 관리자 자격 증명을 입력하라는 팝업 메시지가 표시됩니다.
+5. `Enable-AzureADSSO -Enable $false`를 호출합니다.
 
 >[!IMPORTANT]
 >PowerShell을 사용하여 Seamless SSO를 사용하지 않도록 설정하면 Azure AD Connect의 상태를 변경하지 않습니다. Seamless SSO는 **사용자 로그인 변경** 페이지에서 사용하도록 설정된 것으로 표시됩니다.
 
 ### <a name="step-2-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>2단계. Seamless SSO가 사용하도록 설정된 AD 포리스트 목록을 가져옵니다.
 
-Azure AD Connect를 사용하여 Seamless SSO를 사용하지 않도록 설정한 경우 아래 1-5단계를 따릅니다. 대신 PowerShell을 사용하여 Seamless SSO를 사용하지 않도록 설정한 경우 아래의 6단계로 이동합니다.
+Azure AD Connect를 사용하여 Seamless SSO를 사용하지 않도록 설정한 경우 아래의 태스크 1-4를 따릅니다. 대신 PowerShell을 사용하여 Seamless SSO를 사용하지 않도록 설정한 경우 아래의 태스크 5를 이동합니다.
 
-1. 먼저 [Microsoft Online Services 로그인 도우미](http://go.microsoft.com/fwlink/?LinkID=286152)를 다운로드하여 설치합니다.
-2. 그런 다음 [Windows PowerShell 용 64비트 Azure Active Directory 모듈](http://go.microsoft.com/fwlink/p/?linkid=236297)을 다운로드하고 설치합니다.
-3. `%programfiles%\Microsoft Azure Active Directory Connect` 폴더로 이동합니다.
-4. 다음 명령을 사용하여 Seamless SSO PowerShell 모듈을 가져옵니다. `Import-Module .\AzureADSSO.psd1`
-5. 관리자 권한으로 PowerShell을 실행합니다. PowerShell에서 `New-AzureADSSOAuthenticationContext`를 호출합니다. 이 명령으로 테넌트의 전역 관리자 자격 증명을 입력하라는 팝업 메시지가 표시됩니다.
-6. `Get-AzureADSSOStatus`를 호출합니다. 사용하도록 설정된 AD 포리스트 목록("도메인" 목록에 있음)이 표시됩니다.
+1. 먼저 [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview)을 다운로드한 후 설치합니다.
+2. `%programfiles%\Microsoft Azure Active Directory Connect` 폴더로 이동합니다.
+3. 다음 명령을 사용하여 Seamless SSO PowerShell 모듈을 가져옵니다. `Import-Module .\AzureADSSO.psd1`
+4. 관리자 권한으로 PowerShell을 실행합니다. PowerShell에서 `New-AzureADSSOAuthenticationContext`를 호출합니다. 이 명령으로 테넌트의 전역 관리자 자격 증명을 입력하라는 팝업 메시지가 표시됩니다.
+5. `Get-AzureADSSOStatus`를 호출합니다. 사용하도록 설정된 AD 포리스트 목록("도메인" 목록에 있음)이 표시됩니다.
 
 ### <a name="step-3-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>3단계. 나열된 각 AD 포리스트에서 `AZUREADSSOACCT` 컴퓨터 계정을 수동으로 삭제합니다.
 

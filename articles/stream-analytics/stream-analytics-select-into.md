@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: ccaa6203e4bfe52758e26416646f9152ac5378ea
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b056d4c29464451d3dc0ef62437f934535820489
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30907958"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697995"
 ---
 # <a name="debug-queries-by-using-select-into-statements"></a>SELECT INTO 문을 사용하여 쿼리 디버그
 
@@ -30,7 +30,7 @@ Azure Stream Analytics 작업의 다음 예제 쿼리에는 Azure Table Storage�
 
 ![모니터링 타일](./media/stream-analytics-select-into/stream-analytics-select-into-monitor.png)
  
-이 경우 몇 가지 추가 SELECT INTO 문을 추가하여 중간 JOIN 결과와 입력에서 읽은 데이터를 “로그”할 수 있습니다.
+이 경우 몇 가지 추가 SELECT INTO 문을 추가하여 중간 JOIN 결과와 입력에서 읽은 데이터를 “로깅”할 수 있습니다.
 
 이 예제에서는 두 개의 새로운 “임시 출력”을 추가했습니다. 사용자가 원하는 어떠한 싱크도 될 수 있습니다. 여기서는 Azure Storage를 예로 사용합니다.
 

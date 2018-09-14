@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 78e991fcac87d59ed7b84180192899ddbdf330f2
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 8a2e06d2e6cf3e470d4e0909e5559ac0411292fd
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105642"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307116"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps의 워크플로 정의 언어에 대한 함수 참조
 
@@ -80,7 +80,7 @@ ms.locfileid: "43105642"
 | [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | 문자열이 지정된 하위 문자열로 끝나는지 여부를 확인합니다. | 
 | [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | 전역적으로 고유한 식별자(GUID)를 문자열로 생성합니다. | 
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | 하위 문자열에 대한 시작 위치를 반환합니다. | 
-| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | 하위 문자열에 대한 종료 위치를 반환합니다. | 
+| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | 마지막으로 나오는 부분 문자열의 시작 위치를 반환합니다. | 
 | [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | 하위 문자열을 지정된 문자열로 바꾸고 업데이트된 문자열을 반환합니다. | 
 | [분할](../logic-apps/workflow-definition-language-functions-reference.md#split) | 문자열에서 모든 문자를 지닌 배열을 반환하고 특정 구분 문자로 각 문자를 구분합니다. | 
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | 문자열이 특정 하위 문자열로 시작하는지 검사합니다. | 
@@ -2123,7 +2123,7 @@ indexOf('<text>', '<searchText>')
 
 | 반환 값 | type | 설명 | 
 | ------------ | ---- | ----------- | 
-| <*index-value*>| 정수  | 지정한 하위 문자열에 대한 시작 위치 또는 인덱스 값 <p>문자열을 찾을 수 없는 경우 -1을 반환합니다. </br>문자열이 비어 있으면 0을 반환합니다. | 
+| <*index-value*>| 정수  | 지정한 하위 문자열에 대한 시작 위치 또는 인덱스 값 <p>문자열을 찾을 수 없는 경우 -1을 반환합니다. | 
 |||| 
 
 *예제* 
@@ -2387,7 +2387,7 @@ last([0, 1, 2, 3])
 
 ### <a name="lastindexof"></a>lastindexof
 
-하위 문자열에 대한 종료 위치 또는 인덱스 값을 반환합니다. 이 함수는 대/소문자를 구분하지 않으며 인덱스는 숫자 0으로 시작합니다.
+마지막으로 나오는 부분 문자열의 시작 위치 또는 인덱스 값을 반환합니다. 이 함수는 대/소문자를 구분하지 않으며 인덱스는 숫자 0으로 시작합니다.
 
 ```
 lastIndexOf('<text>', '<searchText>')
@@ -2401,18 +2401,18 @@ lastIndexOf('<text>', '<searchText>')
 
 | 반환 값 | type | 설명 | 
 | ------------ | ---- | ----------- | 
-| <*ending-index-value*> | 정수  | 지정한 하위 문자열에 대한 종료 위치 또는 인덱스 값입니다. <p>문자열을 찾을 수 없는 경우 -1을 반환합니다. </br>문자열이 비어 있으면 0을 반환합니다. | 
+| <*ending-index-value*> | 정수  | 마지막으로 나오는 지정된 부분 문자열의 시작 위치 또는 인덱스 값입니다. <p>문자열을 찾을 수 없는 경우 -1을 반환합니다. | 
 |||| 
 
 *예제* 
 
-이 예제는 "hello world" 문자열의 "world" 하위 문자열에 대한 종료 인덱스 값을 찾습니다.
+이 예제는 "hello world" 문자열의 "world" 하위 문자열이 마지막으로 나오는 경우의 시작 인덱스 값을 찾습니다.
 
 ```
 lastIndexOf('hello world', 'world')
 ```
 
-그리고 다음 결과를 반환합니다. `10`
+그리고 다음 결과를 반환합니다. `6`
 
 <a name="length"></a>
 
@@ -3419,7 +3419,7 @@ toLower('Hello World')
 toUpper('<text>')
 ```
 
-| 매개 변수 | 필수 | type | 설명 | 
+| 매개 변수 | 필수 | 형식 | 설명 | 
 | --------- | -------- | ---- | ----------- | 
 | <*text*> | yes | 문자열 | 대문자 형식으로 반환할 문자열 | 
 ||||| 

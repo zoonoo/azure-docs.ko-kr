@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/31/2018
+ms.date: 08/31/2018
 ms.author: rithorn
-ms.openlocfilehash: edc57d146ccb034ac3fd627386000a1953b0e558
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: b95dba65a7ab89306844e48641aba584e3d6b175
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480325"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371519"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Azure 관리 그룹으로 리소스 구성
 
@@ -38,7 +38,7 @@ ms.locfileid: "39480325"
 
 ### <a name="important-facts-about-management-groups"></a>관리 그룹에 대한 중요 한 사실
 
-- 단일 디렉터리에서 지원할 수 있는 관리 그룹 수는 10,000개입니다.
+- 단일 디렉터리에서 지원할 수 있는 관리 그룹 수는 10,000개입니다(Azure Active Directory 테넌트).
 - 관리 그룹 트리에서 지원할 수 있는 최대 깊이 수준은 6입니다.
   - 이 제한에는 루트 수준 또는 구독 수준이 포함되지 않습니다.
 - 각 관리 그룹 및 구독은 하나의 부모만 지원할 수 있습니다.

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 25af61ce51828691d08210f4089afa0cf56b9846
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 46c99011a22f855f6faf53e03169b2d1e4c6ce85
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257854"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669010"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>작동 방법: Azure Multi-Factor Authentication
 
@@ -39,11 +39,14 @@ Multi-Factor Authentication은 다음과 같은 제품의 일부로 제공됩니
 * **Office 365용 Multi-Factor Authentication** - Azure Multi-Factor Authentication 기능 중 하위 집합을 구독의 일부로 사용할 수 있습니다. Office 365용 MFA에 대한 자세한 내용은 [Office 365용 Multi-Factor Authentication 배포에 대한 계획](https://support.office.com/article/plan-for-multi-factor-authentication-for-office-365-deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba) 아티클을 참조하세요.
 * **Azure Active Directory 전역 관리자** - Azure Multi-factor Authentication 기능의 하위 집합을 전역 관리자 계정을 보호하는 수단으로 사용할 수 있습니다.
 
+> [!NOTE]
+> 신규 고객은 2018년 9월 1일부터 제공되는 독립 제품 형태의 Azure Multi-Factor Authentication을 더 이상 구매할 수 없습니다. Multi-Factor Authentication은 Azure AD Premium 라이선스에서 계속 사용할 수 있게 지원됩니다.
+
 ### <a name="auth-provider-or-mfa-license"></a>인증 공급자 또는 MFA 라이선스
 
-Azure AD Premium 또는 Azure AD Premium을 포함하는 라이선스 번들이 이미 있는 경우 Azure MFA도 설치되어 있습니다. 2단계 인증 기능을 조직의 모든 사용자에게 확장하기 위해 추가로 아무 것도 필요하지 않습니다. 사용자에게 라이선스를 할당해야 하며 그러면 MFA를 사용할 수 있습니다.
+Azure AD Premium 또는 Azure AD Premium을 포함하는 다른 라이선스 번들이 이미 있는 경우 Azure MFA도 설치되어 있습니다. 2단계 인증 기능을 조직의 모든 사용자에게 확장하기 위해 추가로 아무 것도 필요하지 않습니다. 사용자에게 라이선스를 할당해야 하며 그러면 MFA를 사용할 수 있습니다.
 
-Azure MFA를 포함하는 라이선스가 없거나 모든 사용자를 위해 충분한 라이선스가 없는 경우 [MFA 인증 공급자](concept-mfa-authprovider.md)를 만들어서 필요한 사용자로 MFA의 전체 기능을 확장할 수 있습니다. 
+Azure MFA를 포함하는 라이선스가 없거나 모든 사용자를 위해 충분한 라이선스가 없는 경우 [MFA 인증 공급자](concept-mfa-authprovider.md)를 만들어서 필요한 사용자로 MFA의 전체 기능을 확장할 수 있습니다.
 
 > [!IMPORTANT]
 > 모든 사용자를 위한 충분한 라이선스가 없으면 조직의 나머지 사용자를 위해 사용자 기준 Multi-Factor Auth 공급자를 만들 수 있습니다. 인증 기준 Multi-Factor Auth 공급자를 만들지 않도록 합니다. 이렇게 하면 이미 라이선스가 있는 사용자로부터 지불 확인 요청이 발생할 수 있습니다.

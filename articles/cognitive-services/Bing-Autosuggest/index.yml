@@ -1,0 +1,70 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 88413db5556e20632112444e3779bb5eee0ecf8e
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35624425"
+documentType: LandingData
+title: Bing Autosuggest 설명서
+metadata:
+  document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
+  title: Bing Autosuggest 설명서 - 자습서, 빠른 시작, API 참조 | Microsoft Docs
+  description: Bing Autosuggest API를 사용하여 부분 쿼리에 따라 제안된 쿼리를 가져오는 방법을 알아봅니다. 자습서에서는 서비스를 사용하는 앱을 빌드하는 방법을 보여줍니다.
+  services: cognitive-services
+  author: v-jaswel
+  manager: kamrani
+  ms.service: autosuggest
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 10/10/2017
+  ms.author: v-jaswel
+abstract:
+  description: Bing Autosuggest API를 통해 부분 검색 쿼리 용어를 Bing에 전송하고 다른 사용자가 검색한 제안된 쿼리 목록을 다시 가져올 수 있습니다.  예를 들어 사용자가 해당 검색 용어의 각 문자를 입력하면 이 API를 호출하고 제안된 쿼리 문자열로 검색 상자의 드롭다운 목록을 채웁니다. 빠른 시작, 자습서 및 샘플에서 Autosuggest API를 사용하는 방법을 알아봅니다.
+sections:
+- title: 5분 빠른 시작
+  items:
+  - type: paragraph
+    text: 쿼리를 수행하고 JSON 응답을 확인하여 Bing Autosuggest API를 사용하기 시작합니다.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/logo_csharp.svg
+      href: quickstarts/csharp
+      text: C&#35;
+    - image:
+        src: media/index/logo_java.svg
+      href: quickstarts/java
+      text: 자바
+    - image:
+        src: media/index/logo_nodejs.svg
+      href: quickstarts/nodejs
+      text: Node.js
+    - image:
+        src: media/index/logo_php.svg
+      href: quickstarts/php
+      text: PHP
+    - image:
+        src: media/index/logo_python.svg
+      href: quickstarts/python
+      text: Python
+    - image:
+        src: media/index/logo_ruby.svg
+      href: quickstarts/ruby
+      text: Ruby
+- title: 단계별 자습서
+  items:
+  - type: paragraph
+    text: Bing Autosuggest API를 사용하여 응용 프로그램을 개발하는 방법을 알아봅니다.
+  - type: paragraph
+    text: <a href="tutorials/autosuggest.md">단일 페이지 웹앱</a> &#124; <a href="tutorials/autosuggest-source.md">소스 코드</a>
+- title: 참고 자료
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: API
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference">Bing Autosuggest API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference">Bing Autosuggest API v5</p>

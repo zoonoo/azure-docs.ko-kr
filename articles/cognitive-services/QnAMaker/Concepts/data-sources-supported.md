@@ -10,12 +10,12 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 04/21/2018
 ms.author: saneppal
-ms.openlocfilehash: b888846056fd60f37cdb1da85904fa14ffe79a39
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 698f96b15a9387cd30d26e684ed03ff4cc3346a7
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376366"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697903"
 ---
 # <a name="data-sources"></a>데이터 원본 
 QnA Maker는 일반적인 반구조화된 콘텐츠 형식(예: FAQ 및 제품 설명서)에서 질문-답변 쌍을 자동으로 추출할 수 있습니다. 구조화된 파일의 콘텐츠를 기술 자료에 추가할 수도 있습니다.
@@ -53,7 +53,7 @@ QnA Maker는 일반적인 반구조화된 콘텐츠 형식(예: FAQ 및 제품 �
 
 | 질문  | 응답  | Metadata                |
 |-----------|---------|-------------------------|
-| Question1 | Answer1 | `Key1:Value1\|Key2:Value2` |
+| Question1 | Answer1 | `Key1:Value1|Key2:Value2` |
 | Question2 | Answer2 |      `Key:Value`           |
 원본 파일의 추가 열은 무시됩니다.
 
@@ -62,7 +62,7 @@ QnA Maker는 일반적인 반구조화된 콘텐츠 형식(예: FAQ 및 제품 �
 
 | 질문  | 응답  | 원본| Metadata                |
 |-----------|---------|----|---------------------|
-| Question1 | Answer1 | Url1|`Key1:Value1\|Key2:Value2` |
+| Question1 | Answer1 | Url1|`Key1:Value1|Key2:Value2` |
 | Question2 | Answer2 | Editorial|    `Key:Value`       |
 
 ## <a name="editorial"></a>Editorial

@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 09/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7ddab3717626df14f491662849d01cb85658791c
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 35bd895636bcedf0fd3fad073819d238c7850326
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617293"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783341"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -57,8 +57,7 @@ ms.locfileid: "42617293"
   * [Azure 구독의 소유권을 다른 계정으로 이전](../billing/billing-subscription-transfer.md)
   * [Azure Active Directory에 Azure 구독을 연결하거나 추가하는 방법](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-2. 서비스는 리소스 이동 기능을 사용하도록 설정해야 합니다. 이 문서에서는 리소스 이동이 가능한 서비스와 그렇지 않은 서비스를 나열합니다.
-3. 이동되는 리소스의 리소스 공급자가 대상 구독에 등록되어야 합니다. 그러지 않으면 **구독이 리소스 형식에 대해 등록되지 않았음**을 알리는 오류 메시지가 표시됩니다. 해당 리소스 종류와 함께 사용된 적이 없는 새 구독으로 리소스를 이동할 때 이 문제가 발생할 수 있습니다.
+1. 이동되는 리소스의 리소스 공급자가 대상 구독에 등록되어야 합니다. 그러지 않으면 **구독이 리소스 형식에 대해 등록되지 않았음**을 알리는 오류 메시지가 표시됩니다. 해당 리소스 종류와 함께 사용된 적이 없는 새 구독으로 리소스를 이동할 때 이 문제가 발생할 수 있습니다.
 
   PowerShell의 경우 다음 명령을 사용하여 등록 상태를 가져옵니다.
 
@@ -86,14 +85,16 @@ ms.locfileid: "42617293"
   az provider register --namespace Microsoft.Batch
   ```
 
-4. 리소스를 이동시키는 계정에는 적어도 다음과 같은 권한이 있어야 합니다.
+1. 리소스를 이동시키는 계정에는 적어도 다음과 같은 권한이 있어야 합니다.
 
    * 원본 리소스 그룹에 대한 **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action**
    * 대상 리소스 그룹에 대한 **Microsoft.Resources/subscriptions/resourceGroups/write**
 
-5. 리소스를 이동하기 전에 리소스를 이동하려는 구독에 대한 구독 할당량을 확인합니다. 리소스 이동 시 구독이 해당 한계를 초과하는 경우 할당량 증가를 요청할 수 있는지 여부를 검토해야 합니다. 제한의 목록 및 증가 요청 방법은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
+1. 리소스를 이동하기 전에 리소스를 이동하려는 구독에 대한 구독 할당량을 확인합니다. 리소스 이동 시 구독이 해당 한계를 초과하는 경우 할당량 증가를 요청할 수 있는지 여부를 검토해야 합니다. 제한의 목록 및 증가 요청 방법은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
 
-5. 가능한 경우 대용량 이동을 개별 이동 작업으로 나눕니다. 단일 작업에서 800개가 넘는 리소스를 이동하려고 하면 Resource Manager가 즉시 실패합니다. 그러나 800개 미만의 리소스 이동도 시간 초과로 인해 실패할 수 있습니다.
+1. 가능한 경우 대용량 이동을 개별 이동 작업으로 나눕니다. 단일 작업에서 800개가 넘는 리소스를 이동하려고 하면 Resource Manager가 즉시 실패합니다. 그러나 800개 미만의 리소스 이동도 시간 초과로 인해 실패할 수 있습니다.
+
+1. 서비스는 리소스 이동 기능을 사용하도록 설정해야 합니다. 이동이 성공할지 여부를 확인하려면 [이동 요청 유효성 검사](#validate-move)를 수행합니다. 이 문서에서 [리소스 이동이 가능한 서비스](#services-that-can-be-moved)와 [리소스 이동이 가능하지 않은 서비스](#services-that-cannot-be-moved)에 대한 아래 섹션을 참조하세요.
 
 ## <a name="when-to-call-support"></a>지원을 호출해야 하는 경우
 
@@ -106,6 +107,59 @@ ms.locfileid: "42617293"
 
 * 새 Azure 계정(및 Azure Active Directory 테넌트)로 리소스를 이동하며 앞의 섹션의 지침을 수행하는 데 지원이 필요합니다.
 * 클래식 리소스를 이동하지만 제한 사항으로 문제가 발생합니다.
+
+## <a name="validate-move"></a>이동 유효성 검사
+
+[이동 작업 유효성 검사](/rest/api/resources/resources/validatemoveresources)를 수행하면 실제로 리소스를 이동하지 않고 이동 시나리오를 테스트할 수 있습니다. 이 작업을 수행하여 이동이 성공할지 여부를 확인합니다. 이 작업을 실행하려면 다음이 필요합니다.
+
+* 원본 리소스 그룹의 이름
+* 대상 리소스 그룹의 리소스 ID
+* 이동할 각 리소스의 리소스 ID
+* 계정에 대한 [액세스 토큰](/rest/api/azure/#acquire-an-access-token)
+
+다음 요청을 보냅니다.
+
+```
+POST https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<source-group>/validateMoveResources?api-version=2018-02-01
+Authorization: Bearer <access-token>
+Content-type: application/json
+```
+
+다음 요청 본문을 사용합니다.
+
+```json
+{
+ "resources": ['<resource-id-1>', '<resource-id-2>'],
+ "targetResourceGroup": "/subscriptions/<subscription-id>/resourceGroups/<target-group>"
+}
+```
+
+요청 서식이 올바르게 지정되면 작업은 다음을 반환합니다.
+
+```
+Response Code: 202
+cache-control: no-cache
+pragma: no-cache
+expires: -1
+location: https://management.azure.com/subscriptions/<subscription-id>/operationresults/<operation-id>?api-version=2018-02-01
+retry-after: 15
+...
+```
+
+202 상태 코드는 유효성 검사 요청이 수락되었음을 나타내지만 이동 작업의 성공 여부는 아직 확인하지 않은 것입니다. `location` 값에는 장기 실행 작업의 상태를 확인하는 데 사용하는 URL이 포함되어 있습니다.  
+
+상태를 확인하려면 다음 요청을 보냅니다.
+
+```
+GET <location-url>
+Authorization: Bearer <access-token>
+```
+
+작업이 실행되는 동안에는 202 상태 코드가 계속 수신됩니다. 다시 시도하기 전에 `retry-after` 값에 지정된 시간(초) 동안 대기합니다. 이동 작업 유효성 검사가 성공적으로 수행되면 204 상태 코드가 수신됩니다. 이동 유효성 검사가 실패할 경우 다음과 같은 오류 메시지가 수신됩니다.
+
+```json
+{"error":{"code":"ResourceMoveProviderValidationFailed","message":"<message>"...}}
+```
 
 ## <a name="services-that-can-be-moved"></a>이동할 수 있는 서비스
 
@@ -122,7 +176,6 @@ ms.locfileid: "42617293"
 * Azure Maps
 * Azure Relay
 * Azure Stack - 등록
-* Azure Migrate
 * Batch
 * BizTalk Services
 * Bot 서비스
@@ -188,6 +241,7 @@ ms.locfileid: "42617293"
 * Azure Database for PostgreSQL
 * Azure Database Migration
 * Azure Databricks
+* Azure Migrate
 * Batch AI
 * 인증서 - App Service Certificate를 이동할 수 있지만 업로드된 인증서에는 [제한](#app-service-limitations)이 있습니다.
 * Container Instances
@@ -237,8 +291,6 @@ Key Vault에 저장된 인증서가 있는 Virtual Machines는 동일한 구독�
 피어링된 가상 네트워크를 이동하려면 먼저 가상 네트워크 피어링을 사용하지 않도록 설정해야 합니다. 사용하지 않도록 설정되면 가상 네트워크를 이동할 수 있습니다. 이동 후에는 가상 네트워크 피어링을 사용하도록 다시 설정합니다.
 
 리소스 탐색 링크가 있는 서브넷이 가상 네트워크에 있는 경우 가상 네트워크를 다른 구독으로 이동할 수 없습니다. 예를 들어 Redis Cache 리소스가 서브넷에 배포된 경우 해당 서브넷에는 리소스 탐색 링크가 있습니다.
-
-사용자 지정 DNS 서버가 가상 네트워크에 있는 경우 가상 네트워크를 다른 구독으로 이동할 수 없습니다. 가상 네트워크를 이동하려면 Default(Azure 제공) DNS 서버로 설정합니다. 이동 후 사용자 지정 DNS 서버를 다시 구성합니다.
 
 ## <a name="app-service-limitations"></a>App Service 제한
 

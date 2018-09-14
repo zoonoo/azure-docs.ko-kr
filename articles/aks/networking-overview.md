@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 08/08/2018
+ms.date: 08/31/2018
 ms.author: marsma
-ms.openlocfilehash: 051402a319e1dc26145b5a1602a4caeffa7fba19
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: e78be76d68cf75cf9d59f5b5dff86c65524275a9
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445510"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697244"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 네트워크 구성
 
@@ -27,8 +27,7 @@ AKS(Azure Kubernetes Service) 클러스터를 만들 때 두 가지 네트워킹
 
 ## <a name="advanced-networking"></a>고급 네트워킹
 
-
-  **고급** 네트워킹에서는 구성하는 Azure VNet(Virtual Network)에 Pod가 배치되며, VNet 리소스에 자동으로 연결되고 VNet이 제공하는 풍부한 기능 집합과 통합될 수 있습니다. 고급 네트워킹은 [Azure Portal][portal], Azure CLI 또는 Resource Manager 템플릿을 사용하여 AKS 클러스터를 배포할 때 사용할 수 있습니다.
+**고급** 네트워킹에서는 구성하는 Azure VNet(Virtual Network)에 Pod가 배치되며, VNet 리소스에 자동으로 연결되고 VNet이 제공하는 풍부한 기능 집합과 통합될 수 있습니다. 고급 네트워킹은 [Azure Portal][portal], Azure CLI 또는 Resource Manager 템플릿을 사용하여 AKS 클러스터를 배포할 때 사용할 수 있습니다.
 
 고급 네트워킹용으로 구성된 AKS 클러스터의 노드는 [Azure CNI(컨테이너 네트워킹 인터페이스)][cni-networking] Kubernetes 플러그 인을 사용합니다.
 
@@ -48,30 +47,28 @@ AKS(Azure Kubernetes Service) 클러스터를 만들 때 두 가지 네트워킹
 
 ## <a name="advanced-networking-prerequisites"></a>고급 네트워킹 필수 구성 요소
 
-* AKS 클러스터에 대한 VNet은 아웃바운드 인터넷 연결을 허용해야 합니다.
+* AKS 클러스터에 대한 가상 네트워크는 아웃바운드 인터넷 연결을 허용해야 합니다.
 * 동일한 서브넷에 둘 이상의 AKS 클러스터를 만들지 마십시오.
 * AKS 클러스터는 Kubernetes 서비스 주소 범위에 `169.254.0.0/16`, `172.30.0.0/16` 또는 `172.31.0.0/16`을 사용하지 못할 수도 있습니다.
-* AKS 클러스터에서 사용되는 서비스 주체에는 VNet 내의 서브넷에 대해 [네트워크 참가자](../role-based-access-control/built-in-roles.md#network-contributor) 이상의 권한이 있어야 합니다. 기본 제공 네트워크 참가자 역할을 사용하는 대신 [사용자 지정 역할](../role-based-access-control/custom-roles.md)을 정의하려는 경우 다음 권한이 필요합니다.
+* AKS 클러스터에서 사용되는 서비스 주체에는 가상 네트워크 내의 서브넷에 대해 [네트워크 참가자](../role-based-access-control/built-in-roles.md#network-contributor) 이상의 권한이 있어야 합니다. 기본 제공 네트워크 참가자 역할을 사용하는 대신 [사용자 지정 역할](../role-based-access-control/custom-roles.md)을 정의하려는 경우 다음 권한이 필요합니다.
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
 ## <a name="plan-ip-addressing-for-your-cluster"></a>클러스터에 대한 IP 주소 지정 계획
 
-고급 네트워킹으로 구성한 클러스터에는 추가 계획이 필요합니다. VNet 및 해당 서브넷의 크기는 실행하려는 Pod의 수와 클러스터에 대한 노드 수에 부합되어야 합니다.
+고급 네트워킹으로 구성한 클러스터에는 추가 계획이 필요합니다. 가상 네트워크 및 해당 서브넷의 크기는 실행하려는 Pod의 수와 클러스터에 대한 노드 수에 부합되어야 합니다.
 
-Pod 및 클러스터 노드의 IP 주소는 VNet 내의 지정된 서브넷에서 할당됩니다. 각 노드는 노드의 IP인 기본 IP와 노드에 예약된 Pod에 할당되어 있는 Azure CNI에서 미리 구성된 30개의 추가 IP 주소로 구성됩니다. 클러스터를 스케일 아웃할 때 각 노드는 서브넷의 IP 주소로 비슷하게 구성됩니다.
+Pod 및 클러스터 노드의 IP 주소는 가상 네트워크 내의 지정된 서브넷에서 할당됩니다. 각 노드는 노드의 IP인 기본 IP와 노드에 예약된 Pod에 할당되어 있는 Azure CNI에서 미리 구성된 30개의 추가 IP 주소로 구성됩니다. 클러스터를 스케일 아웃할 때 각 노드는 서브넷의 IP 주소로 비슷하게 구성됩니다.
 
-AKS 클러스터에 대한 IP 주소 계획은 노드 및 Pod에 대한 하나 이상의 서브넷에서 VNet 및 Kubernetes 서비스 주소 범위로 구성됩니다.
+AKS 클러스터에 대한 IP 주소 계획은 노드 및 Pod에 대한 하나 이상의 서브넷에서 가상 네트워크 및 Kubernetes 서비스 주소 범위로 구성됩니다.
 
 | 주소 범위 / Azure 리소스 | 한도 및 크기 조정 |
 | --------- | ------------- |
-| 가상 네트워크 | Azure VNet은 /8만큼 클 수 있지만 16,000개의 구성된 IP 주소만을 가질 수 있습니다. |
+| 가상 네트워크 | Azure Virtual Network는 /8 이하일 수 있지만 구성된 IP 주소 수는 65,536개로 제한됩니다. |
 | 서브넷 | 클러스터에서 프로비전될 수 있는 노드, 포드와 모든 Kubernetes 및 Azure 리소스를 수용할 만큼 커야 합니다. 예를 들어, 내부 Azure Load Balancer를 배포하는 경우, 해당 프런트 엔드 IP는 공용 IP가 아닌 클러스터 서브넷에서 할당됩니다. <p/>‘최소’ 서브넷 크기를 계산하려면: `(number of nodes) + (number of nodes * pods per node)` <p/>50 노드 클러스터의 예: `(50) + (50 * 30) = 1,550`(/21 이상) |
-| Kubernetes 서비스 주소 범위 | 이 범위는 이 VNet 또는 이 VNet에 연결된 모든 네트워크 요소에서 사용하지 말아야 합니다. 서비스 주소 CIDR은 /12보다 작아야 합니다. |
+| Kubernetes 서비스 주소 범위 | 이 범위는 이 가상 네트워크 또는 이 가상 네트워크에 연결된 모든 네트워크 요소에서 사용하지 말아야 합니다. 서비스 주소 CIDR은 /12보다 작아야 합니다. |
 | Kubernetes DNS 서비스 IP 주소 | 클러스터 서비스 검색에서 사용되는 Kubernetes 서비스 주소 범위 내의 IP 주소입니다(kube-dns). |
 | Docker 브리지 주소 | 노드에서 Docker 브리지 IP 주소로 사용되는 IP 주소(CIDR 표기법)입니다. 172.17.0.1/16의 기본값 |
-
-Azure CNI 플러그 인에서 사용하기 위해 프로비전된 각 VNet은 **16,000개의 구성된 IP 주소**로 제한됩니다.
 
 ## <a name="maximum-pods-per-node"></a>노드당 최대 포드
 
@@ -79,37 +76,46 @@ AKS 클러스터의 노드당 기본 최대 포드 수는 기본 및 고급 네�
 
 ### <a name="default-maximum"></a>기본 최댓값
 
-* 기본 네트워킹: **노드당 110개 포드**
-* 고급 네트워킹: **노드당 30개 포드**
+이 값은 배포 시간이 최대 Pod 수를 지정하지 않고 AKS 클러스터를 배포할 때의 기본 *최댓값*입니다.
 
-### <a name="configure-maximum"></a>최댓값 구성
+| 배포 방법 | Basic | 고급 | 배포 시 구성 가능 |
+| -- | :--: | :--: | -- |
+| Azure CLI | 110 | 30 | yes |
+| Resource Manager 템플릿 | 110 | 30 | yes |
+| 포털 | 110 | 30 | 아니요 |
 
-배포 방법에 따라 AKS 클러스터의 노드당 최대 포드 수를 수정할 수 있습니다.
+### <a name="configure-maximum---new-clusters"></a>최댓값 구성 - 새 클러스터
+
+AKS 클러스터를 배포하는 경우 노드당 다른 최대 Pod 수를 지정하려면
 
 * **Azure CLI**: [az aks create][az-aks-create] 명령을 사용하여 클러스터를 배포할 때 `--max-pods` 인수를 지정합니다.
 * **Resource Manager 템플릿**: Resource Manager 템플릿을 사용하여 클러스터를 배포할 때 [ManagedClusterAgentPoolProfile] 개체에 `maxPods` 속성을 지정합니다.
 * **Azure Portal**: Azure Portal로 클러스터를 배포할 경우에는 노드당 최대 포드 수를 수정할 수 없습니다. 고급 네트워킹 클러스터는 Azure Portal에 배포할 경우, 노드당 30개 포드로 제한됩니다.
 
+### <a name="configure-maximum---existing-clusters"></a>최댓값 구성 - 기존 클러스터
+
+기존 AKS 클러스터의 노드당 최대 Pod 수는 변경할 수 없습니다. 클러스터를 처음 배포할 때만 이 값을 조정할 수 있습니다.
+
 ## <a name="deployment-parameters"></a>배포 매개 변수
 
 AKS 클러스터를 만들 때 고급 네트워킹에서 다음 매개 변수를 구성할 수 있습니다.
 
-**가상 네트워크**: Kubernetes 클러스터를 배포하려는 VNet입니다. 클러스터에 대해 새 VNet을 만들려는 경우 *새로 만들기*를 선택하고 *가상 네트워크 만들기* 섹션의 단계를 따릅니다. VNet은 16,000개의 구성된 IP 주소로 제한됩니다.
+**가상 네트워크**: Kubernetes 클러스터를 배포하려는 가상 네트워크입니다. 클러스터에 대해 새 가상 네트워크를 만들려는 경우 *새로 만들기*를 선택하고 *가상 네트워크 만들기* 섹션의 단계를 따릅니다. Azure Virtual Network의 제한 및 할당량에 대한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)을 참조하세요.
 
-**서브넷**: 클러스터를 배포하려는 VNet 내의 서브넷입니다. 클러스터에 대해 VNet에 새 서브넷을 만들려는 경우 *새로 만들기*를 선택하고 *서브넷 만들기* 섹션의 단계를 따릅니다.
+**서브넷**: 클러스터를 배포하려는 가상 네트워크 내의 서브넷입니다. 클러스터에 대해 가상 네트워크에 새 서브넷을 만들려는 경우 *새로 만들기*를 선택하고 *서브넷 만들기* 섹션의 단계를 따릅니다.
 
 **Kubernetes 서비스 주소 범위**: Kubernetes가 클러스터에서 [서비스][services]에 할당하는 가상 IP의 집합입니다. 다음 요구 사항을 충족하는 모든 개인 주소 범위를 사용할 수 있습니다.
 
-* 클러스터의 VNet IP 주소 범위에 속하지 않아야 합니다.
-* 클러스터 VNet이 피어링한 다른 VNet과 겹치지 않아야 합니다.
+* 클러스터의 가상 네트워크 IP 주소 범위에 속하지 않아야 합니다.
+* 클러스터 가상 네트워크가 피어링된 다른 가상 네트워크와 겹치지 않아야 합니다.
 * 온-프레미스 IP와 겹치지 않아야 합니다.
 * `169.254.0.0/16`, `172.30.0.0/16` 또는 `172.31.0.0/16` 범위에 속하지 않아야 합니다.
 
-기술적으로 클러스터와 동일한 VNet 내에 서비스 주소 범위를 지정할 수 있지만 이는 권장되지 않습니다. 겹치는 IP 범위를 사용한 경우 예측할 수 없는 동작이 발생할 수 있습니다. 자세한 내용은 이 문서의 [FAQ](#frequently-asked-questions) 섹션을 참조하세요. Kubernetes 서비스에 자세한 내용은 Kubernetes 설명서의 [서비스][services]를 참조하세요.
+기술적으로 클러스터와 동일한 가상 네트워크 내의 서비스 주소 범위를 지정할 수 있지만 이는 권장되지 않습니다. 겹치는 IP 범위를 사용한 경우 예측할 수 없는 동작이 발생할 수 있습니다. 자세한 내용은 이 문서의 [FAQ](#frequently-asked-questions) 섹션을 참조하세요. Kubernetes 서비스에 자세한 내용은 Kubernetes 설명서의 [서비스][services]를 참조하세요.
 
 **Kubernetes DNS 서비스 IP 주소**: 클러스터의 DNS 서비스의 IP 주소입니다. 이 주소는 *Kubernetes 서비스 주소 범위*에 속해야 합니다.
 
-**Docker 브리지 주소**: Docker 브리지에 할당할 IP 주소 및 네트워크 마스크입니다. 이 IP 주소는 클러스터의 VNet IP 주소 범위에 속하지 않아야 합니다.
+**Docker 브리지 주소**: Docker 브리지에 할당할 IP 주소 및 네트워크 마스크입니다. 이 IP 주소는 클러스터의 가상 네트워크 IP 주소 범위에 속하지 않아야 합니다.
 
 ## <a name="configure-networking---cli"></a>네트워킹 구성 - CLI
 
@@ -141,7 +147,7 @@ Azure Portal의 다음 스크린샷은 AKS 클러스터를 만드는 동안 이�
 
 * *내 클러스터 서브넷에 VM을 배포할 수 있나요?*
 
-  아니요. Kubernetes 클러스터에서 사용되는 서브넷에 VM을 배포하는 것은 지원되지 않습니다. VM은 동일한 VNet의 다른 서브넷에 배포할 수 있습니다.
+  아니요. Kubernetes 클러스터에서 사용되는 서브넷에 VM을 배포하는 것은 지원되지 않습니다. VM은 동일한 가상 네트워크의 다른 서브넷에 배포할 수 있습니다.
 
 * *Pod별 네트워크 정책을 구성할 수 있나요?*
 
@@ -151,13 +157,15 @@ Azure Portal의 다음 스크린샷은 AKS 클러스터를 만드는 동안 이�
 
   예. Azure CLI 또는 Resource Manager 템플릿을 사용하여 클러스터를 배포할 경우입니다. [노드당 최대 포드](#maximum-pods-per-node)를 참조하세요.
 
+  기존 클러스터의 노드당 최대 Pod 수는 변경할 수 없습니다.
+
 * *AKS 클러스터를 만드는 동안 만든 서브넷에 대해 추가 속성을 구성하려면 어떻게 해야 하나요? 예를 들어, 서비스 엔드포인트를 구성한다고 가정해보세요.*
 
-  AKS 클러스터를 만드는 동안 만든 VNet과 서브넷에 대한 속성의 전체 목록은 Azure Portal의 표준 VNet 구성 페이지에서 구성할 수 있습니다.
+  AKS 클러스터를 만드는 동안 만든 가상 네트워크와 서브넷에 대한 속성의 전체 목록은 Azure Portal의 표준 가상 네트워크 구성 페이지에서 구성할 수 있습니다.
 
-* **Kubernetes 서비스 주소 범위**에 대해 *내 클러스터 VNet 내의 다른 서브넷을 사용할 수 있나요*?
+* **Kubernetes 서비스 주소 범위**에 대해 *내 클러스터 가상 네트워크 내의 다른 서브넷을 사용할 수 있나요*?
 
-  권장되지 않지만 이 구성은 가능합니다. 서비스 주소 범위는 Kubernetes가 클러스터에서 서비스에 할당하는 VIP(가상 IP)의 집합입니다. Azure 네트워킹은 Kubernetes 클러스터의 서비스 IP 범위를 볼 수 없습니다. 클러스터의 서비스 주소 범위에 대한 가시성 부족으로 인해 서비스 주소 범위와 겹치는 클러스터 VNet에서 나중에 새 서브넷을 만들 수 있습니다. 이러한 중복이 발생하는 경우 Kubernetes는 예기치 않은 동작이나 오류를 일으키는, 서브넷의 다른 리소스에서 이미 사용 중인 IP를 서비스에 할당할 수 있습니다. 클러스터의 VNet 외부에서 주소 범위를 사용하는 것을 확인하여 겹치는 위험을 방지할 수 있습니다.
+  권장되지 않지만 이 구성은 가능합니다. 서비스 주소 범위는 Kubernetes가 클러스터에서 서비스에 할당하는 VIP(가상 IP)의 집합입니다. Azure 네트워킹은 Kubernetes 클러스터의 서비스 IP 범위를 볼 수 없습니다. 클러스터의 서비스 주소 범위에 대한 가시성 부족으로 인해 서비스 주소 범위와 겹치는 클러스터 가상 네트워크에서 나중에 새 서브넷을 만들 수 있습니다. 이러한 중복이 발생하는 경우 Kubernetes는 예기치 않은 동작이나 오류를 일으키는, 서브넷의 다른 리소스에서 이미 사용 중인 IP를 서비스에 할당할 수 있습니다. 클러스터의 가상 네트워크 외부에서 주소 범위를 사용하는 것을 확인하여 겹치는 위험을 방지할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

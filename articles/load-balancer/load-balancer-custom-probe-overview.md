@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/28/2018
+ms.date: 09/04/2018
 ms.author: kumud
-ms.openlocfilehash: 5ceddb1bcd6ce89f7014e034b56c873f02cc2007
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: ecc33fc6078dac4affe3942f1be7e039ae9e9e70
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190736"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695428"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer 상태 프로브
 
@@ -36,7 +36,7 @@ Azure Load Balancer는 상태 프로브를 사용하여 새 흐름을 받을 백
 > [!IMPORTANT]
 > Load Balancer 상태 프로브는 168.63.129.16 IP 주소에서 시작되며, 프로브에서 인스턴스를 표시하기 위해 차단되지 않아야 합니다.  자세한 내용은 [원본 IP 주소 프로브](#probesource)를 검토하세요.
 
-## <a name="types"></a>상태 프로브 유형
+## <a name="types"></a>프로브 유형
 
 상태 프로브는 실제 서비스가 제공되는 포트를 포함하여 백 엔드 인스턴스의 모든 포트를 관찰할 수 있습니다. 다음과 같은 세 가지 유형의 상태 프로브에 대해 상태 프로브 프로토콜을 구성할 수 있습니다.
 

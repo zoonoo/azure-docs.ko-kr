@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Insights로 라이브 ASP.NET 웹앱 모니터링 | Microsoft Docs"
-description: "다시 배포하지 않고 웹 사이트의 성능을 모니터링합니다. VM 또는 Azure의 온-프레미스에서 호스트되는 ASP.NET 웹앱으로 작업합니다."
+title: Azure Application Insights로 라이브 ASP.NET 웹앱 모니터링 | Microsoft Docs
+description: 다시 배포하지 않고 웹 사이트의 성능을 모니터링합니다. VM 또는 Azure의 온-프레미스에서 호스트되는 ASP.NET 웹앱으로 작업합니다.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -10,21 +10,21 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 05/05/2017
+ms.topic: conceptual
+ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 869ea96072b1492db929c16cfb1e22b0c96bca7d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 54a335cf1386ab29c0e0214bccf1f53a076da02b
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783541"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Application Insights를 사용한 런타임 시 웹앱 계측
 
-
 코드를 수정하거나 다시 배포할 필요 없이 Azure Application Insights를 사용하여 라이브 웹앱을 계측할 수 있습니다. 앱이 온-프레미스 IIS 서버에서 호스트되는 경우 상태 모니터를 설치합니다. Azure 웹앱이거나 Azure VM에서 실행되는 경우 Azure 제어판의 Application Insights 모니터링에서 전환할 수 있습니다. ([라이브 J2EE 웹앱](app-insights-java-live.md) 및 [Azure Cloud Services](app-insights-cloudservices.md)를 계측하는 방법을 설명하는 별도의 문서도 있습니다.) [Microsoft Azure](http://azure.com) 구독이 필요합니다.
 
-![예제 차트](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
+![실패한 요청, 서버 응답 시간 및 서버 요청에 대한 정보를 포함하는 App Insights 개요 그래프 스크린샷](./media/app-insights-monitor-performance-live-website-now/overview-graphs.png)
 
 Application Insights를 .NET 웹 응용 프로그램에 적용하는 세 가지 경로가 있습니다.
 
@@ -36,14 +36,14 @@ Application Insights를 .NET 웹 응용 프로그램에 적용하는 세 가지 
 
 |  | 빌드 시간 | 실행 시간 |
 | --- | --- | --- |
-| 요청 및 예외 |예 |예 |
-| [자세한 예외 정보](app-insights-asp-net-exceptions.md) | |예 |
+| 요청 및 예외 |yes |yes |
+| [자세한 예외 정보](app-insights-asp-net-exceptions.md) | |yes |
 | [종속성 진단](app-insights-asp-net-dependencies.md) |.NET 4.6+, 간단히 |예, 전체 세부 정보: 결과 코드, SQL 명령 텍스트, HTTP 동사|
-| [시스템 성능 카운터](app-insights-performance-counters.md) |예 |예 |
-| [사용자 지정 원격 분석에 대 한 API][api] |예 |아니요 |
-| [추적 로그 통합](app-insights-asp-net-trace-logs.md) |예 |아니요 |
-| [페이지 보기 및 사용자 데이터](app-insights-javascript.md) |예 |아니요 |
-| 코드를 다시 빌드해야 함 |예 | 아니요 |
+| [시스템 성능 카운터](app-insights-performance-counters.md) |yes |yes |
+| [사용자 지정 원격 분석에 대 한 API][api] |yes |아니요 |
+| [추적 로그 통합](app-insights-asp-net-trace-logs.md) |yes |아니요 |
+| [페이지 보기 및 사용자 데이터](app-insights-javascript.md) |yes |아니요 |
+| 코드를 다시 빌드해야 함 |yes | 아니요 |
 
 
 ## <a name="monitor-a-live-azure-web-app"></a>라이브 Azure 웹앱 모니터링

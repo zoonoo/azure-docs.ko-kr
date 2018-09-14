@@ -9,12 +9,12 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 105da0219efd7bf7c9a105a018dda7ea5b084cfd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 048647f1657a5674bcb508b20b7c57a8a6ed5ed9
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35375350"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665025"
 ---
 # <a name="use-the-anomaly-finder-api-with-javascript"></a>Javascript 및 Anomaly Finder API 사용
 
@@ -30,7 +30,9 @@ ms.locfileid: "35375350"
 
 ### <a name="example-of-time-series-data"></a>시계열 데이터의 예
 
-시계열 데이터 요소의 예는 다음과 같습니다. [!INCLUDE [Request](../includes/request.md)]
+시계열 데이터 요소의 예는 다음과 같습니다.
+
+[!INCLUDE [Request](../includes/request.md)]
 
 ### <a name="analyze-data-and-get-anomaly-points-javascript-example"></a>데이터 분석 및 변칙 요소 Javascript 예제 가져오기
 

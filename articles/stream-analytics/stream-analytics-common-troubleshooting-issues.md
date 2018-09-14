@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: d3b01e75a9b34ce4e38138816935bdae2e0ea778
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: d7784792cd7e1475028dc0a5e9664916f1d45a07
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42144345"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699222"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>Stream Analytics의 일반적인 문제 및 문제를 해결하는 단계
 
@@ -26,7 +26,7 @@ ms.locfileid: "42144345"
 
 ![입력 타일](media/stream-analytics-malformed-events/inputs_tile.png)
 
-자세한 내용을 보려면 진단 로그를 사용하여 경고의 세부 정보를 확인하십시오. 형식이 잘못된 입력 이벤트의 경우 실행 로그에는 다음과 같은 메시지와 함께 항목이 포함됩니다. "메시지: 리소스 <blob URI>의 입력 이벤트를 JSON으로 역직렬화할 수 없습니다." 
+자세한 내용을 보려면 진단 로그를 사용하여 경고의 세부 정보를 확인하십시오. 형식이 잘못된 입력 이벤트의 경우 실행 로그에는 다음과 같은 메시지와 함께 항목이 포함됩니다. “메시지: 리소스 <blob URI>의 입력 이벤트를 JSON으로 역직렬화할 수 없습니다.” 
 
 ### <a name="troubleshooting-steps"></a>문제 해결 단계
 

@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 7e2634db33d760207e9190b9955bd1f2ead179be
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: de9abac2839341e1744a694daaaa0befdff4e7fa
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123157"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668583"
 ---
 # <a name="supported-languages-for-speech-service"></a>Speech Service에 대해 지원되는 언어
 
@@ -39,7 +39,7 @@ Microsoft Speech Recognition API는 다음 언어를 지원합니다.
 
 ## <a name="text-to-speech"></a>텍스트에서 음성 변환
 
-**Text to Speech** API는 각각 로캘로 식별되는 특정 언어를 지원하는 다음과 같은 음성을 제공합니다.
+Speech Synthesis API는 각각 로캘로 식별되는 특정 언어를 지원하는 다음과 같은 음성을 제공합니다.
 
 로캘 | 언어 | 성별 | 서비스 이름 매핑
 -------|----------|---------|--------------------
@@ -128,13 +128,16 @@ zh-TW | 중국어(대만)|Female | “Microsoft Server Speech Text to Speech Voi
 
 ### <a name="customization"></a>사용자 지정
 
-사용자 지정 **Text to Speech** 음성 글꼴은 미국 영어(en-US) 및 중국어(zh-CN)를 지원합니다.
+음성 사용자 지정이 가능한 언어는 미국 영어(en-US), 본토 중국어(zh-CN) 및 이탈리아어(it-IT)입니다.
+
+> [!NOTE]
+> 이탈리아 음성 학습은 2,000개 이상의 발언으로 이루어진 데이터 집합으로 시작합니다. 중국어-영어 이중 언어 모델도 2,000개 이상의 발언으로 이루어진 초기 데이터 집합으로 지원됩니다.
 
 ## <a name="speech-translation"></a>Speech Translation
 
 **Speech Translation** API는 음성 간 음성 및 음성을 텍스트로 번역에 대해 다른 언어를 지원합니다. 원본 언어는 항상 아래의 음성 언어 테이블에 나와 있는 것이어야 합니다. 사용 가능한 대상 언어는 번역 대상이 음성인지 또는 텍스트인지에 따라 달라집니다.
 
-프로그래밍 방식으로 또는 REST API의 언어 엔드포인트를 사용하여 언어 목록을 가져올 수 있습니다. 목록에서는 영어 또는 지원되는 다른 언어의 언어 이름뿐만 아니라 각 언어 코드도 제공합니다. 이 목록은 새 언어를 사용할 수 있을 때마다 Microsoft Translator 서비스에서 업데이트됩니다.
+REST API의 언어 엔드포인트를 사용하여 프로그래밍 방식으로 언어 목록을 가져올 수 있습니다. 목록에서는 영어 또는 지원되는 다른 언어의 언어 이름뿐만 아니라 각 언어 코드도 제공합니다. 이 목록은 새 언어를 사용할 수 있을 때마다 Microsoft Translator 서비스에서 업데이트됩니다.
 
 ### <a name="speech-languages"></a>음성 언어
 

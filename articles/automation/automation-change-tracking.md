@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/27/2018
+ms.date: 08/31/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8066612db20d1569920835a67d84b27d1b852e6e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 0707726ec86b0a0c69d1ec752ebd6761327f3f0f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128129"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669486"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적
 
@@ -27,8 +27,7 @@ ms.locfileid: "43128129"
 
 Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식적으로 지원됩니다.
 
-* Windows Server 2008 SP1(서비스 팩 1) 이상
-* Windows 7 SP1 이상.
+* Windows Server 2008 R2 이상
 
 ## <a name="supported-linux-operating-systems"></a>지원되는 Linux 운영 체제
 
@@ -47,8 +46,8 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 변경 내용 추적을 시작하려면 Automation 계정에 대한 변경 내용 추적 및 인벤토리 솔루션을 사용하도록 설정해야 합니다.
 
 1. Azure Portal에서 Automation 계정으로 이동합니다.
-1. **구성** 아래에서 **변경 내용 추적**을 선택합니다.
-1. 기존 Log Analytics 작업 영역을 선택하거나 **새 작업 영역 만들기**를 클릭하고 **사용**을 클릭합니다.
+2. **구성** 아래에서 **변경 내용 추적**을 선택합니다.
+3. 기존 Log Analytics 작업 영역을 선택하거나 **새 작업 영역 만들기**를 클릭하고 **사용**을 클릭합니다.
 
 이렇게 하면 Automation 계정에 대한 솔루션을 사용할 수 있습니다. 솔루션을 사용하도록 설정하는 데 최대 15분이 걸릴 수 있습니다. 솔루션을 사용하도록 설정되면 파란색 배너에서 알려줍니다. **변경 내용 추적** 페이지로 다시 이동하여 솔루션을 관리합니다.
 

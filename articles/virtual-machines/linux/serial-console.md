@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: d4ca44268740f48702594d9c87aa568d4f8eecb6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 857998c73abed76c9e20d5b3422ce607fb9f733d
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122408"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782884"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>가상 머신 직렬 콘솔(미리 보기) 
 
 
-Azure의 가상 머신 직렬 콘솔은 Linux 및 Windows 가상 머신용 텍스트 기반 콘솔에 대한 액세스를 제공합니다. 직렬 연결은 가상 머신의 COM1 직렬 포트에 연결되며, 가상 머신에 대한 액세스를 제공하고 가상 머신의 네트워크/운영 체제 상태와 관련이 없습니다. 가상 머신의 직렬 콘솔에 대한 액세스는 현재 Azure Portal을 통해서만 가능하며 가상 머신에 대해 VM 참가자 이상의 액세스 권한이 있는 사용자에게만 허용됩니다. 
+Azure의 가상 머신 직렬 콘솔은 Linux 가상 머신용 텍스트 기반 콘솔에 대한 액세스를 제공합니다. 직렬 연결은 가상 머신의 COM1 직렬 포트에 연결되며, 가상 머신의 네트워크 또는 운영 체제 상태와는 관련이 없는 가상 머신에 대한 액세스를 제공합니다. 가상 머신의 직렬 콘솔에 대한 액세스는 현재 Azure Portal을 통해서만 가능하며 가상 머신에 대해 VM 참가자 이상의 액세스 권한이 있는 사용자에게만 허용됩니다. 
 
 Windows VM에 대한 직렬 콘솔 설명서를 보려면 [여기를 클릭](../windows/serial-console.md)하세요.
 
@@ -38,7 +38,7 @@ Windows VM에 대한 직렬 콘솔 설명서를 보려면 [여기를 클릭](../
 * 가상 머신에 [부트 진단](boot-diagnostics.md)을 사용하도록 설정되어 있어야 합니다. 아래 스크린샷을 참조하세요.
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
-    
+
 * 직렬 콘솔을 사용하는 Azure 계정에는 VM에 대한 [기여자 역할](../../role-based-access-control/built-in-roles.md)과 [부트 진단](boot-diagnostics.md) 저장소 계정이 있어야 합니다. 
 * 직렬 콘솔에 액세스하는 가상 머신에도 암호 기반 계정이 있어야 합니다. VM 액세스 확장의 [암호 재설정](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) 기능으로 이러한 계정을 만들 수 있습니다. 아래 스크린샷을 참조하세요.
 
@@ -61,6 +61,29 @@ Windows VM에 대한 직렬 콘솔 설명서를 보려면 [여기를 클릭](../
 
 > [!NOTE] 
 > 직렬 콘솔에는 암호가 구성된 로컬 사용자가 필요합니다. 현재 SSH 공개 키로 구성된 VM만 직렬 콘솔에 액세스할 수 없습니다. 암호가 구성된 로컬 사용자를 만들려면 [VM Access Extension](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension)("암호 재설정"을 클릭하여 포털에서도 사용 가능)을 사용하고 암호가 구성된 로컬 사용자를 만드세요.
+
+## <a name="access-serial-console-for-linux"></a>Linux용 Access Serial Console
+직렬 콘솔이 제대로 작동하려면 게스트 운영 체제가 콘솔 메시지를 읽고 직렬 포트에 쓰도록 구성되어야 합니다. 대부분의 [Azure Linux 보증 배포판](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)에는 직렬 콘솔이 기본적으로 구성되어 있습니다. Azure Portal에서 직렬 콘솔 섹션을 클릭하기만 하면 콘솔에 액세스할 수 있습니다. 
+
+배포판      | 직렬 콘솔 액세스
+:-----------|:---------------------
+Red Hat Enterprise Linux    | Azure에서 사용 가능한 Red Hat Enterprise Linux 이미지는 콘솔 액세스가 기본적으로 활성화되어 있습니다. 
+CentOS      | Azure에서 사용 가능한 CentOS 이미지는 콘솔 액세스가 기본적으로 활성화되어 있습니다. 
+Ubuntu      | Azure에서 사용 가능한 Ubuntu 이미지는 콘솔 액세스가 기본적으로 활성화되어 있습니다.
+CoreOS      | Azure에서 사용 가능한 CoreOS 이미지는 콘솔 액세스가 기본적으로 활성화되어 있습니다.
+SUSE        | Azure에서 사용 가능한 최신 SLES 이미지는 콘솔 액세스가 기본적으로 활성화되어 있습니다. Azure에서 이전 버전의 SLES(10 이하)를 사용하는 경우[기술 자료 문서](https://www.novell.com/support/kb/doc.php?id=3456486)를 참고하여 직렬 콘솔을 사용하도록 설정합니다. 
+Oracle Linux        | Azure에서 사용 가능한 Oracle Linux 이미지는 콘솔 액세스가 기본적으로 활성화되어 있습니다.
+사용자 지정 Linux 이미지     | 사용자 지정 Linux VM 이미지에 대해 직렬 콘솔을 사용하도록 설정하려면 /etc/inittab에서 콘솔 액세스를 사용하도록 설정하여 ttyS0에서 터미널을 실행합니다. 다음은 inittab 파일에 이를 추가하는 예제입니다. `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. 사용자 지정 이미지를 올바르게 만드는 방법에 대한 자세한 내용은 [Azure에서 Linux VHD 생성 및 업로드](https://aka.ms/createuploadvhd)를 참조하세요.
+
+## <a name="common-scenarios-for-accessing-serial-console"></a>직렬 콘솔에 액세스하는 일반적인 시나리오 
+시나리오          | 직렬 콘솔의 작업                
+:------------------|:-----------------------------------------
+FSTAB 파일 손상 | `Enter` 키를 입력하여 계속하고 텍스트 편집기를 사용하여 fstab 파일을 수정합니다. 이 작업을 수행하려면 단일 사용자 모드에 있어야 합니다. 시작하려면 [fstab 문제 해결 방법](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) 및 [직렬 콘솔을 사용하여 GRUB 및 단일 사용자 모드 액세스](serial-console-grub-single-user-mode.md)를 참조하세요.
+잘못된 방화벽 규칙 | 직렬 콘솔에 액세스하고 iptable을 수정합니다. 
+파일 시스템 손상/검사 | 직렬 콘솔에 액세스하여 파일 시스템을 복구합니다. 
+SSH/RDP 구성 문제 | 직렬 콘솔에 액세스하고 설정을 변경합니다. 
+네트워크 시스템 잠금| 포털을 통해 직렬 콘솔에 액세스하여 시스템을 관리합니다. 
+부팅 로더와 상호 작용 | 직렬 콘솔을 통해 GRUB에 액세스합니다. 시작하려면 [직렬 콘솔을 사용하여 GRUB 및 단일 사용자 모드 액세스](serial-console-grub-single-user-mode.md)로 이동하세요. 
 
 ## <a name="disable-serial-console"></a>직렬 콘솔 비활성화
 기본적으로 모든 구독에는 모든 VM에 대한 직렬 콘솔 액세스가 활성화되어 있습니다. 구독 수준 또는 VM 수준에서 직렬 콘솔을 비활성화할 수 있습니다.
@@ -120,31 +143,14 @@ Windows VM에 대한 직렬 콘솔 설명서를 보려면 [여기를 클릭](../
 >[!CAUTION] 
 즉, 연결이 끊긴 사용자는 로그아웃되지 않습니다. 연결 해제 시 로그아웃을 강제 적용하는 기능은(SIGHUP 또는 유사한 메커니즘을 통해) 아직 계획 중입니다. Windows의 경우 SAC에 자동 시간 제한을 사용하도록 설정되어 있지만 Linux에서는 터미널 시간 제한 설정을 구성할 수 있습니다. 이렇게 하려면 콘솔에 로그인할 때 사용한 사용자의 .bash_profile 또는 .profile에 `export TMOUT=600`을 추가하여 10분 후에 세션 시간이 초과되도록 합니다.
 
-### <a name="disable-feature"></a>기능 사용 중지
-특정 VM의 부트 진단 설정을 비활성화하여 VM의 직렬 콘솔 기능을 비활성화할 수 있습니다.
+## <a name="accessibility"></a>접근성
+접근성은 Azure 직렬 콘솔의 핵심 기능입니다. 이를 위해 마우스를 사용하지 못할 수 있는 사용자 뿐만 아니라 시력 및 청력 장애가 있는 사용자가 직렬 콘솔에 액세스할 수 있도록 했습니다.
 
-## <a name="common-scenarios-for-accessing-serial-console"></a>직렬 콘솔에 액세스하는 일반적인 시나리오 
-시나리오          | 직렬 콘솔의 작업                |  OS 적용 가능성 
-:------------------|:-----------------------------------------|:------------------
-FSTAB 파일 손상 | `Enter` 키를 입력하여 계속하고 텍스트 편집기를 사용하여 fstab 파일을 수정합니다. 이 작업을 수행하려면 단일 사용자 모드에 있어야 합니다. 시작하려면 [fstab 문제 해결 방법](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) 및 [직렬 콘솔을 사용하여 GRUB 및 단일 사용자 모드 액세스](serial-console-grub-single-user-mode.md)를 참조하세요. | Linux 
-잘못된 방화벽 규칙 | 직렬 콘솔에 액세스하여 iptables 또는 Windows 방화벽 규칙을 수정합니다. | Linux/Windows 
-파일 시스템 손상/검사 | 직렬 콘솔에 액세스하여 파일 시스템을 복구합니다. | Linux/Windows 
-SSH/RDP 구성 문제 | 직렬 콘솔에 액세스하고 설정을 변경합니다. | Linux/Windows 
-네트워크 시스템 잠금| 포털을 통해 직렬 콘솔에 액세스하여 시스템을 관리합니다. | Linux/Windows 
-부팅 로더와 상호 작용 | 직렬 콘솔을 통해 GRUB/BCD에 액세스합니다. 시작하려면 [직렬 콘솔을 사용하여 GRUB 및 단일 사용자 모드 액세스](serial-console-grub-single-user-mode.md)로 이동하세요. | Linux/Windows 
+### <a name="keyboard-navigation"></a>키보드 탐색
+키보드의 `tab` 키를 사용하여 Azure Portal 내의 직렬 콘솔 인터페이스를 탐색합니다. 사용자 위치는 화면에서 강조 표시됩니다. 직렬 콘솔 블레이드 외부로 포커스를 이동하려면 키보드에서 `Ctrl + F6`를 누릅니다.
 
-## <a name="access-serial-console-for-linux"></a>Linux용 Access Serial Console
-직렬 콘솔이 제대로 작동하려면 게스트 운영 체제가 콘솔 메시지를 읽고 직렬 포트에 쓰도록 구성되어야 합니다. 대부분의 [Azure Linux 보증 배포판](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)에는 직렬 콘솔이 기본적으로 구성되어 있습니다. Azure Portal에서 직렬 콘솔 섹션을 클릭하기만 하면 콘솔에 액세스할 수 있습니다. 
-
-배포판      | 직렬 콘솔 액세스
-:-----------|:---------------------
-Red Hat Enterprise Linux    | Azure에서 사용 가능한 Red Hat Enterprise Linux 이미지는 콘솔 액세스가 기본적으로 활성화되어 있습니다. 
-CentOS      | Azure에서 사용 가능한 CentOS 이미지는 콘솔 액세스가 기본적으로 활성화되어 있습니다. 
-Ubuntu      | Azure에서 사용 가능한 Ubuntu 이미지는 콘솔 액세스가 기본적으로 활성화되어 있습니다.
-CoreOS      | Azure에서 사용 가능한 CoreOS 이미지는 콘솔 액세스가 기본적으로 활성화되어 있습니다.
-SUSE        | Azure에서 사용 가능한 최신 SLES 이미지는 콘솔 액세스가 기본적으로 활성화되어 있습니다. Azure에서 이전 버전의 SLES(10 이하)를 사용하는 경우[기술 자료 문서](https://www.novell.com/support/kb/doc.php?id=3456486)를 참고하여 직렬 콘솔을 사용하도록 설정합니다. 
-Oracle Linux        | Azure에서 사용 가능한 Oracle Linux 이미지는 콘솔 액세스가 기본적으로 활성화되어 있습니다.
-사용자 지정 Linux 이미지     | 사용자 지정 Linux VM 이미지에 대해 직렬 콘솔을 사용하도록 설정하려면 /etc/inittab에서 콘솔 액세스를 사용하도록 설정하여 ttyS0에서 터미널을 실행합니다. 다음은 inittab 파일에 이를 추가하는 예제입니다. `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. 사용자 지정 이미지를 올바르게 만드는 방법에 대한 자세한 내용은 [Azure에서 Linux VHD 생성 및 업로드](https://aka.ms/createuploadvhd)를 참조하세요.
+### <a name="use-serial-console-with-a-screen-reader"></a>화면 읽기 프로그램에서 직렬 콘솔 사용
+직렬 콘솔은 기본적으로 화면 읽기 프로그램을 지원합니다. 화면 읽기 프로그램을 켠 상태로 탐색하면 화면 읽기 프로그램은 현재 선택한 단추에 대한 alt 텍스트를 큰 소리로 읽을 수 있습니다.
 
 ## <a name="errors"></a>오류
 대부분의 오류는 본래 일시적이며 직렬 콘솔에 연결을 다시 시도하면 해결되는 경우가 많습니다. 아래 테이블에는 오류 및 해결 방법 목록이 있습니다.
@@ -164,6 +170,7 @@ VM이 중지된 할당 취소 상태입니다. VM을 시작하고 직렬 콘솔 
 가상 머신 확장 집합 인스턴스 직렬 콘솔에 옵션이 없습니다. |  미리 보기 단계에서는 가상 머신 확장 집합 인스턴스의 직렬 콘솔에 대한 액세스가 지원되지 않습니다.
 연결 배너가 표시된 후 Enter를 눌러도 로그인 프롬프트가 표시되지 않습니다. | [Enter를 누르면 아무 작업도 수행되지 않습니다.](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md) 페이지를 참조하세요. 이런 문제는 Linux가 직렬 포트에 제대로 연결하지 못하게 하는 사용자 지정 VM, 강화된 어플라이언스 또는 GRUB 구성을 실행하는 경우 발생할 수 있습니다.
 이 VM의 부트 진단 저장소 계정에 액세스할 때 '사용할 수 없음' 응답이 발생했습니다. | 부트 진단에 계정 방화벽이 없는지 확인하세요. 직렬 콘솔이 작동하려면 액세스 가능한 부트 진단 저장소 계정이 필요합니다.
+직렬 콘솔 텍스트는 화면 크기의 일부만 차지합니다(종종 텍스트 편집기를 사용한 이후). | 이것은 직렬 연결 시 알 수 없는 화면 크기에 대한 알려진 문제입니다. ‘크기 조정’ 명령을 제공하는 xterm 또는 기타 유사한 유틸리티를 설치하는 것이 좋습니다. '크기 조정'을 실행하면 이 문제가 해결됩니다.
 
 
 ## <a name="frequently-asked-questions"></a>질문과 대답 
@@ -174,6 +181,15 @@ a. 으로 이동하여 피드백을 제공해 주세요 https://aka.ms/serialcon
 **Q. 직렬 콘솔에 액세스할 수 없습니다. 지원 사례를 어디에서 제출할 수 있나요?**
 
 a. 이 미리 보기 기능은 Azure 미리 보기 약관을 통해 제공됩니다. 이 기능에 대한 지원은 위에 언급된 채널을 통해 처리하는 것이 가장 좋습니다. 
+
+**Q. SSH 연결 대신 직렬 콘솔을 사용할 수 있나요?**
+
+a. 기술적으로는 가능해 보일 수 있지만, 직렬 콘솔은 SSH를 통한 연결이 가능한 상황에서 문제 해결 도구로 주로 사용하도록 디자인되었습니다. 다음 두 가지 이유 때문에 직렬 콘솔을 SSH 대신 사용하는 것이 좋습니다.
+
+1. 직렬 콘솔은 ssh 만큼 대역폭을 제공하지 않습니다. 직렬 콘솔은 텍스트 전용 연결이므로 직렬 콘솔에서는 GUI가 더 많이 사용되는 상호 작업이 어려울 수 있습니다.
+1. 직렬 콘솔 액세스는 현재 사용자 이름 및 암호를 통해서만 진행됩니다. SSH 키는 사용자 이름/암호 조합보다 훨씬 더 안전하므로, 로그인 보안 관점에서는 직렬 콘솔보다 SSH가 더 권장됩니다.
+
+
 
 ## <a name="next-steps"></a>다음 단계
 * 직렬 콘솔을 사용하여 [GRUB로 부팅하고 단일 사용자 모드로 전환](serial-console-grub-single-user-mode.md)

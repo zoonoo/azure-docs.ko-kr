@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/25/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 551276f88f5c27cd860a400a5769c95f4d94cbbb
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 74caf0ab052e1f6558dc20d15d84c01177b3f9cb
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122890"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665583"
 ---
 # <a name="collector-appliance"></a>Collector 어플라이언스
 
@@ -212,17 +212,27 @@ Collector는 컴퓨터 데이터를 검색하여 프로젝트로 보내기만 �
 
 다시 한 번의 OVA를 다운로드하지 않고 수집기를 최신 버전으로 업그레이드할 수 있습니다.
 
-1. 최신 [업그레이드 패키지](https://aka.ms/migrate/col/upgrade_9_13)(버전 1.0.9.13)를 다운로드합니다.
+1. 최신 [업그레이드 패키지](https://aka.ms/migrate/col/upgrade_9_14)(버전 1.0.9.14)를 다운로드합니다.
 2. 다운로드한 핫픽스가 안전한지 확인하려면 관리자 권한 명령 창을 열고 다음 명령을 실행하여 Zip 파일에 대한 해시를 생성합니다. 생성된 해시는 특정 버전에 대해 언급된 해시와 일치해야 합니다.
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-    (example usage C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.7.zip SHA256)
+    (예제 사용량 C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.14.zip SHA256)
 3. Zip 파일을 Azure Migrate 수집기 가상 머신(수집기 어플라이언스)에 복사합니다.
 4. Zip 파일을 마우스 오른쪽 단추로 클릭하고 모두 압축 풀기를 선택합니다.
 5. Setup.ps1 단추를 마우스 오른쪽 단추로 클릭하고 PowerShell과 함께 실행을 선택하고 화면의 지시를 따라 업데이트를 설치합니다.
 
 ### <a name="list-of-updates"></a>업데이트 목록
+
+#### <a name="upgrade-to-version-10914"></a>버전 1.0.9.14로 업그레이드
+
+업그레이드 [패키지 1.0.9.14](https://aka.ms/migrate/col/upgrade_9_14)에 대한 해시 값
+
+**알고리즘** | **해시 값**
+--- | ---
+MD5 | c5bf029e9fac682c6b85078a61c5c79c
+SHA1 | af66656951105e42680dfcc3ec3abd3f4da8fdec
+SHA256 | 58b685b2707f273aa76f2e1d45f97b0543a8c4d017cd27f0bdb220e6984cc90e
 
 #### <a name="upgrade-to-version-10913"></a>버전 1.0.9.13으로 업그레이드
 

@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bf2d1af66cc3ecc35dafe3bcd43bf10399d71641
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 4b4f9bd1c7390d64a0db08b55bfb777498a10cb0
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346718"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382708"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-azure-functions-for-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge용 Azure Functions 개발 및 배포
 
@@ -33,12 +33,11 @@ ms.locfileid: "39346718"
 * [Docker 확장](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 
 모듈을 만들려면 프로젝트 폴더를 빌드하기 위한 .NET, 모듈 이미지를 빌드하기 위한 Docker, 모듈 이미지를 저장하기 위한 컨테이너 레지스트리가 필요합니다.
+
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)
 * 개발 머신의 [Docker Community Edition](https://docs.docker.com/install/) 
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 또는 [Docker 허브](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
-
-   > [!TIP]
-   > 클라우드 레지스트리 대신 로컬 Docker 레지스트리를 프로토타입 및 테스트 목적으로 사용할 수 있습니다. 
+   * 클라우드 레지스트리 대신 로컬 Docker 레지스트리를 프로토타입 및 테스트 목적으로 사용할 수 있습니다. 
 
 장치에서 모듈을 테스트하려면 하나 이상의 IoT Edge 장치가 있는 활성 IoT 허브가 필요합니다. 컴퓨터를 IoT Edge 장치로 사용하려면 [Windows](quickstart.md) 또는 [Linux](quickstart-linux.md)용 빠른 시작의 단계에 따릅니다. 
 
@@ -56,7 +55,9 @@ ms.locfileid: "39346718"
 6. 솔루션에 대한 이름을 입력합니다. 
 7. 솔루션의 첫 번째 모듈에 대한 템플릿으로 **Azure Functions - C#** 을 선택합니다.
 8. 모듈의 이름을 입력합니다. 컨테이너 레지스트리 내에서 고유한 이름을 선택합니다. 
-9. 모듈의 이미지 리포지토리를 입력합니다. VS Code는 **localhost:5000**으로 모듈 이름을 자동으로 채웁니다. 고유한 레지스트리 정보로 바꿉니다. 테스트를 위해 로컬 Docker 레지스트리를 사용하는 경우 **localhost**를 사용해도 됩니다. Azure Container Registry를 사용하는 경우 레지스트리 설정의 로그인 서버를 사용합니다. 로그인 서버는 **\<레지스트리 이름\>.azurecr.io**와 같이 표시됩니다.
+9. 모듈의 이미지 리포지토리를 입력합니다. VS Code는 **localhost:5000**으로 모듈 이름을 자동으로 채웁니다. 고유한 레지스트리 정보로 바꿉니다. 테스트를 위해 로컬 Docker 레지스트리를 사용하는 경우 **localhost**를 사용해도 됩니다. Azure Container Registry를 사용하는 경우 레지스트리 설정의 로그인 서버를 사용합니다. 로그인 서버는 **\<레지스트리 이름\>.azurecr.io**와 같이 표시됩니다. 문자열에서 localhost 부분만 바꾸고, 모듈 이름을 삭제하지 마세요.
+
+   ![Docker 이미지 리포지토리 제공](./media/how-to-develop-csharp-function/repository.png)
 
 VS Code는 입력한 정보를 사용하고, Azure Functions 프로젝트로 IoT Edge 솔루션을 만든 다음, 새 창에서 로드합니다.
 
@@ -73,7 +74,7 @@ VS Code는 입력한 정보를 사용하고, Azure Functions 프로젝트로 IoT
 
 ## <a name="develop-your-module"></a>모듈 개발
 
-솔루션과 함께 제공되는 기본 Azure Function 코드는 **모듈** > **\<모듈 이름\>** > **EdgeHubTrigger-Csharp** > **run.csx**에 위치합니다. 모듈 및 deployment.template.json 파일은 솔루션을 빌드하고, 컨테이너 레지스트리에 푸시하고, 장치에 배포하여 코드를 변경하지 않고 테스트를 시작하도록 설정됩니다. 모듈은 단순히 원본에서 입력을 가져오고(이 경우에 데이터를 시뮬레이션하는 tempSensor 모듈) IoT Hub로 파이핑하도록 빌드됩니다. 
+솔루션과 함께 제공되는 기본 Azure Function 코드는 **모듈** > [모듈 이름] > **EdgeHubTrigger-Csharp** > **run.csx**에 있습니다. 모듈 및 deployment.template.json 파일은 솔루션을 빌드하고, 컨테이너 레지스트리에 푸시하고, 장치에 배포하여 코드를 변경하지 않고 테스트를 시작하도록 설정됩니다. 모듈은 단순히 원본에서 입력을 가져오고(이 경우에 데이터를 시뮬레이션하는 tempSensor 모듈) IoT Hub로 파이핑하도록 빌드됩니다. 
 
 고유한 코드를 사용하여 Azure Function 템플릿을 사용자 지정할 준비가 된 경우 [Azure IoT Hub SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용하여 보안, 장치 관리 및 안정성 등 IoT 솔루션에 대한 주요 요구 사항을 해결하는 모듈을 빌드합니다. 
 
@@ -85,7 +86,7 @@ VS Code는 입력한 정보를 사용하고, Azure Functions 프로젝트로 IoT
 2. 솔루션을 다시 빌드합니다. VS Code 명령 팔레트에서 **Azure IoT Edge: IoT Edge 솔루션 빌드** 명령을 입력하고 실행합니다.
 3. Azure IoT Hub 장치 탐색기에서 IoT Edge 장치 ID를 마우스 오른쪽 단추로 클릭한 다음, **Edge 장치에 대한 배포 만들기**를 선택합니다. `config` 폴더에서 `deployment.json` 파일을 선택합니다. VS Code 통합 터미널에서 배포 ID를 사용하여 생성된 배포가 표시됩니다.
 
-VS Code Docker 탐색기를 사용하거나 터미널에서 `docker images` 명령을 실행하여 컨테이너 상태를 확인합니다.
+VS Code Docker 탐색기를 사용하거나 터미널에서 `docker ps` 명령을 실행하여 컨테이너 상태를 확인합니다.
 
 ## <a name="start-debugging-c-functions-in-vs-code"></a>VS Code에서 C# 함수 디버깅 시작
 1. VS Code는 작업 영역의 `.vscode` 폴더에 위치한 `launch.json` 파일에서 구성 정보를 디버깅하도록 유지합니다. 이 `launch.json` 파일은 새 IoT Edge 솔루션을 만들 때 생성되었으며, 디버깅을 지원하는 새 모듈을 추가할 때마다 업데이트됩니다. 디버그 보기로 이동합니다. 해당하는 디버그 구성 파일을 선택합니다. 디버그 옵션 이름은 **ModuleName 원격 디버그(.NET Core)** 와 비슷합니다.

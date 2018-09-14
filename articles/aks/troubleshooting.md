@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 614930fb11e65404416e604c94351e2754b8e941
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 9f082c5f198ebd7123058bd250d3fef55494d553
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190983"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287542"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 AKS 클러스터를 만들거나 관리할 때 가끔 문제가 발생할 수 있습니다. 이 문서에서는 몇 가지 일반적인 문제 및 문제 해결 단계를 자세히 설명합니다.
@@ -31,9 +31,9 @@ AKS 클러스터를 만들거나 관리할 때 가끔 문제가 발생할 수 �
 노드당 최대 Pod는 Azure Portal에서 AKS 클러스터를 배포하는 경우 기본적으로 30으로 설정됩니다.
 노드당 최대 Pod는 Azure CLI에서 AKS 클러스터를 배포하는 경우 기본적으로 110으로 설정됩니다. (최신 버전의 Azure CLI를 사용하는지 확인합니다.) 이 기본 설정은 az aks create 명령에서 –max-nodes-per-pod 플래그를 사용하여 변경할 수 있습니다.
 
-### <a name="i-am-getting--insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>고급 네트워킹을 사용하여 AKS 클러스터를 배포하는 동안 "insufficientSubnetSize" 오류가 발생합니다. 어떻게 해야 하나요?
+### <a name="i-am-getting-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>고급 네트워킹을 사용하여 AKS 클러스터를 배포하는 동안 “insufficientSubnetSize” 오류가 발생합니다. 어떻게 해야 하나요?
 
-AKS 생성 동안 네트워킹에 대해 사용자 지정 VNET 옵션을 선택하면 IPAM에는 Azure CLI가 사용됩니다. AKS 클러스터의 노드 수는 1에서 100개 사이일 수 있습니다. 위의 2)에 따르면, 서브넷 크기는 노드 수에 노드당 최대 pod 수를 곱한 값보다 커야 합니다. 서브넷 크기 > 클러스터노의 드 수 * 노드당 최대 pod 수
+AKS 생성 동안 네트워킹에 대해 사용자 지정 VNET 옵션을 선택하면 IPAM에는 Azure CLI가 사용됩니다. AKS 클러스터의 노드 수는 1에서 100개 사이일 수 있습니다. 위의 2)에 따르면, 서브넷 크기는 노드 수에 노드당 최대 pod 수를 곱한 값보다 커야 합니다. 즉, 서브넷 크기 > 클러스터노의 드 수 * 노드당 최대 pod 수여야 합니다.
 
 ### <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>내 Pod가 'CrashLoopBackOff' 모드에서 중단됩니다. 어떻게 해야 하나요?
 

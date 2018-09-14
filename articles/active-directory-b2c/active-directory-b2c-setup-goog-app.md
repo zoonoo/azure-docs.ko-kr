@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dd0bf50d73b70e37195e8e5e45336b68e4e883e7
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 477bd6047da639dcf21592a7ec0c1b80844e031e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915642"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337737"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Google 계정으로 등록 설정 및 로그인
 
@@ -30,7 +30,7 @@ Azure AD(Azure Active Directory) B2C에서 Google 계정을 ID 공급자로 사�
 4. **동의 화면 구성**을 선택합니다.
 5. 유효한 **메일 주소**를 선택하거나 지정하고 **사용자에게 표시되는 제품 이름**을 제공한 후 **저장**을 클릭합니다.
 6. **응용 프로그램 형식**에서 **웹 응용 프로그램**을 선택합니다.
-7. 응용 프로그램에 대한 **이름**을 입력하고 **권한이 부여된 JavaScript 원본**에 `https://login.microsoftonline.com`을 입력하고 **권한이 부여된 리디렉션 URI**에 `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`를 입력합니다. **{tenant}** 를 사용자의 테넌트 이름(예: contosob2c.onmicrosoft.com)으로 바꿉니다.
+7. 응용 프로그램에 대한 **이름**을 입력하고 **권한이 부여된 JavaScript 원본**에 `https://{tenant}.b2clogin.com`을 입력하고 **권한이 부여된 리디렉션 URI**에 `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp`를 입력합니다. **{tenant}** 를 사용자의 테넌트 이름(예: contosob2c)으로 바꿉니다.
 8. **만들기**를 클릭합니다.
 9. **클라이언트 ID** 및 **클라이언트 비밀** 값을 복사합니다. 테넌트에서 Google을 ID 공급자로 구성하려면 둘 모두가 필요합니다. **클라이언트 암호** 는 중요한 보안 자격 증명입니다.
 

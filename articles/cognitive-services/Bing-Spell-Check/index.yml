@@ -1,0 +1,76 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: a13532f0dbd687dacffda938e6fbfe5506f60ff8
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35624373"
+documentType: LandingData
+title: Bing Spell Check API 설명서
+metadata:
+  document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
+  title: Bing Spell Check API 설명서 - 자습서, API 참조 - Azure Cognitive Services  | Microsoft Docs
+  description: Bing Spell Check API를 사용하여 텍스트 문서에 대해 제안된 수정을 가져오는 방법을 알아봅니다. 자습서에서는 API를 사용하는 앱을 작성하는 방법을 보여줍니다.
+  services: cognitive-services
+  author: noellelacharite
+  manager: nolachar
+  ms.service: cognitive-services
+  ms.component: bing-spell-check
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/09/2018
+  ms.author: nolachar
+abstract:
+  description: Bing Spell Check API를 사용하면 문맥에 맞는 문법 및 맞춤법 검사를 수행할 수 있습니다. Bing은 기계 학습 및 통계 기계 번역을 활용하여 지속적으로 진화하고 항상 문맥에 맞는 알고리즘을 동적으로 학습하는 웹 기반 맞춤법 검사기를 개발했습니다. 맞춤법 검사기는 웹 검색 및 문서의 대규모 자료를 기반으로 합니다. 빠른 시작, 자습서, 샘플의 여러 방법으로 콘텐츠를 분석하는 방법에 대해 알아봅니다.
+sections:
+- title: 5분 빠른 시작
+  items:
+  - type: paragraph
+    text: 쿼리를 수행하고 JSON 응답을 확인하여 Bing Spell Check API를 사용하기 시작합니다.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/logo_csharp.svg
+      text: C&#35;
+      href: quickstarts/csharp
+    - image:
+        src: media/index/logo_java.svg
+      text: 자바
+      href: quickstarts/java
+    - image:
+        src: media/index/logo_nodejs.svg
+      text: Node.js
+      href: quickstarts/nodejs
+    - image:
+        src: media/index/logo_php.svg
+      text: PHP
+      href: quickstarts/php
+    - image:
+        src: media/index/logo_python.svg
+      text: Python
+      href: quickstarts/python
+    - image:
+        src: media/index/logo_ruby.svg
+      text: Ruby
+      href: quickstarts/ruby
+- title: 단계별 자습서
+  items:
+  - type: paragraph
+    text: Bing Spell Check API를 사용하여 응용 프로그램을 개발하는 방법을 알아봅니다.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="tutorials/spellcheck.md">단일 페이지 웹앱</a>
+    - html: <a href="tutorials/spellcheck-source.md">단일 페이지 웹앱(소스 코드)</a>
+- title: 참고 자료
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST (영문)
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference">Bing Spell Check API v7 참조</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference">Bing Spell Check API v5 참조</a>(이전 버전)</p>
+    - title: 코드 샘플
+      html: <p><a href="sdk.md">SDK 샘플 개요</a></p>

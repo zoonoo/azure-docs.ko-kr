@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 08/27/2018
 ms.author: rangv
-ms.openlocfilehash: 1839f3efee53caa070690fed569a61c1d2b3c965
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 360937d335eadb6d235eb52c0d7df42f896a0de0
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127728"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344734"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Azure IoT Hub에 IoT DevKit AZ3166 연결
 
@@ -135,17 +135,17 @@ Azure IoT Workbench는 IoT 솔루션을 개발하는 통합 환경을 제공합�
 
 1. **파일 > 기본 설정 > 설정**을 열고 다음 줄을 추가하여 Arduino를 구성합니다.
     * **Windows**:
-    ```json
+    ```javascript
     "arduino.path": "C:\\Program Files (x86)\\Arduino",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
     * **macOS**:
-    ```json
+    ```javascript
     "arduino.path": "/Applications",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
     * **Ubuntu**:
-    ```json
+    ```javascript
     "arduino.path": "/home/{username}/Downloads/arduino-1.8.5",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
@@ -183,6 +183,9 @@ Azure IoT Workbench는 IoT 솔루션을 개발하는 통합 환경을 제공합�
 
 1. IoT Workbench 예제 페이지에서 **시작**을 찾아서 **샘플 열기**를 클릭합니다. 기본 경로를 선택하여 샘플 코드를 다운로드합니다.
     ![샘플 열기](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/open-sample.png)
+
+1. VS Code에서 Arduino 확장을 설치하지 않은 경우 알림 창에서 **설치**를 클릭합니다.
+    ![Arduino 확장 설치](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-arduino-ext.png)
 
 1. 새로 열린 프로젝트 창에서 `F1` 키를 클릭하여 명령 팔레트를 열고, **IoT Workbench: 클라우드**를 입력하여 선택하고, **Azure 프로비전**을 선택합니다. 단계별 지침에 따라 Azure IoT Hub 프로비전을 완료하고 장치를 만듭니다.
     ![클라우드 프로비전](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/cloud-provision.png)

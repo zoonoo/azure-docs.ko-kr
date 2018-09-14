@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 786f0dfd0cf3cf2e9ab0d16e26811fabd6bfc17c
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 28679ef07c2625908f7b08f808ff49c48ddb625b
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440956"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339871"
 ---
 # <a name="azure-active-directory-b2c-add-twitter-as-an-oauth1-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 OAuth1 ID 공급자로 Twitter 추가
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -36,9 +36,9 @@ Azure AD B2C(Azure Active Directory B2C)에서 Twitter를 ID 공급자로 사용
  
     a. 새 앱에 대한 **이름** 및 **설명**을 입력합니다. 
 
-    나. **웹 사이트** 상자에 **https://login.microsoftonline.com**을 붙여넣습니다. 
+    b. **웹 사이트** 상자에 **https://{tenant}.b2clogin.com**을 붙여넣습니다. 여기서 **{tenant}** 는 테넌트의 이름입니다(예: https://contosob2c.b2clogin.com).
 
-    다. 4. **Callback URL**(콜백 URL)에 `https://login.microsoftonline.com/te/{tenant}/{policyId}/oauth1/authresp`를 입력합니다. **{tenant}** 를 테넌트의 이름(예: contosob2c.onmicrosoft.com)으로 바꾸고 **{policyId}** 를 정책 ID(예: b2c_1_policy)로 바꿔야 합니다.  **콜백 URL은 모두 소문자여야 합니다.** Twitter 로그인을 사용하는 모든 정책에 대한 콜백 URL을 추가해야 합니다. 응용 프로그램에서 사용 중인 경우 ` login.microsoftonline.com` 대신 `b2clogin.com`을 사용해야 합니다.
+    다. 4. **Callback URL**(콜백 URL)에 `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/{policyId}/oauth1/authresp`를 입력합니다. **{tenant}** 를 테넌트의 이름(예: contosob2c)으로 바꾸고 **{policyId}** 를 정책 ID(예: b2c_1_policy)로 바꿔야 합니다.  **콜백 URL은 모두 소문자여야 합니다.** Twitter 로그인을 사용하는 모든 정책에 대한 콜백 URL을 추가해야 합니다. 응용 프로그램에서 사용 중인 경우 ` login.microsoftonline.com` 대신 `b2clogin.com`을 사용해야 합니다.
 
     d. 페이지 아래쪽에 있는 약관을 읽고 동의한 후 **Twitter 응용 프로그램 만들기**를 선택합니다.
 
@@ -77,7 +77,7 @@ Twitter 계정으로 페더레이션하려면 응용 프로그램 대신 Azure A
 
 ## <a name="step-3-add-a-claims-provider-in-your-extension-policy"></a>3단계: 확장 정책에서 클레임 공급자 추가
 
-사용자가 Twitter 계정을 사용하여 로그인하도록 하려면 Twitter를 클레임 공급자로 정의해야 합니다. 즉, Azure AD B2C가 통신하는 끝점을 지정해야 합니다. 끝점은 Azure AD B2C에서 사용하는 일련의 클레임을 제공하여 특정 사용자가 인증했는지 확인합니다.
+사용자가 Twitter 계정을 사용하여 로그인하도록 하려면 Twitter를 클레임 공급자로 정의해야 합니다. 즉, Azure AD B2C가 통신하는 엔드포인트를 지정해야 합니다. 엔드포인트는 Azure AD B2C에서 사용하는 일련의 클레임을 제공하여 특정 사용자가 인증했는지 확인합니다.
 
 확장 정책 파일에서 `<ClaimsProvider>` 노드를 추가하여 Twitter를 클레임 공급자로 정의합니다.
 

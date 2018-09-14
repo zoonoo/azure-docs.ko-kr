@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 11/01/2017
+ms.date: 08/29/2018
 ms.author: vturecek
-ms.openlocfilehash: 7786e08e04d2ebce757b4c47b8ed599036c95958
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: afd682625d7bb74f9a4b726a534508b805562e7f
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207862"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701537"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>Service Fabric Reliable Services의 ASP.NET Core
 
@@ -33,9 +33,7 @@ Service Fabric에서 ASP.NET Core의 소개 자습서 및 개발 환경 설정�
 
 ## <a name="aspnet-core-in-the-service-fabric-environment"></a>Service Fabric 환경에서 ASP.NET Core
 
-ASP.NET Core 앱은 .NET Core 또는 전체 .NET Framework에서 실행될 수 있지만, Service Fabric 서비스는 현재 전체 .NET Framework에서만 실행될 수 있습니다. 즉, ASP.NET Core Service Fabric 서비스를 빌드할 때에도 전체 .NET Framework를 대상으로 해야 합니다.
-
-ASP.NET Core는 Service Fabric에서 다음 두 가지 방식으로 사용할 수 있습니다.
+ASP.NET Core 및 Service Fabric 앱은 전체.NET Framework 뿐만 아니라 .NET Core에서도 실행할 수 있습니다. ASP.NET Core는 Service Fabric에서 다음 두 가지 방식으로 사용할 수 있습니다.
  - **게스트 실행 파일로 호스팅됨** - 주로 코드 변경 없이 Service Fabric에서 기존 ASP.NET Core 응용 프로그램을 실행하는 데 사용됩니다.
  - **Reliable Service에서 실행** - 향상된 Service Fabric 런타임 통합과 상태 저장 ASP.NET Core 서비스를 허용합니다.
 
@@ -72,7 +70,7 @@ Reliable Service 인스턴스는 `StatelessService` 또는 `StatefulService`에�
 `Microsoft.ServiceFabric.Services.AspNetCore` NuGet 패키지에는 Service Fabric 인식 미들웨어를 추가하는 `IWebHostBuilder`의 `UseServiceFabricIntegration` 확장 메서드가 포함되어 있습니다. 이 미들웨어는 Kestrel 또는 HttpSys `ICommunicationListener`를 구성하여 Service Fabric 명명 서비스에 고유한 서비스 URL을 등록한 다음, 클라이언트 요청의 유효성을 검사하여 클라이언트가 적절한 서비스에 연결하고 있는지 확인합니다. 이는 Service Fabric과 같은 공유 호스트 환경에서 필요합니다. 여기서는 여러 웹 응용 프로그램이 동일한 물리적 컴퓨터 또는 가상 머신에서 실행될 수 있지만, 클라이언트에서 실수로 잘못된 서비스에 연결하지 못하도록 고유한 호스트 이름을 사용하지 않습니다. 이 시나리오에 대해서는 다음 섹션에서 자세히 설명합니다.
 
 ### <a name="a-case-of-mistaken-identity"></a>잘못된 ID의 경우
-프로토콜에 관계없이 서비스 복제본은 고유한 IP:포트 조합에서 수신 대기합니다. 서비스 복제본이 IP:포트 끝점에서 수신 대기를 시작하면 클라이언트 또는 기타 서비스에서 검색할 수 있는 Service Fabric 명명 서비스에 해당 끝점 주소를 보고합니다. 서비스에서 동적으로 할당된 응용 프로그램 포트를 사용하는 경우 서비스 복제본은 이전에 동일한 물리적 컴퓨터 또는 가상 머신에 있었던 다른 서비스의 동일한 IP:포트 끝점을 우연히 사용할 수 있습니다. 이로 인해 클라이언트에서 실수로 잘못된 서비스에 연결할 수 있습니다. 다음과 같은 일련의 이벤트가 발생하면 이러한 경우가 발생할 수 있습니다.
+프로토콜에 관계없이 서비스 복제본은 고유한 IP:포트 조합에서 수신 대기합니다. 서비스 복제본이 IP:포트 엔드포인트에서 수신 대기를 시작하면 클라이언트 또는 기타 서비스에서 검색할 수 있는 Service Fabric 명명 서비스에 해당 엔드포인트 주소를 보고합니다. 서비스에서 동적으로 할당된 응용 프로그램 포트를 사용하는 경우 서비스 복제본은 이전에 동일한 물리적 컴퓨터 또는 가상 머신에 있었던 다른 서비스의 동일한 IP:포트 엔드포인트를 우연히 사용할 수 있습니다. 이로 인해 클라이언트에서 실수로 잘못된 서비스에 연결할 수 있습니다. 다음과 같은 이벤트 시퀀스가 발생하면 이러한 경우가 나타날 수 있습니다.
 
  1. 서비스 A가 HTTP를 통해 10.0.0.1:30000에서 수신 대기합니다. 
  2. 클라이언트가 서비스 A를 확인하고 10.0.0.1:30000 주소를 가져옵니다.
@@ -84,7 +82,7 @@ Reliable Service 인스턴스는 `StatelessService` 또는 `StatefulService`에�
 이로 인해 진단할 수 없는 버그가 임의의 시간에 발생할 수 있습니다. 
 
 ### <a name="using-unique-service-urls"></a>고유한 서비스 URL 사용
-이를 방지하기 위해 서비스에서 고유 식별자로 끝점을 명명 서비스에 게시한 다음, 클라이언트 요청 중에 해당 고유 식별자의 유효성을 검사할 수 있습니다. 이 작업은 적대적이지 않은 테넌트가 신뢰할 수 있는 환경에서 서비스 간의 공동 작업이며, 적대적인 테넌트 환경에서는 보안 서비스 인증을 제공하지 않습니다.
+이를 방지하기 위해 서비스에서 고유 식별자로 엔드포인트를 명명 서비스에 게시한 다음, 클라이언트 요청 중에 해당 고유 식별자의 유효성을 검사할 수 있습니다. 이 작업은 적대적이지 않은 테넌트가 신뢰할 수 있는 환경에서 서비스 간의 공동 작업이며, 적대적인 테넌트 환경에서는 보안 서비스 인증을 제공하지 않습니다.
 
 신뢰할 수 있는 환경에서 `UseServiceFabricIntegration` 메서드로 추가된 미들웨어는 명명 서비스에 게시된 주소에 고유 식별자를 자동으로 추가하고 각 요청에서 해당 식별자의 유효성을 검사합니다. 식별자가 일치하지 않으면 미들웨어에서 즉시 HTTP 410 없음 응답을 반환합니다.
 
@@ -96,12 +94,15 @@ Reliable Service 인스턴스는 `StatelessService` 또는 `StatefulService`에�
 
 ![Service Fabric ASP.NET Core 통합][2]
 
-Kestrel과 HttpSys `ICommunicationListener` 구현은 모두 똑같은 방식으로 이 메커니즘을 사용합니다. HttpSys는 기본 *http.sys* 포트 공유 기능을 사용하여 고유한 URL 경로에 따라 요청을 내부적으로 구분할 수 있지만, 이 기능은 앞에서 설명한 시나리오에서 HTTP 503 및 HTTP 404 오류 상태 코드가 발생하기 때문에 HttpSys `ICommunicationListener` 구현에서 *사용되지 않습니다*. HTTP 503 및 HTTP 404는 일반적으로 이미 다른 오류를 나타내는 데 사용되므로 클라이언트에서 오류의 의미를 확인하는 것이 매우 어렵습니다. 따라서 Kestrel과 HttpSys `ICommunicationListener` 구현은 모두 `UseServiceFabricIntegration` 확장 메서드로 제공되는 미들웨어에서 표준화되므로 클라이언트는 HTTP 410 응답에서 서비스 끝점 재확인 작업만 수행하면 됩니다.
+Kestrel과 HttpSys `ICommunicationListener` 구현은 모두 똑같은 방식으로 이 메커니즘을 사용합니다. HttpSys는 기본 *http.sys* 포트 공유 기능을 사용하여 고유한 URL 경로에 따라 요청을 내부적으로 구분할 수 있지만, 이 기능은 앞에서 설명한 시나리오에서 HTTP 503 및 HTTP 404 오류 상태 코드가 발생하기 때문에 HttpSys `ICommunicationListener` 구현에서 *사용되지 않습니다*. HTTP 503 및 HTTP 404는 일반적으로 이미 다른 오류를 나타내는 데 사용되므로 클라이언트에서 오류의 의미를 확인하는 것이 어렵습니다. 따라서 Kestrel과 HttpSys `ICommunicationListener` 구현은 모두 `UseServiceFabricIntegration` 확장 메서드로 제공되는 미들웨어에서 표준화되므로 클라이언트는 HTTP 410 응답에서 서비스 엔드포인트 재확인 작업만 수행하면 됩니다.
 
 ## <a name="httpsys-in-reliable-services"></a>Reliable Services의 HttpSys
 HttpSys는 **Microsoft.ServiceFabric.AspNetCore.HttpSys** NuGet 패키지를 가져와서 신뢰할 수 있는 서비스에서 사용할 수 있습니다. 이 패키지에는 `ICommunicationListener` 구현인 `HttpSysCommunicationListener`가 포함되어 있으므로 웹 서버로 HttpSys를 사용하여 신뢰할 수 있는 서비스 내에 ASP.NET Core WebHost를 만들 수 있습니다.
 
 HttpSys는 [Windows HTTP 서버 API](https://msdn.microsoft.com/library/windows/desktop/aa364510(v=vs.85).aspx)(영문)를 기반으로 합니다. IIS에서 사용하는 *http.sys* 커널 드라이버를 사용하여 HTTP 요청을 처리하고 이를 웹 응용 프로그램을 실행하는 프로세스로 라우팅합니다. 이렇게 하면 동일한 물리적 컴퓨터 또는 가상 머신의 여러 프로세스가 동일한 포트에서 고유한 URL 경로 또는 호스트 이름으로 구분되는 웹 응용 프로그램을 호스팅할 수 있습니다. 이러한 기능은 동일한 클러스터에서 여러 웹 사이트를 호스팅하는 Service Fabric에서 유용합니다.
+
+>[!NOTE]
+>HttpSys 구현은 Windows 플랫폼에서만 작동합니다.
 
 다음 다이어그램에서는 HttpSys가 포트 공유를 위해 Windows에서 *http.sys* 커널 드라이버를 사용하는 방식을 보여 줍니다.
 
@@ -135,7 +136,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 현재 `HttpSysCommunicationListener`는 기본 *http.sys* 포트 공유 기능에 따른 복잡성 때문에 상태 저장 서비스에서 사용하도록 설계되지 않았습니다. 자세한 내용은 HttpSys를 통한 동적 포트 할당에 대한 다음 섹션을 참조하세요. 상태 저장 서비스의 경우 Kestrel이 권장되는 웹 서버입니다.
 
-### <a name="endpoint-configuration"></a>끝점 구성
+### <a name="endpoint-configuration"></a>엔드포인트 구성
 
 HttpSys를 포함하여 Windows HTTP 서버 API를 사용하는 웹 서버에는 `Endpoint` 구성이 필요합니다. Windows HTTP 서버 API를 사용하는 웹 서버는 먼저 *http.sys*로 URL을 예약해야 합니다(일반적으로 [netsh](https://msdn.microsoft.com/library/windows/desktop/cc307236(v=vs.85).aspx) 도구로 수행). 이 작업을 수행하려면 기본적으로 서비스에 없는 상승된 권한이 필요합니다. *ServiceManifest.xml*에 있는 `Endpoint` 구성의 `Protocol` 속성에 대한 "http" 또는 "https" 옵션은 특히 Service Fabric 런타임에서 [*강력한 와일드카드*](https://msdn.microsoft.com/library/windows/desktop/aa364698(v=vs.85).aspx) URL 접두사를 사용하는 대신 URL을 *http.sys*에 등록하도록 지시하는 데 사용됩니다.
 
@@ -153,7 +154,7 @@ HttpSys를 포함하여 Windows HTTP 서버 API를 사용하는 웹 서버에는
 </ServiceManifest>
 ```
 
-그리고 끝점 이름은 `HttpSysCommunicationListener` 생성자에 전달해야 합니다.
+그리고 엔드포인트 이름은 `HttpSysCommunicationListener` 생성자에 전달해야 합니다.
 
 ```csharp
  new HttpSysCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
@@ -193,7 +194,7 @@ HttpSys에 동적으로 할당된 포트를 사용하려면 `Endpoint` 구성에
 ## <a name="kestrel-in-reliable-services"></a>Reliable Services의 Kestrel
 Kestrel은 **Microsoft.ServiceFabric.AspNetCore.Kestrel** NuGet 패키지를 가져와서 신뢰할 수 있는 서비스에서 사용할 수 있습니다. 이 패키지에는 `ICommunicationListener` 구현인 `KestrelCommunicationListener`가 포함되어 있으므로 웹 서버로 Kestrel을 사용하여 신뢰할 수 있는 서비스 내에 ASP.NET Core WebHost를 만들 수 있습니다.
 
-Kestrel은 libuv(플랫폼 간 비동기 I/O 라이브러리)를 기반으로 하는 ASP.NET Core용 플랫폼 간 웹 서버입니다. HttpSys와 달리 Kestrel은 *http.sys*와 같은 중앙 집중식 끝점 관리자를 사용하지 않으며, HttpSys와는 달리, Kestrel은 여러 프로세스 간의 포트 공유도 지원하지 않습니다. Kestrel의 각 인스턴스는 고유한 포트를 사용해야 합니다.
+Kestrel은 libuv(플랫폼 간 비동기 I/O 라이브러리)를 기반으로 하는 ASP.NET Core용 플랫폼 간 웹 서버입니다. HttpSys와 달리 Kestrel은 *http.sys*와 같은 중앙 집중식 엔드포인트 관리자를 사용하지 않으며, HttpSys와는 달리, Kestrel은 여러 프로세스 간의 포트 공유도 지원하지 않습니다. Kestrel의 각 인스턴스는 고유한 포트를 사용해야 합니다.
 
 ![Kestrel][4]
 
@@ -252,7 +253,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 상태 저장 서비스에서는 `Endpoint` 구성 이름이 `KestrelCommunicationListener`에 제공되지 **않습니다**. 자세한 내용은 다음 섹션에서 설명합니다.
 
-### <a name="endpoint-configuration"></a>끝점 구성
+### <a name="endpoint-configuration"></a>엔드포인트 구성
 `Endpoint` 구성은 Kestrel을 사용하는 데 필요하지 않습니다. 
 
 Kestrel은 간단한 독립 실행형 웹 서버입니다. HttpSys(또는 HttpListener)와는 달리 시작하기 전에 URL을 등록할 필요가 없기 때문에 *ServiceManifest.xml*에서 `Endpoint` 구성이 필요하지 않습니다. 
@@ -281,7 +282,7 @@ new KestrelCommunicationListener(serviceContext, "ServiceEndpoint", (url, listen
 #### <a name="use-kestrel-with-a-dynamic-port"></a>동적 포트로 Kestrel 사용
 `Endpoint` 구성의 자동 포트 할당에서 *호스트 프로세스*당 고유한 포트를 하나씩 할당하고 단일 호스트 프로세스에 여러 Kestrel 인스턴스가 포함될 수 있기 때문에, Kestrel은 ServiceManifest.xml의 `Endpoint` 구성에서 자동 포트 할당을 사용할 수 없습니다. 각 Kestrel 인스턴스를 고유한 포트에서 열어야 하지만 Kestrel에서 포트 공유를 지원하지 않기 때문에 이 기능은 작동하지 않습니다.
 
-Kestrel에서 동적 포트 할당을 사용하려면 ServiceManifest.xml에서 `Endpoint` 구성을 완전히 생략하고 `KestrelCommunicationListener` 생성자에 끝점 이름을 전달하지 않습니다.
+Kestrel에서 동적 포트 할당을 사용하려면 ServiceManifest.xml에서 `Endpoint` 구성을 완전히 생략하고 `KestrelCommunicationListener` 생성자에 엔드포인트 이름을 전달하지 않습니다.
 
 ```csharp
 new KestrelCommunicationListener(serviceContext, (url, listener) => ...
@@ -295,17 +296,17 @@ new KestrelCommunicationListener(serviceContext, (url, listener) => ...
  - 내부 전용 ASP.NET Core 상태 비저장 서비스
  - 내부 전용 ASP.NET Core 상태 저장 서비스
 
-**외부에 노출된** 서비스는 일반적으로 부하 분산 장치를 통해 클러스터 외부에서 연결할 수 있는 끝점을 제공하는 서비스입니다.
+**외부에 노출된** 서비스는 일반적으로 부하 분산 장치를 통해 클러스터 외부에서 연결할 수 있는 엔드포인트를 제공하는 서비스입니다.
 
-**내부 전용** 서비스는 끝점이 클러스터 내에서만 연결할 수 있는 서비스입니다.
+**내부 전용** 서비스는 엔드포인트가 클러스터 내에서만 연결할 수 있는 서비스입니다.
 
 > [!NOTE]
-> 상태 저장 서비스 끝점은 일반적으로 인터넷에 노출되어서는 안됩니다. 부하 분산 장치에서 트래픽을 찾아 적절한 상태 저장 서비스 복제본으로 라우팅할 수 없기 때문에 Azure Load Balancer와 같이 Service Fabric 서비스 확인을 인식하지 못하는 부하 분산 장치 뒤에 있는 클러스터는 상태 저장 서비스를 노출할 수 없습니다. 
+> 상태 저장 서비스 엔드포인트는 일반적으로 인터넷에 노출되어서는 안됩니다. 부하 분산 장치에서 트래픽을 찾아 적절한 상태 저장 서비스 복제본으로 라우팅할 수 없기 때문에 Azure Load Balancer와 같이 Service Fabric 서비스 확인을 인식하지 못하는 부하 분산 장치 뒤에 있는 클러스터는 상태 저장 서비스를 노출할 수 없습니다. 
 
 ### <a name="externally-exposed-aspnet-core-stateless-services"></a>외부에 노출된 ASP.NET Core 상태 비저장 서비스
-Kestrel은 외부 인터넷 연결 HTTP 끝점을 노출하는 프런트 엔드 서비스에 권장되는 웹 서버입니다. Windows에서 HttpSys를 사용하면 HTTP 라우팅을 제공하기 위해 프런트 엔드 프록시 또는 게이트웨이를 사용할 필요 없이, 동일한 포트를 사용하고 호스트 이름 또는 경로를 통해 구분되는 동일한 노드 집합에 여러 웹 서비스를 호스트할 수 있는 포트 공유 기능을 제공할 수 있습니다.
+Kestrel은 외부 인터넷 연결 HTTP 엔드포인트를 노출하는 프런트 엔드 서비스에 권장되는 웹 서버입니다. Windows에서 HttpSys를 사용하면 HTTP 라우팅을 제공하기 위해 프런트 엔드 프록시 또는 게이트웨이를 사용할 필요 없이, 동일한 포트를 사용하고 호스트 이름 또는 경로를 통해 구분되는 동일한 노드 집합에 여러 웹 서비스를 호스트할 수 있는 포트 공유 기능을 제공할 수 있습니다.
  
-인터넷에 노출되면 상태 비저장 서비스에서 부하 분산 장치를 통해 연결할 수 있는 잘 알려진 안정적인 끝점을 사용해야 합니다. 이 끝점은 응용 프로그램 사용자에게 제공할 URL입니다. 권장되는 구성은 다음과 같습니다.
+인터넷에 노출되면 상태 비저장 서비스에서 부하 분산 장치를 통해 연결할 수 있는 잘 알려진 안정적인 엔드포인트를 사용해야 합니다. 이 끝점은 응용 프로그램 사용자에게 제공할 URL입니다. 권장되는 구성은 다음과 같습니다.
 
 |  |  | **참고 사항** |
 | --- | --- | --- |

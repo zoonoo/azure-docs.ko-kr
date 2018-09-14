@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 8/17/2017
 ms.author: ghogen
-ms.openlocfilehash: e4a72729cfe69a810e0eec0a0ac6ddb87a468932
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 4b14fa44f484735f2a5efee4d631a6f48e6a8bf6
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42143751"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382639"
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Visual Studio에서 저장소 에뮬레이터 구성 및 사용
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -33,7 +33,7 @@ Azure SDK 개발 환경은 로컬 개발 컴퓨터의 Azure에서 사용할 수 
 > 
 
 ## <a name="configuring-a-connection-string-for-the-storage-emulator"></a>저장소 에뮬레이터에 대한 연결 문자열 구성
-역할 내 코드에서 저장소 에뮬레이터에 액세스하려면, 저장소 에뮬레이터를 가리키고 이후 Azure 저장소 계정을 가리키도록 변경될 수 있는 연결 문자열을 구성합니다. 연결 문자열은 사용자 역할이 저장소 계정에 연결하도록 런타임에 읽을 수 있는 구성 설정입니다. 연결 문자열을 만드는 방법에 대한 자세한 내용은 [Azure 응용 프로그램 구성](https://msdn.microsoft.com/library/azure/2da5d6ce-f74d-45a9-bf6b-b3a60c5ef74e#BK_SettingsPage)을 참조하세요.
+역할 내 코드에서 저장소 에뮬레이터에 액세스하려면, 저장소 에뮬레이터를 가리키고 이후 Azure 저장소 계정을 가리키도록 변경될 수 있는 연결 문자열을 구성합니다. 연결 문자열은 사용자 역할이 저장소 계정에 연결하도록 런타임에 읽을 수 있는 구성 설정입니다. 연결 문자열을 만드는 방법에 대한 내용은 [Azure Storage 연결 문자열 구성](/azure/storage/common/storage-configure-connection-string)을 참조하세요.
 
 > [!NOTE]
 > **DevelopmentStorageAccount** 속성을 사용하여 사용자 코드에서 저장소 에뮬레이터 계정에 대한 참조를 반환할 수 있습니다. 사용자 코드에서 저장소 에뮬레이터에 액세스하려고 하지만 Azure에 응용 프로그램을 게시하려는 경우 이 방법이 제대로 작동하며, Azure 저장소 계정에 액세스하는 연결 문자열을 만들고 게시하기 전에 해당 연결 문자열을 사용하도록 코드를 수정해야 합니다. 저장소 에뮬레이터 계정과 Azure 저장소 계정 사이를 자주 전환하는 경우, 연결 문자열은 이 프로세스를 단순화합니다.

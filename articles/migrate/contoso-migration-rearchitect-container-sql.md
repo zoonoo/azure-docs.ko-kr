@@ -5,18 +5,18 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/26/2018
+ms.date: 09/05/2018
 ms.author: raynew
-ms.openlocfilehash: 3c8ff204ffc604c6b61a217f36c7fc4ba9a5e74b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: eacad4acbae0565cbd894d3f51665d751eb9a6e2
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105097"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783137"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Contoso 마이그레이션: 온-프레미스 앱 아키텍처를 Azure 컨테이너 및 Azure SQL Database로 변경
 
-이 문서에서는 Contoso가 Azure에서 SmartHotel 앱을 마이그레이션하고 아키텍처를 변경하는 방법을 보여줍니다. Contoso는 앱 프런트 엔드 VM을 Azure Windows 컨테이너로, 앱 데이터베이스를 Azure SQL 데이터베이스로 마이그레이션합니다.
+이 문서에서는 Contoso가 Azure에서 SmartHotel360 앱을 마이그레이션하고 아키텍처를 변경하는 방법을 보여줍니다. Contoso는 앱 프런트 엔드 VM을 Azure Windows 컨테이너로, 앱 데이터베이스를 Azure SQL 데이터베이스로 마이그레이션합니다.
 
 이 문서는 가상 회사 Contoso가 온-프레미스 리소스를 Microsoft Azure 클라우드로 마이그레이션하는 방법을 보여주는 문서 시리즈 중 하나입니다. 이 문서 시리즈에는 배경 정보와 마이그레이션 인프라 설정, 마이그레이션을 위한 온-프레미스 리소스 평가, 다양한 유형의 마이그레이션 실행을 설명하는 시나리오가 담겨 있습니다. 시나리오가 복잡해지고 있으며, 시간이 지날수록 별도의 문서가 추가됩니다.
 
@@ -24,19 +24,19 @@ ms.locfileid: "43105097"
 --- | --- | ---
 [문서 1: 개요](contoso-migration-overview.md) | 문서 시리즈, Contoso의 마이그레이션 전략 및 시리즈에서 사용되는 샘플 앱에 대해 간략히 설명합니다. | 사용 가능
 [문서 2: Azure 인프라 배포](contoso-migration-infrastructure.md) | Contoso에서 마이그레이션을 위해 온-프레미스 인프라와 Azure 인프라를 준비합니다. 이 시리즈의 모든 마이그레이션 관련 문서에서 동일한 인프라가 사용됩니다. | 사용 가능
-[문서 3: Azure로 마이그레이션할 온-프레미스 리소스 평가](contoso-migration-assessment.md)  | Contoso가 VMware에서 실행되는 온-프레미스 SmartHotel 앱의 평가를 실행합니다. Contoso에서 Azure Migrate 서비스를 사용하여 앱 VM을 평가하고, Database Migration Assistant를 사용하여 앱 SQL Server 데이터베이스를 평가합니다. | 사용 가능
-[문서 4: Azure VM 및 SQL Database Managed Instance에서 앱 다시 호스트](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso가 온-프레미스 SmartHotel 앱을 Azure로 리프트 앤 시프트 방식으로 마이그레이션합니다. Contoso에서 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하여 앱 프런트 엔드 VM을 마이그레이션하고, [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)를 사용하여 앱 데이터베이스를 Azure SQL Database Managed Instance로 마이그레이션합니다. | 사용 가능  
-[문서 5: 앱을 Azure VM에 다시 호스트](contoso-migration-rehost-vm.md) | Contoso에서 Site Recovery 서비스를 사용하여 SmartHotel 앱 VM을 Azure VM으로 마이그레이션합니다. | 사용 가능
-[문서 6: Azure VM 및 SQL Server AlwaysOn 가용성 그룹에서 앱 다시 호스트](contoso-migration-rehost-vm-sql-ag.md) | Contoso가 SmartHotel 앱을 마이그레이션합니다. Contoso에서 Site Recovery를 사용하여 앱 VM을 마이그레이션하고, Database Migration Service를 사용하여 앱 데이터베이스를 AlwaysOn 가용성 그룹으로 보호되는 SQL Server 클러스터로 마이그레이션합니다. | 사용 가능    
+[문서 3: Azure로 마이그레이션할 온-프레미스 리소스 평가](contoso-migration-assessment.md)  | Contoso가 VMware에서 실행되는 온-프레미스 SmartHotel360 앱의 평가를 실행합니다. Contoso에서 Azure Migrate 서비스를 사용하여 앱 VM을 평가하고, Database Migration Assistant를 사용하여 앱 SQL Server 데이터베이스를 평가합니다. | 사용 가능
+[문서 4: Azure VM 및 SQL Database Managed Instance에서 앱 다시 호스트](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso가 온-프레미스 SmartHotel360 앱을 Azure로 리프트 앤 시프트 방식으로 마이그레이션합니다. Contoso에서 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하여 앱 프런트 엔드 VM을 마이그레이션하고, [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)를 사용하여 앱 데이터베이스를 Azure SQL Database Managed Instance로 마이그레이션합니다. | 사용 가능   
+[문서 5: 앱을 Azure VM에 다시 호스트](contoso-migration-rehost-vm.md) | Contoso에서 Site Recovery 서비스를 사용하여 SmartHotel360 앱 VM을 Azure VM으로 마이그레이션합니다. | 사용 가능
+[문서 6: Azure VM 및 SQL Server AlwaysOn 가용성 그룹에서 앱 다시 호스트](contoso-migration-rehost-vm-sql-ag.md) | Contoso가 SmartHotel360 앱을 마이그레이션합니다. Contoso에서 Site Recovery를 사용하여 앱 VM을 마이그레이션하고, Database Migration Service를 사용하여 앱 데이터베이스를 AlwaysOn 가용성 그룹으로 보호되는 SQL Server 클러스터로 마이그레이션합니다. | 사용 가능 
 [문서 7: Azure VM에서 Linux 앱 다시 호스트](contoso-migration-rehost-linux-vm.md) | Contoso에서 Azure Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 리프트 앤 시프트 방식으로 마이그레이션합니다. | 사용 가능
 [문서 8: Azure VM 및 Azure MySQL에서 Linux 앱 다시 호스트](contoso-migration-rehost-linux-vm-mysql.md) | Contoso에서 Azure Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 마이그레이션하고, MySQL Workbench를 사용하여 앱 데이터베이스를 Azure MySQL 서버 인스턴스로 마이그레이션합니다. | 사용 가능
-[문서 9: Azure Web Apps 및 Azure SQL 데이터베이스에서 앱 리팩터링](contoso-migration-refactor-web-app-sql.md) | Contoso에서 SmartHotel 앱을 Azure Web App으로 마이그레이션하고, Database Migration Assistant를 사용하여 앱 데이터베이스를 Azure SQL Server 인스턴스로 마이그레이션합니다. | 사용 가능
+[문서 9: Azure Web Apps 및 Azure SQL 데이터베이스에서 앱 리팩터링](contoso-migration-refactor-web-app-sql.md) | Contoso에서 SmartHotel360 앱을 Azure Web App으로 마이그레이션하고, Database Migration Assistant를 사용하여 앱 데이터베이스를 Azure SQL Server 인스턴스로 마이그레이션합니다. | 사용 가능
 [문서 10: Azure Web Apps 및 Azure MySQL에서 Linux 앱 리팩터링](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso에서 지속적인 업데이트를 위해 GitHub와 통합된 Azure Traffic Manager를 사용하여 Linux osTicket 앱을 여러 Azure 지역의 Azure 웹앱으로 마이그레이션합니다. Contoso에서 앱 데이터베이스를 Azure Database for MySQL 인스턴스로 마이그레이션합니다. | 사용 가능 
 [문서 11: VSTS에서 TFS 리팩터링](contoso-migration-tfs-vsts.md) | Contoso에서 온-프레미스 Team Foundation Server 배포를 Azure의 Visual Studio Team Services로 마이그레이션합니다. | 사용 가능
-문서 12: Azure 컨테이너 및 Azure SQL Database에서 앱 재설계 | Contoso에서 SmartHotel 앱을 Azure로 마이그레이션합니다. 그런 다음, 웹앱 계층을 Azure Service Fabric에서 실행되는 Windows 컨테이너로 재설계하고, Azure SQL Database를 사용하여 데이터베이스를 재설계합니다. | 이 문서의 내용
-[문서 13: Azure에서 앱 다시 빌드](contoso-migration-rebuild.md) | Contoso에서 다양한 Azure 기능과 서비스(Azure App Service, AKS(Azure Kubernetes Service), Azure Functions, Azure Cognitive Services 및 Azure Cosmos DB 포함)를 사용하여 SmartHotel 앱을 다시 빌드합니다. | 사용 가능    
+문서 12: Azure 컨테이너 및 Azure SQL Database에서 앱 재설계 | Contoso에서 SmartHotel360 앱을 Azure로 마이그레이션합니다. 그런 다음, 웹앱 계층을 Azure Service Fabric에서 실행되는 Windows 컨테이너로 재설계하고 Azure SQL Database를 사용하여 데이터베이스를 재설계합니다. | 이 문서의 내용
+[문서 13: Azure에서 앱 다시 빌드](contoso-migration-rebuild.md) | Contoso에서 다양한 Azure 기능과 서비스(Azure App Service, AKS(Azure Kubernetes Service), Azure Functions, Azure Cognitive Services 및 Azure Cosmos DB 포함)를 사용하여 SmartHotel360 앱을 다시 빌드합니다. | 사용 가능  
 
-이 문서에서 Contoso는 2계층 Windows를 마이그레이션합니다. .NET SmartHotel 앱을 Azure로 마이그레이션합니다. 이 앱을 사용하려는 경우 오픈 소스로 제공되므로 [GitHub](https://github.com/Microsoft/SmartHotel360)에서 다운로드할 수 있습니다.
+이 문서에서 Contoso는 2계층 Windows를 마이그레이션합니다. .NET SmartHotel360 앱을 Azure로 마이그레이션합니다. 이 앱을 사용하려는 경우 오픈 소스로 제공되므로 [GitHub](https://github.com/Microsoft/SmartHotel360)에서 다운로드할 수 있습니다.
 
 ## <a name="business-drivers"></a>비즈니스 영향 요소
 
@@ -65,7 +65,7 @@ Contoso 클라우드 팀은 이 마이그레이션에 대한 목표를 확정했
 
 ### <a name="current-app"></a>현재 앱
 
-- SmartHotel 온-프레미스 앱은 두 개의 VM(WEBVM 및 SQLVM)에 계층화되어 있습니다.
+- SmartHotel360 온-프레미스 앱은 두 개의 VM(WEBVM 및 SQLVM)에 계층화되어 있습니다.
 - VM은 VMware ESXi 호스트 **contosohost1.contoso.com**(버전 6.5)에 있습니다.
 - VMware 환경은 VM에서 실행되는 vCenter Server 6.5(**vcenter.contoso.com**)에서 관리합니다.
 - Contoso는 온-프레미스 데이터 센터(contoso-datacenter)와 온-프레미스 도메인 컨트롤러(**contosodc1**)를 갖고 있습니다.
@@ -92,7 +92,7 @@ Contoso는 장점 및 단점 목록을 함께 조합하여 제안된 디자인�
 
 **고려 사항** | **세부 정보**
 --- | ---
-**장점** | Azure Service Fabric으로 마이그레이션하기 위해 SmartHotel 앱 코드를 변경해야 합니다. 하지만 Service Fabric SDK 도구를 사용하여 변경하면 간단합니다.<br/><br/> Service Fabric으로 이동하면 Contoso는 원래 코드 베이스에 대한 위험 없이 차후에 신속하게 응용 프로그램에 추가할 마이크로 서비스 개발을 시작할 수 있습니다.<br/><br/> Windows 컨테이너는 일반 컨테이너와 동일한 혜택을 제공합니다. 민첩성, 이식성 및 제어성이 향상됩니다.<br/><br/> Contoso는 SQL Server와 Windows Server에 대한 Azure 하이브리드 혜택을 사용하여 Software Assurance에 대한 투자를 활용할 수 있습니다.<br/><br/> 마이그레이션 후에는 Windows Server 2008 R2를 더 이상 지원할 필요가 없습니다. [자세히 알아보기](https://support.microsoft.com/lifecycle).<br/><br/> Contoso는 더 이상 단일 실패 지점이 되지 않도록 여러 인스턴스를 사용하여 앱의 웹 계층을 구성할 수 있습니다.<br/><br/> 더 이상 오래된 SQL Server 2008 R2에 의존할 필요가 없습니다.<br/><br/> SQL Database는 Contoso의 기술 요구 사항을 지원합니다. Contoso 관리자는 Database Migration Assistant를 사용하여 온-프레미스 데이터베이스를 평가하고 호환된다는 것을 확인했습니다.<br/><br/> SQL Database에는 Contoso에서 설정할 필요가 없는 기본 제공 내결함성이 있습니다. 따라서 데이터 계층은 더 이상 단일 장애 조치(failover) 지점이 아닙니다.
+**장점** | Azure Service Fabric으로 마이그레이션하기 위해 SmartHotel360 앱 코드를 변경해야 합니다. 하지만 Service Fabric SDK 도구를 사용하여 변경하면 간단합니다.<br/><br/> Service Fabric으로 이동하면 Contoso는 원래 코드 베이스에 대한 위험 없이 차후에 신속하게 응용 프로그램에 추가할 마이크로 서비스 개발을 시작할 수 있습니다.<br/><br/> Windows 컨테이너는 일반 컨테이너와 동일한 혜택을 제공합니다. 민첩성, 이식성 및 제어성이 향상됩니다.<br/><br/> Contoso는 SQL Server와 Windows Server에 대한 Azure 하이브리드 혜택을 사용하여 Software Assurance에 대한 투자를 활용할 수 있습니다.<br/><br/> 마이그레이션 후에는 Windows Server 2008 R2를 더 이상 지원할 필요가 없습니다. [자세히 알아보기](https://support.microsoft.com/lifecycle).<br/><br/> Contoso는 더 이상 단일 실패 지점이 되지 않도록 여러 인스턴스를 사용하여 앱의 웹 계층을 구성할 수 있습니다.<br/><br/> 더 이상 오래된 SQL Server 2008 R2에 의존할 필요가 없습니다.<br/><br/> SQL Database는 Contoso의 기술 요구 사항을 지원합니다. Contoso 관리자는 Database Migration Assistant를 사용하여 온-프레미스 데이터베이스를 평가하고 호환된다는 것을 확인했습니다.<br/><br/> SQL Database에는 Contoso에서 설정할 필요가 없는 기본 제공 내결함성이 있습니다. 따라서 데이터 계층은 더 이상 단일 장애 조치(failover) 지점이 아닙니다.
 **단점** | 컨테이너는 다른 마이그레이션 옵션보다 복잡합니다. 컨테이너에 대한 학습 곡선이 Contoso에는 문제가 될 수 있습니다.  학습 곡선에도 불구하고 여러 가치를 제공하는 새로운 복잡성이 추가됩니다.<br/><br/> Contoso의 운영 팀은 Azure, 컨테이너 및 앱용 마이크로 서비스를 이해하고 지원하기 위해 노력해야 합니다.<br/><br/> Contoso에서 해당 데이터베이스를 마이그레이션하는 데 Data Migration Service 대신 Data Migration Assistant를 사용하는 경우 Contoso에는 대규모 데이터베이스 마이그레이션을 위해 준비된 인프라가 없습니다.
 
 
@@ -100,7 +100,7 @@ Contoso는 장점 및 단점 목록을 함께 조합하여 제안된 디자인�
 ### <a name="migration-process"></a>마이그레이션 프로세스
 
 1. Contoso는 Windows용 Azure Service Fabric 클러스터를 프로비전합니다.
-2. Azure SQL 인스턴스를 프로비전하고, 거기에 SmartHotel 데이터베이스를 마이그레이션합니다.
+2. Azure SQL 인스턴스를 프로비전하고, 거기에 SmartHotel360 데이터베이스를 마이그레이션합니다.
 3. Contoso는 Service Fabric SDK 도구를 사용하여 웹 계층 VM을 Docker 컨테이너로 변환합니다.
 4. Azure Service Fabric을 사용하여 Service Fabric 클러스터와 ACR을 연결하고 앱을 배포합니다.
 
@@ -197,7 +197,7 @@ Azure 컨테이너는 웹 VM에서 내보낸 파일을 사용하여 생성됩니
 
 ## <a name="step-3-provision-azure-service-fabric"></a>3단계: Azure Service Fabric 프로비전
 
-SmartHotel 컨테이너는 Azure Service Fabric 클러스터에서 실행됩니다. Contoso 관리자는 다음과 같이 Service Fabric 클러스터를 만듭니다.
+SmartHotel360 컨테이너는 Azure Service Fabric 클러스터에서 실행됩니다. Contoso 관리자는 다음과 같이 Service Fabric 클러스터를 만듭니다.
 
 1. Azure Marketplace에서 Service Fabric 리소스 만들기
 
@@ -296,7 +296,7 @@ Contoso는 클러스터에 VSTS를 액세스할 수 있도록 클러스터 인�
 
 ## <a name="step-5-migrate-the-database-with-dma"></a>5단계: DMA를 사용하여 데이터베이스 마이그레이션
 
-Contoso 관리자는 이제 DMA를 사용하여 SmartHotel 데이터베이스를 마이그레이션할 수 있습니다.
+Contoso 관리자는 이제 DMA를 사용하여 SmartHotel360 데이터베이스를 마이그레이션할 수 있습니다.
 
 ### <a name="install-dma"></a>DMA 설치
 
@@ -495,7 +495,7 @@ Contoso 관리자는 이제 작업 DevOps 사례에 대한 빌드 및 릴리스 
 
     ![해제](./media/contoso-migration-rearchitect-container-sql/pipeline15.png)
 
-18. 배포가 완료되면 SmartHotel은 이제 Service Fabric을 실행합니다.
+18. 배포가 완료되면 SmartHotel360은 이제 Service Fabric을 실행합니다.
 
     ![게시](./media/contoso-migration-rearchitect-container-sql/publish4.png)
 
@@ -505,7 +505,7 @@ Contoso 관리자는 이제 작업 DevOps 사례에 대한 빌드 및 릴리스 
 
 ## <a name="step-9-extend-the-app-and-republish"></a>9단계: 앱을 확장하고 다시 게시
 
-SmartHotel 앱 및 데이터베이스가 Azure에서 실행되자, Contoso는 앱을 확장하려고 합니다.
+SmartHotel360 앱 및 데이터베이스가 Azure에서 실행되자, Contoso는 앱을 확장하려고 합니다.
 
 - Contoso의 개발자는 Service Fabric 클러스터에서 실행될 새로운 .NET Core 응용 프로그램의 프로토타입을 제작합니다.
 - 이 앱은 CosmosDB에서 감정 데이터를 가져오는 데 사용될 것입니다.
@@ -539,7 +539,7 @@ SmartHotel 앱 및 데이터베이스가 Azure에서 실행되자, Contoso는 �
             "userName": "CoreySandersWA",
             "userAlias": "@CoreySandersWA",
             "userPictureUrl": "",
-            "text": "This is a tweet about #SmartHotel",
+            "text": "This is a tweet about #SmartHotel360",
             "language": "en",
             "sentiment": 0.5,
             "retweet_count": 1,
@@ -582,7 +582,7 @@ Cosmos DB가 프로비전되면 Contoso 관리자는 Cosmos DB에 연결하도�
 
 1. 해당 코드를 VSTS에 커밋하고 푸시합니다. 빌드 및 릴리스 파이프라인이 시작됩니다.
 
-2. 빌드 및 배포가 완료되면 SmartHotel은 이제 Service Fabric을 실행합니다. 이제 Service Fabric 관리 콘솔에 세 가지 서비스가 표시됩니다.
+2. 빌드 및 배포가 완료되면 SmartHotel360은 이제 Service Fabric을 실행합니다. 이제 Service Fabric 관리 콘솔에 세 가지 서비스가 표시됩니다.
 
     ![다시 게시](./media/contoso-migration-rearchitect-container-sql/republish3.png)
 
@@ -596,7 +596,7 @@ Cosmos DB가 프로비전되면 Contoso 관리자는 Cosmos DB에 연결하도�
 
 - vCenter 인벤토리에서 온-프레미스 VM을 제거합니다.
 - 로컬 백업 작업에서 VM을 제거합니다.
-- 내부 설명서를 업데이트하여 SmartHotel 앱의 새 위치를 표시합니다. 데이터베이스는 Azure SQL 데이터베이스에서 실행되고 프런트 엔드는 Service Fabric에서 실행되는 것으로 표시합니다.
+- 내부 설명서를 업데이트하여 SmartHotel360 앱의 새 위치를 표시합니다. 데이터베이스는 Azure SQL 데이터베이스에서 실행되고 프런트 엔드는 Service Fabric에서 실행되는 것으로 표시합니다.
 - 서비스 해제된 VM과 상호 작용하는 모든 리소스를 검토하고, 새 구성을 반영하도록 모든 관련 설정 또는 설명서를 업데이트합니다.
 
 
@@ -626,7 +626,7 @@ Azure에서 마이그레이션된 리소스를 사용하여 Contoso는 새 인�
 
 ## <a name="conclusion"></a>결론
 
-이 문서에서 Contoso는 앱 프런트 엔드 VM을 Service Fabric으로 마이그레이션하여 Azure에서 SmartHotel 앱을 리팩터링했습니다. 앱 데이터베이스는 Azure SQL 데이터베이스로 마이그레이션되었습니다.
+이 문서에서 Contoso는 앱 프런트 엔드 VM을 Service Fabric으로 마이그레이션하여 Azure에서 SmartHotel360 앱을 리팩터링했습니다. 앱 데이터베이스는 Azure SQL 데이터베이스로 마이그레이션되었습니다.
 
 
 

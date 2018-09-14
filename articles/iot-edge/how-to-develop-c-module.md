@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 07/20/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9fc067c46828079f7369683b5edec682747cd5c7
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 5732f6986750dfee49084e2744052bb54e3a8139
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391455"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382570"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge용 C 모듈 개발 및 디버그
 
@@ -35,9 +35,7 @@ ms.locfileid: "39391455"
 모듈을 만들려면 모듈 이미지를 빌드하기 위한 Docker, 모듈 이미지를 저장하기 위한 컨테이너 레지스트리가 필요합니다.
 * 개발 머신의 [Docker Community Edition](https://docs.docker.com/install/) 
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 또는 [Docker 허브](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
-
-   > [!TIP]
-   > 클라우드 레지스트리 대신 로컬 Docker 레지스트리를 프로토타입 및 테스트 목적으로 사용할 수 있습니다. 
+   * 클라우드 레지스트리 대신 로컬 Docker 레지스트리를 프로토타입 및 테스트 목적으로 사용할 수 있습니다. 
 
 장치에서 모듈을 테스트하려면 하나 이상의 IoT Edge 장치가 있는 활성 IoT 허브가 필요합니다. 컴퓨터를 IoT Edge 장치로 사용하려면 [Windows](quickstart.md) 또는 [Linux](quickstart-linux.md)용 빠른 시작의 단계에 따릅니다. 
 
@@ -46,16 +44,24 @@ ms.locfileid: "39391455"
 다음 단계를 따라 Visual Studio Code 및 Azure IoT Edge 확장을 사용하여 Azure IoT C SDK를 기준으로 IoT Edge 모듈을 만듭니다. 먼저 솔루션을 만든 다음, 해당 솔루션에서 첫 번째 모듈을 생성합니다. 각 솔루션에는 둘 이상의 모듈이 포함될 수 있습니다. 
 
 1. Visual Studio Code에서 **보기** > **통합 터미널**을 선택합니다.
-3. **보기** > **명령 팔레트**를 선택합니다. 
-4. 명령 팔레트에서 **Azure IoT Edge: 새로운 IoT Edge 솔루션** 명령을 입력하고 실행합니다.
+
+2. **보기** > **명령 팔레트**를 선택합니다. 
+
+3. 명령 팔레트에서 **Azure IoT Edge: 새로운 IoT Edge 솔루션** 명령을 입력하고 실행합니다.
 
    ![New IoT Edge Solution 실행](./media/how-to-develop-csharp-module/new-solution.png)
 
-5. 새로운 솔루션을 만들 폴더로 이동합니다. **폴더 선택**을 선택합니다. 
-6. 솔루션에 대한 이름을 입력합니다. 
-7. 솔루션의 첫 번째 모듈에 대한 템플릿으로 **C 모듈**을 선택합니다.
-8. 모듈의 이름을 입력합니다. 컨테이너 레지스트리 내에서 고유한 이름을 선택합니다. 
-9. 모듈의 이미지 리포지토리 이름을 입력합니다. VS Code는 **localhost:5000**으로 모듈 이름을 자동으로 채웁니다. 고유한 레지스트리 정보로 바꿉니다. 테스트를 위해 로컬 Docker 레지스트리를 사용하는 경우 **localhost**를 사용해도 됩니다. Azure Container Registry를 사용하는 경우 레지스트리 설정의 로그인 서버를 사용합니다. 로그인 서버는 **\<레지스트리 이름\>.azurecr.io**와 같이 표시됩니다.
+4. 새로운 솔루션을 만들 폴더로 이동합니다. **폴더 선택**을 선택합니다. 
+
+5. 솔루션에 대한 이름을 입력합니다. 
+
+6. 솔루션의 첫 번째 모듈에 대한 템플릿으로 **C 모듈**을 선택합니다.
+
+7. 모듈의 이름을 입력합니다. 컨테이너 레지스트리 내에서 고유한 이름을 선택합니다. 
+
+8. 모듈의 이미지 리포지토리 이름을 입력합니다. VS Code는 **localhost:5000**으로 모듈 이름을 자동으로 채웁니다. 고유한 레지스트리 정보로 바꿉니다. 테스트를 위해 로컬 Docker 레지스트리를 사용하는 경우 **localhost**를 사용해도 됩니다. Azure Container Registry를 사용하는 경우 레지스트리 설정의 로그인 서버를 사용합니다. 로그인 서버는 **\<레지스트리 이름\>.azurecr.io**와 같이 표시됩니다. 문자열에서 localhost 부분만 바꾸고, 모듈 이름을 삭제하지 마세요. 
+
+   ![Docker 이미지 리포지토리 제공](./media/how-to-develop-c-module/repository.png)
 
 VS Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만든 다음, 새 창에서 로드합니다.
 
@@ -73,7 +79,7 @@ VS Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만든 다음,
 
 ## <a name="develop-your-module"></a>모듈 개발
 
-솔루션과 함께 제공되는 기본 C 모듈 코드는 **모듈** > **\<모듈 이름\>** > **app.js**에 위치합니다. 모듈 및 deployment.template.json 파일은 솔루션을 빌드하고, 컨테이너 레지스트리에 푸시하고, 장치에 배포하여 코드를 변경하지 않고 테스트를 시작하도록 설정됩니다. 모듈은 단순히 원본에서 입력을 가져오고(이 경우에 데이터를 시뮬레이션하는 tempSensor 모듈) IoT Hub로 파이핑하도록 빌드됩니다. 
+솔루션과 함께 제공되는 기본 C 모듈 코드는 **modules** > [모듈 이름] > **main.c**에 있습니다. 모듈 및 deployment.template.json 파일은 솔루션을 빌드하고, 컨테이너 레지스트리에 푸시하고, 장치에 배포하여 코드를 변경하지 않고 테스트를 시작하도록 설정됩니다. 모듈은 단순히 원본에서 입력을 가져오고(이 경우에 데이터를 시뮬레이션하는 tempSensor 모듈) IoT Hub로 파이핑하도록 빌드됩니다. 
 
 고유한 코드를 사용하여 C 템플릿을 사용자 지정할 준비가 된 경우 [Azure IoT Hub SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용하여 보안, 장치 관리 및 안정성 등 IoT 솔루션에 대한 주요 요구 사항을 해결하는 모듈을 빌드합니다. 
 
@@ -85,7 +91,7 @@ VS Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만든 다음,
 
     ![이미지 이름에 **.debug** 추가](./media/how-to-develop-c-module/image-debug.png)
 
-2. **deployment.template.json**에서 Node.js 모듈의 createOptions를 아래 내용으로 바꾸고 이 파일을 저장합니다. 
+2. **deployment.template.json**에서 C 모듈의 createOptions를 아래 내용으로 바꾸고 이 파일을 저장합니다. 
     
     ```json
     "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
@@ -93,7 +99,7 @@ VS Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만든 다음,
 
 2. VS Code 명령 팔레트에서 **Edge: IoT Edge 솔루션 빌드** 명령을 입력하고 실행합니다.
 3. 명령 팔레트에서 솔루션의 `deployment.template.json` 파일을 선택합니다. 
-4. Azure IoT Hub Device Explorer에서 IoT Edge 장치 ID를 마우스 오른쪽 단추로 클릭합니다. 그런 다음, **IoT Edge 장치에 배포 만들기**를 선택합니다. 
+4. Azure IoT Hub Device Explorer에서 IoT Edge 장치 ID를 마우스 오른쪽 단추로 클릭합니다. 그런 후 **단일 장치용 배포 만들기**를 선택합니다. 
 5. 솔루션의 **config** 폴더를 엽니다. 그런 다음, `deployment.json` 파일을 선택합니다. **Edge 배포 매니페스트 선택**을 선택합니다. 
 
 VS Code 통합 터미널에서 배포 ID를 사용하여 생성된 배포가 표시됩니다.
@@ -105,7 +111,7 @@ VS Code는 작업 영역의 `.vscode` 폴더에 위치한 `launch.json` 파일�
 
 1. VS Code 디버그 보기로 이동합니다. 모듈에 대한 디버그 구성 파일을 선택합니다. 디버그 옵션 이름은 **ModuleName 원격 디버그(C)** 와 비슷합니다.
 
-   ![디버그 구성 선택](./media/how-to-develop-c-module/debug-config.png)에서도 확인할 수 있습니다.
+   ![디버그 구성 선택](./media/how-to-develop-c-module/debug-config.png).
 
 2. `main.c`로 이동합니다. 이 파일에 중단점을 추가합니다.
 
@@ -113,7 +119,7 @@ VS Code는 작업 영역의 `.vscode` 폴더에 위치한 `launch.json` 파일�
 
 4. VS Code 디버그 보기의 왼쪽 패널에서 변수가 표시됩니다. 
 
-앞의 예제에서는 컨테이너에서 C IoT Edge 모듈을 디버그하는 방법을 보여 줍니다. 모듈 컨테이너 createOptions에 노출된 포트를 추가했습니다. Node.Js 모듈의 디버그가 끝나면 프로덕션에서 사용할 준비가 완료된 IoT Edge 모듈을 얻기 위해 이러한 노출된 포트를 제거하는 것이 좋습니다.
+앞의 예제에서는 컨테이너에서 C IoT Edge 모듈을 디버그하는 방법을 보여 줍니다. 모듈 컨테이너 createOptions에 노출된 포트를 추가했습니다. C 모듈의 디버그가 끝나면 프로덕션에서 사용할 준비가 완료된 IoT Edge 모듈을 얻기 위해 이러한 노출된 포트를 제거하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

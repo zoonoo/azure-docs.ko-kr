@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c1f5b88dc8cd6d7f8ff1cd1269d4791d5654e133
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 7e2dd4c50a1d6995302c5a2a6f9b4877253d0a41
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42145231"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382283"
 ---
 # <a name="get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>인증서와 함께 Azure Active Directory Reporting API를 사용하여 데이터 가져오기
 
@@ -38,7 +38,7 @@ ms.locfileid: "42145231"
 
 1. 먼저 [Azure Active Directory 보고 API에 액세스하기 위한 필수 조건](howto-configure-prerequisites-for-reporting-api.md)을 완료했는지 확인합니다. 
 
-2. [Azure Active Directory PowerShell](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure AD Cmdlets/AzureAD/index.md)의 지침에 따라 Azure AD Powershell V2를 다운로드하고 설치합니다.
+2. Azure Active Directory PowerShell(https://github.com/Azure/azure-docs-powershell-azuread/blob/master/docs-conceptual/azureadps-2.0/install-adv2.md)의 지침에 따라 Azure AD Powershell V2를 다운로드하고 설치합니다.
 
 3. [PowerShellGallery - MSCloudIdUtils](https://www.powershellgallery.com/packages/MSCloudIdUtils/)에서 MSCloudIDUtils를 설치합니다. 이 모듈에서는 다음을 비롯한 몇 가지 유틸리티 cmdlet을 제공합니다.
     - 인증에 필요한 ADAL 라이브러리

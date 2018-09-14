@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e88187c5035abc28ca9deecaf8517e8a21e38d1d
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 418f399213f2b1b60d4d4f464fd9fe89c6f35ba7
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952337"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338210"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-wechat-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 WeChat 계정으로 등록 설정 및 로그인
 
@@ -32,7 +32,7 @@ Azure AD(Azure Active Directory) B2C에서 WeChat 계정을 ID 공급자로 사�
 1. WeChat 자격 증명을 사용하여 [https://open.weixin.qq.com/](https://open.weixin.qq.com/)에 로그인합니다.
 2. **管理中心**(관리 센터)를 선택합니다.
 3. 새 응용 프로그램을 등록하기 위한 단계를 따릅니다.
-4. **授权回调域**(콜백 URL)에 `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp`를 입력합니다. 예를 들어 `tenant_name`이 contoso.onmicrosoft.com인 경우 URL을 `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`가 되도록 설정합니다.
+4. **授权回调域**(콜백 URL)에 `https://{tenant_name}.b2clogin.com/te/{tenant_name}.onmicrosoft.com/oauth2/authresp`를 입력합니다. 예를 들어 `tenant_name`이 contoso인 경우 URL을 `https://contoso.b2clogin.com/te/contoso.onmicrosoft.com/oauth2/authresp`가 되도록 설정합니다.
 5. **앱 ID** 및 **앱 키**를 복사합니다. 테넌트에 ID 공급자를 추가하려면 이러한 항목이 필요합니다.
 
 ## <a name="configure-wechat-as-an-identity-provider-in-your-tenant"></a>테넌트에서 WeChat을 ID 공급자로 구성
@@ -47,7 +47,7 @@ Azure AD(Azure Active Directory) B2C에서 WeChat 계정을 ID 공급자로 사�
     ![디렉터리 선택](./media/active-directory-b2c-setup-wechat-app/select-directory.png)
 
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-4. **ID 공급자**를 선택한 다음 **추가**를 선택합니다.
+4. **ID 공급자**를 선택한 다음, **추가**를 선택합니다.
 5. **이름**을 제공합니다. 예를 들어 *WeChat*을 입력합니다.
 6. **ID 공급자 형식**을 클릭하고 **WeChat(미리 보기)** 을 선택한 다음, **확인**을 클릭합니다.
 7. **이 ID 공급자 설정**을 선택하고 이전에 기록한 앱 ID를 **클라이언트 ID**로 입력한 후, 기록한 앱 키를 이전에 만든 WeChat 응용 프로그램의 **클라이언트 암호**로 입력합니다.

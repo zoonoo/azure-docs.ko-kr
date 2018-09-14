@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/17/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 66cd3644611c1d837de717661a3515a0c0d3956f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 838717aa8f426ea54f4736453aac8c6fcf9a0099
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308034"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344500"
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Azure Active Directory B2C 등록, 로그인, 프로필 편집 및 암호 재설정을 사용하여 ASP.NET 웹앱 만들기
 
@@ -95,7 +95,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 * `ida:ResetPasswordPolicyId`를 "암호 재설정" 정책 이름으로 바꿉니다.
 
 ## <a name="launch-the-app"></a>앱 시작
-Visual Studio 내에서 앱을 시작합니다. 할 일 목록 탭으로 이동합니다. URl는 https://login.microsoftonline.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*&client_id=*YourclientID*.....입니다.
+Visual Studio 내에서 앱을 시작합니다. 할 일 목록 탭으로 이동합니다. URl는 https://*YourTenantName*.b2clogin.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*&client_id=*YourclientID*입니다.
 
 메일 주소 또는 사용자 이름을 사용하여 앱에 등록합니다. 로그아웃한 다음 다시 로그인하고 프로필을 편집하거나 암호를 다시 설정합니다. 로그아웃했다가 다른 사용자로 로그인합니다. 
 

@@ -12,47 +12,67 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 04/28/2017
+ms.date: 08/29/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 7bf1e437e97fdb4d929af23bd7b2a9abb49268df
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 9402824540f965cb89aa00791d093bd87712a89a
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189161"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665845"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-directory-roles-in-pim"></a>PIM에서 Azure AD 디렉터리 역할에 대한 요청 승인 또는 거부
 
-PIM(Privileged Identity Management)을 사용하면, 활성화에 대한 승인이 필요한 역할을 구성하고 하나 이상의 사용자 또는 그룹을 위임된 승인자로 선택할 수 있습니다.
+Azure AD PIM(Privileged Identity Management)을 사용하면, 활성화에 대한 승인이 필요한 역할을 구성하고 하나 이상의 사용자 또는 그룹을 위임된 승인자로 선택할 수 있습니다. 이 문서의 단계에 따라 Azure AD 디렉터리 역할에 대한 요청을 승인하거나 거부합니다.
 
-## <a name="view-pending-approvals-requests"></a>보류 중인 승인(요청) 보기
+## <a name="view-pending-requests"></a>보류 중인 요청 보기
 
-요청 승인이 보류 중일 때는 위임된 승인자가 전자 메일 알림을 받게 됩니다. PIM 포털에서 이러한 요청을 보려면 새로운 탐색 창의 대시보드에서 왼쪽 탐색 모음의 "보류 중 승인 요청" 탭을 선택합니다.
+Azure AD 디렉터리 역할 요청이 승인 보류 중일 때는 위임된 승인자가 이메일 알림을 받게 됩니다. PIM에서 이러한 보류 중인 요청을 볼 수 있습니다.
 
-![](media/azure-ad-pim-approval-workflow/image023.png)
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
-여기에서 승인 보류 중인 요청 목록이 표시됩니다.
+1. **Azure AD Privileged Identity Management**를 엽니다.
 
-![](media/azure-ad-pim-approval-workflow/image024.png)
+1. **Azure AD 디렉터리 역할**을 클릭합니다.
 
-## <a name="approve-or-deny-requests-for-role-elevation-single-andor-bulk"></a>역할 상승 요청(단일 및/또는 대량) 승인 또는 거부
+1. **요청 승인**을 클릭합니다.
 
-승인하거나 거부하려는 요청을 선택하고 결정에 해당하는 작업 모음의 단추를 클릭합니다.
+    ![PIM Azure AD 디렉터리 역할 - 역할](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
 
-![](media/azure-ad-pim-approval-workflow/image025.png)
+    승인 보류 중인 요청 목록이 표시됩니다.
 
-## <a name="provide-justification-for-my-approvaldenial"></a>승인/거부에 대한 근거 제공
+## <a name="approve-requests"></a>요청 승인
 
-이 경우 한 번에 여러 요청을 승인하거나 거부할 수 있는 새 블레이드가 열립니다. 결정에 대한 근거를 입력하고, 아래쪽 또는 블레이드에서 승인(또는 거부)를 클릭합니다.
+1. 승인할 요청을 클릭하고 **승인**을 클릭하여 선택한 요청 승인 창을 엽니다.
 
-![](media/azure-ad-pim-approval-workflow/image029.png)
+    ![PIM 승인 요청 목록](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
 
-요청 프로세스가 완료되면 상태 기호에 사용자가 내린 결정이 반영됩니다(이 예에서는 승인 결정임).
+1. **승인 이유** 상자에 이유를 입력합니다.
 
-![](media/azure-ad-pim-approval-workflow/image031.png)
+    ![PIM 선택한 요청 승인](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
+
+1. **승인**을 클릭합니다.
+
+    상태 기호가 승인으로 업데이트됩니다.
+
+    ![PIM 선택한 요청 승인](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
+
+## <a name="deny-requests"></a>요청 거부
+
+1. 거부할 요청을 클릭하고 **거부**를 클릭하여 선택한 요청 거부 창을 엽니다.
+
+    ![PIM 승인 요청 목록](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
+
+1. **거부 이유** 상자에 이유를 입력합니다.
+
+    ![PIM 선택한 요청 거부](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
+
+1. **거부**를 클릭합니다.
+
+    상태 기호가 거부로 업데이트됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [PIM에서 Azure 리소스 역할에 대한 요청 승인 또는 거부](pim-resource-roles-approval-workflow.md)
 - [PIM에서 이메일 알림](pim-email-notifications.md)
+- [PIM에서 Azure 리소스 역할에 대한 요청 승인 또는 거부](pim-resource-roles-approval-workflow.md)

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: a1296565384e60117d883a1f1407362482ba1a3e
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 7c08848698f07d64bbbff429682c18525659f7bf
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125016"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286520"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>IoT Hub 메시지 만들기 및 읽기
 
@@ -23,7 +23,7 @@ ms.locfileid: "39125016"
 
 [IoT Hub 메시지][lnk-messaging]는 다음으로 구성됩니다.
 
-* *시스템 속성*집합. IoT Hub가 해석하거나 설정하는 속성입니다. 이 집합은 미리 결정됩니다.
+* 아래에 나열된 미리 결정된 *시스템 속성* 집합
 * *응용 프로그램 속성*집합. 메시지 본문을 역직렬화할 필요 없이 응용 프로그램이 정의하고 액세스할 수 있는 문자열 속성 사전입니다. IoT Hub는 절대로 이러한 속성을 수정하지 않습니다.
 * 불투명한 이진 본문.
 
@@ -36,20 +36,20 @@ ms.locfileid: "39125016"
 
 다음 테이블에는 IoT Hub 메시지의 시스템 속성 집합이 나열되어 있습니다.
 
-| 자산 | 설명 |
-| --- | --- |
-| MessageId |사용자가 설정할 수 있는 메시지에 대한 식별자는 요청-회신 패턴에 사용됩니다. 형식: ASCII 7 비트 영숫자 문자 + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`의 대/소문자 구분 문자열(최대 128자 길이)입니다. |
-| 시퀀스 번호 |숫자(장치 큐 별로 고유함)는 IoT Hub에서 각 클라우드-장치 메시지에 할당됩니다. |
-| 받는 사람 |[클라우드-장치][lnk-c2d] 메시지에 지정된 대상입니다. |
-| ExpiryTimeUtc |메시지 만료 날짜 및 시간입니다. |
-| EnqueuedTime |IoT Hub에서 [클라우드-장치][lnk-c2d] 메시지를 수신한 날짜 및 시간입니다. |
-| CorrelationId |일반적으로 요청-응답 패턴으로 요청의 MessageId가 포함된 응답 메시지의 String 속성입니다. |
-| UserId |메시지의 원본을 지정하는 데 사용되는 ID입니다. 메시지가 IoT Hub에서 생성되면 `{iot hub name}`로 설정합니다. |
-| Ack |피드백 메시지 생성기입니다. 이 속성은 장치에서 소비하는 메시지의 결과로 피드백 메시지를 생성하는 IoT Hub를 요청하기 위해 클라우드-장치 메시지에서 사용됩니다. 가능한 값: **none**(기본값): 피드백 메시지가 생성되지 않습니다. **positive**: 메시지가 완료된 경우 피드백 메시지를 받습니다. **negative**: 장치에서 완료되지 않고 메시지가 만료(또는 최대 전달 횟수에 도달)되면 피드백 메시지를 받습니다. **full**: positive 및 negative 모두입니다. 자세한 내용은 [메시지 피드백][lnk-feedback]을 참조하세요. |
-| ConnectionDeviceId |IoT Hub에서 장치-클라우드 메시지에 설정하는 ID입니다. 메시지를 보낸 장치의 **deviceId** 를 포함합니다. |
-| ConnectionDeviceGenerationId |IoT Hub에서 장치-클라우드 메시지에 설정하는 ID입니다. 메시지를 보낸 장치의 **generationId**([장치 ID 속성][lnk-device-properties]당)를 포함합니다. |
-| ConnectionAuthMethod |IoT Hub에서 장치-클라우드 메시지에 설정하는 인증 방법입니다. 이 속성에는 메시지를 보내는 장치를 인증하는 데 사용되는 인증 방법에 대한 정보가 포함됩니다. 자세한 내용은 [장치-클라우드 스푸핑 방지][lnk-antispoofing]를 참조하세요. |
-| CreationTimeUtc | 장치에서 메시지를 만든 날짜 및 시간입니다. 장치는 명시적으로 이 값을 설정해야 합니다. |
+| 자산 | 설명 | 사용자가 설정 가능한지 여부 |
+| --- | --- | --- |
+| MessageId |사용자가 설정할 수 있는 메시지에 대한 식별자는 요청-회신 패턴에 사용됩니다. 형식: ASCII 7 비트 영숫자 문자 + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`의 대/소문자 구분 문자열(최대 128자 길이)입니다. | yes |
+| 시퀀스 번호 |숫자(장치 큐 별로 고유함)는 IoT Hub에서 각 클라우드-장치 메시지에 할당됩니다. | C2D 메시지의 경우는 사용자가 설정할 수 없고 다른 경우는 사용자가 설정할 수 있습니다. |
+| 받는 사람 |[클라우드-장치][lnk-c2d] 메시지에 지정된 대상입니다. | C2D 메시지의 경우는 사용자가 설정할 수 없고 다른 경우는 사용자가 설정할 수 있습니다. |
+| ExpiryTimeUtc |메시지 만료 날짜 및 시간입니다. | yes |
+| EnqueuedTime |IoT Hub에서 [클라우드-장치][lnk-c2d] 메시지를 수신한 날짜 및 시간입니다. | C2D 메시지의 경우는 사용자가 설정할 수 없고 다른 경우는 사용자가 설정할 수 있습니다. |
+| CorrelationId |일반적으로 요청-응답 패턴으로 요청의 MessageId가 포함된 응답 메시지의 String 속성입니다. | yes |
+| UserId |메시지의 원본을 지정하는 데 사용되는 ID입니다. 메시지가 IoT Hub에서 생성되면 `{iot hub name}`로 설정합니다. | 아니요 |
+| Ack |피드백 메시지 생성기입니다. 이 속성은 장치에서 소비하는 메시지의 결과로 피드백 메시지를 생성하는 IoT Hub를 요청하기 위해 클라우드-장치 메시지에서 사용됩니다. 가능한 값: **none**(기본값): 피드백 메시지가 생성되지 않습니다. **positive**: 메시지가 완료된 경우 피드백 메시지를 받습니다. **negative**: 장치에서 완료되지 않고 메시지가 만료(또는 최대 전달 횟수에 도달)되면 피드백 메시지를 받습니다. **full**: positive 및 negative 모두입니다. 자세한 내용은 [메시지 피드백][lnk-feedback]을 참조하세요. | yes |
+| ConnectionDeviceId |IoT Hub에서 장치-클라우드 메시지에 설정하는 ID입니다. 메시지를 보낸 장치의 **deviceId** 를 포함합니다. | D2C 메시지의 경우는 사용자가 설정할 수 없고 다른 경우는 사용자가 설정할 수 있습니다. |
+| ConnectionDeviceGenerationId |IoT Hub에서 장치-클라우드 메시지에 설정하는 ID입니다. 메시지를 보낸 장치의 **generationId**([장치 ID 속성][lnk-device-properties]당)를 포함합니다. | D2C 메시지의 경우는 사용자가 설정할 수 없고 다른 경우는 사용자가 설정할 수 있습니다. |
+| ConnectionAuthMethod |IoT Hub에서 장치-클라우드 메시지에 설정하는 인증 방법입니다. 이 속성에는 메시지를 보내는 장치를 인증하는 데 사용되는 인증 방법에 대한 정보가 포함됩니다. 자세한 내용은 [장치-클라우드 스푸핑 방지][lnk-antispoofing]를 참조하세요. | D2C 메시지의 경우는 사용자가 설정할 수 없고 다른 경우는 사용자가 설정할 수 있습니다. |
+| CreationTimeUtc | 장치에서 메시지를 만든 날짜 및 시간입니다. 장치는 명시적으로 이 값을 설정해야 합니다. | yes |
 
 ## <a name="message-size"></a>메시지 크기
 

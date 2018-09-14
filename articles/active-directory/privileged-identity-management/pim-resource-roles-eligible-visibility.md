@@ -15,12 +15,12 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 3551c3231a94f8a844d26a713cbf171ca7653815
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: fb52bc92c86261831d0e8d8e9e863a4863fe8fb9
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189217"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666892"
 ---
 # <a name="eligible-assignments-and-resource-visibility-in-pim"></a>PIM의 적격 할당 및 리소스 표시 유형
 
@@ -67,6 +67,24 @@ Azure 리소스에서 PIM에는 **내 역할**, **역할** 및 PIM의 **멤버**
 - 활성화됨
 
 **활성 역할**에 나열된 멤버 자격을 볼 때 **STATE** 열의 값을 사용하여 **할당됨**이 활성인 사용자와 적격 할당이 **활성화됨**이고 현재 활성인 사용자 간의 차이점을 구분할 수 있습니다.
+
+## <a name="azure-resource-role-approval-workflow"></a>Azure 리소스 역할 승인 워크플로
+
+관리자는 Azure 리소스 역할에 대한 PIM의 승인 워크플로를 통해 중요한 리소스에 대한 액세스 권한을 추가로 보호하거나 제한할 수 있습니다. 즉, 관리자는 역할 할당을 활성화하기 위해 승인을 요구할 수 있습니다.
+
+리소스 계층의 개념은 Azure 리소스 역할에 고유한 개념입니다. 이 계층을 사용하면 부모 리소스 개체에서 부모 컨테이너 내의 모든 자식 리소스로 역할 할당을 상속할 수 있습니다. 
+
+예를 들어, 리소스 관리자인 Bob이 PIM을 사용하여 Alice를 Contoso 구독의 소유자 역할에 적격 멤버로 할당합니다. 이 할당에서 Alice는 Contoso 구독 내 모든 리소스 그룹 컨테이너의 적격 소유자입니다. 또한 Alice는 구독의 각 리소스 그룹 내에서 가상 머신과 같은 모든 리소스의 적격 소유자이기도 합니다.
+
+Contoso 구독에 Fabrikam Test, Fabrikam Dev 및 Fabrikam Prod라는 세 개의 리소스 그룹이 있다고 가정하겠습니다. 이러한 각 리소스 그룹에는 단일 가상 머신이 포함됩니다.
+
+PIM 설정은 리소스의 각 역할에 대해 구성됩니다. 할당과 달리 이 설정은 상속되지 않고 리소스 역할에 엄격히 적용됩니다.
+
+계속 같은 예제로 설명하면, Bob은 PIM을 사용하여 Contoso 구독 소유자 역할의 모든 멤버에 활성화를 위한 승인 절차를 요청합니다. Fabrikam Prod 리소스 그룹의 리소스를 보호하기 위해 Bob은 또한 이 리소스의 소유자 역할 멤버에 대해 승인을 요청합니다. Fabrikam Test 및 Dev Fabrikam의 소유자 역할은 활성화를 위한 승인이 필요하지 않습니다.
+
+Alice가 Contoso 구독에 대해 소유자 역할의 활성화를 요청하는 경우 승인자는 Alice의 역할이 활성 상태가 되기 전에 해당 요청을 승인하거나 거부해야 합니다. Alice가 Fabrikam Prod 리소스 그룹으로 [활성화 범위를 지정](pim-resource-roles-activate-your-roles.md)하려는 경우에도 승인자는 이 요청을 승인하거나 거부해야 합니다. 그러나 Alice가 Fabrikam Test 또는 Fabrikam Dev로 활성화 범위를 지정하려는 경우 승인이 필요하지 않습니다.
+
+승인 워크플로는 역할의 일부 멤버에게만 필요할 수 있습니다. Azure 구독에서 실행될 응용 프로그램 개발을 지원하기 위해 조직이 계약 직원 몇명을 채용하는 시나리오를 가정합니다. 리소스 관리자로서 사용자는 직원이 승인을 요청하지 않고도 적격 액세스 권한을 갖기를 원하지만, 계약 직원은 반드시 승인을 요청해야 합니다. 계약 직원에 대해서만 승인 워크플로를 구성하려면 직원에게 할당된 역할과 동일한 권한으로 사용자 지정 역할을 만들 수 있습니다. 사용자 정의 역할을 활성화하려면 승인이 필요할 수 있습니다. [사용자 지정 역할을 자세히 알아보세요](pim-resource-roles-custom-role-policy.md).
 
 ## <a name="next-steps"></a>다음 단계
 
