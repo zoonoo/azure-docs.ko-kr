@@ -3,7 +3,7 @@ title: Azure Stack 1807 업데이트 | Microsoft Docs
 description: 새로운 1807 업데이트의 알려진된 문제를 포함 하 여 Azure Stack 통합 시스템 및 업데이트를 다운로드 하는 위치에 알아봅니다.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: eabd6fdd643f7f8e1795f791e8a66e612651dee2
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: c55667e61e35186f63f49082db0c3adadd66ff68
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159506"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633384"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 업데이트
 

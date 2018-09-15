@@ -3,7 +3,7 @@ title: 추가 사용량에 대 한 테 넌 트 및 Azure Stack에 대금 청구 
 description: 클라우드 서비스 공급자 (CSP)에서 관리 되는 Azure Stack에 최종 사용자를 추가 하는 데 필요한 단계입니다.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,14 +12,14 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: d3fc3ef6c5fdcf5a87c691c73169ef2bec95805e
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: af28bff0a9826bb96451ae944a377ad0ee284d87
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382691"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633999"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>사용량에 대 한 테 넌 트를 추가 하 고 Azure Stack에 대 한 청구
 

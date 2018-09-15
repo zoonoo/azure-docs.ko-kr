@@ -3,7 +3,7 @@ title: Azure Stack에 대 한 클라우드 서비스 공급자에 대 한 보고
 description: Azure Stack 발생 하 고 Azure에 전달 하 여 서비스 공급자 (CSP (클라우드)를 처리 하는 테 넌 트에 대 한 사용량을 추적 하는 데 필요한 인프라를 포함 합니다.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,14 +12,14 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: 5a38f504a881662c19fe881058622392cf1bced0
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 9526385eaea8a88f0c22e6420ba39a33f7166f96
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576358"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633727"
 ---
 ## <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>클라우드 서비스 공급자에 대 한 보고 인프라 사용
 

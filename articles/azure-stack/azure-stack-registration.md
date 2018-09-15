@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 6f406f63f4ae7518b93153db30c9ca51564b848c
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 92c0ad6dfde4fc83a912b4a3387d8b586e72809c
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720143"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630446"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure를 사용 하 여 Azure Stack 등록
 
@@ -52,7 +52,7 @@ Azure Stack에 Azure를 등록 하기 전에 다음이 필요 합니다.
 
 - 사용자 이름 및 구독에 대 한 소유자가 계정에 대 한 암호 (MSA/2FA 계정 지원 됨).
 
-- 사용자 계정이 있어야 Azure Stack은 등록 되는, 예를 들어, Azure AD 테 넌 트에서 관리자 `yourazurestacktenant.onmicrosoft.com`합니다.
+- 사용자 계정에 Azure 구독에 액세스할 수 있으며 해당 구독과 연결 된 디렉터리에 id 응용 프로그램 및 서비스 주체를 만들 수 있는 권한이 필요 합니다.
 
 - Azure Stack 리소스 공급자 등록 (아래 세부 정보에 대 한 Azure Stack 리소스 공급자 등록 섹션 참조).
 
@@ -106,7 +106,7 @@ Azure Stack 배포 될 수 있습니다 *연결 된* 하거나 *끊어진*합니
 
 1. Azure를 사용 하 여 Azure Stack 리소스 공급자를 등록 하려면 관리자 권한으로 PowerShell ISE를 시작 하 고 사용 하 여 다음 PowerShell cmdlet을 사용 합니다 **EnvironmentName** 적절 한 Azure 구독 유형 (참조로 매개 변수 설정 매개 변수 아래)입니다.
 
-2. Azure Stack 등록을 사용 하는 Azure 계정을 추가 합니다. 실행 계정을 추가 합니다 **Add-azurermaccount** cmdlet. Azure 전역 관리자 계정 자격 증명을 입력 하 라는 메시지가 표시 됩니다 하 고 계정 구성에 따라 2 단계 인증을 사용 해야 합니다.
+2. Azure Stack 등록을 사용 하는 Azure 계정을 추가 합니다. 실행 계정을 추가 합니다 **Add-azurermaccount** cmdlet. Azure 계정 자격 증명을 입력 하 라는 메시지가 표시 됩니다 하 고 계정 구성에 따라 2 단계 인증을 사용 해야 합니다.
 
    ```PowerShell  
       Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
@@ -166,7 +166,7 @@ Azure Stack 배포 될 수 있습니다 *연결 된* 하거나 *끊어진*합니
 
 1. Azure를 사용 하 여 Azure Stack 리소스 공급자를 등록 하려면 관리자 권한으로 PowerShell ISE를 시작 하 고 사용 하 여 다음 PowerShell cmdlet을 사용 합니다 **EnvironmentName** 적절 한 Azure 구독 유형 (참조로 매개 변수 설정 매개 변수 아래)입니다.
 
-2. Azure Stack 등록을 사용 하는 Azure 계정을 추가 합니다. 실행 계정을 추가 합니다 **Add-azurermaccount** cmdlet. Azure 전역 관리자 계정 자격 증명을 입력 하 라는 메시지가 표시 됩니다 하 고 계정 구성에 따라 2 단계 인증을 사용 해야 합니다.
+2. Azure Stack 등록을 사용 하는 Azure 계정을 추가 합니다. 실행 계정을 추가 합니다 **Add-azurermaccount** cmdlet. Azure 계정 자격 증명을 입력 하 라는 메시지가 표시 됩니다 하 고 계정 구성에 따라 2 단계 인증을 사용 해야 합니다.
 
    ```PowerShell  
       Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"

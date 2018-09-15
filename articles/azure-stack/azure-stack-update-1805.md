@@ -3,7 +3,7 @@ title: Azure Stack 1805 업데이트 | Microsoft Docs
 description: 새로운 1805 업데이트의 알려진된 문제를 포함 하 여 Azure Stack 통합 시스템 및 업데이트를 다운로드 하는 위치에 알아봅니다.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/27/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 4db0ce5e877f3054cc41e8940e8d9e672f7632c6
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 60b4658d18d39797d30055e86cb21689cfb661fa
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43110351"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631667"
 ---
 # <a name="azure-stack-1805-update"></a>Azure Stack 1805 업데이트
 

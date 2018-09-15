@@ -3,7 +3,7 @@ title: Azure Stack 서비스 정책 | Microsoft Docs
 description: 정책 및 지원 되는 상태에서 통합된 시스템을 유지 하는 서비스는 Azure Stack에 알아봅니다.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: caac3d2f-11cc-4ff2-82d6-52b58fee4c39
@@ -13,14 +13,14 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: harik
-ms.openlocfilehash: f74a4ad0507f1c1f029befff88d733ffa719a763
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 523be365e8b66c157546470a70ddec73d3e1e5d1
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023514"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630684"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 서비스 정책
 이 문서에서는 Azure Stack 통합 시스템 및 지원 되는 상태 시스템을 유지 하기 위해 해야 할 항목에 대 한 서비스 정책을 설명 합니다. 

@@ -3,7 +3,7 @@ title: Azure에서 marketplace 항목 다운로드 | Microsoft Docs
 description: 클라우드 운영자 Azure Stack 배포 내에 Azure에서 마켓플레이스 항목을 다운로드할 수 있습니다.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/13/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: e396fc82754188ea655c70b44d4bf937a3c3163c
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: abcf71f81d89f8b6a8c7b9523dd67592b8808baa
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544214"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630282"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure에서 Azure Stack marketplace 항목 다운로드
 
