@@ -323,34 +323,8 @@
 
 ### [토큰 수명](active-directory-configurable-token-lifetimes.md)
 
-## 액세스 검토
-### [액세스 검토 개요](active-directory-azure-ad-controls-access-reviews-overview.md)
-### [액세스 검토 완료](active-directory-azure-ad-controls-complete-access-review.md)
-### [액세스 검토 만들](active-directory-azure-ad-controls-create-access-review.md)
-### [액세스 검토 수행 방법](active-directory-azure-ad-controls-perform-access-review.md)
-### [액세스 검토 방법](active-directory-azure-ad-controls-how-to-review-your-access.md)
-### [액세스 검토로 게스트 액세스](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
-### [검토로 사용자 액세스 관리](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
-### [프로그램 및 컨트롤 관리](active-directory-azure-ad-controls-manage-programs-controls.md)
-### [액세스 검토 결과 검색](active-directory-azure-ad-controls-retrieve-access-review.md)
-
-## [사용 약관](active-directory-tou.md)
-
 ## ID 보안
 
-### Azure AD ID 보호
-#### [개요](identity-protection/overview.md)
-#### [사용](identity-protection/enable.md)
-#### [취약점 감지](identity-protection/vulnerabilities.md)
-#### [위험 이벤트](active-directory-identity-protection-risk-events.md)
-#### [Notifications](identity-protection/notifications.md)
-#### [로그인 환경](identity-protection/flows.md)
-#### [위험 이벤트 시뮬레이션](identity-protection/playbook.md)
-#### [사용자 차단 해제](identity-protection/howto-unblock-user.md)
-#### [세션 위험이 감지되면 액세스 차단](identity-protection/quickstart-sign-in-risk-policy.md)
-#### [FAQ](identity-protection/faqs.md)
-#### [용어](identity-protection/glossary.md)
-#### [Microsoft Graph](identity-protection/graph-get-started.md)
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
 ## [Azure에서 AD FS 배포](active-directory-aadconnect-azure-adfs.md)
