@@ -83,6 +83,7 @@
 
 ## [그룹 및 구성원 관리](fundamentals/active-directory-manage-groups.md)
 ### [그룹 관리](fundamentals/active-directory-groups-create-azure-portal.md)
+### [그룹 및 해당 멤버 삭제](fundamentals/active-directory-groups-delete-group.md)
 ### [그룹 설정 관리](fundamentals/active-directory-groups-settings-azure-portal.md)
 ## [보고서 관리](reports-monitoring/overview-reports.md)
 ### [로그인 활동](reports-monitoring/concept-sign-ins.md)
@@ -346,6 +347,7 @@
 #### [로그인 환경](identity-protection/flows.md)
 #### [위험 이벤트 시뮬레이션](identity-protection/playbook.md)
 #### [사용자 차단 해제](identity-protection/howto-unblock-user.md)
+#### [세션 위험이 감지되면 액세스 차단](identity-protection/quickstart-sign-in-risk-policy.md)
 #### [FAQ](identity-protection/faqs.md)
 #### [용어](identity-protection/glossary.md)
 #### [Microsoft Graph](identity-protection/graph-get-started.md)
