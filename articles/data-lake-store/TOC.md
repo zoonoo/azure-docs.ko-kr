@@ -3,14 +3,14 @@
 
 # 개요
 ## [Data Lake Storage Gen1 개요](data-lake-store-overview.md)
-## [Data Lake Storage Gen1과 Azure Storage 비교](data-lake-store-comparison-with-blob-storage.md)
-## [빅 데이터 처리를 위한 Data Lake Storage Gen1](data-lake-store-data-scenarios.md)
-## [Data Lake Storage Gen1에서 작동하는 오픈 소스 응용 프로그램](data-lake-store-compatible-oss-other-applications.md)
+## [Azure Storage와 비교](data-lake-store-comparison-with-blob-storage.md)
+## [빅 데이터 처리](data-lake-store-data-scenarios.md)
+## [오픈 소스 응용 프로그램으로 작업](data-lake-store-compatible-oss-other-applications.md)
 ## [모범 사례](data-lake-store-best-practices.md)
 
 # 시작하기
-## [포털 사용](data-lake-store-get-started-portal.md)
-## [PowerShell 사용](data-lake-store-get-started-powershell.md)
+## [Azure Portal 사용](data-lake-store-get-started-portal.md)
+## [Azure PowerShell 사용](data-lake-store-get-started-powershell.md)
 ## [Azure CLI 2.0 사용](data-lake-store-get-started-cli-2.0.md)
 
 
