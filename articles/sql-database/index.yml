@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0439f35a8ad7daab780bde301a2ec5fee8aaf1d6
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 8c56b4d0bbd4b2726b9673ca537084376ee40d94
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718291"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629326"
 documentType: LandingData
 title: Azure SQL Database 설명서
 metadata:
@@ -107,7 +107,7 @@ sections:
       values:
       - href: /azure/sql-database/sql-database-get-started-portal
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
-      - href: /azure/sql-database//scripts/sql-database-create-and-configure-database-powershell
+      - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
       - href: 
     - title: SQL Managed Instance 만들기
       values:
@@ -135,7 +135,7 @@ sections:
     - title: Managed Instance 크기 조정
       values:
       - href: 
-      - href: 
+      - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
       - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/05/31/change-size-azure-sql-managed-instance-using-powershell/
       - href: 
     - title: Managed Instance에 대한 Azure 네트워크 구성
@@ -152,9 +152,9 @@ sections:
     style: ordered
     items:
     - html: <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> 또는 <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>을 사용하여 새 SQL Database에 대한 스키마를 생성 및 설계
-    - html: <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">기존 SQL Server 데이터베이스를 Azure SQL Database를 사용하도록 마이그레이션</a>
+    - html: <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">데이터베이스 복원</a>, <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Database Migration Assistant</a> 또는 <a href="/azure/sql-database/sql-database-import">BACPAC 가져오기</a>를 사용하여 Azure에 기존 데이터베이스 마이그레이션
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">SQL Database 보안 설정</a>
-    - html: <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">지역 분산 데이터베이스 구현</a>
+    - html: <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">지역 복제 데이터베이스</a>를 전세계에 사용하여 데이터 배포
 - title: 무료 Pluralsight 동영상 교육
   items:
   - type: list

@@ -52,35 +52,35 @@ items:
   items:
   - name: 앱 빌드
     items:
-    - name: 1. 사용자 지정 도메인 사용
+    - name: 1. 사용자 의도 확인
       href: luis-quickstart-intents-only.md
-    - name: 2. 미리 작성된 의도 및 엔터티 추가
+    - name: 2. 일반적인 의도 식별
       href: luis-tutorial-prebuilt-intents-entities.md
-    - name: 3. 정규식 엔터티 추가
+    - name: 3. 적절한 형식의 데이터 추출
       href: luis-quickstart-intents-regex-entity.md
-    - name: 4. 목록 엔터티 추가
+    - name: 4. 정확한 텍스트 일치 항목 추출
       href: luis-quickstart-intent-and-list-entity.md
-    - name: 5. 계층적 엔터티 추가
+    - name: 5. 컨텍스트 관련 데이터 추출
       href: luis-quickstart-intent-and-hier-entity.md
-    - name: 6. 복합 엔터티 추가
+    - name: 6. 관련된 데이터 그룹화 및 추출
       href: luis-tutorial-composite-entity.md
-    - name: 7. 단순 엔터티 및 문구 목록 추가
+    - name: 7. 이름 추출
       href: luis-quickstart-primary-and-secondary-data.md
-    - name: 8. keyPhrase 엔터티 추가
+    - name: 8. 핵심 구 추출
       href: luis-quickstart-intent-and-key-phrase.md
-    - name: 9. 감정 분석 추가
+    - name: 9. 감정 추출
       href: luis-quickstart-intent-and-sentiment-analysis.md
   - name: 앱 개선
     items:
-    - name: 엔드포인트 utterances 검토
+    - name: 1. 알 수 없는 예측 수정
       href: luis-tutorial-review-endpoint-utterances.md
-    - name: 일괄 처리 테스트 사용
+    - name: 2. Batch 테스트 데이터 집합
       href: luis-tutorial-batch-testing.md
-    - name: 패턴 사용
+    - name: 3. 일반적인 발언 서식 추가
       href: luis-tutorial-pattern.md
-    - name: 역할 사용
+    - name: 4. 컨텍스트 관련 패턴 추출
       href: luis-tutorial-pattern-roles.md
-    - name: Pattern.any 엔터티 사용
+    - name: 5. 자유 형식 데이터 추출
       href: luis-tutorial-pattern-any.md
 - name: 샘플
   items:
@@ -200,7 +200,7 @@ items:
       href: luis-interactive-test.md
     - name: 일괄 테스트
       href: luis-how-to-batch-test.md
-  - name: 앱 게시
+  - name: 게시
     href: luis-how-to-publish-app.md
   - name: 미리 작성된 모델 사용
     items:
@@ -364,9 +364,9 @@ items:
     href: https://blog.botframework.com/category/luis/
   - name: 기술 자료
     href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
-ms.openlocfilehash: a64c1a61193e6c998eeb8d9953ca3382277f27e3
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 6c8c1e93de904de2624a34a8e81bcb225cbce6d6
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842009"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630290"
