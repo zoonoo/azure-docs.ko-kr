@@ -34,7 +34,7 @@ items:
     href: monitoring-overview-of-diagnostic-logs.md
   - name: 활동 로그
     href: monitoring-overview-activity-logs.md
-  - name: Alerts
+  - name: 경고
     href: monitoring-overview-unified-alerts.md
   - name: 경고(클래식)
     href: monitoring-overview-alerts.md
