@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 1373e98b8edac81ebdb15aaf36d8bbfc910029fe
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: fdcc4f51f49e8eb133deeeecd070c55511cda464
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44026188"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985799"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>관리 포털에서 Azure Stack에 대 한 백업을 사용 하도록 설정
 Azure Stack 백업을 생성할 수 있도록 관리 포털을 통해 인프라 Backup 서비스를 사용 합니다. 경우 클라우드 복구를 사용 하 여 환경을 복원 하려면 이러한 백업에 사용할 수 있습니다 [치명적인 오류](.\azure-stack-backup-recover-data.md)합니다. 클라우드 복구의 목적은 운영자와 사용자 수에 다시 로그인 포털 복구가 완료 된 후 확인 합니다. 사용자 구독 역할 기반 액세스 권한 및 역할, 원래 계획, 제품 및 이전에 정의 된 계산, 저장소 및 네트워크 할당량을 비롯 하 여 복원 해야 합니다.
@@ -62,7 +62,7 @@ Azure Stack 백업을 생성할 수 있도록 관리 포털을 통해 인프라 
 ## <a name="start-backup"></a>백업 시작
 백업을 시작 하려면 클릭 **지금 Backup** 주문형 백업을 시작 하려면. 요청 시 백업을 예약 된 다음 백업에 대 한 시간을 수정 하지 않습니다. 작업이 완료 된 후의 설정을 확인할 수 있습니다 **Essentials**:
 
-![Azure Stack-주문형 백업](media\azure-stack-backup\scheduled-backup.png).
+![Azure Stack-주문형 백업](media\azure-stack-backup\scheduled-backup.png)
 
 PowerShell cmdlet을 실행할 수도 있습니다 **시작 AzsBackup** Azure Stack 관리 컴퓨터에 있습니다. 자세한 내용은 [Azure Stack 백업](azure-stack-backup-back-up-azure-stack.md)합니다.
 

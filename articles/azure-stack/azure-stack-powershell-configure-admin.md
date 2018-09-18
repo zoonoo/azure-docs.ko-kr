@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 09/17/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: e6e1ffdf4384080649a769b2fdf6877ea744ec51
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: aa86b44364ee84a9640fe0b39b6279982f5594ad
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162175"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982528"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>Operator 자격으로 PowerShell 사용 하 여 Azure Stack에 연결
 
@@ -44,8 +44,7 @@ PowerShell을 사용 하 여 Azure Stack 운영자 환경을 구성 합니다. �
     $ArmEndpoint = "<Admin Resource Manager endpoint for your environment>"
 
     # Register an AzureRM environment that targets your Azure Stack instance
-    Add-AzureRMEnvironment `
-        -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
+    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
 
     # After signing in to your environment, Azure Stack cmdlets
     # can be easily targeted at your Azure Stack instance.

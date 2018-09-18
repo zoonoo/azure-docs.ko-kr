@@ -3,7 +3,7 @@ title: Azure Stack 추가 노드 크기 조정 | Microsoft Docs
 description: Azure Stack의 배율 단위에 노드를 추가 합니다.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
-ms.author: brenduns
+ms.date: 09/17/2018
+ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.openlocfilehash: 0899b1784c796e5f6265dda842ca8955615a1584
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 3ce74cdb610f2902133459b913f53bb7809cb4b7
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718103"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983000"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Azure Stack에서 확장할 단위 노드를 추가 합니다.
 
@@ -142,4 +142,4 @@ Azure Stack 1807 이상을 추가 하려면 추가 확장 단위 노드에서 �
 
 
 ## <a name="next-steps"></a>다음 단계 
-검토 [노드 작업](azure-stack-node-actions.md) 
+[공용 IP 주소 추가](azure-stack-add-ips.md) 

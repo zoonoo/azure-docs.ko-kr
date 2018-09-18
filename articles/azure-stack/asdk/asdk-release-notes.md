@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 09/17/2018
 git ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: ad596e2f63d3ef5fb82fe52699fef3a79e835274
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 7770f4c45d974e8ce5750dbd3aee0d8393281151
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634815"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984444"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure Stack 개발 키트 릴리스 정보  
 이 문서에서는 향상 된 기능, 수정 및 Azure Stack 개발 키트의 알려진된 문제에 대 한 정보를 제공 합니다. 실행 중인 버전을 잘 모를 경우 [포털을 사용 하 여 확인](.\.\azure-stack-updates.md#determine-the-current-version)합니다.
@@ -46,6 +46,8 @@ ms.locfileid: "45634815"
 - <!-- | IS ASDK--> **Kubernetes 마켓플레이스 항목**합니다. 이제 사용 하 여 Kubernetes 클러스터를 배포할 수 있습니다 합니다 [Kubernetes 마켓플레이스 항목](/azure/azure-stack/azure-stack-solution-template-kubernetes-cluster-add)합니다. 사용자는 Kubernetes 항목을 선택 하 고 Azure Stack에 Kubernetes 클러스터를 배포 하는 몇 가지 매개 변수를 채울 수 있습니다. 템플릿의 목적은 간단 하 게 몇 가지 단계에서 개발/테스트 Kubernetes 배포의 설치는 사용자에 게입니다.
 
 - <!-- | IS ASDK--> **블록 체인 템플릿**합니다. 이제 실행할 수 있습니다 [Ethereum 컨소시엄 배포](/azure/azure-stack/azure-stack-ethereum) Azure Stack에서. 세 개의 새로운 템플릿이 있습니다 합니다 [Azure Stack 빠른 시작 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates)합니다. 사용자가 배포를 한 지식이 별로 없더라도 Azure 및 Ethereum 다중 멤버 컨소시엄 Ethereum 네트워크를 구성할 수 있습니다. 템플릿의 목적은 간단 하 게 몇 가지 단계에서 개발/테스트 Blockchain 배포의 설치는 사용자에 게입니다.
+
+- <!-- | IS ASDK--> **API 버전 프로필 2017-03-09-프로필 2018-03-01-하이브리드로 업데이트 되었습니다**합니다. 프로필 API는 Azure 리소스 공급자 및 Azure REST 끝점에 대 한 API 버전을 지정합니다. 프로필에 대 한 자세한 내용은 참조 하세요. [Azure Stack에서 관리 하는 API 버전 프로필](/azure/azure-stack/user/azure-stack-version-profiles)합니다.
 
 
 ### <a name="fixed-issues"></a>해결된 문제

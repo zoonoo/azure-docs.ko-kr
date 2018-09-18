@@ -11,14 +11,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 09/17/2018
 ms.author: mabrigg
-ms.openlocfilehash: 5d988e8a8a32924b8424a07cf20c75f0e8f8cf4d
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 75b7f9c78418883344ce3c066135fe0847f649ac
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391077"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45981972"
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Azure Stack에서 PowerShell을 사용 하 여 즉시 가동 및 실행
 
@@ -28,53 +28,62 @@ ms.locfileid: "44391077"
 
 이 문서는에 설명 된 단계를 간략하게 합니다 [PowerShell 설치]( azure-stack-powershell-install.md), [도구를 다운로드]( azure-stack-powershell-download.md), 및 [AzureStack운영자의PowerShell환경구성]( azure-stack-powershell-configure-admin.md) 문서. 이 문서의 스크립트를 사용 하면 Azure Active Directory 또는 Active Directory Federation Services (AD FS)를 사용 하 여 배포 된 Azure Stack 환경에 대 한 PowerShell을 설정할 수 있습니다.  
 
+## <a name="set-up-powershell-for-azure-active-directory-based-deployments"></a>Azure Active Directory 기반 배포에 대 한 PowerShell 설정  
 
-## <a name="set-up-powershell-for-azure-active-directory-based-deployments"></a>Azure Active Directory 기반 배포에 대 한 PowerShell 설정
+VPN을 통해 연결 되어 있는 경우 Azure Stack Development Kit 또는 Windows 기반 외부 클라이언트에 로그인 합니다. 관리자 권한 PowerShell ISE 세션을 열고 다음 스크립트를 실행 합니다.
 
-<a name="sign-in-to-your-azure-stack-development-kit-or-a-windows-based-external-client-if-you-are-connected-through-vpn-open-an-elevated-powershell-ise-session-and-then-run-the-following-script"></a>VPN을 통해 연결 되어 있는 경우 Azure Stack Development Kit 또는 Windows 기반 외부 클라이언트에 로그인 합니다. 관리자 권한 PowerShell ISE 세션을 열고 다음 스크립트를 실행 합니다. 
--  
-- 업데이트 해야 합니다 **TenantName**를 **ArmEndpoint**, 및 **GraphAudience** 환경 구성에 대해 필요에 따라 변수:
+업데이트 해야 합니다 **TenantName**를 **ArmEndpoint**, 및 **GraphAudience** 환경 구성에 대해 필요에 따라 변수:
 
-```powershell
+```PowerShell  
 # Specify Azure Active Directory tenant name.
 $TenantName = "<mydirectory>.onmicrosoft.com"
 
 # Set the module repository and the execution policy.
-Set-PSRepository `
-  -Name "PSGallery" `
-  -InstallationPolicy Trusted
+Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
-Set-ExecutionPolicy RemoteSigned `
-  -force
+Set-ExecutionPolicy RemoteSigned -force
 
-# Uninstall any existing Azure PowerShell modules. To uninstall, close all the active PowerShell sessions, and then run the following command:
-Get-Module -ListAvailable -Name Azure* | `
-  Uninstall-Module
+# Uninstall any existing Azure PowerShell modules. To uninstall, close all the active PowerShell sessions, and then run the following commands:
+Get-Module -ListAvailable -Name Azure* | Uninstall-Module
+Get-Module Azs.* -ListAvailable | Uninstall-Module -force
 
 # Install PowerShell for Azure Stack.
-Install-Module `
-  -Name AzureRm.BootStrapper `
-  -Force
+Install-Module -Name AzureRm.BootStrapper -Force
+```
 
-Use-AzureRmProfile `
-  -Profile 2017-03-09-profile `
-  -Force
+Azure Stack의 버전에 대 한 API 프로필과 관리자 모듈을 로드 합니다.
 
-Install-Module `
-  -Name AzureStack `
-  -RequiredVersion 1.2.11 `
-  -Force 
+  - Azure Stack 1808 이상입니다.
 
+  ```PowerShell  
+    Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.5.0 -Force
+  ```
+
+  - Azure Stack 1807 또는 이전 버전입니다.
+
+  ```PowerShell  
+    Use-AzureRmProfile -Profile 2017-03-09-profile -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.4.0 -Force
+  ```
+
+  - Azure Stack 1804 또는 이전 버전입니다.
+
+  ```PowerShell  
+    Use-AzureRmProfile -Profile 2017-03-09-profile -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
+  ```
+
+Azure Stack 도구를 다운로드 하 고 연결 합니다.
+
+```PowerShell  
 # Download Azure Stack tools from GitHub and import the connect module.
 cd \
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 invoke-webrequest `
-  https://github.com/Azure/AzureStack-Tools/archive/master.zip `
-  -OutFile master.zip
+  https://github.com/Azure/AzureStack-Tools/archive/master.zip -OutFile master.zip
 
-expand-archive master.zip `
-  -DestinationPath . `
-  -Force
+expand-archive master.zip -DestinationPath . -Force
 
 cd AzureStack-Tools-master
 
@@ -84,63 +93,81 @@ Import-Module .\Connect\AzureStack.Connect.psm1
   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
 # Register an AzureRM environment that targets your Azure Stack instance
-  Add-AzureRMEnvironment `
-    -Name "AzureStackAdmin" `
-    -ArmEndpoint $ArmEndpoint
+  Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
 
 # Get the Active Directory tenantId that is used to deploy Azure Stack
-  $TenantID = Get-AzsDirectoryTenantId `
-    -AADTenantName $TenantName `
-    -EnvironmentName "AzureStackAdmin"
+  $TenantID = Get-AzsDirectoryTenantId -AADTenantName $TenantName -EnvironmentName "AzureStackAdmin"
 
 # Sign in to your environment
-  Add-AzureRmAccount `
-    -EnvironmentName "AzureStackAdmin" `
-    -TenantId $TenantID 
+  Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID 
 ```
 
 ## <a name="set-up-powershell-for-ad-fs-based-deployments"></a>AD FS 기반 배포에 대 한 PowerShell 설정
 
 인터넷에 연결 하는 경우 Azure Stack을 작동 하는 경우 다음 스크립트를 사용할 수 있습니다. 그러나 인터넷 연결 없이 Azure Stack을 운영 하는 경우 사용 하 여 합니다 [PowerShell을 설치 하는 방식으로 연결이 끊긴](azure-stack-powershell-install.md) PowerShell을 구성 하는 cmdlet이이 스크립트에 표시 된 것과 동일 하 게 유지 됩니다. VPN을 통해 연결 되어 있는 경우 Azure Stack Development Kit 또는 Windows 기반 외부 클라이언트에 로그인 합니다. 관리자 권한 PowerShell ISE 세션을 열고 다음 스크립트를 실행 합니다. 업데이트 해야 합니다 **ArmEndpoint** 하 고 **GraphAudience** 환경 구성에 대해 필요에 따라 변수:
 
-```powershell
+```PowerShell  
 
 # Set the module repository and the execution policy.
-Set-PSRepository `
-  -Name "PSGallery" `
-  -InstallationPolicy Trusted
+Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
-Set-ExecutionPolicy RemoteSigned `
-  -force
+Set-ExecutionPolicy RemoteSigned -force
 
 # Uninstall any existing Azure PowerShell modules. To uninstall, close all the active PowerShell sessions and run the following command:
-Get-Module -ListAvailable -Name Azure* | `
-  Uninstall-Module
+Get-Module -ListAvailable -Name Azure* | Uninstall-Module
 
 # Install PowerShell for Azure Stack.
-Install-Module `
-  -Name AzureRm.BootStrapper `
-  -Force
+Install-Module -Name AzureRm.BootStrapper -Force
+```
 
-Use-AzureRmProfile `
-  -Profile 2017-03-09-profile `
-  -Force
+Azure Stack의 버전에 대 한 API 프로필과 관리자 모듈을 로드 합니다.
 
-Install-Module `
-  -Name AzureStack `
-  -RequiredVersion 1.2.11 `
-  -Force 
+  - Azure Stack 1808 이상입니다.
 
+    ````PowerShell  
+    Import-Module -Name PowerShellGet -ErrorAction Stop
+    Import-Module -Name PackageManagement -ErrorAction Stop
+
+      $Path = "<Path that is used to save the packages>"
+      Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
+      Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
+    ````
+
+  - Azure Stack 1807 또는 이전 버전입니다.
+
+    > [!Note]  
+    1.2.11 업그레이드할 버전 참조는 [마이그레이션 가이드](https://aka.ms/azspowershellmigration)합니다.
+
+    ````PowerShell  
+    Import-Module -Name PowerShellGet -ErrorAction Stop
+    Import-Module -Name PackageManagement -ErrorAction Stop
+
+      $Path = "<Path that is used to save the packages>"
+      Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 1.2.11
+      Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.4.0
+    ````
+
+  - Azure Stack 1804 또는 이전 버전입니다.
+
+    ````PowerShell  
+    Import-Module -Name PowerShellGet -ErrorAction Stop
+    Import-Module -Name PackageManagement -ErrorAction Stop
+
+      $Path = "<Path that is used to save the packages>"
+      Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 1.2.11
+      Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.3.0
+    ````
+
+Azure Stack 도구를 다운로드 하 고 연결 합니다.
+
+```PowerShell  
 # Download Azure Stack tools from GitHub and import the connect module.
 cd \
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 invoke-webrequest `
-  https://github.com/Azure/AzureStack-Tools/archive/master.zip `
-  -OutFile master.zip
+https://github.com/Azure/AzureStack-Tools/archive/master.zip -OutFile master.zip
 
-expand-archive master.zip `
-  -DestinationPath . `
-  -Force
+expand-archive master.zip -DestinationPath . -Force
 
 cd AzureStack-Tools-master
 
@@ -150,26 +177,20 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
 # Register an AzureRM environment that targets your Azure Stack instance
-Add-AzureRMEnvironment `
-    -Name "AzureStackAdmin" `
-    -ArmEndpoint $ArmEndpoint
+Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
 
 # Get the Active Directory tenantId that is used to deploy Azure Stack     
-$TenantID = Get-AzsDirectoryTenantId `
-    -ADFS `
-    -EnvironmentName "AzureStackAdmin"
+$TenantID = Get-AzsDirectoryTenantId -ADFS -EnvironmentName "AzureStackAdmin"
 
 # Sign in to your environment
-Add-AzureRmAccount `
-    -EnvironmentName "AzureStackAdmin" `
-    -TenantId $TenantID
+Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID
 ```
 
 ## <a name="test-the-connectivity"></a>연결 테스트
 
 PowerShell을 사용 하도록 구성한 했으므로 리소스 그룹을 만들어 구성을 테스트할 수 있습니다.
 
-```powershell
+```PowerShell  
 New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 ```
 
@@ -180,6 +201,5 @@ New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 
 ## <a name="next-steps"></a>다음 단계
 
-* [CLI 설치 및 구성](azure-stack-connect-cli.md)
-
-* [템플릿 개발](user/azure-stack-develop-templates.md)
+ - [CLI 설치 및 구성](azure-stack-connect-cli.md)
+ - [템플릿 개발](user/azure-stack-develop-templates.md)

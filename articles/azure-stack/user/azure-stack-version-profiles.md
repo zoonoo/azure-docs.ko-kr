@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: db60aaacfb2ba60dbe73663cb415e2a3baea5400
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 270587f484216d130848ee3c7bdc8ae1c1df0afc
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745802"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982156"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Azure Stack에서 API 버전 프로필 관리
 
@@ -46,7 +46,7 @@ ms.locfileid: "42745802"
     매기고 주기로 발표,이 이번에 중점을 둡니다 일관성과 안정성 여러 클라우드 간에. 이 프로필에는 최적의 Azure Stack 호환성 대상 으로합니다.
     - **yyyy mm-dd 프로필** 최적의 안정성 및 최신 기능 사이 위치 합니다.
 
-### <a name="azure-api-profiles-and-azure-stack-compatibility"></a>Azure API 프로필 및 Azure Stack 호환성
+## <a name="azure-api-profiles-and-azure-stack-compatibility"></a>Azure API 프로필 및 Azure Stack 호환성
 
 최신 Azure API 프로필은 Azure Stack을 사용 하 여 호환 되지 않습니다. Azure Stack 솔루션에 대해 사용 하도록 프로필을 식별 하는 다음 명명 규칙을 사용할 수 있습니다.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: mabrigg
-ms.openlocfilehash: 975c5c2c5f0da7a6db946c6d1032b485947134d2
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 058e1f9abbf094fb49a21191f60195df53615451
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717709"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985297"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>관리자 포털을 사용 하 여 Azure Stack에서
 
@@ -71,6 +71,8 @@ Azure Stack 운영자로 관리자 포털에서 사용자 (자신 포함)에 대
 ### <a name="customize-the-dashboard"></a>대시보드를 사용자 지정
 
 대시보드는 기본 타일 집합이 포함 되어 있습니다. 선택할 수 있습니다 **대시보드 편집** 기본 대시보드를 수정 하거나 선택할 **새 대시보드** 사용자 지정 대시보드를 추가 합니다. 대시보드에 타일을 쉽게 추가할 수 있습니다. 예를 들어, 선택할 수 있습니다 **+ 리소스 만들기**를 마우스 오른쪽 단추로 클릭 **제공 + 계획**를 선택한 후 **대시보드에 고정**합니다.
+
+경우에 따라 포털에서 빈 대시보드를 볼 수 있습니다. 대시보드를 복구 하려면 클릭 **대시보드 편집**를 마우스 오른쪽 단추로 클릭을 선택한 다음 **기본 상태로 재설정**합니다.
 
 ### <a name="quick-access-to-online-documentation"></a>온라인 설명서에 대 한 빠른 액세스
 

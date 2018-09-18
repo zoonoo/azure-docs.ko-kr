@@ -3,7 +3,7 @@ title: Azure Stack에서 추적 사용에 대 한 테 넌 트 등록 | Microsoft
 description: 테 넌 트 등록 및 Azure Stack에서 테 넌 트 사용을 추적 하는 방식을 관리 하는 데 사용 되는 작업에 대 한 세부 정보입니다.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2018
-ms.author: sethm
+ms.date: 07/12/2018
+ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 93830933115b19c6dc6b2981dca142f72a133fc0
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 9396d49f455f8f4af1abf7f0020e95e8fd0a14cc
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629664"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729589"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Azure Stack에서 테 넌 트 등록 관리
 

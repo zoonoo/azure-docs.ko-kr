@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: c55667e61e35186f63f49082db0c3adadd66ff68
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: b46e365ea3903a8f2c805717df13d361c823148d
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633384"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985599"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 업데이트
 
@@ -172,6 +172,9 @@ Azure Stack 호스트 키 인프라를 Windows Server 2016의 Server Core 설치
 이 빌드 버전에 대 한 설치 후 알려진된 문제는 다음과 같습니다.
 
 ### <a name="portal"></a>포털
+
+- 수 [드롭다운 목록에서 새 지원 요청을 여세요](azure-stack-manage-portals.md#quick-access-to-help-and-support) 관리자 내에서 포털은 사용할 수 있습니다. Azure stack 통합된 시스템 대신 다음 링크를 클릭 합니다. [ https://aka.ms/newsupportrequest ](https://aka.ms/newsupportrequest)합니다.
+
 - <!-- 2931230 – IS  ASDK --> 사용자 구독에서 해당 계획을 제거 하는 경우에는 추가 요금제는 사용자 구독에 추가 되는 계획을 삭제할 수 없습니다. 계획에는 추가 요금제를 참조 하는 구독도 삭제 될 때까지 상태로 유지 됩니다. 
 
 - <!--2760466 – IS  ASDK --> 이 버전을 실행 하는 새 Azure Stack 환경에 설치한 경우이 경고는 나타냅니다 *활성화 필요* 표시 되지 않을 수 있습니다. [활성화](azure-stack-registration.md) 마켓플레이스 배포를 사용 하려면 먼저 필요 합니다.  
