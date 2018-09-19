@@ -26,22 +26,22 @@
 ## 계획 및 디자인
 ### [Azure AD 아키텍처 이해](fundamentals/active-directory-architecture.md)
 ### [Azure Active Directory의 클레임 매핑](active-directory-claims-mapping.md)
-### [하이브리드 ID 솔루션 배포](active-directory-hybrid-identity-design-considerations-overview.md)
+### [하이브리드 ID 솔루션 배포](hybrid/plan-hybrid-identity-design-considerations-overview.md)
 #### 요구 사항 결정
-##### [ID](active-directory-hybrid-identity-design-considerations-business-needs.md)
-##### [디렉터리 동기화](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
-##### [Multi-Factor Auth](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
-##### [ID 수명 주기 전략](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
-#### [데이터 보안 계획](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
-##### [데이터 보호](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
-##### [콘텐츠 관리](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
-##### [액세스 제어](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
-##### [사고 대응](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
+##### [ID](hybrid/plan-hybrid-identity-design-considerations-business-needs.md)
+##### [디렉터리 동기화](hybrid/plan-hybrid-identity-design-considerations-directory-sync-requirements.md)
+##### [Multi-Factor Auth](hybrid/plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
+##### [ID 수명 주기 전략](hybrid/plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
+#### [데이터 보안 계획](hybrid/plan-hybrid-identity-design-considerations-data-protection-strategy.md)
+##### [데이터 보호](hybrid/plan-hybrid-identity-design-considerations-dataprotection-requirements.md)
+##### [콘텐츠 관리](hybrid/plan-hybrid-identity-design-considerations-contentmgt-requirements.md)
+##### [액세스 제어](hybrid/plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)
+##### [사고 대응](hybrid/plan-hybrid-identity-design-considerations-incident-response-requirements.md)
 #### ID 수명 주기 계획
-##### [작업](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
-##### [채택 전략](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
-#### [다음 단계](active-directory-hybrid-identity-design-considerations-nextsteps.md)
-#### [도구 비교](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
+##### [작업](hybrid/plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
+##### [채택 전략](hybrid/plan-hybrid-identity-design-considerations-identity-adoption-strategy.md)
+#### [다음 단계](hybrid/plan-hybrid-identity-design-considerations-nextsteps.md)
+#### [도구 비교](hybrid/plan-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## 사용자 관리
 ### [Azure AD에 새 사용자 추가](fundamentals/add-users-azure-active-directory.md)
@@ -309,7 +309,7 @@
 
 
 ## 디렉터리 관리
-### [Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 ### 사용자 지정 도메인 이름
 #### [빠른 시작](fundamentals/add-custom-domain.md)
 ### [디렉터리 관리](fundamentals/active-directory-administer.md)
@@ -321,7 +321,7 @@
 #### [문제 해결](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 
 
-### [Azure AD Connect를 사용하여 온-프레미스 ID 통합](./connect/active-directory-aadconnect.md)
+### [Azure AD Connect를 사용하여 온-프레미스 ID 통합](hybrid/whatis-hybrid-identity.md)
 
 ### [토큰 수명](active-directory-configurable-token-lifetimes.md)
 
@@ -329,7 +329,7 @@
 
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
-## [Azure에서 AD FS 배포](active-directory-aadconnect-azure-adfs.md)
+## [Azure에서 AD FS 배포](hybrid/how-to-connect-fed-azure-adfs.md)
 ### [고가용성](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [서명 해시 알고리즘 변경](active-directory-federation-sha256-guidance.md)
 
@@ -349,8 +349,8 @@
 
 # 관련 항목
 ## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
-## [Azure AD Connect](./connect/active-directory-aadconnect.md)
-## [Azure AD Connect Health](./connect-health/active-directory-aadconnect-health.md)
+## [Azure AD Connect](hybrid/whatis-hybrid-identity.md)
+## [Azure AD Connect Health](hybrid/whatis-hybrid-identity-health.md)
 ## [개발자용 Azure AD](./develop/active-directory-how-to-integrate.md)
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/pim-configure.md)
 

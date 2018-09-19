@@ -78,10 +78,6 @@ items:
       href: app-insights-sharepoint.md
     - name: 기타 플랫폼
       href: app-insights-platforms.md
-  - name: 분산된 추적
-    items:
-    - name: 로컬 전달자
-      href: local-forwarder.md
 - name: 방법 가이드
   items:
   - name: 계획 및 디자인
@@ -142,7 +138,7 @@ items:
         href: app-insights-java-agent.md
       - name: 필터 원격 분석
         href: app-insights-java-filter-telemetry.md
-    - name: Alerts
+    - name: 경고
       items:
       - name: 가용성
         href: app-insights-monitor-web-app-availability.md
@@ -171,10 +167,6 @@ items:
         href: app-insights-proactive-arm-config.md
     - name: 리소스 만들기
       href: app-insights-create-new-resource.md
-    - name: 분산된 추적
-      items:
-      - name: Python
-        href: open-census-python.md
   - name: 분석
     items:
     - name: Application Insights 포털
@@ -382,9 +374,9 @@ items:
       href: https://azure.microsoft.com/support/
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=application-insights
-ms.openlocfilehash: 7d7cc6f3c029d05bb59bdb829927aba0891ec2c8
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: d51b62ed9ab9f67ff0c7fd7321f07433551750a6
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731703"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297506"
