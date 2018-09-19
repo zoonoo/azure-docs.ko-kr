@@ -1,0 +1,124 @@
+items:
+- name: Azure Active Directory B2B 설명서
+  href: index.yml
+  items:
+  - name: 개요
+    items:
+    - name: B2B 게스트 사용자 액세스란?
+      href: what-is-b2b.md
+    - name: B2B와 B2C 비교
+      href: compare-with-b2c.md
+  - name: 빠른 시작
+    items:
+    - name: 포털에서 게스트 사용자 추가
+      href: b2b-quickstart-add-guest-users-portal.md
+    - name: PowerShell을 사용하여 게스트 사용자 추가
+      href: b2b-quickstart-invite-powershell.md
+  - name: 자습서
+    items:
+    - name: B2B 게스트 사용자 대량 초대
+      href: b2b-tutorial-bulk-invite.md
+    - name: Multi-Factor Authentication 적용
+      href: b2b-tutorial-require-mfa.md
+  - name: 샘플
+    items:
+    - name: 셀프 서비스 등록 포털 샘플
+      href: self-service-portal.md
+    - name: 코드 및 Azure PowerShell 샘플
+      href: code-samples.md
+  - name: 개념
+    items:
+    - name: B2B 라이선스
+      href: licensing-guidance.md
+    - name: B2B 및 Office 365 외부 공유
+      href: o365-external-user.md
+    - name: 초대 상환
+      href: redemption-experience.md
+    - name: 초대 이메일
+      href: invitation-email-elements.md
+    - name: B2B 사용자 이해
+      href: user-properties.md
+    - name: B2B 사용자 클레임 매핑
+      href: claims-mapping.md
+    - name: B2B 사용자 토큰
+      href: user-token.md
+    - name: B2B를 위한 조건부 액세스
+      href: conditional-access.md
+    - name: 하이브리드 조직을 위한 B2B
+      href: hybrid-organizations.md
+    - name: 현재 제한 사항
+      href: current-limitations.md
+    expanded: false
+  - name: 방법 가이드
+    items:
+    - name: 초대 관리
+      items:
+      - name: B2B 사용자를 추가하는 관리자
+        href: add-users-administrator.md
+      - name: B2B 사용자를 추가하는 지식 근로자
+        href: add-users-information-worker.md
+      - name: Google 페더레이션
+        href: google-federation.md
+      - name: B2B 공유 정책
+        href: delegate-invitations.md
+      - name: 초대 허용 또는 차단
+        href: allow-deny-list.md
+      - name: 초대 없이 B2B 사용자 추가
+        href: add-user-without-invite.md
+      - name: API 및 사용자 지정
+        href: customize-invitation-api.md
+    - name: 게스트 계정 관리
+      items:
+      - name: 역할에 B2B 사용자 추가
+        href: add-guest-to-role.md
+      - name: 동적 그룹 및 B2B 사용자
+        href: use-dynamic-groups.md
+      - name: B2B 사용자 이해
+        href: user-properties.md
+      - name: Azure AD용 B2B 통합 앱
+        href: configure-saas-apps.md
+    - name: 하이브리드 조직을 위한 액세스 관리
+      items:
+      - name: 로컬 사용자에게 클라우드 앱에 대한 액세스 권한 부여
+        href: hybrid-on-premises-to-cloud.md
+      - name: B2B 사용자에게 로컬 앱에 대한 액세스 권한 부여
+        href: hybrid-cloud-to-on-premises.md
+    - name: 조직 나가기
+      href: leave-the-organization.md
+    - name: 감사 및 보고서
+      href: auditing-and-reporting.md
+    - name: B2B 문제 해결
+      href: troubleshoot.md
+    expanded: true
+  - name: 참고 자료
+    items:
+    - name: 초대 관리자 API
+      href: customize-invitation-api.md
+  - name: 리소스
+    items:
+    - name: FAQ
+      href: faq.md
+    - name: B2B에 대한 지원 받기
+      href: get-support.md
+    - name: Azure 피드백 포럼
+      href: https://feedback.azure.com/forums/169401-azure-active-directory
+    - name: Azure 로드맵
+      href: https://azure.microsoft.com/roadmap/?category=security-identity
+    - name: MSDN 포럼
+      href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
+    - name: 가격
+      href: https://azure.microsoft.com/pricing/details/active-directory/
+    - name: 요금 계산기
+      href: https://azure.microsoft.com/pricing/calculator/
+    - name: 서비스 업데이트
+      href: https://azure.microsoft.com/updates/?product=active-directory
+    - name: 스택 오버플로
+      href: http://stackoverflow.com/questions/tagged/azure-active-directory
+    - name: 동영상
+      href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
+ms.openlocfilehash: e3517af7c8cf84834a7487089f426c5c5ff4a80f
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45986701"

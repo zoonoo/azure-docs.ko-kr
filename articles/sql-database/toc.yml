@@ -309,44 +309,46 @@ items:
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: SQL 기능 비교
     href: sql-database-features.md
-  - name: 모니터링 및 튜닝
+  - name: 성능 및 튜닝
     items:
-    - name: 모니터링 및 튜닝
-      href: sql-database-troubleshoot-performance.md
-    - name: 성능 모니터링
-      href: sql-database-single-database-monitor.md
-    - name: 성능 권장 사항
-      href: sql-database-advisor.md
-    - name: 인텔리전트 쿼리 처리
+    - name: 지능형 성능
       items:
-      - name: 인텔리전트 쿼리 처리
-        href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
-      - name: 적응 쿼리 처리
-        href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
-    - name: 자동 조정
-      items:
-      - name: 자동 조정
-        href: sql-database-automatic-tuning.md
-      - name: 자동 조정 사용
-        href: sql-database-automatic-tuning-enable.md
-      - name: 이메일 알림 사용
-        href: sql-database-automatic-tuning-email-notifications.md
-    - name: 인텔리전스 Insights
-      items:
+      - name: 쿼리
+        items:
+        - name: 인텔리전트 쿼리 처리
+          href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
+        - name: 적응 쿼리 처리
+          href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
+      - name: 모니터링 및 튜닝
+        items:
+        - name: 모니터링 및 튜닝 개요
+          href: sql-database-monitor-tune-overview.md
+        - name: 데이터베이스 관리자 성능 권장 사항
+          href: sql-database-advisor.md
+        - name: 튜닝 작업 및 권장 사항
+          href: sql-database-performance.md
+        - name: 성능 권장 사항 적용
+          href: sql-database-advisor-portal.md
       - name: 인텔리전스 Insights
-        href: sql-database-intelligent-insights.md
-      - name: 진단 로깅
-        href: sql-database-metrics-diag-logging.md
-      - name: 진단 로그 사용
-        href: sql-database-intelligent-insights-use-diagnostics-log.md
-      - name: 성능 문제 해결
-        href: sql-database-intelligent-insights-troubleshoot-performance.md
-    - name: 성능 권장 사항
-      href: sql-database-performance.md
-    - name: Query Performance Insight 사용
-      href: sql-database-query-performance.md
-    - name: 성능 권장 사항 적용
-      href: sql-database-advisor-portal.md
+        items:
+        - name: Intelligent Insights 개요
+          href: sql-database-intelligent-insights.md
+        - name: 진단 로깅
+          href: sql-database-metrics-diag-logging.md
+        - name: 진단 로그 사용
+          href: sql-database-intelligent-insights-use-diagnostics-log.md
+        - name: 성능 문제 해결
+          href: sql-database-intelligent-insights-troubleshoot-performance.md
+      - name: 쿼리
+        href: sql-database-query-performance.md
+      - name: 자동 성능 튜닝
+        items:
+        - name: 자동 튜닝 개요
+          href: sql-database-automatic-tuning.md
+        - name: 자동 조정 사용
+          href: sql-database-automatic-tuning-enable.md
+        - name: 이메일 알림 사용
+          href: sql-database-automatic-tuning-email-notifications.md
     - name: 수동 조정
       items:
       - name: 수동 조정
@@ -355,16 +357,16 @@ items:
         href: sql-database-monitoring-with-dmvs.md
       - name: 쿼리 저장소 작동
         href: sql-database-operate-query-store.md
-    - name: 메모리 내 모니터링
-      href: sql-database-in-memory-oltp-monitoring.md
-    - name: 확장 이벤트
-      items:
+      - name: 메모리 내
+        href: sql-database-in-memory-oltp-monitoring.md
       - name: 확장 이벤트
-        href: sql-database-xevent-db-diff-from-svr.md
-      - name: 확장된 이벤트 - 이벤트 파일
-        href: sql-database-xevent-code-event-file.md
-      - name: 확장된 이벤트 - 링 버퍼
-        href: sql-database-xevent-code-ring-buffer.md
+        items:
+        - name: 확장 이벤트
+          href: sql-database-xevent-db-diff-from-svr.md
+        - name: 확장된 이벤트 - 이벤트 파일
+          href: sql-database-xevent-code-event-file.md
+        - name: 확장된 이벤트 - 링 버퍼
+          href: sql-database-xevent-code-ring-buffer.md
     - name: 경고 만들기
       href: sql-database-insights-alerts-portal.md
     - name: 연결 문제 해결
@@ -616,9 +618,9 @@ items:
     href: /azure/architecture/
   - name: 고객 사례
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 97b7f99440510e8a4a72cb0e3b18c54839f0c0c6
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: cfb52fa79f85ed1a382e0aa715d3239c84860678
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634475"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983784"

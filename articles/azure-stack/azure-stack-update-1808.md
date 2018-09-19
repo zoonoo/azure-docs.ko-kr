@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 09/18/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 877ea4c143d74414c3d733c446da57060322b11d
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 1e2a3221b6db5becbea49aa6ec5fee7b145e8e03
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982133"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295397"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 업데이트
 
@@ -112,16 +112,18 @@ Azure Stack 1808 업데이트 빌드 번호는 **1.1808.0.97**합니다.
 
 - Azure Stack을 설치 [1807 업데이트](azure-stack-update-1807.md) Azure Stack 1808 업데이트를 적용 하기 전에 합니다. 
 
-- 사용 가능한 최신 설치 [업데이트 또는 핫픽스 1805 버전용](azure-stack-update-1805.md#post-update-steps)합니다.  
+- 사용 가능한 최신 설치 [업데이트 또는 핫픽스 1807 버전용](azure-stack-update-1807.md#post-update-steps)합니다.  
   > [!TIP]  
   > 다음을 구독할 *RRS* 또는 *Atom* Azure Stack 핫픽스를 피드 합니다.
   > - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss ... 
   > - Atom: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom ...
 
 
-- 이 업데이트의 설치를 시작 하기 전에 실행할 [테스트 AzureStack](azure-stack-diagnostic-test.md) 하 여 Azure Stack의 상태를 확인 하 고 모든 경고 및 오류를 포함 하 여, 운영 문제를 해결 합니다. 또한 활성 경고를 검토 하 고 작업을 필요로 하는 해결 합니다.
+- 이 업데이트의 설치를 시작 하기 전에 실행할 [테스트 AzureStack](azure-stack-diagnostic-test.md) 하 여 Azure Stack의 상태를 확인 하 고 모든 경고 및 오류를 포함 하 여, 운영 문제를 해결 합니다. 또한 활성 경고를 검토 하 고 작업을 필요로 하는 해결 합니다.  
 
 ### <a name="known-issues-with-the-update-process"></a>업데이트 프로세스를 사용 하 여 알려진된 문제
+
+- 실행할 때 [테스트 AzureStack](azure-stack-diagnostic-test.md) 1808 업데이트 후 베이스 보드 관리 컨트롤러 (BMC)에서 경고 메시지가 표시 됩니다. 이 경고를 안전 하 게 무시할 수 있습니다.
 
 - <!-- 2468613 - IS --> 이 업데이트를 설치 하는 동안 경고 제목으로 표시 될 수 있습니다 *오류 – FaultType UserAccounts.New 템플릿을 누락 되었습니다.*  이러한 경고를 안전 하 게 무시할 수 있습니다. 이러한 경고는이 업데이트의 설치가 완료 된 후 자동으로 종료 됩니다.
 
@@ -130,12 +132,9 @@ Azure Stack 1808 업데이트 빌드 번호는 **1.1808.0.97**합니다.
 - <!-- 2830461 - IS --> 특정 상황에서 업데이트에 주의가 필요한 경우 해당 경고 하지 생성 될 수 있습니다. 정확한 상태를 포털에 여전히 반영 됩니다 및 영향을 받지 않습니다.
 
 ### <a name="post-update-steps"></a>업데이트 후 단계
+이 업데이트의 설치가 끝나면 모든 적용 가능한 핫픽스를 설치 합니다. 자세한 내용은 다음 기술 자료 문서를 볼 뿐만 아니라 우리 [서비스 정책](azure-stack-servicing-policy.md)합니다. 
+- [KB 4464226 – Azure Stack 핫픽스 Azure Stack 핫픽스 1.1808.1.99]( https://support.microsoft.com/help/4464226)
 
-*1808 업데이트에 대 한 업데이트 후 단계가 없습니다.*
-
-<!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
- - [Link to KB]()  
- -->
 
 ## <a name="known-issues-post-installation"></a>알려진된 문제 (사후 설치)
 

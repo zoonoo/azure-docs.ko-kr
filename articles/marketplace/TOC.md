@@ -20,7 +20,7 @@
 #### [컨테이너](./marketplace-containers.md)
 #### [컨설팅 서비스](./consulting-services.md)  
 #### [Office 365, Dynamics 365 및 Power BI 게시 가이드](./appsource-offer-publishing-guide.md)
-#### [Azure Active Directory를 사용하여 마켓플레이스 평가판 환경 사용](./enable-trial-using-azure-ad.md)
+#### [Azure Active Directory를 사용하여 Microsoft AppSource와 Azure Marketplace 목록을 사용하도록 설정](./enable-appsource-marketplace-using-azure-ad.md)
 
 ### [마켓플레이스를 통한 비즈니스 성장](./grow-your-business-with-azure-marketplace.md)  
 #### [기본 설정 솔루션](./preferred-solutions.md) 

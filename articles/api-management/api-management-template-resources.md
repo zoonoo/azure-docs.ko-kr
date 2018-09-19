@@ -332,7 +332,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |WebIssuesNotSignin|로그인하지 않습니다. {0}하여 문제를 보고하거나 의견을 게시해 주세요.|  
 |WebIssuesReportIssueButton|보고서 문제|  
 |WebIssuesSignIn|로그인|  
-|WebIssuesStatusReportedBy|상태: {0} | {1}이(가) 보고함|  
+|WebIssuesStatusReportedBy|상태: {0} &#124; {1}이(가) 보고함|  
   
 ###  <a name="NotFoundStrings"></a> NotFoundStrings  
   

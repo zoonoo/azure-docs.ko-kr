@@ -12,7 +12,6 @@
 
 
 # 시작하기
-## [Azure AD 시작](fundamentals/get-started-azure-ad.md)
 ## [Azure AD Premium에 등록](fundamentals/active-directory-get-started-premium.md)
 ## [사용자 지정 도메인 이름 추가](fundamentals/add-custom-domain.md)
 ## [회사 브랜딩 구성](fundamentals/customize-branding.md)
@@ -20,6 +19,7 @@
 ## [사용자에게 라이선스 할당](fundamentals/license-users-groups.md)
 ## [셀프 서비스 암호 재설정 구성](authentication/quickstart-sspr.md)
 ## [Azure AD에 조직의 개인 정보 추가](active-directory-properties-area.md)
+## [새 테넌트를 만들기 위해 Azure Active Directory에 액세스](fundamentals/active-directory-access-create-new-tenant.md)
 
 
 # 방법
@@ -91,11 +91,13 @@
 ### [위험에 노출된 사용자](reports-monitoring/concept-user-at-risk.md)
 ### [위험한 로그인](reports-monitoring/concept-risky-sign-ins.md)
 ### [위험 이벤트](reports-monitoring/concept-risk-events.md)
-### [Azure Monitor를 사용한 로그 모니터링](reports-monitoring/overview-activity-logs-in-azure-monitor.md)
+### [Azure Monitor를 사용한 로그 모니터링](reports-monitoring/concept-activity-logs-in-azure-monitor.md)
 ### [FAQ](reports-monitoring/reports-faq.md)
 
 ### 작업
-#### [명명된 위치 구성](active-directory-named-locations.md)
+#### [로그인 보고서 다운로드](reports-monitoring/quickstart-download-sign-in-report.md)
+#### [감사 보고서 다운로드](reports-monitoring/quickstart-download-audit-report.md)
+#### [명명된 위치 구성](reports-monitoring/quickstart-configure-named-locations.md)
 #### [활동 보고서 보기](reports-monitoring/howto-find-activity-reports.md)
 #### [Azure AD Power BI 콘텐츠 팩 사용](reports-monitoring/howto-power-bi-content-pack.md)
 #### [위험 플래그가 지정된 사용자 수정](reports-monitoring/howto-remediate-users-flagged-for-risk.md)

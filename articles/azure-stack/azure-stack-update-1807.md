@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 09/18/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: b46e365ea3903a8f2c805717df13d361c823148d
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 53f01ad6e8a801c69ea93c54e805807cb8eed34d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985599"
+ms.locfileid: "46127825"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 업데이트
 
@@ -158,14 +158,10 @@ Azure Stack 호스트 키 인프라를 Windows Server 2016의 Server Core 설치
 - <!-- 2830461 - IS --> 특정 상황에서 업데이트에 주의가 필요한 경우 해당 경고 하지 생성 될 수 있습니다. 정확한 상태를 포털에 여전히 반영 됩니다 및 영향을 받지 않습니다.
 
 ### <a name="post-update-steps"></a>업데이트 후 단계
+이 업데이트의 설치가 끝나면 모든 적용 가능한 핫픽스를 설치 합니다. 자세한 내용은 다음 기술 자료 문서를 볼 뿐만 아니라 우리 [서비스 정책](azure-stack-servicing-policy.md)합니다. 
+- [KB 4464231 – Azure Stack 핫픽스 Azure Stack 핫픽스 1.1807.1.78]( https://support.microsoft.com/help/4464231)
 
-- <!-- 2933866 – IS --> **실패 한 업데이트 설치에 대 한 향상 된 상태입니다.** 이 버전에서는 새 상태 범주 두 연산자 실패 한 업데이트 설치에 대 한 자세한 정보를 제공 합니다. 두 범주는 *PreparationFailed*, 및 *InstallationFailed*합니다. 이 버전을 설치한 후 이러한 새 범주를 반영 하도록 수정 된 이전 업데이트 설치 오류에 대 한 정보를 볼 수 있습니다. 
-
-<!-- *There are no post-update steps for update 1807.* -->
-
-<!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
- - Link to KB  
- -->
+ <!-- 2933866 – IS --> 이 업데이트의 설치가 끝나면 보이는 **실패 한 업데이트 설치에 대 한 상태를 개선 합니다.** 이 두 가지 새 상태 범주를 반영 하도록 수정 되는 이전 업데이트 설치 오류에 대 한 정보를 포함할 수 있습니다. 새 상태 범주 *PreparationFailed*, 및 *InstallationFailed*합니다.  
 
 ## <a name="known-issues-post-installation"></a>알려진된 문제 (사후 설치)
 

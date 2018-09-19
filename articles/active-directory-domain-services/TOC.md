@@ -43,6 +43,7 @@
 ### [관리되는 도메인에 OU 만들기](active-directory-ds-admin-guide-create-ou.md)
 ### [관리되는 도메인에 그룹 관리 서비스 계정 만들기](active-directory-ds-create-gmsa.md)
 ### [관리되는 도메인에서 그룹 정책 관리](active-directory-ds-admin-guide-administer-group-policy.md)
+### [관리되는 도메인에서 암호 정책 구성](active-directory-ds-password-policy.md)
 ## [가상 네트워크 선택](active-directory-ds-networking.md)
 ## 응용 프로그램 배포
 ### [SharePoint 서버에 대한 프로필 동기화 지원 구성](active-directory-ds-enable-sharepoint-profile-sync.md)
