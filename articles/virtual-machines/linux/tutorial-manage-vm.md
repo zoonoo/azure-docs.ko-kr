@@ -82,7 +82,7 @@ VM을 만드는 데 몇 분이 걸릴 수 있습니다. VM이 만들어지면 Az
 
 ## <a name="connect-to-vm"></a>VM에 연결
 
-이제 Azure Cloud Shell에서 또는 로컬 컴퓨터에서 SSH를 사용하여 VM에 연결할 수 있습니다. 예제 IP 주소를 이전 단계에서 메모한 `publicIpAddress`로 변경합니다.
+이제 Azure Cloud Shell에서 또는 로컬 컴퓨터에서 SSH를 사용하여 VM에 연결할 수 있습니다. 예제 IP 주소를 이전 단계에서 메모한 `publicIpAddress`로 바꿉니다.
 
 ```bash
 ssh azureuser@52.174.34.95
@@ -104,7 +104,7 @@ Azure Marketplace에는 VM을 만드는 데 사용할 수 있는 여러 VM 이�
 az vm image list --output table
 ```
 
-위 명령은 Azure에서 가장 인기 있는 VM 이미지를 화면에 출력합니다.
+명령 출력은 Azure에서 가장 인기 있는 VM 이미지를 반환합니다.
 
 ```bash
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
@@ -149,7 +149,7 @@ az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:C
 
 ## <a name="understand-vm-sizes"></a>VM 크기 이해
 
-가상 머신 크기에 따라 CPU, GPU, 메모리 등 가상 머신에 사용할 수 있는 연산 리소스의 양이 결정됩니다. 가상 머신은 예상되는 워크로드에 맞게 적절히 크기 조정되어야 합니다. 워크로드가 증가할 경우 기존 가상 머신의 크기를 조정할 수 있습니다.
+가상 머신 크기에 따라 CPU, GPU, 메모리 등 가상 머신에 사용할 수 있는 계산 리소스의 양이 결정됩니다. 가상 머신은 예상되는 워크로드에 맞게 적절히 크기 조정되어야 합니다. 워크로드가 증가할 경우 기존 가상 머신의 크기를 조정할 수 있습니다.
 
 ### <a name="vm-sizes"></a>VM 크기
 
@@ -228,13 +228,13 @@ az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --qu
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
-원하는 크기가 현재 클러스터에 없는 경우 크기 조정 작업 전에 VM 할당을 취소해야 합니다. [az vm deallocate]( /cli/azure/vm#az_vm_deallocate) 명령을 사용하여 VM을 중지하고 할당을 취소합니다. 참고로 VM의 전원이 다시 켜지면 임시 디스크의 모든 데이터는 삭제됩니다. 고정 IP 주소를 사용하지 않는 한 공용 IP 주소도 변경됩니다. 
+원하는 크기가 현재 클러스터에 없는 경우 크기 조정 작업 전에 VM 할당을 취소해야 합니다. [az vm deallocate]( /cli/azure/vm#az_vm_deallocate) 명령을 사용하여 VM을 중지하고 할당을 취소합니다. 참고로 VM의 전원이 다시 켜지면 임시 디스크의 모든 데이터가 제거됩니다. 고정 IP 주소를 사용하지 않는 한 공용 IP 주소도 변경됩니다. 
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupVM --name myVM
 ```
 
-할당이 취소되면 크기 조정을 할 수 있습니다. 
+할당이 취소되면 크기가 조정될 수 있습니다. 
 
 ```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_GS1
