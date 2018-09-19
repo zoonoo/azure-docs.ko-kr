@@ -3,7 +3,7 @@ items:
   href: index.yml
 - name: 개요
   items:
-  - name: 가상 머신 크기 집합이란?
+  - name: 가상 머신 확장 집합이란?
     href: overview.md
 - name: 빠른 시작
   items:
