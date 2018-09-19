@@ -50,7 +50,7 @@ az group create --name myResourceGroupVM --location eastus
 
 리소스 그룹은 VM을 만들거나 수정할 때 지정되며 이 자습서 전체에서 확인할 수 있습니다.
 
-## <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
+## <a name="create-virtual-machine"></a>가상 머신 만들기
 
 [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) 명령을 사용하여 가상 머신을 만듭니다. 
 
@@ -234,7 +234,7 @@ az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_
 az vm deallocate --resource-group myResourceGroupVM --name myVM
 ```
 
-할당 취소되면 크기 조정이 발생할 수 있습니다. 
+할당이 취소되면 크기가 조정될 수 있습니다. 
 
 ```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_GS1
@@ -258,8 +258,8 @@ Azure VM의 전원 상태는 여러 상태 중 하나일 수 있습니다. 이 �
 | 실행 중 | 가상 머신이 실행되고 있음을 나타냅니다. |
 | 중지 중 | 가상 머신이 중지되고 있음을 나타냅니다. | 
 | 중지됨 | 가상 머신이 중지되었음을 나타냅니다. 중지됨 상태의 가상 머신에도 여전히 계산 요금이 발생됩니다.  |
-| 할당 취소 중 | 가상 컴퓨터의 할당이 취소되고 있음을 나타냅니다. |
-| 할당 취소됨 | 가상 컴퓨터가 하이퍼바이저에서 제거되었지만 제어 영역에서 계속 사용할 수 있음을 나타냅니다. 할당 취소됨 상태의 가상 머신에는 계산 요금이 발생하지 않습니다. |
+| 할당 취소 중 | 가상 머신의 할당이 취소되고 있음을 나타냅니다. |
+| 할당 취소됨 | 가상 머신이 하이퍼바이저에서 제거되었지만 제어 영역에서 계속 사용할 수 있음을 나타냅니다. 할당 취소됨 상태의 가상 머신에는 계산 요금이 발생하지 않습니다. |
 | - | 가상 머신의 전원 상태가 알 수 없음을 나타냅니다. |
 
 ### <a name="find-power-state"></a>전원 상태 찾기
