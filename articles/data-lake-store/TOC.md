@@ -22,7 +22,7 @@
 ### [DistCp 사용](data-lake-store-copy-data-wasb-distcp.md)
 ### [Sqoop 사용](data-lake-store-data-transfer-sql-sqoop.md)
 ### [오프라인 소스에서 데이터 업로드](data-lake-store-offline-bulk-data-upload.md)
-### [지역 간 Data Lake Store 마이그레이션](data-lake-store-migration-cross-region.md)
+### [지역 간 Data Lake Storage Gen1 마이그레이션](data-lake-store-migration-cross-region.md)
 
 ## 데이터 보호
 ### [보안 개요](data-lake-store-security-overview.md)
@@ -62,7 +62,7 @@
 ### [HDInsight에서 Hive 사용](data-lake-store-performance-tuning-mapreduce.md).
 ### [HDInsight의 Storm 사용](data-lake-store-performance-tuning-storm.md)
 
-## Azure 서비스와의 통합
+## Azure 서비스와 통합
 ### HDInsight 사용
 #### [Azure Portal 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 #### [Azure PowerShell 사용(기본 저장소)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
