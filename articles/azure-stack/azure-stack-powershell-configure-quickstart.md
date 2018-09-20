@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: mabrigg
-ms.openlocfilehash: 75b7f9c78418883344ce3c066135fe0847f649ac
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: db253c921354ea132dc6b043dcb6f0b96cdbfd88
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981972"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368174"
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Azure Stack에서 PowerShell을 사용 하 여 즉시 가동 및 실행
 
@@ -57,21 +57,21 @@ Azure Stack의 버전에 대 한 API 프로필과 관리자 모듈을 로드 합
 
   ```PowerShell  
     Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-    Install-Module -Name AzureStack -RequiredVersion 1.5.0 -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.5.0
   ```
 
   - Azure Stack 1807 또는 이전 버전입니다.
 
   ```PowerShell  
     Use-AzureRmProfile -Profile 2017-03-09-profile -Force
-    Install-Module -Name AzureStack -RequiredVersion 1.4.0 -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.4.0
   ```
 
   - Azure Stack 1804 또는 이전 버전입니다.
 
   ```PowerShell  
     Use-AzureRmProfile -Profile 2017-03-09-profile -Force
-    Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.2.11
   ```
 
 Azure Stack 도구를 다운로드 하 고 연결 합니다.

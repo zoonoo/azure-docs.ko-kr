@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 09/19/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 92c0ad6dfde4fc83a912b4a3387d8b586e72809c
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 6a929c0226734a95e088e78307f2bbcc0571adef
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630446"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364604"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure를 사용 하 여 Azure Stack 등록
 
@@ -45,18 +45,18 @@ Azure를 사용 하 여 Azure Stack 등록 하면 Azure에서 마켓플레이스
 
 Azure Stack에 Azure를 등록 하기 전에 다음이 필요 합니다.
 
-- Azure 구독에 대 한 구독 ID입니다. ID를 가져오려면 Azure에 로그인, 클릭 **모든 서비스**합니다. 그런 다음 합니다 **일반** 범주를 선택한 **구독**를 사용 하려는 구독을 클릭 및 아래 **Essentials** id입니다. 구독을 찾을 수 있습니다
+- Azure 구독에 대 한 구독 ID입니다. EA, CSP 또는 CSP 공유 서비스 구독 등록에 대해 지원 됩니다. Csp를 결정 해야 합니다. 것인지 [CSPSS 또는 CSP 구독을 사용 하 여](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-cspss-subscription)입니다.<br><br>ID를 가져오려면 Azure에 로그인, 클릭 **모든 서비스**합니다. 그런 다음 합니다 **일반** 범주를 선택한 **구독**를 사용 하려는 구독을 클릭 및 아래 **Essentials** id입니다. 구독을 찾을 수 있습니다
 
   > [!Note]  
   > 독일 클라우드 구독은 현재 지원 되지 않습니다.
 
-- 사용자 이름 및 구독에 대 한 소유자가 계정에 대 한 암호 (MSA/2FA 계정 지원 됨).
+- 사용자 이름 및 구독에 대 한 소유자가 계정에 대 한 암호입니다.
 
 - 사용자 계정에 Azure 구독에 액세스할 수 있으며 해당 구독과 연결 된 디렉터리에 id 응용 프로그램 및 서비스 주체를 만들 수 있는 권한이 필요 합니다.
 
 - Azure Stack 리소스 공급자 등록 (아래 세부 정보에 대 한 Azure Stack 리소스 공급자 등록 섹션 참조).
 
-등록이 완료 되 면 Azure Active Directory 전역 관리자 권한이 필요 하지 않습니다. 그러나 일부 작업에는 전역 관리자 자격 증명을 필요할 수 있습니다. 예를 들어, 리소스 공급자 설치 관리자 스크립트 또는 권한 부여 요청을 새로운 기능. 일시적으로 계정의 전역 관리자 권한이 다시 설정 하거나의 소유자가 별도 전역 관리자 계정을 사용 합니다 *공급자 구독을 기본*입니다.
+등록이 완료 되 면 Azure Active Directory 전역 관리자 권한이 필요 하지 않습니다. 그러나 일부 작업에는 전역 관리자 자격 증명을 필요할 수 있습니다. 예를 들어, 리소스 공급자 설치 관리자 스크립트 또는 권한 부여 요청을 새로운 기능. 일시적으로 계정의 전역 관리자 권한이 다시 시작 하거나의 소유자가 별도 전역 관리자 계정을 사용 합니다 *공급자 구독을 기본*입니다.
 
 이러한 요구 사항을 충족 하는 Azure 구독이 없으면 있습니다 [여기서 무료 Azure 계정을 만들](https://azure.microsoft.com/free/?b=17.06)합니다. Azure Stack 등록 비용 없이 Azure 구독에서 발생 합니다.
 

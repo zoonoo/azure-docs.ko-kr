@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: sethm
 ms.reviewer: thoroet
-ms.openlocfilehash: c87b7f18ff5bf94bf842fa7a7e31cad4c7f47dfe
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 3603ec1aa8fa6f76cb6b7a75fa7df334b4102aec
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128042"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367755"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Azure Stack 용 PowerShell 설치
 
@@ -100,7 +100,7 @@ Azure Stack에 필요 합니다 **2018-03-01-하이브리드** 1808 Azure Stack 
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
     Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 
-    Install-Module -Name AzureStack -RequiredVersion 1.5.0 -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.5.0
     ```
 
 > [!Note]  
@@ -111,7 +111,7 @@ Azure Stack에 필요 합니다 **2018-03-01-하이브리드** 1808 Azure Stack 
     ```PowerShell  
     Install-Module -Name AzureRm.BootStrapper
     Use-AzureRmProfile -Profile 2017-03-09-profile -Force
-    Install-Module -Name AzureStack -RequiredVersion 1.4.0 -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.4.0
     ```
 
   - Azure Stack 1804 또는 이전 버전입니다.
@@ -119,7 +119,7 @@ Azure Stack에 필요 합니다 **2018-03-01-하이브리드** 1808 Azure Stack 
     ```PowerShell  
     Install-Module -Name AzureRm.BootStrapper
     Use-AzureRmProfile -Profile 2017-03-09-profile -Force
-    Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.2.11
     ```
 
 다음 명령을 실행 하 여 설치를 확인 합니다.

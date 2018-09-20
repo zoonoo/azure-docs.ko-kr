@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 09/18/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: b2f4fbca2dcbdd537302746c7b6109e467ea31d7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4013b7136fd365b1d37348cfc1f0b46cce787ce2
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720228"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363126"
 ---
 # <a name="deploy-templates-using-the-azure-stack-portal"></a>Azure Stack 포털을 사용하여 템플릿 배포
 
@@ -40,4 +40,6 @@ Azure Stack에 Azure Resource Manager 템플릿을 배포 하려면 포털을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [PowerShell을 사용하여 템플릿 배포](azure-stack-deploy-template-powershell.md)
+템플릿 배포에 대 한 자세한 내용은 다음을 참조 하세요.
+
+[PowerShell을 사용하여 템플릿 배포](azure-stack-deploy-template-powershell.md)
