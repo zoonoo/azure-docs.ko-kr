@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 4467c193b5ff70a304b4ec5f632276ca14551b08
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d30d164a3e2896b1a300bf665ca09f57ce97fdf3
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502001"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295872"
 ---
 # <a name="azure-active-directory-ad-domain-services"></a>Azure AD(Active Directory) Domain Services
 ## <a name="overview"></a>개요
@@ -65,7 +65,7 @@ Azure AD 도메인 서비스에서 프로비전되는 관리된 도메인의 두
 ### <a name="azure-ad-domain-services-for-hybrid-organizations"></a>하이브리드 조직을 위한 Azure AD 도메인 서비스
 하이브리드 IT 인프라를 가진 조직은 클라우드 리소스 및 온-프레미스 리소스를 혼합하여 사용합니다. 이러한 조직에서는 해당 온-프레미스 디렉터리에서 Azure AD 테넌트에 ID 정보를 동기화합니다. 하이브리드 조직에서는 온-프레미스 응용 프로그램, 특히 레거시 디렉터리 인식 응용 프로그램을 클라우드에 더 마이그레이션할 방법을 찾기 때문에 Azure AD 도메인 서비스는 유용할 수 있습니다.
 
-Litware Corporation은 해당 온-프레미스 디렉터리에서 Azure AD 테넌트에 ID 정보를 동기화하기 위해 [Azure AD Connect](../active-directory/active-directory-aadconnect.md)를 배포했습니다. 동기화되는 ID 정보는 사용자 계정, 인증을 위한 자격 증명 해시 및 그룹 멤버 자격을 포함합니다.
+Litware Corporation은 해당 온-프레미스 디렉터리에서 Azure AD 테넌트에 ID 정보를 동기화하기 위해 [Azure AD Connect](../active-directory/hybrid/whatis-hybrid-identity.md)를 배포했습니다. 동기화되는 ID 정보는 사용자 계정, 인증을 위한 자격 증명 해시 및 그룹 멤버 자격을 포함합니다.
 
 > [!NOTE]
 > **암호 동기화는 Azure AD 도메인 서비스를 사용하려는 하이브리드 조직에 필수입니다**. 이러한 요구 사항은 NTLM 또는 Kerberos 인증 방법을 통해 이러한 사용자를 인증하기 위해 Azure AD 도메인 서비스에서 제공하는 관리된 도메인에서 사용자의 자격 증명이 필요하기 때문입니다.

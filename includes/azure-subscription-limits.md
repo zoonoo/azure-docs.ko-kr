@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 3daf0e214c2c10d682e908ca430f4852df105926
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c6ef868d80e628f9120acc0775179e89ccd03674
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38756195"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45979576"
 ---
 | 리소스 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
 | [구독](../articles/billing-buy-sign-up-azure-subscription.md)당 vCPU<sup>1</sup> |20 |10000 |
 | [공동 관리자](../articles/billing-add-change-azure-subscription-administrator.md)  |200 |200 |
-| 구독당 하위 지역별 [저장소 계정](../articles/storage/common/storage-create-storage-account.md) <sup>2</sup> |200 |250 |
+| 구독당 하위 지역별 [저장소 계정](../articles/storage/common/storage-quickstart-create-account.md) <sup>2</sup> |200 |250 |
 | [클라우드 서비스](../articles/cloud-services/cloud-services-choose-me.md)  |20 |200 |
 | [로컬 네트워크](http://msdn.microsoft.com/library/jj157100.aspx)  |10 |500 |
 | 구독당 SQL Database 서버 |6 |200 |

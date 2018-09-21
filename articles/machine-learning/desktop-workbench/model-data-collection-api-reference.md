@@ -7,17 +7,17 @@ ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: ff80130ebb9c4095d4a20202cdfabd9aaf1b1992
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: d9fee56d7748cdfd34f982fe79467f7d61c54926
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832009"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35638448"
 ---
 # <a name="azure-machine-learning-model-data-collection-api-reference"></a>Azure Machine Learning 모델 데이터 수집 API 참조
 
@@ -55,14 +55,14 @@ ModelDataCollector의 새 인스턴스를 인스턴스화합니다.
 클래스 및 매개 변수 정보를 참조하세요.
 
 ### <a name="class"></a>클래스
-| Name | 설명 |
+| 이름 | 설명 |
 |--------------------|--------------------|
 | ModelDataCollector | azureml.datacollector 네임스페이스의 클래스. 이 클래스의 인스턴스는 모델 데이터를 수집하는 데 사용됩니다. 단일 scoring 파일에는 여러 ModelDataCollector가 포함될 수 있습니다. 수집된 데이터의 스키마가 일관되게 유지되도록(즉, 입력 및 예측) 각 인스턴스가 scoring 파일의 별도 위치에 데이터를 수집하는 데 사용되어야 합니다.|
 
 
 ### <a name="parameters"></a>매개 변수
 
-| Name | type | 설명 |
+| 이름 | type | 설명 |
 |-------------|------------|-------------------------|
 | model_name | string | 데이터를 수집하는 모델의 이름 |
 | identifier | string | 이 데이터를 식별하는 코드의 위치(예: 'RawInput' 또는 'Prediction') |
@@ -85,14 +85,14 @@ ModelDataCollector의 새 인스턴스를 인스턴스화합니다.
 메서드 및 매개 변수 정보를 참조하세요.
 
 ### <a name="method"></a>방법
-| Name | 설명 |
+| 이름 | 설명 |
 |--------------------|--------------------|
 | collect | 모델 입력 또는 예측에 대한 데이터를 수집하는 데 사용|
 
 
 ### <a name="parameters"></a>매개 변수
 
-| Name | type | 설명 |
+| 이름 | type | 설명 |
 |-------------|------------|-------------------------|
 | input_data | 여러 형식 | 수집할 데이터(현재 형식 목록, numpy.array, pandas.DataFrame, pyspark.sql.DataFrame이 허용됨). 데이터 프레임 형식의 경우, 기능 이름의 헤더가 존재할 경우 데이터 대상에 이 정보가 포함됩니다(ModelDataCollector 생성자에 기능 이름을 명시적으로 제공할 필요가 없음). |
 | user_correlation_id | string | 이 예측을 상호 연관짓기 위해 사용자가 제공할 수 있는 선택적 상관 관계 ID |

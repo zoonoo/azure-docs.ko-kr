@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 4c8f2966df9c33ec227b14c00996f84f39043cdb
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c8517114f51b5aed8f8e31a19b672721b109775e
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349231"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298305"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 개념 증명 플레이 북: 문서 블록
 
@@ -46,7 +46,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | Azure AD Premium 또는 EMS 평가판 사용 | [한 달 동안 Azure Active Directory Premium 체험](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Azure AD Premium 또는 EMS 라이선스를 PoC 사용자에게 할당했습니다. | [Azure Active Directory에서 사용자 본인 및 사용자의 사용자 라이선스](active-directory-licensing-get-started-azure-portal.md) |
 | Azure AD 전역 관리자 자격 증명 | [Azure Active Directory에서 관리자 역할 할당](users-groups-roles/directory-assign-admin-roles.md) |
-| 선택 사항이지만 강력하게 권장됨: 대체로서 병렬 랩 환경 | [Azure AD Connect에 대한 필수 구성 요소](./connect/active-directory-aadconnect-prerequisites.md) |
+| 선택 사항이지만 강력하게 권장됨: 대체로서 병렬 랩 환경 | [Azure AD Connect에 대한 필수 구성 요소](hybrid/how-to-connect-install-prerequisites.md) |
 
 ## <a name="directory-synchronization---password-hash-sync-phs---new-installation"></a>디렉터리 동기화 - PHS(암호 해시 동기화) - 새 설치
 
@@ -56,23 +56,23 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
-| Azure AD Connect를 실행할 서버 | [Azure AD Connect에 대한 필수 구성 요소](./connect/active-directory-aadconnect-prerequisites.md) |
-| OU 및 보안 그룹의 동일한 도메인 및 부분에 있는 대상 POC 사용자 | [Azure AD Connect의 사용자 지정 설치](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) |
-| POC에 필요한 Azure AD Connect 기능이 식별됨 | [Active Directory와 Azure Active Directory 연결 - 동기화 기능 구성](./connect/active-directory-aadconnect.md#configure-sync-features) |
-| 온-프레미스 및 클라우드 환경에 대한 자격 증명이 필요함  | [Azure AD Connect: 계정 및 사용 권한](./connect/active-directory-aadconnect-accounts-permissions.md) |
+| Azure AD Connect를 실행할 서버 | [Azure AD Connect에 대한 필수 구성 요소](hybrid/how-to-connect-install-prerequisites.md) |
+| OU 및 보안 그룹의 동일한 도메인 및 부분에 있는 대상 POC 사용자 | [Azure AD Connect의 사용자 지정 설치](hybrid/how-to-connect-install-custom.md#domain-and-ou-filtering) |
+| POC에 필요한 Azure AD Connect 기능이 식별됨 | [Active Directory와 Azure Active Directory 연결 - 동기화 기능 구성](hybrid/how-to-connect-install-roadmap.md#configure-sync-features) |
+| 온-프레미스 및 클라우드 환경에 대한 자격 증명이 필요함  | [Azure AD Connect: 계정 및 사용 권한](hybrid/reference-connect-accounts-permissions.md) |
 
 ### <a name="steps"></a>단계
 
 | 단계 | 리소스 |
 | --- | --- |
 | 최신 버전의 Azure AD Connect를 다운로드합니다. | [Download Microsoft Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594)(Microsoft Azure Active Directory Connect 다운로드) |
-| 가장 간단한 경로로 Azure AD Connect를 설치합니다. Express <br/>1. 동기화 주기 시간을 최소화하기 위해 대상 OU를 필터링합니다.<br/>2. 온-프레미스 그룹에서 대상 사용자 집합을 선택합니다.<br/>3. 기타 POC 테마에 필요한 기능을 배포합니다. | [Azure AD Connect: 사용자 지정 설치: 도메인 및 OU 필터링](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect: 사용자 지정 설치: 그룹 기반 필터링](./connect/active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect: Azure Active Directory와 온-프레미스 ID 통합: 동기화 기능 구성](./connect/active-directory-aadconnect.md#configure-sync-features) |
-| Azure AD Connect UI를 확인하고 실행 중인 프로필이 완료되었는지 확인합니다(가져오기, 동기화 및 내보내기). | [Azure AD Connect 동기화: Scheduler](./connect/active-directory-aadconnectsync-feature-scheduler.md) |
+| 가장 간단한 경로로 Azure AD Connect를 설치합니다. Express <br/>1. 동기화 주기 시간을 최소화하기 위해 대상 OU를 필터링합니다.<br/>2. 온-프레미스 그룹에서 대상 사용자 집합을 선택합니다.<br/>3. 기타 POC 테마에 필요한 기능을 배포합니다. | [Azure AD Connect: 사용자 지정 설치: 도메인 및 OU 필터링](hybrid/how-to-connect-install-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect: 사용자 지정 설치: 그룹 기반 필터링](hybrid/how-to-connect-install-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect: Azure Active Directory와 온-프레미스 ID 통합: 동기화 기능 구성](hybrid/how-to-connect-install-roadmap.md#configure-sync-features) |
+| Azure AD Connect UI를 확인하고 실행 중인 프로필이 완료되었는지 확인합니다(가져오기, 동기화 및 내보내기). | [Azure AD Connect 동기화: Scheduler](hybrid/how-to-connect-sync-feature-scheduler.md) |
 | [Azure AD management portal](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/)(Azure AD 관리 포털)을 열고, “All Users”(모든 사용자) 블레이드로 이동하고, “Source of authority”(인증 원본) 열을 추가하고, 사용자가 나타나고 “Windows Server AD”에서 오는 것으로 제대로 표시되는지 확인합니다. | [Azure AD management portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)(Azure AD 관리 포털) |
 
 ### <a name="considerations"></a>고려 사항
 
-1. [여기](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)에서 암호 해시 동기화의 보안 고려 사항을 살펴보세요.  파일럿 프로덕션 사용자에 대한 암호 해시 동기화가 옵션이 아닌 경우 다음 대안을 고려합니다.
+1. [여기](hybrid/how-to-connect-password-hash-synchronization.md)에서 암호 해시 동기화의 보안 고려 사항을 살펴보세요.  파일럿 프로덕션 사용자에 대한 암호 해시 동기화가 옵션이 아닌 경우 다음 대안을 고려합니다.
    * 프로덕션 도메인에서 테스트 사용자를 만듭니다. 다른 계정을 동기화하지 않는지 확인합니다.
    * UAT 환경으로 이동합니다.
 2.  페더레이션을 적용하려면 POC를 넘어서 페더레이션된 솔루션을 온-프레미스 ID 공급자와 연결할 때 비용이 발생한다는 것을 이해하고 이 비용을 찾고 있는 혜택과 비교하는 것이 좋습니다.
@@ -277,7 +277,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | --- | --- |
 | 설치 및 구성된 Azure AD Connect | 문서 블록: [디렉터리 동기화 - 암호 해시 동기화](#directory-synchronization--password-hash-sync-phs--new-installation) |
 | ADLDS 인스턴스 모임 요구 사항 | [일반 LDAP 커넥터 기술 참조: 일반 LDAP 커넥터의 개요](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap#overview-of-the-generic-ldap-connector) |
-| 사용자가 사용 중인 작업 목록 및 이러한 작업과 연결된 특성 | [Azure AD Connect 동기화: Azure Active Directory에 동기화된 특성](./connect/active-directory-aadconnectsync-attributes-synchronized.md) |
+| 사용자가 사용 중인 작업 목록 및 이러한 작업과 연결된 특성 | [Azure AD Connect 동기화: Azure Active Directory에 동기화된 특성](hybrid/reference-connect-sync-attributes-synchronized.md) |
 
 
 ### <a name="steps"></a>단계
@@ -285,11 +285,11 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 단계 | 리소스 |
 | --- | --- |
 | 일반 LDAP 커넥터를 추가합니다. | [일반 LDAP 커넥터 기술 참조: 새 커넥터 만들기](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap#create-a-new-connector) |
-| 생성된 커넥터에 대한 실행 프로필을 만듭니다(전체 가져오기, 델타 가져오기, 전체 동기화, 델타 동기화, 내보내기) | [Create a Management Agent Run Profile](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx)(관리 에이전트 실행 프로필 만들기)<br/> [Azure AD Connect Sync Service Manager에서 커넥터 사용](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md)|
-| 전체 가져오기 프로필을 실행하고 커넥터 공간에 개체가 있는지 확인합니다. | [Search for a Connector Space Object](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx)(커넥터 공간 개체 검색)<br/>[Azure AD Connect Sync Service Manager에서 커넥터 사용: 커넥터 공간 검색](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md#search-connector-space) |
-| Metaverse의 개체에 작업에 필요한 특성이 포함되도록 동기화 규칙을 만듭니다. | [Azure AD Connect 동기화: 기본 구성 변경에 대한 모범 사례: 동기화 규칙 변경](./connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect 동기화: 선언적 프로비전 이해](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect Sync: 선언적 프로비전 식 이해](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
-| 전체 동기화 주기를 시작합니다. | [Azure AD Connect 동기화: Scheduler: Scheduler 시작](./connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler) |
-| 문제 발생 시 문제 해결을 수행합니다. | [Azure AD와 동기화되지 않는 개체 문제 해결](./connect/active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) |
+| 생성된 커넥터에 대한 실행 프로필을 만듭니다(전체 가져오기, 델타 가져오기, 전체 동기화, 델타 동기화, 내보내기) | [Create a Management Agent Run Profile](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx)(관리 에이전트 실행 프로필 만들기)<br/> [Azure AD Connect Sync Service Manager에서 커넥터 사용](hybrid/how-to-connect-sync-service-manager-ui-connectors.md)|
+| 전체 가져오기 프로필을 실행하고 커넥터 공간에 개체가 있는지 확인합니다. | [Search for a Connector Space Object](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx)(커넥터 공간 개체 검색)<br/>[Azure AD Connect Sync Service Manager에서 커넥터 사용: 커넥터 공간 검색](hybrid/how-to-connect-sync-service-manager-ui-connectors.md#search-connector-space) |
+| Metaverse의 개체에 작업에 필요한 특성이 포함되도록 동기화 규칙을 만듭니다. | [Azure AD Connect 동기화: 기본 구성 변경에 대한 모범 사례: 동기화 규칙 변경](hybrid/how-to-connect-sync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect 동기화: 선언적 프로비전 이해](hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)<br/>[Azure AD Connect Sync: 선언적 프로비전 식 이해](hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) |
+| 전체 동기화 주기를 시작합니다. | [Azure AD Connect 동기화: Scheduler: Scheduler 시작](hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler) |
+| 문제 발생 시 문제 해결을 수행합니다. | [Azure AD와 동기화되지 않는 개체 문제 해결](hybrid/tshoot-connect-object-not-syncing.md) |
 | LDAP 사용자가 응용 프로그램에 로그인하고 액세스할 수 있는지 확인합니다. | https://myapps.microsoft.com |
 
 ### <a name="considerations"></a>고려 사항
@@ -552,7 +552,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
 | 엔터프라이즈 PKI에서 사용자 인증서가 프로비전된 장치(Windows, iOS 또는 Android) | [사용자 인증서 배포](https://msdn.microsoft.com/library/cc770857.aspx) |
-| ADFS를 통해 페더레이션된 Azure AD 도메인 | [Azure AD Connect 및 페더레이션](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Active Directory 인증서 서비스 개요](https://technet.microsoft.com/library/hh831740.aspx)|
+| ADFS를 통해 페더레이션된 Azure AD 도메인 | [Azure AD Connect 및 페더레이션](hybrid/how-to-connect-fed-whatis.md)<br/>[Active Directory 인증서 서비스 개요](https://technet.microsoft.com/library/hh831740.aspx)|
 | iOS 장치의 경우 Microsoft Authenticator 앱이 설치됨 | [Microsoft Authenticator 앱 시작](user-help/microsoft-authenticator-app-how-to.md) |
 
 ### <a name="steps"></a>단계

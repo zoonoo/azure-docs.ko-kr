@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/17/2018
+ms.date: 09/12/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 06d889686c673adc3941ac7303ab52a6fff408a8
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: b9c42f5b0fc6fb9468d8fd0a1c34270d1734391a
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288127"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579922"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>자습서: Azure SQL Data Warehouse에 뉴욕 택시 데이터 로드
 
@@ -529,7 +529,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
         s.request_id,
         r.status,
         count(distinct input_name) as nbr_files,
-        sum(s.bytes_processed)/1024/1024/1024 as gb_processed
+        sum(s.bytes_processed)/1024/1024/1024.0 as gb_processed
     FROM 
         sys.dm_pdw_exec_requests r
         INNER JOIN sys.dm_pdw_dms_external_work s
@@ -561,16 +561,6 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
     ![로드된 테이블 보기](media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
-## <a name="create-statistics-on-newly-loaded-data"></a>새로 로드한 데이터에 대한 통계 만들기
-
-SQL Data Warehouse는 통계 자동 만들기 또는 자동 업데이트를 수행하지 않습니다. 따라서 높은 쿼리 성능을 달성하려면, 처음 로드한 후에 각 테이블의 각 열에 대한 통계를 만드는 것이 중요합니다. 데이터에 상당한 변화가 발생한 후에는 통계를 업데이트하는 것이 중요합니다.
-
-조인에 사용할 열에 대해 통계를 만들려면 다음 명령을 실행합니다.
-
-    ```sql
-    CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);
-    CREATE STATISTICS [dbo.Trip DateID stats] ON dbo.Trip (DateID);
-    ```
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

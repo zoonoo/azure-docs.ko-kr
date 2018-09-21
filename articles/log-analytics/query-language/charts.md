@@ -15,24 +15,26 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 359e5e671287c4d330deeb2d3573877d9ee5d1c5
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: acf51056a084abc08bda2d7f73b561f442f57784
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190956"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605534"
 ---
 # <a name="creating-charts-and-diagrams-from-log-analytics-queries"></a>Log Analytics 쿼리에서 차트 및 다이어그램 만들기
 
 > [!NOTE]
 > 이 단원을 완료하기 전에 [Log Analytics 쿼리의 고급 집계](advanced-aggregations.md)를 완료해야 합니다.
 
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
+
 이 문서에서는 데이터를 여러 다른 방법으로 표시하기 위한 Azure Log Analytics의 다양한 시각화에 대해 설명합니다.
 
 ## <a name="charting-the-results"></a>결과 차트로 작성
 먼저 지난 시간 동안의 운영 체제별 컴퓨터 수를 검토합니다.
 
-```OQL
+```KQL
 Heartbeat
 | where TimeGenerated > ago(1h)
 | summarize count(Computer) by OSType  
@@ -50,7 +52,7 @@ Heartbeat
 ## <a name="timecharts"></a>시간 차트
 1시간 bin의 프로세서 시간에 대한 평균, 50번째 및 95번째 백분위수를 표시합니다. 이 쿼리는 여러 계열을 생성하며, 사용자는 시간 차트에 표시할 계열을 선택할 수 있습니다.
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1d) 
 | where CounterName == "% Processor Time" 
@@ -65,7 +67,7 @@ Perf
 
 참조선은 메트릭이 특정 임계값을 초과하는 경우를 쉽게 식별하는 데 도움이 됩니다. 차트에 선을 추가하려면 데이터 집합을 상수 열로 확장합니다.
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1d) 
 | where CounterName == "% Processor Time" 
@@ -78,7 +80,7 @@ Perf
 ## <a name="multiple-dimensions"></a>여러 차원
 `summarize`의 `by` 절에 포함된 여러 식은 결과에 값의 각 조합에 대해 하나씩 여러 행을 만듭니다.
 
-```OQL
+```KQL
 SecurityEvent
 | where TimeGenerated > ago(1d)
 | summarize count() by tostring(EventID), AccountType, bin(TimeGenerated, 1h)

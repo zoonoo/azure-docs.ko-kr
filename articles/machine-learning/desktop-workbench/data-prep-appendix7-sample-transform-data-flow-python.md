@@ -7,18 +7,18 @@ ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 655e9d41911fbb008470cf58b2538407933787bd
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: ca780b51973a960caec3b9b7a80c8ba5621b5a0b
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832077"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35641334"
 ---
 # <a name="sample-of-custom-data-flow-transforms-python"></a>사용자 지정 데이터 흐름 변환 예제(Python) 
 메뉴의 변환 이름은 **Transform Dataflow(스크립트)** 입니다. 이 부록을 읽기 전에 [Python 확장성 개요](data-prep-python-extensibility-overview.md)를 참조하세요.

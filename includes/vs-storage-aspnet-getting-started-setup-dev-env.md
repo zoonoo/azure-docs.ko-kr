@@ -1,3 +1,20 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 09/15/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: 634143f56bc9134f240ff42b7b5989605c8bffde
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45979296"
+---
 ## <a name="set-up-the-development-environment"></a>개발 환경 설정
 
 이 섹션에서는 개발 환경을 설정하는 과정을 안내합니다. 여기에는 ASP.NET MVC 앱 만들기, 연결된 서비스 연결 추가, 컨트롤러 추가 및 필수 네임스페이스 지시문 지정이 포함됩니다.
@@ -29,7 +46,7 @@
 1. **Azure Storage** 대화 상자에서 이 자습서에 사용할 Azure Storage 계정을 선택합니다. 새 Azure Storage 계정을 만들려면 **새 저장소 계정 만들기**를 선택하고 양식을 완성합니다. 기존 저장소 계정을 선택하거나 새 저장소 계정을 만든 후에 **추가**를 선택합니다. Visual Studio에서는 Azure Storage용 NuGet 패키지 및 저장소 연결 문자열을 **Web.config**에 설치합니다.
 
 > [!TIP]
-> [Azure Portal](https://portal.azure.com)에서 저장소 계정을 만드는 방법을 알아보려면 [저장소 계정 만들기](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)를 참조하세요.
+> [Azure Portal](https://portal.azure.com)에서 저장소 계정을 만드는 방법을 알아보려면 [저장소 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)를 참조하세요.
 >
 > [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/common/storage-azure-cli.md) 또는 [Azure Cloud Shell](../articles/cloud-shell/overview.md)을 사용하여 저장소 계정을 만들 수도 있습니다.
 

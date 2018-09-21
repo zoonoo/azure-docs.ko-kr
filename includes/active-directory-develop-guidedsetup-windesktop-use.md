@@ -1,4 +1,27 @@
-
+---
+title: 포함 파일
+description: 포함 파일
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/18/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: d4ba15e4ad46044c04c242c8805af9f320e95150
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368453"
+---
 ## <a name="use-msal-to-get-a-token-for-the-microsoft-graph-api"></a>MSAL을 사용하여 Microsoft Graph API에 대한 토큰 가져오기
 
 이 섹션에서는 MSAL을 사용하여 Microsoft Graph API에 대한 토큰을 가져옵니다.
@@ -8,7 +31,6 @@
     ```csharp
     using Microsoft.Identity.Client;
     ```
-<!-- Workaround for Docs conversion bug -->
 
 2. `MainWindow` 클래스 코드를 다음으로 바꿉니다.
 
@@ -33,9 +55,15 @@
         {
             AuthenticationResult authResult = null;
 
+            var app = App.PublicClientApp;
+            ResultText.Text = string.Empty;
+            TokenInfoText.Text = string.Empty;
+
+            var accounts = await app.GetAccountsAsync();
+
             try
             {
-                authResult = await App.PublicClientApp.AcquireTokenSilentAsync(_scopes, App.PublicClientApp.Users.FirstOrDefault());
+                authResult = await app.AcquireTokenSilentAsync(_scopes, accounts.FirstOrDefault());
             }
             catch (MsalUiRequiredException ex)
             {
@@ -69,17 +97,22 @@
 
 <!--start-collapse-->
 ### <a name="more-information"></a>자세한 정보
+
 #### <a name="get-a-user-token-interactively"></a>대화형으로 사용자 토큰 가져오기
+
 `AcquireTokenAsync` 메서드를 호출하면 사용자에게 로그인하라는 창이 표시됩니다. 처음으로 보호된 리소스에 액세스할 때 응용 프로그램에서는 사용자가 일반적으로 대화형으로 로그인하도록 요청합니다. 토큰을 획득하는 자동 작업에 실패한 경우(예: 사용자의 암호가 만료된 경우) 로그인해야 할 수도 있습니다.
 
 #### <a name="get-a-user-token-silently"></a>자동으로 사용자 토큰 가져오기
+
 `AcquireTokenSilentAsync` 메서드는 사용자 개입 없이 토큰 획득 및 갱신을 자동으로 처리합니다. 요청에 대한 호출 또는 토큰 갱신이 자동으로 수행되기 때문에 `AcquireTokenAsync`가 처음으로 실행된 후에 `AcquireTokenSilentAsync`는 후속 호출에서 보호되는 리소스에 액세스하는 토큰을 가져오는 데 일반적으로 사용되는 메서드입니다.
 
 결국 `AcquireTokenSilentAsync` 메서드가 실패합니다. 사용자가 로그아웃했거나 다른 장치에서 해당 암호를 변경하면 실패할 수 있습니다. MSAL이 대화형 작업을 요구해 이 문제를 해결할 수 있다고 감지하면 `MsalUiRequiredException` 예외를 발생합니다. 응용 프로그램에서는 이러한 예외를 다음 두 가지 방법으로 처리할 수 있습니다.
 
 * 즉시 `AcquireTokenAsync`에 대해 호출할 수 있습니다. 이 호출로 인해 사용자에게 로그인하라는 메시지가 표시됩니다. 이 패턴은 사용자가 사용할 수 있는 오프라인 콘텐츠가 없는 온라인 응용 프로그램에서 일반적으로 사용됩니다. 이 단계별 설치에 따라 생성된 샘플은 이 패턴을 사용합니다. 이 패턴은 샘플을 처음 실행할 때 작동되는 항목을 확인할 수 있습니다. 
-    * 이 응용 프로그램을 사용한 사용자가 없기 때문에 `PublicClientApp.Users.FirstOrDefault()`에는 null 값이 포함되며 `MsalUiRequiredException` 예외가 throw됩니다. 
-    * 샘플의 코드는 `AcquireTokenAsync`를 호출하여 예외를 처리합니다. 그러면 사용자에게 로그인하라는 메시지가 표시됩니다.
+
+* 이 응용 프로그램을 사용한 사용자가 없기 때문에 `PublicClientApp.Users.FirstOrDefault()`에는 null 값이 포함되며 `MsalUiRequiredException` 예외가 throw됩니다. 
+
+* 샘플의 코드는 `AcquireTokenAsync`를 호출하여 예외를 처리합니다. 그러면 사용자에게 로그인하라는 메시지가 표시됩니다.
 
 * 로그인에 적절한 시기를 선택할 수 있도록 대화형 로그인이 필요하다는 시각적 표시를 사용자에게 표시할 수 있습니다. 또는 응용 프로그램이 나중에 `AcquireTokenSilentAsync`를 다시 시도할 수 있습니다. 이 패턴은 사용자가 중지하지 않고 다른 응용 프로그램 기능을 사용할 수 있는 경우에 자주 사용됩니다(예: 오프라인 콘텐츠를 응용 프로그램에서 사용할 수 있는 경우). 이 경우에 사용자는 보호된 리소스에 액세스하거나, 오래된 정보를 새로 고치기 위해 로그인하는 시점을 결정할 수 있습니다. 또는 네트워크가 일시적으로 사용할 수 없게 된 후에 복원된 경우 응용 프로그램이 `AcquireTokenSilentAsync`를 다시 시도하도록 결정할 수 있습니다.
 <!--end-collapse-->
@@ -114,10 +147,11 @@ public async Task<string> GetHttpContentWithToken(string url, string token)
     }
 }
 ```
+
 <!--start-collapse-->
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>보호되는 API에 대한 REST 호출에 관한 추가 정보
 
-이 응용 프로그램 예제에서는 토큰이 필요한 보호되는 리소스에 대한 HTTP `GET` 요청을 실행한 다음 호출자에게 콘텐츠를 반환하는 데 `GetHttpContentWithToken` 메서드를 사용합니다. 이 메서드는 HTTP 인증 헤더에서 획득된 토큰을 추가합니다. 이 샘플에서 리소스는 사용자 프로필 정보를 표시하는 Microsoft Graph API *me* 끝점입니다.
+이 응용 프로그램 예제에서는 토큰이 필요한 보호되는 리소스에 대한 HTTP `GET` 요청을 실행한 다음 호출자에게 콘텐츠를 반환하는 데 `GetHttpContentWithToken` 메서드를 사용합니다. 이 메서드는 HTTP 인증 헤더에서 획득된 토큰을 추가합니다. 이 샘플에서 리소스는 사용자 프로필 정보를 표시하는 Microsoft Graph API *me* 엔드포인트입니다.
 <!--end-collapse-->
 
 ## <a name="add-a-method-to-sign-out-a-user"></a>사용자를 로그아웃하는 메서드 추가
@@ -128,13 +162,15 @@ public async Task<string> GetHttpContentWithToken(string url, string token)
 /// <summary>
 /// Sign out the current user
 /// </summary>
-private void SignOutButton_Click(object sender, RoutedEventArgs e)
+private async void SignOutButton_Click(object sender, RoutedEventArgs e)
 {
-    if (App.PublicClientApp.Users.Any())
+    var accounts = await App.PublicClientApp.GetAccountsAsync(); 
+
+    if (accounts.Any())
     {
         try
         {
-            App.PublicClientApp.Remove(App.PublicClientApp.Users.FirstOrDefault());
+            await App.PublicClientApp.RemoveAsync(accounts.FirstOrDefault()); 
             this.ResultText.Text = "User has signed-out";
             this.CallGraphButton.Visibility = Visibility.Visible;
             this.SignOutButton.Visibility = Visibility.Collapsed;
@@ -146,6 +182,7 @@ private void SignOutButton_Click(object sender, RoutedEventArgs e)
     }
 }
 ```
+
 <!--start-collapse-->
 ### <a name="more-information-about-user-sign-out"></a>사용자 로그아웃에 대한 자세한 내용
 
@@ -167,13 +204,13 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
     TokenInfoText.Text = "";
     if (authResult != null)
     {
-        TokenInfoText.Text += $"Name: {authResult.User.Name}" + Environment.NewLine;
-        TokenInfoText.Text += $"Username: {authResult.User.DisplayableId}" + Environment.NewLine;
+        TokenInfoText.Text += $"Username: {authResult.Account.Username}" + Environment.NewLine;
         TokenInfoText.Text += $"Token Expires: {authResult.ExpiresOn.ToLocalTime()}" + Environment.NewLine;
         TokenInfoText.Text += $"Access Token: {authResult.AccessToken}" + Environment.NewLine;
     }
 }
 ```
+
 <!--start-collapse-->
 ### <a name="more-information"></a>자세한 정보
 

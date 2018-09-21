@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 06/01/2018
-ms.openlocfilehash: 44059de5a0ef0667b4268d9cdc2997162bab474a
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 65bcb92b8e97b09ca961aa02cd5891419c2cddb2
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295372"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580653"
 ---
 # <a name="build-and-deploy-object-detection-models-with-azure-machine-learning"></a>Azure Machine Learning으로 개체 감지 모델 빌드 및 배포
 
@@ -36,7 +36,7 @@ ms.locfileid: "39295372"
 
 ## <a name="prerequisites"></a>필수 조건
 
-1. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+1. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 1. 다음 계정 및 응용 프로그램을 설정하고 설치해야 합니다.
    - Azure Machine Learning 실험 계정 
@@ -126,7 +126,7 @@ _ = data_train.images[2].visualize_bounding_boxes(image_size = (10,10))
 
 ## <a name="define-a-model"></a>모델 정의
 
-이 예제에서는 빠른 R-CNN 모델을 사용합니다. 이 모델을 정의할 때 다양한 매개 변수가 제공될 수 있습니다. 즉, 학습에 사용되는 매개 변수(다음 섹션 참조)뿐만 아니라 이러한 매개 변수는 CVTK API 문서 또는 [Tensorflow 개체 감지 웹 사이트](https://github.com/tensorflow/models/tree/master/research/object_detection)에서 찾을 수 있습니다. 빠른 R-CNN 모델에 대한 자세한 정보는 [이 링크](https://docs.microsoft.com/en-us/cognitive-toolkit/Object-Detection-using-Faster-R-CNN#technical-details)에서 찾을 수 있습니다. 이 모델은 빠른 R-CNN에 기반하며 이에 대한 자세한 정보는 [여기](https://docs.microsoft.com/en-us/cognitive-toolkit/Object-Detection-using-Fast-R-CNN#algorithm-details)에서 찾을 수 있습니다.
+이 예제에서는 빠른 R-CNN 모델을 사용합니다. 이 모델을 정의할 때 다양한 매개 변수가 제공될 수 있습니다. 즉, 학습에 사용되는 매개 변수(다음 섹션 참조)뿐만 아니라 이러한 매개 변수는 CVTK API 문서 또는 [Tensorflow 개체 감지 웹 사이트](https://github.com/tensorflow/models/tree/master/research/object_detection)에서 찾을 수 있습니다. 빠른 R-CNN 모델에 대한 자세한 정보는 [이 링크](https://docs.microsoft.com/cognitive-toolkit/Object-Detection-using-Faster-R-CNN#technical-details)에서 찾을 수 있습니다. 이 모델은 빠른 R-CNN에 기반하며 이에 대한 자세한 정보는 [여기](https://docs.microsoft.com/cognitive-toolkit/Object-Detection-using-Fast-R-CNN#algorithm-details)에서 찾을 수 있습니다.
 
 
 ```python

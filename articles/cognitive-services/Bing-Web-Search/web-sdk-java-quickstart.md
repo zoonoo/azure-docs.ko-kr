@@ -1,6 +1,7 @@
 ---
 title: '빠른 시작: Java용 Bing Web Search SDK 사용'
-description: Java용 Bing Web Search SDK를 사용하는 방법을 알아봅니다.
+titleSuffix: Azure Cognitive Services
+description: Bing Web Search SDK를 사용하면 Bing Web Search를 Java 응용 프로그램에 쉽게 통합할 수 있습니다. 이 빠른 시작에서는 요청을 보내고, JSON 응답을 받고, 결과를 필터링 및 구문 분석하는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -9,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/22/2018
 ms.author: erhopf
-ms.openlocfilehash: cc7335b9f8b5596edef895ff5a42a1018b06a381
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 8db2f6a67f64216276ccdb0b16bbeb48565f6bc6
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186730"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127604"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>빠른 시작: Java용 Bing Web Search SDK 사용
 
@@ -260,7 +261,7 @@ if (webData != null && webData.videos() != null && webData.videos().value() != n
 
 ## <a name="declare-the-main-method"></a>main 메서드 선언
 
-이 응용 프로그램에서 main 메서드는 클라이언트를 인스턴스화하고, `subscriptionKey`의 유효성을 검사하고, `runSample`을 호출하는 코드를 포함합니다. 계속하기 전에 Azure 계정에 유효한 구독 키를 입력했는지 확인합니다.
+이 응용 프로그램에서 main 메서드는 클라이언트를 인스턴스화하고, `subscriptionKey`의 유효성을 검사하고, `runSample`를 호출하는 코드를 포함합니다. 계속하기 전에 Azure 계정에 유효한 구독 키를 입력했는지 확인합니다.
 
 ```java
 public static void main(String[] args) {

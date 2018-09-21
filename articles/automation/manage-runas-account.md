@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/16/2018
+ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2d6b58c95b918d820e207e801e62e7897c2ee366
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 32a7b7026df1522abe2ca3dc7b212b06e08ff905
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246275"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544280"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Automation 실행 계정 관리
 
@@ -349,9 +349,8 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
 
     ![실행 계정용 인증서 갱신](media/manage-runas-account/automation-account-renew-runas-certificate.png)
 
-1. 인증서가 갱신되는 동안 메뉴의 **알림**에서 진행률을 추적할 수 있습니다.
+1. 인증서가 갱신되는 동안 메뉴의 **알림**에서 진행률을 추적할 수 있습니다. 
 
-실행 인증서를 갱신할 수 없는 경우
 ## <a name="limiting-run-as-account-permissions"></a>실행 계정 권한 제한
 
 Azure Automation의 리소스에 대한 자동화의 대상 지정을 제어하기 위해 실행 계정에는 기본적으로 구독에 대한 참가자 권한이 부여됩니다. RunAs 서비스 주체가 수행할 수 있는 작업을 제한해야 하는 경우, 해당 계정을 참가자 역할에서 구독으로 제거하고 지정하려는 리소스 그룹에 참가자로 추가할 수 있습니다.

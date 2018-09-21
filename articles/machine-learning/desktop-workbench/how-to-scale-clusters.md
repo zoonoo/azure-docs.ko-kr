@@ -7,17 +7,17 @@ ms.author: aashishb
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
-ms.openlocfilehash: 1f8dbe5ccae34ab185cbe5105ac793a0d401b48e
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: e547d778ebf34b55c0c18921cf28e2a78fd269cc
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831669"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35638831"
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>클러스터 크기를 조정하여 웹 서비스 처리량 관리
 
@@ -69,12 +69,12 @@ Kubernetes 복제본 Pod에 자세한 내용은 [Kubernetes Pod](https://kuberne
 
 CLI를 사용하여 클러스터 크기를 조정하는 방법에는 다음 두 가지가 있습니다.
 
-- Autoscale
+- 자동 크기 조정
 - 고정 크기 조정
 
 자동 크기 조정은 서비스가 생성될 때 기본적으로 활성화되며 대부분의 경우 선호되는 크기 조정 방법입니다.
 
-##### <a name="autoscale"></a>Autoscale
+##### <a name="autoscale"></a>자동 크기 조정
 
 다음 명령은 자동 크기 조정을 사용하도록 설정하고 서비스에 대해 최소 및 최대 복제본 수를 설정합니다.
 

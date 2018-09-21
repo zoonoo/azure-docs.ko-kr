@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 3d67e896da5e616e443fc4e1edd9aaafb0f0e2f9
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 29eec4ad1883db9d824b416bdfc7e984a5af4fbe
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33201874"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35640272"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Azure CLI를 사용하여 Application Gateway 만들기
 
@@ -41,7 +41,7 @@ Azure Application Gateway는 계층 7 부하 분산 장치입니다. 클라우�
 이 문서의 단계를 수행하려면 [Mac, Linux 및 Windows용 Azure 명령줄 인터페이스(Azure CLI)를 설치](../xplat-cli-install.md)하고 [Azure에 로그온](/cli/azure/authenticate-azure-cli)해야 합니다. 
 
 > [!NOTE]
-> Azure 계정이 없는 경우 계정이 필요합니다. [여기서 무료 평가판](../active-directory/sign-up-organization.md)에 등록합니다.
+> Azure 계정이 없는 경우 계정이 필요합니다. [여기서 무료 평가판](../active-directory/fundamentals/sign-up-organization.md)에 등록합니다.
 
 ## <a name="scenario"></a>시나리오
 

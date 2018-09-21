@@ -10,12 +10,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: 97c9480d6f2b75d83252bfb6410d7b5f946757ef
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 7cb5dc5b170103f98d56abc920f36dd85f855961
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630656"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364822"
 ---
 # <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Azure Portal을 사용하여 Time Series Insights 환경에 대한 데이터 액세스 권한 부여
 
@@ -34,39 +34,10 @@ Time Series Insights 환경에는 다음과 같은 두 가지 독립적인 액�
 
 두 종류의 정책은 환경 관리에 대한 액세스와 환경 내 데이터에 대한 액세스를 명확하게 구분합니다. 예를 들어, 환경의 소유자/생성자가 데이터 액세스에서 제거되도록 환경을 설정할 수 있습니다. 환경에서 데이터를 읽을 수 있는 사용자 및 서비스에도 환경의 구성에 대한 액세스 권한을 부여하지 않을 수 있습니다.
 
-## <a name="grant-data-access"></a>데이터 액세스 권한 부여
-다음 단계에 따라 사용자 계정에 대한 데이터 액세스를 부여합니다.
-
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-
-2. Time Series Insights 환경을 찾습니다. **검색** 창에 **시계열**을 입력합니다. 검색 결과에서 **시계열 환경**을 선택합니다. 
-
-3. 목록에서 Time Series Insights 환경을 선택합니다.
-   
-4. **데이터 액세스 정책**을 선택한 다음 **+ 추가**를 선택합니다.
-  ![Time Series Insights 소스 관리 - 환경](media/data-access/getstarted-grant-data-access1.png)
-
-5. **사용자 선택**을 선택합니다.  사용자 이름 또는 메일 주소를 검색하여 추가할 사용자를 찾습니다. **선택**을 클릭하여 선택 사항을 확인합니다. 
-
-   ![Time Series Insights 소스 관리 - 추가](media/data-access/getstarted-grant-data-access2.png)
-
-6. **역할 선택**을 선택합니다. 사용자에 대한 적절한 액세스 역할을 선택합니다.
-   - 사용자가 참조 데이터를 변경하고 저장된 쿼리 및 큐브 뷰를 환경의 다른 사용자와 공유할 수 있게 허용하려면 **참가자**를 선택합니다. 
-   - 또는 사용자가 환경의 데이터를 쿼리하고 개인(공유되지 않는) 쿼리를 환경에 저장할 수 있게 허용하려면 **읽기 권한자**를 선택합니다.
-
-   **확인**을 선택하여 역할 선택을 확인합니다.
-
-   ![Time Series Insights 소스 관리 - 사용자 선택](media/data-access/getstarted-grant-data-access3.png)
-
-8. **사용자 역할 선택** 페이지에서 **확인**을 선택합니다.
-
-   ![Time Series Insights 소스 관리 - 역할 선택](media/data-access/getstarted-grant-data-access4.png)
-
-9. **데이터 액세스 정책** 페이지에는 사용자 및 각 사용자의 역할이 나열됩니다.
-
-   ![Time Series Insights 소스 관리 - 결과](media/data-access/getstarted-grant-data-access5.png)
+[!INCLUDE [iot-tsi-data-access](../../includes/iot-tsi-data-access.md)]
 
 ## <a name="next-steps"></a>다음 단계
+
 * [Azure Time Series Insights 환경에 이벤트 허브 이벤트 원본을 추가하는 방법](time-series-insights-how-to-add-an-event-source-eventhub.md)을 알아보세요.
 * 이벤트 원본으로 [이벤트 보내기](time-series-insights-send-events.md)
 * [Time Series Insights 탐색기](https://insights.timeseries.azure.com)에서 환경 보기

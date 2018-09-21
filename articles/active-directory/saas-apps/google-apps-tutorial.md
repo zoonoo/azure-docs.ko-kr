@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 8001f2d38ac80bb6c67419faa54bf834531f0332
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9281c5fe04e3f29d1e3425edb4841dfaca1cd9e2
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439405"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294835"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>자습서: Azure Active Directory와 G Suite 통합
 
@@ -70,7 +70,7 @@ G Suite와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 1. **Q: 사용자가 Windows를 통해 로그인한 경우 암호 입력을 요청하는 메시지가 표시되지 않고 G Suite에 자동으로 인증되나요?**
    
-    A: 이 시나리오에는 두 가지 옵션을 사용할 수 있습니다. 첫째, [Azure Active Directory 조인](../device-management-introduction.md)을 통해 Windows 10 장치에 로그인할 수 있습니다. 또는 [AD FS(Active Directory Federation Services)](../connect/active-directory-aadconnect-user-signin.md) 배포를 통해 Azure AD에 Single Sign-On을 사용할 수 있도록 설정한 온-프레미스 Active Directory에 도메인 가입한 Windows 장치에 로그인할 수 있습니다. 두 가지 옵션 모두 Azure AD와 G Suite 간에 Single Sign-On을 사용하도록 설정하려면 다음 자습서의 단계를 수행해야 합니다.
+    A: 이 시나리오에는 두 가지 옵션을 사용할 수 있습니다. 첫째, [Azure Active Directory 조인](../device-management-introduction.md)을 통해 Windows 10 장치에 로그인할 수 있습니다. 또는 [AD FS(Active Directory Federation Services)](../hybrid/plan-connect-user-signin.md) 배포를 통해 Azure AD에 Single Sign-On을 사용할 수 있도록 설정한 온-프레미스 Active Directory에 도메인 가입한 Windows 장치에 로그인할 수 있습니다. 두 가지 옵션 모두 Azure AD와 G Suite 간에 Single Sign-On을 사용하도록 설정하려면 다음 자습서의 단계를 수행해야 합니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
@@ -135,7 +135,7 @@ G Suite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
-    나. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다. 
+    b. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다. 
     | |
     |--|
     | `google.com/a/<yourdomain.com>` |
@@ -152,7 +152,7 @@ G Suite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
 
-    나. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다. 
+    b. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다. 
     | |
     |--|
     | `google.com/a/<yourdomain.com>` |
@@ -191,7 +191,7 @@ G Suite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
    
     a. **Setup SSO with third party identity provider**(타사 ID 공급자로 SSO 설정)을 선택합니다.
 
-    나. G Suite의 **로그인 페이지 URL** 필드에 Azure Portal에서 복사한 **Single Sign-On 서비스 URL** 값을 붙여넣습니다.
+    b. G Suite의 **로그인 페이지 URL** 필드에 Azure Portal에서 복사한 **Single Sign-On 서비스 URL** 값을 붙여넣습니다.
 
     다. G Suite의 **로그아웃 페이지 URL** 필드에 Azure Portal에서 복사한 **로그아웃 URL** 값을 붙여넣습니다. 
 
@@ -204,7 +204,7 @@ G Suite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     g. **변경 내용 저장**을 클릭합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기

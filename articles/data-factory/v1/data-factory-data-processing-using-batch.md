@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6ad3b4c1f59f5c46fd31aa24d6d2ceb4d7411abd
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 511a0122b37f5f34097da38a645790d99212ad18
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42142866"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737416"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory 및 Batch를 사용하여 대규모 데이터 집합 처리
 > [!NOTE]
@@ -556,7 +556,7 @@ test custom activity Microsoft test custom activity Microsoft
 
    ![새 데이터 저장소](./media/data-factory-data-processing-using-batch/image7.png)
 
-1. **계정 이름**을 저장소 계정 이름으로 바꿉니다. **계정 키**를 저장소 계정의 액세스 키로 바꿉니다. 저장소 액세스 키를 확보하는 방법을 알아보려면 [저장소 액세스 키 보기, 복사 및 다시 생성](../../storage/common/storage-create-storage-account.md#manage-your-storage-account)을 참조하세요.
+1. **계정 이름**을 저장소 계정 이름으로 바꿉니다. **계정 키**를 저장소 계정의 액세스 키로 바꿉니다. 저장소 액세스 키를 확보하는 방법을 알아보려면 [저장소 액세스 키 보기, 복사 및 다시 생성](../../storage/common/storage-account-manage.md#access-keys)을 참조하세요.
 
 1. 명령 모음에서 **배포**를 선택하여 연결된 서비스를 배포합니다.
 

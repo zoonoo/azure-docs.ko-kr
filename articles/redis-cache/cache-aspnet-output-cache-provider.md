@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/14/2017
 ms.author: wesmc
-ms.openlocfilehash: 81c95949971d54833ca7a15ec5148116c94767f7
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 3cf906830965959709a8c7e8dc7d2acc3f3a6f32
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27909825"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35778548"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-redis-cache"></a>Azure Redis Cache에 대한 ASP.NET 출력 캐시 공급자
 Redis 출력 캐시 공급자는 출력 캐시 데이터에 대한 out-of-process 저장소 메커니즘입니다. 이 데이터는 완전한 HTTP 응답(페이지 출력 캐싱)에 특별히 사용됩니다. 공급자가 ASP.NET 4에 도입된 새로운 출력 캐시 공급자 확장 포인트에 연결됩니다.
@@ -48,8 +48,11 @@ NuGet 패키지에서는 필수 어셈블리 참조를 다운로드하고 추가
 <caching>
   <outputCachedefault Provider="MyRedisOutputCache">
     <providers>
+      <!-- For more details check https://github.com/Azure/aspnet-redis-providers/wiki -->
+      <!-- Either use 'connectionString' OR 'settingsClassName' and 'settingsMethodName' OR use 'host','port','accessKey','ssl','connectionTimeoutInMilliseconds' and 'operationTimeoutInMilliseconds'. -->
+      <!-- 'databaseId' and 'applicationName' can be used with both options. -->
       <!--
-      <add name="MyRedisOutputCache"
+      <add name="MyRedisOutputCache" 
         host = "127.0.0.1" [String]
         port = "" [number]
         accessKey = "" [String]
@@ -57,11 +60,19 @@ NuGet 패키지에서는 필수 어셈블리 참조를 다운로드하고 추가
         databaseId = "0" [number]
         applicationName = "" [String]
         connectionTimeoutInMilliseconds = "5000" [number]
-        operationTimeoutInMilliseconds = "5000" [number]
+        operationTimeoutInMilliseconds = "1000" [number]
+        connectionString = "<Valid StackExchange.Redis connection string>" [String]
+        settingsClassName = "<Assembly qualified class name that contains settings method specified below. Which basically return 'connectionString' value>" [String]
+        settingsMethodName = "<Settings method should be defined in settingsClass. It should be public, static, does not take any parameters and should have a return type of 'String', which is basically 'connectionString' value.>" [String]
+        loggingClassName = "<Assembly qualified class name that contains logging method specified below>" [String]
+        loggingMethodName = "<Logging method should be defined in loggingClass. It should be public, static, does not take any parameters and should have a return type of System.IO.TextWriter.>" [String]
+        redisSerializerType = "<Assembly qualified class name that implements Microsoft.Web.Redis.ISerializer>" [String]
       />
       -->
-      <add name="MyRedisOutputCache" type="Microsoft.Web.Redis.RedisOutputCacheProvider" host="127.0.0.1" accessKey="" ssl="false"/>
-    </providers>
+      <add name="MyRedisOutputCache" type="Microsoft.Web.Redis.RedisOutputCacheProvider"
+           host=""
+           accessKey=""
+           ssl="true" />
   </outputCache>
 </caching>
 ```
@@ -70,7 +81,7 @@ NuGet 패키지에서는 필수 어셈블리 참조를 다운로드하고 추가
 
 Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성하고, 필요에 따라 다른 값을 구성합니다. 캐시 속성에 액세스 하는 방법은 [Redis 캐시 설정 구성](cache-configure.md#configure-redis-cache-settings)을 참조하세요.
 
-* **호스트** – 캐시 끝점을 지정합니다.
+* **호스트** – 캐시 엔드포인트를 지정합니다.
 * **포트** – ssl 설정에 따라 비-SSL 포트 또는 SSL 포트를 사용합니다.
 * **선택키** – 캐시에 적합한 기본 또는 보조 키를 사용합니다.
 * **ssl** – ssl로 캐시/클라이언트 통신을 보호하려는 경우 true가 되고, 그 외의 경우 false입니다. 올바른 포트를 지정해야 합니다.
