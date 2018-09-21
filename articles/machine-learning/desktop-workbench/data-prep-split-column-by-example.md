@@ -7,17 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: cc53fc52590bc9991dcfd4730d9e4cb03e05efd5
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5fe292b92557b4786d638ac21c7adb1f50566feb
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831485"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35641894"
 ---
 # <a name="split-column-by-example-transformation"></a>예제별 열 분할 변환
 이 변환은 사용자가 입력할 필요 없이 의미 있는 경계에서 열의 내용을 자동으로 분할합니다. 분할 알고리즘은 열의 내용을 분석한 후 경계를 선택합니다. 이러한 경계는 다음에 따라 정의될 수 있습니다.
