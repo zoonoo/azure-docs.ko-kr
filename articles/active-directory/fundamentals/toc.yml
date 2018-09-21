@@ -18,6 +18,8 @@ items:
   items:
   - name: Azure ID 관리
     href: identity-fundamentals.md
+  - name: ID 보안 점수
+    href: identity-secure-score.md
   - name: 그룹 및 액세스 관리
     href: active-directory-manage-groups.md
   - name: 그룹 기반 라이선스
@@ -34,10 +36,10 @@ items:
   items:
   - name: 조직
     items:
-    - name: Azure AD Premium에 등록
-      href: active-directory-get-started-premium.md
     - name: 조직으로 Azure AD에 등록
       href: sign-up-organization.md
+    - name: Azure AD Premium에 등록
+      href: active-directory-get-started-premium.md
     - name: 사용자 지정 도메인 이름 추가
       href: add-custom-domain.md
     - name: 회사 브랜딩 추가
@@ -85,9 +87,9 @@ items:
     href: active-directory-administer.md
   - name: Azure ID 솔루션
     href: understand-azure-identity-solutions.md
-ms.openlocfilehash: 3a0024bd72138bf48a844bd183ac15abdd90cc22
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: b31baf4a0472afd09343673e2cdf94dc29b4cb12
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297986"
+ms.locfileid: "46465557"
