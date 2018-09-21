@@ -9,14 +9,16 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2017
-ms.author: mbullwin; sergkanz
-ms.openlocfilehash: e0bdaf132474d8e5eaac6a9c65093d27d673d343
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: sergkanz
+ms.author: mbullwin
+ms.openlocfilehash: 3d2607fe154b599d818738ddddd12983255a1470
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35638843"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>요청 원격 분석: Application Insights 데이터 모델
 
@@ -24,7 +26,7 @@ ms.lasthandoff: 05/08/2018
 
 요청 원격 분석은 사용자 지정 `properties` 및 `measurements`를 사용하여 표준 확장성 모델을 지원합니다.
 
-## <a name="name"></a>Name
+## <a name="name"></a>이름
 
 요청의 이름은 요청을 처리하기 위해 진행된 코드 경로를 나타냅니다. 더 나은 요청 그룹화를 허용하는 낮은 카디널리티 값입니다. HTTP 요청의 경우 HTTP 메서드 및 실제 `id` 값이 없는 `GET /values/{id}`와 같은 URL 경로 템플릿을 나타냅니다.
 
@@ -66,7 +68,7 @@ Application Insights 웹 SDK는 요청 이름을 대/소문자를 바꾸지 않�
 
 웹 응용 프로그램의 경우 응답 코드가 `400`보다 작거나 `401`과 같은 경우 Application Insights는 요청을 실패한 것으로 정의합니다. 그러나 기본 매핑이 응용 프로그램의 의미 체계와 일치하지 않는 경우가 있습니다. 응답 코드 `404`는 정규 흐름의 일부일 수 있는 "기록 없음"을 나타낼 수 있습니다. 또한 끊어진 연결을 나타낼 수도 있습니다. 끊어진 연결의 경우 좀 더 고급 논리를 구현할 수도 있습니다. 끊어진 연결이 동일한 사이트에 있는 경우에만 URL 참조를 분석하여 실패로 표시할 수 있습니다. 또는 회사의 모바일 응용 프로그램에서 액세스할 때 실패로 표시합니다. 마찬가지로 `301` 및 `302`는 리디렉션을 지원하지 않는 클라이언트에서 액세스될 때 실패를 나타냅니다.
 
-부분적으로 수락된 콘텐츠 `206`은 전체 요청의 실패를 나타낼 수 있습니다. 예를 들어 Application Insights 끝점은 원격 분석 항목의 일괄 처리를 단일 요청으로 받습니다. 일괄 처리의 일부 항목이 성공적으로 처리되지 않으면 `206`을 반환합니다. `206` 비율이 늘어나면 조사해야 하는 문제가 발생했음을 나타냅니다. 성공이 별도 응답 코드 측면에서는 더 나쁠 수 있는 `207` 다중 상태에도 유사한 논리가 적용됩니다.
+부분적으로 수락된 콘텐츠 `206`은 전체 요청의 실패를 나타낼 수 있습니다. 예를 들어 Application Insights 엔드포인트는 원격 분석 항목의 일괄 처리를 단일 요청으로 받습니다. 일괄 처리의 일부 항목이 성공적으로 처리되지 않으면 `206`을 반환합니다. `206` 비율이 늘어나면 조사해야 하는 문제가 발생했음을 나타냅니다. 성공이 별도 응답 코드 측면에서는 더 나쁠 수 있는 `207` 다중 상태에도 유사한 논리가 적용됩니다.
 
 [블로그 게시물](http://apmtips.com/blog/2016/12/03/request-success-and-response-code/)에서 요청 결과 코드 및 상태 코드에 대한 자세한 내용을 확인할 수 있습니다.
 

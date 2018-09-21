@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 04afd71183bcb8001d017b0027f29338b8d67ddb
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 50de43fd6f9ca579b501c47514c9f8fca4f53ae8
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442370"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45540971"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Kubernetes 마스터 노드 로그 활성화 및 검토
 
@@ -75,8 +75,7 @@ pod/nginx created
 왼쪽에서 **로그 검색**을 선택합니다. *kube-apiserver*를 보려면 텍스트 상자에 다음 쿼리를 입력합니다.
 
 ```
-search *
-| where Type == "AzureDiagnostics"
+AzureDiagnostics
 | where Category == "kube-apiserver"
 | project log_s
 ```
@@ -84,8 +83,7 @@ search *
 API 서버에 대한 많은 로그가 반환됩니다. 쿼리 범위를 좁혀서 이전 단계에서 만든 NGINX Pod에 대한 로그만 보려면 다음 쿼리 예제에 표시된 것처럼 *pods/nginx*를 검색하는 *where* 문을 추가합니다.
 
 ```
-search *
-| where Type == "AzureDiagnostics"
+AzureDiagnostics
 | where Category == "kube-apiserver"
 | where log_s contains "pods/nginx"
 | project log_s

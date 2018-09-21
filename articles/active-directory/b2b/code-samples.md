@@ -4,18 +4,18 @@ description: Azure Active Directory B2B 공동 작업에 대한 코드 및 Power
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: sample
 ms.date: 04/11/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: d522649e9339611c56e9f2ae7e6feac067d2ab49
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: d0f2669610f2086c29d52d95c9796e6a2939622e
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267222"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985448"
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Azure Active Directory B2B 공동 작업 코드 및 PowerShell 샘플
 
@@ -24,7 +24,7 @@ ms.locfileid: "34267222"
 
 1. .CSV 파일 준비. 즉 새 CSV 파일을 만들고 invitations.csv라고 지정합니다. 이 예제에서 파일은 C:\data에 저장되고 다음 정보를 포함합니다.
   
-  Name                  |  InvitedUserEmailAddress
+  이름                  |  InvitedUserEmailAddress
   --------------------- | --------------------------
   Gmail B2B 초대 대상자     | b2binvitee@gmail.com
   Outlook B2B 초대 대상자   | b2binvitee@outlook.com

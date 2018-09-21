@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: c5621d5e16e31104ee28cc521386a5c0ca290a8b
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 66494ca6bd9b4d8276469e85f4c6bb435ae245f7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187702"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716403"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>IoT 솔루션 가속기에 대한 질문과 대답
 
@@ -73,10 +73,6 @@ DevKit 장치를 사용하는 경우 [IoT DevKit SDK](https://github.com/Microso
 > Microsoft Azure for DreamSpark는 현재 학생용 Microsoft Imagine이라고 합니다.
 
 현재는 [DreamSpark용 Microsoft Azure](https://azure.microsoft.com/pricing/member-offers/imagine/) 계정으로 솔루션 가속기를 만들 수 없습니다. 하지만 몇 분 이내에 [Azure용 무료 평가판 계정](https://azure.microsoft.com/free/)을 만들면 솔루션 가속기를 만들 수 있습니다.
-
-### <a name="can-i-create-a-solution-accelerator-if-i-have-cloud-solution-provider-csp-subscription"></a>CSP(클라우드 솔루션 공급자) 구독이 있는 경우 솔루션 가속기를 만들 수 있나요?
-
-현재는 CSP(클라우드 솔루션 공급자) 구독이 있는 솔루션 가속기를 만들 수 없습니다. 하지만 몇 분 이내에 [Azure용 무료 평가판 계정](https://azure.microsoft.com/free/)을 만들면 솔루션 가속기를 만들 수 있습니다.
 
 ### <a name="how-do-i-delete-an-aad-tenant"></a>AAD 테넌트를 어떻게 삭제하나요?
 

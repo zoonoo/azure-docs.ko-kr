@@ -1,8 +1,8 @@
 ---
-title: "Azure Application Insights에서 어떻게 할까요? | Microsoft Docs"
-description: "Application Insights의 FAQ"
+title: Azure Application Insights에서 어떻게 할까요? | Microsoft Docs
+description: Application Insights의 FAQ
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: a32127f14c93012b5ace11ff982824f9ecba7d94
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 235089cc0f0c8f84fe27edbbb97f65b8310fccba
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35639269"
 ---
 # <a name="how-do-i--in-application-insights"></a>Application Insights에서 다음을 수행하는 방법
 ## <a name="get-an-email-when-"></a>전자 메일을 받는 경우
@@ -135,7 +136,6 @@ ms.lasthandoff: 11/01/2017
 [가격 책정 및 할당량](app-insights-pricing.md)에 대해 자세히 확인합니다.
 
 ## <a name="disable-telemetry"></a>원격 분석 사용 안 함
-
 서버로부터 원격 분석의 컬렉션 및 전송을 **동적으로 중지 및 시작** 하려면:
 
 ```

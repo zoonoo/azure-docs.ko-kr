@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b44c5b29f41f08ac5c1d5e6aa3c37f8c15ae7c54
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785992"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984660"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Azure AD 인증을 사용하여 REST로 Azure Media Services API 액세스
 
@@ -60,8 +60,8 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 
 |설정|예|설명|
 |---|-------|-----|
-|Azure Active Directory 테넌트 도메인|microsoft.onmicrosoft.com|STS(보안 토큰 서비스) 끝점처럼 Azure AD는 https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token 형식을 사용하여 만들어집니다. Azure AD는 리소스(액세스 토큰)에 액세스하기 위해 JWT를 발급합니다.|
-|REST API 끝점|https://amshelloworld.restv2.westus.media.azure.net/api/|응용 프로그램에서 모든 Media Services REST API 호출이 수행되는 끝점입니다.|
+|Azure Active Directory 테넌트 도메인|microsoft.onmicrosoft.com|STS(보안 토큰 서비스) 엔드포인트처럼 Azure AD는 https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token 형식을 사용하여 만들어집니다. Azure AD는 리소스(액세스 토큰)에 액세스하기 위해 JWT를 발급합니다.|
+|REST API 엔드포인트|https://amshelloworld.restv2.westus.media.azure.net/api/|응용 프로그램에서 모든 Media Services REST API 호출이 수행되는 엔드포인트입니다.|
 |클라이언트 ID(응용 프로그램 ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD 응용 프로그램(클라이언트) ID입니다. 액세스 토큰을 가져오려면 클라이언트 ID가 필요합니다. |
 |클라이언트 암호|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD 응용 프로그램 키(클라이언트 암호)입니다. 액세스 토큰을 가져오려면 클라이언트 암호가 필요합니다.|
 
@@ -69,7 +69,7 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 
 정보를 가져오려면 다음 단계를 수행합니다.
 
-1. [Azure 포털](http://portal.azure.com) 에 로그인합니다.
+1. [Azure Portal](http://portal.azure.com)에 로그인합니다.
 2. AMS 인스턴스로 이동합니다.
 3. **API 액세스**를 선택합니다.
 4. **서비스 주체를 사용하여 Azure Media Services API에 연결**을 클릭합니다.
@@ -97,7 +97,7 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
     1. 응용 프로그램을 선택합니다.
     2. 오른쪽 창에서 **클라이언트 ID**를 가져옵니다. 
 
-    ![API 액세스](./media/connect-with-rest/existing-client-id.png)에서도 확인할 수 있습니다.
+    ![API 액세스](./media/connect-with-rest/existing-client-id.png)
 
 7.  응용 프로그램의 **키**(클라이언트 암호) 가져오기 
 
@@ -160,7 +160,7 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 
 1. **Postman**을 엽니다.
 2. **GET**을 선택합니다.
-3. REST API 끝점 붙여넣기(예: https://amshelloworld.restv2.westus.media.azure.net/api/Assets))
+3. REST API 엔드포인트 붙여넣기(예: https://amshelloworld.restv2.westus.media.azure.net/api/Assets))
 4. **Authorization** 탭을 선택합니다. 
 5. **Bearer Token**을 선택합니다.
 6. 이전 섹션에서 만든 토큰을 붙여 넣습니다.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/29/2018
 ms.author: vturecek
-ms.openlocfilehash: afd682625d7bb74f9a4b726a534508b805562e7f
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 384d0fa32b64706c9d9d9baa0e2e0bbb2ac3c522
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701537"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719599"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>Service Fabric Reliable Services의 ASP.NET Core
 
@@ -54,12 +54,12 @@ Service Fabric 서비스와 ASP.NET을 게스트 실행 파일로 또는 Reliabl
 
 그러나 응용 프로그램 진입점은 Reliable Service에서 WebHost를 만들 수 있는 적절한 위치가 아닙니다. 이는 응용 프로그램 진입점이 서비스 유형을 Service Fabric 런타임에 등록하는 데에만 사용되어 해당 서비스 유형의 인스턴스를 만들 수 있기 때문입니다. WebHost는 Reliable Service 자체에서 만들어야 합니다. 서비스 호스트 프로세스 내에서 서비스 인스턴스 및/또는 복제본은 여러 수명 주기를 거칠 수 있습니다. 
 
-Reliable Service 인스턴스는 `StatelessService` 또는 `StatefulService`에서 파생되는 서비스 클래스로 표현됩니다. 서비스를 위한 통신 스택은 서비스 클래스의 `ICommunicationListener` 구현에 포함되어 있습니다. `Microsoft.ServiceFabric.Services.AspNetCore.*` NuGet 패키지에는 Reliable Service의 Kestrel 또는 HttpSys에 대한 ASP.NET Core WebHost를 시작하고 관리하는 `ICommunicationListener` 구현이 포함되어 있습니다.
+Reliable Service 인스턴스는 `StatelessService` 또는 `StatefulService`에서 파생되는 서비스 클래스로 표현됩니다. 서비스를 위한 통신 스택은 서비스 클래스의 `ICommunicationListener` 구현에 포함되어 있습니다. `Microsoft.ServiceFabric.AspNetCore.*` NuGet 패키지에는 Reliable Service의 Kestrel 또는 HttpSys에 대한 ASP.NET Core WebHost를 시작하고 관리하는 `ICommunicationListener` 구현이 포함되어 있습니다.
 
 ![Reliable Service에서 ASP.NET Core 호스팅][1]
 
 ## <a name="aspnet-core-icommunicationlisteners"></a>ASP.NET Core ICommunicationListeners
-`Microsoft.ServiceFabric.Services.AspNetCore.*` NuGet 패키지의 Kestrel 및 HttpSys에 대한 `ICommunicationListener` 구현은 비슷한 사용 패턴을 갖지만 각 웹 서버에 따라 약간 다른 작업을 수행합니다. 
+`Microsoft.ServiceFabric.AspNetCore.*` NuGet 패키지의 Kestrel 및 HttpSys에 대한 `ICommunicationListener` 구현은 비슷한 사용 패턴을 갖지만 각 웹 서버에 따라 약간 다른 작업을 수행합니다. 
 
 두 통신 수신기는 다음 인수를 사용하는 생성자를 제공합니다.
  - **`ServiceContext serviceContext`**: 실행 중인 서비스에 대한 정보가 포함된 `ServiceContext` 개체입니다.
@@ -67,7 +67,7 @@ Reliable Service 인스턴스는 `StatelessService` 또는 `StatefulService`에�
  - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**: `IWebHost`를 만들고 반환하는 사용자 구현 람다입니다. 이렇게 하면 일반적으로 ASP.NET Core 응용 프로그램에서 구성하는 방식으로 `IWebHost`를 구성할 수 있습니다. 람다는 사용하는 Service Fabric 통합 옵션과 제공하는 `Endpoint` 구성에 따라 생성된 URL을 제공합니다. 그런 다음 해당 URL을 수정하거나 그대로 사용하여 웹 서버를 시작할 수 있습니다.
 
 ## <a name="service-fabric-integration-middleware"></a>Service Fabric 통합 미들웨어
-`Microsoft.ServiceFabric.Services.AspNetCore` NuGet 패키지에는 Service Fabric 인식 미들웨어를 추가하는 `IWebHostBuilder`의 `UseServiceFabricIntegration` 확장 메서드가 포함되어 있습니다. 이 미들웨어는 Kestrel 또는 HttpSys `ICommunicationListener`를 구성하여 Service Fabric 명명 서비스에 고유한 서비스 URL을 등록한 다음, 클라이언트 요청의 유효성을 검사하여 클라이언트가 적절한 서비스에 연결하고 있는지 확인합니다. 이는 Service Fabric과 같은 공유 호스트 환경에서 필요합니다. 여기서는 여러 웹 응용 프로그램이 동일한 물리적 컴퓨터 또는 가상 머신에서 실행될 수 있지만, 클라이언트에서 실수로 잘못된 서비스에 연결하지 못하도록 고유한 호스트 이름을 사용하지 않습니다. 이 시나리오에 대해서는 다음 섹션에서 자세히 설명합니다.
+`Microsoft.ServiceFabric.AspNetCore` NuGet 패키지에는 Service Fabric 인식 미들웨어를 추가하는 `IWebHostBuilder`의 `UseServiceFabricIntegration` 확장 메서드가 포함되어 있습니다. 이 미들웨어는 Kestrel 또는 HttpSys `ICommunicationListener`를 구성하여 Service Fabric 명명 서비스에 고유한 서비스 URL을 등록한 다음, 클라이언트 요청의 유효성을 검사하여 클라이언트가 적절한 서비스에 연결하고 있는지 확인합니다. 이는 Service Fabric과 같은 공유 호스트 환경에서 필요합니다. 여기서는 여러 웹 응용 프로그램이 동일한 물리적 컴퓨터 또는 가상 머신에서 실행될 수 있지만, 클라이언트에서 실수로 잘못된 서비스에 연결하지 못하도록 고유한 호스트 이름을 사용하지 않습니다. 이 시나리오에 대해서는 다음 섹션에서 자세히 설명합니다.
 
 ### <a name="a-case-of-mistaken-identity"></a>잘못된 ID의 경우
 프로토콜에 관계없이 서비스 복제본은 고유한 IP:포트 조합에서 수신 대기합니다. 서비스 복제본이 IP:포트 엔드포인트에서 수신 대기를 시작하면 클라이언트 또는 기타 서비스에서 검색할 수 있는 Service Fabric 명명 서비스에 해당 엔드포인트 주소를 보고합니다. 서비스에서 동적으로 할당된 응용 프로그램 포트를 사용하는 경우 서비스 복제본은 이전에 동일한 물리적 컴퓨터 또는 가상 머신에 있었던 다른 서비스의 동일한 IP:포트 엔드포인트를 우연히 사용할 수 있습니다. 이로 인해 클라이언트에서 실수로 잘못된 서비스에 연결할 수 있습니다. 다음과 같은 이벤트 시퀀스가 발생하면 이러한 경우가 나타날 수 있습니다.

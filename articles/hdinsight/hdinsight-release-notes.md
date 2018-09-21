@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jasonh
-ms.openlocfilehash: 5078ee68e559959390d439ed1ef9f8e199d2f083
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 898feee916168792c155190064200555b8331c0f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090153"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577244"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Azure HDInsight 릴리스 정보
 
@@ -41,7 +41,7 @@ Azure HDInsight는 Azure에서 오픈 소스 Hadoop 및 Spark 분석을 위해 �
 
 3.  ***Azure Data Lake Storage Gen2에 대한 지원*** - HDInsight는 Azure Data Lake Storage Gen2의 미리 보기 릴리스를 지원합니다. 사용 가능한 지역에서 고객은 ADLS Gen2 계정을 HDInsight 클러스터용 기본 또는 보조 저장소로 선택할 수 있습니다.
 
-4.  ***HDInsight Enterprise Security Package 업데이트(미리 보기)*** - (미리 보기) [Virtual Network 서비스 엔드포인트](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview)에서 Azure Blob Storage, ADLS Gen1, Cosmos DB 및 Azure DB를 지원합니다.
+4.  ***HDInsight Enterprise Security Package 업데이트(미리 보기)*** - (미리 보기) [Virtual Network 서비스 엔드포인트](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)에서 Azure Blob Storage, ADLS Gen1, Cosmos DB 및 Azure DB를 지원합니다.
 
 ## <a name="component-versions"></a>구성 요소 버전
 
@@ -1420,6 +1420,6 @@ HDP-2.5.x 및 2.6.x에서는 가능한 보안 문제가 있는 쓸모 없는 라
 
 ## <a name="upgrading"></a>업그레이드 중
 
-HDInsight 3.6에서는 이러한 모든 기능을 사용할 수 있습니다. 최신 버전의 Spark, Kafka 및 R Server(Machine Learning Services)를 얻으려면, [HDInsight 3.6 클러스터를 만들](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters) 때 Spark, Kafka, ML Services 버전을 선택합니다. ADLS에 대한 지원을 받으려면 ADLS 저장소 유형을 옵션으로 선택할 수 있습니다. 기존 클러스터는 이러한 버전으로 자동 업그레이드되지 않습니다.
+HDInsight 3.6에서는 이러한 모든 기능을 사용할 수 있습니다. 최신 버전의 Spark, Kafka 및 R Server(Machine Learning Services)를 얻으려면, [HDInsight 3.6 클러스터를 만들](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters) 때 Spark, Kafka, ML Services 버전을 선택합니다. ADLS에 대한 지원을 받으려면 ADLS 저장소 유형을 옵션으로 선택할 수 있습니다. 기존 클러스터는 이러한 버전으로 자동 업그레이드되지 않습니다.
 
-2018년 6월 이후에 만든 모든 새 클러스터는 모든 오픈 소스 프로젝트에서 1,000개 이상의 버그 수정을 자동으로 가져옵니다. 최신 HDInsight 버전으로 업그레이드하는 방법에 대한 모범 사례는 [이 가이드](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-upgrade-cluster)를 참조하세요.
+2018년 6월 이후에 만든 모든 새 클러스터는 모든 오픈 소스 프로젝트에서 1,000개 이상의 버그 수정을 자동으로 가져옵니다. 최신 HDInsight 버전으로 업그레이드하는 방법에 대한 모범 사례는 [이 가이드](https://docs.microsoft.com/azure/hdinsight/hdinsight-upgrade-cluster)를 참조하세요.

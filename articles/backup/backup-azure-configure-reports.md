@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4839b1aaa56be1ad93fa1dd685ca3176d1cc8a27
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: c59653bf3709f7798fd92a44fa420b99f2cbc6b6
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42143614"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733572"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
 이 문서에서는 Recovery Services 자격 증명 모음을 사용하여 Azure Backup에 대한 보고서를 구성하고 Power BI를 사용하여 이러한 보고서에 액세스하는 단계를 설명합니다. 이러한 단계를 수행한 후 Power BI로 직접 이동하여 모든 보고서를 확인하고, 보고서를 사용자 지정 및 생성할 수 있습니다. 
@@ -83,7 +83,7 @@ Recovery Services 자격 증명 모음을 사용하여 보고서에 대한 저�
 4. 위의 5단계에서 구성한 저장소 계정 이름을 입력하고 **다음** 단추를 클릭합니다.
 
     ![저장소 계정 이름 입력](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. 이 저장소 계정에 대한 저장소 계정 키를 입력합니다. Azure Portal에서 저장소 계정으로 이동하면 [저장소 액세스 키를 확인하고 복사](../storage/common/storage-create-storage-account.md#manage-your-storage-account)할 수 있습니다. 
+5. 이 저장소 계정에 대한 저장소 계정 키를 입력합니다. Azure Portal에서 저장소 계정으로 이동하면 [저장소 액세스 키를 확인하고 복사](../storage/common/storage-account-manage.md#access-keys)할 수 있습니다. 
 
      ![저장소 계정 입력](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
      

@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c0ad9f71665e503fe794c68200b90a8474750823
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: b048509f38356b19d52507f4dfb5bfa61122f9f6
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173628"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576428"
 ---
 # <a name="default-values-and-boundaries"></a>기본값 및 경계
 
@@ -35,8 +35,8 @@ ms.locfileid: "39173628"
 작성 API, 초당 최대 HTTP 호출 수 | 25
 세션 API, 월별 최대 HTTP 호출 수 | 500K
 세션 API, 초당 최대 HTTP 호출 수 | 10
-모델당 최대 사용자 지정(비프로그래밍) 엔터티 수 | [LUIS 경계 문서](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-boundaries)를 참조하세요. 실제 개수는 약간 더 작을 수 있습니다.
-모델당 최대 미리 빌드된 엔터티 수 | [LUIS 경계 문서](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-boundaries)를 참조하세요.
+모델당 최대 사용자 지정(비프로그래밍) 엔터티 수 | [LUIS 경계 문서](https://docs.microsoft.com/azure/cognitive-services/luis/luis-boundaries)를 참조하세요. 실제 개수는 약간 더 작을 수 있습니다.
+모델당 최대 미리 빌드된 엔터티 수 | [LUIS 경계 문서](https://docs.microsoft.com/azure/cognitive-services/luis/luis-boundaries)를 참조하세요.
 모델당 최대 엔터티 수(합계) | 100
 모델당 최대 작업 수 | 32
 모델당 최대 학습 대화 수 | 1000

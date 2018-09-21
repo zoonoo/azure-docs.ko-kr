@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: d43032f854aa37f150945c25515c03ec97277b41
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: a68e7cfe2966592861f3fb58c99327c5849a6004
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091308"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721605"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Azure Functions의 Mobile Apps 바인딩 
 
@@ -74,8 +74,7 @@ Mobile Apps 입력 바인딩은 모바일 테이블 엔드포인트에서 레코
         "apiKey": "My_MobileApp_Key",
         "direction": "in"
     }
-],
-"disabled": false
+]
 }
 ```
 [구성](#input---configuration) 섹션에서는 이러한 속성을 설명합니다.
@@ -120,8 +119,7 @@ public static void Run(string myQueueItem, JObject record)
         "apiKey": "My_MobileApp_Key",
         "direction": "in"
     }
-],
-"disabled": false
+]
 }
 ```
 [구성](#input---configuration) 섹션에서는 이러한 속성을 설명합니다.
@@ -219,8 +217,7 @@ public static object Run(
     "apiKey": "My_MobileApp_Key",
     "direction": "out"
     }
-],
-"disabled": false
+]
 }
 ```
 

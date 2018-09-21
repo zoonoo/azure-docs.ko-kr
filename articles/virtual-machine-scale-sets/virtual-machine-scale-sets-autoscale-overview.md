@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 48e64f0cc65ade870425f73989209e8bef8ec8d5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4c33466af6e57264e02a7d5c298f7f1f9fbf4ed8
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630289"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717304"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합을 사용한 자동 크기 조정 개요
 Azure 가상 머신 확장 집합은 응용 프로그램을 실행하는 VM 인스턴스의 수를 자동으로 늘리거나 줄입니다. 자동화되고 탄력적인 이 동작은 관리 오버헤드를 줄여 응용 프로그램의 성능을 모니터링하고 최적화합니다. 긍정적인 고객 만족을 위해 허용되는 성능을 정의하는 규칙을 만듭니다. 정의된 임계값이 충족되면 자동 크기 조정 규칙에 따라 확장 집합의 용량을 조정하는 작업을 수행합니다. 확정된 시간에 확장 집합의 용량을 자동으로 늘리거나 줄이도록 이벤트를 예약할 수도 있습니다. 이 문서에서는 사용 가능한 성능 메트릭과 자동 크기 조정에서 수행할 수 있는 작업에 대해 간략히 설명합니다.
@@ -40,7 +40,7 @@ VM 인스턴스에서 기본 제공 호스트 메트릭을 사용할 수 있는 
 
 호스트 기반 메트릭을 사용하는 자동 크기 조정 규칙은 다음 도구 중 하나로 만들 수 있습니다.
 
-- [Azure 포털](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](tutorial-autoscale-powershell.md)
 - [Azure CLI 2.0](tutorial-autoscale-cli.md)
 - [Azure 템플릿](tutorial-autoscale-template.md)
@@ -90,7 +90,7 @@ VM 인스턴스에서 기본 제공 호스트 메트릭을 사용할 수 있는 
 
 | 연산자                 |
 |--------------------------|
-| 다음보다 큼             |
+| 초과             |
 | 다음보다 크거나 같음 |
 | 다음보다 적음                |
 | 다음보다 작거나 같음    |
@@ -106,7 +106,7 @@ VM 인스턴스에서 기본 제공 호스트 메트릭을 사용할 수 있는 
 | 다음을 기준으로 개수 늘이기   | 만들 VM 인스턴스의 고정된 수입니다. VM 수가 적은 확장 집합에 유용합니다.                                           |
 | 다음을 기준으로 백분율 늘이기 | 백분율 기준에 따라 VM 인스턴스가 증가합니다. 고정된 증가에 따라 성능이 눈에 띄게 향상되지 않는 대규모 확장 집합에 적합합니다. |
 | 다음으로 개수 늘이기   | 원하는 최대 크기에 도달하는 데 필요한 만큼의 VM 인스턴스를 만듭니다.                                                            |
-| 다음으로 개수 줄이기   | 제거할 VM 인스턴스의 고정된 수입니다. VM 수가 적은 확장 집합에 유용합니다.                                           |
+| 다음을 기준으로 개수 줄이기   | 제거할 VM 인스턴스의 고정된 수입니다. VM 수가 적은 확장 집합에 유용합니다.                                           |
 | 다음을 기준으로 백분율 줄이기 | 백분율 기준에 따라 VM 인스턴스가 감소합니다. 고정된 증가에 따라 리소스 사용량 및 비용이 눈에 띄게 줄어들지 않는 대규모 확장 집합에 적합합니다. |
 | 다음으로 개수 줄이기   | 원하는 최소 크기에 도달하는 데 필요한 만큼의 VM 인스턴스를 제거합니다.                                                            |
 

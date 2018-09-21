@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.author: v-deasim
 ms.custom: ''
-ms.openlocfilehash: b52cad1f32cc3d16cf70bb81640dcb1d9f8614bf
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 88739cb299e453e32c69f5d0d0189da849b345a7
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133514"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573878"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Azure Traffic Manager를 사용하여 여러 Azure CDN 엔드포인트 간 장애 조치(failover) 설정
 
@@ -46,7 +46,7 @@ Azure Traffic Manager 프로필을 만들고 CDN 엔드포인트 간 부하 분�
 
     **라우팅 메서드**의 경우 **우선 순위**를 선택합니다.
 
-2. [Traffic Manager 엔드포인트 추가](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-create-profile#add-traffic-manager-endpoints)의 단계를 수행하여 Traffic Manager 프로필에서 CDN 엔드포인트 추가
+2. [Traffic Manager 엔드포인트 추가](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile#add-traffic-manager-endpoints)의 단계를 수행하여 Traffic Manager 프로필에서 CDN 엔드포인트 추가
 
     **형식**의 경우 **외부 엔드포인트**를 선택합니다. **우선 순위**의 경우 숫자를 입력합니다.
 
@@ -66,7 +66,7 @@ CDN 및 Traffic Manager 프로필을 설정한 후 이러한 단계를 수행하
 
       `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101akamai.azureedge.net`  
 
-    나. 두 번째 CNAME 항목의 경우 cdnverify 하위 도메인이 없는 사용자 지정 도메인을 CDN 엔드포인트에 매핑합니다. 이 항목은 Traffic Manager에 사용자 지정 도메인을 매핑합니다. 
+    b. 두 번째 CNAME 항목의 경우 cdnverify 하위 도메인이 없는 사용자 지정 도메인을 CDN 엔드포인트에 매핑합니다. 이 항목은 Traffic Manager에 사용자 지정 도메인을 매핑합니다. 
 
       예:  
       
@@ -92,7 +92,7 @@ CDN 및 Traffic Manager 프로필을 설정한 후 이러한 단계를 수행하
 이러한 단계를 완료한 후 장애 조치(failover) 기능이 포함된 다중 CDN 서비스는 Azure Traffic Manager를 사용하여 설정됩니다. 사용자 지정 도메인에서 테스트 URL에 액세스할 수 있습니다. 기능을 테스트하려면 기본 CDN 엔드포인트를 사용하지 않도록 설정하고 요청이 두 번째 CDN 엔드포인트에 올바르게 이동되는지 확인합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-다른 CDN 엔드포인트 간에 부하를 분산하려면 지리 같은 다른 라우팅 방법을 설정할 수도 있습니다. 자세한 내용은 [Traffic Manager를 사용한 지리적 트래픽 라우팅 방법 구성](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-configure-geographic-routing-method)을 참조하세요.
+다른 CDN 엔드포인트 간에 부하를 분산하려면 지리 같은 다른 라우팅 방법을 설정할 수도 있습니다. 자세한 내용은 [Traffic Manager를 사용한 지리적 트래픽 라우팅 방법 구성](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method)을 참조하세요.
 
 
 

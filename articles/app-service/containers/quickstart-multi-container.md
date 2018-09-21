@@ -15,16 +15,16 @@ ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 6fa0bab5d2b402c85ea3ee70e7356f8c8c989ab9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1d54d914edb306b89dc6f2604aa5af3d17cb535d
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446785"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576785"
 ---
 # <a name="create-a-multi-container-preview-app-using-web-app-for-containers"></a>Web App for Containers를 사용하여 다중 컨테이너(미리 보기) 앱 만들기
 
-[Web App for Containers](app-service-linux-intro.md)는 Docker 이미지를 사용할 수 있는 유연한 방법을 제공합니다. 이 빠른 시작은 Docker Compose 구성을 사용하여 [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)에서 Web App for Containers에 다중 컨테이너 앱을 배포하는 방법을 보여줍니다. MySQL용 Azure DB를 사용하는 Kubernetes 및 전체 종단 간 솔루션은 [다중 컨테이너 자습서](tutorial-multi-container-app.md)를 수행합니다.
+[Web App for Containers](app-service-linux-intro.md)는 Docker 이미지를 사용할 수 있는 유연한 방법을 제공합니다. 이 빠른 시작은 Docker Compose 구성을 사용하여 [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)에서 Web App for Containers에 다중 컨테이너 앱을 배포하는 방법을 보여줍니다. MySQL용 Azure DB를 사용하는 Kubernetes 및 전체 종단 간 솔루션은 [다중 컨테이너 자습서](tutorial-multi-container-app.md)를 수행합니다.
 
 Cloud Shell에서 이 빠른 시작을 완료하지만 [Azure CLI](/cli/azure/install-azure-cli)(2.0.32 이상)를 사용하여 이러한 명령을 로컬로 실행할 수도 있습니다. 
 

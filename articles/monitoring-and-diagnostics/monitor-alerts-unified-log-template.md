@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 588a0686eda1966582b82a4673a8b6805453c94c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6096833381db7ef0d2f011d517aaad4ae63ce4d6
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441445"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576870"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 로그 경고 만들기
 이 문서에서는 [Azure Powershell](../azure-resource-manager/resource-group-template-deploy.md) 및 [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)를 통해 [Azure Resource Manager 템플릿](..//azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 Azure의 규모에서 프로그래밍 방식으로 [로그 경고](monitor-alerts-unified-log.md)를 관리하는 방법을 보여줍니다. 현재 Azure Alerts는 [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md)와 [Azure Application Insights](../application-insights/app-insights-analytics-tour.md)에서 쿼리에 대한 로그 경고를 지원합니다.
@@ -35,12 +35,12 @@ Log Analytics Alert REST API는 RESTful이며 Azure Resource Manager REST API를
 Powershell에서 API에 액세스하는 예제를 포함하는 [REST API로 Log Analytics에서 경고 규칙 만들기 및 관리](../log-analytics/log-analytics-api-alerts.md)에 대해 자세히 알아봅니다.
 
 ## <a name="managing-log-alert-on-application-insights"></a>Application Insights에서 로그 경고 관리
-Azure Application Insights에 대한 로그 경고는 Azure Monitor에서 새 Azure 경고의 일부로 도입되었습니다. 따라서 [예약된 쿼리 규칙](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) REST 작업 그룹으로 Azure Monitor API 아래에서 실행됩니다.
+Azure Application Insights에 대한 로그 경고는 Azure Monitor에서 새 Azure 경고의 일부로 도입되었습니다. 따라서 [예약된 쿼리 규칙](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) REST 작업 그룹으로 Azure Monitor API 아래에서 실행됩니다.
 
 ### <a name="using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 사용
-Application Insights 리소스에 대한 로그 경고는 `Microsoft.Insights/scheduledQueryRules/`의 종류입니다. 이 리소스 종류에 대한 자세한 내용은 [Azure Monitor - 예약된 쿼리 규칙 API 참조](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/)를 참조하세요.
+Application Insights 리소스에 대한 로그 경고는 `Microsoft.Insights/scheduledQueryRules/`의 종류입니다. 이 리소스 종류에 대한 자세한 내용은 [Azure Monitor - 예약된 쿼리 규칙 API 참조](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)를 참조하세요.
 
-다음은 변수로 샘플 데이터 집합이 있는 [예약된 쿼리 규칙 만들기](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/createorupdate) 기반 리소스 템플릿에 대한 구조입니다.
+다음은 변수로 샘플 데이터 집합이 있는 [예약된 쿼리 규칙 만들기](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) 기반 리소스 템플릿에 대한 구조입니다.
 
 ```json
 {
@@ -113,7 +113,7 @@ Application Insights 리소스에 대한 로그 경고는 `Microsoft.Insights/sc
 }
 ```
 > [!IMPORTANT]
-> 대상 리소스에 대한 숨겨진 링크가 있는 태그 필드는 [예약된 쿼리 규칙](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) API 호출 또는 리소스 템플릿의 사용에서 필수입니다. 
+> 대상 리소스에 대한 숨겨진 링크가 있는 태그 필드는 [예약된 쿼리 규칙](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API 호출 또는 리소스 템플릿의 사용에서 필수입니다. 
 
 위의 샘플 json은 이 연습의 목적을 위해 sampleScheduledQueryRule.json(예)으로 저장될 수 있으며 [Azure Portal에서 Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template)를 사용하여 배포될 수 있습니다.
 

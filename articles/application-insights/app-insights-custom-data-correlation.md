@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: Evgeny.Ternovsky
-ms.openlocfilehash: 31e37efc1aad3d355bdd8391535f317ec137f5d7
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 6d19c64c74a01a012bac3d867e2d65393ae21cd3
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40161849"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577774"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>사용자 지정 데이터 원본을 사용하여 Application Insights 데이터 상호 연결
 
@@ -51,7 +51,7 @@ Log Analytics로 보낸 데이터를 시작하려면 다음과 같은 여러 옵
 
 ## <a name="correlating-data"></a>데이터 상관 관계 설정
 
-Application Insights는 Log Analytics 데이터 플랫폼을 기반으로 합니다. 따라서 [교차 리소스 조인](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search)을 사용하여 Application Insights 데이터와 Log Analytics로 수집한 모든 데이터의 상관 관계를 만들 수 있습니다.
+Application Insights는 Log Analytics 데이터 플랫폼을 기반으로 합니다. 따라서 [교차 리소스 조인](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search)을 사용하여 Application Insights 데이터와 Log Analytics로 수집한 모든 데이터의 상관 관계를 만들 수 있습니다.
 
 예를 들어 "myLA"라는 Log Analytics 작업 영역에서 "LabLocations_CL"이라는 테이블에 랩 인벤토리 및 위치를 수집할 수 있습니다. 그런 다음, "myAI"라는 Application Insights 앱에서 추적 요청을 검토하고 앞에서 언급한 사용자 지정 테이블에 저장된 이러한 머신의 위치에 대한 요청을 처리하는 머신 이름의 상관 관계를 만들려는 경우 Application Insights 또는 Log Analytics 컨텍스트에서 다음 쿼리를 실행할 수 있습니다.
 
@@ -66,4 +66,4 @@ app('myAI').requests
 ## <a name="next-steps"></a>다음 단계
 
 - [데이터 수집기 API](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) 참조를 체크 아웃합니다.
-- [교차 리소스 조인](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search)에 대한 자세한 정보입니다.
+- [교차 리소스 조인](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search)에 대한 자세한 정보입니다.

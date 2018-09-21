@@ -16,12 +16,12 @@ ms.date: 06/26/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: a79679068b03103bd8ca63455dd2d1758751aa6f
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 617a2ab4f98155789ae882c4253f07d8712050d2
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131237"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985552"
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Azure Virtual Machines에 대한 데이터 수집
 [Azure Log Analytics](log-analytics-overview.md)는 상세한 분석 및 상관 관계 파악을 위해 Azure Virtual Machines 및 사용자 환경의 다른 리소스의 데이터를 단일 저장소로 직접 수집할 수 있습니다.  이 빠른 시작 가이드에서는 몇 가지 간단한 단계로 Azure Linux 또는 Windows VM에서 데이터를 구성 및 수집하는 방법을 보여 줍니다.  
@@ -78,7 +78,7 @@ Log Analytics는 Windows 이벤트 로그 또는 Linux Syslog에서 이벤트를
 7. **Windows 성능 데이터**를 선택하여 Linux 컴퓨터의 성능 카운터 수집을 사용하도록 설정합니다.  
 8. 새 Log Analytics 작업 영역에 대한 Windows 성능 카운터를 처음으로 구성하는 경우, 몇 가지 공용 카운터를 신속하게 만드는 옵션이 제공됩니다. 각 항목은 옆에 확인란과 함께 나열됩니다.
 
-    ![선택된 기본 Windows 성능 카운터](media/log-analytics-quick-collect-azurevm/windows-perfcounters-default.png)에서도 확인할 수 있습니다.
+    ![선택된 기본 Windows 성능 카운터](media/log-analytics-quick-collect-azurevm/windows-perfcounters-default.png)
 
     **선택한 성능 카운터 추가**를 클릭합니다.  해당 성능 카운터가 추가되고, 10초의 수집 샘플 간격으로 미리 설정됩니다.
   
@@ -93,7 +93,7 @@ Log Analytics는 Windows 이벤트 로그 또는 Linux Syslog에서 이벤트를
 5. **Linux 성능 데이터**를 선택하여 Linux 컴퓨터의 성능 카운터 수집을 사용하도록 설정합니다. 
 6. 새 Log Analytics 작업 영역에 대한 Linux 성능 카운터를 처음으로 구성하는 경우, 몇 가지 공용 카운터를 신속하게 만드는 옵션이 제공됩니다. 각 항목은 옆에 확인란과 함께 나열됩니다.
 
-    ![선택된 기본 Windows 성능 카운터](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png)에서도 확인할 수 있습니다.
+    ![선택된 기본 Windows 성능 카운터](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png)
 
     **선택한 성능 카운터 추가**를 클릭합니다.  해당 성능 카운터가 추가되고, 10초의 수집 샘플 간격으로 미리 설정됩니다.  
 

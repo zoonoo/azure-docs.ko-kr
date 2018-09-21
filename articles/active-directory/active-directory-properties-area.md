@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: lizross
 ms.reviewer: bpham
 ms.custom: it-pro
-ms.openlocfilehash: 8cdf30ed09601a31529073eaedd4ab53780157d5
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: a34fa2b8c2d966af108664c219a222fb9a5b7abc
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077718"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35773531"
 ---
 # <a name="how-to-add-your-organizations-privacy-info-in-azure-active-directory"></a>방법: Azure Active Directory에 조직의 개인 정보 추가
 이 아티클에서는 테넌트 관리자가 Azure Portal을 통해 조직의 Azure AD(Azure Active Directory) 테넌트에 관련 개인 정보를 추가할 수 있는 방법을 설명합니다.
@@ -55,4 +55,4 @@ ms.locfileid: "34077718"
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Active Directory B2B 공동 작업 초대 상환](https://aka.ms/b2bredemption)
-- [Azure Active Directory에서 사용자에 대한 프로필 정보 추가 또는 변경](/active-directory-users-profile-azure-portal.md)
+- [Azure Active Directory에서 사용자에 대한 프로필 정보 추가 또는 변경](fundamentals/active-directory-users-profile-azure-portal.md)

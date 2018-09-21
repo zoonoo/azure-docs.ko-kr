@@ -4,14 +4,14 @@ description: Azure Migrate 서비스를 통해 평가를 실행한 후 컴퓨터
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 09/17/2018
 ms.author: raynew
-ms.openlocfilehash: 571bd2424d1d38e6c0048a95b263dda000477e44
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0b02ae4b75426b379ad7c124f5ddeb053c142ce6
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221882"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730297"
 ---
 # <a name="migrate-machines-after-assessment"></a>평가 후 컴퓨터 마이그레이션
 
@@ -25,7 +25,7 @@ ms.locfileid: "36221882"
 마이그레이션 도구와 관련한 제안을 가져오려면 온-프레미스 환경에 대한 심층 검색을 수행해야 합니다. 심층 검색은 온-프레미스 컴퓨터에 에이전트를 설치하여 수행합니다.  
 
 1. Azure Migrate 프로젝트를 만들고, 온-프레미스 컴퓨터를 탐색한 다음 마이그레이션 평가를 만듭니다. [자세히 알아보기](tutorial-assessment-vmware.md).
-2. 권장되는 마이그레이션 방법을 보려는 온-프레미스 컴퓨터 각각에 Azure Migrate 에이전트를 다운로드하여 설치합니다. [이 절차에 따라](how-to-create-group-machine-dependencies.md#prepare-machines-for-dependency-mapping) 에이전트를 설치합니다.
+2. 권장되는 마이그레이션 방법을 보려는 온-프레미스 컴퓨터 각각에 Azure Migrate 에이전트를 다운로드하여 설치합니다. [이 절차에 따라](how-to-create-group-machine-dependencies.md#prepare-for-dependency-visualization) 에이전트를 설치합니다.
 2. 리프트 앤 시프트 마이그레이션에 적합한 온-프레미스 컴퓨터를 확인합니다. 실행되는 앱에 대한 변경이 필요하지 않아 그대로 마이그레이션 가능한 VM입니다.
 3. 리프트 앤 시프트 마이그레이션에는 Azure Site Recovery를 사용하는 것이 좋습니다. [자세히 알아보기](../site-recovery/tutorial-migrate-on-premises-to-azure.md). 또는 Azure로의 마이그레이션을 지원하는 타사 도구를 사용할 수 있습니다.
 4. 리프트 앤 시프트 마이그레이션에 적합하지 않은 온-프레미스 컴퓨터, 즉 전체 VM이 아니라 특정 앱을 마이그레이션하려는 경우 다른 마이그레이션 도구를 사용할 수 있습니다. 예를 들어 SQL Server, MySQL 또는 Oracle 등의 온-프레미스 데이터베이스를 Azure로 마이그레이션하려는 경우 [Azure Database Migration 서비스](https://azure.microsoft.com/campaigns/database-migration/)를 권장합니다. 
@@ -40,7 +40,7 @@ ms.locfileid: "36221882"
 
 3. **제안된 도구**에서 마이그레이션에 사용할 수 있는 도구 제안을 검토합니다.
 
-    ![제안된 도구](./media/tutorial-assessment-vmware/assessment-suitability.png) 
+    ![제안된 도구](./media/tutorial-assessment-vmware/assessment-suitability.png)
 
 
 

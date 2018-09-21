@@ -11,12 +11,12 @@ ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 6347500b8968394a922969dd3dd2f00dd51cb6dd
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 920b019640df9d2da174101e2b1b90dfd4da6f56
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035360"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578738"
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench를 사용하여 하이퍼 매개 변수의 분산 튜닝
 
@@ -157,7 +157,7 @@ Kaggle에서 데이터를 다운로드하려면 [데이터 집합 페이지](htt
 
 인터넷 연결에 따라 파일을 업로드하는 데 몇 분이 걸립니다. 
 
-코드에서 [Azure Storage SDK](https://docs.microsoft.com/en-us/python/azure/)를 사용하여 Blob Storage에서 현재 실행 환경으로 데이터 집합을 다운로드합니다. 다운로드는 load_data.py 파일의 load\_data() 함수에서 수행됩니다. 이 코드를 사용하려면 <ACCOUNT_NAME> 및 <ACCOUNT_KEY>를 데이터 집합을 호스트하는 저장소 계정의 이름 및 기본 키로 바꿔야 합니다. 저장소 계정의 Azure 페이지에서 왼쪽 위 모서리에 계정 이름이 표시됩니다. 계정 키를 가져오려면 저장소 계정의 Azure 페이지에서 선택키를 선택하고(데이터 수집 섹션의 첫 번째 스크린샷 참조) 키 열의 첫 번째 행에서 긴 문자열을 복사합니다.
+코드에서 [Azure Storage SDK](https://docs.microsoft.com/python/azure/)를 사용하여 Blob Storage에서 현재 실행 환경으로 데이터 집합을 다운로드합니다. 다운로드는 load_data.py 파일의 load\_data() 함수에서 수행됩니다. 이 코드를 사용하려면 <ACCOUNT_NAME> 및 <ACCOUNT_KEY>를 데이터 집합을 호스트하는 저장소 계정의 이름 및 기본 키로 바꿔야 합니다. 저장소 계정의 Azure 페이지에서 왼쪽 위 모서리에 계정 이름이 표시됩니다. 계정 키를 가져오려면 저장소 계정의 Azure 페이지에서 선택키를 선택하고(데이터 수집 섹션의 첫 번째 스크린샷 참조) 키 열의 첫 번째 행에서 긴 문자열을 복사합니다.
  
 ![선택키](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
 

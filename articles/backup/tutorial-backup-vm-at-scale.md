@@ -9,12 +9,12 @@ ms.date: 2/14/2018
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: ecbf583a9b64868004b246bb01e7f174a21496b0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4fb8d45c285ee3c1651039619808b8964c5313cd
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607467"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983083"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Azure Portal을 사용하여 여러 가상 머신을 백업
 
@@ -163,7 +163,7 @@ Recovery Services 자격 증명 모음에 대한 백업을 사용하도록 설�
  
 7. 백업 항목이 확인되면(확인 표시가 나타남) **백업 중지** 단추를 사용할 수 있습니다. **백업 중지**를 클릭하여 정책을 중지하고 복원 지점을 삭제합니다. 
 
-    ![백업 중지를 클릭하여 자격 증명 모음 삭제](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png)에서도 확인할 수 있습니다.
+    ![백업 중지를 클릭하여 자격 증명 모음 삭제](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png)
 
 8. **myRecoveryServicesVault** 메뉴에서 **삭제**를 클릭합니다.
 

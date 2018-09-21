@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: 69d31a7199347574e8866b275ec17ba3997d80c2
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: e52acd8587203c4729ac2bcd6e4bbc09620ead86
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305126"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35773635"
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Azure Portal을 통해 서비스 카탈로그 응용 프로그램 게시
 
@@ -23,7 +23,7 @@ ms.locfileid: "34305126"
 
 ## <a name="prerequisites"></a>필수 조건
 
-관리되는 응용 프로그램을 게시하려면 리소스를 관리할 ID를 지정합니다. Azure Active Directory 사용자 그룹을 지정하는 것이 좋습니다. 새 Azure Active Directory 사용자 그룹을 만들려면 [그룹을 만들고 Azure Active Directory에 구성원 추가](../active-directory/active-directory-groups-create-azure-portal.md)를 참조하세요. 
+관리되는 응용 프로그램을 게시하려면 리소스를 관리할 ID를 지정합니다. Azure Active Directory 사용자 그룹을 지정하는 것이 좋습니다. 새 Azure Active Directory 사용자 그룹을 만들려면 [그룹을 만들고 Azure Active Directory에 구성원 추가](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요. 
 
 관리되는 응용 프로그램 정의가 포함된 .zip 파일은 URI를 통해 제공되어야 합니다.  저장소 Blob에 .zip 파일을 업로드하는 것이 좋습니다. 
 

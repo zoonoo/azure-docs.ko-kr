@@ -3,8 +3,8 @@ title: Azure DSC(Desired State Configuration) 확장 처리기 | Microsoft Docs
 description: DSC 확장을 사용하여 PowerShell DSC 구성을 Azure VM에 업로드하고 적용합니다.
 services: virtual-machines-windows
 documentationcenter: ''
-author: eshaparmar
-manager: jeconnoc
+author: bobbytreed
+manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
-ms.author: esparmar
-ms.openlocfilehash: b34314951980f7dbe2269119883dec52a90a0587
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: robreed
+ms.openlocfilehash: b9e96473a6f66dcbc675da1553deaed4ad61b249
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944815"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630937"
 ---
 # <a name="powershell-dsc-extension"></a>Powershell DSC 확장
 
@@ -98,7 +98,7 @@ Windows용 DSC 확장을 사용하려면 대상 가상 머신이 인터넷에 �
 
 ### <a name="property-values"></a>속성 값
 
-| Name | 값/예제 | 데이터 형식 |
+| 이름 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Powershell.DSC | string |
@@ -107,7 +107,7 @@ Windows용 DSC 확장을 사용하려면 대상 가상 머신이 인터넷에 �
 
 ### <a name="settings-property-values"></a>settings(설정) 속성 값
 
-| Name | 데이터 형식 | 설명
+| 이름 | 데이터 형식 | 설명
 | ---- | ---- | ---- |
 | settings.wmfVersion | string | VM에 설치해야 하는 Windows Management Framework의 버전을 지정합니다. 이 속성을 'latest'로 설정하면 최신 업데이트 버전의 WMF가 설치됩니다. 현재 이 속성에는 '4.0', '5.0' 및 'latest' 값만 사용할 수 있습니다. 가능한 값은 업데이트에 따라 달라집니다. 기본값은 'latest'입니다. |
 | settings.configuration.url | string | DSC 구성 zip 파일을 다운로드할 URL 위치를 지정합니다. 제공된 URL에 액세스하기 위해 SAS 토큰이 필요한 경우 protectedSettings.configurationUrlSasToken 속성을 SAS 토큰 값으로 설정해야 합니다. settings.configuration.script 및/또는 settings.configuration.function이 정의된 경우 이 속성이 필요합니다.
@@ -121,7 +121,7 @@ Windows용 DSC 확장을 사용하려면 대상 가상 머신이 인터넷에 �
 
 ### <a name="protected-settings-property-values"></a>protectedSettings(보호된 설정) 속성 값
 
-| Name | 데이터 형식 | 설명
+| 이름 | 데이터 형식 | 설명
 | ---- | ---- | ---- |
 | protectedSettings.configurationArguments | string | DSC 구성을 전달하려는 매개 변수를 정의합니다. 이 속성은 암호화됩니다. |
 | protectedSettings.configurationUrlSasToken | string | configuration.url에서 정의한 URL에 액세스하기 위해 SAS 토큰을 지정합니다. 이 속성은 암호화됩니다. |

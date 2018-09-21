@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: a9eca3c3aeaa8d9d0d3d7728f8aebd63543cb604
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: acbd1bb98fd9a3eb24b7b3262c3fe9fe47200385
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617118"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579206"
 ---
 # <a name="back-up-files-on-azure-stack"></a>Azure Stack에서 파일 백업
 Azure Backup을 사용하여 Azure Stack의 파일 및 응용 프로그램을 보호(또는 백업)합니다. 파일 및 응용 프로그램을 백업하려면 Microsoft Azure Backup Server를 Azure Stack에서 실행되는 가상 머신으로 설치합니다. 동일한 가상 네트워크의 Azure Stack 서버에서 파일을 보호할 수 있습니다. Azure Backup Server를 설치하면 Azure 디스크를 추가하여 단기 백업 데이터에 사용할 수 있는 로컬 저장소를 증가시킵니다. Azure Backup Server는 장기 보존을 위해 Azure Storage를 사용합니다.
@@ -49,7 +49,7 @@ Azure Stack 가상 머신에서 파일을 보호하도록 Azure Backup Server를
 
     ![새 보호 그룹 마법사가 열립니다.](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
 
-    보호 정책을 공유할 모든 데이터를 한 보호 그룹에 배치하는 것이 좋습니다. 보호 그룹 계획 및 배포에 대한 자세한 내용은 System Center DPM 문서 [배포 보호 그룹](https://docs.microsoft.com/en-us/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801)을 참조하세요.
+    보호 정책을 공유할 모든 데이터를 한 보호 그룹에 배치하는 것이 좋습니다. 보호 그룹 계획 및 배포에 대한 자세한 내용은 System Center DPM 문서 [배포 보호 그룹](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801)을 참조하세요.
 
 4. **데이터 보호 방법 선택** 화면에서 보호 그룹에 사용할 이름을 입력합니다. **다음 방법을 사용하여 단기 보호:** 및 **온라인 보호를 사용하려고 합니다**의 확인란을 선택합니다. **다음**을 클릭합니다.
 
@@ -135,5 +135,5 @@ Azure Portal에서 Azure Backup Server 엔터티를 보려면 다음 단계를 �
 
 ## <a name="see-also"></a>참고 항목
 Azure Backup Server를 사용하여 다른 워크로드를 보호하는 방법에 대한 내용은 다음 아티클 중 하나를 참조하세요.
-- [SharePoint 팜 백업](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
-- [SQL Server 백업](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
+- [SharePoint 팜 백업](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [SQL Server 백업](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)

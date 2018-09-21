@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: e4ebddc35b402d7a8997d899ce97577e93a27b84
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: e8e106bc71b87af8cd36f7edb0fe64fcddd6133e
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444863"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574677"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Dynamics 365(Common Data Service) 또는 Dynamics CRM 간에 데이터 복사
 
@@ -279,7 +279,7 @@ Dynamics에 데이터를 복사하려면 복사 작업의 싱크 형식을 **Dyn
 >[!NOTE]
 >Dynamics 싱크에 대해 싱크 "**writeBatchSize**" 및 복사 작업 "**[parallelCopies](copy-activity-performance.md#parallel-copy)**"의 기본값은 모두 10입니다. 따라서 100개 레코드가 Dynamics에 동시에 제출됩니다.
 
-Dynamics 365 Online의 경우 [조직당 동시 일괄 처리 호출 2개](https://msdn.microsoft.com/en-us/library/jj863631.aspx#Run-time%20limitations)라는 제한이 있습니다. 이 제한을 초과하면 첫 번째 요청이 실행되기도 전에 "서버 작업 중" 오류가 throw됩니다. "writeBatchSize"를 10 이하로 유지하면 이러한 동시 호출 수 제한을 피할 수 있습니다.
+Dynamics 365 Online의 경우 [조직당 동시 일괄 처리 호출 2개](https://msdn.microsoft.com/library/jj863631.aspx#Run-time%20limitations)라는 제한이 있습니다. 이 제한을 초과하면 첫 번째 요청이 실행되기도 전에 "서버 작업 중" 오류가 throw됩니다. "writeBatchSize"를 10 이하로 유지하면 이러한 동시 호출 수 제한을 피할 수 있습니다.
 
 "**writeBatchSize**" 및 "**parallelCopies**"의 최적 조합은 이러한 호출에 연결된 열 수, 행 크기, 플러그인/워크플로/워크플로 작업 수와 같은 엔터티 스키마에 따라 달라집니다. 기본 설정 10 writeBatchSize * 10 parallelCopies는 Dynamics 서비스에 따른 권장 사항으로, 대부분의 Dynamics 엔터티에서 최고의 성능을 내지 않더라도 어느 정도 효과가 있습니다. 복사 작업 설정의 조합을 조정하여 성능을 튜닝할 수 있습니다.
 

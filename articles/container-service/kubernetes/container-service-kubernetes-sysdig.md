@@ -9,11 +9,12 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 275e71ce054b83c16b9f9cbfe621c6a7e31f79c6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: bbf59a35f420b5bbf292fbdaa5a8bbc173e4ee24
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35640789"
 ---
 # <a name="monitor-an-azure-container-service-kubernetes-cluster-using-sysdig"></a>Sysdig을 사용하여 Azure Container Service Kubernetes 클러스터 모니터링
 
@@ -57,7 +58,7 @@ Sysdig 클라우드 웹 사이트에 로그인하여 사용자 이름을 클릭�
 DaemonSets은 컴퓨터당 컨테이너의 단일 인스턴스를 실행하는 Kubernetes API 개체입니다.
 Sysdig의 모니터링 에이전트와 같은 도구를 설치하는 데 적합합니다.
 
-Sysdig daemonset을 설치하려면 먼저 sysdig에서 [템플릿](https://raw.githubusercontent.com/draios/sysdig-cloud-scripts/master/agent_deploy/kubernetes/sysdig-daemonset.yaml)을 다운로드해야 합니다. 해당 파일을 `sysdig-daemonset.yaml`로 저장합니다.
+Sysdig daemonset을 설치하려면 먼저 sysdig에서 [템플릿](https://github.com/draios/sysdig-cloud-scripts/tree/master/agent_deploy/kubernetes)을 다운로드해야 합니다. 해당 파일을 `sysdig-daemonset.yaml`로 저장합니다.
 
 Linux 및 OS X에서 다음을 실행할 수 있습니다.
 

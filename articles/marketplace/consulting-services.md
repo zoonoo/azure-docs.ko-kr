@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: d89fef56a9fdab799170ed1ccd3261470d66bf95
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 104ef98aac3e34e30a86854a0d759cf11106b55b
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414704"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575314"
 ---
 # <a name="azure-marketplace-consulting-services"></a>Azure Marketplace 컨설팅 서비스
 Azure Marketplace의 컨설팅 서비스는 Microsoft 파트너에게 고객과 서비스를 연결하여 고객의 Azure 사용을 지원하고 확대한다는 목표를 제공합니다. Azure Marketplace는 Microsoft 시스템 통합자(SI) 파트너의 컨설팅 서비스 솔루션 목록을 지원합니다. 
@@ -73,7 +73,7 @@ Microsoft Dynamics 365, Office 365 및 Power BI를 기반으로 하는 서비스
 Azure Marketplace 컨설팅 서비스의 시작은 특정한 지리적 지역에서 진행됩니다. 첫 번째 시작 지역은 미국, 캐나다, 영국 및 오스트레일리아입니다. 그 외 국가의 카탈로그는 파트너가 유의미한 수의 경쟁력 있는 엄선된 서비스 제품을 제출하여 Microsoft의 승인을 받은 후에 게시됩니다.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace"></a>Azure Marketplace에서 컨설팅 서비스를 등록하는 방법
-먼저 [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup)에서 컨설팅 서비스를 등록합니다. 게시자는 [Marketplace에서 게시자 되기](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher)에서 등록 요구 사항의 전체 검사 목록을 참조할 수 있습니다. 
+먼저 [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup)에서 컨설팅 서비스를 등록합니다. 게시자는 [Marketplace에서 게시자 되기](https://docs.microsoft.com/azure/marketplace/become-publisher)에서 등록 요구 사항의 전체 검사 목록을 참조할 수 있습니다. 
 
 **등록 후 예상 결과** 온보딩 팀이 영업일 기준 1~3일 이내에 CPP(Cloud 파트너 포털) 로그인 정보를 포함하는 환영 전자 메일로 연락을 드립니다. [Cloud 파트너 포털](https://cloudpartner.azure.com)은 게시자가 목록 정보 및 제안을 제출하는 제품 목록 포털입니다. 
 
@@ -150,7 +150,7 @@ Azure Marketplace에 컨설팅 서비스 제품을 나열하려면 다음 단계
 |**개념 증명**    |    고객이 계약의 결과로 기대할 수 있는 엔지니어링 변경, 기술 아티팩트 또는 기타 아티팩트를 결정합니다.     | 상위 검색 엔진 최적화 키워드로 제품 요약 최적화        |
 |**워크샵**    |   선택한 제공 기간에 따라, 매일, 매주 또는 매월 자세한 주제를 포함합니다. 워크샵에서 다룰 학습 목적 또는 기타 결과물 결정     |   상위 검색 엔진 최적화 키워드로 제품 요약 최적화      |
 
-Cloud 파트너 포털 내에서 [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown)을 사용하여 목록에 서식을 추가할 수 있습니다. 이것은 목록을 정리하는 데 도움이 되는 간단한 디자인 언어입니다. 
+Cloud 파트너 포털 내에서 [Markdown](https://docs.microsoft.com/contribute/how-to-write-use-markdown)을 사용하여 목록에 서식을 추가할 수 있습니다. 이것은 목록을 정리하는 데 도움이 되는 간단한 디자인 언어입니다. 
 
 **샘플 Markdown 참고 사항**
 *   사본 블록 맨 앞과 맨 끝에 공백 없이 *를 추가하여 기울임꼴 만들기(예: *content*)

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2018
+ms.date: 09/11/2018
 ms.author: kgremban
 ms.custom: seohack1
-ms.openlocfilehash: e3b22c0c602e8f3d47fbfc179fb8d0fb985d55d6
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 57f4fa0179668bccc39098a1eb9816403d00db57
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619324"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716573"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Azure Active Directory용 기간 업무 앱 개발
 이 가이드는 Azure Active Directory(AD)에 대한 LoB(기간 업무) 응용 프로그램 개발의 개요를 제공하며, Active Directory/Office 365 전역 관리자용으로 작성되었습니다.
@@ -80,4 +80,4 @@ Azure에서 동의 및 동의 환경에 대한 자세한 내용은 [Azure Active
 ## <a name="related-articles"></a>관련 문서
 * [Azure AD 응용 프로그램 프록시를 사용하여 온-프레미스 응용 프로그램에 대한 보안 원격 액세스 사용](manage-apps/application-proxy.md)
 * [Azure AD를 사용하는 앱에 대한 액세스 관리](manage-apps/what-is-access-management.md)
-* [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+

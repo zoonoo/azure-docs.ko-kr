@@ -14,16 +14,16 @@ ms.component: report-monitor
 ms.date: 05/23/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 385106065322cae9b8e29f66bfd6920d4ebb52f8
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 5fe16ecb2725cf306b5b57c9d45d8601581a3ece
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42146418"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578903"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털에서 위험 플래그가 지정된 사용자 수정
 
-Azure AD(Azure Active Directory)에서 보안 보고를 통해 사용자 환경에서 손상된 사용자 계정의 확률에 대한 정보를 얻을 수 있습니다. [위험 플래그가 지정된 사용자](../identity-protection/overview.md#users-flagged-for-risk)는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다.
+Azure AD(Azure Active Directory)에서 보안 보고를 통해 사용자 환경에서 손상된 사용자 계정의 확률에 대한 정보를 얻을 수 있습니다. 위험 플래그가 지정된 사용자는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다.
 
 Microsoft는 환경을 안전하게 유지하기 위해 최선을 다하고 있습니다. 이 약속의 일환으로, Microsoft는 비정상적이거나 알려진 공격 패턴과 일치하는 활동을 지속적으로 모니터링합니다. 
 

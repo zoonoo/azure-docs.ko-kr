@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 361905b4c1e0c9e596cb7cf1cd5a730268d81bd0
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 706e946e61f7d5f48ce5071e90d724af717449d9
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413412"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575221"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 운영 보안 개요
 [Azure 운영 보안](https://docs.microsoft.com/azure/security/azure-operational-security)은 사용자가 Microsoft Azure에서 자신의 데이터, 응용 프로그램 및 기타 자산을 보호할 수 있는 서비스, 제어 및 기능을 나타냅니다. Azure 운영 보안은 Microsoft SDL(Security Development Lifecycle), Microsoft 보안 대응 센터 프로그램, 사이버 보안 위협 상황에 대한 심층 인식 등 Microsoft 고유의 다양한 기능을 통해 얻은 지식을 통합하는 프레임워크입니다.
@@ -68,13 +68,13 @@ Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운�
 Azure Active Directory를 사용하면 파트너 및 고객(비즈니스 또는 소비자)을 위해 게시하는 모든 응용 프로그램에 동일한 ID 및 액세스 관리 기능이 제공됩니다. 이렇게 하면 운영 비용을 크게 줄일 수 있습니다.
 
 ## <a name="azure-security-center"></a>Azure Security Center
-[Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro)는 Azure 리소스의 보안에 대한 향상된 가시성과 제어권을 통해 위협을 예방하고 감지하며 위협에 대응하는 데 도움이 됩니다. 이는 구독에서 통합된 보안 모니터링 및 정책 관리를 제공하며, 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되고 보안 솔루션의 광범위한 환경에서 작동합니다.
+[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)는 Azure 리소스의 보안에 대한 향상된 가시성과 제어권을 통해 위협을 예방하고 감지하며 위협에 대응하는 데 도움이 됩니다. 이는 구독에서 통합된 보안 모니터링 및 정책 관리를 제공하며, 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되고 보안 솔루션의 광범위한 환경에서 작동합니다.
 
 가상 머신의 보안 설정에 대한 가시성을 제공하고 위협을 모니터링하여 Azure의 [VM(가상 머신) 데이터를 보호](https://docs.microsoft.com/azure/security-center/security-center-linux-virtual-machine)합니다. Security Center는 다음의 목적으로 가상 머신을 모니터링할 수 있습니다.
 
 -   권장된 구성 규칙으로 운영 체제 보안 설정
 -   시스템 보안 및 누락된 중요 업데이트
--   끝점 보호 권장 사항
+-   엔드포인트 보호 권장 사항
 -   디스크 암호화 유효성 검사
 -   네트워크 기반 공격
 

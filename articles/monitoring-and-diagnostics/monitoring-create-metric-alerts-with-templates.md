@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/26/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 7289259214f90507c5b9cf527f19f0cf7026798c
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: be0ec31a05c0c1454e1af58b4a9c4ca959acbecf
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391456"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577163"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
 이 문서에서는 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 Azure Monitor에서 [최신 메트릭 경고](monitoring-near-real-time-metric-alerts.md)를 구성하는 방법을 설명합니다. Resource Manager 템플릿을 사용하면 환경 전체에서 일관되고 재현 가능한 방법으로 경보를 프로그래밍 방식으로 설정할 수 있습니다. 최신 메트릭 경고는 현재 [이 리소스 유형 집합](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported)에 대해 사용할 수 있습니다.
@@ -184,7 +184,7 @@ Resource Manager 템플릿을 사용하여 경고를 만들려면 `Microsoft.Ins
 }
 ```
 
-경고 규칙에 대한 스키마 및 속성 설명은 [여기에서 제공합니다](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate).
+경고 규칙에 대한 스키마 및 속성 설명은 [여기에서 제공합니다](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
 
 명령줄 또는 매개 변수 파일을 통해 매개 변수의 값을 설정할 수 있습니다. 샘플 매개 변수 파일이 아래에 제공됩니다. 
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 1ef4467862f47a833e0592c94c662170ca2946d8
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 68d7df575e3d413780b8181c11dd59a22469708b
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781452"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578940"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Azure Maps를 사용하여 관심 지점으로 라우팅
 
@@ -27,14 +27,15 @@ ms.locfileid: "43781452"
 
 ## <a name="prerequisites"></a>필수 조건
 
-계속 진행하기 전에 이전 자습서의 단계에 따라 [Azure Maps 계정 만들기](./tutorial-search-location.md#createaccount), [계정에 대한 구독 키 가져오기](./tutorial-search-location.md#getkey)를 수행합니다. 
+계속 진행하기 전에 이전 자습서의 단계에 따라 [Azure Maps 계정 만들기](./tutorial-search-location.md#createaccount), [계정에 대한 구독 키 가져오기](./tutorial-search-location.md#getkey)를 수행합니다.
 
 <a id="getcoordinates"></a>
 
-## <a name="create-a-new-map"></a>새 지도 만들기 
-다음 단계에서는 지도 컨트롤 API가 포함된 정적 HTML 페이지를 만드는 방법을 보여줍니다. 
+## <a name="create-a-new-map"></a>새 지도 만들기
 
-1. 로컬 컴퓨터에서 새 파일을 만들고 이름을 **MapRoute.html**로 지정합니다. 
+다음 단계에서는 지도 컨트롤 API가 포함된 정적 HTML 페이지를 만드는 방법을 보여줍니다.
+
+1. 로컬 컴퓨터에서 새 파일을 만들고 이름을 **MapRoute.html**로 지정합니다.
 2. 다음 HTML 구성 요소를 파일에 추가합니다.
 
     ```HTML
@@ -45,9 +46,9 @@ ms.locfileid: "43781452"
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, user-scalable=no" />
         <title>Map Route</title>
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css"/> 
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script> 
-        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.min.js?api-version=1"></script> 
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css"/>
+        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
+        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.min.js?api-version=1"></script>
         <style>
             html,
             body {
@@ -86,13 +87,13 @@ ms.locfileid: "43781452"
     ```
     **atlas Map**은 시각적 및 대화형 웹 맵에 대한 컨트롤을 제공하고 Azure 맵 컨트롤 API의 구성 요소입니다.
 
-4. 파일을 저장하고 브라우저에서 엽니다. 이 시점에서 더 자세히 개발할 수 있는 기본 지도가 있습니다. 
+4. 파일을 저장하고 브라우저에서 엽니다. 이 시점에서 더 자세히 개발할 수 있는 기본 지도가 있습니다.
 
    ![기본 지도 보기](./media/tutorial-route-location/basic-map.png)
 
 ## <a name="set-start-and-end-points"></a>출발 지점 및 도착 지점 설정
 
-이 자습서에서는 Microsoft를 시작점으로 설정하고, 시애틀의 주유소를 대상 지점으로 설정합니다. 
+이 자습서에서는 Microsoft를 시작점으로 설정하고, 시애틀의 주유소를 대상 지점으로 설정합니다.
 
 1. **MapRoute.html** 파일의 동일한 *script* 블록에서 다음 JavaScript 코드를 추가하여 경로의 출발점과 종료점을 만듭니다.
 
@@ -110,7 +111,7 @@ ms.locfileid: "43781452"
         icon: "pin-blue"
     });
     ```
-    이 코드는 경로의 출발점과 도착점을 나타낼 두 개의 [GeoJSON 개체](https://en.wikipedia.org/wiki/GeoJSON)를 만듭니다. 
+    이 코드는 경로의 출발점과 도착점을 나타낼 두 개의 [GeoJSON 개체](https://en.wikipedia.org/wiki/GeoJSON)를 만듭니다.
 
 2. 다음 JavaScript 코드를 추가하여 맵에 출발점과 종료점에 대한 핀을 추가합니다.
 
@@ -131,10 +132,10 @@ ms.locfileid: "43781452"
         textFont: "SegoeUi-Regular",
         textOffset: [0, -20]
     });
-    ``` 
+    ```
     **map.setCameraBounds**는 출발점과 도착점의 좌표에 따라 지도 창을 조정합니다. API **map.addPins**는 점을 시각적 구성 요소로 맵 컨트롤에 추가합니다.
 
-7. **MapRoute.html** 파일을 저장하고, 브라우저를 새로 고칩니다. 이제 지도의 중심에 시애틀이 표시되며, 출발점을 표시하는 둥근 파란색 핀과 도착점을 표시하는 파란색 핀을 볼 수 있습니다.
+3. **MapRoute.html** 파일을 저장하고, 브라우저를 새로 고칩니다. 이제 지도의 중심에 시애틀이 표시되며, 출발점을 표시하는 둥근 파란색 핀과 도착점을 표시하는 파란색 핀을 볼 수 있습니다.
 
    ![시작점과 끝점이 표시된 지도 보기](./media/tutorial-route-location/map-pins.png)
 
@@ -143,7 +144,6 @@ ms.locfileid: "43781452"
 ## <a name="get-directions"></a>방향 가져오기
 
 이 섹션에서는 Maps의 경로 서비스 API를 사용하여 주어진 출발점에서 목적지까지 경로를 찾는 방법을 보여줍니다. 경로 서비스는 두 위치 간의 *최소 시간*, *최단 거리*, *최적* 또는 *모험* 경로를 계획할 수 있는 API를 제공합니다. 또한 사용자는 Azure의 광범위한 교통 기록 데이터베이스를 사용해 어떤 날짜 및 시간에 대한 경로 기간을 예측하여 미래의 경로를 계획할 수 있습니다. 자세한 내용은 [경로 방향 가져오기](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)를 참조하세요.
-
 
 1. 먼저 지도에 새 레이어를 추가하여 경로 또는 *linestring*을 표시합니다. 다음 JavaScript 코드를 *스크립트* 블록에 추가합니다.
 
@@ -160,44 +160,44 @@ ms.locfileid: "43781452"
     });
     ```
 
-2.  스크립트 블록에 다음 Javascript 코드를 추가하여 클라이언트 서비스를 인스턴스합니다.
+2. 스크립트 블록에 다음 Javascript 코드를 추가하여 클라이언트 서비스를 인스턴스합니다.
     ```JavaScript
-    var client = new atlas.service.Client(subscriptionKey);
+    var client = new atlas.service.Client(MapsAccountKey);
     ```
 
 3. 다음 블록의 코드를 추가하여 경로 쿼리 문자열을 생성합니다.
     ```JavaScript
-    // Construct the route query string 
-        var routeQuery = startPoint.coordinates[1] + 
-            "," + 
-            startPoint.coordinates[0] + 
-            ":" + 
-            destinationPoint.coordinates[1] + 
-            "," + 
-            destinationPoint.coordinates[0];     
+    // Construct the route query string
+    var routeQuery = startPoint.coordinates[1] +
+        "," +
+        startPoint.coordinates[0] +
+        ":" +
+        destinationPoint.coordinates[1] +
+        "," +
+        destinationPoint.coordinates[0];
     ```
 
-4. 경로를 가져오려면 다음 블록의 코드를 스크립트에 추가합니다. [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) 메서드를 통해 Azure Maps 라우팅 서비스를 쿼리한 다음, [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes)를 사용하여 GeoJSON 형식으로 응답을 구문 분석합니다. 그런 다음, 모든 응답 선을 맵에 추가하여 경로를 렌더링합니다. 자세한 내용은 [맵에 선 추가](./map-add-shape.md#addALine)를 참조하면 됩니다.
+4. 경로를 가져오려면 다음 블록의 코드를 스크립트에 추가합니다. [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) 메서드를 통해 Azure Maps 라우팅 서비스를 쿼리한 다음, [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes)를 사용하여 GeoJSON 형식으로 응답을 구문 분석합니다. 그런 다음, 모든 응답 선을 맵에 추가하여 경로를 렌더링합니다. 자세한 내용은 [맵에 선 추가](./map-add-shape.md#addALine)를 참조하세요.
 
     ```JavaScript
     // Execute the query then add the route to the map once a response is received  
-    client.route.getRouteDirections(routeQuery).then(response => { 
-         // Parse the response into GeoJSON 
-         var geoJsonResponse = new atlas.service.geojson.GeoJsonRouteDirectionsResponse(response); 
- 
-         // Get the first in the array of routes and add it to the map 
-         map.addLinestrings([geoJsonResponse.getGeoJsonRoutes().features[0]], { 
-             name: routeLinesLayerName 
-         }); 
-    }); 
+    client.route.getRouteDirections(routeQuery).then(response => {
+         // Parse the response into GeoJSON
+         var geoJsonResponse = new atlas.service.geojson.GeoJsonRouteDirectionsResponse(response);
+
+         // Get the first in the array of routes and add it to the map
+         map.addLinestrings([geoJsonResponse.getGeoJsonRoutes().features[0]], {
+             name: routeLinesLayerName
+         });
+    });
     ```
 
 5. **MapRoute.html** 파일을 저장하고, 웹 브라우저를 새로 고칩니다. Maps API와 성공적으로 연결되면 다음과 비슷한 지도가 표시됩니다.
 
     ![Azure 맵 컨트롤 및 Route Service](./media/tutorial-route-location/map-route.png)
 
-
 ## <a name="next-steps"></a>다음 단계
+
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
@@ -205,7 +205,7 @@ ms.locfileid: "43781452"
 > * 주소 좌표 설정
 > * 관심 지점으로의 방향에 대한 경로 서비스 쿼리
 
-다음 자습서에는 이동 모드 또는 화물 유형과 같은 제한을 적용하여 경로 쿼리를 만든 다음, 같은 지도에 여러 경로를 표시하는 방법을 보여줍니다. 
+다음 자습서에는 이동 모드 또는 화물 유형과 같은 제한을 적용하여 경로 쿼리를 만든 다음, 같은 지도에 여러 경로를 표시하는 방법을 보여줍니다.
 
 > [!div class="nextstepaction"]
 > [여러 이동 모드에 대한 경로 찾기](./tutorial-prioritized-routes.md)

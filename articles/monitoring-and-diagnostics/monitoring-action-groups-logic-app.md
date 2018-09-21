@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 034e708b79bbdf15d7fa628f388402998f49c0d9
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 3c1bff98debf426fc02dbd4518c0bb798d7ba96d
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161509"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576023"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Azure Monitor 경고를 사용하여 복잡한 작업을 트리거하는 방법
 
@@ -129,7 +129,7 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](monitoring-action-groups
 
 14. **Logic Apps 디자이너** 맨 위에서 **저장**을 선택하여 논리 앱을 저장합니다.
 
-15. 기존 작업 그룹을 열고 논리 앱을 참조하는 작업을 추가합니다. 기존 작업 그룹이 없으면 [Azure Portal에서 작업 그룹 만들기 및 관리](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups)를 참조합니다. 변경 내용은 반드시 저장해야 합니다.
+15. 기존 작업 그룹을 열고 논리 앱을 참조하는 작업을 추가합니다. 기존 작업 그룹이 없으면 [Azure Portal에서 작업 그룹 만들기 및 관리](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)를 참조합니다. 변경 내용은 반드시 저장해야 합니다.
 
     ![작업 그룹 업데이트](media/monitoring-action-groups/update-action-group.png "작업 그룹 업데이트")
 

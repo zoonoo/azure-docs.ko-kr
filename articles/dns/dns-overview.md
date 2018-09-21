@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: overview
 ms.date: 6/7/2018
 ms.author: victorh
-ms.openlocfilehash: e95617664ee30f1b9253f1892176fd39649ee2c2
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 0812f5e3e23fbf49afec91524b4de2ff0eb7cd9a
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174635"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574184"
 ---
 # <a name="what-is-azure-dns"></a>Azure DNS란?
 
 Azure DNS는 DNS 도메인에 대한 호스팅 서비스로, Microsoft Azure 인프라를 사용하여 이름 확인을 제공합니다. Azure에 도메인을 호스트하면 다른 Azure 서비스와 동일한 자격 증명, API, 도구 및 대금 청구를 사용하여 DNS 레코드를 관리할 수 있습니다.
 
-Azure DNS를 사용하여 도메인 이름을 구매할 수 없습니다. 연간 요금의 경우 [Azure Web Apps](https://docs.microsoft.com/en-us/azure/app-service/custom-dns-web-site-buydomains-web-app#buy-the-domain) 또는 타사 도메인 이름 등록자를 사용하여 도메인 이름을 구매할 수 있습니다. 그러면 Azure DNS에 도메인을 호스트하여 레코드 관리에 사용할 수 있습니다. 자세한 내용은 [Azure DNS에 도메인 위임](dns-domain-delegation.md) 을 참조하세요.
+Azure DNS를 사용하여 도메인 이름을 구매할 수 없습니다. 연간 요금의 경우 [Azure Web Apps](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app#buy-the-domain) 또는 타사 도메인 이름 등록자를 사용하여 도메인 이름을 구매할 수 있습니다. 그러면 Azure DNS에 도메인을 호스트하여 레코드 관리에 사용할 수 있습니다. 자세한 내용은 [Azure DNS에 도메인 위임](dns-domain-delegation.md) 을 참조하세요.
 
 다음 기능이 Azure DNS에 포함됩니다.
 
@@ -30,11 +30,11 @@ Azure DNS의 DNS 도메인은 DNS 이름 서버의 Azure 글로벌 네트워크�
 
 Azure DNS 서비스는 Azure Resource Manager를 기반으로 합니다. 따라서 다음과 같은 Resource Manager 기능을 사용할 수 있습니다.
 
-* [역할 기반 액세스 제어](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#access-control) - 조직에 대한 특정 작업에 액세스하는 사람을 제어할 수 있습니다.
+* [역할 기반 액세스 제어](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control) - 조직에 대한 특정 작업에 액세스하는 사람을 제어할 수 있습니다.
 
-* [활동 로그](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#activity-logs) - 문제를 해결할 때 조직의 사용자가 리소스를 수정한 방법을 모니터링하거나 오류를 찾을 수 있습니다.
+* [활동 로그](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#activity-logs) - 문제를 해결할 때 조직의 사용자가 리소스를 수정한 방법을 모니터링하거나 오류를 찾을 수 있습니다.
 
-* [리소스 잠금](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources) - 구독, 리소스 그룹 또는 리소스에 잠금을 설정하여 조직의 다른 사용자가 실수로 중요한 리소스를 삭제 또는 수정하지 못하게 방지할 수 있습니다.
+* [리소스 잠금](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) - 구독, 리소스 그룹 또는 리소스에 잠금을 설정하여 조직의 다른 사용자가 실수로 중요한 리소스를 삭제 또는 수정하지 못하게 방지할 수 있습니다.
 
 자세한 내용은 [DNS 영역 및 레코드를 보호하는 방법](dns-protect-zones-recordsets.md)을 참조하세요. 
 

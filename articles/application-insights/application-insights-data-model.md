@@ -1,22 +1,24 @@
 ---
-title: "Azure Application Insights 원격 분석 데이터 모델 | Microsoft Docs"
-description: "Application Insights 데이터 모델 개요"
+title: Azure Application Insights 원격 분석 데이터 모델 | Microsoft Docs
+description: Application Insights 데이터 모델 개요
 services: application-insights
 documentationcenter: .net
-author: SergeyKanzhelev
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2017
+ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: b14eea46e773a4b92ba20cd3121cd258f86307c9
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: aaff60e847e0e9908a4cd9c07cb6cd47630c5e3a
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35639245"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Application Insights 원격 분석 데이터 모델
 
@@ -32,7 +34,7 @@ Application Insights에서 수집한 데이터를 통해 다음과 같은 일반
 
     **작업**은 요청을 처리하는 실행 스레드입니다. 또한 [코드를 작성](app-insights-api-custom-events-metrics.md#trackrequest)하여 정기적으로 데이터를 처리하는 웹 작업 또는 함수의 "절전 모드 해제"와 같은 다른 유형의 작업을 모니터링할 수 있습니다.  각 작업에는 ID가 있습니다. 이 ID를 사용하여 앱에서 요청을 처리하는 동안 생성된 모든 원격 분석을 [그룹화](application-insights-correlation.md)할 수 있습니다. 각 작업은 성공하거나 실패하며 일정 기간 동안 지속됩니다.
 * [**예외**](application-insights-data-model-exception-telemetry.md) - 일반적으로 작업이 실패하게 하는 예외를 나타냅니다.
-* [**종속성**](application-insights-data-model-dependency-telemetry.md) - REST API 또는 SQL과 같은 외부 서비스나 저장소에 대한 앱의 호출을 나타냅니다. ASP.NET에서 SQL에 대한 종속성 호출은 `System.Data`으로 정의됩니다. HTTP 끝점에 대한 호출은 `System.Net`으로 정의됩니다. 
+* [**종속성**](application-insights-data-model-dependency-telemetry.md) - REST API 또는 SQL과 같은 외부 서비스나 저장소에 대한 앱의 호출을 나타냅니다. ASP.NET에서 SQL에 대한 종속성 호출은 `System.Data`으로 정의됩니다. HTTP 엔드포인트에 대한 호출은 `System.Net`으로 정의됩니다. 
 
 Application Insights는 사용자 지정 원격 분석을 위한 데이터 형식으로 다음 세 가지 형식을 추가로 제공합니다.
 

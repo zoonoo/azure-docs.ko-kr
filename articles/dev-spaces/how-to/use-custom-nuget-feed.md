@@ -11,12 +11,12 @@ ms.topic: article
 description: Azure Dev Space에서 사용자 지정 NuGet 피드를 사용하여 NuGet 패키지에 액세스하고 이를 사용합니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 컨테이너
 manager: ghogen
-ms.openlocfilehash: 3badd15bcfd09c97b43744a20c5df05f4ff57e84
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 04b89f6d12c58e2f4915a84d3e0a7988d0e3192f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199112"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579217"
 ---
 #  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>Azure Dev Space에서 사용자 지정 NuGet 피드 사용
 
@@ -25,7 +25,7 @@ NuGet 피드는 프로젝트에 패키지 원본을 포함하는 편리한 방�
 ## <a name="set-up-a-nuget-feed"></a>NuGet 피드 설정
 
 NuGet 피드를 설정하려면:
-1. `PackageReference` 노드의 `*.csproj` 파일에 [패키지 참조](https://docs.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files)를 추가합니다.
+1. `PackageReference` 노드의 `*.csproj` 파일에 [패키지 참조](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files)를 추가합니다.
 
    ```xml
    <ItemGroup>
@@ -35,7 +35,7 @@ NuGet 피드를 설정하려면:
    </ItemGroup>
    ```
 
-2. 프로젝트 폴더에 [NuGet.Config](https://docs.microsoft.com/en-us/nuget/reference/nuget-config-file) 파일을 만듭니다.
+2. 프로젝트 폴더에 [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-config-file) 파일을 만듭니다.
      * `packageSources` 섹션을 사용하여 NuGet 피드 위치를 참조합니다. 중요: NuGet 피드는 공개적으로 액세스 가능해야 합니다.
      * `packageSourceCredentials` 섹션을 사용하여 사용자 이름 및 암호 자격 증명을 구성합니다. 
 

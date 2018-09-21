@@ -7,16 +7,16 @@ ms.author: gokhanu
 manager: haining
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 1a4b6b803687b2c433ad94a54f076f23fe63c350
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 43bee297b917143c9014b28049c6dfa28727b757
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831315"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35642045"
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Azure Machine Learning 실험 서비스 구성 파일
 
@@ -40,7 +40,7 @@ Azure ML(Machine Learning) Workbench용 스크립트를 제출할 때 실행 동
 
 * [continuum.io](https://anaconda.org/conda-forge/repo)
 * [PyPI](https://pypi.python.org/pypi)
-* 공개적으로 액세스할 수 있는 끝점(URL)
+* 공개적으로 액세스할 수 있는 엔드포인트(URL)
 * 또는 로컬 파일 경로
 * 실행 엔진을 통해 도달할 수 있는 기타 대상
 

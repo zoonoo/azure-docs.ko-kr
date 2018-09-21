@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0960f569f2a582d9712473081f66205272cfe31a
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: ca089672cf645af58952205dada66aa96ba0b65d
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116963"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578246"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>Azure Virtual Machines의 SAP Business One
 이 문서에서는 Azure Virtual Machines에 SAP Business One을 배포하는 지침을 제공합니다. 이 문서는 SAP용 Business One 설치 문서를 대체하지 않습니다. 이 문서에서는 Business One 응용 프로그램을 실행할 Azure 인프라에 대한 기본 계획 및 배포 지침을 다루어야 합니다.
@@ -30,7 +30,7 @@ Business One은 다음 두 가지 데이터베이스를 지원합니다.
 - SQL Server - [SAP Note #928839 - Release Planning for Microsoft SQL Server](https://launchpad.support.sap.com/#/notes/928839)(SAP 노트 #928839 - Microsoft SQL Server에 대한 릴리스 계획)을 참조하세요.
 - SAP HANA - SAP HANA에 대한 정확한 SAP Business One 지원 매트릭스를 보려면 [SAP Product Availability Matrix](https://support.sap.com/pam)(SAP 제품 가용성 매트릭스)를 확인하세요.
 
-SQL Server의 경우, [SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/dbms-guide)에 설명된 기본 배포 고려 사항이 적용됩니다. SAP HANA의 경우, 이 문서에 고려 사항이 언급되어 있습니다.
+SQL Server의 경우, [SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide)에 설명된 기본 배포 고려 사항이 적용됩니다. SAP HANA의 경우, 이 문서에 고려 사항이 언급되어 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 가이드를 사용하려면 다음 Azure 구성 요소에 대한 기본 지식이 필요합니다.
@@ -41,7 +41,7 @@ SQL Server의 경우, [SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배�
 - [CLI를 사용하는 Azure 네트워킹 및 가상 네트워크](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 - [Azure CLI 2.0을 사용하여 Azure 디스크 관리](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
-Business One에만 관심이 있는 경우에도 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/planning-guide) 문서를 통해 유용한 정보를 얻을 수 있습니다.
+Business One에만 관심이 있는 경우에도 [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) 문서를 통해 유용한 정보를 얻을 수 있습니다.
 
 SAP Business One을 배포하는 인스턴스는 다음 조건을 충족한다고 가정합니다.
 
@@ -89,23 +89,23 @@ SAP HANA를 Business One의 DBMS 백 엔드로 실행하는 경우, [HANA certif
 다음 몇 개의 장에서는 SAP를 배포하는 데 중요한 인프라 부분에 대해 설명합니다.
 
 ### <a name="azure-network-infrastructure"></a>Azure 네트워크 인프라
-Azure에 배포하는 데 필요한 네트워크 인프라는 단일 Business One 시스템을 직접 배포하는지, 또는 고객을 위해 수십 개의 Business One 시스템을 호스트하는 호스터인지에 따라 다릅니다. Azure에 연결하는 방법에 따라 디자인이 약간 변경될 수도 있습니다. Azure에 대한 VPN 연결이 있고, [VPN](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-plan-design) 또는 [ExpressRoute](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction)를 통해 Active Directory를 Azure로 확장하는 디자인은 다양한 가능성 중 하나입니다.
+Azure에 배포하는 데 필요한 네트워크 인프라는 단일 Business One 시스템을 직접 배포하는지, 또는 고객을 위해 수십 개의 Business One 시스템을 호스트하는 호스터인지에 따라 다릅니다. Azure에 연결하는 방법에 따라 디자인이 약간 변경될 수도 있습니다. Azure에 대한 VPN 연결이 있고, [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design) 또는 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)를 통해 Active Directory를 Azure로 확장하는 디자인은 다양한 가능성 중 하나입니다.
 
 ![Business One을 포함하는 간단한 네트워크 구성](./media/business-one-azure/simple-network-with-VPN.PNG)
 
 제시된 간소화된 구성에는 라우팅을 제어 및 제한할 수 있는 몇 가지 보안 인스턴스가 도입되었습니다. 이 구성은 다음으로 시작됩니다. 
 
 - 고객의 온-프레미스 쪽에 있는 라우터/방화벽.
-- 다음 인스턴스는 SAP Business One 구성을 실행하는 Azure VNet에 대한 라우팅 및 보안 규칙을 도입하는 데 사용할 수 있는 [Azure 네트워크 보안 그룹](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview)입니다.
+- 다음 인스턴스는 SAP Business One 구성을 실행하는 Azure VNet에 대한 라우팅 및 보안 규칙을 도입하는 데 사용할 수 있는 [Azure 네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview)입니다.
 - Business One 클라이언트의 사용자가 데이터베이스를 실행하는 Business One 서버를 실행하는 서버를 볼 수 없도록 하려면 Business One 클라이언트를 호스트하는 VM과 Business One 서버를 VNet에 있는 두 개의 다른 서브넷에 구분해야 합니다.
 - Business One 서버에 대한 액세스를 제한하기 위해 다시 두 개의 다른 서브넷에 할당된 Azure NSG를 사용합니다.
 
-보다 정교한 버전의 Azure 네트워크 구성은 문서화된 Azure [허브 및 스포크 아키텍처 모범 사례](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)를 기반으로 합니다. 허브 및 스포크 아키텍처 패턴은 간소화된 첫 번째 구성을 다음과 같은 구성으로 변경합니다.
+보다 정교한 버전의 Azure 네트워크 구성은 문서화된 Azure [허브 및 스포크 아키텍처 모범 사례](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)를 기반으로 합니다. 허브 및 스포크 아키텍처 패턴은 간소화된 첫 번째 구성을 다음과 같은 구성으로 변경합니다.
 
 
 ![Business One을 포함하는 허브 및 스포크 구성](./media/business-one-azure/hub-spoke-network-with-VPN.PNG)
 
-사용자가 Azure에 대한 개인 연결 없이 인터넷을 통해 연결하는 경우, Azure의 네트워크 디자인은 [Azure 및 인터넷 간의 DMZ](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-dmz)에 대한 Azure 참조 아키텍처에 문서화된 원칙을 따라야 합니다.
+사용자가 Azure에 대한 개인 연결 없이 인터넷을 통해 연결하는 경우, Azure의 네트워크 디자인은 [Azure 및 인터넷 간의 DMZ](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz)에 대한 Azure 참조 아키텍처에 문서화된 원칙을 따라야 합니다.
 
 ### <a name="business-one-database-server"></a>Business One 데이터베이스 서버
 데이터베이스 유형으로 SQL Server 및 SAP HANA를 사용할 수 있습니다. DBMS에 관계없이, [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)(SAP 워크로드에 대한 Azure Virtual Machines DBMS 배포의 고려 사항) 문서를 읽고 Azure VM의 DBMS 배포와 관련 네트워킹 및 저장소 항목을 전반적으로 이해해야 합니다.
@@ -151,7 +151,7 @@ SAP HANA 백업 및 복원 전략은 [Azure Virtual Machines의 SAP HANA 백업 
 ### <a name="business-one-client-server"></a>Business One 클라이언트 서버
 이러한 구성 요소에서 저장소 고려 사항은 중요하지 않습니다. 그래도 신뢰할 수 있는 플랫폼을 구현하는 것이 좋습니다. 따라서 기본 VHD의 경우에도 이 VM에 Azure Premium Storage를 사용해야 합니다. [SAP Business One Hardware Requirements Guide](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf)(SAP Business One 하드웨어 요구 사항 가이드)에 제공된 데이터를 사용하여 VM 크기를 조정합니다. Azure의 경우, 문서의 2.4 장에 명시된 요구 사항을 사용하여 계산하고 집중해야 합니다. 요구 사항을 계산할 때 다음 문서와 비교하여 이상적인 VM을 찾아야 합니다.
 
-- [Azure에서 Windows 가상 머신에 대한 크기](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes)
+- [Azure에서 Windows 가상 머신에 대한 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
 - [SAP Note #1928533](https://launchpad.support.sap.com/#/notes/1928533)(SAP 노트 #1928533)
 
 필요한 CPU 수와 메모리를 Microsoft에서 문서화된 내용과 비교합니다. VM을 선택할 때 네트워크 처리량도 고려하세요.

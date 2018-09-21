@@ -9,20 +9,21 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 05/17/2017
+ms.topic: conceptual
+ms.date: 09/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9b03aff140eec5b355383447f0a815220d6408e3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: bf247748415822d5ba1a0e652fdeff384d8e8db1
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982054"
 ---
 # <a name="monitor-multi-component-applications-with-application-insights-preview"></a>Application Insights(미리 보기)로 다중 구성 요소 응용 프로그램 모니터링
 
 [Azure Application Insights](app-insights-overview.md)에서는 여러 서버 구성 요소, 역할 또는 서비스로 이루어진 앱을 모니터링할 수 있습니다. 구성 요소 및 이들 간의 관계의 상태는 단일 Application Map에 표시됩니다. 자동 HTTP 상관 관계가 있는 여러 구성 요소를 통해 개별 작업을 추적할 수 있습니다. 컨테이너 진단을 응용 프로그램 원격 분석과 통합하고 상호 연결할 수 있습니다. 응용 프로그램의 모든 구성 요소에 대해 단일 Application Insights 리소스를 사용합니다. 
 
-![다중 구성 요소 응용 프로그램 맵](./media/app-insights-monitor-multi-role-apps/app-map.png)
+![다중 구성 요소 응용 프로그램 맵](./media/app-insights-monitor-multi-role-apps/application-map-001.png)
 
 여기서 '구성 요소'는 큰 응용 프로그램의 작동하는 모든 부분을 의미합니다. 예를 들어 일반적인 비즈니스 응용 프로그램은 웹 브라우저에서 실행하는 클라이언트 코드로 구성되며 하나 이상의 웹앱 서비스와 통신하고 백 엔드 서비스를 차례로 사용합니다. 서버 구성 요소는 클라우드에서 온-프레미스에 호스트되거나 Azure 웹 및 작업자 역할이 될 수 있으며 Docker 또는 Service Fabric과 같은 컨테이너에서 실행될 수 있습니다. 
 
@@ -32,7 +33,7 @@ ms.lasthandoff: 04/03/2018
 
 `cloud_RoleName` 속성을 재정의하는 방법에 대한 자세한 내용은 [속성 추가: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer)를 참조하세요.  
 
-경우에 따라 이것이 적합하지 않을 수 있으며 구성 요소 그룹마다 별도의 리소스를 사용하는 것이 좋을 수 있습니다. 예를 들어, 관리 또는 청구 목적으로 서로 다른 리소스를 사용해야 할 수 있습니다. 별도의 리소스를 사용한다는 것은 모든 구성 요소가 단일 Application Map에 표시되지 않으며 [분석](app-insights-analytics.md)에서 구성 요소 간에 쿼리할 수 없음을 의미합니다. 또한 별도의 리소스도 설정해야 합니다.
+경우에 따라 이것이 적합하지 않을 수 있으며 구성 요소 그룹마다 별도의 리소스를 사용하는 것이 좋을 수 있습니다. 예를 들어, 관리 또는 청구 목적으로 서로 다른 리소스를 사용해야 할 수 있습니다.
 
 이 내용을 염두에 두고, 이 문서의 나머지 부분에서는 여러 구성 요소의 데이터를 하나의 Application Insights 리소스로 보내려고 한다고 가정합니다.
 

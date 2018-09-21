@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 4247ef1ffd1b8d5c5ec393e3ebff20c3e04e32b3
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d99996bb4177a11342f0897d2cf69f82a5b81bf7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347701"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721231"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>SCIM(System for Cross-Domain Identity Management)을 사용하여 사용자 및 그룹을 Azure Active Directory에서 응용 프로그램으로 자동 프로비전
 
@@ -691,7 +691,6 @@ Azure Active Directory는 두 형식의 리소스를 SCIM 웹 서비스에 프�
 *그림 6: 그룹 프로비전 및 시퀀스 프로비전 해제*
 
 ## <a name="related-articles"></a>관련 문서
-* [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](../active-directory-apps-index.md)
 * [SaaS 앱에 자동화된 사용자 프로비전/프로비전 해제](user-provisioning.md)
 * [사용자 프로비저닝에 대한 특성 매핑 사용자 지정](customize-application-attributes.md)
 * [특성 매핑에 대한 식 작성](functions-for-customizing-application-data.md)

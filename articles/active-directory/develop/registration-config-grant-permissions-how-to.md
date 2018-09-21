@@ -1,0 +1,48 @@
+---
+title: 사용자 지정 개발 응용 프로그램에 권한을 부여하는 방법 | Microsoft Docs
+description: Azure AD 포털 또는 URL 매개 변수를 사용하여 사용자 지정 개발 응용 프로그램에 대한 권한을 부여하는 방법
+services: active-directory
+documentationcenter: ''
+author: CelesteDG
+manager: mtillman
+ms.assetid: ''
+ms.service: active-directory
+ms.component: app-mgmt
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 09/11/2018
+ms.author: celested
+ms.openlocfilehash: 10cf04fca8379f41587b1ea680c5b52a26193b53
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44723902"
+---
+# <a name="how-to-grant-permissions-to-a-custom-developed-application"></a>사용자 지정 개발 응용 프로그램에 권한을 부여하는 방법
+
+앱에 대해 사전에 동의하려 하거나 앱에 대해 동의하지 않은 오류가 발생한 경우 아래 단계를 수행해 보세요.
+
+## <a name="how-to-perform-admin-consent-for-your-application"></a>응용 프로그램에 대해 관리자 동의를 수행하는 방법
+
+조직의 모든 사용자에 대해 응용 프로그램에 동의하는 효과가 있습니다.
+
+1. **전역 관리자**로서 **앱 등록** 블레이드로 이동하고 앱을 선택합니다.
+
+2. **필요한 권한**을 선택하고 마지막으로 블레이드 맨 위에 있는 **권한 부여** 단추를 누릅니다.
+
+또는 앱 구성과 함께 *login.microsoftonline.com*으로 요청을 구성하고 *&prompt=admin\_consent*에 추가할 수 있습니다. 관리자 자격 증명으로 로그인한 후 앱에서 모든 사용자에 대한 동의를 부여했습니다.
+
+## <a name="how-to-force-user-consent-for-your-application"></a>응용 프로그램에 대해 사용자 동의를 강제로 적용하는 방법
+
+* 최종 사용자가 인증할 때마다 동의해야 하는 *&prompt=consent*를 인증 요청에 추가합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+[동의 및 AzureAD와 앱 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
+
+[AzureAD v2.0 수렴형 앱에 대한 동의 및 권한 부여](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
+
+[AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)

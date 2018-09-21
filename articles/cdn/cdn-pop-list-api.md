@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/22/2018
 ms.author: v-deasim
 ms.custom: ''
-ms.openlocfilehash: f796d18a03e14fdf652af72366762e1365523f09
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 9605b352755933b37819527cecbc4e1ccc30e8aa
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754416"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579074"
 ---
 # <a name="retrieve-the-current-verizon-pop-list-for-azure-cdn"></a>Azure CDN에 대한 현재 Verizon POP 목록 검색
 
@@ -34,4 +34,4 @@ POP 목록을 검색하기 위한 REST API 작업의 구문은 [에지 노드 - 
 
 ## <a name="next-steps"></a>다음 단계
 
-REST API에 대한 정보는 [Azure CDN REST API](https://docs.microsoft.com/en-us/rest/api/cdn/)를 참조하세요.
+REST API에 대한 정보는 [Azure CDN REST API](https://docs.microsoft.com/rest/api/cdn/)를 참조하세요.

@@ -4,22 +4,21 @@ description: 이 항목에서는 장애 조치 스트리밍 시나리오를 구�
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: fc45d849-eb0d-4739-ae91-0ff648113445
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 09/17/2018
 ms.author: juliako
-ms.openlocfilehash: 9ea18d4131705ac1e7ba12ed6af6d8202e766abd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 618316b6b5979c65bc8906ea7d07c4f4fdf0930d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783702"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124613"
 ---
 # <a name="implement-failover-streaming-with-azure-media-services"></a>Azure Media Services를 사용하여 장애 조치 스트리밍 구현
 
@@ -49,12 +48,7 @@ ms.locfileid: "33783702"
 
 * Media Services SDK의 현재 버전은 자산 파일과 자산을 연결하는 IAssetFile 정보를 프로그래밍 방식으로 생성하도록 지원하지 않습니다. 이를 수행하려면 대신 CreateFileInfos Media Services REST API를 사용합니다. 
 * 자산을 암호화한 저장소(AssetCreationOptions.StorageEncrypted)는 복제에 지원되지 않습니다(암호화 키가 Media Services 계정 모두에서 다르기 때문임). 
-* 동적 패키징을 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 끝점이 **실행** 상태인지 확인합니다.
-
-> [!NOTE]
-> 수동으로 장애 조치 스트리밍 시나리오를 구현하는 대안으로 Media Services [복제기 도구](http://replicator.codeplex.com/) 를 사용하는 것이 좋습니다. 이 도구를 사용하면 두 Media Services 계정 간에 자산을 복제할 수 있습니다.
-> 
-> 
+* 동적 패키징을 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트가 **실행** 상태인지 확인합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 * 신규 또는 기존 Azure 구독의 Media Services 계정 2개. [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.

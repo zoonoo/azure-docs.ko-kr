@@ -9,16 +9,16 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 1dbb645a033c6db5ffa9003a53f30fd927131298
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fb496837560fe28f1a2e53d8c4ca67e23ada8f64
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35378062"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576802"
 ---
 # <a name="export-or-delete-user-data-in-content-moderator"></a>Content Moderator에서 사용자 데이터 내보내기 또는 삭제
 
-Content Moderator는 서비스 운영을 위해 사용자 데이터를 수집하지만, 고객은 [검토 UI](http://contentmoderator.cognitive.microsoft.com/) 및 [API](https://docs.microsoft.com/en-us/azure/cognitive-services/content-moderator/api-reference)를 사용하여 해당 데이터의 보기, 내보내기, 삭제를 완전히 제어합니다.
+Content Moderator는 서비스 운영을 위해 사용자 데이터를 수집하지만, 고객은 [검토 UI](http://contentmoderator.cognitive.microsoft.com/) 및 [API](https://docs.microsoft.com/azure/cognitive-services/content-moderator/api-reference)를 사용하여 해당 데이터의 보기, 내보내기, 삭제를 완전히 제어합니다.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 

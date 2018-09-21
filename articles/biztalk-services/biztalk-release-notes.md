@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 5c05c7c4c0f8f0b3619b36390c8a0224a03c900a
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: db79ee85c19e5f3cdced9b894aca48de4d7d1c42
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063545"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576473"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Azure BizTalk Services에 대한 릴리스 정보
 
@@ -66,21 +66,21 @@ Visual Studio에서 솔루션을 성공적으로 '빌드'합니다. 그런 다�
   파일 <Path to DLL>을(를) "bin\Debug\FileName.dll"에 복사할 수 없습니다. 'bin\Debug\FileName.dll' 파일은 다른 프로세스에서 사용 중이므로 프로세스에서 액세스할 수 없습니다.  
 
 #### <a name="workaround"></a>해결 방법
-* [Visual Studio 2012 업데이트 3](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2012-update3-vs) 이 설치된 경우 다음 두 가지 옵션이 있습니다.
+* [Visual Studio 2012 업데이트 3](https://docs.microsoft.com/visualstudio/releasenotes/vs2012-update3-vs) 이 설치된 경우 다음 두 가지 옵션이 있습니다.
   
   * Visual Studio를 다시 시작하거나
   * 솔루션을 다시 시작합니다. 그런 다음 솔루션에서 빌드만 수행합니다.  
-* [Visual Studio 2012 업데이트 3](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2012-update3-vs) 이 설치되지 않은 경우 작업 관리자를 열어 프로세스 탭을 클릭하고 MSBuild.exe 프로세스를 클릭한 후 프로세스 종료 단추를 클릭합니다.  
+* [Visual Studio 2012 업데이트 3](https://docs.microsoft.com/visualstudio/releasenotes/vs2012-update3-vs) 이 설치되지 않은 경우 작업 관리자를 열어 프로세스 탭을 클릭하고 MSBuild.exe 프로세스를 클릭한 후 프로세스 종료 단추를 클릭합니다.  
 
-### <a name="routing-to-basichttprelay-endpoints-is-not-supported-from-bridges-and-biztalk-services-portal-if-non-printable-characters-are-promoted-as-http-headers"></a>HTTP 헤더로 인쇄할 수 없는 문자가 승격된 경우 브리지 및 BizTalk Services 포털에서 BasicHttpRelay 끝점으로 라우팅이 지원되지 않음
+### <a name="routing-to-basichttprelay-endpoints-is-not-supported-from-bridges-and-biztalk-services-portal-if-non-printable-characters-are-promoted-as-http-headers"></a>HTTP 헤더로 인쇄할 수 없는 문자가 승격된 경우 브리지 및 BizTalk Services 포털에서 BasicHttpRelay 엔드포인트로 라우팅이 지원되지 않음
 인쇄할 수 없는 문자를 메시지의 승격된 속성의 일부로 사용하는 경우 해당 메시지를 BasicHttpRelay 바인딩을 사용하는 릴레이 대상으로 라우팅할 수 없습니다. 또한 추적의 일부로 제공되는 승격된 속성은 BLOB에 대해 URL로 인코딩되고 대상에 대해서는 인코딩되지 않습니다.  
 
 ### <a name="mdn-is-sent-asynchronously-even-if-the-send-asynchronous-mdn-option-is-unchecked"></a>비동기 MDN 보내기 옵션을 선택하지 않아도 MDN이 비동기로 전송됨
 다음 시나리오를 고려해 보세요. **비동기 MDN 보내기** 확인란을 선택하고 비동기 MDN을 보내는 URL을 지정한 후 **비동기 MDN 보내기** 확인란을 다시 선택 취소하면 비동기 MDN을 보내는 옵션을 선택하지 않아도 MDN이 지정된 URL로 계속 전송됩니다.  
 해결하려면 **비동기 MDN 보내기** 확인란을 선택 취소하기 전에 지정된 URL을 지운 후 AS2 규약을 배포해야 합니다.  
 
-### <a name="whitespace-characters-beyond-a-valid-interchange-cause-an-empty-message-to-be-sent-to-the-suspend-endpoint"></a>유효한 교환을 벗어나는 공백 문자로 인해 비어 있는 메시지가 일시 중단된 끝점으로 전송됩니다.
-IEA 규약을 벗어나는 공백이 있는 경우 디스어셈블러는 현재 교환의 끝으로 처리하고 다음 공백 집합을 다음 메시지로 인식합니다. 이는 유효하지 않은 교환이므로 하나의 성공적인 메시지가 경로 대상에 전송되고 하나의 비어 있는 메시지가 일시 중단된 끝점으로 전송된 것을 확인할 수 있습니다.  
+### <a name="whitespace-characters-beyond-a-valid-interchange-cause-an-empty-message-to-be-sent-to-the-suspend-endpoint"></a>유효한 교환을 벗어나는 공백 문자로 인해 비어 있는 메시지가 일시 중단된 엔드포인트로 전송됩니다.
+IEA 규약을 벗어나는 공백이 있는 경우 디스어셈블러는 현재 교환의 끝으로 처리하고 다음 공백 집합을 다음 메시지로 인식합니다. 이는 유효하지 않은 교환이므로 하나의 성공적인 메시지가 경로 대상에 전송되고 하나의 비어 있는 메시지가 일시 중단된 엔드포인트로 전송된 것을 확인할 수 있습니다.  
 
 ### <a name="tracking-in-biztalk-services-portal"></a>Azure BizTalk Services 포털에서 추적
 추적 이벤트는 EDI 메시지 처리 및 모든 상관관계까지 캡처됩니다. 메시지가 프로토콜 단계를 벗어나 실패하는 경우 추적은 성공한 것으로 표시됩니다. 이 경우 **추적**의 **세부 정보** 열 아래 로그 섹션에서 오류에 대한 자세한 정보를 참조하세요.
@@ -140,7 +140,7 @@ BizTalk 어댑터 서비스 기능 내의 BizTalk Adapter Pack 어댑터는 어�
 > 
 
 ### <a name="restarting-the-biztalk-adapter-service-web-site"></a>BizTalk 어댑터 서비스 웹 사이트 다시 시작
-**BizTalk 어댑터 서비스 런타임**\*을 설치하면 **BizTalk 어댑터 서비스** 웹 사이트가 **BAService** 응용 프로그램을 포함하는 IIS에 만들어집니다. **BAService** 응용 프로그램은 내부적으로 릴레이 바인딩을 사용하여 온-프레미스 서비스 끝점의 도달률을 클라우드로 확장합니다. 온-프레미스에 호스팅된 서비스의 경우 해당 릴레이 끝점은 온-프레미스 서비스가 시작될 때만 Service Bus에 등록됩니다.  
+**BizTalk 어댑터 서비스 런타임**\*을 설치하면 **BizTalk 어댑터 서비스** 웹 사이트가 **BAService** 응용 프로그램을 포함하는 IIS에 만들어집니다. **BAService** 응용 프로그램은 내부적으로 릴레이 바인딩을 사용하여 온-프레미스 서비스 엔드포인트의 도달률을 클라우드로 확장합니다. 온-프레미스에 호스팅된 서비스의 경우 해당 릴레이 엔드포인트는 온-프레미스 서비스가 시작될 때만 Service Bus에 등록됩니다.  
 
 응용 프로그램을 중지했다가 시작하는 경우 응용 프로그램을 자동 시작하기 위한 구성은 적용되지 않습니다. 따라서 **BAService**가 중지되면 대신, **BizTalk 어댑터 서비스** 웹 사이트를 항상 다시 시작해야 합니다. **BAService** 응용 프로그램을 시작하거나 중지하지 마십시오.
 
@@ -175,12 +175,12 @@ DateTime 서식 다시 지정 매핑 작업이 디자인 화면에 추가되고 
 ### <a name="bridges-do-not-use-updated-certificate-even-after-a-certificate-has-been-updated-in-the-artifact-store"></a>아티팩트 저장소에서 인증서를 업데이트 한 후에도 브리지가 업데이트된 인증서를 사용하지 않음
 다음과 같은 시나리오를 고려해 보세요.  
 
-**시나리오 1: 브리지에서 서비스 끝점으로 전송되는 메시지를 보호하기 위해 지문 기반 인증서 사용**  
+**시나리오 1: 브리지에서 서비스 엔드포인트로 전송되는 메시지를 보호하기 위해 지문 기반 인증서 사용**  
 BizTalk 서비스 프로젝트에서 지문 기반 인증서를 사용하는 시나리오를 고려해 보세요. BizTalk Services 포털에서 이름은 같지만 다른 지문으로 인증서를 업데이트하지만 이에 따라 BizTalk 서비스 프로젝트가 업데이트되지 않습니다. 이러한 시나리오에서는 이전 인증서 데이터가 채널 캐시에 계속 있을 수 있으므로 브리지가 계속 메시지를 처리할 수 있습니다. 그 후에는 메시지 처리에 실패합니다.  
 
 **해결 방법**: BizTalk 서비스 프로젝트에서 인증서를 업데이트하고 프로젝트를 다시 배포합니다.  
 
-**시나리오 2: 브리지에서 서비스 끝점으로 전송되는 메시지를 보호하기 위해 이름 기반 동작을 사용하여 인증서 식별**
+**시나리오 2: 브리지에서 서비스 엔드포인트로 전송되는 메시지를 보호하기 위해 이름 기반 동작을 사용하여 인증서 식별**
 
 BizTalk 서비스 프로젝트에서 이름 기반 동작을 사용하여 인증서 식별하는 시나리오를 고려해 보세요. BizTalk Services 포털에서 인증서를 업데이트하지만 이에 따라 BizTalk 서비스 프로젝트가 업데이트되지 않습니다. 이러한 시나리오에서는 이전 인증서 데이터가 채널 캐시에 계속 있을 수 있으므로 브리지가 계속 메시지를 처리할 수 있습니다. 그 후에는 메시지 처리에 실패합니다.  
 
@@ -217,7 +217,7 @@ BizTalk Services가 미리 보기에서 GA로 업그레이드되는 동안 BizTa
 **해상도**: 포털에서 로그아웃하고 브라우저를 닫았다 연 후 포털에 로그인합니다.  
 
 ### <a name="upgrade-new-tracking-data-does-not-show-up-after-biztalk-services-is-upgraded-to-ga"></a>업그레이드: BizTalk Services를 GA로 업그레이드 한 후 새 추적 데이터가 표시되지 않음
-BizTalk Services 미리 보기 구독에 배포된 XML 브리지가 있는 시나리오를 가정해 봅니다. 브리지에 메시지를 보내면 해당 추적 데이터를 BizTalk Services 포털에서 사용할 수 있습니다. 이제 BizTalk Services 포털 및 BizTalk Services 런타임 비트가 GA로 업그레이드된 경우 메시지를 이전에 배포된 것과 동일한 브리지 끝점에 보내면 업그레이드 후 전송된 메시지에 대해 추적 데이터가 표시되지 않습니다.  
+BizTalk Services 미리 보기 구독에 배포된 XML 브리지가 있는 시나리오를 가정해 봅니다. 브리지에 메시지를 보내면 해당 추적 데이터를 BizTalk Services 포털에서 사용할 수 있습니다. 이제 BizTalk Services 포털 및 BizTalk Services 런타임 비트가 GA로 업그레이드된 경우 메시지를 이전에 배포된 것과 동일한 브리지 엔드포인트에 보내면 업그레이드 후 전송된 메시지에 대해 추적 데이터가 표시되지 않습니다.  
 
 ### <a name="pipelines-versus-bridges"></a>파이프라인과 브리지
 이 문서 전체에서 '파이프라인'과 '브리지'라는 용어는 같은 의미로 사용됩니다. 모두 BizTalk Services에 배포된 메시지 처리 단위로 근본적으로 의미가 같습니다.  

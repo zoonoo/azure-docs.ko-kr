@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: heidist
-ms.openlocfilehash: f7cf471a69395cef0aef7d5dd2e3c77218bf97a3
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 140daf4903c64d734182545cd4dc58db60274852
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715283"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576123"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure Search에 대한 가격 책정 계층 선택
 
@@ -104,7 +104,7 @@ Azure Search에서는 특정 가격 책정 계층 또는 SKU에서 [서비스가
 
 일부 고객은 대규모 샘플링 및 처리 시간을 수용한 다음, 개발 동안 인덱스 수량, 크기 및 쿼리 볼륨의 실제적인 예측을 개발할 수 있는 전용 리소스로 시작하기를 선호합니다. 처음에 서비스가 최상의 예상을 기반으로 프로비전된 다음, 개발 프로젝트가 완성되어가면서 팀은 대개 기존 서비스가 프로젝션된 프로덕션 워크로드에 대한 용량을 초과했는지 또는 미달했는지 알 수 있습니다. 
 
-1. 하위 계층이 필요한 인덱스 수량을 지원할 수 있는지 여부를 결정할 [각 계층에서 서비스 제한 검토](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity#index-limits)입니다. **기본**-**S1**- **S2** 계층에 대한 인덱스 제한은 각각 15-50-200입니다.
+1. 하위 계층이 필요한 인덱스 수량을 지원할 수 있는지 여부를 결정할 [각 계층에서 서비스 제한 검토](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits)입니다. **기본**-**S1**- **S2** 계층에 대한 인덱스 제한은 각각 15-50-200입니다.
 
 1. [청구 가능 계층에서 서비스 만들기](search-create-service-portal.md):
 

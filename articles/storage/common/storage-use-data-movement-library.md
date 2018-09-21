@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: ee24a055c6a3c53b9753728e13a7687e722c1c91
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e62023f5aeca73973598430ed357e8e9800a17f8
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526218"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732246"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Microsoft Azure Storage 데이터 이동 라이브러리를 사용하여 데이터 전송
 
@@ -35,10 +35,10 @@ Microsoft Azure Storage 데이터 이동 라이브러리는 Azure Storage Blob �
 **필요한 항목**
 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure 저장소 계정](storage-create-storage-account.md#create-a-storage-account)
+* [Azure 저장소 계정](storage-quickstart-create-account.md)
 
 > [!NOTE]
-> 이 가이드는 [Azure Storage](https://azure.microsoft.com/services/storage/)에 대해 잘 알고 있다는 것을 가정합니다. 그렇지 않은 경우 [Azure Storage 소개](storage-introduction.md) 설명서가 도움이 됩니다. 가장 중요한 점은 데이터 이동 라이브러리의 사용을 시작하려면 [Storage 계정을 만들어야](storage-create-storage-account.md#create-a-storage-account) 합니다.
+> 이 가이드는 [Azure Storage](https://azure.microsoft.com/services/storage/)에 대해 잘 알고 있다는 것을 가정합니다. 그렇지 않은 경우 [Azure Storage 소개](storage-introduction.md) 설명서가 도움이 됩니다. 가장 중요한 점은 데이터 이동 라이브러리의 사용을 시작하려면 [Storage 계정을 만들어야](storage-quickstart-create-account.md) 합니다.
 > 
 > 
 

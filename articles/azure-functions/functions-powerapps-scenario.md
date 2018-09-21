@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 55de3cd8830834a2af512661d5389952d927ef9f
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 49000d4fd61e7cd061b415d50545a7f5ee56f3fb
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094318"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579126"
 ---
 # <a name="call-a-function-from-powerapps"></a>PowerApps에서 함수 호출
 [PowerApps](https://powerapps.microsoft.com) 플랫폼은 비즈니스 전문가가 기존 응용 프로그램 코드 없이도 앱을 빌드할 수 있도록 디자인되었습니다. 전문 개발자는 Azure Functions를 사용하여 PowerApps 앱 작성자에게 기술적 세부 사항은 숨기면서 PowerApps의 기능을 확장할 수 있습니다.
@@ -41,7 +41,7 @@ Microsoft Flow에서 동일한 함수 호출에 대한 내용은 [Microsoft Flow
 
 ## <a name="prerequisites"></a>필수 조건
 
-+ Azure 계정과 동일한 로그인 자격 증명을 사용하는 활성 [PowerApps 계정](https://docs.microsoft.com/en-us/powerapps/maker/signup-for-powerapps) 
++ Azure 계정과 동일한 로그인 자격 증명을 사용하는 활성 [PowerApps 계정](https://docs.microsoft.com/powerapps/maker/signup-for-powerapps) 
 + 앱에 대한 데이터 원본으로 사용할 Excel 및 [Excel 샘플 파일](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx)입니다.
 + [함수에 대한 OpenAPI 정의 만들기](functions-openapi-definition.md) 자습서를 완료합니다.
 

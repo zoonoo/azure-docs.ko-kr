@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: glenga
-ms.openlocfilehash: d7396ddb94017048247050726f83b0302e946633
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 03cb9384beba1afcb97a765824e63e79ca34aa62
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347123"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717221"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Azure Functions에 대한 Zip 배포
 
@@ -89,9 +89,6 @@ az functionapp deployment source config-zip  -g myResourceGroup -n \
 ## <a name="run-functions-from-the-deployment-package"></a>배포 패키지에서 함수 실행
 
 배포 패키지 파일에서 직접 함수를 실행하도록 선택할 수도 있습니다. 이 방법은 패키지에서 함수 앱의 `wwwroot` 디렉터리로 파일을 복사하는 배포 단계를 건너뜁니다. 대신, 패키지 파일은 Functions 런타임에 의해 탑재되고 `wwwroot` 디렉터리의 내용은 읽기 전용이 됩니다.  
-
-> [!NOTE]
-> 배포 패키지에서 함수 앱을 실행할 수 있는 기능은 미리 보기 상태입니다.
 
 Zip 배치는 이 기능과 통합되어 있으며 함수 앱 설정 `WEBSITE_RUN_FROM_PACKAGE`을 값 `1`로 설정하여 활성화할 수 있습니다. 자세한 내용은 [배포 패키지 파일에서 함수 실행](run-functions-from-deployment-package.md)을 참조하세요.
 

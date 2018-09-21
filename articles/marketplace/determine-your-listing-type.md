@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: a85cd5287f6947ec17dc19291a70d6dd081e1827
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: b64a35f6b7422b1e24812c1041305dab2ebad6c0
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035863"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578500"
 ---
 # <a name="determine-your-publishing-option"></a>게시 옵션 확인
 제안에 대해 선택한 게시 옵션은 적격성 요구 사항 및 마켓플레이스 GTM 혜택 모두와 직접 관련이 있습니다. 무엇보다도 Cloud 파트너 포털에서 게시 옵션 및 제품 유형의 선택은 사용자가 귀하의 마켓플레이스 제안과 상호 작용하는 방법을 정의합니다.
@@ -80,7 +80,7 @@ ms.locfileid: "39035863"
 
 단일 제품 유형은 다른 게시 옵션, CTA(calls-to-action), 프로비전 또는 가격 책정을 사용하도록 설정하려면 Cloud 파트너 포털에서 달리 구성될 수 있습니다. 제품 유형의 게시 옵션과 구성은 제품 자격 및 기술 요구 사항에도 맞춥니다. 
 
-제품을 만들기 전에 이 [게시자 가이드](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide) 및 기술 게시 요구 사항의 상점 및 제품 유형 자격 요구 사항을 검토해야 합니다.
+제품을 만들기 전에 이 [게시자 가이드](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) 및 기술 게시 요구 사항의 상점 및 제품 유형 자격 요구 사항을 검토해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

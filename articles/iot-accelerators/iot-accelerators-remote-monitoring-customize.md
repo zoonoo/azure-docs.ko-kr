@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 36e63d26bf7ada2d23fa3cd9fddbb5ba90494527
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 7971a5aeadd2b2edaa43da8bacae9743937ce30e
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126025"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127349"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기 사용자 지정
 
@@ -35,7 +35,7 @@ UI를 변경하기 위해 복사본을 로컬로 실행할 수 있습니다. 로
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
-    테스트 및 개발하는 동안 SSH 액세스만 활성화해야 합니다. SSH를 활성화하는 경우 [가능한 한 빨리 비활성화해야 합니다](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-azure-virtual-machines).
+    테스트 및 개발하는 동안 SSH 액세스만 활성화해야 합니다. SSH를 활성화하는 경우 [가능한 한 빨리 비활성화해야 합니다](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-virtual-machines).
 
 1. Azure Portal 또는 [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 사용하여 가상 머신의 이름 및 공용 IP 주소를 찾습니다. 예: 
 
@@ -454,8 +454,8 @@ See the [Connect an external visualization tool](https://github.com/Azure/azure-
 
 원격 모니터링 솔루션에서 프레젠테이션 및 시각화 계층을 추가 수정하기 위해 코드를 편집할 수 있습니다. 관련 GitHub 리포지토리는 다음과 같습니다.
 
-* [Azure IoT 솔루션(.NET)에 대한 구성 마이크로 서비스](https://github.com/Azure/pcs-ui-config-dotnet/)
-* [Azure IoT 솔루션(Java)에 대한 구성 마이크로 서비스](https://github.com/Azure/pcs-ui-config-java/)
+* [Azure IoT 솔루션(.NET)에 대한 구성 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/config)
+* [Azure IoT 솔루션(Java)에 대한 구성 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-java/tree/master/config)
 * [Azure IoT PCS 원격 모니터링 웹 UI](https://github.com/Azure/pcs-remote-monitoring-webui)
 
 ## <a name="next-steps"></a>다음 단계

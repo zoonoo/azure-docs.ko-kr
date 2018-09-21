@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: deguhath
-ms.openlocfilehash: 559af47bcf41cd6af59f8ba1b27ff8e64e849925
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 9e5018bc4c7b90897f7f8c91169410284217b172
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296900"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577011"
 ---
 # <a name="twitter-sentiment-classification-with-azure-machine-learning-aml-package-for-text-analytics-amlpta-and-team-data-science-process-tdsp"></a>AMLPTA(텍스트 분석을 위한 AML(Azure Machine Learning) 패키지) 및 TDSP(Team Data Science Process)를 사용한 Twitter 감정 분류
 
 ## <a name="introduction"></a>소개
 데이터 과학 팀의 공동 작업 효율성을 높이기 위한 핵심은 설정된 [데이터 과학 수명 주기](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md)에 고정된 데이터 과학 프로젝트의 구조 및 문서를 표준화하는 것입니다.
 
-이전에 [TDSP 프로젝트 구조 및 템플릿에 대한 GitHub 리포지토리](https://github.com/Azure/Azure-TDSP-ProjectTemplate)를 릴리스했습니다. [Azure Machine Learning에 대한 TDSP 구조 및 문서 템플릿](https://github.com/amlsamples/tdsp)에서 인스턴스화된 Azure Machine Learning 프로젝트를 생성하도록 설정되었습니다. Azure Machine Learning에서 TDSP 구조와 템플릿을 사용하는 방법에 대한 지침은 [여기](https://docs.microsoft.com/en-us/azure/machine-learning/preview/how-to-use-tdsp-in-azure-ml)에서 제공됩니다. 
+이전에 [TDSP 프로젝트 구조 및 템플릿에 대한 GitHub 리포지토리](https://github.com/Azure/Azure-TDSP-ProjectTemplate)를 릴리스했습니다. [Azure Machine Learning에 대한 TDSP 구조 및 문서 템플릿](https://github.com/amlsamples/tdsp)에서 인스턴스화된 Azure Machine Learning 프로젝트를 생성하도록 설정되었습니다. Azure Machine Learning에서 TDSP 구조와 템플릿을 사용하는 방법에 대한 지침은 [여기](https://docs.microsoft.com/azure/machine-learning/preview/how-to-use-tdsp-in-azure-ml)에서 제공됩니다. 
 
 이 샘플에서는 텍스트 분석을 위한 Azure Machine Learning 패키지와 TDSP를 사용하여 Twitter 감정 분류를 위한 예측 모델을 개발하고 배포하는 방법을 보여줍니다
 
@@ -56,7 +56,7 @@ GitHub 리포지토리에 대한 링크는 [여기](https://github.com/Azure/Mac
 이 프로젝트는 TDSP 구조 인스턴스화 및 사용, Azure Machine Learning Work Bench에서 코드 실행, Docker와 Kubernetes를 사용하는 Azure Container Service의 간편한 운영화와 같은 Azure Machine Learning의 몇 가지 기능에 중점을 두고 있습니다.
 
 ## <a name="team-data-science-process-tds"></a>TDSP(Team Data Science Process)
-이 샘플을 실행하기 위해 TDSP 프로젝트 구조와 문서 템플릿이 사용됩니다. [TDSP 수명 주기](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/lifecycle)를 따릅니다. 프로젝트는 [여기](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md)에 제공된 지침을 기반으로 생성됩니다.
+이 샘플을 실행하기 위해 TDSP 프로젝트 구조와 문서 템플릿이 사용됩니다. [TDSP 수명 주기](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle)를 따릅니다. 프로젝트는 [여기](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md)에 제공된 지침을 기반으로 생성됩니다.
 
 
 <img src="./media/predict-twitter-sentiment-amltextpackage/tdsp-lifecycle2.png" alt="tdsp-lifecycle" width="800" height="600">
@@ -100,17 +100,17 @@ SSWE 또는 Word2vec 알고리즘 중 하나를 사용하여 단어 벡터가 �
 
 
 ### <a name="deploymenthttpsgithubcomazuremachinelearningsamples-amltextpackage-twittersentimentpredictiontreemastercode03deployment"></a>[배포](https://github.com/Azure/MachineLearningSamples-AMLTextPackage-TwitterSentimentPrediction/tree/master/code/03_deployment)
-이 부분에는 AKS(Azure Container Service)에서 클러스터의 웹 서비스에 미리 학습된 감정 예측 모델을 운용하는 방법에 대한 지침이 제공됩니다. 운영 환경에서는 클러스터의 Docker 및 Kubernetes를 프로비전하여 웹 서비스 배포를 관리합니다. 운영 프로세스에 대한 자세한 내용은 [여기](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy)를 참조하세요.
+이 부분에는 AKS(Azure Container Service)에서 클러스터의 웹 서비스에 미리 학습된 감정 예측 모델을 운용하는 방법에 대한 지침이 제공됩니다. 운영 환경에서는 클러스터의 Docker 및 Kubernetes를 프로비전하여 웹 서비스 배포를 관리합니다. 운영 프로세스에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy)를 참조하세요.
 
 ## <a name="conclusion"></a>결론
 Word2Vec를 사용하여 단어 임베딩 모델을 학습시킨 다음, 추출된 임베딩을 기능으로 사용하여 두 가지 다른 모델을 학습시켜서 Twitter 텍스트 데이터의 감정 점수를 예측하는 방법을 자세히 살펴봤습니다. 이러한 모델 중 하나가 AKS(Azure Container Services)에 배포되어 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
-시작하려면 [AMLPTA(Azure Machine Learning Package for Text Analytics)](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/textanalytics?view=azure-ml-py-latest) 및 [TDSP(Team Data Science Process)](https://aka.ms/tdsp)에 대한 설명서를 참조하세요.
+시작하려면 [AMLPTA(Azure Machine Learning Package for Text Analytics)](https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics?view=azure-ml-py-latest) 및 [TDSP(Team Data Science Process)](https://aka.ms/tdsp)에 대한 설명서를 참조하세요.
 
 ## <a name="references"></a>참조
-* [Team Data Science Process](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview) 
+* [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
 * [Azure Machine Learning에서 TDSP(Team Data Science Process)를 사용하는 방법](https://aka.ms/how-to-use-tdsp-in-aml)
 * [Azure Machine Learning의 TDSP 프로젝트 템플릿](https://aka.ms/tdspamlgithubrepo)
-* [Azure ML Work Bench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/)
+* [Azure ML Work Bench](https://docs.microsoft.com/azure/machine-learning/preview/)
 * [Mikolov, Tomas 외 공저, Distributed representations of words and phrases and their compositionality. 신경 정보 처리 시스템의 발전. 2013.](https://arxiv.org/abs/1310.4546)

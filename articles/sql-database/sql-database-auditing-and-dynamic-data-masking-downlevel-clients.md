@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database의 테이블 감사, TDS 리디렉션 및 IP 끝점 | Microsoft Docs
-description: Azure SQL Database에서 테이블 감사를 구현할 때 감사, TDS 리디렉션 및 IP 끝점 변경 내용에 대해 알아봅니다.
+title: Azure SQL Database의 테이블 감사, TDS 리디렉션 및 IP 엔드포인트 | Microsoft Docs
+description: Azure SQL Database에서 테이블 감사를 구현할 때 감사, TDS 리디렉션 및 IP 엔드포인트 변경 내용에 대해 알아봅니다.
 services: sql-database
 author: giladm
 manager: craigg
@@ -9,14 +9,15 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: giladm
-ms.openlocfilehash: b615e9ff67788c2f02c2fa0c33e0de3331e77885
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: vanto
+ms.openlocfilehash: 9fcb070f41d699cef3ef11ba9b8feb6cdfd83ae5
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645632"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541219"
 ---
-# <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL Database - 하위 클라이언트 지원 및 테이블 감사에 대한 IP 끝점 변경
+# <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL Database - 하위 클라이언트 지원 및 테이블 감사에 대한 IP 엔드포인트 변경
 
 > [!IMPORTANT]
 > 이 문서는 **이제는 사용되지 않는** 테이블 감사에만 적용됩니다.<br>
@@ -42,12 +43,12 @@ TDS 버전 7.3 이하를 지원하는 "하위 클라이언트"의 경우, 연결
 
 **주석:** 위의 서버 FDQN 수정은 각 데이터베이스에서 구성 단계에 대한 요구 없이 SQL 서버 수준 감사 정책의 적용에도 유용할 수 있습니다.
 
-## <a id="subheading-2"></a>감사를 사용하도록 설정할 때 IP 끝점 변경
-테이블 감사를 사용하도록 설정하면 데이터베이스의 IP 끝점이 변경됩니다. 엄격한 방화벽 설정이 있으면 해당 방화벽 설정을 적절하게 업데이트하세요.
+## <a id="subheading-2"></a>감사를 사용하도록 설정할 때 IP 엔드포인트 변경
+테이블 감사를 사용하도록 설정하면 데이터베이스의 IP 엔드포인트가 변경됩니다. 엄격한 방화벽 설정이 있으면 해당 방화벽 설정을 적절하게 업데이트하세요.
 
-새 데이터베이스 IP 끝점은 데이터베이스 지역에 따라 달라집니다.
+새 데이터베이스 IP 엔드포인트는 데이터베이스 지역에 따라 달라집니다.
 
-| 데이터베이스 지역 | 가능한 IP 끝점 |
+| 데이터베이스 지역 | 가능한 IP 엔드포인트 |
 | --- | --- |
 | 중국 북부 |139.217.29.176, 139.217.28.254 |
 | 중국 동부 |42.159.245.65, 42.159.246.245 |

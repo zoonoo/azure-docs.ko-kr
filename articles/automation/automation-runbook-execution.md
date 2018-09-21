@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: eb6516400d362fe60adc05590353ec003c70e059
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 6e449c1216fabf64da2b2abb59a7066fa30e332d
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42145577"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982983"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
@@ -59,7 +59,7 @@ Azure Portal에서 또는 Runbook 작업 상태 및 작업 스트림을 전달�
 
 선택한 Automation 계정 오른쪽의 **작업 통계** 타일 아래에는 선택한 Automation 계정에 대한 모든 runbook 작업의 요약을 볼 수 있습니다.
 
-![작업 통계 타일](./media/automation-runbook-execution/automation-account-job-status-summary.png).
+![작업 통계 타일](./media/automation-runbook-execution/automation-account-job-status-summary.png)
 
 이 타일은 실행된 모든 작업의 개수 및 작업 상태를 그래픽으로 표시합니다.
 

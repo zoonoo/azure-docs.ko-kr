@@ -8,12 +8,12 @@ services: devops
 custom: jenkins
 ms.date: 07/31/2018
 ms.component: common
-ms.openlocfilehash: 549150abc630cd247927b4ba7042d0bdf0e8b88a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b7ac5c277b45ae5c005a284d5c38e55099c11e33
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524392"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735565"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Jenkins 연속 통합 솔루션과 함께 Azure Storage 사용
 
@@ -48,7 +48,7 @@ Blob service를 사용하여 Agile 개발 빌드 아티팩트를 호스트할 �
      
       일반적인 Jenkins CI 솔루션은 서비스로 실행하도록 설정되지만, 이 자습서에서는 Jenkins war를 명령줄에서 실행하는 것으로 충분합니다.
 * Azure 계정. <http://www.azure.com>에서 Azure 계정을 등록할 수 있습니다.
-* Azure 저장소 계정. Storage 계정이 아직 없으면 [Storage 계정 만들기](../common/storage-create-storage-account.md#create-a-storage-account)에 설명된 단계를 따라 계정을 만들 수 있습니다.
+* Azure 저장소 계정. Storage 계정이 아직 없으면 [Storage 계정 만들기](../common/storage-quickstart-create-account.md)에 설명된 단계를 따라 계정을 만들 수 있습니다.
 * Jenkins CI 솔루션에 익숙하면 좋지만 반드시 그러해야 하는 것은 아닙니다. 아래에서는 Jenkins CI 빌드 아티팩트를 위한 리포지토리로 Blob service를 사용할 때 필요한 단계를 보여 주기 위해 기본적인 예를 사용합니다.
 
 ## <a name="how-to-use-the-blob-service-with-jenkins-ci"></a>Jenkins CI에서 Blob service를 사용하는 방법
@@ -68,7 +68,7 @@ Blob service를 Jenkins와 함께 사용하려면 Azure Storage 플러그인을 
 3. **Microsoft Azure Storage Account Configuration** 섹션에서:
    1. [Azure Portal](https://portal.azure.com)에서 가져올 수 있는 저장소 계정 이름을 입력합니다.
    2. [Azure Portal](https://portal.azure.com)에서 확인 가능한 저장소 계정 키도 입력합니다.
-   3. 전역 Azure 클라우드를 사용 중이면 **Blob 서비스 끝점 URL**에 기본값을 사용합니다. 다른 Azure 클라우드를 사용 중이면 [Azure Portal](https://portal.azure.com) 에서 저장소 계정에 대해 지정된 끝점을 사용합니다. 
+   3. 전역 Azure 클라우드를 사용 중이면 **Blob 서비스 끝점 URL**에 기본값을 사용합니다. 다른 Azure 클라우드를 사용 중이면 [Azure Portal](https://portal.azure.com) 에서 저장소 계정에 대해 지정된 엔드포인트를 사용합니다. 
    4. **저장소 자격 증명 유효성 검사**를 선택하여 저장소 계정의 유효성을 검사합니다. 
    5. [옵션] Jenkins CI에서 더 많은 저장소 계정을 사용할 수 있게 하려면 **Add more Storage Accounts**(추가 저장소 계정 추가)를 선택합니다.
    6. **저장**을 선택하여 설정을 저장합니다.
@@ -134,7 +134,7 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
   
-    위의 형식은 전역 Azure 클라우드에 적용됩니다. 다른 Azure 클라우드를 사용 중이면 [Azure Portal](https://portal.azure.com) 내의 끝점을 사용하여 URL 끝점을 확인합니다.)
+    위의 형식은 전역 Azure 클라우드에 적용됩니다. 다른 Azure 클라우드를 사용 중이면 [Azure Portal](https://portal.azure.com) 내의 엔드포인트를 사용하여 URL 엔드포인트를 확인합니다.)
   
     위 형식에서 `storageaccount`은(는) 저장소 계정 이름을 나타내고, `container_name`은(는) 컨테이너 이름을 나타내고, `blob_name`은(는) Blob 이름을 각각 나타냅니다. 컨테이너 이름 내에 슬래시( **/**(영문)에서 찾을 수 있습니다. 이 자습서에서 사용되는 컨테이너 이름의 예는 **MyJob**이고 **${BUILD\_ID}/${BUILD\_NUMBER}** 는 일반 가상 경로에 사용되었으므로 Blob의 URL 형식은 다음과 같습니다.
   

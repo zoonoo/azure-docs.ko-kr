@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 81dbb61d696da84febc89563f946581315fdf527
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 9f0a299fb8221554a3b0c9a19a616d5ba7613a67
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37922751"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574406"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Azure에서 Azure 복제로 Mobility Service 자동 업데이트
 
@@ -79,8 +79,8 @@ Site Recovery에서 업데이트를 관리하도록 허용하면 자격 증명 �
 
  - **오류**: 복구 서비스 리소스에 액세스할 수 있는 권한이 실행 계정에 없습니다.
 
-    **권장 조치**: 실행 계정을 삭제하고 [다시 만들거나](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account) Automation 실행 계정의 Azure Active Directory 응용 프로그램이 복구 서비스 리소스에 액세스할 수 있는지 확인합니다.
+    **권장 조치**: 실행 계정을 삭제하고 [다시 만들거나](https://docs.microsoft.com/azure/automation/automation-create-runas-account) Automation 실행 계정의 Azure Active Directory 응용 프로그램이 복구 서비스 리소스에 액세스할 수 있는지 확인합니다.
 
 - **오류**: 실행 계정을 찾을 수 없습니다. Azure Active Directory 응용 프로그램, 서비스 사용자, 역할, Automation 인증서 자산, Automation 연결 자산 중 하나가 삭제되었거나 생성되지 않았습니다. 또는 인증서와 연결 사이에서 지문이 일치하지 않습니다. 
 
-    **권장 조치**: 실행 계정을 삭제하고 [다시 만듭니다](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account).
+    **권장 조치**: 실행 계정을 삭제하고 [다시 만듭니다](https://docs.microsoft.com/azure/automation/automation-create-runas-account).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: a8f58569618482ba94b0895b7e3149d77ef2f4fa
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: c7eb98eb2dbff05e67b6a60c413932ba51fdfdf7
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849850"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573759"
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Linux Azure 진단을 사용하여 이벤트 집계 및 수집
 > [!div class="op_single_selector"]
@@ -52,5 +52,5 @@ Service Fabric은 운영 이벤트 또는 런타임 이벤트를 포함하여 [L
 
 ## <a name="next-steps"></a>다음 단계
 
-1. 문제를 해결하는 동안 살펴봐야 하는 이벤트에 대해 자세히 알아보려면 [LTTng 설명서](http://lttng.org/docs) 및 [LAD 사용](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/diagnostics-linux)을 참조하세요.
+1. 문제를 해결하는 동안 살펴봐야 하는 이벤트에 대해 자세히 알아보려면 [LTTng 설명서](http://lttng.org/docs) 및 [LAD 사용](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux)을 참조하세요.
 2. [Log Analytics 에이전트를 설정](service-fabric-diagnostics-event-analysis-oms.md)하여 메트릭을 수집하고, 클러스터에 배포되는 컨테이너를 모니터링하고 로그를 시각화합니다. 

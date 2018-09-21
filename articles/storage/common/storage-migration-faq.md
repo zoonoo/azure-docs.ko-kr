@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
 ms.component: common
-ms.openlocfilehash: ecc5948c84f7659e950c360c3b19d1985b0ab81c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3c671fe6dcb1af25bfb0aa09fecf8ad5e5ceb97b
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521492"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732263"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Azure Storage 마이그레이션에 대한 FAQ(질문과 대답)
 
@@ -256,7 +256,7 @@ Azure CLI를 사용할 수 있습니다.
 
 -   SAS(공유 액세스 서명) 토큰을 사용하여 리소스에 대한 액세스를 제공합니다. 
 
--   사용자에게 저장소 계정의 기본 또는 보조 키를 제공합니다. 자세한 내용은 [저장소 계정 관리](storage-create-storage-account.md#manage-your-storage-account)를 참조하세요.
+-   사용자에게 저장소 계정의 기본 또는 보조 키를 제공합니다. 자세한 내용은 [저장소 계정 관리](storage-account-manage.md#access-keys)를 참조하세요.
 
 -   익명 액세스를 허용하도록 액세스 정책을 변경합니다. 자세한 내용은 [컨테이너 및 Blob에 익명의 사용자 권한 부여](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs)를 참조하세요.
 

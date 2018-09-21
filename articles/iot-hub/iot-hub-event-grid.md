@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: 068e9a3379bd2762455aade1761592fa70a09a20
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 3c12e98137f44ac094adaae282b5d56d30061e60
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144381"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719854"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>작업을 트리거하기 위해 Event Grid를 사용하여 IoT Hub 이벤트에 대응
 
@@ -34,12 +34,11 @@ IoT Hub는 다음과 같은 이벤트 유형을 게시합니다.
 | 이벤트 유형 | 설명 |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | IoT 허브에 장치를 등록하는 경우 게시합니다. |
-| Microsoft.Devices.DeviceDeleted | IoT 허브에서 장치를 삭제하는 경우 게시합니다. | 
-| Microsoft.Devices.DeviceConnected | IoT Hub에 장치가 연결되는 경우 게시합니다. | 
-| Microsoft.Devices.DeviceDisconnected | IoT Hub와 장치의 연결이 해제되는 경우 게시합니다. | 
-캐나다 동부와 미국 동부 지역에서 장치 연결됨 및 장치 연결 끊김 이벤트를 곧 사용할 수 있습니다.
+| Microsoft.Devices.DeviceDeleted | IoT 허브에서 장치를 삭제하는 경우 게시합니다. |
+| Microsoft.Devices.DeviceConnected | IoT Hub에 장치가 연결되는 경우 게시합니다. |
+| Microsoft.Devices.DeviceDisconnected | IoT Hub와 장치의 연결이 해제되는 경우 게시합니다. |
 
-Azure Portal 또는 Azure 명령줄 인터페이스를 사용하여 각 IoT 허브에서 어떤 이벤트를 게시할지 구성할 수 있습니다. 한 예로 자습서 [Logic Apps를 사용하여 Azure IoT Hub 이벤트에 관한 이메일 알림 보내기](../event-grid/publish-iot-hub-events-to-logic-apps.md)를 시도해 봅니다. 
+Azure Portal 또는 Azure 명령줄 인터페이스를 사용하여 각 IoT 허브에서 어떤 이벤트를 게시할지 구성할 수 있습니다. 한 예로 자습서 [Logic Apps를 사용하여 Azure IoT Hub 이벤트에 관한 이메일 알림 보내기](../event-grid/publish-iot-hub-events-to-logic-apps.md)를 시도해 봅니다.
 
 ## <a name="event-schema"></a>이벤트 스키마
 

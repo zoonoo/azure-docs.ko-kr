@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: spelluru
-ms.openlocfilehash: a066d2a55f6949eea316eaf0a2956500667a996f
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8a7346f884a065a21b6f0a822b2236fa7ce5dff0
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340274"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732560"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Stream 분석을 사용하여 Event Hubs 이벤트에 대한 Apache Kafka 처리 
 이 문서에서는 데이터를 Kafka 지원 Event Hubs로 스트리밍하고 Azure Stream Analytics를 사용하여 처리하는 방법을 보여줍니다. 다음 단계를 안내합니다. 
@@ -38,7 +38,7 @@ ms.locfileid: "43340274"
 * [Java Development Kit(JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * Maven 이진 아카이브를 [다운로드](http://maven.apache.org/download.cgi)하여 [설치](http://maven.apache.org/install.html)합니다.
 * [Git](https://www.git-scm.com/)
-* **Azure Storage 계정**. 계정이 없는 경우 계속 진행하기 전에 [만듭니다](../storage/common/storage-create-storage-account.md#create-a-storage-account). 이 연습에서 Stream Analytics 작업은 Azure Blob 저장소에 출력 데이터를 저장합니다. 
+* **Azure Storage 계정**. 계정이 없는 경우 계속 진행하기 전에 [만듭니다](../storage/common/storage-quickstart-create-account.md). 이 연습에서 Stream Analytics 작업은 Azure Blob 저장소에 출력 데이터를 저장합니다. 
 
 
 ## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Kafka 지원 Event Hubs 네임스페이스 만들기
@@ -114,7 +114,7 @@ ms.locfileid: "43340274"
     ![이벤트 허브 - 메시지](./media/event-hubs-kafka-stream-analytics/confirm-event-hub-messages.png)
 
 ## <a name="process-event-data-using-a-stream-analytics-job"></a>Stream Analytics 작업을 사용하여 이벤트 데이터 처리
-이 섹션에서는 Azure Stream Analytics 작업을 만듭니다. Kafka 클라이언트가 이벤트 허브로 이벤트를 보냅니다. 입력으로 이벤트 데이터를 사용하고 Azure Blob 저장소에 출력하는 Stream Analytics 작업을 만듭니다. **Azure Storage 계정**이 없는 경우 [만듭니다](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+이 섹션에서는 Azure Stream Analytics 작업을 만듭니다. Kafka 클라이언트가 이벤트 허브로 이벤트를 보냅니다. 입력으로 이벤트 데이터를 사용하고 Azure Blob 저장소에 출력하는 Stream Analytics 작업을 만듭니다. **Azure Storage 계정**이 없는 경우 [만듭니다](../storage/common/storage-quickstart-create-account.md).
 
 Stream Analytics 작업에서 쿼리는 분석을 수행하지 않고 데이터를 통해 전달됩니다. 다른 형식으로 또는 얻은 정보를 사용하여 출력 데이터를 생성하기 위해 입력 데이터를 변환하는 쿼리를 만들 수 있습니다.  
 

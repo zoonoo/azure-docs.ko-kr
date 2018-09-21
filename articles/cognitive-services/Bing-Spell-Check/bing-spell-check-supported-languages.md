@@ -9,18 +9,18 @@ ms.component: bing-spell-check
 ms.topic: conceptual
 ms.date: 05/08/2018
 ms.author: nolachar
-ms.openlocfilehash: 7cab8e0471151cd2ae7c2e31406f2460fdff6a0b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: a62980f563c8fad525696aca73f8c036382fa820
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050389"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573793"
 ---
 # <a name="supported-language-list-and-status"></a>지원되는 언어 목록 및 상태
 
 이러한 언어는 Bing Spell Check API(`spell` 모드만 해당)에서 지원됩니다. 
 
-`en-US` 이외의 언어에서 사용하려면 [Spell Check API v7 참조](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)에 설명된 것처럼 `mkt`를 설정하고 `Accept-Language` 또는 `setLang`을 설정해야 합니다.
+`en-US` 이외의 언어에서 사용하려면 [Spell Check API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)에 설명된 것처럼 `mkt`를 설정하고 `Accept-Language` 또는 `setLang`을 설정해야 합니다.
 
 | 언어    | 언어 코드 |
 |:----------- |:-------------:|

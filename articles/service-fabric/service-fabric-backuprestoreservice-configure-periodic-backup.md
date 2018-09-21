@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 8cfa0e2a5aa1d7f560fe84f4eda18349f5d1d8b4
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 4aeb37d656dcb5ebca1a48253c418186dfca0a7a
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992482"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575424"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Azure Service Fabric의 정기 백업 구성 이해
 
@@ -182,19 +182,19 @@ Service Fabric에서 응용 프로그램, 서비스 및 파티션 간의 관계�
 ## <a name="suspend--resume-backup"></a>백업 일시 중단 및 다시 시작
 데이터에 대한 정기적인 백업을 일시 중단해야 하는 특정한 상황이 있을 수 있습니다. 이런 경우 요구 사항에 따라 응용 프로그램, 서비스 또는 파티션에 백업 일시 중단 API를 사용할 수 있습니다. 정기적인 백업 일시 중단은 적용되는 시점부터 응용 프로그램 계층 구조의 하위 트리로 전이됩니다. 
 
-* [Suspend Application Backup](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-suspendapplicationbackup)(응용 프로그램 백업 일시 중단) API를 사용하여 응용 프로그램에 일시 중단이 적용되면 이 응용 프로그램의 모든 하위 서비스와 파티션에 대한 정기적인 데이터 백업이 일시 중단됩니다.
+* [Suspend Application Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendapplicationbackup)(응용 프로그램 백업 일시 중단) API를 사용하여 응용 프로그램에 일시 중단이 적용되면 이 응용 프로그램의 모든 하위 서비스와 파티션에 대한 정기적인 데이터 백업이 일시 중단됩니다.
 
-* [Suspend Service Backup](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-suspendservicebackup)(서비스 백업 일시 중단) API를 사용하여 서비스에 일시 중단이 적용되면 이 서비스의 모든 하위 파티션에 대한 정기적인 데이터 백업이 일시 중단됩니다.
+* [Suspend Service Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendservicebackup)(서비스 백업 일시 중단) API를 사용하여 서비스에 일시 중단이 적용되면 이 서비스의 모든 하위 파티션에 대한 정기적인 데이터 백업이 일시 중단됩니다.
 
-* [Suspend Partition Backup](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-suspendpartitionbackup)(파티션 백업 일시 중단) API를 사용하여 파티션에 일시 중단이 적용되면 이 서비스의 모든 하위 파티션에 대한 정기적인 데이터 백업이 일시 중단됩니다.
+* [Suspend Partition Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendpartitionbackup)(파티션 백업 일시 중단) API를 사용하여 파티션에 일시 중단이 적용되면 이 서비스의 모든 하위 파티션에 대한 정기적인 데이터 백업이 일시 중단됩니다.
 
 일시 중단할 필요가 없어지면 각각의 백업 다시 시작 API를 사용하여 정기적인 데이터 백업을 복원할 수 있습니다. 정기적인 백업이 일시 중단된 바로 그 응용 프로그램, 서비스 및 파티션에서 정기적인 백업이 다시 시작되어야 합니다.
 
-* 일시 중단이 응용 프로그램에서 적용된 경우에는 [Resume Application Backup](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-resumeapplicationbackup)(응용 프로그램 백업 다시 시작) API를 사용하여 다시 시작해야 합니다. 
+* 일시 중단이 응용 프로그램에서 적용된 경우에는 [Resume Application Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeapplicationbackup)(응용 프로그램 백업 다시 시작) API를 사용하여 다시 시작해야 합니다. 
 
-* 일시 중단이 서비스에서 적용된 경우에는 [Resume Service Backup](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-resumeservicebackup)(서비스 백업 다시 시작) API를 사용하여 다시 시작해야 합니다.
+* 일시 중단이 서비스에서 적용된 경우에는 [Resume Service Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeservicebackup)(서비스 백업 다시 시작) API를 사용하여 다시 시작해야 합니다.
 
-* 일시 중단이 파티션에서 적용된 경우에는 [Resume Partition Backup](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-resumepartitionbackup)(파티션 백업 다시 시작) API를 사용하여 다시 시작해야 합니다.
+* 일시 중단이 파티션에서 적용된 경우에는 [Resume Partition Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup)(파티션 백업 다시 시작) API를 사용하여 다시 시작해야 합니다.
 
 ## <a name="auto-restore-on-data-loss"></a>데이터 손실 시 자동 복원
 예기치 않은 오류로 인해 서비스 파티션의 데이터가 손실될 수 있습니다. 예를 들어, 파티션에 대한 세 복제본 중 두 복제본(주 복제본 포함)에 대한 디스크가 손상되거나 초기화되었습니다.
@@ -202,7 +202,7 @@ Service Fabric에서 응용 프로그램, 서비스 및 파티션 간의 관계�
 파티션에서 데이터 손실이 발생한 것을 Service Fabric이 감지하면, 해당 파티션에 `OnDataLossAsync` 인터페이스 메서드를 호출하여 데이터 손실 문제를 해결하는 데 필요한 조치가 파티션에서 취해지기를 요구합니다. 이런 경우 파티션의 유효 백업 정책에 `AutoRestoreOnDataLoss` 플래그가 `true`로 설정되어 있으면, 이 파티션에 사용 가능한 최신 백업을 사용하여 복원이 자동으로 트리거됩니다.
 
 ## <a name="get-backup-configuration"></a>백업 구성 정보 가져오기
-응용 프로그램, 서비스 및 파티션 범위에서 백업 구성 정보를 가져올 수 있는 별도의 API가 있습니다. [Get Application Backup Configuration Info](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo)(응용 프로그램 백업 구성 정보 가져오기), [Get Service Backup Configuration Info](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo)(서비스 백업 구성 정보 가져오기) 및 [Get Partition Backup Configuration Info](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo)(파티션 백업 구성 정보 가져오기)가 각각 여기에 해당하는 입니다. 대개, 이러한 API는 적용 가능한 백업 정책, 백업 정책이 적용되는 범위 및 백업 일시 중단 세부 정보를 반환합니다. 다음은 이러한 API가 반환한 결과에 대한 간략한 설명입니다.
+응용 프로그램, 서비스 및 파티션 범위에서 백업 구성 정보를 가져올 수 있는 별도의 API가 있습니다. [Get Application Backup Configuration Info](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo)(응용 프로그램 백업 구성 정보 가져오기), [Get Service Backup Configuration Info](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo)(서비스 백업 구성 정보 가져오기) 및 [Get Partition Backup Configuration Info](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo)(파티션 백업 구성 정보 가져오기)가 각각 여기에 해당하는 입니다. 대개, 이러한 API는 적용 가능한 백업 정책, 백업 정책이 적용되는 범위 및 백업 일시 중단 세부 정보를 반환합니다. 다음은 이러한 API가 반환한 결과에 대한 간략한 설명입니다.
 
 - 응용 프로그램 백업 구성 정보: 응용 프로그램에 적용된 백업 정책과 응용 프로그램에 속하는 서비스 및 파티션에서 재정의된 모든 정책에 대한 세부 정보를 제공합니다. 응용 프로그램과 응용 프로그램의 서비스 및 파티션에 대한 일시 중단 정보도 포함됩니다.
 
@@ -218,11 +218,11 @@ Service Fabric에서 응용 프로그램, 서비스 및 파티션 간의 관계�
 
 다음은 지원되는 변형에 대한 간략한 정보입니다.
 
-- [Get Application Backup List](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getapplicationbackuplist)(응용 프로그램 백업 목록 가져오기): 지정된 Service Fabric 응용 프로그램에 속하는 모든 파티션에 사용 가능한 백업 목록을 반환합니다.
+- [Get Application Backup List](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist)(응용 프로그램 백업 목록 가져오기): 지정된 Service Fabric 응용 프로그램에 속하는 모든 파티션에 사용 가능한 백업 목록을 반환합니다.
 
-- [Get Service Backup List](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getservicebackuplist)(서비스 백업 목록 가져오기): 지정된 Service Fabric 서비스에 속하는 모든 파티션에 사용 가능한 백업 목록을 반환합니다.
+- [Get Service Backup List](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist)(서비스 백업 목록 가져오기): 지정된 Service Fabric 서비스에 속하는 모든 파티션에 사용 가능한 백업 목록을 반환합니다.
  
-- [Get Partition Backup List](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getpartitionbackuplist)(파티션 백업 목록 가져오기): 지정된 파티션에 사용 가능한 백업 목록을 반환합니다.
+- [Get Partition Backup List](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist)(파티션 백업 목록 가져오기): 지정된 파티션에 사용 가능한 백업 목록을 반환합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [백업 복원 REST API 참조](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)

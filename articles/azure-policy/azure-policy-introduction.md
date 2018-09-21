@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 405f69ae1c37e478758d984ddf7dc0e267910fef
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 381263a39716ad1271c853ec4b7453a5a922b43e
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42023971"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633710"
 ---
 # <a name="what-is-azure-policy"></a>Azure Policy이란?
 
@@ -135,7 +135,7 @@ Azure Policy에는 기본적으로 사용 가능한 몇 가지 기본 제공 정
 
 Azure Policy의 다음 개요는 Build 2018에서부터 시작됩니다. 슬라이드 또는 비디오 다운로드의 경우 Channel 9에서 [Azure Policy를 통해 Azure 환경 제어](https://channel9.msdn.com/events/Build/2018/THR2030)를 방문하세요.
 
-> [!VIDEO https://channel9.msdn.com/events/Build/2018/THR2030/player]
+> [!VIDEO https://www.youtube.com/embed/dxMaYF2GB7o]
 
 ## <a name="next-steps"></a>다음 단계
 

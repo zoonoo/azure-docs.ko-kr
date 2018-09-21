@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: overview
 ms.date: 08/15/2018
 ms.author: diberry
-ms.openlocfilehash: e74abb30709f186d3c1139793cf34d3e033ff967
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: aadf80df388a25e07051f6dd0a83cd4da7c2ef83
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190566"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629800"
 ---
 # <a name="what-is-language-understanding-luis"></a>LUIS(Language Understanding)란?
 
@@ -179,7 +179,7 @@ LUIS용 Microsoft 클라이언트 응용 프로그램에는 다음이 포함됩�
 * [Windows Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/) - LUIS를 사용하는 이 [혼합 현실 과정](https://docs.microsoft.com/windows/mixed-reality/mr-azure-303)을 통해 자세히 알아보세요. 
 
 봇에 LUIS를 사용하는 Microsoft 도구:
-* [디스패치](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch)는 디스패처 모델을 사용하는 부모 앱에서 여러 LUIS 및 QnA Maker 앱을 사용할 수 있도록 허용합니다.
+* [디스패치](https://aka.ms/dispatch-tool)는 디스패처 모델을 사용하는 부모 앱에서 여러 LUIS 및 QnA Maker 앱을 사용할 수 있도록 허용합니다.
 * [대화 학습자](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview)를 사용하면 LUIS를 사용하여 보다 빠르게 봇 대화를 빌드할 수 있습니다.
 * [프로젝트 개인 정보 채팅](https://docs.microsoft.com/azure/cognitive-services/project-personality-chat/overview)은 봇 짧은 대화를 처리합니다.
 

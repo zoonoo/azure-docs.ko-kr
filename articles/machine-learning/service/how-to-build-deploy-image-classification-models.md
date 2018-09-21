@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
-ms.openlocfilehash: 6b7f73573cb1465b89e54e30894b3549153e4acb
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 1188ff040c12fd431cfcef5eea982647df6b9a71
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888435"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576394"
 ---
 # <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Azure Machine Learning으로 이미지 분류 모델 작성 및 배포
 
@@ -40,7 +40,7 @@ AMLPCV를 사용하여 이 모델을 구축하고 배포하는 경우 다음 단
 
 ## <a name="prerequisites"></a>필수 조건
 
-1. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+1. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 1. 다음 계정 및 응용 프로그램을 설정하고 설치해야 합니다.
    - Azure Machine Learning 실험 계정 
@@ -174,7 +174,7 @@ display(annotation_ui.ui)
 
 ## <a name="augment-images"></a>증강 이미지
 
-[`augmentation` 모듈](https://docs.microsoft.com/en-us/python/api/cvtk.augmentation)은 [imgaug](https://github.com/aleju/imgaug) 라이브러리에 설명된 모든 변환을 사용하여 데이터 집합 개체를 증강하는 기능을 제공합니다. 이미지 변환은 단일 파이프라인으로 그룹화할 수 있으며 이 경우 파이프라인의 모든 변환이 각 이미지에 동시에 적용됩니다. 
+[`augmentation` 모듈](https://docs.microsoft.com/python/api/cvtk.augmentation)은 [imgaug](https://github.com/aleju/imgaug) 라이브러리에 설명된 모든 변환을 사용하여 데이터 집합 개체를 증강하는 기능을 제공합니다. 이미지 변환은 단일 파이프라인으로 그룹화할 수 있으며 이 경우 파이프라인의 모든 변환이 각 이미지에 동시에 적용됩니다. 
 
 다른 보강 단계를 별도로 적용하거나 다른 방식으로 적용하려면 여러 파이프라인을 정의하고 여기에 *augment_dataset* 함수를 전달할 수 있습니다. 이미지 증강에 대한 자세한 내용과 예제는 [imgaug 설명서](https://github.com/aleju/imgaug)를 참조하세요.
 

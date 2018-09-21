@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: mscurrell
 ms.custom: mvc
-ms.openlocfilehash: b784e64962569f22cba3bc52b6a4e9443a4587d5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 36d37c2d18823273b5c0f82ecae0f9420e35768c
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30311994"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35621282"
 ---
 # <a name="what-is-azure-batch"></a>Azure Batch란?
 
@@ -61,7 +61,7 @@ Azure Batch에서 상위 수준의 워크로드 관련 기능도 사용할 수 �
 * Batch는 Autodesk Maya, 3ds Max, Arnold 및 V-Ray를 비롯한 렌더링 도구를 사용하여 대규모의 [렌더링 워크로드](batch-rendering-service.md)를 지원합니다. 
 * R 사용자는 [doAzureParallel R 패키지](https://github.com/Azure/doAzureParallel)를 설치하여 Batch 풀에 대한 R 알고리즘 실행을 손쉽게 확장할 수 있습니다.
 
-또한 [Azure Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md)와 같은 도구에서 관리하는 대규모 데이터 변환 Azure 워크플로의 일부로 Batch 작업을 실행할 수도 있습니다.
+또한 [Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md)와 같은 도구에서 관리하는 대규모 데이터 변환 Azure 워크플로의 일부로 Batch 작업을 실행할 수도 있습니다.
 
 
 ## <a name="how-it-works"></a>작동 방법

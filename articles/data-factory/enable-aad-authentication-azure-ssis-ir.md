@@ -12,18 +12,18 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: douglasl
-ms.openlocfilehash: 93d3e25957fb1f04400fa78423a5658d32f7d5fd
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: aa06110a6f6fe668388c6aecd98c1ddeeae37edd
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36749721"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576632"
 ---
 # <a name="enable-azure-active-directory-authentication-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임에 대한 Azure Active Directory 인증 활성화
 
 이 문서에서는 Azure Data Factory 서비스 ID를 사용하여 Azure-SSIS IR을 만드는 방법을 보여줍니다. Azure-SSIS 통합 런타임에 대한 MSI(관리 서비스 ID)가 있는 Azure AD(Azure Active Directory) 인증 서버를 통해 SQL 인증 대신 Data Factory MSI를 사용하여 Azure-SSIS 통합 런타임을 만들 수 있습니다.
 
-Data Factory MSI에 대한 자세한 내용은 [Azure Data Factory 서비스 ID](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-service-identity)를 참조하세요.
+Data Factory MSI에 대한 자세한 내용은 [Azure Data Factory 서비스 ID](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)를 참조하세요.
 
 > [!NOTE]
 > SQL 인증을 사용하여 Azure-SSIS 통합 런타임을 이미 만든 경우 이번에 PowerShell과 함께 Azure AD 인증을 사용하도록 IR를 다시 구성할 수 없습니다.
@@ -53,7 +53,7 @@ Data Factory MSI에 대한 자세한 내용은 [Azure Data Factory 서비스 ID]
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  그룹에 Data Factory MSI를 추가합니다. [Azure Data Factory 서비스 ID](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-service-identity)를 따라 기본 서비스 ID ID를 가져올 수 있습니다(예: 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc. 이 용도로 서비스 ID 응용 프로그램 ID를 사용하지 마세요).
+3.  그룹에 Data Factory MSI를 추가합니다. [Azure Data Factory 서비스 ID](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)를 따라 기본 서비스 ID ID를 가져올 수 있습니다(예: 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc. 이 용도로 서비스 ID 응용 프로그램 ID를 사용하지 마세요).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -71,7 +71,7 @@ Azure SQL Database는 Azure AD 사용자로 데이터베이스 만들기를 지�
 
 ### <a name="enable-azure-ad-authentication-for-the-azure-sql-database"></a>Azure SQL Database에 대해 Azure AD 인증 활성화
 
-다음 단계를 사용하여 [SQL Database에 대한 Azure AD 인증을 구성](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure)할 수 있습니다.
+다음 단계를 사용하여 [SQL Database에 대한 Azure AD 인증을 구성](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)할 수 있습니다.
 
 1.  Azure Portal의 왼쪽 탐색 영역에서 **모든 서비스** -> **SQL 서버**를 선택합니다.
 
@@ -93,7 +93,7 @@ Azure SQL Database는 Azure AD 사용자로 데이터베이스 만들기를 지�
 
 2.  **서버에 연결** 대화 상자의 **서버 이름** 필드에 SQL 서버 이름을 입력합니다.
 
-3.  **인증** 필드에서 **Active Directory - MFA 지원을 통한 유니버설 인증**을 선택합니다. (다른 두 개의 Active Directory 인증 유형을 사용할 수도 있습니다. [SQL Database, 관리되는 인스턴스에서 Azure Active Directory 인증 구성 및 관리](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure)를 참조하세요.)
+3.  **인증** 필드에서 **Active Directory - MFA 지원을 통한 유니버설 인증**을 선택합니다. (다른 두 개의 Active Directory 인증 유형을 사용할 수도 있습니다. [SQL Database, Managed Instance에서 Azure Active Directory 인증 구성 및 관리](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)를 참조하세요.)
 
 4.  **사용자 이름** 필드에 서버 관리자로 설정한 Azure AD 계정의 이름(예: testuser@xxxonline.com)을 입력합니다.
 
@@ -119,11 +119,11 @@ Azure SQL Database는 Azure AD 사용자로 데이터베이스 만들기를 지�
 
     명령이 성공적으로 완료되고 포함된 사용자에게 데이터베이스를 만들 수 있는 기능이 부여됩니다.
 
-## <a name="enable-azure-ad-on-azure-sql-database-managed-instance"></a>Azure SQL Database 관리되는 인스턴스에서 Azure AD 활성화
+## <a name="enable-azure-ad-on-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance에서 Azure AD 활성화
 
-Azure SQL Database 관리되는 인스턴스는 AD 관리자 이외의 Azure AD 사용자로 데이터베이스 만들기를 지원하지 않습니다. 결과적으로, Active Directory 관리자로 Azure AD 그룹을 설정해야 합니다. 포함된 사용자를 만들 필요가 없습니다.
+Azure SQL Database Managed Instance는 AD 관리자 이외의 Azure AD 사용자로 데이터베이스 만들기를 지원하지 않습니다. 결과적으로, Active Directory 관리자로 Azure AD 그룹을 설정해야 합니다. 포함된 사용자를 만들 필요가 없습니다.
 
-다음 단계를 사용하여 [SQL Database 관리되는 인스턴스 서버에 대한 Azure AD 인증을 구성](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure)할 수 있습니다.
+다음 단계를 사용하여 [SQL Database Managed Instance 서버에 대한 Azure AD 인증을 구성](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)할 수 있습니다.
 
 7.  Azure Portal의 왼쪽 탐색 영역에서 **모든 서비스** -> **SQL 서버**를 선택합니다.
 
@@ -139,9 +139,9 @@ Azure SQL Database 관리되는 인스턴스는 AD 관리자 이외의 Azure AD 
 
 ## <a name="provision-the-azure-ssis-ir-in-the-portal"></a>포털에서 Azure-SSIS IR 프로비전
 
-Azure Portal을 사용하여 Azure-SSIS IR을 프로비전하는 경우 **SQL 설정** 페이지에서 "ADF MSI로 AAD 인증 사용" 옵션을 선택합니다. (다음 스크린샷은 Azure SQL Database로 IR에 대한 설정을 표시합니다. 관리되는 인스턴스로 IR의 경우 "카탈로그 데이터베이스 서비스 계층" 속성은 사용할 수 있습니다. 다른 설정은 동일합니다.)
+Azure Portal을 사용하여 Azure-SSIS IR을 프로비전하는 경우 **SQL 설정** 페이지에서 "ADF MSI로 AAD 인증 사용" 옵션을 선택합니다. (다음 스크린샷은 Azure SQL Database로 IR에 대한 설정을 표시합니다. Managed Instance로 IR의 경우 "카탈로그 데이터베이스 서비스 계층" 속성은 사용할 수 있습니다. 다른 설정은 동일합니다.)
 
-Azure-SSIS 통합 런타임을 만드는 방법에 대한 자세한 정보는 [Azure Data Factory에서 Azure-SSIS 통합 런타임 만들기](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요.
+Azure-SSIS 통합 런타임을 만드는 방법에 대한 자세한 정보는 [Azure Data Factory에서 Azure-SSIS 통합 런타임 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요.
 
 ![Azure-SSIS 통합 런타임에 대한 설정](media/enable-aad-authentication-azure-ssis-ir/enable-aad-authentication.png)
 

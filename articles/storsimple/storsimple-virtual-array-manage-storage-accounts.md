@@ -14,35 +14,35 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: a4ce2d329d0e1399cffaf886adf2b95e34b9cd7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2b6b7a5d2baf9e46cca18aec97f31beda1e2a38
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111711"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736736"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>StorSimple 장치 관리자를 사용하여 StorSimple 가상 배열의 저장소 계정 자격 증명 관리
 
 ## <a name="overview"></a>개요
 StorSimple 가상 배열의 StorSimple 장치 관리자 서비스 블레이드 중 **구성** 섹션에서는 StorSimple Manager 서비스에서 만들 수 있는 글로벌 서비스 매개 변수를 표시합니다. 이러한 매개 변수는 서비스에 연결된 모든 장치에 적용할 수 있으며 다음을 포함합니다.
 
-* 저장소 계정 자격 증명
+* Storage 계정 자격 증명
 * 액세스 제어 레코드
   
   ![장치 관리자 서비스 대시보드](./media/storsimple-virtual-array-manage-storage-accounts/ova-storageaccts-dashboard.png)  
 
 이 자습서에서는 StorSimple 가상 배열에 대한 저장소 계정 자격 증명을 추가, 편집 또는 삭제하는 방법에 대해 설명합니다. 이 자습서의 정보는 StorSimple 가상 배열에만 적용됩니다. 8000 시리즈에서 저장소 계정을 관리하는 방법에 대한 자세한 내용은 [StorSimple Manager 서비스를 사용하여 저장소 계정 관리](storsimple-manage-storage-accounts.md)를 참조하세요.
 
-저장소 계정 자격 증명은 클라우드 서비스 공급자와 저장소 계정에 액세스하기 위해 장치가 사용하는 자격 증명을 포함합니다. Microsoft Azure 저장소 계정의 경우 계정 이름 및 기본 액세스 키와 같은 자격 증명이 있습니다.
+Storage 계정 자격 증명은 클라우드 서비스 공급자와 Storage 계정에 액세스하기 위해 장치가 사용하는 자격 증명을 포함합니다. Microsoft Azure 저장소 계정의 경우 계정 이름 및 기본 액세스 키와 같은 자격 증명이 있습니다.
 
-**저장소 계정 자격 증명** 블레이드에서 청구 구독에 대해 만들어진 모든 저장소 계정 자격 증명이 다음 정보를 포함하여 테이블 형식으로 표시됩니다.
+**Storage 계정 자격 증명** 블레이드에서 청구 구독에 대해 만들어진 모든 Storage 계정 자격 증명이 다음 정보를 포함하여 테이블 형식으로 표시됩니다.
 
 * **이름** – 만들어졌을 때 계정에 할당된 고유 이름입니다.
 * **SSL 사용** – SSL 사용 및 장치와 클라우드 사이의 통신이 보안 채널을 통해 이루어지는지 여부입니다.
   
   ![구성 섹션](./media/storsimple-virtual-array-manage-storage-accounts/ova-storageaccountcredentials-blade.png)
 
-**저장소 계정 자격 증명** 블레이드에서 수행할 수 있는 저장소 계정 자격 증명과 관련된 가장 일반적인 태스크는 다음과 같습니다.
+**Storage 계정 자격 증명** 블레이드에서 수행할 수 있는 Storage 계정 자격 증명과 관련된 가장 일반적인 태스크는 다음과 같습니다.
 
 * 저장소 계정 자격 증명 추가
 * 저장소 계정 자격 증명 편집
@@ -68,7 +68,7 @@ Azure Storage 계정 자격 증명을 추가하려면 다음 절차를 사용합
 #### <a name="to-add-a-storage-account-credential-that-has-the-same-azure-subscription-as-the-device-manager-service"></a>장치 관리자 서비스와 동일한 Azure 구독에 있는 저장소 계정 자격 증명을 추가하려면
 
 1. 장치 관리자 서비스를 찾아 선택하고 두 번 클릭합니다. 그러면 **개요** 블레이드가 열립니다.
-2. **구성** 섹션 내의 **저장소 계정 자격 증명**을 선택합니다.
+2. **구성** 섹션 내의 **Storage 계정 자격 증명**을 선택합니다.
 3. **추가**를 클릭합니다.
 4. **저장소 계정 추가** 블레이드에서 다음을 수행합니다.
    
@@ -82,7 +82,7 @@ Azure Storage 계정 자격 증명을 추가하려면 다음 절차를 사용합
 #### <a name="to-add-an-azure-storage-account-credential-that-is-outside-of-the-device-manager-service-subscription"></a>장치 관리자 서비스 구독 외부에 있는 Azure Storage 계정 자격 증명을 추가하려면
 
 1. 장치 관리자 서비스를 찾아 선택하고 두 번 클릭합니다. 그러면 **개요** 블레이드가 열립니다.
-2. **구성** 섹션 내의 **저장소 계정 자격 증명**을 선택합니다. 그러면 StorSimple 장치 관리자 서비스와 연결된 모든 기존 저장소 계정 자격 증명을 나열합니다.
+2. **구성** 섹션 내의 **Storage 계정 자격 증명**을 선택합니다. 그러면 StorSimple 장치 관리자 서비스와 연결된 모든 기존 저장소 계정 자격 증명을 나열합니다.
 3. **추가**를 클릭합니다.
 4. **저장소 계정 추가** 블레이드에서 다음을 수행합니다.
    
@@ -96,7 +96,7 @@ Azure Storage 계정 자격 증명을 추가하려면 다음 절차를 사용합
    
     5. **추가**를 클릭합니다. 저장소 계정 자격 증명이 성공적으로 만들어진 후 알림이 표시됩니다.
 
-5. 새로 만든 저장소 계정 자격 증명은 **저장소 계정 자격 증명**의 StorSimple 구성 장치 관리자 서비스 블레이드에 표시됩니다.
+5. 새로 만든 Storage 계정 자격 증명은 **Storage 계정 자격 증명**의 StorSimple 구성 장치 관리자 서비스 블레이드에 표시됩니다.
    
     ![장치 관리자 서비스 구독 외부의 저장소 계정 자격 증명 추가](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-outside-storageacct.png)
 
@@ -105,13 +105,13 @@ Azure Storage 계정 자격 증명을 추가하려면 다음 절차를 사용합
 
 #### <a name="to-edit-a-storage-account-credential"></a>저장소 계정 자격 증명을 편집하려면
 1. 장치 관리자 서비스를 찾아 선택하고 두 번 클릭합니다. 그러면 **개요** 블레이드가 열립니다.
-2. **구성** 섹션 내의 **저장소 계정 자격 증명**을 선택합니다. 그러면 StorSimple 장치 관리자 서비스와 연결된 모든 기존 저장소 계정 자격 증명을 나열합니다.
+2. **구성** 섹션 내의 **Storage 계정 자격 증명**을 선택합니다. 그러면 StorSimple 장치 관리자 서비스와 연결된 모든 기존 저장소 계정 자격 증명을 나열합니다.
 3. 저장소 계정 자격 증명의 테이블 형식 목록에서 수정하려는 계정을 선택하고 두 번 클릭합니다.
 4. 저장소 계정 자격 증명 **속성** 블레이드에서 다음을 수행합니다.
    
    1. 필요에 따라 **SSL 사용** 모드 선택을 수정할 수 있습니다.
-   2. 저장소 계정 자격 증명 선택키를 다시 생성하도록 선택할 수 있습니다. 자세한 내용은 [저장소 계정 키 다시 생성](../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys)을 참조하세요. 새 저장소 계정 자격 증명 키를 제공합니다. Azure 저장소 계정의 경우 이 키가 기본 선택키입니다.
-   3. **속성** 블레이드 맨 위에 있는 **저장**을 클릭하여 설정을 저장합니다. 설정은 **저장소 계정 자격 증명** 블레이드에서 업데이트됩니다.
+   2. 저장소 계정 자격 증명 선택키를 다시 생성하도록 선택할 수 있습니다. 자세한 내용은 [저장소 계정 키 다시 생성](../storage/common/storage-account-manage.md#access-keys)을 참조하세요. 새 저장소 계정 자격 증명 키를 제공합니다. Azure 저장소 계정의 경우 이 키가 기본 선택키입니다.
+   3. **속성** 블레이드 맨 위에 있는 **저장**을 클릭하여 설정을 저장합니다. 설정은 **Storage 계정 자격 증명** 블레이드에서 업데이트됩니다.
       
       ![저장소 계정 자격 증명 편집](./media/storsimple-virtual-array-manage-storage-accounts/ova-edit-storageacct.png)
 
@@ -123,7 +123,7 @@ Azure Storage 계정 자격 증명을 추가하려면 다음 절차를 사용합
 
 #### <a name="to-delete-a-storage-account-credential"></a>저장소 계정 자격 증명을 삭제하려면
 1. 장치 관리자 서비스를 찾아 선택하고 두 번 클릭합니다. 그러면 **개요** 블레이드가 열립니다.
-2. **구성** 섹션 내의 **저장소 계정 자격 증명**을 선택합니다. 그러면 StorSimple 장치 관리자 서비스와 연결된 모든 기존 저장소 계정 자격 증명을 나열합니다.
+2. **구성** 섹션 내의 **Storage 계정 자격 증명**을 선택합니다. 그러면 StorSimple 장치 관리자 서비스와 연결된 모든 기존 저장소 계정 자격 증명을 나열합니다.
 3. 저장소 계정 자격 증명의 테이블 형식 목록에서 삭제하려는 계정을 선택하고 두 번 클릭합니다.
 4. 저장소 계정 자격 증명 **속성** 블레이드에서 다음을 수행합니다.
    
@@ -138,8 +138,8 @@ Azure Storage 계정 자격 증명을 추가하려면 다음 절차를 사용합
 StorSimple 장치 관리자 서비스에 변경을 알리려면 StorSimple 장치 관리자 서비스에 액세스하고 저장소 계정 자격 증명에 액세스한 다음 기본 또는 보조 키(변경된 키에 따라 다름)를 동기화해야 합니다. 그러면 서비스는 최신 키를 가져오고 해당 키를 암호화하여 장치에 암호화된 키를 보냅니다.
 
 #### <a name="to-synchronize-keys-for-storage-account-credentials-in-the-same-subscription-as-the-service-azure-only"></a>서비스와 동일한 구독에서 저장소 계정 자격 증명에 대한 키를 동기화하려면(Azure에만 해당)
-1. 서비스 방문 블레이드에서 서비스를 선택하고 서비스 이름을 두 번 클릭한 다음 **구성** 섹션에서 **저장소 계정 자격 증명**을 클릭합니다.
-2. **저장소 계정 자격 증명** 블레이드의 저장소 계정 자격 증명 목록에서 동기화하려는 키의 저장소 계정 자격 증명을 선택합니다.
+1. 서비스 방문 블레이드에서 서비스를 선택하고 서비스 이름을 두 번 클릭한 다음 **구성** 섹션에서 **Storage 계정 자격 증명**을 클릭합니다.
+2. **Storage 계정 자격 증명** 블레이드의 Storage 계정 자격 증명 목록에서 동기화하려는 키의 Storage 계정 자격 증명을 선택합니다.
 3. 선택한 저장소 계정 자격 증명의 **속성** 블레이드에서 다음을 수행합니다.
    
     1. **추가**를 클릭한 다음 **동기화 선택키**를 클릭합니다.

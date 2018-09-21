@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2018
+ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: fd42d2d7f3a277f9ea568e255ab5ba5eb76476ae
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: cf0e94b859b49eddb8e2471d5319b3cc4a2c17ba
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356211"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720296"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory의 특성 매핑에 대한 식 작성
 SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할 수 있는 특성 매핑의 유형 중 하나입니다. 이러한 경우, 사용자의 데이터를 SaaS 응용 프로그램에 대해 사용하는 형식으로 변환할 수 있는 스크립트 방식의 식을 작성해야 합니다.
@@ -47,7 +47,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 **매개 변수:**<br> 
 
-| Name | 필수/ 반복 | type | 메모 |
+| 이름 | 필수/ 반복 | type | 메모 |
 | --- | --- | --- | --- |
 | **원본** |필수 |문자열 |대개는 원본 개체의 특성 이름 |
 | **접미사** |필수 |문자열 |원본 값의 끝에 추가하려는 문자열입니다. |
@@ -60,7 +60,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 **매개 변수:**<br> 
 
-| Name | 필수/ 반복 | type | 메모 |
+| 이름 | 필수/ 반복 | type | 메모 |
 | --- | --- | --- | --- |
 | **원본** |필수 |문자열 |대개는 원본 개체의 특성 이름입니다. |
 | **inputFormat** |필수 |문자열 |원본 값의 예상된 형식입니다. 지원되는 형식은 [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)를 참조하세요. |
@@ -76,7 +76,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 **매개 변수:**<br> 
 
-| Name | 필수/ 반복 | type | 메모 |
+| 이름 | 필수/ 반복 | type | 메모 |
 | --- | --- | --- | --- |
 | **구분 기호** |필수 |문자열 |문자열이 하나의 문자열로 연결되면 원본 값을 구분하는데 문자열을 사용합니다. 구분 기호가 필요하지 않은 경우 ""일 수 있습니다. |
 | **source1  … sourceN ** |필수, 시간 변수 |문자열 |값이 함께 조인될 문자열입니다. |
@@ -89,7 +89,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 **매개 변수:**<br> 
 
-| Name | 필수/ 반복 | type | 메모 |
+| 이름 | 필수/ 반복 | type | 메모 |
 | --- | --- | --- | --- |
 | **원본** |필수 |문자열 |일반적으로 특성 이름입니다. |
 | **시작** |필수 |정수 |부분 문자열이 시작될 **원본** 문자열의 인덱스입니다. 문자열의 첫번째 문자에는 인덱스 1이 있고, 두번째 문자에는 인덱스 2가 있습니다. |
@@ -103,7 +103,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 **매개 변수:**<br> 
 
-| Name | 필수/ 반복 | type | 메모 |
+| 이름 | 필수/ 반복 | type | 메모 |
 | --- | --- | --- | --- |
 | **원본** |필수 |문자열 | 일반적으로 이름 또는 성 특성 |
 
@@ -115,7 +115,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 **매개 변수:**<br> 
 
-| Name | 필수/ 반복 | type | 메모 |
+| 이름 | 필수/ 반복 | type | 메모 |
 | --- | --- | --- | --- |
 | **원본** |필수 |부울 문자열 |예상 **원본** 값은 "True" 또는 "False"입니다. |
 
@@ -141,7 +141,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
   * **source**에 값이 있는 경우 **regexPattern** 및 **regexGroupName**을 사용하여 **replacementPropertyName**으로 속성에서 대체 값을 추출합니다. 대체 값이 결과로 반환됩니다.
 
 **매개 변수:**<br> 
-| Name | 필수/ 반복 | type | 메모 |
+| 이름 | 필수/ 반복 | type | 메모 |
 | --- | --- | --- | --- |
 | **원본** |필수 |문자열 |대개는 원본 개체의 특성 이름입니다. |
 | **oldValue** |옵션 |문자열 |**원본** 또는 **템플릿**에서 대체될 값입니다. |
@@ -159,7 +159,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 **매개 변수:**<br> 
 
-| Name | 필수/ 반복 | type | 메모 |
+| 이름 | 필수/ 반복 | type | 메모 |
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |필수 |문자열 |**[appRoleAssignments]** 개체. |
 
@@ -171,7 +171,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 **매개 변수:**<br> 
 
-| Name | 필수/ 반복 | type | 메모 |
+| 이름 | 필수/ 반복 | type | 메모 |
 | --- | --- | --- | --- |
 | **원본** |필수 |문자열 |**원본** 값입니다. |
 
@@ -183,7 +183,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 **매개 변수:**<br> 
 
-| Name | 필수/ 반복 | type | 메모 |
+| 이름 | 필수/ 반복 | type | 메모 |
 | --- | --- | --- | --- |
 | **원본** |필수 |문자열 |**Source** 값입니다. |
 | **defaultValue** |옵션 |문자열 |원본이 모든 키와 일치하지 않는 경우 사용할 기본값입니다. 빈 문자열("")일 수 있습니다. |
@@ -264,7 +264,6 @@ Azure AD에 저장된 상태 코드를 기반으로 사용자의 시간대를 �
 * **출력**: "오스트레일리아/브리즈번"
 
 ## <a name="related-articles"></a>관련 문서
-* [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](../active-directory-apps-index.md)
 * [SaaS 앱에 자동화된 사용자 프로비전/프로비전 해제](user-provisioning.md)
 * [사용자 프로비저닝에 대한 특성 매핑 사용자 지정](customize-application-attributes.md)
 * [사용자 프로 비전에 대 한 필터 범위 지정](define-conditional-rules-for-provisioning-user-accounts.md)

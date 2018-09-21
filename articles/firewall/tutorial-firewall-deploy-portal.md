@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 84696b4135570168f8093b15f9a2deb4790eeebe
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 05959143431a2cc11d79a4012f45eb565c1c91f2
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480886"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576001"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Firewall 배포 및 구성
 
@@ -58,7 +58,7 @@ Azure Firewall 문서의 예제에서는 이미 Azure Firewall 공개 미리 보
 
 ![자습서 네트워크 인프라](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
-이 자습서에서는 간편한 배포를 위해 간소화 된 네트워크 구성을 사용합니다. 프로덕션 배포에서는 방화벽이 자체 VNet에 있으며 워크로드 서버가 하나 이상의 서브넷이 있는 동일한 지역의 피어링된 Vnet에 있는 [허브 및 스포크 모델](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)이 좋습니다.
+이 자습서에서는 간편한 배포를 위해 간소화 된 네트워크 구성을 사용합니다. 프로덕션 배포에서는 방화벽이 자체 VNet에 있으며 워크로드 서버가 하나 이상의 서브넷이 있는 동일한 지역의 피어링된 Vnet에 있는 [허브 및 스포크 모델](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)이 좋습니다.
 
 
 
@@ -161,7 +161,7 @@ Azure Firewall 문서의 예제에서는 이미 Azure Firewall 공개 미리 보
    
    |설정  |값  |
    |---------|---------|
-   |Name     |Test-FW01|
+   |이름     |Test-FW01|
    |구독     |\<구독\>|
    |리소스 그룹     |**기존 항목 사용**: Test-FW-RG |
    |위치     |전에 사용한 동일한 위치 선택|

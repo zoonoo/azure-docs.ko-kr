@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 6b6d6dd5f000c4295ffdf64f7d2f1ece4f625678
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 36db91cd7c4dad3c28c0c110ee837ca6d1284959
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307520"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575388"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 분산 테이블 디자인 지침
 Azure SQL Data Warehouse의 해시 분산 테이블 및 라운드 로빈 분산 테이블 디자인에 대한 권장 사항입니다.
@@ -174,7 +174,7 @@ order by two_part_name, row_count
 기존 테이블에서 배포 열을 변경할 수 없으므로 데이터 기울이기를 해결하는 일반적인 방법은 다른 배포 열로 테이블을 다시 만드는 것입니다.  
 
 ### <a name="re-create-the-table-with-a-new-distribution-column"></a>새 배포 열로 테이블 다시 만들기
-이 예제에서는 [CREATE TABLE AS SELECT](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7)를 사용하여 다른 해시 배포 열로 테이블을 다시 만듭니다.
+이 예제에서는 [CREATE TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7)를 사용하여 다른 해시 배포 열로 테이블을 다시 만듭니다.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_CustomerKey]

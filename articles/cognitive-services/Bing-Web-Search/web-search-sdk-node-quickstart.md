@@ -1,6 +1,7 @@
 ---
 title: '빠른 시작: Node.js용 Bing Web Search SDK 사용'
-description: Node.js용 Bing Web Search SDK를 사용하는 방법을 알아봅니다.
+titleSuffix: Azure Cognitive Services
+description: Bing Web Search SDK를 사용하면 Bing Web Search를 Node.js 응용 프로그램에 쉽게 통합할 수 있습니다. 이 빠른 시작에서는 클라이언트를 인스턴스화하고, 요청을 보내며, 응답을 출력하는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -9,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
 ms.author: erhopf
-ms.openlocfilehash: 7c3003ab4ba40a9d0212e7c94b6dd3bfbc8f0ca2
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: b27c11a69c7d16f38c2448d380b611940078c501
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186634"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121925"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-nodejs"></a>빠른 시작: Node.js용 Bing Web Search SDK 사용
 

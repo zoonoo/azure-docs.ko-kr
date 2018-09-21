@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: andrl
-ms.openlocfilehash: 2c3e4806aef506ef9016699b46eadd5f8a187224
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 2da00f700f5cc234455cc686377e5863f1c35bdd
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038454"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734474"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Azure Cosmos DB 컨테이너 및 데이터베이스에 대한 처리량 설정 및 가져오기
 
@@ -61,7 +61,7 @@ Azure Portal을 사용하거나 클라이언트 SDK를 사용하여 Azure Cosmos
 2. 왼쪽 탐색 창에서 **모든 리소스**를 선택하고 Azure Cosmos DB 계정을 찾습니다.  
 3. 데이터베이스를 만드는 동안 처리량을 구성하거나 기존 데이터베이스 처리량을 업데이트할 수 있습니다.  
 4. 데이터베이스 만드는 동안 처리량을 지정하려면 **Data Explorer** 블레이드를 열고 **New Database**를 선택합니다.  
-5. **Database ID** 값을 입력하고, **프로비전 처리량** 옵션을 확인한 다음, 처리량 값을 구성합니다. 최소 처리량 값 50,000 RU/s로 데이터베이스를 프로비전할 수 있습니다.  
+5. **Database ID** 값을 입력하고, **프로비전 처리량** 옵션을 확인한 다음, 처리량 값을 구성합니다.  
 
    ![새 데이터베이스 옵션으로 처리량 설정](./media/set-throughput/set-throughput-with-new-database-option.png)
 
@@ -74,7 +74,7 @@ Azure Portal을 사용하거나 클라이언트 SDK를 사용하여 Azure Cosmos
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.  
 2. 왼쪽 탐색 창에서 **모든 리소스**를 선택하고 Azure Cosmos DB 계정을 찾습니다.  
 3. 데이터베이스를 만들고 처리량을 할당합니다. **Data Explorer** 블레이드를 열고 **New Database**를 선택합니다.  
-4. **Database ID** 값을 입력하고, **프로비전 처리량** 옵션을 확인한 다음, 처리량 값을 구성합니다. 최소 처리량 값 50,000 RU/s로 데이터베이스를 프로비전할 수 있습니다.  
+4. **Database ID** 값을 입력하고, **프로비전 처리량** 옵션을 확인한 다음, 처리량 값을 구성합니다.  
 
    ![새 데이터베이스 옵션으로 처리량 설정](./media/set-throughput/set-throughput-with-new-database-option.png)
 
@@ -107,33 +107,6 @@ Azure Portal을 사용하거나 클라이언트 SDK를 사용하여 Azure Cosmos
 * Azure Cosmos DB 컨테이너 수가 적은 경우.  
 
 * SLA가 뒷받침하는 주어진 컨테이너에서 보장된 처리량을 얻고자 할 경우.
-
-## <a name="throughput-ranges"></a>처리량 범위
-
-다음 테이블에는 컨테이너에 사용할 수 있는 처리량이 나열되어 있습니다.
-
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top"><p></p></td>
-            <td valign="top"><p><strong>단일 파티션 컨테이너</strong></p></td>
-            <td valign="top"><p><strong>분할된 컨테이너</strong></p></td>
-            <td valign="top"><p><strong>컨테이너 집합</strong></p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>최소 처리량</p></td>
-            <td valign="top"><p>초당 요청 단위 400개</p></td>
-            <td valign="top"><p>초당 요청 단위 1,000개</p></td>
-            <td valign="top"><p>초당 요청 단위 50,000개</p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>최대 처리량</p></td>
-            <td valign="top"><p>초당 요청 단위 10,000개</p></td>
-            <td valign="top"><p>Unlimited</p></td>
-            <td valign="top"><p>Unlimited</p></td>
-        </tr>
-    </tbody>
-</table>
 
 <a id="set-throughput-sdk"></a>
 

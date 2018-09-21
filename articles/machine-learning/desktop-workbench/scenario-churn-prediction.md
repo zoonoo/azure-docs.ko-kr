@@ -9,19 +9,19 @@ editor: miprasad
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: miprasad
-ms.openlocfilehash: a4e3441e4b7512d60be8ce5433822a95732cd802
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7c7b50098cfd1bcac534156dd905b37affab80bd
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832393"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35639612"
 ---
 # <a name="customer-churn-prediction-using-azure-machine-learning"></a>Azure Machine Learning을 사용한 고객 변동 분석
 
@@ -53,7 +53,7 @@ ms.locfileid: "34832393"
 
 * 인지된 잦은 서비스 중단
 * 온라인/소매점의 형편 없는 고객 서비스 환경
-* 다른 경쟁 사업자의 제품(더 나은 가족 요금제, 데이터 요금제 등)
+* 다른 경쟁 사업자의 제안(더 나은 가족 요금제, 데이터 요금제 등)
 
 이 솔루션에서는 통신 회사를 위한 예측 고객 변동 모델의 구체적인 빌드 예제를 사용합니다.
 

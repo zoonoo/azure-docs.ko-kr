@@ -4,17 +4,16 @@ description: Azure Maps에서 지원되는 지도 스타일
 author: walsehgal
 ms.author: v-musehg
 ms.date: 08/28/2018
-ms.topic: concepts
+ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc
-ms.openlocfilehash: 04c8f43e3b484ceeb942ae13ea95baf7f0215b53
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8f0910e9040c962bae30a33b91a93e71e692dfdb
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344838"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713445"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Azure Maps에서 지원되는 지도 스타일
 Azure Maps는 서로 다른 네 가지 기본 제공 지도 스타일을 지원합니다. 이러한 스타일은 설명과 함께 아래에 나와 있습니다.
