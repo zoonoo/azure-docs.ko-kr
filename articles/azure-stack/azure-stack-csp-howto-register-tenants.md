@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 09/19/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: af28bff0a9826bb96451ae944a377ad0ee284d87
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: eef1a2f82dc73a1c53b89bb3c9d145f87212ffcc
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633999"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498575"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>사용량에 대 한 테 넌 트를 추가 하 고 Azure Stack에 대 한 청구
 
@@ -69,9 +69,9 @@ Csp는 종종 여러 최종 고객 (테 넌 트)에 게 Azure Stack 배포 서�
 ### <a name="new-azurermresource-powershell-parameters"></a>AzureRmResource 새 PowerShell 매개 변수
 | 매개 변수 | 설명 |
 | --- | --- | 
-|registrationSubscriptionID | Azure Stack의 초기 등록에 사용 된 Azure 구독입니다. |
-| customerSubscriptionID | Azure 구독 (Azure Stack 없습니다) 등록을 위해 고객에 속하는입니다. 해야 CSP 제품;에서 만든 실제로이 파트너 센터를 통해 의미합니다. 고객이 Azure Active Directory 테 넌 트를 여러 개 있으면이 구독의 Azure Stack에 로그인 하는 데 사용할 테 넌 트에 생성 되어야 합니다.
-| resourceGroup | 등록 저장 되는 Azure에서 리소스 그룹입니다. 
+|registrationSubscriptionID | Azure Stack의 초기 등록에 사용 된 Azure 구독입니다.|
+| customerSubscriptionID | Azure 구독 (Azure Stack 없습니다) 등록을 위해 고객에 속하는입니다. 해야 CSP 제품;에서 만든 실제로이 파트너 센터를 통해 의미합니다. 고객이 Azure Active Directory 테 넌 트를 여러 개 있으면이 구독의 Azure Stack에 로그인 하는 데 사용할 테 넌 트에 생성 되어야 합니다. 고객 구독 ID는 소문자를 사용 해야 합니다. |
+| resourceGroup | 등록 저장 되는 Azure에서 리소스 그룹입니다. |
 | registrationName | Azure Stack에 등록의 이름입니다. 이 Azure에 저장 된 개체입니다. | 
 | properties | 리소스에 대 한 속성을 지정합니다. 리소스 종류에 관련 된 속성의 값을 지정 하려면이 매개 변수를 사용 합니다.
 
