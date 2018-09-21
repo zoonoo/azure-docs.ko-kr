@@ -10,18 +10,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e613ff742096077fe1765d4b855b6c7d409cc228
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 1ae74f7c43e763962224683954b28e5941136c08
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158950"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295821"
 ---
 # <a name="how-to-configure-password-writeback"></a>방법: 비밀번호 쓰기 저장 구성
 
-비밀번호 쓰기 저장을 사용하려는 경우 [Azure AD Connect](./../connect/active-directory-aadconnect-get-started-express.md)의 자동 업데이트 기능을 사용하는 것이 좋습니다.
+비밀번호 쓰기 저장을 사용하려는 경우 [Azure AD Connect](../hybrid/how-to-connect-install-express.md)의 자동 업데이트 기능을 사용하는 것이 좋습니다.
 
-다음 단계에서는 사용자 환경에서 [기본](./../connect/active-directory-aadconnect-get-started-express.md) 또는 [사용자 지정](./../connect/active-directory-aadconnect-get-started-custom.md) 설정을 사용하여 Azure AD Connect를 이미 구성했다고 가정합니다.
+다음 단계에서는 사용자 환경에서 [기본](../hybrid/how-to-connect-install-express.md) 또는 [사용자 지정](../hybrid/how-to-connect-install-custom.md) 설정을 사용하여 Azure AD Connect를 이미 구성했다고 가정합니다.
 
 1. 비밀번호 쓰기 저장을 구성하고 사용하도록 설정하려면 Azure AD Connect 서버에 로그인하고 **Azure AD Connect** 구성 마법사를 시작합니다.
 2. **시작** 페이지에서 **구성**을 선택합니다.

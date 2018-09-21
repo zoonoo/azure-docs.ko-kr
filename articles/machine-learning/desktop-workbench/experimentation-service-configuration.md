@@ -7,16 +7,16 @@ ms.author: gokhanu
 manager: haining
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 6903a02a2f714dc6a8de7bcdd6a81cdd14f2cb0a
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: e79817ffad139e0a3bcb0ba32b9bc6e5666319d0
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831357"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35638388"
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Azure Machine Learning 실험 서비스 구성
 
@@ -267,7 +267,7 @@ sudo /anaconda/envs/py35/bin/pip install <package>
 HDInsight는 Apache Spark를 지원하는 인기 있는 빅 데이터 분석용 플랫폼입니다. Workbench를 사용하면 HDInsight Spark 클러스터를 사용하여 빅 데이터에 대해 실험할 수 있습니다. 
 
 >[!NOTE]
->HDInsight 클러스터는 Azure Blob을 주 저장소로 사용해야 합니다. 아직 Azure Data Lake Storage를 사용하도록 지원되지 않습니다.
+>HDInsight 클러스터는 Azure Blob을 주 저장소로 사용해야 합니다. 아직 Azure Data Lake Storage 사용은 지원되지 않습니다.
 
 다음 명령을 사용하여 HDInsight Spark 클러스터에 대한 계산 대상 및 실행 구성을 만들 수 있습니다.
 
@@ -276,7 +276,7 @@ $ az ml computetarget attach cluster --name "myhdi" --address "<FQDN or IP addre
 ```
 
 >[!NOTE]
->IP 주소 대신에 FQDN을 사용하고 HDI Spark 클러스터 이름이 _foo_인 경우, SSH 끝점은 _foo-ssh.azurehdinsight.net_이라는 드라이버 노드에 있습니다. _--address_ 매개 변수에 FQDN을 사용하는 경우 서버 이름의 접미사 **-ssh**를 잊지 마십시오.
+>IP 주소 대신에 FQDN을 사용하고 HDI Spark 클러스터 이름이 _foo_인 경우, SSH 엔드포인트는 _foo-ssh.azurehdinsight.net_이라는 드라이버 노드에 있습니다. _--address_ 매개 변수에 FQDN을 사용하는 경우 서버 이름의 접미사 **-ssh**를 잊지 마십시오.
 
 
 계산 컨텍스트를 가지고 있는 경우 다음 명령을 실행하여 PySpark 스크립트를 실행할 수 있습니다.

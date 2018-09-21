@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 47cc38226799c5fd3afa2e13e7731a7683b736ba
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 86331f60e1be7d55c39e5d59f85b0f090a322587
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527520"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573861"
 ---
 # <a name="enable-secure-tls-for-azure-storage-client"></a>Azure Storage 클라이언트에 대한 보안 TLS 사용
 
@@ -25,7 +25,7 @@ Azure Storage에 대한 보안 및 준수 연결을 보장하기 위해 Azure St
 
 ## <a name="enable-tls-12-in-net-client"></a>.NET 클라이언트에서 TLS 1.2 사용
 
-TLS 1.2를 협상하는 클라이언트의 경우 OS 및 .NET Framework 버전은 모두 TLS 1.2를 지원해야 합니다. [TLS 1.2에 대한 지원](https://docs.microsoft.com/en-us/dotnet/framework/network-programming/tls#support-for-tls-12)에서 자세한 내용을 참조하세요.
+TLS 1.2를 협상하는 클라이언트의 경우 OS 및 .NET Framework 버전은 모두 TLS 1.2를 지원해야 합니다. [TLS 1.2에 대한 지원](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)에서 자세한 내용을 참조하세요.
 
 다음 샘플에서는 .NET 클라이언트에서 TLS 1.2를 사용하는 방법을 보여줍니다.
 

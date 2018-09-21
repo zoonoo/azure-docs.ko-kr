@@ -7,16 +7,20 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 06/14/2018
 ms.author: sstein
-ms.openlocfilehash: d1869dd689ef090978c3835e0a16fec82dfb5c05
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3efee2f9a4b205b87a65eb473271b0ab5e58046d
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648689"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498422"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>PowerShell을 사용하여 SQL Database 탄력적 작업 만들기 및 관리(미리 보기)
+
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
 
 **Elastic Database 작업** (미리 보기)에 PowerShell API를 사용하면 스크립트를 실행할 데이터베이스 그룹을 정의할 수 있습니다. 이 문서는 PowerShell cmdlet을 사용하여 **Elastic Database 작업** 을 만들고 관리하는 방법을 보여줍니다. [탄력적 작업 개요](sql-database-elastic-jobs-overview.md)를 참조하세요. 
 
@@ -209,7 +213,7 @@ Elastic Database 작업에 대한 보안 모범 사례는 다음과 같습니다
 * 자격 증명에 작업 태스크를 수행하는 데 필요한 최소한의 권한만 있어야 합니다.  자세한 내용은 이 [권한 부여 및 사용 권한](https://msdn.microsoft.com/library/bb669084.aspx) SQL Server MSDN 문서에서 확인할 수 있습니다.
 
 ### <a name="to-create-an-encrypted-credential-for-job-execution-across-databases"></a>데이터베이스에 대한 작업 실행을 위한 암호화된 자격 증명을 만들려면
-새 암호화된 자격 증명을 만들기 위해 [**Get-Credential cmdlet**](https://technet.microsoft.com/library/hh849815.aspx)에서 [**New-AzureSqlJobCredential cmdlet**](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential)에 전달할 수 있는 사용자 이름 및 암호를 묻는 메시지를 표시합니다.
+새 암호화된 자격 증명을 만들기 위해 [**Get-Credential cmdlet**](/powershell/module/microsoft.powershell.security/get-credential)에서 [**New-AzureSqlJobCredential cmdlet**](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential)에 전달할 수 있는 사용자 이름 및 암호를 묻는 메시지를 표시합니다.
 
     $credentialName = "{Credential Name}"
     $databaseCredential = Get-Credential

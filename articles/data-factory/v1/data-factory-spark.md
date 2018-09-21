@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4c7dddcb5e39eb1f72fb59af753ab167bc44d3e3
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 2c00e42284783439b0a01f6ba6bab31be053b1c9
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246765"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736413"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Azure Data Factory 파이프라인에서 Spark 프로그램 호출
 
@@ -109,7 +109,7 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 
    ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-1. **계정 이름** 및 **계정 키**를 저장소 계정의 이름 및 액세스 키로 바꿉니다. 저장소 액세스 키를 가져오는 방법을 알아보려면 [저장소 계정 관리](../../storage/common/storage-create-storage-account.md#manage-your-storage-account)에서 저장소 액세스 키를 보고, 복사하고, 다시 생성하는 방법을 참조하세요.
+1. **계정 이름** 및 **계정 키**를 저장소 계정의 이름 및 액세스 키로 바꿉니다. 저장소 액세스 키를 가져오는 방법을 알아보려면 [저장소 계정 관리](../../storage/common/storage-account-manage.md#access-keys)에서 저장소 액세스 키를 보고, 복사하고, 다시 생성하는 방법을 참조하세요.
 
 1. 연결된 서비스를 배포하려면 명령 모음에서 **배포**를 선택합니다. 연결된 서비스가 성공적으로 배포되면 후 초안 1 창이 사라집니다. 왼쪽의 트리 뷰에서 **AzureStorageLinkedService**가 표시됩니다.
 

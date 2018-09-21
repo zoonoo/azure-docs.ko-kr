@@ -56,6 +56,8 @@ items:
       href: howto-set-up-template.md
     - name: 장치 관리
       href: howto-manage-devices.md
+    - name: 작업 실행
+      href: howto-run-a-job.md
     - name: 장치 설정 사용
       href: howto-use-device-sets.md
     - name: 버전 장치 템플릿
@@ -66,7 +68,7 @@ items:
       href: howto-create-telemetry-rules.md
     - name: 이벤트 규칙 만들기
       href: howto-create-event-rules.md
-    - name: 사용자 지정 분석 만들기
+    - name: 장치 데이터 분석
       href: howto-create-analytics.md
   - name: 작업 및 확장성
     items:
@@ -82,14 +84,12 @@ items:
       href: howto-connect-powerbi.md
   - name: 관리
     items:
-    - name: 응용 프로그램 관리
-      href: howto-administer.md
+    - name: Azure 관리 포털에서 IoT Central 관리
+      href: howto-manage-iot-central-from-portal.md
     - name: CSP가 응용 프로그램을 만들고 관리할 때
       href: howto-create-and-manage-applications-as-CSP.md
     - name: 홈페이지 구성
       href: howto-configure-homepage.md
-    - name: 이미지 준비 및 업로드
-      href: howto-prepare-images.md
 - name: 관련 항목
   items:
   - name: 솔루션
@@ -122,9 +122,9 @@ items:
     href: iot-central-customer-data-requests.md
   - name: 스택 오버플로
     href: https://stackoverflow.com/questions/tagged/azure-iot-central
-ms.openlocfilehash: 103bbb59a20194447d49e11327df1d984ccb0a8a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 3e8292ce6780381f4e8ead009002959fe42a9d02
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983121"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465677"

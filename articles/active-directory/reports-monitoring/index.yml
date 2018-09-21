@@ -1,12 +1,12 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2217adbbb9e5222e6c33bfcdce41c30396c7f231
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 95341f318a9902a82ecb0366400ec34d159f0225
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45740323"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363686"
 documentType: LandingData
-title: Azure AD 보고 및 모니터링
+title: Azure Active Directory 보고서 및 모니터링
 metadata:
   document_id: 
   title: Azure Active Directory 보고 및 모니터링 설명서 - 자습서, 빠른 시작, 개념 | Microsoft Docs
@@ -22,7 +22,7 @@ metadata:
   ms.date: 08/14/2018
   ms.author: priyamo
 abstract:
-  description: 사용 환경에 대한 보안과 감사 보고서를 보거나 시간을 두고 모니터링하여 사용 패턴에 대한 통찰력을 얻는 방법을 알아봅니다. Azure AD 보고서를 사용하여 사용 환경의 보안과 사용 패턴에 대한 통찰력을 얻을 수 있습니다. 예를 들어 다음과 같은 질문에 답변할 수 있습니다.<ul><li>사용자가 응용 프로그램이나 서비스를 어떻게 활용하나요?</li><li>환경의 상태에 영향을 줄 수 있는 잠재적인 위험은 무엇인가요?</li><li>작업을 완료하는 데 방해가 되는 문제를 어떻게 해결하나요?</li>
+  description: 사용 환경에 대한 보안과 감사 보고서를 보거나 시간을 두고 모니터링하여 사용 패턴에 대한 통찰력을 얻는 방법을 알아봅니다. Azure AD(Azure Active Directory) 보고서를 사용하여 사용 환경의 보안과 사용 패턴에 대한 통찰력을 얻을 수 있습니다. 예를 들어 다음과 같은 질문에 답변할 수 있습니다.<ul><li>사용자가 응용 프로그램이나 서비스를 어떻게 활용하나요?</li><li>환경의 상태에 영향을 줄 수 있는 잠재적인 위험은 무엇인가요?</li><li>작업을 완료하는 데 방해가 되는 문제를 어떻게 해결하나요?</li>
 sections:
 - title: 5분 빠른 시작
   items:

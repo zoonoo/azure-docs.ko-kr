@@ -10,18 +10,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5d8fe6282d956d7f399aff9f7aa250c5061dc887
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: eb3c1177f86f4c595280521f4dbcbe8081f68895
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159569"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296247"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>최종 사용자를 등록할 필요 없이 암호 재설정 배포
 
 Azure Active Directory(Azure AD) 셀프 서비스 암호 재설정(SSPR)을 배포하려면 인증 데이터가 있어야 합니다. 일부 조직에서는 사용자들이 직접 자신의 인증 데이터를 입력하도록 하지만 대부분의 조직에서는 Active Directory에 있는 기존 데이터와 동기화하는 것을 선호합니다. 동기화된 데이터는 다음과 같은 조건이 충족되는 경우 사용자 개입 없이 Azure AD 및 SSPR에 제공됩니다.
    * 온-프레미스 디렉터리에 데이터가 올바른 형식으로 저장되어 있습니다.
-   * [기본 설정을 사용하여 Azure AD Connect](./../connect/active-directory-aadconnect-get-started-express.md)가 구성되어 있습니다.
+   * [기본 설정을 사용하여 Azure AD Connect](../hybrid/how-to-connect-install-express.md)가 구성되어 있습니다.
 
 올바르게 작동하려면 전화 번호가 *+국가코드 전화번호* 형식으로 저장되어야 합니다(예: +1 4255551234).
 

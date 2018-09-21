@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 95ec87d2fdc34864b90a6596e7100cc6c1387631
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 057af5e0e5b467ab60e8de7534e9f4428b96c3dc
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161993"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298322"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>셀프 서비스 암호 재설정의 문제 해결
 
@@ -41,7 +41,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)에 문�
 | --- | --- |
 | Azure Portal의 Azure AD 섹션에서 **암호 재설정**이 표시되지 않습니다. | 작업을 수행하는 관리자에게 Azure AD Premium 또는 Basic 라이선스가 할당되지 않은 경우에 발생할 수 있습니다. <br> <br> 문제의 관리자 계정에 라이선스를 할당합니다. [라이선스 할당, 확인 및 문제 해결](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses) 문서의 단계를 따를 수 있습니다.|
 | 특정 구성 옵션이 보이지 않습니다. | 필요할 때까지 UI의 요소는 대부분 숨겨져 있습니다. 참조하려는 모든 옵션을 사용하도록 설정하세요. |
-| **온-프레미스 통합** 탭이 표시되지 않습니다. | Azure AD 연결을 다운로드하고 비밀번호 쓰기 저장을 구성하는 경우 이 옵션이 표시됩니다. 자세한 내용은 [기본 설정을 사용하여 Azure AD Connect 시작](./../connect/active-directory-aadconnect-get-started-express.md)을 참조하세요. |
+| **온-프레미스 통합** 탭이 표시되지 않습니다. | Azure AD 연결을 다운로드하고 비밀번호 쓰기 저장을 구성하는 경우 이 옵션이 표시됩니다. 자세한 내용은 [기본 설정을 사용하여 Azure AD Connect 시작](../hybrid/how-to-connect-install-express.md)을 참조하세요. |
 
 ## <a name="troubleshoot-password-reset-reporting"></a>암호 재설정 보고 문제 해결
 
@@ -80,10 +80,10 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)에 문�
 
 | 오류 | 해결 방법 |
 | --- | --- |
-| 암호 재설정 서비스가 온-프레미스를 시작하지 않습니다. Azure AD Connect 컴퓨터의 응용 프로그램 이벤트 로그에서 오류 6800이 나타납니다. <br> <br> 온보딩 후에 페더레이션되거나 통과 인증 또는 암호 해시 동기화된 사용자는 자신의 암호를 재설정할 수 없습니다. | 비밀번호 쓰기 저장을 사용하는 경우 동기화 엔진은 저장 라이브러리를 호출하여 클라우드 온보딩 서비스와 대화함으로써 구성(온보딩)을 수행합니다. 비밀번호 쓰기 저장에 대한 WCF(Windows Communication Foundation) 엔드포인트를 온보딩 또는 시작하는 동안 발생한 오류는 Azure AD Connect 컴퓨터의 이벤트 로그에서 오류를 발생시킵니다. <br> <br> ADSync(Azure AD Sync) 서비스를 다시 시작하는 동안 쓰기 저장을 구성한 경우 WCF 끝점이 시작됩니다. 그러나 끝점을 시작하는 데 실패하면 6800 이벤트를 로그하고 동기화 서비스를 시작합니다. 이 이벤트의 현재 상태는 비밀번호 쓰기 저장 끝점이 시작되지 않았음을 의미합니다. 이 이벤트 6800에 대한 이벤트 로그 세부 정보는 PasswordResetService 요소가 생성한 이벤트 로그 항목과 함께 끝점을 시작할 수 없는 이유를 나타냅니다. 비밀번호 쓰기 저장이 여전히 작동하지 않는 경우 이러한 이벤트 로그 오류를 검토하고 Azure AD Connect를 다시 시작합니다. 문제가 지속되면 비밀번호 쓰기 저장을 비활성화하고 다시 활성화시킵니다.
+| 암호 재설정 서비스가 온-프레미스를 시작하지 않습니다. Azure AD Connect 컴퓨터의 응용 프로그램 이벤트 로그에서 오류 6800이 나타납니다. <br> <br> 온보딩 후에 페더레이션되거나 통과 인증 또는 암호 해시 동기화된 사용자는 자신의 암호를 재설정할 수 없습니다. | 비밀번호 쓰기 저장을 사용하는 경우 동기화 엔진은 저장 라이브러리를 호출하여 클라우드 온보딩 서비스와 대화함으로써 구성(온보딩)을 수행합니다. 비밀번호 쓰기 저장에 대한 WCF(Windows Communication Foundation) 엔드포인트를 온보딩 또는 시작하는 동안 발생한 오류는 Azure AD Connect 컴퓨터의 이벤트 로그에서 오류를 발생시킵니다. <br> <br> ADSync(Azure AD Sync) 서비스를 다시 시작하는 동안 쓰기 저장을 구성한 경우 WCF 엔드포인트가 시작됩니다. 그러나 엔드포인트를 시작하는 데 실패하면 6800 이벤트를 로그하고 동기화 서비스를 시작합니다. 이 이벤트의 현재 상태는 비밀번호 쓰기 저장 엔드포인트가 시작되지 않았음을 의미합니다. 이 이벤트 6800에 대한 이벤트 로그 세부 정보는 PasswordResetService 요소가 생성한 이벤트 로그 항목과 함께 엔드포인트를 시작할 수 없는 이유를 나타냅니다. 비밀번호 쓰기 저장이 여전히 작동하지 않는 경우 이러한 이벤트 로그 오류를 검토하고 Azure AD Connect를 다시 시작합니다. 문제가 지속되면 비밀번호 쓰기 저장을 비활성화하고 다시 활성화시킵니다.
 | 사용자가 암호 재설정 또는 비밀번호 쓰기 저장을 사용하도록 설정된 계정을 잠금 해제하려는 경우 작업이 실패합니다. <br> <br> 또한 잠금 해제 작업이 발생한 후 “동기화 엔진이 오류 hr=800700CE 반환, 메시지=파일 이름 또는 확장명이 너무 깁니다”를 포함하는 Azure AD Connect 이벤트 로그에서 이벤트가 표시됩니다. | Azure AD Connect에 대한 Active Directory 계정을 찾고 최대 127자를 포함하도록 암호를 재설정합니다. 그런 다음 **시작** 메뉴에서 **동기화 서비스**를 엽니다. **커넥터**로 이동하고 **Active Directory Connector**를 찾습니다. 이를 선택한 후 **속성**을 선택합니다. **자격 증명** 페이지로 이동하고 새 암호를 입력합니다. **확인**을 선택하여 페이지를 닫습니다. |
 | Azure AD Connect 설치 프로세스의 마지막 단계에서 비밀번호 쓰기 저장을 구성할 수 없다는 오류가 표시됩니다. <br> <br> Azure AD Connect 응용 프로그램 이벤트 로그는 "인증 토큰 가져오기 오류"라는 오류 32009 텍스트를 포함합니다. | 이 오류는 다음과 같은 두 경우에 발생합니다. <br><ul><li>Azure AD Connect 설치 프로세스를 시작할 때 지정된 전역 관리자 계정에 잘못된 암호를 지정했습니다.</li><li>Azure AD Connect 설치 프로세스를 시작할 때 지정된 전역 관리자 계정에 페더레이션된 사용자를 사용하려 했습니다.</li></ul> 이 오류를 해결하려면 설치 프로세스를 시작할 때 지정한 전역 관리자로 페더레이션된 계정을 사용하지 않는지 확인하세요. 또한 지정된 암호가 올바른지도 확인합니다. |
-| Azure AD Connect 컴퓨터 이벤트 로그는 PasswordResetService를 실행할 때 발생된 오류 32002를 포함합니다. <br> <br> 오류 메시지: "ServiceBus에 연결하는 동안 오류가 발생했습니다. 토큰 공급자가 보안 토큰을 제공할 수 없습니다.”가 표시됩니다. | 온-프레미스 환경을 클라우드의 Azure Service Bus 끝점에 연결할 수 없습니다. 이 오류는 특정 포트 또는 웹 주소에 대한 아웃바운드 연결을 차단하는 방화벽 규칙에 의해 발생됩니다. 자세한 내용은 [연결 필수 조건](./../connect/active-directory-aadconnect-prerequisites.md)을 참조하세요. 이러한 규칙을 업데이트한 후 Azure AD Connect 컴퓨터를 재부팅하고 비밀번호 쓰기 저장은 작업을 다시 시작해야 합니다. |
+| Azure AD Connect 컴퓨터 이벤트 로그는 PasswordResetService를 실행할 때 발생된 오류 32002를 포함합니다. <br> <br> 오류 메시지: "ServiceBus에 연결하는 동안 오류가 발생했습니다. 토큰 공급자가 보안 토큰을 제공할 수 없습니다.”가 표시됩니다. | 온-프레미스 환경을 클라우드의 Azure Service Bus 엔드포인트에 연결할 수 없습니다. 이 오류는 특정 포트 또는 웹 주소에 대한 아웃바운드 연결을 차단하는 방화벽 규칙에 의해 발생됩니다. 자세한 내용은 [연결 필수 조건](../hybrid/how-to-connect-install-prerequisites.md)을 참조하세요. 이러한 규칙을 업데이트한 후 Azure AD Connect 컴퓨터를 재부팅하고 비밀번호 쓰기 저장은 작업을 다시 시작해야 합니다. |
 | 시간이 지난 후에 페더레이션되거나 통과 인증 또는 암호 해시 동기화된 사용자는 자신의 암호를 재설정할 수 없습니다. | 일부 드문 경우에서 Azure AD Connect를 다시 시작할 때 비밀번호 쓰기 저장 서비스를 다시 시작하지 못할 수 있습니다. 이러한 경우 먼저 비밀번호 쓰기 저장이 활성화된 온-프레미스에 나타나는지 확인하세요. Azure AD Connect 마법사 또는 PowerShell을 사용하여 확인할 수 있습니다(이전 방법 섹션 참조). 해당 기능이 사용 가능으로 설정된 것으로 나타날 경우 UI 또는 PowerShell을 통해 사용하도록 설정하거나 사용하지 않도록 설정합니다. 이 방법으로도 해결되지 않으면 Azure AD Connect를 완전히 제거했다가 다시 설치해보세요. |
 | 페더레이션되었거나 통과 인증 또는 암호 해시 동기화된 사용자가 자신의 암호를 재설정하려고 하면 암호 제출을 시도한 후에 오류가 나타납니다. 이 오류는 서비스 문제가 있음을 나타냅니다. <br ><br> 이 문제 외에도 암호 재설정 작업 중 관리 에이전트와 관련한 오류가 온-프레미스 이벤트 로그에서 거부된 액세스를 표시할 수 있습니다 | 이러한 오류를 이벤트 로그에 표시한 경우 구성 시 마법사에서 지정된 ADMA(Active Directory Management Agent) 계정이 비밀번호 쓰기 저장에 필요한 권한이 있는지 확인합니다. <br> <br> 이 권한이 부여되면 DC(도메인 컨트롤러)에서 `sdprop` 백그라운드 작업을 통해 권한을 주는 데 최대 1시간이 걸릴 수 있습니다. <br> <br> 암호 재설정을 작동하기 위해 해당 암호를 재설정하는 사용자 개체의 보안 설명자에 사용 권한을 스탬프해야 합니다. 사용자 개체에 이 사용 권한이 표시될 때까지 암호 재설정은 액세스 거부 메시지를 표시하며 실패하게 됩니다. |
 | 페더레이션되었거나 통과 인증 또는 암호 해시 동기화된 사용자가 자신의 암호를 재설정하려고 하면 암호를 제출한 후에 오류가 나타납니다. 이 오류는 서비스 문제가 있음을 나타냅니다. <br> <br> 이 문제 외에도 암호 재설정 작업 중에 Azure AD Connect 서비스에서 이벤트 로그에 "개체를 찾을 수 없습니다"라는 오류가 나타날 수 있습니다. | 이 오류는 일반적으로 동기화 엔진이 Azure AD 커넥터 공간 또는 연결된 MV(메타버스)에서 사용자 개체 또는 Azure AD 커넥터 공간 개체를 찾을 수 없음을 나타냅니다. <br> <br> 이 문제를 해결하려면 Azure AD Connect의 현재 인스턴스를 통해 사용자가 온-프레미스에서 Azure AD에 실제로 동기화되었는지 확인하고 커넥터 공간 및 MV에서 개체의 상태를 검사합니다. AD CS(Active Directory 인증서 서비스) 개체가 "Microsoft.InfromADUserAccountEnabled.xxx" 규칙을 통한 MV 개체에 연결되어 있는지 확인합니다.|
@@ -171,7 +171,7 @@ Azure AD Connect 버전 1.1.443.0 이상의 경우 다음 항목에 대한 아�
 
 세분성의 경우 수요일마다 업데이트되는 [Microsoft Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 목록을 참조하고 다음 월요일에 적용할 수 있습니다.
 
-자세한 내용은 [Azure AD Connect에 대한 필수 조건](./../connect/active-directory-aadconnect-prerequisites.md) 문서에서 연결 필수 조건을 검토하세요.
+자세한 내용은 [Azure AD Connect에 대한 필수 조건](../hybrid/how-to-connect-install-prerequisites.md) 문서에서 연결 필수 조건을 검토하세요.
 
 
 

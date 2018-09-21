@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 9512c800a35ad4a819c657b07227d781c63c6399
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: e91ca2ff438e3ae9e9b3f46e5a8db89f17fb1c8e
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163337"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295124"
 ---
 # <a name="tutorial-enabling-password-writeback"></a>자습서: 비밀번호 쓰기 저장 사용
 
@@ -29,7 +29,7 @@ ms.locfileid: "39163337"
 
 * 적어도 평가판 라이선스가 할당된 정상 작동 중인 Azure AD 테넌트에 대한 액세스 권한.
 * Azure AD 테넌트의 전역 관리자 권한이 있는 계정.
-* [Azure AD Connect](../connect/active-directory-aadconnect-get-started-express.md) 최신 버전을 실행하도록 구성된 기존 서버.
+* [Azure AD Connect](../hybrid/how-to-connect-install-express.md) 최신 버전을 실행하도록 구성된 기존 서버.
 * 이전 SSPR(셀프 서비스 암호 재설정) 자습서 완료.
 
 ## <a name="enable-password-writeback-option-in-azure-ad-connect"></a>Azure AD Connect에서 비밀번호 쓰기 저장 옵션 사용

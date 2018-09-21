@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: c1247dfca6dea638da2113fef940b97ad3348b9a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 0754b13704810816b1650010a00185031ca41f5d
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160283"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297574"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure용 네트워크 정책 서버 확장을 사용하여 VPN 인프라를 Azure MFA와 통합
 
@@ -122,7 +122,7 @@ Microsoft Azure Active Directory PowerShell 모듈이 아직 없는 경우 설�
 
 NPS 확장을 사용하려면 온-프레미스 사용자가 Azure Active Directory와 동기화되고 MFA를 사용하도록 설정되어야 합니다. 이 가이드에서는 온-프레미스 사용자가 AD Connect를 통해 Azure Active Directory와 동기화된다고 가정합니다. 사용자가 MFA를 사용하도록 설정하기 위한 지침은 다음과 같습니다.
 
-Azure AD Connect에 대한 자세한 내용은 [Azure Active Directory와 온-프레미스 디렉터리 통합](../connect/active-directory-aadconnect.md)을 참조하세요. 
+Azure AD Connect에 대한 자세한 내용은 [Azure Active Directory와 온-프레미스 디렉터리 통합](../hybrid/whatis-hybrid-identity.md)을 참조하세요. 
 
 ### <a name="azure-active-directory-guid-id"></a>Azure Active Directory GUID ID 
 
@@ -244,7 +244,7 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
 
     a. **서버 이름** 상자에서 이전 섹션에서 구성한 RADIUS 서버의 이름 또는 IP 주소를 입력합니다.
 
-    나. **공유 비밀**에서 **변경**을 선택하고 이전에 만들어 기록해 둔 공유 비밀 암호를 입력합니다.
+    b. **공유 비밀**에서 **변경**을 선택하고 이전에 만들어 기록해 둔 공유 비밀 암호를 입력합니다.
 
     다. **시간 제한(초)** 상자에서 **30** ~ **60** 사이의 값을 선택합니다.  
     이 시간 제한 값은 두 번째 인증 요소를 완료할 수 있을 만큼 충분한 시간을 허용하는 데 필요합니다.
@@ -453,5 +453,5 @@ Azure Multi-factor Authentication 로그의 관련 이벤트는 다음과 같습
 
 [RADIUS를 사용한 원격 데스크톱 게이트웨이 및 Azure Multi-Factor Authentication 서버](howto-mfaserver-nps-rdg.md)
 
-[Azure Active Directory와 온-프레미스 디렉터리 통합](../connect/active-directory-aadconnect.md)
+[Azure Active Directory와 온-프레미스 디렉터리 통합](../hybrid/whatis-hybrid-identity.md)
 

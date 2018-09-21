@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: a24988bb9866dde72769107f1c45fc461c039f9a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 9873347683fdfabd93083b44d034a8d9d5bcaeef
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161060"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297540"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
 
@@ -105,7 +105,7 @@ NPS에 대해 지정된 서버를 가지게 되었으며, 이 서버 또한 VPN 
 2. **Azure Active Directory** > **Azure AD Connect** 선택
 3. 동기화 상태가 **사용**이고 마지막 동기화가 1시간 미만인지 확인합니다.
 
-동기화의 새 라운드를 시작하는 경우 [Azure AD Connect 동기화: Scheduler](../connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler) 지침을 사용합니다.
+동기화의 새 라운드를 시작하는 경우 [Azure AD Connect 동기화: Scheduler](../hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler) 지침을 사용합니다.
 
 ### <a name="determine-which-authentication-methods-your-users-can-use"></a>사용자가 사용할 수 있는 인증 방법을 결정합니다.
 
