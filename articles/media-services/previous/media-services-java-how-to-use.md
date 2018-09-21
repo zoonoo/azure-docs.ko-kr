@@ -312,7 +312,7 @@ Azure AD 응용 프로그램을 만들고 Azure Portal에서 위의 구성 값�
 Azure에서 Java 응용 프로그램을 개발하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터][Azure Java Developer Center] 및 [Java 개발자용 Azure][Azure for Java developers]를 참조하세요.
 
 
-Media Services Javadoc 설명서는 [Java용 Azure 라이브러리 설명서](Java용 Azure 라이브러리 설명서)를 참조하세요.
+Media Services Javadoc 설명서는 [Java용 Azure 라이브러리 설명서][Java용 Azure 라이브러리 설명서]를 참조하세요.
 
 <!-- URLs. -->
 
