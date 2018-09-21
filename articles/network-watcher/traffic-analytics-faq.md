@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 9f7fb5009468dccae50190ee40a53d11040d0348
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: debefb329304235818b7b441122b90ae9a2834a9
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903750"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578313"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>트래픽 분석 질문과 대답
 
@@ -58,7 +58,7 @@ ms.locfileid: "37903750"
 
 3. 지정된 사용자에게 할당된 모든 역할을 나열하려면 **Get-AzureRmRoleAssignment -SignInName [사용자 메일] -IncludeClassicAdministrators**를 사용합니다. 
 
-출력이 표시되지 않으면 각 구독 관리자에게 문의하여 명령을 실행할 권한을 얻으세요. 자세한 내용은 [Azure PowerShell을 사용하여 역할 기반 액세스 제어 관리](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell)를 참조하세요.
+출력이 표시되지 않으면 각 구독 관리자에게 문의하여 명령을 실행할 권한을 얻으세요. 자세한 내용은 [Azure PowerShell을 사용하여 역할 기반 액세스 제어 관리](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)를 참조하세요.
 
 
 ## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>트래픽 분석을 사용할 수 있는 Azure 지역은 어디인가요?
@@ -196,7 +196,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 트래픽 분석은 요금이 측정됩니다. 요금은 서비스에서 생성된 흐름 로그 데이터 처리 및 Log Analytics 작업 영역에서 생성된 향상된 로그 저장을 기준으로 측정됩니다. 
 
-예를 들어 [가격 책정 계획](https://azure.microsoft.com/en-us/pricing/details/network-watcher/)과 관련해서 미국 중서부 지역을 고려해보겠습니다. 트래픽 분석에 의해 처리되는 저장소 계정에 저장된 흐름 로그 데이터가 10GB이고 Log Analytics 작업 영역에서 수집된 보강된 로그가 1GB인 경우 해당 요금은 10 x 2.3$ + 1 x 2.76$ = 25.76$가 됩니다.
+예를 들어 [가격 책정 계획](https://azure.microsoft.com/pricing/details/network-watcher/)과 관련해서 미국 중서부 지역을 고려해보겠습니다. 트래픽 분석에 의해 처리되는 저장소 계정에 저장된 흐름 로그 데이터가 10GB이고 Log Analytics 작업 영역에서 수집된 보강된 로그가 1GB인 경우 해당 요금은 10 x 2.3$ + 1 x 2.76$ = 25.76$가 됩니다.
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>지역 지도 보기에서 키보드를 사용하여 탐색할 수 있나요?
 
@@ -218,9 +218,9 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 - 지도에서 강조 표시된 다른 노드로 이동하려면 `Tab` 또는 `Right arrow` 키를 사용하여 앞으로 이동합니다. 뒤로 이동하려면 `Shift+Tab` 또는 `Left arrow` 키를 사용합니다.
 - 지도에서 강조 표시된 노드를 선택하려면 `Enter` 또는 `Down arrow` 키를 사용합니다.
 - 노드를 선택하면 해당 노드의 **정보 도구 상자**로 포커스가 이동됩니다. 기본적으로 포커스는 **정보 도구 상자**의 닫힌 단추로 이동합니다. **상자** 보기 내부에서 추가로 이동하려면 `Right arrow` 및 `Left arrow` 키를 사용하여 각각 앞으로 또는 뒤로 이동할 수 있습니다. `Enter` 키를 누르면 **정보 도구 상자**에서 포커스가 있는 단추를 선택한 것과 동일한 효과가 적용됩니다.
-- **정보 도구 상자**에 포커스가 있는 동안 `Tab` 키를 누르면 선택된 노드와 동일한 대륙의 끝점으로 포커스가 이동합니다. `Right arrow` 및 `Left arrow` 키를 사용하여 이러한 끝점 간을 이동합니다.
-- 다른 흐름 끝점 또는 대륙 클러스터로 이동하려면 `Tab` 키를 사용하여 앞으로 이동하고 `Shift+Tab` 키를 사용하여 뒤로 이동합니다.
-- **대륙 클러스터**에 포커스가 있을 때 `Enter` 또는 `Down` 화살표 키를 사용하여 대륙 클러스터 내부의 끝점을 강조 표시할 수 있습니다. 대륙 클러스터의 정보 상자에서 끝점과 [닫기] 단추 간을 이동하려면 `Right arrow` 또는 `Left arrow` 키를 사용하여 각각 앞으로 또는 뒤로 이동할 수 있습니다. 아무 엔드포인트에서 `Shift+L` 키를 사용하여 선택한 노드와 엔드포인트를 잇는 연결선으로 전환할 수 있습니다. `Shift+L`을 다시 누르면 선택한 끝점으로 이동할 수 있습니다.
+- **정보 도구 상자**에 포커스가 있는 동안 `Tab` 키를 누르면 선택된 노드와 동일한 대륙의 끝점으로 포커스가 이동합니다. `Right arrow` 및 `Left arrow` 키를 사용하여 이러한 엔드포인트 간을 이동합니다.
+- 다른 흐름 엔드포인트 또는 대륙 클러스터로 이동하려면 `Tab` 키를 사용하여 앞으로 이동하고 `Shift+Tab` 키를 사용하여 뒤로 이동합니다.
+- **대륙 클러스터**에 포커스가 있을 때 `Enter` 또는 `Down` 화살표 키를 사용하여 대륙 클러스터 내부의 엔드포인트를 강조 표시할 수 있습니다. 대륙 클러스터의 정보 상자에서 엔드포인트와 [닫기] 단추 간을 이동하려면 `Right arrow` 또는 `Left arrow` 키를 사용하여 각각 앞으로 또는 뒤로 이동할 수 있습니다. 아무 엔드포인트에서 `Shift+L` 키를 사용하여 선택한 노드와 엔드포인트를 잇는 연결선으로 전환할 수 있습니다. `Shift+L`을 다시 누르면 선택한 엔드포인트로 이동할 수 있습니다.
         
 ### <a name="keyboard-navigation-at-any-stage"></a>모든 단계에서 키보드 탐색
     
