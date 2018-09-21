@@ -1,22 +1,23 @@
 ---
 title: Azure Application Insights Funnels
-description: "Funnels를 사용하여 고객이 응용 프로그램과 상호 작용하는 방법을 검색하는 방법을 알아봅니다."
+description: Funnels를 사용하여 고객이 응용 프로그램과 상호 작용하는 방법을 검색하는 방법을 알아봅니다.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: bbb25af888f34737f6a61cf43890ff248c4cc4de
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 527f9d4a6086f92dcba8a342162b955431b8b315
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35638346"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Application Insights Funnels를 통해 고객이 응용 프로그램을 사용하는 방법 검색
 

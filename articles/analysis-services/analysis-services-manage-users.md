@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 846b76bddbc771a924a1d710cd333dfa4623f5ec
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: a629c598c94e44713f8990871c46272dc48b1359
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449230"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296280"
 ---
 # <a name="authentication-and-user-permissions"></a>인증 및 사용자 권한
 Azure Analysis Services는 ID 관리 및 사용자 인증에 Azure AD(Azure Active Directory)를 사용합니다. Azure Analysis Services 서버를 만들거나, 관리하거나, 이 서버에 연결하는 모든 사용자는 동일한 구독의 [Azure AD 테넌트](../active-directory/fundamentals/active-directory-administer.md)에 유효한 사용자 ID가 있어야 합니다.
@@ -33,7 +33,7 @@ Excel 및 Power BI Desktop 같은 클라이언트 응용 프로그램과 SSMS �
 
 Power BI Desktop, SSDT 및 SSMS는 Azure MFA(Multi-factor Authentication)를 지원하는 대화형메서드인 Active Directory 유니버설 인증을 지원합니다. Azure MFA는 간단한 로그인 프로세스를 제공하는 동시에 데이터와 응용 프로그램에 대한 액세스를 보호하는 데 도움이 됩니다. 전화 통화, 문자 메시지, 모바일 앱 알림 등의 몇 가지 간편한 검증 옵션을 제공하는 강력한 인증을 포함합니다. Azure AD를 사용하는 대화형 MFA는 유효성 검사를 위한 팝업 대화 상자를 표시할 수 있습니다. **유니버설 인증을 권장**합니다.
 
-Windows 계정을 사용하여 Azure에 로그인하고 유니버설 인증을 선택하거나 사용 가능하지 않은 경우(Excel), [AD FS(Active Directory Federation Services)](../active-directory/connect/active-directory-aadconnect-azure-adfs.md)가 필요합니다. 페더레이션, Azure AD 및 Office 365 사용자는 온-프레미스 자격 증명을 사용하여 인증되며 Azure 리소스에 액세스할 수 있습니다.
+Windows 계정을 사용하여 Azure에 로그인하고 유니버설 인증을 선택하거나 사용 가능하지 않은 경우(Excel), [AD FS(Active Directory Federation Services)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md)가 필요합니다. 페더레이션, Azure AD 및 Office 365 사용자는 온-프레미스 자격 증명을 사용하여 인증되며 Azure 리소스에 액세스할 수 있습니다.
 
 ### <a name="sql-server-management-studio-ssms"></a>SSMS(SQL Server Management Studio)
 Azure Analysis Services 서버는 Windows 인증, Active Directory 암호 인증 및 Active Directory 유니버설 인증을 사용하여 [SSMS V17.1](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 이상에서 연결하는 것을 지원합니다. 일반적으로 다음과 같은 이유로 Active Directory 유니버설 인증을 사용하는 것이 좋습니다.

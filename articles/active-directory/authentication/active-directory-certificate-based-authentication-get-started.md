@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: annaba
-ms.openlocfilehash: 62ee6aae825d822a1d87858ea6a7eab953a33318
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 2f6b9ee7a23341f27272a4614bed6be5ae422ce0
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43346722"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297276"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Azure Active Directory에서 인증서 기반 인증 시작
 
@@ -29,7 +29,7 @@ ms.locfileid: "43346722"
 항목 내용:
 
 - Office 365 Enterprise, Business, Education 및 미국 정보 계획의 테넌트 사용자를 위해 인증서 기반 인증을 구성하고 활용하는 과정을 설명합니다. 이 기능은 Office 365 중국, 미국 국방부 및 연방 정부 계획에서 미리 보기 상태로 제공됩니다.
-- [PKI(공개 키 인프라)](https://go.microsoft.com/fwlink/?linkid=841737) 및 [AD FS](../connect/active-directory-aadconnectfed-whatis.md)가 이미 구성되어 있다고 가정합니다.
+- [PKI(공개 키 인프라)](https://go.microsoft.com/fwlink/?linkid=841737) 및 [AD FS](../hybrid/how-to-connect-fed-whatis.md)가 이미 구성되어 있다고 가정합니다.
 
 ## <a name="requirements"></a>요구 사항
 

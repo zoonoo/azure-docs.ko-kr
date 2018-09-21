@@ -7,16 +7,16 @@ ms.author: serinak
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: d448e1c464ed966cd9e742516adebe963acf13b7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: f63b9c077e64b642adfd8c7eed5026563eb6319a
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832294"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35638819"
 ---
 # <a name="azure-machine-learning---concepts"></a>Azure Machine Learning - 개념
 
@@ -48,7 +48,7 @@ ms.locfileid: "34832294"
 
 - **실행:** 실험 서비스는 실행을 계산 대상의 실험 실행 수명으로 정의합니다. Azure ML은 각 실행에 대한 정보를 자동으로 캡처하고, 실행 기록의 형태로 특정 실험의 전체 기록을 제공합니다.
 
-- **환경:** Azure Machine Learning에서 모델을 배포하고 관리하는 데 사용되는 특정 컴퓨팅 리소스를 나타냅니다. 컨텍스트 및 구성에 따라 로컬 컴퓨터, Azure의 Linux VM 또는 Azure Container Service에서 실행되는 Kubernetes 클러스터일 수 있습니다. 모델은 이러한 환경에서 실행되는 Docker 컨테이너에 호스팅되며 REST API 끝점으로 공개됩니다.
+- **환경:** Azure Machine Learning에서 모델을 배포하고 관리하는 데 사용되는 특정 컴퓨팅 리소스를 나타냅니다. 컨텍스트 및 구성에 따라 로컬 컴퓨터, Azure의 Linux VM 또는 Azure Container Service에서 실행되는 Kubernetes 클러스터일 수 있습니다. 모델은 이러한 환경에서 실행되는 Docker 컨테이너에 호스팅되며 REST API 엔드포인트로 공개됩니다.
 
 
 - **관리되는 모델:** 모델 관리를 사용하면 모델을 웹 서비스로 배포하고, 다양한 버전의 모델을 관리하며, 해당 성능 및 메트릭을 모니터링할 수 있습니다. 관리되는 모델은 Azure Machine Learning 모델 관리 계정에 등록됩니다.

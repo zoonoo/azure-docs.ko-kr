@@ -4,18 +4,18 @@ description: Azure AD B2B 공동 작업을 사용하여 클라우드 B2B 사용�
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: b7b1279dbb1256269705da3f8be6f6d2c1151368
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 65f43eb28ef2ef51409469934d59e1add7e83666
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346341"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297217"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Azure AD의 B2B 사용자에게 온-프레미스 응용 프로그램에 대한 액세스 권한 부여
 
@@ -63,7 +63,7 @@ B2B 사용자에게 Windows 통합 인증 및 Kerberos 제한 위임을 사용�
 수명 주기 관리 정책을 통해 온-프레미스 B2B 사용자 개체를 관리할 수 있습니다. 예: 
 
 - 응용 프로그램 프록시를 인증하는 동안 MFA가 사용되도록 게스트 사용자에 대한 MFA(Multi-Factor Authentication)를 설정할 수 있습니다. 자세한 내용은 [B2B 공동 작업 사용자에 대한 조건부 액세스](conditional-access.md)를 참조하세요.
-- 클라우드 B2B 사용자에서 수행되는 모든 후원, 액세스 검토, 계정 확인 등은 온-프레미스 사용자에게 적용됩니다. 예를 들어 수명 주기 관리 정책을 통해 클라우드 사용자가 삭제된 경우 온-프레미스 사용자도 MIM 동기화 또는 Azure AD Connect 동기화를 통해 삭제됩니다. 자세한 내용은 [Azure AD 액세스 검토를 사용하여 게스트 액세스 관리](../active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)를 참조하세요.
+- 클라우드 B2B 사용자에서 수행되는 모든 후원, 액세스 검토, 계정 확인 등은 온-프레미스 사용자에게 적용됩니다. 예를 들어 수명 주기 관리 정책을 통해 클라우드 사용자가 삭제된 경우 온-프레미스 사용자도 MIM 동기화 또는 Azure AD Connect 동기화를 통해 삭제됩니다. 자세한 내용은 [Azure AD 액세스 검토를 사용하여 게스트 액세스 관리](../governance/manage-guest-access-with-access-reviews.md)를 참조하세요.
 
 ### <a name="create-b2b-guest-user-objects-through-mim-preview"></a>MIM을 통해 B2B 게스트 사용자 개체 만들기(미리 보기)
 
@@ -85,5 +85,5 @@ MIM 2016 서비스 팩 1 및 Microsoft Graph용 MIM 관리 에이전트를 사�
 
 - [하이브리드 조직에 대한 Azure Active Directory B2B 공동 작업](hybrid-organizations.md)
 
-- Azure AD Connect 개요는 [Azure Active Directory와 온-프레미스 디렉터리 통합](../connect/active-directory-aadconnect.md)을 참조하세요.
+- Azure AD Connect 개요는 [Azure Active Directory와 온-프레미스 디렉터리 통합](../hybrid/whatis-hybrid-identity.md)을 참조하세요.
 

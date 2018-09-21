@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: d5132cf2414045ca1343354215b2a4564f696190
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: efdc9cfbbe9a78571e0a56437e512d0cbbc18b3e
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044773"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297279"
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>HDInsight에서 Azure 도메인에 가입된 Hadoop 클러스터 계획
 
@@ -61,7 +61,7 @@ HDInsight는 현재 클러스터가 Kerberos 통신에 사용하는 주 도메�
 
 도메인에 대한 온-프레미스 Active Directory 인스턴스 또는 더 복잡한 Active Directory 설정이 있는 경우, Azure AD Connect를 사용하여 해당 ID를 Azure AD에 동기화할 수 있습니다. 그런 다음, 해당 Active Directory 테넌트에서 Azure AD DS를 사용하도록 설정할 수 있습니다. 
 
-Kerberos가 암호 해시를 사용하므로 [Azure AD DS에서 암호 해시 동기화를 사용하도록 설정](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)해야 합니다. AD FS(Active Directory Federation Services)와 페더레이션을 사용하는 경우, 필요에 따라 AD FS 인프라에 장애가 발생할 경우 백업으로 암호 해시 동기화를 설정할 수 있습니다. 자세한 내용은 [Azure AD Connect에서 암호 해시 동기화 사용](../../active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)을 참조하세요. 
+Kerberos가 암호 해시를 사용하므로 [Azure AD DS에서 암호 해시 동기화를 사용하도록 설정](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)해야 합니다. AD FS(Active Directory Federation Services)와 페더레이션을 사용하는 경우, 필요에 따라 AD FS 인프라에 장애가 발생할 경우 백업으로 암호 해시 동기화를 설정할 수 있습니다. 자세한 내용은 [Azure AD Connect에서 암호 해시 동기화 사용](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)을 참조하세요. 
 
 Azure AD 및 Azure AD DS 없이 온-프레미스 Active Directory 또는 IaaS VM의 Active Directory만 사용하는 경우에는 도메인 가입 HDInsight 클러스터에 지원되는 구성이 아닙니다.
 

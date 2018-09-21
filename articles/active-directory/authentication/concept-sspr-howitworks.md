@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 54e6b4f5804e7390b7574aa60b4d3a76df15da11
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 5416c8ada8fcc7f630d68f223b88c50209d14438
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42139902"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296399"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>작동 방식: Azure AD SSPR(셀프 서비스 암호 재설정)
 
@@ -161,8 +161,8 @@ Azure AD Connect를 설치, 구성 및 사용 설정하는 경우 온-프레미�
 이 페이지에서는 현재 구성에 따라 다음 메시지 중 하나가 표시되는 온-프레미스 쓰기 저장 클라이언트의 빠른 상태를 제공합니다.
 
 * 온-프레미스 쓰기 저장 클라이언트가 실행 중입니다.
-* Azure AD는 온라인 상태이며 온-프레미스 쓰기 저장 클라이언트에 연결되어 있습니다. 그러나 설치된 Azure AD Connect 버전이 만료된 것 같습니다. 최신 연결 기능을 사용하고 중요한 버그가 수정되도록 [Azure AD Connect 업그레이드](./../connect/active-directory-aadconnect-upgrade-previous-version.md)를 수행하는 것이 좋습니다.
-* Azure AD Connect의 설치 버전이 오래된 버전이므로 온-프레미스 쓰기 저장 클라이언트 상태를 확인할 수 없습니다. 연결 상태를 확인할 수 있도록 [Azure AD Connect를 업그레이드](./../connect/active-directory-aadconnect-upgrade-previous-version.md)합니다.
+* Azure AD는 온라인 상태이며 온-프레미스 쓰기 저장 클라이언트에 연결되어 있습니다. 그러나 설치된 Azure AD Connect 버전이 만료된 것 같습니다. 최신 연결 기능을 사용하고 중요한 버그가 수정되도록 [Azure AD Connect 업그레이드](../hybrid/how-to-upgrade-previous-version.md)를 수행하는 것이 좋습니다.
+* Azure AD Connect의 설치 버전이 오래된 버전이므로 온-프레미스 쓰기 저장 클라이언트 상태를 확인할 수 없습니다. 연결 상태를 확인할 수 있도록 [Azure AD Connect를 업그레이드](../hybrid/how-to-upgrade-previous-version.md)합니다.
 * 현재 온-프레미스 쓰기 저장 클라이언트에 연결할 수 없습니다. [Azure AD Connect 문제 해결](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity)을 통해 연결을 복원합니다.
 * 비밀번호 쓰기 저장이 올바르게 구성되지 않았으므로 온-프레미스 쓰기 저장 클라이언트에 연결할 수 없습니다. [비밀번호 쓰기 저장 구성](howto-sspr-writeback.md)으로 연결을 복원합니다.
 * 현재 온-프레미스 쓰기 저장 클라이언트에 연결할 수 없습니다. 일시적인 문제로 인한 것일 수 있습니다. 문제가 지속되면 [Azure AD Connect 문제 해결](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity)을 통해 연결을 복원합니다.

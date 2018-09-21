@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 05/22/2018
 ms.author: barclayn
-ms.openlocfilehash: 359648a843375477ea56ab791533208c11af9c81
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 807b8a17570dfdcefa07a42719b7b0b24e4f31d7
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42145385"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297165"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault 고객 데이터 기능
 
@@ -37,7 +37,7 @@ Azure Key Vault는 자격 증명 모음, 키, 비밀, 인증서 및 관리되는
 - 인증서 연락처는 사용자 이메일 주소, 이름 또는 전화 번호를 포함할 수 있습니다.
 - 인증서 발급자는 이메일 주소, 이름, 전화 번호, 계정 자격 증명 및 조직 세부 정보를 포함할 수 있습니다.
 - 임의 태그를 Azure Key Vault의 개체에 적용할 수 있습니다. 이러한 개체는 자격 증명 모음, 키, 비밀, 인증서 및 저장소 계정을 포함합니다. 사용된 태그는 개인 데이터를 포함할 수 있습니다.
-- Azure Key Vault 액세스 로그는 개체 ID, [UPN](../active-directory/connect/active-directory-aadconnect-userprincipalname.md) 및 각 REST API 호출에 대한 IP 주소를 포함합니다.
+- Azure Key Vault 액세스 로그는 개체 ID, [UPN](../active-directory/hybrid/plan-connect-userprincipalname.md) 및 각 REST API 호출에 대한 IP 주소를 포함합니다.
 - Azure Key Vault 진단 로그는 개체 ID 및 REST API 호출에 대한 IP 주소를 포함할 수 있습니다.
 
 ## <a name="deleting-customer-data"></a>고객 데이터 삭제

@@ -8,17 +8,17 @@ manager: hjerez
 editor: jasonwhowell
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 233ae50246619c3e503e42081c3b4de88090f411
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: c0f51e47038737d6aa743be718ad6b28c161c766
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835035"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35640750"
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Azure Machine Learning 모델 관리 계정 API 참조
 
@@ -79,14 +79,14 @@ az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionId>/resourcegroups
 모델을 등록합니다.
 
 ### <a name="parameters"></a>매개 변수
-| Name | 위치 | 설명 | 필수 | 스키마
+| 이름 | 위치 | 설명 | 필수 | 스키마
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 경로 | Azure 구독 ID입니다. | 예 | string |
-| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | 예 | string |
-| accountName | 경로 | 모델 관리 계정의 이름입니다. | 예 | string |
-| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | 예 | string |
-| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | 예 | string |
-| model | 본문 | 모델을 등록하는 데 사용되는 페이로드입니다. | 예 | [Model](#model) |
+| subscriptionId | 경로 | Azure 구독 ID입니다. | yes | string |
+| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | yes | string |
+| accountName | 경로 | 모델 관리 계정의 이름입니다. | yes | string |
+| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | yes | string |
+| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | yes | string |
+| model | 본문 | 모델을 등록하는 데 사용되는 페이로드입니다. | yes | [Model](#model) |
 
 
 ### <a name="responses"></a>응답
@@ -105,17 +105,17 @@ az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionId>/resourcegroups
 계정의 모델 목록을 쿼리합니다. 태그와 이름을 기준으로 결과 목록을 필터링할 수 있습니다. 필터를 제공하지 않으면 쿼리는 계정의 모든 모델을 표시합니다. 반환된 목록의 페이지가 매겨지고 각 페이지의 항목 수가 선택적 매개 변수로 사용됩니다.
 
 ### <a name="parameters"></a>매개 변수
-| Name | 위치 | 설명 | 필수 | 스키마
+| 이름 | 위치 | 설명 | 필수 | 스키마
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 경로 | Azure 구독 ID입니다. | 예 | string |
-| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | 예 | string |
-| accountName | 경로 | 모델 관리 계정의 이름입니다. | 예 | string |
-| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | 예 | string |
-| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | 예 | string |
-| 이름 | 쿼리 | 개체 이름입니다. | 아니오 | string |
-| tag | 쿼리 | 모델 태그입니다. | 아니오 | string |
-| count | 쿼리 | 한 페이지에서 검색할 항목의 수입니다. | 아니오 | string |
-| $skipToken | 쿼리 | 다음 페이지를 검색하기 위한 연속 토큰입니다. | 아니오 | string |
+| subscriptionId | 경로 | Azure 구독 ID입니다. | yes | string |
+| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | yes | string |
+| accountName | 경로 | 모델 관리 계정의 이름입니다. | yes | string |
+| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | yes | string |
+| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | yes | string |
+| 이름 | 쿼리 | 개체 이름입니다. | 아니요 | string |
+| tag | 쿼리 | 모델 태그입니다. | 아니요 | string |
+| count | 쿼리 | 한 페이지에서 검색할 항목의 수입니다. | 아니요 | string |
+| $skipToken | 쿼리 | 다음 페이지를 검색하기 위한 연속 토큰입니다. | 아니요 | string |
 
 ### <a name="responses"></a>응답
 | 코드 | 설명 | 스키마 |
@@ -134,14 +134,14 @@ az ad sp create-for-rbac --scopes /subscriptions/<SubscriptionId>/resourcegroups
 ID별로 모델을 가져옵니다.
 
 ### <a name="parameters"></a>매개 변수
-| Name | 위치 | 설명 | 필수 | 스키마
+| 이름 | 위치 | 설명 | 필수 | 스키마
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 경로 | Azure 구독 ID입니다. | 예 | string |
-| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | 예 | string |
-| accountName | 경로 | 모델 관리 계정의 이름입니다. | 예 | string |
-| id | 경로 | 개체 ID입니다. | 예 | string |
-| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | 예 | string |
-| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | 예 | string |
+| subscriptionId | 경로 | Azure 구독 ID입니다. | yes | string |
+| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | yes | string |
+| accountName | 경로 | 모델 관리 계정의 이름입니다. | yes | string |
+| id | 경로 | 개체 ID입니다. | yes | string |
+| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | yes | string |
+| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | yes | string |
 
 ### <a name="responses"></a>응답
 | 코드 | 설명 | 스키마 |
@@ -160,14 +160,14 @@ ID별로 모델을 가져옵니다.
 등록된 모델 및 모든 종속성을 포함하는 매니페스트를 등록합니다.
 
 ### <a name="parameters"></a>매개 변수
-| Name | 위치 | 설명 | 필수 | 스키마
+| 이름 | 위치 | 설명 | 필수 | 스키마
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 경로 | Azure 구독 ID입니다. | 예 | string |
-| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | 예 | string |
-| accountName | 경로 | 모델 관리 계정의 이름입니다. | 예 | string |
-| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | 예 | string |
-| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | 예 | string |
-| manifestRequest | 본문 | 매니페스트를 등록하는 데 사용되는 페이로드입니다. | 예 | [Manifest](#manifest) |
+| subscriptionId | 경로 | Azure 구독 ID입니다. | yes | string |
+| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | yes | string |
+| accountName | 경로 | 모델 관리 계정의 이름입니다. | yes | string |
+| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | yes | string |
+| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | yes | string |
+| manifestRequest | 본문 | 매니페스트를 등록하는 데 사용되는 페이로드입니다. | yes | [Manifest](#manifest) |
 
 ### <a name="responses"></a>응답
 | 코드 | 설명 | 스키마 |
@@ -186,17 +186,17 @@ ID별로 모델을 가져옵니다.
 계정의 매니페스트 목록을 쿼리합니다. 모델 ID와 매니페스트 이름을 사용하여 결과 목록을 필터링할 수 있습니다. 필터를 제공하지 않으면 쿼리는 계정의 모든 매니페스트를 표시합니다. 반환된 목록의 페이지가 매겨지고 각 페이지의 항목 수가 선택적 매개 변수로 사용됩니다.
 
 ### <a name="parameters"></a>매개 변수
-| Name | 위치 | 설명 | 필수 | 스키마
+| 이름 | 위치 | 설명 | 필수 | 스키마
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 경로 | Azure 구독 ID입니다. | 예 | string |
-| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | 예 | string |
-| accountName | 경로 | 모델 관리 계정의 이름입니다. | 예 | string |
-| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | 예 | string |
-| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | 예 | string |
-| modelId | 쿼리 | 모델 ID입니다. | 아니오 | string |
-| manifestName | 쿼리 | 매니페스트 이름입니다. | 아니오 | string |
-| count | 쿼리 | 한 페이지에서 검색할 항목의 수입니다. | 아니오 | string |
-| $skipToken | 쿼리 | 다음 페이지를 검색하기 위한 연속 토큰입니다. | 아니오 | string |
+| subscriptionId | 경로 | Azure 구독 ID입니다. | yes | string |
+| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | yes | string |
+| accountName | 경로 | 모델 관리 계정의 이름입니다. | yes | string |
+| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | yes | string |
+| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | yes | string |
+| modelId | 쿼리 | 모델 ID입니다. | 아니요 | string |
+| manifestName | 쿼리 | 매니페스트 이름입니다. | 아니요 | string |
+| count | 쿼리 | 한 페이지에서 검색할 항목의 수입니다. | 아니요 | string |
+| $skipToken | 쿼리 | 다음 페이지를 검색하기 위한 연속 토큰입니다. | 아니요 | string |
 
 ### <a name="responses"></a>응답
 | 코드 | 설명 | 스키마 |
@@ -215,14 +215,14 @@ ID별로 모델을 가져옵니다.
 ID별로 매니페스트를 가져옵니다.
 
 ### <a name="parameters"></a>매개 변수
-| Name | 위치 | 설명 | 필수 | 스키마
+| 이름 | 위치 | 설명 | 필수 | 스키마
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 경로 | Azure 구독 ID입니다. | 예 | string |
-| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | 예 | string |
-| accountName | 경로 | 모델 관리 계정의 이름입니다. | 예 | string |
-| id | 경로 | 개체 ID입니다. | 예 | string |
-| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | 예 | string |
-| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | 예 | string |
+| subscriptionId | 경로 | Azure 구독 ID입니다. | yes | string |
+| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | yes | string |
+| accountName | 경로 | 모델 관리 계정의 이름입니다. | yes | string |
+| id | 경로 | 개체 ID입니다. | yes | string |
+| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | yes | string |
+| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | yes | string |
 
 ### <a name="responses"></a>응답
 | 코드 | 설명 | 스키마 |
@@ -241,14 +241,14 @@ ID별로 매니페스트를 가져옵니다.
 Azure Container Registry에 Docker 이미지로 이미지를 만듭니다.
 
 ### <a name="parameters"></a>매개 변수
-| Name | 위치 | 설명 | 필수 | 스키마
+| 이름 | 위치 | 설명 | 필수 | 스키마
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 경로 | Azure 구독 ID입니다. | 예 | string |
-| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | 예 | string |
-| accountName | 경로 | 모델 관리 계정의 이름입니다. | 예 | string |
-| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | 예 | string |
-| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | 예 | string |
-| imageRequest | 본문 | 이미지를 만드는 데 사용되는 페이로드입니다. | 예 | [ImageRequest](#imagerequest) |
+| subscriptionId | 경로 | Azure 구독 ID입니다. | yes | string |
+| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | yes | string |
+| accountName | 경로 | 모델 관리 계정의 이름입니다. | yes | string |
+| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | yes | string |
+| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | yes | string |
+| imageRequest | 본문 | 이미지를 만드는 데 사용되는 페이로드입니다. | yes | [ImageRequest](#imagerequest) |
 
 ### <a name="responses"></a>응답
 | 코드 | 설명 | 헤더 | 스키마 |
@@ -267,17 +267,17 @@ Azure Container Registry에 Docker 이미지로 이미지를 만듭니다.
 계정의 이미지 목록을 쿼리합니다. 매니페스트 ID와 이름을 사용하여 결과 목록을 필터링할 수 있습니다. 필터를 제공하지 않으면 쿼리는 계정의 모든 이미지를 표시합니다. 반환된 목록의 페이지가 매겨지고 각 페이지의 항목 수가 선택적 매개 변수로 사용됩니다.
 
 ### <a name="parameters"></a>매개 변수
-| Name | 위치 | 설명 | 필수 | 스키마
+| 이름 | 위치 | 설명 | 필수 | 스키마
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 경로 | Azure 구독 ID입니다. | 예 | string |
-| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | 예 | string |
-| accountName | 경로 | 모델 관리 계정의 이름입니다. | 예 | string |
-| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | 예 | string |
-| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | 예 | string |
-| manifestId | 쿼리 | 매니페스트 ID입니다. | 아니오 | string |
-| manifestName | 쿼리 | 매니페스트 이름입니다. | 아니오 | string |
-| count | 쿼리 | 한 페이지에서 검색할 항목의 수입니다. | 아니오 | string |
-| $skipToken | 쿼리 | 다음 페이지를 검색하기 위한 연속 토큰입니다. | 아니오 | string |
+| subscriptionId | 경로 | Azure 구독 ID입니다. | yes | string |
+| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | yes | string |
+| accountName | 경로 | 모델 관리 계정의 이름입니다. | yes | string |
+| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | yes | string |
+| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | yes | string |
+| manifestId | 쿼리 | 매니페스트 ID입니다. | 아니요 | string |
+| manifestName | 쿼리 | 매니페스트 이름입니다. | 아니요 | string |
+| count | 쿼리 | 한 페이지에서 검색할 항목의 수입니다. | 아니요 | string |
+| $skipToken | 쿼리 | 다음 페이지를 검색하기 위한 연속 토큰입니다. | 아니요 | string |
 
 ### <a name="responses"></a>응답
 | 코드 | 설명 | 스키마 |
@@ -296,14 +296,14 @@ Azure Container Registry에 Docker 이미지로 이미지를 만듭니다.
 ID별로 이미지를 가져옵니다.
 
 ### <a name="parameters"></a>매개 변수
-| Name | 위치 | 설명 | 필수 | 스키마
+| 이름 | 위치 | 설명 | 필수 | 스키마
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 경로 | Azure 구독 ID입니다. | 예 | string |
-| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | 예 | string |
-| accountName | 경로 | 모델 관리 계정의 이름입니다. | 예 | string |
-| id | 경로 | 이미지 ID입니다. | 예 | string |
-| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | 예 | string |
-| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | 예 | string |
+| subscriptionId | 경로 | Azure 구독 ID입니다. | yes | string |
+| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | yes | string |
+| accountName | 경로 | 모델 관리 계정의 이름입니다. | yes | string |
+| id | 경로 | 이미지 ID입니다. | yes | string |
+| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | yes | string |
+| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | yes | string |
 
 ### <a name="responses"></a>응답
 | 코드 | 설명 | 스키마 |
@@ -323,14 +323,14 @@ ID별로 이미지를 가져옵니다.
 이미지에서 서비스를 만듭니다.
 
 ### <a name="parameters"></a>매개 변수
-| Name | 위치 | 설명 | 필수 | 스키마
+| 이름 | 위치 | 설명 | 필수 | 스키마
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 경로 | Azure 구독 ID입니다. | 예 | string |
-| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | 예 | string |
-| accountName | 경로 | 모델 관리 계정의 이름입니다. | 예 | string |
-| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | 예 | string |
-| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | 예 | string |
-| serviceRequest | 본문 | 서비스를 만드는 데 사용되는 페이로드입니다. | 예 | [ServiceCreateRequest](#servicecreaterequest) |
+| subscriptionId | 경로 | Azure 구독 ID입니다. | yes | string |
+| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | yes | string |
+| accountName | 경로 | 모델 관리 계정의 이름입니다. | yes | string |
+| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | yes | string |
+| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | yes | string |
+| serviceRequest | 본문 | 서비스를 만드는 데 사용되는 페이로드입니다. | yes | [ServiceCreateRequest](#servicecreaterequest) |
 
 ### <a name="responses"></a>응답
 | 코드 | 설명 | 헤더 | 스키마 |
@@ -350,22 +350,22 @@ ID별로 이미지를 가져옵니다.
 계정의 서비스 목록을 쿼리합니다. 모델 이름/ID, 매니페스트 이름/ID, 이미지 ID, 서비스 이름 또는 Machine Learning 계산 리소스 ID를 사용하여 결과 목록을 필터링할 수 있습니다. 필터를 제공하지 않으면 쿼리는 계정의 모든 서비스를 표시합니다. 반환된 목록의 페이지가 매겨지고 각 페이지의 항목 수가 선택적 매개 변수로 사용됩니다.
 
 ### <a name="parameters"></a>매개 변수
-| Name | 위치 | 설명 | 필수 | 스키마
+| 이름 | 위치 | 설명 | 필수 | 스키마
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 경로 | Azure 구독 ID입니다. | 예 | string |
-| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | 예 | string |
-| accountName | 경로 | 모델 관리 계정의 이름입니다. | 예 | string |
-| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | 예 | string |
-| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | 예 | string |
-| serviceName | 쿼리 | 서비스 이름입니다. | 아니오 | string |
-| modelId | 쿼리 | 모델 이름입니다. | 아니오 | string |
-| modelName | 쿼리 | 모델 ID입니다. | 아니오 | string |
-| manifestId | 쿼리 | 매니페스트 ID입니다. | 아니오 | string |
-| manifestName | 쿼리 | 매니페스트 이름입니다. | 아니오 | string |
-| imageId | 쿼리 | 이미지 ID입니다. | 아니오 | string |
-| computeResourceId | 쿼리 | Machine Learning 계산 리소스 ID입니다. | 아니오 | string |
-| count | 쿼리 | 한 페이지에서 검색할 항목의 수입니다. | 아니오 | string |
-| $skipToken | 쿼리 | 다음 페이지를 검색하기 위한 연속 토큰입니다. | 아니오 | string |
+| subscriptionId | 경로 | Azure 구독 ID입니다. | yes | string |
+| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | yes | string |
+| accountName | 경로 | 모델 관리 계정의 이름입니다. | yes | string |
+| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | yes | string |
+| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | yes | string |
+| serviceName | 쿼리 | 서비스 이름입니다. | 아니요 | string |
+| modelId | 쿼리 | 모델 이름입니다. | 아니요 | string |
+| modelName | 쿼리 | 모델 ID입니다. | 아니요 | string |
+| manifestId | 쿼리 | 매니페스트 ID입니다. | 아니요 | string |
+| manifestName | 쿼리 | 매니페스트 이름입니다. | 아니요 | string |
+| imageId | 쿼리 | 이미지 ID입니다. | 아니요 | string |
+| computeResourceId | 쿼리 | Machine Learning 계산 리소스 ID입니다. | 아니요 | string |
+| count | 쿼리 | 한 페이지에서 검색할 항목의 수입니다. | 아니요 | string |
+| $skipToken | 쿼리 | 다음 페이지를 검색하기 위한 연속 토큰입니다. | 아니요 | string |
 
 ### <a name="responses"></a>응답
 | 코드 | 설명 | 스키마 |
@@ -384,14 +384,14 @@ ID별로 이미지를 가져옵니다.
 ID별로 서비스를 가져옵니다.
 
 ### <a name="parameters"></a>매개 변수
-| Name | 위치 | 설명 | 필수 | 스키마
+| 이름 | 위치 | 설명 | 필수 | 스키마
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 경로 | Azure 구독 ID입니다. | 예 | string |
-| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | 예 | string |
-| accountName | 경로 | 모델 관리 계정의 이름입니다. | 예 | string |
-| id | 경로 | 개체 ID입니다. | 예 | string |
-| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | 예 | string |
-| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | 예 | string |
+| subscriptionId | 경로 | Azure 구독 ID입니다. | yes | string |
+| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | yes | string |
+| accountName | 경로 | 모델 관리 계정의 이름입니다. | yes | string |
+| id | 경로 | 개체 ID입니다. | yes | string |
+| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | yes | string |
+| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | yes | string |
 
 ### <a name="responses"></a>응답
 | 코드 | 설명 | 스키마 |
@@ -410,15 +410,15 @@ ID별로 서비스를 가져옵니다.
 기존 서비스를 업데이트합니다.
 
 ### <a name="parameters"></a>매개 변수
-| Name | 위치 | 설명 | 필수 | 스키마
+| 이름 | 위치 | 설명 | 필수 | 스키마
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 경로 | Azure 구독 ID입니다. | 예 | string |
-| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | 예 | string |
-| accountName | 경로 | 모델 관리 계정의 이름입니다. | 예 | string |
-| id | 경로 | 개체 ID입니다. | 예 | string |
-| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | 예 | string |
-| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | 예 | string |
-| serviceUpdateRequest | 본문 | 기존 서비스를 업데이트하는 데 사용되는 페이로드입니다. | 예 |  [ServiceUpdateRequest](#serviceupdaterequest) |
+| subscriptionId | 경로 | Azure 구독 ID입니다. | yes | string |
+| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | yes | string |
+| accountName | 경로 | 모델 관리 계정의 이름입니다. | yes | string |
+| id | 경로 | 개체 ID입니다. | yes | string |
+| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | yes | string |
+| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | yes | string |
+| serviceUpdateRequest | 본문 | 기존 서비스를 업데이트하는 데 사용되는 페이로드입니다. | yes |  [ServiceUpdateRequest](#serviceupdaterequest) |
 
 ### <a name="responses"></a>응답
 | 코드 | 설명 | 헤더 | 스키마 |
@@ -438,14 +438,14 @@ ID별로 서비스를 가져옵니다.
 서비스를 삭제합니다.
 
 ### <a name="parameters"></a>매개 변수
-| Name | 위치 | 설명 | 필수 | 스키마
+| 이름 | 위치 | 설명 | 필수 | 스키마
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 경로 | Azure 구독 ID입니다. | 예 | string |
-| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | 예 | string |
-| accountName | 경로 | 모델 관리 계정의 이름입니다. | 예 | string |
-| id | 경로 | 개체 ID입니다. | 예 | string |
-| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | 예 | string |
-| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | 예 | string |
+| subscriptionId | 경로 | Azure 구독 ID입니다. | yes | string |
+| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | yes | string |
+| accountName | 경로 | 모델 관리 계정의 이름입니다. | yes | string |
+| id | 경로 | 개체 ID입니다. | yes | string |
+| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | yes | string |
+| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | yes | string |
 
 ### <a name="responses"></a>응답
 | 코드 | 설명 | 스키마 |
@@ -465,14 +465,14 @@ ID별로 서비스를 가져옵니다.
 서비스 키를 가져옵니다.
 
 ### <a name="parameters"></a>매개 변수
-| Name | 위치 | 설명 | 필수 | 스키마
+| 이름 | 위치 | 설명 | 필수 | 스키마
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 경로 | Azure 구독 ID입니다. | 예 | string |
-| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | 예 | string |
-| accountName | 경로 | 모델 관리 계정의 이름입니다. | 예 | string |
-| id | 경로 | 서비스 ID입니다. | 예 | string |
-| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | 예 | string |
-| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | 예 | string |
+| subscriptionId | 경로 | Azure 구독 ID입니다. | yes | string |
+| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | yes | string |
+| accountName | 경로 | 모델 관리 계정의 이름입니다. | yes | string |
+| id | 경로 | 서비스 ID입니다. | yes | string |
+| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | yes | string |
+| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | yes | string |
 
 ### <a name="responses"></a>응답
 | 코드 | 설명 | 스키마 |
@@ -491,15 +491,15 @@ ID별로 서비스를 가져옵니다.
 서비스 키를 다시 생성하고 반환합니다.
 
 ### <a name="parameters"></a>매개 변수
-| Name | 위치 | 설명 | 필수 | 스키마
+| 이름 | 위치 | 설명 | 필수 | 스키마
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 경로 | Azure 구독 ID입니다. | 예 | string |
-| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | 예 | string |
-| accountName | 경로 | 모델 관리 계정의 이름입니다. | 예 | string |
-| id | 경로 | 서비스 ID입니다. | 예 | string |
-| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | 예 | string |
-| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | 예 | string |
-| regenerateKeyRequest | 본문 | 기존 서비스를 업데이트하는 데 사용되는 페이로드입니다. | 예 | [ServiceRegenerateKeyRequest](#serviceregeneratekeyrequest) |
+| subscriptionId | 경로 | Azure 구독 ID입니다. | yes | string |
+| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | yes | string |
+| accountName | 경로 | 모델 관리 계정의 이름입니다. | yes | string |
+| id | 경로 | 서비스 ID입니다. | yes | string |
+| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | yes | string |
+| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | yes | string |
+| regenerateKeyRequest | 본문 | 기존 서비스를 업데이트하는 데 사용되는 페이로드입니다. | yes | [ServiceRegenerateKeyRequest](#serviceregeneratekeyrequest) |
 
 ### <a name="responses"></a>응답
 | 코드 | 설명 | 스키마 |
@@ -518,14 +518,14 @@ ID별로 서비스를 가져옵니다.
 계정의 배포 목록을 쿼리합니다. 특정 서비스에 대해 생성된 배포만 반환하는 서비스 ID를 사용하여 결과 목록을 필터링할 수 있습니다. 필터를 제공하지 않으면 쿼리는 계정의 모든 배포를 표시합니다.
 
 ### <a name="parameters"></a>매개 변수
-| Name | 위치 | 설명 | 필수 | 스키마
+| 이름 | 위치 | 설명 | 필수 | 스키마
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 경로 | Azure 구독 ID입니다. | 예 | string |
-| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | 예 | string |
-| accountName | 경로 | 모델 관리 계정의 이름입니다. | 예 | string |
-| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | 예 | string |
-| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | 예 | string |
-| serviceId | 쿼리 | 서비스 ID입니다. | 아니오 | string |
+| subscriptionId | 경로 | Azure 구독 ID입니다. | yes | string |
+| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | yes | string |
+| accountName | 경로 | 모델 관리 계정의 이름입니다. | yes | string |
+| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | yes | string |
+| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | yes | string |
+| serviceId | 쿼리 | 서비스 ID입니다. | 아니요 | string |
 
 ### <a name="responses"></a>응답
 | 코드 | 설명 | 스키마 |
@@ -544,14 +544,14 @@ ID별로 서비스를 가져옵니다.
 ID별로 배포를 가져옵니다.
 
 ### <a name="parameters"></a>매개 변수
-| Name | 위치 | 설명 | 필수 | 스키마
+| 이름 | 위치 | 설명 | 필수 | 스키마
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 경로 | Azure 구독 ID입니다. | 예 | string |
-| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | 예 | string |
-| accountName | 경로 | 모델 관리 계정의 이름입니다. | 예 | string |
-| id | 경로 | 배포 ID입니다. | 예 | string |
-| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | 예 | string |
-| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | 예 | string |
+| subscriptionId | 경로 | Azure 구독 ID입니다. | yes | string |
+| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | yes | string |
+| accountName | 경로 | 모델 관리 계정의 이름입니다. | yes | string |
+| id | 경로 | 배포 ID입니다. | yes | string |
+| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | yes | string |
+| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | yes | string |
 
 ### <a name="responses"></a>응답
 | 코드 | 설명 | 스키마 |
@@ -570,14 +570,14 @@ ID별로 배포를 가져옵니다.
 작업 ID별로 비동기 작업 상태를 가져옵니다.
 
 ### <a name="parameters"></a>매개 변수
-| Name | 위치 | 설명 | 필수 | 스키마
+| 이름 | 위치 | 설명 | 필수 | 스키마
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | 경로 | Azure 구독 ID입니다. | 예 | string |
-| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | 예 | string |
-| accountName | 경로 | 모델 관리 계정의 이름입니다. | 예 | string |
-| id | 경로 | 작업 ID입니다. | 예 | string |
-| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | 예 | string |
-| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | 예 | string |
+| subscriptionId | 경로 | Azure 구독 ID입니다. | yes | string |
+| resourceGroupName | 경로 | 모델 관리 계정이 있는 리소스 그룹의 이름 | yes | string |
+| accountName | 경로 | 모델 관리 계정의 이름입니다. | yes | string |
+| id | 경로 | 작업 ID입니다. | yes | string |
+| api-version | 쿼리 | 사용할 Microsoft.Machine.Learning 리소스 공급자 API의 버전입니다. | yes | string |
+| 권한 부여 | 머리글 | 권한 부여 토큰입니다. "Bearer XXXXXX"와 같아야 합니다. | yes | string |
 
 ### <a name="responses"></a>응답
 | 코드 | 설명 | 스키마 |
@@ -595,7 +595,7 @@ ID별로 배포를 가져옵니다.
 Docker 이미지를 만드는 동안 필요한 자산 개체입니다.
 
 
-|Name|설명|스키마|
+|이름|설명|스키마|
 |---|---|---|
 |**id**  <br>*선택 사항*|자산 ID입니다.|string|
 |**mimeType**  <br>*선택 사항*|모델 콘텐츠의 MIME 형식입니다. MIME 형식에 대한 자세한 내용은 [IANA 미디어 유형 목록](https://www.iana.org/assignments/media-types/media-types.xhtml)을 참조하세요.|string|
@@ -615,7 +615,7 @@ Docker 이미지를 만드는 동안 필요한 자산 개체입니다.
 작업 상태입니다.
 
 
-|Name|설명|스키마|
+|이름|설명|스키마|
 |---|---|---|
 |**createdTime**  <br>*선택 사항*  <br>*읽기 전용*|비동기 작업 생성 시간(UTC)입니다.|string (date-time)|
 |**endTime**  <br>*선택 사항*  <br>*읽기 전용*|비동기 작업 종료 시간(UTC)입니다.|string (date-time)|
@@ -631,7 +631,7 @@ Docker 이미지를 만드는 동안 필요한 자산 개체입니다.
 서비스에 대한 인증 키입니다.
 
 
-|Name|설명|스키마|
+|이름|설명|스키마|
 |---|---|---|
 |**primaryKey**  <br>*선택 사항*|기본 키입니다.|string|
 |**secondaryKey**  <br>*선택 사항*|보조 키입니다.|string|
@@ -642,7 +642,7 @@ Docker 이미지를 만드는 동안 필요한 자산 개체입니다.
 autoscaler에 대한 설정입니다.
 
 
-|Name|설명|스키마|
+|이름|설명|스키마|
 |---|---|---|
 |**autoscaleEnabled**  <br>*선택 사항*|autoscaler를 사용하거나 사용하지 않도록 설정합니다.|부울|
 |**maxReplicas**  <br>*선택 사항*|규모를 확대할 최대 pod 복제본 수입니다.  <br>**최소값**: `1`|정수|
@@ -656,7 +656,7 @@ autoscaler에 대한 설정입니다.
 Machine Learning 계산 리소스입니다.
 
 
-|Name|설명|스키마|
+|이름|설명|스키마|
 |---|---|---|
 |**id**  <br>*선택 사항*|리소스 ID입니다.|string|
 |**type**  <br>*선택 사항*|리소스의 형식입니다.|enum (Cluster)|
@@ -667,7 +667,7 @@ Machine Learning 계산 리소스입니다.
 클러스터의 컨테이너에 대해 리소스를 예약할 구성입니다.
 
 
-|Name|설명|스키마|
+|이름|설명|스키마|
 |---|---|---|
 |**cpu**  <br>*선택 사항*|CPU 예약을 지정합니다. Kubernetes에 대한 형식: [CPU 의미](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-cpu)를 참조하세요.|string|
 |**memory**  <br>*선택 사항*|메모리 예약을 지정합니다. Kubernetes에 대한 형식: [메모리 의미](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#meaning-of-memory)를 참조하세요.|string|
@@ -678,7 +678,7 @@ Machine Learning 계산 리소스입니다.
 Azure Machine Learning 배포 인스턴스입니다.
 
 
-|Name|설명|스키마|
+|이름|설명|스키마|
 |---|---|---|
 |**createdAt**  <br>*선택 사항*  <br>*읽기 전용*|배포 만든 시간(UTC)입니다.|string (date-time)|
 |**expiredAt**  <br>*선택 사항*  <br>*읽기 전용*|배포 만료 시간(UTC)입니다.|string (date-time)|
@@ -700,7 +700,7 @@ Azure Machine Learning 배포 인스턴스입니다.
 모델 관리 서비스 오류 세부 정보입니다.
 
 
-|Name|설명|스키마|
+|이름|설명|스키마|
 |---|---|---|
 |**code**  <br>*필수*|오류 코드|string|
 |**message**  <br>*필수*|오류 메시지입니다.|string|
@@ -711,7 +711,7 @@ Azure Machine Learning 배포 인스턴스입니다.
 모델 관리 서비스 오류 개체입니다.
 
 
-|Name|설명|스키마|
+|이름|설명|스키마|
 |---|---|---|
 |**code**  <br>*필수*|오류 코드|string|
 |**details**  <br>*선택 사항*|오류 세부 정보 개체의 배열입니다.|<[ErrorDetail](#errordetail)> 배열|
@@ -724,7 +724,7 @@ Azure Machine Learning 배포 인스턴스입니다.
 Azure Machine Learning 이미지입니다.
 
 
-|Name|설명|스키마|
+|이름|설명|스키마|
 |---|---|---|
 |**computeResourceId**  <br>*선택 사항*|Machine Learning 계산 리소스에서 만든 환경 ID입니다.|string|
 |**createdTime**  <br>*선택 사항*|이미지 만든 시간(UTC)입니다.|string (date-time)|
@@ -745,7 +745,7 @@ Azure Machine Learning 이미지입니다.
 Auzre Machine Learning 이미지 생성 요청입니다.
 
 
-|Name|설명|스키마|
+|이름|설명|스키마|
 |---|---|---|
 |**computeResourceId**  <br>*필수*|Machine Learning 계산 리소스에서 만든 환경 ID입니다.|string|
 |**description**  <br>*선택 사항*|이미지 설명 텍스트입니다.|string|
@@ -766,7 +766,7 @@ Auzre Machine Learning 이미지 생성 요청입니다.
 Azure Machine Learning 매니페스트입니다.
 
 
-|Name|설명|스키마|
+|이름|설명|스키마|
 |---|---|---|
 |**assets**  <br>*필수*|자산 목록입니다.|<[자산](#asset)> 배열|
 |**createdTime**  <br>*선택 사항*  <br>*읽기 전용*|매니페스트 만든 시간(UTC)입니다.|string (date-time)|
@@ -786,7 +786,7 @@ Azure Machine Learning 매니페스트입니다.
 Azure Machine Learning 모델 인스턴스입니다.
 
 
-|Name|설명|스키마|
+|이름|설명|스키마|
 |---|---|---|
 |**createdAt**  <br>*선택 사항*  <br>*읽기 전용*|모델 만든 시간(UTC)입니다.|string (date-time)|
 |**description**  <br>*선택 사항*|모델 설명 텍스트입니다.|string|
@@ -804,7 +804,7 @@ Azure Machine Learning 모델 인스턴스입니다.
 모델 데이터 수집 정보입니다.
 
 
-|Name|설명|스키마|
+|이름|설명|스키마|
 |---|---|---|
 |**eventHubEnabled**  <br>*선택 사항*|서비스에 대한 이벤트 허브를 사용하도록 설정합니다.|부울|
 |**storageEnabled**  <br>*선택 사항*|서비스에 대한 저장소를 사용하도록 설정합니다.|부울|
@@ -815,7 +815,7 @@ Azure Machine Learning 모델 인스턴스입니다.
 페이지가 매겨진 이미지 목록입니다.
 
 
-|Name|설명|스키마|
+|이름|설명|스키마|
 |---|---|---|
 |**nextLink**  <br>*선택 사항*|목록에서 결과의 다음 페이지에 대한 연속 링크(절대 URI)입니다.|string|
 |**값**  <br>*선택 사항*|모델 개체의 배열입니다.|<[이미지](#image)> 배열|
@@ -826,7 +826,7 @@ Azure Machine Learning 모델 인스턴스입니다.
 페이지가 매겨진 매니페스트 목록입니다.
 
 
-|Name|설명|스키마|
+|이름|설명|스키마|
 |---|---|---|
 |**nextLink**  <br>*선택 사항*|목록에서 결과의 다음 페이지에 대한 연속 링크(절대 URI)입니다.|string|
 |**값**  <br>*선택 사항*|매니페스트 개체의 배열입니다.|<[매니페스트](#manifest)> 배열|
@@ -837,7 +837,7 @@ Azure Machine Learning 모델 인스턴스입니다.
 페이지가 매겨진 모델 목록입니다.
 
 
-|Name|설명|스키마|
+|이름|설명|스키마|
 |---|---|---|
 |**nextLink**  <br>*선택 사항*|목록에서 결과의 다음 페이지에 대한 연속 링크(절대 URI)입니다.|string|
 |**값**  <br>*선택 사항*|모델 개체의 배열입니다.|<[모델](#model)> 배열|
@@ -848,7 +848,7 @@ Azure Machine Learning 모델 인스턴스입니다.
 페이지가 매겨진 서비스 목록입니다.
 
 
-|Name|설명|스키마|
+|이름|설명|스키마|
 |---|---|---|
 |**nextLink**  <br>*선택 사항*|목록에서 결과의 다음 페이지에 대한 연속 링크(절대 URI)입니다.|string|
 |**값**  <br>*선택 사항*|서비스 개체의 배열입니다.|<[ServiceResponse](#serviceresponse)> 배열|
@@ -859,7 +859,7 @@ Azure Machine Learning 모델 인스턴스입니다.
 서비스 생성 요청입니다.
 
 
-|Name|설명|스키마|
+|이름|설명|스키마|
 |---|---|---|
 |**appInsightsEnabled**  <br>*선택 사항*|서비스에 대해 Application Insights를 사용하도록 설정합니다.|부울|
 |**autoScaler**  <br>*선택 사항*||[AutoScaler](#autoscaler)|
@@ -877,7 +877,7 @@ Azure Machine Learning 모델 인스턴스입니다.
 서비스에 대한 키 다시 생성 요청입니다.
 
 
-|Name|설명|스키마|
+|이름|설명|스키마|
 |---|---|---|
 |**keyType**  <br>*선택 사항*|다시 생성할 키를 지정합니다.|enum (Primary, Secondary)|
 
@@ -887,7 +887,7 @@ Azure Machine Learning 모델 인스턴스입니다.
 서비스의 자세한 상태입니다.
 
 
-|Name|설명|스키마|
+|이름|설명|스키마|
 |---|---|---|
 |**createdAt**  <br>*선택 사항*|서비스 만든 시간(UTC)입니다.|string (date-time)|
 |**ID**  <br>*선택 사항*|서비스 ID입니다.|string|
@@ -913,7 +913,7 @@ Azure Machine Learning 모델 인스턴스입니다.
 서비스 업데이트 요청입니다.
 
 
-|Name|설명|스키마|
+|이름|설명|스키마|
 |---|---|---|
 |**appInsightsEnabled**  <br>*선택 사항*|서비스에 대해 Application Insights를 사용하도록 설정합니다.|부울|
 |**autoScaler**  <br>*선택 사항*||[AutoScaler](#autoscaler)|
@@ -929,7 +929,7 @@ Azure Machine Learning 모델 인스턴스입니다.
 대상 런타임의 유형입니다.
 
 
-|Name|설명|스키마|
+|이름|설명|스키마|
 |---|---|---|
 |**properties**  <br>*필수*||<문자열, 문자열> 맵|
 |**runtimeType**  <br>*필수*|런타임을 지정합니다.|enum (SparkPython, Python)|

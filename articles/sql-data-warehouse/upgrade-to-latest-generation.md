@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/22/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b7765182a89e08a2b2b8fcdbdfed82c64893fc27
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 9b2c5fa38d0ad21a374d3e5acee8534aeb9c0384
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306983"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580551"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>SQL Data Warehouse를 업그레이드하여 성능 최적화
 Azure SQL Data Warehouse를 최신 세대 Azure 하드웨어와 저장소 아키텍처로 업그레이드합니다.
@@ -34,7 +34,7 @@ Azure SQL Data Warehouse를 최신 세대 Azure 하드웨어와 저장소 아키
 
 ## <a name="before-you-begin"></a>시작하기 전에
 > [!NOTE]
-> 기존의 계산에 최적화된 Gen1 계층 데이터 웨어하우스가 계산 최적화된 Gen2 계층이 제공되는 지역에 없는 경우 PowerShell을 통해 지원되는 지역으로 [지역 복원](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region)을 수행할 수 있습니다.
+> 기존의 계산에 최적화된 Gen1 계층 데이터 웨어하우스가 계산 최적화된 Gen2 계층이 제공되는 지역에 없는 경우 PowerShell을 통해 지원되는 지역으로 [지역 복원](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region)을 수행할 수 있습니다.
 > 
 >
 

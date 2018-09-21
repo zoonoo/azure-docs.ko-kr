@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/25/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: c8cff54c67ab2c9c3d09f9261617b6312cc4434a
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: a3f2021a1a1e0a0ff97c5966e151894fd7b6743b
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025340"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574644"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Azure Application Insights 데이터를 사용하여 사용자 지정 보고서 자동화
 
@@ -116,7 +116,7 @@ availabilityResults
     * SendGridAPI =SendGrid API 키
 
     > [!NOTE]
-    > SendGrid 계정이 없는 경우 새로 만들 수 있습니다. Azure Functions에 대한 SendGrid의 설명서는 [여기](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-sendgrid)에 있습니다. SendGrid를 설정하고 이 문서의 끝에 제공되는 API 키를 생성하는 방법에 대한 최소한의 설명을 원하는 경우입니다. 
+    > SendGrid 계정이 없는 경우 새로 만들 수 있습니다. Azure Functions에 대한 SendGrid의 설명서는 [여기](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid)에 있습니다. SendGrid를 설정하고 이 문서의 끝에 제공되는 API 키를 생성하는 방법에 대한 최소한의 설명을 원하는 경우입니다. 
 
 9. **통합**을 선택하고 출력 아래에서 **SendGrid($return)** 를 선택합니다.
 

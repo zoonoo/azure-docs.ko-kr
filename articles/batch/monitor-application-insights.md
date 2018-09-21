@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 9f989ada01a2ffced509b42df9e46aa001386ab6
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 5e0358ebf525c39c09df4268971fa71c02457821
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077397"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35774126"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Application Insights를 사용하여 Azure Batch .NET 응용 프로그램 모니터링 및 디버깅
 
@@ -27,7 +27,7 @@ ms.locfileid: "34077397"
 이 문서에서 코드와 함께 사용할 샘플 C# 솔루션은 [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights)에서 제공합니다. 이 예제에서는 Application Insights 계측 코드를 [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) 예제에 추가합니다. 이 예제에 익숙하지 않은 경우 먼저 TopNWords를 빌드하고 실행해 보세요. 여러 계산 노드에서 입력 BLOB 집합을 병렬로 처리하는 기본 Batch 워크플로를 이해하는 데 도움이 될 것입니다. 
 
 ## <a name="prerequisites"></a>필수 조건
-* [Visual Studio IDE](https://www.visualstudio.com/vs)(Visual Studio 2015 또는 최신 버전)
+* [Visual Studio 2017](https://www.visualstudio.com/vs)
 
 * [Batch 계정 및 연결된 저장소 계정](batch-account-create-portal.md)
 
@@ -312,8 +312,8 @@ private const string BatchStartTaskTelemetryRunnerAIConfig = "ApplicationInsight
 CloudPool pool = client.PoolOperations.CreatePool(
     topNWordsConfiguration.PoolId,
     targetDedicated: topNWordsConfiguration.PoolNodeCount,
-    virtualMachineSize: "small",
-    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
+    virtualMachineSize: "standard_d1_v2",
+    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
 ...
 
 // Create a start task which will run a dummy exe in background that simply emits performance

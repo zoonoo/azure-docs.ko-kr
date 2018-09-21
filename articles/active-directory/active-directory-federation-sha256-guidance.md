@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 ms.author: anandy
-ms.openlocfilehash: ec7eee36888d825d65335db590731103aabbf5c2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5352c76d2f41adef8fae29d3f60204fb05546ddc
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26598964"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298050"
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Office 365 신뢰 당사자 트러스트에 대한 서명 해시 알고리즘 변경
 ## <a name="overview"></a>개요
@@ -48,5 +48,5 @@ AD FS(Active Directory Federation Services)는 변조될 수 없음을 확인하
    <code>Set-AdfsRelyingPartyTrust -TargetName 'Microsoft Office 365 Identity Platform' -SignatureAlgorithm 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256'</code>
 
 ## <a name="also-read"></a>참조 항목
-* [Azure AD Connect를 사용하여 Office 365 트러스트 복구](connect/active-directory-aadconnect-federation-management.md#repairthetrust)
+* [Azure AD Connect를 사용하여 Office 365 트러스트 복구](hybrid/how-to-connect-fed-management.md#repairthetrust)
 

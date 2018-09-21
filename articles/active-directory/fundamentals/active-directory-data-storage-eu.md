@@ -2,24 +2,21 @@
 title: Azure AD에서 유럽 고객의 ID 데이터를 저장하는 위치 | Microsoft Docs
 description: Microsoft Azure Active Directory에서 유럽 고객의 ID 관련 데이터를 저장하는 위치에 대해 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.author: lizross
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/17/2018
 ms.custom: it-pro
-ms.openlocfilehash: 0baa499f56fa6c074ac1c0f604e74f9e7adb5502
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: d0015f40714b639d15245827ae0da3ca0f132df4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42023452"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733400"
 ---
 # <a name="where-does-microsoft-azure-active-directory-azure-ad-store-identity-data-for-european-customers"></a>Microsoft Azure AD(Azure Active Directory)에서 유럽 고객의 ID 데이터를 저장하는 위치
 Azure AD를 통해 사용자 ID를 관리하고 인텔리전스 기반 액세스 정책을 만들어 조직의 리소스를 보호할 수 있습니다. ID 데이터는 서비스를 구독할 때 조직에서 제공한 주소에 기반된 위치에 저장됩니다. 예를 들어 Office 365 또는 Azure를 구독하는 경우입니다. ID 데이터를 저장하는 위치에 대한 특정 정보는 Microsoft 보안 센터의 [데이터를 어디에 배치하나요?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) 섹션을 사용할 수 있습니다.
@@ -76,7 +73,6 @@ Azure AD를 통해 사용자 ID를 관리하고 인텔리전스 기반 액세스
 
 ## <a name="next-steps"></a>다음 단계
 위에서 설명한 기능에 대한 자세한 내용은 다음과 같은 문서를 참조하세요.
-- [Azure Active Directory 시작](get-started-azure-ad.md)
 - [Multi-Factor Authentication이란?](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)
 - [Azure AD 셀프 서비스 암호 재설정](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-overview)
 - [Azure Active Directory B2C란?](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)

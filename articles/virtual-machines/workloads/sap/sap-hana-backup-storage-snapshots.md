@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: c5066d23705ca84febaa0ba527a01259134146c0
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 031cb10e476ba068f7e3d7baf3b19f7703caf170
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358984"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580048"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>저장소 스냅숏에 기반한 SAP HANA 백업
 
@@ -88,8 +88,8 @@ Azure Backup에는 다음 네 가지 주요 단계가 있습니다.
 
 이러한 스크립트를 복사할 위치 및 Azure Backup의 정확한 작동 방식에 대한 자세한 내용은 다음 문서를 확인하세요.
 
-- [Azure에서 VM 백업 인프라 계획](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction)
-- [Azure Linux VM의 응용 프로그램 일치 백업](https://docs.microsoft.com/en-us/azure/backup/backup-azure-linux-app-consistent)
+- [Azure에서 VM 백업 인프라 계획](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
+- [Azure Linux VM의 응용 프로그램 일치 백업](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
 
 
 

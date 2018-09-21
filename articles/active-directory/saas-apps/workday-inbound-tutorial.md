@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: 930ca49a63e34214ec197d8dd37f38361b34fe90
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 917baa4b0d983df858c64cd0fa5b697b0fbb316c
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347038"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298271"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-preview"></a>자습서: 자동 사용자 프로비저닝을 위한 Workday 구성(미리 보기)
 
@@ -75,7 +75,7 @@ Workday 통합을 시작하기 전에 다음과 같은 필수 조건을 확인�
 * 테스트 및 통합을 위한 Workday 구현 테넌트
 * 테스트 목적으로 시스템 통합 사용자를 만들고 직원 데이터를 변경하기 위한 관리자 권한
 * Active Directory에 사용자 프로비전의 경우 [온-프레미스 동기화 에이전트](https://go.microsoft.com/fwlink/?linkid=847801)를 호스트하려면 Windows Service 2012 이상을 실행하는 도메인에 가입된 서버가 필요합니다.
-* Active Directory와 Azure AD 간의 동기화를 위한 [Azure AD Connect](../connect/active-directory-aadconnect.md)
+* Active Directory와 Azure AD 간의 동기화를 위한 [Azure AD Connect](../hybrid/whatis-hybrid-identity.md)
 
 ### <a name="solution-architecture"></a>솔루션 아키텍처
 
@@ -196,7 +196,7 @@ Azure AD의 프로비전 커넥터 인스턴스와 앱 인스턴스는 일대일
 
 1. 이러한 나머지 보안 정책 각각에 대해 위의 1-4단계를 반복합니다.
 
-| 작업 | 도메인 보안 정책 |
+| 작업(Operation) | 도메인 보안 정책 |
 | ---------- | ---------- | 
 | 가져오기 및 넣기 | 작업자 데이터: 공용 작업자 보고서 |
 | 가져오기 및 넣기 | 작업자 데이터: 작업 연락처 정보 |
@@ -504,11 +504,11 @@ Azure Active Directory로 프로비전을 구성하는 방법은 프로비전 �
 
 | 시나리오 | 해결 방법 |
 | -------- | -------- |
-| **사용자를 Active Directory 및 Azure AD에 프로비전 해야 함** | **[AAD Connect](../connect/active-directory-aadconnect.md)** 사용 |
-| **사용자를 Active Directory에만 프로비전 해야 함** | **[AAD Connect](../connect/active-directory-aadconnect.md)** 사용 |
+| **사용자를 Active Directory 및 Azure AD에 프로비전 해야 함** | **[AAD Connect](../hybrid/whatis-hybrid-identity.md)** 사용 |
+| **사용자를 Active Directory에만 프로비전 해야 함** | **[AAD Connect](../hybrid/whatis-hybrid-identity.md)** 사용 |
 | **사용자를 Azure AD에만(클라우드에만) 프로비전 해야 함** | 앱 갤러리의 **Workday에서 Azure Active Directory로 프로비전** 앱 사용 |
 
-Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명서](../connect/active-directory-aadconnect.md)를 참조하세요.
+Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명서](../hybrid/whatis-hybrid-identity.md)를 참조하세요.
 
 다음 섹션에서는 클라우드 전용 사용자를 프로비전하기 위해 Workday와 Azure AD 간 연결을 설정합니다.
 

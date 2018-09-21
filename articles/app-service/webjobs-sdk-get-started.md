@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 72f7090c285e629149519920ac82f0fe962abc48
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: e2f9bee2adcebfd47ca088a1bbe76b870e285044
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577308"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580441"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 시작
 
@@ -102,7 +102,7 @@ public static void Run(
 
 ## <a name="enable-console-logging"></a>콘솔 로깅 사용
 
-WebJobs SDK 프로젝트에 로그인하기 위한 몇 가지 옵션이 있습니다. 권장되는 옵션 중 하나는 [ASP.NET Core용으로 개발된 로깅 프레임워크](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging)입니다. 이 프레임워크는 저장소 미디어 및 필터링에 더 나은 성능과 더 많은 유연성을 제공합니다. 
+WebJobs SDK 프로젝트에 로그인하기 위한 몇 가지 옵션이 있습니다. 권장되는 옵션 중 하나는 [ASP.NET Core용으로 개발된 로깅 프레임워크](https://docs.microsoft.com/aspnet/core/fundamentals/logging)입니다. 이 프레임워크는 저장소 미디어 및 필터링에 더 나은 성능과 더 많은 유연성을 제공합니다. 
 
 이 섹션에서는 새 프레임워크를 사용하는 콘솔 로깅을 설정합니다.
 
@@ -318,13 +318,13 @@ WebJobs SDK는 앱 설정 컬렉션에서 Storage 연결 문자열을 찾습니�
 
 1. **연결 문자열** 상자에서 다음 항목을 추가합니다.
 
-   |Name  |연결 문자열  |데이터베이스 유형|
+   |이름  |연결 문자열  |데이터베이스 유형|
    |---------|---------|------|
    |AzureWebJobsStorage | {앞에서 복사한 Storage 연결 문자열}|사용자 지정|
    
 1. **응용 프로그램 설정** 상자에 Application Insights 계측 키가 없으면 앞에서 복사한 계측 키를 추가합니다. (계측 키는 App Service 앱을 만든 방법에 따라 이미 있을 수 있습니다.)
 
-   |Name  |값  |
+   |이름  |값  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {계측 키} |
 
@@ -487,13 +487,13 @@ WebJobs SDK는 앱 설정 컬렉션에서 Storage 연결 문자열을 찾습니�
 
    a. **서버 탐색기**에서 저장소 계정에 대한 노드를 펼치고, **Blob**을 마우스 오른쪽 단추로 클릭한 다음, **Blob 컨테이너 만들기**를 선택합니다.
 
-   나. **Blob 컨테이너 만들기** 대화 상자에서 *container*를 컨테이너 이름으로 입력한 다음, **확인**을 클릭합니다.
+   b. **Blob 컨테이너 만들기** 대화 상자에서 *container*를 컨테이너 이름으로 입력한 다음, **확인**을 클릭합니다.
 
 1. *Program.cs* 파일을 Blob 컨테이너에 업로드합니다. (여기서는 이 파일이 예제로 사용되며, 모든 텍스트 파일을 업로드하고, 파일 이름이 포함된 큐 메시지를 만들 수 있습니다.)
 
    a. **서버 탐색기**에서 방금 만든 컨테이너에 대한 노드를 두 번 클릭합니다.
 
-   나. **컨테이너** 창에서 **업로드** 단추를 선택합니다.
+   b. **컨테이너** 창에서 **업로드** 단추를 선택합니다.
 
    ![Blob 업로드 단추](./media/webjobs-sdk-get-started/blob-upload-button.png)
 

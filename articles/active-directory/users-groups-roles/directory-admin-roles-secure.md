@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: ead6202b0365df770382077618795cd6b6e57cd2
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 55ce6398d89e56f92874d0ec135377d2a08cf075
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346732"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297812"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -159,7 +159,7 @@ BYOD(Bring-Your-Own-Device) 및 재택 근무 정책이 증가하고 기업의 �
 
 #### <a name="turn-on-password-hash-synchronization"></a>암호 해시 동기화 켜기
 
-암호 해시 동기화는 사용자 암호 해시의 해시를 온-프레미스 Active Directory 인스턴스에서 클라우드 기반 Azure AD 인스턴스로 동기화하는 데 사용되는 기능입니다. AD FS(Active Directory Federation Service) 또는 다른 ID 공급자에서 페더레이션을 사용하도록 결정한 경우에도, AD 또는 ADFS 서버와 같은 온-프레미스 인프라가 실패하거나 일시적으로 사용할 수 없게 되므로, 필요에 따라 암호 해시 동기화를 백업으로 설정할 수 있습니다. 이렇게 하면 사용자가 온-프레미스 AD 인스턴스에 로그인하는 데 사용하는 것과 동일한 암호를 사용하여 서비스에 로그인할 수 있습니다. 또한 사용자가 Azure AD에 연결되지 않은 다른 서비스에서 동일한 이메일 주소와 암호를 사용하면, 암호 해시와 손상된 것으로 알려진 암호를 비교하여 Identity Protection에서 손상된 자격 증명을 검색할 수 있습니다.  자세한 내용은 [Azure AD Connect 동기화를 사용하여 암호 해시 동기화 구현](./../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)을 참조하세요.
+암호 해시 동기화는 사용자 암호 해시의 해시를 온-프레미스 Active Directory 인스턴스에서 클라우드 기반 Azure AD 인스턴스로 동기화하는 데 사용되는 기능입니다. AD FS(Active Directory Federation Service) 또는 다른 ID 공급자에서 페더레이션을 사용하도록 결정한 경우에도, AD 또는 ADFS 서버와 같은 온-프레미스 인프라가 실패하거나 일시적으로 사용할 수 없게 되므로, 필요에 따라 암호 해시 동기화를 백업으로 설정할 수 있습니다. 이렇게 하면 사용자가 온-프레미스 AD 인스턴스에 로그인하는 데 사용하는 것과 동일한 암호를 사용하여 서비스에 로그인할 수 있습니다. 또한 사용자가 Azure AD에 연결되지 않은 다른 서비스에서 동일한 이메일 주소와 암호를 사용하면, 암호 해시와 손상된 것으로 알려진 암호를 비교하여 Identity Protection에서 손상된 자격 증명을 검색할 수 있습니다.  자세한 내용은 [Azure AD Connect 동기화를 사용하여 암호 해시 동기화 구현](../hybrid/how-to-connect-password-hash-synchronization.md)을 참조하세요.
 
 #### <a name="require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users"></a>모든 권한이 있는 역할의 사용자 및 노출된 사용자에 대해 MFA(Multi-Factor Authentication) 요구
 

@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: a7aeecc84a3629b43f2c1eb40030866a941d0d3b
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 2b06dcfd4bdeb68d114c0c6dd57134fadfef57b5
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627987"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605847"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>빠른 시작: 클라우드 앱에 액세스하기 전에 사용 약관에 동의하도록 요구 
 
@@ -45,7 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 - **Azure AD Premium Edition에 대한 액세스 권한** - Azure AD 조건부 액세스는 Azure AD Premium 기능입니다. 
 
-- **Isabella Simonsen이라고 하는 테스트 계정** - 테스트 계정을 만드는 방법을 모르는 경우 [클라우드 기반 사용자 추가](../fundamentals/add-users-azure-active-directory.md#add-cloud-based-users)를 참조하세요.
+- **Isabella Simonsen이라고 하는 테스트 계정** - 테스트 계정을 만드는 방법을 모르는 경우 [클라우드 기반 사용자 추가](../fundamentals/add-users-azure-active-directory.md#add-a-new-user)를 참조하세요.
 
 
 ## <a name="test-your-sign-in"></a>로그인 테스트
@@ -96,7 +96,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     a. **이름** 텍스트 상자에서 **내 TOU**를 입력합니다.
 
-    나. **표시 이름** 텍스트 상자에서 **내 TOU**를 입력합니다.
+    b. **표시 이름** 텍스트 상자에서 **내 TOU**를 입력합니다.
 
     다. 사용 약관 PDF 파일을 업로드합니다.
 
@@ -135,7 +135,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **새로 만들기** 페이지의 **이름** 텍스트 상자에서 **Isabella에게 TOU 요구**를 입력합니다.
 
-    ![Name](./media/require-tou/71.png)
+    ![이름](./media/require-tou/71.png)
 
 2. **할당** 섹션에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -147,7 +147,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     a. **사용자 및 그룹 선택**을 클릭한 다음, **사용자 및 그룹**을 선택합니다.
 
-    나. **선택**을 클릭합니다.
+    b. **선택**을 클릭합니다.
 
     다. **선택** 페이지에서 **Isabella Simonsen**을 선택한 다음, **선택**을 클릭합니다.
 
@@ -163,7 +163,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     a. **앱 선택**을 클릭합니다.
 
-    나. **선택**을 클릭합니다.
+    b. **선택**을 클릭합니다.
 
     다. **선택** 페이지에서 **Microsoft Azure 관리**를 선택한 다음, **선택**을 클릭합니다.
 
@@ -182,7 +182,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     a. **내 TOU**를 선택합니다.
 
-    나. **선택**을 클릭합니다.
+    b. **선택**을 클릭합니다.
 
 8. **정책 사용** 섹션에서 **켬**을 클릭합니다.
 
@@ -226,7 +226,7 @@ what if 정책 평가 도구를 초기화하려면 다음을 설정합니다.
 
     a. **클라우드 앱**을 클릭합니다.
 
-    나. **클라우드 앱** 페이지에서 **앱 선택**을 클릭합니다.
+    b. **클라우드 앱** 페이지에서 **앱 선택**을 클릭합니다.
 
     다. **선택**을 클릭합니다.
 
@@ -250,7 +250,7 @@ what if 정책 평가 도구를 초기화하려면 다음을 설정합니다.
 
 테스트 사용자 및 조건부 액세스 정책이 더 이상 필요 없으면 삭제합니다.
 
-- Azure AD 사용자를 삭제하는 방법을 모르겠으면 [Azure AD에서 사용자 삭제](../fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad)를 참조하세요.
+- Azure AD 사용자를 삭제하는 방법을 모르겠으면 [Azure AD에서 사용자 삭제](../fundamentals/add-users-azure-active-directory.md#delete-a-user)를 참조하세요.
 
 - 정책을 삭제하려면 정책을 선택하고, 빠른 실행 도구 모음에서 **삭제**를 클릭합니다.
 

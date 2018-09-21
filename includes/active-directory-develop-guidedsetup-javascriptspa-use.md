@@ -1,3 +1,27 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: active-directory
+documentationcenter: dev-center-name
+author: navyasric
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/17/2018
+ms.author: nacanuma
+ms.custom: include file
+ms.openlocfilehash: 94d57abc95dabf1da579f6d2105ca6c74140a86f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293495"
+---
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>사용자 로그인에 MSAL(Microsoft 인증 라이브러리) 사용
 
 1.  `app.js`라는 파일을 만듭니다. Visual Studio를 사용하는 경우 프로젝트(프로젝트 루트 폴더)를 마우스 오른쪽 단추로 클릭하고 `Add` > `New Item` > `JavaScript File`을 선택합니다.
@@ -113,7 +137,7 @@ function showError(endpoint, error, errorDesc) {
 <!--start-collapse-->
 ### <a name="more-information"></a>추가 정보
 
-사용자가 *‘Call Microsoft Graph API(Microsoft Graph API 호출)’* 단추를 처음으로 클릭하면 `callGraphApi` 메서드는 사용자를 로그인하기 위해 `loginRedirect`를 호출합니다. 이 메서드를 호출한 결과 사용자가 *Microsoft Azure Active Directory v2 끝점*으로 리디렉션되고 여기서 사용자의 자격 증명을 묻고 유효성을 검사합니다. 성공적으로 로그인되면 사용자는 다시 원래 *index.html* 페이지로 리디렉션되고 토큰을 받아 `msal.js`에서 처리되며 토큰에 포함된 정보가 캐시됩니다. 이 토큰은 *ID 토큰*이라고 하며 사용자 표시 이름과 같은 사용자에 대한 기본 정보를 포함합니다. 이 토큰에서 제공하는 데이터를 어떤 용도로든 사용할 계획이면 백 엔드 서버에서 이 토큰의 유효성을 검사하여 토큰이 응용 프로그램의 유효한 사용자에게 발급되었음을 보장하는지 확인해야 합니다.
+사용자가 *‘Call Microsoft Graph API(Microsoft Graph API 호출)’* 단추를 처음으로 클릭하면 `callGraphApi` 메서드는 사용자를 로그인하기 위해 `loginRedirect`를 호출합니다. 이 메서드를 호출한 결과 사용자가 *Microsoft Azure Active Directory v2 엔드포인트*로 리디렉션되고 여기서 사용자의 자격 증명을 묻고 유효성을 검사합니다. 성공적으로 로그인되면 사용자는 다시 원래 *index.html* 페이지로 리디렉션되고 토큰을 받아 `msal.js`에서 처리되며 토큰에 포함된 정보가 캐시됩니다. 이 토큰은 *ID 토큰*이라고 하며 사용자 표시 이름과 같은 사용자에 대한 기본 정보를 포함합니다. 이 토큰에서 제공하는 데이터를 어떤 용도로든 사용할 계획이면 백 엔드 서버에서 이 토큰의 유효성을 검사하여 토큰이 응용 프로그램의 유효한 사용자에게 발급되었음을 보장하는지 확인해야 합니다.
 
 이 가이드에서 생성하는 SPA는 ID 토큰을 직접 사용하지 않고 대신 `acquireTokenSilent` 및/또는 `acquireTokenRedirect`를 호출하여 Microsoft Graph API를 쿼리하는 데 사용하는 *액세스 토큰*을 가져옵니다. ID 토큰의 유효성을 검사하는 예제가 필요한 경우 GitHub에서 [이](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "Github active-directory-javascript-singlepageapp-dotnet-webapi-v2 예제") 응용 프로그램 예제를 살펴보세요. 이 예제는 토큰 유효성 검사를 위해 ASP.NET Web API를 사용합니다.
 
@@ -194,7 +218,7 @@ function callWebApiWithToken(endpoint, token, responseElement, showTokenElement)
 
 ### <a name="more-information-on-making-a-rest-call-against-a-protected-api"></a>보호되는 API에 대한 REST 호출에 관한 추가 정보
 
-이 가이드에서 생성한 응용 프로그램 예제에서는 `callWebApiWithToken()` 메서드를 사용하여 토큰이 필요한 보호되는 리소스에 대한 HTTP `GET` 요청을 실행한 다음 콘텐츠를 호출자에게 반환합니다. 이 메서드는 *HTTP 인증 헤더*에 획득된 토큰을 추가합니다. 이 가이드에서 생성한 응용 프로그램 예제의 경우 리소스는 사용자 프로필 정보를 표시하는 Microsoft Graph API *me* 끝점입니다.
+이 가이드에서 생성한 응용 프로그램 예제에서는 `callWebApiWithToken()` 메서드를 사용하여 토큰이 필요한 보호되는 리소스에 대한 HTTP `GET` 요청을 실행한 다음 콘텐츠를 호출자에게 반환합니다. 이 메서드는 *HTTP 인증 헤더*에 획득된 토큰을 추가합니다. 이 가이드에서 생성한 응용 프로그램 예제의 경우 리소스는 사용자 프로필 정보를 표시하는 Microsoft Graph API *me* 엔드포인트입니다.
 
 <!--end-collapse-->
 

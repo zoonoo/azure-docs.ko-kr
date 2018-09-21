@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 07/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2bd52486a78ca103e0070d94ea423c069f845587
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 65f740e23b68727bdffa4a966518b1581fb5b0a6
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627511"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604368"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>빠른 시작: Azure Active Directory 조건부 액세스를 사용하여 세션 위험이 감지되면 액세스 차단  
 
@@ -46,7 +46,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 - **Tor 브라우저** - [Tor 브라우저](https://www.torproject.org/projects/torbrowser.html.en)는 온라인 개인 정보를 유지할 수 있도록 설계되었습니다. Identity Protection은 Tor 브라우저에서의 로그인을 보통 위험 수준인 **익명 IP 주소에서의 로그인**으로 감지합니다. 자세한 내용은 [Azure Active Directory 위험 이벤트](../reports-monitoring/concept-risk-events.md)를 참조하세요.  
 
-- **Alain Charon이라고 하는 테스트 계정** - 테스트 계정을 만드는 방법을 모르는 경우 [클라우드 기반 사용자 추가](../fundamentals/add-users-azure-active-directory.md#add-cloud-based-users)를 참조하세요.
+- **Alain Charon이라고 하는 테스트 계정** - 테스트 계정을 만드는 방법을 모르는 경우 [클라우드 기반 사용자 추가](../fundamentals/add-users-azure-active-directory.md#add-a-new-user)를 참조하세요.
 
 
 ## <a name="test-your-sign-in"></a>로그인 테스트 
@@ -93,11 +93,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
  
 4. **조건부 액세스** 페이지에서 위쪽의 도구 모음에서 **추가**를 클릭합니다.
 
-    ![Name](./media/app-sign-in-risk/108.png)
+    ![이름](./media/app-sign-in-risk/108.png)
 
 5. **새로 만들기** 페이지의 **이름** 텍스트 상자에 **중간 위험 수준에 대한 액세스 차단**을 입력합니다.
 
-    ![Name](./media/app-sign-in-risk/104.png)
+    ![이름](./media/app-sign-in-risk/104.png)
 
 6. **할당** 섹션에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -109,7 +109,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     a. **사용자 및 그룹 선택**을 클릭한 다음, **사용자 및 그룹**을 선택합니다.
 
-    나. **선택**을 클릭합니다.
+    b. **선택**을 클릭합니다.
 
     다. **선택** 페이지에서 **Alain Charon**을 선택한 다음, **선택**을 클릭합니다.
 
@@ -125,7 +125,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     a. **모든 클라우드 앱**을 클릭합니다.
 
-    나. **Done**을 클릭합니다.
+    b. **Done**을 클릭합니다.
 
 10. **조건**을 클릭합니다. 
 
@@ -137,7 +137,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     a. **로그인 위험**을 클릭합니다.
  
-    나. **구성**으로 **예**를 클릭합니다.
+    b. **구성**으로 **예**를 클릭합니다.
 
     다. 로그인 위험 수준으로 **보통**을 선택합니다.
 
@@ -157,7 +157,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     a. **액세스 차단**을 선택합니다.
 
-    나. **선택**을 클릭합니다.
+    b. **선택**을 클릭합니다.
 
 12. **정책 사용** 섹션에서 **켬**을 클릭합니다.
 
@@ -206,7 +206,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 테스트 사용자, Tor 브라우저 및 조건부 액세스 정책이 더 이상 필요 없으면 삭제합니다.
 
-- Azure AD 사용자를 삭제하는 방법을 모르겠으면 [Azure AD에서 사용자 삭제](../fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad)를 참조하세요.
+- Azure AD 사용자를 삭제하는 방법을 모르겠으면 [Azure AD에서 사용자 삭제](../fundamentals/add-users-azure-active-directory.md#delete-a-user)를 참조하세요.
 
 - 정책을 삭제하려면 정책을 선택하고, 빠른 실행 도구 모음에서 **삭제**를 클릭합니다.
 

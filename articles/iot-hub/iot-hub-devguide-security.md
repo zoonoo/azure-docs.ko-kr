@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 227723ecea1401247f0df87bccfe058fb2273647
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 4e9a5808a718909b21698b551f516a238e3934b0
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145352"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605779"
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub에 대한 액세스 제어
 
-이 섹션에서는 IoT Hub를 보호하는 옵션을 설명합니다. IoT Hub는 *권한*을 사용하여 각 IoT Hub의 끝점에 대한 액세스를 부여합니다. 사용 권한은 기능에 따라 IoT Hub에 대한 액세스를 제한합니다.
+이 섹션에서는 IoT Hub를 보호하는 옵션을 설명합니다. IoT Hub는 *권한*을 사용하여 각 IoT Hub의 엔드포인트에 대한 액세스를 부여합니다. 사용 권한은 기능에 따라 IoT Hub에 대한 액세스를 제한합니다.
 
 이 문서에서는 다음을 소개합니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "39145352"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-IoT Hub 끝점에 액세스하려면 적절한 권한이 있어야 합니다. 예를 들어 IoT Hub에 보내는 모든 메시지에는 보안 자격 증명을 포함하는 토큰을 포함해야 합니다.
+IoT Hub 엔드포인트에 액세스하려면 적절한 권한이 있어야 합니다. 예를 들어 IoT Hub에 보내는 모든 메시지에는 보안 자격 증명을 포함하는 토큰을 포함해야 합니다.
 
 ## <a name="access-control-and-permissions"></a>액세스 제어 및 권한
 
@@ -45,7 +45,7 @@ IoT Hub 끝점에 액세스하려면 적절한 권한이 있어야 합니다. �
   | registryRead | **RegistryRead** 권한 |
   | registryReadWrite | **RegistryRead** 및 **RegistryWrite** 권한 |
 
-* **장치 단위 보안 자격 증명**. 각 IoT Hub는 [ID 레지스트리][lnk-identity-registry]를 포함합니다. 이 ID 레지스트리의 각 장치의 경우 해당 장치 끝점으로 범위가 지정된 **DeviceConnect** 사용 권한을 부여하는 보안 자격 증명을 구성할 수 있습니다.
+* **장치 단위 보안 자격 증명**. 각 IoT Hub는 [ID 레지스트리][lnk-identity-registry]를 포함합니다. 이 ID 레지스트리의 각 장치의 경우 해당 장치 엔드포인트로 범위가 지정된 **DeviceConnect** 사용 권한을 부여하는 보안 자격 증명을 구성할 수 있습니다.
 
 예를 들어 일반적인 IoT 솔루션에서는 다음이 적용됩니다.
 
@@ -59,7 +59,7 @@ IoT Hub 끝점에 액세스하려면 적절한 권한이 있어야 합니다. �
 
 ## <a name="authentication"></a>인증
 
-Azure IoT Hub는 공유 액세스 정책 및 ID 레지스트리 보안 자격 증명에 대한 토큰을 확인하여 끝점에 대한 액세스를 부여합니다.
+Azure IoT Hub는 공유 액세스 정책 및 ID 레지스트리 보안 자격 증명에 대한 토큰을 확인하여 엔드포인트에 대한 액세스를 부여합니다.
 
 대칭 키와 같은 보안 자격 증명은 통신 중에 전송되지 않습니다.
 
@@ -107,7 +107,7 @@ AMQP와 SASL PLAIN을 사용할 때 IoT Hub에 연결한 클라이언트는 각 
 
 ## <a name="scope-iot-hub-level-credentials"></a>IoT Hub 수준 자격 증명의 범위 지정
 
-제한된 리소스 URI로 토큰을 만들어 IoT Hub 수준 보안 정책의 범위를 지정할 수 있습니다. 예를 들어 장치에서 장치-클라우드 메시지를 보낼 끝점은 **/devices/{deviceId}/messages/events**입니다. 또한 **DeviceConnect** 사용 권한으로 IoT Hub 수준 공유 액세스 정책을 사용하여 resourceURI가 **/devices/{deviceId}** 인 토큰에 서명할 수도 있습니다. 이 방법은 장치 **deviceId**대신 메시지를 전송하는 데에만 사용할 수 있는 토큰을 생성합니다.
+제한된 리소스 URI로 토큰을 만들어 IoT Hub 수준 보안 정책의 범위를 지정할 수 있습니다. 예를 들어 장치에서 장치-클라우드 메시지를 보낼 엔드포인트는 **/devices/{deviceId}/messages/events**입니다. 또한 **DeviceConnect** 사용 권한으로 IoT Hub 수준 공유 액세스 정책을 사용하여 resourceURI가 **/devices/{deviceId}** 인 토큰에 서명할 수도 있습니다. 이 방법은 장치 **deviceId**대신 메시지를 전송하는 데에만 사용할 수 있는 토큰을 생성합니다.
 
 이 메커니즘은 [Event Hub 게시자 정책][lnk-event-hubs-publisher-policy]과 유사하며 사용자 지정 인증 메서드를 구현하도록 합니다.
 
@@ -135,7 +135,7 @@ IoT Hub는 네트워크에서 토큰이 전송되는 것을 피하기 위해 보
 | 값 | 설명 |
 | --- | --- |
 | {signature} |형식의 HMAC-SHA256 서명 문자열은 `{URL-encoded-resourceURI} + "\n" + expiry`입니다. **중요**: 키는 base64에서 디코딩되며 HMAC-SHA256 계산을 수행하는 데 키로 사용됩니다. |
-| {resourceURI} |이 토큰으로 액세스할 수 있는 끝점의 URI 접두사(세그먼트별)이며 IoT Hub의 호스트 이름으로 시작합니다(프로토콜 없음). 예를 들어 `myHub.azure-devices.net/devices/device1` |
+| {resourceURI} |이 토큰으로 액세스할 수 있는 엔드포인트의 URI 접두사(세그먼트별)이며 IoT Hub의 호스트 이름으로 시작합니다(프로토콜 없음). 예를 들어 `myHub.azure-devices.net/devices/device1` |
 | {expiry} |1970년 1월 1일 epoch 0시 UTC 이후의 초 수에 대한 UTF8 문자열입니다. |
 | {URL-encoded-resourceURI} |소문자 URL-소문자 리소스 URI의 인코딩 |
 | {policyName} |이 토큰을 참조하는 공유 액세스 정책의 이름입니다. 토큰이 장치 레지스트리 자격 증명을 참조하는 경우 없습니다. |
@@ -233,14 +233,14 @@ public static string generateSasToken(string resourceUri, string key, string pol
 
 보안 토큰을 사용하여 IoT Hub에 **DeviceConnect** 권한을 확보하는 방법은 두 가지입니다. [ID 레지스트리의 대칭 장치 키](#use-a-symmetric-key-in-the-identity-registry)를 사용하거나 [공유 액세스 키](#use-a-shared-access-policy)를 사용합니다.
 
-장치에서 액세스할 수 있는 모든 기능이 `/devices/{deviceId}` 접두사가 있는 끝점에서 의도적으로 노출된다는 것을 기억하십시오.
+장치에서 액세스할 수 있는 모든 기능이 `/devices/{deviceId}` 접두사가 있는 엔드포인트에서 의도적으로 노출된다는 것을 기억하십시오.
 
 > [!IMPORTANT]
 > IoT Hub에서 특정 장치를 인증하는 유일한 방법은 장치 ID 대칭 키를 사용하는 것입니다. 장치 기능에 액세스하는 데 공유 액세스 정책을 사용하는 경우 솔루션은 보안 토큰을 신뢰할 수 있는 하위 구성 요소로 발급하는 구성 요소를 고려해야 합니다.
 
-장치 연결 끝점은 다음과 같습니다(프로토콜과 관련 없음).
+장치 연결 엔드포인트는 다음과 같습니다(프로토콜과 관련 없음).
 
-| 끝점 | 기능 |
+| 엔드포인트 | 기능 |
 | --- | --- |
 | `{iot hub host name}/devices/{deviceId}/messages/events` |장치-클라우드 메시지를 보냅니다. |
 | `{iot hub host name}/devices/{deviceId}/messages/devicebound` |클라우드-장치 메시지를 받습니다. |
@@ -310,9 +310,9 @@ device1의 모든 기능에 액세스 권한을 부여하는 결과는 다음과
 
 앞에서 설명했듯이 서비스 구성 요소는 적절한 권한을 부여하는 공유 액세스 정책을 사용하여 보안 토큰을 생성할 수 있습니다.
 
-다음은 끝점에 노출된 서비스 기능입니다.
+다음은 엔드포인트에 노출된 서비스 기능입니다.
 
-| 끝점 | 기능 |
+| 엔드포인트 | 기능 |
 | --- | --- |
 | `{iot hub host name}/devices` |장치 ID를 만들기, 업데이트, 검색 및 삭제합니다. |
 | `{iot hub host name}/messages/events` |장치-클라우드 메시지를 받습니다. |
@@ -328,7 +328,7 @@ device1의 모든 기능에 액세스 권한을 부여하는 결과는 다음과
 
 ```nodejs
 var endpoint ="myhub.azure-devices.net/devices";
-var policyName = 'device';
+var policyName = 'registryRead';
 var policyKey = '...';
 
 var token = generateSasToken(endpoint, policyKey, policyName, 60);
@@ -433,14 +433,14 @@ IoT Hub에 사용자 지정 ID 레지스트리/인증 구성표를 구현하는 
 | --- | --- |
 | **RegistryRead** |ID 레지스트리에 대한 읽기 액세스 권한을 부여합니다. 자세한 내용은 [ID 레지스트리][lnk-identity-registry]를 참조하세요. <br/>이 사용 권한은 백 엔드 클라우드 서비스에서 사용됩니다. |
 | **RegistryReadWrite** |ID 레지스트리에 대한 읽기 및 쓰기 액세스 권한을 부여합니다. 자세한 내용은 [ID 레지스트리][lnk-identity-registry]를 참조하세요. <br/>이 사용 권한은 백 엔드 클라우드 서비스에서 사용됩니다. |
-| **ServiceConnect** |클라우드 서비스 지향 통신 및 모니터링 중인 끝점에 대한 액세스를 부여합니다. <br/>장치-클라우드 메시지를 받고 클라우드-장치 메시지를 보내며 해당 전달 승인을 검색할 권한을 부여합니다. <br/>파일 업로드에 대한 전달 승인을 검색할 권한을 부여합니다. <br/>태그 및 원하는 속성을 업데이트하고, 보고된 속성을 검색하고, 쿼리를 실행하기 위해 쌍에 액세스할 권한을 부여합니다. <br/>이 사용 권한은 백 엔드 클라우드 서비스에서 사용됩니다. |
-| **DeviceConnect** |장치 지향 끝점에 대한 액세스를 부여합니다. <br/>장치-클라우드 메시지를 보내고 클라우드-장치 메시지를 받을 권한을 부여합니다. <br/>장치에서 파일 업로드를 수행할 권한을 부여합니다. <br/>장치 쌍의 원하는 속성 알림을 받고 장치 쌍의 보고된 속성을 업데이트할 권한을 부여합니다. <br/>파일 업로드를 수행할 권한을 부여합니다. <br/>이 권한은 장치에서 사용됩니다. |
+| **ServiceConnect** |클라우드 서비스 지향 통신 및 모니터링 중인 엔드포인트에 대한 액세스를 부여합니다. <br/>장치-클라우드 메시지를 받고 클라우드-장치 메시지를 보내며 해당 전달 승인을 검색할 권한을 부여합니다. <br/>파일 업로드에 대한 전달 승인을 검색할 권한을 부여합니다. <br/>태그 및 원하는 속성을 업데이트하고, 보고된 속성을 검색하고, 쿼리를 실행하기 위해 쌍에 액세스할 권한을 부여합니다. <br/>이 사용 권한은 백 엔드 클라우드 서비스에서 사용됩니다. |
+| **DeviceConnect** |장치 지향 엔드포인트에 대한 액세스를 부여합니다. <br/>장치-클라우드 메시지를 보내고 클라우드-장치 메시지를 받을 권한을 부여합니다. <br/>장치에서 파일 업로드를 수행할 권한을 부여합니다. <br/>장치 쌍의 원하는 속성 알림을 받고 장치 쌍의 보고된 속성을 업데이트할 권한을 부여합니다. <br/>파일 업로드를 수행할 권한을 부여합니다. <br/>이 권한은 장치에서 사용됩니다. |
 
 ## <a name="additional-reference-material"></a>추가 참조 자료
 
 이 IoT Hub 개발자 가이드의 다른 참조 자료:
 
-* [IoT Hub 끝점][lnk-endpoints] - 각 IoT Hub에서 런타임 및 관리 작업에 대해 공개하는 다양한 끝점에 대해 설명합니다.
+* [IoT Hub 엔드포인트][lnk-endpoints] - 각 IoT Hub에서 런타임 및 관리 작업에 대해 공개하는 다양한 엔드포인트에 대해 설명합니다.
 * [제한 및 할당량][lnk-quotas]은 IoT Hub 서비스에 적용되는 할당량과 제한 동작에 대해 설명합니다.
 * [Azure IoT 장치 및 서비스 SDK][lnk-sdks] - IoT Hub와 상호 작용하는 장치 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
 * [IoT Hub 쿼리 언어][lnk-query]는 IoT Hub에서 장치 쌍 및 작업에 대한 정보를 검색하는 데 사용할 수 있는 쿼리 언어에 대해 설명합니다.

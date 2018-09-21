@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: c076ae96f8aba648196dc5222db3da3da68673ff
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 86a14d12f6621524ef26e2a869d4be532105dc77
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528394"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732351"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Hudson Continuous Integration 솔루션과 함께 Azure Storage 사용
 ## <a name="overview"></a>개요
@@ -53,7 +53,7 @@ Hudson CI 솔루션으로 Blob service를 사용하려면 다음이 있어야 �
      
       일반적인 Hudson CI 솔루션은 서비스로 실행되도록 설정되지만 이 자습서에서는 명령줄에서 Hudson WAR을 실행해도 충분합니다.
 * Azure 계정. <http://www.azure.com>에서 Azure 계정을 등록할 수 있습니다.
-* Azure 저장소 계정. Storage 계정이 아직 없으면 [Storage 계정 만들기](../common/storage-create-storage-account.md#create-a-storage-account)에 설명된 단계를 따라 계정을 만들 수 있습니다.
+* Azure 저장소 계정. Storage 계정이 아직 없으면 [Storage 계정 만들기](../common/storage-quickstart-create-account.md)에 설명된 단계를 따라 계정을 만들 수 있습니다.
 * Hudson CI 솔루션은 필수는 아니지만 알아 두는 것이 좋습니다. 다음 내용에서 기본 예제를 통해 Blob service를 Hudson CI 빌드 아티팩트의 리포지토리로 사용할 때 필요한 단계를 보여 주기 때문입니다.
 
 ## <a name="how-to-use-the-blob-service-with-hudson-ci"></a>Hudson CI로 Blob service를 사용하는 방법
@@ -75,9 +75,9 @@ Hudson으로 Blob service를 사용하려면 Azure Storage 플러그 인을 설�
    
     a. [Azure Portal](https://portal.azure.com)에서 가져올 수 있는 저장소 계정 이름을 입력합니다.
    
-    나. [Azure Portal](https://portal.azure.com)에서 확인 가능한 저장소 계정 키도 입력합니다.
+    b. [Azure Portal](https://portal.azure.com)에서 확인 가능한 저장소 계정 키도 입력합니다.
    
-    다. 공용 Azure 클라우드를 사용 중이면 **Blob Service Endpoint URL** 에 기본값을 사용합니다. 다른 Azure 클라우드를 사용 중이면 [Azure Portal](https://portal.azure.com) 에서 저장소 계정에 대해 지정된 끝점을 사용합니다.
+    다. 공용 Azure 클라우드를 사용 중이면 **Blob Service Endpoint URL** 에 기본값을 사용합니다. 다른 Azure 클라우드를 사용 중이면 [Azure Portal](https://portal.azure.com) 에서 저장소 계정에 대해 지정된 엔드포인트를 사용합니다.
    
     d. **Validate storage credentials** 를 클릭하여 저장소 계정의 유효성을 검사합니다.
    
@@ -118,7 +118,7 @@ Hudson으로 Blob service를 사용하려면 Azure Storage 플러그 인을 설�
     
     a. [Azure Portal](https://portal.azure.com)에 로그인합니다.
     
-    나. **저장소**를 클릭합니다.
+    b. **저장소**를 클릭합니다.
     
     다. Hudson에 사용할 저장소 계정 이름을 클릭합니다.
     
@@ -151,7 +151,7 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
   
-    위의 형식은 공용 Azure 클라우드에 적용됩니다. 다른 Azure 클라우드를 사용 중이면 [Azure Portal](https://portal.azure.com) 내의 끝점을 사용하여 URL 끝점을 확인합니다.)
+    위의 형식은 공용 Azure 클라우드에 적용됩니다. 다른 Azure 클라우드를 사용 중이면 [Azure Portal](https://portal.azure.com) 내의 엔드포인트를 사용하여 URL 엔드포인트를 확인합니다.)
   
     위 형식에서 `storageaccount`은(는) 저장소 계정 이름을 나타내고, `container_name`은(는) 컨테이너 이름을 나타내고, `blob_name`은(는) Blob 이름을 각각 나타냅니다. 컨테이너 이름 내에 슬래시( **/** 에서 찾을 수 있습니다. 이 자습서에서 컨테이너 이름의 예는 **MyJob**이었고 **${BUILD\_ID}/${BUILD\_NUMBER}** 는 일반 가상 경로에 사용되었으므로 Blob의 URL 형식은 다음과 같습니다.
   

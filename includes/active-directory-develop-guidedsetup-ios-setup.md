@@ -1,3 +1,27 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: ios
+ms.workload: identity
+ms.date: 09/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 4ed4f7e15a21e1565031994bd377c15aebd535bc
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46466164"
+---
 ## <a name="setting-up-your-ios-application"></a>iOS 응용 프로그램 설정
 
 이 섹션에서는 토큰이 필요한 Web API를 쿼리할 수 있도록 iOS 응용 프로그램(Swift)을 *Microsoft에 로그인*과 통합하는 방식을 설명하기 위해 새 프로젝트를 만드는 방법에 대한 단계별 지침을 제공합니다.

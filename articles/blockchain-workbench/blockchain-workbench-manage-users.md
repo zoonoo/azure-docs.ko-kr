@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 80f20e438b1d923e688aeef9e6b353642bd74c27
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: ff2c6a2d9b2aec7abc684a4b189ccf31c454aaeb
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158938"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35638736"
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Azure Blockchain Workbench의 사용자 관리
 
@@ -40,7 +40,7 @@ Blockchain Workbench 사용자는 Azure AD 테넌트에 존재해야 응용 프�
 
 5.  새 사용자에 대한 필수 필드를 입력합니다. **만들기**를 선택합니다.
 
-[Azure AD](../active-directory/add-users-azure-active-directory.md) 문서에서 Azure AD 내에서 사용자를 관리하는 방법에 대한 자세한 내용을 알아보세요.
+[Azure AD](../active-directory/fundamentals/add-users-azure-active-directory.md) 문서에서 Azure AD 내에서 사용자를 관리하는 방법에 대한 자세한 내용을 알아보세요.
 
 ## <a name="manage-blockchain-workbench-administrators"></a>Blockchain Workbench 관리자 관리
 

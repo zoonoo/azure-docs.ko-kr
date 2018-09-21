@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: 38d024de0fd2490d33f7c06498d3ff8d0d06e503
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 3b4c9de16c7248cbd3087689544d70fe22c858fd
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42143896"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296416"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Azure Active Directory 장치 등록을 사용하여 온-프레미스 조건부 액세스 설정
 사용자가 Azure AD(Azure Active Directory) 장치 등록 서비스에 자신의 개인 장치를 작업 공간에 연결하도록 요구하면 해당 장치가 조직에 알려진 것으로 표시될 수 있습니다. 다음은 Windows Server 2012 R2에서 AD FS(Active Directory Federation Services)를 사용하여 온-프레미스 응용 프로그램에 대한 조건부 액세스를 사용하도록 설정하는 단계별 가이드입니다.
@@ -88,7 +88,7 @@ Azure Active Directory 테넌트에 Azure Active Directory 장치 등록 서비�
 ## <a name="part-3-enable-device-writeback-in-azure-ad"></a>3부: Azure AD에서 장치 쓰기 저장 사용
 | Task | 참고 자료 |
 | --- | --- |
-| "Azure AD Connect에서 장치 쓰기 저장 사용"의 2부를 완료합니다. 완료한 후에 이 가이드로 돌아옵니다. |[Azure AD Connect에서 장치 쓰기 저장 사용](./connect/active-directory-aadconnect-feature-device-writeback.md) |
+| "Azure AD Connect에서 장치 쓰기 저장 사용"의 2부를 완료합니다. 완료한 후에 이 가이드로 돌아옵니다. |[Azure AD Connect에서 장치 쓰기 저장 사용](hybrid/how-to-connect-device-writeback.md) |
 
 ## <a name="optional-part-4-enable-multi-factor-authentication"></a>[선택 사항] 4부: Multi-Factor Authentication 사용
 Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 것이 좋습니다. Multi-Factor Authentication을 요구하려면 [사용자를 위한 Multi-Factor Authentication 보안 솔루션 선택](authentication/concept-mfa-whichversion.md)을 참조하세요. 여기에는 각 솔루션에 대한 설명, 선택한 솔루션을 구성하는 데 도움이 되는 링크가 포함되어 있습니다.
@@ -107,9 +107,9 @@ Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 �
 
 **다음을 참조하세요.**
 
-- 개념 정보를 검토하려면 [Azure Active Directory에 온-프레미스 디렉터리 통합](./connect/active-directory-aadconnect.md)을 참조하세요.
+- 개념 정보를 검토하려면 [Azure Active Directory에 온-프레미스 디렉터리 통합](hybrid/whatis-hybrid-identity.md)을 참조하세요.
 
-- 설치 지침은 [Azure AD Connect의 사용자 지정 설치](./connect/active-directory-aadconnect-get-started-custom.md)를 참조하세요.
+- 설치 지침은 [Azure AD Connect의 사용자 지정 설치](hybrid/how-to-connect-install-custom.md)를 참조하세요.
 
 
 ## <a name="upgrade-your-active-directory-domain-services-schema"></a>Active Directory Domain Services 스키마 업그레이드

@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: 8b6c8220bd009505f683ce888558e612aebdc0b3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6eb2452507c3adcb8532a0dd2e50ad701e35cd7f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048107"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579236"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>SSIS(SQL Server Integration Services)를 사용하여 U-SQL 작업 예약
 
@@ -63,7 +63,7 @@ SSIS 패키지 디자인 뷰에서 **Azure Data Lake Store 파일 시스템 태�
 ### <a name="configure-azure-data-lake-store-file-system-task"></a>Azure Data Lake Store 파일 시스템 태스크 구성
 
 1. **작업**을 **CopyFromADLS**로 설정합니다.
-2. **AzureDataLakeConnection**을 설정하고, [Azure Data Lake Store 연결 관리자](https://docs.microsoft.com/en-us/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager?view=sql-server-2017)에 대해 자세히 알아보세요.
+2. **AzureDataLakeConnection**을 설정하고, [Azure Data Lake Store 연결 관리자](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager?view=sql-server-2017)에 대해 자세히 알아보세요.
 3. **AzureDataLakeDirectory**를 설정합니다. U-SQL 스크립트를 저장하는 폴더를 가리킵니다. Azure Data Lake Store 계정 루트 폴더를 기준으로 하는 상대 경로를 사용합니다.
 4. **대상**을 다운로드한 U-SQL 스크립트를 캐시하는 폴더로 설정합니다. 이 폴더 경로는 U-SQL 작업 제출을 위해 Foreach 루프 컨테이너에서 사용됩니다. 
 
@@ -106,7 +106,7 @@ SSIS 패키지 디자인 뷰에서 **Azure Data Lake Store 파일 시스템 태�
 
 3. **AzureDataLakeAnalyticsConnection**을 작업이 제출될 Azure Data Lake Analytics 계정으로 설정합니다. [Azure Data Lake Analytics 연결 관리자](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017)에 대해 자세히 알아보세요.
 
-4. 기타 작업 구성을 설정합니다. [자세한 정보](https://docs.microsoft.com/en-us/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017).
+4. 기타 작업 구성을 설정합니다. [자세한 정보](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017).
 
 5. **식**을 사용하여 U-SQL 작업 이름을 동적으로 설정합니다.
 
@@ -119,7 +119,7 @@ SSIS 패키지 디자인 뷰에서 **Azure Data Lake Store 파일 시스템 태�
 
 Azure Feature Pack의 **Azure Blob 다운로드 태스크**를 사용하여 Azure Blob Storage의 U-SQL 파일을 사용할 수 있습니다. 이 방법을 사용하면 클라우드에 있는 스크립트를 사용할 수 있습니다.
 
-단계는 [시나리오 2: Azure Data Lake Store의 U-SQL 파일 사용](#scenario-2-use-u-sql-files-in-azure-data-lake-store)과 유사합니다. Azure Data Lake Store 파일 시스템 태스크를 Azure Blob 다운로드 태스크로 변경합니다. [Azure Blob 다운로드 태스크에 대해 자세히 알아보세요](https://docs.microsoft.com/en-us/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
+단계는 [시나리오 2: Azure Data Lake Store의 U-SQL 파일 사용](#scenario-2-use-u-sql-files-in-azure-data-lake-store)과 유사합니다. Azure Data Lake Store 파일 시스템 태스크를 Azure Blob 다운로드 태스크로 변경합니다. [Azure Blob 다운로드 태스크에 대해 자세히 알아보세요](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
 
 제어 흐름은 아래와 같습니다.
 
@@ -164,11 +164,11 @@ U-SQL 스크립트에서 U-SQL 변수 값을 동적으로 설정하려는 경우
 - 입력 및 출력 파일 경로 변수를 현재 날짜 및 시간에 따라 동적으로 설정합니다.
 - 저장 프로시저의 매개 변수를 설정합니다.
 
-[U-SQL 스크립트의 매개 변수를 설정하는 방법을 자세히 알아보세요](https://docs.microsoft.com/en-us/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017#parameter-mapping-page-configuration).
+[U-SQL 스크립트의 매개 변수를 설정하는 방법을 자세히 알아보세요](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017#parameter-mapping-page-configuration).
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure에서 SSIS 패키지 실행](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
 - [Azure Feature Pack for Integration Services(SSIS)](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud)
-- [Azure Data Factory를 사용하여 U-SQL 작업 예약](https://docs.microsoft.com/en-us/azure/data-factory/transform-data-using-data-lake-analytics)
+- [Azure Data Factory를 사용하여 U-SQL 작업 예약](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics)
 

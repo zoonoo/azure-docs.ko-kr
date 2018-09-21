@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: c2805ddf7627ad520f6cc6585baedc7f5194aad6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3a68a4a132302051b04b69cc794f5327a82f7639
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626907"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604054"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>연결된 팩터리 솔루션 가속기를 위해 Windows 또는 Linux에 경계 게이트웨이 배포
 
@@ -93,13 +93,13 @@ OPC 구성 요소를 설치하기 전에 다음 단계를 완료하여 환경을
 OPC 게시자를 실행하려면 명령 프롬프트에서 다음 명령을 실행합니다.
 
 ```cmd/sh
-docker run --rm -it -v <SharedFolder>:/docker -v x509certstores:/root/.dotnet/corefx/cryptography/x509stores --network iot_edge --name publisher -h publisher -p 62222:62222 --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> microsoft/iot-edge-opc-publisher:2.1.3 publisher "<IoTHubOwnerConnectionString>" --lf /docker/publisher.log.txt --as true --si 1 --ms 0 --tm true --vc true --di 30
+docker run --rm -it -v <SharedFolder>:/docker -v x509certstores:/root/.dotnet/corefx/cryptography/x509stores --network iot_edge --name publisher -h publisher -p 62222:62222 --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> microsoft/iot-edge-opc-publisher:2.1.4 publisher "<IoTHubOwnerConnectionString>" --lf /docker/publisher.log.txt --as true --si 1 --ms 0 --tm true --vc true --di 30
 ```
 
 - [OPC 게시자 GitHub](https://github.com/Azure/iot-edge-opc-publisher) 및 [Docker 실행 참조](https://docs.docker.com/engine/reference/run/)에 다음에 관한 자세한 정보가 나와 있습니다.
 
-  - 컨테이너 이름(`microsoft/iot-edge-opc-publisher:2.1.3`) 앞에 지정된 Docker 명령줄 옵션.
-  - 컨테이너 이름(`microsoft/iot-edge-opc-publisher:2.1.3`) 뒤에 지정된 OPC 게시자 명령줄 매개 변수의 의미.
+  - 컨테이너 이름(`microsoft/iot-edge-opc-publisher:2.1.4`) 앞에 지정된 Docker 명령줄 옵션.
+  - 컨테이너 이름(`microsoft/iot-edge-opc-publisher:2.1.4`) 뒤에 지정된 OPC 게시자 명령줄 매개 변수의 의미.
 
 - `<IoTHubOwnerConnectionString>`은 Azure Portal의 **iothubowner** 공유 액세스 정책 연결 문자열입니다. 이전 단계에서 이 연결 문자열을 복사했습니다. OPC 게시자를 처음 실행할 때 이 연결 문자열만 필요합니다. 다음 실행 시에는 보안 위험이 제기되므로 이를 생략해야 합니다.
 
@@ -123,7 +123,7 @@ docker run --rm -it -v <SharedFolder>:/docker -v x509certstores:/root/.dotnet/co
 OPC 프록시를 설치하려면 명령 프롬프트에서 다음 명령을 실행합니다.
 
 ```cmd/sh
-docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> microsoft/iot-edge-opc-proxy:1.0.2 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db
+docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> microsoft/iot-edge-opc-proxy:1.0.4 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db
 ```
 
 시스템에서 설치를 한 번 실행하기만 하면 됩니다.
@@ -131,7 +131,7 @@ docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --
 다음 명령을 사용하여 OPC 프록시를 실행합니다.
 
 ```cmd/sh
-docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> microsoft/iot-edge-opc-proxy:1.0.2 -D /mapped/cs.db
+docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> microsoft/iot-edge-opc-proxy:1.0.4 -D /mapped/cs.db
 ```
 
 OPC 프록시는 설치하는 동안 연결 문자열을 저장합니다. 다음 실행 시에는 보안 위험이 제기되므로 연결 문자열을 생략해야 합니다.
@@ -153,7 +153,7 @@ OPC 프록시는 설치하는 동안 연결 문자열을 저장합니다. 다음
 1. 연결된 팩터리 솔루션 포털에서 **사용자 자신의 OPC UA 서버 연결** 페이지로 이동합니다.
 
     1. 연결하려는 OPC UA 서버를 시작합니다. OPC 게시자와 컨테이너에서 실행되는 OPC 프록시에서 OPC UA 서버에 연결할 수 있는지 확인합니다(이름 확인에 대한 이전 설명 참조).
-    1. OPC UA 서버의 끝점 URL(`opc.tcp://<host>:<port>`)을 입력하고 **연결**을 클릭합니다.
+    1. OPC UA 서버의 엔드포인트 URL(`opc.tcp://<host>:<port>`)을 입력하고 **연결**을 클릭합니다.
     1. 연결 설정의 일부로, 연결된 팩터리 포털(OPC UA 클라이언트)과 연결하려는 OPC UA 서버 간에 트러스트 관계가 설정됩니다. 연결된 팩터리 대시보드에서 **연결하려는 서버의 인증서를 확인할 수 없음** 경고가 표시됩니다. 인증서 경고가 표시되면 **계속**을 클릭합니다.
     1. 설치하기 더 어려운 것은 연결하려는 OPC UA 서버의 인증서 구성입니다. PC 기반 OPC UA 서버의 경우, 대시보드에 승인할 수는 경고 대화 상자만 표시될 수 있습니다. 포함된 OPC UA 서버 시스템의 경우, OPC UA 서버의 설명서를 참조하여 이 작업이 완료되는 방식을 확인할 수 있습니다. 이 작업을 완료하려면 연결된 팩터리 포털의 OPC UA 클라이언트 인증서가 필요할 수 있습니다. 관리자는 **사용자 자신의 OPC UA 서버 연결** 페이지에서 이 인증서를 다운로드할 수 있습니다.
 

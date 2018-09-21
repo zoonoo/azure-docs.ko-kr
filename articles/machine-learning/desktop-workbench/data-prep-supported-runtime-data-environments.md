@@ -7,18 +7,18 @@ ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: ee1379995dffd8aebbd71757c06e06ea43561794
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 07b9ac8389a2bf06e0356f65d816d75d49cc0cf5
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830448"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35642070"
 ---
 # <a name="supported-matrix-for-this-release"></a>이 릴리스에 지원되는 행렬 
 코드가 Azure Machine Learning 데이터 원본을 사용하여 데이터를 로드하거나 Azure Machine Learning 데이터 준비에서 Pandas 또는 Spark 데이터 프레임을 가져올 때 다음과 같은 실험 계산 환경 및 데이터 위치의 조합이 지원됩니다.

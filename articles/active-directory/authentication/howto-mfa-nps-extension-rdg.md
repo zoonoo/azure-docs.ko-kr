@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 6348a6d003aa3efcd1b9c45e61438e0ac4b4c8d5
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 14607e01c0bd51ca9ae98f969c9cd6e1c8c62bb9
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42146738"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294274"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>NPS(네트워크 정책 서버) 확장 및 Azure AD를 사용하여 원격 데스크톱 게이트웨이 인프라 통합
 
@@ -82,7 +82,7 @@ NPS 역할 서비스는 네트워크 액세스 정책 상태 서비스뿐만 아
 NPS 역할 서비스 Windows Server 2012 또는 이전 버전 설치에 대한 자세한 내용은 [NAP 상태 정책 서버 설치(영문)](https://technet.microsoft.com/library/dd296890.aspx)를 참조하세요. 도메인 컨트롤러에 NPS를 설치하기 위한 권장 사항을 포함하여 NPS에 대한 모범 사례에 대한 자세한 내용은 [NPS 모범 사례(영문)](https://technet.microsoft.com/library/cc771746)를 참조하세요.
 
 ### <a name="azure-active-directory-synched-with-on-premises-active-directory"></a>온-프레미스 Active Directory와 동기화되는 Azure Active Directory
-NPS 확장을 사용하려면 온-프레미스 사용자가 Azure AD와 동기화되고 MFA를 사용하도록 설정되어야 합니다. 이 섹션에서는 온-프레미스 사용자가 AD Connect를 사용하여 Azure AD와 동기화된다고 가정합니다. Azure AD 연결에 대한 자세한 내용은 [Azure Active Directory와 온-프레미스 디렉터리 통합](../connect/active-directory-aadconnect.md)을 참조하세요. 
+NPS 확장을 사용하려면 온-프레미스 사용자가 Azure AD와 동기화되고 MFA를 사용하도록 설정되어야 합니다. 이 섹션에서는 온-프레미스 사용자가 AD Connect를 사용하여 Azure AD와 동기화된다고 가정합니다. Azure AD 연결에 대한 자세한 내용은 [Azure Active Directory와 온-프레미스 디렉터리 통합](../hybrid/whatis-hybrid-identity.md)을 참조하세요. 
 
 ### <a name="azure-active-directory-guid-id"></a>Azure Active Directory GUID ID
 NPS 확장을 설치하려면 Azure AD의 GUID를 알고 있어야 합니다. Azure AD의 GUID를 찾기 위한 지침은 아래에 나와 있습니다.
@@ -374,4 +374,4 @@ Azure MFA가 사용자에 대해 작동하는 경우 관련 이벤트 로그를 
 
 [RADIUS를 사용한 원격 데스크톱 게이트웨이 및 Azure Multi-Factor Authentication 서버](howto-mfaserver-nps-rdg.md)
 
-[Azure Active Directory와 온-프레미스 디렉터리 통합](../connect/active-directory-aadconnect.md)
+[Azure Active Directory와 온-프레미스 디렉터리 통합](../hybrid/whatis-hybrid-identity.md)

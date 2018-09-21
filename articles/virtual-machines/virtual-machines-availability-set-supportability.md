@@ -12,18 +12,18 @@ ms.workload: virtual-machines
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 8bf2a55563772e26239445732b2b08df677436ef
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 13448f4b335d84264d4141cb4fb8c3eadcf0303e
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2017
-ms.locfileid: "23987723"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35775993"
 ---
 # <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>기존 가용성 집합에 Azure VM 추가의 지원 가능성
 
-기존 가용성 집합에 새 VM(가상 컴퓨터)을 추가할 경우 제한이 발생하는 경우가 있을 수 있습니다. 다음 차트에는 동일한 가용성 집합에서 혼합해서 사용할 수 있는 VM 시리즈가 자세히 설명되어 있습니다.
+기존 가용성 집합에 새 VM(가상 머신)을 추가할 경우 제한이 발생하는 경우가 있을 수 있습니다. 다음 차트에는 동일한 가용성 집합에서 혼합해서 사용할 수 있는 VM 시리즈가 자세히 설명되어 있습니다.
 
 다음은 다양한 유형의 VM에 대한 지원 가능성 행렬입니다.
 

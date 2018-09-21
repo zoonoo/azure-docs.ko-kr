@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 3c56a5750c9f8a6c59ea07c01c101f358331174b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 7f0e65b1de1df48603cab29148c7f4c6fb909714
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26408182"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35776328"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>클라우드 서비스 배포 문제 해결
 Azure에 클라우드 서비스 응용 프로그램 패키지를 배포할 때 Azure 포털의 **속성** 창에서 배포에 대한 정보를 얻을 수 있습니다. 클라우드 서비스에 발생한 문제를 해결하기 위해 이 창에서 세부 정보를 사용할 수 있고 새로운 지원 요청을 할 때 Azure 지원 센터에 이 정보를 제공할 수 있습니다.
@@ -40,7 +40,7 @@ Azure에 클라우드 서비스 응용 프로그램 패키지를 배포할 때 A
 포털에 표시된 웹 사이트 URL 링크에는 포트가 포함되지 않습니다. 웹 사이트의 기본 포트는 80입니다. 응용 프로그램이 다른 포트에서 실행되도록 구성된 경우 웹 사이트에 액세스할 때 URL에 올바른 포트 번호를 추가해야 합니다.
 
 1. Azure 포털에서 클라우드 서비스의 배포를 클릭합니다.
-2. Azure 포털의 **속성** 창에서 역할 인스턴스에 대한 포트를 확인합니다(**입력 끝점**에서).
+2. Azure 포털의 **속성** 창에서 역할 인스턴스에 대한 포트를 확인합니다(**입력 엔드포인트**에서).
 3. 포트가 80인 경우 응용 프로그램에 액세스할 때 URL에 올바른 포트 값을 추가합니다. 기본이 아닌 포트를 지정하려면 뒤에 콜론(:)과 공백 없이 포트 번호를 붙인 URL을 입력합니다.
 
 ## <a name="problem-my-role-instances-recycled-without-me-doing-anything"></a>문제: 아무 것도 하지 않았는데 내 역할 인스턴스가 재활용되었어요

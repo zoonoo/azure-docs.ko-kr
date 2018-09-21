@@ -15,22 +15,24 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 823e8694b574acdde122f8d5224b04d3872b6820
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: c24d79d6983f7c32f5c563192bcfe412da586ef2
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40191107"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603490"
 ---
 # <a name="joins-in-log-analytics-queries"></a>Log Analytics 쿼리의 조인
 
 > [!NOTE]
 > 이 단원을 완료하기 전에 [Analytics 포털 시작](get-started-analytics-portal.md) 및 [쿼리 시작](get-started-queries.md)을 완료해야 합니다.
 
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
+
 조인을 사용하면 동일한 쿼리에서 여러 테이블의 데이터를 분석할 수 있습니다. 지정된 열의 값을 일치시켜 두 데이터 집합의 행을 병합합니다.
 
 
-```OQL
+```KQL
 SecurityEvent 
 | where EventID == 4624     // sign-in events
 | project Computer, Account, TargetLogonId, LogonTime=TimeGenerated
@@ -62,7 +64,7 @@ on $left.key1 == $right.key2
 ## <a name="lookup-tables"></a>조회 테이블
 조인의 일반적인 용도는 결과를 좀 더 이해하기 쉬운 상태로 변환하는 데 도움이 되는 `datatable`을 사용하여 값의 정적 매핑을 수행하는 것입니다. 예를 들어, 각 이벤트 ID에 대한 이벤트 이름으로 보안 이벤트 데이터를 유용하게 만들 수 있습니다.
 
-```OQL
+```KQL
 let DimTable = datatable(EventID:int, eventName:string)
   [
     4625, "Account activity",

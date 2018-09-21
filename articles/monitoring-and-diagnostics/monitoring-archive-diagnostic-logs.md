@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 17b03ee9521ddf1980e27ee9a63d2ba74ea6e6b7
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 1686c283b0aa9f0713317b22e2ef2abd16e6b187
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629687"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579915"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Azure 진단 로그 보관
 
@@ -105,7 +105,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 ## <a name="archive-diagnostic-logs-via-the-rest-api"></a>REST API를 통한 진단 로그 보관
 
-Azure Monitor REST API를 사용하여 진단 설정을 설정할 수는 방법에 대한 내용은 [이 문서를 참조](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings)하세요.
+Azure Monitor REST API를 사용하여 진단 설정을 설정할 수는 방법에 대한 내용은 [이 문서를 참조](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)하세요.
 
 ## <a name="schema-of-diagnostic-logs-in-the-storage-account"></a>저장소 계정의 진단 로그 스키마
 

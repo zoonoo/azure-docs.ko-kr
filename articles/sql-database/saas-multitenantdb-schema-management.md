@@ -8,18 +8,18 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 01/03/2018
+ms.date: 09/19/2018
 ms.reviewers: billgib
 ms.author: genemi
-ms.openlocfilehash: 026f3450535e4bed6a636fc5ae6ee9d821dbbb72
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 2f22ed862f9b45334a961f80e47ee2b4634e46fb
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247669"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498337"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>분할된 다중 테넌트 SQL 데이터베이스를 사용하는 SaaS 응용 프로그램에서 스키마 관리
-
+ 
 이 자습서에서는 SaaS(Software as a Service) 응용 프로그램에서 대규모 데이터베이스를 유지 관리하는 데 따른 문제를 검토합니다. 수많은 데이터베이스에 스키마를 적용하기 위한 솔루션이 설명되어 있습니다.
 
 다른 응용 프로그램과 마찬가지로 Wingtip Tickets SaaS 앱도 시간이 지나면서 발전되고, 그에 따라 데이터베이스를 변경해야 합니다. 변경 사항은 스키마나 참조 데이터를 영향을 줄 수도 있고, 데이터베이스 유지 관리 작업에 적용될 수도 있습니다. 테넌트별 데이터베이스 패턴을 사용하는 SaaS 응용 프로그램에서는 수많은 테넌트 데이터베이스를 대상으로 변경 사항을 효율적으로 조율할 수 있어야 합니다. 또한, 변경 사항이 새로 생성되는 데이터베이스에도 포함되도록 데이터베이스 프로비저닝 프로세스에 변경 사항을 반영해야 합니다.

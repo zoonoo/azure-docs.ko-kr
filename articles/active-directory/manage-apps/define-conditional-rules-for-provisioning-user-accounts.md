@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2018
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 17e9616b39491aac01427ee34fb23db556c5c9b9
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: b62679332a45127d7c1a45593c162182886a7150
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355870"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719361"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>범위 지정 필터를 사용한 특성 기반 응용 프로그램 프로비전
 이 문서에서는 범위 지정 필터를 사용하여 어떤 사용자를 응용 프로그램에 프로비전할지 결정하는 특성 기반 규칙을 정의하는 방법을 설명합니다.
@@ -111,7 +111,6 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 
 
 ## <a name="related-articles"></a>관련 문서
-* [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](../active-directory-apps-index.md)
 * [SaaS 응용 프로그램에 대한 사용자 프로비전 및 프로비전 해제 자동화](user-provisioning.md)
 * [사용자 프로비전을 위한 사용자 지정 특성 매핑](customize-application-attributes.md)
 * [특성 매핑을 위한 식 작성](functions-for-customizing-application-data.md)

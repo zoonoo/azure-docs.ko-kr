@@ -1,5 +1,6 @@
 ---
 title: Microsoft Speech Service의 Text to Speech API | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Text to Speech API를 사용하여 다양한 음성과 언어로 실시간 텍스트 음성 변환을 제공할 수 있습니다.
 services: cognitive-services
 author: priyaravi20
@@ -7,14 +8,14 @@ manager: yanbo
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 03/16/2017
+ms.date: 09/18/2018
 ms.author: priyar
-ms.openlocfilehash: 6236bf1c4d9ac7ba672939543c16b8d02a79892e
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 1b8e13712d75920573104ba90dfea891b27370db
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42093844"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367936"
 ---
 # <a name="bing-text-to-speech-api"></a>Bing Text to Speech API
 
@@ -37,7 +38,7 @@ Content-Length: 0
 
 토큰 액세스에 필요한 헤더 정보는 다음과 같습니다.
 
-Name| 형식 | 설명
+이름| 형식 | 설명
 ----|----|----
 Ocp-Apim-Subscription-Key | ASCII | 구독 키
 

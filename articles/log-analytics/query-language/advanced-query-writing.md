@@ -15,22 +15,24 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 72c151fec0637822411f8cac44f4e13a8df96445
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: f7594b7d1eb7d41508be435cdd0a6203433727c1
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40191013"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603059"
 ---
 # <a name="writing-advanced-queries-in-log-analytics"></a>Log Analytics에서 고급 쿼리 작성
 
 > [!NOTE]
 > 이 단원을 완료하기 전에 [Analytics 포털 시작](get-started-analytics-portal.md) 및 [쿼리 시작](get-started-queries.md)을 완료해야 합니다.
 
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
+
 ## <a name="reusing-code-with-let"></a>let을 사용하여 코드를 다시 사용
 `let`을 사용하여 변수에 결과를 할당하고 나중에 쿼리에서 참조할 수 있습니다.
 
-```OQL
+```KQL
 // get all events that have level 2 (indicates warning level)
 let warning_events=
 Event
@@ -42,7 +44,7 @@ warning_events
 
 또한 변수에 상수 값을 할당할 수도 있습니다. 이렇게 하면 쿼리를 실행할 때마다 변경해야 하는 필드에 대해 매개 변수를 설정할 수 있습니다. 필요에 따라 이러한 매개 변수를 수정합니다. 예를 들어 지정된 기간에 사용 가능한 디스크 공간 및 사용 가능한 메모리(백분위수)를 계산하려는 경우 다음을 입력합니다.
 
-```OQL
+```KQL
 let startDate = datetime(2018-08-01T12:55:02);
 let endDate = datetime(2018-08-02T13:21:35);
 let FreeDiskSpace =
@@ -63,7 +65,7 @@ union FreeDiskSpace, FreeMemory
 ### <a name="local-functions-and-parameters"></a>로컬 함수 및 매개 변수
 `let` 문을 사용하여 같은 쿼리에서 사용할 수 있는 함수를 만듭니다. 예를 들어 날짜/시간 필드(UTC 형식)를 사용하는 함수를 정의한 후 표준 미국 형식으로 변환합니다. 
 
-```OQL
+```KQL
 let utc_to_us_date_format = (t:datetime)
 {
   strcat(getmonth(t), "/", dayofmonth(t),"/", getyear(t), " ",
@@ -78,7 +80,7 @@ Event
 ## <a name="functions"></a>Functions
 다른 쿼리에서 참조될 수 있도록, 함수 별칭을 사용하여 쿼리를 저장할 수 있습니다. 예를 들어, 다음 표준 쿼리는 마지막 날에 보고된 모든 누락된 보안 업데이트를 반환합니다.
 
-```OQL
+```KQL
 Update
 | where TimeGenerated > ago(1d) 
 | where Classification == "Security Updates" 
@@ -87,7 +89,7 @@ Update
 
 이 쿼리를 함수로 저장하고 _security_updates_last_day_와 같이 별칭을 지정할 수 있습니다. 그런 후, SQL과 관련된 필수 보안 업데이트를 검색하기 위해 다른 쿼리에서 사용할 수 있습니다.
 
-```OQL
+```KQL
 security_updates_last_day | where Title contains "SQL"
 ```
 
@@ -100,7 +102,7 @@ security_updates_last_day | where Title contains "SQL"
 ## <a name="print"></a>Print
 `print`는 단일 열 및 단일 행이 있는 테이블을 반환하며, 계산 결과를 표시합니다. 이 함수는 단순 계산이 필요한 경우에 종종 사용됩니다. 예를 들어, PST로 현재 시간을 확인한 후 EST를 사용하여 열에 추가하려면 다음을 입력합니다.
 
-```OQL
+```KQL
 print nowPst = now()-8h
 | extend nowEst = nowPst+3h
 ```
@@ -108,7 +110,7 @@ print nowPst = now()-8h
 ## <a name="datatable"></a>Datatable
 `datatable`을 사용하면 데이터 집합을 정의할 수 있습니다. 스키마 및 값 집합을 제공한 후, 해당 테이블을 다른 쿼리 요소에 파이프합니다. 예를 들어, RAM 사용량 테이블을 만든 후 시간당 평균 값을 계산하려면 다음을 입력합니다.
 
-```OQL
+```KQL
 datatable (TimeGenerated: datetime, usage_percent: double)
 [
   "2018-06-02T15:15:46.3418323Z", 15.5,
@@ -125,7 +127,7 @@ datatable (TimeGenerated: datetime, usage_percent: double)
 
 Datatable 구문은 조회 테이블을 만들 때도 매우 유용합니다. 예를 들어, _SecurityEvent_ 테이블의 이벤트 ID와 같은 테이블 데이터를 다른 위치에 나열된 이벤트 형식으로 매핑하고, `datatable`을 사용하여 이벤트 형식의 조회 테이블을 만들고, 이 데이터 테이블을  _SecurityEvent_ 데이터에 조인하려면 다음을 입력합니다.
 
-```OQL
+```KQL
 let eventCodes = datatable (EventID: int, EventType:string)
 [
     4625, "Account activity",

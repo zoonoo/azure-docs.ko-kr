@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: 2fabf0d61ffd2f526fab49816eab36a86497a358
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ecd58779262f6580287e6c72d3aa2aecf237a562
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764709"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983111"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service에서 스테이징 환경 설정
 <a name="Overview"></a>
@@ -78,7 +78,7 @@ ms.locfileid: "33764709"
 
 **교환되지 않은 설정**:
 
-* 게시 끝점
+* 게시 엔드포인트
 * 사용자 지정 도메인 이름
 * SSL 인증서 및 바인딩
 * 크기 조정 설정
@@ -170,10 +170,12 @@ ms.locfileid: "33764709"
 ## <a name="custom-warm-up-before-swap"></a>교환하기 전에 사용자 지정 준비
 일부 앱에는 사용자 지정 준비 작업이 필요할 수 있습니다. web.config의 `applicationInitialization` 구성 요소를 사용하면 요청을 받기 전에 수행할 사용자 지정 초기화 작업을 지정할 수 있습니다. 교환 작업은 이 사용자 지정 준비가 완료될 때까지 대기합니다. 샘플 web.config 조각은 다음과 같습니다.
 
-    <applicationInitialization>
-        <add initializationPage="/" hostName="[app hostname]" />
-        <add initializationPage="/Home/About" hostname="[app hostname]" />
-    </applicationInitialization>
+    <system.webServer>
+        <applicationInitialization>
+            <add initializationPage="/" hostName="[app hostname]" />
+            <add initializationPage="/Home/About" hostname="[app hostname]" />
+        </applicationInitialization>
+    </system.webServer>
 
 ## <a name="monitor-swap-progress"></a>교환 진행률 모니터링
 

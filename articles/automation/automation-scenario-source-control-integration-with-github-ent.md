@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 04/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 685d434affd0561658ae99c50bbe7b1fc27a5572
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8c7dc256b92252793545336ffc45a987054a5509
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195525"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "35640079"
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-github-enterprise"></a>Azure Automation 시나리오 - GitHub Enterprise와 Automation 소스 제어 통합
 
@@ -59,7 +59,7 @@ Azure Portal의 Automation 계정에서 Runbook 갤러리의 *Export-RunAsCertif
 
 ### <a name="deploy-and-configure-hybrid-runbook-worker"></a>Hybrid Runbook Worker 배포 및 구성
 
-데이터 센터에 Hybrid Runbook Worker를 아직 배포하지 않은 경우 요구 사항을 검토하고 Azure Automation Hybrid Runbook Workers - [Windows](automation-windows-hrw-install.md#automated-deployment) 또는 [Linux](automation-linux-hrw-install.md#installing-linux-hybrid-runbook-worker)용 설치 및 구성 자동화의 절차를 사용하여 자동 설치 단계를 따릅니다. 컴퓨터에 Hybrid Worker를 설치했으면 다음 단계를 수행하여 이 시나리오를 지원하도록 구성을 완료합니다.
+데이터 센터에 Hybrid Runbook Worker를 아직 배포하지 않은 경우 요구 사항을 검토하고 Azure Automation Hybrid Runbook Workers - [Windows](automation-windows-hrw-install.md#automated-deployment) 또는 [Linux](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)용 설치 및 구성 자동화의 절차를 사용하여 자동 설치 단계를 따릅니다. 컴퓨터에 Hybrid Worker를 설치했으면 다음 단계를 수행하여 이 시나리오를 지원하도록 구성을 완료합니다.
 
 1. 로컬 관리자 권한이 있는 계정으로 Hybrid Runbook Worker 역할을 호스팅하는 컴퓨터에 로그온하고 Git Runbook 파일을 저장할 디렉터리를 만듭니다. 디렉터리에 내부 Git 리포지토리를 복제합니다.
 1. 아직 실행 계정을 만들지 않았거나 이 용도로 새로운 전용 계정을 만들려면 Azure Portal에서 Automation 계정으로 이동하고, Automation 계정을 선택하고, Hybrid Worker에 대한 권한이 있는 사용자의 사용자 이름 및 암호를 포함하는 [자격 증명 자산](automation-credentials.md)을 만듭니다.

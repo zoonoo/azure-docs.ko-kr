@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 42e8f8bd3f921686c3ba13f4c752d52e3067fbbe
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 16c4ab4601dbe57e014bfcb06ff9b35d02c60cfa
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177544"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721911"
 ---
 # <a name="common-questions---hyper-v-to-azure-replication"></a>일반적인 질문 - Hyper-V에서 Azure로 복제
 
@@ -64,7 +64,7 @@ Site Recovery는 ISO 27001:2013, 27018, HIPAA, DPA 인증을 받았으며, SOC2 
 
 ### <a name="what-do-i-need-on-premises"></a>온-프레미스에는 무엇이 필요한가요?
 
-하나 이상의 VM을 하나 이상의 독립 실행형 또는 클러스터형 Hyper-V 호스트에서 실행해야 합니다. 또한 System Center VMM(Virtual Machine Manager)에서 관리되는 호스트에서 실행되는 VM을 복제할 수도 있습니다. 또한 System Center VMM(Virtual Machine Manager)에서 관리되는 호스트에서 실행되는 VM을 복제할 수도 있습니다.
+하나 이상의 VM을 하나 이상의 독립 실행형 또는 클러스터형 Hyper-V 호스트에서 실행해야 합니다. 또한 System Center VMM(Virtual Machine Manager)에서 관리되는 호스트에서 실행되는 VM을 복제할 수도 있습니다.
     - VMM을 실행하지 않는 경우에는 Site Recovery 배포 중에 Hyper-V 호스트와 클러스터를 Hyper-V 사이트에 모읍니다. Site Recovery 에이전트(Azure Site Recovery 공급자와 Recovery Services 에이전트)를 각 Hyper-V 컴퓨터에 설치합니다.
     - Hyper-V 호스트가 VMM 클라우드에 있는 경우 VMM에서 복제를 오케스트레이션합니다. VMM 서버에 Site Recovery 공급자를, 각 Hyper-V 호스트에 Recovery Services 에이전트를 설치합니다. VMM 논리/VM 네트워크와 Azure VNet 간을 매핑합니다.
     - 
@@ -166,11 +166,6 @@ Site Recovery는 선택한 VM을 복제할 Hyper-V 호스트에 대한 액세스
 ### <a name="what-does-site-recovery-install-on-hyper-v-vms"></a>Site Recovery는 Hyper-V VM에 무엇을 설치하나요?
 
 Site Recovery는 복제용으로 설정된 Hyper-V VM에서는 어떤 항목도 명시적으로 설치하지 않습니다.
-- 복제 중에 VM은 Site Recovery와 다음과 같이 통신합니다.
-    - VM은 복제 관리를 위해 HTTPS 443 포트에서 구성 서버와 통신합니다.
-    - VM은 복제 데이터를 HTTPS 9443 포트(수정 가능)에서 프로세스 서버로 보냅니다.
-    - 다중 VM 일관성을 사용하도록 설정하면 VM에서 20004 포트를 통해 서로 통신합니다.
-
 
 
 
@@ -211,7 +206,7 @@ Azure는 복원을 위해 디자인되었습니다. Site Recovery는 Azure SLA�
 5. 워크로드가 장애 복구되면 역방향 복제를 활성화하여 온-프레미스 VM이 다시 Azure에 복제되게 합니다.
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>다른 위치로 장애 조치할 수 있나요?
-예, Azure에 장애 조치한 경우 원본을 사용할 수 없을 때 다른 위치로 장애 복구할 수 있습니다. [자세히 알아보기](concepts-types-of-failback.md#alternate-location-recovery-alr).
+예, Azure에 장애 조치한 경우 원본을 사용할 수 없을 때 다른 위치로 장애 복구할 수 있습니다. [자세히 알아보기](hyper-v-azure-failback.md#failback-to-an-alternate-location-in-hyper-v-environment).
 
 
 

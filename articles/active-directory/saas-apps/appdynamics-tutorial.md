@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 09/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 3600e83d18f8cabd03c46af2ef47445c588cbdb5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7f24dad3cfefd5ecb0b1c78f4a2b242c99a01239
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38548284"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605830"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>자습서: AppDynamics와 Azure Active Directory 통합
 
@@ -112,9 +112,9 @@ AppDynamics에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
     ![Configure Single Sign-On](./media/appdynamics-tutorial/tutorial_appdynamics_url.png)
 
-    a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<companyname>.saas.appdynamics.com`
+    a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<companyname>.saas.appdynamics.com?accountName=<companyname>`
 
-    나. **식별자** 텍스트 상자에서 `https://<companyname>.saas.appdynamics.com/controller` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://<companyname>.saas.appdynamics.com/controller` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [AppDynamics 클라이언트 지원팀](https://www.appdynamics.com/support/)에 문의하세요.
@@ -147,7 +147,7 @@ AppDynamics에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
     a. **인증 공급자**로 **SAML**을 선택합니다.
 
-    나. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **로그인 URL** 텍스트 상자에 붙여 넣습니다.
+    b. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **로그인 URL** 텍스트 상자에 붙여 넣습니다.
 
     다. Azure Portal에서 복사한 **로그아웃 URL** 값을 **로그아웃 URL** 텍스트 상자에 붙여 넣습니다.
 
@@ -180,7 +180,7 @@ AppDynamics에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -189,6 +189,7 @@ AppDynamics에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 ### <a name="creating-an-appdynamics-test-user"></a>AppDynamics 테스트 사용자 만들기
 
 이 섹션은 AppDynamics에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. AppDynamics는 기본적으로 사용할 수 있는 Just-In-Time 프로비저닝을 지원합니다. 이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 없는 경우 AppDynamics에 액세스하는 동안 생성됩니다.
+
 >[!Note]
 >사용자를 수동으로 만들어야 하는 경우, [AppDynamics 클라이언트 지원 팀](https://www.appdynamics.com/support/)에 문의하세요.
 

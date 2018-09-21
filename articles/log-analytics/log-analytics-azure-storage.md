@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: dec2abdf68b3a38706549b4b655e33bc7abca1a3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7633d00c24a18763d414b1a2595073753d651a50
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452674"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579023"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Log Analytics에서 사용할 Azure 서비스 로그 및 메트릭 수집
 
@@ -57,7 +57,7 @@ Azure 서비스에 대한 로그 및 메트릭을 수집하는 방법에는 다�
 | Virtual Machines        | Microsoft.Compute/virtualMachines       | 내선 번호   | 내선 번호 <br> 진단  | |
 | Virtual Machines 확장 집합 | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | 진단 | |
 | 웹 서버 팜        | Microsoft.Web/serverfarms               |             | 진단 | |
-| 웹 사이트               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | 진단 | [Azure Web Apps 분석(미리 보기)](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-web-apps-analytics) |
+| 웹 사이트               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | 진단 | [Azure Web Apps 분석(미리 보기)](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-web-apps-analytics) |
 
 
 > [!NOTE]

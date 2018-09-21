@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 08658c42687626779dea0de7dd724d9431a296da
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 12cc5a918044e3bc74e34f2e05adc9773dee5421
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617144"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498660"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Azure Event Grid의 이벤트 처리기
 
@@ -50,6 +50,7 @@ Event Hubs는 이벤트 원본 또는 이벤트 처리기로 작동할 수 있�
 |제목  |설명  |
 |---------|---------|
 | [빠른 시작: Azure CLI 및 Event Grid를 사용하여 Azure Event Hubs로 사용자 지정 이벤트 라우팅](custom-event-to-eventhub.md) | 응용 프로그램에서 처리하도록 사용자 지정 이벤트를 이벤트 허브로 보냅니다. |
+| [Resource Manager 템플릿: 토픽 및 Event Hubs 엔드포인트 사용자 지정](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| 사용자 지정 토픽에 대한 구독을 만드는 Resource Manager 템플릿입니다. Azure Event Hubs에 이벤트를 전송합니다. |
 
 원본인 Event Hubs의 예제는 [Event Hubs 원본](event-sources.md#event-hubs)을 참조하세요.
 

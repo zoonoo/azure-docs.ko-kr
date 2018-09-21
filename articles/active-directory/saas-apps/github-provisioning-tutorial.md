@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: f069134c0665769316b794122cc077b05941f635
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c645b0a99493c71a9fa1416c16876da30bcff891
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346171"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367661"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 GitHub 구성
 
@@ -80,7 +80,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
     ![권한 부여 대화 상자](./media/github-provisioning-tutorial/GitHub2.png)
 
-7. Azure Portal에서 **테넌트 URL**을 입력하고 **연결 테스트**를 클릭하여 Azure AD가 GitHub 앱에 연결할 수 있는지 확인합니다. 연결이 실패하면 GitHub 계정에 관리자 권한이 있는지 및 **테넌트 URl**가 제대로 입력되었는지 확인한 다음, "권한 부여" 단계를 다시 시도합니다. (**테넌트 URL**은 `https://api.github.com/scim/v2/<Organizations_name>` 규칙에 따라 구성할 수 있습니다. 조직은 GitHub 계정으로 **설정** > **조직**에서 찾을 수 있습니다.)
+7. Azure Portal에서 **테넌트 URL**을 입력하고 **연결 테스트**를 클릭하여 Azure AD가 GitHub 앱에 연결할 수 있는지 확인합니다. 연결이 실패하면 GitHub 계정에 관리자 권한이 있는지 및 **테넌트 URl**가 제대로 입력되었는지 확인한 다음, "권한 부여" 단계를 다시 시도합니다. (**테넌트 URL**은 `https://api.github.com/scim/v2/organizations/<Organization_name>` 규칙에 따라 구성할 수 있습니다. 조직은 GitHub 계정으로 **설정** > **조직**에서 찾을 수 있습니다.)
 
     ![권한 부여 대화 상자](./media/github-provisioning-tutorial/GitHub3.png)
 

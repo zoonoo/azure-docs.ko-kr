@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Insights에서 Java 추적 로그 탐색 | Microsoft Docs"
-description: "Application Insights에서 검색 Log4J 또는 Logback 추적 검색"
+title: Azure Application Insights에서 Java 추적 로그 탐색 | Microsoft Docs
+description: Application Insights에서 검색 Log4J 또는 Logback 추적 검색
 services: application-insights
 documentationcenter: java
 author: mrbullwinkle
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: mbullwin
-ms.openlocfilehash: fae3269e21d0f760ae77a70333047306c07c2961
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 57c57f481138c6592056900fd5b002949006a37e
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35638718"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Application Insights에서 Java 추적 로그 탐색
 추적에 Logback 또는 Log4J(v1.2 또는 v2.0)를 사용하는 경우 추적 로그를 탐색 및 검색할 수 있는 Application Insights에 추적 로그를 자동으로 전송할 수 있습니다.

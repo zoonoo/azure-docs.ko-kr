@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 71d50a55d9c584b61a1412bb03a03ad99f1bb96c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 548c94ce502da8c6a8d208daafb5b0fb624de1e1
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39632915"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603940"
 ---
 # <a name="get-started-with-queries-in-log-analytics"></a>Log Analytics에서 쿼리 시작
 
@@ -28,6 +28,7 @@ ms.locfileid: "39632915"
 > [!NOTE]
 > 이 자습서를 완료하기 전에 [Analytics 포털 시작](get-started-analytics-portal.md)을 완료해야 합니다.
 
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 이 자습서에서는 Azure Log Analytics 쿼리를 작성하는 방법을 배웁니다. 다음을 수행하는 방법에 대해 알아봅니다.
 
@@ -49,7 +50,7 @@ ms.locfileid: "39632915"
 ### <a name="table-based-queries"></a>테이블 기반 쿼리
 Azure Log Analytics는 테이블에 각각 여러 열로 구성된 데이터를 구성합니다. 모든 테이블 및 열은 Analytics 포털에서 스키마 창에 표시됩니다. 관심 있는 테이블을 식별한 다음, 일부 데이터를 살펴봅니다.
 
-```OQL
+```KQL
 SecurityEvent
 | take 10
 ```
@@ -65,7 +66,7 @@ SecurityEvent
 ### <a name="search-queries"></a>검색 쿼리
 검색 쿼리는 덜 구조적이며, 일반적으로 해당 열에 있는 특정 값을 포함하는 레코드를 찾기에 더 적합합니다.
 
-```OQL
+```KQL
 search in (SecurityEvent) "Cryptographic"
 | take 10
 ```
@@ -87,7 +88,7 @@ SecurityEvent
 
 최신 10개의 레코드만을 가져오는 가장 좋은 방법은 서버 쪽에서 전체 테이블을 정렬한 다음, 상위 레코드를 반환하는 **top**을 사용하는 것입니다.
 
-```OQL
+```KQL
 SecurityEvent
 | top 10 by TimeGenerated
 ```
@@ -102,7 +103,7 @@ SecurityEvent
 
 쿼리에 필터를 추가하려면 하나 이상의 조건이 뒤에 오는 **where** 연산자를 사용합니다. 예를 들어 다음 쿼리는 _Level_이 _8_인 *SecurityEvent* 레코드만을 반환합니다.
 
-```OQL
+```KQL
 SecurityEvent
 | where Level == 8
 ```
@@ -118,14 +119,14 @@ SecurityEvent
 
 여러 조건으로 필터링하려면 **and**를 사용하거나
 
-```OQL
+```KQL
 SecurityEvent
 | where Level == 8 and EventID == 4672
 ```
 
 여러 **where** 요소를 번갈아 파이프할 수 있습니다.
 
-```OQL
+```KQL
 SecurityEvent
 | where Level == 8 
 | where EventID == 4672
@@ -145,7 +146,7 @@ SecurityEvent
 ### <a name="time-filter-in-query"></a>쿼리에서 시간 필터
 쿼리에 시간 필터를 추가하여 고유한 시간 범위를 정의할 수도 있습니다. 시간 필터를 테이블 이름 바로 뒤에 배치하는 것이 좋습니다. 
 
-```OQL
+```KQL
 SecurityEvent
 | where TimeGenerated > ago(30m) 
 | where toint(Level) >= 10
@@ -157,7 +158,7 @@ SecurityEvent
 ## <a name="project-and-extend-select-and-compute-columns"></a>Project 및 Extend: 열 선택 및 계산
 **project**를 사용하여 결과에 포함할 특정 열을 선택합니다.
 
-```OQL
+```KQL
 SecurityEvent 
 | top 10 by TimeGenerated 
 | project TimeGenerated, Computer, Activity
@@ -174,7 +175,7 @@ SecurityEvent
 * *EventCode*라는 새 열을 만듭니다. **substring()** 함수는 Activity 필드에서 첫 번째 네 개의 문자만을 가져오는 데 사용됩니다.
 
 
-```OQL
+```KQL
 SecurityEvent
 | top 10 by TimeGenerated 
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
@@ -182,7 +183,7 @@ SecurityEvent
 
 **extend**는 결과 집합에서 모든 원본 열을 유지하고 추가 항목을 정의합니다. 다음 쿼리는 **extend**를 사용하여 *localtime* 열을 추가합니다. 이는 지역화된 TimeGenerated 값을 포함합니다.
 
-```OQL
+```KQL
 SecurityEvent
 | top 10 by TimeGenerated
 | extend localtime = TimeGenerated-8h
@@ -192,7 +193,7 @@ SecurityEvent
 **summarize**를 사용하여 하나 이상의 열에 따라 레코드 그룹을 식별하고, 집계를 적용합니다. **summarize**의 가장 일반적인 사용은 *count*이며 각 그룹의 결과 수를 반환합니다.
 
 다음 쿼리는 지난 시간에서 모든 *Perf* 레코드를 검토하고, *ObjectName*으로 그룹화하고, 각 그룹의 레코드 수를 계산합니다. 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1h)
 | summarize count() by ObjectName
@@ -200,7 +201,7 @@ Perf
 
 경우에 따라 여러 차원에서 그룹을 정의하는 것일 수 있습니다. 이러한 값의 각 고유한 조합은 별도 그룹을 정의합니다.
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1h)
 | summarize count() by ObjectName, CounterName
@@ -208,7 +209,7 @@ Perf
 
 또 다른 일반적인 사용은 각 그룹에 대해 수치 연산 또는 통계 계산을 수행하는 것입니다. 예를 들어 다음은 각 컴퓨터에 대한 평균 *CounterValue*를 계산합니다.
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1h)
 | summarize avg(CounterValue) by Computer
@@ -216,7 +217,7 @@ Perf
 
 그러나 여기서 다양한 성능 카운터를 함께 혼합했으므로 이 쿼리의 결과는 의미가 없습니다. 더욱 의미 있게 하기 위해 *CounterName* 및 *Computer*의 각 조합에 대해 개별적으로 평균을 계산해야 합니다.
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1h)
 | summarize avg(CounterValue) by Computer, CounterName
@@ -227,7 +228,7 @@ Perf
 
 연속 값에 따라 그룹을 만들려면 **bin**을 사용하여 범위를 관리 가능한 단위로 나누는 것이 가장 좋습니다. 다음 쿼리는 특정 컴퓨터에서 사용 가능한 메모리(*Available MBytes*)를 측정하는 *Perf* 레코드를 분석합니다. 각 기간에 대한 평균 값을 계산합니다. 1시간인 경우 지난 2일에 대해 계산합니다.
 
-```OQL
+```KQL
 Perf 
 | where TimeGenerated > ago(2d)
 | where Computer == "ContosoAzADDS2" 

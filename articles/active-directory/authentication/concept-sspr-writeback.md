@@ -10,22 +10,22 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 4f4c2ada08c69b6602ff5a300a15c4ca57090a8e
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 8440d8a492105365417190ad286798e0bdf47a0c
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42816056"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295838"
 ---
 # <a name="what-is-password-writeback"></a>비밀번호 쓰기 저장이란?
 
-클라우드 기반 암호 재설정 유틸리티가 있으면 참 좋지만, 대부분의 회사는 아직 사용자가 온-프레미스 디렉터리에 있습니다. Microsoft는 어떻게 기존 온-프레미스 AD(Active Directory)와 클라우드 암호 변경 내용 동기화를 지원할까요? 비밀번호 쓰기 저장은 [Azure AD Connect](./../connect/active-directory-aadconnect.md)를 통해 활성화되며 클라우드의 암호 변경 내용을 실시간으로 기존 온-프레미스 디렉터리에 다시 쓸 수 있는 기능입니다.
+클라우드 기반 암호 재설정 유틸리티가 있으면 참 좋지만, 대부분의 회사는 아직 사용자가 온-프레미스 디렉터리에 있습니다. Microsoft는 어떻게 기존 온-프레미스 AD(Active Directory)와 클라우드 암호 변경 내용 동기화를 지원할까요? 비밀번호 쓰기 저장은 [Azure AD Connect](../hybrid/whatis-hybrid-identity.md)를 통해 활성화되며 클라우드의 암호 변경 내용을 실시간으로 기존 온-프레미스 디렉터리에 다시 쓸 수 있는 기능입니다.
 
 비밀번호 쓰기 저장은 다음을 사용하는 환경에서 지원됩니다.
 
-* [Active Directory Federation Services](../connect/active-directory-aadconnect-federation-management.md)
-* [암호 해시 동기화](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)
-* [통과 인증](../connect/active-directory-aadconnect-pass-through-authentication.md)
+* [Active Directory Federation Services](../hybrid/how-to-connect-fed-management.md)
+* [암호 해시 동기화](../hybrid/how-to-connect-password-hash-synchronization.md)
+* [통과 인증](../hybrid/how-to-connect-pta.md)
 
 비밀번호 쓰기 저장은 다음 기능을 제공합니다.
 

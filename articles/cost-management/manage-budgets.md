@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 9d6bf29909393846ec17a1bcc210fb989efd7f99
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 106e8f082d148ed9a8c58313177be81ee074a2c3
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939928"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578466"
 ---
 # <a name="manage-budgets"></a>예산 관리
 
@@ -83,5 +83,5 @@ Enterprise 또는 MSP 계정이 있는 경우 계층적 비용 엔터티 구조�
 
 ## <a name="next-steps"></a>다음 단계
 
-- Cost Management에 대한 첫 번째 자습서를 아직 완료하지 않은 경우 [사용량 및 비용 검토](https://docs.microsoft.com/en-us/azure/cost-management/tutorial-review-usage)에서 읽어 보십시오.
+- Cost Management에 대한 첫 번째 자습서를 아직 완료하지 않은 경우 [사용량 및 비용 검토](https://docs.microsoft.com/azure/cost-management/tutorial-review-usage)에서 읽어 보십시오.
 - [Cost Management에서 사용할 수 있는 보고서](use-reports.md)에 대해 자세히 알아봅니다.

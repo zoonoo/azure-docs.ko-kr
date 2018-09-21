@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: spelluru
-ms.openlocfilehash: d4f387d484fe895d8b6c5196c3a5527947ee3925
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: de3f23f58ef34bdd5f9769f820d64ed7e00ca7d8
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702064"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715077"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>메시지 전송, 잠금 및 확인
 
@@ -62,7 +62,7 @@ for (int i = 0; i < 100; i++)
 {
   tasks.Add(client.SendAsync(…));
 }
-await Task.WhenAll(tasks.ToArray());
+await Task.WhenAll(tasks);
 ```
 
 모든 비동기 프로그래밍 모델이 보류 중인 작업을 보유하는 특정 형태의 메모리 기반의 숨겨진 작업 큐를 사용한다는 점에 유의해야 합니다. [SendAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.sendasync#Microsoft_Azure_ServiceBus_QueueClient_SendAsync_Microsoft_Azure_ServiceBus_Message_)(C#) 또는 **Send**(Java)가 반환되면 송신 작업은 해당 작업 큐에 대기되지만 프로토콜 제스처는 해당 작업이 실행될 차례가 되어야만 시작됩니다. 대량의 메시지를 푸시하는 경향이 있고 안정성이 중요하게 고려되는 코드의 경우 송신된 모든 메시지가 실제로 전송될 때까지 메모리를 차지하므로 너무 많은 메시지가 한꺼번에 "처리 중" 상태가 되지 않도록 주의해야 합니다.
@@ -79,7 +79,7 @@ for (int i = 0; i < 100; i++)
 
   tasks.Add(client.SendAsync(…).ContinueWith((t)=>semaphore.Release()));
 }
-await Task.WhenAll(tasks.ToArray());
+await Task.WhenAll(tasks);
 ```
 
 응용 프로그램은 작업 결과를 검색하지 않으면서 "fire-and-forget"(실행 후 망각) 방식으로 비동기 송신 작업을 시작하지 **않아야 합니다**. 이렇게 하면 메모리가 고갈될 때까지 내부 및 보이지 않는 작업 큐가 로드될 수 있으며 응용 프로그램은 송신 오류를 검색하지 못할 수 있습니다.

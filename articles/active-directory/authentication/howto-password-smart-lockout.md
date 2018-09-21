@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: b0fded9f5543d151091955c0b0d645bf9db16b7d
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 9ea91f70a72b812803a20244bb4445b76b133b0c
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158586"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296162"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory 스마트 잠금
 
@@ -27,7 +27,7 @@ ms.locfileid: "39158586"
 
 스마트 잠금은 암호 해시 동기화 또는 통과 인증을 사용하여 공격자에 의해 차단되는 온-프레미스 Active Directory 계정을 보호하도록 하이브리드 배포와 통합될 수 있습니다. Azure AD에서 스마트 잠금 정책을 적절하게 설정하여 공격자가 온-프레미스 Active Directory에 도달하기 전에 필터링할 수 있습니다.
 
-[통과 인증](../connect/active-directory-aadconnect-pass-through-authentication.md)을 사용하는 경우 다음을 확인해야 합니다.
+[통과 인증](../hybrid/how-to-connect-pta.md)을 사용하는 경우 다음을 확인해야 합니다.
 
    * Azure AD 잠금 임계값이 Active Directory 계정 잠금 임계값**보다 작습니다**. Active Directory의 계정 잠금 임계값을 Azure AD의 잠금 임계값보다 최소 2~3배 이상 크게 설정합니다. 
    * Azure AD 잠금 기간(**단위: 초**)이 Active Directory의 다음 시간(**단위: 분**) 후 계정 잠금 수를 원래대로 설정 값**보다 길어야** 합니다.
