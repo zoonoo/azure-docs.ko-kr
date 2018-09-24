@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: e4bbf86c6cb7e827672fe279e86c8d3fd76e8e8b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 18c0f8176a85eef79000fff8ed717ad7e57f20d8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049127"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954843"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>이벤트 허브로 Azure 모니터링 데이터를 스트리밍하여 외부 도구에서 사용
 
@@ -76,7 +76,7 @@ Azure 리소스는 두 가지 유형의 모니터링 데이터를 내보냅니�
 두 가지 유형의 데이터는 리소스 진단 설정을 사용하여 이벤트 허브로 전송됩니다. [이 가이드에 따라](./monitoring-stream-diagnostic-logs-to-event-hubs.md) 특정 리소스에 대한 리소스 진단 설정을 지정합니다. 로그를 수집하려는 각 리소스에 대한 리소스 진단 설정을 지정합니다.
 
 > [!TIP]
-> [정책 규칙에서 DeployIfNotExists 효과를 사용하여](../azure-policy/policy-definition.md#policy-rule) Azure Policy를 통해 특정 범위 내의 모든 리소스가 항상 진단 설정으로 지정되도록 할 수 있습니다. 현재 DeployIfNotExists는 기본 제공 정책에서만 지원됩니다.
+> [정책 규칙에서 DeployIfNotExists 효과를 사용하여](../governance/policy/concepts/definition-structure.md#policy-rule) Azure Policy를 통해 특정 범위 내의 모든 리소스가 항상 진단 설정으로 지정되도록 할 수 있습니다.
 
 ## <a name="guest-os-data"></a>게스트 OS 데이터
 

@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
-ms.openlocfilehash: 883e3d2c5945a38c8fbca5c9f0f5e8a1e4093be1
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6660657141cc5aac532d121b61c7c8db6a24ccda
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35641373"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968716"
 ---
 # <a name="model-management-setup"></a>모델 관리 설치
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 ## <a name="overview"></a>개요
 이 문서는 Azure ML 모델 관리를 사용하여 Machine Learning 모델을 웹 서비스로 배포 및 관리하는 방법을 설명합니다. 

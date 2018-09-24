@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/19/2018
-ms.openlocfilehash: 1aa55728b222c2838026cf5b06175736c5c84194
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 75094ad17474cd07039724fb0b5e5e377808b51f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123293"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956661"
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>Log Analytics를 사용한 논리 앱 실행에 관한 모니터링 및 유용한 정보 얻기
 
@@ -135,7 +135,7 @@ ms.locfileid: "43123293"
      ![논리 앱 실행에 대한 작업 및 세부 정보 보기](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
      
      여기 Azure Log Analytics 페이지에서 쿼리를 업데이트하고 테이블의 결과를 볼 수 있습니다. 
-     이 쿼리는 [Kusto 쿼리 언어](https://docs.loganalytics.io/docs/Language-Reference)를 사용하여 서로 다른 결과를 보려는 경우 편집할 수 있습니다. 
+     이 쿼리는 [Kusto 쿼리 언어](https://aka.ms/LogAnalyticsLanguageReference)를 사용하여 서로 다른 결과를 보려는 경우 편집할 수 있습니다. 
 
      ![Azure Log Analytics - 쿼리 뷰](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 

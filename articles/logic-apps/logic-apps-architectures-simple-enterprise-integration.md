@@ -9,12 +9,12 @@ ms.author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/15/2018
-ms.openlocfilehash: 7081c9e4f6e6deee196255f04180a8f2cc792876
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 5ed6fa9f514bae3ea651edba6702714e2680091f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122498"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955948"
 ---
 # <a name="simple-enterprise-integration-architecture"></a>간단한 엔터프라이즈 통합 아키텍처
 
@@ -40,7 +40,7 @@ ms.locfileid: "43122498"
 
 - **IP 주소**: Azure API Management 서비스에는 고정된 공용 [IP 주소](../virtual-network/virtual-network-ip-addresses-overview-arm.md)와 도메인 이름이 있습니다. 기본 도메인 이름은 azure-api.net의 하위 도메인(예: contoso.azure-api.net)이지만 [사용자 지정 도메인](../api-management/configure-custom-domain.md)을 구성할 수도 있습니다. Logic Apps 및 Service Bus에도 공용 IP 주소가 있습니다. 단, 보안을 위해 이 아키텍처에서는 Logic Apps 엔드포인트 호출에 대한 액세스를 API Management의 IP 주소로만 제한합니다. Service Bus 호출은 SAS(공유 액세스 서명)로 보호됩니다.
 
-- **Azure DNS**: [Azure DNS](https://docs.microsoft.com/azure/dns/)는 DNS 도메인에 대한 호스팅 서비스입니다. Azure DNS는 Microsoft Azure 인프라를 사용하여 이름 확인을 제공합니다. Azure에 도메인을 호스트하면 다른 Azure 서비스에 사용하는 것과 동일한 자격 증명, API, 도구 및 청구를 사용하여 DNS 레코드를 관리할 수 있습니다. 사용자 지정 도메인 이름(예: contoso.com)을 사용하려면 사용자 지정 도메인 이름을 IP 주소에 매핑하는 DNS 레코드를 만듭니다. 자세한 내용은 [API Management에서 사용자 지정 도메인 이름 구성](../api-management/configure-custom-domain.md)을 참조하세요.
+- **Azure DNS**: [Azure DNS](https://docs.microsoft.com/azure/dns/)는 DNS 도메인에 대한 호스팅 서비스입니다. Azure DNS는 Microsoft Azure 인프라를 사용하여 이름 확인을 제공합니다. Azure에서 도메인을 호스팅하면 다른 Azure 서비스에 사용하는 것과 동일한 자격 증명, API, 도구 및 결제(청구) 정보를 사용하여 DNS 레코드를 관리할 수 있습니다. 사용자 지정 도메인 이름(예: contoso.com)을 사용하려면 사용자 지정 도메인 이름을 IP 주소에 매핑하는 DNS 레코드를 만듭니다. 자세한 내용은 [API Management에서 사용자 지정 도메인 이름 구성](../api-management/configure-custom-domain.md)을 참조하세요.
 
 - **Azure AD(Azure Active Directory)**:인증을 위해 [Azure AD](https://docs.microsoft.com/azure/active-directory/) 또는 다른 ID 공급자를 사용할 수 있습니다. Azure AD는 유효성을 검사할 [API Management용 JSON Web Token](../api-management/policies/authorize-request-based-on-jwt-claims.md)을 전달하여 API 엔드포인트 액세스에 대한 인증을 제공합니다. 표준 및 프리미엄 계층의 경우, Azure AD는 API Management 개발자 포털에 대한 액세스를 보호할 수 있습니다.
 
@@ -162,7 +162,7 @@ API Management는 *명명된 값* 또는 *속성*이라는 개체를 사용하�
 
 ## <a name="diagnostics-and-monitoring"></a>진단 및 모니터링
 
-[API Management](../api-management/api-management-howto-use-azure-monitor.md)와 [Logic Apps](../logic-apps/logic-apps-monitor-your-logic-apps.md) 모두에서 운영 모니터링에 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md)를 사용할 수 있습니다. Azure Monitor는 각 서비스에 구성된 메트릭을 기반으로 하여 정보를 제공하고 기본적으로 활성화됩니다.
+[API Management](../api-management/api-management-howto-use-azure-monitor.md)와 [Logic Apps](../logic-apps/logic-apps-monitor-your-logic-apps.md) 모두에서 운영 모니터링에 [Azure Monitor](../azure-monitor/overview.md)를 사용할 수 있습니다. Azure Monitor는 각 서비스에 구성된 메트릭을 기반으로 하여 정보를 제공하고 기본적으로 활성화됩니다.
 
 또한 각 서비스에는 다음 옵션이 있습니다.
 
@@ -182,7 +182,7 @@ API Management는 *명명된 값* 또는 *속성*이라는 개체를 사용하�
 
 * 상호 인증서를 사용하여 API Management에서 백 엔드 서비스에 연결합니다.
 
-* API Management IP 주소를 가리키는 IP 주소 허용 목록을 만들어 HTTP 트리거 기반 논리 앱을 보호합니다. 허용 목록에 포함된 IP 주소는 먼저 API Management를 거치지 않고 공용 인터넷에서 논리 앱을 호출하지 않도록 방지합니다.
+* API Management IP 주소를 가리키는 IP 주소 허용 목록을 만들어 HTTP 트리거 기반의 논리 앱을 보호합니다. 허용 목록에 포함된 IP 주소는 먼저 API Management를 거치지 않고 공용 인터넷에서 논리 앱을 호출하지 않도록 방지합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

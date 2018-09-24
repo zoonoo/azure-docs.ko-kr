@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 4a49ccff68003cf7b81a7d945176992a2893d1ac
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ROBOTS: NOINDEX
+ms.openlocfilehash: c01198a78a32c460bd147e1e160358271b80eef5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38973175"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950632"
 ---
 # <a name="consuming-web-services"></a>웹 서비스 사용
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 모델을 실시간 웹 서비스로 배포하면 다양한 플랫폼과 응용 프로그램에서 데이터를 보내고 예측을 가져올 수 있습니다. 실시간 웹 서비스는 예측을 가져오기 위한 REST API를 공개합니다. 여러 예측을 한 번에 가져오기 위해 웹 서비스에 데이터를 단일 또는 다중 행 형식으로 보낼 수 있습니다.
 
 [Azure Machine Learning 웹 서비스](model-management-service-deploy.md)를 사용하면 외부 응용 프로그램에서 서비스 URL에 대한 HTTP POST 호출을 통해 예측 모델과 동기적으로 통신합니다. 웹 서비스 호출을 만들려면 클라이언트 응용 프로그램에서 예측을 배포할 때 만드는 API 키를 지정하고 요청 데이터를 POST 요청 본문에 넣어야 합니다.
@@ -35,7 +40,7 @@ Azure Machine Learning CLI 및 API는 ```az ml env``` 옵션을 사용하여 서
 ```az ml service list realtime -o table``` CLI 명령을 사용하여 현재 배포된 서비스와 Docker 이미지를 나열할 수 있습니다. 이 명령은 현재 계산 환경의 컨텍스트에서 항상 작동합니다. 현재로 설정되지 않은 환경에 배포되는 서비스를 표시하지 않습니다. 환경을 설정하려면 ```az ml env set```을 사용합니다. 
 
 ## <a name="get-service-information"></a>서비스 정보 가져오기
-웹 서비스가 성공적으로 배포되면 다음 명령을 사용하여 서비스 끝점 호출에 대한 서비스 URL 및 기타 세부 정보를 가져옵니다. 
+웹 서비스가 성공적으로 배포되면 다음 명령을 사용하여 서비스 엔드포인트 호출에 대한 서비스 URL 및 기타 세부 정보를 가져옵니다. 
 
 ```
 az ml service usage realtime -i <web service id>
@@ -58,7 +63,7 @@ az ml service keys realtime -i <web service id>
 HTTP 요청을 만들 때 인증 헤더("Authorization": "Bearer <key>")의 키를 사용합니다.
 
 ## <a name="get-the-service-swagger-description"></a>서비스 Swagger 설명 가져오기
-서비스 API 스키마가 제공된 경우 서비스 끝점은 ```http://<ip>/api/v1/service/<service name>/swagger.json``` 에 있는 Swagger 문서를 공개합니다. 이 Swagger 문서를 사용하여 서비스 클라이언트를 자동으로 생성하고 예상되는 입력 데이터 및 서비스에 대한 기타 세부 정보를 탐색할 수 있습니다.
+서비스 API 스키마가 제공된 경우 서비스 엔드포인트는 ```http://<ip>/api/v1/service/<service name>/swagger.json```에 있는 Swagger 문서를 공개합니다. 이 Swagger 문서를 사용하여 서비스 클라이언트를 자동으로 생성하고 예상되는 입력 데이터 및 서비스에 대한 기타 세부 정보를 탐색할 수 있습니다.
 
 ## <a name="get-service-logs"></a>서비스 로그 가져오기
 서비스 동작을 이해하고 문제를 진단하려면 서비스 로그를 검색하는 몇 가지 방법이 있습니다.

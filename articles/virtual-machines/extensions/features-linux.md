@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: e172b9d6a59f14f741a09450d31602b0d2d9ee5a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 66c3da4f14141bdb5c357dbabfaec5dabf0ab521
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412630"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971385"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Linux용 가상 머신 확장 및 기능
 
@@ -83,7 +83,7 @@ Azure VM 확장은 기존 VM에서 실행됩니다. 이러한 기능은 이미 �
 
 다음 방법을 사용하여 기존 VM에 대해 확장을 실행할 수 있습니다.
 
-### <a name="azure-cli-20"></a>Azure CLI 2.0
+### <a name="azure-cli"></a>Azure CLI
 
 Azure VM 확장은 [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) 명령을 사용하여 기존 VM에 대해 실행할 수 있습니다. 다음 예에서는 *myResourceGroup*이라는 리소스 그룹의 *myVM*이라는 VM에 대해 사용자 지정 스크립트 확장을 실행합니다.
 

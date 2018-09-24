@@ -11,14 +11,17 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 211f60b9c25b4bd20769f6a4840afaecf8373b9f
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ROBOTS: NOINDEX
+ms.openlocfilehash: 60abe46670353121ad308f8926a7ee178c76e74e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782348"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951664"
 ---
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>계산 대상으로 DSVM 및 HDI Spark 클러스터 만들기
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 Ubuntu 기반 DSVM(Data Science Virtual Machine) 및 Azure HDInsight 클러스터용 Apache Spark와 같은 추가 계산 대상을 추가하여 기계 학습 실험을 쉽게 강화하거나 확장할 수 있습니다. 이 문서는 Azure에서 이러한 계산 대상을 만드는 단계를 안내합니다. Azure ML 계산 대상에 대한 자세한 내용은 [Azure Machine Learning 실험 서비스 개요](experimentation-service-configuration.md)를 참조하세요.
 

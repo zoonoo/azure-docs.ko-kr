@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
-ms.openlocfilehash: 848db5d0df63707eece4f9f7a2a69135bed2d389
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d04340c340a7285b62ccc68eed4e70f7c4b43bc8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187354"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990028"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Azure REST API를 사용하여 Azure Network Watcher로 연결 문제 해결
 
 > [!div class="op_single_selector"]
 > - [포털](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
-> - [CLI 2.0](network-watcher-connectivity-cli.md)
+> - [Azure CLI](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
 연결 문제 해결을 사용하여 가상 머신에서 지정된 엔드포인트로 직접 TCP 연결을 설정하는 방법을 알아봅니다.
@@ -197,7 +197,7 @@ null
 
 ## <a name="validate-routing-issues"></a>라우팅 문제 확인
 
-이 예제에서는 가상 컴퓨터와 원격 끝점 간의 연결을 확인합니다.
+이 예제에서는 가상 컴퓨터와 원격 엔드포인트 간의 연결을 확인합니다.
 
 ### <a name="example"></a>예
 
@@ -378,7 +378,7 @@ null
 }
 ```
 
-## <a name="check-connectivity-to-a-storage-endpoint"></a>저장소 끝점에 대한 연결 확인
+## <a name="check-connectivity-to-a-storage-endpoint"></a>저장소 엔드포인트에 대한 연결 확인
 
 다음 예제에서는 가상 컴퓨터에서 BLOB 저장소 계정으로의 연결을 확인합니다.
 

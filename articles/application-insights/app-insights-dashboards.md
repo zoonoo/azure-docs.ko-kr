@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 72859f68fc1bb76a6c71bbd7b98cd713f1f0fe02
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 8161fda80b5fa498f9321371c9ad2c8a2d97441a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296403"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962422"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Application Insights 포털에서 탐색 및 대시보드
 [프로젝트에서 Application Insights를 설정](app-insights-overview.md)하면 앱의 성능 및 사용에 대한 원격 분석 데이터가 [Azure Portal](https://portal.azure.com)에서 프로젝트의 Application Insights 리소스에 나타납니다.
@@ -63,7 +63,7 @@ ms.locfileid: "35296403"
 * 시간 범위 24시간 초과: (시간 범위)/60
 
 ### <a name="pin-any-query-in-analytics"></a>분석에서 모든 쿼리를 고정
-[공유](#share-dashboards-with-your-team) 대시보드에 [분석 차트를 고정](app-insights-analytics-using.md#pin-to-dashboard)할 수도 있습니다. 그러면 임의 쿼리의 차트를 표준 메트릭과 함께 추가할 수 있습니다. 
+[공유](#share-dashboards-with-your-team) 대시보드에 [분석 차트를 고정](../log-analytics/query-language/get-started-analytics-portal.md)할 수도 있습니다. 그러면 임의 쿼리의 차트를 표준 메트릭과 함께 추가할 수 있습니다. 
 
 결과는 1시간마다 자동으로 다시 계산됩니다. 즉시 다시 계산하려면 새로 고침 아이콘을 클릭합니다. 브라우저 새로 고침은 다시 계산하지 않습니다.
 

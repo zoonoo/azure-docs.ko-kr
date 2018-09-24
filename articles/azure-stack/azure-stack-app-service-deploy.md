@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: ae742bbe1e5b751a8a8cabf378afd049728c3b8a
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 69b025a06abb24bfa3b8ff6b692a2559b3947681
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717508"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995275"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure Stack에 App Service 리소스 공급자 추가
 
@@ -27,8 +27,8 @@ ms.locfileid: "44717508"
 
 Azure Stack에서 App Service를 배포 하려면이 문서의 지침을 사용 합니다.
 
->[!IMPORTANT]  
->Azure Stack 통합 시스템 1807 업데이트를 적용 하거나 Azure 앱 서비스 1.3을 배포 하기 전에 최신 Azure Stack 개발 키트 ASDK ()를 배포 합니다.
+> [!IMPORTANT]  
+> Azure Stack 통합 시스템 1807 업데이트를 적용 하거나 Azure 앱 서비스 1.3을 배포 하기 전에 최신 Azure Stack 개발 키트 ASDK ()를 배포 합니다.
 
 웹 및 API 응용 프로그램을 만드는 기능에 사용자를 제공할 수 있습니다. 를 사용자가 이러한 응용 프로그램을 만들 수 있도록 해야 합니다.
 

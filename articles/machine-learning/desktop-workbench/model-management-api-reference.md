@@ -13,14 +13,17 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: c0f51e47038737d6aa743be718ad6b28c161c766
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 07f8a31244acca48a0bbae8ad26b0c5b509f0c0a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35640750"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959583"
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Azure Machine Learning 모델 관리 계정 API 참조
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 배포 환경 설정에 대한 정보는 [모델 관리 계정 설정](deployment-setup-configuration.md)을 참조하세요.
 
@@ -34,7 +37,7 @@ Azure Machine Learning 모델 관리 계정 API는 다음과 같은 작업을 �
 이 이미지를 사용하여 로컬로 또는 원격 Azure Container Service 클러스터나 선택한 다른 Docker 지원 환경에서 웹 서비스를 만들 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-[설치 및 생성 빠른 시작](../service/quickstart-installation.md) 문서의 설치 단계를 완료했는지 확인합니다.
+[설치 및 생성 빠른 시작](quickstart-installation.md) 문서의 설치 단계를 완료했는지 확인합니다.
 
 계속하기 전에 다음이 필요합니다.
 1. 모델 관리 계정 프로비저닝

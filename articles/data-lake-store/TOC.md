@@ -11,8 +11,7 @@
 # 시작하기
 ## [Azure Portal 사용](data-lake-store-get-started-portal.md)
 ## [Azure PowerShell 사용](data-lake-store-get-started-powershell.md)
-## [Azure CLI 2.0 사용](data-lake-store-get-started-cli-2.0.md)
-
+## [Azure CLI 사용](data-lake-store-get-started-cli-2.0.md)
 
 # 방법
 ## 데이터 로드 및 이동

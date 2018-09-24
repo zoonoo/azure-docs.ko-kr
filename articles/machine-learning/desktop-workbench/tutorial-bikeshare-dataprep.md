@@ -12,14 +12,18 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: 2a50350b9ba49d82a20b92804ffb92ec6906186d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ROBOTS: NOINDEX
+ms.openlocfilehash: cae80408a7440136b504647596c84a459a0d679c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439903"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971708"
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>자습서: 고급 데이터 준비를 위해 Azure Machine Learning Workbench 사용(자전거 공유 데이터)
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Azure Machine Learning(미리 보기)은 데이터를 준비하고, 실험을 개발하고, 클라우드 범위에서 모델을 배포할 수 있는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다.
 
 이 자습서에서는 Machine Learning(미리 보기)을 사용하여 다음을 수행하는 방법에 대해 알아봅니다.
@@ -36,7 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Azure Machine Learning Workbench가 로컬에 설치되어 있습니다. 자세한 내용은 [설치 빠른 시작](../service/quickstart-installation.md)을 참조하세요.
+* Azure Machine Learning Workbench가 로컬에 설치되어 있습니다. 자세한 내용은 [설치 빠른 시작](quickstart-installation.md)을 참조하세요.
 * Azure CLI가 설치되어 있지 않으면 지침에 따라 [최신 Azure CLI 버전](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)을 설치하세요.
 * Azure에 [HDInsights Spark 클러스터](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal)가 만들어져 있습니다.
 * Azure 저장소 계정.
@@ -179,7 +183,7 @@ Azure Blob 저장소를 사용하여 데이터 파일을 호스트할 수 있습
 
    ![데이터 형식 검토](media/tutorial-bikeshare-dataprep/datatypedetection.png)
 
-   나. 계속하려면 __다음__을 선택합니다. 
+   b. 계속하려면 __다음__을 선택합니다. 
 
 1. **샘플링**: 샘플링 구성표를 만들려면 **편집**을 선택합니다. 추가된 새 __상위 10000__ 행을 선택하고 __편집__을 선택합니다. __샘플 전략__을 **전체 파일**로 설정한 후 **적용**을 선택합니다.
 
@@ -382,7 +386,7 @@ __REPORTTYPE__ 열이 더 이상 필요하지 않습니다. 열 헤더를 마우
 
     a. 아래쪽에 있는 그리드에서 왼쪽 창으로 **날짜 시간 범위** 열을 끌어옵니다. 오른쪽 창으로 **HOURLYDRYBULBTEMPF**, **HOURLYRelativeHumidity** 및 **HOURLYWindSpeed**를 끌어옵니다. 
 
-    나. 오른쪽 창에서 **평균**을 각 열에 대한 **집계** 측정값으로 선택합니다. **확인**을 선택하여 요약을 마칩니다.
+    b. 오른쪽 창에서 **평균**을 각 열에 대한 **집계** 측정값으로 선택합니다. **확인**을 선택하여 요약을 마칩니다.
 
     ![요약된 데이터 화면](media/tutorial-bikeshare-dataprep/weathersummarize.png)
 

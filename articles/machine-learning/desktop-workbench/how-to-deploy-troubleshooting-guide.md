@@ -12,14 +12,18 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: 4cf86466d5fca4f5095c67a8400643bff29bb56c
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: a2867545e454e2b13360d87f5282e684753d6476
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35641406"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46994499"
 ---
 # <a name="troubleshooting-service-deployment-and-environment-setup"></a>문제 해결 서비스 배포 및 환경 설정
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 다음 정보는 모델 관리 환경을 설정할 때 오류의 원인을 확인하는 데 도움이 될 수 있습니다.
 
 ## <a name="model-management-environment"></a>모델 관리 환경

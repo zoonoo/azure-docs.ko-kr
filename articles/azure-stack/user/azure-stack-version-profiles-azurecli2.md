@@ -13,20 +13,20 @@ ms.topic: article
 ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: ec3b1f43c7b89a545ee5bb26c4cc0d068a993021
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 59b637e6887a645430d902cd846cacda13b14cfe
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295856"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972813"
 ---
-# <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>Azure Stack에서 Azure CLI 2.0을 사용 하 여 API 버전 프로필 사용
+# <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack에서 Azure CLI를 사용 하 여 API 버전 프로필 사용
 
 Linux, Mac 및 Windows 클라이언트 플랫폼에서 Azure Stack 개발 키트 리소스를 관리 하는 Azure 명령줄 인터페이스 (CLI)를 설정 하려면이 문서의 단계를 수행할 수 있습니다.
 
 ## <a name="install-cli"></a>CLI 설치
 
-개발 워크스테이션에 로그인 하 고 CLI를 설치 합니다. Azure Stack의 Azure CLI 2.0 버전에 필요합니다. 에 설명 된 단계를 사용 하 여 설치할 수 있습니다 합니다 [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli) 문서. 설치가 성공 했는지 여부를 확인 하려면 터미널 또는 명령 프롬프트 창을 열고 다음 명령을 실행 합니다.
+개발 워크스테이션에 로그인 하 고 CLI를 설치 합니다. Azure Stack에는 버전의 Azure CLI 2.0 이상이 필요합니다. 에 설명 된 단계를 사용 하 여 설치할 수 있습니다 합니다 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli) 문서. 설치가 성공 했는지 여부를 확인 하려면 터미널 또는 명령 프롬프트 창을 열고 다음 명령을 실행 합니다.
 
 ```azurecli
 az --version

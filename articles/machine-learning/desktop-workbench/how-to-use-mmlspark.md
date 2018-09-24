@@ -11,14 +11,17 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: 654b2559518cd52978153310fbb1e89a91838a8a
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6167e10219791466ca275ff02cc051e3227634e8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35640782"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980045"
 ---
 # <a name="how-to-use-microsoft-machine-learning-library-for-apache-spark"></a>Apache Spark에 대한 Microsoft Machine Learning 라이브러리를 사용하는 방법
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 ## <a name="introduction"></a>소개
 
@@ -30,7 +33,7 @@ ms.locfileid: "35640782"
 ## <a name="prerequisites"></a>필수 조건
 
 이 방법 가이드를 단계별로 실행하려면 다음을 수행해야 합니다.
-- [Azure Machine Learning Workbench 설치](../service/quickstart-installation.md)
+- [Azure Machine Learning Workbench 설치](quickstart-installation.md)
 - [Azure HDInsight Spark 클러스터 설치](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql)
 
 ## <a name="run-your-experiment-in-docker-container"></a>Docker 컨테이너에서 실험 실행

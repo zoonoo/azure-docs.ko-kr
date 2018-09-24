@@ -12,14 +12,19 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 026ffed925606e2fdf31461035c9a0d73ad609e9
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ROBOTS: NOINDEX
+ms.openlocfilehash: 311fd39792274ef01b1b03fdf8252eb7ac93c922
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059225"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978863"
 ---
 # <a name="derive-column-by-example-transformation"></a>예제별 열 파생 변환
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 **예제별 열 파생** 변환을 통해 사용자는 하나 이상의 기존 열의 파생 항목을 사용자가 제공한 파생 결과 예제를 사용하여 만들도록 설정할 수 있습니다. 파생은 지원되는 문자열, 날짜 및 숫자 변환의 어떤 조합이든 될 수 있습니다. 
 

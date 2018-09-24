@@ -15,12 +15,12 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 85a7b133655a3b1e4ca60c28e695e3057b293fdc
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 91f75fdbe7bc7c66bbe581e9d4b295467acd4cd5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504518"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989671"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>네이티브 클라이언트 앱을 사용하여 프록시 응용 프로그램과 상호 작용하는 방법
 
@@ -30,7 +30,7 @@ ms.locfileid: "39504518"
 
 ![최종 사용자, Azure Active Directory 및 게시된 응용 프로그램 간의 관계](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
-인증을 처리하고 다양한 클라이언트 환경을 지원하는 Azure AD 인증 라이브러리를 사용하여 네이티브 응용 프로그램을 게시합니다. 응용 프로그램 프록시는 [Web API 시나리오에 대한 네이티브 응용 프로그램](../develop/authentication-scenarios.md#native-application-to-web-api)에 맞습니다. 
+인증을 처리하고 다양한 클라이언트 환경을 지원하는 Azure AD 인증 라이브러리를 사용하여 네이티브 응용 프로그램을 게시합니다. 응용 프로그램 프록시는 [Web API 시나리오에 대한 네이티브 응용 프로그램](../develop/native-app.md)에 맞습니다. 
 
 이 문서에서는 응용 프로그램 프록시 및 Azure AD 인증 라이브러리를 사용하여 네이티브 응용 프로그램을 게시하는 네 가지 단계를 안내합니다. 
 
@@ -96,6 +96,6 @@ ADAL을 이러한 매개 변수로 편집하면 사용자가 회사 네트워크
 
 ## <a name="next-steps"></a>다음 단계
 
-네이티브 응용 프로그램 흐름에 대한 자세한 내용은 [Web API에 대한 네이티브 응용 프로그램](../develop/authentication-scenarios.md#native-application-to-web-api)을 참조하세요.
+네이티브 응용 프로그램 흐름에 대한 자세한 내용은 [Web API에 대한 네이티브 응용 프로그램](../develop/native-app.md)을 참조하세요.
 
 [응용 프로그램 프록시에 대한 Single Sign-On](application-proxy-single-sign-on.md) 설정에 대한 자세히 알아보세요.

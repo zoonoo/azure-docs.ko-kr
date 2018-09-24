@@ -11,19 +11,23 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
-ms.openlocfilehash: 712cdaa65487620b2f8af4a0ad57c01c24b9a965
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: c59969d5a56bd2eb4eb8c490d4f1b5af20d7f056
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35641501"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998698"
 ---
 # <a name="use-jupyter-notebooks-in-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench에서 Jupyter Notebook 사용
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 
 Azure Machine Learning Workbench는 Jupyter Notebook과의 통합을 통해 대화형 데이터 과학 실험을 지원합니다. 이 문서에서는 이 기능을 효과적으로 사용하여 대화형 데이터 과학 실험의 속도와 품질을 높이는 방법을 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-- [Azure Machine Learning 계정을 만들고 Azure Machine Learning Workbench를 설치합니다](../service/quickstart-installation.md).
+- [Azure Machine Learning 계정을 만들고 Azure Machine Learning Workbench를 설치합니다](quickstart-installation.md).
 - [Jupyter Notebook](http://jupyter.org/)에 익숙해집니다. 이 문서는 Jupyter 사용 방법에 대한 설명을 다루진 않습니다.
 
 ## <a name="jupyter-notebook-architecture"></a>Jupyter Notebook 아키텍처

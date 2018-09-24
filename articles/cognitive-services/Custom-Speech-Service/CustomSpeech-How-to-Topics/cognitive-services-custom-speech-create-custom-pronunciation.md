@@ -9,12 +9,13 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 11/23/2017
 ms.author: panosper
-ms.openlocfilehash: a74b69b84cc80809a25f18b580a18abb5721b8b1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: c51ef6b25b454d0b8bf450b791f5c0fa9c6dfdee
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373142"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999378"
 ---
 # <a name="enable-custom-pronunciation"></a>사용자 지정 발음을 사용하도록 설정
 사용자 지정 발음을 사용하면 사용자가 발음 유형과 단어 또는 용어의 표시를 결정할 수 있습니다. 제품 이름 또는 머리글자어와 같은 사용자 지정된 용어를 처리하는 데 유용합니다. 발음 파일(간단한 .txt 파일)만 있으면 됩니다.

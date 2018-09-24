@@ -14,16 +14,15 @@ ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 398ba001bfe9c8b2dd77b66535f5cb4aaf5f6270
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: b667f38c4e3d2a3fad323171a3b3b49ed3619fd9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667351"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959481"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>빠른 시작: SignalR Service를 사용하여 채팅방 만들기
 
-Microsoft Azure SignalR Service는 현재 [Public Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)로 제공됩니다.
 
 Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 응용 프로그램을 빌드할 수 있게 하는 Azure 서비스입니다. 이 서비스는 [ASP.NET Core 2.0용 SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction)을 기준으로 합니다.
 

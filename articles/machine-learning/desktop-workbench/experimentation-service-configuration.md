@@ -11,14 +11,17 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: e79817ffad139e0a3bcb0ba32b9bc6e5666319d0
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3c5084e548bbb72fa38aae8b60aa46fb4d462dca
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35638388"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990351"
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Azure Machine Learning 실험 서비스 구성
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 ## <a name="overview"></a>개요
 Azure Machine Learning 실험 서비스를 사용하면 데이터 과학자가 Azure Machine Learning 실행 및 실행 관리 기능을 사용하여 실험을 실행할 수 있습니다. 이는 빠른 반복과 함께 빠른 실험 프레임워크를 제공합니다. Azure Machine Learning Workbench를 사용하면 컴퓨터에서 로컬 실행을 시작할 수 있으며, Spark를 실행하는 GPU 또는 HDInsight 클러스터가 있는 원격 데이터 과학 VM과 같은 다른 환경으로 규모를 강화하거나 확장하는 쉬운 경로도 시작할 수 있습니다.
@@ -325,5 +328,5 @@ az ml experiment prepare -c remotevm
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Machine Learning 만들기 및 설치](../service/quickstart-installation.md)
+* [Azure Machine Learning 만들기 및 설치](quickstart-installation.md)
 * [모델 관리](model-management-overview.md)

@@ -9,14 +9,17 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/14/2017
-ms.openlocfilehash: 7938eaa0e06c9a33034a7388d02845d60967774e
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ROBOTS: NOINDEX
+ms.openlocfilehash: 24ed164f4a1dfdb9a3913efa78fe58fab2b53696
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142559"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991966"
 ---
 # <a name="configure-the-azure-machine-learning-experimentation-service"></a>Azure Machine Learning 실험 서비스 구성
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 ## <a name="overview"></a>개요
 Azure Machine Learning 실험 서비스 계정, 작업 영역 및 프로젝트는 Azure 리소스입니다. 그처럼 리소스를 Resource Manager 템플릿을 사용하여 배포할 수 있습니다. Resource Manager 템플릿은 솔루션에 배포해야 하는 리소스를 정의하는 JSON 파일입니다. Azure 솔루션 배포 및 관리와 관련된 개념을 이해하려면 [Azure Resource Manager 개요](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 참조하세요.
@@ -158,4 +161,4 @@ az group deployment create -n testdeploy -g <resource group name> --template-fil
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Machine Learning 만들기 및 설치](../service/quickstart-installation.md)
+* [Azure Machine Learning 만들기 및 설치](quickstart-installation.md)

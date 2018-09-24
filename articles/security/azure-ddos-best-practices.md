@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 09411ad3f0a27ba4d6d36342f9e298e177a021d8
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: 29aea0171c767b2188e3eac23b1d61ffbda8e284
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44324940"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986853"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS Protection: 모범 사례 및 참조 아키텍처
 
@@ -126,7 +126,7 @@ Azure DDoS Protection Basic 서비스를 통해 고객을 보호하고 다른 �
 
 #### <a name="ddos-protection-telemetry-monitoring-and-alerting"></a>DDoS Protection 원격 분석, 모니터링 및 경고
 
-DDoS Protection 표준은 DDoS 공격이 진행되는 동안 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md)를 통해 풍부한 원격 분석을 노출합니다. DDoS Protection에서 사용하는 Azure Monitor 메트릭 중 하나에 대한 경고를 구성할 수 있습니다. Azure Monitor 진단 인터페이스를 통한 고급 분석에 Splunk(Azure Event Hubs), Azure Log Analytics 및 Azure Storage와 로깅을 통합할 수 있습니다.
+DDoS Protection 표준은 DDoS 공격이 진행되는 동안 [Azure Monitor](../azure-monitor/overview.md)를 통해 풍부한 원격 분석을 노출합니다. DDoS Protection에서 사용하는 Azure Monitor 메트릭 중 하나에 대한 경고를 구성할 수 있습니다. Azure Monitor 진단 인터페이스를 통한 고급 분석에 Splunk(Azure Event Hubs), Azure Log Analytics 및 Azure Storage와 로깅을 통합할 수 있습니다.
 
 ##### <a name="ddos-mitigation-policies"></a>DDoS 완화 정책
 

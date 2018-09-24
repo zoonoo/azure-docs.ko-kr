@@ -16,14 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: 97e3a621e291935db2e0c70eb2b596e77c7bffb7
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: e2fbb0b7b0dede198be0e57ffcd2b58a7da7fce7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35641926"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947774"
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Azure Machine Learning에서 심층 학습을 사용하여 감정 분석
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 감정 분석은 자연어 처리 영역에서 잘 알려진 작업입니다. 일련의 텍스트에서 해당 텍스트의 감정을 결정하는 작업입니다. 이 솔루션의 목표는 영화 리뷰에서 감정을 예측하기 위해 심층 학습을 사용하는 것입니다.
 
@@ -45,7 +50,7 @@ ms.locfileid: "35641926"
 
 * [Azure 계정](https://azure.microsoft.com/free/)(평가판 사용 가능)
 
-* [빠른 시작 설치 가이드](../service/quickstart-installation.md)에 따라 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)의 설치 복사본으로 프로그램을 설치하고 작업 공간을 만듭니다.
+* [빠른 시작 설치 가이드](quickstart-installation.md)에 따라 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)의 설치 복사본으로 프로그램을 설치하고 작업 공간을 만듭니다.
 
 * 운영화의 경우 로컬로 설치 및 실행되는 Docker 엔진이 있는 것이 가장 좋습니다. 그렇지 않으면 클러스터 옵션을 사용할 수 있습니다. 그러나 ACS(Azure Container Service)를 실행하면 비용이 많이 들 수 있습니다.
 

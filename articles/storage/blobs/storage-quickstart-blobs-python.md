@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: cshoe
-ms.openlocfilehash: a1994f00715e8b3fb8a207de85ca5e2a1fdc3131
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: f9e39a8630302111f4646e085872399c6def6ab2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399161"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974496"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>빠른 시작: Python을 사용하여 BLOB 업로드, 다운로드 및 나열
 
@@ -25,9 +25,9 @@ ms.locfileid: "39399161"
 * [Python 설치](https://www.python.org/downloads/)
 * [Azure Storage SDK for Python](https://github.com/Azure/azure-sdk-for-python) 다운로드 및 설치 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="download-the-sample-application"></a>샘플 응용 프로그램 다운로드
 이 빠른 시작 가이드에서 사용되는 [샘플 응용 프로그램](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git)은 기본 Python 응용 프로그램입니다.  

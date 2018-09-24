@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/03/2018
-ms.openlocfilehash: f6bb6f3fbafe9b529d483af8edd55e16a35e703a
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2a486da73d00ddaebee5c1fe32fc6112c177f01e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35639215"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992341"
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>웹 서비스로 Machine Learning 웹 학습 모델 배포
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Azure Machine Learning 모델 관리는 모델을 컨테이너화된 Docker 기반 웹 서비스로 배포하는 인터페이스를 제공합니다. Spark, Microsoft CNTK(Cognitive Toolkit), Keras, Tensorflow 및 Python과 같은 프레임워크를 사용하여 만든 모델을 배포할 수 있습니다. 
 

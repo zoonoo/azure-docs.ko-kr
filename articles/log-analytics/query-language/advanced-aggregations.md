@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 661ff7c07ba2bb17eb5830b38bb39e1c3e80bb55
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 288af0eae50634f44d6af8c787b56112bb3119ff
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45602911"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998596"
 ---
 # <a name="advanced-aggregations-in-log-analytics-queries"></a>Log Analytics 쿼리의 고급 집계
 
@@ -34,7 +34,7 @@ ms.locfileid: "45602911"
 ## <a name="generating-lists-and-sets"></a>목록 및 집합 생성
 `makelist`를 사용하여 특정 열의 값 순서를 기준으로 데이터를 피벗할 수 있습니다. 예를 들어, 컴퓨터에 발생한 가장 일반적인 정렬 이벤트를 탐색할 수 있습니다. 기본적으로 각 컴퓨터에서 Eventid 순서를 기준으로 데이터를 피벗할 수 있습니다. 
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(12h)
 | order by TimeGenerated desc
@@ -50,7 +50,7 @@ Event
 
 고유 값 목록만 만들어도 유용합니다. 이것을 _집합_이라고 하며, `makeset`을 사용하여 생성할 수 있습니다.
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(12h)
 | order by TimeGenerated desc
@@ -67,11 +67,12 @@ Event
 ## <a name="expanding-lists"></a>목록 확장
 `makelist` 또는 `makeset`의 역 연산은 값 목록을 별도 행으로 확장하는 `mvexpand`입니다. 제한없는 수의 동적 열(JSON 및 배열)로 확장될 수 있습니다. 예를 들어, 지난 시간에 하트비트를 전송한 컴퓨터에서 데이터를 전송하는 솔루션에 대해서는 *하트비트* 테이블을 확인할 수 있습니다.
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(1h)
 | project Computer, Solutions
 ```
+
 | Computer | 솔루션 | 
 |--------------|----------------------|
 | computer1 | "security", "updates", "changeTracking" |
@@ -81,9 +82,14 @@ Heartbeat
 
 `mvexpand`를 사용하여 각 값을 쉼표로 구분된 목록 대신, 별도 행에 표시합니다.
 
-Heartbeat | where TimeGenerated > ago(1h) | project Computer, split(Solutions, ",") | mvexpand Solutions
+```Kusto
+Heartbeat
+| where TimeGenerated > ago(1h)
+| project Computer, split(Solutions, ",")
+| mvexpand Solutions
 ```
-| Computer | Solutions | 
+
+| Computer | 솔루션 | 
 |--------------|----------------------|
 | computer1 | "security" |
 | computer1 | "updates" |
@@ -93,11 +99,11 @@ Heartbeat | where TimeGenerated > ago(1h) | project Computer, split(Solutions, "
 | computer3 | "antiMalware" |
 | computer3 | "changeTracking" |
 | ... | ... | ... |
-```
+
 
 그런 후 `makelist`를 다시 사용하여 항목을 함께 그룹화 합니다. 이번에는 솔루션당 컴퓨터 목록이 표시됩니다.
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(1h)
 | project Computer, split(Solutions, ",")
@@ -115,7 +121,7 @@ Heartbeat
 ## <a name="handling-missing-bins"></a>누락된 bin 처리
 `mvexpand`는 누락된 bin에 대해 기본값을 채워야 할 경우에 사용하면 유용합니다. 예를 들어, 하트비트를 탐색하여 특정 컴퓨터의 가동 시간을 찾는다고 가정합니다. _범주_ 열에 있는 하드비트의 원본을 볼 수도 있습니다. 일반적으로 간단한 summerize 문을 다음과 같이 사용할 수 있습니다.
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(12h)
 | summarize count() by Category, bin(TimeGenerated, 1h)
@@ -131,7 +137,7 @@ Heartbeat
 
 그렇지만 이러한 결과에서 해당 시간 동안 하트비트 데이터가 없으므로 "2017-06-06T19:00:00Z"와 연결된 버킷은 누락됩니다. `make-series` 함수를 사용하여 빈 버킷에 기본값을 할당합니다. 이 경우 각 범주에 대해 값을 위한 열, 일치하는 시간 버킷을 위한 열, 모두 2개의 추가 배열 열을 포함하는 행이 생성됩니다.
 
-```KQL
+```Kusto
 Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 ```
@@ -143,7 +149,7 @@ Heartbeat
 
 *count_* 배열의 세 번째 요소는 예상대로 0이며, _TimeGenerated_ 배열에는 일치하는 타임스탬프 "2017-06-06T19:00:00.0000000Z"가 있습니다. 그렇지만 이 배열 형식은 읽기 어렵습니다. `mvexpand`를 사용하여 배열을 확장하고 `summarize`에 의해 생성되는 것과 동일한 형식 출력을 생성합니다.
 
-```KQL
+```Kusto
 Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 | mvexpand TimeGenerated, count_
@@ -165,7 +171,7 @@ Heartbeat
 일반적인 시나리오는 조건의 집합에 따라 일부 특정 엔터티의 이름을 선택한 다음, 다른 데이터 집합을 해당 엔터티 집합으로 필터링하는 것입니다. 예를 들어, 업데이트가 누락된 것으로 알려진 컴퓨터를 찾고, 이러한 컴퓨터 호출에 사용되는 IP를 식별할 수 있습니다.
 
 
-```KQL
+```Kusto
 let ComputersNeedingUpdate = toscalar(
     Update
     | summarize makeset(Computer)

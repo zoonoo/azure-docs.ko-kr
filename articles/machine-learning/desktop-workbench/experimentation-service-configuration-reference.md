@@ -11,14 +11,17 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 43bee297b917143c9014b28049c6dfa28727b757
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: abce80528479ba180783dbab604d4c836ddb7f1e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35642045"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950780"
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Azure Machine Learning 실험 서비스 구성 파일
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 Azure ML(Machine Learning) Workbench용 스크립트를 제출할 때 실행 동작은 **aml_config** 폴더의 파일을 통해 제어됩니다. 이 폴더는 프로젝트 폴더 루트 아래에 있습니다. 최적의 방법으로 실행에 대해 원하는 결과를 얻으려면 이 파일의 내용을 이해해야 합니다.
 

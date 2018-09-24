@@ -16,14 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: miprasad
-ms.openlocfilehash: 7c7b50098cfd1bcac534156dd905b37affab80bd
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0210e65c0859b00caac0fe66baa1c73063f644c8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35639612"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947944"
 ---
 # <a name="customer-churn-prediction-using-azure-machine-learning"></a>Azure Machine Learning을 사용한 고객 변동 분석
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 평균적으로 기존 고객 유지는 새로운 고객을 유치하는 데 드는 비용보다 5배 더 저렴합니다. 결과적으로, 마케팅 임원들은 종종 고객 변동의 가능성을 예측하기 위해 애쓰고 변동률을 최소화하기 위해 필요한 작업을 찾습니다.
 
@@ -61,7 +66,7 @@ ms.locfileid: "35639612"
 
 * [Azure 계정](https://azure.microsoft.com/free/)(평가판 사용 가능)
 
-* 프로그램을 설치하고 작업 영역을 만들기 위한, [빠른 시작 설치 가이드](../service/quickstart-installation.md)에 따라 설치된 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)의 복사본
+* 프로그램을 설치하고 작업 영역을 만들기 위한, [빠른 시작 설치 가이드](quickstart-installation.md)에 따라 설치된 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)의 복사본
 
 * 운영화의 경우 로컬로 설치 및 실행되는 Docker 엔진이 있는 것이 가장 좋습니다. 그렇지 않은 경우 클러스터 옵션을 사용할 수는 있지만, ACS(Azure Container Service)를 실행하는 데 비용이 많이 들 수 있습니다.
 

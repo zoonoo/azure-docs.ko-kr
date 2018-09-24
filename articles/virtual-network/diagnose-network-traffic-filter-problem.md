@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: 67b2babcd19268a61794d123f5aa9780af16976b
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 366ff0b59835ca3a28cafd5de77c0bd645ff58c5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364015"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984231"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>가상 머신 네트워크 트래픽 필터 문제 진단
 
@@ -111,7 +111,7 @@ NetworkInterfaces
 
 ## <a name="diagnose-using-azure-cli"></a>Azure CLI를 사용하여 진단
 
-이 문서의 작업을 완료하기 위해 Azure CLI(명령줄 인터페이스)를 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/bash)에서 명령을 실행하거나 컴퓨터에서 CLI를 실행합니다. 이 아티클에서는 Azure CLI 버전 2.0.32 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. Azure CLI를 로컬로 실행 중인 경우 `az login`를 실행하고 [필요한 권한](virtual-network-network-interface.md#permissions)을 가진 계정으로 Azure에 로그인해야 합니다.
+이 문서의 작업을 완료하기 위해 Azure CLI(명령줄 인터페이스)를 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/bash)에서 명령을 실행하거나 컴퓨터에서 CLI를 실행합니다. 이 아티클에서는 Azure CLI 버전 2.0.32 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. Azure CLI를 로컬로 실행 중인 경우 `az login`를 실행하고 [필요한 권한](virtual-network-network-interface.md#permissions)을 가진 계정으로 Azure에 로그인해야 합니다.
 
 [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg)를 사용하여 네트워크 인터페이스에 대한 효과적인 보안 규칙을 가져옵니다. 다음 예제에서는 *myResourceGroup*이라는 리소스 그룹에 있는 *myVMVMNic*라는 네트워크 인터페이스에 대한 효과적인 보안 규칙을 가져옵니다.
 
@@ -175,7 +175,7 @@ az vm show \
 | 프로토콜                | TCP                                                                                |
 | 조치                  | 허용                                                                              |
 | 우선 순위                | 100                                                                                |
-| Name                    | Allow-HTTP-All                                                                     |
+| 이름                    | Allow-HTTP-All                                                                     |
 
 규칙을 만든 후 규칙의 우선 순위는 트래픽을 거부하는 *DenyAllInBound*라는 기본 보안 규칙보다 높기 때문에 포트 80은 인터넷에서 허용된 인바운드입니다. [보안 규칙을 만드는](manage-network-security-group.md#create-a-security-rule) 방법을 알아봅니다. 다른 NSG가 네트워크 인터페이스와 서브넷 모두에 연결되어 있는 경우 두 NSG에 동일한 규칙을 만들어야 합니다.
 

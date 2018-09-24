@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2017
 ms.author: jdial
-ms.openlocfilehash: cf7b71a49b63a95ed535210125120c6b76d9de8f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 21e004e12a5111eb0e5fc7764c1e07fcb68c447d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181765"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986203"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Network Watcher로 연결 문제 해결
 
 > [!div class="op_single_selector"]
 > - [포털](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
-> - [CLI 2.0](network-watcher-connectivity-cli.md)
+> - [Azure CLI](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
 연결 문제 해결을 사용하여 가상 머신에서 지정된 엔드포인트로 직접 TCP 연결을 설정하는 방법을 알아봅니다.
@@ -50,9 +50,9 @@ Network Watcher로 이동하여 **연결 문제 해결**을 클릭합니다. 가
 
 ![가상 머신에 대한 연결 결과 확인][1]
 
-## <a name="check-remote-endpoint-connectivity"></a>원격 끝점 연결 확인
+## <a name="check-remote-endpoint-connectivity"></a>원격 엔드포인트 연결 확인
 
-원격 끝점에 대한 연결 및 대기 시간을 확인하려면 **대상** 섹션에서 **수동으로 지정** 라디오 단추를 선택하고 URL 및 포트를 입력한 다음 **확인**을 클릭합니다.  이 방법은 웹 사이트 및 저장소 끝점과 같은 원격 끝점에 사용됩니다.
+원격 엔드포인트에 대한 연결 및 대기 시간을 확인하려면 **대상** 섹션에서 **수동으로 지정** 라디오 단추를 선택하고 URL 및 포트를 입력한 다음 **확인**을 클릭합니다.  이 방법은 웹 사이트 및 저장소 엔드포인트와 같은 원격 엔드포인트에 사용됩니다.
 
 ![웹 사이트에 대한 연결 확인 결과][2]
 

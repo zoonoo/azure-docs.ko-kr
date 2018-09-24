@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 07/21/2017
-ms.openlocfilehash: decc0271ae0e7c359f72648d7c4d0076892285da
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: fd48dfaf7b863ab026da1758751509d9911ae01e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125178"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948012"
 ---
 # <a name="monitor-b2b-messages-and-set-up-logging-for-integration-accounts-in-azure-logic-apps"></a>Azure Logic Apps에서 B2B 메시지를 모니터링하고 통합 계정에 대한 로깅 설정
 
@@ -32,7 +32,7 @@ ms.locfileid: "43125178"
 
 ## <a name="turn-on-diagnostics-logging-for-your-integration-account"></a>통합 계정에 대한 진단 로깅 켜기
 
-통합 계정에서 직접 또는 [Azure Monitor 서비스를 통해](#azure-monitor-service) 로깅을 설정할 수 있습니다. Azure Monitor는 인프라 수준의 데이터와 함께 기본 모니터링을 제공합니다. [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md)에 대해 자세히 알아봅니다.
+통합 계정에서 직접 또는 [Azure Monitor 서비스를 통해](#azure-monitor-service) 로깅을 설정할 수 있습니다. Azure Monitor는 인프라 수준의 데이터와 함께 기본 모니터링을 제공합니다. [Azure Monitor](../azure-monitor/overview.md)에 대해 자세히 알아봅니다.
 
 ### <a name="turn-on-diagnostics-logging-directly-from-your-integration-account"></a>통합 계정에서 직접 진단 로깅 켜기
 

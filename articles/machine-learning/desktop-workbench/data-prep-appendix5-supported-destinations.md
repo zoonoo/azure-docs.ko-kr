@@ -13,14 +13,19 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 123328010758eea6e7eadce29440e204f91dcef6
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: f3d7d10db8cdeb4a1a409650f17d2fc39bf7971f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35638747"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969511"
 ---
 # <a name="supported-data-exports-for-this-preview"></a>이 미리 보기에 대해 지원되는 데이터 내보내기 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 여러 다른 형식으로 내보내는 것이 가능합니다. 이러한 형식을 이용하여 데이터 준비 결과를 Machine Learning 워크플로의 나머지 부분에 통합하기 전에 데이터 준비 중간 결과를 유지할 수 있습니다.
 
 ## <a name="types"></a>형식 

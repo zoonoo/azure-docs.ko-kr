@@ -12,14 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: 33d95e0c17e8b9b18313cb0854532337ec76cfd1
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ROBOTS: NOINDEX
+ms.openlocfilehash: e0f6148e1fb28838bf99c63fbfbfbfe8cd127c8c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42145981"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973207"
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench를 사용하여 Q & A 일치
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 개방형 질문에 대한 대답은 어려우며 종종 SME(실무 전문가)의 수동 작업이 필요합니다. 내부 SME에 대한 요구를 줄이기 위해 회사에서는 종종 사용자를 지원하는 수단으로 FAQ(질문과 대답) 목록을 만듭니다. 이 예제에서는 개방형 쿼리를 기존 FAQ 질문/답변 쌍과 일치시키는 다양하고 효과적인 기계 학습 방법을 보여 줍니다. 이 예제는 Azure Machine Learning Workbench를 사용하여 이러한 솔루션을 빌드하는 간편한 개발 프로세스를 보여 줍니다. 
 
 ## <a name="link-to-the-gallery-github-repository"></a>갤러리 GitHub 리포지토리에 연결
@@ -42,7 +47,7 @@ ms.locfileid: "42145981"
 이 예제를 실행하기 위한 필수 조건은 다음과 같습니다.
 
 1. [Azure 계정](https://azure.microsoft.com/free/)(평가판 사용 가능)
-2. [빠른 시작 설치 가이드](../service/quickstart-installation.md)에 따라 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)의 설치 복사본으로 프로그램을 설치하고 작업 공간을 만듭니다.
+2. [빠른 시작 설치 가이드](quickstart-installation.md)에 따라 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)의 설치 복사본으로 프로그램을 설치하고 작업 공간을 만듭니다.
 3. 이 예제는 모든 계산 컨텍스트에서 실행될 수 있습니다. 그러나 적어도 16GB의 메모리와 5GB의 디스크 공간이 있는 멀티 코어 컴퓨터에서 실행하는 것이 좋습니다.
 
 ## <a name="create-a-new-workbench-project"></a>새 Workbench 프로젝트 만들기

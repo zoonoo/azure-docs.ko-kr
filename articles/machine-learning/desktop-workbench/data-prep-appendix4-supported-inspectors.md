@@ -13,14 +13,19 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: ef5f6f3dc7ae0c555b2afe000b54c443313800f1
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: e6af524d7f80104a34831f576a14d2dbf15e384f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35640694"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987206"
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Azure Machine Learning 데이터 준비 미리 보기에 지원되는 검사기
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 이 문서에서는 이 미리 보기에서 사용할 수 있는 일단의 검사기에 대해 간략히 설명합니다.
 
 ## <a name="the-halo-effect"></a>Halo 효과 

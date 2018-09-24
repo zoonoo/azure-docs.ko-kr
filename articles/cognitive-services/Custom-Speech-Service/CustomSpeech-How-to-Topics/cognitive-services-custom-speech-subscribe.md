@@ -9,12 +9,13 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: d3969114323f5675c5e14ab36990b124e84ead37
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ROBOTS: NOINDEX
+ms.openlocfilehash: e5cac34a9aead209bec90cfd5f89e94a005a1995
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427570"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980358"
 ---
 # <a name="obtain-subscription-keys"></a>구독 키 얻기
 Azure Custom Speech Service를 사용하려면 먼저 사용자 계정을 Azure 구독에 연결해야 합니다. 무료 계층과 유료 계층의 두 가지 구독이 제공됩니다. 계층에 대한 정보는 [가격 책정 페이지](https://www.microsoft.com/cognitive-services/en-us/pricing)를 참조하세요.
@@ -35,7 +36,7 @@ Azure Custom Speech Service를 사용하려면 먼저 사용자 계정을 Azure 
 
       a. **계정 이름**. 적합한 이름을 사용합니다. 리소스 목록에서 Cognitive Services 구독을 찾을 수 있도록 이 이름을 기억해 두세요.
 
-      나. **구독**. Azure 구독에서 하나를 선택합니다.
+      b. **구독**. Azure 구독에서 하나를 선택합니다.
 
       다. **API 형식**. **Custom Speech Service(미리 보기)** 를 선택합니다.
 

@@ -8,12 +8,12 @@ ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: af4a831c084ae10b381b8e08fd0ce4798b21b394
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: a65eb029dbf10b194bd28bf7ad82f5aa839338a2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382174"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990623"
 ---
 # <a name="learn-how-to-use-deployment-manifests-to-deploy-modules-and-establish-routes"></a>배포 매니페스트를 사용하여 모듈을 배포하고 경로를 설정하는 방법 알아보기
 
@@ -148,7 +148,7 @@ IoT Edge의 모듈 간에 전달되는 메시지는 장치와 Azure IoT Hub 간�
 * 응용 프로그램 속성: `<propertyName>`
 * 본문 속성: `$body.<propertyName>` 
 
-메시지 속성에 대한 쿼리를 만드는 방법에 대한 예제는 [장치-클라우드 메시지 경로에 대한 쿼리 식](../iot-hub/iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions)을 참조하세요.
+메시지 속성에 대한 쿼리를 만드는 방법에 대한 예제는 [장치-클라우드 메시지 경로에 대한 쿼리 식](../iot-hub/iot-hub-devguide-routing-query-syntax.md)을 참조하세요.
 
 IoT Edge에 특정되는 예제는 리프 장치에서 게이트웨이 장치에 도착하는 메시지를 필터링하려는 경우입니다. 모듈에서 발생한 메시지에는 **connectionModuleId**라는 시스템 속성이 포함되어 있습니다. 따라서 리프 장치에서 IoT Hub로 직접 메시지를 라우팅하려는 경우 다음 경로를 사용하여 모듈 메시지를 제외합니다.
 
@@ -265,7 +265,7 @@ Edge 허브는 [Edge 허브 원하는 속성](module-edgeagent-edgehub.md)의 `s
 * 이제 IoT Edge 모듈을 사용하는 방법을 알았으므로 [IoT Edge 모듈 개발을 위한 요구 사항 및 도구에 대해 알아봅니다][lnk-module-dev].
 
 [lnk-deploy]: module-deployment-monitoring.md
-[lnk-iothub-query]: ../iot-hub/iot-hub-devguide-query-language.md
+[lnk-iothub-query]: ../iot-hub/iot-hub-devguide-routing-query-syntax.md
 [lnk-docker-create-options]: https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate
 [lnk-docker-logging-options]: https://docs.docker.com/engine/admin/logging/overview/
 [lnk-module-dev]: module-development.md

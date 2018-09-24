@@ -1,6 +1,6 @@
 ---
-title: Azure Stack에 Kubernetes 클러스터 배포 | Microsoft Docs
-description: Azure Stack에 Kubernetes 클러스터를 배포 하는 방법에 알아봅니다.
+title: Azure Stack에 Kubernetes 배포 | Microsoft Docs
+description: Kubernetes Azure Stack에 배포 하는 방법에 알아봅니다.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,28 +11,28 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 09/25/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 00c3fd0d1f637575904ebaa8031159344adf7e9f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: a6e1acf3b9e69f32a8c175310134c534dbf8c561
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718579"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977539"
 ---
-# <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>Azure Stack에 Kubernetes 클러스터 배포
+# <a name="deploy-kubernetes-to-azure-stack"></a>Azure Stack에 Kubernetes 배포
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 > [!Note]  
-> Azure Stack의 AKS (Azure Kubernetes Service) 엔진 비공개 미리 보기입니다. 귀하가 Azure Stack 운영자는이 문서의 지침을 수행 하는 데 필요한 Kubernetes Marketplace 항목에 대 한 액세스를 요청 해야 합니다.
+> Azure Stack에서 Kubernetes 미리 보기입니다. 귀하가 Azure Stack 운영자는이 문서의 지침을 수행 하는 데 필요한 Kubernetes 클러스터 Marketplace 항목에 대 한 액세스를 요청 해야 합니다.
 
 다음 문서를 배포 하 고 조정 된 단일 작업에서 Kubernetes에 대 한 리소스를 프로 비전 하는 Azure Resource Manager 솔루션 템플릿을 사용 하 여 살펴봅니다. 필요한 Azure Stack 설치에 대 한 필요한 정보를 수집 하려면 템플릿을 생성을을 클라우드에 배포 합니다. 서식 파일은 동일한 전역 Azure ACS 서비스에 가깝게에서 제공 하는 AKS 서비스를 관리 합니다.
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes 및 컨테이너
 
-Azure Stack에서 Azure Kubernetes 서비스 (AKS) 엔진에서 생성 하는 Azure Resource Manager 템플릿을 사용 하 여 Kubernetes를 설치할 수 있습니다. [Kubernetes](https://kubernetes.io) 는 배포를 자동화 하기 위한 오픈 소스 시스템 크기 조정 및 컨테이너의 응용 프로그램 관리. A [컨테이너](https://www.docker.com/what-container) VM에는 이미지에 포함 되어 있습니다. 컨테이너 이미지에는 VM과 달리 코드, 특정 라이브러리 및 설정을 실행 하기 위해 런타임 코드와 같은 응용 프로그램을 실행 하는 데 필요한 리소스만 포함 됩니다.
+Azure Stack에서 ACS 엔진에서 생성 하는 Azure Resource Manager 템플릿을 사용 하 여 Kubernetes를 설치할 수 있습니다. [Kubernetes](https://kubernetes.io) 는 배포를 자동화 하기 위한 오픈 소스 시스템 크기 조정 및 컨테이너의 응용 프로그램 관리. A [컨테이너](https://www.docker.com/what-container) VM에는 이미지에 포함 되어 있습니다. 컨테이너 이미지에는 VM과 달리 코드, 특정 라이브러리 및 설정을 실행 하기 위해 런타임 코드와 같은 응용 프로그램을 실행 하는 데 필요한 리소스만 포함 됩니다.
 
 Kubernetes에서 사용할 수 있습니다.
 
@@ -59,7 +59,11 @@ Kubernetes에서 사용할 수 있습니다.
 ## <a name="create-a-service-principal-in-azure-ad"></a>Azure AD에서 서비스 주체 만들기
 
 1. 전역에 로그인 [Azure portal](http://portal.azure.com)합니다.
-1. Azure Stack 인스턴스와 연결 된 Azure AD 테 넌 트를 사용 하 여 서명 되었는지 확인 합니다.
+
+1. Azure Stack 인스턴스와 연결 된 Azure AD 테 넌 트를 사용 하 여 서명 되었는지 확인 합니다. Azure 도구 모음에서 필터 아이콘을 클릭 하 여 로그인을 전환할 수 있습니다.
+
+    ![AD 테 넌 트 선택](media/azure-stack-solution-template-kubernetes-deploy/tenantselector.png)
+
 1. Azure AD 응용 프로그램을 만듭니다.
 
     a. 선택 **Azure Active Directory** > **+ 앱 등록** > **새 응용 프로그램 등록**합니다.
@@ -83,26 +87,25 @@ Kubernetes에서 사용할 수 있습니다.
     다. **저장**을 선택합니다. 키 문자열을 기록 하십시오. 클러스터를 만들 때 키 문자열을 해야 합니다. 키로 참조 되는 **서비스 주체 클라이언트 비밀**합니다.
 
 
-
 ## <a name="give-the-service-principal-access"></a>서비스 주체 액세스를 제공 합니다.
 
 보안 주체가 리소스를 만들 수 있도록 구독에 대 한 서비스 주체 액세스를 제공 합니다.
 
 1.  에 로그인 합니다 [Azure Stack 포털](https://portal.local.azurestack.external/)합니다.
 
-1. 선택 **더 많은 서비스** > **구독**합니다.
+1. 선택 **모든 서비스** > **구독**합니다.
 
-1. 사용자가 만든 구독을 선택 합니다.
+1. Kubernetes 클러스터를 사용 하 여 연산자에 의해 만들어진 구독을 선택 합니다.
 
 1. 선택 **액세스 제어 (IAM)** > 선택 **+ 추가**합니다.
 
-1. 선택 된 **소유자** 역할입니다.
+1. 선택 된 **참가자** 역할입니다.
 
 1. 주 서비스에 대해 만든 응용 프로그램 이름을 선택 합니다. 검색 상자에 이름을 입력 해야 합니다.
 
 1. **저장**을 클릭합니다.
 
-## <a name="deploy-a-kubernetes-cluster"></a>Kubernetes 클러스터 배포
+## <a name="deploy-a-kubernetes"></a>Kubernetes 배포
 
 1. 엽니다는 [Azure Stack 포털](https://portal.local.azurestack.external)합니다.
 
@@ -110,7 +113,7 @@ Kubernetes에서 사용할 수 있습니다.
 
     ![솔루션 템플릿 배포](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
-1. 선택 **기본 사항** 에 Kubernetes 클러스터를 만듭니다.
+1. 선택 **기본 사항** 에 Kubernetes를 만듭니다.
 
     ![솔루션 템플릿 배포](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
 
@@ -145,7 +148,6 @@ Kubernetes에서 사용할 수 있습니다.
 
 1. 입력 된 **Arm 끝점을 테 넌 트**합니다. Kubernetes 클러스터에 대 한 리소스 그룹을 만들려면 연결 하는 Azure Resource Manager 끝점입니다. 통합 시스템에 Azure Stack 연산자에서 끝점을 가져올 해야 합니다. 에 Azure Stack 개발 키트 ASDK ()를 사용할 수 `https://management.local.azurestack.external`입니다.
 
-1. 입력 된 **테 넌 트 ID** 테 넌 트에 대 한 합니다. 이 값을 찾는 데 도움을 참조 하세요 [테 넌 트 ID 가져오기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id)합니다. 
 
 ## <a name="connect-to-your-cluster"></a>클러스터에 연결
 
@@ -155,6 +157,6 @@ Kubernetes에서 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[(Azure Stack 운영자)에 대 한 Marketplace에 Kubernetes 클러스터를 추가](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+[Kubernetes를 추가할 Marketplace (Azure Stack 연산자)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Azure의 Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

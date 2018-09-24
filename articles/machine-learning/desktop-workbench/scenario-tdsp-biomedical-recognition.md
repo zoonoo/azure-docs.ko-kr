@@ -16,14 +16,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: f6ce43c2d290bacee10e102cc6c382981db9917f
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ROBOTS: NOINDEX
+ms.openlocfilehash: 775d0701f9eeaf7d26a83b814711bea630efb2a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142513"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973765"
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>TDSP(Team Data Science Process) 템플릿을 사용하는 생명 공학 엔터티 인식
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 엔터티 추출은 정보 추출의 하위 작업입니다([NER(명명된 엔터티 인식)](https://en.wikipedia.org/wiki/Named-entity_recognition)이라고도 하는 엔터티 청크 및 엔터티 식별). 이 실제 시나리오의 목표는 Azure Machine Learning Workbench를 사용하여 구조화되지 않은 텍스트에서 엔터티 추출과 같은 복잡한 NLP(자연어 처리) 작업을 해결하는 방법을 중점적으로 설명하는 것입니다.
 
@@ -95,7 +100,7 @@ ms.locfileid: "42142513"
 ## <a name="prerequisites"></a>필수 조건 
 
 * Azure [구독](https://azure.microsoft.com/free/)
-* Azure Machine Learning Workbench. [설치 가이드](../service/quickstart-installation.md)를 참조하세요. 현재 Azure Machine Learning Workbench는 다음 운영 체제에만 설치할 수 있습니다. 
+* Azure Machine Learning Workbench. [설치 가이드](quickstart-installation.md)를 참조하세요. 현재 Azure Machine Learning Workbench는 다음 운영 체제에만 설치할 수 있습니다. 
     * Windows 10 또는 Windows Server 2016
     * macOS Sierra(이상)
 
@@ -118,7 +123,7 @@ ms.locfileid: "42142513"
 
 ### <a name="basic-instructions-for-azure-machine-learning-aml-workbench"></a>AML(Azure Machine Learning) Workbench에 대한 기본 지침
 * [개요](../service/overview-what-is-azure-ml.md)
-* [설치](../service/quickstart-installation.md)
+* [설치](quickstart-installation.md)
 * [TDSP 사용](how-to-use-tdsp-in-azure-ml.md)
 * [파일 읽기 및 쓰기 방법](how-to-read-write-files.md)
 * [Jupyter Notebook을 사용하는 방법](how-to-use-jupyter-notebooks.md)

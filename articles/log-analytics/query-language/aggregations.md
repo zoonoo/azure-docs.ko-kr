@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: f72fb6f654b4699214a22a7f96431c605af52f2d
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 764c43a382442096a5d130334e54afdc135ba419
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603676"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966686"
 ---
 # <a name="aggregations-in-log-analytics-queries"></a>Log Analytics 쿼리의 집계
 
@@ -37,13 +37,13 @@ ms.locfileid: "45603676"
 필터가 적용된 후, 결과 집합의 행 수를 계산합니다. 다음 예제에서는 지난 30분 동안 _Perf_ 테이블의 총 행 수를 반환합니다. 이 결과는 특정 이름을 지정하지 않는 한, *count_* 열에 반환됩니다.
 
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | summarize count()
 ```
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | summarize num_of_records=count() 
@@ -51,7 +51,7 @@ Perf
 
 시간에 따른 추세를 보는 데는 시간 차트 시각화가 유용할 수 있습니다.
 
-```KQL
+```Kusto
 Perf 
 | where TimeGenerated > ago(30m) 
 | summarize count() by bin(TimeGenerated, 5m)
@@ -66,7 +66,7 @@ Perf
 ### <a name="dcount-dcountif"></a>dcount, dcountif
 `dcount` 및 `dcountif`를 사용하여 특정 열의 고유 값을 계산합니다. 다음 쿼리는 지난 시간에 하트비트를 전송한 고유 컴퓨터 수를 평가합니다.
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize dcount(Computer)
@@ -74,7 +74,7 @@ Heartbeat
 
 하트비트를 전송한 Linux 컴퓨터 수만 계산하려면 `dcountif`를 사용합니다.
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize dcountif(Computer, OSType=="Linux")
@@ -83,7 +83,7 @@ Heartbeat
 ### <a name="evaluating-subgroups"></a>하위 그룹 평가
 데이터의 하위 그룹에 대해 개수 또는 다른 집계를 수행하려면 `by` 키워드를 사용합니다. 예를 들어, 각 국가에 하트비트를 전송한 고유한 Linux 컴퓨터의 수를 계산하려면 다음을 입력합니다.
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize distinct_computers=dcountif(Computer, OSType=="Linux") by RemoteIPCountry
@@ -100,7 +100,7 @@ Heartbeat
 
 데이터의 좀 더 작은 하위 그룹을 분석하려면 `by` 섹션에 추가 열 이름을 추가합니다. 예를 들어, OSType별로 각 국가의 고유 컴퓨터 수를 계산하려면 다음을 입력합니다.
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize distinct_computers=dcountif(Computer, OSType=="Linux") by RemoteIPCountry, OSType
@@ -112,7 +112,7 @@ Heartbeat
 ### <a name="percentile"></a>백분위수
 중간 값을 찾으려면 값에 `percentile` 함수를 사용하여 백분위수를 지정합니다.
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -121,7 +121,7 @@ Perf
 
 또한 각각에 대해 다른 백분위수를 지정하여 집계된 결과를 가져올 수도 있습니다.
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -133,7 +133,7 @@ Perf
 ### <a name="variance"></a>Variance
 값의 분산을 직접 평가하려면 다음과 같이 표준 편차 및 분산 메서드를 사용합니다.
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -142,7 +142,7 @@ Perf
 
 CPU 사용량의 안정성을 분석하는 적절한 방법은 중앙값 계산에 표준 편차를 결합하는 것입니다.
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(130m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 

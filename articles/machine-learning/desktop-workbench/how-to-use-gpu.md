@@ -11,18 +11,22 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 09d8e3da543cdf4433d986b321697abcad88eb22
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8e8944a9bdfa2b75f6442e03d45dfb6977c2a122
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157993"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974360"
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Azure Machine Learning에서 GPU를 사용하는 방법
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 GPU(그래픽 처리 장치)는 일반적으로 특정 심층 신경망 모델을 교육할 때 발생할 수 있는 계산 집약적 작업을 처리하는 데 널리 사용됩니다. GPU를 사용하면 모델의 교육 시간을 크게 줄일 수 있습니다. 이 문서에서는 실행 대상으로 GPU가 장착된 [DSVM(Data Science Virtual Machine)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview)을 사용하도록 Azure ML Workbench를 구성하는 방법을 알아봅니다. 
 
 ## <a name="prerequisites"></a>필수 조건
-- 이 방법 가이드를 실행하려면 먼저 [Azure ML Workbench를 설치](../service/quickstart-installation.md)해야 합니다.
+- 이 방법 가이드를 실행하려면 먼저 [Azure ML Workbench를 설치](quickstart-installation.md)해야 합니다.
 - NVidia GPU가 장착된 컴퓨터에 액세스할 수 있어야 합니다.
     - GPU가 장착된 로컬 컴퓨터(Windows 또는 macOS)에서 직접 스크립트를 실행할 수 있습니다.
     - GPU가 장착된 Linux 머신의 Docker 컨테이너에서도 스크립트를 실행할 수 있습니다.

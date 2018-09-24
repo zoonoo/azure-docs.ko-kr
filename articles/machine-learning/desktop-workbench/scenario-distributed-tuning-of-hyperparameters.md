@@ -11,14 +11,19 @@ ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 920b019640df9d2da174101e2b1b90dfd4da6f56
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ROBOTS: NOINDEX
+ms.openlocfilehash: f74889cdf727bc132723d16df295849769001ce9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578738"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951970"
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench를 사용하여 하이퍼 매개 변수의 분산 튜닝
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 이 시나리오에서는 Azure Machine Learning Workbench를 사용하여 scikit-learn API를 구현하는 Machine Learning 알고리즘에서 하이퍼 매개 변수의 분산 튜닝을 확장하는 방법을 보여줍니다. 원격 Docker 컨테이너와 Spark 클러스터를 하이퍼 매개 변수를 튜닝하는 실행 백 엔드로 구성하고 사용하는 방법을 보여줍니다.
 
@@ -38,7 +43,7 @@ ms.locfileid: "45578738"
 ## <a name="prerequisites"></a>필수 조건
 
 * [Azure 계정](https://azure.microsoft.com/free/)(평가판 사용 가능)
-* Workbench를 설치하고 계정을 만들기 위해 [빠른 시작 설치 및 만들기](../service/quickstart-installation.md)에 따라 설치된 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)의 복사본
+* Workbench를 설치하고 계정을 만들기 위해 [빠른 시작 설치 및 만들기](quickstart-installation.md)에 따라 설치된 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)의 복사본
 * 이 시나리오에서는 Docker 엔진이 로컬로 설치된 Windows 10 또는 MacOS에서 Azure ML Workbench를 실행 중이라고 가정합니다. 
 * 원격 Docker 컨테이너를 사용하는 시나리오를 실행하려면 [지침](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm)에 따라 Ubuntu DSVM(데이터 과학 Virtual Machine)을 프로비전합니다. 적어도 8개의 코어와 28GB의 메모리가 있는 가상 머신을 사용하는 것이 좋습니다. 가상 머신의 D4 인스턴스에는 이러한 용량이 포함됩니다. 
 * 이 시나리오를 Spark 클러스터에서 실행하려면 이러한 [지침](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)에 따라 Spark HDInsight 클러스터를 프로비전합니다. 헤더 및 작업자 노드 모두에서 다음 구성을 포함한 클러스터를 사용하는 것이 좋습니다.

@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: c74229504a43179673cc99ccff321b65e3f6ed4f
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: a3aeb021d5d3726a31b62d66efc44dc29f3dded0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35641942"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959651"
 ---
 # <a name="data-source-wizard"></a>데이터 원본 마법사 #
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 데이터 원본 마법사는 코드 없이 데이터 집합을 Azure ML Workbench로 가져오는 쉽고 빠른 방법입니다. 또한 여기서 데이터 집합에 대한 샘플 전략 및 각 열에 대한 데이터 형식을 선택할 수 있습니다. 
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Marketplace Kubernetes 클러스터를 추가할 | Microsoft Docs
-description: Azure Stack Marketplace Kubernetes 클러스터를 추가 하는 방법에 알아봅니다.
+title: Azure Stack Marketplace Kubernetes 추가할 | Microsoft Docs
+description: Kubernetes Azure Stack Marketplace에 추가 하는 방법에 알아봅니다.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,30 +11,30 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 09/25/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: ded2aa17fe9b8de2d8c8f662f5d99b1ce33a2b25
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 69bf788ef30a18bbe70e251fdd6a814d0f528f55
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634207"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46994567"
 ---
-# <a name="add-a-kubernetes-cluster-to-the-azure-stack-marketplace"></a>Azure Stack Marketplace를 Kubernetes 클러스터를 추가 합니다.
+# <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes Azure Stack Marketplace에 추가
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 > [!note]  
-> Azure Stack의 AKS (Azure Kubernetes Service) 엔진 비공개 미리 보기입니다. 이 문서의 지침을 수행 하는 데 필요한 Kubernetes Marketplace 항목에 대 한 액세스를 요청 하려면 [액세스 요청을 제출](https://aka.ms/azsk8)합니다.
+> Azure Stack에서 Kubernetes 미리 보기입니다. 이 문서의 지침을 수행 하는 데 필요한 Kubernetes 클러스터 Marketplace 항목에 대 한 액세스를 요청 하려면 [액세스 요청을 제출](https://aka.ms/azsk8)합니다.
 
-사용자에 게 Marketplace 항목으로 Kubernetes 클러스터를 제공할 수 있습니다. 사용자가 단일의 조정 된 작업에서 Kubernetes를 배포할 수 있습니다.
+사용자에 게 Marketplace 항목으로 Kubernetes를 제공할 수 있습니다. 사용자가 단일의 조정 된 작업에서 Kubernetes를 배포할 수 있습니다.
 
-다음 문서를 배포 하 고 독립 실행형 Kubernetes 클러스터에 대 한 리소스를 프로 비전 하는 Azure Resource Manager 템플릿을 사용 하 여 확인 합니다. 시작 하기 전에 Azure Stack 및 Azure 전역 테 넌 트 설정을 확인 합니다. Azure Stack에 대 한 필수 정보를 수집 합니다. Azure Stack Marketplace 및 테 넌 트에 필요한 리소스를 추가 합니다. 클러스터는 Ubuntu server, 사용자 지정 스크립트 및 marketplace에 Kubernetes 클러스터 항목에 따라 달라 집니다.
+다음 문서를 배포 하 고 독립 실행형 Kubernetes 클러스터에 대 한 리소스를 프로 비전 하는 Azure Resource Manager 템플릿을 사용 하 여 확인 합니다. 시작 하기 전에 Azure Stack 및 Azure 전역 테 넌 트 설정을 확인 합니다. Azure Stack에 대 한 필수 정보를 수집 합니다. Azure Stack Marketplace 및 테 넌 트에 필요한 리소스를 추가 합니다. 클러스터는 Ubuntu server, 사용자 지정 스크립트 및 Kubernetes 항목을 marketplace에 따라 달라 집니다.
 
 ## <a name="create-a-plan-an-offer-and-a-subscription"></a>계획, 제공 및 구독 만들기
 
-계획, 제공 및 Kubernetes 클러스터 마켓플레이스 항목에 대 한 구독을 만듭니다. 또한 기존 계획을 사용 하 고 제공할 수 있습니다.
+계획, 제공 및 Kubernetes 마켓플레이스 항목에 대 한 구독을 만듭니다. 또한 기존 계획을 사용 하 고 제공할 수 있습니다.
 
 1. 에 로그인 하 여 [관리 포털.](https://adminportal.local.azurestack.external)
 
@@ -72,20 +72,16 @@ Marketplace에는 다음 Ubuntu Server 이미지를 추가 합니다.
 
 1. `UbuntuServer`을 입력합니다.
 
-1. 다음 프로필을 사용 하 여 서버를 선택 합니다.
+1. 최신 버전의 다음 프로필을 사용 하 여 서버를 선택 합니다.
     - **게시자**: Canonical
     - **제공**: UbuntuServer
     - **SKU**: 16.04-LTS
-    - **버전**: 16.04.201802220
-
-    > [!Note]  
-    > Ubuntu Server 16.04 LTS의 버전이 둘 이상 나타날 수 있습니다. 일치 하는 버전을 추가 해야 합니다. Kubernetes 클러스터에는 항목의 정확한 버전이 필요합니다.
 
 1. 선택 **다운로드 합니다.**
 
 ## <a name="add-a-custom-script-for-linux"></a>Linux 용 사용자 지정 스크립트를 추가 합니다.
 
-Marketplace에서 Kubernetes 클러스터를 추가 합니다.
+Marketplace에서 Kubernetes를 추가 합니다.
 
 1. 엽니다는 [관리 포털](https://adminportal.local.azurestack.external)합니다.
 
@@ -97,24 +93,24 @@ Marketplace에서 Kubernetes 클러스터를 추가 합니다.
 
 1. 다음 프로필을 사용 하 여 스크립트를 선택 합니다.
     - **제공**: Linux 2.0에 대 한 사용자 지정 스크립트
-    - **버전**: 2.0.3
+    - **버전**: 2.0.6
     - **게시자**: Microsoft Corp
 
     > [!Note]  
-    > Linux 용 사용자 지정 스크립트의 버전이 둘 이상 나타날 수 있습니다. 일치 하는 버전을 추가 해야 합니다. Kubernetes 클러스터에는 항목의 정확한 버전이 필요합니다.
+    > Linux 용 사용자 지정 스크립트의 버전이 둘 이상 나타날 수 있습니다. 일치 하는 버전을 추가 해야 합니다. Kubernetes에는 항목의 정확한 버전에 필요합니다.
 
 1. 선택 **다운로드 합니다.**
 
 
-## <a name="add-the-kubernetes-cluster-to-the-marketplace"></a>Marketplace에 Kubernetes 클러스터를 추가 합니다.
+## <a name="add-kubernetes-to-the-marketplace"></a>Kubernetes는 marketplace에 추가
 
 1. 엽니다는 [관리 포털](https://adminportal.local.azurestack.external)합니다.
 
-1. 선택 **서비스 추가** 한 다음는 **관리** 범주를 선택한 **Marketplace 관리**합니다.
+1. 선택 **모든 서비스** 한 다음는 **관리** 범주를 선택한 **Marketplace 관리**합니다.
 
 1. 선택 **+ Azure에서 추가**합니다.
 
-1. `Kubernetes Cluster`을 입력합니다.
+1. `Kubernetes`을 입력합니다.
 
 1. `Kubernetes Cluster`를 선택합니다.
 
@@ -123,29 +119,29 @@ Marketplace에서 Kubernetes 클러스터를 추가 합니다.
     > [!note]  
     > Marketplace에서 표시할 marketplace 항목에 대 일 분이 걸릴 수 있습니다.
 
-    ![Kubernetes 클러스터](user\media\azure-stack-solution-template-kubernetes-deploy\marketplaceitem.png)
+    ![kubernetes](user\media\azure-stack-solution-template-kubernetes-deploy\marketplaceitem.png)
 
-## <a name="update-or-remove-the-kubernetes-cluster"></a>업데이트 또는 Kubernetes 클러스터를 제거 합니다. 
+## <a name="update-or-remove-the-kubernetes"></a>업데이트 또는 Kubernetes를 제거 합니다. 
 
-Kubernetes 클러스터 항목을 업데이트할 때 Marketplace에 있는 항목을 제거 해야 합니다. 그런 다음 marketplace에 Kubernetes 클러스터를 추가 하려면이 문서의 지침을 따라 수 있습니다.
+Kubernetes 항목을 업데이트할 때 Marketplace에 있는 항목을 제거 해야 합니다. 그런 다음 Kubernetes marketplace에 추가 하려면이 문서의 지침을 따라 수 있습니다.
 
-Kubernetes 클러스터 항목 제거 하려면:
+Kubernetes 항목 제거 하려면:
 
-1. 현재 항목의 이름 같은 note `Microsoft.AzureStackKubernetesCluster.0.1.0`
+1. 현재 항목의 이름 같은 note `Microsoft.AzureStackKubernetesCluster.0.2.0`
 
 1. PowerShell 사용 하 여 Azure Stack에 연결 합니다.
 
 1. 항목을 제거 하려면 다음 PowerShell cmdlet을 사용 합니다.
 
     ```PowerShell  
-    $Itemname="Microsoft.AzureStackKubernetesCluster.0.1.0"
+    $Itemname="Microsoft.AzureStackKubernetesCluster.0.2.0"
 
     Remove-AzsGalleryItem -Name $Itemname
     ```
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Stack에 Kubernetes 클러스터 배포](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
+[Azure Stack에 Kubernetes 배포](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
 
 
 

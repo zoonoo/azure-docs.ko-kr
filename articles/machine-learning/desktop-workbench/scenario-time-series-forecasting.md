@@ -16,14 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
-ms.openlocfilehash: 3f32c9048c4b2002e7672b46a4f39e86ffa7b98e
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 934d37783165c2e57dcabd0ff764747e1ab4b65e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35639179"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946867"
 ---
 # <a name="energy-demand-time-series-forecasting"></a>에너지 수요 시계열 예측
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 
 시계열 예측은 시간 순서에 따른 관찰 시퀀스에서 미래 값을 예측하는 작업입니다. 이는 공통된 문제이며 많은 산업 분야에 적용됩니다. 예를 들어 유통업체는 향후 제품 판매를 예측하여 수요를 충족시키기 위해 공급망을 효과적으로 구성할 수 있어야 합니다. 마찬가지로 패키지 배달 회사는 서비스 수요를 예측하여 인력 요구 사항 및 배달 경로를 미리 계획할 수 있어야 합니다. 이를 부정확하게 예측할 경우 상당한 재정적 위험이 따를 수 있습니다. 따라서 예측은 비즈니스에 중요한 작업입니다.
@@ -57,7 +62,7 @@ Azure Machine Learning Workbench는 모든 단계에서 모델링 프로세스�
 ## <a name="prerequisites"></a>필수 조건
 
 - [Azure 계정](https://azure.microsoft.com/free/)(평가판 사용 가능)
-- [빠른 시작 설치 가이드](../service/quickstart-installation.md)에 따라 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)의 설치 복사본으로 프로그램을 설치하고 작업 공간을 만듭니다.
+- [빠른 시작 설치 가이드](quickstart-installation.md)에 따라 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)의 설치 복사본으로 프로그램을 설치하고 작업 공간을 만듭니다.
 - 이 샘플에서는 [Docker 엔진](https://www.docker.com/)이 로컬에 설치된 Windows 10에서 Azure ML Workbench를 실행 중이라고 가정합니다. macOS를 사용하는 경우 지침은 거의 같습니다.
 - 이 [가이드](./model-management-configuration.md)에 설명된 대로 Azure Machine Learning 운영화가 로컬 배포 환경 설정으로 설치되고 모델 관리 계정이 생성되어야 합니다.
 - 이 샘플에서는 Pandas 설치를 버전 0.20.3 이상으로 업데이트하고 matplotlib를 설치해야 합니다. Workbench의 *파일* 메뉴에서 *명령 프롬프트 열기*를 클릭하고 다음 명령을 실행하여 이러한 종속 항목을 설치합니다.

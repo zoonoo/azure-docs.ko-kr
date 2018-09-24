@@ -13,14 +13,19 @@ ms.custom: mvc
 ms.devlang: ''
 ms.topic: article
 ms.date: 11/22/2017
-ms.openlocfilehash: 83e1f14db317f59ab2063a9d020adbdb6fe78e5f
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5d52433a32d8dc764c7535dacf5872e55f0082ac
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35642150"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995519"
 ---
 # <a name="deep-learning-for-predictive-maintenance-real-world-scenarios"></a>예측 유지 관리 실제 시나리오에 대한 딥 러닝
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 딥 러닝은 기계 학습에서 가장 인기 있는 추세 중 하나이며, 다음과 같은 여러 영역에 대한 응용 프로그램이 있습니다.
 - 무인 자동차 및 로봇 공학
@@ -75,7 +80,7 @@ az login
 az ml experiment prepare --target docker --run-configuration docker
 ```
 
-메모리 및 디스크 요구 사항을 충족하기 위해 [Linux(Ubuntu)용 DSVM(데이터 과학 가상 머신)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)에서 실행하는 것이 좋습니다. DSVM이 구성되면 다음 두 가지 명령으로 원격 Docker 환경을 준비합니다.
+메모리 및 디스크 요구 사항을 충족하기 위해 [Linux(Ubuntu)용 DSVM(데이터 과학 가상 머신)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu)에서 실행하는 것이 좋습니다. DSVM이 구성되면 다음 두 가지 명령으로 원격 Docker 환경을 준비합니다.
 
 ```
 az ml computetarget attach remotedocker --name [Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword]

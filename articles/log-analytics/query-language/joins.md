@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: c24d79d6983f7c32f5c563192bcfe412da586ef2
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 39a461a27e8d9d6d1b9712449586bfabf6124d22
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603490"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989450"
 ---
 # <a name="joins-in-log-analytics-queries"></a>Log Analytics 쿼리의 조인
 
@@ -32,7 +32,7 @@ ms.locfileid: "45603490"
 조인을 사용하면 동일한 쿼리에서 여러 테이블의 데이터를 분석할 수 있습니다. 지정된 열의 값을 일치시켜 두 데이터 집합의 행을 병합합니다.
 
 
-```KQL
+```Kusto
 SecurityEvent 
 | where EventID == 4624     // sign-in events
 | project Computer, Account, TargetLogonId, LogonTime=TimeGenerated
@@ -64,7 +64,7 @@ on $left.key1 == $right.key2
 ## <a name="lookup-tables"></a>조회 테이블
 조인의 일반적인 용도는 결과를 좀 더 이해하기 쉬운 상태로 변환하는 데 도움이 되는 `datatable`을 사용하여 값의 정적 매핑을 수행하는 것입니다. 예를 들어, 각 이벤트 ID에 대한 이벤트 이름으로 보안 이벤트 데이터를 유용하게 만들 수 있습니다.
 
-```KQL
+```Kusto
 let DimTable = datatable(EventID:int, eventName:string)
   [
     4625, "Account activity",

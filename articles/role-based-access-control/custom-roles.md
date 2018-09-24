@@ -15,12 +15,12 @@ ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 002eb9b70c2f3f9d0f6633b2d81425c688495d19
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: d3856a50be0c3f7bdfb947d55b09a3de2512698e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714056"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968135"
 ---
 # <a name="custom-roles-in-azure"></a>Azure의 사용자 지정 역할
 
@@ -100,13 +100,13 @@ ms.locfileid: "39714056"
 | `NotActions` | 아니요 | 문자열[] | 허용된 `Actions`에서 제외되는 관리 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [NotActions](role-definitions.md#notactions)를 참조하세요. |
 | `DataActions` | 아니요 | 문자열[] | 역할에서 해당 개체 내의 데이터에 대해 수행할 수 있는 데이터 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [DataActions(미리 보기)](role-definitions.md#dataactions-preview)를 참조하세요. |
 | `NotDataActions` | 아니요 | 문자열[] | 허용된 `DataActions`에서 제외되는 데이터 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [NotDataActions(미리 보기)](role-definitions.md#notdataactions-preview)를 참조하세요. |
-| `AssignableScopes` | yes | 문자열[] | 할당에 사용할 수 있는 사용자 지정 역할에 대한 범위를 지정하는 문자열 배열입니다. 현재 루트 범위(`"/"`) 또는 관리 그룹 범위로 설정할 수 없습니다. 자세한 내용은 [AssignableScopes](role-definitions.md#assignablescopes) 및 [Azure 관리 그룹으로 리소스 구성](../azure-resource-manager/management-groups-overview.md#custom-rbac-role-definition-and-assignment)을 참조하세요. |
+| `AssignableScopes` | yes | 문자열[] | 할당에 사용할 수 있는 사용자 지정 역할에 대한 범위를 지정하는 문자열 배열입니다. 현재 루트 범위(`"/"`) 또는 관리 그룹 범위로 설정할 수 없습니다. 자세한 내용은 [AssignableScopes](role-definitions.md#assignablescopes) 및 [Azure 관리 그룹으로 리소스 구성](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment)을 참조하세요. |
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>사용자 지정 역할을 생성, 삭제, 업데이트 또는 볼 수 있는 사용자
 
 기본 제공 역할과 마찬가지로, `AssignableScopes` 속성은 할당에 사용할 수 있는 역할에 대한 범위를 지정합니다. 또한 사용자 지정 역할에 대한 `AssignableScopes` 속성은 사용자 지정 역할을 생성, 삭제, 업데이트 또는 볼 수 있는 사용자도 제어합니다.
 
-| Task | 작업 | 설명 |
+| Task | 작업(Operation) | 설명 |
 | --- | --- | --- |
 | 사용자 지정 역할 만들기/삭제 | `Microsoft.Authorization/ roleDefinition/write` | 사용자 지정 역할의 모든 `AssignableScopes`에 이 작업이 부여된 사용자는 해당 범위에서 사용할 사용자 지정 역할을 만들거나 삭제할 수 있습니다. 예를 들어 구독, 리소스 그룹 및 리소스의 [소유자](built-in-roles.md#owner) 및 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator)가 있습니다. |
 | 사용자 지정 역할 업데이트 | `Microsoft.Authorization/ roleDefinition/write` | 사용자 지정 역할의 모든 `AssignableScopes`에 이 작업이 부여된 사용자는 해당 범위에의 사용자 지정 역할을 업데이트할 수 있습니다. 예를 들어 구독, 리소스 그룹 및 리소스의 [소유자](built-in-roles.md#owner) 및 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator)가 있습니다. |

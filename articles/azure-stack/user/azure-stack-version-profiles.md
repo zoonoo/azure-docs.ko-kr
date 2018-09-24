@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 270587f484216d130848ee3c7bdc8ae1c1df0afc
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
-ms.translationtype: MT
+ms.openlocfilehash: 68514f1bc569d876f4cf851f97a690ae84cf43a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982156"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970297"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Azure Stack에서 API 버전 프로필 관리
 
@@ -79,8 +79,8 @@ Azure Stack에서 최신 버전의 글로벌 Azure에 API 버전을 사용 하�
 
 - **PowerShell**  
 사용할 수는 **AzureRM.Bootstrapper** 모듈 API 버전 프로필을 사용 하는 데 필요한 PowerShell cmdlet을 가져오는 PowerShell 갤러리를 통해 사용할 수 있습니다. 정보를 참조 하세요 [PowerShell 사용 하 여 API 버전 프로필](azure-stack-version-profiles-powershell.md)합니다.
-- **Azure CLI 2.0**  
-Azure Stack 특정 API 버전 프로필을 사용 하도록 사용자의 환경 구성을 업데이트할 수 있습니다. 정보를 참조 하세요 [Azure CLI 2.0을 사용 하 여 API 버전 프로필](azure-stack-version-profiles-azurecli2.md)합니다.
+- **Azure CLI**  
+Azure Stack 특정 API 버전 프로필을 사용 하도록 사용자의 환경 구성을 업데이트할 수 있습니다. 정보를 참조 하세요 [Azure CLI를 사용 하 여 API 버전 프로필](azure-stack-version-profiles-azurecli2.md)합니다.
 - **GO**  
 GO SDK에서 프로필을 다른 서비스에서 다른 버전을 사용 하 여 다양 한 리소스 유형 조합입니다. 프로필은 프로필에서 사용할 수 있는 / 해당 버전을 사용 하 여 경로 **YYYY-월-일** 형식입니다. 정보를 참조 하세요 [GO 사용 하 여 API 버전 프로필](azure-stack-version-profiles-go.md)합니다.
 - **Ruby**  

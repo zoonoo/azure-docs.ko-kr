@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.date: 07/03/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 91ba9b388566cc72f3024943005af499b7c3f3ec
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 46bc043681bbba37a2dfb6476e1dd0784e1abf10
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139337"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966700"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Azure Stack 저장소에 대 한 데이터 전송 도구를 사용 합니다.
 
@@ -246,7 +246,7 @@ Azure CLI는 Azure 리소스를 관리 하기 위한 Azure의 명령줄 환경�
 
 Azure CLI는 명령줄에서 Azure 리소스를 관리 하 고 Azure Resource Manager에 대해 작동 하는 자동화 스크립트 작성에 대 한 최적화 됩니다. 많은 다양 한 데이터 액세스를 포함 하 여 Azure Stack 포털에 있는 동일한 기능을 제공 합니다.
 
-Azure Stack에는 Azure CLI 버전 2.0에 필요합니다. 설치 하 고 Azure Stack을 사용 하 여 Azure CLI를 구성 하는 방법에 대 한 자세한 내용은 참조 하세요. [를 설치 하 고 Azure Stack CLI 구성](azure-stack-version-profiles-azurecli2.md)합니다. Azure Stack 저장소 계정에서 리소스를 사용 하 여 몇 가지 작업을 수행 하려면 Azure CLI 2.0을 사용 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure CLI2.0를 사용 하 여 Azure storage를 사용 하 여](../../storage/storage-azure-cli.md)
+Azure Stack에는 Azure CLI 버전 2.0 이상이 필요합니다. 설치 하 고 Azure Stack을 사용 하 여 Azure CLI를 구성 하는 방법에 대 한 자세한 내용은 참조 하세요. [를 설치 하 고 Azure Stack CLI 구성](azure-stack-version-profiles-azurecli2.md)합니다. Azure CLI를 사용 하 여 Azure Stack 저장소 계정에서 리소스를 사용 하 여 몇 가지 작업을 수행 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure CLI를 사용 하 여 Azure storage를 사용 하 여](../../storage/storage-azure-cli.md)
 
 ### <a name="azure-cli-sample-script-for-azure-stack"></a>Azure Stack 용 azure CLI 샘플 스크립트
 
