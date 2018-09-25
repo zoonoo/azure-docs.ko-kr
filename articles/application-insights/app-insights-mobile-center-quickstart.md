@@ -11,12 +11,12 @@ ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: e69cf8753fb0cc9326e047ec97cbe08ee6f26610
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 040e54b02161386dcc16b943956f39b86b264303
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668464"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950525"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>App Center 및 Application Insights를 사용하여 모바일 앱 분석 시작
 
@@ -126,7 +126,7 @@ Application Insights는 분석 도구인 App Center에서 제공하는 것 이�
    1. 텍스트 편집기에서 쿼리의 아무 곳이나 클릭하여 해당 쿼리를 선택합니다.
    2. 그런 다음, **이동**을 클릭하여 쿼리를 실행합니다. 
 
-   [Application Insights Analytics](app-insights-analytics.md) 및 [Log Analytics 쿼리 언어](https://docs.loganalytics.io/docs/Language-Reference)에 대해 자세히 알아봅니다.
+   [Application Insights Analytics](app-insights-analytics.md) 및 [Log Analytics 쿼리 언어](https://aka.ms/LogAnalyticsLanguageReference)에 대해 자세히 알아봅니다.
 
 
 2. **사용자 지정 이벤트 원격 분석을 필터링하고 분할합니다**. Application Insights **개요** 페이지의 목차에서 **사용자**를 선택합니다.

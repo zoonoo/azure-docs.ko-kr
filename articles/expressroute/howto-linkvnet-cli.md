@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: anzaman,cherylmc
-ms.openlocfilehash: 5e8d1739aa3d7f5be6c6450edcad43bc83db71fb
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8e896b70d0da143151d57b45e62a5c14d4d4e3b0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29875405"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969606"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>CLI를 사용하여 가상 네트워크를 ExpressRoute 회로에 연결
 
@@ -36,7 +36,7 @@ ms.locfileid: "29875405"
 
 ## <a name="configuration-prerequisites"></a>필수 구성 요소
 
-* 최신 버전의 CLI(명령줄 인터페이스)가 필요합니다. 자세한 내용은 [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
+* 최신 버전의 CLI(명령줄 인터페이스)가 필요합니다. 자세한 내용은 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
 
 * 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md), [라우팅 요구 사항](expressroute-routing.md) 및 [워크플로](expressroute-workflows.md)를 검토해야 합니다.
 

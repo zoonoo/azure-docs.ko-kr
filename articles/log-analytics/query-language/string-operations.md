@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 2acdc2cc7397e169a32a0257c0fc6020338c944f
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 6ac697fa12b56840e5dc361500f81e2b7e2ce11a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604487"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950253"
 ---
 # <a name="working-with-strings-in-log-analytics-queries"></a>Log Analytics 쿼리에서 문자열 사용
 
@@ -38,13 +38,13 @@ ms.locfileid: "45604487"
 ## <a name="strings-and-escaping-them"></a>문자열 및 이스케이프
 문자열 값은 작은따옴표 또는 큰따옴표 문자로 래핑됩니다. 백슬래시(\)는 문자를 다음에 나오는 문자에 대해 이스케이프하는 데 사용됩니다. 예를 들어 탭의 경우 \t, 줄 바꿈에 대해 \n, 따옴표 문자에 대해 \"를 사용합니다.
 
-```KQL
+```Kusto
 print "this is a 'string' literal in double \" quotes"
 ```
 
 "\\"가 이스케이프 문자로 사용되지 않도록 하기 위해 문자열의 접두사로 \"\@\" 을 추가합니다.
 
-```KQL
+```Kusto
 print @"C:\backslash\not\escaped\with @ prefix"
 ```
 
@@ -108,7 +108,7 @@ countof(text, search [, kind])
 
 #### <a name="plain-string-matches"></a>일반 문자열 일치
 
-```KQL
+```Kusto
 print countof("The cat sat on the mat", "at");  //result: 3
 print countof("aaa", "a");  //result: 3
 print countof("aaaa", "aa");  //result: 3 (not 2!)
@@ -118,7 +118,7 @@ print countof("ababa", "aba");  //result: 2
 
 #### <a name="regex-matches"></a>정규식 일치
 
-```KQL
+```Kusto
 print countof("The cat sat on the mat", @"\b.at\b", "regex");  //result: 3
 print countof("ababa", "aba", "regex");  //result: 1
 print countof("abcabc", "a.c", "regex");  // result: 2
@@ -131,7 +131,7 @@ print countof("abcabc", "a.c", "regex");  // result: 2
 
 ### <a name="syntax"></a>구문
 
-```KQL
+```Kusto
 extract(regex, captureGroup, text [, typeLiteral])
 ```
 
@@ -149,7 +149,7 @@ extract(regex, captureGroup, text [, typeLiteral])
 ### <a name="examples"></a>예
 
 다음 예제에서는 하트비트 레코드에서 마지막 8진수 *ComputerIP*를 추출합니다.
-```KQL
+```Kusto
 Heartbeat
 | where ComputerIP != "" 
 | take 1
@@ -157,7 +157,7 @@ Heartbeat
 ```
 
 다음 예제에서는 마지막 8진수추출를 한 후 *real* 형식(number)로 캐스팅하고, 다음 IP 값을 계산합니다.
-```KQL
+```Kusto
 Heartbeat
 | where ComputerIP != "" 
 | take 1
@@ -167,7 +167,7 @@ Heartbeat
 ```
 
 아래 예제에서 "Duration"의 정의로 문자열 *Trace*가 검색됩니다. 일치 항목을 *real*로 캐스팅한 후 시간 상수(1 s)를 곱합니다. 그러면 *Duration이 timespan 형식으로 캐스팅*됩니다.
-```KQL
+```Kusto
 let Trace="A=12, B=34, Duration=567, ...";
 print Duration = extract("Duration=([0-9.]+)", 1, Trace, typeof(real));  //result: 567
 print Duration_seconds =  extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) * time(1s);  //result: 00:09:27
@@ -181,14 +181,14 @@ print Duration_seconds =  extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) 
 
 ### <a name="syntax"></a>구문
 
-```
+```Kusto
 isempty(value)
 isnotempty(value)
 ```
 
 ### <a name="examples"></a>예
 
-```KQL
+```Kusto
 print isempty("");  // result: true
 
 print isempty("0");  // result: false
@@ -213,7 +213,7 @@ parseurl(urlstring)
 
 ### <a name="examples"></a>예
 
-```KQL
+```Kusto
 print parseurl("http://user:pass@contoso.com/icecream/buy.aspx?a=1&b=2#tag")
 ```
 
@@ -253,7 +253,7 @@ regex의 모든 일치 항목을 rewrite로 바꾼 후의 text입니다. 일치 
 
 ### <a name="examples"></a>예
 
-```KQL
+```Kusto
 SecurityEvent
 | take 1
 | project Activity 
@@ -284,7 +284,7 @@ split(source, delimiter [, requestedIndex])
 
 ### <a name="examples"></a>예
 
-```KQL
+```Kusto
 print split("aaa_bbb_ccc", "_");    // result: ["aaa","bbb","ccc"]
 print split("aa_bb", "_");          // result: ["aa","bb"]
 print split("aaa_bbb_ccc", "_", 1); // result: ["bbb"]
@@ -303,7 +303,7 @@ strcat("string1", "string2", "string3")
 ```
 
 ### <a name="examples"></a>예
-```KQL
+```Kusto
 print strcat("hello", " ", "world") // result: "hello world"
 ```
 
@@ -318,7 +318,7 @@ strlen("text_to_evaluate")
 ```
 
 ### <a name="examples"></a>예
-```KQL
+```Kusto
 print strlen("hello")   // result: 5
 ```
 
@@ -339,7 +339,7 @@ substring(source, startingIndex [, length])
 - `length` - 반환된 부분 문자열의 요청된 길이를 지정하는 데 사용할 수 있는 선택적 매개 변수입니다.
 
 ### <a name="examples"></a>예
-```KQL
+```Kusto
 print substring("abcdefg", 1, 2);   // result: "bc"
 print substring("123456", 1);       // result: "23456"
 print substring("123456", 2, 2);    // result: "34"
@@ -358,7 +358,7 @@ toupper("value")
 ```
 
 ### <a name="examples"></a>예
-```KQL
+```Kusto
 print tolower("HELLO"); // result: "hello"
 print toupper("hello"); // result: "HELLO"
 ```

@@ -84,6 +84,8 @@ items:
       href: howto-connect-powerbi.md
   - name: 관리
     items:
+    - name: 응용 프로그램 관리
+      href: howto-administer.md
     - name: Azure 관리 포털에서 IoT Central 관리
       href: howto-manage-iot-central-from-portal.md
     - name: CSP가 응용 프로그램을 만들고 관리할 때
@@ -120,11 +122,9 @@ items:
   items:
   - name: 고객 데이터 요청
     href: iot-central-customer-data-requests.md
-  - name: 스택 오버플로
-    href: https://stackoverflow.com/questions/tagged/azure-iot-central
-ms.openlocfilehash: 3e8292ce6780381f4e8ead009002959fe42a9d02
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 717e84cbbb1865fc442eee7afce23685f76a016f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465677"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031784"

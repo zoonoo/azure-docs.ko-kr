@@ -17,12 +17,12 @@ ms.date: 04/13/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 6cf01bfe0b88150f7d2b200031c96ffb703ade0a
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: d3f34ac3d284d61caf79cbd4929689106fdf7999
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42143567"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980647"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory 인증 라이브러리
 
@@ -48,7 +48,7 @@ Azure ADAL(Active Directory 인증 라이브러리) v1.0은 응용 프로그램 
 | Android |ADAL |[중앙 리포지토리](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android) |[Android 앱](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-android) | [JavaDocs](http://javadoc.io/doc/com.microsoft.aad/adal/)|
 | Node.js |ADAL |[npm](https://www.npmjs.com/package/adal-node) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs) | [Node.js 웹앱](https://github.com/Azure-Samples/active-directory-node-webapp-openidconnect)|[참조](https://docs.microsoft.com/javascript/api/adal-node/?view=azure-node-latest) |
 | 자바 |ADAL4J |[Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3Aadal4j%20g%3Acom.microsoft.azure) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[Java 웹앱](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect) |[참조](http://javadoc.io/doc/com.microsoft.azure/adal4j) |
-| 파이썬 |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[Python 웹앱](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi) |[참조](http://adal-python.readthedocs.io/) |
+| Python |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[Python 웹앱](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi) |[참조](http://adal-python.readthedocs.io/) |
 
 ## <a name="microsoft-supported-server-libraries"></a>Microsoft 지원 서버 라이브러리
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 3a0e2b78de8cea3929ac457bab3d5e07a2b85401
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 9b0c58fdbfb0d55b3b8998f4edfc1222b9a3d4aa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603382"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988601"
 ---
 # <a name="working-with-date-time-values-in-log-analytics-queries"></a>Log Analytics 쿼리에서 날짜/시간 값 사용
 
@@ -49,33 +49,33 @@ timespan은 10진수 다음에 시간 단위를 사용해서 표현됩니다.
 
 날짜/시간은 `todatetime` 연산자로 문자열을 캐스팅하여 만들 수 있습니다. 예를 들어, 특정 시간 범위에 전송된 VM 하트비트를 검토하려면 시간 범위를 지정하는 데 편리한 [between 연산자](https://docs.loganalytics.io/docs/Language-Reference/Scalar-operators/between-operator)를 사용할 수 있습니다.
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated between(datetime("2018-06-30 22:46:42") .. datetime("2018-07-01 00:57:27"))
 ```
 
 또 다른 일반적인 시나리오는 날짜/시간을 현재와 비교하는 것입니다. 예를 들어, 지난 2분 동안의 모든 하트비트를 보려면 2분을 나타내는 시간 범위와 `now` 연산자를 함께 사용할 수 있습니다.
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > now() - 2m
 ```
 
 이러한 함수에 대해 축약형을 사용할 수도 있습니다.
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > now(-2m)
 ```
 
 그렇지만 가장 짧고 읽기 쉬운 방법은 `ago` 연산자를 사용하는 것입니다.
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(2m)
 ```
 
 시작 및 종료 시간을 아는 대신, 시작 시간과 기간만 알고 있다고 가정합니다. 다음과 같이 쿼리를 다시 작성할 수 있습니다.
 
-```KQL
+```Kusto
 let startDatetime = todatetime("2018-06-30 20:12:42.9");
 let duration = totimespan(25m);
 Heartbeat
@@ -86,7 +86,7 @@ Heartbeat
 ## <a name="converting-time-units"></a>시간 단위 변환
 datetime 또는 timespan을 기본값 이외의 시간 단위로 나타내는 것이 유용할 수 있습니다. 예를 들어, 지난 30분 동안의 오류 이벤트를 검토하며, 얼마나 오래 전에 이벤트가 발생했는지를 보여주는 계산 열이 필요한 경우 다음을 입력합니다.
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(30m)
 | where EventLevelName == "Error"
@@ -95,7 +95,7 @@ Event
 
 _timeAgo_ 열에 "00:09:31.5118992"와 같은 값이 포함되어 있는 것을 볼 수 있습니다. 즉, hh:mm:ss.fffffff로 형식이 지정된 것입니다. 이러한 값을 시작 시간 이후에 경과한 분의 _numver_로 서식을 지정하려면 해당 값을 "1분"으로 나누기만 하면 됩니다.
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(30m)
 | where EventLevelName == "Error"
@@ -109,7 +109,7 @@ Event
 
 다음 쿼리를 사용하여 마지막 30분 동안 5분 간격으로 발생한 이벤트의 수를 가져옵니다.
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(30m)
 | summarize events_count=count() by bin(TimeGenerated, 5m) 
@@ -127,7 +127,7 @@ Event
 
 결과의 버킷을 만드는 또 다른 방법은 `startofday`와 같은 함수를 사용하는 것입니다.
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(4d)
 | summarize events_count=count() by startofday(TimeGenerated) 
@@ -147,7 +147,7 @@ Event
 ## <a name="time-zones"></a>표준 시간대
 모든 날짜/시간 값은 UTC로 표현되므로 이러한 값을 현지 표준 시간대로 변환하는 것이 유용한 경우도 많습니다. 예를 들어이 계산을 사용하여 UTC에서 PST 시간으로 변환하려면 다음을 입력합니다.
 
-```KQL
+```Kusto
 Event
 | extend localTimestamp = TimeGenerated - 8h
 ```
