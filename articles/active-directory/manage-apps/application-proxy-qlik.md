@@ -51,8 +51,7 @@ QlikSense를 게시하려면 Azure에서 두 개의 응용 프로그램을 게�
 ### <a name="application-2"></a>응용 프로그램 #2: 
 다음과 같은 예외가 포함된 응용 프로그램 #1과 동일한 단계를 따릅니다. 
 
-**5단계**: 내부 URL은 응용 프로그램에서 사용하는 인증 포트를 사용하는 QlikSense URL이어야 합니다. 기본값은 HTTPS의 경우 **4244**이고 HTTP의 경우 4248입니다. 예: **https&#58;//demo.qlik.com:4244**</br></br> 
-**10단계:** SSO를 설정하지 않고 **Single Sign-On을 설정하지 않고** 그대로 둡니다.
+**5단계**: 내부 URL은 응용 프로그램에서 사용하는 인증 포트를 사용하는 QlikSense URL이어야 합니다. 기본값은 HTTPS의 경우 **4244**이고 HTTP의 경우 4248입니다. 예: **https&#58;//demo.qlik.com:4244**</br></br>**10단계:** SSO를 설정하지 않고 **Single Sign-On을 설정하지 않고** 그대로 둡니다.
  
  
 ## <a name="testing"></a>테스트 

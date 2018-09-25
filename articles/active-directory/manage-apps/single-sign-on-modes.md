@@ -41,11 +41,11 @@ ms.locfileid: "44355367"
 
 -   **암호 기반 로그온** - 응용 프로그램이 HTML 사용자 이름 및 암호 필드를 렌더링하고 해당 사용자 이름 및 암호가 나중에 응용 프로그램에 재생되도록 안전하게 저장하려는 경우 [암호 기반 로그온](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) **Single Sign-On 모드** 선택
 
--   **SAML 기반 로그온** - 응용 프로그램이 SAML 또는 OpenID Connect 프로토콜을 지원하거나 사용자를 SAML 클레임에서 정의하는 규칙에 따라 특정 응용 프로그램 역할에 매핑할 수 있게 되기를 원하는 경우 [SAML 기반 로그온](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) Single Sign-On 모드 선택 *(**참고:** 응용 프로그램 프록시가 응용 프로그램에 대해 구성되어 있으면 이 옵션을 사용할 수 없음)*
+-   **SAML 기반 로그온** - 응용 프로그램이 SAML 또는 OpenID Connect 프로토콜을 지원하거나 사용자를 SAML 클레임에서 정의하는 규칙에 따라 특정 응용 프로그램 역할에 매핑할 수 있게 되기를 원하는 경우 [SAML 기반 로그온](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) Single Sign-On 모드 선택 *(참고:* \* 응용 프로그램 프록시가 응용 프로그램에 대해 구성되어 있으면 이 옵션을 사용할 수 없음)*
 
--   **헤더 기반 로그온** – Single Sign-On을 수행하려는 HTTP 헤더 기반 인증을 지원하는 PingAccess를 사용하는 응용 프로그램이 있는 경우 이 [헤더 기반 로그온](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#what-is-pingaccess-for-azure-ad) Single Sign-On 모드 선택 *(**참고:** 응용 프로그램 프록시 및 PingAccess가 응용 프로그램에 대해 구성되어 있을 때만 이 옵션을 사용할 수 있음)*
+-   **헤더 기반 로그온** – Single Sign-On을 수행하려는 HTTP 헤더 기반 인증을 지원하는 PingAccess를 사용하는 응용 프로그램이 있는 경우 이 [헤더 기반 로그온](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#what-is-pingaccess-for-azure-ad) Single Sign-On 모드 선택 *(참고:* \* 응용 프로그램 프록시 및 PingAccess가 응용 프로그램에 대해 구성되어 있을 때만 이 옵션을 사용할 수 있음)*
 
--   **Windows 통합 인증** - Single Sign-On을 수행하려는 온-프레미스 WIA 응용 프로그램을 노출하는 경우 [Windows 통합 인증](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) Single Sign-On 모드 선택 *(**참고:** 응용 프로그램 프록시가 응용 프로그램에 대해 구성되어 있을 때만 이 옵션을 사용할 수 있음)*
+-   **Windows 통합 인증** - Single Sign-On을 수행하려는 온-프레미스 WIA 응용 프로그램을 노출하는 경우 [Windows 통합 인증](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) Single Sign-On 모드 선택 *(참고:* \* 응용 프로그램 프록시가 응용 프로그램에 대해 구성되어 있을 때만 이 옵션을 사용할 수 있음)*
 
 ## <a name="single-sign-on-modes-for-custom-developed-applications"></a>사용자 지정 개발된 응용 프로그램에 대한 Single Sign-On 모드
 
