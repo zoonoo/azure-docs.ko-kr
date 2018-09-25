@@ -9,19 +9,19 @@ editor: ''
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/23/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: cb05139241f92eb930a99c387e2f06cabac35caf
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 21cd4990e2117cef2d36fa2607a601afd1a4c4e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39580406"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990504"
 ---
 # <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>등록된 Azure Active Directory 앱의 서비스 약관 및 개인정보처리방침
 
@@ -54,12 +54,14 @@ Azure AD(Azure Active Directory)와 Microsoft 계정을 통합하는 앱을 빌�
 ## <a name="adding-links-to-the-terms-of-service-and-privacy-statement"></a>서비스 약관 및 개인정보처리방침에 링크 추가
 
 서비스 약관 및 개인정보처리방침이 준비되면 다음 방법 중 하나를 사용하여 앱에 이러한 문서의 링크를 추가할 수 있습니다.
+
 * [Azure Portal을 통해](#registered-in-azure-portal)
 * [응용 프로그램 등록 포털 또는 개발자 센터에서](#registered-in-app-reg-portal)
 * [앱 개체 JSON을 사용하여](#app-object-json)
 * [MSGraph 베타 REST API를 사용하여](#msgraph-beta-rest-api)
 
 ### <a name="registered-in-azure-portal"></a>Azure Portal에서 앱을 등록한 경우
+
 Azure Portal에서 앱을 등록한 경우 다음 단계를 수행합니다.
 
 1.  [Azure Portal](https://portal.azure.com/)에 로그인합니다.
@@ -68,9 +70,10 @@ Azure Portal에서 앱을 등록한 경우 다음 단계를 수행합니다.
 4.  **서비스 약관 URL** 및 **개인정보처리방침 URL** 필드를 채웁니다.
 5. 변경 내용을 저장합니다.
 
-![서비스 약관 및 개인정보처리방침 URL이 있는 앱 속성 섹션](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+    ![서비스 약관 및 개인정보처리방침 URL이 있는 앱 속성 섹션](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="registered-in-app-reg-portal"></a>응용 프로그램 등록 포털에서 앱을 등록한 경우
+
 응용 프로그램 등록 포털 또는 개발자 센터에서 앱을 등록한 경우 다음 단계를 수행합니다.
 
 1.  [응용 프로그램 등록 포털](https://apps.dev.microsoft.com/)에 로그인합니다.
@@ -78,9 +81,10 @@ Azure Portal에서 앱을 등록한 경우 다음 단계를 수행합니다.
 3.  **서비스 약관 URL** 및 **개인정보처리방침 URL** 필드를 채웁니다.
 4. 변경 내용을 저장합니다.
 
-![서비스 약관 및 개인정보처리방침 URL이 있는 앱 프로필 섹션](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
+    ![서비스 약관 및 개인정보처리방침 URL이 있는 앱 프로필 섹션](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>앱 개체 JSON을 사용하여
+
 앱 개체 JSON을 직접 수정하는 것을 선호하는 경우 Azure Portal 또는 응용 프로그램 등록 포털에서 매니페스트 편집기를 사용하여 앱의 서비스 약관 및 개인정보처리방침 링크를 포함할 수 있습니다.
 
 ```json
@@ -91,6 +95,7 @@ Azure Portal에서 앱을 등록한 경우 다음 단계를 수행합니다.
 ```
 
 ### <a name="msgraph-beta-rest-api"></a>MSGraph 베타 REST API를 사용하여
+
 프로그래밍 방식으로 모든 앱을 업데이트하려면 MSGraph 베타 REST API를 사용하여 서비스 약관 및 개인정보처리방침 문서 링크를 포함하도록 모든 앱을 업데이트하면 됩니다.
 
 ```
