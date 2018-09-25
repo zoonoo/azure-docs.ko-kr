@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 68514f1bc569d876f4cf851f97a690ae84cf43a6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 8bebec23d7a0199d8efbc55b3cde50c628306f01
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970297"
+ms.locfileid: "47034371"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Azure Stack에서 API 버전 프로필 관리
 
@@ -86,7 +86,7 @@ GO SDK에서 프로필을 다른 서비스에서 다른 버전을 사용 하 여
 - **Ruby**  
 Ruby SDK는 Azure Stack Resource Manager에 대 한 빌드 및 인프라를 관리 하는 데 유용한 도구를 제공 합니다. SDK의 리소스 공급자에는 계산, 가상 네트워크 및 Ruby 언어를 사용 하 여 storage 포함 됩니다. 내용은 [Ruby 사용 하 여 사용 하 여 API 버전 프로필](azure-stack-version-profiles-ruby.md)
 - **Python**  
-- Python SDK는 Azure Stack 및 전역 Azure와 같은 다른 클라우드 플랫폼을 대상으로 하는 API 버전 프로필을 지원 합니다. 하이브리드 클라우드를 위한 솔루션을 만드는 API 프로필을 사용할 수 있습니다. 내용은 [Python과 함께 사용 하 여 API 버전 프로필](azure-stack-version-profiles-python.md)
+Python SDK는 Azure Stack 및 전역 Azure와 같은 다른 클라우드 플랫폼을 대상으로 하는 API 버전 프로필을 지원 합니다. 하이브리드 클라우드를 위한 솔루션을 만드는 API 프로필을 사용할 수 있습니다. 내용은 [Python과 함께 사용 하 여 API 버전 프로필](azure-stack-version-profiles-python.md)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f8ac885444c0ba52802024be9a78dfc0737e2673
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: df1ca1358d1b111d8412d730575eb7bf66c8ebdf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247686"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950015"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>투명한 게이트웨이 역할을 하는 Linux IoT Edge 장치 만들기
 
@@ -188,6 +188,8 @@ IoT Edge 런타임은 모듈에서 전송한 메시지와 같은 다운스트림
    ```
 
 메시지 라우팅에 대한 자세한 내용은 [모듈 컴퍼지션 문서][lnk-module-composition]를 참조하세요.
+
+[!INCLUDE [](../../includes/iot-edge-extended-offline-preview.md)]
 
 ## <a name="next-steps"></a>다음 단계
 [IoT Edge 모듈을 개발하기 위한 요구 사항 및 도구 이해][lnk-module-dev]

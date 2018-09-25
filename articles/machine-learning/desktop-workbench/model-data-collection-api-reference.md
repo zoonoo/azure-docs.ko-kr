@@ -12,14 +12,17 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: d9fee56d7748cdfd34f982fe79467f7d61c54926
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: c047555c30481f34b607197f71483197bc64620c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35638448"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961470"
 ---
 # <a name="azure-machine-learning-model-data-collection-api-reference"></a>Azure Machine Learning 모델 데이터 수집 API 참조
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 모델 데이터 수집을 사용하면 Machine Learning 웹 서비스의 모델 입력 및 예측을 보관할 수 있습니다. Windows 및 Linux 컴퓨터에 `azureml.datacollector`를 설치하는 방법을 이해하려면 [모델 데이터 수집 방법 가이드](how-to-use-model-data-collection.md)를 참조하세요.
 

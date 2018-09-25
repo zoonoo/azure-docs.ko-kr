@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/05/2018
 ms.author: willzhan;juliako
-ms.openlocfilehash: 3a33c4b157ded3162919494d27488285e52fdd3b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 724d9779293a520cf843013d096f8a99f6b06c0f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39530442"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952132"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>액세스 제어가 포함된 다중 DRM 콘텐츠 보호 시스템 설계 
 
@@ -56,7 +56,7 @@ OTT(Over-the-Top) 또는 온라인 스트리밍 솔루션을 위한 DRM(디지�
 | **macOS** | FairPlay | FairPlay용 Safari(Safari 9 이후+Mac OS X 10.11에서+El Capitan)|
 | **tvOS** | FairPlay | |
 
-각 DRM에 대한 배포의 현재 상태를 고려하면 서비스는 일반적으로 가장 좋은 방법으로 모든 유형의 끝점을 해결하도록 2개 또는 3개의 DRM을 구현해야 합니다.
+각 DRM에 대한 배포의 현재 상태를 고려하면 서비스는 일반적으로 가장 좋은 방법으로 모든 유형의 엔드포인트를 해결하도록 2개 또는 3개의 DRM을 구현해야 합니다.
 
 다양한 클라이언트에서 사용자 환경의 특정 수준에 도달하는 데 서비스 논리의 복잡성과 클라이언트 쪽의 복잡성 사이의 장단점이 있습니다.
 
@@ -87,7 +87,7 @@ DRM 하위 시스템은 다음 구성 요소를 포함할 수 있습니다.
 이 디자인에는 세 개의 기본 계층이 있습니다.
 
 * 백오피스 계층(검은색)은 외부적으로 노출되지 않습니다.
-* DMZ 계층(진한 파란색)은 공용으로 연결되는 모든 끝점을 포함합니다.
+* DMZ 계층(진한 파란색)은 공용으로 연결되는 모든 엔드포인트를 포함합니다.
 * 공용 인터넷 계층(밝은 파란색)은 공용 인터넷을 통과하는 트래픽과 CDN 및 플레이어를 포함합니다.
 
 정적 또는 동적 암호화에 관계 없이 DRM 보호를 제어하기 위한 콘텐츠 관리 도구도 있습니다. DRM 암호화에 대한 입력은 다음을 포함해야 합니다.
@@ -242,7 +242,7 @@ Azure AD에 대한 내용:
 
         <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
 
-    GUID는 Azure AD 테넌트 ID입니다. Azure Portal의 **끝점** 팝업 창에서 GUID를 찾을 수 있습니다.
+    GUID는 Azure AD 테넌트 ID입니다. Azure Porta의 **엔드포인트** 팝업 창에서 GUID를 찾을 수 있습니다.
 
 * 그룹 멤버 자격 클레임 권한을 부여합니다. Azure AD 응용 프로그램 매니페스트 파일에서 다음이 있는지 확인합니다. 
 
@@ -269,7 +269,7 @@ ASP.NET 플레이어 응용 프로그램은 HTTPS를 사용하는 것이 가장 
 
 * 브라우저에서는 혼합 콘텐츠를 허용하지 않습니다. 하지만 Silverlight과 같은 플러그인, 부드러운 스트리밍을 위한 OSMF 플러그인 및 DASH는 허용합니다. 악성 JavaScript를 주입할 수 있는 위협으로 인해 고객 데이터가 위험해질 수 있으므로 혼합 콘텐츠는 보안 문제를 발생할 수 있습니다. 브라우저는 기본적으로 이 기능을 차단합니다. 이 문제를 해결하는 유일한 방법이 서버(원본) 쪽에서 HTTPS 또는 HTTP에 관계없이 모든 도메인을 허용하는 것입니다. 하지만 좋은 방법은 아닙니다.
 * 혼합 콘텐츠를 피해야 합니다. 플레이어 응용 프로그램과 Media Player 둘 다 HTTP 또는 HTTPS를 사용해야 합니다. 혼합된 콘텐츠를 재생할 때 silverlightSS 기술은 혼합된 콘텐츠 경고를 지워야 합니다. flashSS 기술은 혼합된 콘텐츠 경고 없이 혼합된 콘텐츠를 처리합니다.
-* 스트리밍 끝점이 2014년 8월 전에 만들어진 경우 HTTPS를 지원하지 않습니다. 이 경우 HTTPS에 대한 새 스트리밍 끝점을 만들어 사용하세요.
+* 스트리밍 엔드포인트가 2014년 8월 전에 만들어진 경우 HTTPS를 지원하지 않습니다. 이 경우 HTTPS에 대한 새 스트리밍 엔드포인트를 만들어 사용하세요.
 
 참조 구현에서 DRM으로 보호된 콘텐츠에서는 응용 프로그램 및 스트리밍이 모두 HTTPS를 사용합니다. 개방 콘텐츠의 경우 플레이어에서 인증 또는 라이선스가 필요하지 않으므로 HTTP 또는 HTTPS를 사용할 수 있습니다.
 
@@ -303,11 +303,11 @@ Azure AD가 JWT를 생성한 후, 플레이어가 확인을 위해 JWT를 Media 
 키는 언제든지 롤오버될 수 있으므로 페더레이션 메타데이터 문서에는 사용 가능한 공개 키가 항상 두 개 이상 있습니다. Media Services 라이선스 배달에서는 문서에 지정된 아무 키나 사용할 수 있습니다. 하나의 키가 곧 롤오버되고 다른 키가 대체될 수 있기 때문입니다.
 
 ### <a name="where-is-the-access-token"></a>액세스 토큰 위치
-웹앱에서 [OAuth 2.0 클라이언트 자격 증명 권한을 사용한 응용 프로그램 ID](../../active-directory/develop/authentication-scenarios.md#web-application-to-web-api)로 API 앱을 호출하는 방식을 살펴보면 인증 흐름은 다음과 같습니다.
+웹앱에서 [OAuth 2.0 클라이언트 자격 증명 권한을 사용한 응용 프로그램 ID](../../active-directory/develop/web-api.md)로 API 앱을 호출하는 방식을 살펴보면 인증 흐름은 다음과 같습니다.
 
-* 사용자가 웹 응용 프로그램에서 Azure AD에 로그인합니다. 자세한 내용은 [웹 브라우저-웹 응용 프로그램](../../active-directory/develop/authentication-scenarios.md#web-browser-to-web-application)을 참조하세요.
-* Azure AD 권한 부여 끝점은 사용자 에이전트를 인증 코드와 함께 클라이언트 응용 프로그램으로 리디렉션합니다. 사용자 에이전트는 인증 코드를 클라이언트 응용 프로그램의 리디렉션 URI로 반환합니다.
-* 웹 응용 프로그램이 웹 API에 인증하고 원하는 리소스를 검색할 수 있도록 액세스 토큰을 획득해야 합니다. Azure AD의 토큰 끝점에 요청하여 자격 증명, 클라이언트 ID, 웹 API의 응용 프로그램 ID URI를 제공합니다. 사용자가 동의했음을 증명하는 인증 코드를 표시합니다.
+* 사용자가 웹 응용 프로그램에서 Azure AD에 로그인합니다. 자세한 내용은 [웹 브라우저-웹 응용 프로그램](../../active-directory/develop/web-app.md)을 참조하세요.
+* Azure AD 권한 부여 엔드포인트는 사용자 에이전트를 인증 코드와 함께 클라이언트 응용 프로그램으로 리디렉션합니다. 사용자 에이전트는 인증 코드를 클라이언트 응용 프로그램의 리디렉션 URI로 반환합니다.
+* 웹 응용 프로그램이 웹 API에 인증하고 원하는 리소스를 검색할 수 있도록 액세스 토큰을 획득해야 합니다. Azure AD의 토큰 엔드포인트에 요청하여 자격 증명, 클라이언트 ID, 웹 API의 응용 프로그램 ID URI를 제공합니다. 사용자가 동의했음을 증명하는 인증 코드를 표시합니다.
 * Azure AD가 응용 프로그램을 인증하고 웹 API를 호출하는 데 사용되는 JWT 액세스 토큰을 반환합니다.
 * HTTPS를 통해 웹 응용 프로그램이 반환된 JWT 액세스 토큰을 사용해서 웹 API에 대한 요청의 “권한 부여” 헤더에 “전달자”를 지정한 JWT 문자열을 추가합니다. 그런 후 웹 API에는 JWT의 유효성을 검사합니다. 유효성 검사가 성공하면 원하는 리소스를 반환합니다.
 

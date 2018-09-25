@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/17/2018
 git ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: 7770f4c45d974e8ce5750dbd3aee0d8393281151
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 1adfef9c679ccbe7a56178a041175713f4932aac
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984444"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056542"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure Stack 개발 키트 릴리스 정보  
 이 문서에서는 향상 된 기능, 수정 및 Azure Stack 개발 키트의 알려진된 문제에 대 한 정보를 제공 합니다. 실행 중인 버전을 잘 모를 경우 [포털을 사용 하 여 확인](.\.\azure-stack-updates.md#determine-the-current-version)합니다.
@@ -289,7 +289,7 @@ ms.locfileid: "45984444"
 
 - <!-- 2368581 - IS. ASDK --> 메모리 부족 경고를 받게 테 넌 트 가상 머신을 사용 하 여 배포 하는 데 실패 한 경우 Azure Stack 운영자를 *패브릭 VM 만들기 오류*, 사용 가능한 메모리가 부족 합니다. Azure Stack 스탬프는 불가능 합니다. 사용 된 [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) 워크 로드에 대 한 사용 가능한 용량을 가장 잘 알아야 합니다.
 
-- <!-- TBD - IS. ASDK --> 권한 끝점 (PEP)에서 테스트 AzureStack cmdlet을 실행, 테스트 ERCS VM에 대 한 경고/실패 메시지를 생성 합니다. ASDK를 사용 하 여 할 수 있습니다.
+- <!-- TBD - IS. ASDK --> 실행 하는 경우는 **테스트 AzureStack** privileged 끝점 (PEP)에서 cmdlet을 **Azure Stack 인프라 역할 인스턴스 성능** 테스트 ERCS VM에 대 한 경고 메시지가 생성 됩니다. 안전 하 게 경고 메시지를 무시 하 고 계속 ASDK를 사용할 수 있습니다.
 
 #### <a name="compute"></a>컴퓨팅
 - <!-- 2494144 - IS, ASDK --> 일부 F 시리즈 VM 크기는 가상 머신 배포에 대 한 가상 머신 크기를 선택할 때 표시 되지 일부로 VM을 만들 때 크기 선택기입니다. 다음 VM 크기 선택기에 표시 되지 않습니다: *F8s_v2*, *F16s_v2*, *F32s_v2*, 및 *F64s_v2*합니다.  

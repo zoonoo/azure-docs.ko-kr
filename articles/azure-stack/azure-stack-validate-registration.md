@@ -16,11 +16,11 @@ ms.date: 06/08/2018
 ms.author: brenduns
 ms.reviewer: ''
 ms.openlocfilehash: 57869de8a99c65810da0c75f81c75d93eac88412
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35998503"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47090819"
 ---
 # <a name="validate-azure-registration"></a>Azure 등록 유효성 검사 
 Azure 구독의 Azure Stack과 함께 사용할 준비가 되었는지 유효성을 검사 하려면 (AzsReadinessChecker) Azure Stack 준비 검사기 도구를 사용 합니다. Azure Stack 배포를 시작 하기 전에 등록을 확인 합니다. 준비 상태 검사기의 유효성을 검사 합니다.

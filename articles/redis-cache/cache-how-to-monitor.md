@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 14854960aa8db50507b407d4fab7c4113618235c
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 03c6d45cb3a20244ddbb9c0aec693f7802a95b22
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071549"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976361"
 ---
 # <a name="how-to-monitor-azure-redis-cache"></a>Azure Redis Cache를 모니터링하는 방법
 Azure Redis Cache에서는 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)를 사용하여 캐시 인스턴스를 모니터링하기 위한 몇 가지 옵션을 제공합니다. 메트릭을 보고, 메트릭 차트를 시작 보드에 고정하고, 모니터링 차트의 날짜 및 시간 범위를 사용자 지정하고, 차트에서 메트릭을 추가 및 제거하고, 특정 조건이 충족될 경우의 경고를 설정할 수 있습니다. 이러한 도구는 Azure Redis Cache 인스턴스의 상태를 모니터링할 수 있게 해주며 캐싱 응용 프로그램 관리에 도움이 됩니다.
@@ -61,7 +61,7 @@ Azure Monitor에서 메트릭을 사용하는 방법에 대한 자세한 내용�
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>캐시 메트릭 내보내기
-기본적으로 Azure Monitor의 캐시 메트릭은 [30일 동안 저장](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#store-and-archive)된 후 삭제됩니다. 캐시 메트릭을 30일보다 더 오래 유지하려면 [저장소 계정을 지정](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)하고 캐시 메트릭에 대한 **보존(일)** 정책을 지정할 수 있습니다. 
+기본적으로 Azure Monitor의 캐시 메트릭은 [30일 동안 저장](../monitoring/monitoring-data-collection.md#metrics)된 후 삭제됩니다. 캐시 메트릭을 30일보다 더 오래 유지하려면 [저장소 계정을 지정](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)하고 캐시 메트릭에 대한 **보존(일)** 정책을 지정할 수 있습니다. 
 
 캐시 메트릭에 대한 저장소 계정을 구성하려면
 
@@ -75,11 +75,11 @@ Azure Monitor에서 메트릭을 사용하는 방법에 대한 자세한 내용�
 ![Redis 진단](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
 
 >[!NOTE]
->캐시 메트릭을 저장소에 보관하는 것 외에 [이벤트 허브에 파일을 스트리밍하거나 Log Analytics로 전송](../monitoring-and-diagnostics/monitoring-overview-metrics.md#export-metrics)할 수도 있습니다.
+>캐시 메트릭을 저장소에 보관하는 것 외에 [이벤트 허브에 파일을 스트리밍하거나 Log Analytics로 전송](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md#retrieve-metric-values)할 수도 있습니다.
 >
 >
 
-메트릭에 액세스하려면 이 문서 앞부분에서 설명한 대로 Azure Portal에서 보고 [Azure Monitor 메트릭 REST API](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api)를 사용하여 액세스할 수도 있습니다.
+메트릭에 액세스하려면 이 문서 앞부분에서 설명한 대로 Azure Portal에서 보고 [Azure Monitor 메트릭 REST API](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md)를 사용하여 액세스할 수도 있습니다.
 
 > [!NOTE]
 > 저장소 계정을 변경하는 경우 이전에 구성된 저장소 계정의 데이터는 계속 다운로드할 수는 있으나 Azure 포털에 표시되지는 않습니다.  
@@ -119,7 +119,7 @@ Azure Monitor에서 메트릭을 사용하는 방법에 대한 자세한 내용�
 | 사용된 메모리 RSS |조각화 및 메타데이터를 포함하여 지정한 보고 간격 동안 사용된 캐시 메모리의 양(MB)입니다. 이 값은 Redis INFO 명령에서 `used_memory_rss` 에 매핑됩니다. |
 
 <a name="operations-and-alerts"></a>
-## <a name="alerts"></a>Alerts
+## <a name="alerts"></a>경고
 메트릭 및 활동 로그를 기반으로 경고를 수신하도록 구성할 수 있습니다. Azure Monitor를 사용하여 트리거되면 다음을 수행하도록 경고를 구성할 수 있습니다.
 
 * 전자 메일 알림 보내기

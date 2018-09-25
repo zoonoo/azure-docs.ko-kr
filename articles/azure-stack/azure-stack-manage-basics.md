@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: mabrigg
 ms.openlocfilehash: 39dc48b1357b07932efbccaf002f54ca58edae24
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35998450"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47093299"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack 관리 기본 사항
 Azure Stack 관리 접하는 경우 알아야 할 몇 가지 있습니다. 이 지침은 Azure Stack 운영자 역할의 개요 및 생산성을 높이려는 신속 하 게 사용자에 게 필요한를 제공 합니다.

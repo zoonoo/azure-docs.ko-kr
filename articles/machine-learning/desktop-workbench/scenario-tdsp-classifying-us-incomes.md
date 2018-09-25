@@ -16,14 +16,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
-ms.openlocfilehash: edc3fc5e2a625a14bcb48b03f32cd99069a0ad53
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8533023a16cb350828127d0603e6add0876b37a8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42142859"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948852"
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>TDSP(Team Data Science Process) 프로젝트에서 소득 분류
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 ## <a name="introduction"></a>소개
 
@@ -55,7 +60,7 @@ ms.locfileid: "42142859"
 1. [Azure](https://azure.microsoft.com) 구독 [체험 구독](https://azure.microsoft.com/free/?v=17.16&WT.srch=1&WT.mc_id=AID559320_SEM_cZGgGOIg)으로 이 샘플을 실행할 수도 있습니다.
 2. [Azure DSVM(Science Virtual Machine) Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm)(VM 크기: [DS3_V2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), 4개의 가상 CPU 및 14Gb RAM포함) Azure DSVM에서 테스트되었지만 모든 Windows 10 컴퓨터에서 작동할 가능성이 높습니다.
 3. Azure Machine Learning 및 관련 서비스에 대한 설명서를 검토합니다(링크는 아래 참조).
-4. [빠른 시작 설치 가이드](../service/quickstart-installation.md)에서 Azure Machine Learning을 제대로 설치했는지 확인합니다.
+4. [빠른 시작 설치 가이드](quickstart-installation.md)에서 Azure Machine Learning을 제대로 설치했는지 확인합니다.
 
 이 샘플의 데이터 집합은 UCI ML 리포지토리[[링크]](https://archive.ics.uci.edu/ml/datasets/adult)에서 가져옵니다. 1994 미국 인구 조사 데이터베이스에서 가져왔으며 약 50,000명의 개인에 대한 인구 조사 및 소득 정보를 포함합니다. 숫자 및 범주 기능이 있는 데이터 집합 및 두 가지 소득 범주로 구성된 범주 대상입니다('>50K' 또는 '<=50K'). 
 
@@ -65,7 +70,7 @@ ms.locfileid: "42142859"
 ### <a name="informational-about-azure-machine-learning"></a>정보 제공: Azure Machine Learning 정보
 * [FAQ - 시작 방법](frequently-asked-questions.md)
 * [개요](../service/overview-what-is-azure-ml.md)
-* [설치](../service/quickstart-installation.md)
+* [설치](quickstart-installation.md)
 * [실행](experimentation-service-configuration.md)
 * [TDSP 사용](https://aka.ms/how-to-use-tdsp-in-aml)
 * [파일 읽기 및 쓰기](how-to-read-write-files.md)

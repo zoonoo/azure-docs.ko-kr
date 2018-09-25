@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: efd8e93f32020d1ef3695e7fc6b9907374275848
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d1c92c3a7731198b693b797e0794cd4c26eaa4c3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608392"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976621"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>자습서: Azure App Service 웹앱에 Azure CDN 추가
 
@@ -33,7 +33,7 @@ ms.locfileid: "34608392"
 학습할 내용:
 
 > [!div class="checklist"]
-> * CDN 끝점 만들기
+> * CDN 엔드포인트 만들기
 > * 캐시된 자산 새로 고침
 > * 쿼리 문자열을 사용하여 캐시된 버전 제어
 
@@ -43,7 +43,7 @@ ms.locfileid: "34608392"
 이 자습서를 완료하려면 다음이 필요합니다.
 
 - [Git 설치](https://git-scm.com/)
-- [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -58,7 +58,7 @@ ms.locfileid: "34608392"
 ### <a name="dynamic-site-acceleration-optimization"></a>동적 사이트 가속 최적화
 DSA(동적 사이트 가속)에 대한 CDN 엔드포인트를 최적화하려는 경우 [CDN 포털](cdn-create-new-endpoint.md)을 사용하여 프로필 및 엔드포인트를 만들어야 합니다. [DSA(동적 사이트 가속) 최적화](cdn-dynamic-site-acceleration.md)를 사용하여 동적 콘텐츠가 포함된 웹 페이지의 성능이 크게 향상되었습니다. CDN 포털에서 DSA에 대한 CDN 엔드포인트를 최적화하는 방법에 대한 지침은 [동적 파일의 전송을 가속화하도록 CDN 엔드포인트 구성](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files)을 참조하세요. 그렇지 않으면 새 엔드포인트를 최적화하지 않으려는 경우 다음 섹션의 단계를 수행하여 만들려는 웹앱 포털을 사용할 수 있습니다. **Verizon의 Azure CDN** 프로필의 경우 CDN 엔드포인트를 만든 후에 최적화를 변경할 수 없습니다.
 
-## <a name="create-a-cdn-profile-and-endpoint"></a>CDN 프로필 및 끝점 만들기
+## <a name="create-a-cdn-profile-and-endpoint"></a>CDN 프로필 및 엔드포인트 만들기
 
 왼쪽 탐색 영역에서 **App Services**를 선택한 다음 [정적 HTML 빠른 시작](../app-service/app-service-web-get-started-html.md)에서 만든 앱을 선택합니다.
 
@@ -68,30 +68,30 @@ DSA(동적 사이트 가속)에 대한 CDN 엔드포인트를 최적화하려는
 
 ![포털에서 CDN 선택](media/cdn-add-to-web-app/portal-select-cdn.png)
 
-**Azure Content Delivery Network** 페이지에서 테이블에 지정된 대로 **새 끝점** 설정을 제공합니다.
+**Azure Content Delivery Network** 페이지에서 테이블에 지정된 대로 **새 엔드포인트** 설정을 제공합니다.
 
-![포털에서 프로필 및 끝점 만들기](media/cdn-add-to-web-app/portal-new-endpoint.png)
+![포털에서 프로필 및 엔드포인트 만들기](media/cdn-add-to-web-app/portal-new-endpoint.png)
 
 | 설정 | 제안 값 | 설명 |
 | ------- | --------------- | ----------- |
-| **CDN 프로필** | myCDNProfile | CDN 프로필은 동일한 가격 책정 계층을 가진 CDN 끝점의 컬렉션입니다. |
+| **CDN 프로필** | myCDNProfile | CDN 프로필은 동일한 가격 책정 계층을 가진 CDN 엔드포인트의 컬렉션입니다. |
 | **가격 책정 계층** | Standard Akamai | [가격 책정 계층](cdn-features.md)은 공급자 및 사용 가능한 기능을 지정합니다. 이 자습서에서는 *Standard Akamai*를 사용합니다. |
-| **CDN 끝점 이름** | azureedge.net 도메인에서 고유한 이름 | 도메인 *&lt;endpointname&gt;*.azureedge.net에서 캐시된 리소스에 액세스합니다.
+| **CDN 엔드포인트 이름** | azureedge.net 도메인에서 고유한 이름 | 도메인 *&lt;endpointname&gt;*.azureedge.net에서 캐시된 리소스에 액세스합니다.
 
 **만들기**를 선택하여 CDN 프로필을 만듭니다.
 
-Azure에서는 프로필 및 끝점을 만듭니다. 새 엔드포인트는 **Endpoints** 목록에서 표시되고 프로비전될 때 상태가 **Running**입니다.
+Azure에서는 프로필 및 엔드포인트를 만듭니다. 새 엔드포인트는 **Endpoints** 목록에서 표시되고 프로비전될 때 상태가 **Running**입니다.
 
-![목록의 새 끝점](media/cdn-add-to-web-app/portal-new-endpoint-in-list.png)
+![목록의 새 엔드포인트](media/cdn-add-to-web-app/portal-new-endpoint-in-list.png)
 
-### <a name="test-the-cdn-endpoint"></a>CDN 끝점 테스트
+### <a name="test-the-cdn-endpoint"></a>CDN 엔드포인트 테스트
 
  등록이 전파되는 등록에 시간이 걸리기 때문에, 엔드포인트를 즉시 사용할 수는 없습니다. 
    - **Microsoft의 Azure CDN 표준** 프로필의 경우 일반적으로 10분 이내에 전파가 완료됩니다. 
    - **Akamai의 Azure CDN Standard** 프로필의 경우, 일반적으로 1분 이내에 전파가 완료됩니다. 
    - **Verizon의 Azure CDN 표준** 및 **Verizon의 Azure CDN 프리미엄** 프로필의 경우 일반적으로 90분 이내에 전파가 완료됩니다. 
 
-샘플 앱에는 *index.html* 파일 및 다른 정적 자산을 포함하는 *css*, *img* 및 *js* 폴더가 있습니다. 이러한 파일에 대한 콘텐츠 경로는 CDN 끝점과 동일합니다. 예를 들어 다음 URL은 모두 *css* 폴더의 *bootstrap.css* 파일에 액세스합니다.
+샘플 앱에는 *index.html* 파일 및 다른 정적 자산을 포함하는 *css*, *img* 및 *js* 폴더가 있습니다. 이러한 파일에 대한 콘텐츠 경로는 CDN 엔드포인트와 동일합니다. 예를 들어 다음 URL은 모두 *css* 폴더의 *bootstrap.css* 파일에 액세스합니다.
 
 ```
 http://<appname>.azurewebsites.net/css/bootstrap.css
@@ -109,11 +109,11 @@ http://<endpointname>.azureedge.net/index.html
 
 ![CDN에서 제공되는 샘플 앱 홈 페이지](media/cdn-add-to-web-app/sample-app-home-page-cdn.png)
 
- Azure 웹앱에서 이전에 실행한 것과 동일한 페이지가 표시됩니다. Azure CDN에서 원본 웹앱의 자산을 검색하고 CDN 끝점에서 제공하고 있습니다.
+ Azure 웹앱에서 이전에 실행한 것과 동일한 페이지가 표시됩니다. Azure CDN에서 원본 웹앱의 자산을 검색하고 CDN 엔드포인트에서 제공하고 있습니다.
 
 이 페이지가 CDN에서 캐시된다는 것을 보장하기 위해 페이지를 새로 고칩니다. 동일한 자산에 대한 두 개의 요청에서 CDN은 요청된 콘텐츠를 캐시해야 합니다.
 
-Azure CDN 프로필 및 끝점을 만드는 방법에 대한 자세한 내용은 [Azure CDN 시작](cdn-create-new-endpoint.md)을 참조하세요.
+Azure CDN 프로필 및 엔드포인트를 만드는 방법에 대한 자세한 내용은 [Azure CDN 시작](cdn-create-new-endpoint.md)을 참조하세요.
 
 ## <a name="purge-the-cdn"></a>CDN 제거
 
@@ -162,9 +162,9 @@ CDN을 트리거하여 캐시된 버전을 업데이트하려면 CDN을 제거�
 
 ![리소스 그룹 선택](media/cdn-add-to-web-app/portal-select-group.png)
 
-리소스의 목록에서 CDN 끝점을 선택합니다.
+리소스의 목록에서 CDN 엔드포인트를 선택합니다.
 
-![끝점 선택](media/cdn-add-to-web-app/portal-select-endpoint.png)
+![엔드포인트 선택](media/cdn-add-to-web-app/portal-select-endpoint.png)
 
 **Endpoint** 페이지의 맨 위에서 **제거**를 선택합니다.
 
@@ -190,7 +190,7 @@ http://<endpointname>.azureedge.net/index.html
 
 ![CDN의 제목에서 V2](media/cdn-add-to-web-app/v2-in-cdn-title.png)
 
-자세한 내용은 [Azure CDN 끝점 제거](../cdn/cdn-purge-endpoint.md)를 참조하세요. 
+자세한 내용은 [Azure CDN 엔드포인트 제거](../cdn/cdn-purge-endpoint.md)를 참조하세요. 
 
 ## <a name="use-query-strings-to-version-content"></a>버전 콘텐츠에 쿼리 문자열 사용
 
@@ -206,7 +206,7 @@ Azure CDN은 다음과 같은 캐싱 동작 옵션을 제공합니다.
 
 ### <a name="change-the-cache-behavior"></a>캐시 동작 변경
 
-Azure Portal의 **CDN 끝점** 페이지에서 **캐시**를 선택합니다.
+Azure Portal의 **CDN 엔드포인트** 페이지에서 **캐시**를 선택합니다.
 
 **쿼리 문자열 캐싱 동작** 드롭다운 목록에서 **모든 고유한 URL 캐시**를 선택합니다.
 
@@ -216,7 +216,7 @@ Azure Portal의 **CDN 끝점** 페이지에서 **캐시**를 선택합니다.
 
 ### <a name="verify-that-unique-urls-are-cached-separately"></a>고유 URL을 별도로 캐시했는지 확인
 
-브라우저의 CDN 끝점에서 홈 페이지로 이동하고, 쿼리 문자열을 포함합니다. 
+브라우저의 CDN 엔드포인트에서 홈 페이지로 이동하고, 쿼리 문자열을 포함합니다. 
 
 ```
 http://<endpointname>.azureedge.net/index.html?q=1
@@ -233,7 +233,7 @@ git commit -am "version 3"
 git push azure master
 ```
 
-브라우저에서 `q=2`과 같은 새 쿼리 문자열이 있는 CDN 끝점 URL로 이동합니다. Azure CDN은 현재 *index.html* 파일을 가져오고 *V3*를 표시합니다. 그러나 `q=1` 쿼리 문자열을 사용하여 CDN 엔드포인트로 이동하는 경우 *V2*를 참조하세요.
+브라우저에서 `q=2`과 같은 새 쿼리 문자열이 있는 CDN 엔드포인트 URL로 이동합니다. Azure CDN은 현재 *index.html* 파일을 가져오고 *V3*를 표시합니다. 그러나 `q=1` 쿼리 문자열을 사용하여 CDN 엔드포인트로 이동하는 경우 *V2*를 참조하세요.
 
 ```
 http://<endpointname>.azureedge.net/index.html?q=2
@@ -261,7 +261,7 @@ http://<endpointname>.azureedge.net/index.html?q=1
 학습한 내용은 다음과 같습니다.
 
 > [!div class="checklist"]
-> * CDN 끝점 만들기
+> * CDN 엔드포인트 만들기
 > * 캐시된 자산 새로 고침
 > * 쿼리 문자열을 사용하여 캐시된 버전 제어
 

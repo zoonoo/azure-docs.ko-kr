@@ -13,14 +13,18 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 88ed4fa43e5724cfe1d6f1555db947d77045cd2e
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: c4686bf01031e30bd9dc94f42d80da524db82931
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35642149"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969260"
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Azure Machine Learning 데이터 준비에서 지원되는 데이터 원본 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
 이 문서에서는 Azure Machine Learning 데이터 준비에 대해 현재 지원되는 데이터 원본을 대략적으로 설명합니다.
 
 이 릴리스의 지원되는 데이터 원본은 다음과 같습니다.

@@ -3,8 +3,8 @@ title: PowerShell을 사용하여 Azure CDN 관리 | Microsoft Docs
 description: Azure PowerShell cmdlet을 사용하여 Azure CDN을 관리하는 방법에 대해 알아봅니다.
 services: cdn
 documentationcenter: ''
-author: zhangmanling
-manager: erikre
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: fb6f57a5-6e26-4847-8fd9-b51fb05a79eb
 ms.service: cdn
@@ -12,20 +12,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2018
-ms.author: mazha
-ms.openlocfilehash: 15feb7b1d2873bc3f088eaad78079df2e063d73b
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.date: 09/13/2018
+ms.author: magattus
+ms.openlocfilehash: d6a67bef831028426dec660a1c79feb4ab9340d1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114075"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957713"
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>PowerShell을 사용하여 Azure CDN 관리
-PowerShell은 Azure CDN 프로필 및 끝점을 관리하는 매우 유연한 방법 중 하나를 제공합니다.  PowerShell을 대화형으로 또는 관리 작업을 자동화하는 스크립트를 작성하여 사용할 수 있습니다.  이 자습서에서는 PowerShell을 사용하여 Azure CDN 프로필 및 끝점의 관리를 달성할 수 있는 가장 일반적인 작업 몇 가지를 보여줍니다.
+PowerShell은 Azure CDN 프로필 및 엔드포인트를 관리하는 매우 유연한 방법 중 하나를 제공합니다.  PowerShell을 대화형으로 또는 관리 작업을 자동화하는 스크립트를 작성하여 사용할 수 있습니다.  이 자습서에서는 PowerShell을 사용하여 Azure CDN 프로필 및 엔드포인트의 관리를 달성할 수 있는 가장 일반적인 작업 몇 가지를 보여줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
-PowerShell을 사용하여 Azure CDN 프로필 및 끝점을 관리하려면 Azure PowerShell 모듈이 설치되어 있어야 합니다.  Azure PowerShell을 설치하고 `Connect-AzureRmAccount` cmdlet을 사용하여 Azure에 연결하는 방법을 알아보려면 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
+PowerShell을 사용하여 Azure CDN 프로필 및 엔드포인트를 관리하려면 Azure PowerShell 모듈이 설치되어 있어야 합니다.  Azure PowerShell을 설치하고 `Connect-AzureRmAccount` cmdlet을 사용하여 Azure에 연결하는 방법을 알아보려면 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 
 > [!IMPORTANT]
 > `Connect-AzureRmAccount`에 로그인해야 Azure PowerShell cmdlet을 실행할 수 있습니다.
@@ -121,8 +121,8 @@ Get-AzureRmCdnProfile -ProfileName CdnDemo -ResourceGroupName CdnDemoRG
 > 
 > 
 
-## <a name="listing-existing-cdn-endpoints"></a>기존 CDN 끝점 목록화
-`Get-AzureRmCdnEndpoint` 은 개별 끝점 또는 프로필의 모든 끝점을 검색할 수 있습니다.  
+## <a name="listing-existing-cdn-endpoints"></a>기존 CDN 엔드포인트 목록화
+`Get-AzureRmCdnEndpoint` 은 개별 엔드포인트 또는 프로필의 모든 엔드포인트를 검색할 수 있습니다.  
 
 ```powershell
 # Get a single endpoint.
@@ -138,16 +138,14 @@ Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint
 Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Where-Object { $_.ResourceState -eq "Running" }
 ```
 
-## <a name="creating-cdn-profiles-and-endpoints"></a>CDN 프로필 및 끝점 만들기
-`New-AzureRmCdnProfile` 및 `New-AzureRmCdnEndpoint`는 CDN 프로필 및 끝점을 만드는 데 사용됩니다. 다음 SKU가 지원됩니다.
+## <a name="creating-cdn-profiles-and-endpoints"></a>CDN 프로필 및 엔드포인트 만들기
+`New-AzureRmCdnProfile` 및 `New-AzureRmCdnEndpoint`는 CDN 프로필 및 엔드포인트를 만드는 데 사용됩니다. 다음 SKU가 지원됩니다.
 - Standard_Verizon
 - Premium_Verizon
 - Custom_Verizon
 - Standard_Akamai
+- Standard_Microsoft
 - Standard_ChinaCdn
-
-> [!NOTE]
-> 미리 보기에서는 Standard_Microsoft SKU가 지원되지 않습니다.
 
 ```powershell
 # Create a new profile
@@ -161,8 +159,8 @@ New-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku
 
 ```
 
-## <a name="checking-endpoint-name-availability"></a>끝점 이름 가용성 확인
-`Get-AzureRmCdnEndpointNameAvailability` 은 끝점 이름을 사용할 수 있는지 여부를 나타내는 개체를 반환합니다.
+## <a name="checking-endpoint-name-availability"></a>엔드포인트 이름 가용성 확인
+`Get-AzureRmCdnEndpointNameAvailability` 은 엔드포인트 이름을 사용할 수 있는지 여부를 나타내는 개체를 반환합니다.
 
 ```powershell
 # Retrieve availability
@@ -174,10 +172,10 @@ Else { Write-Host "No, that endpoint name is not available." }
 ```
 
 ## <a name="adding-a-custom-domain"></a>사용자 지정 도메인 추가
-`New-AzureRmCdnCustomDomain` 은 기존 끝점에 사용자 지정 도메인 이름을 추가합니다.
+`New-AzureRmCdnCustomDomain` 은 기존 엔드포인트에 사용자 지정 도메인 이름을 추가합니다.
 
 > [!IMPORTANT]
-> [사용자 지정 도메인을 Content Delivery Network(CDN) 끝점에 매핑하는 방법](cdn-map-content-to-custom-domain.md)에서 설명한 대로 DNS 공급자를 통해 CNAME을 설정해야 합니다.  `Test-AzureRmCdnCustomDomain`를 사용하여 끝점을 수정하기 전에 매핑을 시험해야 합니다.
+> [사용자 지정 도메인을 Content Delivery Network(CDN) 엔드포인트에 매핑하는 방법](cdn-map-content-to-custom-domain.md)에서 설명한 대로 DNS 공급자를 통해 CNAME을 설정해야 합니다.  `Test-AzureRmCdnCustomDomain`를 사용하여 엔드포인트를 수정하기 전에 매핑을 시험해야 합니다.
 > 
 > 
 
@@ -192,8 +190,8 @@ $result = Test-AzureRmCdnCustomDomain -CdnEndpoint $endpoint -CustomDomainHostNa
 If($result.CustomDomainValidated){ New-AzureRmCdnCustomDomain -CustomDomainName Contoso -HostName "cdn.contoso.com" -CdnEndpoint $endpoint }
 ```
 
-## <a name="modifying-an-endpoint"></a>끝점 수정
-`Set-AzureRmCdnEndpoint` 은 기존 끝점을 수정합니다.
+## <a name="modifying-an-endpoint"></a>엔드포인트 수정
+`Set-AzureRmCdnEndpoint` 은 기존 엔드포인트를 수정합니다.
 
 ```powershell
 # Get an existing endpoint
@@ -208,7 +206,7 @@ Set-AzureRmCdnEndpoint -CdnEndpoint $endpoint
 ```
 
 ## <a name="purgingpre-loading-cdn-assets"></a>CDN 자산 제거/사전 로드
-`Unpublish-AzureRmCdnEndpointContent`은 캐시된 자산을 제거하며, `Publish-AzureRmCdnEndpointContent`는 자산을 지원되는 끝점에 사전 로드합니다.
+`Unpublish-AzureRmCdnEndpointContent`은 캐시된 자산을 제거하며, `Publish-AzureRmCdnEndpointContent`는 자산을 지원되는 엔드포인트에 사전 로드합니다.
 
 ```powershell
 # Purge some assets.
@@ -221,8 +219,8 @@ Publish-AzureRmCdnEndpointContent -ProfileName CdnDemo -ResourceGroupName CdnDem
 Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Unpublish-AzureRmCdnEndpointContent -PurgeContent "/images/*"
 ```
 
-## <a name="startingstopping-cdn-endpoints"></a>CDN 끝점 시작/중지
-`Start-AzureRmCdnEndpoint` 및 `Stop-AzureRmCdnEndpoint`를 사용하여 개별 끝점 또는 끝점 그룹을 시작 및 중지할 수 있습니다.
+## <a name="startingstopping-cdn-endpoints"></a>CDN 엔드포인트 시작/중지
+`Start-AzureRmCdnEndpoint` 및 `Stop-AzureRmCdnEndpoint`를 사용하여 개별 엔드포인트 또는 엔드포인트 그룹을 시작 및 중지할 수 있습니다.
 
 ```powershell
 # Stop the cdndocdemo endpoint
@@ -236,7 +234,7 @@ Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Start-AzureRmCdnEndpoint
 ```
 
 ## <a name="deleting-cdn-resources"></a>CDN 리소스 삭제
-`Remove-AzureRmCdnProfile` 및 `Remove-AzureRmCdnEndpoint`를 사용하여 프로필 및 끝점을 제거할 수 있습니다.
+`Remove-AzureRmCdnProfile` 및 `Remove-AzureRmCdnEndpoint`를 사용하여 프로필 및 엔드포인트를 제거할 수 있습니다.
 
 ```powershell
 # Remove a single endpoint

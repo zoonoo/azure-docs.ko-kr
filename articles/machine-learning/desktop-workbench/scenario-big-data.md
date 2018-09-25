@@ -16,14 +16,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 7a13cafd3dcfb4637a5deae2c678c518019ad168
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8f3bd4e62aa85c69a0bfafeacf13bc3e472136d5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450673"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964704"
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>TB 단위의 데이터에 대한 서버 작업 예측
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 이 문서는 데이터 과학자가 Azure Machine Learning Workbench를 사용하여 빅 데이터를 사용해야 하는 솔루션을 개발하는 방법을 설명합니다. 큰 데이터 집합의 샘플에서 시작하고, 데이터 준비, 기능 엔지니어링 및 기계 학습을 통해 반복한 다음 전체 큰 데이터 집합으로 프로세스를 확장할 수 있습니다. 
 
@@ -49,11 +52,11 @@ Machine Learning Workbench의 다음 주요 기능에 대해 알아봅니다.
 이 예제를 실행하기 위한 필수 조건은 다음과 같습니다.
 
 * [Azure 계정](https://azure.microsoft.com/free/)(평가판 사용 가능)
-* 설치된 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) 복사본. 프로그램을 설치하고 작업 영역을 만들려면 [빠른 시작 설치 가이드](../service/quickstart-installation.md)를 참조하세요. 구독이 여러 개 있는 경우 [원하는 구독을 현재 활성 구독으로 설정](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set)할 수 있습니다.
+* 설치된 [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) 복사본. 프로그램을 설치하고 작업 영역을 만들려면 [빠른 시작 설치 가이드](quickstart-installation.md)를 참조하세요. 구독이 여러 개 있는 경우 [원하는 구독을 현재 활성 구독으로 설정](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set)할 수 있습니다.
 * Windows 10(이 예제의 지침은 일반적으로 macOS 시스템에 대해 동일함)
 * 가급적이면 데이터가 있는 미국 동부 지역에 위치한 Linux(Ubuntu)용 DSVM(데이터 과학 가상 머신). [이러한 지침](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)에 따라 Ubuntu DSVM을 프로비전할 수 있습니다. [이 빠른 시작](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu)을 참조할 수도 있습니다. 적어도 8개의 코어와 32GB의 메모리가 있는 가상 컴퓨터를 사용하는 것이 좋습니다. 
 
-[지침](../service/known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present)에 따라 AML Workbench에 대한 VM에 암호 없이 sudoer 액세스할 수 있도록 설정합니다.  [AML Workbench에서 VM을 만들어 사용할 때 SSH 키 기반 인증을 사용](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets)하도록 선택할 수 있습니다. 이 예제에서는 암호를 사용하여 VM에 액세스합니다.  이후 단계를 위해 DSVM 정보와 함께 다음 표를 저장합니다.
+[지침](../desktop-workbench/known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present)에 따라 AML Workbench에 대한 VM에 암호 없이 sudoer 액세스할 수 있도록 설정합니다.  [AML Workbench에서 VM을 만들어 사용할 때 SSH 키 기반 인증을 사용](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets)하도록 선택할 수 있습니다. 이 예제에서는 암호를 사용하여 VM에 액세스합니다.  이후 단계를 위해 DSVM 정보와 함께 다음 표를 저장합니다.
 
  필드 이름| 값 |  
  |------------|------|

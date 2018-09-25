@@ -8,19 +8,18 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: d674b0a6a16e22ed06577f7306ed6f4b9755dd0e
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: d441176c55ceb75c3f44df90224647ded802aeb6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42144272"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986641"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Linux에서 AzCopy를 사용하여 데이터 전송
 
 AzCopy는 최적의 성능을 내는 간단한 명령을 사용하여 데이터를 Microsoft Azure Blob 및 파일 저장소에 복사하거나 이들 저장소에서 복사하기 위한 명령줄 유틸리티입니다. 파일 시스템과 저장소 계정 간 또는 저장소 계정 간에 데이터를 복사할 수 있습니다.  
 
-두 가지 버전의 AzCopy를 다운로드할 수 있습니다. Linux의 AzCopy는 Linux 플랫폼을 대상으로 POSIX 스타일 명령줄 옵션을 제공합니다. 
-  [Windows의 AzCopy](../storage-use-azcopy.md)는 Windows 스타일 명령줄 옵션을 제공합니다. 이 문서에서는 Linux에서 AzCopy를 설명합니다. 
+두 가지 버전의 AzCopy를 다운로드할 수 있습니다. Linux의 AzCopy는 Linux 플랫폼을 대상으로 POSIX 스타일 명령줄 옵션을 제공합니다. [Windows의 AzCopy](../storage-use-azcopy.md)는 Windows 스타일 명령줄 옵션을 제공합니다. 이 문서에서는 Linux에서 AzCopy를 설명합니다. 
 
 > [!NOTE]  
 > AzCopy 7.2 버전부터 .NET Core 종속성이 AzCopy 패키지에 패키징됩니다. 7.2 이상 버전을 사용하는 경우 더 이상 필수 구성 요소로 .NET Core를 설치할 필요가 없습니다.
@@ -707,7 +706,7 @@ Azure Storage 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참�
 * [Azure Storage 소개](../storage-introduction.md)
 * [저장소 계정을 만드는](../storage-create-storage-account.md)
 * [저장소 탐색기를 사용하여 Blob 관리](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
-* [Azure Storage에서 Azure CLI 2.0 사용](../storage-azure-cli.md)
+* [Azure Storage에서 Azure CLI 사용](../storage-azure-cli.md)
 * [C++에서 Blob 저장소를 사용하는 방법](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Java에서 Blob 저장소를 사용하는 방법](../blobs/storage-java-how-to-use-blob-storage.md)
 * [Node.js에서 Blob 저장소를 사용하는 방법](../blobs/storage-nodejs-how-to-use-blob-storage.md)

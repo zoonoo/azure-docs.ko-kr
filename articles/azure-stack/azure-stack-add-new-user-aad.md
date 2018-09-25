@@ -12,40 +12,51 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: c312658750c1e9ef024a837ccc16e5cd5be8a5ef
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 9a4d7200a2bc2445fcdfefc0332d67a045b5a2e1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35998502"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038020"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Azure Active Directory에서 새 Azure Stack 테넌트 계정 추가
+
 이후에 [Azure Stack 개발 키트 배포](azure-stack-run-powershell-script.md), 테 넌 트 포털을 탐색 하 고 본인의 제품 및 계획을 테스트할 수 있도록 테 넌 트 사용자 계정이 필요 합니다. 테 넌 트 계정을 만들 수 있습니다 [Azure portal을 사용 하 여](#create-an-azure-stack-tenant-account-using-the-azure-portal) 하거나 [PowerShell을 사용 하 여](#create-an-azure-stack-tenant-account-using-powershell)입니다.
 
 ## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Stack 테넌트 계정 만들기
+
 Azure 포털을 사용하려면 Azure 구독이 있어야 합니다.
 
 1. 에 로그인 [Azure](https://portal.azure.com)합니다.
-2. Microsoft Azure 왼쪽 탐색 모음에서 **Active Directory**를 클릭합니다.
-3. 디렉터리 목록에서 Azure Stack에 사용할 디렉터리를 클릭하거나 새 디렉터리를 만듭니다.
-4. 이 디렉터리 페이지에서 **사용자**를 클릭합니다.
-5. **사용자 추가**를 클릭합니다.
-6. 에 **사용자 추가** 마법사를 **유형의 사용자** 목록에서 선택 **조직 내에서 새 사용자**합니다.
-7. **사용자 이름** 상자에 사용자의 이름을 입력합니다.
-8. **@** 상자에서 적절한 항목을 선택합니다.
-9. 다음 화살표를 클릭합니다.
-10. 에 **사용자 프로필** 마법사의 페이지 입력 **이름**를 **성**, 및 **표시 이름**합니다.
-11. 에 **역할** 목록에서 선택 **사용자**합니다.
-12. 다음 화살표를 클릭합니다.
-13. 에 **임시 암호 가져오기** 페이지에서 클릭 **만들기**합니다.
-14. **새 암호**를 복사합니다.
-15. 새 계정으로 Microsoft Azure에 로그인 합니다. 메시지가 표시되면 암호를 변경합니다.
-16. 에 로그인 `https://portal.local.azurestack.external` 테 넌 트 포털이 새 계정으로 합니다.
+2. 왼쪽된 탐색 모음에서 선택 **Active Directory** 및 Azure Stack에 대해 사용 하려는 디렉터리로 전환 하거나 새로 만듭니다.
+3. 선택 **Azure Active Directory** > **사용자가** > **새 사용자**합니다.
+
+    ![사용자-강조 표시 하는 새 사용자를 사용 하 여 모든 사용자 페이지](media/azure-stack-add-new-user-aad/new-user-all-users.png)
+
+4. 에 **사용자** 페이지에서 필요한 정보를 입력 합니다.
+
+    ![새 사용자, 사용자 정보를 사용 하 여 사용자 페이지 추가](media/azure-stack-add-new-user-aad/new-user-user.png)
+
+    - **이름 (필수)입니다.** 새 사용자의 첫 번째 및 마지막 이름입니다. 예를 들어 Mary Parker 합니다.
+    - **사용자 이름 (필수)입니다.** 새 사용자의 사용자 이름입니다. 예: mary@contoso.com
+        사용자 이름의 도메인 부분 중 하나는 초기 기본 도메인 이름 사용 해야 합니다 <_yourdomainname_>. onmicrosoft.com, 또는 contoso.com과 같은 사용자 지정 도메인 이름입니다. 사용자 지정 도메인 이름을 만드는 방법에 대 한 자세한 내용은 참조 하세요. [Azure Active Directory에 사용자 지정 도메인 이름을 추가 하는 방법을](../active-directory/fundamentals/add-custom-domain.md)합니다.
+    - **프로필입니다.** 필요에 따라 사용자에 대 한 자세한 정보를 추가할 수 있습니다. 또한 나중에 사용자 정보를 추가할 수 있습니다. 사용자 정보를 추가 하는 방법에 대 한 자세한 내용은 참조 하세요. [사용자 프로필 정보 추가 또는 변경 하는 방법을](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)합니다.
+    - **디렉터리 역할입니다.**  선택할 **사용자**합니다.
+
+5. 확인 **암호 표시** 에 제공 된 자동 생성 된 암호를 복사 합니다 **암호** 상자입니다. 초기 로그인 프로세스에 대 한이 암호가 필요 합니다.
+
+6. **만들기**를 선택합니다.
+
+    사용자가 생성 되어 Azure AD 테 넌 트에 추가 했습니다.
+
+7. 새 계정으로 Microsoft Azure 포털에 로그인 합니다. 메시지가 표시되면 암호를 변경합니다.
+8. 에 로그인 `https://portal.local.azurestack.external` 테 넌 트 포털이 새 계정으로 합니다.
 
 ## <a name="create-an-azure-stack-tenant-account-using-powershell"></a>PowerShell을 사용하여 Azure Stack 테넌트 계정 만들기
+
 Azure 구독이 없으면 테 넌 트 사용자 계정을 추가 하려면 Azure portal을 사용할 수 없습니다. 이 경우에 Azure Active Directory 모듈에 대 한 Windows PowerShell을 대신 사용할 수 있습니다.
 
 > [!NOTE]

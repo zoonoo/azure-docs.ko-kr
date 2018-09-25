@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: babanisa
-ms.openlocfilehash: ce0e766a07fd19f523f1f35b9a3cbc865cfb8c71
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 257f7cbd20d21903f4cf7daf68b5f185d0af10bc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42141757"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965458"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 보안 및 인증 
 
@@ -39,7 +39,7 @@ HTTP 트리거 기반 Azure 함수와 같은 엔드포인트의 다른 형식을
 
 2. **ValidationURL 핸드셰이크(수동 핸드셰이크)**: 특정 경우에 ValidationCode 기반 핸드셰이크를 구현하도록 엔드포인트의 소스 코드를 제어하지 못할 수도 있습니다. 예를 들어, 타사 서비스를 사용하는 경우(예: [Zapier](https://zapier.com) 또는 [IFTTT](https://ifttt.com/)) 유효성 검사 코드를 통해 프로그래밍 방식으로 다시 응답하지 못할 수 있습니다. 따라서 버전 2018-05-01-미리 보기부터 현재 EventGrid는 수동 유효성 검사 핸드셰이크를 지원합니다. 이 새 API 버전(2018-05-01-미리 보기)을 사용하는 SDK/도구를 사용하여 이벤트 구독을 만드는 경우 EventGrid는 구독 유효성 검사 이벤트에서 데이터 부분의 일부로 `validationUrl` 속성(`validationCode`에 추가)을 전송합니다. 핸드셰이크를 완료하려면 REST 클라이언트를 통하거나 웹 브라우저를 사용하여 해당 URL에서 GET 요청을 수행합니다. 제공된 유효성 검사 URL은 약 10분 동안만 유효합니다. 이 시간 동안 이벤트 구독의 프로비전 상태가 `AwaitingManualAction`입니다. 10분 안에 수동 유효성 검사를 완료하지 않은 경우 프로비전 상태가 `Failed`로 설정됩니다. 수동 유효성 검사를 다시 시도하기 전에 이벤트 구독 만들기를 다시 시도해야 합니다.
 
-수동 유효성 검사의 이 메커니즘은 미리 보기 상태입니다. 이 기능을 사용하려면 [AZ CLI 2.0](/cli/azure/install-azure-cli)에 대한 [Event Grid 확장](/cli/azure/azure-cli-extensions-list)을 설치해야 합니다. `az extension add --name eventgrid`를 사용하여 설치할 수 있습니다. REST API를 사용하는 경우 `api-version=2018-05-01-preview`를 사용하고 있는지 확인합니다.
+수동 유효성 검사의 이 메커니즘은 미리 보기 상태입니다. 이 기능을 사용하려면 [Azure CLI](/cli/azure/install-azure-cli)에 대한[Event Grid 확장](/cli/azure/azure-cli-extensions-list)을 설치해야 합니다. `az extension add --name eventgrid`를 사용하여 설치할 수 있습니다. REST API를 사용하는 경우 `api-version=2018-05-01-preview`를 사용하고 있는지 확인합니다.
 
 ### <a name="validation-details"></a>유효성 검사 세부 정보
 

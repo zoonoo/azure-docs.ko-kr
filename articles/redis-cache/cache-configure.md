@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: 0cd21c0367a95d3e866137797ac32fc5bdd196c0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 58e913aa2b4a89a573f6d901803979e662c27af2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31420734"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954044"
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Azure Redis 캐시 구성 방법
 이 항목에서는 Azure Redis Cache 인스턴스에 대해 사용할 수 있는 구성을 설명합니다. 또한 Azure Redis Cache 인스턴스에 대한 기본 Redis 서버 구성에 대해서도 설명합니다.
@@ -284,7 +284,7 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 > 
 
 ### <a name="properties"></a>properties
-**속성** 을 클릭하여 캐시 끝점 및 포트를 포함하여 캐시에 대한 정보를 볼 수 있습니다.
+**속성** 을 클릭하여 캐시 엔드포인트 및 포트를 포함하여 캐시에 대한 정보를 볼 수 있습니다.
 
 ![Redis 캐시 속성](./media/cache-configure/redis-cache-properties.png)
 
@@ -353,10 +353,10 @@ Import/Export는 Azure Redis Cache 데이터 관리 작업으로 프리미엄 �
 
 ### <a name="diagnostics"></a>진단
 
-기본적으로 Azure Monitor의 캐시 메트릭은 [30일 동안 저장](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#store-and-archive)되었다가 삭제됩니다. 30일 이후에도 캐시 메트릭을 유지하려면 **진단**을 클릭하여 캐시 진단을 저장하는 데 사용되는 [저장소 계정을 구성](cache-how-to-monitor.md#export-cache-metrics)합니다.
+기본적으로 Azure Monitor의 캐시 메트릭은 [30일 동안 저장](../monitoring/monitoring-data-collection.md#metrics)되었다가 삭제됩니다. 30일 이후에도 캐시 메트릭을 유지하려면 **진단**을 클릭하여 캐시 진단을 저장하는 데 사용되는 [저장소 계정을 구성](cache-how-to-monitor.md#export-cache-metrics)합니다.
 
 >[!NOTE]
->캐시 메트릭을 저장소에 보관할 뿐만 아니라 [파일을 이벤트 허브에 스트리밍하거나 Log Analytics로 보낼 수](../monitoring-and-diagnostics/monitoring-overview-metrics.md#export-metrics)도 있습니다.
+>캐시 메트릭을 저장소에 보관할 뿐만 아니라 [파일을 이벤트 허브에 스트리밍하거나 Log Analytics로 보낼 수](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md)도 있습니다.
 >
 >
 

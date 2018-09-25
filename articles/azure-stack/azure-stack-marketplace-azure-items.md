@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2018
+ms.date: 09/21/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 16590fe5b27c85fdb5e1fa52ec3b835eaccbb2de
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 8e0a73f800a2b56577b5684762e125d0a67b188d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630979"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032294"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack에서 사용할 수 있는 azure Marketplace 항목
 
@@ -43,6 +43,8 @@ ms.locfileid: "45630979"
 | ![Windows 용 Acronis 백업 확장](media/azure-stack-marketplace-azure-items/acronis.png) | [Windows 용 Acronis 백업 확장](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Microsoft Azure 용 Acronis 백업 확장에는 Acronis 백업 제품군에 데이터 보호의 일부입니다. | Acronis International GmbH 합니다. | Windows |
 | ![Linux 용 CloudLink SecureVM 확장](media/azure-stack-marketplace-azure-items/cloudlink.png) | [Linux 용 CloudLink SecureVM 확장](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | 제어, 모니터링 및 쉽고 안정적으로 Vm을 암호화 합니다. | Dell EMC | Linux |
 | ![Windows 용 CloudLink SecureVM 확장](media/azure-stack-marketplace-azure-items/cloudlink.png) | [Windows 용 CloudLink SecureVM 확장](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | 제어, 모니터링 및 쉽고 안정적으로 Vm을 암호화 합니다. | Dell EMC | Windows |
+| ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Windows 용 Kaspersky 하이브리드 클라우드 보안 에이전트](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.ksws-windows-arm?tab=Overview) | Kaspersky 하이브리드 클라우드 보안을 통해 Azure 확장을 통해 클라우드 워크 로드 내의 사이버 보안 기능을 제공할 수 있습니다. | Kaspersky 랩 | Windows |
+| ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Linux 용 Kaspersky 하이브리드 클라우드 보안 에이전트](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.kesl-linux-arm?tab=Overview) | Kaspersky 하이브리드 클라우드 보안을 통해 Azure 확장을 통해 클라우드 워크 로드 내의 사이버 보안 기능을 제공할 수 있습니다. | Kaspersky 랩 | Linux |
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Microsoft Virtual Machine 이미지 및 솔루션 템플릿
 
@@ -101,7 +103,7 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 
 |  | 항목 이름 | 설명 | 게시자 |
 | --- | --- | --- | --- |
-| ![Arista vEOS 라우터](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS 라우터](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | Arista vEOS 라우터 기능 다양 한 다중 클라우드 및 엔터프라이즈 및 클라우드 공급자 일관 되 고 매우 안전한 빌드할 수 있는 다중 하이퍼바이저 가상 라우터 및 확장 가능한 하이브리드 네트워크 됩니다. | Arista Networks |
+| ![Arista vEOS 라우터](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS 라우터](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | Arista vEOS 라우터는 기능을 갖춘, 다중 클라우드, 엔터프라이즈 및 클라우드 공급자 일관 되 고 매우 안전한 빌드할 수 있는 다중 하이퍼바이저 가상 라우터 및 확장 가능한 하이브리드 네트워크입니다. | Arista Networks |
 | ![AbanteCart](media/azure-stack-marketplace-azure-items/abantecart.png) | [AbanteCart](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.abantecart) | 오픈 소스 전자 상거래 쇼핑 카트입니다. | Bitnami |
 | ![ActiveMQ](media/azure-stack-marketplace-azure-items/activemq.png) | [ActiveMQ](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.activemq) | Java에서 오픈 소스 메시지 브로커입니다. | Bitnami |
 | ![Akeneo](media/azure-stack-marketplace-azure-items/akeneo.png) | [Akeneo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.akeneo) | 강력한 PIM 관리 프로세스를 간소화 하도록 설계 되었습니다. | Bitnami |
@@ -140,6 +142,7 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![JRuby](media/azure-stack-marketplace-azure-items/jruby.png) | [JRuby](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.jrubystack) | Ruby의 고성능 Java 구현입니다. | Bitnami |
 | ![Kafka](media/azure-stack-marketplace-azure-items/kafka.png) | [Kafka](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kafka) | 강력한 배포 게시-구독 메시징 시스템입니다. | Bitnami |
 | ![Kafka 클러스터](media/azure-stack-marketplace-azure-items/kafka.png) | [Kafka 클러스터](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kafka-cluster) | Apache Kafka는 게시-구독 메시징 분산된 커밋 로그로 재고할입니다. 이 솔루션에는 여러 Kafka broker 및 Zookeeper 인스턴스를 프로 비전 하 여 Kafka 클러스터의 안정성 향상 됩니다. **이 솔루션 템플릿에 Linux 2.0 확장에 대 한 Debian 8 및 사용자 지정 스크립트도 필요합니다.** | Bitnami |
+| ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky 하이브리드 클라우드 보안](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | Kaspersky 하이브리드 클라우드 보안을 통해 원활 하 게 조정 되 고 적응 사이버 보안 에코 시스템을 수 있습니다. | Kaspersky 랩 |
 | ![LAMP](media/azure-stack-marketplace-azure-items/lamp.png) | [LAMP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.lampstack) | 완벽 하 게 통합 및 개발 환경을 실행할 준비가 됩니다. | Bitnami |
 | ![LAPP](media/azure-stack-marketplace-azure-items/lapp.png) | [LAPP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.lappstack) | 전체 PHP, PostgreSQL 및 Apache 개발 환경입니다. | Bitnami |
 | ![보겠습니다 채팅](media/azure-stack-marketplace-azure-items/letschat.png) | [보겠습니다 채팅](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.letschat) | 오픈 소스 영구 메시징 응용 프로그램입니다. | Bitnami |
@@ -186,7 +189,7 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![Plone](media/azure-stack-marketplace-azure-items/plone.png) | [Plone](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.plone) | 무료 오픈 소스 가상 어플라이언스입니다. | Bitnami |
 | ![Pootle](media/azure-stack-marketplace-azure-items/pootle.png) | [Pootle](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.pootle) | 번역 프로젝트에 대 한 사용 하기 쉬운 웹 포털입니다. | Bitnami |
 | ![PostgreSQL](media/azure-stack-marketplace-azure-items/postgresql.png) | [PostgreSQL](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.postgresql) | 높은 고급 오픈 소스 데이터베이스입니다. | Bitnami |
-| ![복제를 사용 하 여 PostgreSQL](media/azure-stack-marketplace-azure-items/postgresql.png) | [PostgreSQL](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.postgres-cluster) | PostgreSQL (Postgres)은 오픈 소스 개체-관계형 데이터베이스 시스템입니다. ACID 규격 외래 키, 조인, 뷰, 트리거 및 저장된 프로시저 지원합니다. 안정성 및 데이터 무결성에 대 한 것이 이라고 합니다. 이 솔루션 구성 가능한 복제본 수에 마스터 노드에서 데이터베이스를 복제할 여러 Vm을 사용 합니다. **이 솔루션 템플릿에 Linux 2.0 확장에 대 한 Debian 8 및 사용자 지정 스크립트도 필요합니다.** | Bitnami |
+| ![복제를 사용 하 여 PostgreSQL](media/azure-stack-marketplace-azure-items/postgresql.png) | [PostgreSQL](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.postgres-cluster) | PostgreSQL (Postgres)은 오픈 소스 개체-관계형 데이터베이스 시스템입니다. ACID 규격 지원 외래 키, 조인, 뷰, 트리거 및 저장된 프로시저입니다. 안정성 및 데이터 무결성에 대 한 것이 이라고 합니다. 이 솔루션 구성 가능한 복제본 수에 마스터 노드에서 데이터베이스를 복제할 여러 Vm을 사용 합니다. **이 솔루션 템플릿에 Linux 2.0 확장에 대 한 Debian 8 및 사용자 지정 스크립트도 필요합니다.** | Bitnami |
 | ![PrestaShop](media/azure-stack-marketplace-azure-items/prestashop.png) | [PrestaShop](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.prestashop) | 오픈 소스 전자 상거래 웹 사이트 작성기입니다. | Bitnami |
 | ![프로세스 Maker 커뮤니티 버전](media/azure-stack-marketplace-azure-items/processmaker.png) | [프로세스 Maker 커뮤니티 버전](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.processmakeropensourceedition) | 비즈니스 프로세스 관리 및 워크플로 자동화 플랫폼입니다. | Bitnami |
 | ![프로세스 Maker Enterprise Edition](media/azure-stack-marketplace-azure-items/processmaker.png) | [프로세스 Maker Enterprise Edition](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.processmakerenterprise) | 오픈 소스 워크플로 및 비즈니스 프로세스 관리 소프트웨어. | Bitnami |
@@ -231,7 +234,7 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![Chef 자동화](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | 빌드, 배포 및 Chef Automate를 지속적인 자동화 플랫폼을 사용 하 여 관리 합니다. **두 Chef marketplace 항목 다운로드** | Chef 소프트웨어, Inc |
 | ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | 제어, 모니터링 및 쉽고 안정적으로 Vm을 암호화 합니다. **CloudLink SecureVM 항목을 모두 다운로드 합니다.** | Dell EMC |
 | ![EventTracker SIEM](media/azure-stack-marketplace-azure-items/eventtracker.png) | [EventTracker SIEM](https://azuremarketplace.microsoft.com/marketplace/apps/eventtracker.eventtracker-siem)  | EventTracker SIEM에 포괄적인 보안 플랫폼을 제공 하는 고급 감사 준비 규정 준수 기능을 사용 하 여 보안 도구입니다. | EventTracker |
-| ![f5 키](media/azure-stack-marketplace-azure-items/f5.png) | [f5 BIG-IP 가상 버전](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | 고급 부하 분산, GSLB, 네트워크 방화벽, DNS, WAF 및 앱 액세스 합니다. | F5 Networks |
+| ![f5 키](media/azure-stack-marketplace-azure-items/f5.png) | [f5 BIG-IP 가상 버전](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | 부하 분산, GSLB, 네트워크 방화벽, DNS, WAF 및 응용 프로그램 액세스 고급입니다. | F5 Networks |
 | ![Hortonworks Data Platform (HDP) 샌드박스](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) 샌드박스](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | 연결 된 HDP 2.5 100% 오픈 소스 플랫폼 Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari에 대 한 합니다. | Hortonworks |
 | ![KEMP LoadMaster 부하 분산 장치 ADC 콘텐츠 스위치](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster 부하 분산 장치 ADC 콘텐츠 스위치](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | 계층 4-7 응용 프로그램 배달 컨트롤러 (ADC) 부하 분산, 콘텐츠 스위치 및 Traffic Manager. | KEMP Technologies Inc. |
 | ![NRI mPLAT Suite-다중 클라우드 Conductor](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT Suite-다중 클라우드 Conductor](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | 단일 창의 투명 효과 모니터링 하려면 구성, 프로 비전, 자동화 및 모든 워크 로드 또는 클라우드를 제어 합니다. | NRI |
@@ -239,6 +242,6 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![Palo Alto VM 시리즈 차세대 방화벽](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM 시리즈 차세대 방화벽](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | VM 시리즈 차세대 방화벽 응용 프로그램 허용 목록 및 위협 방지 정책 사용 하 여 알려진 및 알 수 없는 위협 으로부터 보호 고객이 Azure Stack에 해당 응용 프로그램 및 데이터를 안전 하 게 마이그레이션할 수 있습니다. **이 이미지; 배포 하는 템플릿은 필요 이 참조 하세요 [문서](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack) 중요 한 정보입니다.**| Palo Alto Networks, Inc. |
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall 알려진 & 알 수 없는 취약점을 검색 하 고 웹 앱에 대 한 공격을 방지 합니다. **모두 (태평양 표준시) Marketplace 항목 다운로드 합니다.** | 양수 기술 |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise를 사용 하면 Azure Stack 인프라의 전체 수명 주기를 자동화할 수 있습니다. **두 Puppet Marketplace 항목 다운로드 합니다.** | Puppet |
-| ![Quest 신속한 복구](media/azure-stack-marketplace-azure-items/quest.png) | [Quest 신속한 복구 코어](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | 데이터 보호를 advanced 신속 하 게 복구, 복제에서에서 백업 및 복구 하나 사용 하기 쉬운 소프트웨어 솔루션을 통합 합니다. | Quest Software |
+| ![Quest 신속한 복구](media/azure-stack-marketplace-azure-items/quest.png) | [Quest 신속한 복구 코어](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | 데이터 보호를 advanced 신속 하 게 복구할 백업, 복제 및 복구 하나 사용 하기 쉬운 소프트웨어 솔루션에서을 통합 합니다. | Quest Software |
 | ![SUSE 3.1 Manager 프록시 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE 3.1 Manager 프록시 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSE-Manager) | 최고의 오픈 소스 인프라 관리 합니다. | SUSE |
-| ![ZeroDown 소프트웨어 BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [As a Service ZeroDown 소프트웨어 비즈니스 연속성](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | 해당 비즈니스 연속성을 통해 회사 데이터에 대 한 지속적인 액세스를 사용 하 여 기업 (BCaaS) 서비스로 제공 하는 ZeroDown® 소프트웨어 기술™ 아키텍처, 응용 프로그램 및 보호는 네트워크 중단 발생 시 트랜잭션 일반적으로 엔터프라이즈를 약화 됩니다. | ZeroDown 소프트웨어 |
+| ![ZeroDown 소프트웨어 BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [As a Service ZeroDown 소프트웨어 비즈니스 연속성](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | 해당 비즈니스 연속성을 통해 회사 데이터에 대 한 지속적인 액세스를 사용 하 여 기업 (BCaaS) 서비스로 제공 하는 ZeroDown® 소프트웨어 기술™ 네트워크 중단이 발생 하는 경우 일반적으로 아키텍처, 보호 응용 프로그램 및 트랜잭션 엔터프라이즈를 약화 됩니다. | ZeroDown 소프트웨어 |

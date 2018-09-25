@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: f5b678f9936a6d405c06ff085a802fcd76328ebe
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: bb3df82e66024b49e399ab2f7795a27932f7559e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525657"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953976"
 ---
 #  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>AzCopy를 사용하여 클라우드로 온-프레미스 데이터 마이그레이션
 
@@ -37,7 +37,7 @@ AzCopy는 간단한 명령을 사용하여 Azure Blob 저장소, Azure Files 및
 
 이 자습서를 완료하려면 [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) 또는 [Windows](http://aka.ms/downloadazcopy)에 최신 버전의 AzCopy를 다운로드합니다. 
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 >[!NOTE]
 >보조 지역에서 로컬 저장소로 또는 그 반대로 Blob을 다운로드할 수 있기를 원하는 경우 **복제**를 **읽기-액세스-지역 중복 저장소**로 설정합니다. 이 옵션을 선택하면 [지역 중복 저장소](https://docs.microsoft.com/azure/storage/common/storage-redundancy#geo-redundant-storage) 계정이 생성됩니다. 

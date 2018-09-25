@@ -12,14 +12,19 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 621601ad3576aad13f2f71062ee2351cf1a394c8
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: c952882a0a12e288eaf4f5f1074a9a2e876a21d6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35640074"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986237"
 ---
 # <a name="combine-columns-by-example-transformation"></a>예제별 열 결합 변환
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 이 변환을 사용하여 여러 열의 값을 결합하여 새 열을 추가할 수 있습니다. 사용자는 이 변환을 수행하기 위해 구분 기호를 지정하거나 결합된 값 예제를 제공할 수 있습니다. 사용자가 결합 예제를 제공하면, **예제별 열 파생** 변환에서 사용된 것과 같은 **By-Example** 엔진을 사용하여 변환이 처리됩니다.
 
 ## <a name="how-to-perform-this-transformation"></a>이 변환을 수행하는 방법
