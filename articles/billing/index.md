@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 40070acab5f656cab7f3034e3b35c113c0ff6051
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: e06ee851209d48185b3b20cd6f1169af81b58013
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300814"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034827"
 ---
 # <a name="azure-billing-and-cost-management-documentation"></a>Azure 청구 및 비용 관리 설명서
 
@@ -52,9 +52,10 @@ Azure 청구를 이해하고 사용량 및 비용을 모니터링하며 계정 �
                         <h3>비용 관리</h3>
                         <p>
                         <a href="/azure/billing/billing-getting-started">예기치 않은 비용 방지</a><br/>
-                        <a href="/azure/billing/billing-set-up-alerts">청구 경고 설정</a><br/>
-                        <a href="https://azure.microsoft.com/pricing/calculator/">가격 계산</a><br/>
-                        <a href="/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json">리소스 태그 사용</a>
+                        <a href="/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json">리소스 태그 사용</a><br/>
+                        <a href="/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json">비용 분석 시작 - EA만</a><br/>
+                        <a href="/azure/cost-management/tutorial-acm-create-budgets?toc=/azure/billing/TOC.json">예산 만들기 및 관리 - EA만</a><br/>
+                        <a href="/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json">최적화 권장 사항 - EA만</a>
                         </p>
                     </div>
                 </div>

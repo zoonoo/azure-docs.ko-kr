@@ -7,6 +7,7 @@
 #### [개발자 센터에 등록](./register-dev-center.md) 
 #### [Azure Marketplace에 대한 청구 옵션](./billing-options-azure-marketplace.md)  
 #### [Azure 파트너 고객 사용량 특성](./azure-partner-customer-usage-attribution.md)
+#### [클라우드 마켓플레이스의 잠재 고객 관리](./lead-management-for-cloud-marketplace.md)
 
 ### [상점](./comparing-appsource-azure-marketplace.md)  
 

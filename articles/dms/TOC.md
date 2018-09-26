@@ -19,7 +19,7 @@
 # 리소스
 ## [알려진 문제 - Azure SQL DB로 온라인 마이그레이션](known-issues-azure-sql-online.md)
 ## [알려진 문제 - MySQL용 Azure DB로 온라인 마이그레이션](known-issues-azure-mysql-online.md)
-## [알려진 문제 - Azure DB for PosgreSQL로 온라인 마이그레이션](known-issues-azure-postgresql-online.md)
+## [알려진 문제 - Azure DB for PostgreSQL로 온라인 마이그레이션](known-issues-azure-postgresql-online.md)
 ## [사용자 의견 피드백](https://feedback.azure.com/forums/906100-azure-database-migration-service)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
 ## [데이터베이스 마이그레이션 가이드](https://aka.ms/datamigration)
