@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 8bebec23d7a0199d8efbc55b3cde50c628306f01
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1b63a75a2505ecbd82896932018ef4f0936b9b37
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034371"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182895"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Azure Stack에서 API 버전 프로필 관리
 
@@ -77,6 +77,7 @@ Azure Stack에서 최신 버전의 글로벌 Azure에 API 버전을 사용 하�
 
 프로필을 사용 하 여 Azure Stack을 사용 하 여 원하는 언어를 사용 하 여 솔루션을 통합할 수 있도록 코드 샘플을 찾을 수 있습니다. 현재 다음 언어에 대 한 지침 및 샘플을 찾을 수 있습니다.
 
+- **.NET** .NET API 프로필을 사용 하 여 리소스 공급자 패키지의 각 리소스 종류의 최신, 가장 안정적 버전을 가져올 수 있습니다. 자세한 내용은 [Azure Stack에서.NET을 사용 하 여 사용 하 여 API 버전 프로필](azure-stack-version-profiles-net.md)합니다.
 - **PowerShell**  
 사용할 수는 **AzureRM.Bootstrapper** 모듈 API 버전 프로필을 사용 하는 데 필요한 PowerShell cmdlet을 가져오는 PowerShell 갤러리를 통해 사용할 수 있습니다. 정보를 참조 하세요 [PowerShell 사용 하 여 API 버전 프로필](azure-stack-version-profiles-powershell.md)합니다.
 - **Azure CLI**  

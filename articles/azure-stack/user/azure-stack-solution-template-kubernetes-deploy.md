@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: a6e1acf3b9e69f32a8c175310134c534dbf8c561
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 89c72e21733b01a3e42c0e58d65cb7877e47d374
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977539"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163497"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Azure Stack에 Kubernetes 배포
 
@@ -28,7 +28,7 @@ ms.locfileid: "46977539"
 > [!Note]  
 > Azure Stack에서 Kubernetes 미리 보기입니다. 귀하가 Azure Stack 운영자는이 문서의 지침을 수행 하는 데 필요한 Kubernetes 클러스터 Marketplace 항목에 대 한 액세스를 요청 해야 합니다.
 
-다음 문서를 배포 하 고 조정 된 단일 작업에서 Kubernetes에 대 한 리소스를 프로 비전 하는 Azure Resource Manager 솔루션 템플릿을 사용 하 여 살펴봅니다. 필요한 Azure Stack 설치에 대 한 필요한 정보를 수집 하려면 템플릿을 생성을을 클라우드에 배포 합니다. 서식 파일은 동일한 전역 Azure ACS 서비스에 가깝게에서 제공 하는 AKS 서비스를 관리 합니다.
+다음 문서를 배포 하 고 조정 된 단일 작업에서 Kubernetes에 대 한 리소스를 프로 비전 하는 Azure Resource Manager 솔루션 템플릿을 사용 하 여 살펴봅니다. 필요한 Azure Stack 설치에 대 한 필요한 정보를 수집 하려면 템플릿을 생성을을 클라우드에 배포 합니다. 글로벌 Azure에서 제공 되는 동일한 관리 되는 AKS 서비스 참고 템플릿이 아닙니다.
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes 및 컨테이너
 
@@ -54,7 +54,7 @@ Kubernetes에서 사용할 수 있습니다.
 
 1. Azure Stack 테 넌 트 포털에서 유효한 구독이 있는 새 응용 프로그램을 추가 하려면 사용할 수 있는 주소가 충분 한 공용 IP 있는지 확인 합니다.
 
-    Azure Stack에 클러스터를 배포할 수 없습니다 **관리자** 구독 합니다. 사용자 * * 구독을 사용 해야 합니다. 
+    Azure Stack에 클러스터를 배포할 수 없습니다 **관리자** 구독 합니다. 사용 해야 합니다는 **사용자** 구독 합니다. 
 
 ## <a name="create-a-service-principal-in-azure-ad"></a>Azure AD에서 서비스 주체 만들기
 
@@ -113,9 +113,23 @@ Kubernetes에서 사용할 수 있습니다.
 
     ![솔루션 템플릿 배포](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
-1. 선택 **기본 사항** 에 Kubernetes를 만듭니다.
+### <a name="1-basics"></a>1. 기본 사항
+
+1. 선택 **기본 사항** Kubernetes 클러스터를 만듭니다.
 
     ![솔루션 템플릿 배포](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
+
+1. 선택 하면 **구독** id입니다.
+
+1. 새 리소스 그룹의 이름을 입력 하거나 기존 리소스 그룹을 선택 합니다. 리소스 이름은 영숫자 및 소문자 있어야 합니다.
+
+1. 선택 합니다 **위치** 리소스 그룹입니다. Azure Stack 설치에 대해 선택 하는 지역입니다.
+
+### <a name="2-kubernetes-cluster-settings"></a>2. Kubernetes 클러스터 설정
+
+1. 선택 **Kubernetes 클러스터 설정을** Kubernetes 클러스터를 만듭니다.
+
+    ![솔루션 템플릿 배포](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings.png)
 
 1. 입력 된 **Linux VM Admin Username**합니다. Kubernetes 클러스터의 일부인 Linux Virtual Machines 및 dvm이 대 한 사용자 이름입니다.
 
@@ -126,28 +140,29 @@ Kubernetes에서 사용할 수 있습니다.
     > [!Note]  
     > 각 클러스터에 대 한 마스터 프로필 새롭고 고유한 DNS 접두사를 사용 합니다.
 
-1. 입력 된 **에이전트 풀 프로필 수**입니다. 수는 클러스터의 에이전트 수를 포함합니다. 있을 수 있습니다 1에서 4.
+1. 선택 된 **Kubernetes 마스터 풀 프로필 수**입니다. 마스터 풀의 노드 수를 포함 하는 수 있습니다. 있을 수 있습니다 1에서 7로. 이 값은 홀수 여야 합니다.
 
-1. 입력 된 **서비스 주체 ClientId** Kubernetes Azure 클라우드 공급자가 사용 됩니다.
+1. 선택 **Kubernetes 마스터 vm은 VMSize**합니다.
 
-1. 입력 된 **서비스 주체 클라이언트 비밀** 서비스 주체 응용 프로그램을 만들 때 만든 합니다.
+1. 선택 된 **Kubernetes 노드 풀 프로필 수**입니다. 수는 클러스터의 에이전트 수를 포함합니다. 
+
+1. 선택 된 **저장소 프로필**합니다. 선택할 수 있습니다 **Blob 디스크** 하거나 **Managed Disk**합니다. 이 VM 크기의 Kubernetes 노드 Vm을 지정합니다. 
+
+1. 입력 된 **서비스 주체 ClientId** Kubernetes Azure 클라우드 공급자가 사용 됩니다. 응용 프로그램 ID로 식별 된 클라이언트 ID 경우에 서비스 주체를 생성 합니다.
+
+1. 입력 된 **서비스 주체 클라이언트 비밀** 서비스 주체를 만들 때 만든 합니다.
 
 1. 입력 된 **Kubernetes Azure Cloud Provider 버전이**합니다. Kubernetes Azure 공급자에 대 한 버전입니다. Azure Stack에는 각 Azure Stack 버전에 대 한 사용자 지정 Kubernetes 빌드를 해제합니다.
 
-1. 선택 하면 **구독** id입니다.
+### <a name="3-summary"></a>3. 요약
 
-1. 새 리소스 그룹의 이름을 입력 하거나 기존 리소스 그룹을 선택 합니다. 리소스 이름은 영숫자 및 소문자 있어야 합니다.
+1. 요약을 선택 합니다. 블레이드는 Kubernetes 클러스터 구성 설정에 대해 유효성 검사 메시지를 표시합니다.
 
-1. 선택 합니다 **위치** 리소스 그룹입니다. Azure Stack 설치에 대해 선택 하는 지역입니다.
+    ![솔루션 템플릿 배포](media/azure-stack-solution-template-kubernetes-deploy/04_preview.png)
 
-### <a name="specify-the-azure-stack-settings"></a>Azure Stack 설정 지정
+2. 설정을 검토 합니다.
 
-1. 선택 된 **Azure Stack 스탬프 설정**합니다.
-
-    ![솔루션 템플릿 배포](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings.png)
-
-1. 입력 된 **Arm 끝점을 테 넌 트**합니다. Kubernetes 클러스터에 대 한 리소스 그룹을 만들려면 연결 하는 Azure Resource Manager 끝점입니다. 통합 시스템에 Azure Stack 연산자에서 끝점을 가져올 해야 합니다. 에 Azure Stack 개발 키트 ASDK ()를 사용할 수 `https://management.local.azurestack.external`입니다.
-
+3. 선택 **확인** 클러스터를 배포 합니다.
 
 ## <a name="connect-to-your-cluster"></a>클러스터에 연결
 

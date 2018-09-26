@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/25/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 69bf788ef30a18bbe70e251fdd6a814d0f528f55
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e0a96d947bce579d2c1d7d31de83c7ef53eabd3a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994567"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165809"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes Azure Stack Marketplace에 추가
 
@@ -127,14 +127,20 @@ Kubernetes 항목을 업데이트할 때 Marketplace에 있는 항목을 제거 
 
 Kubernetes 항목 제거 하려면:
 
-1. 현재 항목의 이름 같은 note `Microsoft.AzureStackKubernetesCluster.0.2.0`
+1. Operator 자격으로 PowerShell 사용 하 여 Azure Stack에 연결 합니다. 명령 참조 [연산자로 PowerShell 사용 하 여 Azure Stack에 연결](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-admin)합니다.
 
-1. PowerShell 사용 하 여 Azure Stack에 연결 합니다.
-
-1. 항목을 제거 하려면 다음 PowerShell cmdlet을 사용 합니다.
+2. 갤러리에서 현재 Kubernetes 클러스터 항목을 찾습니다.
 
     ```PowerShell  
-    $Itemname="Microsoft.AzureStackKubernetesCluster.0.2.0"
+    Get-AzsGalleryItem | Select Name
+    ```
+    
+3. 현재 항목의 이름 같은 note `Microsoft.AzureStackKubernetesCluster.0.2.0`
+
+4. 항목을 제거 하려면 다음 PowerShell cmdlet을 사용 합니다.
+
+    ```PowerShell  
+    $Itemname="Microsoft.AzureStackKubernetesCluster.0.3.0"
 
     Remove-AzsGalleryItem -Name $Itemname
     ```
