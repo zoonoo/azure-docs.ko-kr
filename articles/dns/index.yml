@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2ee8284861d62d4405d0f949ee74b1992440b66e
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 701bf7db8304189b9348cad1c920f3e5ec1fecf1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43184563"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991133"
 documentType: LandingData
 title: Azure DNS 설명서
 metadata:
@@ -48,11 +48,14 @@ sections:
   - type: paragraph
     text: Azure DNS에서 도메인을 호스트하고, Azure DNS를 사용하여 웹앱에 대한 사용자 지정 DNS 레코드를 만들고, 개인 DNS 영역 및 레코드를 만드는 방법을 알아봅니다.
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: <a href="/azure/dns/dns-delegate-domain-azure-dns">Azure DNS에서 도메인 호스트</a>
     - html: <a href="/azure/dns/dns-web-sites-custom-domain">웹앱에 대한 사용자 지정 DNS 레코드 만들기</a>
     - html: <a href="/azure/dns/private-dns-getstarted-powershell">개인 DNS 영역 및 레코드 만들기</a>
+    - html: <a href="/azure/dns/tutorial-alias-pip">Azure 공용 IP 주소를 가리키도록 별칭 레코드 구성</a>
+    - html: <a href="/azure/dns/tutorial-alias-tm">Traffic Manager를 사용하여 apex 도메인 이름을 지원하도록 별칭 레코드 구성</a>
+    - html: <a href="/azure/dns/tutorial-alias-rr">영역 레코드에 대한 별칭 레코드 구성</a>
 - title: 무료 Pluralsight 동영상 교육
   items:
   - type: list

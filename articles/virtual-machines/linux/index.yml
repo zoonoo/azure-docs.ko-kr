@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 078da85f8ad4addd23a35b456a49d5a8248fc59b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: cfe8611def427577cb000efe0e7c0568193aa4f8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44294377"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993445"
 documentType: LandingData
 title: Linux 가상 머신
 metadata:
@@ -74,6 +74,24 @@ sections:
     - html: <a href="/azure/virtual-machines/linux/tutorial-build-deploy-jenkins">Azure Pipelines를 사용하는 CI/CD</a>
     - html: <a href="/azure/virtual-machines/linux/tutorial-lamp-stack">LAMP</a>, <a href="/azure/virtual-machines/linux/tutorial-lemp-stack">LEMP</a> 또는 <a href="/azure/virtual-machines/linux/tutorial-mean-stack">MEAN</a>을 사용하여 웹 서버 스택 만들기
     - html: <a href="/azure/virtual-machines/linux/tutorial-secure-web-server">SSL을 사용하여 웹 서버 보안</a>
+- title: Microsoft Learn을 사용하여 기술 습득
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: " Azure에서 Linux 가상 머신 만들기"
+      href: /learn/modules/create-linux-virtual-machine-in-azure/
+      image:
+        src: /learn/achievements/create-linux-virtual-machine-in-azure.svg
+        href: /learn/modules/create-linux-virtual-machine-in-azure/
+    - title: Azure Linux Virtual Machine에서 MEAN 스택을 사용하여 웹 응용 프로그램 빌드 및 실행
+      href: /learn/modules/build-a-web-app-with-mean-on-a-linux-vm/
+      image:
+        src: /learn/achievements/build-a-web-app-with-mean-on-a-linux-vm.svg
+        href: /learn/modules/build-a-web-app-with-mean-on-a-linux-vm/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-virtual-machines">더 많은 대화형 학습 보기...</a>
 - title: 무료 Pluralsight 동영상 교육
   items:
   - type: list

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 338de80ef721bb8232a969c02522fb7baa8ee0ca
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: b4c33753452921e12056e702c68cd0f1a8741f41
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43184776"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998677"
 documentType: LandingData
 title: Azure SignalR Service 설명서
 metadata:
@@ -18,10 +18,10 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/17/2018
+  ms.date: 09/12/2018
   ms.author: wesmc
 abstract:
-  description: Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 응용 프로그램을 빌드할 수 있게 하는 Azure 관리 서비스입니다. 이 서비스는 실시간 웹 기능을 응용 프로그램에 추가하는 프로세스를 간소화하는 오픈 소스 라이브러리인 ASP.NET Core를 기반으로 합니다.
+  description: Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 응용 프로그램을 빌드할 수 있게 하는 Azure 관리 서비스입니다.
 sections:
 - title: 5분 빠른 시작
   items:
@@ -31,39 +31,53 @@ sections:
     style: icon48
     items:
     - image:
-        src: http://docs.microsoft.com/en-us/media/logos/logo_NET.svg
-      text: .NET
+        src: http://docs.microsoft.com/en-us/media/logos/logo_NETcore.svg
+      text: ASP.NET Core
       href: /azure/azure-signalr/signalr-quickstart-dotnet-core
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/media/index/azurefunctions.svg
+      text: JavaScript
+      href: /azure/azure-signalr/signalr-quickstart-azure-functions-javascript
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/media/index/azurefunctions.svg
+      text: C#
+      href: /azure/azure-signalr/signalr-quickstart-azure-functions-csharp
+    - image:
+        src: https://docs.microsoft.com/en-us/media/logos/logo_REST.svg
+      text: C#
+      href: /azure/azure-signalr/signalr-quickstart-rest-api
 - title: 단계별 자습서
   items:
   - type: paragraph
     text: Azure SignalR Service 응용 프로그램을 빌드하는 방법을 알아봅니다.
   - type: list
-    style: ordered
+    style: unordered
     items:
-    - html: <a href="/azure/azure-signalr/signalr-authenticate-oauth">Azure SignalR Service 인증</a>
-- title: 무료 Pluralsight 동영상 교육
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: .NET을 사용하여 개발
-      href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - title: Azure 솔루션 설계자
-      href: https://go.microsoft.com/fwlink/?linkid=2012824
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://go.microsoft.com/fwlink/?linkid=2012824
-- title: 샘플
+    - html: <a href="/azure/azure-signalr/signalr-authenticate-oauth">ASP.NET Core Identity와 Azure SignalR Service 통합</a>
+    - html: <a href="/azure/azure-signalr/signalr-authenticate-azure-functions">인증을 사용하여 서버리스 실시간 앱 빌드</a>
+- title: 참고 자료
   items:
   - type: paragraph
-    text: 일반 관리 작업에 대한 스크립트를 찾습니다.
+    text: Azure SignalR 프로그래밍
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://docs.microsoft.com/aspnet/core">ASP.NET 핵심 SDK</a>
+    - html: <a href="https://github.com/Azure/azure-functions-signalrservice-extension">Azure Functions 바인딩</a>
+    - html: <a href="https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md">REST API</a>
+  - type: paragraph
+    text: 클라이언트 SDK를 사용하여 Azure SignalR에 연결
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://docs.microsoft.com/aspnet/core/signalr/javascript-client">JavaScript</a>
+    - html: <a href="https://docs.microsoft.com/aspnet/core/signalr/dotnet-client">.NET Standard</a>
+    - html: <a href="https://github.com/aspnet/SignalR/tree/release/2.2/clients/java/signalr">Java</a>
+- title: 샘플
+  items:
   - type: list
     style: unordered
     className: spaced noBullet
     items:
+    - html: <a href="https://github.com/aspnet/AzureSignalR-samples">Azure SignalR 코드 샘플</a>
     - html: <a href="/azure/azure-signalr/signalr-cli-samples">Azure CLI</a>

@@ -1,0 +1,83 @@
+items:
+- name: Azure Governance 설명서
+  href: index.yml
+- name: 개요
+  items:
+  - name: Azure Management
+    href: azure-management.md
+  expanded: true
+- name: 구성 요소 및 서비스
+  items:
+  - name: 관리 그룹
+    href: management-groups/overview.md
+    items:
+    - name: 생성
+      href: management-groups/create.md
+    - name: 관리
+      href: management-groups/manage.md
+  - name: 리소스 그래프
+    href: resource-graph/overview.md
+  - name: 정책
+    href: policy/overview.md
+  - name: 청사진
+    href: blueprints/overview.md
+  expanded: true
+- name: 구현
+  items:
+  - name: 엔터프라이즈 클라우드 채택
+    items:
+    - name: 클라우드 리소스 거버넌스란?
+      href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
+    - name: Azure에서 리소스 액세스 거버넌스
+      href: /azure/architecture/cloud-adoption/getting-started/azure-resource-access?toc=/azure/governance/toc.json
+    - name: 단일 팀을 위한 거버넌스 디자인
+      href: /azure/architecture/cloud-adoption/governance/governance-single-team?toc=/azure/governance/toc.json
+    - name: 여러 팀을 위한 거버넌스 디자인
+      href: /azure/architecture/cloud-adoption/governance/governance-multiple-teams?toc=/azure/governance/toc.json
+  - name: Azure Enterprise Scaffold
+    items:
+    - name: 규범적 구독 거버넌스
+      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
+    - name: Azure Enterprise Scaffold 구현
+      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold-examples?toc=/azure/governance/toc.json
+  expanded: true
+- name: 참조
+  items:
+  - name: 청사진
+    items:
+    - name: REST API
+      href: /rest/api
+    - name: Azure CLI
+      href: /cli/azure
+  - name: 정책
+    items:
+    - name: REST API
+      href: /rest/api
+    - name: Azure CLI
+      href: /cli/azure
+    - name: Azure PowerShell
+      href: /powershell/azure
+  - name: 리소스 그래프
+    items:
+    - name: Azure CLI
+      href: /cli/azure
+    - name: Azure PowerShell
+      href: /powershell/azure
+- name: 리소스
+  items:
+  - name: 비디오 링크
+    href: /
+  - name: GitHub
+    href: /
+  - name: Azure 로드맵
+    href: /
+  - name: 요금 계산기
+    href: /
+  - name: 블로그 문서
+    href: /
+ms.openlocfilehash: 4006c484adcdb0cf46646ebace847ba4d45efe26
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982251"

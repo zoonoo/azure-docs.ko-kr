@@ -28,6 +28,8 @@ items:
     href: logic-apps-serverless-overview.md
   - name: B2B 통합 & EDI 처리
     href: logic-apps-enterprise-integration-overview.md
+  - name: Azure Virtual Network(VNET)에 액세스
+    href: connect-virtual-network-vnet-isolated-environment-overview.md
 - name: 방법 가이드
   items:
   - name: 개발
@@ -36,6 +38,8 @@ items:
       href: logic-apps-create-logic-apps-from-templates.md
     - name: BizTalk Services에서 마이그레이션
       href: logic-apps-move-from-mabs.md
+    - name: 논리 앱 만들기 - Visual Studio Code
+      href: create-logic-apps-visual-studio-code.md
     - name: 워크플로 실행 제어
       items:
       - name: 조건문
@@ -68,8 +72,12 @@ items:
       href: logic-apps-exception-handling.md
     - name: 대용량 메시지 처리
       href: logic-apps-handle-large-messages.md
-    - name: 논리 앱 보안
-      href: logic-apps-securing-a-logic-app.md
+    - name: 보안
+      items:
+      - name: 논리 앱 보안
+        href: logic-apps-securing-a-logic-app.md
+      - name: 관리되는 ID를 사용하여 인증
+        href: create-managed-service-identity.md
     - name: 사용자 지정 커넥터 개발
       href: custom-connector-overview.md
     - name: 사용자 지정 API 개발
@@ -139,6 +147,8 @@ items:
       href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
     - name: 재해 복구 계획 빌드
       href: logic-apps-enterprise-integration-b2b-business-continuity.md
+  - name: 격리된 환경에서 가상 네트워크에 연결
+    href: connect-virtual-network-vnet-isolated-environment.md
   - name: 온-프레미스 데이터 액세스
     items:
     - name: 데이터 게이트웨이 설치
@@ -357,9 +367,9 @@ items:
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Logic%20Apps%20%22&ff=story_product_categories%26%3EAzure&p=0&so=story_publish_date%20desc
   - name: 동영상
     href: https://azure.microsoft.com/resources/videos/index/?services=logic-apps&sort=newest
-ms.openlocfilehash: 2b3670c807d02531e5b868f554eb3b80f65250f2
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 60dc7f5fe39310bad47fa526fe3d755b164b225a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124004"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999786"

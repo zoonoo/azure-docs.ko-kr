@@ -1,51 +1,65 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 15863679b42962d414493804f234c9fde46172ea
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: c3120d4fb8fb9377d43cdd2df780810bb4634e52
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781161"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985032"
 documentType: LandingData
 title: Azure Machine Learning 서비스(미리 보기) 설명서
 metadata:
-  title: Azure Machine Learning 서비스(미리 보기) 설명서
-  meta.description: Learn how to use Azure Machine Learning services (preview).
+  title: Azure Machine Learning 설명서(미리 보기) - 자습서, API 참조 | Microsoft Docs
+  meta.description: Learn how to build intelligent algorithms into apps and websites. Use Scikit-learn, Tensorflow, Pytorch or any other Python-based framework to build your machine learning model and train it locally or in the cloud. Tutorials, quickstarts, API references, and examples show you how.
   services: machine-learning
-  author: garyericson
+  author: j-martens
   manager: jhubbard
   ms.service: machine-learning
   ms.component: core
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/18/2018
-  ms.author: garye
+  ms.date: 09/24/2018
+  ms.author: jmartens
 abstract:
-  description: Azure Machine Learning 서비스(미리 보기)를 사용하면 Python 도구 및 라이브러리를 통해 Machine Learning 및 AI 모델을 빌드, 배포 및 관리할 수 있습니다. Azure에서 다양한 데이터와 계산 서비스를 사용하여 데이터를 저장하고 처리할 수 있습니다.
+  description: 앱 및 웹 사이트에 지능형 알고리즘을 빌드하는 방법을 알아봅니다. Scikit-learn, Tensorflow, Pytorch 또는 다른 Python 기반 프레임워크를 사용하여 기계 학습 모델을 빌드하고 로컬로 또는 클라우드에서 학습할 수 있습니다. 자습서, 빠른 시작, API 참조 및 예제는 방법을 보여줍니다.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsB
+    columns: 1
+    items:
+    - html: <p>Azure 클라우드 서비스에서 ML 모델을 학습하고 배포하세요. <a href="overview-what-is-azure-ml.md">서비스에 대한 자세한 정보...</a></p>
+      image:
+        src: /azure/machine-learning/media/index/i_machine-learning.svg
+      title: Azure Machine Learning 서비스
 - title: 5분 빠른 시작
   items:
   - type: paragraph
-    text: 첫 번째 Machine Learning 프로젝트를 만듭니다.
+    text: Azure Machine Learning 서비스에 대한 리소스를 설정합니다.
   - type: list
     style: unordered
     items:
-    - html: <a href="quickstart-installation.md">설치 및 만들기</a>
+    - html: <a href="quickstart-get-started.md">Azure Portal에서 시작</a>
 - title: 단계별 자습서
   items:
   - type: paragraph
-    text: 데이터를 준비하고, 실험을 설정하고, 모델을 조작하는 방법을 알아봅니다
+    text: 실험을 설정하고, 모델을 조작하는 방법을 알아봅니다.
   - type: list
-    style: ordered
+    style: unordered
     items:
-    - html: <a href="../desktop-workbench/tutorial-classifying-iris-part-1">Machine Learning 서비스(미리 보기) 기본 사항 안내</a>
-    - html: <a href="../desktop-workbench/tutorial-classifying-iris-part-2">Machine Learning Workbench를 사용하여 Iris 꽃 데이터 집합이 있는 모델 작성</a>
-    - html: <a href="../desktop-workbench/tutorial-classifying-iris-part-3">Machine Learning 모델 배포 방법 알아보기</a>
-    - html: <a href="../desktop-workbench/tutorial-bikeshare-dataprep">Azure Machine Learning Workbench를 사용하여 고급 데이터 준비</a>
-- title: Azure Machine Learning 기술 추가 정보
+    - html: <a href="tutorial-train-models-with-aml">사용자 고유의 기계 학습 모델 교육</a>
+    - html: <a href="tutorial-auto-train-models">모델 자동 생성 및 자동 조정</a>
+    - html: <a href="tutorial-deploy-models-with-aml">모델을 웹 서비스로 배포</a>
+- title: 참고 자료
   items:
-  - type: paragraph
-    text: Azure Machine Learning에서 사용할 수 있는 다른 기술은 다음과 같습니다.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="http://aka.ms/aml-sdk">Python용 Azure Machine Learning SDK(기본 SDK)</a>
+    - html: <a href="https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py">Azure Machine Learning Data Prep SDK</a>
+- title: 기타 Azure Machine Learning 기술
+  items:
   - type: list
     style: cards
     className: cardsFTitle
@@ -60,15 +74,3 @@ sections:
       image:
         src: media/index/virtual-machines.svg
         href: /azure/machine-learning/data-science-virtual-machine/
-- title: 참고 자료
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: 패키지
-      html: <p><a href="reference-python-package-overview#amlpcv">Computer vision</a></p><p><a href="reference-python-package-overview#amlpf">예측</a></p><p><a href="reference-python-package-overview#amlrealtimeai">FPGA 가속</a></p><p><a href="reference-python-package-overview#amlpta">텍스트 분석</a></p>
-    - title: 언어
-      html: <p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
-    - title: REST (영문)
-      html: <p><a href="https://docs.microsoft.com/rest/api/machinelearning/">REST 관리 API</a></p>

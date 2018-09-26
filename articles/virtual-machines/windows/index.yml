@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 83394520291a44cb2db1f69f82e962caccceb588
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c670ddf7543cc4a88827bed6a495c9f5d83d446f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44294416"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950930"
 documentType: LandingData
 title: Windows Virtual Machines 설명서
 metadata:
@@ -82,6 +82,19 @@ sections:
     - html: <a href="/azure/virtual-machines/windows/tutorial-vsts-iis-cicd">Visual Studio를 사용하여 지속적 통합 파이프라인 만들기</a>
     - html: <a href="/azure/virtual-machines/windows/tutorial-iis-sql">SQL/IIS/.NET 스택 설치</a>
     - html: <a href="/azure/virtual-machines/windows/tutorial-secure-web-server">SSL을 사용하여 웹 서버 보안</a>
+- title: Microsoft Learn을 사용하여 기술 습득
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: " Azure에서 Windows 가상 머신 만들기"
+      href: /learn/modules/create-windows-virtual-machine-in-azure/
+      image:
+        src: /learn/achievements/create-windows-virtual-machine-in-azure.svg
+        href: /learn/modules/create-windows-virtual-machine-in-azure/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-virtual-machines">더 많은 대화형 학습 보기...</a>
 - title: 무료 Pluralsight 동영상 교육
   items:
   - type: list

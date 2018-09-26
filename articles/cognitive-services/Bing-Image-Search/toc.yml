@@ -1,10 +1,11 @@
 items:
-- name: Bing Image Search 설명서
+- name: Bing Image Search API 설명서
   href: index.yml
 - name: 개요
   items:
   - name: Bing Image Search란?
     href: overview.md
+  expanded: true
 - name: 빠른 시작
   items:
   - name: REST API를 사용하여 검색 쿼리 보내기
@@ -21,7 +22,6 @@ items:
       href: quickstarts/python.md
     - name: Ruby 사용
       href: quickstarts/ruby.md
-    expanded: true
   - name: SDK를 사용하여 이미지 검색
     items:
     - name: C# 사용
@@ -68,9 +68,9 @@ items:
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference
   - name: Bing Image Search API v5
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference
-  - name: Azure Cognitive Services PowerShell 참조
+  - name: Azure PowerShell 참조
     href: https://aka.ms/azure-powershell-cognitiveservices
-  - name: Azure Cognitive Services 명령줄 인터페이스 참조
+  - name: Azure CLI 참조
     href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
 - name: 리소스
   items:
@@ -100,9 +100,9 @@ items:
     href: UseAndDisplayRequirements.md
   - name: Bing Image Search API에 대한 분석
     href: bing-image-stats.md
-ms.openlocfilehash: 74cc9f56aa4d559c7e2644fc6866ae3d97f158f6
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2b7b4bc8fb79687d032de52e3ac2ecbe4e944a8c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296297"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967356"

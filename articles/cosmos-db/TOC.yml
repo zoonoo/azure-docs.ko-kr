@@ -15,8 +15,6 @@ items:
       href: create-sql-api-java.md
     - name: Node.js
       href: create-sql-api-nodejs.md
-    - name: Node.js - V2 미리 보기
-      href: create-sql-api-nodejs-preview.md
     - name: Python
       href: create-sql-api-python.md
     - name: Xamarin
@@ -76,6 +74,17 @@ items:
     href: sql-api-resources.md
   - name: 글로벌 분포
     href: distribute-data-globally.md
+    items:
+    - name: 주요 이점
+      href: distribute-data-globally-benefits.md
+    - name: 글로벌 분포 사용
+      href: distribute-data-globally-turnkey.md
+    - name: 다중 마스터 사용
+      href: enable-multi-master.md
+    - name: OSS NoSQL 데이터베이스를 사용하는 다중 마스터
+      href: multi-master-oss-nosql.md
+    - name: 충돌 해결
+      href: multi-master-conflict-resolution.md
   - name: 처리량
     href: request-units.md
     items:
@@ -87,11 +96,6 @@ items:
     href: indexing-policies.md
   - name: 일관성 모델
     href: consistency-levels.md
-  - name: 다중 마스터
-    href: multi-region-writers.md
-    items:
-    - name: 다중 마스터 설치
-      href: multi-master-workaround.md
   - name: 변경 피드
     href: change-feed.md
   - name: TTL(Time to live)
@@ -111,6 +115,8 @@ items:
       href: vnet-service-endpoint.md
     - name: 키 자격 증명 모음 지원
       href: access-secrets-from-keyvault.md
+  - name: 예약된 용량 선불
+    href: cosmos-db-reserved-capacity.md
   - name: Backup 및 복원
     href: online-backup-and-restore.md
   - name: 고가용성
@@ -141,8 +147,6 @@ items:
             href: sql-api-async-java-get-started.md
           - name: Node.js
             href: sql-api-nodejs-get-started.md
-          - name: Node.js - V2 미리 보기
-            href: sql-api-nodejs-get-started-preview.md
         - name: 웹앱 만들기
           items:
           - name: .NET
@@ -151,8 +155,6 @@ items:
             href: sql-api-java-application.md
           - name: Node.js
             href: sql-api-nodejs-application.md
-          - name: Node.js - V2 미리 보기
-            href: sql-api-nodejs-application-preview.md
           - name: Python
             href: sql-api-python-application.md
           - name: Xamarin
@@ -173,8 +175,6 @@ items:
         href: sql-api-async-java-samples.md
       - name: Node.js 샘플
         href: sql-api-nodejs-samples.md
-      - name: Node.js - V2 미리 보기 샘플
-        href: sql-api-nodejs-samples-preview.md
       - name: Python 샘플
         href: sql-api-python-samples.md
       - name: PowerShell
@@ -287,12 +287,40 @@ items:
     items:
     - name: 소개
       href: cassandra-introduction.md
+    - name: Cassandra 지원
+      href: cassandra-support.md
     - name: 자습서
       items:
-      - name: 1 - 계정 만들기
-        href: tutorial-develop-cassandra-java.md
-      - name: 2 - 데이터 마이그레이션
+      - name: 1 - 계정 및 데이터베이스 만들기
+        href: create-cassandra-api-account-java.md
+      - name: 2 - 데이터 로드
+        href: cassandra-api-load-data.md
+      - name: 3 - 데이터 쿼리
+        href: cassandra-api-query-data.md
+      - name: 4 - 데이터 마이그레이션
         href: cassandra-import-data.md
+    - name: Cassandra 및 Spark
+      items:
+      - name: 소개
+        href: cassandra-spark-generic.md
+      - name: Databricks를 사용하여 연결
+        href: cassandra-spark-databricks.md
+      - name: HDInsight를 사용하여 연결
+        href: cassandra-spark-hdinsight.md
+      - name: 키스페이스 및 테이블 만들기
+        href: cassandra-spark-ddl-ops.md
+      - name: 데이터 삽입
+        href: cassandra-spark-create-ops.md
+      - name: 데이터 읽기
+        href: cassandra-spark-read-ops.md
+      - name: 데이터 Upsert
+        href: cassandra-spark-upsert-ops.md
+      - name: 데이터 삭제
+        href: cassandra-spark-delete-ops.md
+      - name: 집계 작업
+        href: cassandra-spark-aggregation-ops.md
+      - name: 테이블 데이터 복사
+        href: cassandra-spark-table-copy-ops.md
   - name: Table API 문서
     items:
     - name: 소개
@@ -438,6 +466,8 @@ items:
       href: bulk-executor-java.md
 - name: 리소스
   items:
+  - name: Microsoft Learn을 사용하여 기술 습득
+    href: /learn/browse/?products=azure-cosmos-db
   - name: 쿼리 참고 자료
     href: query-cheat-sheet.md
   - name: SQL 실습
@@ -460,9 +490,9 @@ items:
       href: use-cases.md
     - name: 소셜 미디어 앱
       href: social-media-apps.md
-ms.openlocfilehash: 2bc1fcfab7399cc52500b832721e7ca7509758fd
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: bdb4419b2af399ab28b71e11112e38cfd7a21389
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737280"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956852"
