@@ -41,7 +41,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
+## <a name="create-virtual-machine"></a>가상 머신 만들기
 
 [az vm create](/cli/azure/vm#az_vm_create) 명령을 사용하여 VM을 만듭니다.
 
@@ -73,7 +73,7 @@ VM 및 지원 리소스를 만드는 데 몇 분이 걸립니다. 다음 예제 
 
 VM의 출력에서 사용자 고유의 `publicIpAddress`를 적어 둡니다. 이 주소는 다음 단계에서 VM에 액세스하는 데 사용됩니다.
 
-## <a name="open-port-80-for-web-traffic"></a>웹 트래픽에 대해 포트 80 열기
+## <a name="open-port-80-for-web-traffic"></a>웹 트래픽을 위한 포트 80 열기
 
 기본적으로 Azure에서 Linux VM을 만들 때만 SSH 연결이 열립니다. [az vm open-port](/cli/azure/vm#az_vm_open_port)를 사용하여 NGINX 웹 서버와 사용하기 위해 TCP 포트 80을 엽니다.
 
@@ -103,7 +103,7 @@ sudo apt-get -y install nginx
 
 완료되면 SSH 세션을 `exit`합니다.
 
-## <a name="view-the-web-server-in-action"></a>작업에서 웹 서버 보기
+## <a name="view-the-web-server-in-action"></a>웹 서버 동작 확인
 
 NGINX를 설치하고 현재 포트 80이 인터넷에서 VM에 열려 있으면 사용자가 선택한 웹 브라우저를 사용하여 기본 NGINX 시작 페이지를 봅니다. 이전 단계에서 가져온 VM의 공용 IP 주소를 사용합니다. 다음 예제는 기본 NGINX 웹 사이트를 보여줍니다.
 
