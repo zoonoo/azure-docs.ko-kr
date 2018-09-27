@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 5b0dbf5ad78ff345d386024ff873618a781917ac
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 67f363d14489340755251369b422475032d1e671
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579040"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222499"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Azure Stack 개요에 대 한 업데이트 관리
 
@@ -45,6 +45,13 @@ Azure Stack에는 Microsoft 소프트웨어 업데이트의 응용 프로그램�
 ## <a name="plan-for-updates"></a>업데이트에 대 한 계획
 
 유지 관리 작업을 사용자에 게 알림 및 예약 하는 일반적인 유지 관리 기간 업무 외 시간 동안 가능한 경우 것이 좋습니다. 유지 관리 작업 테 넌 트 워크 로드와 포털 작업에 영향을 줄 수 있습니다.
+
+
+- 이 업데이트의 설치를 시작 하기 전에 실행할 [테스트 AzureStack](azure-stack-diagnostic-test.md) 에 Azure Stack의 상태를 확인 하 고 발견 된 작동 문제를 해결 하려면 다음 매개 변수를 사용 하 여 모든 경고 및 오류를 포함 합니다. 또한 활성 경고를 검토 하 고 작업을 필요로 하는 해결 합니다.  
+
+  ```PowerShell
+  Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
+  ``` 
 
 ## <a name="using-the-update-tile-to-manage-updates"></a>타일 업데이트를 사용 하 여 업데이트를 관리 하려면
 관리자 포털에서 업데이트를 관리합니다. Azure Stack 운영자로 서는 대시보드에서 타일 업데이트를 사용할 수 있습니다.

@@ -3,7 +3,7 @@ title: Azure Stack 1804 업데이트 | Microsoft Docs
 description: Azure Stack 용 1804 업데이트의 새로운 기능 알아보기 시스템의 알려진된 문제 및 업데이트를 다운로드 하는 위치를 통합 합니다.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
-ms.author: brenduns
+ms.date: 09/26/2018
+ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 0190298cbf6352feeb71e365f5815e174c9e30cc
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 16f12d8119a14e668a7502d99fa2d9c976d23833
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413519"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393522"
 ---
 # <a name="azure-stack-1804-update"></a>Azure Stack 1804 업데이트
 
@@ -102,6 +102,9 @@ Azure Stack 1804 업데이트 빌드 번호는 **20180513.1**합니다.
 다음은 빌드에 대 한 설치 후 알려진된 문제 **20180513.1**합니다.
 
 #### <a name="portal"></a>포털
+
+- Azure Stack 기술 설명서는 최신 버전에 중점을 둡니다. 릴리스 간의 포털 변경으로 인해 Azure Stack 포털을 사용 하는 경우 표시 되는 내용 설명서에 표시 되는 내용에서 달라질 수 있습니다. 
+
 - <!-- TBD - IS ASDK --> 이 버전의 Azure Stack을 사용 하 여 OEM 확장 패키지를 사용 하 여 드라이버 업데이트를 적용할 수 없습니다.  이 문제에 대 한 해결 방법은 없습니다.
 
 - <!-- 1272111 - IS --> 를 설치 하거나 Azure Stack의이 버전으로 업데이트 한 후 관리 포털에서 Azure Stack 배율 단위를 볼 수 수 없습니다.  

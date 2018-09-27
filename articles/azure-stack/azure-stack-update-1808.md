@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 686d911c7a59fa33508d130382a3fda4af28e665
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: f1541a0523ce0178ad3616a956d5188ef7df0ded
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46466067"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395715"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 업데이트
 
@@ -146,6 +146,8 @@ Azure Stack 1808 업데이트 빌드 번호는 **1.1808.0.97**합니다.
 
 ### <a name="portal"></a>포털
 
+- Azure Stack 기술 설명서는 최신 버전에 중점을 둡니다. 릴리스 간의 포털 변경으로 인해 Azure Stack 포털을 사용 하는 경우 표시 되는 내용 설명서에 표시 되는 내용에서 달라질 수 있습니다. 
+
 - <!-- TBD - IS ASDK --> 포털에서 빈 대시보드를 볼 수 있습니다. 대시보드를 복구 하려면 클릭 **대시보드 편집**, 한 다음 마우스 오른쪽 단추로 클릭 하 고 선택 **기본 상태로 재설정**합니다.
 
 - <!-- 2930718 - IS ASDK --> 관리자 포털에서 사용자 구독 하는 경우의 세부 정보 블레이드를 닫고 클릭 한 후에 액세스할 때 **최근**, 사용자 구독 이름이 표시 되지 않습니다.
@@ -217,6 +219,8 @@ Azure Stack 1808 업데이트 빌드 번호는 **1.1808.0.97**합니다.
 - <!-- 2724873 - IS --> PowerShell cmdlet을 사용 하는 경우 **시작 AzsScaleUnitNode** 하거나 **중지 AzsScaleunitNode** 배율 단위를 관리 하려면 시작 또는 중지 확장 단위를 첫 번째 시도가 실패할 수 있습니다. 첫 번째 실행에 실패 하면 cmdlet은 cmdlet을 두 번 실행 합니다. 작업을 완료 하 고 두 번째 실행 성공 해야 합니다. 
 
 - <!-- TBD - IS ASDK --> Azure Stack 사용자 포털에서 가상 컴퓨터를 만들 때 포털 잘못 된 DS 시리즈 VM에 연결할 수 있는 데이터 디스크 수를 표시 합니다. DS 시리즈 Vm은 Azure 구성으로 많은 데이터 디스크를 수용할 수 있습니다.
+
+- <!-- TBD - IS ASDK --> 다중 테 넌 트 환경에서 사용 하는 경우 다음 오류로 인해 실패 하지 기본 테 넌 트에 속한 구독에서 관리 디스크를 사용 하 여 VM을 프로 비전: *리소스 작업이 터미널 프로 비전 상태가 '실패'를 사용 하 여 완료 합니다.*
 
 - <!-- TBD - IS ASDK --> VM 배포에 확장을 프로 비전 너무 오래 걸리는 경우 사용자는 할당 취소 하거나 VM을 삭제 하는 프로세스를 중지 하는 대신 프로 비전 제한을 하도록 해야 합니다.  
 

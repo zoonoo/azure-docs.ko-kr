@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 09/24/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 8e0a73f800a2b56577b5684762e125d0a67b188d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bb4a34e7036c532ca1800c70347a4f2c55a33da2
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032294"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221726"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack에서 사용할 수 있는 azure Marketplace 항목
 
@@ -230,6 +230,8 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![Barracuda 응용 프로그램 보안 제어 센터](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda 응용 프로그램 보안 제어 센터](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-app-sec-control-center) | 여러 Barracuda 웹 응용 프로그램 방화벽 (WAF)를 중앙에서 관리 합니다. | Barracuda Networks, Inc. |
 | ![Barracuda 전자 메일 보안 게이트웨이](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda 전자 메일 보안 게이트웨이](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-email-security-gateway) | 인바운드 전자 메일을 통한 공격 으로부터 보호 하기 위해 전자 메일 보안 게이트웨이. | Barracuda Networks, Inc. |
 | ![Barracuda WAF (웹 응용 프로그램 방화벽)](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda WAF (웹 응용 프로그램 방화벽)](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf) | 보안 및 대상 및 자동화 된 공격에 대 한 DDoS 보호 합니다. | Barracuda Networks, Inc. |
+| ![Barracuda CloudGen 방화벽 제어 센터](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda CloudGen 방화벽 제어 센터](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-ng-cc) | Barracuda CloudGen 방화벽 수백 개의 폼 팩터에서 위치에 관계 없이 중앙에서 관리 합니다. | Barracuda Networks, Inc. |
+| ![Azure 용 barracuda CloudGen 방화벽](media/azure-stack-marketplace-azure-items/barracuda.png) | [Azure 용 barracuda CloudGen 방화벽](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-ng-firewall) | 응용 프로그램 및 데이터 상주를 전적으로 연결이 종료 되는 위치 대신 방화벽 보호를 제공 합니다. | Barracuda Networks, Inc. |
 | ![Check Point vSEC 보안 관리](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point vSEC 보안 관리](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Check Point vSEC는 맬웨어 및 고급 위협 으로부터 Azure에서 고객 자산을 보호 하기 위해 다중 계층, 고급 위협 방지를 제공 합니다. **모두 확인 지점 vSEC marketplace 항목 다운로드 합니다.** | Check Point |
 | ![Chef 자동화](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | 빌드, 배포 및 Chef Automate를 지속적인 자동화 플랫폼을 사용 하 여 관리 합니다. **두 Chef marketplace 항목 다운로드** | Chef 소프트웨어, Inc |
 | ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | 제어, 모니터링 및 쉽고 안정적으로 Vm을 암호화 합니다. **CloudLink SecureVM 항목을 모두 다운로드 합니다.** | Dell EMC |

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 53f01ad6e8a801c69ea93c54e805807cb8eed34d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 951c012dd22cf83741211b9601a5e7502de33be6
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127825"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393029"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 업데이트
 
@@ -168,6 +168,8 @@ Azure Stack 호스트 키 인프라를 Windows Server 2016의 Server Core 설치
 이 빌드 버전에 대 한 설치 후 알려진된 문제는 다음과 같습니다.
 
 ### <a name="portal"></a>포털
+
+- Azure Stack 기술 설명서는 최신 버전에 중점을 둡니다. 릴리스 간의 포털 변경으로 인해 Azure Stack 포털을 사용 하는 경우 표시 되는 내용 설명서에 표시 되는 내용에서 달라질 수 있습니다. 
 
 - 수 [드롭다운 목록에서 새 지원 요청을 여세요](azure-stack-manage-portals.md#quick-access-to-help-and-support) 관리자 내에서 포털은 사용할 수 있습니다. Azure stack 통합된 시스템 대신 다음 링크를 클릭 합니다. [ https://aka.ms/newsupportrequest ](https://aka.ms/newsupportrequest)합니다.
 
