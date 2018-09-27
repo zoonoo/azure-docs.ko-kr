@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1c25ae1acb112221047876ea6dd360c6d3bb2817
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ecf300b4095b4b6c928f4caddf9ee51423f6e1cc
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946241"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163650"
 documentType: LandingData
 title: Azure 관리 - 거버넌스
 metadata:
@@ -19,6 +19,15 @@ metadata:
   ms.author: dacoulte
 abstract:
   description: Azure 거버넌스는 다양한 Azure 리소스를 대규모로 관리할 수 있도록 설계된 개념 및 서비스 컬렉션입니다. 이러한 서비스는 논리적인 방식의 구독 구성 및 구조화 기능, 재사용 가능한 Azure 네이티브 리소스 패키지 만들기 및 배포 기능, 리소스 정의, 감사, 교정 기능 등을 제공합니다. 이 페이지에서는 이들 개념과 서비스 그리고 현재 사용자 환경에서 각각의 요소를 사용하도록 설정하고 활용하는 방법을 자세히 알아볼 수 있습니다.
+  aside:
+    image:
+      alt: 
+      height: 225
+      src: ./media/video.png
+      width: 250
+    title: Azure 거버넌스를 사용하여 리소스에 대한 속도 및 제어 제공(1:47)
+    href: https://www.youtube.com/watch?v=MhGbKjlmuRs
+    width: 250
 sections:
 - title: 구성 요소 및 서비스
 - items:
@@ -60,11 +69,3 @@ sections:
     - href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
       html: <p>관리자는 비즈니스 그룹 및 개발자가 자신의 목표를 신속하게 충족하도록 하면서도 워크로드가 조직의 최소 거버넌스 요구 사항을 충족하도록 지원할 수 있습니다.<br /><br /></p>
       title: 엔터프라이즈 스캐폴드
-- title: 참고 자료
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: 정책
-      html: <p>명령줄<ul><li><a href="/cli/azure/policy">Azure CLI</a></li></ul></p><p>PowerShell<ul><li><a href="/powershell/module/azurerm.resources/#policies">Azure PowerShell</a></li></ul></p><p>REST API<ul><li><a href="/rest/api/policy-insights/policyevents">이벤트</a></li><li><a href="/rest/api/policy-insights/policystates">상태</a></li><li><a href="/rest/api/resources/policyassignments">할당</a></li><li><a href="/rest/api/resources/policydefinitions">정책 정의</a></li><li><a href="/rest/api/resources/policysetdefinitions">이니셔티브 정의</a></li></ul></p>

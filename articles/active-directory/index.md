@@ -11,14 +11,14 @@ ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 09/14/2018
+ms.date: 09/20/2018
 ms.author: mtillman
-ms.openlocfilehash: 2d7288356834f4c57465c0043835edc3da86311f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bf72b8fbe437971e6d621208c93c239c3c557f55
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962456"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165061"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -63,7 +63,6 @@ ms.locfileid: "46962456"
                                                     </div>
                                                 </a>
                                             </li>
-<!--This is the learning section 
                                             <li>
                                                 <a href="">
                                                     <div class="cardSize">
@@ -71,14 +70,14 @@ ms.locfileid: "46962456"
                                                             <div class="card">
                                                                 <div class="cardImageOuter">
                                                                     <div class="cardImage">
-                                                                        <img alt="" src="https://docs.microsoft.com/media/common/i_learn-about.svg" data-linktype="external">
+                                                                        <img alt="" src="/learn/achievements/secure-azure-resources-with-conditional-access.svg" data-linktype="external">
                                                                     </div>
                                                                 </div>
                                                                 <div class="cardText" style="padding-left: 0px">
-                                                                    <h3><a href="">Build your skills with Microsoft Learn</a></h3> 
+                                                                    <h3><a href="">Microsoft Learn을 사용하여 기술 빌드</a></h3> 
                                                                     <p>
-                                                                        <a href="https://docs.microsoft.com/learn/modules/secure-azure-resources-with-conditional-access">Secure your Azure resources with conditional access</a><br>
-                                                                        <a href="">More interactive learning ...</a><br>
+                                                                        <a href="/learn/modules/secure-azure-resources-with-conditional-access/">조건부 액세스를 사용하여 Azure 리소스 보호</a><br>
+                                                                        <a href="/learn/browse/?products=azure-active-directory">더 많은 대화형 학습 보기...</a><br>
                                                                     </p>
                                                                 </div>
                                                             </div>
@@ -86,7 +85,6 @@ ms.locfileid: "46962456"
                                                     </div>
                                                 </a>
                                             </li>
- End of the learning section -->
                                         </ul>
                                     </li>
                                     <li>
@@ -94,14 +92,14 @@ ms.locfileid: "46962456"
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="manage-apps/index.yml">앱 관리</a></h3>
+                                                        <h3><a href="manage-apps/index.yml">응용 프로그램 관리</a></h3>
                                                         <p>
                                                             <a href="manage-apps/add-application-portal.md">응용 프로그램 추가</a><br>
                                                             <a href="manage-apps/configure-single-sign-on-portal.md">SSO(Single Sign-On) 구성</a><br>
                                                             <a href="manage-apps/application-proxy.md">온-프레미스 앱에 대한 응용 프로그램 프록시</a><br>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="authentication/index.yml">인증 방법</a></h3>
+                                                        <h3><a href="authentication/index.yml">인증</a></h3>
                                                         <p>
                                                             <a href="authentication/tutorial-mfa-applications.md">Azure Portal에 MFA 사용</a><br>
                                                             <a href="authentication/quickstart-sspr.md">셀프 서비스 암호 재설정 사용</a><br>
@@ -122,11 +120,11 @@ ms.locfileid: "46962456"
                                                             <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">ASP.NET 웹 API에 액세스 권한 부여</a>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="governance/access-reviews-overview.md">액세스 검토</a></h3>
+                                                        <h3><a href="conditional-access/index.yml">조건부 액세스</a></h3>
                                                         <p>
-                                                            <a href="governance/create-access-review.md">액세스 검토 만들</a><br>
-                                                            <a href="governance/perform-access-review.md">액세스 검토 수행</a><br>
-                                                            <a href="governance/active-directory-tou.md">사용 약관</a>
+                                                            <a href="conditional-access/app-based-mfa.md">특정 앱에 대해 MFA 요구</a><br>
+                                                            <a href="conditional-access/require-tou.md">허용할 사용 약관 필요</a><br>
+                                                            <a href="conditional-access/app-sign-in-risk.md">세션 위험이 감지되면 액세스 차단</a>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -138,18 +136,11 @@ ms.locfileid: "46962456"
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="conditional-access/index.yml">조건부 액세스</a></h3>
-                                                        <p>
-                                                            <a href="conditional-access/app-based-mfa.md">특정 앱에 대해 MFA 요구</a><br>
-                                                            <a href="conditional-access/require-tou.md">허용할 사용 약관 필요</a><br>
-                                                            <a href="conditional-access/app-sign-in-risk.md">세션 위험이 감지되면 액세스 차단</a>
-                                                        </p>
-                                                        <br><br>
                                                         <h3><a href="develop/index.yml">개발자</a></h3>
                                                         <p>
                                                             <a href="develop/about-microsoft-identity-platform.md">Microsoft ID 플랫폼 정보</a><br>
-                                                            <a href="develop/azure-ad-developers-guide.md">v1.0</a><br>
-                                                            <a href="develop/v2-overview.md">v2.0</a>
+                                                            <a href="develop/azure-ad-developers-guide.md">v1.0 플랫폼</a><br>
+                                                            <a href="develop/v2-overview.md">v2.0 플랫폼</a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="devices/index.yml">장치 관리</a></h3>
@@ -161,9 +152,9 @@ ms.locfileid: "46962456"
                                                         <br><br>
                                                         <h3><a href="/azure/active-directory-domain-services/index">Domain Services</a></h3>
                                                         <p>
-                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started.md">Azure AD Domain Services 활성화</a><br>
-                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal.md">관리되는 도메인에 Windows Server VM 연결</a><br>
-                                                            <a href="/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md">보안 LDAP 구성</a>
+                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started">Azure AD Domain Services 활성화</a><br>
+                                                            <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal">관리되는 도메인에 Windows Server VM 연결</a><br>
+                                                            <a href="/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap">보안 LDAP 구성</a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="users-groups-roles/index.yml">엔터프라이즈 사용자</a></h3>
@@ -171,6 +162,13 @@ ms.locfileid: "46962456"
                                                             <a href="users-groups-roles/directory-assign-admin-roles.md">관리자 역할 할당</a><br>
                                                             <a href="users-groups-roles/licensing-groups-assign.md">그룹에 라이선스 할당</a><br>
                                                             <a href="users-groups-roles/groups-create-rule.md">동적 그룹 만들기</a>
+                                                        </p>
+                                                        <br><br>
+                                                        <h3><a href="hybrid/index.yml">하이브리드 ID</a></h3>
+                                                        <p>
+                                                            <a href="hybrid/how-to-connect-install-roadmap.md">Azure AD Connect 설치</a><br>
+                                                            <a href="hybrid/how-to-connect-sso.md">Azure AD Connect에서 Single Sign-On</a><br>
+                                                            <a href="hybrid/how-to-connect-fed-whatis.md">Azure AD Connect 및 페더레이션</a>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -182,11 +180,11 @@ ms.locfileid: "46962456"
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="hybrid/index.yml">하이브리드 ID</a></h3>
+                                                        <h3><a href="governance/index.yml">ID 거버넌스</a></h3>
                                                         <p>
-                                                            <a href="hybrid/tutorial-password-hash-sync.md">Azure AD Connect</a><br>
-                                                            <a href="hybrid/tutorial-passthrough-authentication.md">클라우드에 AD 포리스트 통합</a><br>
-                                                            <a href="hybrid/tutorial-federation.md">클라우드에 AD 포리스트 페더레이션</a>
+                                                            <a href="governance/manage-user-access-with-access-reviews.md">사용자 액세스 관리</a><br>
+                                                            <a href="governance/manage-guest-access-with-access-reviews.md">게스트 액세스 관리</a><br>
+                                                            <a href="governance/active-directory-tou.md">사용 약관</a><br>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="identity-protection/index.yml">ID 보호</a></h3>
@@ -203,14 +201,14 @@ ms.locfileid: "46962456"
                                                             <a href="managed-identities-azure-resources/services-support-msi.md">관리 ID를 지원하는 서비스</a>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="privileged-identity-management/index.yml">PIM</a></h3>
+                                                        <h3><a href="privileged-identity-management/index.yml">PIM(Privileged Identity Management)</a></h3>
                                                         <p>
                                                             <a href="privileged-identity-management/pim-getting-started.md">PIM 사용 시작</a><br>
                                                             <a href="privileged-identity-management/pim-how-to-activate-role.md">내 디렉터리 역할 활성화</a><br>
                                                             <a href="privileged-identity-management/pim-how-to-add-role-to-user.md">디렉터리 역할 할당</a>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="reports-monitoring/index.yml">보고 및 모니터링</a></h3>
+                                                        <h3><a href="reports-monitoring/index.yml">보고서 및 모니터링</a></h3>
                                                         <p>
                                                             <a href="reports-monitoring/howto-find-activity-reports.md">활동 보고서 보기</a><br>
                                                             <a href="reports-monitoring/concept-activity-logs-in-azure-monitor.md">Azure Monitor의 Azure AD 로그 사용</a><br>

@@ -8,6 +8,7 @@
 ## [Azure SQL DB 오프라인으로 SQL Server 마이그레이션](tutorial-sql-server-to-azure-sql.md)
 ## [Azure SQL DB 온라인으로 SQL Server 마이그레이션](tutorial-sql-server-azure-sql-online.md)
 ## [Azure SQL DB Managed Instance 오프라인으로 SQL Server 마이그레이션](tutorial-sql-server-to-managed-instance.md)
+## [Azure SQL DB Managed Instance 온라인으로 SQL Server 마이그레이션](tutorial-sql-server-managed-instance-online.md)
 ## [MySQL 온라인용 Azure DB로 MySQL 마이그레이션](tutorial-mysql-azure-mysql-online.md)
 ## [PostgreSQL을 Azure DB for PostgreSQL로 온라인 마이그레이션](tutorial-postgresql-azure-postgresql-online.md)
 

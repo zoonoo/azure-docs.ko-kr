@@ -18,26 +18,34 @@ items:
   items:
   - name: 예기치 않은 비용 방지
     href: billing-getting-started.md
-  - name: 청구 경고 설정
-    href: billing-set-up-alerts.md
-  - name: 가격 계산
-    href: https://azure.microsoft.com/pricing/calculator/
   - name: 리소스 태그 사용
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
+  - name: 비용 분석 시작 - EA만 해당
+    href: ../cost-management/quick-acm-cost-analysis.md?toc=/azure/billing/TOC.json
+  - name: 예산 만들기 및 관리 - EA만 해당
+    href: ../cost-management/tutorial-acm-create-budgets.md?toc=/azure/billing/TOC.json
+  - name: 최적화 권장 사항 - EA만 해당
+    href: ../cost-management/tutorial-acm-opt-recommendations.md?toc=/azure/billing/TOC.json
+  - name: 가격 계산
+    href: https://azure.microsoft.com/pricing/calculator/
   - name: 지출 한도 이해
     href: billing-spending-limit.md
+  - name: 청구 경고 설정
+    href: billing-set-up-alerts.md
   - name: Azure Reservations를 사용하여 저장
     items:
     - name: Azure Reservations란?
       href: billing-save-compute-costs-reservations.md
     - name: 예약 구입
       items:
-      - name: 가상 머신
-        href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+      - name: Cosmos DB
+        href: ../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: SQL Database
         href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
       - name: SUSE Linux 소프트웨어
         href: ../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json
+      - name: 가상 머신
+        href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
     - name: 할인 적용 방식
       items:
       - name: 예약 VM 인스턴스
@@ -172,9 +180,9 @@ items:
     items:
     - name: Enterprise Reporting REST API
       href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
-ms.openlocfilehash: 2ef6d1445b444b7816a7a652f052c169cf0d78ec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0090b62d3738804877687e2071d96b13f7c9dd13
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969566"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063560"

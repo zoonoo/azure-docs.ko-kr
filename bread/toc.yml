@@ -37,16 +37,19 @@ items:
     - name: 사용자 도움말
       tocHref: /azure/active-directory/user-help/
       topicHref: /azure/active-directory/user-help/
+    - name: B2B
+      tocHref: /azure/active-directory/b2b/
+      topicHref: /azure/active-directory/b2b/
     - name: B2C
       tocHref: /azure/active-directory-b2c/
       topicHref: /azure/active-directory-b2c/
-    - name: Domain Services
+    - name: 도메인 서비스
       tocHref: /azure/active-directory-domain-services/
       topicHref: /azure/active-directory-domain-services/
     - name: 사용자, 그룹 및 역할
       tocHref: /azure/active-directory/users-groups-roles/
       topicHref: /azure/active-directory/users-groups-roles/
-    - name: 액세스 검토
+    - name: ID 거버넌스
       tocHref: /azure/active-directory/governance/
       topicHref: /azure/active-directory/governance/
     - name: 응용 프로그램 관리
@@ -619,9 +622,9 @@ items:
   - name: VPN Gateway
     tocHref: /azure/vpn-gateway/
     topicHref: /azure/vpn-gateway/
-ms.openlocfilehash: 1236a6109ad48c0321d3ce3b21f91e939282958b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c2588f63135e0c52657b469945b005c13e863418
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991558"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163531"

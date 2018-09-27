@@ -45,8 +45,9 @@
 ### [Azure의 SAP HANA 가용성 개요](sap-hana-availability-overview.md)
 ### [단일 Azure 지역 내 Azure의 SAP HANA 가용성](sap-hana-availability-one-region.md)
 ### [Azure 지역 간 Azure의 SAP HANA 가용성](sap-hana-availability-across-regions.md)
-## [SLES에서 SAP HANA 시스템 복제 설정](sap-hana-high-availability.md)
-## [RHEL에서 SAP HANA 시스템 복제 설정](sap-hana-high-availability-rhel.md)
+### [SLES에서 SAP HANA 시스템 복제 설정](sap-hana-high-availability.md)
+### [RHEL에서 SAP HANA 시스템 복제 설정](sap-hana-high-availability-rhel.md)
+### [SLES에서 SAP HANA 스케일 아웃 및 Pacemaker 문제 해결](hana-vm-troubleshoot-scale-out-ha-on-sles.md)
 ## [SAP HANA 백업 개요](sap-hana-backup-guide.md)
 ## [SAP HANA 파일 수준 백업](sap-hana-backup-file-level.md)
 ## [SAP HANA 저장소 스냅숏 백업](sap-hana-backup-storage-snapshots.md)
@@ -107,3 +108,4 @@
 ## [Azure Data Factory는 SAP HANA 및 Business Warehouse 데이터 통합을 제공합니다.](https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration)
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+

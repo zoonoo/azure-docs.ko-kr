@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: ab56a5b1634d11d21597dbfdba8bc7a8d6f9b18b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c3e1b6e46230257e94fa03a2eaeb2e34ee022b2b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957849"
+ms.locfileid: "47031920"
 documentType: LandingData
 title: Azure Blueprints 설명서
 metadata:
@@ -18,7 +18,7 @@ metadata:
   ms.date: 09/18/2018
   ms.author: dacoulte
 abstract:
-  description: Azure Blueprints를 통해 리소스에 대한 규칙 및 효과를 적용하는 정책 정의를 사용하여 IT 문제를 관리하고 방지할 수 있습니다. Azure Policy를 사용하는 경우 리소스는 회사 표준 및 서비스 수준 계약을 준수하도록 유지됩니다. 빠른 시작, 자습서 및 샘플을 사용하여 정책 정의를 만들고, 할당하고, 관리하는 방법을 알아봅니다.
+  description: Azure Blueprints를 통해 정책, 역할 기반 액세스 제어, Azure Resource Manager 템플릿과 같은 구성 가능한 아티팩트를 사용하여 반복 가능한 방식으로 클라우드 환경을 배포하고 업데이트할 수 있습니다.
 sections:
 - title: 5분 빠른 시작
   items:

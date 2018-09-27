@@ -41,43 +41,19 @@ items:
     - name: Azure Enterprise Scaffold 구현
       href: /azure/architecture/cloud-adoption/appendix/azure-scaffold-examples?toc=/azure/governance/toc.json
   expanded: true
-- name: 참조
-  items:
-  - name: 청사진
-    items:
-    - name: REST API
-      href: /rest/api
-    - name: Azure CLI
-      href: /cli/azure
-  - name: 정책
-    items:
-    - name: REST API
-      href: /rest/api
-    - name: Azure CLI
-      href: /cli/azure
-    - name: Azure PowerShell
-      href: /powershell/azure
-  - name: 리소스 그래프
-    items:
-    - name: Azure CLI
-      href: /cli/azure
-    - name: Azure PowerShell
-      href: /powershell/azure
 - name: 리소스
   items:
-  - name: 비디오 링크
-    href: /
-  - name: GitHub
-    href: /
   - name: Azure 로드맵
-    href: /
+    href: https://azure.microsoft.com/roadmap/
   - name: 요금 계산기
-    href: /
-  - name: 블로그 문서
-    href: /
-ms.openlocfilehash: 4006c484adcdb0cf46646ebace847ba4d45efe26
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: 사용자 음성
+    href: https://feedback.azure.com/forums/915958-azure-governance
+  - name: 거버넌스 비디오
+    href: https://www.youtube.com/watch?v=MhGbKjlmuRs
+ms.openlocfilehash: dcf421089adeb43cb11760a248f212fdafd5eeca
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982251"
+ms.locfileid: "47031718"

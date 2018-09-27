@@ -7,32 +7,30 @@ items:
     href: overview-what-is-azure-ml.md
   - name: Workbench의 변경된 내용
     href: overview-what-happened-to-workbench.md
-  - name: 마이그레이션하는 방법
-    href: how-to-migrate.md
   - name: Microsoft의 ML 제품 비교
     href: overview-more-machine-learning.md
   expanded: true
 - name: 빠른 시작
   items:
-  - name: 시작 - Portal
+  - name: 시작하기
     href: quickstart-get-started.md
 - name: 자습서
   items:
-  - name: 1. 모델 학습
+  - name: '모델 학습: 1부'
     href: tutorial-train-models-with-aml.md
-  - name: 2. 모델 배포
+  - name: '모델 배포: 2부'
     href: tutorial-deploy-models-with-aml.md
   - name: 자동 ML 모델 학습
     href: tutorial-auto-train-models.md
 - name: 개념
   items:
-  - name: 아키텍처 및 용어
+  - name: 서비스의 작동 방식
     href: concept-azure-machine-learning-architecture.md
   - name: 모델 관리
     href: concept-model-management-and-deployment.md
-  - name: FPGA 가속
+  - name: FPGA를 사용하여 가속화
     href: concept-accelerate-with-fpgas.md
-  - name: ML 파이프라인
+  - name: 기계 학습 파이프라인
     href: concept-ml-pipelines.md
 - name: 방법 가이드
   items:
@@ -106,6 +104,8 @@ items:
     href: reference-azure-machine-learning-cli.md
 - name: 리소스
   items:
+  - name: R 개발자 가이드
+    href: ../r-developers-guide.md
   - name: Azure 로드맵
     href: https://azure.microsoft.com/roadmap/
   - name: 가격
@@ -120,6 +120,8 @@ items:
     href: support-for-aml-services.md
   - name: 사용되지 않는 문서
     items:
+    - name: 마이그레이션하는 방법
+      href: how-to-migrate.md
     - name: Workbench 빠른 시작
       href: ../desktop-workbench/quickstart-installation.md
     - name: '자습서 1: 데이터 준비'
@@ -320,9 +322,9 @@ items:
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
     - name: 지원
       href: support-for-aml-services.md
-ms.openlocfilehash: c5b69eaab82c2649eb1cb30438899999449c92a2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0e069ce7bb04a4aef2e631488ec807a1539c32e5
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992833"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162154"
