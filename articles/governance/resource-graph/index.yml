@@ -1,0 +1,37 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 739d46e900b51e93c0d232e57a54a9b05cfe49ce
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965078"
+documentType: LandingData
+title: Azure Resource Graph 설명서
+metadata:
+  title: Azure Resource Graph 설명서 - 자습서, API 참조
+  description: Azure Resource Graph는 대규모의 복잡한 리소스 쿼리를 지원하는 Azure의 서비스입니다.
+  services: resource-graph
+  author: DCtheGeek
+  manager: carmonm
+  ms.service: resource-graph
+  ms.topic: landing-page
+  ms.date: 09/18/2018
+  ms.author: dacoulte
+abstract:
+  description: Azure Resource Graph 설명서는 대규모로 리소스를 찾고 검색하기 위한 쿼리 언어를 구성하고 학습하는 데 도움이 됩니다.
+sections:
+- title: 5분 빠른 시작
+  items:
+  - type: paragraph
+    text: Resource Graph를 구성하고 첫 번째 쿼리를 실행해 보세요.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: ./media/cli.svg
+      text: Azure CLI
+      href: first-query-azurecli.md
+    - image:
+        src: ./media/powershell.svg
+      text: Azure PowerShell
+      href: first-query-powershell.md

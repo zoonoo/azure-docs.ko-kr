@@ -107,6 +107,8 @@ items:
       href: premium-storage.md
     - name: 표준 SSD
       href: disks-standard-ssd.md
+    - name: Ultra SSD
+      href: disks-ultra-ssd.md
     - name: 프리미엄 저장소 성능
       href: premium-storage-performance.md
     - name: Standard Storage
@@ -273,7 +275,7 @@ items:
       href: download-vhd.md
   - name: 가용성 및 규모
     items:
-    - name: Autoscale
+    - name: 자동 크기 조정
       href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: 고가용성
       href: manage-availability.md
@@ -413,8 +415,10 @@ items:
       href: mount-azure-file-storage-on-linux-using-smb.md
     - name: 템플릿을 사용하여 디스크 배포
       href: using-managed-disks-template-deployments.md
-    - name: Write Accelerator 사용
+    - name: 쓰기 가속기 사용
       href: how-to-enable-write-accelerator.md
+    - name: Ultra SSD 사용
+      href: disks-enable-ultra-ssd.md
     - name: 성능 최적화
       href: optimization.md
       items:
@@ -555,6 +559,8 @@ items:
   items:
   - name: 작성자 템플릿
     href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+  - name: Microsoft Learn을 통해 기술 쌓기
+    href: /learn/browse/?products=azure-virtual-machines
   - name: Azure 로드맵
     href: https://azure.microsoft.com/roadmap/
   - name: 커뮤니티 템플릿
@@ -569,9 +575,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: FAQ
     href: faq.md
-ms.openlocfilehash: 9207b3d95c1ea8b665ff8f8c0712aed81521f7db
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 4eba76cd7645675b4d350b85d21f7453bc3b21a3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982946"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971419"

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b00d2c68748372c644a0966d76d5adb8e430e2d5
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: b5fa216c561340402b1b60a65402491c9256ec5e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053604"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965038"
 documentType: LandingData
 title: Azure Cosmos DB 설명서
 metadata:
@@ -101,7 +101,7 @@ sections:
       values:
       - href: /azure/cosmos-db/create-sql-api-java
       - href: /azure/cosmos-db/create-sql-api-dotnet
-      - href: /azure/cosmos-db/create-sql-api-nodejs-preview
+      - href: /azure/cosmos-db/create-sql-api-nodejs
       - href: /azure/cosmos-db/create-sql-api-python
       - href: 
       - href: 
@@ -155,6 +155,29 @@ sections:
     - html: Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-global-distribution-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Table</a>을 사용하여 글로벌 데이터베이스 복제
     - html: <a href="local-emulator">에뮬레이터를 사용하여 로컬로 응용 프로그램 개발</a>
     - html: <a href="/azure/cosmos-db/tutorial-functions-http-trigger">Azure Cosmos DB 입력 바인딩을 사용하여 HTTP 트리거 만들기</a>
+- title: Microsoft Learn을 통해 기술 쌓기
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: " 크기 조정하도록 빌드된 Azure Cosmos DB 데이터베이스 만들기"
+      href: /learn/modules/create-cosmos-db-for-scale/
+      image:
+        src: /learn/achievements/create-cosmos-db-for-scale.svg
+        href: /learn/modules/create-cosmos-db-for-scale/
+    - title: Azure Cosmos DB 데이터베이스에서 데이터 삽입 및 쿼리
+      href: /learn/modules/access-data-with-cosmos-db-and-sql-api/
+      image:
+        src: /learn/achievements/access-data-with-cosmos-db-and-sql-api.svg
+        href: /learn/modules/access-data-with-cosmos-db-and-sql-api/
+    - title: Visual Studio Code에서 Azure Cosmos DB용 .NET Core 앱 빌드
+      href: /learn/modules/build-cosmos-db-app-with-vscode
+      image:
+        src: /learn/achievements/build-cosmos-db-app-with-vscode.svg
+        href: /learn/modules/build-cosmos-db-app-with-vscode
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-cosmos-db">더 많은 대화형 학습 보기...</a>
 - title: 참고 자료
   items:
   - type: list

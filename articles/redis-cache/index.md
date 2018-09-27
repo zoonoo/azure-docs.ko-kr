@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: ed1843226d2b131bd4f98a18b2a48af3e7a3f13c
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: d512e4fef83a623604d43aa43115c7b4fd1e1318
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090544"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946955"
 ---
 # <a name="redis-cache-documentation"></a>Redis Cache 설명서
 
@@ -150,6 +150,50 @@ ms.locfileid: "44090544"
         </a>
     </li>
 </ul>
+
+---
+
+## <a name="build-your-skills-with-microsoft-learn"></a>Microsoft Learn을 통해 기술 쌓기
+
+<ul class="panelContent cardsFTitle">
+    <li>
+        <a href="/learn/modules/optimize-your-web-apps-with-redis/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/learn/achievements/optimize-web-apps-with-redis.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3> Redis로 읽기 전용 데이터를 캐싱하여 웹 응용 프로그램 최적화</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li><li>
+        <a href="/learn/modules/work-with-mutable-and-partial-data-in-a-redis-cache/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/learn/achievements/work-with-mutable-and-partial-data-in-a-redis-cache.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Redis Cache에서 변경 가능한 부분 데이터로 작업</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>   
+
+**[더 많은 대화형 학습 보기...](/learn/browse?products=azure-redis-cache)**
 
 ---
 

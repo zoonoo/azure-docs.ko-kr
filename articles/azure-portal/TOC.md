@@ -5,7 +5,7 @@
 # 개념
 ## [Azure 리소스 관리자](../azure-resource-manager/resource-group-overview.md)
 ## [바로 가기 키](azure-portal-keyboard-shortcuts.md)
-## [지원되는 브라우저 및 장치](../azure-preview-portal-supported-browsers-devices.md)
+## [지원되는 브라우저 및 장치](azure-portal-supported-browsers-devices.md)
 ## [Azure 대시보드의 구조](azure-portal-dashboards-structure.md)
 # 방법 가이드
 ## 배포

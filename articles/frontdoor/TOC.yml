@@ -1,0 +1,61 @@
+items:
+- name: Front Door Service 설명서
+  href: index.yml
+- name: 개요
+  items:
+  - name: Azure Front Door Service란?
+    href: front-door-overview.md
+- name: 빠른 시작
+  items:
+  - name: Front Door 만들기
+    href: quickstart-create-front-door.md
+- name: 자습서
+  items:
+  - name: Front Door에 사용자 지정 도메인 추가
+    href: front-door-custom-domain.md
+- name: 샘플
+  items:
+  - name: Resource Manager 템플릿
+    href: front-door-quickstart-template-samples.md
+- name: 개념
+  items:
+  - name: 백 엔드 및 백 엔드 풀
+    href: front-door-backend-pool.md
+  - name: DDoS 보호 및 응용 프로그램 계층 보안
+    href: front-door-ddos-security.md
+  - name: Azure 응용 프로그램 전달 제품군을 통해 부하 분산
+    href: front-door-lb-with-azure-app-delivery-suite.md
+  - name: 라우팅 아키텍처
+    href: front-door-routing-architecture.md
+  - name: 트래픽 라우팅 방법
+    href: front-door-routing-methods.md
+  - name: Front Door에서 요청에 대해 라우팅을 일치시키는 방법
+    href: front-door-route-matching.md
+  - name: 상태 프로브
+    href: front-door-health-probes.md
+  - name: URL 다시 쓰기
+    href: front-door-url-rewrite.md
+  - name: Front Door를 통한 캐싱
+    href: front-door-caching.md
+  - name: HTTP/2 지원
+    href: front-door-http2.md
+  - name: HTTP 헤더 프로토콜 지원
+    href: front-door-http-headers-protocol.md
+  - name: 모니터링
+    href: front-door-diagnostics.md
+- name: 리소스
+  items:
+  - name: Azure 로드맵
+    href: https://azure.microsoft.com/roadmap/
+  - name: 가격
+    href: https://azure.microsoft.com/pricing/details/frontdoor/
+  - name: 요금 계산기
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: 서비스 업데이트
+    href: https://azure.microsoft.com/updates/?product=frontdoor
+ms.openlocfilehash: e44b12e49ea03cb344288367f1f9a97e195f39a4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949131"
