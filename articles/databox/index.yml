@@ -1,9 +1,15 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: f4ef48157896d7cf4947fbc8ef6eba8b59ec414b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986520"
 documentType: LandingData
-title: Azure Data Box 설명서
+title: 오프라인 전송을 위한 Azure Data Box
 metadata:
-  title: Azure Data Box 설명서
-  description: Azure Data Box 서비스를 통해 테라바이트 단위의 데이터를 빠르고, 저렴하고, 신뢰할 수 있는 방식으로 Azure에 전송할 수 있습니다. Microsoft는 디스크를 배송하고 종단 간 물류를 처리하여 안전한 데이터 전송을 가속화합니다.
+  title: 오프라인 전송을 위한 Azure Data Box 설명서
+  description: Azure Data Box 제품군을 통해 수백 테라바이트의 데이터를 빠르고, 저렴하고, 신뢰할 수 있는 방식으로 Azure에 전송할 수 있습니다. 시간이나 네트워크, 비용이 제한되는 경우 오프라인 데이터 전송을 위해 Data Box 장치를 사용하세요.
   services: databox
   author: alkohli
   manager: twooley
@@ -11,36 +17,35 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 07/10/2018
+  ms.date: 09/24/2018
   ms.author: alkohli
-  ms.openlocfilehash: 5077d0ba77b6bdce99f1dfdf258182980a367b6c
-  ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-  ms.translationtype: HT
-  ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/13/2018
-  ms.locfileid: "39010143"
 abstract:
-  description: Azure Data Box 서비스를 통해 테라바이트 단위의 데이터를 빠르고, 저렴하고, 신뢰할 수 있는 방식으로 Azure에 전송할 수 있습니다. Microsoft는 디스크를 배송하고 종단 간 물류를 처리하여 안전한 데이터 전송을 가속화합니다.<p>간단한 4단계(주문, 수신, 디스크에 데이터 복사 및 Azure에 디스크 반환)로 대량의 데이터를 Azure에 전송합니다. 디스크가 수신되면 데이터는 Azure로 수집되고 디스크는 안전하게 초기화됩니다.<p><a href="/azure/databox/data-box-disk-overview">Data Box 디스크에 대한 자세한 정보</a></p>
+  description: Azure Data Box 제품군을 통해 수백 테라바이트의 데이터를 빠르고, 저렴하고, 신뢰할 수 있는 방식으로 Azure에 전송할 수 있습니다. 시간이나 네트워크, 비용이 제한되는 경우 오프라인 데이터 전송을 위해 Data Box 장치를 사용하세요.<p>데이터 크기에 따라 Data Box Disk, Data Box<SUP>미리 보기</SUP> 또는 Data Box Heavy<SUP>미리 보기</SUP>를 선택합니다. 장치마다 Azure로의 전송은 4개의 간단한 단계로 이루어집니다. 4개의 단계는 주문, 수령, 장치에 데이터 복사, Azure로 장치 반환입니다. Azure 데이터 센터에서는 데이터가 업로드된 후 지워집니다.</p><p>빠른 시작 및 자습서를 통해 오프라인 데이터 전송에 Data Box를 활용하는 방법을 알아봅니다.</p>
 sections:
 - title: 빠른 시작
   items:
-  - type: paragraph
-    text: Data Box 디스크를 사용하여 데이터를 Azure에 전송하는 방법을 알아봅니다.
   - type: list
     style: icon48
     items:
     - image:
-        src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Azure Portal
+        src: https://docs.microsoft.com/media/common/i_quick-start.svg
+      text: Azure Portal에서 Data Box 설정
+      href: /azure/databox/data-box-quickstart-portal
+    - image:
+        src: https://docs.microsoft.com/media/common/i_quick-start.svg
+      text: Azure Portal에서 Data Box Disk<SUP>미리 보기</SUP> 설정
       href: /azure/databox/data-box-disk-quickstart-portal
-- title: 단계별 자습서
+    - image:
+        src: https://docs.microsoft.com/media/common/i_quick-start.svg
+      text: Data Box Heavy<SUP>미리 보기</SUP> 등록
+      href: /azure/databox/data-box-heavy-overview#sign-up
+- title: 자습서
   items:
-  - type: paragraph
-    text: Data Box 디스크를 통해 Azure로 데이터를 가져올 수 있는 방법에 대해 알아봅니다.
   - type: list
-    style: ordered
+    style: cards
+    className: cardsD
     items:
-    - html: <a href="data-box-disk-deploy-ordered">Data Box 디스크 주문</a>
-    - html: <a href="data-box-disk-deploy-set-up">Data Box 디스크 설정</a>
-    - html: <a href="data-box-disk-deploy-copy-data">Data Box 디스크에 데이터 복사</a>
-    - html: <a href="data-box-disk-deploy-picked-up">Data Box 디스크 반환 및 Azure에 데이터 업로드</a>
+    - title: Data Box
+      html: <p><a href="/azure/databox/data-box-deploy-ordered">Azure Data Box 주문</a></p><p><a href="/azure/databox/data-box-deploy-set-up">Azure Data Box 케이블 연결 및 장치 연결</a></p><p><a href="/azure/databox/data-box-deploy-copy-data">Azure Data Box에 데이터 복사</a></p><p><a href="/azure/databox/data-box-deploy-picked-up">Azure Data Box 반환 및 업로드 확인</a></p>
+    - title: Data Box Disk<SUP>미리 보기</SUP>
+      html: <p><a href="/azure/databox/data-box-disk-deploy-ordered">Azure Data Box Disk 주문</a></p><p><a href="/azure/databox/data-box-disk-deploy-set-up">Azure Data Box Disk 열기, 연결, 잠금 해제</a></p><p><a href="/azure/databox/data-box-disk-deploy-copy-data">Azure Data Box Disk에 데이터 복사</a></p><p><a href="/azure/databox/data-box-disk-deploy-picked-up">Azure Data Box Disk 반환 및 업로드 확인</a></p>

@@ -1,33 +1,35 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 13146f48acb13e1bd4c7247902e3e8abcc0a84f1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948760"
 documentType: LandingData
-title: Azure 방화벽 설명서
+title: Azure Firewall 설명서
 metadata:
-  title: Azure 방화벽 설명서 - 자습서, API 참조
+  title: Azure Firewall 설명서 - 자습서, API 참조
   meta.description: Learn how to create Azure Firewalls. Documentation helps you plan, deploy, and manage web traffic to your Azure resources.
   services: firewall
   author: vhorne
   ms.service: firewall
   ms.topic: landing-page
-  ms.date: 7/11/2018
+  ms.date: 9/24/2018
   ms.author: victorh
-  ms.openlocfilehash: 979ce06a38e397a42b9f34c7eb82aa9c8a2e141e
-  ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
-  ms.translationtype: HT
-  ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/12/2018
-  ms.locfileid: "38991796"
 abstract:
-  description: 클라우드 기반 네트워크 보안 서비스인 Azure 방화벽을 배포하는 방법을 알아봅니다. 자습서, API 참조 및 기타 설명서는 Azure 가상 네트워크 리소스를 보호하도록 응용 프로그램 수준 및 네트워크 수준 정책을 설정하는 방법을 보여줍니다.
+  description: 클라우드 기반 네트워크 보안 서비스인 Azure Firewall을 배포하는 방법을 알아봅니다. 자습서, API 참조 및 기타 설명서는 Azure 가상 네트워크 리소스를 보호하도록 응용 프로그램 수준 및 네트워크 수준 정책을 설정하는 방법을 보여줍니다.
 sections:
 - title: 단계별 자습서
   items:
   - type: paragraph
-    text: Azure 방화벽을 배포하는 방법 알아보기
+    text: Azure Firewall을 배포하는 방법 알아보기
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/firewall/tutorial-firewall-deploy-portal">Azure Portal을 사용하여 Azure 방화벽 배포 및 구성</a>
-    - html: <a href="/azure/firewall/tutorial-diagnostics">Azure 방화벽 로그 모니터링</a>
+    - html: <a href="/azure/firewall/tutorial-firewall-deploy-portal">Azure Portal을 사용하여 Azure Firewall 배포 및 구성</a>
+    - html: <a href="/azure/firewall/tutorial-hybrid-ps">하이브리드 네트워크에 배포</a>
+    - html: <a href="/azure/firewall/tutorial-firewall-dnat">DNAT를 사용하여 인바운드 트래픽 필터링</a>
+    - html: <a href="/azure/firewall/tutorial-diagnostics">로그 모니터링</a>
 - title: 샘플
   items:
   - type: paragraph
