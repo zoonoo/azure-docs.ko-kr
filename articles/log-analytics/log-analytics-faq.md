@@ -12,28 +12,83 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 09/18/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: eb1a60ff533e9e24f3dc80057129da47a2d9a726
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 06b30d1381d8fba1d6f053576f6556e6d02f2ae9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128533"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949165"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics FAQ
 Microsoft FAQ는 Microsoft Azure의 Log Analytics에 대해 자주 묻는 질문의 목록입니다. Log Analytics에 대한 추가 질문이 있으면 [토론 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)으로 이동하여 질문을 게시하세요. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
 
+
+## <a name="new-logs-experience"></a>새로운 로그 환경
+
+### <a name="q-whats-the-difference-between-the-new-logs-experience-and-log-analytics"></a>Q: 새로운 로그 환경과 Log Analytics의 차이점이 무엇인가요?
+
+A: 이들은 같습니다. [Log Analytics는 Azure Monitor의 기능으로 통합되어](../azure-monitor/azure-monitor-rebrand.md) 보다 통합된 모니터링 환경을 제공합니다. Azure Monitor의 새로운 로그 환경은 많은 고객이 이미 사용하고 있는 Log Analytics 쿼리와 정확히 같습니다.
+
+### <a name="q-can-i-still-use-log-search"></a>Q: 로그 검색을 계속 사용할 수 있나요? 
+
+A: 로그 검색은 현재 OMS 포털과 Azure Portal에서 **로그(클래식)** 라는 이름으로 계속 제공됩니다. OMS 포털은 2019년 1월 15일에 공식적으로 사용이 중지됩니다. Azure Portal의 클래식 로그 환경은 점차적으로 사용이 중지되고 새로운 로그 환경으로 대체될 예정입니다. 
+
+### <a name="q-can-i-still-use-advanced-analytics-portal"></a>Q. 고급 분석 포털을 계속 사용할 수 있나요? 
+Azure Portal의 새로운 로그 환경은 [고급 분석 포털](https://portal.loganalytics.io/)을 기반으로 하지만 Azure Portal 외부에서 여전히 액세스 할 수 있습니다. 이 외부 포털의 사용 중지에 대한 로드맵은 곧 발표될 예정입니다.
+
+### <a name="q-why-cant-i-see-query-explorer-and-save-buttons-in-the-new-logs-experience"></a>Q. 새 로그 환경에 쿼리 탐색기와 저장 단추가 표시되지 않는 이유는 무엇인가요?
+
+특정 리소스의 컨텍스트에서 로그를 탐색할 때는 **쿼리 탐색기**, **저장** 및 **경고 설정** 단추를 사용할 수 없습니다. 경고를 생성하거나, 쿼리를 저장하거나 로드하려면 로그의 범위를 작업 영역으로 지정해야 합니다. 작업 영역 컨텍스트에서 로그를 열려면 **모든 서비스** > **모니터** > **로그**를 선택합니다. 마지막으로 사용한 작업 영역이 선택되지만 다른 작업 영역을 선택할 수 있습니다. 자세한 내용은 [Log Analytics에서 데이터 확인 및 분석](../log-analytics/log-analytics-log-search-portals.md)을 참조하세요.
+
+### <a name="q-how-do-i-extract-custom-fields-in-the-new-logs-experience"></a>Q. 새 로그 환경에서 사용자 지정 필드를 추출하려면 어떻게 하나요? 
+
+A: 사용자 지정 필드 추출은 현재 클래식 로그 환경에서 지원됩니다. 
+
+### <a name="q-where-do-i-find-list-view-in-the-new-logs"></a>Q. 새 로그의 목록보기는 어디에 있나요? 
+
+A: 새 로그에서는 목록 보기를 사용할 수 없습니다. 결과 테이블의 각 레코드 왼쪽에 화살표가 있습니다. 특정 레코드에 대한 세부 정보를 열려면 이 화살표를 클릭합니다. 
+
+### <a name="q-after-running-a-query-a-list-of-suggested-filters-shows-up-but-it-doesnt-include-all-filters-how-can-i-see-the-rest"></a>Q. 쿼리를 실행하면 추천 필터 목록이 표시되지만 모든 필터가 포함되지는 않습니다. 나머지는 어떻게 볼 수 있나요? 
+
+A: 현재 보이는 내용은 새 필터 구현의 미리 보기입니다. 이 기능은 현재 UI의 레코드 한도가 10,000개로 제한되는 대신 전체 결과 집합을 기반으로 합니다. 현재 가장 많이 사용되는 필터 목록과 각 필터의 가장 일반적인 10가지 값입니다. 
+
+### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>Q. VM에서 드릴다운한 후 로그에 "이 구독에 대한 리소스 공급자 'Microsoft.Insights'를 등록하여 이 쿼리를 사용하도록 설정" 오류가 표시되는 이유는 무엇인가요? 
+
+A: 기본적으로 리소스 공급자는 대부분 자동으로 등록되지만 일부 리소스 공급자는 수동으로 등록해야 합니다. 이렇게 하면 구독이 리소스 공급자에서 작동하도록 구성됩니다. 등록 범위는 항상 해당 구독입니다. 자세한 내용은 [리소스 공급자 및 형식](../azure-resource-manager/resource-manager-supported-services.md#portal)을 참조하세요.
+
+### <a name="q-why-am-i-am-getting-no-access-error-message-when-accessing-logs-from-a-vm-page"></a>Q. VM 페이지에서 로그에 액세스할 때 액세스 오류 메시지가 표시되지 않는 이유는 무엇인가요? 
+
+A: VM 로그를 보려면 VM 로그를 저장하는 작업 영역에 대한 읽기 권한을 부여 받아야 합니다. 이런 경우 관리자가 Azure에서 내게 권한을 부여해 줘야 합니다.
+
+### <a name="q-why-can-i-can-access-my-workspace-in-oms-portal-but-i-get-the-error-you-have-no-access-in-the-azure-portal"></a>Q. OMS 포털에서 내 작업 영역에 액세스할 수 있는데 Azure Portal에서 “액세스할 수 없습니다” 오류가 표시되는 이유가 무언인가요?  
+
+A: Azure에서 작업 영역에 액세스하려면 Azure 권한을 할당 받아야 합니다. 적절한 액세스 권한이 없는 경우가 몇 가지 있습니다. 이런 경우에는 관리자가 Azure에서 내게 권한을 부여해야 합니다. 자세한 내용은 [Azure로 이동하는 OMS 포털](../log-analytics/log-analytics-oms-portal-transition.md)을 참조하세요.
+
+### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>Q. 로그에서 뷰 디자이너 항목을 볼 수 없는 이유는 무엇인가요? 
+A: 뷰 디자이너는 로그에서 기여자 권한 이상이 할당된 사용자만 사용할 수 있습니다.
+
+
 ## <a name="general"></a>일반
+
+### <a name="q-how-can-i-see-my-views-and-solutions-in-azure-portal"></a>Q. Azure Portal에서 내 보기와 솔루션은 어떻게 볼 수 있나요? 
+
+A: 보기 및 설치된 솔루션 목록은 Azure Portal에서 사용할 수 있습니다. **모든 서비스**를 클릭합니다. 리소스 목록에서 **모니터**를 선택한 다음, **...추가**를 클릭합니다. 마지막으로 사용한 작업 영역이 선택되지만 다른 작업 영역을 선택할 수 있습니다. 
+
+### <a name="q-why-i-cant-create-workspaces-in-west-central-us-region"></a>Q. 미국 중서부 지역에 작업 영역을 만들 수 없는 이유가 무엇인가요? 
+
+A: 이 지역은 임시 용량 한도에 도달했습니다. 이 한도 문제는 2019년 상반기에 해결될 예정입니다.
+
 
 ### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>Q. Log Analytics는 Azure Security Center와 같은 에이전트를 사용합니까?
 
-a. 2017년 6월 초에 Azure Security Center는 Microsoft Monitoring Agent를 사용하여 데이터를 수집하고 저장합니다. 자세한 내용은 [Azure Security Center 플랫폼 마이그레이션 FAQ](../security-center/security-center-platform-migration-faq.md)를 참조하세요.
+A: 2017년 6월 초에 Azure Security Center는 Microsoft Monitoring Agent를 사용하여 데이터를 수집하고 저장하기 시작했습니다. 자세한 내용은 [Azure Security Center 플랫폼 마이그레이션 FAQ](../security-center/security-center-platform-migration-faq.md)를 참조하세요.
 
 ### <a name="q-what-checks-are-performed-by-the-ad-and-sql-assessment-solutions"></a>Q. AD 및 SQL 평가 솔루션에서 수행하는 검사는 무엇입니까?
 
-A. 다음 쿼리는 현재 수행하는 모든 검사에 대한 설명을 보여 줍니다.
+A: 다음 쿼리는 현재 수행하는 모든 검사에 대한 설명을 보여줍니다.
 
 ```
 (Type=SQLAssessmentRecommendation OR Type=ADAssessmentRecommendation) | dedup RecommendationId | select FocusArea, ActionArea, Recommendation, Description | sort Type, FocusArea,ActionArea, Recommendation
@@ -41,7 +96,7 @@ A. 다음 쿼리는 현재 수행하는 모든 검사에 대한 설명을 보여
 
 추가 검토를 위해 결과를 Excel로 내보낼 수 있습니다.
 
-### <a name="q-why-do-i-see-something-different-than-oms-in-the-system-center-operations-manager-console"></a>Q: System Center Operations Manager 콘솔에서 OMS와 다르게 표시되는 이유는 무엇입니까?
+### <a name="q-why-do-i-see-something-different-than-oms-in-the-system-center-operations-manager-console"></a>Q. System Center Operations Manager 콘솔에 OMS와 다른 내용이 표시되는 이유는 무엇인가요?
 
 A: 사용 중인 Operations Manager의 업데이트 롤업에 따라 *System Center Advisor*, *Operational Insights* 또는 *Log Analytics*에 대한 노드가 표시될 수 있습니다.
 
