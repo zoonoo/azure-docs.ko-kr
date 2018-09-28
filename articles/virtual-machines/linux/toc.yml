@@ -125,6 +125,8 @@ items:
     href: infrastructure-automation.md
   - name: 보안 및 정책
     href: security-policy.md
+  - name: 상태 및 수명 주기
+    href: states-lifecycle.md
   - name: 모니터링
     href: monitor.md
   - name: Backup 및 복구
@@ -235,11 +237,11 @@ items:
       href: metrics-vm-usage-rest.md
   - name: 비용 관리
     items:
-    - name: VM 선불 - Azure Reservations
+    - name: VM 선불 - Azure 예약
       href: prepay-reserved-vm-instances.md
     - name: SUSE 소프트웨어에 대한 선불
       href: prepay-suse-software-charges.md
-    - name: Azure Reservations란?
+    - name: Azure 예약이란?
       href: ../../billing/billing-save-compute-costs-reservations.md
     - name: VM 인스턴스 크기 유연성
       href: reserved-vm-instance-size-flexibility.md
@@ -498,55 +500,7 @@ items:
       - name: FAQ
         href: migration-classic-resource-manager-faq.md
   - name: 문제 해결
-    items:
-    - name: SSH 연결
-      href: troubleshoot-ssh-connection.md
-      items:
-      - name: 자세한 문제 해결
-        href: detailed-troubleshoot-ssh-connection.md
-    - name: Linux VM 암호 재설정
-      href: reset-password.md
-    - name: 시스템 다시 부팅 이해
-      href: understand-vm-reboot.md
-    - name: 부트 진단
-      href: boot-diagnostics.md
-    - name: 직렬 콘솔
-      href: serial-console.md
-      items:
-      - name: 직렬 콘솔 GRUB/단일 사용자 모드
-        href: serial-console-grub-single-user-mode.md
-      - name: 직렬 콘솔 NMI/SysRq
-        href: serial-console-nmi-sysrq.md
-    - name: 응용 프로그램에 액세스
-      href: troubleshoot-app-connection.md
-    - name: 할당 오류
-      href: allocation-failure.md
-    - name: 할당 오류 - 클래식 VM
-      href: allocation-failure-classic.md
-    - name: 배포 문제
-      href: troubleshoot-deploy-vm.md
-    - name: VM 만들기
-      href: troubleshoot-deployment-new-vm.md
-    - name: 장치 이름이 변경됨
-      href: troubleshoot-device-names-problems.md
-    - name: 새 Azure 노드에 VM 다시 배포
-      href: redeploy-to-new-node.md
-    - name: 일반적인 오류 메시지
-      href: error-messages.md
-    - name: VM 복구 액세스
-      items:
-      - name: Azure CLI
-        href: troubleshoot-recovery-disks.md
-      - name: Azure portal
-        href: troubleshoot-recovery-disks-portal.md
-    - name: 연결된 VHD
-      items:
-      - name: 저장소 리소스 삭제 오류
-        href: storage-resource-deletion-errors.md
-      - name: VHD가 연결된 VM이 예기치 않게 다시 부팅되는 경우
-        href: unexpected-reboots-attached-vhds.md
-    - name: 제한 오류
-      href: troubleshooting-throttling-errors.md
+    href: ../troubleshooting/index.md
 - name: 참고 자료
   items:
   - name: Azure CLI
@@ -583,9 +537,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: FAQ
     href: faq.md
-ms.openlocfilehash: 5ac900d783b72689759bdfe5d2ba47c11aa2157c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9887abf2965b7122c6d0fda1954cc249d67f3380
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035594"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409002"

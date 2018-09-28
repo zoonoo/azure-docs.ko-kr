@@ -291,7 +291,7 @@ items:
       topicHref: /azure/cognitive-services/project-personality-chat/overview
     - name: 프로젝트 Acoustics
       tocHref: /azure/cognitive-services/acoustics/
-      topicHref: /azure/cognitive-services/acoustics/What-Is-Acoustics.md
+      topicHref: /azure/cognitive-services/acoustics/what-is-acoustics
   - name: 커넥터
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
@@ -357,7 +357,7 @@ items:
     tocHref: /azure/governance/
     topicHref: /azure/governance/
     items:
-    - name: 청사진
+    - name: Blueprints
       tocHref: /azure/governance/blueprints/
       topicHref: /azure/governance/blueprints/
     - name: 관리 그룹
@@ -366,7 +366,7 @@ items:
     - name: 정책
       tocHref: /azure/governance/policy/
       topicHref: /azure/governance/policy/
-    - name: 리소스 그래프
+    - name: Resource Graph
       tocHref: /azure/governance/resource-graph/
       topicHref: /azure/governance/resource-graph/
   - name: 지침
@@ -622,9 +622,9 @@ items:
   - name: VPN Gateway
     tocHref: /azure/vpn-gateway/
     topicHref: /azure/vpn-gateway/
-ms.openlocfilehash: c2588f63135e0c52657b469945b005c13e863418
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 9ff551021d83b8c2e16d04e994c92cc3c1ae6937
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163531"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407198"

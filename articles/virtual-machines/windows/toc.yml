@@ -225,9 +225,9 @@ items:
       href: nested-virtualization.md
   - name: 비용 관리
     items:
-    - name: VM 선불 - Azure Reservations
+    - name: VM 선불 - Azure 예약
       href: prepay-reserved-vm-instances.md
-    - name: Azure Reservations란?
+    - name: Azure 예약이란?
       href: ../../billing/billing-save-compute-costs-reservations.md
     - name: VM 인스턴스 크기 유연성
       href: reserved-vm-instance-size-flexibility.md
@@ -402,80 +402,8 @@ items:
         href: migration-classic-resource-manager-community-tools.md
       - name: FAQ
         href: migration-classic-resource-manager-faq.md
-  - name: 문제 해결
-    items:
-    - name: 원격 데스크톱 연결
-      href: troubleshoot-rdp-connection.md
-      items:
-      - name: 자세한 단계
-        href: detailed-troubleshoot-rdp.md
-      - name: 오류 메시지
-        href: troubleshoot-specific-rdp-errors.md
-    - name: RDP 암호 재설정
-      href: reset-rdp.md
-    - name: Azure 에이전트 없이 로컬 암호 다시 설정
-      href: reset-local-password-without-agent.md
-    - name: 시스템 다시 부팅 이해
-      href: understand-vm-reboot.md
-    - name: NIC 재설정
-      href: reset-network-interface.md
-    - name: 부트 진단
-      href: boot-diagnostics.md
-    - name: 직렬 콘솔
-      href: serial-console.md
-      items:
-      - name: CMD 및 PowerShell 명령
-        href: serial-console-cmd-ps-commands.md
-    - name: VM 만들기
-      href: troubleshoot-deployment-new-vm.md
-    - name: 배포 문제
-      href: troubleshoot-deploy-vm.md
-    - name: VM 다시 시작 또는 크기 조정
-      href: restart-resize-error-troubleshooting.md
-    - name: 응용 프로그램 액세스
-      href: troubleshoot-app-connection.md
-    - name: 정품 인증 문제
-      href: troubleshoot-activation-problems.md
-    - name: 할당 오류
-      href: allocation-failure.md
-    - name: 할당 오류 - 클래식 VM
-      href: allocation-failure-classic.md
-    - name: VM 재배포
-      href: redeploy-to-new-node.md
-    - name: 일반적인 오류 메시지
-      href: error-messages.md
-    - name: VM 복구 액세스
-      items:
-      - name: Azure PowerShell
-        href: troubleshoot-recovery-disks.md
-      - name: Azure portal
-        href: troubleshoot-recovery-disks-portal.md
-    - name: PerfInsights 사용
-      href: how-to-use-perfInsights.md
-    - name: 성능 진단 VM 확장
-      href: performance-diagnostics-vm-extension.md
-    - name: Azure 가상 머신의 성능 진단
-      href: performance-diagnostics.md
-    - name: 중첩된 가상화 사용
-      href: troubleshoot-vm-by-use-nested-virtualization.md
-    - name: 오프라인 모드에서 VM 에이전트 설치
-      href: install-vm-agent-offline.md
-    - name: 연결된 VHD 문제 해결
-      items:
-      - name: 저장소 리소스 삭제 오류
-        href: storage-resource-deletion-errors.md
-      - name: VHD가 연결된 VM이 예기치 않게 다시 부팅되는 경우
-        href: unexpected-reboots-attached-vhds.md
-    - name: 제한 오류
-      href: troubleshooting-throttling-errors.md
-    - name: 부팅 오류 문제 해결
-      items:
-      - name: BitLocker 오류
-        href: troubleshoot-bitlocker-boot-error.md
-      - name: 파일 시스템 오류 확인
-        href: troubleshoot-check-disk-boot-error.md
-      - name: 일반적인 블루 스크린 오류
-        href: troubleshoot-common-blue-screen-error.md
+- name: 문제 해결
+  href: ../troubleshooting/index.md
 - name: 참고 자료
   items:
   - name: Azure CLI
@@ -514,9 +442,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: FAQ
     href: faq.md
-ms.openlocfilehash: 5d3aef71cd6658f1f73dd72a0b89dcb3d5eb4a5f
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a991b7edc35256823a45b8ad65f9aa99eb7477c9
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221217"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408473"
