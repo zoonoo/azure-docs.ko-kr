@@ -1,28 +1,32 @@
 ---
-title: 자습서 - Azure Cost Management에서 사용량 및 비용 검토 | Microsoft Docs
+title: 자습서 - Azure에서 Cloudyn을 사용하여 사용량 및 비용 검토 | Microsoft Docs
 description: 이 자습서에서는 사용량과 비용을 검토하여 추세를 추적하고, 비효율성을 검색하고, 경고를 만듭니다.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 5505ec8dd25e5468fad81d4eb26980202425969a
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 72eaa6f085581f34b696a946e2168eceaa21a849
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "35628720"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987716"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
 
 # <a name="tutorial-review-usage-and-costs"></a>자습서: 사용량 및 비용 검토
 
-Azure Cost Management는 사용량과 비용을 보여 주므로 추세를 추적하고, 비효율성을 검색하고, 경고를 만들 수 있습니다. 모든 사용량 및 비용 데이터는 Cloudyn 대시보드 및 보고서에 표시됩니다. 이 자습서의 예제에서는 대시보드 및 보고서를 사용하여 사용량과 비용을 검토합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+Cloudyn은 사용량과 비용을 보여 주므로 추세를 추적하고, 비효율성을 검색하고, 경고를 만들 수 있습니다. 모든 사용량 및 비용 데이터는 Cloudyn 대시보드 및 보고서에 표시됩니다. 이 자습서의 예제에서는 대시보드 및 보고서를 사용하여 사용량과 비용을 검토합니다.
+
+Azure Cost Management는 Cloudyn과 비슷한 기능을 제공합니다. Azure Cost Management는 기본 Azure 비용 관리 솔루션입니다. 이 솔루션을 사용하면 비용을 분석하고, 예산을 작성/관리하고, 데이터를 내보내고, 비용 절약을 위한 최적화 권장 사항을 검토하고 필요한 조치를 취할 수 있습니다. 자세한 내용은 [Azure Cost Management](overview-cost-mgt.md)를 참조하세요.
+
+이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 사용량 및 비용 추세 추적
@@ -35,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 ## <a name="prerequisites"></a>필수 조건
 
 - Azure 계정이 있어야 합니다.
-- Azure Cost Management에 대한 평가판 등록 또는 유료 구독이 있어야 합니다.
+- Cloudyn 평가판 등록 또는 유료 구독이 있어야 합니다.
 
 ## <a name="open-the-cloudyn-portal"></a>Cloudyn 포털 열기
 
@@ -59,7 +63,7 @@ Cloudyn 포털에서 모든 사용량 및 비용을 검토합니다. Azure Porta
 
 이 예에서 Azure Storage 비용은 2017년 8월 31일부터 떨어졌지만 Azure 서비스는 다른 수준으로 유지되었습니다. 그래서, 무엇이 그 지출 감소를 초래했습니까? 이 예에서 일부 직원은 휴가 중이었고 저장소 서비스를 사용하지 않았습니다.
 
-사용량 및 비용 추세를 추적하는 방법에 대한 자습서 비디오를 시청하려면 [Azure Cost Management를 사용하여 클라우드 청구 데이터 대 시간 분석](https://youtu.be/7LsVPHglM0g)을 참조하세요.
+사용량 및 비용 추세를 추적하는 방법에 대한 자습서 비디오를 시청하려면 [Cloudyn을 사용하여 클라우드 청구 데이터 대 시간 분석](https://youtu.be/7LsVPHglM0g)을 참조하세요.
 
 ## <a name="detect-usage-inefficiencies"></a>사용량 비효율성 검색
 
@@ -83,7 +87,7 @@ Cloudyn 포털에서 모든 사용량 및 비용을 검토합니다. Azure Porta
 
 ![후보 목록](./media/tutorial-review-usage/sizing03.png)
 
-사용 비효율성을 검색하는 방법에 대한 자습서 비디오를 시청하려면 [Azure Cost Management에서 VM 크기 최적화](https://youtu.be/1xaZBNmV704)를 참조하세요.
+사용 비효율성을 검색하는 방법에 대한 자습서 비디오를 시청하려면 [Cloudyn에서 VM 크기 최적화](https://youtu.be/1xaZBNmV704)를 참조하세요.
 
 ## <a name="create-alerts-for-unusual-spending"></a>비정상적 지출에 대한 경고 만들기
 

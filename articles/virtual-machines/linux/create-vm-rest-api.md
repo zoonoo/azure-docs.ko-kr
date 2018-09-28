@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 0f77b46be0207b0ce96e6dc2562fb5298afbe36b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 11d9f5efb452d46e5ca30169861582f6f2bbbd1b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928185"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969396"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>REST API를 통해 SSH 인증을 사용하는 Linux 가상 머신 만들기
 
@@ -49,7 +49,7 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 다음과 같은 일반적인 정의가 요청 본문을 빌드하는 데 사용됩니다.
 
-| Name                       | 필수 | 형식                                                                                | 설명  |
+| 이름                       | 필수 | 형식                                                                                | 설명  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | location                   | True     | string                                                                              | 리소스 위치. |
 | 이름                       |          | string                                                                              | 가상 머신의 이름. |
@@ -121,7 +121,7 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 가상 머신 만들기 또는 업데이트하는 작업에 대한 성공적인 응답에는 두 가지가 있습니다.
 
-| Name        | type                                                                              | 설명 |
+| 이름        | type                                                                              | 설명 |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 정상      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | 확인          |
 | 201 생성됨 | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | 생성일     |
@@ -141,9 +141,9 @@ VM을 만든 이전 요청 본문 예제에서 압축된 *201 생성됨* 응답�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure REST API 또는 Azure CLI 2.0 또는 Azure PowerShell과 같은 다른 관리 도구에 대한 자세한 내용은 다음을 참조합니다.
+Azure REST API 또는 Azure CLI, Azure PowerShell 등의 다른 관리 도구에 대한 자세한 내용은 다음 항목을 참조하세요.
 
 - [Azure Compute 공급자 REST API](/rest/api/compute/)
 - [Azure REST API 시작하기](/rest/api/azure/)
-- [Azure CLI 2.0](/cli/azure/)
+- [Azure CLI](/cli/azure/)
 - [Azure PowerShell 모듈](/powershell/azure/overview)

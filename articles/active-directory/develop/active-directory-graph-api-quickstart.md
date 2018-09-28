@@ -1,9 +1,9 @@
 ---
-title: Azure AD Graph API 빠른 시작 | Microsoft Docs
-description: Azure Active Directory Graph API는 OData REST API 끝점을 통해 Azure AD에 프로그래밍 방식으로 액세스할 수 있게 합니다. 응용 프로그램은 Azure AD Graph API를 사용하여 디렉터리 데이터 및 개체에 대한 CRUD(만들기, 읽기, 업데이트 및 삭제) 작업을 수행할 수 있습니다.
+title: Azure AD Graph API 사용 방법
+description: Azure AD(Active Directory) Graph API는 OData REST API 끝점을 통해 Azure AD에 프로그래밍 방식으로 액세스할 수 있게 합니다. 응용 프로그램은 Azure AD Graph API를 사용하여 디렉터리 데이터 및 개체에 대한 CRUD(만들기, 읽기, 업데이트 및 삭제) 작업을 수행할 수 있습니다.
 services: active-directory
 documentationcenter: n/a
-author: mtillman
+author: CelesteDG
 manager: mtillman
 editor: ''
 tags: ''
@@ -11,28 +11,29 @@ ms.assetid: 9dc268a9-32e8-402c-a43f-02b183c295c5
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/02/2018
-ms.author: mtillman
+ms.date: 09/24/2018
+ms.author: celested
+ms.reviewer: sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 3298b39fc92f6e5867900ed151149ff936e2733c
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 7b7f2133634a91b828d7e978c9041b12873fa3a1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492632"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997219"
 ---
-# <a name="quickstart-for-the-azure-ad-graph-api"></a>Azure AD Graph API 빠른 시작
-Azure AD(Active Directory) Graph API는 OData REST API 끝점을 통해 Azure AD에 프로그래밍 방식으로 액세스할 수 있게 합니다. 응용 프로그램은 Azure AD Graph API를 사용하여 디렉터리 데이터 및 개체에 대한 CRUD(만들기, 읽기, 업데이트 및 삭제) 작업을 수행할 수 있습니다. 예를 들어 Azure AD Graph API를 사용하여 새 사용자를 만들고, 사용자 속성을 보거나 업데이트하고, 사용자 암호를 변경하고, 역할 기반 액세스를 위한 그룹 멤버 자격을 확인하고, 사용자를 사용하지 않도록 설정 또는 삭제할 수 있습니다. Azure AD Graph API 기능 및 응용 프로그램 시나리오에 대한 자세한 내용은 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 및 [Azure AD Graph API 필수 조건](https://msdn.microsoft.com/library/hh974476.aspx)을 참조하세요. 
+# <a name="how-to-use-the-azure-ad-graph-api"></a>방법: Azure AD Graph API 사용
+
+Azure AD(Active Directory) Graph API는 OData REST API 끝점을 통해 Azure AD에 프로그래밍 방식으로 액세스할 수 있게 합니다. 응용 프로그램은 Azure AD Graph API를 사용하여 디렉터리 데이터 및 개체에 대한 CRUD(만들기, 읽기, 업데이트 및 삭제) 작업을 수행할 수 있습니다. 예를 들어 Azure AD Graph API를 사용하여 새 사용자를 만들고, 사용자 속성을 보거나 업데이트하고, 사용자 암호를 변경하고, 역할 기반 액세스를 위한 그룹 멤버 자격을 확인하고, 사용자를 사용하지 않도록 설정 또는 삭제할 수 있습니다. Azure AD Graph API 기능 및 응용 프로그램 시나리오에 대한 자세한 내용은 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 및 [Azure AD Graph API 필수 조건](https://msdn.microsoft.com/library/hh974476.aspx)을 참조하세요.
 
 > [!IMPORTANT]
 > Azure Active Directory 리소스에 액세스하려면 Azure AD Graph API 대신 [Microsoft Graph](https://developer.microsoft.com/graph)를 사용하는 것이 좋습니다. 이제 Microsoft는 Azure AD Graph API를 더 이상 개선하지 않을 것이며 Microsoft Graph에 주력하고 있습니다. Azure AD Graph API가 적절할 수 있는 시나리오는 매우 제한적입니다. 자세한 내용은 Office 개발자 센터에서 [Microsoft Graph 또는 Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) 블로그 게시물을 참조하세요.
-> 
-> 
 
 ## <a name="how-to-construct-a-graph-api-url"></a>Graph API URL을 생성하는 방법
+
 Graph API에서 디렉터리 데이터 및 CRUD 작업을 수행하려는 개체(즉, 리소스 또는 엔터티)에 액세스하려면 OData(개방형 데이터) 프로토콜을 기반으로 하는 URL을 사용할 수 있습니다. Graph API에서 사용되는 URL은 서비스 루트, 테넌트 식별자, 리소스 경로 및 쿼리 문자열 옵션의 네 가지 주요 부분으로 구성됩니다. `https://graph.windows.net/{tenant-identifier}/{resource-path}?[query-parameters]`. 다음 URL을 예로 들어보겠습니다. `https://graph.windows.net/contoso.com/groups?api-version=1.6`.
 
 * **서비스 루트**: Azure AD Graph API에서 서비스 루트는 항상 https://graph.windows.net입니다.
@@ -41,12 +42,15 @@ Graph API에서 디렉터리 데이터 및 CRUD 작업을 수행하려는 개체
 * **쿼리 매개 변수**: 물음표(?)는 리소스 경로 섹션과 쿼리 매개 변수 섹션을 구분합니다. Azure AD Graph API의 모든 요청에는 "api-version" 쿼리 매개 변수가 필요합니다. 또한 Azure AD Graph API는 OData 쿼리 옵션, 즉 **$filter**, **$orderby**, **$expand**, **$top** 및 **$format**을 지원합니다. **$count**, **$inlinecount** 및 **$skip** 쿼리 옵션은 현재 지원되지 않습니다. 자세한 내용은 [Azure AD Graph API에서 지원되는 쿼리, 필터 및 페이징 옵션](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options)을 참조하세요.
 
 ## <a name="graph-api-versions"></a>Graph API 버전
+
 "api-version" 쿼리 매개 변수에 Graph API 요청에 대한 버전을 지정합니다. 버전 1.5 이상의 경우 숫자 버전 값 api-version=1.6을 사용합니다. 이전 버전의 경우 YYYY-MM-DD 형식을 준수하는 날짜 문자열을 사용합니다(예: api-version=2013-11-08). 미리 보기 기능의 경우 문자열 "beta"를 사용합니다(예: api-version=beta). Graph API 버전 간의 차이점에 대한 자세한 내용은 [Azure AD Graph API 버전 관리](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-versioning)를 참조하세요.
 
 ## <a name="graph-api-metadata"></a>Graph API 메타데이터
+
 Azure AD Graph API 메타데이터 파일을 반환하려면 URL에서 테넌트 식별자 뒤에 "$metadata" 세그먼트를 추가합니다. 예를 들어 다음 URL은 데모 회사에 대한 메타데이터를 반환합니다. `https://graph.windows.net/GraphDir1.OnMicrosoft.com/$metadata?api-version=1.6`. 웹 브라우저의 주소 표시줄에 이 URL을 입력하면 메타데이터를 볼 수 있습니다. 반환된 CSDL 메타데이터 문서에서는 엔터티 및 복합 형식, 해당 속성 및 요청한 Graph API 버전에서 노출되는 함수 및 작업에 대해 설명합니다. api-version 매개 변수를 생략하면 가장 최신 버전에 대한 메타데이터가 반환됩니다.
 
 ## <a name="common-queries"></a>일반 쿼리
+
 [Azure AD Graph API 일반 쿼리](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options#CommonQueries) 는 디렉터리의 최상위 리소스에 액세스하는 데 사용할 수 있는 쿼리 및 디렉터리에서 작업을 수행하는 쿼리를 포함하여 Azure AD Graph에서 사용할 수 있는 일반 쿼리를 나열합니다.
 
 예를 들어 `https://graph.windows.net/contoso.com/tenantDetails?api-version=1.6` 는 contoso.com 디렉터리에 대한 회사 정보를 반환합니다.
@@ -75,6 +79,7 @@ Azure AD Graph Explorer의 다음 기능 및 제한 사항을 확인합니다.
 * 썸네일 사진 표시 또는 업로드를 지원하지 않습니다.
 
 ## <a name="using-fiddler-to-write-to-the-directory"></a>Fiddler를 사용하여 디렉터리에 쓰기
+
 이 빠른 시작 가이드에서는 Azure AD 디렉터리에 '쓰기' 작업을 연습하기 위해 Fiddler Web Debugger를 사용할 수 있습니다. 예를 들어 사용자의 프로필 사진을 가져와서 업로드할 수 있습니다(Azure AD Graph Explorer에서는 불가능). 자세한 내용을 보고 Fiddler를 설치하려면 [http://www.telerik.com/fiddler](http://www.telerik.com/fiddler)를 참조하세요.
 
 아래 예제에서는 Fiddler Web Debugger를 사용하여 Azure AD 디렉터리에 새 보안 그룹 'MyTestGroup'을 만듭니다.
@@ -89,8 +94,7 @@ Azure AD Graph Explorer의 다음 기능 및 제한 사항을 확인합니다.
    
    > [!NOTE]
    > {mytenantdomain}을 고유한 Azure AD 디렉터리의 도메인 이름으로 바꿔야 합니다.
-   > 
-   > 
+
 4. Post 풀다운 바로 아래에 있는 필드에 다음 HTTP 헤더를 입력합니다.
    
     ```
@@ -101,8 +105,7 @@ Azure AD Graph Explorer의 다음 기능 및 제한 사항을 확인합니다.
    
    > [!NOTE]
    > &lt;액세스 토큰&gt;을 Azure AD 디렉터리에 대한 액세스 토큰으로 대체합니다.
-   > 
-   > 
+
 5. **요청 본문** 필드에 다음 JSON을 입력합니다.
    
     ```
@@ -119,6 +122,6 @@ Azure AD Graph Explorer의 다음 기능 및 제한 사항을 확인합니다.
 Graph에 의해 노출되는 Azure AD 엔터티 및 형식에 대한 자세한 내용 및 Graph를 사용하여 수행할 수 있는 작업에 대한 자세한 내용은 [Azure AD Graph REST API 참조](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
+
 * [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 * [Azure AD Graph API 사용 권한 범위](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
-

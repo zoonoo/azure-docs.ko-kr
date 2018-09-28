@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: juluk
-ms.openlocfilehash: 4b7e4302bba2efed12e19043da1f592bed12a2fd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0b3616a723e793ab1ce8d7bcca1f53ca10ec4f96
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608885"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970668"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Azure Cloud Shell의 Bash에 대한 빠른 시작
 
@@ -36,7 +36,7 @@ ms.locfileid: "34608885"
 3. "저장소 만들기"를 선택합니다.
 
 > [!TIP]
-> 모든 세션에서 Azure CLI 2.0에 대해 자동으로 인증됩니다.
+> 모든 세션에서 Azure CLI에 자동으로 인증됩니다.
 
 ### <a name="select-the-bash-environment"></a>Bash 환경 선택
 셸 창 왼쪽에서 환경 드롭다운에 `Bash`가 표시되었는지 확인합니다. <br>
@@ -63,14 +63,14 @@ az group create --location westus --name MyRG
 ```
 
 ### <a name="create-a-linux-vm"></a>Linux VM 만들기
-새 리소스 그룹에서 Ubuntu VM을 만듭니다. Azure CLI 2.0은 SSH 키를 만들고 해당 키를 사용하여 VM을 설정합니다. <br>
+새 리소스 그룹에서 Ubuntu VM을 만듭니다. Azure CLI는 SSH 키를 만들고 해당 키를 사용하여 VM을 설정합니다. <br>
 
 ```azurecli-interactive
 az vm create -n myVM -g MyRG --image UbuntuLTS --generate-ssh-keys
 ```
 
 > [!NOTE]
-> `--generate-ssh-keys`를 사용하여 Azure CLI 2.0이 VM 및 `$Home` 디렉터리에서 공용 및 개인 키를 설정하도록 지시합니다. 기본적으로 키는 `/home/<user>/.ssh/id_rsa` 및 `/home/<user>/.ssh/id_rsa.pub`의 Cloud Shell에 배치됩니다. `.ssh` 폴더는 `$Home`을 유지하는 데 사용되는 연결된 파일 공유의 5GB 이미지에서 유지됩니다.
+> `--generate-ssh-keys`를 사용하면 VM 및 `$Home` 디렉터리에서 공용 및 개인 키를 설정하도록 Azure CLI에 지시하게 됩니다. 기본적으로 키는 `/home/<user>/.ssh/id_rsa` 및 `/home/<user>/.ssh/id_rsa.pub`의 Cloud Shell에 배치됩니다. `.ssh` 폴더는 `$Home`을 유지하는 데 사용되는 연결된 파일 공유의 5GB 이미지에서 유지됩니다.
 
 이 VM의 사용자 이름은 Cloud Shell에서 사용되는 사용자 이름입니다($User@Azure:).
 
@@ -100,5 +100,5 @@ az group delete -n MyRG
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Cloud Shell의 Bash에 대한 파일 유지에 관해 알아보기](persisting-shell-storage.md) <br>
-[Azure CLI 2.0에 대한 자세한 정보](https://docs.microsoft.com/cli/azure/) <br>
+[Azure CLI에 대한 자세한 정보](https://docs.microsoft.com/cli/azure/) <br>
 [Azure Files Storage에 대해 알아보기](../storage/files/storage-files-introduction.md) <br>

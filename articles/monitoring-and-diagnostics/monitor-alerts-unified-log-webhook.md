@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f20e102ee1d100ea02da53fe460b56f8f8390418
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f5f8ed885791a648f30790434be56d966bbf2e47
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426696"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989297"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>로그 경고 규칙에 대한 웹후크 작업
-[Azure에서 경고를 만들](monitor-alerts-unified-usage.md) 때 하나 이상의 작업을 수행하도록 선택적으로 [작업 그룹 사용을 구성](monitoring-action-groups.md)할 수 있습니다.  이 문서에서는 사용 가능한 다양한 웹후크 작업 및 사용자 지정 JSON 기반 웹후크 구성에 대해 설명합니다.
+[Azure에서 로그 경고를 생성](alert-log.md)할 때 하나 이상의 작업을 수행하도록 선택적으로 [작업 그룹 사용을 구성](monitoring-action-groups.md)할 수 있습니다.  이 문서에서는 사용 가능한 다양한 웹후크 작업 및 사용자 지정 JSON 기반 웹후크 구성에 대해 설명합니다.
 
 
 ## <a name="webhook-actions"></a>웹후크 작업
 
-웹후크 작업을 사용하여 단일 HTTP POST 요청을 통해 외부 프로세스를 호출할 수 있습니다.  호출 중인 서비스는 웹후크를 지원하고 수신하는 페이로드를 사용하는 방법을 결정해야 합니다.   경고에 대한 응답으로 웹후크를 사용하는 예는 [Slack](http://slack.com)에서 메시지를 보내거나 [PagerDuty](http://pagerduty.com/)에서 인시던트를 만드는 것입니다.  
+웹후크 작업을 사용하여 단일 HTTP POST 요청을 통해 외부 프로세스를 호출할 수 있습니다.  호출 중인 서비스는 웹후크를 지원하고 수신하는 페이로드를 사용하는 방법을 결정해야 합니다.    
 
 웹후크 작업에는 다음 표의 속성이 필요합니다.
 
 | 자산 | 설명 |
 |:--- |:--- |
 | Webhook URL |웹후크의 URL입니다. |
-| 사용자 지정 JSON 페이로드 |경고를 만드는 동안 이 옵션을 선택한 경우 웹후크와 함께 전송할 사용자 지정 페이로드입니다. [Azure Alerts를 사용하여 경고 관리](monitor-alerts-unified-usage.md)에서 세부 정보를 확인할 수 있습니다. |
+| 사용자 지정 JSON 페이로드 |경고를 만드는 동안 이 옵션을 선택한 경우 웹후크와 함께 전송할 사용자 지정 페이로드입니다. [로그 경고 관리](alert-log.md)에서 사용 가능한 세부사항 |
 
 > [!NOTE]
-> 로그 경고의 *웹후크에 대한 사용자 지정 JSON 페이로드 포함* 옵션과 함께 웹후크 테스트 단추를 실행하면 웹후크 URL을 테스트하기 위한 더미 호출이 트리거됩니다. 로그 경고에 사용된 JSON 스키마의 실제 데이터 및 표현은 포함되지 않습니다. 
+> 로그 경고의 *웹후크에 대한 사용자 정의 JSON 페이로드 포함* 옵션과 함께 웹 후크 보기 단추를 누르면 제공된 사용자 정의용 샘플 웹후크 페이로드가 표시됩니다. 로그 경고에 사용된 JSON 스키마의 실제 데이터 및 표현은 포함되지 않습니다. 
 
 웹후크는 URL 및 외부 서비스에 보낸 데이터인 JSON 형식의 페이로드를 포함하고 있습니다.  기본적으로 페이로드에는 다음 표의 값이 포함됩니다. 이 페이로드를 자체적인 사용자 지정 페이로드로 바꾸도록 선택할 수 있습니다.  그러한 경우 각 매개 변수에 대한 표의 변수를 사용하여 해당 값을 사용자 지정 페이로드에 포함할 수 있습니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "39426696"
 | 구독 ID |#subscriptionid |Application Insights에서 사용되는 Azure 구독의 ID입니다. 
 
 > [!NOTE]
-> LinkToSearchResults는 분석 섹션에서 보기 위해 URL의 SearchQuery, 검색 간격 시작 시간 및 검색 간격 종료 시간 같은 매개 변수를 Azure Portal에 전달합니다. Azure Portal에는 2,000자라는 URI 크기 제한이 있으며 매개 변수 값이 해당 제한을 초과하는 경우 문서가 열립니다. 사용자는 세부 정보를 수동으로 입력하여 Analytics 포털에서 결과를 보거나, [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) 또는 [Log Analytics REST API](https://dev.loganalytics.io/reference)를 사용하여 결과를 프로그래밍 방식으로 검색할 수 있습니다. 
+> LinkToSearchResults는 분석 섹션에서 보기 위해 URL의 SearchQuery, 검색 간격 시작 시간 및 검색 간격 종료 시간 같은 매개 변수를 Azure Portal에 전달합니다. Azure Portal에는 약 2,000자라는 URI 크기 제한이 있으며 매개 변수 값이 해당 제한을 초과하는 경우 경고에 제공된 링크를 열지 *않습니다*. 사용자는 세부 정보를 수동으로 입력하여 Analytics 포털에서 결과를 보거나, [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) 또는 [Log Analytics REST API](https://dev.loganalytics.io/reference)를 사용하여 결과를 프로그래밍 방식으로 검색할 수 있습니다. 
 
 예를 들어 *text*라는 단일 매개변수를 포함하는 다음과 같은 사용자 지정 페이로드를 지정할 수 있습니다.  이 웹후크가 호출하는 서비스는 이 매개 변수를 예상합니다.
 
@@ -198,6 +198,7 @@ ms.locfileid: "39426696"
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Alerts의 로그 경고](monitor-alerts-unified-log.md)에 대해 알아봅니다.
+- [Azure에서 로그 경고 관리](alert-log.md)를 이해합니다.
 - [Azure에서 작업 그룹](monitoring-action-groups.md) 만들기 및 관리
 - [Application Insights](../application-insights/app-insights-analytics.md)에 대해 자세히 알아보기
 - [Log Analytics](../log-analytics/log-analytics-overview.md)에 대해 자세히 알아보기 

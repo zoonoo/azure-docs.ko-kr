@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 2b94496895c0ab06127b6c556b1240e3279e572f
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 40eb0e8133626e77a1f61ddfc5df69ecf1b958f2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504416"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950797"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 관리되는 도메인에 Windows Server 가상 머신 조인
 이 문서에서는 Resource Manager 템플릿을 사용하여 Azure AD Domain Services 관리되는 도메인에 Windows Server 가상 머신을 조인하는 방법에 대해 설명합니다.
@@ -39,7 +39,7 @@ ms.locfileid: "39504416"
 ## <a name="install-and-configure-required-tools"></a>필요한 도구 설치 및 구성
 다음 옵션 중 하나를 사용하여 이 문서에서 설명하는 단계를 수행할 수 있습니다.
 * **Azure PowerShell**: [설치 및 구성](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
-* **Azure 플랫폼 간 명령줄 인터페이스**: [설치 및 구성](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
+* **Azure CLI**: [설치 및 구성](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
 
 
 ## <a name="option-1-provision-a-new-windows-server-vm-and-join-it-to-a-managed-domain"></a>옵션 1: 새 Windows Server VM 프로비전 및 관리되는 도메인에 조인

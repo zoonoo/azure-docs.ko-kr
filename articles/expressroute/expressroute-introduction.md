@@ -1,25 +1,18 @@
 ---
 title: 'ExpressRoute 개요: 개인 연결을 통해 온-프레미스 네트워크를 Azure로 확장 | Microsoft Docs'
-description: 이 ExpressRoute 기술 개요에서는 개인 연결을 통해 온-프레미스 네트워크를 Azure로 확장하기 위해 ExpressRoute 연결이 작동하는 방식에 대해 설명합니다.
-documentationcenter: na
+description: ExpressRoute 기술 개요에서는 개인 연결을 통해 온-프레미스 네트워크를 Azure로 확장하기 위해 ExpressRoute 연결이 작동하는 방식에 대해 설명합니다.
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-ms.assetid: fd95dcd5-df1d-41d6-85dd-e91d0091af05
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/12/2018
+ms.topic: overview
+ms.date: 09/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 75d69669945d31fbc9876d0c1e709b37f96aee6d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f1bc447f73912ccf04f0c0cf7d6460d472bace4c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29940165"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961912"
 ---
 # <a name="expressroute-overview"></a>ExpressRoute 개요
 Microsoft Azure ExpressRoute를 사용하면 연결 공급자에서 쉽게 처리된 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Microsoft Azure, Office 365 및 Dynamics 365와 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다.
@@ -70,11 +63,29 @@ ExpressRoute를 통해 지원되는 서비스에 대한 자세한 목록은 [Exp
 ### <a name="global-connectivity-with-expressroute-premium-add-on"></a>ExpressRoute 프리미엄 추가 기능으로 전역 연결
 ExpressRoute 프리미엄 부가 기능을 사용하여 지정학적 경계를 넘어 연결을 확장할 수 있습니다. 예를 들어 ExpressRoute를 통해 암스테르담의 Microsoft로 연결하는 경우 전세계 모든 지역에서 호스팅되는 모든 Microsoft 클라우드 서비스에 액세스합니다.(국가별 클라우드는 제외됨) 북유럽 및 서유럽 지역에 액세스하는 것과 동일한 방법으로 남아메리카 또는 오스트레일리아에서 배포된 서비스에 액세스할 수 있습니다.
 
+### <a name="across-on-premises-connectivity-with-expressroute-global-reach"></a>ExpressRoute Global Reach를 사용한 온-프레미스 간 연결
+
+ExpressRoute Global Reach를 사용해 여러 ExpressRoute 회로를 연결하면 원격 사이트와 데이터를 교환할 수 있습니다. 예를 들어 캘리포니아의 개인 데이터 센터는 실리콘 밸리의 ExpressRoute에 연결되어 있고 텍사스의 개인 데이터 센터는 댈러스의 ExpressRoute에 연결되어 있는 경우 ExpressRoute Global Reach를 사용하면 ExpressRoute 회로 2개를 통해 두 개인 데이터 센터를 연결할 수 있습니다. 데이터 센터 간 트래픽은 Microsoft 네트워크를 통해 전송됩니다.
+
+자세한 내용은 [ExpressRoute Global Reach](expressroute-global-reach.md)를 참조하세요.
+
 ### <a name="rich-connectivity-partner-ecosystem"></a>다양한 연결 파트너 에코시스템
 ExpressRoute에서는 연결 공급자 및 SI 파트너의 에코시스템이 지속적으로 성장합니다. 최신 정보는 [ExpressRoute 공급자 및 위치](expressroute-locations.md) 문서를 참조하세요.
 
 ### <a name="connectivity-to-national-clouds"></a>국가별 클라우드에 연결
 Microsoft는 특별한 지리학적 지역 및 고객 세그먼트에 격리된 클라우드 환경을 작동합니다. 국가별 클라우드 및 공급자의 목록은 [ExpressRoute 공급자 및 위치](expressroute-locations.md) 페이지를 참조합니다.
+
+### <a name="expressroute-direct"></a>ExpressRoute Direct
+
+ExpressRoute Direct는 고객에게 전 세계에 전략적으로 분산된 피어링 위치에서 Microsoft의 글로벌 네트워크에 직접 연결하는 기능을 제공합니다. ExpressRoute Direct는 대규모로 활성/활성 연결을 지원하는 이중 100Gbps 연결을 제공합니다. 
+
+ExpressRoute Direct는 다음을 비롯한 여러 가지 주요 기능을 제공합니다.
+
+* Storage 및 Cosmos DB와 같은 서비스로의 대규모 데이터 수집 
+* 은행, 정부, 소매업체 등 규제가 적용되며 전용 격리 연결을 사용해야 하는 업계의 물리적 격리 
+* 비즈니스 단위에 따라 세부적으로 회로 배포 제어
+
+자세한 내용은 [ExpressRoute Direct 정보](https://go.microsoft.com/fwlink/?linkid=2022973)를 참조하세요.
 
 ### <a name="bandwidth-options"></a>대역폭 옵션
 다양한 범위의 대역폭에 대해 ExpressRoute 회로를 구입할 수 있습니다. 지원되는 대역폭 목록이 아래에 나열됩니다. 연결 공급자를 확인하여 제공하는 지원되는 대역폭 목록을 확인합니다.

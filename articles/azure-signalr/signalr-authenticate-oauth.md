@@ -14,16 +14,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 4856f4cdba7618884a42341f16d4828cb062e75c
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 696139a3e37f7bd1e32b4e7cec836b3c66df16a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667653"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974326"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>자습서: Azure SignalR Service 인증
-
-Microsoft Azure SignalR Service는 현재 [Public Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)로 제공됩니다.
 
 이 자습서는 빠른 시작에서 소개한 대화방 응용 프로그램에서 진행됩니다. [SignalR Service로 대화방 만들기](signalr-quickstart-dotnet-core.md)를 아직 완료하지 않았으면 해당 연습을 먼저 완료합니다. 
 
@@ -396,7 +394,7 @@ GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [�
 
 이 섹션에서는 Azure Cloud Shell의 Azure CLI(명령줄 인터페이스)를 사용하여 Azure에서 ASP.NET 응용 프로그램을 호스트할 새 [Azure 웹앱](https://docs.microsoft.com/azure/app-service/)을 만듭니다. 이 웹앱은 로컬 Git 배포를 사용하도록 구성됩니다. 또한 SignalR 연결 문자열, GitHub OAuth 앱 암호 및 배포 사용자로도 구성됩니다.
 
-이 섹션의 단계에서는 Azure CLI에 대해 *signalr* 확장을 사용합니다. 다음 명령을 실행하여 Azure CLI 2.0용 *signalr* 확장을 설치합니다.
+이 섹션의 단계에서는 Azure CLI에 대해 *signalr* 확장을 사용합니다. 다음 명령을 실행하여 Azure CLI용 *signalr* 확장을 설치합니다.
 
 ```azurecli-interactive
 az extension add -n signalr
@@ -407,7 +405,7 @@ az extension add -n signalr
 
 ### <a name="create-the-web-app-and-plan"></a>웹앱 및 계획 만들기
 
-아래에서 명령 텍스트를 복사하고 매개 변수를 업데이트합니다. 업데이트된 스크립트를 Azure Cloud Shell에 붙여 넣고 **Enter** 키를 눌러 새 App Service 계획 및 웹앱을 만듭니다.
+아래에서 명령 텍스트를 복사하고 매개 변수를 업데이트합니다. 업데이트된 스크립트를 Azure Cloud Shell에 붙여넣고 **Enter** 키를 눌러 새 App Service 계획 및 웹앱을 만듭니다.
 
 ```azurecli-interactive
 #========================================================================
@@ -449,7 +447,7 @@ az webapp create --name $WebAppName --resource-group $ResourceGroupName \
 * GitHub OAuth 앱 클라이언트 ID
 * GitHub OAuth 앱 클라이언트 암호
 
-아래에서 명령 텍스트를 복사하고 매개 변수를 업데이트합니다. 업데이트된 스크립트를 Azure Cloud Shell에 붙여 넣고 **Enter** 키를 눌러 앱 설정을 추가합니다.
+아래에서 명령 텍스트를 복사하고 매개 변수를 업데이트합니다. 업데이트된 스크립트를 Azure Cloud Shell에 붙여넣고 **Enter** 키를 눌러 앱 설정을 추가합니다.
 
 ```azurecli-interactive
 #========================================================================
@@ -503,7 +501,7 @@ az webapp config appsettings set --name $WebAppName \
 
 ### <a name="configure-the-web-app-for-local-git-deployment"></a>로컬 Git 배포에 대한 웹앱 구성
 
-Azure Cloud Shell에서 다음 스크립트를 붙여 넣습니다. 이 스크립트는 Git을 사용하여 웹앱에 코드를 배포할 때 사용할 새 배포 사용자 이름 및 암호를 만듭니다. 또한 로컬 Git 리포지토리로 배포하기 위해 웹앱을 구성하고, Git 배포 URL을 반환합니다.
+Azure Cloud Shell에서 다음 스크립트를 붙여넣습니다. 이 스크립트는 Git을 사용하여 웹앱에 코드를 배포할 때 사용할 새 배포 사용자 이름 및 암호를 만듭니다. 또한 로컬 Git 리포지토리로 배포하기 위해 웹앱을 구성하고, Git 배포 URL을 반환합니다.
 
 ```azurecli-interactive
 #========================================================================

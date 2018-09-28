@@ -10,27 +10,28 @@ ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/27/2018
+ms.date: 09/24/2018
 ms.author: celested
-ms.reviewer: elisol
+ms.reviewer: justhu, elisol
 ms.custom: aaddev
-ms.openlocfilehash: d2ed90b0bb1d2ef7b830c9394628872e1a775f9e
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: abca81e0db565c6c84d9be9df07b46c8c338030b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593403"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960280"
 ---
-# <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>다중 테넌트 응용 프로그램 패턴을 사용하여 모든 Azure Active Directory 사용자를 로그인하는 방법
-많은 조직에 SaaS(Software as a Service) 응용 프로그램을 제공하는 경우, 모든 Azure AD(Active Directory) 테넌트에서 로그인을 허용하도록 응용 프로그램을 구성할 수 있습니다. 이 구성을 응용 프로그램을 다중 테넌트에 지정하기라고 합니다. 모든 Azure AD 테넌트의 사용자는 응용 프로그램에 계정을 사용하기로 동의한 후 응용 프로그램에 로그인할 수 있습니다. 
+# <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>방법: 다중 테넌트 응용 프로그램 패턴을 사용하여 Azure Active Directory 사용자 로그인
 
-자체 계정 시스템을 갖춘 기존 응용 프로그램이 있거나 다른 클라우드 공급자로부터 다른 종류의 로그인을 지원하는 경우 테넌트의 Azure AD 로그인을 간단하게 추가할 수 있습니다. 응용 프로그램을 등록하고, OAuth2, OpenID Connect 또는 SAML을 통해 로그인 코드를 추가하고, 응용 프로그램에 ["Microsoft에 로그인" 단추][AAD-App-Branding]를 배치하기만 하면 됩니다.
+많은 조직에 SaaS(Software as a Service) 응용 프로그램을 제공하는 경우, 모든 Azure AD(Azure Active Directory) 테넌트의 로그인을 허용하도록 응용 프로그램을 구성할 수 있습니다. 이 구성을 *다중 테넌트 응용 프로그램 만들기*라고 합니다. 모든 Azure AD 테넌트의 사용자는 응용 프로그램에 계정을 사용하기로 동의한 후 응용 프로그램에 로그인할 수 있습니다. 
+
+자체 계정 시스템을 갖춘 기존 응용 프로그램이 있거나 다른 클라우드 공급자로부터 다른 종류의 로그인을 지원하는 경우 테넌트의 Azure AD 로그인을 간단하게 추가할 수 있습니다. 응용 프로그램을 등록하고, OAuth2, OpenID Connect 또는 SAML을 통해 로그인 코드를 추가하고, 응용 프로그램에 [“Microsoft에 로그인” 단추][AAD-App-Branding]를 배치하기만 하면 됩니다.
 
 > [!NOTE] 
-> 이 문서에서는 사용자가 Azure AD에 대한 단일 테넌트 응용 프로그램을 빌드하는 것에 이미 익숙하다고 가정합니다. 그렇지 않은 경우 [개발자 가이드 홈페이지][AAD-Dev-Guide]에 있는 빠른 시작 중 하나를 시작해야 합니다.
+> 이 문서에서는 사용자가 Azure AD에 대한 단일 테넌트 응용 프로그램을 빌드하는 것에 이미 익숙하다고 가정합니다. 그렇지 않은 경우 [개발자 가이드 홈페이지][AAD-Dev-Guide]에 있는 빠른 시작 중 하나를 시작합니다.
 
 다음과 같은 간단한 4 단게를 통해 응용 프로그램을 Azure AD 다중 테넌트 앱으로 변환할 수 있습니다.
 
@@ -42,34 +43,37 @@ ms.locfileid: "39593403"
 각 단계를 자세히 살펴보겠습니다. 또한 [이 다중 테넌트 샘플 목록][AAD-Samples-MT]으로 바로 건너뛸 수 있습니다.
 
 ## <a name="update-registration-to-be-multi-tenant"></a>등록을 다중 테넌트로 업데이트합니다.
+
 기본적으로 Azure AD에서 웹앱/API 등록은 단일 테넌트입니다. [Azure Portal][AZURE-portal]에 있는 응용 프로그램 등록의 **속성** 창에서 **다중 테넌트** 스위치를 찾아 **예**로 설정하여 등록을 다중 테넌트에 지정할 수 있습니다.
 
-응용 프로그램을 다중 테넌트에 지정하려면 먼저 Azure AD에 고유한 글로벌 응용 프로그램의 앱 ID URI가 있어야 합니다. 앱 ID URI는 프로토콜 메시지에서 응용 프로그램을 식별하는 방법 중 하나입니다. 단일 테넌트 응용 프로그램의 경우 앱 ID URI이 해당 테넌트 내에서 고유한 것으로 충분합니다. 다중 테넌트 응용 프로그램의 경우, 앱 ID URI이 전역적으로 고유해야 Azure AD가 모든 테넌트에서 응용 프로그램을 찾을 수 있습니다. 앱 ID URI이 Azure AD 테넌트의 확인된 도메인과 일치하는 호스트 이름을 갖게 함으로써 전역 고유성이 적용됩니다. 기본적으로 Azure Portal을 통해 만든 앱에는 해당 앱을 만들 때 고유한 글로벌 앱 ID URI가 설정되지만 이 값은 변경할 수 있습니다.
+응용 프로그램을 다중 테넌트에 지정하려면 먼저 Azure AD에 고유한 글로벌 응용 프로그램의 앱 ID URI가 있어야 합니다. 앱 ID URI는 프로토콜 메시지에서 응용 프로그램을 식별하는 방법 중 하나입니다. 단일 테넌트 응용 프로그램의 경우 앱 ID URI이 해당 테넌트 내에서 고유한 것으로 충분합니다. 다중 테넌트 응용 프로그램의 경우, 앱 ID URI이 전역적으로 고유해야 Azure AD가 모든 테넌트에서 응용 프로그램을 찾을 수 있습니다. 앱 ID URI이 Azure AD 테넌트의 확인된 도메인과 일치하는 호스트 이름을 갖게 함으로써 전역 고유성이 적용됩니다. 
 
-예를 들어, 테넌트의 이름이 contoso.onmicrosoft.com이라면 유효한 앱 ID URI은 `https://contoso.onmicrosoft.com/myapp`이 될 것입니다. 테넌트가 확인된 도메인 `contoso.com`를 가진 경우, 유효한 앱 ID URI은 또한 `https://contoso.com/myapp`이 됩니다. 앱 ID URI가 이 패턴을 따르지 않으면 응용 프로그램을 다중 테넌트로 설정하지 못합니다.
+기본적으로 Azure Portal을 통해 만든 앱에는 해당 앱을 만들 때 고유한 글로벌 앱 ID URI가 설정되지만 이 값은 변경할 수 있습니다. 예를 들어, 테넌트의 이름이 contoso.onmicrosoft.com이라면 유효한 앱 ID URI은 `https://contoso.onmicrosoft.com/myapp`이 될 것입니다. 테넌트가 확인된 도메인 `contoso.com`를 가진 경우, 유효한 앱 ID URI은 또한 `https://contoso.com/myapp`이 됩니다. 앱 ID URI가 이 패턴을 따르지 않으면 응용 프로그램을 다중 테넌트로 설정하지 못합니다.
 
 > [!NOTE] 
-> 네이티브 클라이언트 등록 및 [v2 응용 프로그램](./active-directory-appmodel-v2-overview.md)은 기본적으로 다중 테넌트입니다. 따라서 이러한 응용 프로그램 등록을 다중 테넌트에 지정하는 작업은 수행할 필요가 없습니다.
+> 네이티브 클라이언트 등록 및 [v2.0 응용 프로그램](./active-directory-appmodel-v2-overview.md)은 기본적으로 다중 테넌트입니다. 따라서 이러한 응용 프로그램 등록을 다중 테넌트에 지정하는 작업은 수행할 필요가 없습니다.
 
 ## <a name="update-your-code-to-send-requests-to-common"></a>/common에 요청을 보내도록 코드를 업데이트합니다.
-단일 테넌트 응용 프로그램에서 로그인 요청은 테넌트의 로그인 끝점에 전송됩니다. 예를 들어 contoso.onmicrosoft.com에 대한 엔드포인트는 `https://login.microsoftonline.com/contoso.onmicrosoft.com`입니다.
 
-테넌트의 끝점에 보내진 요청은 그 테넌트에 있는 사용자 (또는 게스트)를 그 테넌트의 응용 프로그램으로 로그인하게 할 수 있습니다. 다중 테넌트 응용 프로그램을 사용할 경우, 응용 프로그램은 사용자가 어떤 테넌트에서 오는지 미리 알지 못하므로 요청을 테넌트 끝점에 보낼 수 없습니다. 대신, 요청은 모든 Azure AD 테넌트 간에 멀티플렉싱하는 엔드포인트(`https://login.microsoftonline.com/common`)로 보내집니다.
+단일 테넌트 응용 프로그램에서 로그인 요청은 테넌트의 로그인 엔드포인트에 전송됩니다. 예를 들어 contoso.onmicrosoft.com의 엔드포인트는 `https://login.microsoftonline.com/contoso.onmicrosoft.com`입니다. 테넌트의 엔드포인트에 보내진 요청은 그 테넌트에 있는 사용자 (또는 게스트)를 그 테넌트의 응용 프로그램으로 로그인하게 할 수 있습니다. 
 
-Azure AD에서 /common 엔드포인트의 요청을 받으면 사용자를 로그인하고, 이에 따라 사용자가 보낸 테넌트를 검색합니다. /common 끝점은 Azure AD에서 지원하는 OpenID Connect, OAuth 2.0, SAML 2.0 및 WS-Federation과 같은 모든 인증 프로토콜에서 작동합니다.
+다중 테넌트 응용 프로그램을 사용할 경우, 응용 프로그램은 사용자가 어떤 테넌트에서 오는지 미리 알지 못하므로 요청을 테넌트 엔드포인트에 보낼 수 없습니다. 대신, 요청은 모든 Azure AD 테넌트 간에 멀티플렉싱하는 엔드포인트(`https://login.microsoftonline.com/common`)로 보내집니다.
 
-그 경우 응용 프로그램에 대한 로그인 응답에는 사용자를 나타내는 토큰이 들어 있습니다. 응용 프로그램은 토큰에 든 발급자 값을 보고 사용자가 어떤 테넌트에서 오는지 알게 됩니다. 응답이 /Common 끝점에서 반환될 때, 토큰의 발급자 값이 사용자의 테넌트에 해당합니다. 
+Azure AD에서 /common 엔드포인트의 요청을 받으면 사용자를 로그인하고, 이에 따라 사용자가 보낸 테넌트를 검색합니다. /common 엔드포인트는 Azure AD에서 지원하는 OpenID Connect, OAuth 2.0, SAML 2.0 및 WS-Federation과 같은 모든 인증 프로토콜에서 작동합니다.
+
+그 경우 응용 프로그램에 대한 로그인 응답에는 사용자를 나타내는 토큰이 들어 있습니다. 응용 프로그램은 토큰에 든 발급자 값을 보고 사용자가 어떤 테넌트에서 오는지 알게 됩니다. 응답이 /Common 엔드포인트에서 반환될 때, 토큰의 발급자 값이 사용자의 테넌트에 해당합니다. 
 
 > [!IMPORTANT]
 > /common 엔드포인트는 테넌트도 아니고 발급자도 아니며 단지 멀티플렉서입니다. /Common을 사용할 때, 응용 프로그램에서 토큰의 유효성을 검사하는 논리는 이 점을 고려하도록 업데이트되어야 합니다. 
 
 ## <a name="update-your-code-to-handle-multiple-issuer-values"></a>여러 발급자 값을 처리하는 코드를 업데이트합니다.
+
 웹 응용 프로그램 및 웹 API는 Azure AD에서 토큰을 받아 유효성을 검사합니다. 
 
 > [!NOTE]
 > 네이티브 클라이언트 응용 프로그램은 Azure AD에 토큰을 요청하고 수신하는 동안에 API로 보내 유효성 검사를 합니다. 네이티브 응용 프로그램은 토큰의 유효성을 검사하지 않으며 그것을 불투명한 것으로 처리해야 합니다.
 
-응용 프로그램이 Azure AD에서 수신한 토큰의 유효성을 검사하는 방법을 살펴보겠습니다. 단일 테넌트 응용 프로그램은 일반적으로 다음과 같은 끝점 값을 사용합니다.
+응용 프로그램이 Azure AD에서 수신한 토큰의 유효성을 검사하는 방법을 살펴보겠습니다. 단일 테넌트 응용 프로그램은 일반적으로 다음과 같은 엔드포인트 값을 사용합니다.
 
     https://login.microsoftonline.com/contoso.onmicrosoft.com
 
@@ -95,10 +99,11 @@ Azure AD에서 /common 엔드포인트의 요청을 받으면 사용자를 로�
 
 [다중 테넌트 샘플][AAD-Samples-MT]에서는 Azure AD 테넌트에서 로그인할 수 있도록 설정하기 위해 발급자 유효성 검사가 사용되지 않습니다.
 
-## <a name="understanding-user-and-admin-consent"></a>사용자 및 관리자 동의 이해하기
+## <a name="understand-user-and-admin-consent"></a>사용자 및 관리자 동의 이해
+
 사용자가 Azure AD에서 응용 프로그램에 로그인하려면 응용 프로그램이 사용자의 테넌트에 나타나야 합니다. 이를 통해 조직은 사용자가 테넌트로부터 응용 프로그램에 로그인할 때 고유한 정책을 적용하는 것과 같은 작업을 수행할 수 있습니다. 단일 테넌트 응용 프로그램의 경우 이 등록은 간단합니다. [Azure Portal][AZURE-portal]에서 응용 프로그램을 등록할 때 이루어집니다.
 
-다중 테넌트 응용 프로그램의 경우, 응용 프로그램에 대한 초기 등록은 개발자가 사용한 Azure AD 테넌트에 있습니다. 다른 테넌트에서 사용자가 처음으로 응용 프로그램에 로그인할 때, Azure AD는 응용 프로그램에서 요청하는 사용 권한에 동의하는지 묻습니다. 동의한다면 *서비스 주체*라는 응용 프로그램의 표현이 사용자 테넌트에 생성되고 로그인은 계속 진행할 수 있습니다. 위임이 또한 사용자의 동의를 응용 프로그램에 기록하는 디렉토리에 만들어집니다. 응용 프로그램의 Application 및 ServicePrincipal 개체와 서로 간에 관계를 설정하는 방법에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체][AAD-App-SP-Objects]를 참조하세요.
+다중 테넌트 응용 프로그램의 경우, 응용 프로그램에 대한 초기 등록은 개발자가 사용한 Azure AD 테넌트에 있습니다. 다른 테넌트에서 사용자가 처음으로 응용 프로그램에 로그인할 때, Azure AD는 응용 프로그램에서 요청하는 사용 권한에 동의하는지 묻습니다. 동의한다면 *서비스 주체*라는 응용 프로그램의 표현이 사용자 테넌트에 생성되고 로그인은 계속 진행할 수 있습니다. 위임이 또한 사용자의 동의를 응용 프로그램에 기록하는 디렉토리에 만들어집니다. 응용 프로그램의 Application 및 ServicePrincipal 개체와 서로 간의 관계를 설정하는 방법에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체][AAD-App-SP-Objects]를 참조하세요.
 
 ![단일 계층 앱에 동의][Consent-Single-Tier] 
 
@@ -110,6 +115,7 @@ Azure AD에서 /common 엔드포인트의 요청을 받으면 사용자를 로�
 일부 사용 권한은 일반 사용자가 동의할 수 있는 반면 또 다른 사용 권한은 테넌트 관리자의 동의가 필요합니다. 
 
 ### <a name="admin-consent"></a>관리자 동의
+
 응용 프로그램 전용 권한은 테넌트 관리자의 동의를 항상 필요로 합니다. 응용 프로그램이 응용 프로그램 전용 사용 권한을 요청하고 사용자가 응용 프로그램에 로그인을 시도하는 경우 사용자가 동의할 수 없음을 알리는 오류 메시지가 나타납니다.
 
 위임된 특정 권한은 또한 테넌트 관리자의 동의를 필요로 합니다. 예를 들어, 로그인한 사용자로 Azure AD에 쓰기 저장 기능은 테넌트 관리자의 동의가 필요합니다. 응용 프로그램 전용 권한과 같이, 일반 사용자가 관리자 동의가 필요한 위임된 권한을 요청하는 응용 프로그램에 로그인하려는 경우 응용 프로그램에 오류가 발생합니다. 권한에 관리자 동의가 필요한지 여부는 리소스를 게시한 개발자가 결정하며 해당 리스스에 대한 설명서에서 확인할 수 있습니다. [Azure AD Graph API][AAD-Graph-Perm-Scopes] 및 [Microsoft Graph API][MSFT-Graph-permision-scopes]에 대한 권한 설명서에는 관리자 동의가 필요한 권한이 나와 있습니다.
@@ -123,9 +129,10 @@ Azure AD에서 /common 엔드포인트의 요청을 받으면 사용자를 로�
 응용 프로그램에 관리자 동의가 필요하고 관리자가 `prompt=admin_consent` 매개 변수를 보내지 않고 로그인하는 경우, 관리자가 응용 프로그램에 동의할 때 **자신의 사용자 계정에만** 적용됩니다. 일반 사용자는 여전히 응용 프로그램에 로그인하거나 동의할 수 없습니다. 이 기능은 다른 사용자에게 액세스를 허용하기 전에 응용 프로그램을 탐색하는 기능을 테넌트 관리자에게 부여하고자 할 때 유용합니다.
 
 > [!NOTE]
-> 일부 응용 프로그램은 처음에는 일반 사용자가 동의할 수 있고 나중에는 응용 프로그램이 관리자를 참여시키고 관리자 동의가 필요한 권한을 요청할 수 있는 환경을 원합니다. 현재 Azure AD에서 v1 응용 프로그램 등록으로 이 작업을 수행할 수 있는 방법은 없습니다. 그러나 v2 엔드포인트를 사용하면 응용 프로그램에서 등록 시가 아니라 런타임에 권한을 요청할 수 있으므로 이 시나리오를 사용할 수 있습니다. 자세한 내용은 [v2 엔드포인트][AAD-V2-Dev-Guide]를 참조하세요.
+> 일부 응용 프로그램은 처음에는 일반 사용자가 동의할 수 있고 나중에는 응용 프로그램이 관리자를 참여시키고 관리자 동의가 필요한 권한을 요청할 수 있는 환경을 원합니다. 현재 Azure AD에서 v1.0 응용 프로그램 등록으로 이 작업을 수행할 수 있는 방법은 없습니다. 그러나 v2.0 엔드포인트를 사용하면 응용 프로그램에서 등록 시가 아니라 런타임에 사용 권한을 요청할 수 있으므로 이 시나리오를 사용할 수 있습니다. 자세한 내용은 [v2.0 엔드포인트][AAD-V2-Dev-Guide]를 참조하세요.
 
 ### <a name="consent-and-multi-tier-applications"></a>동의 및 다중 계층 응용 프로그램
+
 응용 프로그램은 여러 계층을 가질 수 있으며, 각 계층은 Azure AD에서 자체 등록에 의해 표현될 수 있습니다. 예를 들어, 웹 API를 호출하는 네이티브 응용 프로그램 또는 웹 API를 호출하는 웹 응용 프로그램. 두 경우 모두, 클라이언트(네이티브 앱 또는 웹앱)는 리소스(웹 API)를 호출하는 권한을 요청합니다. 클라이언트가 고객의 테넌트로 성공적으로 동의되려면 사용 권한을 요청한 모든 리소스가 고객의 테넌트에 이미 있어야 합니다. 이 조건이 충족되지 않으면, Azure AD는 리소스가 먼저 추가되어야 한다는 오류를 반환합니다.
 
 **단일 테넌트의 여러 계층**
@@ -146,7 +153,7 @@ Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고�
 
 1. 이전 섹션에 따라 API에서 다중 테넌트 응용 프로그램 등록/코드 요구 사항을 구현하는지 확인합니다.
 2. API의 범위/역할을 노출하는 것 외에도, 등록에 "로그인 및 사용자 프로필 읽기" Azure AD 권한(기본 제공)이 포함되어 있는지 확인합니다.
-3. 앞에서 설명한 [관리자 동의](#admin-consent) 지침에 따라 웹 클라이언트에 로그인/등록 페이지를 구현합니다.
+3. 웹 클라이언트에 로그인/등록 페이지를 구현하고 [관리자 동의](#admin-consent) 지침을 따릅니다.
 4. 사용자가 응용 프로그램에 동의하면 서비스 주체 및 동의 위임 링크가 해당 테넌트에 만들어지고 네이티브 응용 프로그램에서 API에 대한 토큰을 가져올 수 있습니다.
 
 다음 다이어그램에서는 다른 테넌트에 등록된 다중 계층 응용 프로그램에 대한 동의 개요를 제공합니다.
@@ -154,6 +161,7 @@ Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고�
 ![다중 계층 다자 앱에 동의][Consent-Multi-Tier-Multi-Party] 
 
 ### <a name="revoking-consent"></a>동의 철회
+
 사용자와 관리자는 언제든지 응용 프로그램에 대한 동의를 해지할 수 있습니다.
 
 * 사용자는 자신의 [액세스 패널 응용 프로그램][AAD-Access-Panel] 목록에서 개별 응용 프로그램을 제거하여 해당 응용 프로그램에 대한 액세스 권한을 취소합니다.
@@ -162,12 +170,15 @@ Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고�
 관리자가 테넌트의 모든 사용자에 대해 응용 프로그램에 동의하는 경우 사용자는 개별적으로 액세스를 해지할 수 없습니다. 관리자만이 액세스를 해지할 수 있으며 전체 응용 프로그램에 대해서만 해지할 수 있습니다.
 
 ## <a name="multi-tenant-applications-and-caching-access-tokens"></a>다중 테넌트 응용 프로그램 및 액세스 토큰 캐싱
-다중 테넌트 응용 프로그램은 또한 Azure AD로 보호되는 API를 호출하는 액세스 토큰을 가져올 수도 있습니다. 다중 테넌트 응용 프로그램에서 ADAL(Active Directory 인증 라이브러리)을 사용하는 경우의 일반적인 오류는 먼저 /common을 사용하여 사용자에 대한 토큰을 요청하고 응답을 받은 다음, 또 다시 /common을 사용하여 동일한 사용자에 대한 후속 토큰을 요청하는 것입니다. Azure AD의 응답은 /common이 아닌 테넌트에서 제공되므로 ADAL은 토큰을 테넌트에서 가져온 것으로 캐시합니다. 사용자에 대한 액세스 토큰을 가져오기 위한 /common에 대한 후속 호출은 캐시 항목이 누락되어, 사용자에게 다시 로그인하라는 메시지가 표시됩니다. 캐시 누락을 방지하려면 이미 로그인한 사용자에 대한 후속 호출이 테넌트의 끝점에 대해 있었는지 확인합니다.
+
+다중 테넌트 응용 프로그램은 또한 Azure AD로 보호되는 API를 호출하는 액세스 토큰을 가져올 수도 있습니다. 다중 테넌트 응용 프로그램에서 ADAL(Active Directory 인증 라이브러리)을 사용하는 경우의 일반적인 오류는 먼저 /common을 사용하여 사용자에 대한 토큰을 요청하고 응답을 받은 다음, 또 다시 /common을 사용하여 동일한 사용자에 대한 후속 토큰을 요청하는 것입니다. Azure AD의 응답은 /common이 아닌 테넌트에서 제공되므로 ADAL은 토큰을 테넌트에서 가져온 것으로 캐시합니다. 사용자에 대한 액세스 토큰을 가져오기 위한 /common에 대한 후속 호출은 캐시 항목이 누락되어, 사용자에게 다시 로그인하라는 메시지가 표시됩니다. 캐시 누락을 방지하려면 이미 로그인한 사용자에 대한 후속 호출이 테넌트의 엔드포인트에 대해 있었는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 모든 Azure AD 테넌트에서 사용자를 로그인할 수 있는 응용 프로그램을 빌드하는 방법을 알아보았습니다. 응용 프로그램 및 Azure AD 간에 SSO(Single Sign-On)를 사용하도록 설정되면 Office 365와 같은 Microsoft 리소스에서 노출되는 API에 액세스하도록 응용 프로그램을 업데이트할 수도 있습니다. 이렇게 하면 사용자에게 컨텍스트 정보(예: 프로필 사진 또는 다음 일정 약속)를 표시하는 등 개인 설정 환경을 응용 프로그램에 제공할 수 있습니다. Azure AD 및 Office 365 서비스(예: Exchange, SharePoint, OneDrive, OneNote, Planner, Excel 등)에 대한 API를 호출하는 방법에 대해 자세히 알아보려면 [Microsoft Graph API][MSFT-Graph-overview]를 방문하세요.
+
+이 문서에서는 모든 Azure AD 테넌트에서 사용자를 로그인할 수 있는 응용 프로그램을 빌드하는 방법을 알아보았습니다. 응용 프로그램 및 Azure AD 간에 SSO(Single Sign-On)를 사용하도록 설정되면 Office 365와 같은 Microsoft 리소스에서 노출되는 API에 액세스하도록 응용 프로그램을 업데이트할 수도 있습니다. 이렇게 하면 사용자에게 컨텍스트 정보(예: 프로필 사진 또는 다음 일정 약속)를 표시하는 등 개인 설정 환경을 응용 프로그램에 제공할 수 있습니다. Azure AD 및 Office 365 서비스(예: Exchange, SharePoint, OneDrive, OneNote 등)에 대한 API 호출을 만드는 방법을 자세히 알아보려면 [Microsoft Graph API][MSFT-Graph-overview]를 방문하세요.
 
 ## <a name="related-content"></a>관련 콘텐츠
+
 * [다중 테넌트 응용 프로그램 샘플][AAD-Samples-MT]
 * [응용 프로그램에 대한 브랜딩 지침][AAD-App-Branding]
 * [응용 프로그램 개체 및 서비스 주체 개체][AAD-App-SP-Objects]
@@ -182,7 +193,7 @@ Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고�
 [AAD-App-Manifest]:reference-azure-ad-app-manifest.md
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
 [AAD-Auth-Scenarios]:authentication-scenarios.md
-[AAD-Consent-Overview]:quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework
+[AAD-Consent-Overview]:consent-framework.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
 [AAD-Graph-Overview]: https://azure.microsoft.com/documentation/articles/active-directory-graph-api/
 [AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
@@ -211,8 +222,8 @@ Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고�
 [AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
-[AAD-Tokens-Claims]:v1-id-and-access-tokens.md
-[AAD-V2-Dev-Guide]: ../active-directory-appmodel-v2-overview.md
+[AAD-Tokens-Claims]:access-tokens.md
+[AAD-V2-Dev-Guide]: v2-overview.md
 [AZURE-portal]: https://portal.azure.com
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
@@ -224,17 +235,3 @@ Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고�
 [OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6
 [OpenIDConnect]: http://openid.net/specs/openid-connect-core-1_0.html
 [OpenIDConnect-ID-Token]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
-
-
-
-
-
-
-
-
-
-
-
-
-
-

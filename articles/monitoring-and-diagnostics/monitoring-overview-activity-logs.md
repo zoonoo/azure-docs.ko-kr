@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 51cc4c37ba661feb63880c138e98200c981f6054
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 5288dc508c35c72f3c1996ce665ccf83a84a4ea3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918484"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948968"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure 활동 로그로 구독 활동 모니터링
 
@@ -33,8 +33,7 @@ ms.locfileid: "37918484"
 Azure Portal, CLI, PowerShell cmdlet 및 Azure Monitor REST API를 사용하여 활동 로그에서 이벤트를 검색할 수 있습니다.
 
 > [!NOTE]
->  
-  [최신 경고](monitoring-overview-unified-alerts.md)는 활동 로그 경고 규칙을 만들고 관리할 때 향상된 환경을 제공합니다.  [자세히 알아보기](monitoring-activity-log-alerts-new-experience.md).
+>  [최신 경고](monitoring-overview-unified-alerts.md)는 활동 로그 경고 규칙을 만들고 관리할 때 향상된 환경을 제공합니다.  [자세히 알아보기](monitoring-activity-log-alerts-new-experience.md).
 
 활동 로그를 소개하는 다음 동영상을 봅니다.
 > [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
@@ -44,11 +43,12 @@ Azure Portal, CLI, PowerShell cmdlet 및 Azure Monitor REST API를 사용하여 
 활동 로그에는 여러 데이터 범주가 포함됩니다. 이러한 범주의 스키마에 대한 전체 정보는 [이 문서를 참조하세요](monitoring-activity-log-schema.md). 내용은 다음과 같습니다.
 * **관리** - 이 범주에는 Resource Manager를 통해 수행한 모든 만들기, 업데이트, 삭제 및 동작 작업의 레코드가 포함되어 있습니다. 이 범주에 표시되는 이벤트의 유형의 예로는 "가상 머신 만들기", "네트워크 보안 그룹 삭제" 등이 있습니다. 사용자나 응용 프로그램이 Resource Manager를 사용하여 취하는 모든 동작은 특정 리소스 종류에 대한 작업으로 모델링됩니다. 작업 유형이 쓰기, 삭제 또는 동작이면 해당 작업의 시작 및 성공이나 실패 레코드가 모두 관리 범주에 기록됩니다. 관리 범주에는 구독의 역할 기반 액세스 제어 변경 내용도 포함됩니다.
 * **서비스 상태** - 이 범주에는 Azure에서 발생한 모든 서비스 상태 관련 인시던트의 레코드가 포함됩니다. 이 범주에 표시되는 이벤트 유형의 예로는 "미국 동부의 SQL Azure가 가동 중지 상태입니다." 등이 있습니다. 서비스 상태 이벤트는 작업 필요, 복구 지원, 인시던트, 유지 관리, 정보 또는 보안의 5가지 중 하나이며 구독에 이벤트의 영향을 받는 리소스가 있는 경우에만 표시됩니다.
+* **리소스 상태** - 이 범주에는 Azure 리소스에 발생한 모든 리소스 상태 이벤트의 레코드가 포함됩니다. 이 범주에 표시되는 이벤트 유형의 예는 “가상 머신 상태가 사용 불가능으로 변경됨”입니다. 리소스 상태 이벤트는 사용 가능, 사용 불가능, 저하됨 및 알 수 없음의 네 가지 상태로 표시될 수 있습니다. 또한 리소스 상태 이벤트는 플랫폼 시작 또는 사용자 시작으로 분류될 수 있습니다.
 * **경고** - 이 범주에는 모든 Azure 경고 활성화의 레코드가 포함됩니다. 이 범주에 표시되는 이벤트 유형의 예로는 "지난 5분 동안 myVM의 CPU 사용률이 80%를 초과했습니다." 등이 있습니다. 다수의 Azure 시스템에서 경고 개념이 사용됩니다. 일종의 규칙을 정의하여 조건이 해당 규칙과 일치하면 알림을 수신할 수 있습니다. 지원되는 Azure 경고 유형이 '활성화'되거나 알림 생성을 위한 조건이 충족될 때마다 활성화 레코드도 이 활동 로그 범주로 푸시됩니다.
 * **자동 크기 조정** - 이 범주에는 구독에서 정의한 자동 크기 조정 설정을 기준으로 하는 자동 크기 조정 엔진 작업 관련 이벤트의 레코드가 포함됩니다. 이 범주에 표시되는 이벤트 유형의 예로는 "자동 크기 조정 강화 동작이 실패했습니다." 등이 있습니다 자동 크기 조정을 사용하면 자동 크기 조정 설정을 사용하여 시간 및/또는 로드(메트릭) 데이터를 기준으로 지원되는 리소스 종류의 인스턴스 수를 자동으로 규모 확장하거나 규모 감축할 수 있습니다. 강화 또는 규모 축소 조건이 충족되면 시작 이벤트와 성공 또는 실패 이벤트가 이 범주에 기록됩니다.
 * **권장 사항** - 이 범주에는 Azure Advisor의 권장 사항 이벤트가 포함됩니다.
 * **보안** - 이 범주에는 Azure Security Center에서 경고가 생성한 모든 레코드가 포함됩니다. 이 범주에 표시되는 이벤트 유형의 예로는 "의심스러운 이중 확장 파일이 실행되었습니다." 등이 있습니다.
-* **정책 및 리소스 상태** - 이러한 범주는 이벤트를 포함하지 않으며 나중에 사용하도록 예약됩니다.
+* **정책** - 이 범주에는 이벤트가 포함되어 있지 않습니다. 나중에 사용하도록 예약되어 있습니다. 
 
 ## <a name="event-schema-per-category"></a>범주별 이벤트 스키마
 [범주별 활동 로그 이벤트 스키마를 파악하려면 이 문서를 참조하세요.](monitoring-activity-log-schema.md)
@@ -107,7 +107,7 @@ Azure Portal에서 이러한 필드에 의해 활동 로그를 필터링할 수 
 >  현재는 보안 가상 네트워크 뒤에 있는 저장소 계정에 데이터를 보관할 수 없습니다.
 
 > [!WARNING]
-> 저장소 계정에서 로그 데이터의 형식이 2018년 11월 1일에 JSON 줄로 변경됩니다. [새 형식을 처리하도록 도구를 업데이트하는 방법과 영향에 대한 설명은 이 문서를 참조하세요.](./monitor-diagnostic-logs-append-blobs.md) 
+> 저장소 계정에서 로그 데이터의 형식이 2018년 11월 1일에 JSON 줄로 변경됩니다. [새 형식을 처리하도록 도구를 업데이트하는 방법과 영향에 대한 설명은 이 아티클을 참조하세요.](./monitor-diagnostic-logs-append-blobs.md) 
 >
 > 
 
@@ -147,19 +147,19 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 
 | 자산 | 필수 | 설명 |
 | --- | --- | --- |
-| Name |예 |로그 프로필의 이름입니다. |
-| StorageAccountId |아니오 |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
-| serviceBusRuleId |아니오 |이벤트 허브를 만들 Service Bus 네임스페이스의 Service Bus 규칙 ID입니다. `{service bus resource ID}/authorizationrules/{key name}` 형식의 문자열입니다. |
-| 위치 |예 |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. |
-| RetentionInDays |예 |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한(영원히) 저장합니다. |
-| Category |아니오 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
+| 이름 |yes |로그 프로필의 이름입니다. |
+| StorageAccountId |아니요 |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
+| serviceBusRuleId |아니요 |이벤트 허브를 만들 Service Bus 네임스페이스의 Service Bus 규칙 ID입니다. `{service bus resource ID}/authorizationrules/{key name}` 형식의 문자열입니다. |
+| 위치 |yes |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. |
+| RetentionInDays |yes |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한(영원히) 저장합니다. |
+| Category |아니요 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
 
 #### <a name="remove-a-log-profile"></a>로그 프로필 제거
 ```
 Remove-AzureRmLogProfile -name my_log_profile
 ```
 
-### <a name="configure-log-profiles-using-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 로그 프로필 구성
+### <a name="configure-log-profiles-using-the-azure-cli"></a>Azure CLI를 사용하여 로그 프로필 구성
 
 #### <a name="get-existing-log-profile"></a>기존 로그 프로필 가져오기
 

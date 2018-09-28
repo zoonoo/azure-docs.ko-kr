@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 3/9/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 1b0588e25c0d156080a2e879185b76714d8691b2
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 61909c7f6858c7411e01019edda22d7676b44943
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113377"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955047"
 ---
 # <a name="tutorial-integrate-api-management-with-service-fabric-in-azure"></a>자습서: Azure에서 Service Fabric과 API Management 통합
 
@@ -44,12 +44,12 @@ ms.locfileid: "37113377"
 > * [클러스터의 런타임 업그레이드](service-fabric-tutorial-upgrade-cluster.md)
 > * Service Fabric을 사용하여 API Management 배포
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 시작하기 전에:
 
 * Azure 구독이 없는 경우 [평가판 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* [Azure PowerShell 모듈 버전 4.1 이상](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) 또는 [Azure CLI 2.0](/cli/azure/install-azure-cli)을 설치합니다.
+* [Azure PowerShell 모듈 버전 4.1 이상](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
 * Azure에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 또는 [Linux 클러스터](service-fabric-tutorial-create-vnet-and-linux-cluster.md) 만들기
 * Windows 클러스터를 배포하는 경우 Windows 개발 환경을 설정합니다. [Visual Studio 2017](http://www.visualstudio.com), **Azure 개발**, **ASP.NET 및 웹 개발** 및 **.NET Core 플랫폼 간 개발** 워크로드를 설치합니다.  그런 후 [.NET 개발 환경](service-fabric-get-started.md)을 설정합니다.
 * Linux 클러스터를 배포하는 경우 [Linux](service-fabric-get-started-linux.md) 또는 [MacOS](service-fabric-get-started-mac.md)에서 Java 개발 환경을 설정합니다.  [Service Fabric CLI](service-fabric-cli.md)를 설치합니다.
@@ -81,7 +81,7 @@ Service Fabric 백 엔드 서비스로 트래픽을 라우팅하도록 API Manag
 
 ### <a name="deploy-a-net-service-fabric-service"></a>.NET Service Fabric 서비스 배포
 
-이 자습서에서는 기본 웹 API 프로젝트 템플릿을 사용하여 기본적인 상태 비저장 ASP.NET Core 신뢰할 수 있는 서비스를 만듭니다. 이렇게 하면 서비스의 HTTP 끝점이 Azure API Management를 통해 노출됩니다.
+이 자습서에서는 기본 웹 API 프로젝트 템플릿을 사용하여 기본적인 상태 비저장 ASP.NET Core 신뢰할 수 있는 서비스를 만듭니다. 이렇게 하면 서비스의 HTTP 엔드포인트가 Azure API Management를 통해 노출됩니다.
 
 Visual Studio를 관리자 권한으로 시작하고 ASP.NET Core 서비스를 만듭니다.
 
@@ -89,7 +89,7 @@ Visual Studio를 관리자 권한으로 시작하고 ASP.NET Core 서비스를 �
  2. 클라우드에서 Service Fabric 응용 프로그램 템플릿을 선택하고 이름을 **"ApiApplication"** 으로 지정합니다.
  3. 상태 비저장 ASP.NET Core 서비스 템플릿을 선택하고 프로젝트 이름을 **"WebApiService"** 로 지정합니다.
  4. Web API ASP.NET Core 2.0 프로젝트 템플릿을 선택합니다.
- 5. 프로젝트가 만들어지면 `PackageRoot\ServiceManifest.xml`을 열고 끝점 리소스 구성에서 `Port` 특성을 제거합니다.
+ 5. 프로젝트가 만들어지면 `PackageRoot\ServiceManifest.xml`을 열고 엔드포인트 리소스 구성에서 `Port` 특성을 제거합니다.
 
     ```xml
     <Resources>
@@ -109,15 +109,15 @@ Visual Studio를 관리자 권한으로 시작하고 ASP.NET Core 서비스를 �
     ["value1", "value2"]`
     ```
 
-    Azure에서 API Management를 통해 노출될 끝점입니다.
+    Azure에서 API Management를 통해 노출될 엔드포인트입니다.
 
- 7. 마지막으로, Azure에서 응용 프로그램을 클러스터에 배포합니다. Visual Studio에서 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. 클러스터 끝점(예: `mycluster.southcentralus.cloudapp.azure.com:19000`)을 제공하여 Azure에서 Service Fabric 클러스터에 응용 프로그램을 배포합니다.
+ 7. 마지막으로, Azure에서 응용 프로그램을 클러스터에 배포합니다. Visual Studio에서 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. 클러스터 엔드포인트(예: `mycluster.southcentralus.cloudapp.azure.com:19000`)를 제공하여 Azure에서 Service Fabric 클러스터에 응용 프로그램을 배포합니다.
 
 `fabric:/ApiApplication/WebApiService`로 명명된 ASP.NET Core 상태 비저장 서비스는 이제 Azure의 Service Fabric 클러스터에서 실행되어야 합니다.
 
 ### <a name="create-a-java-service-fabric-service"></a>Java Service Fabric 서비스 만들기
 
-이 자습서에서는 사용자에게 메시지를 다시 표시하는 기본 웹 서버를 배포합니다. 에코 서버 샘플 응용 프로그램에는 Azure API Management를 통해 노출하는 서비스의 HTTP 끝점이 포함됩니다.
+이 자습서에서는 사용자에게 메시지를 다시 표시하는 기본 웹 서버를 배포합니다. 에코 서버 샘플 응용 프로그램에는 Azure API Management를 통해 노출하는 서비스의 HTTP 엔드포인트가 포함됩니다.
 
 1. Java 시작 샘플을 복제합니다.
 
@@ -126,7 +126,7 @@ Visual Studio를 관리자 권한으로 시작하고 ASP.NET Core 서비스를 �
    cd service-fabric-java-getting-started/reliable-services-actor-sample
    ```
 
-2. *Services/EchoServer/EchoServer1.0/EchoServerApplication/EchoServerPkg/ServiceManifest.xml*을 편집합니다. 서비스가 포트 8081에서 수신 대기하도록 끝점을 업데이트합니다.
+2. *Services/EchoServer/EchoServer1.0/EchoServerApplication/EchoServerPkg/ServiceManifest.xml*을 편집합니다. 서비스가 포트 8081에서 수신 대기하도록 엔드포인트를 업데이트합니다.
 
    ```xml
    <Endpoint Name="WebEndpoint" Protocol="http" Port="8081" />
@@ -151,9 +151,9 @@ Visual Studio를 관리자 권한으로 시작하고 ASP.NET Core 서비스를 �
 
 5. 브라우저를 열고 http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage를 입력하면 "[version 1.0]Hello World!!!"가 표시됩니다. 표시됩니다.
 
-## <a name="download-and-understand-the-resource-manager-templates"></a>Resource Manager 템플릿 다운로드 및 이해
+## <a name="download-and-understand-the-resource-manager-templates"></a>리소스 관리자 템플릿 다운로드 및 이해
 
-다음 Resource Manager 템플릿 및 매개 변수 파일을 다운로드하고 저장합니다.
+다음 리소스 관리자 템플릿 및 매개 변수 파일을 다운로드하고 저장합니다.
 
 * [network-apim.json][network-arm]
 * [network-apim.parameters.json][network-parameters-arm]
@@ -178,7 +178,7 @@ Visual Studio를 관리자 권한으로 시작하고 ASP.NET Core 서비스를 �
 
 [Microsoft.ApiManagement/service/backends](/azure/templates/microsoft.apimanagement/service/backends)에서는 트래픽이 전달되는 백 엔드 서비스에 대해 설명합니다.
 
-Service Fabric 백 엔드의 경우 특정 Service Fabric 서비스가 아니라 Service Fabric 클러스터가 백 엔드입니다. 이렇게 하면 단일 정책에서 클러스터에 있는 둘 이상의 서비스로 라우팅할 수 있습니다. 여기서 **url** 필드는 백 엔드 정책에 지정된 서비스 이름이 없는 경우 기본적으로 모든 요청이 라우팅되는 클러스터 서비스의 정규화된 서비스 이름입니다. 대체 서비스를 포함하지 않으려는 경우 "fabric:/fake/service" 같은 가짜 서비스 이름을 사용할 수 있습니다. **resourceId**는 클러스터 관리 끝점을 지정합니다.  **clientCertificateThumbprint** 및 **serverCertificateThumbprints**는 클러스터로 인증받는 데 사용되는 인증서를 식별합니다.
+Service Fabric 백 엔드의 경우 특정 Service Fabric 서비스가 아니라 Service Fabric 클러스터가 백 엔드입니다. 이렇게 하면 단일 정책에서 클러스터에 있는 둘 이상의 서비스로 라우팅할 수 있습니다. 여기서 **url** 필드는 백 엔드 정책에 지정된 서비스 이름이 없는 경우 기본적으로 모든 요청이 라우팅되는 클러스터 서비스의 정규화된 서비스 이름입니다. 대체 서비스를 포함하지 않으려는 경우 "fabric:/fake/service" 같은 가짜 서비스 이름을 사용할 수 있습니다. **resourceId**는 클러스터 관리 엔드포인트를 지정합니다.  **clientCertificateThumbprint** 및 **serverCertificateThumbprints**는 클러스터로 인증받는 데 사용되는 인증서를 식별합니다.
 
 ### <a name="microsoftapimanagementserviceproducts"></a>Microsoft.ApiManagement/service/products
 
@@ -192,7 +192,7 @@ Service Fabric 백 엔드의 경우 특정 Service Fabric 서비스가 아니라
 
 * **displayName**은 API에 대한 어떤 이름도 될 수 있습니다. 이 자습서에서는 "Service Fabric 앱"을 사용합니다.
 * **name**은 API를 설명하는 고유한 이름(예: "service-fabric-app")을 제공합니다. 개발자 및 게시자 포털에 표시됩니다.
-* **serviceUrl**은 API를 구현하는 HTTP 서비스를 참조합니다. API Management는 이 주소로 요청을 전달합니다. Service Fabric 백 엔드에는 이 URL 값이 사용되지 않습니다. 여기에 임의의 값을 입력할 수 있습니다. 예를 들어 이 자습서에서는 " http://servicefabric "일 수 있습니다.
+* **serviceUrl**은 API를 구현하는 HTTP 서비스를 참조합니다. API 관리는 이 주소로 요청을 전달합니다. Service Fabric 백 엔드에는 이 URL 값이 사용되지 않습니다. 여기에 임의의 값을 입력할 수 있습니다. 예를 들어 이 자습서에서는 " http://servicefabric "일 수 있습니다.
 * **path**는 API Management 서비스의 기본 URL에 추가됩니다. 기본 URL은 API Management 서비스 인스턴스에서 호스트되는 모든 API에 공통으로 사용됩니다. API Management는 접미사를 사용하여 API를 구분하므로, 접미사는 지정된 게시자의 모든 API에 대해 고유해야 합니다.
 * **protocols**는 API에 액세스하는 데 사용할 수 있는 프로토콜을 결정합니다. 이 자습서에서는 **http** 및 **https**가 나열됩니다.
 * **path**는 API에 대한 접미사입니다. 이 자습서에서는 "myapp"을 사용합니다.
@@ -248,7 +248,7 @@ Service Fabric 백 엔드의 경우 특정 Service Fabric 서비스가 아니라
 |---|---|
 |apimInstanceName|sf-apim|
 |apimPublisherEmail|myemail@contosos.com|
-|apimSku|개발자|
+|apimSku|Developer|
 |serviceFabricCertificateName|sfclustertutorialgroup320171031144217|
 |certificatePassword|q6D7nN%6ck@6|
 |serviceFabricCertificateThumbprint|C4C1E541AD512B8065280292A8BA6079C3F26F10 |

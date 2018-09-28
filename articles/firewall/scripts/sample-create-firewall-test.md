@@ -8,18 +8,14 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 8/13/2018
 ms.author: victorh
-ms.openlocfilehash: b65a5dec63bdc625dda64e101620f56cd6dd7308
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 23f10280cd34927e2e74cb7c5001850bedc6dd35
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41918941"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967543"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>Azure Firewall 테스트 환경 만들기
-
-[!INCLUDE [firewall-preview-notice](../../../includes/firewall-preview-notice.md)]
-
-Azure Firewall 문서의 예제에서는 이미 Azure Firewall 공개 미리 보기를 사용하도록 설정했다고 가정합니다. 자세한 내용은 [Azure Firewall 공개 미리 보기 사용하도록 설정](../public-preview.md)을 참조합니다.
 
 이 스크립트 샘플은 방화벽 및 테스트 네트워크 환경을 만듭니다. 네트워크에는 *AzureFirewallSubnet*, *ServersSubnet* 및 *JumpboxSubnet* 등 세 개의 서브넷이 포함된 하나의 VNet이 있습니다. ServersSubnet 및 JumpboxSubnet 각각에는 2코어 Windows Server 하나씩 있습니다.
 
@@ -29,7 +25,7 @@ Azure Firewall 문서의 예제에서는 이미 Azure Firewall 공개 미리 보
 
 Azure [Cloud Shell](https://shell.azure.com/powershell) 또는 로컬 PowerShell 설치에서 스크립트를 실행할 수 있습니다. 
 
-PowerShell을 로컬로 실행하는 경우 이 스크립트에는 AzureRM PowerShell 모듈 버전 6.4.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 
+PowerShell을 로컬로 실행하는 경우 이 스크립트에는 최신 AzureRM PowerShell 모듈 버전이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 
 
 업그레이드해야 할 경우 Windows 10 및 Windows Server 2016에 빌드되는 `PowerShellGet`을 사용할 수 있습니다.
 
@@ -39,12 +35,6 @@ PowerShell을 로컬로 실행하는 경우 이 스크립트에는 AzureRM Power
 자세한 내용은 [PowerShellGet으로 Windows에 Azure PowerShell 설치](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0) 참조
 
 웹 플랫폼 설치 관리자를 사용하여 모든 기존 Azure PowerShell 설치를 완료한 경우 PowerShellGet 설치와 충돌을 일으키므로 제거해야 합니다.
-
-또한 AzureRM.Network(버전 6.4.0) 미리 보기 버전을 설치해야 합니다. 이전 모듈이 있는 경우 제거하려면 `Uninstall-Module AzureRM.Network -Force`을 실행합니다. 그런 후 다음을 실행합니다.
-
- `Install-Module -Name AzureRM.Network -Repository PSGallery -RequiredVersion 6.4.0-preview -AllowPrerelease -Force`
-
-버전 6.4.0을 설치합니다.
 
 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 

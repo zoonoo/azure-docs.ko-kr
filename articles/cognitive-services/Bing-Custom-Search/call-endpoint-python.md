@@ -9,45 +9,43 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 88bf82805ba46abf79b7899e0428a83485062302
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 3666e92372e9bed80e5c0c7991dcac730cebb588
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504970"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967595"
 ---
 # <a name="call-bing-custom-search-endpoint-python"></a>Bing Custom Search 엔드포인트 호출(Python)
 
 이 빠른 시작에서는 Python으로 Bing Custom Search 엔드포인트를 호출하여 사용자 지정 검색 인스턴스에서 검색 결과를 요청하는 방법을 보여줍니다. 
 
 ## <a name="prerequisites"></a>필수 조건
+
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
-- 사용자 지정 검색 인스턴스. [처음으로 Bing Custom Search 인스턴스 만들기](quick-start.md)를 참조하세요.
+- 바로 사용할 수 있는 사용자 지정 검색 인스턴스. [처음으로 Bing Custom Search 인스턴스 만들기](quick-start.md)를 참조하세요.
+- 설치된 [Python](https://www.python.org/).
+- 구독 키 [무료 평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)을 정품 인증하면 구독 키를 받을 수 있습니다. Azure 대시보드에서 유료 구독 키를 사용할 수도 있습니다([Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 참조).    
 
--  설치된 [Python](https://www.python.org/).
-
-- [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 및 **Bing Search API**. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)이면 충분합니다. 평가판을 활성화할 때 제공된 액세스 키가 필요하며, Azure 대시보드에서 유료 구독 키를 사용해도 됩니다. 
 
 ## <a name="run-the-code"></a>코드 실행
 
-Bing Custom Search 엔드포인트를 호출하려면 다음 단계를 수행합니다.
+이 예제를 실행하려면 다음 단계를 수행합니다.
 
-1. 코드 폴더를 만듭니다.
-
-2. 관리자 명령 프롬프트 또는 터미널에서, 방금 만든 폴더로 이동합니다.
-
-3. **요청** python 모듈을 설치합니다.
-
+1. 코드 폴더를 만듭니다.  
+  
+2. 관리자 명령 프롬프트 또는 터미널에서, 방금 만든 폴더로 이동합니다.  
+  
+3. **요청** python 모듈을 설치합니다.  
+  
     <pre>
     pip install pipenv
     pipenv install requests
-    </pre>
-    
-7. BingCustomSearch.py 파일을 만들고 다음 코드를 파일에 복사합니다.
-
-8. **YOUR-SUBSCRIPTION-KEY** 및 **YOUR-CUSTOM-CONFIG-ID**를 해당 키 및 구성 ID로 바꿉니다(1단계 참조).
-
+    </pre>  
+      
+4. 앞에서 만든 폴더에 BingCustomSearch.py 파일을 만들고 다음 코드를 해당 파일에 복사합니다. **YOUR-SUBSCRIPTION-KEY** 및 **YOUR-CUSTOM-CONFIG-ID**는 해 구독 키와 구성 ID로 바꿉니다.  
+  
     ``` Python
     import json
     import requests
@@ -59,8 +57,10 @@ Bing Custom Search 엔드포인트를 호출하려면 다음 단계를 수행합
     url = 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=' + searchTerm + '&customconfig=' + customConfigId
     r = requests.get(url, headers={'Ocp-Apim-Subscription-Key': subscriptionKey})
     print(r.text)
-    ```
-9. 다음 명령을 사용하여 코드를 실행합니다.
+    ```  
+  
+7. 다음 명령을 사용하여 코드를 실행합니다.  
+  
     ```
     python BingCustomSearch.py
     ```

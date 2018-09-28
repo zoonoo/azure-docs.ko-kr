@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/06/2017
+ms.date: 9/25/2018
 ms.author: victorh
-ms.openlocfilehash: 747b2e2499a9bafcf7a7b03bc2ce144828c55c75
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 66e04e7f0b272f19788e79805ef06d11e2eda572
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172503"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948029"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS FAQ
 
@@ -63,9 +63,13 @@ DNS 영역을 전역 DNS 계층 구조에 연결하려면 도메인 이름을 �
 
 ## <a name="azure-dns-features"></a>Azure DNS 기능
 
-### <a name="does-azure-dns-support-dns-based-traffic-routing-or-endpoint-failover"></a>Azure DNS는 DNS 기반 트래픽 라우팅 또는 끝점 장애 조치(failover)를 지원하나요?
+### <a name="are-there-any-restrictions-when-using-alias-records-for-a-domain-name-apex-with-traffic-manager"></a>Traffic Manager에서 도메인 이름에 별칭 레코드를 사용할 경우 제한 사항이 있나요?
 
-DNS 기반 트래픽 라우팅 및 끝점 장애 조치(failover)는 Azure Traffic Manager에 의해 제공됩니다. Azure Traffic Manager는 Azure DNS와 함께 사용할 수 있는 별도 Azure 서비스입니다. 자세한 내용은 [Traffic Manager 개요](../traffic-manager/traffic-manager-overview.md)를 참조하세요.
+예. Traffic Manager에서는 정적 공용 IP 주소를 사용해야 합니다. 정적 IP 주소를 사용하여 **외부 엔드포인트** 대상을 구성합니다. 
+
+### <a name="does-azure-dns-support-dns-based-traffic-routing-or-endpoint-failover"></a>Azure DNS는 DNS 기반 트래픽 라우팅 또는 엔드포인트 장애 조치(failover)를 지원하나요?
+
+DNS 기반 트래픽 라우팅 및 엔드포인트 장애 조치(failover)는 Azure Traffic Manager에 의해 제공됩니다. Azure Traffic Manager는 Azure DNS와 함께 사용할 수 있는 별도 Azure 서비스입니다. 자세한 내용은 [Traffic Manager 개요](../traffic-manager/traffic-manager-overview.md)를 참조하세요.
 
 Azure DNS는 지정된 DNS 레코드에 대한 각 DNS 쿼리가 항상 동일한 DNS 응답을 수신하는 '고정' DNS 도메인 호스트만 지원합니다.
 
@@ -93,13 +97,41 @@ DNSSEC는 Azure DNS 백로그에서 추적되는 기능입니다. 피드백 사�
 
 URL 리디렉션 기능은 Azure DNS 백로그에 추적됩니다. 피드백 사이트를 사용하여 [이 기능에 대한 지원을 등록](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape)할 수 있습니다.
 
-### <a name="does-azure-dns-support-extended-ascii-encoding-8-bit-set-for-txt-recordset-"></a>Azure DNS는 TXT 레코드 집합에 대해 확장된 ASCII 인코딩(8비트) 집합을 지원하나요?
+### <a name="does-azure-dns-support-extended-ascii-encoding-8-bit-set-for-txt-recordset"></a>Azure DNS는 TXT 레코드 집합에 대해 확장된 ASCII 인코딩(8비트) 집합을 지원하나요?
 
-예. 최신 버전의 Azure REST API, SDK, PowerShell 및 CLI를 사용하는 경우 Azure DNS는 TXT 레코드 집합에 대해 확장된 ASCII 인코딩 집합을 지원합니다(2017-10-01보다 오래된 버전. 그렇지 않은 경우 SDK 2.1이 확장된 ASCII 집합을 지원하지 않음). 예를 들어, 사용자가 TXT 레코드의 값으로, 확장된 ASCII 문자 \128을 포함하는 문자열(예: "abcd\128efgh")을 제공할 경우 Azure DNS는 내부 표현에 이 문자의 바이트 값(즉, 128)을 사용합니다. DNS 확인 시에도 이 바이트 값이 응답에 반환됩니다. 또한 확인이 주 목적이라면 "abc"와 "\097\098\099"를 바꿔서 사용해도 됩니다. 
+예. 최신 버전의 Azure REST API, SDK, PowerShell 및 CLI를 사용하는 경우 Azure DNS는 TXT 레코드 집합에 대해 확장된 ASCII 인코딩 집합을 지원합니다(2017-10-01보다 오래된 버전. 그렇지 않은 경우 SDK 2.1이 확장된 ASCII 집합을 지원하지 않음). 예를 들어, 사용자가 TXT 레코드의 값으로, 확장된 ASCII 문자 \128을 포함하는 문자열(예: “abcd\128efgh”)을 제공할 경우 Azure DNS는 내부 표현에 이 문자의 바이트 값(즉, 128)을 사용합니다. DNS 확인 시에도 이 바이트 값이 응답에 반환됩니다. 또한 확인이 주 목적이라면 "abc"와 "\097\098\099"를 바꿔서 사용해도 됩니다. 
 
 TXT 레코드에 대해 [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) 영역 파일 마스터 형식 이스케이프 규칙을 따릅니다. 예를 들어, 이제 '\'는 실제로 RFC에 대해 모든 항목을 이스케이프합니다. TXT 레코드 값으로 "A\B"를 지정하면 단지 "AB"로 표시되고 확인됩니다. 실제로 확인 시 TXT 레코드에 "A\B"가 포함되하려게 면 "\"를 다시 이스케이프해야 합니다. 즉, "A\\B"로 지정합니다. 
 
 현재, 이 지원은 Azure Portal에서 만든 TXT 레코드에는 사용할 수 없습니다. 
+
+## <a name="alias-records"></a>별칭 레코드
+
+### <a name="what-are-some-scenarios-where-alias-records-are-useful"></a>별칭 레코드는 어떤 시나리오에서 유용한가요?
+[Azure DNS 별칭 레코드 개요](dns-alias.md)의 시나리오 섹션을 참조하세요.
+
+### <a name="what-record-types-are-supported-for-alias-record-sets"></a>별칭 레코드 집합에 지원되는 레코드 유형은 무엇인가요?
+별칭 레코드 집합은 Azure DNS 영역의 레코드 유형 A, AAAA 및 CNAME에 지원됩니다. 
+
+### <a name="what-resources-are-supported-as-targets-for-alias-record-sets"></a>별칭 레코드 집합의 대상으로 지원되는 리소스는 무엇인가요?
+- **DNS A/AAAA 레코드 집합의 공용 IP 리소스를 가리킵니다**. A/AAAA 레코드 집합을 만들고 공용 IP 리소스를 가리키는 별칭 레코드 집합으로 설정할 수 있습니다.
+- **DNS A/AAAA/CNAME 레코드 집합의 Traffic Manager 프로필을 가리킵니다**. DNS CNAME 레코드 집합의 Traffic Manager 프로필(예: contoso.trafficmanager.net) 중 CNAME을 가리키는 기능 외에도, 이제 DNS 영역에 있는 A 또는 AAAA 레코드 집합의 외부 엔드포인트가 포함된 Traffic Manager 프로필을 가리킬 수도 있습니다.
+- **동일한 영역 내의 다른 DNS 레코드 집합을 가리킵니다**. 별칭 레코드는 동일한 유형의 다른 레코드 집합을 참조할 수 있습니다. 예를 들어 DNS CNAME 레코드 집합을 동일한 유형의 다른 CNAME 레코드 집합에 대한 별칭으로 설정할 수 있습니다. 일부 레코드 집합을 별칭으로 설정하고 일부를 별칭이 아닌 항목으로 설정하려는 경우 이 기능이 유용합니다.
+
+### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>Azure Portal에서 별칭 레코드를 만들고 업데이트할 수 있나요?
+예. Azure REST API, Azure PowerShell, CLI 및 SDK 외에도 Azure Portal에서 별칭 레코드를 만들거나 관리할 수 있습니다.
+
+### <a name="will-alias-records-help-ensure-my-dns-record-set-is-deleted-when-the-underlying-public-ip-is-deleted"></a>별칭 레코드를 사용하면 기본 공용 IP가 삭제될 때 DNS 레코드 집합이 삭제되는지 확인할 수 있나요?
+예. 실제로 이것은 별칭 레코드의 핵심 기능 중 하나입니다. 응용 프로그램의 최종 사용자를 위한 잠재적인 중단을 방지하는 데 도움이 됩니다.
+
+### <a name="will-alias-records-help-ensure-my-dns-record-set-is-updated-to-the-correct-ip-address-when-the-underlying-public-ip-address-changes"></a>별칭 레코드를 사용하면 기본 공용 IP 주소가 변경될 때 DNS 레코드가 올바른 IP 주소로 업데이트되는지 확인할 수 있나요?
+예. 이전 질문처럼 이것은 별칭 레코드의 핵심 기능 중 하나이고, 이를 통해 응용 프로그램에 대한 잠재적인 중단이나 보안 위험을 방지할 수 있습니다.
+
+### <a name="are-there-any-restrictions-when-using-alias-record-sets-for-an-a-or-aaaa-records-to-point-to-traffic-manager"></a>A 또는 AAAA 레코드에 대한 별칭 레코드 집합을 사용하여 Traffic Manager를 가리키는 경우 제한 사항이 있나요?
+예. A 또는 AAAA 레코드 집합의 별칭으로 Traffic Manager 프로필을 가리키려면 Traffic Manager 프로필만 외부 엔드포인트를 사용하는지 확인해야 합니다. Traffic Manager에서 외부 엔드포인트를 만들 때 엔드포인트의 실제 IP 주소를 제공해야 합니다.
+
+### <a name="is-there-an-additional-charge-for-using-alias-records"></a>별칭 레코드를 사용하기 위한 추가 비용이 있나요?
+별칭 레코드는 유효한 DNS 레코드 집합에 대한 자격이고 별칭 레코드에 대한 추가 요금 청구는 없습니다.
 
 ## <a name="using-azure-dns"></a>Azure DNS 사용
 
@@ -190,21 +222,21 @@ Azure의 다른 내부 DNS 옵션에 대한 자세한 내용은 [VM 및 역할 �
 ### <a name="what-happens-when-we-attempt-to-manually-create-a-new-dns-record-into-a-private-zone-that-has-the-same-hostname-as-an-automatically-registered-existing-virtual-machine-in-a-registration-virtual-network"></a>등록 가상 네트워크에서 (자동으로 등록된) 기존 가상 머신과 동일한 호스트가 있는 개인 영역으로 새 DNS 레코드를 수동으로 만들려고 하면 어떻게 되나요? 
 등록 가상 네트워크에 기존(자동으로 등록된) 가상 머신과 동일한 호스트 이름을 갖는 개인 영역에 새 DNS 레코드를 수동으로 만들려고 하면 자동으로 등록된 가상 머신 레코드를 새 DNS 레코드로 덮어쓸 수 있도록 합니다. 또한 이후에 해당 영역에서 수동으로 생성된 이 DNS 레코드를 삭제하려고 하면 삭제는 성공하며, 가상 머신이 여전히 존재하고 개인 IP가 연결되어 있으므로 자동 등록이 다시 발생합니다(해당 영역에 DNS 레코드가 자동으로 다시 생성됨). 
 
-### <a name="what-happens-when-we-unlink-a-registration-virtual-network-from-a-private-zone--would-the-automatically-registered-virtual-machine-records-from-the-virtual-network-be-removed-from-the-zone-as-well"></a>개인 영역에서 등록 가상 네트워크의 연결을 해제하면 어떻게 되나요? 가상 네트워크의 자동으로 등록된 가상 머신 레코드가 해당 영역에서도 제거되나요?
+### <a name="what-happens-when-we-unlink-a-registration-virtual-network-from-a-private-zone-would-the-automatically-registered-virtual-machine-records-from-the-virtual-network-be-removed-from-the-zone-as-well"></a>사설 영역에서 등록 가상 네트워크의 연결을 해제하면 어떻게 되나요? 가상 네트워크의 자동으로 등록된 가상 머신 레코드가 해당 영역에서도 제거되나요?
 예. 개인 영역에서 등록 가상 네트워크의 연결을 해제하면(연결된 등록 가상 네트워크를 제거하도록 DNS 영역 업데이트) Azure는 해당 영역에서 자동으로 등록된 가상 머신 레코드를 모두 제거합니다. 
 
-### <a name="what-happens-when-we-delete-a-registration-or-resolution-virtual-network-that-is-linked-to-a-private-zone--do-we-have-to-manually-update-the-private-zone-to-un-link-the-virtual-network-as-a-registration-or-resolution--virtual-network-from-the-zone"></a>개인 영역에 연결된 등록(또는 확인) 가상 네트워크를 삭제하면 어떻게 되나요? 영역에서 등록(또는 확인) 가상 네트워크로 연결된 가상 네트워크를 가상 네트워크의 연결을 해제하기 위해 개인 영역을 수동으로 업데이트해야 하나요?
+### <a name="what-happens-when-we-delete-a-registration-or-resolution-virtual-network-that-is-linked-to-a-private-zone-do-we-have-to-manually-update-the-private-zone-to-unlink-the-virtual-network-as-a-registration-or-resolution--virtual-network-from-the-zone"></a>사설 영역에 연결된 등록(또는 확인) 가상 네트워크를 삭제하면 어떻게 되나요? 영역에서 등록(또는 확인) 가상 네트워크로 연결된 가상 네트워크를 가상 네트워크의 연결을 해제하기 위해 사설 영역을 수동으로 업데이트해야 하나요?
 예. 먼저 개인 영역에서 연결을 해제하지 않은 상태로 등록(또는 확인) 가상 네트워크를 삭제하는 경우, Azure에서 삭제 작업이 성공적으로 수행되지만, 가상 네트워크는 개인 영역에서 자동으로 연결 해제됩니다. 수동으로 개인 영역에서 가상 네트워크 연결을 해제해야 합니다. 이러한 이유로, 연결을 삭제하기 전에 먼저 개인 영역에서 가상 네트워크의 연결을 해제하는 것이 좋습니다.
 
 ### <a name="would-dns-resolution-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-contosolocal-is-linked-to-a-virtual-network"></a>기본 FQDN(internal.cloudapp.net)을 사용하는 DNS 확인은 개인 영역(예: contoso.local)이 가상 네트워크에 연결되어 있어도 제대로 작동하나요? 
-예. 개인 영역 기능은 Azure에서 제공한 internal.cloudapp.net 영역을 사용하여 기본 DNS 확인을 대체하지 않으며, 추가 기능 또는 향상된 기능으로 제공됩니다. 두 경우 모두(Azure에서 제공한 internal.cloudapp.net을 신뢰하는지 또는 사용자 고유의 개인 영역을 신뢰하는지 관계없음) 확인하려는 영역의 FQDN을 사용하는 것이 좋습니다. 
+예. 개인 영역 기능은 Azure에서 제공한 internal.cloudapp.net 영역을 사용하여 기본 DNS 확인을 대체하지 않으며, 추가 기능 또는 향상된 기능으로 제공됩니다. 두 경우 모두(Azure에서 제공한 internal.cloudapp.net을 신뢰하는지 또는 사용자 고유의 사설 영역을 신뢰하는지 관계없음) 확인하려는 영역의 FQDN을 사용하는 것이 좋습니다. 
 
 ### <a name="would-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>연결된 가상 네트워크 내의 가상 머신에 사용되는 DNS 접미사가 개인 영역의 DNS 접두사로 변경되나요? 
 아니요. 이때, 연결된 가상 네트워크의 가상 머신에 사용된 DNS 접미사는 기본 Azure 제공 접미사("*. internal.cloudapp.net")로 유지됩니다. 그러나 가상 머신의 이 DNS 접미사를 개인 영역의 DNS 접미사로 수동으로 변경할 수 있습니다. 
 
 ### <a name="are-there-any-limitations-for-private-zones-during-this-preview"></a>이 미리 보기 기간 동안 개인 영역에 대한 제한 사항이 있나요?
 예. 공개 미리 보기 중에 다음과 같은 제한 사항이 적용됩니다.
-* 개인 영역당 1개의 등록 가상 네트워크
+* 사설 영역당 1개의 등록 가상 네트워크
 * 개인 영역당 최대 10개의 확인 가상 네트워크
 * 지정된 가상 네트워크가 1개의 개인 영역에만 등록 가상 네트워크로 연결될 수 있습니다.
 * 지정된 가상 네트워크가 최대 10개의 개인 영역에 확인 가상 네트워크로 연결될 수 있습니다.

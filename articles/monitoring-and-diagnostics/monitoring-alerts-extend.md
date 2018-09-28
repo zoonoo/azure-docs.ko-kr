@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 6484142eafa8388117c1e96ab31eefeab188e488
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 13a84b7254207a9cfcfff4af43283130a0f6c587
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750275"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998477"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Log Analytics 경고를 Azure Alerts로 확장
 최근까지 Azure Log Analytics에는 Log Analytics 데이터에 기반한 조건을 사전에 알려줄 수 있는 자체 경고 기능이 포함됩니다. Microsoft Operations Management Suite 포털에서 경고 규칙을 관리했습니다. 새 경고 환경은 이제 Microsoft Azure의 다양한 서비스에서 경고를 통합했습니다. 이 환경은 Azure Portal에서 Azure Monitor 아래의 **경고**로 사용 가능하며 Log Analytics 및 Azure Application Insights에서 활동 로그, 메트릭 및 로그의 경고를 지원합니다. 
@@ -30,7 +30,7 @@ ms.locfileid: "36750275"
 Log Analytics에서 Azure Alerts로 경고를 이동하는 프로세스는 어떠한 방법으로도 경고 정의, 쿼리 또는 구성의 변경을 포함하지 않습니다. 필요한 유일한 변경은 Azure에서 작업 그룹을 사용하여 모든 작업을 수행하는 것입니다. 작업 그룹이 이미 경고와 연결되어 있는 경우 작업 그룹은 Azure로 확장될 때 포함됩니다.
 
 > [!NOTE]
-> Microsoft는 완료될 때까지 시리즈를 반복하면서 2018년 5월 14일부터 Log Analytics에서 만든 경고를 자동으로 Azure Alerts로 확장합니다. [작업 그룹](monitoring-action-groups.md)을 만드는 데 문제가 있는 경우 [이러한 재구성 단계](monitoring-alerts-extend-tool.md#troubleshooting)를 사용하여 만든 작업 그룹을 자동으로 가져옵니다. 2018년 7월 5일까지는 이러한 단계를 사용할 수 있습니다. 
+> Microsoft는 완료될 때까지 시리즈를 반복하면서 2018년 5월 14일부터 Log Analytics의 퍼블릭 클라우드 인스턴스에서 만든 경고를 자동으로 Azure Alerts로 확장합니다. [작업 그룹](monitoring-action-groups.md)을 만드는 데 문제가 있는 경우 [이러한 재구성 단계](monitoring-alerts-extend-tool.md#troubleshooting)를 사용하여 만든 작업 그룹을 자동으로 가져옵니다. 2018년 7월 5일까지는 이러한 단계를 사용할 수 있습니다. *Log Analytics의 Azure Goverment 및 Soveriegn 클라우드 사용자에게는 적용할 수 없습니다*. 
 > 
 
 Log Analytics 작업 영역의 경고가 Azure로 확장되도록 일정을 예약하면 계속해서 작동하고 어떤 방식으로든 구성을 손상하지 않습니다. 예약된 경우 경고는 일시적으로 수정이 가능하지 않을 수 있지만 이 시간 동안 새 Azure 경고를 계속 만들 수는 있습니다. Operations Management Suite 포털에서 경고를 만들거나 편집하려는 경우 Log Analytics 작업 영역에서 경고를 계속 만들 수 있는 옵션이 있습니다. 또한 Azure Portal의 Azure Alerts에서 경고 만들기를 선택할 수 있습니다.

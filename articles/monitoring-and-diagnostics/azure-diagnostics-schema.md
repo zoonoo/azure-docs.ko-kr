@@ -6,27 +6,27 @@ author: rboucher
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 05/16/2017
+ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 47fb598e9a0e722d51493fda1ff5180d4b022524
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 2c3b2ecc1467a09ae490d23c45e7a000f4afe49a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262201"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976910"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure 진단 확장 구성 스키마 버전 및 기록
 이 페이지는 Microsoft Azure SDK의 일부로 제공되는 Azure 진단 확장 스키마 버전을 인덱스합니다.  
 
 > [!NOTE]
 > Azure 진단 확장은 성능 카운터 및 기타 통계를 수집하는 데 사용하는 구성 요소입니다.
-> - Azure Virtual Machines 
+> - Azure Virtual Machines
 > - Virtual Machine Scale Sets
-> - Service Fabric 
-> - Cloud Services 
+> - Service Fabric
+> - Cloud Services
 > - 네트워크 보안 그룹
-> 
+>
 > 이 페이지는 이러한 서비스 중 하나를 사용하는 경우에만 해당됩니다.
 
 Azure 진단 확장은 Azure Monitor, Application Insights 및 Log Analytics와 같은 다른 Microsoft 진단 제품과 함께 사용됩니다. 자세한 내용은 [Microsoft 모니터링 도구 개요](monitoring-overview.md)를 참조하세요.
@@ -46,7 +46,7 @@ Azure 진단 확장은 Azure Monitor, Application Insights 및 Log Analytics와 
 |2.96              |1.8                            |"|
 |2.96              |1.8.1                          |"|
 |2.96              |1.9                            |"|
-
+|2.96              |1.11                           |"|
 
 
  Azure 진단 버전 1.0은 처음에는 플러그 인 모델로 제공되었습니다. 따라서 Azure SDK를 설치할 때 함께 제공되는 Azure 진단 버전을 사용할 수 있게 되었습니다.  
@@ -54,7 +54,7 @@ Azure 진단 확장은 Azure Monitor, Application Insights 및 Log Analytics와 
  SDK 2.5(진단 버전 1.2)부터는 Azure 진단이 확장 모델로 이동되었습니다. 새 기능을 활용하기 위한 도구는 최신 Azure SDK에서만 사용할 수 있었지만 Azure 진단을 사용하는 모든 서비스는 Azure에서 직접 최신 전달 버전을 선택할 수 있습니다. 예를 들어, 여전히 SDK 2.5를 사용하는 모든 사용자는 최신 기능을 사용 중인지 여부와 관계 없이 이전 테이블에 표시된 최신 버전이 로딩됩니다.  
 
 ## <a name="schemas-index"></a>스키마 색인  
-서로 다른 버전의 Azure 진단은 다른 구성 스키마를 사용합니다. 
+서로 다른 버전의 Azure 진단은 다른 구성 스키마를 사용합니다.
 
 [진단 1.0 구성 스키마](azure-diagnostics-schema-1dot0.md)  
 
@@ -64,12 +64,61 @@ Azure 진단 확장은 Azure Monitor, Application Insights 및 Log Analytics와 
 
 ## <a name="version-history"></a>버전 기록
 
+### <a name="diagnostics-extension-111"></a>진단 확장 1.11
+Azure Monitor 싱크에 대한 지원이 추가되었습니다. 이 싱크는 성능 카운터에만 적용됩니다. VM, VMSS 또는 클라우드 서비스에 수집된 성능 카운터를 Azure Monitor에 사용자 지정 메트릭으로 보낼 수 있습니다. Azure Monitor 싱크는 다음을 지원합니다.
+* [Azure Monitor 메트릭 API](https://docs.microsoft.com/rest/api/monitor/metrics/list)를 통해 Azure Monitor로 보낸 모든 성능 카운터 검색
+* Azure Monitor의 새로운 [통합 경고 환경](monitoring-overview-unified-alerts.md)을 통해 Azure Monitor로 보낸 모든 성능 카운터에 대해 경고
+* 성능 카운터의 와일드카드 연산자를 메트릭에 대한 “인스턴스” 차원으로 처리. 예를 들어 “LogicalDisk(\*)/DiskWrites/sec” 카운터를 수집한 경우 “인스턴스” 차원을 기준으로 필터링 및 분할하여 각 논리 디스크(C:, D: 등)에 대해 Disk Writes/sec를 그리거나 경고할 수 있습니다.
 
-### <a name="diagnostics-extension-19"></a>진단 확장 1.9 
+진단 확장 구성에서 Azure Monitor를 새 싱크로 정의
+```json
+"SinksConfig": {
+    "Sink": [
+        {
+            "name": "AzureMonitorSink",
+            "AzureMonitor": {}
+        },
+    ]
+}
+```
+
+```XML
+<SinksConfig>  
+  <Sink name="AzureMonitorSink">
+      <AzureMonitor/>
+  </Sink>
+</SinksConfig>
+```
+> [!NOTE]
+> 클래식 VM 및 클래식 클라우드 서비스에 대해 Azure Monitor 싱크를 구성하려면 진단 확장의 개인 구성에서 추가 매개 변수를 정의해야 합니다.
+>
+> 자세한 내용은 [자세한 진단 확장 스키마 설명서](azure-diagnostics-schema-1dot3-and-later.md)를 참조하세요.
+
+그런 다음, Azure Monitor 싱크로 라우팅되도록 성능 카운터를 구성할 수 있습니다.
+```json
+"PerformanceCounters": {
+    "scheduledTransferPeriod": "PT1M",
+    "sinks": "AzureMonitorSink",
+    "PerformanceCounterConfiguration": [
+        {
+            "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
+            "sampleRate": "PT1M",
+            "unit": "percent"
+        }
+    ]
+},
+```
+```XML
+<PerformanceCounters scheduledTransferPeriod="PT1M", sinks="AzureMonitorSink">  
+  <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />  
+</PerformanceCounters>
+```
+
+### <a name="diagnostics-extension-19"></a>진단 확장 1.9
 Docker 지원이 추가되었습니다.
 
 
-### <a name="diagnostics-extension-181"></a>진단 확장 1.8.1 
+### <a name="diagnostics-extension-181"></a>진단 확장 1.8.1
 개인 구성에서 저장소 계정 키 대신 SAS 토큰을 지정할 수 있습니다. SAS 토큰이 제공된 경우 저장소 계정 키가 무시됩니다.
 
 
@@ -100,7 +149,7 @@ Docker 지원이 추가되었습니다.
 ```
 
 
-### <a name="diagnostics-extension-18"></a>진단 확장 1.8 
+### <a name="diagnostics-extension-18"></a>진단 확장 1.8
 PublicConfig에 저장소 형식이 추가되었습니다. StorageType은 *Table*, *Blob*, *TableAndBlob*이 될 수 있습니다. *Table*이 기본값입니다.
 
 
@@ -122,13 +171,13 @@ PublicConfig에 저장소 형식이 추가되었습니다. StorageType은 *Table
 ```
 
 
-### <a name="diagnostics-extension-17"></a>진단 확장 1.7 
+### <a name="diagnostics-extension-17"></a>진단 확장 1.7
 EventHub로 라우팅하는 기능이 추가되었습니다.
 
 ### <a name="diagnostics-extension-15"></a>진단 확장 1.5
 [Application Insights](../application-insights/app-insights-cloudservices.md)에 진단 데이터를 전송하는 싱크 요소 및 기능이 추가되어 시스템 및 인프라 수준뿐만 아니라 응용 프로그램 전반에 나타나는 문제를 쉽게 진단할 수 있습니다.
 
-### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Azure SDK 2.6 및 진단 확장 1.3 
+### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Azure SDK 2.6 및 진단 확장 1.3
 Visual Studio에서 클라우드 서비스 프로젝트의 경우 다음 사항이 변경되었습니다. (이러한 변경 사항은 이후 버전의 Azure SDK에도 적용됩니다.)
 
 * 이제 로컬 에뮬레이터에서 진단을 지원합니다. 따라서 Visual Studio에서 개발 및 테스트하는 동안 진단 데이터를 수집하고 응용 프로그램에서 올바른 추적을 생성하고 있는지 확인할 수 있습니다. 연결 문자열 `UseDevelopmentStorage=true` 는 Azure 저장소 에뮬레이터를 사용하여 Visual Studio에서 클라우드 서비스 프로젝트를 실행하는 동안 진단 데이터 수집을 사용하도록 설정합니다. 모든 진단 데이터는 (개발 저장소) Storage 계정에 수집됩니다.
@@ -149,7 +198,7 @@ Azure SDK 2.5에서 Azure SDK 2.6 이상으로 마이그레이션하는 경우 .
 * 진단 연결 문자열이.cscfg 파일에 지정되지 않은 경우 Visual Studio에서는 게시할 때와 패키징 중 공용 구성 xml 파일을 생성할 때 .wadcfgx 파일에 지정된 저장소 계정을 대신 사용하여 진단 확장을 구성합니다.
 * .cscfg 파일의 진단 연결 문자열은 .wadcfgx 파일의 저장소 계정보다 우선합니다. 진단 연결 문자열이.cscfg 파일에 지정된 경우, Visual Studio에서는 이 문자열을 사용하고 .wadcfgx의 저장소 계정은 무시합니다.
 
-#### <a name="what-does-the-update-development-storage-connection-strings-checkbox-do"></a>"개발 저장소 연결 문자열 업데이트..." 확인란의 기능은 무엇입니까?
+#### <a name="what-does-the-update-development-storage-connection-strings-checkbox-do"></a>“개발 저장소 연결 문자열 업데이트...” 확인란의 기능은 무엇인가요?
 **Microsoft Azure에 게시할 때 Microsoft Azure 저장소 계정 자격 증명을 사용하여 진단 및 캐싱을 위한 개발 저장소 연결 문자열 업데이트** 확인란은 게시하는 동안 지정된 Azure 저장소 계정으로 개발 저장소 계정 연결 문자열을 업데이트하는 편리한 방법을 제공합니다.
 
 예를 들어, 사용자가 이 확인란을 선택하고 진단 연결 문자열에서 `UseDevelopmentStorage=true`를 지정한다고 가정합니다. Azure에 프로젝트를 게시할 때 Visual Studio는 사용자가 게시 마법사에 지정한 저장소 계정을 사용하여 진단 연결 문자열을 자동으로 업데이트합니다. 그러나 실제 저장소 계정을 진단 연결 문자열로 지정한 경우 해당 계정이 대신 사용됩니다.
@@ -161,4 +210,3 @@ Azure SDK 2.4에서 Azure SDK 2.5 이상으로 업그레이드하는 경우 다�
 * **클라우드 서비스 응용 프로그램에 대한 진단은 인스턴스 수준이 아닌 역할 수준에서만 구성할 수 있습니다.**
 * **앱을 배포할 때마다 진단 구성이 업데이트됨** – 이로 인해 서버 탐색기에서 진단 구성을 변경한 후 앱을 다시 배포하는 경우 패리티 문제가 발생할 수 있습니다.
 * **Azure SDK 2.5 이상에서 코드가 아닌 진단 구성 파일에 크래시 덤프가 구성됨** – 코드에 크래시 덤프가 구성된 경우, Azure SDK 2.6으로 마이그레이션하는 동안 크래시 덤프가 전송되지 않으므로 해당 구성을 코드에서 구성 파일로 수동으로 전송해야 합니다.
-

@@ -1,6 +1,6 @@
 ---
-title: Azure Storage에서 Azure CLI 1.0 사용 | Microsoft Docs
-description: Azure Storage에서 Azure 명령줄 인터페이스(Azure CLI) 1.0을 사용하여 저장소 계정을 만들어 관리하고 Azure blob과 파일 작업을 수행하는 방법에 대해 알아봅니다. Azure CLI는 플랫폼 간 도구입니다.
+title: Azure Storage에서 Azure 클래식 CLI 사용 | Microsoft Docs
+description: Azure Storage에서 Azure 클래식 CLI(명령줄 인터페이스)를 사용하여 저장소 계정을 만들어 관리하고 Azure Blob 및 파일 작업을 수행하는 방법에 대해 알아봅니다.
 services: storage
 author: seguler
 ms.service: storage
@@ -8,31 +8,31 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: f406f12b3313670e8e2d89296f7c24478bb58c6c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e563c7000b600bed917f42d8ffb87df883564ef8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521509"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979331"
 ---
-# <a name="using-the-azure-cli-10-with-azure-storage"></a>Azure Storage에서 Azure CLI 1.0 사용
+# <a name="using-the-azure-classic-cli-with-azure-storage"></a>Azure Storage에서 Azure 클래식 CLI 사용
 
 ## <a name="overview"></a>개요
 
-Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령 집합을 제공합니다. 다양한 데이터 액세스 기능뿐만 아니라 [Azure 포털](https://portal.azure.com) 에 있는 동일한 기능을 대부분 제공합니다.
+Azure 클래식 CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령 집합을 제공합니다. 다양한 데이터 액세스 기능뿐만 아니라 [Azure 포털](https://portal.azure.com) 에 있는 동일한 기능을 대부분 제공합니다.
 
-이 가이드에서는 Azure Storage에서 [Azure CLI(명령줄 인터페이스 Azure)](../../cli-install-nodejs.md)를 사용하여 다양한 개발 및 관리 작업을 수행하는 방법을 설명합니다. 이 가이드를 사용하기 전에 최신 Azure CLI를 다운로드 및 설치하거나, 최신 버전으로 업그레이드하는 것이 좋습니다.
+이 가이드에서는 [Azure 클래식 CLI](../../cli-install-nodejs.md)를 사용하여 Azure Storage를 통해 다양한 개발 및 관리 작업을 수행하는 방법을 설명합니다. 이 가이드를 사용하기 전에 최신 Azure 클래식 CLI를 다운로드 및 설치하거나, 최신 버전으로 업그레이드하는 것이 좋습니다.
 
-이 가이드에서는 Azure Storage의 기본 개념을 이해하고 있다고 가정합니다. 이 가이드는 Azure Storage에서 Azure CLI를 사용하는 방법을 보여주는 몇 가지 스크립트를 제공합니다. 각 스크립트를 실행하기 전에 구성에 따라 스크립트 변수를 업데이트 해야 합니다.
+이 가이드에서는 Azure Storage의 기본 개념을 이해하고 있다고 가정합니다. 이 가이드는 Azure Storage에서 클래식 CLI를 사용하는 방법을 보여 주는 몇 가지 스크립트를 제공합니다. 각 스크립트를 실행하기 전에 구성에 따라 스크립트 변수를 업데이트 해야 합니다.
 
 > [!NOTE]
-> 이 가이드에서는 클래식 저장소 계정에 대한 Azure CLI 명령 및 스크립트 예제를 제공합니다. Resource Manager 저장소 계정에 대한 Azure CLI 명령은 [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) 을 참조하세요.
+> 이 가이드에서는 클래식 저장소 계정용 Azure 클래식 CLI 명령 및 스크립트 예제를 제공합니다. Resource Manager 저장소 계정용 Azure 클래식 CLI 명령은 [Azure Resource 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)을 참조하세요.
 >
 >
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
-## <a name="get-started-with-azure-storage-and-the-azure-cli-in-5-minutes"></a>5분 안에 Azure Storage 및 Azure CLI 시작하기
+## <a name="get-started-with-azure-storage-and-the-azure-classic-cli-in-5-minutes"></a>5분 안에 Azure Storage 및 Azure 클래식 CLI 시작하기
 이 가이드에서는 예제를 보려면 Ubuntu를 사용하며 다른 OS 플랫폼에서도 유사하게 수행되어야 합니다.
 
 **Azure에 새로 만들기:** Microsoft Azure 구독 및 해당 구독과 연결된 Microsoft 계정을 가져옵니다. Azure 구입 옵션에 대한 자세한 내용은 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/), [구입 옵션](https://azure.microsoft.com/pricing/purchase-options/) 및 [회원 제안](https://azure.microsoft.com/pricing/member-offers/)(MSDN, Microsoft 파트너 네트워크, BizSpark 및 기타 Microsoft 프로그램의 회원인 경우)을 참조하세요.
@@ -41,12 +41,12 @@ Azure 구독에 대한 자세한 내용은 [Azure AD(Azure Active Directory)에�
 
 **Microsoft Azure 구독 및 계정을 만든 후:**
 
-1. [Azure CLI 설치](../../cli-install-nodejs.md)에 설명된 지침에 따라 Azure CLI를 다운로드하여 설치합니다.
-2. Azure CLI가 설치되었으면 명령줄 인터페이스(Bash, 터미널, 명령 프롬프트)에서 azure 명령을 사용하여 Azure CLI 명령에 액세스할 수 있습니다. _azure_ 명령을 입력하면 다음 출력이 표시되어야 합니다.
+1. [Azure 클래식 CLI 설치](../../cli-install-nodejs.md)에 설명된 지침에 따라 Azure 클래식 CLI를 다운로드하여 설치합니다.
+2. 클래식 CLI가 설치되었으면 명령줄 인터페이스(Bash, 터미널, 명령 프롬프트)에서 azure 명령을 사용하여 클래식 CLI 명령에 액세스할 수 있습니다. _azure_ 명령을 입력하면 다음 출력이 표시되어야 합니다.
 
     ![Azure 명령 출력](./media/storage-azure-cli/azure_command.png)   
-3. 명령줄 인터페이스에 `azure storage`를 입력하여 모든 azure storage 명령을 나열하고 Azure CLI가 제공하는 기능의 첫 인상을 만듭니다. 명령 이름에 **-h** 매개 변수를 입력하여(예: `azure storage share create -h`) 명령 구문에 대한 세부 정보를 볼 수 있습니다.
-4. 이제 Azure Storage에 액세스할 수 있는 기본 Azure CLI 명령을 보여주는 간단한 스크립트를 살펴보겠습니다. 먼저 스크립트가 저장소 계정 및 키에 대한 두 변수를 설정할 것인지 묻습니다. 그런 다음 이 스크립트는 새 저장소 계정에 새 컨테이너를 만들고 해당 컨테이너에 기존 이미지 파일(Blob)을 업로드합니다. 스크립트가 해당 컨테이너의 모든 Blob을 나열한 후 로컬 컴퓨터에 있는 대상 디렉터리에 이미지 파일을 다운로드합니다.
+3. 명령줄 인터페이스에 `azure storage`를 입력하여 모든 azure storage 명령을 나열한 다음 클래식 CLI에서 제공되는 기능을 파악합니다. 명령 이름에 **-h** 매개 변수를 입력하여(예: `azure storage share create -h`) 명령 구문에 대한 세부 정보를 볼 수 있습니다.
+4. 이제 Azure Storage에 액세스할 수 있는 기본적인 클래식 CLI 명령을 보여 주는 간단한 스크립트를 살펴보겠습니다. 먼저 스크립트가 저장소 계정 및 키에 대한 두 변수를 설정할 것인지 묻습니다. 그런 다음 이 스크립트는 새 저장소 계정에 새 컨테이너를 만들고 해당 컨테이너에 기존 이미지 파일(Blob)을 업로드합니다. 스크립트가 해당 컨테이너의 모든 Blob을 나열한 후 로컬 컴퓨터에 있는 대상 디렉터리에 이미지 파일을 다운로드합니다.
 
     ```azurecli
     #!/bin/bash
@@ -88,9 +88,9 @@ Azure 구독에 대한 자세한 내용은 [Azure AD(Azure Active Directory)에�
 
 스크립트가 실행된 후 다운로드한 이미지 파일을 포함하는 로컬 대상 폴더가 있어야 합니다.
 
-## <a name="manage-storage-accounts-with-the-azure-cli"></a>Azure CLI를 사용하여 저장소 계정 관리
+## <a name="manage-storage-accounts-with-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 저장소 계정 관리
 ### <a name="connect-to-your-azure-subscription"></a>Azure 구독에 연결
-대부분의 저장소 명령이 Azure 구독 없이 작동하지만 Azure CLI에서 구독에 연결하는 것이 좋습니다. 구독과 함께 작동하도록 Azure CLI를 구성하려면 [Azure CLI에서 Azure 구독에 연결](/cli/azure/authenticate-azure-cli)의 단계를 따릅니다.
+대부분의 저장소 명령은 Azure 구독이 없어도 작동하지만 클래식 CLI에서 구독에 연결하는 것이 좋습니다.
 
 ### <a name="create-a-new-storage-account"></a>새 저장소 계정 만들기
 Azure 저장소를 사용하려면 저장소 계정이 있어야 합니다. 구독에 연결하도록 컴퓨터를 구성한 후 새 Azure 저장소 계정을 만들 수 있습니다.
@@ -102,7 +102,7 @@ azure storage account create <account_name>
 사용자의 저장소 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 사용해야 합니다.
 
 ### <a name="set-a-default-azure-storage-account-in-environment-variables"></a>환경 변수에서 기본 Azure 저장소 계정 설정
-구독에서 여러 저장소 계정을 사용할 수 있습니다. 그중 하나를 선택하여 동일한 세션의 모든 저장소 명령에 대한 환경 변수에서 설정할 수 있습니다. 이렇게 하면 저장소 계정 및 키를 명시적으로 지정하지 않고 Azure CLI 저장소 명령을 실행할 수 있습니다.
+구독에서 여러 저장소 계정을 사용할 수 있습니다. 그중 하나를 선택하여 동일한 세션의 모든 저장소 명령에 대한 환경 변수에서 설정할 수 있습니다. 이렇게 하면 저장소 계정 및 키를 명시적으로 지정하지 않고도 클래식 CLI 저장소 명령을 실행할 수 있습니다.
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
@@ -177,7 +177,7 @@ azure storage blob delete mycontainer myBlockBlob2
 ```
 
 ## <a name="create-and-manage-file-shares"></a>파일 공유 만들기 및 관리
-Azure Files는 표준 SMB 프로토콜을 사용하여 응용 프로그램을 위한 공유 저장소를 제공합니다. Microsoft Azure 가상 머신 및 클라우드 서비스 그리고 온-프레미스 응용 프로그램은 탑재된 공유를 통해 파일 데이터를 공유할 수 있습니다. Azure CLI를 통해 파일 공유 및 파일 데이터를 관리할 수 있습니다. Azure Files에 대한 자세한 내용은 [Azure Files 소개](../files/storage-files-introduction.md)를 참조하세요.
+Azure Files는 표준 SMB 프로토콜을 사용하여 응용 프로그램을 위한 공유 저장소를 제공합니다. Microsoft Azure 가상 머신 및 클라우드 서비스 그리고 온-프레미스 응용 프로그램은 탑재된 공유를 통해 파일 데이터를 공유할 수 있습니다. 클래식 CLI를 통해 파일 공유 및 파일 데이터를 관리할 수 있습니다. Azure Files에 대한 자세한 내용은 [Azure Files 소개](../files/storage-files-introduction.md)를 참조하세요.
 
 ### <a name="create-a-file-share"></a>파일 공유 만들기
 Azure에서 Azure 파일 공유는 SMB 파일 공유입니다. 모든 디렉터리 및 파일을 파일 공유에서 만들어야 합니다. 계정에 포함할 수 있는 공유 수에는 제한이 없으며, 공유에 저장할 수 있는 파일 수에는 저장소 계정의 최대 용량 한도까지 제한이 없습니다. 다음 예제에서는 **myshare**라는 파일 공유를 만듭니다.
@@ -214,7 +214,7 @@ azure storage file list myshare myDir
 나열 작업에 대해 디렉터리 이름은 선택적입니다. 생략하면 명령이 공유의 루트 디렉터리의 내용을 나열합니다.
 
 ### <a name="copy-files"></a>파일 복사
-Azure CLI 버전 0.9.8부터 파일을 다른 파일로, 파일을 Blob으로 또는 Blob을 파일로 복사할 수 있습니다. 아래에는 CLI 명령을 사용하여 이러한 복사 작업을 수행하는 방법이 나와 있습니다. 새 디렉터리에 파일을 복사하려면 다음을 수행합니다.
+클래식 CLI 버전 0.9.8부터는 파일을 다른 파일로, 파일을 Blob으로 또는 Blob을 파일로 복사할 수 있습니다. 아래에는 CLI 명령을 사용하여 이러한 복사 작업을 수행하는 방법이 나와 있습니다. 새 디렉터리에 파일을 복사하려면 다음을 수행합니다.
 
 ```azurecli
 azure storage file copy start --source-share srcshare --source-path srcdir/hello.txt --dest-share destshare
@@ -230,9 +230,9 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
 
 ## <a name="next-steps"></a>다음 단계
 
-여기 있는 저장소 리소스와 함께 사용할 수 있는 Azure CLI 1.0 명령 참조를 찾을 수 있습니다.
+Storage 리소스 사용을 위한 Azure 클래식 CLI 명령 참조는 다음 항목에서 확인할 수 있습니다.
 
-* [Resource Manager 모드에서 Azure CLI 명령](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
+* [Resource Manager 모드의 Azure 클래식 CLI 명령](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
 * [Azure 서비스 관리 모드의 Azure CLI 명령](../../cli-install-nodejs.md)
 
-Resource Manager 배포 모델과 함께 사용할 수 있도록 Python으로 작성된 차세대 CLI인 [Azure CLI 2.0](../storage-azure-cli.md)도 사용해 볼 수 있습니다.
+Resource Manager 배포 모델에서 [Azure CLI](../storage-azure-cli.md)의 최신 버전을 사용해 볼 수도 있습니다.

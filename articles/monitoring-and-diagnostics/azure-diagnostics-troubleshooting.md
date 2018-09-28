@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 8f41605114de296b626418d0a868e3ed778c0640
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 6ea68bce81094f4745616e32c7434d6c833a45ee
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263849"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952582"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure 진단 문제 해결
 이 문서에서는 Azure 진단 사용과 관련된 문제 해결 정보를 설명합니다. Azure 진단에 대한 자세한 내용은 [Azure 진단 개요](azure-diagnostics.md)를 참조하세요.
@@ -53,7 +53,7 @@ ms.locfileid: "35263849"
 | **MonAgentHost 로그 파일** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Azure Portal에 메트릭 데이터가 나타나지 않음
-Azure 진단은 Azure Portal에 표시할 수 있는 메트릭 데이터를 제공합니다. 포털에서 데이터를 보는 데 문제가 있는 경우 Azure 진단 저장소 계정의 WADMetrics\* 테이블을 확인하여 해당 메트릭 레코드가 있는지 확인합니다. 
+Azure 진단은 Azure Portal에 표시할 수 있는 메트릭 데이터를 제공합니다. 포털에서 데이터를 보는 데 문제가 있는 경우 Azure 진단 저장소 계정의 WADMetrics\* 테이블을 확인하여 해당 메트릭 레코드가 있는지 확인합니다.
 
 여기서 테이블의 **PartitionKey**는 리소스 ID, 가상 머신 또는 가상 머신 확장 집합입니다. **RowKey**는 메트릭 이름(일명 성능 카운터 이름)입니다.
 
@@ -83,7 +83,7 @@ Azure 진단은 Azure Portal에 표시할 수 있는 메트릭 데이터를 제�
 
 
 ## <a name="azure-diagnostics-isnt-starting"></a>Azure 진단이 시작되지 않음
-Azure 진단이 시작하지 못한 이유에 대한 자세한 내용은 앞서 제공한 로그 파일 위치에서 **DiagnosticsPluginLauncher.log** 및 **DiagnosticsPlugin.log** 파일을 참조하세요. 
+Azure 진단이 시작하지 못한 이유에 대한 자세한 내용은 앞서 제공한 로그 파일 위치에서 **DiagnosticsPluginLauncher.log** 및 **DiagnosticsPlugin.log** 파일을 참조하세요.
 
 이러한 로그가 `Monitoring Agent not reporting success after launch`를 표시하는 경우 MonAgentHost.exe를 시작하지 못한 것을 의미합니다. 이전 섹션의 `MonAgentHost log file`에 대해 지정된 위치에서 해당 로그를 찾습니다.
 
@@ -105,14 +105,14 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 
 해결 방법: 진단 구성을 수정하고 진단을 다시 설치합니다.
 
-저장소 계정이 올바르게 구성되었으면 컴퓨터에 원격 액세스하고 DiagnosticsPlugin.exe 및 MonAgentCore.exe가 실행되고 있는지 확인합니다. 이러한 프로세스가 실행되고 있지 않으면 [Azure 진단이 시작되지 않음](#azure-diagnostics-is-not-starting)의 단계 따릅니다. 
+저장소 계정이 올바르게 구성되었으면 컴퓨터에 원격 액세스하고 DiagnosticsPlugin.exe 및 MonAgentCore.exe가 실행되고 있는지 확인합니다. 이러한 프로세스가 실행되고 있지 않으면 [Azure 진단이 시작되지 않음](#azure-diagnostics-is-not-starting)의 단계 따릅니다.
 
 프로세스가 실행되고 있으면 [데이터가 로컬로 캡처되고 있습니까?](#is-data-getting-captured-locally)로 이동하고 여기서 지침을 따릅니다.
 
 ### <a name="part-of-the-data-is-missing"></a>일부 데이터가 누락됨
 전부가 아니라 일부 데이터만 가져온다는 것은 데이터 수집/전송 파이프라인은 올바르게 설정되었음을 의미합니다. 문제의 범위를 좁히려면 여기서 하위 섹션을 따릅니다.
 
-#### <a name="is-the-collection-configured"></a>컬렉션이 구성되어 있습니까? 
+#### <a name="is-the-collection-configured"></a>컬렉션이 구성되어 있습니까?
 진단 구성에는 수집할 데이터의 특정 형식에 대한 지침이 있습니다. [구성을 검토](#how-to-check-diagnostics-extension-configuration)하여 컬렉션에 대해 구성한 데이터만 찾고 있는지 확인합니다.
 
 #### <a name="is-the-host-generating-data"></a>호스트에서 데이터를 생성하고 있습니까?
@@ -127,20 +127,20 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 
 #### <a name="is-data-getting-captured-locally"></a>데이터가 로컬로 캡처되고 있습니까?
 다음으로 데이터가 로컬에서 캡처되고 있는지 확인합니다.
-데이터는 [진단 데이터에 대한 로컬 저장소](#log-artifacts-path)의 `*.tsf` 파일에 로컬로 저장됩니다. 다른 종류의 로그는 서로 다른 `.tsf` 파일에 수집됩니다. 이름은 Azure Storage의 테이블 이름과 비슷합니다. 
+데이터는 [진단 데이터에 대한 로컬 저장소](#log-artifacts-path)의 `*.tsf` 파일에 로컬로 저장됩니다. 다른 종류의 로그는 서로 다른 `.tsf` 파일에 수집됩니다. 이름은 Azure Storage의 테이블 이름과 비슷합니다.
 
 예를 들어 `Performance Counters`는 `PerformanceCountersTable.tsf`에 수집됩니다. 이벤트 로그가 `WindowsEventLogsTable.tsf`에 수집됩니다. [로컬 로그 추출](#local-log-extraction) 섹션의 지침을 사용하여 로컬 수집 파일을 열고 디스크에 수집되는지 확인합니다.
 
-로컬로 수집된 로그가 표시되지 않고 호스트에서 데이터를 생성하고 있음을 이미 확인한 경우 구성 문제가 있을 가능성이 높습니다. 구성 설정을 주의 깊게 검토합니다. 
+로컬로 수집된 로그가 표시되지 않고 호스트에서 데이터를 생성하고 있음을 이미 확인한 경우 구성 문제가 있을 가능성이 높습니다. 구성 설정을 주의 깊게 검토합니다.
 
 또한 MonitoringAgent [MaConfig.xml](#log-artifacts-path)에 대해 생성된 구성을 검토합니다. 관련 로그 소스를 설명하는 섹션이 있는지 확인합니다. 그런 다음 진단 구성과 구성 모니터링 에이전트 간의 변환에서 손실이 없는지 확인합니다.
 
 #### <a name="is-data-getting-transferred"></a>데이터가 전송되고 있습니까?
-데이터가 로컬에서 캡처되고 있지만 여전히 저장소 계정에 표시되지 않음을 확인한 경우 다음 단계를 수행합니다. 
+데이터가 로컬에서 캡처되고 있지만 여전히 저장소 계정에 표시되지 않음을 확인한 경우 다음 단계를 수행합니다.
 
 - 올바른 저장소 계정을 제공하고 지정된 저장소 계정에 대해 키를 롤오버하지 않았는지 확인합니다. Azure Cloud Services의 경우 사람들이 `useDevelopmentStorage=true`를 업데이트하지 않는 경우가 종종 있습니다.
 
-- 제공된 저장소 계정이 올바른지 확인합니다. 구성 요소가 공용 저장소 끝점에 연결하지 못하게 하는 네트워크 제한 사항이 없는지 확인합니다. 이 작업을 수행하는 한 가지 방법은 컴퓨터에 원격 액세스한 다음 동일한 저장소 계정에 직접 작성하는 것입니다.
+- 제공된 저장소 계정이 올바른지 확인합니다. 구성 요소가 공용 저장소 엔드포인트에 연결하지 못하게 하는 네트워크 제한 사항이 없는지 확인합니다. 이 작업을 수행하는 한 가지 방법은 컴퓨터에 원격 액세스한 다음 동일한 저장소 계정에 직접 작성하는 것입니다.
 
 - 마지막으로, 모니터링 에이전트에서 오류를 보고하고 있는지 확인할 수 있습니다. 모니터링 에이전트는 [진단 데이터에 대한 로컬 저장소](#log-artifacts-path)에 있는 `maeventtable.tsf`에 로그를 기록합니다. 이 파일을 열려면 [로컬 로그 추출](#local-log-extraction) 섹션의 지침을 따릅니다. 그런 다음 저장소에 기록하는 로컬 파일 읽기 실패를 나타내는 `errors`가 있는지 여부를 결정합니다.
 
@@ -215,7 +215,7 @@ ETW 이벤트를 보유하는 Azure Storage의 테이블 이름은 다음 코드
 
 또는 원격 데스크톱을 컴퓨터에 연결하고 [로그 아티팩트 경로 섹션](#log-artifacts-path)에서 설명하는 Azure 진단 구성 파일을 살펴보는 것입니다.
 
-두 경우 모두 **Microsoft.Azure.Diagnostics**를 검색한 다음 **xmlCfg** 또는 **WadCfg** 필드를 검색합니다. 
+두 경우 모두 **Microsoft.Azure.Diagnostics**를 검색한 다음 **xmlCfg** 또는 **WadCfg** 필드를 검색합니다.
 
 가상 머신에서 검색하는데 **WadCfg** 필드가 있으면 구성이 JSON 형식임을 의미합니다. **xmlCfg** 필드가 있는 경우 구성은 XML 형식이고 base64로 인코딩됩니다. 진단에서 로드한 XML을 보려면 [디코딩](http://www.bing.com/search?q=base64+decoder)해야 합니다.
 
@@ -247,22 +247,22 @@ Cloud Service 역할의 경우 디스크에서 구성을 선택하면 데이터�
 | -112 |일반 오류 |
 
 ### <a name="local-log-extraction"></a>로컬 로그 추출
-모니터링 에이전트는 로그 및 아티팩트를 `.tsf` 파일로 수집합니다. `.tsf` 파일은 읽을 수 없지만 다음과 같이 `.csv`로 변환할 수 있습니다: 
+모니터링 에이전트는 로그 및 아티팩트를 `.tsf` 파일로 수집합니다. `.tsf` 파일은 읽을 수 없지만 다음과 같이 `.csv`로 변환할 수 있습니다:
 
 ```
 <Azure diagnostics extension package>\Monitor\x64\table2csv.exe <relevantLogFile>.tsf
 ```
 `<relevantLogFile>.csv`라는 새 파일이 해당 `.tsf` 파일과 동일한 경로에 만들어집니다.
 
->[!NOTE] 
+>[!NOTE]
 > 이 유틸리티는 기본 tsf 파일(예: PerformanceCountersTable.tsf)에 대해서만 실행해야 합니다. 그러면 첨부된 파일(예: PerformanceCountersTables_\*\*001.tsf, PerformanceCountersTables_\*\*002.tsf 등)이 자동으로 처리됩니다.
 
-### <a name="more-about-missing-trace-logs"></a>누락된 추적 로그에 대한 자세한 정보 
+### <a name="more-about-missing-trace-logs"></a>누락된 추적 로그에 대한 자세한 정보
 
 >[!NOTE]
-> 다음 정보는 주로 IaaS VM에서 실행되는 응용 프로그램에 DiagnosticsMonitorTraceListener를 구성하지 않은 경우에만 Azure Cloud Services에 적용됩니다. 
+> 다음 정보는 주로 IaaS VM에서 실행되는 응용 프로그램에 DiagnosticsMonitorTraceListener를 구성하지 않은 경우에만 Azure Cloud Services에 적용됩니다.
 
-- **DiagnosticMonitorTraceListener**가 web.config 또는 app.config에 구성되어 있는지 확인합니다.  이는 기본적으로 클라우드 서비스 프로젝트에 의해 구성됩니다. 그러나 일부 고객은 추적 문이 진단에서 수집되지 않도록 이 부분을 주석화합니다. 
+- **DiagnosticMonitorTraceListener**가 web.config 또는 app.config에 구성되어 있는지 확인합니다.  이는 기본적으로 클라우드 서비스 프로젝트에 의해 구성됩니다. 그러나 일부 고객은 추적 문이 진단에서 수집되지 않도록 이 부분을 주석화합니다.
 
 - 로그가 **OnStart** 또는 **Run** 메서드에서 기록되지 않으면 **DiagnosticMonitorTraceListener**가 app.config에 있는지 확인합니다.  기본적으로 이는 web.config에 있지만 w3wp.exe 내에서 실행하는 코드에만 적용됩니다. 그러므로 WaIISHost.exe에서 실행하는 추적을 캡처하려면 이것을 app.config에 넣어야 합니다.
 
@@ -275,11 +275,11 @@ Cloud Service 역할의 경우 디스크에서 구성을 선택하면 데이터�
 
 **1. .NET 4.5 종속성**
 
-Windows Azure 진단 확장은 .NET 4.5 프레임워크 이상에 대한 런타임 종속성을 포함합니다. 이 섹션을 쓰는 시점에서 Azure Cloud Services용으로 프로비전된 모든 컴퓨터와 Azure Virtual Machine 기반의 모든 공인 이미지에는 .NET 4.5 이상이 설치되어 있습니다. 
+Windows Azure 진단 확장은 .NET 4.5 프레임워크 이상에 대한 런타임 종속성을 포함합니다. 이 섹션을 쓰는 시점에서 Azure Cloud Services용으로 프로비전된 모든 컴퓨터와 Azure Virtual Machine 기반의 모든 공인 이미지에는 .NET 4.5 이상이 설치되어 있습니다.
 
 .NET 4.5 이상이 없는 컴퓨터에서 Windows Azure 진단 확장의 실행을 시도하는 상황은 여전히 발생할 수 있습니다. 이 문제는 오래된 이미지 또는 스냅숏에서 컴퓨터를 만들거나 사용자 지정 디스크를 가져올 때 발생합니다.
 
-**DiagnosticsPluginLauncher.exe**를 실행할 때 일반적으로 **255** 종료 코드로 매니페스트되지만, 다음과 같이 처리되지 않은 예외로 인해 실패가 발생합니다. 
+**DiagnosticsPluginLauncher.exe**를 실행할 때 일반적으로 **255** 종료 코드로 매니페스트되지만, 다음과 같이 처리되지 않은 예외로 인해 실패가 발생합니다.
 ```
 System.IO.FileLoadException: Could not load file or assembly 'System.Threading.Tasks, Version=1.5.11.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies
 ```
@@ -290,8 +290,6 @@ System.IO.FileLoadException: Could not load file or assembly 'System.Threading.T
 
 가상 머신의 포털 환경에는 기본적으로 특정 성능 카운터가 표시됩니다. 성능 카운터가 표시되지 않더라도 저장소에서 사용할 수 있기 때문에 데이터가 생성되고 있음을 알 수 있는 경우 다음을 확인합니다.
 
-- 저장소의 데이터에 영어 카운터 이름이 있는지 여부. 카운터 이름이 영어가 아닌 경우 포털 메트릭 차트에서 해당 이름을 인식할 수 없습니다.
+- 저장소의 데이터에 영어 카운터 이름이 있는지 여부. 카운터 이름이 영어가 아닌 경우 포털 메트릭 차트에서 해당 이름을 인식할 수 없습니다. **완화 방법**: 시스템 계정에 대한 컴퓨터의 언어를 영어로 변경합니다. 이렇게 하려면 **제어판** > **영역** > **관리** > **복사 설정**을 선택합니다. 그런 다음 사용자 지정 언어가 시스템 계정에 적용되지 않도록 **시작 화면 및 시스템 계정**을 선택 취소합니다.
 
-- 성능 카운터 이름에 와일드카드(\*)를 사용하면 포털에서 구성된 카운터와 수집된 카운터 사이의 상관 관계를 지정할 수 없습니다.
-
-**완화 방법**: 시스템 계정에 대한 컴퓨터의 언어를 영어로 변경합니다. 이렇게 하려면 **제어판** > **영역** > **관리** > **복사 설정**을 선택합니다. 그런 다음 사용자 지정 언어가 시스템 계정에 적용되지 않도록 **시작 화면 및 시스템 계정**을 선택 취소합니다. 또한 포털이 기본 사용 환경이 되도록 하려면 와일드카드를 사용하지 않도록 합니다.
+- 성능 카운터 이름에 와일드카드(\*)를 사용하는 경우 성능 카운터가 Azure Storage 싱크에 전송될 때 포털에서 구성된 카운터와 수집된 카운터 간의 상관관계를 지정할 수 없습니다. **완화**: 와일드카드를 사용하고 포털에서 (\*)를 확장하도록 하려면 성능 카운터를 [“Azure Monitor” 싱크](azure-diagnostics-schema.md#diagnostics-extension-111)로 라우팅합니다.

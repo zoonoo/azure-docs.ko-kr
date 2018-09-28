@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 21ba95a7b3efff177afe63d22da3f6ba9848ded2
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d70eecb6a5d6bafbfa6507dbe8b1bcb1cad67191
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301034"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990249"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Log Analytics에서 Azure Alerts로 경고 확장
 Azure Log Analytics에서 경고 기능은 Azure Alerts로 바뀝니다. 이 전환의 일부로 Log Analytics에서 원래 구성된 경고를 Azure로 확장합니다. 해당 경고가 Azure로 자동으로 이동하는 것을 기다리지 않으려면 다음 프로세스를 시작하면 됩니다.
@@ -22,7 +22,7 @@ Azure Log Analytics에서 경고 기능은 Azure Alerts로 바뀝니다. 이 전
 - AlertsVersion API를 사용하여 프로그래밍 방식으로  
 
 > [!NOTE]
-> Microsoft는 완료될 때까지 시리즈를 반복하면서 2018년 5월 14일부터 Log Analytics에서 만든 경고를 자동으로 Azure Alerts로 확장합니다. Microsoft에서는 경고를 Azure로 마이그레이션하도록 예약하고 이러한 전환 중에 Operations Management Suite 포털 및 Azure Portal에서 경고를 관리할 수 있습니다. 이 프로세스는 비파괴적이이며 방해가 되지 않습니다.  
+> Microsoft는 완료될 때까지 시리즈를 반복하면서 2018년 5월 14일부터 Log Analytics의 퍼블릭 클라우드 인스턴스에서 만든 경고를 자동으로 Azure Alerts로 확장합니다. [작업 그룹](monitoring-action-groups.md)을 만드는 데 문제가 있는 경우 [이러한 재구성 단계](monitoring-alerts-extend-tool.md#troubleshooting)를 사용하여 만든 작업 그룹을 자동으로 가져옵니다. 2018년 7월 5일까지는 이러한 단계를 사용할 수 있습니다. *Log Analytics의 Azure Goverment 및 Soveriegn 클라우드 사용자에게는 적용할 수 없습니다*. 
 
 ## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>옵션 1: Operations Management Suite 포털에서 시작
 다음 단계에서는 Operations Management Suite 포털에서 작업 영역에 대한 경고를 확장하는 방법을 설명합니다.  
@@ -457,7 +457,7 @@ $response = armclient post "/subscriptions/$subscriptionId/resourceGroups/$resou
 경고를 확장하는 프로세스 중에 문제는 시스템에서 필요한 [작업 그룹](monitoring-action-groups.md)을 만들지 않도록 방지할 수 있습니다. 이러한 경우에 Operations Management Suite 포털의 **경고** 섹션에 있는 배너 또는 API에 완료된 GET 호출에 오류 메시지가 표시됩니다.
 
 > [!IMPORTANT]
-> 2018년 7월 5일 전에 다음과 같은 재구성 단계를 취하지 않는 경우 경고는 Azure에서 실행되지만 작업 또는 알림이 발생하지 않습니다. 경고에 대한 알림을 가져오려면 [작업 그룹](monitoring-action-groups.md)을 수동으로 편집하고 추가하거나 앞의 [사용자 지정 PowerShell 스크립트](#option-3---using-custom-powershell-script)를 사용해야 합니다.
+> Azure 퍼블릭 클라우드 기반 Log Analytics 사용자가 2018년 7월 5일 전에 다음과 같은 재구성 단계를 취하지 않는 경우 경고는 Azure에서 실행되지만 작업 또는 알림이 발생하지 않습니다. 경고에 대한 알림을 가져오려면 [작업 그룹](monitoring-action-groups.md)을 수동으로 편집하고 추가하거나 앞의 [사용자 지정 PowerShell 스크립트](#option-3---using-custom-powershell-script)를 사용해야 합니다.
 
 각 오류에 대한 재구성 단계는 다음과 같습니다.
 - **오류: 쓰기 작업에 대한 구독/리소스 그룹 수준에 범위 잠금이 있습니다**. ![범위 잠금 오류 메시지가 강조 표시된 Operations Management Suite 포털 경고 설정 페이지 스크린샷](./media/monitor-alerts-extend/ErrorScopeLock.png)

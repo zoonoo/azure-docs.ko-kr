@@ -13,21 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 3479aa8dd319c81f320b6c7ead086c266454acc6
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 8af6846da78d12460b7866297c9802c5dab20a69
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579598"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967526"
 ---
-# <a name="azure-ad-xamarin-getting-started"></a>Azure AD Xamarin 시작
-[!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
+# <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>빠른 시작: Microsoft 로그인을 통합하는 Xamarin 앱 빌드
 
-[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+[!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
 Xamarin을 사용하면 iOS, Android 및 Windows(모바일 장치 및 PC)에서 실행할 수 있는 Mobile Apps를 C#으로 작성할 수 있습니다. Xamarin을 사용하여 앱을 빌드하는 경우 Azure AD(Azure Active Directory)를 사용하면 간단하게 Azure AD 계정으로 사용자를 인증할 수 있습니다. 또한 앱에서 Office 365 API 또는 Azure API 같은 Azure AD를 통해 보호되는 웹 API를 안전하게 사용할 수 있습니다.
 
@@ -37,18 +36,21 @@ Xamarin을 사용하면 iOS, Android 및 Windows(모바일 장치 및 PC)에서 
 * 단일 PCL(이식 가능 클래스 라이브러리)을 사용하여 사용자를 인증하고 Azure AD Graph API에 대한 토큰을 가져옵니다.
 * 지정된 UPN을 가진 사용자를 디렉터리에서 검색합니다.
 
-## <a name="before-you-get-started"></a>시작하기 전에
+## <a name="prerequisites"></a>필수 조건
+
 * [기본 프로젝트](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/skeleton.zip)를 다운로드하거나 [완성된 샘플](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip)을 다운로드하세요. 각 다운로드는 Visual Studio 2013 솔루션입니다.
 * 또한 사용자를 만들고 앱을 등록할 Azure AD 테넌트도 필요합니다. 테넌트가 아직 없는 경우 [얻는 방법을 알아보세요](quickstart-create-new-tenant.md).
 
 준비가 완료되면 다음 4가지 섹션의 절차를 수행합니다.
 
 ## <a name="step-1-set-up-your-xamarin-development-environment"></a>1단계: Xamarin 개발 환경 설정
+
 이 자습서에는 iOS, Android 및 Windows용 프로젝트가 포함되어 있으므로 Visual Studio와 Xamarin이 둘 다 필요합니다. 필요한 환경을 만들려면 MSDN에서 [Visual Studio 및 Xamarin 설정 및 설치](https://msdn.microsoft.com/library/mt613162.aspx)의 프로세스를 완료하세요. 이러한 지침에는 설치 관리자가 완료되기를 기다리는 동안 Xamarin에 대해 자세히 알아보기 위해 검토할 수 있는 자료가 포함되어 있습니다.
 
 필요한 설정을 마치면 Visual Studio에서 솔루션을 엽니다. 그러면 5개의 플랫폼별 프로젝트와 모든 플랫폼에서 공유되는 1개의 PCL, DirectorySearcher.cs의 6개 프로젝트를 찾을 수 있습니다.
 
 ## <a name="step-2-register-the-directorysearcher-app"></a>2단계: DirectorySearcher 앱 등록
+
 앱에서 토큰을 가져올 수 있도록 먼저 Azure AD 테넌트에 앱을 등록하고 Azure AD Graph API에 액세스할 수 있는 권한을 부여해야 합니다. 방법은 다음과 같습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
@@ -63,6 +65,7 @@ Xamarin을 사용하면 iOS, Android 및 Windows(모바일 장치 및 PC)에서 
 8. API로 **Microsoft Graph**를 선택합니다. **위임된 권한**에서 **디렉터리 데이터 읽기** 권한을 추가합니다. 이렇게 하면 앱에서 사용자의 Graph API를 쿼리할 수 있습니다.
 
 ## <a name="step-3-install-and-configure-adal"></a>3단계: ADAL 설치 및 구성
+
 Azure AD에 앱이 있으므로 ADAL을 설치하고 ID 관련 코드를 작성할 수 있습니다. ADAL이 Azure AD와 통신할 수 있도록 앱 등록에 대한 정보를 제공합니다.
 
 1. 패키지 관리자 콘솔을 사용하여 ADAL을 DirectorySearcher 프로젝트에 추가합니다.
@@ -96,6 +99,7 @@ Azure AD에 앱이 있으므로 ADAL을 설치하고 ID 관련 코드를 작성�
   * *returnUri*는 포털에 입력한 리디렉션 URI(예: http://DirectorySearcher) 입니다.
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>4단계: ADAL을 사용하여 Azure AD에서 토큰 가져오기
+
 거의 모든 앱 인증 논리가 `DirectorySearcher.SearchByAlias(...)`에 있습니다. 플랫폼별 프로젝트에서는 `DirectorySearcher` PCL에 컨텍스트 매개 변수를 전달하기만 하면 됩니다.
 
 1. DirectorySearcher.cs를 연 다음 새 매개 변수를 `SearchByAlias(...)` 메서드에 추가합니다. `IPlatformParameters`는 ADAL이 인증을 수행하는 데 필요한 플랫폼별 개체를 캡슐화하는 컨텍스트 매개 변수입니다.
@@ -154,6 +158,7 @@ Azure AD에 앱이 있으므로 ADAL을 설치하고 ID 관련 코드를 작성�
     ```
 
 ### <a name="windows-desktop"></a>Windows Desktop
+
 MainWindow.xaml.cs에서 데스크톱의 `PlatformParameters` 개체에 `WindowInteropHelper`를 전달하여 `SearchByAlias(...)`를 호출하면 됩니다.
 
 ```csharp
@@ -180,18 +185,18 @@ List<User> results = await DirectorySearcherLib.DirectorySearcher.SearchByAlias(
 ...
 ```
 
-## <a name="whats-next"></a>다음 단계
 이제 5개의 서로 다른 플랫폼에서 OAuth 2.0을 사용하여 사용자를 인증하고 안전하게 Web API를 호출할 수 있는 Xamarin 앱이 작성되었습니다.
+
+## <a name="step-5-populate-your-tenant"></a>5단계: 테넌트 채우기 
 
 아직 사용자로 테넌트를 채우지 않은 경우 지금 채울 수 있습니다.
 
 1. DirectorySearcher 앱을 실행하고 해당 사용자 중 하나로 로그인합니다.
 2. 해당 UPN에 따라 다른 사용자를 검색합니다.
 
+## <a name="next-steps"></a>다음 단계
+
 ADAL은 앱에 일반적인 ID 기능을 쉽게 통합할 수 있습니다. 또한 캐시 관리, OAuth 프로토콜 지원, 사용자에게 로그인 UI 제공, 만료된 토큰 새로 고침 등의 모든 귀찮은 작업을 대신 처리합니다. 사용자는 단일 API 호출 `authContext.AcquireToken*(…)`만 알고 있으면 됩니다.
 
-참조용 자료로 [완성된 샘플](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip)(사용자 구성 값 제외)을 다운로드하세요.
-
-이제 추가 ID 시나리오로 이동할 수 있습니다. 예를 들어 [Azure AD를 사용하여 .NET Web API 보안 유지](quickstart-v1-dotnet-webapi.md)를 시도해 보세요.
-
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
+* [완성된 샘플](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip)(사용자 구성 값 제외)을 다운로드합니다.
+* [Azure AD를 사용하여 .NET Web API 보안을 유지](quickstart-v1-dotnet-webapi.md)하는 방법을 알아봅니다.

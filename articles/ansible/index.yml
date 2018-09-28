@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 11541b0af13de17b20c1be516184d094b1be0961
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: f24a2ab1e4e4b87bb41b95b6ea5d80277c0e7094
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667074"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409952"
 documentType: LandingData
 title: Azure의 Ansible 설명서
 metadata:
@@ -52,6 +52,7 @@ sections:
     - html: <a href="./ansible-create-configure-vmss">Azure에서 가상 머신 확장 집합을 만들고 관리합니다.</a>
     - html: <a href="./ansible-deploy-app-vmss">Azure에서 가상 머신 확장 집합에 응용 프로그램을 배포합니다.</a>
     - html: <a href="./ansible-create-configure-aks">Azure Kubernetes Service 클러스터를 만들고 관리합니다.</a>
+    - html: <a href="./ansible-create-configure-application-gateway">Azure 응용 프로그램 게이트웨이를 사용하여 웹 트래픽을 관리합니다.</a>
 - title: 참고 자료
   items:
   - type: list

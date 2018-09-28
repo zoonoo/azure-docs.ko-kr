@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/26/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0be97bfbbaafd6045fd36be57d85e917f0325779
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: e76097c0d0cbaf14f2fc2b1a407bc2d320a2091d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600655"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964407"
 ---
 # <a name="azure-active-directory-code-samples-v2-endpoint"></a>Azure Active Directory 코드 샘플(V2 엔드포인트)
+
+[!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 Microsoft Azure AD(Azure Active Directory)를 사용하여 다음 작업을 수행할 수 있습니다.
 
@@ -40,61 +42,56 @@ Microsoft Azure AD(Azure Active Directory)를 사용하여 다음 작업을 수�
 
 GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsoft Azure Active Directory 샘플 및 설명서](https://github.com/Azure-Samples?page=3&query=active-directory)를 참조하세요.
 
-## <a name="desktop-and-mobile-public-client-apps"></a>데스크톱 및 모바일 공용 클라이언트 앱
+## <a name="single-page-applications-spa"></a>SPA(단일 페이지 응용 프로그램)
 
-다음 샘플은 사용자 이름으로 Microsoft Graph 또는 Web API에 액세스 하는 공용 클라이언트 응용 프로그램(데스크톱/모바일 응용 프로그램)을 보여줍니다.
+이 샘플에서는 Azure AD로 보안이 설정된 단일 페이지 응용 프로그램을 작성하는 방법을 보여 줍니다. 이 샘플은 MSAL.js 버전 중 하나([JavaScript용 Microsoft 인증 라이브러리](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core), [Angular용 Microsoft 인증 라이브러리](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular), [AngularJS용 Microsoft 인증 라이브러리](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs))를 사용합니다.
 
-클라이언트 응용 프로그램 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출 | ASP.NET Core 2.0 Web API 호출
------------------- | -------- | ---------- | -------------------- | -------------------------
-데스크톱(WPF)      | .NET/C#  | 대화형 | [dotnet-desktop-msgraph-v2](http://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) <p/> [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) | [dotnet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
-모바일(UWP)   | .NET/C#(UWP) | 대화형 | [dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) |
-모바일(Android, iOS, UWP)   | .NET/C#(Xamarin) | 대화형 | [xamarin-native-v2](https://Github.com/azure-samples/active-directory-xamarin-native-v2) |
-모바일(iOS)       | iOS/Objective C 또는 swift | 대화형 | [ios-swift-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) <p/> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |
-모바일(Android)   | Android/Java | 대화형 |   [android-native-v2](https://github.com/azure-samples/active-directory-android-native-v2 ) |
+ 플랫폼 |  Microsoft Graph 호출
+ -------- |  ---------------------
+![JavaScript](media/sample-v2-code/logo_js.png) JavaScript(msal.js)  | [javascript-graphapi-web-v2](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2)
+![Angular JS](media/sample-v2-code/logo_angular.png) JavaScript(msal AngularJS) | [MsalAngularjsDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angularjs/samples/MsalAngularjsDemoApp)
+![Angular](media/sample-v2-code/logo_angular.png) JavaScript(msal Angular) | [MSALAngularDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular/samples/MSALAngularDemoApp)
 
 ## <a name="web-applications"></a>웹 응용 프로그램
 
-다음 샘플에서는 사용자 ID로 사용자를 로그인하고, Microsoft Graph를 호출하고, web API를 호출하는 웹 응용 프로그램을 보여줍니다.
+다음 샘플은 사용자를 로그인하는 웹 응용 프로그램을 보여 줍니다. 일부 샘플은 사용자 ID를 사용하여 Microsoft Graph 또는 사용자 고유의 웹 API를 호출하는 응용 프로그램도 보여 줍니다.
 
- 플랫폼 | 사용자만 로그인 | 사용자를 로그인하고 Microsoft Graph를 호출 
- -------- | ------------------- | --------------------------------- 
-ASP.NET 4.x | [appmodelv2-webapp-openIDConnect-dotNet](https://GitHub.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) <p/> [dotnet-webapp-openidconnect-v2](https://GitHub.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |              [aspnet-connect-rest-sample](https://github.com/microsoftgraph/aspnet-connect-rest-sample)   
-ASP.NET Core 2.0 | [aspnetcore-webapp-openidconnect-v2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) |              [aspnetcore-connect-sample](https://github.com/microsoftgraph/aspnetcore-connect-sample)   
-Node.js      |                   | [AppModelv2-WebApp-OpenIDConnect-nodejs](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs)     
-Ruby      |                   | [ruby-connect-rest-sample](https://github.com/microsoftgraph/ruby-connect-rest-sample)     
+ 플랫폼 | 사용자만 로그인 | 사용자를 로그인하고 Microsoft Graph를 호출
+ -------- | ------------------- | ---------------------------------
+![ASP.NET](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET | [appmodelv2-webapp-openIDConnect-dotNet](https://GitHub.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) <p/> [dotnet-webapp-openidconnect-v2](https://GitHub.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |              [aspnet-connect-rest-sample](https://github.com/microsoftgraph/aspnet-connect-rest-sample)
+![ASP.NET](media/sample-v2-code/logo_NETcore.png)<p/>ASP.NET Core 2.0 | [aspnetcore-webapp-openidconnect-v2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) |              [aspnetcore-connect-sample](https://github.com/microsoftgraph/aspnetcore-connect-sample)
+![Node.js](media/sample-v2-code/logo_nodejs.png)  |                   | [AppModelv2-WebApp-OpenIDConnect-nodejs](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs)
+![Ruby](media/sample-v2-code/logo_ruby.png) |                   | [ruby-connect-rest-sample](https://github.com/microsoftgraph/ruby-connect-rest-sample)
+
+## <a name="desktop-and-mobile-public-client-apps"></a>데스크톱 및 모바일 공용 클라이언트 앱
+
+다음 샘플은 대화형 로그인을 사용하여 사용자 이름으로 Microsoft Graph 또는 사용자 고유의 Web API에 액세스하는 공용 클라이언트 응용 프로그램(데스크톱/모바일 응용 프로그램)을 보여 줍니다. 이러한 클라이언트 응용 프로그램은 모두 MSAL(Microsoft 인증 라이브러리)을 사용합니다.
+
+클라이언트 응용 프로그램 | 플랫폼 | Microsoft Graph 호출 | ASP.NET Core 2.0 Web API 호출
+------------------ | -------- |  -------------------- | -------------------------
+데스크톱(WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | [dotnet-desktop-msgraph-v2](http://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) <p/> [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) | [dotnet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
+모바일(UWP)   | ![.NET/C#(UWP)](media/sample-v2-code/logo_windows.png) | [dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) |
+모바일(Android, iOS, UWP)   | ![.NET/C#(Xamarin)](media/sample-v2-code/logo_xamarin.png) | [xamarin-native-v2](https://Github.com/azure-samples/active-directory-xamarin-native-v2) |
+모바일(iOS)       | ![iOS/Objective C 또는 swift](media/sample-v2-code/logo_iOS.png) | [ios-swift-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) <p/> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |
+모바일(Android)   | ![Android/Java](media/sample-v2-code/logo_Android.png) |   [android-native-v2](https://github.com/azure-samples/active-directory-android-native-v2 ) |
 
 ## <a name="daemon-applications"></a>디먼 응용 프로그램
 
-다음 샘플은 응용 프로그램 ID로(사용자 없음) Microsoft Graph 또는 web API에 액세스하는 데스크톱 또는 웹 응용 프로그램을 보여줍니다.
+다음 샘플은 고유 ID(사용자 없음)로 Microsoft Graph에 액세스하는 응용 프로그램을 보여 줍니다.
 
-클라이언트 응용 프로그램 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출 
------------------- | -------- | ---------- | -------------------- 
-웹앱 | .NET/C#  | 클라이언트 자격 증명 | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) 
+클라이언트 응용 프로그램 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출
+------------------ | -------- | ---------- | --------------------
+웹앱 | ![ASP.NET](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET  | 클라이언트 자격 증명 | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2)
 
-## <a name="single-page-applications-spa"></a>SPA(단일 페이지 응용 프로그램)
-
-이 샘플에서는 Azure AD로 보안이 설정된 단일 페이지 응용 프로그램을 작성하는 방법을 보여 줍니다.
-
- 플랫폼 |  Microsoft Graph 호출 
- -------- |  --------------------- 
-JavaScript(msal.js)  | [javascript-graphapi-v2](https://github.com/azure-samples/active-directory-javascript-graphapi-v2) 
-JavaScript(msal.js + AngularJS) | [angular-connect-rest-sample](https://github.com/microsoftgraph/angular-connect-rest-sample) 
-JavaScript(Hello.JS)  | [javascript-graphapi-web-v2](https://github.com/azure-samples/active-directory-javascript-graphapi-web-v2) 
-JavaScript(hello.js + Angular 4) | [angular4-connect-sample](https://github.com/microsoftgraph/angular4-connect-sample) 
+> 데스크톱 디먼 응용 프로그램을 보여 주는 샘플이 백로그에 있습니다.
 
 ## <a name="web-apis"></a>Web API
 
-### <a name="web-api-protected-by-azure-ad"></a>Azure AD로 보호되는 Web API
+다음 샘플은 Azure AD V2 엔드포인트로 web API를 보호하는 방법을 보여줍니다. 이 API는 WPF 응용 프로그램이 실행하지만 실제로 모든 응용 프로그램에서 호출할 수 있습니다.
 
-다음 샘플은 Azure AD V2 엔드포인트로 web API를 보호하는 방법을 보여줍니다.
-
-플랫폼 | 샘플 | 설명
- -------- | ------------------- | ---------------------
-Node.js | [dotnet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2) | Azure AD V2를 사용하여 WPF 응용 프로그램에서 ASP.NET Core Web API를 호출합니다.
-
-### <a name="web-api-calling-microsoft-graph-or-another-web-api"></a>Microsoft Graph 또는 다른 Web API를 호출하는 Web API
-
-이 샘플은 아직 사용할 수 없습니다.
+플랫폼 | 샘플
+ -------- | -------------------
+![.NET/C#](media/sample-v2-code/logo_NET.png) | [dotnet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
 
 ## <a name="other-microsoft-graph-samples"></a>다른 Microsoft Graph 샘플
 

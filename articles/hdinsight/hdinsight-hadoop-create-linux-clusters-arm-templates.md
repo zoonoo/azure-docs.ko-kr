@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 9a48b3ff9769e2757ac7930feb14d6537d96fae3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 4cf516550e9f9852ec50981932c2df8f236d0358
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109241"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961317"
 ---
 # <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 HDInsight의 Hadoop 클러스터 만들기
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "43109241"
 이 문서의 지침을 따르려면 다음이 필요합니다.
 
 * [Azure 구독](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Azure PowerShell 및/또는 Azure CLI
+* Azure PowerShell 및/또는 Azure 클래식 CLI
 
 ### <a name="resource-manager-templates"></a>리소스 관리자 템플릿
 Resource Manager 템플릿을 사용하면 조정된 단일 작업으로 응용 프로그램에 대해 다음 리소스를 쉽게 만들 수 있습니다.
@@ -49,7 +49,7 @@ Resource Manager를 사용하면 여러 다른 도구를 사용하여 구독의 
 
 - Azure Portal: [ 기존 리소스에서 Azure Resource Manager 템플릿 내보내기](../azure-resource-manager/resource-manager-export-template.md)를 참조하세요.
 - Azure PowerShell: [Azure PowerShell을 사용하여 Azure Resource Manager 템플릿 내보내기](../azure-resource-manager/resource-manager-export-template-powershell.md)를 참조하세요.
-- Azure CLI: [Azure CLI를 사용하여 Azure Resource Manager 템플릿 내보내기](../azure-resource-manager/resource-manager-export-template-cli.md)를 참조하세요.
+- Azure 클래식 CLI: [Azure 클래식 CLI를 사용하여 Azure Resource Manager 템플릿 내보내기](../azure-resource-manager/resource-manager-export-template-cli.md)를 참조하세요.
 
 
 ## <a name="deploy-using-the-portal"></a>Portal을 사용하여 배포
@@ -60,9 +60,9 @@ Azure Portal을 사용하여 Resource Manager 템플릿을 배포할 수 있습�
 
 Azure PowerShell을 사용하여 Resource Manager 템플릿을 배포할 수 있습니다. 자세한 내용은 [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../azure-resource-manager/resource-group-template-deploy.md) 및 [SAS 토큰과 Azure PowerShell을 사용하여 개인 Resource Manager 템플릿 배포](../azure-resource-manager/resource-manager-powershell-sas-token.md)를 참조하세요.
 
-## <a name="deploy-using-cli"></a>CLI를 사용하여 배포
+## <a name="deploy-using-azure-cli"></a>Azure CLI를 사용하여 배포
 
-Azure CLI를 사용하여 Resource Manager 템플릿을 배포할 수 있습니다. 자세한 내용은 [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../azure-resource-manager/resource-group-template-deploy-cli.md) 및 [SAS 토큰과 Azure CLI를 사용하여 개인 Resource Manager 템플릿 배포](../azure-resource-manager/resource-manager-cli-sas-token.md)를 참조하세요.
+클래식 CLI를 사용하여 Resource Manager 템플릿을 배포할 수 있습니다. 자세한 내용은 [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../azure-resource-manager/resource-group-template-deploy-cli.md) 및 [SAS 토큰과 Azure CLI를 사용하여 개인 Resource Manager 템플릿 배포](../azure-resource-manager/resource-manager-cli-sas-token.md)를 참조하세요.
 
 ## <a name="deploy-using-the-rest-api"></a>REST API를 사용하여 배포
 REST API를 사용하여 Resource Manager 템플릿을 배포할 수 있습니다. 자세한 내용은 [Resource Manager 템플릿과 Resource Manager REST API로 리소스 배포](../azure-resource-manager/resource-group-template-deploy-rest.md)를 참조하세요.

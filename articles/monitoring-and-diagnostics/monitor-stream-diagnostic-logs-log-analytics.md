@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 134c33ac28c6a094bdc50deb7206db95bf4436fc
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: c419a3c44a38f72d56f2b7b362c62e683fc20c7f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574534"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993020"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Log Analytics로 Azure 진단 로그 스트리밍
 
-**[Azure 진단 로그](monitoring-overview-of-diagnostic-logs.md)** 는 포털, PowerShell cmdlet 또는 Azure CLI 2.0을 사용하여 거의 실시간으로 Azure Log Analytics로 스트리밍할 수 있습니다.
+**[Azure 진단 로그](monitoring-overview-of-diagnostic-logs.md)** 는 Portal, PowerShell cmdlet 또는 Azure CLI를 사용하여 거의 실시간으로 Azure Log Analytics로 스트리밍할 수 있습니다.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-in-log-analytics"></a>Log Analytics에서 진단 로그로 수행할 수 있는 작업
 
@@ -73,9 +73,9 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -WorkspaceID [resour
 
 workspaceID 속성은 Log Analytics에 표시되는 작업 영역 ID/키가 아니라 작업 영역의 전체 Azure 리소스 ID를 사용합니다.
 
-### <a name="via-azure-cli-20"></a>Azure CLI 2.0을 통해
+### <a name="via-azure-cli"></a>Azure CLI를 통해
 
-[Azure CLI 2.0](insights-cli-samples.md)을 통해 스트리밍을 사용하도록 설정하려면 [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 명령을 사용합니다.
+[Azure CLI](insights-cli-samples.md)를 통해 스트리밍을 사용하도록 설정하려면 [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 명령을 사용합니다.
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

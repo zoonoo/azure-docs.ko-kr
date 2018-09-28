@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: 8a2bae12fae6a1bf8f5ecbdb2ae01dea5260f3cb
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5aecb218b66c06c87446e35e5c7c9ca8108b956c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30839147"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995553"
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>리소스 관리자 모드에서 Azure CLI 명령
 이 문서에서는 Azure Resource Manager 배포 모델에서 일반적으로 Azure 리소스를 만들고 관리하는 데 사용한 Azure CLI(명령줄 인터페이스) 명령에 대한 구문 및 옵션이 제공됩니다. ARM(Azure Resource Manager) 모드에서 CLI를 실행하여 이러한 명령에 액세스합니다. 전체 참조는 아니며 CLI 버전에서 약간 다른 명령 또는 매개 변수를 표시할 수도 있습니다. Azure 리소스 및 리소스 그룹에 대한 일반적인 개요는 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
 
 > [!NOTE]
-> 이 문서에서는 Azure CLI(또는 Azure CLI 1.0)에서의 Resource Manager 모드 명령을 보여줍니다. Resource Manager 모델에서 작업하기 위해 차세대 멀티 플랫폼 CLI인 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 사용해 볼 수 있습니다.
+> 이 문서에서는 Azure 클래식 CLI라고도 하는 Azure CLI의 Resource Manager 모드 명령에 대해 설명합니다. Resource Manager 모델에서 작업하려는 경우 차세대 멀티 플랫폼 CLI인 [Azure CLI](/cli/azure/install-az-cli2)를 사용해 볼 수도 있습니다.
 >[기존 및 새 Azure CLI](/cli/azure/old-and-new-clis)에 대해 자세히 알아보세요.
 >
 
@@ -997,9 +997,9 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     network lb rule create [options] <resource-group> <lb-name> <name>
 부하 분산 장치 규칙을 만듭니다.
 
-부하 분산 장치의 프런트 엔드 끝점 및 들어오는 네트워크 트래픽을 수신하는 백 엔드 주소 풀 범위를 구성하는 부하 분산 장치 규칙을 만들 수 있습니다. 설정에는 프런트엔드 IP 끝점의 포트 및 백엔드 주소 풀 범위의 포트도 포함됩니다.
+부하 분산 장치의 프런트 엔드 엔드포인트 및 들어오는 네트워크 트래픽을 수신하는 백 엔드 주소 풀 범위를 구성하는 부하 분산 장치 규칙을 만들 수 있습니다. 설정에는 프런트엔드 IP 엔드포인트의 포트 및 백엔드 주소 풀 범위의 포트도 포함됩니다.
 
-다음 예제에서는 백 엔드 주소 풀 범위에서 부하 분산 장치 규칙, 80 TCP 포트를 수신 대기하는 프런트 엔드 끝점 및 포트 8080으로 보내는 부하 분산 네트워크 트래픽을 만드는 방법을 보여줍니다.
+다음 예제에서는 백 엔드 주소 풀 범위에서 부하 분산 장치 규칙, 80 TCP 포트를 수신 대기하는 프런트 엔드 엔드포인트 및 포트 8080으로 보내는 부하 분산 네트워크 트래픽을 만드는 방법을 보여줍니다.
 
     azure network lb rule create -g myresourcegroup -l mylb -n mylbrule -p tcp -f 80 -b 8080 -i 10
 
@@ -1494,7 +1494,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
     network traffic-manager profile delete [options] <resource-group> <name>
     network traffic-manager profile is-dns-available [options] <resource-group> <relative-dns-name>
 
-**트래픽 관리자 끝점을 관리하는 명령**
+**트래픽 관리자 엔드포인트를 관리하는 명령**
 
     network traffic-manager profile endpoint create [options] <resource-group> <profile-name> <name> <endpoint-location>
     network traffic-manager profile endpoint set [options] <resource-group> <profile-name> <name>

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 5e79cfa2c428323d8531bec7eab875a2dace4ff2
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: aa1891ecec139746d6051dcabdb3c9db4f6062c6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37934215"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996352"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Azure에서 원격 데스크톱을 설치 및 구성하여 Linux VM에 연결
 Azure의 Linux VM(가상 머신)은 SSH(보안 셸) 연결을 사용하여 명령줄에서 일반적으로 관리됩니다. Linux를 처음 사용하거나 빠른 문제 해결 시나리오의 경우 원격 데스크톱을 사용하는 편이 더 쉬울 수 있습니다. 이 문서에서는 Resource Manager 배포 모델을 사용하여 Linux VM에 대해 데스크톱 환경([xfce](https://www.xfce.org)) 및 원격 데스크톱([xrdp](http://www.xrdp.org))을 설치하고 구성하는 방법에 대해 자세히 설명합니다.
@@ -28,7 +28,7 @@ Azure의 Linux VM(가상 머신)은 SSH(보안 셸) 연결을 사용하여 명�
 ## <a name="prerequisites"></a>필수 조건
 이 문서에는 Azure에 있는 기존 Ubuntu 16.04 LTS VM이 필요합니다. VM을 만들어야 하는 경우 다음 방법 중 하나를 사용합니다.
 
-- [Azure CLI 2.0](quick-create-cli.md)
+- [Azure CLI](quick-create-cli.md)
 - [Azure Portal](quick-create-portal.md)
 
 
@@ -86,7 +86,7 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>원격 데스크톱 트래픽의 네트워크 보안 그룹 규칙 만들기
 Linux VM에 도달하는 원격 데스크톱 트래픽을 허용하려면 포트 3389에 대한 TCP가 VM에 도달하도록 네트워크 보안 그룹 규칙을 만들어야 합니다. 네트워크 보안 그룹 규칙에 대한 자세한 내용은 [네트워크 보안 그룹이란?](../../virtual-network/security-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요. [Azure Portal을 사용하여 네트워크 보안 그룹 규칙을 만들](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 수도 있습니다.
 
-다음 예제에서는 *3389* 포트에서 [az vm open-port](/cli/azure/vm#az-vm-open-port)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다. VM에 대한 SSH 세션이 아닌 Azure CLI 2.0에서 다음 네트워크 보안 그룹 규칙을 엽니다.
+다음 예제에서는 *3389* 포트에서 [az vm open-port](/cli/azure/vm#az-vm-open-port)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다. VM에 대한 SSH 세션이 아닌 Azure CLI에서 다음 네트워크 보안 그룹 규칙을 엽니다.
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389

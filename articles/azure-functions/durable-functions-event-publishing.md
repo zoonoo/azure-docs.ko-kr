@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: glenga
-ms.openlocfilehash: dff0aace6c46340f07ff6fb4fd7f92ee93b7fa8c
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 31fe0f85b258524b4ac0af03ec19a91a93e1463b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091755"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968882"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Azure Event Grid에 게시하는 Durable Functions(미리 보기)
 
@@ -33,7 +33,7 @@ ms.locfileid: "44091755"
 
 * Durable Functions 프로젝트에서 [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) 1.3.0-rc 이상을 설치합니다.
 * [Azure Storage 에뮬레이터](https://docs.microsoft.com/azure/storage/common/storage-use-emulator)를 설치합니다.
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)을 설치하거나 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 사용합니다.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)를 설치하거나 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 사용합니다.
 
 ## <a name="create-a-custom-event-grid-topic"></a>사용자 지정 Event Grid 토픽 만들기
 

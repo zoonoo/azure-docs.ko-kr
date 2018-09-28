@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: aab5be7f98f5fdf6e7304485c3d1fc5ddb7afdba
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 339d5d39c637369420e197acf65df802cefd5cb9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106920"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988495"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>HDInsight 클러스터에 대한 로그 관리
 
@@ -43,12 +43,13 @@ HDInsight 클러스터 로그 관리 전략을 만드는 첫 번째 단계는 �
 * 마지막 상태 변경 세부 정보를 포함한 클러스터 상태
 * 마스터, 코어 및 작업 노드에 대해 지정된 HDInsight 인스턴스의 유형 및 수
 
-Azure Portal을 사용하여 이 최상위 수준 정보를 대부분 얻을 수 있습니다.  또는 Azure CLI를 사용하여 HDInsight 클러스터에 대한 정보를 수집할 수 있습니다.
+Azure Portal을 사용하여 이 최상위 수준 정보를 대부분 얻을 수 있습니다.  또는 Azure 클래식 CLI를 사용하여 HDInsight 클러스터에 대한 정보를 수집할 수 있습니다.
 
 ```
     azure hdinsight cluster list
     azure hdinsight cluster show <ClusterName>
 ```
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 PowerShell을 사용하여 이 정보를 볼 수도 있습니다.  자세한 내용은 [Azure PowerShell을 사용하여 HDInsight에서 Hadoop 클러스터 관리](hdinsight-administer-use-powershell.md)를 참조하세요.
 

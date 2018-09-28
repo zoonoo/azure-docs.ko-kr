@@ -15,21 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: a93467404232b0fff51136cb7648d84a81165bdb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4ae9d8053f7463c069a7305bbd07a91a387e31d2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697962"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972303"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Azure Portal에서 가상 머신 확장 집합의 크기를 자동으로 조정
 확장 집합을 만들 때 실행하려는 VM 인스턴스 수를 정의합니다. 응용 프로그램 수요가 변경될 때는 VM 인스턴스 수를 자동으로 늘리거나 줄일 수 있습니다. 자동 크기 조정 기능을 사용하면 고객 수요에 따라 조정하거나 앱 수명 주기 동안 응용 프로그램 성능 변화에 대응할 수 있습니다.
 
-이 문서에서는 Azure Portal에서 확장 집합의 VM 인스턴스 성능을 모니터링하는 자동 크기 조정 규칙을 만드는 방법을 보여줍니다. 이러한 자동 크기 조정 규칙은 성능 메트릭에 따라 VM 인스턴스 수를 늘리거나 줄일 수 있습니다. [Azure PowerShell](tutorial-autoscale-powershell.md) 또는 [Azure CLI 2.0](tutorial-autoscale-cli.md)을 사용하여 이러한 단계를 완료할 수도 있습니다.
+이 문서에서는 Azure Portal에서 확장 집합의 VM 인스턴스 성능을 모니터링하는 자동 크기 조정 규칙을 만드는 방법을 보여줍니다. 이러한 자동 크기 조정 규칙은 성능 메트릭에 따라 VM 인스턴스 수를 늘리거나 줄일 수 있습니다. [Azure PowerShell](tutorial-autoscale-powershell.md) 또는 [Azure CLI](tutorial-autoscale-cli.md)를 사용하여 이러한 단계를 완료할 수도 있습니다.
 
 
 ## <a name="prerequisites"></a>필수 조건
-자동 크기 조정 규칙을 만들려면 기존 가상 머신 확장 집합이 필요합니다. [Azure Portal](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md) 또는 [Azure CLI 2.0](quick-create-cli.md)을 사용하여 확장 집합을 만들 수 있습니다.
+자동 크기 조정 규칙을 만들려면 기존 가상 머신 확장 집합이 필요합니다. 확장 집합은 [Azure Portal](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md) 또는 [Azure CLI](quick-create-cli.md)를 사용하여 만들 수 있습니다.
 
 
 ## <a name="create-a-rule-to-automatically-scale-out"></a>자동 규모 확장 규칙 만들기
@@ -52,7 +52,7 @@ ms.locfileid: "38697962"
     | *시간 집계*     | 분석을 위해 수집된 메트릭을 집계하는 방법을 정의합니다.                                                | 평균        |
     | *메트릭 이름*          | 확장 집합 작업을 모니터링하고 적용하기 위한 성능 메트릭입니다.                                                   | 백분율 CPU |
     | *시간 조직 통계* | 분석을 위해 각 시간 조직에서 수집된 메트릭을 집계하는 방법을 정의합니다.                             | 평균        |
-    | *연산자*             | 메트릭 데이터를 임계값과 비교하는 데 사용되는 연산자입니다.                                                     | 다음보다 큼   |
+    | *연산자*             | 메트릭 데이터를 임계값과 비교하는 데 사용되는 연산자입니다.                                                     | 초과   |
     | *임계값*            | 자동 크기 조정 규칙이 작업을 트리거하도록 하는 백분율입니다.                                                 | 70             |
     | *Duration*             | 메트릭과 임계값을 비교하기 전에 모니터링하는 기간입니다.                                   | 10분     |
     | *작업*            | 규칙이 적용될 때 확장 집합이 확장 또는 감축되어야 하는지 및 어떤 증분이 기준인지를 정의합니다.                        | 다음을 기준으로 백분율 늘이기 |

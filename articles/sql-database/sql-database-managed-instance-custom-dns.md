@@ -7,19 +7,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 09/23/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: be32bc4b3f91fbc71305ee9f16fec17ff472cd4c
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 2d1bb7e8522da32dd33933261ea41b578f8afac1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049578"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949488"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance에 대한 사용자 지정 DNS 구성
 
-Azure [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md) 내에서 Azure SQL Database Managed Instance(미리 보기)를 배포해야 합니다. 개인 호스트 이름이 Managed Instance에서 해결되어야 하는 몇 가지 시나리오(클라우드 또는 하이브리드 환경의 다른 SQL 인스턴스에 연결된 서버)가 있습니다. 이 경우에 Azure 내에서 사용자 지정 DNS를 구성해야 합니다. Managed Instance가 내부 작업에서 동일한 DNS를 사용하므로 가상 네트워크 DNS 구성은 Managed Instance와 호환되어야 합니다. 
+Azure [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md) 내에서 Azure SQL Database Managed Instance를 배포해야 합니다. 개인 호스트 이름이 Managed Instance에서 해결되어야 하는 몇 가지 시나리오(클라우드 또는 하이브리드 환경의 다른 SQL 인스턴스에 연결된 서버)가 있습니다. 이 경우에 Azure 내에서 사용자 지정 DNS를 구성해야 합니다. Managed Instance가 내부 작업에서 동일한 DNS를 사용하므로 가상 네트워크 DNS 구성은 Managed Instance와 호환되어야 합니다. 
 
 사용자 지정 DNS 구성이 Managed Instance와 호환되도록 하려면 다음을 수행해야 합니다. 
 - 공용 도메인 이름을 확인할 수 있도록 사용자 지정 DNS 서버 구성 

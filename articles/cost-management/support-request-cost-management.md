@@ -1,23 +1,23 @@
 ---
-title: Azure Cost Management에 대한 지원 요청 만들기 | Microsoft Docs
-description: 이 문서에서는 Cost Management에 대한 지원 요청을 만드는 데 필요한 단계를 안내합니다.
+title: Azure에서 Cloudyn에 대한 지원 요청 만들기 | Microsoft Docs
+description: 이 문서에서는 Cloudyn에 대한 지원 요청을 만드는 데 필요한 단계를 안내합니다.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/18/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 35d3153cb485f11fe17689f1ff1d3d88961878d3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d074b263d11c6b12a4283d2ff479a5b3dc1d6908
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296694"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952446"
 ---
-# <a name="create-a-support-request-for-cost-management"></a>Cost Management에 대한 지원 요청 만들기
+# <a name="create-a-support-request-for-cloudyn"></a>Cloudyn에 대한 지원 요청 만들기
 
 원하는 정보를 찾을 수 없는 경우 지원 요청을 열 수 있습니다. 또는 문제가 서비스 중단 또는 버그로 의심되는 경우입니다. 지원 티켓을 열 때 하나의 문제에 대해 열어야 합니다. 이렇게 하면 보고된 문제를 빠르게 라우팅하는 데 도움이 됩니다.
 
@@ -48,4 +48,4 @@ ms.locfileid: "35296694"
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Cost Management에 대한 자세한 내용은 Cost Management에 대한 [사용량 및 비용 검토](tutorial-review-usage.md) 자습서를 참조하세요.
+- Cloudyn에 대해 자세히 알아보려면 Cloudyn용 [사용량 및 비용 검토](tutorial-review-usage.md) 자습서를 계속 확인하세요.

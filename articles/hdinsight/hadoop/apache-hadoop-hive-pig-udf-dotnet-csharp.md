@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: jasonh
-ms.openlocfilehash: 9a214aa51bcd4b7aab7a65cf2989edd9e9dd3dc6
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: ebc4c918745e273700a0efb54db4408bb702c75e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044894"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991371"
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>HDInsight에서 Hive 및 Pig 스트림과 함께 C# UDF(사용자 정의 함수) 사용
 
@@ -31,7 +31,7 @@ Hive 및 Pig 모두 외부 응용 프로그램으로 데이터를 전달해 처�
 
     * 원하는 IDE를 사용합니다. [Visual Studio](https://www.visualstudio.com/vs) 2015, 2017 또는 [Visual Studio Code](https://code.visualstudio.com/)를 권장합니다. 이 문서의 단계는 Visual Studio 2017을 사용합니다.
 
-* .exe 파일을 클러스터로 업로드하고 Pig 및 Hive 작업을 실행하는 방법. Data Lake Tools for Visual Studio, Azure PowerShell 및 Azure CLI를 권장합니다. 이 문서의 단계는 Data Lake Tools for Visual Studio를 사용하여 파일을 업로드하고 예제 Hive 쿼리를 실행합니다.
+* .exe 파일을 클러스터로 업로드하고 Pig 및 Hive 작업을 실행하는 방법. Data Lake Tools for Visual Studio, Azure PowerShell 및 Azure 클래식 CLI를 사용하는 것이 좋습니다. 이 문서의 단계는 Data Lake Tools for Visual Studio를 사용하여 파일을 업로드하고 예제 Hive 쿼리를 실행합니다.
 
     Hive 쿼리 및 Pig 작업을 실행하는 다른 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 

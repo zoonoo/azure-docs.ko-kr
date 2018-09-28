@@ -1,8 +1,7 @@
 ---
 title: Machine Learning 알고리즘 선택 방법 | Microsoft Docs
-description: 클러스터링, 분류 또는 회귀 실험에서 감독 및 자율 학습에 대한 Azure Machine Learning 알고리즘을 선택하는 방법입니다.
+description: 클러스터링, 분류 또는 회귀 실험에서 감독 및 자율 학습에 대한 Azure Machine Learning Studio 알고리즘을 선택하는 방법입니다.
 services: machine-learning
-documentationcenter: ''
 author: pakalra
 ms.author: pakalra
 manager: cgronlun
@@ -11,24 +10,22 @@ tags: ''
 ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
 ms.service: machine-learning
 ms.component: studio
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 ms.date: 12/18/2017
-ms.openlocfilehash: 79b2cc3951fa8a48282f42f7180ec831050508f8
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 92db2a86f5f698945cd2252476e951d658dc75ac
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834385"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959209"
 ---
-# <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Microsoft Azure Machine Learning을 위한 알고리즘 선택 방법
-"어떤 기계 학습 알고리즘을 사용해야 하나요?"라는 질문에 대한 대답은 항상 "상황마다 다릅니다."입니다. 데이터의 크기, 품질 및 특성에 따라 다릅니다. 얻은 답변으로 무슨 작업을 수행할지에 따라 다릅니다.
- 수학 알고리즘을 사용 중인 컴퓨터를 위한 명령어로 변환하는 방법에 따라 다릅니다. 시간이 얼마나 있는지에 따라 다릅니다. 아무리 숙련된 과학자라고 해도 대부분의 과학자는 직접 시도해보기 전에는 어떤 알고리즘이 최적으로 수행된다고 단언할 수 없습니다.
+# <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio를 위한 알고리즘 선택 방법
+
+"어떤 기계 학습 알고리즘을 사용해야 하나요?"라는 질문에 대한 대답은 항상 "상황마다 다릅니다."입니다. 데이터의 크기, 품질 및 특성에 따라 다릅니다. 얻은 답변으로 무슨 작업을 수행할지에 따라 다릅니다. 수학 알고리즘을 사용 중인 컴퓨터를 위한 명령어로 변환하는 방법에 따라 다릅니다. 시간이 얼마나 있는지에 따라 다릅니다. 아무리 숙련된 과학자라고 해도 대부분의 과학자는 직접 시도해보기 전에는 어떤 알고리즘이 최적으로 수행된다고 단언할 수 없습니다.
 
 ## <a name="the-machine-learning-algorithm-cheat-sheet"></a>Machine Learning 알고리즘 치트 시트
-**Microsoft Azure Machine Learning 알고리즘 치트 시트**를 사용하면 알고리즘의 Microsoft Azure Machine Learning 라이브러리에서 예측 분석 솔루션에 대해 올바른 기계 학습 알고리즘을 선택할 수 있습니다.
+
+**Microsoft Azure Machine Learning 알고리즘 치트 시트**를 사용하면 알고리즘의 Azure Machine Learning Studio 라이브러리에서 예측 분석 솔루션에 대해 올바른 기계 학습 알고리즘을 선택할 수 있습니다.
 이 문서에서는 사용 방법을 안내합니다.
 
 > [!NOTE]
@@ -41,6 +38,7 @@ ms.locfileid: "34834385"
 이러한 권장 사항은 많은 데이터 과학자 및 기계 학습 전문가로부터 수집한 피드백 및 팁입니다. 우리는 모든 내용에 동의한 것은 아니지만 부분적으로나마 합의에 도달하기 위해 의견을 조율하는 데 노력해왔습니다. 대부분의 의견 충돌은 "상황에 따라 다릅니다…"라는 문구로 시작됩니다.
 
 ### <a name="how-to-use-the-cheat-sheet"></a>치트 시트를 사용하는 방법
+
 "*&lt;경로 레이블&gt;* 의 경우 *&lt;알고리즘&gt;* 을 사용하세요."대로 차트에 표시된 경로와 알고리즘 레이블을 확인합니다. 예를 들어, "*속도*의 경우 *두 개의 클래스 로지스틱 회귀*를 사용하세요."와 같습니다. 경우에 따라 두 개 이상의 분기가 적용됩니다.
 완벽하게 맞는 것이 없는 경우도 있습니다. 경험에 기반한 권장 방법으로 제공되는 것이므로 정확하지 않은 것에 대해 걱정하지 않아도 됩니다.
 수많은 데이터 과학자가 최적의 알고리즘을 찾는 가장 확실한 방법은 모든 알고리즘을 시도해보는 것이라고 말합니다.
@@ -53,7 +51,9 @@ ms.locfileid: "34834385"
 > 
 
 ## <a name="flavors-of-machine-learning"></a>기계 학습의 다양한 특징
+
 ### <a name="supervised"></a>감독
+
 감독 학습 알고리즘은 예제 집합을 토대로 예측합니다. 예를 들어 향후 주가 가격에 대한 위험 추측에 주가 기록을 사용할 수 있습니다. 학습에 사용된 각 예제는 관련 값으로 레이블(이 경우, 주가)이 표시됩니다. 감독 학습 알고리즘은 이러한 값 레이블에서 패턴을 찾습니다. 요일, 계절, 회사의 재무 데이터, 업종, 문제가 되는 지정학적 사건의 유무 등 관련될 수 있는 모든 정보를 사용할 수 있으며 각 알고리즘은 다양한 유형의 패턴을 찾습니다. 알고리즘이 가능한 최적의 패턴을 찾은 후에는 이러한 패턴을 사용하여 레이블이 지정되지 않은 테스트 데이터(오늘 가격)에 대해 예측을 합니다.
 
 감독 학습은 널리 사용되고 유용한 기계 학습 유형입니다. 한 가지 예외를 제외하고, Azure Machine Learning의 모든 모듈은 감독 학습 알고리즘입니다. Azure Machine Learning 내에서는 분류, 회귀 및 이상 감지의 여러 특정 유형의 감독 학습이 표시됩니다.
@@ -63,22 +63,28 @@ ms.locfileid: "34834385"
 * **이상 감지**. 단순히 비정상적인 데이터 요소를 식별하는 것이 목표인 경우도 있습니다. 예를 들어 이상 금융 거래 감지에서 매우 비정상적인 신용 카드 지출 패턴이 의심 대상입니다. 가능한 변형 형태는 너무 많지만 학습 예제는 극히 적으므로 사기성 활동의 형태를 학습하기는 쉽지 않습니다. 이상 감지를 수행하는 방법은 단순히 정상적인 활동의 형태(사기성이 없는 과거 트랜잭션 사용)를 학습하고 여기에서 크게 벗어나는 활동을 식별하는 것입니다.
 
 ### <a name="unsupervised"></a>자율
+
 자율 학습에서는 데이터 요소에 연결된 레이블이 없습니다. 대신, 자율 학습 알고리즘의 목표는 어떤 방식으로든 데이터를 구성하거나 해당 구조를 설명하는 것입니다. 이는 클러스터로 그룹화하거나 복잡한 데이터가 보다 단순하게 또는 조직화되어 표시되도록 데이터를 바라보는 다양한 방법을 찾는 것을 의미할 수 있습니다.
 
 ### <a name="reinforcement-learning"></a>보충 학습
+
 보충 학습에서는 알고리즘이 각 데이터 요소에 대한 응답으로 작업을 선택합니다. 또한 학습 알고리즘은 짧은 시간 후에 결정이 얼마나 효율적이었는지를 나타내는 보상 신호를 받습니다.
 이 신호에 따라 알고리즘은 가장 높은 보상을 달성하기 위해 해당 전략을 수정합니다. 현재 Azure Machine Learning에는 보충 학습 알고리즘 모듈이 없습니다. 보충 학습은 지정 시간 센서 판독값 집합이 한 데이터 요소이며 알고리즘으로 로봇의 다음 동작을 선택해야 하는 로봇 공학에서 일반적입니다. 사물 인터넷의 응용 프로그램에 적합한 학습이기도 합니다.
 
 ## <a name="considerations-when-choosing-an-algorithm"></a>알고리즘 선택 시 고려 사항
+
 ### <a name="accuracy"></a>정확도
+
 항상 가장 정확한 응답을 얻어야 하는 것은 아닙니다.
 용도에 따라 근사치가 적절한 경우도 있습니다. 이 경우 보다 근접한 방법을 고수하여 처리 시간을 크게 단축할 수 있습니다. 보다 근접한 방법의 다른 이점은 기본적으로 [과잉 맞춤](https://youtu.be/DQWI1kvmwRg)경향을 피할 수 있다는 것입니다.
 
 ### <a name="training-time"></a>학습 시간
+
 모델을 학습하는 데 필요한 시간 또는 분은 알고리즘에 따라 크게 다릅니다. 학습 시간은 대체로 정확도와 밀접하게 연결되어 일반적으로 서로를 수반합니다. 또한 일부 알고리즘은 다른 항목보다 데이터 요소 수에 보다 민감합니다.
 시간이 제한된 경우, 특히 데이터 집합이 큰 경우 알고리즘 선택 항목을 유도할 수 있습니다.
 
 ### <a name="linearity"></a>선형성
+
 많은 기계 학습 알고리즘에서 선형성을 활용합니다. 선형 분류 알고리즘은 클래스를 직선(또는 고차원의 아날로그)으로 구분할 수 있다고 가정합니다. 여기에는 로지스틱 회귀 및 지원 벡터 컴퓨터가 포함됩니다(Azure Machine Learning에 구현됨).
 선형 회귀 알고리즘은 데이터가 직선을 따르는 경향이 있다고 가정합니다. 이러한 가정은 일부 문제에 대해서는 그다지 나쁘지 않지만 어떤 면에서는 정확도가 떨어질 수 있습니다.
 
@@ -93,6 +99,7 @@ ms.locfileid: "34834385"
 위험성에도 불구하고, 선형 알고리즘은 공격에 대한 최전선으로 매우 널리 사용됩니다. 알고리즘 방식으로 간단하고 학습 시간이 빠른 경향이 있습니다.
 
 ### <a name="number-of-parameters"></a>매개 변수 수
+
 매개 변수는 데이터 과학자가 알고리즘을 설정할 때 전환하기 위한 노브입니다. 허용 오차, 반복 횟수 또는 알고리즘이 동작하는 방식의 변형 간 옵션 등 알고리즘의 동작에 영향을 주는 숫자입니다. 알고리즘의 학습 시간 및 정확도는 적합한 설정에 따라 크게 좌우될 수 있습니다. 일반적으로 매개 변수가 많은 알고리즘의 경우 적절한 조합을 찾기 위해 대부분 시행착오와 오류를 겪어야 합니다.
 
 또는 Azure Machine Learning에는 [매개 변수 스위핑](algorithm-parameters-optimize.md) 모듈 블록이 있어 선택한 세분성에서 모든 매개 변수 조합을 자동으로 시도합니다. 이 방법은 매개 변수 공간을 스팬하는 데는 좋지만 모델을 학습하는 데 필요한 시간이 매개 변수 수에 따라 기하급수적으로 증가한다는 단점이 있습니다.
@@ -100,9 +107,11 @@ ms.locfileid: "34834385"
 장점은 일반적으로 매개 변수를 많이 포함할수록 알고리즘의 유연성이 향상된다는 것입니다. 또한 정확도도 매우 뛰어날 수 있습니다. 이러한 조건 하에서 매개 변수 설정의 적합한 조합을 얻을 수 있습니다.
 
 ### <a name="number-of-features"></a>기능 수
+
 특정 데이터 형식의 경우 데이터 요소에 비해 기능 수가 매우 클 수 있습니다. 보통 genetics 또는 텍스트 데이터가 그렇습니다. 기능 수가 많으면 일부 학습 알고리즘이 교착 상태에 빠질 수 있으며 이로 인해 학습 시간이 상당히 길어집니다. 지원 벡터 컴퓨터는 특히 다음 사례에 적합합니다(아래 참조).
 
 ### <a name="special-cases"></a>특수 사례
+
 일부 학습 알고리즘에서는 데이터 구조 또는 원하는 결과에 대해 특수한 가정을 합니다. 사용자 요구에 적합한 것을 찾을 수 있는 경우 보다 유용한 결과, 보다 정확한 예측 또는 단축된 교육 시간을 제공할 수 있습니다.
 
 | **알고리즘** | **정확도** | **학습 시간** | **선형성** | **매개 변수** | **참고 사항** |
@@ -144,7 +153,9 @@ ms.locfileid: "34834385"
 **○** - 양호한 정확도 및 보통의 교육 시간 나타냄
 
 ## <a name="algorithm-notes"></a>알고리즘 참고 사항
+
 ### <a name="linear-regression"></a>선형 회귀
+
 이전에 설명한 것처럼 [선형 회귀](https://msdn.microsoft.com/library/azure/dn905978.aspx) 는 데이터 집합에 대한 선(또는 평면, 초평면(hyperplane))에 적합합니다. 자주 사용되고 간단하며 빠르지만 일부 문제에 대해서는 지나치게 단순화될 수 있습니다.
 [선형 회귀 자습서](linear-regression-in-azure.md)는 여기를 확인하세요.
 
@@ -153,6 +164,7 @@ ms.locfileid: "34834385"
 ***선형 추세 반영 데이터***
 
 ### <a name="logistic-regression"></a>로지스틱 회귀
+
 이름에 혼동을 줄 수 있는 '회귀'가 포함되어 있지만, 로지스틱 회귀 분석은 실제로 [2클래스](https://msdn.microsoft.com/library/azure/dn905994.aspx) 및 [다중 클래스](https://msdn.microsoft.com/library/azure/dn905853.aspx) 분류를 위한 강력한 도구입니다. 빠르고 단순합니다. 직선 대신 'S' 모양 곡선을 사용한다는 사실 때문에 데이터를 그룹으로 나누는 데 적합합니다. 로지스틱 회귀는 선형 클래스 경계를 제공하므로 이를 사용할 때는 선형 근사값이 수락할 수 있는 것인지 확인해야 합니다.
 
 ![하나의 기능을 포함하는 2클래스 데이터에 대한 로지스틱 회귀][4]
@@ -160,6 +172,7 @@ ms.locfileid: "34834385"
 ***한 가지 기능만 있는 2클래스 데이터에 대한 로지스틱 회귀 분석*** *- 클래스 경계가 로지스틱 곡선이 두 클래스에 가까운 지점임*
 
 ### <a name="trees-forests-and-jungles"></a>트리, 포리스트 및 정글
+
 의사 결정 포리스트([회귀](https://msdn.microsoft.com/library/azure/dn905862.aspx), [2클래스](https://msdn.microsoft.com/library/azure/dn906008.aspx) 및 [다중 클래스](https://msdn.microsoft.com/library/azure/dn906015.aspx)), 의사 결정 정글([2클래스](https://msdn.microsoft.com/library/azure/dn905976.aspx) 및 [다중 클래스](https://msdn.microsoft.com/library/azure/dn905963.aspx)) 및 향상된 의사 결정 트리([회귀](https://msdn.microsoft.com/library/azure/dn905801.aspx) 및 [2클래스](https://msdn.microsoft.com/library/azure/dn906025.aspx))는 모두 의사 결정 트리, 기본적인 Machine Learning 개념을 기반으로 합니다. 의사 결정 트리에는 다양한 변형이 있지만 수행하는 작업은 동일합니다. 기능 공간을 대부분 같은 레이블을 포함하는 하위 지역으로 세분화합니다. 분류 또는 회귀를 수행 중인지 여부에 따라 일관된 범주 또는 상수 값의 하위 지역일 수 있습니다.
 
 ![의사 결정 트리가 기능 공간 세분화][5]
@@ -173,6 +186,7 @@ ms.locfileid: "34834385"
 [빠른 포리스트 분위수 회귀](https://msdn.microsoft.com/library/azure/dn913093.aspx) 는 일반(중앙값) 값뿐만 아니라 분위수 형태에 대한 분포도 알고 싶은 하위 지역 내의 특수한 사례에 대한 변형된 의사 결정 트리입니다.
 
 ### <a name="neural-networks-and-perceptrons"></a>신경망 및 퍼셉트론
+
 신경망은 [다중 클래스](https://msdn.microsoft.com/library/azure/dn906030.aspx), [2클래스](https://msdn.microsoft.com/library/azure/dn905947.aspx) 및 [회귀](https://msdn.microsoft.com/library/azure/dn905924.aspx)를 반영한 두뇌 영감 학습 알고리즘입니다. 무제한의 다양성을 포함하지만 Azure Machine Learning 내의 신경망은 모두 방향성 비순환 그래프 형태입니다. 따라서 입력 기능은 출력으로 전환되기 전에 계층 시퀀스를 통해 앞으로(뒤로는 불가능) 전달됩니다. 각 계층에서 입력은 다양한 조합으로 가중치가 부여되고 합계를 구한 후 다음 계층으로 전달됩니다. 이러한 단순한 조합의 계산으로 정교한 클래스 경계 및 데이터 추세를 겉보기에는 마법처럼 간단하게 학습할 수 있습니다. 이러한 종류의 다계층화된 네트워크는 수많은 기술 보고 및 공상 과학을 뒷받침하는 "심층 학습"을 수행합니다.
 
 하지만 이러한 높은 성능을 위해서는 대가가 따릅니다. 신경망은 학습 시간이 길며 특히 많은 기능을 포함하는 큰 데이터 집합인 경우 시간이 오래 걸릴 수 있습니다. 또한 대부분의 알고리즘보다 더 많은 매개 변수를 포함하므로 매개 변수 스위핑으로 학습 시간은 엄청나게 길어집니다.
@@ -184,6 +198,7 @@ ms.locfileid: "34834385"
 [2클래스 평균 퍼셉트론](https://msdn.microsoft.com/library/azure/dn906036.aspx) 은 급증하는 학습 시간에 대한 신경망의 해답입니다. 2클래스 평균 퍼셉트론은 선형 클래스 경계를 제공하는 네트워크 구조를 사용합니다. 오늘날의 기준으로 거의 원형에 가깝지만 오랫동안 견고하게 작동해왔으며 작기 때문에 신속한 학습이 가능합니다.
 
 ### <a name="svms"></a>SVM
+
 SVM(Support Vector Machine)은 가능한 넓은 여백으로 클래스를 구분하는 경계를 찾습니다. 두 클래스를 확실하게 구분할 수 없는 경우 알고리즘이 가능한 최적의 경계를 찾습니다. Azure Machine Learning에 나와 있는 것처럼 [2클래스 SVM](https://msdn.microsoft.com/library/azure/dn905835.aspx)은 직선만으로 이 작업을 수행합니다. (SVM-speak에서 선형 커널을 사용합니다.) 이 선형 근사치를 생성하므로 매우 신속하게 실행할 수 있습니다. 텍스트 또는 유전자처럼 기능 중심의 데이터에서 특히 유용합니다. 이러한 경우 SVM은 적절한 수준의 메모리를 필요로 하면서도 대부분의 다른 알고리즘보다 과잉 맞춤을 피하면서 클래스를 보다 신속하게 구분할 수 있습니다.
 
 ![지원 벡터 컴퓨터 클래스 경계][7]
@@ -195,6 +210,7 @@ Microsoft Research의 다른 제품인 [2클래스 로컬 심층 SVM](https://ms
 비선형 SVM의 적절한 확장을 사용하여 [1클래스 SVM](https://msdn.microsoft.com/library/azure/dn913103.aspx) 은 전체 데이터 집합을 긴밀하게 요약하는 경계를 그립니다. 이것은 이상 감지에 유용합니다. 경계를 멀리 벗어나는 모든 새로운 데이터 요소는 비정상적이며 주목할 만합니다.
 
 ### <a name="bayesian-methods"></a>Bayesian 메서드
+
 Bayesian 메서드는 과잉 맞춤을 방지하는 매우 뛰어난 품질을 자랑합니다. 대답에 대한 가능한 분포에 대해 사전에 몇 가지 가정을 하여 이 작업을 수행합니다. 이 방법에 대한 다른 부산물은 매우 적은 매개 변수입니다. Azure Machine Learning은 분류([2클래스 Bayes 지점 컴퓨터](https://msdn.microsoft.com/library/azure/dn905930.aspx)) 및 회귀([베이지언 선형 회귀](https://msdn.microsoft.com/library/azure/dn906022.aspx)) 모두에 대해 두 베이지언 알고리즘을 포함합니다.
 여기서는 데이터를 분할하거나 직선에 맞출 수 있다고 가정합니다.
 
@@ -226,16 +242,15 @@ Azure Machine Learning에는 [Vowpal Wabbit](https://msdn.microsoft.com/library/
 VW는 분류 및 회귀를 모두 학습할 수 있으며 부분적으로 레이블이 지정되지 않은 데이터에서도 학습이 가능하므로 여기에서 분류를 거부합니다. 다양한 학습 알고리즘, 손실 함수 및 최적화 알고리즘 중 하나를 사용하도록 구성할 수 있습니다. 기초부터 효율적, 병렬, 초고속 형태로 설계되었습니다. 적은 작업으로 엄청나게 큰 기능 집합을 처리합니다.
 Microsoft Research의 John Langford가 시작하여 진행한 VW는 스톡 카 알고리즘 분야에서 포뮬러 원(Formula One) 엔트리입니다. 모든 문제가 VW에 적합하지는 않지만 해당하는 경우 인터페이스에 대한 학습 곡선을 따른다면 도움이 될 수 있습니다. 또한 여러 언어로 된 [독립 실행형 오픈 소스 코드](https://github.com/JohnLangford/vowpal_wabbit) 도 제공됩니다.
 
-## <a name="more-help-with-algorithms"></a>알고리즘에 대한 자세한 도움말
+## <a name="next-steps"></a>다음 단계
+
 * 알고리즘을 설명하고 예제를 제공하는 다운로드 가능한 인포그래픽은 [다운로드 가능한 인포그래픽: 알고리즘 예제를 포함한 Machine Learning 기본 사항](basics-infographic-with-algorithm-examples.md)을 참조하세요.
-* Azure Machine Learning Studio에서 사용할 수 있는 모든 기계 학습 알고리즘의 범주별 목록은 Machine Learning Studio 알고리즘 및 모듈 도움말에서 [초기화 모델][initialize-model]을 참조하세요.
-* Azure Machine Learning Studio의 전체 알고리즘 및 모듈에 대한 알파벳 순서 목록은 Machine Learning Studio 알고리즘 및 모듈 도움말에서 [Machine Learning Studio 모듈의 A-Z 목록][a-z-list]을 참조하세요.
-* Azure Machine Learning Studio의 기능을 개략적으로 제공하는 다이어그램을 다운로드하고 인쇄하려면 [Azure Machine Learning Studio 기능 개요](studio-overview-diagram.md)를 참조하세요.
 
+* Machine Learning Studio에서 사용할 수 있는 모든 기계 학습 알고리즘의 범주별 목록은 Machine Learning Studio Algorithm 및 모듈 도움말에서 [초기화 모델](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model)을 참조하세요.
 
-<!-- Reference links -->
-[initialize-model]: https://msdn.microsoft.com/library/azure/dn905812.aspx
-[a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
+* Machine Learning Studio의 전체 알고리즘 및 모듈에 대한 알파벳 순서 목록은 Machine Learning Studio 알고리즘 및 모듈 도움말에서 [Machine Learning Studio 모듈의 A-Z 목록](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list)을 참조하세요.
+
+* Machine Learning Studio의 기능을 개략적으로 제공하는 다이어그램을 다운로드하고 인쇄하려면 [Azure Machine Learning Studio 기능 개요](studio-overview-diagram.md)를 참조하세요.
 
 <!-- Media -->
 

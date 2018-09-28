@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: b206d93d7c72f5d8ff3dd3baa277cd0db33ba583
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 97e192312619455c0055a917df880cc48eb082dd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42811916"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978920"
 ---
 # <a name="virtual-network-traffic-routing"></a>가상 네트워크 트래픽 라우팅
 
@@ -105,13 +105,13 @@ Azure에서 사용자 지정 경로 또는 사용자 정의 경로를 만들어 
 
 다음 홉 유형에 대해 표시되고 참조되는 이름은 Azure Portal 및 명령줄 도구와 Azure Resource Manager 및 클래식 배포 모델 간에 다릅니다. 다음 표에서는 서로 다른 도구 및 [배포 모델](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에서 각각의 다음 홉 유형을 참조하는 데 사용되는 이름을 나열하고 있습니다.
 
-|다음 홉 유형                   |Azure CLI 2.0 및 PowerShell(Resource Manager) |Azure CLI 1.0 및 PowerShell(클래식)|
+|다음 홉 유형                   |Azure CLI 및 PowerShell(Resource Manager) |Azure 클래식 CLI 및 PowerShell(클래식)|
 |-------------                   |---------                                       |-----|
 |가상 네트워크 게이트웨이         |VirtualNetworkGateway                           |VPNGateway|
-|가상 네트워크                 |VNetLocal                                       |VNETLocal(CLI 1.0 asm 모드에서 사용할 수 없음)|
-|인터넷                        |인터넷                                        |Internet(CLI 1.0 asm 모드에서 사용할 수 없음)|
+|가상 네트워크                 |VNetLocal                                       |VNETLocal(asm 모드의 클래식 CLI에서는 사용할 수 없음)|
+|인터넷                        |인터넷                                        |Internet(asm 모드의 클래식 CLI에서는 사용할 수 없음)|
 |가상 어플라이언스               |VirtualAppliance                                |VirtualAppliance|
-|없음                            |없음                                            |Null(CLI 1.0 asm 모드에서 사용할 수 없음)|
+|없음                            |없음                                            |Null(asm 모드의 클래식 CLI에서는 사용할 수 없음)|
 |가상 네트워크 피어링         |VNet 피어링                                    |해당 없음|
 |가상 네트워크 서비스 엔드포인트|VirtualNetworkServiceEndpoint                   |해당 없음|
 
@@ -208,7 +208,7 @@ BGP를 사용하여 Azure와 경로를 교환하면 보급된 각 접두사에 �
 
 그림의 *Subnet1*에 대한 경로 테이블에는 다음 경로가 포함됩니다.
 
-|ID  |원본 |상태  |주소 접두사    |다음 홉 유형          |다음 홉 IP 주소|사용자 정의 경로 이름| 
+|ID  |원본 |시스템 상태  |주소 접두사    |다음 홉 유형          |다음 홉 IP 주소|사용자 정의 경로 이름| 
 |----|-------|-------|------              |-------                |--------           |--------      |
 |1   |기본값|올바르지 않음|10.0.0.0/16         |가상 네트워크        |                   |              |
 |2   |사용자   |Active |10.0.0.0/16         |가상 어플라이언스      |10.0.100.4         |Within-VNet1  |
@@ -242,7 +242,7 @@ BGP를 사용하여 Azure와 경로를 교환하면 보급된 각 접두사에 �
 
 그림의 *Subnet2*에 대한 경로 테이블에는 다음 경로가 포함됩니다.
 
-|원본  |상태  |주소 접두사    |다음 홉 유형             |다음 홉 IP 주소|
+|원본  |시스템 상태  |주소 접두사    |다음 홉 유형             |다음 홉 IP 주소|
 |------- |-------|------              |-------                   |--------           
 |기본값 |Active |10.0.0.0/16         |가상 네트워크           |                   |
 |기본값 |Active |10.1.0.0/16         |VNet 피어링              |                   |

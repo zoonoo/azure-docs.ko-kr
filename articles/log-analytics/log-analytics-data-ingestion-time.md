@@ -11,23 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/10/2018
+ms.date: 09/14/2018
 ms.author: bwren
-ms.openlocfilehash: 0e513cc4f6a7d5d030ded807870de9eb0fdc0ed8
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: f40c8ed7eb6bfae958b3b57c4b7d525963ab9741
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38973185"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955259"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Log Analytics의 데이터 수집 시간
-Azure Log Analytics는 점점 더 빠른 속도로 매달 테라바이트 단위의 데이터를 보내는 수천 명의 고객을 처리하는 대규모 데이터 서비스입니다. 데이터가 수집된 후 Log Analytics에서 사용할 수 있기까지 걸리는 시간에 대해 질문하는 경우가 많습니다. 이 문서에서는 이 대기 시간에 영향을 주는 여러 요인에 대해 설명합니다.
+Azure Log Analytics는 점점 더 빠른 속도로 매달 테라바이트 단위의 데이터를 보내는 수천 명의 고객을 처리하는 Azure Monitor의 대규모 데이터 서비스입니다. 데이터가 수집된 후 Log Analytics에서 사용할 수 있기까지 걸리는 시간에 대해 질문하는 경우가 많습니다. 이 문서에서는 이 대기 시간에 영향을 주는 여러 요인에 대해 설명합니다.
 
 ## <a name="typical-latency"></a>일반적인 대기 시간
-대기 시간은 모니터링되는 시스템에서 데이터가 생성된 시간과 Log Analytics에서 데이터를 분석에 사용할 수 있는 시간을 참조합니다. 데이터를 Log Analytics로 수집하기 위한 일반적인 대기 시간은 3분에서 10분 사이로, 데이터의 95%가 7분 이내에 수집됩니다. 특정 데이터에 대한 특정 대기 시간은 아래에 설명된 다양한 요인에 따라 달라집니다.
+대기 시간은 모니터링되는 시스템에서 데이터가 생성된 시간과 Log Analytics에서 데이터를 분석에 사용할 수 있는 시간을 참조합니다. 데이터를 Log Analytics로 수집하기 위한 일반적인 대기 시간은 2분에서 5분 사이입니다. 특정 데이터에 대한 특정 대기 시간은 아래에 설명된 다양한 요인에 따라 달라집니다.
 
-## <a name="sla-for-log-analytics"></a>Log Analytics에 대한 SLA
-[Log Analytics SLA(서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/)는 서비스가 해당 목표를 충족하지 않을 때 Microsoft에서 고객에게 환불하는 경우를 정의하는 법적 구속력이 있는 계약입니다. SLA는 시스템의 일반적인 성능이 아니라 잠재적인 심각한 상황을 나타내는 최악의 경우를 기반으로 합니다.
 
 ## <a name="factors-affecting-latency"></a>대기 시간에 영향을 주는 요인
 특정 데이터 집합의 총 수집 시간을 다음과 같은 상위 수준 영역으로 분석할 수 있습니다. 
@@ -60,7 +58,7 @@ Log Analytics 에이전트를 경량으로 유지하기 위해 에이전트는 �
 각 솔루션에 대한 문서를 참조하여 해당 수집 빈도를 확인하세요.
 
 ### <a name="pipeline-process-time"></a>파이프라인 프로세스 시간
-로그 레코드가 Log Analytics 파이프라인에 수집되고 나면, 테넌트 격리를 보장하고 해당 데이터가 손실되지 않도록 임시 저장소에 기록됩니다. 이 프로세스로 인해 일반적으로 5~15초가 추가됩니다. 일부 관리 솔루션은 데이터가 스트리밍될 때 데이터를 집계하고 인사이트를 파생하기 위해 부하가 높은 알고리즘을 구현합니다. 예를 들어, 네트워크 성능 모니터링은 들어오는 데이터를 3분 간격으로 집계하므로 대기 시간 3분이 추가됩니다.
+로그 레코드가 Log Analytics 파이프라인에 수집되고 나면, 테넌트 격리를 보장하고 해당 데이터가 손실되지 않도록 임시 저장소에 기록됩니다. 이 프로세스로 인해 일반적으로 5~15초가 추가됩니다. 일부 관리 솔루션은 데이터가 스트리밍될 때 데이터를 집계하고 인사이트를 파생하기 위해 부하가 높은 알고리즘을 구현합니다. 예를 들어, 네트워크 성능 모니터링은 들어오는 데이터를 3분 간격으로 집계하므로 대기 시간 3분이 추가됩니다. 대기 시간을 추가하는 또 다른 프로세스는 사용자 지정 로그를 처리하는 프로세스입니다. 경우에 따라 이 프로세스로 인해 에이전트가 파일에서 수집하는 로그에 대기 시간이 몇 분 정도 추가될 수 있습니다.
 
 ### <a name="new-custom-data-types-provisioning"></a>새 사용자 지정 데이터 형식 프로비저닝
 [사용자 지정 로그](../log-analytics/log-analytics-data-sources-custom-logs.md) 또는 [데이터 수집기 API](../log-analytics/log-analytics-data-collector-api.md)에서 새 사용자 지정 데이터 형식이 생성되는 경우, 시스템이 전용 저장소 컨테이너를 만듭니다. 이는 이 데이터 형식이 처음 나타날 때만 발생하는 일회성 오버헤드입니다.

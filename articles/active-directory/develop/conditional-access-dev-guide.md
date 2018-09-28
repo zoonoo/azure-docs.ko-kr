@@ -5,22 +5,21 @@ services: active-directory
 keywords: ''
 author: CelesteDG
 manager: mtillman
-editor: PatAltimore
 ms.author: celested
 ms.reviewer: dadobali
-ms.date: 07/19/2017
+ms.date: 09/24/2018
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: ab6936d62aac5502d70239bacfbfd15bd6b793ab
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 229f74367262e07128fa9ea6c895d448b854ae0a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42142965"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958257"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스에 대한 개발자 지침
 
@@ -40,9 +39,9 @@ Azure AD(Azure Active Directory)의 조건부 액세스 기능은 앱의 보안�
 
 ### <a name="app-types-impacted"></a>영향을 받는 앱 형식
 
-대부분의 경우, 조건부 액세스는 앱의 동작을 변경하지 않으며 개발자의 변경이 필요하지 않습니다. 앱에서 서비스에 대한 토큰을 간접적으로나 자동으로 요청하는 특정한 경우에만 앱에서 조건부 액세스 “챌린지”를 처리하기 위해 코드 변경이 필요합니다. 이것은 대화형 로그인 요청을 수행하는 것처럼 간단할 수도 있습니다. 
+대부분의 경우, 조건부 액세스는 앱의 동작을 변경하지 않으며 개발자의 변경이 필요하지 않습니다. 앱에서 서비스에 대한 토큰을 간접적으로나 자동으로 요청하는 특정한 경우에만 앱에서 조건부 액세스 “챌린지”를 처리하기 위해 코드 변경이 필요합니다. 이것은 대화형 로그인 요청을 수행하는 것처럼 간단할 수도 있습니다.
 
-특히 다음 시나리오에는 조건부 액세스 “챌린지”를 처리하기 위한 코드가 필요합니다. 
+특히 다음 시나리오에는 조건부 액세스 “챌린지”를 처리하기 위한 코드가 필요합니다.
 
 * Microsoft Graph에 액세스하는 앱
 * On-Behalf-Of 흐름을 수행하는 앱
@@ -147,7 +146,7 @@ www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>시나리오: On-Behalf-Of 흐름을 수행하는 앱
 
-이 시나리오에서는 원시 앱이 웹 서비스/API를 호출하는 경우를 연습합니다. 이 서비스에서는 ["On-Behalf-Of" 흐름](authentication-scenarios.md#application-types-and-scenarios)을 차례로 수행하여 다운스트림 서비스를 호출합니다. 이 경우, 다운스트림 서비스(Web API 2)에 조건부 액세스 정책을 적용했고 서버/디먼 앱보다는 원시 앱을 사용합니다. 
+이 시나리오에서는 원시 앱이 웹 서비스/API를 호출하는 경우를 연습합니다. 이 서비스에서는 “On-Behalf-Of” 흐름을 차례로 수행하여 다운스트림 서비스를 호출합니다. 이 경우, 다운스트림 서비스(Web API 2)에 조건부 액세스 정책을 적용했고 서버/디먼 앱보다는 원시 앱을 사용합니다. 
 
 ![On-Behalf-Of 흐름을 수행하는 앱 다이어그램](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -192,7 +191,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ## <a name="scenario-single-page-app-spa-using-adaljs"></a>시나리오: ADAL.js를 사용하는 SPA(단일 페이지 앱)
 
-이 시나리오에서는 조건부 액세스 보호된 Web API를 호출하는 데 ADAL.js를 사용하는 SPA(단일 페이지 앱)가 있는 경우를 살펴봅니다. 간단한 아키텍처이지만 조건부 액세스를 기반으로 개발할 때 고려해야 하는 미묘한 차이가 있습니다.
+이 시나리오에서는 ADAL.js를 사용하여 조건부 액세스 보호된 웹 API를 호출하는 SPA(단일 페이지 앱)가 있는 경우를 살펴봅니다. 간단한 아키텍처이지만 조건부 액세스를 기반으로 개발할 때 고려해야 하는 미묘한 차이가 있습니다.
 
 ADAL.js에는 토큰을 얻기 위핸 몇 가지 함수가 있습니다(예: `login()`, `acquireToken(...)`, `acquireTokenPopup(…)` 및 `acquireTokenRedirect(…)`). 
 

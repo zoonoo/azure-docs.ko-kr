@@ -10,30 +10,37 @@ ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/27/2017
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 92990a71a0b138f08c515450ecd71692fa57f297
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 6edcd5b3df7c3c58c6568434f82fbc52cb9e28df
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "43185423"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958869"
 ---
 # <a name="branding-guidelines-for-applications"></a>응용 프로그램에 대한 브랜딩 지침
 
-이 아티클에서는 Azure Active Directory(Azure AD)를 사용해 응용 프로그램을 개발할 때 사용해야 하는 브랜딩 지침에 대해 설명합니다. 이 지침은 Azure AD에서 관리되는 회사 또는 학교 계정, 또는 개인 계정을 응용 프로그램을 등록하고 로그인하는 데 사용하려는 고객을 안내하는 데 도움이 됩니다.
+Azure AD(Azure Active Directory)를 사용하여 응용 프로그램을 개발하는 경우 Azure AD에서 관리되는 회사 또는 학교 계정, 또는 개인 계정을 응용 프로그램 등록 및 로그인에 사용하려는 고객을 안내해야 합니다.
+
+이 문서에서는 다음에 대해 알아봅니다.
+
+- Microsoft에서 관리하는 두 종류의 사용자 계정과 응용 프로그램에서 Azure AD 계정을 가리키는 방법에 대해 알아봅니다.
+- 앱에서 사용할 Microsoft 로고를 추가하는 데 필요한 작업을 확인합니다.
+- 앱에서 사용할 공식 **로그인** 또는 **Microsoft에 로그인** 이미지를 다운로드합니다.
+- 브랜딩 및 탐색과 관련해서 수행해야 할 작업과 수행하지 않아야 할 작업에 대해 알아봅니다.
 
 ## <a name="personal-accounts-vs-work-or-school-accounts-from-microsoft"></a>Microsoft의 개인 계정과 회사 또는 학교 계정
 
 Microsoft는 두 종류의 사용자 계정을 관리합니다.
 
-* **개인 계정** (이전의 Windows Live ID). 이 계정은 *개인* 사용자와 Microsoft 사이의 관계를 나타내며 Microsoft의 소비자 장치 및 서비스에 액세스하는 데 사용됩니다. 이 계정은 개인적인 용도를 위한 것입니다.
-* **회사 또는 학교 계정.** 이 계정은 Azure Active Directory를 사용하는 조직을 대신하여 Microsoft에서 관리합니다. 이 계정은 Office 365 및 Microsoft의 다른 비즈니스 서비스에 로그인하는 데 사용됩니다.
+- **개인 계정** (이전의 Windows Live ID). 이 계정은 *개인* 사용자와 Microsoft 사이의 관계를 나타내며 Microsoft의 소비자 장치 및 서비스에 액세스하는 데 사용됩니다. 이 계정은 개인적인 용도를 위한 것입니다.
+- **회사 또는 학교 계정.** 이 계정은 Azure Active Directory를 사용하는 조직을 대신하여 Microsoft에서 관리합니다. 이 계정은 Office 365 및 Microsoft의 다른 비즈니스 서비스에 로그인하는 데 사용됩니다.
 
 Microsoft 회사 또는 학교 계정은 일반적으로 회사, 학교, 정부 기관 등의 조직이 직원, 학생, 연방 직원 등의 최종 사용자에게 할당합니다. 이 계정은 Azure AD 플랫폼의 클라우드에서 직접 마스터되거나 Windows Server Active Directory와 같은 온-프레미스 디렉터리에서 Azure AD로 동기화됩니다. Microsoft는 회사 또는 학교 계정의 *보유자* 이지만, 이 계정을 소유하고 제어하는 것은 조직입니다.
 
@@ -41,8 +48,8 @@ Microsoft 회사 또는 학교 계정은 일반적으로 회사, 학교, 정부 
 
 Microsoft는 Azure 또는 Active Directory 브랜드 이름에 최종 사용자를 노출하지 않으며 이 규칙을 강제합니다.
 
-* 사용자가 로그인되어 있으면 가능한 한 조직의 이름 및 로고를 사용합니다. 이것이 "조직"과 같은 일반적인 용어를 사용하는 것보다 좋습니다.
-* 사용자가 로그인되어 있지 않으면 해당 계정을 “회사 또는 학교 계정”으로 참조하고 Microsoft 로고를 사용하여 Microsoft에서 이러한 계정을 관리한다고 전달합니다. 사용자에게 혼동을 줄 수 있는 "엔터프라이즈 계정", "비즈니스 계정" 또는 "회사 계정"과 같은 용어는 사용하지 마세요.
+- 사용자가 로그인되어 있으면 가능한 한 조직의 이름 및 로고를 사용합니다. 이것이 "조직"과 같은 일반적인 용어를 사용하는 것보다 좋습니다.
+- 사용자가 로그인되어 있지 않으면 해당 계정을 “회사 또는 학교 계정”으로 참조하고 Microsoft 로고를 사용하여 Microsoft에서 이러한 계정을 관리한다고 전달합니다. 사용자에게 혼동을 줄 수 있는 "엔터프라이즈 계정", "비즈니스 계정" 또는 "회사 계정"과 같은 용어는 사용하지 마세요.
 
 ## <a name="user-account-pictogram"></a>사용자 계정 픽토그램
 
@@ -94,7 +101,6 @@ Microsoft 로고와 앱이 지원하는 다른 ID 공급자 중에서 Azure AD�
 | Microsoft로 로그인(밝은 테마) | ![로그인 단추 밝은 테마 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![Microsoft로 로그인 단추 밝은 테마 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
 | 로그인(어두운 테마)                 | ![로그인 단문 단추 어두운 테마 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![로그인 단문 단추 어두운 테마 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
 | 로그인(밝은 테마)                | ![로그인 단문 단추 밝은 테마 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![로그인 단문 단추 밝은 테마 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
-
 
 ## <a name="branding-dos-and-donts"></a>브랜딩 관련 할 일과 하지 말아야 할 일
 

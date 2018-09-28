@@ -8,12 +8,12 @@ ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9064e0da6dde6c4b30235adf771f06a4f25d709a
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 76b0bab0f2eb34d7283d38eb0442f4f2f2083db3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42139900"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995384"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Azure IoT Edge 모듈 이해
 
@@ -67,7 +67,7 @@ Twin twin = await client.GetTwinAsync();
 
 ## <a name="offline-capabilities"></a>오프라인 기능
 
-Azure IoT Edge는 IoT Edge 장치에서 오프라인 작업을 지원합니다. 이러한 기능은 현재 제한되어 있으며 추가 시나리오가 개발 중입니다. 
+Azure IoT Edge는 IoT Edge 장치에서 오프라인 작업을 지원합니다. 현재는 이러한 기능이 제한됩니다. 
 
 IoT Edge 모듈은 다음 요구 사항이 충족되는 한 확장된 기간 동안 오프라인일 수 있습니다. 
 
@@ -75,6 +75,8 @@ IoT Edge 모듈은 다음 요구 사항이 충족되는 한 확장된 기간 동
 * **모듈은 오프라인일 때 IoT Edge 허브로 재인증할 필요가 없습니다**. 모듈은 IoT 허브와 활성 연결이 있는 Edge 허브로만 인증될 수 있습니다. 어떠한 이유로 다시 시작된 경우 모듈은 다시 인증되어야 합니다. 모듈은 해당 SAS 토큰이 만료된 후에도 Edge 허브에 메시지를 여전히 보낼 수 있습니다. 연결이 다시 시작되면 Edge 허브는 모듈에서 새 토큰을 요청하고 IoT 허브로 유효성을 검사합니다. 성공한 경우 Edge 허브는 모듈의 토큰이 만료된 동안 전송된 메시지이더라도 저장한 모듈 메시지를 전달합니다. 
 * **오프라인 동안 메시지를 전송한 모듈은 연결이 다시 시작될 때 여전히 작동 중입니다**. IoT Hub에 재연결 시 Edge 허브는 모듈 메시지를 전달하기 전에 새 모듈 토큰의 유효성을 검사해야 합니다(이전 토큰이 만료된 경우). 모듈에서 새 토큰을 제공할 수 없는 경우 Edge 허브는 모듈의 저장된 메시지에서 역할을 수행할 수 없습니다. 
 * **Edge 허브에는 메시지를 저장할 디스크 공간이 있습니다**. 기본적으로 메시지는 Edge 허브 컨테이너의 파일 시스템에 저장됩니다. 메시지를 대신 저장할 탑재된 볼륨을 지정하는 구성 옵션이 있습니다. 두 경우에서 IoT Hub에 지연된 전송에 대한 메시지를 저장할 수 있는 공간이 있어야 합니다.  
+
+추가 오프라인 기능은 공개 미리 보기로 제공됩니다. 자세한 내용은 [IoT Edge 장치, 모듈 및 하위 장치용 확장 오프라인 기능 이해](offline-capabilities.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
  - [Azure IoT Edge 런타임 및 해당 아키텍처 이해][lnk-runtime]

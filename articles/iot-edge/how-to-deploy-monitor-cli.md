@@ -9,12 +9,12 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b90c26eaa36c906dda904106b104c3dbf04a55ce
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c94a58a19558350c3c20377ce750f6758f688c0d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257983"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998511"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Azure CLI를 사용하여 대규모 IoT Edge 모듈 배포 및 모니터링
 
@@ -24,20 +24,20 @@ Azure IoT Edge를 사용하면 분석을 에지로 이동할 수 있고 클라�
 
 개별 장치를 관리하고 모듈을 한 번에 하나씩 배포할 수 있습니다. 그러나 대대적으로 장치를 변경하려는 경우 IoT Hub에서 자동 장치 관리의 일부인 **IoT Edge 자동 배포**를 만들 수 있습니다. 배포는 여러 모듈을 여러 장치에 한 번에 배포하고, 모듈의 상태를 추적하며, 필요한 경우 변경할 수 있게 하는 동적 프로세스입니다. 
 
-이 문서에서는 Azure CLI 2.0 및 IoT 확장을 설정합니다. 그런 다음, 사용 가능한 CLI 명령을 사용하여 IoT Edge 장치 집합에 모듈을 배포하고 프로세스를 모니터링하는 방법을 알아봅니다.
+이 문서에서는 Azure CLI 및 IoT 확장을 설정합니다. 그런 다음, 사용 가능한 CLI 명령을 사용하여 IoT Edge 장치 집합에 모듈을 배포하고 프로세스를 모니터링하는 방법을 알아봅니다.
 
 ## <a name="cli-prerequisites"></a>CLI 필수 구성 요소
 
 * Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-using-cli.md) 
 * IoT Edge 런타임이 설치된 [IoT Edge 장치](how-to-register-device-cli.md)
-* 사용자 환경의 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Azure CLI 2.0 버전이 2.0.24 이상이어야 합니다. `az –-version` 명령을 사용하여 유효성을 검사합니다. 이 버전은 az extension 명령을 지원하며 Knack 명령 프레임워크를 도입했습니다. 
-* [Azure CLI 2.0에 대한 IoT 확장](https://github.com/Azure/azure-iot-cli-extension).
+* 사용자 환경의 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Azure CLI 버전이 2.0.24 이상이어야 합니다. `az –-version` 명령을 사용하여 유효성을 검사합니다. 이 버전은 az extension 명령을 지원하며 Knack 명령 프레임워크를 도입했습니다. 
+* [Azure CLI용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>배포 매니페스트 구성
 
 배포 매니페스트는 배포할 모듈, 모듈 간의 데이터 흐름 및 모듈 쌍의 desired 속성을 설명하는 JSON 문서입니다. 배포 매니페스트의 작동 방식 및 생성 방법에 대한 자세한 내용은 [IoT Edge 모듈을 사용, 구성 및 다시 사용하는 방법에 대한 이해](module-composition.md)를 참조하세요.
 
-Azure CLI 2.0을 사용하여 모듈을 배포하려면 배포 매니페스트를 로컬에 .txt 파일로 저장합니다. 명령을 실행하여 장치에 구성을 적용할 때 다음 섹션에서 파일 경로를 사용합니다. 
+Azure CLI를 사용하여 모듈을 배포하려면 배포 매니페스트를 로컬에 .txt 파일로 저장합니다. 명령을 실행하여 장치에 구성을 적용할 때 다음 섹션에서 파일 경로를 사용합니다. 
 
 예를 들어 한 개의 모듈이 있는 기본 배포 매니페스트의 예제는 다음과 같습니다.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: juluk
-ms.openlocfilehash: 1321645d97e7f6ff2faed1e61ddb608afcb7b413
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 5087b8a1d675fb6fb2bbfb2b46a09c215bf5e9ae
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038358"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998766"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Azure Cloud Shell에 대한 기능 및 도구
 
@@ -31,7 +31,7 @@ Azure Cloud Shell은 `Ubuntu 16.04 LTS`에서 실행됩니다.
 
 ### <a name="secure-automatic-authentication"></a>안전한 자동 인증
 
-Cloud Shell은 Azure CLI 2.0 및 Azure PowerShell에 대한 계정 액세스를 안전하게 자동으로 인증합니다.
+Cloud Shell은 Azure CLI 및 Azure PowerShell에 대한 계정 액세스를 안전하게 자동으로 인증합니다.
 
 ### <a name="home-persistence-across-sessions"></a>여러 세션에 걸친 $Home 지속성
 
@@ -57,10 +57,10 @@ Cloud Shell은 Terraform, Ansible, Chef InSpec 같은 오픈 소스 도구를 �
 
 ## <a name="tools"></a>도구
 
-|Category   |Name   |
+|Category   |이름   |
 |---|---|
 |Linux 도구            |bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
-|Azure 도구            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) 및 [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AZCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) |
+|Azure 도구            |[Azure CLI](https://github.com/Azure/azure-cli) 및 [Azure 클래식 CLI](https://github.com/Azure/azure-xplat-cli)<br> [AZCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) |
 |텍스트 편집기           |vim<br> nano<br> emacs       |
 |소스 제어         |git                    |
 |빌드 도구            |make<br> maven<br> npm<br> pip         |
@@ -77,10 +77,10 @@ Cloud Shell은 Terraform, Ansible, Chef InSpec 같은 오픈 소스 도구를 �
 |자바       |1.8        |
 |Node.js    |8.9.4      |
 |PowerShell |[6.1.0-preview.4](https://github.com/PowerShell/powershell/releases)       |
-|파이썬     |2.7 및 3.5(기본값)|
+|Python     |2.7 및 3.5(기본값)|
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Cloud Shell의 Bash 빠른 시작](quickstart.md) <br>
 [Cloud Shell의 PowerShell(미리 보기) 빠른 시작](quickstart-powershell.md) <br>
-[Azure CLI 2.0에 대한 자세한 정보](https://docs.microsoft.com/cli/azure/) <br>
+[Azure CLI에 대한 자세한 정보](https://docs.microsoft.com/cli/azure/) <br>
 [Microsoft Azure PowerShell에 관해 알아보기](https://docs.microsoft.com/powershell/azure/) <br>

@@ -1,6 +1,6 @@
 ---
-title: Azure Portal에서 Log Analytics 페이지 시작 | Microsoft Docs
-description: 이 문서에서는 Log Analytics 페이지를 사용하여 쿼리를 작성하는 것에 대한 자습서를 제공합니다.
+title: Azure Portal에서 Log Analytics 시작 | Microsoft Docs
+description: 이 문서에서는 Azure Portal에서 Log Analytics를 사용하여 쿼리를 작성하는 방법에 대한 자습서를 제공합니다.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,14 +15,16 @@ ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 493497476fdfe7d96d6f2dde735bab0147e547a7
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 3bcc5368a99dc7c7c32381ca0226119d81fc2c0a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42142681"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978202"
 ---
-# <a name="get-started-with-the-log-analytics-page-in-the-azure-portal"></a>Azure Portal에서 Log Analytics 페이지 시작
+# <a name="get-started-with-log-analytics-in-the-azure-portal"></a>Azure Portal에서 Log Analytics 시작
+
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 이 자습서에서는 Azure Portal에서 Log Analytics 페이지를 사용하여(현재 미리 보기 상태) Azure Log Analytics 쿼리를 작성하는 방법을 배웁니다. 다음을 수행하는 방법에 대해 알아봅니다.
 
@@ -45,7 +47,7 @@ Log Analytics 페이지는 Azure Log Analytics 쿼리를 작성하고 실행하�
 ## <a name="basic-queries"></a>기본 쿼리
 쿼리는 용어를 검색하고, 추세를 파악하고, 패턴을 분석하며 데이터에 따라 다른 많은 정보를 제공하는 데 사용할 수 있습니다. 기본 쿼리를 시작합니다.
 
-```OQL
+```Kusto
 Event | search "error"
 ```
 
@@ -55,7 +57,7 @@ Event | search "error"
 
 동일한 쿼리를 작성하는 또 다른 방법은 다음과 같습니다.
 
-```OQL
+```Kusto
 search in (Event) "error"
 ```
 
@@ -79,7 +81,7 @@ search in (Event) "error"
 ## <a name="filter-the-results"></a>결과 필터링
 모든 항목을 _Event_ 테이블로 가져와서 시작합니다.
 
-```OQL
+```Kusto
 Event
 ```
 
@@ -133,7 +135,7 @@ Log Analytics 페이지는 다음을 기준으로 결과의 범위를 자동으�
 ## <a name="charts"></a>차트
 결과를 테이블에 반환하는 것 외에, 쿼리 결과를 시각적 형식으로 표시할 수 있습니다. 한 예로 다음 쿼리를 사용합니다.
 
-```OQL
+```Kusto
 Event 
 | where EventLevelName == "Error" 
 | where TimeGenerated > ago(1d) 

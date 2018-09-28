@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: d0720c23e0831b446a92855383fab06b0bfacbc7
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e66d896a7df48645dad39b5b978c4f7c2f8d8cb9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525470"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954554"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning 서비스에서 장치 등록을 해제하는 방법
 
@@ -34,9 +34,12 @@ Device Provisioning Server에 등록하면 장치가 [자동 프로비전](conce
 2. 리소스 목록에서 장치를 차단 목록에 추가하려는 프로비전 서비스를 선택합니다.
 3. 프로비전 서비스에서 **등록 관리**를 클릭한 후 **개별 등록** 탭을 선택합니다.
 4. 차단 목록에 추가하려는 장치의 등록 항목을 선택합니다. 
-5. 아래로 스크롤한 후 **항목 사용** 스위치에서 **사용 안 함**을 선택한 다음, **저장**을 선택합니다.  
 
-   [![포털에서 개별 등록 항목 사용 해제](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png#lightbox)  
+    ![개별 등록 선택](./media/how-to-revoke-device-access-portal/select-individual-enrollment.png)
+
+5. 등록 페이지에서 아래로 스크롤한 후 **항목 사용** 스위치에서 **사용 안 함**을 선택한 다음, **저장**을 선택합니다.  
+
+   ![포털에서 개별 등록 항목 사용 해제](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
 
 해당 등록 항목을 삭제하여 장치를 영구적으로 차단 목록에 추가하려면 
 
@@ -47,7 +50,8 @@ Device Provisioning Server에 등록하면 장치가 [자동 프로비전](conce
 5. 창 위쪽에서 **삭제**를 선택한 다음, **예**를 선택하여 등록을 제거할 것인지 확인합니다. 
 
    ![포털에서 개별 등록 항목 삭제](./media/how-to-revoke-device-access-portal/delete-individual-enrollment.png)
-    
+
+
 절차가 완료되면 개별 등록 목록에서 항목이 제거되어야 합니다.  
 
 ## <a name="blacklist-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>등록 그룹을 사용하여 차단 목록에 X.509 중간 또는 루트 CA 인증서 추가
@@ -91,14 +95,18 @@ X.509 증명 메커니즘을 구현하는 장치는 장치의 인증서 체인�
 1. Azure Portal에 로그인하고 왼쪽 메뉴에서 **모든 리소스**를 클릭합니다.
 2. 리소스 목록에서 차단 목록에 추가하려는 장치에 대한 등록 그룹이 포함된 프로비전 서비스를 선택합니다.
 3. 프로비전 서비스에서 **등록 관리**를 클릭한 후 **개별 등록** 탭을 선택합니다.
-4. 위쪽의 **추가** 단추를 선택합니다. 
-5. **X.509**를 장치에 대한 증명 메커니즘으로 선택하고 장치 인증서를 업로드합니다. 이것은 장치에 설치된 서명된 최종 엔터티 인증서입니다. 장치가 이 항목을 사용하여 인증을 위한 인증서를 생성합니다.
-6. **IoT Hub 장치 ID**에 장치의 ID를 입력합니다. 
-7. **항목 사용** 스위치에서 **사용 안 함**을 선택한 다음, **저장**을 선택합니다. 
+4. 위쪽에서 **개별 등록 추가** 단추를 선택합니다. 
+5. **등록 추가** 페이지에서 해당 장치에 대한 증명 **메커니즘**으로 **X.509**를 선택합니다.
+
+    장비 인증서를 업로드하고 차단할 장치의 장치 ID를 입력합니다. 인증서의 경우에는 장치에 설치된 서명된 최종 엔터티 인증서를 사용합니다. 장치는 서명된 최종 엔터티 인증서를 인증에 사용합니다.
+
+    ![차단된 장치의 장치 속성 설정](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group-1.png)
+
+6. **등록 추가** 페이지의 아래쪽으로 스크롤하고 **항목 사용** 스위치에서 **사용 안 함**을 선택한 후 **저장**을 선택합니다. 
 
     [![사용하지 않도록 설정된 개인 등록 항목을 사용하여 포털에서 장치의그룹 등록 해제](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
 
-등록이 성공적으로 만들어지면 장치가 **개별 등록** 탭 아래에 표시됩니다.
+등록을 성공적으로 만들면 **개별 등록** 탭에 나열된 사용하지 않도록 설정된 장치 등록을 확인할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

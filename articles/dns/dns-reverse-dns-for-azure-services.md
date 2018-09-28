@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: victorh
-ms.openlocfilehash: 0ff14ec2100d47e0edc5288f1c46f4fdd63fa683
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: cbd1a7a3a797cc20be92583bbb5ac163333729fc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171530"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969804"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Azure에서 호스트되는 서비스에 대해 역방향 DNS 구성
 
@@ -51,7 +51,7 @@ Azure DNS에서 계산 리소스(예: 가상 머신, 가상 머신 확장 집합
 
 ## <a name="reverse-dns-for-publicipaddress-resources"></a>PublicIpAddress 리소스에 대한 역방향 DNS
 
-이 섹션에서는 Azure PowerShell, Azure CLI 1.0 또는 Azure CLI 2.0을 사용하여 Resource Manager 배포 모델에서 PublicIpAddress 리소스에 대한 역방향 DNS를 구성하는 방법에 대한 자세한 지침을 제공합니다. 현재 Azure Portal에서는 PublicIpAddress 리소스에 대한 역방향 DNS를 구성할 수 없습니다.
+이 섹션에서는 Azure PowerShell, Azure 클래식 CLI 또는 Azure CLI를 사용하여 Resource Manager 배포 모델에서 PublicIpAddress 리소스에 대한 역방향 DNS를 구성하는 방법에 대한 자세한 지침을 제공합니다. 현재 Azure Portal에서는 PublicIpAddress 리소스에 대한 역방향 DNS를 구성할 수 없습니다.
 
 Azure는 현재 IPv4 PublicIpAddress 리소스에 대해서만 역방향 DNS를 지원합니다. IPv6에 대해서는 지원되지 않습니다.
 
@@ -77,7 +77,7 @@ $pip.DnsSettings.ReverseFqdn = "contosoapp1.westus.cloudapp.azure.com."
 Set-AzureRmPublicIpAddress -PublicIpAddress $pip
 ```
 
-#### <a name="azure-cli-10"></a>Azure CLI 1.0
+#### <a name="azure-classic-cli"></a>Azure 클래식 CLI
 
 기존 PublicIpAddresses에 역방향 DNS를 추가하려면
 
@@ -91,7 +91,7 @@ DNS 이름이 아직 없는 기존 PublicIpAddress에 역방향 DNS를 추가하
 azure network public-ip set -n PublicIp -g MyResourceGroup -d contosoapp1 -f contosoapp1.westus.cloudapp.azure.com.
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
 
 기존 PublicIpAddresses에 역방향 DNS를 추가하려면
 
@@ -115,13 +115,13 @@ az network public-ip update --resource-group MyResourceGroup --name PublicIp --r
 New-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup" -Location "WestUS" -AllocationMethod Dynamic -DomainNameLabel "contosoapp2" -ReverseFqdn "contosoapp2.westus.cloudapp.azure.com."
 ```
 
-#### <a name="azure-cli-10"></a>Azure CLI 1.0
+#### <a name="azure-classic-cli"></a>Azure 클래식 CLI
 
 ```azurecli
 azure network public-ip create -n PublicIp -g MyResourceGroup -l westus -d contosoapp3 -f contosoapp3.westus.cloudapp.azure.com.
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
 az network public-ip create --name PublicIp --resource-group MyResourceGroup --location westcentralus --dns-name contosoapp1 --reverse-fqdn contosoapp1.westcentralus.cloudapp.azure.com
@@ -137,13 +137,13 @@ az network public-ip create --name PublicIp --resource-group MyResourceGroup --l
 Get-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
 ```
 
-#### <a name="azure-cli-10"></a>Azure CLI 1.0
+#### <a name="azure-classic-cli"></a>Azure 클래식 CLI
 
 ```azurecli
 azure network public-ip show -n PublicIp -g MyResourceGroup
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
 az network public-ip show --name PublicIp --resource-group MyResourceGroup
@@ -161,13 +161,13 @@ $pip.DnsSettings.ReverseFqdn = ""
 Set-AzureRmPublicIpAddress -PublicIpAddress $pip
 ```
 
-#### <a name="azure-cli-10"></a>Azure CLI 1.0
+#### <a name="azure-classic-cli"></a>Azure 클래식 CLI
 
 ```azurecli
 azure network public-ip set -n PublicIp -g MyResourceGroup –f ""
 ```
 
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
 az network public-ip update --resource-group MyResourceGroup --name PublicIp --reverse-fqdn ""
@@ -176,7 +176,7 @@ az network public-ip update --resource-group MyResourceGroup --name PublicIp --r
 
 ## <a name="configure-reverse-dns-for-cloud-services"></a>Cloud Services에 대한 역방향 DNS 구성
 
-이 섹션에서는 Azure PowerShell을 사용하여 클래식 배포 모델에서 Cloud Services에 대한 역방향 DNS를 구성하는 방법에 대한 자세한 지침을 제공합니다. Azure Portal, Azure CLI 1.0 또는 Azure CLI 2.0을 통한 Cloud Services에 대한 역방향 DNS 구성은 지원되지 않습니다.
+이 섹션에서는 Azure PowerShell을 사용하여 클래식 배포 모델에서 Cloud Services에 대한 역방향 DNS를 구성하는 방법에 대한 자세한 지침을 제공합니다. Azure Portal, Azure 클래식 CLI 또는 Azure CLI를 통해 Cloud Services용 역방향 DNS를 구성할 수는 없습니다.
 
 ### <a name="add-reverse-dns-to-existing-cloud-services"></a>기존 Cloud Services에 역방향 DNS 추가
 

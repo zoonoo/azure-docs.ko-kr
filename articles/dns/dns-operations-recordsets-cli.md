@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0을 사용하여 Azure DNS에서 DNS 레코드 관리 | Microsoft Docs
-description: Azure DNS에서 도메인을 호스트하는 경우 Azure DNS에서 DNS 레코드 집합 및 레코드를 관리합니다. 레코드 집합 및 레코드 작업에 대한 모든 CLI 2.0 명령입니다.
+title: Azure CLI를 사용하여 Azure DNS에서 DNS 레코드 관리 | Microsoft Docs
+description: Azure DNS에서 도메인을 호스트하는 경우 Azure DNS에서 DNS 레코드 집합 및 레코드를 관리합니다.
 services: dns
 documentationcenter: na
 author: vhorne
@@ -14,23 +14,23 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 05/15/2018
 ms.author: victorh
-ms.openlocfilehash: 41366f29ecf5dcd6ffe23148acd61100681620df
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 1f1ee4f69cc1ab656df04ed30cae6f4c3e55bfa7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174254"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963818"
 ---
-# <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Azure DNS에서 DNS 레코드 및 레코드 집합 관리
+# <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure DNS에서 DNS 레코드 및 레코드 집합 관리
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-operations-recordsets-portal.md)
-> * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
+> * [Azure CLI](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
-이 문서는 Windows, Mac 및 Linux용으로 제공되는 플랫폼 간 Azure CLI(명령줄 인터페이스) 2.0을 사용하여 DNS 영역에 대한 DNS 레코드를 관리하는 방법을 보여 줍니다. [Azure PowerShell](dns-operations-recordsets.md) 또는 [Azure Portal](dns-operations-recordsets-portal.md)을 사용하여 DNS 레코드를 관리할 수도 있습니다.
+이 문서에서는 Windows, Mac 및 Linux용으로 제공되는 플랫폼 간 Azure CLI를 사용하여 DNS 영역에 대한 DNS 레코드를 관리하는 방법을 설명합니다. [Azure PowerShell](dns-operations-recordsets.md) 또는 [Azure Portal](dns-operations-recordsets-portal.md)을 사용하여 DNS 레코드를 관리할 수도 있습니다.
 
-이 문서의 예제에서는 이미 [Azure CLI 2.0을 설치했고, 로그인했고, DNS 영역을 만들었다](dns-operations-dnszones-cli.md)고 가정합니다.
+이 문서의 예제에서는 이미 [Azure CLI를 설치했고, 로그인했고, DNS 영역을 만들었다](dns-operations-dnszones-cli.md)고 가정합니다.
 
 ## <a name="introduction"></a>소개
 

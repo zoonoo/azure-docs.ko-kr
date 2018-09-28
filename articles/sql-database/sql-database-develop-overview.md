@@ -10,12 +10,12 @@ ms.custom: develop apps
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: sstein
-ms.openlocfilehash: 4236372370858e940d7e3a1671c0e8a8278796fb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 1986c19e6625df7c281f7de9b322124da6a12c45
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42144091"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973845"
 ---
 # <a name="sql-database-application-development-overview"></a>SQL Database 응용 프로그램 개발 개요
 이 문서는 Azure SQL Database에 연결하기 위한 코드를 작성하면서 개발자가 알고 있어야 하는 기본적인 사항을 안내합니다.
@@ -36,9 +36,9 @@ ms.locfileid: "42144091"
 Azure SQL Database는 리소스 관리와 제한 적용이라는 서로 다른 두 메커니즘을 사용하는 데이터베이스에서 사용 가능한 리소스를 관리합니다. 자세한 내용은 다음을 참조하세요.
 
 - [DTU 기반 리소스 모델 제한 - Single Database](sql-database-dtu-resource-limits-single-databases.md)
-- [DTU 기반 리소스 모델 제한 - Elastic Pool](sql-database-dtu-resource-limits-elastic-pools.md)
+- [DTU 기반 리소스 모델 제한 - 탄력적 풀](sql-database-dtu-resource-limits-elastic-pools.md)
 - [vCore 기반 리소스 제한 - Single Database](sql-database-vcore-resource-limits-single-databases.md)
-- [vCore 기반 리소스 제한 - Elastic Pool](sql-database-vcore-resource-limits-elastic-pools.md)
+- [vCore 기반 리소스 제한 - 탄력적 풀](sql-database-vcore-resource-limits-elastic-pools.md)
 
 ## <a name="security"></a>보안
 Azure SQL Database는 액세스를 제한하고, 데이터를 보호하고, SQL Database의 활동을 모니터링하는 리소스를 제공합니다.

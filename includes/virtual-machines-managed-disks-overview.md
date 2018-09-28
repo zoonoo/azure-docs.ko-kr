@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b011dd5993e63fe9bce36ec8b8c1b4739dbf704b
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 617f60345fb2a349eddb0db697604ba383794591
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39037576"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060383"
 ---
 # <a name="azure-managed-disks-overview"></a>Azure Managed Disks 개요
 
-Azure Managed Disks는 VM 디스크와 연결된 [저장소 계정](../articles/storage/common/storage-introduction.md)을 관리하여 Azure IaaS VM의 디스크 관리를 간소화합니다. 필요한 디스크의 유형([표준 HDD](../articles/virtual-machines/windows/standard-storage.md), 표준 SSD 또는 [프리미엄 SSD](../articles/virtual-machines/windows/premium-storage.md))과 크기만 지정하면 Azure가 알아서 디스크를 만들고 관리해줍니다.
+Azure Managed Disks는 VM 디스크와 연결된 [저장소 계정](../articles/storage/common/storage-introduction.md)을 관리하여 Azure IaaS VM의 디스크 관리를 간소화합니다. 필요한 디스크의 유형([표준 HDD](../articles/virtual-machines/windows/standard-storage.md), [표준 SSD](../articles/virtual-machines/windows/disks-standard-ssd.md) 또는 [프리미엄 SSD](../articles/virtual-machines/windows/premium-storage.md))과 크기만 지정하면 Azure가 알아서 디스크를 만들고 관리해줍니다.
 
 ## <a name="benefits-of-managed-disks"></a>관리 디스크의 이점
 
@@ -29,7 +29,7 @@ Channel 9 비디오 [Better Azure VM Resiliency with Managed Disks](https://chan
 
 Managed Disks는 배후에서 저장소를 처리해줍니다. 이전에는 Azure VM의 디스크(VHD 파일)를 갖기 위해 저장소 계정을 만들어야 했습니다. 확장하는 경우에는 디스크를 포함하는 저장소의 IOPS 제한을 초과하지 않도록 저장소 계정을 추가로 만들었는지 확인해야 했습니다. Managed Disks로 저장소를 처리하면 저장소 계정 한도(예: 20,000 IOPS/계정)로 인해 더 이상 제한을 받지 않습니다. 사용자 지정 이미지(VHD 파일)를 여러 저장소 계정에 복사할 필요도 없습니다. 중앙 위치(Azure 지역당 하나의 저장소 계정)에서 저장소 계정을 관리할 수 있고 이를 통해 구독에 수백 개의 VM을 만들 수 있습니다.
 
-Managed Disks를 사용하면 지역당 구독에 특정 유형의 VM **디스크**를 50,000개까지 만들 수 있고 따라서 단일 구독에 수천 개의 **VM**을 만들 수 있습니다. 이 기능을 사용하면 Marketplace 이미지를 사용하여 Virtual Machine Scale Sets에 VM을 천 개까지 만들 수 있기 때문에 [Virtual Machine Scale Sets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)의 확장성을 훨씬 더 높일 수도 있습니다. 
+Managed Disks를 사용하면 지역당 구독에 특정 유형의 VM **디스크**를 50,000개까지 만들 수 있고 따라서 단일 구독에 수천 개의 **VM**을 만들 수 있습니다. 이 기능을 사용하면 Marketplace 이미지를 사용하여 Virtual Machine Scale Sets에 VM을 천 개까지 만들 수 있기 때문에 [Virtual Machine Scale Sets](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)의 확장성을 훨씬 더 높일 수도 있습니다.
 
 ### <a name="better-reliability-for-availability-sets"></a>가용성 집합에 대한 안정성 향상
 
@@ -44,11 +44,13 @@ Azure 디스크는 99.999% 가용성을 위해 설계되었습니다. 데이터 
 [Azure 역할 기반 Access Control(RBAC)](../articles/role-based-access-control/overview.md)을 사용하여 관리 디스크에 대한 특정 권한을 한 명 이상의 사용자에게 할당할 수 있습니다. Managed Disks는 읽기, 쓰기(만들기/업데이트), 삭제, [SAS(공유 액세스 서명) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) 검색 등 디스크에 대한 다양한 작업을 노출합니다. 업무를 수행하는 데 필요한 작업에만 액세스 권한을 부여할 수 있습니다. 예를 들어 관리 디스크를 저장소 계정에 복사하지 말아야 하는 경우에는 해당 관리 디스크에 대한 내보내기 작업에 액세스를 부여하지 않도록 선택할 수 있습니다. SAS URI를 사용하여 관리 디스크를 복사할 수 없도록 하기 위해 관리 디스크에 해당 권한을 부여하지 않도록 선택할 수 있습니다.
 
 ### <a name="azure-backup-service-support"></a>Azure Backup 서비스 지원
-Azure Backup 서비스를 Managed Disks와 함께 사용하여 시간 기반 백업, 손쉬운 VM 복원 및 백업 보존 정책을 사용하여 백업 작업을 만들 수 있습니다. Managed Disks는 복제 옵션으로 LRS(로컬 중복 저장소)만 지원합니다. 데이터의 3개 사본이 단일 지역 내에 유지됩니다. 지역적 재해 복구를 위해 [Azure Backup 서비스](../articles/backup/backup-introduction-to-azure-backup.md) 및 GRS 저장소 계정을 백업 자격 증명 모음으로 사용하여 VM 디스크를 다른 지역에 백업해야 합니다. 현재, Azure Backup에서는 4TB 디스크를 포함하는 모든 디스크 크기를 지원합니다. 4TB 디스크를 지원하려면 [VM 백업 스택을 V2로 업그레이드](../articles/backup/backup-upgrade-to-vm-backup-stack-v2.md)해야 합니다. 자세한 내용은 [Managed Disks로 VM에 Azure Backup 서비스 사용](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)을 참조하세요.
+
+Azure Backup 서비스를 Managed Disks와 함께 사용하여 시간 기반 백업, 손쉬운 VM 복원 및 백업 보존 정책을 사용하여 백업 작업을 만들 수 있습니다. Managed Disks는 복제 옵션으로 LRS(로컬 중복 저장소)만 지원합니다. 데이터의 3개 사본이 단일 지역 내에 유지됩니다. 지역적 재해 복구를 위해 [Azure Backup 서비스](../articles/backup/backup-introduction-to-azure-backup.md) 및 GRS 저장소 계정을 백업 자격 증명 모음으로 사용하여 VM 디스크를 다른 지역에 백업해야 합니다. 현재, Azure Backup은 최대 4TB의 디스크 크기를 지원합니다. 4TB 디스크를 지원하려면 [VM 백업 스택을 V2로 업그레이드](../articles/backup/backup-upgrade-to-vm-backup-stack-v2.md)해야 합니다. 자세한 내용은 [Managed Disks로 VM에 Azure Backup 서비스 사용](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)을 참조하세요.
 
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 
 Managed Disks를 사용하는 경우 다음과 같은 청구 고려 사항이 적용됩니다.
+
 * 저장소 유형
 
 * 디스크 크기
@@ -61,29 +63,27 @@ Managed Disks를 사용하는 경우 다음과 같은 청구 고려 사항이 �
 
 이러한 옵션을 좀 더 자세히 살펴보겠습니다.
 
-**저장소 유형:** Managed Disks는 3개의 성능 계층인 [표준 HDD](../articles/virtual-machines/windows/standard-storage.md), 표준 SSD(미리 보기) 및 [프리미엄](../articles/virtual-machines/windows/premium-storage.md)을 제공합니다. 관리 디스크에 대한 요금 청구는 디스크에 어떤 유형의 저장소를 선택했는지에 따라 달라집니다.
-
+**저장소 유형:** Managed Disks는 3개의 성능 계층인 [표준 HDD](../articles/virtual-machines/windows/standard-storage.md), [표준 SSD](../articles/virtual-machines/windows/disks-standard-ssd.md) 및 [프리미엄](../articles/virtual-machines/windows/premium-storage.md)을 제공합니다. 관리 디스크에 대한 요금 청구는 디스크에 어떤 유형의 저장소를 선택했는지에 따라 달라집니다.
 
 **디스크 크기**: 관리 디스크에 대한 요금 청구는 프로비전된 디스크 크기에 따라 달라집니다. Azure는 프로비전된 크기(올림)를 아래 테이블에 지정된 대로 가장 가까운 Managed Disks 옵션에 매핑합니다. 각각의 관리 디스크는 지원되는 프로비전된 크기 중 하나에 매핑되고 그에 따라 요금이 청구됩니다. 예를 들어 표준 관리 디스크를 만들고 프로비전된 크기를 200GB로 지정하면 S15 디스크 유형의 가격에 따라 요금이 청구됩니다.
 
 프리미엄 관리 디스크에 사용 가능한 디스크 크기는 다음과 같습니다.
 
-| **프리미엄 관리 <br>디스크 유형** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
-|------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| 디스크 크기        | 32GiB   | 64GiB   | 128GiB  | 256GiB  | 512GiB  | 1024GiB(1TiB) | 2048GiB(2TiB) | 4095GiB(4TiB) | 
+| **프리미엄 HDD 관리 <br>디스크 유형** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60** | **P70** | **P80** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
+| 디스크 크기        | 32GiB  | 64GiB  | 128GiB | 256GiB | 512GiB | 1,024GiB(1TiB) | 2,048GiB(2TiB) | 4,095GiB(4TiB) | 8,192GiB(8TiB) | 16,384GiB(16TiB) | 32,767GiB(TiB) |
 
 표준 SSD 관리 디스크에 사용 가능한 디스크 크기는 다음과 같습니다.
 
-| **표준 SSD 관리 <br>디스크 유형** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** |
-|------------------|--------|--------|--------|----------------|----------------|----------------| 
-| 디스크 크기        | 128GiB | 256GiB | 512GiB | 1024GiB(1TiB) | 2048GiB(2TiB) | 4095GiB(4TiB) | 
+| **표준 SSD 관리 <br>디스크 유형** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60** | **E70** | **E80** |
+|------------------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
+| 디스크 크기        | 128GiB | 256GiB | 512GiB | 1,024GiB(1TiB) | 2,048GiB(2TiB) | 4,095GiB(4TiB) | 8,192GiB(8TiB) | 16,384GiB(16TiB) | 32,767GiB(TiB) |
 
 표준 HDD 관리 디스크에 사용 가능한 디스크 크기는 다음과 같습니다.
 
-| **표준 HDD 관리 <br>디스크 유형** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
-|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------| 
-| 디스크 크기        | 32GiB  | 64GiB  | 128GiB | 256GiB | 512GiB | 1024GiB(1TiB) | 2048GiB(2TiB) | 4095GiB(4TiB) | 
-
+| **표준 HDD 관리 <br>디스크 유형** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60** | **S70** | **S80** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
+| 디스크 크기        | 32GiB  | 64GiB  | 128GiB | 256GiB | 512GiB | 1,024GiB(1TiB) | 2,048GiB(2TiB) | 4,095GiB(4TiB) | 8,192GiB(8TiB) | 16,384GiB(16TiB) | 32,767GiB(TiB) |
 
 **트랜잭션 수**: 표준 관리 디스크에서 수행하는 트랜잭션 수에 따라 요금이 청구됩니다.
 
@@ -107,14 +107,14 @@ Managed Disks를 사용하여 스냅숏을 만드는 방법에 대해 자세히 
 * [Windows에서 스냅숏을 사용하여 관리 디스크로 저장된 VHD 복사본 만들기](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
 * [Linux에서 스냅숏을 사용하여 관리 디스크로 저장된 VHD 복사본 만들기](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
-
 ## <a name="images"></a>이미지
 
 Managed Disks는 관리되는 사용자 지정 이미지 만들기도 지원합니다. 저장소 계정의 사용자 지정 VHD에서 이미지를 만들거나 일반화된(시스템에서 준비된) VM에서 직접 만들 수 있습니다. 이 프로세스에서는 OS와 데이터 디스크를 모두 포함하여 VM과 연결된 모든 Managed Disks를 하나의 이미지에 캡처합니다. 이 관리되는 사용자 지정 이미지를 사용하면 저장소 계정을 복사하거나 관리할 필요 없이 사용자 지정 이미지를 사용하여 수백 개의 VM을 만들 수 있습니다.
 
 이미지 만들기에 대한 내용은 다음 문서를 참조하세요.
+
 * [Azure에서 일반화된 VM의 관리 이미지를 캡처하는 방법](../articles/virtual-machines/windows/capture-image-resource.md)
-* [Azure CLI 2.0을 사용하여 Linux 가상 머신을 일반화하고 캡처하는 방법](../articles/virtual-machines/linux/capture-image.md)
+* [Azure CLI를 사용하여 Linux 가상 머신을 일반화하고 캡처하는 방법](../articles/virtual-machines/linux/capture-image.md)
 
 ## <a name="images-versus-snapshots"></a>이미지 및 스냅숏
 
@@ -132,7 +132,6 @@ Managed Disks와 관련하여 논의할 두 종류의 암호화가 있습니다.
 
 [Azure Storage 서비스 암호화](../articles/storage/common/storage-service-encryption.md)를 사용하여 미사용 암호화를 제공하고 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호할 수 있습니다. SSE는 Managed Disks를 사용할 수 있는 모든 지역에서 모든 Managed Disks, 스냅숏 및 이미지에 기본적으로 사용됩니다. 2017년 6월 10일부터 기존 관리 디스크에 기록된 모든 새 관리 디스크/스냅숏/이미지 및 새 데이터는 기본으로 Microsoft에서 관리되는 키로 자동으로 미사용 암호화됩니다. 자세한 내용은 [Managed Disks FAQ 페이지](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption)를 참조하세요.
 
-
 ### <a name="azure-disk-encryption-ade"></a>ADE(Azure Disk Encryption)
 
 Azure Disk Encryption을 사용하면 IaaS Virtual Machines에서 사용되는 OS 및 데이터 디스크를 암호화할 수 있습니다. 이 암호화에는 관리되는 디스크가 포함됩니다. Windows의 경우 업계 표준의 BitLocker 암호화 기술을 사용하여 드라이브가 암호화됩니다. Linux의 경우 DM-Crypt 기술을 사용하여 디스크가 암호화됩니다. 이 암호화 프로세스는 Azure Key Vault와 통합되어 디스크 암호화 키를 제어 및 관리할 수 있도록 합니다. 자세한 내용은 [Windows 및 Linux IaaS VM용 Azure 디스크 암호화](../articles/security/azure-security-disk-encryption.md)를 참조하세요.
@@ -145,7 +144,7 @@ Managed Disks에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [Resource Manager 및 PowerShell을 사용하여 VM 만들기](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md)
 
-* [Azure CLI 2.0을 사용하여 Linux VM 만들기](../articles/virtual-machines/linux/quick-create-cli.md)
+* [Azure CLI를 사용하여 Linux VM 만들기](../articles/virtual-machines/linux/quick-create-cli.md)
 
 * [PowerShell을 사용하여 관리 데이터 디스크를 Windows VM에 연결](../articles/virtual-machines/windows/attach-disk-ps.md)
 

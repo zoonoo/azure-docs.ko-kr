@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: v-brapel
-ms.openlocfilehash: 7cd61fc63d0d7734b842ed222c67c6753da9a418
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b6f50844d6571cca6d63c1db7a85863e3d22d411
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374735"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948080"
 ---
 # <a name="what-is-bing-custom-search"></a>Bing Custom Search란?
 
@@ -30,18 +30,34 @@ Bing Custom Search를 사용하면 관심 있는 토픽에 대한 맞춤형 검�
 
 ![대체 그림](./media/bcs-overview.png "Bing Custom Search의 작동 방식")
 
-## <a name="customize-search-suggestions"></a>검색 제안 사용자 지정
+## <a name="adding-custom-search-box-suggestions"></a>사용자 지정 검색 상자 제안 추가
 
-적절한 수준에서 Custom Search를 구독한 경우([가격 책정 페이지](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) 참조) Custom Search 환경의 검색 제안을 사용자 지정할 수 있습니다. Custom Autosuggest API는 사용자가 제공하는 부분 쿼리 문자열을 기준으로 제안된 쿼리 목록을 반환합니다. Custom Autosuggest를 사용하는 경우 검색 환경과 관련된 사용자 지정 검색 제안을 제공합니다. 사용자 지정 제안만 반환할지 또는 Bing 제안을 포함할지를 지정합니다. Bing 제안을 포함하는 경우 사용자 지정 제안이 Bing에서 제공하는 제안보다 먼저 표시됩니다. Bing 제안은 Custom Search 인스턴스의 컨텍스트로 제한됩니다.
+사용자 지정 검색 상자 제안을 사용하여 향상된 사용자 지정 검색 환경을 제공할 수 있습니다. 이 기능을 사용하면 검색 환경과 관련된 사용자 지정 검색 제안을 제공할 수 있습니다. 사용자가 검색 상자에서 입력할 때 드롭다운 목록에는 사용자의 부분 쿼리 문자열을 기반으로 제안된 쿼리 문자열이 포함됩니다. 사용자 지정 제안만 반환할지 또는 Bing 제안도 포함할지를 지정할 수 있습니다. [자세히 알아보기](define-custom-suggestions.md).
+
+## <a name="adding-custom-image-search-experience"></a>사용자 지정 이미지 검색 환경 추가
+
+이미지를 사용하여 향상된 사용자 지정 검색 환경을 제공할 수 있습니다. 웹 결과와 마찬가지로 사용자 지정 검색은 인스턴스의 웹 사이트 목록에서 이미지 검색을 지원합니다. [자세히 알아보기](get-images-from-instance.md).
+
+## <a name="adding-custom-video-search-experience"></a>사용자 지정 비디오 검색 환경 추가
+
+비디오를 사용하여 향상된 사용자 지정 검색 환경을 제공할 수 있습니다. 웹 결과와 마찬가지로 사용자 지정 검색은 인스턴스의 웹 사이트 목록에서 비디오 검색을 지원합니다. [자세히 알아보기](get-videos-from-instance.md).
+
+## <a name="sharing-your-custom-search-instance-with-others"></a>사용자 지정 검색 인스턴스를 다른 사용자와 공유
+
+팀 구성원들과 인스턴스를 공유하여 인스턴스 공동 편집 및 테스트를 쉽게 허용할 수 있습니다. [자세히 알아보기](share-your-custom-search.md).
 
 ## <a name="next-steps"></a>다음 단계
 
 빠르게 시작하려면 [처음으로 Bing Custom Search 인스턴스 만들기](quick-start.md)를 참조하세요.
 
-검색 인스턴스를 사용자 지정하는 데 사용할 수 있는 옵션에 대한 자세한 내용은 [사용자 지정 검색 인스턴스 정의](define-your-custom-view.md)를 참조하세요.
+검색 인스턴스를 사용자 지정하는 방법에 대한 자세한 내용은 [사용자 지정 검색 인스턴스 정의](define-your-custom-view.md)를 참조하세요.
 
-[Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference) 참조를 숙지합니다. 참조에는 검색 결과를 요청하는 데 사용할 끝점, 헤더 및 쿼리 매개 변수 목록이 포함되어 있습니다. 응답 개체의 정의도 포함됩니다.
+각 사용자 지정 검색 엔드포인트에 대한 참조 콘텐츠를 숙지합니다. 참조에는 검색 결과를 요청하는 데 사용할 엔드포인트, 헤더 및 쿼리 매개 변수가 포함됩니다. 응답 개체의 정의도 포함됩니다.
 
-제안을 사용자 지정하는 방법을 알아보려면 [사용자 지정 검색 제안 정의](define-custom-suggestions.md)를 참조하세요.
+- [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference)
+- [Custom Image API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference)
+- [Custom Video API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference)
+- [Custom Autosuggest API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference)
+
 
 검색 결과 사용에 대한 어떤 규칙도 위반하지 않도록 [Bing 사용 및 표시 요구 사항](./use-and-display-requirements.md)을 반드시 읽도록 합니다.

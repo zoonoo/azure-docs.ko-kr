@@ -17,12 +17,12 @@ ms.date: 02/08/2017
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 8f7c6c2bef747d00188cac2c3601fdad739b92a8
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: eb43589b04be8b2b9c3be45d33c94592e97d308e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39580565"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948267"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>클라이언트 자격 증명을 사용하여 서비스를 호출하는 서비스(공유 암호 또는 인증서)
 OAuth 2.0 클라이언트 자격 증명 부여 흐름은 사용자를 가장하는 대신 다른 웹 서비스를 호출할 때 웹 서비스( *기밀 클라이언트*)가 자체 자격 증명을 사용하여 인증하도록 허용합니다. 이 시나리오에서 클라이언트는 일반적으로 중간 계층 웹 서비스, 데몬 서비스 또는 웹 사이트입니다. 더 높은 수준의 보증을 위해 Azure AD는 호출 서비스가 자격 증명으로 인증서(공유 암호 대신)를 사용할 수 있도록 합니다.
@@ -32,8 +32,8 @@ OAuth 2.0 클라이언트 자격 증명 부여 흐름은 사용자를 가장하�
 
 ![OAuth 2.0 클라이언트 자격 증명 부여 흐름](./media/v1-oauth2-client-creds-grant-flow/active-directory-protocols-oauth-client-credentials-grant-flow.jpg)
 
-1. 클라이언트 응용 프로그램은 Azure AD 토큰 발급 끝점 인증하고 액세스 토큰을 요청합니다.
-2. Azure AD 토큰 발급 끝점이 액세스 토큰을 발급합니다.
+1. 클라이언트 응용 프로그램은 Azure AD 토큰 발급 엔드포인트 인증하고 액세스 토큰을 요청합니다.
+2. Azure AD 토큰 발급 엔드포인트가 액세스 토큰을 발급합니다.
 3. 보안 리소스에 인증하는 데 액세스 토큰이 사용됩니다.
 4. 보안 리소스의 데이터는 클라이언트 응용 프로그램에 반환됩니다.
 
@@ -41,7 +41,7 @@ OAuth 2.0 클라이언트 자격 증명 부여 흐름은 사용자를 가장하�
 Azure AD(Azure Active Directory)에서 호출 서비스와 수신 서비스를 등록합니다. 자세한 지침은 [Azure Active Directory와 응용 프로그램 통합](quickstart-v1-integrate-apps-with-azure-ad.md)을 참조하세요.
 
 ## <a name="request-an-access-token"></a>액세스 토큰 요청
-액세스 토큰을 요청하려면 테넌트별 Azure AD 끝점에 HTTP POST를 사용합니다.
+액세스 토큰을 요청하려면 테넌트별 Azure AD 엔드포인트에 HTTP POST를 사용합니다.
 
 ```
 https://login.microsoftonline.com/<tenant id>/oauth2/token
@@ -61,7 +61,7 @@ https://login.microsoftonline.com/<tenant id>/oauth2/token
 | resource |필수 |수신 웹 서비스의 앱 ID URI를 입력합니다. 앱 ID URI를 찾으려면 Azure Portal에서 **Azure Active Directory**,  **등록**, 서비스 응용 프로그램 및 **설정**과 **속성**을 차례로 클릭합니다. |
 
 #### <a name="example"></a>예
-다음 HTTP POST는 https://service.contoso.com/ 웹 서비스에 대한 액세스 토큰을 요청합니다. `client_id` 은(는) 액세스 토큰을 요청하는 웹 서비스를 식별합니다.
+다음 HTTP POST는 https://service.contoso.com/ 웹 서비스에 대한 [액세스 토큰](access-tokens.md)을 요청합니다. `client_id` 은(는) 액세스 토큰을 요청하는 웹 서비스를 식별합니다.
 
 ```
 POST /contoso.com/oauth2/token HTTP/1.1

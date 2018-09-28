@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 224f017decc3f48a23cb3fbf14f9a4e744bfaded
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 9fbbbb4f73b5295b648008878c8145fe926fbaad
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007008"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974394"
 ---
 # <a name="create-a-snapshot"></a>스냅숏 만들기 
 
@@ -26,7 +26,7 @@ ms.locfileid: "39007008"
 
 ## <a name="use-azure-cli"></a>Azure CLI 사용 
 
-다음 예제에서는 [Cloud Shell](https://shell.azure.com/bash)을 사용하거나 Azure CLI 2.0을 설치해야 합니다. 버전을 찾으려면 **az --version**을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+다음 예제에서는 [Cloud Shell](https://shell.azure.com/bash)을 사용하거나 Azure CLI를 설치해야 합니다.
 
 다음 단계에서는 **az snapshot create** 명령과 **--source-disk** 매개 변수를 사용하여 스냅숏을 만드는 방법을 보여줍니다. 다음 예제는 *myResourceGroup* 리소스 그룹의 *myVM*이라는 VM이 있는 것으로 가정합니다.
 

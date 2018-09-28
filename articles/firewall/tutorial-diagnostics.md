@@ -1,27 +1,22 @@
 ---
-title: 자습서 - Azure Firewall 로그 모니터링
-description: 이 자습서에서는 Azure Firewall 로그를 사용하도록 설정하고 관리하는 방법을 알아봅니다.
+title: '자습서: Azure Firewall 로그 및 메트릭 모니터링'
+description: 이 자습서에서는 Azure Firewall 로그 및 메트릭을 사용하도록 설정하고 관리하는 방법을 알아봅니다.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/11/2018
+ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: a4922fda80b957138a9929090f9d3c349348185d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 1940fb210481dc75fe48d110776185e90cb3e42f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991902"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991048"
 ---
-# <a name="tutorial-monitor-azure-firewall-logs"></a>자습서: Azure Firewall 로그 모니터링
+# <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>자습서: Azure Firewall 로그 모니터링
 
-[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
-
-Azure Firewall 문서의 예제에서는 이미 Azure Firewall 공개 미리 보기를 사용하도록 설정했다고 가정합니다. 자세한 내용은 [Azure Firewall 공개 미리 보기 사용하도록 설정](public-preview.md)을 참조합니다.
-
-방화벽 로그를 사용하여 Azure Firewall을 모니터링할 수 있습니다. 또한 Azure Firewall 리소스에서 작업을 감사하려면 활동 로그를 사용할 수 있습니다.
+방화벽 로그를 사용하여 Azure Firewall을 모니터링할 수 있습니다. 또한 Azure Firewall 리소스에서 작업을 감사하려면 활동 로그를 사용할 수 있습니다. 메트릭을 사용하여 포털에서 성능 카운터를 볼 수 있습니다. 
 
 이러한 로그 중 일부는 포털을 통해 액세스할 수 있습니다. 로그를 [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), 저장소 및 Event Hubs로 보내 Log Analytics 또는 Excel 및 Power BI 같은 다른 도구에서 분석합니다.
 
@@ -32,69 +27,12 @@ Azure Firewall 문서의 예제에서는 이미 Azure Firewall 공개 미리 보
 > * PowerShell을 통해 로깅을 사용하도록 설정
 > * 활동 로그 보기 및 분석
 > * 네트워크 및 응용 프로그램 규칙 로그 보기 및 분석
+> * 메트릭 보기
 
-## <a name="diagnostic-logs"></a>진단 로그
+## <a name="prerequisites"></a>필수 조건
 
- 다음 진단 로그는 Azure Firewall에 사용할 수 있습니다.
+이 자습서를 시작하기 전에 Azure Firewall에 사용할 수 있는 진단 로그 및 메트릭에 대한 개요를 확인하기 위해 [Azure Firewall 로그 및 메트릭](logs-and-metrics.md)을 읽어 보아야 합니다.
 
-* **응용 프로그램 규칙 로그**
-
-   각 Azure Firewall에 대해 사용하도록 설정하는 경우에만 응용 프로그램 규칙 로그를 저장소 계정에 저장하고 Event 허브로 스트리밍하고/또는 Log Analytics로 보냅니다. 허용/거부된 연결에 대한 로그에서 구성된 응용 프로그램 규칙 결과 중 하나와 일치하는 각 새 연결입니다. 데이터는 각각 다음 예제와 같이 JSON 형식으로 로깅됩니다.
-
-   ```
-   Category: access logs are either application or network rule logs.
-   Time: log timestamp.
-   Properties: currently contains the full message. 
-   note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
-   ```
-
-   ```json
-   {
-    "category": "AzureFirewallApplicationRule",
-    "time": "2018-04-16T23:45:04.8295030Z",
-    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
-    "operationName": "AzureFirewallApplicationRuleLog",
-    "properties": {
-        "msg": "HTTPS request from 10.1.0.5:55640 to mydestination.com:443. Action: Allow. Rule Collection: collection1000. Rule: rule1002"
-    }
-   }
-   ```
-
-* **네트워크 규칙 로그**
-
-   각 Azure Firewall에 대해 사용하도록 설정하는 경우에만 네트워크 규칙 로그를 저장소 계정에 저장하고 Event 허브로 스트리밍하고/또는 Log Analytics로 보냅니다. 허용/거부된 연결에 대한 로그에서 구성된 네트워크 규칙 결과 중 하나와 일치하는 각 새 연결입니다. 데이터는 각각 다음 예제와 같이 JSON 형식으로 로깅됩니다.
-
-   ```
-   Category: access logs are either application or network rule logs.
-   Time: log timestamp.
-   Properties: currently contains the full message. 
-   note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
-   ```
-
-   ```json
-  {
-    "category": "AzureFirewallNetworkRule",
-    "time": "2018-06-14T23:44:11.0590400Z",
-    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
-    "operationName": "AzureFirewallNetworkRuleLog",
-    "properties": {
-        "msg": "TCP request from 111.35.136.173:12518 to 13.78.143.217:2323. Action: Deny"
-    }
-   }
-
-   ```
-
-로그 저장에는 세 가지 옵션이 있습니다.
-
-* **Storage 계정** - 로그를 장기간 저장하고 필요할 때 검토하는 경우에 가장 적합합니다.
-* **이벤트 허브** - 다른 SEIM(보안 정보 및 이벤트 관리) 도구와 통합하여 리소스에 대한 알림을 얻을 수 있는 좋은 옵션입니다.
-* **Log Analytics** - 일반적으로 응용 프로그램을 실시간 모니터링하거나 추세를 파악하는 데 가장 적합합니다.
-
-## <a name="activity-logs"></a>활동 로그
-
-   활동 로그 항목은 기본적으로 수집되고 Azure Portal에서 볼 수 있습니다.
-
-   [Azure 활동 로그](../azure-resource-manager/resource-group-audit.md)(이전의 작업 로그 및 감사 로그)를 사용하여 Azure 구독에 제출된 모든 작업을 확인할 수 있습니다.
 
 ## <a name="enable-diagnostic-logging-through-the-azure-portal"></a>Azure Portal을 통한 진단 로깅 사용
 
@@ -105,8 +43,8 @@ Azure Firewall 문서의 예제에서는 이미 Azure Firewall 공개 미리 보
 
    Azure Firewall의 경우 두 개의 서비스 관련 로그를 사용할 수 있습니다.
 
-   * 응용 프로그램 규칙 로그
-   * 네트워크 규칙 로그
+   * AzureFirewallApplicationRule
+   * AzureFirewallNetworkRule
 
 3. 데이터 수집을 시작하려면 **진단 켜기**를 클릭합니다.
 4. **진단 설정** 페이지에서는 진단 로그에 대한 설정을 제공합니다. 
@@ -163,6 +101,8 @@ Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.
 > [!TIP]
 > Visual Studio를 익숙하게 사용할 수 있고 C#에서 상수 및 변수에 대한 값 변경에 대한 기본 개념이 있는 경우 GitHub에서 제공하는 [로그 변환기 도구](https://github.com/Azure-Samples/networking-dotnet-log-converter)를 사용할 수 있습니다.
 
+## <a name="view-metrics"></a>메트릭 보기
+**모니터링**에서 Azure Firewall을 찾아 **메트릭**을 클릭합니다. 사용 가능한 값을 보려면 **메트릭** 드롭다운 목록을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

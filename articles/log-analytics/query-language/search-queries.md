@@ -15,17 +15,19 @@ ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 6a375da3c97790bd6a7a6fa505de82b2fc298385
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 250eddb043ccf9fa0b1bb92a298900f8ad820140
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42146829"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992272"
 ---
 # <a name="search-queries-in-log-analytics"></a>Log Analytics의 검색 쿼리
 
 > [!NOTE]
-> 이 자습서를 완료하기 전에 [Log Analytics에서 쿼리 시작](get-started-queries.md)을 완료해야 합니다.
+> 이 단원을 완료하기 전에 [Log Analytics에서 쿼리 시작](get-started-queries.md)을 완료해야 합니다.
+
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 Azure Log Analytics 쿼리는 테이블 이름 또는 search 명령을 사용하여 시작할 수 있습니다. 이 자습서는 검색 기반 쿼리를 다룹니다. 각 메서드에 대한 이점이 있습니다.
 
@@ -34,7 +36,7 @@ Azure Log Analytics 쿼리는 테이블 이름 또는 search 명령을 사용하
 ## <a name="search-a-term"></a>용어 검색
 **search** 명령은 일반적으로 특정 용어를 검색하는 데 사용됩니다. 다음 예제에서 모든 테이블의 모든 열은 "error"라는 용어에 대해 검색됩니다.
 
-```OQL
+```Kusto
 search "error"
 | take 100
 ```
@@ -44,13 +46,13 @@ search "error"
 ### <a name="table-scoping"></a>테이블 범위 지정
 특정 테이블에서 용어를 검색하려면 **search** 연산자 바로 뒤에 `in (table-name)`을 추가합니다.
 
-```OQL
+```Kusto
 search in (Event) "error"
 | take 100
 ```
 
 또는 여러 테이블에서:
-```OQL
+```Kusto
 search in (Event, SecurityEvent) "error"
 | take 100
 ```
@@ -58,7 +60,7 @@ search in (Event, SecurityEvent) "error"
 ### <a name="table-and-column-scoping"></a>테이블 및 열 범위 지정
 기본적으로 **search**는 데이터 집합의 모든 열을 평가합니다. 특정 열만을 검색하려면 이 구문을 사용합니다.
 
-```OQL
+```Kusto
 search in (Event) Source:"error"
 | take 100
 ```
@@ -69,7 +71,7 @@ search in (Event) Source:"error"
 ## <a name="case-sensitivity"></a>대/소문자 구분
 기본적으로 용어 검색은 대/소문자를 구분하지 않으므로 "dns"를 검색하면 "DNS", "dns" 또는 "Dns"와 같은 결과가 발생할 수 있습니다. 대/소문자를 구분하여 검색하려면 `kind` 옵션을 사용합니다.
 
-```OQL
+```Kusto
 search kind=case_sensitive in (Event) "DNS"
 | take 100
 ```
@@ -78,26 +80,26 @@ search kind=case_sensitive in (Event) "DNS"
 **search** 명령은 용어의 시작, 끝 또는 중간에서 와일드 카드를 지원합니다.
 
 "win"으로 시작하는 용어를 검색하려면:
-```OQL
+```Kusto
 search in (Event) "win*"
 | take 100
 ```
 
 ".com"으로 끝나는 용어를 검색하려면:
-```OQL
+```Kusto
 search in (Event) "*.com"
 | take 100
 ```
 
 "www"를 포함하는 용어를 검색하려면:
-```OQL
+```Kusto
 search in (Event) "*www*"
 | take 100
 ```
 
 "corp"로 시작하고 "corp.mydomain.com"과 같은 ".com"으로 종료하는 용어를 검색하려면:
 
-```OQL
+```Kusto
 search in (Event) "corp*.com"
 | take 100
 ```
@@ -110,21 +112,21 @@ search in (Event) "corp*.com"
 ## <a name="add-and--or-to-search-queries"></a>*and* / *or*를 추가하여 쿼리 검색
 **and**를 사용하여 여러 용어를 포함하는 레코드를 검색합니다.
 
-```OQL
+```Kusto
 search in (Event) "error" and "register"
 | take 100
 ```
 
 **or**를 사용하여 하나 이상의 용어를 포함하는 레코드를 가져옵니다.
 
-```OQL
+```Kusto
 search in (Event) "error" or "register"
 | take 100
 ```
 
 여러 검색 조건이 있는 경우 괄호를 사용하여 동일한 쿼리로 결합할 수 있습니다.
 
-```OQL
+```Kusto
 search in (Event) "error" and ("register" or "marshal*")
 | take 100
 ```
@@ -134,7 +136,7 @@ search in (Event) "error" and ("register" or "marshal*")
 ## <a name="pipe-search-queries"></a>검색 쿼리 파이프
 다른 명령과 마찬가지로 **search**는 파이프될 수 있으므로 검색 결과는 필터링, 정렬 및 집계될 수 있습니다. 예를 들어 "win"을 포함하는 *Event* 레코드의 수를 가져오려면:
 
-```OQL
+```Kusto
 search in (Event) "win"
 | count
 ```
@@ -144,4 +146,4 @@ search in (Event) "win"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Log Analytics 쿼리 언어 사이트](https://docs.loganalytics.io)에서 자세한 자습서 참조
+- [Log Analytics 쿼리 언어 사이트](https://aka.ms/LogAnalyticsLanguage)에서 추가 자습서를 참조하세요.

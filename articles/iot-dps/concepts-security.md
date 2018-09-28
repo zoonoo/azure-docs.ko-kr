@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 82548ef8fd3f992eedd77c93be47cb5328a584c7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 92a30f0754decc3052bf53a64da13325ddc4f954
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628643"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946564"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>IoT Hub Device Provisioning 서비스 보안 개념 
 
@@ -26,9 +26,11 @@ IoT Hub Device Provisioning 서비스는 지정된 IoT 허브에 대한 제로 �
 > [!NOTE]
 > IoT Hub는 해당 서비스에서 비슷한 개념에 대해 "인증 체계"를 사용합니다.
 
-Device Provisioning 서비스는 두 가지 형태의 증명을 지원합니다.
+Device Provisioning Service는 다음과 같은 형식의 증명을 지원합니다.
 * 표준 X.509 인증서 인증 흐름을 기반으로 하는 **X.509 인증서**
-* nonce 문제를 기반으로 하는 **TPM(신뢰할 수 있는 플랫폼 모듈)** 은 서명된 SAS(공유 액세스 서명) 토큰을 표시하기 위해 키에 TPM 표준을 사용합니다. 장치에서 실제 TPM이 필요하지 않지만 서비스는 [TPM 사양](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)당 인증 키를 사용하여 증명하기를 기대합니다.
+* nonce 문제를 기반으로 하는 **TPM(신뢰할 수 있는 플랫폼 모듈)** 은 서명된 SAS(공유 액세스 서명) 토큰을 표시하기 위해 키에 TPM 표준을 사용합니다. 이 증명 형식을 사용하는 경우 장치에 실제 TPM이 필요하지는 않지만, [TPM 사양](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)에 따라 인증 키를 사용하여 증명을 해야 합니다.
+* 해시된 서명과 포함된 만료 날짜가 들어 있는 SAS(공유 액세스 서명) [보안 토큰](../iot-hub/iot-hub-devguide-security.md#security-tokens)을 기반으로 하는 **대칭 키**. 자세한 내용은 [대칭 키 증명](concepts-symmetric-key-attestation.md)을 참조하세요.
+
 
 ## <a name="hardware-security-module"></a>하드웨어 보안 모듈
 
@@ -55,7 +57,7 @@ TPM 증명은 인증 및 저장소 루트 키를 사용하여 서명된 SAS(공�
 
 ## <a name="x509-certificates"></a>X.509 인증서
 
-X.509 인증서를 증명 메커니즘으로 사용하면 프로덕션의 크기를 조정하고 장치 프로비전을 간소화할 수 있습니다. X.509 인증서는 일반적으로 체인의 각 인증서가 다음으로 높고, 그 다음으로 높은 등등의 우선 순위에 있는 인증서의 개인 키로 서명되는 신뢰의 인증서 체인에 정렬되며, 자체 서명된 루트 인증서에서 종료됩니다. 이렇게 하면 신뢰할 수 있는 루트 CA(인증 기관)에서 생성한 루트 인증서에서 각각의 중간 CA를 거쳐 장치에 설치된 최종 엔터티 “리프” 인증서로 위임된 신뢰 체인을 설정합니다. 자세한 내용은 [X.509 CA 인증서를 사용하여 장치 인증](/azure/iot-hub/iot-hub-x509ca-overview)을 참조하세요. 
+X.509 인증서를 증명 메커니즘으로 사용하면 프로덕션의 크기를 조정하고 장치 프로비전을 간소화할 수 있습니다. X.509 인증서는 일반적으로 체인의 각 인증서가 다음으로 높고, 그 다음으로 높은 등등의 우선 순위에 있는 인증서의 개인 키로 서명되는 신뢰의 인증서 체인에 정렬되며, 자체 서명된 루트 인증서에서 종료됩니다. 이 방식을 사용하는 경우 신뢰할 수 있는 루트 CA(인증 기관)에서 생성한 루트 인증서에서 각각의 중간 CA를 거쳐 장치에 설치된 최종 엔터티 “리프” 인증서로의 위임된 신뢰 체인이 설정됩니다. 자세한 내용은 [X.509 CA 인증서를 사용하여 장치 인증](/azure/iot-hub/iot-hub-x509ca-overview)을 참조하세요. 
 
 인증서 체인은 종종 장치와 관련된 논리적 또는 물리적 계층 일부를 나타냅니다. 예를 들어, 제조업체는 다음과 같은 작업을 수행할 수 있습니다.
 - 자체 서명된 루트 CA 인증서 발급

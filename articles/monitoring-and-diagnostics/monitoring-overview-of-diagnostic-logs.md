@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 9d2a20ce681ea7e7c4ff2f9b492653e9d9a57b2b
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 630c8e5f48ba475755c3c9ffe632fcba086437e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248169"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983120"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Azure 리소스에서 로그 데이터 수집 및 소비
 
@@ -45,7 +45,7 @@ ms.locfileid: "39248169"
 로그를 내보내는 것과 동일한 구독에 위치하지 않는 저장소 계정 또는 Event Hubs 네임스페이스를 사용할 수 있습니다. 설정을 구성하는 사용자에게는 두 구독에 대한 적절한 RBAC 액세스가 있어야 합니다.
 
 > [!NOTE]
->  현재는 보안 가상 네트워크 뒤에 있는 저장소 계정에 데이터를 보관할 수 없습니다.
+>  현재는 보안 가상 네트워크 뒤에 있는 저장소 계정에 네트워크 흐름 로그를 보관할 수 없습니다.
 
 > [!WARNING]
 > 저장소 계정에서 로그 데이터의 형식이 2018년 11월 1일에 JSON 줄로 변경됩니다. [새 형식을 처리하도록 도구를 업데이트하는 방법과 영향에 대한 설명은 이 아티클을 참조하세요.](./monitor-diagnostic-logs-append-blobs.md) 
@@ -145,9 +145,9 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resour
 
 현재는 Azure PowerShell을 사용하여 테넌트 진단 설정을 구성할 수 없습니다.
 
-### <a name="enable-collection-of-resource-diagnostic-logs-via-azure-cli-20"></a>Azure CLI 2.0을 통해 리소스 진단 로그의 컬렉션 활성화
+### <a name="enable-collection-of-resource-diagnostic-logs-via-the-azure-cli"></a>Azure CLI를 통해 리소스 진단 로그의 컬렉션 활성화
 
-Azure CLI 2.0을 통해 리소스 진단 로그의 컬렉션을 사용하도록 설정하려면 [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 명령을 사용합니다.
+Azure CLI를 통해 리소스 진단 로그의 컬렉션을 사용하도록 설정하려면 [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 명령을 사용합니다.
 
 저장소 계정에서 진단 로그의 저장소를 사용하도록 설정하려는 경우:
 

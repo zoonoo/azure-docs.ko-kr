@@ -5,14 +5,14 @@ author: vhorne
 manager: jeconnoc
 ms.service: dns
 ms.topic: overview
-ms.date: 6/7/2018
+ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 0812f5e3e23fbf49afec91524b4de2ff0eb7cd9a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: e3e04bf7e35b22a56465810f476323ed217e047a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574184"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967628"
 ---
 # <a name="what-is-azure-dns"></a>Azure DNS란?
 
@@ -52,6 +52,14 @@ DNS 요금 청구는 Azure에 호스트되는 DNS 영역의 수와 DNS 쿼리 �
 Azure DNS는 개인 DNS 영역(현재는 공개 미리 보기)도 지원합니다. 현재 Azure에서 제공하는 이름 대신 사용자 고유의 사용자 지정 도메인 이름을 개인 가상 네트워크에 사용할 수 있습니다.
 
 자세한 내용은 [사설 도메인에 Azure DNS 사용](private-dns-overview.md)을 참조하세요.
+
+## <a name="alias-records"></a>별칭 레코드
+
+Azure DNS는 별칭 레코드 집합을 지원합니다. 별칭 레코드 집합을 사용하면 Azure 공용 IP 주소 또는 Traffic Manager 프로필 등의 Azure 리소스를 참조할 수 있습니다. 기본 리소스의 IP 주소가 변경되면 별칭 레코드 집합도 DNS 확인 중에 자체적으로 원활하게 업데이트됩니다. 별칭 레코드 집합은 서비스 인스턴스를 가리키며 서비스 인스턴스는 IP 주소에 연결됩니다. 
+
+또한 이제는 별칭 레코드를 사용하여 apex 또는 naked 도메인(예: contoso.com)을 가리킬 수도 있습니다.
+
+자세한 내용은 [Azure DNS 별칭 레코드 개요](dns-alias.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

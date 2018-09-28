@@ -11,14 +11,17 @@ ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/10/2018
-ms.openlocfilehash: 0e37e1839d2248507a30de08e2ac4c975bd3b859
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 06e85845d41b240638a5b5b4d75d64fd460a99bf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35639659"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953330"
 ---
 # <a name="install-and-use-the-machine-learning-cli-for-top-tasks-in-azure-machine-learning"></a>Azure Machine Learning의 최상위 작업에 대한 기계 학습 CLI 설치 및 사용
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 Azure Machine Learning 서비스는 통합된 종단 간 데이터 과학 및 고급 분석 솔루션입니다. 전문 데이터 과학자들은 Azure Machine Learning 서비스를 사용하여 클라우드 규모로 데이터를 준비하고, 실험을 개발하고, 모델을 배포할 수 있습니다. 
 
@@ -201,7 +204,7 @@ az ml env set -n <environment name> -g <resource group name>
 ## <a name="next-steps"></a>다음 단계
 
 다음 문서 중 하나를 시작합니다. 
-+ [Azure Machine Learning을 설치하고 시작](../service/quickstart-installation.md)
++ [Azure Machine Learning을 설치하고 시작](quickstart-installation.md)
 + [아이리스 데이터 분류 자습서: 1부](tutorial-classifying-iris-part-1.md)
 
 다음 문서 중 하나를 자세히 살펴봅니다.

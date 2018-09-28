@@ -1,6 +1,6 @@
 ---
 title: Azure Access Control Service에서 마이그레이션 | Microsoft Docs
-description: Azure Access Control Service에서 앱 및 서비스를 이동하기 위한 옵션
+description: Azure ACS(Access Control Service)에서 앱 및 서비스를 이동하기 위한 옵션에 대해 알아보세요.
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -13,20 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2017
+ms.date: 09/07/2018
 ms.author: celested
-ms.reviewer: hirsin, dastrock
-ms.openlocfilehash: 41c7de3039634f262efedc1bb3de1b39dda4593a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.reviewer: jlu, annaba, hirsin
+ms.openlocfilehash: 2c7dc650109ecc3844ee2ae90e50b2267f5716c4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698063"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996522"
 ---
-# <a name="migrate-from-the-azure-access-control-service"></a>Azure Access Control Service에서 마이그레이션
+# <a name="how-to-migrate-from-the-azure-access-control-service"></a>방법: Azure Access Control Service에서 마이그레이션
 
-Azure Active Directory(Azure AD) 서비스의 하나인 Azure Access Control은 2018년 11월 7일부터 사용 중지됩니다. 현재 Access Control을 사용하는 응용 프로그램 및 서비스는 그때까지 다른 인증 메커니즘으로 완전히 마이그레이션되어야 합니다. 이 문서에서는 Access Control의 사용 중지를 계획 중인 기존 고객에게 몇 가지 권장 사항을 안내합니다. Access Control을 사용하지 않는 경우 어떤 조치도 취할 필요가 없습니다.
-
+Microsoft Azure AD(Azure Active Directory) 서비스의 하나인 Azure ACS(Access Control)는 2018년 11월 7일부터 사용 중지됩니다. 현재 Access Control을 사용하는 응용 프로그램 및 서비스는 그때까지 다른 인증 메커니즘으로 완전히 마이그레이션되어야 합니다. 이 문서에서는 Access Control의 사용 중지를 계획 중인 기존 고객에게 몇 가지 권장 사항을 안내합니다. Access Control을 사용하지 않는 경우 어떤 조치도 취할 필요가 없습니다.
 
 ## <a name="overview"></a>개요
 
@@ -38,7 +37,7 @@ Access Control의 용도는 다음과 같은 세 가지 범주로 나누어집�
 - 사용자 지정 및 미리 패키지된 웹 응용 프로그램(예: SharePoint)에 인증을 추가합니다. Access Control "수동" 인증을 사용하면 Microsoft 계정(이전의 Live ID)은 물론, Google, Facebook, Yahoo, Azure AD 및 AD FS(Active Directory Federation Services) 계정으로도 웹 응용 프로그램에 로그인할 수 있습니다.
 - Access Control에서 발행하는 토큰으로 사용자 지정 웹 서비스를 보호합니다. 웹 서비스는 “능동” 인증을 사용하여 Access Control에서 인증한 클라이언트의 액세스만 허용할 수 있습니다.
 
-이어지는 섹션에서는 이러한 용도와 각각의 권장 마이그레이션 전략을 설명합니다. 
+이어지는 섹션에서는 이러한 용도와 각각의 권장 마이그레이션 전략을 설명합니다.
 
 > [!WARNING]
 > 대부분의 경우 기존 앱과 서비스를 신기술로 마이그레이션할 때는 코드를 대폭 수정해야 합니다. 시스템 중단이나 가동 중지 시간을 방지하기 위해서는 가능한 한 빨리 마이그레이션을 계획하고 이행하는 것이 좋습니다.
@@ -73,7 +72,6 @@ Access Control 구성 요소의 사용 중지 일정은 다음과 같습니다.
 - **2018년 4월 2일**: Azure 클래식 포털이 완전히 사용 중지됩니다. 즉, 더 이상 URL을 통해 Access Control 네임스페이스 관리를 사용할 수 없습니다. 이 시점에서는 Access Control을 사용 또는 사용하지 않도록 설정 하거나, 삭제하거나, 열거할 수 없습니다. 하지만 `https://\<namespace\>.accesscontrol.windows.net`에서는 Access Control 관리 포털이 완벽하게 작동됩니다. Access Control의 다른 모든 구성 요소는 계속해서 정상적으로 작동합니다.
 - **2018년 11월 7일**: 모든 Access Control 구성 요소가 영구적으로 종료됩니다. 즉, Access Control 관리 포털, 관리 서비스, STS, 토큰 변환 규칙 엔진이 종료됩니다. 이 시점에서 Access Control(\<namespace\>.accesscontrol.windows.net에 위치)로 전송된 모든 요청이 실패합니다. 이 시점 전까지 기존 앱과 서비스를 다른 기술로 모두 마이그레이션 완료해야 합니다.
 
-
 ## <a name="migration-strategies"></a>마이그레이션 전략
 
 이어지는 섹션에서는 Access Control에서 다른 Microsoft 기술로 마이그레이션하기 위한 대략적인 권장 사항을 안내합니다.
@@ -98,7 +96,6 @@ Access Control에서 발행하는 토큰을 이용하는 각 Microsoft 클라우
 <!-- Retail federation services are moving, customers don't need to move -->
 <!-- Azure StorSimple: TODO -->
 <!-- Azure SiteRecovery: TODO -->
-
 
 ### <a name="sharepoint-customers"></a>SharePoint 고객
 
@@ -175,26 +172,14 @@ WS-Federation 또는 WIF를 사용하여 Azure AD와 통합하려면 [비갤러�
 - Azure AD 토큰 사용자 지정의 유연성이 제공됩니다. Access Control에서 발행한 클레임과 일치하도록 Azure AD에서 발행한 클레임을 사용자 지정할 수 있습니다. 특히 사용자 ID 또는 이름 식별자 클레임이 포함됩니다. 기술을 변경한 다음에도 사용자들이 전과 동일하게 사용자 식별자를 받기 위해서는 Azure AD에서 발행한 사용자 ID가 Access Control에서 발생한 사용자 ID와 일치해야 합니다.
 - 사용자가 직접 수명을 제어하는 응용 프로그램에 맞게 토큰 서명 인증서를 구성할 수 있습니다.
 
-<!--
-
-Possible nameIdentifiers from Access Control (via AAD or AD FS):
-- AD FS - Whatever AD FS is configured to send (email, UPN, employeeID, what have you)
-- Default from AAD using App Registrations, or Custom Apps before ClaimsIssuance policy: subject/persistent ID
-- Default from AAD using Custom apps nowadays: UPN
-- Kusto can't tell us distribution, it's redacted
-
--->
-
 > [!NOTE]
 > 이 방법을 사용하려면 Azure AD Premium 라이선스가 필요합니다. Access Control 고객이고 응용 프로그램에 대한 Single Sign-On을 설정하기 위해 Premium 라이선스가 필요한 경우 저희에게 문의하세요. 사용할 수 있는 개발자 라이선스를 제공합니다.
 
 또 다른 방법은 [이 코드 샘플](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation)을 따르는 것입니다. 코드 샘플에서는 Ws-Federation을 설정하는 다른 방법을 설명합니다. 코드 샘플에서는 WIF가 아닌 ASP.NET 4.5 OWIN 미들웨어를 사용하지만 WIF를 사용하는 앱에서도 유효한 앱 등록 방법을 사용할 수 있으며, 이때 Azure AD Premium 라이선스가 필요하지 않습니다. 
 
-이 방법을 선택한 경우에는 [Azure AD의 서명 키 롤오버](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover)에 대해 이해해야 합니다. 이 방법에서는 Azure AD 글로벌 서명 키를 사용하여 토큰을 발행합니다. 기본적으로 WIF는 자동으로 서명 키를 업데이트하지 않습니다. Azure AD가 글로벌 서명 키를 교대시킬 때 변화된 사항이 적용될 수 있도록 WIF 구현이 준비가 되어 있어야 합니다.
+이 방법을 선택한 경우에는 [Azure AD의 서명 키 롤오버](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover)에 대해 이해해야 합니다. 이 방법에서는 Azure AD 글로벌 서명 키를 사용하여 토큰을 발행합니다. 기본적으로 WIF는 자동으로 서명 키를 업데이트하지 않습니다. Azure AD가 글로벌 서명 키를 교대시킬 때 변화된 사항이 적용될 수 있도록 WIF 구현이 준비가 되어 있어야 합니다. 자세한 내용은 [Azure AD의 서명 키 롤오버에 대한 중요 정보](https://msdn.microsoft.com/en-us/library/azure/dn641920.aspx)를 참조하세요.
 
 OpenID Connect 또는 OAuth 프로토콜을 통해 Azure AD와 통합할 수 있다면 그렇게 하는 것이 좋습니다. [Azure AD 개발자 가이드](https://aka.ms/aaddev)에서 웹 응용 프로그램에 Azure AD를 통합하는 방법에 대한 방대한 설명서와 자료를 확인할 수 있습니다.
-
-<!-- TODO: If customers ask about authZ, let's put a blurb on role claims here -->
 
 #### <a name="migrate-to-azure-active-directory-b2c"></a>Azure Active Directory B2C로 마이그레이션
 
@@ -237,7 +222,6 @@ Azure AD B2C가 응용 프로그램 및 서비스에 적합한 마이그레이�
 - [Azure AD B2C 사용자 지정 정책](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)
 - [Azure AD B2C 가격](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
-
 #### <a name="migrate-to-ping-identity-or-auth0"></a>Ping ID 또는 Auth0로 마이그레이션
 
 경우에 따라 주요 코드를 변경하지 않고 웹 응용 프로그램에서 Access Control을 교체하는 데 Azure AD와 Azure AD B2C만으로 충분하지 않을 수 있습니다. 다음과 같은 몇 가지 일반적인 예가 있습니다.
@@ -249,8 +233,6 @@ Azure AD B2C가 응용 프로그램 및 서비스에 적합한 마이그레이�
 - 많은 ID 공급자에 대한 페더레이션을 중앙에서 ACS를 사용하여 관리하는 다중 테넌트 웹 응용 프로그램
 
 이러한 경우 웹 응용 프로그램을 다른 클라우드 인증 서비스로 마이그레이션하는 것을 고려해 보는 것이 좋습니다. 다음 옵션에 대해 알아보세요. 다음 옵션은 Access Control과 비슷한 기능을 제공합니다.
-
-
 
 |     |     | 
 | --- | --- |

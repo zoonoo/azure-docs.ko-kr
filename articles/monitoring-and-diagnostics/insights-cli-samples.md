@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor CLI 빠른 시작 샘플
-description: Azure Monitor 기능에 대한 샘플 CLI 2.0 명령입니다. Azure Monitor는 Cloud Services, Virtual Machines 및 Web Apps의 크기를 자동으로 조정하고, 구성된 원격 분석 데이터 값을 기반으로 경고 알림을 보내거나 웹 URL을 호출할 수 있는 Microsoft Azure 서비스입니다.
+description: Azure Monitor 기능에 대한 샘플 CLI 명령입니다. Azure Monitor는 Cloud Services, Virtual Machines 및 Web Apps의 크기를 자동으로 조정하고, 구성된 원격 분석 데이터 값을 기반으로 경고 알림을 보내거나 웹 URL을 호출할 수 있는 Microsoft Azure 서비스입니다.
 author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: robb
 ms.component: ''
-ms.openlocfilehash: dfc9a65325d25889c9d8d3c10aa0dcda2b5a9980
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 1728511402d48904fa968790f790314fdf57767c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213216"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961521"
 ---
-# <a name="azure-monitor-cli-20-quick-start-samples"></a>Azure Monitor CLI 2.0 빠른 시작 샘플
+# <a name="azure-monitor-cli-quick-start-samples"></a>Azure Monitor CLI 빠른 시작 샘플
 이 문서에서는 Azure Monitor 기능에 액세스하는 데 유용한 샘플 CLI(명령줄 인터페이스) 명령을 보여 줍니다. Azure Monitor를 통해 Cloud Services, Virtual Machines 및 Web Apps의 크기를 자동으로 조정하고, 구성된 원격 분석 데이터의 값을 기반으로 경고 알림을 보내거나 웹 URL을 호출할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-아직 Azure CLI를 설치하지 않은 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)에 관한 지침을 따릅니다. 또한 [Azure Cloud Shell](/azure/cloud-shell)을 사용하여 브라우저에서 CLI를 대화형 환경으로 실행할 수 있습니다. [Azure Monitor CLI 참조](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest)에서 사용 가능한 모든 명령의 전체 참조를 확인하세요. 
+아직 Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](/cli/azure/install-azure-cli) 지침을 따릅니다. 또한 [Azure Cloud Shell](/azure/cloud-shell)을 사용하여 브라우저에서 CLI를 대화형 환경으로 실행할 수 있습니다. [Azure Monitor CLI 참조](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest)에서 사용 가능한 모든 명령의 전체 참조를 확인하세요. 
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 첫 번째 단계에서는 Azure 계정에 로그인합니다.
@@ -185,7 +185,7 @@ az monitor diagnostic-settings delete --name <diagnostic name> \
     --resource <target resource ID>
 ```
 
-## <a name="autoscale"></a>Autoscale
+## <a name="autoscale"></a>자동 크기 조정
 
 이 섹션의 정보를 사용하여 자동 크기 조정 설정 작업을 수행할 수 있습니다. 이러한 예제를 수정해야 합니다.
 

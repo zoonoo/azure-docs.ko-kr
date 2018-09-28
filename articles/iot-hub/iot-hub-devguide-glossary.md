@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 1a5df1081edeb8b8e7520064a71534f70a9a9d33
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 575326ee3bd2cb64b2cb65168f23f7fe97dad029
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344303"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954401"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub 용어집
 이 문서에서는 IoT Hub 문서에 사용된 몇 가지 일반적인 용어를 나열합니다.
@@ -27,11 +27,11 @@ Azure IoT Hub에서 자동 장치 관리는 전체 수명 주기를 통해 대�
 ## <a name="automatic-device-configuration"></a>자동 장치 구성
 솔루션 백 엔드는 [자동 장치 구성](iot-hub-auto-device-config.md)을 사용하여 [장치 쌍](#device-twin)의 집합에 원하는 속성을 할당하고 시스템 메트릭 및 사용자 지정 메트릭을 사용하여 상태를 보고할 수 있습니다. 
 
-## <a name="azure-cli"></a>Azure CLI
-[Azure CLI](../cli-install-nodejs.md)는 Microsoft Azure에서 리소스를 만들고 관리하기 위한 플랫폼 간 오픈 소스 셸 기반 명령 도구입니다. 이 버전의 CLI는 Node.js를 사용하여 구현됩니다.
+## <a name="azure-classic-cli"></a>Azure 클래식 CLI
+[Azure 클래식 CLI](../cli-install-nodejs.md)는 Microsoft Azure에서 리소스를 만들고 관리하기 위한 플랫폼 간 오픈 소스 셸 기반 명령 도구입니다. 이 CLI 버전은 클래식 배포에만 사용해야 합니다.
 
-## <a name="azure-cli-20"></a>Azure CLI 2.0
-[Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2)은 Microsoft Azure에서 리소스를 만들고 관리하기 위한 플랫폼 간 오픈 소스 셸 기반 명령 도구입니다. 이 CLI 미리 보기 버전은 Python을 사용하여 구현됩니다.
+## <a name="azure-cli"></a>Azure CLI
+[Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2)는 Microsoft Azure에서 리소스를 만들고 관리하기 위한 플랫폼 간 오픈 소스 셸 기반 명령 도구입니다.
 
 
 ## <a name="azure-iot-device-sdks"></a>Azure IoT 장치 SDK
@@ -59,10 +59,10 @@ Azure IoT Hub에서 자동 장치 관리는 전체 수명 주기를 통해 대�
 [Azure Storage](../storage/common/storage-introduction.md)는 클라우드 저장소 솔루션입니다. 여기에는 구조화되지 않은 개체 데이터를 저장하는 데 사용할 수 있는 Blob Storage 서비스가 포함됩니다. 일부 IoT Hub 자습서는 Blob Storage를 사용합니다.
 
 ## <a name="back-end-app"></a>백 엔드 앱
-[IoT Hub](#iot-hub)의 컨텍스트에서 백 엔드 앱은 IoT Hub에서 서비스 지향 끝점 중 하나에 연결되는 앱입니다. 예를 들어 백 엔드 앱은 [장치-클라우드](#device-to-cloud) 메시지를 검색하거나 [ID 레지스트리](#identity-registry)를 관리할 수 있습니다. 일반적으로 백 엔드 앱은 클라우드에서 실행되지만 대부분의 자습서에 나오는 백 엔드 앱은 로컬 개발 환경에서 실행 중인 콘솔 앱입니다.
+[IoT Hub](#iot-hub)의 컨텍스트에서 백 엔드 앱은 IoT Hub에서 서비스 지향 엔드포인트 중 하나에 연결되는 앱입니다. 예를 들어 백 엔드 앱은 [장치-클라우드](#device-to-cloud) 메시지를 검색하거나 [ID 레지스트리](#identity-registry)를 관리할 수 있습니다. 일반적으로 백 엔드 앱은 클라우드에서 실행되지만 대부분의 자습서에 나오는 백 엔드 앱은 로컬 개발 환경에서 실행 중인 콘솔 앱입니다.
 
-## <a name="built-in-endpoints"></a>기본 제공 끝점
-모든 IoT Hub에는 Event Hub와 호환되는 기본 제공 [끝점](iot-hub-devguide-endpoints.md)이 있습니다. Event Hubs와 함께 작동하는 모든 메커니즘을 사용하여 이 끝점에서 장치-클라우드 메시지를 읽을 수 있습니다.
+## <a name="built-in-endpoints"></a>기본 제공 엔드포인트
+모든 IoT Hub에는 Event Hub와 호환되는 기본 제공 [엔드포인트](iot-hub-devguide-endpoints.md)가 있습니다. Event Hubs와 함께 작동하는 모든 메커니즘을 사용하여 이 엔드포인트에서 장치-클라우드 메시지를 읽을 수 있습니다.
 
 ## <a name="cloud-gateway"></a>클라우드 게이트웨이
 클라우드 게이트웨이를 통해 [IoT Hub](#iot-hub)에 직접 연결할 수 없는 장치의 연결이 가능합니다. 클라우드 게이트웨이는 장치에 대해 로컬로 시행되는 [필드 게이트웨이](#field-gateway)와 달리, 클라우드에서 호스트됩니다. 클라우드 게이트웨이를 위한 일반 사용 사례는 장치에 대한 프로토콜 변환을 구현하는 것입니다.
@@ -74,12 +74,12 @@ IoT Hub에서 연결된 장치로 전송되는 메시지를 참조하세요. 대
 [자동 장치 구성](iot-hub-auto-device-config.md)의 컨텍스트에서 IoT Hub 내의 구성은 장치 쌍의 집합에 대해 원하는 구성을 정의하고 상태 및 진행률을 보고하도록 메트릭 집합을 제공합니다.
 
 ## <a name="connection-string"></a>연결 문자열
-앱 코드에서 연결 문자열을 사용하여 끝점에 연결하는 데 필요한 정보를 캡슐화할 수 있습니다. 일반적으로 연결 문자열에는 끝점의 주소와 보안 정보가 포함되지만 연결 문자열의 형식은 서비스 간에 다양합니다. IoT Hub 서비스와 연관된 연결 문자열에는 다음 두 종류가 있습니다.
-- *장치 연결 문자열*은 IoT hub의 장치 연결 끝점에 연결하는 장치를 사용하도록 설정합니다.
-- *IoT Hub 연결 문자열*은 IoT hub의 서비스 연결 끝점에 연결하는 백 엔드 앱을 사용하도록 설정합니다.
+앱 코드에서 연결 문자열을 사용하여 엔드포인트에 연결하는 데 필요한 정보를 캡슐화할 수 있습니다. 일반적으로 연결 문자열에는 엔드포인트의 주소와 보안 정보가 포함되지만 연결 문자열의 형식은 서비스 간에 다양합니다. IoT Hub 서비스와 연관된 연결 문자열에는 다음 두 종류가 있습니다.
+- *장치 연결 문자열*은 IoT hub의 장치 연결 엔드포인트에 연결하는 장치를 사용하도록 설정합니다.
+- *IoT Hub 연결 문자열*은 IoT hub의 서비스 연결 엔드포인트에 연결하는 백 엔드 앱을 사용하도록 설정합니다.
 
-## <a name="custom-endpoints"></a>사용자 지정 끝점
-IoT Hub에 사용자 지정 [끝점](iot-hub-devguide-endpoints.md)을 만들어 [라우팅 규칙](#routing-rules)으로 발송된 메시지를 배달할 수 있습니다. 사용자 지정 끝점은 Event Hub, Service Bus 큐 또는 Service Bus 토픽에 직접 연결됩니다.
+## <a name="custom-endpoints"></a>사용자 지정 엔드포인트
+IoT Hub에 사용자 지정 [엔드포인트](iot-hub-devguide-endpoints.md)를 만들어 [라우팅 규칙](#routing-rules)으로 발송된 메시지를 배달할 수 있습니다. 사용자 지정 엔드포인트는 Event Hub, Service Bus 큐 또는 Service Bus 토픽에 직접 연결됩니다.
 
 ## <a name="custom-gateway"></a>사용자 지정 게이트웨이
 게이트웨이를 통해 [IoT Hub](#iot-hub)에 직접 연결할 수 없는 장치의 연결이 가능합니다. [Azure IoT Edge](#azure-iot-edge)를 사용하여 메시지, 사용자 지정 프로토콜 변환 및 에지의 다른 프로세스를 처리하도록 사용자 지정 논리를 구현하는 사용자 지정 게이트웨이를 빌드할 수 있습니다.
@@ -144,14 +144,14 @@ IoT의 컨텍스트에서 일반적으로 장치는 데이터를 수집하거나
 ## <a name="direct-method"></a>직접 메서드
 [직접 메서드](iot-hub-devguide-direct-methods.md)는 IoT Hub에서 API를 호출하여 장치에서 실행할 메서드를 트리거하는 방법입니다.
 
-## <a name="endpoint"></a>끝점
-IoT Hub는 앱을 IoT Hub에 연결할 수 있도록 해주는 여러 [끝점](iot-hub-devguide-endpoints.md)을 노출합니다. 장치가 [장치-클라우드](#device-to-cloud) 메시지 보내기 및 [클라우드-장치](#cloud-to-device) 메시지 받기와 같은 작업을 수행할 수 있도록 해주는 장치 지향 끝점이 있습니다. [백 엔드 앱](#back-end-app)이 [장치 ID](#device-identity) 관리 및 장치 쌍 관리와 같은 작업을 수행할 수 있도록 하는 서비스 지향 관리 끝점이 있습니다. 장치-클라우드 메시지 를 읽기 위한 서비스 지향 [기본 제공 끝점](#built-in-endpoints)이 있습니다. [사용자 지정 끝점](#custom-endpoints)을 만들어 [라우팅 규칙](#routing-rules)으로 발송된 장치-클라우드 메시지를 받을 수 있습니다.
+## <a name="endpoint"></a>엔드포인트
+IoT Hub는 앱을 IoT Hub에 연결할 수 있도록 해주는 여러 [엔드포인트](iot-hub-devguide-endpoints.md)를 노출합니다. 장치가 [장치-클라우드](#device-to-cloud) 메시지 보내기 및 [클라우드-장치](#cloud-to-device) 메시지 받기와 같은 작업을 수행할 수 있도록 해주는 장치 지향 엔드포인트가 있습니다. [백 엔드 앱](#back-end-app)이 [장치 ID](#device-identity) 관리 및 장치 쌍 관리와 같은 작업을 수행할 수 있도록 하는 서비스 지향 관리 엔드포인트가 있습니다. 장치-클라우드 메시지 를 읽기 위한 서비스 지향 [기본 제공 엔드포인트](#built-in-endpoints)가 있습니다. [사용자 지정 엔드포인트](#custom-endpoints)를 만들어 [라우팅 규칙](#routing-rules)으로 발송된 장치-클라우드 메시지를 받을 수 있습니다.
 
 ## <a name="event-hubs-service"></a>Event Hubs 서비스
 [Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)는 초당 수백만의 이벤트를 유입할 수 있는 확장성이 뛰어난 수집 서비스입니다. 이 서비스를 사용하면 연결된 장치와 응용 프로그램에서 생성한 대량의 데이터를 처리하고 분석할 수 있습니다. IoT Hub 서비스와 비교는 [Azure IoT Hub 및 Azure Event Hubs의 비교](iot-hub-compare-event-hubs.md)를 참조하세요.
 
-## <a name="event-hub-compatible-endpoint"></a>Event Hub 호환 끝점
-IoT Hub에 전송된 [장치-클라우드](#device-to-cloud) 메시지를 읽으려면 허브에 있는 끝점에 연결하고 Event Hub 호환 메서드를 사용하여 해당 메시지를 읽을 수 있습니다. 모든 Event Hub 호환 메서드에는 [Event Hubs SDK](../event-hubs/event-hubs-programming-guide.md) 및 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 사용이 포함됩니다.
+## <a name="event-hub-compatible-endpoint"></a>Event Hub 호환 엔드포인트
+IoT Hub에 전송된 [장치-클라우드](#device-to-cloud) 메시지를 읽으려면 허브에 있는 엔드포인트에 연결하고 Event Hub 호환 메서드를 사용하여 해당 메시지를 읽을 수 있습니다. 모든 Event Hub 호환 메서드에는 [Event Hubs SDK](../event-hubs/event-hubs-programming-guide.md) 및 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 사용이 포함됩니다.
 
 ## <a name="field-gateway"></a>필드 게이트웨이
 필드 게이트웨이를 통해 [IoT Hub](#iot-hub)에 직접 연결할 수 없는 장치의 연결이 가능하며 일반적으로 장치와 함께 로컬로 배포됩니다. 자세한 내용은 [Azure IoT Hub란?](about-iot-hub.md)을 참조하세요.
@@ -185,8 +185,8 @@ IoT Hub는 수백만의 장치와 솔루션 백 엔드 간에서 안정적이고
 ## <a name="iot-solution-accelerators"></a>IoT 솔루션 가속기
 Azure IoT 솔루션 가속기는 여러 Azure 서비스를 솔루션으로 함께 패키징합니다. 이러한 솔루션을 통해 일반적인 IoT 시나리오의 종단 간 구현을 빠르게 시작합니다. 자세한 내용은 [Azure IoT 솔루션 가속기란?](../iot-accelerators/about-iot-accelerators.md)을 참조하세요.
 
-## <a name="the-iot-extension-for-azure-cli-20"></a>Azure CLI 2.0에 대한 IoT 확장
-[Azure CLI 2.0에 대한 IoT 확장](https://github.com/Azure/azure-iot-cli-extension)은 플랫폼 간 명령줄 도구입니다. 이 도구를 통해 [ID 레지스트리](#identity-registry)에서 장치를 관리하고 장치에서 메시지 및 파일을 보내고 받으며 IoT Hub 작업을 모니터링할 수 있습니다.
+## <a name="the-iot-extension-for-azure-cli"></a>Azure CLI에 대한 IoT 확장. 
+[Azure CLI에 대한 IoT 확장](https://github.com/Azure/azure-iot-cli-extension)은 플랫폼 간 명령줄 도구입니다. 이 도구를 통해 [ID 레지스트리](#identity-registry)에서 장치를 관리하고 장치에서 메시지 및 파일을 보내고 받으며 IoT Hub 작업을 모니터링할 수 있습니다.
 
 ## <a name="job"></a>작업
 솔루션 백 엔드에서는 IoT Hub에 등록된 장치 집합에서의 활동을 예약 및 추적하는 [작업](iot-hub-devguide-jobs.md)을 사용할 수 있습니다. 활동에는 장치 쌍 [desired 속성](#desired-properties) 업데이트, 장치 쌍 [태그](#tags) 업데이트 및 [직접 메서드](#direct-method) 호출이 포함됩니다. [IoT Hub](#iot-hub)는 [ID 레지스트리](#identity-registry)에서 [가져오고 내보내는](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) 작업도 사용합니다.
@@ -195,13 +195,13 @@ Azure IoT 솔루션 가속기는 여러 Azure 서비스를 솔루션으로 함�
 [MQTT](http://mqtt.org/)는 [IoT Hub](#iot-hub)에서 장치와 통신을 위해 지원하는 메시징 프로토콜 중 하나입니다. IoT Hub에서 지원하는 메시징 프로토콜에 대한 자세한 내용은 [IoT Hub를 통해 메시지 보내고 받기](iot-hub-devguide-messaging.md)를 참조하세요.
 
 ## <a name="operations-monitoring"></a>작업 모니터링
-IoT Hub [작업 모니터링](iot-hub-operations-monitoring.md)을 사용하면 실시간으로 IoT Hub에 대한 작업의 상태를 모니터링할 수 있습니다. [IoT Hub](#iot-hub)는 몇 가지 작업 범주에 걸쳐 이벤트를 추적합니다. 하나 이상의 범주에서 IoT Hub의 끝점으로 처리할 이벤트를 보내도록 선택할 수 있습니다. 데이터에 오류가 있는지 모니터링하거나 데이터 패턴을 기반으로 좀 더 복잡한 처리를 설정할 수 있습니다.
+IoT Hub [작업 모니터링](iot-hub-operations-monitoring.md)을 사용하면 실시간으로 IoT Hub에 대한 작업의 상태를 모니터링할 수 있습니다. [IoT Hub](#iot-hub)는 몇 가지 작업 범주에 걸쳐 이벤트를 추적합니다. 하나 이상의 범주에서 IoT Hub의 엔드포인트로 처리할 이벤트를 보내도록 선택할 수 있습니다. 데이터에 오류가 있는지 모니터링하거나 데이터 패턴을 기반으로 좀 더 복잡한 처리를 설정할 수 있습니다.
 
 ## <a name="physical-device"></a>물리적 장치
 물리적 장치는 Raspberry Pi처럼 IoT Hub에 연결되는 실제 장치입니다. 편의를 위해 많은 IoT Hub 자습서에서 [시뮬레이션된 장치](#simulated-device)를 사용하여 로컬 컴퓨터에서 샘플을 실행할 수 있도록 합니다.
 
 ## <a name="primary-and-secondary-keys"></a>기본 및 보조 키
-IoT Hub에서 장치 지향 또는 서비스 지향 끝점에 연결하는 경우 [연결 문자열](#connection-string)에는 액세스 권한을 부여하는 키가 포함됩니다. 장치를 [ID 레지스트리](#identity-registry)에 추가하거나 허브에 [공유 액세스 정책](#shared-access-policy)을 추가하는 경우 서비스에서 기본 및 보조 키를 생성합니다. 두 가지 키를 통해 키를 업데이트할 때 IoT Hub에 대한 액세스 권한을 잃지 않고도 한 키에서 다른 키로 롤오버가 가능합니다.
+IoT Hub에서 장치 지향 또는 서비스 지향 엔드포인트에 연결하는 경우 [연결 문자열](#connection-string)에는 액세스 권한을 부여하는 키가 포함됩니다. 장치를 [ID 레지스트리](#identity-registry)에 추가하거나 허브에 [공유 액세스 정책](#shared-access-policy)을 추가하는 경우 서비스에서 기본 및 보조 키를 생성합니다. 두 가지 키를 통해 키를 업데이트할 때 IoT Hub에 대한 액세스 권한을 잃지 않고도 한 키에서 다른 키로 롤오버가 가능합니다.
 
 ## <a name="protocol-gateway"></a>프로토콜 게이트웨이
 일반적으로 프로토콜 게이트웨이는 클라우드에 배포되며 [IoT Hub](#iot-hub)에 연결되는 장치에 대해 프로토콜 번역 서비스를 제공합니다. 자세한 내용은 [Azure IoT Hub란?](about-iot-hub.md)을 참조하세요.
@@ -222,7 +222,7 @@ IoT Hub에서 장치 지향 또는 서비스 지향 끝점에 연결하는 경�
 클라우드 서비스에 연결할 때는 재시도 정책을 사용하여 [일시적인 오류](https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx)를 처리합니다.
 
 ## <a name="routing-rules"></a>라우팅 규칙
-IoT Hub에서 [기본 제공 끝점](#built-in-endpoints) 또는 [사용자 지정 끝점](#custom-endpoints)으로 장치-클라우드 메시지를 라우팅하여 솔루션 백 엔드에서 처리하도록 [라우팅 규칙](iot-hub-devguide-messages-read-custom.md)을 구성합니다.
+IoT Hub에서 [기본 제공 엔드포인트](#built-in-endpoints) 또는 [사용자 지정 엔드포인트](#custom-endpoints)로 장치-클라우드 메시지를 라우팅하여 솔루션 백 엔드에서 처리하도록 [라우팅 규칙](iot-hub-devguide-messages-read-custom.md)을 구성합니다.
 
 ## <a name="sasl-plain"></a>SASL PLAIN
 SASL PLAIN은 [AMQP](#advanced-message-queue-protocol) 프로토콜에서 보안 토큰을 전송하는 데 사용하는 프로토콜입니다.
@@ -231,7 +231,7 @@ SASL PLAIN은 [AMQP](#advanced-message-queue-protocol) 프로토콜에서 보안
 솔루션 백 엔드에서 [서비스 REST API](https://docs.microsoft.com/rest/api/iothub/service)를 사용하여 장치를 관리할 수 있습니다. API를 사용하면 [장치 쌍](#device-twin) 속성을 검색 및 업데이트하고 [직접 메서드](#direct-method)를 호출하고 [작업](#job)을 예약할 수 있습니다. 일반적으로 IoT Hub 자습서에 나와 있는 것보다 상위 수준의 [서비스 SDK](#azure-iot-service-sdks)를 사용해야 합니다.
 
 ## <a name="shared-access-signature"></a>공유 액세스 서명
-공유 액세스 서명(SAS)은 SHA-256 보안 해시 또는 URI에 따른 인증 메커니즘입니다. SAS 인증에는 _공유 액세스 정책_과 _공유 액세스 서명_(토큰이라고 부름)의 두 구성 요소가 있습니다. 장치는 SAS를 사용하여 IoT Hub를 인증합니다. [백 엔드 앱](#back-end-app)도 SAS를 사용하여 IoT Hub에서 서비스 지향 끝점을 인증합니다. 일반적으로 앱이 IoT Hub와 연결을 설정하기 위해 사용하는 [연결 문자열](#connection-string)에 SAS 토큰을 포함합니다.
+공유 액세스 서명(SAS)은 SHA-256 보안 해시 또는 URI에 따른 인증 메커니즘입니다. SAS 인증에는 _공유 액세스 정책_과 _공유 액세스 서명_(토큰이라고 부름)의 두 구성 요소가 있습니다. 장치는 SAS를 사용하여 IoT Hub를 인증합니다. [백 엔드 앱](#back-end-app)도 SAS를 사용하여 IoT Hub에서 서비스 지향 엔드포인트를 인증합니다. 일반적으로 앱이 IoT Hub와 연결을 설정하기 위해 사용하는 [연결 문자열](#connection-string)에 SAS 토큰을 포함합니다.
 
 ## <a name="shared-access-policy"></a>공유 액세스 정책
 공유 액세스 정책은 해당 정책과 관련된 유효한 [기본 또는 보조 키](#primary-and-secondary-keys)를 보유한 모든 사람에게 부여할 사용 권한을 정의합니다. [포털](#azure-portal)에서 허브에 대한 공유 액세스 정책 및 키를 관리할 수 있습니다.

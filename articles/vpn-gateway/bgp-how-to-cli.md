@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: cherylmc
-ms.openlocfilehash: 98cd606ce930624ec5c591ffd8f13e0feae1a6c4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 657cad69fff66aaaeba9819569442981d229f644
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38688560"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971130"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>CLI를 사용하여 Azure VPN Gateway에서 BGP를 구성하는 방법
 
@@ -55,7 +55,7 @@ BGP의 이점에 대한 자세한 내용 및 BGP 사용의 기술 요구 사항�
 
 ### <a name="before-you-begin"></a>시작하기 전에
 
-최신 버전의 CLI 명령(2.0 이상)을 설치합니다. CLI 명령 설치에 대한 자세한 내용은 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli) 및 [Azure CLI 2.0 시작](/cli/azure/get-started-with-azure-cli)을 참조하세요.
+최신 버전의 CLI 명령(2.0 이상)을 설치합니다. CLI 설치 명령에 대한 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli) 및 [Azure CLI 시작](/cli/azure/get-started-with-azure-cli)을 참조하세요.
 
 ### <a name="step-1-create-and-configure-testvnet1"></a>1단계: TestVNet1 만들기 및 구성
 
@@ -182,7 +182,7 @@ az network vnet-gateway show -n VNet1GW -g TestBGPRG1
   "id": "/subscriptions/<subscription ID>/resourceGroups/TestBGPRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW",
 ```
 
-연결을 만들 때 쉽게 붙여 넣을 수 있도록 `"id":` 다음에 나오는 값을 텍스트 편집기(예: 메모장)에 복사합니다. 
+연결을 만들 때 쉽게 붙여넣을 수 있도록 `"id":` 다음에 나오는 값을 텍스트 편집기(예: 메모장)에 복사합니다. 
 
 ```
 "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW"

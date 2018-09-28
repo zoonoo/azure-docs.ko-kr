@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c29d6cb0da2e394912a2584b0d3c3cedf13f054c
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: f03e124aab27292ee86fcd8c28ecebb0ba9cbdcf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304074"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999514"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>관리 솔루션(미리 보기)에 Log Analytics에서 저장한 검색 및 경고 추가
 
@@ -86,11 +86,11 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 > [!NOTE]
 > JSON으로 해석될 수 있는 문자를 포함하고 있는 경우 쿼리에 이스케이프 문자를 사용해야 합니다.  예를 들어 쿼리가 **Type: AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write"** 이면 솔루션 파일에 **Type: AzureActivity OperationName:\"Microsoft.Compute/virtualMachines/write\"** 라고 써야 합니다.
 
-## <a name="alerts"></a>Alerts
+## <a name="alerts"></a>경고
 [Azure 로그 경고](../monitoring-and-diagnostics/monitor-alerts-unified-log.md)는 일정한 간격으로 지정된 로그 쿼리를 실행하는 Azure Alerts에 의해 생성됩니다.  쿼리 결과가 지정된 기준과 일치하면 경고 레코드가 생성되고 하나 이상의 작업이 [작업 그룹](../monitoring-and-diagnostics/monitoring-action-groups.md)을 사용하여 실행됩니다.  
 
 > [!NOTE]
-> 2018년 5월 14일부터 작업 영역의 모든 경고는 Azure로 자동 확장됩니다. 사용자는 2018년 5월 14일 전에 Azure로 경고 확장을 자발적으로 시작할 수 있습니다. 자세한 내용은 [OMS에서 Azure로 경고 확장](../monitoring-and-diagnostics/monitoring-alerts-extend.md)을 참조하세요. Azure로 경고를 확장하는 사용자의 경우 작업은 이제 Azure 작업 그룹에서 제어됩니다. 작업 영역 및 해당 경고가 Azure로 확장되는 경우 [작업 그룹 - Azure Resource Manager 템플릿](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md)을 사용하여 작업을 검색하거나 추가할 수 있습니다.
+> 2018년 5월 14일을 시작으로 Log Analytics 작업 영역의 Azure 퍼블릭 클라우드 인스턴스에서 모든 경고가 Azure로 자동으로 확장됩니다. 사용자는 2018년 5월 14일 전에 Azure로 경고 확장을 자발적으로 시작할 수 있습니다. 자세한 내용은 [OMS에서 Azure로 경고 확장](../monitoring-and-diagnostics/monitoring-alerts-extend.md)을 참조하세요. Azure로 경고를 확장하는 사용자의 경우 작업은 이제 Azure 작업 그룹에서 제어됩니다. 작업 영역 및 해당 경고가 Azure로 확장되는 경우 [작업 그룹 - Azure Resource Manager 템플릿](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md)을 사용하여 작업을 검색하거나 추가할 수 있습니다.
 
 관리 솔루션의 경고 규칙은 다음 세 가지 리소스로 구성됩니다.
 
@@ -130,9 +130,9 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| 사용       | 예 | 경고를 만들 때 사용 여부를 지정합니다. |
-| interval      | 예 | 쿼리가 실행되는 빈도(분)입니다. |
-| queryTimeSpan | 예 | 결과를 평가하는 시간의 길이(분)입니다. |
+| 사용       | yes | 경고를 만들 때 사용 여부를 지정합니다. |
+| interval      | yes | 쿼리가 실행되는 빈도(분)입니다. |
+| queryTimeSpan | yes | 결과를 평가하는 시간의 길이(분)입니다. |
 
 일정 전에 저장된 검색이 생성되도록 일정 리소스는 저장된 검색에 따라 결정됩니다.
 
@@ -146,7 +146,7 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 [작업 그룹] 리소스 또는 작업 리소스를 사용하여 작업을 정의할 수 있습니다.
 
 > [!NOTE]
-> 2018년 5월 14일부터 작업 영역의 모든 경고는 Azure로 자동 확장됩니다. 사용자는 2018년 5월 14일 전에 Azure로 경고 확장을 자발적으로 시작할 수 있습니다. 자세한 내용은 [OMS에서 Azure로 경고 확장](../monitoring-and-diagnostics/monitoring-alerts-extend.md)을 참조하세요. Azure로 경고를 확장하는 사용자의 경우 작업은 이제 Azure 작업 그룹에서 제어됩니다. 작업 영역 및 해당 경고가 Azure로 확장되는 경우 [작업 그룹 - Azure Resource Manager 템플릿](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md)을 사용하여 작업을 검색하거나 추가할 수 있습니다.
+> 2018년 5월 14일을 시작으로 Log Analytics 작업 영역의 Azure 퍼블릭 클라우드 인스턴스에서 모든 경고가 Azure로 자동으로 확장됩니다. 사용자는 2018년 5월 14일 전에 Azure로 경고 확장을 자발적으로 시작할 수 있습니다. 자세한 내용은 [OMS에서 Azure로 경고 확장](../monitoring-and-diagnostics/monitoring-alerts-extend.md)을 참조하세요. Azure로 경고를 확장하는 사용자의 경우 작업은 이제 Azure 작업 그룹에서 제어됩니다. 작업 영역 및 해당 경고가 Azure로 확장되는 경우 [작업 그룹 - Azure Resource Manager 템플릿](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md)을 사용하여 작업을 검색하거나 추가할 수 있습니다.
 
 
 **Type** 속성에서 지정하는 두 가지 형식의 작업 리소스가 있습니다.  일정에는 경고 규칙 세부 정보 그리고 경고가 생성될 때 수행할 작업을 정의하는 **경고** 작업 하나가 필요합니다. 작업 리소스의 형식은 `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`입니다.  
@@ -190,10 +190,10 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| type | 예 | 작업의 유형입니다.  경고 작업의 **경고**가 됩니다. |
-| Name | 예 | 경고에 대한 표시 이름입니다.  경고 규칙에 대한 콘솔에 표시되는 이름입니다. |
-| 설명 | 아니오 | 경고에 대한 선택적 설명입니다. |
-| 심각도 | 예 | 다음 값의 경고 레코드의 심각도입니다.<br><br> **중요**<br>**경고**<br>**정보 제공**
+| type | yes | 작업의 유형입니다.  경고 작업의 **경고**가 됩니다. |
+| 이름 | yes | 경고에 대한 표시 이름입니다.  경고 규칙에 대한 콘솔에 표시되는 이름입니다. |
+| 설명 | 아니요 | 경고에 대한 선택적 설명입니다. |
+| 심각도 | yes | 다음 값의 경고 레코드의 심각도입니다.<br><br> **중요**<br>**경고**<br>**정보 제공**
 
 
 #### <a name="threshold"></a>임계값
@@ -201,8 +201,8 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| 연산자 | 예 | 다음 값의 비교 연산자입니다.<br><br>**gt = 보다 큼<br>lt = 보다 작음** |
-| 값 | 예 | 결과를 비교하는 값입니다. |
+| 연산자 | yes | 다음 값의 비교 연산자입니다.<br><br>**gt = 보다 큼<br>lt = 보다 작음** |
+| 값 | yes | 결과를 비교하는 값입니다. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 이 섹션은 선택 사항입니다.  미터법 경고에는 이 섹션을 포함해야 합니다.
@@ -212,9 +212,9 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| TriggerCondition | 예 | 임계값이 총 위반 수인지 아니면 연속 위반인지 다음 값을 사용하여 지정합니다.<br><br>**총<br>연속** |
-| 연산자 | 예 | 다음 값의 비교 연산자입니다.<br><br>**gt = 보다 큼<br>lt = 보다 작음** |
-| 값 | 예 | 경고를 트리거하기 위해 조건을 충족해야 하는 시간입니다. |
+| TriggerCondition | yes | 임계값이 총 위반 수인지 아니면 연속 위반인지 다음 값을 사용하여 지정합니다.<br><br>**총<br>연속** |
+| 연산자 | yes | 다음 값의 비교 연산자입니다.<br><br>**gt = 보다 큼<br>lt = 보다 작음** |
+| 값 | yes | 경고를 트리거하기 위해 조건을 충족해야 하는 시간입니다. |
 
 
 #### <a name="throttling"></a>제한
@@ -232,9 +232,9 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| AzNsNotification | 예 | 경고 조건이 충족되면 필요한 작업을 수행하도록 경고와 연결되는 Azure 작업 그룹의 리소스 ID. |
-| CustomEmailSubject | 아니오 | 연결된 작업 그룹에서 지정된 모든 주소로 전송되는 메일의 사용자 지정 제목 줄. |
-| CustomWebhookPayload | 아니오 | 연결된 작업 그룹에 정의된 모든 웹후크 엔드포인트로 보낼 사용자 지정된 페이로드. 형식은 웹후크에서 기대하는 내용에 따라 달라지며 유효한 직렬화 JSON이어야 합니다. |
+| AzNsNotification | yes | 경고 조건이 충족되면 필요한 작업을 수행하도록 경고와 연결되는 Azure 작업 그룹의 리소스 ID. |
+| CustomEmailSubject | 아니요 | 연결된 작업 그룹에서 지정된 모든 주소로 전송되는 메일의 사용자 지정 제목 줄. |
+| CustomWebhookPayload | 아니요 | 연결된 작업 그룹에 정의된 모든 웹후크 엔드포인트로 보낼 사용자 지정된 페이로드. 형식은 웹후크에서 기대하는 내용에 따라 달라지며 유효한 직렬화 JSON이어야 합니다. |
 
 
 #### <a name="actions-for-oms-legacy"></a>OMS에 대한 작업(레거시)
@@ -242,16 +242,16 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
 모든 일정은 하나의 **경고** 작업을 갖게 됩니다.  이 경고 작업은 경고의 세부 정보를 정의하고 필요에 따라 알림 및 재구성 작업을 정의합니다.  알림은 하나 이상의 주소에 전자 메일을 보냅니다.  재구성은 Azure Automation에서 runbook을 시작하여 검색된 문제 해결을 시도합니다.
 
 > [!NOTE]
-> 2018년 5월 14일부터 작업 영역의 모든 경고는 Azure로 자동 확장됩니다. 사용자는 2018년 5월 14일 전에 Azure로 경고 확장을 자발적으로 시작할 수 있습니다. 자세한 내용은 [OMS에서 Azure로 경고 확장](../monitoring-and-diagnostics/monitoring-alerts-extend.md)을 참조하세요. Azure로 경고를 확장하는 사용자의 경우 작업은 이제 Azure 작업 그룹에서 제어됩니다. 작업 영역 및 해당 경고가 Azure로 확장되는 경우 [작업 그룹 - Azure Resource Manager 템플릿](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md)을 사용하여 작업을 검색하거나 추가할 수 있습니다.
+> 2018년 5월 14일을 시작으로 Log Analytics 작업 영역의 Azure 퍼블릭 클라우드 인스턴스에서 모든 경고가 Azure로 자동으로 확장됩니다. 사용자는 2018년 5월 14일 전에 Azure로 경고 확장을 자발적으로 시작할 수 있습니다. 자세한 내용은 [OMS에서 Azure로 경고 확장](../monitoring-and-diagnostics/monitoring-alerts-extend.md)을 참조하세요. Azure로 경고를 확장하는 사용자의 경우 작업은 이제 Azure 작업 그룹에서 제어됩니다. 작업 영역 및 해당 경고가 Azure로 확장되는 경우 [작업 그룹 - Azure Resource Manager 템플릿](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md)을 사용하여 작업을 검색하거나 추가할 수 있습니다.
 
 ##### <a name="emailnotification"></a>EmailNotification
  이 섹션은 선택 사항입니다. 한 명 이상의 수신자에게 메일을 보내 경고하려면 이 섹션을 포함해야 합니다.
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| 받는 사람 | 예 | 다음 예제와 같이 경고가 생성되면 알림을 보낼 쉼표로 구분된 전자 메일 주소 목록입니다.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
-| 제목 | 예 | 메일의 제목 줄입니다. |
-| 첨부 파일 | 아니오 | 첨부 파일은 현재 지원되지 않습니다.  이 요소를 포함하는 경우 **없음**이어야 합니다. |
+| 받는 사람 | yes | 다음 예제와 같이 경고가 생성되면 알림을 보낼 쉼표로 구분된 전자 메일 주소 목록입니다.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
+| 제목 | yes | 메일의 제목 줄입니다. |
+| 첨부 파일 | 아니요 | 첨부 파일은 현재 지원되지 않습니다.  이 요소를 포함하는 경우 **없음**이어야 합니다. |
 
 
 ##### <a name="remediation"></a>재구성
@@ -259,9 +259,9 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| RunbookName | 예 | 시작할 runbook의 이름입니다. |
-| WebhookUri | 예 | runbook의 웹후크 Uri입니다. |
-| Expiry | 아니오 | 재구성이 만료되는 날짜 및 시간입니다. |
+| RunbookName | yes | 시작할 runbook의 이름입니다. |
+| WebhookUri | yes | runbook의 웹후크 Uri입니다. |
+| Expiry | 아니요 | 재구성이 만료되는 날짜 및 시간입니다. |
 
 ##### <a name="webhook-actions"></a>웹후크 작업
 
@@ -289,10 +289,10 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| 형식 | 예 | 작업의 유형입니다.  웹후크 작업의 **웹후크**가 됩니다. |
-| 이름 | 예 | 작업의 표시 이름입니다.  콘솔에 표시되지 않습니다. |
-| wehookUri | 예 | 웹후크의 Uri입니다. |
-| customPayload | 아니오 | 웹후크에 보낼 사용자 지정 페이로드입니다. 형식은 예상하는 웹후크에 따라 달라집니다. |
+| 형식 | yes | 작업의 유형입니다.  웹후크 작업의 **웹후크**가 됩니다. |
+| 이름 | yes | 작업의 표시 이름입니다.  콘솔에 표시되지 않습니다. |
+| wehookUri | yes | 웹후크의 Uri입니다. |
+| customPayload | 아니요 | 웹후크에 보낼 사용자 지정 페이로드입니다. 형식은 예상하는 웹후크에 따라 달라집니다. |
 
 
 ## <a name="sample"></a>샘플

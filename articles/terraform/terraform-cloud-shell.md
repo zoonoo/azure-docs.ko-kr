@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/19/2017
-ms.openlocfilehash: 107a6dd82465ce1455a3c2922c8f9cba6b73dd64
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: a5f44edf201ce9a2e2c0da6b5da9031958a11fdc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667965"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959311"
 ---
 # <a name="terraform-cloud-shell-development"></a>Terraform Cloud Shell 개발 
 
@@ -45,7 +45,7 @@ Cloud Shell은 임의의 `terraform` CLI 명령을 사용할 때 환경 변수�
 
 파일 및 셸 상태는 Cloud Shell 세션 간에 Azure Storage에 유지됩니다. [Azure Storage 탐색기](/azure/vs-azure-tools-storage-manage-with-storage-explorer)를 사용하여 로컬 컴퓨터에서 Cloud Shell에 파일을 복사하고 업로드합니다.
 
-Azure CLI 2.0은 Cloud Shell에서 사용할 수 있으며 `terraform apply` 또는 `terraform destroy`가 완료된 후 구성을 테스트하고 작업을 확인하는 데 유용한 도구입니다.
+Azure CLI는 Cloud Shell에서 사용할 수 있으며 `terraform apply` 또는 `terraform destroy`가 완료된 후 구성을 테스트하고 작업을 확인하는 데 유용한 도구입니다.
 
 
 ## <a name="next-steps"></a>다음 단계

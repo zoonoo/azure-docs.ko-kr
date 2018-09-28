@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 1.0을 사용하여 전체 Linux 환경 만들기 | Microsoft Docs
-description: Azure CLI 1.0을 사용하여 저장소, Linux VM, 가상 네트워크 및 서브넷, 부하 분산 장치, NIC, 공용 IP, 네트워크 보안 그룹을 모두 처음부터 새로 만듭니다.
+title: Azure 클래식 CLI를 사용하여 전체 Linux 환경 만들기 | Microsoft Docs
+description: Azure 클래식 CLI를 사용하여 저장소, Linux VM, 가상 네트워크 및 서브넷, 부하 분산 장치, NIC, 공용 IP, 네트워크 보안 그룹을 모두 처음부터 새로 만듭니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 1fb5542af77fbb584effca24a74b9e233359cf0e
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 560d1c55b159ed817c0b080171862c28ebe73f3e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932347"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952803"
 ---
-# <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 전체 Linux 환경 만들기
+# <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 전체 Linux 환경 만들기
 이 문서에서는 개발 및 간단한 계산에 유용한 부하 분산 장치와 한 쌍의 VM을 사용하여 간단한 네트워크를 빌드해 보겠습니다. 인터넷 어디에서나 안전하게 실행되는 두 개의 Linux VM에 연결할 수 있을 때까지 프로세스를 명령별로 진행합니다. 그 후에는 좀 더 복잡한 네트워크 및 환경으로 넘어갈 수 있습니다.
 
 그 과정에서 Resource Manager 배포 모델이 제공하는 종속성 계층 구조와 강력한 기능을 이해할 수 있을 것입니다. 시스템이 빌드되는 방식을 이해하면 [Azure Resource Manager 템플릿](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 사용하여 시스템을 훨씬 더 빠르게 다시 빌드할 수 있습니다. 또한 환경의 여러 부분이 서로 어떻게 연결되는지 파악하고 나면 이러한 환경 부분을 자동화하는 템플릿을 더 쉽게 만들 수 있습니다.
@@ -33,20 +33,20 @@ ms.locfileid: "37932347"
 * 포트 80에서 부하 분산 규칙이 있는 부하 분산 장치
 * 원치 않는 트래픽으로부터 VM을 보호하기 위한 NSG(네트워크 보안 그룹) 규칙
 
-이러한 사용자 지정 환경을 만들려면 Resource Manager 모드(`azure config mode arm`)의 최신 [Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)이 필요합니다. JSON 구문 분석 도구도 필요합니다. 이 예제에서는 [jq](https://stedolan.github.io/jq/)를 사용합니다.
+이러한 사용자 지정 환경을 만들려면 Resource Manager 모드(`azure config mode arm`)의 최신 [Azure 클래식 CLI](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)가 필요합니다. JSON 구문 분석 도구도 필요합니다. 이 예제에서는 [jq](https://stedolan.github.io/jq/)를 사용합니다.
 
 
 ## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전
 다음 CLI 버전 중 하나를 사용하여 태스크를 완료할 수 있습니다.
 
-- [Azure CLI 1.0](#quick-commands) - 클래식 및 리소스 관리 배포 모델용 CLI(이 문서)
-- [Azure CLI 2.0](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 리소스 관리 배포 모델용 차세대 CLI
+- [Azure 클래식 CLI](#quick-commands) - 클래식 및 리소스 관리 배포 모델용 CLI(이 문서)
+- [Azure CLI](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - 리소스 관리 배포 모델용 차세대 CLI
 
 
 ## <a name="quick-commands"></a>빠른 명령
 작업을 빠르게 완료해야 하는 경우 다음 섹션에서 Azure에 VM을 업로드하는 기본 명령에 대해 자세히 알아보세요. 각 단계에 대한 보다 자세한 내용 및 상황 설명은 [여기](#detailed-walkthrough)서부터 문서 끝까지 참조하세요.
 
-[Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 로그인하여 Resource Manager 모드를 사용하는지 확인합니다.
+[Azure 클래식 CLI](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 로그인하여 리소스 관리자 모드를 사용하는지 확인합니다.
 
 ```azurecli
 azure config mode arm
@@ -270,7 +270,7 @@ azure group export myResourceGroup
 ## <a name="detailed-walkthrough"></a>자세한 연습
 다음에 나오는 자세한 단계는 작업 환경을 빌드할 때 각 명령이 수행하는 작업을 설명합니다. 이러한 개념은 개발 또는 프로덕션에 맞는 고유한 사용자 지정 환경을 빌드할 때 도움이 됩니다.
 
-[Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 로그인하여 Resource Manager 모드를 사용하는지 확인합니다.
+[Azure 클래식 CLI](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 로그인하여 리소스 관리자 모드를 사용하는지 확인합니다.
 
 ```azurecli
 azure config mode arm
@@ -285,7 +285,7 @@ Azure 리소스 그룹은 리소스 배포를 논리적으로 관리할 수 있�
 azure group create --name myResourceGroup --location westeurope
 ```
 
-출력
+출력:
 
 ```azurecli                        
 info:    Executing command group create
@@ -314,7 +314,7 @@ azure storage account create \
   mystorageaccount
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command storage account create
@@ -328,7 +328,7 @@ info:    storage account create command OK
 azure group show myResourceGroup --json | jq '.'
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -372,7 +372,7 @@ export AZURE_STORAGE_CONNECTION_STRING="$(azure storage account connectionstring
 azure storage container list
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command storage container list
@@ -391,7 +391,7 @@ azure network vnet create --resource-group myResourceGroup --location westeurope
   --name myVnet --address-prefixes 192.168.0.0/16
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network vnet create
@@ -414,7 +414,7 @@ json 옵션 `azure group show` 및 `jq`를 사용하여 리소스를 빌드하�
 azure group show myResourceGroup --json | jq '.'
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -460,7 +460,7 @@ azure network vnet subnet create --resource-group myResourceGroup \
   --vnet-name myVnet --name mySubnet --address-prefix 192.168.1.0/24
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network vnet subnet create
@@ -482,7 +482,7 @@ info:    network vnet subnet create command OK
 azure network vnet show myResourceGroup myVnet --json | jq '.'
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -521,7 +521,7 @@ azure network public-ip create --resource-group myResourceGroup \
   --location westeurope --name myPublicIP --domain-name-label mypublicdns
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network public-ip create
@@ -546,7 +546,7 @@ info:    network public-ip create command OK
 azure group show myResourceGroup --json | jq '.'
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -598,7 +598,7 @@ azure group show myResourceGroup --json | jq '.'
 azure network public-ip show myResourceGroup myPublicIP --json | jq '.'
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -625,7 +625,7 @@ azure network lb create --resource-group myResourceGroup --location westeurope \
   --name myLoadBalancer
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network lb create
@@ -649,7 +649,7 @@ azure network lb frontend-ip create --resource-group myResourceGroup \
   --name myFrontEndPool
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network lb frontend-ip create
@@ -672,7 +672,7 @@ azure network lb address-pool create --resource-group myResourceGroup \
   --lb-name myLoadBalancer --name myBackEndPool
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network lb address-pool create
@@ -689,7 +689,7 @@ info:    network lb address-pool create command OK
 azure network lb show myResourceGroup myLoadBalancer --json | jq '.'
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -737,7 +737,7 @@ azure network lb inbound-nat-rule create --resource-group myResourceGroup \
   --protocol tcp --frontend-port 4222 --backend-port 22
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network lb inbound-nat-rule create
@@ -774,7 +774,7 @@ azure network lb rule create --resource-group myResourceGroup \
   --backend-address-pool-name myBackEndPool
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network lb rule create
@@ -805,7 +805,7 @@ azure network lb probe create --resource-group myResourceGroup \
   --interval 15 --count 4
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network lb probe create
@@ -839,7 +839,7 @@ azure network lb show --resource-group myResourceGroup \
   --name myLoadBalancer --json | jq '.'
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -969,7 +969,7 @@ azure network nic create --resource-group myResourceGroup --location westeurope 
   --lb-inbound-nat-rule-ids /subscriptions/########-####-####-####-############/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/inboundNatRules/myLoadBalancerRuleSSH1
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command network nic create
@@ -1002,7 +1002,7 @@ info:    network nic create command OK
 azure network nic show myResourceGroup myNic1 --json | jq '.'
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -1080,7 +1080,7 @@ azure network nsg rule create --resource-group myResourceGroup \
 ```
 
 > [!NOTE]
-> 인바운드 규칙은 인바운드 네트워크 연결에 대한 필터입니다. 이 예제에서는 NSG를 VM 가상 NIC에 바인딩합니다. 이 경우 포트 22에 대한 모든 요청이 VM의 NIC로 통과합니다. 이것은 끝점이 아닌 네트워크 연결에 대한 인바운드 규칙으로, 클래식 배포와 관련이 있습니다. 포트를 열려면 `--source-port-range`를 '\*'(기본값)로 설정하여 **모든** 요청 포트의 인바운드 요청을 수락해야 합니다. 포트는 일반적으로 동적입니다.
+> 인바운드 규칙은 인바운드 네트워크 연결에 대한 필터입니다. 이 예제에서는 NSG를 VM 가상 NIC에 바인딩합니다. 이 경우 포트 22에 대한 모든 요청이 VM의 NIC로 통과합니다. 이것은 엔드포인트가 아닌 네트워크 연결에 대한 인바운드 규칙으로, 클래식 배포와 관련이 있습니다. 포트를 열려면 `--source-port-range`를 '\*'(기본값)로 설정하여 **모든** 요청 포트의 인바운드 요청을 수락해야 합니다. 포트는 일반적으로 동적입니다.
 >
 >
 
@@ -1141,7 +1141,7 @@ azure vm create \
   --admin-username azureuser
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command vm create
@@ -1166,7 +1166,7 @@ info:    vm create command OK
 ssh ops@mypublicdns.westeurope.cloudapp.azure.com -p 4222
 ```
 
-출력
+출력:
 
 ```bash
 The authenticity of host '[mypublicdns.westeurope.cloudapp.azure.com]:4222 ([xx.xx.xx.xx]:4222)' can't be established.
@@ -1212,7 +1212,7 @@ azure vm create \
 azure vm show --resource-group myResourceGroup --name myVM1
 ```
 
-출력
+출력:
 
 ```azurecli
 info:    Executing command vm show

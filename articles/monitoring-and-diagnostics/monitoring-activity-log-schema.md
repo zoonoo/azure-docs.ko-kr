@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
 ms.component: activitylog
-ms.openlocfilehash: 9c1f4699f067ece3108813d28ff834c68f44316d
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: d267ffd5085c27c60e9eb229e2d9026fa83ef848
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003834"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998237"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 활동 로그 이벤트 스키마
 **Azure 활동 로그**는 Azure에서 발생한 모든 구독 수준 이벤트에 대한 정보를 제공하는 로그입니다. 이 문서에서는 데이터 범주별 이벤트 스키마에 대해 설명합니다. 데이터의 스키마는 포털, PowerShell, CLI 또는 REST API를 통해 직접 데이터를 읽는지, 아니면 [로그 프로필을 사용하여 데이터를 저장소 또는 Event Hubs로 스트리밍](./monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)하는지에 따라 다릅니다. 아래 예제는 포털, PowerShell, CLI 및 REST API를 통해 사용할 수 있는 스키마를 보여 줍니다. 이러한 속성과 [Azure 진단 로그 스키마](./monitoring-diagnostic-logs-schema.md)의 매핑은 문서의 끝에 제공되어 있습니다.
@@ -193,6 +193,95 @@ ms.locfileid: "40003834"
 ```
 이 속성의 값에 대한 설명서를 보려면 [서비스 상태 알림](./monitoring-service-notifications.md) 문서를 참조하세요.
 
+## <a name="resource-health"></a>리소스 상태
+이 범주에는 Azure 리소스에 발생한 모든 리소스 상태 이벤트의 레코드가 포함됩니다. 이 범주에 표시되는 이벤트 유형의 예는 “가상 머신 상태가 사용 불가능으로 변경됨”입니다. 리소스 상태 이벤트는 사용 가능, 사용 불가능, 저하됨 및 알 수 없음의 네 가지 상태로 표시될 수 있습니다. 또한 리소스 상태 이벤트는 플랫폼 시작 또는 사용자 시작으로 분류될 수 있습니다.
+
+### <a name="sample-event"></a>샘플 이벤트
+
+```json
+{
+    "channels": "Admin, Operation",
+    "correlationId": "28f1bfae-56d3-7urb-bff4-194d261248e9",
+    "description": "",
+    "eventDataId": "a80024e1-883d-37ur-8b01-7591a1befccb",
+    "eventName": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "category": {
+        "value": "ResourceHealth",
+        "localizedValue": "Resource Health"
+    },
+    "eventTimestamp": "2018-09-04T15:33:43.65Z",
+    "id": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
+    "level": "Critical",
+    "operationId": "",
+    "operationName": {
+        "value": "Microsoft.Resourcehealth/healthevent/Activated/action",
+        "localizedValue": "Health Event Activated"
+    },
+    "resourceGroupName": "<resource group>",
+    "resourceProviderName": {
+        "value": "Microsoft.Resourcehealth/healthevent/action",
+        "localizedValue": "Microsoft.Resourcehealth/healthevent/action"
+    },
+    "resourceType": {
+        "value": "Microsoft.Compute/virtualMachines",
+        "localizedValue": "Microsoft.Compute/virtualMachines"
+    },
+    "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
+    "status": {
+        "value": "Active",
+        "localizedValue": "Active"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2018-09-04T15:36:24.2240867Z",
+    "subscriptionId": "<subscription Id>",
+    "properties": {
+        "stage": "Active",
+        "title": "Virtual Machine health status changed to unavailable",
+        "details": "Virtual machine has experienced an unexpected event",
+        "healthStatus": "Unavailable",
+        "healthEventType": "Downtime",
+        "healthEventCause": "PlatformInitiated",
+        "healthEventCategory": "Unplanned"
+    },
+    "relatedEvents": []
+}
+```
+
+### <a name="property-descriptions"></a>속성 설명
+| 요소 이름 | 설명 |
+| --- | --- |
+| channels | 항상 "Admin, Operation"입니다. |
+| CorrelationId | 문자열 형식의 GUID입니다. |
+| description |경고 이벤트의 정적 텍스트 설명입니다. |
+| eventDataId |경고 이벤트의 고유 식별자입니다. |
+| 카테고리 | 항상 “ResourceHealth” |
+| eventTimestamp |이벤트에 해당하는 요청을 처리한 Azure 서비스에 의해 이벤트가 생성된 타임스탬프입니다. |
+| level |이벤트의 수준입니다. “Critical”, “Error”, “Warning”, “Informational” 및 “Verbose” 값 중 하나입니다. |
+| operationId |단일 작업에 해당하는 이벤트 간에 공유되는 GUID입니다. |
+| operationName |작업의 이름입니다. |
+| resourceGroupName |리소스를 포함하는 리소스 그룹의 이름 |
+| resourceProviderName |항상 “Microsoft.Resourcehealth/healthevent/action”. |
+| resourceType | 리소스 상태 이벤트에 영향을 받은 리소스 유형입니다. |
+| ResourceId | 영향을 받는 리소스의 리소스 ID 이름입니다. |
+| status |상태 이벤트의 상태를 설명하는 문자열입니다. 가능한 값은 활성, 해결됨, 진행 중, 업데이트됨입니다. |
+| subStatus | 경고의 경우 대개 null입니다. |
+| submissionTimestamp |이벤트를 쿼리할 수 있게 되는 타임스탬프입니다. |
+| subscriptionId |Azure 구독 ID입니다. |
+| properties |이벤트에 대한 세부 정보를 설명하는 `<Key, Value>` 쌍의 집합(즉, 사전)입니다.|
+| properties.title | 리소스의 상태를 설명하는 사용자에게 친숙한 문자열입니다. |
+| properties.details | 이벤트에 대한 자세한 내용을 설명하는 사용자에게 친숙한 문자열입니다. |
+| properties.currentHealthStatus | 리소스의 현재 상태. 값은 “사용 가능”, “사용 불가능”, “저하됨”, “알 수 없음” 중 하나입니다. |
+| properties.previousHealthStatus | 리소스의 이전 상태. 값은 “사용 가능”, “사용 불가능”, “저하됨”, “알 수 없음” 중 하나입니다. |
+| properties.type | 리소스 상태 이벤트의 유형에 대한 설명입니다. |
+| properties.cause | 리소스 상태 이벤트의 원인에 대한 설명입니다. "UserInitiated" 및 "PlatformInitiated" 중 하나입니다. |
+
+
 ## <a name="alert"></a>경고
 이 범주에는 모든 Azure 경고 활성화의 레코드가 포함됩니다. 이 범주에 표시되는 이벤트 유형의 예로는 "지난 5분 동안 myVM의 CPU 사용률이 80%를 초과했습니다." 등이 있습니다. 다수의 Azure 시스템에서 경고 개념이 사용됩니다. 일종의 규칙을 정의하여 조건이 해당 규칙과 일치하면 알림을 수신할 수 있습니다. 지원되는 Azure 경고 유형이 '활성화'되거나 알림 생성을 위한 조건이 충족될 때마다 활성화 레코드도 이 활동 로그 범주로 푸시됩니다.
 
@@ -306,7 +395,7 @@ ms.locfileid: "40003834"
 | properties.MetricName | 메트릭 경고 규칙의 평가에 사용되는 메트릭의 이름입니다. |
 | properties.MetricUnit | 메트릭 경고 규칙의 평가에 사용되는 메트릭의 메트릭 단위입니다. |
 
-## <a name="autoscale"></a>Autoscale
+## <a name="autoscale"></a>자동 크기 조정
 이 범주에는 구독에서 정의한 자동 크기 조정 설정을 기준으로 하는 자동 크기 조정 엔진 작업 관련 이벤트의 레코드가 포함됩니다. 이 범주에 표시되는 이벤트 유형의 예로는 "자동 크기 조정 강화 동작이 실패했습니다." 등이 있습니다 자동 크기 조정을 사용하면 자동 크기 조정 설정을 사용하여 시간 및/또는 로드(메트릭) 데이터를 기준으로 지원되는 리소스 종류의 인스턴스 수를 자동으로 규모 확장하거나 규모 감축할 수 있습니다. 강화 또는 규모 축소 조건이 충족되면 시작 이벤트와 성공 또는 실패 이벤트가 이 범주에 기록됩니다.
 
 ### <a name="sample-event"></a>샘플 이벤트

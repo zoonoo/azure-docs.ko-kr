@@ -2,32 +2,39 @@
 title: 가격 책정 및 대금 청구 - Azure Logic Apps | Microsoft Docs
 description: Azure Logic Apps의 가격 책정 및 대금 청구 방식 알아보기
 services: logic-apps
-author: kevinlam1
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: ''
-ms.devlang: ''
-ms.topic: article
-ms.date: 05/11/2018
+ms.suite: logic-apps
+author: kevinlam1
 ms.author: klam
-ms.openlocfilehash: e1702de42be8510412a6479b594a198a84d15ae2
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.reviewer: estfan, LADocs
+ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
+ms.topic: article
+ms.date: 09/24/2018
+ms.openlocfilehash: b75fba2ba0e9fa922b1252378e0bab326cada7d2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299259"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974309"
 ---
-# <a name="logic-apps-pricing-model"></a>Logic Apps 가격 책정 모델
+# <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps용 가격 책정 모델
 
 Azure Logic Apps를 사용하여 클라우드에 자동화된 확장 가능한 통합 워크플로를 만들고 실행할 수 있습니다. 다음은 Logic Apps의 청구 및 가격 책정 방식에 대한 세부 정보입니다. 
 
+<a name="consumption-pricing"></a>
+
 ## <a name="consumption-pricing-model"></a>소비 가격 책정 모델
 
-새로 만든 논리 앱을 사용하면 사용한 만큼에 대해서만 비용을 지불합니다. 새 논리 앱은 소비 계획 및 가격 책정 모델을 사용합니다. 즉, 논리 앱 인스턴스에 의해 수행되는 모든 작업 실행이 계량됩니다. 논리 앱 정의의 모든 단계는 작업이며 여기에는 트리거, 제어 흐름 단계, 기본 제공 작업에 대한 호출 및 커넥터에 대한 호출이 포함됩니다. 자세한 내용은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)을 참조하세요.
+공용(“전역”) Logic Apps Service를 사용하여 만드는 새 논리 앱의 경우에는 사용량만큼만 요금을 지불하면 됩니다. 이러한 논리 앱은 사용량 기반 플랜과 가격 책정 모델을 사용합니다. 즉, 논리 앱이 수행하는 모든 작업 실행에 대해 요금이 부과됩니다. 논리 앱 정의의 모든 단계는 작업이며 여기에는 트리거, 제어 흐름 단계, 기본 제공 작업에 대한 호출 및 커넥터에 대한 호출이 포함됩니다. 자세한 내용은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)을 참조하세요.
+
+<a name="fixed-pricing"></a>
+
+## <a name="fixed-pricing-model"></a>고정 가격 책정 모델
+
+> [!NOTE]
+> 통합 서비스 환경은 *비공개 미리 보기* 상태입니다. 액세스를 요청하려면 [여기서 참여 요청을 작성](https://aka.ms/iseprivatepreview)하세요.
+
+전용 리소스를 사용하는 격리된 비공개 Logic Apps 인스턴스인 ISE([*통합 서비스 환경*)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)를 사용하여 만드는 새 논리 앱의 경우에는 기본 제공 작업 및 ISE 레이블이 지정된 표준 커넥터에 대해 월 정액을 결제합니다. ISE에는 엔터프라이즈 커넥터 하나가 무료로 포함되며 추가하는 엔터프라이즈 커넥터에는 엔터프라이즈 사용료에 따라 요금이 청구됩니다. 자세한 내용은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)을 참조하세요.
 
 <a name="triggers"></a>
 
@@ -39,7 +46,7 @@ Azure Logic Apps를 사용하여 클라우드에 자동화된 확장 가능한 �
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
-* **웹후크 트리거** – 이 트리거는 클라이언트가 특정 끝점에 요청을 보낼 때까지 대기합니다. 웹후크 끝점으로 전송된 각 요청은 작업 실행으로 계산됩니다. 예를 들어, 요청 및 HTTP 웹후크 트리거는 둘 다 웹후크 트리거입니다.
+* **웹후크 트리거** – 이 트리거는 클라이언트가 특정 엔드포인트에 요청을 보낼 때까지 대기합니다. 웹후크 엔드포인트로 전송된 각 요청은 작업 실행으로 계산됩니다. 예를 들어, 요청 및 HTTP 웹후크 트리거는 둘 다 웹후크 트리거입니다.
 
 * **되풀이 트리거** – 이 트리거는 트리거에 구성한 되풀이 간격을 기반으로 논리 앱 인스턴스를 만듭니다. 예를 들어 3일마다 또는 더 복잡한 일정으로 실행되는 되풀이 트리거를 설정할 수 있습니다.
 

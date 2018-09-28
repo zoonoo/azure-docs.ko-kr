@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 8/08/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: b21afecc27f1550cf557305ef069278ed66acaf0
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 3a15cfeb39cea31a24d27fd8b350d7e8a6696f31
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005320"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955370"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
 | 파트너 |  |  |
 | --- | --- | --- |
 | [**AlertLogic**<br/>![Partner Logo][alertlogic-logo]][alertlogic-anchor] | [**AppDynamics**<br/>![Partner Logo][appdynamics-logo]][appdynamics-anchor]  | [**Atlassian**<br/>![Partner Logo][atlassian-logo]][atlassian-anchor] 
 | [**Botmetric**][botmetric-anchor] | [**Circonus**<br/>![Partner Logo][circonus-logo]][circonus-anchor]  | [**CloudHealth**<br/>![Partner Logo][cloudhealth-logo]][cloudhealth-anchor] 
-| [**CloudMonix** <br/> ![Partner Logo][cloudmonix-logo]][cloudmonix-anchor] | [**Cloudyn**<br/>![Partner Logo][cloudyn-logo]][cloudyn-anchor] | [**Datadog**<br/>![Partner Logo][datadog-logo]][datadog-anchor] 
-| [**Dynatrace** <br/> ![Partner Logo][dynatrace-logo]][dynatrace-anchor] | [**Grafana**<br/>![Partner Logo][grafana-logo]][grafana-anchor] | [**Logic Monitor**<br/>![Partner Logo][logicmonitor-logo]][logicmonitor-anchor] 
-| [**Moogsoft**<br/>![Partner Logo][moogsoft-logo]][moogsoft-anchor] | [**NewRelic**<br/>![Partner Logo][newrelic-logo]][newrelic-anchor] | [**OpsGenie**<br/>![Partner Logo][opsgenie-logo]][opsgenie-anchor] 
+| [**CloudMonix** <br/>![파트너 로고][cloudmonix-logo]][cloudmonix-anchor] | [**Cloudyn**<br/>![Partner Logo][cloudyn-logo]][cloudyn-anchor] | [**Datadog**<br/>![Partner Logo][datadog-logo]][datadog-anchor] 
+| [**Dynatrace** <br/>![파트너 로고][dynatrace-logo]][dynatrace-anchor] | [**Grafana**<br/>![Partner Logo][grafana-logo]][grafana-anchor] | [**Influxdata**<br/>![파트너 로고][influxdata-logo]][influxdata-anchor]
+| [**Logic Monitor**<br/>![Partner Logo][logicmonitor-logo]][logicmonitor-anchor] | [**Moogsoft**<br/>![Partner Logo][moogsoft-logo]][moogsoft-anchor] | [**NewRelic**<br/>![Partner Logo][newrelic-logo]][newrelic-anchor] | [**OpsGenie**<br/>![Partner Logo][opsgenie-logo]][opsgenie-anchor] 
 | [**PagerDuty**<br/>![Partner Logo][pagerduty-logo]][pagerduty-anchor] | [**QRadar**<br/>![Partner Logo][qradar-logo]][qradar-anchor] | [**ScienceLogic**<br/>![Partner Logo][sciencelogic-logo]][sciencelogic-anchor] 
 | [**SignalFx**<br/>![Partner Logo][signalfx-logo]<br/>][signalfx-anchor] | [**SIGNL4**<br/>![Partner Logo][signl4-logo]][signl4-anchor] | [**SolarWinds**][solarwinds-anchor] 
-| [**Splunk** <br/> ![Partner Logo][splunk-logo]][splunk-anchor] | [**Sumo Logic**<br/>![Partner Logo][sumologic-logo]][sumologic-anchor] | [**Turbonomic**<br/>![Partner Logo][turbonomic-logo]][turbonomic-anchor] 
+| [**Splunk** <br/>![파트너 로고][splunk-logo]][splunk-anchor] | [**Sumo Logic**<br/>![Partner Logo][sumologic-logo]][sumologic-anchor] | [**Turbonomic**<br/>![Partner Logo][turbonomic-logo]][turbonomic-anchor] 
 
 
 ## <a name="alertlogic-log-manager"></a>AlertLogic Log Manager
@@ -82,6 +82,12 @@ Grafana는 시계열 메트릭 데이터를 시각화할 수 있도록 하는 �
 
 [설명서로 이동합니다.][grafana-doc]
 
+## <a name="influxdata"></a>InfluxData
+InfluxDB의 작성자인 InfluxData는 DevOps 및 IoT 응용 프로그램에 대한 메트릭 및 이벤트(시계열 데이터)를 분석하기 위해 새롭게 빌드된 최신 오픈 소스 플랫폼을 제공합니다. 데이터가 사용자, 센서 또는 컴퓨터에서 제공되는지에 관계없이, InfluxData는 개발자가 차세대 모니터링, 분석 및 IoT 응용 프로그램을 더 빠르고 쉽게 빌드하고 규모 확장을 통해 실제 비즈니스 가치를 빠르게 제공할 수 있도록 지원합니다. 샌프란시스코 기반의 InfluxData는 Cisco, eBay, IBM, Siemens 등 420개 이상의 고객을 보유하고 있습니다.
+
+[설명서로 이동합니다.][influxdata-doc]
+
+
 ## <a name="logic-monitor"></a>Logic Monitor
 LogicMonitor®는 복잡한 IT 인프라에 대한 선행 SaaS 기반, 성능 모니터링 플랫폼입니다. 수천 개의 기술에 대한 보급으로 LogicMonitor는 인프라 및 응용 프로그램 성능에 대한 세부적인 가시성을 제공합니다. LM 클라우드의 포괄적인 Azure 모니터링을 사용하면 사용자는 Azure 클라우드, 온 프레미스 및 하이브리드 클라우드 리소스의 성능을 모두 단일 플랫폼에서 상관 관계를 지정할 수 있습니다. 자동화된 리소스 검색, 기본 제공 모니터링 템플릿, 미리 구성된 경고 임계값 및 사용자 지정 가능한 대시보드는 성공에 필요한 속도, 유연성 및 가시성을 IT에 제공하기 위해 결합됩니다.
 
@@ -94,7 +100,10 @@ Microsoft Azure Automation and Control 도구는 Azure에 배포된 응용 프�
 
 Moogsoft AIOps는 기존 프로세스 및 조직 구조를 변경하지 않고 업데이트 관리 워크플로로 이벤트를 자동화합니다. 
 
-Moogsoft는 하이브리드 패브릭에서 모니터링 및 자동화 도구 통합을 통해 Azure 부동산에서 실행됩니다. Moogsoft AIOps는 인시던트에 영향을 주는 응용 프로그램을 적극적으로 감지하고, 상황을 인지할 수 있도록 적절한 리소스를 동적으로 오케스트레이션하고, 고객 환경에 대한 부정적인 영향을 해결하기 위한 평균 시간을 줄여줍니다. 
+Moogsoft는 하이브리드 패브릭에서 모니터링 및 자동화 도구 통합을 통해 Azure 부동산에서 실행됩니다. Moogsoft 
+ - 이전 인시던트에 영향을 주었던 응용 프로그램을 적극적으로 검색합니다. 
+ - 적절한 리소스를 동적으로 오케스트레이션하여 상황을 인식하게 합니다. 
+ - 평균 수정 시간 및 고객 경험에 미치는 부정적인 영향을 줄입니다. 
 
 [설명서로 이동합니다.][moogsoft-doc]
 
@@ -107,7 +116,7 @@ OpsGenie는 Azure가 생성한 경고의 디스패처 역할을 합니다. OpsGe
 [설명서로 이동합니다.][opsgenie-doc]
 
 ## <a name="pagerduty"></a>PagerDuty
-선두적인 사건 관리 솔루션인 PagerDuty는 Azure Alerts의 메트릭에 대해 최고 수준의 지원을 제공합니다. PagerDuty는 Azure Monitor 경고, 자동 규모 조정 알림, 감사 로그 이벤트에 대한 알림과, Azure 서비스에 대한 플랫폼 수준 메트릭에 대한 알림을 지원합니다. 이러한 향상을 통해 핵심 Azure Platform에 대한 가시성을 증대할 수 있습니다. 실시간 대응을 위해 PagerDuty의 사건 관리 기능을 완벽하게 활용할 수 있습니다. 확장된 Azure 통합은 웹후크를 통해 구현됩니다. 웹후크를 사용하면 솔루션을 신속 간편하게 설정 및 사용자 지정할 수 있습니다.
+선두적인 사건 관리 솔루션인 PagerDuty는 Azure Alerts의 메트릭에 대해 최고 수준의 지원을 제공합니다. PagerDuty는 Azure Monitor 경고 알림, 자동 크기 조정 알림, 활동 로그 이벤트 및 Azure 서비스에 대한 플랫폼 수준 메트릭을 지원합니다. 이러한 향상을 통해 핵심 Azure Platform에 대한 가시성을 증대할 수 있습니다. 실시간 대응을 위해 PagerDuty의 사건 관리 기능을 완벽하게 활용할 수 있습니다. 확장된 Azure 통합은 웹후크를 통해 구현됩니다. 웹후크를 사용하면 솔루션을 신속 간편하게 설정 및 사용자 지정할 수 있습니다.
 
 [설명서로 이동합니다.][pagerduty-doc]
 
@@ -144,7 +153,7 @@ Sumo Logic은 안전한 클라우드 기반, 컴퓨터 데이터 분석 서비�
 [자세히 알아봅니다][sumologic-doc].
 
 ## <a name="turbonomic"></a>Turbonomic
-Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최적화하여 하이브리드 클라우드에 대한 워크로드를 자동화합니다. Turbonomic은 조직이 응용 프로그램에서 해당 SLA를 전송하는 데 필요한 리소스를 계속해서 얻도록 부동산을 지속적으로 최적화하여 해당 Azure 부동산에서 탄력적이 될 수 있도록 도우며, IaaS 및 PaaS 계층에 대한 계산, 저장소 및 네트워크에 지나지 않도록 합니다. 조직은 마이그레이션을 시뮬레이션하고 워크로드의 규모를 적절히 조정하고 데이터 센터 리소스를 사용 중지하여, 예산을 초과하지 않고 적시에 Azure로 책임감 있게 마이그레이션할 수 있을 뿐 아니라 성능과 준수도 유지할 수 있습니다. Turbonomic은 API 기반으로, Azure 및 온-프레미스에서 에이전트 없는 VM으로 실행됩니다.
+Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최적화하여 하이브리드 클라우드에 대한 워크로드를 자동화합니다. Turbonomic은 응용 프로그램이 IaaS 및 PaaS 계층에 대한 계산, 저장소 및 네트워크 전체에서 해당 SLA를 제공하는 데 필요한 리소스를 계속해서 얻고 불필요한 리소스가 할당되지 않도록 자산을 지속적으로 최적화하여 조직이 해당 Azure 자산을 탄력적으로 활용할 수 있도록 지원합니다. 조직은 마이그레이션을 시뮬레이션하고 워크로드의 규모를 적절히 조정하고 데이터 센터 리소스를 사용 중지하여, 예산을 초과하지 않고 적시에 Azure로 책임감 있게 마이그레이션할 수 있을 뿐 아니라 성능과 준수도 유지할 수 있습니다. Turbonomic은 API 기반으로, Azure 및 온-프레미스에서 에이전트 없는 VM으로 실행됩니다.
 
 [자세히 알아봅니다][turbonomic-doc].
 
@@ -168,6 +177,7 @@ Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최�
 [dynatrace-anchor]: #dynatrace "Dynatrace"
 [newrelic-anchor]: #newrelic "NewRelic"
 [grafana-anchor]: #grafana "Grafana"
+[influxdata-anchor]: #Influxdata "Influxdata"
 [logicmonitor-anchor]: #logic-monitor "Logic Monitor"
 [moogsoft-anchor]: #moogsoft "Moogsoft"
 [opsgenie-anchor]: #opsgenie "OpsGenie"
@@ -193,6 +203,7 @@ Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최�
 [dynatrace-logo]: ./media/partner-logos/dynatrace.png
 [newrelic-logo]: ./media/partner-logos/newrelic.png
 [grafana-logo]: ./media/partner-logos/grafana.png
+[influxdata-logo]: ./media/partner-logos/influxdata.png
 [logicmonitor-logo]: ./media/partner-logos/logicmonitor.png
 [moogsoft-logo]: ./media/partner-logos/moogsoft.png
 [opsgenie-logo]: ./media/partner-logos/opsgenie.png
@@ -217,6 +228,7 @@ Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최�
 [datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Datadog 설명서."
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace 설명서."
 [grafana-doc]: ./monitor-send-to-grafana.md "Azure Monitor Grafana 통합."
+[influxdata-doc]: ./metrics-store-custom-linux-telegraf.md "Azure Monitor Influxdata Telegraf 통합."
 [logicmonitor-doc]: https://www.logicmonitor.com/lmcloud-azure/ "Logic Monitor 설명서."
 [moogsoft-doc]: https://www.moogsoft.com/partners/microsoft-azure "Moogsoft 설명서."
 [newrelic-doc]: https://newrelic.com/azure "NewRelic 설명서."

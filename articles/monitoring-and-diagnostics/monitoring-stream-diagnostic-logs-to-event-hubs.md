@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: dde8881fc446eef0dd6ca0735e5e23a5a19328fa
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 19f066bea9de580cf1245aec74fbe563bf8ba449
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578371"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996556"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>이벤트 허브로 Azure 진단 로그 스트림
-포털에서 기본 제공되는 “Event Hubs로 내보내기” 옵션을 사용하거나 Azure PowerShell cmdlet 또는 Azure CLI 2.0을 통해 진단 설정에서 이벤트 허브 권한 부여 규칙 ID를 사용하도록 설정하여 **[Azure 진단 로그](monitoring-overview-of-diagnostic-logs.md)** 를 거의 실시간으로 응용 프로그램에 스트리밍할 수 있습니다.
+Portal에서 기본 제공되는 "Event Hubs로 내보내기" 옵션을 사용하거나 Azure PowerShell cmdlet 또는 Azure CLI를 통해 진단 설정에서 이벤트 허브 권한 부여 규칙 ID를 사용하도록 설정하여 **[Azure 진단 로그](monitoring-overview-of-diagnostic-logs.md)** 를 거의 실시간으로 응용 프로그램에 스트리밍할 수 있습니다.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>진단 로그 및 Event Hubs에서 수행할 수 있는 작업
 진단 로그의 스트리밍 기능을 사용할 수 있는 몇 가지 방법은 다음과 같습니다.
@@ -91,9 +91,9 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizati
 
 이벤트 허브 권한 부여 규칙 ID는 `{Event Hub namespace resource ID}/authorizationrules/{key name}` 형식의 문자열입니다. 예를 들면 `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`입니다. 현재는 PowerShell을 사용하여 특정 이벤트 허브 이름을 선택할 수 없습니다.
 
-### <a name="via-azure-cli-20"></a>Azure CLI 2.0을 통해
+### <a name="via-azure-cli"></a>Azure CLI를 통해
 
-[Azure CLI 2.0](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest)을 통해 스트리밍을 사용하도록 설정하려면 [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) 명령을 사용합니다.
+[Azure CLI](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest)를 통해 스트리밍을 사용하도록 설정하려면 [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) 명령을 사용합니다.
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

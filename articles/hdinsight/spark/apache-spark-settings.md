@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/26/2018
-ms.openlocfilehash: 5678cc17cde833c02c21090a7b5f7b70c01eec9e
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 926ce58872b06b41a0c7942b7090dcb4d5c8df03
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045316"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956492"
 ---
 # <a name="configure-spark-settings"></a>Spark 설정 구성
 
@@ -37,7 +37,7 @@ HDInsight 클러스터 노드의 VM 수 및 VM 크기는 Spark 구성에 영향�
 Spark 2.x는 Spark 1.x보다 훨씬 더 잘 실행될 수 있습니다. Spark 2.x에는 Tungsten, Catalyst Query Optimization 등과 같은 다양한 성능 최적화 기능이 포함되어 있습니다.  
 
 > [!NOTE]
-> HDInsight 서비스에서 Apache Spark의 기본 버전은 예고 없이 변경될 수 있습니다. 버전 종속성이 있는 경우 .NET SDK/Azure PowerShell 및 Azure CLI를 사용하여 클러스터를 만들 때 특정 버전을 지정하는 것이 좋습니다.
+> HDInsight 서비스에서 Apache Spark의 기본 버전은 예고 없이 변경될 수 있습니다. 버전 종속성이 있는 경우 .NET SDK/Azure PowerShell 및 Azure 클래식 CLI를 사용하여 클러스터를 만들 때 특정 버전을 지정하는 것이 좋습니다.
 
 Apache Spark에는 다음과 같은 3가지 시스템 구성 위치가 있습니다.
 

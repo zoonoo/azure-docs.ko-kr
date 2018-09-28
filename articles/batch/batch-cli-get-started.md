@@ -15,18 +15,18 @@ ms.workload: big-compute
 ms.date: 07/24/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2360c5a672975cec48f5c17b098125b8287799c3
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 9b5c1df8776b63fc8ceecfa0377e74c757ba503c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493699"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950151"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Azure CLI를 사용하여 Batch 리소스 관리
 
-Azure CLI 2.0은 Azure 리소스를 관리하는 Azure의 명령줄 환경입니다. macOS, Linux 및 Windows에서 사용할 수 있습니다. Azure CLI 2.0은 명령줄에서 Azure 리소스를 관리하고 관리하는 데 최적화되어 있습니다. Azure CLI를 사용하여 Azure Batch 계정을 관리하고 풀, 작업 및 태스크와 같은 리소스를 관리할 수 있습니다. Azure CLI를 사용하면 Batch API, Azure Portal, Batch PowerShell cmdlet으로 수행하는 여러 동일한 작업을 스크립팅할 수 있습니다.
+Azure CLI는 Azure 리소스를 관리하는 Azure의 명령줄 환경입니다. macOS, Linux 및 Windows에서 사용할 수 있습니다. Azure CLI는 명령줄에서 Azure 리소스를 관리하고 관리하는 데 최적화되어 있습니다. Azure CLI를 사용하여 Azure Batch 계정을 관리하고 풀, 작업 및 태스크와 같은 리소스를 관리할 수 있습니다. Azure CLI를 사용하면 Batch API, Azure Portal, Batch PowerShell cmdlet으로 수행하는 여러 동일한 작업을 스크립팅할 수 있습니다.
 
-이 문서에서는 Batch와 함께 [Azure CLI 버전 2.0](https://docs.microsoft.com/cli/azure)을 사용하는 방법에 대해 간략히 설명합니다. Azure에서 CLI를 사용하는 방법에 대한 개요는 [Azure CLI 2.0 시작](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)을 참조하세요.
+이 문서에서는 Batch와 함께 [Azure CLI 버전 2.0](https://docs.microsoft.com/cli/azure)을 사용하는 방법에 대해 간략히 설명합니다. Azure에서 CLI를 사용하는 방법에 대한 개요는 [Azure CLI 시작](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)을 참조하세요.
 
 ## <a name="set-up-the-azure-cli"></a>Azure CLI 설치
 
@@ -47,12 +47,9 @@ Azure CLI 2.0은 Azure 리소스를 관리하는 Azure의 명령줄 환경입니
 
 확실하지 않은 경우 `-h` 명령줄 옵션을 사용하여 모든 Azure CLI 명령에 대한 도움말을 봅니다.
 
-> [!NOTE]
-> 이전 버전의 Azure CLI에서는 CLI 명령 앞에 `azure`를 사용하여 시작했습니다. 버전 2.0에서는 이제 모든 명령 앞에 `az`를 사용하여 시작합니다. 버전 2.0과 함께 새 구문을 사용하려면 스크립트를 업데이트해야 합니다.
->
->  
 
-또한 [Batch용 Azure CLI 명령](https://docs.microsoft.com/cli/azure/batch)에 대한 자세한 내용은 Azure CLI 참조 설명서를 참조하세요. 
+
+또한 [Batch용 Azure CLI 명령](/cli/azure/batch)에 대한 자세한 내용은 Azure CLI 참조 설명서를 참조하세요. 
 
 ## <a name="log-in-and-authenticate"></a>로그인 및 인증
 
@@ -63,7 +60,7 @@ Batch와 함께 Azure CLI를 사용하려면 로그인하고 인증해야 합니
 
 ### <a name="log-in-to-azure"></a>Azure에 로그인
 
-Azure에 로그인할 수 있는 몇 가지 방법이 있으며, [Azure CLI 2.0으로 로그인](https://docs.microsoft.com/cli/azure/authenticate-azure-cli)에서 자세히 설명하고 있습니다.
+Azure에 로그인할 수 있는 몇 가지 방법이 있으며, [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli)에서 자세히 설명하고 있습니다.
 
 1. [대화형으로 로그인합니다](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-interactive-log-in). 명령줄에서 Azure CLI 명령을 직접 실행하면 대화형으로 로그인합니다.
 2. [서비스 주체를 사용하여 로그인합니다](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-logging-in-with-a-service-principal). 스크립트 또는 응용 프로그램에서 Azure CLI 명령을 실행할 때 서비스 주체를 사용하여 로그인합니다.
@@ -103,7 +100,7 @@ Batch 계정에 대한 인증에는 다음 두 가지 옵션이 있습니다.
 
 - **공유 키 인증 사용**
 
-    [공유 키 인증](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service#authentication-via-shared-key)은 계정 액세스 키를 사용하여 Batch 서비스에 대한 Azure CLI 명령을 인증합니다.
+    [공유 키 인증](/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service#authentication-via-shared-key)은 계정 액세스 키를 사용하여 Batch 서비스에 대한 Azure CLI 명령을 인증합니다.
 
     Batch 명령을 자동으로 호출하도록 Azure CLI 스크립트를 만드는 경우 공유 키 인증 또는 Azure AD 서비스 주체를 사용할 수 있습니다. 일부 시나리오에서는 공유 키 인증을 사용하는 것이 서비스 주체를 만드는 것보다 더 간단할 수 있습니다.  
 
@@ -173,7 +170,6 @@ Azure CLI 문제를 해결할 때 도움이 될 수 있는 팁은 다음과 같�
 * `-v` 및 `-vv`를 사용하여 **자세한 정보 표시** 명령 출력을 표시합니다. `-vv` 플래그가 포함되면 Azure CLI에서 실제 REST 요청과 응답을 표시합니다. 이러한 스위치는 전체 오류 출력을 표시하는 데 유용합니다.
 * `--json` 옵션을 사용하여 **명령 출력을 JSON으로** 볼 수 있습니다. 예를 들어 `az batch pool show pool001 --json` 은 JSON 형식으로 pool001의 속성을 표시합니다. 그런 다음 이 출력을 복사하고 수정하여 `--json-file` 에서 사용할 수 있습니다(이 문서의 앞부분에서 [JSON 파일](#json-files) 참조).
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
-
 
 ## <a name="next-steps"></a>다음 단계
 

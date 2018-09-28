@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5f40b4c9fff57b105b7d96de69780fea83871032
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 2a7842a50690049507e00b85c8736e63da002503
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302299"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950168"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -66,15 +66,25 @@ ExpressRoute는 다양한 유형의 서비스에 대해 [세 개의 라우팅 �
 >공용 피어링이 새 ExpressRoute 회로에서 사용되지 않도록 설정되었습니다. Azure 서비스를 Microsoft 피어링에서 사용할 수 있습니다.
 >
 
+* Power BI
+* Dynamics 365 for Finance and Operations(이전의 Dynamics AX Online)
+* 대부분의 Azure 서비스가 지원됩니다. 사용하려는 서비스의 지원 유무를 직접 확인해 보세요.<br>
+  다음 서비스는 지원되지 않습니다.
+    * CDN
+    * Azure DevOps Services 부하 테스트
+    * Multi-Factor 인증
+    * Traffic Manager
+
 ### <a name="microsoft-peering"></a>Microsoft 피어링
 
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
 * Dynamics 365 
 * Power BI
 * Azure Active Directory
-* Visual Studio Team Services 부하 테스트
+* Azure DevOps Services 부하 테스트
 * 대부분의 Azure 서비스가 지원됩니다. 사용하려는 서비스의 지원 유무를 직접 확인해 보세요.<br>다음 서비스는 **지원되지 않습니다**.
     * CDN
+    * Azure DevOps Services 부하 테스트
     * Multi-Factor 인증
     * Traffic Manager
 
@@ -337,3 +347,11 @@ Office 365 서비스를 사용하려면 프리미엄 추가 기능을 사용하�
 * 경로 필터를 정의하지 않은 경우에도 2017년 8월 1일 이전에 구성된 ExpressRoute 회로의 Microsoft 피어링에는 Microsoft 피어링을 통해 보급된 모든 서비스 접두사가 포함됩니다.
 
 * 2017년 8월 1일 이후에 구성되는 ExpressRoute 회로의 Microsoft 피어링에는 경로 필터를 회로에 연결할 때까지 접두사가 보급되지 않습니다. 접두사는 기본적으로 표시되지 않습니다.
+
+## <a name="globalreach"></a>ExpressRoute Direct(미리 보기)
+
+[!INCLUDE [Global Reach](../../includes/expressroute-direct-faq-include.md)]
+
+## <a name="globalreach"></a>Global Reach(미리 보기)
+
+[!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]

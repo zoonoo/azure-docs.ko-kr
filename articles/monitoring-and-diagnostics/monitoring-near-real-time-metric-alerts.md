@@ -1,6 +1,6 @@
 ---
-title: 최신 Azure Monitor 메트릭 경고에 지원되는 리소스
-description: 최신 Azure 근 실시간 메트릭 경고에서 지원 메트릭 및 로그에 대한 참조입니다.
+title: Azure Monitor의 메트릭 경고에 대해 지원되는 리소스
+description: Azure Monitor의 메트릭 경고에 대한 지원 메트릭 및 로그 참조
 author: snehithm
 services: monitoring
 ms.service: azure-monitor
@@ -8,17 +8,18 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 019f245a7cc1feedcbd520c336f53a60ed1e9ddc
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 102f087f31aa304aaaee49e0e39ff8c6874127b4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579092"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966802"
 ---
-# <a name="supported-resources-for-newer-azure-monitor-metric-alerts"></a>최신 Azure Monitor 메트릭 경고에 지원되는 리소스
-이제 Azure Monitor는 기존의 [클래식 메트릭 경고](insights-alerts-portal.md)에 비해 상당한 장점이 있는 [새 메트릭 경고 형식](monitoring-overview-unified-alerts.md)을 지원합니다. [다양한 Azure 서비스](monitoring-supported-metrics.md)에 대해 메트릭을 사용할 수 있습니다. 최신 경고에서 지원하는 리소스 종류가 점점 증가하고 있습니다. 이 문서에서는 이러한 하위 집합이 나열되어 있습니다. 
+# <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Azure Monitor의 메트릭 경고에 대해 지원되는 리소스
 
-또한 메트릭으로 추출된 인기 있는 Log Analytics 로그의 최신 메트릭 경고를 로그(미리 보기) 메트릭의 일부로 사용할 수 있습니다.  
+이제 Azure Monitor는 기존의 [클래식 메트릭 경고](insights-alerts-portal.md)에 비해 상당한 장점이 있는 [새 메트릭 경고 형식](monitoring-overview-unified-alerts.md)을 지원합니다. [다양한 Azure 서비스](monitoring-supported-metrics.md)에 대해 메트릭을 사용할 수 있습니다. 최신 경고에서 지원하는 리소스 종류가 점점 증가하고 있습니다. 이 문서에서는 이러한 하위 집합이 나열되어 있습니다.
+
+또한 메트릭으로 추출된 인기 있는 Log Analytics 로그의 최신 메트릭 경고를 로그 메트릭의 일부로 사용할 수 있습니다. 
 - Windows 및 Linux 컴퓨터에 대한 [성능 카운터](../log-analytics/log-analytics-data-sources-performance-counters.md)
 - [에이전트 상태에 대한 하트비트 레코드](../operations-management-suite/oms-solution-agenthealth.md)
 - [업데이트 관리](../operations-management-suite/oms-solution-update-management.md) 레코드
@@ -28,7 +29,7 @@ ms.locfileid: "45579092"
 > 특정 메트릭 및/또는 차원은 선택한 기간에 해당 데이터가 존재할 때만 표시됩니다. 이러한 메트릭은 미국 동부, 미국 중서부 및 유럽 서부에 Azure Log Analytics 작업 영역이 있는 고객에게 제공됩니다. Log Analytics의 메트릭은 현재 공개 미리 보기로 제공되고 있으며, 변경될 수 있습니다.
 
 ## <a name="portal-powershell-cli-rest-support"></a>포털, PowerShell, CLI, REST 지원
-현재는 Azure Portal, [REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate) 또는 [Resource Manager 템플릿](monitoring-create-metric-alerts-with-templates.md)에서만 최신 메트릭 경고를 만들 수 있습니다. PowerShell 및 Azure CLI(Azure 명령줄 인터페이스) 2.0을 사용한 최신 경고 구성 지원이 곧 제공될 예정입니다.
+현재는 Azure Portal, [REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate) 또는 [Resource Manager 템플릿](monitoring-create-metric-alerts-with-templates.md)에서만 최신 메트릭 경고를 만들 수 있습니다. PowerShell 및 Azure CLI 버전 2.0 이상을 사용한 최신 경고 구성 지원이 곧 제공될 예정입니다.
 
 ## <a name="metrics-and-dimensions-supported"></a>지원되는 메트릭 및 차원
 최신 메트릭 경고는 차원을 사용하는 메트릭에 대한 경고를 지원합니다. 차원을 사용하여 메트릭을 적절한 수준으로 필터링할 수 있습니다. 해당 차원과 함께 지원되는 모든 메트릭을 [Azure Monitor - 메트릭 탐색기(미리 보기)](monitoring-metric-charts.md)에서 탐색하고 시각화할 수 있습니다.
@@ -66,7 +67,9 @@ ms.locfileid: "45579092"
 |Microsoft.Storage/storageAccounts/services     |     yes    | [Blob 서비스](monitoring-supported-metrics.md#microsoftstoragestorageaccountsblobservices), [파일 서비스](monitoring-supported-metrics.md#microsoftstoragestorageaccountsfileservices), [큐 서비스](monitoring-supported-metrics.md#microsoftstoragestorageaccountsqueueservices) 및 [테이블 서비스](monitoring-supported-metrics.md#microsoftstoragestorageaccountstableservices)|
 |Microsoft.StreamAnalytics/streamingjobs     |  해당 없음       | [Stream Analytics](monitoring-supported-metrics.md#microsoftstreamanalyticsstreamingjobs)|
 | Microsoft.Web/serverfarms | yes | [App Service 계획](monitoring-supported-metrics.md#microsoftwebserverfarms)  |
-|Microsoft.OperationalInsights/workspaces(미리 보기) | yes|[Log Analytics 작업 영역](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces)|
+| Microsoft.Web/sites | yes | [App Services](monitoring-supported-metrics.md#microsoftwebsites-excluding-functions) 및 [Functions](monitoring-supported-metrics.md#microsoftwebsites-functions)|
+| Microsoft.Web/sites/slots | yes | [App Service 슬롯](monitoring-supported-metrics.md#microsoftwebsitesslots)|
+|Microsoft.OperationalInsights/workspaces| yes|[Log Analytics 작업 영역](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces)|
 
 
 

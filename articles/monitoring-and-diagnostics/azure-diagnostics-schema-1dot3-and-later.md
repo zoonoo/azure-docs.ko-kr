@@ -6,25 +6,25 @@ author: rboucher
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 06/20/2018
+ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: d9d61762a2e7956c95356cb4e884675e38deeb1b
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: a1f6aae69580f2afe5aceabd70cfe8e6fd3151b8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145386"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977947"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure 진단 1.3 이상 구성 스키마
 > [!NOTE]
 > Azure 진단 확장은 성능 카운터 및 기타 통계를 수집하는 데 사용하는 구성 요소입니다.
-> - Azure Virtual Machines 
+> - Azure Virtual Machines
 > - Virtual Machine Scale Sets
-> - Service Fabric 
-> - Cloud Services 
+> - Service Fabric
+> - Cloud Services
 > - 네트워크 보안 그룹
-> 
+>
 > 이 페이지는 이러한 서비스 중 하나를 사용하는 경우에만 해당됩니다.
 
 이 페이지는 버전 1.3 이상(Azure SDK 2.4 이상)에 유효합니다. 최신 구성 섹션은 추가된 버전에 표시하도록 주석 처리되었습니다.  
@@ -53,7 +53,7 @@ Azure 진단 사용에 대한 자세한 내용은 [Azure 진단 확장](azure-di
     <WadCfg>  
       <DiagnosticMonitorConfiguration overallQuotaInMB="10000">  
 
-        <PerformanceCounters scheduledTransferPeriod="PT1M">  
+        <PerformanceCounters scheduledTransferPeriod="PT1M", sinks="AzureMonitorSink">  
           <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />  
         </PerformanceCounters>  
 
@@ -105,13 +105,19 @@ Azure 진단 사용에 대한 자세한 내용은 [Azure 진단 확장](azure-di
           <CrashDumpConfiguration processName="badapp.exe"/>  
         </CrashDumps>  
 
-        <DockerSources> <!-- Added in 1.9 --> 
+        <DockerSources> <!-- Added in 1.9 -->
           <Stats enabled="true" sampleRate="PT1M" scheduledTransferPeriod="PT1M" />
         </DockerSources>
 
       </DiagnosticMonitorConfiguration>  
 
       <SinksConfig>   <!-- Added in 1.5 -->  
+        <Sink name="AzureMonitorSink">
+            <AzureMonitor> <!-- Added in 1.11 -->
+                <resourceId>{insert resourceId}</ResourceId> <!-- Parameter only needed for classic VMs and Classic Cloud Services, exclude VMSS and Resource Manager VMs-->
+                <Region>{insert Azure region of resource}</Region> <!-- Parameter only needed for classic VMs and Classic Cloud Services, exclude VMSS and Resource Manager VMs -->
+            </AzureMonitor>
+        </Sink>
         <Sink name="ApplicationInsights">   
           <ApplicationInsights>{Insert InstrumentationKey}</ApplicationInsights>   
           <Channels>   
@@ -139,11 +145,18 @@ Azure 진단 사용에 대한 자세한 내용은 [Azure 진단 확장](azure-di
   <PrivateConfig>  <!-- Added in 1.3 -->  
     <StorageAccount name="" key="" endpoint="" sasToken="{sas token}"  />  <!-- sasToken in Private config added in 1.8.1 -->  
     <EventHub Url="https://myeventhub-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="{base64 encoded key}" />
-   
+
+    <AzureMonitorAccount>
+        <ServicePrincipalMeta> <!-- Added in 1.11; only needed for classic VMs and Classic cloud services -->
+            <PrincipalId>{Insert service principal clientId}</PrincipalId>
+            <Secret>{Insert service principal client secret}</Secret>
+        </ServicePrincipalMeta>
+    </AzureMonitorAccount>
+
     <SecondaryStorageAccounts>
        <StorageAccount name="secondarydiagstorageaccount" key="{base64 encoded key}" endpoint="https://core.windows.net" sasToken="{sas token}" />
     </SecondaryStorageAccounts>
-   
+
     <SecondaryEventHubs>
        <EventHub Url="https://myeventhub-ns.servicebus.windows.net/secondarydiageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="{base64 encoded key}" />
     </SecondaryEventHubs>
@@ -153,10 +166,14 @@ Azure 진단 사용에 대한 자세한 내용은 [Azure 진단 확장](azure-di
 </DiagnosticsConfiguration>  
 
 ```  
+> [!NOTE]
+> 공용 구성 Azure Monitor 싱크 정의에는 resourceId 및 region이라는 두 가지 속성이 있습니다. 두 속성은 클래식 VM 및 클래식 클라우드 서비스에만 필요합니다. Resource Manager 가상 머신 또는 가상 머신 확장 집합에는 이 속성을 사용하면 안 됩니다.
+> 보안 주체 ID 및 암호를 전달하는, Azure Monitor 싱크에 대한 추가 개인 구성 요소도 있습니다. 이 요소는 클래식 VM 및 클래식 클라우드 서비스에만 필요합니다. Resource Manager VM 및 VMSS의 경우 개인 구성 요소에서 Azure Monitor 정의를 제외할 수 있습니다.
+>
 
-이전 XML 구성 파일에 해당하는 JSON입니다. 
+이전 XML 구성 파일에 해당하는 JSON입니다.
 
-PublicConfig와 PrivateConfig는 구분되는데, 대부분의 json 사용 사례에서 다른 변수로 전달되기 때문입니다. 이러한 경우에는 Resource Manager 템플릿, Virtual Machine 확장 집합 PowerShell 및 Visual Studio가 있습니다. 
+PublicConfig와 PrivateConfig는 구분되는데, 대부분의 json 사용 사례에서 다른 변수로 전달되기 때문입니다. 이러한 경우에는 Resource Manager 템플릿, Virtual Machine 확장 집합 PowerShell 및 Visual Studio가 있습니다.
 
 ```json
 "PublicConfig" {
@@ -168,6 +185,7 @@ PublicConfig와 PrivateConfig는 구분되는데, 대부분의 json 사용 사�
             },
             "PerformanceCounters": {
                 "scheduledTransferPeriod": "PT1M",
+                "sinks": "AzureMonitorSink",
                 "PerformanceCounterConfiguration": [
                     {
                         "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
@@ -278,6 +296,14 @@ PublicConfig와 PrivateConfig는 구분되는데, 대부분의 json 사용 사�
         "SinksConfig": {
             "Sink": [
                 {
+                    "name": "AzureMonitorSink",
+                    "AzureMonitor":
+                    {
+                        "ResourceId": "{insert resourceId if a classic VM or cloud service, else property not needed}",
+                        "Region": "{insert Azure region of resource if a classic VM or cloud service, else property not needed}"
+                    }
+                },
+                {
                     "name": "ApplicationInsights",
                     "ApplicationInsights": "{Insert InstrumentationKey}",
                     "Channels": {
@@ -324,6 +350,11 @@ PublicConfig와 PrivateConfig는 구분되는데, 대부분의 json 사용 사�
 }
 ```
 
+> [!NOTE]
+> 공용 구성 Azure Monitor 싱크 정의에는 resourceId 및 region이라는 두 가지 속성이 있습니다. 두 속성은 클래식 VM 및 클래식 클라우드 서비스에만 필요합니다.
+> Resource Manager 가상 머신 또는 가상 머신 확장 집합에는 이 속성을 사용하면 안 됩니다.
+>
+
 ```json
 "PrivateConfig" {
     "storageAccountName": "diagstorageaccount",
@@ -334,6 +365,12 @@ PublicConfig와 PrivateConfig는 구분되는데, 대부분의 json 사용 사�
         "Url": "https://myeventhub-ns.servicebus.windows.net/diageventhub",
         "SharedAccessKeyName": "SendRule",
         "SharedAccessKey": "{base64 encoded key}"
+    },
+    "AzureMonitorAccount": {
+        "ServicePrincipalMeta": {
+            "PrincipalId": "{Insert service principal client Id}",
+            "Secret": "{Insert service principal client secret}"
+        }
     },
     "SecondaryStorageAccounts": {
         "StorageAccount": [
@@ -357,6 +394,11 @@ PublicConfig와 PrivateConfig는 구분되는데, 대부분의 json 사용 사�
 }
 
 ```
+
+> [!NOTE]
+> 보안 주체 ID 및 암호를 전달하는, Azure Monitor 싱크에 대한 추가 개인 구성 요소가 있습니다. 이 요소는 클래식 VM 및 클래식 클라우드 서비스에만 필요합니다. Resource Manager VM 및 VMSS의 경우 개인 구성 요소에서 Azure Monitor 정의를 제외할 수 있습니다.
+>
+
 
 ## <a name="reading-this-page"></a>이 페이지 읽기  
  다음 태그는 대략 앞의 예제에 표시된 순서를 따릅니다.  필요한 위치에 전체 설명이 표시되지 않으면 요소 또는 특성에 대한 페이지를 검색합니다.  
@@ -396,14 +438,14 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 ## <a name="wadcfg-element"></a>WadCFG 요소  
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG*
- 
+
  수집할 원격 분석 데이터를 식별 및 구성합니다.  
 
 
-## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration 요소 
+## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration 요소
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration*
 
- 필수 
+ 필수
 
 |특성|설명|  
 |----------------|-----------------|  
@@ -420,16 +462,16 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**DiagnosticInfrastructureLogs**|Azure 진단에 의해 생성된 로그의 컬렉션을 사용하도록 설정합니다. 진단 인프라 로그는 진단 시스템 자체의 문제 해결에 유용합니다. 선택적 특성은 다음과 같습니다.<br /><br /> - **scheduledTransferLogLevelFilter** - 수집된 로그의 최소 심각도 수준을 구성합니다.<br /><br /> - **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](http://www.w3schools.com/xml/schema_dtypes_date.asp)입니다. |  
 |**Directories**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**EtwProviders**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
-|**metrics**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
+|**Metrics**(메트릭)|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**PerformanceCounters**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
-|**WindowsEventLog**|이 페이지의 다른 곳에 있는 설명을 참조하세요.| 
-|**DockerSources**|이 페이지의 다른 곳에 있는 설명을 참조하세요. | 
+|**WindowsEventLog**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|
+|**DockerSources**|이 페이지의 다른 곳에 있는 설명을 참조하세요. |
 
 
 
 ## <a name="crashdumps-element"></a>CrashDumps 요소  
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - CrashDumps*
- 
+
  크래시 덤프의 수집을 사용하도록 설정합니다.  
 
 |특성|설명|  
@@ -442,7 +484,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |--------------------|-----------------|  
 |**CrashDumpConfiguration**|필수 사항입니다. 각 프로세스에 대한 구성 값을 정의합니다.<br /><br /> 다음과 같은 특성도 필요합니다.<br /><br /> **processName** - Azure 진단에서 크래시 덤프를 수집하도록 할 프로세스의 이름입니다.|  
 
-## <a name="directories-element"></a>Directories 요소 
+## <a name="directories-element"></a>Directories 요소
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration -  Directories*
 
  디렉터리, IIS 실패한 액세스 요청 로그 및/또는 IIS 로그의 콘텐츠 수집을 활성화합니다.  
@@ -453,7 +495,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |--------------------|-----------------|  
 |**IISLogs**|이 요소를 구성에 포함하면 IIS 로그의 컬렉션이 활성화됩니다.<br /><br /> **containerName** - IIS를 저장하는 데 사용할 Azure Storage 계정의 blob 컨테이너의 이름입니다.|   
 |**FailedRequestLogs**|이 요소를 구성에 포함하면 IIS 사이트 또는 응용 프로그램에 실패 한 요청에 대한 로그 컬렉션이 활성화합니다. 또한 **Web.config**의 **system.WebServer**에 있는 추적 옵션도 사용하도록 설정해야 합니다.|  
-|**DataSources**|모니터링할 디렉터리의 목록입니다.| 
+|**DataSources**|모니터링할 디렉터리의 목록입니다.|
 
 
 
@@ -541,14 +583,15 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |자식 요소|설명|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|다음과 같은 특성이 필요합니다.<br /><br /> - **counterSpecifier** - 성능 카운터의 이름입니다. 예: `\Processor(_Total)\% Processor Time` 호스트에서 성능 카운터의 목록을 가져오려면 명령 `typeperf`를 실행합니다.<br /><br /> - **sampleRate** - 카운터가 샘플링되는 주기입니다.<br /><br /> 선택적 특성:<br /><br /> **unit** - 카운터의 측정 단위입니다.|  
+|**PerformanceCounterConfiguration**|다음과 같은 특성이 필요합니다.<br /><br /> - **counterSpecifier** - 성능 카운터의 이름입니다. 예: `\Processor(_Total)\% Processor Time` 호스트에서 성능 카운터의 목록을 가져오려면 명령 `typeperf`를 실행합니다.<br /><br /> - **sampleRate** - 카운터가 샘플링되는 주기입니다.<br /><br /> 선택적 특성:<br /><br /> **unit** - 카운터의 측정 단위입니다.|
+|**sinks** | 1.5에 추가되었습니다. 선택 사항입니다. 또한 진단 데이터를 보내는 싱크 위치를 가리킵니다. 예를 들어 Azure Monitor 또는 Event Hubs입니다.|    
 
 
 
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog 요소
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - WindowsEventLog*
- 
+
  Windows 이벤트 로그의 컬렉션을 활성화합니다.  
 
  선택적 **scheduledTransferPeriod** 특성입니다. 이전 설명을 참조하세요.  
@@ -632,18 +675,18 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**name**|**string**|참조 하는 채널의 고유 이름|  
 
 
-## <a name="privateconfig-element"></a>PrivateConfig 요소 
+## <a name="privateconfig-element"></a>PrivateConfig 요소
  *Tree: Root - DiagnosticsConfiguration - PrivateConfig*
 
  버전 1.3에 추가되었습니다.  
 
  옵션  
 
- 저장소 계정(이름, 키 및 끝점)의 개인 정보를 저장합니다. 이 정보는 가상 컴퓨터에 전송되지만 여기에서 검색할 수 없습니다.  
+ 저장소 계정(이름, 키 및 엔드포인트)의 개인 정보를 저장합니다. 이 정보는 가상 컴퓨터에 전송되지만 여기에서 검색할 수 없습니다.  
 
 |자식 요소|설명|  
 |--------------------|-----------------|  
-|**StorageAccount**|사용할 저장소 계정입니다. 다음과 같은 특성이 필요<br /><br /> - **이름** - 저장소 계정의 이름입니다.<br /><br /> - **키** - 저장소 계정의 키입니다.<br /><br /> - **끝점** - 저장소 계정에 액세스하는 끝점입니다. <br /><br /> -**sasToken**(1.8.1에 추가됨) - 개인 구성에서 저장소 계정 키 대신 SAS 토큰을 지정할 수 있습니다. 제공된 경우 저장소 계정 키가 무시됩니다. <br />SAS 토큰에 대한 요구 사항: <br />- 계정 SAS 토큰만 지원합니다. <br />- *b*, *t* 서비스 형식이 필요합니다. <br /> - *a*, *c*, *u*, *w* 권한이 필요합니다. <br /> - *c*, *o* 리소스 형식이 필요합니다. <br /> - HTTPS 프로토콜만 지원합니다. <br /> - 시작 및 만료 시간이 유효해야 합니다.|  
+|**StorageAccount**|사용할 저장소 계정입니다. 다음과 같은 특성이 필요<br /><br /> - **이름** - 저장소 계정의 이름입니다.<br /><br /> - **키** - 저장소 계정의 키입니다.<br /><br /> - **엔드포인트** - 저장소 계정에 액세스하는 엔드포인트입니다. <br /><br /> -**sasToken**(1.8.1에 추가됨) - 개인 구성에서 저장소 계정 키 대신 SAS 토큰을 지정할 수 있습니다. 제공된 경우 저장소 계정 키가 무시됩니다. <br />SAS 토큰에 대한 요구 사항: <br />- 계정 SAS 토큰만 지원합니다. <br />- *b*, *t* 서비스 형식이 필요합니다. <br /> - *a*, *c*, *u*, *w* 권한이 필요합니다. <br /> - *c*, *o* 리소스 형식이 필요합니다. <br /> - HTTPS 프로토콜만 지원합니다. <br /> - 시작 및 만료 시간이 유효해야 합니다.|  
 
 
 ## <a name="isenabled-element"></a>IsEnabled 요소  

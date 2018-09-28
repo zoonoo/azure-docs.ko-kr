@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/11/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b0ded0fb274f6b64935ddaba75abf23a94063120
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c84470936dfc9610f23dacb55d8d8643a2651f71
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452654"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948403"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>빠른 시작: Linux 컨테이너를 Service Fabric에 배포
 
@@ -65,7 +65,7 @@ cd service-fabric-containers/Linux/container-tutorial/Voting
 Service Fabric은 클러스터 및 해당 응용 프로그램을 관리하는 데 사용할 수 있는 몇 가지 도구를 제공합니다.
 
 - Service Fabric Explorer, 브라우저 기반 도구입니다.
-- Service Fabric CLI(명령줄 인터페이스), Azure CLI 2.0을 기반으로 실행됩니다.
+- Service Fabric CLI(명령줄 인터페이스), Azure CLI를 기반으로 실행됩니다. 
 - PowerShell 명령
 
 이 빠른 시작에서는 Cloud Shell 및 Service Fabric Explorer에서 Service Fabric CLI를 사용합니다. 다음 섹션에서는 이러한 도구로 보안 클러스터에 연결하는 데 필요한 인증서를 설치하는 방법을 보여줍니다.

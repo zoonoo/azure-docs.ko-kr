@@ -16,12 +16,12 @@ ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: a4b1e59ff9ac4d7f455c87e821fb014ba238d3c9
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 2c7c1e71830eb3fe4f7240195dac828ac9dfed3a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127478"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951568"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Log Analytics 데이터의 대시보드 만들기 및 공유
 
@@ -56,7 +56,7 @@ Azure Log Analytics의 원격 분석을 포함하여, 모든 Azure 리소스에�
 
 Azure Portal에서 로그 검색 포털의 한 줄에 대한 기본 쿼리를 만들 수 있습니다. 로그 검색 포털은 외부 포털을 시작하지 않고도 사용할 수 있으며, 로그 검색을 통해 경고 규칙 생성, 컴퓨터 그룹 생성 및 쿼리 결과 내보내기와 같은 다양한 기능을 수행할 수 있습니다. 
 
-[고급 분석 포털](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-the-Analytics-portal)은 로그 검색 포털에서 사용할 수 없는 고급 기능을 제공하는 전용 포털입니다. 여기에는 여러 줄, 선택적인 실행 코드, 상황에 맞는 중요한 Intellisense 및 스마트 분석에서 쿼리를 편집하는 기능이 포함됩니다. 고급 분석 포털에서 성능 보기를 그래프 양식으로 만들고 이후 검색을 위해 저장하며 이전에 만든 공유 대시보드에 고정합니다.   
+[Log Analytics 포털](../log-analytics/query-language/get-started-analytics-portal.md)은 로그 검색 포털에서 사용할 수 없는 고급 기능을 제공하는 전용 포털입니다. 여기에는 여러 줄, 선택적인 실행 코드, 상황에 맞는 중요한 Intellisense 및 스마트 분석에서 쿼리를 편집하는 기능이 포함됩니다. 고급 분석 포털에서 성능 보기를 그래프 양식으로 만들고 이후 검색을 위해 저장하며 이전에 만든 공유 대시보드에 고정합니다.   
 
 로그 검색 포털의 링크에서 고급 분석 포털을 시작합니다.<br> ![고급 분석 포털 시작](media/log-analytics-tutorial-dashboards/log-analytics-advancedportal-01.png)
 

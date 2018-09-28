@@ -1,29 +1,29 @@
 ---
-title: 자습서 - Azure Cost Management에서 액세스 할당 | Microsoft Docs
-description: 이 자습서에서는 엔터티에 대한 액세스 수준을 정의하는 사용자 계정을 사용하여 Cost Management 데이터에 대한 액세스를 할당하는 방법을 알아봅니다.
+title: 자습서 - Azure에서 Cloudyn을 사용하여 액세스 권한 할당 | Microsoft Docs
+description: 이 자습서에서는 엔터티에 대한 액세스 수준을 정의하는 사용자 계정을 사용하여 Cloudyn 데이터 액세스 권한을 할당하는 방법을 알아봅니다.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/10/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 4b45d917118d5be1252c3bb232e4b24e68d7857f
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b3dcfc1756932d75f9885490baa8d09af54d111c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188185"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957474"
 ---
-# <a name="tutorial-assign-access-to-cost-management-data"></a>자습서: Cost Management 데이터에 대한 액세스 할당
+# <a name="tutorial-assign-access-to-cloudyn-data"></a>자습서: Cloudyn 데이터 액세스 권한 할당
 
-Cost Management 데이터에 대한 액세스는 사용자 또는 엔터티 관리에서 제공됩니다. Cloudyn 사용자 계정은 *엔터티* 및 관리 기능에 대한 액세스를 결정합니다. 관리자와 사용자의 두 가지 액세스 유형이 있습니다. 관리자 액세스는 사용자별로 수정된 경우를 제외하고는 사용자가 사용자 관리, 받는 사람 목록 관리 및 모든 엔터티 데이터에 대한 루트 엔터티 액세스를 포함한 Cloudyn 포털의 모든 기능을 무제한으로 사용하도록 허용합니다. 사용자 액세스는 최종 사용자가 엔터티 데이터에 대한 액세스 권한을 사용하여 보고서를 보고 만들기 위한 것입니다.
+Cloudyn 데이터 액세스 권한은 사용자 또는 엔터티 관리를 통해 제공됩니다. Cloudyn 사용자 계정은 *엔터티* 및 관리 기능에 대한 액세스를 결정합니다. 관리자와 사용자의 두 가지 액세스 유형이 있습니다. 관리자 액세스는 사용자별로 수정된 경우를 제외하고는 사용자가 사용자 관리, 받는 사람 목록 관리 및 모든 엔터티 데이터에 대한 루트 엔터티 액세스를 포함한 Cloudyn 포털의 모든 기능을 무제한으로 사용하도록 허용합니다. 사용자 액세스는 최종 사용자가 엔터티 데이터에 대한 액세스 권한을 사용하여 보고서를 보고 만들기 위한 것입니다.
 
 엔터티는 비즈니스 조직의 계층적 구조를 반영하는 데 사용되며, Cloudyn에서 조직의 부서, 사업부 및 팀을 식별합니다. 엔터티 계층 구조는 엔터티별로 지출을 정확하게 추적하는 데 도움이 됩니다.
 
-Azure 계약 또는 계정을 등록할 때 관리자 권한이 있는 계정이 Cloudyn에 만들어졌으므로 이 자습서의 모든 단계를 수행할 수 있습니다. 이 자습서에서는 사용자 관리 및 엔터티 관리를 포함한 Cost Management 데이터에 대한 액세스에 대해 설명합니다. 다음 방법에 대해 알아봅니다.
+Azure 계약 또는 계정을 등록할 때 관리자 권한이 있는 계정이 Cloudyn에 만들어졌으므로 이 자습서의 모든 단계를 수행할 수 있습니다. 이 자습서에서는 사용자 관리 및 엔터티 관리를 비롯한 Cloudyn 데이터 액세스 권한에 대해 설명합니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 관리자 액세스 권한이 있는 사용자 만들기
@@ -38,7 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 ## <a name="prerequisites"></a>필수 조건
 
 - Azure 계정이 있어야 합니다.
-- Azure Cost Management에 대한 평가판 등록 또는 유료 구독이 있어야 합니다.
+- Cloudyn 평가판 등록 또는 유료 구독이 있어야 합니다.
 
 ## <a name="create-a-user-with-admin-access"></a>관리자 액세스 권한이 있는 사용자 만들기
 
@@ -50,7 +50,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
   ![관리자 액세스 권한이 있는 새 사용자 추가](.\media\tutorial-user-access\new-admin-access.png)
 
 ## <a name="create-a-user-with-user-access"></a>사용자 액세스 권한이 있는 사용자 만들기
-대시보드 및 보고서와 같은 Cost Management 데이터에 액세스해야 하는 일반 사용자에게는 사용자 액세스 권한이 있어야 합니다. 다음과 같은 차이점을 제외하고는 관리자 액세스 권한이 있는 사용자를 만든 것과 비슷한 방식으로 사용자 액세스 권한이 있는 새 사용자를 만듭니다.
+대시보드 및 보고서와 같은 Cloudyn 데이터에 액세스해야 하는 일반 사용자에게는 해당 항목을 볼 수 있는 사용자 액세스 권한이 있어야 합니다. 다음과 같은 차이점을 제외하고는 관리자 액세스 권한이 있는 사용자를 만든 것과 비슷한 방식으로 사용자 액세스 권한이 있는 새 사용자를 만듭니다.
 
 - **사용자 관리 허용** 및 **받는 사람 목록 관리 허용**을 선택 취소하고, **사용자에게 관리자 액세스 권한 있음** 목록의 모든 항목을 선택 취소합니다.
 - **사용자에게 사용자 액세스 권한 있음** 목록에서 사용자가 액세스해야 하는 엔터티를 선택합니다.
@@ -58,7 +58,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ![사용자 액세스 권한 이 있는 새 사용자 추가](.\media\tutorial-user-access\new-user-access.png)
 
-사용자를 추가하는 방법에 대한 자습서 비디오를 시청하려면 [Azure Cost Management에 사용자 추가](https://youtu.be/Nzn7GLahx30)를 참조하세요.
+사용자를 추가하는 방법에 대한 자습서 동영상을 시청하려면 [에 사용자 추가](https://youtu.be/Nzn7GLahx30)를 참조하세요.
 
 ## <a name="delete-a-user"></a>사용자 삭제
 
@@ -114,9 +114,9 @@ Cloudyn 포털에서 오른쪽 위의 기어 기호를 클릭하고 **클라우�
 
 또한 엔터티에 여러 계정을 연결할 수 있습니다. 계정을 선택한 다음, **이동**을 클릭합니다. 계정 이동 상자에서 계정을 이동하려는 엔터티를 선택한 다음, **저장**을 클릭합니다. 계정 이동 상자에서 계정을 이동하려는지 확인하도록 묻습니다. **예**를 클릭한 다음, **확인**을 클릭합니다.
 
-비용 엔터티 계층 구조를 만드는 방법에 대한 자습서 비디오를 시청하려면 [Azure Cost Management에서 비용 엔터티 계층 구조 만들기](https://youtu.be/dAd9G7u0FmU)를 참조하세요.
+비용 엔터티 계층 구조를 만드는 방법에 대한 자습서 동영상을 시청하려면 [Cloudyn에서 비용 엔터티 계층 구조 만들기](https://youtu.be/dAd9G7u0FmU)를 참조하세요.
 
-Azure 기업계약 사용자인 경우 계정 및 구독을 연결하는 방법에 대한 자습서 비디오를 시청하려면 [Azure Cost Management를 사용하여 Azure Resource Manager에 연결](https://youtu.be/oCIwvfBB6kk)을 참조하세요.
+Azure 기업계약 사용자인 경우 계정 및 구독을 연결하는 방법에 대한 자습서 동영상을 시청하려면 [Cloudyn을 사용하여 Azure Resource Manager에 연결](https://youtu.be/oCIwvfBB6kk)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

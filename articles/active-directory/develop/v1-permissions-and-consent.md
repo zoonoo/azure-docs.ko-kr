@@ -12,27 +12,32 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/27/2018
+ms.topic: conceptual
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 735c5a3645f5e2e0f31bac4d4b2f61d73dfe069e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 93bc3db2b7cf3002efc93f1e8006c5362eddab9f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128782"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959974"
 ---
-# <a name="permissions-in-azure-active-directory"></a>Azure Active Directory의 권한
+# <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Azure Active Directory v1.0 엔드포인트의 사용 권한 및 동의
 
-Azure AD(Azure Active Directory)는 OAuth 및 OpenID Connect(OIDC) 흐름을 위해 권한을 폭 넓게 사용합니다. 앱이 Azure AD에서 액세스 토큰을 받는 경우, 해당 액세스 토큰은 앱이 특정 리소스에 대해 가지는 권한을 설명하는 클레임을 포함합니다. 범위라고도 하는 권한은 리소스는 토큰에 앱이 호출하는 API에 적절한 권한이 포함되는지 확인하기만 하면 되므로 리소스 인증이 쉬워집니다. 
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
+
+Azure AD(Azure Active Directory)는 OAuth 및 OpenID Connect(OIDC) 흐름을 위해 권한을 폭 넓게 사용합니다. 앱이 Azure AD에서 액세스 토큰을 받는 경우, 해당 액세스 토큰은 앱이 특정 리소스에 대해 가지는 권한을 설명하는 클레임을 포함합니다.
+
+범위라고도 하는 사용 권한을 사용하면 리소스가 앱이 호출하는 API에 대한 적절한 권한이 토큰에 포함되어 있는지만 확인하면 되기 때문에 리소스에 대한 권한 부여가 쉬워집니다.
 
 ## <a name="types-of-permissions"></a>권한 형식
 
-Azure AD는 두 종류의 권한을 정의합니다. 
-* **위임된 권한** - 로그인한 사용자가 현재 있는 앱에서 사용합니다. 이 앱에 대해 사용자 또는 관리자는 앱이 요청하는 권한 및 앱이 API를 호출할 때 로그인한 사용자로 행동하도록 위임된 권한이라는 데 동의합니다. API에 따라 사용자는 API에 직접 동의할 수 없고 대신에 관리자에게 ["관리자 동의"](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)를 제공할 것을 요구할 수 있습니다.
-* **응용 프로그램 권한** - 로그인한 사용자가 없이 실행한 앱(예: 백그라운드 서비스 또는 디먼으로 실행한 앱)에서 사용합니다. 응용 프로그램 권한은 일반적으로 강력하고 사용자 경계 간의 데이터 또는 다른 방법이라면 관리자로 제한될 수 있는 데이터에 액세스할 수 있도록 하므로 [관리자만이 동의](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant)할 수 있습니다. 
+Azure AD는 두 종류의 권한을 정의합니다.
+
+* **위임된 권한** - 로그인한 사용자가 현재 있는 앱에서 사용합니다. 이 앱에 대해 사용자 또는 관리자는 앱이 요청하는 권한 및 앱이 API를 호출할 때 로그인한 사용자로 행동하도록 위임된 권한이라는 데 동의합니다. API에 따라 사용자는 API에 직접 동의할 수 없고 대신에 [관리자에게 “관리자 동의”를 제공할 것을 요구](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)합니다.
+* **응용 프로그램 권한** - 로그인한 사용자가 없이 실행한 앱(예: 백그라운드 서비스 또는 디먼으로 실행한 앱)에서 사용합니다. 응용 프로그램 권한은 일반적으로 강력하고 사용자 경계 간의 데이터 또는 다른 방법이라면 관리자로 제한될 수 있는 데이터에 액세스할 수 있도록 하므로 [관리자만이 동의](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant)할 수 있습니다.
 
 효과적인 권한은 앱이 API를 요청할 때 갖게 될 권한입니다. 
 

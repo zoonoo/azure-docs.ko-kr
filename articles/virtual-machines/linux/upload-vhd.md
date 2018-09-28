@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0으로 사용자 지정 Linux VM 업로드 또는 복사 | Microsoft Docs
-description: Resource Manager 배포 모델 및 Azure CLI 2.0을 사용하여 사용자 지정된 가상 머신 업로드 및 복사
+title: Azure CLI를 사용하여 사용자 지정 Linux VM 업로드 또는 복사 | Microsoft Docs
+description: Resource Manager 배포 모델 및 Azure CLI를 사용하여 사용자 지정된 가상 머신 업로드 또는 복사
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,14 +15,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: cynthn
-ms.openlocfilehash: 3fb6957cf6af5c09a355b61c7c2440a929d1b837
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b5df02c9f07549aec406cf449bb0ae49ee9e280a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736675"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957434"
 ---
-# <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 사용자 지정 디스크에서 Linux VM 만들기
+# <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Azure CLI를 사용하여 사용자 지정 디스크에서 Linux VM 만들기
 
 <!-- rename to create-vm-specialized -->
 
@@ -57,7 +57,7 @@ az vm create --resource-group myResourceGroup --location eastus --name myVM \
 > 
 
 
-* 최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치했고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
+* 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치했고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인했는지 확인합니다.
 
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *mystorageaccount* 및 *mydisks*가 포함됩니다.
 

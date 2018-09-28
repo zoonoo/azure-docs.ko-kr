@@ -5,37 +5,35 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 8/13/2018
+ms.date: 9/14/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: a63a12658bd0a4b4d018d51824af9814691a3cbf
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 4c6aaea836302732b1af3d22923c965575cfc9d2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40182509"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47020475"
 ---
 ### <a name="what-is-azure-firewall"></a>Azure Firewall이란?
 
-Azure Firewall은 Azure Virtual Network 리소스를 보호하는 관리되는 클라우드 기반 네트워크 보안 서비스입니다. 고가용성 및 무제한 클라우드 확장성이 내장되어 있는 서비스 형태의 완전한 상태 저장 방화벽입니다. 구독 및 가상 네트워크 전반에 걸쳐 응용 프로그램 및 네트워크 연결 정책을 중앙에서 만들고, 적용하고 기록할 수 있습니다. Azure Firewall은 현재 공개 미리 보기로 제공됩니다.
+Azure Firewall은 Azure Virtual Network 리소스를 보호하는 관리되는 클라우드 기반 네트워크 보안 서비스입니다. 고가용성 및 무제한 클라우드 확장성이 내장되어 있는 서비스 형태의 완전한 상태 저장 방화벽입니다. 구독 및 가상 네트워크 전반에 걸쳐 응용 프로그램 및 네트워크 연결 정책을 중앙에서 만들고, 적용하고 기록할 수 있습니다.
 
-### <a name="which-capabilities-are-supported-in-the-azure-firewall-public-preview-release"></a>Azure Firewall 미리 보기 릴리스에서 지원되는 기능은 무엇입니까?  
+### <a name="what-capabilities-are-supported-in-azure-firewall"></a>Azure Firewall에서 어떤 기능이 지원되나요?  
 
 * 서비스로서의 상태 저장 방화벽
 * 무제한 클라우드 확장성이 포함된 기본 제공 고가용성
-* FQDN 필터링 
+* FQDN 필터링
+* FQDN 태그
 * 네트워크 트래픽 필터링 규칙
 * 아웃바운드 SNAT 지원
-* Azure 구독 및 가상 네트워크 전반에 걸쳐 응용 프로그램 및 네트워크 연결 정책을 중앙에서 만들고, 적용하고 기록하는 기능
-* 로깅 및 분석을 위한 Azure Monitor와의 완전한 통합 
-
-### <a name="how-can-i-join-the-azure-firewall-public-preview"></a>Azure Firewall 공개 미리 보기에 조인하는 방법
-
-Azure Firewall은 현재 관리되는 공개 미리 보기로 제공되며, Register-AzureRmProviderFeature PowerShell 명령을 사용하여 조인할 수 있습니다. 이 명령은 Azure Firewall 공개 미리 보기 설명서에 설명되어 있습니다.
+* 인바운드 DNAT 지원
+* Azure 구독 및 VNET 전반에 걸쳐 응용 프로그램 및 네트워크 연결 정책을 중앙에서 만들고 적용하고 기록
+* 로깅 및 분석을 위한 Azure Monitor와 완전히 통합 
 
 ### <a name="what-is-the-pricing-for-azure-firewall"></a>Azure Firewall의 가격 책정은 어떻게 되나요?
 
-Azure Firewall은 고정 비용 및 변동 비용이 있습니다. 가격은 다음과 같으며, 공개 미리 보기 기간에는 50% 할인됩니다.
+Azure Firewall은 고정 비용 + 변동 비용이 있습니다.
 
 * 고정 요금: $1.25/방화벽/시간당
 * 변동 요금: $0.03/방화벽에서 처리하는 GB당(수신 또는 송신)
@@ -59,7 +57,7 @@ Azure Firewall은 규칙 및 규칙 컬렉션을 지원합니다. 규칙 컬렉�
 
 ### <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Azure Firewall은 인바운드 트래픽 필터링을 지원하나요?
 
-Azure Firewall 공개 미리 보기는 아웃 바운드 필터링만 지원합니다. 비 HTTP/S 프로토콜(예: RDP, SSH 또는 FTP)에 대한 인바운드 보호는 Azure Firewall GA에서 제공할 예정입니다.  
+Azure Firewall은 인바운드 및 아웃바운드 필터링을 지원합니다. 인바운드 보호는 HTTP/S 이외의 프로토콜용입니다. 예를 들어 RDP, SSH 및 FTP 프로토콜이 이에 해당합니다.
  
 ### <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Azure Firewall에서는 어떤 로깅 및 분석 서비스를 지원하나요?
 
@@ -110,3 +108,11 @@ Set-AzureRmFirewall -AzureFirewall $azfw
 * 중앙 가상 네트워크에서 실행되는 Azure Firewall 방화벽 인스턴스는 최대 50개스포크 가상 네트워크에 해당하는 가상 네트워크 피어링 제한이 적용됩니다.  
 * Azure Firewall은 글로벌 피어링으로 작동하지 않으므로 고객은 지역당 최소 하나의 방화벽 배포가 필요합니다.
 * Azure Firewall은 10,000개의 응용 프로그램 규칙과 10,000개의 네트워크 규칙을 지원합니다.
+
+### <a name="can-azure-firewall-in-a-hub-virtual-network-forward-and-filter-network-traffic-between-two-spoke-virtual-networks"></a>허브 가상 네트워크의 Azure Firewall이 두 스포크 가상 네트워크 간의 네트워크 트래픽을 전달하고 필터링할 수 있나요?
+
+예. 허브 가상 네트워크의 Azure Firewall을 사용하여 두 스포크 가상 네트워크 간의 트래픽을 라우팅하고 필터링할 수 있습니다. 이 시나리오가 적절하게 작동하려면 각각의 스포크 가상 네트워크 서브넷에 Azure Firewall을 기본 게이트웨이로 가리키는 UDR이 포함되어 있어야 합니다.
+
+### <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network"></a>Azure Firewall이 동일한 가상 네트워크에 있는 서브넷 간에 네트워크 트래픽을 전달하고 필터링할 수 있나요?
+
+동일한 가상 네트워크 또는 직접 피어링된 가상 네트워크에 있는 서브넷 간 트래픽은 UDR이 Azure Firewall을 기본 게이트웨이로 가리키는 경우에도 직접 라우팅됩니다. 내부 네트워크 조각화에 대해 네트워크 보안 그룹을 사용하는 방법이 권장됩니다. 이 시나리오에서 서브넷 트래픽에 대한 서브넷을 방화벽으로 보내려면 두 가지 서브넷에 명시적으로 지정된 대상 서브넷 네트워크 접두사가 포함되어 있어야 합니다.

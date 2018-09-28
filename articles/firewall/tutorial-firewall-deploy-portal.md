@@ -6,15 +6,15 @@ author: vhorne
 manager: jpconnock
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 7/11/2018
+ms.date: 09/24/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 05959143431a2cc11d79a4012f45eb565c1c91f2
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 727d38cae6c2f98d2922d5760f116ab85d75b8ac
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576001"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983517"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Firewall 배포 및 구성
 
@@ -31,7 +31,9 @@ Azure Firewall에는 아웃바운드 액세스를 제어하는 두 가지 규칙
 
 응용 프로그램 및 네트워크 규칙은 *규칙 컬렉션*에 저장됩니다. 규칙 컬렉션은 동일한 작업 및 우선 순위를 공유하는 규칙 목록입니다.  네트워크 규칙 컬렉션은 네트워크 규칙 목록이며, 응용 프로그램 규칙 컬렉션은 응용 프로그램 규칙 목록입니다.
 
-네트워크 규칙 컬렉션은 항상 응용 프로그램 규칙 컬렉션에 앞서 처리됩니다. 모든 규칙이 종료되므로 네트워크 규칙 컬렉션에서 일치가 발견되는 경우 세션에 대한 다음과 같은 응용 프로그램 규칙 컬렉션은 처리되지 않습니다.
+Azure Firewall에는 인바운드 규칙과 아웃바운드 규칙의 개념이 없습니다. 응용 프로그램 규칙과 네트워크 규칙이 있으며 해당 규칙은 방화벽으로 들어오는 모든 트래픽에 적용됩니다. 네트워크 규칙과 다음 애플리케이션 규칙 순으로 적용한 다음 규칙이 종료됩니다.
+
+예를 들어, 네트워크 규칙이 일치하는 경우 애플리케이션 규칙을 사용하여 패킷을 평가하지 않습니다. 네트워크 규칙이 일치하지 않고 패킷 프로토콜이 HTTP/HTTPS이면 응용 프로그램 규칙을 사용하여 패킷을 평가합니다. 여전히 일치하는 항목이 없으면 패킷은 인프라 규칙 컬렉션과 비교하여 패킷을 평가합니다. 여전히 일치하는 항목이 없으면 기본적으로 패킷이 거부됩니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -46,10 +48,6 @@ Azure Firewall에는 아웃바운드 액세스를 제어하는 두 가지 규칙
 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-
-[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
-
-Azure Firewall 문서의 예제에서는 이미 Azure Firewall 공개 미리 보기를 사용하도록 설정했다고 가정합니다. 자세한 내용은 [Azure Firewall 공개 미리 보기 사용하도록 설정](public-preview.md)을 참조합니다.
 
 이 자습서에서는 세 개의 서브넷을 사용하여 단일 VNet을 만듭니다.
 - **FW-SN** - 방화벽은 이 서브넷에 있습니다.
@@ -83,9 +81,7 @@ Azure Firewall 문서의 예제에서는 이미 Azure Firewall 공개 미리 보
 7. **구독**의 경우 사용자의 구독을 선택합니다.
 8. **리소스 그룹**의 경우 **기존 항목 사용**을 선택한 후, **Test-FW-RG**를 선택합니다.
 9. **위치**의 경우 전에 사용한 동일한 위치를 선택합니다.
-10. **서브넷** 아래에서 **이름**에 **AzureFirewallSubnet**을 입력합니다.
-
-    방화벽은 이 서브넷에 있고 해당 서브넷 이름은 AzureFirewallSubnet이 **되어야** 합니다.
+10. **서브넷** 아래에서 **이름**에 **AzureFirewallSubnet**을 입력합니다. 방화벽은 이 서브넷에 있고 해당 서브넷 이름은 AzureFirewallSubnet이 **되어야** 합니다.
 11. **주소 범위**에 **10.0.1.0/24**를 입력합니다.
 12. 다른 기본 설정을 사용한 다음, **만들기**를 클릭합니다.
 
@@ -207,25 +203,21 @@ Azure Firewall 문서의 예제에서는 이미 Azure Firewall 공개 미리 보
 
 
 1. **Test-FW-RG**를 열고 **Test-FW01** 방화벽을 클릭합니다.
-1. **Test-FW01** 페이지의 **설정**에서 **규칙**을 클릭합니다.
-2. **응용 프로그램 규칙 컬렉션 추가**를 클릭합니다.
-3. **이름**에 **App-Coll01**를 입력합니다.
-1. **우선 순위**에 **200**을 입력합니다.
-2. **동작**에 대해 **허용**을 선택합니다.
+2. **Test-FW01** 페이지의 **설정**에서 **규칙**을 클릭합니다.
+3. **응용 프로그램 규칙 컬렉션 추가**를 클릭합니다.
+4. **이름**에 **App-Coll01**를 입력합니다.
+5. **우선 순위**에 **200**을 입력합니다.
+6. **동작**에 대해 **허용**을 선택합니다.
+7. **규칙** 아래에서 **이름**에 **AllowGH**를 입력합니다.
+8. **원본 주소**에 **10.0.2.0/24**를 입력합니다.
+9. **Protocol:port**에 **http, https**를 입력합니다. 
+10. **대상 FQDN**에 **github.com** 입력
+11. **추가**를 클릭합니다.
 
-6. **규칙** 아래에서 **이름**에 **AllowGH**를 입력합니다.
-7. **원본 주소**에 **10.0.2.0/24**를 입력합니다.
-8. **Protocol:port**에 **http, https**를 입력합니다. 
-9. **대상 FQDN**에 **github.com** 입력
-10. **추가**를 클릭합니다.
+Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 제공 규칙 컬렉션을 포함합니다. 이러한 FQDN은 플랫폼에 대해 특정적이며 다른 용도로 사용할 수 없습니다. 자세한 내용은 [인프라 FQDN](infrastructure-fqdns.md)을 참조하세요.
 
-> [!NOTE]
-> Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 제공 규칙 컬렉션을 포함합니다. 이러한 FQDN은 플랫폼에 대해 특정적이며 다른 용도로 사용할 수 없습니다. 허용되는 인프라 FQDN은 다음과 같습니다.
->- 저장소 PIR(플랫폼 이미지 리포지토리)에 대한 액세스를 계산합니다.
->- 관리 디스크 상태 저장소 액세스.
->- Windows 진단
->
-> 마지막으로 처리되는 *모두 거부* 응용 프로그램 규칙 컬렉션을 만들어 이 기본 제공 인프라 규칙 컬렉션을 재정의할 수 있습니다. 항상 인프라 규칙 컬렉션 전에 처리됩니다. 인프라 규칙 컬렉션에 없는 항목은 기본적으로 거부됩니다.
+> [!Note]
+> 현재 FQDN 태그는 Azure PowerShell 및 REST를 통해서만 구성할 수 있습니다. 자세한 내용은 [여기](https://aka.ms/firewallapplicationrule)를 클릭하세요. 
 
 ## <a name="configure-network-rules"></a>네트워크 규칙 구성
 

@@ -16,14 +16,18 @@ ms.workload: identity
 ms.date: 04/20/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 48d03b590d718cf82d692dc177a69f6d54de43d1
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 4afd4ce5b8a0ab4c076ebc3c587605dfe1204b8a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495917"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966387"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>유니버설 Windows 플랫폼 응용 프로그램(XAML)에서 Microsoft Graph API 호출
+
+
+> [!div renderon="docs"]
+> [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 이 가이드에서는 네이티브 UWP(유니버설 Windows 플랫폼) 응용 프로그램이 액세스 토큰을 요청한 다음, Microsoft Graph API를 호출하는 방법을 설명합니다. 이 가이드는 Azure Active Directory v2 엔드포인트에서 액세스 토큰을 필요로 하는 다른 API에도 적용됩니다.
 
@@ -71,11 +75,14 @@ ms.locfileid: "39495917"
 2. **패키지 관리자 콘솔** 창에서 다음 명령을 복사 및 붙여넣기합니다.
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -Pre
+    Install-Package Microsoft.Identity.Client -Pre -Version 1.1.4-preview0002
     ```
 
 > [!NOTE]
 > 이 명령은 [Microsoft 인증 라이브러리](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)를 설치합니다. MSAL은 Azure Active Directory v2에 의해 보호되는 API에 액세스하는 사용자 토큰을 쿼리, 캐시 및 새로 고칩니다.
+
+> [!NOTE]
+> 이 자습서는 최신 버전의 MSAL.NET을 사용하지 않지만 업데이트하는 중입니다.
 
 ## <a name="initialize-msal"></a>MSAL 초기화
 이 단계에서는 토큰 처리와 같이 MSAL과 상호 작용을 처리하는 클래스를 만들 수 있습니다.
@@ -233,7 +240,7 @@ ms.locfileid: "39495917"
 
 ### <a name="more-information-on-making-a-rest-call-against-a-protected-api"></a>보호되는 API에 대한 REST 호출에 관한 추가 정보
 
-이 샘플 응용 프로그램에서 `GetHttpContentWithToken` 메서드는 토큰이 필요한 보호되는 리소스에 대한 HTTP `GET` 요청을 실행하는 데 사용됩니다. 그런 다음, 메서드는 호출자에게 콘텐츠를 반환합니다. 이 메서드는 **HTTP 인증** 헤더에 획득된 토큰을 추가합니다. 이 샘플에서 리소스는 사용자 프로필 정보를 표시하는 Microsoft Graph API **me** 끝점입니다.
+이 샘플 응용 프로그램에서 `GetHttpContentWithToken` 메서드는 토큰이 필요한 보호되는 리소스에 대한 HTTP `GET` 요청을 실행하는 데 사용됩니다. 그런 다음, 메서드는 호출자에게 콘텐츠를 반환합니다. 이 메서드는 **HTTP 인증** 헤더에 획득된 토큰을 추가합니다. 이 샘플에서 리소스는 사용자 프로필 정보를 표시하는 Microsoft Graph API **me** 엔드포인트입니다.
 <!--end-collapse-->
 
 ## <a name="add-a-method-to-sign-out-the-user"></a>사용자를 로그아웃하는 메서드 추가

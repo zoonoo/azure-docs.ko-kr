@@ -1,6 +1,6 @@
 ---
-title: 도메인에 연결된 Azure HDInsight 아키텍처
-description: 도메인에 가입된 HDInsight를 계획하는 방법을 알아봅니다.
+title: Enterprise Security Package를 사용하는 Azure HDInsight 아키텍처
+description: Enterprise Security Package를 사용하여 HDInsight 보안을 계획하는 방법을 알아봅니다.
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
@@ -8,15 +8,15 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/30/2018
-ms.openlocfilehash: efdc9cfbbe9a78571e0a56437e512d0cbbc18b3e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.date: 09/24/2018
+ms.openlocfilehash: 975a4f7b15d1e1c13767cd7026e961e9d4227603
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297279"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998931"
 ---
-# <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>HDInsight에서 Azure 도메인에 가입된 Hadoop 클러스터 계획
+# <a name="use-enterprise-security-package-in-hdinsight"></a>HDInsight에서 Enterprise Security Package 사용
 
 표준 Azure HDInsight 클러스터는 단일 사용자 클러스터입니다. 대량 데이터 워크로드를 구축하는 작은 응용 프로그램 팀이 있는 대부분의 회사에 적합합니다. 각 사용자는 요청 시 전용 클러스터를 만들고 더 이상 필요하지 않은 경우, 삭제할 수 있습니다. 
 
@@ -29,7 +29,7 @@ HDInsight의 VM(가상 머신)은 제공된 도메인에 가입된 도메인입�
 
 ## <a name="integrate-hdinsight-with-active-directory"></a>Active Directory와 HDInsight 통합
 
-오픈 소스 Hadoop은 인증 및 보안에 Kerberos를 사용합니다. 따라서 HDInsight 클러스터 노드는 Azure AD DS에서 관리하는 도메인에 가입됩니다. Kerberos 보안은 클러스터의 Hadoop 구성 요소에 대해 구성됩니다. 
+오픈 소스 Hadoop은 인증 및 보안에 Kerberos를 사용합니다. 따라서 ESP(Enterprise Security Package)가 포함된 HDInsight 클러스터 노드는 Azure AD DS에서 관리하는 도메인에 조인됩니다. Kerberos 보안은 클러스터의 Hadoop 구성 요소에 대해 구성됩니다. 
 
 각 Hadoop 구성 요소의 경우, 서비스 주체는 자동으로 생성됩니다. 또한 도메인에 가입된 각 머신에 대한 해당 머신 보안 주체가 만들어집니다. 이러한 서비스 및 머신 주체를 저장하기 위해 이러한 원칙을 배치할 위치인 도메인 컨트롤러(Azure AD DS) 내에서 OU(조직 구성 단위)를 제공해야 합니다. 
 
@@ -45,7 +45,7 @@ HDInsight의 VM(가상 머신)은 제공된 도메인에 가입된 도메인입�
 
 다음 스크린샷은 contoso.com에서 만든 OU를 보여 줍니다. 또한 일부 서비스 사용자 및 머신 보안 주체를 표시합니다.
 
-![도메인 가입 HDInsight 클러스터의 조직 단위](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
+![ESP가 포함된 HDInsight 클러스터용 조직 구성 단위](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
 ## <a name="set-up-different-domain-controllers"></a>다른 도메인 컨트롤러 설정
 HDInsight는 현재 클러스터가 Kerberos 통신에 사용하는 주 도메인 컨트롤러로 Azure AD DS만 지원합니다. 그러나 이러한 설정을 통해 HDInsight 액세스에 Azure AD DS를 사용하도록 설정하면 다른 복잡한 Active Directory 설정이 가능합니다.
@@ -55,7 +55,7 @@ HDInsight는 현재 클러스터가 Kerberos 통신에 사용하는 주 도메�
 
 사용자, 그룹 및 암호는 Azure AD(Azure Active Directory)에서 동기화됩니다. Azure AD 인스턴스에서 Azure AD DS로 단방향 동기화를 사용하면 사용자가 동일한 회사 자격 증명을 통해 클러스터에 로그인할 수 있습니다. 
 
-자세한 내용은 [Azure Active Directory Domain Services를 사용하여 도메인에 가입된 HDInsight 클러스터 구성](./apache-domain-joined-configure-using-azure-adds.md)을 참조하세요.
+자세한 내용은 [Azure AD DS를 사용하여 ESP가 포함된 HDInsight 클러스터 구성](./apache-domain-joined-configure-using-azure-adds.md)을 참조하세요.
 
 ### <a name="on-premises-active-directory-or-active-directory-on-iaas-vms"></a>온-프레미스 Active Directory 또는 IaaS VM의 Active Directory
 
@@ -63,9 +63,10 @@ HDInsight는 현재 클러스터가 Kerberos 통신에 사용하는 주 도메�
 
 Kerberos가 암호 해시를 사용하므로 [Azure AD DS에서 암호 해시 동기화를 사용하도록 설정](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)해야 합니다. AD FS(Active Directory Federation Services)와 페더레이션을 사용하는 경우, 필요에 따라 AD FS 인프라에 장애가 발생할 경우 백업으로 암호 해시 동기화를 설정할 수 있습니다. 자세한 내용은 [Azure AD Connect에서 암호 해시 동기화 사용](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)을 참조하세요. 
 
-Azure AD 및 Azure AD DS 없이 온-프레미스 Active Directory 또는 IaaS VM의 Active Directory만 사용하는 경우에는 도메인 가입 HDInsight 클러스터에 지원되는 구성이 아닙니다.
+Azure AD 및 Azure AD DS 없이 온-프레미스 Active Directory 또는 IaaS VM의 Active Directory만 사용하는 방식은 ESP가 포함된 HDInsight 클러스터에 대해 지원되는 구성이 아닙니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [도메인 가입 HDInsight 클러스터 구성](apache-domain-joined-configure-using-azure-adds.md)
-* [도메인 가입 HDInsight 클러스터에 대한 Hive 정책 구성](apache-domain-joined-run-hive.md)
-* [도메인에 가입된 HDInsight 클러스터 관리](apache-domain-joined-manage.md) 
+
+* [ESP가 포함된 HDInsight 클러스터 구성](apache-domain-joined-configure-using-azure-adds.md)
+* [ESP가 포함된 HDInsight 클러스터용 Hive 정책 구성](apache-domain-joined-run-hive.md)
+* [ESP가 포함된 HDInsight 클러스터 관리](apache-domain-joined-manage.md) 
