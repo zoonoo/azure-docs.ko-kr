@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: celested
-ms.openlocfilehash: c9db5169a978875cf639f6c534ce7920909c896e
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 3b799cde0a696b4a764893c545a8d55d363a4800
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188243"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989025"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Azure Active Directory와 응용 프로그램 통합
-[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
 엔터프라이즈 개발자 및 소프트웨어 SaaS(software-as-a-service) 공급자는 Azure AD(Azure Active directory)와 함께 통합되어 해당 서비스에 대한 보안 로그인 및 권한 부여를 제공하는 상용 클라우드 서비스 또는 업무용 응용 프로그램 제품군을 개발할 수 있습니다. 응용 프로그램 또는 서비스를 Azure AD와 통합하려면 개발자가 먼저 Azure AD에 응용 프로그램을 등록해야 합니다.
 
@@ -33,9 +34,11 @@ ms.locfileid: "43188243"
 등록된 응용 프로그램을 나타내는 두 Azure AD 개체와 그 관계에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](app-objects-and-service-principals.md)를 참조하고, Azure Active Directory로 응용 프로그램을 개발할 때 사용해야 하는 브랜딩 지침에 대해 자세히 알아보려면 [통합 앱에 대한 브랜딩 지침](howto-add-branding-in-azure-ad-apps.md)을 참조하세요.
 
 ## <a name="adding-an-application"></a>응용 프로그램 추가
+
 Azure AD의 기능을 사용하려는 모든 응용프로그램이 먼저 Azure AD 테넌트에 등록되어야 합니다. 이 등록 프로세스는 응용 프로그램이 위치한 URL, 사용자가 인증된 후 회신을 보낼 URL, 앱을 식별하는 URI 등과 같이 응용 프로그램에 대한 Azure AD 세부 정보의 제공이 포함됩니다.
 
 ### <a name="to-register-a-new-application-using-the-azure-portal"></a>Azure Portal을 사용하여 새 응용 프로그램을 등록하려면
+
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 계정이 하나 이상의 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 클릭하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
 3. 왼쪽의 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록** 및 **새 응용 프로그램 등록**을 차례로 클릭합니다.
@@ -59,10 +62,9 @@ Azure AD의 기능을 사용하려는 모든 응용프로그램이 먼저 Azure 
 
   > [!NOTE]
   > 기본적으로 새로 등록된 웹 응용 프로그램은 동일한 테넌트의 사용자**만** 응용 프로그램에 로그인할 수 있도록 구성됩니다.
-  > 
-  > 
 
 ## <a name="updating-an-application"></a>응용프로그램 업데이트
+
 응용 프로그램이 Azure AD와 등록되면 웹 API에 액세스를 제공하도록 업데이트하고 다른 조직에서 사용할 수 있게 만드는 등, 기타 작업이 필요할 수도 있습니다. 이 섹션에서는 응용 프로그램을 추가로 구성할 수 있는 다양한 방법을 설명합니다. 먼저 동의 프레임워크의 개요를 시작합니다. 여기서는 다른 사용자 또는 응용 프로그램에서 사용해야 하는 응용 프로그램을 빌드하는 경우를 이해하는 것이 중요합니다.
 
 ### <a name="overview-of-the-consent-framework"></a>동의 프레임워크의 개요
@@ -93,7 +95,7 @@ OAuth 2.0 권한 부여에서 동의 프레임워크를 사용하는 방법에 �
    
   ![사용자 동의 경험](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
-5. 사용자가 동의를 부여하면 권한 부여 코드가 응용 프로그램에 반환되며, 이것을 교환하여 액세스 토큰 및 새로 고침 토큰을 획득할 수 있습니다. 이 흐름에 대한 자세한 내용은 [Azure AD의 인증 시나리오에서 웹 응용 프로그램부터 Web API 섹션](authentication-scenarios.md#web-application-to-web-api)을 참조하세요.
+5. 사용자가 동의를 부여하면 권한 부여 코드가 응용 프로그램에 반환되며, 이것을 교환하여 액세스 토큰 및 새로 고침 토큰을 획득할 수 있습니다. 이 흐름에 관한 자세한 정보는 [Web API]](web-api.md)를 참조하세요.
 
 6. 관리자로 테넌트의 모든 사용자를 대신하여 응용 프로그램의 위임된 권한에 동의할 수도 있습니다. 관리 동의는 테넌트의 모든 사용자에게 동의 대화 상자가 표시되지 않도록 하고, 관리자 역할이 있는 사용자가 [Azure Portal](https://portal.azure.com)에서 이를 수행할 수 있습니다. 응용 프로그램의 **설정** 페이지에서 **필요한 사용 권한**을 클릭하고 **권한 부여** 단추를 클릭합니다. 
 
@@ -103,6 +105,7 @@ OAuth 2.0 권한 부여에서 동의 프레임워크를 사용하는 방법에 �
   > **권한 부여** 단추를 사용하는 명시적 동의 부여는 현재 ADAL.js를 사용하는 SPA(단일 페이지 응용 프로그램)에 필요합니다. 그렇지 않고 액세스 토큰을 요청하는 경우 응용 프로그램이 실패합니다. 
 
 ### <a name="configure-a-client-application-to-access-web-apis"></a>웹 API에 액세스하는 클라이언트 응용 프로그램 구성
+
 웹/기밀 클라이언트 응용 프로그램이 인증을 요구하고 액세스 토큰을 얻는 권한 부여 흐름에 참여하려면 보안 자격 증명을 설정해야 합니다. Azure Portal에서 지원하는 기본 인증 방법은 클라이언트 ID + 비밀 키입니다. 이 섹션에서는 비밀 키로 클라이언트의 자격 증명을 제공하는 데 필요한 구성 단계에 대해 설명합니다.
 
 또한 클라이언트에서 리소스 응용 프로그램(예: Microsoft Graph API)에서 공개한 웹 API에 액세스하기 전에 동의 프레임워크는 클라이언트에서 요청된 권한에 따라 필요한 권한 부여를 얻도록 합니다. 기본적으로 모든 응용 프로그램은 "Windows Azure Active Directory"(Graph API) 및 "Windows Azure Service Management API"의 사용 권한을 선택할 수 있습니다. [Graph API "로그인 및 읽기 사용자 프로필" 사용 권한](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails)도 기본적으로 선택됩니다. Office 365를 구독한 계정이 있는 테넌트에 클라이언트를 등록하는 경우 SharePoint 및 Exchange Online에 대한 웹 API 및 권한도 선택할 수 있습니다. 원하는 웹 API 각각에서 [두 가지 형식의 사용 권한](developer-glossary.md#permissions) 중에 선택할 수 있습니다.
@@ -115,6 +118,7 @@ OAuth 2.0 권한 부여에서 동의 프레임워크를 사용하는 방법에 �
   > 위임된 권한을 응용 프로그램에 추가할 경우 테넌트 내의 사용자에게 자동으로 동의를 부여하지 않습니다. 관리자가 모든 사용자를 대신하여 동의를 허락하지 않는 한 사용자는 런타임에 추가로 위임된 사용 권한에 대해 수동으로 동의해야 합니다.
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>웹 API에 액세스할 수 있는 응용 프로그램 자격 증명 또는 권한을 추가하려면
+
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 계정이 하나 이상의 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 클릭하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
 3. 왼쪽의 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록**을 차례로 클릭하고 구성하려는 새 응용 프로그램을 찾아 클릭합니다.
@@ -213,8 +217,6 @@ Microsoft Graph API에서 노출되는 범위에 대한 자세한 내용은 [Mic
 
 > [!NOTE]
 > 현재 제한으로 인해 네이티브 클라이언트 응용 프로그램이 “조직의 디렉터리 액세스" 권한을 사용하는 경우 Azure AD 그래프 API만 호출할 수 있습니다. 이 제한은 웹 응용 프로그램에는 적용되지 않습니다.
-> 
-> 
 
 ### <a name="configuring-multi-tenant-applications"></a>다중 테넌트 응용 프로그램 구성
 
@@ -272,7 +274,6 @@ SPA(단일 페이지 응용 프로그램)는 일반적으로 브라우저에서 
 
 > [!NOTE]
 > 응용 프로그램 매니페스트를 편집하는 방법에 대한 세부 정보는 먼저 이전 섹션인 [웹 API를 노출하도록 리소스 응용 프로그램 구성](#configuring-a-resource-application-to-expose-web-apis)을 검토해야 합니다.
->
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 계정이 하나 이상의 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 클릭하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
@@ -285,12 +286,15 @@ SPA(단일 페이지 응용 프로그램)는 일반적으로 브라우저에서 
 5. 업데이트된 매니페스트를 저장합니다. 저장되면 웹 API는 이제 OAuth 2.0 암시적 허용을 사용하여 사용자를 인증하도록 구성된 것입니다.
 
 ## <a name="removing-an-application"></a>응용 프로그램 제거
+
 이 섹션에서는 Azure AD 테넌트에서 응용 프로그램의 등록을 제거하는 방법을 설명합니다.
 
 ### <a name="removing-an-application-authored-by-your-organization"></a>조직이 작성한 응용프로그램 제거
+
 조직에서 등록한 응용 프로그램은 테넌트의 기본 "앱 등록" 페이지에 있는 "내 앱" 필터 아래에 표시됩니다. 이러한 응용 프로그램은 Azure Portal을 통해 수동으로 또는 PowerShell 또는 Graph API를 통해 프로그래밍 방식으로 등록한 응용 프로그램입니다. 구체적으로 말하면, 테넌트의 응용프로그램 및 서비스 주체 개체 모두에 의해 제공됩니다. 자세한 내용은 [응용 프로그램 개체 및 서비스 사용자 개체](app-objects-and-service-principals.md)를 참조하세요.
 
 #### <a name="to-remove-a-single-tenant-application-from-your-directory"></a>디렉터리에서 단일 테넌트 응용 프로그램을 제거하려면
+
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 계정이 하나 이상의 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 클릭하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
 3. 왼쪽의 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록**을 차례로 클릭하고 구성하려는 새 응용 프로그램을 찾아 클릭합니다. 응용 프로그램의 기본 등록 페이지로 이동하면 응용 프로그램의 **설정** 페이지를 엽니다.
@@ -298,6 +302,7 @@ SPA(단일 페이지 응용 프로그램)는 일반적으로 브라우저에서 
 5. 확인 메시지에서 **예** 를 클릭합니다.
 
 #### <a name="to-remove-a-multi-tenant-application-from-its-home-directory"></a>홈 디렉터리에서 다중 테넌트 응용 프로그램을 제거하려면
+
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 계정이 하나 이상의 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 클릭하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
 3. 왼쪽의 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록**을 차례로 클릭하고 구성하려는 새 응용 프로그램을 찾아 클릭합니다. 응용 프로그램의 기본 등록 페이지로 이동하면 응용 프로그램의 **설정** 페이지를 엽니다.
@@ -306,15 +311,16 @@ SPA(단일 페이지 응용 프로그램)는 일반적으로 브라우저에서 
 6. 확인 메시지에서 **예** 를 클릭합니다.
 
 ### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>다른 조직이 권한을 부여한 다중 테넌트 응용프로그램 제거
+
 테넌트의 기본 "앱 등록" 페이지에 있는 "모든 앱" 필터("내 앱" 등록 제외) 아래에 표시되는 응용 프로그램의 하위 집합은 다중 테넌트 응용 프로그램입니다. 기술적인 측면에서 이러한 다중 테넌트 응용 프로그램은 다른 테넌트에서 비롯되어 동의 프로세스 중에 테넌트에 등록되었습니다. 구체적으로 말하면 해당하는 응용 프로그램 개체 없이 테넌트의 서비스 주체 개체에 의해서만 제공됩니다. 응용 프로그램 및 서비스 주체 개체의 차이에 대한 자세한 내용은 [Azure AD의 응용 프로그램 및 서비스 주체 개체](app-objects-and-service-principals.md)를 참조하세요.
 
 (동의를 표시한 후에) 자사의 디렉토리에 대한 다중 테넌트 응용 프로그램 액세스 권한을 제거하려면 회사 관리자는 해당 서비스 주체를 제거해야 합니다. 관리자에게 전역 관리자 액세스 권한이 있어야 하고, Azure Portal 또는 [Azure AD PowerShell Cmdlet](http://go.microsoft.com/fwlink/?LinkId=294151)을 사용하여 해당 권한을 제거할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 - Azure AD에서 인증이 작동하는 방법에 대한 자세한 내용은 [Azure AD에 대한 인증 시나리오](authentication-scenarios.md)를 참조하세요.
 - 앱의 시각적 지침에 대한 팁은 [통합 앱에 대한 브랜딩 지침](howto-add-branding-in-azure-ad-apps.md)을 참조하세요.
 - 응용 프로그램의 응용 프로그램 개체와 서비스 주체 개체 간의 관계에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](app-objects-and-service-principals.md)를 참조하세요.
 - 앱 매니페스트에서 수행하는 역할에 대한 자세한 내용은 [Azure Active Directory 응용 프로그램 매니페스트 이해](reference-app-manifest.md)를 참조하세요.
 - 핵심 Azure AD 개발자 개념 중 일부에 대한 정의는 [Azure AD 개발자 용어집](developer-glossary.md)을 참조하세요.
 - 모든 개발자 관련 콘텐츠에 대한 개요는 [Active Directory 개발자 가이드](azure-ad-developers-guide.md)를 참조하세요.
-
