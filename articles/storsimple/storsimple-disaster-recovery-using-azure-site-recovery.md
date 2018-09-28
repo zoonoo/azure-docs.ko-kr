@@ -168,16 +168,16 @@ ASR에서 복구 계획을 만들어 파일 공유의 장애 조치(failover) �
 1. 자동화 계정에서 **변수** &gt; **변수 추가**를 클릭하고 다음 변수를 추가합니다. 이러한 자산을 암호화하도록 선택할 수 있습니다. 이러한 변수는 복구 계획과 관련됩니다. 복구 계획(다음 단계에서 만듦) 이름이 TestPlan이면 변수는 TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName 등과 같아야 합니다.
 
    - **BaseUrl**: Azure Cloud에 대한 Resource Manager URL. **Get-AzureRmEnvironment | Select-Object Name, ResourceManagerUrl** cmdlet를 사용하여 가져옵니다.
-   - *RecoveryPlanName***-ResourceGroupName**: StorSimple 리소스가 포함된 Resource Manager 그룹입니다.
-   - *RecoveryPlanName***-ManagerName**: StorSimple 장치가 있는 StorSimple 리소스입니다.
-   - *RecoveryPlanName***-DeviceName**: 장애 조치(failover)되어야 하는 StorSimple 장치입니다.
-   - *RecoveryPlanName***-DeviceIpAddress**: 장치의 IP 주소(StorSimple Device Manager 섹션 &gt; **설정** &gt; **네트워크** &gt; **DNS 설정** 그룹의 **장치** 탭에서 확인할 수 있음)입니다.
-   - *RecoveryPlanName***-VolumeContainers**: 장애 조치(failover)해야 할 장치에 있는 볼륨 컨테이너의 쉼표로 구분된 문자열입니다(예: volcon1,volcon2, volcon3).
-   - *RecoveryPlanName***-TargetDeviceName**: 컨테이너를 장애 조치(failover)할 StorSimple Cloud Appliance입니다.
-   - *RecoveryPlanName***-TargetDeviceIpAddress**: 대상 장치의 IP 주소(**Virtual Machine** 섹션 &gt; **설정** 그룹 &gt; **네트워크** 탭에서 확인할 수 있음)입니다.
-   - *RecoveryPlanName***-StorageAccountName**: 스크립트(장애 조치(failover)된 VM에서 실행해야 함)를 저장할 저장소 계정 이름입니다. 이 계정 이름은 스크립트를 임시로 저장할 공간이 있는 모든 저장소 계정일 수 있습니다.
-   - *RecoveryPlanName***-StorageAccountKey**: 위 저장소 계정의 액세스 키입니다.
-   - *RecoveryPlanName***-VMGUIDS**: VM을 보호할 때 Azure Site Recovery에서는 모든 VM에 장애 조치(failover)된 VM의 세부 정보를 제공하는 고유 ID를 할당합니다. VMGUID를 가져오려면 **Recovery Services** 탭을 선택하고 **보호된 항목** &gt; **보호 그룹** &gt; **컴퓨터** &gt; **속성**을 클릭합니다. 여러 VM이 있는 경우 GUID를 쉼표로 구분된 문자열로 추가합니다.
+   - *RecoveryPlanName* **-ResourceGroupName**: StorSimple 리소스가 포함된 Resource Manager 그룹입니다.
+   - *RecoveryPlanName* **-ManagerName**: StorSimple 장치가 있는 StorSimple 리소스입니다.
+   - *RecoveryPlanName* **-DeviceName**: 장애 조치(failover)되어야 하는 StorSimple 장치입니다.
+   - *RecoveryPlanName* **-DeviceIpAddress**: 장치의 IP 주소(StorSimple Device Manager 섹션 &gt; **설정** &gt; **네트워크** &gt; **DNS 설정** 그룹의 **장치** 탭에서 확인할 수 있음)입니다.
+   - *RecoveryPlanName* **-VolumeContainers**: 장애 조치(failover)해야 할 장치에 있는 볼륨 컨테이너의 쉼표로 구분된 문자열입니다(예: volcon1,volcon2, volcon3).
+   - *RecoveryPlanName* **-TargetDeviceName**: 컨테이너를 장애 조치(failover)할 StorSimple Cloud Appliance입니다.
+   - *RecoveryPlanName* **-TargetDeviceIpAddress**: 대상 장치의 IP 주소(**Virtual Machine** 섹션 &gt; **설정** 그룹 &gt; **네트워크** 탭에서 확인할 수 있음)입니다.
+   - *RecoveryPlanName* **-StorageAccountName**: 스크립트(장애 조치(failover)된 VM에서 실행해야 함)를 저장할 저장소 계정 이름입니다. 이 계정 이름은 스크립트를 임시로 저장할 공간이 있는 모든 저장소 계정일 수 있습니다.
+   - *RecoveryPlanName* **-StorageAccountKey**: 위 저장소 계정의 액세스 키입니다.
+   - *RecoveryPlanName* **-VMGUIDS**: VM을 보호할 때 Azure Site Recovery에서는 모든 VM에 장애 조치(failover)된 VM의 세부 정보를 제공하는 고유 ID를 할당합니다. VMGUID를 가져오려면 **Recovery Services** 탭을 선택하고 **보호된 항목** &gt; **보호 그룹** &gt; **컴퓨터** &gt; **속성**을 클릭합니다. 여러 VM이 있는 경우 GUID를 쉼표로 구분된 문자열로 추가합니다.
 
     예를 들어 복구 계획 이름이 fileServerpredayRP인 경우 모든 자산을 추가한 후에 **변수**, **연결** 및 **인증서** 탭이 다음과 같이 표시됩니다.
 
