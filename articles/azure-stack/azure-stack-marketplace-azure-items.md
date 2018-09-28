@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 09/27/2018
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: bb4a34e7036c532ca1800c70347a4f2c55a33da2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.reviewer: ''
+ms.openlocfilehash: 8e9d40451cd0d9c3a6505ee24ca02852d9d4c527
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221726"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423479"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack에서 사용할 수 있는 azure Marketplace 항목
 
@@ -143,6 +143,7 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![Kafka](media/azure-stack-marketplace-azure-items/kafka.png) | [Kafka](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kafka) | 강력한 배포 게시-구독 메시징 시스템입니다. | Bitnami |
 | ![Kafka 클러스터](media/azure-stack-marketplace-azure-items/kafka.png) | [Kafka 클러스터](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kafka-cluster) | Apache Kafka는 게시-구독 메시징 분산된 커밋 로그로 재고할입니다. 이 솔루션에는 여러 Kafka broker 및 Zookeeper 인스턴스를 프로 비전 하 여 Kafka 클러스터의 안정성 향상 됩니다. **이 솔루션 템플릿에 Linux 2.0 확장에 대 한 Debian 8 및 사용자 지정 스크립트도 필요합니다.** | Bitnami |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky 하이브리드 클라우드 보안](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | Kaspersky 하이브리드 클라우드 보안을 통해 원활 하 게 조정 되 고 적응 사이버 보안 에코 시스템을 수 있습니다. | Kaspersky 랩 |
+| ![kubernetes](media/azure-stack-marketplace-azure-items/kubernetes.png) | [Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md) | 이 솔루션은 ACS 엔진을 사용 하 여 생성 된 템플릿을 사용 하 여 독립 실행형 클러스터로 실행 하는 Kubernetes 클러스터를 배포 합니다.<br>**이 솔루션 템플릿에 Linux 2.0 용 Ubuntu Server 16.04 LTS 및 사용자 지정 스크립트도 필요합니다.**| Microsoft |
 | ![LAMP](media/azure-stack-marketplace-azure-items/lamp.png) | [LAMP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.lampstack) | 완벽 하 게 통합 및 개발 환경을 실행할 준비가 됩니다. | Bitnami |
 | ![LAPP](media/azure-stack-marketplace-azure-items/lapp.png) | [LAPP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.lappstack) | 전체 PHP, PostgreSQL 및 Apache 개발 환경입니다. | Bitnami |
 | ![보겠습니다 채팅](media/azure-stack-marketplace-azure-items/letschat.png) | [보겠습니다 채팅](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.letschat) | 오픈 소스 영구 메시징 응용 프로그램입니다. | Bitnami |
@@ -207,6 +208,7 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![ResourceSpace](media/azure-stack-marketplace-azure-items/resourcespace.png) | [ResourceSpace](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.resourcespace) | 향상 된 공동 작업에 대 한 디지털 자산 관리 시스템입니다. | Bitnami |
 | ![Roundcube](media/azure-stack-marketplace-azure-items/roundcube.png) | [Roundcube](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.roundcube) | MIME 지원과 같은 기능을 사용 하 여 IMAP 클라이언트 브라우저 기반입니다. | Bitnami |
 | ![Ruby](media/azure-stack-marketplace-azure-items/ruby.png) | [Ruby](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.rubystack) | Ruby on Rails에 대 한 사용 하기 쉬운 개발 환경입니다. | Bitnami |
+| ![Service Fabric 클러스터](media/azure-stack-marketplace-azure-items/servicefrabric.png) | [Service Fabric 클러스터](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceFabricCluster?tab=Overview) | 이 솔루션은 가상 머신 확장 집합에서 독립 실행형 클러스터로 실행 되는 Service Fabric을 배포 합니다. <br>**이 솔루션 템플릿에 또한 Windows Server 2016 Datacenter를 다운로드 하 필요**| Microsoft |
 | ![SEO 패널](media/azure-stack-marketplace-azure-items/seopanel.png) | [SEO 패널](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.seopanel) | 오픈 소스 SEO 관리 응용 프로그램에 여러 웹 사이트를 추적 합니다. | Bitnami |
 | ![Shopware](media/azure-stack-marketplace-azure-items/shopware.png) | [Shopware](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.shopware) | 오픈 소스 전자 상거래 플랫폼입니다. | Bitnami |
 | ![간단한 컴퓨터 포럼](media/azure-stack-marketplace-azure-items/simplemachinesforum.png) | [간단한 컴퓨터 포럼](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.simplemachinesforum) | 사용자 고유의 온라인 커뮤니티를 만드는 간단한 포럼 소프트웨어입니다. | Bitnami |
@@ -241,6 +243,7 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![KEMP LoadMaster 부하 분산 장치 ADC 콘텐츠 스위치](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster 부하 분산 장치 ADC 콘텐츠 스위치](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | 계층 4-7 응용 프로그램 배달 컨트롤러 (ADC) 부하 분산, 콘텐츠 스위치 및 Traffic Manager. | KEMP Technologies Inc. |
 | ![NRI mPLAT Suite-다중 클라우드 Conductor](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT Suite-다중 클라우드 Conductor](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | 단일 창의 투명 효과 모니터링 하려면 구성, 프로 비전, 자동화 및 모든 워크 로드 또는 클라우드를 제어 합니다. | NRI |
 | ![호환 NooBaa 하이브리드 AWS S3-Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa 하이브리드 AWS S3 compatibe-Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | S3-호환 되는 저장소 서비스 공개에 걸쳐 있고 온-프레미스 용량 리소스입니다. | NooBaa |
+| ![Multipoint 0에 대 한 게이트웨이 NetFoundry 신뢰 Azure Stack 연결](media/azure-stack-marketplace-azure-items/netfoundry.png) | [Multipoint 0에 대 한 게이트웨이 NetFoundry 신뢰 Azure Stack 연결](https://azuremarketplace.microsoft.com/marketplace/apps/tata_communications.netfoundry_cloud_gateway) | Azure Stack 및 업계 최고의 0 신뢰 보안, VPN 및 동시 사용자를 무제한으로의 처리량 x 5 사용 하 여 모든 네트워크 연결을 통해 어디서 나 간의 소프트웨어 전용, 다중 지점 연결 합니다. | NetFoundry |
 | ![Palo Alto VM 시리즈 차세대 방화벽](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM 시리즈 차세대 방화벽](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | VM 시리즈 차세대 방화벽 응용 프로그램 허용 목록 및 위협 방지 정책 사용 하 여 알려진 및 알 수 없는 위협 으로부터 보호 고객이 Azure Stack에 해당 응용 프로그램 및 데이터를 안전 하 게 마이그레이션할 수 있습니다. **이 이미지; 배포 하는 템플릿은 필요 이 참조 하세요 [문서](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack) 중요 한 정보입니다.**| Palo Alto Networks, Inc. |
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall 알려진 & 알 수 없는 취약점을 검색 하 고 웹 앱에 대 한 공격을 방지 합니다. **모두 (태평양 표준시) Marketplace 항목 다운로드 합니다.** | 양수 기술 |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise를 사용 하면 Azure Stack 인프라의 전체 수명 주기를 자동화할 수 있습니다. **두 Puppet Marketplace 항목 다운로드 합니다.** | Puppet |

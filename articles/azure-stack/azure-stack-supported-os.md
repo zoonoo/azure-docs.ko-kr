@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 09/26/2018
 ms.author: sethm
-ms.reviewer: JeffGoldner
-ms.openlocfilehash: 65e9b4371eab4e4e4978e91184ab9712b9ecc9eb
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.reviewer: ''
+ms.openlocfilehash: be4d9b3ea7e5715d7c3a4df11b7e8bab4d1d4ca5
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629378"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405600"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack에서 지 원하는 게스트 운영 체제
 
@@ -40,11 +40,12 @@ Azure Stack은 다음 표에 나열 된 Windows 게스트 운영 체제를 지�
 | Windows Server 2008 SP2 | 64비트 |  사용자 고유의 이미지를 표시 합니다. |
 | Windows 10 *(참고 1 참조)* | 64 비트, Pro 및 Enterprise | 사용자 고유의 이미지를 표시 합니다. |
 
-***참고 1:*** *Azure Stack에 Windows 10 클라이언트 운영 체제를 배포 하려면 있어야 [Windows 사용자 라이선스로](https://www.microsoft.com/en-us/Licensing/product-licensing/windows10.aspx) 정규화 된 다중 테 넌 트 호스팅 서비스 공급자를 통해 구입 하거나 ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)).*
+> [!NOTE]
+> Azure Stack에 Windows 10 클라이언트 운영 체제를 배포 하려면 있어야 [Windows 사용자 라이선스로](https://www.microsoft.com/en-us/Licensing/product-licensing/windows10.aspx) 정규화 된 다중 테 넌 트 호스팅 서비스 공급자를 통해 구입 하거나 ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)).
 
 Marketplace 이미지-수-종 또는 BYOL (EA/SPLA) 라이선스에 대해 사용할 수 있습니다. 단일 Azure Stack 인스턴스에서 모두 사용 하 여 지원 되지 않습니다. Azure Stack을 배포 하는 동안 이미지에 적합 한 버전의 게스트 에이전트를 삽입합니다.
 
- Datacenter edition 다운로드;에 대 한 marketplace에서 사용할 수 있습니다. 고객은 다른 버전을 포함 하 여 자체 서버 이미지를 가져올 수 있습니다. Windows 클라이언트 이미지 Marketplace에서 사용할 수 없습니다.
+Datacenter edition 다운로드;에 대 한 marketplace에서 사용할 수 있습니다. 고객은 다른 버전을 포함 하 여 자체 서버 이미지를 가져올 수 있습니다. Windows 클라이언트 이미지 Marketplace에서 사용할 수 없습니다.
 
 ## <a name="linux"></a>Linux
 
@@ -70,6 +71,11 @@ Marketplace에서 사용할 수 있는 것으로 나열 하는 Linux 배포는 �
 | Ubuntu 16.04-LTS | 64비트 | Canonical | 예 |
 | Ubuntu 18.04-LTS | 64비트 | Canonical | 예 |
 
-기타 Linux 배포는 나중에 지원할 수 있습니다.
-
 Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure Stack: Frequently Asked Questions](https://access.redhat.com/articles/3413531)합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+Azure Stack Marketplace에 대 한 자세한 내용은 다음 문서를 참조 하세요.
+
+[Marketplace 항목 다운로드](azure-stack-download-azure-marketplace-item.md)  
+[Marketplace 항목 만들기 및 게시](azure-stack-create-and-publish-marketplace-item.md)

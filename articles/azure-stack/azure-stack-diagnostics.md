@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/22/2018
+ms.date: 09/27/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: a36609ae63351070bb28469d9ccf1f3deb7bc6ff
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 5a9621ef9a8d6c545617e5bf3ef6f4197b70be88
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616952"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419610"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack의 진단 도구
 
@@ -143,14 +143,6 @@ if($s)
  |클라우드|IdentityProvider|OnboardRP|     |   
  |프로비전|Idn|PXE|     |
  |   |   |   |    |
-
-
-### <a name="bkmk_gui"></a>그래픽 사용자 인터페이스를 사용 하 여 로그를 수집 합니다.
-기본 Azure Stack 도구 GitHub 도구에서 리포지토리에 사용할 수 있는 오픈 소스 Azure Stack 도구를 활용할 수 AzureStackLog Get cmdlet이 Azure Stack 로그 검색에 대 한 필수 매개 변수를 제공 하는 대신 http://aka.ms/AzureStackTools합니다.
-
-합니다 **ERCS_AzureStackLogs.ps1** PowerShell 스크립트 도구 GitHub 리포지토리에 저장 되 고 정기적으로 업데이트 됩니다. 사용 가능한 최신 버전에서 직접 다운로드 해야 되도록 하려면 http://aka.ms/ERCS합니다. 관리자 PowerShell 세션에서 시작 스크립트는 권한 있는 끝점에 연결 하 고 제공 된 매개 변수를 사용 하 여 Get AzureStackLog를 실행 합니다. 매개 변수 없이 제공 되는 경우 스크립트는 그래픽 사용자 인터페이스를 통해 매개 변수를 묻는 기본값으로 사용 됩니다.
-
-ERCS_AzureStackLogs.ps1 PowerShell 스크립트에 대 한 자세한 내용은 볼 수 있습니다 [짧은 비디오](https://www.youtube.com/watch?v=Utt7pLsXEBc) 스크립트를 보거나 [readme 파일](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) Azure Stack 도구 GitHub 리포지토리에 있습니다. 
 
 ### <a name="additional-considerations"></a>추가 고려 사항
 

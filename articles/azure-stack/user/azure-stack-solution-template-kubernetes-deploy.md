@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 89c72e21733b01a3e42c0e58d65cb7877e47d374
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 82d99f575837b47a29bd6d8330ee58f442b6110a
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163497"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409357"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Azure Stack에 Kubernetes 배포
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 > [!Note]  
-> Azure Stack에서 Kubernetes 미리 보기입니다. 귀하가 Azure Stack 운영자는이 문서의 지침을 수행 하는 데 필요한 Kubernetes 클러스터 Marketplace 항목에 대 한 액세스를 요청 해야 합니다.
+> Azure Stack에서 Kubernetes 미리 보기입니다.
 
 다음 문서를 배포 하 고 조정 된 단일 작업에서 Kubernetes에 대 한 리소스를 프로 비전 하는 Azure Resource Manager 솔루션 템플릿을 사용 하 여 살펴봅니다. 필요한 Azure Stack 설치에 대 한 필요한 정보를 수집 하려면 템플릿을 생성을을 클라우드에 배포 합니다. 글로벌 Azure에서 제공 되는 동일한 관리 되는 AKS 서비스 참고 템플릿이 아닙니다.
 
@@ -55,6 +55,8 @@ Kubernetes에서 사용할 수 있습니다.
 1. Azure Stack 테 넌 트 포털에서 유효한 구독이 있는 새 응용 프로그램을 추가 하려면 사용할 수 있는 주소가 충분 한 공용 IP 있는지 확인 합니다.
 
     Azure Stack에 클러스터를 배포할 수 없습니다 **관리자** 구독 합니다. 사용 해야 합니다는 **사용자** 구독 합니다. 
+
+1. Marketplace에 Kubernetes 클러스터 없는 경우에 Azure Stack의 관리자에 게 문의 합니다.
 
 ## <a name="create-a-service-principal-in-azure-ad"></a>Azure AD에서 서비스 주체 만들기
 

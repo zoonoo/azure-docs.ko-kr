@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 09/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: ffe3dbf975984eb8df341728075e628d14080ada
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: e4bb17bd068076a9ffa9bcab5826f0efa84a19d7
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380236"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406008"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Azure Stack 사용량 API의에서 질문과 대답
 
@@ -321,10 +321,10 @@ ms.locfileid: "44380236"
 **메모**: 총 들어오는 요청 응답 바이트 + 총 발신 요청 바이트 + 총 들어오는 FTP 요청 응답 바이트 + 총 들어오는 웹 요청 응답 바이트를 배포 합니다.  
   
 
-## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsmsdnmicrosoftcomlibraryazure1ea5b323-54bb-423d-916f-190de96c6a3c-currently-in-public-preview"></a>Azure Stack 사용량 Api와 비교 하는 방법의 [Azure 사용량 API](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (현재 공개 미리 보기로 제공)?
+## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>Azure Stack 사용량 Api와 비교 하는 방법의 [Azure 사용량 API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (현재 공개 미리 보기로 제공)?
 * 테 넌 트 사용량 API는 한 가지 예외를 사용 하 여 Azure API를 사용 하 여 일치: 합니다 *showDetails* 플래그 현재 Azure Stack에서 지원 되지 않습니다.
 * 공급자 사용량 API는 Azure Stack에만 적용 됩니다.
-* 현재는 [RateCard API](https://msdn.microsoft.com/library/azure/mt219004.aspx) 는 Azure에서 사용할 수 있는 Azure Stack에서 사용할 수 없는 합니다.
+* 현재는 [RateCard API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview) 는 Azure에서 사용할 수 있는 Azure Stack에서 사용할 수 없는 합니다.
 
 ## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>사용 시간과 보고 된 시간 사이의 차이 무엇입니까?
 사용 현황 데이터 보고서에 두 개의 기본 시간 값:
