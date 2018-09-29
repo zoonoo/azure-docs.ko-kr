@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: e6b263c1eb9fe3b151f0a51b5da9a92b8ced4549
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: a4758e5597876112fa7a85850786491e22af8c83
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109745"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037143"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Azure Virtual Network 서비스 엔드포인트를 사용하여 Azure Cosmos DB 계정에 보안 액세스
 
@@ -25,9 +25,6 @@ Azure Cosmos DB는 전 세계에 배포된 다중 모델 데이터베이스 서�
 ![가상 네트워크 서비스 엔드포인트 아키텍처](./media/vnet-service-endpoint/vnet-service-endpoint-architecture.png)
 
 가상 네트워크 서비스 엔드포인트로 Azure Cosmos DB 계정을 구성하면 지정된 서브넷에서만 액세스할 수 있으며, 모든 공용/인터넷 액세스가 제거됩니다. 서비스 엔드포인트에 대해 자세히 알아보려면 Azure [가상 네트워크 서비스 엔드포인트 개요](../virtual-network/virtual-network-service-endpoints-overview.md) 문서를 참조하세요.
-
-> [!NOTE]
-> 현재 Azure Cosmos DB SQL API 또는 Mongo API 계정에 대해 Virtual Network 서비스 엔드포인트를 구성할 수 있습니다. Azure Germany 또는 Azure Government와 같은 소버린 클라우드 및 다른 API에 대해 서비스 엔드포인트를 구성하는 기능은 곧 제공될 예정입니다. Azure Cosmos DB 계정에 대해 구성된 기존 IP 방화벽이 있는 경우 방화벽 구성에 대해 주의하고, IP 방화벽을 제거한 다음, 서비스 엔드포인트 ACL을 구성합니다. 서비스 엔드포인트를 구성한 후 필요한 경우에 IP 방화벽을 다시 활성화할 수 있습니다.
 
 ## <a name="configure-service-endpoint-by-using-azure-portal"></a>Azure Portal을 사용하여 서비스 엔드포인트 구성
 ### <a name="configure-service-endpoint-for-an-existing-azure-virtual-network-and-subnet"></a>Azure Virtual Network 및 서브넷에 대한 서비스 엔드포인트 구성

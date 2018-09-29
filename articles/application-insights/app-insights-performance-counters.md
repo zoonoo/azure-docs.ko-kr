@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 7ac0a5c00e0badf8882010ae0643f8ead98b56e0
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: bb1b1e2934de052479f39d40bfe143345e91bc26
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35640517"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094096"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application Insights의 시스템 성능 카운터
 Windows는 광범위한 [성능 카운터](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters)(예: CPU 점유율, 메모리, 디스크, 네트워크 사용량 등)를 제공합니다. 또한 직접 정의할 수도 있습니다. [Application Insights](app-insights-overview.md)는 관리 액세스 권한이 있는 온-프레미스 호스트 또는 가상 머신의 IIS에서 응용 프로그램이 실행되는 경우 이러한 성능 카운터를 표시할 수 있습니다. 차트에서는 라이브 응용 프로그램에 사용할 수 있는 리소스를 나타내고 서버 인스턴스 간의 불균형 부하를 확인할 수 있습니다.

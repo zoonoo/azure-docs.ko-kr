@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a734eb7b4efecf14a4d47a660c00d561a5fa6677
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c23646bca6109d27e57b2f928363e65c83c634eb
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971810"
+ms.locfileid: "47031155"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>자습서: Visual Studio를 사용하여 Service Fabric 응용 프로그램을 업그레이드하는 방법 알아보기
 
@@ -46,7 +46,7 @@ ms.locfileid: "46971810"
 
 * 할 일 앱을 배포하지 않은 경우 [Service Fabric Mesh 웹 응용 프로그램 게시](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)의 지침을 따르세요.
 
-# <a name="upgrade-a-service-fabric-mesh-service-by-using-visual-studio"></a>Visual Studio를 사용하여 Service Fabric Mesh 서비스 업그레이드
+## <a name="upgrade-a-service-fabric-mesh-service-by-using-visual-studio"></a>Visual Studio를 사용하여 Service Fabric Mesh 서비스 업그레이드
 
 이 문서에서는 응용 프로그램 내에서 개별적으로 마이크로 서비스를 업그레이드하는 방법을 보여 줍니다.  이 예에서는 `WebFrontEnd` 서비스를 수정하여 작업 범주를 표시합니다. 그런 다음 배포된 서비스를 업그레이드합니다.
 

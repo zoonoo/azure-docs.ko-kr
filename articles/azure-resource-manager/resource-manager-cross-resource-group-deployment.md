@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 06/02/2018
 ms.author: tomfitz
 ms.openlocfilehash: fec075a744b5f47a4be7f1b960cceedfea7b9a2c
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35639683"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47090795"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포
 

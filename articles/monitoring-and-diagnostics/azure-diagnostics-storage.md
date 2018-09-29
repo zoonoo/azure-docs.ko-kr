@@ -2,18 +2,18 @@
 title: Azure Storage에서 진단 데이터 저장 및 보기
 description: Azure Storage로 Azure 진단 데이터를 가져오고 보기
 services: azure-monitor
-author: thraka
+author: jpconnock
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 08/01/2016
-ms.author: adegeo
+ms.author: jeconnoc
 ms.component: diagnostic-extension
-ms.openlocfilehash: 6590e6991f07b7315c09a995152879c991fafcef
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 733c84ef9e6cee1a8ea488f0007ade1e72f39737
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267665"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033252"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Azure Storage에서 진단 데이터 저장 및 보기
 진단 데이터를 Microsoft Azure 저장소 에뮬레이터 또는 Azure 저장소에 전송하지 않는 한 진단 데이터는 영구적으로 저장되지 않습니다. 저장소에서 사용할 수 있는 여러 도구 중 하나로 한 번 볼 수 있습니다.

@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: mbullwin
 ms.openlocfilehash: 898cc0935051f65cb0f2977c7d90e998ec32cdd3
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35639251"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47093947"
 ---
 # <a name="abnormal-rise-in-exception-volume-preview"></a>예외 볼륨의 비정상적인 증가(미리 보기)
 

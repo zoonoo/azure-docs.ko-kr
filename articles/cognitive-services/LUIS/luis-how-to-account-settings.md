@@ -4,25 +4,25 @@ description: LUIS 웹 사이트를 사용하여 계정 설정을 관리합니다
 titleSuffix: Azure
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 07/08/2018
 ms.author: diberry
-ms.openlocfilehash: 73e90e5ae86db2c2c4625762b285f8c86f0e241b
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: f3086f09e29664b816ba709fc5cda75d7b11d1b4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398048"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035252"
 ---
 # <a name="manage-account-and-authoring-key"></a>계정 및 작성 키 관리
 LUIS 계정에 대한 두 가지 주요 정보는 사용자 계정과 작성 키입니다. 로그인 정보는 [account.microsoft.com](https://account.microsoft.com)에서 관리됩니다. 작성 키는 [LUIS](luis-reference-regions.md) 웹 사이트 **설정** 페이지에서 관리됩니다. 
 
 ## <a name="authoring-key"></a>작성 키
 
-**설정** 페이지에 있는 이 지역별 단일 작성 키를 사용하면 [LUIS](luis-reference-regions.md) 웹 사이트와 [작성 API](https://aka.ms/luis-authoring-api)를 통해 모든 앱을 작성할 수 있습니다. 편의를 위해 작성 키를 사용하여 매월 [제한된](luis-boundaries.md) 수의 끝점 쿼리를 만들 수 있습니다. 
+**설정** 페이지에 있는 이 지역별 단일 작성 키를 사용하면 [LUIS](luis-reference-regions.md) 웹 사이트와 [작성 API](https://aka.ms/luis-authoring-api)를 통해 모든 앱을 작성할 수 있습니다. 편의를 위해 작성 키를 사용하여 매월 [제한된](luis-boundaries.md) 수의 엔드포인트 쿼리를 만들 수 있습니다. 
 
 ![LUIS 설정 페이지](./media/luis-how-to-account-settings/account-settings.png)
 

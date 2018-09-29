@@ -3,18 +3,18 @@ title: LUIS(Language Understanding)란? - Azure Cognitive Services | Microsoft D
 description: LUIS(Language Understanding)는 사용자 지정 기계 학습 인텔리전스를 사용자의 자연스러운 기존 언어 텍스트에 적용하여 전체적인 의미를 예측하고 관련된 자세한 정보를 추출하는 클라우드 기반 API 서비스입니다. LUIS용 클라이언트 응용 프로그램은 자연어로 사용자와 통신하여 작업을 완료하는 대화형 응용 프로그램입니다. 클라이언트 응용 프로그램의 예로는 소셜 미디어 앱, 챗봇 및 음성 지원 데스크톱 응용 프로그램을 들 수 있습니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: overview
 ms.date: 08/15/2018
 ms.author: diberry
-ms.openlocfilehash: aadf80df388a25e07051f6dd0a83cd4da7c2ef83
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: a8e9deb7c677d04634b223045adc2d31fa74ba6e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629800"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033042"
 ---
 # <a name="what-is-language-understanding-luis"></a>LUIS(Language Understanding)란?
 

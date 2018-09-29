@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: mbullwin
 ms.openlocfilehash: 28be3a1734639ac175e4d18d9e9f21b83b9a7e7c
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35638765"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094005"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Application Insights를 사용하여 Node.js 서비스 및 앱 모니터링
 

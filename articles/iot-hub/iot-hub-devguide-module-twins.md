@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 8f567ba43c1657783f9898863aef980627800481
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 0df1170079e66bda95e38bcf17dcce738269eeb0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436322"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039382"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>IoT Hub의 모듈 쌍 이해 및 사용
 
@@ -168,7 +168,7 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
 
     - properties
 
-    | Name | 값 |
+    | 이름 | 값 |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  알림이 전송된 시간 |
@@ -250,7 +250,7 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
     }
     ```
 
-* 모든 문자열 값의 길이는 최대 4KB입니다.
+* 모든 문자열 값의 길이는 최대 512바이트입니다.
 
 ## <a name="module-twin-size"></a>모듈 쌍 크기
 IoT Hub는 `tags`, `properties/desired` 및 `properties/reported`의 총 값 각각에 8KB의 크기 제한을 적용합니다. 읽기 전용 요소는 제외됩니다.

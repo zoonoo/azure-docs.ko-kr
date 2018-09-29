@@ -4,18 +4,18 @@ titleSuffix: Azure
 description: 이 문서에는 LUIS(Language Understanding)의 더 이상 사용되지 않는 미리 빌드된 엔터티가 포함됩니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: diberry
-ms.openlocfilehash: 8fbd2e7ea0998a6a3dc141b97d64341c8140fa61
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: ae23e6b8fd1d2f6d63293a9626880ae3823afc61
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237063"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033280"
 ---
 # <a name="deprecated-entities"></a>사용되지 않는 엔터티
 다음과 같은 미리 빌드된 엔터티는 더 이상 사용되지 않으므로 새 LUIS 앱에 추가될 수 없습니다.

@@ -4,18 +4,18 @@ titleSuffix: Azure
 description: LUIS 작성 API를 사용하여 CSV 형식의 기존 데이터에서 프로그래밍 방식으로 LUIS 앱을 빌드하는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: diberry
-ms.openlocfilehash: 42b9800c94171ecbd2dadf30bb2ce2f342063552
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 729e19deb5efc91fb874214299f34fbb46d9bbdc
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238508"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034045"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Node.js를 사용하여 프로그래밍 방식으로 LUIS 앱 빌드
 
@@ -24,7 +24,7 @@ LUIS는 [LUIS](luis-reference-regions.md) 웹 사이트에서 수행하는 모�
 ## <a name="prerequisites"></a>필수 조건
 
 * [LUIS](luis-reference-regions.md) 웹 사이트에 로그인하고 계정 설정에서 [작성 키](luis-concept-keys.md#authoring-key)를 찾습니다. 이 키를 사용하여 작성 API를 호출합니다.
-* Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+* Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * 이 자습서는 가상 회사의 사용자 요청 로그 파일에 대한 CSV에서 시작합니다. [여기](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/IoT.csv)에서 다운로드하세요.
 * NPM을 사용하는 최신 Node.js를 설치합니다. [여기](https://nodejs.org/en/download/)에서 다운로드하세요.
 * **[권장]** IntelliSense 및 디버깅용 Visual Studio Code를 [여기](https://code.visualstudio.com/)에서 무료로 다운로드하세요.

@@ -3,19 +3,22 @@ title: SQL 연결 오류 해결, 일시적 오류 | Microsoft Azure Docs
 description: SQL 연결 오류 또는 Azure SQL Database의 일시적 오류를 해결, 진단 및 방지하는 방법을 알아봅니다.
 keywords: SQL 연결, 연결 문자열, 연결 문제, 일시적인 오류, 연결 오류
 services: sql-database
-author: dalechen
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/01/2018
+author: dalechen
 ms.author: ninarn
-ms.openlocfilehash: 1da4e8d94007653a43f187322c1d0e4077e337fa
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 08/01/2018
+ms.openlocfilehash: f381eaad61c98228ea9be2665ebed5878b666317
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398940"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064240"
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>SQL 연결 오류와 일시적 SQL Database 오류의 문제 해결, 진단 및 예방
 이 문서에서는 클라이언트 응용 프로그램이 Azure SQL Database와 상호 작용할 때 발생하는 연결 오류 및 일시적 오류를 방지, 해결, 진단, 완화하는 방법에 대해 설명합니다. 재시도 논리를 구성하고 연결 문자열을 빌드하며 타 연결 설정을 조정하는 방법에 대해 알아봅니다.

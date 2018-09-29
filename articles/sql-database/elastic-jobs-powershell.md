@@ -2,18 +2,22 @@
 title: PowerShell을 사용하여 Azure SQL Database 탄력적 작업 에이전트 만들기 | Microsoft Docs
 description: PowerShell을 사용하여 탄력적 작업 에이전트를 만드는 방법을 알아봅니다.
 services: sql-database
-author: johnpaulkee
-manager: craigg
 ms.service: sql-database
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: tutorial
-ms.date: 06/14/2018
+author: johnpaulkee
 ms.author: joke
-ms.openlocfilehash: 2cc8db0ce849e0f0d376824665aac7dbc2af29db
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.reviwer: ''
+manager: craigg
+ms.date: 06/14/2018
+ms.openlocfilehash: 56dd6eff7744ddddf57b747574ee9800174d6365
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035220"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055495"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>PowerShell을 사용하여 탄력적 작업 에이전트 만들기
 
