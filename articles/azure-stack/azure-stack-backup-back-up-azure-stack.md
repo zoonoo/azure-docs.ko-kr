@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: a11de2a4580515f6a358438a706e5be3f5543e28
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 08335f676437a32aa2240298be4680633eff16ba
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025313"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432973"
 ---
 # <a name="back-up-azure-stack"></a>Azure Stack 백업
 
@@ -38,15 +38,48 @@ ms.locfileid: "44025313"
 ```
 
 ### <a name="start-azure-stack-backup-with-job-progress-tracking"></a>작업 진행 상태 추적을 사용 하 여 Azure Stack 백업 시작
-백업 작업 진행 상황을 추적할-AsJob 변수를 사용 하 여 새 백업을 시작 하려면 시작 AzSBackup를 사용 합니다.
+시작-AzSBackup를 사용 하 여 사용 하 여 새 백업을 시작 합니다 **-AsJob** 매개 변수 백업 작업 진행률을 추적 하는 변수로 저장 합니다.
+
+> [!NOTE]
+> 백업 작업이 성공적으로 표시 됩니다 약 10-15 분 작업 완료 전에 포털에서 완료 합니다.
+>
+> 따라서 실제 상태는 아래 코드를 통해 더 잘 관찰 됩니다.
+
+> [!IMPORTANT]
+> 코드는 너무 빠르게 작업을 올바르게 등록 및 사용 하 여 반환 되는 초기 1 밀리초의 지연이 문제가 **PSBeginTime** 및 없이 다시 **상태** 작업.
 
 ```powershell
-    $backupjob = Start-AzsBackup -Force -AsJob 
-    "Start time: " + $backupjob.PSBeginTime;While($backupjob.State -eq "Running"){("Job is currently: " `
-    + $backupjob.State+" ;Duration: " + (New-TimeSpan -Start ($backupjob.PSBeginTime) `
-    -End (Get-Date)).Minutes);Start-Sleep -Seconds 30};$backupjob.Output
+    $BackupJob = Start-AzsBackup -Force -AsJob
+    While (!$BackupJob.PSBeginTime) {
+        Start-Sleep -Milliseconds 1
+    }
+    Write-Host "Start time: $($BackupJob.PSBeginTime)"
+    While ($BackupJob.State -eq "Running") {
+        Write-Host "Job is currently: $($BackupJob.State) - Duration: $((New-TimeSpan -Start ($BackupJob.PSBeginTime) -End (Get-Date)).ToString().Split(".")[0])"
+        Start-Sleep -Seconds 30
+    }
 
-    if($backupjob.State -eq "Completed"){Get-AzsBackup | where {$_.BackupId -eq $backupjob.Output.BackupId}}
+    If ($BackupJob.State -eq "Completed") {
+        Get-AzsBackup | Where-Object {$_.BackupId -eq $BackupJob.Output.BackupId}
+        $Duration = $BackupJob.Output.TimeTakenToCreate
+        $Pattern = '^P?T?((?<Years>\d+)Y)?((?<Months>\d+)M)?((?<Weeks>\d+)W)?((?<Days>\d+)D)?(T((?<Hours>\d+)H)?((?<Minutes>\d+)M)?((?<Seconds>\d*(\.)?\d*)S)?)$'
+        If ($Duration -match $Pattern) {
+            If (!$Matches.ContainsKey("Hours")) {
+                $Hours = ""
+            } 
+            Else {
+                $Hours = ($Matches.Hours).ToString + 'h '
+            }
+            $Minutes = ($Matches.Minutes)
+            $Seconds = [math]::round(($Matches.Seconds))
+            $Runtime = '{0}{1:00}m {2:00}s' -f $Hours, $Minutes, $Seconds
+        }
+        Write-Host "BackupJob: $($BackupJob.Output.BackupId) - Completed with Status: $($BackupJob.Output.Status) - It took: $($Runtime) to run" -ForegroundColor Green
+    }
+    ElseIf ($BackupJob.State -ne "Completed") {
+        $BackupJob
+        $BackupJob.Output
+    }
 ```
 
 ## <a name="confirm-backup-has-completed"></a>백업 완료 되었는지 확인

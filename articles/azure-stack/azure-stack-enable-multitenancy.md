@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: patricka
-ms.openlocfilehash: 0a10662e359379356ecc8d82af1b7d6331c41a65
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 0c49a895a3cd214bb6f9c88b5365cf980c60bf0a
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720058"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451774"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Azure Stack의 다중 테 넌 트
 
@@ -101,7 +101,8 @@ Register-AzSWithMyDirectoryTenant `
 > Azure Stack 관리자에 게 나중에 새 서비스 또는 업데이트 설치를 하는 경우이 스크립트를 다시 실행 해야 합니다.
 >
 > 언제 든 지 디렉터리에 Azure Stack 응용 프로그램의 상태를 확인 하려면 다시이 스크립트를 실행 합니다.
-
+> 
+> 새 (1808 업데이트에서 도입 된) Managed Disks에 Vm을 만드는 문제가 나타난 경우 **디스크 리소스 공급자** 이 스크립트를 다시 실행할 수 필요한 추가 되었습니다.
 
 ### <a name="activate-the-administrator-and-tenant-portals"></a>관리자 및 테 넌 트 포털 활성화
 Azure AD를 사용 하는 배포 후 Azure Stack 관리자 및 테 넌 트 포털 모두 활성화 해야 합니다. 이 활성화 된 Azure Stack 포털과 Azure Resource Manager 정확한 권한을 제공 (동의 페이지에 나열 된) 모든 사용자에 대 한 디렉터리의에 동의 합니다.

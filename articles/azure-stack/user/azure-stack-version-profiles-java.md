@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: b5a876ea8b5cc70ee0ca0dcac8628c12dc2b009b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ffd22f3612d55258737cb9c004b2b0f4e9326f07
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414948"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452516"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Azure Stack에서 Java를 사용 하 여 API 버전 프로필 사용
 
@@ -63,7 +63,7 @@ Java SDK를 설치 하려면 다음 단계를 사용 합니다.
 
 1.  Git을 설치 하는 공식 지침을 따릅니다. 자세한 내용은 [시작-Git 설치](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)합니다.
 
-2.  공식 지침에 따라 설치 합니다 [Java SDK](http://zulu.org/download/)) 및 [Maven](https://maven.apache.org/)합니다. 올바른 버전은 버전 8 Java Developer Kit입니다. 올바른 Apache Maven은 버전 3.0 이상. 빠른 시작을 완료 하려면 JAVA_HOME 환경 변수가 Java Development Kit의 설치 위치에 설정 되어야 합니다. 자세한 내용은 [Java 및 Maven을 사용 하 여 첫 번째 함수 만들기](../../azure-functions/functions-create-first-java-maven.md)합니다.
+2.  공식 지침에 따라 설치 합니다 [Java SDK](http://zulu.org/download/) 하 고 [Maven](https://maven.apache.org/)합니다. 올바른 버전은 버전 8 Java Developer Kit입니다. 올바른 Apache Maven은 버전 3.0 이상. 빠른 시작을 완료 하려면 JAVA_HOME 환경 변수가 Java Development Kit의 설치 위치에 설정 되어야 합니다. 자세한 내용은 [Java 및 Maven을 사용 하 여 첫 번째 함수 만들기](../../azure-functions/functions-create-first-java-maven.md)합니다.
 
 3.  올바른 종속성 패키지를 설치 하려면 Java 응용 프로그램에서 Pom.xml 파일을 엽니다. 다음 코드와 같이 종속성을 추가 합니다.
 
@@ -89,7 +89,7 @@ Java SDK를 설치 하려면 다음 단계를 사용 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure Stack을 사용 하 여 Azure.NET SDK를 사용 하려면 다음 값을 제공 하며 다음 환경 변수를 사용 하 여 값을 설정 합니다. 환경 변수를 설정 하려면 표 다음에 운영 체제에 대 한 지침을 참조 하세요.
+Azure Stack을 사용 하 여 Azure Java SDK를 사용 하려면 다음 값을 제공 하며 다음 환경 변수를 사용 하 여 값을 설정 합니다. 환경 변수를 설정 하려면 표 다음에 운영 체제에 대 한 지침을 참조 하세요.
 
 | 값                     | 환경 변수 | 설명                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -128,7 +128,9 @@ Resource Manager 끝점에서 메타 데이터 정보를 가져올 수 있습니
 
 - 합니다 **ResourceManagerUrl** 에 Azure Stack 개발 키트 ASDK ()는: https://management.local.azurestack.external/
 
-- **ResourceManagerUrl** 통합된 시스템의: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` 필요한 메타 데이터를 검색 합니다. `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+- 합니다 **ResourceManagerUrl** 통합된 시스템의: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`
+
+필요한 메타 데이터를 검색할: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`합니다.
 
 샘플 JSON 파일:
 
@@ -149,9 +151,7 @@ Resource Manager 끝점에서 메타 데이터 정보를 가져올 수 있습니
 
 1.  **com.microsoft.azure.profile\_2018\_03\_01\_하이브리드**: Azure Stack 용으로 작성 된 최신 프로필입니다. 가장 1808 스탬프에는 Azure Stack을 사용 하 여 호환 또는 추가 서비스에 대 한이 프로필을 사용 합니다.
 
-2.  **com.microsoft.azure.profile\_2017\_03\_09\_프로필**: 1808 빌드 보다 낮은 스탬프를 사용 하는 경우이 프로필을 사용 합니다.
-
-3.  **com.microsoft.azure**: 모든 서비스의 최신 버전으로 구성 된 프로필입니다. 모든 서비스의 최신 버전을 사용 합니다.
+2.  **com.microsoft.azure**: 모든 서비스의 최신 버전으로 구성 된 프로필입니다. 모든 서비스의 최신 버전을 사용 합니다.
 
 API 및 Azure Stack 프로필에 대 한 자세한 내용은 참조는 [API의 요약 프로필](../user/azure-stack-version-profiles.md#summary-of-api-profiles)합니다.
 
@@ -231,14 +231,14 @@ HttpResponse response = httpClient.execute(getRequest);
 
 2.  Azure 서비스 주체 만들기 및 구독에 액세스 하는 역할을 할당 합니다. 서비스 주체를 만드는 방법에 지침은 [인증서를 사용 하 여 서비스 주체를 만들려면 Azure PowerShell을 사용 하 여](../azure-stack-create-service-principals.md)입니다.
 
-3.  다음 값을 검색 합니다.
+3.  다음 필수 환경 변수 값을 검색 합니다.
     
-   1.  테넌트 ID
-   2.  클라이언트 ID
-   3.  클라이언트 암호
-   4.  구독 ID
-   5.  Resource Manager 끝점
-   6.  리소스 위치
+   1.  TENANT_ID
+   2.  CLIENT_ID
+   3.  CLIENT_SECRET
+   4.  SUBSCRIPTION_ID
+   5.  ARM_ENDPOINT
+   6.  RESOURCE_LOCATION
 
 4.  명령 프롬프트를 사용 하 여 만든 서비스 주체에서를 검색 한 정보를 사용 하 여 다음 환경 변수를 설정 합니다.
     
@@ -273,10 +273,8 @@ HttpResponse response = httpClient.execute(getRequest);
    HttpResponse response = httpClient.execute(getRequest);
    ```
 
-7.  Pom.xml 파일에 Azure Stack에 대 한 2018-03-01-하이브리드 프로필을 사용 하려면 다음 종속성을 추가 합니다. 이 종속성이이 프로필과 연결 된 계산, 네트워킹, 저장소, KeyVault 및 App Services 리소스 공급자에 대 한 모듈을 설치 합니다.
-    
-   최신 프로필의 대상 Azure 사용할 수 있습니다 note:
-        
+6.  Pom.xml 파일에 Azure Stack에 대 한 2018-03-01-하이브리드 프로필을 사용 하려면 다음 종속성을 추가 합니다. 이 종속성이이 프로필과 연결 된 계산, 네트워킹, 저장소, KeyVault 및 App Services 리소스 공급자에 대 한 모듈을 설치 합니다.
+      
    ```xml
    <dependency>
    <groupId>com.microsoft.azure.profile_2018_03_01_hybrid</groupId>

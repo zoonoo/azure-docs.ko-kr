@@ -6,21 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 8914391a586bb508192200beaba7f591649a1e99
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 35c15613192ac12a7d4c64cbe28f62200724d311
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139751"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452278"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Azure Stack의 storage 계정 관리
 찾기, 복구 및 비즈니스 요구에 따라 저장소 용량을 회수 하는 Azure Stack에서 저장소 계정을 관리 하는 방법에 알아봅니다.
@@ -28,19 +27,19 @@ ms.locfileid: "42139751"
 ## <a name="find"></a>저장소 계정 찾기
 지역에서 저장소 계정 목록에서 Azure Stack에서 볼 수 있습니다.
 
-1. 인터넷 브라우저에서 이동 https://adminportal.local.azurestack.external합니다.
-2. (배포 중에 제공한 자격 증명을 사용 하 여) 클라우드 운영자로 서 Azure Stack 관리 포털에 로그인
-3. 기본 대시보드 – 찾을 합니다 **하위 지역 관리** 나열 하 고 예를 들어을 탐색 하려면 원하는 지역을 선택 **(로컬**).
+1. 에 로그인 합니다 [관리자 포털](https://adminportal.local.azurestack.external)합니다.
+
+2. 선택 **모든 서비스** > **지역 관리** 아래에서 **관리**합니다.
+
+3. 선택 **스토리지** 에서 합니다 **리소스 공급자** 목록입니다.
    
-   ![](media/azure-stack-manage-storage-accounts/image1.png)
-4. 선택 **스토리지** 에서 합니다 **리소스 공급자** 목록입니다.
+   ![저장소 리소스 공급자](media/azure-stack-manage-storage-accounts/image1.png)
+
+5. 선택 **Storage 계정** 에 **저장소**합니다.
    
    ![](media/azure-stack-manage-storage-accounts/image2.png)
-5. 이제 – 저장소 리소스 공급자 관리 창에서 아래로 스크롤하여 합니다 **저장소 계정** 탭을 선택 합니다.
    
-   ![](media/azure-stack-manage-storage-accounts/image3.png)
-   
-   결과 페이지에는 해당 지역의 저장소 계정 목록입니다.
+   블레이드에서 해당 지역의 저장소 계정 목록을 표시합니다.
    
    ![](media/azure-stack-manage-storage-accounts/image4.png)
 
@@ -76,7 +75,7 @@ ms.locfileid: "42139751"
 
 Azure Stack에서 작업을 수행 하는 간단한 방법이 있습니다.
 
-1. 저장소 계정 목록으로 이동 합니다. 참조 [저장소 계정의 찾을](#find) 자세한 내용은이 항목의 합니다.
+1. 저장소 계정 목록으로 이동 합니다. 참조 [저장소 계정의 찾을](#find) 자세한 내용은이 문서의.
 2. 목록에서 해당 특정 계정을 찾습니다. 필터링 할 수 있습니다.
 3. 확인 합니다 *상태* 계정. 표시 됩니다 **Deleted**합니다.
 4. 계정 세부 정보 창에 열리는 계정을 선택 합니다.
@@ -97,19 +96,18 @@ Azure Stack에서 작업을 수행 하는 간단한 방법이 있습니다.
   보존 의미에서 삭제 된 계정의 보존 기간을 초과 했습니다 하는 그렇지 않을 복구할 수 있습니다.
 * 삭제 된 계정의 계정 목록에 표시 되지 않습니다.
   
-  계정이 삭제 된 계정의 이미 가비지 수집 되었을 때 계정 목록에 표시 되지 않습니다. 이 경우 복구할 수 없습니다. 참조 [용량을 회수](#reclaim) 이 항목의 합니다.
+  계정이 삭제 된 계정의 이미 가비지 수집 되었을 때 계정 목록에 표시 되지 않습니다. 이 경우 복구할 수 없습니다. 참조 [용량을 회수](#reclaim) 이 문서의.
 
 ## <a name="set-the-retention-period"></a>보존 기간 설정
 보존 기간 설정을 삭제 한 계정의 모든 잠재적으로 하는 동안 복구할 수 (0부터 9999 한 일 후에 시간을 지정 하는 클라우드 연산자 수 있습니다. 기본 보존 기간은 0 일로 설정 됩니다. 값을 모든 삭제 된 계정에서 보존은 바로 고 주기적 가비지 수집에 대 한 표시는 "0"으로 설정 합니다.
 
 **보존 기간을 변경 합니다.**
 
-1. 인터넷 브라우저에서 이동 https://adminportal.local.azurestack.external합니다.
-2. (배포 중에 제공한 자격 증명을 사용 하 여) 클라우드 운영자로 서 Azure Stack 관리 포털에 로그인
-3. – 기본 대시보드에서 찾을 합니다 **하위 지역 관리** 탐색 – 예를 들어 하려는 영역을 선택한 목록 **(로컬**).
-4. 선택 **스토리지** 에서 합니다 **리소스 공급자** 목록입니다.
-5. 선택 **설정을** 설정 창을 열려면 맨 위에 있는 합니다.
-6. 선택 **구성** 다음 보존 기간 값을 편집 합니다.
+1. 에 로그인 합니다 [관리자 포털](https://adminportal.local.azurestack.external)합니다.
+2. 선택 **모든 서비스** > **지역 관리** 아래에서 **관리**합니다.
+3. 선택 **스토리지** 에서 합니다 **리소스 공급자** 목록입니다.
+4. 선택 **설정을** 설정 창을 열려면 맨 위에 있는 합니다.
+5. 선택 **구성** 다음 보존 기간 값을 편집 합니다.
 
    일 수를 설정 하 고 저장 합니다.
    
@@ -142,7 +140,7 @@ Azure Stack에서 작업을 수행 하는 간단한 방법이 있습니다.
    Azure Resource Manager cmdlet에 대 한 자세한 내용은 참조 하세요. [Azure PowerShell를 사용 하 여 Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
 2. 다음 cmdlet을 실행합니다.
 
-> [!NOTE]
+> [!NOTE]  
 > 이러한 cmdlet을 실행 하는 계정 및 해당 콘텐츠가 영구적으로 삭제 합니다. 복구할 수는 없습니다. 이 사용 하 여 주의 해야 합니다.
 
 ```PowerShell  

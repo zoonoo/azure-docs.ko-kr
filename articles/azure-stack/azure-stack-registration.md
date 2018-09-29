@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 09/28/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 6a929c0226734a95e088e78307f2bbcc0571adef
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 09f5dbdb173e1613ed942391da7baaeb045654e4
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364604"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452533"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure를 사용 하 여 Azure Stack 등록
 
@@ -94,6 +94,19 @@ Azure Stack 배포 될 수 있습니다 *연결 된* 하거나 *끊어진*합니
  - **연결 끊김**  
  연결 되지 않은 사용 하 여 Azure 배포 옵션에서 배포를 인터넷에 연결 하지 않고 Azure Stack을 사용 합니다. 그러나 연결이 끊긴된 배포는 AD FS id 저장소 및 용량 기반 청구 모델에 제한 됩니다.
     - [사용 하 여 연결이 끊긴 Azure Stack 등록 합니다 **용량** 청구 모델 ](#register-disconnected-with-capacity-billing)
+
+### <a name="determine-a-unique-registration-name-to-use"></a>사용 하는 경우 고유한 등록 이름 확인 
+Azure를 사용 하 여 Azure Stack을 등록할 때 등록 고유 이름을 제공 해야 합니다. Azure 등록을 사용 하 여 Azure Stack 구독을 연결 하는 쉬운 방법을 Azure Stack을 사용 하는 것 **클라우드 ID**합니다. 
+
+> [!NOTE]
+> 용량 기반 청구 모델을 사용 하 여 azure Stack 등록을 해당 하는 연간 구독이 만료 된 후 다시 등록 하는 경우 고유 이름을 변경 해야 합니다.
+
+컴퓨터에서 관리자 권한 있는 끝점에 액세스할 수 있는 보다 실행 하 여 다음 명령을 Azure Stack 배포를 위한 클라우드 ID를 확인 하려면 PowerShell을 엽니다 하 고 기록 합니다 **CloudID** 값: 
+
+```powershell
+Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -ConfigurationName PrivilegedEndpoint
+Run: get-azurestackstampinformation 
+```
 
 ## <a name="register-connected-with-pay-as-you-go-billing"></a>종 량 제 청구를 사용 하 여 연결 된 등록
 
@@ -257,7 +270,7 @@ Azure Stack 환경에서 등록 토큰 가져오기 및 다음 해당 토큰을 
 정품 인증 키를 가져오려면 다음 PowerShell cmdlet을 실행 합니다.  
 
   ```Powershell
-  $RegistrationResourceName = "AzureStack-<Cloud Id for the Environment to register>"
+  $RegistrationResourceName = "AzureStack-<unique-registration-name>"
   $KeyOutputFilePath = "$env:SystemDrive\ActivationKey.txt"
   $ActivationKey = Get-AzsActivationKey -RegistrationName $RegistrationResourceName -KeyOutputFilePath $KeyOutputFilePath
   ```
@@ -351,7 +364,7 @@ Azure Stack에서 정품 인증 리소스를 제거 하려면 Azure Stack 환경
 또는 등록 이름을 사용할 수 있습니다.
 
   ```Powershell
-  $registrationName = "AzureStack-<Cloud ID of Azure Stack Environment>"
+  $registrationName = "AzureStack-<unique-registration-name>"
   Unregister-AzsEnvironment -RegistrationName $registrationName
   ```
 
