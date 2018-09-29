@@ -2,20 +2,22 @@
 title: SQL Database 재해 복구 훈련 | Microsoft Docs
 description: Azure SQL Database를 사용하여 재해 복구 훈련을 수행하는 방법에 대한 지침 및 모범 사례를 알아봅니다.
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 52973758404faa4158afe81a92079c1acdb4cfd7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: c861163670b05b01c9c6d64b81f6e83c979a2af8
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645466"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163038"
 ---
 # <a name="performing-disaster-recovery-drill"></a>재해 복구 훈련 수행
 복구 워크플로에 대한 응용 프로그램 준비의 유효성 검사를 정기적으로 수행하는 것이 좋습니다. 응용 프로그램 동작과 데이터 손실의 영향 및/또는 장애 조치(failover)와 관련된 중단을 검사하는 것은 적절한 엔지니어링 실무입니다. 또한 대부분의 업계 표준에서 비즈니스 연속성 인증의 일부로 요구하는 사항이기도 합니다.

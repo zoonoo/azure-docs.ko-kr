@@ -14,13 +14,13 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
-ms.component: na
-ms.openlocfilehash: 6dcf3a5b26dc3c7e69721b2abb8a7d58767866d6
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.component: ''
+ms.openlocfilehash: f30114797c7ba62fde555487d3202de5edf48ecb
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579054"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182351"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>PowerShell을 사용하여 Log Analytics 관리
 [Log Analytics PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/)을 사용하여 명령줄에서 또는 스크립트의 일부로 Log Analytics의 다양한 기능을 수행할 수 있습니다.  PowerShell을 사용하여 수행할 수 있는 작업의 예:

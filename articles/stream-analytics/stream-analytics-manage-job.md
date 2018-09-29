@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.openlocfilehash: 6b924e0555ea7a57f8d5e5309a266b6d2fb44f44
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 1955fc033e0351be9da89bbee11dc41d6281a63a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702530"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433993"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Power BI 대시보드에서 전화 통화 데이터를 분석하고 결과를 시각화하는 Stream Analytics 작업 만들기
  
@@ -51,7 +51,7 @@ Stream Analytics가 사기성 호출 데이터 스트림을 분석하려면 먼�
 
    |**설정**  |**제안 값** |**설명**  |
    |---------|---------|---------|
-   |Name     | myEventHubNS        |  이벤트 허브 네임스페이스를 식별하는 고유 이름입니다.       |
+   |이름     | myEventHubNS        |  이벤트 허브 네임스페이스를 식별하는 고유 이름입니다.       |
    |구독     |   \<사용자의 구독\>      |   이벤트 허브를 만들 Azure 구독을 선택합니다.      |
    |리소스 그룹     |   MyASADemoRG      |  **새로 만들기**를 선택하고 계정의 새로운 리소스 그룹 이름을 입력합니다.       |
    |위치     |   미국 서부2      |    이벤트 허브 네임스페이스를 배포할 수 있는 위치입니다.     |
@@ -101,12 +101,12 @@ TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 
 5. 다음으로 명령 창을 열고, TelcoGenerator 응용 프로그램을 압축 해제한 폴더로 변경하고, 다음 명령을 입력합니다.
 
    ```
-   telcodatagen.exe 1000 .2 2
+   telcodatagen.exe 1000 0.2 2
    ```
 
    이 명령은 다음 매개 변수를 사용합니다.
    * **시간당 호출 데이터 레코드 수**.  
-   * **사기 확률** - 다시 말해서, 앱에서 사기성 호출을 시뮬레이션해야 하는 빈도. 값 .2는 호출 레코드의 약 20%가 사기성으로 나타남을 의미합니다.  
+   * **사기 확률** - 다시 말해서, 앱에서 사기성 호출을 시뮬레이션해야 하는 빈도. 값 0.2는 호출 레코드의 약 20%가 사기성으로 나타남을 의미합니다.  
    * **기간** - 앱이 실행되어야 하는 시간. 또한 언제든지 명령줄에서 프로세스를 종료하여(Ctrl + C) 앱을 중지할 수 있습니다.
 
    몇 초 후 앱에서 이벤트 허브로 데이터를 전송함에 따라 화면에 전화 통화 레코드가 표시되기 시작합니다. 이 전화 통화 데이터에는 다음 필드가 포함되어 있습니다.
@@ -228,7 +228,7 @@ TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 
 
 3. **분**을 3으로 설정하고 **확인**을 선택합니다. 입력 스트림에서 3분 분량의 데이터가 샘플링되며 샘플 데이터가 준비되면 사용자에게 알려줍니다. 알림 표시줄에서 샘플링 상태를 볼 수 있습니다. 
 
-   샘플 데이터는 임시로 저장되었다가 쿼리 창이 열려 있는 동안 사용할 수 있습니다. 쿼리 창을 닫으면 샘플 데이터가 무시되고 새로운 샘플 데이터 집합을 만들어야 합니다. 대안으로, 안에 샘플 데이터가 있는 .json 파일을 [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample Data/telco.json)에서 가져온 후 CallStream 입력에 대한 샘플 데이터로 사용할 .json 파일을 업로드할 수 있습니다.  
+   샘플 데이터는 임시로 저장되었다가 쿼리 창이 열려 있는 동안 사용할 수 있습니다. 쿼리 창을 닫으면 샘플 데이터가 무시되고 새로운 샘플 데이터 집합을 만들어야 합니다. 대안으로, 안에 샘플 데이터가 있는 .json 파일을 [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json)에서 가져온 후 CallStream 입력에 대한 샘플 데이터로 사용할 .json 파일을 업로드할 수 있습니다.  
 
 4. **테스트**를 선택하여 쿼리를 테스트합니다. 이 스크린 샷과 비슷한 출력 결과가 표시될 것입니다.  
 
@@ -262,7 +262,7 @@ TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 
 
 자습서의 이 부분에서는 PowerBI 팀에서 만든 [ASP.NET](http://asp.net/) 웹 응용 프로그램을 사용하여 대시보드를 포함할 것입니다. 대시보드를 포함하는 방법에 대한 자세한 내용은 [Power BI를 통해 포함](https://docs.microsoft.com/power-bi/developer/embedding) 문서를 참조하세요.
 
-이 자습서에서는 사용자 소유 데이터 응용 프로그램에 대한 단계를 따르겠습니다. 응용 프로그램을 설정하려면 [PowerBI-개발자-샘플](https://github.com/Microsoft/PowerBI-Developer-Samples) Github 리포지토리로 이동하여 **사용자 소유 데이터** 섹션 아래의 지침을 따릅니다(**통합-대시보드-웹앱** 하위 섹션 아래에 있는 리디렉션 및 홈페이지 URL 사용). 우리는 대시보드 예제를 사용할 예정이므로 [GitHub 리포지토리](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User Owns Data/integrate-dashboard-web-app)에 있는 통합-대시보드-웹앱 샘플 코드를 사용합니다.
+이 자습서에서는 사용자 소유 데이터 응용 프로그램에 대한 단계를 따르겠습니다. 응용 프로그램을 설정하려면 [PowerBI-개발자-샘플](https://github.com/Microsoft/PowerBI-Developer-Samples) Github 리포지토리로 이동하여 **사용자 소유 데이터** 섹션 아래의 지침을 따릅니다(**통합-대시보드-웹앱** 하위 섹션 아래에 있는 리디렉션 및 홈페이지 URL 사용). 우리는 대시보드 예제를 사용할 예정이므로 [GitHub 리포지토리](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app)에 있는 통합-대시보드-웹앱 샘플 코드를 사용합니다.
 브라우저에서 응용 프로그램을 실행한 후에는 다음 단계에 따라 앞에서 만든 대시보드를 웹 페이지에 포함합니다.
 
 1. **Power BI에 로그인**을 선택합니다. 그러면 PowerBI 계정에 대시보드에 대한 응용 프로그램 액세스 권한이 부여됩니다.  

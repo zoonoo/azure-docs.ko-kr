@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 50a8e491998b37a7ffebd5551cf755e8a9ca738a
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 281d74b6836516e03771d82c96fab628eac12f1a
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093314"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395834"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure Functions 1.x의 Azure Cosmos DB 바인딩
 
@@ -1607,11 +1607,10 @@ F# 코드는 다음과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [Cosmos DB 트리거를 사용하는 빠른 시작으로 이동](functions-create-cosmos-db-triggered-function.md)
+* [Cosmos DB로 서버를 사용하지 않는 데이터베이스 컴퓨팅에 대해 자세히 알아보기](..\cosmos-db\serverless-computing-database.md)
+* [Azure Functions 트리거 및 바인딩에 대한 자세한 정보](functions-triggers-bindings.md)
 
+<!---
 > [!div class="nextstepaction"]
-> [Cosmos DB로 서버를 사용하지 않는 데이터베이스 컴퓨팅에 대해 자세히 알아보기](..\cosmos-db\serverless-computing-database.md)
-
-> [!div class="nextstepaction"]
-> [Azure Functions 트리거 및 바인딩에 대한 자세한 정보](functions-triggers-bindings.md)
+> [Go to a quickstart that uses a Cosmos DB trigger](functions-create-cosmos-db-triggered-function.md)
+--->

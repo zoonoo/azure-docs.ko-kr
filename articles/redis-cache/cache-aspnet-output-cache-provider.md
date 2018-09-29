@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/14/2017
 ms.author: wesmc
-ms.openlocfilehash: 3cf906830965959709a8c7e8dc7d2acc3f3a6f32
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: a6c3314a981b46aa6f1cbca1f34392d1e1ae6c9a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35778548"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431647"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-redis-cache"></a>Azure Redis Cache에 대한 ASP.NET 출력 캐시 공급자
 Redis 출력 캐시 공급자는 출력 캐시 데이터에 대한 out-of-process 저장소 메커니즘입니다. 이 데이터는 완전한 HTTP 응답(페이지 출력 캐싱)에 특별히 사용됩니다. 공급자가 ASP.NET 4에 도입된 새로운 출력 캐시 공급자 확장 포인트에 연결됩니다.
@@ -46,7 +46,7 @@ NuGet 패키지에서는 필수 어셈블리 참조를 다운로드하고 추가
 
 ```xml
 <caching>
-  <outputCachedefault Provider="MyRedisOutputCache">
+  <outputCache defaultProvider="MyRedisOutputCache">
     <providers>
       <!-- For more details check https://github.com/Azure/aspnet-redis-providers/wiki -->
       <!-- Either use 'connectionString' OR 'settingsClassName' and 'settingsMethodName' OR use 'host','port','accessKey','ssl','connectionTimeoutInMilliseconds' and 'operationTimeoutInMilliseconds'. -->
@@ -73,6 +73,7 @@ NuGet 패키지에서는 필수 어셈블리 참조를 다운로드하고 추가
            host=""
            accessKey=""
            ssl="true" />
+    </providers>
   </outputCache>
 </caching>
 ```

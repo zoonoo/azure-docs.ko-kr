@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 7999dc15fbe1af9d23b47971db03cf6b197f110f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a3cbbf887c4b7df57f2df89dfb8649967d6d9b1b
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306112"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434758"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 데이터 보호 전략 정의
 이 작업에서 하이브리드 ID 솔루션에 대한 데이터 보호 전략을 정의하여 다음에서 정의된 비즈니스 요구 사항을 충족합니다.
@@ -58,8 +58,6 @@ ms.locfileid: "46306112"
 
 ## <a name="define-content-management-options"></a>콘텐츠 관리 옵션 정의
 
-<a name="one-advantage-of-using-azure-ad-to-manage-a-hybrid-identity-infrastructure-is-that-the-process-is-fully-transparent-from-the-end-users-perspective-the-user-tries-to-access-a-shared-resource-the-resource-requires-authentication-the-user-has-to-send-an-authentication-request-to-azure-ad-in-order-to-obtain-the-token-and-access-the-resource-this-entire-process-happens-in-the-background-without-user-interaction"></a>하이브리드 ID 인프라를 관리하기 위해 Azure AD를 사용하는 이점은 프로세스가 최종 사용자의 관점에서 완전히 투명하다는 점입니다. 토큰을 얻고 리소스에 액세스 하기 위해 사용자는 공유 리소스에 액세스하려고 하고 리소스에는 인증이 필요하며 사용자는 Azure AD로 인증 요청을 보내야 합니다. 이 전체 프로세스는 사용자 개입 없이 백그라운드에서 발생합니다. 
-=======
 하이브리드 ID 인프라를 관리하기 위해 Azure AD를 사용하는 이점은 프로세스가 최종 사용자의 관점에서 완전히 투명하다는 점입니다. 토큰을 얻고 리소스에 액세스 하기 위해 사용자는 공유 리소스에 액세스하려고 하고 리소스에는 인증이 필요하며 사용자는 Azure AD로 인증 요청을 보내야 합니다. 이 전체 프로세스는 사용자 개입 없이 백그라운드에서 발생합니다. 
 
 데이터 정보 보호를 우려하는 조직은 일반적으로 해당 솔루션에 대한 데이터 분류가 필요합니다. 현재 온-프레미스 인프라가 이미 데이터 분류를 사용하고 있는 경우 사용자의 ID에 대한 주 리포지토리로 Azure AD를 활용하는 것이 가능합니다. 데이터 분류 호출에 사용되는 온-프레미스인 일반적인 도구는 Windows Server 2012 R2에 대한 [데이터 분류 도구 키트](https://msdn.microsoft.com/library/Hh204743.aspx) 라고 합니다. 이 도구는 사설 클라우드에서 파일 서버에 데이터를 식별, 분류 및 보호할 수 있습니다. 또한 이 작업을 수행하기 위해 Windows Server 2012에서 [자동 파일 분류](https://technet.microsoft.com/library/hh831672.aspx) 를 활용할 수 있습니다.

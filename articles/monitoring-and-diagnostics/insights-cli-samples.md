@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: robb
 ms.component: ''
-ms.openlocfilehash: 1728511402d48904fa968790f790314fdf57767c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f7545afbe135cddccc706a5818ab2a74e6849650
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961521"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224097"
 ---
 # <a name="azure-monitor-cli-quick-start-samples"></a>Azure Monitor CLI 빠른 시작 샘플
 이 문서에서는 Azure Monitor 기능에 액세스하는 데 유용한 샘플 CLI(명령줄 인터페이스) 명령을 보여 줍니다. Azure Monitor를 통해 Cloud Services, Virtual Machines 및 Web Apps의 크기를 자동으로 조정하고, 구성된 원격 분석 데이터의 값을 기반으로 경고 알림을 보내거나 웹 URL을 호출할 수 있습니다.

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/19/2017
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: b23c170e557d019abf2b9aab8edcb74728bc872d
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 5822d32906419e8b0615dd8686ec47de28deb38f
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128778"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182225"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Log Analytics의 Windows 및 Linux 성능 데이터 원본
 Windows와 Linux의 성능 카운터는 하드웨어 구성 요소, 운영 체제 및 응용 프로그램의 성능에 대한 정보를 자세히 제공합니다.  Log Analytics는 장기적인 분석 및 보고를 위한 성능 데이터 집계는 물론 거의 실시간에 가까운(NRT) 분석을 위해 빈번한 간격으로 성능 카운터를 수집할 수 있습니다.

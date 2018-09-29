@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: clemensv
 ms.custom: include file
-ms.openlocfilehash: e07d82b8a3aea4f0db0f5a071d78ea360cd611ab
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 8d73a22473ffff358c7424249c7581f6af740718
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177256"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452821"
 ---
 ### <a name="create-a-console-application"></a>콘솔 응용 프로그램 만들기
 
@@ -24,8 +24,10 @@ Visual Studio에서 새 **콘솔 앱(.NET Framework)** 프로젝트를 만듭니
 ### <a name="add-the-relay-nuget-package"></a>릴레이 NuGet 패키지 추가
 
 1. 마우스 오른쪽 단추로 새로 만든 프로젝트를 클릭한 다음 **NuGet 패키지 관리**를 선택합니다.
-2. **찾아보기**를 선택한 다음 **Microsoft.Azure.Relay**를 검색합니다. 검색 결과에서 **Microsoft Azure Relay**를 선택합니다. 
-3. **설치**을 선택하여 설치를 완료합니다. 대화 상자를 닫습니다.
+2. **시험판 포함** 옵션을 선택합니다. 
+3. **찾아보기**를 선택한 다음 **Microsoft.Azure.Relay**를 검색합니다. 검색 결과에서 **Microsoft Azure Relay**를 선택합니다.
+4. 버전은 **2.0.0-preview1-20180523**을 선택합니다. 
+5. **설치**을 선택하여 설치를 완료합니다. 대화 상자를 닫습니다.
 
 ### <a name="write-code-to-send-requests"></a>요청을 보내는 코드 작성
 

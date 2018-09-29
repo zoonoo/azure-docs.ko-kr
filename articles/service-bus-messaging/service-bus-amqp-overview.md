@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: 8fd87897a70b0a7bb629e185473374837cf1026e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b43cdfa0b5f9e5bf6a94f4f59034e07f59ddb163
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701937"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393335"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Service Bus의 AMQP 1.0 지원
 Azure Service Bus 클라우드 서비스와 온-프레미스 [Windows Server용 Service Bus(Service Bus 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) 둘 다 AMQP(Advanced Message Queueing Protocol) 1.0을 지원합니다. AMQP를 사용하여 여러 플랫폼 간에 개방형 표준 프로토콜을 사용하는 하이브리드 응용 프로그램을 빌드할 수 있습니다. 다른 언어 및 프레임워크로 빌드된 구성 요소를 사용하며 다른 운영 체제에서 실행되는 응용 프로그램을 생성할 수 있습니다. 이러한 구성 요소는 모두 Service Bus에 연결할 수 있으며 구조화된 비즈니스 메시지를 효율적이고 완벽하며 원활하게 교환할 수 있습니다.

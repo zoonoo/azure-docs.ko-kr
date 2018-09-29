@@ -16,11 +16,11 @@ ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
 ms.openlocfilehash: 7f0e65b1de1df48603cab29148c7f4c6fb909714
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35776328"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47095000"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>클라우드 서비스 배포 문제 해결
 Azure에 클라우드 서비스 응용 프로그램 패키지를 배포할 때 Azure 포털의 **속성** 창에서 배포에 대한 정보를 얻을 수 있습니다. 클라우드 서비스에 발생한 문제를 해결하기 위해 이 창에서 세부 정보를 사용할 수 있고 새로운 지원 요청을 할 때 Azure 지원 센터에 이 정보를 제공할 수 있습니다.

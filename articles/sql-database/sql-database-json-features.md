@@ -2,24 +2,27 @@
 title: Azure SQL Database JSON 기능 | Microsoft Docs
 description: Azure SQL Database에서는 JSON(JavaScript Object Notation) 표기법으로 데이터 구문 분석, 쿼리 및 서식 지정을 수행할 수 있습니다.
 services: sql-database
-author: jovanpop-msft
-manager: craigg
 ms.service: sql-database
-ms.custom: develop databases
-ms.date: 04/01/2018
-ms.author: jovanpop
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.openlocfilehash: 687986d108a15973c19ff06f5ca98a468439f30d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+author: jovanpop-msft
+ms.author: jovanpop
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: dfbefd2ff4c2e99268c1e7e84154e93d58f542bb
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649002"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163633"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Azure SQL Database의 JSON 기능 시작
 Azure SQL Database를 사용하면 [JSON](http://www.json.org/) (JavaScript Object Notation) 형식으로 표현된 데이터를 구문 분석 및 쿼리하고 관계형 데이터를 JSON 텍스트로 내보낼 수 있습니다.
 
-JSON은 최신 웹 및 모바일 응용 프로그램에서 데이터를 교환하는 데 사용되는 일반적인 데이터 형식입니다. 또한 JSON은 로그 파일 또는 NoSQL 데이터베이스(예: [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/))에 반구조화된 데이터를 저장하는 데도 사용됩니다. 많은 REST 웹 서비스는 JSON 텍스트로 형식이 지정된 결과를 반환하거나 JSON으로 형식이 지정된 데이터를 수락합니다. 대부분의 Azure 서비스(예: [Azure Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/) 및 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/))에는 JSON을 반환하거나 사용하는 REST 끝점이 있습니다.
+JSON은 최신 웹 및 모바일 응용 프로그램에서 데이터를 교환하는 데 사용되는 일반적인 데이터 형식입니다. 또한 JSON은 로그 파일 또는 NoSQL 데이터베이스(예: [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/))에 반구조화된 데이터를 저장하는 데도 사용됩니다. 많은 REST 웹 서비스는 JSON 텍스트로 형식이 지정된 결과를 반환하거나 JSON으로 형식이 지정된 데이터를 수락합니다. 대부분의 Azure 서비스(예: [Azure Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/) 및 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/))에는 JSON을 반환하거나 사용하는 REST 엔드포인트가 있습니다.
 
 Azure SQL Database를 사용하여 JSON 데이터를 쉽게 사용하고 데이터베이스를 최신 서비스와 통합할 수 있습니다.
 

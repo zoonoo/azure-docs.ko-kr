@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/14/2018
-ms.author: tonguyen
-ms.openlocfilehash: c782cadadb0250e6c3ca4912dbf8f81e19cb88c5
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.author: cwatson
+ms.openlocfilehash: be2e774bc4220d5d93f555263fa9f342f449f8b2
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42919057"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423445"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Microsoft Azure 청구서 이해
 Azure 청구서를 이해하려면 청구서를 자세한 일별 사용 현황 파일 및 Azure Portal의 비용 관리 보고서와 비교합니다.
@@ -141,7 +141,6 @@ VM이 생성되면 위의 미터는 각자 사용량 레코드를 내보내기 �
 
 ## <a name="tips-for-cost-management"></a>비용 관리 팁
 - [가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/)와 [총 소유 비용 계산기](https://aka.ms/azure-tco-calculator)를 사용하여 비용을 산정하고 [각 서비스에 대한 자세한 요금 정보](https://azure.microsoft.com/pricing/)를 가져옵니다.
-- [청구 알림을 설정](billing-set-up-alerts.md)합니다.
 - [Azure Portal에서 정기적으로 사용량 및 비용을 검토](billing-getting-started.md#costs)합니다.
 
 ## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의

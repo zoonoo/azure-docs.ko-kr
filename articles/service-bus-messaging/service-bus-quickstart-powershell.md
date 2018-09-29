@@ -8,14 +8,14 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/22/2018
+ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 5652069e7a81f54936a41ddb563b49fe6131e7e0
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: ce357fcff3313ae0216d5a7a00b3d845f83bba91
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696839"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405889"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-powershell-and-net"></a>빠른 시작: Azure PowerShell 및 .NET을 사용하여 메시지 보내기 및 받기
 

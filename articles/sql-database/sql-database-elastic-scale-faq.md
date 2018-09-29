@@ -2,20 +2,22 @@
 title: Azure SQL 탄력적인 확장 FAQ | Microsoft Docs
 description: Azure SQL Database의 탄력적인 확장에 대한 질문과 대답을 제공합니다.
 services: sql-database
-documentationcenter: ''
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 94ae9549bb5e09c80703a7db316675bff1272372
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: afa442897637e6c7255335798dc45b48aedb2b2a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647479"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158584"
 ---
 # <a name="elastic-database-tools-faq"></a>탄력적 데이터베이스 도구 FAQ
 #### <a name="if-i-have-a-single-tenant-per-shard-and-no-sharding-key-how-do-i-populate-the-sharding-key-for-the-schema-info"></a>분할 및 분할 안 함 키당 단일 테넌트가 있는 경우 스키마 정보에 대한 분할 키를 채우려면 어떻게 해야 하나요?
@@ -43,7 +45,7 @@ ms.locfileid: "34647479"
 예, 분할은 개별 데이터베이스이므로 한 분할은 Premium Edition이고 다른 버전은 Standard Edition일 수 있습니다. 또한 분할 수명 동안 여러 번 분할 버전의 규모가 확장되거나 축소될 수 있습니다.
 
 #### <a name="does-the-split-merge-tool-provision-or-delete-a-database-during-a-split-or-merge-operation"></a>분할 또는 병합 작업 중 분할 병합 도구에서 데이터베이스를 프로비전(또는 삭제)하나요?
-번호 **분할** 작업의 경우 적절한 스키마를 가진 대상 데이터베이스가 있고 분할된 데이터베이스 맵 관리자에 등록되어 있어야 합니다.  **병합** 작업의 경우 분할된 데이터베이스 맵 관리자에서 분할된 데이터베이스를 삭제한 후 데이터베이스를 삭제해야 합니다.
+아니요. **분할** 작업의 경우 적절한 스키마를 가진 대상 데이터베이스가 있고 분할된 데이터베이스 맵 관리자에 등록되어 있어야 합니다.  **병합** 작업의 경우 분할된 데이터베이스 맵 관리자에서 분할된 데이터베이스를 삭제한 후 데이터베이스를 삭제해야 합니다.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

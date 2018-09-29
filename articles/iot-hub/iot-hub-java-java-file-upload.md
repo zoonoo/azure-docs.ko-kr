@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 7eb18a623683fb8a3662297825e90234644ead39
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 57faff3a95e5b4ccdbc44cb7adb77d34694042c9
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42147020"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220380"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>IoT Hub를 사용하여 장치에서 클라우드로 파일 업로드
 
@@ -281,7 +281,6 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 [Azure IoT 개발자 센터]: http://azure.microsoft.com/develop/iot
 
-[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure Storage]:../storage/common/storage-quickstart-create-account.md
 [lnk-configure-upload]: iot-hub-configure-file-upload.md
 [Azure IoT service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/

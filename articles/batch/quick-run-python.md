@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/19/2018
+ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 85be7763535b8b067c5a52729fb2be855ffa4b77
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 69d31caf161e63233cee10e4820ea5150c6f9b61
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608460"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159337"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>빠른 시작: Python API를 사용하여 첫 번째 Batch 작업 실행
 
@@ -128,9 +128,10 @@ blob_client = azureblob.BlockBlobService(
 앱은 `blob_client` 참조를 사용하여 저장소 계정에 컨테이너를 만들고, 데이터 파일을 이 컨테이너에 업로드합니다. 저장소의 파일은 나중에 Batch에서 계산 노드에 다운로드할 수 있는 [ResourceFile](/python/api/azure.batch.models.resourcefile) Batch 개체로 정의됩니다.
 
 ```python
-input_file_paths = [os.path.realpath('./data/taskdata0.txt'),
-                    os.path.realpath('./data/taskdata1.txt'),
-                    os.path.realpath('./data/taskdata2.txt')]
+input_file_paths =  [os.path.join(sys.path[0], 'taskdata0.txt'),
+                     os.path.join(sys.path[0], 'taskdata1.txt'),
+                     os.path.join(sys.path[0], 'taskdata2.txt')]
+
 input_files = [
     upload_file_to_container(blob_client, input_container_name, file_path)
     for file_path in input_file_paths]
@@ -139,8 +140,8 @@ input_files = [
 이 앱은 Batch 서비스에서 풀, 작업 및 태스크를 만들고 관리하는 [BatchServiceClient](/python/api/azure.batch.batchserviceclient) 개체를 만듭니다. 샘플의 Batch 클라이언트는 공유 키 인증을 사용합니다. 또한 Batch는 Azure Active Directory 인증도 지원합니다.
 
 ```python
-credentials = batchauth.SharedKeyCredentials(_BATCH_ACCOUNT_NAME,
-    BATCH_ACCOUNT_KEY)
+credentials = batch_auth.SharedKeyCredentials(_BATCH_ACCOUNT_NAME,
+    _BATCH_ACCOUNT_KEY)
 
 batch_client = batch.BatchServiceClient(
     credentials,
@@ -179,8 +180,8 @@ Batch 작업은 하나 이상의 태스크에 대한 논리적 그룹입니다. 
 
 ```python
 job = batch.models.JobAddParameter(
-    job_id,
-    batch.models.PoolInformation(pool_id=pool_id))
+    id=job_id,
+    pool_info=batch.models.PoolInformation(pool_id=pool_id))
 batch_service_client.job.add(job)
 ```
 

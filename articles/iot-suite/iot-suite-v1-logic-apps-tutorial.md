@@ -1,12 +1,12 @@
 ---
-title: "Azure IoT Suite 및 Logic Apps | Microsoft Docs"
-description: "Logic Apps를 비즈니스 프로세스에 대한 Azure IoT Suite에 연결하는 방법에 대한 자습서입니다."
-services: 
+title: Azure IoT Suite 및 Logic Apps | Microsoft Docs
+description: Logic Apps를 비즈니스 프로세스에 대한 Azure IoT Suite에 연결하는 방법에 대한 자습서입니다.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4629a7af-56ca-4b21-a769-5fa18bc3ab07
 ms.service: iot-suite
 ms.devlang: na
@@ -16,10 +16,11 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
 ms.openlocfilehash: 4a1db86f4b715533dfea545365eaf66de0574c5e
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47106561"
 ---
 # <a name="tutorial-connect-logic-app-to-your-azure-iot-suite-remote-monitoring-preconfigured-solution"></a>자습서: 미리 구성된 Azure IoT Suite 원격 모니터링 솔루션에 논리 앱 연결
 미리 구성된 [Microsoft Azure IoT Suite][lnk-internetofthings] 원격 모니터링 솔루션은 IoT 솔루션의 예를 보여 주는 종단 간 기능 집합으로 신속하게 시작할 수 있는 훌륭한 방법입니다. 이 자습서에서는 미리 구성된 Microsoft Azure IoT Suite 원격 모니터링 솔루션에 논리 앱을 추가하는 방법을 안내합니다. 이러한 단계에서는 IoT 솔루션을 비즈니스 프로세스에 연결하여 추가로 활용할 수 있는 방법을 설명합니다.
@@ -92,7 +93,7 @@ ms.lasthandoff: 11/20/2017
 10. 연결 이름(예: **SendGridConnection**)을 입력하고 SendGrid 계정을 설정할 때 만든 **SendGrid API 키**를 입력하고 **만들기**를 클릭합니다.
     
     ![](media/iot-suite-v1-logic-apps-tutorial/sendgridconnection.png)
-11. 소유한 전자 메일 주소를 **보낸 사람** 및 **받는 사람** 필드에 추가합니다. **원격 모니터링 경고[DeviceId]**를 **제목** 필드에 추가합니다. **전자 메일 본문** 필드에 **장치[DeviceId]가 [measuredValue] 값과 함께 [measurementName]을 보고했습니다.**를 추가합니다. **이전 단계에서 데이터를 삽입할 수 있습니다** 섹션을 클릭하여 **[DeviceId]**, **[measurementName]** 및 **[measuredValue]**를 추가할 수 있습니다.
+11. 소유한 전자 메일 주소를 **보낸 사람** 및 **받는 사람** 필드에 추가합니다. **원격 모니터링 경고[DeviceId]** 를 **제목** 필드에 추가합니다. **전자 메일 본문** 필드에 **장치[DeviceId]가 [measuredValue] 값과 함께 [measurementName]을 보고했습니다.** 를 추가합니다. **이전 단계에서 데이터를 삽입할 수 있습니다** 섹션을 클릭하여 **[DeviceId]**, **[measurementName]** 및 **[measuredValue]** 를 추가할 수 있습니다.
     
     ![](media/iot-suite-v1-logic-apps-tutorial/sendgridaction.png)
 12. 최상위 메뉴에서 **저장**을 클릭합니다.
@@ -106,7 +107,7 @@ ms.lasthandoff: 11/20/2017
 ## <a name="set-up-the-eventprocessor-web-job"></a>EventProcessor 웹 작업 설정
 이 섹션에서는 미리 구성된 솔루션을 만든 논리 앱에 연결합니다. 이 작업을 완료하려면 URL을 추가하여 장치 센서 값이 임계값을 초과할 때 발생하는 작업에 논리 앱을 트리거합니다.
 
-1. git 클라이언트를 사용하여 최신 버전의 [azure-iot-remote-monitoring github 리포지토리][lnk-rmgithub]를 복제합니다. 예:
+1. git 클라이언트를 사용하여 최신 버전의 [azure-iot-remote-monitoring github 리포지토리][lnk-rmgithub]를 복제합니다. 예: 
    
     ```cmd
     git clone https://github.com/Azure/azure-iot-remote-monitoring.git
