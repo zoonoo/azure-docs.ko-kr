@@ -132,19 +132,19 @@ Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연�
 
     Azure PowerShell의 최신 버전에서 다음 명령을 사용하여 현재 Azure Resource Manager 할당량을 확인할 수 있습니다.
 
-    **Compute***(코어, 가용성 집합)*
+    **Compute** *(코어, 가용성 집합)*
 
     ```powershell
     Get-AzureRmVMUsage -Location <azure-region>
     ```
 
-    **네트워크***(Virtual Network, 고정 공용 IP, 공용 IP, 네트워크 보안 그룹, 네트워크 인터페이스, 부하 분산 장치, 경로 테이블)*
+    **네트워크** *(Virtual Network, 고정 공용 IP, 공용 IP, 네트워크 보안 그룹, 네트워크 인터페이스, 부하 분산 장치, 경로 테이블)*
 
     ```powershell
     Get-AzureRmUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
     ```
 
-    **저장소***(Storage 계정)*
+    **저장소** *(Storage 계정)*
 
     ```powershell
     Get-AzureRmStorageUsage

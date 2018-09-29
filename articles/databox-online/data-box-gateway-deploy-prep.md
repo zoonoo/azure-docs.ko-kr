@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: f4c3cf5329c10cda3691370e946b8397662a8d66
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4c21245e05625f65b6b5dcf5f7081f5f5d1abb52
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953415"
+ms.locfileid: "47030608"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway-preview"></a>자습서: Azure Data Box Gateway 배포 준비(미리 보기)
 
@@ -89,7 +89,7 @@ Data Box Gateway를 배포하려면 다음 자습서를 규정된 순서대로 �
 
 ## <a name="create-a-new-resource"></a>새 리소스 만들기
 
-Data Box Gateway 리소스의 단일 인스턴스가 여러 Data Box Gateway 가상 장치를 관리할 수 있습니다. 새 Data Box Gateway 리소스를 만들려면 다음 단계를 수행합니다. 
+새 Data Box Gateway 리소스를 만들려면 다음 단계를 수행합니다. 
 
 가상 장치를 관리할 기존 Data Box Gateway 리소스가 있으면 이 단계를 건너뛰고 [활성화 키 가져오기](#get-the-activation-key)로 이동합니다.
 
@@ -158,7 +158,7 @@ Data Box Gateway 리소스가 가동하여 실행되면 활성화 키를 얻어�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음과 같은 Data Box Gateway 항목에 대해 알아보았습니다.
+이 자습서에서는 다음과 같은 Data Box Gateway 토픽에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * 새 리소스 만들기
