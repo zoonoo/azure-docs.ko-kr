@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 6e58429567e447002b1c9191bb8e50a4351649a9
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 6e9813d989a54dbb1609a58dd502a7493d973faa
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246800"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433721"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>실행 중인 팀 데이터 과학 프로세스: SQL Server 사용
 이 자습서에서는 SQL Server 및 공개적으로 사용할 수 있는 데이터 집합([NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합)을 사용하여 Machine Learning 모델의 배포 및 빌드 처리를 연습합니다. 이 절차는 표준 데이터 과학 워크플로를 따릅니다. 데이터를 수집 및 탐색하고 학습이 용이하도록 기능을 엔지니어링한 후 모델을 빌드 및 배포합니다.
@@ -582,7 +582,7 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
 2. **속성** 패널에서 **Azure SQL Database**를 **데이터 원본**으로 선택합니다.
 3. **데이터베이스 서버 이름** 필드에 데이터베이스 DNS 이름을 입력합니다. 형식: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. **데이터베이스 이름** 을 해당 필드에 입력합니다.
-5. **서버 사용자 계정 이름에 **SQL 사용자 이름**을 입력하고 **서버 사용자 계정 암호**에 암호를 입력합니다.
+5. **서버 사용자 계정 이름**에 **SQL 사용자 이름**을 입력하고, **서버 사용자 계정 암호**에 **암호**를 입력합니다.
 7. **데이터베이스 쿼리** 편집 텍스트 영역에서 필요한 데이터베이스 필드를 추출하는 쿼리(레이블과 같은 모든 계산된 필드 포함)를 붙여 넣고 데이터를 원하는 샘플 크기로 다운 샘플링합니다.
 
 SQL Server 데이터베이스에서 직접 데이터를 읽는 이진 분류 실험 예제는 아래 그림에 나와 있습니다. 다중 클래스 분류 및 회귀 문제에 대한 유사한 실험을 생성할 수 있습니다.

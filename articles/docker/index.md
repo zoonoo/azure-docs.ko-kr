@@ -11,12 +11,12 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
 ms.author: carolz
-ms.openlocfilehash: 9ae73659ee8fbf9099e7e8fab65e020a170126e3
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 76afc558048f1890e5e2440fd002361172acbea2
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304172"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433839"
 ---
 <div class="content">
    <h1>Azure의 Docker</h1>   
@@ -32,7 +32,7 @@ Docker는 Linux 및 Windows에서 컨테이너와 함께 빠르게 사용할 수
 <h2>단계별 자습서</h2>
 <p>응용 프로그램에서, 그리고 CI/CD 파이프라인의 일부로 Docker를 사용하는 방법 알아보기:</p>
 <ol>
-  <li><a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app">Docker를 사용하여 Python 및 PostgreSQL 만들기</a></li>
+  <li><a href="/azure/app-service/containers/tutorial-python-postgresql-app">Docker를 사용하여 Python 및 PostgreSQL 만들기</a></li>
   <li><a href="/azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine">Docker Swarm 및 Azure DevOps Services를 사용하는 CI/CD</a></li>
   <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Docker, Jenkins 및 Linux VM 통합</a></li>
 </ol>

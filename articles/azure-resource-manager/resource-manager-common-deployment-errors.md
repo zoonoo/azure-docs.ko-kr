@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8da582750b5e20ddd7018f59292e7342f1628c8c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9ef0b3d9ae0cea5082a5c764012958f02113fe9a
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425386"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408490"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결
 
@@ -32,7 +32,7 @@ ms.locfileid: "39425386"
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | 저장소 계정에 대한 명명 제한 사항을 따릅니다. | [저장소 계정 이름 오류 해결](resource-manager-storage-account-name-errors.md) |
 | AccountPropertyCannotBeSet | 사용 가능한 저장소 계정 속성을 확인합니다. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| AllocationFailed | 클러스터나 지역에 사용할 수 있는 리소스가 없거나 요청한 VM 크기를 지원할 수 없습니다. 나중에 요청을 다시 시도하거나 다른 VM 크기를 요청합니다. | [Linux의 프로비전 및 할당 문제](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Windows의 프로비전 및 할당 문제](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) 및 [할당 문제 해결](../virtual-machines/windows/allocation-failure.md)|
+| AllocationFailed | 클러스터나 지역에 사용할 수 있는 리소스가 없거나 요청한 VM 크기를 지원할 수 없습니다. 나중에 요청을 다시 시도하거나 다른 VM 크기를 요청합니다. | [Linux의 프로비전 및 할당 문제](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Windows의 프로비전 및 할당 문제](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) 및 [할당 문제 해결](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | 동시 작업이 완료될 때까지 기다립니다. | |
 | AuthorizationFailed | 계정 또는 서비스 주체가 배포를 완료하는 데 충분한 권한이 없습니다. 계정이 속한 역할 및 배포 범위에 대한 액세스 권한을 확인합니다. | [Azure 역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md) |
 | BadRequest | Resource Manager에서 예상한 것과 일치하지 않는 배포 값을 보냈습니다. 문제 해결에 도움이 되는 내부 상태 메시지를 확인합니다. | [템플릿 참조](/azure/templates/) 및 [지원되는 위치](resource-manager-templates-resources.md#location) |

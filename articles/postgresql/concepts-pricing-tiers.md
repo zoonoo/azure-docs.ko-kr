@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 07/21/2018
-ms.openlocfilehash: 18f6647a8412477384a48aa777461f99b2fbcb0a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.date: 09/27/2018
+ms.openlocfilehash: 696932135cdd3850e04d25370867c0273b99b3bf
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379545"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423547"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database for PostgreSQL 가격 책정 계층
 
@@ -74,6 +74,11 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 | 일본 서부 | X | X |
 | 한국 중부 |  | X |
 | 한국 남부 |  | X |
+| 독일 중부 |  | X |
+| 미국 국방부 중부  | X |  |
+| 미국 국방부 동부  | X |  |
+| 미국 정부 애리조나 |  | X |
+| 미국 정부 텍사스 |  | X |
 
 ## <a name="storage"></a>Storage
 
@@ -120,4 +125,4 @@ vCore 수, 하드웨어 생성 또는 가격 책정 계층을 변경하면 새 �
 
 - [포털에서 PostgreSQL 서버를 만드는](tutorial-design-database-using-azure-portal.md) 방법을 알아봅니다.
 - [Azure CLI를 사용하여 Azure Database for PostgreSQL 서버를 모니터링 및 크기 조정하는](scripts/sample-scale-server-up-or-down.md) 방법을 알아봅니다.
-- [서비스 제한 사항](concepts-limits.md)에 대해 알아봅니다.
+- [서비스 제한 사항](concepts-limits.md)에 대해 알아봅니다. 

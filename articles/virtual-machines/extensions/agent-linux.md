@@ -3,7 +3,7 @@ title: Azure Linux VM 에이전트 개요 | Microsoft Docs
 description: Linux 에이전트(waagent)를 설치 및 구성하여 가상 머신과 Azure 패브릭 컨트롤러의 상호 작용을 관리하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d3cba4e884b64d47c4e3109b23aebab7dd9da45f
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 73e5e54e40223f7cd972e2bd2752add9ca82ff2b
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412163"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452346"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Azure Linux 에이전트 이해 및 사용
 
@@ -67,7 +67,7 @@ Microsoft Azure Linux 에이전트(waagent)는 Linux 및 FreeBSD 프로비저닝
 플랫폼에서 에이전트로의 정보 흐름은 다음 두 채널을 통해 진행됩니다.
 
 * IaaS 배포를 위해 부팅 시 연결된 DVD. 이 DVD에는 실제 SSH 키 쌍이 아닌 모든 프로비전 정보가 포함된 OVF 규격 구성 파일이 포함되어 있습니다.
-* 배포 및 토폴로지 구성을 가져오는 데 사용된 REST API를 공개하는 TCP 끝점
+* 배포 및 토폴로지 구성을 가져오는 데 사용된 REST API를 공개하는 TCP 엔드포인트.
 
 ## <a name="requirements"></a>요구 사항
 다음 시스템은 테스트를 거쳐 Azure Linux 에이전트와 동작하는 것으로 알려져 있습니다.

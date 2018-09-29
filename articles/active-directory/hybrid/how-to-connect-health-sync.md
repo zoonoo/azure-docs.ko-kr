@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dc7ee4e7a6975722458ed12f636cdc8f4777614a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 8ca3c0524873e4c7a1326095eb1cc28f63f59a27
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46301941"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431936"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Azure AD Connect Health를 사용하여 Azure AD Connect 동기화 모니터링
 다음 문서는 Azure AD Connect Health와 함께 Azure AD Connect (동기화) 모니터링에 중점을 둡니다.  Azure AD Connect Health와 함께 AD FS 모니터링에 대한 내용은 [AD FS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adfs.md)을 참조하세요. 또한 Azure AD Connect Health와 함께 Active Directory Domain Services를 모니터링하는 방법에 대한 정보는 [AD DS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adds.md)을 참조하세요.
@@ -36,7 +36,7 @@ ms.locfileid: "46301941"
 ### <a name="limited-evaluation-of-alerts"></a>제한된 경고 평가
 Azure AD Connect가 기본 구성을 사용하지 않으면(예: 특성 필터링이 기본 구성에서 사용자 지정 구성으로 변경된 경우) Azure AD Connect Health 에이전트가 Azure AD Connect와 관련된 오류 이벤트를 업로드하지 않습니다.
 
-이로 인해 서비스의 경고 평가가 제한됩니다. Azure Portal에서 해당 서비스 아래에 이 조건을 나타내는 배너가 표시될 것입니다.
+이로 인해 서비스의 경고 평가가 제한됩니다. Azure Portal에서 해당 서비스 아래에 이 조건을 나타내는 배너가 표시됩니다.
 
 ![동기화에 대한 Azure AD Connect Health](./media/how-to-connect-health-sync/banner.png)
 

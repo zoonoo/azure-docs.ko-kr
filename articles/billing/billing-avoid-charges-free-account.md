@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: amberb
-ms.openlocfilehash: 8803a4c0f1be3a3407e5e90bbdadeddbfcb1ab9c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: cwatson
+ms.openlocfilehash: 37e43e4bb8b2aea21e0fa396dd197ca41793469d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061007"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394168"
 ---
 # <a name="avoid-getting-charged-for-your-azure-free-account"></a>Azure 무료 계정에 대한 요금 청구 방지
 
@@ -47,7 +47,7 @@ Azure 체험 계정에 체험용으로 포함되지 않은 서비스를 사용�
 
 체험 서비스 및 수량이 12개월 후에 만료됩니다. Azure Portal에서 만료 날짜를 알아볼 수 있습니다.
 
-1.  [Azure 포털](http://portal.azure.com) 에 로그인합니다.
+1.  [Azure Portal](http://portal.azure.com)에 로그인합니다.
 
 2.  왼쪽 탐색 영역에서 **모든 서비스**를 선택합니다.
 

@@ -2,18 +2,18 @@
 title: Azure Data Catalog에서 데이터 원본 등록
 description: 이 문서는 등록 중에 추출된 메타데이터 필드를 포함하여 Azure Data Catalog에 데이터 원본을 등록하는 방법을 강조 표시합니다.
 services: data-catalog
-author: steelanddata
-ms.author: maroche
+author: markingmyname
+ms.author: maghan
 ms.assetid: bab89906-186f-4d35-9ffd-61b1d903905d
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 4688b58b40df110a33f9310226db9a6412f43054
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 413f9340432f39d60ccdb43557616b4123132873
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053096"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404897"
 ---
 # <a name="register-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 데이터 원본 등록
 ## <a name="introduction"></a>소개

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 6b1de03814017ca4eb811362b2aaf5ac24f5ea86
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: df145ebe6276c911ef3064e3f8ff7a23a2faa870
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999803"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423037"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor 등록 방법
 이 문서에서는 컨테이너용 Azure Monitor를 설정하여 Kubernetes 환경에 배포되고 [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/)에서 호스트되는 워크로드의 성능을 모니터링하는 방법을 설명합니다.
@@ -204,7 +204,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
                         "apiVersion": "2015-11-01-preview",
                         "type": "Microsoft.OperationsManagement/solutions",
                         "location": "[parameters('workspaceRegion')]",
-                        "name": "[Concat('ContainerInsights', '-',  uniqueString(parameters('workspaceResourceId')))]",
+                        "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceResourceId'),'/')[8], ')')]",
                         "properties": {
                             "workspaceResourceId": "[parameters('workspaceResourceId')]"
                         },

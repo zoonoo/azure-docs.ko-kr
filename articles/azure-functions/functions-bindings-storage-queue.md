@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 217e36b7814bb7fe092ca915afd09bfc76b6ffa3
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 68352db238b92d39119b420ed0d573e88a95bc78
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094674"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394457"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Queue Storage 바인딩
 
@@ -535,14 +535,15 @@ JavaScript 함수에서 `context.bindings.<name>`을 사용하여 출력 큐 메
 
 ## <a name="next-steps"></a>다음 단계
 
+* [Azure Functions 트리거 및 바인딩에 대한 자세한 정보](functions-triggers-bindings.md)
+
+<!--
 > [!div class="nextstepaction"]
-> [Queue Storage 트리거를 사용하는 빠른 시작으로 이동](functions-create-storage-queue-triggered-function.md)
+> [Go to a quickstart that uses a Queue storage trigger](functions-create-storage-queue-triggered-function.md)
+-->
 
 > [!div class="nextstepaction"]
 > [Queue Storage 출력 바인딩을 사용하는 자습서로 이동](functions-integrate-storage-queue-output-binding.md)
-
-> [!div class="nextstepaction"]
-> [Azure Functions 트리거 및 바인딩에 대한 자세한 정보](functions-triggers-bindings.md)
 
 <!-- LINKS -->
 

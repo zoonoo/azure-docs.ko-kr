@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: e115408ad9ba692f076568babb2c4aad8d133003
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 928a251c00952b9b515d41c87821e3b3f821809f
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950270"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434605"
 documentType: LandingData
 title: PostgreSQL용 Azure 데이터베이스 설명서
 metadata:
@@ -46,8 +46,8 @@ sections:
     style: ordered
     items:
     - html: 데이터베이스 설계&#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Azure Portal</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">Azure CLI</a>
-    - html: <a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Python 및 CLI를 사용하여 웹앱 만들기</a>
-- title: Microsoft Learn을 사용하여 기술 습득
+    - html: <a href="/azure/app-service/containers/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Python 및 CLI를 사용하여 웹앱 만들기</a>
+- title: Microsoft Learn을 통해 기술 쌓기
   items:
   - type: list
     style: cards

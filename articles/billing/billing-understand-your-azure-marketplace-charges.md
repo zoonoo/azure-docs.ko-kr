@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: adpick
+ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd99cf7b57cd004eb5ab2b62fd4c56e129583c8c
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 6ee11b7b565e669f61f6ba77e02139f071c452f4
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617615"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392213"
 ---
 # <a name="understand-your-azure-billing-for-external-service-charges"></a>Azure 외부 서비스 요금 청구의 이해
 외부 서비스는 Azure Marketplace의 타사 소프트웨어 공급 업체에 의해 게시됩니다. 예를 들어 SendGrid는 Azure에서 구입할 수 있지만 Microsoft에서 게시되지 않은 외부 서비스입니다.

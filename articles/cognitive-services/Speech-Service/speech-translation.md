@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 3559a25f3073f88e99379e98bc4562209b0c0825
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: f80c0f3cdc114b53c002266820e8d9b8773acc5d
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42108447"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432192"
 ---
 # <a name="about-the-speech-translation-api"></a>Speech Translation API 정보
 
@@ -32,7 +32,7 @@ Speech Translation API에서는 다양한 Microsoft 제품 및 서비스를 지�
 
 Microsoft의 번역 엔진의 기반에는 SMT(통계적 기계 번역)와 NMT(신경망 기계 번역)의 두 방식이 있습니다. 신경망을 사용하는 인공 지능 방식인 후자가 기계 번역에 대한 좀 더 최신의 접근 방식입니다. NMT는 단지 정확도만 더 나은 것이 아니라 유연성과 자연스러운 측면에서도 더 나은 번역을 제공합니다. 이렇게 유연한 번역이 제공될 수 있는 핵심 이유는 NMT가 단어를 번역하는 데 문장의 전체 컨텍스트를 사용한다는 것입니다.
 
-현재 Microsoft는 가장 인기 있는 언어에 대해 NMT로 마이그레이션했으며 덜 자주 사용되는 언어에 대해서만 SMT를 사용하고 있습니다. [음성 대 음성 번역에 사용할 수 있는 모든 언어](supported-languages.md#speech-translation)는 NMT를 통해 지원됩니다. 음성 대 텍스트 번역은 언어 쌍에 따라 SMT 또는 NMT를 사용할 수 있습니다. 대상 언어가 NMT에 의해 지원되는 경우 전체 번역은 NMT 기반입니다. 대상 언어가 NMT에 의해 지원되지 않는 경우 두 언어 사이에 영어를 “피벗”으로 사용하여 NMT 및 SMT 혼합으로 번역됩니다.
+현재 Microsoft는 가장 인기 있는 언어에 대해 NMT로 마이그레이션했으며 덜 자주 사용되는 언어에 대해서만 SMT를 사용하고 있습니다. [음성 대 음성 번역에 사용할 수 있는 모든 언어](language-support.md#speech-translation)는 NMT를 통해 지원됩니다. 음성 대 텍스트 번역은 언어 쌍에 따라 SMT 또는 NMT를 사용할 수 있습니다. 대상 언어가 NMT에 의해 지원되는 경우 전체 번역은 NMT 기반입니다. 대상 언어가 NMT에 의해 지원되지 않는 경우 두 언어 사이에 영어를 “피벗”으로 사용하여 NMT 및 SMT 혼합으로 번역됩니다.
 
 두 모델 간의 차이점은 번역 엔진 내부에 있습니다. 최종 사용자는 특히 중국어, 일본어 및 아랍어 같은 언어에 대해서만 개선된 번역 품질을 느끼고 있습니다.
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: douge
-ms.openlocfilehash: 600625f143041eaf983b7ec7e945c5a968b522f5
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 0e58fb23aded66a44deb0d520151c98903cffe18
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42023156"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433330"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>빠른 시작: Azure Dev Spaces(.NET Core 및 Visual Studio)를 사용하여 Kubernetes 개발 환경 만들기
 
@@ -39,7 +39,7 @@ ms.locfileid: "42023156"
 
 ## <a name="set-up-azure-dev-spaces"></a>Azure Dev Spaces 설치
 
-[Visual Studio Tools for Kubernetes](https://aka.ms/get-azds-visualstudio)를 설치합니다.
+[Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools)를 설치합니다.
 
 ## <a name="connect-to-a-cluster"></a>클러스터에 연결
 

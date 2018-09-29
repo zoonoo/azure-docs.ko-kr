@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 575326ee3bd2cb64b2cb65168f23f7fe97dad029
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 52aabcfd908afeea3bb9bf36eefad706b74d8ba9
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954401"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227149"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub 용어집
 이 문서에서는 IoT Hub 문서에 사용된 몇 가지 일반적인 용어를 나열합니다.
@@ -219,7 +219,7 @@ IoT Hub에서 장치 지향 또는 서비스 지향 엔드포인트에 연결하
 [Azure Resource Manager](#azure-resource-manager)는 리소스 그룹을 사용하여 관련 리소스를 함께 그룹화합니다. 그룹에 있는 모든 리소스에 대해 작업을 동시에 수행하는 데 리소스 그룹을 사용할 수 있습니다.
 
 ## <a name="retry-policy"></a>다시 시도 정책
-클라우드 서비스에 연결할 때는 재시도 정책을 사용하여 [일시적인 오류](https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx)를 처리합니다.
+클라우드 서비스에 연결할 때는 재시도 정책을 사용하여 [일시적인 오류](/azure/architecture/best-practices/transient-faults)를 처리합니다.
 
 ## <a name="routing-rules"></a>라우팅 규칙
 IoT Hub에서 [기본 제공 엔드포인트](#built-in-endpoints) 또는 [사용자 지정 엔드포인트](#custom-endpoints)로 장치-클라우드 메시지를 라우팅하여 솔루션 백 엔드에서 처리하도록 [라우팅 규칙](iot-hub-devguide-messages-read-custom.md)을 구성합니다.

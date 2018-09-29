@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 78578197c5f764c8e197d3426506cb1eb13b838f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 110b97cdb4de6e866ac8ce17a1f05d0231ff5071
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956799"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221602"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>네트워크 인네트워크 인터페이스 만들기, 변경 또는 삭제
 
@@ -88,7 +88,7 @@ Portal에서는 네트워크 인터페이스를 만들 때 공용 IP 주소를 �
     - **속성:** 네트워크 인터페이스의 MAC 주소(네트워크 인터페이스가 가상 머신에 연결되어 있지 않으면 비어 있음)와 해당 네트워크 인터페이스가 있는 구독을 비롯하여 네트워크 인터페이스에 대한 주요 설정이 표시됩니다.
     - **효과적인 보안 규칙:** 네트워크 인터페이스가 실행 중인 가상 머신에 연결되어 있고 네트워크 인터페이스, 네트워크 인터페이스가 할당된 서브넷 또는 둘 다에 NSG가 연결되어 있으면 보안 규칙이 나열됩니다. 표시되는 항목에 대한 자세한 내용은 [효과적인 보안 규칙 보기](#view-effective-security-rules)를 참조합니다. NSG에 대한 자세한 내용은 [네트워크 보안 그룹](security-overview.md)을 참조하세요.
     - **유효 경로:** 네트워크 인터페이스가 실행 중인 가상 컴퓨터에 연결되어 있으면 경로가 나열됩니다. 경로는 Azure 기본 경로, 사용자 정의 경로 및 네트워크 인터페이스가 할당된 서브넷에 있을 수 있는 BGP 경로의 조합입니다. 표시되는 항목에 대한 자세한 내용은 [효과적인 경로 보기](#view-effective-routes)를 참조합니다. Azure 기본 경로 및 사용자 정의 경로에 대한 자세한 내용은 [라우팅 개요](virtual-networks-udr-overview.md)를 참조하세요.
-    - **일반적인 Azure Resource Manager 설정:** 일반적인 Azure Resource Manager 설정에 대한 자세한 내용은 [활동 로그](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs), [Access Control(IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [태그](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [잠금](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [Automation 스크립트](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)를 참조하세요.
+    - **일반적인 Azure Resource Manager 설정:** 일반적인 Azure Resource Manager 설정에 대한 자세한 내용은 [활동 로그](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), [Access Control(IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [태그](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [잠금](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [Automation 스크립트](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)를 참조하세요.
 
 <a name="view-settings-commands"></a>**명령**
 

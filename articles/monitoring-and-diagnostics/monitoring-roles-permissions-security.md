@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: c99186d73886041d92bea38b0dd4dc17f55001e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1a42c13bc0b441074829b1753c1d3cab8fbfaccf
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977862"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407572"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Azure Monitor에서의 역할, 권한 및 보안 시작
 많은 팀에서는 모니터링 데이터 및 설정에 대한 액세스를 엄격히 규제할 필요가 있습니다. 예를 들어 모니터링에 대해 단독으로 작업하는 팀원(지원 엔지니어, devops 엔지니어)이 있거나, 관리되는 서비스 공급자를 사용할 경우 이들에게 리소스 생성, 수정 또는 삭제 기능은 제한하면서 모니터링 데이터에 대해서만 액세스를 부여하고자 할 수 있씁니다. 이 문서에서는 Azure의 사용자에게 기본 제공 모니터링 RBAC 역할을 신속하게 적용하거나 제한된 모니터링 권한이 필요한 사용자에 대해 자체 사용자 지정 역할을 구성하는 방법을 보여 줍니다. 그런 다음 Azure Monitor 관련 리소스에 대한 보안 고려 사항과, 포함된 데이터에 대한 액세스를 제한하는 방법에 대해 논의합니다.
@@ -181,14 +181,8 @@ Azure Monitor에서 사용하도록 설정하는 서비스를 제공하려면 Az
 모니터링 데이터는 저장소 계정에 기록되는 경우가 많습니다. 저장소 계정에 복사한 데이터는 인증되지 않은 사용자가 액세스할 수 없도록 하는 것이 좋습니다. 추가 보안을 위해, “선택된 네트워크”를 사용하도록 저장소 계정을 제한하여 권한 있는 리소스 및 신뢰할 수 있는 Microsoft 서비스만 저장소 계정에 액세스할 수 있도록 네트워크 액세스를 잠글 수 있습니다.
 ![Azure Storage 설정 대화 상자](./media/monitoring-roles-permissions-security/secured-storage-example.png) Azure Monitor는 이러한 “신뢰할 수 있는 Microsoft 서비스” 중 하나로 간주됩니다. 신뢰할 수 있는 Microsoft 서비스가 보안 저장소에 액세스할 수 있도록 허용하면 Azure Monitor에서 보안 저장소 계정에 액세스할 수 있으며, 이러한 보호된 조건에서 Azure Monitor 진단 로그, 활동 로그 및 메트릭을 저장소 계정에 작성할 수 있습니다. 또한 Log Analytics가 보안 저장소에서 로그를 읽을 수 있습니다.   
 
+
 자세한 내용은 [네트워크 보안 및 Azure Storage](../storage/common/storage-network-security.md)를 참조하세요.
- 
-### <a name="secured-virtual-networks-with-service-endpoints"></a>서비스 엔드포인트가 포함된 보안 가상 네트워크 
-
-가상 네트워크(VNet)를 사용하면 지정된 트래픽만 Azure 리소스와 통신할 수 있도록 트래픽을 제한할 수 있습니다. 서비스 엔드포인트를 지정하여 Azure Monitor가 포함되도록 VNet을 확장할 수 있습니다. 이렇게 하면 리소스가 계속해서 로깅 및 메트릭 정보를 가상 네트워크의 Azure Monitor에 안전하게 전송할 수 있습니다.  
-
-자세한 내용은 [가상 네트워크 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 참조하세요. 
-
 
 ## <a name="next-steps"></a>다음 단계
 * [Resource Manager의 RBAC 및 권한에 대해 읽기](../role-based-access-control/overview.md)

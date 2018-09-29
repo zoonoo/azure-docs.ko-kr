@@ -14,13 +14,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: cjiang
-ms.openlocfilehash: dd7b9609495cacd324ef5509f57db0384775e0a7
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.author: cwatson
+ms.openlocfilehash: f46d975c33d10688b04fca40b55c249b913fe5a1
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35776118"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394678"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Office 365 계정으로 Azure 구독에 등록
 Office 365 구독을 보유하는 경우 Office 365 계정을 사용하여 Azure 구독을 만들 수 있습니다. Office 365 사용자 이름과 암호를 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 가상 머신을 설정하거나 다른 Azure 서비스를 사용하려는 경우 Azure 구독에 가입해야 합니다. 다른 사람과 Azure 구독을 공유하고 [역할 기반 Access Control을 사용하여 Azure 구독 및 리소스에 대한 액세스를 관리](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)할 수 있습니다.

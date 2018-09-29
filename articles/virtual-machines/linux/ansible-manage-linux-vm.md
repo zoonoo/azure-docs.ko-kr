@@ -7,13 +7,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
-ms.date: 08/22/2018
-ms.openlocfilehash: 79b10a30eea9e19f7ec21f9f9b7ebb95b4c34bf2
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.date: 09/27/2018
+ms.openlocfilehash: d9ff0387a1d02eb5f4684048aeed8ad0079b28ef
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42813388"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434418"
 ---
 # <a name="use-ansible-to-manage-a-linux-virtual-machine-in-azure"></a>Azure에서 Ansible을 사용하여 Linux 가상 머신 관리
 Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Ansible을 사용하여 다른 리소스와 동일한 방식으로 Azure 가상 머신을 관리할 수 있습니다. 이 문서에서는 Ansible 플레이북을 사용하여 Linux 가상 머신을 시작 및 중지하는 방법을 보여줍니다. 
@@ -27,47 +27,47 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
 ## <a name="use-ansible-to-deallocate-stop-an-azure-virtual-machine"></a>Ansible을 사용하여 Azure 가상 머신의 할당 취소(중지)
 이 섹션에서는 Ansible을 사용하여 Azure 가상 머신의 할당을 취소(중지)하는 방법을 보여줍니다.
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1.  [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
-1. [Cloud Shell](/azure/cloud-shell/overview)을 엽니다.
+1.  [Cloud Shell](/azure/cloud-shell/overview)을 엽니다.
 
-1. 다음과 같이 플레이북을 포함할 `azure_vm_stop.yml`이라는 파일을 만들고 VI 편집기에서 엽니다.
+1.  다음과 같이 플레이북을 포함할 `azure-vm-stop.yml`이라는 파일을 만들고 VI 편집기에서 엽니다.
 
-  ```azurecli-interactive
-  vi azure_vm_stop.yml
-  ```
+    ```azurecli-interactive
+    vi azure-vm-stop.yml
+    ```
 
-1. **I** 키를 선택하여 삽입 모드를시작합니다.
+1.  **I** 키를 선택하여 삽입 모드를시작합니다.
 
-1. 다음 샘플 코드를 편집기에 붙여넣습니다.
+1.  다음 샘플 코드를 편집기에 붙여넣습니다.
 
     ```yaml
     - name: Stop Azure VM
-    hosts: localhost
-    connection: local
-    tasks:
-    - name: Deallocate the virtual machine
+      hosts: localhost
+      connection: local
+      tasks:
+      - name: Deallocate the virtual machine
         azure_rm_virtualmachine:
-            resource_group: myResourceGroup
-            name: myVM
-            allocated: no 
+          resource_group: myResourceGroup
+          name: myVM
+          allocated: no
     ```
 
-1. **Esc** 키를 선택하여 삽입 모드를 종료합니다.
+1.  **Esc** 키를 선택하여 삽입 모드를 종료합니다.
 
-1. 파일을 저장하고 다음 명령을 입력하여 vi 편집기를 종료합니다.
+1.  파일을 저장하고 다음 명령을 입력하여 vi 편집기를 종료합니다.
 
     ```bash
     :wq
     ```
 
-1. 샘플 Ansible 플레이북을 실행합니다.
+1.  샘플 Ansible 플레이북을 실행합니다.
 
-  ```bash
-  ansible-playbook azure_vm_stop.yml
-  ```
+    ```bash
+    ansible-playbook azure-vm-stop.yml
+    ```
 
-1. 출력은 가상 머신이 성공적으로 할당 취소(중지)되었음을 보여주는 다음 예제와 유사합니다.
+1.  출력은 가상 머신이 성공적으로 할당 취소(중지)되었음을 보여주는 다음 예제와 유사합니다.
 
     ```bash
     PLAY [Stop Azure VM] ********************************************************
@@ -85,51 +85,49 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
 ## <a name="use-ansible-to-start-a-deallocated-stopped-azure-virtual-machine"></a>할당 취소된(중지된) Azure 가상 머신을 Ansible로 시작
 이 섹션에서는 할당 취소된(중지된) Azure 가상 머신을 Ansible로 시작하는 방법을 보여줍니다.
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1.  [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
-1. [Cloud Shell](/azure/cloud-shell/overview)을 엽니다.
+1.  [Cloud Shell](/azure/cloud-shell/overview)을 엽니다.
 
-1. 다음과 같이 플레이북을 포함할 `azure_vm_start.yml`이라는 파일을 만들고 VI 편집기에서 엽니다.
+1.  다음과 같이 플레이북을 포함할 `azure-vm-start.yml`이라는 파일을 만들고 VI 편집기에서 엽니다.
 
-  ```azurecli-interactive
-  vi azure_vm_start.yml
-  ```
+    ```azurecli-interactive
+    vi azure-vm-start.yml
+    ```
 
-1. **I** 키를 선택하여 삽입 모드를시작합니다.
+1.  **I** 키를 선택하여 삽입 모드를시작합니다.
 
-1. 다음 샘플 코드를 편집기에 붙여넣습니다.
+1.  다음 샘플 코드를 편집기에 붙여넣습니다.
 
     ```yaml
     - name: Start Azure VM
-    hosts: localhost
-    connection: local
-    tasks:
-    - name: Start the virtual machine
+      hosts: localhost
+      connection: local
+      tasks:
+      - name: Start the virtual machine
         azure_rm_virtualmachine:
-            resource_group: myResourceGroup
-            name: myVM
+          resource_group: myResourceGroup
+          name: myVM
     ```
 
-1. **Esc** 키를 선택하여 삽입 모드를 종료합니다.
+1.  **Esc** 키를 선택하여 삽입 모드를 종료합니다.
 
-1. 파일을 저장하고 다음 명령을 입력하여 vi 편집기를 종료합니다.
+1.  파일을 저장하고 다음 명령을 입력하여 vi 편집기를 종료합니다.
 
     ```bash
     :wq
     ```
 
-1. 샘플 Ansible 플레이북을 실행합니다.
-
-  ```bash
-  ansible-playbook azure_vm_start.yml
-  ```
-
-1. 출력은 가상 머신이 성공적으로 시작되었음을 보여주는 다음 예제와 유사합니다.
-
-    출력은 가상 머신이 성공적으로 시작되었음을 보여주는 다음 예제와 유사합니다.
+1.  샘플 Ansible 플레이북을 실행합니다.
 
     ```bash
-    PLAY [Stop Azure VM] ********************************************************
+    ansible-playbook azure-vm-start.yml
+    ```
+
+1.  출력은 가상 머신이 성공적으로 시작되었음을 보여주는 다음 예제와 유사합니다.
+
+    ```bash
+    PLAY [Start Azure VM] ********************************************************
 
     TASK [Gathering Facts] ******************************************************
     ok: [localhost]
@@ -143,4 +141,4 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"] 
-> [Ansible을 사용하여 Azure 동적 인벤토리 관리](../../ansible/ansible-manage-azure-dynamic-inventories.md)
+> [Ansible을 사용하여 Azure 동적 인벤토리 관리](/articles/ansible/ansible-manage-azure-dynamic-inventories)

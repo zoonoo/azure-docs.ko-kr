@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: genli
-ms.openlocfilehash: cc174822af436e7c31eb5ad4bfa419e1fa022f44
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.author: cwatson
+ms.openlocfilehash: 27d84748e932ae438f68ca7b84004c98c26e42d7
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617372"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393896"
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>청구서로 Azure 구독 비용을 지불하기 위한 요청 제출
 
@@ -32,7 +32,7 @@ Azure 지원에 요청을 제출하여 Azure 구독에 대한 지불 방법을 �
 
 ## <a name="request-pay-by-invoice"></a>청구서로 지불 요청
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다. **도움말 + 지원** > **새 지원 요청**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다. **도움말 + 지원** > **새 지원 요청**을 선택합니다.
 
     ![도움말 및 지원 단추](./media/billing-how-to-pay-by-invoice/helpandsupport.png)
 

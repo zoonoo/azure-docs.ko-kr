@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 4cd2fdb2bd8b6a15bc8dc3e4594971a61e1889e7
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 6f95d8dc291911ac7506e33b80c2d71c8f50dfdc
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41918137"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405634"
 ---
 # <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>.NET Standard를 사용하여 Azure Event Hubs로 메시지 전송 시작
 
 > [!NOTE]
 > 이 샘플은 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender)에서 사용할 수 있습니다.
 
-이 자습서에서는 이벤트 허브로 메시지 집합을 전송하는 .NET Core 콘솔 응용 프로그램을 작성하는 방법을 보여 줍니다. `EhConnectionString` 및 `EhEntityPath` 문자열을 Event Hub 값으로 바꾸어 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) 솔루션을 있는 그대로 실행할 수 있습니다. 또는 이 자습서의 단계를 수행하여 직접 만들 수 있습니다.
+이 자습서에서는 이벤트 허브로 메시지 집합을 전송하는 .NET Core 콘솔 응용 프로그램을 작성하는 방법을 보여 줍니다. `EventHubConnectionString` 및 `EventHubName` 문자열을 Event Hub 값으로 바꾸어 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) 솔루션을 있는 그대로 실행할 수 있습니다. 또는 이 자습서의 단계를 수행하여 직접 만들 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -68,8 +68,8 @@ Visual Studio를 시작합니다. **파일** 메뉴에서 **새로 만들기**�
 
     ```csharp
     private static EventHubClient eventHubClient;
-    private const string EhConnectionString = "{Event Hubs connection string}";
-    private const string EhEntityPath = "{Event Hub path/name}";
+    private const string EventHubConnectionString = "{Event Hubs connection string}";
+    private const string EventHubName = "{Event Hub path/name}";
     ```
 
 3. 다음과 같이 `MainAsync`라는 새 메서드를 `Program` 클래스에 추가합니다.
@@ -80,9 +80,9 @@ Visual Studio를 시작합니다. **파일** 메뉴에서 **새로 만들기**�
         // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
         // Typically, the connection string should have the entity path in it, but this simple scenario
         // uses the connection string from the namespace.
-        var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
+        var connectionStringBuilder = new EventHubsConnectionStringBuilder(EventHubConnectionString)
         {
-            EntityPath = EhEntityPath
+            EntityPath = EventHubName
         };
 
         eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());

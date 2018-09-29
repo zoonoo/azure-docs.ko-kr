@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: d467bc88e1ed3b8dbe42a17095e4f0d14f14fe9a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2191ffabee31d12fb5b581280f924546b0078255
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950236"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405467"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터의 런타임 업그레이드
 
@@ -42,7 +42,7 @@ ms.locfileid: "46950236"
 > * 템플릿을 사용하여 Azure에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 또는 [Linux 클러스터](service-fabric-tutorial-create-vnet-and-linux-cluster.md) 만들기
 > * [클러스터 규모 확장 또는 규모 감축](service-fabric-tutorial-scale-cluster.md)
 > * 클러스터의 런타임 업그레이드
-> * [Service Fabric을 사용하여 API Management 배포](service-fabric-tutorial-deploy-api-management.md)
+> * [클러스터 삭제](service-fabric-tutorial-delete-cluster.md)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -204,6 +204,3 @@ sfctl cluster upgrade-status
 > * 클러스터 런타임 업그레이드
 > * 업그레이드 모니터링
 
-이제 다음 자습서를 진행하여 Service Fabric 클러스터를 사용하여 API Management를 배포하는 방법을 알아봅니다.
-> [!div class="nextstepaction"]
-> [Service Fabric을 사용하여 API Management 배포](service-fabric-tutorial-deploy-api-management.md)

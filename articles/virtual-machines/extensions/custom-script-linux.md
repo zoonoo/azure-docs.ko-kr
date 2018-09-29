@@ -3,7 +3,7 @@ title: Azure의 Linux VM에서 사용자 지정 스크립트 실행 | Microsoft 
 description: 사용자 지정 스크립트 확장 v2를 사용하여 Linux VM 구성 작업 자동화
 services: virtual-machines-linux
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
-ms.openlocfilehash: e3f4268a3bde9cd7eddb96fbc2e6ec3bca77501b
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: c0d9494d24feaee80a9be92f047ca1d91d42c82c
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391286"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452227"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Linux 가상 머신에서 Azure 사용자 지정 스크립트 확장 버전 2 사용
 사용자 지정 스크립트 확장 버전 2는 Azure 가상 머신에서 스크립트를 다운로드하고 실행합니다. 이 확장은 배포 후 구성, 소프트웨어 설치 또는 기타 구성/관리 작업에 유용합니다. 스크립트를 Azure Storage 또는 기타 액세스가 가능한 인터넷 위치에서 다운로드하거나 확장 런타임을 제공할 수 있습니다. 
@@ -107,7 +107,7 @@ Linux용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확�
 
 ### <a name="property-values"></a>속성 값
 
-| Name | 값/예제 | 데이터 형식 | 
+| 이름 | 값/예제 | 데이터 형식 | 
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Compute.Extensions | string |

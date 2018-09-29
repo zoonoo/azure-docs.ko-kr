@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: aefc9ae15918a1269614fed41d76d75396684e64
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 237599a5dbd39147b02e9a85cbe34502d0d91923
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987291"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227047"
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드
 
@@ -46,75 +46,75 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기 
 
 [az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
- 
+
 다음 예제에서는 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
- 
-```azurecli-interactive 
+
+```azurecli-interactive
 az group create --name myResourceGroup --location westcentralus 
-``` 
+```
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
- 
-이 샘플은 Azure Storage 계정의 blob 컨테이너에 이미지를 업로드합니다. 저장소 계정은 Azure Storage 데이터 개체의 저장 및 액세스를 위한 고유한 네임스페이스를 제공합니다. [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 사용하여 만든 리소스 그룹에 저장소 계정을 만듭니다. 
 
-> [!IMPORTANT] 
-> 자습서의 2부에서는 blob 저장소에 대해 이벤트 구독을 사용합니다. 이벤트 구독은 동남아시아, 동아시아, 오스트레일리아 동부, 오스트레일리아 남동부, 미국 중부, 미국 동부, 미국 동부 2, 서유럽, 북유럽, 일본 동부, 일본 서부, 미국 중서부, 미국 서부 및 미국 서부 2의 위치에서 Blob 저장소 계정에 대해서만 지원됩니다. 이러한 제한으로 인해 이미지 및 썸네일을 저장하기 위해 샘플 앱에서 사용하는 Blob Storage 계정을 만들어야 합니다.   
+이 샘플은 Azure Storage 계정의 blob 컨테이너에 이미지를 업로드합니다. 저장소 계정은 Azure Storage 데이터 개체의 저장 및 액세스를 위한 고유한 네임스페이스를 제공합니다. [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 사용하여 만든 리소스 그룹에 저장소 계정을 만듭니다.
+
+> [!IMPORTANT]
+> 자습서의 2부에서는 blob 저장소에 대해 이벤트 구독을 사용합니다. 이벤트 구독은 동남아시아, 동아시아, 오스트레일리아 동부, 오스트레일리아 남동부, 미국 중부, 미국 동부, 미국 동부 2, 서유럽, 북유럽, 일본 동부, 일본 서부, 미국 중서부, 미국 서부 및 미국 서부 2의 위치에서 Blob 저장소 계정에 대해서만 지원됩니다. 이러한 제한으로 인해 이미지 및 썸네일을 저장하기 위해 샘플 앱에서 사용하는 Blob Storage 계정을 만들어야 합니다.
 
 다음 명령에서 `<blob_storage_account>` 자리 표시자는 Blob Storage 계정에 대한 전역적으로 고유한 이름으로 바꿉니다.  
 
-```azurecli-interactive 
+```azurecli-interactive
 az storage account create --name <blob_storage_account> \
 --location westcentralus --resource-group myResourceGroup \
 --sku Standard_LRS --kind blobstorage --access-tier hot 
-``` 
- 
+```
+
 ## <a name="create-blob-storage-containers"></a>Blob Storage 컨테이너 만들기
 
-앱은 Blob Storage 계정에서 두 컨테이너를 사용합니다. 컨테이너는 폴더와 비슷하며 blob을 저장하는 데 사용됩니다. _images_ 컨테이너는 앱이 고해상도 이미지를 업로드하는 위치입니다. 시리즈의 뒷부분에서 Azure 함수 앱은 크기가 조정된 이미지 썸네일을 _썸네일_ 컨테이너에 업로드합니다. 
+앱은 Blob Storage 계정에서 두 컨테이너를 사용합니다. 컨테이너는 폴더와 비슷하며 blob을 저장하는 데 사용됩니다. _images_ 컨테이너는 앱이 고해상도 이미지를 업로드하는 위치입니다. 시리즈의 뒷부분에서 Azure 함수 앱은 크기가 조정된 이미지 썸네일을 _썸네일_ 컨테이너에 업로드합니다.
 
 [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) 명령을 사용하여 저장소 계정 키를 가져옵니다. 그런 다음 [az storage container create](/cli/azure/storage/container#az_storage_container_create) 명령을 사용하여 이 키로 2개의 컨테이너를 만듭니다.  
- 
+
 이 경우 `<blob_storage_account>`는 만든 BLOB 저장소 계정의 이름입니다. _이미지_ 컨테이너 공용 액세스는 `off`로 설정되고, _썸네일_ 컨테이너 공용 액세스는 `container`로 설정됩니다. `container` 공용 액세스 설정을 사용하면 웹 페이지를 방문하는 모든 사람이 해당 썸네일을 볼 수 있습니다.
- 
-```azurecli-interactive 
+
+```azurecli-interactive
 blobStorageAccount=<blob_storage_account>
 
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
--n $blobStorageAccount --query [0].value --output tsv) 
+-n $blobStorageAccount --query [0].value --output tsv)
 
 az storage container create -n images --account-name $blobStorageAccount \
---account-key $blobStorageAccountKey --public-access off 
+--account-key $blobStorageAccountKey --public-access off
 
 az storage container create -n thumbnails --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey --public-access container
 
-echo "Make a note of your blob storage account key..." 
-echo $blobStorageAccountKey 
-``` 
+echo "Make a note of your blob storage account key..."
+echo $blobStorageAccountKey
+```
 
 Blob Storage 계정 이름 및 키를 적어둡니다. 샘플 앱은 이러한 설정을 사용하여 저장소 계정에 연결한 후 이미지를 업로드합니다. 
 
-## <a name="create-an-app-service-plan"></a>App Service 플랜 만들기 
+## <a name="create-an-app-service-plan"></a>App Service 플랜 만들기
 
-[App Service 계획](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)은 위치, 크기 및 앱을 호스트하는 웹 서버 팜의 기능을 지정합니다. 
+[App Service 계획](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)은 위치, 크기 및 앱을 호스트하는 웹 서버 팜의 기능을 지정합니다.
 
-[az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) 명령으로 App Service 계획을 만듭니다. 
+[az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) 명령으로 App Service 계획을 만듭니다.
 
-다음 예에서는 **체험** 가격 책정 계층에서 `myAppServicePlan`이라는 App Service 계획을 만듭니다. 
+다음 예에서는 **체험** 가격 책정 계층에서 `myAppServicePlan`이라는 App Service 계획을 만듭니다.
 
-```azurecli-interactive 
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE 
-``` 
+```azurecli-interactive
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
+```
 
-## <a name="create-a-web-app"></a>웹앱 만들기 
+## <a name="create-a-web-app"></a>웹앱 만들기
 
 웹앱은 GitHub 샘플 리포지토리에서 배포되는 샘플 앱 코드에 대한 호스팅 공간을 제공합니다. [az webapp create](/cli/azure/webapp#az_webapp_create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](../../app-service/app-service-web-overview.md)을 만듭니다.  
- 
+
 다음 명령에서 `<web_app>`을 고유한 이름으로 바꿉니다(유효한 문자는 `a-z`, `0-9` 및 `-`). `<web_app>`이 고유하지 않으면 _지정된 이름이 `<web_app>`인 웹 사이트가 이미 있습니다."라는 오류 메시지가 표시됩니다._ 웹앱의 기본 URL은 `https://<web_app>.azurewebsites.net`입니다.  
 
-```azurecli-interactive 
-az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppServicePlan 
-``` 
+```azurecli-interactive
+az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppServicePlan
+```
 
 ## <a name="deploy-the-sample-app-from-the-github-repository"></a>GitHub 리포지토리에서 샘플 앱 배포
 
@@ -122,44 +122,45 @@ az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppS
 
 App Service는 웹앱에 콘텐츠를 배포하는 여러 가지 방법을 지원합니다. 이 자습서에서는 [공용 GitHub 샘플 리포지토리](https://github.com/Azure-Samples/storage-blob-upload-from-webapp)에서 웹앱을 배포합니다. [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) 명령을 사용하여 웹앱에 대한 Git 배포를 구성합니다. `<web_app>`을 이전 단계에서 만든 웹앱의 이름으로 바꿉니다.
 
-샘플 프로젝트에는 이미지를 수락하고, 저장소 계정에 저장한 후 썸네일 컨테이너의 이미지를 표시하는 [ASP.NET MVC](https://www.asp.net/mvc) 앱이 포함되어 있습니다. 웹 응용 프로그램은 Azure Storage 클라이언트 라이브러리의 [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet), 및 [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) 네임스페이스를 사용하여 Azure Storage와 상호 작용합니다. 
+샘플 프로젝트에는 이미지를 수락하고, 저장소 계정에 저장한 후 썸네일 컨테이너의 이미지를 표시하는 [ASP.NET MVC](https://www.asp.net/mvc) 앱이 포함되어 있습니다. 웹 응용 프로그램은 Azure Storage 클라이언트 라이브러리의 [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet), 및 [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) 네임스페이스를 사용하여 Azure Storage와 상호 작용합니다.
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 App Service는 웹앱에 콘텐츠를 배포하는 여러 가지 방법을 지원합니다. 이 자습서에서는 [공용 GitHub 샘플 리포지토리](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node)에서 웹앱을 배포합니다. [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) 명령을 사용하여 웹앱에 대한 Git 배포를 구성합니다. `<web_app>`을 이전 단계에서 만든 웹앱의 이름으로 바꿉니다.
 
 ---
 
-```azurecli-interactive 
+```azurecli-interactive
 az webapp deployment source config --name <web_app> \
 --resource-group myResourceGroup --branch master --manual-integration \
 --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
-``` 
+```
 
-## <a name="configure-web-app-settings"></a>웹앱 설정 구성 
+## <a name="configure-web-app-settings"></a>웹앱 설정 구성
 
-샘플 웹앱은 [Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage?view=azure-dotnet)를 사용하여 이미지 업로드에 사용되는 액세스 토큰을 요청합니다. Storage SDK에서 사용되는 저장소 계정 자격 증명은 웹앱에 대한 응용 프로그램 설정에 지정됩니다. [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) 명령을 사용하여 응용 프로그램 설정을 배포된 앱에 추가합니다. 
+샘플 웹앱은 [Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage?view=azure-dotnet)를 사용하여 이미지 업로드에 사용되는 액세스 토큰을 요청합니다. Storage SDK에서 사용되는 저장소 계정 자격 증명은 웹앱에 대한 응용 프로그램 설정에 지정됩니다. [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) 명령을 사용하여 응용 프로그램 설정을 배포된 앱에 추가합니다.
 
-다음 명령에서 `<blob_storage_account>`는 Blob Storage 계정의 이름이고 `<blob_storage_key>`는 관련된 키입니다. `<web_app>`을 이전 단계에서 만든 웹앱의 이름으로 바꿉니다.     
+다음 명령에서 `<blob_storage_account>`는 Blob Storage 계정의 이름이고 `<blob_storage_key>`는 관련된 키입니다. `<web_app>`을 이전 단계에서 만든 웹앱의 이름으로 바꿉니다.
 
-```azurecli-interactive 
+```azurecli-interactive
 az webapp config appsettings set --name <web_app> --resource-group myResourceGroup \
 --settings AzureStorageConfig__AccountName=<blob_storage_account> \
 AzureStorageConfig__ImageContainer=images  \
 AzureStorageConfig__ThumbnailContainer=thumbnails \
 AzureStorageConfig__AccountKey=<blob_storage_key>  
-``` 
+```
 
-웹앱이 배포되고 구성되면 앱에서 이미지 업로드 기능을 테스트할 수 있습니다.   
+웹앱이 배포되고 구성되면 앱에서 이미지 업로드 기능을 테스트할 수 있습니다.
 
-## <a name="upload-an-image"></a>이미지 업로드 
+## <a name="upload-an-image"></a>이미지 업로드
 
-웹앱을 테스트하려면 게시된 앱의 URL로 이동합니다. 웹앱의 기본 URL은 `https://<web_app>.azurewebsites.net`입니다. **사진 업로드** 영역을 선택하고 파일을 선택 및 업로드하거나 파일을 해당 영역으로 끌어다 놓습니다. 성공적으로 업로드되면 이미지가 사라집니다.
+웹앱을 테스트하려면 게시된 앱의 URL로 이동합니다. 웹앱의 기본 URL은 `https://<web_app>.azurewebsites.net`입니다.
+**사진 업로드** 영역을 선택하고 파일을 선택 및 업로드하거나 파일을 해당 영역으로 끌어다 놓습니다. 성공적으로 업로드되면 이미지가 사라집니다.
 
 # <a name="nettabnet"></a>[\.NET](#tab/net)
 
 ![ImageResizer 앱](media/storage-upload-process-images/figure1.png)
 
-샘플 코드에서 `Storagehelper.cs` 파일의 `UploadFiletoStorage` 작업은 [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) 메서드를 사용하여 저장소 계정 내의 `images` 컨테이너에 이미지를 업로드하는 데 사용됩니다. 다음 코드 샘플에는 `UploadFiletoStorage` 작업이 포함되어 있습니다. 
+샘플 코드에서 `Storagehelper.cs` 파일의 `UploadFiletoStorage` 작업은 [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) 메서드를 사용하여 저장소 계정 내의 `images` 컨테이너에 이미지를 업로드하는 데 사용됩니다. 다음 코드 샘플에는 `UploadFiletoStorage` 작업이 포함되어 있습니다.
 
 ```csharp
 public static async Task<bool> UploadFileToStorage(Stream fileStream, string fileName, AzureStorageConfig _storageConfig)

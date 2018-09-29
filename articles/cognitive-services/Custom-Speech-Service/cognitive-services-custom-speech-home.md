@@ -1,21 +1,22 @@
 ---
-title: Azure에서 Custom Speech Service 개요 | Microsoft Docs
+title: Custom Speech Service란?
+titlesuffix: Azure Cognitive Services
 description: Custom Speech Service는 사용자가 음성-텍스트 전사에 대한 음성 모델을 사용자 지정할 수 있는 클라우드 기반 서비스입니다.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: overview
 ms.date: 02/07/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: da88989753069f7ba8ca2c2e2806a648f3df4e3c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f90fc40a42806cfb002da2d9943eaa41736df4d7
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948369"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222746"
 ---
 # <a name="what-is-custom-speech-service"></a>Custom Speech Service란?
 

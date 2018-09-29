@@ -1,7 +1,5 @@
 # 개요
 ## [Azure Portal 정보](../azure-portal-overview.md)
-# 자습서
-## [Azure Portal에서 DevOps](tutorial-azureportal-devops.md)
 # 개념
 ## [Azure 리소스 관리자](../azure-resource-manager/resource-group-overview.md)
 ## [바로 가기 키](azure-portal-keyboard-shortcuts.md)

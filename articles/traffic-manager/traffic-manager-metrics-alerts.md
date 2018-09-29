@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: 424782be2d814df6d598591198b5005fb494d3da
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: fe4cc3c06af6868396f5db6fd88804022f5f9793
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303237"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432480"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Traffic Manager의 메트릭 및 경고
 
@@ -46,7 +46,7 @@ Traffic Manager는 여러 라우팅 방법과 엔드포인트 모니터링 옵�
 *그림 2: 반환된 엔드포인트별 쿼리 볼륨이 표시된 분할 보기*
 
 ## <a name="endpoint-status-by-endpoint"></a>엔드포인트별 엔드포인트 상태
-[이 메트릭](../monitoring-and-diagnostics/monitoring-supported-metrics.md)을 사용하여 프로필의 엔드포인트에 대한 상태를 파악합니다. 다음 두 값을 사용합니다.
+[이 메트릭](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworktrafficmanagerprofiles)을 사용하여 프로필의 엔드포인트에 대한 상태를 파악합니다. 다음 두 값을 사용합니다.
  - 엔드포인트가 작동 중인 경우 **1**을 사용합니다.
  - 엔드포인트가 중단된 경우 **0**을 사용합니다.
 

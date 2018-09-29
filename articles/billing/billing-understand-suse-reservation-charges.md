@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2018
-ms.author: yashar
-ms.openlocfilehash: 20fae715923da93799b2d0ac8adc2083d726a95a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.author: cwatson
+ms.openlocfilehash: 62f75be44ed92528b48fc0f093f5966284662312
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43311147"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393692"
 ---
 # <a name="understand-how-the-suse-linux-enterprise-software-plan-discount-is-applied"></a>SUSE Linux Enterprise 소프트웨어 요금제 할인이 적용되는 방식 이해
 

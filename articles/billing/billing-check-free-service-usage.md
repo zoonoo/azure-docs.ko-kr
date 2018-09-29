@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: amberb
-ms.openlocfilehash: 7fa0196b7a44ef20ecd63797869dffea55f92c3d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: cwatson
+ms.openlocfilehash: df049a87763f3aae8da2db153f876b88ed39b988
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061319"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47390241"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Azure 무료 계정에 포함된 무료 서비스의 사용량 확인 
 
@@ -27,7 +27,7 @@ ms.locfileid: "37061319"
 
 ## <a name="check-usage-on-the-azure-portal"></a>Azure Portal에서 사용량 확인
 
-1.  [Azure 포털]( http://portal.azure.com) 에 로그인합니다.
+1.  [Azure Portal]( http://portal.azure.com)에 로그인합니다.
 
 2.  왼쪽 탐색 영역에서 **모든 서비스**를 선택합니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "37061319"
 
     ![모든 구독을 보여 주는 스크린샷](./media/billing-check-usage-of-free-services/select-free-account-subscription.png)
 
-5.  개요 섹션에는 구독 ID, 제공 유형 및 구독 이름과 같은 구독에 대한 중요한 정보가 표시됩니다. 또한 무료 계정 크레딧이 만료되는 시기에 대한 정보도 찾을 수 있습니다.
+5.  개요 섹션에는 구독 ID, 제안 유형 및 구독 이름과 같은 구독에 대한 중요한 정보가 표시됩니다. 또한 무료 계정 크레딧이 만료되는 시기에 대한 정보도 찾을 수 있습니다.
 
     ![구독의 중요 정보를 보여 주는 스크린샷](./media/billing-check-usage-of-free-services/subscription-essential-information.png)
 

@@ -12,12 +12,12 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: f6cfb7bb988b080189da444cb77e0c258417b1ac
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 9a07fa2010eef22c4d1477641d07dee70ab5a9cb
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574711"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227449"
 ---
 # <a name="how-to-manage-connectivity-and-reliable-messaging-using-azure-iot-hub-device-sdks"></a>Azure IoT Hub 장치 SDK를 사용하여 연결 및 신뢰할 수 있는 메시징을 관리하는 방법
 
@@ -54,7 +54,7 @@ Azure IoT Hub 장치 SDK는 Azure IoT Hub에 연결하고 메시지를 전송/�
 - HTTP, AMQP 및 MQTT 전송에 대한 프로토콜 수준 오류(예: 연결 분리, 세션 만료)
 - 로컬 실수(예: 잘못된 자격 증명) 또는 서비스 동작(예: 할당량 또는 제한 초과)에서 발생하는 응용 프로그램 수준 오류
 
-장치 SDK는 세 수준의 오류를 모두 검색합니다.  OS 관련 오류 및 하드웨어 오류는 장치 SDK에서 검색 및 처리되지 않습니다.  이 디자인은 Azure 아키텍처 센터의 [일시적 오류 처리 지침](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines)을 기반으로 합니다.
+장치 SDK는 세 수준의 오류를 모두 검색합니다.  OS 관련 오류 및 하드웨어 오류는 장치 SDK에서 검색 및 처리되지 않습니다.  이 디자인은 Azure 아키텍처 센터의 [일시적 오류 처리 지침](/azure/architecture/best-practices/transient-faults#general-guidelines)을 기반으로 합니다.
 
 ### <a name="retry-patterns"></a>재시도 패턴
 

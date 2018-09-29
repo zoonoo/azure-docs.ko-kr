@@ -3,7 +3,7 @@ title: Azure의 OpenShift 배포 후 작업 | Microsoft Docs
 description: OpenShift 클러스터가 배포 된 후 추가 작업입니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: haroldw
+author: haroldwongms
 manager: najoshi
 editor: ''
 tags: azure-resource-manager
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: bdfd075b9438ee12e940f3ec4fddebf467c93ca8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d400512c2e96e0e24bbf965b2e201adf92ccbb0f
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796162"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434894"
 ---
 # <a name="post-deployment-tasks"></a>배포 후 작업
 
@@ -41,13 +41,13 @@ Azure Active Directory를 인증에 사용하려면 먼저 Azure AD 앱 등록�
 - 표시 이름: 앱 등록 이름(예: OCPAzureAD)
 - 홈페이지: OpenShift 콘솔 URL(예: https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
 - 식별자 URI: OpenShift 콘솔 URL(예: https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- 회신 URL: 마스터 공용 URL 및 앱 등록 이름(예: https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD)
+- 회신 URL: 마스터 공용 URL 및 앱 등록 이름(예: https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
 - 암호: 보안 암호(강력한 암호 사용)
 
 다음 예에서는 위 정보를 사용하여 앱 등록을 만듭니다.
 
 ```azurecli
-az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --reply-urls https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/hwocpadint --identifier-uris https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --password {Strong Password}
+az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --reply-urls https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD --identifier-uris https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --password {Strong Password}
 ```
 
 명령이 성공하면 다음과 유사한 JSON 출력이 표시됩니다.
@@ -65,7 +65,7 @@ az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.
   "objectId": "62cd74c9-42bb-4b9f-b2b5-b6ee88991c80",
   "objectType": "Application",
   "replyUrls": [
-    "https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD"
+    "https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD"
   ]
 }
 ```
@@ -292,7 +292,7 @@ OCP Resource Manager 템플릿을 사용했고 메트릭 및 로깅이 설치 �
 
 1. 포트 2200을 사용하여 첫 번째 마스터 노드에 SSH를 실행합니다.
 
-   예:
+   예제:
 
    ```bash
    ssh -p 2200 clusteradmin@masterdnsixpdkehd3h.eastus.cloudapp.azure.com 

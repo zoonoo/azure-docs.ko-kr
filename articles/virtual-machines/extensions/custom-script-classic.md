@@ -3,7 +3,7 @@ title: Windows VM의 사용자 지정 스크립트 확장 | Microsoft Docs
 description: 사용자 지정 스크립트 확장을 통해 원격 Windows VM에서 PowerShell 스크립트를 실행하여 Azure VM 구성 작업을 자동화합니다.
 services: virtual-machines-windows
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-service-management
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: roiyz
-ms.openlocfilehash: 1331eb311ca629253b4c4c28c9326e290887a752
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 8eb7822962988b02f09c2a2ea31b745ef01d5533
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038427"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451853"
 ---
 # <a name="custom-script-extension-for-windows-using-the-classic-deployment-model"></a>클래식 배포 모델을 사용하는 Windows용 사용자 지정 스크립트 확장
 
@@ -74,7 +74,7 @@ Windows용 사용자 지정 스크립트 확장은 대상 가상 머신이 인�
 
 ### <a name="property-values"></a>속성 값
 
-| Name | 값/예제 |
+| 이름 | 값/예제 |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.Compute |

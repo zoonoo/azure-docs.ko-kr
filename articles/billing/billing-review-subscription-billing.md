@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
-ms.author: alleonar
-ms.openlocfilehash: cc29d1f613af67604d50654be794cc90080098bb
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: erikre
+ms.openlocfilehash: d0199711370dae6a23626337946e45e84fd33047
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064486"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394727"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Azure REST API를 사용하여 구독 청구 검토
 

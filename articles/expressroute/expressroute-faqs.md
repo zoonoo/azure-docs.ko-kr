@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2a7842a50690049507e00b85c8736e63da002503
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 101dec93713983e5f2082a59103288fcda346740
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950168"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419307"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -348,9 +348,9 @@ Office 365 서비스를 사용하려면 프리미엄 추가 기능을 사용하�
 
 * 2017년 8월 1일 이후에 구성되는 ExpressRoute 회로의 Microsoft 피어링에는 경로 필터를 회로에 연결할 때까지 접두사가 보급되지 않습니다. 접두사는 기본적으로 표시되지 않습니다.
 
-## <a name="globalreach"></a>ExpressRoute Direct(미리 보기)
+## <a name="expressRouteDirect"></a>ExpressRoute Direct(미리 보기)
 
-[!INCLUDE [Global Reach](../../includes/expressroute-direct-faq-include.md)]
+[!INCLUDE [ExpressRoute Direct](../../includes/expressroute-direct-faq-include.md)]
 
 ## <a name="globalreach"></a>Global Reach(미리 보기)
 

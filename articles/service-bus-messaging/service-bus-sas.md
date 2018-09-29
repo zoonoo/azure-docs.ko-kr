@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2018
+ms.date: 09/14/2018
 ms.author: spelluru
-ms.openlocfilehash: 2905bff56c5ab49c91f85e0816b84018b27bbb57
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: d75f8654a33d670f107508b9e91661b1a7719755
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700242"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408558"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>공유 액세스 서명을 사용한 Service Bus 액세스 제어
 
@@ -253,7 +253,7 @@ AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니
 
 다음 테이블에서는 Service Bus 리소스의 다양한 작업에 필요한 액세스 권한을 보여줍니다.
 
-| 작업 | 필요한 클레임 | 클레임 범위 |
+| 작업(Operation) | 필요한 클레임 | 클레임 범위 |
 | --- | --- | --- |
 | **네임스페이스** | | |
 | 네임스페이스에서 권한 부여 규칙 구성 |관리 |네임스페이스 주소 |

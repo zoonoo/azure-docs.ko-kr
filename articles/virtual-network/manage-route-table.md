@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 00a15d42084b660ee2ec4db2b012a5e47fc02b41
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 790d327be27dae0c963c37e6e55f1721bf571c80
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988449"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222117"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>경로 테이블 만들기, 변경 또는 삭제
 
@@ -64,7 +64,7 @@ Azure 위치와 구독별로 만들 수 있는 경로 테이블 수에 제한이
 1. 포털 맨 위에 있는 검색 상자에 *경로 테이블*을 입력합니다. 검색 결과에 **경로 테이블**이 나타나면 선택합니다.
 2. 목록에서 세부 정보를 볼 경로 테이블을 선택합니다. **설정** 아래에서 경로 테이블의 **경로** 및 경로 테이블이 연결된 **서브넷**을 볼 수 있습니다.
 3. 일반적인 Azure 설정에 대한 자세한 내용은 다음 정보를 참조하세요.
-    *   [활동 로그](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
+    *   [활동 로그](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
     *   [액세스 제어(IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
     *   [태그](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [잠금](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

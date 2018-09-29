@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/06/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 26930ccb80545b80ab047ef9bc51b7122009ec1f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: da9e1ce17e21f4d87286c0be5d425419f6ed0300
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967339"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408513"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터 크기 조정
 
@@ -38,7 +38,7 @@ ms.locfileid: "46967339"
 > * 템플릿을 사용하여 Azure에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 또는 [Linux 클러스터](service-fabric-tutorial-create-vnet-and-linux-cluster.md) 만들기
 > * 클러스터 규모 확장 또는 규모 감축
 > * [클러스터의 런타임 업그레이드](service-fabric-tutorial-upgrade-cluster.md)
-> * [Service Fabric을 사용하여 API Management 배포](service-fabric-tutorial-deploy-api-management.md)
+> * [클러스터 삭제](service-fabric-tutorial-delete-cluster.md)
 
 ## <a name="prerequisites"></a>필수 조건
 

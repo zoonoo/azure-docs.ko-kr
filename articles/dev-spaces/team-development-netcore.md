@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: douge
-ms.openlocfilehash: 602e2a691dfa150c2e8332cb6dca070dbdd57901
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 1448acf9a9e45b23b714a3a314526c5e6bb7752b
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162090"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404588"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Azure Dev Spaces로 팀 개발
 
@@ -82,7 +82,7 @@ ms.locfileid: "44162090"
 
 ## <a name="learn-about-team-development"></a>팀 개발 알아보기
 
-[!INCLUDE [](includes/team-development-1.md)]
+[!INCLUDE [](../../includes/team-development-1.md)]
 
 작동을 확인합니다. `mywebapi`에 대한 VS Code 창으로 이동하고, `string Get(int id)` 메서드에 대한 코드를 편집합니다. 예를 들어 다음과 같습니다.
 
@@ -95,8 +95,25 @@ public string Get(int id)
 ```
 
 
-[!INCLUDE [](includes/team-development-2.md)]
+[!INCLUDE [](../../includes/team-development-2.md)]
 
-[!INCLUDE [](includes/well-done.md)]
+### <a name="well-done"></a>모두 완료되었습니다!
+시작 가이드를 완료했습니다! 다음 방법에 대해 알아보았습니다.
 
-[!INCLUDE [](includes/clean-up.md)]
+> [!div class="checklist"]
+> * Azure에서 관리되는 Kubernetes 클러스터를 사용하여 Azure Dev Spaces를 설정합니다.
+> * 컨테이너에서 반복적으로 코드를 개발합니다.
+> * 독립적으로 별도의 두 서비스를 개발하고, Kubernetes의 DNS 서비스 검색을 사용하여 다른 서비스를 호출합니다.
+> * 팀 환경에서 코드를 생산적으로 개발하고 테스트합니다.
+
+Azure Dev Spaces를 알아보았으므로 [팀 멤버와 개발 공간을 공유](how-to/share-dev-spaces.md)하고 함께 공동 작업을 수행하는 것이 얼마나 쉬운지 알 수 있습니다.
+
+## <a name="clean-up"></a>정리
+모든 개발 환경 및 그 안에서 실행되는 서비스를 포함하여 클러스터에서 Azure Dev Spaces 인스턴스를 완전히 삭제하려면 `az aks remove-dev-spaces` 명령을 사용합니다. 이 작업은 되돌릴 수 없습니다. 클러스터에서 Azure Dev Spaces에 대한 지원을 추가할 수 있지만 마치 다시 시작하는 것 같을 것입니다. 이전 서비스와 공간을 복원할 수 없습니다.
+
+다음 예제에서는 활성 구독에 Azure Dev Spaces 컨트롤러를 나열한 다음, 리소스 그룹 'myaks-rg'에서 AKS 클러스터 'myaks'와 연결되는 Azure Dev Spaces 컨트롤러를 삭제합니다.
+
+```cmd
+    azds controller list
+    az aks remove-dev-spaces --name myaks --resource-group myaks-rg
+```

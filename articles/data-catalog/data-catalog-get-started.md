@@ -2,18 +2,18 @@
 title: Azure 데이터 카탈로그 시작
 description: Azure Data Catalog의 시나리오 및 기능을 제공하는 종단간 자습서입니다.
 services: data-catalog
-author: steelanddata
-ms.author: spelluru
+author: markingmyname
+ms.author: maghan
 ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: c65f5c2ca3f162c17d036198c4285f9c965bbd53
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4386f87b6986e6ab1742a8d3c14a100fea112182
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053177"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406314"
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Azure 데이터 카탈로그 시작
 Azure Data Catalog는 기업 데이터 자산의 등록 시스템 및 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 자세한 개요는 [Azure Data Catalog란](data-catalog-what-is-data-catalog.md)을 참조하세요.

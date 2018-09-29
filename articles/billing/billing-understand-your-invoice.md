@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
-ms.author: tonguyen
-ms.openlocfilehash: 6601ade7db52043de8150a3fca671591b9b469fd
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: cwatson
+ms.openlocfilehash: 4bfaaa51e39a7db297626a8009306eef9e3efa80
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063462"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393784"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Microsoft Azure 청구서의 조건 이해
 
@@ -52,7 +52,7 @@ ms.locfileid: "37063462"
 | 청구서 날짜 |청구서를 만든 날짜이며 일반적으로 청구 주기 종료 다음날 |
 | 결제 방법 |계정에 사용되는 지불 유형(청구서 또는 신용 카드) |
 | 청구지 |계정에 나열된 청구 주소 |
-| 구독 제품(“종량제”) |구매한 구독 제품의 유형(종량제, BizSpark Plus, Azure Pass 등). 자세한 내용은 [Azure 제품 형식](https://azure.microsoft.com/support/legal/offer-details/)을 참조하세요. |
+| 구독 제안(“종량제”) |구매한 구독 제안의 유형(종량제, BizSpark Plus, Azure Pass 등). 자세한 내용은 [Azure 제품 형식](https://azure.microsoft.com/support/legal/offer-details/)을 참조하세요. |
 | 계정 소유자 메일 | Microsoft Azure 계정이 등록된 계정 전자 메일 주소입니다. <br /><br />전자 메일 주소를 변경하려면 [연락처 메일, 주소 및 전화 번호와 같은 Azure 계정의 프로필 정보를 변경하는 방법](billing-how-to-change-azure-account-profile.md)을 참조하세요. |
 
 ### <a name="understand-the-invoice-summary"></a>청구서 요약 이해
@@ -78,7 +78,7 @@ ms.locfileid: "37063462"
 | --- | --- |
 | 사용 요금 |사용 요금은 현재 청구 기간 동안 구독에 대한 총 월별 요금입니다.|
 | 할인 |현재 청구 기간에 적용되는 서비스 할인입니다.|
-| 조정 |현재 청구 기간에 적용된 기타 크레딧(체험 사용량, 크레딧 등) 또는 미불 요금입니다.<br/><br/>예를 들어 Visual Studio Enterprise with MSDN 제품을 사용하는 경우 월별 크레딧이 표시됩니다. 구독을 취소하면 구독 제품을 통해 얻을 수 있는 월별 크레딧을 초과하는 월별 사용량 요금이 표시됩니다. 현재 청구 기간의 시작부터 구독 취소 날짜까지 요금이 청구됩니다. |
+| 조정 |현재 청구 기간에 적용된 기타 크레딧(체험 사용량, 크레딧 등) 또는 미불 요금입니다.<br/><br/>예를 들어 Visual Studio Enterprise with MSDN 제품을 사용하는 경우 월별 크레딧이 표시됩니다. 구독을 취소하면 구독 제안을 통해 얻을 수 있는 월별 크레딧을 초과하는 월별 사용량 요금이 표시됩니다. 현재 청구 기간의 시작부터 구독 취소 날짜까지 요금이 청구됩니다. |
 
 #### <a name="sold-to-and-payment-instructions"></a>구매처 및 지불 관련 지침
 
@@ -99,7 +99,7 @@ ms.locfileid: "37063462"
 
 | 용어 |설명 |
 | --- | --- |
-| Name |사용 현황의 최상위 서비스를 식별합니다. |
+| 이름 |사용 현황의 최상위 서비스를 식별합니다. |
 | type |요율에 영향을 줄 수 있는 Azure 서비스 유형을 정의합니다. |
 | 리소스 |사용 중인 미터에 대한 측정 단위를 식별합니다. |
 | 지역 |데이터 센터 위치에 따라 가격이 책정되는 특정 서비스에 대한 데이터 센터의 위치를 식별합니다. |

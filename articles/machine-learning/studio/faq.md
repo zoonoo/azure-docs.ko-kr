@@ -6,8 +6,6 @@ services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
 ms.author: hshapiro
-manager: hjerez
-editor: cgronlun
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
 ms.component: studio
@@ -16,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/02/2017
-ms.openlocfilehash: 22d060ca38663f21bef977f5d506f215fd947a50
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 87695e6e7e1f1abce7204ebbbbed2b492297f177
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998324"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393301"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning 질문과 대답: 대금 청구, 기능, 제한 사항 및 지원
 Azure Machine Learning, 예측 모델 개발을 위한 클라우드 서비스 및 웹 서비스를 통한 운용성 솔루션에 대한 질문(FAQ)과 해당하는 대답입니다. 이 FAQ는 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용 방법에 대한 질문을 제공합니다.

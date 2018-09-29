@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2018
+ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0e31f311c123fa8ace523cfde21ebdf2f707fce5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 1af54e3b0237d1d62ae7fb47939e7786fa1219b8
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46303879"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434673"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>기본 설정을 사용하여 Azure AD Connect 시작
 인증을 위한 단일 포리스트 토폴로지 및 **암호 해시 동기화**가 있는 경우 Azure AD Connect [Express 설정](how-to-connect-password-hash-synchronization.md)을 사용합니다. **Express 설정** 은 기본 옵션이며 가장 일반적으로 배포된 시나리오에 사용됩니다. 몇 번의 클릭만으로 온-프레미스 디렉터리를 클라우드로 확장할 수 있습니다.
@@ -46,7 +46,7 @@ Express 설정이 토폴로지와 일치하지 않는 경우 다른 시나리오
    이 페이지를 표시하는 경우 **추가되지 않음** 및 **확인되지 않음**으로 표시된 모든 도메인을 검토합니다. 사용한 해당 도메인을 Azure AD에서 확인하도록 합니다. 도메인을 확인한 경우 새로 고침 기호를 클릭합니다.
 8. 구성 준비 화면에서 **설치**를 클릭합니다.
    * 선택적으로 구성 준비 완료 페이지에서 **구성이 완료되자마자 동기화 프로세스를 시작합니다.** 확인란의 선택을 취소할 수 있습니다. [필터링](how-to-connect-sync-configure-filtering.md)같은 추가적인 구성을 수행하려면 이 확인란을 선택하지 말아야 합니다. 이 옵션에 대한 선택을 취소하면, 마법사가 동기화를 구성하지만 스케줄러는 비활성 상태로 유지합니다. [설치 마법사를 다시 실행](how-to-connect-installation-wizard.md)하여 사용자가 수동으로 활성화할 때까지 실행되지 않습니다.
-   * **구성이 완료되자마자 동기화 프로세스를 시작합니다.** 확인란이 선택된 상태로 두면 즉시 모든 사용자, 그룹 및 연락처의 Azure AD로 전체 동기화가 트리거됩니다. 
+   * **구성이 완료되자마자 동기화 프로세스를 시작합니다.** 확인란이 선택된 상태로 두면 즉시 모든 사용자, 그룹 및 연락처의 Azure AD로 전체 동기화가 트리거됩니다.
    * 온-프레미스 Active Directory에 Exchange가 있는 경우 [**Exchange 하이브리드 배포**](https://technet.microsoft.com/library/jj200581.aspx)를 사용하는 옵션도 있습니다. Exchange 사서함을 클라우드와 온-프레미스에 동시에 두려면 이 옵션을 활성화합니다.
      ![Azure AD Connect 구성 준비 완료](./media/how-to-connect-install-express/readytoconfigure.png)
 9. 설치가 완료되면 **끝내기**를 클릭합니다.
