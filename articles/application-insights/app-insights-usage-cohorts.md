@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.reviewer: daviste
 ms.author: mbullwin
-ms.openlocfilehash: 2157af8d6c3b8eea372c060a70c78559d8ffe6ad
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 30ef00fa1bfd2933df5e5c966cb8266d7c598a47
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35638838"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162171"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights 코호트
 
@@ -110,7 +110,7 @@ ms.locfileid: "35638838"
 
     * 쿼리 섹션: 여기서 분석 쿼리를 사용하여 코호트를 정의합니다.
 
-    쿼리 섹션에서 [분석 쿼리를 작성](https://docs.loganalytics.io/index)합니다. 쿼리는 정의하려는 코호트를 설명하는 특정 행 집합을 선택합니다. 그러면 코호트 도구는 “| summarize by user_Id” 절을 쿼리에 암시적으로 추가합니다. 이 데이터는 테이블의 쿼리 아래에서 미리 볼 수 있으므로 쿼리가 올바른 결과를 반환하도록 할 수 있습니다.
+    쿼리 섹션에서 [분석 쿼리를 작성](/azure/kusto/query)합니다. 쿼리는 정의하려는 코호트를 설명하는 특정 행 집합을 선택합니다. 그러면 코호트 도구는 “| summarize by user_Id” 절을 쿼리에 암시적으로 추가합니다. 이 데이터는 테이블의 쿼리 아래에서 미리 볼 수 있으므로 쿼리가 올바른 결과를 반환하도록 할 수 있습니다.
 
     > [!NOTE]
     > 이 쿼리가 보이지 않으면 섹션을 더 길게 늘리고 쿼리를 표시합니다. 이 섹션 맨 처음에 나오는 애니메이션 .gif는 크기 조정 동작을 보여 줍니다.

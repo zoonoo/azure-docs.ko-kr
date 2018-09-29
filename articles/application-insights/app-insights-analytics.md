@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 170cd76c72e8aeb5de48c711ae4637a0244742fb
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 6db98332fc7d896613a3318421e9a96bbb50cd15
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294203"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159145"
 ---
 # <a name="analytics-in-application-insights"></a>Application Insights의 분석
 Analytics는 [Application Insights](app-insights-overview.md)의 강력한 검색 및 쿼리 도구입니다. Analytics는 웹 도구이므로 설치가 필요하지 않습니다. 앱 중 하나에 대해 Application Insights를 이미 구성한 경우 앱의 [개요 블레이드](app-insights-dashboards.md)에서 Analytics를 열어 앱의 데이터를 분석할 수 있습니다.
@@ -48,9 +48,9 @@ requests
 
 언어에 다음과 같은 많은 유용한 기능이 있습니다.
 
-* [필터링](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) 합니다.
-* [조인](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/join-operator) - 요청을 페이지 뷰, 종속성 호출, 예외 및 로그 추적과 상호 연결합니다.
-* 강력한 통계 [집계](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions)기능이 있습니다.
+* [필터링](/azure/kusto/query/whereoperator) 합니다.
+* [조인](/azure/kusto/query/joinoperator) - 요청을 페이지 뷰, 종속성 호출, 예외 및 로그 추적과 상호 연결합니다.
+* 강력한 통계 [집계](/azure/kusto/query/summarizeoperator)기능이 있습니다.
 * 즉각적이고 강력하게 시각화합니다.
 * 예를 들어 PowerShell에서 프로그래밍 방식으로 쿼리를 실행하는 데 사용할 수 있는 [REST API](https://dev.applicationinsights.io/)가 있습니다.
 

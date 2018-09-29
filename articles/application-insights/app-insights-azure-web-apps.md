@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/05/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0d9001834a33675dc4aab8d78282fb2987419ec3
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 5743408b000dd7497a10f27db2a4ea9d87082b8d
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35640597"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47091798"
 ---
 # <a name="monitor-azure-web-app-performance"></a>Azure 웹앱 성능 모니터링
 [Azure Portal](https://portal.azure.com)에서 [Azure 웹앱](../app-service/app-service-web-overview.md)의 응용 프로그램 성능 모니터링을 설정할 수 있습니다. [Azure Application Insights](app-insights-overview.md)는 해당 작업에 대한 원격 분석을 저장하고 분석하는 Application Insights 서비스에 보내는 앱을 계측합니다. 여기서 메트릭 차트 및 검색 도구를 사용하여 문제를 진단하고 성능을 개선하며 사용량 평가할 수 있습니다.

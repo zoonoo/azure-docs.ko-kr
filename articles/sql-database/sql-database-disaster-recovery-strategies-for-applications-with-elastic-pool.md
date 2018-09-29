@@ -2,20 +2,22 @@
 title: 재해 복구 솔루션 설계 - Azure SQL Database | Microsoft Docs
 description: 올바른 장애 조치 패턴을 선택하여 재해 복구를 위한 클라우드 솔루션을 설계하는 방법에 대해 알아봅니다.
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: elastic-pools
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/27/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 8f365d123a234f367a1415232a714d2c18663b63
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+manager: craigg
+ms.date: 08/27/2018
+ms.openlocfilehash: 9ed01103a83073d1bbb22f476a9115af816571aa
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124073"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166557"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>SQL Database 탄력적 풀을 사용하는 응용 프로그램에 대한 재해 복구 전략
 수년에 걸쳐 클라우드 서비스가 간단하지 않으며 치명적인 문제가 발생한다는 점을 발견했습니다. SQL Database는 이러한 문제가 발생할 때 응용 프로그램의 비즈니스 연속성을 위해 제공할 몇 가지 기능을 제공합니다. [탄력적 풀](sql-database-elastic-pool.md) 및 단일 데이터베이스는 동일한 종류의 DR(재해 복구) 기능을 지원합니다. 이 문서에서는 이러한 SQL Database 비즈니스 연속성 기능을 활용하는 탄력적 풀에 대한 몇 가지 DR 전략을 설명합니다.

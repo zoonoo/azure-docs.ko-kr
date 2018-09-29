@@ -2,19 +2,22 @@
 title: 분할된 맵 관리자에 대한 성능 카운터
 description: ShardMapManager 클래스 및 데이터 종속 라우팅 성능 카운터
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 9c134ee96f7749529ab665df041cfc51c979acde
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 03/31/2018
+ms.openlocfilehash: d4ecfe700c90beb94455e3607cee4ea30227bd0e
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647326"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166239"
 ---
 # <a name="performance-counters-for-shard-map-manager"></a>분할된 맵 관리자에 대한 성능 카운터
 [분할된 맵 관리자](sql-database-elastic-scale-shard-map-management.md)에 대한 성능은 특히, [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)을 사용하는 경우에 캡처할 수 있습니다. 카운터는 Microsoft.Azure.SqlDatabase.ElasticScale.Client 클래스의 메서드를 사용하여 만들 수 있습니다.  

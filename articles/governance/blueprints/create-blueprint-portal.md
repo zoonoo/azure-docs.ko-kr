@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: ca3f689ef91c0a1bcb751c78d4fa1d799ed3888b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7af0d4819d4044f4cccc43cde1cffe7dff7982a7
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984636"
+ms.locfileid: "47056440"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>포털에서 Azure 청사진 정의 및 할당
 
@@ -119,7 +119,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="edit-a-blueprint"></a>청사진 편집
 
-[청사진 만들기](#create_a_blueprint)에서는 설명을 입력하지 않았으며 새 리소스 그룹에 역할 할당도 추가하지 않았습니다. 다음 단계를 수행하면 이 두 정보를 수정할 수 있습니다.
+[청사진 만들기](#create-a-blueprint)에서는 설명을 입력하지 않았으며 새 리소스 그룹에 역할 할당도 추가하지 않았습니다. 다음 단계를 수행하면 이 두 정보를 수정할 수 있습니다.
 
 1. 왼쪽 페이지에서 **Blueprint 정의**를 선택합니다.
 

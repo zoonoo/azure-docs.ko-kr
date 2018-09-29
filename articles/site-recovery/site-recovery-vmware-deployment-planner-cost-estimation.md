@@ -2,24 +2,18 @@
 title: VMware에서 Azure로의 Azure Site Recovery Deployment Planner | Microsoft Docs
 description: Azure Site Recovery의 Deployment Planner 사용자 가이드입니다.
 services: site-recovery
-documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: f1d23419df6f66ef430cb57f41a9a70c7babe7df
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a946ecb31697591a7490c80496c02c5f907c6f36
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919144"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182385"
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner의 비용 예측 보고서  
 
@@ -155,7 +149,7 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>지원되는 통화
 Azure Site Recovery Deployment Planner는 다음 통화 중 하나로 비용 보고서를 생성할 수 있습니다.
 
-|통화|Name||통화|Name||통화|Name|
+|통화|이름||통화|이름||통화|이름|
 |---|---|---|---|---|---|---|---|
 |ARS|아르헨티나 페소($)||AUD|호주 달러($)||BRL|브라질 헤알(R$)|
 |CAD|캐나다 달러($)||CHF|스위스 프랑. (chf)||DKK|덴마크 크론(kr)|

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 08/27/2018
 ms.author: rangv
-ms.openlocfilehash: 6ecddefd264bf4a6f57dd7fcd09c3a8cc10ec54a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 55901d6f3bcbf5511b6921939fdcba03972efed3
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377313"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182844"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Azure IoT Hub에 IoT DevKit AZ3166 연결
 
@@ -128,29 +128,34 @@ Azure IoT Workbench는 IoT 솔루션을 개발하는 통합 환경을 제공합�
     * **macOS**: 추출된 **Arduino.app**을 `/Applications` 폴더로 끌어다 놓습니다.
     * **Ubuntu**: `$HOME/Downloads/arduino-1.8.5` 같은 폴더에 압축을 풉니다.
 
-1. IntelliSense 코드 완성 및 디버깅 같은 강력한 개발자 도구를 제공하는 플랫폼 간 소스 코드 편집기인 [Visual Studio Code](https://code.visualstudio.com/)를 설치합니다.
+2. IntelliSense 코드 완성 및 디버깅 같은 강력한 개발자 도구를 제공하는 플랫폼 간 소스 코드 편집기인 [Visual Studio Code](https://code.visualstudio.com/)를 설치합니다.
 
-1. 확장 마켓플레이스에서 **Azure IoT Workbench**를 검색하여 설치합니다.
+3. 확장 마켓플레이스에서 **Azure IoT Workbench**를 검색하여 설치합니다.
     ![Azure IoT Workbench 설치](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-workbench.png) IoT Workbench와 함께 다른 종속 확장이 설치됩니다.
 
-1. **파일 > 기본 설정 > 설정**을 열고 다음 줄을 추가하여 Arduino를 구성합니다.
+4. **파일 > 기본 설정 > 설정**을 열고 다음 줄을 추가하여 Arduino를 구성합니다.
     * **Windows**:
-    ```javascript
+
+    ```json
     "arduino.path": "C:\\Program Files (x86)\\Arduino",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
+
     * **macOS**:
-    ```javascript
+
+    ```json
     "arduino.path": "/Applications",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
+
     * **Ubuntu**:
-    ```javascript
+
+    ```json
     "arduino.path": "/home/{username}/Downloads/arduino-1.8.5",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
 
-1. `F1` 키를 클릭하여 명령 팔레트를 연 다음, **Arduino: 보드 관리자**를 입력하고 선택합니다. **AZ3166**을 검색하고 최신 버전을 설치합니다.
+5. `F1` 키를 클릭하여 명령 팔레트를 연 다음, **Arduino: 보드 관리자**를 입력하고 선택합니다. **AZ3166**을 검색하고 최신 버전을 설치합니다.
     ![DevKit SDK 설치](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-sdk.png)
 
 ### <a name="install-st-link-drivers"></a>ST-Link 드라이버 설치

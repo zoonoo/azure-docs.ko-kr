@@ -2,19 +2,22 @@
 title: Azure SQL 논리 서버 | Microsoft Docs
 description: Azure SQL Database 논리 서버 및 이 서버에 대한 관리를 알아봅니다.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/07/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: f30d15c70b33200565f1933a4d8ebe8ed654638c
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: effaa9b0b3fec36974a2bc850eeb1f36181ca0c7
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055236"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166438"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Azure SQL Database 논리 서버 및 이 서버에 대한 관리
 
@@ -111,25 +114,25 @@ Azure PowerShell을 사용하여 Azure SQL Server, 데이터베이스 및 방화
 
 | Cmdlet | 설명 |
 | --- | --- |
-|[az sql db create](/cli/azure/sql/db#az_sql_db_create) |데이터베이스 만들기|
-|[az sql db list](/cli/azure/sql/db#az_sql_db_list)|서버의 모든 데이터베이스 및 데이터 웨어하우스 또는 탄력적 풀의 모든 데이터베이스 나열|
-|[az sql db list-editions](/cli/azure/sql/db#az_sql_db_list_editions)|사용 가능한 서비스 목표 및 저장소 용량 제한 나열|
-|[az sql db list-usages](/cli/azure/sql/db#az_sql_db_list_usages)|데이터베이스 사용 정보 반환|
-|[az sql db show](/cli/azure/sql/db#az_sql_db_show)|데이터베이스 또는 데이터 웨어하우스 가져오기|
-|[az sql db update](/cli/azure/sql/db#az_sql_db_update)|데이터베이스 업데이트|
-|[az sql db delete](/cli/azure/sql/db#az_sql_db_delete)|데이터베이스 제거|
-|[az group create](/cli/azure/group#az_group_create)|리소스 그룹 만들기|
-|[az sql server create](/cli/azure/sql/server#az_sql_server_create)|서버 만들기|
-|[az sql server list](/cli/azure/sql/server#az_sql_server_list)|서버 나열|
-|[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list_usages)|서버 사용 반환|
-|[az sql server show](/cli/azure/sql/server#az_sql_server_show)|서버 가져오기|
-|[az sql server update](/cli/azure/sql/server#az_sql_server_update)|서버 업데이트|
-|[az sql server delete](/cli/azure/sql/server#az_sql_server_delete)|서버를 삭제합니다.|
-|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|서버 방화벽 규칙 만들기|
-|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|서버의 방화벽 규칙 나열|
-|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|방화벽 규칙의 세부 정보 표시|
-|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|방화벽 규칙 업데이트|
-|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|방화벽 규칙 삭제|
+|[az sql db create](/cli/azure/sql/db#az-sql-db-create) |데이터베이스 만들기|
+|[az sql db list](/cli/azure/sql/db#az-sql-db-list)|서버의 모든 데이터베이스 및 데이터 웨어하우스 또는 탄력적 풀의 모든 데이터베이스 나열|
+|[az sql db list-editions](/cli/azure/sql/db#az-sql-db-list-editions)|사용 가능한 서비스 목표 및 저장소 용량 제한 나열|
+|[az sql db list-usages](/cli/azure/sql/db#az-sql-db-list-usages)|데이터베이스 사용 정보 반환|
+|[az sql db show](/cli/azure/sql/db#az-sql-db-show)|데이터베이스 또는 데이터 웨어하우스 가져오기|
+|[az sql db update](/cli/azure/sql/db#az-sql-db-update)|데이터베이스 업데이트|
+|[az sql db delete](/cli/azure/sql/db#az-sql-db-delete)|데이터베이스 제거|
+|[az group create](/cli/azure/group#az-group-create)|리소스 그룹 만들기|
+|[az sql server create](/cli/azure/sql/server#az-sql-server-create)|서버 만들기|
+|[az sql server list](/cli/azure/sql/server#az-sql-server-list)|서버 나열|
+|[az sql server list-usages](/cli/azure/sql/server#az-sql-server-list-usages)|서버 사용 반환|
+|[az sql server show](/cli/azure/sql/server#az-sql-server-show)|서버 가져오기|
+|[az sql server update](/cli/azure/sql/server#az-sql-server-update)|서버 업데이트|
+|[az sql server delete](/cli/azure/sql/server#az-sql-server-delete)|서버를 삭제합니다.|
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|서버 방화벽 규칙 만들기|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|서버의 방화벽 규칙 나열|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|방화벽 규칙의 세부 정보 표시|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|방화벽 규칙 업데이트|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|방화벽 규칙 삭제|
 
 > [!TIP]
 > Azure CLI 빠른 시작은 [Azure CLI를 사용하여 단일 Azure SQL Database 만들기](sql-database-cli-samples.md)를 참조하세요. Azure CLI 예제 스크립트에 대해서는 [CLI를 사용하여 단일 Azure SQL Database 만들기 및 방화벽 규칙 구성](scripts/sql-database-create-and-configure-database-cli.md) 및 [CLI를 사용하여 단일 SQL Database 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-cli.md)을 참조하세요.

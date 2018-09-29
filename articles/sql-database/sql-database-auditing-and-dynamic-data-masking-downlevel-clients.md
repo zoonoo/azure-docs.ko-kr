@@ -2,20 +2,22 @@
 title: Azure SQL Database의 테이블 감사, TDS 리디렉션 및 IP 엔드포인트 | Microsoft Docs
 description: Azure SQL Database에서 테이블 감사를 구현할 때 감사, TDS 리디렉션 및 IP 엔드포인트 변경 내용에 대해 알아봅니다.
 services: sql-database
-author: giladm
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: giladm
 ms.author: giladm
 ms.reviewer: vanto
-ms.openlocfilehash: 9fcb070f41d699cef3ef11ba9b8feb6cdfd83ae5
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 525b699efdbfd2e4e2f8ad7a8b24f20f1d7438d0
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541219"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063339"
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL Database - 하위 클라이언트 지원 및 테이블 감사에 대한 IP 엔드포인트 변경
 

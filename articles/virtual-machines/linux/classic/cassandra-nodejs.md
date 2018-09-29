@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: b1945c68f0e320c834ae93a590f420403263a0fd
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: d99c9732bb1bf494b87d2073ba002264c7a51634
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098943"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221250"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Node.js를 사용하여 Azure의 Linux에서 Cassandra 클러스터 실행
 
@@ -41,7 +41,7 @@ Microsoft Azure 네트워킹을 사용하면 미세 조정된 네트워크 보�
 * Cassandra 클러스터는 쓰리프트 트래픽에 대한 부하 분산 장치 뒤에 있어야 합니다.
 * 클러스터 가용성 향상을 위해 각 데이터 센터의 두 그룹에 Cassandra 노드를 배포해야 합니다.
 * 응용 프로그램 서버 팜만 데이터베이스에 직접 액세스할 수 있도록 클러스터를 잠가야 합니다.
-* SSH 이외의 공용 네트워킹 끝점이 없어야 합니다.
+* SSH 이외의 공용 네트워킹 엔드포인트가 없어야 합니다.
 * 각 Cassandra 노드에 고정된 내부 IP 주소가 필요합니다.
 
 Cassandra는 작업의 분산 특성에 따라 단일 Azure 지역이나 여러 지역에 배포할 수 있습니다. 다중 지역 배포 모델을 사용하여 동일한 Cassandra 인프라를 통해 특정 지역에 더 가까운 곳에서 최종 사용자에게 서비스를 제공할 수 있습니다. Cassandra의 기본 제공 노드 복제는 여러 데이터 센터에서 발생한 다중 마스터 쓰기를 동기화하고 일관된 데이터 뷰를 응용 프로그램에 제공합니다. 또한 다중 지역 배포는 광범위한 Azure 서비스 중단 위험의 완화에도 도움이 될 수 있습니다. Cassandra의 조정 가능한 일관성 및 복제 토폴로지는 응용 프로그램의 다양한 RPO 요구를 충족하는 데 유용합니다.
@@ -57,7 +57,7 @@ Cassandra는 작업의 분산 특성에 따라 단일 Azure 지역이나 여러 
 
 이 문서를 작성할 당시, Azure는 특정 장애 도메인에 대한 VM 그룹의 명시적 매핑을 허용하지 않습니다. 따라서 그림 1에 표시된 배포 모델에서도 통계상 모든 가상 머신이 4개가 아닌 2개의 장애 도메인에 매핑될 수 있습니다.
 
-**로드 균형 조정 Thrift 트래픽:** 웹 서버 내부의 Thrift 클라이언트 라이브러리는 내부 부하 분산 장치를 통해 클러스터에 연결합니다. 이렇게 하려면 Cassandra 클러스터를 호스팅하는 클라우드 서비스의 컨텍스트에서 "데이터" 서브넷에 내부 부하 분산 장치를 추가하는 프로세스가 필요합니다(그림 1 참조). 내부 부하 분산을 정의한 후, 각 노드에서 부하 분산된 끝점이 이전에 정의된 부하 분산 장치 이름을 포함하는 부하 분산된 집합의 주석으로 추가되어야 합니다. 자세한 내용은 [Azure 내부 부하 분산 ](../../../load-balancer/load-balancer-internal-overview.md)을 참조하세요.
+**로드 균형 조정 Thrift 트래픽:** 웹 서버 내부의 Thrift 클라이언트 라이브러리는 내부 부하 분산 장치를 통해 클러스터에 연결합니다. 이렇게 하려면 Cassandra 클러스터를 호스팅하는 클라우드 서비스의 컨텍스트에서 "데이터" 서브넷에 내부 부하 분산 장치를 추가하는 프로세스가 필요합니다(그림 1 참조). 내부 부하 분산을 정의한 후, 각 노드에서 부하 분산된 엔드포인트가 이전에 정의된 부하 분산 장치 이름을 포함하는 부하 분산된 집합의 주석으로 추가되어야 합니다. 자세한 내용은 [Azure 내부 부하 분산 ](../../../load-balancer/load-balancer-internal-overview.md)을 참조하세요.
 
 **클러스터 시드:** 새 노드는 시드 노드와 통신하여 클러스터의 토폴로지를 검색하므로 가장 가용성이 큰 노드를 시드로 선택하는 것이 중요합니다. 단일 실패 지점을 방지하기 위해 각 가용성 집합에서 하나의 노드가 시드 노드로 지정됩니다.
 
@@ -161,7 +161,7 @@ Azure는 프로비전 시간에 PEM 또는 DER 인코딩된 X509 공개 키를 �
 <tr><td> 지역/선호도 그룹/가상 네트워크 </td><td>    미국 서부    </td><td> 웹 응용 프로그램이 Cassandra 클러스터에 액세스하는 지역을 선택합니다.</td></tr>
 <tr><td>저장소 계정 </td><td>    기본값 사용    </td><td>기본 저장소 계정이나 특정 지역에 미리 생성된 저장소 계정을 사용합니다.</td></tr>
 <tr><td>가용성 집합 </td><td>    없음 </td><td>    비워 둡니다.</td></tr>
-<tr><td>끝점    </td><td>기본값 사용 </td><td>    기본 SSH 구성을 사용합니다. </td></tr>
+<tr><td>엔드포인트    </td><td>기본값 사용 </td><td>    기본 SSH 구성을 사용합니다. </td></tr>
 </table>
 
 오른쪽 화살표를 클릭하고 화면 #3의 기본값을 그대로 둡니다. “확인” 단추를 클릭하여 VM 프로비저닝 프로세스를 완료합니다. 몇 분 후에 이름이 "ubuntu-template"인 VM이 "실행 중" 상태가 되어야 합니다.
@@ -347,7 +347,7 @@ Data 및 Web 서브넷은 이 문서를 범위를 벗어난 네트워크 보안 
 1. 특정 지역에 빈 클라우드 서비스를 만듭니다.
 2. 이전에 캡처된 이미지에서 VM을 만든 다음 이전에 만든 가상 네트워크에 연결합니다. 모든 VM에 대해 이 단계를 반복합니다.
 3. 클라우드 서비스에 내부 부하 분산 장치를 추가하고 "data" 서브넷에 연결합니다.
-4. 이전에 만든 각 VM에 대해 이전에 만든 내부 부하 분산 장치에 연결된 부하 분산 집합을 통해 쓰리프트 트래픽에 대한 부하 분산 끝점을 추가합니다.
+4. 이전에 만든 각 VM에 대해 이전에 만든 내부 부하 분산 장치에 연결된 부하 분산 집합을 통해 쓰리프트 트래픽에 대한 부하 분산 엔드포인트를 추가합니다.
 
 위 프로세스는 Azure Portal을 사용하여 실행할 수 있습니다. Windows 컴퓨터를 사용하고(Windows 컴퓨터에 대한 액세스 권한이 없는 경우 Azure에서 VM 사용) 다음 PowerShell 스크립트를 사용하여 VM 8개를 모두 자동으로 프로비전합니다.
 
@@ -396,7 +396,7 @@ Data 및 Web 서브넷은 이 문서를 범위를 벗어난 네트워크 보안 
         #Create internal load balancer
         Add-AzureInternalLoadBalancer -ServiceName $serviceName -InternalLoadBalancerName $ilbName -SubnetName "data" -StaticVNetIPAddress "$ilbIP"
         Write-Host "Created $ilbName"
-        #Add add the thrift endpoint to the internal load balancer for all the VMs
+        #Add the thrift endpoint to the internal load balancer for all the VMs
         foreach($vmName in $vmNames)
         {
             Get-AzureVM -ServiceName $serviceName -Name $vmName |

@@ -4,18 +4,18 @@ titleSuffix: Azure
 description: LUIS(Language Understanding Intelligent Services)에서 미리 작성된 의도 및 엔터티 컬렉션에 해당하는 미리 작성된 도메인에 대한 참조입니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: diberry
-ms.openlocfilehash: 36e527f9afdce58475ca4c3c6e54ce393c48c983
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: f424abd339bda6c29079e3d286cbe96593f16f52
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238899"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040043"
 ---
 # <a name="prebuilt-domain-reference"></a>미리 작성된 도메인 참조
 이 참조는 LUIS에서 제공하는 의도 및 엔터티의 미리 작성된 컬렉션에 해당하는 [미리 작성된 도메인](luis-how-to-use-prebuilt-domains.md)에 대한 정보를 제공합니다.
@@ -178,7 +178,7 @@ Events 도메인은 콘서트, 축제, 스포츠 게임 및 코미디 쇼와 같
 | 엔터티 이름 | 설명 | 예 |
 | ---------------- |-----------------------|----|
 | 주소 | 이벤트 위치 또는 주소입니다. |Palo Alto<br/>300 112th Ave SE <br/> 시애틀 |
-| Name | 이벤트의 이름입니다.|Shakespeare in the Park|
+| 이름 | 이벤트의 이름입니다.|Shakespeare in the Park|
 | PlaceName| 이벤트 위치 이름입니다.|루브르<br/>오페라 하우스<br/>브로드웨이|
 | PlaceType | 이벤트가 열릴 위치의 유형입니다.|카페<br/>극장<br/>라이브러리|
 | type | 이벤트의 유형입니다.|콘서트<br/>스포츠 게임|
@@ -234,7 +234,7 @@ HomeAutomation 도메인은 조명 및 어플라이언스와 같은 스마트 �
 | 엔터티 이름 | 설명 | 예 |
 | ---------------- |-----------------------|----|
 | 장치 | 켜거나 끌 수 있는 장치 유형입니다.|커피 메이커<br/>자동 온도 조절기<br/>조명|
-| 작업 | 장치의 설정 상태입니다.|lock<br/>open<br/>on<br/>끄기|
+| 작업(Operation) | 장치의 설정 상태입니다.|lock<br/>open<br/>on<br/>끄기|
 | 공간 | 장치가 있는 위치 또는 방입니다.|거실<br/>침실<br/>주방|
 
 ## <a name="movietickets"></a>MovieTickets 

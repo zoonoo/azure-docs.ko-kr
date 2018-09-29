@@ -2,20 +2,22 @@
 title: SQL Database 응용 프로그램 개발 개요 | Microsoft 문서
 description: 사용 가능한 연결 라이브러리 및 SQL Database에 연결하는 응용 프로그램에 대한 모범 사례를 알아봅니다.
 services: sql-database
-author: stevestein
-manager: craigg
-ms.reviewer: genemi
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 06/20/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 1986c19e6625df7c281f7de9b322124da6a12c45
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.reviewer: genemi
+manager: craigg
+ms.date: 06/20/2018
+ms.openlocfilehash: 58f902edcd417809d1bb47a231cb1c2ac2f579d1
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973845"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063594"
 ---
 # <a name="sql-database-application-development-overview"></a>SQL Database 응용 프로그램 개발 개요
 이 문서는 Azure SQL Database에 연결하기 위한 코드를 작성하면서 개발자가 알고 있어야 하는 기본적인 사항을 안내합니다.

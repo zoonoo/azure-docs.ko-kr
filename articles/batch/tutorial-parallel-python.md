@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 01/23/2018
+ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 916cedfb91f0711f136ff8ad679be94c68964619
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6bbaa9693bb8d8e54e78f1e83617449cd013ad48
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38301056"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158738"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>자습서: Python API를 사용하여 Azure Batch에서 병렬 워크로드 실행
 
@@ -127,8 +127,8 @@ Azure Portal에서 Batch 계정으로 가서 풀, 계산 노드, 작업 및 태�
 
 ```python
 blob_client = azureblob.BlockBlobService(
-    account_name=STORAGE_ACCOUNT_NAME,
-    account_key=STORAGE_ACCOUNT_KEY)
+    account_name=_STORAGE_ACCOUNT_NAME,
+    account_key=_STORAGE_ACCOUNT_KEY)
 ```
 
 이 앱은 [BatchServiceClient](/python/api/azure.batch.batchserviceclient) 개체를 만들어 Batch 서비스의 풀, 작업 및 태스크를 만들고 관리합니다. 샘플의 Batch 클라이언트는 공유 키 인증을 사용합니다. 또한 Batch는 [Azure Active Directory](batch-aad-auth.md)를 통한 인증도 지원하여 개별 사용자 또는 무인 응용 프로그램을 인증합니다.
@@ -151,7 +151,7 @@ blob_client.create_container(input_container_name, fail_on_exist=False)
 blob_client.create_container(output_container_name, fail_on_exist=False)
 input_file_paths = []
     
-for folder, subs, files in os.walk('./InputFiles/'):
+for folder, subs, files in os.walk(os.path.join(sys.path[0],'./InputFiles/')):
     for filename in files:
         if filename.endswith(".mp4"):
             input_file_paths.append(os.path.abspath(os.path.join(folder, filename)))
@@ -204,8 +204,8 @@ Batch 작업은 태스크를 실행할 풀과 우선 순위 및 작업 일정과
 
 ```python
 job = batch.models.JobAddParameter(
-    job_id,
-    batch.models.PoolInformation(pool_id=pool_id))
+    id=job_id,
+    pool_info=batch.models.PoolInformation(pool_id=pool_id))
 
 batch_service_client.job.add(job)
 ```
@@ -229,13 +229,15 @@ for idx, input_file in enumerate(input_files):
         id='Task{}'.format(idx),
         command_line=command,
         resource_files=[input_file],
-        output_files=[batchmodels.OutputFile(output_file_path,
-              destination=batchmodels.OutputFileDestination(
-                container=batchmodels.OutputFileBlobContainerDestination(output_container_sas_url)),
-              upload_options=batchmodels.OutputFileUploadOptions(
-                batchmodels.OutputFileUploadCondition.task_success))]
-            )
-     )
+        output_files=[batchmodels.OutputFile(
+            file_pattern=output_file_path,
+            destination=batchmodels.OutputFileDestination(
+                container=batchmodels.OutputFileBlobContainerDestination(
+                    container_url=output_container_sas_url)),
+            upload_options=batchmodels.OutputFileUploadOptions(
+                upload_condition=batchmodels.OutputFileUploadCondition.task_success))]
+        )
+    )
 batch_service_client.task.add_collection(job_id, tasks)
 ```    
 
@@ -251,7 +253,7 @@ while datetime.datetime.now() < timeout_expiration:
     sys.stdout.flush()
     tasks = batch_service_client.task.list(job_id)
 
-     incomplete_tasks = [task for task in tasks if
+    incomplete_tasks = [task for task in tasks if
                          task.state != batchmodels.TaskState.completed]
     if not incomplete_tasks:
         print()

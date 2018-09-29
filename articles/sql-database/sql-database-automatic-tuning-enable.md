@@ -2,20 +2,21 @@
 title: Azure SQL Database에 대한 자동 조정 사용 | Microsoft Docs
 description: Azure SQL Database에서 쉽게 자동 조정을 사용할 수 있습니다.
 services: sql-database
-author: danimir
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: d825ddd75bfc829aa82bab4cede0381dda2d36da
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 4f043cfc9c85513abe16bde38c5cac6e16e34af9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575301"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063322"
 ---
 # <a name="enable-automatic-tuning"></a>자동 조정 사용
 
@@ -86,7 +87,7 @@ T-SQL을 통해 개별 자동 조정 옵션을 구성하려면 데이터베이�
    
 개별 조정 옵션을 ON으로 설정하면 데이터베이스가 상속한 설정을 무시하고 조정 옵션을 활성화합니다. OFF로 설정하면 마찬가지로 데이터베이스가 상속한 설정을 무시하고 조정 옵션을 비활성화합니다. 기본값이 지정된 자동 조정 옵션은 데이터베이스 수준 자동 조정 설정에서 구성을 상속합니다.  
 
-자동 조정을 구성하기 위한 T-SQL 옵션에 대해 자세히 알아보고, [SQL Database 논리 서버에 대한 ALTER DATABASE SET 옵션(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017&tabs=sqldbls#arguments-1)을 참조하세요.
+자동 조정을 구성하기 위한 T-SQL 옵션에 대해 자세히 알아보고, [SQL Database 논리 서버에 대한 ALTER DATABASE SET 옵션(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current)을 참조하세요.
 
 ## <a name="disabled-by-the-system"></a>시스템에서 비활성화됨
 자동 조정은 데이터베이스에서 수행하는 모든 작업을 모니터링하고 일부 경우에서 자동 조정이 데이터베이스에서 제대로 작동할 수 없는지 결정할 수 있습니다. 이 상황에서 조정 옵션은 시스템에서 비활성화됩니다. 쿼리 저장소는 활성화되지 않았거나 특정 데이터베이스에서 읽기 전용 상태에 있기 때문에 대부분의 경우에서 발생합니다.

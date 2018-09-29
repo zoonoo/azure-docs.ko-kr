@@ -3,20 +3,21 @@ title: Azure SQL의 DNS 별칭에 대한 PowerShell | Microsoft Docs
 description: New-AzureRMSqlServerDNSAlias와 같은 PowerShell cmdlet을 사용하여 모든 클라이언트 구성을 변경하지 않고도, 새 클라이언트 연결을 다른 Azure SQL Database 서버로 리디렉션할 수 있습니다.
 keywords: dns sql database
 services: sql-database
-author: MightyPen
-manager: craigg
 ms.service: sql-database
+ms.subservice: operations
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 02/05/2018
-ms.reviewer: genemi;amagarwa;maboja
+author: DhruvMsft
 ms.author: dmalik
-ms.openlocfilehash: 0353f503ea099b1355b6879efe0748a377115474
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: genemi,amagarwa,maboja
+manager: craigg
+ms.date: 02/05/2018
+ms.openlocfilehash: 809eea7787e63a0e7a2be457b47d05c0dca0d36e
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644317"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054560"
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>Azure SQL Database의 DNS 별칭에 대한 PowerShell
 

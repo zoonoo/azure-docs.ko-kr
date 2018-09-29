@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 08/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 7c09656f62f3a8a2efd889cf28f12bd5a42e309a
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 063f8bc050064d191dd502b74156be85df4f0031
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745499"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182217"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Apache Kafka용 Event Hubs에서 Akka Streams 사용
 이 자습서에서는 프로토콜 클라이언트를 변경하거나 사용자 고유의 클러스터를 실행하지 않고 Akka Streams를 Kafka 지원 이벤트 허브에 연결하는 방법을 보여 줍니다. Apache Kafka용 Azure Event Hubs는 [Apache Kafka 버전 1.0](https://kafka.apache.org/10/documentation.html)을 지원합니다.
@@ -27,8 +27,8 @@ ms.locfileid: "42745499"
 > [!div class="checklist"]
 > * Event Hubs 네임스페이스 만들기
 > * 프로젝트 예제 복제
-> * Flink 생산자 실행 
-> * Flink 소비자 실행
+> * Akka Streams 생산자 실행 
+> * Akka Streams 소비자 실행
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -142,8 +142,8 @@ Akka Streams에 대한 자세한 내용은 [Akka Streams Kafka 가이드](https:
 > [!div class="checklist"]
 > * Event Hubs 네임스페이스 만들기
 > * 프로젝트 예제 복제
-> * Flink 생산자 실행 
-> * Flink 소비자 실행
+> * Akka Streams 생산자 실행 
+> * Akka Streams 소비자 실행
 
 Event Hubs 및 Kafka용 Event Hubs에 대해 자세히 알아보려면 다음 항목을 참조하세요.  
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: wesmc
 ms.openlocfilehash: b61c5860cb18f5a5b4ffa96212d66b7becad9928
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723275"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092359"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-redis-cache"></a>프리미엄 Azure Redis Cache에 Redis 클러스터링을 구성하는 방법
 Azure Redis Cache에는 클러스터링, 지속성, 가상 네트워크 지원 등의 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제품이 있습니다. 이 문서에서는 프리미엄 Azure Redis Cache에서 클러스터링을 구성하는 방법을 설명합니다.
@@ -102,7 +102,7 @@ StackExchange.Redis 클라이언트를 통해 클러스터링으로 작업하는
 * 클러스터링 사용하는 경우 데이터베이스 0만을 사용할 수 있습니다. 클라이언트 응용 프로그램이 여러 데이터베이스를 사용하고 0이 아닌 데이터베이스에 읽기 또는 쓰기를 시도하는 경우 다음과 같은 예외가 발생합니다. `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
   
   자세한 내용은 [Redis 클러스터 사양 - 구현된 하위 집합](http://redis.io/topics/cluster-spec#implemented-subset)을 참조하세요.
-* [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/)를 사용하는 경우 1.0.481 이상을 사용해야 합니다. 클러스터링을 사용하지 않는 캐시에 연결할 때와 동일한 [끝점, 포트 및 키](cache-configure.md#properties) 를 사용하여 캐시에 연결합니다. 유일한 차이점은 데이터베이스 0에 모든 읽기 및 쓰기를 수행해야 한다는 점입니다.
+* [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/)를 사용하는 경우 1.0.481 이상을 사용해야 합니다. 클러스터링을 사용하지 않는 캐시에 연결할 때와 동일한 [엔드포인트, 포트 및 키](cache-configure.md#properties) 를 사용하여 캐시에 연결합니다. 유일한 차이점은 데이터베이스 0에 모든 읽기 및 쓰기를 수행해야 한다는 점입니다.
   
   * 다른 클라이언트는 다른 요구 사항이 있을 수 있습니다. [모든 Redis 클라이언트가 클러스터링을 지원하나요?](#do-all-redis-clients-support-clustering)
 * 응용 프로그램이 단일 명령으로 배치되는 다중 키 작업을 사용하면 동일한 분할에 모든 키가 위치해야 합니다. 동일한 분할된 데이터베이스에서 키를 찾으려면 [클러스터에서 키를 분산하는 방법](#how-are-keys-distributed-in-a-cluster)을 참조하세요.
@@ -134,7 +134,7 @@ Redis 클러스터링 프로토콜에 따르면 각 클러스터는 클러스터
 > 
 
 ### <a name="how-do-i-connect-to-my-cache-when-clustering-is-enabled"></a>클러스터링을 사용할 때 캐시에 어떻게 연결하나요?
-클러스터링을 사용하지 않는 캐시에 연결할 때와 동일한 [끝점](cache-configure.md#properties), [포트](cache-configure.md#properties) 및 [키](cache-configure.md#access-keys)를 사용하여 캐시에 연결할 수 있습니다. Redis가 백엔드에서 클러스터링을 관리하므로 클라이언트에서의 관리가 필요하지 않습니다.
+클러스터링을 사용하지 않는 캐시에 연결할 때와 동일한 [엔드포인트](cache-configure.md#properties), [포트](cache-configure.md#properties) 및 [키](cache-configure.md#access-keys)를 사용하여 캐시에 연결할 수 있습니다. Redis가 백엔드에서 클러스터링을 관리하므로 클라이언트에서의 관리가 필요하지 않습니다.
 
 ### <a name="can-i-directly-connect-to-the-individual-shards-of-my-cache"></a>내 케시의 분할된 데이터베이스에 직접 연결할 수 있나요?
 클러스터링 프로토콜에 따르면 클라이언트는 올바른 분할된 데이터베이스 연결을 설정해야 합니다. 따라서 클라이언트는 이 작업을 올바르게 수행해야 합니다. 즉 각각의 분할된 데이터베이스는 캐시 인스턴스로 통칭되는 주/복제본 캐시로 구성됩니다. GitHub에서 Redis 리포지토리의 [불안정한](http://redis.io/download) 분기에서 redis-cli 유틸리티를 사용하여 이러한 캐시 인스턴스에 연결할 수 있습니다. 이 버전에는 `-c` 스위치로 시작한 경우 기본 지원을 구현합니다. 자세한 내용은 [Redis 클러스터 자습서](http://redis.io/topics/cluster-tutorial)([http://redis.io](http://redis.io))의 [클러스터 작업](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster)을 참조하세요.

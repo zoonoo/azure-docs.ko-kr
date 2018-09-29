@@ -1,22 +1,23 @@
 ---
 title: SQL Database 다중 테넌트 앱과 함께 Log Analytics 사용 | Microsoft Docs
 description: 다중 테넌트 Azure SQL Database SaaS 앱을 사용하여 Log Analytics 설정 및 사용
-keywords: SQL Database 자습서
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 3ca2f811ff0ac81ea70ec0b22d7429cdc5604171
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 60139915e8d8dca382f4ef62b5129f1a84e7e80d
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420185"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056712"
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>다중 테넌트 SQL Database SaaS 앱을 사용하여 Log Analytics 설정 및 사용
 
@@ -50,13 +51,13 @@ Log Analytics 작업 영역 및 분석 솔루션은 Azure Portal과 Operations M
 
    a. **$DemoScenario = 1**, _테넌트의 배치 프로비전_을 설정합니다.
 
-   나. F5 키를 눌러 스크립트를 실행하여 추가로 17개의 테넌트를 배포합니다.
+   b. F5 키를 눌러 스크립트를 실행하여 추가로 17개의 테넌트를 배포합니다.
 
 1. 이제 로드 생성기를 시작하여 모든 테넌트에서 시뮬레이션된 로드를 실행합니다.
 
     a. **$DemoScenario = 2**, _Generate normal intensity load (approx. 30 DTU)_ 를 설정합니다.
 
-    나. 스크립트를 실행하려면 F5 키를 누릅니다.
+    b. 스크립트를 실행하려면 F5 키를 누릅니다.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Wingtip Tickets SaaS 테넌트별 데이터베이스 응용 프로그램 스크립트 가져오기
 

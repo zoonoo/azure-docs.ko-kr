@@ -3,19 +3,22 @@ title: 'Azure Portal: 쿼리 편집기를 사용하여 Azure SQL Database 쿼리
 description: SQL 쿼리 편집기를 사용하여 Azure Portal에서 SQL Database에 연결하는 방법을 알아봅니다. 그런 다음 Transact-SQL(T-SQL) 문을 실행하여 데이터를 쿼리하고 편집합니다.
 keywords: SQL Database에 연결, Azure Portal, 포털, 쿼리 편집기
 services: sql-database
-author: ayoolubeko
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: quickstart
-ms.date: 01/10/2018
+author: ayoolubeko
 ms.author: ayolubek
-ms.openlocfilehash: 4dca277326ec89d0c7ab512e9d107ce68cefb2ca
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 01/10/2018
+ms.openlocfilehash: 6990ae0eb05af630efb8683397907200bf6d94ed
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050853"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063390"
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure Portal: SQL 쿼리 편집기를 사용하여 데이터 연결 및 쿼리
 

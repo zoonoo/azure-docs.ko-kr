@@ -2,19 +2,22 @@
 title: 확장하기 위해 기존 데이터베이스 마이그레이션 | Microsoft Docs
 description: 분할된 데이터베이스 맵 관리자를 만들어 탄력적 데이터베이스 도구를 사용하기 위해 분할된 데이터베이스 변환
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 99b315c96e6decbc3bd7622835ba0639e9560164
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: e5039e299df30df4d49f24430af4b44837d65c44
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645942"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166377"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>확장하기 위해 기존 데이터베이스 마이그레이션
 Azure SQL Database 데이터베이스 도구(예: [Elastic Database 클라이언트 라이브러리](sql-database-elastic-database-client-library.md))를 사용하여 기존의 확장된 분할된 데이터베이스를 쉽게 관리합니다. 기존의 데이터베이스 집합을 먼저 변환하여 [분할된 데이터베이스 맵 관리자](sql-database-elastic-scale-shard-map-management.md)를 사용합니다. 
@@ -70,7 +73,7 @@ ShardMapManager에 대한 자세한 내용은 [분할된 데이터베이스 맵 
 
 ![범위 매핑][2]
 
-또는 다중 테넌트를 단일 데이터베이스에 할당하는 *목록 매핑* 을 사용하여 다중 테넌트 데이터베이스 모델을 구현할 수 있습니다. 예를 들어 DB1은 테넌트 ID 1과 5에 대한 정보를 저장하는 데 사용하고 DB2는 테넌트 7과 테넌트 10의 데이터를 저장합니다. 
+또는 다중 테넌트를 단일 데이터베이스에 할당하는 *목록 매핑*을 사용하여 다중 테넌트 데이터베이스 모델을 구현할 수 있습니다. 예를 들어 DB1은 테넌트 ID 1과 5에 대한 정보를 저장하는 데 사용하고 DB2는 테넌트 7과 테넌트 10의 데이터를 저장합니다. 
 
 ![단일 DB의 다중 테넌트][3] 
 

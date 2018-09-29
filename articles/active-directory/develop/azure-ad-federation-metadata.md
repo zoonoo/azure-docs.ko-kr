@@ -18,33 +18,33 @@ ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
 ms.openlocfilehash: cf8de9e6061df59782a6edbccf47341222d256f4
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581075"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162230"
 ---
 # <a name="federation-metadata"></a>페더레이션 메타데이터
 Azure Active Directory(Azure AD)는 Azure AD가 발급하는 보안 토큰을 수락하도록 구성된 서비스에 대한 페더레이션 메타데이터 문서를 게시합니다. 페더레이션 메타데이터 문서 형식은 [Web Services Federation Language(WS-Federation) 버전 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html)에서 설명하며, [OASIS SAML(Security Assertion Markup Language) v2.0의 메타데이터](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf)를 확장합니다.
 
-## <a name="tenant-specific-and-tenant-independent-metadata-endpoints"></a>테넌트별 및 테넌트에 독립적인 메타데이터 끝점
-Azure AD 테넌트별 및 테넌트 독립적 끝점을 게시합니다.
+## <a name="tenant-specific-and-tenant-independent-metadata-endpoints"></a>테넌트별 및 테넌트에 독립적인 메타데이터 엔드포인트
+Azure AD 테넌트별 및 테넌트 독립적 엔드포인트를 게시합니다.
 
-테넌트별 끝점은 특정 테넌트에 대해 설계되었습니다. 테넌트별 페더레이션 메타데이터에는 테넌트별 발급자 및 끝점 정보를 포함하는 테넌트에 관한 정보가 포함됩니다. 테넌트별 끝점을 사용하는 단일 테넌트에 대한 액세스를 제한하는 응용 프로그램입니다.
+테넌트별 엔드포인트는 특정 테넌트에 대해 설계되었습니다. 테넌트별 페더레이션 메타데이터에는 테넌트별 발급자 및 엔드포인트 정보를 포함하는 테넌트에 관한 정보가 포함됩니다. 테넌트별 엔드포인트를 사용하는 단일 테넌트에 대한 액세스를 제한하는 응용 프로그램입니다.
 
-테넌트 독립적 끝점은 모든 Azure AD 테넌트에 공통된 정보를 제공합니다. 이 정보는 *login.microsoftonline.com* 에서 호스트되는 테넌트에 적용되며 테넌트 간에 공유됩니다. 테넌트 독립적 끝점은 특정 테넌트와 연결되어있지 않으므로 다중 테넌트 응용 프로그램에 좋습니다.
+테넌트 독립적 엔드포인트는 모든 Azure AD 테넌트에 공통된 정보를 제공합니다. 이 정보는 *login.microsoftonline.com* 에서 호스트되는 테넌트에 적용되며 테넌트 간에 공유됩니다. 테넌트 독립적 엔드포인트는 특정 테넌트와 연결되어있지 않으므로 다중 테넌트 응용 프로그램에 좋습니다.
 
-## <a name="federation-metadata-endpoints"></a>페더레이션 메타데이터 끝점
+## <a name="federation-metadata-endpoints"></a>페더레이션 메타데이터 엔드포인트
 Azure AD는 페더레이션 메타데이터를 `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`에 게시합니다.
 
-**테넌트별 끝점**의 경우, `TenantDomainName`은(는) 다음 유형 중 하나가 될 수 있습니다.
+**테넌트별 엔드포인트**의 경우, `TenantDomainName`은(는) 다음 유형 중 하나가 될 수 있습니다.
 
 * Azure AD 테넌트의 등록된 도메인 이름, 예: `contoso.onmicrosoft.com`.
 * 도메인의 변경할 수 없는 ID, 예: `72f988bf-86f1-41af-91ab-2d7cd011db45`.
 
-**테넌트에 독립적인 끝점**의 경우 `TenantDomainName`은(는) `common`입니다. 이 문서는 login.microsoftonline.com에서 호스트되는 모든 Azure AD 테넌트에 공통된 페더레이션 메타데이터 요소만을 나열합니다.
+**테넌트에 독립적인 엔드포인트**의 경우 `TenantDomainName`은(는) `common`입니다. 이 문서는 login.microsoftonline.com에서 호스트되는 모든 Azure AD 테넌트에 공통된 페더레이션 메타데이터 요소만을 나열합니다.
 
-예를 들어, 테넌트별 끝점은 `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`일 수 있습니다. 테넌트 독립적 엔드포인트는 [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml)입니다. 브라우저에서 이 URL을 입력하여 페더레이션 메타데이터 문서를 볼 수 있습니다.
+예를 들어, 테넌트별 엔드포인트는 `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`일 수 있습니다. 테넌트 독립적 엔드포인트는 [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml)입니다. 브라우저에서 이 URL을 입력하여 페더레이션 메타데이터 문서를 볼 수 있습니다.
 
 ## <a name="contents-of-federation-metadata"></a>페더레이션 메타데이터의 내용
 다음 섹션에는 Azure AD에서 발급한 토큰을 사용하는 서비스에 필요한 정보를 제공합니다.
@@ -60,7 +60,7 @@ xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
 ID="_b827a749-cfcb-46b3-ab8b-9f6d14a1294b"
 entityID="https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db45/">
 ```
-테넌트 독립적 끝점의 테넌트 ID를 사용자의 테넌트 ID로 바꾸어 테넌트별 `EntityID` 값을 만들 수 있습니다. 결과 값은 토큰 발급자와 동일합니다. 이 전략을 통해 다중 테넌트 응용 프로그램이 지정된 테넌트에 대한 발급자의 유효성을 검사할 수 있습니다.
+테넌트 독립적 엔드포인트의 테넌트 ID를 사용자의 테넌트 ID로 바꾸어 테넌트별 `EntityID` 값을 만들 수 있습니다. 결과 값은 토큰 발급자와 동일합니다. 이 전략을 통해 다중 테넌트 응용 프로그램이 지정된 테넌트에 대한 발급자의 유효성을 검사할 수 있습니다.
 
 다음 메타데이터는 샘플 테넌트 독립적 `EntityID` 요소를 보여줍니다. `{tenant}` 는 자리 표시자가 아니라 문자 그대로의 의미를 나타냅니다.
 
@@ -109,10 +109,10 @@ SAML 관련 섹션에서 WS-Federation 메타데이터 판독기는 `IDPSSODescr
 ```
 테넌트 관련 및 테넌트 독립적 인증서의 형식에는 차이가 없습니다.
 
-### <a name="ws-federation-endpoint-url"></a>WS-Federation 끝점 URL
-페더레이션 메타데이터는 WS-Federation 프로토콜에서 단일 로그인 및 단일 로그 아웃에 Azure AD가 사용하는 URL을 포함합니다. 이 끝점이 `PassiveRequestorEndpoint` 요소에 나타납니다.
+### <a name="ws-federation-endpoint-url"></a>WS-Federation 엔드포인트 URL
+페더레이션 메타데이터는 WS-Federation 프로토콜에서 단일 로그인 및 단일 로그 아웃에 Azure AD가 사용하는 URL을 포함합니다. 이 엔드포인트가 `PassiveRequestorEndpoint` 요소에 나타납니다.
 
-다음 메타데이터는 테넌트별 끝점에 대한 샘플 `PassiveRequestorEndpoint` 요소를 보여줍니다.
+다음 메타데이터는 테넌트별 엔드포인트에 대한 샘플 `PassiveRequestorEndpoint` 요소를 보여줍니다.
 
 ```
 <fed:PassiveRequestorEndpoint>
@@ -123,7 +123,7 @@ https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db45/wsfed
 </EndpointReference>
 </fed:PassiveRequestorEndpoint>
 ```
-테넌트 독립적 끝점의 경우, 다음 예제와 같이 WS-Federation URL은 WS-Federation 끝점에 나타납니다.
+테넌트 독립적 엔드포인트의 경우, 다음 예제와 같이 WS-Federation URL은 WS-Federation 엔드포인트에 나타납니다.
 
 ```
 <fed:PassiveRequestorEndpoint>
@@ -135,12 +135,12 @@ https://login.microsoftonline.com/common/wsfed
 </fed:PassiveRequestorEndpoint>
 ```
 
-### <a name="saml-protocol-endpoint-url"></a>SAML 프로토콜 끝점 URL
-페더레이션 메타데이터는 SAML 2.0 프로토콜에서 단일 로그인 및 단일 로그아웃에 Azure AD가 사용하는 URL을 포함합니다. 이 끝점은 `IDPSSODescriptor` 요소에 나타납니다.
+### <a name="saml-protocol-endpoint-url"></a>SAML 프로토콜 엔드포인트 URL
+페더레이션 메타데이터는 SAML 2.0 프로토콜에서 단일 로그인 및 단일 로그아웃에 Azure AD가 사용하는 URL을 포함합니다. 이 엔드포인트는 `IDPSSODescriptor` 요소에 나타납니다.
 
 로그인 및 로그아웃 URL은 `SingleSignOnService` 및 `SingleLogoutService` 요소에 나타납니다.
 
-다음 메타데이터는 테넌트별 끝점에 대한 샘플 `PassiveResistorEndpoint` 를 보여줍니다.
+다음 메타데이터는 테넌트별 엔드포인트에 대한 샘플 `PassiveResistorEndpoint` 를 보여줍니다.
 
 ```
 <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -150,7 +150,7 @@ https://login.microsoftonline.com/common/wsfed
   </IDPSSODescriptor>
 ```
 
-마찬가지로 다음 샘플과 같이 일반 SAML 2.0 프로토콜 끝점에 대한 끝점은 테넌트 독립적 페더레이션 메타데이터에 게시됩니다.
+마찬가지로 다음 샘플과 같이 일반 SAML 2.0 프로토콜 엔드포인트에 대한 엔드포인트는 테넌트 독립적 페더레이션 메타데이터에 게시됩니다.
 
 ```
 <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">

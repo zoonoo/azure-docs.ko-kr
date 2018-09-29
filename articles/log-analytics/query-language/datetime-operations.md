@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 9b0c58fdbfb0d55b3b8998f4edfc1222b9a3d4aa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3a90fa5fb9eadd56b6b01306b251ff9581256bab
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988601"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161168"
 ---
 # <a name="working-with-date-time-values-in-log-analytics-queries"></a>Log Analytics 쿼리에서 날짜/시간 값 사용
 
@@ -47,7 +47,7 @@ timespan은 10진수 다음에 시간 단위를 사용해서 표현됩니다.
 |microsecond | microsecond  |
 |tick        | 나노초   |
 
-날짜/시간은 `todatetime` 연산자로 문자열을 캐스팅하여 만들 수 있습니다. 예를 들어, 특정 시간 범위에 전송된 VM 하트비트를 검토하려면 시간 범위를 지정하는 데 편리한 [between 연산자](https://docs.loganalytics.io/docs/Language-Reference/Scalar-operators/between-operator)를 사용할 수 있습니다.
+날짜/시간은 `todatetime` 연산자로 문자열을 캐스팅하여 만들 수 있습니다. 예를 들어, 특정 시간 범위에 전송된 VM 하트비트를 검토하려면 시간 범위를 지정하는 데 편리한 [between 연산자](/azure/kusto/query/betweenoperator)를 사용할 수 있습니다.
 
 ```Kusto
 Heartbeat
@@ -156,11 +156,11 @@ Event
 
 | Category | 함수 |
 |:---|:---|
-| 데이터 형식 변환 | [todatetime](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/todatetime())  [totimespan](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/totimespan())  |
-| 값을 bin 크기로 반올림 | [bin](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/bin()) |
-| 특정 날짜 또는 시간 가져오기 | [ago](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/ago()) [now](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/now())   |
-| 값의 부분 가져오기 | [datetime_part](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/datetime_part()) [getmonth](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/getmonth()) [monthofyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/monthofyear()) [getyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/getyear()) [dayofmonth](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/dayofmonth()) [dayofweek](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/dayofweek()) [dayofyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/dayofyear()) [weekofyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/weekofyear()) |
-| 값 기준으로 날짜 가져오기  | [endofday](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/endofday()) [endofweek](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/endofweek()) [endofmonth](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/endofmonth()) [endofyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/endofyear()) [startofday](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/startofday()) [startofweek](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/startofweek()) [startofmonth](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/startofmonth()) [startofyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/startofyear()) |
+| 데이터 형식 변환 | [todatetime](/azure/kusto/query/todatetimefunction)  [totimespan](/azure/kusto/query/totimespanfunction)  |
+| 값을 bin 크기로 반올림 | [bin](/azure/kusto/query/binfunction) |
+| 특정 날짜 또는 시간 가져오기 | [ago](/azure/kusto/query/agofunction) [now](/azure/kusto/query/nowfunction)   |
+| 값의 부분 가져오기 | [datetime_part](/azure/kusto/query/datetime-partfunction) [getmonth](/azure/kusto/query/getmonthfunction) [monthofyear](/azure/kusto/query/monthofyearfunction) [getyear](/azure/kusto/query/getyearfunction) [dayofmonth](/azure/kusto/query/dayofmonthfunction) [dayofweek](/azure/kusto/query/dayofweek) [dayofyear](/azure/kusto/query/dayofyearfunction) [weekofyear](/azure/kusto/query/weekofyearfunction) |
+| 값 기준으로 날짜 가져오기  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
 
 ## <a name="next-steps"></a>다음 단계
 Log Analytics 쿼리 언어를 사용에 대해서는 다른 단원을 참조하세요.

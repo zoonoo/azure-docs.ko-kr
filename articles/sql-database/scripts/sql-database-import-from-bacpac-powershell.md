@@ -2,26 +2,22 @@
 title: PowerShell 예제 BACPAC 파일 Azure SQL Database 가져오기 | Microsoft Docs
 description: SQL Database로 BACPAC 파일을 가져오는 Azure PowerShell 예제 스크립트
 services: sql-database
-documentationcenter: sql-database
-author: CarlRabeler
-manager: craigg
-editor: carlrab
-tags: azure-service-management
-ms.assetid: ''
 ms.service: sql-database
-ms.custom: load & move data, mvc
+ms.subservice: data-movement
+ms.custom: load & move data
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: sql-database
-ms.workload: database
-ms.date: 09/07/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 359de288534ae604b73ec125bc95ba7ce631364e
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/07/2018
+ms.openlocfilehash: 493880b713ba50fa7d5142dba9d54eda7c31cf51
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052203"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056355"
 ---
 # <a name="use-powershell-to-import-a-bacpac-file-into-an-azure-sql-database"></a>PowerShell을 사용하여 BACPAC 파일을 Azure SQL Database에 가져오기
 

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/22/2017
 ms.author: rafats
-ms.openlocfilehash: 4b469d306c4cd642e375e4eb15b0d26df828b308
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 76545c9953cff944c515e887a6a4214b9c76c501
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42023086"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038530"
 ---
 # <a name="introduction-to-azure-cosmos-db-sql-api"></a>Azure Cosmos DB 소개: SQL API
 
@@ -72,7 +72,7 @@ Azure Cosmos DB는 HTTP/HTTPS 요청을 수행할 수 있는 임의의 언어로
 | [Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) |[Java 라이브러리](/java/api/com.microsoft.azure.documentdb) |
 | [JavaScript SDK](https://github.com/Azure/azure-cosmos-js) |[JavaScript 라이브러리](https://github.com/Azure/azure-cosmos-js) |
 | 해당 없음 |[서버 쪽 JavaScript SDK](https://github.com/Azure/azure-cosmosdb-js-server) |
-| [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python 라이브러리](http://azure.github.io/azure-documentdb-python/) |
+| [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python 라이브러리](https://github.com/Azure/azure-cosmos-python) |
 | 해당 없음 | [MongoDB용 API](mongodb-introduction.md)
 
 

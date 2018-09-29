@@ -2,19 +2,22 @@
 title: Azure 분석에 대한 공용 데이터 집합 | Microsoft Docs
 description: Azure 분석 서비스 및 솔루션의 프로토타입을 생성하고 테스트를 수행하는 데 사용할 수 있는 공용 데이터 집합에 대해 알아봅니다.
 services: sql-database
-author: douglaslMS
-manager: craigg
-ms.custom: reference
 ms.service: sql-database
-ms.topic: conceptual
-ms.date: 04/01/2018
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
+ms.topic: reference
+author: douglaslMS
 ms.author: douglasl
-ms.openlocfilehash: be93dbff39c47ed1d8834efa3ef6c033525b4bea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 6977995fb33d221b48a633076f61d3ee39d6ba40
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648917"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160420"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>테스트 및 프로토타입 생성을 위한 공용 데이터 집합
 

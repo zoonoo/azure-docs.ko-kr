@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/30/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 8edb35b91327bde1fa824ec456b8a98962adb7ce
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1a18b6f627a28b912baeda6f180297dc703e665e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38634090"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031206"
 ---
 # <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>자습서: 지역 배포에 업데이트된 이미지 푸시
 
@@ -138,7 +138,7 @@ Webhook는 두 지역 웹앱에 업데이트된 컨테이너를 자동으로 배
 
 지역 복제 외에도 ACR Build는 컨테이너 배포 파이프라인을 최적화할 수 있는 Azure Container Registry의 또 다른 기능입니다. ACR Build 개요부터 시작하여 그 기능을 알아보세요.
 
-[ACR Build를 사용하여 OS 및 프레임워크 패치 자동화](container-registry-build-overview.md)
+[ACR Build를 사용하여 OS 및 프레임워크 패치 자동화](container-registry-tasks-overview.md)
 
 <!-- IMAGES -->
 [deployed-app-eastus-modified]: ./media/container-registry-tutorial-deploy-update/deployed-app-eastus-modified.png

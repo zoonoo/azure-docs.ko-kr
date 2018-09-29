@@ -16,11 +16,11 @@ ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
 ms.openlocfilehash: a92621d852ec60fb4773957d71dc6a55caaf991c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38674889"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092201"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱 만들기 
 
@@ -48,7 +48,7 @@ ms.locfileid: "38674889"
 
     a. **템플릿** 목록에서 **Visual C#** 노드를 확장합니다.
 
-    나. **클라우드**를 선택합니다.
+    b. **클라우드**를 선택합니다.
 
     다. **ASP.NET 웹 응용 프로그램**을 선택합니다.
 
@@ -245,7 +245,7 @@ ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그
     </table>
     ```
 
-## <a name="run-the-app-locally"></a>로컬에서 앱 실행
+## <a name="run-the-app-locally"></a>로컬에서 앱 실행하기
 
 기본적으로 프로젝트는 테스트 및 디버깅을 위해 [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview)에서 앱을 로컬로 호스팅하도록 구성됩니다.
 

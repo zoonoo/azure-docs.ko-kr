@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
 ms.openlocfilehash: c07a9d92cac13d6325e66f44426f1a64e8ac53cb
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35774062"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096203"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>역할 기반 Access Control을 사용하여 Azure 대시보드 공유
 대시보드를 구성한 후에는 이를 게시하고 조직 내의 다른 사용자와 공유할 수 있습니다. 다른 사람이 Azure [역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md)을 사용하여 대시보드를 볼 수 있도록 허용합니다. 역할에 사용자 또는 사용자 그룹을 할당하고 해당 역할이 사용자가 게시된 대시보드를 보거나 수정할 수 있는지 정의합니다. 

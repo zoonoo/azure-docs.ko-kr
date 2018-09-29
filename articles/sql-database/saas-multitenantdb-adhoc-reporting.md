@@ -1,24 +1,23 @@
 ---
 title: 여러 Azure SQL Database에 대해 임시 보고 쿼리 실행 | Microsoft Docs
 description: 다중 테넌트 앱 예에서 여러 SQL Database에 대해 임시 보고 쿼리를 실행합니다.
-keywords: SQL Database 자습서
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: na
+ms.subservice: scenario
+ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: AyoOlubeko
 ms.author: AyoOlubeko
-ms.openlocfilehash: 95ea5f2a40bd629384e1bc1f7d707eb30d9eaf5f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: sstein
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 5b1ceeac5d3887d5c199e642a0e26aa4ffab4452
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644276"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055441"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>여러 Azure SQL Database에 대해 임시 분석 쿼리 실행
 

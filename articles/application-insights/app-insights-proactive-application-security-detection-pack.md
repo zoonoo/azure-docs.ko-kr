@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: mbullwin
 ms.openlocfilehash: edfe2956da84347abf3e5da7a7d0fd448361c7f5
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35638868"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47091344"
 ---
 # <a name="application-security-detection-pack-preview"></a>응용 프로그램 보안 검색 팩(미리 보기)
 

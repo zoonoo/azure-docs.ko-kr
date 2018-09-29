@@ -2,24 +2,18 @@
 title: VMware에서 Azure로의 Azure Site Recovery Deployment Planner | Microsoft Docs
 description: 이 문서는 VMware에서 Azure로 시나리오에 대해 생성된 Azure Site Recovery Deployment Planner 보고서에 대한 분석을 설명합니다.
 services: site-recovery
-documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 2b4c603e9333f46498e3cd93f10208da2ed3c77b
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: d6851002ac9903b74cee53b42b83784ccfe957f3
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921255"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182035"
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Azure Site Recovery Deployment Planner 보고서
 생성된 Microsoft Excel 보고서에는 다음과 같은 시트가 포함되어 있습니다.

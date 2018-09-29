@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 0ad22562bd1f36bba7c0ab99fe504e82645033d3
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: dcdc84f100ce534ea517f0201b0c090c3059a318
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131413"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160932"
 ---
 # <a name="filters-in-log-analytics-views"></a>Log Analytics 보기의 필터
 [Log Analytics 보기](log-analytics-view-designer.md)에서 **필터**를 사용하면 사용자가 뷰 자체를 수정하지 않고 특정 속성의 값으로 뷰에서 데이터를 필터링할 수 있습니다.  예를 들어, 보기의 사용자가 특정 컴퓨터 또는 컴퓨터 집합의 데이터에 대한 보기를 필터링하도록 허용할 수 있습니다.  단일 보기에 여러 필터를 만들어서 사용자가 여러 속성별로 필터링하도록 허용할 수 있습니다.  이 문서에서는 필터를 사용하여 사용자 지정 보기에 추가하는 방법을 설명합니다.
@@ -49,7 +49,7 @@ ms.locfileid: "37131413"
 | 설정 | 설명 |
 |:---|:---|
 | 필드 이름 | 필터링에 사용되는 필드의 이름입니다.  **값에 대한 쿼리**에서 요약 필드와 일치해야 합니다. |
-| 값에 대한 쿼리 | 쿼리를 실행하여 사용자에 대한 필터 드롭다운을 채웁니다.  그러려면 [요약](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) 또는 [고유](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/distinct-operator) 중 하나를 사용하여 특정 필드에 대한 고유 값을 제공해야 하며 **필드 이름**과 일치해야 합니다.  [정렬](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator)을 사용하여 사용자에게 표시되는 값을 정렬할 수 있습니다. |
+| 값에 대한 쿼리 | 쿼리를 실행하여 사용자에 대한 필터 드롭다운을 채웁니다.  그러려면 [요약](/azure/kusto/query/summarizeoperator) 또는 [고유](/azure/kusto/query/distinctoperator) 중 하나를 사용하여 특정 필드에 대한 고유 값을 제공해야 하며 **필드 이름**과 일치해야 합니다.  [정렬](/azure/kusto/query/sortoperator)을 사용하여 사용자에게 표시되는 값을 정렬할 수 있습니다. |
 | 태그 | 필터를 지원하는 쿼리에서 사용되는 필터의 이름은 사용자에게도 표시됩니다. |
 
 ### <a name="examples"></a>예

@@ -10,11 +10,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/26/2017
 ms.openlocfilehash: 4c676ab3039a02a4fda27ab00312133e5de8077a
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35778618"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47090969"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업에 대한 경고 설정
 메트릭이 지정한 조건에 도달하면 경고를 트리거하도록 경고를 설정할 수 있습니다. 예를 들어 다음과 같은 조건에 대한 경고를 설정할 수 있습니다.

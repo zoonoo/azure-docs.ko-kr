@@ -2,20 +2,22 @@
 title: Python을 사용하여 Azure SQL Database 쿼리 | Microsoft Docs
 description: 이 항목에서는 Python을 사용하여 Azure SQL Database에 연결하고 Transact-SQL 문을 사용하여 쿼리하는 프로그램을 만드는 방법을 보여 줍니다.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,develop apps
+ms.subservice: development
+ms.custom: ''
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 07/02/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 2f907ccd371a9b2c4601a5ea266326a32c4f665d
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.reviewer: ''
+manager: craigg
+ms.date: 07/02/2018
+ms.openlocfilehash: b5b0c1dd6f241d9b76ff766adc221c3fcb36ee1a
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054936"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47062707"
 ---
 # <a name="use-python-to-query-an-azure-sql-database"></a>Python을 사용하여 Azure SQL Database 쿼리
 

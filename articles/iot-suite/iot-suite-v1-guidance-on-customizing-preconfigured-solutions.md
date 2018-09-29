@@ -1,12 +1,12 @@
 ---
-title: "미리 구성된 솔루션 사용자 지정 | Microsoft Docs"
-description: "미리 구성된 Azure IoT Suite 솔루션을 사용자 지정하는 방법에 대한 지침을 제공합니다."
-services: 
+title: 미리 구성된 솔루션 사용자 지정 | Microsoft Docs
+description: 미리 구성된 Azure IoT Suite 솔루션을 사용자 지정하는 방법에 대한 지침을 제공합니다.
+services: ''
 suite: iot-suite
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4653ae53-4110-4a10-bd6c-7dc034c293a8
 ms.service: iot-suite
 ms.devlang: dotnet
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: ba965b9bc23b96adb2b1b7c9306cb7f508f820bf
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: cb5955111cb3954f71f11602042b5153ccee3473
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47106551"
 ---
 # <a name="customize-a-preconfigured-solution"></a>미리 구성된 솔루션 사용자 지정
 
@@ -49,7 +50,7 @@ Azure IoT Suite와 함께 제공되는 미리 구성된 솔루션은 제품 내�
 4. 명령 집합에서 **중지**를 선택하여 작업을 중지합니다. 
 5. 입력, 쿼리 및 출력을 편집합니다.
    
-    수정을 간편하게 수행하려면 **">"** 대신 **"<"**를 사용하도록 **규칙** 작업에 대한 쿼리를 변경합니다. 규칙을 편집할 때 솔루션 포털에는 계속 **">"**가 표시되지만 기본 작업이 변경되어 동작이 반대로 수행됩니다.
+    수정을 간편하게 수행하려면 **">"** 대신 **"<"** 를 사용하도록 **규칙** 작업에 대한 쿼리를 변경합니다. 규칙을 편집할 때 솔루션 포털에는 계속 **">"** 가 표시되지만 기본 작업이 변경되어 동작이 반대로 수행됩니다.
 6. 작업 시작
 
 > [!NOTE]
@@ -195,7 +196,7 @@ public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodR
 }
 ```
 
-메서드 처리기 이름은 뒤에 메서드 이름이 오는 `On`으로 시작해야 합니다. **methodRequest** 매개 변수는 솔루션 백 엔드에서 메서드 호출을 통해 전달된 모든 매개 변수를 포함합니다. 반환 값은 **Task&lt;MethodResponse&gt;**의 형식이어야 합니다. **BuildMethodResponse** 유틸리티 메서드를 사용하면 반환 값을 만들 수 있습니다.
+메서드 처리기 이름은 뒤에 메서드 이름이 오는 `On`으로 시작해야 합니다. **methodRequest** 매개 변수는 솔루션 백 엔드에서 메서드 호출을 통해 전달된 모든 매개 변수를 포함합니다. 반환 값은 **Task&lt;MethodResponse&gt;** 의 형식이어야 합니다. **BuildMethodResponse** 유틸리티 메서드를 사용하면 반환 값을 만들 수 있습니다.
 
 메서드 처리기 내에서 다음 작업을 할 수 있습니다.
 
@@ -252,4 +253,4 @@ public async Task<MethodResponse> OnInitiateFirmwareUpdate(MethodRequest methodR
 [lnk-telemetry-api-controller-02]: https://github.com/Azure/azure-iot-remote-monitoring/blob/e7003339f73e21d3930f71ceba1e74fb5c0d9ea0/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L25 
 [lnk-sample-device-factory]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Common/Factory/SampleDeviceFactory.cs#L40
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
-[lnk-cf-customize]: iot-suite-connected-factory-customize.md
+[lnk-cf-customize]:../iot-accelerators/iot-accelerators-connected-factory-customize.md

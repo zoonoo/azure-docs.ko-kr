@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: f8d92c5d01e977fc64e823a0229b5f2ede944743
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d72faa99c15fdbebb299e416fd902bae261f31f9
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985654"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221182"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>가상 네트워크 만들기, 변경 또는 삭제
 
@@ -89,7 +89,7 @@ ms.locfileid: "46985654"
     - **속성:** 가상 네트워크의 리소스 ID 및 해당 Azure 구독을 포함하여 가상 네트워크에 대한 설정을 표시합니다.
     - **다이어그램:** 가상 네트워크에 연결된 모든 장치를 시각적으로 보여 줍니다. 다이어그램에는 장치에 대한 몇 가지 중요한 정보가 있습니다. 이 보기에서 장치를 관리하려면 다이어그램에서 장치를 선택합니다.
     - **일반적인 Azure 설정**: 일반적인 Azure 설정에 대한 자세한 내용은 다음 정보를 참조하세요.
-        *   [활동 로그](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
+        *   [활동 로그](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
         *   [액세스 제어(IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
         *   [태그](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
         *   [잠금](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 09/24/2018
-ms.openlocfilehash: 2c5b4607fda6bc3c6b990096feb55da7a3886b8e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 412871c0c692f60e690f61fa4e6f67f836cd3ef7
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959872"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158210"
 ---
 # <a name="collect-data-for-models-in-production"></a>프로덕션 환경에서 모델용 데이터 수집
 
@@ -43,7 +43,7 @@ Blob에서 출력 데이터의 경로 형식은 다음 구문을 따릅니다.
 
 ```
 /modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<identifier>/<year>/<month>/<day>/data.csv
-# example: /modeldata/92c76a2f-0e1c-4216-b65e-abf7a3f34c1e/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
+# example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
 ```
 
 ## <a name="prerequisites"></a>필수 조건

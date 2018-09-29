@@ -4,18 +4,18 @@ description: 단어 또는 구의 LUIS 레이블 변형에 유용한 목록 엔�
 services: cognitive-services
 author: diberry
 titleSuffix: Azure
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: diberry
-ms.openlocfilehash: 12a6cfbe7267d3575fbb33978d7ea6e743802d12
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 42fde2b24f851129e24257bbfe6d65a96e235485
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237165"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036782"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>엔터티 검색을 높이기 위한 목록 엔터티 사용 
 이 자습서에서는 엔터티 검색을 높이기 위한 [목록 엔터티](luis-concept-entity-types.md) 사용을 설명합니다. 목록 엔터티는 용어가 정확히 일치하므로 레이블을 지정할 필요가 없습니다.  

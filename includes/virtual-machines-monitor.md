@@ -1,4 +1,4 @@
-진단 및 로그 데이터를 수집, 보기 및 분석하여 VM을 모니터링하는 데 많은 기회를 활용할 수 있습니다. VM의 간단한 [모니터링](../articles/monitoring-and-diagnostics/monitoring-overview-azure-monitor.md)을 수행하려면 Azure Portal에서 VM에 대한 개요 화면을 사용할 수 있습니다. [확장](../articles/virtual-machines/windows/extensions-features.md)을 사용하여 추가 메트릭 데이터를 수집하도록 VM에서 진단을 구성할 수 있습니다. [Application Insights](../articles/application-insights/app-insights-overview.md) 및 [Log Analytics](../articles/log-analytics/log-analytics-overview.md)와 같은 더 많은 고급 모니터링 옵션을 사용할 수도 있습니다.
+진단 및 로그 데이터를 수집, 보기 및 분석하여 VM을 모니터링하는 데 많은 기회를 활용할 수 있습니다. VM의 간단한 [모니터링](../articles/azure-monitor/overview.md)을 수행하려면 Azure Portal에서 VM에 대한 개요 화면을 사용할 수 있습니다. [확장](../articles/virtual-machines/windows/extensions-features.md)을 사용하여 추가 메트릭 데이터를 수집하도록 VM에서 진단을 구성할 수 있습니다. [Application Insights](../articles/application-insights/app-insights-overview.md) 및 [Log Analytics](../articles/log-analytics/log-analytics-queries.md)와 같은 더 많은 고급 모니터링 옵션을 사용할 수도 있습니다.
 
 ## <a name="diagnostics-and-metrics"></a>진단 및 메트릭 
 
@@ -16,7 +16,7 @@ Azure Portal, Azure CLI, Azure PowerShell 및 프로그래밍 API(응용 프로�
 
     수집된 진단 데이터를 사용하여 VM에 대한 자동 크기 조정을 구성할 수 있습니다. 데이터를 저장하고 성능이 정확하지 않을 때 알려주는 경고를 설정하도록 로그를 구성할 수 있습니다.
 
-## <a name="alerts"></a>Alerts
+## <a name="alerts"></a>경고
 
 특정 성능 메트릭을 기반으로 하는 [경고](../articles/monitoring-and-diagnostics/monitoring-overview-alerts.md)를 만들 수 있습니다. 경고를 받을 수 있는 경우의 예는 평균 CPU 사용량이 특정 임계값을 초과하거나 사용 가능한 디스크 공간이 일정량 이하로 떨어지는 경우를 포함합니다. [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md) 또는 [Azure CLI](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md)를 사용하여 [Azure Portal](../articles/monitoring-and-diagnostics/insights-alerts-portal.md)에서 경고를 구성할 수 있습니다.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: juluk
-ms.openlocfilehash: 5087b8a1d675fb6fb2bbfb2b46a09c215bf5e9ae
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2184d006bb99d57f50e71c0096d68b7a0b69a219
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998766"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162290"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Azure Cloud Shell에 대한 기능 및 도구
 
@@ -44,7 +44,7 @@ Cloud Shell은 Azure CLI 및 Azure PowerShell에 대한 계정 액세스를 안�
 
 ### <a name="azure-drive-azure"></a>Azure 드라이브(Azure:)
 
-Azure Cloud Shell의 PowerShell(미리 보기)은 Azure 드라이브(`Azure:`)에서 시작됩니다.
+Azure Cloud Shell의 PowerShell은 Azure 드라이브(`Azure:`)에서 시작됩니다.
 Azure 드라이브는 파일 시스템 탐색과 비슷하게 Compute, 네트워크, Storage 등과 같은 Azure 리소스를 쉽게 검색 및 탐색할 수 있습니다.
 사용하는 드라이브에 관계 없이 이러한 리소스를 관리하기 위해 친숙한 [Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azure)을 계속 사용할 수 있습니다.
 Azure Portal에서 또는 Azure PowerShell cmdlet을 통해 직접 만들어진 Azure 리소스에 대한 변경 내용은 Azure 드라이브에 반영됩니다.  `dir -Force`를 실행하여 리소스를 새로 고칠 수 있습니다.
@@ -81,6 +81,6 @@ Cloud Shell은 Terraform, Ansible, Chef InSpec 같은 오픈 소스 도구를 �
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Cloud Shell의 Bash 빠른 시작](quickstart.md) <br>
-[Cloud Shell의 PowerShell(미리 보기) 빠른 시작](quickstart-powershell.md) <br>
-[Azure CLI에 대한 자세한 정보](https://docs.microsoft.com/cli/azure/) <br>
+[Cloud Shell의 PowerShell 빠른 시작](quickstart-powershell.md) <br>
+[Azure CLI 2.0에 대한 자세한 정보](https://docs.microsoft.com/cli/azure/) <br>
 [Microsoft Azure PowerShell에 관해 알아보기](https://docs.microsoft.com/powershell/azure/) <br>
