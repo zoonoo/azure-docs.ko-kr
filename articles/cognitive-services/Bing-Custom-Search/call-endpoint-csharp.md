@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 32644fe0cf0a6e1666d2d1ee6efb826bf753f001
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: ed00b75fa956d0197d3672d84b097f99ec3c35ec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42814866"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956389"
 ---
 # <a name="call-bing-custom-search-endpoint-c"></a>Bing Custom Search 엔드포인트 호출(C#)
 
@@ -22,31 +22,32 @@ ms.locfileid: "42814866"
 
 ## <a name="prerequisites"></a>필수 조건
 
--  바로 사용할 수 있는 사용자 지정 검색 인스턴스. [처음으로 Bing Custom Search 인스턴스 만들기](quick-start.md)를 참조하세요.
--  [.Net Core](https://www.microsoft.com/net/download/core)가 설치됨
-- [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 및 **Bing Search API**. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)이면 충분합니다. 평가판을 활성화할 때 제공된 액세스 키가 필요하며, Azure 대시보드에서 유료 구독 키를 사용해도 됩니다.  
+이 빠른 시작을 완료하려면 다음이 필요합니다.
 
-  >[!NOTE]  
-  >2017년 10월 15일 또는 그 이전에 프로비전된 미리 보기 키를 보유한 기존 Bing Custom Search 고객은 2017년 11월 30일까지 또는 허용되는 최대 쿼리 수를 모두 사용할 때까지 해당 키를 사용할 수 있습니다. 그 후에는 Azure의 일반 공급 버전으로 마이그레이션해야 합니다. 
- 
+- 바로 사용할 수 있는 사용자 지정 검색 인스턴스. [처음으로 Bing Custom Search 인스턴스 만들기](quick-start.md)를 참조하세요.
+- [.Net Core](https://www.microsoft.com/net/download/core)가 설치됨
+- 구독 키 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)을 정품 인증하면 구독 키를 받을 수 있습니다. Azure 대시보드에서 유료 구독 키를 사용할 수도 있습니다([Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 참조).    
+
+
 ## <a name="run-the-code"></a>코드 실행
 
 이 예제를 실행하려면 다음 단계를 수행합니다.
 
-1. 코드 폴더를 만듭니다.
-2. 명령 프롬프트 또는 터미널에서, 방금 만든 폴더로 이동합니다.
+1. 코드 폴더를 만듭니다.  
+  
+2. 명령 프롬프트 또는 터미널에서, 방금 만든 폴더로 이동합니다.  
+  
 3. 다음 명령을 실행합니다.
     ```
     dotnet new console -o BingCustomSearch
     cd BingCustomSearch
     dotnet add package Newtonsoft.Json
     dotnet restore
-   ```
+    ```
+  
+4. Program.cs에 다음 코드를 복사합니다. **YOUR-SUBSCRIPTION-KEY** 및 **YOUR-CUSTOM-CONFIG-ID**는 실제 구독 키와 구성 ID로 바꿉니다.
 
-4. Program.cs에 다음 코드를 복사합니다.
-5. **YOUR-SUBSCRIPTION-KEY** 및 **YOUR-CUSTOM-CONFIG-ID**를 해당 키 및 구성 ID로 바꿉니다.
-
-    ``` CSharp
+    ```csharp
     using System;
     using System.Net.Http;
     using System.Web;
@@ -124,7 +125,7 @@ ms.locfileid: "42814866"
     dotnet build 
     </pre>
     
-7. 다음 명령을 사용하여 응용 프로그램을 실행합니다. 이때 **PATH TO OUTPUT**을 빌드 단계에서 참조되는 경로로 바꿉니다.
+7. 다음 명령을 사용하여 응용 프로그램을 실행합니다. 이때 **PATH TO OUTPUT**을 6단계에서 참조되는 DLL 경로로 바꿉니다.
 
     <pre>    
     dotnet **PATH TO OUTPUT**
