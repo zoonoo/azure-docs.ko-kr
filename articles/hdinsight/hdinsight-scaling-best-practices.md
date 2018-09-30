@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: ashish
-ms.openlocfilehash: d554cdf5e89898874811ea113985fac4b332fac6
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 93eb6fb0da86909dfc880db2a9bb2331abe4418a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109934"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948131"
 ---
 # <a name="scale-hdinsight-clusters"></a>HDInsight 클러스터 크기 조정
 
@@ -28,11 +28,13 @@ HDInsight는 클러스터의 작업자 노드 수를 증가 및 감소하는 옵
     Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
     ```
     
-* [Azure CLI](hdinsight-administer-use-command-line.md)를 통해 클러스터 크기를 조정하려면
+* [Azure 클래식 CLI](hdinsight-administer-use-command-line.md)를 통해 클러스터 크기를 조정하려면:
 
     ```
     azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
     ```
+
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
     
 * [Azure Portal](https://portal.azure.com)을 통해 클러스터 크기를 조정하려면 HDInsight 클러스터 창을 열고, 왼쪽 메뉴에서 **클러스터 크기 조정**을 선택한 다음, 클러스터 크기 조정 창에서 작업자 노드 수를 입력한 후 저장을 선택합니다.
 

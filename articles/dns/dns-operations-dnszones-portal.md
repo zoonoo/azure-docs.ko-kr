@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: victorh
-ms.openlocfilehash: ca9d03cb14e79b23ccc2021e0a31650eb9bbd95b
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: a9325dff84635955600bc78687ec0156495ae893
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171241"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954384"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Azure Portal에서 DNS 영역을 관리하는 방법
 
 > [!div class="op_single_selector"]
 > * [포털](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
-> * [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
-> * [Azure CLI 2.0](dns-operations-dnszones-cli.md)
+> * [Azure 클래식 CLI](dns-operations-dnszones-cli-nodejs.md)
+> * [Azure CLI](dns-operations-dnszones-cli.md)
 
 이 문서는 Azure Portal을 사용하여 DNS 영역을 관리하는 방법을 보여줍니다. 플랫폼 간 [Azure CLI](dns-operations-dnszones-cli.md) 또는 Azure [PowerShell](dns-operations-dnszones.md)을 사용하여 DNS 영역을 관리할 수도 있습니다.
 

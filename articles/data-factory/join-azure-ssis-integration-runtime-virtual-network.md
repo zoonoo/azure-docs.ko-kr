@@ -13,19 +13,19 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d89abfd0ec2ae5de8366a12bb38d9358aa8ab76d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a9a4b7728eff3057b9677d12df51cc8c477744ca
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140147"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953942"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 다음 시나리오에서 Azure-SSIS IR(통합 런타임)을 Azure 가상 네트워크에 조인합니다. 
 
 - Azure-SSIS 통합 런타임에서 실행되는 SSIS 패키지에서 온-프레미스 데이터 저장소에 연결하려고 합니다. 
 
-- 가상 네트워크 서비스 엔드포인트/Managed Instance(미리 보기)를 사용하여 Azure SQL Database에서 SSIS(SQL Server Integration Services) 카탈로그 데이터베이스를 호스팅하고 있습니다. 
+- 가상 네트워크 서비스 엔드포인트/Managed Instance를 사용하여 Azure SQL Database에서 SSIS(SQL Server Integration Services) 카탈로그 데이터베이스를 호스팅하고 있습니다. 
 
  Azure Data Factory를 사용하면 클래식 배포 모델 또는 Azure Resource Manager 배포 모델을 통해 만들어진 가상 네트워크에 Azure SSIS 통합 런타임을 조인할 수 있습니다. 
 
@@ -42,14 +42,13 @@ SSIS 패키지가 공용 클라우드 데이터 저장소에만 액세스하는 
  
 - 온-프레미스 네트워크에 연결된 기존 Azure Resource Manager 가상 네트워크가 Azure-SSIS IR과 다른 위치에 있는 경우, 먼저 Azure-SSIS IR에서 조인할 [Azure Resource Manager 가상 네트워크](../virtual-network/quick-create-portal.md##create-a-virtual-network)를 만듭니다. 그런 다음, Azure Resource Manager-Azure Resource Manager 가상 네트워크 연결을 구성합니다. 또는 Azure-SSIS IR에서 조인할 [클래식 가상 네트워크](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)를 만들 수 있습니다. 그런 다음, [클래식-Azure Resource Manager 가상 네트워크](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) 연결을 구성합니다. 
 
-## <a name="host-the-ssis-catalog-database-in-azure-sql-database-with-virtual-network-service-endpointsmanaged-instance-preview"></a>가상 네트워크 서비스 엔드포인트/Managed Instance(미리 보기)를 사용하여 Azure SQL Database에서 SSIS 카탈로그 데이터베이스를 호스팅합니다.
-SSIS 카탈로그가 가상 네트워크 서비스 엔드포인트 또는 Managed Instance(미리 보기)를 사용하여 Azure SQL Database에서 호스팅되는 경우 다음에 Azure-SSIS IR을 조인할 수 있습니다. 
+## <a name="host-the-ssis-catalog-database-in-azure-sql-database-with-virtual-network-service-endpointsmanaged-instance"></a>가상 네트워크 서비스 엔드포인트/Managed Instance를 사용하여 Azure SQL Database에서 SSIS 카탈로그 데이터베이스를 호스팅합니다.
+SSIS 카탈로그가 가상 네트워크 서비스 엔드포인트 또는 Managed Instance를 사용하여 Azure SQL Database에서 호스팅되는 경우 다음에 Azure-SSIS IR을 조인할 수 있습니다. 
 
 - 동일한 가상 네트워크 
-- 가상 네트워크 서비스 엔드포인트/Managed Instance(미리 보기)를 사용하여 Azure SQL Database에서 사용되는 가상 네트워크와의 네트워크 간 연결이 설정된 다른 가상 네트워크 
+- 가상 네트워크 서비스 엔드포인트/Managed Instance를 사용하여 Azure SQL Database에서 사용되는 가상 네트워크와의 네트워크 간 연결이 설정된 다른 가상 네트워크 
 
-Azure-SSIS IR을 Managed Instance와 동일한 가상 네트워크에 조인하는 경우에는 Azure-SSIS IR이 Managed Instance와 다른 서브넷에 있어야 합니다. Azure-SSIS IR을 Managed Instance와 다른 가상 네트워크에 조인하는 경우에는 가상 네트워크 피어링(동일한 지역으로 제한됨) 또는 가상 네트워크에서 가상 네트워크로 연결을 사용하는 것이 좋습니다. 
-  [응용 프로그램을 Azure SQL Database Managed Instance에 연결](../sql-database/sql-database-managed-instance-connect-app.md)을 참조하세요.
+Azure-SSIS IR을 Managed Instance와 동일한 가상 네트워크에 조인하는 경우에는 Azure-SSIS IR이 Managed Instance와 다른 서브넷에 있어야 합니다. Azure-SSIS IR을 Managed Instance와 다른 가상 네트워크에 조인하는 경우에는 가상 네트워크 피어링(동일한 지역으로 제한됨) 또는 가상 네트워크에서 가상 네트워크로 연결을 사용하는 것이 좋습니다. [응용 프로그램을 Azure SQL Database Managed Instance에 연결](../sql-database/sql-database-managed-instance-connect-app.md)을 참조하세요.
 
 가상 네트워크는 클래식 배포 모델 또는 Azure Resource Manager 배포 모델을 통해 배포할 수 있습니다.
 
@@ -73,7 +72,7 @@ Azure-SSIS IR을 Managed Instance와 동일한 가상 네트워크에 조인하�
 
 -   선택한 서브넷에 Azure-SSIS IR에 사용할 수 있는 충분한 주소 공간이 있는지 확인합니다. 사용 가능한 IP 주소를 IR 노드 수의 2배 이상으로 유지합니다. Azure는 각 서브넷 내의 일부 IP 주소를 예약하며, 이러한 주소는 사용할 수 없습니다. 서브넷의 첫 번째 및 마지막 IP 주소는 Azure 서비스에 사용되는 3개 이상의 주소와 함께 프로토콜 적합성을 위해 예약됩니다. 자세한 내용은 [이러한 서브넷 내에서 IP 주소를 사용하는데 제한 사항이 있습니까?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)를 참조하세요. 
 
--   다른 Azure 서비스(예: SQL Database Managed Instance(미리 보기), App Service 등)에서 단독으로 사용하는 서브넷은 사용하지 않습니다. 
+-   다른 Azure 서비스(예: SQL Database Managed Instance, App Service 등)에서 단독으로 사용하는 서브넷은 사용하지 않습니다. 
 
 ### <a name="dns_server"></a> 도메인 이름 서비스 서버 
 Azure-SSIS 통합 런타임에서 조인된 가상 네트워크에서 고유한 DNS(도메인 이름 서비스) 서버를 사용해야 하는 경우 공용 Azure 호스트 이름(예: Azure Storage Blob 이름, `<your storage account>.blob.core.windows.net`)을 확인할 수 있는지 확인합니다 . 
@@ -93,7 +92,7 @@ Azure-SSIS 통합 런타임에 사용되는 서브넷에 대해 NSG(네트워크
 |---|---|---|---|---|---|---|
 | 인바운드 | TCP | 인터넷 | * | VirtualNetwork | 29876, 29877(IR을 Azure Resource Manager 가상 네트워크에 조인하는 경우) <br/><br/>10100, 20100, 30100(IR을 클래식 가상 네트워크에 조인하는 경우)| Data Factory 서비스는 이러한 포트를 사용하여 가상 네트워크의 Azure-SSIS 통합 런타임 노드와 통신합니다. <br/><br/> 서브넷 수준 NSG를 만들든 그렇지 않든, Data Factory는 Azure-SSIS IR을 호스트하는 가상 머신에 연결된 NIC(네트워크 인터페이스 카드)의 수준에서 항상 NSG를 구성합니다. 지정된 포트에서 Data Factory IP 주소의 인바운드 트래픽만 해당 NIC 수준 NSG에서 허용됩니다. 서브넷 수준에서 인터넷 트래픽에 대해 이러한 포트를 여는 경우라도 Data Factory IP 주소가 아닌 IP 주소에서의 트래픽은 NIC 수준에서 차단됩니다. |
 | 아웃바운드 | TCP | VirtualNetwork | * | 인터넷 | 443 | 가상 네트워크의 Azure-SSIS 통합 런타임 노드는 이 포트를 사용하여 Azure 서비스(예: Azure Storage, Azure Event Hubs)에 액세스합니다. |
-| 아웃바운드 | TCP | VirtualNetwork | * | 인터넷 또는 SQL | 1433, 11000-11999, 14000-14999 | 가상 네트워크의 Azure-SSIS 통합 런타임 노드는 이러한 포트를 사용하여 Azure SQL Database 서버가 호스트하는 SSISDB에 액세스합니다. Managed Instance(미리 보기)가 호스트하는 SSISDB에는 이 목적이 적용되지 않습니다. |
+| 아웃바운드 | TCP | VirtualNetwork | * | 인터넷 또는 SQL | 1433, 11000-11999, 14000-14999 | 가상 네트워크의 Azure-SSIS 통합 런타임 노드는 이러한 포트를 사용하여 Azure SQL Database 서버가 호스트하는 SSISDB에 액세스합니다. Managed Instance가 호스트하는 SSISDB에는 이 목적이 적용되지 않습니다. |
 ||||||||
 
 ### <a name="route"></a> Azure ExpressRoute 또는 사용자 정의 경로 사용
@@ -358,6 +357,6 @@ Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupNa
 Azure-SSIS 런타임에 대한 자세한 내용은 다음 항목을 참조하세요. 
 - [Azure-SSIS 통합 런타임](concepts-integration-runtime.md#azure-ssis-integration-runtime). 이 문서에서는 Azure-SSIS IR을 비롯한 일반적인 통합 런타임에 대한 개념 정보를 제공합니다. 
 - [자습서: Azure에 SSIS 패키지 배포](tutorial-create-azure-ssis-runtime-portal.md). 이 문서에서는 Azure-SSIS IR을 만드는 단계별 지침을 제공합니다. Azure SQL Database를 사용하여 SSIS 카탈로그를 호스트합니다. 
-- [Azure-SSIS 통합 런타임을 만듭니다](create-azure-ssis-integration-runtime.md). 자습서의 내용을 보충하는 이 문서에서는 가상 네트워크 서비스 엔드포인트/Managed Instance(미리 보기)로 Azure SQL Database를 사용하여 SSIS 카탈로그에 호스팅하고 IR을 가상 네트워크에 조인하는 방법에 대한 지침을 제공합니다. 
+- [Azure-SSIS 통합 런타임을 만듭니다](create-azure-ssis-integration-runtime.md). 자습서의 내용을 보충하는 이 문서에서는 가상 네트워크 서비스 엔드포인트/Managed Instance로 Azure SQL Database를 사용하여 SSIS 카탈로그에 호스팅하고 IR을 가상 네트워크에 조인하는 방법에 대한 지침을 제공합니다. 
 - [Azure-SSIS IR 모니터링](monitor-integration-runtime.md#azure-ssis-integration-runtime). 이 문서는 Azure-SSIS IR에 대한 정보와 반환된 정보의 상태 설명을 검색하는 방법을 설명합니다. 
 - [Azure-SSIS IR 관리](manage-azure-ssis-integration-runtime.md). 이 문서는 Azure-SSIS IR을 중지, 시작 또는 제거하는 방법을 설명합니다. 또한 노드를 추가하여 Azure-SSIS IR을 규모 확장하는 방법을 보여줍니다. 

@@ -11,14 +11,17 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: a68e7cfe2966592861f3fb58c99327c5849a6004
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 6b5a45bfcfc02c6b313e868fb3ba037ce3ba48c9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721605"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967577"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Azure Functions의 Mobile Apps 바인딩 
+
+> [!NOTE]
+> Azure Mobile Apps 바인딩은 Azure Functions 1.x에만 사용할 수 있습니다. 이는 Azure Functions 2.x에서 지원되지 않습니다.
 
 이 문서에서는 Azure Functions에서 [Azure Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) 바인딩을 사용하여 작업하는 방법을 설명합니다. Azure Functions는 Mobile Apps에 대한 입력 및 출력 바인딩을 지원합니다.
 
@@ -31,12 +34,6 @@ Mobile Apps 바인딩을 사용하면 모바일 앱에서 데이터 테이블을
 Mobile Apps는 [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet 패키지 버전 1.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/) GitHub 리포지토리에 있습니다.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
-
-## <a name="packages---functions-2x"></a>패키지 - Functions 2.x
-
-Mobile Apps는 [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet 패키지 버전 3.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/) GitHub 리포지토리에 있습니다.
-
-[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="input"></a>입력
 

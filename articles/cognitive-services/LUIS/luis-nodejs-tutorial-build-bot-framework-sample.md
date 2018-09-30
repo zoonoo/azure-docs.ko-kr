@@ -1,5 +1,6 @@
 ---
-title: Azure에서 Node.js용 Bot Builder SDK를 사용하여 봇과 LUIS 통합 | Microsoft Docs
+title: Node.js를 사용하는 LUIS 봇 - 웹앱 봇 - Bot Framework SDK 3.0
+titleSuffix: Azure Cognitive Services
 description: Bot Framework를 사용하여 LUIS 응용 프로그램과 통합된 봇을 빌드합니다.
 services: cognitive-services
 author: diberry
@@ -7,18 +8,18 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 6d6937105b11d94138b51660dc9f3c5e682e19bc
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 4967c6c8eb9f849006beb78cfd2e41eba53b6867
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224078"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952973"
 ---
-# <a name="integrate-luis-with-a-bot-using-the-bot-builder-sdk-for-nodejs"></a>Node.js용 Bot Builder SDK를 사용하여 봇과 LUIS 통합
+# <a name="luis-bot-in-nodejs"></a>Node.js의 LUIS 봇
 
-이 자습서에서는 LUIS 앱과 통합된 [Bot Framework][BotFramework]를 사용하여 봇을 빌드하는 과정을 안내합니다.
+Node.js를 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합니다. 이 챗봇은 사전 빌드된 HomeAutomation 도메인을 사용하여 신속하게 봇 솔루션을 구현합니다. 이 봇은 Bot Framework 3.x 및 Azure 웹앱 봇을 사용하여 빌드됩니다.
 
 ## <a name="prerequisite"></a>필수 요소
 
@@ -45,7 +46,10 @@ ms.locfileid: "39224078"
 3. **Bot Service** 블레이드에서 필요한 정보를 제공하고 **만들기**를 선택합니다. 이렇게 하면 Bot Service 및 LUIS 앱이 만들어지고 Azure에 배포됩니다. [음성 초기화](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)를 사용하려면 봇을 만들기 전에 [지역 요구 사항](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming)을 검토합니다. 
     * **앱 이름**을 봇 이름으로 설정합니다. 이 이름은 봇이 클라우드에 배포될 때 하위 도메인으로 사용됩니다(예: mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * 구독, [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App Service 계획 및 [위치](https://azure.microsoft.com/regions/)를 선택합니다.
-    * **봇 템플릿** 필드에 **Language Understanding(Node.js)** 템플릿을 선택합니다.
+    * **봇 템플릿**의 경우 다음을 선택합니다.
+        * **SDK v3**
+        * **Node.JS**
+        * **언어 이해**
     * **LUIS 앱 위치**를 선택합니다. 이것은 앱이 생성된 작성 [지역][LUIS]입니다.
     * 법적 고지 사항의 확인 확인란을 선택합니다. 법적 고지 사항의 조건은 확인란 아래에 있습니다.
 

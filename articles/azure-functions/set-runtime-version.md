@@ -9,31 +9,28 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: glenga
-ms.openlocfilehash: ced4b6846d291bfbb718c3346ea588ca9e961d07
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 889a5a40409238462ee81d3bbd51ac6b77d28173
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093705"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947491"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Azure Functions 런타임 버전을 대상으로 지정하는 방법
 
 함수 앱은 특정 Azure Functions 런타임 버전에서 실행됩니다. [1.x와 2.x](functions-versions.md)의 두 가지 주요 버전이 있습니다. 이 문서에는 선택한 버전에서 실행할 함수 앱을 Azure에서 구성하는 방법을 설명합니다. 특정 버전에 대한 로컬 개발 환경을 구성하는 방법에 대한 자세한 내용은 [로컬로 Azure Functions 코딩 및 테스트](functions-run-local.md)를 참조하세요.
 
->[!IMPORTANT]   
-> Azure Functions 런타임 2.0은 미리 보기 상태이며 현재 Azure Functions의 일부 기능은 지원되지 않습니다. 자세한 내용은 [Azure Functions 런타임 버전 개요](functions-versions.md)를 참조하세요.
-
 ## <a name="automatic-and-manual-version-updates"></a>자동 및 수동 버전 업데이트
 
 Functions를 통해 함수 앱에서 `FUNCTIONS_EXTENSION_VERSION` 응용 프로그램 설정을 사용하여 특정 버전의 런타임을 대상으로 지정할 수 있습니다. 함수 앱을 새 버전으로 변경하도록 명시적으로 선택할 때까지 지정된 주 버전에서 유지합니다.
 
-주 버전(1.x의 경우 "~1" 또는 2.x의 경우 "beta")만 지정하면 새로운 런타임 부 버전을 사용할 수 있을 때 함수 앱이 해당 런타임으로 자동 업데이트됩니다. 새로운 부 버전에는 주요 변경 내용이 도입되지 않습니다. 부 버전(예: "1.0.11360")을 지정하면 사용자가 명시적으로 변경할 때까지 함수 앱이 해당 버전을 유지합니다. 
+주 버전(2.x의 경우 "~2", 1.x의 경우 "~1")만 지정하면 새로운 런타임 부 버전을 사용할 수 있을 때 함수 앱이 해당 런타임으로 자동 업데이트됩니다. 새로운 부 버전에는 주요 변경 내용이 도입되지 않습니다. 부 버전(예: "2.0.12345")을 지정하면 사용자가 명시적으로 변경할 때까지 함수 앱이 해당 버전을 유지합니다. 
 
 새 버전을 공개적으로 사용할 수 있으면 포털에서 메시지를 표시하여 해당 버전으로 업그레이드할 수 있는 기회를 제공합니다. 새 버전으로 변경한 후에 `FUNCTIONS_EXTENSION_VERSION` 응용 프로그램 설정을 사용하여 이전 버전으로 다시 변경할 수 있습니다.
 
 런타임 버전을 변경하면 함수 앱을 다시 시작하게 됩니다.
 
-자동 업데이트를 사용하기 위해 `FUNCTIONS_EXTENSION_VERSION` 앱 설정에서 설정할 수 있는 값은 현재 1.x 런타임의 경우 "~ 1"이고 2.x의 경우 "beta"입니다.
+자동 업데이트를 사용하기 위해 `FUNCTIONS_EXTENSION_VERSION` 앱 설정에서 설정할 수 있는 값은 현재 1.x 런타임의 경우 "~1"이고 2.x의 경우 "~2"입니다.
 
 ## <a name="view-the-current-runtime-version"></a>현재 런타임 버전 보기
 
@@ -55,7 +52,7 @@ Functions를 통해 함수 앱에서 `FUNCTIONS_EXTENSION_VERSION` 응용 프로
 
     ![함수 앱 설정을 선택합니다.](./media/functions-versions/add-update-app-setting1a.png)
 
-2. **응용 프로그램 설정** 탭에서 `FUNCTIONS_EXTENSION_VERSION` 설정을 찾고, 1.x 런타임의 유효한 버전 또는 버전 2.0의 `beta`로 값을 변경합니다. 주 버전의 물결표는 해당 주 버전의 최신 버전(예: "~ 1")을 사용한다는 의미입니다. 
+2. **응용 프로그램 설정** 탭에서 `FUNCTIONS_EXTENSION_VERSION` 설정을 찾고, 1.x 런타임의 유효한 버전 또는 버전 2.0의 `~2`로 값을 변경합니다. 주 버전의 물결표는 해당 주 버전의 최신 버전(예: "~ 1")을 사용한다는 의미입니다. 
 
     ![함수 앱 설정 지정](./media/functions-versions/add-update-app-setting2.png)
 
@@ -70,7 +67,7 @@ az functionapp config appsettings set --name <function_app> \
 --resource-group <my_resource_group> \
 --settings FUNCTIONS_EXTENSION_VERSION=<version>
 ```
-이 코드에서 `<function_app>`을 함수 앱 이름으로 바꿉니다. 또한 `<my_resource_group>`을 함수 앱의 리소스 그룹 이름으로 바꿉니다. `<version>`을 1.x 런타임의 유효한 버전 또는 버전 2.0의 `beta`로 바꿉니다. 
+이 코드에서 `<function_app>`을 함수 앱 이름으로 바꿉니다. 또한 `<my_resource_group>`을 함수 앱의 리소스 그룹 이름으로 바꿉니다. `<version>`을 1.x 런타임의 유효한 버전 또는 2.x 버전의 `~2`로 바꿉니다. 
 
 앞의 코드 샘플에서 **사용해 보세요.** 를 선택하여 [Azure Cloud Shell](../cloud-shell/overview.md)에서 이 명령을 실행할 수 있습니다. 또한 [Azure CLI locally(로컬로 Azure CLI 설치)](/cli/azure/install-azure-cli)를 사용하면 [az login](/cli/azure/reference-index#az-login)을 실행하여 로그인한 후 이 명령을 실행할 수도 있습니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI를 사용하여 Azure Redis Cache 관리 | Microsoft Docs
-description: 모든 플랫폼에서 Azure CLI를 설치하고, Azure CLI를 사용하여 Azure 계정에 연결하고, Azure CLI에서 Redis cache를 만들고 관리하는 방법에 대해 알아봅니다.
+title: Azure 클래식 CLI를 사용하여 Azure Redis Cache 관리 | Microsoft Docs
+description: 모든 플랫폼에서 Azure 클래식 CLI를 설치하고, Azure 클래식 CLI를 사용하여 Azure 계정에 연결하고, Azure 클래식 CLI에서 Redis cache를 만들고 관리하는 방법에 대해 알아봅니다.
 services: redis-cache
 documentationcenter: ''
 author: wesmc7777
@@ -14,34 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
-ms.openlocfilehash: fdb0989af2215166b69f10474a0d22aab7b4d593
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 0e8bbaad920f35028c51641779a3272f73f81f37
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27911281"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978440"
 ---
-# <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Azure 명령줄 인터페이스(Azure CLI)를 사용하여 Azure Redis Cache를 만들고 관리하는 방법
+# <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 Azure Redis Cache를 만들고 관리하는 방법
 > [!div class="op_single_selector"]
 > * [PowerShell](cache-howto-manage-redis-cache-powershell.md)
-> * [Azure CLI](cache-manage-cli.md)
->
+> * [Azure 클래식 CLI](cache-manage-cli.md)
 >
 
-Azure CLI를 사용하면 어떤 플랫폼에서나 Azure 인프라를 효율적으로 관리할 수 있습니다. 이 문서에서는 Azure CLI를 사용하여 Azure Redis Cache 인스턴스를 만들고 관리하는 방법을 보여 줍니다.
+Azure 클래식 CLI를 사용하면 어떤 플랫폼에서나 Azure 인프라를 효율적으로 관리할 수 있습니다. 이 문서에서는 Azure 클래식 CLI를 사용하여 Azure Redis Cache 인스턴스를 만들고 관리하는 방법을 보여 줍니다.
 
+[!INCLUDE [outdated-cli-content](../../includes/contains-classic-cli-content.md)]
 > [!NOTE]
-> 이 문서는 이전 버전의 Azure CLI에 적용됩니다. 최신 Azure CLI 2.0 샘플 스크립트에 대해서는 [Azure CLI Redis Cache 샘플](cli-samples.md)을 참조하세요.
-> 
-> 
+> 최신 Azure CLI 샘플 스크립트에 대해서는 [Azure CLI Redis Cache 샘플](cli-samples.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
-Azure CLI를 사용하여 Azure Redis Cache 인스턴스를 만들고 관리하려면 다음 단계를 완료해야 합니다.
+Azure 클래식 CLI를 사용하여 Azure Redis Cache 인스턴스를 만들고 관리하려면 다음 단계를 완료해야 합니다.
 
 * Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/) 을 만들 수 있습니다.
-* [Azure CLI를 설치합니다](../cli-install-nodejs.md).
-* Azure CLI 설치를 개인 Azure 계정이나 회사 또는 학교 Azure 계정에 연결하고 `azure login` 명령을 사용하여 Azure CLI에서 로그인합니다. 차이점을 이해하고 선택하려면 [Azure CLI(Azure 명령줄 인터페이스)에서 Azure 구독 연결](/cli/azure/authenticate-azure-cli)을 참조하세요.
-* 다음 명령 중 하나를 실행하기 전에 `azure config mode arm` 명령을 실행하여 Azure CLI를 리소스 관리자 모드로 전환합니다. 자세한 내용은 [Azure 리소스 및 리소스 그룹 관리를 위해 Azure CLI 사용](../xplat-cli-azure-resource-manager.md)을 참조하세요.
+* [Azure 클래식 CLI를 설치합니다](../cli-install-nodejs.md).
+* Azure CLI 설치를 개인 Azure 계정이나 회사 또는 학교 Azure 계정에 연결하고 `azure login` 명령을 사용하여 클래식 CLI에서 로그인합니다.
+* 다음 명령 중 하나를 실행하기 전에 `azure config mode arm` 명령을 실행하여 클래식 CLI를 Resource Manager 모드로 전환합니다. 자세한 내용은 [Azure 리소스 및 리소스 그룹 관리를 위해 Azure 클래식 CLI 사용](../xplat-cli-azure-resource-manager.md)을 참조하세요.
 
 ## <a name="redis-cache-properties"></a>Redis Cache 속성
 Redis Cache 인스턴스를 만들고 업데이트하는 경우에 다음 속성이 사용됩니다.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: cynthn
-ms.openlocfilehash: 18a9709893533c2c0b606077a126437282f9195e
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: eb88501c5daf0b79d22f4407a372c4606a173db1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42146953"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987699"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 가상 머신
 
@@ -164,7 +164,7 @@ ms.locfileid: "42146953"
 
 - REST API - [모든 리소스 공급자 나열](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
 - PowerShell - [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
-- Azure CLI 2.0 - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
+- Azure CLI - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
 
 ## <a name="parameters-and-variables"></a>매개 변수 및 변수
 
@@ -442,7 +442,7 @@ start.ps1 스크립트는 여러 구성 작업을 수행할 수 있습니다. �
 
 ![확장 상태 가져오기](./media/template-description/virtual-machines-show-extensions.png)
 
-**Get-AzureRmVMExtension** PowerShell 명령, **vm extension get** Azure CLI 2.0 명령 또는 **Get extension information** REST API를 사용하여 확장 정보를 가져올 수도 있습니다.
+**Get-AzureRmVMExtension** PowerShell 명령, **vm extension get** Azure CLI 명령 또는 **Get extension information** REST API를 사용하여 확장 정보를 가져올 수도 있습니다.
 
 ## <a name="deployments"></a>배포
 

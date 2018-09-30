@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: jasonh
 ms.custom: hdinsightactive
-ms.openlocfilehash: db460c6ebe934fa9ca9b6b42d517f39acbecf0c9
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 54e5a5b72627dc9cd2d842ccb24d10e2f9ab9dce
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105316"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957179"
 ---
 # <a name="install-or-update-mono-on-hdinsight"></a>HDInsight에서 Mono 설치 또는 업데이트
 
@@ -44,7 +44,7 @@ __요구 사항__:
 
 ## <a name="to-use-the-script"></a>스크립트 사용
 
-HDInsight에서 이 스크립트를 사용하는 방법에 대한 자세한 내용은 [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) 문서를 참조하세요. Azure Portal, Azure PowerShell 또는 Azure CLI에서 이 스크립트를 사용할 수 있습니다.
+HDInsight에서 이 스크립트를 사용하는 방법에 대한 자세한 내용은 [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) 문서를 참조하세요. Azure Portal, Azure PowerShell 또는 Azure Classic CLI에서 이 스크립트를 사용할 수 있습니다.
 
 스크립트 동작 문서를 진행하는 동안 다음 URI를 사용합니다.
 

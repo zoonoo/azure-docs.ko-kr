@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9fe8b2cc09c7a08ab6d897a0fe1f1204d1903eca
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: dbb21e63a25d6e357287f2f91181f2326850a898
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090866"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952854"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Azure Functions의 성능 및 안정성 최적화
 
@@ -73,6 +73,10 @@ Azure Functions 플랫폼에서 사용하는 구성 요소를 위해 이미 제�
 ## <a name="scalability-best-practices"></a>확장성 모범 사례
 
 함수 앱의 인스턴스 크기를 조정하는 방법에 영향을 주는 여러 가지 요인이 있습니다. 자세한 내용은 [함수 크기 조정](functions-scale.md)의 설명서에서 제공됩니다.  함수 앱에 최적의 확장성을 보장하는 몇 가지 모범 사례는 다음과 같습니다.
+
+### <a name="share-and-manage-connections"></a>연결 공유 및 관리
+
+가능하면 외부 리소스에 대한 연결을 다시 사용합니다.  [Azure Functions에서 연결을 관리하는 방법](./manage-connections.md)을 참조하세요.
 
 ### <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>동일한 함수 앱에서 테스트와 프로덕션 코드의 혼합 금지
 
