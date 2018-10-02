@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 10/01/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 7278f784316fdbd7170bb69b9414911b8f5b3823
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 94e18b6a4fc367a9697078f8e0c1a307ae15d4be
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452686"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017945"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 업데이트
 
@@ -137,7 +137,7 @@ Azure Stack 1808 업데이트 빌드 번호는 **1.1808.0.97**합니다.
 
 ### <a name="post-update-steps"></a>업데이트 후 단계
 이 업데이트의 설치가 끝나면 모든 적용 가능한 핫픽스를 설치 합니다. 자세한 내용은 다음 기술 자료 문서를 볼 뿐만 아니라 우리 [서비스 정책](azure-stack-servicing-policy.md)합니다. 
-- [KB 4464226 – Azure Stack 핫픽스 Azure Stack 핫픽스 1.1808.1.99]( https://support.microsoft.com/help/4464226)
+- [KB 4465859 – Azure Stack 핫픽스 Azure Stack 핫픽스 1.1808.2.104](https://support.microsoft.com/help/4465859/)
 
 
 ## <a name="known-issues-post-installation"></a>알려진된 문제 (사후 설치)
@@ -230,8 +230,6 @@ Azure Stack 1808 업데이트 빌드 번호는 **1.1808.0.97**합니다.
 - <!-- 2724873 - IS --> PowerShell cmdlet을 사용 하는 경우 **시작 AzsScaleUnitNode** 하거나 **중지 AzsScaleunitNode** 배율 단위를 관리 하려면 시작 또는 중지 확장 단위를 첫 번째 시도가 실패할 수 있습니다. 첫 번째 실행에 실패 하면 cmdlet은 cmdlet을 두 번 실행 합니다. 작업을 완료 하 고 두 번째 실행 성공 해야 합니다. 
 
 - <!-- TBD - IS ASDK --> Azure Stack 사용자 포털에서 가상 컴퓨터를 만들 때 포털 잘못 된 DS 시리즈 VM에 연결할 수 있는 데이터 디스크 수를 표시 합니다. DS 시리즈 Vm은 Azure 구성으로 많은 데이터 디스크를 수용할 수 있습니다.
-
-- <!-- TBD - IS ASDK --> 다중 테 넌 트 환경에서 사용 하는 경우 다음 오류로 인해 실패 하지 기본 테 넌 트에 속한 구독에서 관리 디스크를 사용 하 여 VM을 프로 비전: *리소스 작업이 터미널 프로 비전 상태가 '실패'를 사용 하 여 완료 합니다.*
 
 - <!-- TBD - IS ASDK --> VM 배포에 확장을 프로 비전 너무 오래 걸리는 경우 사용자는 할당 취소 하거나 VM을 삭제 하는 프로세스를 중지 하는 대신 프로 비전 제한을 하도록 해야 합니다.  
 

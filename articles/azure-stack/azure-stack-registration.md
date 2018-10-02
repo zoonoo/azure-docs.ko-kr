@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 09f5dbdb173e1613ed942391da7baaeb045654e4
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: d59de5beb01da3b23de0a7e177fd1cb1887694fc
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452533"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586056"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure를 사용 하 여 Azure Stack 등록
 
@@ -99,7 +99,7 @@ Azure Stack 배포 될 수 있습니다 *연결 된* 하거나 *끊어진*합니
 Azure를 사용 하 여 Azure Stack을 등록할 때 등록 고유 이름을 제공 해야 합니다. Azure 등록을 사용 하 여 Azure Stack 구독을 연결 하는 쉬운 방법을 Azure Stack을 사용 하는 것 **클라우드 ID**합니다. 
 
 > [!NOTE]
-> 용량 기반 청구 모델을 사용 하 여 azure Stack 등록을 해당 하는 연간 구독이 만료 된 후 다시 등록 하는 경우 고유 이름을 변경 해야 합니다.
+> 용량 기반 청구 모델을 사용 하 여 azure Stack 등록 하지 않는 한 해당 하는 연간 구독이 만료 된 후 다시 등록 하는 경우 고유 이름을 변경 해야 하면 [만료 된 등록을 삭제](azure-stack-registration.md#change-the-subscription-you-use) 하 고 다시 등록 Azure입니다.
 
 컴퓨터에서 관리자 권한 있는 끝점에 액세스할 수 있는 보다 실행 하 여 다음 명령을 Azure Stack 배포를 위한 클라우드 ID를 확인 하려면 PowerShell을 엽니다 하 고 기록 합니다 **CloudID** 값: 
 
@@ -318,12 +318,12 @@ Get-AzsActivationKey에서 만든 정품 인증 키에서 파일 또는 텍스�
 
 #### <a name="change-the-subscription-you-use"></a>사용 하는 구독 변경
 
-사용할 구독을 변경 하려는 경우, 먼저 실행 해야 합니다 **제거 AzsRegistration** cmdlet을 다음 올바른 Azure PowerShell 컨텍스트에 로그인을 확인 하 고 마지막으로 실행 **집합 AzsRegistration**  하나를 사용 하 여 매개 변수를 변경 합니다.
+사용할 구독을 변경 하려는 경우, 먼저 실행 해야 합니다 **제거 AzsRegistration** cmdlet을 다음 올바른 Azure PowerShell 컨텍스트에 로그인을 확인 하 고 마지막으로 실행 **집합 AzsRegistration**  비롯 한 모든 변경 된 매개 변수를 사용 하 여 \<청구 모델\>:
 
   ```PowerShell  
   Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   Set-AzureRmContext -SubscriptionId $NewSubscriptionId
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse -RegistrationName $RegistrationName
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
 
 #### <a name="change-the-billing-model-or-how-to-offer-features"></a>청구 모델 또는 기능을 제공 하는 방법 변경
@@ -331,7 +331,7 @@ Get-AzsActivationKey에서 만든 정품 인증 키에서 파일 또는 텍스�
 청구 모델 또는 설치를 위한 기능을 제공 하는 방법을 변경 하려는 경우에 새 값을 설정 하는 등록 함수를 호출할 수 있습니다. 현재 등록을 먼저 제거할 필요가 없습니다.
 
   ```PowerShell  
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse -RegistrationName $RegistrationName
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
 
 ### <a name="renew-or-change-registration-in-disconnected-environments"></a>갱신 또는 연결이 끊어진된 환경에서 등록 변경

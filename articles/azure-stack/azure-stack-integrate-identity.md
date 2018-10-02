@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 09/28/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 9bbe55e08d7a005d38c5608df39f9285d79eb203
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
-ms.translationtype: MT
+ms.openlocfilehash: 5d002ae84334219d636448e8c78a791fa9c230e7
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139537"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586141"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 데이터 센터 통합-Identity
 Id 공급자로 Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)를 사용 하 여 Azure Stack을 배포할 수 있습니다. Azure Stack을 배포 하기 전에 선택을 해야 합니다. AD FS를 사용 하 여 배포를 오프 라인된 모드에서 Azure Stack 배포는 라고도 합니다.
@@ -173,9 +173,9 @@ Azure Stack에서 그래프 서비스 대상 Active Directory와 통신 하는 �
 1. 관리자 권한 Windows PowerShell 세션을 열고 환경에 적합 한 매개 변수를 사용 하 여 다음 명령을 실행 합니다.
 
    ```PowerShell  
-   [XML]$Metadata = Invoke-WebRequest -URI https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml -UseBasicParsing
+    $metadata = (Invoke-WebRequest -URI " https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml " -UseBasicParsing).Content
+    Set-Content -Path c:\metadata.xml -Encoding Unicode -Value $metadata 
 
-   $Metadata.outerxml|out-file c:\metadata.xml
    ```
 
 2. 권한 있는 끝점과 통신할 수 있는 컴퓨터에 메타 데이터 파일을 복사 합니다.
@@ -240,24 +240,27 @@ Microsoft는 클레임 변환 규칙을 포함 하 여 신뢰 당사자 트러�
    => issue(claim = c);
    ```
 
-2. Windows Forms 기반 인증을 사용 하려면 상승 된 권한으로 Windows PowerShell 세션을 열고 다음 명령을 실행 합니다.
+2. 에 대 한 Windows Forms 기반 인증의 유효성을 검사 엑스트라넷 인트라넷을 사용 하도록 설정 됩니다. 먼저 있는지 유효성 검사는 다음 cmdlet을 실행 하 여 이미 사용 하도록 설정 합니다.
 
    ```PowerShell  
-   Set-AdfsProperties -WIASupportedUserAgents @("MSAuthHost/1.0/In-Domain","MSIPC","Windows Rights Management Client","Kloud")
+   Get-AdfsAuthenticationProvider | where-object { $_.name -eq "FormsAuthentication" } | select Name, AllowedForPrimaryExtranet, AllowedForPrimaryIntranet
    ```
+
+    > [!Note]  
+    > Windows 통합 인증 WIA () 지원 되는 사용자 에이전트 문자열 수 있습니다. AD FS 배포에 대 한 오래 된 최신 클라이언트를 지원 하도록 업데이트 해야 합니다. 문서에 사용자 에이전트 문자열을 지원 합니다 WIA를 업데이트 하는 방법에 대 한 자세한 내용은 읽어보세요 [WIA를 지원 하지 않는 장치에 대 한 구성 인트라넷 폼 기반 인증](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia)합니다.<br>양식 기반 인증 정책을 사용 하도록 설정 하는 단계 문서에 설명 되어 있습니다 [인증 정책 구성](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-authentication-policies)합니다.
 
 3. 신뢰 당사자 트러스트를 추가 하려면 AD FS 인스턴스 또는 팜의 구성원에 다음 Windows PowerShell 명령을 실행 합니다. AD FS 끝점을 업데이트 해야 하 고 1 단계에서에서 만든 파일을 가리킵니다.
 
    **AD FS 2016에 대 한**
 
    ```PowerShell  
-   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"
+   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone" -TokenLifeTime 1440
    ```
 
    **AD FS 2012/2012 R2에 대 한**
 
    ```PowerShell  
-   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true
+   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -TokenLifeTime 1440
    ```
 
    > [!IMPORTANT]
@@ -270,12 +273,6 @@ Microsoft는 클레임 변환 규칙을 포함 하 여 신뢰 당사자 트러�
 
    ```PowerShell  
    Set-AdfsProperties -IgnoreTokenBinding $true
-   ```
-
-5. Azure Stack 포털 및 도구 (Visual Studio)를 새로 고침 토큰을 필요로 합니다. 이러한 당사자 트러스트에 의존 하 여 구성 되어야 합니다. 관리자 권한 Windows PowerShell 세션을 열고 다음 명령을 실행 합니다.
-
-   ```PowerShell  
-   Set-ADFSRelyingPartyTrust -TargetName AzureStack -TokenLifeTime 1440
    ```
 
 ## <a name="spn-creation"></a>SPN 만들기
