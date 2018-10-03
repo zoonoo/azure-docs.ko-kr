@@ -11,25 +11,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 10/02/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: b704db0b79d056f5c7081d3fed117e1d1f22b336
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b4b81546a267e6fd082f83db8b23010f0742771f
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978831"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237908"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack을 사용 하 여 준비 된 데이터 분석 솔루션 만들기 
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
-온-프레미스 및 공용 클라우드 환경 모두를 사용 하 여 다중 기능 엔터프라이즈의 요구 사항을 충족 하는 방법에 알아봅니다. Azure Stack은 수집, 처리, 저장 및 보안, 기밀성, 회사 정책 및 규정 요구 사항 간에 다를 수 위치 하는 경우에 특히 로컬 및 원격 데이터를 배포 하기 위해 신속 하 게 안전 하 고 유연한 솔루션을 제공 하 고 사용자입니다.
+온-프레미스 및 공용 클라우드 환경 모두를 사용 하 여 다중 기능 엔터프라이즈의 요구 사항을 충족 하는 방법에 알아봅니다. Azure Stack은 수집, 처리, 저장 및 보안, 기밀성, 회사 정책 및 규정 요구 사항 간에 다를 수 위치 하는 경우에 특히 로컬 및 원격 데이터를 배포에 대 한 보안, 빠르고 유연한 솔루션을 제공 합니다. 및 사용자 지정 합니다.
 
 이 패턴에서는 고객에 게 빠른 내릴 수 있도록 컬렉션 시점에서 분석을 필요로 하는 데이터 수집 하는 합니다. 종종이 데이터 수집 인터넷 액세스 없이 발생합니다. 연결을 설정할 때 추가 분석 하기 위해 데이터의 리소스를 많이 사용 분석을 수행 해야 합니다. 여전히 공용 클라우드의 너무 늦거나 사용할 수 없는 경우에 데이터를 분석할 수 있습니다.
 
-이 자습서에서는 샘플 환경을 빌드합니다.
+이 자습서에서는 샘플 환경에 구축:
 
 > [!div class="checklist"]
 > - 원시 데이터 저장소 blob을 만듭니다.
@@ -55,7 +55,7 @@ ms.locfileid: "46978831"
 
 -   [Microsoft Azure Storage 탐색기](http://storageexplorer.com/)를 다운로드하고 설치합니다.
 
--   이러한 함수에 의해 처리 한 데이터 제공 되지 않습니다. 데이터 생성 및 Azure Stack 저장소 blob 컨테이너에 업로드할 수 있어야 합니다.
+-   사용자 고유의 데이터 함수에서 처리를 제공 해야 합니다. 데이터 생성 및 Azure Stack 저장소 blob 컨테이너에 업로드할 수 있어야 합니다.
 
 ## <a name="issues-and-considerations"></a>문제 및 고려 사항
 
@@ -123,17 +123,11 @@ Azure functions 및 저장소 솔루션에는 데이터 볼륨 및 처리 요구
 
 Azure Stack에서 데이터 정리를 Azure로 이동 하는 새 Azure Stack 함수를 만듭니다.
 
-1.  클릭 하 여 새 함수를 만들 **함수**, 해당 **+ 새 함수** 단추입니다.
+### <a name="create-the-azure-stack-function-app"></a>Azure Stack 함수 앱 만들기
 
-    ![대체 텍스트](media\azure-stack-solution-staged-data-analytics\image3.png)
-
-2.  선택 **타이머 트리거**합니다.
-
-    ![대체 텍스트](media\azure-stack-solution-staged-data-analytics\image4.png)
-
-3.  선택 **C\#**  언어 및 함수 이름: `upload-to-azure` 일정을 설정 `0 0 * * * *`는 CRON에서 표기법은 한 번 한 시간입니다.
-
-    ![대체 텍스트](media\azure-stack-solution-staged-data-analytics\image5.png)
+1. 에 로그인 합니다 [Azure Stack 포털](https://portal.local.azurestack.external)합니다.
+2. **모든 서비스**를 선택합니다.
+3. 선택 **함수 앱** 에 **웹 + 모바일** 그룹입니다.
 
 4.  이미지 아래의 표에 지정 된 설정을 사용 하 여 함수 앱을 만듭니다.
 
@@ -148,7 +142,7 @@ Azure Stack에서 데이터 정리를 Azure로 이동 하는 새 Azure Stack 함
     | 소비 계획 | 함수 앱에 리소스가 할당되는 방법을 정의하는 호스팅 계획입니다. 소비 계획 기본적으로 리소스 함수를 통해 필요에 따라 동적으로 추가 됩니다. 이 서버 리스 호스팅에 대 한 요금만 함수 실행 시간입니다. |  |
     | 위치 | 가장 가까운 지역 | 함수 액세스 또는 다른 서비스에 가까운 영역을 선택 합니다. |
     | **Storage 계정** |  |  |
-    | \<위에서 만든 저장소 계정 > | 함수 앱에 사용된 새 저장소 계정의 이름. Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다. 기존 계정을 사용할 수도 있습니다. |  |
+    | \<위에서 만든 저장소 계정 > | 함수 앱에 사용된 새 저장소 계정의 이름. 저장소 계정 이름은 길이가 3 ~ 24 자 사이 여야 합니다. 이름은 숫자와 소문자만 사용할 수 있습니다. 기존 계정을 사용할 수도 있습니다. |  |
 
     **예제:**
 
@@ -164,13 +158,25 @@ Azure Stack에서 데이터 정리를 Azure로 이동 하는 새 Azure Stack 함
 
 ![함수 앱을 성공적으로 만들었습니다.](media\azure-stack-solution-staged-data-analytics\image8.png)
 
+### <a name="add-a-function-to-the-azure-stack-function-app"></a>Azure Stack 함수 앱에 함수 추가
+
+1.  클릭 하 여 새 함수를 만들 **함수**, 해당 **+ 새 함수** 단추입니다.
+
+    ![대체 텍스트](media\azure-stack-solution-staged-data-analytics\image3.png)
+
+2.  선택 **타이머 트리거**합니다.
+
+    ![대체 텍스트](media\azure-stack-solution-staged-data-analytics\image4.png)
+
+3.  선택 **C\#**  언어 및 함수 이름: `upload-to-azure` 일정을 설정 `0 0 * * * *`는 CRON에서 표기법은 한 번 한 시간입니다.
+
+    ![대체 텍스트](media\azure-stack-solution-staged-data-analytics\image5.png)
+
 ## <a name="create-a-blob-storage-triggered-function"></a>Blob Storage 트리거 함수 만들기
 
-1.  함수 앱을 확장 하 고 선택 합니다 **+** 옆에 단추 **함수**합니다. 함수 앱에서 첫 번째 함수 이면 선택 **사용자 지정 함수**합니다. 그러면 함수 템플릿의 전체 집합이 표시됩니다.
+1.  함수 앱을 확장 하 고 선택 합니다 **+** 옆에 단추 **함수**합니다.
 
-  ![Azure Portal에서 함수 빨리 시작하기 페이지](media\azure-stack-solution-staged-data-analytics\image9.png)
-
-2.  검색 필드에서 blob를 입력 한 다음 Blob storage 트리거 템플릿에서 원하는 언어를 선택 합니다.
+2.  검색 필드에 입력 `blob` 한 다음에 대 한 원하는 언어를 선택 합니다 **Blob 트리거** 템플릿.
 
   ![Blob Storage 트리거 템플릿을 선택합니다.](media\azure-stack-solution-staged-data-analytics\image10.png)
 

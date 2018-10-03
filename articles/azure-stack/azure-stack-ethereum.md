@@ -11,12 +11,12 @@ ms.service: azure-stack
 ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
-ms.openlocfilehash: b21a9ca58fc29a3da62ea08e81e628368fe5385f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: acfa94799f36728f4e0041f1a51403edf6ffe37e
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580772"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239475"
 ---
 # <a name="tutorial-use-the-azure-stack-ethereum-blockchain-solution-template"></a>자습서: Azure Stack Ethereum 블록 체인 솔루션 템플릿을 사용 하 여
 
@@ -39,7 +39,7 @@ Ethereum 솔루션 템플릿에 쉽고 빠르게 배포 하 고 한 지식이 �
 * Linux 2.0에 대 한 사용자 지정 스크립트
 * Windows용 사용자 지정 스크립트 확장
 
-블록 체인 시나리오에 대 한 자세한 내용은 참조 하세요. [Ethereum 작업 증명 컨소시엄 솔루션 템플릿](../blockchain-workbench/ethereum-deployment-guide.md)합니다.
+블록 체인 시나리오에 대 한 자세한 내용은 참조 하세요. [Ethereum 작업 증명 컨소시엄 솔루션 템플릿](../blockchain/templates/ethereum-deployment.md)합니다.
 
 ## <a name="deployment-architecture"></a>배포 아키텍처
 
