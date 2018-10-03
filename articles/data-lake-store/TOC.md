@@ -58,7 +58,7 @@
 ### [Azure PowerShell 사용](data-lake-store-performance-tuning-powershell.md)
 ### [HDInsight의 Spark 사용](data-lake-store-performance-tuning-spark.md)
 ### [HDInsight의 Hive 사용](data-lake-store-performance-tuning-hive.md).
-### [HDInsight에서 Hive 사용](data-lake-store-performance-tuning-mapreduce.md).
+### [HDInsight에서 MapReduce 사용](data-lake-store-performance-tuning-mapreduce.md).
 ### [HDInsight의 Storm 사용](data-lake-store-performance-tuning-storm.md)
 
 ## Azure 서비스와 통합
