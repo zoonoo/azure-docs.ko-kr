@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cedc13cb18440eee32e333d395494043e2eca9d1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 702d247bf331a4231b4b71ae6661ff88c9e0be2e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442516"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982769"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>빠른 시작: Service Fabric에 Java Spring Boot 응용 프로그램 배포
 
@@ -46,19 +46,19 @@ Azure Service Fabric은 마이크로 서비스 및 컨테이너를 배포 및 �
 
     a. [Mac](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli#cli-mac)
     
-    나. [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+    b. [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 
 1. [Git 설치](https://git-scm.com/)
 1. Yeoman 설치
 
     a. [Mac](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
 
-    나. [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
+    b. [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
 1. Java 환경 설정
 
     a. [Mac](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
     
-    나.  [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development)
+    b.  [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development)
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 
@@ -187,7 +187,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 Service Fabric은 클러스터 및 해당 응용 프로그램을 관리하는 데 사용할 수 있는 몇 가지 도구를 제공합니다.
 
 * Service Fabric Explorer, 브라우저 기반 도구입니다.
-* Service Fabric CLI(명령줄 인터페이스), Azure CLI 2.0을 기반으로 실행됩니다.
+* Service Fabric CLI(명령줄 인터페이스), Azure CLI를 기반으로 실행됩니다.
 * PowerShell 명령
 
 이 빠른 시작에서는 Service Fabric CLI 및 Service Fabric Explorer를 사용합니다.

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ed5da0afe67deaa7000c1bf3b8d75bdea14f2ecd
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 7fcf0b924868d755bc76f7d1e695e73afc4eae6a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616329"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993394"
 ---
 # <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>빠른 시작: Service Fabric에 Java 안정적인 서비스 응용 프로그램 배포
 
@@ -101,7 +101,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 Service Fabric은 클러스터 및 해당 응용 프로그램을 관리하는 데 사용할 수 있는 몇 가지 도구를 제공합니다.
 
 * Service Fabric Explorer, 브라우저 기반 도구입니다.
-* Service Fabric CLI(명령줄 인터페이스), Azure CLI 2.0을 기반으로 실행됩니다.
+* Service Fabric CLI(명령줄 인터페이스), Azure CLI를 기반으로 실행됩니다.
 * PowerShell 명령
 
 이 빠른 시작에서는 Service Fabric CLI 및 Service Fabric Explorer를 사용합니다.
