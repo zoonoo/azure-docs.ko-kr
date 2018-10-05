@@ -10,12 +10,12 @@ ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: 253598373512b1508482235be028b12163a85a9a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: bc07d0e7aff2bf9263d89dffccc47ba806ff0fd1
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580687"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804211"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure 데이터 센터 통합 스택-끝점 게시
 
@@ -78,6 +78,7 @@ Azure Stack은 투명 프록시 서버만 지원 합니다. 배포의 경우 기
 |Windows Defender|. wdcp.microsoft.com<br>. wdcpalt.microsoft.com<br>*. updates.microsoft.com<br>*. download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>http://www.microsoft.com/pkiops/crl<br>http://www.microsoft.com/pkiops/certs<br>http://crl.microsoft.com/pki/crl/products<br>http://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
 |NTP|     |UDP|123|
 |DNS|     |TCP<br>UDP|53|
+|CRL|     |HTTPS|443|
 |     |     |     |     |
 
 > [!Note]  

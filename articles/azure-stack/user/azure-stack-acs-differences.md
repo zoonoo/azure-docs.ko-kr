@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 89f6a0c1adaded724f159ffbf33aae98969ab9fe
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 14e32bdfcde6969b820c0950d59bd5cf946a51e6
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027172"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802324"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack 저장소: 차이점 및 고려 사항
 
@@ -41,7 +41,6 @@ Azure Stack 저장소는 Microsoft Azure Stack의 storage 클라우드 서비스
 |관리 디스크|프리미엄 및 표준 지원|1808 이상 버전을 사용할 때 지원 됩니다.
 |Blob 이름|1,024 자 (2,048 바이트)|880 문자 (1,760 바이트)
 |블록 blob의 최대 크기|4.75TB (100 X 50,000 개 블록)|4.75TB 1802 업데이트 또는 최신 버전 (100 x 50,000 개 블록) 추가 합니다. 50,000 X 4MB((약 195GB) 이전 버전에 대 한 합니다.
-|페이지 blob 스냅숏 복사|지원 되는 실행 중인 VM에 연결 된 백업 Azure 관리 되지 않는 VM 디스크|아직 지원 되지 않습니다.
 |페이지 blob 증분 스냅숏 복사|Premium 및 지원 되는 표준 Azure 페이지 blob|아직 지원 되지 않습니다.
 |Blob storage에 대 한 저장소 계층|핫, 쿨 및 보관 저장소 계층입니다.|아직 지원 되지 않습니다.
 Blob storage에 대 한 일시 삭제|미리 보기|아직 지원 되지 않습니다.

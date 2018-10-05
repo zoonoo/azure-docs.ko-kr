@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/04/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 8e9d40451cd0d9c3a6505ee24ca02852d9d4c527
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: ef6b068e7a8b97713c54ddeea1817a6c379703c8
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423479"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804602"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack에서 사용할 수 있는 azure Marketplace 항목
 
@@ -239,6 +239,7 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | 제어, 모니터링 및 쉽고 안정적으로 Vm을 암호화 합니다. **CloudLink SecureVM 항목을 모두 다운로드 합니다.** | Dell EMC |
 | ![EventTracker SIEM](media/azure-stack-marketplace-azure-items/eventtracker.png) | [EventTracker SIEM](https://azuremarketplace.microsoft.com/marketplace/apps/eventtracker.eventtracker-siem)  | EventTracker SIEM에 포괄적인 보안 플랫폼을 제공 하는 고급 감사 준비 규정 준수 기능을 사용 하 여 보안 도구입니다. | EventTracker |
 | ![f5 키](media/azure-stack-marketplace-azure-items/f5.png) | [f5 BIG-IP 가상 버전](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | 부하 분산, GSLB, 네트워크 방화벽, DNS, WAF 및 응용 프로그램 액세스 고급입니다. | F5 Networks |
+| ![FortiGate 차세대 방화벽](media/azure-stack-marketplace-azure-items/fortinetsquare.png) | [FortiGate 차세대 방화벽](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-fortigate-singlevm) | 종합적인 강력한 보안 기능을 사용 하 여 전체 콘텐츠 및 네트워크 보호 기능을 제공 하는 방화벽 기술입니다. 응용 프로그램 제어, 바이러스 백신, IPS, 웹 필터링, 취약성 관리와 같은 고급 기능과 함께 VPN 식별 하 고 최신 복잡 한 보안 위협을 완화 하기 위해 함께에서 작동 합니다. | Fortinet |
 | ![Hortonworks Data Platform (HDP) 샌드박스](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) 샌드박스](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | 연결 된 HDP 2.5 100% 오픈 소스 플랫폼 Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari에 대 한 합니다. | Hortonworks |
 | ![KEMP LoadMaster 부하 분산 장치 ADC 콘텐츠 스위치](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster 부하 분산 장치 ADC 콘텐츠 스위치](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | 계층 4-7 응용 프로그램 배달 컨트롤러 (ADC) 부하 분산, 콘텐츠 스위치 및 Traffic Manager. | KEMP Technologies Inc. |
 | ![NRI mPLAT Suite-다중 클라우드 Conductor](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT Suite-다중 클라우드 Conductor](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | 단일 창의 투명 효과 모니터링 하려면 구성, 프로 비전, 자동화 및 모든 워크 로드 또는 클라우드를 제어 합니다. | NRI |

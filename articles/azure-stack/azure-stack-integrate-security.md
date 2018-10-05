@@ -10,18 +10,21 @@ ms.date: 08/14/2018
 ms.author: patricka
 ms.reviewer: fiseraci
 keywords: ''
-ms.openlocfilehash: 3712ea278a983d107f754af4bfa8e5bd608a0576
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: d46fd8f5ea00ee1fc1ee5f7bf09a15dd6af5ba50
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239390"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785582"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Azure Stack 데이터 센터 통합-syslog 전달
 
 이 문서에서는 syslog를 사용 하 여 데이터 센터에 이미 배포 된 외부 보안 솔루션을 사용 하 여 Azure Stack 인프라를 통합 하는 방법을 보여 줍니다. 예를 들어, 보안 정보 이벤트 관리 (SIEM) 시스템입니다. Syslog 채널 감사, 경고 및 Azure Stack 인프라의 모든 구성 요소에서 보안 로그를 표시합니다. Syslog 전달을 사용 하 여 통합 보안 솔루션 모니터링을 사용 하 여 및/또는 모든 감사, 경고 및 보안을 검색할 로그 보존을 위해 저장 
 
 1805 업데이트부터, Azure Stack에는 통합된 syslog 클라이언트를 한 번 구성 하면 일반적인 이벤트 형식 (CEF)에서 페이로드를 사용 하 여 syslog 메시지를 내보냅니다. 
+
+> [!IMPORTANT] 
+> Syslog 전달을 미리 보기입니다. 이 신뢰 해서는 안 됩니다 시 프로덕션 환경에서.  
 
 다음 다이어그램은 syslog 통합에 참여 하는 주요 구성 요소를 보여줍니다.
 
@@ -49,7 +52,7 @@ Syslog 전달 구성에 권한 있는 끝점 (PEP)에 대 한 액세스가 필�
 ```powershell
 ### cmdlet to pass the syslog server information to the client and to configure the transport protocol, the encryption and the authentication between the client and the server
 
-Set-SyslogServer [-ServerName <String>] [-ServerPort <String>] [-NoEncryption] [-SkipCertificateCheck] [-SkipCNCheck] [-UseUDP] [-Remove]
+Set-SyslogServer [-ServerName <String>] [-NoEncryption] [-SkipCertificateCheck] [-SkipCNCheck] [-UseUDP] [-Remove]
 
 ### cmdlet to configure the certificate for the syslog client to authenticate with the server
 
@@ -62,7 +65,6 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 | 매개 변수 | 설명 | type | 필수 |
 |---------|---------|---------|---------|
 |*서버 이름* | Syslog 서버의 FQDN 또는 IP 주소 | 문자열 | 예|
-|*ServerPort* | Syslog 서버 포트 번호에서 수신 대기 | 문자열 | 예|
 |*NoEncryption*| 일반 텍스트로 syslog 메시지를 보내는 클라이언트 강제 | 플래그 | no|
 |*SkipCertificateCheck*| 초기 TLS 핸드셰이크 중 syslog 서버에서 제공 하는 인증서의 유효성 검사 건너뛰기 | 플래그 | no|
 |*SkipCNCheck*| 초기 TLS 핸드셰이크 중 syslog 서버에서 제공 하는 인증서의 일반 이름 값의 유효성 검사 건너뛰기 | 플래그 | no|
@@ -87,7 +89,7 @@ Syslog 전달을 TCP, 상호 인증 및 TLS 1.2 암호화를 사용 하 여를 �
 
 ```powershell
 # Configure the server
-Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on>
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server>
 
 # Provide certificate to the client to authenticate against the server
 Set-SyslogClient -pfxBinary <Byte[] of pfx file> -CertPassword <SecureString, password for accessing the pfx file>
@@ -132,30 +134,28 @@ Invoke-Command @params -ScriptBlock {
 인증 및 암호화를 사용 하 여 TCP 기본 구성 이며 최소 Microsoft 프로덕션 환경에 대 한 권장 하는 보안 수준을 나타냅니다. 
 
 ```powershell
-Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on>
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server>
 ```
 
 자체 서명 된 및/또는 신뢰할 수 없는 인증서를 사용 하 여 Azure Stack 클라이언트를 사용 하 여 syslog 서버의 통합을 테스트 하려는 경우에 초기 핸드셰이크 중 클라이언트에서 수행한 서버 유효성 검사를 건너뛰려면 이러한 플래그를 사용할 수 있습니다.
 
 ```powershell
- #Skip validation of the Common Name value in the server certificate. Use this flag if you provide an IP address for your syslog server
- Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on>
- ```-SkipCNCheck
+#Skip validation of the Common Name value in the server certificate. Use this flag if you provide an IP address for your syslog server
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -SkipCNCheck 
  
- #Skip entirely the server certificate validation
- Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on>
-```-SkipCertificateCheck
+#Skip entirely the server certificate validation
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -SkipCertificateCheck
 ```
+
 > [!IMPORTANT]
 > Microsoft는 프로덕션 환경에 대 한-SkipCertificateCheck 플래그를 사용 하는 것이 좋습니다. 
-
 
 ### <a name="configuring-syslog-forwarding-with-tcp-and-no-encryption"></a>TCP 및이 지 않은 암호화를 사용 하 여 syslog 전달 구성
 
 이 구성에서는 Azure Stack에서 syslog 클라이언트 syslog 서버로 메시지를 암호화 하지 않고 TCP를 통해 전달합니다. 클라이언트가 서버의 id 확인 하지 않으며 확인에 서버에 고유한 id를 제공 합니다. 
 
 ```powershell
-Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on> -NoEncryption
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -NoEncryption
 ```
 
 > [!IMPORTANT]
@@ -167,8 +167,9 @@ Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <
 이 구성에서는 Azure Stack에서 syslog 클라이언트 syslog 서버로 메시지를 암호화 하지 않고 UDP를 통해 전달합니다. 클라이언트가 서버의 id 확인 하지 않으며 확인에 서버에 고유한 id를 제공 합니다. 
 
 ```powershell
-Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on> -UseUDP
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -UseUDP
 ```
+
 암호화 하지 않고 UDP 구성 하기 가장 쉽고 상태인 중간자 개입 공격 및 메시지 도청 으로부터 보호는 제공 하지 않습니다. 
 
 > [!IMPORTANT]
@@ -226,72 +227,6 @@ CEF: <Version>|<Device Vendor>|<Device Product>|<Device Version>|<Signature ID>|
 * Device Product: Microsoft Azure Stack
 * Device Version: 1.0
 ```
-
-### <a name="cef-mapping-for-privileged-endpoint-events"></a>권한 있는 끝점 이벤트에 대 한 CEF 매핑
-
-```
-Prefix fields
-* Signature ID: Microsoft-AzureStack-PrivilegedEndpoint: <PEP Event ID>
-* Name: <PEP Task Name>
-* Severity: mapped from PEP Level (details see the PEP Severity table below)
-```
-
-권한 있는 끝점에 대 한 이벤트 테이블:
-
-| 행사 | PEP 이벤트 ID | PEP 작업 이름 | 심각도 |
-|-------|--------------| --------------|----------|
-|PrivilegedEndpointAccessed|1000|PrivilegedEndpointAccessedEvent|5|
-|SupportSessionTokenRequested |1001|SupportSessionTokenRequestedEvent|5|
-|SupportSessionDevelopmentTokenRequested |1002|SupportSessionDevelopmentTokenRequestedEvent|5|
-|SupportSessionUnlocked |1003|SupportSessionUnlockedEvent|10|
-|SupportSessionFailedToUnlock |1004|SupportSessionFailedToUnlockEvent|10|
-|PrivilegedEndpointClosed |1005|PrivilegedEndpointClosedEvent|5|
-|NewCloudAdminUser |1006|NewCloudAdminUserEvent|10|
-|RemoveCloudAdminUser |1007|RemoveCloudAdminUserEvent|10|
-|SetCloudAdminUserPassword |1008|SetCloudAdminUserPasswordEvent|5|
-|GetCloudAdminPasswordRecoveryToken |1009|GetCloudAdminPasswordRecoveryTokenEvent|10|
-|ResetCloudAdminPassword |1010|ResetCloudAdminPasswordEvent|10|
-
-PEP 심각도 표:
-
-| 심각도 | Level | 숫자 값 |
-|----------|-------| ----------------|
-|0|Undefined|값: 0. 모든 수준에서 로그를 나타냅니다.|
-|10|중요|값: 1. 중요 한 경고에 대 한 로그를 나타냅니다.|
-|8|오류| 값: 2입니다. 오류의 로그를 나타냅니다.|
-|5|Warning|값: 3. 경고의 로그를 나타냅니다.|
-|2|정보|값: 4입니다. 정보 메시지에 대 한 로그를 나타냅니다.|
-|0|자세한 정보 표시|값: 5입니다. 모든 수준에서 로그를 나타냅니다.|
-
-### <a name="cef-mapping-for-recovery-endpoint-events"></a>복구 끝점 이벤트에 대 한 CEF 매핑
-
-```
-Prefix fields
-* Signature ID: Microsoft-AzureStack-PrivilegedEndpoint: <REP Event ID>
-* Name: <REP Task Name>
-* Severity: mapped from REP Level (details see the REP Severity table below)
-```
-
-복구 끝점에 대 한 이벤트 테이블:
-
-| 행사 | REP 이벤트 ID | REP 작업 이름 | 심각도 |
-|-------|--------------| --------------|----------|
-|RecoveryEndpointAccessed |1011|RecoveryEndpointAccessedEvent|5|
-|RecoverySessionTokenRequested |1012|RecoverySessionTokenRequestedEvent |5|
-|RecoverySessionDevelopmentTokenRequested |1013|RecoverySessionDevelopmentTokenRequestedEvent|5|
-|RecoverySessionUnlocked |1014|RecoverySessionUnlockedEvent |10|
-|RecoverySessionFailedToUnlock |1015|RecoverySessionFailedToUnlockEvent|10|
-|RecoveryEndpointClosed |1016|RecoveryEndpointClosedEvent|5|
-
-REP 심각도 표:
-| 심각도 | Level | 숫자 값 |
-|----------|-------| ----------------|
-|0|Undefined|값: 0. 모든 수준에서 로그를 나타냅니다.|
-|10|중요|값: 1. 중요 한 경고에 대 한 로그를 나타냅니다.|
-|8|오류| 값: 2입니다. 오류의 로그를 나타냅니다.|
-|5|Warning|값: 3. 경고의 로그를 나타냅니다.|
-|2|정보|값: 4입니다. 정보 메시지에 대 한 로그를 나타냅니다.|
-|0|자세한 정보 표시|값: 5입니다. 모든 수준에서 로그를 나타냅니다.|
 
 ### <a name="cef-mapping-for-windows-events"></a>Windows 이벤트에 대 한 CEF 매핑
 

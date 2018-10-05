@@ -14,18 +14,18 @@ ms.topic: tutorial
 ms.date: 09/12/2018
 ms.author: mattbriggs
 ms.reviewer: shnatara
-ms.openlocfilehash: 3d3701c670236d67697f4109a59fa31900037a0d
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: d402b2bcd5187cbb6ece78d7e981068c279c1f75
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720940"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804432"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Azure Stack에서 Service Fabric 클러스터 배포
 
 사용 된 **Service Fabric 클러스터** Azure Stack에서 보안된 Service Fabric 클러스터를 배포 하려면 Azure Marketplace에서 항목입니다. 
 
-Service Fabric을 사용 하 여 작업에 대 한 자세한 내용은 참조 하세요. [Azure 서비스 Frabric 개요](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) 하 고 [Service Fabric 클러스터 보안 시나리오](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security), Azure 설명서에서.
+Service Fabric을 사용 하 여 작업에 대 한 자세한 내용은 참조 하세요. [Azure Service Fabric의 개요](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) 하 고 [Service Fabric 클러스터 보안 시나리오](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security), Azure 설명서에서.
 
 ## <a name="prerequisites"></a>필수 조건
 
