@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6e449c1216fabf64da2b2abb59a7066fa30e332d
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: b577f697f4467656166b83ea78efdfe6d742941f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982983"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032532"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
@@ -145,7 +145,8 @@ Azure Automation에서는 클라우드의 모든 Runbook 간에 리소스를 공
 
 Runbook에 검사점이 없거나 작업이 언로드되기 전에 첫 번째 검사점에 도달하지 않은 경우에는 처음부터 다시 시작됩니다.
 
-장기 실행 작업의 경우, [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior)를 사용하는 것이 좋습니다. Hybrid Runbook Worker는 공평 분배에 의해 제한되지 않으며, Runbook을 실행할 수 있는 기간에 대한 제한이 없습니다.
+장기 실행 작업의 경우, [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior)를 사용하는 것이 좋습니다. Hybrid Runbook Worker는 공평 분배에 의해 제한되지 않으며, Runbook을 실행할 수 있는 기간에 대한 제한이 없습니다. 다른 작업 [제한](../azure-subscription-service-limits.md#automation-limits)은 Azure 샌드박스 및 Hybrid Runbook Worker에 모두 적용됩니다.
+
 
 Azure에서 PowerShell 워크플로 Runbook을 사용하는 경우, Runbook을 만들 때 두 검사점 간의 작업을 실행하는 시간이 3시간을 초과하지 않도록 해야 합니다. 이 3시간 제한에 도달하거나 오래 실행되는 작업이 중단되지 않도록 하기 위해 Runbook에 검사점을 추가해야 할 수도 있습니다. 예를 들어 Runbook에서 대용량 SQL 데이터베이스의 인덱스를 다시 작성할 수 있습니다. 이 단일 작업이 공평 분배 제한 내에 완료되지 않으면 작업이 언로드되고 처음부터 다시 시작됩니다. 이 경우 다시 인덱싱 작업을 여러 단계로 나눈 다음(예: 한 번의 하나의 테이블을 다시 인덱싱하도록) 작업이 완료할 마지막 작업 이후에 다시 시작될 수 있도록 각 작업 뒤에 검사점을 삽입해야 합니다.
 

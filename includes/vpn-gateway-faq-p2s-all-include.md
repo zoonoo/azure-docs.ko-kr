@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 07/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 7cd19945e316ebc5462642006255103b4631ce29
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 3a4e45aa2c1aca461ef32ebec2cfb50a470037ed
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39361400"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060690"
 ---
-### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>지점 및 사이트 간 구성에서 VPN 클라이언트 끝점을 몇 개까지 지정할 수 있습니까?
+### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>지점 및 사이트 간 구성에서 VPN 클라이언트 엔드포인트를 몇 개까지 지정할 수 있습니까?
 
 최대 128개의 VPN 클라이언트에서 가상 네트워크에 동시에 연결할 수 있도록 지원합니다.
 
@@ -30,8 +30,7 @@ ms.locfileid: "39361400"
 * Windows Server 2012 R2(64비트 전용)
 * Windows Server 2016(64비트 전용)
 * 윈도우 10
-* Mac OS X 버전 10.11(El Capitan)
-* Mac OS X 버전 10.12(Sierra)
+* Mac OS X 버전 10.11 이상
 * Linux(StrongSwan)
 * iOS
 

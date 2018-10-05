@@ -5,19 +5,19 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: article
-ms.date: 08/28/2018
+ms.date: 09/27/2018
 ms.author: alkohli;
 ms.component: ''
-ms.openlocfilehash: afb7de78a30367b0cc12e621019f1e8be975e63f
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 9bab8a55301a5eb40b38bec984205fff2a52559e
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191587"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422816"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Azure Data Box에 대한 지원 티켓 열기 
 
-Azure Data Box 서비스에 문제가 발생하는 경우 기술 지원을 위한 서비스 요청을 만들 수 있습니다. 이 문서에서는 다음을 안내합니다.
+이 문서는 Azure Data Box 및 Azure Data Box Disk에 적용되며, 두 제품 모두 Azure Data Box 서비스를 통해 관리됩니다. Azure Data Box 서비스에 문제가 발생하는 경우 기술 지원을 위한 서비스 요청을 만들 수 있습니다. 이 문서에서는 다음을 안내합니다.
 
 * 지원 요청을 만드는 방법
 * 포털 내에서 지원 요청 주기를 관리하는 방법

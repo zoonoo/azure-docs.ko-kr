@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fd96a6cfebe44bd02e3f44a44d91119ad1c2c5a9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fe35f26fe73661901fa85da65e353fe66adf5d47
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598755"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094220"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure Automation의 역할 기반 Access Control
 
@@ -28,15 +28,15 @@ Azure Automation의 Automation 계정 범위에서 사용자, 그룹 및 응용 
 | **역할** | **설명** |
 |:--- |:--- |
 | 소유자 |소유자 역할을 사용하면 Automation 계정을 관리하기 위해 다른 사용자, 그룹 및 응용 프로그램에 대한 액세스 권한 제공이 포함된 Automation 계정 내에서 모든 리소스 및 동작에 액세스할 수 있습니다. |
-| 기여자 |참가자 역할을 사용하면 Automation 계정에 대한 다른 사용자의 액세스 권한 수정을 제외한 모든 사항을 관리할 수 있습니다. |
-| 판독기 |읽기 역할을 사용하면 Automation 계정의 모든 리소스를 볼 수 있지만 변경할 수는 없습니다. |
+| 참가자 |참가자 역할을 사용하면 Automation 계정에 대한 다른 사용자의 액세스 권한 수정을 제외한 모든 사항을 관리할 수 있습니다. |
+| 읽기 권한자 |읽기 역할을 사용하면 Automation 계정의 모든 리소스를 볼 수 있지만 변경할 수는 없습니다. |
 | Automation 운영자 |Automation 연산자 역할을 사용하면 Runbook 이름 및 속성을 보고 Automation 계정의 모든 Runbook에 대한 작업을 만들고 관리할 수 있습니다. 이 역할은 자격 증명 자산 및 Runnbook 등의 Automation 계정 리소스를 보거나 수정하지 못하도록 보호하며 조직의 구성원이 이러한 Runbook을 여전히 실행하도록 하려는 경우 유용합니다. |
 |Automation 작업 연산자|Automation 작업 연산자 역할을 사용하면 Automation 계정의 모든 Runbook에 대한 작업을 만들고 관리할 수 있습니다.|
-|Automation Runbook 연산자|Automation Runbook 연산자 역할을 사용하면 Runbook의 이름 및 속성을 볼 수 있습니다.|
-| Log Analytics 기여자 | Log Analytics Contributor 역할을 사용하면 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 저장소 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다.|
-| Log Analytics 독자 | Log Analytics Reader 역할을 사용하면 모니터링 설정을 볼 뿐만 아니라 모든 모니터링 데이터를 보고 검색할 수 있습니다. 여기에는 모든 Azure 리소스에 대한 Azure 진단 구성 보기가 포함됩니다. |
-| Monitoring Contributor | Monitoring Contributor 역할을 사용하면 모든 모니터링 데이터를 읽고 모니터링 설정을 업데이트할 수 있습니다.|
-| Monitoring Reader | Montioring Reader 역할을 사용하면 모든 모니터링 데이터를 읽을 수 있습니다. |
+|Automation Runbook 운영자|Automation Runbook 연산자 역할을 사용하면 Runbook의 이름 및 속성을 볼 수 있습니다.|
+| Log Analytics 참가자 | Log Analytics Contributor 역할을 사용하면 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 저장소 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다.|
+| Log Analytics 읽기 권한자 | Log Analytics Reader 역할을 사용하면 모니터링 설정을 볼 뿐만 아니라 모든 모니터링 데이터를 보고 검색할 수 있습니다. 여기에는 모든 Azure 리소스에 대한 Azure 진단 구성 보기가 포함됩니다. |
+| 모니터링 참가자 | Monitoring Contributor 역할을 사용하면 모든 모니터링 데이터를 읽고 모니터링 설정을 업데이트할 수 있습니다.|
+| 모니터링 읽기 권한자 | Montioring Reader 역할을 사용하면 모든 모니터링 데이터를 읽을 수 있습니다. |
 | 사용자 액세스 관리자 |사용자 액세스 관리자 역할을 사용하면 Azure Automation 계정에 대한 사용자 액세스 권한을 관리할 수 있습니다. |
 
 ## <a name="role-permissions"></a>역할 권한
@@ -51,11 +51,11 @@ Azure Automation의 Automation 계정 범위에서 사용자, 그룹 및 응용 
 |---|---|
 |Microsoft.Automation/automationAccounts/|모든 유형의 리소스를 만들고 관리합니다.|
 
-### <a name="contributor"></a>기여자
+### <a name="contributor"></a>참가자
 
 Contributor는 액세스를 제외한 모든 것을 관리할 수 있습니다. 다음 표에서는 역할에 부여되거나 거부된 사용 권한을 보여줍니다.
 
-|**actions**  |**설명**  |
+|**Actions**  |**설명**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/|모든 유형의 리소스 만들기 및 관리|
 |**조치 없음**||
@@ -63,11 +63,11 @@ Contributor는 액세스를 제외한 모든 것을 관리할 수 있습니다. 
 |Microsoft.Authorization/*/Write     |  역할 및 역할 할당을 만듭니다.       |
 |Microsoft.Authorization/elevateAccess/Action    | 사용자 액세스 관리자를 만드는 기능을 거부합니다.       |
 
-### <a name="reader"></a>판독기
+### <a name="reader"></a>읽기 권한자
 
 Reader는 Automation 계정의 모든 리소스를 볼 수 있지만 변경할 수는 없습니다.
 
-|**actions**  |**설명**  |
+|**Actions**  |**설명**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/read|Automation 계정에서 모든 리소스를 봅니다. |
 
@@ -75,15 +75,24 @@ Reader는 Automation 계정의 모든 리소스를 볼 수 있지만 변경할 �
 
 Automation 연산자 역할은 작업을 만들고 관리할 수 있으며, Automation 계정의 모든 Runbook에 대한 Runbook 이름 및 속성을 읽을 수 있습니다.  참고: 개별 Runbook에 액세스하도록 연산자를 제어하려는 경우에는 이 역할을 설정하지 말고 대신 ‘Automation 작업 연산자’ 및 ‘Automation Runbook 연산자’ 역할을 조합하여 사용합니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
 
-|**actions**  |**설명**  |
+|**Actions**  |**설명**  |
 |---------|---------|
 |Microsoft.Authorization/*/read|권한 부여를 읽습니다.|
+|Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read|Hybrid Runbook Worker 리소스를 읽습니다.|
 |Microsoft.Automation/automationAccounts/jobs/read|Runbook의 작업을 나열합니다.|
 |Microsoft.Automation/automationAccounts/jobs/resume/action|일시 중지된 작업을 다시 시작합니다.|
 |Microsoft.Automation/automationAccounts/jobs/stop/action|진행 중인 작업을 취소합니다.|
 |Microsoft.Automation/automationAccounts/jobs/streams/read|작업 스트림 및 출력을 읽습니다.|
+|Microsoft.Automation/automationAccounts/jobs/output/read|작업의 출력을 가져옵니다.|
 |Microsoft.Automation/automationAccounts/jobs/suspend/action|진행 중인 작업을 일시 중지합니다.|
 |Microsoft.Automation/automationAccounts/jobs/write|작업을 만듭니다.|
+|Microsoft.Automation/automationAccounts/jobSchedules/read|Azure Automation 작업 일정을 가져옵니다.|
+|Microsoft.Automation/automationAccounts/jobSchedules/write|Azure Automation 작업 일정을 만듭니다.|
+|Microsoft.Automation/automationAccounts/linkedWorkspace/read|자동화 계정에 연결된 작업 영역을 가져옵니다.|
+|Microsoft.Automation/automationAccounts/read|Azure Automation 계정을 가져옵니다.|
+|Microsoft.Automation/automationAccounts/runbooks/read|Azure Automation Runbook을 가져옵니다.|
+|Microsoft.Automation/automationAccounts/schedules/read|Azure Automation 일정 자산을 가져옵니다.|
+|Microsoft.Automation/automationAccounts/schedules/write|Azure Automation 일정 자산을 만들거나 업데이트합니다.|
 |Microsoft.Resources/subscriptions/resourceGroups/read      |역할 및 역할 할당을 읽습니다.         |
 |Microsoft.Resources/deployments/*      |리소스 그룹 배포를 만들고 관리합니다.         |
 |Microsoft.Insights/alertRules/*      | 경고 규칙을 만들고 관리합니다.        |
@@ -93,7 +102,7 @@ Automation 연산자 역할은 작업을 만들고 관리할 수 있으며, Auto
 
 Automation 작업 연산자 역할은 Automation 계정 범위에서 부여됩니다. 그러면 연산자 권한이 계정의 모든 Runbook에 대한 작업을 만들고 관리할 수 있습니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
 
-|**actions**  |**설명**  |
+|**Actions**  |**설명**  |
 |---------|---------|
 |Microsoft.Authorization/*/read|권한 부여를 읽습니다.|
 |Microsoft.Automation/automationAccounts/jobs/read|Runbook의 작업을 나열합니다.|
@@ -111,7 +120,7 @@ Automation 작업 연산자 역할은 Automation 계정 범위에서 부여됩�
 
 Automation Runbook 운영자 역할은 Runbook 범위에서 부여됩니다. Automation Runbook 연산자 역할은 Runbook의 이름 및 속성을 볼 수 있습니다.  ‘Automation 작업 연산자’ 역할과 결합된 이 역할은 연산자가 Runbook에 대한 작업을 만들고 관리할 수 있도록 설정합니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
 
-|**actions**  |**설명**  |
+|**Actions**  |**설명**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/runbooks/read     | Runbook을 나열합니다.        |
 |Microsoft.Authorization/*/read      | 권한 부여를 읽습니다.        |
@@ -120,11 +129,11 @@ Automation Runbook 운영자 역할은 Runbook 범위에서 부여됩니다. Aut
 |Microsoft.Insights/alertRules/*      | 경고 규칙을 만들고 관리합니다.        |
 |Microsoft.Support/*      | 지원 티켓을 만들고 관리합니다.        |
 
-### <a name="log-analytics-contributor"></a>Log Analytics 기여자
+### <a name="log-analytics-contributor"></a>Log Analytics 참가자
 
 Log Analytics Contributor 역할은 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있습니다. 모니터링 설정 편집에는 VM에 VM 확장 추가, Azure Storage에서 로그 컬렉션을 구성할 수 있는 저장소 계정 키 읽기, Automation 계정 생성 및 구성, 솔루션 추가 및 모든 Azure 리소스에 대한 Azure 진단을 구성하는 기능도 포함되어 있습니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
 
-|**actions**  |**설명**  |
+|**Actions**  |**설명**  |
 |---------|---------|
 |*/read|암호를 제외한 모든 유형의 리소스를 읽습니다.|
 |Microsoft.Automation/automationAccounts/*|Automation 계정을 관리합니다.|
@@ -140,11 +149,11 @@ Log Analytics Contributor 역할은 모든 모니터링 데이터를 읽고 모�
 |Microsoft.Storage/storageAccounts/listKeys/action|저장소 계정 키를 나열합니다.|
 |Microsoft.Support/*|지원 티켓을 만들고 관리합니다.|
 
-### <a name="log-analytics-reader"></a>Log Analytics 독자
+### <a name="log-analytics-reader"></a>Log Analytics 읽기 권한자
 
 Log Analytics Reader는 모든 Azure 리소스에 대한 Azure 진단의 구성 보기를 비롯하여 모니터링 설정 보기 및 모든 모니터링 데이터를 보고 검색할 수 있습니다. 다음 표에서는 역할에 부여되고 거부된 사용 권한을 보여줍니다.
 
-|**actions**  |**설명**  |
+|**Actions**  |**설명**  |
 |---------|---------|
 |*/read|암호를 제외한 모든 유형의 리소스를 읽습니다.|
 |Microsoft.OperationalInsights/workspaces/analytics/query/action|Log Analytics에서 쿼리를 관리합니다.|
@@ -153,11 +162,11 @@ Log Analytics Reader는 모든 Azure 리소스에 대한 Azure 진단의 구성 
 |**조치 없음**| |
 |Microsoft.OperationalInsights/workspaces/sharedKeys/read|공유 액세스 키를 읽을 수 없습니다.|
 
-### <a name="monitoring-contributor"></a>Monitoring Contributor
+### <a name="monitoring-contributor"></a>모니터링 참가자
 
 Monitoring Contributor는 모든 모니터링 데이터를 읽고 모니터링 설정을 업데이트할 수 있습니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
 
-|**actions**  |**설명**  |
+|**Actions**  |**설명**  |
 |---------|---------|
 |*/read|암호를 제외한 모든 유형의 리소스를 읽습니다.|
 |Microsoft.AlertsManagement/alerts/*|경고를 관리합니다.|
@@ -179,11 +188,11 @@ Monitoring Contributor는 모든 모니터링 데이터를 읽고 모니터링 �
 |Microsoft.Support/*|지원 티켓을 만들고 관리합니다.|
 |Microsoft.WorkloadMonitor/workloads/*|워크로드를 관리합니다.|
 
-### <a name="monitoring-reader"></a>Monitoring Reader
+### <a name="monitoring-reader"></a>모니터링 읽기 권한자
 
 Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
 
-|**actions**  |**설명**  |
+|**Actions**  |**설명**  |
 |---------|---------|
 |*/read|암호를 제외한 모든 유형의 리소스를 읽습니다.|
 |Microsoft.OperationalInsights/workspaces/search/action|Log Analytics 작업 영역 검색|
@@ -193,11 +202,11 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
 
 사용자 액세스 관리자는 Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
 
-|**actions**  |**설명**  |
+|**Actions**  |**설명**  |
 |---------|---------|
 |*/read|모든 리소스 읽기|
 |Microsoft.Authorization/*|권한 부여 관리|
-|Microsoft.Support/*|지원 티켓 만들기 및 관리|
+|Microsoft.Support/*|지원 티켓을 만들고 관리합니다.|
 
 ## <a name="onboarding"></a>온보딩
 
@@ -250,12 +259,12 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
 
 |**리소스**  |**역할**  |**범위**  |
 |---------|---------|---------|
-|Automation 계정     | Log Analytics 기여자       | Automation 계정        |
-|Automation 계정    | Virtual Machine 기여자        | 계정의 리소스 그룹        |
-|Log Analytics 작업 영역     | Log Analytics 기여자| Log Analytics 작업 영역        |
-|Log Analytics 작업 영역 |Log Analytics 독자| 구독|
-|해결 방법     |Log Analytics 기여자         | 해결 방법|
-|Virtual Machine     | Virtual Machine 기여자        | Virtual Machine        |
+|Automation 계정     | Log Analytics 참가자       | Automation 계정        |
+|Automation 계정    | 가상 머신 참가자        | 계정의 리소스 그룹        |
+|Log Analytics 작업 영역     | Log Analytics 참가자| Log Analytics 작업 영역        |
+|Log Analytics 작업 영역 |Log Analytics 읽기 권한자| 구독|
+|해결 방법     |Log Analytics 참가자         | 해결 방법|
+|Virtual Machine     | 가상 머신 참가자        | Virtual Machine        |
 
 ## <a name="configure-rbac-for-your-automation-account"></a>Automation 계정에 대한 RBAC 구성
 

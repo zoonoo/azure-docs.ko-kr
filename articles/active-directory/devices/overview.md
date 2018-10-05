@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 456b28c50bd5e7d69c3f16dd3e76a9ced20112f9
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 3baa48113022bed1bdc7caa5854a231334c975af
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048865"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224633"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>Azure Active Directory에서 장치 관리란?
 
@@ -121,7 +121,7 @@ Windows 10 장치에 대한 Azure AD 가입 장치를 구성할 수 있습니다
 
 온-프레미스 공간이 있는 조직에서는 일반적으로 이미징 메서드에 의존하여 장치를 프로비전하며, 이를 관리하는 데 **SCCM(System Center Configuration Manager)** 또는 **GP(그룹 정책)** 를 사용하기도 합니다.
 
-사용자 환경에 온-프레미스 AD 공간이 있고 Azure Active Directory에서 제공하는 기능의 혜택을 활용하려는 경우 하이브리드 Azure AD 가입 장치를 구현할 수 있습니다. 이는 온-프레미스 Azure Active Directory 및 Azure Active Directory에 모두 가입되어 있는 장치입니다.
+사용자 환경에 온-프레미스 AD 공간이 있고 Azure Active Directory에서 제공하는 기능의 혜택을 활용하려는 경우 하이브리드 Azure AD 가입 장치를 구현할 수 있습니다. 이는 Azure Active Directory에 등록되고 온-프레미스 Azure Active Directory에 조인되어 있는 장치입니다.
 
 ![Azure AD 등록 장치](./media/overview/01.png)
 

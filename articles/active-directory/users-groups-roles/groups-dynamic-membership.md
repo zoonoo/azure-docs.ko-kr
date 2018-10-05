@@ -10,22 +10,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/20/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 9c0bb676cc59820d3ae83612893c8920d5d0aebe
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c3121f8b303d9f82ed949d598a942906d0d24f7e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424374"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041026"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙
 
 Azure AD(Azure Active Directory)에서 그룹에 대해 동적 멤버십을 사용하기 위해 복합 특성 기준 규칙을 만들 수 있습니다. 동적 그룹 멤버 자격은 사용자를 추가하고 제거하는 관리 오버헤드를 줄입니다. 이 문서에서는 사용자 또는 장치에 대한 동적 멤버 자격 규칙을 만드는 속성과 구문에 대해 자세히 설명합니다. 보안 그룹 또는 Office 365 그룹에서 동적 멤버 자격에 대한 규칙을 설정할 수 있습니다.
 
-사용자 또는 장치의 특성이 변경될 때 변경 내용이 그룹 추가 또는 제거를 트리거할지를 확인하기 위해 시스템은 디렉터리에서 모든 동적 그룹 규칙을 평가합니다. 사용자 또는 장치가 그룹에 대한 규칙을 만족하면 해당 그룹의 멤버로 추가됩니다. 규칙을 더 이상 만족하지 않는 경우 제거됩니다.
+사용자 또는 장치의 특성이 변경될 때 변경 내용이 그룹 추가 또는 제거를 트리거할지를 확인하기 위해 시스템은 디렉터리에서 모든 동적 그룹 규칙을 평가합니다. 사용자 또는 장치가 그룹에 대한 규칙을 만족하면 해당 그룹의 멤버로 추가됩니다. 규칙을 더 이상 만족하지 않는 경우 제거됩니다. 동적 그룹의 멤버를 수동으로 추가하거나 제거할 수 없습니다.
 
 * 장치 또는 사용자에 대한 동적 그룹은 만들 수 있지만 사용자 및 장치를 모두 포함하는 규칙은 만들 수 없습니다.
 * 장치 소유자의 특성을 기반으로 하는 장치 그룹은 만들 수 없습니다. 장치 멤버 자격 규칙은 장치 특성만 참조할 수 있습니다.

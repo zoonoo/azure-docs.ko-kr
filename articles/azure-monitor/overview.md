@@ -10,15 +10,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/14/2018
+ms.topic: conceptual
+ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 97cc6d6e922ab0bedd729eddca754ae016f041bf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0413357b6e17bf66b0ae9b504bc23b9702d03c91
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958019"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220978"
 ---
 # <a name="azure-monitor-overview"></a>Azure Monitor 개요
 
@@ -47,7 +47,7 @@ Log Analytics 쿼리 언어는 단순 로그 쿼리에 적합하지만 집계, �
 ![로그](media/overview/logs.png)
 
 ## <a name="what-data-does-azure-monitor-collect"></a>Azure Monitor는 어떤 데이터를 수집하나요?
-Log Analytics는 다양한 원본에서 데이터를 수집할 수 있습니다. 응용 프로그램, 응용 프로그램에서 사용하는 운영 체제 및 서비스부터 플랫폼 자체까지, 계정의 응용 프로그램에 대한 모든 데이터를 모니터링한다고 생각하시면 됩니다. Azure Monitor는 다음과 같은 각 계층에서 데이터를 수집합니다.
+Azure Monitor는 다양한 원본에서 데이터를 수집할 수 있습니다. 응용 프로그램, 응용 프로그램에서 사용하는 운영 체제 및 서비스부터 플랫폼 자체까지, 계정의 응용 프로그램에 대한 모든 데이터를 모니터링한다고 생각하시면 됩니다. Azure Monitor는 다음과 같은 각 계층에서 데이터를 수집합니다.
 
 - **응용 프로그램 모니터링 데이터:** 플랫폼에 관계없이, 작성한 코드의 성능 및 기능에 대한 데이터입니다.
 - **게스트 OS 모니터링 데이터:** 응용 프로그램이 실행되고 있는 운영 체제에 대한 데이터입니다. Azure, 다른 클라우드 또는 온-프레미스에서 실행될 수 있습니다. 
@@ -145,9 +145,6 @@ Azure Monitor를 다른 시스템과 통합하여 모니터링 데이터를 사�
 ## <a name="next-steps"></a>다음 단계
 다음에 대해 자세히 알아봅니다.
 
-* 핵심 모니터링 메트릭 및 경고를 시작하는 [Azure Monitor](https://azure.microsoft.com/services/monitor/)
-* [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) - App Service 웹앱에서 문제를 진단하려는 경우
-* 수집한 모니터링 데이터 및 로그를 분석하기 위한 [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/)
-
-
-
+* Azure Monitor에서 수집한 데이터에 대한 [메트릭 및 로그](../monitoring/monitoring-data-collection.md).
+* 응용 프로그램의 다양한 구성 요소가 원격 분석을 전송하는 방법에 대한 [데이터 원본](../monitoring/monitoring-data-sources.md).
+* 수집한 데이터를 분석하기 위한 [Log Analytics](../log-analytics/log-analytics-queries.md).

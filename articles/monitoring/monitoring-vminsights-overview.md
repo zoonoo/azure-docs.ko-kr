@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 79f507c342f5a13c4d3784cf312f0bf8aeffa3e3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 26fcc3eb78af53360cca57382b4c06b017f36c0e
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957258"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063271"
 ---
-## <a name="what-is-azure-monitor-for-vms"></a>VM용 Azure Monitor란?
+# <a name="what-is-azure-monitor-for-vms"></a>VM용 Azure Monitor란?
 
 VM용 Azure Monitor는 Windows 및 Linux VM의 성능과 상태를 분석하여 대규모 Azure VM(가상 머신)을 모니터링하며, 여기에는 VM의 여러 프로세스, 그리고 다른 리소스 및 외부 프로세스에 대한 상호 연결된 종속성이 포함됩니다. 이 솔루션에는 온-프레미스 또는 다른 클라우드 공급자에 호스트되는 VM의 성능 및 응용 프로그램 종속성 모니터링에 대한 지원이 포함됩니다.  심층 인사이트를 제공하는 세 가지 핵심 기능이 포함되어 있습니다.
 
@@ -57,4 +57,4 @@ VM용 Azure Monitor를 등록하는 즉시, VM에서 수집한 데이터가 Azur
 로그 크기는 카운터의 문자열 길이에 따라 달라지며, 논리 디스크 및 네트워크 어댑터 수를 늘릴 수 있습니다.  이미 작업 영역이 있고 이러한 카운터를 수집 중인 경우 요금이 중복 적용되지 않습니다.  이미 서비스 맵을 사용 중인 경우 Azure Monitor로 전송되는 추가 연결 데이터만 변경됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-[VM용 Azure Monitor를 등록](monitoring-vminsights-onboard.md)하여 Azure 가상 머신 모니터링을 시작합니다.
+[VM용 Azure Monitor 등록](monitoring-vminsights-onboard.md)을 검토하여 가상 머신의 모니터링을 사용하기 위한 요구 사항과 방법을 알아보세요.

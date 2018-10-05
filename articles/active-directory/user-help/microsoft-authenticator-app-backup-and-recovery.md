@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 39ec7c979294860967deb3307f5d87112b762257
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: b019523227bcd45e502ec84055cfb09025918331
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146503"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406127"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱을 사용하여 계정 자격 증명 백업 및 복구
 
@@ -78,12 +78,12 @@ Microsoft Authenticator 앱은 계정 자격 증명과 계정 순서 같은 관�
 
     ![연결된 드롭다운 화살표가 있는 사용 가능한 계정을 보여주는 Microsoft Authenticator 앱](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-additonal-accts.png)
 
-2.  **복구하려면 QR 코드 검사**을 선택한 다음, 관리자가 제공한 QR 코드를 검사합니다.
+2.  **복구하려면 QR 코드 검사**을 선택한 다음, QR 코드를 검사합니다.
 
     ![QR 코드를 검사할 수 있는 Microsoft Authenticator 앱](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >QR 코드를 가져오는 방법에 대한 자세한 내용은 [Microsoft Authenticator 앱 시작 문서의 계정을 추가하는 방법 섹션](https://docs.microsoft.com/azure/active-directory/user-help/microsoft-authenticator-app-how-to#add-accounts-to-the-app)을 참조하세요.
+    >QR 코드를 가져오는 방법에 대한 자세한 내용은 관리자가 보안 정보를 켰는지 여부에 따라 [Microsoft Authenticator 앱 시작](https://docs.microsoft.com/azure/active-directory/user-help/microsoft-authenticator-app-how-to#add-accounts-to-the-app) 또는 [Authenticator 앱을 사용하도록 보안 정보 설정](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app#to-use-the-microsoft-authenticator-app)을 참조하세요.
 
 ## <a name="troubleshooting-backup-and-recovery-problems"></a>백업 및 복구 문제 해결
 백업을 사용할 수 없는 몇 가지 이유가 있습니다.

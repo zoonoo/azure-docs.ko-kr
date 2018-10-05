@@ -3,7 +3,7 @@ items:
   href: index.yml
 - name: 개요
   items:
-  - name: Azure Machine Learning이란?
+  - name: Azure Machine Learning 서비스란?
     href: overview-what-is-azure-ml.md
   - name: Workbench의 변경된 내용
     href: overview-what-happened-to-workbench.md
@@ -12,8 +12,10 @@ items:
   expanded: true
 - name: 빠른 시작
   items:
-  - name: 시작하기
+  - name: 시작 - Portal
     href: quickstart-get-started.md
+  - name: 시작 - Python
+    href: quickstart-create-workspace-with-python.md
 - name: 자습서
   items:
   - name: '모델 학습: 1부'
@@ -42,8 +44,12 @@ items:
       href: how-to-choose-a-dev-environment.md
     - name: 환경 구성
       href: how-to-configure-environment.md
-  - name: 학습 환경 설정
-    href: how-to-set-up-training-targets.md
+    - name: AI용 VS Code Tools
+      items:
+      - name: 시작하기
+        href: how-to-vscode-tools.md
+      - name: 학습 및 배포
+        href: how-to-vscode-train-deploy.md
   - name: 데이터 준비
     href: how-to-data-prep.md
     items:
@@ -53,19 +59,23 @@ items:
       href: how-to-transform-data.md
     - name: 데이터 쓰기
       href: how-to-write-data.md
-  - name: 학습 및 조정
+  - name: 데이터 액세스
+    href: how-to-access-data.md
+  - name: 모델 학습
     items:
-    - name: 데이터 액세스
-      href: how-to-access-data.md
-    - name: ML 모델 학습
+    - name: 학습 환경 설정
+      href: how-to-set-up-training-targets.md
+    - name: 추정 만들기
       href: how-to-train-ml-models.md
       items:
-      - name: PyTorch 모델 학습
+      - name: PyTorch
         href: how-to-train-pytorch.md
-      - name: TensorFlow 모델 학습
+      - name: TensorFlow
         href: how-to-train-tensorflow.md
     - name: ONNX 모델 만들기 및 배포
       href: how-to-build-deploy-onnx.md
+  - name: 모델 조정
+    items:
     - name: hyperparameters 조정
       href: how-to-tune-hyperparameters.md
     - name: 실험 및 메트릭 추적
@@ -77,21 +87,28 @@ items:
       href: how-to-configure-auto-train.md
     - name: 원격 계산 대상 사용
       href: how-to-auto-train-remote.md
-  - name: 배포 및 모니터링
+  - name: 모델 배포
     items:
     - name: 모델 배포 위치
       href: how-to-deploy-and-where.md
-      items:
-      - name: ACI에 배포
-        href: how-to-deploy-to-aci.md
-      - name: AKS에 배포
-        href: how-to-deploy-to-aks.md
-      - name: FPGA에 배포
-        href: how-to-deploy-fpga-web-service.md
-      - name: IoT Edge에 배포
-        href: how-to-deploy-to-iot.md
+    - name: ACI에 배포
+      href: how-to-deploy-to-aci.md
+    - name: AKS에 배포
+      href: how-to-deploy-to-aks.md
+    - name: FPGA에 배포
+      href: how-to-deploy-fpga-web-service.md
+    - name: IoT Edge에 배포
+      href: how-to-deploy-to-iot.md
+    - name: 문제 해결
+      href: how-to-troubleshoot-deployment.md
+    - name: SSL을 통한 보안
+      href: how-to-secure-web-service.md
+  - name: 모델 모니터링
+    items:
     - name: 프로덕션에서 데이터 수집
       href: how-to-enable-data-collection.md
+    - name: Application Insights로 모니터링
+      href: how-to-enable-app-insights.md
   - name: 리소스 할당량 관리
     href: how-to-manage-quotas.md
   - name: 데이터 내보내기 및 삭제
@@ -104,8 +121,6 @@ items:
     href: reference-azure-machine-learning-cli.md
 - name: 리소스
   items:
-  - name: R 개발자 가이드
-    href: ../r-developers-guide.md
   - name: Azure 로드맵
     href: https://azure.microsoft.com/roadmap/
   - name: 가격
@@ -114,6 +129,8 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: 계정 데이터 내보내기 또는 삭제
     href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
+  - name: 릴리스 정보
+    href: azure-machine-learning-release-notes.md
   - name: 알려진 문제
     href: resource-known-issues.md
   - name: 지원 받기
@@ -314,17 +331,13 @@ items:
           href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics
         - name: 텍스트 분류 모델 빌드 및 배포
           href: ../desktop-workbench/how-to-build-deploy-text-classification-models.md
-    - name: 이전 릴리스 정보
-      href: azure-machine-learning-release-notes.md
     - name: FAQ
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: 이전 문제
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-    - name: 지원
-      href: support-for-aml-services.md
-ms.openlocfilehash: 0e069ce7bb04a4aef2e631488ec807a1539c32e5
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: fb5ffe0b261d1c233765175170b5697050b58d20
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162154"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248815"

@@ -3,7 +3,7 @@ title: Azure AD v2.0 엔드포인트와 v1.0 엔드포인트 비교 | Microsoft 
 description: Azure AD v2.0 엔드포인트와 v1.0 엔드포인트의 차이점 이해하기
 services: active-directory
 documentationcenter: ''
-author: andretms
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
@@ -13,23 +13,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 09/27/2018
 ms.author: andret
-ms.reviewer: hirsin, celested
+ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: 02c7edc84d2ac3a91c33d8f266d022db5cd5cb40
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b75b31ddfc77be5ed651e7b8484e41a4ae73d8d8
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948960"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406535"
 ---
-# <a name="comparing-the-azure-ad-v20-endpoint-with-v10-endpoint"></a>Azure AD v2.0 엔드포인트와 v1.0 엔드포인트 비교
+# <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>Azure AD v2.0 엔드포인트와 v1.0 엔드포인트 비교
 
 새 응용 프로그램을 개발하는 경우에는 v1.0 엔드포인트와 v2.0 엔드포인트의 차이점을 아는 것이 중요합니다. 다음은 주요 차이점과 v2.0 엔드포인트의 기존 제한 사항입니다.
 
 > [!NOTE]
-> v2.0 엔드포인트에서는 일부 Azure AD 시나리오 및 기능만 지원합니다. v2.0 엔드포인트를 사용해야 하는지 확인하려면 [v2.0 제한 사항](#limitations)을 참조하세요.
+> v2.0 엔드포인트에서는 일부 Azure AD(Azure Active Directory) 시나리오 및 기능만 지원합니다. v2.0 엔드포인트를 사용해야 하는지 확인하려면 [v2.0 제한 사항](#limitations)을 참조하세요.
 
 ## <a name="who-can-sign-in"></a>로그인할 수 있는 사용자
 
@@ -37,7 +37,7 @@ ms.locfileid: "46948960"
 
 * v1.0 엔드포인트의 경우 회사 및 학교 계정만 응용 프로그램(Azure AD)에 로그인할 수 있습니다.
 
-* v2.0 엔드포인트의 경우 Azure Active Directory의 회사 및 학교 계정과 개인 계정(MSA)(hotmail.com, outlook.com, msn.com)으로 로그인할 수 있습니다.
+* v2.0 엔드포인트의 경우 Azure AD의 회사 및 학교 계정과 개인 계정(MSA)(hotmail.com, outlook.com, msn.com)으로 로그인할 수 있습니다.
 
 * v1.0과 v2.0 엔드포인트 둘 다 테넌트별 엔드포인트(`https://login.microsoftonline.com/{TenantId_or_Name}`)를 가리키도록 구성된 *[단일 테넌트](single-and-multi-tenant-apps.md)* 또는 *다중 테넌트* 응용 프로그램으로 구성된 응용 프로그램에 대해 Azure AD 디렉터리의 *[게스트 사용자](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* 가 로그인할 수 있습니다.
 
@@ -214,15 +214,13 @@ v2.0 엔드포인트를 사용하여 [OAuth 2.0으로 보안이 유지되는 Web
 
 v2.0 엔드포인트는 SAML 또는 WS-Federation을 지원하지 않으며 Open ID Connect 및 OAuth 2.0만 지원합니다. OAuth 프로토콜의 일부 특징과 기능은 v2.0 엔드포인트에 통합되지 않았습니다.
 
-다음 프로토콜 특징과 기능은 현재 v2.0 엔드포인트에서 *사용할 수 없습니다*.
+다음 프로토콜 특징과 기능은 현재 v2.0 엔드포인트에서 *사용할 수 없으며* *지원되지 않습니다*.
 
-* 현재 `email` 클레임은 선택적 클레임이 구성되어 있고 요청에서 범위가 이메일로 지정된 경우에만 반환됩니다. 그러나 v2.0 엔드포인트가 Open ID Connect 및 OAuth2.0 표준을 준수하도록 업데이트되면 이 동작도 변경됩니다.
+* `email` 클레임은 선택적 클레임이 구성되어 있고 요청에서 범위가 이메일로 지정된 경우에만 반환됩니다. 그러나 Open ID Connect 및 OAuth2.0 표준을 준수하도록 v2.0 엔드포인트가 업데이트되면 이 동작도 변경될 예정입니다.
 
 * v2.0 엔드포인트는 ID 토큰에서 역할이나 그룹 클레임을 발급하도록 지원하지 않습니다.
 
-* [OAuth 2.0 리소스 소유자 암호 자격 증명 부여](https://tools.ietf.org/html/rfc6749#section-4.3)는 v2.0 엔드포인트에서 지원되지 않습니다.
-
-또한 v2.0 엔드포인트는 모든 형태의 SAML 또는 WS-Federation 프로토콜을 지원하지 않습니다.
+* v2.0 엔드포인트는 [OAuth 2.0 리소스 소유자 암호 자격 증명 부여](https://tools.ietf.org/html/rfc6749#section-4.3)를 지원하지 않습니다.
 
 v2.0 엔드포인트에서 지원되는 프로토콜 기능의 범위를 더 잘 이해하려면 [OpenID Connect 및 OAuth 2.0 프로토콜 참조](active-directory-v2-protocols.md)를 참조하세요.
 

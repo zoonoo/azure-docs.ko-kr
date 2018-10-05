@@ -1,21 +1,22 @@
 ---
-title: Azure에서 Custom Speech Service 시작 | Microsoft Docs
+title: Custom Speech Service 시작
+titlesuffix: Azure Cognitive Services
 description: Custom Speech Service를 구독하고 서비스 활동 모델을 Azure 구독에 연결하여 모델을 학습하고 배포를 수행합니다.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: bf674261a58aab4fee37920d12ce6a2ac54b58b8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ae72edd626bd91dea7cd2812a3ef821b905f59a4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975786"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225245"
 ---
 # <a name="get-started-with-custom-speech-service"></a>Custom Speech Service 시작
 
@@ -51,7 +52,7 @@ Custom Speech Service의 주요 기능을 탐색하고 응용 프로그램 요�
 [여기](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md)에서 사용자 지정 음성-텍스트 엔드포인트를 만드는 방법에 관한 자세한 설명을 확인할 수 있습니다.
 
 ## <a name="using-a-custom-speech-endpoint"></a>사용자 지정 음성 엔드포인트 사용
-Microsoft Cognitive Services 음성 엔드포인트와 매우 유사한 방법으로 CRIS 음성-텍스트 엔드포인트에 요청을 보낼 수 있습니다. 이러한 엔드포인트는 기능적으로 Speech API의 기본 엔드포인트와 동일합니다. 따라서 클라이언트 라이브러리 또는 Speech API에 대한 REST API를 통해 사용할 수 있는 동일한 기능은 사용자 지정 엔드포인트에서도 사용할 수 있습니다.
+Azure Cognitive Services 기본 음성 엔드포인트와 매우 유사한 방식으로 CRIS 음성-텍스트 엔드포인트에 요청을 보낼 수 있습니다. 이러한 엔드포인트는 기능적으로 Speech API의 기본 엔드포인트와 동일합니다. 따라서 클라이언트 라이브러리 또는 Speech API에 대한 REST API를 통해 사용할 수 있는 동일한 기능은 사용자 지정 엔드포인트에서도 사용할 수 있습니다.
 
 [여기](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-use-endpoint.md)에서 사용자 지정 음성-텍스트 엔드포인트를 사용하는 방법에 관한 자세한 설명을 확인할 수 있습니다.
 

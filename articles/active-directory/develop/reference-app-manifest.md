@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 16841b927142572a40685940038eaf1cc6fc12ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 74bcd1e795186eba652d2da986c290e1989dd1d1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962337"
+ms.locfileid: "47041577"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory 앱 매니페스트
 
@@ -41,7 +41,7 @@ Azure AD(Azure Active Directory)와 통합되는 앱은 Azure AD 테넌트에 �
 | `accessTokenAcceptedVersion` | Nullable Int32 | 현재 API 리소스에 대해 승인된 액세스 토큰 버전을 지정합니다. 가능한 값은 1, 2, Null입니다. 기본값은 Null이며, 2로 처리됩니다. | `2` |
 | `allowPublicClient` | 부울 | 대체 응용 프로그램 유형을 지정합니다. Azure AD는 기본적으로 replyUrlsWithType에서 응용 프로그램 유형을 유추합니다. Azure AD에서 클라이언트 앱 유형을 확인할 수 없는 특정 시나리오(예: HTTP 요청이 URL 리디렉션 없이 발생하는 [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) 흐름)가 있습니다. 이러한 경우 Azure AD는 이 속성 값을 기반으로 해서 응용 프로그램 유형을 해석합니다. 이 값을 true로 설정하면 대체 응용 프로그램 유형이 모바일 장치에서 실행 중인 설치된 응용 프로그램과 같은 공용 클라이언트로 설정됩니다. 기본값은 false이며, 대체 응용 프로그램 유형이 웹앱과 같은 기밀 클라이언트임을 의미합니다. | `false` |
 | `appId` | 식별자 문자열 | Azure AD가 할당한 앱의 고유 식별자를 지정합니다. | `"601790de-b632-4f57-9523-ee7cb6ceba95"` |
-| `appRoles` | 배열 형식 | 앱에서 선언할 수 있는 역할의 컬렉션을 지정합니다. 이러한 역할은 사용자, 그룹 또는 서비스 주체에게 할당될 수 있습니다. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;"description":"Read-only access to device information",<br>&nbsp;&nbsp;&nbsp;"displayName":"Read Only",<br>&nbsp;&nbsp;&nbsp;"id":guid,<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"value":"ReadOnly"<br>&nbsp;&nbsp;}<br>]</code>  |
+| `appRoles` | 배열 형식 | 앱에서 선언할 수 있는 역할의 컬렉션을 지정합니다. 이러한 역할은 사용자, 그룹 또는 서비스 주체에게 할당될 수 있습니다. 더 많은 예제 및 정보는 [응용 프로그램에서 앱 역할을 추가하고 토큰에서 수신하기](howto-add-app-roles-in-azure-ad-apps.md)를 참조하세요. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;"description":"Read-only access to device information",<br>&nbsp;&nbsp;&nbsp;"displayName":"Read Only",<br>&nbsp;&nbsp;&nbsp;"id":guid,<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"value":"ReadOnly"<br>&nbsp;&nbsp;}<br>]</code>  |
 | `groupMembershipClaims` | string | 앱이 예상하는 사용자 또는 OAuth 2.0 액세스 토큰에서 발급되는 `groups` 클레임을 구성하는 비트 마스크입니다. 비트 마스크 값은 다음과 같습니다.<br>0: 없음<br>1: 보안 그룹 및 Azure AD 역할<br>2: 예약됨<br>4: 예약됨<br>비트 마스크를 7로 설정하면 로그인한 사용자가 속한 모든 보안 그룹, 배포 그룹, Azure AD 디렉터리 역할을 가져옵니다. | `1` |
 | `optionalClaims` | string | 이 특정 앱에 대해 보안 토큰 서비스에서 토큰으로 반환한 선택적 클레임입니다. 자세한 내용은 [선택적 클레임](active-directory-optional-claims.md)을 참조하세요. | `null` |
 | `id` | 식별자 문자열 | 디렉터리의 앱에 대한 고유 식별자입니다. 이 ID는 프로토콜 트랜잭션에서 앱을 식별하는 데 사용되는 식별자가 아닙니다. 디렉터리 쿼리의 개체를 참조하는 데 사용됩니다. | `"f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"` |
@@ -52,7 +52,7 @@ Azure AD(Azure Active Directory)와 통합되는 앱은 Azure AD 테넌트에 �
 | `logoUrl` | string | 포털에서 업로드된 로고에 대한 CDN URL을 가리키는 읽기 전용 값입니다. | `https://MyRegisteredAppLogo` |
 | `logoutUrl` | string | 앱을 로그아웃하는 URL입니다. | `https://MyRegisteredAppLogout` |
 | `name` | string | 앱의 표시 이름입니다. | `MyRegisteredApp` |
-| `oauth2AllowImplicitFlow` | 부울 | 이 웹앱이 OAuth2.0 암시적 흐름 액세스 토큰을 요청할 수 있는지 여부를 지정합니다. 기본값은 false입니다. 이 플래그는 Javascript 단일 페이지 앱과 같은 브라우저 기반 앱에 사용됩니다. | `false` |
+| `oauth2AllowImplicitFlow` | 부울 | 이 웹앱이 OAuth2.0 암시적 흐름 액세스 토큰을 요청할 수 있는지 여부를 지정합니다. 기본값은 false입니다. 이 플래그는 Javascript 단일 페이지 앱과 같은 브라우저 기반 앱에 사용됩니다. 자세히 알아보려면 목차에서 `OAuth 2.0 implicit grant flow`을 입력하여 암시적 흐름에 대한 항목을 참조하세요. | `false` |
 | `oauth2AllowIdTokenImplicitFlow` | 부울 | 이 웹앱이 OAuth2.0 암시적 흐름 ID 토큰을 요청할 수 있는지 여부를 지정합니다. 기본값은 false입니다. 이 플래그는 Javascript 단일 페이지 앱과 같은 브라우저 기반 앱에 사용됩니다. | `false` |
 | `oauth2Permissions` | 배열 형식 | 웹 API(리소스) 앱을 클라이언트 앱에 노출하는 OAuth 2.0 권한 범위 컬렉션을 지정합니다. 이러한 권한 범위를 동의를 통해 클라이언트 앱에 부여할 수 있습니다. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"adminConsentDescription":"Allow the app to access resources on behalf of the signed-in user.",<br>&nbsp;&nbsp;&nbsp;"adminConsentDisplayName":"Access resource1",<br>&nbsp;&nbsp;&nbsp;"id":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"type":"User",<br>&nbsp;&nbsp;&nbsp;"userConsentDescription":"Allow the app to access resource1 on your behalf.",<br>&nbsp;&nbsp;&nbsp;"userConsentDisplayName":"Access resources",<br>&nbsp;&nbsp;&nbsp;"value":"u| 웹 API(리소스) 앱을 클라이언트 앱에 노출하는 OAuth 2.0 권한 범위 컬렉션을 지정합니다. 이러한 권한 범위를 동의를 통해 클라이언트 앱에 부여할 수 있습니다. ser_impersonation”<br>&nbsp;&nbsp;}<br>]</code> |
 | `oauth2RequiredPostResponse` | 부울 | OAuth 2.0 토큰 요청의 일부로 GET 요청과는 반대로 Azure AD의 POST 요청 허용 여부를 지정합니다. 기본값은 false로, GET 요청만 허용하도록 지정합니다. | `false` |

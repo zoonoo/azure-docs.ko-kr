@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: d0c6f8723909b71501894c9363932c752c1e130c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5a173340be424c74c76da659816b1b95b74c465f
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989858"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419545"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>자습서: VMware에서 Azure Data Box Gateway 프로비전(미리 보기)
 
@@ -34,13 +34,13 @@ ms.locfileid: "46989858"
 
 > [!div class="checklist"]
 > * 호스트가 최소 장치 요구 사항을 충족하는지 확인
-> * 하이퍼바이저에서 가상 장치 프로비전
+> * VMware에서 가상 장치 프로비전
 > * 가상 장치 시작 및 IP 주소 가져오기
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 > [!IMPORTANT]
-> - Data Box Gateway는 미리 보기 상태로 제공되고 있습니다. 이 솔루션을 주문하고 배포하기 전에 [미리 보기에 대한 Azure 서비스 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요.
+> - Data Box Gateway는 미리 보기로 제공되고 있습니다. 이 솔루션을 주문하고 배포하기 전에 [미리 보기에 대한 Azure 서비스 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -198,7 +198,7 @@ VMware ESXi 6.0 또는 6.5를 실행하는 호스트 시스템에서 가상 장�
 
 6. 5-7단계는 DHCP 환경이 아닌 곳에서 부팅하는 경우에만 적용됩니다. DHCP 환경인 경우 이 단계를 건너뛰고 8단계로 이동하세요. 비 DHCP 환경에서 장치를 부팅하는 경우 결과에 대한 메시지가 표시됩니다. **Set-HcsIPAddress cmdlet을 사용하여 네트워크를 구성합니다**. 
    
-7. 네트워크를 구성하려면 명령 프롬프트에서 `Get-HcsIpAddress` 명령을 사용하여 가상 장치에서 사용하도록 설정된 네트워크 인터페이스 목록을 표시합니다. 장치에 사용하도록 설정된 네트워크 인터페이스가 하나인 경우에는 `DATA1`이라는 기본 이름이 인터페이스에 할당됩니다.
+7. 네트워크를 구성하려면 명령 프롬프트에서 `Get-HcsIpAddress` 명령을 사용하여 가상 장치에서 사용하도록 설정된 네트워크 인터페이스 목록을 표시합니다. 장치에 사용하도록 설정된 네트워크 인터페이스가 하나인 경우에는 `Ethernet`이라는 기본 이름이 인터페이스에 할당됩니다.
 
 8. `Set-HcsIpAddress` cmdlet을 사용하여 네트워크를 구성합니다. 아래에 예가 나와 있습니다.
 
@@ -208,7 +208,7 @@ VMware ESXi 6.0 또는 6.5를 실행하는 호스트 시스템에서 가상 장�
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image24.png)
 
-장치가 최소 구성 요구 사항을 충족하지 못하면 배너 텍스트에 오류(아래 참고)가 표시됩니다. 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 장치 구성을 수정해야 합니다. 그런 다음 다시 시작하고 장치에 연결합니다. [1단계: 호스트 시스템이 최소 가상 장치 요구 사항을 충족하도록 합니다.](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements)에서 최소 구성 요구 사항을 참조하세요.
+장치가 최소 구성 요구 사항을 충족하지 못하면 배너 텍스트에 오류(아래 참고)가 표시됩니다. 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 장치 구성을 수정해야 합니다. 그런 다음 다시 시작하고 장치에 연결합니다. [호스트 시스템이 최소 가상 장치 요구 사항을 충족하는지 확인](#check-the-host-system)의 최소 구성 요구 사항을 참조하세요.
 
 <!---If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
 
@@ -217,11 +217,11 @@ VMware ESXi 6.0 또는 6.5를 실행하는 호스트 시스템에서 가상 장�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음과 같은 Data Box Gateway 항목에 대해 알아보았습니다.
+이 자습서에서는 다음과 같은 Data Box Gateway 토픽에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * 호스트가 최소 장치 요구 사항을 충족하는지 확인
-> * 하이퍼바이저에서 가상 장치 프로비전
+> * VMware에서 가상 장치 프로비전
 > * 가상 장치 시작 및 IP 주소 가져오기
 
 다음 자습서로 이동하여 가상 장치를 연결하고, 설정하고, 활성화하는 방법을 알아보세요.

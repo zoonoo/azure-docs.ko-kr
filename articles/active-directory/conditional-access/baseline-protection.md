@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 57fef112186834ead76f6223e32cb358e4d6d053
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: ef2b5dd393974ddf700235991b60ec66031e34c2
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024076"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222270"
 ---
 # <a name="what-is-baseline-protection-preview"></a>기준 보호(미리 보기)란?  
 
@@ -56,7 +56,7 @@ ms.locfileid: "44024076"
 
 ## <a name="enable-a-baseline-policy"></a>기준 정책 사용 
 
-기준 정책은 미리 보기 상태인 동안 기본적으로 활성화되지 않습니다. 활성화하려면 수동으로 정책을 사용하도록 설정해야 합니다. 이 기능이 일반 공급에 도달하는 즉시 기본적으로 정책이 활성화됩니다. 계획된 동작 변경 때문에 정책의 상태를 설정하는 세 번째 옵션인 **향후 자동으로 정책 사용**도 활성화 및 비활성화해야 합니다. 이 옵션을 선택하면 Microsoft에서 정책을 활성화할 시기를 결정합니다.      
+기준 정책은 미리 보기 상태인 동안 기본적으로 활성화되지 않습니다. 활성화하려면 수동으로 정책을 사용하도록 설정해야 합니다. 미리 보기 단계에서 기준 정책을 명시적으로 사용하도록 설정한 경우 이 기능이 일반 가용성 수준에 도달하면 해당 정책이 활성화 상태를 유지합니다. 계획된 동작 변경 때문에 활성화 및 비활성화 외에 정책의 상태를 설정하는 세 번째 옵션, **향후 자동으로 정책 사용하도록 설정**이 있습니다. 이 옵션을 선택하면 미리 보기 중에 정책을 사용하지 않도록 유지할 수 있지만 이 기능이 일반 가용성 수준에 도달하면 Microsoft가 해당 정책을 자동으로 사용하도록 설정하게 합니다. 이제 기본 정책을 명시적으로 사용하도록 설정하지도 않고 **향후 자동으로 정책 사용하도록 설정** 옵션도 선택하지 않는 경우, 이 기능이 일반 가용성 수준에 도달하면 해당 정책은 사용 안 함 상태를 유지합니다.
 
 
 **기준 정책을 사용하도록 설정하려면**  

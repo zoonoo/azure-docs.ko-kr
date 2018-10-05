@@ -7,16 +7,16 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: alerts
-ms.openlocfilehash: 1ec47ddf5769dd8ed624277a86db57f449581b90
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 586ced5b239b77dd9ae596a754613a66cee371a9
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948692"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405923"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Azure Monitor에서 메트릭 경고가 작동하는 방식 이해
 
-Azure Monitor에서 메트릭 경고는 다차원 메트릭을 기반으로 작동합니다. 이러한 메트릭은 플랫폼 메트릭, 사용자 지정 메트릭(미리 보기), 메트릭으로 전환된 Log Analytics의 주요 로그, Application Insights 표준 메트릭이 될 수 있습니다. 메트릭 경고는 하나 이상의 메트릭 시계열에서 조건이 참인지 확인하고 평가에 부합하면 사용자에게 알리기 위해 일정 간격으로 평가됩니다. 메트릭 경고는 상태를 저장합니다. 즉 상태가 변경될 때만 알림을 보냅니다.
+Azure Monitor에서 메트릭 경고는 다차원 메트릭을 기반으로 작동합니다. 이러한 메트릭은 플랫폼 메트릭, [사용자 지정 메트릭](metrics-custom-overview.md), [메트릭으로 전환된 Log Analytics의 주요 로그](monitoring-metric-alerts-logs.md), Application Insights 표준 메트릭이 될 수 있습니다. 메트릭 경고는 주기적으로 하나 이상의 메트릭 시계열에서 조건이 참인지 평가하고 평가에 부합하면 사용자에게 알립니다. 메트릭 경고는 상태를 저장합니다. 즉 상태가 변경될 때만 알림을 보냅니다.
 
 ## <a name="how-do-metric-alerts-work"></a>메트릭 경고 작동 방식
 
@@ -75,11 +75,17 @@ Azure Monitor의 메트릭 경고는 한 규칙을 통한 여러 차원 값 조�
 
 이 규칙은 자동으로 인스턴스의 모든 값을 모니터링합니다. 즉 메트릭 경고 규칙을 다시 수정하지 않고도 그대로 인스턴스를 모니터링할 수 있습니다.
 
-### <a name="monitoring-multiple-resource-using-metric-alerts"></a>메트릭 경고를 사용하여 여러 리소스 모니터링
+### <a name="monitoring-multiple-resources-using-metric-alerts"></a>메트릭 경고를 사용하여 여러 리소스 모니터링
 
-앞 섹션에서 본 것처럼 각각의 차원 조합을 모니터링하는 단일 메트릭 경고 규칙(즉 메트릭 시계열)이 가능합니다. 그러나 여전히 한 번에 하나의 리소스만 수행할 수 있습니다. 메트릭 경고도 이제 미리 보기에서 한 규칙을 통한 여러 리소스의 모니터링을 지원합니다. 구독에 100단위의 VM이 있다면 이 새 기능이 모니터링을 신속히 설정하는 데 도움이 됩니다. 
+앞 섹션에서 본 것처럼 각각의 차원 조합을 모니터링하는 단일 메트릭 경고 규칙(즉 메트릭 시계열)이 가능합니다. 그러나 이전에는 한 번에 하나의 리소스로 제한되었습니다. Azure Monitor는 하나의 경고 규칙으로 여러 리소스를 모니터링할 수도 있습니다. 이 기능은 현재 미리 보기이며 가상 머신에서만 지원됩니다. 또한 단일 메트릭 경고가 한 Azure 지역의 리소스를 모니터링할 수 있습니다.
 
-이 기능은 현재 미리 보기로 제공됩니다. 여러 리소스를 모니터링하는 메트릭 경고 규칙 만들기는 현재 Azure Portal을 통해 지원되지 않습니다. Azure Resource Manager 템플릿을 통해 이러한 규칙을 만들 수 있습니다.
+다음 세 가지 방법 중 하나로 단일 메트릭 경고를 통해 모니터링 범위를 지정할 수 있습니다.
+
+- 구독 내 한 Azure 지역에 있는 가상 머신 목록으로
+- 구독 내 하나 이상의 리소스 그룹에 있는 모든 가상 머신(한 Azure 지역에 있는)
+- 구독의 모든 가상 머신(한 Azure 지역에 있는)
+
+여러 리소스를 모니터링하는 메트릭 경고 규칙 만들기는 현재 Azure Portal을 통해 지원되지 않습니다. [Azure Resource Manager 템플릿](monitoring-create-metric-alerts-with-templates.md#resource-manager-template-for-metric-alert-that-monitors-multiple-resources)을 통해 이러한 규칙을 만들 수 있습니다. 각 가상 머신에 대한 개별 알림을 받게 됩니다. 
 
 ## <a name="typical-latency"></a>일반적인 대기 시간
 

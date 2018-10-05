@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 45e8668ce0a7eb2edd79271096f58b56ca1af5f0
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 02b36d8f8c8c9be2532b440bd9858766e8b524ca
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36205572"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060528"
 ---
 ## <a name="set-up-your-project"></a>프로젝트 설정
 
@@ -37,7 +37,7 @@ ms.locfileid: "36205572"
 1.  Android Studio에서 **Gradle Scripts** > **build.gradle(Module: app)** 을 선택합니다.
 2.  **종속성** 아래에 다음 코드를 붙여넣습니다.
 
-    ```ruby  
+    ```gradle  
     compile ('com.microsoft.identity.client:msal:0.1.+') {
         exclude group: 'com.android.support', module: 'appcompat-v7'
     }
@@ -47,10 +47,10 @@ ms.locfileid: "36205572"
 <!--start-collapse-->
 ### <a name="about-this-package"></a>이 패키지 정보
 
-위의 코드에 있는 패키지는 Microsoft 인증 라이브러리를 설치합니다. MSAL은 Azure Active Directory v2 끝점에서 보호하는 API에 액세스하는 데 사용되는 사용자 토큰의 획득, 캐싱 및 새로 고침을 처리합니다.
+위의 코드에 있는 패키지는 Microsoft 인증 라이브러리를 설치합니다. MSAL은 획득, 캐싱, 새로 고침 및 삭제를 포함한 모든 토큰 작업을 처리합니다.  Microsoft ID 플랫폼으로 보호되는 API에 액세스하려면 토큰이 필요합니다.
 <!--end-collapse-->
 
-## <a name="create-the-application-ui"></a>응용 프로그램 UI 만들기
+## <a name="create-the-apps-ui"></a>앱의 UI 만들기
 
 1. **res** > **레이아웃**으로 이동한 후 **activity_main.xml**을 엽니다. 
 2. `android.support.constraint.ConstraintLayout` 등에서 `LinearLayout`으로 작업 레이아웃을 변경합니다.

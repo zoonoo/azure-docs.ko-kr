@@ -5,17 +5,18 @@ author: snehithm
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 4/26/2018
+ms.date: 9/27/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: be0ec31a05c0c1454e1af58b4a9c4ca959acbecf
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 97a68704e5c116f48dc55a1b0631a6d181674907
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577163"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410139"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
+
 이 문서에서는 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 Azure Monitor에서 [최신 메트릭 경고](monitoring-near-real-time-metric-alerts.md)를 구성하는 방법을 설명합니다. Resource Manager 템플릿을 사용하면 환경 전체에서 일관되고 재현 가능한 방법으로 경보를 프로그래밍 방식으로 설정할 수 있습니다. 최신 메트릭 경고는 현재 [이 리소스 유형 집합](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported)에 대해 사용할 수 있습니다.
 
 > [!IMPORTANT]
@@ -30,6 +31,7 @@ ms.locfileid: "45577163"
 
 
 ## <a name="resource-manager-template-for-a-simple-metric-alert"></a>단순 메트릭 경고를 위한 Resource Manager 템플릿
+
 Resource Manager 템플릿을 사용하여 경고를 만들려면 `Microsoft.Insights/metricAlerts` 형식의 리소스를 만들어 관련 속성을 기입합니다. 다음은 메트릭 경고 규칙을 만드는 샘플 템플릿입니다.
 
 이 연습의 목적을 위해 아래의 json을 simplemetricalert.json으로 저장합니다.
@@ -166,7 +168,7 @@ Resource Manager 템플릿을 사용하여 경고를 만들려면 `Microsoft.Ins
                         {
                             "name" : "1st criterion",
                             "metricName": "[parameters('metricName')]",
-                            "dimensions":[],   
+                            "dimensions":[],
                             "operator": "[parameters('operator')]",
                             "threshold" : "[parameters('threshold')]",
                             "timeAggregation": "[parameters('timeAggregation')]"
@@ -175,7 +177,7 @@ Resource Manager 템플릿을 사용하여 경고를 만들려면 `Microsoft.Ins
                 },
                 "actions": [
                     {
-                        "actionGroupId": "[parameters('actionGroupId')]"                
+                        "actionGroupId": "[parameters('actionGroupId')]"
                     }
                 ]
             }
@@ -260,6 +262,7 @@ az group deployment create \
 > 메트릭 경고는 다른 리소스 그룹에서 대상 리소스로 만들 수 있지만, 대상 리소스와 동일한 리소스 그룹을 사용하는 것이 좋습니다.
 
 ## <a name="resource-manager-template-for-a-more-advanced-metric-alert"></a>고급 메트릭 경고를 위한 Resource Manager 템플릿
+
 최신 메트릭 경고는 다차원 메트릭에 대한 경고를 지원하고 여러 조건을 지원합니다. 다음 템플릿을 사용하여 차원 메트릭에 대한 추가 고급 메트릭 경고를 작성하고 여러 조건을 지정할 수 있습니다.
 
 이 연습의 목적을 위해 아래의 json을 advancedmetricalert.json으로 저장합니다.
@@ -369,7 +372,7 @@ az group deployment create \
                 },
                 "actions": [
                     {
-                        "actionGroupId": "[parameters('actionGroupId')]"                
+                        "actionGroupId": "[parameters('actionGroupId')]"
                     }
                 ]
             }
@@ -440,7 +443,7 @@ az group deployment create \
             }      
         },          
         "actionGroupId": {
-            "value": "/subscriptions/replace-with-subscription-id/resourceGroups/Default-ActivityLogAlerts/providers/Microsoft.Insights/actionGroups/replace-with-actiongroup-name"
+            "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resource-group-name/providers/Microsoft.Insights/actionGroups/replace-with-actiongroup-name"
         }
     }    
 }
@@ -475,6 +478,898 @@ az group deployment create \
 >[!NOTE]
 >
 > 메트릭 경고는 다른 리소스 그룹에서 대상 리소스로 만들 수 있지만, 대상 리소스와 동일한 리소스 그룹을 사용하는 것이 좋습니다.
+
+## <a name="resource-manager-template-for-metric-alert-that-monitors-multiple-resources"></a>여러 리소스를 모니터링하는 메트릭 경고에 대한 Resource Manager 템플릿
+
+이전 섹션에서는 단일 리소스를 모니터링하는 메트릭 경고를 만드는 Azure Resource Manager 템플릿 샘플에 대해 설명했습니다. 이제 Azure Monitor는 하나의 경고 규칙으로 여러 리소스를 모니터링할 수 있습니다. 이 미리 보기 기능은 현재 Azure Resource Manager 템플릿 및 REST API를 통해서만 사용할 수 있으며 가상 머신에만 지원됩니다. 이러한 규칙을 만들고 편집하는 포털 지원이 곧 제공될 예정입니다.
+
+이 섹션에서는 단일 규칙으로 여러 리소스를 모니터링하는 다음 세 가지 시나리오를 위한 Azure Resource Manager 템플릿을 설명합니다.
+
+- 하나 이상의 리소스 그룹에 있는 모든 가상 머신(한 Azure 지역에 있는) 모니터링
+- 구독의 모든 가상 머신(한 Azure 지역에 있는) 모니터링
+- 구독의 모든 가상 머신(한 Azure 지역에 있는) 목록 모니터링
+
+### <a name="all-virtual-machines-in-one-or-more-resource-groups"></a>하나 이상의 리소스 그룹에 있는 모든 가상 머신
+
+이 템플릿은 하나 이상의 리소스 그룹에 있는 모든 가상 머신(한 Azure 지역에 있는)의 CPU 백분율을 모니터링하는 메트릭 경고 규칙을 만듭니다.
+
+이 연습을 위해 아래의 json을 as all-vms-in-resource-group.json으로 저장하세요.
+
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "alertName": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Name of the alert"
+            }
+        },
+        "alertDescription": {
+            "type": "string",
+            "defaultValue": "This is a metric alert",
+            "metadata": {
+                "description": "Description of alert"
+            }
+        },
+        "alertSeverity": {
+            "type": "int",
+            "defaultValue": 3,
+            "allowedValues": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ],
+            "metadata": {
+                "description": "Severity of alert {0,1,2,3,4}"
+            }
+        },
+        "isEnabled": {
+            "type": "bool",
+            "defaultValue": true,
+            "metadata": {
+                "description": "Specifies whether the alert is enabled"
+            }
+        },
+        "targetResourceGroup":{
+            "type": "array",
+            "minLength": 1,
+            "metadata": {
+                "description": "Full path of the resource group(s) where target resources to be monitored are in. For example - /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroups/ResourceGroupName"
+            }
+        },
+        "targetResourceRegion":{
+            "type": "string",
+            "allowedValues": [
+                "EastUS",
+                "EastUS2",
+                "CentralUS",
+                "NorthCentralUS",
+                "SouthCentralUS",
+                "WestCentralUS",
+                "WestUS",
+                "WestUS2",
+                "CanadaEast",
+                "CanadaCentral",
+                "BrazilSouth",
+                "NorthEurope",
+                "WestEurope",
+                "FranceCentral",
+                "FranceSouth",
+                "UKWest",
+                "UKSouth",
+                "GermanyCentral",
+                "GermanyNortheast",
+                "GermanyNorth",
+                "GermanyWestCentral",
+                "SwitzerlandNorth",
+                "SwitzerlandWest",
+                "NorwayEast",
+                "NorwayWest",
+                "SoutheastAsia",
+                "EastAsia",
+                "AustraliaEast",
+                "AustraliaSoutheast",
+                "AustraliaCentral",
+                "AustraliaCentral2",
+                "ChinaEast",
+                "ChinaNorth",
+                "ChinaEast2",
+                "ChinaNorth2",
+                "CentralIndia",
+                "WestIndia",
+                "SouthIndia",
+                "JapanEast",
+                "JapanWest",
+                "KoreaCentral",
+                "KoreaSouth",
+                "SouthAfricaWest",
+                "SouthAfricaNorth",
+                "UAECentral",
+                "UAENorth"
+            ],
+            "metadata": {
+                "description": "Azure region in which target resources to be monitored are in (without spaces). For example: EastUS"
+            }
+        },
+        "targetResourceType": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+            }
+        },
+        "metricName": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Name of the metric used in the comparison to activate the alert."
+            }
+        },
+        "operator": {
+            "type": "string",
+            "defaultValue": "GreaterThan",
+            "allowedValues": [
+                "Equals",
+                "NotEquals",
+                "GreaterThan",
+                "GreaterThanOrEqual",
+                "LessThan",
+                "LessThanOrEqual"
+            ],
+            "metadata": {
+                "description": "Operator comparing the current value with the threshold value."
+            }
+        },
+        "threshold": {
+            "type": "string",
+            "defaultValue": "0",
+            "metadata": {
+                "description": "The threshold value at which the alert is activated."
+            }
+        },
+        "timeAggregation": {
+            "type": "string",
+            "defaultValue": "Average",
+            "allowedValues": [
+                "Average",
+                "Minimum",
+                "Maximum",
+                "Total"
+            ],
+            "metadata": {
+                "description": "How the data that is collected should be combined over time."
+            }
+        },
+        "windowSize": {
+            "type": "string",
+            "defaultValue": "PT5M",
+            "metadata": {
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
+            }
+        },
+        "evaluationFrequency": {
+            "type": "string",
+            "defaultValue": "PT1M",
+            "metadata": {
+                "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
+            }
+        },
+        "actionGroupId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "The ID of the action group that is triggered when the alert is activated or deactivated"
+            }
+        }
+    },
+    "variables": {  },
+    "resources": [
+        {
+            "name": "[parameters('alertName')]",
+            "type": "Microsoft.Insights/metricAlerts",
+            "location": "global",
+            "apiVersion": "2018-03-01",
+            "tags": {},
+            "properties": {
+                "description": "[parameters('alertDescription')]",
+                "severity": "[parameters('alertSeverity')]",
+                "enabled": "[parameters('isEnabled')]",
+                "scopes": "[parameters('targetResourceGroup')]",
+                "targetResourceType": "[parameters('targetResourceType')]",
+                "targetResourceRegion": "[parameters('targetResourceRegion')]",
+                "evaluationFrequency":"[parameters('evaluationFrequency')]",
+                "windowSize": "[parameters('windowSize')]",
+                "criteria": {
+                    "odata.type": "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+                    "allOf": [
+                        {
+                            "name" : "1st criterion",
+                            "metricName": "[parameters('metricName')]",
+                            "dimensions":[],
+                            "operator": "[parameters('operator')]",
+                            "threshold" : "[parameters('threshold')]",
+                            "timeAggregation": "[parameters('timeAggregation')]"
+                        }
+                    ]
+                },
+                "actions": [
+                    {
+                        "actionGroupId": "[parameters('actionGroupId')]"
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
+위의 템플릿을 아래에 제공된 매개 변수 파일과 함께 사용할 수 있습니다.
+이 연습을 위해 아래의 json을 all-vms-in-resource-group.parameters.json으로 저장하고 수정하세요.
+
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "alertName": {
+            "value": "Multi-resource metric alert via Azure Resource Manager template"
+        },
+        "alertDescription": {
+            "value": "New Multi-resource metric alert created via template"
+        },
+        "alertSeverity": {
+            "value":3
+        },
+        "isEnabled": {
+            "value": true
+        },
+        "targetResourceGroup":{
+            "value": [
+                "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resource-group-name1",
+                "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resource-group-name2"
+            ]
+        },
+        "targetResourceRegion":{
+            "value": "SouthCentralUS"
+        },
+        "targetResourceType":{
+            "value": "Microsoft.Compute/virtualMachines"
+        },
+        "metricName": {
+            "value": "Percentage CPU"
+        },
+        "operator": {
+          "value": "GreaterThan"
+        },
+        "threshold": {
+            "value": "0"
+        },
+        "timeAggregation": {
+            "value": "Average"
+        },
+        "actionGroupId": {
+            "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resource-group-name/providers/Microsoft.Insights/actionGroups/replace-with-action-group-name"
+        }
+    }
+}
+```
+
+현재 작업 디렉터리의 PowerShell 또는 Azure CLI를 사용한 템플릿 및 매개 변수 파일을 사용하여 메트릭 경고를 만들 수 있습니다.
+
+Azure PowerShell 사용
+
+```powershell
+Connect-AzureRmAccount
+
+Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+
+New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
+  -TemplateFile all-vms-in-resource-group.json -TemplateParametersFile all-vms-in-resource-group.parameters.json
+```
+
+Azure CLI 사용
+
+```azurecli
+az login
+
+az group deployment create \
+    --name MultiResourceAlertDeployment \
+    --resource-group ResourceGroupWhereRuleShouldbeSaved \
+    --template-file all-vms-in-resource-group.json \
+    --parameters @all-vms-in-resource-group.parameters.json
+```
+
+### <a name="all-virtual-machines-in-a-subscription"></a>구독의 모든 가상 머신
+
+이 템플릿은 구독에 있는 모든 가상 머신(한 Azure 지역에 있는)의 CPU 백분율을 모니터링하는 메트릭 경고 규칙을 만듭니다.
+
+이 연습을 위해 아래의 json을 all-vms-in-subscription.json으로 저장하세요.
+
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "alertName": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Name of the alert"
+            }
+        },
+        "alertDescription": {
+            "type": "string",
+            "defaultValue": "This is a metric alert",
+            "metadata": {
+                "description": "Description of alert"
+            }
+        },
+        "alertSeverity": {
+            "type": "int",
+            "defaultValue": 3,
+            "allowedValues": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ],
+            "metadata": {
+                "description": "Severity of alert {0,1,2,3,4}"
+            }
+        },
+        "isEnabled": {
+            "type": "bool",
+            "defaultValue": true,
+            "metadata": {
+                "description": "Specifies whether the alert is enabled"
+            }
+        },
+        "targetSubscription":{
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Azure Resource Manager path up to subscription ID. For example - /subscriptions/00000000-0000-0000-0000-0000-00000000"
+            }
+        },
+        "targetResourceRegion":{
+            "type": "string",
+            "allowedValues": [
+                "EastUS",
+                "EastUS2",
+                "CentralUS",
+                "NorthCentralUS",
+                "SouthCentralUS",
+                "WestCentralUS",
+                "WestUS",
+                "WestUS2",
+                "CanadaEast",
+                "CanadaCentral",
+                "BrazilSouth",
+                "NorthEurope",
+                "WestEurope",
+                "FranceCentral",
+                "FranceSouth",
+                "UKWest",
+                "UKSouth",
+                "GermanyCentral",
+                "GermanyNortheast",
+                "GermanyNorth",
+                "GermanyWestCentral",
+                "SwitzerlandNorth",
+                "SwitzerlandWest",
+                "NorwayEast",
+                "NorwayWest",
+                "SoutheastAsia",
+                "EastAsia",
+                "AustraliaEast",
+                "AustraliaSoutheast",
+                "AustraliaCentral",
+                "AustraliaCentral2",
+                "ChinaEast",
+                "ChinaNorth",
+                "ChinaEast2",
+                "ChinaNorth2",
+                "CentralIndia",
+                "WestIndia",
+                "SouthIndia",
+                "JapanEast",
+                "JapanWest",
+                "KoreaCentral",
+                "KoreaSouth",
+                "SouthAfricaWest",
+                "SouthAfricaNorth",
+                "UAECentral",
+                "UAENorth"
+            ],
+            "metadata": {
+                "description": "Azure region in which target resources to be monitored are in (without spaces). For example: EastUS"
+            }
+        },
+        "targetResourceType": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+            }
+        },
+        "metricName": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Name of the metric used in the comparison to activate the alert."
+            }
+        },
+        "operator": {
+            "type": "string",
+            "defaultValue": "GreaterThan",
+            "allowedValues": [
+                "Equals",
+                "NotEquals",
+                "GreaterThan",
+                "GreaterThanOrEqual",
+                "LessThan",
+                "LessThanOrEqual"
+            ],
+            "metadata": {
+                "description": "Operator comparing the current value with the threshold value."
+            }
+        },
+        "threshold": {
+            "type": "string",
+            "defaultValue": "0",
+            "metadata": {
+                "description": "The threshold value at which the alert is activated."
+            }
+        },
+        "timeAggregation": {
+            "type": "string",
+            "defaultValue": "Average",
+            "allowedValues": [
+                "Average",
+                "Minimum",
+                "Maximum",
+                "Total"
+            ],
+            "metadata": {
+                "description": "How the data that is collected should be combined over time."
+            }
+        },
+        "windowSize": {
+            "type": "string",
+            "defaultValue": "PT5M",
+            "metadata": {
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
+            }
+        },
+        "evaluationFrequency": {
+            "type": "string",
+            "defaultValue": "PT1M",
+            "metadata": {
+                "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
+            }
+        },
+        "actionGroupId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "The ID of the action group that is triggered when the alert is activated or deactivated"
+            }
+        }
+    },
+    "variables": {  },
+    "resources": [
+        {
+            "name": "[parameters('alertName')]",
+            "type": "Microsoft.Insights/metricAlerts",
+            "location": "global",
+            "apiVersion": "2018-03-01",
+            "tags": {},
+            "properties": {
+                "description": "[parameters('alertDescription')]",
+                "severity": "[parameters('alertSeverity')]",
+                "enabled": "[parameters('isEnabled')]",
+                "scopes": ["[parameters('targetSubscription')]"],
+                "targetResourceType": "[parameters('targetResourceType')]",
+                "targetResourceRegion": "[parameters('targetResourceRegion')]",
+                "evaluationFrequency":"[parameters('evaluationFrequency')]",
+                "windowSize": "[parameters('windowSize')]",
+                "criteria": {
+                    "odata.type": "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+                    "allOf": [
+                        {
+                            "name" : "1st criterion",
+                            "metricName": "[parameters('metricName')]",
+                            "dimensions":[],
+                            "operator": "[parameters('operator')]",
+                            "threshold" : "[parameters('threshold')]",
+                            "timeAggregation": "[parameters('timeAggregation')]"
+                        }
+                    ]
+                },
+                "actions": [
+                    {
+                        "actionGroupId": "[parameters('actionGroupId')]"
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
+위의 템플릿을 아래에 제공된 매개 변수 파일과 함께 사용할 수 있습니다.
+이 연습을 위해 아래의 json을 all-vms-in-subscription.parameters.json으로 저장하고 수정하세요.
+
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "alertName": {
+            "value": "Multi-resource sub level metric alert via Azure Resource Manager template"
+        },
+        "alertDescription": {
+            "value": "New Multi-resource sub level metric alert created via template"
+        },
+        "alertSeverity": {
+            "value":3
+        },
+        "isEnabled": {
+            "value": true
+        },
+        "targetSubscription":{
+            "value": "/subscriptions/replace-with-subscription-id"
+        },
+        "targetResourceRegion":{
+            "value": "SouthCentralUS"
+        },
+        "targetResourceType":{
+            "value": "Microsoft.Compute/virtualMachines"
+        },        
+        "metricName": {
+            "value": "Percentage CPU"
+        },
+        "operator": {
+          "value": "GreaterThan"
+        },
+        "threshold": {
+            "value": "0"
+        },
+        "timeAggregation": {
+            "value": "Average"
+        },
+        "actionGroupId": {
+            "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resource-group-name/providers/Microsoft.Insights/actionGroups/replace-with-action-group-name"
+        }
+    }
+}
+```
+
+현재 작업 디렉터리의 PowerShell 또는 Azure CLI를 사용한 템플릿 및 매개 변수 파일을 사용하여 메트릭 경고를 만들 수 있습니다.
+
+Azure PowerShell 사용
+
+```powershell
+Connect-AzureRmAccount
+
+Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+
+New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
+  -TemplateFile all-vms-in-subscription.json -TemplateParametersFile all-vms-in-subscription.parameters.json
+```
+
+Azure CLI 사용
+
+```azurecli
+az login
+
+az group deployment create \
+    --name MultiResourceAlertDeployment \
+    --resource-group ResourceGroupWhereRuleShouldbeSaved \
+    --template-file all-vms-in-subscription.json \
+    --parameters @all-vms-in-subscription.parameters.json
+```
+
+### <a name="a-list-of-virtual-machines"></a>가상 머신 목록
+
+이 템플릿은 구독에 있는 가상 머신(한 Azure 지역에 있는) 목록의 CPU 백분율을 모니터링하는 메트릭 경고 규칙을 만듭니다.
+
+이 연습을 위해 아래의 json을 list-of-vms.json으로 저장하세요.
+
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "alertName": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Name of the alert"
+            }
+        },
+        "alertDescription": {
+            "type": "string",
+            "defaultValue": "This is a metric alert",
+            "metadata": {
+                "description": "Description of alert"
+            }
+        },
+        "alertSeverity": {
+            "type": "int",
+            "defaultValue": 3,
+            "allowedValues": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ],
+            "metadata": {
+                "description": "Severity of alert {0,1,2,3,4}"
+            }
+        },
+        "isEnabled": {
+            "type": "bool",
+            "defaultValue": true,
+            "metadata": {
+                "description": "Specifies whether the alert is enabled"
+            }
+        },
+        "targetResourceId":{
+            "type": "array",
+            "minLength": 1,
+            "metadata": {
+                "description": "array of Azure resource Ids. For example - /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroup/resource-group-name/Microsoft.compute/virtualMachines/vm-name"
+            }
+        },
+        "targetResourceRegion":{
+            "type": "string",
+            "allowedValues": [
+                "EastUS",
+                "EastUS2",
+                "CentralUS",
+                "NorthCentralUS",
+                "SouthCentralUS",
+                "WestCentralUS",
+                "WestUS",
+                "WestUS2",
+                "CanadaEast",
+                "CanadaCentral",
+                "BrazilSouth",
+                "NorthEurope",
+                "WestEurope",
+                "FranceCentral",
+                "FranceSouth",
+                "UKWest",
+                "UKSouth",
+                "GermanyCentral",
+                "GermanyNortheast",
+                "GermanyNorth",
+                "GermanyWestCentral",
+                "SwitzerlandNorth",
+                "SwitzerlandWest",
+                "NorwayEast",
+                "NorwayWest",
+                "SoutheastAsia",
+                "EastAsia",
+                "AustraliaEast",
+                "AustraliaSoutheast",
+                "AustraliaCentral",
+                "AustraliaCentral2",
+                "ChinaEast",
+                "ChinaNorth",
+                "ChinaEast2",
+                "ChinaNorth2",
+                "CentralIndia",
+                "WestIndia",
+                "SouthIndia",
+                "JapanEast",
+                "JapanWest",
+                "KoreaCentral",
+                "KoreaSouth",
+                "SouthAfricaWest",
+                "SouthAfricaNorth",
+                "UAECentral",
+                "UAENorth"
+            ],
+            "metadata": {
+                "description": "Azure region in which target resources to be monitored are in (without spaces). For example: EastUS"
+            }
+        },
+        "targetResourceType": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+            }
+        },
+        "metricName": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Name of the metric used in the comparison to activate the alert."
+            }
+        },
+        "operator": {
+            "type": "string",
+            "defaultValue": "GreaterThan",
+            "allowedValues": [
+                "Equals",
+                "NotEquals",
+                "GreaterThan",
+                "GreaterThanOrEqual",
+                "LessThan",
+                "LessThanOrEqual"
+            ],
+            "metadata": {
+                "description": "Operator comparing the current value with the threshold value."
+            }
+        },
+        "threshold": {
+            "type": "string",
+            "defaultValue": "0",
+            "metadata": {
+                "description": "The threshold value at which the alert is activated."
+            }
+        },
+        "timeAggregation": {
+            "type": "string",
+            "defaultValue": "Average",
+            "allowedValues": [
+                "Average",
+                "Minimum",
+                "Maximum",
+                "Total"
+            ],
+            "metadata": {
+                "description": "How the data that is collected should be combined over time."
+            }
+        },
+        "windowSize": {
+            "type": "string",
+            "defaultValue": "PT5M",
+            "metadata": {
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between five minutes and one day. ISO 8601 duration format."
+            }
+        },
+        "evaluationFrequency": {
+            "type": "string",
+            "defaultValue": "PT1M",
+            "metadata": {
+                "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
+            }
+        },
+        "actionGroupId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "The ID of the action group that is triggered when the alert is activated or deactivated"
+            }
+        }
+    },
+    "variables": {  },
+    "resources": [
+        {
+            "name": "[parameters('alertName')]",
+            "type": "Microsoft.Insights/metricAlerts",
+            "location": "global",
+            "apiVersion": "2018-03-01",
+            "tags": {},
+            "properties": {
+                "description": "[parameters('alertDescription')]",
+                "severity": "[parameters('alertSeverity')]",
+                "enabled": "[parameters('isEnabled')]",
+                "scopes": "[parameters('targetResourceId')]",
+                "targetResourceType": "[parameters('targetResourceType')]",
+                "targetResourceRegion": "[parameters('targetResourceRegion')]",
+                "evaluationFrequency":"[parameters('evaluationFrequency')]",
+                "windowSize": "[parameters('windowSize')]",
+                "criteria": {
+                    "odata.type": "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+                    "allOf": [
+                        {
+                            "name" : "1st criterion",
+                            "metricName": "[parameters('metricName')]",
+                            "dimensions":[],
+                            "operator": "[parameters('operator')]",
+                            "threshold" : "[parameters('threshold')]",
+                            "timeAggregation": "[parameters('timeAggregation')]"
+                        }
+                    ]
+                },
+                "actions": [
+                    {
+                        "actionGroupId": "[parameters('actionGroupId')]"
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
+위의 템플릿을 아래에 제공된 매개 변수 파일과 함께 사용할 수 있습니다.
+이 연습을 위해 아래의 json을 list-of-vms.parameters.json으로 저장하고 수정하세요.
+
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "alertName": {
+            "value": "Multi-resource metric alert by list via Azure Resource Manager template"
+        },
+        "alertDescription": {
+            "value": "New Multi-resource metric alert by list created via template"
+        },
+        "alertSeverity": {
+            "value":3
+        },
+        "isEnabled": {
+            "value": true
+        },
+        "targetResourceId":{
+            "value": [
+                "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resource-group-name1/Microsoft.Compute/virtualMachines/replace-with-vm-name1",
+                "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resource-group-name2/Microsoft.Compute/virtualMachines/replace-with-vm-name2"
+            ]
+        },
+        "targetResourceRegion":{
+            "value": "SouthCentralUS"
+        },
+        "targetResourceType":{
+            "value": "Microsoft.Compute/virtualMachines"
+        },
+        "metricName": {
+            "value": "Percentage CPU"
+        },
+        "operator": {
+          "value": "GreaterThan"
+        },
+        "threshold": {
+            "value": "0"
+        },
+        "timeAggregation": {
+            "value": "Average"
+        },
+        "actionGroupId": {
+            "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resource-group-name/providers/Microsoft.Insights/actionGroups/replace-with-action-group-name"
+        }
+    }
+}
+```
+
+현재 작업 디렉터리의 PowerShell 또는 Azure CLI를 사용한 템플릿 및 매개 변수 파일을 사용하여 메트릭 경고를 만들 수 있습니다.
+
+Azure PowerShell 사용
+
+```powershell
+Connect-AzureRmAccount
+
+Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+
+New-AzureRmResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupName ResourceGroupWhereRuleShouldbeSaved `
+  -TemplateFile list-of-vms.json -TemplateParametersFile list-of-vms.parameters.json
+```
+
+Azure CLI 사용
+
+```azurecli
+az login
+
+az group deployment create \
+    --name MultiResourceAlertDeployment \
+    --resource-group ResourceGroupWhereRuleShouldbeSaved \
+    --template-file list-of-vms.json \
+    --parameters @list-of-vms.parameters.json
+```
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure의 경고](monitoring-overview-unified-alerts.md)에 대해 자세히 알아보기

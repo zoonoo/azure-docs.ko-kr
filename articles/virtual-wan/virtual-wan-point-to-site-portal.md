@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/21/2018
+ms.date: 09/26/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: bf0e766f082b2e137c90b5ea66bb7570bea2e1e6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8a4c0c1426200e6c2d5041131fd0dd9cde4761cf
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963375"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409289"
 ---
 # <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>자습서: Azure Virtual WAN을 사용하여 지점 및 사이트 간 연결 만들기(미리 보기)
 
@@ -40,6 +40,38 @@ ms.locfileid: "46963375"
 
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
+## <a name="register"></a>이 기능 등록
+
+**TryIt**을 클릭하고 Azure Cloud Shell을 사용하여 간편하게 이 기능을 등록하세요.
+
+>[!NOTE]
+>이 기능을 등록하지 않으면 사용할 수 없거나 포털에서 표시되지 않습니다.
+>
+>
+
+**TryIt**을 클릭하여 Azure Cloud Shell을 연 후, 다음 명령을 복사하여 붙여넣습니다.
+
+```azurepowershell-interactive
+Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+```
+ 
+```azurepowershell-interactive
+Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+```
+
+```azurepowershell-interactive
+Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+```
+
+```azurepowershell-interactive
+Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+```
+
+기능이 등록되었다고 표시되면 Microsoft.Network 네임스페이스에 대한 구독을 등록합니다.
+
+```azurepowershell-interactive
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+```
 
 ## <a name="vnet"></a>1. 가상 네트워크 만들기
 
@@ -47,7 +79,7 @@ ms.locfileid: "46963375"
 
 ## <a name="openvwan"></a>2. 가상 WAN 만들기
 
-브라우저에서 [Azure 포털](https://portal.azure.com) 로 이동하고 Azure 계정으로 로그인합니다.
+브라우저에서 [Azure Portal(미리 보기)](http://aka.ms/azurevirtualwanpreviewfeatures)로 이동하고 Azure 계정으로 로그인합니다.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
@@ -116,11 +148,11 @@ VPN 프로필을 사용하여 클라이언트를 구성합니다.
 
 1.  공식 웹 사이트에서 OpenVPN 클라이언트를 다운로드하고 설치합니다.
 2.  게이트웨이에 대한 VPN 프로필을 다운로드합니다. Azure Portal의 지점 및 사이트 간 구성 탭 또는 PowerShell의 New-AzureRmVpnClientConfiguration에서 이 작업을 수행할 수 있습니다.
-3.  프로필의 압축을 풉니다. 메모장의 OpenVPN 폴더에서 vpnconfig.ovpn 구성 파일을 엽니다.
-4.  base64에서 P2S 클라이언트 인증서 공개 키를 사용하여 P2S 클라이언트 인증서 섹션을 채웁니다. PEM 형식의 인증서에서 .cer 파일을 열고 인증서 헤더 사이에 base64 키를 복사할 수 있습니다. 인증서를 내보내 인코딩된 공개 키를 가져오는 방법은 여기를 참조하세요.
+3.  프로필의 압축을 풉니다. 메모장에서 OpenVPN 폴더의 vpnconfig.ovpn 구성 파일을 엽니다.
+4.  base64에서 P2S 클라이언트 인증서 공개 키를 사용하여 P2S 클라이언트 인증서 섹션을 채웁니다. PEM 형식의 인증서에서 .cer 파일을 열고 인증서 헤더 사이에 base64 키를 복사할 수 있습니다. 인증서를 내보내 인코드된 공개 키를 가져오는 방법은 여기를 참조하세요.
 5.  base64에서 P2S 클라이언트 인증서 개인 키를 사용하여 개인 키 섹션을 채웁니다. 개인 키를 추출하는 방법은 여기를 참조하세요.
-6.  다른 필드를 변경하지 마십시오. 클라이언트 입력의 채워진 구성을 사용하여 VPN에 연결합니다.
-7.  C:\Program Files\OpenVPN\config 폴더로 vpnconfig.ovpn 파일을 복사합니다.
+6.  다른 필드를 변경하지 마십시오. 클라이언트 입력에 채워진 구성을 사용하여 VPN에 연결합니다.
+7.  vpnconfig.ovpn 파일을 C:\Program Files\OpenVPN\config 폴더에 복사합니다.
 8.  시스템 트레이에서 OpenVPN 아이콘을 마우스 오른쪽 단추로 클릭하고 연결을 클릭합니다.
 
 #### <a name="ikev2"></a>IKEv2
@@ -135,8 +167,8 @@ VPN 프로필을 사용하여 클라이언트를 구성합니다.
 
 1.  https://tunnelblick.net/downloads.html에서 TunnelBlik와 같은 OpenVPN 클라이언트를 다운로드 및 설치합니다. 
 2.  게이트웨이에 대한 VPN 프로필을 다운로드합니다. Azure Portal의 지점 및 사이트 간 구성 탭 또는 PowerShell의 New-AzureRmVpnClientConfiguration에서 이 작업을 수행할 수 있습니다.
-3.  프로필의 압축을 풉니다. 메모장의 OpenVPN 폴더에서 vpnconfig.ovpn 구성 파일을 엽니다.
-4.  base64에서 P2S 클라이언트 인증서 공개 키를 사용하여 P2S 클라이언트 인증서 섹션을 채웁니다. PEM 형식의 인증서에서 .cer 파일을 열고 인증서 헤더 사이에 base64 키를 복사할 수 있습니다. 인증서를 내보내 인코딩된 공개 키를 가져오는 방법은 여기를 참조하세요.
+3.  프로필의 압축을 풉니다. 메모장에서 OpenVPN 폴더의 vpnconfig.ovpn 구성 파일을 엽니다.
+4.  base64에서 P2S 클라이언트 인증서 공개 키를 사용하여 P2S 클라이언트 인증서 섹션을 채웁니다. PEM 형식의 인증서에서 .cer 파일을 열고 인증서 헤더 사이에 base64 키를 복사할 수 있습니다. 인증서를 내보내 인코드된 공개 키를 가져오는 방법은 여기를 참조하세요.
 5.  base64에서 P2S 클라이언트 인증서 개인 키를 사용하여 개인 키 섹션을 채웁니다. 개인 키를 추출하는 방법은 여기를 참조하세요.
 6.  다른 필드를 변경하지 마십시오. 클라이언트 입력의 채워진 구성을 사용하여 VPN에 연결합니다.
 7.  프로필 파일을 두 번 클릭하여 tunnelblik에서 프로필 만들기

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 727d38cae6c2f98d2922d5760f116ab85d75b8ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ff8df51011ef664950ecfeb9eef0b201306c8ad5
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983517"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221657"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Firewall 배포 및 구성
 
@@ -31,9 +31,7 @@ Azure Firewall에는 아웃바운드 액세스를 제어하는 두 가지 규칙
 
 응용 프로그램 및 네트워크 규칙은 *규칙 컬렉션*에 저장됩니다. 규칙 컬렉션은 동일한 작업 및 우선 순위를 공유하는 규칙 목록입니다.  네트워크 규칙 컬렉션은 네트워크 규칙 목록이며, 응용 프로그램 규칙 컬렉션은 응용 프로그램 규칙 목록입니다.
 
-Azure Firewall에는 인바운드 규칙과 아웃바운드 규칙의 개념이 없습니다. 응용 프로그램 규칙과 네트워크 규칙이 있으며 해당 규칙은 방화벽으로 들어오는 모든 트래픽에 적용됩니다. 네트워크 규칙과 다음 애플리케이션 규칙 순으로 적용한 다음 규칙이 종료됩니다.
-
-예를 들어, 네트워크 규칙이 일치하는 경우 애플리케이션 규칙을 사용하여 패킷을 평가하지 않습니다. 네트워크 규칙이 일치하지 않고 패킷 프로토콜이 HTTP/HTTPS이면 응용 프로그램 규칙을 사용하여 패킷을 평가합니다. 여전히 일치하는 항목이 없으면 패킷은 인프라 규칙 컬렉션과 비교하여 패킷을 평가합니다. 여전히 일치하는 항목이 없으면 기본적으로 패킷이 거부됩니다.
+Azure Firewall에는 NAT 규칙, 네트워크 규칙 및 응용 프로그램 규칙이 있습니다. Azure Firewall 규칙 처리 논리에 대한 자세한 내용은 [Azure Firewall 규칙 처리 논리](rule-processing.md)를 참조하세요.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -215,9 +213,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 11. **추가**를 클릭합니다.
 
 Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 제공 규칙 컬렉션을 포함합니다. 이러한 FQDN은 플랫폼에 대해 특정적이며 다른 용도로 사용할 수 없습니다. 자세한 내용은 [인프라 FQDN](infrastructure-fqdns.md)을 참조하세요.
-
-> [!Note]
-> 현재 FQDN 태그는 Azure PowerShell 및 REST를 통해서만 구성할 수 있습니다. 자세한 내용은 [여기](https://aka.ms/firewallapplicationrule)를 클릭하세요. 
 
 ## <a name="configure-network-rules"></a>네트워크 규칙 구성
 

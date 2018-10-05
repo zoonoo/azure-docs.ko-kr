@@ -17,12 +17,12 @@ ms.date: 07/28/2018
 ms.author: billmath
 author: billmath
 ms.custom: ''
-ms.openlocfilehash: 4eeb716e4eeae8dc560f9588c6c3ce252daf741e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5ac69c53a6b6c1e4695b88e5806f8e883cd52c66
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309762"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432057"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Azure AD Connect를 사용하여 Azure AD로 AD FS 신뢰 관리
 
@@ -41,7 +41,7 @@ Azure AD Connect는 Azure AD 신뢰와 관련된 설정**만** 관리합니다. 
 | 설정 | 설명 |
 | :--- | :--- |
 | 토큰 서명 인증서 | Azure AD Connect를 사용하여 Azure AD와의 신뢰를 다시 설정하고 다시 만들 수 있습니다. Azure AD Connect는 AD FS의 토큰 서명 인증서에 대한 일회성 즉시 롤오버를 수행하고 Azure AD 도메인 페더레이션 설정을 업데이트합니다.|
-| 토큰 서명 알고리즘 | 토큰 서명 알고리즘으로 SHA-256을 사용하는 것이 좋습니다. Azure AD Connect는 토큰 서명 알고리즘이 SHA-256보다 덜 안전한 값으로 설정되었는지 감지할 수 있습니다. 다음에 가능한 구성 작업에서 설정이 SHA-256으로 업데이트됩니다. |
+| 토큰 서명 알고리즘 | 토큰 서명 알고리즘으로 SHA-256을 사용하는 것이 좋습니다. Azure AD Connect는 토큰 서명 알고리즘이 SHA-256보다 덜 안전한 값으로 설정되었는지 감지할 수 있습니다. 다음에 가능한 구성 작업에서 설정이 SHA-256으로 업데이트됩니다. 다른 신뢰 당사자 트러스트는 새로운 토큰 서명 인증서를 사용하도록 업데이트해야 합니다. |
 | Azure AD 신뢰 식별자 | Azure AD Connect는 Azure AD 트러스트의 올바른 식별자 값을 설정합니다. AD FS는 식별자 값을 사용하여 Azure AD 신뢰를 고유하게 식별합니다. |
 | Azure AD 엔드포인트 | Azure AD Connect는 Azure AD 신뢰에 구성된 엔드포인트가 항상 복원력 및 성능에 권장되는 최신 값을 따르도록 합니다. |
 | 발급 변환 규칙 | 페더레이션된 설정에서 Azure AD의 기능이 최적의 성능을 발휘하는 데 필요한 여러 가지 클레임 규칙이 있습니다. Azure AD Connect는 Azure AD 트러스트가 항상 올바른 권장 클레임 규칙 집합으로 구성되도록 합니다. |

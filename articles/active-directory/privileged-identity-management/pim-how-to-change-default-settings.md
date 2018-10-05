@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 08/27/2018
+ms.date: 09/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2d7226f18eb922eaba3c8184656560c33202ef56
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 77a57afda3859de4a246c15d3b5c0b4ba8e2a8c8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665437"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039004"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>PIM에서 Azure AD 디렉터리 역할 설정 구성
 
@@ -63,24 +63,23 @@ ms.locfileid: "43665437"
 * 전자 메일 주소로 Microsoft 계정을 이용하는 사용자(일반적으로 @outlook.com이지만 항상 그렇지는 않음)는 Azure MFA에 등록할 수 없습니다. Microsoft 계정 가진 사용자에게 역할을 할당하려는 경우, 영구 관리자가 되도록 하거나 해당 역할에 대해 MFA를 사용하지 않도록 설정해야 합니다.
 * Azure AD 및 Office365에 대해 높은 권한이 있는 역할에 대한 MFA를 사용하지 않도록 설정할 수 없습니다. 이런 안전 기능을 둔 것은 이러한 역할을 신중하게 보호해야 하기 때문입니다.  
   
-  * 응용 프로그램 관리자
-  * 응용 프로그램 프록시 서버 관리자
-  * 대금 청구 관리자  
-  * 규정 준수 관리자  
+  * 대금 청구 관리자
+  * 클라우드 응용 프로그램 관리자
+  * 규정 준수 관리자
+  * 조건부 액세스 관리자
   * CRM 서비스 관리자
   * 고객 LockBox 액세스 승인자
-  * 디렉터리 기록기  
-  * Exchange 관리자  
+  * 디렉터리 작성자
+  * Exchange 관리자
   * 전역 관리자
+  * Information Protection 관리자
   * Intune 서비스 관리자
-  * 사서함 관리자  
-  * 파트너 계층1 지원  
-  * 파트너 계층2 지원  
+  * Power BI 서비스 관리자
   * 권한 있는 역할 관리자
-  * 보안 관리자  
-  * SharePoint 관리자  
-  * 비즈니스용 Skype 관리자  
-  * 사용자 계정 관리자  
+  * 보안 관리자
+  * SharePoint 서비스 관리자
+  * 비즈니스용 Skype 관리자
+  * 사용자 관리자
 
 자세한 내용은 [MFA(Multi-Factor Authentication) 및 PIM](pim-how-to-require-mfa.md)을 참조하세요.
 

@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1a343e238662393995404b8e4c705cf799866855
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 1bf716d4e5a37739de2e820725449be2576054ea
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136904"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038775"
 ---
 # <a name="using-search-in-application-insights"></a>Application Insights에서 Search 사용
 Search는 페이지 보기, 예외 사항 또는 웹 요청과 같은 개별 원격 분석 항목을 찾고 검색하는 데 사용하는 [Application Insights](app-insights-overview.md)의 기능입니다. 또한 코딩한 로그 추적 및 이벤트를 볼 수 있습니다.
@@ -123,8 +123,8 @@ Search 창은 웹 포털과 비슷한 기능을 제공합니다.
 | 샘플 쿼리 | 결과 |
 | --- | --- |
 | `apple` |지정된 시간 범위의 필드에 단어 "apple"이 포함된 모든 이벤트를 찾습니다. |
-| `apple AND banana` |두 단어를 모두 포함하는 이벤트를 찾습니다. "and"가 아닌 대문자 "AND"를 사용하세요. |
-| `apple OR banana`<br/>`apple banana` |둘 중 한 단어를 포함하는 이벤트를 찾습니다. "or"가 아닌 "OR"을 사용하세요.<br/>약식입니다. |
+| `apple AND banana` <br/>`apple banana` |두 단어를 모두 포함하는 이벤트를 찾습니다. "and"가 아닌 대문자 "AND"를 사용하세요. <br/>약식입니다. |
+| `apple OR banana` |둘 중 한 단어를 포함하는 이벤트를 찾습니다. "or"가 아닌 "OR"을 사용하세요. |
 | `apple NOT banana` |한 단어는 포함하지만 다른 단어는 포함하지 않는 이벤트를 찾습니다. |
 
 ## <a name="sampling"></a>샘플링
@@ -133,13 +133,13 @@ Search 창은 웹 포털과 비슷한 기능을 제공합니다.
 [샘플링에 대해 알아봅니다](app-insights-sampling.md).
 
 ## <a name="create-work-item"></a>작업 항목 만들기
-원격 분석 항목의 세부 정보를 이용하여 GitHub 또는 Visual Studio Team Services에서 버그를 만들 수 있습니다. 
+원격 분석 항목의 세부 정보를 이용하여 GitHub 또는 Azure DevOps에서 버그를 만들 수 있습니다. 
 
 ![새 작업 항목을 클릭하고, 필드를 편집한 다음 확인을 클릭합니다.](./media/app-insights-diagnostic-search/42.png)
 
-처음 이 작업을 할 때는 Team Services 계정과 프로젝트 링크를 구성하라는 메시지가 나타납니다.
+처음 이 작업을 할 때는 Azure DevOps 조직과 프로젝트 링크를 구성하라는 메시지가 나타납니다.
 
-![Team Services 서버 URL과 프로젝트 이름을 입력하고 권한 부여를 클릭합니다.](./media/app-insights-diagnostic-search/41.png)
+![Azure DevOps Services의 URL과 프로젝트 이름을 입력하고 권한 부여를 클릭합니다.](./media/app-insights-diagnostic-search/41.png)
 
 (작업 항목 블레이드에서 링크를 구성할 수도 있습니다.)
 

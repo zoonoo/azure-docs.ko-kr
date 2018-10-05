@@ -1,21 +1,22 @@
 ---
-title: Azure에서 Custom Speech Service의 기록 지침 | Microsoft Docs
-description: Cognitive Services에서 Custom Speech Service에 대한 데이터를 준비하는 방법을 알아봅니다.
+title: 기록 지침 - Custom Speech Service
+titlesuffix: Azure Cognitive Services
+description: Custom Speech Service에 대한 데이터를 준비하는 방법을 알아봅니다.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2772665107f94a273731d2147154e546225b22dd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a5daca2dbb3fc792850264bca7d8b0c59e7c8faa
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999735"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220621"
 ---
 # <a name="transcription-guidelines"></a>기록 지침
 음향 및 언어 모델 사용자 지정에 대한 텍스트 데이터를 효과적으로 사용하려면 다음 기록 지침을 따라야 합니다. 이러한 지침은 언어별로 제공됩니다.

@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 32a7b7026df1522abe2ca3dc7b212b06e08ff905
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: a8821b2e1be10cddafba04109041e76ef65f6a6a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544280"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433704"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Automation 실행 계정 관리
 
 Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를 관리하는 데 필요한 인증을 제공하는 데 사용됩니다.
 
-실행 계정을 만들면 Azure Active Directory에 새로운 서비스 사용자가 생성되며 구독 수준에서 이 사용자에게 기여자 역할을 할당합니다.
+실행 계정을 만들면 Azure Active Directory에 새로운 서비스 사용자가 생성되며 구독 수준에서 이 사용자에게 기여자 역할을 할당합니다. Azure 가상 머신에서 Hybrid Runbook Worker를 사용하는 Runbook의 경우 실행 계정 대신 [Azure 리소스에 대한 관리 ID](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)를 사용하여 Azure 리소스를 인증할 수 있습니다.
 
 실행 계정에는 다음과 같은 두 종류가 있습니다.
 

@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/04/2018
+ms.date: 09/28/2018
 ms.author: alkohli
-ms.openlocfilehash: 26f8f59d940c1e4a25e24229c2a3df75052e63e4
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 611dcb2cb904b5d3ee6ce0f571c2d04cfd7e7c35
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783293"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451753"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>Azure Data Box Disk란? (미리 보기)
 
@@ -74,10 +74,12 @@ a. Data Box Disk에 문제가 발생하면 [Data Box Disk 고객 지원팀](mail
 a.  아니요. 데이터 크기 및 디스크 가용성에 따라 8TB 디스크(최대 5개 디스크)를 얻을 수 있습니다.  
 
 ### <a name="q-how-do-i-unlock-the-data-box-disks"></a>Q. Data Box Disk의 잠금을 해제하려면 어떻게 할까요? 
-a.  Azure Portal에서 해당 Data Box Disk 주문, **장치 세부 정보**로 차례로 이동합니다. 지원 암호를 복사합니다. Azure Portal에서 Data Box Disk 잠금 해제 도구를 다운로드 및 추출하고, 디스크에 복사하려는 데이터가 있는 컴퓨터에서 *DataBoxDiskUnlock.exe*를 실행합니다. 지원 암호를 제공하여 디스크의 잠금을 해제합니다. 동일한 지원 암호를 사용하여 모든 디스크의 잠금을 해제할 수 있습니다.
+a.  Azure Portal에서 해당 Data Box Disk 주문, **장치 세부 정보**로 차례로 이동합니다. 지원 암호를 복사합니다. 운영 체제에 대한 Azure Portal에서 Data Box Disk 잠금 해제 도구를 다운로드하고 추출합니다. 디스크에 복사할 데이터가 있는 컴퓨터에서 도구를 실행합니다. 지원 암호를 제공하여 디스크의 잠금을 해제합니다. 동일한 지원 암호를 사용하여 모든 디스크의 잠금을 해제할 수 있습니다. 
+
+단계별 지침을 보려면 [Windows 클라이언트에서 디스크 잠금 해제](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) 또는 [Linux 클라이언트에서 디스크 잠금 해제](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client)로 이동하세요.
 
 ### <a name="q-can-i-use-a-linux-host-computer-to-connect-and-copy-the-data-on-to-the-data-box-disks"></a>Q. Linux 호스트 컴퓨터를 사용하여 데이터를 Data Box Disk에 연결하고 복사할 수 있나요?
-a.  아니요. Windows 컴퓨터만 지원됩니다. 자세한 내용은 호스트 컴퓨터에 대한 [지원되는 운영 체제](data-box-disk-system-requirements.md) 목록을 참조하세요.
+a.  예. Linux 및 Windows 클라이언트를 모두 사용하여 Data Box Disk에 연결하고 데이터를 복사할 수 있습니다. 자세한 내용은 호스트 컴퓨터에 대한 [지원되는 운영 체제](data-box-disk-system-requirements.md) 목록을 참조하세요.
 
 ### <a name="q-my-disks-are-dispatched-but-now-i-want-to-cancel-this-order-why-is-the-cancel-button-not-available"></a>Q. 내 디스크가 발송되었지만 이제 이 주문을 취소하려고 합니다. 취소 단추를 사용할 수 없는 이유는 무엇인가요?
 a.  디스크의 주문 이후 및 배송 이전에만 주문을 취소할 수 있습니다. 디스크가 발송되면 더 이상 주문을 취소할 수 없습니다. 미리 보기 시간 프레임에서 솔루션이 일반 공급될 때에는 변경될 수 있지만 디스크는 추가 비용 없이 반환할 수 있습니다. 
@@ -139,10 +141,10 @@ a.  데이터 복사에 대한 주문 상태가 완료됨으로 표시되면 데
 a.  *BlockBlob* 및 *PageBlob* 폴더 아래에 있는 데이터를 디스크에 복사하면, *BlockBlob* 및 *PageBlob* 폴더 아래의 각 하위 폴더에 대한 컨테이너가 Azure 저장소 계정에 만들어집니다. 파일을 *BlockBlob* 및 *PageBlob* 폴더 아래에 직접 복사한 경우 이러한 파일은 Azure Storage 계정 아래의 *$root* 기본 컨테이너에 있습니다. 
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>Q. 방금 내 컨테이너에 대해 Azure 명명 요구 사항을 따르지 않았음을 알게 되었습니다. 이 경우 내 데이터가 Azure에 업로드되지 않나요?
-a. 컨테이너 이름에 대문자가 있으면 자동으로 소문자로 변환됩니다. 이름이 다른 방식(특수 문자, 다른 언어 등)으로 준수되지 않으면 업로드가 실패합니다.
+a. 컨테이너 이름에 대문자가 있으면 자동으로 소문자로 변환됩니다. 이름이 다른 방식(특수 문자, 다른 언어 등)으로 준수되지 않으면 업로드가 실패합니다. 자세한 내용을 보려면 [Azure 명명 규칙](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions)으로 이동하세요.
 
 ### <a name="q-how-do-i-verify-the-data-i-copied-onto-multiple-data-box-disks"></a>Q. 여러 Data Box Disk에 복사한 데이터를 확인하려면 어떻게 할까요?
-a.  데이터 복사가 완료되면 *AzureImportExport* 폴더에 제공된 `AzureExpressDiskService.cmd`를 실행하여 유효성 검사를 위한 체크섬을 생성할 수 있습니다. 여러 개의 디스크가 있는 경우 디스크마다 명령 창을 열어 이 명령을 실행해야 합니다. 이 작업은 데이터 크기에 따라 시간이 오래 걸릴 수 있음에 유의하세요.
+a.  데이터 복사가 완료되면 *DataBoxDiskImport* 폴더에 제공된 `DataBoxDiskValidation.cmd`를 실행하여 유효성 검사를 위한 체크섬을 생성할 수 있습니다. 여러 개의 디스크가 있는 경우 디스크마다 명령 창을 열어 이 명령을 실행해야 합니다. 이 작업은 데이터 크기에 따라 시간이 오래 걸릴 수 있음에 유의하세요.
 
 ### <a name="q-what-happens-to-my-data-after-i-have-returned-the-disks"></a>Q. 디스크가 반환되면 내 데이터는 어떻게 되나요?
 a.  Azure로의 데이터 복사가 완료되면 디스크의 데이터는 NIST SP 800-88 수정 1 지침에 따라 안전하게 지워집니다.  

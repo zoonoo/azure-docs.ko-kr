@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 0055968e4333f5ac7653a37fcd728b040024ee55
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: e44b68a2ed2786b449e2680ca4a8ca531058b85c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629850"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432813"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 조건부 액세스 설정 참조
 
@@ -64,7 +64,7 @@ Microsoft의 다음 클라우드 앱에 조건부 액세스 정책을 할당할 
 
 - Microsoft Power BI 
 
-- Microsoft Visual Studio Team Services
+- Azure DevOps
 
 - Microsoft 팀
 
@@ -148,7 +148,7 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 |    |    |
 |--- | ---|
 |path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-|Name | 1 |
+|이름 | 1 |
 |type | REG_SZ (String) |
 |Data | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx
 
@@ -157,7 +157,7 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 |    |    |
 |--- | ---|
 |path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-|Name | 1 |
+|이름 | 1 |
 |type | REG_SZ (String) |
 |Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 
@@ -192,7 +192,7 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 |Outlook 모바일 앱|Office 365 Exchange Online|Android, iOS|
 |PowerBI 앱|PowerBI 서비스|Windows 10, Windows 8.1, Windows 7, Android 및 iOS|
 |비즈니스용 Skype|Office 365 Exchange Online|Android, iOS |
-|Visual Studio Team Services 앱|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS 및 Android|
+|Azure DevOps 앱|Azure DevOps|Windows 10, Windows 8.1, Windows 7, iOS 및 Android|
 
 
 
@@ -223,6 +223,9 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 - Microsoft 팀
 - Microsoft Visio
 - Microsoft Word
+- Microsoft To-Do
+- Microsoft Stream
+- Microsoft Edge
 
 
 

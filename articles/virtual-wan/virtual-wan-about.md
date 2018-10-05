@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 09/21/2018
+ms.date: 09/25/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: a21b97f603fc28cdbba8983547ce958a34df0774
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 54d177d7542d7501a91a955be20af776b16657a2
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968597"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182368"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Azure Virtual WAN이란?
 
@@ -43,6 +43,8 @@ Virtual WAN 파트너 사용 시의 프로세스는 다음과 같습니다.
 선호 파트너를 사용하지 않으려는 경우 연결을 수동으로 구성할 수 있습니다. [Virtual WAN을 사용하여 사이트 간 연결 만들기](virtual-wan-site-to-site-portal.md)를 참조하세요.
 
 ## <a name="p2s"></a>지점 및 사이트 간 연결(미리 보기)
+
+P2S(지점 및 사이트 간) 연결을 사용하면 개별 클라이언트 컴퓨터에서 가상 허브에 대한 안전한 연결을 만들 수 있습니다. P2S 연결은 클라이언트 컴퓨터에서 시작하여 설정됩니다. 이 솔루션은 집 또는 회의실과 같은 원격 위치에서 연결하려는 재택 근무자에게 유용합니다. 또한 P2S VPN은 연결해야 하는 클라이언트가 몇 개만 있는 경우 S2S VPN 대신 사용할 수 있는 유용한 솔루션입니다.
 
 연결을 수동으로 만들려면 [Virtual WAN을 사용하여 지점 및 사이트 간 연결 만들기](https://go.microsoft.com/fwlink/p/?linkid=2020051&clcid)를 참조하세요.
 

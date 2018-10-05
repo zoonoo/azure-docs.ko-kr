@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 09/25/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 503d5913efe67bd0de738f68921b9631c63acfa8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.component: ''
+ms.openlocfilehash: d1ad629ff5c6909256baa94573d045a8c2c09fb5
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116047"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223834"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>OMS 포털에서 Azure Portal로 전환하는 Log Analytics 사용자를 위한 일반적인 질문
 Log Analytics는 처음에 OMS 포털이라는 자체 포털을 사용하여 구성을 관리하고 수집된 데이터를 분석했습니다.  이 포털의 모든 기능은 Azure Portal로 이동되었으며 계속 개발될 예정입니다.
@@ -67,7 +67,7 @@ OMS 포털의 **설정** 섹션에 있는 대부분의 설정은 작업 영역�
 | 사용자 관리 | Azure 역할 기반 액세스를 사용하여 [사용자 작업 영역에 대한 사용 권한을 관리](#how-do-i-manage-permissions)합니다. |
 | 작업 영역 정보 | 작업 영역에 대한 **OMS 작업 영역** 메뉴에서 사용할 수 있는 정보입니다. |
 
-### <a name="alerts"></a>Alerts
+### <a name="alerts"></a>경고
 Log Analytics 쿼리를 기반으로 하는 경고 규칙은 이제 [통합된 경고 환경](#how-do-i-create-and-manage-alerts)에서 관리됩니다. 
 
 ### <a name="computer-groups"></a>컴퓨터 그룹
@@ -83,7 +83,7 @@ Log Analytics 쿼리를 기반으로 하는 경고 규칙은 이제 [통합된 �
 | Azure Storage     | 작업 영역에 대한 **고급 설정** 메뉴입니다. |
 | System Center     | 작업 영역에 대한 **고급 설정** 메뉴입니다. |
 | Office 365        | 구성 세부 정보는 [Office 365 관리 솔루션에 대한 설명서](../operations-management-suite/oms-solution-office-365.md)를 참조하세요. |
-| Windows 원격 분석 | Azure Portal에서 아직 사용할 수 없습니다. |
+| Windows 원격 분석 | 솔루션에 대한 설정 메뉴입니다. 구성 세부 정보는 [Azure Portal의 Windows Analytics](/windows/deployment/update/windows-analytics-azure-portal)를 참조하세요. |
 | ITSM 커넥터    | Log Analytics를 사용하여 ITSM 서비스에 연결하기 위한 지침은 [ITSM 제품/서비스를 IT 서비스 관리 커넥터에 연결](../log-analytics/log-analytics-itsmc-connections.md)을 참조하세요. |
 
 ### <a name="data"></a>Data

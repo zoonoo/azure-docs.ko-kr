@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: f4659d2dc8dfd52ae6f7ec19dc29ec31c9b3ca6b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: bc2b391457d7652b62558c9a752376b07b50a8c1
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047345"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391812"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>자습서: 페더레이션된 도메인용 하이브리드 Azure Active Directory 조인 구성
 
@@ -122,7 +122,7 @@ Azure AD Connect를 사용하여 하이브리드 Azure AD 조인을 구성하려
 
     a. 포리스트를 선택합니다.
 
-    b. 인증 서비스를 선택합니다.
+    b. 인증 서비스를 선택합니다. 조직에서 독점적으로 Windows 10 클라이언트를 보유하지 않은 이상, AD FS 서버를 선택해야 합니다.
 
     다. **추가**를 클릭하여 엔터프라이즈 관리자 자격 증명을 입력합니다.
 
@@ -170,7 +170,7 @@ Windows 하위 수준 장치를 등록하려면 사용자가 Azure AD에서 장�
 
 ### <a name="configure-the-local-intranet-settings-for-device-registration"></a>장치 등록에 대한 로컬 인트라넷 설정 구성
 
-Windows 하위 수준 장치의 하이브리드 Azure AD 조인을 성공적으로 완료하고 장치가 Azure AD에 인증할 때 인증서 프롬프트를 표시하지 않으려는 경우 Internet Explorer의 로컬 인트라넷 영역에 다음 URL을 추가하도록 도메인에 가입된 장치에 정책을 푸시하면 됩니다.
+Windows 하위 수준 장치의 하이브리드 Azure AD 조인을 성공적으로 완료하고 장치가 Azure AD를 인증할 때 인증서 프롬프트를 표시하지 않으려면 도메인에 가입된 장치에 정책을 푸시하여 Internet Explorer의 로컬 인트라넷 영역에 다음 URL을 추가할 수 있습니다.
 
 - `https://device.login.microsoftonline.com`
 

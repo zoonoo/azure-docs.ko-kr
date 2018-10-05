@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/27/2018
+ms.date: 09/27/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 831b52a27a1ccfc349b9b54f8c3d874e41ddc322
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.component: ''
+ms.openlocfilehash: 5eab8e4bf6b1aa90a9eef3e26dfc3020e3e3179b
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363146"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423513"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log Analytics의 사용자 지정 로그
 Log Analytics의 사용자 지정 로그 데이터 원본을 통해 Windows 및 Linux 컴퓨터의 텍스트 파일에서 이벤트를 수집할 수 있습니다. 많은 응용 프로그램이 Windows 이벤트 로그 또는 Syslog 같은 표준 로깅 서비스 대신 텍스트 파일에 정보를 기록합니다.  수집된 후에는, Log Analytics의 [사용자 지정 필드](log-analytics-custom-fields.md) 기능을 사용하여 로그의 각 레코드를 별도의 필드로 구문 분석할 수 있습니다.
@@ -40,6 +40,10 @@ Log Analytics의 사용자 지정 로그 데이터 원본을 통해 Windows 및 
 >로그 파일에 중복된 항목이 있는 경우 Log Analytics에서 수집합니다.  그러나 검색 결과는 필터 결과가 결과 개수보다 더 많은 이벤트를 표시하는 위치에서 일치하지 않습니다.  이를 만드는 응용 프로그램에서 이 문제를 일으키는지 확인하도록 로그의 유효성을 검사하고 가능한 경우 사용자 지정 로그 컬렉션 정의를 만들기 전에 해결하는 것이 중요합니다.  
 >
   
+>[!NOTE]
+> 응용 프로그램에서 매일 또는 특정 크기에 도달할 때 새 로그 파일을 만드는 경우 Linux용 Log Analytics 에이전트는 다시 시작되기 전에는 새 로그 파일을 검색하지 않습니다. 에이전트가 시작 시 지정된 로그를 사용하여 패턴을 열거하고 모니터링을 시작하기 때문이며, 따라서 에이전트 재시작을 자동화하여 이와 관련된 계획을 세워야 합니다.  Windows용 Log Analytics 에이전트에는 이 제한이 없습니다.  
+>
+
 ## <a name="defining-a-custom-log"></a>사용자 지정 로그 정의
 다음 절차에 따라 사용자 지정 로그 파일을 정의합니다.  사용자 지정 로그를 추가하는 샘플에 대한 연습을 보려면 이 문서의 끝으로 스크롤합니다.
 
@@ -66,9 +70,13 @@ Log Analytics의 사용자 지정 로그 데이터 원본을 통해 Windows 및 
 5. **다음**을 클릭합니다.
 
 ### <a name="step-3-add-log-collection-paths"></a>3단계. 로그 수집 경로 추가
-사용자 지정 로그를 찾을 수 있는 에이전트의 경로를 하나 이상의 지정해야 합니다.  로그 파일의 특정 경로 및 이름을 제공하거나 이름의 와일드카드를 포함하는 경로를 지정할 수 있습니다.  이렇게 하면 매일 새 파일을 만드는 응용 프로그램을 지원하거나 하나의 파일이 일정한 크기에 도달하는 경우를 지원합니다.  하나의 로그 파일에 여러 경로를 제공할 수도 있습니다.
+사용자 지정 로그를 찾을 수 있는 에이전트의 경로를 하나 이상의 지정해야 합니다.  로그 파일의 특정 경로 및 이름을 제공하거나 이름의 와일드카드를 포함하는 경로를 지정할 수 있습니다. 이렇게 하면 매일 새 파일을 만드는 응용 프로그램을 지원하거나 하나의 파일이 일정한 크기에 도달하는 경우를 지원합니다. 하나의 로그 파일에 여러 경로를 제공할 수도 있습니다.
 
 예를 들어, 응용 프로그램이 이름에 날짜가 포함된 로그 파일(예: log20100316.txt)을 매일 만들 수 있습니다. 이런 로그의 패턴으로 *log\*.txt*를 사용할 수 있으며, 이것은 응용 프로그램의 명명 체계에 따르는 모든 로그 파일에 적용할 수 있습니다.
+
+>[!NOTE]
+> 응용 프로그램에서 매일 또는 특정 크기에 도달할 때 새 로그 파일을 만드는 경우 Linux용 Log Analytics 에이전트는 다시 시작되기 전에는 새 로그 파일을 검색하지 않습니다. 에이전트가 시작 시 지정된 로그를 사용하여 패턴을 열거하고 모니터링을 시작하기 때문이며, 따라서 에이전트 재시작을 자동화하여 이와 관련된 계획을 세워야 합니다.  Windows용 Log Analytics 에이전트에는 이 제한이 없습니다.  
+>
 
 다음 테이블은 다른 로그 파일을 지정하는 데 유효한 패턴의 예를 제공합니다.
 

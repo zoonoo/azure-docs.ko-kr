@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: ea1117e202868465e3ea4004d21cf62d175a357a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0eec1100c5246bb9f5c281971453ac60abc0339f
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963920"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225022"
 ---
 # <a name="web-apps"></a>웹 앱
 
@@ -44,7 +44,7 @@ ms.locfileid: "46963920"
 
 ## <a name="app-registration"></a>앱 등록
 
-웹앱을 등록하려면 [Azure AD v2.0 엔드포인트에 앱 등록](quickstart-v2-register-an-app.md)을 참조하세요.
+웹앱을 등록하려면 [Azure AD v1.0 엔드포인트에 앱 등록](quickstart-v1-add-azure-ad-app.md)을 참조하세요.
 
 * 단일 테넌트 - 조직 전용 응용 프로그램을 빌드하는 경우 Azure Portal을 사용하여 해당 응용 프로그램을 회사 디렉터리에 등록해야 합니다.
 * 다중 테넌트 - 조직 외부 사용자가 사용할 수 있는 응용 프로그램을 빌드하는 경우 해당 응용 프로그램을 회사 디렉터리에 등록해야 하며, 동시에 응용 프로그램을 사용할 각 조직의 디렉터리에도 등록해야 합니다. 해당 디렉터리에서 응용 프로그램을 사용할 수 있게 만들려면 고객이 응용 프로그램에 동의할 수 있게 하는 등록 프로세스를 포함하면 됩니다. 사용자가 응용 프로그램에 등록할 때 응용 프로그램에 필요한 권한을 보여 주는 대화 상자가 나타난 다음 동의하는 옵션이 나타납니다. 필요한 권한에 따라, 다른 조직의 관리자가 동의해야 할 수도 있습니다. 사용자 또는 관리자가 동의하면 응용 프로그램이 이들의 디렉터리에 등록됩니다.

@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/27/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: e2fe7c375525389da865a3c85b52fad4dd11e333
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 77ccc6ebbb48ab3d7ce22d6c593bd62aa8dec3ac
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957488"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419483"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>자습서: Azure Data Box Gateway(미리 보기)에 연결하고, 설정하고, 활성화 
 
@@ -122,7 +122,7 @@ Data Box Gateway를 구성하고 설정하기 전에 다음 사항을 확인합�
        
          ![](./media/data-box-gateway-deploy-connect-setup-activate/image10.png)
     
-    3. 장치가 다시 시작됩니다. 장치가 활성화될 때까지 2-3분 정도 기다려야 할 수 있습니다. 장치가 다시 시작된 후 로그인 페이지가 열립니다.
+    3. 장치가 활성화될 때까지 1분 정도 기다려야 할 수 있습니다. 활성화가 완료되면 페이지가 업데이트되어 장치가 성공적으로 활성화된 것으로 나타납니다.
 
 
 ## <a name="next-steps"></a>다음 단계

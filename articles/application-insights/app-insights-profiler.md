@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6048a17bf50ecac691c7cf687f87e454c54ee9d9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 839e462522be4f492010ca1c22631cb4dd6affe4
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521886"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064435"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Application Insights를 사용하여 라이브 Azure Web Apps 프로파일링
 
-Azure Application Insights의 이 기능은 일반적으로 Azure App Service의 Web Apps 기능에 사용할 수 있으며 Azure 계산 리소스에서 미리 보기 상태입니다. [프로파일러의 온-프레미스 사용](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers)에 대한 정보입니다.
+Azure Application Insights의 이 기능은 일반적으로 Azure App Service 및 Azure 계산 리소스의 Web Apps 기능에 사용할 수 있습니다. [프로파일러의 온-프레미스 사용](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers)에 대한 정보입니다.
 
 이 문서에서는 [Application Insights](app-insights-overview.md)를 사용하는 경우 라이브 웹 응용 프로그램의 각 메서드에 소요된 시간을 설명합니다. Application Insights Profiler 도구는 앱에서 제공한 라이브 요청의 자세한 프로필을 표시합니다. Profiler는 가장 많은 시간을 사용한 *실행 부하 과다 경로*를 강조 표시합니다. 응답 시간이 다양한 요청은 샘플링 기준으로 프로파일링됩니다. 다양한 기술을 사용하여 응용 프로그램에 관련된 오버헤드를 최소화할 수 있습니다.
 
@@ -45,9 +45,9 @@ Web App을 배포하면 소스 코드에 App Insights SDK를 포함했는지와 
 
     ![Profiler에 대한 앱 설정][profiler-app-setting]
 
-### <a name="enable-profiler-for-azure-compute-resources-preview"></a>Azure 계산 리소스에 Profiler 사용(미리 보기)
+### <a name="enable-profiler-for-azure-compute-resources"></a>Azure 계산 리소스에 Profiler 사용
 
-자세한 내용은 [Azure 계산 리소스에서 미리 보기 버전의 Profiler](https://go.microsoft.com/fwlink/?linkid=848155)를 참조하세요.
+자세한 내용은 [Azure 계산 리소스에서 Profiler의 버전](https://go.microsoft.com/fwlink/?linkid=848155)을 참조하세요.
 
 ## <a name="view-profiler-data"></a>프로파일러 데이터 보기
 
@@ -204,7 +204,7 @@ Profiler를 사용하는 Web Apps 리소스에 웹앱을 다시 배포하는 경
 
 *디렉터리가 비어 있지 않음 'D:\\home\\site\\wwwroot\\App_Data\\jobs'*
 
-스크립트 또는 Visual Studio Team Services 배포 파이프라인에서 웹 배포를 실행하는 경우 이 오류가 발생합니다. 솔루션은 웹 배포 작업에 다음과 같은 배포 매개 변수를 더 추가합니다.
+스크립트 또는 Azure DevOps 배포 파이프라인에서 웹 배포를 실행하는 경우 이 오류가 발생합니다. 솔루션은 웹 배포 작업에 다음과 같은 배포 매개 변수를 더 추가합니다.
 
 ```
 -skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'

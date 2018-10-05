@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: ''
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/24/2018
+ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: d0da9107fe1dd34481ca0bf1aa9a0b260bb10951
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e47ffbe15291275a7104d5e201a597d084cdbdd9
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946632"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422867"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: 질문과 대답
 
@@ -117,7 +117,7 @@ A.
 A.-->
 
 ### <a name="q-the-system-fault-indicator-led-on-the-front-operating-panel-is-on-what-should-i-do"></a>Q. 전면 작동 패널의 시스템 결함 표시기 LED가 켜졌습니다. 어떻게 해야 하나요?
-a. 시스템 결함 표시기 LED가 켜져 있으면 시스템이 정상 상태가 아님을 나타냅니다. Microsoft 지원에 다음 단계를 문의합니다.
+a. 시스템 결함 표시기 LED가 켜져 있으면 시스템이 정상 상태가 아님을 나타냅니다. [Microsoft 지원에 문의](data-box-disk-contact-microsoft-support.md)하세요.
 
 ### <a name="q-i-cant-access-the-data-box-unlock-password-in-the-azure-portal-why-would-this-be"></a>Q. Azure Portal에서 Data Box 잠금 해제 암호에 액세스할 수 없습니다. 왜 그럴까요?
 a. Azure Portal의 잠금 해제 암호에 액세스할 수 없다면 구독 및 저장소 계정의 권한을 확인합니다. 리소스 그룹 수준에서 기여자 또는 소유자 권한이 있는지 확인합니다. 없는 경우 액세스 자격 증명을 보려면 최소한 Data Box 운영자 역할 권한이 있어야 합니다.
@@ -127,8 +127,8 @@ a. Azure Portal의 잠금 해제 암호에 액세스할 수 없다면 구독 및
 ### <a name="q-how-do-i-track-the-data-box-from-when-i-placed-the-order-to-shipping-the-device-back"></a>Q. 주문을 확정했을 때부터 Data Box를 반송할 때까지 장치를 추적하려면 어떻게 할까요? 
 a.  Azure Portal에서 Data Box 주문의 상태를 추적할 수 있습니다. 주문을 만들 때 알림 이메일을 제공하라는 메시지도 표시됩니다. 이메일을 제공한 경우 주문의 모든 상태 변경 내용에 대한 알림을 이 이메일을 통해 받게 됩니다. 자세한 내용은 [알림 이메일을 구성하는 방법](data-box-portal-ui-admin.md#edit-notification-details)을 참조하세요.
 
-### <a name="q-how-do-i-return-the-disks"></a>Q. 디스크를 반환하려면 어떻게 할까요? 
-a.  Microsoft E 잉크 디스플레이에서 배송 레이블을 표시합니다. 레이블을 배송 상자에 부착하고 봉인된 패키지를 배송업체 지점에 위탁합니다. 레이블이 손상되거나 분실되었으면 **개요 > 배송 레이블 다운로드**로 차례로 이동하여 새 반송 레이블을 다운로드합니다.
+### <a name="q-how-do-i-return-the-device"></a>Q. 장치를 반환하려면 어떻게 할까요? 
+a.  Microsoft는 E 잉크 디스플레이에 배송 레이블을 표시합니다. E 잉크 디스플레이에 배송 레이블이 보이지 않으면 **개요 > 배송 레이블 다운로드**로 이동합니다. 레이블을 다운로드하여 인쇄하고, 장치의 빈 플라스틱 태그에 레이블을 삽입하고, 장치를 배송업체에 맡깁니다. 
 
 ### <a name="q-i-received-an-email-notification-that-my-device-has-reached-the-azure-datacenter-how-do-i-find-out-if-the-data-upload-is-in-progress"></a>Q. 장치가 Azure 데이터 센터에 도착했다는 이메일 알림을 받았습니다. 데이터 업로드가 진행 중인지 어떻게 확인하나요?
 a. Azure Portal에서 Data Box 주문, **개요**로 차례로 이동할 수 있습니다. Azure에 대한 데이터 업로드가 시작되었다면 오른쪽 창에 복사 진행 상황이 표시됩니다. 
@@ -182,10 +182,10 @@ a. 장치가 손상된 상태로 도착했거나 변조의 증거가 있다면 �
 a. Data Box 서비스에서는 Microsoft가 Azure 데이터 센터로의 배송을 처리합니다. 사용자 고유의 배송 업체를 사용하려면 Azure Import/Export 서비스를 사용할 수 있습니다. 자세한 내용은 [Azure Import/Export service 란?](../storage/common/storage-import-export-service.md)을 참조하세요.
 
 ### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>Q. E 잉크 표시가 반송 레이블에 없습니다. 어떻게 해야 하나요?
-a. 반송 레이블에 E 잉크 표시가 나타나지 않으면 다음 단계를 수행합니다.
+a. 반송 레이블에 E 잉크가 표시되지 않으면 다음 단계를 수행합니다.
 - 기존 배송 레이블과 스티커를 모두 이전 배송에서 제거합니다.
-- Azure Portal에서 주문으로 이동합니다. 개요로 이동하여 배송 레이블을 다운로드합니다. 자세한 내용은 [배송 레이블 다운로드](data-box-portal-admin.md#download-shipping-label)를 참조하세요.
-- 배송 레이블을 인쇄하고 장치에 부착된 빈 슬리브에 삽입합니다. 
+- Azure Portal에서 주문으로 이동합니다. **개요**로 이동하여 **배송 레이블을 다운로드**합니다. 자세한 내용은 [배송 레이블 다운로드](data-box-portal-admin.md#download-shipping-label)를 참조하세요.
+- 배송 레이블을 인쇄하고, 장치에 부착된 빈 플라스틱 슬리브에 삽입합니다. 
 - 배송 레이블이 분명히 보이게 합니다. 
 
 ### <a name="q-how-is-my-data-protected-during-transit"></a>Q. 전송 중인 내 데이터는 어떻게 보호되나요? 
@@ -204,12 +204,11 @@ a. 예. 장치를 켜고 데이터를 더 추가할 수 있습니다. 데이터 
 a.  **데이터 복사**에 대한 주문 상태가 **완료됨**으로 표시되면 데이터에 바로 액세스할 수 있습니다.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>Q. 업로드되면 Azure에서 내 데이터가 어디에 있나요?
-a.  Data Box에 데이터를 복사할 때는 데이터가 페이지 Blob, 블록 Blob 또는 Azure 파일인지 여부에 따라 Azure Storage 계정에서 다음 경로 중 하나에 업로드됩니다.
- - `<You_storage_account_name_BlockBlob>/<my_container>/Blob` 
- - `<Your_storage_account_name_PageBlob>/<my_container>/Blob`
- - `<Your_storage_account_name_AzFile>/` 
-
-블록 Blob 및 페이지 Blob 공유에서는 첫 번째 수준 엔터티가 컨테이너, 두 번째 수준 엔터티가 Blob입니다.  Azure Files 공유에서 첫 번째 수준 엔터티는 공유, 두 번째 수준 엔터티는 파일입니다.
+a.  Data Box에 데이터를 복사할 때, 데이터가 페이지 Blob, 블록 Blob 또는 Azure 파일인지 여부에 따라 Azure Storage 계정에서 다음 경로 중 하나에 업로드됩니다.
+ - `https://<storage_account_name>.blob.core.windows.net/<containername>` 
+ -  `https://<storage_account_name>.file.core.windows.net/<sharename>`
+ 
+ 또는 Azure Portal에서 Azure storage 계정으로 이동하여 찾아볼 수도 있습니다.
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>Q. 방금 내 컨테이너에 대해 Azure 명명 요구 사항을 따르지 않았음을 알게 되었습니다. 이 경우 내 데이터가 Azure에 업로드되지 않나요?
 a.  컨테이너 이름에 대문자가 있으면 자동으로 소문자로 변환됩니다. 이름이 다른 방식(특수 문자, 다른 언어 등)으로 준수되지 않으면 업로드가 실패합니다. 공유, 컨테이너, 파일 이름 지정의 모범 사례에 대한 자세한 내용은 다음을 참조하세요. 

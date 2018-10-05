@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 27f271a20af2bb9910f1cf7d63e6033d78e67b83
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f2f2208f325728275706eeed9ff16e8afc3b11cf
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41919561"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166880"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>자습서: 로그인 화면에서 Azure AD 암호 재설정
 
@@ -45,8 +45,6 @@ Intune을 사용하여 로그인 화면에서 암호 재설정을 사용하도�
    * 필요에 따라 프로필에 대한 의미 있는 설명 입력
    * 플랫폼 **Windows 10 이상**
    * 프로필 형식 **사용자 지정**
-
-   ![프로필 만들기][CreateProfile]
 
 3. **설정** 구성
    * 다음 OMA URI 설정을 **추가**하여 암호 재설정 링크를 사용하도록 설정
@@ -100,7 +98,6 @@ Intune을 사용하여 로그인 화면에 암호 재설정 링크를 사용하�
 ![로그인 화면][LoginScreen]
 
 이제 사용자가 로그인을 시도하면 셀프 서비스 암호 재설정 환경을 제공하는 암호 재설정 링크가 로그인 화면에 표시됩니다. 사용자는 이 기능을 사용하면 다른 장치를 사용하여 웹 브라우저에 액세스할 필요 없이 암호를 재설정할 수 있습니다.
-이제 사용자가 로그인을 시도하면 셀프 서비스 암호 재설정 환경을 제공하는 암호 재설정 링크가 로그인 화면에 표시됩니다. 사용자는 이 기능을 사용하면 다른 장치를 사용하여 웹 브라우저에 액세스할 필요 없이 암호를 재설정할 수 있습니다.
 
 이 기능을 사용하는 방법에 대한 지침은 [회사 또는 학교 암호 재설정](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)에서 찾을 수 있습니다.
 
@@ -116,6 +113,10 @@ Hyper-V를 사용하여 이 기능을 테스트할 때에는 "암호 재설정" 
 
 레지스트리 키 또는 그룹 정책을 사용하여 Windows 잠금 화면을 사용하지 않도록 설정하면 **암호 재설정**을 사용할 수 없습니다.
 
+Azure AD 감사 로그에는 암호 재설정이 발생하는 IP 주소 및 ClientType에 대한 정보가 포함됩니다.
+
+![예제 로그온 화면 Azure AD 감사 로그의 암호 재설정](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
 ## <a name="clean-up-resources"></a>리소스 정리
 
 이 자습서에서 구성한 기능을 더 이상 사용하지 않으려면 앞에서 만든 Intune 장치 구성 프로필 또는 레지스트리 키를 삭제합니다.
@@ -127,6 +128,5 @@ Hyper-V를 사용하여 이 기능을 테스트할 때에는 "암호 재설정" 
 > [!div class="nextstepaction"]
 > [로그인 시 위험 평가](tutorial-risk-based-sspr-mfa.md)
 
-[CreateProfile]: ./media/tutorial-sspr-windows/create-profile.png "Windows 10 로그인 화면에서 암호 재설정 링크를 사용하도록 설정하기 위한 Intune 장치 구성 프로필 만들기"
 [Assignment]: ./media/tutorial-sspr-windows/profile-assignment.png "Windows 10 장치 그룹에 Intune 장치 구성 정책 할당"
 [LoginScreen]: ./media/tutorial-sspr-windows/logon-reset-password.png "Windows 10 로그인 화면의 암호 재설정 링크"

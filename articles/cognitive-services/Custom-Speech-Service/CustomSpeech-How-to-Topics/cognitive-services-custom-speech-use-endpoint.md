@@ -1,21 +1,22 @@
 ---
-title: Azure에서 Custom Speech Service로 사용자 지정 음성 엔드포인트 사용 | Microsoft Docs
-description: Cognitive Services에서 Custom Speech Service를 통해 사용자 지정 음성-텍스트 엔드포인트를 사용하는 방법을 알아봅니다.
+title: 사용자 지정 음성 엔드포인트 사용 - Custom Speech Service
+titlesuffix: Azure Cognitive Services
+description: Custom Speech Service를 통해 사용자 지정 음성-텍스트 엔드포인트를 사용하는 방법을 알아봅니다.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: 55583952df3b83331f1f622a4fce269713ecf2a6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 98c1b58e58490199b0258dfcc8df183c3fe9a8bd
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966523"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223375"
 ---
 # <a name="use-a-custom-speech-to-text-endpoint"></a>사용자 지정 음성-텍스트 엔드포인트 사용
 기본 Cognitive Services 음성 엔드포인트에서와 같은 방식으로 Azure Custom Speech Service 음성-텍스트 엔드포인트에 요청을 보낼 수 있습니다. 이러한 엔드포인트는 기능적으로 Speech API의 기본 엔드포인트와 동일합니다. 따라서 클라이언트 라이브러리 또는 Speech API에 대한 REST API를 통해 사용할 수 있는 동일한 기능은 사용자 지정 엔드포인트에서도 사용할 수 있습니다.

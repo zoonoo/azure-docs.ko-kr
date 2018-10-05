@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: e325335d43ef31c44ac812aca66309132f5372a3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e0c9cc342bb4b06053f53abc891ee1c415327998
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951613"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410003"
 ---
-# <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리
+# <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 클래식 메트릭 경고 만들기, 보기 및 관리
 
 Azure Monitor의 클래식 메트릭 경고를 사용하면 메트릭 중 하나가 임계값을 초과할 경우 알림을 받을 수 있습니다. 클래식 메트릭 경고는 무차원 메트릭에 대해서만 경고하는 이전 기능입니다. 클래식 메트릭 경고보다 향상된 기능을 가진, 메트릭 경고라는 최신 기능도 있습니다. [메트릭 경고 개요](alert-metric-overview.md)에서 새로운 메트릭 경고 기능에 대해 자세히 알아볼 수 있습니다. 이 문서에서는 Azure Portal, Azure CLI 및 Powershell을 통해 클래식 메트릭 경고 규칙을 만들고, 보고, 관리하는 방법을 설명합니다.
 
-## <a name="create-a-classic-metric-alert-rule-using-azure-portal"></a>Azure Portal을 사용하여 클래식 메트릭 경고 규칙 만들기
+## <a name="with-azure-portal"></a>Azure Portal 사용
 
 1. [포털](https://portal.azure.com/)에서 모니터링할 리소스를 찾아서 선택합니다.
 
@@ -46,17 +46,15 @@ Azure Monitor의 클래식 메트릭 경고를 사용하면 메트릭 중 하나
 
 앞서 설명한 대로 몇 분 안에 경고가 활성화 및 트리거됩니다.
 
-## <a name="manage-your-classic-metric-alert-rules-using-azure-portal"></a>Azure Portal을 사용하여 클래식 메트릭 경고 규칙 관리
-
 경고를 만든 후에는 해당 경고를 선택하고 다음 작업 중 하나를 수행할 수 있습니다.
 
 * 전날의 메트릭 임계값 및 실제 값을 표시하는 그래프 보기
 * 편집 또는 삭제
 * 해당 경고에 대한 알림 수신을 일시 중지 또는 재개하려면 **사용 중지** 또는 **사용**하도록 설정합니다.
 
-## <a name="creating-and-managing-classic-metric-alert-rule-using-azure-cli"></a>Azure CLI를 사용하여 클래식 메트릭 경고 규칙 만들기 및 관리
+## <a name="with-azure-cli"></a>Azure CLI 사용
 
-이전 섹션에서는 Azure Portal을 사용하여 메트릭 경고 규칙을 만들고, 보고, 관리하는 방법을 설명합니다. 이 섹션에서는 플랫폼 간 [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)를 사용하여 동일한 작업을 수행하는 방법을 설명합니다. [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview?view=azure-cli-latest)을 통해 Azure CLI 사용을 가장 빠르게 시작할 수 있습니다.
+이전 섹션에서는 Azure Portal을 사용하여 메트릭 경고 규칙을 만들고, 보고, 관리하는 방법을 설명했습니다. 이번 섹션에서는 플랫폼 간 [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)를 사용하여 동일한 작업을 수행하는 방법을 설명합니다. [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview?view=azure-cli-latest)을 통해 Azure CLI 사용을 가장 빠르게 시작할 수 있습니다.
 
 ### <a name="get-all-classic-metric-alert-rules-in-a-resource-group"></a>리소스 그룹의 모든 클래식 메트릭 경고 규칙 가져오기
 
@@ -86,7 +84,7 @@ az monitor alert create --name <alert name> --resource-group <group name> \
 az monitor alert delete --name <alert name> --resource-group <group name>
 ```
 
-### <a name="create-view-and-manage-classic-metric-alerts-using-powershell"></a>PowerShell을 사용하여 클래식 메트릭 경고 만들기, 보기 및 관리
+## <a name="with-powershell"></a>PowerShell 사용
 
 이 섹션에서는 PowerShell 명령을 사용하여 클래식 메트릭 경고를 만들고, 보고, 관리하는 방법을 보여 줍니다. 문서의 예제에서는 클래식 메트릭 경고에 대해 Azure Monitor cmdlet을 사용하는 방법을 보여 줍니다.
 

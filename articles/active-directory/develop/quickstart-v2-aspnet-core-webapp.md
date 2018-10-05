@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/25/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: f57dc1707a9e25e4ea308142e804cdbc80d4308a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ba67acec778a48c084897095aa457e5637240a57
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984945"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227437"
 ---
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>ASP.NET Core 웹앱에 Microsoft로 로그인 추가
 
@@ -111,7 +111,7 @@ public void Configure(string name, OpenIdConnectOptions options)
 ```
 > |Where  |  |
 > |---------|---------|
-> |clientid     |Azure Portal에 등록된 응용 프로그램의 응용 프로그램 ID입니다.|
+> |clientid     |Azure Portal에 등록된 응용 프로그램의 응용 프로그램 ID|
 > |Authority | 사용자가 인증할 STS 엔드포인트입니다. 일반적으로 공용 클라우드의 경우 https://login.microsoftonline.com/{tenant}/v2.0입니다. 여기서 {tenant}는 테넌트 이름, 테넌트 ID, 또는 공통 엔드포인트(다중 테넌트 응용 프로그램에 사용)에 대한 참조인 경우 *common*입니다.|
 > |UseTokenLifetime |인증 쿠키가 인증 토큰의 쿠키와 일치해야 함을 나타냅니다.|
 > |RequireHttpsMetadata     |메타데이터 주소 또는 인증 기관에 대한 HTTPS가 필요합니다. 이 값은 `True`로 변경하는 것이 좋습니다.|

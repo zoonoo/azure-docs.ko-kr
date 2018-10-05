@@ -5,26 +5,22 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/25/2018
+ms.date: 9/27/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 766ad04251fbe404d43734115e41e23ae0a4be28
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 894389ec07fb8e371a269f895473fe82985de7c3
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982052"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405974"
 ---
 # <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Firewall DNAT를 통해 인바운드 트래픽 필터링
 
-서브넷에 대한 인바운드 트래픽을 변환하고 필터링하도록 Azure Firewall DNAT(Destination Network Address Translation)를 구성할 수 있습니다. Azure Firewall에는 인바운드 규칙과 아웃바운드 규칙에 대한 개념이 없습니다. 응용 프로그램 규칙과 네트워크 규칙이 있으며, 이러한 규칙은 방화벽으로 들어오는 모든 트래픽에 적용됩니다. 네트워크 규칙이 먼저 적용되고, 다음으로 응용 프로그램 규칙이 적용된 후에 규칙이 종료됩니다.
+서브넷에 대한 인바운드 트래픽을 변환하고 필터링하도록 Azure Firewall DNAT(Destination Network Address Translation)를 구성할 수 있습니다. DNAT를 구성하면 NAT 규칙 컬렉션 작업이 **DNAT(Destination Network Address Translation)** 로 설정됩니다. 그 후 NAT 규칙 컬렉션의 각 규칙을 사용하여 방화벽 공용 IP 및 포트를 사설 IP 및 포트로 변환할 수 있습니다. DNAT 규칙은 해당 네트워크 규칙을 암시적으로 추가하여 변환된 트래픽을 허용합니다. 변환된 트래픽을 일치시키는 거부 규칙을 사용하여 네트워크 규칙 컬렉션을 명시적으로 추가함으로써 이 동작을 재정의할 수 있습니다. Azure Firewall 규칙 처리 논리에 대한 자세한 내용은 [Azure Firewall 규칙 처리 논리](rule-processing.md)를 참조하세요.
 
->[!NOTE]
->Firewall DNAT 기능은 현재 Azure PowerShell 및 REST에서만 사용할 수 있습니다.
-
-예를 들어 네트워크 규칙이 일치하면 응용 프로그램 규칙에 따라 패킷이 평가되지 않습니다. 네트워크 규칙이 일치하지 않고 패킷 프로토콜이 HTTP/HTTPS이면 응용 프로그램 규칙에 따라 패킷이 평가됩니다. 여전히 일치하는 항목이 없으면 [인프라 규칙 컬렉션](infrastructure-fqdns.md)과 비교하여 패킷이 평가됩니다. 여전히 일치하는 항목이 없으면 패킷이 기본적으로 거부됩니다.
-
-DNAT를 구성하면 NAT 규칙 컬렉션 작업이 **DNAT(Destination Network Address Translation)** 로 설정됩니다. 방화벽 공용 IP 및 포트는 사설 IP 주소 및 포트로 변환됩니다. 그런 다음, 규칙이 평소대로 적용되고, 네트워크 규칙이 먼저 적용되고, 다음으로 응용 프로그램 규칙이 적용됩니다. 예를 들어 3389 TCP 포트에서 원격 데스크톱 트래픽을 허용하도록 네트워크 규칙을 구성할 수 있습니다. 주소 변환이 먼저 발생한 다음, 변환된 주소를 사용하여 네트워크 및 응용 프로그램 규칙이 적용됩니다.
+> [!NOTE]
+> 포트 80과 22에서는 DNAT가 작동하지 않습니다. 이 문제는 조만간 해결될 예정입니다. 일단은 NAT 규칙에서 다른 포트를 대상 포트로 사용하세요. 포트 80 또는 22는 변환된 포트로 계속 사용할 수 있습니다. 예를 들어 공용 ip:81을 사설 ip:80으로 매핑할 수 있습니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -33,7 +29,6 @@ DNAT를 구성하면 NAT 규칙 컬렉션 작업이 **DNAT(Destination Network A
 > * 방화벽 배포
 > * 기본 경로 만들기
 > * DNAT 규칙 구성
-> * 네트워크 규칙 구성
 > * 방화벽 테스트
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
@@ -199,48 +194,18 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="configure-a-dnat-rule"></a>DNAT 규칙 구성
 
-```azurepowershell-interactive
- $rgName  = "RG-DNAT-Test"
- $firewallName = "FW-DNAT-test"
- $publicip = type the Firewall public ip
- $newAddress = type the private IP address for the Srv-Workload virtual machine 
- 
-# Get Firewall
-    $firewall = Get-AzureRmFirewall -ResourceGroupName $rgName -Name $firewallName
-  # Create NAT rule
-    $natRule = New-AzureRmFirewallNatRule -Name RL-01 -SourceAddress * -DestinationAddress $publicip -DestinationPort 3389 -Protocol TCP -TranslatedAddress $newAddress -TranslatedPort 3389
-  # Create NAT rule collection
-    $natRuleCollection = New-AzureRmFirewallNatRuleCollection -Name RC-DNAT-01 -Priority 200 -Rule $natRule
-  # Add NAT Rule collection to firewall:
-    $firewall.AddNatRuleCollection($natRuleCollection)
-  # Save:
-    $firewall | Set-AzureRmFirewall
-```
-## <a name="configure-a-network-rule"></a>네트워크 규칙 구성
-
-1. **RG-DNAT-Test**를 열고, **FW-DNAT-test** 방화벽을 클릭합니다.
-1. **FW-DNAT-test** 페이지의 **설정** 아래에서 **규칙**을 클릭합니다.
-2. **네트워크 규칙 컬렉션 추가**를 클릭합니다.
-
-다음 표를 사용하여 규칙을 구성한 다음, **추가**를 클릭합니다.
-
-
-|매개 변수  |값  |
-|---------|---------|
-|이름     |**RC-Net-01**|
-|우선 순위     |**200**|
-|조치     |**허용**|
-
-**규칙** 아래에서:
-
-|매개 변수  |설정  |
-|---------|---------|
-|이름     |**RL-RDP**|
-|프로토콜     |**TCP**|
-|원본 주소     |*|
-|대상 주소     |**Srv-Workload** 사설 IP 주소|
-|대상 포트|**3389**|
-
+1. **RG-DNAT-Test**를 열고, **FW-DNAT-test** 방화벽을 클릭합니다. 
+1. **FW-DNAT-test** 페이지의 **설정** 아래에서 **규칙**을 클릭합니다. 
+2. **DNAT 규칙 컬렉션 추가**를 클릭합니다. 
+3. **이름**으로 **RC-DNAT-01**을 입력합니다. 
+1. **우선 순위**에 **200**을 입력합니다. 
+6. **규칙** 아래에서 **이름**으로 **RL-01**을 입력합니다. 
+7. **원본 주소**에 *를 입력합니다. 
+8. **대상 주소**에 방화벽의 공용 IP 주소를 입력합니다. 
+9. **대상 포트**에 **3389**를 입력합니다. 
+10. **변환 주소**에 Srv-Workload 가상 머신의 사설 IP 주소를 입력합니다. 
+11. **변환 포트**에 **3389**를 입력합니다. 
+12. **추가**를 클릭합니다. 
 
 ## <a name="test-the-firewall"></a>방화벽 테스트
 
@@ -262,7 +227,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 > * 방화벽 배포
 > * 기본 경로 만들기
 > * DNAT 규칙 구성
-> * 네트워크 규칙 구성
 > * 방화벽 테스트
 
 그런 다음, Azure Firewall 로그를 모니터링할 수 있습니다.

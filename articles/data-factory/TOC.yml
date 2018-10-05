@@ -359,6 +359,10 @@ items:
       href: control-flow-wait-activity.md
     - name: 웹 작업
       href: control-flow-web-activity.md
+  - name: 매개 변수화
+    items:
+    - name: 연결된 서비스 매개 변수화
+      href: parameterize-linked-services.md
     - name: 식 언어
       href: control-flow-expression-language-functions.md
     - name: 시스템 변수
@@ -455,9 +459,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: 지원 옵션
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 713daeb450abc89009b4a93b3e725146e7489fd5
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: f0b8c54476a443fcc7d59a6a520b3519386c0ce9
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395664"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248822"

@@ -9,16 +9,22 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: f6b7b9fe73f5e815e08bbf4f6493ee181a0c692b
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: be6f3efd74d013e9ddb02c44031dd6a402f00871
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918274"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409493"
 ---
-# <a name="archive-azure-monitoring-data"></a>Azure 모니터링 데이터 보관
+# <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Azure Storage를 사용하여 Azure 메트릭 보관 및 데이터 기록
 
-Azure 환경의 여러 계층에서 Azure Storage 계정에 보관할 수 있는 로그 및 메트릭 데이터를 생성합니다. Log Analytics 또는 Azure Monitor에서 데이터가 보존 기간을 경과한 후에 검색이 불가능한 저렴한 상점에서 시간에 따라 데이터를 모니터링하는 기록을 유지하기 위해 이 작업을 수행하려고 할 수 있습니다. 이 자습서에서는 저장소 계정에 데이터를 보관하도록 Azure 환경을 구성하는 과정을 안내합니다.
+Azure 환경의 여러 계층에서 Azure Storage 계정에 보관할 수 있는 로그 및 메트릭 데이터를 생성합니다. 데이터가 보존 기간을 경과한 후에 검색이 불가능한 저렴한 상점에서 시간에 따라 데이터를 모니터링하는 기록을 유지하기 위해 이 작업을 수행하려고 할 수 있습니다. 
+
+- Azure Monitor 플랫폼 메트릭은 93일 동안 보존됩니다. 
+- 리소스 진단 로그는 Log Analytics로 라우팅되는 경우에만 나타나며, 구성 가능한 최소 보존 기간은 30일입니다. 
+- 활동 로그 항목은 90일 동안 보존됩니다.  
+
+이 자습서에서는 저장소 계정에 데이터를 보관하도록 Azure 환경을 구성하는 과정을 안내합니다.
 
 > [!div class="checklist"]
 > * 모니터링 데이터를 저장할 저장소 계정을 만듭니다.
@@ -138,7 +144,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ## <a name="view-the-monitoring-data-in-the-storage-account"></a>저장소 계정에서 모니터링 데이터 보기
 
 > [!WARNING]
-> 저장소 계정에서 로그 데이터의 형식이 2018년 11월 1일에 JSON 줄로 변경됩니다. [새 형식을 처리하도록 도구를 업데이트하는 방법과 영향에 대한 설명은 이 문서를 참조하세요.](./monitor-diagnostic-logs-append-blobs.md) 
+> 저장소 계정에서 로그 데이터의 형식이 2018년 11월 1일에 JSON 줄로 변경됩니다. [새 형식을 처리하도록 도구를 업데이트하는 방법과 영향에 대한 설명은 이 아티클을 참조하세요.](./monitor-diagnostic-logs-append-blobs.md) 
 >
 > 
 

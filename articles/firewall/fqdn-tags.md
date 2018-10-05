@@ -7,19 +7,16 @@ ms.service: firewall
 ms.topic: article
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 536c0915cae17aa6f4201c62eae5f5b077805274
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6dc7d20d31d9399355b2b3de90ea90f2f3e07af5
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999480"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224650"
 ---
 # <a name="fqdn-tags-overview"></a>FQDN 태그 개요
 
 FQDN 태그는 잘 알려진 Microsoft 서비스와 연결된 FQDN(정규화된 도메인 이름) 그룹을 나타냅니다. 응용 프로그램 규칙에서 FQDN 태그를 사용하여 방화벽을 통해 필요한 아웃바운드 네트워크 트래픽을 허용할 수 있습니다.
-
->[!NOTE]
->현재 Azure PowerShell 및 REST에서만 FQDN 태그 기능을 사용할 수 있습니다.
 
 예를 들어 방화벽을 통해 Windows 업데이트 네트워크 트래픽을 수동으로 허용하려면 Microsoft 문서에 따라 여러 응용 프로그램 규칙을 만들어야 합니다. FQDN 태그를 사용하여 응용 프로그램 규칙을 만들고 **Windows 업데이트** 태그를 포함할 수 있으며, 이제 Microsoft Windows 업데이트 끝점에 대한 네트워크 트래픽을 방화벽을 통해 전달할 수 있습니다.
 
@@ -36,6 +33,9 @@ FQDN 태그는 잘 알려진 Microsoft 서비스와 연결된 FQDN(정규화된 
 |MAPS(Microsoft 활성 보호 서비스)|[MAPS](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/)에 대한 아웃바운드 액세스를 허용합니다.|
 |ASE(App Service Environment)|ASE 플랫폼 트래픽에 대한 아웃바운드 액세스를 허용합니다. 이 태그는 ASE에서 만든 고객별 Storage 및 SQL 끝점을 다루지 않습니다. [서비스 끝점](../virtual-network/tutorial-restrict-network-access-to-resources.md)을 통해 사용하도록 설정되거나 수동으로 추가되어야 합니다.|
 |Azure Backup|Azure Backup 서비스에 대한 아웃바운드 액세스를 허용합니다.
+
+> [!NOTE]
+> 응용 프로그램 규칙에서 FQDN 태그를 선택하는 경우 protocol:port 필드는 **https**로 설정되어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

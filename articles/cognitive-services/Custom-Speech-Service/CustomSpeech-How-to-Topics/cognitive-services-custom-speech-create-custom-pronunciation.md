@@ -1,21 +1,22 @@
 ---
-title: Azure에서 Custom Speech Service로 사용자 지정 발음 사용 | Microsoft Docs
-description: Cognitive Services에서 Custom Speech Service를 통해 언어 모델을 만드는 방법을 알아봅니다.
+title: 사용자 지정 발음 사용 - Custom Speech Service
+titlesuffix: Azure Cognitive Services
+description: Custom Speech Service를 통해 언어 모델을 만드는 방법을 알아봅니다.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/23/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: c51ef6b25b454d0b8bf450b791f5c0fa9c6dfdee
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6442eec3e622282ecf6a3bf884110cd435fc18be
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999378"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223477"
 ---
 # <a name="enable-custom-pronunciation"></a>사용자 지정 발음을 사용하도록 설정
 사용자 지정 발음을 사용하면 사용자가 발음 유형과 단어 또는 용어의 표시를 결정할 수 있습니다. 제품 이름 또는 머리글자어와 같은 사용자 지정된 용어를 처리하는 데 유용합니다. 발음 파일(간단한 .txt 파일)만 있으면 됩니다.

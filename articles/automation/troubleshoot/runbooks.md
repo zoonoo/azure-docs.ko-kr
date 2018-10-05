@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 78f9ba817008a28e63ec167c4e2ccc7f3859be16
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: b02f1b04756f1e3f01426e58c5f8c625cb746f05
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146511"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163905"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook으로 오류 해결
 
@@ -93,11 +93,18 @@ The subscription named <subscription name> cannot be found.
 
 Azure에 올바르게 인증하여 선택하려는 구독에 대한 액세스 권한을 획득했는지 확인하기 위해 다음 단계를 수행합니다.  
 
-1. **Add-AzureAccount**를 실행한 후 **Select-AzureSubscription** cmdlet을 실행합니다.  
-2. 이 오류 메시지가 계속 나타나면 **Add-AzureAccount** 뒤에 **Get-AzureSubscription** cmdlet을 추가하여 코드를 수정한 다음 코드를 실행합니다. 이제 Get-AzureSubscription의 출력에 구독 세부 정보가 포함되었는지 확인합니다.  
+1. **Add-AzureAccount** cmdlet을 실행한 후에 **Select-AzureSubscription** cmdlet을 실행합니다.  
+2. 이 오류 메시지가 계속 나타나면 **Add-AzureAccount** cmdlet 뒤에 **-AzureRmContext** 매개 변수를 추가하여 코드를 수정한 다음, 해당 코드를 실행합니다.
 
-   * 출력에 구독 세부 정보가 보이지 않으면 아직 구독이 초기화되지 않았다는 뜻입니다.  
-   * 출력에 구독 세부 정보가 보이면 **Select-AzureSubscription** cmdlet을 사용하여 올바른 구독 이름 또는 ID를 사용하고 있는지 확인합니다.
+   ```powershell
+   $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
+-ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+
+   $context = Get-AzureRmContext
+
+   Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $context
+   ```
 
 ### <a name="auth-failed-mfa"></a>시나리오: Multi-Factor Authentication이 활성화되어 Azure 인증에 실패
 
@@ -151,7 +158,7 @@ Automation 계정에서 **모듈**을 클릭하고 **Azure 모듈 업데이트**
 
 #### <a name="resolution"></a>해결 방법
 
-여러 구독으로 작업할 때 자식 Runbook 호출 시 구독 컨텍스트가 손실될 수 있습니다. 구독 컨텍스트가 자식 Runbook에 전달되도록 하려면 cmdlet에 `DefaultProfile` 매개 변수를 추가하여 컨텍스트를 전달합니다.
+여러 구독으로 작업할 때 자식 Runbook 호출 시 구독 컨텍스트가 손실될 수 있습니다. 구독 컨텍스트가 자식 Runbook에 전달되도록 하려면 cmdlet에 `AzureRmContext` 매개 변수를 추가하여 컨텍스트를 전달합니다.
 
 ```azurepowershell-interactive
 # Connect to Azure with RunAs account
@@ -171,7 +178,7 @@ Start-AzureRmAutomationRunbook `
     –AutomationAccountName 'MyAutomationAccount' `
     –Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
-    -DefaultProfile $AzureContext `
+    -AzureRmContext $AzureContext `
     –Parameters $params –wait
 ```
 
@@ -216,17 +223,19 @@ The job was tried three times but it failed
 
 1. 메모리 제한. 샌드박스 [Automation 서비스 제한](../../azure-subscription-service-limits.md#automation-limits)에 할당 된 메모리 양에 대한 제한이 문서화되어 있으므로 400MB 이상의 메모리를 사용하는 경우 작업이 실패할 수 있습니다.
 
-2. 모듈이 호환되지 않음. 이는 모듈 종속성이 올바르지 않은 경우에 발생할 수 있으며 그렇지 않은 경우 일반적으로 Runbook은 "명령을 찾을 수 없습니다." 또는 "매개 변수를 바인딩할 수 없습니다." 메시지를 반환합니다.
+1. 네트워크 소켓입니다. [Automation 서비스 제한](../../azure-subscription-service-limits.md#automation-limits)에 설명된 대로 Azure 샌드박스에서는 동시 네트워크 소켓이 1000개로 제한됩니다.
+
+1. 모듈이 호환되지 않음. 이는 모듈 종속성이 올바르지 않은 경우에 발생할 수 있으며 그렇지 않은 경우 일반적으로 Runbook은 "명령을 찾을 수 없습니다." 또는 "매개 변수를 바인딩할 수 없습니다." 메시지를 반환합니다.
 
 #### <a name="resolution"></a>해결 방법
 
 다음 해결 방법 중 하나를 사용하여 문제를 해결합니다.
 
-* 메모리 제한 내에서 작업하는 경우 여러 Runbook 간에 워크로드를 분할하고, 메모리에서 많은 데이터를 처리하지 않고, Runbook에서 불필요한 출력을 작성하지 않으며, PowerShell 워크플로 Runbook에 작성하는 검사점의 수를 고려하는 것이 좋습니다.  
+* 메모리 제한 내에서 작업하기 위해 제안된 방법은 여러 Runbook 간에 워크로드를 분할하고, 메모리에서 많은 데이터를 처리하지 않고, Runbook에서 불필요한 출력을 작성하지 않으며, PowerShell 워크플로 Runbook에 작성하는 검사점의 수를 고려하는 것입니다. `$myVar.clear()`와 같은 일반 메서드를 사용하여 변수를 지우고 `[GC]::Collect()`를 사용하여 가비지 수집을 즉시 실행할 수 있습니다. 그러면 런타임 시 Runbook의 메모리 공간이 줄어듭니다.
 
 * [Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법](../automation-update-azure-modules.md) 단계에 따라 Azure 모듈을 업데이트합니다.  
 
-* 다른 솔루션은 [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md)에서 Runbook을 실행하는 것입니다. Hybrid Worker는 Azure 샌드박스처럼 [공평 분배](../automation-runbook-execution.md#fair-share) 한도로 제한되지 않습니다.
+* 다른 솔루션은 [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md)에서 Runbook을 실행하는 것입니다. Hybrid Worker는 Azure 샌드박스처럼 메모리 및 네트워크 한도로 제한되지 않습니다.
 
 ### <a name="fails-deserialized-object"></a>시나리오: 역직렬화된 개체로 인해 Runbook 실패
 

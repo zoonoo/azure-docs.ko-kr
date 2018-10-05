@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: bf744d2aaab168b8ce918f7b776d8855cdc5ad16
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ad498dc8c5bea9516bef5a62495fc0d0cc8f7399
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975246"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419698"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v-preview"></a>자습서: Hyper-V에서 Azure Data Box Gateway 프로비전(미리 보기)
 
@@ -35,7 +35,7 @@ ms.locfileid: "46975246"
 > [!div class="checklist"]
 > * 호스트가 최소 장치 요구 사항을 충족하는지 확인
 > * 하이퍼바이저에서 가상 장치 프로비전
-> * 가상 장치를 시작하고 IP 주소 가져오기
+> * 가상 장치 시작 및 IP 주소 가져오기
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -87,7 +87,7 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 
     * 코어 4개 이상
     * RAM 8GB 이상
-    * 인터넷으로 트래픽을 라우팅할 수 있는 네트워크에 연결된 네트워크 인터페이스 하나. .
+    * 인터넷으로 트래픽을 라우팅할 수 있는 네트워크에 연결된 네트워크 인터페이스 하나. 
     * 250GB OS 디스크
     * 시스템 데이터용 가상 디스크 2TB
 
@@ -105,9 +105,6 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image2.png)
 4. 새 Virtual Machine 마법사의 **시작하기 전에** 페이지에서 **다음**을 클릭합니다.
 5. **이름 및 위치 지정** 페이지에서 가상 장치의 **이름**을 입력합니다. **다음**을 클릭합니다.
-   
-   > [!IMPORTANT]
-   > 이 릴리스에서는 가상 장치의 이름에 대문자만 사용할 수 있습니다.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image3.png)
 6. **세대 지정** 페이지에서 .vhdx 장치 이미지 유형으로 **세대 2**를 선택하고 **다음**을 클릭합니다.    
@@ -159,7 +156,7 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 
     ![](./media/data-box-gateway-deploy-provision-hyperv/image17.png)
 
-## <a name="start-the-virtual-device-and-get-the-ip"></a>가상 장치를 시작하고 IP 가져오기
+## <a name="start-the-virtual-device-and-get-the-ip"></a>가상 장치 시작 및 IP 가져오기
 가상 장치를 시작하여 연결하려면 다음 단계를 수행합니다.
 
 #### <a name="to-start-the-virtual-device"></a>가상 장치를 시작하려면
@@ -171,17 +168,10 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 3. 장치가 준비되기까지 10~15분 정도 걸릴 수 있습니다. 콘솔에 진행률을 나타내는 상태 메시지가 표시됩니다. 장치가 준비되면 **작업**으로 이동합니다. `Ctrl + Alt + Delete`를 눌러 가상 장치에 로그인합니다. 기본 사용자는 *EdgeUser*이고, 기본 암호는 *Password1*입니다.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image21.png)
-4. 보안상의 이유로 장치 관리자 암호는 처음 로그인하면 만료됩니다. 암호를 변경하라는 메시지가 표시됩니다.
-
-   8자 이상을 포함하는 암호를 입력합니다. 암호는 4가지 요구 사항(소문자, 대문자, 숫자 및 특수 문자) 중 3가지 이상을 충족해야 합니다. 확인을 위해 암호를 다시 입력합니다. 암호가 변경되었다는 메시지가 표시됩니다.
    
-5. 암호 변경이 완료되면 가상 장치가 다시 시작됩니다. 장치가 시작할 때까지 기다립니다.  장치의 Windows PowerShell 콘솔이 진행률 표시줄과 함께 표시됩니다.
-
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image22.png)
-
-6. 6-8단계는 DHCP 환경이 아닌 곳에서 부팅하는 경우에만 적용됩니다. DHCP 환경인 경우에는 이 단계를 건너뛰고 9단계로 이동하세요. DHCP 환경이 아닌 곳에서 장치를 부팅한 경우에는 다음 메시지가 표시됩니다.
+6. 5-7단계는 DHCP 환경이 아닌 곳에서 부팅하는 경우에만 적용됩니다. DHCP 환경인 경우 이 단계를 건너뜁니다. DHCP 환경이 아닌 곳에서 장치를 부팅한 경우에는 다음 메시지가 표시됩니다.
     
-7. 네트워크를 구성하려면 `Get-HcsIpAddress` 명령을 사용하여 가상 장치에서 사용하도록 설정된 네트워크 인터페이스 목록을 표시합니다. 장치에 사용하도록 설정된 네트워크 인터페이스가 하나인 경우에는 `DATA1`이라는 기본 이름이 인터페이스에 할당됩니다.
+7. 네트워크를 구성하려면 `Get-HcsIpAddress` 명령을 사용하여 가상 장치에서 사용하도록 설정된 네트워크 인터페이스 목록을 표시합니다. 장치에 사용하도록 설정된 네트워크 인터페이스가 하나인 경우에는 `Ethernet`이라는 기본 이름이 인터페이스에 할당됩니다.
 
 8. `Set-HcsIpAddress` cmdlet을 사용하여 네트워크를 구성합니다. 다음 예제를 참조하세요.
 
@@ -192,7 +182,7 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image23.png)
       
 
-장치가 최소 구성 요구 사항을 충족하지 않으면 배너 텍스트에 오류가 표시됩니다. 컴퓨터가 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 장치 구성을 수정합니다. 그런 다음 다시 시작하고 장치에 연결합니다. [1단계: 호스트 시스템이 최소 가상 장치 요구 사항을 충족하도록 합니다.](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements)에서 최소 구성 요구 사항을 참조하세요.
+장치가 최소 구성 요구 사항을 충족하지 않으면 배너 텍스트에 오류가 표시됩니다. 컴퓨터가 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 장치 구성을 수정합니다. 그런 다음 다시 시작하고 장치에 연결합니다. [호스트 시스템이 최소 가상 장치 요구 사항을 충족하는지 확인](#check-the-host-system)의 최소 구성 요구 사항을 참조하세요.
 
 <!--If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
 
@@ -201,12 +191,12 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음과 같은 Data Box Gateway 항목에 대해 알아보았습니다.
+이 자습서에서는 다음과 같은 Data Box Gateway 토픽에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * 호스트가 최소 장치 요구 사항을 충족하는지 확인
 > * 하이퍼바이저에서 가상 장치 프로비전
-> * 가상 장치를 시작하고 IP 주소 가져오기
+> * 가상 장치 시작 및 IP 주소 가져오기
 
 가상 장치를 연결, 설정 및 활성화하는 방법을 알아보려면 다음 자습서로 이동합니다.
 

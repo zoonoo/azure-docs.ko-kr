@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 09/20/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 9a2eb8ab4e3ee65e97de578c825bf106aee1b829
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: e418316a74ccf27ec730261957a8b6c64de5d063
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480343"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040604"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>동적 그룹 만들기 및 상태 확인
 
@@ -29,7 +29,7 @@ Azure AD(Azure Active Directory)에서는 사용자 또는 장치 속성에 따�
 
 ## <a name="to-create-a-group-membership-rule"></a>그룹 멤버 자격 규칙 만들기
 
-1. 전역 관리자 또는 사용자 계정 관리자인 계정으로 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
+1. 테넌트의 글로벌 관리자, Intune 서비스 관리자 또는 사용자 계정 관리자 역할인 계정으로 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 2. **그룹**을 선택합니다.
 3. **모든 그룹**을 선택하고 **새 그룹**을 선택합니다.
 

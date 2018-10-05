@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8f21457a63470b88e93ead97454f996cea38073a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a0b5188605874a04f0341cde1a68487c8a50df84
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43103771"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431817"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행
 
@@ -39,7 +39,8 @@ Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" �
 
 ## <a name="runbook-permissions"></a>Runbook 사용 권한
 
-Hybrid Runbook Worker에서 실행하는 Runbook은 Azure 외부의 리소스에 액세스하기 때문에 일반적으로 Azure 리소스를 인증하는 Runbook에 사용되는 것과 동일한 방법을 사용할 수 없습니다. Runbook은 로컬 리소스에 고유한 인증을 지정하거나 실행 계정을 지정하여 모든 Runbook에 대한 사용자 컨텍스트를 제공할 수 있습니다.
+Hybrid Runbook Worker에서 실행하는 Runbook은 Azure 외부의 리소스에 액세스하기 때문에 일반적으로 Azure 리소스를 인증하는 Runbook에 사용되는 것과 동일한 방법을 사용할 수 없습니다. Runbook은 로컬 리소스에 고유한 인증을 제공하거나, [Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager
+)를 사용하여 인증을 구성하거나, 실행 계정을 지정하여 모든 Runbook에 대한 사용자 컨텍스트를 제공할 수 있습니다.
 
 ### <a name="runbook-authentication"></a>Runbook 인증
 
@@ -74,6 +75,32 @@ Hybrid Worker 그룹에 실행 계정을 지정하려면 다음 절차를 사용
 4. **모든 설정** 및 **Hybrid Worker 그룹 설정**을 차례로 선택합니다.
 5. **다음 계정으로 실행**을 **기본**에서 **사용자 지정**으로 변경합니다.
 6. 자격 증명을 선택하고 **저장**을 클릭합니다.
+
+### <a name="managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID
+
+Azure 가상 머신에서 실행되는 Hybrid Runbook Worker는 Azure 리소스에 대한 관리 ID를 사용하여 Azure 리소스를 인증할 수 있습니다. 실행 계정 대신 Azure 리소스에 대한 관리 ID를 사용하면 여러 가지 이점이 있습니다.
+
+* 실행 인증서를 내보낸 후 Hybrid Runbook Worker로 가져올 필요가 없습니다.
+* 실행 계정에서 사용하는 인증서를 갱신할 필요가 없습니다.
+* Runbook 코드의 실행 연결 개체를 처리할 필요가 없습니다.
+
+Hybrid Runbook Worker에서 Azure 리소스에 대한 관리 ID를 사용하려면 다음 단계를 완료해야 합니다.
+
+1. Azure VM 만들기
+2. [VM에서 Azure 리소스에 대한 관리 ID 구성](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm)
+3. [VM에 Resource Manager의 리소스 그룹 액세스 권한 부여](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager)
+4. [VM의 시스템 할당 관리 ID를 사용하여 액세스 토큰 가져오기] (../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-resource-manager)
+5. 가상 머신에 [Windows Hybrid Runbook Worker를 설치](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker)합니다.
+
+이전 단계가 완료되면 Runbook에서 `Connect-AzureRmAccount -Identity`를 사용하여 Azure 리소스를 인증할 수 있습니다. 이렇게 하면 실행 계정을 활용하고 실행 계정의 인증서를 관리해야 하는 필요성이 감소합니다.
+
+```powershell
+# Connect to Azure using the Managed identities for Azure resources identity configured on the Azure VM that is hosting the hybrid runbook worker
+Connect-AzureRmAccount -Identity
+
+# Get all VM names from the subscription
+Get-AzureRmVm | Select Name
+```
 
 ### <a name="automation-run-as-account"></a>Automation 실행 계정
 

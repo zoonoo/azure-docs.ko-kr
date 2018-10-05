@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 06b30d1381d8fba1d6f053576f6556e6d02f2ae9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d873d28ec772735b8f21551cde1c7d0eab79a18c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949165"
+ms.locfileid: "47035142"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics FAQ
 Microsoft FAQ는 Microsoft Azure의 Log Analytics에 대해 자주 묻는 질문의 목록입니다. Log Analytics에 대한 추가 질문이 있으면 [토론 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)으로 이동하여 질문을 게시하세요. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
@@ -69,6 +69,10 @@ A: Azure에서 작업 영역에 액세스하려면 Azure 권한을 할당 받아
 
 ### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>Q. 로그에서 뷰 디자이너 항목을 볼 수 없는 이유는 무엇인가요? 
 A: 뷰 디자이너는 로그에서 기여자 권한 이상이 할당된 사용자만 사용할 수 있습니다.
+
+### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>Q. Azure 외부의 Analytics 포털을 계속 사용할 수 있나요?
+a. 예, Azure의 로그 페이지와 [Advanced Analytics 포털](https://portal.loganalytics.io)은 동일한 코드를 기반으로 합니다. Log Analytics는 Azure Monitor의 기능으로 통합되어 보다 통합된 모니터링 환경을 제공합니다. URL: https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}을 사용하여 Analytics 포털에 계속 액세스할 수 있습니다.
+
 
 
 ## <a name="general"></a>일반

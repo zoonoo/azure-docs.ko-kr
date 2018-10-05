@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: d896cb01c7dc2cd4ed028db418f838809c7ce25c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b9808233e08e545c31e171afe104173dccc6abed
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987002"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434928"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Windows 가상 머신 확장 집합에 대해 Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
 
@@ -83,7 +83,7 @@ Resource Manager 템플릿에서 저장소 계정 정보를 보유하는 변수�
 
 **VMSS WAD 확장 섹션**에 표시된 대로 **extensionProfile**에서 템플릿에 새 확장을 추가합니다.  이 섹션은 내보내는 메트릭을 Azure Monitor에서 수용했는지 확인하는 MSI(관리 서비스 ID) 확장입니다. **이름** 필드에는 어떤 이름이든지 포함될 수 있습니다. 
 
-또한 MSI 확장에 포함된 코드는 추가 진단 확장 및 구성을 확장 리소스로 가상 머신 확장 집합 리소스에 추가합니다. 필요에 따라 성능 카운터를 자유롭게 추가/제거합니다. 
+또한 MSI 확장의 아래 코드는 추가 진단 확장 및 구성을 확장 리소스로 가상 머신 확장 집합 리소스에 추가합니다. 필요에 따라 성능 카운터를 자유롭게 추가/제거합니다. 
 
 ```json
           "extensionProfile": { 

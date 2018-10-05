@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 44fa19191f08f0e35c06f0b7ea5a3e5e41611de3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9560166f9733e1370f99f5f76a6ca3a58567865e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979120"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220245"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>자습서: Azure Data Box Gateway를 사용하여 데이터 전송(미리 보기)
 
@@ -38,7 +38,7 @@ ms.locfileid: "46979120"
 > * 공유에 연결
 
 > [!IMPORTANT]
-> - Data Box Gateway는 미리 보기로 있습니다. 이 솔루션을 주문하고 배포하기 전에 [미리 보기에 대한 Azure 서비스 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요. 
+> - Data Box Gateway는 미리 보기로 제공되고 있습니다. 이 솔루션을 주문하고 배포하기 전에 [미리 보기에 대한 Azure 서비스 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요. 
  
 ## <a name="prerequisites"></a>필수 조건
 
@@ -110,7 +110,7 @@ Data Box Gateway에 공유를 추가하기 전에 다음 사항을 확인합니�
     ```   
 
 
-2. Windows+R을 누릅니다. **실행** 창에서 `\\<device IP address>`를 지정합니다. **확인**을 클릭합니다. 그러면 [파일 탐색기]가 열립니다. 폴더로 만든 공유가 표시됩니다. 공유(폴더)를 선택하고 두 번 클릭하여 콘텐츠를 봅니다.
+2. Windows + R을 누르고 **실행** 창에서 `\\<device IP address>`를 지정합니다. **확인**을 클릭합니다. 그러면 [파일 탐색기]가 열립니다. 폴더로 만든 공유가 표시됩니다. 공유(폴더)를 선택하고 두 번 클릭하여 콘텐츠를 봅니다.
  
     ![SMB 공유에 연결](./media/data-box-gateway-deploy-add-shares/connect-to-share2.png)-->
 

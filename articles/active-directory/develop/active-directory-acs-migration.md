@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 2c7dc650109ecc3844ee2ae90e50b2267f5716c4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 59856418adde1ea29a0513a1ca7c0c60531768d8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996522"
+ms.locfileid: "47036544"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>방법: Azure Access Control Service에서 마이그레이션
 
@@ -61,6 +61,51 @@ https://<mynamespace>.accesscontrol.windows.net
 이에 대한 예외는 모든 `https://accounts.accesscontrol.windows.net` 트래픽입니다. 이 URL로 전달되는 트래픽은 다른 서비스에 의해 처리되기 때문에 Access Control 사용 중지의 영향을 받지 **않습니다**. 
 
 Access Control에 대한 자세한 내용은 [Access Control Service 2.0(보관)](https://msdn.microsoft.com/library/hh147631.aspx)을 참조하세요.
+
+## <a name="find-out-which-of-your-apps-will-be-impacted"></a>어떤 앱이 영향을 받을지 확인합니다.
+
+이 섹션의 단계에 따라 ACS 사용 중지에 의해 어떤 앱이 영향을 받을지 확인십시오.
+
+### <a name="download-and-install-acs-powershell"></a>ACS PowerShell 다운로드 및 설치
+
+1. PowerShell 갤러리로 이동하여 [Acs.Namespaces](https://www.powershellgallery.com/packages/Acs.Namespaces/1.0.2)를 다운로드합니다.
+1. 실행하여 모듈 설치
+
+    ```powershell
+    Install-Module -Name Acs.Namespaces
+    ```
+
+1. 실행하여 가능한 모든 명령 목록 가져오기
+
+    ```powershell
+    Get-Command -Module Acs.Namespaces
+    ```
+
+    특정 명령에 대한 도움말을 보려면 다음을 실행합니다.
+
+    ```
+     Get-Help [Command-Name] -Full
+    ```
+    
+    여기서 `[Command-Name]`은 ACS 명령의 이름입니다.
+
+### <a name="list-your-acs-namespaces"></a>ACS 네임스페이스 나열
+
+1. **Connect-AcsAccount** cmdlet을 사용하여 ACS에 연결합니다.
+  
+    명령을 실행하기 전에 `Set-ExecutionPolicy -ExecutionPolicy Bypass`를 실행해야 하며 해당 명령을 실행하려면 해당 구독의 관리자여야 합니다.
+
+1. **Get-AcsSubscription** cmdlet을 사용하여 사용 가능한 Azure 구독을 나열합니다.
+1. **Get-AcsNamespace** cmdlet을 사용하여 ACS 네임스페이스를 나열합니다.
+
+### <a name="check-which-applications-will-be-impacted"></a>어떤 응용 프로그램이 영향을 받는지 확인합니다.
+
+1. 이전 단계에서 해당 네임스페이스를 사용하고 `https://<namespace>.accesscontrol.windows.net`으로 이동합니다.
+
+    예를 들어, 네임스페이스 중 하나가 contoso-test이면 `https://contoso-test.accesscontrol.windows.net`으로 이동합니다.
+
+1. **신뢰 관계**에서 **신뢰 당사자 응용 프로그램**을 선택하여 ACS 사용 중지에 의해 영향을 받는 응용 프로그램 목록을 확인합니다.
+1. 가지고 있는 다른 모든 ACS 네임스페이스에 대해 1-2 단계를 반복합니다.
 
 ## <a name="retirement-schedule"></a>사용 중지 일정
 

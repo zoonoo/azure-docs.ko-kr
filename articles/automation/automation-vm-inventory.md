@@ -10,11 +10,12 @@ ms.author: jehunte
 ms.date: 03/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d5f9bae34dabba71861adc9b2aeb0d33b8a1e226
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 30569c3a89de320769d433b5b3a4af9cf4e08e66
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47091409"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>인벤토리 수집을 사용하여 Azure 가상 컴퓨터 관리
 
@@ -87,6 +88,24 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 |재귀     | 추적할 항목을 찾을 때 재귀가 사용되는지 결정합니다.        |
 |sudo 사용     | 항목을 확인할 때 sudo가 사용되는지 여부를 결정합니다.         |
 |링크     | 디렉터리를 트래버스할 때 기호화된 링크에서 처리하는 방법을 결정합니다.<br> **Ignore** - 심볼 링크를 무시하고 참조된 파일/디렉터리를 포함하지 않음<br>**Follow** - 재귀 중에 심볼 링크를 따르고 참조된 파일/디렉터리도 포함<br>**Manage** - 심볼 링크를 따르고 반환된 콘텐츠의 처리를 변경하도록 허용      |
+
+## <a name="manage-machine-groups"></a>머신 그룹 관리
+
+인벤토리를 사용하면 Log Analytics에서 머신 그룹을 만들고 볼 수 있습니다. 머신 그룹은 Log Analytics에서 쿼리에 의해 정의된 머신의 컬렉션입니다.
+
+머신 그룹을 보려면 인벤토리 페이지에서 **머신 그룹** 탭을 선택합니다.
+
+![인벤토리 페이지에서 머신 그룹 보기](./media/automation-vm-inventory/inventory-machine-groups.png)
+
+목록에서 머신 그룹을 선택하면 머신 그룹 페이지가 열립니다. 이 페이지에서는 머신 그룹에 대한 정보를 보여 줍니다. 이러한 세부 정보에는 그룹을 정의하는 데 사용되는 Log Analytics 쿼리가 포함됩니다. 페이지의 맨 아래에서 해당 그룹의 일부인 머신의 페이징된 목록입니다.
+
+![머신 그룹 페이지 보기](./media/automation-vm-inventory/machine-group-page.png)
+
+**+ 복제** 단추를 클릭하여 머신 그룹을 복제합니다. 여기에서 그룹에 새 이름을 제공하고 해당 그룹에 대한 별칭을 제공해야 합니다. 이번에는 정의를 변경할 수 있습니다. 쿼리를 변경한 후에는 **쿼리 유효성 검사**를 눌러 선택할 머신을 미리 봅니다. 해당 그룹에 만족하면 **만들기**를 클릭하여 머신 그룹을 만듭니다.
+
+새 머신 그룹을 만들려면 **+ 머신 그룹 만들기**를 선택합니다. 이 단추를 누르면 새 그룹을 정의할 수 있는 **머신 그룹 만들기 페이지**가 열립니다. **만들기**를 클릭하여 그룹을 만듭니다.
+
+![새 머신 그룹 만들기](./media/automation-vm-inventory/create-new-group.png)
 
 ## <a name="disconnect-your-virtual-machine-from-management"></a>관리에서 가상 머신 분리
 

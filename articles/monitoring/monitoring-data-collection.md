@@ -7,17 +7,17 @@ manager: carmonm
 editor: tysonn
 ms.service: monitoring
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/11/2018
+ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: d71dc77eac89fef3ae7f8aeb69a05197456ac865
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 19a611ca88310f06503bea2b8606699fe3e1c709
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962933"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406043"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Azure Monitor에서 수집된 데이터 모니터링
 [Azure Monitor](../azure-monitor/overview.md)는 사용하는 응용 프로그램 및 리소스를 모니터링하는 데 도움이 되는 서비스입니다. 이 기능의 중심은 원격 분석의 저장소 및 모니터링된 리소스의 기타 데이터입니다. 이 문서에서는 이 데이터가 저장되고 Azure Monitor에서 사용되는 방법에 대한 전체 설명을 제공합니다.
@@ -155,7 +155,7 @@ Log Analytics는 Azure 내와 온-프레미스 리소스의 다양한 원본에�
 로그를 사용하여 수행할 수 있는 작업은 다음과 같습니다.
 
 - Azure Portal에서 [Log Analytics 페이지](../log-analytics/query-language/get-started-analytics-portal.md)를 사용하여 로그 데이터를 분석하는 쿼리를 작성합니다.  테이블 또는 차트로 렌더링된 결과를 [Azure 대시보드](../azure-portal/azure-portal-dashboards.md)에 고정합니다.
-- 쿼리의 결과가 특정 결과와 일치할 때 알림을 보내거나 [자동화된 작업](../monitoring-and-diagnostics/monitoring-action-groups.md)을 수행하는 [로그 경고 규칙](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)을 구성합니다.
+- 쿼리의 결과가 특정 결과와 일치할 때 알림을 보내거나 [자동화된 작업](../monitoring-and-diagnostics/monitoring-action-groups.md)을 수행하는 [로그 경고 규칙](../monitoring-and-diagnostics/alert-log.md)을 구성합니다.
 - [Logic Apps]()를 사용하여 Log Analytics에서 데이터를 기반으로 하는 워크플로를 빌드합니다.
 - 쿼리의 결과를 [Power BI](../log-analytics/log-analytics-powerbi.md)로 내보내 서로 다른 시각화를 사용하고 Azure 외부의 사용자와 공유합니다.
 - [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) 또는 [REST API](https://dev.loganalytics.io/)를 사용하여 명령줄 또는 사용자 지정 응용 프로그램에서 메트릭 값에 액세스합니다.
@@ -175,7 +175,7 @@ Azure 리소스에서 메트릭을 수집하기 위한 지침은 [Log Analytics�
 ### <a name="logs-to-metrics"></a>메트릭에서 로그로
 위의 설명과 같이 메트릭은 로그보다 응답 속도가 빠르기 때문에 낮은 대기 시간과 낮은 비용으로 경고를 만들 수 있습니다. Log Analytics는 메트릭에 적합한 상당한 양의 데이터를 수집하지만 Azure 메트릭 저장소에 저장되지는 않습니다.  일반적인 예로 에이전트 및 관리 솔루션에서 수집된 성능 데이터가 있습니다. 이러한 값 중 일부는 메트릭 탐색기를 사용하여 경고 및 분석에 사용할 수 있는 메트릭 저장소로 복사할 수 있습니다.
 
-이 기능에 대한 설명은 [제한된 공개 미리 보기에서 공개된 로그에 대한 더 빠른 메트릭 경고](https://azure.microsoft.com/blog/faster-metric-alerts-for-logs-now-in-limited-public-preview/)에서 확인할 수 있습니다. 지원되는 값의 목록은 [새 메트릭 경고에 지원되는 메트릭 및 생성 방법](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)에서 확인할 수 있습니다.
+이 기능에 대한 설명은 [Azure Monitor에서 로그 메트릭 경고 만들기](../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md)에서 확인할 수 있습니다. 지원되는 값 목록은 [Azure Monitor에서 지원되는 메트릭](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces)에서 확인할 수 있습니다.
 
 ## <a name="stream-data-to-external-systems"></a>외부 시스템으로 데이터 스트리밍
 Azure에서 도구를 사용하여 모니터링 데이터를 분석하는 것 외에, SIEM(보안 정보 및 이벤트 관리) 제품과 같은 외부 도구로 전달하기 위한 요구 사항이 있을 수 있습니다. 이 전달은 일반적으로 [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/)를 통해 모니터링된 리소스에서 직접 수행됩니다. 

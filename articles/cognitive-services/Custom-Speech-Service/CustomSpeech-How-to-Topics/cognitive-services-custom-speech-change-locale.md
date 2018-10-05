@@ -1,21 +1,22 @@
 ---
-title: Azure에서 Custom Speech Service의 지원되는 로캘 및 언어 | Microsoft Docs
+title: 지원되는 로캘 및 언어 - Custom Speech Service
+titlesuffix: Azure Cognitive Services
 description: Cognitive Services에서 Custom Speech Service의 지원되는 언어에 대한 개요입니다.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1f186681c7e46d2e47ed7eee55c8f61290c48fcb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 34af6673689244364ab3a1fe3f2a6ab056ea8598
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987529"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223958"
 ---
 # <a name="supported-locales-in-custom-speech-service"></a>Custom Speech Service에서 지원되는 로캘
 현재 Custom Speech Service는 다음 로캘에서 모델의 사용자 지정을 지원합니다.

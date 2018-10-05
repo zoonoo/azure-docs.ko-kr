@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/18/2018
+ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9fe18c5e9514d7b8ecc3e38b394ddb4fadcc4393
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e984dc985100bcdabbee4fb86bd1819a329301a5
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46303947"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452635"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect의 사용자 지정 설치
 설치에 더 많은 옵션이 필요한 경우 Azure AD Connect **사용자 지정 설정**을 사용합니다. 여러 포리스트가 있는 경우 또한 빠른 설치에서 다루지 않는 선택적 기능을 구성하려는 경우에 사용합니다. [**빠른 설치**](how-to-connect-install-express.md) 옵션이 배포 또는 토폴로지 옵션을 충족하지 않는 경우에 사용합니다.
@@ -56,10 +56,10 @@ DirSync를 업그레이드하는 등 사용자 지정된 설정이 토폴로지�
 | AD FS로 페더레이션 |사용자는 자신의 온-프레미스 네트워크에서 사용하는 것과 동일한 암호를 사용하여 Office 365와 같은 Microsoft 클라우드 서비스에 로그인할 수 있습니다.  사용자는 로그인하기 위해 자신의 온-프레미스 AD FS 인스턴스로 리디렉션되며 온-프레미스로 인증이 이루어집니다. |
 | PingFederate을 사용한 페더레이션|사용자는 자신의 온-프레미스 네트워크에서 사용하는 것과 동일한 암호를 사용하여 Office 365와 같은 Microsoft 클라우드 서비스에 로그인할 수 있습니다.  사용자는 로그인하기 위해 자신의 온-프레미스 PingFederate 인스턴스로 리디렉션되며 온-프레미스로 인증이 이루어집니다. |
 | 구성하지 않음 |사용자 로그인 기능이 설치 및 구성되지 않습니다. 이미 타사 페더레이션 서버 또는 다른 기존 솔루션이 있는 경우 이 옵션을 선택합니다. |
-|Single Sign-On을 사용하도록 설정|이 옵션은 암호 동기화 및 통과 인증 모두로 사용 가능하며 기업 네트워크에서 데스크톱 사용자를 위한 single sign on 환경을 제공합니다. 자세한 내용은 [Single sign-on](how-to-connect-sso.md)을 참조하세요. </br>AD FS 고객의 경우 AD FS에서 동일한 수준의 single sign on을 이미 제공하므로 이 옵션을 사용할 수 없습니다.</br>
+|Single Sign-On을 사용하도록 설정|이 옵션은 암호 해시 동기화 및 통과 인증 모두에서 사용할 수 있으며, 회사 네트워크에서 데스크톱 사용자를 위한 Single Sign-On 환경을 제공합니다. 자세한 내용은 [Single sign-on](how-to-connect-sso.md)을 참조하세요. </br>AD FS 고객의 경우 AD FS에서 동일한 수준의 single sign on을 이미 제공하므로 이 옵션을 사용할 수 없습니다.</br>
 
 ### <a name="connect-to-azure-ad"></a>Azure에 연결
-Azure AD에 연결 화면에서, 전역 관리자 계정 및 암호를 입력합니다. 이전 페이지에서 **AD FS로 페더레이션**을 선택한 경우 페더레이션을 사용하도록 설정하려는 도메인의 계정으로 로그인하지 마십시오. Azure AD 디렉터리와 함께 제공되는 기본 **onmicrosoft.com** 도메인에서 계정을 사용하는 것이 좋습니다.
+Azure AD에 연결 화면에서, 전역 관리자 계정 및 암호를 입력합니다. 이전 페이지에서 **AD FS로 페더레이션**을 선택한 경우 페더레이션을 사용하도록 설정하려는 도메인의 계정으로 로그인하지 마십시오. Azure AD 테넌트와 함께 제공되는 기본 **onmicrosoft.com** 도메인의 계정을 사용하는 것이 좋습니다.
 
 이 계정은 Azure AD에서 서비스 계정을 만드는 데에만 사용되며 마법사를 완료한 후에는 사용되지 않습니다.  
 ![사용자 로그인](./media/how-to-connect-install-custom/connectaad.png)
@@ -93,7 +93,7 @@ Active Directory 도메인 서비스에 연결하려면 Azure AD Connect에 충�
 ![확인되지 않은 도메인](./media/how-to-connect-install-custom/aadsigninconfig2.png)  
 **추가되지 않음** 및 **확인되지 않음**으로 표시된 모든 도메인을 검토합니다. 사용한 해당 도메인을 Azure AD에서 확인하도록 합니다. 도메인을 확인한 경우 새로 고침 기호를 클릭합니다. 자세한 내용은 [도메인 추가 및 확인](../active-directory-domains-add-azure-portal.md)을 참조하세요.
 
-**UserPrincipalName** - 특성 userPrincipalName은 사용자가 Azure AD 및 Office 365에 로그인할 때 사용하는 특성입니다. UPN-접미사로 알려진 사용된 도메인은 사용자가 동기화되기 전에 Azure AD에서 확인해야 합니다. Microsoft에서는 기본 특성 userPrincipalName을 유지하는 것을 권장합니다. 이 특성이 라우팅할 수 없고 확인할 수 없는 경우 다른 특성을 선택할 수 있습니다. 예를 들어 로그인 ID를 보관하는 특성으로 전자 메일을 선택할 수 있습니다. userPrincipalName 이외의 다른 특성을 사용하는 것을 **대체 ID**라고 합니다. 대체 ID 특성 값은 RFC822 표준을 따라야 합니다. 대체 ID는 암호 동기화 및 페더레이션과 함께 사용할 수 있습니다. 특성의 값이 하나뿐이어도 Active Directory에 다중 값으로 정의하면 안 됩니다.
+**UserPrincipalName** - 특성 userPrincipalName은 사용자가 Azure AD 및 Office 365에 로그인할 때 사용하는 특성입니다. UPN-접미사로 알려진 사용된 도메인은 사용자가 동기화되기 전에 Azure AD에서 확인해야 합니다. Microsoft에서는 기본 특성 userPrincipalName을 유지하는 것을 권장합니다. 이 특성이 라우팅할 수 없고 확인할 수 없는 경우 다른 특성을 선택할 수 있습니다. 예를 들어 로그인 ID를 보관하는 특성으로 전자 메일을 선택할 수 있습니다. userPrincipalName 이외의 다른 특성을 사용하는 것을 **대체 ID**라고 합니다. 대체 ID 특성 값은 RFC822 표준을 따라야 합니다. 대체 ID는 암호 해시 동기화, 통과 인증 및 페더레이션에서 사용할 수 있습니다. 특성의 값이 하나뿐이어도 Active Directory에 다중 값으로 정의하면 안 됩니다.
 
 >[!NOTE]
 > 통과 인증을 사용하도록 설정한 경우 마법사를 진행하려면 하나 이상의 검증된 도메인이 있어야 합니다.
@@ -139,7 +139,7 @@ sourceAnchor 특성은 사용자 개체의 수명 동안 변경할 수 없는 �
 | Let Azure manage the source anchor for me(Azure에서 원본 앵커를 대신 관리) | Azure AD에서 이 특성을 선택하게 하려면 이 옵션을 선택합니다. 이 옵션을 선택하면 Azure AD Connect 마법사에서 [Azure AD Connect: 설계 개념 - ms-DS-ConsistencyGuid를 sourceAnchor로 사용](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) 문서 섹션에서 설명하는 sourceAnchor 특성 선택 논리를 적용합니다. 마법사에서 사용자 지정 설치가 완료된 후 원본 앵커 특성으로 선택된 속성을 알려줍니다. |
 | 특정 특성 | 기존 AD 특성을 sourceAnchor 특성으로 지정하려면 이 옵션을 선택합니다. |
 
-특성을 변경할 수 없으므로, 좋은 특성을 사용해야 합니다. 좋은 후보는 objectGUID입니다. 사용자 계정이 포리스트/도메인 간에 이동하지 않은 한 이 특성이 변경되지 않습니다. 포리스트 간에 계정을 이동하는 다중 포리스트 환경에서 employeeID가 있는 특성과 같은 다른 특성이 사용되어야 합니다. 결혼을 하거나 할당이 변경될 때 바뀔 수 있는 특성을 피하십시오. @-sign와 함께 특성을 사용할 수 없으므로 email 및 userPrincipalName을 사용할 수 없습니다. 또한 이 특성은 대소문자를 구분하므로 포리스트 간에 개체를 이동하는 경우 대/소문자를 유지해야 합니다. 이진 특성은 Base64로 인코딩되지만 다른 특성 유형은 인코딩되지 않은 상태로 남아 있습니다. 페더레이션 시나리오 및 일부 Azure AD 인터페이스에서는 이 특성을 immutableID라고도 합니다. 원본 앵커에 대한 자세한 정보는 [디자인 개념](plan-connect-design-concepts.md#sourceanchor)에서 찾을 수 있습니다.
+특성을 변경할 수 없으므로, 좋은 특성을 사용해야 합니다. 좋은 후보는 objectGUID입니다. 사용자 계정이 포리스트/도메인 간에 이동하지 않은 한 이 특성이 변경되지 않습니다. 결혼을 하거나 할당이 변경될 때 바뀔 수 있는 특성을 피하십시오. @-sign와 함께 특성을 사용할 수 없으므로 email 및 userPrincipalName을 사용할 수 없습니다. 또한 이 특성은 대소문자를 구분하므로 포리스트 간에 개체를 이동하는 경우 대/소문자를 유지해야 합니다. 이진 특성은 Base64로 인코딩되지만 다른 특성 유형은 인코딩되지 않은 상태로 남아 있습니다. 페더레이션 시나리오 및 일부 Azure AD 인터페이스에서는 이 특성을 immutableID라고도 합니다. 원본 앵커에 대한 자세한 정보는 [디자인 개념](plan-connect-design-concepts.md#sourceanchor)에서 찾을 수 있습니다.
 
 ### <a name="sync-filtering-based-on-groups"></a>그룹에 따라 동기화 필터링
 그룹 기능에 대해 필터링하면 파일럿을 위해 개체의 작은 하위 집합만 동기화할 수 있습니다. 이 기능을 사용하려면 온-프레미스 Active Directory에서 이 목적을 위한 그룹을 만듭니다. 그런 다음 Azure AD에 직접 구성원으로 동기화해야 하는 사용자와 그룹을 추가합니다. 나중에 사용자를 이 그룹에 추가하고 제거하여 Azure AD에 있어야 하는 개체의 목록을 유지할 수 있습니다. 동기화하려는 모든 개체는 그룹의 직접 구성원이어야 합니다. 사용자, 그룹, 연락처 및 컴퓨터/장치는 모두 직접 구성원이어야 합니다. 중첩된 그룹 구성원은 확인되지 않습니다. 그룹을 구성원으로 추가하는 경우 해당 그룹 자체만 추가되며 그룹의 구성원은 추가되지 않습니다.
@@ -220,7 +220,7 @@ Azure AD Connect 도구에서 추가한 각 포리스트에 대해 도메인 관
 
         Value: `https://autologon.microsoftazuread-sso.com`  
         Data: 1  
-    
+
 
 5.  다음과 유사하게 나타납니다.  
 ![인트라넷 영역](./media/how-to-connect-install-custom/sitezone.png)
@@ -382,7 +382,7 @@ Azure AD Connect는 이전 단계에서 PingFederate 메타데이터에서 검�
 ## <a name="troubleshooting"></a>문제 해결
 다음 섹션에는 Azure AD Connect 설치 문제가 발생할 때 사용할 수 있는 문제 해결 정보가 포함되어 있습니다.
 
-### <a name="the-adsync-database-already-contains-data-and-cannot-be-overwritten"></a>"ADSync 데이터베이스에 이미 데이터가 포함되어 있어 덮어쓸 수 없습니다." 
+### <a name="the-adsync-database-already-contains-data-and-cannot-be-overwritten"></a>"ADSync 데이터베이스에 이미 데이터가 포함되어 있어 덮어쓸 수 없습니다."
 Azure AD Connect를 사용자 지정으로 설치하고 **필요한 구성 요소 설치** 페이지에서 **기존 SQL 서버 사용** 옵션을 선택하면 **ADSync 데이터베이스에 이미 데이터가 포함되어 있어 덮어쓸 수 없습니다. 기존 데이터베이스를 제거하고 다시 시도하십시오** 오류가 발생할 수 있습니다.
 
 ![오류](./media/how-to-connect-install-custom/error1.png)
@@ -393,7 +393,7 @@ SQL 서버의 SQL 인스턴스에 **ADSync**라고 하는 기존 데이터베이
 
 이 문제를 해결하려면 제거하기 전까지 Azure AD Connect에서 사용하던 **ADSync** 데이터베이스가 더 이상 사용되지 않는지 확인합니다.
 
-다음으로, 데이터베이스를 백업한 후 삭제하는 것이 좋습니다. 
+다음으로, 데이터베이스를 백업한 후 삭제하는 것이 좋습니다.
 
 마지막으로, 데이터베이스를 삭제해야 합니다.  **Microsoft SQL Server Management Studio**를 사용하여 처리할 수 있으며, 그 후 SQL 인스턴스에 연결합니다. **ADSync** 데이터베이스를 찾아서 마우스 오른쪽 단추로 클릭하고, 상황에 맞는 메뉴에서 **삭제**를 선택합니다.  그런 다음, **확인** 단추를 클릭하여 삭제합니다.
 

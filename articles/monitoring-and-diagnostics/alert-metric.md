@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 479fd902ef68bf24306bcd699da0be08415592a0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6ac31818a68aa2b4624410b423b7559b84275777
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956992"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409374"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리
 
@@ -20,7 +20,7 @@ Azure Monitor의 메트릭 경고를 사용하면 메트릭 중 하나가 임계
 
 메트릭 경고의 작동 원리는 [메트릭 경고 개요](alert-metric-overview.md)에서 자세히 알아볼 수 있습니다.
 
-## <a name="create-a-metric-alert-rule-using-azure-portal"></a>Azure Portal을 사용하여 메트릭 경고 규칙 만들기
+## <a name="create-with-azure-portal"></a>Azure Portal을 사용하여 만들기
 
 다음은 Azure Portal에서 메트릭 경고 규칙을 만드는 절차입니다.
 
@@ -58,7 +58,7 @@ Azure Monitor의 메트릭 경고를 사용하면 메트릭 중 하나가 임계
 > [!NOTE]
 > 포털을 통해 생성되는 메트릭 경고는 대상 리소스와 동일한 리소스 그룹에 생성됩니다.
 
-## <a name="view-and-manage-metric-alert-rules-using-azure-portal"></a>Azure Portal을 사용하여 메트릭 경고 규칙을 살펴보고 관리
+## <a name="view-and-manage-with-azure-portal"></a>Azure Portal을 사용하여 보기 및 관리
 
 [경고] 아래에서 [규칙 관리] 블레이드를 사용하여 메트릭 경고 규칙을 살펴보고 관리할 수 있습니다. 아래 절차는 메트릭 경고 규칙을 살펴보고 편집하는 방법을 보여줍니다.
 
@@ -80,7 +80,7 @@ Azure Monitor의 메트릭 경고를 사용하면 메트릭 중 하나가 임계
 
 6. **완료**를 클릭하여 편집 내용을 저장합니다.
 
-## <a name="create-view-and-manage-metric-alert-rules-using-azure-cli"></a>Azure CLI를 사용하여 메트릭 경고 규칙을 만들고 살펴보기
+## <a name="with-azure-cli"></a>Azure CLI 사용
 
 이전 섹션에서는 Azure Portal을 사용하여 메트릭 경고 규칙을 만들고, 보고, 관리하는 방법을 설명했습니다. 이번 섹션에서는 플랫폼 간 [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)를 사용하여 동일한 작업을 수행하는 방법을 설명합니다. Azure CLI를 가장 빠르게 사용하는 방법은 [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview?view=azure-cli-latest)입니다. 이 문서에서는 Cloud shell을 사용하겠습니다.
 

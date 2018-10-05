@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/25/2018
 ms.author: alkohli
-ms.openlocfilehash: 0204445464a9d61b4e25be1d71373ce8394b32f0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9bc84a9b08c4cfbdf7f24416c923e0dbd7076556
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957674"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161933"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box"></a>자습서: Azure Data Box에 데이터 복사 
 
@@ -45,7 +45,7 @@ ms.locfileid: "46957674"
 ## <a name="connect-to-data-box"></a>Data Box에 연결
 
 선택한 저장소 계정에 따라, Data Box가 다음 항목을 만듭니다.
-- 연결된 각 저장소(GPv1 및 GPv2)에 대한 공유 3개 이하.
+- GPv1 및 GPv2에서 연결된 각 저장소에 대한 공유 3개.
 - 프리미엄 또는 Blob 저장소 계정에 대한 공유 1개. 
 
 블록 Blob 및 페이지 Blob 공유에서는 첫 번째 수준 엔터티가 컨테이너, 두 번째 수준 엔터티가 Blob입니다. Azure Files 공유에서 첫 번째 수준 엔터티는 공유, 두 번째 수준 엔터티는 파일입니다.
@@ -233,7 +233,7 @@ Robocopy 명령에 대한 자세한 내용은 [Robocopy 및 몇 가지 예제](h
 
 Linux 호스트 컴퓨터를 사용하는 경우 Robocopy와 비슷한 복사 유틸리티를 사용합니다. Linux에서 사용할 수 있는 대안 중 일부는 [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) 또는 [Ultracopier](https://ultracopier.first-world.info/)입니다.  
 
-cp 명령은 디렉터리를 복사하는 최고의 옵션 중 하나입니다. 사용 방법에 대한 자세한 내용은 [cp 기본 페이지](http://man7.org/linux/man-pages/man1/cp.1.html)를 참조하세요.
+`cp` 명령은 디렉터리를 복사하는 최고의 옵션 중 하나입니다. 사용 방법에 대한 자세한 내용은 [cp 기본 페이지](http://man7.org/linux/man-pages/man1/cp.1.html)를 참조하세요.
 
 다중 스레드 복사에 rsync 옵션을 사용하는 경우 다음 지침을 따르세요.
 
@@ -273,7 +273,7 @@ cp 명령은 디렉터리를 복사하는 최고의 옵션 중 하나입니다. 
    
     ![배송 준비 1](media/data-box-deploy-copy-data/prepare-to-ship1.png)
 
-2. 체크섬을 사용하도록 설정되지 않은 경우 체크섬을 사용하도록 설정하는 옵션이 표시됩니다. 데이터 무결성을 위해, 체크섬 유효성 검사를 수행하는 것이 좋습니다. **체크섬 사용**을 선택하면 체크섬 계산이 트리거되며 데이터 크기에 따라 다소 시간이 걸릴 수 있습니다. **준비 시작**을 클릭합니다.
+2. 기본적으로 체크섬은 배송을 준비하는 동안 계산된 인라인입니다. 체크섬 계산은 데이터의 크기에 따라 다소 시간이 걸릴 수 있습니다. **준비 시작**을 클릭합니다.
     1. 배송을 준비하면 장치 공유가 오프라인으로 전환되고 장치가 잠깁니다.
         
         ![배송 준비 1](media/data-box-deploy-copy-data/prepare-to-ship2.png) 
