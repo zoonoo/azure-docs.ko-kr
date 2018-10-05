@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/05/2018
+ms.date: 09/28/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f25d0b3522658d5fcd4b34110cb03b624dd9e7b1
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 776f70b6b24288006d52cb0e91797d1074180160
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841508"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452618"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>자습서: Azure Data Box Disk에 데이터 복사 및 확인
 
@@ -30,17 +30,14 @@ ms.locfileid: "43841508"
 
 > [!div class="checklist"]
 > * Data Box Disk에 데이터 복사
-> * 데이터 무결성 확인
+> * 데이터 확인
 
 ## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음 사항을 확인합니다.
 - [자습서: Azure Data Box Disk 설치 및 구성](data-box-disk-deploy-set-up.md)을 완료했습니다.
-- 디스크가 압축되고 켜져 있습니다.
-- 디스크에 데이터를 복사할 호스트 컴퓨터가 있습니다. 호스트 컴퓨터는 다음 사항이 필수입니다.
-    - [지원되는 운영 체제](data-box-disk-system-requirements.md)를 실행합니다.
-    - [Windows PowerShell 4가 설치되어](https://www.microsoft.com/download/details.aspx?id=40855) 있습니다.
-    - [.NET Framework 4.5가 설치되어](https://www.microsoft.com/download/details.aspx?id=30653) 있습니다.
+- 디스크를 잠금 해제하고 클라이언트 컴퓨터에 연결합니다.
+- 데이터를 디스크에 복사하는 데 사용되는 클라이언트 컴퓨터에서 [지원되는 운영 체제](data-box-disk-system-requirements.md)를 실행해야 합니다.
 
 
 ## <a name="copy-data-to-disks"></a>디스크에 데이터 복사
@@ -59,6 +56,7 @@ ms.locfileid: "43841508"
 
     컨테이너 및 Blob 이름에 대해 Azure 명명 요구 사항을 따릅니다.
 
+    #### <a name="azure-naming-conventions-for-container-and-blob-names"></a>컨테이너 및 Blob 이름에 대한 Azure 명명 규칙
     |엔터티   |규칙  |
     |---------|---------|
     |컨테이너 이름 블록 Blob 및 페이지 Blob     |문자 또는 숫자로 시작해야 하며, 소문자, 숫자 및 하이픈(-)만 포함할 수 있습니다. 모든 하이픈(-)은 앞뒤에 문자 또는 숫자가 와야 합니다. 이름에 연속적인 하이픈은 허용되지 않습니다. <br>올바른 DNS 이름은 3~63자여야 합니다.          |
@@ -165,17 +163,21 @@ ms.locfileid: "43841508"
 > -  데이터를 복사하는 동안 데이터 크기가 [Azure 저장소 및 Data Box Disk 제한](data-box-disk-limits.md)에 설명된 크기 제한을 준수하는지 확인합니다. 
 > - Data Box Disk에 의해 업로드되는 데이터가 Data Box Disk 외부의 다른 응용 프로그램에 의해 동시에 업로드되는 경우 업로드 작업이 실패하고 데이터 손상이 발생할 수 있습니다.
 
-## <a name="verify-data-integrity"></a>데이터 무결성 확인
+## <a name="verify-data"></a>데이터 확인 
 
-데이터 무결성을 확인하려면 다음 단계를 수행합니다.
+데이터의 유효성을 검사하려면 다음 단계를 수행합니다.
 
-1. 체크섬 유효성 검사를 위해 `AzureExpressDiskService.ps1`을 실행합니다. 파일 탐색기에서 드라이브의 *AzureImportExport* 폴더로 이동합니다. **PowerShell을 사용하여 실행**을 마우스 오른쪽 단추로 클릭하고 선택합니다. 
+1. 드라이브의 *AzureImportExport* 폴더에서 체크섬 유효성 검사를 위해 `DataBoxDiskValidation.cmd`를 실행합니다. 
+    
+    ![Data Box Disk 유효성 검사 도구 출력](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
-    ![체크섬 실행](media/data-box-disk-deploy-copy-data/data-box-disk-checksum.png)
-
-2. 데이터 크기에 따라 이 단계는 시간이 걸릴 수 있습니다. 스크립트가 완료되면 프로세스가 완료되는 시간과 함께 데이터 무결성 확인 프로세스의 요약이 표시됩니다. **Enter** 키를 눌러 명령 창을 종료할 수 있습니다.
+2. 적절한 옵션을 선택합니다. **항상 옵션 2를 선택하여 파일의 유효성을 검사하고 체크섬을 생성하는 것이 좋습니다.**. 데이터 크기에 따라 이 단계는 시간이 걸릴 수 있습니다. 스크립트가 완료되면 명령 창을 종료합니다. 유효성 검사 및 체크섬 생성 중에 오류가 있으면 알림이 표시되고 오류 로그에 대한 링크도 제공됩니다.
 
     ![체크섬 출력](media/data-box-disk-deploy-copy-data/data-box-disk-checksum-output.png)
+
+    > [!TIP]
+    > - 두 실행 간에 도구를 다시 설정합니다.
+    > - 옵션 1을 사용하여 작은 파일(KB 이하 크기)이 포함된 큰 데이터 집합만 처리하는 파일의 유효성만 검사합니다. 이러한 경우 체크섬 생성에 시간이 오래 걸릴 수 있으며 성능이 매우 느려질 수 있습니다.
 
 3. 여러 디스크를 사용하는 경우 각 디스크에 대해 명령을 실행합니다.
 
