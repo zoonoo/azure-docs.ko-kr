@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/20/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: c90e51d1aa1c3215c40baeae2c5494ef90b01132
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: d06ad47dc2962b249b4e7aef5667492e642be35e
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584356"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830126"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack 등록
 Azure에서 마켓플레이스 항목을 다운로드 하 고 Microsoft에 다시 보고 하는 전자 상거래 데이터를 설정 하는 Azure를 사용 하 여 Azure Stack 개발 키트 ASDK () 설치를 등록할 수 있습니다. 마켓플레이스 배포를 포함 하 여 전체 Azure Stack 기능을 지원 하려면 등록이 필요 합니다. 마켓플레이스 배포 및 사용 보고와 같은 중요 한 Azure Stack 기능을 테스트할 수 있기 때문에 등록을 사용 하는 것이 좋습니다. Azure Stack 등록 한 후 Azure 상거래에 사용량이 보고 됩니다. 등록에 사용한 구독에서 볼 수 있습니다. 그러나 ASDK 사용자가 보고 하는 사용량에 대 한 요금이 청구 되지 않습니다.
@@ -66,8 +66,8 @@ Azure는 ASDK 등록 하려면 다음이 단계를 따릅니다.
     Set-AzsRegistration `
         -PrivilegedEndpointCredential $CloudAdminCred `
         -PrivilegedEndpoint AzS-ERCS01 `
-        -BillingModel Development
-        -RegistrationName $RegistrationName
+        -BillingModel Development `
+        -RegistrationName $RegistrationName `
         -EnableUsageReporting $UsageReporting
     ```
 3. 스크립트가 완료 되 면이 메시지가 표시 됩니다: **환경의 이제 등록 되 고 제공된 된 매개 변수를 사용 하 여 활성화 합니다.**
