@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: a4b0baefc8c3c839a06d6540e57b34657138c8ff
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: fef057b5d1e1ba8b03b04852376b1e5a49926008
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071956"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432408"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Windows Server용 Azure Hybrid Benefit
 Software Assurance 고객은 Windows Server용 Azure Hybrid Benefit을 통해 온-프레미스 Windows Server 라이선스를 사용하고 Azure에서 Windows 가상 머신을 실행하여 비용을 절감할 수 있습니다. Windows OS를 사용하여 새 가상 머신을 배포하려면 Windows Server용 Azure Hybrid Benefit을 사용할 수 있습니다. 이 문서에서는 Windows Server용 Azure 하이브리드 혜택을 통해 새 VM을 배포하는 방법과 기존 실행 VM을 업데이트하는 방법에 대한 단계를 살펴봅니다. Windows Server용 Azure Hybrid Benefit 라이선스 및 비용 절감에 대한 자세한 내용은 [Windows Server용 Azure Hybrid Benefit 라이선스 페이지](https://azure.microsoft.com/pricing/hybrid-use-benefit/)를 참조하세요.
@@ -40,7 +40,7 @@ Software Assurance 고객은 Windows Server용 Azure Hybrid Benefit을 통해 �
 ## <a name="ways-to-use-azure-hybrid-benefit-for-windows-server"></a>Windows Server용 Azure Hybrid Benefit 사용 방법
 몇 가지 방법으로 Windows Server용 Azure Hybrid Benefit을 사용할 수 있습니다.
 
-1. 제공된 [Azure Marketplace의 Windows Server 이미지](#https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview) 중 하나를 통해 VM을 배포할 수 있습니다.
+1. 제공된 [Azure Marketplace의 Windows Server 이미지](# https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview) 중 하나를 통해 VM을 배포할 수 있습니다.
 2. 사용자 지정 VM을 업로드하고 Resource Manager 템플릿 또는 Azure PowerShell을 사용하여 배포할 수 있음
 3. Windows Server에 대해 Azure 하이브리드 혜택 또는 종량제를 통해 실행하는 방법 간에 기존 VM을 토글 및 변환할 수 있습니다.
 4. 가상 머신 확장 집합에서도 Windows Server용 Azure Hybrid Benefit을 적용할 수 있음
@@ -82,7 +82,11 @@ Resource Manager 템플릿 내에서 `licenseType` 추가 매개 변수를 지�
 ```
 
 ## <a name="convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server"></a>Windows Server 용 Azure 하이브리드 혜택을 사용하여 기존 VM 변환
-Windows Server용 Azure 하이브리드 혜택을 활용하기 위해 변환할 기존 VM이 있는 경우 다음과 같이 VM의 라이선스 유형을 업데이트할 수 있습니다.
+Windows Server용 Azure 하이브리드 혜택을 활용하기 위해 변환할 기존 VM이 있는 경우 아래 지침에 따라 VM의 라이선스 유형을 업데이트할 수 있습니다.
+
+> [!NOTE]
+> VM의 라이선스 유형을 변경해도 시스템이 다시 부팅되거나 서비스가 중단되지 않습니다.  간단한 메타데이터 플래그 업데이트입니다.
+> 
 
 ### <a name="portal"></a>포털
 Portal VM 블레이드에서 “구성” 옵션을 선택하여 Azure 하이브리드 혜택을 사용하고 “Azure 하이브리드 혜택”을 토글하도록 VM을 업데이트할 수 있습니다.
@@ -110,7 +114,7 @@ Portal VM 블레이드에서 “구성” 옵션을 선택하여 Azure 하이브
     ```azurecli
     az vm update --resource-group myResourceGroup --name myVM --set licenseType=Windows_Server
     ```
-    
+
 ### <a name="how-to-verify-your-vm-is-utilizing-the-licensing-benefit"></a>VM이 라이선싱 혜택을 사용하고 있는지 확인하는 방법
 PowerShell 또는 Resource Manager 템플릿 또는 포털을 통해 VM을 배포한 후 다음 메서드에서 설정을 확인할 수 있습니다.
 
@@ -123,7 +127,7 @@ PowerShell 또는 Resource Manager 템플릿 또는 포털을 통해 VM을 배�
 Get-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
 ```
 
-출력
+출력:
 ```powershell
 Type                     : Microsoft.Compute/virtualMachines
 Location                 : westus
@@ -141,6 +145,10 @@ LicenseType              :
 ```azurecli
 az vm get-instance-view -g MyResourceGroup -n MyVM --query '[?licenseType==Windows_Server]' -o table
 ```
+
+> [!NOTE]
+> VM의 라이선스 유형을 변경해도 시스템이 다시 부팅되거나 서비스가 중단되지 않습니다. 메타데이터 라이선싱 플래그에 불과합니다.
+>
 
 ## <a name="list-all-vms-with-azure-hybrid-benefit-for-windows-server-in-a-subscription"></a>구독에서 Windows Server용 Azure Hybrid Benefit으로 모든 VM 나열
 Windows Server용 Azure Hybrid Benefit으로 배포된 모든 가상 머신을 확인 및 산출하려면 구독에서 다음 명령을 실행할 수 있습니다.

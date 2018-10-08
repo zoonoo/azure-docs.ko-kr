@@ -1,6 +1,6 @@
 ---
-title: Azure VM(Virtual Machines)에서 SAP HANA 시스템 복제 설정 | Microsoft Docs
-description: Azure VM(Virtual Machines)에서 SAP HANA의 고가용성을 설정합니다.
+title: SUSE Linux Enterprise Server의 Azure VM에 있는 SAP HANA의 고가용성 | Microsoft Docs
+description: SUSE Linux Enterprise Server의 Azure VM에 있는 SAP HANA의 고가용성
 services: virtual-machines-linux
 documentationcenter: ''
 author: MSSedusch
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 7a0797d79da95db77174a3e067a1e84276f286a5
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: e2e76e3cd058e5798b0159923118b050f38d077e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42141593"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034640"
 ---
-# <a name="high-availability-of-sap-hana-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SAP HANA의 고가용성
+# <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server의 Azure VM에 있는 SAP HANA의 고가용성
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -68,6 +68,7 @@ Azure VM(Virtual Machines)에서 Azure의 HANA 시스템 복제는 현재 지원
 * SAP Note [1984787]은 SUSE LINUX Enterprise Server 12에 대한 일반 정보를 포함하고 있습니다.
 * SAP Note [1999351]은 SAP용 Azure 고급 모니터링 확장을 위한 추가 문제 해결 정보를 포함하고 있습니다.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes)는 Linux에 필요한 모든 SAP Note를 포함하고 있습니다.
+* [SAP HANA 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 * [Linux에서 SAP용 Azure Virtual Machines 계획 및 구현][planning-guide] 가이드.
 * [Linux에서 SAP용 Azure Virtual Machines 배포][deployment-guide](이 문서).
 * [Linux에서 SAP용 Azure Virtual Machines DBMS 배포][dbms-guide] 가이드.
@@ -110,9 +111,13 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
     - **시스템 가용성**: **HA**를 선택합니다.
     - **관리자 사용자 이름 및 관리자 암호**: 컴퓨터에 로그인하는 데 사용할 수 있는 새 사용자가 만들어집니다.
     - **새로운 또는 기존 서브넷**: 새 가상 네트워크 및 서브넷을 만들어야 하는지 또는 기존 서브넷을 사용해야 하는지 결정합니다. 온-프레미스 네트워크에 연결되어 있는 가상 네트워크가 이미 있는 경우 **기존**을 선택합니다.
-    - **서브넷 ID**: 가상 머신을 연결해야 하는 서브넷의 ID입니다. 온-프레미스 네트워크에 가상 머신을 연결하려면 VPN 또는 Azure ExpressRoute 가상 네트워크의 서브넷을 선택합니다. ID는 대개 **/subscriptions/\<구독 ID>/resourceGroups/\<리소스 그룹 이름>/providers/Microsoft.Network/virtualNetworks/\<가상 네트워크 이름>/subnets/\<서브넷 이름>** 과 같은 형식입니다.
+    - **서브넷 ID**: VM을 할당하도록 서브넷이 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 대개 **/subscriptions/\<구독 ID>/resourceGroups/\<리소스 그룹 이름>/providers/Microsoft.Network/virtualNetworks/\<가상 네트워크 이름>/subnets/\<서브넷 이름>** 과 같은 형식입니다.
 
 ### <a name="manual-deployment"></a>수동 배포
+
+> [!IMPORTANT]
+> 선택한 OS가 사용 중인 특정 VM 유형에서 SAP HANA용으로 인증된 SAP인지 반드시 확인하세요. 이 항목에 대한 SAP HANA 인증 VM 형식 및 OS 릴리스 목록은 [SAP HANA 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)에서 조회할 수 있습니다. 특정 VM 형식에 대한 SAP HANA 지원 OS 릴리스의 전체 목록을 보려면 목록에 있는 VM 유형의 세부 정보를 클릭하세요.
+>  
 
 1. 리소스 그룹을 만듭니다.
 1. 가상 네트워크를 만듭니다.
@@ -121,12 +126,10 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 1. 부하 분산 장치(내부)를 만듭니다.
    - 2단계에서 만든 가상 네트워크를 선택합니다.
 1. 가상 머신 1을 만듭니다.
-   - SLES4SAP 12 SP1 이상을 사용합니다. 이 예제에서는 SLES4SAP 12 SP2 이미지 https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM을 사용합니다.
-   - SAP 12 SP2(프리미엄)용 SLES를 사용합니다.
+   - 선택한 VM 형식의 SAP HANA에 대해 지원되는 Azure 갤러리에서 SLES4SAP 이미지를 사용합니다.
    - 3단계에서 만든 가용성 집합을 선택합니다.
 1. 가상 머신 2를 만듭니다.
-   - SLES4SAP 12 SP1 이상을 사용합니다. 이 예제에서는 SLES4SAP 12 SP1 BYOS 이미지 https://ms.portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP2PremiumImage-ARM을 사용합니다.
-   - SAP 12 SP2(프리미엄)용 SLES를 사용합니다.
+   - 선택한 VM 형식의 SAP HANA에 대해 지원되는 Azure 갤러리에서 SLES4SAP 이미지를 사용합니다.
    - 3단계에서 만든 가용성 집합을 선택합니다. 
 1. 데이터 디스크를 추가합니다.
 1. 부하 분산 장치를 구성합니다. 먼저 프런트 엔드 IP 풀을 만듭니다.
@@ -677,6 +680,9 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 
 ### <a name="suse-tests"></a>SUSE 테스트
 
+> [!IMPORTANT]
+> 선택한 OS가 사용 중인 특정 VM 유형에서 SAP HANA용으로 인증된 SAP인지 반드시 확인하세요. 이 항목에 대한 SAP HANA 인증 VM 형식 및 OS 릴리스 목록은 [SAP HANA 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)에서 조회할 수 있습니다. 특정 VM 형식에 대한 SAP HANA 지원 OS 릴리스의 전체 목록을 보려면 목록에 있는 VM 유형의 세부 정보를 클릭하세요.
+
 사용 사례에 따라 SAP HANA SR 성능 최적화 시나리오 또는 SAP HANA SR 비용 최적화 시나리오 가이드에 나열된 모든 테스트 사례를 실행합니다. 가이드는 [SAP용 SLES 모범 사례 페이지][sles-for-sap-bp]에서 찾을 수 있습니다.
 
 다음 테스트는 SAP HANA SR 성능 최적화 시나리오 SAP 응용 프로그램 12 SP1용 SUSE Linux Enterprise Server 가이드의 테스트 설명을 복사한 것입니다. 최신 버전의 경우 항상 자체 가이드를 읽습니다. 테스트를 시작하기 전에 항상 HANA가 동기화되어 있는지 확인하고, Pacemaker 구성이 올바른지 확인합니다.
@@ -969,7 +975,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
 
-   Pacemaker는 중지된 HANA 인스턴스를 감지하고 리소스를 노드 hn1-db-1에서 실패한 것으로 표시합니다. 다음 명령을 실행하여 실패한 상태를 정리합니다. Pacemaker는 HANA 인스턴스를 자동으로 다시 시작해야 합니다.
+   Pacemaker는 중지된 HANA 인스턴스를 감지하고 리소스를 노드 hn1-db-1에서 실패한 것으로 표시합니다. Pacemaker는 HANA 인스턴스를 자동으로 다시 시작해야 합니다. 다음 명령을 실행하여 실패한 상태를 정리합니다.
 
    <pre><code># run as root
    hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
