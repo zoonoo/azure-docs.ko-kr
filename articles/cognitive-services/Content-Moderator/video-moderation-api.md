@@ -1,26 +1,27 @@
 ---
-title: Azure Content Moderator - 비디오 조정 | Microsoft Docs
+title: 비디오 조정 - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: 비디오 조정을 사용하여 가능한 성인 및 외설 콘텐츠를 검색합니다.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: sajagtap
-ms.openlocfilehash: ef58f5990d4a0a19ab2b8c61b42ab2a0754dc6fa
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9b6240ef0883e1a523c50c9b641065deb2669d53
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377694"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226538"
 ---
 # <a name="video-moderation"></a>비디오 조정
 
 오늘날, 온라인 뷰어는 대중적인 국가별 소셜 미디어 웹 사이트에서 수십억 개의 비디오 뷰를 생성하며 점점 증가 추세에 있습니다. 잠재적인 성인 및 외설 콘텐츠를 예측하는 기계 학습 기반 서비스를 적용하여 조정 노력을 줄일 수 있습니다.
 
-## <a name="sign-up-for-the-content-moderator-media-processor-public-preview"></a>Content Moderator 미디어 프로세서(공개 미리 보기)에 등록
+## <a name="sign-up-for-the-content-moderator-media-processor-preview"></a>Content Moderator 미디어 프로세서(미리 보기)에 등록
 
 ### <a name="create-a-free-azure-account"></a>평가판 Azure 계정 만들기
 

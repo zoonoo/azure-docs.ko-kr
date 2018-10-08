@@ -3,7 +3,7 @@ title: Azure 가상 머신 확장 및 기능 | Microsoft Docs
 description: Azure VM 확장 및 Azure 가상 머신에서 이 확장을 사용하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: ec201f7f82aea97b9927b85a6b185fad51f6081d
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 38f885cc230df6e0edb1e5b5254faf0cd519847a
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412603"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451446"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Azure 가상 머신 확장 및 기능
 Azure VM(Azure 가상 머신) 확장은 Azure VM에서 배포 후 구성 및 자동화 작업을 제공하는 작은 응용 프로그램이며, 기존 이미지를 사용하여 배포의 일부로 사용자 지정함으로써 사용자 지정 이미지를 작성하는 업무에서 벗어나게 할 수 있습니다.
@@ -41,7 +41,7 @@ Azure 플랫폼은 VM 구성, 모니터링, 보안 및 유틸리티 응용 프�
 포털의 확장 아래에 있는 VM 블레이드에서 사용 가능한 확장이 표시됩니다. 여기서는 약간의 확장만 표시되지만, CLI 도구를 사용하면 전체 목록을 확인할 수 있습니다. [Linux용 VM 확장 검색](features-linux.md) 및 [Windows용 VM 확장 검색](features-windows.md)을 참조하세요.
 
 ## <a name="how-can-i-install-an-extension"></a>확장을 설치하려면 어떻게 해야 할까요?
-Azure VM 확장은 Azure CLI 2.0, Azure PowerShell, Azure Resource Manager 템플릿 및 Azure Portal 중 하나를 사용하여 관리할 수 있습니다. 확장을 사용하려면 Azure Portal로 이동하여 사용자 지정 스크립트 확장을 선택한 다음, 명령/스크립트를 전달하고, 확장을 실행합니다.
+Azure VM 확장은 Azure CLI, Azure PowerShell, Azure Resource Manager 템플릿 및 Azure Portal 중 하나를 사용하여 관리할 수 있습니다. 확장을 사용하려면 Azure Portal로 이동하여 사용자 지정 스크립트 확장을 선택한 다음, 명령/스크립트를 전달하고, 확장을 실행합니다.
 
 CLI 또는 Resource Manager 템플릿으로 포털에 추가한 것과 동일한 확장을 원하는 경우, [Windows 사용자 지정 스크립트 확장](custom-script-windows.md) 및 [Linux 사용자 지정 스크립트 확장](custom-script-linux.md)과 같은 다른 확장 설명서를 참조하세요.
 

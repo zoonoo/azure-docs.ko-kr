@@ -1,26 +1,27 @@
 ---
 title: TDE 인증서 마이그레이션 - Azure SQL Database Managed Instance | Microsoft Docs
-description: 투명한 데이터 암호화를 사용하여 데이터베이스의 데이터베이스 암호화 키를 보호하는 인증서를 Azure SQL Managed instance에 마이그레이션
-keywords: SQL Database 자습서, SQL Database Managed Instance, TDE 인증서 마이그레이션
+description: 투명한 데이터 암호화를 사용하여 데이터베이스의 데이터베이스 암호화 키를 보호하는 인증서를 Azure SQL Database Managed instance로 마이그레이션
 services: sql-database
-author: MladjoA
-ms.reviewer: carlrab, jovanpop
 ms.service: sql-database
-ms.custom: managed instance
-ms.topic: tutorial
-ms.date: 08/09/2018
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: MladjoA
 ms.author: mlandzic
+ms.reviewer: carlrab, jovanpop
 manager: craigg
-ms.openlocfilehash: 73990d6feeed56114bc3c66164bbb53c093bbe21
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.date: 08/09/2018
+ms.openlocfilehash: 078a64bf625fad15b66a3c4e6e31e798f675fc33
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050614"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161780"
 ---
-# <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-managed-instance"></a>TDE 보호 데이터베이스의 인증서를 Azure SQL Managed Instance로 마이그레이션
+# <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>TDE 보호 데이터베이스의 인증서를 Azure SQL Database Managed Instance로 마이그레이션
 
-[투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)로 보호된 데이터베이스를 원시 복원 옵션을 사용하여 Azure SQL Managed Instance로 마이크레이션하는 경우에는 데이터베이스를 복원하기 전에 온-프레미스 또는 IaaS SQL Server의 해당 인증서를 마이그레이션해야 합니다. 이 문서에서는 Azure SQL Database Managed Instance에 인증서를 수동으로 마이그레이션 과정을 단계별로 설명합니다.
+[투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)로 보호된 데이터베이스를 원시 복원 옵션을 사용하여 Azure SQL Database Managed Instance로 마이그레이션하는 경우에는 데이터베이스를 복원하기 전에 온-프레미스 또는 IaaS SQL Server의 해당 인증서를 마이그레이션해야 합니다. 이 문서에서는 Azure SQL Database Managed Instance에 인증서를 수동으로 마이그레이션 과정을 단계별로 설명합니다.
 
 > [!div class="checklist"]
 > * 인증서를 개인 정보 교환(.pfx) 파일로 내보내기
@@ -30,7 +31,7 @@ ms.locfileid: "44050614"
 완전히 관리되는 서비스를 사용하여 TDE 보호 데이터베이스와 해당 인증서를 원활하게 마이그레이션하는 대체 옵션은 [Azure Database Migration Service를 사용하여 온-프레미스 데이터베이스를 Managed Instance로 마이그레이션하는 방법](../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.
 
 > [!IMPORTANT]
-> Azure SQL Managed Instance용 투명한 데이터 암호화는 서비스 관리 모드에서 작동합니다. 마이그레이션된 인증서는 TDE 보호 데이터베이스 복원에만 사용됩니다. 복원이 완료되면 마이그레이션된 인증서가 다른 시스템 관리 인증서로 곧 대체됩니다.
+> Azure SQL Database Managed Instance용 투명한 데이터 암호화는 서비스 관리 모드에서 작동합니다. 마이그레이션된 인증서는 TDE 보호 데이터베이스 복원에만 사용됩니다. 복원이 완료되면 마이그레이션된 인증서가 다른 시스템 관리 인증서로 곧 대체됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -109,7 +110,7 @@ ms.locfileid: "44050614"
 
 4. 마법사를 따라 인증서 및 개인 키를 개인 정보 교환 형식으로 내보냅니다.
 
-## <a name="upload-certificate-to-azure-sql-managed-instance-using-azure-powershell-cmdlet"></a>Azure PowerShell cmdlet을 사용하여 Azure SQL Managed Instance에 인증서 업로드
+## <a name="upload-certificate-to-azure-sql-database-managed-instance-using-azure-powershell-cmdlet"></a>Azure PowerShell cmdlet을 사용하여 Azure SQL Database Managed Instance에 인증서 업로드
 
 1. PowerShell에서 준비 단계부터 시작합니다.
 
@@ -139,6 +140,6 @@ ms.locfileid: "44050614"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 투명한 데이터 암호화를 사용하여 데이터베이스의 인증서 보호 암호화 키를 온-프레미스 또는 IaaS SQL Server에서 Azure SQL Managed Instance로 마이그레이션하는 방법을 알아보았습니다.
+이 문서에서는 투명한 데이터 암호화를 사용하여 데이터베이스의 인증서 보호 암호화 키를 온-프레미스 또는 IaaS SQL Server에서 Azure SQL Database Managed Instance로 마이그레이션하는 방법을 알아보았습니다.
 
 Azure SQL Database Managed Instance로 데이터베이스 백업을 복원하는 방법을 알아보려면 [Azure SQL Database 관리되는 인스턴스에 데이터베이스 백업 복원](sql-database-managed-instance-get-started-restore.md)을 참조하세요.

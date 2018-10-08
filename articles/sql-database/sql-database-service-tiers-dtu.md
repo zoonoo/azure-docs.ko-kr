@@ -1,24 +1,27 @@
 ---
 title: Azure SQL Database 서비스 계층 - DTU | Microsoft Docs
-description: 성능 수준 및 저장소 크기를 제공하기 위한 단일 및 풀 데이터베이스에 대한 서비스 계층에 대해 알아보세요.
+description: 계산 크기 및 저장소 크기를 제공하기 위한 단일 및 풀 데이터베이스에 대한 서비스 계층에 대해 알아보세요.
 services: sql-database
-author: sachinpMSFT
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/01/2018
+author: sachinpMSFT
+ms.author: sachinp
+ms.reviewer: carlrab
 manager: craigg
-ms.author: carlrab
-ms.openlocfilehash: d0250d508ca6d21ee09c9402e10d2fdb025529ac
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.date: 09/14/2018
+ms.openlocfilehash: 2f9362a6d771df3cdb11855844025bc8d9ea732e
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143369"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162375"
 ---
-# <a name="choosing-a-dtu-based-service-tier-performance-level-and-storage-resources"></a>DTU 기반 서비스 계층, 성능 수준 및 저장소 리소스 선택 
+# <a name="choosing-a-dtu-based-service-tier-compute-size-and-storage-resources"></a>DTU 기반 서비스 계층, 계산 크기 및 저장소 리소스 선택 
 
-서비스 계층은 포함된 저장소의 고정된 양, 고정된 백업 보존 기간 및 고정 가격을 갖춘 다양한 성능 수준으로 구분됩니다. 모든 서비스 계층은 가동 중지 시간 없이 성능 수준을 변경할 수 있는 유연성을 제공합니다. 단일 데이터베이스 및 탄력적 풀은 서비스 계층 및 성능 수준에 따라 시간 단위로 청구됩니다.
+서비스 계층은 포함된 저장소의 고정된 양, 고정된 백업 보존 기간 및 고정 가격을 갖춘 다양한 계산 크기로 구분됩니다. 모든 서비스 계층은 가동 중지 시간 없이 계산 크기를 변경할 수 있는 유연성을 제공합니다. 단일 데이터베이스 및 탄력적 풀은 서비스 계층 및 계산 크기에 따라 시간 단위로 청구됩니다.
 
 > [!IMPORTANT]
 > 현재 공개 미리 보기로 있는 SQL Database Managed Instance는 DTU 기반 구매 모델을 지원하지 않습니다. 자세한 내용은 [Azure SQL Database Managed Instance](sql-database-managed-instance.md)를 참조하세요. 
@@ -40,7 +43,7 @@ ms.locfileid: "42143369"
 
 ## <a name="single-database-dtu-and-storage-limits"></a>단일 데이터베이스 DTU 및 저장소 제한
 
-성능 수준은 단일 데이터베이스에 대해서는 DTU(데이터베이스 트랜잭션 단위), 탄력적 풀에 대해서는 eDTU(탄력적 데이터베이스 트랜잭션 단위)로 표현됩니다. DTU 및 eDTU에 대한 자세한 내용은 [DTU 및 eDTU란?](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)을 참조하세요.
+계산 크기는 단일 데이터베이스에 대해서는 DTU(데이터베이스 트랜잭션 단위), 탄력적 풀에 대해서는 eDTU(탄력적 데이터베이스 트랜잭션 단위)로 표현됩니다. DTU 및 eDTU에 대한 자세한 내용은 [DTU 및 eDTU란?](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)을 참조하세요.
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: | --: |
@@ -73,7 +76,7 @@ ms.locfileid: "42143369"
 각 DTU 측정값에 연결된 물리적 특성(CPU, 메모리, IO)은 실제 데이터베이스 워크로드를 시뮬레이션하는 벤치마크를 사용하여 보정됩니다.
 
 ### <a name="correlating-benchmark-results-to-real-world-database-performance"></a>벤치마크 결과와 실제 데이터베이스 성능 간 상관 관계 분석
-모든 벤치마크는 대표적, 암시적 수치임을 이해하는 것이 중요합니다. 벤치마크 응용 프로그램에서 달성한 트랜잭션 속도는 다른 응용 프로그램에서 달성할 수 있는 속도와 동일하지 않습니다. 벤치마크는 다양한 테이블 및 데이터 유형이 포함된 스키마에 대해 실행되는 다양한 트랜잭션 유형의 컬렉션으로 구성되어 있습니다. 벤치마크는 모든 OLTP 워크로드에 공통적이고 동일한 기본 작업을 실행하며 특정 클래스의 데이터베이스 또는 응용 프로그램을 나타내지 않습니다. 벤치마크의 목표는 성능 수준 사이에서 확장 또는 축소할 경우 예상할 수 있는 데이터베이스의 상대적 성능에 대한 합리적 지침을 제공하는 것입니다. 실제로, 각 데이터베이스는 크기와 복잡성이 다르고 다양하게 혼합된 워크로드를 처리할 수 있으며 각각 다른 방식으로 대응합니다. 예를 들어, IO를 많이 사용하는 응용 프로그램은 IO 임계값에 빠르게 도달할 수 있고 CPU를 많이 사용하는 응용 프로그램은 CPU 한도에 빠르게 도달할 수 있습니다. 부하가 증가할 때 특정 데이터베이스가 벤치마크와 동일하게 확장된다는 보장이 없습니다.
+모든 벤치마크는 대표적, 암시적 수치임을 이해하는 것이 중요합니다. 벤치마크 응용 프로그램에서 달성한 트랜잭션 속도는 다른 응용 프로그램에서 달성할 수 있는 속도와 동일하지 않습니다. 벤치마크는 다양한 테이블 및 데이터 유형이 포함된 스키마에 대해 실행되는 다양한 트랜잭션 유형의 컬렉션으로 구성되어 있습니다. 벤치마크는 모든 OLTP 워크로드에 공통적이고 동일한 기본 작업을 실행하며 특정 클래스의 데이터베이스 또는 응용 프로그램을 나타내지 않습니다. 벤치마크의 목표는 계산 크기를 확장 또는 축소할 경우 예상할 수 있는 데이터베이스의 상대적 성능에 대한 합리적 지침을 제공하는 것입니다. 실제로, 각 데이터베이스는 크기와 복잡성이 다르고 다양하게 혼합된 워크로드를 처리할 수 있으며 각각 다른 방식으로 대응합니다. 예를 들어, IO를 많이 사용하는 응용 프로그램은 IO 임계값에 빠르게 도달할 수 있고 CPU를 많이 사용하는 응용 프로그램은 CPU 한도에 빠르게 도달할 수 있습니다. 부하가 증가할 때 특정 데이터베이스가 벤치마크와 동일하게 확장된다는 보장이 없습니다.
 
 벤치마크와 그 방법론은 아래에서 더 자세히 설명합니다.
 
@@ -155,5 +158,5 @@ ASDB는 OLTP(온라인 트랜잭션 처리) 워크로드에서 가장 빈번하�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 단일 데이터베이스에 사용할 수 있는 특정 성능 수준 및 저장소 크기를 선택하는 방법에 대한 자세한 내용은 [단일 데이터베이스에 대한 SQL Database DTU 기반 리소스 제한](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels)을 참조하세요.
-- 탄력적 풀에 사용할 수 있는 특정 성능 수준 및 저장소 크기를 선택하는 방법에 대한 자세한 내용은 [SQL Database DTU 기반 리소스 제한](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels)을 참조하세요.
+- 단일 데이터베이스에 사용할 수 있는 특정 계산 크기 및 저장소 크기 선택 방법에 대한 자세한 내용은 [단일 데이터베이스에 대한 SQL Database DTU 기반 리소스 제한](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)을 참조하세요.
+- 탄력적 풀에 사용할 수 있는 특정 계산 크기 및 저장소 크기를 선택하는 방법에 대한 자세한 내용은 [SQL Database DTU 기반 리소스 제한](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes)을 참조하세요.

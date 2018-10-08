@@ -1,42 +1,29 @@
 ---
-title: pattern.any 엔터티를 사용하여 LUIS 예측을 개선하는 방법 자습서 - Azure | Microsoft Docs
-titleSuffix: Cognitive Services
-description: 이 자습서에서는 pattern.any 엔터티를 사용하여 LUIS 의도 및 엔터티 예측을 개선합니다.
+title: '자습서 5: 자유 형식 텍스트에 대한 pattern.any 엔터티'
+titleSuffix: Azure Cognitive Services
+description: pattern.any 엔터티를 사용하여 발화가 올바른 형식이고 데이터의 끝이 발화의 나머지 단어와 쉽게 혼동될 수 있는 발화에서 데이터를 추출합니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 43f169ae11191c2e98c4538189bce781821de980
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 4ff4a7085a8caeedebe2a734014afb1cb46d9fbf
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157857"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164398"
 ---
-# <a name="tutorial-improve-app-with-patternany-entity"></a>자습서: pattern.any 엔터티를 사용하여 앱 개선
+# <a name="tutorial-5-extract-free-form-data"></a>자습서 5: 자유 형식 데이터 추출
 
-이 자습서에서는 pattern.any 엔터티를 사용하여 의도 및 엔터티 예측을 늘립니다.  
+이 자습서에서는 pattern.any 엔터티를 사용하여 발화가 올바른 형식이고 데이터의 끝이 발화의 나머지 단어와 쉽게 혼동될 수 있는 발화에서 데이터를 추출합니다. 
 
-> [!div class="checklist"]
-* pattern.any를 사용하는 시기 및 방법 알아보기
-* pattern.any를 사용하는 패턴 만들기
-* 예측 개선 여부를 확인하는 방법
+pattern.any 엔터티를 사용하면 엔터티의 표현이 발화의 나머지 부분에서 엔터티의 끝을 확인하기 어렵게 만드는 자유 형식 데이터를 찾을 수 있습니다. 
 
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>시작하기 전에
-[패턴 역할](luis-tutorial-pattern-roles.md) 자습서의 Human Resources 앱이 없는 경우 JSON을 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 새 앱으로 [가져옵니다](luis-how-to-start-new-app.md#import-new-app). 가져올 앱은 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-roles-HumanResources.json) GitHub 리포지토리에 있습니다.
-
-원래의 인사 관리 앱을 유지하려면 [설정](luis-how-to-manage-versions.md#clone-a-version) 페이지에서 버전을 복제하고 해당 이름을 `patt-any`로 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 
-
-## <a name="the-purpose-of-patternany"></a>pattern.any의 용도
-엔터티 단어 구성 때문에 발언의 나머지 부분에서 엔터티의 끝을 확인하기 어려운 경우 pattern.any 엔터티를 사용하여 자유 형식 데이터를 찾을 수 있습니다. 
-
-이 Human Resources 앱도 직원들이 회사 양식을 찾는 데 도움이 됩니다. 양식은 [정규식 자습서](luis-quickstart-intents-regex-entity.md)에 추가되었습니다. 해당 자습서의 양식 이름은 정규식을 사용하여 적절한 형식의 양식 이름(예: 다음 발언 표에서 굵게 표시된 양식 이름)을 추출했습니다.
+이 Human Resources 앱도 직원들이 회사 양식을 찾는 데 도움이 됩니다. 
 
 |발화|
 |--|
@@ -54,11 +41,38 @@ ms.locfileid: "44157857"
 |Who authored **"Request relocation from employee new to the company 2018 version 5"**?|
 |**Request relocation from employee new to the company 2018 version 5** is published in French?|
 
-구문의 길이가 다양하면 LUIS가 엔터티가 끝나는 위치를 혼동할 수 있습니다. 패턴에서 Pattern.any 엔터티를 사용하면 LUIS가 양식 이름을 올바르게 추출하도록 양식 이름의 시작 및 끝을 지정할 수 있습니다.
+다양한 길이에는 LUIS에서 엔터티가 끝나는 위치를 혼동할 수 있는 단어가 포함됩니다. 패턴에서 Pattern.any 엔터티를 사용하면 LUIS가 양식 이름을 올바르게 추출하도록 양식 이름의 시작 및 끝을 지정할 수 있습니다.
 
-**패턴을 사용하면 몇 가지 예제 발언을 제공할 수 있지만 엔터티가 검색되지 않으면 패턴이 일치되지 않습니다.**
+|템플릿 발화 예제|
+|--|
+|Where is {FormName}[?]|
+|Who authored {FormName}[?]|
+|{FormName} is published in French[?]|
 
-## <a name="add-example-utterances-to-the-existing-intent-findform"></a>기존 의도 FindForm에 예제 발언 추가 
+**이 자습서에서 학습할 내용은 다음과 같습니다.**
+
+> [!div class="checklist"]
+> * 기존 자습서 앱 사용
+> * 기존 엔터티에 발화 예제 추가
+> * pattern.any 엔터티 만들기
+> * 패턴 만들기
+> * 학습
+> * 새 패턴 테스트
+
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>기존 앱 사용
+마지막 자습서에서 만든 **HumanResources**라는 앱을 사용하여 계속 진행합니다. 
+
+이전 자습서의 HumanResources 앱이 없으면 다음 단계를 사용합니다.
+
+1.  [앱 JSON 파일](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-roles-HumanResources.json)을 다운로드하고 저장합니다.
+
+2. JSON을 새 앱으로 가져옵니다.
+
+3. **관리** 섹션의 **버전** 탭에서 버전을 복제하고 `patt-any`라는 이름을 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 버전 이름이 URL 경로의 일부로 사용되므로 이름에는 URL에 유효하지 않은 문자가 포함될 수 없습니다.
+
+## <a name="add-example-utterances"></a>발화 예제 추가 
 FormName 엔터티를 만들고 레이블을 지정하기 어려운 경우 미리 빌드한 keyPhrase 엔터티를 제거합니다. 
 
 1. 위쪽 탐색 영역에서 **빌드**를 선택한 후 왼쪽 탐색 영역에서 **의도**를 선택합니다.
@@ -128,6 +142,8 @@ Pattern.any 엔터티는 다양한 길이의 엔터티를 추출합니다. 패�
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
+
+이 자습서에서는 기존 의도에 발화 예제를 추가한 다음, 양식 이름으로 새 pattern.any를 만들었습니다. 그런 다음, 새 발화 예제와 엔터티를 사용하여 기존 의도에 대한 패턴을 만들었습니다. 대화형 테스트에서 엔터티가 검색되어 패턴과 해당 의도가 예측되었음을 보여 주었습니다. 
 
 > [!div class="nextstepaction"]
 > [패턴과 함께 역할을 사용하는 방법 알아보기](luis-tutorial-pattern-roles.md)

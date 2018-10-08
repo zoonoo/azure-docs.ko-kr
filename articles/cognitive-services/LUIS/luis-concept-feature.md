@@ -1,20 +1,21 @@
 ---
-title: Azure에서 LUIS 앱의 기능 이해 | Microsoft Docs
-description: LUIS 앱의 성능을 개선하는 데 도움이 되는 기능을 알아봅니다. 기능에는 정규식을 인식하기 위한 구문 목록 및 패턴이 포함됩니다.
+title: Azure Cognitive Services에서 LUIS 앱의 기능
+titleSuffix: Azure Cognitive Services
+description: 언어 모델에 기능을 추가하여 레이블을 지정하거나 분류하려는 입력을 인식하는 방법에 대한 힌트를 제공합니다. 기능을 통해 LUIS에서 의도 및 엔터티를 모두 인식할 수 있습니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 8d3f006f27d1d728f89458deba27e1c1a63b6de5
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 015679b6020e9d2a4d702f9d6e723ecd9499d8dc
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224931"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034470"
 ---
 # <a name="phrase-list-features-in-luis"></a>LUIS의 구문 목록 기능
 

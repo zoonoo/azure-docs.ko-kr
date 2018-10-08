@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 661c757cda2f70b03d136f3726c7afe633fbbe04
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 62c8ff225b9c649afa7532ad5edfdd627e573d81
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42022919"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032234"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Linux/Windows용 Azure 데이터 과학 Virtual Machine에 대한 소개
 
@@ -137,3 +137,5 @@ GPU(그래픽 처리 장치) 기반 하드웨어에서 심층 학습 알고리�
 * Ubuntu DSVM을 만들고 사용하는 방법에 대한 자세한 내용은 [Linux(Ubuntu)용 데이터 과학 Virtual Machine 프로비전](dsvm-ubuntu-intro.md)을 참조하세요. CentOS DSVM을 만들고 사용하는 방법에 대한 자세한 내용은 [Azure에서 Linux CentOS 데이터 과학 Virtual Machine 프로비전](linux-dsvm-intro.md)을 참조하세요.
 * Linux(CentOS 및 Ubuntu 모두) VM을 사용하여 몇 가지 일반적인 데이터 과학 작업을 수행하는 방법을 보여주는 연습은 [Linux 데이터 과학 Virtual Machine의 데이터 과학](linux-dsvm-walkthrough.md)을 참조하세요.
 
+## <a name="next-steps"></a>다음 단계
+[Azure에 대한 R 개발자 가이드](../r-developers-guide.md)

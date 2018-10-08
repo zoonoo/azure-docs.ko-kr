@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/22/2018
-ms.openlocfilehash: ba00d859dcfa968dcff7b321d571d61aea98463f
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 54eef98d85337f14ff9e10837f97ccd28a58afdf
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246831"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223460"
 ---
 # <a name="install-azure-stream-analytics-tools-for-visual-studio"></a>Visual Studio용 Azure Stream Analytics 도구 설치
 Azure Stream Analytics 도구는 Visual Studio 2017, 2015 및 2013을 지원합니다. 이 문서에서는 이러한 도구를 설치 및 제거하는 방법을 설명합니다.
@@ -34,6 +34,9 @@ Azure Stream Analytics 도구는 Visual Studio 2017, 2015 및 2013을 지원합�
 
 ![Azure 개발 워크로드가 선택되었습니다.](./media/stream-analytics-tools-for-visual-studio-install/stream-analytics-tools-for-vs-2017-install-02.png)
 
+* 도구 메뉴에서 **확장 및 업데이트**를 선택합니다. 설치된 확장에서 Azure Data Lake 및 Stream Analytics 도구를 찾아 **업데이트**를 클릭하여 최신 확장을 설치합니다. 
+
+![Visual Studio 확장 및 업데이트](./media/stream-analytics-tools-for-visual-studio-install/stream-analytics-tools-for-vs-extensions-updates.png)
 
 ### <a name="visual-studio-2013-2015"></a>Visual Studio 2013, 2015
 * Visual Studio 2015 또는 Visual Studio 2013 업데이트 4를 설치합니다. Enterprise(Ultimate/Premium), Professional 및 Community Edition이 지원됩니다. Express Edition은 지원되지 않습니다. 
@@ -43,7 +46,9 @@ Azure Stream Analytics 도구는 Visual Studio 2017, 2015 및 2013을 지원합�
 ## <a name="update"></a>주 지역에서
 
 ### <a name="visual-studio-2017"></a>Visual Studio 2017
-Visual Studio 알림 영역에 새 버전 미리 알림이 표시됩니다. 
+Visual Studio 알림 영역에 새 버전 미리 알림이 표시됩니다.
+
+![Visual Studio 새 버전 미리 알림](./media/stream-analytics-tools-for-visual-studio-install/stream-analytics-new-version-reminder-vs-tools.png)
 
 ### <a name="visual-studio-2013-and-visual-studio-2015"></a>Visual Studio 2013 및 Visual Studio 2015
 설치된 Visual Studio용 Stream Analytics 도구는 새 버전을 자동으로 확인합니다. 팝업 창의 지침에 따라 최신 버전을 설치합니다. 

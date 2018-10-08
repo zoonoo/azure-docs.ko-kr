@@ -1,24 +1,26 @@
 ---
-title: Microsoft QnA Maker API(V4)용 기술 자료(quickstart Node.js) – 새로 만들기 - Azure Cognitive Services | Microsoft Docs
-description: QnA Maker를 시작할 수 있도록 Node.js에 기술 자료를 만들어서 FAQ나 제품 설명서를 보관합니다.
+title: '빠른 시작: API Node.js - 기술 자료 만들기 - QnA Maker'
+description: 이 빠른 시작에서는 Cognitive Services API 계정의 Azure 대시보드에 표시될 샘플 QnA Maker 기술 자료를 프로그래밍 방식으로 만드는 과정을 단계별로 안내합니다.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: cbf89aa3a10012ea2d99972c6a83dd351739c5a6
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 435c937e64d0befc5a3bf30f9d58ccd303247b9e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "43750523"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037306"
 ---
 # <a name="create-a-new-knowledge-base-in-nodejs"></a>Node.js에 새 기술 자료 만들기
 
 이 빠른 시작에서는 Cognitive Services API 계정의 Azure 대시보드에 표시될 샘플 QnA Maker 기술 자료를 프로그래밍 방식으로 만드는 과정을 단계별로 안내합니다.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
 콘텐츠를 제공할 두 개의 샘플 FAQ URL이 아래에(**req={}** 의 'urls'에) 있습니다. [데이터 원본](../Concepts/data-sources-supported.md) 문서에 설명된 대로, QnA Maker는 반구조화된 컨텐츠에서 질문과 답변을 자동으로 추출합니다. 이 빠른 시작에서는 자신의 FAQ URL도 사용할 수 있습니다.
 

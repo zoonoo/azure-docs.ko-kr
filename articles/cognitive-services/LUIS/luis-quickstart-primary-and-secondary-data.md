@@ -1,54 +1,71 @@
 ---
-title: 데이터를 추출하는 LUIS 앱 만들기 자습서 - Azure | Microsoft Docs
-description: 이 자습서에서는 의도를 사용하는 간단한 LUIS 앱 및 기계 학습 데이터를 추출하는 단순 엔터티를 만드는 방법을 알아봅니다.
+title: '자습서 7: LUIS에서 구 목록을 사용한 간단한 엔터티'
+titleSuffix: Azure Cognitive Services
+description: 발화에서 기계 학습 데이터 추출
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: a69ea8ea45a02399b7c6ad22f0dc514ad8537e06
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 941c29506aa8f17dcb6262495b28dd26e78194d5
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159659"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036063"
 ---
-# <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>자습서: 7. 단순 엔터티 및 문구 목록 추가
-이 자습서에서는 **단순** 엔터티를 사용하여 발화에서 기계 학습 데이터를 추출하는 방법을 보여 주는 앱을 만듭니다.
+# <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>자습서 7: 간단한 엔터티 및 구 목록을 사용하여 이름 추출
+
+이 자습서에서는 **단순** 엔터티를 사용하여 발화에서 배포 작업 이름의 기계 학습 데이터를 추출합니다. 추출 정확도를 높이려면 간단한 엔터티에 특정된 용어의 구 목록을 추가합니다.
+
+이 자습서에서는 직무 이름을 추출하는 간단한 새 엔터티를 추가합니다. 이 LUIS 앱의 단순 엔터티는 메시지가 무엇인지와 발화 중 어디에서 직무 이름을 찾을 수 있는지를 LUIS에 가르치기 위한 것입니다. 작업 이름에 해당하는 발화 부분은 단어 선택과 발화 길이에 따라 발화 간에 변경될 수 있습니다. LUIS에는 작업 이름을 사용하는 모든 의도에 대한 작업 이름의 예제가 필요합니다.  
+
+다음과 같은 경우 이 간단한 엔터티는 이러한 형식의 데이터에 적합합니다.
+
+* 데이터는 단일 개념입니다.
+* 데이터는 정규식과 같은 적절한 형식이 아닙니다.
+* 데이터는 전화 번호 또는 데이터의 미리 빌드된 엔터티와 같이 일반적이지 않습니다.
+* 데이터는 목록 엔터티와 같은 알려진 단어 목록과 정확하게 일치하지 않습니다.
+* 데이터에는 복합 엔터티 또는 계층적 엔터티와 같은 다른 데이터 항목이 없습니다.
+
+**이 자습서에서는 다음 방법에 대해 알아봅니다.**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * 단순 엔터티 이해 
-> * HR(인사 관리) 도메인에 대한 새 LUIS 앱 만들기 
+> * 기존 자습서 앱 사용
 > * 앱에서 직무를 추출하는 단순 엔터티 만들기
-> * 앱 학습 및 게시
-> * 앱의 엔드포인트를 쿼리하여 LUIS JSON 응답 확인
 > * 구 목록을 추가하여 직무 단어 표시 확대
-> * 학습, 앱 게시 및 엔드포인트 다시 쿼리
+> * 학습 
+> * 게시 
+> * 엔드포인트에서 의도 및 엔터티 가져오기
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="before-you-begin"></a>시작하기 전에
-[복합 엔터티](luis-tutorial-composite-entity.md) 자습서의 인사 관리 앱이 없으면 JSON을 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 새 앱으로 [가져옵니다](luis-how-to-start-new-app.md#import-new-app). 가져올 앱은 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-composite-HumanResources.json) Github 리포지토리에 있습니다.
+## <a name="use-existing-app"></a>기존 앱 사용
 
-원래의 인사 관리 앱을 유지하려면 [설정](luis-how-to-manage-versions.md#clone-a-version) 페이지에서 버전을 복제하고 해당 이름을 `simple`로 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다.  
+마지막 자습서에서 만든 **HumanResources**라는 앱을 사용하여 계속 진행합니다. 
 
-## <a name="purpose-of-the-app"></a>앱의 용도
-이 앱은 발화에서 데이터를 가져오는 방법을 보여 줍니다. 챗봇에서 다음 발화를 살펴보겠습니다.
+이전 자습서의 HumanResources 앱이 없으면 다음 단계를 사용합니다.
+
+1.  [앱 JSON 파일](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-composite-HumanResources.json)을 다운로드하고 저장합니다.
+
+2. JSON을 새 앱으로 가져옵니다.
+
+3. **관리** 섹션의 **버전** 탭에서 버전을 복제하고 `simple`라는 이름을 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 버전 이름이 URL 경로의 일부로 사용되므로 이름에는 URL에 유효하지 않은 문자가 포함될 수 없습니다.
+
+## <a name="simple-entity"></a>단순 엔터티
+간단한 엔터티는 단어 또는 구에 포함된 단일 데이터 개념을 검색합니다.
+
+챗봇에서 다음 발화를 살펴보겠습니다.
 
 |발화|추출 가능한 직무 이름|
 |:--|:--|
 |새 회계 업무에 지원하려고 합니다.|회계|
-|엔지니어링 직위에 대한 내 이력서를 제출해 주세요.|엔지니어링|
+|엔지니어링 직위에 내 이력서를 제출합니다.|엔지니어링|
 |123456 직무에 대한 지원서를 작성합니다.|123456|
-
-이 자습서에서는 직무 이름을 추출하는 새 엔터티를 추가합니다. 
-
-## <a name="purpose-of-the-simple-entity"></a>단순 엔터티의 목적
-이 LUIS 앱의 단순 엔터티는 메시지가 무엇인지와 발화 중 어디에서 직무 이름을 찾을 수 있는지를 LUIS에 가르치기 위한 것입니다. 직무에 해당하는 발화 부분은 단어 선택과 발화 길이에 따라 발화 간에 바뀔 수 있습니다. LUIS에는 모든 의도에서 모든 발화의 직무 예제가 필요합니다.  
 
 이름은 명사, 동사 또는 여러 단어로 구성된 구일 수 있으므로 직무 이름을 판별하기가 어렵습니다. 예: 
 
@@ -65,15 +82,13 @@ ms.locfileid: "44159659"
 |압출기 기사|
 |기계 수리 기능사|
 
-이 LUIS 앱의 몇 가지 의도에는 직무 이름이 있습니다. LUIS는 의도의 모든 발화에서 이러한 단어를 레이블로 지정함으로써 직무가 무엇인지와 발화 중 어디에서 직무를 찾을 수 있는지에 대해 자세히 학습합니다.
+이 LUIS 앱의 몇 가지 의도에는 직무 이름이 있습니다. LUIS는 의도의 모든 발화에서 이러한 단어를 레이블로 지정함으로써 작업 이름이 무엇인지와 발화 중 어디에서 직무를 찾을 수 있는지에 대해 자세히 학습합니다.
 
-## <a name="create-job-simple-entity"></a>직무 단순 엔터티 만들기
+엔터티가 예제 발화에 표시되면 간단한 엔터티의 신호를 강화하는 구 목록을 추가해야 합니다. 구 목록은 정확한 일치로 사용되지 **않고** 예상되는 모든 값일 필요가 없습니다. 
 
-1. 인사 관리 앱이 LUIS의 **빌드** 섹션에 있는지 확인합니다. 오른쪽 위의 메뉴 표시줄에서 **빌드**를 선택하여 이 섹션으로 변경할 수 있습니다. 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. **의도** 페이지에서 **ApplyForJob** 의도를 선택합니다. 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-select-applyforjob.png "'ApplyForJob' 의도가 강조 표시된 LUIS의 스크린샷")](media/luis-quickstart-primary-and-secondary-data/hr-select-applyforjob.png#lightbox)
 
 3. `I want to apply for the new accounting job` 발화에서 `accounting`을 선택하고, 팝업 메뉴의 위쪽 필드에서 `Job`을 입력한 다음, 팝업 메뉴에서 **새 엔터티 만들기**를 선택합니다. 
 
@@ -110,7 +125,10 @@ ms.locfileid: "44159659"
     |생물학 교수 직에 지원하기 위한 내 이력서가 동봉되어 있습니다.|생물학 교수|
     |사진 촬영 직에 지원하고 싶습니다.|사진 촬영 기사|git 
 
-## <a name="label-entity-in-example-utterances-for-getjobinformation-intent"></a>GetJobInformation 의도에 대한 발화 예제의 엔터티에 레이블 지정
+## <a name="label-entity-in-example-utterances"></a>예제 발화의 레이블 엔터티
+
+엔터티에서는 레이블 지정 또는 _표시_를 사용하여 엔터티가 예제 발화에 있는 LUIS를 보여줍니다.
+
 1. 왼쪽 메뉴에서 **의도**를 선택합니다.
 
 2. 의도 목록에서 **GetJobInformation**을 선택합니다. 
@@ -125,80 +143,83 @@ ms.locfileid: "44159659"
 
     다른 발화 예제가 있지만 직무 단어는 포함되어 있지 않습니다.
 
-## <a name="train-the-luis-app"></a>LUIS 앱 학습
+## <a name="train"></a>학습
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>앱을 게시하여 엔드포인트 URL 가져오기
+## <a name="publish"></a>게시
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>다른 발화를 사용하여 엔드포인트 쿼리
+## <a name="get-intent-and-entities-from-endpoint"></a>엔드포인트에서 의도 및 엔터티 가져오기 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. 주소의 URL 끝으로 이동하고 `Here is my c.v. for the programmer job`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발화 **쿼리**를 나타내는 `q`입니다. 이 발화는 레이블이 지정된 발화와 같지 않으므로 유용한 테스트이며, `ApplyForJob` 발화가 반환되어야 합니다.
 
-```JSON
-{
-  "query": "Here is my c.v. for the programmer job",
-  "topScoringIntent": {
-    "intent": "ApplyForJob",
-    "score": 0.9826467
-  },
-  "intents": [
+    ```JSON
     {
-      "intent": "ApplyForJob",
-      "score": 0.9826467
-    },
-    {
-      "intent": "GetJobInformation",
-      "score": 0.0218927357
-    },
-    {
-      "intent": "MoveEmployee",
-      "score": 0.007849265
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.00349470088
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 0.00348804821
-    },
-    {
-      "intent": "None",
-      "score": 0.00319909188
-    },
-    {
-      "intent": "FindForm",
-      "score": 0.00222647213
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.00211193133
-    },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.00172086991
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.00138010911
+      "query": "Here is my c.v. for the programmer job",
+      "topScoringIntent": {
+        "intent": "ApplyForJob",
+        "score": 0.9826467
+      },
+      "intents": [
+        {
+          "intent": "ApplyForJob",
+          "score": 0.9826467
+        },
+        {
+          "intent": "GetJobInformation",
+          "score": 0.0218927357
+        },
+        {
+          "intent": "MoveEmployee",
+          "score": 0.007849265
+        },
+        {
+          "intent": "Utilities.StartOver",
+          "score": 0.00349470088
+        },
+        {
+          "intent": "Utilities.Confirm",
+          "score": 0.00348804821
+        },
+        {
+          "intent": "None",
+          "score": 0.00319909188
+        },
+        {
+          "intent": "FindForm",
+          "score": 0.00222647213
+        },
+        {
+          "intent": "Utilities.Help",
+          "score": 0.00211193133
+        },
+        {
+          "intent": "Utilities.Stop",
+          "score": 0.00172086991
+        },
+        {
+          "intent": "Utilities.Cancel",
+          "score": 0.00138010911
+        }
+      ],
+      "entities": [
+        {
+          "entity": "programmer",
+          "type": "Job",
+          "startIndex": 24,
+          "endIndex": 33,
+          "score": 0.5230502
+        }
+      ]
     }
-  ],
-  "entities": [
-    {
-      "entity": "programmer",
-      "type": "Job",
-      "startIndex": 24,
-      "endIndex": 33,
-      "score": 0.5230502
-    }
-  ]
-}
-```
+    ```
+    
+    LUIS에서는 `programmer` 값을 사용하여 올바른 의도인 **ApplyForJob**을 찾고 올바른 엔터티인 **작업**을 추출했습니다.
+
 
 ## <a name="names-are-tricky"></a>처리하기 어려운 이름
 LUIS 앱은 높은 신뢰도를 통해 올바른 의도를 찾고 직무 이름을 추출했지만 이름을 처리하는 데 어려움이 있습니다. `This is the lead welder paperwork` 발화를 사용해 보겠습니다.  
@@ -260,18 +281,15 @@ LUIS 앱은 높은 신뢰도를 통해 올바른 의도를 찾고 직무 이름�
 
 이름은 무엇이든 될 수 있으므로 표시를 확대할 수 있는 단어에 대한 구 목록이 있는 경우 LUIS는 엔터티를 더 정확하게 예측합니다.
 
-## <a name="to-boost-signal-add-jobs-phrase-list"></a>표시를 확대하기 위한 직무 구 목록 추가
+## <a name="to-boost-signal-add-phrase-list"></a>신호를 강화하려면 구 목록을 추가합니다.
+
 LUIS-Samples Github 리포지토리에서 [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv)를 엽니다. 이 목록에는 1,000개가 넘는 직무 단어와 구가 있습니다. 이 목록에서 의미 있는 직무 단어를 찾습니다. 단어 또는 구가 목록에 없으면 직접 추가합니다.
 
 1. LUIS 앱의 **빌드** 섹션에서 **앱 성능 향상** 메뉴 아래에 있는 **구 목록**을 선택합니다.
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-select-phrase-list-left-nav.png "구 목록의 왼쪽 탐색 단추가 강조 표시된 스크린샷")](media/luis-quickstart-primary-and-secondary-data/hr-select-phrase-list-left-nav.png#lightbox)
-
 2. **새 구 목록 만들기**를 선택합니다. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-new-phrase-list.png "새 구 목록 만들기 단추가 강조 표시된 스크린샷")](media/luis-quickstart-primary-and-secondary-data/hr-create-new-phrase-list.png#lightbox)
-
-3. 새 구 목록의 이름을 `Jobs`로 지정하고, **값** 텍스트 상자에 jobs-phrase-list.csv의 목록을 복사합니다. Enter 키를 선택합니다. 
+3. 새 구 목록의 이름을 `Job`로 지정하고, **값** 텍스트 상자에 jobs-phrase-list.csv의 목록을 복사합니다. Enter 키를 선택합니다. 
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "새 구 목록 대화 상자 팝업의 스크린샷")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
@@ -348,22 +366,13 @@ LUIS-Samples Github 리포지토리에서 [jobs-phrase-list.csv](https://github.
     }
     ```
 
-## <a name="phrase-lists"></a>문구 목록
-구 목록을 추가하면 목록에 있는 단어를 표시하도록 확대되지만 정확한 일치로는 **사용되지 않습니다**. 구 목록에는 첫 번째 단어가 `lead`인 직무가 여러 개 있고 `welder`직무도 있지만, `lead welder` 직무는 없습니다. 직무에 대한 이 구 목록은 완전하지 않을 수 있습니다. 정기적으로 [엔드포인트 발화를 검토](luis-how-to-review-endoint-utt.md)하고 다른 직무 단어가 있으면 이러한 단어를 구 목록에 추가합니다. 그런 다음, 또 다시 학습하고 게시합니다.
-
-## <a name="what-has-this-luis-app-accomplished"></a>이 LUIS 앱에서 수행한 작업은?
-이 앱에서는 단순 엔터티와 단어의 구 목록을 사용하여 자연어 쿼리 의도를 확인하고 작업 데이터를 반환했습니다. 
-
-챗봇에는 이제 직무가 적용되는 기본 작업과 해당 직무가 참조되는 해당 작업의 매개 변수를 결정하는 데 필요한 정보가 충분히 있습니다. 
-
-## <a name="where-is-this-luis-data-used"></a>이 LUIS 데이터가 사용되는 위치는? 
-LUIS는 이 요청을 통해 수행됩니다. 챗봇과 같은 호출 응용 프로그램에서는 topScoringIntent 결과와 엔터티의 데이터를 사용하여 타사 API를 통해 메시지를 보낼 수 있습니다. 봇 또는 호출 응용 프로그램에 대한 다른 프로그래밍 옵션이 있는 경우 LUIS는 이러한 작업을 수행하지 않습니다. LUIS는 사용자의 의도가 무엇인지만 결정합니다. 
-
 ## <a name="clean-up-resources"></a>리소스 정리
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
+
+이 자습서에서 인적 자원 앱은 간단한 기계 학습 엔터티를 사용하여 발화에서 작업 이름을 찾습니다. 작업 이름이 광범위한 단어 또는 문구일 수 있으므로 앱은 작업 이름 단어를 강화하는 구 목록이 필요합니다. 
 
 > [!div class="nextstepaction"]
 > [미리 작성된 keyphrase 엔터티 추가](luis-quickstart-intent-and-key-phrase.md)

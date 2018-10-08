@@ -9,16 +9,16 @@ ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: af25c52d1300a2daed3542c5cb1db080c505f715
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e5b412042d0a872443c0b30c774dfd4926555a5a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953126"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221669"
 ---
 # <a name="create-an-azure-cosmos-db-cassandra-api-account-database-and-a-table-by-using-a-java-application"></a>Java 응용 프로그램을 사용하여 Azure Cosmos DB Cassandra API 계정, 데이터베이스 및 테이블 만들기
 
-이 자습서에서는 Java 응용 프로그램을 사용하여 Azure Cosmos DB에서 Cassandra API 계정을 만들고, 데이터베이스(키스페이스라고도 함)를 추가하고, 테이블을 추가하는 방법을 설명합니다. Java 응용 프로그램은 [Datastax Java 드라이버](https://github.com/datastax/java-driver)를 사용하여 사용자 ID, 사용자 이름, 사용자 도시 등의 세부 정보를 포함하는 사용자 데이터베이스를 만듭니다.  
+이 자습서에서는 Java 응용 프로그램을 사용하여 Azure Cosmos DB에서 Cassandra API 계정을 만들고, 데이터베이스(키스페이스라고도 함)를 추가하고, 테이블을 추가하는 방법을 설명합니다. Java 응용 프로그램은 [Java 드라이버](https://github.com/datastax/java-driver)를 사용하여 사용자 ID, 사용자 이름, 사용자 도시 등의 세부 정보를 포함하는 사용자 데이터베이스를 만듭니다.  
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "46953126"
 
    |설정   |제안 값  |설명  |
    |---------|---------|---------|
-   |ID   |   고유한 이름 입력    | 이 Azure Cosmos DB 계정을 식별하는 고유한 이름을 입력합니다. <br/><br/>접점을 만들기 위해 제공하는 ID에 cassandra.cosmosdb.azure.com이 추가되므로 식별할 수 있는 고유한 ID를 사용해야 합니다.         |
+   |ID   |   고유한 이름을 입력합니다.    | 이 Azure Cosmos DB 계정을 식별하는 고유한 이름을 입력합니다. <br/><br/>접점을 만들기 위해 제공하는 ID에 cassandra.cosmosdb.azure.com이 추가되므로 식별할 수 있는 고유한 ID를 사용해야 합니다.         |
    |API    |  Cassandra   |  API는 만들 계정의 형식을 결정합니다. <br/> 이 문서에서는 CQL 구문을 사용하여 쿼리할 수 있는 넓은 열 데이터베이스를 만들기 때문에 **Cassandra**를 선택합니다.  |
    |구독    |  사용자의 구독        |  이 Azure Cosmos DB 계정에 사용할 Azure 구독을 선택합니다.        |
    |리소스 그룹   | 이름 입력    |   **새로 만들기**를 선택하고 계정에 대한 새 리소스 그룹 이름을 입력합니다. 간단히 하기 위해 ID와 동일한 이름을 사용할 수 있습니다.    |
@@ -91,7 +91,7 @@ cassandra_password=<FILLME_with_PRIMARY PASSWORD>
  
 2. `cassandra-demo` 폴더를 찾습니다. 텍스트 편집기를 사용하여 생성된 `pom.xml` 파일을 엽니다. 
 
-   [pom.xml](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/java-examples/pom.xml) 파일에 표시된 대로 Cassandra datastax 종속성을 추가하고 프로젝트에 필요한 플러그 인을 빌드합니다.  
+   [pom.xml](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/java-examples/pom.xml) 파일에 표시된 대로 Cassandra 종속성을 추가하고 프로젝트에 필요한 플러그 인을 빌드합니다.  
 
 3. `cassandra-demo\src\main` 폴더 아래에서 `resources`라는 새 폴더를 만듭니다.  리소스 폴더 아래에서 config.properties 및 log4j.properties 파일을 추가합니다.
 

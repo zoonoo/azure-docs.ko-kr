@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 4af2e570b498e496e80b6aeee2b8aeae23c582cc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e5b44ed2435986ffd500cade1f7c8ff8047d353d
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952412"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452309"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>모델을 교육하기 위한 계산 대상의 선택 및 사용
 
@@ -90,6 +90,8 @@ run_config_user_managed.environment.python.user_managed_dependencies = True
 # You can choose a specific Python environment by pointing to a Python path 
 #run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/python'
 ```
+
+사용자 관리 환경에서 학습을 보여주는 Jupyter Notebook은 [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb)을 참조하세요.
   
 ### <a name="system-managed-environment"></a>시스템 관리 환경
 
@@ -110,6 +112,9 @@ run_config_system_managed.prepare_environment = True
 
 run_config_system_managed.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 ```
+
+시스템 관리 환경에서 학습을 보여주는 Jupyter Notebook은 [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb)을 참조하세요.
+
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
 로컬 머신에 모델을 교육하는 데 필요한 계산 또는 GPU 리소스가 없는 경우가 있습니다. 이 경우 DSVM(Data Science Virtual Machine) 같은 계산 대상을 추가하여 교육 프로세스를 강화 또는 규모 확장할 수 있습니다.
@@ -190,6 +195,8 @@ run_config_system_managed.environment.python.conda_dependencies = CondaDependenc
     dsvm_compute.delete()
     ```
 
+Data Science Virtual Machine에서 학습을 보여주는 Jupyter Notebook은 [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb)을 참조하세요.
+
 ## <a id="batch"></a>Azure Batch AI
 
 모델을 교육하는 시간이 오래 걸리는 경우 Azure Batch AI를 사용하여 클라우드의 계산 리소스 클러스터에 교육을 분산할 수 있습니다. Batch AI는 GPU 리소스를 사용하도록 구성할 수도 있습니다.
@@ -232,14 +239,14 @@ if not found:
     print(compute_target.status.serialize())
 ```
 
-기존 Batch AI 클러스터를 계산 대상으로 연결하려면 Azure 리소스 id를 제공해야 합니다. Azure Portal에서 리소스 id를 가져오려면 다음을 수행해야 합니다.
+기존 Batch AI 클러스터를 계산 대상으로 연결하려면 Azure 리소스 ID를 입력해야 합니다. Azure Portal에서 리소스 ID를 가져오려면 다음 단계를 사용하세요.
 1. **모든 서비스** 아래에서 `Batch AI` 서비스 검색
 1. 클러스터가 소속된 작업 영역 이름을 클릭
 1. 클러스터 선택
 1. **속성** 클릭
-1. **Id** 복사
+1. **ID** 복사
 
-다음 예제에서는 SDK를 사용하여 작업 영역에 클러스터를 연결합니다. 예제에서 `<name>`을 계산 이름으로 바꿉니다. 클러스터 이름과 일치하지 않아도 됩니다. `<resource-id>`를 위에서 설명한 Azure 리소스 id로 바꿉니다.
+다음 예제에서는 SDK를 사용하여 작업 영역에 클러스터를 연결합니다. 예제에서 `<name>`을 계산 이름으로 바꿉니다. 이 이름은 클러스터 이름과 일치하지 않아도 됩니다. `<resource-id>`를 위에서 설명한 Azure 리소스 ID로 바꿉니다.
 
 ```python
 from azureml.core.compute import BatchAiCompute
@@ -254,6 +261,8 @@ BatchAiCompute.attach(workspace=ws,
 - 작업 상태 확인. `az batchai job list`를 사용하여 작업이 몇 개나 실행 중인지 확인할 수 있습니다.
 
 Batch AI 클러스터를 만드는 데 약 5분이 걸립니다.
+
+Batch AI 클러스터에서 학습을 보여주는 Jupyter Notebook은 [https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb)을 참조하세요.
 
 ## <a name='aci'></a>ACI(Azure Container Instance)
 
@@ -296,6 +305,8 @@ run_config.environment.python.conda_dependencies = CondaDependencies.create(cond
 ```
 
 ACI 계산 대상을 만드는 데 몇 초에서 몇 분까지 걸릴 수 있습니다.
+
+Azure Container Instances에서 학습을 보여주는 Jupyter Notebook은 [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb)을 참조하세요.
 
 ## <a id="hdinsight"></a>HDInsight 클러스터 연결 
 
@@ -352,6 +363,8 @@ run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
 
+HDInsight의 Spark를 사용한 학습을 보여주는 Jupyter Notebook은 [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb)을 참조하세요.
+
 ## <a name="view-and-set-up-compute-using-the-azure-portal"></a>Azure Portal을 사용하여 계산을 살펴보고 설정
 
 Azure Portal에서 작업 영역과 연결된 계산 대상을 살펴볼 수 있습니다. 목록으로 이동하려면 다음 단계를 수행합니다.
@@ -403,6 +416,7 @@ Azure Portal에서 작업 영역과 연결된 계산 대상을 살펴볼 수 있
 다음 Notebook은 문서의 개념을 보여줍니다.
 * `01.getting-started/02.train-on-local/02.train-on-local.ipynb`
 * `01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb`
+* `01.getting-started/03.train-on-aci/03.train-on-aci.ipynb`
 * `01.getting-started/05.train-in-spark/05.train-in-spark.ipynb`
 * `01.getting-started/07.hyperdrive-with-sklearn/07.hyperdrive-with-sklearn.ipynb`
 

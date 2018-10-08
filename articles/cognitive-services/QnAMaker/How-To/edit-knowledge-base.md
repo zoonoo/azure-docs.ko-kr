@@ -1,21 +1,21 @@
 ---
-title: 기술 자료 편집 방법 - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
-description: 기술 자료 편집 방법
+title: 기술 자료 편집 - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: QnA Maker는 사용하기 쉬운 편집 환경을 제공하여 기술 자료 콘텐츠를 관리할 수 있게 해줍니다.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: eaa65bf3d257399fceadaa42f0d9ddbbf8afe234
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: f927e5b7ff65b82aef9d4224d22296e0fa48ad59
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376351"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451887"
 ---
 # <a name="edit-a-knowledge-base"></a>기술 자료 편집
 
@@ -30,8 +30,24 @@ QnA Maker는 사용하기 쉬운 편집 환경을 제공하여 기술 자료 콘
     ![내 기술 자료](../media/qnamaker-how-to-edit-kb/my-kbs.png)
 
 2. 특정 기술 자료를 선택하여 편집합니다.
+ 
+3. **설정**을 클릭합니다.
 
-3. 기술 자료 변경을 마쳤으면 변경 내용을 유지하기 위해 페이지의 오른쪽 맨 위에 있는 **저장 후 학습**을 클릭합니다.    
+   여기에서 필수 필드인 서비스 이름을 편집할 수 있습니다.
+  
+   **기술 자료 관리 -> '+ URL 추가'** 링크를 클릭하여 기술 자료에 새 FAQ 콘텐츠를 추가할 새 URL을 추가할 수 있습니다.
+   
+   **삭제 아이콘**을 클릭하여 기존 URL을 삭제할 수 있습니다.
+   
+   기술 자료에서 기존 URL의 최신 콘텐츠를 크롤링하려는 경우 확인란 이름 **'새로 고침'** 을 클릭합니다. 그러면 기술 자료를 최신 URL 콘텐츠로 업데이트합니다.
+   
+**기술 자료 관리 -> '+파일 추가'** 를 클릭하여 지원되는 파일 문서를 기술 자료의 일부로 추가할 수 있습니다.
+
+**'기술 자료 가져오기'** 단추를 클릭하여 기존 기술 자료를 가져올 수도 있습니다. 
+   
+기술 자료의 업데이트는 기술 자료와 관련된 QnA Maker 서비스를 만드는 동안 사용되는 **관리 가격 책정 계층**에 따라 달라집니다. 필요한 경우 Azure Portal에서 관리 계층을 업데이트할 수도 있습니다.
+
+4. 기술 자료 변경을 마쳤으면 변경 내용을 유지하기 위해 페이지의 오른쪽 맨 위에 있는 **저장 후 학습**을 클릭합니다.    
 
     ![저장 후 학습](../media/qnamaker-how-to-edit-kb/save-and-train.png)
 

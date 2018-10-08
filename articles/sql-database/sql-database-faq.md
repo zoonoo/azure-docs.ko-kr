@@ -2,19 +2,22 @@
 title: Azure SQL Database FAQ | Microsoft Docs
 description: 클라우드 데이터베이스 및 Azure SQL Database, Microsoft 관계형 데이터베이스 관리 시스템(RDBMS) 및 클라우드에서 서비스로 데이터베이스에 대해 고객이 궁금해하는 일반적인 질문에 대한 답변입니다.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: reference
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/29/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: a7837ac6af82b5c67ea5779340aedc16cb78d156
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 8aaf89426cf392faaf6339f49300bf7d2b7dcfcd
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286335"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166625"
 ---
 # <a name="sql-database-faq"></a>SQL Database FAQ
 
@@ -41,7 +44,7 @@ SQL Database의 현재 버전은 V12입니다. 버전 V11은 만료되었습니�
 DTU 및 vCore 기반 모델은 계속해서 함께 존재할 것입니다. vCore 기반 모델은 데이터베이스 리소스에 대한 투명성 강화와 해당 계산 및 저장소 리소스의 크기를 개별적으로 조정하는 기능에 대한 고객의 요청에 부응하여 출시되었습니다. 또한 vCore 기반 모델을 사용하면 활성 Software Assurance를 보유한 고객이 SQL Server에 대한 Azure 하이브리드 혜택을 통해 비용을 추가로 절약할 수도 있습니다.
 
 ## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model"></a>DTU 기반 구매 모델과 vCore 기반 구매 모델 중 어느 것을 선택해야 할까요? 
-DTU(데이터베이스 트랜잭션 단위)는 CPU, 메모리, 읽기 및 쓰기의 혼합 측정값을 기반으로 합니다. DTU 기반 성능 수준은 다양한 응용 프로그램 성능 수준을 구동하는 미리 구성된 리소스 번들을 나타냅니다. 기본 리소스에 대해 걱정할 필요 없이 매월 고정 금액을 지불하면서 미리 구성된 번들을 단순히 사용하려는 고객은 DTU 기반 모델이 자신의 요구에 더 적합하다는 것을 알 수 있습니다. 그러나 최적의 성능을 달성하기 위해 기본 리소스에 대한 추가 정보가 필요하거나 크기를 독립적으로 조정해야 하는 고객에게는 vCore 기반 모델이 가장 적합합니다.  또한 고객이 SQL Server에 대한 활성 SA(Software Assurance)를 보유하고 있는 경우, 기존 투자를 활용하고 [SQL Server에 대한 Azure 하이브리드 사용 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 통해 비용을 최대 30%까지 절약할 수 있습니다.  각 구매 모델의 옵션은 자동 백업, 소프트웨어 업데이트 및 패치와 같이 완전히 관리되는 서비스의 이점을 제공합니다. 
+DTU(데이터베이스 트랜잭션 단위)는 CPU, 메모리, 읽기 및 쓰기의 혼합 측정값을 기반으로 합니다. DTU 기반 계산 크기는 다양한 수준의 응용 프로그램 성능을 구동하도록 미리 구성된 리소스 번들을 나타냅니다. 기본 리소스에 대해 걱정할 필요 없이 매월 고정 금액을 지불하면서 미리 구성된 번들을 단순히 사용하려는 고객은 DTU 기반 모델이 자신의 요구에 더 적합하다는 것을 알 수 있습니다. 그러나 최적의 성능을 달성하기 위해 기본 리소스에 대한 추가 정보가 필요하거나 크기를 독립적으로 조정해야 하는 고객에게는 vCore 기반 모델이 가장 적합합니다.  또한 고객이 SQL Server에 대한 활성 SA(Software Assurance)를 보유하고 있는 경우, 기존 투자를 활용하고 [SQL Server에 대한 Azure 하이브리드 사용 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 통해 비용을 최대 30%까지 절약할 수 있습니다.  각 구매 모델의 옵션은 자동 백업, 소프트웨어 업데이트 및 패치와 같이 완전히 관리되는 서비스의 이점을 제공합니다. 
 
 ## <a name="what-is-the-azure-hybrid-benefit-for-sql-server"></a>SQL Server에 대한 Azure 하이브리드 혜택이란? 
 [SQL Server에 대한 Azure 하이브리드 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 사용하면 현재 라이선스의 투자 가치를 최대화하고 클라우드로의 마이그레이션을 가속화할 수 있습니다. SQL Server에 대한 Azure 하이브리드 혜택은 Software Assurance가 포함된 SQL Server 라이선스를 사용하여 SQL Database에 대해 할인된 요금("기본 요금")을 지불할 수 있게 하는 Azure 기반 혜택입니다. SQL Server에 대한 Azure 하이브리드 혜택은 SQL Database 단일 데이터베이스 및 탄력적 풀에 대한 vCore 기반 구매 모델의 공개 미리 보기에서 사용할 수 있습니다. SKU가 활성 중인 경우에도 이 혜택을 적용할 수 있지만, 기본 요금은 Azure Portal에서 해당 요금을 선택한 시점부터 적용됩니다. 크레딧은 소급해서 발급되지 않습니다.
@@ -71,15 +74,15 @@ SQL Server에 대한 Azure 하이브리드 혜택과 관련하여 SQL Database �
 계산 비용은 응용 프로그램에 프로비전되는 총 계산 용량을 반영합니다. 중요 비즈니스 서비스 계층에서는 3개 이상의 Always ON 복제본이 자동으로 할당됩니다. 이러한 추가 계산 리소스 할당을 반영하기 위해 중요 비즈니스 계층에서 vCore 가격은 약 2.7배 더 높습니다. 같은 이유로, 중요 비즈니스 계층에서 GB당 저장소 가격이 더 높을수록 SSD 저장소의 높은 IO 및 짧은 대기 시간이 반영됩니다. 이와 동시에 두 경우 모두에서 표준 저장소 클래스를 사용하므로 백업 저장소 비용이 다릅니다.
 
 ## <a name="how-am-i-charged-for-storage---based-on-what-i-configure-upfront-or-on-what-the-database-uses"></a>선불로 구성하는 항목 또는 데이터베이스에서 사용하는 항목에 따라 저장소 비용을 부과하려면 어떻게 할까요?
-다양한 유형의 저장소에 대해 별도의 방식으로 요금이 청구됩니다. 데이터 저장소의 경우 선택한 최대 데이터베이스 또는 풀 크기에 따라 프로비전된 저장소 비용이 청구됩니다. 해당 최댓값을 줄이거나 늘리지 않는 한 비용은 변하지 않습니다. 백업 저장소는 인스턴스의 자동 백업과 관련이 있습니다. 백업 보존 기간을 늘리면 인스턴스에서 사용되는 백업 저장소도 늘어납니다. 프로비전된 총 서버 저장소의 최대 100%까지 백업 저장소에 대한 추가 요금이 청구되지 않습니다. 백업 저장소의 추가 사용량은 GB/월 단위로 요금이 청구됩니다. 예를 들어 데이터베이스 저장소 크기가 100GB인 경우 추가 비용 없이 100GB의 백업을 얻을 수 있습니다. 그러나 백업이 110GB인 경우 추가 10GB에 대한 요금을 지불합니다.
+다양한 유형의 저장소에 대해 별도의 방식으로 요금이 청구됩니다. 데이터 저장소의 경우 선택한 최대 데이터베이스 또는 풀 크기에 따라 프로비전된 저장소 비용이 청구됩니다. 해당 최댓값을 줄이거나 늘리지 않는 한 비용은 변하지 않습니다. 백업 저장소는 인스턴스의 자동 백업과 연결되고 동적으로 할당됩니다. 백업 보존 기간을 늘리면 인스턴스에서 사용되는 백업 저장소도 늘어납니다. 프로비전된 총 서버 저장소의 최대 100%까지 백업 저장소에 대한 추가 요금이 청구되지 않습니다. 백업 저장소의 추가 사용량은 GB/월 단위로 요금이 청구됩니다. 예를 들어 데이터베이스 저장소 크기가 100GB인 경우 추가 비용 없이 100GB의 백업을 얻을 수 있습니다. 그러나 백업이 110GB인 경우 추가 10GB에 대한 요금을 지불합니다. 
 
 단일 데이터베이스에 대한 백업 저장소의 경우, 데이터베이스 백업에 할당된 저장소에서 데이터베이스 크기를 뺀 값에 대해 비례 배분 방식으로 요금이 청구됩니다. 탄력적 풀에 대한 백업 저장소의 경우, 풀에 있는 모든 데이터베이스의 데이터베이스 백업에 할당된 저장소에서 탄력적 풀의 최대 데이터 크기를 뺀 값에 대해 비례 배분 방식으로 요금이 청구됩니다. 데이터베이스 크기나 탄력적 풀의 증가 또는 트랜잭션 속도의 증가에 따라 더 많은 저장소가 필요하므로 백업 저장소 요금이 증가합니다.  최대 데이터 크기를 늘리면 새로운 이 크기는 청구되는 백업 저장소 크기에서 차감됩니다.
 
 ## <a name="how-do-i-select-the-right-sku-when-converting-an-existing-database-to-the-new-service-tiers"></a>기존 데이터베이스를 새 서비스 계층으로 변환할 때 SKU를 올바르게 선택하려면 어떻게 할까요? 
 DTU 기반 모델을 사용하는 기존 SQL Database 응용 프로그램의 경우, 범용 서비스 계층은 표준 계층과 비슷합니다. 중요 비즈니스 서비스 계층은 프리미엄 계층과 비슷합니다. 두 경우 모두에서 응용 프로그램이 DTU 기반 모델에서 사용하는 각 100DTU당 하나 이상의 vCore를 할당해야 합니다.
 
-## <a name="do-the-new-vcore-based-service-tiers-offer-the-performance-levels-compatible-with-all-existing-service-level-objectives-slos"></a>새 vCore 기반 서비스 계층에서 기존의 모든 SLO(서비스 수준 목표)와 호환되는 성능 수준을 제공하나요?
-새 vCore 기반 서비스 계층은 100 이상의 DTU를 사용하는 모든 탄력적 풀 및 데이터베이스에 대해 비슷한 성능을 제공합니다.  100 미만의 DTU 워크로드를 수용할 수 있도록 시간이 지남에 따라 더 많은 SLO를 계속 추가할 예정입니다.
+## <a name="do-the-new-vcore-based-service-tiers-offer-the-compute-sizes-compatible-with-all-existing-compute-sizes"></a>새 vCore 기반 서비스 계층에서 기존의 모든 계산 크기와 호환되는 계산 크기를 제공하나요?
+새 vCore 기반 서비스 계층은 100 이상의 DTU를 사용하는 모든 탄력적 풀 및 데이터베이스에 대해 비슷한 성능을 제공합니다.  100개 미만의 DTU 워크로드를 수용할 수 있도록 시간이 지남에 따라 더 많은 계산 크기가 계속 추가됩니다.
 
 ## <a name="are-there-any-database-feature-differences-between-the-existing-dtu-based-and-new-vcore-based-service-tiers"></a>기존 DTU 기반 서비스와 새 vCore 기반 서비스 계층 간에 데이터베이스 기능상의 차이가 있나요? 
 새 서비스 계층은 현재 DTU 기반 제품에서 사용할 수 있는 기능의 상위 집합을 지원합니다. 추가 기능에는 일단의 추가 DMV(동적 관리 뷰) 및 추가 리소스 구성 옵션이 포함됩니다. 
@@ -110,7 +113,7 @@ vCore 모델은 프로비전된 계산 및 저장소의 용량을 독립적으�
 ## <a name="how-often-can-i-adjust-the-resources-per-pool"></a>풀당 리소스는 얼마나 자주 조정할 수 있나요?
 원하는 횟수만큼 조정할 수 있습니다. [탄력적 풀 관리](sql-database-elastic-pool.md)를 참조하세요.
 
-## <a name="how-long-does-it-take-to-change-the-service-tier-or-performance-level-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>단일 데이터베이스의 서비스 계층 또는 성능 수준을 변경하거나 탄력적 풀 내부 및 외부로 데이터베이스를 이동하는 데 시간이 얼마나 소요됩니까?
+## <a name="how-long-does-it-take-to-change-the-service-tier-or-compute-size-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>단일 데이터베이스의 서비스 계층 또는 계산 크기를 변경하거나 탄력적 풀 내부 및 외부로 데이터베이스를 이동하는 데 걸리는 시간은 어떻게 되나요?
 데이터베이스의 서비스 계층을 변경하고 풀 내부 및 외부로 이동하려면 플랫폼에서 백그라운드 작업으로 데이터베이스를 복사해야 합니다. 서비스 계층을 변경하는 데는 데이터베이스 크기에 따라 몇 분에서 몇 시간까지 소요될 수 있습니다. 두 경우 모두 데이터베이스는 온라인 상태이고 이동 중에도 사용할 수 있습니다. 단일 데이터베이스 변경에 대한 자세한 내용은 [데이터베이스의 서비스 계층 변경](sql-database-service-tiers-dtu.md)을 참조하세요. 
 
 ## <a name="when-should-i-use-a-single-database-vs-elastic-databases"></a>탄력적 데이터베이스와 단일 데이터베이스는 언제 사용해야 합니까?
@@ -120,7 +123,7 @@ vCore 모델은 프로비전된 계산 및 저장소의 용량을 독립적으�
 SQL Database는 [구매 모델](sql-database-service-tiers-dtu.md)에 따라 예측 가능한 시간당 요금으로 청구됩니다. 실제 사용량은 시간별로 계산 및 비례 배분되므로 청구서에 시간의 일부가 표시될 수 있습니다. 예를 들어 데이터베이스가 한 달에 12시간 동안 있었다면 청구서에는 0.5일의 사용량이 표시됩니다. 
 
 ## <a name="what-if-a-single-database-is-active-for-less-than-an-hour-or-uses-a-higher-service-tier-for-less-than-an-hour"></a>단일 데이터베이스가 1시간 미만 동안 활성화되거나 더 높은 서비스 계층을 1시간 미만 사용하는 경우 어떻게 됩니까?
-사용량이나 데이터베이스가 한 시간 미만 동안 활성화되었는지 여부에 관계없이, 그 시간에 적용된 최고 서비스 계층 + 성능 수준을 사용하여 데이터베이스가 있었던 각 시간에 대해 요금이 청구됩니다. 예를 들어 단일 데이터베이스를 만들고 5분 후 삭제하더라도 청구서에는 데이터베이스 1시간 사용에 대한 요금이 반영됩니다. 
+사용량 또는 데이터베이스가 한 시간 미만 동안 활성 상태였는지 여부와 관계없이, 해당 시간에 적용된 최고 서비스 계층 + 계산 크기를 사용하여 데이터베이스가 있었던 각 시간에 대해 요금이 청구됩니다. 예를 들어 단일 데이터베이스를 만들고 5분 후 삭제하더라도 청구서에는 데이터베이스 1시간 사용에 대한 요금이 반영됩니다. 
 
 예제:
 
@@ -141,8 +144,8 @@ DTU 기반 구매 모델 예:
 탄력적 풀은 다음 특성에 따라 대금이 청구됩니다.
 
 * 탄력적 풀은 풀에 데이터베이스가 없더라도 생성 시부터 대금이 청구됩니다.
-* 탄력적 풀은 시간당 대금이 청구됩니다. 이는 단일 데이터베이스의 성능 수준과 같은 계량 빈도입니다.
-* 탄력적 풀의 크기를 조정하면 크기 조정 작업이 완료될 때까지 새 리소스 양에 따른 풀에 대한 요금은 청구되지 않습니다. 이는 단일 데이터베이스의 성능 수준을 변경하는 것과 동일한 패턴을 따릅니다.
+* 탄력적 풀은 시간당 대금이 청구됩니다. 이는 단일 데이터베이스의 계산 크기와 동일한 계량 빈도입니다.
+* 탄력적 풀의 크기를 조정하면 크기 조정 작업이 완료될 때까지 새 리소스 양에 따른 풀에 대한 요금은 청구되지 않습니다. 이는 단일 데이터베이스의 계산 크기 변경과 동일한 패턴을 따릅니다.
 * 탄력적 풀의 가격은 풀의 리소스를 기반으로 합니다. 탄력적 풀의 가격은 그 안의 탄력적 데이터베이스 사용률 및 수와 무관합니다.
 
 자세한 내용은 [SQL Database 가격](https://azure.microsoft.com/pricing/details/sql-database/), [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 참조하세요.

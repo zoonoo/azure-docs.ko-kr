@@ -7,14 +7,16 @@ items:
     href: overview.md
 - name: 빠른 시작
   items:
-  - name: 관리되는 응용 프로그램 만들기
-    href: managed-apps-quickstart-cli.md
+  - name: 응용 프로그램 정의 게시
+    href: publish-managed-app-definition-quickstart.md
+  - name: 서비스 카탈로그 앱 배포
+    href: deploy-service-catalog-quickstart.md
   expanded: true
 - name: 자습서
   items:
-  - name: 관리 응용 프로그램 파일 만들기
+  - name: 정의 파일 만들기
     href: publish-service-catalog-app.md
-  - name: 마켓플레이스 응용 프로그램 만들기
+  - name: 마켓플레이스 응용 프로그램 게시
     href: publish-marketplace-app.md
 - name: 샘플
   items:
@@ -26,16 +28,22 @@ items:
     href: sample-projects.md
 - name: 방법 가이드
   items:
-  - name: 포털 인터페이스 만들기
-    href: create-uidefinition-overview.md
-  - name: 포털 인터페이스 테스트
-    href: test-createuidefinition.md
-  - name: 관리되는 리소스 업데이트
-    href: update-managed-resources.md
-  - name: 포털을 사용하여 게시
-    href: publish-portal.md
-  - name: Key Vault의 암호 사용
-    href: key-vault-access.md
+  - name: 게시자
+    items:
+    - name: 포털 인터페이스 만들기
+      href: create-uidefinition-overview.md
+    - name: 포털 인터페이스 테스트
+      href: test-createuidefinition.md
+    - name: 관리되는 리소스 업데이트
+      href: update-managed-resources.md
+    - name: 포털을 사용하여 응용 프로그램 정의 게시
+      href: publish-portal.md
+    - name: Key Vault의 암호 사용
+      href: key-vault-access.md
+  - name: 소비자
+    items:
+    - name: 관리되는 응용 프로그램 모니터링
+      href: monitor-managed-application-portal.md
 - name: 참고 자료
   items:
   - name: Azure CLI
@@ -97,9 +105,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: 스택 오버플로
     href: http://stackoverflow.com/questions/tagged/azure-managedapps
-ms.openlocfilehash: 03a385046c0f30932e6ba99fdce46fbdc9849eb6
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: b74cfed4f0208a1b70980d34284fd7f9ff207ca4
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365301"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801560"

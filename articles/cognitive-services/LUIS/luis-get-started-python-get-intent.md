@@ -1,64 +1,43 @@
 ---
-title: Python을 사용하여 LUIS(Language Understanding) 앱을 호출하는 방법을 알아보는 빠른 시작 | Microsoft Docs
+title: Python 빠른 시작 - 의도 예측 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Python을 사용하여 LUIS 앱을 호출하는 방법을 알아봅니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 06/27/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: bc7ae912d762a98c34b9a1b2d6a82d5630c4794b
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: e560aeffecf63f63966a49053e0f79d012b4a0a3
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "43750574"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038275"
 ---
-# <a name="quickstart-call-a-luis-endpoint-using-python"></a>빠른 시작: Python을 사용하여 LUIS 엔드포인트 호출
+# <a name="quickstart-get-intent-using-python"></a>빠른 시작: Python을 사용하여 의도 가져오기
 이 빠른 시작에서는 발언을 LUIS 엔드포인트로 전달하고 의도와 엔터티를 다시 가져옵니다.
 
-<!-- green checkmark -->
-<!--
-> [!div class="checklist"]
-> * Create LUIS subscription and copy key value for later use
-> * View LUIS endpoint results from browser to public sample IoT app
-> * Create Visual Studio C# console app to make HTTPS call to LUIS endpoint
--->
+[!include[Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
-이 문서에서는 LUIS 앱을 작성하기 위해 체험 [LUIS](luis-reference-regions.md#luis-website) 계정이 필요합니다.
+## <a name="prerequisites"></a>필수 조건
 
-<a name="create-luis-subscription-key"></a>
-## <a name="create-luis-endpoint-key"></a>LUIS 엔드포인트 키 만들기
-이 연습에서 사용하는 LUIS 앱 샘플을 호출하기 위해 Cognitive Services API 키가 필요합니다. 
+* [Python 3.6](https://www.python.org/downloads/) 이상
+* [Visual Studio Code](https://code.visualstudio.com/)
 
-API 키를 가져오려면 다음 단계를 수행합니다. 
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
-1. 먼저 Azure Portal에서 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)을 만들어야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+## <a name="get-luis-key"></a>LUIS 키 가져오기
 
-2. Azure Portal ( https://portal.azure.com ) 에 로그인합니다. 
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
-3. [Azure를 사용하여 엔드포인트 키 만들기](./luis-how-to-azure-subscription.md)의 단계에 따라 키를 가져옵니다.
+## <a name="get-intent-with-browser"></a>브라우저를 사용하여 의도 가져오기
 
-4. [LUIS](luis-reference-regions.md) 웹 사이트로 돌아가서 Azure 계정을 사용하여 로그인합니다. 
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
-    [![](media/luis-get-started-node-get-intent/app-list.png "앱 목록 스크린샷")](media/luis-get-started-node-get-intent/app-list.png)
-
-## <a name="understand-what-luis-returns"></a>LUIS에서 반환하는 결과에 대한 이해
-
-LUIS 앱에서 무엇을 반환하는지 파악하기 위해 LUIS 앱 샘플의 URL을 브라우저 창에 붙여넣을 수 있습니다. 샘플 앱은 사용자가 라이트를 켜는지 여부를 검색하는 IoT 앱입니다.
-
-1. 샘플 앱의 엔드포인트는 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=<YOUR_API_KEY>&verbose=false&q=turn%20on%20the%20bedroom%20light` 형식으로입니다. URL을 복사하고 `subscription-key` 필드의 값을 엔드포인트 키의 값으로 대체합니다.
-2. 브라우저 창에 URL을 붙여넣고 Enter 키를 누릅니다. LUIS에서 `HomeAutomation.TurnOn` 의도 및 `bedroom` 값이 있는 `HomeAutomation.Room` 엔터티를 검색한다고 나타내는 JSON 결과가 브라우저에 표시됩니다.
-
-    ![JSON 결과에서 TurnOn 의도 검색](./media/luis-get-started-node-get-intent/turn-on-bedroom.png)
-3. URL의 `q=` 매개 변수 값을 `turn off the living room light`로 변경하고 Enter 키를 누릅니다. 이제 결과에는 LUIS에서 `HomeAutomation.TurnOff` 의도 및 `living room` 값이 있는 `HomeAutomation.Room` 엔터티를 검색했다고 표시됩니다. 
-
-    ![JSON 결과에서 TurnOff 의도 검색](./media/luis-get-started-node-get-intent/turn-off-living-room.png)
-
-
-## <a name="consume-a-luis-result-using-the-endpoint-api-with-python"></a>Python에서 엔드포인트 API를 사용하여 LUIS 결과 사용
+## <a name="get-intent--programmatically"></a>프로그래밍 방식으로 의도 가져오기
 
 Python을 사용하여 이전 단계의 브라우저 창에서 본 것과 동일한 결과에 액세스할 수 있습니다.
 
@@ -73,13 +52,15 @@ Python을 사용하여 이전 단계의 브라우저 창에서 본 것과 동일
 3. `pip install requests`를 사용하여 종속성을 설치합니다.
 
 4. `python ./quickstart-call-endpoint.py`를 사용하여 스크립트를 실행합니다. 브라우저 창에서 앞서 본 것과 동일한 JSON을 표시합니다.
-<!-- 
-![Console window displays JSON result from LUIS](./media/luis-get-started-python-get-intent/console-turn-on.png)
--->
+
+## <a name="luis-keys"></a>LUIS 키
+
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
 
 ## <a name="clean-up-resources"></a>리소스 정리
-이 자습서에서 만든 두 개의 리소스는 LUIS 엔드포인트 키와 C# 프로젝트입니다. Azure Portal에서 LUIS 엔드포인트 키를 삭제합니다. Visual Studio 프로젝트를 닫고 파일 시스템에서 해당 디렉터리를 제거합니다. 
+Python 파일을 삭제합니다. 
 
 ## <a name="next-steps"></a>다음 단계
+
 > [!div class="nextstepaction"]
 > [발언 추가](luis-get-started-python-add-utterance.md)

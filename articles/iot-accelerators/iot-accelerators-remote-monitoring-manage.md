@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: b1e12ad837def690e55fc501c67d8b2ed5e3cd4d
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 6e92ef276d270fcc4c351fb89c699c8addd74632
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284614"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222152"
 ---
 # <a name="tutorial-configure-and-manage-devices-connected-to-your-monitoring-solution"></a>자습서: 모니터링 솔루션에 연결된 장치 구성 및 관리
 
@@ -33,7 +33,7 @@ Contoso는 해당 시설 중 하나를 확장하기 위해 새로운 기계를 �
 > * 장치 다시 구성
 > * 장치 구성
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
@@ -144,7 +144,7 @@ Contoso 운영자는 운영 팀을 기반으로 장치를 쿼리할 수 있습�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 원격 모니터링 솔루션 가속기에 연결된 장치를 구성하고 관리하는 방법을 보여줬습니다. 솔루션 가속기를 사용하여 연결된 장치의 문제를 확인하고 해결하는 방법을 알아보려면 다음 자습서를 계속 진행하십시오.
+이 자습서에서는 원격 모니터링 솔루션 가속기에 연결된 장치를 구성하고 관리하는 방법을 보여줬습니다. 솔루션 가속기를 사용하여 예기치 않은 경고의 근본 원인 분석을 수행하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [장치 경고를 사용하여 모니터링 솔루션에 연결된 장치의 문제를 확인 및 해결](iot-accelerators-remote-monitoring-maintain.md)
+> [경고에 대한 근본 원인 분석 수행](iot-accelerators-remote-monitoring-root-cause-analysis.md)

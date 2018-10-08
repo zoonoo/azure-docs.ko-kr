@@ -8,14 +8,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: 375990f095d3a6cbbbfa18db70466c274fd7e17b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 85d8eb555d96b1c50da0ed00ae1f06c3eec1a5ba
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702598"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722214"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB FAQ
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos 기본 사항
@@ -118,6 +118,10 @@ Azure Cosmos DB는 [Azure 지역](https://azure.microsoft.com/regions/) 페이�
 
 현재 .Net SDK의 [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) 메서드 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create)를 사용하여 파티션 키 처리량이 있는 컬렉션을 만들 수 있습니다. Azure Portal을 사용하여 고정 컬렉션 만들기는 현재 지원되지 않습니다.  
 
+### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>Azure CosmosDB는 시계열 분석을 지원하나요? 
+예, Azure CosmosDB는 시계열 분석을 지원합니다. 여기 [시계열 패턴](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns) 샘플이 있습니다. 이 샘플에서는 시계열 데이터에 따라 집계된 보기를 빌드하기 위해 변경 피드를 사용하는 방법을 보여 줍니다. Spark 스트리밍 또는 다른 스트림 데이터 프로세서를 사용 하여 이 접근 방식을 확장할 수 있습니다.
+
+
 ## <a name="sql-api"></a>SQL API
 
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>SQL API에 대해 어떻게 개발을 시작하나요?
@@ -208,6 +212,10 @@ MongoDB API는 일반적인 MongoDB 오류 코드 외에도 자체적인 특정 
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | 사용된 총 요청 단위 수가 컬렉션에 프로비전된 요청 단위 비율을 초과하여 제한되었습니다. | Azure Portal에서 컨테이너 또는 컨테이너 집합에 할당된 처리량을 크기 조정하거나 다시 시도하는 것이 좋습니다. |
 | ExceededMemoryLimit | 16501 | 다중 테넌트 서비스로써 작업이 클라이언트의 메모리 할당량을 초과했습니다. | [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에서 보다 제한적인 쿼리 조건을 통해 작업 범위를 줄이거나 고객 지원에 문의하세요. <br><br>예: *&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
+
+### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmosdb-mongodb-api"></a>Azure CosmosDB MongoDB API에 사용할 수 있도록 MongoDB용 Simba 드라이버가 지원됩니까?
+예, Azure CosmosDB MongoDB API를 통해 Simba의 Mongo ODBC 드라이버를 사용할 수 있습니다.
+
 
 ## <a id="table"></a>Table API
 
@@ -441,15 +449,132 @@ Azure Table Storage 및 Azure Cosmos DB Table API는 동일한 SDK를 사용합�
 Azure Cosmos DB는 SLA 기반 시스템으로, 대기 시간, 처리량, 가용성 및 일관성을 보장하며, 프로비전된 시스템이기 때문에 이러한 요구 사항을 보장하기 위해 리소스를 예약해 둡니다. 따라서 빠른 테이블 만들기 속도가 감지되고 제한됩니다. 테이블 만들기 속도를 살펴보고 분당 5 미만으로 낮추는 것이 좋습니다. Table API는 프로비전된 시스템입니다. 프로비전하는 순간 비용이 발생하기 시작합니다. 
 
 ## <a name="gremlin-api"></a>Gremlin API
-### <a name="how-can-i-apply-the-functionality-of-gremlin-api-to-azure-cosmos-db"></a>Azure Cosmos DB에 Gremlin API의 기능을 적용하려면 어떻게 해야 하나요?
-확장 라이브러리를 사용하여 Gremlin API 기능을 적용할 수 있습니다. 이 라이브러리를 Microsoft Azure Graph라고 하며 [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Graphs)에서 사용할 수 있습니다. 
 
-### <a name="it-looks-like-you-support-the-gremlin-graph-traversal-language-do-you-plan-to-add-more-forms-of-query"></a>이는 Gremlin 그래프 통과 언어를 지원하는 것과 같습니다. 더 많은 형식의 쿼리를 추가할 계획이 있나요?
-예, 향후에 쿼리를 위한 다른 메커니즘을 추가할 계획입니다. 
+### <a name="for-cnet-development-should-i-use-the-microsoftazuregraphs-package-or-gremlinnet"></a>C#.NET 개발의 경우 Microsoft.Azure.Graphs 패키지 또는 Gremlin.NET를 사용해야 하나요? 
 
-### <a name="how-can-i-use-the-new-gremlin-api-offering"></a>새 Gremlin API 기능은 어떻게 사용할 수 있나요? 
-시작하려면 [Gremlin API](../cosmos-db/create-graph-dotnet.md) 빠른 시작 문서를 완료하세요.
+Azure Cosmos DB Gremlin API는 서비스의 기본 커넥터로 오픈 소스 드라이버를 활용합니다. 따라서 권장되는 옵션은 [Apache Tinkerpop에서 지원하는 드라이버](http://tinkerpop.apache.org/)를 사용하는 것입니다.
 
+### <a name="how-are-rus-charged-when-running-queries-on-a-graph-database"></a>그래프 데이터베이스에서 쿼리 실행 시 RU/s는 어떻게 청구되나요? 
+
+모든 그래프 개체, 꼭짓점 및 모서리는 백 엔드에서 JSON 문서로 표현됩니다. 하나의 Gremlin 쿼리가 한번에 하나 이상의 그래프 개체를 수정할 수 있으므로 이와 연결된 비용은 쿼리에서 처리하는 개체, 모서리와 직접 관련되어 있습니다. 이것은 Azure Cosmos DB가 모든 다른 API에 사용하는 것과 동일한 프로세스입니다. 자세한 내용은 [Azure Cosmos DB의 요청 단위](request-units.md)를 참조하세요.
+
+RU 청구는 결과 집합이 아닌 횡단의 유효 데이터 집합에 기반합니다. 예를 들어 쿼리가 결과로 단일 꼭짓점을 획득하려고 하지만 도중에 여러 다른 개체를 트래버스해야 한다면 비용은 한 개의 결과 꼭짓점을 계산하기 위해 사용되는 모든 그래프 개체에 기반합니다.
+
+### <a name="whats-the-maximum-scale-that-a-graph-database-can-have-in-azure-cosmos-db-gremlin-api"></a>그래프 데이터베이스가 Azure Cosmos DB Gremlin API에서 가질 수 있는 최대 축적은 얼마입니까? 
+
+Azure Cosmos DB는 [수평 분할](partition-data.md)을 활용하여 저장소 및 처리량 요구 사항 증가를 자동으로 해결합니다. 워크로드의 최대 처리량 및 저장소 용량은 지정된 컬렉션과 연결된 파티션 양에 따라 결정됩니다. 그러나 Gremlin API 컬렉션에는 척도에서 적절한 성능 경험을 보장할 수 있도록 특정 집합의 가이드라인이 있습니다. 자세한 내용 및 모범 사례는 [분할 모범 사례](partition-data.md#best-practices-when-choosing-a-partition-key)를 참조하세요. 
+
+### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Gremlin 드라이버를 사용하여 삽입 공격을 방지하려면 어떻게 하나요? 
+
+대부분의 네이티브 Tinkerpop Gremlin 드라이버는 쿼리 실행에 매개 변수 사전을 제공하는 옵션을 허용합니다. 다음은 [Gremlin.Net]((http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet)) 및 [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js)에서 수행하는 방법의 예제입니다.
+
+### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>"Gremlin 쿼리 컴파일 오류: 메서드를 찾을 수 없음” 오류가 표시되는 이유는 무엇인가요?
+
+Azure Cosmos DB Gremlin API는 Gremlin 노출 영역에 정의된 기능의 하위 집합을 구현합니다. 지원되는 단계 및 자세한 내용은 [Gremlin 지원](gremlin-support.md) 문서를 참조하세요.
+
+가장 좋은 해결 방법은 모든 필수 Gremlin 단계가 Azure Cosmos DB에서 지원되므로 지원되는 기능을 사용하여 필요한 Gremlin 단계를 다시 작성하는 것입니다.
+
+### <a name="why-am-i-getting-the-websocketexception-the-server-returned-status-code-200-when-status-code-101-was-expected-error"></a>“WebSocketException: 상태 코드 ‘101’을 예상했을 때 서버가 상태 코드 ‘200’을 반환함” 오류가 표시되는 이유가 무엇인가요?
+
+이 오류는 잘못된 엔드포인트를 사용하는 경우 발생할 가능성이 높습니다. 이 오류를 생성하는 엔드포인트에는 다음과 같은 패턴이 있습니다.
+
+`https:// YOUR_DATABASE_ACCOUNT.documents.azure.com:443/` 
+
+그래프 데이터베이스에 대한 문서 엔드포인트입니다.  사용할 올바른 엔드포인트는 다음 형식의 Gremlin 엔드포인트입니다. 
+
+`https://YOUR_DATABASE_ACCOUNT.gremlin.cosmosdb.azure.com:443/`
+
+### <a name="why-am-i-getting-the-requestrateistoolarge-error"></a>"RequestRateIsTooLarge" 오류가 표시되는 이유가 무엇인가요?
+
+이 오류는 초당 할당된 요청 단위가 쿼리를 처리할 정도로 충분하지 않다는 것을 의미합니다. 이 오류는 일반적으로 모든 꼭짓점을 가져오는 쿼리를 실행할 때 표시됩니다.
+
+```
+// Query example:
+g.V()
+```
+
+이 쿼리는 그래프에서 모든 꼭짓점을 가져오려고 합니다. 따라서 이 쿼리의 비용은 RU 측면에서 적어도 꼭짓점 개수와 동일하게 됩니다. 초당 RU는 이 쿼리를 해결할 수 있도록 조정되어야 합니다.
+
+### <a name="why-do-my-gremlin-driver-connections-get-dropped-eventually"></a>내 Gremlin 드라이버 연결이 갑자가 끊어진 이유는 무엇인가요?
+
+Gremlin 연결은 WebSocket 연결을 통해 이루어집니다. WebSocket 연결에 특정 TTL(Time to Live)이 없을 경우 Azure Cosmos DB Gremlin API는 30분의 비활성 후 유휴 연결을 종료합니다. 
+
+### <a name="why-cant-i-use-fluent-api-calls-in-the-native-gremlin-drivers"></a>네이티브 Gremlin 드라이버에서 흐름 API 호출을 왜 사용할 수 없나요?
+
+흐름 API 호출은 Azure Cosmos DB Gremlin API에서 아직 지원되지 않습니다. Fluent API 호출은 Azure Cosmos DB Gremlin API에서 현재 지원되지 않는 바이트코드 지원이라고 하는 내부 서식 지정 기능이 필요합니다. 같은 이유로 인해 최신 Gremlin-JavaScript 드라이버도 현재 지원되지 않습니다. 
+
+### <a name="how-can-i-evaluate-the-efficiency-of-my-gremlin-queries"></a>내 Gremlin 쿼리의 효율성은 어떻게 평가할 수 있나요?
+
+**executionProfile()** 미리 보기 단계를 사용하여 쿼리 실행 계획에 대한 분석을 제공할 수 있습니다. 이 단계는 다음 예와 같이 Gremlin 쿼리 끝에 추가해야 합니다.
+
+**쿼리 예제**
+
+```
+g.V('mary').out('knows').executionProfile()
+```
+
+**예제 출력**
+
+```json
+[
+  {
+    "gremlin": "g.V('mary').out('knows').executionProfile()",
+    "totalTime": 8,
+    "metrics": [
+      {
+        "name": "GetVertices",
+        "time": 3,
+        "annotations": {
+          "percentTime": 37.5
+        },
+        "counts": {
+          "resultCount": 1
+        }
+      },
+      {
+        "name": "GetEdges",
+        "time": 5,
+        "annotations": {
+          "percentTime": 62.5
+        },
+        "counts": {
+          "resultCount": 0
+        },
+        "storeOps": [
+          {
+            "partitionsAccessed": 1,
+            "count": 0,
+            "size": 0,
+            "time": 0.6
+          }
+        ]
+      },
+      {
+        "name": "GetNeighborVertices",
+        "time": 0,
+        "annotations": {
+          "percentTime": 0
+        },
+        "counts": {
+          "resultCount": 0
+        }
+      },
+      {
+        "name": "ProjectOperator",
+        "time": 0,
+        "annotations": {
+          "percentTime": 0
+        },
+        "counts": {
+          "resultCount": 0
+        }
+      }
+    ]
+  }
+]
+```
+
+위 프로필의 출력은 유효 데이터 집합 크기뿐만 아니라 꼭짓점 및 모서리 개체를 얻는 데 소비하는 시간을 보여줍니다. 이는 Azure Cosmos DB 쿼리에 대한 표준 비용 측정과 관련이 있습니다.
 
 ## <a id="cassandra"></a>Cassandra API
 

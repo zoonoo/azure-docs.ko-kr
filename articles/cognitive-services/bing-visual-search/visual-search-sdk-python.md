@@ -1,23 +1,23 @@
 ---
-title: Visual Search SDK Python 빠른 시작 | Microsoft Docs
-description: Visual Search SDK Python 콘솔 응용 프로그램을 설치합니다.
+title: '빠른 시작: Bing Visual Search SDK, Python'
 titleSuffix: Azure Cognitive Services
+description: Visual Search SDK Python 콘솔 응용 프로그램을 설치합니다.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: v-gedod
-ms.openlocfilehash: f7a1f275f9059abdceaef577fb5ca722c9951366
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 269eaccbf834646b540123dfeeeec7c569b8ced4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939417"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222644"
 ---
-# <a name="visual-search-sdk-python-quickstart"></a>Visual Search SDK Python 빠른 시작
+# <a name="quickstart-bing-visual-search-sdk-python"></a>빠른 시작: Bing Visual Search SDK Python
 
 Bing Visual Search SDK는 웹 요청 및 구문 분석 결과에 대한 REST API의 기능을 사용합니다.
 [Python Bing Visual Search SDK 소스 코드 샘플](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py)은 Git Hub에서 얻을 수 있습니다.

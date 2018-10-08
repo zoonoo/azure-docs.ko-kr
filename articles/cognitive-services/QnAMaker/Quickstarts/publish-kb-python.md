@@ -1,24 +1,27 @@
 ---
-title: 기술 자료 게시, Python 빠른 시작 - Azure Cognitive Services | Microsoft Docs
+title: '빠른 시작: Python 게시 기술 자료 - QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: QnA Maker용 Python으로 기술 자료를 게시하는 방법입니다.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
-ms.openlocfilehash: 0b4c08f2c0f5921275ac191f684ce0c4cbdf1eaf
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: bb5606d1192a7985b0b25ec5eb928ca8a722c58d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43750469"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037544"
 ---
 # <a name="publish-a-knowledge-base-in-python"></a>Python으로 기술 자료 게시
 
 다음 코드는 [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) 메서드를 사용하여 기존 기술 자료를 게시합니다.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
 1. 즐겨 찾는 IDE에 새 Python 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.

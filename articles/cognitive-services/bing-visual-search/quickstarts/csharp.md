@@ -1,23 +1,23 @@
 ---
-title: Bing Visual Search API에 대한 C# 빠른 시작 | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Bing Visual Search API에 이미지를 업로드하고 이미지에 대한 중요 정보를 다시 얻는 방법을 보여 줍니다.
+title: '빠른 시작: 시각적 개체 검색 쿼리 만들기, C# - Bing Visual Search'
+titleSuffix: Azure Cognitive Services
+description: Bing Visual Search API에 이미지를 업로드하고 이미지에 대한 중요 정보를 다시 얻는 방법을 보여줍니다.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 930a89e3b1996c44f12bd3773565eda40e93ca9c
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: e6e969d9ff0556211ca6080645888d44554b286c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070929"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47218770"
 ---
-# <a name="your-first-bing-visual-search-query-in-c"></a>C#의 첫 번째 Bing Visual Search 쿼리
+# <a name="quickstart-your-first-bing-visual-search-query-in-c"></a>빠른 시작: C#에서 첫 번째 Bing Visual Search 쿼리
 
 Bing Visual Search API는 사용자가 제공하는 이미지에 대한 정보를 반환합니다. 이미지의 URL, 인사이트 토큰을 사용하거나 이미지를 업로드하여 이미지를 제공할 수 있습니다. 이러한 옵션에 대한 내용은 [Bing Visual Search API란?](../overview.md)을 참조하세요. 이 아티클에서는 이미지 업로드 방법을 보여줍니다. 이미지 업로드는 잘 알려진 이정표 사진을 찍은 후 해당 정보를 다시 얻는 모바일 시나리오에서 유용할 수 있습니다. 예를 들어, 중요 정보에는 이정표에 대한 잡학 지식이 포함될 수 있습니다. 
 

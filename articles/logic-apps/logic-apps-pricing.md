@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: b75fba2ba0e9fa922b1252378e0bab326cada7d2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5f9147035c07bbe4fb3f38b74025015e70dd87b3
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974309"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159568"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps용 가격 책정 모델
 
@@ -54,7 +54,7 @@ Azure Logic Apps를 사용하여 클라우드에 자동화된 확장 가능한 �
 
 ## <a name="actions"></a>작업
 
-기본 제공 작업(예: HTTP, Azure Functions 또는 API Management 및 제어 흐름 단계)은 원시 작업으로 계량되며 해당 유형이 있습니다. [커넥터](https://docs.microsoft.com/connectors)를 호출하는 작업에는 "ApiConnection" 유형이 있습니다. 이러한 커넥터는 표준 또는 엔터프라이즈 커넥터로 분류되며 해당 [가격 책정][pricing]을 기준으로 계량됩니다. 
+기본 제공 작업(예: HTTP, Azure Functions 또는 API Management 및 제어 흐름 단계)은 원시 작업으로 계량되며 해당 유형이 있습니다. [커넥터](https://docs.microsoft.com/connectors)를 호출하는 작업에는 "ApiConnection" 유형이 있습니다. 이러한 커넥터는 표준 또는 엔터프라이즈 커넥터로 분류되며 해당 [가격 책정][pricing]을 기준으로 계량됩니다. 엔터프라이즈 커넥터 *미리 보기*는 표준 커넥터 요금이 청구됩니다.
 
 성공 및 실패한 모든 실행 작업은 작업 실행으로 집계되고 계량됩니다. 조건이 충족되지 않아 건너뛴 작업 또는 완료되기 전에 논리 앱이 종료되어 실행되지 않은 작업은 작업 실행으로 간주되지 않습니다. 사용이 중지된 논리 앱은 새 인스턴스를 인스턴스화할 수 없으므로 사용이 중지되는 동안 비용이 청구되지 않습니다.
 

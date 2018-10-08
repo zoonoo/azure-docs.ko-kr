@@ -1,21 +1,21 @@
 ---
-title: QnA Maker 서비스 업그레이드 - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
-description: QnA Maker 서비스를 업그레이드하는 방법
+title: QnA Maker 서비스 업그레이드 - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: 초기 생성 이후 QnA Maker 스택의 개별 구성 요소를 업그레이드하도록 선택할 수 있습니다.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: saneppal
-ms.openlocfilehash: e8d3713d6729c4e30da9a64a382e9d5a647dfefd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: 8542b1f6dfe031de58ea6eeb931027ee03bd81f2
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376287"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47030968"
 ---
 # <a name="upgrade-your-qna-maker-service"></a>QnA Maker 서비스 업그레이드
 초기 생성 이후 QnA Maker 스택의 개별 구성 요소를 업그레이드하도록 선택할 수 있습니다. [여기](https://aka.ms/qnamaker-docs-capacity)에서 종속 구성 요소 및 SKU 선택의 세부 정보를 참조하세요.

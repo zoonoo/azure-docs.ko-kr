@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ddc07db4e101bb16321478d17d84ffe0d30f0afd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f4afad753da4a314ade3fb7433c6be3e489e05b0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946224"
+ms.locfileid: "47033688"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>IoT Edge 장치, 모듈 및 자식 장치용 확장 오프라인 기능(미리 보기)을 이해합니다.
 
@@ -28,19 +28,19 @@ IoT Edge 장치가 오프라인으로 전환되면 Edge 허브는 세 가지 역
 
 다음 예제에서는 오프라인 모드에서 작동하는 IoT Edge 시나리오를 보여줍니다.
 
-1. IoT Edge 장치를 구성합니다. 
+1. **IoT Edge 장치를 구성합니다.**
 
    IoT Edge 장치는 자동으로 오프라인 기능이 설정됩니다. 이 기능을 다른 IoT 장치로 확장하려면 IoT Hub의 장치 간에 부모-자식 관계를 선언해야 합니다. 
 
-2. IoT Hub와 동기화합니다.
+2. **IoT Hub와 동기화합니다.**
 
    적어도 IoT Edge 런타임을 설치한 후 IoT Edge 장치를 온라인에 연결하여 IoT Hub와 동기화해야 합니다. 이 동기화에서 IoT Edge 장치는 할당된 모든 자식 장치에 대한 세부 정보를 얻습니다. 또한 IoT Edge 장치는 오프라인 작업을 사용하도록 설정하고 원격 분석 메시지의 로컬 저장소에 대한 설정을 검색하도록 로컬 캐시를 안전하게 업데이트합니다. 
 
-3. 오프라인으로 전환합니다. 
+3. **오프라인으로 전환합니다.**
 
    IoT Hub와의 연결이 끊어진 동안 IoT Edge 장치, 배포된 모듈 및 자식 IoT 장치는 무기한 작동할 수 있습니다. 모듈과 자식 장치는 오프라인인 동안 Edge 허브로 인증하여 시작 및 다시 시작할 수 있습니다. IoT Hub에 업스트림 바인딩된 원격 분석 데이터는 로컬로 저장됩니다. 모듈 간 통신 또는 자식 IoT 장치 간 통신은 직접 메서드 또는 메시지를 통해 유지됩니다. 
 
-4. IoT Hub와 다시 연결하고 동기화합니다.
+4. **IoT Hub와 다시 연결하고 동기화합니다.**
 
    IoT Hub와의 연결이 복원되면 IoT Edge 장치가 다시 동기화됩니다. 로컬에 저장된 메시지는 저장된 순서대로 전달됩니다. 모듈 및 장치의 desired 속성과 reported 속성 간 차이가 조정됩니다. IoT Edge 장치는 할당된 자식 IoT 장치에 변경 내용을 업데이트합니다.
 
@@ -69,17 +69,19 @@ Azure Portal에서, 배포 모듈을 설정할 때 **고급 Edge 런타임 설�
 배포 템플릿 JSON에서, 환경 변수는 다음 예제처럼 선언됩니다. 
 
 ```json
-"edgeAgent": {
+"edgeHub": {
     "type": "docker",
     "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
-        "createOptions": ""
+        "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+        "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
     },
     "env": {
         "UpstreamProtocol": {
             "value": "MQTT"
         }
     },
+    "status": "running",
+    "restartPolicy": "always"
 }
 ```
 

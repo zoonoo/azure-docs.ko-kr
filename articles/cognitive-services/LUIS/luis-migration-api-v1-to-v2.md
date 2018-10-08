@@ -1,21 +1,21 @@
 ---
-title: v1에서 v2로 API 마이그레이션 가이드 | Microsoft Docs
-titleSuffix: Azure
+title: v1에서 v2로의 API 마이그레이션 가이드
+titleSuffix: Azure Cognitive Services
 description: 최신 API 집합으로 마이그레이션하는 방법을 알아봅니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/01/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: e7460a0eaf51e839accf08b6f8b07a112033af17
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: b936b42671c15a77a901f321ed3c51f1ba3639cd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43130478"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036595"
 ---
 # <a name="api-v2-migration-guide"></a>API v2 마이그레이션 가이드
 버전 1 [엔드포인트](https://aka.ms/v1-endpoint-api-docs) 및 [작성](https://aka.ms/v1-authoring-api-docs) API는 더 이상 사용되지 않습니다. 이 가이드를 사용하여 버전 2 [엔드포인트](https://aka.ms/luis-endpoint-apis) 및 [작성](https://aka.ms/luis-authoring-apis) API로 마이그레이션하는 방법을 이해합니다. 

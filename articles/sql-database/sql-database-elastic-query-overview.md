@@ -2,19 +2,22 @@
 title: Azure SQL Database 탄력적 쿼리 개요 | Microsoft Docs
 description: 탄력적 쿼리를 사용하여 여러 데이터베이스에 걸쳐 있는 Transact-SQL 쿼리를 실행할 수 있습니다.
 services: sql-database
-manager: craigg
-author: MladjoA
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/03/2018
+author: MladjoA
 ms.author: mlandzic
-ms.openlocfilehash: 52fce1cf1acb5e084c629c9cad6486d6a599b4fd
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 8a7962866b70ae0ec99b8425a365575fbd4e5913
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435777"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164373"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database 탄력적 쿼리 개요(미리 보기)
 
@@ -28,7 +31,7 @@ ms.locfileid: "37435777"
 
 ### <a name="available-on-standard-tier"></a>표준 계층에서 사용가능
 
-표준 및 프리미엄 성능 계층 모두에 탄력적 쿼리가 지원됩니다. 낮은 성능 계층의 성능 제한 사항은 아래의 미리 보기 제한 사항 섹션을 참조하세요.
+탄력적 쿼리는 Standard 및 Premium 서비스 계층 모두에서 지원됩니다. 낮은 서비스 계층에 대한 성능 제한 사항은 아래의 '미리 보기 제한 사항' 섹션을 참조하세요.
 
 ### <a name="push-parameters-to-remote-databases"></a>원격 데이터베이스에 매개 변수 푸시하기
 
@@ -101,7 +104,7 @@ DDL 문을 실행한 후에는 원격 테이블인 “mytable”에 로컬 테�
 
 > [!NOTE]
 > 탄력적 쿼리 데이터베이스(헤드 노드)는 별도 데이터베이스이거나 분할 맵을 호스팅하는 동일한 데이터베이스일 수 있습니다.
-> 선택한 모든 구성에서 해당 데이터베이스의 해당 서비스 및 성능 계층은 예상된 로그인/쿼리 요청의 양을 처리할 수 있도록 충분히 높아야 합니다.
+> 어떤 구성을 선택하든 해당 데이터베이스의 서비스 계층 및 계산 크기에서 필요한 로그인/쿼리 요청의 양을 처리할 수 있을 만큼 충분한지 확인합니다.
 
 다음 단계에서는 (보통) 여러 개의 원격 SQL 데이터베이스에 있는 테이블 집합에 액세스가 필요한 행 분할 시나리오에 대해 탄력적 데이터베이스 쿼리를 구성합니다.
 
@@ -133,7 +136,7 @@ Elastic Database 쿼리는 Azure SQL Database의 비용 안에 포함됩니다. 
 
 ## <a name="preview-limitations"></a>미리 보기 제한 사항
 
-* 표준 성능 계층에서 처음으로 탄력적 쿼리를 실행하면 몇 분 정도 걸릴 수 있습니다. 이 때 탄력적 쿼리 기능을 로드해야 하며 성능 계층이 높으면 로드 성능이 향상됩니다.
+* Standard 서비스 계층에서 처음으로 탄력적 쿼리를 실행하면 몇 분 정도 걸릴 수 있습니다. 이 시간은 탄력적 쿼리 기능을 로드하는 데 필요하며, 더 높은 서비스 계층 및 계산 크기로 인해 로드 성능이 향상됩니다.
 * 외부 데이터 원본이나, SSMS 또는 SSDT에서의 외부 테이블 스크립팅은 아직 지원되지 않습니다.
 * SQL DB Import/Export는 외부 데이터 원본 및 외부 테이블을 아직 지원하지 않습니다. Import/Export를 사용해야 하는 경우 내보내기 전에 이러한 개체를 삭제하고 가져온 후 다시 만듭니다.
 * 탄력적 쿼리는 현재 외부 테이블에 대한 읽기 전용 액세스만 지원합니다. 그러나 외부 테이블이 정의된 데이터베이스에서 전체 T-SQL 기능을 사용할 수 있습니다. 예를 들어, SELECT <column_list> INTO <local_table>을 사용하여 나온 일시적 결과를 유지하거나 외부 테이블을 참조하는 탄력적 쿼리 데이터베이스의 저장 프로시저를 정의하는 데 이 기능이 유용합니다.

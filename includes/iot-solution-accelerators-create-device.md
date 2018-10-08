@@ -5,15 +5,15 @@ services: iot-accelerators
 author: dominicbetts
 ms.service: iot-accelerators
 ms.topic: include
-ms.date: 08/16/2018
+ms.date: 09/28/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: c6e57d5094f455983b8b474b6930f628d654e457
-ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
+ms.openlocfilehash: 5eb3c08792b760bf66e443f79762d91210706c92
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43371011"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47435115"
 ---
 첫 번째 시나리오에서 Contoso의 기존 **냉각기** 장치 유형에 새 원격 분석 유형을 추가합니다.
 
@@ -21,7 +21,7 @@ ms.locfileid: "43371011"
 
 *속성*
 
-| Name                     | 값                      |
+| 이름                     | 값                      |
 | ------------------------ | --------------------------- |
 | 색                    | 흰색, 빨강, 파랑            |
 | 밝기               | 0~100                    |
@@ -31,7 +31,7 @@ ms.locfileid: "43371011"
 
 다음 표는 전구에서 데이터 스트림으로 클라우드에 보고하는 데이터를 보여 줍니다.
 
-| Name   | 값      |
+| 이름   | 값      |
 | ------ | ----------- |
 | 상태 | "켜짐", "꺼짐" |
 | 온도 | 화씨 도 |
@@ -44,7 +44,7 @@ ms.locfileid: "43371011"
 
 다음 표는 새 장치에서 지원하는 작업을 보여 줍니다.
 
-| Name        |
+| 이름        |
 | ----------- |
 | 켜짐   |
 | 꺼짐  |
@@ -53,7 +53,7 @@ ms.locfileid: "43371011"
 
 다음 표는 장치의 초기 상태를 보여 줍니다.
 
-| Name                     | 값 |
+| 이름                     | 값 |
 | ------------------------ | -------|
 | 초기 색상            | 흰색  |
 | 초기 밝기       | 75     |
@@ -73,6 +73,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 * Visual Studio Code. [Mac, Linux 및 Windows용 Visual Studio Code를 다운로드](https://code.visualstudio.com/download)할 수 있습니다.
 * .NET Core [Mac, Linux 및 Windows용 .NET Core를 다운로드](https://www.microsoft.com/net/download)할 수 있습니다.
+* [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 * Postman [Mac, Windows 또는 Linux용 Postman](https://www.getpostman.com/apps)을 다운로드할 수 있습니다.
 * [Azure 구독에 배포된 IoT 허브](../articles/iot-hub/iot-hub-create-through-portal.md) 이 가이드의 단계를 완료하려면 IoT 허브의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
 * SQL API를 사용하고 [강력한 일관성](../articles/cosmos-db/manage-account.md)에 대해 구성된 Cosmos DB 데이터베이스 이 가이드의 단계를 완료하려면 Cosmos DB 데이터베이스의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
@@ -89,13 +90,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ### <a name="download-the-microservices"></a>마이크로 서비스 다운로드
 
-GitHub에서 [저장소 어댑터 마이크로 서비스](https://github.com/Azure/pcs-storage-adapter-dotnet/archive/master.zip)를 로컬 머신의 적합한 위치에 다운로드하고 압축을 풉니다.
+[원격 모니터링 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip)를 GitHub에서 로컬 머신의 적합한 위치에 다운로드하고 압축을 풉니다. 이 문서에서는 이 폴더의 이름이 **remote-monitoring-services-dotnet-master**라고 가정합니다.
 
-GitHub에서 [장치 시뮬레이션 마이크로 서비스](https://github.com/Azure/device-simulation-dotnet/archive/master.zip)를 로컬 머신의 적합한 위치에 다운로드하고 압축을 풉니다.
+GitHub에서 [장치 시뮬레이션 마이크로 서비스](https://github.com/Azure/device-simulation-dotnet/archive/master.zip)를 로컬 머신의 적합한 위치에 다운로드하고 압축을 풉니다. 이 문서에서는 이 폴더의 이름이 **device-simulation-dotnet-master**라고 가정합니다.
 
 ### <a name="run-the-storage-adapter-microservice"></a>저장소 어댑터 마이크로 서비스 실행
 
-Visual Studio Code에서 **pcs-storage-adapter-dotnet-master** 폴더를 엽니다. **복원** 단추를 클릭하여 확인할 수 없는 종속성을 수정합니다.
+Visual Studio Code에서 **remote-monitoring-services-dotnet-master\storage-adapter** 폴더를 엽니다. **복원** 단추를 클릭하여 확인할 수 없는 종속성을 수정합니다.
 
 **.vscode/launch.json** 파일을 열고 Cosmos DB 연결 문자열을 **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** 환경 변수에 할당합니다.
 
@@ -117,20 +118,14 @@ Visual Studio Code에서 **터미널** 창은 웹 서비스 상태 확인에 대
 
     | 원본 | 대상 |
     | ------ | ----------- |
-    | Services\Data\devicemodels\chiller-01.json | C:\temp\devicemodels\chiller-01.json |
-    | Services\Data\devicemodels\scripts\chiller-01-state.js | C:\temp\devicemodels\scripts\chiller-01-state.js |
-    | Services\Data\devicemodels\scripts\Reboot-method.js | C:\temp\devicemodels\scripts\Reboot-method.js |
-    | Services\Data\devicemodels\scripts\FirmwareUpdate-method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-method.js |
-    | Services\Data\devicemodels\scripts\EmergencyValveRelease-method.js | C:\temp\devicemodels\scripts\EmergencyValveRelease-method.js |
-    | Services\Data\devicemodels\scripts\IncreasePressure-method.js | C:\temp\devicemodels\scripts\IncreasePressure-method.js |
+    | Services\data\devicemodels\chiller-01.json | C:\temp\devicemodels\chiller-01.json |
+    | Services\data\devicemodels\scripts\chiller-01-state.js | C:\temp\devicemodels\scripts\chiller-01-state.js |
+    | Services\data\devicemodels\scripts\Reboot-method.js | C:\temp\devicemodels\scripts\Reboot-method.js |
+    | Services\data\devicemodels\scripts\FirmwareUpdate-method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-method.js |
+    | Services\data\devicemodels\scripts\EmergencyValveRelease-method.js | C:\temp\devicemodels\scripts\EmergencyValveRelease-method.js |
+    | Services\data\devicemodels\scripts\IncreasePressure-method.js | C:\temp\devicemodels\scripts\IncreasePressure-method.js |
 
 1. **C:\temp\devicemodels\chiller-01.json** 파일을 엽니다.
-
-1. 다음과 같이 **SchemaVersion** 값을 업데이트합니다.
-
-    ```json
-    "SchemaVersion": "1.0.0",
-    ```
 
 1. **InitialState** 섹션에서 다음 두 정의를 추가합니다.
 
@@ -422,7 +417,7 @@ Visual Studio Code에서 **터미널** 창은 웹 서비스 상태 확인에 대
 
 Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-simulation-dotnet-master** 폴더를 엽니다. **복원** 단추를 클릭하여 확인할 수 없는 종속성을 수정합니다.
 
-**.vscode/launch.json** 파일을 열고 IoT Hub 연결 문자열을 **PCS_IOTHUB_CONNSTRING** 환경 변수에 할당합니다.
+**.vscode/launch.json** 파일을 열고 IoT Hub 연결 문자열을 **PCS_IOTHUB_CONNSTRING** 환경 변수에 할당합니다. 동일한 파일에서 **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** 환경 변수를 추가하고 Cosmos DB 데이터베이스에 대한 연결 문자열을 할당합니다.
 
 **WebService/Properties/launchSettings.json** 파일을 열고 IoT Hub 연결 문자열을 **PCS_IOTHUB_CONNSTRING** 환경 변수에 할당합니다.
 
@@ -466,7 +461,7 @@ Postman을 설정하려면:
 
 1. **파일 > 가져오기**를 클릭합니다. 그런 다음, **파일 선택**을 클릭합니다.
 
-1. **device-simulation-dotnet/docs/postman** 폴더로 이동합니다. **Azure IoT Device Simulation solution accelerator.postman_collection** 및 **Azure IoT Device Simulation solution accelerator.postman_environment**를 선택하고 **열기**를 클릭합니다.
+1. **device-simulation-dotnet-master/docs/postman** 폴더로 이동합니다. **Azure IoT Device Simulation solution accelerator.postman_collection** 및 **Azure IoT Device Simulation solution accelerator.postman_environment**를 선택하고 **열기**를 클릭합니다.
 
 1. **Azure IoT 장치 시뮬레이션 솔루션 가속기**를 전송할 수 있는 요청으로 확장합니다.
 

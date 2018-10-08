@@ -1,29 +1,34 @@
 ---
-title: Azure SQL Database 방화벽 규칙 | Microsoft Docs
-description: 서버 수준 및 데이터베이스 수준 방화벽 규칙으로 SQL 데이터베이스 방화벽을 구성하여 액세스를 관리하는 방법에 대해 알아봅니다.
-keywords: 데이터베이스 방화벽
+title: Azure SQL Database 및 Data Warehouse 방화벽 규칙 | Microsoft Docs
+description: 액세스를 관리하는 서버 수준 방화벽 규칙을 사용하여 SQL Database 및 SQL Data Warehouse 방화벽을 구성하는 방법을 알아보고, SQL Database 데이터베이스 수준 방화벽 규칙을 구성합니다.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.author: carlrab
-ms.openlocfilehash: 1848fea8a21afc473873cb8c4a5ba87b09da02e2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+author: VanMSFT
+ms.author: vanto
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: bc246031e57fd8e28cddf9f4e6e170b0695d7579
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646816"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166761"
 ---
-# <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Azure SQL Database 서버 수준 및 데이터베이스 수준 방화벽 규칙 
+# <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Azure SQL Database 및 SQL Data Warehouse 방화벽 규칙 
 
-Microsoft Azure SQL Database는 Azure 및 기타 인터넷 기반 응용 프로그램의 관계형 데이터베이스 서비스를 제공합니다. 데이터를 보호하기 위해 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다.
+Microsoft Azure [SQL Database](sql-database-technical-overview.md) 및 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)는 Azure 및 다른 인터넷 기반 응용 프로그램에 관계형 데이터베이스 서비스를 제공합니다. 데이터를 보호하기 위해 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다.
+
+> [!NOTE]
+> 이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
 
 #### <a name="virtual-network-rules-as-alternatives-to-ip-rules"></a>IP 규칙 대신 사용되는 가상 네트워크 규칙
 
-IP 규칙 이외에 방화벽도 *가상 네트워크 규칙*을 관리합니다. 가상 네트워크 규칙은 Virtual Network 서비스 끝점을 기반으로 합니다. 경우에 따라 가상 네트워크 규칙이 IP 규칙보다 더 좋을 수 있습니다. 자세한 내용은 [Azure SQL Database에 대한 가상 네트워크 서비스 끝점 및 규칙](sql-database-vnet-service-endpoint-rule-overview.md)을 참조하세요.
+IP 규칙 이외에 방화벽도 *가상 네트워크 규칙*을 관리합니다. 가상 네트워크 규칙은 Virtual Network 서비스 엔드포인트를 기반으로 합니다. 경우에 따라 가상 네트워크 규칙이 IP 규칙보다 더 좋을 수 있습니다. 자세한 내용은 [Azure SQL Database에 대한 가상 네트워크 서비스 엔드포인트 및 규칙](sql-database-vnet-service-endpoint-rule-overview.md)을 참조하세요.
 
 ## <a name="overview"></a>개요
 
@@ -31,12 +36,15 @@ IP 규칙 이외에 방화벽도 *가상 네트워크 규칙*을 관리합니다
 
 선택적으로 Azure SQL Server에 있는 데이터베이스 중 하나에 대해서만 액세스 권한을 부여하려면 필수 데이터베이스에 대해 데이터베이스 수준 규칙을 만들어야 합니다. 서버 수준 방화벽 규칙에 지정된 IP 주소 범위 밖의 데이터베이스 방화벽 규칙의 IP 주소 범위를 지정한 경우, 클라이언트의 IP 주소가 데이터베이스 수준 규칙에 지정된 범위에 속하는지 확인합니다.
 
+> [!IMPORTANT]
+> SQL Data Warehouse는 서버 수준 방화벽 규칙만 지원하며, 데이터베이스 수준 방화벽 규칙은 지원하지 않습니다.
+
 인터넷과 Azure로부터의 연결 시도는 다음 다이어그램과 같이 Azure SQL Server 또는 SQL Database에 연결하기 전에 먼저 방화벽을 통과해야 합니다.
 
    ![방화벽 구성을 설명하는 다이어그램입니다.][1]
 
 * **서버 수준 방화벽 규칙:** 이 규칙은 모든 Azure SQL 서버, 즉, 동일한 논리 서버 내의 모든 데이터베이스에 클라이언트가 액세스할 수 있도록 합니다. 이 규칙은 **master** 데이터베이스에 저장됩니다. 포털 또는 Transact-SQL 문을 사용하여 서버 수준 방화벽 규칙을 구성할 수 있습니다. Azure Portal 또는 PowerShell을 사용하여 서버 수준 방화벽 규칙을 만들려면 구독 소유자 또는 구독 참가자여야 합니다. Transact-SQL을 사용하여 서버 수준 방화벽 규칙을 만들려면 서버 수준 주체 로그인 또는 Azure Active Directory 관리자로 SQL Database 인스턴스에 연결해야 합니다. 다시 말하면 Azure 수준 권한을 가진 사용자가 먼저 서버 수준 방화벽 규칙을 만들어야 합니다.
-* **데이터베이스 수준 방화벽 규칙:** 이 규칙은 동일한 논리 서버 내의 특정(보안) 데이터베이스에 클라이언트가 액세스할 수 있도록 합니다. 각 데이터베이스(**master** 데이터베이스 포함)에 대해 이러한 규칙을 만들 수 있으며 규칙은 개별 데이터베이스에 저장됩니다. master 및 user 데이터베이스에 대한 데이터베이스 수준 방화벽 규칙은 Transact-SQL 문을 사용하는 경우에 한해 첫 번째 서버 수준 방화벽을 구성한 후에만 구성할 수 있습니다. 서버 수준 방화벽 규칙 내 지정된 범위 밖의 데이터베이스 수준 방화벽 규칙의 IP 주소 범위를 지정한 경우, 데이터베이스 수준 범위 내에 IP 주소를 가진 클라이언트만이 데이터베이스에 액세스할 수 있습니다. 데이터베이스에 대해 최대 128개의 데이터베이스 수준 방화벽 규칙을 가질 수 있습니다. 데이터베이스 수준의 방화벽 규칙 구성에 대한 자세한 내용은 이 문서 뒷부분에 나오는 예제와 [sp_set_database_firewall_rule(Azure SQL Database)](https://msdn.microsoft.com/library/dn270010.aspx)을 참조하세요.
+* **데이터베이스 수준 방화벽 규칙:** 이 규칙은 동일한 논리 서버 내의 특정(보안) 데이터베이스에 클라이언트가 액세스할 수 있도록 합니다. 각 데이터베이스(**master** 데이터베이스 포함)에 대해 이러한 규칙을 만들 수 있으며 규칙은 개별 데이터베이스에 저장됩니다. master 및 user 데이터베이스에 대한 데이터베이스 수준 방화벽 규칙은 Transact-SQL 문을 사용하는 경우에 한해 첫 번째 서버 수준 방화벽을 구성한 후에만 구성할 수 있습니다. 서버 수준 방화벽 규칙 내 지정된 범위 밖의 데이터베이스 수준 방화벽 규칙의 IP 주소 범위를 지정한 경우, 데이터베이스 수준 범위 내에 IP 주소를 가진 클라이언트만이 데이터베이스에 액세스할 수 있습니다. 데이터베이스에 대해 최대 128개의 데이터베이스 수준 방화벽 규칙을 가질 수 있습니다. 데이터베이스 수준 방화벽 규칙을 구성하는 방법에 대한 자세한 내용은 이 문서 뒷부분에 나오는 예제 및 [sp_set_database_firewall_rule(Azure SQL Database)](https://msdn.microsoft.com/library/dn270010.aspx)을 참조하세요.
 
 **권장 사항:** Microsoft는 보안을 강화하고 데이터베이스의 휴대성이 높아질수록 데이터베이스 수준 방화벽을 사용하도록 권장합니다. 관리자의 경우 서버 수준 방화벽 규칙을 사용하면 동일한 액세스를 요구하는 데이터베이스가 많을 때 각 데이터베이스를 개별적으로 구성할 필요가 없습니다.
 
@@ -68,7 +76,7 @@ Azure에서 응용 프로그램을 Azure SQL Server에 연결할 수 있게 하�
 > 
 
 ## <a name="creating-and-managing-firewall-rules"></a>방화벽 규칙 만들기 및 관리
-첫 번째 서버 수준 방화벽 설정은 [Azure Portal](https://portal.azure.com/)을 사용하거나 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create) 또는 [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules)를 사용하여 프로그래밍 방식으로 만들 수 있습니다. 후속 서버 수준 방화벽 규칙은 이러한 방법과 Transact-SQL을 사용하여 만들고 관리 할 수 있습니다. 
+첫 번째 서버 수준 방화벽 설정은 [Azure Portal](https://portal.azure.com/)을 사용하거나 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) 또는 [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules)를 사용하여 프로그래밍 방식으로 만들 수 있습니다. 후속 서버 수준 방화벽 규칙은 이러한 방법과 Transact-SQL을 사용하여 만들고 관리 할 수 있습니다. 
 
 > [!IMPORTANT]
 > 데이터베이스 수준 방화벽 규칙은 Transact-SQL을 사용해야만 만들고 관리할 수 있습니다. 
@@ -154,17 +162,17 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 ```
 
 > [!TIP]
-> 빠른 시작의 컨텍스트에서 PowerShell 예제를 보려면 [DB 만들기 - PowerShell](sql-database-get-started-powershell.md) 및 [PowerShell을 사용하여 단일 데이터베이스 만들기 및 방화벽 규칙 구성](scripts/sql-database-create-and-configure-database-powershell.md)을 참조하세요.
+> 빠른 시작의 컨텍스트에서 PowerShell 예제를 보려면 [DB 만들기 - PowerShell](sql-database-powershell-samples.md) 및 [PowerShell을 사용하여 단일 데이터베이스 만들기 및 방화벽 규칙 구성](scripts/sql-database-create-and-configure-database-powershell.md)을 참조하세요.
 >
 
 ## <a name="manage-firewall-rules-using-azure-cli"></a>Azure CLI를 사용하여 방화벽 규칙 관리
 | Cmdlet | Level | 설명 |
 | --- | --- | --- |
-|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|서버|서버 방화벽 규칙 만들기|
-|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|서버|서버의 방화벽 규칙 나열|
-|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|서버|방화벽 규칙의 세부 정보 표시|
-|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|서버|방화벽 규칙 업데이트|
-|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|서버|방화벽 규칙 삭제|
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|서버|서버 방화벽 규칙 만들기|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|서버|서버의 방화벽 규칙 나열|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|서버|방화벽 규칙의 세부 정보 표시|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|서버|방화벽 규칙 업데이트|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|서버|방화벽 규칙 삭제|
 
 다음 예제에서는 Azure CLI를 사용하여 서버 수준 방화벽 규칙을 설정합니다. 
 
@@ -174,7 +182,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 ```
 
 > [!TIP]
-> 빠른 시작의 컨텍스트에서 Azure CLI 예제를 보려면 [DDB 만들기 - Azure CLI](sql-database-get-started-cli.md) 및 [Azure CLI를 사용하여 단일 데이터베이스 만들기 및 방화벽 규칙 구성](scripts/sql-database-create-and-configure-database-cli.md)을 참조하세요.
+> 빠른 시작의 컨텍스트에서 Azure CLI 예제를 보려면 [DB 만들기 - Azure CLI](sql-database-cli-samples.md) 및 [Azure CLI를 사용하여 단일 데이터베이스 만들기 및 방화벽 규칙 구성](scripts/sql-database-create-and-configure-database-cli.md)을 참조하세요.
 >
 
 ## <a name="manage-firewall-rules-using-rest-api"></a>REST API를 사용하여 방화벽 규칙 관리

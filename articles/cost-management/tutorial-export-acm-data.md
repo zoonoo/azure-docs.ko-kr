@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/13/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: b1c7323dc108f5ee7a8bf6075abfe2a3e2fb9810
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0765e79b90eed49742f5eead33063907eb1db1f4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953143"
+ms.locfileid: "47030849"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>자습서: 내보낸 데이터를 만들고 관리
 
@@ -31,8 +31,15 @@ ms.locfileid: "46953143"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Azure EA 계정
-- BLOB 또는 파일 저장소에 대해 구성된 Azure 저장소 계정
+데이터 내보내기는 [모든 EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/) 고객이 사용할 수 있습니다. 다음 Azure 사용 권한은 사용자 및 그룹별 데이터 내보내기에 대한 구독에 따라 지원됩니다.
+
+- 소유자 – 구독에 대한 예약된 내보내기를 만들고, 수정하거나 삭제할 수 있습니다.
+- 기여자 – 자신의 예약된 내보내기를 만들고, 수정하거나 삭제할 수 있습니다. 다른 사용자가 만든 예약된 내보내기의 이름을 수정할 수 있습니다.
+- 읽기 권한자 - 사용 권한이 있는 내보내기를 예약할 수 있습니다.
+
+Azure Storage 계정의 경우:
+- 내보내기에 대한 사용 권한과 상관 없이 구성된 저장소 계정을 변경하려면 쓰기 사용 권한이 필요합니다.
+- BLOB 또는 파일 저장소에 대해 Azure 저장소 계정이 구성되어 있어야 합니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 [https://portal.azure.com](https://portal.azure.com/)에서 Azure Portal에 로그인합니다.

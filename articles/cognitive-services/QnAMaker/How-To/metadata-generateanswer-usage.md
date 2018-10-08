@@ -1,20 +1,21 @@
 ---
-title: 기술 자료에 GenerateAnswer API와 함께 메타데이터 사용 | Microsoft Docs
-description: GenerateAnswer API와 함께 메타데이터 사용
+title: GenerateAnswer API와 메타데이터 - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: QnA Maker는 메타데이터를 키/값 쌍의 형태로 질문/응답 집합에 추가할 수 있습니다. 이 정보는 사용자 쿼리에 대한 결과를 필터링하고 후속 대화에 사용할 수 있는 추가 정보를 저장하는 데 사용할 수 있습니다.
 services: cognitive-services
-author: pchoudhari
-manager: rsrikan
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/18/2018
-ms.author: pchoudh
-ms.openlocfilehash: e1b7c82e6998705bdc7e1c1a5d279bda7793667a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.date: 09/12/2018
+ms.author: tulasim88
+ms.openlocfilehash: eef26cf1f5a11d7dcd1fdc41747aac675e0bc528
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43305202"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031087"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>메타데이터 및 GenerateAnswer API 사용
 

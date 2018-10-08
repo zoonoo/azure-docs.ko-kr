@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 816ba560ccb9b06414dff8ffaea054e88d216b10
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7802aa8ea9798b18d5424c2342ba63c01406b25a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972386"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221709"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>예측 유지 관리 솔루션에 대한 Azure AI 가이드
 
@@ -232,12 +232,12 @@ PdM의 다른 유용한 기술은 데이터에서 이상을 감지하는 알고�
 
 | 자산 ID | Time | <Feature Columns> | 레이블 |
 | ---- | ---- | --- | --- |
-| A123 |1일차 | 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. | 에서도 확인할 수 있습니다. |
-| A123 |2일차 | 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. | 에서도 확인할 수 있습니다. |
-| ...  |...   | 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. | 에서도 확인할 수 있습니다. |
-| B234 |1일차 | 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. | 에서도 확인할 수 있습니다. |
-| B234 |2일차 | 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. | 에서도 확인할 수 있습니다. |
-| ...  |...   | 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. | 에서도 확인할 수 있습니다. |
+| A123 |1일차 | . . . | . |
+| A123 |2일차 | . . . | . |
+| ...  |...   | . . . | . |
+| B234 |1일차 | . . . | . |
+| B234 |2일차 | . . . | . |
+| ...  |...   | . . . | . |
 
 기능 엔지니어링의 마지막 단계는 대상 변수의 **레이블 지정**입니다. 이 프로세스는 모델링 기술에 따라 달라집니다. 차례로 모델링 기술은 사용 가능한 데이터의 비즈니스 문제 및 특성에 따라 달라집니다. 레이블 지정은 다음 섹션에서 설명합니다.
 
@@ -426,19 +426,19 @@ PdM에서 정상 예제보다 소수 클래스를 구성하는 오류에 더 관
 
 ## <a name="training-resources-for-predictive-maintenance"></a>예측 유지 관리에 대한 교육 리소스
 
-[예측 유지 관리에 대한 Azure AI 학습 경로](https://github.com/Azure/AI-PredictiveMaintenance/blob/master/docs/azure-ai-learning-path-for-predictive-maintenance.md)에서는 PdM 문제에서 사용되는 알고리즘 및 기술을 넘어 개념 및 수학을 깊이 이해할 수 있는 교육 자료를 제공합니다. 
-
-Microsoft Azure에서는 일반적인 AI 개념 및 사례에 대한 무료 콘텐츠 및 교육을 제공합니다.
+Microsoft Azure는 일반적인 AI 개념과 연습에 대한 콘텐츠 및 학습 외에도 PdM 기술의 기본 개념을 학습할 수 있는 경로를 제공합니다.
 
 | 학습 리소스  | 가용성 |
 |:-------------------|--------------|
+| [트리 및 임의 포리스트를 사용한 PdM에 대한 학습 경로](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | 공용 | 
+| [심층 학습을 사용한 PdM에 대한 학습 경로](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | 공용 |
 | [Azure의 AI 개발자](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | 공용 |
 | [Microsoft AI School](http://aischool.microsoft.com/learning-paths) | 공용 |
 | [GitHub의 Azure AI 학습](https://github.com/Azure/connectthedots/blob/master/readme.md) | 공용 |
 | [LinkedIn Learning](http://www.linkedin.com/learning) | 공용 |
 | [Microsoft AI YouTube 웨비나](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | 공용 |
 | [Microsoft AI Show](http://channel9.msdn.com/Shows/AI-Show) | 공용 |
-| [LearnAI@MS](http://learnanalytics.microsoft.com) | Microsoft 파트너의 경우 |
-| [Microsoft 파트너 네트워크](http://learningportal.microsoft.com) | Microsoft 파트너의 경우 |
+| [LearnAI@MS](http://learnanalytics.microsoft.com) | 파트너 |
+| [Microsoft 파트너 네트워크](http://learningportal.microsoft.com) | 파트너 |
 
 또한 AI에서 무료 MOOCS(대규모 오픈 온라인 강의)는 스탠퍼드 및 MIT와 같은 교육 기관 및 기타 교육 회사에서 온라인으로 제공합니다.

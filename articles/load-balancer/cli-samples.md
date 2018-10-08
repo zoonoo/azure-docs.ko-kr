@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 04/17/2018
+ms.date: 06/14/2018
 ms.author: kumud
-ms.openlocfilehash: 86dbce55bcafdd63271143145069116db9664b52
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 41e80e04051a24fd32086c61c65bc3eec1564c57
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182133"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094934"
 ---
 # <a name="azure-cli-samples-for-load-balancer"></a>Load Balancer에 대한 Azure CLI 샘플
 
@@ -29,6 +29,8 @@ ms.locfileid: "32182133"
 | | |
 |-|-|
 | [고가용성을 위해 VM에 트래픽 부하 분산](./scripts/load-balancer-linux-cli-sample-nlb.md) | 고가용성의 부하가 분산된 구성으로 여러 가상 머신을 만듭니다. |
+| [가용성 영역에 VM 부하 분산](./scripts/load-balancer-linux-cli-sample-zone-redundant-frontend.md) | 한 영역 내의 서로 다른 가용성 영역에 VM 3대를 만들고 영역 중복 프런트 엔드 IP 주소를 사용하는 표준 Load Balancer를 만듭니다. 이 부하 분산 장치 구성은 가능성은 낮지만 전체 데이터 센터가 중지되는 사고로부터 앱과 데이터를 보호합니다. |
+|[특정 가용성 영역 내에 VM 부하 분산](./scripts/load-balancer-linux-cli-sample-zonal-frontend.md)|VM 3대를 만들고, 영역별 프런트 엔드 IP 주소를 사용하여 지정된 지역의 단일 영역에서 데이터 경고와 리소스를 정렬하는 표준 Load Balancer를 만듭니다.|
 | [VM에서 여러 웹 사이트에 부하 분산](./scripts/load-balancer-linux-cli-load-balance-multiple-websites-vm.md) | Azure 가용성 집합에 연결되고 Azure 부하 분산 장치를 통해 액세스할 수 있는 2개의 VM을 여러 IP 구성을 사용해서 만듭니다. |
 | | |
 

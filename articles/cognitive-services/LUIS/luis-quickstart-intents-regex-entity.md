@@ -1,71 +1,69 @@
 ---
-title: 정규식과 일치하는 데이터를 가져오는 LUIS 앱을 만드는 자습서 - Azure | Microsoft Docs
-description: 이 자습서에서는 의도를 사용하는 간단한 LUIS 앱 및 데이터를 추출하는 정규식 엔터티를 만드는 방법을 알아봅니다.
+title: '자습서 3: 정규식 일치 데이터 - 적절한 형식의 데이터 추출'
+titleSuffix: Azure Cognitive Services
+description: 정규식 엔터티를 사용하여 발언에서 일관적인 형식의 데이터를 추출합니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 9672215c8cc5f95775e3b7fba74b27379a58ff49
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 06e212ef756fda9224b38b41c69c7c4eccfb9796
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162932"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159859"
 ---
-# <a name="tutorial-3-add-regular-expression-entity"></a>자습서: 3. 정규식 엔터티 추가
-이 자습서에서는 **정규식** 엔터티를 사용하여 발화에서 형식이 일관되게 지정된 데이터를 추출하는 방법을 보여 주는 앱을 만듭니다.
+# <a name="tutorial-3-extract-well-formatted-data"></a>자습서 3: 적절한 형식의 데이터 추출
+이 자습서에서는 **정규식** 엔터티를 사용하여 발언에서 일관적인 형식의 데이터를 추출하도록 인사 관리 앱을 수정합니다.
 
+엔터티의 목적은 발언에 포함된 중요한 데이터를 추출하는 것입니다. 이 앱이 정규식 엔터티를 사용하는 것은 발언에서 형식이 지정된 HR(인사 관리) 양식 번호를 추출하는 것입니다. 발언의 의도는 언제나 기계 학습을 사용하여 확인되지만, 이 특정 엔터티 형식에는 기계 학습이 적용되지 않습니다. 
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * 정규식 엔터티에 대한 이해 
-> * FindForm 의도를 사용하여 HR(인사 관리) 도메인에 대한 LUIS 앱 사용
-> * 발화에서 양식 번호를 추출하는 정규식 엔터티 추가
-> * 앱 학습 및 게시
-> * 앱의 엔드포인트를 쿼리하여 LUIS JSON 응답 확인
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>시작하기 전에
-[미리 작성된 엔터티](luis-tutorial-prebuilt-intents-entities.md) 자습서의 인사 관리 앱이 없으면 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json) Github 리포지토리의 JSON을 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 새 앱으로 [가져옵니다](luis-how-to-start-new-app.md#import-new-app).
-
-원래의 인사 관리 앱을 유지하려면 [설정](luis-how-to-manage-versions.md#clone-a-version) 페이지에서 버전을 복제하고 해당 이름을 `regex`로 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 
-
-
-## <a name="purpose-of-the-regular-expression-entity"></a>정규식 엔터티의 목적
-엔터티의 목적은 발화에 포함된 중요한 데이터를 가져오는 것입니다. 앱에서 정규식 엔터티를 사용하는 것은 발화에서 형식이 지정된 HR(인사 관리) 양식 번호를 추출하는 것이며, 기계 학습이 아닙니다. 
-
-간단한 발화 예제는 다음과 같습니다.
+**다음은 발언 예제입니다.**
 
 ```
 Where is HRF-123456?
 Who authored HRF-123234?
 HRF-456098 is published in French?
-```
-
-발화의 약어 또는 속어 버전은 다음과 같습니다.
-
-```
 HRF-456098
 HRF-456098 date?
 HRF-456098 title?
 ```
  
-양식 번호와 일치하는 정규식 엔터티는 `hrf-[0-9]{6}`입니다. 이 정규식은 `hrf -` 리터럴 문자와 일치하지만 대/소문자 및 문화권 변형을 무시합니다. 6자리 숫자에 대해 0에서 9까지의 숫자와 정확하게 일치합니다.
+다음과 같은 경우 정규식은 이러한 종류의 데이터에 적합한 선택입니다.
 
-HRF는 인사 관리 양식을 나타냅니다.
+* 데이터 형식이 적절합니다.
 
-### <a name="tokenization-with-hyphens"></a>하이픈으로 토큰화
-발화가 의도에 추가되면 LUIS에서 해당 발화를 토큰화합니다. 이러한 발화에 대한 토큰화에서는 하이픈의 앞뒤에 공백이 추가됩니다(예: `Where is HRF - 123456?`). 정규식은 토큰화되기 전에 원시 양식으로 발화에 적용됩니다. _원시_ 양식에 적용되므로 정규식에서 단어 경계를 처리할 필요가 없습니다. 
+**이 자습서에서는 다음 방법에 대해 알아봅니다.**
 
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * 기존 자습서 앱 사용
+> * FindForm 의도 추가
+> * 정규식 엔터티 추가 
+> * 학습
+> * 게시
+> * 엔드포인트에서 의도 및 엔터티 가져오기
 
-## <a name="add-findform-intent"></a>FindForm 의도 추가
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-1. 인사 관리 앱이 LUIS의 **빌드** 섹션에 있는지 확인합니다. 오른쪽 위의 메뉴 표시줄에서 **빌드**를 선택하여 이 섹션으로 변경할 수 있습니다. 
+## <a name="use-existing-app"></a>기존 앱 사용
+마지막 자습서에서 만든 **HumanResources**라는 앱을 사용하여 계속 진행합니다. 
+
+이전 자습서의 HumanResources 앱이 없으면 다음 단계를 사용합니다.
+
+1. [앱 JSON 파일](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-prebuilts-HumanResources.json)을 다운로드하고 저장합니다.
+
+2. JSON을 새 앱으로 가져옵니다.
+
+3. **관리** 섹션의 **버전** 탭에서 버전을 복제하고 `regex`라는 이름을 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 버전 이름이 URL 경로의 일부로 사용되므로 이름에는 URL에 유효하지 않은 문자가 포함될 수 없습니다. 
+
+## <a name="findform-intent"></a>FindForm 의도
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. **새 의도 만들기**를 선택합니다. 
 
@@ -92,38 +90,46 @@ HRF는 인사 관리 양식을 나타냅니다.
 
     응용 프로그램에는 이전 자습서에서 추가된 미리 작성된 번호 엔터티가 있으므로 각 양식 번호에 태그가 지정됩니다. 이는 클라이언트 응용 프로그램에 대해 충분하지만 번호에 숫자 형식의 레이블이 지정되지 않습니다. 적절한 이름으로 새 엔터티를 만들면 LUIS에서 반환할 때 클라이언트 응용 프로그램에서 해당 엔터티를 적절히 처리할 수 있습니다.
 
-## <a name="create-an-hrf-number-regular-expression-entity"></a>HRF 번호 정규식 엔터티 만들기 
+    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+
+## <a name="regular-expression-entity"></a>정규식 엔터티 
+양식 번호와 일치하는 정규식 엔터티는 `hrf-[0-9]{6}`입니다. 이 정규식은 `hrf-` 리터럴 문자와 일치하지만 대/소문자 및 문화권 변형을 무시합니다. 6자리 숫자에 대해 0에서 9까지의 숫자와 정확하게 일치합니다.
+
+HRF는 `human resources form`을 의미합니다.
+
+발화가 의도에 추가되면 LUIS가 해당 발화를 토큰화합니다. 이러한 발화에 대한 토큰화에서는 하이픈의 앞뒤에 공백이 추가됩니다(예: `Where is HRF - 123456?`). 정규식은 토큰화되기 전에 원시 양식으로 발화에 적용됩니다. _원시_ 양식에 적용되므로 정규식에서 단어 경계를 처리할 필요가 없습니다. 
+
 다음 단계에서는 정규식 엔터티를 만들어 LUIS에 HRF 번호 형식을 알려줍니다.
 
 1. 왼쪽 패널에서 **엔터티**를 선택합니다.
 
 2. [엔터티] 페이지에서 **새 엔터티 만들기** 단추를 선택합니다. 
 
-3. 팝업 대화 상자에서 `HRF-number`라는 새 엔터티 이름을 입력하고, 엔터티 형식으로 **RegEx**를 선택하고, 정규식으로 `hrf-[0-9]{6}`을 입력한 다음, **완료**를 선택합니다.
+3. 팝업 대화 상자에서 `HRF-number`라는 새 엔터티 이름을 입력하고, 엔터티 형식으로 **RegEx**를 선택하고, **Regex** 값으로 `hrf-[0-9]{6}`을 입력한 다음, **완료**를 선택합니다.
 
     ![새 엔터티 속성이 설정된 팝업 대화 상자의 스크린샷](./media/luis-quickstart-intents-regex-entity/create-regex-entity.png)
 
-4. **의도**를 선택한 다음, **FindForm** 의도를 선택하여 발화에 레이블이 지정된 정규식을 확인합니다. 
+4. 왼쪽 메뉴에서 **의도**를 선택한 다음, **FindForm** 의도를 선택하여 발화에 레이블이 지정된 정규식을 확인합니다. 
 
     [![기존 엔터티 및 정규식 패턴이 사용된 발화 레이블 지정의 스크린샷](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-entity.png)](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-entity.png#lightbox)
 
     엔터티는 기계 학습 엔터티가 아니므로 레이블이 발화에 적용되고 만들어지는 즉시 LUIS 웹 사이트에 표시됩니다.
 
-## <a name="train-the-luis-app"></a>LUIS 앱 학습
+## <a name="train"></a>학습
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>앱을 게시하여 엔드포인트 URL 가져오기
+## <a name="publish"></a>게시
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>다른 발화를 사용하여 엔드포인트 쿼리
+## <a name="get-intent-and-entities-from-endpoint"></a>엔드포인트에서 의도 및 엔터티 가져오기
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. 주소의 URL 끝으로 이동하고 `When were HRF-123456 and hrf-234567 published in the last year?`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발화 **쿼리**를 나타내는 `q`입니다. 이 발화는 레이블이 지정된 발화와 같지 않으므로 유용한 테스트이며, 두 양식 번호(`HRF-123456` 및 `hrf-234567`)가 있는 `FindForm` 의도가 반환되어야 합니다.
 
-    ```
+    ```JSON
     {
       "query": "When were HRF-123456 and hrf-234567 published in the last year?",
       "topScoringIntent": {
@@ -221,19 +227,13 @@ HRF는 인사 관리 양식을 나타냅니다.
 
     발화의 숫자는 두 번, 즉 한 번은 새로운 `hrf-number` 엔터티로, 그리고 한 번은 미리 작성된 `number` 엔터티로 반환됩니다. 발화에는 이 예제와 같이 둘 이상의 엔터티 및 둘 이상의 동일한 형식의 엔터티가 있을 수 있습니다. LUIS는 정규식 엔터티를 사용하여 명명된 데이터를 추출합니다. 이 데이터는 프로그래밍 방식으로 JSON 응답을 받는 클라이언트 응용 프로그램에 더 유용합니다.
 
-## <a name="what-has-this-luis-app-accomplished"></a>이 LUIS 앱에서 수행한 작업은?
-이 앱에서는 의도를 확인하고 추출한 데이터를 반환했습니다. 
-
-챗봇에는 이제 기본 작업, `FindForm` 및 검색에 포함된 양식 번호를 결정하기에 충분한 정보가 있습니다. 
-
-## <a name="where-is-this-luis-data-used"></a>이 LUIS 데이터가 사용되는 위치는? 
-LUIS는 이 요청을 통해 수행됩니다. 챗봇과 같은 호출 응용 프로그램에서는 topScoringIntent 결과와 양식 번호를 사용하여 타사 API를 검색할 수 있습니다. LUIS는 이러한 작업을 수행하지 않습니다. LUIS는 사용자의 의도가 무엇인지 결정하고 해당 의도에 대한 데이터를 추출합니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
+이 자습서에서는 새 의도를 만들고, 예제 발언을 추가하고, 발언에서 적절한 형식의 데이터를 추출하는 정규식 엔터티를 만들었습니다. 교육 및 앱 게시를 마친 후 엔드포인트 쿼리가 의도를 식별하고 추출된 데이터를 반환했습니다.
 
 > [!div class="nextstepaction"]
 > [목록 엔터티에 대해 알아보기](luis-quickstart-intent-and-list-entity.md)

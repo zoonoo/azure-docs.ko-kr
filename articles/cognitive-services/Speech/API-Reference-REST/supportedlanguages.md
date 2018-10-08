@@ -1,26 +1,28 @@
 ---
-title: Microsoft Speech Service에서 지원되는 언어 | Microsoft Docs
-description: Microsoft Speech Service에서 지원되는 음성 언어의 목록입니다.
+title: 언어 지원 - Speech API
+titleSuffix: Azure Cognitive Services
+description: Speech API에서 지원하는 자연 언어 목록입니다.
 services: cognitive-services
 author: zhouwangzw
-manager: wolfma
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/25/2018
 ms.author: zhouwang
-ms.openlocfilehash: c7007ba39df3c608fa0d1fe4cb79a3966d8c05a8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: eeb0f475193a43ab8b0b0ca562364cbdef8a21d2
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373822"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433143"
 ---
-# <a name="supported-languages"></a>지원되는 언어
+# <a name="language-and-region-support-for-speech-api"></a>Speech API에 대한 언어 및 지역 지원
 
 ## <a name="interactive-and-dictation-mode"></a>대화형 및 받아쓰기 모드
 
-Microsoft 음성 인식 API의 `interactive` 및 `dictation` 모드에서 지원하는 언어는 다음과 같습니다. 
+Microsoft 음성 인식 API의 `interactive` 및 `dictation` 모드에서 지원하는 언어는 다음과 같습니다.
 
 |코드 | 언어 | 코드 | 언어 |
 |-----|-----|-----|-----|
@@ -38,11 +40,12 @@ Microsoft 음성 인식 API의 `interactive` 및 `dictation` 모드에서 지원
 | es-MX | 스페인어(멕시코) |zh-CN | 중국어(북경어, 간체)  |
 | fi-FI | 핀란드어(핀란드) |zh-HK | 중국어(홍콩 특별 행정구) |
 | fr-CA | 프랑스어(캐나다) | zh-TW | 중국어(북경어, 대만)|
-| fr-FR | 프랑스어(프랑스) | ||
+| fr-FR | 프랑스어(프랑스) | gu-IN | 구자라트어(인도) |
+| ta-IN |타밀어(인도) | te-IN | 텔루구어(인도) |
 
 ## <a name="conversation-mode"></a>대화 모드
 
-Microsoft 음성 인식 API의 `conversation` 모드에서 지원하는 언어는 다음과 같습니다. 
+Microsoft 음성 인식 API의 `conversation` 모드에서 지원하는 언어는 다음과 같습니다.
 
 | 코드 | 언어 | 코드 | 언어 |
 |-----|-----|-----|-----|

@@ -1,21 +1,21 @@
 ---
-title: 기본 인사이트 태그 | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Visual Search가 이미지에 대해 반환하는 기본 인사이트 정보를 제공합니다.
+title: 기본 인사이트 태그 - Bing Visual Search
+titleSuffix: Azure Cognitive Services
+description: Bing Visual Search가 이미지에 대해 반환하는 기본 인사이트에 대한 세부 정보를 제공합니다.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: scottwhi
-ms.openlocfilehash: a0ced7076c566c819f9e3f7abc5e2fa3930fa0b3
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 542f25df9837a471f6f0e2cf36575c2dd1be2680
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004304"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224787"
 ---
 # <a name="default-insights-tag"></a>기본 인사이트 태그
 

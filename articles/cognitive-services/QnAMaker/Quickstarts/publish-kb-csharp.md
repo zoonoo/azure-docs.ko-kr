@@ -1,24 +1,27 @@
 ---
-title: 기술 자료 게시 - C# 빠른 시작 - Azure Cognitive Services | Microsoft Docs
+title: '빠른 시작: C# 기술 자료 게시 - QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: QnA Maker용 C#으로 기술 자료를 게시하는 방법입니다.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
-ms.openlocfilehash: 2517e7d70b3235c419faf98f452d2b5f43dfad88
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 232b8a31ccfd8fad580af1f71b6816f93342faea
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43750444"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033059"
 ---
 # <a name="publish-a-knowledge-base-in-c"></a>C#으로 기술 자료 게시
 
 다음 코드는 [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) 메서드를 사용하여 기존 기술 자료를 게시합니다.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 
 1. 즐겨 찾는 IDE에서 새 C# 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.

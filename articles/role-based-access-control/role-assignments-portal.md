@@ -1,5 +1,5 @@
 ---
-title: RBAC 및 Azure Portal을 사용하여 액세스 관리 | Microsoft Docs
+title: RBAC 및 Azure Portal을 사용하여 엑세스 관리 | Microsoft Docs
 description: RBAC(역할 기반 액세스 제어) 및 Azure Portal을 사용하여 사용자, 그룹 및 응용 프로그램의 액세스 권한을 관리하는 방법을 알아봅니다. 여기에는 액세스 권한을 나열, 부여 및 제거하는 방법이 포함됩니다.
 services: active-directory
 documentationcenter: ''
@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 09/05/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 97bf33cb882d5a121b9811a8e36a1d26f9a954f8
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 1cac4e4cee408e5208d2d5d84f81b8ad7a89f03b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715372"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033994"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>RBAC 및 Azure Portal을 사용하여 액세스 관리
 
@@ -109,9 +109,9 @@ ms.locfileid: "39715372"
 
 ## <a name="grant-access"></a>액세스 권한 부여
 
-RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다. 다음 단계를 수행하여 서로 다른 범위에서 액세스 권한을 부여합니다.
+RBAC에서 액세스 권한을 부여하기 위해 역할을 할당합니다. 다음 단계를 수행하여 서로 다른 범위에서 액세스 권한을 부여합니다.
 
-### <a name="create-a-role-assignment-at-a-resource-group-scope"></a>리소스 그룹 범위에서 역할 할당 만들기
+### <a name="assign-a-role-at-a-resource-group-scope"></a>리소스 그룹 범위에서 역할 할당
 
 1. 왼쪽 목록에서 **리소스 그룹**을 선택합니다.
 
@@ -131,11 +131,11 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
 
 1. **선택** 목록에서 사용자, 그룹 또는 응용 프로그램을 선택합니다. 목록에 보안 주체가 보이지 않으면 **선택** 상자에 직접 입력하여 표시 이름, 이메일 주소 및 개체 식별자에 대한 디렉터리를 검색할 수 있습니다.
 
-1. **저장**을 선택하여 역할 할당을 만듭니다.
+1. **저장**을 선택하여 역할을 할당합니다.
 
    몇 분이 지나면 리소스 그룹 범위에서 보안 주체에 역할이 할당됩니다.
 
-### <a name="create-a-role-assignment-at-a-subscription-scope"></a>구독 범위에서 역할 할당 만들기
+### <a name="assign-a-role-at-a-subscription-scope"></a>구독 범위에서 역할 할당
 
 1. Azure Portal에서 **모든 서비스**, **구독**을 차례로 선택합니다.
 
@@ -155,11 +155,37 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
 
 1. **선택** 목록에서 사용자, 그룹 또는 응용 프로그램을 선택합니다. 목록에 보안 주체가 보이지 않으면 **선택** 상자에 직접 입력하여 표시 이름, 이메일 주소 및 개체 식별자에 대한 디렉터리를 검색할 수 있습니다.
 
-1. **저장**을 선택하여 역할 할당을 만듭니다.
+1. **저장**을 선택하여 역할을 할당합니다.
 
    몇 분이 지나면 구독 범위에서 보안 주체에 역할이 할당됩니다.
 
-### <a name="create-a-role-assignment-at-a-management-group-scope"></a>관리 그룹 범위에서 역할 할당 만들기
+### <a name="assign-a-user-as-an-administrator-of-a-subscription"></a>구독 관리자로서 사용자 할당
+
+다른 사용자를 Azure 구독의 관리자로 추가하려면 해당 사용자에게 구독 범위에서 [소유자](built-in-roles.md#owner) 역할을 할당합니다. 소유자 역할은 다른 사용자에게 액세스를 위임할 수 있는 권한을 비롯한 구독의 리소스에 대한 모든 권한을 사용자에게 부여할 수 있습니다. 이러한 단계는 다른 역할 할당과 동일합니다.
+
+1. Azure Portal에서 **모든 서비스**, **구독**을 차례로 선택합니다.
+
+1. 구독을 선택합니다.
+
+1. **액세스 제어(IAM)** 를 선택하면 구독 범위의 현재 역할 할당 목록을 볼 수 있습니다.
+
+   ![구독의 액세스 제어(IAM) 블레이드](./media/role-assignments-portal/grant-subscription-access-control.png)
+
+1. **추가**를 선택하여 **권한 추가** 창을 엽니다.
+
+   역할을 할당할 수 있는 권한이 없는 경우 **추가** 옵션이 표시되지 않습니다.
+
+   ![권한 추가 창](./media/role-assignments-portal/add-permissions.png)
+
+1. **역할** 드롭다운 목록에서 **소유자** 역할을 선택합니다.
+
+1. **선택** 목록에서 사용자를 선택합니다. 목록에 사용자가 표시되지 않으면 **선택** 상자에 직접 입력하여 표시 이름 및 이메일 주소에 대한 디렉터리를 검색할 수 있습니다.
+
+1. **저장**을 선택하여 역할을 할당합니다.
+
+   몇 분이 지나면 사용자에게는 구독 범위의 소유자 역할이 할당됩니다.
+
+### <a name="assign-a-role-at-a-management-group-scope"></a>관리 그룹 범위에서 역할 할당
 
 1. Azure Portal에서 **모든 서비스**, **관리 그룹**을 차례로 선택합니다.
 
@@ -181,11 +207,11 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
 
 1. **역할** 드롭다운 목록에서 **관리 그룹 기여자**와 같은 역할을 선택합니다.
 
-    다양한 역할에 대한 관리 그룹에서 지원되는 작업에 대한 정보는 [Azure 관리 그룹으로 리소스 구성](../azure-resource-manager/management-groups-overview.md#management-group-access)을 참조하세요.
+    다양한 역할에 대한 관리 그룹에서 지원되는 작업에 대한 정보는 [Azure 관리 그룹으로 리소스 구성](../governance/management-groups/index.md#management-group-access)을 참조하세요.
 
 1. **선택** 목록에서 사용자, 그룹 또는 응용 프로그램을 선택합니다. 목록에 보안 주체가 보이지 않으면 **선택** 상자에 직접 입력하여 표시 이름, 이메일 주소 및 개체 식별자에 대한 디렉터리를 검색할 수 있습니다.
 
-1. **저장**을 선택하여 역할 할당을 만듭니다.
+1. **저장**을 선택하여 역할을 할당합니다.
 
    몇 분이 지나면 관리 그룹 범위에서 보안 주체에 역할이 할당됩니다.
 

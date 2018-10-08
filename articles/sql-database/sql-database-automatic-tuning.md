@@ -2,20 +2,22 @@
 title: Azure SQL Database - 자동 조정 | Microsoft Docs
 description: Azure SQL Database는 SQL 쿼리를 분석하고 사용자 워크로드에 자동으로 적용됩니다.
 services: sql-database
-author: danimir
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 38b59c28096b23a22b216158d9e945a2881a4f41
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 931e0f2c6be51c78187413d638259237f98bd9b0
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189261"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063356"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL Database에서 자동 조정
 
@@ -27,7 +29,7 @@ Azure SQL Database 자동 조정은 안정적이고 최고 성능의 데이터�
 
 ## <a name="what-can-automatic-tuning-do-for-you"></a>자동 조정으로 무엇을 할 수 있나요?
 
-- Azure SQL Database의 자동화된 성능 조정
+- Azure SQL 데이터베이스의 자동화된 성능 조정
 - 성능 향상의 자동화된 확인
 - 자동화된 롤백 및 자체 수정
 - 조정 기록
@@ -38,7 +40,7 @@ Azure SQL Database 자동 조정은 안정적이고 최고 성능의 데이터�
 
 ## <a name="safe-reliable-and-proven"></a>안전하고 신뢰할 수 있으며 검증됨
 
-Azure SQL Database에 적용된 조정 작업은 가장 강력한 워크로드의 성능에 대해 완벽하게 안전합니다. 시스템은 사용자 워크로드를 방해하지 않도록 주의하여 설계되었습니다. 자동 조정 권장 사항은 사용률이 낮은 경우에만 적용됩니다. 시스템 또한 워크로드 성능을 보호하기 위해 일시적으로 자동 조정 작업을 사용하지 않도록 설정할 수도 있습니다. 이런 경우, Azure Portal에서 “시스템에서 사용할 수 없다”는 메시지가 표시됩니다. 자동 조정 작업은 리소스 우선 순위가 가장 높은 워크로드를 인식합니다.
+Azure SQL 데이터베이스에 적용된 조정 작업은 가장 강력한 워크로드의 성능에 대해 완벽하게 안전합니다. 시스템은 사용자 워크로드를 방해하지 않도록 주의하여 설계되었습니다. 자동 조정 권장 사항은 사용률이 낮은 경우에만 적용됩니다. 시스템 또한 워크로드 성능을 보호하기 위해 일시적으로 자동 조정 작업을 사용하지 않도록 설정할 수도 있습니다. 이런 경우, Azure Portal에서 “시스템에서 사용할 수 없다”는 메시지가 표시됩니다. 자동 조정 작업은 리소스 우선 순위가 가장 높은 워크로드를 인식합니다.
 
 자동 조정 메커니즘은 더욱 진보하여 Azure에서 실행되는 수백만 개의 데이터베이스에서 완성도가 높아졌습니다. 적용된 자동 조정 작업이 자동으로 검증되어 워크로드 성능이 긍정적으로 향상됩니다. 회귀된 성능 권장 사항은 동적으로 감지되어 즉시 되돌려집니다. 기록된 조정 기록을 통해 각 Azure SQL Database의 성능 조정을 명확히 추적할 수 있습니다. 
 
@@ -81,5 +83,5 @@ Azure SQL Database에서 사용 가능한 자동 조정 옵션은 다음과 같�
 - 자동 조정 권장 사항을 수동으로 검토 및 적용하려면 [성능 권장 사항 찾기 및 적용](sql-database-advisor-portal.md)을 참조하세요.
 - T-SQL을 사용하여 자동 조정 권장 사항을 적용하고 보는 방법은 [T-SQL을 통해 자동 조정 관리](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/)를 참조하세요.
 - 자동 조정 권장 구성에 대한 이메일 알림을 작성하는 방법에 대한 자세한 내용은 [자동 조정에 대한 이메일 알림](sql-database-automatic-tuning-email-notifications.md)을 참조하세요.
-- 자동 조정에 사용된 기본 제공 인텔리전스에 대한 내용은 [인공 지능으로 Azure SQL Database 조정](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/)을 참조하세요.
+- 자동 조정에 사용된 기본 제공 인텔리전스에 대한 내용은 [인공 지능으로 Azure SQL 데이터베이스 조정](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/)을 참조하세요.
 - Azure SQL Database 및 SQL server 2017에서 자동 조정이 작동하는 방식에 대한 내용은 [SQL Server 자동 조정](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)을 참조하세요.

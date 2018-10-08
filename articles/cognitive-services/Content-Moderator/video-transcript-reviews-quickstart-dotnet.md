@@ -1,24 +1,25 @@
 ---
-title: Azure Content Moderator - .NET을 사용하여 비디오 대본 검토 만들기 | Microsoft Docs
-description: .NET용 Azure Content Moderator SDK를 사용하여 비디오 대본 검토를 만드는 방법
+title: .NET을 사용하여 비디오 대본 만들기 - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: .NET용 Content Moderator SDK를 사용하여 비디오 대본 검토 만들기
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: sajagtap
-ms.openlocfilehash: 3286da6e38f0fba02386d877a835fb694ed0fdec
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4e862a8b74339bc8dd1de6c0b231ddb15425974c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "35374159"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220944"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>.NET을 사용하여 비디오 대본 검토 만들기
 
-이 문서에서 제공하는 정보 및 코드 샘플을 통해 C#과 함께 Content Moderator SDK 사용을 빠르게 시작하여 아래의 작업을 수행할 수 있습니다.
+이 문서에서 제공하는 정보 및 코드 샘플을 통해 [C#과 함께 Content Moderator SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 사용을 빠르게 시작하여 아래의 작업을 수행할 수 있습니다.
 
 - 사용자 중재자를 위한 비디오 검토 만들기
 - 검토에 조정된 대본 추가
@@ -30,15 +31,26 @@ ms.locfileid: "35374159"
 
 또한 이 문서에서는 Visual Studio 및 C#에 이미 익숙하다고 가정합니다.
 
-### <a name="sign-up-for-content-moderator-services"></a>Content Moderator 서비스 등록
+## <a name="sign-up-for-content-moderator"></a>Content Moderator 등록
 
 REST API 또는 SDK를 통해 Content Moderator 서비스를 사용하려면 먼저 구독 키가 필요합니다.
+키를 획득하는 방법은 [빠른 시작](quick-start.md)을 참조하세요.
 
-Content Moderator 대시보드의 **설정** > **자격 증명** > **API** > **Trial Ocp-Apim-Subscription-Key**에서 구독 키를 찾을 수 있습니다. 자세한 내용은 [개요](overview.md)를 참조하세요.
+## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>이전 단계에서 완료되지 않은 경우 검토 도구 계정에 등록
 
-### <a name="prepare-your-video-for-review"></a>검토할 비디오 준비
+Azure Portal에서 Content Moderator를 가져온 경우 [검토 도구 계정에 등록](https://contentmoderator.cognitive.microsoft.com/)하고 검토 팀을 만듭니다. 작업을 시작하고 검토 도구에서 검토를 보도록 검토 API를 호출하려면 팀 ID 및 검토 도구가 필요합니다.
 
-비디오 검토에 대본을 추가합니다. 비디오를 온라인에 게시해야 합니다. 해당 스트리밍 끝점이 필요합니다. 스트리밍 끝점을 사용하면 검토 도구 비디오 플레이어에서 비디오를 재생할 수 있습니다.
+## <a name="ensure-your-api-key-can-call-the-review-api-job-creation"></a>API 키에서 검토 API를 호출할 수 있는지 확인(작업 생성)
+
+이전 단계를 완료한 후 Azure Portal에서 시작한 경우 두 개의 Content Moderator 키가 생성됩니다. 
+
+SDK 샘플에서 Azure가 제공한 API 키를 사용하려는 경우 [검토 API를 사용하여 Azure 키 사용](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) 섹션에서 언급된 단계를 수행하여 응용 프로그램에서 검토 API를 호출하고 검토를 만들도록 허용합니다.
+
+검토 도구에서 생성된 평가판 키를 사용하는 경우 검토 도구 계정은 키에 대해 이미 알고 있으므로 추가 단계가 필요하지 않습니다.
+
+## <a name="prepare-your-video-for-review"></a>검토할 비디오 준비
+
+비디오 검토에 대본을 추가합니다. 비디오를 온라인에 게시해야 합니다. 해당 스트리밍 엔드포인트가 필요합니다. 스트리밍 엔드포인트를 사용하면 검토 도구 비디오 플레이어에서 비디오를 재생할 수 있습니다.
 
 ![비디오 데모 미리 보기](images/ams-video-demo-view.PNG)
 
@@ -105,9 +117,9 @@ VideoTranscriptReviews 네임스페이스, Program 클래스에 다음 개인 �
             /// </summary>
             /// <remarks>This must be the team name you used to create your 
             /// Content Moderator account. You can retrieve your team name from
-            /// the Conent Moderator web site. Your team name is the Id associated 
+            /// the Content Moderator web site. Your team name is the Id associated 
             /// with your subscription.</remarks>
-            public static readonly string TeamName = "YOUR CONTENT MODERATOR TEAM ID";
+            private const string TeamName = "YOUR CONTENT MODERATOR TEAM ID";
 
             /// <summary>
             /// The base URL fragment for Content Moderator calls.
@@ -137,7 +149,7 @@ VideoTranscriptReviews 네임스페이스, Program 클래스에 다음 메서드
     {
         return new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey))
         {
-            BaseUrl = AzureBaseURL
+            Endpoint = AzureBaseURL
         };
     }
 
@@ -192,7 +204,7 @@ VideoReviews 네임스페이스, Program 클래스에 다음 메서드 정의를
     }
 
 > [!NOTE]
-> Content Moderator 서비스 키에는 RPS(초당 요청 수) 속도 제한이 있습니다. 제한을 초과하는 경우 SDK에서 429 오류 코드로 예외가 throw됩니다. 
+> Content Moderator 서비스 키에는 RPS(초당 요청 수) 속도 제한이 있습니다. 제한을 초과하는 경우 SDK는 429 오류 코드로 예외를 throw합니다. 
 >
 > 체험 계층 키에는 하나의 RPS 속도 제한이 있습니다.
 
@@ -342,7 +354,7 @@ VideoTranscriptReviews 네임스페이스, Program 클래스에 **Main** 메서�
 
             Console.WriteLine("Open your Content Moderator Dashboard and select Review > Video to see the review.");
             Console.WriteLine("Press any key to close the application.");
-            Console.Read();
+            Console.ReadKey();
         }
     }
 
@@ -370,8 +382,8 @@ VideoTranscriptReviews 네임스페이스, Program 클래스에 **Main** 메서�
 
 ## <a name="next-steps"></a>다음 단계
 
+이 빠른 시작과 기타 .NET용 Content Moderator 빠른 시작을 위한 [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 및 [Visual Studio 솔루션](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)을 가져옵니다.
+
 검토 도구에서 [비디오 검토](video-reviews-quickstart-dotnet.md)를 생성하는 방법을 알아봅니다.
 
-[전체 비디오 조정 솔루션](video-transcript-moderation-review-tutorial-dotnet.md)을 개발하는 방법에 대한 자세한 자습서를 확인합니다.
-
-이 빠른 시작과 기타 .NET용 Content Moderator 빠른 시작을 위한 [Visual Studio 솔루션을 다운로드](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)합니다.
+[완전한 비디오 조정 솔루션](video-transcript-moderation-review-tutorial-dotnet.md)을 개발하는 방법에 대한 자세한 자습서를 살펴봅니다.

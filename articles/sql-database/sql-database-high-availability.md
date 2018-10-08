@@ -2,19 +2,22 @@
 title: 고가용성 - Azure SQL Database 서비스 | Microsoft Docs
 description: Azure SQL Database 서비스 고가용성 기능에 대해 알아보세요.
 services: sql-database
-author: jovanpop-msft
-manager: craigg
 ms.service: sql-database
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/29/2018
+author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
-ms.openlocfilehash: 7a60d800ce76f8ff9a903cc068fa7bc87cd33f3f
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 9c06a028df098874a1ec12d83a362e01a5f4a711
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700638"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161899"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>고가용성 및 Azure SQL Database
 
@@ -23,8 +26,8 @@ Azure SQL Database는 가용성이 뛰어난 데이터베이스 PaaS(Platform as
 Azure 플랫폼은 모든 Azure SQL Database를 완전하게 관리하고 데이터 무손실 및 높은 데이터 가용성을 보장합니다. Azure는 패치, 백업, 복제, 오류 감지, 기본 하드웨어, 소프트웨어 또는 네트워크 오류, 배포 버그 픽스, 장애 조치(failover), 데이터베이스 업그레이드 및 기타 유지 관리 작업을 자동으로 처리합니다. SQL Server 엔지니어는 모든 유지 관리 작업이 데이터베이스 수명 중 0.01% 미만의 시간 내에 완료될 수 있도록 가장 많이 알려진 사례를 구현했습니다. 이 아키텍처는 커밋한 데이터가 손실되지 않고 워크로드에 영향을 주지 않으면서 유지 관리 작업이 수행되도록 설계되었습니다. 데이터베이스를 업그레이드하거나 유지 관리하는 동안 워크로드를 중지해야 하는 유지 관리 기간이나 가동 중지 시간이 없습니다. Azure SQL Database에 내장된 고가용성 덕분에 소프트웨어 아키텍처에서 데이터베이스가 단일 실패 지점이 되지 않도록 보장됩니다.
 
 Azure SQL Database는 인프라 오류의 경우에도 99.99%의 가용성을 보장하기 위해 클라우드 환경에 대해 조정되는 SQL Server 데이터베이스 엔진 아키텍처를 기반으로 합니다. Azure SQL Database에 사용되는 두 가지 고가용성 아키텍처 모델이 있습니다(둘 다 99.99% 가용성 보장).
-- 계산과 저장소 분리를 기반으로 하는 표준/범용 모델 이 아키텍처 모델은 저장소 계층의 고가용성 및 안정성에 의존하지만 유지 보수 작업 중 약간의 잠재적인 성능 저하가 있을 수 있습니다.
-- 데이터베이스 엔진 프로세스의 클러스터를 기반으로 하는 프리미엄/중요 비즈니스용 모델 이 아키텍처 모델은 항상 사용 가능한 데이터베이스 엔진 노드의 쿼럼이 있다는 사실에 의존하며 유지 보수 작업 중에도 워크로드에 최소한의 성능 영향을 줍니다.
+- 계산과 저장소 분리를 기반으로 하는 표준/범용 서비스 계층 모델. 이 아키텍처 모델은 저장소 계층의 고가용성 및 안정성에 의존하지만 유지 보수 작업 중 약간의 잠재적인 성능 저하가 있을 수 있습니다.
+- 데이터베이스 엔진 프로세스의 클러스터를 기반으로 하는 프리미엄/중요 비즈니스용 서비스 계층 모델. 이 아키텍처 모델은 항상 사용 가능한 데이터베이스 엔진 노드의 쿼럼이 있다는 사실에 의존하며 유지 보수 작업 중에도 워크로드에 최소한의 성능 영향을 줍니다.
 
 Azure는 사용자의 가동 중단 시간을 최소화하면서 운영 체제, 드라이버 및 SQL Server 데이터베이스 엔진을 업그레이드하고 패치를 적용합니다. Azure SQL Database는 안정적인 최신 버전의 SQL Server 데이터베이스 엔진 및 Windows OS에서 실행되며 대부분의 사용자는 업그레이드가 지속적으로 수행되는 것을 알아채지 못합니다.
 
@@ -47,7 +50,7 @@ Azure는 사용자의 가동 중단 시간을 최소화하면서 운영 체제, 
 
 프리미엄 가용성은 Azure SQL Database의 프리미엄 계층에서 사용할 수 있으며 지속적인 유지 관리 작업으로 인해 성능에 미치는 영향을 감당할 수 없는 집약적인 워크로드에 맞게 설계되었습니다.
 
-프리미엄 모델에서 Azure SQL 데이터베이스는 계산 및 저장소를 단일 노드에 통합합니다. 이 아키텍처 모델의 고가용성은 4노드 [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) 클러스터에 배포된 계산(SQL Server 데이터베이스 엔진 프로세스) 및 저장소(로컬로 연결 된 SSD)의 복제를 통해 이루어집니다.
+프리미엄 모델에서 Azure SQL 데이터베이스는 계산 및 저장소를 단일 노드에 통합합니다. 이 아키텍처 모델의 고가용성은 4노드 [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) 클러스터에 배포된 계산(SQL Server 데이터베이스 엔진 프로세스) 및 저장소(로컬로 연결된 SSD)의 복제를 통해 이루어집니다.
 
 ![데이터베이스 엔진 노드의 클러스터](media/sql-database-managed-instance/business-critical-service-tier.png)
 
@@ -57,9 +60,9 @@ SQL Server 데이터베이스 엔진 프로세스와 기본 mdf/ldf 파일이 SS
 
 ## <a name="zone-redundant-configuration-preview"></a>영역 중복 구성(미리 보기)
 
-로컬 저장소 구성에 대한 쿼럼 집합 복제본은 기본적으로 동일한 데이터 센터에 만들어집니다. [Azure 가용성 영역](../availability-zones/az-overview.md)이 도입되면 쿼럼 집합의 여러 복제본을 동일한 지역의 서로 다른 가용성 영역에 배치할 수 있습니다. 단일 실패 지점을 제거하기 위해 제어 링은 세 개의 GW(게이트웨이 링)로 여러 영역에 걸쳐 복제됩니다. 특정 게이트웨이 링에 대한 라우팅은 [ATM(Azure Traffic Manager)](../traffic-manager/traffic-manager-overview.md)에서 제어됩니다. 영역 중복 구성을 통해 데이터베이스 중복성을 추가로 만들지 않으므로 프리미엄 또는 중요 비즈니스용(미리 보기) 서비스 계층에서 가용성 영역을 사용하는 경우 추가 비용 없이 사용할 수 있습니다. 영역 중복 데이터베이스를 선택하면 응용 프로그램 논리를 변경하지 않고도 치명적인 데이터 센터 중단을 포함하여 훨씬 더 큰 실패 집합에 탄력적인 프리미엄 또는 중요 비즈니스용(미리 보기) 데이터베이스를 만들 수 있습니다. 기존 프리미엄 또는 중요 비즈니스용 데이터베이스 또는 풀(미리 보기)을 영역 중복 구성으로 변환할 수도 있습니다.
+로컬 저장소 구성에 대한 쿼럼 집합 복제본은 기본적으로 동일한 데이터 센터에 만들어집니다. [Azure 가용성 영역](../availability-zones/az-overview.md)이 도입되면 쿼럼 집합의 여러 복제본을 동일한 지역의 서로 다른 가용성 영역에 배치할 수 있습니다. 단일 실패 지점을 제거하기 위해 제어 링은 세 개의 GW(게이트웨이 링)로 여러 영역에 걸쳐 복제됩니다. 특정 게이트웨이 링에 대한 라우팅은 [ATM(Azure Traffic Manager)](../traffic-manager/traffic-manager-overview.md)에서 제어됩니다. 영역 중복 구성을 통해 데이터베이스 중복성을 추가로 만들지 않으므로 프리미엄 또는 중요 비즈니스용 서비스 계층에서 가용성 영역(미리 보기)을 사용하는 경우, 추가 비용 없이 사용할 수 있습니다. 영역 중복 데이터베이스를 선택하면 응용 프로그램 논리를 변경하지 않고도 치명적인 데이터 센터 중단을 포함하여 훨씬 더 큰 실패 집합에 탄력적인 프리미엄 또는 중요 비즈니스용 데이터베이스를 만들 수 있습니다. 기존 프리미엄 또는 중요 비즈니스용 데이터베이스 또는 풀을 영역 중복 구성으로 변환할 수도 있습니다.
 
-영역 중복 쿼럼 집합에서는 복제본이 서로 간에 약간 떨어져 있는 서로 다른 데이터 센터에 있기 때문에, 네트워크 대기 시간이 늘어나면 커밋 시간이 늘어나고, 이에 따라 일부 OLTP 작업의 성능에 영향을 줄 수 있습니다. 언제든지 영역 중복 설정을 사용하지 않도록 설정하여 단일 영역 구성으로 돌아갈 수 있습니다. 이 프로세스는 데이터 작업의 크기이며 일반 SLO(서비스 수준 목표) 업데이트와 비슷합니다. 프로세스가 완료되면 데이터베이스 또는 풀이 영역 중복 링에서 단일 영역 링으로 또는 그 반대로 마이그레이션됩니다.
+영역 중복 쿼럼 집합에서는 복제본이 서로 간에 약간 떨어져 있는 서로 다른 데이터 센터에 있기 때문에, 네트워크 대기 시간이 늘어나면 커밋 시간이 늘어나고, 이에 따라 일부 OLTP 작업의 성능에 영향을 줄 수 있습니다. 언제든지 영역 중복 설정을 사용하지 않도록 설정하여 단일 영역 구성으로 돌아갈 수 있습니다. 이 프로세스는 데이터 작업의 크기이며 일반 서비스 계층 업데이트와 비슷합니다. 프로세스가 완료되면 데이터베이스 또는 풀이 영역 중복 링에서 단일 영역 링으로 또는 그 반대로 마이그레이션됩니다.
 
 > [!IMPORTANT]
 > 영역 중복 데이터베이스 및 탄력적 풀은 현재 프리미엄 서비스 계층에서만 지원됩니다. 공개 미리 보기로 있는 동안 백업 및 감사 레코드는 RA-GRS 저장소에 저장되므로 전체 영역 중단 시 자동으로 사용되지 않을 수 있습니다. 
@@ -69,13 +72,13 @@ SQL Server 데이터베이스 엔진 프로세스와 기본 mdf/ldf 파일이 SS
 ![고가용성 아키텍처 영역 중복](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
 
 ## <a name="read-scale-out"></a>읽기 확장
-설명한 대로 프리미엄 및 중요 비즈니스용(미리 보기) 서비스 계층은 단일 영역 및 영역 중복 구성 모두에서 고가용성을 위해 쿼럼 집합 및 Always On 기술을 활용합니다. Always On의 이점 중 하나는 복제본이 항상 트랜잭션 측면에서 일관된 상태에 있다는 점입니다. 복제본이 주 데이터베이스와 동일한 성능 수준을 가지기 때문에 응용 프로그램은 추가 비용 없이 읽기 전용 작업을 제공하기 위해 해당 추가 용량을 활용할 수 있습니다(읽기 확장). 이러한 방식으로 읽기 전용 쿼리는 주 읽기-쓰기 작업에서 격리되고 해당 성능에 영향을 주지 않습니다. 읽기 확장 기능은 분석과 같은 논리적으로 구분된 읽기 전용 작업을 포함하는 응용 프로그램을 위한 것이므로 주 데이터베이스에 연결하지 않고 이 추가 용량을 활용할 수 있습니다. 
+설명한 대로 프리미엄 및 중요 비즈니스용 서비스 계층은 단일 영역 및 영역 중복 구성 모두에서 고가용성을 위해 쿼럼 집합 및 Always On 기술을 활용합니다. Always On의 이점 중 하나는 복제본이 항상 트랜잭션 측면에서 일관된 상태에 있다는 점입니다. 복제본의 계산 크기가 주 데이터베이스와 동일하기 때문에, 응용 프로그램에서 추가 비용 없이 읽기 전용 워크로드를 서비스하는 데 추가 용량을 활용할 수 있습니다(읽기 확장). 이러한 방식으로 읽기 전용 쿼리는 주 읽기-쓰기 작업에서 격리되고 해당 성능에 영향을 주지 않습니다. 읽기 확장 기능은 분석과 같은 논리적으로 구분된 읽기 전용 작업을 포함하는 응용 프로그램을 위한 것이므로 주 데이터베이스에 연결하지 않고 이 추가 용량을 활용할 수 있습니다. 
 
 특정 데이터베이스에서 읽기 확장 기능을 사용하려면, 데이터베이스를 만들 때 또는 나중에 [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) 또는 [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet을 호출하는 PowerShell을 사용하거나 [데이터베이스 - 만들기 또는 업데이트](/rest/api/sql/databases/createorupdate) 방법을 사용하는 Azure Resource Manager REST API를 통해 해당 구성을 변경하여 명시적으로 사용하도록 설정해야 합니다.
 
 데이터베이스에 대해 읽기 확장을 사용하도록 설정하면, 응용 프로그램의 연결 문자열에 구성된 `ApplicationIntent` 속성에 따라 해당 데이터베이스에 연결하는 응용 프로그램이 해당 데이터베이스의 읽기-쓰기 복제본 또는 읽기 전용 복제본으로 전달됩니다. `ApplicationIntent` 속성에 대한 자세한 내용은 [응용 프로그램 의도 지정](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent)을 참조하세요. 
 
-읽기 스케일 아웃을 사용할 수 없거나 지원되지 않는 서비스 계층에서 ReadScale 속성을 설정한 경우 모든 연결은 `ApplicationIntent` 속성과 독립적으로 읽기/쓰기 복제본으로 이동됩니다.  
+읽기 스케일 아웃을 사용할 수 없거나 지원되지 않는 서비스 계층에서 ReadScale 속성을 설정한 경우 모든 연결은 `ApplicationIntent` 속성과 독립적으로 읽기/쓰기 복제본으로 이동됩니다.
 
 ## <a name="conclusion"></a>결론
 Azure SQL Database는 Azure 플랫폼과 긴밀하게 통합되어 있으며, Azure Storage Blob(데이터 보호용) 및 가용성 영역(높은 내결함성용)에 대한 장애 검색 및 복구를 위한 Service Fabric에 따라 크게 달라집니다. 동시에 Azure SQL Database는 복제 및 장애 조치(failover)를 위해 SQL Server 제품군의 Always On 가용성 그룹 기술을 최대한 활용합니다. 이러한 기술의 조합을 통해 응용 프로그램은 혼합 저장소 모델의 이점을 완전히 실현하고 가장 까다로운 SLA를 지원할 수 있습니다. 

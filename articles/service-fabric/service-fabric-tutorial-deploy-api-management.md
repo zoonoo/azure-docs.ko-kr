@@ -1,6 +1,6 @@
 ---
 title: Azure에서 Service Fabric과 API Management 통합 | Microsoft Docs
-description: 이 자습서에서는 Azure API Management 및 Service Fabric을 빠르게 시작하는 방법을 알아봅니다.
+description: Azure API Management를 빠르게 시작하고 Service Fabric에서 백 엔드 서비스로 트래픽을 라우팅하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -9,54 +9,37 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: tutorial
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/9/2018
+ms.date: 9/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 61909c7f6858c7411e01019edda22d7676b44943
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 572a4cd78fe60351babb9e86c604447f6848a866
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955047"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408235"
 ---
-# <a name="tutorial-integrate-api-management-with-service-fabric-in-azure"></a>자습서: Azure에서 Service Fabric과 API Management 통합
+# <a name="integrate-api-management-with-service-fabric-in-azure"></a>Azure에서 Service Fabric과 API Management 통합
 
-이 자습서는 시리즈의 4부입니다.  Service Fabric을 사용한 Azure API Management 배포는 고급 시나리오입니다.  API Management는 백 엔드 Service Fabric 서비스에 대한 풍부한 라우팅 규칙 집합을 API를 게시해야 할 경우에 유용합니다. 일반적으로 클라우드 응용 프로그램에는 사용자, 장치 또는 기타 응용 프로그램 수신을 위한 단일 지점을 제공하는 프런트 엔드 게이트웨이가 필요합니다. Service Fabric에서 게이트웨이는 ASP.NET Core 응용 프로그램, Event Hubs, IoT Hub 또는 Azure API Management와 같이 트래픽 수신용으로 설계된 상태 비저장 서비스일 수 있습니다.
+Service Fabric을 사용한 Azure API Management 배포는 고급 시나리오입니다.  API Management는 백 엔드 Service Fabric 서비스에 대한 풍부한 라우팅 규칙 집합을 API를 게시해야 할 경우에 유용합니다. 일반적으로 클라우드 응용 프로그램에는 사용자, 장치 또는 기타 응용 프로그램 수신을 위한 단일 지점을 제공하는 프런트 엔드 게이트웨이가 필요합니다. Service Fabric에서 게이트웨이는 ASP.NET Core 응용 프로그램, Event Hubs, IoT Hub 또는 Azure API Management와 같이 트래픽 수신용으로 설계된 상태 비저장 서비스일 수 있습니다.
 
-이 자습서에서는 Service Fabric에서 [Azure API Management](../api-management/api-management-key-concepts.md)를 설정하여 백 엔드 서비스에 트래픽을 라우팅하는 방법을 보여줍니다.  작업을 완료한 경우 VNET에 API Management가 배포되고, 백 엔드 상태 비저장 서비스에 트래픽을 전송하도록 API 작업이 구성됩니다. Service Fabric을 사용하는 Azure API Management 시나리오에 대해 자세히 알아보려면 [개요](service-fabric-api-management-overview.md) 문서를 참조하세요.
-
-이 자습서에서는 다음 방법에 대해 알아봅니다.
-
-> [!div class="checklist"]
-> * API Management 배포
-> * API Management 구성
-> * API 작업 만들기
-> * 백 엔드 정책 구성
-> * 제품에 API 추가
-
-이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
-> [!div class="checklist"]
-> * 템플릿을 사용하여 Azure에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 또는 [Linux 클러스터](service-fabric-tutorial-create-vnet-and-linux-cluster.md) 만들기
-> * [클러스터 규모 확장 또는 규모 감축](service-fabric-tutorial-scale-cluster.md)
-> * [클러스터의 런타임 업그레이드](service-fabric-tutorial-upgrade-cluster.md)
-> * Service Fabric을 사용하여 API Management 배포
+이 문서에서는 Service Fabric을 사용하여 [Azure API Management](../api-management/api-management-key-concepts.md)를 설정하여 Service Fabric의 백 엔드 서비스로 트래픽을 라우팅하는 방법을 보여줍니다.  작업을 완료한 경우 VNET에 API Management가 배포되고, 백 엔드 상태 비저장 서비스에 트래픽을 전송하도록 API 작업이 구성됩니다. Service Fabric을 사용하는 Azure API Management 시나리오에 대해 자세히 알아보려면 [개요](service-fabric-api-management-overview.md) 문서를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서를 시작하기 전에:
+시작하기 전에
 
 * Azure 구독이 없는 경우 [평가판 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * [Azure PowerShell 모듈 버전 4.1 이상](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
-* Azure에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 또는 [Linux 클러스터](service-fabric-tutorial-create-vnet-and-linux-cluster.md) 만들기
+* 네트워크 보안 그룹에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md)를 만듭니다.
 * Windows 클러스터를 배포하는 경우 Windows 개발 환경을 설정합니다. [Visual Studio 2017](http://www.visualstudio.com), **Azure 개발**, **ASP.NET 및 웹 개발** 및 **.NET Core 플랫폼 간 개발** 워크로드를 설치합니다.  그런 후 [.NET 개발 환경](service-fabric-get-started.md)을 설정합니다.
-* Linux 클러스터를 배포하는 경우 [Linux](service-fabric-get-started-linux.md) 또는 [MacOS](service-fabric-get-started-mac.md)에서 Java 개발 환경을 설정합니다.  [Service Fabric CLI](service-fabric-cli.md)를 설치합니다.
 
 ## <a name="network-topology"></a>네트워크 토폴로지
 
-이제 Azure에 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 또는 [Linux 클러스터](service-fabric-tutorial-create-vnet-and-linux-cluster.md)가 있으므로, 서브넷의 VNET(가상 네트워크) 및 API Management에 지정된 NSG에 API Management를 배포합니다. 이 자습서에서는 API Management Resource Manager 템플릿이 이전 [Windows 클러스터 자습서](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 또는 [Linux 클러스터 자습서](service-fabric-tutorial-create-vnet-and-linux-cluster.md)에서 설정한 VNET, 서브넷 및 NSG의 이름을 사용하도록 미리 구성되어 있습니다. 이 자습서에서는 다음과 같이 API Management 및 Service Fabric이 동일한 Virtual Network의 서브넷에 있는 토폴로지를 Azure에 배포합니다.
+이제 Azure에 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md)가 있으므로, 서브넷의 VNET(가상 네트워크) 및 API Management에 지정된 NSG에 API Management를 배포합니다. 이 문서의 경우 API Management Resource Manager 템플릿이 [Windows 클러스터 자습서](service-fabric-tutorial-create-vnet-and-windows-cluster.md)에서 설정한 VNET, 서브넷 및 NSG의 이름을 사용하도록 미리 구성됐으므로 이 문서에서는 API Management 및 Service Fabric이 동일한 Virtual Network의 서브넷에 있는 경우 Azure에 다음과 같은 토폴로지를 배포합니다.
 
  ![그림 캡션][sf-apim-topology-overview]
 
@@ -77,11 +60,9 @@ az account set --subscription <guid>
 
 ## <a name="deploy-a-service-fabric-back-end-service"></a>Service Fabric 백 엔드 서비스 배포
 
-Service Fabric 백 엔드 서비스로 트래픽을 라우팅하도록 API Management를 구성하기 전에 먼저 요청을 수락하기 위한 실행 중인 서비스가 필요합니다.  이전에 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md)를 만든 경우 .NET Service Fabric 서비스를 배포합니다.  이전에 [Linux 클러스터](service-fabric-tutorial-create-vnet-and-linux-cluster.md)를 만든 경우 Java Service Fabric 서비스를 배포합니다.
+Service Fabric 백 엔드 서비스로 트래픽을 라우팅하도록 API Management를 구성하기 전에 먼저 요청을 수락하기 위한 실행 중인 서비스가 필요합니다.  
 
-### <a name="deploy-a-net-service-fabric-service"></a>.NET Service Fabric 서비스 배포
-
-이 자습서에서는 기본 웹 API 프로젝트 템플릿을 사용하여 기본적인 상태 비저장 ASP.NET Core 신뢰할 수 있는 서비스를 만듭니다. 이렇게 하면 서비스의 HTTP 엔드포인트가 Azure API Management를 통해 노출됩니다.
+기본 웹 API 프로젝트 템플릿을 사용하여 기본적인 상태 비저장 ASP.NET Core 신뢰할 수 있는 서비스를 만듭니다. 이렇게 하면 서비스의 HTTP 엔드포인트가 Azure API Management를 통해 노출됩니다.
 
 Visual Studio를 관리자 권한으로 시작하고 ASP.NET Core 서비스를 만듭니다.
 
@@ -115,42 +96,6 @@ Visual Studio를 관리자 권한으로 시작하고 ASP.NET Core 서비스를 �
 
 `fabric:/ApiApplication/WebApiService`로 명명된 ASP.NET Core 상태 비저장 서비스는 이제 Azure의 Service Fabric 클러스터에서 실행되어야 합니다.
 
-### <a name="create-a-java-service-fabric-service"></a>Java Service Fabric 서비스 만들기
-
-이 자습서에서는 사용자에게 메시지를 다시 표시하는 기본 웹 서버를 배포합니다. 에코 서버 샘플 응용 프로그램에는 Azure API Management를 통해 노출하는 서비스의 HTTP 엔드포인트가 포함됩니다.
-
-1. Java 시작 샘플을 복제합니다.
-
-   ```bash
-   git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
-   cd service-fabric-java-getting-started/reliable-services-actor-sample
-   ```
-
-2. *Services/EchoServer/EchoServer1.0/EchoServerApplication/EchoServerPkg/ServiceManifest.xml*을 편집합니다. 서비스가 포트 8081에서 수신 대기하도록 엔드포인트를 업데이트합니다.
-
-   ```xml
-   <Endpoint Name="WebEndpoint" Protocol="http" Port="8081" />
-   ```
-
-3. *ServiceManifest.xml*을 저장한 후 EchoServer1.0 응용 프로그램을 빌드합니다.
-
-   ```bash
-   cd Services/EchoServer/EchoServer1.0/
-   gradle
-   ```
-
-4. 응용 프로그램을 클러스터에 배포합니다.
-
-   ```bash
-   cd Scripts
-   sfctl cluster select --endpoint https://mycluster.southcentralus.cloudapp.azure.com:19080 --pem <full_path_to_pem_on_dev_machine> --no-verify
-   ./install.sh
-   ```
-
-   `fabric:/EchoServerApplication/EchoServerService`로 명명된 Java 상태 비저장 서비스는 이제 Azure의 Service Fabric 클러스터에서 실행되어야 합니다.
-
-5. 브라우저를 열고 http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage를 입력하면 "[version 1.0]Hello World!!!"가 표시됩니다. 표시됩니다.
-
 ## <a name="download-and-understand-the-resource-manager-templates"></a>리소스 관리자 템플릿 다운로드 및 이해
 
 다음 리소스 관리자 템플릿 및 매개 변수 파일을 다운로드하고 저장합니다.
@@ -170,9 +115,9 @@ Visual Studio를 관리자 권한으로 시작하고 ASP.NET Core 서비스를 �
 
 ### <a name="microsoftapimanagementservicecertificates"></a>Microsoft.ApiManagement/service/certificates
 
-[Microsoft.ApiManagement/service/certificates](/azure/templates/microsoft.apimanagement/service/certificates)에서는 API Management 보안을 구성합니다. API Management는 서비스 검색을 위해 클러스터에 대한 액세스 권한이 있는 클라이언트 인증서를 사용하여 Service Fabric 클러스터에 인증해야 합니다. 이 자습서에서는 기본적으로 클러스터 액세스에 사용할 수 있는 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md#createvaultandcert_anchor) 또는 [Linux 클러스터](service-fabric-tutorial-create-vnet-and-linux-cluster.md#createvaultandcert_anchor)를 만들 때 이전에 지정된 것과 동일한 인증서를 사용합니다.
+[Microsoft.ApiManagement/service/certificates](/azure/templates/microsoft.apimanagement/service/certificates)에서는 API Management 보안을 구성합니다. API Management는 서비스 검색을 위해 클러스터에 대한 액세스 권한이 있는 클라이언트 인증서를 사용하여 Service Fabric 클러스터에 인증해야 합니다. 이 문서에서는 기본적으로 클러스터 액세스에 사용할 수 있는 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md#createvaultandcert_anchor)를 만들 때 이전에 지정된 것과 동일한 인증서를 사용합니다.
 
-이 자습서에서는 클라이언트 인증 및 클러스터 노드 간 보안에 동일한 인증서를 사용합니다. Service Fabric 클러스터에 액세스하도록 구성되어 있는 경우 별도의 클라이언트 인증서를 사용할 수 있습니다. Service Fabric 클러스터를 만들 때 지정한 클러스터 인증서의 개인 키 파일(.pfx)에 대해 **이름**, **암호** 및 **데이터**(base-64로 인코딩된 문자열)를 제공합니다.
+이 문서에서는 클라이언트 인증 및 클러스터 노드 간 보안에 동일한 인증서를 사용합니다. Service Fabric 클러스터에 액세스하도록 구성되어 있는 경우 별도의 클라이언트 인증서를 사용할 수 있습니다. Service Fabric 클러스터를 만들 때 지정한 클러스터 인증서의 개인 키 파일(.pfx)에 대해 **이름**, **암호** 및 **데이터**(base-64로 인코딩된 문자열)를 제공합니다.
 
 ### <a name="microsoftapimanagementservicebackends"></a>Microsoft.ApiManagement/service/backends
 
@@ -184,18 +129,18 @@ Service Fabric 백 엔드의 경우 특정 Service Fabric 서비스가 아니라
 
 [Microsoft.ApiManagement/service/products](/azure/templates/microsoft.apimanagement/service/products)에서는 제품을 만듭니다. Azure API Management에서 제품은 하나 이상의 API뿐만 아니라 사용 할당량 및 사용 약관을 포함합니다. 제품이 게시되면 개발자는 제품을 구독하고 제품의 API를 사용할 수 있습니다.
 
-제품을 설명하는 **displayName** 및 **description**을 입력합니다. 이 자습서에서는 구독이 필요하지만 관리자의 구독 승인은 필요하지 않습니다.  이 제품의 **state**는 "게시됨"이며 구독자에게 표시됩니다.
+제품을 설명하는 **displayName** 및 **description**을 입력합니다. 이 문서에서는 구독이 필요하지만 관리자의 구독 승인은 필요하지 않습니다.  이 제품의 **state**는 "게시됨"이며 구독자에게 표시됩니다.
 
 ### <a name="microsoftapimanagementserviceapis"></a>Microsoft.ApiManagement/service/apis
 
 [Microsoft.ApiManagement/service/apis](/azure/templates/microsoft.apimanagement/service/apis)에서는 API를 만듭니다. API Management에서 API는 클라이언트 응용 프로그램이 호출할 수 있는 작업 집합을 나타냅니다. 작업이 추가되면 API가 제품에 추가되므로, 이 API를 게시할 수 있습니다. API가 게시되면 개발자가 구독하고 사용할 수 있습니다.
 
-* **displayName**은 API에 대한 어떤 이름도 될 수 있습니다. 이 자습서에서는 "Service Fabric 앱"을 사용합니다.
+* **displayName**은 API에 대한 어떤 이름도 될 수 있습니다. 이 문서에서는 "Service Fabric 앱"을 사용합니다.
 * **name**은 API를 설명하는 고유한 이름(예: "service-fabric-app")을 제공합니다. 개발자 및 게시자 포털에 표시됩니다.
-* **serviceUrl**은 API를 구현하는 HTTP 서비스를 참조합니다. API 관리는 이 주소로 요청을 전달합니다. Service Fabric 백 엔드에는 이 URL 값이 사용되지 않습니다. 여기에 임의의 값을 입력할 수 있습니다. 예를 들어 이 자습서에서는 " http://servicefabric "일 수 있습니다.
+* **serviceUrl**은 API를 구현하는 HTTP 서비스를 참조합니다. API 관리는 이 주소로 요청을 전달합니다. Service Fabric 백 엔드에는 이 URL 값이 사용되지 않습니다. 여기에 임의의 값을 입력할 수 있습니다. 예를 들어 이 문서에서는 "http://servicefabric"입니다.
 * **path**는 API Management 서비스의 기본 URL에 추가됩니다. 기본 URL은 API Management 서비스 인스턴스에서 호스트되는 모든 API에 공통으로 사용됩니다. API Management는 접미사를 사용하여 API를 구분하므로, 접미사는 지정된 게시자의 모든 API에 대해 고유해야 합니다.
-* **protocols**는 API에 액세스하는 데 사용할 수 있는 프로토콜을 결정합니다. 이 자습서에서는 **http** 및 **https**가 나열됩니다.
-* **path**는 API에 대한 접미사입니다. 이 자습서에서는 "myapp"을 사용합니다.
+* **protocols**는 API에 액세스하는 데 사용할 수 있는 프로토콜을 결정합니다. 이 문서에서는 **http** 및 **https**가 나열됩니다.
+* **path**는 API에 대한 접미사입니다. 이 문서에서는 "myapp"을 사용합니다.
 
 ### <a name="microsoftapimanagementserviceapisoperations"></a>Microsoft.ApiManagement/service/apis/operations
 
@@ -203,9 +148,9 @@ Service Fabric 백 엔드의 경우 특정 Service Fabric 서비스가 아니라
 
 프런트 엔드 API 작업을 추가하려면 다음 값을 채웁니다.
 
-* **displayName** 및 **description**은 작업에 대해 설명합니다. 이 자습서에서는 "값"을 사용합니다.
-* **method**는 HTTP 동사를 지정합니다.  이 자습서의 경우 **GET**을 지정합니다.
-* **urlTemplate**은 API의 기준 URL에 추가되며 단일 HTTP 작업을 식별합니다.  이 자습서에서는 .NET 백 엔드 서비스를 추가한 경우에는 `/api/values`를, Java 백 엔드 서비스를 추가한 경우에는 `getMessage`를 사용합니다.  기본적으로 여기에 지정된 URL 경로는 백 엔드 Service Fabric 서비스로 전송되는 URL 경로입니다. 여기에 서비스에서 사용하는 것과 동일한 URL 경로(예: "/api/values")를 사용하면 추가 수정 없이 작업이 이루어집니다. 여기에 백 엔드 Service Fabric 서비스에서 사용하는 URL 경로와 다른 URL 경로를 지정할 수도 있습니다. 이 경우 나중에 작업 정책에서도 경로 다시 쓰기를 지정해야 합니다.
+* **displayName** 및 **description**은 작업에 대해 설명합니다. 이 문서에서는 "Values"를 사용합니다.
+* **method**는 HTTP 동사를 지정합니다.  이 문서에서는 **GET**을 지정합니다.
+* **urlTemplate**은 API의 기준 URL에 추가되며 단일 HTTP 작업을 식별합니다.  이 문서에서는 .NET 백 엔드 서비스를 추가한 경우에는 `/api/values`를, Java 백 엔드 서비스를 추가한 경우에는 `getMessage`를 사용합니다.  기본적으로 여기에 지정된 URL 경로는 백 엔드 Service Fabric 서비스로 전송되는 URL 경로입니다. 여기에 서비스에서 사용하는 것과 동일한 URL 경로(예: "/api/values")를 사용하면 추가 수정 없이 작업이 이루어집니다. 여기에 백 엔드 Service Fabric 서비스에서 사용하는 URL 경로와 다른 URL 경로를 지정할 수도 있습니다. 이 경우 나중에 작업 정책에서도 경로 다시 쓰기를 지정해야 합니다.
 
 ### <a name="microsoftapimanagementserviceapispolicies"></a>Microsoft.ApiManagement/service/apis/policies
 
@@ -218,7 +163,7 @@ Service Fabric 백 엔드의 경우 특정 Service Fabric 서비스가 아니라
 * 상태 저장 서비스 복제본 선택
 * 서비스 위치를 다시 확인하고 요청을 다시 보내는 조건을 지정할 수 있는 다시 확인 시도 조건
 
-**policyContent**는 정책의 Json 이스케이프 XML 콘텐츠입니다.  이 자습서에서는 이전에 배포한 .NET 또는 Java 상태 비저장 서비스에 직접 요청을 라우팅하는 백 엔드 정책을 만듭니다. 인바운드 정책 아래에 `set-backend-service` 정책을 추가합니다.  이전에 .NET 백 엔드 서비스를 배포한 경우에는 *sf-service-instance-name* 값을 `fabric:/ApiApplication/WebApiService`로 바꾸고, Java 서비스를 배포한 경우에는 `fabric:/EchoServerApplication/EchoServerService`로 바꿉니다.  *backend-id*는 백 엔드 리소스를 참조하며, 이 경우에는 *apim.json* 템플릿에 정의된 `Microsoft.ApiManagement/service/backends` 리소스입니다. *backend-id*는 또한 API Management API를 사용하여 생성된 다른 백 엔드 리소스를 참조할 수 있습니다. 이 자습서에서는 *backend-id*를 *service_fabric_backend_name* 매개 변수 값으로 설정합니다.
+**policyContent**는 정책의 Json 이스케이프 XML 콘텐츠입니다.  이 문서에서는 이전에 배포한 .NET 또는 Java 상태 비저장 서비스로 직접 요청을 라우팅하는 백 엔드 정책을 만듭니다. 인바운드 정책 아래에 `set-backend-service` 정책을 추가합니다.  이전에 .NET 백 엔드 서비스를 배포한 경우에는 *sf-service-instance-name* 값을 `fabric:/ApiApplication/WebApiService`로 바꾸고, Java 서비스를 배포한 경우에는 `fabric:/EchoServerApplication/EchoServerService`로 바꿉니다.  *backend-id*는 백 엔드 리소스를 참조하며, 이 경우에는 *apim.json* 템플릿에 정의된 `Microsoft.ApiManagement/service/backends` 리소스입니다. *backend-id*는 또한 API Management API를 사용하여 생성된 다른 백 엔드 리소스를 참조할 수 있습니다. 이 문서에서는 *backend-id*를 *service_fabric_backend_name* 매개 변수 값으로 설정합니다.
 
 ```xml
 <policies>
@@ -227,7 +172,7 @@ Service Fabric 백 엔드의 경우 특정 Service Fabric 서비스가 아니라
     <set-backend-service
         backend-id="servicefabric"
         sf-service-instance-name="service-name"
-        sf-resolve-condition="@((int)context.Response.StatusCode != 200)" />
+        sf-resolve-condition="@(context.LastError?.Reason == 'BackendConnectionFailure')" />
   </inbound>
   <backend>
     <base/>
@@ -267,7 +212,7 @@ $b64 = [System.Convert]::ToBase64String($bytes);
 [System.Io.File]::WriteAllText("C:\mycertificates\sfclustertutorialgroup220171109113527.txt", $b64);
 ```
 
-*inbound_policy*에서 이전에 .NET 백 엔드 서비스를 배포한 경우에는 *sf-service-instance-name* 값을 `fabric:/ApiApplication/WebApiService`로 바꾸고, Java 서비스를 배포한 경우에는 `fabric:/EchoServerApplication/EchoServerService`로 바꿉니다. *backend-id*는 백 엔드 리소스를 참조하며, 이 경우에는 *apim.json* 템플릿에 정의된 `Microsoft.ApiManagement/service/backends` 리소스입니다. *backend-id*는 또한 API Management API를 사용하여 생성된 다른 백 엔드 리소스를 참조할 수 있습니다. 이 자습서에서는 *backend-id*를 *service_fabric_backend_name* 매개 변수 값으로 설정합니다.
+*inbound_policy*에서 이전에 .NET 백 엔드 서비스를 배포한 경우에는 *sf-service-instance-name* 값을 `fabric:/ApiApplication/WebApiService`로 바꾸고, Java 서비스를 배포한 경우에는 `fabric:/EchoServerApplication/EchoServerService`로 바꿉니다. *backend-id*는 백 엔드 리소스를 참조하며, 이 경우에는 *apim.json* 템플릿에 정의된 `Microsoft.ApiManagement/service/backends` 리소스입니다. *backend-id*는 또한 API Management API를 사용하여 생성된 다른 백 엔드 리소스를 참조할 수 있습니다. 이 문서에서는 *backend-id*를 *service_fabric_backend_name* 매개 변수 값으로 설정합니다.
 
 ```xml
 <policies>
@@ -276,7 +221,7 @@ $b64 = [System.Convert]::ToBase64String($bytes);
     <set-backend-service
         backend-id="servicefabric"
         sf-service-instance-name="service-name"
-        sf-resolve-condition="@((int)context.Response.StatusCode != 200)" />
+        sf-resolve-condition="@(context.LastError?.Reason == 'BackendConnectionFailure')" />
   </inbound>
   <backend>
     <base/>
@@ -349,14 +294,7 @@ az group delete --name $ResourceGroupName
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
-
-> [!div class="checklist"]
-> * API Management 배포
-> * API Management 구성
-> * API 작업 만들기
-> * 백 엔드 정책 구성
-> * 제품에 API 추가
+[API Management](/azure/api-management/import-and-publish)를 사용하는 방법을 자세히 알아봅니다.
 
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 

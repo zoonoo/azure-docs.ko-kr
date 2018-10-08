@@ -2,19 +2,22 @@
 title: Azure SQL Database의 임시 테이블 시작| Microsoft Docs
 description: Azure SQL Database에서 임시 테이블을 사용하여 시작하는 방법을 알아봅니다.
 services: sql-database
-author: bonova
-ms.date: 03/21/2018
-manager: craigg
 ms.service: sql-database
-ms.custom: develop databases
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: bonova
 ms.author: bonova
-ms.openlocfilehash: 140d2c9f6c334cec7d2761d05d7b20eb7106b9fd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 03/21/2018
+ms.openlocfilehash: d18630f9b4cea28bd19b2ac24e7b8c3d1822e17c
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649043"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166421"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Azure SQL Database의 임시 테이블 시작
 임시 테이블은 사용자 지정 코딩을 필요로 하지 않고 데이터의 전체 변경 기록을 추적하고 분석할 수 있는 Azure SQL Database의 새로운 프로그래밍 기능입니다. 임시 테이블은 특정 기간 내에서만 유효하기 때문에 저장된 팩트를 해석할 수 있도록 데이터를 시간 컨텍스트와 밀접하게 연결해둡니다. 임시 테이블의 이 속성을 사용하면 효율적인 시간 기반 분석 및 데이터의 진화에서 정보를 얻을 수 있습니다.
@@ -22,7 +25,7 @@ ms.locfileid: "34649043"
 ## <a name="temporal-scenario"></a>임시 시나리오
 이 문서에서는 응용 프로그램 시나리오에서 임시 테이블을 활용하는 단계를 보여줍니다. 처음부터 새로 개발되는 새 웹 사이트 또는 사용자 작업 분석으로 확장하려는 기존 웹 사이트에서 사용자 작업을 추적한다고 가정합니다. 이 간단한 예제에서는 일정 기간 동안 방문한 웹 페이지의 수가 Azure SQL Database에서 호스팅되는 웹 사이트 데이터베이스에서 캡처되고 모니터링되어야 할 표식이라고 가정합니다. 사용자 작업 내역 분석의 목적은 웹 사이트를 다시 디자인하고 방문자에게 더 나은 환경을 제공하기 위한 입력을 가져오는 것입니다.
 
-이 시나리오에 대한 데이터베이스 모델은 매우 간단합니다. 사용자 작업 메트릭은 단일 정수 필드인 **PageVisited**로 표시되고 사용자 프로필에 대한 기본 정보와 함께 캡처됩니다. 또한 시간 기반 분석의 경우 각 사용자에 대한 일련의 행을 유지하며 여기서 모든 행은 특정 기간 내에서 특정 사용자가 방문한 페이지 수를 나타냅니다.
+이 시나리오에 대한 데이터베이스 모델은 매우 간단합니다. 사용자 작업 메트릭은 단일 정수 필드인 **PageVisited**로 표시되고 사용자 프로필에 대한 기본 정보와 함께 캡처됩니다. 또한 시간 기반 분석의 경우 각 사용자에 대해 일련의 행을 유지하며, 여기서 모든 행은 특정 기간 내에 특정 사용자가 방문한 페이지 수를 나타냅니다.
 
 ![스키마](./media/sql-database-temporal-tables/AzureTemporal1.png)
 
@@ -41,11 +44,11 @@ SSMS 개체 탐색기에서 상황에 맞는 메뉴 항목인 "새 시스템 버
 
 ![SSMSNewTable](./media/sql-database-temporal-tables/AzureTemporal2.png)
 
-SSDT에서 데이터베이스 프로젝트에 새 항목을 추가하는 경우 "임시 테이블(시스템 버전)" 템플릿을 선택합니다. 그러면 테이블 디자이너가 열리고 쉽게 테이블 레이아웃을 지정할 수 있습니다.
+SSDT에서 새 항목을 데이터베이스 프로젝트에 추가하는 경우 "임시 테이블(시스템 버전 있음)" 템플릿을 선택합니다. 그러면 테이블 디자이너가 열리고 쉽게 테이블 레이아웃을 지정할 수 있습니다.
 
 ![SSDTNewTable](./media/sql-database-temporal-tables/AzureTemporal3.png)
 
-아래 예제와 같이 Transact-SQL 문을 지정하여 직접 임시 테이블을 만들 수도 있습니다. 모든 임시 테이블의 필수 요소는 기간 정의이며 다른 사용자 테이블에 대한 참조를 포함하는 SYSTEM_VERSIONING 절은 과거 행 버전을 저장합니다.
+아래 예제와 같이 Transact-SQL 문을 직접 지정하여 임시 테이블을 만들 수도 있습니다. 모든 임시 테이블의 필수 요소는 기간 정의이며 다른 사용자 테이블에 대한 참조를 포함하는 SYSTEM_VERSIONING 절은 과거 행 버전을 저장합니다.
 
 ````
 CREATE TABLE WebsiteUserInfo 

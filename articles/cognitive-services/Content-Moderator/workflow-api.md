@@ -1,20 +1,21 @@
 ---
-title: Azure Content Moderator - 조정 워크플로 | Microsoft Docs
+title: 조정 워크플로 - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: 콘텐츠 조정을 통해 워크플로를 사용합니다.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/04/2018
 ms.author: sajagtap
-ms.openlocfilehash: 079fcd119f1536f9e76ca57fccc76538b3c3ed78
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 3de45c62eb208671cc2d1d4de5309d2f9d75adc9
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373382"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226877"
 ---
 # <a name="moderation-workflows"></a>조정 워크플로
 

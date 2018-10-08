@@ -2,24 +2,26 @@
 title: Azure SQL Database 데이터 검색 및 분류 | Microsoft Docs
 description: Azure SQL Database 데이터 검색 및 분류
 services: sql-database
-author: giladmit
-manager: craigg
-ms.reviewer: carlrab
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/10/2018
+author: giladmit
 ms.author: giladm
-ms.openlocfilehash: 6ef9a701f3a228e4c40da94f83310ef2884a3f59
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.reviewer: vanto
+manager: craigg
+ms.date: 09/10/2018
+ms.openlocfilehash: d34bb54729fe0adc4b26d213bfaa4ad4fb210ab7
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42142202"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064188"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL Database 데이터 검색 및 분류
 데이터 검색 및 분류(현재 미리 보기)는 데이터베이스에 있는 중요한 데이터의 **검색**, **분류**, **레이블 지정** & **보호**를 위해 Azure SQL Database에 내장된 고급 기능을 제공합니다.
-가장 중요한 데이터(비즈니스, 재무, 보건, PII 등)를 검색하고 분류하는 기능은 조직 정보 보호 평판에 중추적인 역할을 할 수 있습니다. 그것은 다음에 대한 인프라 역할을 할 수 있습니다.
+가장 중요한 데이터(비즈니스, 재무, 의료, PII(개인 식별 데이터) 등)를 검색하고 분류하는 기능은 조직 정보 보호 평판에 중추적인 역할을 할 수 있습니다. 그것은 다음에 대한 인프라 역할을 할 수 있습니다.
 * 데이터 프라이버시 표준 및 규정 준수 요구 사항을 충족하도록 지원.
 * 중요한 데이터에 대한 비정상적인 엑세스 모니터링(감사) 및 경고하는 것과 같은 다양한 보안 시나리오.
 * 매우 중요한 데이터가 들어 있는 데이터베이스에 대한 엑세스 제어 및 보안 강화.
@@ -42,6 +44,17 @@ ms.locfileid: "42142202"
 분류는 두 개의 메타데이터 특성을 포함합니다.
 * 레이블 - 열에 저장된 데이터의 민감도 수준을 정의하는 데 사용되는 주요 분류 속성입니다.  
 * 정보 유형 – 열에 저장된 데이터의 유형에 추가 세분성을 제공합니다.
+
+## <a name="define-and-customize-your-classification-taxonomy"></a>분류 체계 정의 및 사용자 지정
+
+SQL Data Discovery & Classification은 민감도 레이블 집합과 정보 유형 및 검색 논리 집합을 기본적으로 제공합니다. 이제 환경에 맞게 이 분류 체계를 사용자 지정하고 분류 구조의 집합 및 순위 지정 방법을 정의해야 합니다.
+
+분류 체계를 정의하고 사용자 지정하는 작업은 전체 Azure 테넌트에 대한 중앙의 한 위치에서 수행됩니다. 이 위치는 보안 정책에 따라 [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) 내에 있습니다. 테넌트 루트 관리 그룹에 대한 관리 권한이 있는 사람만이 이 작업을 수행할 수 있습니다.
+
+Information Protection 정책 관리의 일환으로, 사용자 지정 레이블을 정의하고, 순위를 지정하고, 선택한 정보 유형 집합과 연결할 수 있습니다. 또한 문자열 패턴을 사용하여 사용자 고유의 사용자 지정 정보 유형을 추가하고 구성할 수 있으며, 이러한 정보 유형은 데이터베이스에서 이러한 유형의 데이터를 식별하기 위한 검색 논리에 추가됩니다.
+정책을 사용자 지정하고 관리하는 방법에 대한 자세한 내용은 [Information Protection 정책 방법 가이드](https://go.microsoft.com/fwlink/?linkid=2009845&clcid=0x409)를 참조하세요.
+
+테넌트 수준 정책을 정의한 후에는 사용자 지정된 정책을 사용하여 개별 데이터베이스 분류를 계속할 수 있습니다.
 
 ## <a name="classify-your-sql-database"></a>SQL Database 분류
 
@@ -104,9 +117,9 @@ T-SQL을 사용하여 열 분류를 추가/제거하고 전체 데이터베이�
 > [!NOTE]
 > T-SQL을 사용하여 레이블을 관리하는 경우, 열에 추가된 레이블이 조직 정보 보호 정책(포털 권장 사항에 표시되는 레이블 집합)에 있는지 확인되지 않습니다. 따라서 이 확인 작업은 사용자가 수행해야 합니다.
 
-* 하나 이상의 열 분류 추가/업데이트: [ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/en-us/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
-* 하나 이상의 열에서 분류 제거: [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/en-us/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
-* 데이터베이스에 대한 모든 분류 보기: [sys.sensitivity_classifications](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+* 하나 이상의 열 분류 추가/업데이트: [ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+* 하나 이상의 열에서 분류 제거: [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+* 데이터베이스에 대한 모든 분류 보기: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 또한 REST API를 사용하여 프로그래밍 방식으로 분류를 관리할 수 있습니다. 게시된 REST API는 다음과 같은 작업을 지원합니다.
 * [만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) - 지정된 열의 민감도 레이블을 만들거나 업데이트합니다.

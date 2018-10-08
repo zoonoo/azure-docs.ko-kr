@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: 2182a39836f02596d22168722e6ece7a2872dccc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0c5cfcee65b176147125dd2edbff2497b1eee70b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969486"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158567"
 ---
 # <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>최신 버전의 Azure Machine Learning 서비스로 마이그레이션 
 
@@ -54,13 +54,13 @@ Azure Machine Learning 서비스의 첫 번째 미리 보기에서 만든 대부
 
 [Azure Portal](quickstart-get-started.md)에서 Azure Machine Learning 작업 영역을 만들어 최신 버전 사용을 시작하세요. Portal의 작업 영역 대시보드는 Edge, Chrome 및 Firefox 브라우저에서만 지원됩니다.
 
-최상위 서비스 리소스인 이 새 작업 영역에서는 Azure Machine Learning 서비스의 최신 기능을 모두 사용할 수 있습니다. [이 작업 영역 및 아키텍처에 대해 자세히 알아보세요](concept-azure-machine-learning-architecture.md).
+최상위 서비스 리소스인 이 새 작업 영역에서는 Azure Machine Learning 서비스의 최신 기능을 모두 사용할 수 있습니다. 이 [작업 영역 및 아키텍처](concept-azure-machine-learning-architecture.md)에 대해 자세히 알아보세요.
 
 <a name="projects"></a>
 
 ## <a name="projects"></a>프로젝트
 
-최신 릴리스에서는 작업 영역의 프로젝트가 클라우드에 저장되는 것이 아니라 로컬 컴퓨터의 디렉터리로 생성됩니다. [최신 아키텍처의 다이어그램을 확인해 보세요](concept-azure-machine-learning-architecture.md). 
+최신 릴리스에서는 작업 영역의 프로젝트가 클라우드에 저장되는 것이 아니라 로컬 컴퓨터의 디렉터리로 생성됩니다. [최신 아키텍처](concept-azure-machine-learning-architecture.md) 다이어그램을 살펴보세요. 
 
 파일과 스크립트가 포함된 로컬 디렉터리를 계속 사용하려면 ['experiment.submit'](http://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python 명령에서 디렉터리 이름을 지정하거나 ‘az ml project attach’ CLI 명령을 사용합니다.
 

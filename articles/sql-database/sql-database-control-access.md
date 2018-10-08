@@ -1,26 +1,29 @@
 ---
-title: Azure SQL Database에 액세스 권한 부여 | Microsoft Docs
-description: Microsoft Azure SQL Database에 대한 액세스 권한을 부여하는 방법에 대해 알아봅니다.
+title: Azure SQL Database 및 SQL Data Warehouse에 대한 액세스 권한 부여 | Microsoft Doc
+description: Azure SQL Database 및 SQL Data Warehouse에 대한 액세스 권한을 부여하는 방법을 알아봅니다.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: sql-data-warehouse
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.author: carlrab
-ms.openlocfilehash: 2ab2f047839763239358e61f61f0fc962c17d729
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+author: VanMSFT
+ms.author: vanto
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 06/13/2018
+ms.openlocfilehash: a39e65d5a3aff6158c189f392e2db8bd8273ad1b
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647438"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063784"
 ---
-# <a name="azure-sql-database-access-control"></a>Azure SQL Database 액세스 제어
-SQL Database는 보안을 제공하기 위해 IP 주소로 연결을 제한하는 방화벽 규칙, 사용자가 해당 ID를 증명하도록 하는 인증 메커니즘 및 특정 작업 및 데이터에 대한 사용자를 제한하는 권한 부여 메커니즘을 사용하여 액세스를 제어합니다. 
+# <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Azure SQL Database 및 SQL Data Warehouse 액세스 제어
+보안을 제공하기 위해, Azure [SQL Database](sql-database-technical-overview.md) 및 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)는 IP 주소로 연결을 제한하는 방화벽 규칙, 사용자가 해당 ID를 증명하도록 하는 인증 메커니즘 및 특정 작업 및 데이터에 대한 사용자를 제한하는 권한 부여 메커니즘을 사용하여 액세스를 제어합니다. 
 
 > [!IMPORTANT]
-> SQL Database 보안 기능에 대한 개요는 [SQL 보안 개요](sql-database-security-overview.md)를 참조하세요. 자습서는 [Azure SQL Database 보안](sql-database-security-tutorial.md)을 참조하세요.
+> SQL Database 보안 기능에 대한 개요는 [SQL 보안 개요](sql-database-security-overview.md)를 참조하세요. 자습서는 [Azure SQL Database 보안](sql-database-security-tutorial.md)을 참조하세요. SQL Data Warehouse 보안 기능에 대한 개요는 [SQL Data Warehouse 보안 개요](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)를 참조하세요.
 
 ## <a name="firewall-and-firewall-rules"></a>방화벽 및 방화벽 규칙
 Microsoft Azure SQL Database는 Azure 및 기타 인터넷 기반 응용 프로그램의 관계형 데이터베이스 서비스를 제공합니다. 데이터를 보호하기 위해 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다. 자세한 내용은 [Azure SQL Database 방화벽 규칙 개요](sql-database-firewall-configure.md)를 참조하세요.

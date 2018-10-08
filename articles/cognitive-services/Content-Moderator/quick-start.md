@@ -1,27 +1,28 @@
 ---
-title: Azure Content Moderator 시작 | Microsoft Docs
-description: Azure Content Moderator를 시작하는 방법입니다.
+title: Content Moderator 시작
+titlesuffix: Azure Cognitive Services
+description: Content Moderator를 시작하는 방법입니다.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: sajagtap
-ms.openlocfilehash: ae4333047ebd95733c7baaed0323a0c2c477d323
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c2ac0ccd89b5f1436a151e3d69c5d7423090f244
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374318"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225297"
 ---
 # <a name="get-started-with-content-moderator"></a>Content Moderator 시작
 
-다음과 같은 방법으로 Content Moderator API와 검토 도구를 시작합니다.
+다음과 같은 방법으로 Content Moderator를 시작합니다.
 
-- [검토 도구로 시작](#start-with-the-review-tool)하여 API 키와 검토 팀을 둘 다 만듭니다. 검토 도구를 탐색하고 Content Moderator API를 사용하여 통합하는 방법을 알아봅니다.
-- Azure Portal에서 [Content Moderator를 구독](#start-with-the-apis)합니다. 검토 팀을 만들려면 온라인에서 등록해야 합니다.
+- [검토 도구로 시작](#start-with-the-review-tool)하여 API 키를 가져오고 검토 팀을 만듭니다. 장점은 API 키를 사용하면 콘텐츠 검사를 위한 중재 API 및 검토 생성을 위한 검토 API를 추가 단계 없이 호출할 수 있다는 점입니다.
+- Azure에서 [Content Moderator를 구독](#start-with-the-apis)하여 API 키를 가져옵니다. [API 참조](api-reference.md) 및 [SDK](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net)를 체크 아웃합니다. 검토 팀을 만들려면 온라인에서 등록해야 합니다.
 - [Flow 커넥터 및 템플릿을 사용](https://flow.microsoft.com/connectors/shared_cognitiveservicescontentmoderator/content-moderator/)하여 사용하기 쉬운 디자이너와의 광범위한 통합을 확인합니다.
 
 선택한 옵션에 관계없이 API 자격 증명을 찾으려면 [자격 증명 관리](review-tool-user-guide/credentials.md) 문서를 참조하세요.
@@ -55,9 +56,9 @@ Content Moderator 검토 도구 웹 사이트에서 [등록](http://contentmoder
 
 ### <a name="use-the-apis"></a>API 사용
 
-이제 콘텐츠 조정 및 검토 도구 환경을 살펴보았으므로, Content Moderator를 비즈니스 응용 프로그램과 통합하는 방법을 알아봅니다. 다음 섹션을 사용하여 SDK 및 샘플을 통해 자세히 알아보고 빠르게 파악합니다.
+비즈니스 응용 프로그램을 사용하여 Content Moderator를 통합하는 방법을 알아봅니다. [API 참조](api-reference.md) 및 [SDK](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net)를 체크 아웃합니다.
 
-## <a name="start-with-the-apis"></a>API로 시작
+## <a name="subscribe-in-the-azure-portal"></a>Azure Portal에서 구독
 
 Azure Portal에서 [Content Moderator를 구독](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)합니다. 다음 API 중 하나로 시작합니다.
 
@@ -85,4 +86,4 @@ Azure Portal에서 [Content Moderator를 구독](https://ms.portal.azure.com/#cr
 
 ## <a name="next-steps"></a>다음 단계
 
-[이미지 조정 API](image-moderation-api.md)로 시작하는 콘텐츠 조정에 대해 자세히 알아봅니다.
+[API 참조](api-reference.md) 및 [SDK](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net)를 체크 아웃합니다. [.NET SDK 샘플](sdk-and-samples.md#net-sdk-samples), [C#의 REST API 샘플](https://github.com/sanjeev3/azure-docs-pr/blob/master/articles/cognitive-services/Content-Moderator/sdk-and-samples.md#rest-api-samples-in-c) 및 [자습서](sdk-and-samples.md#tutorials)를 통해 통합을 신속하게 시작합니다.

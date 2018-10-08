@@ -2,18 +2,22 @@
 title: T-SQL(Transact-SQL)을 사용하여 Azure SQL Elastic Database 작업 만들기 및 관리 | Microsoft Docs
 description: T-SQL(Transact-SQL)을 사용하여 Elastic Database 작업 에이전트가 있는 여러 데이터베이스에서 스크립트를 실행합니다.
 services: sql-database
-author: jaredmoo
-manager: craigg
 ms.service: sql-database
-ms.topic: article
-ms.date: 06/14/2018
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
 ms.author: jaredmoo
-ms.openlocfilehash: ae5dafcebd50ecd22309a7771b0edf01a97fd7a7
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+author: jaredmoo
+ms.reviewer: ''
+manager: craigg
+ms.date: 06/14/2018
+ms.openlocfilehash: 49fe1fc79ac94b798cb257b961c36a6258fb00d9
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842624"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056790"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>T-SQL(Transact-SQL)을 사용하여 Elastic Database 작업 만들기 및 관리
 
@@ -1106,7 +1110,7 @@ Arguments [ @target_group_name = ] 'target_group_name'
 대상 그룹 멤버를 제거할 대상 그룹의 이름입니다. target_group_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
 [ @target_id = ] target_id  
- 제거할 대상 그룹 멤버에 할당된 대상 ID 번호입니다. target_id는 uniqueidentifier이며, 기본값은 NULL입니다.
+ 제거할 대상 그룹 멤버에 할당된 대상 ID 번호입니다. target_id는 uniqueidentifier이고, 기본값은 NULL입니다.
 
 #### <a name="return-code-values"></a>반환 코드 값
 0(성공) 또는 1(실패)
@@ -1336,7 +1340,7 @@ GO
 
 ## <a name="resources"></a>리소스
 
- - ![항목 링크 아이콘](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "항목 링크 아이콘") [Transact-SQL 구문 표기 규칙](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+ - ![항목 링크 아이콘](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "항목 링크 아이콘") [Transact-SQL 구문 표기 규칙](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
 
 
 ## <a name="next-steps"></a>다음 단계

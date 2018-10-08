@@ -2,19 +2,22 @@
 title: 'Azure Portal: SQL Database 지역에서 복제 | Microsoft Docs'
 description: Azure Portal에서 Azure SQL Database에 대한 지역에서 복제 구성 및 장애 조치(Failover) 시작
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/16/2018
-ms.author: carlrab
-ms.openlocfilehash: 27fb8f369ad23592902c05fe5275fc54bc6cf148
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+author: anosov1960
+ms.author: sashan
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 592e4c2dc375da34b3a6039bef7ea4da0fa3315b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090472"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163973"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Azure Portal에서 Azure SQL Database에 대한 활성 지역 복제 구성 및 장애 조치(Failover) 시작
 
@@ -34,7 +37,7 @@ Azure Portal을 사용하여 활성 지역 복제를 구성하려면 다음 리�
 
 보조 데이터베이스를 추가하려면 구독 소유자 또는 공동 소유자여야 합니다.
 
-보조 데이터베이스는 주 데이터베이스와 동일한 이름을 포함하며 기본적으로 동일한 수준의 서비스입니다. 보조 데이터베이스는 단일 데이터베이스 또는 탄력적 풀에 있는 데이터베이스일 수 있습니다. 자세한 내용은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 참조하세요.
+보조 데이터베이스는 주 데이터베이스와 이름이 같고, 기본적으로 서비스 계층과 계산 크기가 동일합니다. 보조 데이터베이스는 단일 데이터베이스 또는 탄력적 풀에 있는 데이터베이스일 수 있습니다. 자세한 내용은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 참조하세요.
 보조가 만들어지고 시드된 후 데이터는 주 데이터베이스에서 새로운 보조 데이터베이스로 복제되기 시작합니다.
 
 > [!NOTE]

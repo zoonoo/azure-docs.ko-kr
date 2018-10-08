@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/08/2018
+ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: dad76ab9f2a1a621fb513a4d411792fe2f88a557
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 17b4bc68b2dc996134626b1822cfd17f0a9a7572
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005878"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161644"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure Load Balancer 표준 개요
 
@@ -91,7 +91,7 @@ Load Balancer 리소스는 만들려는 시나리오를 달성하기 위해 Azur
 | 메트릭 | 설명 |
 | --- | --- |
 | VIP 가용성 | Load Balancer 표준은 지역 내에서 Load Balancer 프런트 엔드로, 마지막으로 VM을 지원하는 SDN 스택으로 데이터 경로를 연속적으로 실행합니다. 정상 인스턴스가 남아 있는 한 측정은 응용 프로그램 부하가 분산된 트래픽과 동일한 경로를 따르고 고객이 사용하는 데이터 경로의 유효성도 검사합니다. 측정은 응용 프로그램에 표시되지 않으며 다른 작업을 방해하지 않습니다.|
-| DIP 가용성 | Load Balancer 표준은 구성 설정에 따라 응용 프로그램 끝점의 상태를 모니터링하는 분산된 상태 검색 서비스를 사용합니다. 이 메트릭은 Load Balancer 풀에서 각 개별 인스턴스 끝점의 집계 또는 끝점당 필터링된 보기를 제공합니다.  상태 프로브 구성에 표시된 대로 Load Balancer에서 응용 프로그램의 상태를 보는 방법을 확인할 수 있습니다.
+| DIP 가용성 | Load Balancer 표준은 구성 설정에 따라 응용 프로그램 엔드포인트의 상태를 모니터링하는 분산된 상태 검색 서비스를 사용합니다. 이 메트릭은 Load Balancer 풀에서 각 개별 인스턴스 엔드포인트의 집계 또는 엔드포인트당 필터링된 보기를 제공합니다.  상태 프로브 구성에 표시된 대로 Load Balancer에서 응용 프로그램의 상태를 보는 방법을 확인할 수 있습니다.
 | SYN 패킷 | Load Balancer 표준은 TCP 연결을 종료하거나 TCP 또는 UDP 패킷 흐름을 조작하지 않습니다. 흐름 및 해당 핸드셰이크는 항상 원본과 VM 인스턴스 사이에 있습니다. TCP 프로토콜 시나리오의 문제를 잘 해결하기 위해 SYN 패킷 카운터를 사용하여 TCP 연결 시도 횟수를 파악할 수 있습니다. 메트릭은 수신된 TCP SYN 패킷 수를 보고합니다.|
 | SNAT 연결 | Load Balancer 표준은 공용 IP 주소 프런트 엔드로 위장되는 아웃바운드 흐름 수를 보고합니다. SNAT 포트는 소모성 리소스입니다. 이 메트릭은 응용 프로그램이 아웃바운드에서 시작된 흐름에 대해 SNAT에 얼마나 의존하는지를 나타낼 수 있습니다.  성공 및 실패한 아웃바운드 SNAT 흐름에 대한 카운터가 보고되고 아웃바운드 흐름의 상태를 이해하고 문제를 해결하는 데 사용할 수 있습니다.|
 | 바이트 카운터 | Load Balancer 표준은 프런트 엔드당 처리된 데이터를 보고합니다.|
@@ -141,13 +141,13 @@ Load Balancer는 인바운드 및 아웃바운드 시나리오를 지원합니�
 특정 프런트 엔드 IP 주소에서만 시작되도록 아웃바운드 연결을 제한하려는 경우, 필요에 따라 아웃바운드 매핑을 나타내는 규칙에서 아웃바운드 SNAT를 사용하지 않도록 설정할 수 있습니다.
 
 #### <a name="control-outbound-connectivity"></a>아웃바운드 연결 제어
-표준 Load Balancer는 가상 네트워크의 컨텍스트 내에 존재합니다.  가상 네트워크는 격리된 개인 네트워크입니다.  공용 IP 주소와의 연결이 없으면 공용 연결이 허용되지 않습니다.  [VNet 서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md)은 가상 네트워크의 내부 및 로컬에 있으므로 연결 가능합니다.  가상 네트워크 외부의 대상에 대해 아웃바운드 연결을 설정하려는 경우 다음 두 가지 옵션을 사용할 수 있습니다.
+표준 Load Balancer는 가상 네트워크의 컨텍스트 내에 존재합니다.  가상 네트워크는 격리된 개인 네트워크입니다.  공용 IP 주소와의 연결이 없으면 공용 연결이 허용되지 않습니다.  [VNet 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)는 가상 네트워크의 내부 및 로컬에 있으므로 연결 가능합니다.  가상 네트워크 외부의 대상에 대해 아웃바운드 연결을 설정하려는 경우 다음 두 가지 옵션을 사용할 수 있습니다.
 - 표준 SKU 공용 IP 주소를 가상 머신 리소스에 대한 인스턴스 수준 공용 IP 주소로 할당 또는
 - 가상 머신 리소스를 공용 표준 Load Balancer의 백 엔드 풀에 배치
 
 두 방법 모두 가상 네트워크에서 가상 네트워크 외부로의 아웃바운드 연결을 허용합니다. 
 
-가상 머신 리소스가 있는 백 엔드 풀에 내부 표준 Load Balancer_만_ 연결되어 있는 경우 가상 머신은 가상 네트워크 리소스 및 [VNet 서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md)에만 연결될 수 있습니다.  아웃바운드 연결을 만들려면 이전 단락에 설명된 단계를 따르면 됩니다.
+가상 머신 리소스가 있는 백 엔드 풀에 내부 표준 Load Balancer_만_ 연결되어 있는 경우 가상 머신은 가상 네트워크 리소스 및 [VNet 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)에만 연결될 수 있습니다.  아웃바운드 연결을 만들려면 이전 단락에 설명된 단계를 따르면 됩니다.
 
 표준 SKU와 연결되지 않은 가상 머신 리소스의 아웃바운드 연결은 이전과 동일하게 유지됩니다.
 
@@ -232,6 +232,8 @@ Load Balancer 표준은 현재 모든 공용 클라우드 지역에서 사용할
 - [표준 Load Balancer 진단](load-balancer-standard-diagnostics.md)에 대해 자세히 알아보세요.
 - [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md)의 진단과 관련된 [지원되는 다차원 메트릭](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers)에 대해 자세히 알아보세요.
 - [아웃바운드 연결에 Load Balancer](load-balancer-outbound-connections.md) 사용에 대해 자세히 알아보세요.
+- [아웃바운드 규칙](load-balancer-outbound-rules-overview.md)에 대해 알아보세요.
+- [유휴 상태의 TCP 재설정](load-balancer-tcp-reset.md)에 대해 알아보세요.
 - [HA 포트 부하 분산 규칙을 사용하는 표준 Load Balancer](load-balancer-ha-ports-overview.md)에 대해 자세히 알아보세요.
 - [다중 프런트 엔드를 사용하는 Load Balancer](load-balancer-multivip-overview.md)에 대해 자세히 알아보세요.
 - [Virtual Networks](../virtual-network/virtual-networks-overview.md)에 대해 자세히 알아보세요.

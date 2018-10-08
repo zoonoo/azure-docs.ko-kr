@@ -1,21 +1,21 @@
 ---
-title: FAQ - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
-description: FAQ
+title: FAQ - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: QnA Maker 서비스에 대한 FAQ(질문과 대답) 목록입니다.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: a6bf32549715d0357771b3f3b0ff72f64788ec20
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: efefd595c43d7f46ff1ead91577d070cf8fb90e4
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376335"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164619"
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -58,9 +58,9 @@ Azure에서 QnA Maker 서비스를 아직 만들지 않았습니다. 작업을 �
 
 테이블 업데이트, 테스트 또는 설정이든 상관없이 모든 편집 작업은 먼저 저장해야 게시할 수 있습니다. 모든 편집 작업 후에는 저장 후 학습 단추를 클릭해야 합니다.
 
-## <a name="when-should-i-refresh-my-endpoint-keys"></a>끝점 키를 새로 고쳐야 하는 경우는 언제인가요?
+## <a name="when-should-i-refresh-my-endpoint-keys"></a>엔드포인트 키를 새로 고쳐야 하는 경우는 언제인가요?
 
-끝점 키가 손상되었다고 의심되는 경우 끝점 키를 새로 고쳐야 합니다.
+엔드포인트 키가 손상되었다고 의심되는 경우 엔드포인트 키를 새로 고쳐야 합니다.
 
 ## <a name="does-the-knowledge-base-support-rich-data-or-multimedia"></a>기술 자료는 풍부한 데이터 또는 멀티미디어를 지원하나요?
 
@@ -87,6 +87,6 @@ Azure에서 QnA Maker 서비스를 아직 만들지 않았습니다. 작업을 �
 다음 단계를 수행하여 QnA Maker 서비스를 웹 사이트에 웹 채팅 컨트롤로 포함합니다.
 
 1. [여기](./Tutorials/create-qna-bot.md)에 제공된 지침을 따라 FAQ 봇을 만듭니다.
-2. [여기](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-webchat)에 제공된 단계를 따라 웹 채팅을 사용하도록 설정합니다.
+2. [여기](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-webchat)에 제공된 단계를 따라 웹 채팅을 사용하도록 설정합니다.
 
 

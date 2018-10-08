@@ -1,21 +1,23 @@
 ---
-title: 다중 테넌트 SaaS 자습서 - Azure SQL Database | Microsoft Docs
+title: 단일 테넌트 SaaS 자습서 - Azure SQL Database | Microsoft Docs
 description: Azure SQL Database를 사용하는 독립형 단일 테넌트 SaaS 응용 프로그램 배포 및 탐색
-keywords: SQL Database 자습서
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MightyPen
 ms.author: genemi
-ms.openlocfilehash: 32cfa2e9bd48dd4e27da5c4010391c032d67d96b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: sstein
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 1e74a0c915471fecb3b8e0662559eb5bfe189b3d
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644725"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423020"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Azure SQL Database를 사용하는 독립형 단일 테넌트 응용 프로그램을 배포하고 탐색합니다.
 
@@ -25,7 +27,7 @@ ms.locfileid: "34644725"
 
 이 자습서에서는 3개의 테넌트에 대한 3개의 독립형 응용 프로그램을 Azure 구독에 배포합니다.  개별 응용 프로그램 구성 요소를 탐색하고 작업할 수 있는 전체 액세스 권한이 있습니다.
 
-응용 프로그램 소스 코드 및 관리 스크립트는 [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub 리포지토리에서 사용할 수 있습니다.
+응용 프로그램 소스 코드 및 관리 스크립트는 [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub 리포지토리에서 사용할 수 있습니다. 응용 프로그램은 Visual Studio 2015를 사용하여 만들어졌으며, 업데이트하지 않고는 Visual Studio 2017에서 성공적으로 열리고 컴파일되지 않습니다.
 
 
 이 자습서에서는 다음에 대해 알아봅니다.

@@ -1,32 +1,32 @@
 ---
-title: Bing Visual Search 이미지 업로드 자습서 | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: 이미지를 Bing에 업로드하여 자세한 정보를 얻고, 응답을 구문 분석하여 표시하는 프로세스를 분석합니다.
+title: '자습서: 이미지를 로드하는 방법 - Bing Visual Search'
+titleSuffix: Azure Cognitive Services
+description: 이미지를 Bing에 업로드하여 인사이트를 얻고, 응답을 구문 분석하여 표시하는 프로세스를 분석합니다.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 1352ccbcda35c693c5ac0b36156af199ae46bee9
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: a5bc5197ecd1f35b4d0026caa076a844c9d57c40
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068671"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221326"
 ---
 # <a name="tutorial-breaking-down-bing-visual-search-upload"></a>자습서: Bing Visual Search 업로드 분석
 
-이 자습서는 Bing에 이미지를 업로드하고 정보를 다시 얻는 프로세스를 분석합니다. 또한 JSON 응답에서 정보를 액세스 및 표시하는 방법을 보여 줍니다. 전체 HTML 및 JavaScript 예제에 대해서는 [전체 코드](#complete-code)를 참조하세요.
+이 자습서는 Bing에 이미지를 업로드하고 인사이트를 다시 얻는 프로세스를 분석합니다. 또한 JSON 응답에서 정보를 액세스 및 표시하는 방법을 보여 줍니다. 전체 HTML 및 JavaScript 예제에 대해서는 [전체 코드](#complete-code)를 참조하세요.
 
-이 자습서는 Bing Visual Search 응답의 콘텐츠를 탐색하려는 개발자를 위해 작성되었습니다. 모든 사용 및 표시 요구 사항을 나타내지는 않습니다(예를 들어 Microsoft의 개인 정보 취급 방침에 대한 링크는 제공되지 않음). 모든 사용량 요구 사항에 대해서는 [Bing 사용 및 표시 요구 사항](./use-and-display-requirements.md)을 참조하세요.
+이 자습서는 Bing Visual Search 응답의 콘텐츠를 탐색하려는 개발자를 위해 작성되었습니다. 모든 사용 및 표시 요구 사항을 적용하지는 않습니다(예를 들어 Microsoft의 개인정보처리방침에 대한 링크는 제공되지 않음). 모든 사용 요구 사항에 대해서는 [Bing 사용 및 표시 요구 사항](./use-and-display-requirements.md)을 참조하세요.
 
 
-## <a name="where-to-start"></a>시작 위치
+## <a name="where-to-start"></a>시작하기기
 
-Bing에 이미지를 보내고 정보를 다시 가져와 표시하는 HTML 페이지로 시작해보겠습니다. 자주 사용하는 편집기에서 uploaddemo.html이라는 파일을 만듭니다. 파일에 다음 기본 HTML 구조를 추가합니다.
+Bing에 이미지를 보내고 인사이트를 다시 가져와 표시하는 HTML 페이지로 시작해보겠습니다. 자주 사용하는 편집기에서 uploaddemo.html이라는 파일을 만듭니다. 이 파일에 다음 기본 HTML 구조를 추가합니다.
 
 ```html
 <!DOCTYPE html>
@@ -40,7 +40,7 @@ Bing에 이미지를 보내고 정보를 다시 가져와 표시하는 HTML 페�
 </html>      
 ```
 
-먼저, 페이지를 요청 섹션과 응답 섹션으로 나눕니다. 요청 섹션에서 사용자는 요청을 수행하는 데 필요한 모든 정보를 제공하고, 응답 섹션에서는 정보가 표시됩니다. 다음 \<div\> 태그를 \<body\>에 추가합니다. \<hr\> 태그는 응답 섹션에서 요청 섹션을 시각적으로 구분합니다.
+먼저, 페이지를 요청 섹션과 응답 섹션으로 나눕니다. 요청 섹션에서 사용자는 요청을 수행하는 데 필요한 모든 정보를 제공하고, 응답 섹션에서는 인사이트가 표시됩니다. 다음 \<div\> 태그를 \<body\>에 추가합니다. \<hr\> 태그는 응답 섹션에서 요청 섹션을 시각적으로 구분합니다.
 
 ```html
         <div id="requestSection"></div>
@@ -56,7 +56,7 @@ Bing에 이미지를 보내고 정보를 다시 가져와 표시하는 HTML 페�
 
 다음 \<div\>를 requestSection div에 추가합니다. 파일 입력은 형식(예:.jpg, .gif, .png)에 관계없이 단일 이미지 파일을 허용합니다. `onchange` 이벤트는 사용자가 파일을 선택할 때 호출되는 처리기를 지정합니다.
 
-\<output\> 태그는 선택한 이미지의 미리 보기를 표시합니다.
+\<output\> 태그는 선택한 이미지의 미리 보기(썸네일)를 표시합니다.
 
 
 ```html
@@ -76,7 +76,7 @@ Bing에 이미지를 보내고 정보를 다시 가져와 표시하는 HTML 페�
         <\script>
 ```
 
-다음은 선택한 이미지를 캡처하는 처리기입니다. 처리기에는 선택한 파일이 이미지 파일이며 해당 크기가 1MB 이하임을 확인하기 위한 논리가 포함되어 있습니다. 사용자가 더 큰 파일을 선택할 수 있지만 Bing에 업로드하기 전에 이미지 크기를 1MB 미만으로 줄여야 합니다. 처리기가 마지막으로 수행하는 작업은 이미지의 미리 보기를 표시하여 사용자가 선택한 파일을 시각적으로 미리 볼 수 있도록 하는 것입니다.
+다음은 선택한 이미지를 캡처하는 처리기입니다. 처리기에는 선택한 파일이 이미지 파일이며 그 크기가 1MB 이하임을 확인하는 논리가 포함되어 있습니다. 사용자가 더 큰 파일을 선택하도록 허용할 수 있지만 Bing에 업로드하기 전에 이미지 크기를 1MB 미만으로 줄여야 합니다. 처리기의 마지막 작업은 이미지의 미리 보기(썸네일)를 표시하여 사용자가 선택한 파일을 시각적으로 미리 볼 수 있도록 하는 것입니다.
 
 ```javascript
         function handleFileSelect(selector) {
@@ -138,9 +138,9 @@ Bing에 이미지를 보내고 정보를 다시 가져와 표시하는 HTML 페�
         </div>
 ```
 
-이미지를 및 구독 키가 있으면 Bing Visual Search를 호출하여 이미지에 대한 정보를 얻을 수 있습니다. 호출에는 기본 지역/국가 및 안전 검색 값이 사용됩니다(각각 en-us 및 보통).
+이미지와 구독 키가 있으면 Bing Visual Search를 호출하여 이미지에 대한 인사이트를 얻을 수 있습니다. 호출에는 기본 지역/국가 및 안전 검색 값이 사용됩니다(각각 en-us 및 보통).
 
-이 데모는 이러한 값을 변경하기 위한 옵션을 제공합니다. 구독 키 div 아래에 다음 \<div\>를 추가합니다. 데모는 \<select\> 태그를 사용하여 지역/국가 및 안전 검색 값에 대한 드롭다운 목록을 제공합니다. 두 목록 모두 Bing의 기본값을 표시합니다.
+이 데모는 이러한 값을 변경하는 옵션을 사용자에게 제공합니다. 구독 키 div 아래에 다음 \<div\>를 추가합니다. 데모는 \<select\> 태그를 사용하여 지역/국가 및 안전 검색 값에 대한 드롭다운 목록을 제공합니다. 두 목록 모두 Bing의 기본값을 표시합니다.
 
  
 ```html
@@ -228,13 +228,13 @@ Bing에 이미지를 보내고 정보를 다시 가져와 표시하는 HTML 페�
 
 ## <a name="making-the-call"></a>호출하기
 
-본문의 옵션 div 아래에 다음 Get insights 단추를 추가합니다. 이 단추를 사용하여 호출을 시작할 수 있습니다. 사용자가 이 단추를 클릭하면 커서가 회전하는 대기 커서로 변경되고 onclick 처리기가 호출됩니다.
+본문의 옵션 div 아래에 다음 Get insights 단추를 추가합니다. 사용자는 이 단추를 사용하여 호출을 시작할 수 있습니다. 사용자가 이 단추를 클릭하면 커서가 회전하는 대기 커서로 변경되고 onclick 처리기가 호출됩니다.
 
 ```html
         <p><input type="button" id="query" value="Get insights" onclick="document.body.style.cursor='wait'; handleQuery()" /></p>
 ```
 
-단추의 onclick 처리기를 \<script\> 태그에 추가합니다. 이 처리기는 구독 키가 있는지와 32자 길이이며, 이미지가 선택되어 있는지 확인합니다. 또한 이전 쿼리의 모든 정보를 지웁니다. 아무 문제가 없는 경우 sendRequest 함수를 호출하여 호출을 수행합니다.
+단추의 onclick 처리기를 \<script\> 태그에 추가합니다. 이 처리기는 구독 키가 있는지와 32자 길이이며, 이미지가 선택되어 있는지 확인합니다. 또한 이전 쿼리의 모든 인사이트를 지웁니다. 아무 문제가 없는 경우 sendRequest 함수를 호출하여 호출을 수행합니다.
 
 ```javascript
         function handleQuery() {
@@ -271,7 +271,7 @@ Bing에 이미지를 보내고 정보를 다시 가져와 표시하는 HTML 페�
         }
 ```
 
-sendRequest 함수는 끝점 URL의 형식을 지정하고, Ocp-Apim-Subscription-Key 헤더를 구독 키로 설정하고, 업로드할 이미지의 이진 파일을 추가하고, 응답 처리기를 지정하고, 호출을 수행합니다. 
+sendRequest 함수는 엔드포인트 URL의 형식을 지정하고, Ocp-Apim-Subscription-Key 헤더를 구독 키로 설정하고, 업로드할 이미지의 이진 파일을 추가하고, 응답 처리기를 지정하고, 호출을 수행합니다. 
 
 ```javascript
         function sendRequest(file, key) {
@@ -293,9 +293,9 @@ sendRequest 함수는 끝점 URL의 형식을 지정하고, Ocp-Apim-Subscriptio
 
 ## <a name="handling-the-response"></a>응답 처리
 
-HandleResponse 함수는 Bing Visual Search 호출에서 얻은 응답을 처리합니다. 호출이 성공하면 JSON 응답을 자세한 정보를 포함하는 개별 태그로 구문 분석합니다. 다음으로, 문자열, Bing internet search results를 페이지에 추가하여 사용자에게 Bing에서 제공된 데이터임을 알립니다.
+HandleResponse 함수는 Bing Visual Search 호출에서 얻은 응답을 처리합니다. 호출이 성공하면 JSON 응답을 인사이트가 포함된 개별 태그로 구문 분석합니다. 그런 다음, 데이터가 Bing에서 제공된 것임을 사용자에게 알리기 위해 Bing internet search results라는 문자열을 페이지에 추가합니다.
 
-데모는 모든 정보를 해당 페이지에 덤프할 수 있지만 일부 이미지는 많은 양의 데이터를 반환하여 사용하기 어려울 수 있습니다. 대신, 데모는 각 태그에 대해 축소 가능한 div를 만들기 때문에 사용자가 표시되는 데이터 양을 관리할 수 있습니다.
+데모는 모든 인사이트를 해당 페이지에 덤프할 수 있지만 일부 이미지는 많은 양의 데이터를 반환하여 데이터의 사용이 어려울 수 있습니다. 대신, 데모는 각 태그에 대해 축소 가능한 div를 만들기 때문에 사용자가 표시되는 데이터 양을 관리할 수 있습니다.
 
 \<script\> 섹션에 처리기를 추가합니다.
 
@@ -334,7 +334,7 @@ HandleResponse 함수는 Bing Visual Search 호출에서 얻은 응답을 처리
         }
 ```
 
-buildTagSections 함수는 구문 분석된 JSON 태그를 반복하고, buildDiv 함수를 호출하여 각 태그에 대한 div를 빌드합니다. 쿼리 옵션과 마찬가지로, 각 태그가 링크로 표시됩니다. 사용자가 링크를 클릭하면 태그가 확장되면서 태그와 연결된 정보가 표시됩니다. 사용자가 링크를 다시 클릭하면 섹션에 축소되면서 사용자가 볼 수 없게 정보를 숨깁니다.
+buildTagSections 함수는 구문 분석된 JSON 태그를 반복하고, buildDiv 함수를 호출하여 각 태그에 대한 div를 빌드합니다. 쿼리 옵션과 마찬가지로, 각 태그가 링크로 표시됩니다. 사용자가 링크를 클릭하면 태그가 확장되면서 태그와 연결된 인사이트가 표시됩니다. 사용자가 링크를 다시 클릭하면 섹션이 축소되어 인사이트가 숨겨집니다.
 
 ```javascript
         function buildTagSections(tags) {
@@ -374,9 +374,9 @@ buildTagSections 함수는 구문 분석된 JSON 태그를 반복하고, buildDi
 
 buildDiv 함수는 addDivContent 함수를 호출하여 각 태그의 축소 가능한 div에 포함된 콘텐츠를 빌드합니다.
 
-태그의 콘텐츠에는 태그에 대한 응답에서 가져온 JSON이 포함됩니다. 데모에는 응답 이면의 JSON을 확인하려는 개발자를 위해 JSON이 포함됩니다. 처음에는 JSON의 처음 100개 문자만 표시되지만 JSON 문자열을 클릭하여 모든 JSON을 표시할 수 있습니다. 다시 클릭하면 JSON 문자열이 다시 100자로 축소됩니다.
+태그의 콘텐츠에는 태그에 대한 응답에서 가져온 JSON이 포함됩니다. 데모는 응답 이면의 JSON을 확인하려는 개발자를 위한 JSON을 포함합니다. 처음에는 JSON의 처음 100개 문자만 표시되지만 JSON 문자열을 클릭하여 모든 JSON을 표시할 수 있습니다. 다시 클릭하면 JSON 문자열이 다시 100자로 축소됩니다.
 
-다음으로, 태그에 있는 작업 형식을 추가합니다. 각 작업 형식에 대해 다양한 함수를 호출하여 해당 정보를 추가합니다.
+다음으로, 태그에 있는 작업 형식을 추가합니다. 각 작업 형식에 대해 다양한 함수를 호출하여 해당 인사이트를 추가합니다.
 
 ```javascript
         function addDivContent(div, tag, json) {
@@ -451,9 +451,9 @@ buildDiv 함수는 addDivContent 함수를 호출하여 각 태그의 축소 가
         }
 ```
 
-다음은 다양한 작업에 대한 정보를 표시하는 모든 함수입니다. 이러한 함수 중 대부분은 간단합니다. 즉, 사용자를 이미지에 대한 추가 정보를 볼 수 있는 웹 페이지(Bing.com 또는 이미지의 호스트 웹 페이지)로 이동시키는 클릭 가능 이미지 또는 클릭 가능 링크를 제공합니다. 이 자습서에 해당 정보와 연결된 모든 데이터가 나와 있지는 않습니다. 정보에 대한 사용 가능한 모든 필드를 보려면 [Bing Visual Search 참조](https://aka.ms/bingvisualsearchreferencedoc)를 참조하세요.
+다음은 다양한 작업에 대한 인사이트를 표시하는 모든 함수입니다. 이러한 함수는 대부분 간단합니다. 즉, 사용자에게 이미지에 대한 추가 정보를 볼 수 있는 웹 페이지(Bing.com 또는 이미지의 호스트 웹 페이지)로 이동할 수 있는 클릭 가능한 이미지 또는 클릭 가능한 링크를 제공합니다. 이 자습서에는 해당 인사이트와 관련된 모든 데이터가 표시되지는 않습니다. 인사이트에 대한 사용 가능한 모든 필드를 보려면 [Bing Visual Search 참조](https://aka.ms/bingvisualsearchreferencedoc)를 참조하세요.
 
-표시해야 하는 데이터의 최소 양만 제한되며 나머지는 사용자가 원하는 대로 설정할 수 있습니다. 규정을 준수하려면 [Bing 사용 및 표시 요구 사항](./use-and-display-requirements.md)을 참조하세요.
+참고로, 표시해야 하는 최소의 데이터가 있지만 그 외는 선택 사항입니다. 규정을 준수하는지 확인하려면 [Bing 사용 및 표시 요구 사항](./use-and-display-requirements.md)을 참조하세요.
 
 
 ```javascript
@@ -1331,4 +1331,4 @@ buildDiv 함수는 addDivContent 함수를 호출하여 각 태그의 축소 가
 
 ## <a name="next-steps"></a>다음 단계
 
-인사이트 토큰을 사용하여 정보를 얻는 방법에 대해서는 [Bing Visual Search SDK ImageInsightsToken 자습서](.\tutorial-visual-search-insights-token.md)를 참조하세요.
+인사이트 토큰을 사용하여 인사이트를 얻는 방법에 대해서는 [Bing Visual Search SDK ImageInsightsToken 자습서](.\tutorial-visual-search-insights-token.md)를 참조하세요.

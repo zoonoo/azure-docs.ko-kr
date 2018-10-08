@@ -1,20 +1,21 @@
 ---
-title: Microsoft QnA Maker API(V4)용 Node.js 빠른 시작 - Azure Cognitive Services | Microsoft Docs
+title: '빠른 시작: QnA Maker API(V4)용 Node.js'
+titleSuffix: Azure Cognitive Services
 description: Azure의 Microsoft Cognitive Services에서 Microsoft Translator Text API를 사용하여 신속하게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 6da1ec00e04ea993923a97c4641880a5f31d18fa
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 05a15ddf8d7668896052c38afc549bc7b3cb056a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868177"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434333"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-nodejs"></a>Microsoft QnA Maker API와 Node.js의 빠른 시작 
 <a name="HOLTop"></a>
@@ -31,10 +32,12 @@ ms.locfileid: "37868177"
 - [기술 자료에 대한 정보 가져오기](#GetKB)
 - [지정된 사용자에게 속하는 모든 기술 자료에 대한 정보 가져오기](#GetKBsByUser)
 - [기술 자료 삭제](#Delete)
-- [현재 끝점 키 가져오기](#GetKeys)
-- [현재 끝점 키 다시 생성](#PutKeys)
+- [현재 엔드포인트 키 가져오기](#GetKeys)
+- [현재 엔드포인트 키 다시 생성](#PutKeys)
 - [현재 단어 변경 집합 가져오기](#GetAlterations)
 - [현재 단어 변경 집합 바꾸기](#PutAlterations)
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -106,7 +109,7 @@ let post = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -305,7 +308,7 @@ let patch = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -506,7 +509,7 @@ let post = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -618,7 +621,7 @@ let put = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -824,7 +827,7 @@ get_qna (path, function (result) {
 1. 즐겨 찾는 IDE에 새 Node.js 프로젝트를 만듭니다.
 1. 아래 제공된 코드를 추가합니다.
 1. `host` 값을 QnA Maker 구독에 대한 웹 사이트 이름으로 바꿉니다. 자세한 내용은 [QnA Maker 서비스 만들기](../How-To/set-up-qnamaker-service-azure.md)를 참조하세요.
-1. `endpoint_key` 값을 구독에 대해 유효한 끝점 키로 바꿉니다. 이 키는 구독 키와 동일하지 않습니다. [Get endpoint keys](#GetKeys) 메서드를 사용하여 끝점 키를 가져올 수 있습니다.
+1. `endpoint_key` 값을 구독에 대해 유효한 엔드포인트 키로 바꿉니다. 이 키는 구독 키와 동일하지 않습니다. [Get endpoint keys](#GetKeys) 메서드를 사용하여 엔드포인트 키를 가져올 수 있습니다.
 1. `kb` 값을 답변을 쿼리하려는 기술 자료의 ID로 바꿉니다. 이 기술 자료는 [Publish](#Publish) 메서드를 사용하여 이미 게시했어야 합니다.
 1. 프로그램을 실행합니다.
 
@@ -894,7 +897,7 @@ let post = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Authorization' : 'EndpointKey ' + endpoint_key,
         }
     };
@@ -1256,7 +1259,7 @@ let http_delete = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -1303,9 +1306,9 @@ delete_kb (path, '', function (result) {
 
 <a name="GetKeys"></a>
 
-## <a name="get-endpoint-keys"></a>끝점 키 가져오기
+## <a name="get-endpoint-keys"></a>엔드포인트 키 가져오기
 
-다음 코드에서는 [Get endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) 메서드를 사용하여 현재 끝점 키를 가져옵니다.
+다음 코드에서는 [Get endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) 메서드를 사용하여 현재 엔드포인트 키를 가져옵니다.
 
 1. 즐겨 찾는 IDE에 새 Node.js 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
@@ -1389,7 +1392,7 @@ get_keys (path, function (result) {
 });
 ```
 
-**끝점 키 가져오기 응답**
+**엔드포인트 키 가져오기 응답**
 
 성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
@@ -1404,9 +1407,9 @@ get_keys (path, function (result) {
 
 <a name="PutKeys"></a>
 
-## <a name="refresh-endpoint-keys"></a>끝점 키 새로 고침
+## <a name="refresh-endpoint-keys"></a>엔드포인트 키 새로 고침
 
-다음 코드에서는 [Refresh endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) 메서드를 사용하여 현재 끝점 키를 다시 생성합니다.
+다음 코드에서는 [Refresh endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) 메서드를 사용하여 현재 엔드포인트 키를 다시 생성합니다.
 
 1. 즐겨 찾는 IDE에 새 Node.js 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
@@ -1469,7 +1472,7 @@ let patch = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };
@@ -1515,7 +1518,7 @@ refresh_keys (path, content, function (result) {
 });
 ```
 
-**끝점 키 새로 고침 응답**
+**엔드포인트 키 새로 고침 응답**
 
 성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
@@ -1699,7 +1702,7 @@ let put = function (path, content, callback) {
         path : path,
         headers : {
             'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
+            'Content-Length' : Buffer.byteLength(content),
             'Ocp-Apim-Subscription-Key' : subscriptionKey,
         }
     };

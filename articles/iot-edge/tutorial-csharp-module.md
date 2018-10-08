@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8a3cc9793af39deeb24fa725da5cf0dc536f4465
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 9ef2edf5741d87a90af64bcda7182ccee230daed
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41919819"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423343"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>자습서: C# IoT Edge 모듈 개발 및 시뮬레이트된 장치에 배포
 
@@ -40,7 +40,7 @@ Azure IoT Edge 장치:
 
 클라우드 리소스:
 
-* Azure의 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md). 
+* Azure의 무료 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md). 
 
 개발 리소스:
 

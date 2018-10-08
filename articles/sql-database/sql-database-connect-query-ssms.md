@@ -3,19 +3,22 @@ title: 'SSMS: Azure SQL Database에서 데이터 연결 및 쿼리 | Microsoft D
 description: SQL Server Management Studio(SSMS)를 사용하여 SQL Database에 연결하는 방법을 알아봅니다. 그런 다음 Transact-SQL(T-SQL) 문을 실행하여 데이터를 쿼리하고 편집합니다.
 keywords: SQL Database에 연결, SQL Server Management Studio
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: quickstart
-ms.date: 08/01/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 9177ad9cc4cbb668599d35b295ab939cea148a5a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.reviewer: ''
+manager: craigg
+ms.date: 08/01/2018
+ms.openlocfilehash: 4c8b8a609fe5aa531570805d7a58141a6df84090
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412817"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063220"
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database: SQL Server Management Studio를 사용하여 데이터에 연결 및 쿼리
 
@@ -26,6 +29,8 @@ SSMS([SQL Server Management Studio][ssms-install-latest-84g])는 Microsoft Windo
 이 빠른 시작은 다음과 같은 빠른 시작 중 하나에서 만들어진 리소스를 시작 지점으로 사용합니다.
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+
+이 빠른 시작에서는 서버 수준 방화벽 규칙도 구성해야 합니다. 이 작업 방법을 보여주는 빠른 시작은 [서버 수준 방화벽 규칙 만들기](sql-database-get-started-portal-firewall.md)를 참조하세요.
 
 #### <a name="install-the-latest-ssms"></a>최신 SSMS 설치
 

@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d3856a50be0c3f7bdfb947d55b09a3de2512698e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 281c426170985d43401a13988218126ea3951634
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968135"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405617"
 ---
 # <a name="custom-roles-in-azure"></a>Azure의 사용자 지정 역할
 
-[기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우, 사용자 지정 역할을 만들 수 있습니다. 기본 제공 역할과 마찬가지로 구독, 리소스 그룹 및 리소스 범위에서 사용자 지정 역할을 사용자, 그룹 및 서비스 주체에 할당할 수 있습니다. 사용자 지정 역할은 Azure AD(Active Directory) 테넌트에 저장되며 구독에서 공유할 수 있습니다. 각 테넌트는 최대 2000개의 사용자 지정 역할을 가질 수 있습니다. Azure PowerShell, Azure CLI 또는 REST API를 사용하여 사용자 지정 역할을 만들 수 있습니다.
+[기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우, 사용자 지정 역할을 만들 수 있습니다. 기본 제공 역할과 마찬가지로 구독, 리소스 그룹 및 리소스 범위에서 사용자 지정 역할을 사용자, 그룹 및 서비스 주체에 할당할 수 있습니다. 사용자 지정 역할은 Azure AD(Azure Active Directory) 디렉터리에 저장되며 구독에서 공유할 수 있습니다. 각 디렉터리는 최대 2000개의 사용자 지정 역할을 가질 수 있습니다. Azure PowerShell, Azure CLI 또는 REST API를 사용하여 사용자 지정 역할을 만들 수 있습니다.
 
 ## <a name="custom-role-example"></a>사용자 지정 역할 예제
 
@@ -92,7 +92,7 @@ ms.locfileid: "46968135"
 
 | 자산 | 필수 | 형식 | 설명 |
 | --- | --- | --- | --- |
-| `Name` | yes | 문자열 | 사용자 지정 역할의 표시 이름입니다. 테넌트에서 고유해야 합니다. 문자, 숫자, 공백 및 특수 문자를 포함할 수 있습니다. 최대 문자 수는 128자입니다. |
+| `Name` | yes | 문자열 | 사용자 지정 역할의 표시 이름입니다. 역할 정의는 구독 수준 리소스이지만 역할 정의는 동일한 Azure AD 디렉터리를 공유하는 여러 구독에서 사용할 수 있습니다. 표시 이름은 Azure AD 디렉터리의 범위에서 고유해야 합니다. 문자, 숫자, 공백 및 특수 문자를 포함할 수 있습니다. 최대 문자 수는 128자입니다. |
 | `Id` | yes | 문자열 | 사용자 지정 역할의 고유 ID입니다. Azure PowerShell 및 Azure CLI의 경우 이 ID는 새 역할을 만들 때 자동으로 생성됩니다. |
 | `IsCustom` | yes | 문자열 | 사용자 지정 역할인지 여부를 나타냅니다. 사용자 지정 역할인 경우 `true`로 설정합니다. |
 | `Description` | yes | 문자열 | 사용자 지정 역할에 대한 설명입니다. 문자, 숫자, 공백 및 특수 문자를 포함할 수 있습니다. 최대 문자 수는 1,024자입니다. |
@@ -100,7 +100,7 @@ ms.locfileid: "46968135"
 | `NotActions` | 아니요 | 문자열[] | 허용된 `Actions`에서 제외되는 관리 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [NotActions](role-definitions.md#notactions)를 참조하세요. |
 | `DataActions` | 아니요 | 문자열[] | 역할에서 해당 개체 내의 데이터에 대해 수행할 수 있는 데이터 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [DataActions(미리 보기)](role-definitions.md#dataactions-preview)를 참조하세요. |
 | `NotDataActions` | 아니요 | 문자열[] | 허용된 `DataActions`에서 제외되는 데이터 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [NotDataActions(미리 보기)](role-definitions.md#notdataactions-preview)를 참조하세요. |
-| `AssignableScopes` | yes | 문자열[] | 할당에 사용할 수 있는 사용자 지정 역할에 대한 범위를 지정하는 문자열 배열입니다. 현재 루트 범위(`"/"`) 또는 관리 그룹 범위로 설정할 수 없습니다. 자세한 내용은 [AssignableScopes](role-definitions.md#assignablescopes) 및 [Azure 관리 그룹으로 리소스 구성](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment)을 참조하세요. |
+| `AssignableScopes` | yes | 문자열[] | 할당에 사용할 수 있는 사용자 지정 역할에 대한 범위를 지정하는 문자열 배열입니다. 현재 루트 범위(`"/"`) 또는 관리 그룹 범위로 설정할 수 없습니다. 자세한 내용은 [AssignableScopes](role-definitions.md#assignablescopes) 및 [Azure 관리 그룹으로 리소스 구성](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment)을 참조하세요. |
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>사용자 지정 역할을 생성, 삭제, 업데이트 또는 볼 수 있는 사용자
 

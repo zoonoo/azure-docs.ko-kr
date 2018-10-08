@@ -1,5 +1,5 @@
 ---
-title: Windows 용 Azure N 시리즈 드라이버 설정 | Microsoft Docs
+title: Windows용 Azure N 시리즈 GPU 드라이버 설정 | Microsoft Docs
 description: Azure에서 Windows Server 또는 Windows를 실행하는 N 시리즈 VM용 NVIDIA GPU 드라이버를 설정하는 방법입니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/19/2018
+ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50d9ea88afc0e7d96d71b2ab26c8a8489ae41fee
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a4d259c7f9a139b3c31d96e75d588c7be162189c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38719655"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033262"
 ---
-# <a name="set-up-gpu-drivers-for-n-series-vms-running-windows"></a>Windows가 실행되는 N 시리즈 VM용 GPU 드라이버 설정 
+# <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Windows를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치 
+
 Windows를 실행하는 Azure N 시리즈 VM의 GPU 기능을 최대한 활용하려면 NVIDIA GPU 드라이버를 설치해야 합니다. [NVIDIA GPU 드라이버 확장](../extensions/hpccompute-gpu-windows.md)은 N 시리즈 VM에 적절한 NVIDIA CUDA 또는 GRID 드라이버를 설치합니다. Azure PowerShell 또는 Azure Resource Manager 템플릿과 같은 도구나 Azure Portal을 사용하여 확장을 설치 또는 관리합니다. 지원되는 운영 체제 및 배포 단계는 [NVIDIA GPU 드라이버 확장 설명서](../extensions/hpccompute-gpu-windows.md)를 참조하세요.
 
 GPU 드라이버를 수동으로 설치하려는 경우 이 문서는 지원되는 운영 체제, 드라이버 및 설치 및 확인 단계를 제공합니다. [Linux VM](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 대한 드라이버 수동 설치 정보도 제공합니다.
@@ -38,7 +39,7 @@ GPU 드라이버를 수동으로 설치하려는 경우 이 문서는 지원되�
 
 2. Windows 운영 체제에 지원되는 드라이버를 다운로드, 추출 및 설치합니다.
 
-Azure NV VM에서는 드라이버 설치 후 다시 시작해야 합니다. NC Vm에서는 다시 시작 필요하지 않습니다.
+VM에서는 GRID 드라이버 설치 후 다시 시작해야 합니다. CUDA 드라이버 설치 후에는 다시 시작할 필요가 없습니다.
 
 ## <a name="verify-driver-installation"></a>드라이버 설치 확인
 
@@ -64,7 +65,7 @@ GPU 장치 상태를 쿼리하려면 드라이버와 설치된 [nvidia-smi](http
   ```
   자세한 내용은 [Windows용 가상 머신 확장 및 기능](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 
-RDMA 네트워크는 [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) 또는 Intel MPI 5.x를 사용하여 실행되는 응용 프로그램에 대한 MPI(Message Passing Interface) 트래픽을 지원합니다. 
+RDMA 네트워크는 [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) 또는 Intel MPI 5.x를 사용하여 실행되는 응용 프로그램에 대한 MPI(Message Passing Interface) 트래픽을 지원합니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

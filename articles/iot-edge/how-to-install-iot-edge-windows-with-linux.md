@@ -9,14 +9,14 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 86a24c2cdba890046f2cbb0ccf6b73decdac7235
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2ff7c3482100545c476040ba556d464b9f44e434
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997525"
+ms.locfileid: "47031121"
 ---
-# <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Linux 컨테이너에서 사용하기 위해 Windows에 Azure IoT Edge 런타임 설치
+# <a name="install-the-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Linux 컨테이너에서 사용하기 위해 Windows에 Azure IoT Edge 런타임 설치
 
 Azure IoT Edge 런타임은 장치를 IoT Edge 장치로 바꿔줍니다. 런타임은 Raspberry Pi처럼 작은 장치 또는 산업용 서버처럼 큰 장치에 배포할 수 있습니다. IoT Edge 런타임을 사용하여 장치를 구성하면 클라우드에서 장치에 비즈니스 논리를 배포할 수 있습니다. 
 
@@ -110,7 +110,7 @@ iotedge list
 
 ## <a name="tips-and-suggestions"></a>팁 및 제안 사항
 
-프록시 서버가 있는 네트워크의 경우 [프록시 서버를 통해 통신하도록 IoT Edge 장치 구성](how-to-configure-proxy-support.md)의 단계를 수행합니다.
+네트워크에 프록시 서버가 있는 경우 [프록시 서버를 통해 통신하도록 IoT Edge 장치 구성](how-to-configure-proxy-support.md)의 단계를 수행하여 IoT Edge 런타임을 설치하고 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

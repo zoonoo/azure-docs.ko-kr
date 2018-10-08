@@ -1,20 +1,21 @@
 ---
-title: Bing Visual Search SDK ImageInsightsToken 자습서 | Microsoft Docs
+title: '자습서: ImageInsightsToken - Bing Visual Search'
+titlesuffix: Azure Cognitive Services
 description: ImageInsightsToken에서 지정한 이미지의 URL을 가져오기 위해 Bing Visual Search SDK를 사용하는 방법.
 services: cognitive-services
 author: mikedodaro
-manager: ronakshah
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-visual-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: rosh
-ms.openlocfilehash: 8f6e7f7e88ae78fe7e8a9be4adefd689dd26d0f9
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: bda4bdeea019d8cf3ae677d5eaf81e631ca38d16
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42093873"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222576"
 ---
 # <a name="tutorial-bing-visual-search-sdk-imageinsightstoken-and-results"></a>자습서: Bing Visual Search SDK ImageInsightsToken 및 결과
 Visual Search SDK에는 `ImageInsightsToken`을 반환하는 이전 검색에서 온라인으로 이미지를 찾는 옵션이 포함됩니다.  이 예제는 `ImageInsightsToken`을 가져와 후속 검색에서 토큰을 사용합니다.  코드는 `ImageInsightsToken`을 Bing에 보내고 Bing Search URL 및 온라인에서 찾은 비슷한 이미지의 URL을 포함하는 결과를 반환합니다.

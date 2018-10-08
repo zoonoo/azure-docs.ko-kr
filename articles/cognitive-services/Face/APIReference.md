@@ -1,21 +1,9 @@
+<!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->
 ---
-title: Face API 서비스의 API 참조 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: API 참조는 Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management 및 Face Algorithms API에 대한 정보를 제공합니다.
-services: cognitive-services
-author: SteveMSFT
-manager: corncar
-ms.service: cognitive-services
-ms.component: face-api
-ms.topic: article
-ms.date: 03/01/2018
-ms.author: sbowles
-ms.openlocfilehash: 94c03d4f07a18c0c63d76965b1b31dce66388843
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35378078"
+제목: API 참조 = Face API 제목 접미사: Azure Cognitive Services 설명: API 참조는 Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management 및 Face Algorithms API에 대한 정보를 제공합니다.
+서비스: cognitive-services 작성자: SteveMSFT 관리자: cgronlun
+
+ms.service: cognitive-services ms.구성 요소: face-api ms.제목: 참조 ms.날짜: 2018/03/01 ms.작성자: sbowles
 ---
 # <a name="api-reference"></a>API 참조
 

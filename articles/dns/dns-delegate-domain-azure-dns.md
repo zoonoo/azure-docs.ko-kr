@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 6/13/2018
 ms.author: victorh
-ms.openlocfilehash: 44f5bf9a28d56e85bae1d50136c50868ec96eb4e
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: ea0dc257d691326bc073b4cbff37e847a6990f02
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205444"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452302"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>자습서: Azure DNS에 도메인 호스트
 
@@ -70,6 +70,9 @@ Azure DNS는 할당된 이름 서버에 대한 영역에 권한이 있는 NS 레
 DNS 영역을 만들었고 이름 서버를 확보했으니, 이제 Azure DNS 이름 서버를 사용하여 부모 도메인을 업데이트해야 합니다. 각 등록 기관에는 도메인에 대한 이름 서버 레코드를 변경하는 자체 DNS 관리 도구가 있습니다. 등록 기관의 DNS 관리 페이지에서 NS 레코드를 편집하고 NS 레코드를 Azure DNS 이름 서버로 바꿉니다.
 
 Azure DNS에 도메인을 위임하는 경우 Azure DNS에서 제공하는 이름 서버를 사용해야 합니다. 도메인 이름에 상관 없이 4개의 이름 서버를 모두 사용하는 것이 좋습니다. 도메인 위임에는 같은 최상위 도메인을 도메인으로 사용하는 이름 서버가 필요하지 않습니다.
+
+> [!NOTE]
+> 각 이름 서버 주소를 복사하면 주소 끝에 마침표를 복사해야 합니다. 마침표는 정규화된 도메인 이름의 끝을 나타냅니다. 일부 등록 기관에서는 NS 이름 끝에 마침표가 없는 경우 추가할 수 있습니다. 하지만 DNS RFC와 호환되도록 하려면 모든 등록자가 추가한다고 가정할 수는 없으므로 마침표를 추가해야 합니다.
 
 고유한 영역에서 이름 서버를 사용하는 위임(*베니티 이름 서버*라고도 함)은 현재 Azure DNS에서 지원되지 않습니다.
 

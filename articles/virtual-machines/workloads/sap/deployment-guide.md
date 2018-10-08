@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/08/2016
+ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: eb2b26333647d464a3a18cd07bf1576251fb3830
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 9208f2cb207daff2b122550fede48a8dda11d1db
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715406"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407929"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 배포
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -483,7 +483,7 @@ Azure Portal에서 템플릿에 대한 다음 매개 변수를 입력합니다.
   * **관리 사용자 이름** 및 **관리 암호**: 사용자 이름 및 암호입니다.
     가상 머신에 로그인하기 위한 새 사용자가 만들어집니다.
   * **새로운 또는 기존 서브넷**: 새 가상 네트워크 및 서브넷을 만들어야 하는지 또는 기존 서브넷을 사용해야 하는지 결정합니다. 온-프레미스 네트워크에 연결되어 있는 가상 네트워크가 이미 있는 경우 **기존**을 선택합니다.
-  * **서브넷 ID**: 가상 머신을 연결할 서브넷의 ID입니다. 온-프레미스 네트워크에 가상 머신을 연결하는 데 사용할 VPN(가상 사설망) 또는 Azure ExpressRoute 가상 네트워크의 서브넷을 선택합니다. ID는 일반적으로 다음과 같이 표시합니다. /subscriptions/&lt;구독 id>/resourceGroups/&lt;리소스 그룹 이름>/providers/Microsoft.Network/virtualNetworks/&lt;가상 네트워크 이름>/subnets/&lt;서브넷 이름>
+  * **서브넷 ID**: VM을 할당하도록 서브넷이 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로 다음과 같이 표시합니다. /subscriptions/&lt;구독 id>/resourceGroups/&lt;리소스 그룹 이름>/providers/Microsoft.Network/virtualNetworks/&lt;가상 네트워크 이름>/subnets/&lt;서브넷 이름>
 
 1. **사용 약관**:  
     약관을 검토하고 동의합니다.
@@ -614,9 +614,7 @@ Azure Portal에서 템플릿에 대한 다음 매개 변수를 입력합니다.
 
     가상 컴퓨터에 로그인하기 위한 새 사용자가 만들어집니다.
   * **새로운 또는 기존 서브넷**: 새 가상 네트워크 및 서브넷을 만들어야 하는지 또는 기존 서브넷을 사용해야 하는지 결정합니다. 온-프레미스 네트워크에 연결되어 있는 가상 네트워크가 이미 있는 경우 **기존**을 선택합니다.
-  * **서브넷 ID**: 가상 머신을 연결할 서브넷의 ID입니다. 온-프레미스 네트워크에 가상 컴퓨터를 연결하는 데 사용할 ExpressRoute 가상 네트워크의 서브넷 또는 VPN을 선택합니다. ID는 일반적으로 다음과 같이 나타납니다.
-
-    /subscriptions/&lt;구독 id>/resourceGroups/&lt;리소스 그룹 이름>/providers/Microsoft.Network/virtualNetworks/&lt;가상 네트워크 이름>/subnets/&lt;서브넷 이름>
+  * **서브넷 ID**: VM을 할당하도록 서브넷이 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로 다음과 같이 표시합니다. /subscriptions/&lt;구독 id>/resourceGroups/&lt;리소스 그룹 이름>/providers/Microsoft.Network/virtualNetworks/&lt;가상 네트워크 이름>/subnets/&lt;서브넷 이름>
 
 1. **사용 약관**:  
     약관을 검토하고 동의합니다.
@@ -697,9 +695,7 @@ Azure Portal에서 템플릿에 대한 다음 매개 변수를 입력합니다.
   * **OS 디스크 VHD URI(관리되지 않는 디스크 템플릿만)**: 개인 OS 디스크의 URI(예: https://&lt;accountname>.blob.core.windows.net/vhds/osdisk.vhd)입니다.
   * **OS 디스크 Managed Disk ID(관리 디스크 템플릿만)**: Managed Disk OS 디스크의 ID, /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
   * **새로운 또는 기존 서브넷**: 새 가상 네트워크 및 서브넷을 만들어야 하는지 또는 기존 서브넷을 사용해야 하는지 결정합니다. 온-프레미스 네트워크에 연결되어 있는 가상 네트워크가 이미 있는 경우 **기존**을 선택합니다.
-  * **서브넷 ID**: 가상 머신을 연결할 서브넷의 ID입니다. 온-프레미스 네트워크에 가상 머신을 연결하는 데 사용할 Azure ExpressRoute 가상 네트워크의 서브넷 또는 VPN을 선택합니다. ID는 일반적으로 다음과 같이 나타납니다.
-
-    /subscriptions/&lt;구독 id>/resourceGroups/&lt;리소스 그룹 이름>/providers/Microsoft.Network/virtualNetworks/&lt;가상 네트워크 이름>/subnets/&lt;서브넷 이름>
+  * **서브넷 ID**: VM을 할당하도록 서브넷이 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로 다음과 같이 표시합니다. /subscriptions/&lt;구독 id>/resourceGroups/&lt;리소스 그룹 이름>/providers/Microsoft.Network/virtualNetworks/&lt;가상 네트워크 이름>/subnets/&lt;서브넷 이름>
 
 1. **사용 약관**:  
     약관을 검토하고 동의합니다.
@@ -727,7 +723,7 @@ SAP가 사용자 환경을 지원하도록 하려면 [SAP용 Azure 고급 모니
 다음과 시나리오에서 SAP 모니터링 구성을 업데이트합니다.
 * Microsoft/SAP 공동 팀은 모니터링 기능을 확장했으며 더 많거나 적은 카운터를 요청하고 있습니다.
 * Microsoft는 모니터링 데이터를 제공하는 새 버전의 기본 Azure 인프라를 도입했으며, SAP용 Azure 고급 모니터링 확장은 이러한 변화에 적응해야 합니다.
-* Azure VM에서 데이터 디스크를 추가로 탑재하거나 제거합니다. 이 시나리오에서 저장소 관련 데이터의 컬렉션을 업데이트합니다. 끝점을 추가 또는 삭제하거나 VM에 IP 주소를 할당하여 구성을 변경해도 모니터링 구성에 영향을 주지 않습니다.
+* Azure VM에서 데이터 디스크를 추가로 탑재하거나 제거합니다. 이 시나리오에서 저장소 관련 데이터의 컬렉션을 업데이트합니다. 엔드포인트를 추가 또는 삭제하거나 VM에 IP 주소를 할당하여 구성을 변경해도 모니터링 구성에 영향을 주지 않습니다.
 * Azure VM의 크기를 변경합니다(예: 크기 A5에서 다른 VM 크기로).
 * Azure VM에 새 네트워크 인터페이스를 추가합니다.
 
@@ -923,9 +919,7 @@ PowerShell을 사용하여 SAP용 Azure 고급 모니터링 확장을 설치하�
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>Linux VM용 Azure CLI
 Azure CLI를 사용하여 SAP용 Azure 고급 모니터링 확장을 설치하려면:
 
-1. Azure CLI 1.0을 사용하여 설치
-
-   1. [Azure CLI 1.0설치][azure-cli]에 설명한 대로 Azure CLI 1.0을 설치합니다.
+   1. [Azure 클래식 CLI 설치][azure-cli]에 설명된 대로 Azure 클래식 CLI를 설치합니다.
    1. Azure 계정으로 로그인합니다.
 
       ```
@@ -1005,6 +999,10 @@ Azure VM을 배포하고 관련 Azure 모니터링 인프라를 설정한 후 Az
   >
 
 Azure 고급 모니터링 확장이 설치되어 있지 않거나 AzureEnhancedMonitoring 서비스가 실행되고 있지 않으면 확장이 올바르게 구성되지 않은 것입니다. 확장을 배포하는 방법에 대한 자세한 내용은 [SAP용 Azure 모니터링 인프라 문제 해결][deployment-guide-5.3]을 참조하세요.
+
+> [!NOTE]
+> Azperflib.exe는 자체 용도로 사용할 수 없는 구성 요소입니다. 이 구성 요소는 VM과 관련된 Azure 모니터링 데이터를 SAP 호스트 에이전트에 전달합니다.
+> 
 
 ##### <a name="check-the-output-of-azperflibexe"></a>azperflib.exe의 출력 확인
 Azperflib.exe 출력은 SAP용 Azure 성능 카운터가 모두 채워진 상태로 표시됩니다. 수집된 카운터 목록의 맨 아래에 있는 요약 및 상태 표시기가 Azure 모니터링의 상태를 보여 줍니다.
@@ -1099,6 +1097,10 @@ SAP NetWeaver ABAP 응용 프로그램 서버가 이미 설치된 경우 트랜�
 
 모든 상태 검사 결과가 **OK**인지 확인합니다. 일부 검사가 **OK**를 표시하지 않는 경우 [SAP용 Azure 고급 모니터링 확장 구성][deployment-guide-4.5]에서 설명한 대로 업데이트 cmdlet을 실행합니다. 15분 기다린 다음 [SAP용 Azure 고급 모니터링에 대한 준비 검사][deployment-guide-5.1] 및 [Azure 모니터링 인프라 구성에 대한 상태 검사][deployment-guide-5.2]에 설명된 검사를 반복합니다. 검사에서 여전히 일부 또는 모든 카운터에 문제가 있다고 표시하는 경우 [SAP용 Azure 모니터링 인프라 문제 해결][deployment-guide-5.3]을 참조하세요.
 
+> [!Note]
+> 관리되는 표준 Azure 디스크를 사용하는 경우 일부 경고가 발생할 수 있습니다. 테스트에서 "확인"을 반환하는 대신 경고가 표시됩니다. 이 경고는 해당 디스크 형식의 경우 정상적이며 의도된 것입니다. [SAP용 Azure 모니터링 인프라 문제 해결][deployment-guide-5.3]도 참조
+> 
+
 ### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>SAP용 Azure 모니터링 인프라 문제 해결
 
 #### <a name="windowslogowindows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] Azure 성능 카운터가 전혀 표시되지 않습니다.
@@ -1150,6 +1152,23 @@ Azure의 성능 메트릭은 데몬에 의해 수집됩니다. 데몬이 실행�
 
 ###### <a name="solution"></a>해결 방법
 확장이 설치되지 않았습니다. (앞에서 설명한) 프록시 문제인지 여부를 결정합니다. 컴퓨터를 다시 시작하거나 `Set-AzureRmVMAEMExtension` 구성 스크립트를 다시 실행해야 할 수 있습니다.
+
+##### <a name="the-execution-of-set-azurermvmaemextension-and-test-azurermvmaemextension-show-warning-messages-stating-that-standard-managed-disks-are-not-supported"></a>Set-AzureRmVMAEMExtension 및 Test-AzureRmVMAEMExtension을 실행하면 표준 관리 디스크를 지원하지 않는다는 경고 메시지가 표시됨
+
+###### <a name="issue"></a>문제
+Set-AzureRmVMAEMExtension 또는 Test-AzureRmVMAEMExtension을 실행하는 경우 다음과 같은 메시지가 표시됩니다.
+
+<pre><code>
+WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
+WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
+WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
+</code></pre>
+
+앞서 설명한 대로 azperfli.exe를 실행하면 비정상 상태를 나타내는 결과를 얻을 수 있습니다. 
+
+###### <a name="solution"></a>해결 방법
+이 메시지는 표준 Azure Storage 계정에 대한 통계를 확인하기 위해 모니터링 확장에서 사용하는 API를 표준 관리 디스크가 전달하지 않는다는 사실 때문에 발생합니다. 심각한 문제는 아닙니다. 표준 디스크 저장소 계정에 대한 모니터링을 소개하는 이유는 자주 발생하는 I/O 제한 때문입니다. 관리 디스크는 저장소 계정에서 디스크 수를 제한하여 이러한 제한을 방지합니다. 따라서 해당 유형의 모니터링 데이터가 있는지 여부는 중요하지 않습니다.
+
 
 #### <a name="linuxlogolinux-some-azure-performance-counters-are-missing"></a>![Linux][Logo_Linux] 일부 Azure 성능 카운터가 없습니다.
 Azure에서 성능 메트릭은 여러 원본에서 데이터를 가져오는 데몬에 의해 수집됩니다. 일부 구성 데이터는 로컬로 수집되고 일부 성능 메트릭은 Azure 진단에서 읽습니다. 저장소 카운터는 저장소 구독의 로그에서 제공됩니다.

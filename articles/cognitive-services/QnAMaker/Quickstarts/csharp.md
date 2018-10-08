@@ -1,20 +1,21 @@
 ---
-title: Microsoft QnA Maker API(V4)용 C# 빠른 시작 - Azure Cognitive Services | Microsoft Docs
+title: '빠른 시작:  QnA Maker API(V4)용 C#'
+titleSuffix: Azure Cognitive Services
 description: Azure의 Microsoft Cognitive Services에서 Microsoft Translator Text API를 사용하여 신속하게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 4bcc52547b5610bcb8dfa9b0cc56b2afc40e3c32
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 7c79a5c1b65391be1a100efa9e0dcf4e4a0d12ae
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866086"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040282"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-c"></a>C#에서 Microsoft QnA Maker API의 빠른 시작 
 <a name="HOLTop"></a>
@@ -35,6 +36,8 @@ ms.locfileid: "37866086"
 - [현재 엔드포인트 키 다시 생성](#PutKeys)
 - [현재 단어 변경 집합 가져오기](#GetAlterations)
 - [현재 단어 변경 집합 바꾸기](#PutAlterations)
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 

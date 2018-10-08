@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 08/29/2018
+ms.date: 09/27/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 1726cf947ad027eabd79aa35da92df37e1681003
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 304a52f5571790ea49587a5aeda433f003f0e0bd
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959617"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423071"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Cloudyn으로 Azure 구독 및 계정 활성화
 
@@ -40,7 +40,7 @@ Azure 구독에서 CloudynCollector 응용 프로그램을 할당하려면 계�
 2. Azure Portal에서 **Azure Active Directory**를 선택합니다.
 3. Azure Active Directory에서 **사용자 설정**을 선택합니다.
 4. **앱 등록** 옵션을 확인합니다.
-    - **예**로 설정되어 있으면, 관리자가 아닌 사용자가 AD 앱을 등록할 수 있습니다. 이 설정에서는 Azure AD 테넌트의 모든 사용자가 앱을 등록할 수 있습니다. 필요한 Azure 구독 권한 확인을 계속 진행할 수 있습니다.  
+    - **예**로 설정되어 있으면, 관리자가 아닌 사용자가 AD 앱을 등록할 수 있습니다. 이 설정에서는 Azure AD 테넌트의 모든 사용자가 앱을 등록할 수 있습니다.  
     ![앱 등록](./media/activate-subs-accounts/app-register.png)
     - **앱 등록** 옵션이 **아니요**로 설정되어 있다면, 테넌트 관리 사용자만이 Azure Active Directory 앱을 등록할 수 있습니다. 테넌트 관리자가 CloudynCollector 응용 프로그램을 등록해야 합니다.
 
@@ -103,10 +103,8 @@ Cloudyn을 설정하기 위해 Azure Enterprise Agreement API 키를 생성하�
 
 부서 관리자, 계정 소유자 및 엔터프라이즈 관리자에게 청구 API로 _요금 보기_ 권한을 부여해야 할 수도 있습니다.
 
-<<<<<<< HEAD Azure 서비스 관리자만 Cost Management를 사용하도록 설정할 수 있습니다. 공동 관리자 권한이 충분하지 않습니다. 그러나 관리자 요구 사항을 해결할 수 있습니다. Azure Active Directory 관리자가 PowerShell 스크립트를 사용하여 **CloudynAzureCollector** 권한을 부여할 수 있도록 요청할 수 있습니다. 다음 스크립트에서는 Azure Active Directory 서비스 사용자인 **CloudynAzureCollector**를 등록할 수 있는 권한을 부여합니다. 성공적으로 실행되면 http://localhost:8080/CloudynJava URL을 표시하는 브라우저에서 작업이 종료됩니다.
-======= Azure 서비스 관리자만 Cloudyn을 사용하도록 설정할 수 있습니다. 공동 관리자 권한이 충분하지 않습니다. 그러나 관리자 요구 사항을 해결할 수 있습니다. Azure Active Directory 관리자가 PowerShell 스크립트를 사용하여 **CloudynAzureCollector** 권한을 부여할 수 있도록 요청할 수 있습니다. 다음 스크립트에서는 Azure Active Directory 서비스 사용자인 **CloudynAzureCollector**를 등록할 수 있는 권한을 부여합니다.
+Azure 서비스 관리자만 Cloudyn을 사용하도록 설정할 수 있습니다. 공동 관리자 권한이 충분하지 않습니다. 그러나 관리자 요구 사항을 해결할 수 있습니다. Azure Active Directory 관리자가 PowerShell 스크립트를 사용하여 **CloudynAzureCollector** 권한을 부여할 수 있도록 요청할 수 있습니다. 다음 스크립트에서는 Azure Active Directory 서비스 사용자인 **CloudynAzureCollector**를 등록할 수 있는 권한을 부여합니다.
 
->>>>>>> 9f3b4a46614ba7306c044dce8be6ee7cc3bf101d
 
 ```
 #THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

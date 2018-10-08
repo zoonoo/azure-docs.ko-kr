@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/27/2018
 ms.author: kumud
-ms.openlocfilehash: ea8e8ae9b0f487481ac2f25d4e2b9c5733e15431
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 24eec3b1f3c85384f80823b82962038c235b6dac
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842258"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036993"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure에서 아웃바운드 연결
 
@@ -69,7 +69,7 @@ Load Balancer의 공용 IP 주소 프런트 엔드에 있는 삭제 포트는 VM
 
 SNAT 포트는 [SNAT 및 PAT 이해](#snat) 섹션에 설명된 대로 미리 할당되며 고갈될 수 있는 한정된 리소스입니다. 어떻게 [소비](#pat)되는지 이해하는 것이 중요합니다. 이 소비를 설계하고 필요에 따라 완화하는 방법을 알아보려면 [SNAT 고갈 관리](#snatexhaust)를 검토하세요.
 
-[여러(공용) IP 주소가 Load Balancer 기본에 연결](load-balancer-multivip-overview.md)되는 경우 이러한 공용 IP 주소는 [아웃바운드 흐름의 후보이며 그 중 하나가 선택됩니다](#multivipsnat).  
+[여러 공용 IP 주소가 Load Balancer 기본에 연결](load-balancer-multivip-overview.md)된 경우 이러한 공용 IP 주소는 [아웃바운드 흐름의 후보](#multivipsnat)이며 그 중 하나가 임의로 선택됩니다.  
 
 [Load Balancer에 대한 Log Analytics](load-balancer-monitor-log.md) 및 SNAT 포트 소모 메시지를 모니터링하기 위한 경고 [이벤트 로그](load-balancer-monitor-log.md#alert-event-log)를 사용하여 Load Balancer 기본을 통한 아웃바운드 연결의 상태를 모니터링할 수 있습니다.
 

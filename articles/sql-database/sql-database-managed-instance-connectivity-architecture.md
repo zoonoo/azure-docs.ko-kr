@@ -1,23 +1,23 @@
 ---
 title: Azure SQL Database Managed Instance 연결 아키텍처 | Microsoft Docs
 description: 이 문서에서는 Azure SQL Database Managed Instance 통신 개요를 제공하고, 다양한 구성 요소가 트래픽을 Managed Instance로 전송하기 위해 작동하는 방식과 연결 아키텍처에 대해 설명합니다.
-keywords: ''
 services: sql-database
-author: srdan-bozovic-msft
-manager: craigg
 ms.service: sql-database
-ms.subservice: managed instance
+ms.subservice: managed-instance
 ms.custom: ''
-ms.date: 08/16/2018
+ms.devlang: ''
+ms.topic: conceptual
+author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.topic: conceptual
-ms.openlocfilehash: 54917c6548c7f0bfacad6408732c5619e6346683
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+manager: craigg
+ms.date: 08/16/2018
+ms.openlocfilehash: 312425d3ea02d15a992b9a694f09cb2be73b6221
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177561"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161593"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Azure SQL Database Managed Instance 연결 아키텍처 
 
@@ -73,7 +73,7 @@ Managed Instance 연결 아키텍처에 대해 좀 더 자세히 살펴보겠습
 - 개요는  [Managed Instance란?](sql-database-managed-instance.md)을 참조하세요. 
 - VNet 구성에 대한 자세한 내용은  [Managed Instance VNet 구성](sql-database-managed-instance-vnet-configuration.md)을 참조하세요. 
 - 빠른 시작에 대해서는 Managed Instance 생성 방법을 참조하세요. 
-  - [Azure Portal](sql-database-managed-instance-create-tutorial-portal.md) 
+  - [Azure Portal](sql-database-managed-instance-get-started.md)에서 
   - [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) 사용 
   - [Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/) 사용 
   - [Azure Resource Manager 템플릿(SSMS가 포함된 점프박스)](https://portal.azure.com/) 

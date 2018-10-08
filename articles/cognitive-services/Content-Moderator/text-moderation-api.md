@@ -1,20 +1,20 @@
 ---
-title: Azure Content Moderator - 텍스트 조정 | Microsoft Docs
+title: 텍스트 조정 - Content Moderator
 description: 가능한 원치 않는 텍스트, PII 및 사용자 지정 용어 목록에 대해 텍스트 조정을 사용합니다.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: sajagtap
-ms.openlocfilehash: 6924807a64cec074d9688eaad158bb9bb638f6bb
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 4c4a0ccfc93a6a48a0178183b94cc03cb576930a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085762"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226571"
 ---
 # <a name="text-moderation"></a>텍스트 조정
 
@@ -72,7 +72,7 @@ JSON 추출의 다음 추출은 예제 출력을 보여 줍니다.
 - `Category1`은 잠재적으로 특정 상황에서 성적으로 노골적이거나 음란한 것으로 간주될 수 있는 언어가 있음을 나타냅니다.
 - `Category2`는 잠재적으로 특정 상황에서 성적으로 외설적이거나 도발적인 것으로 간주될 수 있는 언어가 있음을 나타냅니다.
 - `Category3`는 잠재적으로 특정 상황에서 모욕적인 것으로 간주될 수 있는 언어가 있음을 나타냅니다.
-- `Score`는 0에서 1 사이입니다. 점수가 높을수록 모델이 예측하는 범주에 해당할 가능성이 높아집니다. 이 미리 보기는 수동으로 코드된 결과가 아닌 통계 모델을 사용합니다. 고유한 콘텐츠로 테스트하여 각 범주가 요구 사항과 얼마나 일치하는지 확인하는 것이 좋습니다.
+- `Score`는 0에서 1 사이입니다. 점수가 높을수록 모델이 예측하는 범주에 해당할 가능성이 높아집니다. 이 기능은 수동으로 코딩된 결과가 아닌 통계 모델을 사용합니다. 고유한 콘텐츠로 테스트하여 각 범주가 요구 사항과 얼마나 일치하는지 확인하는 것이 좋습니다.
 - `ReviewRecommended`는 내부 점수 임계값에 따라 true 또는 false입니다. 고객은 이 값을 사용할지 또는 콘텐츠 정책에 따라 사용자 지정 임계값을 결정할지를 평가해야 합니다.
 
 ## <a name="personally-identifiable-information-pii"></a>PII(개인 식별 정보)
@@ -149,7 +149,7 @@ PII 기능은 잠재적으로 다음과 같은 정보가 있는지 감지합니�
 대부분의 경우 기본 전역 용어 목록을 사용해도 되지만, 비즈니스 요구와 관련된 용어를 기준으로 심사하는 것이 좋습니다. 예를 들어 사용자 게시물에서 경쟁 브랜드 이름을 필터링할 수 있습니다.
 
 > [!NOTE]
-> 최대 **5개 용어 목록**으로 제한되고, 각 목록이 **10,000개 용어를 초과하지 않도록** 해야 합니다.
+> 최대 **5개 용어 목록**으로 제한되고, 각 목록은 **10,000개 용어를 초과하지 않아야** 합니다.
 >
 
 다음 예제에서는 일치하는 목록 ID를 보여 줍니다.

@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2018
-ms.openlocfilehash: 5d14373b265ea30d235cc5bc7b87ee13c4fd8105
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f8dae6de835173181430a98c19c7dd1fb3ebaa9f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991796"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158906"
 ---
 # <a name="what-is-the-azure-machine-learning-cli"></a>Azure Machine Learning CLI란?
 
@@ -42,6 +42,8 @@ az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-
 az extension remove -n azure-cli-ml
 ```
 
+위의 **제거** 및 **추가** 단계에 따라 CLI를 업데이트할 수 있습니다.
+
 ## <a name="using-the-cli-vs-the-sdk"></a>CLI 사용과 SDK 사용 비교
 CLI는 개발 운영 팀 직원이 수행하는 자동화 과정에서 또는 연속 통합/제공 파이프라인의 일부분으로 사용하는 것이 더 효율적입니다. 가끔씩 수행하는 매개 변수가 있는 작업 처리용으로 최적화되어 있기 때문입니다. 
 
@@ -54,6 +56,8 @@ CLI는 개발 운영 팀 직원이 수행하는 자동화 과정에서 또는 �
 데이터 과학자의 경우 Azure ML SDK를 사용하는 것이 좋습니다.
 
 ## <a name="common-machine-learning-cli-commands"></a>일반적인 Machine Learning CLI 명령
+> [!NOTE]
+> 아래 명령을 성공적으로 실행하기 위해 사용할 수 있는 샘플 파일은 [여기](https://github.com/Azure/MachineLearningNotebooks/tree/cli/cli)서 찾을 수 있습니다.
 
 다양한 `az ml` 명령을 사용하여 Azure Portal Cloud Shell을 비롯한 모든 명령줄 환경에서 서비스와 상호 작용할 수 있습니다.
 
@@ -62,16 +66,16 @@ CLI는 개발 운영 팀 직원이 수행하는 자동화 과정에서 또는 �
 ### <a name="workspace-creation--compute-setup"></a>작업 영역 만들기 및 컴퓨터 설정
 
 + Machine Learning을 위한 최상위 리소스인 Azure Machine Learning 작업 영역을 만듭니다.
-  ```AzureCLI
-  az ml workspace create -n myworkspace -g myresourcegroup
-  ```
+   ```AzureCLI
+   az ml workspace create -n myworkspace -g myresourcegroup
+   ```
 
 + 기본적으로 이 작업 영역을 사용하도록 CLI를 설정합니다.
-```AzureCLI
-az configure --defaults aml_workspace=myworkspace group=myresourcegroup
-```
+   ```AzureCLI
+   az configure --defaults aml_workspace=myworkspace group=myresourcegroup
+   ```
 
-+ 학습 모델용 DSVM(Data Science VM)을 만듭니다. 분산 학습을 위해 BatchAI 클러스터를 만들 수도 있습니다.
++ DSVM(Data Science VM)을 만듭니다. 분산 학습용 BatchAI 클러스터 또는 배포용 AKS 클러스터를 만들 수도 있습니다.
   ```AzureCLI
   az ml computetarget setup dsvm -n mydsvm
   ```
@@ -82,9 +86,10 @@ az configure --defaults aml_workspace=myworkspace group=myresourcegroup
   az ml project attach --experiment-name myhistory
   ```
 
-+ 선택한 컴퓨터 대상의 Azure Machine Learning Service에 대한 실험을 제출합니다. 이 예제에서는 Data Science VM을 사용합니다.
++ 원하는 계산 대상의 Azure Machine Learning 서비스에 대한 실험을 제출합니다. 이 예제에서는 로컬 계산 환경에 대해 실행합니다. conda 환경 파일이 python 종속성을 캡처해야 합니다.
+
   ```AzureCLI
-  az ml run submit -c mydsvm train.py
+  az ml run submit -c local train.py
   ```
 
 + 제출된 실험 목록을 확인합니다.
@@ -96,17 +101,17 @@ az ml history list
 
 + Azure Machine Learning에 모델을 등록합니다.
   ```AzureCLI
-  az ml model register -n mymodel -m mymodel.pkl  -w myworkspace -g myresourcegroup
+  az ml model register -n mymodel -m sklearn_regression_model.pkl
   ```
 
 + Machine Learning 모델 및 종속성을 포함할 이미지를 만듭니다. 
   ```AzureCLI
-  az ml image create -n myimage -r python -m rfmodel.pkl -f score.py -c myenv.yml
+  az ml image create container -n myimage -r python -m mymodel:1 -f score.py -c myenv.yml
   ```
 
 + 패키지된 모델을 대상에 배포합니다(ACI/ACK 포함).
   ```AzureCLI
-  az ml service create aci -n myaciservice -i myimage:1
+  az ml service create aci -n myaciservice --image-id myimage:1
   ```
     
 ## <a name="full-command-list"></a>전체 명령 목록

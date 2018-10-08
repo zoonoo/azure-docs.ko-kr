@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: ''
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: victorh
-ms.openlocfilehash: 5d051ed049964af708056e2963f04cb478c15906
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ab1c9405042de02183b8742fa940a3a5a482923a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951511"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165232"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>자동 크기 조정 및 영역 중복 Application Gateway(공개 미리 보기)
 
@@ -54,6 +54,7 @@ Application Gateway 및 WAF(웹 응용 프로그램 방화벽)는 새 SKU에서 
 |웹 응용 프로그램 방화벽 자동 크기 조정|WAF는 자동 크기 조정 모드를 지원하지 않습니다. 고정 용량 모드가 지원됩니다.|
 
 ## <a name="next-steps"></a>다음 단계
+- [Azure PowerShell을 사용하여 예약된 가상 IP 주소로 자동 크기 조정, 영역 중복 응용 프로그램 게이트웨이 만들기](tutorial-autoscale-ps.md)
 - [Application Gateway](overview.md)에 대해 자세히 알아보세요.
 - [Azure Firewall](../firewall/overview.md)에 대해 자세히 알아보세요. 
 

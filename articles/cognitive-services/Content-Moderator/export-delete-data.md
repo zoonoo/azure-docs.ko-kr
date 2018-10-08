@@ -1,20 +1,21 @@
 ---
-title: Content Moderator에서 데이터 내보내기 또는 삭제 - Azure Cognitive Services | Microsoft Docs
+title: 데이터 내보내기 또는 삭제 - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Content Moderator에서 데이터를 내보내거나 삭제하는 방법을 알아봅니다.
 services: cognitive-services
 author: v-jaswel
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: v-jaswel
-ms.openlocfilehash: fb496837560fe28f1a2e53d8c4ca67e23ada8f64
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 9e671fa9735406ec425b105bb121d3a029ef19dc
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576802"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227234"
 ---
 # <a name="export-or-delete-user-data-in-content-moderator"></a>Content Moderator에서 사용자 데이터 내보내기 또는 삭제
 

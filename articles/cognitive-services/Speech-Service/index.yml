@@ -1,18 +1,18 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 81b8d6652c3c642ae761ee8971646864a3eb6330
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 01b288136036fc5ff719c179821801aeac95c5c5
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182266"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830535"
 documentType: LandingData
 title: Speech Service SDK 설명서
 metadata:
-  title: Speech Service SDK 설명서 - 자습서, 빠른 시작, API 참조 - Cognitive Services | Microsoft Docs
+  title: Speech Service 설명서 - 자습서, 빠른 시작, API 참조 - Cognitive Services | Microsoft Docs
   meta.description: >
-    The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications.
+    The Speech service gives developers an easy way to add powerful speech-enabled features to their applications.
 
-    Examples include&#58; voice command control & dialog, natural speech conversation, speech transcription & dictation, and speech translation.
+    Examples include voice command control and dialogue, natural speech conversation, speech transcription and dictation, and speech translation.
   services: cognitive-services
   author: nitinme
   manager: cgronlun
@@ -60,7 +60,7 @@ sections:
 - title: 5분 빠른 시작
   items:
   - type: paragraph
-    text: 아래에서 원하는 화살표 링크를 클릭하여 다운로드, 설치 및 사용 방법을 <img src="media/index/link.jpg" height="15" width="15"></img> 알아봅니다.
+    text: 화살표 링크를 선택하여 SDK를 다운로드하고, 설치하고, 사용하는 방법 알아보기 <img src="media/index/link.jpg" height="15" width="15"></img>.
   - type: table
     style: dataMatrix
     columns:

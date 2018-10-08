@@ -1,24 +1,25 @@
 ---
-title: Azure Content Moderator에서 사용자 지정 이미지 목록을 사용하여 조정 | Microsoft Docs
-description: .NET용 Azure Content Moderator SDK를 사용하여 사용자 지정 이미지 목록으로 조정하는 방법
+title: '빠른 시작: 사용자 지정 이미지 목록을 사용하여 조정 - Content Moderator'
+titlesuffix: Azure Cognitive Services
+description: .NET용 Content Moderator SDK를 사용하여 사용자 지정 이미지 목록으로 조정하는 방법입니다.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
-ms.date: 01/04/2018
+ms.topic: quickstart
+ms.date: 09/14/2018
 ms.author: sajagtap
-ms.openlocfilehash: c953df88f878b4f05c9a9f3099aea77f3ff48a92
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 094542bad7ea8e9283d9a07fe620e363be1d0c2e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373367"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226462"
 ---
-# <a name="moderate-with-custom-image-lists-in-net"></a>.NET에서 사용자 지정 이미지 목록을 사용하여 조정
+# <a name="quickstart-moderate-with-custom-image-lists-in-net"></a>빠른 시작: .NET에서 사용자 지정 이미지 목록을 사용하여 조정
 
-이 문서에서는 .NET용 Content Moderator SDK를 사용하여 다음 작업을 수행할 수 있도록 지원하는 정보 및 코드 샘플을 제공합니다.
+이 문서에서는 [.NET용 Content Moderator SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)를 사용하여 다음 작업을 수행할 수 있도록 지원하는 정보 및 코드 샘플을 제공합니다.
 - 사용자 지정 이미지 목록 만들기
 - 목록에서 이미지 추가 및 제거
 - 목록에서 모든 이미지의 ID 가져오기
@@ -49,8 +50,6 @@ REST API 또는 SDK를 통해 Content Moderator 서비스를 사용하려면 먼
 
 1. 이 프로젝트를 솔루션의 단일 시작 프로젝트로 선택합니다.
 
-1. [Content Moderator 클라이언트 도우미 빠른 시작](content-moderator-helper-quickstart-dotnet.md)에서 만든 **ModeratorHelper** 프로젝트 어셈블리에 대한 참조를 추가합니다.
-
 ### <a name="install-required-packages"></a>필요한 패키지를 설치합니다.
 
 다음 NuGet 패키지를 설치합니다.
@@ -63,14 +62,64 @@ REST API 또는 SDK를 통해 Content Moderator 서비스를 사용하려면 먼
 
 프로그램의 using 문을 수정합니다.
 
+    using Microsoft.Azure.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator.Models;
-    using ModeratorHelper;
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Threading;
+
+### <a name="create-the-content-moderator-client"></a>Content Moderator 클라이언트 만들기
+
+다음 코드를 추가하여 구독에 대한 Content Moderator 클라이언트를 만듭니다.
+
+> [!IMPORTANT]
+> **AzureRegion** 및 **CMSubscriptionKey** 필드를 해당 지역 식별자 및 구독 키 값으로 업데이트합니다.
+
+
+    /// <summary>
+    /// Wraps the creation and configuration of a Content Moderator client.
+    /// </summary>
+    /// <remarks>This class library contains insecure code. If you adapt this 
+    /// code for use in production, use a secure method of storing and using
+    /// your Content Moderator subscription key.</remarks>
+    public static class Clients
+    {
+        /// <summary>
+        /// The region/location for your Content Moderator account, 
+        /// for example, westus.
+        /// </summary>
+        private static readonly string AzureRegion = "YOUR API REGION";
+
+        /// <summary>
+        /// The base URL fragment for Content Moderator calls.
+        /// </summary>
+        private static readonly string AzureBaseURL =
+            $"https://{AzureRegion}.api.cognitive.microsoft.com";
+
+        /// <summary>
+        /// Your Content Moderator subscription key.
+        /// </summary>
+        private static readonly string CMSubscriptionKey = "YOUR API KEY";
+
+        /// <summary>
+        /// Returns a new Content Moderator client for your subscription.
+        /// </summary>
+        /// <returns>The new client.</returns>
+        /// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
+        /// When you have finished using the client,
+        /// you should dispose of it either directly or indirectly. </remarks>
+        public static ContentModeratorClient NewClient()
+        {
+            // Create and initialize an instance of the Content Moderator API wrapper.
+            ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
+
+            client.Endpoint = AzureBaseURL;
+            return client;
+        }
+    }
 
 
 ### <a name="initialize-application-specific-settings"></a>응용 프로그램 관련 설정 초기화
@@ -85,7 +134,7 @@ Program.cs의 **Program** 클래스에 다음 클래스 및 정적 필드를 추
 
     /// <summary>
     /// The number of minutes to delay after updating the search index before
-    /// performing image match operations against a the list.
+    /// performing image match operations against the list.
     /// </summary>
     private const double latencyDelay = 0.5;
 
@@ -180,7 +229,7 @@ Program.cs의 **Program** 클래스에 다음 클래스 및 정적 필드를 추
     /// <summary>
     /// The name of the file to contain the output from the list management operations.
     /// </summary>
-    /// <remarks>Relative paths are ralative the execution directory.</remarks>
+    /// <remarks>Relative paths are relative to the execution directory.</remarks>
     private static string OutputFile = "ListOutput.log";
 
     /// <summary>
@@ -1021,4 +1070,4 @@ Program.cs의 **Program** 클래스에 다음 클래스 및 정적 필드를 추
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작과 기타 .NET용 Content Moderator 빠른 시작을 위한 [Visual Studio 솔루션을 다운로드](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)하고 통합을 시작합니다.
+이 빠른 시작과 기타 .NET용 Content Moderator 빠른 시작을 위한 [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 및 [Visual Studio 솔루션](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)을 가져오고 통합을 시작합니다.

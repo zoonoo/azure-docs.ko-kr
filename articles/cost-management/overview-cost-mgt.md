@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/12/2018
+ms.date: 09/21/2018
 ms.topic: overview
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 10fef55ef09e4be427fbd36c730528a993dd64e2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 470802c1119c1c367dcd72f782dfc1036f75f6db
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960864"
+ms.locfileid: "47035949"
 ---
 # <a name="what-is-azure-cost-management"></a>Azure Cost Management란?
 
@@ -23,7 +23,7 @@ ms.locfileid: "46960864"
 
 관련은 있지만 청구와 비용 관리는 다릅니다. 청구는 상품이나 서비스에 대한 비용을 고객에게 청구하고 상업적 관계를 관리하는 프로세스입니다.  일반적으로 조달 및 재무 팀이 청구 작업을 수행합니다.
 
-Cost Management는 고급 분석을 통해 조직의 비용 및 사용 패턴을 보여 줍니다. Cost Management 보고서는 Azure 비용, 사용량, 예약 인스턴스 및 Azure 하이브리드 혜택 사용을 보여 줍니다. 전체적으로 이 보고서는 내부 및 외부 비용을 표시합니다. 이러한 보고서는 지출 및 리소스 사용을 이해하는 데 도움이 되고 지출 문제를 찾는 데도 도움이 될 수 있습니다. 예측 분석도 사용할 수 있습니다. Cost Management는 Azure 관리 그룹, 예산 및 권장 사항을 사용하여 지출이 구성되는 방식과 비용을 줄일 수 있는 방법을 명확히 보여 줍니다.
+Cost Management는 고급 분석을 통해 조직의 비용 및 사용 패턴을 보여 줍니다. Cost Management 보고서는 Azure 비용, 사용량, 예약 인스턴스 및 Azure 하이브리드 혜택 사용을 보여 줍니다. 전체적으로 이 보고서는 사용량 및 Azure Marketplace 요금에 대한 내부 및 외부 비용을 표시합니다. 예약 구매, 지원 및 세금과 같은 다른 요금은 보고서에 아직 표시되지 않았습니다. 이러한 보고서는 지출 및 리소스 사용을 이해하는 데 도움이 되고 지출 문제를 찾는 데도 도움이 될 수 있습니다. 예측 분석도 사용할 수 있습니다. Cost Management는 Azure 관리 그룹, 예산 및 권장 사항을 사용하여 지출이 구성되는 방식과 비용을 줄일 수 있는 방법을 명확히 보여 줍니다.
 
 내보내기 자동화를 위해 Azure Portal 또는 다양한 API를 사용하여 비용 데이터를 외부 시스템 및 프로세스와 통합할 수 있습니다. 자동화된 청구 데이터 내보내기 및 예약된 보고서도 사용할 수 있습니다.
 

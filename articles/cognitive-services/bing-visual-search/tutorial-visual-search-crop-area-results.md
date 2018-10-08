@@ -1,20 +1,20 @@
 ---
-title: Bing Visual Search SDK 자르기 영역 결과 자습서 | Microsoft Docs
+title: '자습서: 이미지 자르기 영역 및 결과 - Bing Visual Search'
 description: Bing Visual Search SDK를 사용하여 업로드된 이미지의 자르기 영역과 유사한 이미지의 URL을 가져오는 방법입니다.
 services: cognitive-services
 author: mikedodaro
-manager: ronakshah
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-visual-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/20/2018
 ms.author: rosh
-ms.openlocfilehash: dd51ed7c710cc51a9fe0e63e55aa0d2c4ea24bee
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 66e17c00da898e575bb858dbe16a35d1c44a2780
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574492"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226913"
 ---
 # <a name="tutorial-bing-visual-search-sdk-image-crop-area-and-results"></a>자습서: Bing Visual Search SDK 이미지 자르기 영역 및 결과
 Visual Search SDK에는 이미지의 영역을 선택하고 더 큰 이미지의 자르기 영역과 유사한 이미지를 온라인에서 찾는 옵션이 포함되어 있습니다.  이 예제에서는 여러 사람이 포함된 이미지에서 한 사람을 표시하는 자르기 영역을 지정합니다.  코드는 더 큰 이미지의 자르기 영역 및 URL을 보내고 Bing Search URL 및 온라인에서 찾은 비슷한 이미지의 URL을 포함하는 결과를 반환합니다.

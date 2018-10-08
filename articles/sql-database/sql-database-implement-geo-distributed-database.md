@@ -2,19 +2,22 @@
 title: 지리적으로 분산된 Azure SQL Database 솔루션 구현 | Microsoft Docs
 description: Azure SQL Database와 응용 프로그램을 복제된 데이터베이스로 장애 조치하도록 구성하고 장애 조치를 테스트합니다.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,business continuity
-ms.topic: tutorial
-ms.date: 04/01/2018
-ms.author: carlrab
-ms.openlocfilehash: fbd239c3c8c11b1907a6d28eb95d2c0ad26cfe61
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: anosov1960
+ms.author: sashan
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/07/2018
+ms.openlocfilehash: 65cf954f5d91176715181620671f620264069bdc
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31416622"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166266"
 ---
 # <a name="implement-a-geo-distributed-database"></a>지리적으로 분산된 데이터베이스 구현
 
@@ -38,8 +41,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 - Azure SQL Database를 설치했습니다. 이 자습서에서는 다음 빠른 시작 중 하나에서 **mySampleDatabase** 이름의 AdventureWorksLT 샘플 데이터베이스를 사용합니다.
 
    - [DB 만들기 - 포털](sql-database-get-started-portal.md)
-   - [DB 만들기 - CLI](sql-database-get-started-cli.md)
-   - [DB 만들기 - PowerShell](sql-database-get-started-powershell.md)
+   - [DB 만들기 - CLI](sql-database-cli-samples.md)
+   - [DB 만들기 - PowerShell](sql-database-powershell-samples.md)
 
 - 데이터베이스에서 SQL 스크립트를 실행할 메서드를 식별한 경우 다음 쿼리 도구 중 하나를 사용할 수 있습니다.
    - [Azure Portal](https://portal.azure.com)의 쿼리 편집기. Azure Portal에서 쿼리 편집기를 사용하는 방법에 대한 자세한 내용은 [쿼리 편집기를 사용하여 연결 및 쿼리](sql-database-get-started-portal.md#query-the-sql-database)를 참조하세요.
@@ -54,7 +57,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 - SQL Server Management Studio
 - Visual Studio Code
 
-이러한 사용자 계정은 보조 서버에 자동으로 복제되고 계속 동기화됩니다. SQL Server Management Studio 또는 Visual Studio Code를 사용하려면 아직 방화벽을 구성하지 않은 IP 주소의 클라이언트에서 연결하는 경우 방화벽 규칙을 구성해야 할 수도 있습니다. 자세한 단계에 대해서는 [서버 수준 방화벽 규칙 만들기](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)를 참조하세요.
+이러한 사용자 계정은 보조 서버에 자동으로 복제되고 계속 동기화됩니다. SQL Server Management Studio 또는 Visual Studio Code를 사용하려면 아직 방화벽을 구성하지 않은 IP 주소의 클라이언트에서 연결하는 경우 방화벽 규칙을 구성해야 할 수도 있습니다. 자세한 단계에 대해서는 [서버 수준 방화벽 규칙 만들기](sql-database-get-started-portal-firewall.md)를 참조하세요.
 
 - 쿼리 창에서 다음 쿼리를 실행하여 데이터베이스에 두 개의 사용자 계정을 만듭니다. 이 스크립트는 **db_owner** 권한을 **app_admin** 계정에 부여하고 **SELECT** 및 **UPDATE** 권한을 **app_user** 계정에 부여합니다. 
 
@@ -70,7 +73,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-database-level-firewall"></a>데이터베이스 수준 방화벽 만들기
 
-SQL Database에 대한 [데이터베이스 수준 방화벽 규칙](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)을 만듭니다. 이 데이터베이스 수준 방화벽 규칙은 이 자습서에서 만드는 보조 서버에 자동으로 복제됩니다. 이 자습서에서는 간단하게 이 자습서의 단계를 수행하는 컴퓨터의 공용 IP 주소를 사용합니다. 현재 컴퓨터에 대한 서버 수준 방화벽 규칙에 사용되는 IP 주소를 확인하려면 [서버 수준 방화벽 만들기](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)를 참조하세요.  
+SQL Database에 대한 [데이터베이스 수준 방화벽 규칙](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)을 만듭니다. 이 데이터베이스 수준 방화벽 규칙은 이 자습서에서 만드는 보조 서버에 자동으로 복제됩니다. 이 자습서에서는 간단하게 이 자습서의 단계를 수행하는 컴퓨터의 공용 IP 주소를 사용합니다. 현재 컴퓨터에 대한 서버 수준 방화벽 규칙에 사용되는 IP 주소를 확인하려면 [서버 수준 방화벽 만들기](sql-database-get-started-portal-firewall.md)를 참조하세요.  
 
 - 열린 쿼리 창에서 이전 쿼리를 다음 쿼리로 바꾸고, IP 주소를 해당 환경의 적절한 IP 주소로 바꿉니다.  
 
@@ -390,8 +393,8 @@ Java 및 Maven 환경을 설치하고 구성하는 방법에 대한 자세한 �
 > * Azure SQL Database를 쿼리하기 위한 Java 응용 프로그램 만들기 및 컴파일
 > * 재해 복구 훈련 수행
 
-관리되는 인스턴스를 만드는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
+DMS를 사용하여 SQL Server를 Azure SQL Database Managed Instance로 마이그레이션하려면 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
->[관리되는 인스턴스 만들기](sql-database-managed-instance-create-tutorial-portal.md)
+>[DMS를 사용하여 Azure SQL Database Managed Instance로 SQL Server 마이그레이션](../dms/tutorial-sql-server-to-managed-instance.md)
 

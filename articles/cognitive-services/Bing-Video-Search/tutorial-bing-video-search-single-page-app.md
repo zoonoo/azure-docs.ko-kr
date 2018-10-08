@@ -1,20 +1,21 @@
 ---
-title: 단일 페이지 Bing Video Search 앱 | Microsoft Docs
+title: '자습서: 단일 페이지 Bing Video Search 앱 빌드'
+titlesuffix: Azure Cognitive Services
 description: 단일 페이지 웹 응용 프로그램에서 Bing Video Search API를 사용하는 방법을 설명합니다.
 services: cognitive-services
 author: mikedodaro
-manager: ronakshah
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/01/2017
-ms.author: v-gedod
-ms.openlocfilehash: 55f662721e007e03c8f43f19d8b905e755cfe1d8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: a7c6646a69aec11797d354da28baca669b802ab0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377054"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226605"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>자습서: 단일 페이지 Video Search 앱
 Bing Video Search API를 사용하여 웹을 검색하고 검색 쿼리와 관련된 비디오 결과를 가져올 수 있습니다. 이 자습서에서는 Bing Search API를 사용하여 페이지에 검색 결과를 표시하는 단일 페이지 웹 응용 프로그램을 빌드합니다. 응용 프로그램에는 HTML, CSS 및 JavaScript 구성 요소가 포함됩니다.
@@ -140,7 +141,7 @@ function bingSearchOptions(form) {
 예를 들어, 실제 API 호출의 `SafeSearch` 매개 변수는 `strict`, `moderate` 또는 `off`일 수 있고, 기본값은 `moderate`입니다. 그러나 이 양식에서는 두 개의 상태만 있는 확인란을 사용합니다. JavaScript 코드는 이 설정을 `strict` 또는 `off`로 변환합니다(`moderate`는 사용되지 않음).
 
 ## <a name="performing-the-request"></a>요청 수행
-쿼리, 옵션 문자열 및 API 키가 제공될 경우 `BingWebSearch` 함수는 `XMLHttpRequest` 개체를 사용하여 Bing Search 끝점에 대해 요청을 수행합니다.
+쿼리, 옵션 문자열 및 API 키가 제공될 경우 `BingWebSearch` 함수는 `XMLHttpRequest` 개체를 사용하여 Bing Search 엔드포인트에 대해 요청을 수행합니다.
 
 ```javascript
 // Search on the query, using search options, authenticated by the key.
@@ -339,7 +340,7 @@ searchItemRenderers = {
 
 `index` 및 `count` 매개 변수는 결과에 번호를 지정하고, 컬렉션 시작 또는 끝에 대한 특수 HTML을 생성하고, 특정 개수의 항목 다음에 줄 바꿈을 삽입하는 등의 작업에 사용될 수 있습니다. 렌더러에 이 기능이 필요하지 않은 경우 이러한 두 매개 변수를 사용하지 않아도 됩니다.
 
-`video` 렌더러는 다음 javascript 발췌 내용에 나와 있습니다. Videos 끝점을 사용하는 경우 모든 결과가 `Videos` 유형입니다. `searchItemRenderers`는 다음 코드 세그먼트에 나와 있습니다.
+`video` 렌더러는 다음 javascript 발췌 내용에 나와 있습니다. Videos 엔드포인트를 사용하는 경우 모든 결과가 `Videos` 유형입니다. `searchItemRenderers`는 다음 코드 세그먼트에 나와 있습니다.
 
 ```javascript
 // render functions for various types of search results
@@ -386,7 +387,7 @@ Bing Search API의 응답에는 후속 요청과 함께 API로 다시 전송되�
 브라우저 보안 정책(CORS) 때문에 JavaScript에서 `X-MSEdge-ClientID` 헤더를 사용하지 못할 수 있습니다. 이러한 제한은 검색 응답의 원본이 해당 응답을 요청한 페이지와 다른 경우에 발생합니다. 프로덕션 환경에서는 웹 페이지와 동일한 도메인에 대해 API 호출을 수행하는 서버 쪽 스크립트를 호스트하여 이 정책 문제를 해결해야 합니다. 스크립트의 원본은 웹 페이지와 동일하므로 JavaScript에서 `X-MSEdge-ClientID` 헤더를 사용할 수 있습니다.
 
 > [!NOTE]
-> 프로덕션 웹 응용 프로그램의 경우 서버 쪽에서 요청을 수행해야 합니다. 서버 쪽에서 수행하지 않을 경우 소스를 보는 누구나 사용할 수 있는 웹 페이지에 Bing Search API 키를 포함해야 합니다. 권한 없는 사람이 수행한 요청을 포함하여 API 구독 키를 통한 모든 사용량에 요금이 청구되므로, 키를 노출하지 않는 것이 중요합니다.
+> 프로덕션 웹 응용 프로그램의 경우 서버 쪽에서 요청을 수행해야 합니다. 그렇지 않은 경우 Bing Search API 키를 웹 페이지에 포함해야만 원본을 보는 누구나 사용할 수 있게 됩니다. 권한 없는 사람이 수행한 요청을 포함하여 API 구독 키를 통한 모든 사용량에 요금이 청구되므로, 키를 노출하지 않는 것이 중요합니다.
 
 개발 목적으로 CORS 프록시를 통해 Bing Web Search API 요청을 수행할 수 있습니다. 이러한 프록시의 응답에는 응답 헤더를 허용 목록에 추가하고 JavaScript에서 응답 헤더를 사용할 수 있게 해주는 `Access-Control-Expose-Headers` 헤더가 포함됩니다.
 
@@ -394,11 +395,11 @@ Bing Search API의 응답에는 후속 요청과 함께 API로 다시 전송되�
 
     npm install -g cors-proxy-server
 
-HTML 파일에서 Bing Web Search 끝점을 다음으로 변경합니다.
+다음으로, HTML 파일에서 Bing Web Search 엔드포인트를 변경합니다.
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
-마지막으로, 다음 명령을 사용하여 CORS 프록시를 시작합니다.
+마지막으로 다음 명령을 사용하여 CORS 프록시를 시작합니다.
 
     cors-proxy-server
 

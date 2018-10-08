@@ -2,23 +2,26 @@
 title: BACPAC 파일을 가져와 Azure SQL 데이터베이스 만들기 | Microsoft Docs
 description: BACPAC 파일을 가져와 새 Azure SQL 데이터베이스를 만듭니다.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: load & move data
-ms.date: 04/10/2018
-ms.author: carlrab
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.openlocfilehash: d22c9a05d1fe56d71eb901c0a4bf22c179dfe937
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+author: CarlRabeler
+ms.author: carlrab
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 9de7fe9972f1ae0fca1c4e527f718b31fddf4294
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646918"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161531"
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>새 Azure SQL Database로 BACPAC 파일 가져오기
 
-아카이브에서 데이터베이스를 가져오거나 다른 플랫폼에서 마이그레이션하는 경우 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 파일에서 데이터베이스 스키마 및 데이터를 가져올 수 있습니다. BACPAC 파일은 메타데이터 및 SQL Server 데이터베이스의 데이터를 포함하는 BACPAC의 확장명을 가진 ZIP 파일입니다. BACPAC 파일은 Azure Blob Storage(표준 저장소만 해당)에서 또는 온-프레미스 위치의 로컬 저장소에서 가져올 수 있습니다. 가져오기 속도를 최대화하려면 P6처럼 더 높은 서비스 계층과 성능 수준을 지정한 다음 가져오기가 성공하면 적절하게 규모 감축하는 것이 좋습니다. 또한 가져오기 후의 데이터베이스 호환성 수준은 원본 데이터베이스의 호환성 수준에 따라 결정됩니다. 
+아카이브에서 데이터베이스를 가져오거나 다른 플랫폼에서 마이그레이션하는 경우 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 파일에서 데이터베이스 스키마 및 데이터를 가져올 수 있습니다. BACPAC 파일은 메타데이터 및 SQL Server 데이터베이스의 데이터를 포함하는 BACPAC의 확장명을 가진 ZIP 파일입니다. BACPAC 파일은 Azure Blob Storage(표준 저장소만 해당)에서 또는 온-프레미스 위치의 로컬 저장소에서 가져올 수 있습니다. 가져오기 속도를 최대화하려면 P6처럼 더 높은 서비스 계층과 계산 크기를 지정한 다음, 가져오기가 성공하면 적절하게 규모 감축하는 것이 좋습니다. 또한 가져오기 후의 데이터베이스 호환성 수준은 원본 데이터베이스의 호환성 수준에 따라 결정됩니다. 
 
 > [!IMPORTANT] 
 > Azure SQL Database로 데이터베이스를 마이그레이션한 후에는 데이터베이스를 현재 호환성 수준에서(AdventureWorks2008R2 데이터베이스에 대해 수준 100) 또는 더 높은 수준에서 작동하도록 선택할 수 있습니다. 특정 호환성 수준에서 데이터베이스를 운영하기 위한 옵션 및 그 영향에 대한 자세한 내용은 [ALTER DATABASE 호환성 수준](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level)을 참조하세요. 또한 호환성 수준과 관련된 추가 데이터베이스 수준 설정에 대한 자세한 내용은 [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql)을 참조하세요.   >
@@ -27,14 +30,14 @@ ms.locfileid: "34646918"
 
 이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure Blob Storage에 저장된 BACPAC 파일로 Azure SQL Database를 만드는 지침을 제공합니다. Azure Portal을 사용하여 가져오기는 Azure Blob Storage에서 BACPAC 파일을 가져오는 것만 지원합니다.
 
-Azure Portal을 사용하여 가져오려면 데이터베이스를 연결하기 위한 서버의 페이지를 연 다음 도구 모음에서 **가져오기**를 클릭합니다. 저장소 계정 및 컨테이너를 지정하고 가져올 BACPAC 파일을 선택합니다. 새 데이터베이스의 크기(일반적으로 원본과 동일)를 선택하고 대상 SQL Server 자격 증명을 제공합니다.  
+Azure Portal을 사용하여 데이터베이스를 가져오려면 데이터베이스를 연결할 서버의 페이지(데이터베이스에 대한 페이지가 아닌)를 열고 도구 모음에서 **가져오기**를 클릭합니다. 저장소 계정 및 컨테이너를 지정하고 가져올 BACPAC 파일을 선택합니다. 새 데이터베이스의 크기(일반적으로 원본과 동일)를 선택하고 대상 SQL Server 자격 증명을 제공합니다.  
 
    ![데이터베이스 가져오기](./media/sql-database-import/import.png)
 
 가져오기 작업의 진행률을 모니터링하려면 가져올 데이터베이스가 포함된 논리 서버에 대한 페이지를 엽니다. 아래로 **작업**이 나올 때까지 스크롤한 다음 **Import/Export** 기록을 클릭합니다.
 
 > [!NOTE]
-> [Azure SQL Database 관리되는 인스턴스](sql-database-managed-instance.md)는 이 문서의 다른 방법을 사용하여 BACPAC 파일에서 가져오는 작업을 지원했으나, 현재는 Azure Portal을 사용하는 마이그레이션을 지원하지 않습니다.
+> [Azure SQL Database Managed Instance](sql-database-managed-instance.md)는 이 문서의 다른 방법을 사용하여 BACPAC 파일에서 가져오는 작업을 지원했으나, 현재는 Azure Portal을 사용하는 마이그레이션을 지원하지 않습니다.
 
 ### <a name="monitor-the-progress-of-an-import-operation"></a>가져오기 작업의 진행률 모니터링
 
@@ -104,7 +107,7 @@ $importStatus
 다른 스크립트 예제는 [BACPAC 파일에서 데이터베이스 가져오기](scripts/sql-database-import-from-bacpac-powershell.md)를 참조하세요.
 
 ## <a name="limitations"></a>제한 사항
-- 탄력적 풀의 데이터베이스로 가져오기는 지원되지 않습니다. 싱글톤 데이터베이스로 데이터를 가져온 다음 해당 데이터베이스를 풀로 이동할 수 있습니다.
+- 탄력적 풀의 데이터베이스로 가져오기는 지원되지 않습니다. 단일 데이터베이스로 데이터를 가져온 다음, 해당 데이터베이스를 풀로 이동할 수 있습니다.
 
 ## <a name="import-using-other-methods"></a>다른 방법을 사용하여 가져오기
 

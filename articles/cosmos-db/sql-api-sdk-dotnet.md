@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d25f46804c3320b7d941a945f3c4d9a5dfb6970c
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b7de476c6b96856e9b783ed8182985846bb39cfa
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702132"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452397"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK for SQL API: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -50,6 +50,24 @@ ms.locfileid: "43702132"
 </table></br>
 
 ## <a name="release-notes"></a>릴리스 정보
+### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
+
+* 다중 지역 요청 일시적인 오류에 대한 복원력이 강화되었습니다.
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+
+* 다중 지역 쓰기 지원이 추가되었습니다.
+* TOP 및 MaxBufferedItemCount를 사용하여 파티션 간 쿼리 성능 향상 기능입니다.
+
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+
+* 요청 취소 지원이 추가되었습니다.
+* 지역에 따라 기본 설정 위치를 자동으로 채우는 SetCurrentLocation이 ConnectionPolicy에 추가되었습니다.
+* 개별 파티션의 문서를 일치시키지 않는 필터 및 Min/Max를 사용한 파티션 간 쿼리의 버그가 수정되었습니다.
+* 이제 DocumentClient 메서드에는 IDocumentClient를 포함하는 패리티가 있습니다.
+* 설정된 연결 수를 줄이도록 직접 TCP 전송 스택이 업데이트되었습니다.
+* 비 Windows 클라이언트에 대한 직접 모드 TCP에 대한 지원이 추가되었습니다.
+
 ### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
 
 * 요청 취소 지원이 추가되었습니다.
@@ -75,7 +93,7 @@ ms.locfileid: "43702132"
 
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 
-* 세션 일관성 수준을 사용하는 경우 일시적 “Microsoft.Azure.Documents.NotFoundException: 읽기 세션을 입력 세션 토큰에 사용할 수 없습니다” 오류로 이어지는 특정 경합 조건에 도달하는 버그가 수정되었습니다.
+* 세션 일관성 수준을 사용하는 경우 일시적인 "Microsoft.Azure.Documents.NotFoundException: 읽기 세션을 입력 세션 토큰에 사용할 수 없습니다." 오류가 발생하는 특정 경합 조건에 도달하는 버그가 수정되었습니다.
 
 ### <a name="a-name12011201"></a><a name="1.20.1"/>1.20.1
 
@@ -309,8 +327,9 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
-| [2.0.0-preview2](#2.0.0-preview2) |2018년 7월 26일 |--- |
-| [2.0.0-preview](#2.0.0-preview) |2018년 5월 11일 |--- |
+| [2.1.1](#2.1.1) |2018년 9월 27일 |--- |
+| [2.1.0](#2.1.0) |2018년 9월 21일 |--- |
+| [2.0.0](#2.0.0) |2018년 9월 7일 |--- |
 | [1.22.0](#1.22.0) |2018년 4월 19일 |--- |
 | [1.21.1](#1.20.1) |2018년 3월 9일 |--- |
 | [1.20.2](#1.20.1) |2018년 2월 21일 |--- |

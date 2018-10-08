@@ -1,75 +1,63 @@
 ---
-title: 정확한 텍스트 일치 나열된 데이터를 가져오도록 LUIS 앱을 만드는 자습서 - Azure | Microsoft Docs
-description: 이 자습서에서는 의도 및 목록 엔터티를 사용하는 간단한 LUIS 앱을 만들어서 이 빠른 시작에서 데이터를 추출하는 방법을 알아봅니다.
+title: '자습서 4: 정확한 텍스트 일치 - LUIS 목록 엔터티'
+titleSuffix: Azure Cognitive Services
+description: 미리 정의된 항목 목록과 일치하는 데이터를 가져옵니다. 목록의 각 항목과 정확하게 일치하는 동의어가 있을 수 있음
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 04411f415b7cfe07d893c43e758bd2a4a226472a
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: b4fdf094653a4b16dead6397fe8e1a9f1a0258b9
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162201"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162086"
 ---
-# <a name="tutorial-4-add-list-entity"></a>자습서: 4. 목록 엔터티 추가
-이 자습서에서는 미리 정의된 목록과 일치하는 데이터를 가져오는 방법을 보여주는 앱을 만듭니다. 
+# <a name="tutorial-4-extract-exact-text-matches"></a>자습서 4: 정확하게 일치하는 텍스트 추출
+이 자습서에서는 미리 정의된 항목 목록과 일치하는 데이터를 가져오는 방법을 설명합니다. 목록의 각 항목은 동의어 목록을 포함할 수 있습니다. 인사 관리 앱의 경우 이름, 이메일, 전화 번호, 미국 연방 세금 ID 등의 여러 핵심 정보 조각으로 직원을 식별할 수 있습니다. 
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * 엔터티 목록 이해 
-> * MoveEmployee 의도를 사용하여 HR(인사 관리) 도메인에 대한 새 LUIS 앱 만들기
-> * 목록 엔터티를 추가하여 발언에서 직원 추출
-> * 앱 학습 및 게시
-> * 앱의 엔드포인트를 쿼리하여 LUIS JSON 응답 확인
+인사 관리 앱은 한 건물에서 다른 건물로 이동하는 직원이 누구인지 확인해야 합니다. 직원 이동에 대한 발언의 경우 LUIS는 의도를 확인하고, 직원을 이동하는 표준 순서를 클라이언트 응용 프로그램에서 만들 수 있도록 직원을 추출합니다.
 
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>시작하기 전에
-[regex 엔터티](luis-quickstart-intents-regex-entity.md) 자습서의 인사 관리 앱이 없으면 JSON을 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 새 앱으로 [가져옵니다](luis-how-to-start-new-app.md#import-new-app). 가져올 앱은 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json) Github 리포지토리에 있습니다.
-
-원래의 인사 관리 앱을 유지하려면 [설정](luis-how-to-manage-versions.md#clone-a-version) 페이지에서 버전을 복제하고 해당 이름을 `list`로 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 
-
-## <a name="purpose-of-the-list-entity"></a>목록 엔터티의 목적
-이 앱은 직원을 한 건물에서 다른 건물로 이동하는 방법에 대한 발언을 예측합니다. 이 앱은 목록 엔터티를 사용하여 직원을 추출합니다. 이름, 전화 번호, 이메일 또는 미국 사회 보장 번호를 사용하여 직원을 참조할 수 있습니다. 
-
-목록 엔터티에는 각 항목의 동의어를 사용하는 여러 항목이 포함될 수 있습니다. 소규모 회사부터 중간 규모 회사까지는 목록 엔터티를 사용하여 직원 정보를 추출합니다. 
-
-각 항목의 정식 이름은 직원 번호입니다. 이 도메인의 동의어 예제는 다음과 같습니다. 
-
-|동의어 용도|동의어 값|
-|--|--|
-|Name|John W. Smith|
-|메일 주소|john.w.smith@mycompany.com|
-|내선 번호|x12345|
-|개인 휴대폰 번호|425-555-1212|
-|미국 사회 보장 번호|123-45-6789|
+이 앱은 목록 엔터티를 사용하여 직원을 추출합니다. 이름, 회사 내선 번호, 휴대폰 번호, 이메일 또는 미국 사회 보장 번호를 사용하여 직원을 참조할 수 있습니다. 
 
 다음과 같은 경우 목록 엔터티는 이러한 종류의 데이터에 적합합니다.
 
 * 데이터 값이 알려진 집합입니다.
 * 집합이 이 엔터티 형식의 최대 LUIS [경계](luis-boundaries.md)를 초과하지 않습니다.
-* 발언의 텍스트는 동의어와 정확히 일치합니다. 
+* 발언의 텍스트가 동의어 또는 정식 이름과 정확히 일치합니다. 
 
-LUIS는 클라이언트 응용 프로그램이 직원을 이동하는 표준 순서를 만드는 방식으로 직원을 추출합니다.
-<!--
-## Example utterances
-Simple example utterances for a `MoveEmployee` inent:
+**이 자습서에서는 다음 방법에 대해 알아봅니다.**
 
-```
-move John W. Smith from B-1234 to H-4452
-mv john.w.smith@mycompany from office b-1234 to office h-4452
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * 기존 자습서 앱 사용
+> * MoveEmployee 의도 추가
+> * 목록 엔터티 추가 
+> * 학습 
+> * 게시
+> * 엔드포인트에서 의도 및 엔터티 가져오기
 
-```
--->
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="add-moveemployee-intent"></a>MoveEmployee 의도 추가
+## <a name="use-existing-app"></a>기존 앱 사용
+마지막 자습서에서 만든 **HumanResources**라는 앱을 사용하여 계속 진행합니다. 
 
-1. 인사 관리 앱이 LUIS의 **빌드** 섹션에 있는지 확인합니다. 오른쪽 위의 메뉴 표시줄에서 **빌드**를 선택하여 이 섹션으로 변경할 수 있습니다. 
+이전 자습서의 HumanResources 앱이 없으면 다음 단계를 사용합니다.
+
+1.  [앱 JSON 파일](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-regex-HumanResources.json)을 다운로드하고 저장합니다.
+
+2. JSON을 새 앱으로 가져옵니다.
+
+3. **관리** 섹션의 **버전** 탭에서 버전을 복제하고 `list`라는 이름을 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 버전 이름이 URL 경로의 일부로 사용되므로 이름에는 URL에 유효하지 않은 문자가 포함될 수 없습니다. 
+
+
+## <a name="moveemployee-intent"></a>MoveEmployee 의도
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. **새 의도 만들기**를 선택합니다. 
 
@@ -94,8 +82,23 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
 
     [ ![새 발화가 강조 표시된 의도 페이지의 스크린샷](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png) ](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png#lightbox)
 
-## <a name="create-an-employee-list-entity"></a>직원 목록 엔터티 만들기
-**MoveEmployee** 의도에 발언이 생겼으니, LUIS가 직원이 무엇인지 이해해야 합니다. 
+    이전 자습서에서 숫자 및 datetimeV2를 추가했으며 예제 발언에서 발견되면 자동으로 레이블이 지정됩니다.
+
+    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+
+## <a name="employee-list-entity"></a>직원 목록 엔터티
+**MoveEmployee** 의도에 예제 발언이 생겼으니, LUIS가 직원이 무엇인지 이해해야 합니다. 
+
+각 항목의 주 _정식_ 이름은 직원 번호입니다. 이 도메인에서 각 정식 이름의 동의어 예제는 다음과 같습니다. 
+
+|동의어 용도|동의어 값|
+|--|--|
+|이름|John W. Smith|
+|메일 주소|john.w.smith@mycompany.com|
+|내선 번호|x12345|
+|개인 휴대폰 번호|425-555-1212|
+|미국 사회 보장 번호|123-45-6789|
+
 
 1. 왼쪽 패널에서 **엔터티**를 선택합니다.
 
@@ -113,7 +116,7 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
 
     |동의어 용도|동의어 값|
     |--|--|
-    |Name|John W. Smith|
+    |이름|John W. Smith|
     |메일 주소|john.w.smith@mycompany.com|
     |내선 번호|x12345|
     |개인 휴대폰 번호|425-555-1212|
@@ -127,21 +130,21 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
 
     |동의어 용도|동의어 값|
     |--|--|
-    |Name|Jill Jones|
+    |이름|Jill Jones|
     |메일 주소|jill-jones@mycompany.com|
     |내선 번호|x23456|
     |개인 휴대폰 번호|425-555-0000|
     |미국 사회 보장 번호|234-56-7891|
 
-## <a name="train-the-luis-app"></a>LUIS 앱 학습
+## <a name="train"></a>학습
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>앱을 게시하여 엔드포인트 URL 가져오기
+## <a name="publish"></a>게시
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>다른 발화를 사용하여 엔드포인트 쿼리
+## <a name="get-intent-and-entities-from-endpoint"></a>엔드포인트에서 의도 및 엔터티 가져오기
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
@@ -259,22 +262,12 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
 
   직원을 찾아 `Employee` 유형으로 반환했으며 확인 값은 `Employee-24612`입니다.
 
-## <a name="where-is-the-natural-language-processing-in-the-list-entity"></a>목록 엔터티에서 자연어를 처리하는 위치는 어디인가요? 
-목록 엔터티가 정확한 텍스트 일치 항목이기 때문에 자연어 처리(또는 기계 학습)을 사용하지 않습니다. LUIS는 자연어 처리(또는 기계 학습)를 사용하여 올바른 최상위 점수 매기기 의도를 선택합니다. 또한 발언은 둘 이상의 엔터티 또는 둘 이상의 엔터티 형식을 혼합한 것일 수 있습니다. 자연어 처리(또는 기계 학습) 엔터티를 비롯한 앱의 모든 엔터티에 대해 각 발언이 처리됩니다.
-
-## <a name="what-has-this-luis-app-accomplished"></a>이 LUIS 앱에서 수행한 작업은?
-이 앱은 목록 엔터티를 사용하여 올바른 직원을 추출했습니다. 
-
-챗봇에는 이제 기본 작업, `MoveEmployee` 및 이동할 직원을 결정하기에 충분한 정보가 있습니다. 
-
-## <a name="where-is-this-luis-data-used"></a>이 LUIS 데이터가 사용되는 위치는? 
-LUIS는 이 요청을 통해 수행됩니다. 챗봇과 같은 호출 응용 프로그램에서는 topScoringIntent 결과와 엔터티의 데이터를 사용하여 다음 단계를 수행할 수 있습니다. LUIS는 봇 또는 호출 응용 프로그램에 대해 프로그래밍 방식으로 작동하지 않습니다. LUIS는 사용자의 의도가 무엇인지만 결정합니다. 
-
 ## <a name="clean-up-resources"></a>리소스 정리
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
+이 자습서에서는 새 의도를 만들고, 예제 발언을 추가하고, 발언에서 정확하게 일치하는 텍스트를 추출하는 목록 엔터티를 만들었습니다. 교육 및 앱 게시를 마친 후 엔드포인트 쿼리가 의도를 식별하고 추출된 데이터를 반환했습니다.
 
 > [!div class="nextstepaction"]
 > [앱에 계층적 엔터티 추가](luis-quickstart-intent-and-hier-entity.md)

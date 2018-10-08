@@ -2,56 +2,58 @@
 title: Intelligent Insights를 사용하여 Azure SQL Database 성능 문제 해결 | Microsoft Docs
 description: Intelligent Insights는 Azure SQL Database 성능 문제를 해결하는 데 도움을 줍니다.
 services: sql-database
-author: danimir
-manager: craigg
-ms.reviewer: carlrab
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/04/2018
+author: danimir
 ms.author: v-daljep
-ms.openlocfilehash: bcc33eb7e5050c991c89b7f0998eec3707f62ebb
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: 49d5e307c51a6527ade63bac0276fa141ecb5c24
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751346"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222457"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Intelligent Insights를 사용하여 Azure SQL Database 성능 문제 해결
 
-이 페이지에서는 [Intelligent Insights](sql-database-intelligent-insights.md) 데이터베이스 성능 진단 로그를 통해 감지되는 Azure SQL Database 성능 문제에 대한 정보를 제공합니다. 이 진단 로그는 사용자 지정 DevOps 경고 및 보고 기능을 위해 [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Azure Event Hub](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage) 또는 타사 솔루션에 보낼 수 있습니다.
+이 페이지에서는 [Intelligent Insights](sql-database-intelligent-insights.md) 데이터베이스 성능 진단 로그를 통해 감지되는 Azure SQL Database 및 Managed Instance 성능 문제에 대한 정보를 제공합니다. 이 진단 로그 원격 분석은 사용자 지정 DevOps 경고 및 보고 기능을 위해 [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage) 또는 타사 솔루션에 스트림할 수 있습니다.
 
 > [!NOTE]
-> Intelligent Insights를 통한 빠른 SQL Database 성능 문제 해결 가이드는 이 문서의 [권장되는 문제 해결 흐름](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) 순서도를 참조하세요.
+> Intelligent Insights를 사용한 빠른 SQL Database 성능 문제 해결 가이드는 이 문서의 [권장되는 문제 해결 흐름](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) 순서도를 참조하세요.
 >
 
 ## <a name="detectable-database-performance-patterns"></a>검색 가능한 데이터베이스 성능 패턴
 
-Intelligent Insights는 쿼리 실행 대기 시간, 오류, 시간 제한을 기준으로 SQL Database의 성능 문제를 자동으로 감지합니다. 그런 다음 감지된 성능 패턴을 진단 로그로 출력합니다. 검색 가능한 성능 패턴은 다음 표에 요약되어 있습니다.
+Intelligent Insights는 쿼리 실행 대기 시간, 오류 또는 시간 제한을 기준으로 SQL Database 및 Managed Instance 데이터베이스의 성능 문제를 자동으로 감지합니다. 감지된 성능 패턴을 진단 로그로 출력합니다. 검색 가능한 성능 패턴은 다음 테이블에 요약되어 있습니다.
 
-| 검색 가능한 성능 패턴 | 출력되는 세부 정보 |
-| :------------------- | ------------------- |
-| [리소스 제한에 도달](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | 모니터링된 구독에서 사용 가능한 리소스(DTU), 데이터베이스 작업자 스레드 또는 데이터베이스 로그인 세션의 사용량이 제한에 도달하여 SQL Database에 성능 문제가 발생했습니다. |
-| [워크로드 증가](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | 데이터베이스의 워크로드가 증가하거나 지속적으로 누적되었음이 발견되었으며 이로 인해 SQL Database 성능 문제가 발생했습니다. |
-| [메모리 압력](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | 메모리 부여를 요청한 작업자는 통계적으로 유의미한 시간 동안 메모리 할당을 대기해야 합니다. 또는 메모리 부여를 요청한 작업자가 지속적으로 누적되어 SQL Database 성능에 영향을 미치는 문제가 존재합니다. |
-| [잠금](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | SQL Database 성능에 영향을 주는 과도한 데이터베이스 잠금이 발견되었습니다. |
-| [MAXDOP 증가](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | MAXDOP(최대 병렬 처리 수준 옵션)이 변경되었으며 쿼리 실행 효율성에 영향을 주고 있습니다. |
-| [페이지 래치 경합](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | SQL Database 성능에 영향을 주는 페이지 래치 경합이 발견되었습니다. 여러 스레드가 동시에 동일한 메모리 내 데이터 버퍼 페이지에 액세스하려고 합니다. 이로 인해 대기 시간이 길어져 SQL Database 성능에 영향을 미치고 있습니다. |
-| [인덱스 누락](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | SQL Database 성능에 영향을 주는 인덱스 누락 문제가 발견되었습니다. |
-| [새 쿼리](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | SQL Database의 전체 성능에 영향을 주는 새 쿼리가 발견되었습니다. |
-| [비정상적 대기 통계](sql-database-intelligent-insights-troubleshoot-performance.md#unusual-wait-statistic) | SQL Database 성능에 영향을 주는 비정상적인 데이터베이스 대기 시간이 발견되었습니다. |
-| [TempDB 경합](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | 여러 스레드에서 동일한 TempDB 리소스에 액세스하려고 하여 SQL Database 성능에 영향을 주는 병목 현상이 발생하고 있습니다. |
-| [탄력적 풀 DTU 부족](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | 탄력적 풀에서 사용 가능한 eDTU가 부족하여 SQL Database 성능에 영향을 주고 있습니다. |
-| [계획 회귀](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | 새 계획 또는 기존 계획의 워크로드가 변경되어 SQL Database 성능에 영향을 주고 있습니다. |
-| [데이터베이스 범위 구성 값 변경](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | 데이터베이스 구성이 변경되어 SQL Database 성능에 영향을 주고 있습니다. |
-| [느린 클라이언트](sql-database-intelligent-insights-troubleshoot-performance.md#slow-client) | 느린 응용 프로그램 클라이언트에서 SQL Database의 출력을 충분히 빠르게 사용할 수 없어 SQL Database 성능에 영향을 주는 문제가 발견되었습니다. |
-| [가격 책정 계층 다운그레이드](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | 가격 책정 계층 다운그레이드 작업으로 인해 사용 가능한 리소스가 감소되었으며 SQL Database 성능에 영향을 주고 있습니다. |
+| 검색 가능한 성능 패턴 | Azure SQL Database 및 탄력적 풀에 대한 설명 | Managed Instance에서 데이터베이스에 대한 설명 |
+| :------------------- | ------------------- | ------------------- |
+| [리소스 제한에 도달](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | 리소스(DTU), 데이터베이스 작업자 스레드 또는 모니터링된 구독에서 사용 가능한 데이터베이스 로그인 세션의 사용량이 제한에 도달하였습니다. 이는 SQL Database 성능에 영향을 줍니다. | CPU 리소스의 사용량이 Managed Instance 제한에 도달합니다. 이는 데이터베이스 성능에 영향을 줍니다. |
+| [워크로드 증가](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | 데이터베이스의 워크로드가 증가하거나 지속적으로 누적되었음이 발견되었습니다. 이는 SQL Database 성능에 영향을 줍니다. | 워크로드 증가가 감지되었습니다. 이는 데이터베이스 성능에 영향을 줍니다. |
+| [메모리 압력](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | 메모리 부여를 요청한 작업자는 통계적으로 유의미한 시간 동안 메모리 할당을 대기해야 합니다. 또는 메모리 부여를 요청한 작업자가 지속적으로 누적되어 존재합니다. 이는 SQL Database 성능에 영향을 줍니다. | 메모리 부여를 요청한 작업자는 통계적으로 유의미한 시간 동안 메모리 할당을 대기합니다. 이는 데이터베이스 성능에 영향을 줍니다. |
+| [잠금](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | SQL Database 성능에 영향을 주는 과도한 데이터베이스 잠금이 발견되었습니다. | 데이터베이스 성능에 영향을 주는 과도한 데이터베이스 잠금이 발견되었습니다. |
+| [MAXDOP 증가](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | MAXDOP(최대 병렬 처리 수준 옵션)이 변경되었으며 쿼리 실행 효율성에 영향을 주고 있습니다. 이는 SQL Database 성능에 영향을 줍니다. | MAXDOP(최대 병렬 처리 수준 옵션)이 변경되었으며 쿼리 실행 효율성에 영향을 주고 있습니다. 이는 데이터베이스 성능에 영향을 줍니다. |
+| [페이지 래치 경합](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | 여러 스레드가 동일한 메모리 내 데이터 버퍼 페이지에 동시에 액세스하려고 시도하여 페이지 래치 경합이 발생하고 있습니다. 이는 SQL Database 성능에 영향을 줍니다. | 여러 스레드가 동일한 메모리 내 데이터 버퍼 페이지에 동시에 액세스하려고 시도하여 페이지 래치 경합이 발생하고 있습니다. 이는 데이터베이스 성능에 영향을 줍니다. |
+| [인덱스 누락](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | SQL Database 성능에 영향을 주는 인덱스 누락이 발견되었습니다. | 데이터베이스 성능에 영향을 주는 인덱스 누락이 발견되었습니다. |
+| [새 쿼리](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | SQL Database의 전체 성능에 영향을 주는 새 쿼리가 발견되었습니다. | 데이터베이스의 전체 성능에 영향을 주는 새 쿼리가 발견되었습니다. |
+| [대기 통계 증가](sql-database-intelligent-insights-troubleshoot-performance.md#increased-wait-statistic) | SQL Database 성능에 영향을 주는 데이터베이스 대기 시간 증가되었습니다. | 데이터베이스 성능에 영향을 주는 데이터베이스 대기 시간 증가되었습니다. |
+| [TempDB 경합](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | 여러 스레드가 동일한 TempDB 리소스에 액세스를 시도하여 병목 현상이 발생하고 있습니다. 이는 SQL Database 성능에 영향을 줍니다. | 여러 스레드가 동일한 TempDB 리소스에 액세스를 시도하여 병목 현상이 발생하고 있습니다. 이는 데이터베이스 성능에 영향을 줍니다. |
+| [탄력적 풀 DTU 부족](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | 탄력적 풀에서 사용 가능한 eDTU가 부족하여 SQL Database 성능에 영향을 주고 있습니다. | vCore 모델을 사용하므로 Managed Instance에서 사용할 수 없습니다. |
+| [계획 회귀](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | 새 계획 또는 기존 계획의 워크로드가 변경되었습니다. 이는 SQL Database 성능에 영향을 줍니다. | 새 계획 또는 기존 계획의 워크로드가 변경되었습니다. 이는 데이터베이스 성능에 영향을 줍니다. |
+| [데이터베이스 범위 구성 값 변경](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | SQL Database의 구성 변경으로 인해 데이터베이스 성능에 영향을 주고 있습니다. | 데이터베이스의 구성 변경으로 인해 데이터베이스 성능에 영향을 주고 있습니다. |
+| [느린 클라이언트](sql-database-intelligent-insights-troubleshoot-performance.md#slow-client) | 느린 응용 프로그램 클라이언트는 데이터베이스의 출력을 충분히 신속하게 사용할 수 없습니다. 이는 SQL Database 성능에 영향을 줍니다. | 느린 응용 프로그램 클라이언트는 데이터베이스의 출력을 충분히 신속하게 사용할 수 없습니다. 이는 데이터베이스 성능에 영향을 줍니다. |
+| [가격 책정 계층 다운그레이드](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | 가격 책정 계층 다운그레이드 작업으로 사용 가능한 리소스가 감소되었습니다. 이는 SQL Database 성능에 영향을 줍니다. | 가격 책정 계층 다운그레이드 작업으로 사용 가능한 리소스가 감소되었습니다. 이는 데이터베이스 성능에 영향을 줍니다. |
 
 > [!TIP]
 > SQL Database에 대해 연속적으로 성능을 최적화하려면 [Azure SQL Database 자동 튜닝](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning)을 활성화하세요. SQL Database에 기본 제공되는 이 인텔리전스 기능은 SQL 데이터베이스를 지속적으로 모니터링하고 인덱스를 자동으로 조정하며 쿼리 실행 계획의 수정 사항을 적용합니다.
 >
 
-다음 섹션에서는 앞에서 나열한 검색 가능한 성능 패턴에 대해 자세히 설명합니다.
+다음 섹션에서는 검색 가능한 성능 패턴에 대해 자세히 설명합니다.
 
 ## <a name="reaching-resource-limits"></a>리소스 제한에 도달
 
@@ -59,11 +61,11 @@ Intelligent Insights는 쿼리 실행 대기 시간, 오류, 시간 제한을 �
 
 이 검색 가능한 성능 패턴은 사용 가능한 리소스 제한, 작업자 제한, 세션 제한 도달과 관련된 성능 문제를 결합합니다. 이 성능 문제가 감지되면 진단 로그의 설명 필드에 성능 문제가 리소스, 작업자 또는 세션 제한 중 어디에 관련되어 있는지가 표시됩니다.
 
-SQL Database의 리소스는 일반적으로 [DTU 리소스](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu)로 나타냅니다. 이 리소스는 CPU 및 IO(데이터 및 트랜잭션 로그 IO) 리소스의 혼합 측정값으로 구성됩니다. 리소스 제한 도달 패턴은 측정된 리소스 제한 중 하나에 도달하여 쿼리 성능 저하가 발견될 때 인식됩니다.
+SQL Database의 리소스는 일반적으로 [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) 또는 [vCore](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-service-tiers-vcore) 리소스라고 합니다. 리소스 제한 도달 패턴은 측정된 리소스 제한 중 하나에 도달하여 쿼리 성능 저하가 발견될 때 인식됩니다.
 
 이러한 세션 한도는 SQL 데이터베이스에 대해 사용 가능한 동시 로그인 수를 지정합니다. 이 성능 패턴은 SQL 데이터베이에 연결하는 응용 프로그램이 데이터베이스에 사용 가능한 동시 로그인 수에 도달하는 경우에 인식됩니다. 응용 프로그램이 데이터베이스에서 사용할 수 있는 것보다 많은 세션을 사용하려고 하면 쿼리 성능에 영향을 줍니다.
 
-사용 가능한 작업자 수는 DTU 사용량에 포함되지 않으므로 작업자 제한에 도달하는 것은 리소스 제한 도달의 구체적 경우입니다. 데이터베이스에서 작업자 제한에 도달하면 리소스별 대기 시간이 증가하여 쿼리 성능이 저하됩니다.
+사용 가능한 작업자 수는 DTU 또는 vCore 사용량에 포함되지 않으므로 작업자 제한에 도달하는 것은 리소스 제한 도달의 구체적 경우입니다. 데이터베이스에서 작업자 제한에 도달하면 리소스별 대기 시간이 증가하여 쿼리 성능이 저하됩니다.
 
 ### <a name="troubleshooting"></a>문제 해결
 
@@ -201,17 +203,17 @@ SQL 데이터베이스에는 사용할 수 있는 다양한 유형의 래치가 
 
 [Azure SQL Database Query Performance Insight](sql-database-query-performance.md)를 사용하는 것이 좋습니다.
 
-## <a name="unusual-wait-statistic"></a>비정상적인 대기 통계
+## <a name="increased-wait-statistic"></a>대기 통계 증가
 
 ### <a name="what-is-happening"></a>설명
 
 검색 가능한 이 성능 패턴은 지난 7일간의 워크로드 기준과 비교하여 성능이 저하된 쿼리가 식별된 워크로드 성능 저하를 나타냅니다.
 
-이 경우 시스템은 검색 가능한 다른 기본 성능 범주에서 성능이 저하된 쿼리를 분류할 수 없지만 회귀의 원인인 대기 통계를 검색했습니다. 따라서 시스템은 회귀의 원인인 비정상적 대기 통계도 노출되는 *비정상적 대기 통계*를 사용하여 쿼리로 간주합니다. 
+이 경우 시스템은 검색 가능한 다른 기본 성능 범주에서 성능이 저하된 쿼리를 분류할 수 없지만 회귀의 원인인 대기 통계를 검색했습니다. 따라서 시스템은 회귀의 원인인 대기 통계도 노출되는 *대기 통계 증가*를 사용하여 쿼리로 간주합니다. 
 
 ### <a name="troubleshooting"></a>문제 해결
 
-진단 로그는 비정상적 대기 시간, 영향을 받은 쿼리의 쿼리 해시, 대기 시간에 대한 정보를 출력합니다.
+진단 로그는 영향을 받은 쿼리의 쿼리 해시 및 대기 시간 증가에 대한 정보를 출력합니다.
 
 시스템은 성능이 저하된 쿼리의 근본 원인을 성공적으로 식별할 수 없으므로 가장 먼저 진단 정보를 사용하여 문제를 수동으로 해결할 수 있습니다. 이러한 쿼리의 성능을 최적화할 수 있습니다. 사용해야 하는 데이터만 가져오고 복잡한 쿼리를 간소화하여 작게 분할하는 것이 좋습니다. 
 

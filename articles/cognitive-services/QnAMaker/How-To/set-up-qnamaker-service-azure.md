@@ -1,29 +1,29 @@
 ---
-title: QnA Maker 서비스를 설정하는 방법 - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
-description: QnA Maker 서비스를 설정하는 방법
+title: QnA Maker 서비스 설정 - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: QnA Maker 기술 자료를 만들려면 먼저 Azure에서 QnA Maker 서비스를 설정해야 합니다. 구독에 새 리소스를 만들 수 있는 권한이 있으면 누구든지 QnA Maker 서비스를 설정할 수 있습니다.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: ce452dd686529e017b4eae4717eadb044b389409
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: 87bcd23983c1d973f7e90caf806092c909b7b9e4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376319"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032549"
 ---
 # <a name="create-a-qna-maker-service"></a>QnA Maker 서비스 만들기
 
 QnA Maker 기술 자료를 만들려면 먼저 Azure에서 QnA Maker 서비스를 설정해야 합니다. 구독에 새 리소스를 만들 수 있는 권한이 있으면 누구든지 QnA Maker 서비스를 설정할 수 있습니다.
 
-이 설정은 몇 개의 Azure 리소스를 배포합니다. 이러한 리소스가 함께 작동하여 기술 자료 콘텐츠를 관리하고 끝점을 통해 질문-답변 기능을 제공합니다.
+이 설정은 몇 개의 Azure 리소스를 배포합니다. 이러한 리소스가 함께 작동하여 기술 자료 콘텐츠를 관리하고 엔드포인트를 통해 질문-답변 기능을 제공합니다.
 
-1. [Azure 포털](<https://portal.azure.com>) 에 로그인합니다.
+1. [Azure Portal](<https://portal.azure.com>)에 로그인합니다.
 
 2.  **새 리소스 추가**를 클릭하고 검색에 “qna maker”를 입력한 다음, QnA Maker 리소스를 선택합니다.
 
@@ -37,7 +37,7 @@ QnA Maker 기술 자료를 만들려면 먼저 Azure에서 QnA Maker 서비스�
 
     ![새 QnA Maker 서비스 만들기](../media/qnamaker-how-to-setup-service/enter-qnamaker-info.png)
 
-    * 이 QnA Maker 서비스를 식별하는 고유 이름으로 **이름**을 채웁니다. 이 이름은 기술 자료가 연결되는 QnA Maker 끝점도 식별합니다.
+    * 이 QnA Maker 서비스를 식별하는 고유 이름으로 **이름**을 채웁니다. 이 이름은 기술 자료가 연결되는 QnA Maker 엔드포인트도 식별합니다.
     * QnA Maker 리소스가 배포되는 **구독**을 선택합니다.
     * QnA Maker 관리 서비스(포털 및 관리 API)에 대한 **관리 가격 책정 계층**을 선택합니다. SKU 가격 책정에 대한 자세한 내용은 [여기](https://aka.ms/qnamaker-pricing)를 참조하세요.
     * 새 **리소스 그룹**을 만들거나(권장), QnA Maker 리소스를 배포할 기존 리소스 그룹을 사용합니다.

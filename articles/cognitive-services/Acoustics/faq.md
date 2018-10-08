@@ -9,18 +9,18 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 7e27b5117f5f0ea98916ecfefcbb0dac9323e1d9
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: a71e867bd23cf64b2ac7fc8cd1c54c55d92ce924
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181963"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431791"
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
 
 ## <a name="what-is-project-acoustics"></a>프로젝트 Acoustics란?
 
-프로젝트 Acoustics Unity 플러그 인은 런타임 전에 정적 조명과 비슷한 사운드 웨이브 동작을 계산하는 음향 시스템입니다. 클라우드는 디자인 타임에 파동 물리학 계산을 수행하므로 런타임 CPU 비용이 낮습니다.  
+프로젝트 Acoustics Unity 플러그 인은 런타임 전에 정적 조명과 비슷한 사운드 웨이브 동작을 계산하는 음향 시스템입니다. 클라우드는 파동 물리학 계산을 수행하므로 런타임 CPU 비용이 낮습니다.  
 
 ## <a name="where-can-i-download-the-plugin"></a>이 플러그 인을 어디에서 다운로드할 수 있나요?
 
@@ -28,7 +28,7 @@ Acoustics 플러그 인 평가에 관심이 있는 분은 [여기](https://forms
 
 ## <a name="is-azure-used-at-runtime"></a>Azure는 런타임에 사용되나요?
 
-아니요. 클라우드 통합은 디자인 타임에 사전 계산 단계 동안에만 사용됩니다.
+아니요. 클라우드 통합은 사전 계산 단계 동안에만 사용됩니다.
  
 ## <a name="what-is-simulation-input"></a>시뮬레이션 입력이란 무엇인가요? 
 

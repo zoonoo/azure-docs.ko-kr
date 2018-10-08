@@ -1,24 +1,27 @@
 ---
-title: 기술 자료 게시 - Java 빠른 시작 - Azure Cognitive Services | Microsoft Docs
+title: '빠른 시작: Java 게시 기술 자료 - QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: QnA Maker용 Java로 기술 자료를 게시하는 방법입니다.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
-ms.openlocfilehash: fd815802643a67fe340098e97687fc6438a18ea0
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: a625151a0f6595e02ed899f2f8f7273c8e4f5cde
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43750443"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036925"
 ---
 # <a name="publish-a-knowledge-base-in-java"></a>Java로 기술 자료 게시
 
 다음 코드는 [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) 메서드를 사용하여 기존 기술 자료를 게시합니다.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
 1. 즐겨찾는 IDE에서 새 Java 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.

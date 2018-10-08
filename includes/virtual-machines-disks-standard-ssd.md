@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a7a4e4b487c324bada818d4815f253110f7f7a60
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: f8ca716f4ab991fecca52ca2d5fed080e6f4c177
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234817"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060774"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>Azure 가상 머신 워크로드용 표준 SSD Managed Disks
 
@@ -39,9 +39,12 @@ Azure 표준 SSD(Solid State Drives) Managed Disks는 더 낮은 IOPS 수준에�
 |E10     |128GiB         |최대 500         |초당 최대 60MiB         |
 |E15     |256GiB         |최대 500         |초당 최대 60MiB         |
 |E20     |512GiB         |최대 500         |초당 최대 60MiB         |
-|E30     |1024GiB         |최대 500         |초당 최대 60MiB         |
-|E40     |2048GiB         |최대 500         |초당 최대 60MiB         |
-|E50     |4095GiB         |최대 500         |초당 최대 60MiB         |
+|E30     |1,024GiB       |최대 500         |초당 최대 60MiB         |
+|E40     |2,048GiB       |최대 500         |초당 최대 60MiB         |
+|E50     |4,095GiB       |최대 500         |초당 최대 60MiB         |
+|E60     |8,192GiB       |최대 1,300       |초당 최대 300MiB        |
+|E70     |16,384GiB      |최대 2,000       |초당 최대 500MiB        |
+|E80     |32,767GiB      |최대 2,000       |초당 최대 500MiB        |
 
 표준 SSD는 대부분의 IO 작업에 수 밀리초의 대기 시간을 제공하고, 위의 표에 나와 있는 한도까지 IOPS와 처리량을 제공하도록 설계되었습니다. 트래픽 패턴에 따라 실제 IOPS 및 처리량은 달라질 수 있습니다. 표준 SSD는 HDD 디스크보다 더 일관적인 성능과 더 짧은 대기 시간을 제공합니다.
 

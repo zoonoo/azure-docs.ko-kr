@@ -1,36 +1,37 @@
 ---
 title: SQL Server 인스턴스를 Azure SQL Database Managed Instance로 마이그레이션 | Microsoft Docs
 description: SQL Server 인스턴스를 Azure SQL Database Managed Instance로 마이그레이션하는 방법을 알아봅니다.
-keywords: 데이터베이스 마이그레이션, SQL Server 데이터베이스 마이그레이션, 데이터베이스 마이그레이션 도구, 데이터베이스 마이그레이션, SQL 데이터베이스 마이그레이션
 services: sql-database
+ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
 author: bonova
+ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.service: sql-database
-ms.custom: managed instance
-ms.topic: conceptual
-ms.date: 07/24/2018
-ms.author: bonova
-ms.openlocfilehash: e152fa4bb439f1881dc9974bfdf1b3e8c77c434a
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.date: 09/26/2018
+ms.openlocfilehash: 7653ce7b0823b4e91685e77701a307370261f7e6
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42142817"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394066"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server 인스턴스를 Azure SQL Database Managed Instance로 마이그레이션
 
-이 문서에서는 SQL Server 2005 이상 버전 인스턴스를 [Azure SQL Database Managed Instance](sql-database-managed-instance.md)(미리 보기)로 마이그레이션하는 방법에 대해 설명합니다.
+이 문서에서는 SQL Server 2005 이상 버전 인스턴스를 [Azure SQL Database Managed Instance](sql-database-managed-instance.md)로 마이그레이션하는 방법에 대해 설명합니다.
 
 높은 수준에서 데이터베이스 마이그레이션 프로세스는 다음과 같습니다.
 
 ![마이그레이션 프로세스](./media/sql-database-managed-instance-migration/migration-process.png)
 
-- [Managed Instance 호환성 평가](sql-database-managed-instance-migrate.md#assess-managed-instance-compatibility)
-- [앱 연결 옵션 선택](sql-database-managed-instance-migrate.md#choose-app-connectivity-option)
-- [최적 크기의 Managed Instance에 배포](sql-database-managed-instance-migrate.md#deploy-to-an-optimally-sized-managed-instance)
-- [마이그레이션 방법 선택 및 마이그레이션](sql-database-managed-instance-migrate.md#select-migration-method-and-migrate)
-- [응용 프로그램 모니터링](sql-database-managed-instance-migrate.md#monitor-applications)
+- [Managed Instance 호환성 평가](#assess-managed-instance-compatibility)
+- [앱 연결 옵션 선택](sql-database-managed-instance-connect-app.md)
+- [최적 크기의 Managed Instance에 배포](#deploy-to-an-optimally-sized-managed-instance)
+- [마이그레이션 방법 선택 및 마이그레이션](#select-migration-method-and-migrate)
+- [응용 프로그램 모니터링](#monitor-applications)
 
 > [!NOTE]
 > 단일 데이터베이스를 단일 데이터베이스 또는 탄력적 풀로 마이그레이션하려면 [Azure SQL Database로 SQL Server 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
@@ -39,9 +40,9 @@ ms.locfileid: "42142817"
 
 먼저 Managed Instance가 응용 프로그램의 데이터베이스 요구 사항과 호환되는지 확인합니다. Managed Instance는 온-프레미스 또는 가상 머신에서 SQL Server를 사용하는 대부분의 기존 응용 프로그램에서 리프트 앤 시프트 방식으로 쉽게 이동할 수 있도록 설계되었습니다. 그러나 경우에 따라 아직 지원되지 않는 기능이 필요할 수 있으며 해결 방법을 구현하는 데 드는 비용이 너무 높습니다. 
 
-[DMA(Data Migration Assistant)](https://docs.microsoft.com/sql/dma/dma-overview)를 사용하여 Azure SQL Database에서 데이터베이스 기능에 영향을 주는 잠재적인 호환성 문제를 검색합니다. DMA는 아직 Managed Instance를 마이그레이션 대상으로 지원하지 않지만, Azure SQL Database에 대한 평가를 실행하고 제품 설명서에 대해 보고된 기능 패리티 및 호환성 문제 목록을 신중하게 검토하는 것이 좋습니다. Azure SQL Database로 마이그레이션하지 못하도록 차단하는 대부분의 문제는 Managed Instance를 통해 제거되었으므로 Managed Instance에서 차단하지 않는 일부 보고된 차단 문제가 있는지 확인하려면 [Azure SQL Database Singleton과 Managed Instance 간의 차이점](sql-database-features.md)을 참조하세요. 예를 들어 데이터베이스 간 쿼리, 동일한 인스턴스 내의 데이터베이스 간 트랜잭션, 다른 SQL 원본에 연결된 서버, CLR, 전역 임시 테이블, 인스턴스 수준 보기, Service Broker 등과 같은 기능은 Managed Instance에서 사용할 수 있습니다. 
+[DMA(Data Migration Assistant)](https://docs.microsoft.com/sql/dma/dma-overview)를 사용하여 Azure SQL Database에서 데이터베이스 기능에 영향을 주는 잠재적인 호환성 문제를 검색합니다. DMA는 아직 Managed Instance를 마이그레이션 대상으로 지원하지 않지만, Azure SQL Database에 대한 평가를 실행하고 제품 설명서에 대해 보고된 기능 패리티 및 호환성 문제 목록을 신중하게 검토하는 것이 좋습니다. Azure SQL Database로 마이그레이션하지 못하도록 차단하는 대부분의 문제는 Managed Instance를 통해 제거되었으므로 Managed Instance에서 차단하지 않는 일부 보고된 차단 문제가 있는지 확인하려면 [Azure SQL Database 기능](sql-database-features.md)을 참조하세요. 예를 들어 데이터베이스 간 쿼리, 동일한 인스턴스 내의 데이터베이스 간 트랜잭션, 다른 SQL 원본에 연결된 서버, CLR, 전역 임시 테이블, 인스턴스 수준 보기, Service Broker 등과 같은 기능은 Managed Instance에서 사용할 수 있습니다. 
 
-Azure SQL Managed Instance에서 제거되지 않은 일부 보고된 차단 문제가 있는 경우 [Azure에서 Virtual Machines의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)와 같은 대체 옵션을 고려해야 합니다. 예를 들어 다음과 같은 노래를 선택할 수 있다.
+Azure SQL Database Managed Instance에서 제거되지 않은 일부 보고된 차단 문제가 있는 경우 [Azure에서 Virtual Machines의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)와 같은 대체 옵션을 고려해야 합니다. 예를 들어 다음과 같은 노래를 선택할 수 있다.
 
 - 운영 체제 또는 파일 시스템에 직접 액세스해야 하는 경우(예: SQL Server가 있는 동일한 가상 머신에 타사 또는 사용자 지정 에이전트를 설치하는 경우)
 - FileStream/FileTable, PolyBase 및 인스턴스 간 트랜잭션과 같이 아직 지원되지 않는 기능에 대한 엄격한 종속성이 있는 경우
@@ -81,7 +82,7 @@ Managed Instance에서 지원하는 데이터베이스 마이그레이션 옵션
 
 [Azure DMS(Database Migration Service)](../dms/dms-overview.md)는 가동 중지 시간을 최소화하면서 여러 데이터베이스 원본에서 Azure 데이터 플랫폼으로 원활하게 마이그레이션할 수 있도록 설계된 완벽하게 관리되는 서비스입니다. 이 서비스는 기존 타사 및 SQL Server 데이터베이스를 Azure로 이동하는 데 필요한 작업을 간소화합니다. 공개 미리 보기의 배포 옵션에는 Azure Virtual Machine에 있는 Azure SQL Database, Managed Instance 및 SQL Server가 포함됩니다. DMS는 엔터프라이즈 작업에 권장되는 마이그레이션 방법입니다. 
 
-SQL Server 온-프레미스에서 SSIS(SQL Server Integration Services)를 사용하는 경우, DMS는 SSIS 패키지를 저장하는 SSIS 카탈로그(SSISDB)의 마이그레이션을 아직 지원하지 않지만, Azure SQL Database/Managed Instance에 새 SSISDB를 만들 Azure-SSIS IR(Integration Runtime)을 ADF(Azure Data Factory)에 프로비전하고 해당 패키지를 다시 배포할 수 있습니다. [ADF에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요.
+SQL Server 온-프레미스에서 SSIS(SQL Server Integration Services)를 사용하는 경우, DMS는 SSIS 패키지를 저장하는 SSIS 카탈로그(SSISDB)의 마이그레이션을 아직 지원하지 않지만, Azure SQL Database/Managed Instance에 새 SSISDB를 만들 Azure-SSIS IR(Integration Runtime)을 ADF(Azure Data Factory)에 프로비전하고 해당 패키지를 다시 배포할 수 있습니다. [ADF에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요.
 
 이 시나리오와 DMS 구성 단계에 대해 자세히 알아보려면 [DMS를 사용하여 온-프레미스 데이터베이스를 Managed Instance로 마이그레이션](../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.  
 
@@ -100,13 +101,15 @@ SQL Server 온-프레미스에서 SSIS(SQL Server Integration Services)를 사�
 |Azure Storage에 백업 저장|SQL 2012 SP1 CU2 이전|Azure Storage에 .bak 파일 직접 업로드|
 ||2012 SP1 CU2~2016|사용되지 않는 [WITH CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql) 구문을 사용하여 직접 백업|
 ||2016 이상|[WITH SAS CREDENTIAL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url) 구문을 사용하여 직접 백업|
-|Azure Storage에서 Managed Instance로 복원|[SAS CREDENTIAL을 사용하여 URL에서 복원](sql-database-managed-instance-restore-from-backup-tutorial.md)|
+|Azure Storage에서 Managed Instance로 복원|[SAS CREDENTIAL을 사용하여 URL에서 복원](sql-database-managed-instance-get-started-restore.md)|
 
 > [!IMPORTANT]
-> - [투명한 데이터 암호화](transparent-data-encryption-azure-sql.md)로 보호된 데이터베이스를 원시 복원 옵션을 사용하여 Azure SQL Managed Instance로 마이크레이션하는 경우에는 데이터베이스를 복원하기 전에 온-프레미스 또는 IaaS SQL Server의 해당 인증서를 마이그레이션해야 합니다. 자세한 단계는 [Managed Instance로 TDE 인증서 마이그레이션](sql-database-managed-instance-migrate-tde-certificate.md)을 참조하세요.
+> - [투명한 데이터 암호화](transparent-data-encryption-azure-sql.md)로 보호된 데이터베이스를 원시 복원 옵션을 사용하여 Azure SQL Database Managed Instance로 마이크레이션하는 경우에는 데이터베이스를 복원하기 전에 온-프레미스 또는 IaaS SQL Server의 해당 인증서를 마이그레이션해야 합니다. 자세한 단계는 [Managed Instance로 TDE 인증서 마이그레이션](sql-database-managed-instance-migrate-tde-certificate.md)을 참조하세요.
 > - 시스템 데이터베이스의 복원은 지원되지 않습니다. master 또는 msdb 데이터베이스에 저장된 인스턴스 수준 개체를 마이그레이션하려면, 이러한 개체를 스크립팅하고 대상 인스턴스에서 T-SQL 스크립트를 실행하는 것이 좋습니다.
 
-SAS 자격 증명을 사용하여 Managed Instance에 데이터베이스 백업을 복원하는 전체 자습서는 [백업에서 Managed Instance 복원](sql-database-managed-instance-restore-from-backup-tutorial.md)을 참조하세요.
+SAS 자격 증명을 사용하여 Managed Instance에 데이터베이스 백업을 복원하는 방법을 보여주는 빠른 시작은 [백업에서 Managed Instance 복원](sql-database-managed-instance-get-started-restore.md)을 참조하세요.
+
+> [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 ## <a name="monitor-applications"></a>응용 프로그램 모니터링
 

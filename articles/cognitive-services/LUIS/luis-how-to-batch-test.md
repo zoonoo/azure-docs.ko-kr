@@ -1,22 +1,23 @@
 ---
-title: LUIS 앱 일괄 테스트 - Azure | Microsoft Docs
-description: Language Understanding(LUIS) 일괄 테스트를 사용하여 잘못된 의도 및 엔터티가 있는 발화를 찾습니다.
+title: 1000개의 예제 발화를 사용한 일괄 테스트
+titleSuffix: Azure Cognitive Services
+description: LUIS(Language Understanding) 일괄 테스트 집합을 사용하여 잘못된 의도 및 엔터티가 있는 발화를 찾습니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 07c38aa5f66fc8c38392c5407449ec6911e80d47
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: b4c58a13c8b66add8ebd7e535ecac9d7b0f1075b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888629"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032124"
 ---
-# <a name="batch-testing"></a>일괄 테스트
+# <a name="batch-testing-with-a-set-of-example-utterances"></a>예제 발화 집합으로 일괄 테스트
  일괄 테스트는 현재 학습된 모델의 포괄적인 테스트로, LUIS에서 성능을 측정할 수 있습니다. 
 
 <a name="batch-testing"></a>
@@ -27,8 +28,6 @@ ms.locfileid: "42888629"
     ![일괄 테스트 링크](./media/luis-how-to-batch-test/batch-testing-link.png)
 
 2. **데이터 집합 가져오기**를 선택합니다. **새 데이터 집합 가져오기** 대화 상자가 표시됩니다. **파일 선택**을 선택하고 테스트할 *1,000개 이하* 발언을 포함하는 올바른 [JSON 형식](luis-concept-batch-test.md#batch-file-format)의 JSON 파일을 찾습니다.
-
-    ![데이터 집합 파일 가져오기](./media/luis-how-to-batch-test/batchtest-importset.png)
 
     가져오기 오류는 브라우저 위쪽의 빨간색 알림 표시줄에 보고됩니다. 가져오기에 오류가 있으면 데이터 집합이 생성되지 않습니다. 자세한 내용은 [일반 오류](luis-concept-batch-test.md#common-errors-importing-a-batch)를 참조하세요.
 
@@ -49,7 +48,7 @@ ms.locfileid: "42888629"
 
 다운로드 가능한 데이터 집합은 일괄 테스트용으로 업로드된 파일과 동일합니다.
 
-|상태|의미|
+|시스템 상태|의미|
 |--|--|
 |![테스트 성공 녹색 원 아이콘](./media/luis-how-to-batch-test/batch-test-result-green.png)|모든 발화가 성공했습니다.|
 |![테스트 실패 빨간색 x 아이콘](./media/luis-how-to-batch-test/batch-test-result-red.png)|하나 이상의 발화 의도가 예측과 일치하지 않습니다.|

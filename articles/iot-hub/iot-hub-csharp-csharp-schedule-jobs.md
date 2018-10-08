@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/06/2018
 ms.author: dobett
-ms.openlocfilehash: eb7b4c4c6228818f78e002f4a06a000e9aa34a3a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 0e0c398311c5826f8b6c72bf0f39ad2bfde306b2
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109640"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223052"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>작업 예약 및 브로드캐스트(.NET/.NET)
 
@@ -140,7 +140,7 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
 9. 작업을 저장하고 솔루션을 빌드합니다.         
 
 > [!NOTE]
-> 간단히 하기 위해 이 자습서에서는 재시도 정책을 구현하지 않습니다. 프로덕션 코드에 MSDN 문서 [일시적인 오류 처리](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults)에 제시된 대로 재시도 정책(예: 연결 다시 시도)을 구현해야 합니다.
+> 간단히 하기 위해 이 자습서에서는 재시도 정책을 구현하지 않습니다. 프로덕션 코드에서 [일시적인 오류 처리](/azure/architecture/best-practices/transient-faults) 문서에 제시된 대로 재시도 정책(예: 연결 다시 시도)을 구현해야 합니다.
 > 
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-sending-device-twin-updates"></a>직접 메서드를 호출하고 장치 쌍의 업데이트를 전송하기 위한 작업 예약

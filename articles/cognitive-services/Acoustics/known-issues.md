@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kylestorck
-ms.openlocfilehash: b0dd5e0c365c65fc7b29752f7885acb71bdb3df8
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: c19b19cab33ae868f11ded0b7ce87dac99269596
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181978"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431993"
 ---
 # <a name="known-issues"></a>알려진 문제
 프로젝트 Acoustics용 디자이너 미리 보기를 사용할 경우 다음과 같은 알려진 문제가 발생할 수 있습니다.
@@ -27,7 +27,7 @@ ms.locfileid: "40181978"
 
 공동 작업자 간의 프로젝트를 보다 쉽게 공유하려면 기본적으로 상대 경로여야 합니다. 해결 방법으로, 경로를 프로젝트 디렉터리 기준의 상대 경로로 변경합니다.
 
-## <a name="runtime-voxels-are-a-different-size-than-design-time-voxels"></a>런타임 복셀이 디자인 타임 복셀과 크기가 다름
+## <a name="runtime-voxels-are-a-different-size-than-scene-preview-voxels"></a>런타임 복셀이 장면 미리 보기 복셀과 크기가 다름
 
 **Probes**(프로브) 탭에서 **Calculate**(계산)를 수행하고 복셀을 확인한 후, 같은 장면에 대해 런타임에 복셀을 준비하고 확인하면 복셀 크기가 달라집니다. 준비 전에 표시되는 복셀은 시뮬레이션에 사용되는 복셀입니다. 런타임 시 표시되는 복셀은 프로브 점 사이의 보간에 사용됩니다. 이로 인해 실제로 열려 있지 않은 포털이 런타임에 열린 것으로 나타나는 불일치가 발생할 수 있습니다.
 

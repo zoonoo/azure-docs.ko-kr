@@ -1,24 +1,25 @@
 ---
-title: Azure Content Moderator - .NET을 사용하여 조정 작업 시작 | Microsoft Docs
-description: .NET용 Azure Content Moderator SDK를 사용하여 조정 작업을 시작하는 방법
+title: '빠른 시작: .NET을 사용하여 조정 작업 시작 - Content Moderator'
+titlesuffix: Azure Cognitive Services
+description: .NET용 Azure Content Moderator SDK를 사용하여 조정 작업을 시작하는 방법입니다.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
-ms.date: 01/06/2018
+ms.topic: quickstart
+ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: a103875607355993e216ce1ddea02009fc8fa1c4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6045d6daf2abace6e2b38bd6fd6e22516e3a60a0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373151"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227438"
 ---
-# <a name="start-moderation-jobs-using-net"></a>.NET을 사용하여 조정 작업 시작
+# <a name="quickstart-start-moderation-jobs-using-net"></a>빠른 시작: .NET을 사용하여 조정 작업 시작
 
-이 문서에서는 .NET용 Content Moderator SDK를 사용하여 다음 작업을 수행할 수 있도록 지원하는 정보 및 코드 샘플을 제공합니다.
+이 문서에서는 [.NET용 Content Moderator SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)를 사용하여 다음 작업을 수행할 수 있도록 지원하는 정보 및 코드 샘플을 제공합니다.
  
 - 검사할 조정 작업을 시작하고 중재자를 위한 검토 만들기
 - 보류 중인 검토의 상태 가져오기
@@ -27,10 +28,22 @@ ms.locfileid: "35373151"
 
 이 문서에서는 사용자가 Visual Studio 및 C#에 이미 익숙한 것으로 가정합니다.
 
-## <a name="sign-up-for-content-moderator-services"></a>Content Moderator 서비스 등록
+## <a name="sign-up-for-content-moderator"></a>Content Moderator 등록
 
 REST API 또는 SDK를 통해 Content Moderator 서비스를 사용하려면 먼저 구독 키가 필요합니다.
 키를 획득하는 방법은 [빠른 시작](quick-start.md)을 참조하세요.
+
+## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>이전 단계에서 완료되지 않은 경우 검토 도구 계정에 등록
+
+Azure Portal에서 Content Moderator를 가져온 경우 [검토 도구 계정에 등록](https://contentmoderator.cognitive.microsoft.com/)하고 검토 팀을 만듭니다. 작업을 시작하고 검토 도구에서 검토를 보도록 검토 API를 호출하려면 팀 ID 및 검토 도구가 필요합니다.
+
+## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>API 키에서 검토 만들기에 대한 검토 API를 호출할 수 있는지 확인
+
+이전 단계를 완료한 후 Azure Portal에서 시작한 경우 두 개의 Content Moderator 키가 생성됩니다. 
+
+SDK 샘플에서 Azure에서 제공하는 API 키를 사용하려는 경우 [검토 API를 사용하여 Azure 키 사용](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) 섹션에서 언급된 단계를 수행하여 응용 프로그램에서 검토 API를 호출하고 검토를 만들도록 허용합니다.
+
+검토 도구에서 생성된 평가판 키를 사용하는 경우 검토 도구 계정은 키에 대해 이미 알고 있으므로 추가 단계가 필요하지 않습니다.
 
 ## <a name="define-a-custom-moderation-workflow"></a>사용자 지정 조정 워크플로 정의
 
@@ -47,8 +60,6 @@ REST API 또는 SDK를 통해 Content Moderator 서비스를 사용하려면 먼
 
 1. 이 프로젝트를 솔루션의 단일 시작 프로젝트로 선택합니다.
 
-1. [Content Moderator 클라이언트 도우미 빠른 시작](content-moderator-helper-quickstart-dotnet.md)에서 만든 **ModeratorHelper** 프로젝트 어셈블리에 대한 참조를 추가합니다.
-
 ### <a name="install-required-packages"></a>필요한 패키지를 설치합니다.
 
 다음 NuGet 패키지를 설치합니다.
@@ -61,14 +72,64 @@ REST API 또는 SDK를 통해 Content Moderator 서비스를 사용하려면 먼
 
 프로그램의 using 문을 수정합니다.
 
+    using Microsoft.Azure.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator.Models;
-    using ModeratorHelper;
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Threading;
+
+### <a name="create-the-content-moderator-client"></a>Content Moderator 클라이언트 만들기
+
+다음 코드를 추가하여 구독에 대한 Content Moderator 클라이언트를 만듭니다.
+
+> [!IMPORTANT]
+> **AzureRegion** 및 **CMSubscriptionKey** 필드를 해당 지역 식별자 및 구독 키 값으로 업데이트합니다.
+
+
+    /// <summary>
+    /// Wraps the creation and configuration of a Content Moderator client.
+    /// </summary>
+    /// <remarks>This class library contains insecure code. If you adapt this 
+    /// code for use in production, use a secure method of storing and using
+    /// your Content Moderator subscription key.</remarks>
+    public static class Clients
+    {
+        /// <summary>
+        /// The region/location for your Content Moderator account, 
+        /// for example, westus.
+        /// </summary>
+        private static readonly string AzureRegion = "YOUR API REGION";
+
+        /// <summary>
+        /// The base URL fragment for Content Moderator calls.
+        /// </summary>
+        private static readonly string AzureBaseURL =
+            $"https://{AzureRegion}.api.cognitive.microsoft.com";
+
+        /// <summary>
+        /// Your Content Moderator subscription key.
+        /// </summary>
+        private static readonly string CMSubscriptionKey = "YOUR API KEY";
+
+        /// <summary>
+        /// Returns a new Content Moderator client for your subscription.
+        /// </summary>
+        /// <returns>The new client.</returns>
+        /// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
+        /// When you have finished using the client,
+        /// you should dispose of it either directly or indirectly. </remarks>
+        public static ContentModeratorClient NewClient()
+        {
+            // Create and initialize an instance of the Content Moderator API wrapper.
+            ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
+
+            client.Endpoint = AzureBaseURL;
+            return client;
+        }
+    }
 
 ### <a name="initialize-application-specific-settings"></a>응용 프로그램 관련 설정 초기화
 
@@ -92,7 +153,7 @@ Program.cs의 **Program** 클래스에 다음 상수 및 정적 필드를 추가
     /// </summary>
     /// <remarks>This must be the team name you used to create your 
     /// Content Moderator account. You can retrieve your team name from
-    /// the Conent Moderator web site. Your team name is the Id associated 
+    /// the Content Moderator web site. Your team name is the Id associated 
     /// with your subscription.</remarks>
     private const string TeamName = "***";
 
@@ -105,7 +166,7 @@ Program.cs의 **Program** 클래스에 다음 상수 및 정적 필드를 추가
     /// <summary>
     /// The name of the log file to create.
     /// </summary>
-    /// <remarks>Relative paths are ralative the execution directory.</remarks>
+    /// <remarks>Relative paths are relative to the execution directory.</remarks>
     private const string OutputFile = "OutputLog.txt";
 
     /// <summary>
@@ -117,7 +178,7 @@ Program.cs의 **Program** 클래스에 다음 상수 및 정적 필드를 추가
     /// <summary>
     /// The callback endpoint for completed reviews.
     /// </summary>
-    /// <remarks>Revies show up for reviewers on your team. 
+    /// <remarks>Reviews show up for reviewers on your team. 
     /// As reviewers complete reviews, results are sent to the
     /// callback endpoint using an HTTP POST request.</remarks>
     private const string CallbackEndpoint = "";
@@ -136,7 +197,7 @@ Program.cs의 **Program** 클래스에 다음 상수 및 정적 필드를 추가
             writer.WriteLine("Create review job for an image.");
             var content = new Content(ImageUrl);
         
-            // The WorkflowName contains the nameof the workflow defined in the online review tool.
+            // The WorkflowName contains the name of the workflow defined in the online review tool.
             // See the quickstart article to learn more.
             var jobResult = client.Reviews.CreateJobWithHttpMessagesAsync(
                     TeamName, "image", "contentID", WorkflowName, "application/json", content, CallbackEndpoint);
@@ -181,7 +242,7 @@ Program.cs의 **Program** 클래스에 다음 상수 및 정적 필드를 추가
     }
 
 > [!NOTE]
-> Content Moderator 서비스 키에는 RPS(초당 요청 수) 속도 제한이 있습니다. 제한을 초과하는 경우 SDK는 429 오류 코드로 예외가 throw됩니다. 
+> Content Moderator 서비스 키에는 RPS(초당 요청 수) 속도 제한이 있습니다. 제한을 초과하는 경우 SDK는 429 오류 코드로 예외를 throw합니다. 
 >
 > 체험판 계층 키에는 하나의 RPS 속도 제한이 있습니다.
 
@@ -260,4 +321,4 @@ Content Moderator 검토 도구에 로그인하여 보류 중인 이미지 검�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작과 기타 .NET용 Content Moderator 빠른 시작을 위한 [Visual Studio 솔루션을 다운로드](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)하고 통합을 시작합니다.
+이 빠른 시작과 기타 .NET용 Content Moderator 빠른 시작을 위한 [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 및 [Visual Studio 솔루션](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)을 가져오고 통합을 시작합니다.

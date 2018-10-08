@@ -9,16 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 65ff0e47cf7a53d519bfd0c50ea4c3ebd09a5766
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 4bfede8df88c64e795e33620650efb579f43ebba
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42093845"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404311"
 ---
-# <a name="shipping-an-application"></a>응용 프로그램 전달
+# <a name="ship-an-application"></a>응용 프로그램 배송
 
-[Speech SDK 라이선스](license.md)를 준수하고 Cognitive Services Speech SDK를 배포할 경우 [타사 소프트웨어 공지 사항](third-party-notices.md)도 준수합니다. 또한 [Microsoft 개인정보처리방침](https://aka.ms/csspeech/privacy)을 검토합니다.
+[Speech SDK 라이선스](https://aka.ms/csspeech/license201809)를 준수하고 Azure Cognitive Services Speech SDK를 배포할 경우 [타사 소프트웨어 공지 사항](https://csspeechstorage.blob.core.windows.net/drop/1.0.0/ThirdPartyNotices.html)도 준수합니다. 또한 [Microsoft 개인정보처리방침](https://aka.ms/csspeech/privacy)을 검토합니다.
 
 플랫폼에 따라 응용 프로그램을 실행하기 위한 다양한 종속성이 존재합니다.
 
@@ -31,13 +31,13 @@ Cognitive Services Speech SDK에는 [Visual Studio 2017용 Microsoft Visual C++ 
 - [Win32](https://aka.ms/vs/15/release/vc_redist.x86.exe)
 - [x64](https://aka.ms/vs/15/release/vc_redist.x64.exe)
 
-응용 프로그램이 관리 코드를 사용 중인 경우, 대상 머신에 `.NET Framework 4.6.1` 이상이 필요합니다.
+응용 프로그램에서 관리 코드를 사용하는 경우, 대상 머신에 `.NET Framework 4.6.1` 이상이 필요합니다.
 
 마이크 입력을 위해 미디어 파운데이션 라이브러리를 설치해야 합니다. 이러한 라이브러리는 Windows 10 및 Windows Server 2016에 포함됩니다. 마이크를 오디오 입력 장치로 사용하지 않는 경우에는 이러한 라이브러리 없이 Speech SDK를 사용할 수 있습니다.
 
 필요한 Speech SDK 파일은 응용 프로그램과 동일한 디렉터리에 배포할 수 있습니다. 이렇게 하면 응용 프로그램이 라이브러리에 직접 액세스할 수 있습니다. 응용 프로그램과 일치하는 올바른 버전(Win32/x64)을 선택해야 합니다.
 
-| Name | 함수
+| 이름 | 함수
 |:-----|:----|
 | `Microsoft.CognitiveServices.Speech.core.dll` | 네이티브 및 관리된 배포에 필요한 핵심 SDK
 | `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` | 관리된 배포에 필요
@@ -46,7 +46,7 @@ Cognitive Services Speech SDK에는 [Visual Studio 2017용 Microsoft Visual C++ 
 ## <a name="linux"></a>Linux
 
 네이티브 응용 프로그램의 경우 Speech SDK 라이브러리 `libMicrosoft.CognitiveServices.Speech.core.so`를 전달해야 합니다.
-응용 프로그램과 일치하는 버전(x86/x64)을 선택해야 합니다. Linux 버전에 따라 다음 종속성을 포함해야 할 수도 있습니다.
+응용 프로그램과 일치하는 버전(x86, x64)을 선택해야 합니다. Linux 버전에 따라 다음 종속성을 포함해야 할 수도 있습니다.
 
 * GNU C 라이브러리의 공유 라이브러리(POSIX Threads Programming 라이브러리, `libpthreads` 포함)
 * OpenSSL 라이브러리(`libssl.so.1.0.0`)

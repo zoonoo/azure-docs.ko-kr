@@ -10,22 +10,26 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: c357026e20ff402dd7236bd8db7fe2abe488bc39
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 673b8ddf3ed07507cbce4b54e9b8a488cb3ac689
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954248"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166608"
 ---
-# <a name="prepare-data-with-the-azure-machine-learning-data-prep-sdk-for-python"></a>Python용 Azure Machine Learning Data Prep SDK를 사용하여 데이터 준비
+# <a name="prepare-data-for-modeling-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델링을 위한 데이터 준비
  
-데이터 준비는 기계 학습 워크플로의 중요한 부분입니다. 모델은 더 쉽게 이용할 수 있는 형식의 정리된 데이터에 액세스할 수 있는 경우 더 정확하고 효율적입니다. [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py)를 사용하여 다양한 형식의 데이터를 로드하고, 데이터를 더 유용하게 변환하고, 해당 데이터를 모델이 액세스할 위치에 쓸 수 있습니다. 
+데이터 준비는 기계 학습 워크플로의 중요한 부분입니다. 모델은 더 쉽게 이용할 수 있는 형식의 정리된 데이터에 액세스할 수 있는 경우 더 정확하고 효율적입니다. 
 
+[Azure Machine Learning 데이터 준비 SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py)를 사용하여 Python에서 데이터를 준비할 수 있습니다. 
 
-## <a name="steps-for-data-preparation-with-azure-machine-learning"></a>Azure Machine Learning을 사용한 데이터 준비 단계 
-1. [데이터 로드](how-to-load-data.md )
-2. [데이터 변환](how-to-transform-data.md )
-3. [데이터 쓰기](how-to-write-data.md )
+## <a name="data-preparation-pipeline"></a>데이터 준비 파이프라인
+
+주요 데이터 준비 단계는 다음과 같습니다.
+
+1. 다양한 형식의 [데이터 로드](how-to-load-data.md)
+2. 더 유용한 구조로 데이터 [변환](how-to-transform-data.md)
+3. 모델에 액세스할 수 있는 위치에 해당 데이터 [쓰기](how-to-write-data.md)
 
 ![데이터 준비 프로세스](./media/concept-data-preparation/data-prep-process.png)
 

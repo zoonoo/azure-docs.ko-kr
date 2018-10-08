@@ -2,19 +2,22 @@
 title: Azure SQL Database vCore 기반 리소스 제한 - 단일 데이터베이스 | Microsoft Docs
 description: 이 페이지에서는 Azure SQL Database에서 단일 데이터베이스에 대한 몇 가지 일반적인 vCore 기반 리소스 제한을 설명합니다.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: single-database
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/05/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: c1ea223bf00dea32fb150cf141be7b5ea3239215
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 5f0e5de7503d06d1aff319434d763d3b034053b3
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055423"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166366"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>단일 데이터베이스에 대한 Azure SQL Database vCore 기반 구매 모델 한도
 
@@ -26,14 +29,14 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](sql-database-file-space-management.md)를 참조하세요.
 
 
-## <a name="single-database-storage-sizes-and-performance-levels"></a>단일 데이터베이스: 저장소 크기 및 성능 수준
+## <a name="single-database-storage-sizes-and-compute-sizes"></a>단일 데이터베이스: 저장소 크기 및 계산 크기
 
-다음 표에서는 각 서비스 계층과 성능 수준에서 단일 데이터베이스에 대해 사용할 수 있는 리소스를 나타냅니다. [Azure Portal](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), [Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases) 또는 [REST API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases)를 사용하여 단일 데이터베이스에 대한 서비스 계층, 성능 수준 및 저장소 용량을 설정할 수 있습니다.
+단일 데이터베이스의 경우, 다음 표에서는 각 서비스 계층과 계산 크기에서 단일 데이터베이스에 사용할 수 있는 리소스를 보여 줍니다. [Azure Portal](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), [Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases) 또는 [REST API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases)를 사용하여 단일 데이터베이스에 대한 서비스 계층, 계산 크기 및 저장소 용량을 설정할 수 있습니다.
 
 ### <a name="general-purpose-service-tier"></a>범용 서비스 계층
 
 #### <a name="generation-4-compute-platform"></a>4세대 계산 플랫폼
-|성능 수준|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24
+|계산 크기|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24
 |:--- | --: |--: |--: |--: |--: |--: |
 |하드웨어 세대|4|4|4|4|4|4|
 |vCore 수|1|2|4|8|16|24|
@@ -55,7 +58,7 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 |||
 
 #### <a name="generation-5-compute-platform"></a>5세대 계산 플랫폼
-|성능 수준|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40| GP_Gen5_80|
+|계산 크기|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40| GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |
 |하드웨어 세대|5|5|5|5|5|5|5|
 |vCore 수|2|4|8|16|24|32|40|80|
@@ -79,12 +82,12 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 ### <a name="business-critical-service-tier"></a>중요 비즈니스 서비스 계층
 
 #### <a name="generation-4-compute-platform"></a>4세대 계산 플랫폼
-|성능 수준|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
+|계산 크기|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |하드웨어 세대|4|4|4|4|4|4|
 |vCore 수|1|2|4|8|16|24|
 |메모리(GB)|7|14|28|56|112|168|
-|Columnstore 지원 여부|yes|예|예|예|예|yes|
+|Columnstore 지원 여부|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |메모리 내 OLTP 저장소(GB)|1|2|4|8|20|36|
 |저장소 유형|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|
 |최대 데이터 크기(GB)|1024|1024|1024|1024|1024|1024|
@@ -101,7 +104,7 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 |||
 
 #### <a name="generation-5-compute-platform"></a>5세대 계산 플랫폼
-|성능 수준|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
+|계산 크기|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |하드웨어 세대|5|5|5|5|5|5|5|5|
 |vCore 수|2|4|8|16|24|32|40|80|
@@ -122,8 +125,52 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 |포함되는 백업 저장소|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 |||
 
+### <a name="hyperscale-service-tier-preview"></a>하이퍼스케일 서비스 계층(미리 보기)
+
+#### <a name="generation-4-compute-platform"></a>4세대 계산 플랫폼
+|성능 수준|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
+|:--- | --: |--: |--: |--: |--: |--: |--: |
+|하드웨어 세대|4|4|4|4|4|4|
+|vCore 수|1|2|4|8|16|24|
+|메모리(GB)|7|14|28|56|112|168|
+|Columnstore 지원 여부|yes|예|예|예|예|yes|
+|메모리 내 OLTP 저장소(GB)|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
+|저장소 유형|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|
+|최대 데이터 크기(TB)|100 |100 |100 |100 |100 |100 |
+|최대 로그 크기(TB)|1 |1 |1 |1 |1 |1 |
+|TempDB 크기(GB)|32|64|128|256|384|384|
+|대상 IOPS(64KB)|추후 결정|추후 결정|추후 결정|추후 결정|추후 결정|추후 결정|
+|IO 대기 시간(근사치)|추후 결정|추후 결정|추후 결정|추후 결정|추후 결정|추후 결정|
+|최대 동시 작업자(요청)|200|400|800|1600|3200|4800|
+|허용되는 최대 세션 수|30000|30000|30000|30000|30000|30000|
+|복제본 수|2|2|2|2|2|2|
+|다중 AZ|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
+|읽기 확장|yes|예|예|예|예|yes|
+|포함되는 백업 저장소|7|7|7|7|7|7|
+|||
+### <a name="generation-5-compute-platform"></a>5세대 계산 플랫폼
+|성능 수준|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
+|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
+|하드웨어 세대|5|5|5|5|5|5|5|5|
+|vCore 수|2|4|8|16|24|32|40|80|
+|메모리(GB)|11|22|44|88|132|176|220|440|
+|Columnstore 지원 여부|yes|예|예|예|예|예|예|yes|
+|메모리 내 OLTP 저장소(GB)|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
+|저장소 유형|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|
+|최대 데이터 크기(TB)|100 |100 |100 |100 |100 |100 |100 |100 |
+|최대 로그 크기(TB)|1 |1 |1 |1 |1 |1 |1 |1 |
+|TempDB 크기(GB)|64|128|256|384|384|384|384|384|
+|대상 IOPS(64KB)|추후 결정|추후 결정|추후 결정|추후 결정|추후 결정|추후 결정|추후 결정|추후 결정|
+|IO 대기 시간(근사치)|추후 결정|추후 결정|추후 결정|추후 결정|추후 결정|추후 결정|추후 결정|추후 결정|
+|최대 동시 작업자(요청)|200|400|800|1600|2400|3200|4000|8000|
+|허용되는 최대 세션 수|30000|30000|30000|30000|30000|30000|30000|30000|
+|복제본 수|2|2|2|2|2|2|2|2|
+|다중 AZ|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
+|읽기 확장|yes|예|예|예|예|예|예|yes|
+|포함되는 백업 저장소(미리 보기 제한)|7|7|7|7|7|7|7|7|
+|||
+
 ## <a name="next-steps"></a>다음 단계
 
 - 자주 묻는 질문에 대한 답변은 [SQL Database FAQ](sql-database-faq.md)를 참조하세요.
-- 서버 및 구독 수준에서 제한에 대한 자세한 내용은 [Azure SQL Database 리소스 제한 개요](sql-database-resource-limits.md)를 참조하세요.
 - 일반 Azure 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.

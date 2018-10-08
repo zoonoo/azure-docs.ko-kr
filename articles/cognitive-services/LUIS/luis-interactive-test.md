@@ -1,24 +1,25 @@
 ---
-title: LUIS 앱 학습 및 테스트 - Azure | Microsoft Docs
+title: LUIS 포털 내에서 LUIS 앱 테스트
+titleSuffix: Azure Cognitive Services
 description: Language Understanding(LUIS)을 사용하여 응용 프로그램을 지속적으로 개선하고 해당 언어의 이해를 향상합니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 925b96b61de876d40105c89556fd6dcb600d1b1a
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 6bb03975e36e93c2496eb4c6013be21ebc891ed1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223653"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039704"
 ---
 # <a name="test-your-luis-app"></a>LUIS 앱 테스트
 <a name="train-your-app"></a>
-앱 [학습](luis-how-to-train.md) 및 [테스트](luis-concept-test.md)는 반복적인 프로세스입니다. LUIS 앱을 학습시킨 후 샘플 발화로 앱을 테스트하여 의도 및 엔터티가 올바르게 인식되는지 확인합니다. 인식되지 않으면 LUIS 앱을 업데이트하고 학습시키고, 다시 테스트합니다. 
+앱 [테스트](luis-concept-test.md)는 반복적인 프로세스입니다. LUIS 앱을 학습시킨 후 샘플 발화로 앱을 테스트하여 의도 및 엔터티가 올바르게 인식되는지 확인합니다. 인식되지 않으면 LUIS 앱을 업데이트하고 학습시키고, 다시 테스트합니다. 
 
 <!-- anchors for H2 name changes -->
 <a name="test-your-app"></a>
@@ -73,20 +74,20 @@ ms.locfileid: "39223653"
 [패턴](luis-concept-patterns.md)을 사용 중이고 발화가 패턴과 일치했지만 잘못된 의도가 예측된 경우에는 패턴 옆의 **편집** 링크를 선택한 다음, 올바른 의도를 선택합니다.
 
 ## <a name="compare-with-published-version"></a>게시된 버전과 비교
-게시된 [끝점](luis-glossary.md#endpoint) 버전을 사용하여 앱의 활성 버전을 테스트할 수 있습니다. **검사** 패널에서 **게시된 버전과 비교**를 선택합니다. 게시된 모델에 대한 모든 테스트는 Azure 구독 할당량 잔액에서 차감됩니다. 
+게시된 [엔드포인트](luis-glossary.md#endpoint) 버전을 사용하여 앱의 활성 버전을 테스트할 수 있습니다. **검사** 패널에서 **게시된 버전과 비교**를 선택합니다. 게시된 모델에 대한 모든 테스트는 Azure 구독 할당량 잔액에서 차감됩니다. 
 
 ![게시된 버전과 비교](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
 
-## <a name="view-endpoint-json-in-test-panel"></a>테스트 패널에서 끝점 JSON 보기
-**JSON 보기 표시**를 선택하여 비교에 반환된 끝점 JSON을 볼 수 있습니다.
+## <a name="view-endpoint-json-in-test-panel"></a>테스트 패널에서 엔드포인트 JSON 보기
+**JSON 보기 표시**를 선택하여 비교에 반환된 엔드포인트 JSON을 볼 수 있습니다.
 
 ![게시된 JSON 응답](./media/luis-how-to-interactive-test/inspect-panel-compare-json.png)
 
 <!--Service name is 'Bing Spell Check v7 API' in the portal-->
 ## <a name="additional-settings-in-test-panel"></a>테스트 패널의 추가 설정
 
-### <a name="luis-endpoint"></a>LUIS 끝점
-여러 개의 LUIS 끝점이 있는 경우 테스트의 [게시됨] 창에서 **추가 설정** 링크를 사용하여 테스트에 사용되는 끝점을 변경합니다. 사용할 끝점이 확실하지 않은 경우 기본 **Starter_Key**를 선택합니다. 
+### <a name="luis-endpoint"></a>LUIS 엔드포인트
+여러 개의 LUIS 엔드포인트가 있는 경우 테스트의 [게시됨] 창에서 **추가 설정** 링크를 사용하여 테스트에 사용되는 엔드포인트를 변경합니다. 사용할 엔드포인트가 확실하지 않은 경우 기본 **Starter_Key**를 선택합니다. 
 
 ![[추가 설정] 링크가 강조 표시된 테스트 패널](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
 

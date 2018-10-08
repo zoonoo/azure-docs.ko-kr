@@ -13,20 +13,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/27/2018
+ms.date: 09/27/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2ff826f21adf12d48b21acefe4b704866e02c04
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: db2d7fbe395a6d7e332d79183a331b45f7767f51
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917961"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434063"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Azure에서 SAP HANA 인프라 구성 및 작업
 이 문서에서는 Azure VM(Virtual Machines)에 배포된 SAP HANA 시스템 운영 및 Azure 인프라 구성을 위한 지침을 제공합니다. 또한 M128s VM SKU용 SAP HANA 스케일 아웃을 위한 구성 정보가 포함됩니다. 이 문서는 다음 내용을 포함하는 표준 SAP 설명서를 대체하기 위한 것이 아닙니다.
 
-- [SAP administration guide](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/330e5550b09d4f0f8b6cceb14a64cd22.html)(SAP 관리 가이드)
+- [SAP administration guide](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/330e5550b09d4f0f8b6cceb14a64cd22.html)(SAP 관리 가이드)
 - [SAP installation guides](https://service.sap.com/instguides)(SAP 설치 가이드)
 - [SAP notes](https://sservice.sap.com/notes)(SAP 참고)
 
@@ -168,6 +168,8 @@ VM의 크기를 조정하거나 결정할 때도 전체 VM I/O 처리량을 고�
 제안된 다른 볼륨에 대한 저장소 처리량이 실행하려는 작업을 충족하는지 여부를 확인합니다. 작업에 **/hana/data** 및 **/hana/log**에 대한 더 높은 볼륨이 필요한 경우 Azure Premium Storage VHD의 수를 증가시켜야 합니다. 나열된 것보다 더 많은 VHD로 볼륨을 크기 조정하면 Azure 가상 머신 유형의 한도 내 IOPS 및 I/O 처리량이 증가합니다. 
 
 
+
+
 #### <a name="storage-solution-with-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Azure M 시리즈 가상 머신용 Azure Write Accelerator를 사용하는 저장소 솔루션
 Azure Write Accelerator는 M 시리즈 VM 전용으로 출시되는 기능입니다. 이름에서 알 수 있듯이 이 기능은 Azure Premium Storage에 대한 쓰기의 I/O 대기 시간을 향상시키기 위한 것입니다. SAP HANA의 경우 Write Accelerator는 **/hana/log** 볼륨에 대해서만 사용해야 합니다. 따라서 앞에서 설명한 구성을 변경해야 합니다. **/hana/log** 볼륨에 대해서만 Azure Write Accelerator를 사용하기 위한 주요 변경 내용은 **/hana/data**와 **/hana/log** 간의 구분입니다. 
 
@@ -203,7 +205,9 @@ Azure Write Accelerator를 활성화하는 방법에 대한 자세한 지침은 
 
 Azure Write Accelerator에 대한 세부 정보 및 제한 사항은 동일한 설명서에서 찾을 수 있습니다.
 
-
+> [!NOTE]
+> 명시된 디스크 구성 권장 사항은 SAP가 인프라 공급자에 대해 표현한 최소 요구 사항을 대상으로 합니다. 실제 고객 배치 및 워크로드 시나리오에서 이러한 권장 사항이 여전히 충분한 기능을 제공하지 못하는 상황이 발생했습니다. 이는 고객이 HANA를 다시 시작한 후 또는 백업 구성에서 저장소에 대해 더 높은 대역폭을 요구한 경우 데이터를 빠르게 재로드하도록 요구한 상황일 수 있습니다. 다른 사례에는 **/hana/log**가 포함되어 있으며 특정 워크로드에 대해 5000IOPS가 충분하지 않았습니다. 따라서 이러한 권장 사항을 시작으로 워크로드의 요구 사항에 따라 적절히 조정합니다.
+>  
 
 ### <a name="set-up-azure-virtual-networks"></a>Azure 가상 네트워크 설정
 VPN 또는 ExpressRoute를 통해 Azure로의 사이트 간 연결이 있다면 가상 게이트웨이를 통해 VPN 또는 ExpressRoute 회로에 연결된 Azure Virtual Network가 하나 이상 있어야 합니다. 간단한 배포에서는 가상 게이트웨이를 SAP HANA 인스턴스를 호스팅하는 Azure VNet(가상 네트워크)의 서브넷에 배포할 수 있습니다. SAP HANA를 설치하려면 Azure Virtual Network 내에 두 개의 서브넷을 추가로 만듭니다. 한 서브넷은 SAP HANA 인스턴스를 실행하는 VM을 호스트하고, 다른 서브넷은 SAP HANA Studio, 기타 관리 소프트웨어 또는 사용자의 응용 프로그램 소프트웨어를 호스트하는 Jumpbox 또는 관리 VM을 실행합니다.
@@ -212,6 +216,11 @@ SAP HANA를 실행할 VM을 설치할 때 VM에는 다음이 필요합니다.
 
 - 두 가상 NIC 설치: 하나의 NIC는 관리 서브넷에 연결되고 다른 NIC는 온-프레미스 네트워크나 다른 네트워크에서 Azure VM의 SAP HANA 인스턴스에 연결됩니다.
 - 두 가상 NIC에 대해 배포된 고정 개인 IP 주소
+
+> [!NOTE]
+> Azure 평균을 통해 고정 IP 주소를 개별 vNIC에 할당해야 합니다. 게스트 OS 내에서 고정 IP 주소를 vNIC에 할당하지 않아야 합니다. Azure Backup 서비스와 같은 일부 Azure 서비스는 최소한 기본 vNIC가 고정 IP 주소가 아닌 DHCP로 설정된다는 사실에 의존합니다. [Azure 가상 머신 백업 문제 해결](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking) 문서도 참조하세요. VM에 여러 고정 IP 주소를 할당해야 하는 경우 VM에 여러 vNIC를 할당해야 합니다.
+>
+>
 
 그러나 지속되고 있는 배포의 경우 Azure에서 가상 데이터 센터 네트워크 아키텍처를 만들어야 합니다. 이 아키텍처는 온-프레미스에 연결되어 있는 Azure VNet 게이트웨이를 별도의 Azure VNet으로 분리할 것을 권장합니다. 이 별도의 VNet은 온-프레미스 또는 인터넷 중 하나에 유지되는 모든 트래픽을 호스트해야 합니다. 이 방법을 사용하면 이 별도의 허브 VNet에서 Azure의 가상 데이터 센터로 들어가는 감사 및 로깅 트래픽을 위한 소프트웨어를 배포할 수 있습니다. 따라서 Azure 배포로 들어오고 나가는 트래픽과 관련된 모든 소프트웨어 및 구성을 하나의 VNet이 호스트하도록 해야 합니다.
 
@@ -485,4 +494,4 @@ SAPRouter는 Jumpbox VM이 아니라 별도의 VM에 설치해야 합니다. 별
 SAProuter를 통해 원격 지원 연결을 설정하고 유지 관리하는 방법에 대한 자세한 내용은 [SAP documentation](https://support.sap.com/en/tools/connectivity-tools/remote-support.html)(SAP 설명서)을 참조하세요.
 
 ### <a name="high-availability-with-sap-hana-on-azure-native-vms"></a>Azure 네이티브 VM의 SAP HANA 고가용성
-SUSE Linux 12 SP1 이상을 실행 중인 경우 STONITH 장치를 포함하는 Pacemaker 클러스터를 설정할 수 있습니다. 이 장치를 사용하면 HANA 시스템 복제를 통한 동기 복제와 자동 장애 조치(failover)를 사용하는 SAP HANA 구성을 설정할 수 있습니다. 설정 절차에 대한 자세한 내용은 [Azure 가상 머신에 대한 SAP HANA 고가용성 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)를 참조하세요.
+SAP Applications 12 SP1 이상용 SUSE Linux Enterprise Server를 실행 중인 경우 STONITH 장치를 포함하는 Pacemaker 클러스터를 설정할 수 있습니다. 이 장치를 사용하면 HANA 시스템 복제를 통한 동기 복제와 자동 장애 조치(failover)를 사용하는 SAP HANA 구성을 설정할 수 있습니다. 설정 절차에 대한 자세한 내용은 [Azure 가상 머신에 대한 SAP HANA 고가용성 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)를 참조하세요.

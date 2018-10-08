@@ -9,12 +9,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: f71f5fa71d685af103bd82b3ccd2a910ab81d90f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 34293ffc70ebbc2a8639913aefe3b62ed8e618d4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962916"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222780"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-from-spark-on-yarn-with-hdinsight"></a>HDInsight를 통해 YARN에서 Spark의 Azure Cosmos DB Cassandra API에 액세스
 
@@ -32,7 +32,7 @@ ms.locfileid: "46962916"
 
 * [원하는 경우 cqlsh를 사용하여 유효성 검사](cassandra-spark-generic.md##connecting-to-azure-cosmos-db-cassandra-api-from-spark)
 
-* **Cassandra API configuration in Spark2** - Cassandra용 Datastax 커넥터에서는 Spark 컨텍스트의 일부분으로 Cassandra 연결 세부 정보를 초기화해야 합니다. Jupyter Notebook을 시작할 때 spark 세션 및 컨텍스트가 이미 초기화되므로, HDInsight 기본 Jupyter Notebook 시작의 일부로 모든 구성 집합이 완료되지 않는 한 Spark 컨텍스트를 중지하고 다시 초기화하지 않는 것이 좋습니다. 해결 방법은 Cassandra 인스턴스 세부 정보를 Spark2 서비스 구성인 Ambari에 직접 추가하는 것입니다. 이는 Spark2 서비스를 다시 시작해야 하는 클러스터별 일회성 작업입니다.
+* **Spark2에서 Cassandra API 구성** - Cassandra용 Spark 커넥터에서는 Spark 컨텍스트의 일부분으로 Cassandra 연결 세부 정보를 초기화해야 합니다. Jupyter Notebook을 시작할 때 spark 세션 및 컨텍스트가 이미 초기화되므로, HDInsight 기본 Jupyter Notebook 시작의 일부로 모든 구성 집합이 완료되지 않는 한 Spark 컨텍스트를 중지하고 다시 초기화하지 않는 것이 좋습니다. 해결 방법은 Cassandra 인스턴스 세부 정보를 Spark2 서비스 구성인 Ambari에 직접 추가하는 것입니다. 이는 Spark2 서비스를 다시 시작해야 하는 클러스터별 일회성 작업입니다.
  
   1. Spark2 서비스인 Ambari로 이동하고 구성을 클릭합니다.
 
@@ -68,7 +68,7 @@ Spark 셸은 테스트/탐색 용도로 사용됩니다.
   import org.apache.spark.sql.types.{StructType, StructField, StringType, IntegerType,LongType,FloatType,DoubleType, TimestampType}
   import org.apache.spark.sql.cassandra._
 
-  //datastax Spark connector
+  //Spark connector
   import com.datastax.spark.connector._
   import com.datastax.spark.connector.cql.CassandraConnector
 

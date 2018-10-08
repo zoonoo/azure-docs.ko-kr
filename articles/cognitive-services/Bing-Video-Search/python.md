@@ -1,21 +1,23 @@
 ---
-title: Azure Cognitive Services, Bing Video Search API에 대한 Python 빠른 시작 | Microsoft Docs
-description: Azure의 Microsoft Cognitive Services에서 Bing Video Search API를 사용하여 신속하게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
+title: '빠른 시작: Bing Video Search, Python'
+titlesuffix: Azure Cognitive Services
+description: Bing Video Search API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 확인합니다.
 services: cognitive-services
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: ce4356f05e69540bc3bc3241e2ec1751ff7a7276
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 797eb476aa3386949b08efb957edf48a97e40d6b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374015"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220017"
 ---
-# <a name="quickstart-for-bing-video-search-api-with-python"></a>Python을 사용하여 Bing Video Search API에 대한 빠른 시작
+# <a name="quickstart-bing-video-search-api-with-python"></a>빠른 시작: Python을 사용한 Bing Video Search API
 
 이 연습에서는 Azure에서 Microsoft Cognitive Services의 일부인 Bing Video Search API를 사용하는 방법을 보여줍니다. API에 대한 기술 세부 정보는 [API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference)를 참조합니다.
 
@@ -76,8 +78,8 @@ HTML(search_results["value"][0]["embedHtml"].replace("autoplay=1","autoplay=0"))
 
 > [!div class="nextstepaction"]
 > [비디오 페이징](paging-videos.md)
-> [크기 조정 및 썸네일 이미지 자르기](resize-and-crop-thumbnails.md)
+> [썸네일 이미지 크기 조정 및 자르기](resize-and-crop-thumbnails.md)
 
 ## <a name="see-also"></a>참고 항목 
 
- [비디오에 대한 웹 검색](search-the-web.md) [시도해 보세요](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/)
+ [웹에서 비디오 검색](search-the-web.md) [체험해 보기](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/)

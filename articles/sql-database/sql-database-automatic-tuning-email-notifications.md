@@ -1,21 +1,23 @@
 ---
 title: 자동 조정 전자 메일 알림 방법 가이드 - Azure SQL Database | Microsoft Docs
-description: Azure SQL Database는 SQL 쿼리를 분석하고 사용자 워크로드에 자동으로 적용됩니다.
+description: Azure SQL Database 자동 쿼리 튜닝에 대한 이메일 알림을 사용하도록 설정합니다.
 services: sql-database
-author: danimir
-manager: craigg
-ms.reviewer: carlrab
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 02/05/2018
+author: danimir
 ms.author: v-daljep
-ms.openlocfilehash: 643740ea76769f857e8c99ebaa6d27eceed99067
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 86639be7c4d934929272e6d578485bfc8bfb9cc9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644334"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064104"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>자동 조정에 대한 전자 메일 알림
 
@@ -205,12 +207,12 @@ Microsoft Flow 기능에 대한 자세한 내용은 [Microsoft Flow 시작](http
 1. 조정 권장 사항을 검색하는 PowerShell 스크립트를 실행하는 작업을 만듭니다.
 - 되풀이 흐름 창에서 "**+새 단계**","**작업 추가**"를 선택합니다.
 - 검색 필드에 "**Automation**"을 입력하고 검색 결과에서 "**Azure Automation – 작업 만들기**"를 선택합니다.
-- 작업 만들기 창에서 작업 속성을 구성합니다. 이 구성에 대해 **Automation 계정 창**에서 **이전에 기록한** Azure 구독 ID, 리소스 그룹 및 Automation 계정의 세부 정보가 필요합니다. 이 섹션에서 사용할 수 있는 옵션에 대한 자세한 내용은 [Azure Automation – 작업 만들기](https://docs.microsoft.com/connectors/azureautomation/#Create_job)를 참조하세요.
+- 작업 만들기 창에서 작업 속성을 구성합니다. 이 구성에 대해 **Automation 계정 창**에서 **이전에 기록한** Azure 구독 ID, 리소스 그룹 및 Automation 계정의 세부 정보가 필요합니다. 이 섹션에서 사용할 수 있는 옵션에 대한 자세한 내용은 [Azure Automation – 작업 만들기](https://docs.microsoft.com/connectors/azureautomation/#create-job)를 참조하세요.
 - "**흐름 저장**"을 클릭하여 이 작업 만들기를 완료합니다.
 
 2. 실행된 PowerShell 스크립트에서 출력을 검색하는 작업을 만듭니다.
 - 되풀이 흐름 창에서 "**+새 단계**","**작업 추가**"를 선택합니다.
-- 검색 필드에 "**Automation**"을 입력하고 검색 결과에서 "**Azure Automation - 작업 출력 가져오기**"를 선택합니다. 이 섹션에서 사용할 수 있는 옵션에 대한 자세한 내용은 [Azure Automation – 작업 출력 가져오기](https://docs.microsoft.com/connectors/azureautomation/#Get_job_output)를 참조하세요.
+- 검색 필드에 "**Automation**"을 입력하고 검색 결과에서 "**Azure Automation - 작업 출력 가져오기**"를 선택합니다. 이 섹션에서 사용할 수 있는 옵션에 대한 자세한 내용은 [Azure Automation – 작업 출력 가져오기](https://docs.microsoft.com/connectors/azureautomation/#get-job-output)를 참조하세요.
 - 필수 필드를 채웁니다(이전 작업을 만들 때와 유사) - Azure 구독 ID, 리소스 그룹 및 Automation 계정을 채웁니다(Automation 계정 창에 입력한 것과 같음).
 - "**작업 ID**" 필드 내부를 클릭하여 "**동적 콘텐츠**" 메뉴를 표시합니다. 이 메뉴 내에서 "**작업 ID**" 옵션을 선택합니다.
 - "**흐름 저장**"을 클릭하여 이 작업 만들기를 완료합니다.

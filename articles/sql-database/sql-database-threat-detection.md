@@ -1,22 +1,23 @@
 ---
 title: 위협 감지 - Azure SQL Database | Microsoft Docs
-description: 위협 감지는 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 감지합니다.
+description: 위협 탐지는 단일 데이터베이스 또는 탄력적 풀에서 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 검색합니다.
 services: sql-database
-author: rmatchoro
-manager: craigg
 ms.service: sql-database
-ms.subservice: advanced-threat-protection
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/17/2018
+author: rmatchoro
 ms.author: ronmat
-ms.reviewer: carlrab
-ms.openlocfilehash: c82692525f06fda93f94a8d856eb65254e5fd211
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.reviewer: vanto, carlrab
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: ed7a117d4422b3b3feddd7d2fafa5eabea43f9e5
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003946"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164940"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Azure SQL Database 위협 검색
 

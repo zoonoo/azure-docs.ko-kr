@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 73b7604e3072e76c69383481259e1cd8990f4df4
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f4729ce996ca918f43df1777a1962d4cd225a38e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44168351"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47061077"
 ---
 ## <a name="extended-iot-scenarios"></a>확장된 IoT 시나리오
 
@@ -22,7 +22,7 @@ ms.locfileid: "44168351"
 | 시나리오                                                   | Azure 서비스 또는 도구              |
 |----------------------------------------------------------- |------------------------------------|
 | [IoT Hub 메시지 관리][Mg_IoT_Toolkit]                  | VS Code Azure IoT Toolkit 확장|
-| [IoT 장치 관리][Mg_IoT_Dv]                        | Azure CLI 2.0 및 IoT 확장|
+| [IoT 장치 관리][Mg_IoT_Dv]                        | Azure CLI 및 IoT 확장    |
 | [IoT 장치 관리][Mg_IoT_Dv_Toolkit]                | VS Code Azure IoT Toolkit 확장|
 | [Save IoT Hub messages to Azure storage][Sv_IoT_Msg_Stor]  | Azure Table Storage                |
 | [센서 데이터 시각화][Vis_Data_PBI]                      | Microsoft Power BI                 |

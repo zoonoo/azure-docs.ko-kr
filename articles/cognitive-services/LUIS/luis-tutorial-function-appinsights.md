@@ -1,24 +1,26 @@
 ---
-title: Node.js를 사용하여 Application Insights에 LUIS 데이터 추가 | Microsoft Docs
-titleSuffix: Azure
+title: C#을 사용하는 LUIS의 Application Insights 데이터
+titleSuffix: Azure Cognitive Services
 description: Node.js를 사용하여 LUIS 응용 프로그램 및 Application Insights와 통합된 봇을 빌드합니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 5b65747bea7d2496558c5b3b533bb8420eee6254
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 342c4f98d854d94426c3e4a1eb79bb2a6adffaad
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39236842"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038003"
 ---
-# <a name="add-luis-results-to-application-insights-from-a-web-app-bot"></a>웹앱 봇에서 Application Insights에 LUIS 결과 추가
+# <a name="add-luis-results-to-application-insights"></a>Application Insights에 LUIS 결과 추가
 이 자습서에서는 [Application Insights](https://azure.microsoft.com/services/application-insights/) 원격 분석 데이터 저장소에 LUIS 요청 및 응답 정보를 추가합니다. 해당 데이터가 있으면 Kusto 언어 또는 PowerBi로 데이터를 쿼리하여 발화의 의도 및 엔터티를 실시간으로 분석, 집계 및 보고할 수 있습니다. 이 분석을 통해 LUIS 앱의 의도와 엔터티를 추가하거나 편집해야 할지 결정할 수 있습니다.
+
+해당 봇은 Bot Framework 3.x 및 Azure 웹앱 봇을 사용하여 빌드됩니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -151,13 +153,13 @@ Application Insights를 사용하면 [Kusto](https://docs.microsoft.com/azure/ap
     ![Analytics 상위 의도](./media/luis-tutorial-appinsights/app-insights-top-intent.png)
 
 
-[Kusto 쿼리 언어](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-queries) 또는 [PowerBi로 데이터 내보내기](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi)에 대해 자세히 알아보세요. 
+[Kusto 쿼리 언어](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) 또는 [PowerBi로 데이터 내보내기](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi)에 대해 자세히 알아보세요. 
 
 ## <a name="next-steps"></a>다음 단계
 
-Application Insights 데이터에 추가할 수 있는 기타 정보에는 앱 ID, 버전 ID, 마지막 모델 변경 날짜, 마지막 학습 날짜, 마지막 게시 날짜가 포함됩니다. 이러한 값은 끝점 URL(앱 ID 및 버전 ID) 또는 [Authoring API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3d) 호출에서 검색한 다음, 웹앱 봇 설정에서 설정하고 끌어올 수 있습니다.  
+Application Insights 데이터에 추가할 수 있는 기타 정보에는 앱 ID, 버전 ID, 마지막 모델 변경 날짜, 마지막 학습 날짜, 마지막 게시 날짜가 포함됩니다. 이러한 값은 엔드포인트 URL(앱 ID 및 버전 ID) 또는 [Authoring API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3d) 호출에서 검색한 다음, 웹앱 봇 설정에서 설정하고 끌어올 수 있습니다.  
 
-둘 이상의 LUIS 앱에 대해 동일한 끝점 구독을 사용하는 경우, 구독 ID 및 공유 키임을 나타내는 속성도 포함해야 합니다. 
+둘 이상의 LUIS 앱에 대해 동일한 엔드포인트 구독을 사용하는 경우, 구독 ID 및 공유 키임을 나타내는 속성도 포함해야 합니다. 
 
 > [!div class="nextstepaction"]
 > [예제 발언에 대해 자세히 알아보기](luis-how-to-add-example-utterances.md)

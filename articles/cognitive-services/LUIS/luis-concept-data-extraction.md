@@ -1,37 +1,38 @@
 ---
-title: LUIS의 데이터 추출 개념 이해 - Azure | Microsoft Docs
+title: LUIS의 데이터 추출 개념 - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Language Understanding(LUIS)에서 추출할 수 있는 데이터 형식 알아보기
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: f57e7cb85e6d183a59b358e347d70d4d185868a7
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 39d36ee0c46d3e6954c3264f37f3f575130186b9
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225685"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434486"
 ---
 # <a name="data-extraction"></a>데이터 추출
-LUIS는 사용자의 자연어 발화에서 정보를 가져오는 기능을 제공합니다. 정보는 프로그램, 응용 프로그램 또는 챗봇에서 작업을 수행하는 데 사용할 수 있는 방법으로 추출됩니다.
+LUIS는 사용자의 자연어 발화에서 정보를 가져오는 기능을 제공합니다. 정보는 프로그램, 응용 프로그램 또는 챗봇에서 작업을 수행하는 데 사용할 수 있는 방법으로 추출됩니다. 다음 섹션에서는 JSON 예제와 함께 의도 및 엔터티에서 반환되는 데이터에 대해 알아봅니다.
 
-다음 섹션에서는 JSON 예제와 함께 의도 및 엔터티에서 반환되는 데이터에 대해 알아봅니다. 정확히 일치하는 텍스트가 아니므로 추출하기 가장 어려운 데이터는 기계 학습 데이터입니다. 기계 학습 [엔터티](luis-concept-entity-types.md)의 데이터 추출은 사용자가 예상한 데이터를 받는다고 확신할 때까지 [작성 주기](luis-concept-app-iteration.md)에 포함되어야 합니다. 
+정확히 일치하는 텍스트가 아니므로 추출하기 가장 어려운 데이터는 기계 학습 데이터입니다. 기계 학습 [엔터티](luis-concept-entity-types.md)의 데이터 추출은 사용자가 예상한 데이터를 받는다고 확신할 때까지 [작성 주기](luis-concept-app-iteration.md)에 포함되어야 합니다.
 
 ## <a name="data-location-and-key-usage"></a>데이터 위치 및 키 사용
-LUIS는 게시된 [끝점](luis-glossary.md#endpoint)의 데이터를 제공합니다. **HTTPS 요청**(POST 또는 GET)에는 스테이징 또는 프로덕션 환경과 같은 일부 선택적 구성과 발화가 포함됩니다. 
+LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 제공합니다. **HTTPS 요청**(POST 또는 GET)에는 스테이징 또는 프로덕션 환경과 같은 일부 선택적 구성과 발화가 포함됩니다.
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-`appID`는 LUIS 앱을 편집하는 동안 URL의 일부(`/apps/` 뒤) 및 LUIS 앱의 **설정** 페이지에서 사용할 수 있습니다. `subscription-key`는 앱을 쿼리하는 데 사용되는 끝점 키입니다. LUIS를 학습시키는 동안 체험 작성/시작 키를 사용할 수 있지만, 끝점 키를 [필요한 LUIS 사용](luis-boundaries.md#key-limits)을 지원하는 키로 변경해야 합니다. `timezoneOffset` 단위는 분입니다.
+`appID`는 LUIS 앱을 편집하는 동안 URL의 일부(`/apps/` 뒤) 및 LUIS 앱의 **설정** 페이지에서 사용할 수 있습니다. `subscription-key`는 앱을 쿼리하는 데 사용되는 엔드포인트 키입니다. LUIS를 학습시키는 동안 체험 작성/시작 키를 사용할 수 있지만, 끝점 키를 [필요한 LUIS 사용](luis-boundaries.md#key-limits)을 지원하는 키로 변경해야 합니다. `timezoneOffset` 단위는 분입니다.
 
-**HTTPS 응답**에는 스테이징 또는 프로덕션 끝점의 현재 게시된 모델을 기반으로 LUIS가 확인할 수 있는 모든 의도 및 엔터티 정보가 포함됩니다. 끝점 URL은 [LUIS](luis-reference-regions.md) 웹 사이트 **게시** 페이지에 있습니다. 
+**HTTPS 응답**에는 스테이징 또는 프로덕션 엔드포인트의 현재 게시된 모델을 기반으로 LUIS가 확인할 수 있는 모든 의도 및 엔터티 정보가 포함됩니다. 엔드포인트 URL은 [LUIS](luis-reference-regions.md) 웹 사이트의 **관리** 섹션에 있는 **키 및 엔드포인트** 페이지에서 찾을 수 있습니다.
 
 ## <a name="data-from-intents"></a>의도의 데이터
-기본 데이터는 상위 점수 **의도 이름**입니다. `MyStore` [빠른 시작](luis-quickstart-intents-only.md)을 사용할 경우 끝점 응답은 다음과 같습니다.
+기본 데이터는 상위 점수 **의도 이름**입니다. `MyStore`[빠른 시작](luis-quickstart-intents-only.md)을 사용할 경우 엔드포인트 응답은 다음과 같습니다.
 
 ```JSON
 {
@@ -48,7 +49,7 @@ LUIS는 게시된 [끝점](luis-glossary.md#endpoint)의 데이터를 제공합�
 |--|--|--|--|
 |의도|문자열|topScoringIntent.intent|“GetStoreInfo”|
 
-챗봇 또는 LUIS 호출 앱이 둘 이상의 의도 점수를 기반으로 결정을 내리는 경우 쿼리 문자열 매개 변수, `verbose=true`를 설정하여 모든 의도의 점수를 반환합니다. 끝점 응답은 다음과 같습니다.
+챗봇 또는 LUIS 호출 앱이 둘 이상의 의도 점수를 기반으로 결정을 내리는 경우 쿼리 문자열 매개 변수, `verbose=true`를 설정하여 모든 의도의 점수를 반환합니다. 엔드포인트 응답은 다음과 같습니다.
 
 ```JSON
 {
@@ -103,7 +104,7 @@ LUIS는 게시된 [끝점](luis-glossary.md#endpoint)의 데이터를 제공합�
   "entities": []
 }
 ```
-    
+
 |도메인|데이터 개체|데이터 형식|데이터 위치|값|
 |--|--|--|--|--|
 |공공 시설|의도|문자열|intents[0].intent|“<b>Utilities</b>.ShowNext”|
@@ -112,11 +113,11 @@ LUIS는 게시된 [끝점](luis-glossary.md#endpoint)의 데이터를 제공합�
 
 
 ## <a name="data-from-entities"></a>엔터티의 데이터
-대부분의 챗봇 및 응용 프로그램에는 의도 이름 외에 더 많은 것이 필요합니다. 이 추가적이고 선택적인 데이터는 발화에서 검색되는 엔터티에서 가져옵니다. 각 엔터티 형식은 서로 다른 일치 정보를 반환합니다. 
+대부분의 챗봇 및 응용 프로그램에는 의도 이름 외에 더 많은 것이 필요합니다. 이 추가적이고 선택적인 데이터는 발화에서 검색되는 엔터티에서 가져옵니다. 각 엔터티 형식은 서로 다른 일치 정보를 반환합니다.
 
-발화의 단일 단어 또는 구문이 둘 이상의 엔터티와 일치할 수 있습니다. 이 경우, 각 일치하는 엔터티는 점수와 함께 반환됩니다. 
+발화의 단일 단어 또는 구문이 둘 이상의 엔터티와 일치할 수 있습니다. 이 경우, 각 일치하는 엔터티는 점수와 함께 반환됩니다.
 
-모든 엔터티는 끝점에서 응답의 **엔터티** 배열로 반환됩니다.
+모든 엔터티는 엔드포인트에서 응답의 **엔터티** 배열로 반환됩니다.
 
 ```JSON
 "entities": [
@@ -140,19 +141,19 @@ LUIS는 게시된 [끝점](luis-glossary.md#endpoint)의 데이터를 제공합�
 ```
 
 ## <a name="tokenized-entity-returned"></a>토큰화된 엔터티가 반환됨
-여러 [문화권](luis-supported-languages.md#tokenization)은 [토큰화된](luis-glossary.md#token) `entity` 값과 함께 엔터티 개체를 반환합니다. LUIS에서 엔터티 개체로 반환한 startIndex 및 endIndex는 새 토큰화된 값에 매핑되지 않고, 원시 엔터티를 프로그래밍 방식으로 추출하기 위해 원래 쿼리에 매핑됩니다. 
+여러 [문화권](luis-language-support.md#tokenization)은 [토큰화된](luis-glossary.md#token) `entity` 값과 함께 엔터티 개체를 반환합니다. LUIS에서 엔터티 개체로 반환한 startIndex 및 endIndex는 새 토큰화된 값에 매핑되지 않고, 원시 엔터티를 프로그래밍 방식으로 추출하기 위해 원래 쿼리에 매핑됩니다. 
 
 예를 들어, 독일어에서 `das Bauernbrot` 단어는 `das bauern brot`로 토큰화됩니다. 토큰화된 값 `das bauern brot`가 반환되고 원래 값은 원본 쿼리의 startIndex 및 endIndex에서 프로그래밍 방식으로 되어 `das Bauernbrot`가 제공될 수 있습니다.
 
 ## <a name="simple-entity-data"></a>단순 엔터티 데이터
 
-[단순 엔터티](luis-concept-entity-types.md)는 기계 학습 값입니다. 이 값은 단어 또는 구문일 수 있습니다. 
+[단순 엔터티](luis-concept-entity-types.md)는 기계 학습 값입니다. 이 값은 단어 또는 구문일 수 있습니다.
 
 `Bob Jones wants 3 meatball pho`
 
 이전 발화에서 `Bob Jones`는 단순 `Customer` 엔터티로 레이블이 지정됩니다.
 
-끝점에서 반환된 데이터에는 엔터티 이름, 발화에서 검색된 텍스트, 검색된 텍스트의 위치 및 점수가 포함됩니다.
+엔드포인트에서 반환된 데이터에는 엔터티 이름, 발화에서 검색된 텍스트, 검색된 텍스트의 위치 및 점수가 포함됩니다.
 
 ```JSON
 "entities": [
@@ -172,13 +173,13 @@ LUIS는 게시된 [끝점](luis-glossary.md#endpoint)의 데이터를 제공합�
 
 ## <a name="hierarchical-entity-data"></a>계층적 엔터티 데이터
 
-[계층적](luis-concept-entity-types.md) 엔터티는 기계 학습 엔터티이며 단어나 구문을 포함할 수 있습니다. 자식은 컨텍스트로 식별됩니다. 텍스트가 정확히 일치하는 부모-자식 관계를 검색하려면 [목록](#list-entity-data) 엔터티를 사용합니다. 
+[계층적](luis-concept-entity-types.md) 엔터티는 기계 학습 엔터티이며 단어나 구문을 포함할 수 있습니다. 자식은 컨텍스트로 식별됩니다. 텍스트가 정확히 일치하는 부모-자식 관계를 검색하려면 [목록](#list-entity-data) 엔터티를 사용합니다.
 
 `book 2 tickets to paris`
 
-이전 발화에서 `paris`는 `Location` 계층적 엔터티의 `Location::ToLocation` 자식에 레이블로 지정됩니다. 
+이전 발화에서 `paris`는 `Location` 계층적 엔터티의 `Location::ToLocation` 자식에 레이블로 지정됩니다.
 
-끝점에서 반환된 데이터에는 엔터티 이름 및 자식 이름, 발화에서 검색된 텍스트, 검색된 텍스트의 위치 및 점수가 포함됩니다. 
+엔드포인트에서 반환된 데이터에는 엔터티 이름 및 자식 이름, 발화에서 검색된 텍스트, 검색된 텍스트의 위치 및 점수가 포함됩니다.
 
 ```JSON
 "entities": [
@@ -258,9 +259,9 @@ LUIS는 게시된 [끝점](luis-glossary.md#endpoint)의 데이터를 제공합�
 
 ## <a name="list-entity-data"></a>목록 엔터티 데이터
 
-[목록](luis-concept-entity-types.md) 엔터티는 기계 학습 엔터티가 아닙니다. 정확히 일치하는 텍스트입니다. 목록은 목록에 있는 항목의 동의어와 함께 해당 항목을 나타냅니다. LUIS는 모든 목록의 항목과 일치하는 항목을 응답의 엔터티로 표시합니다. 동의어는 둘 이상의 목록에 있을 수 있습니다. 
+[목록](luis-concept-entity-types.md) 엔터티는 기계 학습 엔터티가 아닙니다. 정확히 일치하는 텍스트입니다. 목록은 목록에 있는 항목의 동의어와 함께 해당 항목을 나타냅니다. LUIS는 모든 목록의 항목과 일치하는 항목을 응답의 엔터티로 표시합니다. 동의어는 둘 이상의 목록에 있을 수 있습니다.
 
-앱에 공항(Sea-tac), 공항 코드(SEA), 우편 번호(98101) 및 전화 지역 코드(206)를 사용하는 도시를 포함하여 도시 이름의 변형을 허용하는 `Cities` 목록이 있다고 가정합니다. 
+앱에 공항(Sea-tac), 공항 코드(SEA), 우편 번호(98101) 및 전화 지역 코드(206)를 사용하는 도시를 포함하여 도시 이름의 변형을 허용하는 `Cities` 목록이 있다고 가정합니다.
 
 |목록 항목|항목 동의어|
 |---|---|
@@ -269,7 +270,7 @@ LUIS는 게시된 [끝점](luis-glossary.md#endpoint)의 데이터를 제공합�
 
 `book 2 tickets to paris`
 
-이전 발화에서 `paris` 단어는 `Cities` 목록 엔터티의 일부로 paris 항목에 매핑됩니다. 목록 엔터티는 항목 동의어뿐 아니라 항목의 정규화된 이름과도 일치합니다. 
+이전 발화에서 `paris` 단어는 `Cities` 목록 엔터티의 일부로 paris 항목에 매핑됩니다. 목록 엔터티는 항목 동의어뿐 아니라 항목의 정규화된 이름과도 일치합니다.
 
 ```JSON
 "entities": [
@@ -389,7 +390,7 @@ LUIS는 게시된 [끝점](luis-glossary.md#endpoint)의 데이터를 제공합�
       }
     }
   ]
-``` 
+```
 
 ## <a name="regular-expression-entity-data"></a>정규식 엔터티 데이터
 [정규식](luis-concept-entity-types.md) 엔터티는 엔터티를 만들 때 제공하는 식을 사용하여 정규식 일치를 기반으로 검색됩니다. `kb[0-9]{6}`를 정규식 엔터티 정의로 사용하는 경우, 다음 JSON 응답은 쿼리 `When was kb123456 published?`에 대해 반환된 정규식 엔터티가 포함된 예제 음성입니다.
@@ -423,19 +424,19 @@ LUIS는 게시된 [끝점](luis-glossary.md#endpoint)의 데이터를 제공합�
 ```
 
 ## <a name="extracting-names"></a>이름 추출
-이름은 거의 문자와 단어의 조합일 수 있기 때문에 발화에서 이름을 가져오는 것은 어렵습니다. 추출할 이름의 유형에 따라 몇 가지 옵션이 있습니다. 이러한 옵션은 규칙이 아니라 지침입니다. 
+이름은 거의 문자와 단어의 조합일 수 있기 때문에 발화에서 이름을 가져오는 것은 어렵습니다. 추출할 이름의 유형에 따라 몇 가지 옵션이 있습니다. 이러한 옵션은 규칙이 아니라 지침입니다.
 
 ### <a name="names-of-people"></a>사용자의 이름
-사용자의 이름에는 언어 및 문화권에 따라 일부 약한 형식이 적용될 수 있습니다. 이름 및 성과 함께 계층적 엔터티를 사용하거나 이름 및 성의 역할과 함께 단순 엔터티를 사용합니다. 발화의 다양한 부분, 다양한 길이의 발화 및 None 의도를 포함하는 모든 의도에 걸쳐 있는 발화에서 이름과 성을 사용하는 예제를 제공해야 합니다. 정기적으로 끝점 발화를 [검토](luis-how-to-review-endoint-utt.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다. 
+사용자의 이름에는 언어 및 문화권에 따라 일부 약한 형식이 적용될 수 있습니다. 이름 및 성과 함께 계층적 엔터티를 사용하거나 이름 및 성의 역할과 함께 단순 엔터티를 사용합니다. 발화의 다양한 부분, 다양한 길이의 발화 및 None 의도를 포함하는 모든 의도에 걸쳐 있는 발화에서 이름과 성을 사용하는 예제를 제공해야 합니다. 정기적으로 엔드포인트 발화를 [검토](luis-how-to-review-endoint-utt.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다.
 
 ### <a name="names-of-places"></a>위치 이름
-위치 이름은 구/군/시, 지방, 시/도 및 국가 등으로 설정되고 인식됩니다. 앱이 알려진 위치 집합을 사용할 경우, 목록 엔터티를 사용하는 것이 좋습니다. 모든 위치 이름을 찾아야 하는 경우, 단순 엔터티를 만들고 다양한 예제를 제공합니다. 위치 이름의 구문 목록을 추가하여 앱에서 위치 이름이 표시되는 모양을 보완합니다. 정기적으로 끝점 발화를 [검토](luis-how-to-review-endoint-utt.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다. 
+위치 이름은 구/군/시, 지방, 시/도 및 국가 등으로 설정되고 인식됩니다. 앱이 알려진 위치 집합을 사용할 경우, 목록 엔터티를 사용하는 것이 좋습니다. 모든 위치 이름을 찾아야 하는 경우, 단순 엔터티를 만들고 다양한 예제를 제공합니다. 위치 이름의 구문 목록을 추가하여 앱에서 위치 이름이 표시되는 모양을 보완합니다. 정기적으로 엔드포인트 발화를 [검토](luis-how-to-review-endoint-utt.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다.
 
 ### <a name="new-and-emerging-names"></a>새롭게 떠오르는 이름
-일부 앱은 제품이나 회사와 같이 새롭게 떠오르는 이름을 찾을 수 있어야 합니다. 이는 가장 어려운 유형의 데이터 추출입니다. 단순 엔터티로 시작하고 구문 목록을 추가합니다. 정기적으로 끝점 발화를 [검토](luis-how-to-review-endoint-utt.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다. 
+일부 앱은 제품이나 회사와 같이 새롭게 떠오르는 이름을 찾을 수 있어야 합니다. 이는 가장 어려운 유형의 데이터 추출입니다. 단순 엔터티로 시작하고 구문 목록을 추가합니다. 정기적으로 엔드포인트 발화를 [검토](luis-how-to-review-endoint-utt.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다.
 
 ## <a name="pattern-roles-data"></a>패턴 역할 데이터
-역할은 엔터티의 컨텍스트 차이입니다. 
+역할은 엔터티의 컨텍스트 차이입니다.
 
 ```JSON
 {
@@ -496,7 +497,7 @@ LUIS는 게시된 [끝점](luis-glossary.md#endpoint)의 데이터를 제공합�
 ```
 
 ## <a name="patternany-entity-data"></a>Pattern.any 엔터티 데이터
-Pattern.any 엔터티는 [패턴](luis-concept-patterns.md)의 템플릿 발화에서 사용되는 가변 길이 엔터티입니다. 
+Pattern.any 엔터티는 [패턴](luis-concept-patterns.md)의 템플릿 발화에서 사용되는 가변 길이 엔터티입니다.
 
 ```JSON
 {
@@ -567,13 +568,37 @@ Pattern.any 엔터티는 [패턴](luis-concept-patterns.md)의 템플릿 발화�
 ### <a name="key-phrase-extraction-entity-data"></a>키 구문 추출 엔터티 데이터
 키 구문 추출 엔터티는 [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)에서 제공하는 발화의 키 구문을 반환합니다.
 
-<!-- TBD: verify JSON-->
 ```JSON
-"keyPhrases": [
-    "places",
-    "beautiful views",
-    "favorite trail"
-]
+{
+  "query": "Is there a map of places with beautiful views on a favorite trail?",
+  "topScoringIntent": {
+    "intent": "GetJobInformation",
+    "score": 0.764368951
+  },
+  "intents": [
+    ...
+  ],
+  "entities": [
+    {
+      "entity": "beautiful views",
+      "type": "builtin.keyPhrase",
+      "startIndex": 30,
+      "endIndex": 44
+    },
+    {
+      "entity": "map of places",
+      "type": "builtin.keyPhrase",
+      "startIndex": 11,
+      "endIndex": 23
+    },
+    {
+      "entity": "favorite trail",
+      "type": "builtin.keyPhrase",
+      "startIndex": 51,
+      "endIndex": 64
+    }
+  ]
+}
 ```
 
 ## <a name="data-matching-multiple-entities"></a>여러 엔터티와 일치하는 데이터
@@ -581,7 +606,7 @@ LUIS는 발화에서 검색된 모든 엔터티를 반환합니다. 결과적으
 
 `book me 2 adult business tickets to paris tomorrow on air france`
 
-LUIS 끝점은 여러 엔터티에서 동일한 데이터를 검색할 수 있습니다. 
+LUIS 엔드포인트는 여러 엔터티에서 동일한 데이터를 검색할 수 있습니다.
 
 ```JSON
 {

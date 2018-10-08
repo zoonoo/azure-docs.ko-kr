@@ -4,16 +4,16 @@ description: Azure IoT Edge 모듈 및 구성 방법에 대해 알아보기
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 02/15/2018
+ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 76b0bab0f2eb34d7283d38eb0442f4f2f2083db3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5d80b6438569e74ee254d27e0061443a87efc6ce
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995384"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423394"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Azure IoT Edge 모듈 이해
 
@@ -79,6 +79,7 @@ IoT Edge 모듈은 다음 요구 사항이 충족되는 한 확장된 기간 동
 추가 오프라인 기능은 공개 미리 보기로 제공됩니다. 자세한 내용은 [IoT Edge 장치, 모듈 및 하위 장치용 확장 오프라인 기능 이해](offline-capabilities.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
+ - [IoT Edge 모듈을 개발하기 위한 요구 사항 및 도구 이해][lnk-mod-dev]
  - [Azure IoT Edge 런타임 및 해당 아키텍처 이해][lnk-runtime]
 
 <!-- Images -->
@@ -89,3 +90,4 @@ IoT Edge 모듈은 다음 요구 사항이 충족되는 한 확장된 기간 동
 [lnk-device-identity]: ../iot-hub/iot-hub-devguide-identity-registry.md
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-runtime]: iot-edge-runtime.md
+[lnk-mod-dev]: module-development.md

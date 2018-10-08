@@ -1,7 +1,7 @@
 ---
-title: Ruby 앱을 만들고 Linux의 App Service에 배포 | Microsoft Docs
-description: Linux의 App Service로 Ruby 앱을 만드는 방법을 알아봅니다.
-keywords: azure app service, linux, oss, ruby
+title: Ruby on Rails 앱을 만들고 Linux의 App Service에 배포 | Microsoft Docs
+description: Linux의 App Service로 Ruby on Rails 앱을 만드는 방법을 알아봅니다.
+keywords: azure app service, linux, oss, ruby, rails
 services: app-service
 documentationcenter: ''
 author: SyntaxC4
@@ -16,16 +16,19 @@ ms.topic: quickstart
 ms.date: 08/24/2018
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 729ed8ac4568f5f39fd62fadbc8d4d0e4595f7b8
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 04025998f78843b1cc69acd663681b9563a531bc
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885292"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431230"
 ---
-# <a name="create-a-ruby-app-in-app-service-on-linux"></a>Linux의 App Service에서 Ruby 앱 만들기
+# <a name="create-a-ruby-on-rails-app-in-app-service-on-linux"></a>Linux의 App Service에서 Ruby on Rails 앱 만들기
 
 [Linux의 Azure App Service](app-service-linux-intro.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 기본 [Ruby on Rails](https://rubyonrails.org/) 응용 프로그램을 만든 다음, Linux의 웹앱으로 Azure에 배포하는 방법을 보여 줍니다.
+
+> [!NOTE]
+> Ruby 개발 스택은 현재 Ruby on Rails만 지원합니다. Sinatra 같은 다른 플랫폼을 사용하려면 [Web App for Containers](https://docs.microsoft.com/azure/app-service/containers/)를 참조하세요.
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
@@ -48,9 +51,16 @@ git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 
 응용 프로그램을 로컬로 실행하여 Azure에 응용 프로그램을 배포할 때 표시되는 모양을 확인합니다. 터미널 창을 열고, `hello-world` 디렉터리로 변경하고, `rails server` 명령을 사용하여 서버를 시작합니다.
 
+첫 번째 단계는 필요한 Gem을 설치하는 것입니다. 샘플에 `Gemfile`이 포함되어 있으므로 설치할 Gem을 지정하지 않아도 됩니다. 이를 위해 번들러를 사용합니다.
+
+```
+bundle install
+```
+
+Gem이 설치되면 번들러를 사용하여 앱을 시작합니다.
+
 ```bash
-cd hello-world\bin
-rails server
+bundle exec rails server
 ```
 
 웹 브라우저를 사용하여 `http://localhost:3000`으로 이동한 후 앱을 로컬로 테스트합니다.

@@ -1,24 +1,27 @@
 ---
-title: 기술 자료, Node.js 빠른 시작 게시 - Azure Cognitive Services | Microsoft Docs
+title: '빠른 시작: Node.js 기술 자료 게시 - QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: QnA Maker용 Node.js로 기술 자료를 게시하는 방법입니다.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
-ms.openlocfilehash: fad3857774f2726e3db595ee6bc72d52a8ac46d9
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 00642661995e16bda9ad995e69545b28468779c5
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "43750553"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040941"
 ---
 # <a name="publish-a-knowledge-base-in-nodejs"></a>Node.js로 기술 자료 게시
 
 다음 코드는 [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) 메서드를 사용하여 기존 기술 자료를 게시합니다.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
 아직 기술 자료가 없는 경우 샘플을 만들어서 빠른 시작: [새 기술 자료 만들기](create-new-kb-nodejs.md)에서 사용하면 됩니다.
 

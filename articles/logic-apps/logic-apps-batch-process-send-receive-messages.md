@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: ee1df77dc18350a64082cb62c297a53700cad223
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: bd31de8f60fff5630141f708714083fe76220d11
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128748"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410156"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Azure Logic Apps에서 메시지 보내기, 받기 및 일괄 처리
 
@@ -60,7 +60,7 @@ ms.locfileid: "43128748"
    |----------|-------------|
    | **일괄 처리 모드** | - **인라인**: 일괄 처리 트리거 내부에 해제 조건을 정의하는 경우 <br>- **통합 계정**: [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)을 통해 다중 해제 조건 구성을 정의하는 경우. 통합 계정을 사용하면 별도의 논리 앱이 아닌 한 곳에서 이러한 구성을 모두 유지 관리할 수 있습니다. | 
    | **일괄 처리 이름** | 일괄 처리에 대한 이름이며(이 예의 경우 "TestBatch"), **인라인** 일괄 처리 모드에만 적용됩니다. |  
-   | **해제 조건** | **인라인** 일괄 처리 모드에만 적용되며, 각 일괄 처리를 처리하기 전에 충족되어야 하는 조건을 지정합니다. <p>- **메시지 수 기반**: 일괄 처리에서 수집할 메시지 수입니다(예: 10개 메시지). <br>- **크기 기반**: 최대 일괄 처리 크기(바이트)입니다(예: 100MB). <br>- **일정 기반**: 일괄 처리 해제 간의 간격 및 빈도입니다(예: 10분). 시작 날짜 및 시간도 지정할 수 있습니다. <br>- **모두 선택**: 지정된 모든 조건을 사용합니다. | 
+   | **해제 조건** | **인라인** 일괄 처리 모드에만 적용되며, 각 일괄 처리를 처리하기 전에 충족할 조건을 선택합니다. <p>- **메시지 수 기반**: 일괄 처리에서 수집할 메시지 수입니다(예: 10개 메시지). <br>- **크기 기반**: 최대 일괄 처리 크기(바이트)입니다(예: 100MB). <br>- **일정 기반**: 일괄 처리 해제 간의 간격 및 빈도입니다(예: 10분). 되풀이는 최소 60초 또는 1분입니다. 소수 자릿수 분 값은 1분으로 효과적으로 반올림됩니다. 시작 날짜 및 시간을 지정하려면 **고급 옵션 표시**를 선택합니다. <br>- **모두 선택**: 지정된 모든 조건을 사용합니다. | 
    ||| 
    
    다음 예에서는 모든 조건을 선택하고 있습니다.
@@ -107,9 +107,7 @@ ms.locfileid: "43128748"
 
    * **본문** 상자에서 동적 콘텐츠 목록이 표시되면 **메시지 ID** 필드를 선택합니다. 
 
-     이메일 보내기 작업에서 배열을 입력으로 허용하므로 Logic Apps 디자이너는 해당 작업에 "For each" 루프를 자동으로 추가합니다. 
-     이 루프는 일괄 처리에서 각 메시지에 대한 이메일을 보냅니다. 
-     따라서 일괄 처리 트리거가 10개 메시지로 설정되면 트리거가 발생할 때마다 10개의 이메일을 받게 됩니다.
+     Logic Apps 디자이너는 자동으로 이메일 보내기 작업에 "For each" 루프를 추가합니다. 해당 작업이 일괄 처리보다는 이전 작업의 출력을 컬렉션으로 처리하기 때문입니다. 
 
      ![“본문”에서 “메시지 ID”를 선택합니다.](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details-for-each.png)
 
@@ -216,6 +214,7 @@ ms.locfileid: "43128748"
 
 ## <a name="next-steps"></a>다음 단계
 
+* [EDI 메시지 일괄 처리 및 보내기](../logic-apps/logic-apps-scenario-edi-send-batch-messages.md)
 * [JSON을 사용하여 논리 앱 정의 빌드](../logic-apps/logic-apps-author-definitions.md)
 * [Azure Logic Apps 및 함수를 사용하여 Visual Studio에서 서버를 사용하지 않는 앱 빌드](../logic-apps/logic-apps-serverless-get-started-vs.md)
 * [논리 앱에 대한 예외 처리 및 오류 로깅](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)

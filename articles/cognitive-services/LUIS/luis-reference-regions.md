@@ -1,21 +1,21 @@
 ---
-title: LUIS(Language Understanding) 지역 및 엔드포인트 - Azure - Cognitive Services LUIS | Microsoft Docs
-titleSuffix: Azure
+title: 영역 및 엔드포인트 게시 - LUIS
+titleSuffix: Azure Cognitive Services
 description: LUIS 앱을 게시하는 지역은 Azure Portal에서 Azure LUIS 엔드포인트 키를 만들 때 Azure Portal에서 지정한 지역 또는 위치에 해당합니다. 앱을 게시하면 LUIS가 키와 연결된 지역의 엔드포인트 URL을 자동으로 생성합니다. LUIS 앱을 둘 이상의 지역에 게시하려면 지역당 하나 이상의 키가 필요합니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 08/23/2018
+ms.date: 09/11/2018
 ms.author: diberry
-ms.openlocfilehash: 7812ce37cb22c8774c785f5f645b8fef90b02a3e
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 205a17a985986aab8039afe824e7e872a9885169
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42815506"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039414"
 ---
 # <a name="regions-and-keys"></a>지역 및 키
 
@@ -30,6 +30,11 @@ LUIS 앱을 게시하는 지역은 Azure Portal에서 Azure LUIS 엔드포인트
 |[au.luis.ai][au.luis.ai]|오스트레일리아|
 |[eu.luis.ai][eu.luis.ai]|유럽|
 
+## <a name="regions-and-azure-resources"></a>지역 및 Azure 리소스
+앱은 LUIS 포털에 추가된 LUIS 리소스와 관련된 모든 지역에 게시됩니다. 예를 들어, [www.luis.ai][www.luis.ai]에서 만든 앱의 경우 **westus**에서 LUIS 리소스를 만든 후 앱에 리소스로 추가하면 이 앱은 해당 지역에 게시됩니다. 
+
+## <a name="public-apps"></a>공용 앱
+공용 앱은 모든 지역에 게시되므로 지역 기반 LUIS 리소스 키를 가진 사용자가 해당 리소스 키와 연결된 지역에서 앱에 액세스할 수 있습니다.
 
 ## <a name="publishing-regions"></a>게시 지역
 
@@ -37,20 +42,20 @@ https://www.luis.ai에서 만들어진 LUIS 앱은 [유럽](#publishing-to-europ
 
 작성 지역 앱은 해당 게시 지역에만 게시할 수 있습니다. 현재 앱이 잘못된 작성 지역에 있는 경우 앱을 내보내고 게시 지역의 올바른 작성 지역으로 가져옵니다. 
 
- 글로벌 지역 | 작성 지역 | 게시 및 쿼리 지역   |   LUIS 웹 사이트 | 엔드포인트 URL 형식   |
+ 글로벌 지역 | 작성 지역<br>`API region name` | 게시 및 쿼리 지역<br>`API region name`   |   LUIS 웹 사이트 | 엔드포인트 URL 형식   |
 |-----|------|------|------|------|
-| 아시아 | 미국 서부| 동아시아     | [www.luis.ai][www.luis.ai] |  https://eastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| 아시아 | 미국 서부| 동남아시아     | [www.luis.ai][www.luis.ai] |   https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| *[오스트레일리아](#publishing-to-australia) | 오스트레일리아 동부| 오스트레일리아 동부     |   [au.luis.ai][au.luis.ai] | https://australiaeast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| *[유럽](#publishing-to-europe)| 서유럽| 북유럽     | [eu.luis.ai][eu.luis.ai]|  https://northeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
-| *[유럽](#publishing-to-europe) | 서유럽| 서유럽     | [eu.luis.ai][eu.luis.ai]|  https://westeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
-| 북아메리카 | 미국 서부 | 미국 동부      |[www.luis.ai][www.luis.ai] |   https://eastus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| 북아메리카 | 미국 서부 | 미국 동부 2     | [www.luis.ai][www.luis.ai] |  https://eastus2.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| 북아메리카 | 미국 서부 | 미국 중남부     | [www.luis.ai][www.luis.ai] |  https://southcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
-| 북아메리카 | 미국 서부 | 미국 중서부     |[www.luis.ai][www.luis.ai] |  https://westcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| 북아메리카 | 미국 서부 | 미국 서부 |  [www.luis.ai][www.luis.ai] | https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY  |
-| 북아메리카 | 미국 서부 | 미국 서부 2    | [www.luis.ai][www.luis.ai] |  https://westus2.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY  |
-| 남미 | 미국 서부 | 브라질 남부     | [www.luis.ai][www.luis.ai] |  https://brazilsouth.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| 아시아 | 미국 서부<br>`westus`| 동아시아<br>`eastasia`     | [www.luis.ai][www.luis.ai] |  https://eastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| 아시아 | 미국 서부<br>`westus`| 동남아시아<br>`souteastasia`     | [www.luis.ai][www.luis.ai] |   https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| *[오스트레일리아](#publishing-to-australia) | 오스트레일리아 동부<br>`australiaeast`| 오스트레일리아 동부<br>`australiaeast`     |   [au.luis.ai][au.luis.ai] | https://australiaeast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| *[유럽](#publishing-to-europe)| 서유럽<br>`westeurope`| 북유럽<br>`northeurope`     | [eu.luis.ai][eu.luis.ai]|  https://northeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
+| *[유럽](#publishing-to-europe) | 서유럽<br>`westeurope`| 서유럽<br>`westeurope`     | [eu.luis.ai][eu.luis.ai]|  https://westeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
+| 북아메리카 | 미국 서부<br>`westus` | 미국 동부<br>`eastus`      |[www.luis.ai][www.luis.ai] |   https://eastus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| 북아메리카 | 미국 서부<br>`westus` | 미국 동부 2<br>`eastus2`     | [www.luis.ai][www.luis.ai] |  https://eastus2.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| 북아메리카 | 미국 서부<br>`westus` | 미국 중남부<br>`southcentralus`     | [www.luis.ai][www.luis.ai] |  https://southcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
+| 북아메리카 | 미국 서부<br>`westus` | 미국 중서부<br>`westcentralus`     |[www.luis.ai][www.luis.ai] |  https://westcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| 북아메리카 | 미국 서부<br>`westus` | 미국 서부<br>`westus`  |  [www.luis.ai][www.luis.ai] | https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY  |
+| 북아메리카 | 미국 서부<br>`westus` | 미국 서부 2<br>`westus2`    | [www.luis.ai][www.luis.ai] |  https://westus2.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY  |
+| 남미 | 미국 서부<br>`westus` | 브라질 남부<br>`brazilsouth`     | [www.luis.ai][www.luis.ai] |  https://brazilsouth.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 
 ## <a name="publishing-to-europe"></a>유럽에 게시
 

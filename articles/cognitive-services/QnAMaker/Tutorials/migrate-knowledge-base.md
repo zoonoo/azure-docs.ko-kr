@@ -1,21 +1,21 @@
 ---
-title: 기술 자료를 가져오는 방법 - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
+title: 미리 보기 기술 자료 마이그레이션 - QnA Maker
+titleSuffix: Azure Cognitive Services
 description: 기술 자료를 가져오는 방법
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: ce8f98f9bdb37d5f326e942fe5b5e815e5272c56
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: 0cb8a185407c7b180a170f1f9b9d76aa28a24de5
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35383160"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031631"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>내보내기-가져오기를 사용하여 기술 자료 마이그레이션
 QnA Maker는 2018년 5월 7일에 \\\build\ 컨퍼런스에서 일반 공급을 발표했습니다. QnA Maker GA에는 Azure에 빌드된 새로운 아키텍처가 있습니다. QnA Maker 무료 미리 보기로 만들어진 기술 자료는 QnA Maker GA로 마이그레이션해야 합니다. QnA Maker 미리 보기는 2018년 11월에 지원 중단될 예정입니다. QnA Maker GA의 변경 내용에 대한 자세한 내용은 QnA Maker GA 알림 [블로그 게시물](https://aka.ms/qnamakerga-blog)을 참조하세요.
@@ -63,7 +63,7 @@ QnA Maker는 2018년 5월 7일에 \\\build\ 컨퍼런스에서 일반 공급을 
 
 9. 테스트 패널을 사용하여 새 기술 자료를 **테스트**합니다. [기술 자료 테스트](../How-To/test-knowledge-base.md) 방법을 알아보세요.
 10. 기술 자료를 **게시**합니다. [기술 자료 게시](../How-To/publish-knowledge-base.md) 방법을 알아보세요.
-11. 응용 프로그램 또는 봇 코드에서 아래 끝점을 사용합니다. 여기에서 [QnA 봇을 만드는](../Tutorials/create-qna-bot.md) 방법을 참조하세요.
+11. 응용 프로그램 또는 봇 코드에서 아래 엔드포인트를 사용합니다. 여기에서 [QnA 봇을 만드는](../Tutorials/create-qna-bot.md) 방법을 참조하세요.
 
     ![QnA Maker 값](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
 

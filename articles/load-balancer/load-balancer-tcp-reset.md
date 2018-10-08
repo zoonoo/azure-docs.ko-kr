@@ -1,5 +1,5 @@
 ---
-title: 유휴 시간 초과 시 TCP 재설정이 포함된 Load Balancer | Microsoft Docs
+title: 유휴 시 Load Balancer TCP 재설정 | Microsoft Docs
 description: 유휴 시간 초과 시 양방향 TCP RST 패킷이 포함된 Load Balancer
 services: load-balancer
 documentationcenter: na
@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/16/2018
+ms.date: 09/26/2018
 ms.author: kumud
-ms.openlocfilehash: 6ec8754e9a6e1afb9dcb400215570d08ebd4342b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0b533a48e94db880f23d42decc5c3fb39a27e5ac
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973731"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395647"
 ---
-# <a name="load-balancer-with-tcp-reset-on-idle-timeout-public-preview"></a>유휴 시간 초과 시 TCP 재설정이 포함된 Load Balancer(공개 미리 보기)
+# <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>유휴 시 TCP 재설정이 포함된 Load Balancer(공개 미리 보기)
 
 [표준 Load Balancer](load-balancer-standard-overview.md)를 사용하면 구성 가능한 각 유휴 시간 초과에 대한 양방향 TCP 재설정(TCP RST 패킷)을 포함하여 시나리오의 응용 프로그램 동작을 보다 예측 가능하게 만들 수 있습니다.  Load Balancer의 기본 동작은 흐름의 유휴 시간이 초과되면 흐름을 자동으로 끊는 것입니다.
+
+![Load Balancer TCP 재설정](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
 >[!NOTE] 
 >유휴 시간 초과 시 TCP 재설정 기능이 포함된 Load Balancer는 현재 공개 미리 보기로, 제한된 [지역](#regions)에서 사용할 수 있습니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
@@ -73,6 +75,8 @@ API 버전 2018-07-01을 사용하면 개별 규칙을 기반으로 유휴 시�
 
 | 지역 |
 |---|
+| 동남아시아 |
+| 서유럽 |
 | 미국 동부 2 |
 | 영국 북부 |
 | 미국 서부 |
@@ -87,4 +91,4 @@ API 버전 2018-07-01을 사용하면 개별 규칙을 기반으로 유휴 시�
 ## <a name="next-steps"></a>다음 단계
 
 - [표준 Load Balancer](load-balancer-standard-overview.md)에 대해 알아봅니다.
-- [아웃바운드 규칙](https://aka.ms/lboutboundrules)에 대해 알아봅니다.
+- [아웃바운드 규칙](load-balancer-outbound-rules-overview.md)에 대해 알아봅니다.

@@ -8,16 +8,21 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 512f251a91a035d3d48566c414076b1a5b6d8805
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 961f82cd4970abfdd11a30b2847a14f8ff1880b0
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37907103"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47454468"
 ---
 저장소 최적화 VM 크기는 높은 디스크 처리량 및 IO를 제공하고 빅 데이터, SQL 및 NoSQL 데이터베이스에 적합합니다. 이 문서에서는 이 그룹화에서 각 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다. 
 
-Ls 시리즈는 [Intel® Xeon® 프로세서 E5 v3 제품군](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html)을 사용하여 최대 32개의 vCPU를 제공합니다. Ls 시리즈는 G/GS 시리즈와 CPU 성능이 동일하며 vCPU당 8GiB 메모리가 제공됩니다.  
+Ls 시리즈는 [Intel® Xeon® 프로세서 E5 v3 제품군](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html)을 사용하여 최대 32개의 vCPU를 제공합니다. Ls 시리즈는 G/GS 시리즈와 CPU 성능이 동일하며 vCPU당 8GiB 메모리가 제공됩니다.  Ls 시리즈 VM은 대기 시간이 낮고, 처리량이 높고, 로컬 디스크 저장소가 커야 하는 응용 프로그램에 이상적입니다. 
+
+사용 사례에는 Cassandra, MongoDB, Cloudera 및 Redis와 같은 NoSQL 데이터베이스, 데이터 웨어하우스, 대규모 트랜잭션 데이터가 포함됩니다.
+
+> [!NOTE]
+> Ls 시리즈는 영구 데이터 디스크를 사용하지 않고 VM 머신에 연결된 임시 디스크를 사용하는 데 최적화됩니다. 임시 디스크의 처리량 및 IOPS가 높으면 단일 VM의 오류가 발생한 경우 지속성을 달성하기 위해 여러 VM 간에 데이터를 복제하는 Apache Cassandra 및 MongoDB와 같은 NoSQL 저장소에 Ls 시리즈를 사용하는 것이 이상적입니다. Ls 시리즈는 영구 데이터 디스크에서 달성할 수 있는 IOPS를 증가시키기 위해 로컬 캐시를 생성하도록 지원하지 않습니다.
 
 ## <a name="ls-series"></a>Ls 시리즈
 

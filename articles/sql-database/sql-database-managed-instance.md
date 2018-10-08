@@ -2,25 +2,26 @@
 title: Azure SQL Database Managed Instance 개요 | Microsoft Azure
 description: 이 항목에서는 Azure SQL Database Managed Instance에 대해 설명하고 작동 원리 및 Azure SQL Database의 단일 데이터베이스와 다른 점을 설명합니다.
 services: sql-database
-author: bonova
-ms.reviewer: carlrab
-manager: craigg
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: DBs & servers
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/30/2018
+author: bonova
 ms.author: bonova
-ms.openlocfilehash: 2e1fd7c87931f804433708b6ac30a5960e6006ae
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/26/2018
+ms.openlocfilehash: 626dd362248027831c78d1505662ca12d2ff334d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287666"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392825"
 ---
-# <a name="what-is-a-managed-instance-preview"></a>Managed Instance(미리 보기)란?
+# <a name="what-is-a-managed-instance"></a>Managed Instance란?
 
-Azure SQL Database Managed Instance(미리 보기)는 Azure SQL Database의 새로운 배포 모델입니다. 최신 SQL Server 온-프레미스(Enterprise Edition) 데이터베이스 엔진과 거의 100% 호환되며, 일반적인 보안 문제를 해결하는 원시 [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md) 구현과 온-프레미스 SQL Server 고객이 편리하게 사용할 수 있는 [비즈니스 모델](https://azure.microsoft.com/pricing/details/sql-database/)을 제공합니다. Managed Instance를 사용하면 기존 SQL Server 고객은 응용 프로그램 및 데이터베이스 변경을 최소화하고 온-프레미스 응용 프로그램을 클라우드로 이동할 수 있습니다. 이와 동시에 Managed Instance는 모든 PaaS 기능(자동 패치 및 버전 업데이트, [자동화된 백업](sql-database-automated-backups.md), [고가용성](sql-database-high-availability.md))을 유지하므로 관리 오버헤드와 TCO를 크게 줄일 수 있습니다.
+Azure SQL Database Managed Instance는 Azure SQL Database의 새로운 배포 모델입니다. 최신 SQL Server 온-프레미스(Enterprise Edition) 데이터베이스 엔진과 거의 100% 호환되며, 일반적인 보안 문제를 해결하는 원시 [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md) 구현과 온-프레미스 SQL Server 고객이 편리하게 사용할 수 있는 [비즈니스 모델](https://azure.microsoft.com/pricing/details/sql-database/)을 제공합니다. Managed Instance를 사용하면 기존 SQL Server 고객은 응용 프로그램 및 데이터베이스 변경을 최소화하고 온-프레미스 응용 프로그램을 클라우드로 이동할 수 있습니다. 이와 동시에 Managed Instance는 모든 PaaS 기능(자동 패치 및 버전 업데이트, [자동화된 백업](sql-database-automated-backups.md), [고가용성](sql-database-high-availability.md))을 유지하므로 관리 오버헤드와 TCO를 크게 줄일 수 있습니다.
 
 > [!IMPORTANT]
 > 현재 Managed Instance를 사용할 수 있는 지역 목록은 [Azure SQL Database Managed Instance를 사용해 완벽히 관리되는 서비스로 데이터베이스 마이그레이션](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/)을 참조합니다.
@@ -61,7 +62,7 @@ Azure SQL Database Managed Instance는 Azure SQL Database와 SQL Server 데이�
 ||4세대|5세대|
 |----|------|-----|
 |하드웨어|Intel E5-2673 v3(Haswell) 2.4 GHz 프로세서, 연결형 SSD, vCore = 1PP(물리적 코어)|Intel E5-2673 v4(Broadwell) 2.3 GHz 프로세서, 고속 eNVM SSD, vCore = 1LP(하이퍼스레드)|
-|성능 수준|8, 16, 24개 vCore|8, 16, 24, 32, 40, 64, 80개 vCore|
+|Compute 크기|8, 16, 24개 vCore|8, 16, 24, 32, 40, 64, 80개 vCore|
 |메모리|vCore당 7GB|vCore당 5.5GB|
 ||||
 
@@ -69,7 +70,7 @@ Azure SQL Database Managed Instance는 Azure SQL Database와 SQL Server 데이�
 
 Managed Instance는 두 개의 서비스 계층에서 사용할 수 있습니다.
 - **범용**: 일반적인 성능 및 IO 대기 시간 요구 사항이 있는 응용 프로그램용으로 설계됩니다.
-- **중요 비즈니스용**: IO 대기 시간 요구 사항이 낮고 기본 유지 관리 작업으로 워크로드에 미치는 영향이 최소화된 응용 프로그램용으로 설계되었습니다.
+- **중요 비즈니스용(미리 보기)**: IO 대기 시간 요구 사항이 낮고 기본 유지 관리 작업으로 워크로드에 미치는 영향이 최소화된 응용 프로그램용으로 설계되었습니다.
 
 두 서비스 계층은 모두 99.99% 가용성을 보장하며 저장소 크기와 계산 용량을 독립적으로 선택할 수 있습니다. Azure SQL Database의 고가용성 아키텍처에 대한 자세한 내용은 [고가용성 및 Azure SQL Database](sql-database-high-availability.md)를 참조하세요.
 
@@ -109,7 +110,7 @@ Managed Instance는 두 개의 서비스 계층에서 사용할 수 있습니다
 
 자세한 내용은 Azure SQL Database의 [표준/범용 가용성 및 아키텍처](sql-database-high-availability.md#standardgeneral-purpose-availability)를 참조하세요.
 
-### <a name="business-critical-service-tier"></a>중요 비즈니스 서비스 계층
+### <a name="business-critical-service-tier-preview"></a>중요 비즈니스용 서비스 계층(미리 보기)
 
 중요 비즈니스용 서비스 계층은 IO 요구 사항이 높은 응용 프로그램용으로 빌드됩니다. 여러 개의 격리된 Always On 복제본을 사용하여 실패에 대한 최고 수준의 복원력을 제공합니다. 
 
@@ -141,6 +142,9 @@ Managed Instance는 두 개의 서비스 계층에서 사용할 수 있습니다
 
 자세한 내용은 Azure SQL Database의 [프리미엄/중요 비즈니스용 가용성 및 아키텍처](sql-database-high-availability.md#premiumbusiness-critical-availability)를 참조하세요.
 
+> [!IMPORTANT]
+> **중요 비즈니스** 서비스 계층은 미리 보기 상태입니다.
+
 ## <a name="advanced-security-and-compliance"></a>고급 보안 및 규정 준수 
 
 Azure SQL Database Managed Instance는 Azure 클라우드와 SQL Server 데이터베이스 엔진에서 제공하는 고급 보안 기능을 결합합니다. 
@@ -171,7 +175,7 @@ Azure SQL Database는 데이터를 보호하는 데 사용할 수 있는 일단�
 - [위협 탐지](sql-database-managed-instance-threat-detection.md)는 데이터베이스를 액세스하거나 악용하려고 하는 비정상적이고 잠재적으로 해로운 시도를 탐지하는 서비스에 기본 제공되는 보안 인텔리전스 계층을 추가로 제공하여 [Managed Instance 감사](sql-database-managed-instance-auditing.md)를 보완합니다. 의심스러운 활동, 잠재적 취약성 및 SQL 삽입 공격은 물론 비정상적인 데이터베이스 액세스 패턴에 대해 경고합니다. 위협 감지 경고는 [Azure Security Center](https://azure.microsoft.com/services/security-center/)에서 볼 수 있으며 의심스러운 활동에 대한 세부 정보를 제공하고 위협을 조사하고 완화하는 방법에 대한 조치를 권장합니다.  
 - [동적 데이터 마스킹](/sql/relational-databases/security/dynamic-data-masking)은 권한이 없는 사용자에게 중요한 데이터를 마스킹하여 데이터 노출을 제한합니다. 동적 데이터 마스킹을 수행하면 응용 프로그램 계층에 대한 영향을 최소화하면서 표시할 중요한 데이터의 양을 지정할 수 있도록 하여 중요한 데이터에 대한 무단 액세스를 방지할 수 있습니다. 동적 데이터 마스킹은 지정된 데이터베이스 필드에 대한 쿼리의 결과 집합에서 중요한 데이터를 숨기는 정책 기반 보안 기능입니다. 이때 데이터베이스의 데이터 자체는 변경되지 않습니다. 
 - [행 수준 보안](/sql/relational-databases/security/row-level-security)을 통해 쿼리를 실행하는 사용자의 특성(예: 그룹 멤버 자격 또는 실행 컨텍스트)을 기반으로 하여 데이터베이스 테이블의 행에 대한 액세스를 제어할 수 있습니다. RLS(행 수준 보안)는 응용 프로그램의 보안 설계 및 코딩을 간소화합니다. RLS를 사용하면 데이터 행 액세스에 대한 제한을 구현할 수 있습니다. 예를 들어 작업자가 소속 부서와 관련된 데이터 행에만 액세스하게 하거나 데이터 액세스를 관련 데이터로 제한할 수 있습니다. 
-- [TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)는 Azure SQL Managed Instance 데이터 파일을 암호화하고, 이를 미사용 데이터 암호화라고 합니다. TDE는 데이터 및 로그 파일에 대한 실시간 I/O 암호화 및 암호 해독을 수행합니다. 암호화에는 복구 중에 사용 가능하도록 데이터베이스 부트 레코드에 저장된 DEK(데이터베이스 암호화 키)가 사용됩니다. 투명한 데이터 암호화를 사용하여 Managed Instance의 모든 데이터베이스를 보호할 수 있습니다. TDE는 저장소 미디어의 도용으로부터 보호하기 위해 많은 규정 준수 표준에 필요한 정지된 암호화 기술로써 SQL에서 입증되었습니다. 공개 미리 보기 기간에는 자동 키 관리 모델이 지원됩니다(PaaS 플랫폼에서 수행됨). 
+- [TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)는 Azure SQL Database Managed Instance 데이터 파일을 암호화하고, 이를 미사용 데이터 암호화라고 합니다. TDE는 데이터 및 로그 파일에 대한 실시간 I/O 암호화 및 암호 해독을 수행합니다. 암호화에는 복구 중에 사용 가능하도록 데이터베이스 부트 레코드에 저장된 DEK(데이터베이스 암호화 키)가 사용됩니다. 투명한 데이터 암호화를 사용하여 Managed Instance의 모든 데이터베이스를 보호할 수 있습니다. TDE는 저장소 미디어의 도용으로부터 보호하기 위해 많은 규정 준수 표준에 필요한 정지된 암호화 기술로써 SQL에서 입증되었습니다. 공개 미리 보기 기간에는 자동 키 관리 모델이 지원됩니다(PaaS 플랫폼에서 수행됨). 
 
 암호화된 데이터베이스를 SQL Managed Instance로 마이그레이션하는 작업은 Azure DMS(Database Migration Service) 또는 네이티브 복원을 통해 지원됩니다. 네이티브 복원을 사용하여 암호화된 데이터베이스를 마이그레이션하려면 SQL Server 온-프레미스 또는 SQL Server VM에서 Managed Instance로 기존 TDE 인증서를 마이그레이션해야 합니다. 마이그레이션 옵션에 대한 자세한 내용은 [SQL Server 인스턴스를 Azure SQL Database Managed Instance로 마이그레이션](sql-database-managed-instance-migrate.md)을 참조하세요.
 
@@ -200,9 +204,12 @@ Managed Instance는 온-프레미스 또는 IaaS 데이터베이스 구현에서
 ### <a name="backup-and-restore"></a>Backup 및 복원  
 
 마이그레이션 방식에서는 Azure blob 저장소에 SQL을 백업합니다. Azure 저장소 Blob에 저장된 백업은 [T-SQL RESTORE 명령](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current)을 사용하여 Managed Instance에 직접 복원할 수 있습니다. 
-  - Wide World Importers 표준 데이터베이스 백업 파일을 복원하는 방법을 보여 주는 자습서는 [Managed Instance에 백업 파일 복원](sql-database-managed-instance-restore-from-backup-tutorial.md)을 참조하세요. 이 자습서에서는 백업 파일을 Azure Blob 저장소에 업로드하고 SAS(보안 공유 액세스 서명) 키를 사용하여 보호해야 한다는 것을 보여 줍니다.
+  - Wide World Importers 표준 데이터베이스 백업 파일을 복원하는 방법을 보여주는 빠른 시작은 [Managed Instance에 백업 파일 복원](sql-database-managed-instance-get-started-restore.md)을 참조하세요. 이 빠른 시작에서는 백업 파일을 Azure Blob 저장소에 업로드하고 SAS(보안 공유 액세스 서명) 키를 사용하여 보호해야 한다는 것을 보여줍니다.
   - URL에서 복원하는 방법에 대한 자세한 내용은 [URL에서 네이티브 복원](sql-database-managed-instance-migrate.md#native-restore-from-url)을 참조하세요.
-  
+
+> [!IMPORTANT]
+> Managed Instance에서 백업은 다른 Managed Instance로 복원될 수만 있습니다. 온-프레미스 SQL Server 또는 Azure SQL Database 논리 서버 단일 또는 풀링된 데이터베이스에 복원할 수 없습니다.
+
 ### <a name="data-migration-service"></a>데이터 마이그레이션 서비스
 
 Azure Database Migration Service는 가동 중지 시간을 최소화하면서 여러 데이터베이스 소스에서 Azure 데이터 플랫폼으로 원활하게 마이그레이션할 수 있도록 설계된 완벽하게 관리되는 서비스입니다. 이 서비스는 기존 타사 및 SQL Server 데이터베이스를 Azure로 이동하는 데 필요한 작업을 간소화합니다. 공개 미리 보기의 배포 옵션으로는 Azure VM의 Azure SQL Database, Managed Instance, SQL Server가 있습니다. [DMS를 사용하여 온-프레미스 데이터베이스를 Managed Instance로 마이그레이션하는 방법](https://aka.ms/migratetoMIusingDMS)을 참조하세요.
@@ -226,11 +233,11 @@ Managed Instance는 클라우드에서 항상 최신 상태로 유지되는 이�
 - Managed Instance는 전체 실제 경로 지정을 허용하지 않으므로 해당하는 모든 시나리오를 약간씩 다르게 지원해야 합니다. RESTORE DB는 WITH MOVE를 지원하지 않고, CREATE DB는 실제 경로를 허용하지 않고, BULK INSERT는 Azure Blob에서만 작동합니다. 
 - Managed Instance는 Windows 인증의 클라우드 대안으로 [Azure AD 인증](sql-database-aad-authentication.md)을 지원합니다. 
 - Managed Instance는 메모리 내 OLTP 개체가 포함된 데이터베이스의 XTP 파일 그룹 및 파일을 자동으로 관리합니다.
-- Managed Instance는 SSIS(SQL Server Integration Services)를 지원하며 SSIS 패키지를 저장하는 SSIS 카탈로그(SSISDB)를 호스트할 수 있지만, ADF(Azure Data Factory)의 관리되는 Azure-SSIS IR(Integration Runtime)에서 실행됩니다. [ADF에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요. SQL Database 및 Managed Instance에서 SSIS 기능을 비교하려면 [SQL Database 및 Managed Instance 비교(미리 보기)](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview).
+- Managed Instance는 SSIS(SQL Server Integration Services)를 지원하며 SSIS 패키지를 저장하는 SSIS 카탈로그(SSISDB)를 호스트할 수 있지만, ADF(Azure Data Factory)의 관리되는 Azure-SSIS IR(Integration Runtime)에서 실행됩니다. [ADF에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요. SQL Database 및 Managed Instance의 SSIS 기능을 비교하려면 [SQL Database 논리 서버 및 Managed Instance 비교](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance)를 참조하세요.
 
 ### <a name="managed-instance-administration-features"></a>Managed Instance 관리 기능  
 
-Managed Instance는 시스템 관리자가 비즈니스에 가장 중요한 문제에만 집중할 수 있게 해줍니다. 많은 시스템 관리자/DBA 활동을 수행할 필요가 없거나 아주 간단합니다. OS/RDBMS 설치 및 패치, 동적 인스턴스 크기 조정 및 구성, 백업, 데이터베이스 복제(시스템 데이터베이스 포함), 고가용성 구성, 상태 및 성능 모니터링 데이터 스트림 구성 등을 예로 들 수 있습니다. 
+Managed Instance는 시스템 관리자가 비즈니스에 가장 중요한 문제에만 집중할 수 있게 해줍니다. 많은 시스템 관리자/DBA 활동을 수행할 필요가 없거나 아주 간단합니다. OS/RDBMS 설치 및 패치, 동적 인스턴스 크기 조정 및 구성, 백업, [데이터베이스 복제](replication-with-sql-database-managed-instance.md)(시스템 데이터베이스 포함), 고가용성 구성, 상태 및 성능 모니터링 데이터 스트림 구성 등을 예로 들 수 있습니다. 
 
 > [!IMPORTANT]
 > 지원되는 기능, 부분적으로 지원되는 기능 및 지원되지 않는 기능 목록은 [SQL Database 기능](sql-database-features.md)을 참조하세요. Managed Instance와 SQL Server의 T-SQL 차이점 목록은 SQL Server의 [Managed Instance T-SQL 차이점](sql-database-managed-instance-transact-sql-information.md)을 참조하세요.
@@ -251,6 +258,6 @@ Managed Instance는 시스템 관리자가 비즈니스에 가장 중요한 문�
 - 첫 번째 Managed Instance를 만드는 방법을 알아보려면 [빠른 시작 가이드](sql-database-managed-instance-get-started.md)를 참조하세요.
 - 기능 및 비교 목록은 [SQL 일반 기능](sql-database-features.md)을 참조하세요.
 - VNet 구성에 대한 자세한 내용은 [Managed Instance VNet 구성](sql-database-managed-instance-vnet-configuration.md)을 참조하세요.
-- 백업 파일에서 Managed Instance를 만들고 데이터베이스를 복원하는 방법에 대한 자습서는 [Managed Instance 만들기](sql-database-managed-instance-create-tutorial-portal.md)를 참조하세요.
+- 백업 파일에서 Managed Instance를 만들고 데이터베이스를 복원하는 방법에 대한 빠른 시작은 [Managed Instance 만들기](sql-database-managed-instance-get-started.md)를 참조하세요.
 - Azure DMS(Database Migration Service)를 사용하여 마이그레이션하는 방법에 대한 자습서는 [DMS를 사용하여 Managed Instance 마이그레이션](../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.
 - 가격 정보는 [SQL Database Managed Instance 가격](https://azure.microsoft.com/pricing/details/sql-database/managed/)을 참조하세요.

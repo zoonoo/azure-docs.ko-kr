@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 049ae78efee0b5ebdf6bfbe207f8c85d94e9238f
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 631933647e27428349fc1efeb17f62f4614f7f64
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050071"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423309"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Linux의 Azure App Service에 대한 SSH 지원
 
@@ -122,10 +122,10 @@ az extension add --name webapp
 az extension update --name webapp
 ```
 
-[az webapp 원격 연결 만들기](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) 명령을 사용하여 앱에 원격 연결을 엽니다. 앱에 대한 _\<구독\_ID>_, _\<그룹\_이름>_ 및 \_<앱\_이름>_을 지정하고, 로컬 포트 번호로 \<포트>를 바꿉니다.
+[az webapp 원격 연결 만들기](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) 명령을 사용하여 앱에 원격 연결을 엽니다. _\<구독\_ID>_, _\<그룹\_이름>_ 및 앱에 대한_\_<앱\_이름>을 지정합니다.
 
 ```azurecli-interactive
-az webapp remote-connection create --subscription <subscription_id> --resource-group <group_name> -n <app_name> -p <port> &
+az webapp remote-connection create --subscription <subscription_id> --resource-group <group_name> -n <app_name> &
 ```
 
 > [!TIP]

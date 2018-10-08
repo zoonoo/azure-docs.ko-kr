@@ -4,16 +4,16 @@ description: 프록시 서버를 통해 통신하도록 Azure IoT Edge 런타임
 author: kgremban
 manager: ''
 ms.author: kgremban
-ms.date: 09/13/2018
+ms.date: 09/24/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cf8f6197c65b0169e2bc61f46ab4a22f212512a6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6e6a1d2f758cabca41ac405a01de1f0d8bfd0a7b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996726"
+ms.locfileid: "47037459"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>프록시 서버를 통해 통신하도록 IoT Edge 장치 구성
 
@@ -21,9 +21,25 @@ IoT Edge 장치는 HTTPS 요청을 전송하여 IoT Hub와 통신합니다. 장�
 
 프록시 서버를 사용하도록 IoT Edge 장치를 구성할 때는 다음과 같은 기본적인 단계를 수행합니다. 
 
-1. 장치의 Docker 디먼과 IoT Edge 디먼이 프록시 서버를 사용하도록 구성합니다.
-2. 장치의 config.yaml 파일에서 edgeAgent 속성을 구성합니다.
-3. 배포 매니페스트에서 IoT Edge 런타임 및 기타 IoT Edge 모듈용 환경 변수를 설정합니다. 
+1. IoT Edge 런타임을 장치에 설치합니다. 
+2. 장치의 Docker 디먼과 IoT Edge 디먼이 프록시 서버를 사용하도록 구성합니다.
+3. 장치의 config.yaml 파일에서 edgeAgent 속성을 구성합니다.
+4. 배포 매니페스트에서 IoT Edge 런타임 및 기타 IoT Edge 모듈용 환경 변수를 설정합니다. 
+
+## <a name="install-the-runtime"></a>런타임 설치
+
+Linux 장치에서 IoT Edge 런타임을 설치 중인 경우 설치 패키지에 액세스하기 위해 프록시 서버로 이동하도록 패키지 관리자를 구성합니다. 예를 들어 [http-proxy를 사용하도록 apt-get을 설정](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy)합니다. 패키지 관리자를 구성하면 일반적으로 [Linux에서 Azure IoT Edge 런타임 설치(ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) 또는 [Linux에서 Azure IoT Edge 런타임 설치(x64)](how-to-install-iot-edge-linux.md)의 지침을 따릅니다. 
+
+Windows 장치에서 IoT Edge 런타임을 설치 중인 경우 설치 패키지에 액세스하기 위해 프록시 서버로 이동해야 합니다. Windows 설정에서 프록시 정보를 구성하거나 설치 스크립트에 직접 프록시 정보를 포함할 수 있습니다. 다음 PowerShell 스크립트는 `-proxy` 인수를 사용하여 Windows를 설치하는 예제입니다
+
+```powershell
+. {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; `
+Install-SecurityDaemon -Manual -ContainerOs Windows
+```
+
+자세한 내용 및 설치 옵션은 [Windows 컨테이너에서 사용하기 위해 Windows에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-windows-with-windows.md) 또는 [Linux 컨테이너에서 사용하기 위해 Windows에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-windows-with-linux.md)를 참조하세요.
+
+IoT Edge 런타임이 설치되면 다음 섹션을 사용하여 프록시 정보로 구성합니다. 
 
 ## <a name="configure-the-daemons"></a>디먼 구성
 

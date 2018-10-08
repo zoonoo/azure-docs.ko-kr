@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: f453fff59abc1441b2fb16049f130d2c19460083
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d4ce2dc67b0d9229ac2605ab317594ea345c19b2
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970809"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434078"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX 및 Azure Machine Learning: 상호 운용 가능한 AI 모델 만들기 및 배포
 
@@ -48,17 +48,15 @@ Azure Machine Learning 및 ONNX Runtime을 사용하면 클라우드로 [ONNX �
 ## <a name="exportconvert-your-models-to-onnx"></a>ONNX로 모델 내보내기/변환
 
 기존 모델을 ONNX로 변환할 수도 있습니다.
-+ **PyTorch** 모델의 경우 [이 Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)을 사용해 보세요.
 
-+ **Microsoft Cognitive Toolkit(CNTK)** 모델의 경우 [이 Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)을 사용해 보세요.
-
-+ **Chainer** 모델의 경우 [이 Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)을 사용해 보세요.
-
-+ **Chainer** 모델의 경우 [이 Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)을 사용해 보세요.
-
-+ **TensorFlow** 모델의 경우 [tensorflow-onnx 변환기](https://github.com/onnx/tensorflow-onnx)를 사용하세요.
-
-+ **Keras**, **ScitKit-Learn**, **CoreML**, **XGBoost** 및 **libSVM** 모델의 경우 [WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools) 패키지를 사용하여 ONNX로 변환하세요.
+|모델에 대한 프레임워크|변환 예제 또는 도구|
+|-----|-------|
+|PyTorch|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)|
+|Microsoft&nbsp;CNTK(Cognitive&nbsp;Toolkit&nbsp;)|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)|
+|TensorFlow|[tensorflow-onnx 변환기](https://github.com/onnx/tensorflow-onnx)|
+|Chainer|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)|
+|MXNet|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)|
+|Keras, ScitKit-Learn, CoreML<br/>XGBoost 및 libSVM|[WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools)|
 
 지원되는 프레임워크 및 변환기의 최신 목록은 [ONNX 자습서 사이트](https://github.com/onnx/tutorials)에서 확인할 수 있습니다.
 
@@ -70,7 +68,7 @@ Azure Machine Learning 서비스를 사용하면 ONNX 모델을 배포, 관리 �
 
 ### <a name="install-and-configure-the-onnx-runtime"></a>ONNX Runtime 설치 및 구성
 
-ONNX 모델용 고성능 유추 엔진인 ONNX Runtime은 Python API를 포함하며 CPU와 GPU에서 모두 하드웨어 가속을 제공합니다. 현재 ONNX Runtime은 ONNX 1.2 모델을 지원하며 Ubuntu 16.04 Linux에서 실행됩니다.
+ONNX 모델용 고성능 유추 엔진인 ONNX Runtime은 Python API를 포함하며 CPU와 GPU에서 모두 하드웨어 가속을 제공합니다. 현재 ONNX Runtime은 ONNX 1.2 모델을 지원하며 Ubuntu 16.04 Linux에서 실행됩니다. [CPU](https://pypi.org/project/onnxruntime) 및 [GPU](https://pypi.org/project/onnxruntime-gpu) 패키지 둘 다 [PyPi.org](https://pypi.org)에서 사용할 수 있습니다.
 
 ONNX Runtime을 설치하려면 다음 코드를 사용합니다.
 ```python
@@ -97,7 +95,7 @@ results = session.run(["output1", "output2"], {"input1": indata1, "input2": inda
 results = session.run([], {"input1": indata1, "input2": indata2})
 ```
 
-전체 API 참조는 [설명서](https://docs.microsoft.com/en-us/python/api/overview/azure/main?view=azure-onnx-py)를 참조하세요.
+전체 API 참조는 [ONNX 런타임 참조 문서](https://aka.ms/onnxruntime-python)를 참조하세요.
 
 ### <a name="example-deployment-steps"></a>예제 배포 단계
 
@@ -175,13 +173,14 @@ results = session.run([], {"input1": indata1, "input2": indata2})
    `myenv.yml` 파일에는 이미지에 필요한 종속성에 대한 설명이 포함되어 있습니다. 이 샘플 파일과 같은 환경 파일을 만드는 방법에 대한 지침은 이 [자습서](tutorial-deploy-models-with-aml.md#create-environment-file)를 참조하세요.
 
    ```
-   name: myenv
-   channels:
-     - defaults
-   dependencies:
-     - pip:
-       - onnxruntime
-       - azureml-core
+   from azureml.core.conda_dependencies import CondaDependencies 
+
+   myenv = CondaDependencies()
+   myenv.add_pip_package("azureml-core")
+   myenv.add_pip_package("onnxruntime")
+
+   with open("myenv.yml","w") as f:
+    f.write(myenv.serialize_to_string())
    ```
 
 4. Azure Machine Learning을 사용하여 ONNX 모델을 배포합니다.

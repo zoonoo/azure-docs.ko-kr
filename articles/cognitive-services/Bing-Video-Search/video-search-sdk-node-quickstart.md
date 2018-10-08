@@ -1,23 +1,23 @@
 ---
-title: Video Search SDK Node 빠른 시작 | Microsoft Docs
-description: Video Search SDK 콘솔 응용 프로그램을 설치합니다.
-titleSuffix: Azure cognitive services
+title: '빠른 시작: Bing Video Search SDK, Node'
+titleSuffix: Azure Cognitive Services
+description: Bing Video Search SDK 콘솔 응용 프로그램을 설치합니다.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/12/2018
-ms.author: v-gedod
-ms.openlocfilehash: 5718c750288e0a5605db3296d2911cca5e03375c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: rosh
+ms.openlocfilehash: 4dcc9220d4d38bfe34514edd6a3ad47c7a7d4ba8
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35382973"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225619"
 ---
-# <a name="video-search-sdk-node-quickstart"></a>Video Search SDK Node 빠른 시작
+# <a name="quickstart-bing-video-search-sdk-with-node"></a>빠른 시작: Node를 사용하여 Bing Video Search SDK
 
 Bing Video Search SDK는 비디오 쿼리 및 구문 분석 결과에 대한 REST API 기능을 포함하고 있습니다. 
 

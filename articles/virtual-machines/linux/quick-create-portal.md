@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/03/2018
+ms.date: 09/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f659c424f7d5e705343c113d2ba0971164ca622a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: fcc9f338ad69322091199ce9d5d2d1d6f9f2165e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108809"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227285"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Linux 가상 머신 만들기
 
@@ -45,30 +45,31 @@ PuTTy 사용을 포함하여 SSH 키 쌍을 만드는 방법에 대한 자세한
 
 http://portal.azure.com에서 Azure Portal에 로그인
 
-## <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
+## <a name="create-virtual-machine"></a>가상 머신 만들기
 
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다.
 
-2. Azure Marketplace 리소스 목록 위에 있는 검색 상자에서 Canonical의 **Ubuntu Server 16.04 LTS**를 검색하고 선택한 다음, **만들기**를 선택합니다.
+1. Azure Marketplace 리소스 목록 위에 있는 검색 상자에서 Canonical의 **Ubuntu Server 16.04 LTS**를 검색하고 선택한 다음, **만들기**를 선택합니다.
 
-3. VM 이름(예: *myVM*)을 입력하고, 디스크 형식은 *SSD*를 유지하고, 사용자 이름(예: *azureuser*)을 입력합니다.
+1. **기본** 탭의 **프로젝트 세부 정보** 아래에서 올바른 구독이 선택되어 있는지 확인한 다음, **리소스 그룹** 아래에서 **새로 만들기**를 선택합니다. 팝업에서 리소스 그룹의 이름에 *myResourceGroup*을 입력한 다음, **확인*을 선택합니다. 
 
-4. **인증 형식**으로 **SSH 공개 키**를 선택한 다음, 공개 키를 텍스트 상자에 붙여넣습니다. 공개 키에서 선행 또는 후행 공백을 모두 제거해야 합니다.
+    ![VM에 대한 새 리소스 그룹 만들기](./media/quick-create-portal/project-details.png)
 
-    ![포털 블레이드에서 VM에 대한 기본 정보 입력](./media/quick-create-portal/create-vm-portal-basic-blade.png)
+1. **인스턴스 세부 정보** 아래에서 **가상 머신 이름**에 *myVM*을 입력하고 **지역**에 *미국 동부*를 선택합니다. 다른 기본값을 그대로 둡니다.
 
-5. 리소스 그룹 **새로 만들기**를 선택한 다음, 이름(예: *myResourceGroup*)을 입력합니다. 원하는 **위치**를 선택하고 **확인**을 선택합니다.
+    ![인스턴스 세부 정보 섹션](./media/quick-create-portal/instance-details.png)
 
-4. VM의 크기를 선택합니다. 예를 들어 *계산 형식* 또는 *디스크 형식*으로 필터링할 수 있습니다. 권장 VM 크기는 *D2s_v3*입니다.
+1. **관리자 계정** 아래에서 **SSH 공개 키**를 선택하고, 사용자 이름을 입력한 다음, 공개 키를 텍스트 상자에 붙여넣습니다. 공개 키에서 선행 또는 후행 공백을 모두 제거합니다.
 
-    ![VM 크기를 보여 주는 스크린샷](./media/quick-create-portal/create-linux-vm-portal-sizes.png)
+    ![관리자 계정](./media/quick-create-portal/administrator-account.png)
 
-5. **설정** 페이지의 **네트워크** > **네트워크 보안 그룹** > **공용 인바운드 포트 선택**에서 **HTTP** 및 **SSH(22)** 를 선택합니다. 나머지는 기본값으로 두고 **확인**을 선택합니다.
+1. **인바운드 포트 규칙** > **공용 인바운드 포트** 아래에서 **선택한 포트 허용**을 선택한 다음, 드롭다운에서 **SSH(22)** 및 **HTTP(80)** 를 선택합니다. 
 
-6. 요약 페이지에서 **만들기**를 선택하여 VM 배포를 시작합니다.
+    ![RDP 및 HTTP에 대한 포트 열기](./media/quick-create-portal/inbound-port-rules.png)
 
-7. VM이 Azure Portal 대시보드에 고정됩니다. 배포가 완료되면 VM 요약이 자동으로 열립니다.
+1. 나머지 기본값을 그대로 둔 다음, 페이지의 아래에서 **검토 + 만들기** 단추를 선택합니다.
 
+    
 ## <a name="connect-to-virtual-machine"></a>가상 머신에 연결
 
 VM과의 SSH 연결을 만듭니다.

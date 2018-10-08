@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 055a1f09cf30665321d570978d800e1fbb3c0cf7
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: fd16defdcd3c3cb0c78994e9259b55f3d687163b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42023449"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032651"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service용 C# 장치 SDK를 사용하여 시뮬레이션된 TPM 장치 만들기 및 프로비전
 
@@ -66,9 +66,9 @@ ms.locfileid: "42023449"
     ![명령 창 출력](./media/quick-create-simulated-device-tpm-csharp/output1.png) 
 
 
-4. Azure Portal의 Device Provisioning Service 요약 블레이드에서 **등록 관리**를 선택합니다. **개별 등록** 탭을 선택하고, 위쪽의 **추가** 단추를 클릭합니다. 
+4. Azure Portal의 Device Provisioning Service 요약 블레이드에서 **등록 관리**를 선택합니다. **개별 등록** 탭을 선택하고 맨 위에서 **개별 등록 추가** 단추를 클릭합니다. 
 
-5. **등록 목록 항목 추가** 아래에서 다음 정보를 입력합니다.
+5. **등록 추가** 아래에서 다음 정보를 입력합니다.
     - ID 증명 *메커니즘*으로 **TPM**을 선택합니다.
     - TPM 장치에 대한 *등록 ID* 및 *인증 키*를 입력합니다. 
     - 필요에 따라 프로비전 서비스와 연결된 IoT Hub를 선택합니다.
@@ -76,7 +76,7 @@ ms.locfileid: "42023449"
     - 장치에 대해 원하는 초기 구성으로 **초기 장치 쌍 상태**를 업데이트합니다.
     - 완료되면 **저장** 단추를 클릭합니다. 
 
-    ![포털 블레이드에 장치 등록 정보 입력](./media/quick-create-simulated-device-tpm-csharp/enter-device-enrollment.png)  
+    ![포털 블레이드에 장치 등록 정보 입력](./media/quick-create-simulated-device-tpm-csharp/enterdevice-enrollment.png)  
 
    등록에 성공하면 장치의 *등록 ID*가 *개별 등록* 탭 아래 목록에 나타납니다. 
 
@@ -84,7 +84,7 @@ ms.locfileid: "42023449"
 
 1. 장치가 프로비전되었는지 확인합니다. 프로비전 서비스와 연결된 IoT Hub에 시뮬레이션된 장치를 성공적으로 프로비전하면 장치 ID가 허브의 **IoT 장치** 블레이드에 표시됩니다. 
 
-    ![장치가 IoT Hub에 등록됨](./media/quick-create-simulated-device-tpm-csharp/hub-registration.png) 
+    ![장치가 IoT Hub에 등록됨](./media/quick-create-simulated-device-tpm-csharp/hub_registration.png) 
 
     장치에 대한 등록 항목의 기본값으로부터 *초기 장치 쌍 상태*를 변경한 경우, 허브에서 원하는 쌍 상태를 가져와서 그에 맞게 작동할 수 있습니다. 자세한 내용은 [IoT Hub의 장치 쌍 이해 및 사용](../iot-hub/iot-hub-devguide-device-twins.md)을 참조하세요.
 

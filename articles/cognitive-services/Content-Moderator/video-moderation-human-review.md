@@ -1,26 +1,27 @@
 ---
-title: Azure Content Moderator - 비디오 조정 | Microsoft Docs
+title: 사용자 검토를 사용한 비디오 조정 - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: 컴퓨터 지원 비디오 조정 및 사용자 검토 도구를 사용하여 부적절한 콘텐츠 조정
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/20/2018
 ms.author: sajagtap
-ms.openlocfilehash: fb26c9af55381c80a3f520b1a0068d8f72c91061
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 33956e1986265b36f6df9a2d19909cb974bd3197
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "35372935"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222083"
 ---
-# <a name="video-moderation"></a>비디오 조정
+# <a name="video-moderation-with-human-review"></a>사용자 검토를 사용한 비디오 조정
 
 Content Moderator의 컴퓨터 지원 [비디오 조정](video-moderation-api.md) 및 [사용자 검토 도구](Review-Tool-User-Guide/human-in-the-loop.md)를 사용하여 성인물(노골적) 및 선정적(외설적) 콘텐츠에 대한 비디오 및 대본을 조정하면 비즈니스를 위한 최상의 결과를 얻을 수 있습니다.
 
-## <a name="video-trained-classifier"></a>비디오 학습 분류자
+## <a name="video-trained-classifier-preview"></a>비디오 학습 분류자(미리 보기)
 
 컴퓨터 지원 비디오 분류는 이미지 학습 모델 또는 비디오 학습 모델을 통해 이루어집니다. 이미지 학습 비디오 분류자와는 달리, Microsoft의 성인물 및 선정적 비디오 분류자는 비디오를 통해 학습합니다. 이 방법의 일치 품질이 더 높습니다.
 

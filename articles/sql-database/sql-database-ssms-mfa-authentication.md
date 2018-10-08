@@ -2,24 +2,26 @@
 title: Multi-Factor Authentication - Azure SQL | Microsoft Docs
 description: Azure SQL Database 및 Azure SQL Data Warehouse는 Active Directory 유니버설 인증을 사용하여 SSMS(SQL Server Management Studio)에서의 연결을 지원합니다.
 services: sql-database
-documentationcenter: ''
-author: GithubMirek
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: GithubMirek
 ms.author: mireks
-ms.openlocfilehash: f3c94f41a4f5d7947b862054263ee07ff8ccd98c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: vanto
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 90d4756c251103275fe0a37b0c36562b69a0e035
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650012"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166659"
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>SQL Database 및 SQL Data Warehouse에 대한 유니버설 인증(MFA에 대한 SSMS 지원)
 Azure SQL Database 및 Azure SQL Data Warehouse는 *Active Directory 유니버설 인증*을 사용하여 SSMS(SQL Server Management Studio)에서의 연결을 지원합니다. 
-**최신 SSMS 다운로드** - 클라이언트 컴퓨터에서 최신 SSMS 버전을 [SSMS(SQL Server Management Studio) 다운로드](https://msdn.microsoft.com/library/mt238290.aspx)에서 다운로드합니다. 이 항목의 모든 기능에서는 2017년 7월 버전 17.2 이상을 사용합니다.  가장 최근의 연결 대화 상자는 다음처럼 보일 것입니다. ![1mfa-universal-connect](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png "사용자 이름 상자를 입력합니다.")  
+**최신 SSMS 다운로드** - 클라이언트 컴퓨터에서 최신 SSMS 버전을 [SSMS(SQL Server Management Studio) 다운로드](https://msdn.microsoft.com/library/mt238290.aspx)에서 다운로드합니다. 이 문서의 모든 기능에 대해 2017년 7월 버전 17.2 이상을 사용합니다.  가장 최근의 연결 대화 상자는 다음처럼 보일 것입니다. ![1mfa-universal-connect](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png "사용자 이름 상자를 입력합니다.")  
 
 ## <a name="the-five-authentication-options"></a>5가지 인증 옵션   
 - Active Directory 유니버설 인증은 2가지 비대화형 인증 방법(`Active Directory - Password` 인증 및 `Active Directory - Integrated` 인증)을 지원합니다. 비대화형 `Active Directory - Password` 및 `Active Directory - Integrated` 인증 방법은 여러 다른 응용 프로그램(ADO.NET, JDBC, ODBC 등)에서 사용할 수 있습니다. 이러한 두 가지 방법을 사용할 경우 팝업 대화 상자가 절대 표시되지 않습니다.
@@ -35,11 +37,11 @@ Multi-Factor Authentication에 대한 설명을 보려면 [Multi-Factor Authenti
    ![mfa-tenant-ssms](./media/sql-database-ssms-mfa-auth/mfa-tenant-ssms.png)   
 
 ### <a name="azure-ad-business-to-business-support"></a>Azure AD 기업 간 지원   
-Azure AD B2B 시나리오에서 게스트 사용자로 지원되는 Azure AD 사용자([Azure B2B 공동 작업이란?](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) 참조)는 현재 Azure AD에서 만들어진 그룹의 구성원에 속하며 해당 데이터베이스에서 Transact-SQL `CREATE USER` 문을 통해 수동으로 매핑된 SQL Database 및 SQL Data Warehouse에 연결할 수 있습니다. 예를 들어 `steve@gmail.com`이 Azure AD `contosotest`(Azure Ad 도메인 `contosotest.onmicrosoft.com`)에 초대된 경우 Azure AD 그룹(예: `usergroup`)이 `steve@gmail.com` 구성원을 포함하는 Azure AD에 만들어져야 합니다. 그런 다음 Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` 문을 실행하여 Azure AD SQL 관리자 또는 Azure AD DBO로 특정 데이터베이스(즉 MyDatabase)에 대해 이 그룹을 만들어야 합니다. 데이터베이스 사용자가 만들어지면 사용자 `steve@gmail.com`이 SSMS 인증 옵션 `Active Directory – Universal with MFA support`를 사용하여 `MyDatabase`에 로그인할 수 있습니다. 기본적으로 사용자 그룹은 연결 권한만 있으며 추가적인 액세스 권한은 일반적인 방식으로 부여 받아야 합니다. 게스트 사용자인 `steve@gmail.com` 사용자는 상자를 확인하고 SSMS **연결 속성** 대화 상자에 AD 도메인 이름 `contosotest.onmicrosoft.com`을 추가해야 합니다. **AD 도메인 이름 또는 테넌트 ID** 옵션은 MFA 연결 옵션이 있는 유니버설에서만 지원되며 그 밖의 경우는 회색으로 표시됩니다.
+Azure AD B2B 시나리오에서 게스트 사용자로 지원되는 Azure AD 사용자([Azure B2B 공동 작업이란?](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) 참조)는 현재 Azure AD에서 만들어진 그룹의 구성원에 속하며 해당 데이터베이스에서 Transact-SQL `CREATE USER` 문을 통해 수동으로 매핑된 SQL Database 및 SQL Data Warehouse에 연결할 수 있습니다. 예를 들어 `steve@gmail.com`이 Azure AD `contosotest`(Azure Ad 도메인 `contosotest.onmicrosoft.com`)에 초대된 경우 Azure AD 그룹(예: `usergroup`)이 `steve@gmail.com` 구성원을 포함하는 Azure AD에 만들어져야 합니다. 그런 다음 Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` 문을 실행하여 Azure AD SQL 관리자 또는 Azure AD DBO로 특정 데이터베이스(즉 MyDatabase)에 대해 이 그룹을 만들어야 합니다. 데이터베이스 사용자가 만들어지면 `steve@gmail.com` 사용자가 `Active Directory – Universal with MFA support` SSMS 인증 옵션을 사용하여 `MyDatabase`에 로그인할 수 있습니다. 기본적으로 사용자 그룹은 연결 권한만 있으며 추가적인 액세스 권한은 일반적인 방식으로 부여 받아야 합니다. 게스트 사용자인 `steve@gmail.com` 사용자는 확인란을 선택하고 SSMS **연결 속성** 대화 상자에서 `contosotest.onmicrosoft.com` AD 도메인 이름을 추가해야 합니다. **AD 도메인 이름 또는 테넌트 ID** 옵션은 MFA 연결 옵션이 있는 유니버설에서만 지원되며 그 밖의 경우는 회색으로 표시됩니다.
 
 ## <a name="universal-authentication-limitations-for-sql-database-and-sql-data-warehouse"></a>SQL Database 및 SQL Data Warehouse에 대한 유니버설 인증 제한 사항
 - SSMS 및 SqlPackage.exe는 현재 Active Directory 유니버설 인증을 통해 MFA에서 사용할 수 있는 유일한 도구입니다.
-- SSMS 버전 17.2는 MFA를 통한 유니버설 인증을 사용하는 다중 사용자 동시 액세스를 지원합니다. 버전 17.0 및 17.1은 유니버설 인증을 사용한 SSMS 인스턴스에 대한 로그인을 단일 Azure Active Directory 계정으로 제한합니다.  다른 Azure AD 계정으로 로그인하려면 SSMS의 다른 인스턴스를 사용해야 합니다. (이 제한은 Active Directory 유니버설 인증으로 제한됩니다. Active Directory 암호 인증, Active Directory 통합 인증 또는 SQL Server 인증을 사용하여 다른 서버에 로그인할 수 있습니다.)
+- SSMS 버전 17.2는 MFA를 통한 유니버설 인증을 사용하는 다중 사용자 동시 액세스를 지원합니다. 버전 17.0 및 17.1에서는 유니버설 인증을 사용한 SSMS 인스턴스에 대한 로그인이 단일 Azure Active Directory 계정으로 제한되었습니다. 다른 Azure AD 계정으로 로그인하려면 SSMS의 다른 인스턴스를 사용해야 합니다. (이 제한은 Active Directory 유니버설 인증으로 제한됩니다. Active Directory 암호 인증, Active Directory 통합 인증 또는 SQL Server 인증을 사용하여 다른 서버에 로그인할 수 있습니다.)
 - SSMS는 개체 탐색기, 쿼리 편집기 및 쿼리 저장소 시각화에 대해 Active Directory 유니버설 인증을 지원합니다.
 - SSMS 버전 17.2는 데이터 데이터베이스 내보내기/추출/배포를 위한 DacFx Wizard 마법사 지원을 제공합니다. 특정 사용자가 유니버설 인증을 사용하여 최초 인증 대화 상자를 통해 인증되면 DacFx 마법사가 모든 다른 인증 방법에서와 같은 방식으로 작동합니다.
 - SSMS 테이블 디자이너는 유니버설 인증을 지원하지 않습니다.

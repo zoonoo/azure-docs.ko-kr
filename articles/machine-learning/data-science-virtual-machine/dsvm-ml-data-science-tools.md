@@ -15,17 +15,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: cf73f792bcce906a673da0c6fb2eec099239c1c2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9a9dc868c4f22f95ca5027e3c95513d176c69eac
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409553"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392404"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>기계 학습 및 데이터 과학 도구
 데이터 과학 Virtual Machine(DSVM)에는 Python, R, Julia와 같이 인기 있는 언어에서 사용할 수 있는 기계 학습에 대한 다양한 도구 및 라이브러리 집합이 있습니다. 
 
 다음은 DSVM에 있는 기계 학습 도구 및 라이브러리의 일부입니다. 
+
+## <a name="azure-machine-learning-servicehttpsdocsmicrosoftcomazuremachine-learningserviceoverview-what-is-azure-ml-sdk"></a>[Azure Machine Learning Service](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml) SDK
+|    |           |
+| ------------- | ------------- |
+| 무엇인가요?   |   Azure Machine Learning 서비스는 기계 학습 모델을 개발하고 배포하는 데 사용할 수 있는 클라우드 서비스입니다.  Python SDK를 사용하여 모델을 빌드, 학습, 확장 및 관리하는 대로 추적할 수 있습니다. 컨테이너로 모델을 배포하고 클라우드, 온-프레미스 또는 IoT Edge에서 실행합니다.   |
+| 지원되는 DSVM 버전     | Windows(Conda 환경: AzureML), Linux(Conda 환경: py36)    |
+| 일반적인 사용 용도      | 일반 ML 플랫폼      |
+| DSVM에 구성/설치 방법      |  GPU 지원과 함께 설치됨   |
+| 사용/실행 방법      | Python SDK 및 Azure 명령줄 도구(AZ CLI)로 Windows 버전에서 conda 환경 `AzureML`로 또는 Linux 버전에서 `py36`으로 활성화합니다.      |
+| 샘플에 대한 링크      | 샘플 Jupyter 노트북은 노트북 아래의 `AzureML` 디렉터리에 포함되어 있음  |
+| DSVM의 관련 도구      | Visual Studio Code, Jupyter   |
 
 ## <a name="xgboost"></a>XGBoost 
 |    |           |
@@ -75,7 +86,7 @@ ms.locfileid: "31409553"
 ## <a name="lightgbm"></a>LightGBM
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   | 순위, 분류 및 기타 여러 기계 학습 작업에 사용되는 의사 결정 트리 알고리즘에 기반한 빠르고 분산된 고성능 그레데이션 강화(GBDT, GBRT, GBM, 또는 MART) 프레임워크입니다.    |
+| 무엇인가요?   | 순위, 분류 및 기타 여러 기계 학습 작업에 사용되는 의사 결정 트리 알고리즘에 기반한 빠르고 분산된 고성능 그라데이션 강화(GBDT, GBRT, GBM, 또는 MART) 프레임워크입니다.    |
 | 지원되는 DSVM 버전      | Windows, Linux    |
 | 일반적인 사용 용도      | 범용 그라데이션 강화 프레임워크      |
 | DSVM에 구성/설치 방법      | Windows에서 LightGBM가 Python 패키지로 설치됩니다. Linux에서 명령줄 실행 파일은 `/opt/LightGBM/lightgbm`에 있으며, R 패키지가 설치되고, Python 패키지도 설치됩니다.     |

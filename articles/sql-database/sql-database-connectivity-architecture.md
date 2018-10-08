@@ -2,19 +2,22 @@
 title: Azure SQL Database 연결 아키텍처 | Microsoft Docs
 description: 이 문서에서는 Azure 내부 또는 Azure 외부의 Azure SQLDB 연결 아키텍처에 대해 설명합니다.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: DhruvMsft
+ms.author: dhruv
+ms.reviewer: carlrab
+manager: craigg
 ms.date: 01/24/2018
-ms.author: carlrab
-ms.openlocfilehash: afc82ea666fdbef89348e7453df92b8d8e1adc86
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 66f558db713ab951864fe694f27f2e60d52e875a
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493675"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064149"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database 연결 아키텍처 
 
@@ -51,13 +54,16 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 **프록시*
 ![아키텍처 개요](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 > [!IMPORTANT]
-> Azure SQL Database를 사용하여 서비스 엔드포인트를 사용하는 경우 정책은 기본적으로 **프록시**입니다. Vnet 내에서 연결을 사용하도록 설정하려면 아래 목록에 지정된 Azure SQL Database 게이트웨이 IP 주소에 아웃바운드 연결을 허용합니다. 서비스 엔드포인트를 사용하는 경우 더 나은 성능을 사용하도록 설정하려면 연결 정책이 **리디렉션**되도록 변경하는 것이 좋습니다. 연결 정책이 **리디렉션**되도록 변경하는 경우 NSG에서 아래에 나열된 Azure SQLDB 게이트웨이 IP에 아웃바운드를 허용하는 것으로 충분하지 않으면 모든 Azure SQLDB IP에 아웃바운드를 허용해야 합니다. NSG(네트워크 보안 그룹) 서비스 태그의 도움을 받아 수행할 수 있습니다. 자세한 내용은 [서비스 태그](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags)를 참조하세요.
+> Azure SQL Database를 사용하여 서비스 엔드포인트를 사용하는 경우 정책은 기본적으로 **프록시**입니다. VNet 내에서 연결을 사용하도록 설정하려면 아래 목록에 지정된 Azure SQL Database 게이트웨이 IP 주소에 아웃바운드 연결을 허용해야 합니다. 서비스 엔드포인트를 사용하는 경우 더 나은 성능을 사용하도록 설정하려면 연결 정책이 **리디렉션**되도록 변경하는 것이 좋습니다. 연결 정책이 **리디렉션**되도록 변경하는 경우 NSG에서 아래에 나열된 Azure SQLDB 게이트웨이 IP에 아웃바운드를 허용하는 것으로 충분하지 않으면 모든 Azure SQLDB IP에 아웃바운드를 허용해야 합니다. NSG(네트워크 보안 그룹) 서비스 태그의 도움을 받아 수행할 수 있습니다. 자세한 내용은 [서비스 태그](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)를 참조하세요.
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database 게이트웨이 IP 주소
 
 온-프레미스 리소스에서 Azure SQL Database에 연결하려면 Azure 지역의 Azure SQL Database 게이트웨이에 아웃바운드 네트워크 트래픽을 허용하도록 해야 합니다. 온-프레미스 리소스에서 연결할 때 기본 설정인 프록시 모드에서는 연결할 경우 연결은 게이트웨이를 통합니다.
 
 다음 표에서는 모든 데이터 지역에 있는 Azure SQL Database 게이트웨이의 기본 및 보조 IP를 나열합니다. 일부 지역에는 두 개의 IP 주소가 있습니다. 이러한 지역에서 기본 IP 주소는 게이트웨이의 현재 IP 주소이고 두 번째 IP 주소는 장애 조치 IP 주소입니다. 장애 조치 주소는 높은 서비스 가용성을 유지하기 위해 서버를 이동할 수 있는 주소입니다. 이러한 지역의 경우 두 IP 주소에 아웃바운드를 허용하는 것이 좋습니다. 두 번째 IP 주소는 Microsoft가 소유하고 있으며 Azure SQL Database에서 연결을 허용하기 위해 활성화될 때까지 어떤 서비스도 수신하지 않습니다.
+
+> [!IMPORTANT]
+> Azure 내에서 연결하는 경우 연결 정책이 기본적으로 **리디렉션**됩니다(서비스 엔드포인트를 사용하는 경우를 제외하고). 다음 IP를 허용하는 것으로는 충분하지 않습니다. 모든 Azure SQL Database IP를 허용해야 합니다. VNet 내에서 연결하는 경우 NSG(네트워크 보안 그룹) 서비스 태그의 도움을 받아 수행할 수 있습니다. 자세한 내용은 [서비스 태그](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)를 참조하세요.
 
 | 지역 이름 | 기본 IP 주소 | 보조 IP 주소 |
 | --- | --- |--- |
@@ -160,10 +166,10 @@ $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
-## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Azure CLI 2.0을 통해 연결 설정을 변경하는 스크립트
+## <a name="script-to-change-connection-settings-via-azure-cli"></a>Azure CLI를 통해 연결 설정을 변경하는 스크립트
 
 > [!IMPORTANT]
-> 이 스크립트에는 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)이 필요합니다.
+> 이 스크립트에는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)가 필요합니다.
 >
 
 다음 CLI 스크립트에서는 연결 정책을 변경하는 방법을 보여줍니다.

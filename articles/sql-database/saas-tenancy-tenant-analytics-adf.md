@@ -1,26 +1,23 @@
 ---
 title: Azure SQL Data Warehouse를 사용하여 테넌트 데이터베이스에 대해 분석 쿼리 실행 | Microsoft Docs
-description: 여러 Azure SQL Database 데이터베이스에서 추출된 데이터를 사용하는 교차 테넌트 분석 쿼리입니다.
-keywords: SQL Database 자습서
+description: Azure SQL Database, SQL Data Warehouse, Azure Data Factory 또는 Power BI에서 추출된 데이터를 사용하는 교차 테넌트 분석 쿼리입니다.
 services: sql-database
-documentationcenter: ''
-author: anumjs
-manager: craigg
-editor: MightyPen
 ms.service: sql-database
-ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: ''
+ms.subservice: scenario
+ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/08/2017
+author: anumjs
 ms.author: anjangsh
-ms.openlocfilehash: c7580e5481288695d3b5dea8fd0547f5f2c4c2b0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: MightyPen
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 034fd2434d3b824c4356e640a1c1665dff542de6
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644004"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056599"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Azure SQL Database, SQL Data Warehouse, Data Factory 및 Power BI를 사용한 SaaS 분석 탐색
 
@@ -230,7 +227,7 @@ SCD(Slowly Changing Dimension) 유형 1 차원 테이블을 이 예제에서 사
 
 각 이벤트에 대한 Contoso Concert Hall의 시간에 따른 누적 티켓 판매량을 표시한 이 차트는 모든 이벤트에 사람들이 몰려들지 않는다는 것을 보여 줍니다. 필터 옵션을 이리저리 조정하여 다른 행사장의 판매량 추세도 확인해 봅니다.
 
-티켓 판매량 패턴을 파악하면 Wingtip Tickets가 비즈니스 모델을 최적화할 방향을 찾게 될 수도 있습니다. 모든 테넌트에게 동일한 요금을 부과하는 대신 서로 다른 성과 수준을 갖는 등급별 서비스 모델을 도입하는 것이 좋을 수도 있습니다. 하루에 더 많은 티켓을 판매해야 하는 대형 행사장에는 높은 SLA(서비스 수준 계약)를 갖는 높은 등급을 제안할 수 있습니다. 이러한 행사장에서는 데이터베이스당 리소스 한도가 더 높은 풀에 자신의 데이터베이스를 배치할 수 있습니다. 각 서비스 등급에 시간당 판매량을 할당하고, 할당량이 초과되면 추가 요금을 부과할 수도 있을 것입니다. 주기적으로 판매량이 급증하는 대형 행사장이라면 높은 등급의 서비스를 이용하는 것이 이익이 될 것입니다. 또한, Wingtip Tickets은 서비스의 수익을 더 효율적으로 높일 수 있게 됩니다.
+티켓 판매량 패턴을 파악하면 Wingtip Tickets가 비즈니스 모델을 최적화할 방향을 찾게 될 수도 있습니다. 모든 테넌트에 동일한 요금을 부과하는 대신 서로 다른 계산 크기를 갖는 등급별 서비스 모델을 도입하는 것이 좋을 수도 있습니다. 하루에 더 많은 티켓을 판매해야 하는 대형 행사장에는 높은 SLA(서비스 수준 계약)를 갖는 높은 등급을 제안할 수 있습니다. 이러한 행사장에서는 데이터베이스당 리소스 한도가 더 높은 풀에 자신의 데이터베이스를 배치할 수 있습니다. 각 서비스 등급에 시간당 판매량을 할당하고, 할당량이 초과되면 추가 요금을 부과할 수도 있을 것입니다. 주기적으로 판매량이 급증하는 대형 행사장이라면 높은 등급의 서비스를 이용하는 것이 이익이 될 것입니다. 또한, Wingtip Tickets은 서비스의 수익을 더 효율적으로 높일 수 있게 됩니다.
 
 한편, Wingtip Tickets의 고객들은 자신들이 지불하는 서비스 요금보다 티켓 판매량이 현저히 떨어진다고 불만을 토로하고 있습니다. 데이터를 분석하여 성적이 좋지 않은 행사장의 티켓 판매량을 높일 방안이 있는지 확인해 볼 수 있습니다. 판매량이 높아지면 서비스의 체감 가치가 높아지게 됩니다. fact_Tickets를 마우스 오른쪽 단추로 클릭하고 **새 측정값**을 선택합니다. **AverageTicketsSold**라는 새 측정값에 다음과 같은 식을 입력합니다.
 

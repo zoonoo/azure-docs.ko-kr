@@ -1,21 +1,21 @@
 ---
-title: Bing Visual Search 단일 페이지 웹앱(소스 코드) | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
+title: '자습서: 단일 페이지 웹앱 빌드(소스 코드) - Bing Visual Search'
+titleSuffix: Azure Cognitive Services
 description: 단일 페이지 웹 응용 프로그램에서 Bing Visual Search API를 사용하는 방법을 보여 주는 자습서의 소스 코드입니다.
 services: cognitive-services
 author: v-jerkin
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-image-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 9b6164b811f897ec5cd8a67d27d3aa4f3d250f2e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a908bdcf447039ad3a27ceae04f0a6cfff890d21
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002595"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225755"
 ---
 # <a name="tutorial-visual-search-single-page-web-app"></a>자습서: Visual Search 단일 페이지 웹앱
 

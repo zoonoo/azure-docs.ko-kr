@@ -1,22 +1,23 @@
 ---
-title: Azure Content Moderator를 통해 Machine Learning 및 AI를 이용한 전자 상거래 카탈로그 조정 | Microsoft Docs
-description: Machine Learning 및 AI를 이용하여 자동으로 전자 상거래 카탈로그 조정
+title: '자습서: 전자 상거래 카탈로그 조정 - Content Moderator'
+titlesuffix: Azure Cognitive Services
+description: 기계 학습 및 AI를 사용하여 자동으로 전자 상거래 카탈로그를 조정합니다.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 6177758eaa3e611ad67da0778d889df48b052d90
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 2405ba9087e63b57c7bd6bc6f290cdafacaf7a49
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37095754"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227353"
 ---
-# <a name="ecommerce-catalog-moderation-with-machine-learning"></a>Machine Learning을 이용한 전자 상거래 카탈로그 조정
+# <a name="tutorial-ecommerce-catalog-moderation-with-machine-learning"></a>자습서: 기계 학습을 사용하여 전자 상거래 카탈로그 조정
 
 이 자습서에서는 인텔리전트 카탈로그 시스템을 제공하기 위해 기계 지원 AI 기술과 사용자 조정을 결합하여 Machine Learning 기반의 인텔리전트 전자 상거래 카탈로그 조정을 구현하는 방법에 대해 알아봅니다.
 

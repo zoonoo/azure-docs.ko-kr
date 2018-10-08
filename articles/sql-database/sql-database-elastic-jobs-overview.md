@@ -1,23 +1,30 @@
 ---
 title: 규모가 확장된 클라우드 데이터베이스 관리 | Microsoft Docs
 description: 데이터베이스 그룹에 대해 스크립트를 실행하려면 Elastic Database 작업 서비스를 사용합니다.
-metakeywords: azure sql database elastic databases
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 5e2c233ec631f6a3e57d2203a9678b42f909a885
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 06/14/2018
+ms.openlocfilehash: 649a76fad8f54339a6b1e429b3966945410573f7
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646088"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166795"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>규모가 확장된 클라우드 데이터베이스 관리
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+**Elastic Database 작업**은 **작업**이라고 하는 임시 및 예약된 관리 작업을 실행할 수 있도록 하는 고객 호스팅 Azure Cloud Services입니다. 작업을 통해 관리 작업을 수행하는 Transact-SQL 스크립트를 실행하여 Azure SQL 데이터베이스의 대규모 그룹을 쉽고 안정적으로 관리할 수 있습니다. 
+
 규모가 확장된 분할된 데이터베이스를 관리하기 위해 **Elastic Database 작업** 기능(미리 보기)을 사용하면 다음을 포함한 데이터베이스 그룹에 대해 Transact-SQL(T-SQL) 스크립트를 안정적으로 실행할 수 있습니다.
 
 * 데이터베이스의 사용자 정의 컬렉션(아래 설명)
@@ -28,9 +35,9 @@ ms.locfileid: "34646088"
 * [Elastic Database 작업 구성 요소를 설치합니다](sql-database-elastic-jobs-service-installation.md). 
 * [Elastic Database 작업을 시작합니다](sql-database-elastic-jobs-getting-started.md).
 * [PowerShell을 사용하여 작업을 만들고 관리합니다](sql-database-elastic-jobs-powershell.md).
-* [규모가 확장된 Azure SQL Database 만들기 및 관리](sql-database-elastic-jobs-getting-started.md)
+* [규모가 확장된 Azure SQL 데이터베이스 만들기 및 관리](sql-database-elastic-jobs-getting-started.md)
 
-**Elastic Database 작업**은 현재 **작업**이라는 임시 및 예약된 관리 태스크를 실행할 수 있도록 하는 고객 호스트된 Azure Cloud Services입니다. 작업을 통해 관리 작업을 수행하는 Transact-SQL 스크립트를 실행하여 대규모 그룹의 Azure SQL Database를 쉽고 안정적으로 관리할 수 있습니다. 
+
 
 ![탄력적 데이터베이스 작업 서비스][1]
 

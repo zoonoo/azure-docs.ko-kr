@@ -1,20 +1,21 @@
 ---
-title: LUIS(Language Understanding) 응용 프로그램 계획 - Azure Cognitive Service | Microsoft Docs
+title: Language Understanding(LUIS) 응용 프로그램 계획
+titleSuffix: Azure Cognitive Services
 description: 관련 앱 의도 및 엔터티를 간략하게 설명한 다음, LUIS(Language Understanding Intelligent Services)에서 응용 프로그램 계획을 만듭니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/06/2017
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 7c8974767621ad574b243fba5c3e49d97ec142e6
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: a7e137c864d216b6b936181c3482358bd10f175a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842275"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037272"
 ---
 # <a name="plan-your-luis-app"></a>LUIS 앱 계획
 

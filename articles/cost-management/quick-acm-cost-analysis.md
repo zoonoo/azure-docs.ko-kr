@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2018
+ms.date: 09/21/2018s
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 0e94392b882d111d925c864feb9aaeb54bae4e2a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9092629c7bef46cdb7c464fca5e22d4aea0da9fc
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980409"
+ms.locfileid: "47041543"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>빠른 시작: 비용 분석을 사용하여 비용 탐색 및 분석
 
@@ -32,11 +32,15 @@ Azure 비용을 적절히 제어하고 최적화하려면 먼저 조직 내의 �
 
 ## <a name="prerequisites"></a>필수 조건
 
-비용 분석은 모든 EA(기업계약) 고객이 사용할 수 있습니다. 비용 데이터를 보려면 다음 범위 중 하나 이상에 대해 읽기 권한이 있어야 합니다.
+비용 분석은 모든 [EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/) 고객이 사용할 수 있습니다. 비용 데이터를 보려면 다음 범위 중 하나 이상에 대해 최소한 읽기 권한이 있어야 합니다.
 
-- Azure EA 청구 계정(등록)
-- Azure EA 구독
-- Azure EA 구독 리소스 그룹
+- 청구 계정
+- department
+- 등록 계정
+- 관리 그룹
+- 구독
+- 리소스 그룹
+
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -44,7 +48,11 @@ Azure 비용을 적절히 제어하고 최적화하려면 먼저 조직 내의 �
 
 ## <a name="review-costs-in-cost-analysis"></a>비용 분석에서 비용 검토
 
-비용 분석을 사용하여 비용을 검토하려면 Azure Portal을 열고 **비용 관리 + 청구** &gt; **청구 계정** &gt;으로 이동한 후 Cost Management에서 EA 청구 계정을 선택하고 &gt; **비용 분석**을 선택합니다.
+비용 분석으로 비용을 검토하려면 Azure Portal에서 **비용 관리 + 청구** &gt; **비용 관리** &gt; **범위 변경**으로 이동하고 범위를 선택한 후 **선택**을 클릭합니다.
+
+선택한 범위는 비용 관리 전체에서 데이터 통합을 제공하고 비용 정보에 대한 액세스를 제어하는 데 사용됩니다. 범위를 사용할 때는 다중 범위가 선택되지 않습니다. 대신 다른 사람이 속하는 대규모 범위를 선택한 다음 원하는 범위로 필터링합니다. 자식 범위가 속하는 부모 범위에 대한 액세스를 제한해야 하는 사람도 있으므로 이는 중요한 사항입니다.
+
+**비용 분석 열기**를 클릭합니다.
 
 초기 비용 분석 보기에는 다음 영역에 포함됩니다.
 

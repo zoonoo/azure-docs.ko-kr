@@ -1,22 +1,23 @@
 ---
-title: Ruby를 사용하여 LUIS(Language Understanding)에서 자연어 텍스트 분석 - Cognitive Services - Azure Cognitive Services | Microsoft Docs
+title: Ruby 빠른 시작 - 의도 예측 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 사용 가능한 공용 LUIS 앱을 통해 대화형 텍스트에서 사용자의 의도를 판단합니다. Ruby를 사용하여 공용 앱의 HTTP 예측 엔드포인트에 사용자의 의도를 텍스트로 보냅니다. 엔드포인트에서 LUIS는 공용 앱의 모델을 적용하여 자연어 텍스트의 의미를 분석하고 전반적인 의도를 판단하여 앱의 주체 도메인에 적절한 데이터를 추출합니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/23/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 0909c1dd056570a275b3042674d251c637413cae
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: b8ef763a0b2379115150c88becc2ad43ba9cde89
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157704"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47030934"
 ---
-# <a name="quickstart-analyze-text-using-ruby"></a>빠른 시작: Ruby를 사용하여 텍스트 분석
+# <a name="quickstart-get-intent-using-ruby"></a>빠른 시작: Ruby를 사용하여 의도 가져오기
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -35,11 +36,11 @@ ms.locfileid: "44157704"
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
-## <a name="analyze-text-with-browser"></a>브라우저로 텍스트 분석
+## <a name="get-intent-with-browser"></a>브라우저를 사용하여 의도 가져오기
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
-## <a name="analyze-text-with-ruby"></a>Ruby로 텍스트 분석 
+## <a name="get-intent-programmatically"></a>프로그래밍 방식으로 의도 가져오기
 
 Ruby를 사용하여 이전 단계의 브라우저 창에서 본 것과 동일한 결과에 액세스할 수 있습니다. 
 

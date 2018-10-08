@@ -1,20 +1,21 @@
 ---
-title: 패턴 기반 엔터티에서 역할을 사용하는 방법 이해 - Azure| Microsoft Docs
-description: 패턴 기반 엔터티에서 역할을 사용하여 컨텍스트 엔터티 하위 형식에 이름을 지정하는 방법을 알아봅니다.
+title: 패턴 기반 엔터티에서 역할을 사용하는 방법 이해
+titleSuffix: Azure Cognitive Services
+description: 역할은 패턴에서만 사용되는 엔터티의 명명된 컨텍스트 하위 형식입니다. 예를 들어, 발화에서 뉴욕에서 런던까지 티켓을 구매하고 뉴욕과 런던은 둘 다 도시이지만 각각은 문장에서 의미가 서로 다릅니다. New York은 출발 도시이고 London은 도착 도시입니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d2692cdce9da7428bd7b30c4feaf7347792618f5
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 033e5e5e054b0a29961ad60e72b1466b51d1df0c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222706"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035201"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>패턴의 엔터티 역할은 컨텍스트 하위 형식입니다.
 역할은 [패턴](luis-concept-patterns.md)에서만 사용되는 엔터티의 명명된 컨텍스트 하위 형식입니다.
@@ -31,9 +32,10 @@ ms.locfileid: "39222706"
 ## <a name="how-are-roles-used-in-patterns"></a>패턴에서 역할이 사용되는 방식
 패턴의 템플릿 발화에서 역할은 발화 내에서 사용됩니다. 
 
-```
-buy a ticket from {Location:origin} to {Location:destination}
-```
+|엔터티 역할을 사용한 패턴|
+|--|
+|`buy a ticket from {Location:origin} to {Location:destination}`|
+
 
 ## <a name="role-syntax-in-patterns"></a>패턴의 역할 구문
 엔터티 및 역할은 괄호(`{}`)로 묶습니다. 엔터티 및 역할은 콜론으로 구분됩니다. 

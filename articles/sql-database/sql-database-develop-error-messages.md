@@ -3,19 +3,22 @@ title: SQL 오류 코드 - 데이터베이스 연결 오류 | Microsoft Docs
 description: '일반적인 데이터베이스 연결 오류, 데이터베이스 복사 문제 및 일반적인 오류와 같은 SQL Database 클라이언트 응용 프로그램에 대한 SQL 오류 코드에 대해 알아봅니다. '
 keywords: SQL 오류 코드, 액세스 SQL, 데이터베이스 연결 오류, SQL 오류 코드
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/16/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: d97ec2cc67da7c4bc1479c55a9a7c35c0c754532
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: d5b98f573b60115002e813ebbef59eb7983ce3c2
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092531"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064393"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL Database 클라이언트 응용 프로그램의 SQL 오류 코드: 데이터베이스 연결 오류 및 기타 문제
 
@@ -111,7 +114,7 @@ Azure SQL Database에서 데이터베이스를 복사하는 동안 다음 오류
 | 40857 |EX_USER |서버: '%ls'에서 탄력적 풀을 찾을 수 없음, 탄력적 풀 이름: '%ls'. |서버 이름, 탄력적 풀 이름 |지정한 탄력적 풀이 지정한 서버에 존재하지 않습니다. |유효한 탄력적 풀 이름을 입력하세요. |
 | 40858 |EX_USER |탄력적 풀 '%ls'이(가) 서버 '%ls'에 이미 있습니다. |탄력적 풀 이름, 서버 이름 |지정한 탄력적 풀이 지정한 논리 서버에 이미 있습니다. |새 탄력적 풀 이름을 입력하세요. |
 | 40859 |EX_USER |탄력적 풀이 서비스 계층 '%ls'을(를) 지원하지 않습니다. |탄력적 풀 서비스 계층 |지정한 서비스 계층은 탄력적 풀 프로비저닝에 대해 지원되지 않습니다. |기본 서비스 계층을 사용하려면 오류를 수정하거나 서비스 계층을 빈 상태로 두세요. |
-| 40860 |EX_USER |탄력적 풀 '%ls' 및 서비스 목표'%ls'의 조합은 유효하지 않습니다. |탄력적 풀 이름, 서비스 수준 목표 이름 |서비스 목표가 'ElasticPool'로 지정된 경우에만 탄력적 풀과 서비스 목표를 함께 지정할 수 있습니다. |탄력적 풀과 서비스 목표의 올바른 조합을 지정하세요. |
+| 40860 |EX_USER |탄력적 풀 '%ls' 및 서비스 목표'%ls'의 조합은 유효하지 않습니다. |탄력적 풀 이름, 서비스 계층 |리소스 종류가 'ElasticPool'로 지정된 경우에만 탄력적 풀과 서비스 계층을 함께 지정할 수 있습니다. |탄력적 풀과 서비스 계층의 올바른 조합을 지정하세요. |
 | 40861 |EX_USER |데이터베이스 버전 '%.*ls'이(가) '%.* ls'인 탄력적 풀 서비스 계층과 다를 수 없습니다. |데이터베이스 버전, 탄력적 풀 서비스 계층 |데이터베이스 버전이 탄력적 풀 서비스 계층과 다릅니다. |탄력적 풀 서비스 계층과 다른 데이터베이스 버전을 지정하지 마세요.  데이터베이스 버전은 지정할 필요가 없습니다. |
 | 40862 |EX_USER |탄력적 풀 서비스 목표를 지정한 경우 탄력적 풀 이름을 지정해야 합니다. |없음 |탄력적 풀 서비스 목표가 탄력적 풀을 고유하게 식별하지 못합니다. |탄력적 풀 서비스 목표를 사용하는 경우 탄력적 풀 이름을 지정하세요. |
 | 40864 |EX_USER |탄력적 풀의 DTU는 서비스 계층 '%.*ls'에 대해 최소 (%d) DTU 이상이어야 합니다. |탄력적 풀의 DTU, 탄력적 풀 서비스 계층 |탄력적 풀의 DTU를 최소 한도 아래로 설정하려고 했습니다. |탄력적 풀의 DTU를 최소 한도 이상으로 다시 설정하세요. |

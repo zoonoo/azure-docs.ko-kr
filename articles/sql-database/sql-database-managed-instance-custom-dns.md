@@ -2,20 +2,22 @@
 title: Azure SQL Database Managed Instance 사용자 지정 DNS | Microsoft Docs
 description: 이 항목에서는 Azure SQL Database Managed Instance를 사용하는 사용자 지정 DNS의 구성 옵션에 대해 설명합니다.
 services: sql-database
-author: srdan-bozovic-msft
-manager: craigg
 ms.service: sql-database
-ms.custom: managed instance
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/23/2018
+author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 2d1bb7e8522da32dd33933261ea41b578f8afac1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+manager: craigg
+ms.date: 09/23/2018
+ms.openlocfilehash: f26ea763d48d03fe7e981b7abbbe64e573ec0b3a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949488"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224276"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance에 대한 사용자 지정 DNS 구성
 
@@ -36,7 +38,7 @@ Azure [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.m
    ![사용자 지정 DNS 옵션](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png) 
 
    > [!IMPORTANT]
-   > DNS 목록에서 Azure 재귀 해결자를 설정하지 않으면 Managed Instance가 잘못된 상태로 전환됩니다. 해당 상태에서 복구하려면 네트워킹 준수 정책을 사용하여 VNet에서 새 인스턴스를 만들고, 인스턴스 수준 데이터를 만들고, 데이터베이스를 복원해야 합니다. [VNet 구성](sql-database-managed-instance-vnet-configuration.md)을 참조하세요.
+   > DNS 목록에서 Azure의 재귀 확인자를 설정하지 않으면 어떤 이유로 사용자 지정 DNS 서버를 사용할 수 없는 경우 Managed Instance는 잘못된 상태가 될 수 있습니다. 해당 상태에서 복구하려면 네트워킹 준수 정책을 사용하여 VNet에서 새 인스턴스를 만들고, 인스턴스 수준 데이터를 만들고, 데이터베이스를 복원해야 합니다. DNS 목록의 마지막 항목이 보장하는 것처럼 Azure의 재귀 확인자를 설정하면, 모든 사용자 지정 DNS 서버가 실패하는 경우에도 공용 이름은 계속 확인할 수 있습니다. [VNet 구성](sql-database-managed-instance-vnet-configuration.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

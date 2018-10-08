@@ -2,19 +2,22 @@
 title: Azure SQL Database - 복제본에 대한 쿼리 읽기 | Microsoft Docs
 description: Azure SQL Database는 읽기 확장이라는 읽기 전용 복제본의 용량을 사용하여 읽기 전용 작업의 부하를 분산하는 기능을 제공합니다.
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 8/27/2018
+author: anosov1960
 ms.author: sashan
-ms.openlocfilehash: c0fa4a9868aa19032888aa50a0d300dd2e88fcca
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/18/2018
+ms.openlocfilehash: d82f4e03176911804702db2ea18a5bc9a95583a3
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124820"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158705"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>읽기 전용 복제본을 사용하여 읽기 전용 쿼리 작업의 부하 분산(미리 보기)
 
@@ -26,7 +29,7 @@ ms.locfileid: "43124820"
 
 ![읽기 전용 복제본](media/sql-database-managed-instance/business-critical-service-tier.png)
 
-이러한 복제본은 일반 데이터베이스 연결에서 사용되는 읽기/쓰기 복제본과 동일한 성능 수준으로 프로비전됩니다. **읽기 확장** 기능을 사용하면 읽기/쓰기 복제본을 공유하는 대신 읽기 전용 복제본 중 하나의 용량을 사용하여 SQL Database 읽기 전용 작업의 부하를 분산할 수 있습니다. 이러한 방식으로 읽기 전용 워크로드는 주 읽기-쓰기 작업에서 격리되고 해당 성능에 영향을 주지 않습니다. 기능은 분석과 같은 논리적으로 구분된 읽기 전용 워크로드를 포함하는 응용 프로그램을 위한 것이므로 추가 비용 없이 이 추가 용량을 사용하여 성능 혜택을 활용할 수 있습니다.
+이러한 복제본은 일반 데이터베이스 연결에서 사용되는 읽기/쓰기 복제본과 동일한 계산 크기로 프로비전됩니다. **읽기 확장** 기능을 사용하면 읽기/쓰기 복제본을 공유하는 대신 읽기 전용 복제본 중 하나의 용량을 사용하여 SQL Database 읽기 전용 작업의 부하를 분산할 수 있습니다. 이러한 방식으로 읽기 전용 워크로드는 주 읽기-쓰기 작업에서 격리되고 해당 성능에 영향을 주지 않습니다. 기능은 분석과 같은 논리적으로 구분된 읽기 전용 워크로드를 포함하는 응용 프로그램을 위한 것이므로 추가 비용 없이 이 추가 용량을 사용하여 성능 혜택을 활용할 수 있습니다.
 
 특정 데이터베이스에서 읽기 확장 기능을 사용하려면, 데이터베이스를 만들 때 또는 나중에 [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) 또는 [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet을 호출하는 PowerShell을 사용하거나 [데이터베이스 - 만들기 또는 업데이트](/rest/api/sql/databases/createorupdate) 방법을 사용하는 Azure Resource Manager REST API를 통해 해당 구성을 변경하여 명시적으로 사용하도록 설정해야 합니다. 
 
@@ -119,7 +122,7 @@ Body:
 읽기 확장을 사용하여 지역 복제된(예: 장애 조치(failover) 그룹의 구성원으로) 데이터베이스에 대한 읽기 전용 워크로드의 부하를 분산하는 경우, 주 데이터베이스와 지역 복제된 보조 데이터베이스 둘 다에서 읽기 확장이 사용하도록 설정되었는지 확인합니다. 이렇게 하면 장애 조치(failover) 후에 응용 프로그램이 새로운 주 데이터베이스에 연결할 때 동일한 부하 분산이 적용됩니다. 읽기 확장을 사용할 수 있는 지역 복제된 보조 데이터베이스에 연결하는 경우, `ApplicationIntent=ReadOnly`가 있는 세션은 주 데이터베이스에서 연결을 라우팅하는 것과 동일한 방식으로 복제본 중 하나로 라우팅됩니다.  `ApplicationIntent=ReadOnly`가 없는 세션은 역시 읽기 전용인 지역 복제된 보조 데이터베이스의 주 복제본으로 라우팅됩니다. 지역 복제된 보조 데이터베이스에는 주 데이터베이스와 다른 끝점이 있으므로 지금까지 보조 데이터베이스에 액세스하기 위해 `ApplicationIntent=ReadOnly`를 설정할 필요는 없었습니다. 이전 버전과의 호환성을 보장하기 위해 `sys.geo_replication_links` DMV에 `secondary_allow_connections=2`(모든 클라이언트 연결이 허용됨)가 표시됩니다.
 
 > [!NOTE]
-> 미리 보기 중에는 보조 데이터베이스의 로컬 복제본 간에 라운드 로빈 또는 기타 부하 분산 라우팅이 수행되지 않습니다. 
+> 미리 보기 기간에는 보조 데이터베이스의 로컬 복제본 간에 라운드 로빈 또는 기타 부하 분산 라우팅이 지원되지 않습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

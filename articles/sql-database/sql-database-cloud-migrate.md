@@ -3,23 +3,26 @@ title: Azure SQL Database로 SQL Server 데이터베이스 마이그레이션 | 
 description: 클라우드에서 Azure SQL Database로 SQL Server 데이터베이스를 마이그레이션하는 방법을 알아봅니다.
 keywords: 데이터베이스 마이그레이션, SQL Server 데이터베이스 마이그레이션, 데이터베이스 마이그레이션 도구, 데이터베이스 마이그레이션, SQL 데이터베이스 마이그레이션
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: migrate
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/16/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: a9acff6f2b3e668707a6ef4cc3c736ebd28b4d3a
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 65258622c006cc384df24898c18b154b4c523a7f
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309384"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064291"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Azure SQL Database로 SQL Server 데이터베이스 마이그레이션
 
-이 문서에서는 Azure SQL Server 2005 이상 데이터베이스를 Azure SQL Database의 단일 또는 풀링된 데이터베이스로 마이그레이션하는 주요 방법에 대해 배웁니다. 관리되는 인스턴스로 마이그레이션하는 방법에 대한 내용은 [SQL Server 인스턴스를 Azure SQL Database 관리되는 인스턴스로 마이그레이션(미리 보기)](sql-database-managed-instance-migrate.md)을 참조하세요. 
+이 문서에서는 Azure SQL Server 2005 이상 데이터베이스를 Azure SQL Database의 단일 또는 풀링된 데이터베이스로 마이그레이션하는 주요 방법에 대해 배웁니다. Managed Instance로 마이그레이션하는 방법에 대한 내용은 [SQL Server 인스턴스를 Azure SQL Database Managed Instance로 마이그레이션](sql-database-managed-instance-migrate.md)을 참조하세요. 
 
 ## <a name="migrate-to-a-single-database-or-a-pooled-database"></a>단일 데이터베이스 또는 풀링된 데이터베이스로 마이그레이션
 Azure SQL Server 2005 이상 데이터베이스를 Azure SQL Database의 단일 또는 풀링된 데이터베이스로 마이그레이션하는 2가지 주요 방법이 있습니다. 첫 번째 방법이 더 간단하지만, 마이그레이션하는 동안 다소 상당한 가동 중지 시간이 있을 수 있습니다. 두 번째 방법은 좀 복잡하지만, 마이그레이션하는 동안 가동 중지 시간이 대폭 줄어듭니다.
@@ -34,7 +37,7 @@ Azure SQL Server 2005 이상 데이터베이스를 Azure SQL Database의 단일 
 
  약간의 가동 중지 시간이 허용되거나 나중에 마이그레이션할 수 있도록 프로덕션 데이터베이스의 테스트 마이그레이션을 수행하려면 이 방법을 사용하여 단일 또는 풀링된 데이터베이스로 마이그레이션하세요. 자습서를 보려면 [SQL Server 데이터베이스 마이그레이션](sql-database-migrate-your-sql-server-database.md)을 참조하세요.
 
-다음 목록에는 이 방법을 사용한 단일 또는 풀링된 데이터베이스의 SQL Server 데이터베이스 마이그레이션에 대한 일반적인 워크플로가 포함되어 있습니다. 관리되는 인스턴스으로의 마이그레이션에 대한 내용은 [관리되는 인스턴스로 마이그레이션](sql-database-managed-instance-migrate.md)을 참조하세요.
+다음 목록에는 이 방법을 사용한 단일 또는 풀링된 데이터베이스의 SQL Server 데이터베이스 마이그레이션에 대한 일반적인 워크플로가 포함되어 있습니다. Managed Instance으로의 마이그레이션에 대한 내용은 [Managed Instance로 마이그레이션](sql-database-managed-instance-migrate.md)을 참조하세요.
 
   ![VSSSDT 마이그레이션 다이어그램](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
@@ -51,7 +54,7 @@ Azure SQL Server 2005 이상 데이터베이스를 Azure SQL Database의 단일 
 
 다음 목록에는 가져오기 프로세스 도중 최상의 성능을 위한 권장 사항을 포함합니다.
 
-* 전송 성능을 최대화하기 위한 예산 범위 내에서 가장 높은 서비스 수준 및 성능 계층을 선택합니다. 마이그레이션을 완료한 후 규모를 축소하여 비용을 절감할 수 있습니다. 
+* 전송 성능을 최대화할 수 있도록 예산 범위 내에서 가장 높은 서비스 계층과 계산 크기를 선택합니다. 마이그레이션을 완료한 후 규모를 축소하여 비용을 절감할 수 있습니다. 
 * BACPAC 파일과 대상 데이터 센터 간의 거리를 최소화합니다.
 * 마이그레이션하는 동안 자동 통계 사용 안 함
 * 파티션 테이블 및 인덱스
@@ -114,7 +117,7 @@ SQL Database로 마이그레이션하기 위한 몇 가지 팁과 차이점
 인터넷을 검색하여 이러한 리소스를 사용하는 동시에 [MSDN SQL Server 커뮤니티 포럼](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) 또는 [StackOverflow](http://stackoverflow.com/)도 활용하세요.
 
 > [!IMPORTANT]
-> SQL Database 관리되는 인스턴스를 사용하면 적어도 호환성 문제 없이 기존 SQL Server 인스턴스 및 해당 데이터베이스를 마이그레이션할 수 있습니다. [관리되는 인스턴스란?](sql-database-managed-instance.md)을 참조하세요.
+> SQL Database Managed Instance를 사용하면 적어도 호환성 문제 없이 기존 SQL Server 인스턴스 및 해당 데이터베이스를 마이그레이션할 수 있습니다. [Managed Instance란?](sql-database-managed-instance.md)을 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

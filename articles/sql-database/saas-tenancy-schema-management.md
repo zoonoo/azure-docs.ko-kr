@@ -1,25 +1,26 @@
 ---
-title: 다중 테넌트 앱에서 Azure SQL Database 스키마 관리 | Microsoft Docs
-description: Azure SQL Database를 사용하는 다중 테넌트 응용 프로그램에서 여러 테넌트에 대한 스키마 관리
-keywords: SQL Database 자습서
+title: 단일 테넌트 앱에서 Azure SQL Database 스키마 관리 | Microsoft Docs
+description: Azure SQL Database를 사용하는 단일 테넌트 앱에서 여러 테넌트의 스키마 관리
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 2e4af3e3e1ef1d9da7c66b929885e3ec749b462f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 2f747eb09fd13647c4b6764ce3cc4fe72c00bcf0
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646275"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054849"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Azure SQL Database를 사용하여 SaaS 응용 프로그램에서 테넌트별 데이터베이스 패턴으로 스키마 관리
-
+ 
 데이터베이스 응용 프로그램이 발전하면 데이터베이스 스키마나 참조 데이터를 변경해야 합니다.  데이터베이스 유지 관리 작업도 주기적으로 수행해야 합니다. 테넌트별 데이터베이스 패턴을 사용하는 응용 프로그램을 관리하기 위해서는 수많은 테넌트 데이터베이스를 대상으로 변경을 적용하거나 유지 관리 작업을 수행해야 합니다.
 
 이 자습서에서는 1) 모든 테넌트에 대해 참조 데이터 업데이트 배포와 2) 참조 데이터를 포함하는 테이블에서 인덱스 다시 빌드의 두 가지 시나리오를 살펴봅니다. 이러한 작업을 모든 테넌트에서 실행할 때와 새 테넌트 데이터베이스를 생성할 때 사용하는 템플릿 데이터베이스에서 실행할 때 [탄력적 작업](sql-database-elastic-jobs-overview.md)이라는 기능이 사용됩니다.

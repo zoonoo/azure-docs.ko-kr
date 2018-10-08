@@ -13,23 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 69ead9e6dae400ce16cb2442c7b1c13e348d1572
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 92422a254bcfd5b31731dda6d1790cc85f467860
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094983"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 ASE 만들기
 
 ## <a name="overview"></a>개요
-Azure ASE(App Service Environment)는 인터넷에 액세스할 수 있는 끝점 또는 Azure VNet(Virtual Network)의 내부 주소에 있는 끝점을 사용하여 만들 수 있습니다. 끝점이 내부 끝점을 사용하여 만들어진 경우 ILB(내부 부하 분산 장치)를 호출하는 Azure구성 요소에서 해당 끝점을 제공합니다. 내부 IP 주소의 ASE를 ILB ASE라고 합니다. 공용 끝점이 있는 ASE를 외부 ASE라고 합니다. 
+Azure ASE(App Service Environment)는 인터넷에 액세스할 수 있는 엔드포인트 또는 Azure VNet(Virtual Network)의 내부 주소에 있는 엔드포인트를 사용하여 만들 수 있습니다. 엔드포인트가 내부 엔드포인트를 사용하여 만들어진 경우 ILB(내부 부하 분산 장치)를 호출하는 Azure구성 요소에서 해당 엔드포인트를 제공합니다. 내부 IP 주소의 ASE를 ILB ASE라고 합니다. 공용 엔드포인트가 있는 ASE를 외부 ASE라고 합니다. 
 
 Azure Portal 또는 Azure Resource Manager 템플릿을 사용하여 ASE를 만들 수 있습니다. 이 문서에서는 Resource Manager 템플릿으로 외부 ASE 또는 ILB ASE를 만드는 데 필요한 단계와 구문을 안내합니다. Azure Portal에서 ASE를 만드는 방법에 대해 알아보려면 [외부 ASE 만들기][MakeExternalASE] 또는 [ILB ASE 만들기][MakeILBASE]를 참조하세요.
 
 Azure Portal에서 ASE를 만들 때는 동시에 VNet를 만들거나 ASE를 배포할 기존 VNet를 선택할 수 있습니다. 템플릿에서 ASE를 만들 경우 다음 항목을 미리 준비해야 합니다. 
 
 * Resource Manager VNet
-* 해당 VNet의 서브넷 향후 확장이 가능하도록 128개의 주소를 포함할 수 있는 `/25` 크기의 ASE 서브넷을 사용하는 것이 좋습니다. ASE를 만든 후에는 크기를 변경할 수 없습니다.
+* 해당 VNet의 서브넷 향후 성장 및 확장 요구 사항을 충족할 수 있도록 256개의 주소를 포함할 수 있는 `/24` 크기의 ASE 서브넷을 사용하는 것이 좋습니다. ASE를 만든 후에는 크기를 변경할 수 없습니다.
 * VNet의 리소스 ID. Azure Portal의 가상 네트워크 속성에서 이 정보를 가져올 수 있습니다.
 * ASE를 배포할 구독
 * ASE를 배포할 위치

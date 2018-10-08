@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: bb3df82e66024b49e399ab2f7795a27932f7559e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bfc87a30250dd98c1b26616f680b5981070623f5
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953976"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182555"
 ---
-#  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>AzCopy를 사용하여 클라우드로 온-프레미스 데이터 마이그레이션
+#  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>자습서: AzCopy를 사용하여 클라우드로 온-프레미스 데이터 마이그레이션
 
 AzCopy는 간단한 명령을 사용하여 Azure Blob 저장소, Azure Files 및 Azure Table 저장소 간 데이터를 복사하기 위한 명령줄 도구입니다. 명령은 최적의 성능을 위해 설계되었습니다. 파일 시스템과 저장소 계정 간 또는 저장소 계정 간에 데이터를 복사할 수 있습니다.  
 

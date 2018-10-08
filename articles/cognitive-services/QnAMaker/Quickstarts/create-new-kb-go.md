@@ -1,20 +1,21 @@
 ---
-title: Microsoft QnA Maker API(v4)용 기술 자료(빠른 시작 Go) – 새로 만들기 - Azure Cognitive Services | Microsoft Docs
-description: QnA Maker를 시작할 수 있도록 Go로 기술 자료를 만들어서 FAQ나 제품 설명서를 보관합니다.
+title: '빠른 시작: API Go - 기술 자료 만들기 - QnA Maker'
+titlesuffix: Azure Cognitive Services
+description: 이 빠른 시작에서는 Cognitive Services API 계정의 Azure 대시보드에 표시될 샘플 QnA Maker 기술 자료를 프로그래밍 방식으로 만드는 과정을 단계별로 안내합니다.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: fe763dada6d40822148423443be12df7c1626687
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 17d4a03966b1d6e3f278d5a507e46f9f6fcafa05
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "43750439"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034062"
 ---
 # <a name="create-a-new-knowledge-base-in-go"></a>Go로 새 기술 자료 만들기
 

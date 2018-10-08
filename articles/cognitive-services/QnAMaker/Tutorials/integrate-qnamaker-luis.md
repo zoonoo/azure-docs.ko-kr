@@ -1,21 +1,21 @@
 ---
-title: QnA Maker 및 LUIS 통합 - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
-description: QnA Maker와 LUIS 통합에 대한 단계별 자습서
+title: LUIS 및 QnAMaker - 봇 통합
+titleSuffix: Azure Cognitive Services
+description: QnA Maker와 LUIS를 봇에 통합하는 방법에 대한 단계별 자습서입니다.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: 18eae69867dc9774f63b11c762b22df4595bdce6
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: 53e46fa84bcd7b96403dcb0ec70b45b800bc4acb
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781750"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042009"
 ---
 # <a name="integrate-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>QnA Maker와 LUIS를 통합하여 기술 자료 배포
 QnA Maker 기술 자료가 확장되면 단일 모놀리식 집합으로 유지 관리하기가 어려워지며, 기술 자료를 보다 작은 논리적 청크로 분할해야 합니다.
@@ -29,14 +29,14 @@ QnA Maker에서 간단하게 여러 기술 자료를 만들 수 있지만, 들�
 위의 시나리오에서 QnA Maker는 먼저 LUIS 모델에서 들어오는 질문의 의도를 가져온 다음, 이 의도를 사용하여 올바른 QnA Maker 기술 자료로 라우팅합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-- [LUIS](https://www.luis.ai/) 포털에 로그인하고 [앱을 만듭니다](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/create-new-app).
-- 시나리오에 따라 [의도를 추가](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-intents)합니다.
-- LUIS 앱을 [학습](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-train)하고 [게시](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/publishapp)합니다.
+- [LUIS](https://www.luis.ai/) 포털에 로그인하고 [앱을 만듭니다](https://docs.microsoft.com/azure/cognitive-services/luis/create-new-app).
+- 시나리오에 따라 [의도를 추가](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents)합니다.
+- LUIS 앱을 [학습](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train)하고 [게시](https://docs.microsoft.com/azure/cognitive-services/luis/publishapp)합니다.
 - [QnA Maker](https://qnamaker.ai)에 로그인하고 시나리오에 따라 기술 자료를 [만듭니다](https://www.qnamaker.ai/Create).
 - 기술 자료를 테스트하고 게시합니다.
 
 ## <a name="qna-maker--luis-bot"></a>QnA Maker + LUIS 봇
-1. 먼저 LUIS 템플릿을 사용하여 웹앱 봇을 만들고, 위에서 만든 LUIS 앱과 연결한 다음, 의도를 수정합니다. [여기](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample)에서 자세한 단계를 참조하세요.
+1. 먼저 LUIS 템플릿을 사용하여 웹앱 봇을 만들고, 위에서 만든 LUIS 앱과 연결한 다음, 의도를 수정합니다. [여기](https://docs.microsoft.com/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample)에서 자세한 단계를 참조하세요.
 
 2. 다른 종속성과 함께 파일의 맨 위에 종속성을 추가합니다.
 

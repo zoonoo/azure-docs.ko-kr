@@ -2,18 +2,22 @@
 title: Azure SQL Elastic Database 작업 | Microsoft Docs
 description: Elastic Database 작업을 사용하여 하나 이상의 Azure SQL 데이터베이스의 집합에서 T-SQL(Transact-SQL) 스크립트 실행
 services: sql-database
-author: srinia
-manager: craigg
 ms.service: sql-database
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: overview
-ms.date: 07/26/2018
+author: srinia
 ms.author: srinia
-ms.openlocfilehash: 0e01270b6ba12bde0e5f379903b80620646c4d1f
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.reviewer: ''
+manager: craigg
+ms.date: 07/26/2018
+ms.openlocfilehash: a029697c2fdd3c9bd3b3da2c2b5a1420d0dd0a8c
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309047"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054730"
 ---
 # <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>Elastic Database 작업을 사용하여 데이터베이스 그룹 관리
 
@@ -201,12 +205,12 @@ SQL 탄력적인 풀에서 데이터베이스에 대해 작업을 실행할 때 
 
 ##  <a name="differences-between-elastic-jobs-and-sql-server-agent"></a>탄력적 작업 및 SQL Server 에이전트 간의 차이점
 
-SQL Server 에이전트(사용할 수 있는 온-프레미스 및 SQL Database 관리되는 인스턴스의 일부로) 및 Azure SQL Database 탄력적 작업 에이전트(SQL Database 및 SQL Data Warehouse에 대해 현재 사용할 수 있는) 간의 몇몇 차이점을 주목할 필요가 있습니다.
+SQL Server 에이전트(사용할 수 있는 온-프레미스 및 SQL Database Managed Instance의 일부로) 및 Azure SQL Database 탄력적 작업 에이전트(SQL Database 및 SQL Data Warehouse에 대해 현재 사용할 수 있는) 간의 몇몇 차이점을 주목할 필요가 있습니다.
 
 
 |  |탄력적 작업  |SQL Server 에이전트 |
 |---------|---------|---------|
-|범위     |  작업 에이전트와 동일한 Azure 클라우드에서 많은 수의 Azure SQL Database 및/또는 데이터 웨어하우스입니다. 대상은 다른 논리 서버, 구독 및/또는 지역에 있을 수 있습니다. <br><br>대상 그룹은 개별 데이터베이스나 데이터 웨어하우스 또는 서버, 풀 또는 shardmap(작업 런타임 시 동적으로 열거되는)의 모든 데이터베이스로 구성됩니다. | SQL 에이전트와 동일한 SQL Server 인스턴스의 모든 단일 데이터베이스입니다. |
+|범위     |  작업 에이전트와 동일한 Azure 클라우드에서 많은 수의 Azure SQL 데이터베이스 및/또는 데이터 웨어하우스입니다. 대상은 다른 논리 서버, 구독 및/또는 지역에 있을 수 있습니다. <br><br>대상 그룹은 개별 데이터베이스나 데이터 웨어하우스 또는 서버, 풀 또는 shardmap(작업 런타임 시 동적으로 열거되는)의 모든 데이터베이스로 구성됩니다. | SQL 에이전트와 동일한 SQL Server 인스턴스의 모든 단일 데이터베이스입니다. |
 |지원되는 API 및 도구     |  포털, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL 및 SSMS(SQL Server Management Studio)     |
 
 

@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 18342b7f3980bcd43b386c3282dda6ebf17eebba
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: b6c6e407e0bd54c4713056fdee12f7a4c355af97
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42022558"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47030913"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service용 Java 장치 SDK를 사용하여 시뮬레이션된 TPM 장치 만들기 및 프로비전
 
@@ -91,9 +91,9 @@ ms.locfileid: "42022558"
 
 1. Azure Portal에 로그인하고, 왼쪽 메뉴에서 **모든 리소스** 단추를 클릭하고, Device Provisioning Service를 엽니다.
 
-1. Device Provisioning Service 요약 블레이드에서 **등록 관리**를 선택합니다. **개별 등록** 탭을 선택하고 맨 위에서 **추가** 단추를 클릭합니다. 
+1. Device Provisioning Service 요약 블레이드에서 **등록 관리**를 선택합니다. **개별 등록** 탭을 선택하고 맨 위에서 **개별 등록 추가** 단추를 클릭합니다. 
 
-1. **등록 목록 항목 추가** 아래에 다음 정보를 입력합니다.
+1. **등록 추가** 아래에서 다음 정보를 입력합니다.
     - ID 증명 *메커니즘*으로 **TPM**을 선택합니다.
     - 앞에서 설명한 대로 TPM 장치에 대한 *등록 ID* 및 *인증 키*를 입력합니다. 
     - 프로비전 서비스와 연결된 IoT Hub를 선택합니다.
@@ -101,7 +101,7 @@ ms.locfileid: "42022558"
     - 장치에 대해 원하는 초기 구성으로 **초기 장치 쌍 상태**를 업데이트합니다.
     - 완료되면 **저장** 단추를 클릭합니다. 
 
-    ![포털 블레이드에 장치 등록 정보 입력](./media/java-quick-create-simulated-device/enter-device-enrollment.png)  
+    ![포털 블레이드에 장치 등록 정보 입력](./media/java-quick-create-simulated-device/enterdevice-enrollment.png)  
 
    성공적으로 등록되면 장치의 *등록 ID*가 *개별 등록* 탭 아래의 목록에 표시됩니다. 
 
@@ -114,7 +114,7 @@ ms.locfileid: "42022558"
 
 1. 시뮬레이션된 장치를 프로비전 서비스와 연결된 IoT Hub로 성공적으로 프로비전하면 장치 ID가 허브의 **Device Explorer** 블레이드에 나타납니다.
 
-    ![장치가 IoT Hub에 등록됨](./media/java-quick-create-simulated-device/hub-registration.png) 
+    ![장치가 IoT Hub에 등록됨](./media/java-quick-create-simulated-device/hubregistration.png) 
 
     장치에 대한 등록 항목의 기본값으로부터 *초기 장치 쌍 상태*를 변경한 경우, 허브에서 원하는 쌍 상태를 가져와서 그에 맞게 작동할 수 있습니다. 자세한 내용은 [IoT Hub의 장치 쌍 이해 및 사용](../iot-hub/iot-hub-devguide-device-twins.md)을 참조하세요.
 

@@ -2,24 +2,26 @@
 title: Azure SQL Database Managed Instance T-SQL 차이점 | Microsoft Docs
 description: 이 문서에서는 Azure SQL Database Managed Instance 및 SQL Server 간의 T-SQL 차이점에 대해 설명합니다.
 services: sql-database
-author: jovanpop-msft
-ms.reviewer: carlrab, bonova
 ms.service: sql-database
-ms.custom: managed instance
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 0813/2018
+author: jovanpop-msft
 ms.author: jovanpop
+ms.reviewer: carlrab, bonova
 manager: craigg
-ms.openlocfilehash: 57c6b52df3e8f6c47eb794cda4b47bfa2d7de374
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.date: 08/13/2018
+ms.openlocfilehash: 2f512c666555ca8bee58305b76573459f6e631e2
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051241"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166506"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance 및 SQL Server 간의 T-SQL 차이점 
 
-Azure SQL Database Managed Instance(미리 보기)는 온-프레미스 SQL Server 데이터베이스 엔진과의 높은 호환성을 제공합니다. 대부분의 SQL Server 데이터베이스 엔진 기능은 Managed Instance에서 지원됩니다. 구문과 동작에는 여전히 몇 가지 차이점이 있으므로 이 문서에서는 이러한 차이점을 요약하고 설명합니다.
+Azure SQL Database Managed Instance는 온-프레미스 SQL Server 데이터베이스 엔진과의 높은 호환성을 제공합니다. 대부분의 SQL Server 데이터베이스 엔진 기능은 Managed Instance에서 지원됩니다. 구문과 동작에는 여전히 몇 가지 차이점이 있으므로 이 문서에서는 이러한 차이점을 요약하고 설명합니다.
  - [T-SQL 차이점 및 지원되지 않는 기능](#Differences)
  - [Managed Instance에서 동작이 다른 기능](#Changes)
  - [임시 제한 사항 및 알려진 문제](#Issues)
@@ -267,7 +269,7 @@ HDFS 또는 Azure Blob 저장소의 파일을 참조하는 외부 테이블은 �
 
 ### <a name="replication"></a>복제 
  
-복제는 Managed Instance에서 지원됩니다. 복제에 대한 자세한 내용은 [SQL Server 복제](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance)를 참조하세요.
+복제는 Managed Instance의 공개 미리 보기에 사용할 수 있습니다. 복제에 대한 자세한 내용은 [SQL Server 복제](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance)를 참조하세요.
  
 ### <a name="restore-statement"></a>RESTORE 문 
  
@@ -335,23 +337,24 @@ HDFS 또는 Azure Blob 저장소의 파일을 참조하는 외부 테이블은 �
 - `sp_attach_db`, `sp_attach_single_file_db` 및 `sp_detach_db`는 지원되지 않습니다. [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) 및 [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql)를 참조하세요.
 - `sp_renamedb`는 지원되지 않습니다. [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql)를 참조하세요.
 
-### <a name="sql-server-agent"></a>SQL Server 에이전트 
- 
+### <a name="sql-server-agent"></a>SQL Server 에이전트
+
 - SQL 에이전트 설정은 읽기 전용입니다. `sp_set_agent_properties` 프로시저는 Managed Instance에서 지원되지 않습니다.  
-- 작업 - T-SQL 작업 단계만 현재 지원됩니다(공개 미리 보기로 있는 동안 더 많은 단계가 추가될 예정임).
- - SSIS는 아직 지원되지 않습니다. 
- - 복제는 아직 지원되지 않습니다.  
-  - 트랜잭션 로그 판독기는 아직 지원되지 않습니다.  
-  - 스냅숏은 아직 지원되지 않습니다.  
-  - 배포자는 아직 지원되지 않습니다.  
-  - 병합은 지원되지 않습니다.  
+- 작업 - 현재 T-SQL 작업 단계가 지원됩니다.
+- 다른 유형의 작업 단계는 현재 지원되지 않습니다(공개 미리 보기 동안 더 많은 단계 유형이 추가될 예정임).
+  - 다음을 포함한 복제 작업은 지원되지 않습니다.
+    - 트랜잭션 로그 판독기  
+    - 스냅숏
+    - 배포자  
+    - 병합  
+  - SSIS는 아직 지원되지 않습니다. 
   - 큐 판독기는 지원되지 않습니다.  
- - 명령 셸은 아직 지원되지 않습니다. 
+  - 명령 셸은 아직 지원되지 않습니다. 
   - Managed Instance는 외부 리소스(예: robocopy를 통한 네트워크 공유)에 액세스할 수 없습니다.  
- - PowerShell은 아직 지원되지 않습니다.
- - Analysis Services는 지원되지 않습니다.  
+  - PowerShell은 아직 지원되지 않습니다.
+  - Analysis Services는 지원되지 않습니다.  
 - 알림은 부분적으로 지원됩니다.
- - 이메일 알림이 지원되며, 데이터베이스 메일 프로필을 구성해야 합니다. 데이터베이스 메일 프로필은 하나만 있을 수 있으며, 공개 미리 보기에서는 `AzureManagedInstance_dbmail_profile`이라고 해야 합니다(임시 제한).  
+- 이메일 알림이 지원되며, 데이터베이스 메일 프로필을 구성해야 합니다. 데이터베이스 메일 프로필은 하나만 있을 수 있으며, 공개 미리 보기에서는 `AzureManagedInstance_dbmail_profile`이라고 해야 합니다(임시 제한).  
  - 호출기는 지원되지 않습니다.  
  - NetSend는 지원되지 않습니다. 
  - 경고는 아직 지원되지 않습니다.
@@ -362,7 +365,7 @@ HDFS 또는 Azure Blob 저장소의 파일을 참조하는 외부 테이블은 �
 - 프록시
 - 유휴 CPU에 대한 작업 예약 
 - 에이전트 사용 설정/해제
-- Alerts
+- 경고
 
 SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent)를 참조하세요.
  
@@ -414,15 +417,58 @@ Azure Portal을 사용하여 생성된 SAS 키에서 선행 `?`를 제거했는�
 
 Managed Instance에 액세스하는 동안 SQL Server Management Studio 및 SQL Server Data Tools에 몇 가지 문제가 발생할 수 있습니다. 모든 도구 문제는 일반 공급 이전에 해결될 예정입니다.
 
-### <a name="incorrect-database-names"></a>잘못된 데이터베이스 이름
+### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>일부 뷰, 로그 및 메시지에 잘못된 데이터베이스 이름이 있음
 
-Managed Instance는 복원 중 또는 일부 오류 메시지에서 데이터베이스 이름 대신 GUID 값을 표시할 수 있습니다. 이러한 문제는 일반 공급 이전에 수정될 예정입니다.
+몇 가지 시스템 뷰, 성능 카운터, 오류 메시지, XEvent 및 오류 로그 항목에는 실제 데이터베이스 이름 대신 GUID 데이터베이스 식별자가 표시됩니다. 이러한 GUID 식별자는 나중에 실제 데이터베이스 이름으로 바뀔 수 있으므로 사용하지 마세요.
 
 ### <a name="database-mail-profile"></a>데이터베이스 메일 프로필
 데이터베이스 메일 프로필은 하나만 있을 수 있으며, `AzureManagedInstance_dbmail_profile`이라고 해야 합니다. 이는 곧 제거될 임시 제한 사항입니다.
+
+### <a name="error-logs-are-not-persisted"></a>오류 로그가 유지되지 않음
+Managed Instance에서 사용할 수 있는 오류 로그는 유지되지 않으며, 해당 크기는 최대 저장소 용량 제한에 포함되지 않습니다. 오류 로그는 장애 조치 시 자동으로 지워질 수 있습니다.
+
+### <a name="error-logs-are-verbose"></a>오류 로그에 자세한 정보가 표시됨
+Managed Instance는 자세한 정보를 오류 로그에 배치하지만 대부분은 관련이 없습니다. 오류 로그의 정보 양은 앞으로 줄어듭니다.
+
+**해결 방법**: 관련 없는 일부 항목을 필터링한 오류 로그를 읽는 사용자 지정 프로시저를 사용합니다. 자세한 내용은 [Azure SQL DB Managed Instance - sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/)를 참조하세요.
+
+### <a name="transaction-scope-on-two-databases-within-the-same-instance-is-not-supported"></a>동일한 인스턴스 내의 두 데이터베이스에 대한 트랜잭션 범위가 지원되지 않음
+동일한 트랜잭션 범위에서 동일한 인스턴스 내의 두 데이터베이스에 두 개의 쿼리를 보내면 .Net의 `TransactionScope` 클래스가 작동하지 않습니다.
+
+```C#
+using (var scope = new TransactionScope())
+{
+    using (var conn1 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
+    {
+        conn1.Open();
+        SqlCommand cmd1 = conn1.CreateCommand();
+        cmd1.CommandText = string.Format("insert into T1 values(1)");
+        cmd1.ExecuteNonQuery();
+    }
+
+    using (var conn2 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
+    {
+        conn2.Open();
+        var cmd2 = conn2.CreateCommand();
+        cmd2.CommandText = string.Format("insert into b.dbo.T2 values(2)");        cmd2.ExecuteNonQuery();
+    }
+
+    scope.Complete();
+}
+
+```
+
+이 코드는 동일한 인스턴스 내의 데이터를 사용하지만 MSDTC가 필요합니다.
+
+**해결 방법**: [SqlConnection.ChangeDatabase(String)](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase)를 사용하여 두 연결을 사용하는 대신 연결 컨텍스트에서 다른 데이터베이스를 사용합니다.
+
+### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>CLR 모듈 및 연결된 서버에서 로컬 IP 주소를 참조할 수 없는 경우가 있음
+현재 인스턴스를 참조하는 Managed Instance 및 연결된 서버/분산 쿼리에 배치된 CLR 모듈에서 로컬 인스턴스의 IP를 확인할 수 없는 경우가 있습니다. 이는 일시적인 오류입니다.
+
+**해결 방법**: 가능한 경우 CLR 모듈에서 컨텍스트 연결을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - Managed Instance에 대한 자세한 내용은 [Managed Instance란?](sql-database-managed-instance.md)을 참조하세요.
 - 기능 및 비교 목록은 [SQL 일반 기능](sql-database-features.md)을 참조하세요.
-- Managed Instance를 새로 만드는 방법을 보여 주는 자습서에 대해서는 [Managed Instance 만들기](sql-database-managed-instance-get-started.md)를 참조하세요.
+- 새 Managed Instance를 만드는 방법을 보여 주는 빠른 시작은 [Managed Instance 만들기](sql-database-managed-instance-get-started.md)를 참조하세요.

@@ -2,19 +2,22 @@
 title: 재해 복구를 위해 Azure SQL Database 보안 구성 | Microsoft Docs
 description: 데이터베이스를 복원하거나 보조 서버로 장애 조치 후 보안을 구성하고 관리하기 위한 보안 고려 사항을 설명합니다.
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: anosov1960
 ms.author: sashan
-ms.openlocfilehash: 0796e5900bc67d93e51a0ce377ef5d1144346e2c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 2f5a455cecfbf4b40b1a410a756117d70c4a4b69
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646867"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166829"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>지역 복원 또는 장애 조치를 위해 Azure SQL Database 보안 구성 및 관리 
 
@@ -30,7 +33,7 @@ master 데이터베이스에서 로그인에 매핑되어야 하는 기존 사�
 기본 절충점은 대규모로 재해 복구 프로세스를 관리하는 것이 좀 더 어렵다는 점입니다. 동일한 로그인을 사용하는 여러 데이터베이스가 있는 경우 여러 데이터베이스에 포함된 사용자를 사용하여 자격 증명을 유지 관리하면 포함된 사용자의 이점이 없어질 수 있습니다. 예를 들어 암호 회전 정책에 따라 마스터 데이터베이스에 한 번 로그인하기 위해 암호를 변경하는 대신 여러 데이터베이스에 변경 내용이 일관되어야 합니다. 이러한 이유로 동일한 사용자 이름 및 암호를 사용하는 여러 데이터베이스가 있는 경우 포함된 사용자를 사용하는 것은 좋지 않습니다. 
 
 ## <a name="how-to-configure-logins-and-users"></a>로그인 및 사용자를 구성하는 방법
-로그인 및 사용자를 사용하는 경우(포함된 사용자 대신) 마스터 데이터베이스에 동일한 로그인이 존재하는지 보장하는 추가 단계를 수행해야 합니다. 다음 섹션에서는 관련된 단계 및 추가 고려 사항을 간략히 설명합니다.
+포함된 사용자가 아닌 로그인과 사용자를 사용하는 경우 master 데이터베이스에 동일한 로그인이 있는지 확인하는 추가 단계를 수행해야 합니다. 다음 섹션에서는 관련된 단계 및 추가 고려 사항을 간략히 설명합니다.
 
 ### <a name="set-up-user-access-to-a-secondary-or-recovered-database"></a>보조 또는 복구된 데이터베이스에 대한 사용자 액세스 설정
 보조 데이터베이스를 읽기 전용 보조 데이터베이스로 사용할 수 있고 새로운 주 데이터베이스 또는 지역 복원 기능을 사용하여 복구된 데이터베이스에 적절하게 액세스할 수 있기 위해 복구하기 전에 대상 서버의 마스터 데이터베이스에 적절한 보안 구성이 있어야 합니다.

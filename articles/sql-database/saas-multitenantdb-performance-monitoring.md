@@ -1,21 +1,23 @@
 ---
 title: 다중 테넌트 SaaS 앱에서 분할된 다중 테넌트 Azure SQL 데이터베이스의 성능 모니터링 | Microsoft Docs
 description: 다중 테넌트 SaaS 앱에서 분할된 다중 테넌트 Azure SQL 데이터베이스의 성능 모니터링 및 관리
-keywords: SQL Database 자습서
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 75431715b5948525e92c99b778842d26a684da82
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 873660f362d2ad0002f512f911d4149519092787
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753451"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055948"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>다중 테넌트 SaaS 앱에서 분할된 다중 테넌트 Azure SQL 데이터베이스의 성능 모니터링 및 관리
 
@@ -44,9 +46,9 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱은 테넌트 ID에 
 ### <a name="performance-management-strategies"></a>성능 관리 전략
 
 * 수동으로 성능을 모니터링할 필요가 없도록 하려면 **데이터베이스가 정상 범위를 벗어난 경우 트리거되는 경고를 설정**하는 것이 가장 효과적입니다.
-* 데이터베이스 성능의 단기적 변동에 대응하기 위해 **DTU 수준을 확장하거나 축소할 수 있습니다**. 이러한 변동이 정기적으로 또는 예측 가능한 단위로 발생하는 경우 **데이터베이스 크기 조정을 자동으로 일어나도록 예약**할 수 있습니다. 예를 들어 워크로드가 가볍다고 알고 있는 경우 야간 또는 주말 중으로 규모를 축소할 수 있습니다.
+* 데이터베이스 계산 크기의 단기적 변동에 대응하기 위해 **DTU 수준을 확장하거나 축소할 수 있습니다**. 이러한 변동이 정기적으로 또는 예측 가능한 단위로 발생하는 경우 **데이터베이스 크기 조정을 자동으로 일어나도록 예약**할 수 있습니다. 예를 들어 워크로드가 가볍다고 알고 있는 경우 야간 또는 주말 중으로 규모를 축소할 수 있습니다.
 * 더 장기적인 변동 또는 테넌트 변화에 대응하기 위해 **개별 테넌트를 다른 데이터베이스로 이동**할 수 있습니다.
-* *개별* 테넌트 부하의 단기적 증가에 대응하기 위해 **개별 테넌트를 데이터베이스에서 제외하고 개별 성능 수준을 할당**할 수 있습니다. 부하가 감소하면 테넌트를 다중 테넌트 데이터베이스로 반환할 수 있습니다. 이러한 상황을 미리 안다면 데이터베이스에 언제나 필요한 리소스가 있도록 하고 다중 테넌트 데이터베이스에 있는 다른 테넌트에 영향을 미치지 않도록 테넌트를 선제적으로 이동할 수 있습니다. 이 요구 사항이 예측 가능하다면 인기 있는 이벤트에 대한 티켓 판매의 급격한 증가를 경험한 영역을 응용 프로그램에 통합할 수 있습니다.
+* *개별* 테넌트 부하의 단기적 증가에 대응하기 위해 **개별 테넌트를 데이터베이스에서 제외하고 개별 계산 크기를 할당**할 수 있습니다. 부하가 감소하면 테넌트를 다중 테넌트 데이터베이스로 반환할 수 있습니다. 이러한 상황을 미리 안다면 데이터베이스에 언제나 필요한 리소스가 있도록 하고 다중 테넌트 데이터베이스에 있는 다른 테넌트에 영향을 미치지 않도록 테넌트를 선제적으로 이동할 수 있습니다. 이 요구 사항이 예측 가능하다면 인기 있는 이벤트에 대한 티켓 판매의 급격한 증가를 경험한 영역을 응용 프로그램에 통합할 수 있습니다.
 
 [Azure Portal](https://portal.azure.com)은 대부분의 리소스에 대한 기본 제공 모니터링 및 경고를 제공합니다. SQL Database의 경우 데이터베이스에 대한 모니터링 및 경고가 가능합니다. 이 기본 제공 모니터링 및 경고는 리소스별로 다르므로 소수의 리소스에 사용하면 편리하지만 많은 리소스에 작업하는 경우 편리하지 않을 수 있습니다.
 

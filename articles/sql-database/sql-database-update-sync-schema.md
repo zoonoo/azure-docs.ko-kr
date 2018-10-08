@@ -2,24 +2,26 @@
 title: Azure SQL 데이터 동기화에서 스키마 변경 복제 자동화 | Microsoft Docs
 description: Azure SQL 데이터 동기화에서 스키마 변경 복제를 자동화하는 방법을 알아봅니다.
 services: sql-database
-ms.date: 06/19/2018
-ms.topic: conceptual
 ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: data sync
+ms.devlang: ''
+ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.custom: data-sync
-ms.openlocfilehash: eca5e308399b9fb694a8e5060d72c12790a8f78d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.date: 09/20/2018
+ms.openlocfilehash: 3137b86dd186e628508111a932140fd9c1f59b5d
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434961"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161435"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Azure SQL 데이터 동기화에서 스키마 변경 복제 자동화
 
-SQL 데이터 동기화를 사용하면 Azure SQL Database와 온-프레미스 SQL Server 간에 단방향 또는 양방향으로 데이터를 동기화할 수 있습니다. SQL 데이터 동기화의 현재 제한 사항 중 하나는 스키마 변경 복제에 대한 지원이 부족하다는 것입니다. 테이블 스키마를 변경할 때마다 허브 및 모든 구성원을 포함하여 모든 엔드포인트에서 수동으로 변경 내용을 적용한 다음, 동기화 스키마를 업데이트해야 합니다.
+SQL 데이터 동기화를 사용하면 Azure SQL 데이터베이스와 온-프레미스 SQL Server 간에 단방향 또는 양방향으로 데이터를 동기화할 수 있습니다. SQL 데이터 동기화의 현재 제한 사항 중 하나는 스키마 변경 복제에 대한 지원이 부족하다는 것입니다. 테이블 스키마를 변경할 때마다 허브 및 모든 구성원을 포함하여 모든 엔드포인트에서 수동으로 변경 내용을 적용한 다음, 동기화 스키마를 업데이트해야 합니다.
 
 이 문서에서는 스키마 변경을 모든 SQL 데이터 동기화 엔드포인트에 자동으로 복제하는 솔루션을 소개합니다.
 1. 이 솔루션은 DDL 트리거를 사용하여 스키마 변경 내용을 추적합니다.
@@ -30,7 +32,7 @@ SQL 데이터 동기화를 사용하면 Azure SQL Database와 온-프레미스 S
 이 문서에서는 스키마 변경의 예로 ALTER TABLE을 사용하지만 이 솔루션은 다른 유형의 스키마 변경에도 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> 동기화 환경에서 자동화된 스키마 변경 복제를 구현하기 전에 특히 [문제 해결](#troubleshooting) 및 [기타 고려 사항](#other)에 대한 섹션을 주의 깊게 참조하는 것이 좋습니다. 또한 [SQL 데이터 동기화를 사용하여 여러 클라우드와 온-프레미스 데이터베이스의 데이터 동기화](sql-database-sync-data.md)도 참조하는 것이 좋습니다. 일부 데이터베이스 작업은 이 문서에서 설명하는 솔루션을 손상시킬 수 있습니다. 이러한 문제를 해결하려면 SQL Server 및 Transact-SQL에 대한 추가적인 도메인 지식이 필요할 수 있습니다.
+> 동기화 환경에서 자동화된 스키마 변경 복제를 구현하기 전에 특히 [문제 해결](#troubleshoot) 및 [기타 고려 사항](#other)에 대한 섹션을 주의 깊게 참조하는 것이 좋습니다. 또한 [SQL 데이터 동기화를 사용하여 여러 클라우드와 온-프레미스 데이터베이스의 데이터 동기화](sql-database-sync-data.md)도 참조하는 것이 좋습니다. 일부 데이터베이스 작업은 이 문서에서 설명하는 솔루션을 손상시킬 수 있습니다. 이러한 문제를 해결하려면 SQL Server 및 Transact-SQL에 대한 추가적인 도메인 지식이 필요할 수 있습니다.
 
 ![스키마 변경 복제 자동화](media/sql-database-update-sync-schema/automate-schema-changes.png)
 
@@ -186,7 +188,7 @@ DDL 트리거를 만든 데이터베이스에서 수행된 스키마 변경만 �
 
     a.  엔드포인트 데이터베이스에서 실행할 수 없는 명령은 무시합니다. 스키마 불일치를 처리해야 합니다. 불일치가 응용 프로그램에 영향을 주는 경우 원래 스키마 변경 내용을 되돌립니다.
 
-    나.  적용해야 하는 명령을 수동으로 적용합니다.
+    b.  적용해야 하는 명령을 수동으로 적용합니다.
 
 1.  스키마 변경 기록 테이블을 업데이트하고, 마지막으로 적용된 ID를 올바른 값으로 설정합니다.
 

@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: ba6710c8b5b8de1c63fa6778ea3853ab52365254
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 7cb0257a7302221f80bb90c0a6c3446cde07290a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325339"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434129"
 ---
 # <a name="about-the-speech-to-text-api"></a>Speech to Text API 정보
 
@@ -26,9 +26,9 @@ ms.locfileid: "39325339"
 
 - 실시간 연속 인식. **Speech to Text**를 사용하여 오디오를 실시간으로 텍스트로 기록할 수 있습니다. 또한 지금까지 인식된 단어의 중간 결과도 수신할 수 있습니다. 이 서비스는 음성의 끝을 자동으로 인식합니다. 사용자는 대문자 표시 및 문장 부호, 욕설 마스킹 및 역 텍스트 정규화와 같은 추가 형식 지정 옵션을 선택할 수도 있습니다.
 
-- 대화형, 대화 및 받아쓰기 시나리오에 최적화된 **음성 텍스트 변환** 결과. 
+- 대화형, 대화 및 받아쓰기 시나리오에 최적화된 **음성 텍스트 변환** 결과. 인식된 결과는 어휘 및 표시 양식으로 모두 반환됩니다(어휘 결과는 예제 또는 API에서 DetailedSpeechRecognitionResult 참조).
 
-- 여러 음성 언어 및 언어 지원. 각 인식 모드에서 지원되는 언어의 전체 목록은 [지원되는 언어](supported-languages.md#speech-to-text)를 참조하세요.
+- 여러 음성 언어 및 언어 지원. 각 인식 모드에서 지원되는 언어의 전체 목록은 [지원되는 언어](language-support.md#speech-to-text)를 참조하세요.
 
 - 사용자 지정된 언어 및 음향 모델: 응용 프로그램을 사용자의 전문 영역 어휘, 말하는 환경 및 말하는 방식에 맞게 조정할 수 있습니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "39325339"
 
 ## <a name="api-capabilities"></a>API 기능
 
-**Speech to Text** API의 일부 기능을 REST를 통해 사용할 수 없습니다. 다음 표에서는 API에 액세스하는 각 방법의 기능을 요약해서 설명합니다.
+**음성을 텍스트로 변환** API의 많은 기능(특히 사용자 지정 기능)은 REST를 통해 사용할 수 있습니다. 다음 표에서는 API에 액세스하는 각 방법의 기능을 요약해서 설명합니다. 기능 및 API의 전체 목록은 [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/)를 참조하세요.
 
 | 사용 사례 | REST (영문) | SDK |
 |-----|-----|-----|----|
@@ -44,6 +44,16 @@ ms.locfileid: "39325339"
 | 좀 더 긴 발언을 기록합니다(15초 초과). | 아니요 | yes |
 | 선택적 중간 결과를 포함하여 스트리밍 오디오 기록 | 아니요 | yes |
 | LUIS를 통해 화자의 의도 이해 | 아니요\* | yes |
+| 정확도 테스트 만들기 | yes | 아니요 |
+| 모델 적응에 대한 데이터 집합 업로드 | yes | 아니요 |
+| 음성 모델 만들기 및 관리 | yes | 아니요 |
+| 모델 배포 만들기 및 관리 | yes | 아니요 |
+| 구독 관리 | yes | 아니요 |
+| 모델 배포 만들기 및 관리 | yes | 아니요 |
+| 모델 배포 만들기 및 관리 | yes | 아니요 |
+
+> [!NOTE]
+> REST API는 API 요청 수를 5초당 25개로 제한하는 제한을 구현합니다. 메시지 헤더를 통해 이 제한을 알 수 있습니다.
 
 \* *LUIS 의도 및 엔터티는 별도의 LUIS 구독을 사용하여 파생시킬 수 있습니다. 이 구독에서 SDK는 LUIS를 호출하고, 음성 기록 뿐만 아니라 엔터티 및 의도를 제공할 수 있습니다. REST API를 사용하면 LUIS 구독을 통해 LUIS를 직접 호출하고 의도 및 엔터티를 파생할 수 있습니다.*
 

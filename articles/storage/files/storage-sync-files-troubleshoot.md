@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 08/22/2018
+ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 4434b67393d34c3418e44e82681a586c268a37e5
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: cbfe3022c4ffd03e4ab93682eb14a5a588aa0013
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746999"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409476"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -125,6 +125,16 @@ Set-AzureRmStorageSyncServerEndpoint `
     -CloudTiering true `
     -VolumeFreeSpacePercent 60
 ```
+<a id="server-endpoint-noactivity"></a>**서버 엔드포인트가 "활동 없음" 또는 "보류 중" 상태이며, 등록된 서버 블레이드의 서버 상태가 "오프라인으로 나타남"**  
+
+이 문제는 Storage 동기화 모니터링 프로세스가 실행되지 않거나, 프록시 또는 방화벽으로 인해 서버가 Azure 파일 동기화 서비스와 통신할 수 없는 경우 발생할 수 있습니다.
+
+이 문제를 해결하려면 다음 단계를 수행합니다.
+
+1. 서버에서 작업 관리자를 열고 Storage 동기화 모니터링 (AzureStorageSyncMonitor.exe) 프로세스가 실행 중인지 확인합니다. 프로세스가 실행되지 않으면 먼저 서버를 다시 시작합니다. 서버를 다시 시작해도 문제가 해결되지 않으면 Azure 파일 동기화 에이전트를 제거하고 다시 설치합니다(참고: 에이전트를 제거하고 다시 설치한 경우 서버 설정은 그대로 유지됩니다).
+2. 방화벽 및 프록시 설정이 올바로 구성되었는지 확인합니다.
+    - 서버가 방화벽 뒤에 있는 경우 포트 443 아웃 바운드가 허용되는지 확인합니다. 방화벽이 트래픽을 특정 도메인으로 제한하는 경우 방화벽 [설명서](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall)에 나열된 도메인에 액세스할 수 있는지 확인합니다.
+    - 서버가 프록시 뒤에 있는 경우 프록시 [설명서](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy)에 있는 단계에 따라 머신 전체 또는 앱 별 프록시 설정을 구성합니다.
 
 ## <a name="sync"></a>동기화
 <a id="afs-change-detection"></a>**SMB 또는 포털을 통해 Azure 파일 공유에 직접 파일을 만든 경우 해당 파일이 동기화 그룹의 서버에 동기화되는 데 얼마나 걸리나요?**  
@@ -226,14 +236,13 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | 동기화 중에 파일이 변경되었으므로 다시 동기화해야 합니다. | 아무 조치도 취할 필요가 없습니다. |
 
 #### <a name="handling-unsupported-characters"></a>지원되지 않는 처리 문자
-지원되지 않는 문자로 인해 **FileSyncErrorsReport.ps1** PowerShell 스크립트가 오류를 표시하는 경우(오류 코드 0x7b 및 0x8007007b) 오류 시 각 파일에서 해당 문자를 제거하거나 이름을 변경해야 합니다. 이러한 문자는 대부분 표준 시각적 개체 인코딩이 없으므로 PowerShell이 이러한 문자를 물음표 또는 빈 사각형으로 인쇄할 수 있습니다.
+지원되지 않는 문자로 인해 **FileSyncErrorsReport.ps1** PowerShell 스크립트가 오류를 표시하는 경우(오류 코드 0x7b 및 0x8007007b) 오류 시 각 파일에서 해당 문자를 제거하거나 이름을 변경해야 합니다. 이러한 문자는 대부분 표준 시각적 개체 인코딩이 없으므로 PowerShell이 이러한 문자를 물음표 또는 빈 사각형으로 인쇄할 수 있습니다. [평가 도구](storage-sync-files-planning.md#evaluation-tool)는 지원되지 않는 문자를 식별하는 데 사용될 수 있습니다.
 
 아래 표에서 Azure 파일 동기화에서 지원하지 않는 모든 유니코드 문자가 포함되어 있습니다.
 
 | 문자 집합 | 문자 수 |
 |---------------|-----------------|
 | <ul><li>0x0000009D(osc operating system command)</li><li>0x00000090(dcs device control string)</li><li>0x0000008F(ss3 single shift three)</li><li>0x00000081(high octet preset)</li><li>0x0000007F(del delete)</li><li>0x0000008D(ri reverse line feed)</li></ul> | 6 |
-| <ul><li>0x0000200F(right-to-left mark)</li><li>0x0000200E(‎left-to-right mark)</li><li>0x0000202E(right-to-left override)</li><li>0x0000202D(left-to-right override)</li><li>0x0000202C(pop directional formatting)</li><li>0x0000202B(right-to-left embedding)</li><li>0x0000202A(left-to-right embedding)</li></ul> | 7 |
 | 0x0000FDD0 - 0x0000FDEF(Arabic presentation forms-a) | 32 |
 | 0x0000FFF0 - 0x0000FFFF(specials) | 16 |
 | <ul><li>0x0001FFFE - 0x0001FFFF = 2(noncharacter)</li><li>0x0002FFFE - 0x0002FFFF = 2(noncharacter)</li><li>0x0003FFFE - 0x0003FFFF = 2(noncharacter)</li><li>0x0004FFFE - 0x0004FFFF = 2(noncharacter)</li><li>0x0005FFFE - 0x0005FFFF = 2(noncharacter)</li><li>0x0006FFFE - 0x0006FFFF = 2(noncharacter)</li><li>0x0007FFFE - 0x0007FFFF = 2(noncharacter)</li><li>0x0008FFFE - 0x0008FFFF = 2(noncharacter)</li><li>0x0009FFFE - 0x0009FFFF = 2(noncharacter)</li><li>0x000AFFFE - 0x000AFFFF = 2(noncharacter)</li><li>0x000BFFFE - 0x000BFFFF = 2(noncharacter)</li><li>0x000CFFFE - 0x000CFFFF = 2(noncharacter)</li><li>0x000DFFFE - 0x000DFFFF = 2(noncharacter)</li><li>0x000EFFFE - 0x000EFFFF = 2(undefined)</li><li>0x000FFFFE - 0x000FFFFF = 2(supplementary private use area)</li></ul> | 30 |

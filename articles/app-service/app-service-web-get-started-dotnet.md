@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/29/2018
+ms.date: 09/05/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: d7b93c28bf83e468d1470b0962dcf9d87a52adb2
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 00a1f7edfb24d9bd44e48161f3cd2e69cba36bfc
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189579"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052125"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Azure에서 ASP.NET Core 웹앱 만들기
 
@@ -36,11 +36,12 @@ ms.locfileid: "43189579"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서를 완료하려면 다음이 필요합니다.
+이 자습서를 완료하려면 **ASP.NET 및 웹 개발** 워크로드 지원 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>을 설치하세요.
 
-**ASP.NET 및 웹 개발** 워크로드가 있는 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>을 설치합니다.
+Visual Studio 2017을 이미 설치한 경우:
 
-Visual Studio가 이미 설치된 경우 **도구** > **도구 및 기능 가져오기**를 클릭하여 Visual Studio에서 워크로드를 추가합니다.
+- **도움말** > **업데이트 확인**을 클릭하여 Visual Studio에 최신 업데이트를 설치합니다.
+- **도구** > **도구 및 기능 가져오기**를 클릭하여 워크로드를 추가합니다.
 
 ## <a name="create-an-aspnet-core-web-app"></a>ASP.NET Core 웹앱 만들기
 
@@ -52,7 +53,7 @@ Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**를 선택하여
    
 ![새 프로젝트 대화 상자](./media/app-service-web-get-started-dotnet/new-project.png)
 
-모든 종류의 ASP.NET Core 웹앱을 Azure에 배포할 수 있습니다. 이 빠른 시작의 경우 **웹 응용 프로그램** 템플릿을 선택하고 인증이 **인증 없음**으로 설정되어 있는지 확인합니다.
+모든 종류의 ASP.NET Core 웹앱을 Azure에 배포할 수 있습니다. 이 빠른 시작의 경우 **웹 응용 프로그램** 템플릿을 선택하고 인증이 **인증 없음**으로 설정되어 있고 선택된 다른 옵션이 없는지 확인합니다.
       
 **확인**을 선택합니다.
 
@@ -62,21 +63,19 @@ Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**를 선택하여
 
 ![로컬에서 앱 실행](./media/app-service-web-get-started-dotnet/razor-web-app-running-locally.png)
 
-## <a name="publish-to-azure"></a>Azure에 게시
+## <a name="launch-the-publish-wizard"></a>게시 마법사 시작
 
 **솔루션 탐색기**에서 **myFirstAzureWebApp** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
 ![솔루션 탐색기에서 게시](./media/app-service-web-get-started-dotnet/right-click-publish.png)
 
-**Microsoft Azure App Service**를 선택했는지 확인하고 **게시**를 선택합니다.
+게시 마법사가 자동으로 시작됩니다. **App Service** > **게시**를 선택하여 **App Service 만들기** 대화 상자를 엽니다.
 
 ![프로젝트 개요 페이지에서 게시](./media/app-service-web-get-started-dotnet/publish-to-app-service.png)
 
-그러면 **App Service 만들기** 대화 상자가 열리고 Azure에서 ASP.NET Core 웹앱을 실행하는 데 필요한 모든 Azure 리소스를 만들 수 있습니다.
-
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-**App Service 만들기** 대화 상자에서 **계정 추가**를 클릭하고, Azure 구독에 로그인합니다. 이미 로그인한 경우 드롭다운에서 원하는 구독이 포함된 계정을 선택합니다.
+**App Service 만들기** 대화 상자에서 **계정 추가**를 클릭하고, Azure 구독에 로그인합니다. 이미 로그인한 경우 드롭다운에서 원하는 계정을 선택합니다.
 
 > [!NOTE]
 > 이미 로그인한 경우 **만들기**를 선택하지 마십시오.
@@ -96,9 +95,9 @@ Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**를 선택하여
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-**App Service 플랜** 옆에 있는 **새로 만들기**를 선택합니다. 
+**호스팅 계획** 옆에 있는 **새로 만들기**를 선택합니다. 
 
-**App Service 플랜 구성** 대화 상자에서 스크린샷 다음에 나오는 테이블의 설정을 사용합니다.
+**호스팅 계획 구성** 대화 상자에서 스크린샷 다음에 나오는 테이블의 설정을 사용합니다.
 
 ![App Service 플랜 만들기](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
 
@@ -112,17 +111,17 @@ Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**를 선택하여
 
 ## <a name="create-and-publish-the-web-app"></a>웹앱 만들기 및 게시
 
-**웹앱 이름**에서 고유한 앱 이름(유효한 문자는 `a-z`, `0-9` 및 `-`)을 입력하거나 자동으로 생성된 고유한 이름을 적용합니다. 웹앱의 URL은 `http://<app_name>.azurewebsites.net`이며, 여기서 `<app_name>`은 웹앱 이름입니다.
+**앱 이름**에서 고유한 앱 이름(유효한 문자는 `a-z`, `0-9` 및 `-`)을 입력하거나 자동으로 생성된 고유한 이름을 적용합니다. 웹앱의 URL은 `http://<app_name>.azurewebsites.net`이며, 여기서 `<app_name>`은 앱 이름입니다.
 
 **만들기**를 선택하여 Azure 리소스 만들기를 시작합니다.
 
-![웹앱 이름 구성](./media/app-service-web-get-started-dotnet/web-app-name.png)
+![앱 이름 구성](./media/app-service-web-get-started-dotnet/web-app-name.png)
 
 마법사가 완료되면 Azure에 ASP.NET Core 웹앱을 게시한 다음 기본 브라우저에서 앱을 시작합니다.
 
 ![Azure에서 게시된 ASP.NET 웹앱](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
-[작성 및 게시 단계](#create-and-publish-the-web-app)에서 지정한 웹앱 이름이 `http://<app_name>.azurewebsites.net` 형식의 URL 접두사로 사용됩니다.
+[작성 및 게시 단계](#create-and-publish-the-web-app)에서 지정한 앱 이름이 `http://<app_name>.azurewebsites.net` 형식의 URL 접두사로 사용됩니다.
 
 축하합니다. ASP.NET Core 웹앱이 Azure App Service에서 실시간으로 실행 중입니다.
 
@@ -130,7 +129,7 @@ Visual Studio에서 **파일 > 새로 만들기 > 프로젝트**를 선택하여
 
 **솔루션 탐색기**에서 _Pages/Index.cshtml_을 엽니다.
 
-위쪽 가까이에 `<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">` HTML 태그를 찾아서 전체 요소를 다음 코드로 바꿉니다.
+두 개의 `<div>` 태그를 다음 코드로 바꿉니다.
 
 ```HTML
 <div class="jumbotron">

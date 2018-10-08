@@ -1,23 +1,23 @@
 ---
-title: Video Search SDK Python 빠른 시작 | Microsoft Docs
+title: '빠른 시작: Video Search SDK, Python'
+titleSuffix: Azure Cognitive Services
 description: Video Search SDK 콘솔 응용 프로그램을 설치합니다.
-titleSuffix: Azure Video Search SDK Python quickstart
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/15/2018
-ms.author: v-gedod
-ms.openlocfilehash: 1c4769a6ca3391fa595cc078651beff330bbfd60
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 9784894ea9a9deb350171e0d19042eb65644093b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377935"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225653"
 ---
-# <a name="video-search-sdk-python-quickstart"></a>Video Search SDK Python 빠른 시작
+# <a name="quickstart-bing-video-search-sdk-with-python"></a>빠른 시작: Python을 사용하여 Bing Video Search SDK
 
 Bing Image Search SDK는 웹 쿼리 및 구문 분석 결과에 대한 REST API 기능을 포함하고 있습니다.
 

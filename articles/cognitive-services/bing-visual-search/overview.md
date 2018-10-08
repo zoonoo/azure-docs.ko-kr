@@ -1,21 +1,21 @@
 ---
-title: Bing Visual Search API 개요 | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: 유사한 이미지, 쇼핑 소스 등 이미지에 대한 세부 정보 또는 인사이트를 가져오는 방법을 보여 줍니다.
+title: Bing Visual Search란?
+titleSuffix: Azure Cognitive Services
+description: Bing Visual Search는 유사한 이미지 또는 쇼핑 소스와 같은 이미지에 대한 세부 정보 또는 인사이트를 제공합니다.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: overview
 ms.date: 04/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: aa563d89b1834f5be952f13c31a2451d809709b1
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 2ab73281eb050a52b596504ea9cc0e478144ff24
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006532"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226775"
 ---
 # <a name="what-is-bing-visual-search-api"></a>Bing Visual Search API란?
 
@@ -37,14 +37,14 @@ Visual Search는 유명인, 기념물 및 랜드마크, 아트워크, 가정용 
 Visual Search 결과에는 이미지의 관심 영역에 대한 경계 상자도 포함됩니다. 예를 들어 이미지에 유명인이 여러 명 포함된 경우 결과에 이미지에서 인식된 각 유명인의 경계 상자가 포함될 수 있습니다. 또는 Bing이 이미지에서 제품 또는 의류를 인식하는 경우 결과에 인식된 제품 또는 의류 항목의 경계 상자가 포함될 수 있습니다.
 
 > [!IMPORTANT]
-> /images/details 끝점을 사용하여 [이미지 인사이트를 가져오는](../bing-image-search/image-insights.md) 경우 Visual Search를 사용하는 대신 코드를 업데이트해야 합니다. 그러면 보다 포괄적인 인사이트가 제공됩니다.
+> /images/details 엔드포인트를 사용하여 [이미지 인사이트를 가져오는](../bing-image-search/image-insights.md) 경우 Visual Search를 사용하는 대신 코드를 업데이트해야 합니다. 그러면 보다 포괄적인 인사이트가 제공됩니다.
 
 
 ## <a name="the-request"></a>요청
 
 다음은 이미지에 대한 인사이트를 가져오기 위한 옵션입니다. 
 
-- 이전 호출에서 이미지로부터 가져온 인사이트 토큰을 [Bing Images API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) 끝점 중 하나로 보냅니다.
+- 이전 호출에서 이미지로부터 가져온 인사이트 토큰을 [Bing Images API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) 엔드포인트 중 하나로 보냅니다.
 - 이미지의 URL 보내기
 - 이미지(이진) 업로드
 
@@ -84,9 +84,9 @@ Visual Search에 이미지 토큰 또는 URL을 전송하는 경우 다음은 PO
 POST 본문에 이러한 옵션을 포함하는 방법에 대한 자세한 내용은 [콘텐츠 양식 유형](#content-form-types)을 참조하세요.
 
 
-### <a name="endpoint"></a>끝점
+### <a name="endpoint"></a>엔드포인트
 
-Visual Search 끝점은 https:\/\/api.cognitive.microsoft.com/bing/v7.0/images/visualsearch입니다.
+Visual Search 엔드포인트는 https:\/\/api.cognitive.microsoft.com/bing/v7.0/images/visualsearch입니다.
 
 요청은 HTTP POST 요청으로만 전송되어야 합니다. 
 
@@ -95,12 +95,12 @@ Visual Search 끝점은 https:\/\/api.cognitive.microsoft.com/bing/v7.0/images/v
 
 다음은 요청에서 지정해야 하는 쿼리 매개 변수입니다. 최소한 `mkt` 쿼리 매개 변수를 포함해야 합니다.
 
-|Name|값|type|필수|  
+|이름|값|type|필수|  
 |----------|-----------|----------|--------------|  
-|<a name="cc" />cc|결과가 나오는 국가의 2자 국가 코드입니다.<br /><br /> 이 매개 변수를 설정하는 경우 [Accept-Language](#acceptlanguage) 헤더도 지정해야 합니다. Bing은 언어 목록에서 찾은 첫 번째 지원되는 언어를 사용하고, 지정한 국가 코드와 언어를 결합하여 결과를 반환할 지역/국가를 결정합니다. 언어 목록에 지원되는 언어가 없으면 Bing은 요청을 지원하는 가장 가까운 언어와 지역/국가를 찾습니다. 또는 지정된 지역/국가 대신 집계 또는 기본 지역/국가를 결과에 사용할 수 있습니다.<br /><br /> 여러 언어를 지정하는 경우에만 이 쿼리 매개 변수와 `Accept-Language` 쿼리 매개 변수를 사용해야 합니다. 여러 언어를 지정하지 않는 경우 `mkt` 및 `setLang` 쿼리 매개 변수를 사용해야 합니다.<br /><br /> 이 매개 변수와 [mkt](#mkt) 쿼리 매개 변수는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다.|문자열|아니오|  
-|<a name="mkt" />mkt|결과가 나오는 지역/국가입니다. <br /><br /> **참고:** 알려진 경우 지역/국가를 항상 지정하는 것이 좋습니다. 지역/국가를 지정하면 Bing이 요청을 라우팅하고 최적 응답을 반환하는 데 도움이 됩니다.<br /><br /> 이 매개 변수와 [cc](#cc) 쿼리 매개 변수는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다.|문자열|예|  
-|<a name="safesearch" />safeSearch|성인 콘텐츠를 필터링하는 데 사용되는 필터입니다. 다음은 대/소문자를 구분하지 않는 가능한 필터 값입니다.<br /><ul><li>Off&mdash;성인 텍스트 또는 이미지를 포함하는 웹 페이지를 반환합니다.<br /><br/></li><li>Moderate&mdash;성인 텍스트만 포함하고 성인 이미지는 포함하지 않는 웹 페이지를 반환합니다.<br /><br/></li><li>Strict&mdash;성인 텍스트 또는 이미지를 포함하는 웹 페이지를 반환하지 않습니다.</li></ul><br /> 기본값은 Moderate입니다.<br /><br /> **참고:** Bing의 성인 정책에 따라 `safeSearch`가 Strict로 설정되어야 하는 지역/국가에서 요청이 나온 경우 Bing은 `safeSearch` 값을 무시하고 Strict를 사용합니다.<br/><br/>**참고:** `site:` 쿼리 연산자를 사용하는 경우 `safeSearch` 쿼리 매개 변수가 설정된 값에 관계없이 응답에 성인 콘텐츠가 포함될 수 있는 가능성이 있습니다. 사이트의 콘텐츠를 알고 있고 시나리오가 성인 컨텐츠를 지원하는 경우에만 `site:`를 사용합니다. |문자열|아니오|  
-|<a name="setlang" />setLang|사용자 인터페이스 문자열에 사용할 언어입니다. ISO 639-1 2자 언어 코드를 사용하여 언어를 지정합니다. 예를 들어 영어의 언어 코드는 EN입니다. 기본값은 EN(영어)입니다.<br /><br /> 선택 사항이지만, 언어를 항상 지정해야 합니다. 일반적으로, 사용자가 사용자 인터페이스 문자열을 다른 언어로 표시하려는 경우가 아니면 `setLang`을 `mkt`에 지정된 것과 동일한 언어로 설정합니다.<br /><br /> 이 매개 변수와 [Accept-Language](#acceptlanguage) 헤더는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다.<br /><br /> 사용자 인터페이스 문자열은 사용자 인터페이스에서 레이블로 사용되는 문자열입니다. JSON 응답 개체에는 몇 개의 사용자 인터페이스 문자열이 있습니다. 또한, 응답 개체에서 Bing.com 속성에 대한 링크는 지정된 언어를 적용합니다.|문자열|아니오| 
+|<a name="cc" />cc|결과가 나오는 국가의 2자 국가 코드입니다.<br /><br /> 이 매개 변수를 설정하는 경우 [Accept-Language](#acceptlanguage) 헤더도 지정해야 합니다. Bing은 언어 목록에서 찾은 첫 번째 지원되는 언어를 사용하고, 지정한 국가 코드와 언어를 결합하여 결과를 반환할 지역/국가를 결정합니다. 언어 목록에 지원되는 언어가 없으면 Bing은 요청을 지원하는 가장 가까운 언어와 지역/국가를 찾습니다. 또는 지정된 지역/국가 대신 집계 또는 기본 지역/국가를 결과에 사용할 수 있습니다.<br /><br /> 여러 언어를 지정하는 경우에만 이 쿼리 매개 변수와 `Accept-Language` 쿼리 매개 변수를 사용해야 합니다. 여러 언어를 지정하지 않는 경우 `mkt` 및 `setLang` 쿼리 매개 변수를 사용해야 합니다.<br /><br /> 이 매개 변수와 [mkt](#mkt) 쿼리 매개 변수는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다.|문자열|아니요|  
+|<a name="mkt" />mkt|결과가 나오는 지역/국가입니다. <br /><br /> **참고:** 알려진 경우 지역/국가를 항상 지정하는 것이 좋습니다. 지역/국가를 지정하면 Bing이 요청을 라우팅하고 최적 응답을 반환하는 데 도움이 됩니다.<br /><br /> 이 매개 변수와 [cc](#cc) 쿼리 매개 변수는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다.|문자열|yes|  
+|<a name="safesearch" />safeSearch|성인 콘텐츠를 필터링하는 데 사용되는 필터입니다. 다음은 대/소문자를 구분하지 않는 가능한 필터 값입니다.<br /><ul><li>Off&mdash;성인 텍스트 또는 이미지를 포함하는 웹 페이지를 반환합니다.<br /><br/></li><li>Moderate&mdash;성인 텍스트만 포함하고 성인 이미지는 포함하지 않는 웹 페이지를 반환합니다.<br /><br/></li><li>Strict&mdash;성인 텍스트 또는 이미지를 포함하는 웹 페이지를 반환하지 않습니다.</li></ul><br /> 기본값은 Moderate입니다.<br /><br /> **참고:** Bing의 성인 정책에 따라 `safeSearch`가 Strict로 설정되어야 하는 지역/국가에서 요청이 나온 경우 Bing은 `safeSearch` 값을 무시하고 Strict를 사용합니다.<br/><br/>**참고:** `site:` 쿼리 연산자를 사용하는 경우 `safeSearch` 쿼리 매개 변수가 설정된 값에 관계없이 응답에 성인 콘텐츠가 포함될 수 있는 가능성이 있습니다. 사이트의 콘텐츠를 알고 있고 시나리오가 성인 컨텐츠를 지원하는 경우에만 `site:`를 사용합니다. |문자열|아니요|  
+|<a name="setlang" />setLang|사용자 인터페이스 문자열에 사용할 언어입니다. ISO 639-1 2자 언어 코드를 사용하여 언어를 지정합니다. 예를 들어 영어의 언어 코드는 EN입니다. 기본값은 EN(영어)입니다.<br /><br /> 선택 사항이지만, 언어를 항상 지정해야 합니다. 일반적으로, 사용자가 사용자 인터페이스 문자열을 다른 언어로 표시하려는 경우가 아니면 `setLang`을 `mkt`에 지정된 것과 동일한 언어로 설정합니다.<br /><br /> 이 매개 변수와 [Accept-Language](#acceptlanguage) 헤더는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다.<br /><br /> 사용자 인터페이스 문자열은 사용자 인터페이스에서 레이블로 사용되는 문자열입니다. JSON 응답 개체에는 몇 개의 사용자 인터페이스 문자열이 있습니다. 또한, 응답 개체에서 Bing.com 속성에 대한 링크는 지정된 언어를 적용합니다.|문자열|아니요| 
 
 ### <a name="headers"></a>헤더
 
@@ -442,7 +442,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 API를 사용해 봅니다. [Visual Search API 테스트 콘솔](https://dev.cognitive.microsoft.com/docs/services/878c38e705b84442845e22c7bff8c9ac)로 이동합니다. 
 
 
-[Visual Search API 참조](https://aka.ms/bingvisualsearchreferencedoc)를 숙지합니다. 참조에는 검색 결과를 요청하는 데 사용할 끝점, 헤더 및 쿼리 매개 변수 목록이 포함되어 있습니다. 응답 개체의 정의도 포함됩니다. 
+[Visual Search API 참조](https://aka.ms/bingvisualsearchreferencedoc)를 숙지합니다. 참조에는 검색 결과를 요청하는 데 사용할 엔드포인트, 헤더 및 쿼리 매개 변수 목록이 포함되어 있습니다. 응답 개체의 정의도 포함됩니다. 
 
 검색 결과 사용에 대한 어떤 규칙도 위반하지 않도록 [Bing 사용 및 표시 요구 사항](./use-and-display-requirements.md)을 반드시 읽도록 합니다.
 

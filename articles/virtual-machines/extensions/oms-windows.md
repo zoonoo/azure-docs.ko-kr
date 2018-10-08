@@ -3,7 +3,7 @@ title: Windows용 Azure Log Analytics 가상 머신 확장 | Microsoft Docs
 description: 가상 머신 확장을 사용하여 Windows 가상 머신에 Log Analytics 에이전트를 배포합니다.
 services: virtual-machines-windows
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: roiyz
-ms.openlocfilehash: 2c228784e7a0a78f6dfdb93ce632bf340dea0ee9
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 02fa19cad56f1a31ad60c597df1b004710cb5b50
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414745"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452091"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Windows용 Log Analytics 가상 머신 확장
 
@@ -68,14 +68,16 @@ Windows용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터�
 ```
 ### <a name="property-values"></a>속성 값
 
-| Name | 값/예제 |
+| 이름 | 값/예제 |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
 | 형식 | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
-| workspaceId(예) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
+| workspaceId(예)* | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey(예) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
+
+\*workspaceId는 Log Analytics API에서 consumerId라고 합니다.
 
 ## <a name="template-deployment"></a>템플릿 배포
 

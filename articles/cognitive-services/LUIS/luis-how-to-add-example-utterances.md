@@ -1,21 +1,21 @@
 ---
-title: LUIS 앱에서 예제 발언 추가 | Microsoft Docs
-titleSuffix: Azure
+title: LUIS 앱에서 예제 발화 추가
+titleSuffix: Azure Cognitive Services
 description: LUIS(Language Understanding) 응용 프로그램에서 발언을 추가하는 방법을 알아봅니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: cf6fc131a1ae2ba0a77bdbeda942c9f85aadd189
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 387668263a6bab6e12a21adf04aebfbbf108a006
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226290"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036493"
 ---
 # <a name="add-example-utterances-and-label-with-entities"></a>예제 발언 추가 및 엔터티로 레이블 지정
 
@@ -58,7 +58,7 @@ book me 2 adult business tickets to Paris tomorrow on Air France
 
     ![확인 대화 상자 이미지](./media/luis-how-to-add-example-utterances/create-simple-airline-entity.png)
 
-    끝점 JSON 쿼리 응답에서 단순 엔터티를 추출하는 방법에 대해 자세히 알아보려면 [데이터 추출](luis-concept-data-extraction.md#simple-entity-data)을 참조하세요. 단순 엔터티 사용 방법에 대해 자세히 알아보려면 단순 엔터티 [빠른 시작](luis-quickstart-primary-and-secondary-data.md)을 참조하세요.
+    엔드포인트 JSON 쿼리 응답에서 단순 엔터티를 추출하는 방법에 대해 자세히 알아보려면 [데이터 추출](luis-concept-data-extraction.md#simple-entity-data)을 참조하세요. 단순 엔터티 사용 방법에 대해 자세히 알아보려면 단순 엔터티 [빠른 시작](luis-quickstart-primary-and-secondary-data.md)을 참조하세요.
 
 
 ## <a name="add-list-entity-and-label"></a>목록 엔터티 추가 및 레이블 지정
@@ -85,7 +85,7 @@ drinks 목록 엔터티에 대해 water와 soda pop이라는 두 가지 정규�
 
     이 음료 목록에는 한 가지 음료 유형인 water만 있습니다. 다른 발언에 레이블을 지정하거나 왼쪽 탐색 창의 **엔터티**에서 엔터티를 편집하여 더 많은 음료 유형을 추가할 수 있습니다. 엔터티를 [편집](luis-how-to-add-entities.md#add-list-entities)하면 해당 동의어가 있는 추가 항목을 입력하거나 목록을 [가져오는](luis-how-to-add-entities.md#import-list-entity-values) 목록이 제공됩니다. 
 
-    끝점 JSON 쿼리 응답에서 목록 엔터티를 추출하는 방법에 대해 자세히 알아보려면 [데이터 추출](luis-concept-data-extraction.md#list-entity-data)을 참조하세요. 목록 엔터티 사용 방법에 대해 자세히 알아보려면 [빠른 시작](luis-quickstart-intent-and-list-entity.md)을 참조하세요.
+    엔드포인트 JSON 쿼리 응답에서 목록 엔터티를 추출하는 방법에 대해 자세히 알아보려면 [데이터 추출](luis-concept-data-extraction.md#list-entity-data)을 참조하세요. 목록 엔터티 사용 방법에 대해 자세히 알아보려면 [빠른 시작](luis-quickstart-intent-and-list-entity.md)을 참조하세요.
 
 ## <a name="add-synonyms-to-the-list-entity"></a>목록 엔터티에 동의어 추가 
 발언에서 단어나 구를 선택하여 목록 엔터티에 동의어를 추가합니다. Drink 목록 엔터티가 있으며 `agua`를 water의 동의어로 추가하려는 경우 다음 단계를 따릅니다.
@@ -136,7 +136,7 @@ drinks 목록 엔터티에 대해 water와 soda pop이라는 두 가지 정규�
 
     ![복합 엔터티가 강조 표시된 발언의 스크린샷](./media/luis-how-to-add-example-utterances/wrap-5.png)
 
-    끝점 JSON 쿼리 응답에서 복합 엔터티를 추출하는 방법에 대해 자세히 알아보려면 [데이터 추출](luis-concept-data-extraction.md#composite-entity-data)을 참조하세요. 복합 엔터티 사용 방법에 대해 자세히 알아보려면 복합 엔터티 [자습서](luis-tutorial-composite-entity.md)를 참조하세요.
+    엔드포인트 JSON 쿼리 응답에서 복합 엔터티를 추출하는 방법에 대해 자세히 알아보려면 [데이터 추출](luis-concept-data-extraction.md#composite-entity-data)을 참조하세요. 복합 엔터티 사용 방법에 대해 자세히 알아보려면 복합 엔터티 [자습서](luis-tutorial-composite-entity.md)를 참조하세요.
 
 ## <a name="add-hierarchical-entity-and-label"></a>계층 구조 엔터티 및 레이블 추가
 계층 구조 엔터티는 컨텍스트에 따라 학습되고 개념적으로 관련이 있는 엔터티의 범주입니다. 다음 예제에서는 엔터티에는 출발지 및 목적지 위치가 포함되어 있습니다. 
@@ -158,7 +158,7 @@ drinks 목록 엔터티에 대해 water와 soda pop이라는 두 가지 정규�
     >[!CAUTION]
     >자식 엔터티 이름은 단일 앱의 모든 엔터티에서 고유해야 합니다. 서로 다른 두 계층 구조 엔터티는 이름이 같은 자식 엔터티를 포함할 수 없습니다. 
 
-    끝점 JSON 쿼리 응답에서 계층적 엔터티를 추출하는 방법에 대해 자세히 알아보려면 [데이터 추출](luis-concept-data-extraction.md#hierarchical-entity-data)을 참조하세요. 계층적 엔터티 사용 방법에 대해 자세히 알아보려면 계층적 엔터티 [빠른 시작](luis-quickstart-intent-and-hier-entity.md)을 참조하세요.
+    엔드포인트 JSON 쿼리 응답에서 계층적 엔터티를 추출하는 방법에 대해 자세히 알아보려면 [데이터 추출](luis-concept-data-extraction.md#hierarchical-entity-data)을 참조하세요. 계층적 엔터티 사용 방법에 대해 자세히 알아보려면 계층적 엔터티 [빠른 시작](luis-quickstart-intent-and-hier-entity.md)을 참조하세요.
 
 
 ## <a name="remove-entity-labels-from-utterances"></a>발언에서 엔터티 레이블 제거
@@ -194,7 +194,7 @@ Fix this - moved to luis-how-to-add-intents.md - how ?
 
 -->
 ## <a name="train-your-app-after-changing-model-with-utterances"></a>발언이 포함된 모델을 변경한 후 앱 학습
-발언을 추가, 편집 또는 제거한 후 변경 내용을 끝점 쿼리에 적용하려면 앱을 [학습](luis-how-to-train.md)시키고 [게시](luis-how-to-publish-app.md)합니다. 
+발언을 추가, 편집 또는 제거한 후 변경 내용을 엔드포인트 쿼리에 적용하려면 앱을 [학습](luis-how-to-train.md)시키고 [게시](luis-how-to-publish-app.md)합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

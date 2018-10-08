@@ -3,19 +3,18 @@ title: 제한 및 구성 - Azure Logic Apps | Microsoft Docs
 description: Azure Logic Apps에 대한 서비스 제한 및 구성 값
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: article
-ms.date: 08/10/2018
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 49b8efe6b5d56c3edaf8b311ff3c6667a8952536
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.topic: article
+ms.date: 09/26/2018
+ms.openlocfilehash: c557c3e34fc4588b8bf13d69159a144d059b039e
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141796"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452458"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -27,7 +26,7 @@ ms.locfileid: "42141796"
 
 다음은 단일 논리 앱 정의에 대한 제한 사항입니다.
 
-| Name | 제한 | 메모 | 
+| 이름 | 제한 | 메모 | 
 | ---- | ----- | ----- | 
 | 워크플로당 작업 | 500 | 이 제한을 확장하려면 필요에 따라 중첩된 워크플로를 추가할 수 있습니다. |
 | 작업에 허용되는 중첩 깊이 | 8 | 이 제한을 확장하려면 필요에 따라 중첩된 워크플로를 추가할 수 있습니다. | 
@@ -49,7 +48,7 @@ ms.locfileid: "42141796"
 
 다음은 단일 논리 앱 실행에 대한 제한 사항입니다.
 
-| Name | 제한 | 메모 | 
+| 이름 | 제한 | 메모 | 
 |------|-------|-------| 
 | 실행 기간 | 90일 | 이 제한을 변경하려면 [실행 기간 변경](#change-duration)을 참조하세요. | 
 | 저장소 보존 | 실행 시작 시간부터 90일 | 이 제한을 7일에서 90일 사이의 값으로 변경하려면 [저장소 보존 변경](#change-retention)을 참조하세요. | 
@@ -84,7 +83,7 @@ ms.locfileid: "42141796"
 
 다음은 단일 논리 앱 실행에 대한 제한 사항입니다.
 
-| Name | 제한 | 메모 | 
+| 이름 | 제한 | 메모 | 
 | ---- | ----- | ----- | 
 | 트리거 동시성 | 50 | 기본 제한은 20입니다. 이 제한은 동시에 또는 병렬로 실행할 수 있는 최대 논리 앱 인스턴스 수를 나타냅니다. <p><p>기본 제한을 1에서 50 사이의 값으로 변경하려면 [트리거 동시성 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) 또는 [순차적으로 인스턴스 트리거](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger)를 참조하세요. | 
 | 최대 대기 중인 실행 | 100 | 기본 제한은 10입니다. 이 제한은 논리 앱에서 최대 동시 인스턴스를 이미 실행 중인 경우 실행되기 까지 기다릴 수 있는 논리 앱 인스턴스의 최대 수를 설명합니다. <p><p>기본 제한을 0에서 100 사이의 값으로 변경하려면 [대기 중인 실행 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs)을 참조하세요. | 
@@ -100,7 +99,7 @@ ms.locfileid: "42141796"
 
 다음은 단일 논리 앱 실행에 대한 제한 사항입니다.
 
-| Name | 제한 | 메모 | 
+| 이름 | 제한 | 메모 | 
 | ---- | ----- | ----- | 
 | 작업: 5분당 실행 | 300,000 | 기본 제한은 100,000입니다. 기본 제한을 변경하려면 미리 보기 상태인 ["높은 처리량" 모드에서 논리 앱 실행](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode)을 참조하세요. 또는 필요에 따라 둘 이상의 논리 앱에 워크로드를 배포할 수 있습니다. | 
 | 작업: 나가는 동시 호출 | ~2,500 | 필요에 따라 동시 요청 수를 줄이거나 기간을 단축할 수 있습니다. | 
@@ -122,7 +121,7 @@ ms.locfileid: "42141796"
 
 일부 커넥터 작업은 비동기 호출을 하거나 웹후크 요청을 수신하므로 이 작업에 대한 시간 제한이 이 제한보다 길 수 있습니다. 자세한 내용은 특정 커넥터에 대한 기술 정보 및 [워크플로 트리거 및 작업](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)을 참조하세요.
 
-| Name | 제한 | 메모 | 
+| 이름 | 제한 | 메모 | 
 | ---- | ----- | ----- | 
 | 나가는 요청 | 120초 | 더 오래 걸리는 작업의 경우, [비동기 폴링 패턴](../logic-apps/logic-apps-create-api-app.md#async-pattern) 또는 [until 루프](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action)를 사용합니다. | 
 | 동기 응답 | 120초 | 원래 요청에서 응답을 받으려면 다른 논리 앱을 중첩된 워크플로로 호출하지 않는 한 응답의 모든 단계가 한도 내에서 완료되어야 합니다. 자세한 내용은 [논리 앱 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조하세요. | 
@@ -130,7 +129,7 @@ ms.locfileid: "42141796"
 
 #### <a name="message-size"></a>메시지 크기
 
-| Name | 제한 | 메모 | 
+| 이름 | 제한 | 메모 | 
 | ---- | ----- | ----- | 
 | 메시지 크기 | 100 MB | 이 제한을 해결하려면 [청킹이 있는 대용량 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. 그러나 일부 커넥터 및 API는 청킹 또는 기본 제한을 지원하지 않을 수 있습니다. | 
 | 청킹이 있는 메시지 크기 | 1 GB | 이 제한은 기본적으로 청크 분할을 지원하거나 런타임 구성에서 청크 분할을 사용하도록 설정하는 작업에 적용됩니다. 자세한 내용은 [청킹이 있는 대용량 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. | 
@@ -139,7 +138,7 @@ ms.locfileid: "42141796"
 
 #### <a name="retry-policy"></a>다시 시도 정책
 
-| Name | 제한 | 메모 | 
+| 이름 | 제한 | 메모 | 
 | ---- | ----- | ----- | 
 | 다시 시도 횟수 | 90 | 기본값은 4입니다. 기본값을 변경하려면 [정책 매개 변수 재시도](../logic-apps/logic-apps-workflow-actions-triggers.md)를 사용합니다. | 
 | 재시도 최대 지연 시간 | 1일 | 기본값을 변경하려면 [정책 매개 변수 재시도](../logic-apps/logic-apps-workflow-actions-triggers.md)를 사용합니다. | 
@@ -152,7 +151,7 @@ ms.locfileid: "42141796"
 
 다음은 웹 API에서 만들 수 있는 사용자 지정 커넥터에 대한 제한 사항입니다.
 
-| Name | 제한 | 
+| 이름 | 제한 | 
 | ---- | ----- | 
 | 사용자 지정 커넥터 수 | Azure 구독당 1,000개 | 
 | 사용자 지정 커넥터에서 만든 각 연결에 대한 분당 요청 수 | 연결당 500개의 요청 |
@@ -213,7 +212,7 @@ ms.locfileid: "42141796"
 
 ### <a name="artifact-capacity-limits"></a>아티팩트 용량 제한
 
-| Name | 제한 | 메모 | 
+| 이름 | 제한 | 메모 | 
 | ---- | ----- | ----- | 
 | 스키마 | 8MB | 2MB보다 큰 파일을 업로드하려면 [blob URI](../logic-apps/logic-apps-enterprise-integration-schemas.md)를 사용합니다. | 
 | 맵(XSLT 파일) | 2MB | | 
@@ -229,7 +228,7 @@ ms.locfileid: "42141796"
 
 다음은 B2B 프로토콜에 적용되는 제한 사항입니다.
 
-| Name | 제한 | 메모 | 
+| 이름 | 제한 | 메모 | 
 | ---- | ----- | ----- | 
 | AS2 | 50MB | 디코딩 및 인코딩에 적용됩니다. | 
 | X12 | 50MB | 디코딩 및 인코딩에 적용됩니다. | 
@@ -305,8 +304,13 @@ ms.locfileid: "42141796"
 [커넥터](../connectors/apis-list.md)에서 호출하도록 지원하려면 논리 앱이 있는 지역에 따라 다음과 같은 아웃바운드 IP 주소가 포함되도록 방화벽 구성을 설정합니다.
 
 > [!IMPORTANT]
->
 > 기존 구성이 있는 경우 논리 앱이 있는 지역에 대한 다음 목록의 IP 주소를 포함하여 일치하도록 **2018년 9월 1일 이전까지 가능한 한 빨리** 업데이트하세요. 
+> 
+> Logic Apps는 방화벽을 통해 Azure storage 계정에 직접 연결하도록 지원하지 않습니다. 이러한 저장소 계정에 액세스하려면 다음 옵션 중 하나를 사용합니다. 
+>
+> * [통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)을 만듭니다. Azure Virtual Network의 리소스에 연결할 수 있습니다. 
+> 
+> * 아직 API Management를 사용하는 경우 이 시나리오에 이 서비스를 사용할 수 있습니다. 자세한 내용은 [간단한 엔터프라이즈 통합 아키텍처](http://aka.ms/aisarch)를 참조하세요.
 
 | Logic Apps 지역 | 아웃바운드 IP | 
 |-------------------|-------------|  

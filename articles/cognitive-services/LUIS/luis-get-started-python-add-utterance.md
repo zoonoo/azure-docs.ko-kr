@@ -1,20 +1,21 @@
 ---
-title: '빠른 시작: Python을 사용하여 모델을 변경하고 LUIS 앱 학습시키기 - Azure Cognitive Services | Microsoft Docs'
-description: Node.js 빠른 시작에서는 Home Automation 앱에 예제 발언을 추가하여 앱을 학습시킵니다. 예제 발언은 의도에 매핑된 대화형 사용자 텍스트입니다. 의도에 대한 예제 발언을 제공하여, 사용자가 제공한 텍스트의 종류가 어떤 의도에 속하는지 LUIS에 알려줍니다.
+title: Python 빠른 시작 - 모델 변경 및 LUIS 앱 학습
+titleSuffix: Azure Cognitive Services
+description: Python 빠른 시작에서는 Home Automation 앱에 예제 발언을 추가하여 앱을 학습시킵니다. 예제 발언은 의도에 매핑된 대화형 사용자 텍스트입니다. 의도에 대한 예제 발언을 제공하여, 사용자가 제공한 텍스트의 종류가 어떤 의도에 속하는지 LUIS에 알려줍니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 9fe3863509404f43f39e3aa197a79d322a0b643b
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: ff076954d51605935bb41488ec6a757c2f7806a1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160696"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040179"
 ---
 # <a name="quickstart-change-model-using-python"></a>빠른 시작: Python을 사용하여 모델 변경
 

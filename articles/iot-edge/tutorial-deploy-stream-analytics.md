@@ -4,17 +4,17 @@ description: 이 자습서에서는 Iot Edge 장치에 Azure Stream Analytics를
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/10/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 66d55c07493a540e36a08d48d6abbdc3d082b9b9
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 6997d40603bd6ebf39f8797a3e354e92c04da58d
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41921030"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422748"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>자습서: Azure Stream Analytics를 IoT Edge 모듈로 배포(미리 보기)
 
@@ -50,7 +50,7 @@ Azure IoT Edge 장치:
 
 클라우드 리소스:
 
-* Azure의 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md). 
+* Azure의 무료 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md). 
 
 
 ## <a name="create-an-azure-stream-analytics-job"></a>Azure Stream Analytics 작업 만들기
@@ -67,7 +67,7 @@ IoT Edge 장치에서 실행되는 Azure Stream Analytics 작업을 만들 때 �
 
    | 필드 | 값 |
    | ----- | ----- |
-   | Name | 저장소 계정의 고유한 이름을 입력합니다. | 
+   | 이름 | 저장소 계정의 고유한 이름을 입력합니다. | 
    | 위치 | 가까운 위치를 선택합니다. |
    | 구독 | IoT Hub와 동일한 구독을 선택합니다. |
    | 리소스 그룹 | IoT Edge 빠른 시작 및 자습서에서 만드는 모든 테스트 리소스에 동일한 리소스 그룹을 사용하는 것이 좋습니다. 예를 들어 **IoTEdgeResources**를 사용합니다. |

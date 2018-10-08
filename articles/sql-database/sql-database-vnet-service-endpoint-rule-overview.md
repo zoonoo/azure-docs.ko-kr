@@ -3,20 +3,21 @@ title: Azure SQL Database에 대한 가상 네트워크 서비스 엔드포인�
 description: 서브넷을 Virtual Network 서비스 엔드포인트로 표시합니다. 그런 다음 해당 엔드포인트를 가상 네트워크 규칙으로 Azure SQL Database의 ACL에 추가합니다. 그러면 SQL Database가 해당 서브넷에 있는 모든 가상 머신과 다른 노드에서 보낸 통신을 수락합니다.
 services: sql-database
 ms.service: sql-database
-ms.prod_service: sql-database, sql-data-warehouse
-author: DhruvMsft
-manager: craigg
-ms.custom: VNet Service endpoints
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/28/2018
-ms.reviewer: carlrab
+author: DhruvMsft
 ms.author: dmalik
-ms.openlocfilehash: 223a8da0c3c940c57dfc58d9cc87a19ae45a64eb
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.reviewer: vanto, genemi
+manager: craigg
+ms.date: 09/18/2018
+ms.openlocfilehash: 90138664e5eab9110f51bbd3d3755dec0ed59ea8
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143813"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166812"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Azure SQL Database 및 SQL Data Warehouse에 대해 Virtual Network 서비스 엔드포인트 및 규칙 사용
 
@@ -125,7 +126,7 @@ Azure에서 [RBAC(역할 기반 액세스 제어)][rbac-what-is-813s]를 사용�
 
 Azure SQL Database의 경우 가상 네트워크 규칙 기능에는 다음과 같은 제한이 있습니다.
 
-- 웹앱을 VNet/서브넷의 개인 IP에 매핑할 수 있습니다. 서비스 엔드포인트가 지정된 VNet/서브넷에서 ON으로 설정되어 있는 경우에도 웹앱과 서버 간 연결은 VNet/서브넷 원본이 아닌 Azure 공용 IP 원본을 가집니다. VNet 방화벽 규칙이 있는 웹앱에서 서버로의 연결을 사용하려면 서버에서 **모든 Azure 서비스를 허용**해야 합니다.
+- 웹앱을 VNet/서브넷의 개인 IP에 매핑할 수 있습니다. 서비스 엔드포인트가 지정된 VNet/서브넷에서 ON으로 설정되어 있는 경우에도 웹앱과 서버 간 연결은 VNet/서브넷 원본이 아닌 Azure 공용 IP 원본을 가집니다. Web App에서 VNet 방화벽 규칙이 있는 서버로의 연결을 사용하도록 설정하려면 서버에서 **Azure 서비스의 서버 액세스 허용**을 적용해야 합니다.
 
 - SQL Database에 대한 방화벽에서 각 가상 네트워크 규칙은 서브넷을 참조합니다. 이렇게 참조된 모든 서브넷은 SQL Database와 동일한 지리적 위치에서 호스팅되어야 합니다.
 
@@ -157,23 +158,23 @@ FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deplo
 When searching for blogs about ASM, you probably need to use this old and now-forbidden name.
 -->
 
-## <a name="impact-of-removing-allow-all-azure-services"></a>‘모든 Azure 서비스 허용’ 제거의 영향
+## <a name="impact-of-removing-allow-azure-services-to-access-server"></a>'Azure 서비스의 서버 액세스 허용' 제거의 영향
 
-많은 사용자가 자신의 Azure SQL Server에서 **모든 Azure 서비스 허용**을 제거하고 VNet 방화벽 규칙으로 바꾸려고 합니다.
+많은 사용자가 자신의 Azure SQL Server에서 **Azure 서비스의 서버 액세스 허용**을 제거하고 이 옵션을 VNet 방화벽 규칙으로 바꾸려고 합니다.
 그러나 이를 제거하면 다음과 같은 Azure SQLDB 기능에 영향을 미칩니다.
 
 #### <a name="import-export-service"></a>가져오기/내보내기 서비스
-Azure SQLDB 가져오기/내보내기 서비스는 Azure의 VM에서 실행됩니다. 이러한 VM은 VNet에 있지 않으므로 데이터베이스에 연결할 때 Azure IP를 가져옵니다. **모든 Azure 서비스 허용**을 제거하면 이러한 VM은 데이터베이스에 액세스할 수 없게 됩니다.
+Azure SQLDB 가져오기/내보내기 서비스는 Azure의 VM에서 실행됩니다. 이러한 VM은 VNet에 있지 않으므로 데이터베이스에 연결할 때 Azure IP를 가져옵니다. **Azure 서비스의 서버 액세스 허용**을 제거하면 이러한 VM에서 데이터베이스에 액세스할 수 없게 됩니다.
 이 문제는 해결할 수 있습니다. DACFx API를 사용하여 코드에서 직접 BACPAC 가져오기 또는 내보내기를 실행합니다. 방화벽 규칙을 설정한 VNet 서브넷에 있는 VM에 배포되었는지 확인합니다.
 
 #### <a name="sql-database-query-editor"></a>SQL Database 쿼리 편집기
-Azure SQL Database 쿼리 편집기는 Azure의 VM에 배포됩니다. 이러한 VM은 VNet에 있지 않습니다. 따라서 VM은 데이터베이스에 연결할 때 Azure IP를 가져옵니다. **모든 Azure 서비스 허용**을 제거하면 이러한 VM은 데이터베이스에 액세스할 수 없게 됩니다.
+Azure SQL Database 쿼리 편집기는 Azure의 VM에 배포됩니다. 이러한 VM은 VNet에 있지 않습니다. 따라서 VM은 데이터베이스에 연결할 때 Azure IP를 가져옵니다. **Azure 서비스의 서버 액세스 허용**을 제거하면 이러한 VM에서 데이터베이스에 액세스할 수 없게 됩니다.
 
 #### <a name="table-auditing"></a>테이블 감사
 현재 SQL Database에서 감사를 활성화하는 방법에는 두 가지가 있습니다. Azure SQL Server에서 서비스 엔드포인트를 활성화한 후에는 테이블 감사에 실패합니다. 여기서 완화책은 Blob 감사로 이동하는 것입니다.
 
 #### <a name="impact-on-data-sync"></a>데이터 동기화에 대한 영향
-Azure SQLDB에는 Azure IP를 사용하여 데이터베이스에 연결하는 데이터 동기화 기능이 있습니다. 서비스 엔드포인트를 사용하는 경우 논리 서버에 대한 **모든 Azure 서비스 허용** 액세스를 해제할 가능성이 큽니다. 이 경우 데이터 동기화 기능이 중단됩니다.
+Azure SQLDB에는 Azure IP를 사용하여 데이터베이스에 연결하는 데이터 동기화 기능이 있습니다. 서비스 엔드포인트를 사용하는 경우 논리 서버에 대한 **Azure 서비스의 서버 액세스 허용** 액세스를 해제할 가능성이 있습니다. 이 경우 데이터 동기화 기능이 중단됩니다.
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Azure 저장소에서 VNet 서비스 엔드포인트 사용의 영향
 
@@ -184,7 +185,7 @@ Azure SQL Server에서 사용 중인 저장소 계정에서 이 기능을 사용
 PolyBase는 대개 저장소 계정에서 Azure SQLDW로 데이터를 로드하는 데 사용됩니다. 데이터를 로드하는 저장소 계정이 액세스를 VNet 서브넷 집합으로만 제한하는 경우 PolyBase에서 계정으로의 연결은 중단됩니다. 이 문제에 대한 완화 방법이 있으며 자세한 내용은 Microsoft 고객 지원팀에 문의하세요.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob 감사
-Blob 감사는 사용자 고유의 저장소 계정에 감사 로그를 푸시합니다. 이 저장소 계정이 VENT 서비스 엔드포인트 기능을 사용하는 경우 Azure SQLDB에서 저장소 계정으로의 연결은 중단됩니다.
+Blob 감사는 사용자 고유의 저장소 계정에 감사 로그를 푸시합니다. 이 저장소 계정에서 VNet 서비스 엔드포인트 기능을 사용하는 경우 Azure SQLDB에서 저장소 계정으로의 연결이 끊어집니다.
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>VNET 서비스 엔드포인트를 켜지 않고 서버에 VNET 방화벽 규칙 추가
 

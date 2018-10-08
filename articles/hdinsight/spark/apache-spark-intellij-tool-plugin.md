@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/25/2017
 ms.author: maxluk
-ms.openlocfilehash: ed0118584d51f08d64a88dc1e7e6e2ba5f95cb0a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 07c2b506007daccd53a8b06a43064e6e274ac43b
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042594"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433361"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>IntelliJ용 Azure 도구 키트를 사용하여 HDInsight 클러스터용 Spark 응용 프로그램 만들기
 
@@ -181,8 +181,12 @@ Ambari 관리 사용자 이름을 사용하여 일반 HDInsight 클러스터를 
 
         ![주 클래스 선택 대화 상자](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-3.png)
 
-      * 이 예제의 응용 프로그램 코드에는 명령줄 인수가 필요하지 않거나 JAR 또는 파일을 참조하지 않으므로 나머지 상자를 비워둘 수 있습니다. 모든 정보를 제공하면 대화 상자는 다음 이미지와 같아야 합니다.
+      * 원하는 정보를 입력할 수 있습니다. **작업 구성**에는 기본값이 있습니다. 키에 대한 자세한 내용은 [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html)를 참조할 수 있습니다. **명령줄 인수**, **JAR 참조** 및 **참조 파일**은 아래 이미지와 유사할 것입니다. **JAR 참조** 및 **참조 파일**에 대한 자세한 내용은 [Spark 구성](https://spark.apache.org/docs/latest/configuration.html#runtime-environment)을 참조할 수 있습니다. **JAR 참조** 및 **참조 파일**이 제대로 작동하려면 먼저 제출한 클러스터에 리소스를 업로드해야 합니다. [클러스터에 리소스를 업로드하는 방법](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)을 참조하세요. 제출 대화 상자는 다음 이미지와 유사해야 합니다.
         
+        ![Spark 제출 대화 상자 작업 구성 의미](./media/apache-spark-intellij-tool-plugin/submit-job-configurations.png)
+
+        ![Spark 제출 대화 상자 jar 파일 의미](./media/apache-spark-intellij-tool-plugin/jar-files-meaning.png)
+
         ![Spark 제출 대화 상자](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-2.png)
 
    다. 창 아래쪽의 **Spark 제출** 탭에 진행 상태가 표시되기 시작합니다. 또한 **Spark 제출** 창에서 빨간색 단추를 선택하여 응용 프로그램을 중지할 수 있습니다.

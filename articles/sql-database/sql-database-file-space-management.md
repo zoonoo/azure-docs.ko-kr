@@ -2,19 +2,22 @@
 title: Azure SQL Database 파일 공간 관리| Microsoft Docs
 description: 이 페이지에서는 Azure SQL Database에서 파일 공간을 관리하는 방법을 설명하고 데이터베이스를 축소해야 하는지 결정하는 방법은 물론 데이터베이스 축소 작업을 수행하는 방법을 위한 코드 샘플을 제공합니다.
 services: sql-database
-author: oslake
-manager: craigg
 ms.service: sql-database
-ms.custom: how-to
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/15/2018
+author: oslake
 ms.author: moslake
-ms.openlocfilehash: 498e83e7c312480af6d2eff7d44bd13aee9c55fd
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: a46192c79d32ddf5f178541c3be128893e8f6109
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42143554"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159944"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Azure SQL Database에서 파일 공간 관리리
 이 문서에서는 Azure SQL Database의 다양한 종류의 저장소 공간을 설명하고 데이터베이스 및 탄력적 풀에 할당된 파일 공간을 명시적으로 관리해야 하는 경우 취할 수 있는 단계를 설명합니다.
@@ -27,7 +30,7 @@ Azure SQL Database에서 Azure Portal 및 다음 API에 표시되는 대부분�
 - T-SQL: [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-데이터베이스에 대한 기본 데이터 파일의 할당이 사용되는 데이터 페이지의 양을 초과할 수 있는 워크로드 패턴이 있습니다.  이는 사용된 공간이 증가하고 그 후에 데이터가 삭제되는 경우 발생합니다.  데이터가 삭제될 때 할당되어 있는 파일 공간이 자동으로 회수되지 않기 때문입니다.  이러한 시나리오에서는 데이터베이스 또는 풀에 할당된 공간이 지원되는 제한을 초과할 수 있습니다. 데이터 증가를 방지하거나 성능 계층 변경을 방지하고, 완화하기 위해 데이터 파일을 축소합니다.
+데이터베이스에 대한 기본 데이터 파일의 할당이 사용되는 데이터 페이지의 양을 초과할 수 있는 워크로드 패턴이 있습니다.  이는 사용된 공간이 증가하고 그 후에 데이터가 삭제되는 경우 발생합니다.  데이터가 삭제될 때 할당되어 있는 파일 공간이 자동으로 회수되지 않기 때문입니다.  이러한 시나리오에서는 데이터베이스 또는 풀에 할당된 공간이 허용 한도를 초과하여 데이터를 확장할 수 없거나 서비스 계층 및 계산 크기를 변경할 수 없게 되고, 문제를 완화하기 위해 데이터 파일을 축소해야 할 수도 있습니다.
 
 SQL DB 서비스는 사용되지 않은 할당된 공간을 회수하기 위해 데이터 파일을 자동으로 축소하지 않습니다. 이렇게 하면 데이터베이스 성능에 잠재적인 영향을 미치기 때문입니다.  하지만 고객이 [사용되지 않은 할당된 공간 회수](#reclaim-unused-allocated-space)에 설명된 단계를 수행하기로 선택하면 셀프 서비스를 통해 데이터의 파일을 축소할 수 있습니다. 
 

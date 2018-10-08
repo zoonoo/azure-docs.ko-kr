@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 5a6c5498b4607719199363b5f6d93d3b42ccec0d
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 77da95ce0d37e8d0b35125f0cc8dc33376a52259
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967577"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47401586"
 ---
 조직에는 대규모 컴퓨팅 요구 사항이 있습니다. 이러한 큰 계산 작업에는 엔지니어링 설계 및 분석, 재무 위험 계산, 이미지 렌더링, 복잡한 모델링, 몬테카를로 시뮬레이션 등이 포함됩니다. 
 
@@ -40,8 +40,7 @@ Azure 클라우드를 사용하여 병렬 일괄 처리 작업에서 기존의 H
     * [Altair](http://www.altair.com/), [Rescale](https://www.rescale.com/azure/) 및 [Cycle Computing](https://cyclecomputing.com/)(이제 [Microsoft와 조인됨](https://blogs.microsoft.com/blog/2017/08/15/microsoft-acquires-cycle-computing-accelerate-big-computing-cloud/))을 포함하여 공급 업체에서 Azure를 사용할 수 있는 엔지니어링 및 시뮬레이션 솔루션을 실행합니다.
     * Azure에서 호스팅된 서비스로 [Cray 슈퍼 컴퓨터](https://www.cray.com/solutions/supercomputing-as-a-service/cray-in-azure)를 사용합니다.
 * **Marketplace 솔루션**
-    * 
-  [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/)에서 제공되는 [HPC 응용 프로그램](#hpc-applications) 및 [솔루션](#marketplace-solutions)의 규모를 사용합니다. 
+    * [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/)에서 제공되는 [HPC 응용 프로그램](#hpc-applications) 및 [솔루션](#marketplace-solutions)의 규모를 사용합니다. 
     
 
 
@@ -163,7 +162,7 @@ Azure 가상 머신, 가상 머신 확장 집합, Batch 및 관련 계산 서비
 ### <a name="data-and-analytics"></a>데이터 및 분석
 * [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [Data Factory](../articles/data-factory/introduction.md)
-* [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
+* [Data Lake Storage Gen1](../articles/data-lake-store/data-lake-store-overview.md)
 * [Databricks](../articles/azure-databricks/what-is-azure-databricks.md)
 * [SQL Database](../articles/sql-database/sql-database-technical-overview.md)
 

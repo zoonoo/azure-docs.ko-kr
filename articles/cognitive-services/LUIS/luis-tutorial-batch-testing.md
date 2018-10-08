@@ -1,51 +1,27 @@
 ---
-title: 일괄 테스트를 사용하여 LUIS 예측 개선 | Microsoft Docs
-titleSuffix: Azure
-description: 일괄 테스트를 로드하고, 결과를 검토하며, 변경 사항으로 LUIS 예측을 개선합니다.
+title: '자습서 2: 1000개 발언 집합을 사용하여 일괄 처리 테스트 '
+titleSuffix: Azure Cognitive Services
+description: 이 자습서에서는 일괄 처리 테스트를 사용하여 앱의 발언 예측 문제를 찾아 수정하는 방법을 보여줍니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 5abaeaee87d54e82df29e75b89c83522b8746730
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: e5155caa26669cd98b679eec611334ee5c048fca
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158248"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162544"
 ---
-# <a name="improve-app-with-batch-test"></a>일괄 테스트로 앱 개선
+# <a name="tutorial-2-batch-test-data-sets"></a>자습서 2: 일괄 처리 테스트 데이터 집합
 
-이 자습서에서는 일괄 테스트를 사용하여 발화 예측 문제를 찾는 방법을 보여 줍니다.  
-
-이 자습서에서는 다음 방법에 대해 알아봅니다.
-
-<!-- green checkmark -->
-> [!div class="checklist"]
-* 일괄 테스트 파일 만들기 
-* 일괄 테스트 실행
-* 테스트 결과 검토
-* 오류 수정 
-* 다시 일괄 테스트
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>시작하기 전에
-
-[끝점 발언 검토](luis-tutorial-review-endpoint-utterances.md) 자습서의 Human Resources 앱이 없으면 JSON을 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 새 앱으로 [가져옵니다](luis-how-to-start-new-app.md#import-new-app). 가져올 앱은 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-review-HumanResources.json) Github 리포지토리에 있습니다.
-
-원래의 인사 관리 앱을 유지하려면 [설정](luis-how-to-manage-versions.md#clone-a-version) 페이지에서 버전을 복제하고 해당 이름을 `batchtest`로 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 
-
-앱을 학습합니다.
-
-## <a name="purpose-of-batch-testing"></a>일괄 테스트의 목적
+이 자습서에서는 일괄 처리 테스트를 사용하여 앱의 발언 예측 문제를 찾아 수정하는 방법을 보여줍니다.  
 
 일괄 테스트를 사용하면 레이블이 지정된 발언 및 엔터티의 알려진 집합을 사용하여 학습된 활성 모델의 상태가 유효한지 확인할 수 있습니다. JSON 형식의 일괄 처리 파일에서 발언을 추가하고, 발언 내에서 예측해야 하느 엔터티 레이블을 설정합니다. 
-
-<!--The recommended test strategy for LUIS uses three separate sets of data: example utterances provided to the model, batch test utterances, and endpoint utterances. --> 이 자습서 이외에서 앱을 사용할 경우 의도에 이미 추가된 예제 발언을 사용하지 *않도록* 합니다. 예제 발언을 기준으로 일괄 테스트 발언을 확인하려면 앱을 [내보냅니다](luis-how-to-start-new-app.md#export-app). 앱 예제 발언을 일괄 테스트 발언과 비교합니다. 
 
 일괄 테스트를 위한 요구 사항:
 
@@ -53,13 +29,42 @@ ms.locfileid: "44158248"
 * 중복되지 않습니다. 
 * 허용되는 엔터티 형식: 기계 학습된 단순, 계층 구조(부모만) 및 복합 엔터티만. 일괄 테스트는 기계 학습된 의도 및 엔터티에만 유용합니다.
 
-## <a name="create-a-batch-file-with-utterances"></a>발언을 사용하여 일괄 처리 파일 만들기
+이 자습서 이외의 앱을 사용할 때에는 의도에 이미 추가된 발언 예제를 사용하지 *마세요*. 
 
-1. [VSCode](https://code.visualstudio.com/)와 같은 텍스트 편집기에서 `HumanResources-jobs-batch.json`을 만듭니다. 
+**이 자습서에서는 다음 방법에 대해 알아봅니다.**
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * 기존 자습서 앱 사용
+> * 일괄 테스트 파일 만들기 
+> * 일괄 테스트 실행
+> * 테스트 결과 검토
+> * 오류 수정 
+> * 다시 일괄 테스트
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>기존 앱 사용
+
+마지막 자습서에서 만든 **HumanResources**라는 앱을 사용하여 계속 진행합니다. 
+
+이전 자습서의 HumanResources 앱이 없으면 다음 단계를 사용합니다.
+
+1.  [앱 JSON 파일](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json)을 다운로드하고 저장합니다.
+
+2. JSON을 새 앱으로 가져옵니다.
+
+3. **관리** 섹션의 **버전** 탭에서 버전을 복제하고 `batchtest`라는 이름을 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 버전 이름이 URL 경로의 일부로 사용되므로 이름에는 URL에 유효하지 않은 문자가 포함될 수 없습니다. 
+
+4. 앱을 학습합니다.
+
+## <a name="batch-file"></a>일괄 처리 파일
+
+1. 텍스트 편집기에서 `HumanResources-jobs-batch.json`을 만들거나 [다운로드](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json)합니다. 
 
 2. JSON 형식의 일괄 처리 파일에서 테스트에서 예측할 **의도**가 포함된 발언을 추가합니다. 
 
-   [!code-json[Add the intents to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-jobs-batch.json "Add the intents to the batch test file")]
+   [!code-json[Add the intents to the batch test file](~/samples-luis/documentation-samples/tutorials/HumanResources-jobs-batch.json "Add the intents to the batch test file")]
 
 ## <a name="run-the-batch"></a>일괄 처리 실행
 
@@ -73,13 +78,13 @@ ms.locfileid: "44158248"
 
     [![데이터 집합 가져오기가 강조 표시된 LUIS 앱의 스크린샷](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
 
-4. `HumanResources-jobs-batch.json` 파일의 파일 시스템 위치를 선택합니다.
+4. `HumanResources-jobs-batch.json` 파일의 파일 위치를 선택합니다.
 
 5. 데이터 집합의 이름을 `intents only`로 지정하고 **완료**를 선택합니다.
 
     ![파일 선택](./media/luis-tutorial-batch-testing/hr-import-new-dataset-ddl.png)
 
-6. **실행** 단추를 선택합니다. 테스트가 완료될 때까지 기다립니다.
+6. **실행** 단추를 선택합니다. 
 
 7. **See results**(결과 보기)를 선택합니다.
 
@@ -109,7 +114,7 @@ ms.locfileid: "44158248"
 
 **False positive** 섹션의 위쪽 점에 해당하는 발언은 `Can I apply for any database jobs with this resume?` 및 `Can I apply for any database jobs with this resume?`입니다. 첫 번째 발언의 경우 단어 `resume`이 **ApplyForJob**에서만 사용되었습니다. 두 번째 발언의 경우 단어 `apply`가 **ApplyForJob** 의도에서만 사용되었습니다.
 
-## <a name="fix-the-app-based-on-batch-results"></a>일괄 처리 결과를 기반으로 앱 수정
+## <a name="fix-the-app"></a>앱 수정
 
 이 섹션의 목적은 앱을 수정하여 **GetJobInformation**에 대해 모든 발언이 올바르게 예측되도록 하는 것입니다. 
 
@@ -119,7 +124,7 @@ ms.locfileid: "44158248"
 
 첫 번째 해결 방법은 **GetJobInformation**에 발언을 더 추가하는 것입니다. 두 번째 해결 방법은 `resume` 및 `apply`와 같은 단어의 가중치를 **ApplyForJob** 의도에 맞게 줄이는 것입니다. 
 
-### <a name="add-more-utterances-to-getjobinformation"></a>**GetJobInformation**에 발언을 더 추가
+### <a name="add-more-utterances"></a>발언 추가
 
 1. 위쪽 탐색 패널에서 **테스트** 단추를 선택하여 일괄 테스트 패널을 닫습니다. 
 
@@ -149,7 +154,7 @@ ms.locfileid: "44158248"
 
 4. 오른쪽 상단 탐색 영역에서 **학습**을 선택하여 앱을 학습합니다.
 
-## <a name="verify-the-fix-worked"></a>수정되었는지 확인
+## <a name="verify-the-new-model"></a>새 모델 확인
 
 일괄 테스트의 발언이 올바르게 예측되는지 확인하려면 일괄 테스트를 다시 실행합니다.
 
@@ -171,12 +176,12 @@ ms.locfileid: "44158248"
 
 테스트 발언에 제공된 **Job** 엔터티의 값은 일반적으로 하나 또는 두 개의 단어로 되어 있지만 더 많은 단어를 포함하는 예제도 일부 있습니다. _직접 만든_ Human Resources 앱에 여러 단어의 작업 이름이 있는 경우 이 앱에서 **Job** 엔터티 레이블이 지정된 예제 발언은 잘 작동하지 않습니다.
 
-1. [VSCode](https://code.visualstudio.com/)와 같은 텍스트 편집기에서 `HumanResources-entities-batch.json`을 만듭니다. 또는 LUIS-Samples Github 리포지토리에서 [파일](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json)을 다운로드합니다.
+1. [VSCode](https://code.visualstudio.com/) 같은 텍스트 편집기에서 `HumanResources-entities-batch.json`을 만들거나 [다운로드](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json)합니다.
 
 
 2. JSON 형식의 일괄 처리 파일에서 발언에서 엔터티의 위치 뿐만 아니라 테스트에서 예측하려는 **의도**가 있는 발언을 포함하는 개체 배열을 추가합니다. 엔터티는 토큰 기반이므로 한 문자에서 각 엔터티를 시작 및 중지해야 합니다. 발언 앞뒤에 공백을 포함하지 않도록 합니다. 공백이 있으면 일괄 처리 파일을 가져올 때 오류가 발생합니다.  
 
-   [!code-json[Add the intents and entities to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json "Add the intents and entities to the batch test file")]
+   [!code-json[Add the intents and entities to the batch test file](~/samples-luis/documentation-samples/tutorials/HumanResources-entities-batch.json "Add the intents and entities to the batch test file")]
 
 
 ## <a name="run-the-batch-with-entities"></a>엔터티를 사용하여 일괄 처리 실행
@@ -222,15 +227,13 @@ ms.locfileid: "44158248"
 
 엔터티가 올바르게 예측되기 전에 [패턴](luis-concept-patterns.md)을 추가하면 문제가 해결되지 않습니다. 패턴의 모든 엔터티가 검색될 때까지 패턴이 일치되지 못하기 때문입니다. 
 
-## <a name="what-has-this-tutorial-accomplished"></a>이 자습서에서 수행한 작업은 무엇입니까?
-
-일괄 처리에서 오류를 찾고 모델을 수정하여 앱 예측 정확도가 크게 개선되었습니다. 
-
 ## <a name="clean-up-resources"></a>리소스 정리
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
+
+이 자습서에서는 일괄 처리 테스트를 사용하여 현재 모델의 문제점을 찾았습니다. 일괄 처리 파일을 사용하여 모델을 수정하고 다시 시작하여 올바르게 변경되었는지 확인했습니다.
 
 > [!div class="nextstepaction"]
 > [패턴에 대해 알아보기](luis-tutorial-pattern.md)

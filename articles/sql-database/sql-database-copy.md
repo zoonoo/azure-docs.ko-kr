@@ -2,19 +2,22 @@
 title: Azure SQL Database 복사 | Microsoft Docs
 description: 같은 서버 또는 다른 서버에 기존 Azure SQL 데이터베이스의 트랜잭션 방식으로 일관된 사본을 만듭니다.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: load & move data
-ms.date: 04/01/2018
-ms.author: carlrab
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.openlocfilehash: 2217df046cf95ddcd12f6dcaa41b2c3f8b0090f6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+author: CarlRabeler
+ms.author: carlrab
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 2ce86bee96f22b4079afee3eacbeee7ea15a6ffa
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646204"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226010"
 ---
 # <a name="copy-an-azure-sql-database"></a>Azure SQL 데이터베이스 복사
 
@@ -22,7 +25,7 @@ Azure SQL Database는 동일한 서버 또는 다른 서버에서 기존 Azure S
 
 ## <a name="overview"></a>개요
 
-데이터베이스 복사본은 복사 요청 당시의 원본 데이터베이스의 스냅숏입니다. 동일한 서버 또는 다른 서버, 해당 서비스 계층 및 성능 수준 또는 동일한 서비스 계층(버전) 내 다른 성능 수준을 선택할 수 있습니다. 복사가 완료되면 완전히 작동하는 독립 데이터베이스가 됩니다. 이 시점에서 모든 버전으로 업그레이드하거나 다운그레이드할 수 있습니다. 로그인, 사용자 및 사용 권한은 독립적으로 관리됩니다.  
+데이터베이스 복사본은 복사 요청 당시의 원본 데이터베이스의 스냅숏입니다. 동일한 서버 또는 다른 서버, 해당 서비스 계층 및 계산 크기 또는 동일한 서비스 계층(버전) 내 다른 계산 크기를 선택할 수 있습니다. 복사가 완료되면 완전히 작동하는 독립 데이터베이스가 됩니다. 이 시점에서 모든 버전으로 업그레이드하거나 다운그레이드할 수 있습니다. 로그인, 사용자 및 사용 권한은 독립적으로 관리됩니다.  
 
 ## <a name="logins-in-the-database-copy"></a>데이터베이스 복사본에서 로그인
 
@@ -30,7 +33,7 @@ Azure SQL Database는 동일한 서버 또는 다른 서버에서 기존 Azure S
 
 다른 논리 서버로 데이터베이스를 복사할 때 새 서버의 보안 주체가 새 데이터베이스의 데이터베이스 소유자가 됩니다. 데이터 액세스에 [포함된 데이터베이스 사용자](sql-database-manage-logins.md)를 사용하는 경우 복사가 완료된 후 동일한 자격 증명으로 액세스할 수 있도록 주 데이터베이스와 보조 데이터베이스에서 항상 동일한 사용자 자격 증명을 사용해야 합니다. 
 
-[Azure Active Directory](../active-directory/active-directory-whatis.md)를 사용하는 경우 복사본에서 자격 증명을 관리할 필요가 없습니다. 그러나 데이터베이스를 새 서버로 복사할 때 새 서버에 로그인이 존재하지 않으므로 로그인 기반 액세스가 작동하지 않을 수 있습니다. 다른 논리 서버로 데이터베이스를 복사할 때 로그인을 관리하는 방법에 대한 자세한 내용은 [재해 복구 후에 Azure SQL Database 보안을 관리하는 방법](sql-database-geo-replication-security-config.md)을 참조하세요. 
+[Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)를 사용하는 경우 복사본에서 자격 증명을 관리할 필요가 없습니다. 그러나 데이터베이스를 새 서버로 복사할 때 새 서버에 로그인이 존재하지 않으므로 로그인 기반 액세스가 작동하지 않을 수 있습니다. 다른 논리 서버로 데이터베이스를 복사할 때 로그인을 관리하는 방법에 대한 자세한 내용은 [재해 복구 후에 Azure SQL Database 보안을 관리하는 방법](sql-database-geo-replication-security-config.md)을 참조하세요. 
 
 복사 성공 후 다른 사용자를 다시 매핑하기 전에는 데이터베이스 소유자인 복사를 시작한 로그인만 새 데이터베이스에 로그인할 수 있습니다. 복사 작업이 완료된 후 로그인을 확인하려면 [로그인 확인](#resolve-logins)을 참조하세요.
 
@@ -68,7 +71,7 @@ New-AzureRmSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
 
     -- Execute on the master database.
     -- Start copying.
-    CREATE DATABASE Database1_copy AS COPY OF Database1;
+    CREATE DATABASE Database2 AS COPY OF Database1;
 
 ### <a name="copy-a-sql-database-to-a-different-server"></a>SQL 데이터베이스를 다른 서버에 복사
 
@@ -78,7 +81,7 @@ New-AzureRmSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
 
     -- Execute on the master database of the target server (server2)
     -- Start copying from Server1 to Server2
-    CREATE DATABASE Database1_copy AS COPY OF server1.Database1;
+    CREATE DATABASE Database2 AS COPY OF server1.Database1;
 
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>복사 작업 진행률 모니터링

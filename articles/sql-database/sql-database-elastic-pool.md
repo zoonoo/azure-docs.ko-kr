@@ -1,22 +1,23 @@
 ---
 title: 탄력적 풀을 사용하여 여러 SQL Database 관리 - Azure | Microsoft Docs
 description: 탄력적 풀을 사용하여 수백 및 수천 개의 SQL Database를 관리하고 크기를 조정합니다. 필요한 경우 배포할 수는 리소스에 대한 단일 가격
-keywords: 여러 데이터베이스, 데이터베이스 리소스, 데이터베이스 성능
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.subservice: elastic-pool
-ms.custom: DBs & servers
-ms.date: 07/27/2018
-ms.author: ninarn
+subservice: elastic-pool
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.openlocfilehash: ffc74eafed81c3dad836cfe70050244cb66a820b
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+author: oslake
+ms.author: moslake
+ms.reviewer: ninarn, carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 71269b4888d1b5c9724248ac91f0818d7f8f5bf5
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003742"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162358"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>탄력적 풀이 여러 Azure SQL Database를 관리하고 크기를 조정하는 데 도움을 주는 방식
 
@@ -55,7 +56,7 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
 
    ![풀에 적합한 단일 데이터베이스](./media/sql-database-elastic-pool/one-database.png)
 
-위에서 보여 주는 5분 주기에서 DB1은 최대 90DTU까지 도달하지만 전체 평균 사용량은 5DTU 미만입니다. 단일 데이터베이스에서 이 워크로드를 실행하려면 S3 성능 수준이 필요하지만 활동이 적은 기간 동안 리소스의 대부분을 사용하지 않게 됩니다.
+위에서 보여 주는 5분 주기에서 DB1은 최대 90DTU까지 도달하지만 전체 평균 사용량은 5DTU 미만입니다. 단일 데이터베이스에서 이 워크로드를 실행하려면 S3 계산 크기가 필요하지만 활동이 적은 기간 동안 리소스의 대부분을 사용하지 않게 됩니다.
 
 풀을 사용하면 이러한 사용하지 않는 DTU를 여러 데이터베이스에서 공유할 수 있으므로 필요한 DTU 및 전체 비용을 줄일 수 있습니다.
 
@@ -65,7 +66,7 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
 
    ![풀에 적합한 사용 패턴을 가진 20개의 데이터베이스](./media/sql-database-elastic-pool/twenty-databases.png)
 
-전체 20개 데이터베이스의 총 DTU 사용률은 위 그림에서 검은색 선으로 표시되었습니다. 이는 DTU 사용률 집계가 100 DTU를 초과하지 않음을 보여 주며, 이 기간 동안 20개 데이터베이스가 100 eDTU를 공유할 수 있음을 나타냅니다. 이러한 결과 20X DTUs의 감소와 13x 가격 감소를 비교합니다. 단일 데이터베이스의 S3 퍼포먼스 수준내의 각각의 데이터베이스를 배치하기 위해
+전체 20개 데이터베이스의 총 DTU 사용률은 위 그림에서 검은색 선으로 표시되었습니다. 이는 DTU 사용률 집계가 100 DTU를 초과하지 않음을 보여 주며, 이 기간 동안 20개 데이터베이스가 100 eDTU를 공유할 수 있음을 나타냅니다. 이렇게 하면 각 데이터베이스를 단일 데이터베이스용 S3 계산 크기에 배치할 때와 비교하여 DTU가 1/20, 가격이 1/13로 감소합니다.
 
 이 예는 다음 이유로 이상적입니다.
 
@@ -75,21 +76,21 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
 
 풀의 가격은 풀 eDTU의 함수입니다. 풀의 eDTU 단가는 단일 데이터베이스에 대한 DTU 단가보다 1.5배지만, **많은 데이터베이스가 풀 eDTU를 공유할 수 있고 필요한 전체 eDTU가 적습니다**. 가격 책정 및 eDTU 공유에서의 이러한 차이가 풀이 제공할 수 있는 가격 절감 가능성의 기초가 됩니다.
 
-데이터베이스 수 및 데이터베이스 사용에 관련된 다음 규칙은 풀이 단일 데이터베이스에 대한 성능 수준을 사용하는 데 비해 비용 절감을 제공하는 데 도움이 됩니다.
+데이터베이스 수 및 데이터베이스 사용에 관련된 다음 규칙은 풀이 단일 데이터베이스에 대한 계산 크기를 사용하는 데 비해 비용 절감을 제공하는 데 도움이 됩니다.
 
 ### <a name="minimum-number-of-databases"></a>데이터베이스의 최소 수
 
 단일 데이터베이스에 대한 리소스의 집계 양이 풀에 필요한 리소스의 1.5배 이상인 경우 탄력적 풀은 더욱 비용 효율적입니다.
 
 ***DTU 기반 구매 모델 예***<br>
-단일 데이터베이스에 성능 수준을 사용하는 것보다 비용 효율을 증가시키려면 100 DTU 풀에 최소 두 개의 S3 데이터베이스 혹은 15개의 S0 데이터베이스가 필요합니다.
+단일 데이터베이스용 계산 크기를 사용하는 것보다 비용 효율을 높이려면 100 eDTU 풀에 2개 이상의 S3 데이터베이스 또는 15개 이상의 S0 데이터베이스가 필요합니다.
 
 ### <a name="maximum-number-of-concurrently-peaking-databases"></a>최대 동시에 최고 데이터베이스
 
 리소스를 공유하면 풀의 일부 데이터베이스가 단일 데이터베이스에 대한 사용 가능한 제한까지 리소스를 동시에 사용할 수 없습니다. 동시에 최대 사용량에 도달하는 데이터베이스 수가 작을수록 더 낮은 풀 리소스를 설정할 수 있으며 풀도 더 비용 효율적입니다. 일반적으로 리소스 제한까지 동시에 최대 사용량에 도달하는 풀의 데이터베이스 수가 2/3(또는 67%)를 초과하면 안 됩니다.
 
 ***DTU 기반 구매 모델 예***<br>
-200 eDTU 풀에서 S3 데이터베이스 3개의 비용을 줄이려면 최대 2개의 데이터베이스가 동시에 최대 사용률에 도달할 수 있습니다. 이러한 S3 데이터베이스 4개 중 2개 이상이 동시에 최대 사용률에 도달하는 경우 200 eDTU 이상으로 풀 크기를 조정해야 합니다. 풀 크기가 201eDTU 이상일 때 단일 데이터베이스의 성능 수준보다 낮은 비용을 유지하려면 S3 데이터베이스를 풀에 더 많이 추가해야 합니다.
+200 eDTU 풀에서 S3 데이터베이스 3개의 비용을 줄이려면 최대 2개의 데이터베이스가 동시에 최대 사용률에 도달할 수 있습니다. 이러한 S3 데이터베이스 4개 중 2개 이상이 동시에 최대 사용률에 도달하는 경우 200 eDTU 이상으로 풀 크기를 조정해야 합니다. 풀 크기가 200 eDTU보다 크게 조정될 경우 단일 데이터베이스용 계산 크기보다 낮은 비용을 유지하려면 풀에 S3 데이터베이스를 더 많이 추가해야 합니다.
 
 예에서는 풀에 있는 다른 데이터베이스의 사용률을 고려 하지 않습니다. 모든 데이터베이스 시간에 특정된 시점에서 일부 사용률의 경우, 데이터베이스의 2/3(또는 67%) 보다 작은 사용률이 동시에 정점에 달할 수 있습니다.
 
@@ -123,7 +124,7 @@ SQL Database는 기존 SQL Database 서버에서 데이터베이스의 기록 �
 2. 풀에서 모든 데이터베이스에 필요한 바이트 수를 추가하여 풀에 필요한 저장소 공간을 예측합니다. 그런 다음 이 저장소의 양을 제공하는 eDTU 풀 크기를 결정합니다.
 3. DTU 기반 구매 모델의 경우 1단계 및 2단계에서 eDTU 예상 중 큰 수를 사용합니다. VCore 기반 구매 모델의 경우 1단계의 vCore 예상을 사용합니다.
 4. [SQL Database 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/)를 확인하고 3단계의 예상보다 큰 경우 가장 작은 풀 크기를 찾습니다.
-5. 단일 데이터베이스에 대한 적절한 성능 수준을 사용하는 가격에 5단계의 풀 가격을 비교합니다.
+5. 5단계의 풀 가격을 적절한 단일 데이터베이스용 계산 크기를 사용할 때의 가격과 비교해 보세요.
 
 ## <a name="using-other-sql-database-features-with-elastic-pools"></a>탄력적 풀과 기타 SQL Database 기능 사용
 
@@ -140,8 +141,7 @@ SQL Database는 기존 SQL Database 서버에서 데이터베이스의 기록 �
 
 - **지역 복원**: 지역 복원은 데이터베이스가 호스팅되는 지역에 사고가 발생하여 데이터베이스를 사용할 수 없게 되었을 때를 위한 기본 복구 옵션을 제공합니다. [Azure SQL Database 복원 또는 보조 데이터베이스에 대한 장애 조치](sql-database-disaster-recovery.md)
 
-- 
-  **활성 지역 복제**: 지역 복원에서 제공하는 것보다 더 까다로운 복구 요구 사항이 있는 응용 프로그램의 경우 [활성 지역 복제](sql-database-geo-replication-overview.md)를 구성합니다.
+- **활성 지역 복제**: 지역 복원에서 제공하는 것보다 더 까다로운 복구 요구 사항이 있는 응용 프로그램의 경우 [활성 지역 복제](sql-database-geo-replication-overview.md)를 구성합니다.
 
 ## <a name="creating-a-new-sql-database-elastic-pool-using-the-azure-portal"></a>Azure Portal을 사용하여 새 SQL Database 탄력적 풀 만들기
 
@@ -152,7 +152,7 @@ Azure Portal에서 두 가지 방법으로 탄력적 풀을 만들 수 있습니
 > [!NOTE]
 > 서버에 풀을 여러 개 만들 수 있지만 다른 서버에 속하는 데이터베이스를 동일한 풀에 추가할 수 없습니다.
 
-풀의 서비스 계층에 따라 풀에 있는 탄력적 데이터베이스에서 사용 가능한 기능과 각 데이터베이스에서 사용 가능한 최대 리소스 양이 결정됩니다. 자세한 내용은 [DTU 모델](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels)에서 탄력적 풀에 대한 리소스 제한을 참조하세요. 탄력적 풀에 대한 vCore 기반 리소스 제한은 [vCore 기반 리소스 제한 - 탄력적 풀](sql-database-vcore-resource-limits-elastic-pools.md)을 참조하세요.
+풀의 서비스 계층에 따라 풀에 있는 탄력적 데이터베이스에서 사용 가능한 기능과 각 데이터베이스에서 사용 가능한 최대 리소스 양이 결정됩니다. 자세한 내용은 [DTU 모델](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes)에서 탄력적 풀에 대한 리소스 제한을 참조하세요. 탄력적 풀에 대한 vCore 기반 리소스 제한은 [vCore 기반 리소스 제한 - 탄력적 풀](sql-database-vcore-resource-limits-elastic-pools.md)을 참조하세요.
 
 리소스 및 풀의 가격 책정을 구성하려면 **풀 구성**을 클릭합니다. 그런 다음, 서비스 계층을 선택하고, 풀에 데이터베이스를 추가하고, 풀과 해당 데이터베이스에 대한 리소스 제한을 구성합니다.
 

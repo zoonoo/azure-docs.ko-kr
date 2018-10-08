@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: d717737bc2b15e57ae32faffaece96f78a7cc013
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: e9c09d31af1b6ea214ae2d0fc6fd7399c07fd8c0
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577823"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434550"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics의 출력 이해
 이 문서에서는 Azure Stream Analytics 작업에 사용할 수 있는 다양한 유형의 출력을 설명합니다. 출력을 사용하여 Stream Analytics 작업의 결과를 저장할 수 있습니다. 출력 데이터를 사용하여 추가 비즈니스 분석 및 데이터의 데이터 웨어하우징을 수행할 수 있습니다. 
@@ -63,7 +63,7 @@ Stream Analytics의 Azure Data Lake Store 출력은 현재 Azure 중국(21Vianet
 ![Data Lake Store 권한 부여](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
 ## <a name="sql-database"></a>SQL Database
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 를 사용할 수 있습니다. Azure SQL Database의 기존 테이블에 Stream Analytics 작업을 기록합니다.  테이블 스키마는 작업에서 출력되는 필드 및 해당 형식과 정확히 일치해야 합니다. SQL Database 출력 옵션을 통해 [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/)를 출력으로 지정할 수도 있습니다. 다음 테이블은 SQL Database 출력을 만들기 위한 속성 이름 및 해당 설명을 나열합니다.
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 를 사용할 수 있습니다. Azure SQL Database의 기존 테이블에 Stream Analytics 작업을 기록합니다.  테이블 스키마는 작업에서 출력되는 필드 및 해당 형식과 정확히 일치해야 합니다. SQL Database 출력 옵션을 통해 [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/)를 출력으로 지정할 수도 있습니다. 쓰기 처리량을 개선하는 방법에 대한 자세한 내용은 [출력으로 Azure SQL DB를 사용한 Stream Analytics](stream-analytics-sql-output-perf.md) 문서를 참조하세요. 다음 테이블은 SQL Database 출력을 만들기 위한 속성 이름 및 해당 설명을 나열합니다.
 
 | 속성 이름 | 설명 |
 | --- | --- |
@@ -71,7 +71,7 @@ Stream Analytics의 Azure Data Lake Store 출력은 현재 Azure 중국(21Vianet
 | 데이터베이스 | 출력을 보내는 데이터베이스의 이름입니다. |
 | 서버 이름 | SQL Database 서버 이름입니다. |
 | 사용자 이름 | 데이터베이스에 쓸 수 있는 액세스 권한이 있는 사용자 이름입니다. |
-| 암호 | 데이터베이스에 연결하는 암호입니다. |
+| 암호 | 데이터베이스에 연결하는 암호 |
 | 테이블 | 출력을 기록되는 테이블 이름입니다. 테이블 이름은 대/소문자를 구분하며 이 테이블의 스키마는 작업 출력에서 생성되는 필드의 수 및 해당 형식과 정확히 일치해야 합니다. |
 
 > [!NOTE]
@@ -297,7 +297,7 @@ Azure Stream Analytics는 Azure 함수에서 413(http 요청 엔터티가 너무
 | 출력 형식 | 분할 지원 | 파티션 키  | 출력 기록기 수 | 
 | --- | --- | --- | --- |
 | Azure Data Lake Store | yes | 경로 접두사 패턴에 {date} 및 {time} 토큰을 사용합니다. YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY 등과 같은 날짜 형식을 선택합니다. HH는 시간 형식에 사용됩니다. | [완전히 병렬 처리 가능한 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. | 
-| Azure SQL Database | 아니요 | 없음 | 사용할 수 없습니다. | 
+| Azure SQL Database | yes | 쿼리의 PARTITION BY 절에 기반합니다. | [완전히 병렬 처리 가능한 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. | 
 | Azure Blob 저장소 | yes | 경로 패턴의 사용자 이벤트 필드에서 {date} 및 {time} 토큰을 사용합니다. YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY 등과 같은 날짜 형식을 선택합니다. HH는 시간 형식에 사용됩니다. [미리 보기](https://aka.ms/ASAPreview)의 일부로 단일 사용자 지정 이벤트 특성 {fieldname} 또는 {datetime:\<specifier>}로 Blob 출력을 분할할 수 있습니다. | [완전히 병렬 처리 가능한 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. | 
 | Azure Event Hub | yes | yes | 파티션 맞춤에 따라 달라집니다.</br> 출력 이벤트 허브 파티션 키가 업스트림(이전의) 쿼리 단계로 동일하게 맞춰질 때 작성기의 수는 출력 이벤트 허브 파티션의 수와 동일합니다. 각 작성기는 이벤트 허브의 [EventHubSender 클래스](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet)를 사용하여 특정 파티션에 이벤트를 전송합니다. </br> 출력 이벤트 허브 파티션 키가 업스트림(이전의) 쿼리 단계로 맞춰지지 않는 경우 작성기의 수는 이전 단계의 파티션 수와 동일합니다. 각 작성기는 EventHubClient [SendBatchAsync 클래스](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet)를 사용하여 모든 출력 파티션에 이벤트를 전송합니다. |
 | Power BI | 아니요 | 없음 | 사용할 수 없습니다. | 

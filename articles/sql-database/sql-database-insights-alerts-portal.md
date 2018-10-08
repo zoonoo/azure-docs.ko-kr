@@ -1,20 +1,23 @@
 ---
 title: Azure Portal을 사용하여 SQL Database 경고 만들기| Microsoft Docs
 description: Azure Portal을 사용하여 사용자가 지정한 조건에 부합하면 알림이나 자동 작업을 트리거할 수 있는 SQL Database 경고를 만듭니다.
-author: aamalvea
-manager: craigg
 services: sql-database
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: aamalvea
 ms.author: aamalvea
-ms.openlocfilehash: 349f1bbb0bfcc737d70e32947dd217c2cd51e194
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 27f807c8f2f6b6a65ef95136047f5eed1b3aab02
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648026"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159315"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Azure Portal을 사용하여 Azure SQL Database 및 Data Warehouse에 대한 경고 만들기
 
@@ -108,7 +111,7 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 | SQL 데이터 웨어하우스 | connection_successful | 성공적인 연결 | 합계 | 10분 |
 | SQL 데이터 웨어하우스 | connection_failed | 실패한 연결 | 합계 | 10분 |
 | SQL 데이터 웨어하우스 | blocked_by_firewall | 방화벽에 의해 차단 | 합계 | 10분 |
-| SQL 데이터 웨어하우스 | service_level_objective | 데이터베이스의 서비스 수준 목표 | 합계 | 10분 |
+| SQL 데이터 웨어하우스 | service_level_objective | 데이터베이스의 서비스 계층 | 합계 | 10분 |
 | SQL 데이터 웨어하우스 | dwu_limit | dwu 제한 | 최대 | 10분 |
 | SQL 데이터 웨어하우스 | dwu_consumption_percent | DWU 백분율 | 평균 | 10분 |
 | SQL 데이터 웨어하우스 | dwu_used | DWU 사용됨 | 평균 | 10분 |

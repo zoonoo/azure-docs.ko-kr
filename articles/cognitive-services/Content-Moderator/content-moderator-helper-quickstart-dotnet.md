@@ -1,22 +1,23 @@
 ---
-title: Azure Content Moderator SDK for .NET 도우미 메서드 | Microsoft Docs
+title: '빠른 시작: Content Moderator SDK for .NET 도우미 메서드'
+titlesuffix: Azure Cognitive Services
 description: Azure Content Moderator SDK for .NET을 사용하여 Content Moderator 클라이언트를 반환하는 방법
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/04/2018
 ms.author: sajagtap
-ms.openlocfilehash: 36f2124708731f78f34849d8210ed39ea8f59140
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0c167de3af8aea6820962e7cc8d0c21f5ba61807
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372854"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223273"
 ---
-# <a name="helper-code-to-return-a-content-moderator-client"></a>Content Moderator 클라이언트를 반환하는 도우미 코드
+# <a name="quickstart-helper-code-to-return-a-content-moderator-client"></a>빠른 시작: Content Moderator 클라이언트를 반환하는 도우미 코드
 
 이 문서에서는 Content Moderator SDK for .NET을 사용하여 구독에 사용할 Content Moderator 클라이언트를 만드는 방법과 코드 샘플을 제공합니다.
 

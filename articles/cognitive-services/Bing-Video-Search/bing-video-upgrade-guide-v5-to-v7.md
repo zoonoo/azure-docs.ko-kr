@@ -1,21 +1,21 @@
 ---
-title: Bing Video API v5를 v7으로 업그레이드 | Microsoft Docs
-description: 버전 7을 사용하도록 업데이트해야 하는 응용 프로그램의 부분을 식별합니다.
+title: Bing Video Search API v5에서 v7로 업그레이드
+titlesuffix: Azure Cognitive Services
+description: 버전 7을 사용하려면 업데이트해야 하는 응용 프로그램 파트를 식별합니다.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: FA7DDF07-97AC-4EBE-8C50-A9737D43B38E
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: db1bc07c06f3d073b6cc0f206620e50a5f048e2a
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 967355d213f226711914e298a2fbf5676ebefe4f
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42093878"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224463"
 ---
 # <a name="video-search-api-upgrade-guide"></a>Video Search API 업그레이드 가이드
 

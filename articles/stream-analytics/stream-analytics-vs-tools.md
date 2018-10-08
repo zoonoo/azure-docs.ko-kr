@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: 0df7c7680137be9a4b2c7c3cedb46330f4d3e5bd
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: f9bc9bf540f7f44e07bc4bb0ae8ef6910ae78476
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246720"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222389"
 ---
 # <a name="use-visual-studio-to-view-azure-stream-analytics-jobs"></a>Visual Studio를 사용하여 Azure Stream Analytics 작업 보기
 
@@ -53,7 +53,7 @@ Visual Studio의 작업 보기에서 Azure Stream Analytics 작업을 완벽하�
 
 ## <a name="check-job-results"></a>작업 결과 확인
 
-Visual Studio용 Stream Analytics 도구는 현재 Azure Data Lake Storage 및 BLOB 저장소에 대한 출력 미리 보기를 지원합니다. 결과를 보려면 **작업 보기**에서 작업 다이어그램의 출력 노드를 두 번 클릭하고 적절한 자격 증명을 입력하면 됩니다.
+Visual Studio용 Stream Analytics 도구는 현재 Azure Data Lake Storage 및 Blob Storage에 대한 출력 미리 보기를 지원합니다. 결과를 보려면 **작업 보기**에서 작업 다이어그램의 출력 노드를 두 번 클릭하고 적절한 자격 증명을 입력하면 됩니다.
 
    ![Stream Analytics 작업 BLOB 출력](./media/stream-analytics-vs-tools/stream-analytics-blob-preview.png)
 
@@ -88,5 +88,5 @@ Visual Studio용 Stream Analytics 도구는 현재 Azure Data Lake Storage 및 B
 
 * [Visual Studio를 사용하여 Azure Stream Analytics 작업 모니터링 및 관리](stream-analytics-monitor-jobs-use-vs.md)
 * [빠른 시작: Visual Studio를 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-vs.md)
-* [자습서: VSTS를 사용하여 CI/CD로 Azure Stream Analytics 작업 배포](stream-analytics-tools-visual-studio-cicd-vsts.md)
+* [자습서: Azure Pipelines를 사용하여 CI/CD로 Azure Stream Analytics 작업 배포](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Stream Analytics 도구를 사용하여 지속적으로 통합 및 개발](stream-analytics-tools-for-visual-studio-cicd.md)

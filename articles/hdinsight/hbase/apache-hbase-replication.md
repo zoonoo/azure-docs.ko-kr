@@ -3,18 +3,18 @@ title: Azure 가상 네트워크에서 HBase 클러스터 복제 설정
 description: 부하 분산, 고가용성, 무중단 마이그레이션/업데이트 및 재해 복구를 위해 한 HDInsight 버전에서 다른 HDInsight 버전으로 HBase 복제를 설정하는 방법을 알아봅니다.
 services: hdinsight,virtual-network
 author: jasonwhowell
+ms.author: jasonh
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/11/2018
-ms.author: jasonh
-ms.openlocfilehash: 624165f5ee1140ade9b9ce03c5249d297c8d83f1
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/15/2018
+ms.openlocfilehash: 51f5f3b9742de45b1b72104c8cf08079d0719763
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047486"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224384"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure 가상 네트워크에서 HBase 클러스터 복제 설정
 
@@ -109,6 +109,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 2. **리소스 그룹 > [리소스 그룹 이름] > [vnet1DNS]** 를 선택하여 DNS 가상 머신을 엽니다.  리소스 그룹 이름은 마지막 절차에서 만든 이름입니다. 기본 DNS 가상 머신 이름은 *vnet1DNS* 및 *vnet2NDS*입니다.
 3. **속성**을 선택하여 가상 네트워크의 속성 페이지를 엽니다.
 4. **공용 IP 주소**를 적어 두고 **개인 IP 주소**를 확인합니다.  개인 IP 주소는 vnet1DNS에 대해 **10.1.0.4**이고 vnet2DNS에 대해 **10.2.0.4**여야 합니다.  
+5. 기본(Azure 제공) DNS 서버를 사용하도록 두 가상 네트워크에 대한 DNS 서버를 변경합니다. 그러면 다음 단계에서 바인딩을 설치하기 위한 패키지를 다운로드하도록 인바운드 및 아웃바운드 액세스가 허용됩니다.
 
 바인딩을 설치하려면 다음 절차를 따릅니다.
 
@@ -135,7 +136,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
     sudo apt-get install bind9 -y
     ```
 
-3. 온-프레미스 DNS 서버에 이름 확인 요청을 전달하도록 바인딩을 구성하려면 `/etc/bind/named.conf.options` 파일의 내용에 다음과 같은 텍스트를 사용합니다.
+3. 온-프레미스 DNS 서버로 이름 확인 요청을 전달하는 바인딩을 구성합니다. 이를 수행하려면 다음 텍스트를 `/etc/bind/named.conf.options` 파일의 콘텐츠로 사용합니다.
 
     ```
     acl goodclients {
@@ -151,7 +152,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
         allow-query { goodclients; };
 
         forwarders {
-            168.63.129.16 #This is the Azure DNS server
+            168.63.129.16; #This is the Azure DNS server
         };
 
         dnssec-validation auto;
@@ -217,7 +218,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 
     ```bash
     sudo apt install dnsutils
-    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net 10.2.0.4
+    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net
     ```
 
     > [!IMPORTANT]
@@ -277,7 +278,7 @@ sudo service bind9 status
 
 ## <a name="enable-replication"></a>복제 사용
 
-다음 단계에서는 Azure Portal에서 스크립트 동작 스크립트를 호출하는 방법을 설명합니다. Azure PowerShell과 Azure CLI(명령줄 도구)를 사용하여 스크립트 동작을 실행하는 방법에 대한 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](../hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
+다음 단계에서는 Azure Portal에서 스크립트 동작 스크립트를 호출하는 방법을 설명합니다. Azure PowerShell과 Azure 클래식 CLI를 사용하여 스크립트 동작을 실행하는 방법에 대한 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](../hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
 **Azure Portal에서 HBase 복제를 사용하도록 설정하려면**
 
@@ -302,7 +303,7 @@ sudo service bind9 status
 
 필수 인수:
 
-|Name|설명|
+|이름|설명|
 |----|-----------|
 |-s, --src-cluster | HBase 원본 클러스터의 DNS 이름을 지정합니다. 예: -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | HBase 대상(복제본) 클러스터의 DNS 이름을 지정합니다. 예: -s dsthbcluster, --src-cluster=dsthbcluster |
@@ -311,7 +312,7 @@ sudo service bind9 status
 
 선택적 인수:
 
-|Name|설명|
+|이름|설명|
 |----|-----------|
 |-su, --src-ambari-user | HBase 원본 클러스터에서 Ambari에 대한 관리 사용자 이름을 지정합니다. 기본값은 **admin**입니다. |
 |-du, --dst-ambari-user | HBase 대상 클러스터에서 Ambari에 대한 관리 사용자 이름을 지정합니다. 기본값은 **admin**입니다. |

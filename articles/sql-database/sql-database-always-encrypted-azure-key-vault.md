@@ -3,19 +3,22 @@ title: '상시 암호화: SQL Database - Azure Key Vault | Microsoft Docs'
 description: 이 문서에서는 SQL Server Management Studio의 상시 암호화 마법사를 사용하여 데이터 암호화로 SQL Database의 중요한 데이터를 보호하는 방법을 보여 줍니다.
 keywords: 데이터 암호화, 암호화 키, 클라우드 암호화
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: VanMSFT
+ms.author: vanto
+ms.reviewer: ''
+manager: craigg
 ms.date: 04/01/2018
-ms.author: sstein
-ms.openlocfilehash: 19a033b79879f1b51626a14510fc4cc71c43426c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d944ead01da81e2fec49d256a4da939067bcceee
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644062"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064412"
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>상시 암호화: SQL Database의 중요한 데이터 보호 및 Azure Key Vault에 암호화 키 저장
 
@@ -595,7 +598,9 @@ Clinic 데이터베이스에 대해 다음 쿼리를 실행합니다.
 
    ![새 콘솔 응용 프로그램](./media/sql-database-always-encrypted-azure-key-vault/ssms-encrypted.png)
 
-SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면 *열 암호화 설정=활성화* 매개 변수를 연결에 추가할 수 있습니다.
+SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면, 먼저 사용자가 Azure Key Vault에 대한 적절한 권한(*get*, *unwrapKey* 및 *verify*)을 갖고 있는지 확인해야 합니다. 자세한 내용은 [열 마스터 키(상시 암호화) 만들기 및 저장](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-2017)을 참조하세요.
+
+그런 다음, 연결하는 동안 *Column Encryption Setting=enabled* 매개 변수를 추가합니다.
 
 1. SSMS에서 **개체 탐색기**에 있는 서버를 마우스 오른쪽 단추로 클릭하고 **연결 끊기**를 선택합니다.
 2. **연결** > **데이터베이스 엔진**을 클릭하여 **서버에 연결** 창을 열고 **옵션**을 클릭합니다.

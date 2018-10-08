@@ -1,21 +1,26 @@
 ---
 title: Azure Machine Learning의 하드웨어 가속을 위한 FPGA 패키지
 description: Azure Machine Learning 사용자가 사용할 수 있는 Python 패키지에 대해 알아봅니다.
+services: machine-learning
 ms.service: machine-learning
 ms.component: core
-ms.topic: conceptual
+ms.topic: reference
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
 ms.date: 05/07/2018
-ms.openlocfilehash: a81f5f811058f3c7940da79419b9801225716e6b
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: cb1abdce3bbd7349695ece70ff336c7e513c0918
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42142519"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162188"
 ---
 # <a name="azure-machine-learning-hardware-acceleration-package"></a>Azure Machine Learning 하드웨어 가속 패키지
+
+>[!Note]
+>**이 문서는 이제 사용되지 않습니다.** 이 FPGA 패키지는 사용되지 않습니다. 이 기능에 대한 지원이 Azure ML SDK에 추가되었습니다. 이 패키지에 대한 지원은 점진적으로 종료됩니다. [지원 관련 일정을 확인해 보세요](overview-what-happened-to-workbench.md#timeline). 업데이트된 [FPGA 지원](concept-accelerate-with-fpgas.md)에 대해 알아보세요.
 
 Azure Machine Learning 하드웨어 가속 패키지는 Azure Machine Learning용 Python pip 설치 가능 확장이며, 데이터 과학자와 AI 개발자는 다음 작업을 신속하게 수행할 수 있습니다.
 
@@ -29,7 +34,7 @@ Azure Machine Learning 하드웨어 가속 패키지는 Azure Machine Learning�
 
 1. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-1. Azure Machine Learning 모델 관리 계정을 만들어야 합니다. 계정 만들기에 대한 자세한 내용은 [Azure Machine Learning 빠른 시작 및 Workbench 설치](../service/quickstart-installation.md) 문서를 참조하세요. 
+1. Azure Machine Learning 모델 관리 계정. 계정 만들기에 대한 자세한 내용은 [Azure Machine Learning 빠른 시작 및 Workbench 설치](../desktop-workbench/quickstart-installation.md) 문서를 참조하세요. 
 
 1. 패키지를 설치해야 합니다. 
 

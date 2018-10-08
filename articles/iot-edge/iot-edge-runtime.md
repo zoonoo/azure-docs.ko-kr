@@ -8,12 +8,12 @@ ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f832b05969c028880f6e375ff4a2ee8dc7a7eaf4
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 9c9c04a8310a46605cf5733131db1418b7cb7f7a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42143538"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47218787"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Azure IoT Edge 런타임 및 해당 아키텍처 이해
 
@@ -23,7 +23,7 @@ IoT Edge 런타임은 IoT Edge 장치에서 다음 기능을 수행합니다.
 
 * 장치에 워크로드를 설치하고 업데이트합니다.
 * 장치에서 Azure IoT Edge 보안 표준을 유지 관리합니다.
-* [IoT Edge 모듈][lnk-modules]이 항상 실행되도록 보장합니다.
+* [IoT Edge 모듈][lnk-modules]이 항상 실행되도록 합니다.
 * 원격 모니터링을 위해 모듈 상태를 클라우드에 보고합니다.
 * 다운스트림 리프 장치와 IoT Edge 장치 간의 통신을 용이하게 합니다.
 * IoT Edge 장치의 모듈 간 통신을 용이하게 합니다.
@@ -33,7 +33,7 @@ IoT Edge 런타임은 IoT Edge 장치에서 다음 기능을 수행합니다.
 
 IoT Edge 런타임의 책임은 모듈 관리와 통신이라는 두 가지 범주로 나뉩니다. 이 두 역할은 IoT Edge 런타임을 구성하는 두 가지 구성 요소를 통해 수행됩니다. IoT Edge 허브는 통신을 담당하고, IoT Edge 에이전트는 모듈 배포 및 모니터링을 관리합니다. 
 
-Edge 에이전트와 Edge 허브는 모두 IoT Edge 장치에서 실행되는 다른 모듈과 마찬가지로 모듈입니다. 
+Edge 허브와 Edge 에이전트는 모두 IoT Edge 장치에서 실행되는 다른 모듈과 마찬가지로 모듈입니다. 
 
 ## <a name="iot-edge-hub"></a>IoT Edge 허브
 
@@ -117,7 +117,7 @@ Azure IoT Edge 보안 프레임워크에 대한 자세한 정보는 [IoT Edge �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure IoT Edge 모듈 이해][lnk-modules]
+[Azure IoT Edge 인증서 이해][lnk-certs]
 
 <!-- Images -->
 [1]: ./media/iot-edge-runtime/Pipeline.png
@@ -126,4 +126,4 @@ Azure IoT Edge 보안 프레임워크에 대한 자세한 정보는 [IoT Edge �
 [4]: ./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png
 
 <!-- Links -->
-[lnk-modules]: iot-edge-modules.md
+[lnk-certs]: iot-edge-certs.md

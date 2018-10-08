@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 10/12/2017
 ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: eba2ef280e60693cfd4402348fe61b122cdccdf6
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 902009d7807b1ce340000c271350af1c37231d77
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399859"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181195"
 ---
-# <a name="search-unstructured-data-in-cloud-storage"></a>클라우드 저장소의 구조화되지 않은 데이터 검색
+# <a name="tutorial-search-unstructured-data-in-cloud-storage"></a>자습서: 클라우드 저장소에서 구조화되지 않은 데이터 검색
 
 이 자습서에서는 Azure Blob에 저장된 데이터를 사용하는 [Azure Search](../../search/search-what-is-azure-search.md)를 사용하여 구조화되지 않은 데이터를 검색하는 방법에 대해 알아봅니다. 구조화되지 않은 데이터는 사전 정의된 방식으로 구성되어 있지 않거나 데이터 모델이 없는 데이터입니다. 예는 .txt 파일입니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "39399859"
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-[Azure 포털](http://portal.azure.com) 에 로그인합니다.
+[Azure Portal](http://portal.azure.com)에 로그인합니다.
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
 
@@ -143,7 +143,7 @@ Azure Search는 개발자에게 웹, 모바일 및 엔터프라이즈 응용 프
     
     a. 이후 자체 시나리오에서 **저장소 메타데이터만**을 선택할 수도 있습니다. 표준 Blob 속성 또는 사용자 정의 속성에 인덱싱되는 데이터를 제한하려는 경우 선택을 해야 합니다.
     
-    나. 또한, **모든 메타데이터**를 선택하여 표준 Blob 속성 및 *모든* content-type 특정 메타데이터를 포함할 수도 있습니다. 
+    b. 또한, **모든 메타데이터**를 선택하여 표준 Blob 속성 및 *모든* content-type 특정 메타데이터를 포함할 수도 있습니다. 
 
 2. 사용하려는 Blob이 텍스트 파일이므로 **구문 분석 모드**를 **텍스트**로 설정합니다.
     

@@ -1,27 +1,28 @@
 ---
-title: LUIS 앱 일괄 처리 테스트 - Azure | Microsoft Docs
+title: LUIS 앱 일괄 처리 테스트 - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: 일괄 처리 테스트를 사용하여 응용 프로그램을 지속적으로 개선하고 해당 언어에 대한 이해를 향상합니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: bba3f2ff942fbe5dffc9b694990964e4e3078dbe
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 414862d7ba1956f9449fde3ba063906fae6ef01b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222656"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041611"
 ---
 # <a name="batch-testing-in-luis"></a>LUIS의 일괄 처리 테스트
 
 일괄 처리 테스트는 [활성](luis-concept-version.md#active-version) 학습 모델의 유효성을 검사하여 예측 정확도를 측정합니다. 일괄 처리 테스트는 차트의 현재 학습 모델에 있는 각 의도와 엔터티의 정확도를 확인하는 데 도움이 됩니다. 일괄 처리 테스트 결과를 검토하여 앱이 올바른 의도를 자주 식별하지 못하는 경우 의도에 예제 발언 추가 등의 적절한 조치를 취해 정확도를 향상합니다.
 
 ## <a name="group-data-for-batch-test"></a>일괄 처리 테스트를 위해 데이터 그룹화
-일괄 처리 테스트에 사용되는 발언은 LUIS에 새로 추가된 발언이어야 합니다. 발언 데이터 집합이 있는 경우 발언을 의도에 추가되는 발언, 게시된 끝점에서 받은 발언, 학습된 후 LUIS 일괄 처리 테스트에 사용되는 발언의 세 가지 집합으로 나눕니다. 
+일괄 처리 테스트에 사용되는 발언은 LUIS에 새로 추가된 발언이어야 합니다. 발언 데이터 집합이 있는 경우 발언을 의도에 추가되는 발언, 게시된 엔드포인트에서 받은 발언, 학습된 후 LUIS 일괄 처리 테스트에 사용되는 발언의 세 가지 집합으로 나눕니다. 
 
 ## <a name="a-dataset-of-utterances"></a>발언 데이터 집합
 일괄 처리 테스트를 위해 *데이터 집합*이라는 발언 배치 파일을 제출합니다. 데이터 집합은 레이블이 지정된 최대 1,000개의 **중복되지 않는** 발언을 포함하는 JSON 형식 파일입니다. 한 앱에서 최대 10개의 데이터 집합을 테스트할 수 있습니다. 더 많은 데이터 집합을 테스트해야 하는 경우 데이터 집합을 삭제하고 새 데이터 집합을 추가합니다.

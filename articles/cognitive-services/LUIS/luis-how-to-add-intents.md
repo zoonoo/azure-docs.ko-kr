@@ -1,25 +1,26 @@
 ---
-title: LUIS 응용 프로그램에서 의도 추가 | Microsoft Docs
-description: LUIS(Language Understanding)를 사용하여 앱이 사용자 요청을 이해하고 적절하게 대응하는 데 도움이 되는 의도를 추가합니다.
+title: LUIS 응용 프로그램에서 의도 추가
+titleSuffix: Azure Cognitive Services
+description: LUIS 앱에 의도를 추가하여 동일한 의도가 포함된 질문 또는 명령 그룹을 식별합니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 0ebf15ea49467674ab3c56aa7983131593cf5c9a
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 9b7207a16a89e48ad64b2dbc48a5293d0cf8aa25
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225889"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036085"
 ---
 # <a name="manage-intents"></a>의도 관리 
 LUIS 앱에 [의도](luis-concept-intent.md)를 추가하여 동일한 의도가 포함된 질문 또는 명령 그룹을 식별합니다. 
 
-LUIS 왼쪽 패널의 **의도**에서 사용할 수 있는 **의도** 페이지에서 의도를 추가하고 관리합니다. 
+의도는 맨 위에 있는 도구 모음의 **빌드** 섹션에서 관리됩니다. 왼쪽 패널에서 사용할 수 있는 **의도** 페이지에서 의도를 추가하고 관리합니다. 
 
 다음 절차는 TravelAgent 앱에서 “Bookflight” 의도를 추가하는 방법을 보여줍니다.
 
@@ -28,7 +29,6 @@ LUIS 왼쪽 패널의 **의도**에서 사용할 수 있는 **의도** 페이지
 1. **내 앱** 페이지에서 이름을 클릭하여 앱(예: TravelAgent)을 열고 왼쪽 패널에서 **의도**를 클릭합니다. 
 2. **의도** 페이지에서 **새 의도 만들기**를 클릭합니다.
 
-    ![의도 목록](./media/luis-how-to-add-intents/IntentsList.png)
 3. **새 의도 만들기** 대화 상자에서 의도 이름을 “BookFlight”로 입력하고 **완료**를 클릭합니다.
 
     ![의도 추가](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
@@ -105,7 +105,7 @@ LUIS 왼쪽 패널의 **의도**에서 사용할 수 있는 **의도** 페이지
 2. **발화 삭제?** 팝업 대화 상자에서 **완료**를 선택합니다.
 
 ## <a name="search-in-utterances-on-intent-page"></a>의도 페이지에서 발화 검색
-의도에서 텍스트(단어 또는 구문)가 포함된 발화를 검색할 수 있습니다. 예를 들어, 특정 단어와 관련된 오류를 확인하고 해당 특정 단어가 포함된 모든 예제를 찾을 수 있습니다. 
+의도의 발화 목록 내에서 텍스트(단어 또는 구문)가 포함된 발화를 검색할 수 있습니다. 예를 들어, 특정 단어와 관련된 오류를 확인하고 해당 특정 단어가 포함된 모든 예제를 찾을 수 있습니다. 
 
 1. 도구 모음에서 돋보기 아이콘을 선택합니다.
 
@@ -139,7 +139,7 @@ LUIS 왼쪽 패널의 **의도**에서 사용할 수 있는 **의도** 페이지
 ![토큰 보기가 강조 표시된 BookFlight 의도의 스크린샷](./media/luis-how-to-add-intents/toggle-tokens-view.png)
 
 ## <a name="train-your-app-after-changing-model-with-intents"></a>의도가 포함된 모델을 변경한 후 앱 학습
-의도를 추가, 편집 또는 제거한 후 변경 내용을 끝점 쿼리에 적용하려면 앱을 [학습](luis-how-to-train.md)시키고 [게시](luis-how-to-publish-app.md)합니다. 
+의도를 추가, 편집 또는 제거한 후 변경 내용을 엔드포인트 쿼리에 적용하려면 앱을 [학습](luis-how-to-train.md)시키고 [게시](luis-how-to-publish-app.md)합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,21 +1,21 @@
 ---
-title: 사용 가능한 비디오를 페이징하는 방법 | Microsoft Docs
+title: 사용 가능한 비디오를 통해 페이징하는 방법 - Bing Video Search
+titlesuffix: Azure Cognitive Services
 description: Bing이 반환할 수 있는 모든 비디오를 페이징하는 방법을 보여줍니다.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 910A485F-BCF3-42B9-958D-DD48BDEDA965
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 00476825eb3fc1008c3f2172b591d8b7a2f35884
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9b030312c562d1c0a6cbacfc7f424289dee2e8de
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372806"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225568"
 ---
 # <a name="paging-videos"></a>비디오 페이징
 

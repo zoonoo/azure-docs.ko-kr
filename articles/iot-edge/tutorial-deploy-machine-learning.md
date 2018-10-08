@@ -4,17 +4,17 @@ description: 이 자습서에서는 Azure Machine Learning을 Edge 장치에 모
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/22/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ddc5adbb5b6bc7f04a893b05df3601714ed85eec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c9350704943bebada217338488e51b97acc550ca
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991456"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423615"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>자습서: Azure Machine Learning을 IoT Edge 모듈로 배포(미리 보기)
 
@@ -45,7 +45,7 @@ Azure IoT Edge 장치:
 
 클라우드 리소스:
 
-* Azure의 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md). 
+* Azure의 무료 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md). 
 * Azure Machine Learning 계정입니다. [Azure Machine Learning 계정 만들기 및 Azure Machine Learning Workbench 설치](../machine-learning/desktop-workbench/quickstart-installation.md)의 지침을 따릅니다. 이 자습서에 사용하기 위해 워크벤치 응용 프로그램을 설치할 필요는 없습니다. 
 
 개발 리소스:

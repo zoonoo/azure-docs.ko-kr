@@ -1,21 +1,22 @@
 ---
 title: 성능 모니터링 및 향상 - Azure SQL Database | Microsoft Docs
 description: Azure SQL Database는 현재 쿼리 성능을 향상시킬 수 있는 영역을 식별하는 데 도움이 되는 성능 도구를 제공합니다.
-services: sql-database
-author: danimir
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 8a458af27bd517be7c3ce0b5ad30c6d575d494c0
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 35af3a926ab3c3a3046eab921e86b6610edc309c
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522444"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162960"
 ---
 # <a name="monitor-and-improve-performance"></a>성능 모니터링 및 향상
 Azure SQL Database는 데이터베이스의 잠재적 문제를 파악하고 지능형 튜닝 작업 및 권장 사항을 제공하여 워크로드 성능을 높일 수 있는 작업을 권장합니다.
@@ -56,7 +57,7 @@ Azure SQL Database는 데이터베이스의 잠재적 문제를 파악하고 지
 [성능 권장 사항 찾기 및 적용](sql-database-advisor-portal.md) 문서에서 성능 권장 사항을 찾아 적용하는 방법을 알아보세요.
 
 ## <a name="automatic-tuning"></a>자동 조정
-Azure SQL Database는 자동으로 [성능 권장 사항](sql-database-advisor.md)을 적용하여 데이터베이스 성능을 튜닝할 수 있습니다. 자세한 내용은 [자동 튜닝 문서](sql-database-automatic-tuning.md)를 읽어보세요. 이 기능을 사용하려면 [자동 튜닝 사용 방법](sql-database-automatic-tuning-enable.md)을 읽어보세요.
+Azure SQL 데이터베이스는 자동으로 [성능 권장 사항](sql-database-advisor.md)을 적용하여 데이터베이스 성능을 튜닝할 수 있습니다. 자세한 내용은 [자동 튜닝 문서](sql-database-automatic-tuning.md)를 읽어보세요. 이 기능을 사용하려면 [자동 튜닝 사용 방법](sql-database-automatic-tuning-enable.md)을 읽어보세요.
 
 ## <a name="query-performance-insight"></a>쿼리
 [Query Performance Insight](sql-database-query-performance.md) 를 통해 다음을 제공하여 데이터베이스 성능 문제 해결 시간을 줄일 수 있습니다.

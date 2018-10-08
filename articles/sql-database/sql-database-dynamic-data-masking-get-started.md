@@ -2,19 +2,22 @@
 title: Azure SQL Database 동적 데이터 마스킹 | Microsoft Docs
 description: SQL Database 동적 데이터 마스킹에서는 권한이 없는 사용자에 대해 중요한 데이터를 마스킹해 표시함으로써 데이터 노출을 제한합니다.
 services: sql-database
-author: ronitr
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: ronitr
 ms.author: ronitr
-ms.openlocfilehash: 714fe94d295157f0d4d90139da98254f46794731
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.reviewer: vanto
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 872e700842ce69ca955035120d4e09ec9facf7ec
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42140323"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165554"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL Database 동적 데이터 마스킹
 
@@ -52,5 +55,5 @@ DDM 권장 사항 엔진은 중요한 필드일 가능성이 있어 마스크 �
 [Azure SQL Database cmdlet](https://docs.microsoft.com/powershell/module/azurerm.sql)을 참조하세요.
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>REST API를 사용하여 데이터베이스에 대한 동적 데이터 마스킹 설정
-[Azure SQL Database에 대한 작업](https://msdn.microsoft.com/library/dn505719.aspx)을 참조하세요.
+[Azure SQL Database 작업](https://msdn.microsoft.com/library/dn505719.aspx)을 참조하세요.
 

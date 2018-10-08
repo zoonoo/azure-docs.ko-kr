@@ -3,18 +3,22 @@ title: Azure SQL Database 서비스란? | Microsoft Docs
 description: 'SQL Database에 대한 소개: 클라우드 환경에서 Microsoft의 관계형 데이터베이스 관리 시스템(RDBMS)의 기능과 기술 세부 정보를 살펴봅니다.'
 keywords: sql 소개, sql 소개, sql 데이터베이스란
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.topic: overview
-ms.date: 09/07/2018
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 6e793c0227300b836c0a14b4252eeaf63c1bc949
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 21350fe9a44ad801204b8288f3c49eda82ca6343
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054583"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163188"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Azure SQL Database 서비스란? 
 
@@ -23,9 +27,9 @@ SQL Database는 관계형 데이터, 공간, JSON 및 XML과 같은 구조를 �
 Azure SQL Database는 Azure SQL 데이터베이스에 다음과 같은 옵션을 제공합니다.
 - 논리 서버를 통해 관리되고 고유한 리소스 집합이 있는 단일 데이터베이스 
 - 논리 서버를 통해 관리되고 공유 리소스 집합이 있는 [탄력적 풀](sql-database-elastic-pool.md)의 풀링된 데이터베이스
-- 시스템 및 사용자 데이터베이스를 포함하고 리소스 집합을 공유하는 [관리되는 인스턴스](sql-database-managed-instance.md)라고도 하는(공개 미리 보기에서) 데이터베이스 컬렉션의 일부
+- 시스템 및 사용자 데이터베이스를 포함하고 리소스 집합을 공유하는 [관리되는 인스턴스](sql-database-managed-instance.md)라고도 하는 데이터베이스 컬렉션의 일부
 
-다음 일러스트레이션은 이러한 배포 옵션을 보여줍니다.
+다음 그림에서는 이러한 배포 옵션을 보여줍니다.
 
 ![배포 옵션](./media/sql-database-technical-overview/deployment-options.png) 
 
@@ -37,29 +41,27 @@ SQL Database는 해당 코드 베이스를 [Microsoft SQL Server 데이터베이
 > [!IMPORTANT]
 > SQL Database 및 SQL Server 간의 기능 차이점을 이해하려면 [SQL 기능](sql-database-features.md)을 참조하세요. 
 
-SQL Database는 가동 중지 시간 없이 기본 제공 지능형 최적화, 전역 확장성과 가용성 및 고급 보안 옵션을 포함하여 동적 확장성을 제공하는 여러 서비스 수준에서 별도로 관리하지 않고도 예측 가능한 성능을 제공합니다. 이러한 기능을 사용하면 가상 머신과 인프라를 관리하는 데 귀중한 시간과 리소스를 할당하는 대신 빠른 앱 개발에 집중하고 시장 출시 시간을 단축할 수 있습니다. SQL Database는 현재 전 세계에서 38개의 데이터 센터에 제공되며, 주변의 데이터 센터에서 데이터베이스를 실행할 수 있도록 정기적으로 더 많은 데이터 센터가 온라인될 예정입니다.
-
-> [!NOTE]
-> SQL Database Managed Instance는 현재 미리 보기 상태이며 단일 서비스 수준에서만 사용할 수 있습니다. 자세한 내용은 [SQL Database Managed Instance](sql-database-managed-instance.md)를 참조하세요.
->
+SQL Database는 가동 중지 시간이 없는 동적 확장성, 기본 제공 지능형 최적화, 글로벌 확장성 및 가용성, 고급 보안 옵션을 제공하는 여러 리소스 종류, 서비스 계층 및 계산 크기를 통해 예측 가능한 성능을 제공하며 거의 관리할 필요가 없습니다. 이러한 기능을 사용하면 가상 머신과 인프라를 관리하는 데 귀중한 시간과 리소스를 할당하는 대신 빠른 앱 개발에 집중하고 시장 출시 시간을 단축할 수 있습니다. SQL Database는 현재 전 세계에서 38개의 데이터 센터에 제공되며, 주변의 데이터 센터에서 데이터베이스를 실행할 수 있도록 정기적으로 더 많은 데이터 센터가 온라인될 예정입니다.
 
 ## <a name="scalable-performance-and-pools"></a>확장 가능한 성능 및 풀
 
-SQL Database에서 각 데이터베이스는 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 또는 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md) 및 보장된 성능 수준 내에서 고유한 서비스 계층으로 서로 격리되고 이식 가능합니다. SQL Database는 다른 요구 사항에 대해 다른 성능 수준을 제공하며 데이터베이스가 리소스 사용을 최대화하고 비용을 절감하도록 풀링할 수 있습니다.
+SQL Database를 사용하면 각 데이터베이스가 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 또는 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md) 및 보장된 계산 크기 내에서 자체의 고유 서비스 계층을 갖추고서 서로 격리되고 이식 가능합니다. SQL Database는 다양한 요구 사항에 맞게 서로 다른 계산 크기를 제공하며, 데이터베이스를 풀링하여 리소스 사용을 최대화하고 비용을 절감할 수 있습니다.
 
-SQL Database Managed Instance를 통해 각 인스턴스는 보장된 리소스로 다른 인스턴스로부터 격리됩니다. 자세한 내용은 [SQL Database Managed Instance](sql-database-managed-instance.md)를 참조하세요. 
+- [SQL Database Managed Instance](sql-database-managed-instance.md)를 사용하면 각 인스턴스는 보장된 리소스를 통해 다른 인스턴스와 격리됩니다. 자세한 내용은 [SQL Database Managed Instance](sql-database-managed-instance.md)를 참조하세요.
+- vCore 구매 모델의 [하이퍼스케일 서비스 계층](sql-database-hyperscale.md)(미리 보기)을 사용하면 빠른 백업 및 복원 기능을 통해 100TB까지 크기 조정할 수 있습니다.
 
 ### <a name="adjust-performance-and-scale-without-downtime"></a>가동 중지 시간 없이 성능 및 규모 조정
 
 SQL Database는 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 또는 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 제공합니다. 
-- DTU 기반 구매 모델에서는 가볍거나 무거운 데이터베이스 워크로드를 지원하기 위해 Basic, Standard 및 Premium과 같은 세 가지 서비스 계층에서 계산, 메모리 및 IO 리소스를 함께 제공합니다. 각 계층 내의 성능 수준은 다양하게 섞인 리소스를 제공합니다. 여기에 저장소 리소스를 추가할 수 있습니다.
+- DTU 기반 구매 모델에서는 가볍거나 무거운 데이터베이스 워크로드를 지원하기 위해 Basic, Standard 및 Premium과 같은 세 가지 서비스 계층에서 계산, 메모리 및 IO 리소스를 함께 제공합니다. 각 계층 내의 계산 크기는 이러한 리소스의 다양한 조합을 제공하여 추가 저장소 리소스를 추가할 수 있습니다.
 - vCore 기반 구매 모델을 통해 vCore 개수, 크기나 메모리 및 저장소의 크기와 속도를 선택할 수 있습니다.
 
-매달 적은 비용으로 작은 단일 데이터베이스에 첫 번째 앱을 빌드한 다음 언제든지 수동 또는 프로그래밍 방식으로 서비스 계층을 변경하여 솔루션의 요구 사항을 충족시킬 수 있습니다. 앱이나 고객에게 가동 중지 시간 없이 성능을 조정할 수 있습니다. 동적 확장성을 통해 데이터베이스는 급변하는 리소스 요구 사항에 투명하게 대응할 수 있으며, 필요할 때 필요한 리소스에 대해서만 비용을 지불할 수 있습니다.
+범용 서비스 계층에서 매월 저렴한 비용으로 작은 규모의 단일 데이터베이스에 첫 번째 앱을 빌드한 다음, 솔루션의 요구 사항에 맞게 언제든지 수동 또는 프로그래밍 방식으로 이 서비스 계층을 중요 비즈니스용 서비스 계층으로 변경할 수 있습니다. 앱이나 고객에게 가동 중지 시간 없이 성능을 조정할 수 있습니다. 동적 확장성을 통해 데이터베이스는 급변하는 리소스 요구 사항에 투명하게 대응할 수 있으며, 필요할 때 필요한 리소스에 대해서만 비용을 지불할 수 있습니다.
+
+> [!IMPORTANT]
+> 범용 또는 중요 비즈니스용 서비스 계층에서 [하이퍼스케일 서비스 계층](sql-database-hyperscale.md)으로 확장할 수는 없습니다. 그러나 성능 수준은 하이퍼스케일 서비스 계층 내에서 변경할 수 있습니다.
 
 동적 확장성은 자동 크기 조정과 다릅니다. 자동 크기 조정은 서비스가 조건에 따라 자동으로 크기를 조정하는 경우인 반면 동적 확장성은 가동 중지 시간 없이 수동 크기 조정을 허용합니다. 단일 Azure SQL Database는 수동 동적 확장성을 지원하지만 자동 크기 조정은 지원하지 않습니다. 더 많은 *자동* 환경은 데이터베이스에서 개별 데이터베이스 요구 사항에 따라 풀에 리소스를 공유하도록 허용하는 탄력적 풀을 사용하는 것이 좋습니다. 그러나 단일 Azure SQL Database에 대한 확장성을 자동화할 수 있는 스크립트가 있습니다. 예제는 [PowerShell을 사용하여 단일 SQL Database 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-powershell.md)을 참조하세요. 
-
-SQL Database Managed Instance는 미리 보기 상태이며 단일 서비스 계층을 제공합니다. 자세한 내용은 [SQL Database Managed Instance](sql-database-managed-instance.md)를 참조하세요.
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>리소스 사용률 극대화를 위한 탄력적 풀
 
@@ -86,13 +88,13 @@ SQL Database Managed Instance는 미리 보기 상태이며 단일 서비스 계
 
 - **Azure Storage**: 저렴한 가격으로 방대한 양의 원격 분석을 보관하는 경우
 - **Azure Event Hub**: 사용자 지정 모니터링 솔루션 또는 핫 파이프라인과 SQL Database 원격 분석을 통합하는 경우
-- **Azure Log Analytics**: 보고, 경고 및 완화 기능을 사용하는 기본 제공 모니터링 솔루션의 경우 [OMS(Operations Management Suite)](../operations-management-suite/operations-management-suite-overview.md)의 기능에 해당합니다.
+- **Azure Log Analytics**: 보고, 경고 및 완화 기능을 사용하는 기본 제공 모니터링 솔루션의 경우 Azure Log Analytics는 [Operations Management Suite(OMS)](../operations-management-suite/operations-management-suite-overview.md)의 기능입니다.
 
     ![아키텍처](./media/sql-database-metrics-diag-logging/architecture.png)
 
 ## <a name="availability-capabilities"></a>가용성 기능
 
-Azure의 업계 선도적인 99.99% 가용성 [SLA](http://azure.microsoft.com/support/legal/sla/)(서비스 수준 계약)를 Microsoft에서 관리되는 전 세계 데이터 센터 네트워크의 지원을 받아 앱을 연중 무휴(24/7)로 실행할 수 있습니다. Azure 플랫폼은 모든 Azure SQL Database를 완벽하게 관리하고 데이터 무손실 및 높은 데이터 가용성을 보장합니다. Azure는 패치, 백업, 복제, 오류 감지, 기본 하드웨어, 소프트웨어 또는 네트워크 오류, 배포 버그 픽스, 장애 조치(failover), 데이터베이스 업그레이드 및 기타 유지 관리 작업을 자동으로 처리합니다. 표준 가용성은 계산 계층과 저장소 계층을 분리하여 달성합니다. 프리미엄 가용성은 계산 및 저장소를 단일 고성능 노드에 통합한 후 내부적으로 AlwaysOn 가용성 그룹을 구현하여 달성합니다. Azure SQL Database의 고가용성 기능에 대한 전체 내용은 [SQL Database 가용성](sql-database-high-availability.md)을 참조하세요. 또한 SQL Database는 다음을 포함하여 기본 제공 [비즈니스 연속성 및 글로벌 확장성](sql-database-business-continuity.md) 기능을 제공합니다.
+Azure의 업계 선도적인 99.99% 가용성 [SLA](http://azure.microsoft.com/support/legal/sla/)(서비스 수준 계약)를 Microsoft에서 관리되는 전 세계 데이터 센터 네트워크의 지원을 받아 앱을 연중 무휴(24/7)로 실행할 수 있습니다. Azure 플랫폼은 모든 Azure SQL Database를 완벽하게 관리하고 데이터 무손실 및 높은 데이터 가용성을 보장합니다. Azure는 패치, 백업, 복제, 오류 감지, 기본 하드웨어, 소프트웨어 또는 네트워크 오류, 배포 버그 픽스, 장애 조치(failover), 데이터베이스 업그레이드 및 기타 유지 관리 작업을 자동으로 처리합니다. 표준 가용성은 계산 계층과 저장소 계층을 분리하여 달성합니다. 프리미엄 가용성은 계산 및 저장소를 단일 고성능 노드에 통합한 후 내부적으로 AlwaysOn 가용성 그룹을 구현하여 달성합니다. Azure SQL Database의 고가용성 기능에 대한 자세한 내용은 [SQL Database 가용성](sql-database-high-availability.md)을 참조하세요. 또한 SQL Database는 다음을 포함하여 기본 제공 [비즈니스 연속성 및 글로벌 확장성](sql-database-business-continuity.md) 기능을 제공합니다.
 
 - **[자동 백업](sql-database-automated-backups.md)**: SQL Database는 전체, 차등 및 트랜잭션 로그 백업을 자동으로 수행합니다.
 - **[지정 시간 복구](sql-database-recovery-using-backups.md)**: SQL Database는 자동 백업 보존 기간 내에 모든 시점으로 복구하도록 지원합니다.
@@ -177,8 +179,8 @@ SQL Database는 MacOS, Linux 및 Windows에서 Python, Java, Node.js, PHP, Ruby 
 - 이러한 빠른 시작을 참조하여 다음 항목을 시작하세요.
 
   - [Azure Portal에서 SQL Database 만들기](sql-database-get-started-portal.md)  
-  - [Azure CLI를 사용하여 SQL Database 만들기](sql-database-cli-samples.md)
-  - [PowerShell을 사용하여 SQL Database 만들기](sql-database-powershell-samples.md)
+  - [Azure CLI를 사용하여 SQL Database 만들기](sql-database-get-started-cli.md)
+  - [PowerShell을 사용하여 SQL Database 만들기](sql-database-get-started-powershell.md)
 
 - 일련의 Azure CLI 및 PowerShell 샘플은 다음을 참조하세요.
   - [SQL Database에 대한 Azure CLI 샘플](sql-database-cli-samples.md)

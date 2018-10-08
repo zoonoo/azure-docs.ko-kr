@@ -1,24 +1,24 @@
 ---
-title: 패턴의 예측 정확도를 늘리는 방법 알아보기 | Microsoft Docs
-titleSuffix: Azure
-description: 의도 예측 점수를 높이고 엔터티를 찾도록 패턴을 디자인하는 방법을 알아봅니다.
+title: 패턴의 예측 정확도를 늘리는 방법 알아보기
+titleSuffix: Azure Cognitive Services
+description: 패턴은 여러 발언이 매우 유사할 경우 정확도를 향상시키도록 디자인됩니다. 패턴를 통해 더 많은 발화를 제공하지 않고도 의도에 대한 더 높은 정확성을 얻을 수 있습니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: c08419e3fb5b25284121a0eac30c38c8ba7570f1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 5ade15b3f80d725af4ece31a36ea0b670f5f5147
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225220"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031546"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>패턴을 통해 예측 정확도 개선
-패턴은 여러 발언이 매우 유사할 경우 정확도를 향상시키도록 디자인됩니다. 발언에 대한 패턴을 제공하여 LUIS는 예측에서 높은 신뢰도를 유지할 수 있습니다. 
+패턴은 여러 발언이 매우 유사할 경우 정확도를 향상시키도록 디자인됩니다.  패턴를 통해 더 많은 발화를 제공하지 않고도 의도에 대한 더 높은 정확성을 얻을 수 있습니다. 
 
 ## <a name="patterns-solve-low-intent-confidence"></a>패턴을 통해 낮은 의도 신뢰도 해결
 직원과 관련해서 조직도에 보고하는 Human Resources 앱을 가정해 봅니다. 직원의 이름 및 관계가 제공될 경우 LUIS는 관련 직원을 반환합니다. 관리자 이름은 Alice이고 Michael, Rebecca 및 Carl이 부하 직원으로 팀에 소속되어 있는 Tom이라는 직원이 있다고 가정합니다.
@@ -60,25 +60,25 @@ ms.locfileid: "39225220"
 ### <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>패턴 템플릿에 엔터티를 추가하는 구문
 패턴 템플릿에 엔터티를 추가하려면 엔터티 이름을 중괄호로 묶습니다(예: `Who does {Employee} manage?`). 
 
-```
-Who does {Employee} manage?
-```
+|엔터티 사용 패턴|
+|--|
+|`Who does {Employee} manage?`|
 
 ### <a name="syntax-to-add-an-entity-and-role-to-a-pattern-template"></a>패턴 템플릿에 엔터티 및 역할을 추가하는 구문
 엔터티 역할은 엔터티 이름에 콜론을 입력하고 역할 이름을 입력하여 `{entity:role}`로 표시합니다. 패턴 템플릿에 역할이 있는 엔터티를 추가하려면 엔터티 이름과 역할 이름을 중괄호로 묶습니다(예: `Book a ticket from {Location:Origin} to {Location:Destination}`). 
 
-```
-Book a ticket from {Location:Origin} to {Location:Destination}
-```
+|엔터티 역할 사용 패턴|
+|--|
+|`Book a ticket from {Location:Origin} to {Location:Destination}`|
 
 ### <a name="syntax-to-add-a-patternany-to-pattern-template"></a>패턴 템플릿에 pattern.any를 추가하는 구문
 Pattern.any 엔터티를 사용하여 다양한 길이의 엔터티를 패턴에 추가할 수 있습니다. 패턴 템플릿을 따르기만 하면 pattern.any 길이에는 제한이 없습니다. 
 
 **Pattern.any** 엔터티를 패턴 템플릿에 추가하려면 Pattern.any 엔터티를 중괄호로 묶습니다(예: `How much does {Booktitle} cost and what format is it available in?`).  
 
-```
-How much does {Booktitle} cost and what format is it available in?
-```
+|Pattern.any 엔터티 사용 패턴|
+|--|
+|`How much does {Booktitle} cost and what format is it available in?`|
 
 |패턴의 책 제목|
 |--|
@@ -107,9 +107,9 @@ How much does {Booktitle} cost and what format is it available in?
 ### <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>템플릿 발언에서 선택적 텍스트를 표시하는 구문
 정규식 대괄호 구문 `[]`을 사용하여 발언의 선택적 텍스트에 표시합니다. 선택적 텍스트는 대괄호에 최대 2개의 중괄호를 중첩할 수 있습니다.
 
-```
-[find] email about {subject} [from {person}]
-```
+|선택적 텍스트 사용 패턴|
+|--|
+|`[find] email about {subject} [from {person}]`|
 
 `.`, `!` 및 `?`와 같은 문장 부호는 대괄호를 사용하여 무시할 수 있습니다. 이러한 표시를 무시하려면 각 표시를 별도 패턴에 사용해야 합니다. 현재, 선택적 구문은 여러 항목 목록에서 항목을 무시하는 것을 지원하지 않습니다.
 

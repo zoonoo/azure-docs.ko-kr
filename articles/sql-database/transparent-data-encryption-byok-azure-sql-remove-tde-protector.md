@@ -1,28 +1,23 @@
 ---
 title: PowerShell - TDE 보호기 제거 - Azure SQL Database| Microsoft Docs
 description: BYOK(Bring Your Own Key) 지원을 통해 TDE를 사용하는 Azure SQL Database 또는 데이터 웨어하우스에 대해 손상 가능성이 있는 TDE 보호기에 대처하기 위한 방법 가이드
-keywords: ''
 services: sql-database
-documentationcenter: ''
-author: becczhang
-manager: craigg
-ms.prod: ''
-ms.reviewer: ''
-ms.suite: sql
-ms.prod_service: sql-database, sql-data-warehouse
 ms.service: sql-database
+ms.subservice: security
 ms.custom: ''
-ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/07/2017
+author: becczhang
 ms.author: rebeccaz
-monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: feb187101ec02d6e765d6b025f518dc416f55b8b
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.reviewer: vanto
+manager: craigg
+ms.date: 08/07/2017
+ms.openlocfilehash: f965a008ed5973a544dba686e54e041ca6ef7673
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043552"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165996"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>PowerShell을 사용하여 TDE(Transparent Data Encryption) 보호기 제거
 ## <a name="prerequisites"></a>필수 조건
@@ -40,8 +35,8 @@ ms.locfileid: "40043552"
 TDE 보호기가 Key Vault에서 삭제된 후에는 **서버 아래의 암호화된 데이터베이스에 대한 모든 연결이 차단되고, 이들 데이터베이스는 오프라인 상태가 되어 24시간 이내에 삭제됩니다**. 손상된 키로 암호화된 기존 백업에는 더 이상 액세스할 수 없습니다.
 
 이 방법 가이드에서는 사건 대처 후 원하는 결과에 따라 두 가지 방법을 살펴봅니다.
-- Azure SQL Database/데이터 웨어하우스를 **액세스할 수 있게** 유지
-- Azure SQL Database/데이터 웨어하우스를 **액세스할 수 없게** 유지
+- Azure SQL 데이터베이스/Data Warehouse에 **액세스할 수 있도록** 유지
+- Azure SQL 데이터베이스/Data Warehouse에 **액세스할 수 없도록** 유지
 
 ## <a name="to-keep-the-encrypted-resources-accessible"></a>암호화된 리소스를 액세스할 수 있게 하려면
 1. [Key Vault에 새 키](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey?view=azurermps-4.1.0)를 만듭니다. 액세스 제어는 자격 증명 모음 수준에서 프로비전되므로 이 새 키는 손상 가능성이 있는 TDE 보호기와는 별도의 키 자격 증명 모음에 만들어야 합니다. 

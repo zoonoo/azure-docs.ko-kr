@@ -3,7 +3,7 @@ title: Windows용 Azure VM 확장 및 기능 | Microsoft Docs
 description: 확장이 제공하거나 개선하는 기능별로 그룹화하여 Azure 가상 머신에 사용할 수 있는 확장을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc2433b8ac12bc1d485b6f23b56f356041e5128e
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: d7b183a5b87d5777609deac02e4424d9451e9643
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783103"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452499"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Windows용 가상 머신 확장 및 기능
 
@@ -66,7 +66,7 @@ Windows 게스트 에이전트는 여러 OS에서 실행되지만 확장 프레�
 확장 패키지는 Azure Storage 확장 리포지토리에서 다운로드되고, 확장 상태 업로드는 Azure Storage에 게시됩니다. 에이전트의 [지원](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) 버전을 사용하는 경우 에이전트를 사용하여 에이전트 통신을 위한 Azure 패브릭 컨트롤러에 통신을 리디렉션할 수 있는 것처럼 VM 지역에서 Azure Storage에 대한 액세스 권한을 허용하지 않아도 됩니다. 지원되지 않는 버전의 에이전트가 설치된 경우 VM의 해당 지역에서 Azure Storage에 대한 아웃바운드 액세스 권한을 허용해야 합니다.
 
 > [!IMPORTANT]
-> 게스트 방화벽을 사용하여 *168.63.129.1*에 대한 액세스를 차단한 경우 확장은 위와 관계 없이 실패합니다.
+> 게스트 방화벽을 사용하여 *168.63.129.16*에 대한 액세스를 차단한 경우 확장은 위와 관계 없이 실패합니다.
 
 에이전트는 확장 패키지 및 보고 상태를 다운로드하는 데 사용할 수 있습니다. 예를 들어 확장을 설치하는 데 GitHub에서 스크립트(사용자 지정 스크립트)를 다운로드해야 하거나 Azure Storage(Azure Backup)에 대한 액세스 권한이 필요한 경우 방화벽/네트워크 보안 그룹 포트를 열어야 합니다. 확장마다 고유한 권한의 응용 프로그램이므로 요구 사항이 다릅니다. Azure Storage에 대한 액세스 권한이 필요한 확장의 경우 [Storage](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)에 Azure NSG 서비스 태그를 사용하여 액세스할 수 있습니다.
 

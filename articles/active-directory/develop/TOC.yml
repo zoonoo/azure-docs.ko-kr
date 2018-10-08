@@ -51,15 +51,16 @@ items:
         href: quickstart-v1-dotnet.md
       - name: Xamarin
         href: quickstart-v1-xamarin.md
-    - name: 서비스-서비스
+    - name: 서비스 간
       href: sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity
   - name: 샘플
     href: sample-v1-code.md
   - name: 개념
     items:
     - name: 응용 프로그램 형식
-      href: app-types.md
       items:
+      - name: 응용 프로그램 유형
+        href: app-types.md
       - name: 단일 페이지 응용 프로그램
         href: single-page-application.md
       - name: 웹앱
@@ -71,26 +72,27 @@ items:
       - name: 디먼 또는 서버 응용 프로그램
         href: service-to-service.md
     - name: 인증
-      href: authentication-scenarios.md
       items:
-      - name: 프로토콜
+      - name: 인증 기본 사항
+        href: authentication-scenarios.md
+      - name: OAuth 2.0 및 OpenID Connect 프로토콜콜
         items:
-        - name: OAuth 및 OpenID Connect 프로토콜
-          items:
-          - name: OAuth 2.0 암시적 허용 흐름
-            href: v1-oauth2-implicit-grant-flow.md
-          - name: OAuth 2.0 인증 코드 부여
-            href: v1-protocols-oauth-code.md
-          - name: OAuth 2.0 On-Behalf-Of 흐름
-            href: v1-oauth2-on-behalf-of-flow.md
-          - name: OAuth 2.0 클라이언트 자격 증명 부여
-            href: v1-oauth2-client-creds-grant-flow.md
-        - name: SAML 2.0
-          items:
-          - name: SSO(Single sign-on)
-            href: single-sign-on-saml-protocol.md
-          - name: 로그아웃
-            href: single-sign-out-saml-protocol.md
+        - name: OpenID Connect
+          href: v1-protocols-openid-connect-code.md
+        - name: OAuth 2.0 암시적 허용 흐름
+          href: v1-oauth2-implicit-grant-flow.md
+        - name: OAuth 2.0 인증 코드 부여
+          href: v1-protocols-oauth-code.md
+        - name: OAuth 2.0 On-Behalf-Of 흐름
+          href: v1-oauth2-on-behalf-of-flow.md
+        - name: OAuth 2.0 클라이언트 자격 증명 부여
+          href: v1-oauth2-client-creds-grant-flow.md
+      - name: SAML 2.0 프로토콜
+        items:
+        - name: SSO(Single sign-on)
+          href: single-sign-on-saml-protocol.md
+        - name: 로그아웃
+          href: single-sign-out-saml-protocol.md
         - name: WS-Federation
           items:
           - name: 페더레이션 메타데이터
@@ -106,16 +108,18 @@ items:
       - name: SAML 토큰
         href: reference-saml-tokens.md
     - name: 응용 프로그램 구성
-      href: app-objects-and-service-principals.md
       items:
+      - name: 응용 프로그램 및 서비스 주체
+        href: app-objects-and-service-principals.md
       - name: 앱을 Azure AD에 추가하는 방법 및 이유
         href: active-directory-how-applications-are-added.md
       - name: 단일 테넌트 및 다중 테넌트 앱
         href: single-and-multi-tenant-apps.md
     - name: 권한 및 동의
       displayName: Scopes
-      href: v1-permissions-and-consent.md
       items:
+      - name: 권한 및 동의 유형
+        href: v1-permissions-and-consent.md
       - name: 동의 프레임워크
         href: consent-framework.md
       - name: 응용 프로그램 동의 경험
@@ -143,6 +147,8 @@ items:
           href: ../active-directory-enterprise-app-role-management.md
         - name: 클레임 사용자 지정
           href: active-directory-saml-claims-customization.md
+      - name: ADAL 오류 처리 모범 사례
+        href: active-directory-devhowto-adal-error-handling.md
     - name: 응용 프로그램 구성
       items:
       - name: 단일 테넌트 앱을 다중 테넌트 앱으로 변환
@@ -185,7 +191,7 @@ items:
       href: https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers
   - name: 참조
     items:
-    - name: Azure AD 인증 라이브러리
+    - name: 인증 라이브러리
       displayName: ADAL
       href: active-directory-authentication-libraries.md
     - name: Azure AD Graph API
@@ -276,20 +282,21 @@ items:
     - name: 응용 프로그램 형식
       href: v2-app-types.md
     - name: 인증
-      href: authentication-scenarios.md
       items:
-      - name: 프로토콜
+      - name: 인증 기본 사항
+        href: authentication-scenarios.md
+      - name: OAuth 2.0 및 OpenID Connect 프로토콜
         items:
-        - name: OAuth 및 OpenID Connect 프로토콜
-          items:
-          - name: OAuth 2.0 암시적 허용 흐름
-            href: v2-oauth2-implicit-grant-flow.md
-          - name: OAuth 2.0 인증 코드 부여
-            href: v2-oauth2-auth-code-flow.md
-          - name: OAuth 2.0 On-Behalf-Of 흐름
-            href: v2-oauth2-on-behalf-of-flow.md
-          - name: OAuth 2.0 클라이언트 자격 증명 부여
-            href: v2-oauth2-client-creds-grant-flow.md
+        - name: OpenID Connect
+          href: v2-protocols-oidc.md
+        - name: OAuth 2.0 암시적 허용 흐름
+          href: v2-oauth2-implicit-grant-flow.md
+        - name: OAuth 2.0 인증 코드 부여
+          href: v2-oauth2-auth-code-flow.md
+        - name: OAuth 2.0 On-Behalf-Of 흐름
+          href: v2-oauth2-on-behalf-of-flow.md
+        - name: OAuth 2.0 클라이언트 자격 증명 부여
+          href: v2-oauth2-client-creds-grant-flow.md
       - name: ID 토큰
         href: id-tokens.md
       - name: 액세스 토큰
@@ -297,14 +304,16 @@ items:
       - name: 인증서 자격 증명
         href: active-directory-certificate-credentials.md
     - name: 응용 프로그램 구성
-      href: app-objects-and-service-principals.md
       items:
+      - name: 응용 프로그램 및 서비스 주체
+        href: app-objects-and-service-principals.md
       - name: 단일 테넌트 및 다중 테넌트 앱
         href: single-and-multi-tenant-apps.md
     - name: 권한 및 동의
       displayName: Scopes
-      href: v2-permissions-and-consent.md
       items:
+      - name: 권한 및 동의 유형
+        href: v2-permissions-and-consent.md
       - name: 동의 프레임워크
         href: consent-framework.md
       - name: 응용 프로그램 동의 경험
@@ -347,7 +356,7 @@ items:
         href: vs-active-directory-error.md
   - name: 참조
     items:
-    - name: Microsoft 인증 라이브러리
+    - name: 인증 라이브러리
       displayName: MSAL
       href: reference-v2-libraries.md
     - name: Microsoft Graph의 Azure AD API
@@ -373,9 +382,9 @@ items:
     href: developer-support-help-options.md
   - name: Azure 리소스용 관리 서비스 ID
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
-ms.openlocfilehash: 180b7962d6083887a25f582471b6b3e405f3f8f9
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 139d80313bb663a45e476e90812ce7772beccc19
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419675"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785004"

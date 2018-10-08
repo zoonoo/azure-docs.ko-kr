@@ -2,24 +2,26 @@
 title: 비용 절감을 위한 Azure SQL Database vCores 선불 | Microsoft Docs
 description: 계산 비용을 절약하기 위해 Azure SQL Database 예약된 용량을 구입하는 방법에 대해 알아봅니다.
 services: sql-database
-documentationcenter: ''
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.devlang: na
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/08/2018
-ms.author: carlrab
-ms.openlocfilehash: fcb7f2c1bb3e1653b9f8112abc0effaddc45fa54
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+author: anosov1960
+ms.author: sashan
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: e9edbc2a3bbc878f7a3cf99a3ca6efb4e69797ad
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306472"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394718"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Azure SQL Database 예약된 용량을 사용하여 SQL Database 계산 리소스 요금 선결제
 
-종량제 가격에 비해 Azure SQL Database 계산 리소스 비용을 선결제하면 Azure SQL Database로 비용을 절약합니다. Azure SQL Database 예약된 용량을 사용하면 1년이나 3년 동안 SQL Database에 선불 약정을 체결하여 계산 비용에서 상당한 할인을 받을 수 있습니다. SQL Database 예약된 용량을 구입하려면 Azure 지역, 배포 유형, 서비스 및 용어를 지정해야 합니다. 
+종량제 가격에 비해 Azure SQL Database 계산 리소스 비용을 선결제하면 Azure SQL Database로 비용을 절약합니다. Azure SQL Database 예약된 용량을 사용하면 1년이나 3년 동안 SQL Database에 선불 약정을 체결하여 계산 비용에서 상당한 할인을 받을 수 있습니다. SQL Database 예약된 용량을 구입하려면 Azure 지역, 배포 유형, 성능 계층 및 용어를 지정해야 합니다. 
 
 예약을 SQL Database 인스턴스에 할당할 필요는 없습니다. 이미 실행 중이거나 새로 배포되는 일치하는 SQL Database 인스턴스는 이러한 이점이 자동으로 제공됩니다. 예약을 구입하면 1년 또는 3년 동안의 SQL Database 인스턴스에 대한 계산 비용을 선결제하게 됩니다. 예약을 구입하는 즉시, 예약 특성과 일치하는 SQL Database 계산은 더이상 종량제 요금으로 부과되지 않습니다. 예약은 SQL Database 인스턴스와 연결된 소프트웨어, 네트워킹 또는 저장소 요금을 포함하지 않습니다. 예약 기간이 끝나면 청구 혜택이 만료되고 SQL Databases는 종량제 요금으로 청구됩니다. 예약은 자동 갱신되지 않습니다. 가격 책정 정보는 [SQL Database 예약된 용량 제품](https://azure.microsoft.com/pricing/details/sql-database/managed/)을 참조하세요.
 
@@ -28,7 +30,7 @@ ms.locfileid: "43306472"
 - Enterprise 구독의 경우 [EA 포털](https://ea.azure.com)에서 Azure Reservation 구매가 활성화되어야 합니다.
 -  CSP(클라우드 솔루션 공급자) 프로그램의 경우 관리자 에이전트 또는 판매 에이전트가 SQL Database 예약된 용량을 구매할 수 있습니다.
 
-엔터프라이즈 고객 및 종량제 고객에게 예약 요금이 청구되는 방식에 대한 자세한 내용은 [질문과 대답](#frequently-asked-questions)에서 다룹니다.
+예약 구매에 대해 엔터프라이즈 고객 및 종량제 고객에게 요금이 청구되는 방법에 대한 자세한 내용은 [엔터프라이즈 등록에서 Azure 예약 사용량 이해](../billing/billing-understand-reserved-instance-usage-ea.md) 및 [종량제 구독의 Azure 예약 사용량 이해](../billing/billing-understand-reserved-instance-usage.md)를 참조하세요.
 
 ## <a name="determine-the-right-sql-size-before-purchase"></a>구매 전 적절한 SQL 크기 결정
 
@@ -47,12 +49,12 @@ ms.locfileid: "43306472"
 
     | 필드      | 설명|
     |:------------|:--------------|
-    |Name        |이 예약의 이름입니다.| 
+    |이름        |이 예약의 이름입니다.| 
     |구독|SQL Database 예약된 용량 예약에 대한 요금을 지불하는 데 사용되는 구독입니다. 구독 시 지불 방법은 SQL Database 예약된 용량 예약에 대해 선불로 비용이 청구됩니다. 구독 유형은 기업 계약(제안 번호: MS-AZR-0017P) 또는 종량제(제안 번호: MS-AZR-0003P)여야 합니다. Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다. 종량제 구독에 대한 요금은 신용 카드 또는 구독 시 선택한 청구서 결제 방법으로 청구됩니다.|    
     |범위       |vCore 예약 범위는 하나 또는 여러 개의 구독(공유 범위)을 포함할 수 있습니다. 다음을 선택하는 경우: <ul><li>단일 구독 - vCore 예약 할인이 이 구독의 SQL Database 인스턴스에 적용됩니다. </li><li>공유 - vCore 예약 할인이 청구 컨텍스트 내의 모든 구독에서 실행 중인 SQL Database 인스턴스에 적용됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독(개발/테스트 구독 제외)을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.</li></ul>|
     |지역      |SQL Database 예약된 용량 예약에 포함되는 Azure 지역입니다.|    
-    |배포 유형|예약을 구매할 SQL 배포 유형입니다.|
-    |서비스 계층|SQL Database 인스턴스에 대한 서비스 계층입니다.
+    |배포 유형|예약을 구매할 SQL 리소스 종류입니다.|
+    |성능 계층|SQL Database 인스턴스에 대한 서비스 계층입니다.
     |용어        |1년 또는 3년입니다.|
     |수량    |SQL Database 예약된 용량 예약 내에서 구매하는 인스턴스의 수입니다. 수량은 청구 할인을 받을 수 있는 실행 중인 SQL Database 인스턴스의 수입니다. 예를 들어 미국 동부 지역에서 10개의 SQL Database 인스턴스를 실행 중인 경우 실행 중인 모든 머신에 대한 혜택을 극대화하려면 수량을 10으로 지정할 수 있습니다. |
 
@@ -60,7 +62,18 @@ ms.locfileid: "43306472"
 6. **구매**를 선택합니다.
 7. 구매 상태를 보려면 **이 예약 보기**를 선택합니다.
 
-## <a name="next-steps"></a>다음 단계 
+## <a name="cancellations-and-exchanges"></a>취소 및 교환
+
+SQL Database 예약된 용량 예약을 취소해야 하는 경우 12%의 조기 종료 수수료가 있을 수 있습니다. 환불은 구매 가격 또는 예약의 현재 가격 중 최저 가격을 기준으로 합니다. 환불은 연간 $50,000로 제한됩니다. 받는 환불은 12%의 조기 종료 수수료를 뺀 나머지 비례 배분한 잔액입니다. 취소를 요청하려면 Azure Portal의 예약으로 이동하고 **환불**을 선택하여 지원 요청을 만듭니다.
+
+SQL Database 예약된 용량 예약을 다른 지역, 배포 유형, 성능 계층 또는 기간으로 변경해야 하는 경우 같거나 더 큰 값인 다른 예약에 대해 교환할 수 있습니다. 새 예약에 대한 기간 시작일은 교환된 예약에서 수행되지 않습니다. 1 또는 3년 기간은 새 예약을 만들 때 시작합니다. 교환을 요청하려면 Azure Portal의 예약으로 이동하고, **교환**을 선택하여 지원 요청을 만듭니다.
+
+## <a name="vcore-size-flexibility"></a>vCore 크기 유연성
+
+vCore 크기 유연성을 통해 예약된 용량 이점을 잃지 않고 성능 계층 및 지역 내에서 크기를 확장 또는 축소할 수 있습니다. SQL Database 예약된 용량은 예약된 용량 이점을 잃지 않고 일반 작업(동일한 지역 및 성능 계층 내에서)의 일부로 풀과 단일 데이터베이스 간에 핫 데이터베이스를 일시적으로 이동하는 유연성을 제공합니다. 예약에서 적용되지 않은 버퍼를 유지하여 예산을 초과하지 않고 성능 급증을 효과적으로 관리할 수 있습니다.
+
+## <a name="next-steps"></a>다음 단계
+
 vCore 예약 할인은 SQL Database 예약된 용량 예약 범위 및 특성과 일치하는 SQL Database 인스턴스의 수에 자동으로 적용됩니다. [Azure Portal](https://portal.azure.com), PowerShell, CLI 또는 API를 통해 SQL Database 예약된 용량 예약의 범위를 업데이트할 수 있습니다. 
 
 SQL Database 예약된 용량 예약을 관리하는 방법을 알아보려면 [SQL Database 예약된 용량 관리](../billing/billing-manage-reserved-vm-instance.md)를 참조하세요.

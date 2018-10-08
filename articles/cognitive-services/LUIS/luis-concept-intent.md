@@ -1,20 +1,21 @@
 ---
-title: Azure에서 LUIS 앱의 의도 이해 | Microsoft Docs
-description: LUIS(Language Understanding Intelligent Service) 앱에서 의도의 개념을 설명합니다.
+title: LUIS 앱의 의도 이해
+titleSuffix: Azure Cognitive Services
+description: 의도는 사용자가 수행하려는 작업을 나타냅니다. 사용자의 발언으로 표현되는 목적 또는 목표입니다. 사용자가 응용 프로그램에서 수행하려는 작업에 해당하는 의도 집합을 정의합니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 456f28191161c9a2fac223bf2a31e62e54ae28ae
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: cfad122b44944cfb637d8ef98931410d60c81ab8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225791"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041173"
 ---
 # <a name="intents-in-luis"></a>LUIS의 의도
 
@@ -35,7 +36,7 @@ ms.locfileid: "39225791"
 사용자가 정의한 의도 외에도 미리 빌드된 도메인 중 하나에서 미리 빌드된 의도를 사용할 수 있습니다. 앱에서 사용하도록 미리 빌드된 도메인에서 의도를 사용자 지정하는 방법에 대한 자세한 내용은 [LUIS 앱에서 미리 빌드된 도메인 사용](luis-how-to-use-prebuilt-domains.md)을 참조하세요.
 
 ## <a name="return-all-intents-scores"></a>모든 의도의 점수 반환
-단일 의도에 하나의 발화를 할당합니다. LUIS는 끝점에서 음성을 수신하면 해당 음성에 대한 하나의 상위 의도를 반환합니다. 발화의 모든 의도의 점수가 필요한 경우, API [끝점 호출](https://aka.ms/v1-endpoint-api-docs)의 쿼리 문자열에 `verbose=true` 플래그를 제공할 수 있습니다. 
+단일 의도에 하나의 발화를 할당합니다. LUIS는 엔드포인트에서 음성을 수신하면 해당 음성에 대한 하나의 상위 의도를 반환합니다. 발화의 모든 의도의 점수가 필요한 경우, API [엔드포인트 호출](https://aka.ms/v1-endpoint-api-docs)의 쿼리 문자열에 `verbose=true` 플래그를 제공할 수 있습니다. 
 
 ## <a name="intent-compared-to-entity"></a>의도 및 엔터티 비교
 의도는 챗봇이 사용자에게 수행해야 하는 작업을 나타내며 전체 발화를 기반으로 합니다. 엔터티는 발화 내부에 포함된 단어 또는 구문을 나타냅니다. 발화에는 하나의 상위 점수 의도만 포함되지만, 여러 엔터티가 포함될 수 있습니다. 

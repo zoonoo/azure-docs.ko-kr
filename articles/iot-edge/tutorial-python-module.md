@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 06/26/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6cf3a721dfd601fc4d4beb122f56b4a4de5fe426
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 0a32f925aa1ff4066a893fb107f4d785bd1fd8f8
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41920750"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423564"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>자습서: Python IoT Edge 모듈을 개발하여 시뮬레이션된 장치에 배포
 
@@ -41,7 +41,7 @@ Azure IoT Edge 장치:
 
 클라우드 리소스:
 
-* Azure의 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md). 
+* Azure의 무료 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md). 
 
 개발 리소스:
 

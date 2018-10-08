@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 08/16/2018
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: f0f20a4ceac2f0b79d4ae3bbf3cf82eb761bceb8
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 35813573be9b069cc920f5ede813503ab1b99b4a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782674"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227217"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Azure Storage와 함께 Azure PowerShell 사용
 
@@ -159,7 +159,7 @@ New-AzureRmStorageAccountKey -ResourceGroupName $resourceGroup `
 키 중 하나를 다시 생성한 다음 다시 검색하여 새 값을 확인합니다.
 
 > [!NOTE] 
-> 프러덕션 저장소 계정에 대해 키를 다시 생성하기 전에 신중한 계획이 필요합니다. 하나 이상의 키를 다시 생성하면 다시 생성되는 키를 사용하던 모든 응용 프로그램에 대한 액세스가 무효화됩니다. 자세한 내용은 [저장소 액세스 키 다시 생성](storage-create-storage-account.md#regenerate-storage-access-keys)을 참조하세요.
+> 프러덕션 저장소 계정에 대해 키를 다시 생성하기 전에 신중한 계획이 필요합니다. 하나 이상의 키를 다시 생성하면 다시 생성되는 키를 사용하던 모든 응용 프로그램에 대한 액세스가 무효화됩니다. 자세한 내용은 [액세스 키](storage-account-manage.md#access-keys)를 참조하세요.
 
 
 ### <a name="delete-a-storage-account"></a>저장소 계정 삭제 
@@ -187,7 +187,7 @@ Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storage
 
 [Azure Storage Analytics](storage-analytics.md)는[Storage Analytics 메트릭](/rest/api/storageservices/about-storage-analytics-metrics)과 [Storage Analytics 로깅](/rest/api/storageservices/about-storage-analytics-logging)으로 구성됩니다. 
 
-**Storage Analytics 메트릭**은 저장소 계정의 상태를 모니터링하는 데 사용할 수 있는 Azure Storage 게정의 메트릭을 수집하는 데 사용됩니다. Blob, 파일, 테이블 및 큐에 대해 메트릭을 사용할 수 있습니다.
+**Storage Analytics 메트릭**은 저장소 계정의 상태를 모니터링하는 데 사용할 수 있는 Azure Storage 계정의 메트릭을 수집하는 데 사용됩니다. Blob, 파일, 테이블 및 큐에 대해 메트릭을 사용할 수 있습니다.
 
 **Storage Analytics 로깅**은 서버 쪽에서 발생하며, 이를 통해 Storage 계정의 성공한 요청 및 실패한 요청에 대한 세부 정보를 기록할 수 있습니다. 이러한 로그를 사용하여 테이블, 큐 및 Blob에 대한 읽기, 쓰기 및 삭제 작업뿐만 아니라 실패한 요청의 이유에 대한 세부 정보를 볼 수 있습니다. 로깅은 Azure Files에 사용할 수 없습니다.
 

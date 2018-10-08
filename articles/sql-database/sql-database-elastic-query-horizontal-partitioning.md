@@ -2,20 +2,22 @@
 title: 확장된 클라우드 데이터베이스에서 보고 | Microsoft Docs
 description: 행 분할에서 탄력적 쿼리를 설정하는 방법
 services: sql-database
-documentationcenter: ''
-manager: craigg
-author: MladjoA
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MladjoA
 ms.author: mlandzic
-ms.openlocfilehash: fcb498542a496e4a887c825808642d3f586ef1d9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 906c6825dbfdf7d4873c765d0b3eba626ef52e1b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646357"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159366"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>확장된 클라우드 데이터베이스에서 보고(미리 보기)
 ![분할된 데이터베이스에 대한 쿼리][1]
@@ -49,7 +51,7 @@ ms.locfileid: "34646357"
     [;]
 
 > [!NOTE]
-> *"\<username\>"* 에 *"@servername"* 접미사가 포함되지 않아야 합니다. 
+> *"\<username\>"* 에 *"\@servername"* 접미사가 포함되지 않아야 합니다. 
 > 
 > 
 
@@ -173,7 +175,7 @@ DISTRIBUTION 절은 이 테이블에 사용되는 데이터 배포를 지정합�
 
 sp\_execute\_remote는 호출 매개 변수에 제공된 외부 데이터 원본을 사용하여 원격 데이터베이스에서 지정된 T-SQL 문을 실행합니다. 또한 외부 데이터 원본의 자격 증명을 사용하여 분할 맵 관리자 데이터베이스 및 원격 데이터베이스에 연결합니다.  
 
-예: 
+예제: 
 
     EXEC sp_execute_remote
         N'MyExtSrc',
@@ -183,7 +185,7 @@ sp\_execute\_remote는 호출 매개 변수에 제공된 외부 데이터 원본
 일반 SQL Server 연결 문자열을 사용 하여 응용 프로그램, BI, 데이터 통합 도구를 외부 테이블 정의가 있는 데이터베이스에 연결합니다. SQL Server 도구에 대한 데이터 소스로 지원 되는지 확인 합니다. 그런 다음 도구에 연결된 타 SQL Server 데이터베이스 등, 탄력적 쿼리 데이터베이스를 참조하고 도구의나 응용 프로그램의 외부 테이블을 로컬 테이블처럼 사용합니다. 
 
 ## <a name="best-practices"></a>모범 사례
-* 탄력적 쿼리 끝점 데이터베이스에 SQL DB 방화벽을 통한 모든 분할된 데이터베이스 및 분할 맵 데이터베이스 액세스 권한이 있는지 확인합니다.  
+* 탄력적 쿼리 엔드포인트 데이터베이스에 SQL DB 방화벽을 통한 모든 분할된 데이터베이스 및 분할 맵 데이터베이스 액세스 권한이 있는지 확인합니다.  
 * 외부 테이블에서 정의한 데이터 배포의 유효성을 검사하거나 해당 배포를 적용합니다. 실제 데이터 배포는 테이블 정의에 지정된 배포와 다른 경우 쿼리는 예기치 않은 결과를 얻을 수도 있습니다. 
 * 탄력적 쿼리는 처리되는 과정에서 특정 분할된 데이터베이스가 안전하게 제외될 수 있도록 조건자 분할키가 허락할 때 분할된 데이터베이스 제거를 수행하지 않습니다.
 * 탄력적 쿼리는 분할된 데이터베이스에서 대부분의 계산을 수행할 수 있는 상황에서 가장 잘 실행됩니다. 일반적으로 분할된 데이터베이스 에서 평가될 수 있는 선택적인 필터 조건자를 가진 최상의 쿼리성능을 얻게 되거나 모든 분할 데이터베이스에서 파티션 정렬 방식으로 수행할 수 있는 분할 키를 조인하게 됩니다. 다른 쿼리 패턴은 분할된 데이터베이스에서 많은 양의 데이터를 로드해야 하기 때문에 성능이 좋지 않을 수 있습니다.

@@ -1,22 +1,23 @@
 ---
-title: Azure Content Moderator를 사용하여 Facebook 콘텐츠 조정 | Microsoft Docs
-description: 기계 학습 기반 Content Moderator를 사용하여 Facebook 페이지 조정
+title: '자습서: Facebook 콘텐츠 조정 - Azure Content Moderator'
+titlesuffix: Azure Cognitive Services
+description: Content Moderator를 사용한 Facebook 페이지 조정입니다.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/18/2017
 ms.author: sajagtap
-ms.openlocfilehash: 66caea65c21bb1f8bb6efa9b50c917599bb71e2f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: ead8c1d445bf32ecaaf236b4e73c2a583c755049
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093980"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223941"
 ---
-# <a name="facebook-content-moderation-with-content-moderator"></a>Content Moderator를 사용하여 Facebook 콘텐츠 조정
+# <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>자습서: Content Moderator를 사용한 Facebook 콘텐츠 조정
 
 이 자습서에서는 기계 학습 기반 Content Moderator를 사용하여 Facebook 게시물 및 의견을 조정하는 방법을 알아봅니다.
 

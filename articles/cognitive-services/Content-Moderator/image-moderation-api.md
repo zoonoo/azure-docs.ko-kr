@@ -1,20 +1,21 @@
 ---
-title: Azure Content Moderator - 이미지 조정 | Microsoft Docs
+title: 이미지 조정 - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: 이미지 조정을 사용하여 부적절한 이미지 조정
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/20/2018
 ms.author: sajagtap
-ms.openlocfilehash: c7cbc343c6e9113642d0ac79f4a4d60a404e8171
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6c5fed78c67f974a2af11efd133e9a79ec52124b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377663"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219654"
 ---
 # <a name="image-moderation"></a>이미지 조정
 
@@ -143,7 +144,7 @@ Content Moderator는 사용자 지정 이미지 목록을 관리하기 위한 �
 
 좀 더 미묘한 차이가 있는 경우 Content Moderator의 [검토 도구](Review-Tool-User-Guide/human-in-the-loop.md) 및 해당 API를 사용하여 사용자 중재자가 검토할 수 있게 조정 결과 및 콘텐츠를 제공합니다. 컴퓨터 할당 태그를 검토하고 최종 결정을 확인합니다.
 
-![중재자를 위한 이미지 검토](images/moderation-reviews-quickstart-dotnet.PNG)
+![사용자 중재자를 위한 이미지 검토](images/moderation-reviews-quickstart-dotnet.PNG)
 
 ## <a name="next-steps"></a>다음 단계
 

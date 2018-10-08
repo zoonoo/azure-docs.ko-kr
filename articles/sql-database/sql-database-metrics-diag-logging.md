@@ -2,34 +2,36 @@
 title: Azure SQL Database 메트릭 및 진단 로깅 | Microsoft Docs
 description: 리소스 사용, 연결 및 쿼리 실행 통계를 저장하도록 Azure SQL Database를 구성하는 방법을 알아봅니다.
 services: sql-database
-documentationcenter: ''
-author: danimir
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/16/2018
+author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 55274b08695bacf0b63b937f9e8e21c8565f1715
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: bf9185ece171ef0595aa3470fd52b839eb5d6136
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967390"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165962"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅 
-Azure SQL Database는 모니터링 편의를 위해 메트릭 및 진단 로그를 내보낼 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 이러한 Azure 리소스 중 하나에 저장하도록 SQL Database를 구성할 수 있습니다.
 
-* **Azure Storage**: 작은 가격으로 방대한 양의 원격 분석을 보관하는 경우 사용됩니다.
+Azure SQL Database 및 Managed Instance 데이터베이스는 메트릭 및 진단 로그를 내보내 성능을 더 쉽게 모니터링할 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 이러한 Azure 리소스 중 하나로 스트림하도록 데이터베이스를 구성할 수 있습니다.
+
+* **Azure SQL 분석**: 보고, 경고 및 완화 기능을 갖춘 통합 Azure 데이터베이스 지능형 성능 모니터링 솔루션으로 사용됩니다.
 * **Azure Event Hub**: 사용자 지정 모니터링 솔루션 또는 핫 파이프라인과 SQL Database 원격 분석을 통합하는 경우 사용됩니다.
-* **Azure Log Analytics**: 보고, 경고 및 완화 기능을 사용하는 기본 제공 모니터링 솔루션의 경우 사용됩니다. Azure Log Analytics는 [Operations Management Suite(OMS)](../operations-management-suite/operations-management-suite-overview.md)의 기능입니다.
+* **Azure Storage**: 작은 가격으로 방대한 양의 원격 분석을 보관하는 경우 사용됩니다.
 
     ![아키텍처](./media/sql-database-metrics-diag-logging/architecture.png)
 
-## <a name="enable-logging"></a>로깅 사용
+## <a name="enable-logging-for-a-database"></a>데이터베이스 로깅 사용
 
-메트릭 및 진단 로깅은 기본적으로 사용되지 않습니다. 다음 방법 중 하나를 사용하여 메트릭 및 진단 로깅을 사용하도록 설정하고 관리할 수 있습니다.
+SQL Database 또는 Managed Instance 데이터베이스에 대한 메트릭 및 진단 로깅은 기본적으로 사용되지 않습니다. 다음 방법 중 하나를 사용하여 데이터베이스에 대한 메트릭 및 진단 원격 분석 로깅을 사용하도록 설정하고 관리할 수 있습니다.
 
 - Azure portal
 - PowerShell
@@ -37,40 +39,56 @@ Azure SQL Database는 모니터링 편의를 위해 메트릭 및 진단 로그�
 - Azure Monitor REST API 
 - Azure Resource Manager 템플릿
 
-메트릭 및 진단 로깅을 사용하려면 선택한 데이터가 수집되는 Azure 리소스를 지정해야 합니다. 사용 가능한 옵션은 다음과 같습니다.
+메트릭 및 진단 로깅을 사용하도록 설정하는 경우 선택한 데이터가 수집되는 Azure 리소스를 지정해야 합니다. 사용 가능한 옵션은 다음과 같습니다.
 
-- Log Analytics
+- SQL 분석
 - Event Hubs
 - Storage 
 
-새 Azure 리소스를 프로비전하거나 기존 리소스를 선택할 수 있습니다. 저장소 리소스를 선택한 후에는 수집할 데이터를 지정해야 합니다. 사용 가능한 옵션은 다음과 같습니다.
+새 Azure 리소스를 프로비전하거나 기존 리소스를 선택할 수 있습니다. 리소스를 선택한 후 데이터베이스 진단 설정 옵션을 사용하여 수집할 데이터를 지정해야 합니다. Azure SQL Database 및 Managed Instance 데이터베이스 지원을 통해 사용할 수 있는 옵션은 다음과 같습니다.
 
-- [모든 메트릭](sql-database-metrics-diag-logging.md#all-metrics): DTU 백분율, DTU 제한, CPU 백분율, 실제 데이터 읽기 백분율, 로그 쓰기 백분율, 성공/실패/방화벽 연결에 의해 차단됨, 세션 백분율, 작업자 백분율, 저장소, 저장소 백분율, XTP 저장소 백분율을 포함합니다.
-- [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): CPU 사용량, 쿼리 기간 등 쿼리 런타임 통계에 대한 정보를 포함합니다.
-- [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): CPU, LOG, LOCKING 등 쿼리가 대기된 항목을 알리는 쿼리 대기 통계에 대한 정보를 포함합니다.
-- [Errors](sql-database-metrics-diag-logging.md#errors-dataset): 이 데이터베이스에서 발생한 SQL 오류에 대한 정보를 포함합니다.
-- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): 대기 형식에 따라 데이터베이스가 대기하는 데 사용된 시간에 대한 정보를 포함합니다.
-- [Timeouts](sql-database-metrics-diag-logging.md#time-outs-dataset): 데이터베이스에서 발생한 시간 제한에 대한 정보를 포함합니다.
-- [Blocks](sql-database-metrics-diag-logging.md#blockings-dataset): 데이터베이스에서 발생한 차단 이벤트에 대한 정보를 포함합니다.
-- [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): Intelligent Insights를 포함합니다. [Intelligent Insights에 대해 자세히 알아보세요.](sql-database-intelligent-insights.md)
-- **Audit** / **SQLSecurityAuditEvents**: 현재 사용할 수 없습니다.
+| 모니터링 원격 분석 | Azure SQL Database 지원 | Managed Instance 지원 데이터베이스 |
+| :------------------- | ------------------- | ------------------- |
+| [모든 메트릭](sql-database-metrics-diag-logging.md#all-metrics): DTU/CPU 백분율, DTU/CPU 제한, 물리 데이터 읽기 백분율, 로그 쓰기 백분율, 방화벽에서 성공/실패/차단된 연결, 세션 백분율, 작업자 백분율, 저장소, 저장소 백분율, XTP 저장소 백분율을 포함합니다. | yes | 아니요 |
+| [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): CPU 사용량 및 쿼리 기간 통계와 같은 쿼리 런타임 통계에 대한 정보를 포함합니다. | yes | yes |
+| [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): CPU, LOG, LOCKING 등 쿼리가 대기된 항목을 알리는 쿼리 대기 통계에 대한 정보를 포함합니다. | yes | yes |
+| [Errors](sql-database-metrics-diag-logging.md#errors-dataset): 이 데이터베이스에서 발생한 SQL 오류에 대한 정보를 포함합니다. | yes | 아니요 |
+| [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): 대기 형식에 따라 데이터베이스가 대기하는 데 사용된 시간에 대한 정보를 포함합니다. | yes | 아니요 |
+| [Timeouts](sql-database-metrics-diag-logging.md#time-outs-dataset): 데이터베이스에서 발생한 시간 제한에 대한 정보를 포함합니다. | yes | 아니요 |
+| [Blocks](sql-database-metrics-diag-logging.md#blockings-dataset): 데이터베이스에서 발생한 차단 이벤트에 대한 정보를 포함합니다. | yes | 아니요 |
+| [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): 성능에 대한 Intelligent Insights를 포함합니다. [Intelligent Insights에 대해 자세히 알아보세요.](sql-database-intelligent-insights.md) | yes | yes |
+
+**참고**: 감사 및 SQLSecurityAuditEvents 로그를 사용하려면 데이터베이스 진단 설정 내에서 이러한 옵션을 사용할 수 있지만, 이러한 로그는 Log Analytics, Event Hub 또는 Storage로의 원격 분석 스트리밍을 구성하기 위해 **SQL 감사** 솔루션을 통해서만 사용해야 합니다.
 
 Event Hubs 또는 저장소 계정을 선택하면 보존 정책을 지정할 수 있습니다. 이 정책은 선택한 기간보다 오래된 데이터를 삭제합니다. Log Analytics를 지정한 경우 선택한 가격 책정 계층에 따라 보존 정책이 달라집니다. 자세한 내용은 [Log Analytics 가격 책정](https://azure.microsoft.com/pricing/details/log-analytics/)을 참조하세요. 
 
-로깅을 사용하도록 설정하는 방법을 학습하고 여러 Azure 서비스에서 지원되는 메트릭과 로그 범주를 이해하려면 다음을 확인하는 것이 좋습니다. 
+## <a name="enable-logging-for-elastic-pools-or-managed-instance"></a>탄력적 풀 또는 Managed Instance에 대한 로깅 사용
+
+탄력적 풀 또는 Managed Instance에 대한 메트릭 및 진단 로깅은 기본적으로 사용되지 않습니다. 탄력적 풀 또는 Managed Instance에 대한 메트릭 및 진단 원격 분석 로깅을 사용하도록 설정하고 관리할 수 있습니다. 다음 데이터를 수집할 수 있습니다.
+
+| 모니터링 원격 분석 | 탄력적 풀 지원 | Managed Instance 지원 |
+| :------------------- | ------------------- | ------------------- |
+| [모든 메트릭](sql-database-metrics-diag-logging.md#all-metrics)(탄력적 풀): eDTU/CPU 백분율, eDTU/CPU 제한, 물리 데이터 읽기 백분율, 로그 쓰기 백분율, 세션 백분율, 작업자 백분율, 저장소, 저장소 백분율, 저장소 제한 및 XTP 저장소 백분율을 포함합니다. | yes | 해당 없음 |
+| [ResourceUsageStats](sql-database-metrics-diag-logging.md#resource-usage-stats)(Managed Instance): vCore 수, 평균 CPU 백분율, IO 요청 수, 읽은/쓴 바이트, 예약된 저장소 공간, 사용된 저장소 공간을 포함합니다. | 해당 없음 | yes |
+
+다양한 Azure 서비스에서 지원되는 메트릭과 로그 범주를 이해하려면 다음을 참조하는 것이 좋습니다.
 
 * [Microsoft Azure의 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
 * [Azure 진단 로그 개요](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 
 
 ### <a name="azure-portal"></a>Azure portal
 
-1. Azure Portal에서 메트릭 및 진단 로그 수집을 사용하려면 SQL Database 또는 탄력적 풀 페이지로 이동하여 **진단 설정**을 클릭합니다.
+- SQL Database 또는 Managed Instance 데이터베이스에 대한 메트릭 및 진단 로그 수집을 사용하도록 설정하려면 데이터베이스로 이동한 다음, **진단 설정**을 선택합니다. 새 설정을 구성하려면 **+ 진단 설정 추가**를 선택하고, 기존 설정을 편집하려면 **설정 편집**을 선택합니다.
 
    ![Azure Portal에서 사용](./media/sql-database-metrics-diag-logging/enable-portal.png)
 
-2. 대상 및 원격 분석을 선택하여 새 진단 설정을 만들거나 기존 진단 설정을 편집합니다.
+- **Azure SQL Database**의 경우 대상 및 원격 분석을 선택하여 새 진단 설정을 만들거나 기존 진단 설정을 편집합니다.
 
    ![진단 설정](./media/sql-database-metrics-diag-logging/diagnostics-portal.png)
+
+- **Managed Instance 데이터베이스**의 경우 대상 및 원격 분석을 선택하여 새 진단 설정을 만들거나 기존 진단 설정을 편집합니다.
+
+   ![진단 설정](./media/sql-database-metrics-diag-logging/diagnostics-portal-mi.png)
 
 ### <a name="powershell"></a>PowerShell
 
@@ -174,7 +192,7 @@ Log Analytics를 사용하여 SQL Database 세트를 간편하게 모니터링�
 
 2. 생성된 Log Analytics 리소스에 메트릭 및 진단 로그를 기록하도록 데이터베이스를 구성합니다.
 
-3. Log Analytics의 갤러리에서 **Azure SQL Analytics** 솔루션을 설치합니다.
+3. Azure Marketplace에서 **Azure SQL 분석** 솔루션을 설치합니다.
 
 ### <a name="create-a-log-analytics-resource"></a>Log Analytics 리소스 만들기
 
@@ -259,15 +277,52 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ## <a name="metrics-and-logs-available"></a>사용 가능한 메트릭 및 로그
 
-### <a name="all-metrics"></a>모든 메트릭
+Azure SQL Database, 탄력적 풀, Managed Instance 및 Managed Instance의 데이터베이스에서 사용할 수 있는 메트릭 및 로그에 대한 자세한 모니터링 원격 분석 내용을 확인하세요.
+
+## <a name="all-metrics"></a>모든 메트릭
+
+### <a name="all-metrics-for-elastic-pools"></a>탄력적 풀에 대한 모든 메트릭
 
 |**리소스**|**Metrics**(메트릭)|
 |---|---|
-|데이터베이스|DTU 백분율, 사용된 DTU, DTU 제한, CPU 백분율, 실제 데이터 읽기 백분율, 로그 쓰기 백분율, 성공/실패/방화벽 연결에 의해 차단됨, 세션 백분율, 작업자 백분율, 저장소, 저장소 백분율, XTP 저장소 백분율, 교착 상태를 포함합니다. |
 |탄력적 풀|eDTU 백분율, 사용된 eDTU, eDTU 제한, CPU 백분율, 실제 데이터 읽기 백분율, 로그 쓰기 백분율, 세션 백분율, 작업자 백분율, 저장소, 저장소 백분율, 저장소 용량 한도, XTP 저장소 백분율을 포함합니다. |
-|||
 
-### <a name="logs"></a>로그
+### <a name="all-metrics-for-azure-sql-database"></a>Azure SQL Database에 대한 모든 메트릭
+
+|**리소스**|**Metrics**(메트릭)|
+|---|---|
+|Azure SQL Database|DTU 백분율, 사용된 DTU, DTU 제한, CPU 백분율, 실제 데이터 읽기 백분율, 로그 쓰기 백분율, 성공/실패/방화벽 연결에 의해 차단됨, 세션 백분율, 작업자 백분율, 저장소, 저장소 백분율, XTP 저장소 백분율, 교착 상태를 포함합니다. |
+
+## <a name="logs"></a>로그
+
+### <a name="logs-for-managed-instance"></a>Managed Instance에 대한 로그
+
+### <a name="resource-usage-stats"></a>리소스 사용량 통계
+
+|자산|설명|
+|---|---|
+|TenantId|테넌트 ID|
+|SourceSystem|항상: Azure|
+|TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프|
+|type|항상: AzureDiagnostics|
+|ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL|
+|Category|범주 이름. 항상: ResourceUsageStats|
+|리소스|리소스의 이름입니다.|
+|ResourceType|리소스 형식 이름. 항상: MANAGEDINSTANCES|
+|SubscriptionId|데이터베이스가 속한 구독 GUID|
+|ResourceGroup|데이터베이스가 속한 리소스 그룹의 이름|
+|LogicalServerName_s|Managed Instance의 이름|
+|ResourceId|리소스 URI |
+|SKU_s|Managed Instance 제품 SKU|
+|virtual_core_count_s|사용 가능한 vCore 수|
+|avg_cpu_percent_s|평균 CPU 비율|
+|reserved_storage_mb_s|Managed Instance의 예약된 저장소 용량|
+|storage_space_used_mb_s|Managed Instance의 사용된 저장소|
+|io_requests_s|IOPS 수|
+|io_bytes_read_s|읽은 IOPS 바이트 수|
+|io_bytes_written_s|쓴 IOPS 바이트 수|
+
+### <a name="logs-for-azure-sql-database-and-managed-instance-database"></a>Azure SQL Database 및 Managed Instance 데이터베이스에 대한 로그
 
 ### <a name="query-store-runtime-statistics"></a>쿼리 저장소 런타임 통계
 

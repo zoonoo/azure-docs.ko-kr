@@ -2,30 +2,26 @@
 title: PowerShell 예제 모니터링 크기 조정 단일 Azure SQL Database | Microsoft Docs
 description: 단일 Azure SQL Database를 모니터링하고 크기를 조정하는 Azure PowerShell 예제 스크립트
 services: sql-database
-documentationcenter: sql-database
-author: CarlRabeler
-manager: craigg
-editor: carlrab
-tags: azure-service-management
-ms.assetid: ''
 ms.service: sql-database
-ms.custom: monitor & tune, mvc
+ms.subservice: performance
+ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: sql-database
-ms.workload: database
-ms.date: 09/07/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 8766ffe34263b80a5f4c9023620a7e0fb9002ec7
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 8586a4eb5c4325f258ad8f461b05e7368750d17a
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049017"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056124"
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-single-sql-database"></a>PowerShell을 사용하여 단일 SQL Database 모니터링 및 크기 조정
 
-이 PowerShell 스크립트 예제는 데이터베이스의 성능 메트릭을 모니터링하고, 더 높은 성능 수준으로 확장하고, 성능 메트릭 중 하나에 경고 규칙을 만듭니다. 
+이 PowerShell 스크립트 예제는 데이터베이스의 성능 메트릭을 모니터링하고, 더 높은 계산 크기로 확장하고, 성능 메트릭 중 하나에 경고 규칙을 만듭니다. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]

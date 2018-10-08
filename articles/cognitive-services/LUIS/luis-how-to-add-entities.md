@@ -1,28 +1,28 @@
 ---
-title: LUIS 앱에서 엔터티 추가 | Microsoft Docs
-titleSuffix: Azure
+title: LUIS 앱에서 엔터티 추가
+titleSuffix: Azure Cognitive Services
 description: LUIS(Language Understanding) 앱에서 엔터티(응용 프로그램 도메인의 키 데이터)를 추가합니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: e97f9a5391799849983bd98db5400e0a842627b7
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e82955da24e127e5536c2e40ad2cccf07c5fa173
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224129"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032005"
 ---
 # <a name="manage-entities"></a>엔터티 관리
 앱의 [의도](luis-concept-intent.md)를 확인한 후 [엔터티](luis-concept-entity-types.md)를 사용해서 [예제 발언에 레이블을 지정](luis-concept-utterance.md)해야 합니다. 엔터티는 명령 또는 질문의 중요한 부분으로, 클라이언트 앱이 해당 작업을 수행하는 데 반드시 필요할 수 있습니다. 
 
 **엔터티** 페이지의 **엔터티 목록**을 통해 앱에서 엔터티를 추가, 편집 또는 삭제할 수 있습니다. LUIS는 두 가지 유형의 주요 엔터티인 [미리 빌드된 엔터티](luis-reference-prebuilt-entities.md) 및 사용자 고유의 사용자 지정 엔터티를 제공합니다.
 
-다음 섹션은 LUIS 앱 내의 **빌드** 섹션에서만 사용할 수 있습니다. **빌드** 링크는 위쪽 탐색 모음에 있습니다. 일단 **빌드** 섹션에 들어간 경우 왼쪽 탐색 메뉴에서 **엔터티**를 선택합니다. 엔터티가 응용 프로그램에 추가되고 나면, 엔터티가 기계 학습된 경우 발언 내에서 [엔터티에 레이블을 지정](luis-how-to-add-example-utterances.md)할 수 있습니다. 앱이 학습되고 게시되면 예측에서 [추출](luis-concept-data-extraction.md)된 엔터티 데이터를 받을 수 있습니다. 
+다음 섹션은 LUIS 앱 내의 **빌드** 섹션에서만 사용할 수 있습니다. **빌드** 링크는 위쪽 탐색 모음에 있습니다. **빌드** 섹션으로 이동한 다음, 왼쪽 탐색 메뉴에서 **엔터티**를 선택합니다. 엔터티가 응용 프로그램에 추가되고 나면, 엔터티가 기계 학습된 경우 발언 내에서 [엔터티에 레이블을 지정](luis-how-to-add-example-utterances.md)할 수 있습니다. 앱이 학습되고 게시되면 예측에서 [추출](luis-concept-data-extraction.md)된 엔터티 데이터를 받을 수 있습니다. 
 
 ## <a name="add-prebuilt-entity"></a>미리 빌드된 엔터티 추가
 미리 빌드된 엔터티는 [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) 프로젝트에 정의되어 있습니다. 응용 프로그램에 추가되는 일반적인 미리 빌드된 엔터티는 *number*와 *datetimeV2*입니다. 
@@ -31,20 +31,16 @@ ms.locfileid: "39224129"
  
 2. **엔터티** 페이지에서 **미리 빌드된 엔터티 관리**를 선택합니다.
 
-    ![엔터티 페이지의 미리 빌드된 엔터티 추가 스크린샷](./media/add-entities/manage-prebuilt-entities-button.png)
-
 3. **미리 빌드된 엔터티 추가 또는 제거** 대화 상자에서 **number** 및 **datetimeV2** 미리 빌드된 엔터티를 선택합니다. 그런 후 **완료**를 선택합니다.
 
     ![미리 빌드된 엔터티 추가 대화 상자 스크린샷](./media/add-entities/list-of-prebuilt-entities.png)
 
-    끝점 JSON 쿼리 응답에서 미리 빌드된 엔터티를 추출하는 방법에 대해 자세히 알아보려면 [데이터 추출](luis-concept-data-extraction.md#prebuilt-entity-data)을 참조하세요.
+    엔드포인트 JSON 쿼리 응답에서 미리 빌드된 엔터티를 추출하는 방법에 대해 자세히 알아보려면 [데이터 추출](luis-concept-data-extraction.md#prebuilt-entity-data)을 참조하세요.
 
-## <a name="add-simple-entities"></a>간단한 엔터티 추가
+## <a name="add-simple-entities"></a>단순 엔터티 추가
 단순 엔터티는 단일 개념을 설명하는 일반 엔터티입니다. 
 
 1. 앱의 **빌드** 섹션에서 왼쪽 패널의 **엔터티**를 클릭하고 **새 엔터티 만들기**를 선택합니다.
-
-    ![새 엔터티 만들기 단추가 강조 표시된 엔터티 페이지의 스크린샷](./media/add-entities/create-new-entity-button.png)
 
 2. 팝업 대화 상자의 **엔터티 이름** 상자에 `Airline`을 입력하고 **엔터티 형식**에서 **단순**을 선택한 후 **완료**를 선택합니다.
 
@@ -59,7 +55,7 @@ ms.locfileid: "39224129"
 
 2. 팝업 대화 상자의 **엔터티 이름** 상자에 `AirFrance Flight`를 입력하고 **엔터티 형식** 목록에서 **정규식**을 선택하고 정규식 `AFR[0-9]{3,4}`를 입력한 후 **완료**를 선택합니다. 
 
-    이 AirFrance Flight 정규식에서는 3개의 문자(글자 그대로 `AFR`)와 3 또는 4자리 숫자가 나와야 합니다. 숫자는 0 ~ 9 사이의 어떤 숫자도 가능합니다. 이 정규식은 "AFR101", "ARF1302" 및 "AFR5006"과 같은 AirFrance 항공편 번호를 일치하는 항목으로 검색합니다. 끝점 JSON 쿼리 응답에서 엔터티를 추출하는 방법에 대해 자세히 알아보려면 [데이터 추출](luis-concept-data-extraction.md)을 참조하세요.
+    이 AirFrance Flight 정규식에는 3개의 문자(글자 그대로 `AFR`)와 그 뒤에 3자리 또는 4자리 숫자가 필요합니다. 숫자는 0 ~ 9 사이의 어떤 숫자도 가능합니다. 이 정규식은 "AFR101", "ARF1302" 및 "AFR5006"과 같은 AirFrance 항공편 번호와 일치합니다. 엔드포인트 JSON 쿼리 응답에서 엔터티를 추출하는 방법에 대해 자세히 알아보려면 [데이터 추출](luis-concept-data-extraction.md)을 참조하세요.
 
     ![정규식 엔터티 만들기 대화 상자의 이미지](./media/add-entities/regex-entity-create-dialog.png)
 
@@ -88,12 +84,12 @@ ms.locfileid: "39224129"
     >[!CAUTION]
     >자식 엔터티 이름은 단일 앱의 모든 엔터티에서 고유해야 합니다. 서로 다른 두 계층 구조 엔터티는 이름이 같은 자식 엔터티를 포함할 수 없습니다. 
 
-    끝점 JSON 쿼리 응답에서 계층적 엔터티를 추출하는 방법에 대해 자세히 알아보려면 [데이터 추출](luis-concept-data-extraction.md#hierarchical-entity-data)을 참조하세요. 계층적 엔터티 사용 방법에 대해 자세히 알아보려면 계층적 엔터티 [빠른 시작](luis-quickstart-intent-and-hier-entity.md)을 참조하세요.
+    엔드포인트 JSON 쿼리 응답에서 계층적 엔터티를 추출하는 방법에 대해 자세히 알아보려면 [데이터 추출](luis-concept-data-extraction.md#hierarchical-entity-data)을 참조하세요. 계층적 엔터티 사용 방법에 대해 자세히 알아보려면 계층적 엔터티 [빠른 시작](luis-quickstart-intent-and-hier-entity.md)을 참조하세요.
 
 ## <a name="add-composite-entities"></a>복합 엔터티 추가
 복합 엔터티를 만들어 여러 기존 엔터티 간 관계를 정의할 수 있습니다. 다음 예제에서 엔터티에는 티켓 수, 출발지 및 목적지 위치가 포함되어 있습니다. 
 
-발언 `Book 2 tickets from Seattle to Cairo`에서 숫자 2는 미리 빌드된 엔터티와 일치하는지 확인되며, Seattle은 출발지 위치이고 Cairo는 목적지 위치입니다. 복합 엔터티가 생성된 후 각 엔터티는 더 큰 부모 엔터티에 속하게 됩니다.
+발언 `Book 2 tickets from Seattle to Cairo`에서 숫자 2는 미리 빌드된 엔터티와 일치하고, Seattle은 출발지 위치이고 Cairo는 목적지 위치입니다. 복합 엔터티가 생성된 후 각 엔터티는 더 큰 부모 엔터티에 속하게 됩니다.
 
 1. 앱에서 미리 빌드된 엔터티 **number**를 추가합니다. 지침을 보려면 [미리 빌드된 엔터티 추가](#add-prebuilt-entity)를 참조하세요. 
 
@@ -149,7 +145,7 @@ Pattern.any가 포함된 패턴이 엔터티를 잘못 추출한 것을 발견�
 
 1. 앱의 **빌드** 섹션에서 왼쪽 패널의 **엔터티**를 선택합니다.
 
-2. **새 엔터티 만들기**를 선택합니다. `Location`의 이름을 입력합니다. 형식 **단순**을 선택하고 **완료**를 선택합니다.
+2. **새 엔터티 만들기**를 선택합니다. `Location`의 이름을 입력합니다. **단순** 형식을 선택하고 **완료**를 선택합니다.
 
 3. 왼쪽 패널에서 **엔터티**를 선택하고 2단계에서 만든 새 엔터티 **Location**을 선택합니다.
 
@@ -160,7 +156,7 @@ Pattern.any가 포함된 패턴이 엔터티를 잘못 추출한 것을 발견�
     끝점 JSON 쿼리 응답에서 역할을 추출하는 방법에 대해 자세히 알아보려면 [데이터 추출](luis-concept-data-extraction.md)을 참조하세요. Pattern.any 엔터티를 사용하는 방법을 자세히 알아보려면 패턴 자습서를 진행해보세요.
 
 ## <a name="add-list-entities"></a>목록 엔터티 추가
-목록 엔터티는 시스템의 관련된 단어의 고정된 폐쇄형 집합을 나타냅니다. 
+목록 엔터티는 시스템에서 관련된 단어의 고정된 폐쇄형 집합을 나타냅니다. 
 
 drinks 목록 엔터티에 대해 water와 soda pop이라는 두 가지 정규화된 값을 가질 수 있습니다. 정규화된 각 이름에는 동의어가 있습니다. water의 경우 동의어는 H20, gas, flat입니다. soda pop의 경우 동의어는 fruit, cola, ginger입니다. 엔터티를 만들 때 모든 값을 알 필요는 없습니다. 동의어를 포함하는 실제 사용자 발언을 검토한 후에 더 많은 발언을 추가할 수 있습니다.
 
@@ -233,7 +229,7 @@ drinks 목록 엔터티에 대해 water와 soda pop이라는 두 가지 정규�
     ```
 
 ## <a name="edit-entity-name"></a>엔터티 이름 편집
-1. **엔터티** 목록 페이지의 목록에서 엔터티를 선택합니다. 이 작업을 수행하면 **엔터티** 페이지로 이동됩니다.
+1. **엔터티** 목록 페이지의 목록에서 엔터티를 선택합니다. 이 작업을 수행하면 **엔터티** 페이지로 이동합니다.
 
 2. **엔터티** 페이지에서 엔터티 이름 옆의 편집 아이콘을 선택하여 엔터티 이름을 편집합니다. 엔터티 형식은 편집할 수 없습니다. 
 
@@ -244,8 +240,8 @@ drinks 목록 엔터티에 대해 water와 soda pop이라는 두 가지 정규�
 ![엔터티 삭제 단추가 강조 표시된 Location 엔터티 페이지 스크린샷](./media/add-entities/entity-delete.png)
 
 >[!NOTE]
->* 계층 구조 엔터티를 삭제하면 자식 엔터티도 모두 삭제됩니다.
->* 복합 엔터티를 삭제하면 복합 요소만 삭제되고, 복잡 관계가 끊어지지만 해당 요소를 형성하는 엔터티는 삭제되지 않습니다.
+>* 계층 구조 엔터티를 삭제하면 해당되는 자식 엔터티도 모두 삭제됩니다.
+>* 복합 엔터티를 삭제하면 복합 요소만 삭제되고, 복합 관계가 끊어지지만 해당 요소를 형성하는 엔터티는 삭제되지 않습니다.
 
 ## <a name="changing-entity-type"></a>엔터티 형식 변경
 LUIS에서는 해당 엔터티를 생성하기 위해 추가 또는 제거할 항목을 잘 모르기 때문에 엔터티의 형식을 변경하도록 허용하지 않습니다. 형식을 변경하기 위해서는 약간 다른 이름을 사용하여 올바른 형식의 새 엔터티를 만드는 것이 좋습니다. 엔터티가 만들어지면 각 발언에서 이전 레이블이 지정된 엔터티 이름을 제거한 후 새 엔터티 이름을 추가합니다. 모든 발언에 레이블이 다시 지정되면 이전 엔터티를 삭제합니다. 
@@ -257,8 +253,8 @@ LUIS에서는 해당 엔터티를 생성하기 위해 추가 또는 제거할 �
 도구 모음의 돋보기 아이콘을 사용하여 발언을 검색하고 필터링할 수 있습니다. 
 
 ## <a name="train-your-app-after-changing-model-with-entities"></a>엔터티가 포함된 모델을 변경한 후 앱 학습
-엔터티를 추가, 편집 또는 제거한 후 변경 내용을 끝점 쿼리에 적용하려면 앱을 [학습](luis-how-to-train.md)시키고 [게시](luis-how-to-publish-app.md)합니다. 
+엔터티를 추가, 편집 또는 제거한 후 변경 내용을 엔드포인트 쿼리에 적용하려면 앱을 [학습](luis-how-to-train.md)시키고 [게시](luis-how-to-publish-app.md)합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-의도, 발언 및 엔터티를 추가했으므로 기본 LUIS 앱이 구성되었습니다. 앱을 [학습](luis-how-to-train.md), [테스트](luis-interactive-test.md) 및 [게시](luis-how-to-publish-app.md)하는 방법을 알아봅니다.
+의도, 발언 및 엔터티가 추가되어 기본 LUIS 앱이 구성되었습니다. 앱을 [학습](luis-how-to-train.md), [테스트](luis-interactive-test.md) 및 [게시](luis-how-to-publish-app.md)하는 방법을 알아봅니다.
  

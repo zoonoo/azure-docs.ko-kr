@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/08/2018
 ms.author: wolfma
-ms.openlocfilehash: dcb65e365fdd51a56afc65814a153593e2f7d0f3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6a77303bc1810d72001f119223b7490299ed497a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "47019744"
+ms.locfileid: "47060509"
 ---
 지역| 텍스트 음성 변환 엔드포인트
 -|-
@@ -23,4 +23,4 @@ ms.locfileid: "47019744"
 서유럽|    `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1`
 
 > [!NOTE]
-> 사용자 지정 음성 글꼴을 만든 경우, 위의 엔드포인트 대신 직접 만든 엔드포인트를 사용합니다.
+> 사용자 지정 음성 글꼴을 만든 경우 여기서 제공하는 엔드포인트 대신 직접 만든 엔드포인트를 사용하세요.

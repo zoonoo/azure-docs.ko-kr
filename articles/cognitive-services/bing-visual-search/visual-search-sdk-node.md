@@ -1,23 +1,23 @@
 ---
-title: Visual Search SDK Node 빠른 시작 | Microsoft Docs
-description: Visual Search SDK Node 콘솔 응용 프로그램을 설치합니다.
+title: '빠른 시작: Bing Visual Search SDK, Node'
 titleSuffix: Azure Cognitive Services
+description: Visual Search SDK Node 콘솔 응용 프로그램을 설치합니다.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: v-gedod
-ms.openlocfilehash: bb245f9eab0f367a0e1b69af88352c54132ea29d
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: afccbc66da94d5c2d276a05a47ffe60dfbae2261
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782443"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219705"
 ---
-# <a name="visual-search-sdk-node-quickstart"></a>Visual Search SDK Node 빠른 시작
+# <a name="quickstart-bing-visual-search-sdk-node"></a>빠른 시작: Bing Visual Search SDK Node 
 
 Bing Visual Search SDK는 웹 요청 및 구문 분석 결과에 대한 REST API의 기능을 사용합니다.
 [Node Visual Search SDK 소스 코드 샘플](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js)은 Git Hub에서 얻을 수 있습니다.

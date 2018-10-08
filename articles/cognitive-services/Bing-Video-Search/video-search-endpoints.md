@@ -1,25 +1,26 @@
 ---
-title: Video Search 엔드포인트 | Microsoft Docs
-description: Video Search API 엔드포인트에 대한 요약 정보입니다.
+title: 비디오 검색 엔드포인트 - Bing Video Search
+titlesuffix: Azure Cognitive Services
+description: Bing Video Search API 엔드포인트에 대한 요약 정보입니다.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/04/2017
-ms.author: v-gedod
-ms.openlocfilehash: 9836d9928362ab37b0a81ff5043d99f9bf353f22
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: c153f577f76944d22f9a1b0fb4b24d332d2a02c8
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372894"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220774"
 ---
 # <a name="video-search-endpoints"></a>Video Search 엔드포인트
 **Video Search API**는 세 개의 엔드포인트를 포함합니다.  엔드포인트 1은 쿼리에 따라 웹의 비디오를 반환합니다. 엔드포인트 2는 `modules` URL 매개 변수에 따라 비디오에 대한 인사이트를 반환합니다.  엔드포인트 3은 최신 이미지를 반환합니다.
 
-## <a name="endpoints"></a>Endpoints
+## <a name="endpoints"></a>엔드포인트
 Bing API를 사용하여 비디오 결과를 가져오려면 다음 엔드포인트 중 하나로 `GET` 요청을 보냅니다. 헤더 및 URL 매개 변수를 사용하여 추가 사양을 정의합니다.
 
 **엔드포인트 1**: `?q=""`에서 정의한 사용자의 검색 쿼리와 관련된 비디오를 반환합니다.

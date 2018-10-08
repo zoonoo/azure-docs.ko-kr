@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: maquaran
-ms.openlocfilehash: 7925ef15dc7b3ce25ae919810a5ed2220184fe6e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 5c916f847bf5098145c3ed14fad87c7669d916c8
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700846"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222695"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 소셜 네트워크 디자인
 광범위하게 상호 연결된 사회에서 살고 있다는 것은 삶의 어느 시점에서 **소셜 네트워크**의 일부가 된다는 것을 의미합니다. 소셜 네트워크를 사용하여 친구, 동료, 가족 등과 연락하거나, 때로는 공통의 관심사를 가진 사람들과 열정을 공유합니다.
@@ -134,12 +134,12 @@ Azure Cosmos DB [Gremlin API](../cosmos-db/graph-introduction.md)를 사용하�
 
 사용자 통계 문서는 여전히 UI 또는 빠른 프로필 미리 보기에서 카드를 만드는 데 사용할 수 있습니다.
 
-## <a name="the-ladder-pattern-and-data-duplication"></a>"사다리" 패턴 및 데이터 중복
+## <a name="the-ladder-pattern-and-data-duplication"></a>“사다리” 패턴 및 데이터 중복
 게시물을 참조하는 JSON 문서에서 볼 수 있듯이 하나의 사용자가 여러 번 발생합니다. 이는 이러한 역정규화가 주어진 경우 사용자를 나태는 정보가 여러 곳에 표시될 수 있음을 의미합니다.
 
 데이터 중복이 발생하도록 둔 것은 더 빠른 쿼리를 허용하기 위해서입니다. 그 부작용으로 인한 문제는 일부 작업으로 인해 사용자의 데이터가 변경된 경우 해당 사용자가 지금까지 수행한 모든 활동을 찾아서 모두 업데이트해야 한다는 점입니다. 실용적으로 들리지 않죠, 그렇죠?
 
-각 활동에 대해 응용 프로그램에 표시하는 사용자의 주요 특성을 식별하여 문제를 해결할 수 있습니다. 게시물을 응용 프로그램에 시각적으로 표시하고 만든 사람의 이름과 사진만 표시했을 뿐인데 "createdBy" 특성에 해당 사용자의 모든 데이터가 저장되는 이유는 무엇일까요? 각 의견에 대해 사용자의 사진만 표시하면 나머지 정보는 필요 없습니다. 바로 여기에 "사다리 패턴"이 적용됩니다.
+각 활동에 대해 응용 프로그램에 표시하는 사용자의 주요 특성을 식별하여 문제를 해결할 수 있습니다. 게시물을 응용 프로그램에 시각적으로 표시하고 만든 사람의 이름과 사진만 표시했을 뿐인데 “createdBy” 특성에 해당 사용자의 모든 데이터가 저장되는 이유는 무엇일까요? 각 의견에 대해 사용자의 사진만 표시하면 나머지 정보는 필요 없습니다. 바로 여기에 “사다리 패턴”이 적용됩니다.
 
 다음 사용자 정보를 예로 들어 보겠습니다.
 
@@ -190,7 +190,7 @@ Azure Cosmos DB [Gremlin API](../cosmos-db/graph-introduction.md)를 사용하�
         }
     }
 
-청크의 특성 중 하나가 영향을 받는 곳에서 편집 작업이 수행된 경우 인덱싱된 특성(SELECT * FROM posts p WHERE p.createdBy.id == “edited_user_id”)을 가리키는 쿼리를 사용한 후 청크를 업데이트하여 영향을 받는 문서를 쉽게 찾을 수 있습니다.
+또한 청크의 특성 중 하나가 영향을 받는 곳에서 편집 작업이 수행된 경우 인덱싱된 특성(SELECT * FROM posts p WHERE p.createdBy.id == “edited_user_id”)을 가리키는 쿼리를 사용한 다음, 청크를 업데이트하여 영향을 받는 문서를 쉽게 찾을 수 있습니다.
 
 ## <a name="the-search-box"></a>검색 상자
 다행히 사용자는 많은 콘텐츠를 생성합니다. 우리는 콘텐츠 스트림에 없을 수 있는 콘텐츠를 검색하고 찾을 수 있는 기능을 제공할 수 있어야 합니다. 만든 사람을 추적하지 않거나 6개월 전에 게시한 오래된 게시물을 찾으려고 할 수 있기 때문입니다.

@@ -1,24 +1,27 @@
 ---
-title: 기술 자료, C# 빠른 시작 업데이트 - Azure Cognitive Services | Microsoft Docs
+title: '빠른 시작: C# 업데이트 기술 자료 - QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: QnA Maker용 C#으로 기술 자료를 업데이트하는 방법입니다.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
-ms.openlocfilehash: bac699461e07afc813844bfd59337275a0bbca79
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: c07f2272ed370060fc7334dfe3c52514a726dc33
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "43750526"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035830"
 ---
 # <a name="update-a-knowledge-base-in-c"></a>C#으로 기술 자료 업데이트
 
 다음 코드는 [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) 메서드를 사용하여 기존 기술 자료를 업데이트합니다.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 
 아직 기술 자료가 없는 경우 샘플을 만들어서 빠른 시작: [새 기술 자료 만들기](create-new-kb-csharp.md)에서 사용하면 됩니다.
 

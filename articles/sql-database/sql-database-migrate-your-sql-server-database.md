@@ -2,19 +2,22 @@
 title: DMA를 사용하여 SQL Server DB를 Azure SQL Database로 마이그레이션 | Microsoft Docs
 description: DMA를 사용하여 SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션하는 방법을 알아봅니다.
 services: sql-database
-author: sachinpMSFT
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,migrate
-ms.topic: tutorial
-ms.date: 07/02/2018
-ms.author: carlrab
-ms.openlocfilehash: 1d8ec772293354c059f21aaae8006f5c40540058
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: sachinpMSFT
+ms.author: sachinp
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 58016636dad24b9b7d5278ce89643e6cd8d5be9e
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050207"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162865"
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>DMA를 사용하여 SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션
 
@@ -246,11 +249,11 @@ Azure Portal에 있는 Azure SQL Database 서버의 정규화된 서버 이름�
 
 ## <a name="change-database-properties"></a>데이터베이스 속성 변경
 
-SQL Server Management Studio를 사용하여 서비스 계층, 성능 수준 및 호환성 수준을 변경할 수 있습니다. 가져오기 단계 중에 최고의 성능을 위해 더 높은 성능의 계층 데이터베이스를 가져오는 것이 좋지만, 가져오기가 완료된 후 규모를 축소하여 가져온 데이터베이스를 적극적으로 사용할 준비가 될 때까지 비용을 절약하는 것이 좋습니다. 호환성 수준을 변경하면 Azure SQL Database 서비스의 최신 기능에 대한 성능과 액세스가 향상될 수 있습니다. 이전 데이터베이스를 마이그레이션할 경우 해당 데이터베이스 호환성 수준은 가져오는 데이터베이스와 호환 가능한 가장 낮은 지원 수준으로 유지됩니다. 자세한 내용은 [Azure SQL Database의 호환성 수준 130을 통해 개선된 쿼리 성능](sql-database-compatibility-level-query-performance-130.md)을 참조하세요.
+SQL Server Management Studio를 사용하여 서비스 계층, 계산 크기 및 호환성 수준을 변경할 수 있습니다. 가져오기 단계 중에는 최고의 성능을 위해 더 높은 서비스 계층 또는 계산 크기를 가져오는 것이 좋지만, 가져오기가 완료된 후 규모를 축소하여 가져온 데이터베이스를 적극적으로 사용할 준비가 될 때까지 비용을 절약하는 것이 좋습니다. 호환성 수준을 변경하면 Azure SQL Database 서비스의 최신 기능에 대한 성능과 액세스가 향상될 수 있습니다. 이전 데이터베이스를 마이그레이션할 경우 해당 데이터베이스 호환성 수준은 가져오는 데이터베이스와 호환 가능한 가장 낮은 지원 수준으로 유지됩니다. 자세한 내용은 [Azure SQL Database의 호환성 수준 130을 통해 개선된 쿼리 성능](sql-database-compatibility-level-query-performance-130.md)을 참조하세요.
 
 1. 개체 탐색기에서 **mySampleDatabase**를 마우스 오른쪽 단추로 클릭한 다음 **새 쿼리**를 클릭합니다. 데이터베이스에 연결된 쿼리 창이 열립니다.
 
-2. 다음 명령을 실행하여 서비스 계층을 **Standard**로, 성능 수준을 **S1**로 설정합니다.
+2. 다음 명령을 실행하여 서비스 계층을 **표준**으로, 계산 크기를 **S1**로 설정합니다.
 
     ```sql
     ALTER DATABASE mySampleDatabase 

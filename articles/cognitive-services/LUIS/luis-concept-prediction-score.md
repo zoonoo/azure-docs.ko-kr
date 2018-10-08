@@ -1,20 +1,21 @@
 ---
-title: LUIS에서 반환된 예측 점수 이해 - Azure | Microsoft Docs
+title: LUIS에서 반환된 예측 점수 이해
+titleSuffix: Azure Cognitive Services
 description: LUIS에서 예측 점수가 의미하는 내용 알아보기
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 7412459fca179e7a13d6933f27c2c9ac2d770f33
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: dc19151e82f44159533050e60ba2f1c6d65466fe
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358106"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032240"
 ---
 # <a name="prediction-score"></a>예측 점수
 예측 점수는 예측 결과에 대한 LUIS의 신뢰도를 나타냅니다. 
@@ -40,7 +41,7 @@ ms.locfileid: "39358106"
 점수가 너무 가깝게 매겨진 두 가지 의도는 비결정적 학습으로 인해 반전될 수 있습니다. 최고 점수가 두 번째로 높은 점수가 될 수 있고 두 번째로 높은 점수가 최고 점수가 될 수 있습니다. 이를 방지하려면 두 가지 의도를 구분하는 상황 및 단어를 선택하여 해당 발언의 최고 두 가지 의도 각각에 대해 예제 발언을 추가합니다. 두 가지 의도에는 동일한 수의 예제 발언이 있어야 합니다. 학습으로 인한 반전을 방지할 수 있는 일반적인 분리 기준은 15%의 점수 차이입니다.
 
 ## <a name="return-prediction-score-for-all-intents"></a>모든 의도의 예측 점수 반환
-테스트 또는 끝점 결과에는 모든 의도가 포함될 수 있습니다. 이 구성은 [끝점](https://aka.ms/v1-endpoint-api-docs)에서 `verbose=true` 쿼리 문자열 이름/값 쌍을 사용하여 설정됩니다. 
+테스트 또는 엔드포인트 결과에는 모든 의도가 포함될 수 있습니다. 이 구성은 [엔드포인트](https://aka.ms/v1-endpoint-api-docs)에서 `verbose=true` 쿼리 문자열 이름/값 쌍을 사용하여 설정됩니다. 
 
 ## <a name="review-intents-with-similar-scores"></a>유사한 점수를 가진 의도 검토
 올바른 의도가 식별되는지, 다음 식별된 의도의 점수가 여러 발화에 일관되게 상당히 더 낮은지 확인하려면 모든 의도의 점수를 검토하는 것이 좋습니다. 

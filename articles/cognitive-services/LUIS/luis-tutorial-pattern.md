@@ -1,76 +1,56 @@
 ---
-title: 패턴을 사용하여 LUIS 예측을 개선하는 방법의 자습서 - Azure | Microsoft Docs
-titleSuffix: Cognitive Services
-description: 이 자습서에서는 의도 패턴을 사용하여 LUIS 의도 및 엔터티 예측을 개선합니다.
+title: '자습서 3: 패턴을 사용하여 LUIS 예측 향상'
+titleSuffix: Azure Cognitive Services
+description: 패턴을 사용하여 의도 및 엔터티 예측을 높이는 한편 발화 예제를 줄입니다. 패턴은 엔터티 및 무시 가능한 텍스트를 식별하는 구문을 포함하는 템플릿 발언 예제를 통해 제공됩니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 9c14f2121cd83cec802f4fd4a92661d58eb7efb3
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f4b267dda3c05d490d91fe02fbcfde4e49674603
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159575"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166404"
 ---
-# <a name="tutorial-improve-app-with-patterns"></a>자습서: 패턴을 사용하여 앱 개선
+# <a name="tutorial-3-add-common-utterance-formats"></a>자습서 3: 일반적인 발화 형식 추가
 
-이 자습서에서는 패턴을 사용하여 의도 및 엔터티 예측을 확장합니다.  
+이 자습서에서는 패턴을 사용하여 의도 및 엔터티 예측을 높이는 한편 발화 예제를 줄입니다. 패턴은 엔터티 및 무시 가능한 텍스트를 식별하는 구문을 포함하는 템플릿 발언 예제를 통해 제공됩니다. 패턴은 식 일치 및 기계 학습의 조합입니다.  의도 발언과 함께 템플릿 발언 예제는 의도에 맞는 발언을 LUIS가 더 잘 이해하도록 합니다. 
+
+**이 자습서에서 학습할 내용은 다음과 같습니다.**
 
 > [!div class="checklist"]
-* 패턴이 앱에 도움이 되는지 식별하는 방법
-* 패턴을 만드는 방법
-* 패턴 예측 개선 사항을 확인하는 방법
+> * 기존 자습서 앱 사용 
+> * 의도 만들기
+> * 학습
+> * 게시
+> * 엔드포인트에서 의도 및 엔터티 가져오기
+> * 패턴 만들기
+> * 향상된 패턴 예측 기능 확인
+> * 무시 가능한 텍스트로 표시 및 패턴 내 중첩
+> * 테스트 패널을 사용하여 패턴 성공 확인
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="use-existing-app"></a>기존 앱 사용
 
-[일괄 테스트](luis-tutorial-batch-testing.md) 자습서의 Human Resources 앱이 없으면 JSON을 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 새 앱으로 [가져옵니다](luis-how-to-start-new-app.md#import-new-app). 가져올 앱은 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-batchtest-HumanResources.json) GitHub 리포지토리에 있습니다.
+마지막 자습서에서 만든 **HumanResources**라는 앱을 사용하여 계속 진행합니다. 
 
-원래의 인사 관리 앱을 유지하려면 [설정](luis-how-to-manage-versions.md#clone-a-version) 페이지에서 버전을 복제하고 해당 이름을 `patterns`로 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 
+이전 자습서의 HumanResources 앱이 없으면 다음 단계를 사용합니다.
 
-## <a name="patterns-teach-luis-common-utterances-with-fewer-examples"></a>패턴을 사용하면 더 적은 예제로 LUIS에 일반 발화를 학습시킬 수 있습니다.
+1.  [앱 JSON 파일](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json)을 다운로드하고 저장합니다.
 
-Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻는 몇 가지 일반적인 방법이 있습니다. 예: 
+2. JSON을 새 앱으로 가져옵니다.
 
-|발언|
-|--|
-|Who does Jill Jones report to?|
-|Who reports to Jill Jones?|
-
-이러한 발화가 너무 가까워서 많은 발화 예제를 제공하지 않고는 각각의 컨텍스트 고유성을 확인하기가 어렵습니다. 의도 패턴을 추가하면 LUIS는 많은 발화 예제를 제공하지 않고도 의도의 일반적인 발화 패턴을 학습합니다. 
-
-이 의도의 예제 템플릿 발화는 다음과 같습니다.
-
-|예제 템플릿 발언|
-|--|
-|Who does {Employee} report to?|
-|Who reports to {Employee}?|
-
-패턴은 엔터티 및 무시 가능한 텍스트를 식별하는 구문을 포함하는 템플릿 발언 예제를 통해 제공됩니다. 패턴은 정규식 일치 및 기계 학습의 조합입니다.  의도 발언과 함께 템플릿 발언 예제는 의도에 맞는 발언을 LUIS가 더 잘 이해하도록 합니다.
-
-패턴이 발언에 일치되도록 하기 위해 발언 내의 엔터티가 먼저 템플릿 발언의 엔터티와 일치되어야 합니다. 그러나 의도와 달리 템플릿은 엔터티 예측에 도움이 되지 않습니다. 
-
-**패턴을 사용하면 몇 가지 예제 발언을 제공할 수 있지만 엔터티가 검색되지 않으면 패턴이 일치되지 않습니다.**
-
-[목록 엔터티 자습서](luis-quickstart-intent-and-list-entity.md)에서 직원이 생성되었다는 사실을 기억하세요.
+3. **관리** 섹션의 **버전** 탭에서 버전을 복제하고 `patterns`라는 이름을 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 버전 이름이 URL 경로의 일부로 사용되므로 이름에는 URL에 유효하지 않은 문자가 포함될 수 없습니다.
 
 ## <a name="create-new-intents-and-their-utterances"></a>새 의도 및 해당 발언 만들기
 
-두 개의 새로운 의도 `OrgChart-Manager` 및 `OrgChart-Reports`를 추가합니다. LUIS가 클라이언트 앱에 예측을 반환하면, 의도 이름을 클라이언트 앱에서 함수 이름으로 사용할 수 있으며 Employee 엔터티는 해당 함수의 매개 변수로 사용할 수 있습니다.
-
-```Javascript
-OrgChart-Manager(employee){
-    ///
-}
-```
-
-1. 인사 관리 앱이 LUIS의 **빌드** 섹션에 있는지 확인합니다. 오른쪽 위의 메뉴 표시줄에서 **빌드**를 선택하여 이 섹션으로 변경할 수 있습니다. 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. **의도** 페이지에서 **새 의도 만들기**를 선택합니다. 
 
@@ -110,17 +90,17 @@ OrgChart-Manager(employee){
 
 ## <a name="caution-about-example-utterance-quantity"></a>예제 발언 수에 대한 주의 사항
 
-이러한 의도에서 예제 발언의 수가 LUIS를 제대로 학습시키는 데 충분하지 않습니다. 실제 앱에서 각 의도에는 다양한 단어 선택 사항 및 발언 길이를 갖는 15개 이상의 발언이 필요합니다. 이러한 몇 가지 발언은 패턴을 강조 표시하기 위해 특별히 선택된 것입니다. 
+[!include[Too few examples](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]
 
-## <a name="train-the-luis-app"></a>LUIS 앱 학습
+## <a name="train"></a>학습
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>앱을 게시하여 엔드포인트 URL 가져오기
+## <a name="publish"></a>게시
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>다른 발화를 사용하여 엔드포인트 쿼리
+## <a name="get-intent-and-entities-from-endpoint"></a>엔드포인트에서 의도 및 엔터티 가져오기
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -215,13 +195,53 @@ OrgChart-Manager(employee){
 
 두 번째 브라우저 창을 열어 둡니다. 자습서에서 나중에 다시 사용합니다. 
 
-## <a name="add-the-template-utterances"></a>템플릿 발화 추가
+## <a name="template-utterances"></a>템플릿 발언
+Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻는 몇 가지 일반적인 방법이 있습니다. 예: 
+
+|발언|
+|--|
+|Who does Jill Jones report to?|
+|Who reports to Jill Jones?|
+
+이러한 발화가 너무 가까워서 많은 발화 예제를 제공하지 않고는 각각의 컨텍스트 고유성을 확인하기가 어렵습니다. 의도 패턴을 추가하면 LUIS는 많은 발화 예제를 제공하지 않고도 의도의 일반적인 발화 패턴을 학습합니다. 
+
+이 의도에 대한 템플릿 발화 예제는 다음과 같습니다.
+
+|템플릿 발화 예제|구문 의미|
+|--|--|
+|Who does {Employee} report to[?]|interchangeable {Employee}, ignore [?]}|
+|Who reports to {Employee}[?]|interchangeable {Employee}, ignore [?]}|
+
+`{Employee}` 구문은 템플릿 발화 내의 엔터티 위치 및 엔터티 형식을 표시합니다. 선택적인 `[?]` 구문은 선택적인 단어 또는 문장 부호를 표시합니다. LUIS는 대괄호로 묶인 선택적 텍스트는 무시하고 발언을 일치시킵니다.
+
+구문은 정규식처럼 보이지만 정규식이 아닙니다. 중괄호(`{}`) 및 대괄호(`[]`) 구문만 지원됩니다. 최대 두 수준까지 중첩될 수 있습니다.
+
+패턴이 발언에 일치되도록 하기 위해 발언 내의 엔터티가 먼저 템플릿 발언의 엔터티와 일치되어야 합니다. 그러나 의도와 달리 템플릿은 엔터티 예측에 도움이 되지 않습니다. 
+
+**패턴을 사용하면 몇 가지 예제 발언을 제공할 수 있지만 엔터티가 검색되지 않으면 패턴이 일치되지 않습니다.**
+
+이 자습서에서는 두 가지 새 의도인 `OrgChart-Manager`과 `OrgChart-Reports`를 추가합니다. 
+
+|의도|발화|
+|--|--|
+|OrgChart-Manager|Who does Jill Jones report to?|
+|OrgChart-Reports|Who reports to Jill Jones?|
+
+LUIS가 클라이언트 앱에 예측을 반환하면, 의도 이름을 클라이언트 앱에서 함수 이름으로 사용할 수 있으며 Employee 엔터티는 해당 함수의 매개 변수로 사용할 수 있습니다.
+
+```Javascript
+OrgChartManager(employee){
+    ///
+}
+```
+
+[목록 엔터티 자습서](luis-quickstart-intent-and-list-entity.md)에서 직원이 생성되었다는 사실을 기억하세요.
 
 1. 위쪽 메뉴에서 **빌드**를 선택합니다.
 
 2. 왼쪽 탐색의 **앱 성능 개선** 아래에서 왼쪽 탐색의 **패턴**을 선택합니다.
 
-3. **OrgChart-Manager** 의도를 선택하고 다음 템플릿 발언을 한 번에 하나씩 입력하고 각 템플릿 발언을 입력한 후에는 Enter 키를 누릅니다.
+3. **OrgChart-Manager** 의도를 선택하고, 다음 템플릿 발화를 입력합니다.
 
     |템플릿 발언|
     |:--|
@@ -232,17 +252,13 @@ OrgChart-Manager(employee){
     |Who is {Employee}['s] supervisor[?]|
     |Who is the boss of {Employee}[?]|
 
-    `{Employee}` 구문은 템플릿 발화 내의 엔터티 위치 및 엔터티 형식을 표시합니다. 
-
     역할이 있는 엔터티는 역할 이름을 포함하는 구문을 사용하며, [역할에 대한 별도 자습서](luis-tutorial-pattern-roles.md)에서 설명됩니다. 
-
-    선택적 구문 `[]`은 선택적인 단어 또는 문장 부호에 표시를 합니다. LUIS는 대괄호로 묶인 선택적 텍스트는 무시하고 발언을 일치시킵니다.
 
     템플릿 발언을 입력할 때 왼쪽 중괄호 `{`를 입력하면 LUIS는 엔터티를 채우는 데 도움을 줍니다.
 
     [![의도에 대한 템플릿 발언을 입력하는 스크린샷](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
 
-4. **OrgChart-Reports** 의도를 선택하고 다음 템플릿 발언을 한 번에 하나씩 입력하고 각 템플릿 발언을 입력한 후에는 Enter 키를 누릅니다.
+4. **OrgChart-Reports** 의도를 선택하고, 다음 템플릿 발화를 입력합니다.
 
     |템플릿 발언|
     |:--|
@@ -427,6 +443,8 @@ OrgChart-Manager(employee){
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
+
+이 자습서에서는 많은 발화 예제 없이 높은 정확도로 예측하기 어려운 발화에 대한 두 가지 의도를 추가합니다. 허용되는 이러한 LUIS 패턴을 추가하여 훨씬 높은 점수로 의도를 더 잘 예측할 수 있습니다. 엔터티와 무시 가능한 텍스트를 표시하면 LUIS에서 더 다양한 발화에 패턴을 적용할 수 있었습니다.
 
 > [!div class="nextstepaction"]
 > [패턴과 함께 역할을 사용하는 방법 알아보기](luis-tutorial-pattern-roles.md)

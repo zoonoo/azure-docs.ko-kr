@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c0c215c4c599bbd5551891cdf6f999719983d31e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7208eb112b5f4a5b458c0374541dff113906aa0c
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060672"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47185291"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
@@ -144,6 +144,9 @@ Azure Managed Disks에서는 현재 로컬 중복 저장소 Managed Disks만 지
 
 <a id="standard-ssds-azure-regions"></a>**현재 표준 SSD 디스크가 지원되는 지역은 어디입니까?**
 이제 모든 Azure 지역에서 표준 SSD 디스크를 지원합니다.
+
+**표준 SSD를 사용하는 경우 Azure Backup을 사용할 수 있나요?**
+아니요, Azure Backup은 아직 사용할 수 없습니다.
 
 **표준 SSD 디스크를 만드는 방법**
 Azure Resource Manager 템플릿, SDK, PowerShell 또는 CLI를 사용하여 표준 SSD 디스크를 만들 수 있습니다. 다음은 Resource Manager 템플릿에서 표준 SSD 디스크를 만드는 데 필요한 매개 변수입니다.

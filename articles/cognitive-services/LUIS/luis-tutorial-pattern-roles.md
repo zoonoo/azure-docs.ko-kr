@@ -1,80 +1,70 @@
 ---
-title: 패턴 역할을 사용하여 LUIS 예측을 개선하는 방법의 자습서 - Azure | Microsoft Docs
-titleSuffix: Cognitive Services
-description: 이 자습서에서는 문맥상 관련이 있는 엔터티에 대해 패턴 역할을 사용하여 LUIS 예측을 개선합니다.
+title: '자습서 4: 컨텍스트 관련 데이터에 대한 패턴 역할'
+titleSuffix: Azure Cognitive Services
+description: 적절한 형식의 템플릿 발언에서 데이터를 추출하는 패턴을 사용합니다. 템플릿 발언은 간단한 엔터티와 역할을 사용하여 원본 위치 및 대상 위치 같은 관련 데이터를 추출합니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 6f3e7c9db7bbdb6bc24d123208355fc7a1d8e7e8
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 2c3705d28d6496c3d20999231de98572bc26e3be
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161937"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160250"
 ---
-# <a name="tutorial-improve-app-with-pattern-roles"></a>자습서: 패턴 역할을 사용하여 앱 개선
+# <a name="tutorial-4-extract-contextually-related-patterns"></a>자습서 4: 컨텍스트 관련 패턴 추출
 
-이 자습서에서는 역할과 패턴이 결합된 단순 엔터티를 사용하여 의도 및 엔터티 예측을 높입니다.  패턴을 사용할 경우 의도에 더 적은 수의 예제 발언이 필요합니다.
+이 자습서에서는 적절한 형식의 템플릿 발언에서 데이터를 추출하는 패턴을 사용합니다. 템플릿 발언은 간단한 엔터티와 역할을 사용하여 원본 위치 및 대상 위치 같은 관련 데이터를 추출합니다.  패턴을 사용할 경우 의도에 더 적은 수의 예제 발언이 필요합니다.
 
-> [!div class="checklist"]
-* 패턴 역할 이해
-* 역할과 함께 단순 엔터티 사용 
-* 역할과 함께 단순 엔터티를 사용하여 발언에 대한 패턴 만들기
-* 패턴 예측 개선 사항을 확인하는 방법
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>시작하기 전에
-[패턴](luis-tutorial-pattern.md) 자습서의 Human Resources 앱이 없는 경우 JSON을 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 새 앱으로 [가져옵니다](luis-how-to-start-new-app.md#import-new-app). 가져올 앱은 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-patterns-HumanResources-v2.json) GitHub 리포지토리에 있습니다.
-
-원래의 인사 관리 앱을 유지하려면 [설정](luis-how-to-manage-versions.md#clone-a-version) 페이지에서 버전을 복제하고 해당 이름을 `roles`로 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 
-
-## <a name="the-purpose-of-roles"></a>역할의 용도
 역할의 용도는 발언에서 문맥상 관련이 있는 엔터티를 추출하는 것입니다. 발언 `Move new employee Robert Williams from Sacramento and San Francisco`에서 출발지 도시 및 목적지 도시 값은 서로 관련이 있으며 일반적인 언어를 사용해서 각 위치를 나타냅니다. 
 
-패턴을 사용할 경우 패턴의 모든 엔터티가 _먼저_ 검색되어야 패턴이 발언과 일치됩니다. 
 
-패턴을 만들 경우 첫 번째 단계는 패턴의 의도를 선택하는 것입니다. 의도를 선택하면 패턴이 일치할 경우 올바른 의도가 항상 높은 점수로 반환됩니다(일반적으로 99~100%). 
-
-### <a name="compare-hierarchical-entity-to-simple-entity-with-roles"></a>역할을 사용하여 계층 구조 엔터티를 단순 엔터티와 비교
-
-[계층 구조 자습서](luis-quickstart-intent-and-hier-entity.md)에서 **MoveEmployee** 의도는 기존 직원을 한 건물에서 다른 건물의 사무실로 이전할 시기를 감지했습니다. 예제 발언에는 출발지 및 목적지 위치가 있었지만 역할은 사용하지 않았습니다. 대신, 출발지 및 목적지는 계층 구조 엔터티의 자식이었습니다. 
-
-이 자습서에서 Human Resources 앱은 새 직원을 한 도시에서 다른 도시로 이전하는 것에 대한 발언을 검색합니다. 이러한 두 가지 유형의 발언은 유사하지만 다른 LUIS 기능을 사용하여 해결됩니다.
-
-|자습서|예제 발화|출발지 및 목적지 위치|
-|--|--|--|
-|[계층 구조(역할 없음)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from **a-2349** to **b-1298**|a-2349, b-1298|
-|이 자습서(역할 있음)|Move Billy Patterson from **Yuma** to **Denver**.|Yuma, Denver|
-
-패턴에서는 계층적 부모만 사용되므로 패턴에서 계층 구조 엔터티를 사용할 수 없습니다. 출발지 및 목적지의 명명된 위치를 반환하기 위해서는 패턴을 사용해야 합니다.
-
-### <a name="simple-entity-for-new-employee-name"></a>새 직원 이름에 대한 단순 엔터티
 새 직원의 이름인 Billy Patterson은 아직 **Employee** 목록 엔터티에 속하지 않습니다. 이름을 외부 시스템으로 전송하여 회사 자격 증명을 만들기 위해 먼저 새 직원 이름이 추출됩니다. 회사 자격 증명이 만들어진 후에는 직원 자격 증명이 **Employee** 목록 엔터티에 추가됩니다.
 
-**Employee** 목록은 [목록 자습서](luis-quickstart-intent-and-list-entity.md)에서 만들어졌습니다.
-
-**NewEmployee** 엔터티는 역할이 없는 단순 엔터티입니다. 
-
-### <a name="simple-entity-with-roles-for-relocation-cities"></a>재배치 도시 역할이 있는 단순 엔터티
 새 직원과 가족은 도시에서 가상의 회사가 있는 도시로 이사해야 합니다. 새 직원는 어떤 도시에서도 올 수 있으므로 위치를 검색해야 합니다. 목록의 도시만 추출될 수 있으므로 목록 엔터티 같은 설정된 목록은 작동하지 않습니다.
 
-출발지 및 목적지 도시와 연결된 역할 이름은 모든 엔터티에서 고유해야 합니다. 역할을 고유하게 유지하는 쉬운 방법은 명명 전략을 통해 포함하는 엔터티와 연결하는 것입니다. **NewEmployeeRelocation** 엔터티는 두 가지 역할, **NewEmployeeReloOrigin** 및 **NewEmployeeReloDestination**을 갖는 단순 엔터티입니다.
+출발지 및 목적지 도시와 연결된 역할 이름은 모든 엔터티에서 고유해야 합니다. 역할을 고유하게 유지하는 쉬운 방법은 명명 전략을 통해 포함하는 엔터티와 연결하는 것입니다. **NewEmployeeRelocation** 엔터티는 두 가지 역할, **NewEmployeeReloOrigin** 및 **NewEmployeeReloDestination**을 갖는 단순 엔터티입니다. Relo는 relocation의 약어입니다.
 
-### <a name="simple-entities-need-enough-examples-to-be-detected"></a>단순 엔터티는 검색되려면 충분한 예제가 필요합니다.
 예제 발언 `Move new employee Robert Williams from Sacramento and San Francisco`에는 기계 학습된 엔터티만 있으므로 엔터티가 검색되기 위해 의도에 충분한 예제 발언을 제공하는 것이 중요합니다.  
 
 **패턴을 사용하면 몇 가지 예제 발언을 제공할 수 있지만 엔터티가 검색되지 않으면 패턴이 일치되지 않습니다.**
 
 이것은 도시와 같은 이름이므로 단순 엔터티를 검색하는 데 문제가 있는 경우 비슷한 값의 구 목록을 추가하는 것이 좋습니다. 이렇게 하면 LUIS에 해당 형식의 단어 또는 구에 대한 추가 신호를 제공하여 도시 이름 검색에 도움을 줍니다. 구 목록은 패턴이 일치하는 데 필요한 엔터티 검색에 도움을 주는 방식으로만 패턴을 지원합니다. 
 
+**이 자습서에서는 다음 방법에 대해 알아봅니다.**
+
+> [!div class="checklist"]
+> * 기존 자습서 앱 사용
+> * 새 엔터티 만들기
+> * 새 의도 만들기
+> * 학습
+> * 게시
+> * 엔드포인트에서 의도 및 엔터티 가져오기
+> * 역할을 사용하여 패턴 만들기
+> * 도시 구 목록 만들기
+> * 엔드포인트에서 의도 및 엔터티 가져오기
+
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>기존 앱 사용
+마지막 자습서에서 만든 **HumanResources**라는 앱을 사용하여 계속 진행합니다. 
+
+이전 자습서의 HumanResources 앱이 없으면 다음 단계를 사용합니다.
+
+1.  [앱 JSON 파일](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json)을 다운로드하고 저장합니다.
+
+2. JSON을 새 앱으로 가져옵니다.
+
+3. **관리** 섹션의 **버전** 탭에서 버전을 복제하고 `roles`라는 이름을 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 버전 이름이 URL 경로의 일부로 사용되므로 이름에는 URL에 유효하지 않은 문자가 포함될 수 없습니다.
+
 ## <a name="create-new-entities"></a>새 엔터티 만들기
-1. 위쪽 메뉴에서 **빌드**를 선택합니다.
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. 왼쪽 탐색 영역에서 **엔터티**를 선택합니다. 
 
@@ -124,15 +114,15 @@ ms.locfileid: "44161937"
 
     keyPhrase 엔터티를 제거한 경우 지금 앱에 다시 추가합니다.
 
-## <a name="train-the-luis-app"></a>LUIS 앱 학습
+## <a name="train"></a>학습
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>앱을 게시하여 엔드포인트 URL 가져오기
+## <a name="publish"></a>게시
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-without-pattern"></a>패턴 없이 끝점 쿼리
+## <a name="get-intent-and-entities-from-endpoint"></a>엔드포인트에서 의도 및 엔터티 가져오기
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
@@ -224,9 +214,12 @@ ms.locfileid: "44161937"
 
 의도 예측 점수는 약 50%입니다. 클라이언트 응용 프로그램이 더 높은 점수를 원할 경우 수정해야 합니다. 두 경우 모두 엔터티는 예측되지 않았습니다.
 
+위치 중 하나가 추출되었지만 다른 위치는 추출되지 않았습니다. 
+
 패턴은 예측 점수에 도움이 되지만, 패턴이 발언을 일치시키려면 먼저 엔터티가 올바르게 예측되어야 합니다. 
 
-## <a name="add-a-pattern-that-uses-roles"></a>역할을 사용하는 패턴 추가
+## <a name="pattern-with-roles"></a>역할을 사용하는 패턴
+
 1. 위쪽 탐색 영역에서 **빌드**를 선택합니다.
 
 2. 왼쪽 탐색 영역에서 **패턴**을 선택합니다.
@@ -237,8 +230,8 @@ ms.locfileid: "44161937"
 
     끝점을 학습, 게시 및 쿼리하는 경우 엔터티를 찾을 수 없어서 실망할 수 있습니다. 이 경우 패턴이 일치되지 않으므로 예측이 개선되지 않았을 것입니다. 이러한 상황은 엔터티에 레이블이 지정된 충분한 수의 예제 발언이 없을 때 나타납니다. 더 많은 예제를 추가하는 대신, 구 목록을 추가하여 이 문제를 해결하세요.
 
-## <a name="create-a-phrase-list-for-cities"></a>도시에 대한 구 목록 만들기
-사람의 이름처럼 도시는 단어 및 문장 부호의 어떤 혼합으로도 이루어질 수 있으므로 까다로운 항목입니다. 하지만 국가/지역 및 전 세계의 도시가 알려져 있으므로 LUIS에는 학습을 시작할 도시의 구 목록이 필요합니다. 
+## <a name="cities-phrase-list"></a>도시 구 목록
+사람의 이름처럼 도시는 단어 및 문장 부호의 어떤 혼합으로도 이루어질 수 있으므로 까다로운 항목입니다. 국가/지역 및 전 세계의 도시가 알려져 있으므로 LUIS에는 학습을 시작할 도시의 구 목록이 필요합니다. 
 
 1. 왼쪽 메뉴의 **앱 성능 개선** 섹션에서 **구 목록**을 선택합니다. 
 
@@ -255,18 +248,15 @@ ms.locfileid: "44161937"
     |마이애미|
     |댈러스|
 
-    전 세계의 모든 도시 또는 국가/지역의 모든 도시를 추가하지는 마세요. LUIS는 목록에 있는 도시를 일반화할 수 있어야 합니다. 
-
-    **서로 교환 가능한 값**을 선택해야 합니다. 이 설정에서는 목록의 단어가 동의어로 처리됩니다. 패턴에서 단어가 취급되는 방식과 같습니다.
-
-    이 자습서 시리즈가 구 목록을 [마지막으로 만든 시기](luis-quickstart-primary-and-secondary-data.md)에도 단순 엔터티의 엔터티 검색이 급증했습니다.  
+    전 세계의 모든 도시 또는 국가/지역의 모든 도시를 추가하지는 마세요. LUIS는 목록에 있는 도시를 일반화할 수 있어야 합니다. **서로 교환 가능한 값**을 선택해야 합니다. 이 설정에서는 목록의 단어가 동의어로 처리됩니다. 
 
 3. 앱을 학습하고 게시합니다.
 
-## <a name="query-endpoint-for-pattern"></a>패턴에서 끝점 쿼리
-1. **게시** 페이지의 아래쪽에서 **엔드포인트** 링크를 선택합니다. 그러면 주소 표시줄에 엔드포인트 URL이 있는 다른 브라우저 창이 열립니다. 
+## <a name="get-intent-and-entities-from-endpoint"></a>엔드포인트에서 의도 및 엔터티 가져오기
 
-2. 주소의 URL 끝으로 이동하고 `Move wayne berry from miami to mount vernon`을 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+
+2. 주소의 URL 끝으로 이동하고 `Move wayne berry from miami to mount vernon`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 
 
     ```JSON
     {
@@ -380,11 +370,24 @@ ms.locfileid: "44161937"
 
 이제 의도 점수는 훨씬 더 높고 역할 이름은 엔터티 응답의 일부입니다.
 
+## <a name="hierarchical-entities-versus-roles"></a>계층 구조 엔터티와 역할의 비교
+
+[계층 구조 자습서](luis-quickstart-intent-and-hier-entity.md)에서 **MoveEmployee** 의도는 기존 직원을 한 건물에서 다른 건물의 사무실로 이전할 시기를 감지했습니다. 예제 발언에는 출발지 및 목적지 위치가 있었지만 역할은 사용하지 않았습니다. 대신, 출발지 및 목적지는 계층 구조 엔터티의 자식이었습니다. 
+
+이 자습서에서 Human Resources 앱은 새 직원을 한 도시에서 다른 도시로 이전하는 것에 대한 발언을 검색합니다. 이러한 두 가지 유형의 발언은 동일하지만 다른 LUIS 기능을 사용하여 해결됩니다.
+
+|자습서|예제 발화|출발지 및 목적지 위치|
+|--|--|--|
+|[계층 구조(역할 없음)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from **a-2349** to **b-1298**|a-2349, b-1298|
+|이 자습서(역할 있음)|Move Billy Patterson from **Yuma** to **Denver**.|Yuma, Denver|
+
 ## <a name="clean-up-resources"></a>리소스 정리
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
+
+이 자습서에서는 역할을 사용하는 엔터티와 예제 발언을 사용하는 의도를 추가했습니다. 엔터티를 사용하는 첫 번째 엔드포인트 예측은 의도를 올바르게 예측했지만 신뢰성 점수가 낮았습니다. 두 엔터티 중 하나만 검색되었습니다. 다음으로, 이 자습서에서는 엔터티 역할을 사용하는 패턴을 추가하고, 발언에서 도시 이름 값을 높이는 구 목록을 추가했습니다. 두 번째 엔드포인트 예측은 신뢰성 높은 점수를 반환하고 두 엔터티 역할을 모두 찾았습니다. 
 
 > [!div class="nextstepaction"]
 > [LUIS 앱에 대한 모범 사례 알아보기](luis-concept-best-practices.md)

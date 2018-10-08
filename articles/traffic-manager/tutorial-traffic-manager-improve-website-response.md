@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: kumud
-ms.openlocfilehash: 89518d30b862e18fb7c989c95144ffa7f1c294fc
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 087dcda5826d96ad064c472fc897be7e61133387
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40024858"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392517"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>자습서: Traffic Manager를 사용하여 웹 응답 개선 
 
@@ -61,7 +61,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
     |설정|값|
     |---|---|
-    |Name|myIISVMEastUS|
+    |이름|myIISVMEastUS|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
     |리소스 그룹| **새로 만들기**를 선택한 다음, *myResourceGroupTM1*을 입력합니다.|
@@ -135,7 +135,7 @@ Traffic Manager는 서비스 엔드포인트의 DNS 이름을 기반으로 사�
 
     |설정|값|
     |---|---|
-    |Name|myVMEastUS|
+    |이름|myVMEastUS|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
     |리소스 그룹| **기존 항목 사용**을 선택한 다음, *myResourceGroupTM1*을 선택합니다.|
@@ -170,8 +170,8 @@ Traffic Manager는 서비스 엔드포인트의 DNS 이름을 기반으로 사�
 2. **Traffic Manager 프로필 만들기**에서 다음 정보를 입력하거나 선택하고, 나머지 설정은 기본값을 그대로 적용한 다음, **만들기**를 선택합니다.
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
-    | Name                   | 이 이름은 trafficmanager.net 영역 내에서 고유해야 하며 DNS 이름, trafficmanager.net 형식으로 나타나고, Traffic Manager 프로필에 액세스하는 데 사용됩니다.                                   |
-    | 라우팅 방법          | **우선 순위** 라우팅 방법을 선택합니다.                                       |
+    | 이름                   | 이 이름은 trafficmanager.net 영역 내에서 고유해야 하며 DNS 이름, trafficmanager.net 형식으로 나타나고, Traffic Manager 프로필에 액세스하는 데 사용됩니다.                                   |
+    | 라우팅 방법          | **성능** 라우팅 방법을 선택합니다.                                       |
     | 구독            | 구독을 선택합니다.                          |
     | 리소스 그룹          | **새로 만들기**를 선택하고, *myResourceGroupTM1*을 입력합니다. |
     | 위치                | **미국 동부**를 선택합니다.  이 설정은 리소스 그룹의 위치를 나타내며 전역적으로 배포되는 Traffic Manager 프로필에는 영향을 미치지 않습니다.                              |
@@ -179,7 +179,7 @@ Traffic Manager는 서비스 엔드포인트의 DNS 이름을 기반으로 사�
   
     ![Traffic Manager 프로필 만들기](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-profile.png)
 
-## <a name="add-traffic-manager-endpoints"></a>Traffic Manager 끝점 추가
+## <a name="add-traffic-manager-endpoints"></a>Traffic Manager 엔드포인트 추가
 
 IIS 서버를 실행하는 두 개의 VM, *myIISVMEastUS*  & *myIISVMWEurope*을 추가하여 사용자에게 가장 가까운 엔드포인트로 사용자 트래픽을 라우팅합니다.
 
@@ -190,7 +190,7 @@ IIS 서버를 실행하는 두 개의 VM, *myIISVMEastUS*  & *myIISVMWEurope*을
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
     | type                    | Azure 엔드포인트                                   |
-    | Name           | myEastUSEndpoint                                        |
+    | 이름           | myEastUSEndpoint                                        |
     | 대상 리소스 종류           | 공용 IP 주소                          |
     | 대상 리소스          | **공용 IP 주소를 선택**하여 동일한 구독에 속하는 공용 IP 주소가 있는 리소스 목록을 표시합니다. **리소스**에서 *myIISVMEastUS-ip*라는 이름의 공용 IP 주소를 선택합니다. 이것은 미국 동부에 있는 IIS 서버 VM의 공용 IP 주소입니다.|
     |        |           |
@@ -198,7 +198,7 @@ IIS 서버를 실행하는 두 개의 VM, *myIISVMEastUS*  & *myIISVMWEurope*을
 4. 2단계와 3단계를 반복하여 *myIISVMWEurope*라는 이름의 IIS 서버 VM과 연결된 공용 IP 주소 *myIISVMWEurope-ip*에 대해 *myWestEuropeEndpoint*라는 이름의 또 다른 엔드포인트를 추가합니다.
 5.  두 엔드포인트 추가가 완료되면 **온라인**인 모니터링 상태와 함께 **Traffic Manager 프로필**에 표시됩니다.
 
-    ![Traffic Manager 끝점 추가](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-endpoint.png)
+    ![Traffic Manager 엔드포인트 추가](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-endpoint.png)
   
 
 ## <a name="test-traffic-manager-profile"></a>Traffic Manager 프로필 테스트

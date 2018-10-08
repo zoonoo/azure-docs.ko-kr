@@ -2,30 +2,26 @@
 title: PowerShell 예제 Azure SQL Database 이동 SQL 탄력적 풀 | Microsoft Docs
 description: PowerShell을 사용하여 탄력적 풀 간에 SQL Database를 이동하는 Azure PowerShell 스크립트 샘플
 services: sql-database
-documentationcenter: sql-database
-author: CarlRabeler
-manager: craigg
-editor: carlrab
-tags: azure-service-management
-ms.assetid: ''
 ms.service: sql-database
-ms.custom: monitor & tune, mvc
+ms.subservice: data-movement
+ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: sql-database
-ms.workload: database
-ms.date: 09/07/2018
+author: CarlRabeler
+ms.reviewer: ''
 ms.author: carlrab
-ms.openlocfilehash: 55ba42bda592652b7921df5f25f9b5747fc9baf2
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: e71c1b1f184fe5c240e258295c144db405e25527
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049474"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054832"
 ---
 # <a name="use-powershell-to-create-elastic-pools-and-move-databases-between-elastic-pools"></a>PowerShell을 사용한 탄력적 풀 만들기 및 탄력적 풀 간에 데이터베이스 이동
 
-이 PowerShell 스크립트 예제는 두 개의 탄력적 풀을 만들고 한 탄력적 풀에서 다른 탄력적 풀로 데이터베이스를 이동한 다음 탄력적 풀에서 단일 데이터베이스 성능 수준으로 데이터베이스를 이동합니다. 
+이 PowerShell 스크립트 예제는 두 개의 탄력적 풀을 만들고 한 탄력적 풀에서 다른 탄력적 풀로 데이터베이스를 이동한 다음 탄력적 풀에서 단일 데이터베이스 계산 크기로 데이터베이스를 이동합니다. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]

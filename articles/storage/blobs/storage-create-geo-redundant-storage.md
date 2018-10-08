@@ -9,14 +9,14 @@ ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: mvc
 ms.component: blobs
-ms.openlocfilehash: b3916fb0de48f30bd4809d1fc42dde6ac78c07b6
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: d50291a33a9456fad20382d8e646bf6a19d6179e
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023269"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47180884"
 ---
-# <a name="make-your-application-data-highly-available-with-azure-storage"></a>Azure Storage를 통해 응용 프로그램 데이터의 고가용성 지원
+# <a name="tutorial-make-your-application-data-highly-available-with-azure-storage"></a>자습서: Azure 저장소를 통해 응용 프로그램 데이터의 고가용성 향상
 
 이 자습서는 Azure에서 응용 프로그램 데이터의 고가용성을 높이는 방법을 보여 주는 시리즈 중 제1부입니다. 작업을 완료하면 [RA-GRS](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage)(읽기 액세스 지역 중복 저장소) 계정으로 Blob을 업로드하고 검색하는 콘솔 응용 프로그램을 갖게 됩니다. RA-GRS는 주 지역에서 보조 지역으로 트랜잭션을 복제하는 방식으로 작동합니다. 복제 프로세스는 보조 지역의 데이터가 결과적으로 일치하도록 보장합니다. 이 응용 프로그램은 [회로 차단기](/azure/architecture/patterns/circuit-breaker) 패턴을 사용하여 연결할 엔드포인트를 결정하고 오류가 시뮬레이션되면 보조 끝점으로 전환합니다.
 

@@ -1,27 +1,27 @@
 ---
-title: Video Search API 빠른 시작 | Microsoft Docs
+title: '빠른 시작: Bing Video Search API'
+titlesuffix: Azure Cognitive Services
 description: Bing Video Search API 사용을 시작하는 방법을 보여 줍니다.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 7E59692A-83A8-4F4C-B122-1F0EDC8E5C86
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 0bd0f067d64cac3ebac342ebadcfcc010a47af7b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: abeeec95755a566216ac65b2edf5c831a8ab93b6
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376958"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225517"
 ---
-# <a name="your-first-video-search-query"></a>첫 번째 비디오 검색 쿼리
+# <a name="quickstart-your-first-video-search-query"></a>빠른 시작: 첫 번째 비디오 검색 쿼리
 
 첫 번째 호출을 수행하기 전에 먼저 Bing Search Cognitive Services 구독 키를 가져와야 합니다. 키를 받으려면 [Cognitive Services 체험하기](https://azure.microsoft.com/try/cognitive-services/?api=bing-video-search-api)를 참조하세요.
 
-비디오 검색 결과를 가져오려면 다음 끝점으로 GET 요청을 보냅니다.  
+비디오 검색 결과를 가져오려면 다음 엔드포인트로 GET 요청을 보냅니다.  
   
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/videos/search
@@ -48,7 +48,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/videos/search
 
 ## <a name="the-request"></a>요청
 
-다음은 모든 제안된 쿼리 매개 변수 및 헤더를 포함하는 검색 요청을 보여 줍니다. Bing API 중 하나를 처음 호출하는 경우 클라이언트 ID 헤더를 포함하면 안 됩니다. 이전에 Bing API를 호출했으며 Bing에서 사용자 및 장치 조합에 대한 클라이언트 ID를 반환한 경우에만 클라이언트 ID를 포함합니다. 
+다음은 모든 제안된 쿼리 매개 변수 및 헤더를 포함하는 검색 요청을 보여 줍니다. Bing API 중 하나를 처음 호출하는 경우 클라이언트 ID 헤더를 포함하면 안 됩니다. 전에 Bing API를 호출하고 Bing이 사용자 및 장치 조합에 대한 클라이언트 ID를 반환한 경우만 클라이언트 ID를 포함합니다. 
   
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies&mkt=en-us HTTP/1.1  

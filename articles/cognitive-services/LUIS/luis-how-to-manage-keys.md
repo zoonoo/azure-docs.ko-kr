@@ -1,24 +1,25 @@
 ---
-title: LUIS에서 끝점 키 관리 | Microsoft Docs
-description: Language Understanding(LUIS)을 사용하여 프로그래밍 방식 API, 끝점 및 외부 키를 관리합니다.
-titleSuffix: Azure
+title: LUIS에서 작성 및 엔드포인트 키 관리
+titleSuffix: Azure Cognitive Services
+description: Azure Portal에서 LUIS 엔드포인트 키를 만든 후 LUIS 앱에 키를 할당하고 올바른 엔드포인트 URL을 가져옵니다. 이 엔드포인트 URL을 사용하여 LUIS 예측을 가져옵니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 127c09a022f5efb95ab6a5ec2db0de633b437a54
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 62081f96e2081833eb705992914899a6764bd792
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223041"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033212"
 ---
-# <a name="manage-your-luis-endpoint-keys"></a>LUIS 끝점 키 관리
-키를 사용하면 LUIS 앱을 작성하고 게시하거나 끝점을 쿼리할 수 있습니다. 
+# <a name="add-an-azure-luis-resource-to-app"></a>앱에 Azure LUIS 리소스 추가
+
+Azure Portal에서 LUIS 리소스를 만든 후 LUIS 앱에 리소스를 할당하고 올바른 엔드포인트 URL을 가져옵니다. 이 엔드포인트 URL을 사용하여 LUIS 예측을 가져옵니다.
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -27,48 +28,95 @@ ms.locfileid: "39223041"
 <a name="api-usage-of-ocp-apim-subscription-key" ></a>
 <a name="key-limits" ></a>
 <a name="key-limit-errors" ></a>
-## <a name="key-concepts"></a>주요 개념
-LUIS 작성 및 끝점 키 개념을 이해하려면 [LUIS의 키](luis-concept-keys.md)를 참조하세요.
-
+<a name="key-concepts"></a>
+<a name="authoring-key"></a>
 <a name="create-and-use-an-endpoint-key"></a>
-## <a name="assign-endpoint-key"></a>끝점 키 할당
-**앱 게시** 페이지의 **리소스 및 키** 테이블에 키가 이미 있습니다. 이것은 작성(시작) 키입니다. 
+<a name="assign-endpoint-key"></a>
+
+## <a name="assign-resource"></a>리소스 할당
 
 1. [Azure Portal](https://portal.azure.com)에서 LUIS 키를 만듭니다. 자세한 내용은 [Azure를 사용하여 끝점 키 만들기](luis-how-to-azure-subscription.md)를 참조하세요.
  
-2. 이전 단계에서 만든 LUIS 키를 추가하려면 **키 추가** 단추를 클릭하여 **앱에 키 할당** 대화 상자를 엽니다. 
+2. 맨 위 오른쪽 메뉴에서 **관리**를 선택한 다음, **키 및 엔드포인트**를 선택합니다.
 
-    ![앱에 키 할당](./media/luis-manage-keys/assign-key.png)
-3. 대화 상자에서 테넌트를 선택합니다. 
- 
-    > [!Note]
-    > Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직의 Azure Active Directory ID를 나타냅니다. 이전에 개인 Microsoft 계정으로 Azure 구독을 등록했으면 이미 테넌트를 가지고 있습니다. [Azure Portal](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant)에 로그인할 때 기본 테넌트에 자동으로 로그인됩니다. 이 테넌트를 추가 비용 없이 사용할 수 있으나 조직 관리자 계정을 만들 수도 있습니다.
+    [ ![키 및 엔드포인트 페이지](./media/luis-manage-keys/keys-and-endpoints.png) ](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
 
-4. 추가할 Azure LUIS 키와 연결된 Azure 구독을 선택합니다.
+3. LUIS를 추가하려면 **리소스 할당 +** 을 선택합니다.
 
-5. Azure LUIS 계정을 선택합니다. 계정의 지역이 괄호 안에 표시됩니다. 
+    ![앱에 리소스 할당](./media/luis-manage-keys/assign-key.png)
 
-    ![키 선택](./media/luis-manage-keys/assign-key-filled-out.png)
+4. LUIS 웹 사이트에 로그인한 이메일 주소와 연결된 대화 상자에서 테넌트를 선택합니다.  
 
-6. 이 끝점 키를 할당한 후 모든 끝점 쿼리에서 이 키를 사용합니다. 
+5. 추가할 Azure 리소스와 연결된 **구독 이름**을 선택합니다.
+
+6. **LUIS 리소스 이름**을 선택합니다. 
+
+7. **리소스 할당**을 선택합니다. 
+
+8. 표에서 새 행을 찾고 엔드포인트 URL을 복사합니다. 예측을 위해 LUIS 엔드포인트에 HTTP GET 요청을 할 수 있도록 올바르게 구성되어 있습니다. 
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>
 <a name="publishing-to-europe"></a>
 <a name="publishing-to-australia"></a>
 
+## <a name="unassign-resource"></a>리소스 할당 해제
+엔드포인트 키를 할당 해제할 경우 Azure에서 삭제되지 않습니다. LUIS에서만 할당 해제됩니다. 
+
+엔드포인트가 할당 해제되었거나, 앱에 할당되지 않은 경우 엔드포인트 URL에 대한 모든 요청은 오류 `401 This application cannot be accessed with the current subscription`을 반환합니다. 
+
+## <a name="include-all-predicted-intent-scores"></a>예측된 모든 의도 점수 포함
+**예측된 모든 의도 점수 포함** 확인란을 사용하여 엔드포인트 쿼리 응답에 각 의도의 예측 점수를 포함할 수 있습니다. 
+
+이 설정을 사용하면 챗봇 또는 LUIS 호출 응용 프로그램이 반환된 의도의 점수에 따라 프로그래밍 방식으로 의사 결정을 내릴 수 있습니다. 일반적으로 상위 두 의도가 가장 흥미롭습니다. 상위 점수가 없음 의도이면, 챗봇은 없음 의도 및 기타 고득점 의도 간을 명확히 구분할 수 있는 후속 질문을 수행하도록 선택할 수 있습니다. 
+
+의도 및 해당 점수도 엔드포인트 로그에 포함됩니다. 해당 로그를 [내보내고](luis-how-to-start-new-app.md#export-app) 점수를 분석할 수 있습니다. 
+
+```JSON
+{
+  "query": "book a flight to Cairo",
+  "topScoringIntent": {
+    "intent": "None",
+    "score": 0.5223427
+  },
+  "intents": [
+    {
+      "intent": "None",
+      "score": 0.5223427
+    },
+    {
+      "intent": "BookFlight",
+      "score": 0.372391433
+    }
+  ],
+  "entities": []
+}
+```
+
+## <a name="enable-bing-spell-checker"></a>Bing spell checker 사용 
+**엔드포인트 URL 설정**에서 **Bing Spell Checker** 토글을 통해 LUIS에서 예측 전에 철자가 잘못된 단어를 수정할 수 있습니다. **[Bing Spell Check 키](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)** 를 만듭니다. 
+
+**spellCheck=true** 쿼리 문자열 매개 변수 및 **bing-spell-check-subscription-key={YOUR_BING_KEY_HERE}** 를 추가합니다. `{YOUR_BING_KEY_HERE}`를 Bing Spell Checker 키로 바꿉니다.
+
+```JSON
+{
+  "query": "Book a flite to London?",
+  "alteredQuery": "Book a flight to London?",
+  "topScoringIntent": {
+    "intent": "BookFlight",
+    "score": 0.780123
+  },
+  "entities": []
+}
+```
+
+
 ## <a name="publishing-regions"></a>게시 지역
-[유럽](luis-reference-regions.md#publishing-to-europe) 및 [오스트레일리아](luis-reference-regions.md#publishing-to-australia)의 게시를 포함하여 게시 [지역](luis-reference-regions.md)을 자세히 알아봅니다. 게시 지역은 작성 지역과 다릅니다. 원하는 게시 지역에 해당하는 작성 지역에서 앱을 만들어야 합니다.
 
-## <a name="unassign-key"></a>키 할당 취소
-
-* **리소스 및 키 목록**에서 할당 취소할 엔터티 옆에 있는 휴지통 아이콘을 클릭합니다. 그런 다음, 확인 메시지에서 **확인**을 클릭하여 삭제를 확인합니다.
- 
-    ![엔터티 할당 취소](./media/luis-manage-keys/unassign-key.png)
-
-> [!NOTE]
-> LUIS 키의 할당을 취소해도 이 키가 Azure 구독에서 삭제되지 않습니다.
+[유럽](luis-reference-regions.md#publishing-to-europe) 및 [오스트레일리아](luis-reference-regions.md#publishing-to-australia)의 게시를 포함하여 게시 [지역](luis-reference-regions.md)을 자세히 알아봅니다. 게시 지역은 작성 지역과 다릅니다. 쿼리 엔드포인트에 원하는 게시 지역에 해당하는 작성 지역에서 앱을 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 키를 사용하여 **앱 게시** 페이지에서 앱을 게시합니다. 게시에 대한 자세한 내용은 [앱 게시](luis-how-to-publish-app.md)를 참조하세요.
+
+LUIS 작성 및 엔드포인트 키 개념을 이해하려면 [LUIS의 키](luis-concept-keys.md)를 참조하세요.

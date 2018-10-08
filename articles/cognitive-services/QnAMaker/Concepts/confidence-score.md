@@ -1,21 +1,21 @@
 ---
-title: 신뢰도 점수 - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
-description: 신뢰도 점수 설명
+title: 신뢰도 점수 - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: 신뢰도 점수는 사용자 질문과 반환된 응답 간의 일치 정도를 나타냅니다.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: c97bdb7e57275ebd1893bc28248c4ecc6b35c153
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: 33da5cf5724b8314ce813f12eb077d9a15ec1b2a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376310"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041526"
 ---
 # <a name="confidence-score"></a>신뢰도 점수
 
@@ -48,7 +48,7 @@ ms.locfileid: "35376310"
 
 
 ## <a name="no-match-found"></a>일치하는 항목 없음
-순위 지정에서 적절한 일치 항목을 찾지 못하면 신뢰도 점수 0.0 또는 “없음”이 반환되고 기본 응답은 “No good match found in the KB”(KB에 적절한 일치 항목이 없습니다.)입니다. 끝점을 호출하는 봇 또는 응용 프로그램 코드에서 이 기본 응답을 재정의할 수 있습니다. 또는 Azure에서 재정의 응답을 설정할 수도 있으며, 이 경우 특정 QnA Maker 서비스에 배포된 모든 기술 자료의 기본값이 변경됩니다.
+순위 지정에서 적절한 일치 항목을 찾지 못하면 신뢰도 점수 0.0 또는 “없음”이 반환되고 기본 응답은 “No good match found in the KB”(KB에 적절한 일치 항목이 없습니다.)입니다. 엔드포인트를 호출하는 봇 또는 응용 프로그램 코드에서 이 기본 응답을 재정의할 수 있습니다. 또는 Azure에서 재정의 응답을 설정할 수도 있으며, 이 경우 특정 QnA Maker 서비스에 배포된 모든 기술 자료의 기본값이 변경됩니다.
 
 1. [Azure Portal](http://portal.azure.com)로 이동한 다음, 직접 만든 QnA Maker 서비스를 나타내는 리소스 그룹으로 이동합니다.
 

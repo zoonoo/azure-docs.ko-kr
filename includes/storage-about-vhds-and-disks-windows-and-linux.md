@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 2ab2ac1e98e25da4065611d32fb50aa8ce809361
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 26c3e8a096a3ee7bc5146759f8de62e5c1c7fed1
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060977"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47389846"
 ---
 ## <a name="about-vhds"></a>VHD에 대하여
 
@@ -73,4 +73,4 @@ Managed Disks는 백그라운드에서 저장소 계정 만들기/관리 작업�
 | 시나리오  | 프로덕션 및 성능이 중요한 워크로드 |웹 서버, 조금 사용되는 엔터프라이즈 응용 프로그램 및 개발/테스트| 백업, 중요하지 않음, 드문 액세스
 | 디스크 크기 | P4: 32GiB(Managed Disks에만 해당)<br>P6: 64GiB(Managed Disks에만 해당)<br>P10: 128GiB<br>P15: 256GiB(Managed Disks에만 해당)<br>P20: 512GiB<br>P30: 1024GiB<br>P40: 2048GiB<br>P50: 4,095GiB<br>P60: 8,192GiB *(8TiB)<br>P70: 16,384GiB *(16TiB)<br>P80: 32,767GiB *(32TiB) |Managed Disks에만 해당:<br>E10: 128GiB<br>E15: 256GiB<br>E20: 512GiB<br>E30: 1024GiB<br>E40: 2048GiB<br>E50: 4095GiB<br>E60: 8,192GiB *(8TiB)<br>E70: 16,384GiB *(16TiB)<br> E80: 32,767GiB *(32TiB) | 관리되지 않는 디스크: 1GiB – 4TiB(4095GiB) <br><br>관리 디스크:<br> S4: 32GiB <br>S6: 64GiB <br>S10: 128GiB <br>S15: 256GiB <br>S20: 512GiB <br>S30: 1024GiB <br>S40: 2048GiB<br>S50: 4095GiB<br>S60: 8,192GiB *(8TiB)<br>S70: 16,384GiB *(16TiB)<br>S80: 32,384GiB *(32TiB)
 | 디스크당 최대 처리량 | P4: 25MiB/초<br> P6: 50MiB/초<br> P10: 100MiB/초<br> P15: 200MiB/초<br> P20: 150MiB/초<br> P30: 200MiB/초<br> P40~P50: 250MiB/초<br> P60: 480MiB/초<br> P70~P80: 750MiB/초 | E10~E50: 최대 60MiB/초<br> E60: 최대 300MiB/초*<br> E70~E80: 500MiB/초*| S4~S50: 최대 o 60MiB/초<br> S60: 최대 300MiB/초*<br> S70~S80: 최대 500MiB/초*
-| 디스크당 최대 IOPS | P4: 120IOPS<br> P6: 240IOPS<br> P10: 500IOPS<br> P15: 1100IOPS<br> P20: 2300IOPS<br> P30: 500IOPS<br> P40~P50: 7500IOPS<br> P60: 12,500IOPS *<br> P70: 15,000IOPS *<br> P80: 20,000IOPS * | E10~E50: 최대 500IOPS<br> E60: 최대 1300IOPS *<br> E70~E80: 최대 2000IOPS * | S4~S50: 최대 500IOPS<br> S60: 최대 1300IOPS *<br> S70~S80: 최대 2000IOPS *
+| 디스크당 최대 IOPS | P4: 120IOPS<br> P6: 240IOPS<br> P10: 500IOPS<br> P15: 1100IOPS<br> P20: 2300IOPS<br> P30: 5000 IOPS<br> P40~P50: 7500IOPS<br> P60: 12,500IOPS *<br> P70: 15,000IOPS *<br> P80: 20,000IOPS * | E10~E50: 최대 500IOPS<br> E60: 최대 1300IOPS *<br> E70~E80: 최대 2000IOPS * | S4~S50: 최대 500IOPS<br> S60: 최대 1300IOPS *<br> S70~S80: 최대 2000IOPS *

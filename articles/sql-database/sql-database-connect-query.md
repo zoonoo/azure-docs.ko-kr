@@ -2,20 +2,22 @@
 title: Azure SQL 데이터베이스 연결 및 쿼리 빠른 시작 | Microsoft Docs
 description: Azure SQL 데이터베이스 빠른 시작에서는 Azure SQL 데이터베이스에 연결하고 쿼리하는 방법을 보여 줍니다.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc
+ms.subservice: operations
+ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-ms.date: 04/24/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: ec39c5ad0771c2bc78655e52c58949db6e9b3353
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/24/2018
+ms.openlocfilehash: 576e0adca21f5cd3313893035ff66bd83a0a0164
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186014"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063526"
 ---
 # <a name="azure-sql-database-connect-and-query-quickstarts"></a>Azure SQL 데이터베이스 연결 및 쿼리 빠른 시작
 
@@ -26,7 +28,7 @@ ms.locfileid: "32186014"
 | |  |
 |---|---|
 |[SQL Server Management Studio](sql-database-connect-query-ssms.md)|이 빠른 시작은 SSMS를 사용하여 Azure SQL Database에 연결한 후 Transact-SQL 문을 사용하여 데이터베이스에서 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다.|
-|[SQL Operations Studio](https://docs.microsoft.com/sql/sql-operations-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|이 빠른 시작에서는 SQL Operations Studio(미리 보기)를 사용하여 Azure SQL Database에 연결한 다음, T-SQL(Transact-SQL) 문을 사용하여 SQL Operations Studio(미리 보기) 자습서에 사용되는 TutorialDB를 만드는 방법을 보여 줍니다.|
+|[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|이 빠른 시작에서는 Azure Data Studio를 사용하여 Azure SQL Database에 연결한 다음, T-SQL(Transact-SQL) 문을 사용하여 Azure Data Studio 자습서에서 사용할 TutorialDB를 만드는 방법을 보여줍니다.|
 |[Azure Portal](sql-database-connect-query-portal.md)|이 빠른 시작에서는 쿼리 편집기를 사용하여 SQL 데이터베이스에 연결한 다음, Transact-SQL 문을 사용하여 데이터베이스에서 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다.|
 |[Visual Studio Code](sql-database-connect-query-vscode.md)|이 빠른 시작은 Visual Studio 코드를 사용하여 Azure SQL Database에 연결한 후 Transact-SQL 문을 사용하여 데이터베이스에서 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다.|
 |[Visual Studio에서 .NET 사용](sql-database-connect-query-dotnet-visual-studio.md)|이 빠른 시작에서는 .NET Framework를 사용하여 Visual Studio에서 C# 프로그램을 만들어 Azure SQL Database에 연결하고, Transact-SQL 문을 사용하여 데이터를 쿼리하는 방법을 보여 줍니다.|

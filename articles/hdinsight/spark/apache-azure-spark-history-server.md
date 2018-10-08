@@ -8,30 +8,30 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 07/12/2018
-ms.openlocfilehash: b514f23f2e8a43f99fd5bf5c3afb5ed625ad4472
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/14/2018
+ms.openlocfilehash: 4627593e4ab96c63423a7afd6152f3a004bc6c3f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046578"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042366"
 ---
 # <a name="use-extended-spark-history-server-to-debug-and-diagnose-spark-applications"></a>확장된 Spark 기록 서버를 사용하여 Spark 응용 프로그램 디버그 및 진단
 
-이 문서에서는 확장된 Spark 기록 서버를 사용하여 완료되고 실행되는 Spark 응용 프로그램을 디버그 및 진단하는 방법에 대한 지침을 제공합니다. 현재 확장은 데이터 탭 및 그래프 탭을 포함합니다. 데이터 탭에서 사용자는 Spark 작업의 입출력 데이터를 확인할 수 있습니다. 그래프 탭에서 사용자는 데이터 흐름을 확인하고 작업 그래프를 재생할 수 있습니다.
+이 문서에서는 확장된 Spark 기록 서버를 사용하여 완료되고 실행되는 Spark 응용 프로그램을 디버그 및 진단하는 방법에 대한 지침을 제공합니다. 확장은 데이터 탭 및 그래프 탭과 진단 탭을 포함합니다. **데이터** 탭에서 사용자는 Spark 작업의 입출력 데이터를 확인할 수 있습니다. **그래프** 탭에서 사용자는 데이터 흐름을 확인하고 작업 그래프를 재생할 수 있습니다. **진단** 탭에서 사용자는 **데이터 편향**, **시간 편향** 및 **실행기 사용량 분석**을 참조할 수 있습니다.
 
-## <a name="open-the-spark-history-server"></a>Spark 기록 서버 열기
+## <a name="get-access-to-spark-history-server"></a>Spark 기록 서버 액세스
 
 Spark 기록 서버는 완료되고 실행되는 Spark 응용 프로그램의 웹 UI입니다. 
 
-### <a name="to-open-the-spark-history-server-web-ui-from-azure-portal"></a>Azure Portal에서 Spark 기록 서버 웹 UI를 열려면
+### <a name="open-the-spark-history-server-web-ui-from-azure-portal"></a>Azure Portal에서 Spark 기록 서버 웹 UI 열기
 
 1. [Azure Portal](https://portal.azure.com/)에서 Spark 클러스터를 엽니다. 자세한 내용은 [클러스터 나열 및 표시](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters)를 참조하세요.
 2. **빠른 링크**에서 **클러스터 대시보드**를 클릭한 다음, **Spark 기록 서버**를 클릭합니다. 메시지가 표시되면 Spark 클러스터에 대한 관리자 자격 증명을 입력합니다. 
 
     ![Spark 기록 서버](./media/apache-azure-spark-history-server/launch-history-server.png "Spark 기록 서버")
 
-### <a name="to-open-the-spark-history-server-web-ui-by-url"></a>URL을 통해 Spark 기록 서버 웹 UI를 열려면
+### <a name="open-the-spark-history-server-web-ui-by-url"></a>URL을 통해 Spark 기록 서버 웹 UI 열기
 다음 URL로 이동하여 Spark 기록 서버를 열고 <ClusterName>을 고객의 Spark 클러스터 이름으로 바꿉니다.
 
    ```
@@ -43,7 +43,7 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
 ![HDInsight Spark 기록 서버](./media/apache-azure-spark-history-server/hdinsight-spark-history-server.png)
 
 
-## <a name="open-the-data-tab-from-spark-history-server"></a>Spark 기록 서버에서 데이터 탭 열기
+## <a name="data-tab-in-spark-history-server"></a>Spark 기록 서버의 데이터 탭
 데이터 보기를 가져오려면 작업 ID를 선택한 다음, 도구 메뉴에서 **데이터**를 클릭합니다.
 
 + 별도로 탭을 선택하여 **입력**, **출력** 및 **테이블 작업**을 확인합니다.
@@ -87,7 +87,7 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
     ![그래프 피드백](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## <a name="open-the-graph-tab-from-spark-history-server"></a>Spark 기록 서버에서 Graph 탭 열기
+## <a name="graph-tab-in-spark-history-server"></a>Spark 기록 서버의 그래프 탭
 작업 그래프 보기를 가져오려면 작업 ID를 선택한 다음, 도구 메뉴에서 **Graph**를 클릭합니다.
 
 + 생성된 작업 그래프를 통해 작업의 개요를 확인합니다. 
@@ -108,16 +108,19 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
 
     + 성공의 경우 녹색: 작업이 완료되었습니다.
     + 다시 시도의 경우 주황색: 실패했지만 작업의 최종 결과에는 영향을 미치지 않는 작업의 인스턴스입니다. 이러한 작업은 나중에 성공할 수 있는 인스턴스를 복제하거나 다시 시도합니다.
-    + 실패의 경우 빨간색: 작업이 실패했습니다.
     + 실행의 경우 파란색: 작업이 실행 중입니다.
-    + 건너뜀 또는 대기 중인 경우 흰색: 작업이 실행을 위해 대기 중이거나 단계를 건너뛰었습니다.
+    + 대기 중이거나 건너뛴 경우 흰색: 작업이 실행을 위해 대기 중이거나 단계를 건너뛰었습니다.
+    + 실패의 경우 빨간색: 작업이 실패했습니다.
 
     ![실행 중인 그래프 색 샘플](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
  
+    건너뛴 단계는 흰색으로 표시됩니다.
+    ![그래프 색 샘플, 건너뛰기](./media/apache-azure-spark-history-server/sparkui-graph-color-skip.png)
+
     ![실패한 그래프 색 샘플](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
  
     > [!NOTE]
-    > 각 작업에 대한 재생이 허용됩니다. 작업에 단계가 없거나 완료되지 않은 경우 재생은 지원되지 않습니다.
+    > 각 작업에 대한 재생이 허용됩니다. 불완전한 작업의 경우 재생이 지원되지 않습니다.
 
 
 + 마우스를 스크롤하여 작업 그래프를 확대/축소하거나 **크기에 맞게**를 클릭하여 화면에 맞춥니다.
@@ -127,6 +130,12 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
 + 실패한 작업이 있는 경우 도구 설명을 보려면 그래프 노드를 마우스로 가리키고 단계를 클릭하여 단계 페이지를 엽니다.
 
     ![그래프 도구 설명](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
+
++ 작업 그래프 탭에서 아래 조건을 충족하는 작업이 있을 경우 단계에 도구 설명과 작은 아이콘이 표시됩니다.
+    + 데이터 편향: 읽은 데이터 크기 > 이 단계 내 모든 작업에서 읽은 데이터의 평균 크기 * 2 및 읽은 데이터 크기 > 10MB
+    + 시간 편향: 실행 시간 > 이 단계 내 모든 작업의 평균 실행 시간 * 2와 실행 시간 > 2분
+
+    ![그래프 편향 아이콘](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
 + 작업 그래프 노드는 다음과 같은 각 단계의 정보를 표시합니다.
     + ID.
@@ -147,6 +156,47 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
 + **피드백 제공**을 클릭하여 문제와 함께 피드백을 보냅니다.
 
     ![그래프 피드백](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
+
+
+## <a name="diagnosis-tab-in-spark-history-server"></a>Spark 기록 서버의 진단 탭
+작업 진단 보기를 가져오려면 작업 ID를 선택한 다음, 도구 메뉴에서 **진단**을 클릭합니다. 진단 탭에는 **데이터 편향**, **시간 편향** 및 **실행기 사용량 분석**이 있습니다.
+    
++ **데이터 편향**, **시간 편향** 및 **실행기 사용량 분석** 탭을 각각 선택합니다.
+
+    ![진단 탭](./media/apache-azure-spark-history-server/sparkui-diagnosis-tabs.png)
+
+### <a name="data-skew"></a>데이터 기울이기
+**데이터 편향** 탭을 클릭하면 지정된 매개 변수에 따라 편향된 해당 작업이 표시됩니다. 
+
++ **매개 변수 지정** - 첫 번째 섹션에는 데이터 편향을 검색하는 데 사용되는 매개 변수가 표시됩니다. 기본 제공 규칙은 읽은 작업 데이터가 읽은 작업 데이터 평균의 3배보다 크고, 읽은 작업 데이터가 10MB 이상입니다. 편향된 작업에 사용자 지정 규칙을 정의하려면 매개 변수, **편향된 단계**를 선택하면 됩니다. 그러면 **편향 차트** 섹션이 적절히 새로 고쳐집니다.
+
++ **편향된 단계** - 두 번째 섹션에 위에 정의된 기준을 충족하는 편향된 작업이 있는 단계가 표시됩니다. 한 단계에 편향된 작업이 여러 개 있을 경우 편향된 단계 테이블에 가장 편향이 많은 작업(예: 가장 큰 데이터 편향 관련 데이터)만 표시됩니다.
+
+    ![데이터 편향 섹션 2](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section2.png)
+
++ **편향 차트** – 편향 단계 테이블의 행이 선택되면 데이터 읽기 및 실행 시간에 따라 편향 차트에 더 많은 작업 분포 세부 정보가 표시됩니다. 편향된 작업은 빨간색으로 표시되며 일반 작업은 파란색으로 표시됩니다. 성능을 고려하여 차트에는 최대 100개의 샘플 작업만 표시됩니다. 작업 세부 정보는 오른쪽 아래 패널에 표시됩니다.
+
+    ![데이터 편향 섹션 3](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section3.png)
+
+### <a name="time-skew"></a>시간 편향
+**시간 편향** 탭에는 작업 실행 시간에 따라 편향된 작업이 표시됩니다. 
+
++ **매개 변수 지정** - 첫 번째 섹션에는 시간 편향을 검색하는 데 사용되는 매개 변수가 표시됩니다. 시간 편향을 검색할 때 기본 기준은 작업 실행 시간이 평균 실행 시간의 3배보다 길고, 작업 실행 시간이 30초보다 긴 것입니다. 필요에 따라 매개 변수를 변경할 수 있습니다. **편향된 단계**와 **편향 차트**에는 위의 **데이터 편향** 탭과 같은 해당 단계 및 작업 정보가 표시됩니다.
+
++ **시간 편향**을 클릭하면 **매개 변수 지정** 섹션에 설정된 매개 변수에 따라 필터링된 결과가 **편향된 단계** 섹션에 표시됩니다. **편향된 단계** 섹션에서 항목을 하나 클릭하면 섹션 3에 해당 차트의 초안이 작성되고, 오른쪽 아래 패널에 작업 세부 정보가 표시됩니다.
+
+    ![시간 편향 섹션 2](./media/apache-azure-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
+
+### <a name="executor-usage-analysis"></a>실행기 사용량 분석
+실행기 사용량 그래프는 Spark 작업의 실제 실행기 할당 및 실행 상태를 시각화합니다.  
+
++ **실행기 사용량 분석**을 클릭하면 **할당된 실행기**, **실행 중인 실행기**,**유휴 실행기** 및 **최대 실행기 인스턴스** 등 실행기 사용량에 대한 4가지 곡선에 대한 초안이 작성됩니다. 할당된 실행기와 관련하여 각 "실행기 추가됨" 또는 "실행기 제거됨" 이벤트가 할당된 실행기를 늘리거나 줄이며, “작업" 탭의 "이벤트 타임라인"에서 자세한 비교 정보를 확인할 수 있습니다.
+
+    ![실행기 탭](./media/apache-azure-spark-history-server/sparkui-diagnosis-executors.png)
+
++ 색상 아이콘을 클릭하여 모든 초안의 해당 콘텐츠를 선택하거나 선택 해제합니다.
+
+    ![차트 선택](./media/apache-azure-spark-history-server/sparkui-diagnosis-select-chart.png)
 
 
 ## <a name="faq"></a>FAQ
@@ -247,7 +297,7 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
 
 **예제**:
 
-`upgrade_spark_enhancement.sh https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.tgz` 
+`upgrade_spark_enhancement.sh https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.jar` 
 
 **Azure Portal에서 Bash 파일을 사용하려면**
 
@@ -268,7 +318,7 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
     ![로그 업로드 또는 핫픽스 업그레이드](./media/apache-azure-spark-history-server/sparkui-upload2.png)
 
 
-## <a name="known-issue"></a>알려진 문제
+## <a name="known-issues"></a>알려진 문제
 
 1.  현재 Spark 2.3 클러스터에 대해서만 작동합니다.
 

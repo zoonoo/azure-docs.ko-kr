@@ -1,23 +1,23 @@
 ---
-title: Bing Video Search SDK Java 빠른 시작 | Microsoft Docs
-description: Bing Video Search SDK 콘솔 응용 프로그램을 설치하는 방법을 알아봅니다.
+title: '빠른 시작: Bing Video Search SDK, Java'
 titleSuffix: Azure Cognitive Services
+description: Bing Video Search SDK 콘솔 응용 프로그램을 설치하는 방법을 알아봅니다.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/18/2018
-ms.author: v-gedod
-ms.openlocfilehash: 1d9ccd88de4b91060861c39ab20f6a203c820384
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: b0e083a7397378956d9fe0d0ae2257aaf0bbdf1e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377934"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223429"
 ---
-# <a name="bing-video-search-sdk-java-quickstart"></a>Bing Video Search SDK Java 빠른 시작
+# <a name="quickstart-bing-video-search-sdk-java"></a>빠른 시작: Bing Video Search SDK Java
 
 Bing Video Search SDK는 비디오 쿼리 및 구문 분석 결과에 대한 REST API 기능을 제공합니다.
 

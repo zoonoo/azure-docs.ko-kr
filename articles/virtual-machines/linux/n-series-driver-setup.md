@@ -1,5 +1,5 @@
 ---
-title: Linux용 Azure N 시리즈 드라이버 설치 | Microsoft Docs
+title: Linux용 Azure N 시리즈 GPU 드라이버 설치 | Microsoft Docs
 description: Azure에서 Linux를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버를 설정하는 방법
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/30/2018
+ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d85bc79ddd08cb051b2e4d978a931f460020c10
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 822261e74f7da941ac89090e5d493c4be18bc307
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364503"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038887"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치
 
@@ -55,7 +55,7 @@ lspci | grep -i NVIDIA
 
 1. CUDA 드라이버를 다운로드하여 설치합니다.
   ```bash
-  CUDA_REPO_PKG=cuda-repo-ubuntu1604_9.1.85-1_amd64.deb
+  CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
 
   wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
@@ -99,7 +99,7 @@ sudo reboot
 
 ### <a name="centos-or-red-hat-enterprise-linux-73-or-74"></a>CentOS 또는 Red Hat Enterprise Linux 7.3/7.4
 
-1. 커널을 업데이트합니다.
+1. 커널을 업데이트합니다(권장). 커널을 업데이트하지 않도록 선택하는 경우 `kernel-devel` 및 `dkms`의 버전이 커널에 적합한지 확인하세요.
 
   ```
   sudo yum install kernel kernel-tools kernel-headers kernel-devel
@@ -127,7 +127,7 @@ sudo reboot
 
   sudo yum install dkms
 
-  CUDA_REPO_PKG=cuda-repo-rhel7-9.1.85-1.x86_64.rpm
+  CUDA_REPO_PKG=cuda-repo-rhel7-10.0.130-1.x86_64.rpm
 
   wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 
@@ -170,9 +170,9 @@ N 시리즈 VM에서 RDMA 연결을 지원하는 Azure Marketplace의 이미지 
 
 * **CentOS 기반 7.4 HPC** - RDMA 드라이버 및 Intel MPI 5.1은 VM에 설치됩니다.
 
-## <a name="install-grid-drivers-on-nv-series-vms"></a>NV 시리즈 VM에 GRID 드라이버 설치
+## <a name="install-grid-drivers-on-nv-or-nvv2-series-vms"></a>NV 또는 NVv2 시리즈 VM에 GRID 드라이버 설치
 
-NVIDIA GRID 드라이버를 NV 시리즈 VM에 설치하려면 각 VM에 대한 SSH 연결을 확인하고 Linux 배포에 필요한 단계를 수행합니다. 
+NVIDIA GRID 드라이버를 NV 또는 NVv2 시리즈 VM에 설치하려면 각 VM에 대한 SSH 연결을 확인하고 Linux 배포에 필요한 단계를 수행합니다. 
 
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 
@@ -189,7 +189,7 @@ NVIDIA GRID 드라이버를 NV 시리즈 VM에 설치하려면 각 VM에 대한 
 
   sudo apt-get install build-essential ubuntu-desktop -y
   ```
-3. NVIDIA 드라이버와 호환되지 않는 Nouveau 커널 드라이버를 사용하지 않도록 설정합니다. (NV VM에서 NVIDIA 드라이버만 사용합니다.) 이를 수행하려면 다음 콘텐츠가 포함된 `nouveau.conf`라고 하는 `/etc/modprobe.d `에 파일을 만듭니다.
+3. NVIDIA 드라이버와 호환되지 않는 Nouveau 커널 드라이버를 사용하지 않도록 설정합니다. (NV 또는 NVv2 VM에서 NVIDIA 드라이버만 사용합니다.) 이를 수행하려면 다음 콘텐츠가 포함된 `nouveau.conf`라고 하는 `/etc/modprobe.d `에 파일을 만듭니다.
 
   ```
   blacklist nouveau
@@ -232,7 +232,7 @@ NVIDIA GRID 드라이버를 NV 시리즈 VM에 설치하려면 각 VM에 대한 
 
 ### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS 또는 Red Hat Enterprise Linux 
 
-1. 커널 및 DKMS를 업데이트합니다.
+1. 커널 및 DKMS를 업데이트합니다(권장). 커널을 업데이트하지 않도록 선택하는 경우 `kernel-devel` 및 `dkms`의 버전이 커널에 적합한지 확인하세요.
  
   ```bash  
   sudo yum update
@@ -244,7 +244,7 @@ NVIDIA GRID 드라이버를 NV 시리즈 VM에 설치하려면 각 VM에 대한 
   sudo yum install dkms
   ```
 
-2. NVIDIA 드라이버와 호환되지 않는 Nouveau 커널 드라이버를 사용하지 않도록 설정합니다. (NV VM에서 NVIDIA 드라이버만 사용합니다.) 이를 수행하려면 다음 콘텐츠가 포함된 `nouveau.conf`라고 하는 `/etc/modprobe.d `에 파일을 만듭니다.
+2. NVIDIA 드라이버와 호환되지 않는 Nouveau 커널 드라이버를 사용하지 않도록 설정합니다. (NV 또는 NV2 VM에서 NVIDIA 드라이버만 사용합니다.) 이를 수행하려면 다음 콘텐츠가 포함된 `nouveau.conf`라고 하는 `/etc/modprobe.d `에 파일을 만듭니다.
 
   ```
   blacklist nouveau
@@ -304,7 +304,7 @@ GPU 장치 상태를 쿼리하려면 VM에 대해 SSH를 실행하고 드라이�
  
 
 ### <a name="x11-server"></a>X11 서버
-NV VM에 대한 원격 연결을 위해 X11 서버가 필요한 경우 그래픽의 하드웨어 가속화가 가능하기 때문에 [x11vnc](http://www.karlrunge.com/x11vnc/)가 권장됩니다. M60 장치의 BusID를 X11 구성 파일(일반적으로 `etc/X11/xorg.conf`)에 직접 추가해야 합니다. 다음과 유사한 `"Device"` 섹션을 추가합니다.
+NV 또는 NVv2 VM에 대한 원격 연결을 위해 X11 서버가 필요한 경우 그래픽의 하드웨어 가속화가 가능하기 때문에 [x11vnc](http://www.karlrunge.com/x11vnc/)가 권장됩니다. M60 장치의 BusID를 X11 구성 파일(일반적으로 `etc/X11/xorg.conf`)에 직접 추가해야 합니다. 다음과 유사한 `"Device"` 섹션을 추가합니다.
  
 ```
 Section "Device"

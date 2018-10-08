@@ -1,26 +1,24 @@
 ---
-title: LUIS에서 Speech C# SDK 사용 - Azure | Microsoft Docs
-titleSuffix: Azure
-description: Speech C# SDK 샘플을 사용하여 마이크에 말하고 LUIS 의도 및 엔터티 예측을 반환합니다.
+title: LUIS와 Speech C# SDK 사용
+titleSuffix: Azure Cognitive Services
+description: Speech Service를 사용하면 단일 요청을 통해 오디오를 수신하고 LUIS 예측 JSON 개체를 반환할 수 있습니다. 이 문서에서는 C# 프로젝트를 다운로드한 후 Visual Studio에서 사용하여 마이크에 말을 하고 LUIS 예측 정보를 수신합니다. 이 프로젝트에서는 이미 참조로 포함되어 있는 Speech NuGet 패키지를 사용합니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: aadca428fa076d697cc0f893673672850ddc27d4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 14956fd716a6939d5e7dd9d670cc78b58adf7f45
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124399"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042077"
 ---
 # <a name="integrate-speech-service"></a>Speech Service 통합
-[Speech Service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/)를 사용하면 단일 요청을 통해 오디오를 수신하고 LUIS 예측 JSON 개체를 반환할 수 있습니다.
-
-이 문서에서는 C# 프로젝트를 다운로드한 후 Visual Studio에서 사용하여 마이크에 말을 하고 LUIS 예측 정보를 수신합니다. 이 프로젝트에서는 이미 참조로 포함되어 있는 Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) 패키지를 사용합니다. 
+[Speech Service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/)를 사용하면 단일 요청을 통해 오디오를 수신하고 LUIS 예측 JSON 개체를 반환할 수 있습니다. 이 문서에서는 C# 프로젝트를 다운로드한 후 Visual Studio에서 사용하여 마이크에 말을 하고 LUIS 예측 정보를 수신합니다. 이 프로젝트에서는 이미 참조로 포함되어 있는 Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) 패키지를 사용합니다. 
 
 이 문서에서는 응용 프로그램을 가져오기 위해 무료 [LUIS][LUIS] 웹 사이트 계정이 필요합니다.
 
@@ -32,12 +30,13 @@ Azure Portal에서 LUIS(**Language Understanding**) 키를 [만듭니다](luis-h
 
 이 앱에는 Human Resources 도메인과 관련된 의도, 엔터티 및 발언이 있습니다. 발언 예제는 다음과 같습니다.
 
-```
-Who is John Smith's manager?
-Who does John Smith manage?
-Where is Form 123456?
-Do I have any paid time off?
-```
+|예제 발화|
+|--|
+|Who is John Smith's manager?|
+|Who does John Smith manage?|
+|Where is Form 123456?|
+|Do I have any paid time off?|
+
 
 ## <a name="add-keyphrase-prebuilt-entity"></a>KeyPhrase 사전 빌드 엔터티 추가
 앱을 가져온 후 **엔터티**를 선택하고 **사전 빌드 엔터티 관리**를 선택합니다. **KeyPhrase** 엔터티를 추가합니다. KeyPhrase 엔터티는 발언에서 핵심 주제를 추출합니다.
@@ -45,19 +44,18 @@ Do I have any paid time off?
 ## <a name="train-and-publish-the-app"></a>앱 학습 및 게시
 1. 상단 오른쪽 탐색 모음에서 **학습** 단추를 선택하여 LUIS 앱을 학습합니다.
 
-2. **게시**를 선택하여 게시 페이지로 이동합니다. 
+2. 맨 위 오른쪽 막대에서 **관리**를 선택한 다음, 왼쪽 탐색 창에서 **키 및 엔드포인트**를 선택합니다. 
 
-3. **게시** 페이지 아래쪽에서 [LUIS 엔드포인트 키 만들기](#create-luis-endpoint-key) 섹션에서 만든 LUIS 키를 추가합니다.
+3. **키 및 엔드포인트** 페이지에서 [LUIS 엔드포인트 키 만들기](#create-luis-endpoint-key) 섹션에서 만든 LUIS 키를 할당합니다.
 
-4. 게시 슬롯 오른쪽에 있는 **게시** 단추를 선택하여 LUIS 앱을 게시합니다. 
-
-  **게시** 페이지에서 [LUIS 엔드포인트 키 만들기](#create-luis-endpoint-key) 섹션에서 만든 LUIS 키의 앱 ID를 게시 지역 및 구독 ID를 수집합니다. 이 문서의 뒷부분에 나오는 이러한 값을 사용하도록 코드를 수정해야 합니다. 
-
-  이러한 모든 값은 만든 키에 대한 **게시** 페이지 맨 아래에 있는 엔드포인트 URL에 포함됩니다. 
+  이 페이지에서 [LUIS 엔드포인트 키 만들기](#create-luis-endpoint-key) 섹션에서 만든 LUIS 키의 앱 ID를 게시 지역 및 구독 ID를 수집합니다. 이 문서의 뒷부분에 나오는 이러한 값을 사용하도록 코드를 수정해야 합니다. 
   
   이 연습을 위해 무료 시작 키를 사용하지 **않도록** 합니다. Azure Portal에서 만든 **Language Understanding** 키만 이 연습에서 작동됩니다. 
 
   https://**REGION**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**?subscription-key=**LUISKEY**&q=
+
+
+4. 맨 위 오른쪽 막대에 있는 **게시** 단추를 선택하여 LUIS 앱을 게시합니다. 
 
 ## <a name="audio-device"></a>오디오 장치
 이 문서에서는 컴퓨터의 오디오 장치를 사용합니다. 마이크가 있는 헤드셋이거나 기본 제공 오디오 장치일 수 있습니다. 오디오 입력 수준을 확인하여 오디오 장치에서 음성이 감지되기 위해 평소보다 더 크게 말해야 하는지 알아봅니다. 

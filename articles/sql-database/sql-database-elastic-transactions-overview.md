@@ -2,20 +2,22 @@
 title: 클라우드 데이터베이스의 분산 트랜잭션
 description: Azure SQL Database와 Elastic Database 트랜잭션 개요
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.custom: scale out apps
-ms.workload: On Demand
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: c0dfc8e2b71e0d81943ef8306c58421ff1d78c6c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 3147061f527621ba98dee84f4d347a6e883d61c0
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646952"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166472"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>클라우드 데이터베이스의 분산 트랜잭션
 Azure SQL Database(SQL DB)용 Elastic Database를 사용하면 SQL DB의 여러 데이터베이스에 걸쳐 트랜잭션을 실행할 수 있습니다. SQL DB용 탄력적 데이터베이스 트랜잭션은 ADO .NET을 사용하여 .NET 응용 프로그램에서 사용할 수 있고 [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) 클래스를 사용하여 친숙한 프로그래밍 환경과 통합될 수 있습니다. 라이브러리를 가져오려면 [.NET Framework 4.6.1(웹 설치 관리자)](https://www.microsoft.com/download/details.aspx?id=49981)을 참조하세요.
@@ -136,7 +138,7 @@ SQL DB의 동적 관리 뷰(DMV)를 사용하여 진행 중인 탄력적 데이�
 ## <a name="limitations"></a>제한 사항
 다음 제한 사항은 SQL DB의 탄력적 데이터베이스 트랜잭션에 현재 적용됩니다.
 
-* SQL DB의 데이터베이스 간 트랜잭션만 지원됩니다. 다른 [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) 리소스 공급자 및 SQL DB 이외의 데이터베이스는 탄력적 데이터베이스 트랜잭션에 참여할 수 없습니다. Elastic Database 트랜잭션은 온-프레미스 SQL Server와 Azure SQL Database 사이에서 확장될 수 없습니다. 온-프레미스 분산 트랜잭션을 위해서는 MSDTC를 계속 사용하세요. 
+* SQL DB의 데이터베이스 간 트랜잭션만 지원됩니다. 다른 [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) 리소스 공급자 및 SQL DB 이외의 데이터베이스는 탄력적 데이터베이스 트랜잭션에 참여할 수 없습니다. 즉 탄력적 데이터베이스 트랜잭션은 온-프레미스 SQL Server와 Azure SQL Database에서 확장될 수 없습니다. 온-프레미스 분산 트랜잭션을 위해서는 MSDTC를 계속 사용하세요. 
 * .NET 응용 프로그램의 클라이언트 조정 트랜잭션만 지원됩니다. BEGIN DISTRIBUTED TRANSACTION 같은 T-SQL에 대한 서버 쪽 지원이 계획되어 있지만 아직 제공되지 않습니다. 
 * WCF 서비스에서 트랜잭션은 지원되지 않습니다. 예를 들어 트랜잭션을 실행하는 WCF 서비스 메서드가 있습니다. 트랜잭션 범위 내로 호출을 묶으면 [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception)으로 실패합니다.
 

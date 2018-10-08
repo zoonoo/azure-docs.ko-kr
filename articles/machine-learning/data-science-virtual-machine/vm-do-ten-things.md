@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/04/2017
+ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: ce73d1ef5425ee2fe66655571a6d6bbbff372af5
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: faabdb4c2d2e434863a6bed0b2cd85a05c94eab1
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502814"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395732"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Windows 데이터 과학 Virtual Machine으로 할 수 있는 10가지 작업
 
@@ -47,7 +47,7 @@ Windows DSVM(데이터 과학 Virtual Machine)은 다양한 데이터 탐색 및
 **필수 구성 요소**
 
 * Azure 구독이 필요합니다. [여기](https://azure.microsoft.com/free/)서 평가판에 등록할 수 있습니다.
-* Azure 포털에서 데이터 과학 Virtual Machine을 프로비전하는 방법에 대한 지침은 [가상 머신 만들기](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm)에서 확인할 수 있습니다.
+* Azure 포털에서 데이터 과학 Virtual Machine을 프로비전하는 방법에 대한 지침은 [가상 머신 만들기](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016)에서 확인할 수 있습니다.
 
 ## <a name="1-explore-data-and-develop-models-using-microsoft-ml-server-or-python"></a>1. Microsoft ML 서버 또는 Python을 사용하여 데이터 탐색 및 모델 개발
 R 및 Python 같은 언어를 사용하여 DSVM에서 바로 데이터를 분석할 수 있습니다.
@@ -56,7 +56,7 @@ R의 경우 시작 메뉴나 바탕 화면에서, 또는 Visual Studio용 R 도�
 
 Python의 경우 PTVS(Python Tools for Visual Studio) 확장 기능이 사전 설치된 Visual Studio Community Edition 같은 IDE를 사용할 수 있습니다. 기본적으로 Python 3.6에서만 루트 conda 환경이 PTVS에서 구성됩니다. Anaconda Python 2.7을 사용하려면 다음 단계를 수행해야 합니다.
 
-* **도구** -> **Python 도구** -> **Python 환경**으로 이동한 다음 Visual Studio 2015 Community Edition에서 "**+ 사용자 지정**"을 클릭하여 각 버전에 대해 사용자 지정 환경을 만듭니다.
+* **도구** -> **Python 도구** -> **Python 환경**으로 이동한 다음, Visual Studio Community Edition에서 "**+ 사용자 지정**"을 클릭하여 각 버전에 대해 사용자 지정 환경을 만듭니다.
 * 설명을 입력하고 Anaconda Python 2.7에 대해 환경 접두사 경로를 *c:\anaconda\envs\python2*로 설정합니다.
 * **자동 감지**를 클릭한 다음 **적용**을 클릭하여 환경을 저장합니다.
 
@@ -66,7 +66,7 @@ Visual Studio에서 사용자 지정 환경 설정이 다음과 같이 표시됩
 
 Python 환경을 만드는 방법에 대한 자세한 내용은 [PTVS 설명서](http://aka.ms/ptvsdocs) 를 참조하세요.
 
-이제 새 Python 프로젝트를 만들 수 있도록 설정되어 있습니다. **파일** -> **새로 만들기** -> **프로젝트** -> **Python**으로 이동하고 작성하는 Python 응용 프로그램의 종류를 선택합니다. 현재 프로젝트에 대한 Python 환경을 원하는 버전(Anaconda 2.7 또는 3.6)으로 설정할 수 있습니다. **Python 환경**을 마우스 오른쪽 단추로 클릭하고 **Python 환경 추가/제거**를 선택한 다음, 원하는 환경을 선택합니다. 제품 [설명서](http://aka.ms/ptvsdocs)에서 PTVS 작업에 대한 자세한 정보를 찾을 수 있습니다.
+이제 새 Python 프로젝트를 만들 수 있도록 설정되어 있습니다. **파일** -> **새로 만들기** -> **프로젝트** -> **Python**으로 이동하고 작성하는 Python 응용 프로그램의 종류를 선택합니다. 현재 프로젝트에 대한 Python 환경을 원하는 버전(Python 2.7 또는 3.6)으로 설정할 수 있습니다. **Python 환경**을 마우스 오른쪽 단추로 클릭하고 **Python 환경 추가/제거**를 선택한 다음, 원하는 환경을 선택합니다. 제품 [설명서](http://aka.ms/ptvsdocs)에서 PTVS 작업에 대한 자세한 정보를 찾을 수 있습니다.
 
 ## <a name="2-using-a-jupyter-notebook-to-explore-and-model-your-data-with-python-or-r"></a>2. Jupyter Notebook에서 Python 또는 R을 사용하여 데이터 탐색 및 모델링
 Jupyter Notebook은 데이터 탐색 및 모델링을 위한 브라우저 기반 "IDE"를 제공하는 강력한 환경입니다. Jupyter Notebook에서 Python 2, Python 3 또는 R(오픈 소스 및 Microsoft R 서버 모두)을 사용할 수 있습니다.
@@ -175,7 +175,7 @@ settings.json 파일 구조:
     ep <- publishWebService(ws, fun = sleepyPredict, name="sleepy lm", inputSchema = sleepstudy, data.frame=TRUE)
 
 #### <a name="consume-the-model-deployed-in-azure-machine-learning"></a>Azure Machine Learning에 배포된 모델 사용
-클라이언트 응용 프로그램의 모델을 사용하기 위해 Azure Machine Learning 라이브러리를 사용하여 끝점을 확인하는 `services` API 호출을 통해 게시된 웹 서비스를 이름으로 조회합니다. 그런 다음 `consume` 함수를 호출하여 예측할 데이터 프레임을 전달합니다.
+클라이언트 응용 프로그램의 모델을 사용하기 위해 Azure Machine Learning 라이브러리를 사용하여 엔드포인트를 확인하는 `services` API 호출을 통해 게시된 웹 서비스를 이름으로 조회합니다. 그런 다음 `consume` 함수를 호출하여 예측할 데이터 프레임을 전달합니다.
 다음 코드는 모델을 Azure Machine Learning 웹 서비스로 게시하는 데 사용됩니다.
 
     library(AzureML)

@@ -1,24 +1,27 @@
 ---
-title: Microsoft QnA Maker API(v4)용 기술 자료(빠른 시작 Java) – 새로 만들기 - Azure Cognitive Services | Microsoft Docs
-description: QnA Maker를 시작할 수 있도록 Java로 기술 자료를 만들어서 FAQ나 제품 설명서를 보관합니다.
+title: '빠른 시작: API Java - 기술 자료 만들기 - QnA Maker'
+titlesuffix: Azure Cognitive Services
+description: 이 빠른 시작에서는 Cognitive Services API 계정의 Azure 대시보드에 표시될 샘플 QnA Maker 기술 자료를 프로그래밍 방식으로 만드는 과정을 단계별로 안내합니다.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: 3d637a4a046318a95eeeb532cbb7a9938cb1004d
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 5dfea3a8b4b5a79585b910fd2fad4ffbda4729fd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "43750519"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037612"
 ---
 # <a name="create-a-new-knowledge-base-in-java"></a>Java로 새 기술 자료 만들기
 
 이 빠른 시작에서는 Cognitive Services API 계정의 Azure 대시보드에 표시될 샘플 QnA Maker 기술 자료를 프로그래밍 방식으로 만드는 과정을 단계별로 안내합니다.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
 콘텐츠를 제공할 두 개의 샘플 FAQ URL이 아래에(**getKB()** 의 'kb.urls'에) 있습니다. [데이터 원본](../Concepts/data-sources-supported.md) 문서에 설명된 대로, QnA Maker는 FAQ처럼 반구조화된 컨텐츠에서 질문과 답변을 자동으로 추출합니다. 이 빠른 시작에서는 자신의 FAQ URL도 사용할 수 있습니다.
 

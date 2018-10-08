@@ -1,20 +1,20 @@
 ---
-title: '자습서: ACI(Azure Container Instance) - Azure Macine Learning에서 이미지 분류 모델 배포'
-description: Python Jupyter Notebook으로 scikit-learn 이미지 분류 모델을 배포하는 방법을 알아봅니다.  이 자습서는 2부로 구성된 시리즈 중 제2부입니다.
-author: hning86
-ms.author: haining
+title: '자습서: Azure Machine Learning 서비스를 통해 ACI(Azure Container Instance)에서 이미지 분류 모델 배포'
+description: 이 자습서에서는 Azure Machine Learning 서비스를 사용하여 Python Jupyter 노트북에서 scikit-learn으로 이미지 분류 모델을 배포하는 방법을 보여줍니다.  이 자습서는 2부로 구성된 시리즈 중 제2부입니다.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: tutorial
+author: hning86
+ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: e79df258701fa1d269e45e00a92b0961306ffbe3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eda4a1dabd20eee73cfbfa4dc0dd2b0eaa56788e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968631"
+ms.locfileid: "47031240"
 ---
 # <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>자습서 #2: ACI(Azure Container Instance)에서 이미지 분류 모델 배포
 
@@ -35,7 +35,7 @@ ACI는 프로덕션 배포에는 이상적이지 않지만, 워크플로를 테�
 
 ## <a name="get-the-notebook"></a>Notebook 가져오기
 
-사용자 편의를 위해 이 자습서는 Jupyter Notebook로 사용할 수 있습니다. 다음 방법 중 하나를 사용하여 `tutorials/02.deploy-models.ipynb`Notebook을 실행합니다.
+편의를 위해 이 자습서를 Jupyter Notebook으로 사용할 수 있습니다. 다음 방법 중 하나를 사용하여 `tutorials/02.deploy-models.ipynb` Notebook을 실행합니다.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 

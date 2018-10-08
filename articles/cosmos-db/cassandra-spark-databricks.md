@@ -9,12 +9,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: 3f1bdb63253506aee211f3733df2a339824de7a0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e1d8f41c55ffd453507804b005d10620665b512c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994652"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222033"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-data-from-azure-databricks"></a>Azure Databricks에서 Azure Cosmos DB Cassandra API 데이터 액세스
 
@@ -32,9 +32,9 @@ ms.locfileid: "46994652"
 
 * [원하는 경우 cqlsh를 사용하여 유효성 검사](cassandra-spark-generic.md#connecting-to-azure-cosmos-db-cassandra-api-from-spark)
 
-* **Datastax Cassandra 커넥터용 Cassandra API 인스턴스 구성**
+* **Cassandra 커넥터용 Cassandra API 인스턴스 구성:**
 
-  Cassandra용 Datastax 커넥터에서는 Spark 컨텍스트의 일부분으로 Cassandra 연결 세부 정보를 초기화해야 합니다. Databricks Notebook을 시작하면 Spark 컨텍스트는 이미 초기화되어 있으므로 Notebook을 중지하고 컨텍스트를 다시 초기화해서는 안 됩니다. 이러한 경우에 사용할 수 있는 방법 중 하나는 클러스터 Spark 구성에서 클러스터 수준에 Cassandra API 인스턴스 구성을 추가하는 것입니다. 이 작업은 클러스터당 한 번씩만 수행하면 됩니다. 다음 코드를 공백으로 구분된 키-값 쌍으로 Spark 구성에 추가합니다.
+  Cassandra API용 커넥터에서는 Spark 컨텍스트의 일부분으로 Cassandra 연결 세부 정보를 초기화해야 합니다. Databricks Notebook을 시작하면 Spark 컨텍스트는 이미 초기화되어 있으므로 Notebook을 중지하고 컨텍스트를 다시 초기화해서는 안 됩니다. 이러한 경우에 사용할 수 있는 방법 중 하나는 클러스터 Spark 구성에서 클러스터 수준에 Cassandra API 인스턴스 구성을 추가하는 것입니다. 이 작업은 클러스터당 한 번씩만 수행하면 됩니다. 다음 코드를 공백으로 구분된 키-값 쌍으로 Spark 구성에 추가합니다.
  
   ```scala
   spark.cassandra.connection.host YOUR_COSMOSDB_ACCOUNT_NAME.cassandra.cosmosdb.azure.com
@@ -46,11 +46,11 @@ ms.locfileid: "46994652"
 
 ## <a name="add-the-required-dependencies"></a>필수 종속성 추가
 
-* **Datastax Cassandra Spark 커넥터:** - Azure Cosmos DB Cassandra API를 Spark와 통합하려면 Datastax Cassandra 커넥터를 Azure Databricks 클러스터에 연결해야 합니다. 클러스터를 연결하려면 다음 작업을 수행합니다.
+* **Cassandra Spark 커넥터:** - Azure Cosmos DB Cassandra API를 Spark와 통합하려면 Cassandra 커넥터를 Azure Databricks 클러스터에 연결해야 합니다. 클러스터를 연결하려면 다음 작업을 수행합니다.
 
-  * Databricks 런타임 버전과 Spark 버전을 검토합니다. 그런 다음 Datastax Cassandra Spark 커넥터와 호환되는 [Maven 좌표](https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector)를 찾아서 클러스터에 연결합니다. 클러스터에 커넥터 라이브러리를 연결하려는 경우 ["Maven 패키지 또는 Spark 패키지 업로드"](https://docs.databricks.com/user-guide/libraries.html) 문서를 참조하세요. 예를 들어 "Databricks 런타임 버전 4.3", "Spark 2.3.1" 및 "Scala 2.11"의 Maven 좌표는 `spark-cassandra-connector_2.11-2.3.1`입니다.
+  * Databricks 런타임 버전과 Spark 버전을 검토합니다. 그런 다음, Cassandra Spark 커넥터와 호환되는 [Maven 좌표](https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector)를 찾아서 클러스터에 연결합니다. 클러스터에 커넥터 라이브러리를 연결하려는 경우 ["Maven 패키지 또는 Spark 패키지 업로드"](https://docs.databricks.com/user-guide/libraries.html) 문서를 참조하세요. 예를 들어 "Databricks 런타임 버전 4.3", "Spark 2.3.1" 및 "Scala 2.11"의 Maven 좌표는 `spark-cassandra-connector_2.11-2.3.1`입니다.
 
-* **Azure Cosmos DB Cassandra API 관련 라이브러리:** - Datastax Spark 커넥터에서 Azure Cosmos DB Cassandra API로의 재시도 정책을 구성하려면 사용자 지정 연결 팩터리가 필요합니다. `com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.0.0`[Maven 좌표](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar)를 추가하여 클러스터에 라이브러리를 연결합니다.
+* **Azure Cosmos DB Cassandra API 관련 라이브러리:** - Cassandra Spark 커넥터에서 Azure Cosmos DB Cassandra API로의 재시도 정책을 구성하려면 사용자 지정 연결 팩터리가 필요합니다. `com.microsoft.azure.cosmosdb:azure-cosmos-cassandra-spark-helper:1.0.0`[Maven 좌표](https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar)를 추가하여 클러스터에 라이브러리를 연결합니다.
 
 ## <a name="sample-notebooks"></a>샘플 Notebook
 

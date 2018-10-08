@@ -9,19 +9,19 @@ ms.author: estfan
 ms.topic: article
 ms.reviewer: klam, deli, LADocs
 ms.suite: integration
-ms.date: 09/24/2018
-ms.openlocfilehash: fd92b093b70dba2df3ec645b3ecb77233d3ebd5c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 09/26/2018
+ms.openlocfilehash: 36e8161eb8be16b75d843a2b7a65fc3dd70d9c02
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958359"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405291"
 ---
 # <a name="create-and-manage-automated-logic-app-workflows---visual-studio-code"></a>자동화된 논리 앱 워크플로 만들기 및 관리 - Visual Studio Code
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 Visual Studio Code를 사용하여 조직 및 기업 전체에서 앱, 데이터, 시스템 및 서비스를 통합하기 위한 작업, 워크플로 및 프로세스를 자동화하는 데 도움이 되는 논리 앱을 만들고 관리할 수 있습니다. 이 문서에서는 코드 기반 환경에서 작업하여 논리 앱 워크플로 정의를 만들고 편집하는 방법을 보여 줍니다. 클라우드에서 <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a>에 이미 배포된 논리 앱에서 작업할 수도 있습니다. 
 
-<a href="https://portal.azure.com" target="_blank">Azure Portal</a> 및 Visual Studio에서 이러한 동일한 작업을 수행할 수 있지만 코드에서 직접 작업하려면 Visual Studio Code에서 더 빨리 시작할 수 있습니다. 예를 들어 이미 생성된 논리 앱을 사용하도록 설정하고, 사용하지 않도록 설정하고, 삭제하고, 새로 고칠 수도 있습니다.
+<a href="https://portal.azure.com" target="_blank">Azure Portal</a> 및 Visual Studio에서 이러한 동일한 작업을 수행할 수 있지만 코드에서 직접 작업하려면 Visual Studio Code에서 더 빨리 시작할 수 있습니다. 예를 들어 이미 생성된 논리 앱을 사용하도록 설정하고, 사용하지 않도록 설정하고, 삭제하고, 새로 고칠 수도 있습니다. 또한 Linux, Windows 및 Mac과 같은 Visual Studio Code가 실행되는 모든 개발 플랫폼의 논리 앱 및 통합 계정에서 작업할 수 있습니다.
 
 이 문서의 경우에는 기본 개념에 더 초점을 맞추는 [Azure Portal에 논리 앱을 만들기 위한 빠른 시작](../logic-apps/quickstart-create-first-logic-app-workflow.md)의 경우와 동일한 논리 앱을 만들 수 있습니다. Visual Studio Code에서 논리 앱은 다음 예제와 같이 표시됩니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "46958359"
 
   * Azure Logic Apps용 Visual Studio Code 확장
 
-    Visual Studio Code 내부에서 이 확장을 설치할 수 있습니다. 
+    이 확장을 [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-logicapps) 또는 Visual Studio Code 내에서 직접 설치할 수 있습니다. 
     설치한 후 Visual Studio Code를 다시 로드해야 합니다. 
 
     ![“Azure Logic Apps용 Visual Studio Code 확장” 찾기](./media/create-logic-apps-visual-studio-code/find-install-logic-apps-extension.png)
@@ -52,7 +52,7 @@ ms.locfileid: "46958359"
 
     ![설치된 확장](./media/create-logic-apps-visual-studio-code/installed-extension.png)
 
-    자세한 내용은 <a href="https://code.visualstudio.com/docs/editor/extension-gallery" target="_blank">확장 마켓플레이스</a>를 참조하세요. 
+    자세한 내용은 <a href="https://code.visualstudio.com/docs/editor/extension-gallery" target="_blank">확장 마켓플레이스</a>를 참조하세요. [GitHub의 Visual Studio Code용 Azure Logic Apps 확장](https://github.com/Microsoft/vscode-azurelogicapps)을 방문하여 이 확장의 오픈 소스 버전에 대한 기여를 보고 제출할 수도 있습니다. 
 
 <a name="sign-in-azure"></a>
 

@@ -2,19 +2,22 @@
 title: 확장된 클라우드 데이터베이스 간 데이터 이동 | Microsoft Docs
 description: 탄력적 데이터베이스 API를 사용하여 자체 호스팅되는 서비스를 통해 분할된 데이터베이스를 조작하고 데이터를 이동하는 방법에 대해 설명합니다.
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 3c68b18a96ae79cd32cd3059eab837e6051847dd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 518d7659df603ed0fcab4aebf5f35c3b92e75ccf
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647421"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162631"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>확장된 클라우드 데이터베이스 간 데이터 이동
 갑자기 앱 수요가 엄청나게 증가한 상황에 처한 SaaS(Software as a Service) 개발자는 이러한 급증을 처리해야 합니다. 따라서 더 많은 데이터베이스(분할 된 데이터베이스)를 추가합니다. 데이터 무결성을 해치지 않고 어떻게 새 데이터베이스에 데이터를 재배포할 수 있을까요? **분할-병합 도구** 를 사용하여 제약 조건이 지정된 데이터베이스의 데이터를 새 데이터베이스로 이동합니다.  

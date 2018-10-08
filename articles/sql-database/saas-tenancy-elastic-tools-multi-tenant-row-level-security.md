@@ -1,21 +1,23 @@
 ---
 title: RLS 및 탄력적 데이터베이스 도구를 사용한 다중 테넌트 앱 | Microsoft Docs
 description: 행 수준 보안으로 탄력적 데이터베이스 도구를 사용하여 확장성이 높은 데이터 계층으로 응용 프로그램을 빌드합니다.
-metakeywords: azure sql database elastic tools multi tenant row level security rls
 services: sql-database
-manager: craigg
-author: tmullaney
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: tmullaney
 ms.author: thmullan
-ms.openlocfilehash: 02ad01185a86aa5a975be2a66b54a214029dd73f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 94430d3b72bb5b8e8bde0e9e2e9fb2eb2b0c3632
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645813"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056287"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>탄력적 데이터베이스 도구 및 행 수준 보안을 제공하는 다중 테넌트 응용 프로그램
 
@@ -38,7 +40,7 @@ ms.locfileid: "34645813"
 ### <a name="prerequisites"></a>필수 조건
 
 - Visual Studio 2012 이상 사용 
-- Azure SQL Database 3개 생성 
+- Azure SQL 데이터베이스 3개 만들기 
 - 샘플 프로젝트 다운로드: [Azure SQL을 위한 탄력적 DB 도구 - 다중 테넌트 분할된 데이터베이스](http://go.microsoft.com/?linkid=9888163)
   - **Program.cs** 
 

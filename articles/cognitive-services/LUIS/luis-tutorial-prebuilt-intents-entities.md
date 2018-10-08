@@ -1,47 +1,56 @@
 ---
-title: Language Understanding에서 미리 빌드된 의도 및 엔터티를 추가하여 일반적인 데이터 추출 - Azure | Microsoft Docs
-description: 미리 빌드된 의도 및 엔터티를 사용하여 다양한 형식의 엔터티 데이터를 추출하는 방법에 대해 알아봅니다.
+title: '자습서 2: 미리 빌드된 의도 및 엔터티 - 미리 빌드된 일반적인 발화 사용 - LUIS에서 일반적인 데이터 추출'
+titleSuffix: Azure Cognitive Services
+description: 미리 빌드된 의도 및 엔터티를 인사 관리 자습서 앱에 추가하여 의도 예측 및 데이터 추출을 빠르게 수행합니다. 미리 빌드된 엔터티를 사용하여 발화에 레이블을 지정할 필요가 없습니다. 엔터티는 자동으로 검색됩니다.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/03/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 0e45b659508c71a9f1220ef5e76b9a95438fa1e6
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: d42aed76ecdbc2bd840e17517db2ca0b6ba11aa0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162243"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034436"
 ---
-# <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>자습서: 2. 미리 작성된 의도 및 엔터티 추가
-미리 빌드된 의도 및 엔터티를 인사 관리 자습서 앱에 추가하여 의도 예측 및 데이터 추출을 빠르게 수행합니다. 
+# <a name="tutorial-2-identify-common-intents-and-entities"></a>자습서 2: 일반적인 의도 및 엔터티 식별
+이 자습서에서는 인사 관리 앱을 수정합니다. 미리 빌드된 의도 및 엔터티를 인사 관리 자습서 앱에 추가하여 의도 예측 및 데이터 추출을 빠르게 수행합니다. 엔터티를 자동으로 검색하기 때문에 미리 빌드된 엔터티를 사용하여 발화의 레이블을 지정할 필요가 없습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+미리 빌드된 모델의 일반적인 주체 도메인 및 데이터 형식을 통해 모델을 신속하게 빌드할 뿐만 아니라 모델 모양의 예제를 제공하는 데 도움이 됩니다. 
+
+**이 자습서에서는 다음 방법에 대해 알아봅니다.**
 
 > [!div class="checklist"]
-* 미리 빌드된 의도 추가 
-* 미리 빌드된 엔터티 datetimeV2 및 number 추가
-* 학습 및 게시
-* LUIS 쿼리 및 예측 응답 받기
+> * 기존 자습서 앱 사용
+> * 미리 빌드된 의도 추가 
+> * 미리 빌드된 엔터티 추가 
+> * 학습 
+> * 게시 
+> * 엔드포인트에서 의도 및 엔터티 가져오기
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="before-you-begin"></a>시작하기 전에
-이전 엔터티 자습서의 [인사 관리](luis-quickstart-intents-only.md) 앱이 없으면 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github 리포지토리의 JSON을 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 새 앱으로 [가져옵니다](luis-how-to-start-new-app.md#import-new-app).
+## <a name="use-existing-app"></a>기존 앱 사용
+마지막 자습서에서 만든 **HumanResources**라는 앱을 사용하여 계속 진행합니다. 
 
-원래의 인사 관리 앱을 유지하려면 [설정](luis-how-to-manage-versions.md#clone-a-version) 페이지에서 버전을 복제하고 해당 이름을 `prebuilts`로 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 
+이전 자습서의 HumanResources 앱이 없으면 다음 단계를 사용합니다.
+
+1.  [앱 JSON 파일](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-intent-only-HumanResources.json)을 다운로드하고 저장합니다.
+
+2. JSON을 새 앱으로 가져옵니다.
+
+3. **관리** 섹션의 **버전** 탭에서 버전을 복제하고 `prebuilts`라는 이름을 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 버전 이름이 URL 경로의 일부로 사용되므로 이름에는 URL에 유효하지 않은 문자가 포함될 수 없습니다. 
 
 ## <a name="add-prebuilt-intents"></a>미리 빌드된 의도 추가
 LUIS는 일반적인 사용자 의도에 도움이 되도록 여러 가지 미리 빌드된 의도를 제공합니다.  
 
-1. 앱이 LUIS의 **빌드** 섹션에 있는지 확인합니다. 오른쪽 위의 메뉴 표시줄에서 **빌드**를 선택하여 이 섹션으로 변경할 수 있습니다. 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. **Add prebuilt domain intent**(미리 빌드된 도메인 의도 추가)를 선택합니다. 
-
-    [ ![미리 빌드된 도메인 의도 추가 단추가 강조 표시된 의도 페이지의 스크린샷](./media/luis-tutorial-prebuilt-intents-and-entities/add-prebuilt-domain-button.png) ](./media/luis-tutorial-prebuilt-intents-and-entities/add-prebuilt-domain-button.png#lightbox)
+2. **미리 빌드된 의도 추가**를 선택합니다. 
 
 3. `Utilities`를 검색합니다. 
 
@@ -61,33 +70,27 @@ LUIS는 일반적인 데이터 추출을 위해 여러 가지 미리 빌드된 �
 
 1. 왼쪽 탐색 메뉴에서 **엔터티**를 선택합니다.
 
-    [ ![왼쪽 탐색에 엔터티가 강조 표시된 의도 목록의 스크린샷](./media/luis-tutorial-prebuilt-intents-and-entities/entities-navigation.png)](./media/luis-tutorial-prebuilt-intents-and-entities/entities-navigation.png#lightbox)
-
 2. **미리 빌드된 엔터티 관리** 단추를 선택합니다.
-
-    [ ![미리 빌드된 엔터티 관리가 강조 표시된 엔터티 목록의 스크린샷](./media/luis-tutorial-prebuilt-intents-and-entities/manage-prebuilt-entities-button.png)](./media/luis-tutorial-prebuilt-intents-and-entities/manage-prebuilt-entities-button.png#lightbox)
 
 3. 미리 빌드된 엔터티 목록에서 **number** 및 **datetimeV2**를 선택하고 **완료**를 선택합니다.
 
     ![number가 선택된 미리 빌드된 엔터티 대화 상자의 스크린샷](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
-## <a name="train-and-publish-the-app"></a>앱 학습 및 게시
+## <a name="train"></a>학습
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-app-to-endpoint"></a>엔드포인트에 앱 게시
+## <a name="publish"></a>게시
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-endpoint-with-an-utterance"></a>발화를 사용하여 엔드포인트 쿼리
+## <a name="get-intent-and-entities-from-endpoint"></a>엔드포인트에서 의도 및 엔터티 가져오기
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. 주소의 URL 끝으로 이동하고 `I want to cancel on March 3`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 `q`로 발화 **쿼리**입니다. 
+2. 브라우저 주소 표시줄에서 URL의 끝으로 이동하여 `I want to cancel on March 3`을 입력합니다. 마지막 쿼리 문자열 매개 변수는 `q`로 발화 **쿼리**입니다. 
 
-    결과에서는 Utilities.Cancel 의도를 예측하고 March 3 날짜와 숫자 3을 추출했습니다. 
-
-    ```
+    ```JSON
     {
       "query": "I want to cancel on March 3",
       "topScoringIntent": {
@@ -162,15 +165,17 @@ LUIS는 일반적인 데이터 추출을 위해 여러 가지 미리 빌드된 �
     }
     ```
 
-    3월 3일이 과거 또는 미래에 있을 때 발언이 언급되지 않았기 때문에 3월 3일에는 두 가지 값이 있습니다. 가정하거나 필요할 경우 설명을 요청하는 것은 LUIS 호출 응용 프로그램에 달렸습니다. 
+    결과에서는 Utilities.Cancel 의도를 예측하고 March 3 날짜와 숫자 3을 추출했습니다. 
 
-    미리 빌드된 의도 및 엔터티를 쉽고 빠르게 추가하면 클라이언트 응용 프로그램에서 대화 관리를 추가하고 일반적인 데이터 형식을 추출할 수 있습니다. 
+    3월 3일이 과거 또는 미래에 있을 때 발언이 언급되지 않았기 때문에 3월 3일에는 두 가지 값이 있습니다. 필요할 경우 가정하거나 설명을 요청하는 것은 클라이언트 응용 프로그램의 책임입니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
+
+미리 빌드된 의도 및 엔터티를 추가하여 클라이언트 응용 프로그램은 일반적인 사용자 의도를 결정하고 일반적인 데이터 형식을 추출할 수 있습니다. 
 
 > [!div class="nextstepaction"]
 > [앱에 정규식 엔터티 추가](luis-quickstart-intents-regex-entity.md)

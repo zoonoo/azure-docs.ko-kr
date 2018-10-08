@@ -1,21 +1,21 @@
 ---
-title: Face API C# 자습서 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 이 자습서에서는 이미지에서 얼굴을 감지하고 포착하는 Cognitive Services Face 서비스를 사용하는 Windows 앱을 만듭니다.
+title: '자습서: 이미지에서 얼굴 감지 및 포착 - Face API, C#'
+titleSuffix: Azure Cognitive Services
+description: 이 자습서에서는 Face API를 사용하여 이미지에서 얼굴을 감지하고 포착하는 Windows 앱을 만듭니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: tutorial
-ms.date: 06/29/2018
+ms.date: 09/24/2018
 ms.author: nolachar
-ms.openlocfilehash: e4f2192c40f0b650b31ed59642dee89e42eca703
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 657c471761c36de5095763623210909308f55c2a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125944"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162614"
 ---
 # <a name="tutorial-create-a-wpf-app-to-detect-and-frame-faces-in-an-image"></a>자습서: 이미지에서 얼굴을 감지하고 포착하는 WPF 앱 만들기
 
@@ -36,7 +36,7 @@ ms.locfileid: "39125944"
 
 - 샘플을 실행하려면 구독 키가 있어야 합니다. [Cognitive Services 시도](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다.
 - [Visual Studio 2015 또는 2017](https://www.visualstudio.com/downloads/)의 모든 버전. Visual Studio 2017의 경우 .NET 데스크톱 응용 프로그램 개발 워크로드가 필요합니다. 이 자습서에서는 Visual Studio 2017 Community Edition을 사용합니다.
-- [Microsoft.Azure.CognitiveServices.Vision.Face 2.0.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.0.0-preview) 클라이언트 라이브러리 NuGet 패키지. 패키지를 다운로드할 필요는 없습니다. 설치 지침은 아래에 제공됩니다.
+- [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview) 클라이언트 라이브러리 NuGet 패키지. 패키지를 다운로드할 필요는 없습니다. 설치 지침은 아래에 제공됩니다.
 
 ## <a name="create-the-visual-studio-solution"></a>Visual Studio 솔루션 만들기
 
@@ -54,7 +54,7 @@ ms.locfileid: "39125944"
 1. **도구** 메뉴에서 **NuGet 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 선택합니다.
 1. **패키지 관리자 콘솔**에서 다음을 붙여 넣은 다음, **Enter**를 누릅니다.
 
-    `Install-Package Microsoft.Azure.CognitiveServices.Vision.Face -Version 2.0.0-preview`
+    `Install-Package Microsoft.Azure.CognitiveServices.Vision.Face -Version 2.2.0-preview`
 
 ## <a name="add-the-initial-code"></a>초기 코드를 추가합니다.
 
@@ -122,8 +122,8 @@ namespace FaceTutorial
         // NOTE: Free trial subscription keys are generated in the westcentralus
         // region, so if you are using a free trial subscription key, you should
         // not need to change this region.
-        private const string baseUri =
-            "https://westcentralus.api.cognitive.microsoft.com/face/v1.0";
+        private const string faceEndpoint =
+            "https://westcentralus.api.cognitive.microsoft.com";
 
         private readonly IFaceClient faceClient = new FaceClient(
             new ApiKeyServiceClientCredentials(subscriptionKey),
@@ -137,13 +137,13 @@ namespace FaceTutorial
         {
             InitializeComponent();
 
-            if (Uri.IsWellFormedUriString(baseUri, UriKind.Absolute))
+            if (Uri.IsWellFormedUriString(faceEndpoint, UriKind.Absolute))
             {
-                faceClient.BaseUri = new Uri(baseUri);
+                faceClient.Endpoint = faceEndpoint;
             }
             else
             {
-                MessageBox.Show(baseUri,
+                MessageBox.Show(faceEndpoint,
                     "Invalid URI", MessageBoxButton.OK, MessageBoxImage.Error);
                 Environment.Exit(0);
             }
@@ -197,8 +197,8 @@ namespace FaceTutorial
 - *MainWindow.xaml.cs*에서 다음 줄을 찾아 구독 키와 연결된 Azure 지역을 바꾸거나 확인합니다.
 
     ```csharp
-    private const string baseUri =
-        "https://westcentralus.api.cognitive.microsoft.com/face/v1.0";
+    private const string Endpoint =
+        "https://westcentralus.api.cognitive.microsoft.com";
     ```
 
     위치가 구독 키를 획득한 위치와 동일한지 확인합니다. 예를 들어 **westus** 지역에서 구독 키를 획득한 경우 `Westcentralus`를 `Westus`로 바꿉니다.

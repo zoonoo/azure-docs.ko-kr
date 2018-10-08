@@ -2,20 +2,22 @@
 title: SQL에 ActiveDirectoryInteractive 연결 | Microsoft Docs
 description: SqlAuthenticationMethod.ActiveDirectoryInteractive 모드를 사용하여 Azure SQL Database에 연결하는 C# 코드와 설명입니다.
 services: sql-database
-author: GithubMirek
-manager: craigg
 ms.service: sql-database
+ms.subservice: security
 ms.custom: active directory
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/06/2018
+author: GithubMirek
 ms.author: MirekS
 ms.reviewer: GeneMi
-ms.openlocfilehash: 3d6eb70b3ce9072dc2c51220af89549022b5dacf
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.date: 04/06/2018
+manager: craigg
+ms.openlocfilehash: 80944e73f21d75943d4fa71c7ac9500e47bab250
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238271"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055529"
 ---
 # <a name="use-activedirectoryinteractive-mode-to-connect-to-azure-sql-database"></a>ActiveDirectoryInteractive 모드를 사용하여 Azure SQL Database에 연결
 
@@ -96,7 +98,7 @@ Azure AD 인증을 사용하려면 프로그램에서 연결을 시도할 때 C#
 
 Azure SQL Database 서버로 한정된 Azure AD에서는 특정 데이터베이스에 액세스할 수 있는 사용자를 추가할 수 있습니다.
 
-자세한 내용은 [SQL Database, 관리되는 인스턴스 및 SQL Data Warehouse에서 인증을 위해 Azure Active Directory 인증 사용](sql-database-aad-authentication.md)을 참조하세요.
+자세한 내용은 [SQL Database, Managed Instance 및 SQL Data Warehouse에서 인증을 위해 Azure Active Directory 인증 사용](sql-database-aad-authentication.md)을 참조하세요.
 
 
 ### <a name="d-add-a-non-admin-user-to-azure-ad"></a>D. 관리자가 아닌 사용자를 Azure AD에 추가
@@ -122,13 +124,13 @@ C# 프로그램은 **Microsoft.IdentityModel.Clients.ActiveDirectory** 네임스
 
 C# 예제에서 사용하는 네임스페이스 중 하나는 **System.Data.SqlClient**입니다. 특히 흥미로운 것은 열거형 **SqlAuthenticationMethod**입니다. 이 열거형의 값은 다음과 같습니다.
 
-- **SqlAuthenticationMethod.ActiveDirectory\*Interactive**\*:&nbsp; MFA(Multi-Factor Authentication)를 구현하려면 Azure AD 사용자 이름과 함께 이 값을 사용합니다.
+- **SqlAuthenticationMethod.ActiveDirectory *Interactive***:&nbsp; MFA(Multi-Factor Authentication)를 구현하려면 Azure AD 사용자 이름과 함께 이 값을 사용합니다.
     - 이 문서에서는 이 값을 집중적으로 다룹니다. 이 값은 사용자 암호를 요청하는 대화 상자를 표시하여 대화형 경험을 생성한 다음, 이 사용자에게 MFA가 적용되면 MFA 유효성 검사를 위한 대화 상자를 표시합니다.
     - 이 값은 .NET framework 버전 4.7.2부터 사용할 수 있습니다.
 
-- **SqlAuthenticationMethod.ActiveDirectory*Integrated***:&nbsp; 이 값은 *페더레이션된* 계정에 사용합니다. 페더레이션된 계정에서 사용자 이름은 Windows 도메인에 알려져 있습니다. 이 방법은 MFA를 지원하지 않습니다.
+- **SqlAuthenticationMethod.ActiveDirectory *Integrated***:&nbsp; 이 값은 *페더레이션된* 계정에 사용합니다. 페더레이션된 계정에서 사용자 이름은 Windows 도메인에 알려져 있습니다. 이 방법은 MFA를 지원하지 않습니다.
 
-- **SqlAuthenticationMethod.ActiveDirectory\*Password**\*:&nbsp; Azure AD 사용자 및 사용자 암호가 필요한 인증에는 이 값을 사용합니다. Azure SQL Database가 인증을 수행합니다. 이 방법은 MFA를 지원하지 않습니다.
+- **SqlAuthenticationMethod.ActiveDirectory *Password***:&nbsp; Azure AD 사용자 및 사용자 암호가 필요한 인증에는 이 값을 사용합니다. Azure SQL Database가 인증을 수행합니다. 이 방법은 MFA를 지원하지 않습니다.
 
 
 

@@ -1,26 +1,27 @@
 ---
 title: 추출된 데이터를 사용하여 교차 테넌트 분석 실행 | Microsoft Docs
-description: 여러 Azure SQL Database 데이터베이스에서 추출된 데이터를 사용하는 교차 테넌트 분석 쿼리입니다.
-keywords: SQL Database 자습서
+description: 단일 테넌트 앱의 여러 Azure SQL Database 데이터베이스에서 추출된 데이터를 사용하는 교차 테넌트 분석 쿼리입니다.
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.reviewer: anjangsh; billgib; genemi
-ms.openlocfilehash: 68057a2ae5925aa16288844759a34592aa7c7573
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: anjangsh,billgib,genemi
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: bd766dfb712921a57dd23c4fdecc25dd623eb833
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644963"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393267"
 ---
-# <a name="cross-tenant-analytics-using-extracted-data"></a>추출된 데이터를 사용한 교차 테넌트 분석
-
-이 자습서에서는 하나의 분석 시나리오를 처음부터 끝까지 살펴봅니다. 시나리오에서는 기업에서 스마트한 의사 결정을 내리는 데 분석을 어떻게 이용할 수 있는지 보여줍니다. 각 테넌트 데이터베이스에서 추출된 데이터에 분석을 적용하여 테넌트 동작 및 응용 프로그램 사용에 대한 정보를 얻습니다. 이 시나리오는 다음과 같이 3단계로 구성됩니다. 
+# <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>추출된 데이터를 사용하여 교차 테넌트 분석 - 단일 테넌트 앱
+ 
+이 자습서에서는 단일 테넌트 구현에 대한 하나의 완전한 분석 시나리오를 처음부터 끝까지 살펴봅니다. 시나리오에서는 기업에서 스마트한 의사 결정을 내리는 데 분석을 어떻게 이용할 수 있는지 보여줍니다. 각 테넌트 데이터베이스에서 추출된 데이터에 분석을 적용하여 테넌트 동작을 살펴보게 됩니다. 테넌트가 샘플 응용 프로그램인 Wingtip Tickets SaaS 응용 프로그램을 사용하는 방식도 확인하게 됩니다. 이 시나리오는 다음과 같이 3단계로 구성됩니다. 
 
 1.  각 테넌트 데이터베이스에서 분석 저장소로 데이터를 **추출**하고 **로드**합니다.
 2.  분석 처리를 위해 **추출된 데이터를 변환**합니다.
@@ -206,12 +207,12 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 
 위의 Contoso Concert Hall 차트를 보면 판매 개시 첫날 판매량이 급증하는 이벤트도 있고, 급증하지 않는 이벤트도 있음을 알 수 있습니다. 필터 옵션을 이리저리 조정하여 다른 행사장의 판매량 추세도 확인해 봅니다.
 
-티켓 판매량 패턴을 파악하면 Wingtip Tickets가 비즈니스 모델을 최적화할 방향을 찾게 될 수도 있습니다. 모든 테넌트에게 동일한 요금을 부과하는 대신 서로 다른 성과 수준을 갖는 등급별 서비스 모델을 도입하는 것이 좋을 수도 있습니다. 하루에 더 많은 티켓을 판매해야 하는 대형 행사장에는 높은 SLA(서비스 수준 계약)를 갖는 높은 등급을 제안할 수 있습니다. 이러한 행사장에서는 데이터베이스당 리소스 한도가 더 높은 풀에 자신의 데이터베이스를 배치할 수 있습니다. 각 서비스 등급에 시간당 판매량을 할당하고, 할당량이 초과되면 추가 요금을 부과할 수도 있을 것입니다. 주기적으로 판매량이 급증하는 대형 행사장이라면 높은 등급의 서비스를 이용하는 것이 이익이 될 것입니다. 또한, Wingtip Tickets은 서비스의 수익을 더 효율적으로 높일 수 있게 됩니다.
+티켓 판매량 패턴을 파악하면 Wingtip Tickets가 비즈니스 모델을 최적화할 방향을 찾게 될 수도 있습니다. 모든 테넌트에게 동일한 요금을 부과하는 대신 서로 다른 계산 크기를 갖는 등급별 서비스 모델을 도입하는 것이 좋을 수도 있습니다. 하루에 더 많은 티켓을 판매해야 하는 대형 행사장에는 높은 SLA(서비스 수준 계약)를 갖는 높은 등급을 제안할 수 있습니다. 이러한 행사장에서는 데이터베이스당 리소스 한도가 더 높은 풀에 자신의 데이터베이스를 배치할 수 있습니다. 각 서비스 등급에 시간당 판매량을 할당하고, 할당량이 초과되면 추가 요금을 부과할 수도 있을 것입니다. 주기적으로 판매량이 급증하는 대형 행사장이라면 높은 등급의 서비스를 이용하는 것이 이익이 될 것입니다. 또한, Wingtip Tickets은 서비스의 수익을 더 효율적으로 높일 수 있게 됩니다.
 
 한편, Wingtip Tickets의 고객들은 자신들이 지불하는 서비스 요금보다 티켓 판매량이 현저히 떨어진다고 불만을 토로하고 있습니다. 데이터를 분석하여 성적이 좋지 않은 행사장의 티켓 판매량을 높일 방안이 있는지 확인해 볼 수 있습니다. 판매량이 높아지면 서비스의 체감 가치가 높아지게 됩니다. fact_Tickets를 마우스 오른쪽 단추로 클릭하고 **새 측정값**을 선택합니다. **AverageTicketsSold**라는 새 측정값에 다음과 같은 식을 입력합니다.
 
 ```
-AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))
+AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CALCULATE( SUM(TableName[Tickets Sold] ) ) )
 ```
 
 아래 그림을 보고 시각화 옵션을 설정하여 각 행사장별 티켓 판매량 비율 차트를 표시합니다. 이를 통해 상대적인 판매 성적을 확인할 수 있습니다.
@@ -241,3 +242,4 @@ AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[V
 
 - [Wingtip SaaS 응용 프로그램을 사용하는 또 다른 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
 - [탄력적 작업](sql-database-elastic-jobs-overview.md).
+- [추출된 데이터를 사용하여 교차 테넌트 분석 - 다중 테넌트 앱](saas-multitenantdb-tenant-analytics.md)

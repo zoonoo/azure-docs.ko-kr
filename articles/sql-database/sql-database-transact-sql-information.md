@@ -2,19 +2,22 @@
 title: T-SQL 차이점 해결-마이그레이션-Azure SQL Database | Microsoft Docs
 description: Azure SQL Database에서 완전히 지원되지 않는 TRANSACT-SQL 문
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: migrate
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: e89c863ac50a8b906b388c505f444cd60fdbaad3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: dfff51d7541ffdc2d279b238a6d993d5e29515f0
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649077"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160710"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>SQL Database로의 마이그레이션 중 Transact-SQL 차이점 해결   
 SQL Server에서 Azure SQL Server로 [데이터베이스를 마이그레이션](sql-database-cloud-migrate.md)하는 경우 SQL Server를 마이그레이션하려면 먼저 데이터베이스를 다시 엔지니어링해야 할 수 있습니다. 이 문서에서는 엔지니어링을 다시 수행하는 데 도움이 되며 다시 엔지니어링해야 하는 근본적인 이유를 이해하는 데에도 도움이 되는 지침을 제공합니다. 비호환성을 검색하려면 [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595)를 사용합니다.
@@ -39,7 +42,7 @@ SQL Database에서 지원되는 기능 및 지원되지 않는 기능 목록은 
 [Azure SQL Database 기능 비교](sql-database-features.md)에서 설명한 지원되지 않는 기능과 관련된 Transact-SQL 문 외에도 다음 문 및 문 그룹이 지원되지 않습니다. 따라서 마이그레이션할 데이터베이스에서 다음 기능을 사용하고 있는 경우 T-SQL을 다시 엔지니어링하여 해당 T-SQL 기능 및 문을 제거합니다.
 
 - 시스템 개체의 데이터 정렬
-- 연결 관련: 끝점 문. SQL Database는 Windows 인증을 지원하지 않으며 비슷한 Azure Active Directory 인증은 지원합니다. 최신 버전의 SSMS를 사용해야 하는 인증 형식도 있습니다. 자세한 내용은 [Azure Active Directory 인증을 사용하여 SQL Database 또는 SQL Data Warehouse에 연결](sql-database-aad-authentication.md)을 참조하세요.
+- 연결 관련: 엔드포인트 문. SQL Database는 Windows 인증을 지원하지 않으며 비슷한 Azure Active Directory 인증은 지원합니다. 최신 버전의 SSMS를 사용해야 하는 인증 형식도 있습니다. 자세한 내용은 [Azure Active Directory 인증을 사용하여 SQL Database 또는 SQL Data Warehouse에 연결](sql-database-aad-authentication.md)을 참조하세요.
 - 세 개 또는 네 개의 부분으로 된 이름을 사용하여 데이터베이스 쿼리를 교차합니다. 읽기 전용 데이터베이스 간 쿼리는 [탄력적 데이터베이스 쿼리](sql-database-elastic-query-overview.md)를 통해 지원됩니다.
 - 데이터베이스 간 소유권 체인, `TRUSTWORTHY` 설정
 - `EXECUTE AS LOGIN` 대신 '사용자로 실행'을 사용합니다.
@@ -49,7 +52,7 @@ SQL Database에서 지원되는 기능 및 지원되지 않는 기능 목록은 
 - 고가용성: Microsoft Azure 계정을 통해 관리되는 고가용성과 관련된 구문입니다. 백업, 복원, Alwayson, 데이터베이스 미러링, 로그 전달, 복구 모드에 대한 구문을 포함합니다.
 - 로그 판독기: SQL Database에서 사용할 수 없는 로그 판독기를 사용하는 구문: 밀어넣기 복제, 변경 데이터 캡처입니다. SQL Database는 푸시 복제 문서의 구독자가 될 수 있습니다.
 - 함수: `fn_get_sql`, `fn_virtualfilestats`, `fn_virtualservernodes`
-- 하드웨어: 하드웨어 관련 서버 설정과 관련된 구문: 메모리, 작업자 스레드 수, CPU 선호도, 추적 플래그 등입니다. 대신 서비스 수준을 사용합니다.
+- 하드웨어: 하드웨어 관련 서버 설정과 관련된 구문: 메모리, 작업자 스레드 수, CPU 선호도, 추적 플래그 등입니다. 그 대신 서비스 계층 및 계산 크기를 사용합니다.
 - `KILL STATS JOB`
 - `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE` 및 네 부분으로 된 이름
 - .NET Framework: CLR과 SQL Server 통합

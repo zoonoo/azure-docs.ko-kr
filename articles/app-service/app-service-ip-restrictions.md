@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 7/30/2018
 ms.author: ccompy
-ms.openlocfilehash: fb26d91ae772c4da1055da80366d6e8c6b80a6ac
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 9ffeb01a46b62202292f6e1ea91f47cd87954387
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364311"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219131"
 ---
 # <a name="azure-app-service-static-ip-restrictions"></a>Azure App Service 고정 IP 제한 #
 
@@ -29,7 +29,7 @@ IP 제한 기능은 웹앱 API 앱, Linux 앱, Linux 컨테이너 앱 및 함수
 
 앱에 대한 요청이 수행될 경우 FROM IT 주소가 IP 제한 목록에 속하는지 평가됩니다. 주소가 목록의 규칙을 기준으로 허용되지 않을 경우 서비스는 [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) 상태 코드로 답변합니다.
 
-IP 제한 기능은 코드가 실행되는 작업자 역할의 업스트림에 해당하는 App Service 프런트 엔드 역할에 구현됩니다. 따라서 IP 제한은 결과적으로 네트워크 ACL입니다.  
+IP 제한 기능은 코드가 실행되는 작업자 역할의 업스트림에 해당하는 App Service 프런트 엔드 역할에 구현됩니다. 따라서 IP 제한은 사실상 네트워크 ACL입니다.  
 
 ![IP 제한 흐름](media/app-service-ip-restrictions/ip-restrictions-flow.png)
 

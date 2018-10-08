@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: c058d991d2655985d24b66cc1c6f30da3ddb7785
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: b2346276def178461a04eed008cc21fb22dc8464
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42023003"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040553"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service용 Python 장치 SDK를 사용하여 시뮬레이션된 X.509 장치 만들기 및 프로비전
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -57,7 +57,7 @@ ms.locfileid: "42023003"
 
 ## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>자체 서명된 X.509 장치 인증서 및 개별 등록 항목 만들기
 
-이 섹션에서는 자체 서명된 X.509 인증서를 사용하고 다음에 유의해야 합니다.
+이 섹션에서는 자체 서명된 X.509 인증서를 사용합니다. 다음 사항에 주의하세요.
 
 * 자체 서명된 인증서는 테스트 목적으로만 사용되며 프로덕션 환경에서 사용하지 마십시오.
 * 자체 서명된 인증서에 대한 기본 만료일은 1년입니다.
@@ -66,17 +66,29 @@ Azure IoT C SDK의 샘플 코드를 사용하여 시뮬레이션된 장치에 �
 
 1. *cmake* 폴더에 생성된 `azure_iot_sdks.sln`이라는 솔루션을 열고 Visual Studio에서 빌드합니다.
 
-2. **Provision\_Samples** 폴더 아래에서 **dice\_device\_enrollment** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택합니다. 솔루션을 실행합니다. 출력 창에서 메시지가 표시되면 개별 등록에 대한 `i`를 입력합니다. 출력 창에는 시뮬레이션된 장치에 대해 로컬로 생성된 X.509 인증서가 표시됩니다. *-----BEGIN CERTIFICATE-----* 에서 시작하여 *-----END CERTIFICATE-----* 에서 끝나는 출력(이 두 줄 모두 포함)을 클립보드에 복사합니다. 
+2. **Provision\_Samples** 폴더 아래에서 **dice\_device\_enrollment** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택합니다. 솔루션을 실행합니다. 
+
+3. 출력 창에서 메시지가 표시되면 개별 등록에 대한 `i`를 입력합니다. 출력 창에는 시뮬레이션된 장치에 대해 로컬로 생성된 X.509 인증서가 표시됩니다. 
+    
+    첫 번째 인증서를 클립보드에 복사합니다. 첫 번째 항목으로 시작합니다.
+    
+        -----BEGIN CERTIFICATE----- 
+        
+    첫 번째 항목이 발견된 후 복사를 종료합니다.
+    
+        -----END CERTIFICATE-----
+        
+    이러한 줄도 모두 포함해야 합니다. 
 
     ![dice 장치 등록 응용 프로그램](./media/python-quick-create-simulated-device-x509/dice-device-enrollment.png)
  
-3. Windows 컴퓨터에 **_X509testcertificate.pem_** 이라는 파일을 만들고, 원하는 편집기에서 이 파일을 열고, 클립보드의 내용을 이 파일에 복사합니다. 파일을 저장합니다. 
+4. Windows 컴퓨터에 **_X509testcertificate.pem_** 이라는 파일을 만들고, 원하는 편집기에서 이 파일을 열고, 클립보드의 내용을 이 파일에 복사합니다. 파일을 저장합니다. 
 
-4. Azure Portal에 로그인하고, 왼쪽 메뉴에서 **모든 리소스** 단추를 클릭하고, 프로비전 서비스를 엽니다.
+5. Azure Portal에 로그인하고, 왼쪽 메뉴에서 **모든 리소스** 단추를 클릭하고, 프로비전 서비스를 엽니다.
 
-5. Device Provisioning Service 요약 블레이드에서 **등록 관리**를 선택합니다. **개별 등록** 탭을 선택하고 맨 위에서 **추가** 단추를 클릭합니다. 
+6. Device Provisioning Service 요약 블레이드에서 **등록 관리**를 선택합니다. **개별 등록** 탭을 선택하고 맨 위에서 **개별 등록 추가** 단추를 클릭합니다. 
 
-6. **등록 추가** 패널 아래에 다음 정보를 입력합니다.
+7. **등록 추가** 패널 아래에 다음 정보를 입력합니다.
     - ID 증명 *메커니즘*으로 **X.509**를 선택합니다.
     - *기본 인증서 .pem 또는 .cer 파일* 아래에서 *파일 선택*을 클릭하여 이전 단계에서 만든 **X509testcertificate.pem** 인증서 파일을 선택합니다.
     - 필요에 따라 다음 정보를 입력합니다.
@@ -85,13 +97,13 @@ Azure IoT C SDK의 샘플 코드를 사용하여 시뮬레이션된 장치에 �
       - 장치에 대해 원하는 초기 구성으로 **초기 장치 쌍 상태**를 업데이트합니다.
     - 완료되면 **저장** 단추를 클릭합니다. 
 
-    [![포털에서 X.509 증명에 대한 개별 등록 추가](./media/python-quick-create-simulated-device-x509/individual-enrollment.png)](./media/python-quick-create-simulated-device-x509/individual-enrollment.png#lightbox)
+    [![포털에서 X.509 증명에 대한 개별 등록 추가](./media/python-quick-create-simulated-device-x509/device-enrollment.png)](./media/python-quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
    등록에 성공하면 X.509 장치가 *개별 등록* 탭의 *등록 ID* 열에 **riot-device-cert**로 표시됩니다. 
 
 ## <a name="simulate-the-device"></a>장치 시뮬레이션
 
-1. Device Provisioning Service 요약 블레이드에서 **개요**를 선택합니다. _ID 범위_와 _Global Service Endpoint_(전역 서비스 엔드포인트)를 참고합니다.
+1. Device Provisioning Service 요약 블레이드에서 **개요**를 선택합니다. _ID 범위_와 _Global Service Endpoint_(글로벌 서비스 엔드포인트)를 참고합니다.
 
     ![서비스 정보](./media/python-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
@@ -132,7 +144,7 @@ Azure IoT C SDK의 샘플 코드를 사용하여 시뮬레이션된 장치에 �
 
 8. 포털에서 프로비전 서비스에 연결된 IoT 허브로 이동하여 **Device Explorer** 블레이드를 엽니다. 시뮬레이션된 X.509 장치가 허브에 성공적으로 프로비전되면 장치 ID가 **Device Explorer** 블레이드에 표시되고 *상태*가 **사용**으로 표시됩니다. 샘플 장치 응용 프로그램을 실행하기 전에 블레이드가 이미 열려 있으면 위쪽의 **새로 고침** 단추를 클릭해야 할 수도 있습니다. 
 
-    ![장치가 IoT Hub에 등록됨](./media/python-quick-create-simulated-device-x509/hub-registration.png) 
+    ![장치가 IoT Hub에 등록됨](./media/python-quick-create-simulated-device-x509/registration.png) 
 
 > [!NOTE]
 > 장치에 대한 등록 항목의 기본값으로부터 *초기 장치 쌍 상태*를 변경한 경우, 허브에서 원하는 쌍 상태를 가져와서 그에 맞게 작동할 수 있습니다. 자세한 내용은 [IoT Hub의 장치 쌍 이해 및 사용](../iot-hub/iot-hub-devguide-device-twins.md)을 참조하세요.

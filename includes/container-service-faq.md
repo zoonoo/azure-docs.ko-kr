@@ -32,13 +32,13 @@ Azure Container Service는 Azure Portal, Azure 명령줄 도구 및 Azure API의
 
 클러스터의 Linux 가상 머신에 대한 인증을 위해 운영 체제에서 표준 도구를 사용하여 SSH RSA 공용 및 개인 키 쌍을 생성할 수 있습니다. 단계는 [OS X 및 Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) 또는 [Windows](../articles/virtual-machines/linux/ssh-from-windows.md) 지침을 참조하세요. 
 
-[Azure CLI 2.0 명령](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md)을 사용하여 컨테이너 서비스 클러스터를 배포하는 경우 클러스터용 SSH 키가 자동으로 생성될 수 있습니다.
+[Azure CLI 명령](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md)을 사용하여 컨테이너 서비스 클러스터를 배포하는 경우 클러스터용 SSH 키가 자동으로 생성될 수 있습니다.
 
 ### <a name="how-do-i-create-a-service-principal-for-my-kubernetes-cluster"></a>Kubernetes 클러스터에 대한 서비스 주체는 어떻게 만드나요?
 
 Azure Container Service에서 Kubernetes 클러스터를 만들려면 Azure Active Directory 서비스 주체 ID 및 암호도 필요합니다. 자세한 내용은 [Kubernetes 클러스터의 서비스 주체 정보](../articles/container-service/kubernetes/container-service-kubernetes-service-principal.md)를 참조하세요.
 
-[Azure CLI 2.0 명령](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md)을 사용하여 Kubernetes 클러스터를 배포하는 경우 서비스 주체 자격 증명이 클러스터에 대해 자동으로 생성될 수 있습니다.
+[Azure CLI 명령](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md)을 사용하여 Kubernetes 클러스터를 배포하는 경우 서비스 주체 자격 증명이 클러스터에 대해 자동으로 생성될 수 있습니다.
 
 ### <a name="how-large-a-cluster-can-i-create"></a>얼마나 큰 클러스터를 만들 수 있나요?
 1, 3 또는 5개의 마스터 노드가 있는 클러스터를 만들 수 있습니다. 최대 100개의 에이전트 노드를 선택할 수 있습니다.
@@ -105,4 +105,4 @@ Windows에서 수정 사항이 여전히 단계적으로 제거되는 알려진 
 ## <a name="next-steps"></a>다음 단계
 
 * Azure Container Service에 대해 [자세히 알아보세요](../articles/container-service/kubernetes/container-service-intro-kubernetes.md).
-* [포털](../articles/container-service/dcos-swarm/container-service-deployment.md) 또는 [Azure CLI 2.0](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md)을 사용하여 컨테이너 서비스 클러스터 배포.
+* [포털](../articles/container-service/dcos-swarm/container-service-deployment.md) 또는 [Azure CLI](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md)를 사용하여 컨테이너 서비스 클러스터를 배포합니다.

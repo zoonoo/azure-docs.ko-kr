@@ -2,19 +2,22 @@
 title: Recovery Manager를 사용하여 분할된 데이터베이스 맵 문제 해결 | Microsoft Docs
 description: RecoveryManager 클래스를 사용하여 분할된 데이터베이스 맵의 문제 해결
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 6257edbb567be3ebb3151724e7e50ca81905ad40
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 09eb2312ef2268169535b644470a754e46b51b18
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646238"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166863"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>RecoveryManager 클래스를 사용하여 분할된 데이터베이스 맵 문제 해결
 [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) 클래스는 분할된 데이터베이스 환경에서 ADO.Net 응용 프로그램이 GSM(전역 분할된 데이터베이스 맵)과 LSM(로컬 분할된 데이터베이스 맵) 간의 모든 불일치를 쉽게 감지하고 수정하는 기능을 제공합니다. 
@@ -122,7 +125,7 @@ Azure SQL Database Elastic Database 도구, 지역 복제 및 복원에 대한 �
 지역 장애 조치 시, 보조 데이터베이스가 쓸 수 있는 상태가 되고 새로운 주 데이터베이스가 됩니다. 서버와 잠재적으로 데이터베이스의 이름(구성에 따라 다름)은 원래 주 데이터베이스와 다를 수 있습니다. 따라서 GSM 및 LSM에서 분할된 데이터베이스에 대한 매핑 항목을 고정해야 합니다. 마찬가지로, 데이터베이스가 다른 이름 또는 위치로 복원되거나 이전 시점으로 복원되면 분할된 데이터베이스 맵에서 불일치가 발생할 수 있습니다. 분할된 데이터베이스 맵 관리자가 올바른 데이터베이스에 대해 열려 있는 연결의 배포를 처리합니다. 배포는 분할된 맵의 데이터와 응용 프로그램의 요청 대상인 분할 키의 값을 기반으로 합니다. 지역 장애 조치 후 이 정보를 정확한 서버 이름, 데이터베이스 이름 및 복구된 데이터베이스의 분할된 데이터베이스 매핑으로 업데이트해야 합니다. 
 
 ## <a name="best-practices"></a>모범 사례
-지역 장애 조치(failover) 및 복구는 의도적으로 Azure SQL Database 무중단 업무 방식 기능 중 하나를 활용하는 응용 프로그램의 클라우드 관리자가 일반적으로 관리하는 작업입니다. 비즈니스 연속성 계획에는 비즈니스 작업을 중단 없이 계속할 수 있도록 보장해주는 프로세스, 절차 및 측정이 필요합니다. 이 워크플로 내에서 RecoveryManager 클래스의 일부로 제공되는 메서드를 사용하여 수행되는 복구 작업에 따라 GSM 및 LSM이 최신 상태로 유지되도록 해야 합니다. 장애 조치 이벤트 후 GSM 및 LSM이 정확한 정보를 반영하도록 제대로 보장하는 5가지 기본 단계가 있습니다. 이러한 단계를 실행할 응용 프로그램 코드를 기존 도구 및 워크플로에 통합할 수 있습니다. 
+지역 장애 조치 및 복구는 의도적으로 Azure SQL 데이터베이스 비즈니스 연속성 기능 중 하나를 활용하는 응용 프로그램의 클라우드 관리자가 일반적으로 관리하는 작업입니다. 비즈니스 연속성 계획에는 비즈니스 작업을 중단 없이 계속할 수 있도록 보장해주는 프로세스, 절차 및 측정이 필요합니다. 이 워크플로 내에서 RecoveryManager 클래스의 일부로 제공되는 메서드를 사용하여 수행되는 복구 작업에 따라 GSM 및 LSM이 최신 상태로 유지되도록 해야 합니다. 장애 조치 이벤트 후 GSM 및 LSM이 정확한 정보를 반영하도록 제대로 보장하는 5가지 기본 단계가 있습니다. 이러한 단계를 실행할 응용 프로그램 코드를 기존 도구 및 워크플로에 통합할 수 있습니다. 
 
 1. ShardMapManager에서 RecoveryManager를 검색합니다. 
 2. 분할된 데이터베이스 맵에서 이전 분할된 데이터베이스를 분리합니다.

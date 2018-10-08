@@ -1,23 +1,25 @@
 ---
-title: '빠른 시작: Node.js를 사용하여 Bing Web Search API 호출'
+title: '빠른 시작: Node.js를 사용하여 검색 수행 - Bing Web Search API'
+titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Node.js를 사용하여 Bing Web Search API를 처음 호출하고 JSON 응답을 받는 방법을 알아봅니다.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
-ms.date: 8/16/2018
+ms.date: 9/26/2018
 ms.author: erhopf
-ms.openlocfilehash: 7a46500f7cbf319c788761bccfaa92197ef67490
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: debaa63adeb97063d0ea42e1da36352dc2c9c4e7
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886934"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405859"
 ---
 # <a name="quickstart-use-nodejs-to-call-the-bing-web-search-api"></a>빠른 시작: Node.js를 사용하여 Bing Web Search API 호출  
 
-이 빠른 시작을 사용하여 Bing Web Search API를 처음 호출하고 10분 내에 JSON 응답을 받습니다.  
+이 빠른 시작을 사용하여 Bing Web Search API를 처음 호출하고 10분 내에 JSON 응답을 받습니다.
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
@@ -26,102 +28,120 @@ ms.locfileid: "42886934"
 이 빠른 시작을 실행하기 전에 필요한 몇 가지 조건은 다음과 같습니다.
 
 * [Node.js 6](https://nodejs.org/en/download/) 이상
-* 구독 키  
+* 구독 키
 
 ## <a name="create-a-project-and-declare-required-modules"></a>프로젝트 만들기 및 필요한 모듈 선언
 
-즐겨 찾는 IDE 또는 편집기에서 새 Node.js 프로젝트를 만듭니다. 그런 다음, 아래 코드 조각을 프로젝트에 복사합니다. 이 빠른 시작에서는 strict 모드를 사용하며, 데이터를 보내고 받기 위해 `https` 모듈이 필요합니다.
+즐겨 찾는 IDE 또는 편집기에서 새 Node.js 프로젝트를 만듭니다.
+그런 다음, 아래 코드 조각을 `search.js`라는 파일의 프로젝트에 복사합니다.
 
 ```javascript
-// Use strict mode.
-'use strict';
-
-// Require the https module.
-let https = require('https');
+// Use this simple app to query the Bing Web Search API and get a JSON response.
+// Usage: node search.js "your query".
+const https = require('https')
 ```
 
-## <a name="define-variables"></a>변수 정의
+## <a name="set-the-subscription-key"></a>구독 키 설정
 
-계속하기 전에 몇 가지 변수를 설정해야 합니다. `host` 및 `path`가 올바른지 확인하고 `subscriptionKey` 값을 Azure 계정의 유효한 구독 키로 바꿉니다. `term` 값을 바꿔 검색 쿼리를 사용자 지정할 수 있습니다.
+이 코드 조각은 `AZURE_SUBSCRIPTION_KEY` 환경 변수를 사용하여 구독 키를 저장하고, 코드를 배포할 때 실수로 인한 키의 노출을 방지하도록 모범 사례를 사용합니다. [여기를 클릭](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7)하여 구독 키를 조회합니다.
+
+환경 변수 사용에 익숙하지 않거나 이 앱을 가능한 빨리 실행하려는 경우 `process.env['AZURE_SUBSCRIPTION_KEY']`를 문자열로 설정한 구독 키로 바꿀 수 있습니다.
 
 ```javascript
-// Replace with a valid subscription key.
-let subscriptionKey = 'enter key here';
-
-/*
- * Verify the endpoint URI. If you
- * encounter unexpected authorization errors, double-check this host against
- * the endpoint for your Bing Web search instance in your Azure dashboard.  
- */
-let host = 'api.cognitive.microsoft.com';
-let path = '/bing/v7.0/search';
-let term = 'Microsoft Cognitive Services';
-
-// Validate the subscription key.
-if (subscriptionKey.length === 32) {
-    bing_web_search(term);
-} else {
-    console.log('Invalid Bing Search API subscription key!');
-    console.log('Please paste yours into the source code.');
+const SUBSCRIPTION_KEY = process.env['AZURE_SUBSCRIPTION_KEY']
+if (!SUBSCRIPTION_KEY) {
+  throw new Error('AZURE_SUBSCRIPTION_KEY is not set.')
 }
 ```
 
-## <a name="create-a-response-handler"></a>응답 처리기 만들기
+## <a name="create-a-function-to-make-the-request"></a>요청을 만드는 함수 만들기
 
-응답을 문자열로 변환하고 구문 분석할 처리기를 만듭니다. 다음 섹션에서 살펴보겠지만 `response_handler`는 Bing Web Search API에 요청할 때마다 호출됩니다.
+이 함수는 보안 GET 요청을 만들어 검색 쿼리를 경로에 쿼리 매개 변수로 저장합니다. `encodeURIComponent`는 잘못된 문자를 이스케이프하는 데 사용되고, 구독 키는 헤더에 전달됩니다. 콜백은 `data` 이벤트를 구독하여 JSON 본문을 집계하는 [응답](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse), 모든 문제를 기록하는 `error` 이벤트 및 메시지를 완료로 간주해야 하는 시기를 알 수 있는 `end` 이벤트를 수신합니다. 완료되면 앱은 흥미로운 헤더 및 메시지 본문을 인쇄합니다. 색을 사용하여 재생하고 기본 설정에 맞도록 깊이를 설정할 수 있으며, `1`의 깊이는 응답의 유용한 요약을 제공합니다.
 
 ```javascript
-let response_handler = function (response) {
-    let body = '';
-    response.on('data', function (d) {
-        body += d;
-    });
-    response.on('end', function () {
-        console.log('\nRelevant Headers:\n');
-        for (var header in response.headers)
-            // Headers are lowercased by Node.js.
-            if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
-                 console.log(header + ": " + response.headers[header]);
-        // Stringify and parse the response body.
-        body = JSON.stringify(JSON.parse(body), null, '  ');
-        console.log('\nJSON Response:\n');
-        console.log(body);
-    });
-    response.on('error', function (e) {
-        console.log('Error: ' + e.message);
-    });
-};
+function bingWebSearch(query) {
+  https.get({
+    hostname: 'api.cognitive.microsoft.com',
+    path:     '/bing/v7.0/search?q=' + encodeURIComponent(query),
+    headers:  { 'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY },
+  }, res => {
+    let body = ''
+    res.on('data', part => body += part)
+    res.on('end', () => {
+      for (var header in res.headers) {
+        if (header.startsWith("bingapis-") || header.startsWith("x-msedge-")) {
+          console.log(header + ": " + res.headers[header])
+        }
+      }
+      console.log('\nJSON Response:\n')
+      console.dir(JSON.parse(body), { colors: false, depth: null })
+    })
+    res.on('error', e => {
+      console.log('Error: ' + e.message)
+      throw e
+    })
+  })
+}
+```
+
+## <a name="get-the-query"></a>쿼리 가져오기
+
+쿼리를 찾기 위해 프로그램의 인수를 살펴보겠습니다. 첫 번째 인수는 노드에 대한 경로이고, 두 번째는 파일 이름이며, 세 번째는 쿼리입니다. 쿼리가 없는 경우 "Microsoft Cognitive Services"의 기본 쿼리가 사용됩니다.
+
+```javascript
+const query = process.argv[2] || 'Microsoft Cognitive Services'
 ```
 
 ## <a name="make-a-request-and-print-the-response"></a>요청 및 응답 출력
 
-요청을 구성하고 Bing Web Search API를 호출합니다. 요청되면 `response_handler` 함수가 호출되고 응답이 출력됩니다.
+이제 모두 정의되었으므로 함수를 호출해 보겠습니다!
 
 ```javascript
-let bing_web_search = function (search) {
-    console.log('Searching the Web for: ' + term);
-        // Declare the method, hostname, path, and headers.
-        let request_params = {
-            method : 'GET',
-            hostname : host,
-            path : path + '?q=' + encodeURIComponent(search),
-            headers : {
-                'Ocp-Apim-Subscription-Key' : subscriptionKey,
-            }
-        };
-    // Request to the Bing Web Search API.
-    let req = https.request(request_params, response_handler);
-    req.end();
-}
+bingWebSearch(query)
 ```
 
 ## <a name="put-it-all-together"></a>모든 요소 결합
 
-마지막 단계는 코드를 실행하는 것입니다! 자신의 코드와 비교하려면 [GitHub에 있는 샘플 코드를 사용할 수 있습니다](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingWebSearchv7.js).
+마지막 단계는 코드를 실행하는 것입니다. `node search.js "<your query>"`
+
+자신의 코드와 비교하려면 여기에 있는 완전한 프로그램을 사용하세요.
+
+```javascript
+const https = require('https')
+const SUBSCRIPTION_KEY = process.env['AZURE_SUBSCRIPTION_KEY']
+if (!SUBSCRIPTION_KEY) {
+  throw new Error('Missing the AZURE_SUBSCRIPTION_KEY environment varable')
+}
+function bingWebSearch(query) {
+  https.get({
+    hostname: 'api.cognitive.microsoft.com',
+    path:     '/bing/v7.0/search?q=' + encodeURIComponent(query),
+    headers:  { 'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY },
+  }, res => {
+    let body = ''
+    res.on('data', part => body += part)
+    res.on('end', () => {
+      for (var header in res.headers) {
+        if (header.startsWith("bingapis-") || header.startsWith("x-msedge-")) {
+          console.log(header + ": " + res.headers[header])
+        }
+      }
+      console.log('\nJSON Response:\n')
+      console.dir(JSON.parse(body), { colors: false, depth: null })
+    })
+    res.on('error', e => {
+      console.log('Error: ' + e.message)
+      throw e
+    })
+  })
+}
+const query = process.argv[2] || 'Microsoft Cognitive Services'
+bingWebSearch(query)
+```
 
 ## <a name="sample-response"></a>샘플 응답
 
-Bing Web Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답은 단일 결과를 표시하도록 잘렸습니다.  
+Bing Web Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답은 단일 결과를 표시하도록 잘렸습니다.
 
 ```json
 {
@@ -157,7 +177,7 @@ Bing Web Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답�
           },
           {
             "name": "Emotion",
-            "url": "https://www.microsoft.com/cognitive-services/en-us/emotion-api",
+            "url": "https://www.microsoft.com/cognitive-services/emotion-api",
             "snippet": "Cognitive Services Emotion API - microsoft.com"
           },
           {
