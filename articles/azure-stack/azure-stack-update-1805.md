@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 7cf3e08caad93bb7fb7fd221b6fdb9b2fc39397a
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b6cb095736bbf41d53359bf7d07206703de5335c
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816738"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870009"
 ---
 # <a name="azure-stack-1805-update"></a>Azure Stack 1805 업데이트
 
@@ -72,8 +72,8 @@ Azure Stack 1805 업데이트 빌드 번호는 **1.1805.1.47**합니다.
 ## <a name="before-you-begin"></a>시작하기 전에    
 
 ### <a name="prerequisites"></a>필수 조건
-- Azure Stack을 설치 [1804 업데이트](azure-stack-update-1804.md) Azure Stack 1805 업데이트를 적용 하기 전에 합니다.  
-- 사용 가능한 최신 설치 [업데이트 또는 핫픽스 버전 1804](azure-stack-update-1804.md#post-update-steps)합니다.   
+- Azure Stack 1805 업데이트를 적용 하기 전에 Azure Stack 1804 업데이트를 설치 합니다.  
+- 사용 가능한 최신 업데이트로 또는 1804 버전에 대 한 핫픽스를 설치 합니다.   
 - 1805 업데이트의 설치를 시작 하기 전에 실행할 [테스트 AzureStack](azure-stack-diagnostic-test.md) 하에 Azure Stack의 상태를 확인 하 고 발견 된 작동 문제를 해결 합니다. 또한 활성 경고를 검토 하 고 작업을 필요로 하는 해결 합니다. 
 
 ### <a name="known-issues-with-the-update-process"></a>업데이트 프로세스를 사용 하 여 알려진된 문제   
@@ -117,7 +117,7 @@ Azure Stack 1805 업데이트 빌드 번호는 **1.1805.1.47**합니다.
   해결 방법:이 업데이트를 설치한 후이 문제를 해결 하려면 사용에서 3 단계는 [트리거를 구성 하는 자동화 클레임 공급자 트러스트 Azure Stack에서](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) 기본 공급자 구독 소유자 다시 설정 하는 절차입니다.   
 
 <!-- TBD - IS ASDK --> 
-- 일부 관리 구독 유형은 사용할 수 없습니다.  Azure Stack이이 버전으로 업그레이드할 때 두 가지 구독 유형이 있었던 [도입 된 버전 1804](azure-stack-update-1804.md#new-features) 콘솔에 표시 되지 않습니다. 예상된 동작입니다. 사용할 수 없는 구독 유형은 *구독을 계량*, 및 *소비 구독*합니다. 이러한 구독 유형에 1804 버전부터 새 Azure Stack 환경에서 표시 되지만 아직 사용할 준비가 완료 됩니다. 계속 사용 해야 합니다 *기본 공급자* 구독 유형입니다.  
+- 일부 관리 구독 유형은 사용할 수 없습니다. Azure Stack이이 버전으로 업그레이드할 때 1804 버전을 사용 하 여 도입 된 두 가지 구독 유형을 콘솔에 표시 되지 않습니다. 예상된 동작입니다. 사용할 수 없는 구독 유형은 *구독을 계량*, 및 *소비 구독*합니다. 이러한 구독 유형에 1804 버전부터 새 Azure Stack 환경에서 표시 되지만 아직 사용할 준비가 완료 됩니다. 계속 사용 해야 합니다 *기본 공급자* 구독 유형입니다.  
 
 <!-- 2403291 - IS ASDK --> 
 - 관리자 및 사용자 포털의 아래쪽에 가로 스크롤 막대를 사용 하 여가 없을 수 있습니다. 가로 스크롤 막대에 액세스할 수 없는 경우 블레이드의 이름을 선택 하 여 포털에서 이전 블레이드로 이동 하려면 이동 경로 상단에 있는 이동 경로 탐색 목록에서 확인 하려는 사용 하 여 포털의 왼쪽입니다.

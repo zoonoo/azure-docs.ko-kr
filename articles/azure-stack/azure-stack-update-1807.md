@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: bde8ea74d2b6d36cd070598d0542e5be4bdef244
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: bce76827c56fd660b6ab4353fed1c43f88132587
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816177"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868822"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 업데이트
 
@@ -190,7 +190,7 @@ Azure Stack 호스트 키 인프라를 Windows Server 2016의 Server Core 설치
 
 ### <a name="post-update-steps"></a>업데이트 후 단계
 이 업데이트의 설치가 끝나면 모든 적용 가능한 핫픽스를 설치 합니다. 자세한 내용은 다음 기술 자료 문서를 볼 뿐만 아니라 우리 [서비스 정책](azure-stack-servicing-policy.md)합니다. 
-- [KB 4464231 – Azure Stack 핫픽스 Azure Stack 핫픽스 1.1807.1.78](https://support.microsoft.com/help/4464231)
+- [KB 4467061 – Azure Stack 핫픽스 Azure Stack 핫픽스 1.1807.3.82](https://support.microsoft.com/help/4467061/)
 
 <!-- 2933866 – IS --> 이 업데이트의 설치가 끝나면 보이는 **실패 한 업데이트 설치에 대 한 상태를 개선 합니다.** 이 두 가지 새 상태 범주를 반영 하도록 수정 되는 이전 업데이트 설치 오류에 대 한 정보를 포함할 수 있습니다. 새 상태 범주 *PreparationFailed*, 및 *InstallationFailed*합니다.  
 
@@ -211,7 +211,7 @@ Azure Stack 호스트 키 인프라를 Windows Server 2016의 Server Core 설치
 - 이 버전을 실행 하는 새 Azure Stack 환경에 설치한 경우이 경고는 나타냅니다 *활성화 필요* 표시 되지 않을 수 있습니다. [활성화](azure-stack-registration.md) 마켓플레이스 배포를 사용 하려면 먼저 필요 합니다.  
 
 <!-- TBD - IS ASDK --> 
-- 관리 구독 유형에 [1804 버전을 사용 하 여 도입 된](azure-stack-update-1804.md#new-features) 쓰일 수 없습니다. 구독 유형은 **구독을 계량**, 및 **소비 구독**합니다. 이러한 구독 유형에 1804 버전부터 새 Azure Stack 환경에서 표시 되지만 아직 사용할 준비가 완료 됩니다. 계속 사용 해야 합니다 **기본 공급자** 구독 유형입니다.
+- 1804 버전을 사용 하 여 도입 된 관리 구독 유형에 사용할 수 없습니다. 구독 유형은 **구독을 계량**, 및 **소비 구독**합니다. 이러한 구독 유형에 1804 버전부터 새 Azure Stack 환경에서 표시 되지만 아직 사용할 준비가 완료 됩니다. 계속 사용 해야 합니다 **기본 공급자** 구독 유형입니다.
 
 <!-- 2403291 - IS ASDK --> 
 - 관리자 및 사용자 포털의 아래쪽에 가로 스크롤 막대를 사용 하 여가 없을 수 있습니다. 가로 스크롤 막대에 액세스할 수 없는 경우 블레이드의 이름을 선택 하 여 포털에서 이전 블레이드로 이동 하려면 이동 경로 상단에 있는 이동 경로 탐색 목록에서 확인 하려는 사용 하 여 포털의 왼쪽입니다.

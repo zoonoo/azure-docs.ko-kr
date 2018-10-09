@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2018
+ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: ae5eadda56ca0a144ef46385dc2dcae143da378d
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: a870ba238239a20af154f611f88e7c2fdb95f9f7
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815854"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870930"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 업데이트
 
@@ -158,7 +158,7 @@ Azure Stack 1808 업데이트 빌드 번호는 **1.1808.0.97**합니다.
 
 ### <a name="post-update-steps"></a>업데이트 후 단계
 이 업데이트의 설치가 끝나면 모든 적용 가능한 핫픽스를 설치 합니다. 자세한 내용은 다음 기술 자료 문서를 볼 뿐만 아니라 우리 [서비스 정책](azure-stack-servicing-policy.md)합니다. 
-- [KB 4465859 – Azure Stack 핫픽스 Azure Stack 핫픽스 1.1808.2.104](https://support.microsoft.com/help/4465859/)
+- [KB 4467062 – Azure Stack 핫픽스 Azure Stack 핫픽스 1.1808.4.108](https://support.microsoft.com/help/4467062/)
 
 
 ## <a name="known-issues-post-installation"></a>알려진된 문제 (사후 설치)
@@ -197,7 +197,7 @@ Azure Stack 1808 업데이트 빌드 번호는 **1.1808.0.97**합니다.
 - 이 버전을 실행 하는 새 Azure Stack 환경에 설치한 경우이 경고는 나타냅니다 *활성화 필요* 표시 되지 않을 수 있습니다. [활성화](azure-stack-registration.md) 마켓플레이스 배포를 사용 하려면 먼저 필요 합니다.  
 
 <!-- TBD - IS ASDK --> 
-- 관리 구독 유형에 [1804 버전을 사용 하 여 도입 된](azure-stack-update-1804.md#new-features) 쓰일 수 없습니다. 구독 유형은 **구독을 계량**, 및 **소비 구독**합니다. 이러한 구독 유형에 1804 버전부터 새 Azure Stack 환경에서 표시 되지만 아직 사용할 준비가 완료 됩니다. 계속 사용 해야 합니다 **기본 공급자** 구독 유형입니다.
+- 1804 버전을 사용 하 여 도입 된 관리 구독 유형에 사용할 수 없습니다. 구독 유형은 **구독을 계량**, 및 **소비 구독**합니다. 이러한 구독 유형에 1804 버전부터 새 Azure Stack 환경에서 표시 되지만 아직 사용할 준비가 완료 됩니다. 계속 사용 해야 합니다 **기본 공급자** 구독 유형입니다.
 
 <!-- TBD - IS ASDK --> 
 - 분리 된 리소스에서 사용자 구독 결과 삭제합니다. 대 안으로 사용자 리소스 또는 전체 리소스 그룹을 삭제 하 고 사용자 구독을 삭제 합니다.
@@ -251,7 +251,7 @@ Azure Stack 1808 업데이트 빌드 번호는 **1.1808.0.97**합니다.
       1. 테 넌 트 포털에서로 이동 **구독** 구독을 찾습니다. 클릭 **리소스 공급자**, 클릭 **Microsoft.Compute**를 클릭 하 고 **re-register**합니다.
       2. 로 동일한 구독에 따라 **액세스 제어 (IAM)**, 되어 있는지 확인 하 고 **Azure Stack – Managed Disk** 나열 됩니다.
    2. 다중 테 넌 트 환경에 구성한 게스트 디렉터리와 연결 된 구독에서 Vm을 배포할 내부 오류 메시지와 함께 실패할 수 있습니다. 이 오류를 해결 하려면 다음이 단계를 수행 합니다.
-      1. 적용 된 [1808 Azure Stack 핫픽스](https://support.microsoft.com/help/4465859)합니다.
+      1. 적용 된 [1808 Azure Stack 핫픽스](https://support.microsoft.com/help/4467062/)합니다.
       2. 단계를 따릅니다 [이 문서에서는](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) 각 게스트 디렉터리를 다시 구성 합니다.
 
 <!-- 2869209 – IS, ASDK --> 

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2018
+ms.date: 10/03/2018
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: 9e579123124615df83483e244ef11810ca590844
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.reviewer: avishwan
+ms.openlocfilehash: 40ecb474b4faa4031cb364dfc1151c6fe6f09dd6
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633966"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856453"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Marketplace 항목 만들기 및 게시
 
@@ -29,13 +29,16 @@ ms.locfileid: "45633966"
 1. [다운로드](http://www.aka.ms/azurestackmarketplaceitem) Azure 갤러리 Packager 도구 및 샘플 Azure Stack Marketplace 항목.
 2. 샘플 마켓플레이스 항목을 열고 이름을 변경 합니다 **SimpleVMTemplate** 폴더입니다. (Marketplace 항목과-예를 들어, 동일한 이름을 사용 **Contoso.TodoList**.) 이 폴더에는 다음이 포함 됩니다.
    
-       /Contoso.TodoList/
-       /Contoso.TodoList/Manifest.json
-       /Contoso.TodoList/UIDefinition.json
-       /Contoso.TodoList/Icons/
-       /Contoso.TodoList/Strings/
-       /Contoso.TodoList/DeploymentTemplates/
-3. [Azure Resource Manager 템플릿을 만드는](../azure-resource-manager/resource-group-authoring-templates.md) 하거나 GitHub에서 템플릿을 선택 합니다. 마켓플레이스 항목이 서식이 파일을 사용 하 여 리소스를 만듭니다.
+   ```shell
+   /Contoso.TodoList/
+   /Contoso.TodoList/Manifest.json
+   /Contoso.TodoList/UIDefinition.json
+   /Contoso.TodoList/Icons/
+   /Contoso.TodoList/Strings/
+   /Contoso.TodoList/DeploymentTemplates/
+   ```
+
+3. [Azure 리소스 관리자 템플릿을 만들거나](../azure-resource-manager/resource-group-authoring-templates.md) GitHub에서 템플릿을 선택합니다. 마켓플레이스 항목이 서식이 파일을 사용 하 여 리소스를 만듭니다.
 
     > [!Note]  
     > 하드 코드 하지 마십시오 제품 키, 암호 또는 Azure Resource Manager 템플릿에서 고객 식별이 가능한 정보와 같은 모든 비밀입니다. 템플릿 json 파일을 갤러리에 게시 되 면 인증 없이 액세스할 수 있습니다.  모든 비밀을 저장할 [Key Vault](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-keyvault-parameter) 템플릿 내에서 호출 합니다.
@@ -52,22 +55,30 @@ ms.locfileid: "45633966"
 8. 에 **은 manifest.json** 파일에서 변경 **이름** Marketplace 항목의 이름입니다. 변경할 수도 **게시자** 이름 또는 회사입니다.
 9. 아래 **아티팩트**, 변경 **이름** 및 **경로** 포함 된 Azure Resource Manager 템플릿에 대 한 정보가 수정 되었습니다.
    
-         "artifacts": [
-            {
-                "name": "Type your template name",
-                "type": "Template",
-                "path": "DeploymentTemplates\\Type your path",
-                "isDefault": true
-            }
+   ```json
+   "artifacts": [
+      {
+          "name": "Type your template name",
+          "type": "Template",
+          "path": "DeploymentTemplates\\Type your path",
+          "isDefault": true
+      }
+   ```
+
 10. 바꿉니다 **My Marketplace Items** 마켓플레이스 항목이 표시 됩니다는 범주의 목록을 사용 하 여 합니다.
     
-             "categories":[
-                 "My Marketplace Items"
-              ],
+   ```json
+   "categories":[
+   "My Marketplace Items"
+   ],
+   ```
+
 11. manifest.json에 추가 편집 내용을 참조 하세요 [참조: Marketplace 항목은 manifest.json](#reference-marketplace-item-manifestjson)합니다.
 12. .Azpkg 파일로 폴더를 패키지, 명령 프롬프트를 열고 하 고 다음 명령을 실행:
     
-        AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
+   ```shell
+   AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
+   ```
     
     > [!NOTE]
     > 전체 경로를 출력 패키지가 있어야 합니다. 예를 들어, 출력 경로가 C:\MarketPlaceItem\yourpackage.azpkg C:\MarketPlaceItem 폴더 존재 해야 합니다.
@@ -79,8 +90,10 @@ ms.locfileid: "45633966"
 2. Microsoft Azure Stack 환경에서 클라이언트 가상 컴퓨터에서 PowerShell 세션이 서비스 관리자 자격 증명으로 설정 되어 있는지를 확인 합니다. Azure stack에서 PowerShell을 인증 하는 방법에 대 한 지침을 찾을 수 있습니다 [PowerShell 사용 하 여 템플릿 배포](user/azure-stack-deploy-template-powershell.md)합니다.
 3. 사용 하는 경우 [PowerShell 1.3.0]( azure-stack-powershell-install.md) 나중에 사용할 수 있습니다 합니다 **추가-AzsGalleryItem** Azure Stack에 마켓플레이스 항목 게시에 대 한 PowerShell cmdlet. PowerShell 1.3.0 사용 하기 전에 cmdlet을 사용 하 여 **Add-azurermgalleryitem** 대신 **추가-AzsGalleryItem**합니다.  예를 들어, 사용 하는 경우 PowerShell 1.3.0 이상:
    
-       Add-AzsGalleryItem -GalleryItemUri `
-       https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg –Verbose
+   ```powershell
+   Add-AzsGalleryItem -GalleryItemUri `
+   https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg –Verbose
+   ```
    
    | 매개 변수 | 설명 |
    | --- | --- |
@@ -102,7 +115,9 @@ ms.locfileid: "45633966"
 
 6. 사용 하 여 마켓플레이스 항목을 제거할 수 있습니다 합니다 **Remove-azurermgalleryitem** cmdlet. 예제:
    
-        Remove-AzsGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
+   ```powershell
+   Remove-AzsGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
+   ```
    
    > [!NOTE]
    > Marketplace UI 항목을 제거한 후 오류가 표시 될 수 있습니다. 오류를 해결 하려면 **설정을** 포털에서 합니다. 그런 다음 선택 **수정 취소** 아래에서 **포털 사용자 지정**합니다.

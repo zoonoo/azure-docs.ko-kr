@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2018
+ms.date: 10/03/2018
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: abcf71f81d89f8b6a8c7b9523dd67592b8808baa
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.reviewer: ''
+ms.openlocfilehash: 785161d0f897b583c0c5536440afc1e8f05e736e
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630282"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854833"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure에서 Azure Stack marketplace 항목 다운로드
 
@@ -121,15 +121,12 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
 
    ```
 
-5. 배포 모듈을 가져올 다음 다음 스크립트를 실행 하 여 도구를 시작 합니다. 대체는 *대상 폴더 경로* Azure Marketplace에서 다운로드 한 파일을 저장할 위치를 사용 하 여 합니다.   
+5. 배포 모듈을 가져올 하 고 후 다음 명령을 실행 하 여 도구를 시작 합니다. 대체 `Destination folder path` Azure Marketplace에서 다운로드 한 파일을 저장할 위치를 사용 하 여 합니다.   
 
    ```PowerShell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
-   Sync-AzSOfflineMarketplaceItem `
-     -destination "Destination folder path" `
-     -AzureTenantID $AzureContext.Tenant.TenantId `
-     -AzureSubscriptionId $AzureContext.Subscription.Id  
+   Export-AzSOfflineMarketplaceItem -destination "Destination folder path"
    ```
 
 6. 도구를 실행 하는 경우 Azure 계정 자격 증명을 입력 하 라는 메시지가 표시 됩니다. Azure Stack 등록을 사용 하면 Azure 계정에 로그인 합니다. 로그인에 성공 하면 다음 이미지에서는 사용할 수 있는 marketplace 항목의 목록과 같은 화면이 표시 됩니다.  
