@@ -97,61 +97,6 @@ items:
       href: iot-accelerators-remote-monitoring-rbac.md
     - name: 원격 분석 탐색기에 액세스 권한 부여
       href: iot-accelerators-remote-monitoring-rbac-tsi.md
-  - name: 원격 모니터링(이전 버전)
-    items:
-    - name: 미리 구성된 솔루션이란?
-      href: ../iot-suite/iot-suite-v1-what-are-preconfigured-solutions.md
-    - name: FAQ
-      href: ../iot-suite/iot-suite-v1-faq.md
-    - name: 시작
-      items:
-      - name: 미리 구성된 솔루션 시작
-        href: ../iot-suite/iot-suite-v1-getstarted-preconfigured-solutions.md
-      - name: azureiotsuite.com의 사용 권한
-        href: ../iot-suite/iot-suite-v1-permissions.md
-      - name: 원격 모니터링 솔루션 연습
-        href: ../iot-suite/iot-suite-v1-remote-monitoring-sample-walkthrough.md
-      - name: Raspberry Pi에 연결
-        href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-get-started.md
-        items:
-        - name: C 사용
-          items:
-          - name: 시뮬레이션된 데이터
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md
-          - name: 실제 센서 사용
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md
-          - name: 펌웨어 업데이트 구현
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-advanced.md
-        - name: Node.js 사용
-          items:
-          - name: 시뮬레이션된 데이터
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md
-          - name: 실제 센서 사용
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md
-          - name: 펌웨어 업데이트 구현
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md
-      - name: MXChip IoT DevKit 연결
-        href: ../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md
-    - name: 방법 가이드
-      items:
-      - name: 시뮬레이션된 장치 연결
-        items:
-        - name: Windows에서 C
-          href: ../iot-suite/iot-suite-v1-connecting-devices.md
-        - name: Linux에서 C
-          href: ../iot-suite/iot-suite-v1-connecting-devices-linux.md
-        - name: Node.js
-          href: ../iot-suite/iot-suite-v1-connecting-devices-node.md
-      - name: 논리 앱을 원격 모니터링 솔루션에 연결
-        href: ../iot-suite/iot-suite-v1-logic-apps-tutorial.md
-      - name: 솔루션 가속기 사용자 지정
-        href: ../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
-      - name: 원격 모니터링 솔루션과 함께 동적 원격 분석 사용
-        href: ../iot-suite/iot-suite-v1-dynamic-telemetry.md
-      - name: 원격 모니터링 솔루션에서 사용자 지정 규칙 만들기
-        href: ../iot-suite/iot-suite-v1-custom-rule.md
-      - name: 원격 모니터링 솔루션의 장치 정보
-        href: ../iot-suite/iot-suite-v1-remote-monitoring-device-info.md
   - name: 연결된 팩터리
     items:
     - name: 대시보드 사용
@@ -203,7 +148,7 @@ items:
   - name: 솔루션
     items:
     - name: IoT 솔루션 가속기
-      href: /azure/iot-suite
+      href: /azure/iot-accelerators
     - name: IoT Central
       href: https://docs.microsoft.com/microsoft-iot-central/
   - name: 플랫폼 서비스
@@ -256,9 +201,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
   - name: IoT 솔루션 가속기 학습 경로
     href: https://azure.microsoft.com/documentation/learning-paths/iot-suite/
-ms.openlocfilehash: 935b9acf2eeaaee73745426eefb5625f470f62b7
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: f0efa66bd9ed85ed4ab79f5937355bd19c404a64
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365471"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884336"

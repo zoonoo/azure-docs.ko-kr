@@ -25,7 +25,7 @@
 # 방법
 ## 계획 및 디자인
 ### [Azure AD 아키텍처 이해](fundamentals/active-directory-architecture.md)
-### [Azure Active Directory의 클레임 매핑](active-directory-claims-mapping.md)
+### [Azure Active Directory의 클레임 매핑](develop/active-directory-claims-mapping.md)
 ### [하이브리드 ID 솔루션 배포](hybrid/plan-hybrid-identity-design-considerations-overview.md)
 #### 요구 사항 결정
 ##### [ID](hybrid/plan-hybrid-identity-design-considerations-business-needs.md)
@@ -200,7 +200,7 @@
 #### [테넌트 제한 사항](manage-apps/tenant-restrictions.md)
 #### [SCIM 프로비전 사용자 사용](manage-apps/use-scim-to-provision-users-and-groups.md)
 
-### [Azure AD 응용 프로그램 동의 환경 이해](application-consent-experience.md)
+### [Azure AD 응용 프로그램 동의 환경 이해](develop/application-consent-experience.md)
 
 ### 문제 해결
 
@@ -323,7 +323,7 @@
 
 ### [Azure AD Connect를 사용하여 온-프레미스 ID 통합](hybrid/whatis-hybrid-identity.md)
 
-### [토큰 수명](active-directory-configurable-token-lifetimes.md)
+### [토큰 수명](develop/active-directory-configurable-token-lifetimes.md)
 
 ## ID 보안
 
