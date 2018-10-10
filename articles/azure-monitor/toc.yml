@@ -131,8 +131,6 @@ items:
       href: ../monitoring-and-diagnostics/monitor-alerts-unified-log.md?toc=/azure/azure-monitor/toc.json
     - name: 활동 로그 경고
       href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=/azure/azure-monitor/toc.json
-    - name: Log Analytics에서 Azure로 경고 확장
-      href: ../monitoring-and-diagnostics/monitoring-alerts-extend.md?toc=/azure/azure-monitor/toc.json
   - name: 데이터 가상화
     href: visualizations.md?toc=/azure/azure-monitor/toc.json
   - name: 파트너 통합
@@ -700,8 +698,14 @@ items:
       items:
       - name: 경고 규칙 만들기
         items:
-        - name: OMS 포털에서 Azure Portal에 경고 복사
-          href: ../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md?toc=/azure/azure-monitor/toc.json
+        - name: Azure Portal에서 새 메트릭 또는 로그 경고 구성
+          href: ../monitoring-and-diagnostics/monitor-alerts-unified-usage.md?toc=/azure/azure-monitor/toc.json
+        - name: Azure Portal에서 클래식 경고 구성
+          href: ../monitoring-and-diagnostics/insights-alerts-portal.md?toc=/azure/azure-monitor/toc.json
+        - name: CLI를 사용하여 클래식 경고 구성
+          href: ../monitoring-and-diagnostics/insights-alerts-command-line-interface.md?toc=/azure/azure-monitor/toc.json
+        - name: Azure PowerShell을 사용하여 클래식 경고 구성
+          href: ../monitoring-and-diagnostics/insights-alerts-powershell.md?toc=/azure/azure-monitor/toc.json
       - name: 메트릭 경고 사용
         items:
         - name: Azure Monitor에서 메트릭 경고 만들기, 보기 및 관리
@@ -904,6 +908,14 @@ items:
       href: ../application-insights/application-insights-data-model-metric-telemetry.md?toc=/azure/azure-monitor/toc.json
     - name: Context
       href: ../application-insights/application-insights-data-model-context.md?toc=/azure/azure-monitor/toc.json
+  - name: 경고
+    items:
+    - name: Log Analytics에서 Azure로 경고 확장
+      href: ../monitoring-and-diagnostics/monitoring-alerts-extend.md?toc=/azure/azure-monitor/toc.json
+    - name: OMS 포털에서 Azure Portal에 경고 복사
+      href: ../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md?toc=/azure/azure-monitor/toc.json
+    - name: 클래식 경고 및 모니터링의 사용 중지
+      href: ../monitoring-and-diagnostics/monitoring-classic-retirement.md?toc=/azure/azure-monitor/toc.json
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest
   - name: Azure PowerShell
@@ -969,9 +981,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 코드 샘플
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 7b26143e0fa2acc44636eb30afc6d3a76a05c2ec
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 50c8eac84be9df29bc15ea9b1fb177ad99cc77e8
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784919"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815973"

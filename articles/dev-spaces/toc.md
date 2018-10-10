@@ -22,6 +22,7 @@
 #### [2 - 팀 개발](team-development-nodejs.md)
 
 ## 방법
+### [Azure Cloud Shell을 사용하여 Kubernetes 클러스터 만들기](how-to/create-cluster-cloud-shell.md)
 ### [Azure Dev 공간 공유](how-to/share-dev-spaces.md)
 ### [비밀 관리](how-to/manage-secrets.md)
 ### [사용자 지정 NuGet 피드 사용](how-to/use-custom-nuget-feed.md)

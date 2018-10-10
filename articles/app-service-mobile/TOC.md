@@ -146,7 +146,7 @@
 ## 통합
 ### [Azure에서 SendGrid를 사용하여 전자 메일을 보내는 방법](../sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [PowerApps 및 Microsoft Flow로 내보내기](../azure-functions/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [관리되는 서비스 ID 사용](../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [관리 ID 사용](../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## 문제 해결
 ### Mobile Apps에 대한 일반적인 문제 해결
