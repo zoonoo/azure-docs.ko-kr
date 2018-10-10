@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: jasonh
-ms.openlocfilehash: 3446488a5dc2bdd1bb01b39bc25b60137fcbc331
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 353ab846c576a9b133cf640bbc856ec6eddf73f4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040050"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982902"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Azure HDInsight의 Apache Storm이란?
 
@@ -84,7 +84,7 @@ HDInsight에서 새 Storm 클러스터를 몇 분 내에 만들 수 있습니다
 
   자세한 내용은 [Ambari 웹 UI를 사용하여 HDInsight 관리](../hdinsight-hadoop-manage-ambari.md) 및 [Storm UI를 사용하여 모니터링 및 관리](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui) 문서를 참조하세요.
 
-* __Azure PowerShell 및 Azure CLI__: PowerShell 및 CLI는 HDInsight 및 다른 Azure 서비스를 사용하는 클라이언트 시스템에서 사용할 수 있는 명령줄 유틸리티를 제공합니다.
+* __Azure PowerShell 및 Azure 클래식 CLI__: PowerShell 및 클래식 CLI는 HDInsight 및 다른 Azure 서비스를 사용하는 클라이언트 시스템에서 사용할 수 있는 명령줄 유틸리티를 제공합니다.
 
 * __Visual Studio 통합__: Azure Data Lake Tools for Visual Studio에는 SCP.Net Framework를 사용하여 C# Storm 토폴로지를 만드는 프로젝트 템플릿이 포함되어 있습니다. 또한 Data Lake 도구는 HDInsight의 Storm을 사용하여 솔루션을 배포, 모니터링 및 관리하는 도구를 제공합니다.
 

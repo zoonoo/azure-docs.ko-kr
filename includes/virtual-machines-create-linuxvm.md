@@ -1,5 +1,5 @@
 
-1. [Azure CLI 1.0에서 Azure에 연결](/cli/azure/authenticate-azure-cli)에 나열된 단계를 사용하여 Azure 구독에 로그인합니다.
+1. [Azure 클래식 CLI에서 Azure에 연결](/cli/azure/authenticate-azure-cli)에 나열된 단계를 사용하여 Azure 구독에 로그인합니다.
 
 2. 다음과 같이 클래식 배포 모드에 있는지 확인합니다.
 
@@ -15,7 +15,7 @@
    
     Windows 명령 프롬프트 창에서 grep 대신 **find** 를 사용합니다.
    
-4. `azure vm create`을 사용하여 이전 목록의 Linux 이미지로 새 VM을 만듭니다. 이 단계에서는 클라우드 서비스 및 저장소 계정을 만듭니다. 이 VM을 `-c` 옵션을 사용한 기존 클라우드 서비스에서도 연결할 수 있습니다. `-e` 옵션을 사용한 Linux 가상 머신에 로그인할 수 있는 SSH 끝점을 만듭니다. 다음 예제에서는 `Ubuntu-14_04_4-LTS` 이미지를 사용하여 `West US` 위치에 `myVM`이라는 VM을 만들고 사용자 이름 `ops`를 추가합니다.
+4. `azure vm create`을 사용하여 이전 목록의 Linux 이미지로 새 VM을 만듭니다. 이 단계에서는 클라우드 서비스 및 저장소 계정을 만듭니다. 이 VM을 `-c` 옵션을 사용한 기존 클라우드 서비스에서도 연결할 수 있습니다. `-e` 옵션을 사용한 Linux 가상 머신에 로그인할 수 있는 SSH 엔드포인트를 만듭니다. 다음 예제에서는 `Ubuntu-14_04_4-LTS` 이미지를 사용하여 `West US` 위치에 `myVM`이라는 VM을 만들고 사용자 이름 `ops`를 추가합니다.
    
     ```azurecli
     azure vm create myVM \
@@ -52,5 +52,5 @@
     ```
 
 ## <a name="next-steps"></a>다음 단계
-모든 Azure CLI 1.0 가상 컴퓨터 명령에 대한 자세한 설명은 [클래식 배포 API에서 Azure CLI 1.0 사용](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)을 참조하세요.
+모든 Azure 클래식 CLI 가상 머신 명령에 대한 자세한 내용은 [클래식 배포 API에서 Azure 클래식 CLI 사용](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)을 참조하세요.
 

@@ -1,20 +1,22 @@
 ---
-title: JavaScript에서 Microsoft Speech Recognition API 시작 | Microsoft Docs
-description: Cognitive Services의 Microsoft Speech Recognition API를 사용하여 음성 오디오를 텍스트로 계속 변환하는 응용 프로그램을 개발합니다.
+title: JavaScript에서 Bing Speech Recognition API 시작 | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Cognitive Services의 Bing Speech Recognition API를 사용하여 음성 오디오를 텍스트로 계속 변환하는 응용 프로그램을 개발합니다.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 12/21/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 04332c453d22122e65a758a65b09e17300e07f02
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ROBOTS: NOINDEX
+ms.openlocfilehash: c4fb331076f88d4f14f56201aa31a00160f395aa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040541"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995349"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>JavaScript에서 Speech Recognition API 시작
 
@@ -38,7 +40,7 @@ Speech API는 Cognitive Services의 일부입니다. [Cognitive Services 구독]
 
 ### <a name="open-the-sample-directly"></a>샘플 직접 열기
 
-위에서 설명한 대로 구독 키를 얻습니다. 그런 다음, [샘플에 대한 링크](https://htmlpreview.github.io/?https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html)를 엽니다. 그러면 기본 브라우저에 페이지가 로드됩니다([htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)를 사용하여 렌더링됨).
+위에서 설명한 대로 구독 키를 얻습니다. 그런 다음, [샘플에 대한 링크](https://htmlpreview.github.io/? https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html)를 엽니다. 그러면 기본 브라우저에 페이지가 로드됩니다([htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)를 사용하여 렌더링됨).
 
 ### <a name="open-the-sample-from-a-local-copy"></a>로컬 복사본에서 샘플 열기
 
