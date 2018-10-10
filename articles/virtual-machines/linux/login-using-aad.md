@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 614375c95f4af3a5fbeeb4368ff8c577372e6381
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 2ec712dcce1295a91f552176ddcf6572d3f23ecc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37933955"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993564"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure에서 Azure Active Directory 인증을 사용하여 Linux 가상 머신에 로그인(미리 보기)
 
@@ -35,7 +35,7 @@ Azure에서 Azure AD 인증을 사용하여 Linux VM에 로그인하는 경우 �
   - 로컬 관리자 계정에 대한 의존성을 줄임으로써 자격 증명 손실/도난, 약한 자격 증명을 구성하는 사용자 등을 걱정할 필요가 없습니다.
   - Azure AD 디렉터리에 구성된 암호 복잡성 및 암호 수명 정책을 통해 Linux VM을 보호할 수 있습니다.
   - Azure 가상 머신에 대한 로그인의 보안을 강화하려면 다단계 인증을 구성하면 됩니다.
-  - Azure Active Directory를 사용하여 Linux VM에 로그인하는 기능은 [Federation Services](../../active-directory/connect/active-directory-aadconnectfed-whatis.md)를 사용하는 고객에게도 적용됩니다.
+  - Azure Active Directory를 사용하여 Linux VM에 로그인하는 기능은 [Federation Services](../../active-directory/hybrid/how-to-connect-fed-whatis.md)를 사용하는 고객에게도 적용됩니다.
 
 - **원활한 공동 작업:** RBAC(역할 기반 액세스 제어)를 사용하여 지정된 VM에 로그인하는 사용자를 일반 사용자로 또는 관리자 권한으로 지정할 수 있습니다. 사용자가 팀에 조인하거나 나가는 경우 적절한 액세스 권한을 부여하도록 VM에 대한 RBAC 정책을 업데이트할 수 있습니다. 이 환경은 불필요한 SSH 공개 키를 제거하기 위해 VM을 삭제하는 것보다 훨씬 더 간단합니다. 직원이 조직을 나가고 해당 사용자 계정을 비활성화하거나 Azure AD에서 제거한 경우 더 이상 리소스에 액세스할 수 없습니다.
 
@@ -59,7 +59,7 @@ Azure에서 Azure AD 인증을 사용하여 Linux VM에 로그인하는 경우 �
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.31 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.31 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-a-linux-virtual-machine"></a>Linux 가상 머신 만들기
 
@@ -117,7 +117,7 @@ az role assignment create \
 > [!NOTE]
 > AAD 도메인과 로그온 사용자 이름 도메인이 일치하지 않으면 *--assignee*의 사용자 이름 외에도 *--assignee-object-id*가 있는 사용자 계정의 개체 ID를 지정해야 합니다. [az ad user list](/cli/azure/ad/user#az-ad-user-list)를 사용하여 사용자 계정의 개체 ID를 가져올 수 있습니다.
 
-RBAC를 사용하여 Azure 구독 리소스에 대한 액세스 권한을 관리하는 방법에 대한 자세한 내용은 [Azure CLI 2.0](../../role-based-access-control/role-assignments-cli.md), [Azure Portal](../../role-based-access-control/role-assignments-portal.md) 또는 [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md) 사용을 참조하세요.
+RBAC를 사용하여 Azure 구독 리소스에 대한 액세스 권한을 관리하는 방법에 대한 자세한 내용은 [Azure CLI](../../role-based-access-control/role-assignments-cli.md), [Azure Portal](../../role-based-access-control/role-assignments-portal.md) 또는 [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md) 사용을 참조하세요.
 
 Linux 가상 머신에 로그인하는 특정 사용자에 대해 다단계 인증을 요구하도록 Azure AD를 구성할 수도 있습니다. 자세한 내용은 [클라우드에서 Azure Multi-Factor Authentication 시작](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)을 참조하세요.
 
@@ -179,4 +179,4 @@ Access denied
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Active Directory에 대한 자세한 내용은 [Azure Active Directory란?](../../active-directory/fundamentals/active-directory-whatis.md) 및 [Azure Active Directory를 시작하는 방법](../../active-directory/fundamentals/get-started-azure-ad.md)을 참조하세요.
+Azure Active Directory에 대한 자세한 내용은 [Azure Active Directory란?](../../active-directory/fundamentals/active-directory-whatis.md)을 참조하세요.

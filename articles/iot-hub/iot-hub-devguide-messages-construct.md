@@ -1,38 +1,43 @@
 ---
 title: Azure IoT Hub 메시징 형식 이해 | Microsoft Docs
 description: 개발자 가이드 - IoT Hub 메시지의 형식 및 예상된 콘텐츠를 설명합니다.
-author: dominicbetts
-manager: timlt
+author: ash2017
+manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.author: dobett
-ms.openlocfilehash: 7c08848698f07d64bbbff429682c18525659f7bf
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.date: 08/13/2018
+ms.author: asrastog
+ms.openlocfilehash: edea20343c2a261902c082dbc5c96b78db6b470d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286520"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973223"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>IoT Hub 메시지 만들기 및 읽기
 
-프로토콜을 통해 원활한 상호 운용성을 지원하기 위해 IoT Hub는 모든 장치 지향 프로토콜에 대한 일반적인 메시지 형식을 정의합니다. 이 메시지 형식은 [장치-클라우드][lnk-d2c] 및 [클라우드-장치][lnk-c2d] 메시지 둘 다에 사용됩니다. 
+프로토콜을 통해 원활한 상호 운용성을 지원하기 위해 IoT Hub는 모든 장치 지향 프로토콜에 대한 일반적인 메시지 형식을 정의합니다. 이 메시지 형식은 [장치-클라우드 라우팅](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) 및 [클라우드-장치](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-c2d) 메시지에 둘 다 사용됩니다. 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-[IoT Hub 메시지][lnk-messaging]는 다음으로 구성됩니다.
+IoT Hub는 스트리밍 메시징 패턴을 사용하여 장치-클라우드 메시징을 구현합니다. IoT Hub의 장치 - 클라우드 메시지는 여러 독자가 읽을 수 있는 서비스를 통과하는 많은 양의 이벤트가 있다는 점에서 [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/) ‘메시지’보다는 [Event Hubs](https://docs.microsoft.com/azure/event-hubs/) ‘이벤트’에 가깝습니다.
 
+IoT Hub 메시지는 다음으로 구성됩니다.
 * 아래에 나열된 미리 결정된 *시스템 속성* 집합
 * *응용 프로그램 속성*집합. 메시지 본문을 역직렬화할 필요 없이 응용 프로그램이 정의하고 액세스할 수 있는 문자열 속성 사전입니다. IoT Hub는 절대로 이러한 속성을 수정하지 않습니다.
 * 불투명한 이진 본문.
 
-속성 이름과 값은 다음과 같은 경우에 ASCII 영숫자 문자와 ```{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}```를 포함할 수 있습니다.  
+HTTPS 프로토콜을 사용하여 장치-클라우드 메시지를 보내거나 클라우드-장치 메시지를 보낼 때 속성 이름과 값에는 ASCII 영숫자 문자와 ```{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}```만 포함할 수 있습니다.
 
-* HTTPS 프로토콜을 사용하여 장치-클라우드 메시지를 보냅니다.
-* 클라우드-장치 메시지를 보냅니다.
+IoT Hub를 사용한 장치-클라우드 메시징의 특징은 다음과 같습니다.
 
-다른 프로토콜을 사용하여 보낸 메시지를 인코딩하고 디코딩하는 방법에 대한 자세한 내용은 [Azure IoT SDK][lnk-sdks]를 참조하세요.
+* 장치-클라우드 메시지는 영구적이며 IoT Hub의 기본 **messages/events** 엔드포인트에 최대 7일 동안 보관됩니다.
+* 장치-클라우드 메시지는 최대 256KB까지 가능하며 보내기를 최적화하기 위해 일괄 처리로 그룹화할 수 있습니다. Batch는 최대 256KB가 될 수 있습니다.
+* IoT Hub는 임의 분할을 허용하지 않습니다. 장치-클라우드 메시지는 원래 **deviceId**와 관련하여 분할됩니다.
+* [IoT Hub에 대한 액세스 제어](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security) 섹션에서 설명한 것처럼 IoT Hub는 장치 단위 인증 및 액세스 제어를 허용합니다.
+
+다른 프로토콜을 사용하여 보낸 메시지를 인코딩하고 디코딩하는 방법에 대한 자세한 내용은 [Azure IoT SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks)를 참조하세요.
 
 다음 테이블에는 IoT Hub 메시지의 시스템 속성 집합이 나열되어 있습니다.
 
@@ -40,9 +45,9 @@ ms.locfileid: "43286520"
 | --- | --- | --- |
 | MessageId |사용자가 설정할 수 있는 메시지에 대한 식별자는 요청-회신 패턴에 사용됩니다. 형식: ASCII 7 비트 영숫자 문자 + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`의 대/소문자 구분 문자열(최대 128자 길이)입니다. | yes |
 | 시퀀스 번호 |숫자(장치 큐 별로 고유함)는 IoT Hub에서 각 클라우드-장치 메시지에 할당됩니다. | C2D 메시지의 경우는 사용자가 설정할 수 없고 다른 경우는 사용자가 설정할 수 있습니다. |
-| 받는 사람 |[클라우드-장치][lnk-c2d] 메시지에 지정된 대상입니다. | C2D 메시지의 경우는 사용자가 설정할 수 없고 다른 경우는 사용자가 설정할 수 있습니다. |
+| 받는 사람 |[클라우드-장치][lnk-c2d] 메시지에 지정되는 대상입니다. | C2D 메시지의 경우는 사용자가 설정할 수 없고 다른 경우는 사용자가 설정할 수 있습니다. |
 | ExpiryTimeUtc |메시지 만료 날짜 및 시간입니다. | yes |
-| EnqueuedTime |IoT Hub에서 [클라우드-장치][lnk-c2d] 메시지를 수신한 날짜 및 시간입니다. | C2D 메시지의 경우는 사용자가 설정할 수 없고 다른 경우는 사용자가 설정할 수 있습니다. |
+| EnqueuedTime |IoT Hub에서 [클라우드-장치][Ink-c2d] 메시지를 수신한 날짜 및 시간입니다. | C2D 메시지의 경우는 사용자가 설정할 수 없고 다른 경우는 사용자가 설정할 수 있습니다. |
 | CorrelationId |일반적으로 요청-응답 패턴으로 요청의 MessageId가 포함된 응답 메시지의 String 속성입니다. | yes |
 | UserId |메시지의 원본을 지정하는 데 사용되는 ID입니다. 메시지가 IoT Hub에서 생성되면 `{iot hub name}`로 설정합니다. | 아니요 |
 | Ack |피드백 메시지 생성기입니다. 이 속성은 장치에서 소비하는 메시지의 결과로 피드백 메시지를 생성하는 IoT Hub를 요청하기 위해 클라우드-장치 메시지에서 사용됩니다. 가능한 값: **none**(기본값): 피드백 메시지가 생성되지 않습니다. **positive**: 메시지가 완료된 경우 피드백 메시지를 받습니다. **negative**: 장치에서 완료되지 않고 메시지가 만료(또는 최대 전달 횟수에 도달)되면 피드백 메시지를 받습니다. **full**: positive 및 negative 모두입니다. 자세한 내용은 [메시지 피드백][lnk-feedback]을 참조하세요. | yes |
@@ -61,18 +66,27 @@ IoT Hub는 실제 페이로드만을 고려하여 프로토콜 진단 방식으�
 
 속성 이름과 값은 ASCII 문자로 제한되므로 문자열의 길이는 바이트 단위의 크기와 같습니다.
 
+## <a name="anti-spoofing-properties"></a>스푸핑 방지 속성
+
+장치-클라우드 메시지에서 스푸핑된 장치를 피하려면 IoT Hub는 다음 속성을 사용하여 모든 메시지를 보여줍니다.
+
+* **ConnectionDeviceId**
+* **ConnectionDeviceGenerationId**
+* **ConnectionAuthMethod**
+
+처음 두 가지는 [장치 ID 속성](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#device-identity-properties)에 따라 원래 장치의 **deviceId** 및 **generationId**를 포함합니다.
+
+**ConnectionAuthMethod** 속성은 다음 속성을 가진 JSON으로 직렬화된 개체를 포함합니다.
+
+```json
+{
+  "scope": "{ hub | device }",
+  "type": "{ symkey | sas | x509 }",
+  "issuer": "iothub"
+}
+```
+
 ## <a name="next-steps"></a>다음 단계
 
-IoT Hub의 메시지 크기 제한에 대한 자세한 내용은 [IoT Hub 할당량 및 제한][lnk-quotas]을 참조하세요.
-
-다양한 프로그래밍 언어로 IoT Hub 메시지를 만들고 읽는 방법을 알아보려면 [빠른 시작][lnk-get-started]을 참조하세요.
-
-[lnk-messaging]: iot-hub-devguide-messaging.md
-[lnk-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-get-started]: quickstart-send-telemetry-node.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
-[lnk-c2d]: iot-hub-devguide-messages-c2d.md
-[lnk-d2c]: iot-hub-devguide-messages-d2c.md
-[lnk-feedback]: iot-hub-devguide-messages-c2d.md#message-feedback
-[lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties
-[lnk-antispoofing]: iot-hub-devguide-messages-d2c.md#anti-spoofing-properties
+* IoT Hub의 메시지 크기 제한에 대한 자세한 내용은 [IoT Hub 할당량 및 제한](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-quotas-throttling)을 참조하세요.
+* 다양한 프로그래밍 언어로 IoT Hub 메시지를 만들고 읽는 방법을 알아보려면 [빠른 시작](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-node)을 참조하세요.

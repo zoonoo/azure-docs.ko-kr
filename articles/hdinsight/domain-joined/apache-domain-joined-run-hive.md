@@ -1,26 +1,26 @@
 ---
-title: 도메인에 가입된 HDInsight에서 Hive 정책 구성 - Azure
-description: 도메인에 가입된 Azure HDInsight 서비스에서 Hive에 대한 Apache Ranger 정책을 구성하는 방법을 알아봅니다.
+title: Enterprise Security Package를 사용하여 HDInsight에서 Hive 정책 구성 - Azure
+description: Enterprise Security Package를 사용하여 Azure HDInsight 서비스에서 Hive용 Apache Ranger 정책을 구성하는 방법을 알아봅니다.
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/17/2018
-ms.openlocfilehash: 55abb5331da24c3914075c21579e5082853b3c1f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/24/2018
+ms.openlocfilehash: bdad0bac0d320b641359df4093ae10c9505b7de2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042083"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993428"
 ---
-# <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>도메인에 가입된 HDInsight에서 Hive 정책 구성
+# <a name="configure-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Enterprise Security Package를 사용하여 HDInsight에서 Hive 정책 구성
 Hive에 대한 Apache Ranger 정책을 구성하는 방법에 대해 알아봅니다. 이 문서에서는 hivesampletable에 대한 액세스를 제한하는 두 개의 Ranger 정책을 만들 수 있습니다. hivesampletable은 HDInsight 클러스터와 함께 제공됩니다. 정책을 구성한 경우 Excel 및 ODBC 드라이버를 사용하여 HDInsight의 Hive 테이블에 연결합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-* 도메인에 가입된 HDInsight 클러스터 [도메인에 가입된 HDInsight 클러스터 구성](apache-domain-joined-configure.md)을 참조하세요.
+* Enterprise Security Package가 포함된 HDInsight 클러스터. [ESP가 포함된 HDInsight 클러스터 구성](apache-domain-joined-configure.md)을 참조하세요.
 * Office 2016, Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone 또는 Office 2010 Professional Plus를 포함한 워크스테이션
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Apache Ranger 관리 UI에 연결
@@ -34,15 +34,15 @@ Hive에 대한 Apache Ranger 정책을 구성하는 방법에 대해 알아봅�
    >
 2. 클러스터 관리자 도메인 사용자 이름 및 암호를 사용하여 로그인합니다.
 
-    ![HDInsight 도메인에 가입된 Ranger 홈페이지](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png)
+    ![HDInsight ESP Ranger 홈페이지](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png)
 
     Ranger는 현재 Yarn 및 Hive에서만 작동합니다.
 
 ## <a name="create-domain-users"></a>도메인 사용자 만들기
-hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [도메인에 가입된 HDInsight 클러스터 만들기](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster)를 참조하세요. 이 자습서에서는 두 개의 사용자 계정을 사용합니다.
+hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [ESP로 HDInsight 클러스터 만들기](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp)를 참조하세요. 이 자습서에서는 두 개의 사용자 계정을 사용합니다.
 
 ## <a name="create-ranger-policies"></a>Ranger 정책 만들기
-이 섹션에서는 hivesampletable에 액세스하기 위한 두 개의 Ranger 정책을 만듭니다. 다른 열 집합에 대한 선택 사용 권한을 제공합니다. 두 사용자는 모두 [도메인 가입 HDInsight 클러스터 만들기](apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster)를 사용하여 생성됩니다. 다음 섹션에서는 Excel에 있는 두 개의 정책을 테스트합니다.
+이 섹션에서는 hivesampletable에 액세스하기 위한 두 개의 Ranger 정책을 만듭니다. 다른 열 집합에 대한 선택 사용 권한을 제공합니다. 두 사용자는 모두 [ESP로 HDInsight 클러스터 만들기](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp)를 사용하여 생성됩니다. 다음 섹션에서는 Excel에 있는 두 개의 정책을 테스트합니다.
 
 **Ranger 정책을 만들려면**
 
@@ -57,7 +57,7 @@ hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [도메인에 �
    * 사용자 선택: hiveuser1
    * 사용 권한: 선택
 
-     ![HDInsight 도메인에 가입된 Ranger Hive 정책 구성](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
+     ![HDInsight ESP Ranger Hive 정책 구성](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
 
      > [!NOTE]
      > 사용자 선택에서 도메인 사용자가 채워지지 않으면 Ranger가 AAD와 동기화되기를 몇 분 정도 기다립니다.
@@ -131,9 +131,9 @@ hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [도메인에 �
     작업이 완료되면 가져온 두 개 열의 데이터가 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-* 도메인에 가입된 HDInsight 클러스터 구성에 대한 자세한 내용은 [도메인에 가입된 HDInsight 클러스터 구성](apache-domain-joined-configure.md)을 참조하세요.
-* 도메인에 가입된 HDInsight 클러스터 관리에 대한 자세한 내용은 [도메인에 가입된 HDInsight 클러스터 관리](apache-domain-joined-manage.md)를 참조하세요.
-* 도메인에 가입된 HDInsight 클러스터에서 SSH를 사용하여 Hive 쿼리를 실행하려면 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)을 참조하세요.
+* Enterprise Security Package가 포함된 HDInsight 클러스터 구성에 대한 내용은 [ESP가 포함된 HDInsight 클러스터 구성](apache-domain-joined-configure.md)을 참조하세요.
+* ESP가 포함된 HDInsight 클러스터를 관리하려면 [ESP가 포함된 HDInsight 클러스터 관리](apache-domain-joined-manage.md)를 참조하세요.
+* ESP가 포함된 HDInsight 클러스터에서 SSH를 사용하여 Hive 쿼리를 실행하려면 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)을 참조하세요.
 * Hive JDBC를 사용하여 Hive를 연결하는 자세한 내용은 [Hive JDBC 드라이버를 사용하여 Azure HDInsight에서 Hive에 연결](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md)을 참조하세요.
 * Hive ODBC를 사용하여 Hadoop에 Excel을 연결하는 자세한 내용은 [Microsoft Hive ODBC 드라이브와 함께 Hadoop에 Excel 연결](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)을 참조하세요.
 * 파워 쿼리를 사용하여 Hadoop에 Excel을 연결하는 자세한 내용은 [파워 쿼리를 사용하여 Hadoop에 Excel 연결](../hadoop/apache-hadoop-connect-excel-power-query.md)을 참조하세요.

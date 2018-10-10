@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jasonh
-ms.openlocfilehash: 79ab8ad9d827b3d2dda8138260b9857f241afc45
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 6d2e0b06f0402ae26212be45a00b4c9a5394a117
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094070"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983704"
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Azure REST API를 사용하여 Hadoop 클러스터 만들기
 
@@ -218,7 +218,7 @@ Azure Resource Manager 템플릿은 **리소스 그룹**과 그 안의 모든 �
 
 ## <a name="log-in-to-your-azure-subscription"></a>Azure 구독에 로그인합니다.
 
-[Azure CLI 2.0 시작](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)의 단계에 따라 `az login` 명령을 사용하여 구독에 연결합니다.
+[Azure CLI 시작](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)의 단계에 따라 `az login` 명령을 사용하여 구독에 연결합니다.
 
 ## <a name="create-a-service-principal"></a>서비스 주체 만들기
 

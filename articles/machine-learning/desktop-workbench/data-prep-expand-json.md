@@ -12,14 +12,19 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: dbda4b7b6d82e8cf1e89dc78ce82efbac08b9933
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0a5cbca114b220686d656f93edb00a199e3cbeeb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35642005"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989824"
 ---
 # <a name="expand-json-transformation"></a>JSON 확장 변환
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 사용자는 **JSON 확장** 변환을 사용해 유효한 JSON 텍스트가 들어 있는 기존 열을 여러 열로 확장할 수 있습니다.
 
 ## <a name="how-to-perform-this-transformation"></a>이 변환을 수행하는 방법
@@ -33,7 +38,7 @@ ms.locfileid: "35642005"
 
 ## <a name="examples"></a>예
 
-원본 열 *Custome*은 두 개의 열 *Customer.Name*과 *Customer.Phone*으로 확장됩니다.
+원본 열 *Customer*는 두 개의 열 *Customer.Name*과 *Customer.Phone*으로 확장됩니다.
 
 | 고객                                                | Customer.Name   | Customer.Phone |
 |---------------------------------------------------------|-----------------|----------------|

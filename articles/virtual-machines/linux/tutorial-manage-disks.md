@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Azure CLI를 사용하여 Azure 디스크 관리 | Microsoft Docs
-description: 이 자습서에서는 Azure CLI 2.0을 사용하여 가상 머신을 위한 Azure 디스크를 만들고 관리하는 방법을 알아봅니다.
+description: 이 자습서에서는 Azure CLI를 사용하여 가상 머신을 위한 Azure 디스크를 만들고 관리하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 889facbf9612f2462a10c886a428ac052becefd8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 04fad24b17d7f74211deae53c0d044f2049660f2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704490"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978321"
 ---
-# <a name="tutorial---manage-azure-disks-with-the-azure-cli-20"></a>자습서 - Azure CLI 2.0을 사용한 Azure 디스크 관리
+# <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>자습서 - Azure CLI를 사용하여 Azure 디스크 관리
 
 Azure VM(가상 머신)은 디스크를 사용하여 운영 체제, 응용 프로그램 및 데이터를 저장합니다. VM을 만들 때 예상되는 워크로드에 적합한 디스크 크기와 구성을 선택하는 것이 중요합니다. 이 자습서에서는 VM 디스크를 배포하고 관리하는 방법을 보여줍니다. 다음에 대해 알아봅니다.
 
@@ -38,7 +38,7 @@ Azure VM(가상 머신)은 디스크를 사용하여 운영 체제, 응용 프�
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="default-azure-disks"></a>기본 Azure 디스크
 

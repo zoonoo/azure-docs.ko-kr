@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 05ec147e705da4951735616881ad19ad265b403d
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: d1d760c2642e0c986e50570630d31dda11d17478
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41918398"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964741"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>자습서 - Jenkins, GitHub 및 Docker를 사용하여 Azure에서 Linux VM의 개발 인프라 만들기
 
@@ -37,7 +37,7 @@ ms.locfileid: "41918398"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-jenkins-instance"></a>Jenkins 인스턴스 만들기
 [처음 부팅 시 Linux 가상 머신을 사용자 지정하는 방법](tutorial-automate-vm-deployment.md)에 대한 이전 자습서에서 cloud-init를 사용하여 VM 사용자 지정을 자동화하는 방법을 배웠습니다. 이 자습서는 cloud-init 파일을 사용하여 VM에 Jenkins 및 Docker를 설치합니다. 널리 사용되는 오픈 소스 자동화 서버인 Jenkins는 Azure와 원활하게 통합되어 CI(지속적인 통합) 및 CD(지속적인 업데이트)를 지원합니다. Jenkins 사용 방법에 대한 자세한 자습서는 [Jenkins Azure Hub](https://docs.microsoft.com/azure/jenkins/)를 참조하세요.
@@ -241,7 +241,7 @@ az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publi
 > * 앱에 대한 Docker 이미지 만들기
 > * 새 Docker 이미지를 빌드한 GitHub 커밋 및 앱을 실행하는 업데이트 확인
 
-Visual Studio Team Services와 Jenkins를 통합하는 방법에 대한 자세한 내용을 보려면 다음 자습서로 이동합니다.
+Azure DevOps Services와 Jenkins를 통합하는 방법에 대한 자세한 내용을 보려면 다음 자습서로 이동합니다.
 
 > [!div class="nextstepaction"]
-> [Jenkins 및 Team Services를 사용하여 앱 배포](tutorial-build-deploy-jenkins.md)
+> [Jenkins 및 Azure DevOps Services를 사용하여 앱 배포](tutorial-build-deploy-jenkins.md)

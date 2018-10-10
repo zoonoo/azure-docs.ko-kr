@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 9ce0bc425836fffb59e804bdbd19f23cfc26c00e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ec952aa26d7bc6b185b425700080a4f474564b76
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527172"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955812"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Azure Files에 파일 공유 만들기
 [Azure Portal](https://portal.azure.com/), Azure Storage PowerShell cmdlet, Azure Storage 클라이언트 라이브러리 또는 Azure Storage REST API를 사용하여 Azure File 공유를 만들 수 있습니다. 이 자습서에서는 다음에 대해 알아봅니다.
@@ -47,7 +47,7 @@ PowerShell 사용을 준비하려면 Azure PowerShell cmdlet을 다운로드하�
 > [!Note]  
 > 최신 Azure PowerShell 모듈을 다운로드하여 설치하거나 최신 모듈로 업그레이드하는 것이 좋습니다.
 
-1. **저장소 계정 및 키에 대한 컨텍스트를 만듭니다**. 컨텍스트는 저장소 계정 이름과 계정 키를 캡슐화합니다. [Azure Portal](https://portal.azure.com/)에서 계정 키를 복사하는 방법에 대한 지침은 [저장소 액세스 키 보기 및 복사](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#view-and-copy-storage-access-keys)를 참조하세요.
+1. **저장소 계정 및 키에 대한 컨텍스트를 만듭니다**. 컨텍스트는 저장소 계정 이름과 계정 키를 캡슐화합니다. [Azure Portal](https://portal.azure.com/)에서 계정 키를 복사하는 방법에 대한 지침은 [저장소 계정 액세스 키](../common/storage-account-manage.md#access-keys)를 참조하세요.
 
     ```powershell
     $storageContext = New-AzureStorageContext <storage-account-name> <storage-account-key>
@@ -64,7 +64,7 @@ PowerShell 사용을 준비하려면 Azure PowerShell cmdlet을 다운로드하�
 
 ## <a name="create-file-share-through-command-line-interface-cli"></a>CLI(명령줄 인터페이스)를 통해 파일 공유 만들기
 1. **명령줄 인터페이스(CLI)를 사용하도록 준비하려면 Azure CLI를 다운로드하여 설치합니다.**  
-    [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli) 및 [Azure CLI 2.0 시작](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)을 참조하세요.
+    [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli) 및 [Azure CLI 시작](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)을 참조하세요.
 
 2. **공유를 만들 저장소 계정에 연결 문자열을 만듭니다.**  
     다음 예제에서는 ```<storage-account>``` 및 ```<resource_group>```을 사용자의 저장소 계정 이름 및 리소스 그룹으로 바꿉니다.

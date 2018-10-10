@@ -1,6 +1,6 @@
 ---
 title: 가속화된 네트워킹을 사용하는 Azure 가상 머신 만들기 | Microsoft Docs
-description: 가속 네트워킹을 사용하는 Linux 가상 머신을 만드는 방법에 대해 알아봅니다.
+description: 가속화된 네트워킹을 사용하는 Linux 가상 머신을 만드는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: gsilva5
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 9ea843df4cf437b97f7fe1d62636a51f8201376e
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: b6aaf98ca3b5581691b6c70783be5250b506056c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414575"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990963"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>가속 네트워킹을 사용하는 Linux 가상 머신 만들기
 
@@ -75,7 +75,7 @@ VM 인스턴스에 대한 자세한 내용은 [Linux VM 크기](../virtual-machi
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인합니다. 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myNic*, *myVm*이 포함됩니다.
+최신 [Azure CLI](/cli/azure/install-azure-cli)를 설치하고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인합니다. 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myNic*, *myVm*이 포함됩니다.
 
 [az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *centralus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0을 사용하여 Virtual Machine Scale Sets 관리 | Microsoft Docs
-description: 인스턴스를 시작하고 중지하는 방법 및 확장 집합 용량을 변경하는 방법과 같은 Virtual Machine Scale Sets를 관리하는 공통 Azure CLI 2.0 명령입니다.
+title: Azure CLI를 사용하여 Virtual Machine Scale Sets 관리 | Microsoft Docs
+description: 인스턴스를 시작하고 중지하는 방법 및 확장 집합 용량을 변경하는 방법과 같은 Virtual Machine Scale Sets를 관리하는 공통 Azure CLI 명령입니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 512dd7c3318022106b721d8f215bff17de51e51d
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 014e6ff2bc769675e47743cfdd4fbf7fc6234974
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42143689"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999837"
 ---
-# <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 가상 머신 확장 집합 관리
-가상 머신 확장 집합의 수명 주기 동안 하나 이상의 관리 작업을 실행해야 합니다. 또한 다양한 수명 주기 작업을 자동화하는 스크립트를 만들어야 하는 경우가 있습니다. 이 문서에서는 이러한 작업을 수행할 수 있는 공통 Azure CLI 2.0 명령의 일부를 설명합니다.
+# <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신 확장 집합 관리
+가상 머신 확장 집합의 수명 주기 동안 하나 이상의 관리 작업을 실행해야 합니다. 또한 다양한 수명 주기 작업을 자동화하는 스크립트를 만들어야 하는 경우가 있습니다. 이 문서에서는 이러한 작업을 수행할 수 있는 공통 Azure CLI 명령의 일부를 설명합니다.
 
-이러한 관리 작업을 완료하려면 최신 Azure CLI 2.0이 필요합니다. 자세한 내용은 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. 가상 머신 확장 집합을 만들어야 하는 경우 [Azure CLI 2.0에서 확장 집합을 만들](quick-create-cli.md) 수 있습니다.
+이러한 관리 작업을 완료하려면 최신 Azure CLI가 필요합니다. 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 가상 머신 확장 집합을 만들어야 하는 경우 [Azure CLI에서 확장 집합을 만들](quick-create-cli.md) 수 있습니다.
 
 
 ## <a name="view-information-about-a-scale-set"></a>확장 집합에 대한 정보 보기

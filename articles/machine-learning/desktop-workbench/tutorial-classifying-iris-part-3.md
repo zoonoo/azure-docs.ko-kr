@@ -1,6 +1,6 @@
 ---
 title: Azure Machine Learning 서비스용 모델 자습서 배포
-description: 이 자습서 전체에서 Azure Machine Learning 서비스를 사용하는 방법을 보여줍니다. 3부이며 배포 모델을 설명합니다.
+description: 이 자습서 전체에서 Azure Machine Learning 서비스를 사용하는 방법을 보여 줍니다. 3부이며 배포 모델을 설명합니다.
 services: machine-learning
 author: aashishb
 ms.author: aashishb
@@ -12,14 +12,18 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
-ms.openlocfilehash: de0c93ef5b907b56e6ad66a04bb728b5b9aabb9a
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2eb6eb5090b0a68a189e2d4f1148d3238bc3ee0d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41918689"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946615"
 ---
 # <a name="tutorial-3-classify-iris-deploy-a-model"></a>자습서 3: 아이리스 분류: 배포 모델
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Azure Machine Learning(미리 보기)는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다. 데이터 과학자는 클라우드 규모로 데이터를 준비하고, 실험을 개발하며, 모델을 배포하는 데 사용할 수 있습니다.
 
 이 자습서는 **3부로 구성된 시리즈 중 제3부**입니다. 자습서의 이 부분에서는 Machine Learning(미리 보기)을 사용하여 다음을 수행합니다.
@@ -32,13 +36,13 @@ Azure Machine Learning(미리 보기)는 전문 데이터 과학자를 위한 �
 > * 실시간 웹 서비스 실행
 > * 출력 Blob 데이터 검사 
 
-이 자습서에서는 변함 없는 [아이리스 꽃 데이터 집합](https://en.wikipedia.org/wiki/Iris_flower_data_set)을 사용합니다. 
+이 자습서에서는 오래전부터 사용해온 [아이리스(붓꽃) 데이터 집합](https://en.wikipedia.org/wiki/Iris_flower_data_set)을 사용합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 - Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
-- [빠른 시작](../service/quickstart-installation.md)에 설명된 대로 설치된 실험 계정 및 Azure Machine Learning Workbench
+- [빠른 시작](quickstart-installation.md)에 설명된 대로 설치된 실험 계정 및 Azure Machine Learning Workbench
 - [자습서 2부](tutorial-classifying-iris-part-2.md)에서 모델 분류
 - 로컬로 설치되고 실행되는 Docker 엔진
 
@@ -224,9 +228,9 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
 1. 실시간 웹 서비스를 만들려면 다음 명령을 사용합니다.
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s ./output/service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
    ```
-   이 명령은 나중에 사용할 수 있는 웹 서비스 ID를 생성합니다.
+   이 명령은 나중에 사용할 수 있는 웹 서비스 ID를 생성합니다. Notebook에 있는 경우 출력 디렉터리를 생략합니다.
 
    다음 스위치가 **az ml service create realtime** 명령에 사용됩니다.
 
@@ -276,9 +280,9 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
    매니페스트를 만들려면 다음 명령을 사용하고, 이전 단계의 모델 ID 출력을 제공합니다.
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s service_schema.json -c aml_config\conda_dependencies.yml
+   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s ./output/service_schema.json -c aml_config\conda_dependencies.yml
    ```
-   이 명령은 매니페스트 ID를 생성합니다.
+   이 명령은 매니페스트 ID를 생성합니다.  Notebook에 있는 경우 출력 디렉터리를 생략합니다.
 
 1. Docker 이미지를 만듭니다.
 

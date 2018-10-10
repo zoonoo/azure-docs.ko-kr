@@ -1,22 +1,22 @@
 ---
-title: Azure HDInsight 도메인에 가입된 클러스터의 Apache Hadoop Oozie 워크플로
-description: Linux 기반 HDInsight 도메인에 가입된 Enterprise Security Package에서 Hadoop Oozie를 사용합니다. 또한 Oozie 워크플로를 정의하고 Oozie 작업을 제출하는 방법에 대해서도 살펴봅니다.
+title: Enterprise Security Package가 포함된 Azure HDInsight 클러스터의 Apache Hadoop Oozie 워크플로
+description: Linux 기반 HDInsight Enterprise Security Package에서 Hadoop Oozie를 사용합니다. 또한 Oozie 워크플로를 정의하고 Oozie 작업을 제출하는 방법에 대해서도 살펴봅니다.
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/26/2018
-ms.openlocfilehash: 69bf885ad5d6244997c7ce9cf61bdee9e05c1826
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/24/2018
+ms.openlocfilehash: 563a4c14d78b7edd228c998817f44c6b3f14efe7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048977"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947500"
 ---
-# <a name="run-apache-oozie-in-domain-joined-hdinsight-hadoop-clusters"></a>도메인에 가입된 HDInsight Hadoop 클러스터에서 Apache Oozie 실행
+# <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Enterprise Security Package가 포함된 HDInsight Hadoop 클러스터에서 Apache Oozie 실행
 Oozie는 Hadoop 작업을 관리하는 워크플로 및 코디네이션 시스템입니다. Oozie는 Hadoop 스택과 통합되며 다음 작업을 지원합니다.
 - Apache MapReduce
 - Apache Pig
@@ -26,12 +26,12 @@ Oozie는 Hadoop 작업을 관리하는 워크플로 및 코디네이션 시스�
 Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스템에 특정한 작업을 예약할 수도 있습니다.
 
 ## <a name="prerequisite"></a>필수 요소
-- 도메인에 가입된 Azure HDInsight Hadoop 클러스터. [도메인에 가입된 HDInsight 클러스터 구성](./apache-domain-joined-configure-using-azure-adds.md)을 참조하세요.
+- ESP(Enterprise Security Package)가 포함된 Azure HDInsight Hadoop 클러스터입니다. [ESP가 포함된 HDInsight 클러스터 구성](./apache-domain-joined-configure-using-azure-adds.md)을 참조하세요.
 
     > [!NOTE]
-    > 도메인에 가입되지 않은 클러스터에서 Oozie 사용에 관한 자세한 지침은 [Linux 기반 Azure HDInsight에서 Hadoop Oozie 워크플로 사용](../hdinsight-use-oozie-linux-mac.md)을 참조하세요.
+    > ESP가 아닌 클러스터에서 Oozie 사용에 관한 자세한 지침은 [Linux 기반 Azure HDInsight에서 Hadoop Oozie 워크플로 사용](../hdinsight-use-oozie-linux-mac.md)을 참조하세요.
 
-## <a name="connect-to-a-domain-joined-cluster"></a>도메인에 가입된 클러스터에 연결
+## <a name="connect-to-an-esp-cluster"></a>ESP 클러스터에 연결
 
 SSH(Secure Shell)에 대한 자세한 내용은 [SSH를 사용하여 HDInsight(Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
@@ -262,7 +262,7 @@ nano workflow.xml
     ```
 
 ## <a name="submit-oozie-jobs"></a>Oozie 작업 제출
-도메인에 가입된 클러스터에 대한 Oozie 작업을 제출하는 것은 도메인에 가입되지 않은 클러스터에서 Oozie 작업을 제출하는 것과 유사합니다.
+ESP 클러스터에 대한 Oozie 작업을 제출하는 것은 ESP가 아닌 클러스터에서 Oozie 작업을 제출하는 것과 유사합니다.
 
 자세한 내용은 [Hadoop과 함께 Oozie를 사용하여 Linux 기반 Azure HDInsight에서 워크플로 정의 및 실행](../hdinsight-use-oozie-linux-mac.md)을 참조하세요.
 
@@ -311,7 +311,7 @@ Oozie는 자체적으로 사용자 권한 부여 구성을 포함하여, 사용�
 Hive 서버 1과 같은 구성 요소(여기서 Ranger 플러그 인은 사용 불가/지원되지 않음)의 경우 세분화되지 않은 HDFS 권한 부여만 가능합니다. 세분화된 권한 부여는 Ranger 플러그 인을 통해서만 사용할 수 있습니다.
 
 ## <a name="get-the-oozie-web-ui"></a>Oozie 웹 UI 가져오기
-Oozie 웹 UI는 클러스터의 Oozie 작업 상태에 대한 웹 기반 보기를 제공합니다. 웹 UI를 가져오려면 도메인에 가입된 클러스터에서 다음 단계를 수행합니다.
+Oozie 웹 UI는 클러스터의 Oozie 작업 상태에 대한 웹 기반 보기를 제공합니다. 웹 UI를 가져오려면 ESP 클러스터에서 다음 단계를 수행합니다.
 
 1. [에지 노드](../hdinsight-apps-use-edge-node.md)를 추가하고 [SSH Kerberos 인증](../hdinsight-hadoop-linux-use-ssh-unix.md)을 사용하도록 설정합니다.
 

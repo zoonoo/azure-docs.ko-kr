@@ -1,6 +1,6 @@
 ---
-title: App Service 및 Azure Functions의 Managed Service Identity | Microsoft Docs
-description: Azure App Service 및 Azure Functions에서 Managed Service Identity를 지원하기 위한 개념 참조 및 설치 가이드
+title: App Service 및 Azure Functions의 관리 ID | Microsoft Docs
+description: Azure App Service 및 Azure Functions의 관리 ID에 대한 개념적 참조 및 설정 가이드입니다.
 services: app-service
 author: mattchenderson
 manager: cfowler
@@ -11,22 +11,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: mahender
-ms.openlocfilehash: c7a819f987de41ba7705d21bb6de95475cd3f9c8
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: fb9b50ecb16bd37d005403a14ea11c6d89f50dfe
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027189"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983650"
 ---
-# <a name="how-to-use-azure-managed-service-identity-in-app-service-and-azure-functions"></a>App Service 및 Azure Functions에서 Azure 관리 서비스 ID를 사용하는 방법
+# <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법
 
 > [!NOTE] 
-> Linux의 App Service 및 Web App for Containers는 현재 관리 서비스 ID를 지원되지 않습니다.
+> Linux의 App Service 및 Web App for Containers는 현재 관리 ID를 지원하지 않습니다.
 
 > [!Important] 
-> 앱이 구독/테넌트 간에 마이그레이션되는 경우 App Service 및 Azure Functions에 대한 관리 서비스 ID가 예상대로 작동하지 않습니다. 앱에서 새 ID를 확보해야 하며 해당 기능을 사용 중지했다가 다시 사용하도록 설정하여 확보할 수 있습니다. 아래 [ID 제거](#remove)를 참조하세요. 다운스트림 리소스에도 새 ID를 사용하려면 액세스 정책을 업데이트해야 합니다.
+> 앱이 구독/테넌트 간에 마이그레이션되면 App Service 및 Azure Functions에 대한 관리 ID가 예상대로 작동하지 않습니다. 앱에서 새 ID를 확보해야 하며 해당 기능을 사용 중지했다가 다시 사용하도록 설정하여 확보할 수 있습니다. 아래 [ID 제거](#remove)를 참조하세요. 다운스트림 리소스에도 새 ID를 사용하려면 액세스 정책을 업데이트해야 합니다.
 
-이 토픽에서는 App Service 및 Azure Functions 응용 프로그램에 대한 관리되는 앱 ID를 만들어서 다른 리소스에 액세스하는 데 사용하는 방법을 보여줍니다. Azure Active Directory의 관리되는 서비스 ID를 사용하면 앱이 Azure Key Vault처럼 AAD로 보호되는 다른 리소스에 쉽게 액세스할 수 있습니다. ID는 Azure 플랫폼에서 관리하며 비밀을 프로비전하거나 회전할 필요가 없습니다. Managed Service Identity에 대한 자세한 내용은 [Managed Service Identity 개요](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
+이 항목에서는 App Service 및 Azure Functions 응용 프로그램에 대한 관리 ID를 만드는 방법과 다른 리소스에 액세스하는 데 사용하는 방법을 보여 줍니다. Azure Active Directory의 관리 ID를 사용하면 앱에서 다른 AAD 보호 리소스(예: Azure Key Vault)에 쉽게 액세스할 수 있습니다. ID는 Azure 플랫폼에서 관리하며 비밀을 프로비전하거나 회전할 필요가 없습니다. AAD의 관리 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
 
 ## <a name="creating-an-app-with-an-identity"></a>ID를 사용하여 앱 만들기
 
@@ -34,25 +34,25 @@ ID를 사용하여 앱을 만들려면 응용 프로그램에서 추가 속성�
 
 ### <a name="using-the-azure-portal"></a>Azure Portal 사용
 
-포털에서 관리되는 서비스 id를 설정하려면 먼저 평소와 같은 방법으로 응용 프로그램을 만든 후 기능을 설정합니다.
+포털에서 관리 ID를 설정하려면 먼저 정상적으로 응용 프로그램을 만든 다음, 기능을 사용하도록 설정합니다.
 
 1. 평소처럼 포털에서 앱을 만듭니다. 포털에서 해당 앱으로 이동합니다.
 
 2. 함수 앱을 사용하는 경우 **플랫폼 기능**으로 이동합니다. 다른 유형의 앱을 사용하는 경우 왼쪽 탐색 창에서 **설정** 그룹이 나올 때까지 아래로 스크롤합니다.
 
-3. **관리되는 서비스 ID**를 선택합니다.
+3. **관리 ID**를 선택합니다.
 
 4. **Azure Active Directory**을 **켜기**로 전환합니다. **저장**을 클릭합니다.
 
-![App Service의 Managed Service Identity](media/app-service-managed-service-identity/msi-blade.png)
+![App Service의 관리 ID](media/app-service-managed-service-identity/msi-blade.png)
 
 ### <a name="using-the-azure-cli"></a>Azure CLI 사용
 
-Azure CLI를 사용하여 관리되는 서비스 ID를 설정하려면 기존 응용 프로그램에 대해 `az webapp identity assign` 명령을 사용해야 합니다. 이 섹션의 예제를 실행하는 옵션은 세 가지가 있습니다.
+Azure CLI를 사용하여 관리 ID를 설정하려면 기존 응용 프로그램에 대해 `az webapp identity assign` 명령을 사용해야 합니다. 이 섹션의 예제를 실행하는 옵션은 세 가지가 있습니다.
 
 - Azure Portal에서 [Azure Cloud Shell](../cloud-shell/overview.md)을 사용합니다.
 - 아래 각 코드 블록의 오른쪽 위에 있는 "사용해 보세요" 단추를 통해 포함된 Azure Cloud Shell을 사용합니다.
-- 로컬 CLI 콘솔을 사용하려는 경우 [CLI 2.0의 최신 버전(2.0.31 이상)을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다. 
+- 로컬 CLI 콘솔을 사용하려면 [최신 버전의 Azure CLI(2.0.31 이상)를 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다. 
 
 다음 단계는 웹앱을 만들고 CLI를 사용하여 ID를 할당하는 과정을 안내합니다.
 
@@ -151,13 +151,13 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스 배포를 자�
 앱은 자체 ID를 사용하여 Azure Key Vault 같은 AAD로 보호되는 다른 리소스의 토큰을 가져올 수 있습니다. 이러한 토큰은 응용 프로그램의 특정 사용자가 아닌 리소스에 액세스하는 응용 프로그램을 나타냅니다. 
 
 > [!IMPORTANT]
-> 응용 프로그램의 액세스를 허용하도록 대상 리소스를 구성해야 할 수도 있습니다. 예를 들어 Key Vault 토큰을 요청할 때에는 응용 프로그램의 ID를 포함하는 액세스 정책을 추가했는지 확인해야 합니다. 그렇지 않으면 토큰이 포함되어 있더라도 Key Vault 호출이 거부됩니다. 어떤 리소스가 Managed Service Identity 토큰을 지원하는지 자세히 알아보려면 [Azure AD 인증을 지원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication)를 참조하세요.
+> 응용 프로그램의 액세스를 허용하도록 대상 리소스를 구성해야 할 수도 있습니다. 예를 들어 Key Vault 토큰을 요청할 때에는 응용 프로그램의 ID를 포함하는 액세스 정책을 추가했는지 확인해야 합니다. 그렇지 않으면 토큰이 포함되어 있더라도 Key Vault 호출이 거부됩니다. Azure Active Directory 토큰을 지원하는 리소스에 대한 자세한 내용은 [Azure AD 인증을 지원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication)를 참조하세요.
 
 App Service 및 Azure Functions에서 토큰을 가져오는 간단한 REST 프로토콜이 있습니다. .NET 응용 프로그램의 경우 Microsoft.Azure.Services.AppAuthentication 라이브러리에서 이 프로토콜에 대한 추상화를 제공하고 로컬 개발 환경을 지원합니다.
 
 ### <a name="asal"></a>.NET용 Microsoft.Azure.Services.AppAuthentication 라이브러리 사용
 
-.NET 응용 프로그램 및 함수의 경우 관리되는 서비스 ID를 사용하는 가장 간단한 방법은 Microsoft.Azure.Services.AppAuthentication 패키지입니다. 이 라이브러리 역시 개발 컴퓨터에서 Visual Studio, [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) 또는 Active Directory 통합 인증의 사용자 계정을 사용하여 로컬로 코드를 테스트할 수 있습니다. 이 라이브러를 통한 로컬 개발 옵션에 대한 자세한 내용은[Microsoft.Azure.Services.AppAuthentication 참조]를 참조하세요. 이 섹션에서는 코드에서 이 라이브러리를 시작하는 방법을 보여 줍니다.
+.NET 응용 프로그램 및 함수의 경우 관리 ID를 사용하는 가장 간단한 방법은 Microsoft.Azure.Services.AppAuthentication 패키지를 사용하는 것입니다. 또한 이 라이브러리는 개발 머신에서 Visual Studio, [Azure CLI](/cli/azure) 또는 Active Directory 통합 인증의 사용자 계정을 사용하여 로컬로 코드를 테스트할 수 있습니다. 이 라이브러를 통한 로컬 개발 옵션에 대한 자세한 내용은[Microsoft.Azure.Services.AppAuthentication 참조]를 참조하세요. 이 섹션에서는 코드에서 이 라이브러리를 시작하는 방법을 보여 줍니다.
 
 1. 응용 프로그램에 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 및 [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet 패키지의 참조를 추가합니다.
 
@@ -168,7 +168,7 @@ using Microsoft.Azure.Services.AppAuthentication;
 using Microsoft.Azure.KeyVault;
 // ...
 var azureServiceTokenProvider = new AzureServiceTokenProvider();
-string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://management.azure.com/");
+string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://vault.azure.net");
 // OR
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
 ```
@@ -177,7 +177,7 @@ Microsoft.Azure.Services.AppAuthentication 및 노출하는 작업에 대한 자
 
 ### <a name="using-the-rest-protocol"></a>REST 프로토콜 사용
 
-관리되는 서비스 ID를 사용하는 앱에는 다음 두 개의 환경 변수가 정의되어 있습니다.
+관리 ID가 있는 앱에는 다음 두 가지 환경 변수가 정의되어 있습니다.
 - MSI_ENDPOINT
 - MSI_SECRET
 
@@ -205,7 +205,7 @@ Microsoft.Azure.Services.AppAuthentication 및 노출하는 작업에 대한 자
 이 응답은 [AAD 서비스 간 액세스 토큰 요청에 대한 응답](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response)과 동일합니다.
 
 > [!NOTE] 
-> 환경 변수는 프로세스가 처음 시작될 때 설정되므로 응용 프로그램에 대해 관리되는 서비스 ID를 활성화한 후에는 코드에 `MSI_ENDPOINT` 및 `MSI_SECRET`를 사용하기 위해 응용 프로그램을 다시 시작하거나 코드를 재배포해야 할 수 있습니다.
+> 환경 변수는 프로세스를 처음 시작할 때 설정되므로 응용 프로그램에 대한 관리 ID를 사용하도록 설정한 후 코드에서 `MSI_ENDPOINT` 및 `MSI_SECRET`를 사용하기 전에 먼저 응용 프로그램을 다시 시작하거나 해당 코드를 다시 배포해야 할 수 있습니다.
 
 ### <a name="rest-protocol-examples"></a>REST 프로토콜 예제
 예제 요청은 다음과 유사할 수 있습니다.
@@ -276,11 +276,11 @@ $accessToken = $tokenResponse.access_token
 ID를 이런 방식으로 제거하면 AAD에서 보안 주체도 삭제됩니다. 앱 리소스가 삭제될 때 시스템 할당 ID가 AAD에서 자동으로 제거됩니다.
 
 > [!NOTE] 
-> 설정할 수 있는 응용 프로그램 설정인 WEBSITE_DISABLE_MSI도 있으며 이것은 로컬 토큰 서비스를 비활성화합니다. 하지만 ID는 그대로 유지되고 도구에는 MSI가 "on" 또는 "enabled"로 표시됩니다. 따라서 이 설정은 사용하지 않는 것이 좋습니다.
+> 설정할 수 있는 응용 프로그램 설정인 WEBSITE_DISABLE_MSI도 있으며 이것은 로컬 토큰 서비스를 비활성화합니다. 그러나 ID는 그대로 유지되고, 도구에는 여전히 관리 ID가 "on" 또는 "enabled"로 표시됩니다. 따라서 이 설정은 사용하지 않는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [관리되는 서비스 ID를 사용하여 SQL Database에 안전하게 액세스](app-service-web-tutorial-connect-msi.md)
+> [관리 ID를 사용하여 SQL Database에 안전하게 액세스](app-service-web-tutorial-connect-msi.md)
 
 [Microsoft.Azure.Services.AppAuthentication 참조]: https://go.microsoft.com/fwlink/p/?linkid=862452

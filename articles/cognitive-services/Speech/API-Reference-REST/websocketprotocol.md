@@ -1,24 +1,26 @@
 ---
-title: Microsoft 음성 인식 WebSocket 프로토콜 | Microsoft Docs
-description: WebSockets 기반 음성 서비스를 위한 프로토콜 설명서
+title: Bing Speech WebSocket 프로토콜 | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: WebSockets 기반 Bing Speech를 위한 프로토콜 설명서
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 17954536e8bdb49c09204c2e522586b79cb1bef5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6ee61a38615ac8cbf4c4fcf6b8d631c5f9a8f7d1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373983"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962779"
 ---
-# <a name="speech-service-websocket-protocol"></a>음성 서비스 WebSocket 프로토콜
+# <a name="bing-speech-websocket-protocol"></a>Bing Speech WebSocket 프로토콜
 
-  음성 서비스는 음성 오디오를 텍스트로 변환할 수 있는 첨단 알고리즘을 탑재한 클라우드 기반 서비스입니다. 음성 서비스 프로토콜은 클라이언트 응용 프로그램과 서비스 간의 [연결 설정](#connection-establishment) 및 상대 간에 교환하는 음성 인식 메시지([클라이언트 시작 메시지](#client-originated-messages) 및 [서비스 시작 메시지](#service-originated-messages))를 정의합니다. 또한 [원격 분석 메시지](#telemetry-schema) 및 [오류 처리](#error-handling)를 설명합니다.
+Bing Speech는 음성 오디오를 텍스트로 변환할 수 있는 최고급 알고리즘을 탑재한 클라우드 기반 플랫폼입니다. Bing Speech 프로토콜은 클라이언트 응용 프로그램과 서비스 간의 [연결 설정](#connection-establishment) 및 상대 간에 교환하는 음성 인식 메시지([클라이언트 시작 메시지](#client-originated-messages) 및 [서비스 시작 메시지](#service-originated-messages))를 정의합니다. 또한 [원격 분석 메시지](#telemetry-schema) 및 [오류 처리](#error-handling)를 설명합니다.
 
 ## <a name="connection-establishment"></a>연결 설정
 
@@ -74,7 +76,7 @@ Content-Length: 0
 
 액세스 토큰을 위해 다음 헤더 정보가 필요합니다.
 
-| Name | 형식 | 설명 |
+| 이름 | 형식 | 설명 |
 |----|----|----|
 | Ocp-Apim-Subscription-Key | ASCII | 구독 키 |
 
@@ -90,9 +92,9 @@ Content-Length: 0
 
 클라이언트는 [HTTP 프로토콜 사양](http://www.w3.org/Protocols/rfc2616/rfc2616.html)에서 지정한 표준 리디렉션 메커니즘을 지원*해야 합니다*.
 
-### <a name="speech-endpoints"></a>음성 끝점
+### <a name="speech-endpoints"></a>음성 엔드포인트
 
-클라이언트는 음성 서비스의 적절한 끝점을 사용*해야 합니다*. 끝점은 인식 모드 및 언어를 기반으로 합니다. 다음 표가 몇 가지 예를 보여줍니다.
+클라이언트는 음성 서비스의 적절한 엔드포인트를 사용*해야 합니다*. 엔드포인트는 인식 모드 및 언어를 기반으로 합니다. 다음 표가 몇 가지 예를 보여줍니다.
 
 | Mode | path | 서비스 URI |
 | -----|-----|-----|
@@ -504,7 +506,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 | 필드 | 설명 | 사용 현황 |
 | ----- | ----------- | ----- |
-| Name | `Connection` | 필수 |
+| 이름 | `Connection` | 필수 |
 | Id | 이 연결 요청에 대한 *X-ConnectionId* 헤더에 사용한 연결 식별자 값 | 필수 |
 | 시작 | 클라이언트가 연결 요청을 보낸 시간 | 필수 |
 | 끝 | 클라이언트가 연결이 성공적으로 설정된 사실 또는 오류가 발생한 경우 거부, 거절 또는 실패한 사실의 알림을 받은 시간 | 필수 |
@@ -544,7 +546,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 | 필드 | 설명 | 사용 현황 |
 | ----- | ----------- | ----- |
-| Name | 마이크 | 필수 |
+| 이름 | 마이크 | 필수 |
 | 시작 | 클라이언트가 마이크 또는 다른 오디오 스트림에서 오는 오디오 입력을 사용하기 시작했거나 키워드 스포터에서 트리거를 수신한 시간 | 필수 |
 | 끝 | 클라이언트가 마이크 또는 오디오 스트림 사용을 중단한 시간 | 필수 |
 | 오류 | 발생한 오류(있는 경우)에 대한 설명. 마이크 작동이 성공적인 경우 클라이언트는 이 필드를 생략하는 것이 좋습니다. 이 필드의 최대 길이는 50자입니다. | 오류의 경우 필수, 그렇지 않으면 생략됨 |
@@ -564,7 +566,7 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 | 필드 | 설명 | 사용 현황 |
 | ----- | ----------- | ----- |
-| Name | ListeningTrigger | 옵션 |
+| 이름 | ListeningTrigger | 옵션 |
 | 시작 | 클라이언트 수신 대기 트리거가 시작된 시간 | 필수 |
 | 끝 | 클라이언트 수신 대기 트리거가 종료된 시간 | 필수 |
 | 오류 | 발생한 오류(있는 경우)에 대한 설명. 트리거 작업이 성공한 경우 클라이언트는 이 필드를 생략하는 것이 좋습니다. 이 필드의 최대 길이는 50자입니다. | 오류의 경우 필수, 그렇지 않으면 생략됨 |

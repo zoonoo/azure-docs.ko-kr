@@ -7,18 +7,23 @@ manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 services: machine-learning
 ms.workload: data-services
 ms.date: 12/13/2017
-ms.openlocfilehash: d34f25fd75816f0ae840b3cbb2e0e88cbc2bfd91
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5ca47c8234239b56a2d829903828dda8220d53cb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832410"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967611"
 ---
 # <a name="aerial-image-classification"></a>항공 이미지 분류
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 이 예제는 Azure Machine Learning Workbench를 사용해 이미지 분류 모델의 분산된 교육 및 운영을 조정하는 방법을 보여줍니다. 여기서는 두 가지 접근 방법인 (i) [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) GPU 클러스터를 사용한 심층 신경망 세분화 및 (ii) [Microsoft Machine Learning for Apache Spark (MMLSpark)](https://github.com/Azure/mmlspark) 패키지 사용을 소개합니다. 이러한 방법을 통해 미리 교육된 CNTK 모델을 사용하여 이미지를 기능화하고 파생된 기능을 사용하여 분류자를 교육합니다. 그런 후 [Azure HDInsight Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/) 클러스터를 사용하여 교육된 모델을 큰 이미지 집합에 병렬 방식으로 적용합니다. 이제 작업자 노드를 추가 또는 제거하여 교육 및 운영 속도를 변경할 수 있습니다.
 
@@ -61,21 +66,21 @@ ms.locfileid: "34832410"
        - 사용할 수 있는 코어가 적다면 HDInsight 클러스터 템플릿을 수정하여 프로비전된 사용자 수를 줄일 수 있습니다. 이에 대한 지침은 "HDInsight Spark 클러스터 만들기" 섹션 아래에 있습니다.
     - 이 샘플에서는 두 개의 NC6(GPU 1개, vCPU 6개) VM으로 Batch AI 교육 클러스터를 만듭니다. 미국 동부 지역에서 사용자 계정에 사용 가능한 충분한 코어가 있는지 Azure Portal에서 구독에 대한 "사용 + 할당량" 탭을 검토하여 확인합니다.
 - [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md)
-    - [빠른 시작 설치 및 만들기](../service/quickstart-installation.md)에 따라 Azure Machine Learning Workbench를 설치하고 Experimentation and Model Management Accounts(실험 및 모델 관리 계정)을 만듭니다.
-- [Batch AI](https://github.com/Azure/BatchAI) Python SDK 및 Azure CLI 2.0
+    - [빠른 시작 설치 및 만들기](../desktop-workbench/quickstart-installation.md)에 따라 Azure Machine Learning Workbench를 설치하고 Experimentation and Model Management Accounts(실험 및 모델 관리 계정)을 만듭니다.
+- [Batch AI](https://github.com/Azure/BatchAI) Python SDK 및 Azure CLI
     - [Batch AI Recipes README](https://github.com/Azure/BatchAI/tree/master/recipes)의 다음 섹션을 완료합니다.
         - "필수 구성 요소"
         - "AAD(Azure Active Directory) 응용 프로그램 만들기 및 가져오기"
-        - "등록된 BatchAI 리소스 공급자"("Azure CLI 2.0으로 레시피 실행" 섹션 내)
+        - “등록된 BatchAI 리소스 공급자”(“Azure CLI로 레시피 실행” 아래)
         - "Azure Batch AI 관리 클라이언트 설치"
         - "Azure Python SDK 설치"
     - 만들도록 지시받은 Azure Active Directory 응용 프로그램의 클라이언트 ID, 비밀 및 테넌트 ID를 기록합니다. 이 자격 증명은 이 자습서의 뒷부분에서 사용합니다.
-    - 이 문서를 작성하는 시점에서 Azure Machine Learning Workbench 및 Azure Batch AI는 별도의 Azure CLI 2.0 포크를 사용했습니다. 명확한 구분을 위해 Workbench의 CLI 버전을 "Azure Machine Learning Workbench에서 시작한 CLI"로, 일반 릴리스 버전(Batch AI 포함)을 "Azure CLI 2.0"으로 지칭하겠습니다.
+    - 이 문서를 작성하는 시점에서 Azure Machine Learning Workbench 및 Azure Batch AI는 별도의 Azure CLI 포크를 사용했습니다. 명확한 구분을 위해 Workbench의 CLI 버전을 “Azure Machine Learning Workbench에서 시작한 CLI”로, 일반 릴리스 버전(Batch AI 포함)을 “Azure CLI”로 지칭하겠습니다.
 - [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy), Azure 저장소 계정 간의 파일 전송을 조정하기 위한 유틸리티
     - AzCopy 실행 파일이 있는 폴더가 시스템의 PATH 환경 변수에 있는지 확인합니다. (사용할 수 있는 환경 변수를 수정하기 위한 지침은 [여기](https://support.microsoft.com/help/310519/how-to-manage-environment-variables-in-windows-xp)에서 확인할 수 있습니다.)
 - SSH 클라이언트에는 [PuTTY](http://www.putty.org/)가 권장됩니다.
 
-이 예제는 Windows 10 PC에서 테스트되었습니다; Azure 데이터 과학 Virtual Machines를 포함하여 모든 Windows 컴퓨터에서 실행할 수 있어야 합니다. Azure CLI 2.0은 [이러한 지침](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials)에 따라 MSI에서 설치되었습니다. 이 예제를 macOS에서 실행할 경우 약간의 수정이 필요할 수도 있습니다.(예: 파일 경로 변경)
+이 예제는 Windows 10 PC에서 테스트되었습니다; Azure 데이터 과학 Virtual Machines를 포함하여 모든 Windows 컴퓨터에서 실행할 수 있어야 합니다. Azure CLI는 [이러한 지침](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials)에 따라 MSI에서 설치되었습니다. 이 예제를 macOS에서 실행할 경우 약간의 수정이 필요할 수도 있습니다.(예: 파일 경로 변경)
 
 ### <a name="set-up-azure-resources"></a>Azure 리소스 설정
 
@@ -181,7 +186,7 @@ ms.locfileid: "34832410"
 
 ### <a name="set-up-batch-ai-resources"></a>Batch AI 리소스 설정
 
-저장소 계정 파일 전송 및 Spark 클러스터 배포가 완료될 때까지 기다리는 동안 Batch AI NFS(네트워크 파일 서버) 및 GPU 클러스터를 준비할 수 있습니다. Azure CLI 2.0 명령 프롬프트를 열고 다음 명령을 실행합니다.
+저장소 계정 파일 전송 및 Spark 클러스터 배포가 완료될 때까지 기다리는 동안 Batch AI NFS(네트워크 파일 서버) 및 GPU 클러스터를 준비할 수 있습니다. Azure CLI 명령 프롬프트를 열고 다음 명령을 실행합니다.
 
 ```
 az --version 
@@ -338,7 +343,7 @@ pip install matplotlib azure-storage==0.36.0 pillow scikit-learn azure-mgmt-batc
 설치 중에, 만들어진 저장소 계정에 이 예에서 사용된 항공 이미지 집합이 전송되었습니다. 학습, 유효성 검사 및 연산화 이미지는 모두 평방미터당 1픽셀 해상도의 224 x 224 픽셀 PNG 파일입니다. 학습 및 유효성 검사 이미지는 토지 사용 레이블에 따라 하위 폴더에 구성되었습니다. 연산화 이미지의 토지 사용 레이블은 알 수 없으며 대부분의 경우 모호합니다. 이 이미지 중 상당수에는 여러 토지 유형이 포함되어 있습니다. 이러한 이미지 집합의 구성 방식에 대한 자세한 내용은 [상세 이미지 분류 GIT 리포지토리](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification)를 참조하세요.
 
 Azure Storage 계정에서 예제 이미지를 보려면(선택 사항)
-1. [Azure 포털](https://portal.azure.com) 에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 화면 맨 위의 검색 표시줄에서 저장소 계정의 이름을 검색합니다. 검색 결과에서 저장소 계정을 클릭합니다.
 2. 저장소 계정의 기본 창에서 "Blob" 링크를 클릭합니다.
 3. 이름이 "train"인 컨테이너를 클릭합니다. 그러면 토지 사용에 따라 명령된 디렉터리 목록이 표시됩니다.

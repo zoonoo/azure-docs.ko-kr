@@ -1,25 +1,27 @@
 ---
-title: Azure Cognitive Services용 C# 빠른 시작, Microsoft Translator Speech API | Microsoft Docs
-description: Azure의 Microsoft Cognitive Services에서 Microsoft Translator Speech API를 사용하여 빠르게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
+title: '빠른 시작: Translator Speech API C#'
+titlesuffix: Azure Cognitive Services
+description: Translator Speech API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 확인합니다.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c8c1945d8343ad966fe4b09f67099bccdae4be29
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7d1f5968fe6ddffce3194f070b6a17aca4d3d9ab
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128540"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995043"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-c"></a>C#을 사용한 Microsoft Translator Speech API 빠른 시작 
+# <a name="quickstart-translator-speech-api-with-c"></a>빠른 시작: C#을 사용한 Translator Speech API 
 <a name="HOLTop"></a>
 
-이 문서에서는 Microsoft Translator Speech API를 사용하여 .wav 파일에서 발화된 단어를 변환하는 방법을 보여 줍니다.
+이 문서에서는 Translator Speech API를 사용하여 .wav 파일에서 발화된 단어를 변환하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

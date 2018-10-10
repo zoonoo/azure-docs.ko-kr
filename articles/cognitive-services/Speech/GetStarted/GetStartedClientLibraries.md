@@ -1,20 +1,22 @@
 ---
-title: Bing Speech 클라이언트 라이브러리를 사용하여 Microsoft Speech Recognition API 시작 | Microsoft Docs
-description: Microsoft Cognitive Services의 Microsoft Speech Service 클라이언트 라이브러리를 사용하여 음성 오디오를 텍스트로 변환하는 응용 프로그램을 개발합니다.
+title: 클라이언트 라이브러리를 사용하여 Bing Speech Recognition API 시작 | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Microsoft Cognitive Services의 Bing Speech 클라이언트 라이브러리를 사용하여 음성 오디오를 텍스트로 변환하는 응용 프로그램을 개발합니다.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 6fb490def6807204943a1ce3ba3c53186055102b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ROBOTS: NOINDEX
+ms.openlocfilehash: e9d1bf1a6a2383a58a890ce9add816f9e9060273
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048460"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948148"
 ---
 # <a name="get-started-with-bing-speech-service-client-libraries"></a>Bing Speech Service 클라이언트 라이브러리 시작
 
@@ -43,3 +45,4 @@ Bing Speech Service는 REST API를 통해 직접 HTTP를 요청하는 것 외에
 ## <a name="license"></a>라이선스
 
 Cognitive Services SDK 및 샘플은 모두 MIT 라이선스를 통해 사용이 허가됩니다. 자세한 내용은 [라이선스](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md)를 참조하세요.
+

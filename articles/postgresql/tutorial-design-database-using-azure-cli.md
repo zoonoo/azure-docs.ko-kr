@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 04/01/2018
-ms.openlocfilehash: 4e6a1a1488b7d7222ca9b0353b9eba697dd594ce
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: c04eede63df50359af55f3956041df10fa2d075e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031212"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982344"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure Database for PostgreSQL 디자인 
 이 자습서에서는 Azure CLI(명령줄 인터페이스) 및 기타 유틸리티를 사용하여 다음을 수행하는 방법에 대해 알아봅니다.
@@ -29,11 +29,11 @@ ms.locfileid: "37031212"
 > * 데이터 업데이트
 > * 데이터 복원
 
-브라우저에서 Azure Cloud Shell을 사용하거나 컴퓨터에 [Azure CLI 2.0을 설치]( /cli/azure/install-azure-cli)하여 이 자습서의 명령을 실행할 수 있습니다.
+브라우저에서 Azure Cloud Shell을 사용하거나 컴퓨터에 [Azure CLI를 설치]( /cli/azure/install-azure-cli)하여 이 자습서의 명령을 실행할 수 있습니다.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 구독이 여러 개인 경우 리소스가 있거나 요금이 청구되는 적절한 구독을 선택합니다. [az account set](/cli/azure/account#az_account_set) 명령을 사용하여 계정에 속한 특정 구독 ID를 선택합니다.
 ```azurecli-interactive

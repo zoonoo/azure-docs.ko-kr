@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 샘플 - 가상 머신 확장 집합 만들기 | Microsoft Docs
-description: Azure CLI 2.0 샘플
+title: Azure CLI 샘플 - 가상 머신 확장 집합 만들기 | Microsoft Docs
+description: Azure CLI 샘플
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8946a55eb2307957f95372aae93d7f9788b8f952
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 60b0f418c1f4b372f0847edd15afed2497e90cf6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696658"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46975482"
 ---
-# <a name="create-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Azure CLI 2.0을 사용하여 가상 머신 확장 집합 만들기
+# <a name="create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신 확장 집합 만들기
 이 스크립트는 Ubuntu 운영 체제 및 부하 분산 장치를 포함한 관련 네트워킹 리소스가 있는 Azure 가상 머신 확장 집합을 만듭니다. 스크립트가 실행되면 SSH를 통해 VM 인스턴스에 액세스할 수 있습니다.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -50,6 +50,6 @@ az group delete --name myResourceGroup
 | [az group delete](/cli/azure/ad/group#delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
-Azure CLI 2.0에 대한 자세한 내용은 [Azure CLI 2.0 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
+Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure/overview)를 참조하세요.
 
-추가 가상 머신 확장 집합 Azure CLI 2.0 스크립트 샘플은 [Azure 가상 머신 확장 집합 설명서](../cli-samples.md)에서 찾을 수 있습니다.
+추가 가상 머신 확장 집합 Azure CLI 스크립트 샘플은 [Azure 가상 머신 확장 집합 설명서](../cli-samples.md)에서 찾을 수 있습니다.

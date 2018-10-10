@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: b97a32e2e859a5bb370873bfbdc5c6b4dffa1ac1
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 3d7cf50bd2c845764aa2c3ac3b3db6891ff5c8d8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237845"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993853"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Log Analytics로 성능 모니터링
 
@@ -30,7 +30,7 @@ ms.locfileid: "39237845"
 
 ## <a name="add-the-agent-extension-via-azure-cli"></a>Azure CLI를 통해 에이전트 확장 추가
 
-Log Analytics 에이전트를 클러스터에 추가하는 가장 좋은 방법은 Azure CLI로 제공되는 가상 머신 확장 집합 API를 통하는 것입니다. 아직 Azure CLI가 설정되지 않은 경우 Azure Portal로 이동하여 [Cloud Shell](../cloud-shell/overview.md) 인스턴스를 열거나 [Azure CLI 2.0을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
+Log Analytics 에이전트를 클러스터에 추가하는 가장 좋은 방법은 Azure CLI로 제공되는 가상 머신 확장 집합 API를 통하는 것입니다. 아직 Azure CLI가 설정되지 않은 경우 Azure Portal로 이동하여 [Cloud Shell](../cloud-shell/overview.md) 인스턴스를 열거나 [Azure CLI를 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
 
 1. Cloud Shell이 요청되면 리소스와 동일한 구독에서 작업 중인지 확인합니다. `az account show`로 이를 확인하여 "name" 값이 클러스터 구독의 값과 일치하는지 확인합니다.
 

@@ -1,41 +1,41 @@
 ---
-title: Azure에서 Visual Studio Team Services에서 배포되는 함수 만들기 | Microsoft Docs
-description: 함수 앱 만들기 및 Visual Studio Team Services의 함수 코드 배포
+title: Azure에서 Azure DevOps로부터 배포되는 함수 만들기 | Microsoft Docs
+description: 함수 앱 만들기 및 Azure DevOps의 함수 코드 배포
 services: functions
 keywords: ''
-author: syntaxc4
+author: ggailey777
 ms.author: glenga
 ms.date: 07/03/2018
 ms.topic: sample
-ms.service: functions
+ms.service: azure-functions
 ms.custom: mvc
-ms.openlocfilehash: 1b54cfebd3ae36fc8025aeb4ea9c91d336bc5343
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: fdc2f50be035c3fe4039c48c09436215d2f5bcc3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988955"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956611"
 ---
-# <a name="create-a-function-app-and-deploy-function-code-from-visual-studio-team-services"></a>함수 앱 만들기 및 Visual Studio Team Services의 함수 코드 배포
+# <a name="create-a-function-app-and-deploy-function-code-from-azure-devops"></a>함수 앱 만들기 및 Azure DevOps의 함수 코드 배포
 
-이 항목에서는 Azure Functions를 사용하여 [소비 계획](../functions-scale.md#consumption-plan)을 사용하는 [서버 없는](https://azure.microsoft.com/overview/serverless-computing/) 함수 앱을 만드는 방법을 보여 줍니다. 함수의 컨테이너에 해당하는 함수 앱은 VSTS(Visual Studio Team Services) 리포지토리에서 지속적으로 배포됩니다. 
+이 항목에서는 Azure Functions를 사용하여 [소비 계획](../functions-scale.md#consumption-plan)을 사용하는 [서버 없는](https://azure.microsoft.com/overview/serverless-computing/) 함수 앱을 만드는 방법을 보여 줍니다. 함수의 컨테이너에 해당하는 함수 앱은 Azure DevOps 리포지토리에서 지속적으로 배포됩니다. 
 
 [!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
 이 항목을 완료하려면 다음 항목이 필요합니다.
 
-* 함수 앱 프로젝트를 포함하고 사용자에게 관리 권한이 있는 VSTS 리포지토리
-* VSTS 리포지토리에 액세스하기 위한 [PAT(개인용 액세스 토큰)](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate)
+* 함수 앱 프로젝트를 포함하고 사용자에게 관리 권한이 있는 Azure DevOps 리포지토리
+* Azure DevOps 리포지토리에 액세스하기 위한 [PAT(개인용 액세스 토큰)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Azure CLI를 로컬로 사용하는 경우 버전 2.0 이상을 설치해서 사용해야 합니다. Azure CLI 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+Azure CLI를 로컬로 사용하는 경우 버전 2.0 이상을 설치해서 사용해야 합니다. Azure CLI 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-이 샘플은 Azure 함수 앱을 만들고 Visual Studio Team Services의 함수 코드를 배포합니다.
+이 샘플은 Azure 함수 앱을 만들고 Azure DevOps의 함수 코드를 배포합니다.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-vsts/deploy-function-app-with-function-vsts.sh?highlight=3-4 "Azure Service")]
 

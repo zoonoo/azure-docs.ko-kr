@@ -11,12 +11,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/19/2017
 ms.author: sngun
-ms.openlocfilehash: 9fcc03721d410d4d7b8cfed0f8fa5b0ae8cf80ae
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 00824dc7a4fa7589fd01568b82351a68e1d44faa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698097"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983568"
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB: 기존 Node.js MongoDB 웹앱 마이그레이션 
 
@@ -40,7 +40,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="prerequisites"></a>필수 조건 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
@@ -95,7 +95,7 @@ az login
 
 설치된 Azure CLI를 사용하는 경우 `az` 명령을 실행하여 `cosmosdb` 구성 요소가 이미 설치되어 있는지 확인합니다. 기본 명령 목록에 `cosmosdb`가 있으면 다음 명령으로 진행합니다. Azure Cloud Shell을 사용하는 경우 이 단계를 건너뛸 수 있습니다.
 
-`cosmosdb`가 기본 명령 목록에 없으면 [Azure CLI 2.0]( /cli/azure/install-azure-cli)을 다시 설치합니다.
+`cosmosdb`가 기본 명령 목록에 없으면 [Azure CLI]( /cli/azure/install-azure-cli)를 다시 설치합니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -124,7 +124,7 @@ az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kin
 Azure Cosmos DB 계정을 만든 경우 Azure CLI는 다음 예와 비슷한 정보를 표시합니다. 
 
 > [!NOTE]
-> 이 예서는 Azure CLI 출력 형식으로 JSON을 사용합니다(기본값). 다른 출력 형식을 사용하려면 [Azure CLI 2.0 명령에 대한 출력 형식](https://docs.microsoft.com/cli/azure/format-output-azure-cli)을 참조하세요.
+> 이 예서는 Azure CLI 출력 형식으로 JSON을 사용합니다(기본값). 다른 출력 형식을 사용하려면 [Azure CLI 명령에 대한 출력 형식](https://docs.microsoft.com/cli/azure/format-output-azure-cli)을 참조하세요.
 
 ```json
 {

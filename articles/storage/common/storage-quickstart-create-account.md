@@ -1,27 +1,24 @@
 ---
-title: Azure 빠른 시작 - 저장소 계정 만들기 | Microsoft Docs
-description: Azure Portal, Azure PowerShell 또는 Azure CLI를 사용하여 새 저장소 계정을 만드는 방법을 간단히 알아봅니다.
+title: 빠른 시작 - 저장소 계정 만들기 - Azure Storage
+description: 이 빠른 시작에서는 Azure Portal, Azure PowerShell 또는 Azure CLI를 사용하여 저장소 계정을 만드는 것에 대해 알아봅니다. Azure Storage 계정은 Azure Storage에서 만든 데이터 개체의 저장 및 액세스를 위해 Microsoft Azure의 고유한 네임스페이스를 제공합니다.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 07/03/2018
+ms.date: 09/18/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 91e98f74fd6cd88533a5090a383897eaa0e60648
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: a695e333f48ed0bbf1ad5656c20964232feff4d7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524023"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990130"
 ---
 # <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-Azure Storage 계정은 Azure Storage 데이터 개체의 저장 및 액세스를 위해 클라우드에서 고유한 네임스페이스를 제공합니다. 저장소 계정은 해당 계정에서 만든 모든 BLOB, 파일, 큐, 테이블 및 디스크를 포함합니다. 
-
-Azure Storage를 시작하기 위해 먼저 새 저장소 계정을 만들어야 합니다. [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)를 사용하여 Azure Storage 계정을 만들 수 있습니다. 이 빠른 시작에서는 각각의 옵션을 사용하여 새 저장소 계정을 만드는 방법을 살펴봅니다. 
-
+이 빠른 시작에서는 [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)를 사용하여 저장소 계정을 만드는 것에 대해 알아봅니다.  
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -54,7 +51,7 @@ Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Ba
 
 ### <a name="install-the-cli-locally"></a>로컬에서 CLI 설치
 
-Azure CLI를 로컬에서 설치하여 사용할 수도 있습니다. 이 빠른 시작에서는 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+Azure CLI를 로컬에서 설치하여 사용할 수도 있습니다. 이 빠른 시작에서는 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
 
 ---
 
@@ -84,26 +81,21 @@ az login
 
 ---
 
-## <a name="create-a-resource-group"></a>리소스 그룹 만들기
+## <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)를 참조하세요.
+이제 저장소 계정을 만들 준비가 되었습니다.
+
+모든 저장소 계정은 Azure 리소스 그룹에 속해야 합니다. 리소스 그룹은 Azure 리소스를 그룹화하기 위한 논리적 컨테이너입니다. 저장소 계정을 만들 때 새 리소스 그룹을 만들거나 기존 리소스 그룹을 사용할 수 있는 옵션이 있습니다. 이 빠른 시작에는 새 리소스 그룹을 만드는 방법을 보여줍니다. 
+
+**범용 v2** 저장소 계정은 모든 Azure Storage 서비스(Blob, 파일, 큐, 테이블 및 디스크)에 대한 액세스를 제공합니다. 빠른 시작에서는 범용 v2 저장소 계정을 만들지만 모든 유형의 저장소 계정을 만드는 단계는 비슷합니다.   
 
 # <a name="portaltabportal"></a>[포털](#tab/portal)
 
-Azure Portal에서 리소스 그룹을 만들려면 다음 단계를 수행합니다.
-
-1. Azure Portal에서 왼쪽의 메뉴를 확장하여 서비스의 메뉴를 열고 **리소스 그룹**을 선택합니다.
-2. **추가** 단추를 클릭하여 새 리소스 그룹을 추가합니다.
-3. 새 리소스 그룹의 이름을 입력합니다.
-4. 새 리소스 그룹을 만들려는 구독을 선택합니다.
-5. 리소스 그룹의 위치를 선택합니다.
-6. **만들기** 단추를 클릭합니다.  
-
-![Azure Portal에서 리소스 그룹 만들기를 표시하는 스크린샷](./media/storage-quickstart-create-account/create-resource-group.png)
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-PowerShell에서 새 리소스 그룹을 만들려면 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) 명령을 사용합니다. 
+먼저 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) 명령을 사용하여 PowerShell을 통해 새 리소스 그룹을 만듭니다. 
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -119,64 +111,7 @@ Get-AzureRmLocation | select Location
 $location = "westus"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-Azure CLI로 새 리소스 그룹을 만들려면 [az group create](/cli/azure/group#az_group_create) 명령을 사용합니다. 
-
-```azurecli-interactive
-az group create \
-    --name storage-quickstart-resource-group \
-    --location westus
-```
-
-`--location` 매개 변수에 어떤 지역을 지정할지 확실하지 않으면 [az account list-locations](/cli/azure/account#az_account_list) 명령을 사용하여 해당 구독에 대해 지원되는 지역을 검색할 수 있습니다.
-
-```azurecli-interactive
-az account list-locations \
-    --query "[].{Region:name}" \
-    --out table
-```
-
----
-
-## <a name="create-a-general-purpose-storage-account"></a>범용 저장소 계정 만들기
-
-범용 저장소 계정은 모든 Azure Storage 서비스(BLOB, 파일, 큐, 테이블)에 대한 액세스를 제공합니다. 범용 저장소 계정은 표준 또는 프리미엄 계층에서 만들 수 있습니다. 이 문서의 예제에서는 표준 계층(기본값)에서 범용 저장소 계정을 만드는 방법을 보여 줍니다.
-
-Azure Storage는 두 가지 유형의 범용 저장소 계정을 제공합니다.
-
-- 범용 v2 계정 
-- 범용 v1 계정 
-
-> [!NOTE]
-> 해당 계정에 사용할 수 있는 새로운 기능을 활용하도록 **범용 v2 계정**으로 새 저장소 계정을 만드는 것이 좋습니다.  
-
-저장소 계정 유형에 대한 자세한 내용은 [Azure Storage 계정 옵션](storage-account-options.md)을 참조하세요.
-
-저장소 계정의 이름을 지정할 때는 다음 규칙에 유의하세요.
-
-- Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다.
-- 저장소 계정 이름은 Azure 내에서 고유해야 합니다. 두 개의 저장소 계정이 같은 이름을 사용할 수 없습니다.
-
-# <a name="portaltabportal"></a>[포털](#tab/portal)
-
-Azure Portal에서 범용 v2 저장소 계정을 만들려면 다음 단계를 수행합니다.
-
-1. Azure Portal에서 왼쪽의 메뉴를 확장하여 서비스의 메뉴를 열고 **모든 서비스**를 선택합니다. 그런 다음 **Storage**로 스크롤하고 **Storage 계정**을 선택합니다. 나타나는 **Storage 계정** 창에서 **추가**를 선택합니다.
-2. 저장소 계정의 이름을 입력합니다.
-3. **계정 종류** 필드를 **StorageV2(범용 v2)** 로 설정합니다.
-4. **복제** 필드를 **LRS(로컬 중복 저장소)** 로 설정된 채로 둡니다. 또는 **ZRS(영역 중복 저장소)**, **GRS(지역 중복 저장소)** 또는 **RA-GRS(읽기 액세스 지역 중복 저장소)** 를 선택할 수 있습니다.
-5. **배포 모델**, **성능**, **보안 전송 필요** 등의 필드는 기본값을 그대로 둡니다.
-6. 저장소 계정을 만들려는 구독을 선택합니다.
-7. **리소스 그룹** 섹션에서 **기존 항목 사용**을 선택한 다음 이전 섹션에서 만든 리소스 그룹을 선택합니다.
-8. 새 저장소 계정의 위치를 선택합니다.
-9. **만들기** 를 클릭하여 저장소 계정을 만들 수 있습니다.      
-
-![Azure Portal에서 저장소 계정을 표시하는 스크린샷](./media/storage-quickstart-create-account/create-account-portal.png)
-
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
-
-PowerShell에서 LRS(로컬 중복 저장소)를 사용하여 범용 v2 저장소 계정을 만들려면 [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) 명령을 사용합니다. 
+다음으로, LRS(로컬 중복 저장소)를 사용하여 범용 v2 저장소 계정을 만듭니다. [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) 명령을 사용합니다. 
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
@@ -197,7 +132,23 @@ ZRS(영역 중복 저장소)(미리 보기), GRS(지역 중복 저장소) 또는
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI에서 로컬 중복 저장소를 사용하여 범용 v2 저장소 계정을 만들려면 [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 사용합니다.
+먼저 [az group create](/cli/azure/group#az_group_create) 명령을 사용하여 Azure CLI를 통해 새 리소스 그룹을 만듭니다. 
+
+```azurecli-interactive
+az group create \
+    --name storage-quickstart-resource-group \
+    --location westus
+```
+
+`--location` 매개 변수에 어떤 지역을 지정할지 확실하지 않으면 [az account list-locations](/cli/azure/account#az_account_list) 명령을 사용하여 해당 구독에 대해 지원되는 지역을 검색할 수 있습니다.
+
+```azurecli-interactive
+az account list-locations \
+    --query "[].{Region:name}" \
+    --out table
+```
+
+다음으로, 로컬 중복 저장소를 사용하여 범용 v2 저장소 계정을 만듭니다. [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 사용합니다.
 
 ```azurecli-interactive
 az storage account create \
@@ -258,16 +209,16 @@ az group delete --name myResourceGroup
 # <a name="portaltabportal"></a>[포털](#tab/portal)
 
 > [!div class="nextstepaction"]
-> [Azure Portal을 사용하여 Azure Blob Storage에서 개체 전송](../blobs/storage-quickstart-blobs-portal.md)
+> [Azure Portal을 통한 Blob 사용](../blobs/storage-quickstart-blobs-portal.md)
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
 > [!div class="nextstepaction"]
-> [PowerShell을 사용하여 Azure Blob Storage에서 개체 전송](../blobs/storage-quickstart-blobs-powershell.md)
+> [PowerShell을 통한 Blob 사용](../blobs/storage-quickstart-blobs-powershell.md)
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 > [!div class="nextstepaction"]
-> [Azure CLI를 사용하여 Azure Blob Storage에서 개체 전송](../blobs/storage-quickstart-blobs-cli.md)
+> [Azure CLI를 통한 Blob Storage 사용](../blobs/storage-quickstart-blobs-cli.md)
 
 ---

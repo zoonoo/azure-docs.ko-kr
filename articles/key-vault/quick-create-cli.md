@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: 958fbd507efeb161b169c01abf32012883017f18
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 0214d6cf09795605bca60774604ecd1fec94fdc6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42022767"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989431"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 
@@ -29,7 +29,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-try-it.md)]
 
-로컬에서 CLI를 설치하여 사용하려는 경우 이 빠른 시작을 진행하려면 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+로컬에서 CLI를 설치하여 사용하려는 경우 이 빠른 시작을 진행하려면 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 CLI를 사용하여 Azure에 로그인하려면 다음을 입력합니다.
 
@@ -37,7 +37,7 @@ CLI를 사용하여 Azure에 로그인하려면 다음을 입력합니다.
 az login
 ```
 
-CLI를 통한 로그인 옵션에 대한 자세한 내용은 [Azure CLI 2.0으로 로그인](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)을 살펴보세요.
+CLI를 통한 로그인 옵션에 대한 자세한 내용은 [Azure CLI로 로그인](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)을 살펴보세요.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -100,4 +100,4 @@ az group delete --name ContosoResourceGroup
 이 빠른 시작에서는 Key Vault를 만들어 비밀을 저장했습니다. Key Vault와 이 Key Vault를 응용 프로그램과 함께 사용하는 방법에 대해 자세히 알아보려면 Key Vault와 함께 작동하는 웹 응용 프로그램에 대한 자습서를 진행합니다.
 
 > [!div class="nextstepaction"]
-> 관리 서비스 ID를 사용하는 웹 응용 프로그램의 Key Vault에서 비밀을 읽는 방법을 알아보려면 다음 자습서로 계속 진행하세요. [Key Vault에서 비밀을 읽도록 Azure 웹 응용 프로그램 구성](quick-create-net.md)
+> Azure 리소스에 대한 관리 ID를 사용하여 웹 응용 프로그램의 Key Vault에서 비밀을 읽는 방법을 알아보려면 [Key Vault에서 비밀을 읽도록 Azure 웹 응용 프로그램 구성](quick-create-net.md) 자습서를 계속 진행하세요.

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: glenga
-ms.openlocfilehash: 9c39d621bfc8df338a4556fd412ae54489982074
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: fb9de98a80d348c3ba1e84ae19551c7ca080628b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092770"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966846"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
@@ -234,7 +234,7 @@ Azure Functions 로거에는 모든 로그와 함께 *로그 수준*도 포함�
 
 *host.json*의 범주 값은 같은 값으로 시작하는 모든 범주에 대한 로깅을 제어합니다. 예를 들어 *host.json*의 "Host"는 "Host.General", "Host.Executor", "Host.Results" 등에 대한 로깅을 제어합니다.
 
-*host.json*에 동일한 문자열로 시작되는 여러 범주가 포함된 경우 길이가 더 긴 범주가 먼저 일치합니다. 예를 들어 "Host.Aggregator"를 제외한 런타임의 모든 항목을 `Error` 수준에서 기록하고 "Host.Aggregator"는 `Information` 수준에서 기록하려 한다고 가정해 봅시다.
+*host.json*에 동일한 문자열로 시작되는 여러 범주가 포함된 경우 길이가 더 긴 범주가 먼저 일치합니다. 예를 들어 “Host.Aggregator”를 제외한 런타임의 모든 항목을 `Error` 수준에서 기록하지만, “Host.Aggregator”는 `Information` 수준에서 기록하려 한다고 가정해 봅니다.
 
 ```json
 {
@@ -298,7 +298,7 @@ Azure Functions 로거에는 모든 로그와 함께 *로그 수준*도 포함�
 
 ## <a name="configure-sampling"></a>샘플링 구성
 
-Application Insights에는 최대 부하 시 원격 분석 데이터를 너무 많이 생성하지 않도록 보호하는 [샘플링](../application-insights/app-insights-sampling.md) 기능이 포함되어 있습니다. 원격 분석 항목 수가 지정된 비율을 초과하면 Application Insights는 들어오는 항목 중 일부를 임의로 무시하기 시작합니다. 초당 항목의 최대 수에 대한 기본 설정은 5입니다. *host.json*에서 샘플링을 구성할 수 있습니다.  예를 들면 다음과 같습니다.
+Application Insights에는 최대 부하 시 원격 분석 데이터를 너무 많이 생성하지 않도록 보호하는 [샘플링](../application-insights/app-insights-sampling.md) 기능이 포함되어 있습니다. 들어오는 원격 분석 비율이 지정된 임계값을 초과하면 Application Insights는 들어오는 항목 중 일부를 임의로 무시하기 시작합니다. 초당 항목의 최대 수에 대한 기본 설정은 5입니다. *host.json*에서 샘플링을 구성할 수 있습니다.  예를 들면 다음과 같습니다.
 
 ```json
 {
@@ -457,11 +457,6 @@ namespace functionapp0915
                 };
             UpdateTelemetryContext(dependency.Context, context, name);
             telemetryClient.TrackDependency(dependency);
-            
-            return name == null
-                ? req.CreateResponse(HttpStatusCode.BadRequest, 
-                    "Please pass a name on the query string or in the request body")
-                : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
         }
         
         // This correllates all telemetry with the current Function invocation
@@ -499,18 +494,6 @@ module.exports = function (context, req) {
     client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:{"ai.operation.id": context.invocationId}});
     client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:{"ai.operation.id": context.invocationId}});
 
-    if (req.query.name || (req.body && req.body.name)) {
-        context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: "Hello " + (req.query.name || req.body.name)
-        };
-    }
-    else {
-        context.res = {
-            status: 400,
-            body: "Please pass a name on the query string or in the request body"
-        };
-    }
     context.done();
 };
 ```
@@ -547,9 +530,9 @@ Application Insights의 Functions 통합 문제를 보고하거나 제안 사항
 
 ### <a name="real-time-monitoring"></a>실시간 모니터링
 
-[Azure CLI(Command Line Interface) 2.0](/cli/azure/install-azure-cli)이나 [Azure PowerShell](/powershell/azure/overview)을 사용하여 로그 파일을 로컬 워크스테이션의 명령줄 세션으로 스트리밍할 수 있습니다.  
+[Azure CLI(명령줄 인터페이스)](/cli/azure/install-azure-cli) 또는 [Azure PowerShell](/powershell/azure/overview)을 사용하여 로그 파일을 로컬 워크스테이션의 명령줄 세션으로 스트리밍할 수 있습니다.  
 
-Azure CLI 2.0의 경우 다음 명령을 사용하여 로그인하고, 구독을 선택하고, 로그 파일을 스트리밍합니다.
+Azure CLI의 경우 다음 명령을 사용하여 로그인하고, 구독을 선택하고, 로그 파일을 스트리밍합니다.
 
 ```
 az login

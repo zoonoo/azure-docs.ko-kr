@@ -1,37 +1,35 @@
 ---
-title: 'Azure Cosmos DB: Node.js와 SQL API로 앱 빌드 | Microsoft Docs'
+title: 'Azure Cosmos DB: JavaScript SDK를 사용하여 Node.js 앱을 빌드하여 Azure Cosmos DB SQL API 데이터 관리 | Microsoft Docs'
 description: Azure Cosmos DB SQL API에 연결하고 쿼리하는 데 사용할 수 있는 Node.js 코드 샘플을 제공합니다.
 services: cosmos-db
 author: deborahc
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 04/10/2018
+ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: f5130a1ec1817448285d9995fa2d769178629114
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: a8a81556002bec82325bf4cf53b68ff49b8b6917
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698318"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982327"
 ---
-# <a name="azure-cosmos-db-build-a-sql-api-app-with-nodejs-and-the-azure-portal"></a>Azure Cosmos DB: Node.js와 Azure Portal을 사용하여 SQL API 앱 빌드
+# <a name="azure-cosmos-db-build-a-nodejs-app-using-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Azure Cosmos DB: JavaScript SDK를 사용하여 Node.js 앱을 빌드하여 Azure Cosmos DB SQL API 데이터 관리
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
-> * [Node.js- v2](create-sql-api-nodejs-preview.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
 
-이 빠른 시작에서는 Azure Portal을 사용하여 Azure Cosmos DB [SQL API](sql-api-introduction.md) 계정, 문서 데이터베이스 및 컬렉션을 만드는 방법을 보여 줍니다. 그런 다음 [SQL Node.js API](sql-api-sdk-node.md)에서 빌드된 콘솔 앱을 빌드하고 실행합니다.
+이 빠른 시작에서는 Azure Portal을 사용하여 Azure Cosmos DB [SQL API](sql-api-introduction.md) 계정, 문서 데이터베이스 및 컨테이너를 만드는 방법을 보여줍니다. 그런 다음, [SQL JavaScript SDK](sql-api-sdk-node.md)에서 빌드된 콘솔 앱을 빌드하고 실행합니다. 이 빠른 시작은 [JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) 버전 2.0을 사용합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -39,7 +37,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * 또한,
-    * [Node.js](https://nodejs.org/en/) 버전 v0.10.29 이상
+    * [Node.js](https://nodejs.org/en/) 버전 v6.0.0 이상
     * [Git](http://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
@@ -60,7 +58,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
 
-이제 github에서 SQL API 앱을 복제하고 연결 문자열을 설정한 다음 실행해보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
+이제 Github에서 SQL API 앱을 복제하고 연결 문자열을 설정한 다음, 실행해보겠습니다.
 
 1. 명령 프롬프트를 git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
 
@@ -77,65 +75,59 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 3. 다음 명령을 실행하여 샘플 리포지토리를 복제합니다. 이 명령은 컴퓨터에서 샘플 앱의 복사본을 만듭니다.
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-nodejs-getting-started.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started.git
     ```
 
 ## <a name="review-the-code"></a>코드 검토
 
 이 단계는 선택 사항입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-string)로 건너뛸 수 있습니다. 
 
-다음 코드 조각은 모두 app.js 파일에서 가져옵니다.
+이전 버전의 JavaScript SDK에 익숙한 경우 '컬렉션' 및 '문서'라는 용어를 자주 들어 보셨을 것입니다. Azure Cosmos DB가 [여러 API 모델](https://docs.microsoft.com/azure/cosmos-db/introduction#key-capabilities)을 지원하므로 JavaScript SDK 버전 2.0 이상에서는 컬렉션, 그래프 또는 테이블을 가리키는 일반적인 용어인 '컨테이너'와 컨테이너의 콘텐츠를 설명하는 '항목'이라는 용어를 사용합니다.
 
-* `documentClient`가 초기화됩니다.
+다음 코드 조각은 모두 **app.js** 파일에서 가져옵니다.
+
+* `CosmosClient`가 초기화됩니다.
 
     ```nodejs
-    var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey });
+    const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
     ```
 
 * 새 데이터베이스가 만들어집니다.
 
     ```nodejs
-    client.createDatabase(config.database, (err, created) => {
-        if (err) reject(err)
-        else resolve(created);
-    });
+    const { database } = await client.databases.createIfNotExists({ id: databaseId });
     ```
 
-* 새 컬렉션이 만들어집니다.
+* 새 컨테이너(컬렉션)가 만들어집니다.
 
     ```nodejs
-    client.createCollection(databaseUrl, config.collection, { offerThroughput: 400 }, (err, created) => {
-        if (err) reject(err)
-        else resolve(created);
-    });
+    const { container } = await client.database(databaseId).containers.createIfNotExists({ id: containerId });
     ```
 
-* 일부 문서가 만들어집니다.
+* 항목(문서)이 만들어집니다.
 
     ```nodejs
-    client.createDocument(collectionUrl, document, (err, created) => {
-        if (err) reject(err)
-        else resolve(created);
-    });
+    const { item } = await client.database(databaseId).container(containerId).items.create(itemBody);
     ```
 
 * JSON을 통해 SQL 쿼리가 수행됩니다.
 
     ```nodejs
-    client.queryDocuments(
-        collectionUrl,
-        'SELECT VALUE r.children FROM root r WHERE r.lastName = "Andersen"'
-    ).toArray((err, results) => {
-        if (err) reject(err)
-        else {
-            for (var queryResult of results) {
-                let resultString = JSON.stringify(queryResult);
-                console.log(`\tQuery returned ${resultString}`);
+    const querySpec = {
+        query: "SELECT VALUE r.children FROM root r WHERE r.lastName = @lastName",
+        parameters: [
+            {
+                name: "@lastName",
+                value: "Andersen"
             }
-            console.log();
-            resolve(results);
-        }
-    });
+        ]
+    };
+
+    const { result: results } = await client.database(databaseId).container(containerId).items.query(querySpec).toArray();
+    for (var queryResult of results) {
+        let resultString = JSON.stringify(queryResult);
+        console.log(`\tQuery returned ${resultString}\n`);
+    }
     ```    
 
 ## <a name="update-your-connection-string"></a>연결 문자열 업데이트
@@ -154,7 +146,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 4. 그 다음, 포털에서 사용자의 기본 키 값을 복사한 후 `config.js`의 `config.primaryKey` 값으로 만듭니다. 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다. 
 
-    `config.primaryKey "FILLME"`
+    `config.primaryKey = "FILLME"`
     
 ## <a name="run-the-app"></a>앱 실행
 1. 터미널에서 `npm install`를 실행하여 필요한 npm 모듈을 설치합니다.

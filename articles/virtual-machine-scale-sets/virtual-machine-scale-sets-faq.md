@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: b61b6b730d645e2ffd518628abe2a121f119fd09
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 9ec049ebbfaa8e6ee5dbf585488d5c2e8ff25802
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715066"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949709"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 가상 머신 확장 집합에 대한 FAQ
 
@@ -49,7 +49,7 @@ Azure의 가상 머신 확장 집합에 대한 FAQ(질문과 대답)에 대해 �
 
 **Q.** 사용자 지정 이미지를 사용하여 크기 집합을 어떻게 만드나요?
 
-**A.** VM 이미지를 만들고 캡처한 다음, 확장 집합에 대한 원본으로 사용합니다. 사용자 지정 VM 이미지를 만들고 사용하는 방법에 대한 자습서의 경우 [Azure CLI 2.0](tutorial-use-custom-image-cli.md) 또는 [Azure PowerShell](tutorial-use-custom-image-powershell.md)을 사용할 수 있습니다.
+**A.** VM 이미지를 만들고 캡처한 다음, 확장 집합에 대한 원본으로 사용합니다. 사용자 지정 VM 이미지를 만들고 사용하는 방법에 대한 자습서의 경우 [Azure CLI](tutorial-use-custom-image-cli.md) 또는 [Azure PowerShell](tutorial-use-custom-image-powershell.md)을 사용할 수 있습니다.
 
 **Q.** 내 크기 집합 용량을 20에서 15로 줄이면, 어떤 VM이 제거되나요?
 
@@ -72,7 +72,7 @@ Azure의 가상 머신 확장 집합에 대한 FAQ(질문과 대답)에 대해 �
 **A.** 예! 자세한 내용은 [확장 집합 영역 문서](./virtual-machine-scale-sets-use-availability-zones.md)를 참조하세요.
 
 
-## <a name="autoscale"></a>Autoscale
+## <a name="autoscale"></a>자동 크기 조정
 
 ### <a name="what-are-best-practices-for-azure-autoscale"></a>Azure 자동 크기 조정에 대한 모범 사례는 무엇인가요?
 
@@ -129,7 +129,7 @@ PowerShell 또는 Azure CLI를 통해 가상 머신 확장 집합의 메트릭�
 
 ### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>PowerShell을 사용하여 가상 머신 확장 집합에 대해 자동 크기 조정을 설정하려면 어떻게 하나요?
 
-PowerShell을 사용하여 가상 머신 확장 집합에 대해 자동 크기 조정을 설정하려면 [가상 머신 확장 집합의 크기를 자동으로 조정](tutorial-autoscale-powershell.md)을 참조하세요. [Azure CLI 2.0](tutorial-autoscale-cli.md) 및 [Azure 템플릿](tutorial-autoscale-template.md)으로 자동 크기 조정을 구성할 수도 있습니다.
+PowerShell을 사용하여 가상 머신 확장 집합에 대해 자동 크기 조정을 설정하려면 [가상 머신 확장 집합의 크기를 자동으로 조정](tutorial-autoscale-powershell.md)을 참조하세요. [Azure CLI](tutorial-autoscale-cli.md) 및 [Azure 템플릿](tutorial-autoscale-template.md)으로 자동 크기 조정을 구성할 수도 있습니다.
 
 
 ### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>VM을 중지(할당 취소)한 경우 VM이 자동 크기 조정 작업의 일부로 시작되었나요?

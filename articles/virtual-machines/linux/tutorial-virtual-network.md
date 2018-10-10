@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Linux VM을 위한 Azure 가상 네트워크 만들기 및 관리 | Microsoft Docs
-description: 이 자습서에서는 Azure CLI 2.0을 사용하여 Linux 가상 머신을 위한 Azure 가상 네트워크를 만들고 관리하는 방법을 알아봅니다.
+description: 이 자습서에서는 Azure CLI를 사용하여 Linux 가상 머신을 위한 Azure 가상 네트워크를 만들고 관리하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e214e60cf61f809d8bc4a541c2f4ecf544feccd9
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: daee5a2073e78ca5bb9e0eb0386617d7638ab930
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928661"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988524"
 ---
-# <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli-20"></a>자습서: Azure CLI 2.0을 사용하여 Linux 가상 머신을 위한 Azure 가상 네트워크 만들기 및 관리
+# <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 Linux 가상 머신을 위한 Azure 가상 네트워크 만들기 및 관리
 
 Azure 가상 머신은 내부 및 외부 네트워크 통신에서 Azure 네트워킹을 사용합니다. 이 자습서에서는 두 개의 가상 머신을 배포하고 이러한 VM에 Azure 네트워킹을 구성하기 위해 단계별로 안내합니다. 이 자습서의 예제에서는 VM에서 데이터베이스 백 엔드가 있는 웹 응용 프로그램을 호스팅한다고 가정하고 있지만 응용 프로그램은 이 자습서에서 배포되지 않습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -36,7 +36,7 @@ Azure 가상 머신은 내부 및 외부 네트워크 통신에서 Azure 네트�
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="vm-networking-overview"></a>VM 네트워킹 개요
 

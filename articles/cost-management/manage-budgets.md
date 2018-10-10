@@ -1,31 +1,33 @@
 ---
-title: Azure Cost Management에서 예산 관리 | Microsoft Docs
-description: 이 문서는 Cost Management에서 예산을 만들고 관리하는 데 유용합니다.
+title: Azure에서 Cloudyn 예산 관리 | Microsoft Docs
+description: 이 문서는 Cloudyn에서 예산을 만들고 관리하는 데 유용합니다.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/25/2018
+ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 106e8f082d148ed9a8c58313177be81ee074a2c3
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: bbd232c819a11de691c4d3c3209273b064eddf62
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578466"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963438"
 ---
 # <a name="manage-budgets"></a>예산 관리
 
-예산 및 예산 기반 경고를 설정하면 클라우드 거버넌스 및 책임을 개선하는 데 도움이 됩니다. 이 문서는 신속하게 예산을 만들고 Cost Management에서 관리를 시작하는 데 유용합니다.
+예산 및 예산 기반 경고를 설정하면 클라우드 거버넌스 및 책임을 개선하는 데 도움이 됩니다. 이 문서는 신속하게 예산을 만들고 Cloudyn에서 관리를 시작하는 데 유용합니다.
 
 Enterprise 또는 MSP 계정이 있는 경우 계층적 비용 엔터티 구조를 사용하여 월별 예산 할당량을 다양한 사업부, 부서 또는 다른 비용 엔터티에 할당할 수 있습니다. Premium 계정이 있는 경우 전체 클라우드 비용에 적용되는 예산 관리 기능을 사용할 수 있습니다. 모든 예산은 수동으로 할당됩니다.
 
 할당된 예산에 따라 사용되는 예산 백분율을 기반으로 하는 임계값 경고를 설정하고 각 임계값의 심각도를 정의할 수 있습니다.
 
 예산 보고서는 할당된 예산을 보여 줍니다. 사용자는 자신의 지출이 시간에 따라 초과, 미만 또는 소비의 액면가일 때를 확인할 수 있습니다. 예산 보고서의 맨 위에서 **필드 표시/숨기기**를 선택하면 비용, 예산, 축적된 비용 또는 총 예산을 볼 수 있습니다.
+
+Azure Cost Management는 Cloudyn과 비슷한 기능을 제공합니다. Azure Cost Management는 기본 Azure 비용 관리 솔루션입니다. 이 솔루션을 사용하면 비용을 분석하고, 예산을 작성 및 관리하고, 데이터를 내보내고, 비용 절약을 위한 최적화 권장 사항을 검토하고 필요한 조치를 취할 수 있습니다. Cost Management의 예산에 대한 자세한 내용은 [예산 만들기 및 관리](tutorial-acm-create-budgets.md)를 참조하세요.
 
 ## <a name="create-budgets"></a>예산 만들기
 
@@ -83,5 +85,5 @@ Enterprise 또는 MSP 계정이 있는 경우 계층적 비용 엔터티 구조�
 
 ## <a name="next-steps"></a>다음 단계
 
-- Cost Management에 대한 첫 번째 자습서를 아직 완료하지 않은 경우 [사용량 및 비용 검토](https://docs.microsoft.com/azure/cost-management/tutorial-review-usage)에서 읽어 보십시오.
-- [Cost Management에서 사용할 수 있는 보고서](use-reports.md)에 대해 자세히 알아봅니다.
+- Cloudyn에 대한 첫 번째 자습서를 아직 완료하지 않은 경우 [사용량 및 비용 검토](tutorial-review-usage.md)에서 읽어 보세요.
+- [Cloudyn에서 사용할 수 있는 보고서](use-reports.md)에 대해 자세히 알아봅니다.

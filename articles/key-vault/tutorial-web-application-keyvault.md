@@ -9,32 +9,32 @@ ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/17/2018
+ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 91e2047998d6e743691821c631e15c94cd63cf15
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: d1776fc2347eb1a1f03a834b6a5f847ef5c551e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41919565"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948886"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>자습서: Key Vault에서 비밀을 읽도록 Azure 웹 응용 프로그램 구성
 
-이 자습서에서는 관리되는 서비스 ID를 사용하여 Key Vault에서 정보를 읽는 Azure 웹 응용 프로그램을 만드는 단계를 살펴봅니다. 다음 방법에 대해 알아봅니다.
+이 자습서에서는 Azure 리소스에 대한 관리 ID를 사용하여 Key Vault에서 정보를 읽는 Azure 웹 응용 프로그램을 만드는 단계를 살펴봅니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Key Vault를 만듭니다.
 > * Key Vault에 비밀을 저장합니다.
 > * Azure 웹 응용 프로그램을 만듭니다.
-> * 관리되는 서비스 ID를 사용하도록 설정합니다.
+> * 웹 응용 프로그램에 대한 관리 ID를 사용하도록 설정합니다.
 > * 응용 프로그램이 Key Vault에서 데이터를 읽기 위해 필요한 권한을 부여합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 CLI를 사용하여 Azure에 로그인하려면 다음을 입력합니다.
 
@@ -218,9 +218,9 @@ az keyvault secret show --name "AppSecret" --vault-name "ContosoKeyVault"
 >[!IMPORTANT]
 > 브라우저 창이 열리고 502.5 - 프로세스 오류 메시지가 표시됩니다. 예상된 동작입니다. Key Vault에서 비밀을 읽을 수 있는 응용 프로그램 ID 권한을 부여해야 합니다.
 
-## <a name="enable-managed-service-identity"></a>관리되는 서비스 ID 사용
+## <a name="enable-a-managed-identity-for-the-web-app"></a>웹앱에 대한 관리 ID를 사용하도록 설정
 
-Azure Key Vault를 사용하면 자격 증명과 기타 키 및 비밀을 안전하게 저장할 수 있습니다. 하지만 이러한 자격 증명/키/비밀을 검색하려면 코드가 Key Vault에 인증해야 합니다. MSI(관리 서비스 ID)를 사용하면 Azure AD(Azure Active Directory)에서 자동으로 관리되는 ID를 Azure 서비스에 제공함으로써 이 문제를 보다 간편하게 해결할 수 있습니다. 이 ID를 사용하면 Key Vault를 비롯하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다.
+Azure Key Vault를 사용하면 자격 증명과 기타 키 및 비밀을 안전하게 저장할 수 있습니다. 하지만 이러한 자격 증명/키/비밀을 검색하려면 코드가 Key Vault에 인증해야 합니다. [Azure 리소스에 대한 관리 ID 개요](../active-directory/managed-identities-azure-resources/overview.md)를 통해 Azure AD(Azure Active Directory)에서 자동으로 관리되는 ID를 Azure 서비스에 제공함으로써 이 문제를 보다 간편하게 해결할 수 있습니다. 이 ID를 사용하면 Key Vault를 비롯하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다.
 
 1. Azure CLI로 돌아갑니다.
 2. 이 응용 프로그램에 대한 ID를 만들려면 assign-identity 명령을 실행합니다.
@@ -230,7 +230,7 @@ az webapp identity assign --name "WebKeyVault" --resource-group "ContosoResource
 ```
 
 >[!NOTE]
->이 명령은 포털로 이동하여 웹 응용 프로그램 속성에서 **관리되는 서비스 ID**를 **켜기**로 전환하는 것과 동일합니다.
+>이 명령은 포털로 이동하여 웹 응용 프로그램 속성에서 **ID/시스템 할당됨** 설정을 **켜기**로 전환하는 것과 동일합니다.
 
 ## <a name="grant-rights-to-the-application-identity"></a>응용 프로그램 ID에 권한 부여
 

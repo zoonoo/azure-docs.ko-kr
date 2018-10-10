@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: jdial
-ms.openlocfilehash: f01ff2dfff19d066fe3ecd8924a5b54cd6cc68a5
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 79ea839a5b57a2b64b80feba8324764a23c05697
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264167"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987019"
 ---
 # <a name="security-groups"></a>보안 그룹
 <a name="network-security-groups"></a>
@@ -34,7 +34,7 @@ Azure [가상 네트워크](virtual-networks-overview.md)의 Azure 리소스와 
 
 |자산  |설명  |
 |---------|---------|
-|Name|네트워크 보안 그룹 내에서 고유한 이름입니다.|
+|이름|네트워크 보안 그룹 내에서 고유한 이름입니다.|
 |우선 순위 | 100~4096 사이의 숫자입니다. 낮은 번호의 우선 순위가 더 높기 때문에 규칙은 낮은 번호가 높은 번호보다 먼저 처리되는 우선 순위 순서로 처리됩니다. 트래픽이 규칙과 일치하면 처리가 중지됩니다. 따라서 우선 순위가 높은 규칙과 동일한 특성을 가진 우선 순위가 낮은 규칙(높은 번호)은 처리되지 않습니다.|
 |원본 또는 대상| 아무 또는 개별 IP 주소, CIDR(클래스 없는 도메인 간 라우팅) 블록(예: 10.0.0.0/24), [서비스 태그](#service-tags) 또는 [응용 프로그램 보안 그룹](#application-security-groups)입니다. Azure 리소스의 주소를 지정하는 경우 리소스에 할당된 사설 IP 주소를 지정하세요. 네트워크 보안 그룹은 Azure가 공용 IP 주소를 인바운드 트래픽용 사설 IP 주소로 변환한 후에, 그리고 Azure가 사설 IP 주소를 아웃바운드 트래픽용 공용 IP 주소로 변환하기 전에 처리됩니다. Azure [IP 주소](virtual-network-ip-addresses-overview-arm.md)에 대해 자세히 알아보세요. 범위, 서비스 태그 또는 응용 프로그램 보안 그룹을 지정하면 더 적은 보안 규칙을 만들어도 됩니다. 규칙에서 여러 개별 IP 주소와 범위를 지정하는 기능(여러 서비스 태그 또는 응용 프로그램 그룹을 지정할 수 없음)은 [보강된 보안 규칙](#augmented-security-rules)이라고 합니다. 보강된 보안 규칙은 Resource Manager 배포 모델을 통해 만들어진 네트워크 보안 그룹에서만 만들 수 있습니다. 클래식 배포 모델을 통해 만든 네트워크 보안 그룹에서는 여러 개의 IP 주소 및 IP 주소 범위를 지정할 수 없습니다. [Azure 배포 모델](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대해 자세히 알아보세요.|
 |프로토콜     | TCP, UDP 또는 TCP, UDP 및 ICMP를 포함하는 모두입니다. ICMP를 단독으로 지정할 수 없으므로 ICMP가 필요한 경우 다른 것과 함께 사용해야 합니다. |
@@ -53,16 +53,33 @@ Azure [가상 네트워크](virtual-networks-overview.md)의 Azure 리소스와 
 
 ## <a name="service-tags"></a>서비스 태그
 
- 서비스 태그는 보안 규칙 생성에 대한 복잡성을 최소화할 수 있는 IP 주소 접두사의 그룹을 나타냅니다. 고유한 서비스 태그를 직접 만들거나 태그 내에 포함된 IP 주소를 지정할 수 없습니다. Microsoft에서는 서비스 태그에서 압축한 주소 접두사를 관리하고 주소를 변경하는 대로 서비스 태그를 자동으로 업데이트합니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용할 수 있습니다. 다음 서비스 태그는 보안 규칙 정의에서 사용할 수 있습니다. 해당 이름은 [Azure 배포 모델](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 따라 조금씩 다릅니다.
+ 서비스 태그는 보안 규칙 생성에 대한 복잡성을 최소화할 수 있는 IP 주소 접두사의 그룹을 나타냅니다. 고유한 서비스 태그를 직접 만들거나 태그 내에 포함된 IP 주소를 지정할 수 없습니다. Microsoft에서는 서비스 태그에서 압축한 주소 접두사를 관리하고 주소를 변경하는 대로 서비스 태그를 자동으로 업데이트합니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용할 수 있습니다. 
+ 
+ Azure [공용](https://www.microsoft.com/download/details.aspx?id=56519), [미국 정부](https://www.microsoft.com/download/details.aspx?id=57063), [중국](https://www.microsoft.com/download/details.aspx?id=57062) 및 [독일](https://www.microsoft.com/download/details.aspx?id=57064) 클라우드에 대한 다음과 같은 주간 게시에서 접두사 세부 사항이 포함된 서비스 태그 목록을 온-프레미스 방화벽을 사용하여 다운로드하고 통합할 수 있습니다.
+
+ 다음 서비스 태그는 보안 규칙 정의에서 사용할 수 있습니다. 해당 이름은 [Azure 배포 모델](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 따라 조금씩 다릅니다.
 
 * **VirtualNetwork**(Resource Manager)(클래식의 경우 **VIRTUAL_NETWORK**): 이 태그에는 가상 네트워크 주소 공간(가상 네트워크에 대해 정의된 모든 CIDR 범위), 연결된 모든 온-프레미스 주소 공간 및 [피어링](virtual-network-peering-overview.md)된 가상 네트워크 또는 [가상 네트워크 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 연결된 가상 네트워크가 포함됩니다.
 * **AZURE_LOADBALANCER**(Resource Manager) (클래식의 경우 **AzureLoadBalancer**): 이 태그는 Azure의 인프라 부하 분산 장치를 나타내며, 태그는 Azure의 상태 검색이 시작되는 [Azure 데이터 센터 IP 주소](https://www.microsoft.com/download/details.aspx?id=41653)로 변환됩니다. Azure Load Balancer를 사용하지 않는 경우 이 규칙을 재정의할 수 있습니다.
 * **Internet**(Resource Manager) (클래식의 경우 **INTERNET**): 이 태그는 가상 네트워크 외부에 있고 공용 인터넷에서 연결할 수 있는 IP 주소 공간을 나타냅니다. 주소 범위에는 [Azure에서 소유하는 공용 IP 주소 공간](https://www.microsoft.com/download/details.aspx?id=41653)이 포함됩니다.
-* **AzureTrafficManager**(리소스 관리자에만 해당): 이 태그는 Azure Traffic Manager 프로브 IP의 IP 주소 공간을 나타냅니다. Traffic Manager 프로브 IP에 대한 자세한 내용은 [Azure Traffic Manager FAQ](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs)에서 찾을 수 있습니다. Azure [공용](https://www.microsoft.com/download/details.aspx?id=56519), [US 정부](https://www.microsoft.com/download/details.aspx?id=57063), [중국](https://www.microsoft.com/download/details.aspx?id=57062) 및 [독일](https://www.microsoft.com/download/details.aspx?id=57064) 클라우드의 이 태그에 할당된 접두사 목록을 다운로드할 수 있습니다.
-* **Storage**(Resource Manager에만 해당): 이 태그는 Azure Storage 서비스의 IP 주소 공간을 나타냅니다. 값의 *저장소*를 지정하는 경우 트래픽은 저장소에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 저장소에 대한 액세스를 허용하려는 경우 지역을 지정할 수 있습니다. 예를 들어 미국 동부 지역에서만 Azure Storage에 액세스를 허용하려는 경우 *Storage.EastUS*를 서비스 태그로 지정할 수 있습니다. 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 Azure Storage 계정이 아닌 Azure Storage 서비스를 나타냅니다. 이 태그를 통해 표시되는 모든 주소 접두사는 **인터넷** 태그를 통해서도 표시됩니다. Azure [공용](https://www.microsoft.com/download/details.aspx?id=56519), [US 정부](https://www.microsoft.com/download/details.aspx?id=57063), [중국](https://www.microsoft.com/download/details.aspx?id=57062) 및 [독일](https://www.microsoft.com/download/details.aspx?id=57064) 클라우드의 이 태그에 할당된 접두사 목록을 다운로드할 수 있습니다.
-* **Sql**(Resource Manager에만 해당): 이 태그는 Azure SQL Database 및 Azure SQL Data Warehouse 서비스의 주소 접두사를 나타냅니다. 값의 *Sql*을 지정하는 경우 트래픽은 Sql에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 Sql에 대한 액세스를 허용하려는 경우 지역을 지정할 수 있습니다. 예를 들어 미국 동부 지역에서만 Azure SQL Database에 액세스를 허용하려는 경우 *Sql.EastUS*를 서비스 태그로 지정할 수 있습니다. 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 SQL Database 또는 서버가 아닌 Azure SQL Database 서비스를 나타냅니다. 이 태그를 통해 표시되는 모든 주소 접두사는 **인터넷** 태그를 통해서도 표시됩니다. Azure [공용](https://www.microsoft.com/download/details.aspx?id=56519), [US 정부](https://www.microsoft.com/download/details.aspx?id=57063), [중국](https://www.microsoft.com/download/details.aspx?id=57062) 및 [독일](https://www.microsoft.com/download/details.aspx?id=57064) 클라우드의 이 태그에 할당된 접두사 목록을 다운로드할 수 있습니다.
-* **AzureCosmosDB**(Resource Manager에만 해당): 이 태그는 Azure Cosmos Database 서비스의 주소 접두사를 나타냅니다. 값으로 *AzureCosmosDB*를 지정하는 경우 트래픽은 AzureCosmosDB에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 AzureCosmosDB 액세스를 허용하려면 AzureCosmosDB.[region name] 형식으로 지역을 지정하면 됩니다. Azure [공용](https://www.microsoft.com/download/details.aspx?id=56519), [US 정부](https://www.microsoft.com/download/details.aspx?id=57063), [중국](https://www.microsoft.com/download/details.aspx?id=57062) 및 [독일](https://www.microsoft.com/download/details.aspx?id=57064) 클라우드의 이 태그에 할당된 접두사 목록을 다운로드할 수 있습니다.
-* **AzureKeyVault**(Resource Manager에만 해당): 이 태그는 Azure KeyVault 서비스의 주소 접두사를 나타냅니다. 값으로 *AzureKeyVault*를 지정하는 경우 트래픽은 AzureKeyVault에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 AzureKeyVault 액세스를 허용하려면 AzureKeyVault.[region name] 형식으로 지역을 지정하면 됩니다. Azure [공용](https://www.microsoft.com/download/details.aspx?id=56519), [US 정부](https://www.microsoft.com/download/details.aspx?id=57063), [중국](https://www.microsoft.com/download/details.aspx?id=57062) 및 [독일](https://www.microsoft.com/download/details.aspx?id=57064) 클라우드의 이 태그에 할당된 접두사 목록을 다운로드할 수 있습니다.
+* **AzureCloud**(Resource Manager에만 해당): 이 태그는 모든 데이터 센터 공용 IP 주소를 포함한 Azure에 대한 IP 주소 공간을 나타냅니다. 값으로 *AzureCloud*를 지정하는 경우 트래픽은 Azure 공용 IP 주소에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 AzureCloud에 대한 액세스를 허용하려는 경우 지역을 지정할 수 있습니다. 예를 들어 미국 동부 지역에서만 Azure AzureCloud에 액세스를 허용하려는 경우 *AzureCloud.EastUS*를 서비스 태그로 지정할 수 있습니다. 
+* **AzureTrafficManager**(Resource Manager에만 해당): 이 태그는 Azure Traffic Manager 프로브 IP의 IP 주소 공간을 나타냅니다. Traffic Manager 프로브 IP 주소에 대한 자세한 내용은 [Azure Traffic Manager FAQ](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs)에서 찾을 수 있습니다. 
+* **Storage**(Resource Manager에만 해당): 이 태그는 Azure Storage 서비스의 IP 주소 공간을 나타냅니다. 값의 *저장소*를 지정하는 경우 트래픽은 저장소에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 저장소에 대한 액세스를 허용하려는 경우 지역을 지정할 수 있습니다. 예를 들어 미국 동부 지역에서만 Azure Storage에 액세스를 허용하려는 경우 *Storage.EastUS*를 서비스 태그로 지정할 수 있습니다. 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 Azure Storage 계정이 아닌 Azure Storage 서비스를 나타냅니다. 이 태그를 통해 표시되는 모든 주소 접두사는 **인터넷** 태그를 통해서도 표시됩니다. 
+* **Sql**(Resource Manager에만 해당): 이 태그는 Azure SQL Database 및 Azure SQL Data Warehouse 서비스의 주소 접두사를 나타냅니다. 값의 *Sql*을 지정하는 경우 트래픽은 Sql에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 Sql에 대한 액세스를 허용하려는 경우 지역을 지정할 수 있습니다. 예를 들어 미국 동부 지역에서만 Azure SQL Database에 액세스를 허용하려는 경우 *Sql.EastUS*를 서비스 태그로 지정할 수 있습니다. 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 SQL Database 또는 서버가 아닌 Azure SQL Database 서비스를 나타냅니다. 이 태그를 통해 표시되는 모든 주소 접두사는 **인터넷** 태그를 통해서도 표시됩니다. 
+* **AzureCosmosDB**(Resource Manager에만 해당): 이 태그는 Azure Cosmos Database 서비스의 주소 접두사를 나타냅니다. 값으로 *AzureCosmosDB*를 지정하는 경우 트래픽은 AzureCosmosDB에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 AzureCosmosDB 액세스를 허용하려면 AzureCosmosDB.[region name] 형식으로 지역을 지정하면 됩니다. 
+* **AzureKeyVault**(Resource Manager에만 해당): 이 태그는 Azure KeyVault 서비스의 주소 접두사를 나타냅니다. 값으로 *AzureKeyVault*를 지정하는 경우 트래픽은 AzureKeyVault에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 AzureKeyVault 액세스를 허용하려면 AzureKeyVault.[region name] 형식으로 지역을 지정하면 됩니다. 
+* **EventHub**(Resource Manager에만 해당): 이 태그는 Azure EventHub 서비스의 주소 접두사를 나타냅니다. 값으로 *EventHub*를 지정하는 경우 트래픽은 EventHub에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 EventHub 액세스를 허용하려면 다음과 같은 EventHub.[지역 이름] 형식으로 지역을 지정할 수 있습니다. 
+* **ServiceBus**(Resource Manager에만 해당): 이 태그는 Azure ServiceBus 서비스의 주소 접두사를 나타냅니다. 값으로 *ServiceBus*를 지정하는 경우 트래픽은 ServiceBus에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 ServiceBus 액세스를 허용하려면 다음과 같은 ServiceBus.[지역 이름] 형식으로 지역을 지정할 수 있습니다. 
+* **MicrosoftContainerRegistry**(Resource Manager에만 해당): 이 태그는 Microsoft Container Registry 서비스의 주소 접두사를 나타냅니다. 값으로 *MicrosoftContainerRegistry*를 지정하는 경우 트래픽은 MicrosoftContainerRegistry에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 MicrosoftContainerRegistry 액세스를 허용하려면 MicrosoftContainerRegistry.[지역 이름] 형식으로 지역을 지정하면 됩니다. 
+* **AzureContainerRegistry**(Resource Manager에만 해당): 이 태그는 Azure Container Registry 서비스의 주소 접두사를 나타냅니다. 값으로 *AzureContainerRegistry*를 지정하는 경우 트래픽은 AzureContainerRegistry에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 AzureContainerRegistry 액세스를 허용하려면 AzureContainerRegistry.[지역 이름] 형식으로 지역을 지정하면 됩니다. 
+* **AppService**(Resource Manager에만 해당): 이 태그는 Azure AppService 서비스의 주소 접두사를 나타냅니다. 값으로 *AppService*를 지정하는 경우 트래픽은 AppService에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 AppService 액세스를 허용하려면 다음과 같은 AppService.[지역 이름] 형식으로 지역을 지정할 수 있습니다. 
+* **AppServiceManagement**(Resource Manager에만 해당): 이 태그는 Azure AppService Management 서비스의 주소 접두사를 나타냅니다. 값으로 *AppServiceManagement*를 지정하는 경우 트래픽은 AppServiceManagement에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 AppServiceManagement 액세스를 허용하려면 다음과 같은 AppServiceManagement.[지역 이름] 형식으로 지역을 지정할 수 있습니다. 
+* **ApiManagement**(Resource Manager에만 해당): 이 태그는 Azure Api Management 서비스의 주소 접두사를 나타냅니다. 값으로 *ApiManagement*를 지정하는 경우 트래픽은 ApiManagement에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 ApiManagement 액세스를 허용하려면 다음과 같은 ApiManagement.[지역 이름] 형식으로 지역을 지정할 수 있습니다. 
+* **AzureConnectors**(Resource Manager에만 해당): 이 태그는 Azure Connectors 서비스의 주소 접두사를 나타냅니다. 값으로 *AzureConnectors*를 지정하는 경우 트래픽은 AzureConnectors에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 AzureConnectors 액세스를 허용하려면 AzureConnectors.[지역 이름] 형식으로 지역을 지정하면 됩니다. 
+* **GatewayManager**(Resource Manager에만 해당): 이 태그는 Azure Gateway Manager 서비스의 주소 접두사를 나타냅니다. 값으로 *GatewayManager*를 지정하는 경우 트래픽은 GatewayManager에 대해 허용되거나 거부됩니다. 특정 [지역](https://azure.microsoft.com/regions)에서만 GatewayManager 액세스를 허용하려면 GatewayManager.[지역 이름] 형식으로 지역을 지정하면 됩니다. 
+* **AzureDataLake**(Resource Manager에만 해당): 이 태그는 Azure Data Lake 서비스의 주소 접두사를 나타냅니다. 값으로 *AzureDataLake*를 지정하는 경우 트래픽은 AzureDataLake에 대해 허용되거나 거부됩니다. 
+* **AzureActiveDirectory**(Resource Manager에만 해당): 이 태그는 AzureActiveDirectory 서비스의 주소 접두사를 나타냅니다. 값으로 *AzureActiveDirectory*를 지정하는 경우 트래픽은 AzureActiveDirectory에 대해 허용되거나 거부됩니다.  
+* **CorpNetSAW**(Resource Manager에만 해당): 이 태그는 Azure에서 운영되는 [CorpNetSAW 장치](../security/azure-security-iaas.md) 서비스의 주소 접두사를 나타냅니다. 경우에 따라 Azure 서비스는 지원 가능성을 개선하기 위해 고객 관리되는 인스턴스로 액세스를 요청하는 데 이 서비스 태그를 사용할 수 있습니다. 값의 *CorpNetSAW*를 지정하는 경우 트래픽은 CorpNetSAW에 대해 허용되거나 거부됩니다. 
 
 > [!NOTE]
 > Azure 서비스의 서비스 태그는 사용되는 특정 클라우드의 주소 접두사를 나타냅니다. 지역 서비스 태그는 국가 클라우드에서는 지원되지 않고 글로벌 형식으로만 지원됩니다. 예: *저장소* 및 *Sql*.

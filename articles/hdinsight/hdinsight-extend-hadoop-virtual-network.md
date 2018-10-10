@@ -8,14 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/26/2018
-ms.openlocfilehash: 659c33ec0e989003e68b5165fab70f50c607868c
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 98c62f54e2413bd67600db182c452d0d5965f239
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591884"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972184"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure Virtual Network를 사용하여 Azure HDInsight 확장
+
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)에 HDInsight를 사용하는 방법을 알아봅니다. Azure Virtual Network를 사용하면 다음 시나리오가 가능합니다.
 
@@ -70,7 +72,7 @@ ms.locfileid: "39591884"
 
     HDInsight는 다양한 포트를 사용하는 여러 서비스를 호스팅합니다. 이 포트로의 트래픽을 차단하지 마세요. 가상 어플라이언스 방화벽을 통과하도록 허용할 포트 목록은 [보안](#security) 섹션을 참조하세요.
 
-    기존 보안 구성을 찾으려면 다음 Azure PowerShell 또는 Azure CLI 명령을 사용합니다.
+    기존 보안 구성을 찾으려면 다음 Azure PowerShell 또는 Azure 클래식 CLI 명령을 사용합니다.
 
     * 네트워크 보안 그룹
 
@@ -107,7 +109,7 @@ ms.locfileid: "39591884"
 
     * [Azure Portal을 사용하여 HDInsight 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)
     * [Azure PowerShell을 사용하여 HDInsight 만들기](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-    * [Azure CLI 1.0을 사용하여 HDInsight 만들기](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
+    * [Azure 클래식 CLI를 사용하여 HDInsight 만들기](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
     * [Azure Resource Manager 템플릿을 사용하여 HDInsight 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
   > [!IMPORTANT]
@@ -441,7 +443,7 @@ $vnet | Set-AzureRmVirtualNetwork
 > Add-AzureRmNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
 > ```
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-classic-cli"></a>Azure 클래식 CLI
 
 다음 단계에 따라 인바운드 트래픽을 제한하지만 HDInsight에 필요한 IP 주소에서의 트래픽은 허용하는 가상 네트워크를 만듭니다.
 
@@ -510,7 +512,7 @@ $vnet | Set-AzureRmVirtualNetwork
 
 가상 네트워크의 사용자 지정 DNS 서버에서:
 
-1. Azure PowerShell 또는 Azure CLI를 사용하여 가상 네트워크의 DNS 접미사를 찾습니다.
+1. Azure PowerShell 또는 Azure 클래식 CLI를 사용하여 가상 네트워크의 DNS 접미사를 찾습니다.
 
     ```powershell
     $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"
@@ -592,7 +594,7 @@ $vnet | Set-AzureRmVirtualNetwork
 
 * [바인딩](https://www.isc.org/downloads/bind/)이 사용자 지정 DNS 서버에 설치됩니다.
 
-1. Azure PowerShell 또는 Azure CLI를 사용하여 두 가상 네트워크의 DNS 접미사를 찾습니다.
+1. Azure PowerShell 또는 Azure 클래식 CLI를 사용하여 두 가상 네트워크의 DNS 접미사를 찾습니다.
 
     ```powershell
     $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"

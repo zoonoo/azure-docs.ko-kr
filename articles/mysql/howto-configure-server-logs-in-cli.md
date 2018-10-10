@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 57b72ded77484dc1c8ca4c62811b62e171365db4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e3940f07ab97eb2ad03c347c39bf2412a8497f5e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423460"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978457"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Azure CLI를 사용하여 서버 로그 구성 및 액세스
 Azure 명령줄 유틸리티인 Azure CLI를 사용하여 Azure Database for MySQL 서버 로그를 다운로드할 수 있습니다.
@@ -23,7 +23,7 @@ Azure 명령줄 유틸리티인 Azure CLI를 사용하여 Azure Database for MyS
 ## <a name="prerequisites"></a>필수 조건
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 - [Azure Database for MySQL 서버](quickstart-create-mysql-server-database-using-azure-cli.md)
-- [Azure CLI 2.0](/cli/azure/install-azure-cli) 또는 브라우저의 Azure Cloud Shell
+- [Azure CLI](/cli/azure/install-azure-cli) 또는 브라우저의 Azure Cloud Shell
 
 ## <a name="configure-logging-for-azure-database-for-mysql"></a>Azure Database for MySQL에 대한 로깅 구성
 다음 단계를 수행하여 MySQL 느린 쿼리 로그에 액세스하도록 서버를 구성할 수 있습니다.

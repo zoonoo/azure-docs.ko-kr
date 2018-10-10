@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: 58309977c93864d52a3217919ac8d7fa9152a968
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: b841a1104a0cc1e74d9ab1f16ef39d3892ba7d55
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576905"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996692"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Resource Manager 인증 API를 사용하여 구독에 액세스
 ## <a name="introduction"></a>소개
@@ -109,7 +109,7 @@ Resource Manager를 호출하는 데 사용할 수 있는 토큰을 요청하기
 이 문서는 사용자를 인증하는 REST API 요청을 보여 줍니다. 또한 코드에서 인증을 수행하도록 도우미 라이브러리를 사용할 수도 있습니다. 이러한 라이브러리에 대한 자세한 내용은 [Azure Active Directory 인증 라이브러리](../active-directory/active-directory-authentication-libraries.md)를 참조하세요. 응용 프로그램에서 ID 관리를 통합하는 지침은 [Azure Active Directory 개발자 가이드](../active-directory/develop/azure-ad-developers-guide.md)를 참조하세요.
 
 ### <a name="auth-request-oauth-20"></a>인증 요청(OAuth 2.0)
-Azure AD 권한 부여 끝점에 대한 Open ID Connect/OAuth2.0 권한 부여 요청을 실행합니다.
+Azure AD 권한 부여 엔드포인트에 대한 Open ID Connect/OAuth2.0 권한 부여 요청을 실행합니다.
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Authorize
 
@@ -139,7 +139,7 @@ Open ID Connect 응답 예제:
     code=AAABAAAAiL*****I4rDWd7zXsH6WUjlkIEQxIAA&id_token=eyJ0eXAiOiJKV1Q*****T3GrzzSFxg&state=M_12tMyKaM8&session_state=2d16bbce-d5d1-443f-acdf-75f6b0ce8850
 
 ### <a name="token-request-oauth20-code-grant-flow"></a>토큰 요청(OAuth2.0 코드 부여 흐름)
-이제 응용 프로그램이 Azure AD에서 권한 부여 코드를 수신했으므로 Azure Resource Manager에 대한 토큰을 가져올 차례입니다.  OAuth2.0 코드 부여 토큰 요청을 Azure AD 토큰 끝점에 게시:
+이제 응용 프로그램이 Azure AD에서 권한 부여 코드를 수신했으므로 Azure Resource Manager에 대한 토큰을 가져올 차례입니다.  OAuth2.0 코드 부여 토큰 요청을 Azure AD 토큰 엔드포인트에 게시:
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
@@ -154,7 +154,7 @@ Open ID Connect 응답 예제:
 
     grant_type=authorization_code&code=AAABAAAAiL9Kn2Z*****L1nVMH3Z5ESiAA&redirect_uri=http%3A%2F%2Flocalhost%3A62080%2FAccount%2FSignIn&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_secret=olna84E8*****goScOg%3D
 
-인증서 자격 증명을 사용하여 작업할 때 JSON 웹 토큰(JWT)을 만들고 응용 프로그램의 인증서 자격 증명의 개인 키를 사용하여 서명합니다(RSA SHA256). 토큰에 대한 클레임 형식은 [JWT 토큰 클레임](../active-directory/develop/v1-protocols-oauth-code.md#jwt-token-claims)에 나옵니다. 참고로 클라이언트 어설션 JWT 토큰에 서명하는 방법은 [Active Directory 인증 라이브러리(.NET) 코드](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) 를 참조하세요.
+인증서 자격 증명을 사용하여 작업할 때 JSON 웹 토큰(JWT)을 만들고 응용 프로그램의 인증서 자격 증명의 개인 키를 사용하여 서명합니다(RSA SHA256). 이 토큰을 빌드하는 과정은 [클라이언트 자격 증명 흐름](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#second-case-access-token-request-with a-certificate)에 표시됩니다.  참고로 클라이언트 어설션 JWT 토큰에 서명하는 방법은 [Active Directory 인증 라이브러리(.NET) 코드](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) 를 참조하세요.
 
 클라이언트 인증에 대한 자세한 내용은 [Open ID Connect 사양](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) 을 참조하세요.
 
@@ -174,7 +174,7 @@ Open ID Connect 응답 예제:
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1432039858","not_before":"1432035958","resource":"https://management.core.windows.net/","access_token":"eyJ0eXAiOiJKV1Q****M7Cw6JWtfY2lGc5A","refresh_token":"AAABAAAAiL9Kn2Z****55j-sjnyYgAA","scope":"user_impersonation","id_token":"eyJ0eXAiOiJKV*****-drP1J3P-HnHi9Rr46kGZnukEBH4dsg"}
 
 #### <a name="handle-code-grant-token-response"></a>코드 부여 토큰 응답 처리
-성공적인 토큰 응답은 Azure Resource Manager에 대한(사용자 + 앱) 액세스 토큰을 포함합니다. 응용 프로그램은 이 액세스 토큰을 사용하여 사용자를 대신해 Resource Manager에 액세스합니다. Azure AD에서 발급하는 액세스 토큰의 수명은 1시간입니다. 웹 응용 프로그램이(사용자 + 앱) 액세스 토큰을 갱신해야 할 가능성은 낮습니다. 액세스 토큰을 갱신해야 한다면 응용 프로그램이 토큰 응답에서 받는 새로 고침 토큰을 사용합니다. OAuth2.0 토큰 요청을 Azure AD 토큰 끝점에 게시:
+성공적인 토큰 응답은 Azure Resource Manager에 대한(사용자 + 앱) 액세스 토큰을 포함합니다. 응용 프로그램은 이 액세스 토큰을 사용하여 사용자를 대신해 Resource Manager에 액세스합니다. Azure AD에서 발급하는 액세스 토큰의 수명은 1시간입니다. 웹 응용 프로그램이(사용자 + 앱) 액세스 토큰을 갱신해야 할 가능성은 낮습니다. 액세스 토큰을 갱신해야 한다면 응용 프로그램이 토큰 응답에서 받는 새로 고침 토큰을 사용합니다. OAuth2.0 토큰 요청을 Azure AD 토큰 엔드포인트에 게시:
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
@@ -231,7 +231,7 @@ ASP.NET MVC 샘플 앱의 [UserCanManagerAccessForSubscription](https://github.c
 <a id="app-azure-ad-graph" />
 
 ### <a name="get-app-only-access-token-for-azure-ad-graph-api"></a>Azure AD Graph API에 대한 응용 프로그램 전용 액세스 토큰 가져오기
-앱을 인증하고 Azure AD Graph API에 대한 토큰을 가져오려면 Azure AD 토큰 끝점(**https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**)에 대한 클라이언트 자격 증명 부여 OAuth2.0 흐름 토큰 요청을 실행합니다.
+앱을 인증하고 Azure AD Graph API에 대한 토큰을 가져오려면 Azure AD 토큰 엔드포인트(**https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**)에 대한 클라이언트 자격 증명 부여 OAuth2.0 흐름 토큰 요청을 실행합니다.
 
 ASP.net MVC 샘플 응용 프로그램의 [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) 메서드는 Active Directory Authentication Library for .NET을 사용하여 Graph API에 대한 앱 전용 액세스 토큰을 가져옵니다.
 

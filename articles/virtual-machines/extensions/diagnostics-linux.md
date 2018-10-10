@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: agaiha
-ms.openlocfilehash: 8ffa9823000efbb101be73397cd0025f9933cecd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ac09754876d52798add58d9e0752d776ca29f247
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652647"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46994805"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링
 
@@ -32,7 +32,7 @@ Linux 진단 확장을 통해 사용자는 Microsoft Azure에서 실행하는 Li
 * 사용자가 수집 및 업로드된 데이터 메트릭을 사용자 지정할 수 있도록 설정합니다.
 * 사용자가 수집 및 업로드된 이벤트의 심각도 수준과 syslog 기능을 사용자 지정할 수 있도록 설정합니다.
 * 사용자가 지정된 저장소 테이블에 지정된 로그 파일을 업로드할 수 있도록 설정합니다.
-* 지정된 저장소 계정의 JSON 형식 Blob 및 임의 EventHub 끝점으로 메트릭과 로그 이벤트 전송을 지원합니다.
+* 지정된 저장소 계정의 JSON 형식 Blob 및 임의 EventHub 엔드포인트로 메트릭과 로그 이벤트 전송을 지원합니다.
 
 이 확장은 Azure 배포 모델 모두에서 작동합니다.
 
@@ -54,9 +54,10 @@ Azure Portal은 LAD 3.0을 사용하도록 설정하거나 구성하는 데 사�
 ### <a name="prerequisites"></a>필수 조건
 
 * **Azure Linux 에이전트 버전 2.2.0 이상**. 대부분의 Azure VM Linux 갤러리 이미지에는 2.2.7 이후 버전이 포함되어 있습니다. VM에 설치된 버전을 확인하려면 `/usr/sbin/waagent -version`을 실행합니다. VM이 게스트 에이전트의 이전 버전을 실행 중인 경우 [이 지침](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)에 따라 업데이트합니다.
-* **Azure CLI**. 컴퓨터에 [Azure CLI 2.0 환경을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
+* **Azure CLI**. 머신에 [Azure CLI 환경을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
 * wget 명령. 아직 없는 경우 `sudo apt-get install wget`을 실행합니다.
 * 데이터를 저장할 기존 Azure 구독 및 기존 저장소 계정
+* 지원되는 Linux 배포 목록은 https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions에 있습니다.
 
 ### <a name="sample-installation"></a>샘플 설치
 
@@ -128,12 +129,12 @@ az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnost
 }
 ```
 
-Name | 값
+이름 | 값
 ---- | -----
 storageAccountName | 확장에 의해 데이터가 기록될 저장소 계정의 이름입니다.
-storageAccountEndPoint | (선택 사항) 저장소 계정이 있는 클라우드를 식별하는 끝점입니다. 이 설정이 없는 경우 LAD는 Azure 공용 클라우드, `https://core.windows.net`으로 기본 설정됩니다. Azure Germany, Azure Government 또는 Azure China에서 저장소 계정을 사용하려면 이 값을 적절하게 설정합니다.
+storageAccountEndPoint | (선택 사항) 저장소 계정이 있는 클라우드를 식별하는 엔드포인트입니다. 이 설정이 없는 경우 LAD는 Azure 공용 클라우드, `https://core.windows.net`으로 기본 설정됩니다. Azure Germany, Azure Government 또는 Azure China에서 저장소 계정을 사용하려면 이 값을 적절하게 설정합니다.
 storageAccountSasToken | Blob service 및 Table service(`ss='bt'`)용으로, 컨테이너 및 개체(`srt='co'`)에 적용할 수 있고, 추가, 생성, 나열, 업데이트 및 쓰기 권한(`sp='acluw'`)을 부여하는 [계정 SAS 토큰](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/)입니다. 앞에 물음표(?)를 포함하지 *마세요*.
-mdsdHttpProxy | (선택 사항) 지정된 저장소 계정 및 끝점에 연결할 확장을 사용하도록 설정하는 데 필요한 HTTP 프록시 정보입니다.
+mdsdHttpProxy | (선택 사항) 지정된 저장소 계정 및 엔드포인트에 연결할 확장을 사용하도록 설정하는 데 필요한 HTTP 프록시 정보입니다.
 sinksConfig | (선택 사항) 메트릭 및 이벤트를 전달할 수 있는 대체 대상의 세부 정보입니다. 확장에서 지원되는 각 데이터 싱크의 특정 세부 정보는 다음에 나오는 섹션에 설명되어 있습니다.
 
 
@@ -330,7 +331,7 @@ counterSpecifier는 임의의 식별자입니다. Azure Portal 차트 및 경고
 
 LAD나 Azure Portal에서는 counterSpecifier 값이 패턴에 일치할 것으로 예상하지 않습니다. 일관된 방법으로 counterSpecifier 값을 생성해야 합니다.
 
-`performanceCounters`를 지정할 경우 LAD는 항상 Azure Storage의 테이블에 데이터를 작성합니다. JSON Blob 및/또는 Event Hubs에 동일한 데이터를 작성할 수 있지만 테이블에 데이터를 저장하지 않도록 할 수는 없습니다. 동일한 저장소 계정 이름 및 끝점을 사용하도록 구성된 진단 확장의 모든 인스턴스는 해당 메트릭과 로그를 동일한 테이블에 추가합니다. 너무 많은 VM이 동일한 테이블 파티션에 작성할 경우 Azure는 해당 파티션에 쓰기를 제한할 수 있습니다. eventVolume 설정은 항목이 1(Small), 10(Medium) 또는 100(Large)개의 서로 다른 파티션에 분산되도록 합니다. 일반적으로 트래픽이 제한되지 않도록 하는 데 "Medium"이면 충분합니다. Azure Portal의 Azure Metrics 기능은 이 테이블의 데이터를 사용하여 그래프를 생성하거나 경고를 트리거합니다. 테이블 이름은 다음 문자열이 연결된 것입니다.
+`performanceCounters`를 지정할 경우 LAD는 항상 Azure Storage의 테이블에 데이터를 작성합니다. JSON Blob 및/또는 Event Hubs에 동일한 데이터를 작성할 수 있지만 테이블에 데이터를 저장하지 않도록 할 수는 없습니다. 동일한 저장소 계정 이름 및 엔드포인트를 사용하도록 구성된 진단 확장의 모든 인스턴스는 해당 메트릭과 로그를 동일한 테이블에 추가합니다. 너무 많은 VM이 동일한 테이블 파티션에 작성할 경우 Azure는 해당 파티션에 쓰기를 제한할 수 있습니다. eventVolume 설정은 항목이 1(Small), 10(Medium) 또는 100(Large)개의 서로 다른 파티션에 분산되도록 합니다. 일반적으로 트래픽이 제한되지 않도록 하는 데 "Medium"이면 충분합니다. Azure Portal의 Azure Metrics 기능은 이 테이블의 데이터를 사용하여 그래프를 생성하거나 경고를 트리거합니다. 테이블 이름은 다음 문자열이 연결된 것입니다.
 
 * `WADMetrics`
 * 테이블에 저장된 집계 값에 대한 "scheduledTransferPeriod"
@@ -598,7 +599,7 @@ az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Az
 각각의 경우 데이터는 다음으로 업로드됩니다.
 
 * Azure Blob Storage(JsonBlob 싱크에 컨테이너 이름이 정의된 경우)
-* EventHubs 끝점(EventHubs 싱크에 지정된 경우)
+* EventHubs 엔드포인트(EventHubs 싱크에 지정된 경우)
 
 ```json
 {
@@ -702,7 +703,7 @@ Microsoft Azure Storage 탐색기의 이 스냅숏 세션은 테스트 VM에서 
 
 ![이미지](./media/diagnostics-linux/stg_explorer.png)
 
-EventHubs 끝점에 게시된 메시지를 사용하는 방법에 대해 알아보려면 관련 [EventHubs 설명서](../../event-hubs/event-hubs-what-is-event-hubs.md)를 참조하세요.
+EventHubs 엔드포인트에 게시된 메시지를 사용하는 방법에 대해 알아보려면 관련 [EventHubs 설명서](../../event-hubs/event-hubs-what-is-event-hubs.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

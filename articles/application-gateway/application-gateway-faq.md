@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 8/10/2018
+ms.date: 9/6/2018
 ms.author: victorh
-ms.openlocfilehash: 858427bfd2a9b4c40ddf7054e09d98bcf5c1a992
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 56c66418b9f47e0ae0d345cd6e8a7d3ef2914b82
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038683"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986679"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway에 대한 질문과 대답
 
@@ -70,7 +70,7 @@ Application Gateway는 가상 네트워크에서 전용 배포입니다.
 
 **Q. Application Gateway의 IP 및 DNS는 어디에서 확인하나요?**
 
-공용 IP 주소를 끝점으로 사용하는 경우 이 정보를 공용 IP 주소 리소스 또는 포털의 Application Gateway에 대한 개요 페이지에서 확인할 수 있습니다. 내부 IP 주소는 개요 페이지에서 확인할 수 있습니다.
+공용 IP 주소를 엔드포인트로 사용하는 경우 이 정보를 공용 IP 주소 리소스 또는 포털의 Application Gateway에 대한 개요 페이지에서 확인할 수 있습니다. 내부 IP 주소는 개요 페이지에서 확인할 수 있습니다.
 
 **Q. Application Gateway의 수명 중에 IP 또는 DNS가 변경되나요?**
 
@@ -333,7 +333,7 @@ WAF는 진단 로깅을 통해 모니터링되며 진단 로깅에 대한 자세
 
 **Q. WAF에서 DDoS 방지도 지원하나요?**
 
-아니요, WAF는 DDoS 방지를 제공하지 않습니다.
+예. Application Gateway가 배포된 VNet에서 DDos 보호를 사용하도록 설정할 수 있습니다. 이렇게 하면 Azure DDos Protection 서비스를 사용하여 Application Gateway VIP도 보호됩니다.
 
 ## <a name="diagnostics-and-logging"></a>진단 및 로깅
 
@@ -360,6 +360,12 @@ Application Gateway에 대해 감사 로그를 사용할 수 있습니다. 포�
 **Q. Application Gateway로 경고를 설정할 수 있나요?**
 
 예, Application Gateway는 경고를 지원하며 메트릭에 따라 경고를 해제하도록 구성합니다. Application Gateway에서는 현재 경고를 구성할 수 있는 "처리량" 메트릭을 포함합니다. 경고에 대한 자세한 내용을 보려면 [경고 알림 받기](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)를 방문하세요.
+
+**Q. Application Gateway에 대한 트래픽 통계를 분석하려면 어떻게 해야 하나요?**
+
+Azure Log Analytics, Excel, Power BI 등 다양한 메커니즘을 통해 액세스 로그를 보고 분석할 수 있습니다.
+
+또한 Application Gateway 액세스 로그에 대해 널리 사용되는 [GoAccess](https://goaccess.io/) 로그 분석기를 설치하고 실행하는 Resource Manager 템플릿을 게시했습니다. GoAccess는 고유 방문자, 요청한 파일, 호스트, 운영 체제, 브라우저, HTTP 상태 코드 및 기타 유용한 HTTP 트래픽 통계를 제공 합니다. 자세한 내용은 [GitHub의 Resource Manager 템플릿 폴더에 대한 추가 정보 파일](https://aka.ms/appgwgoaccessreadme)을 참조하세요.
 
 **Q. 백 엔드 상태에서 알 수 없는 상태를 반환할 경우 이 상태의 원인은 무엇인가요?**
 

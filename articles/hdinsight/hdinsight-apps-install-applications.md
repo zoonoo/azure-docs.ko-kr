@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: c355d1c4021d8d0877dea216e0c11002b70595e4
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c50bd7c314c88c0950478cc3068d9a5873b65263
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105221"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996966"
 ---
 # <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 타사 Hadoop 응용 프로그램 설치
 
@@ -35,7 +35,7 @@ HDInsight 응용 프로그램은 HDInsight 클러스터에 사용자가 설치�
 * **[Trifacta](http://www.trifacta.com/)** 는 획기적인 사용자 경험과 워크플로, 아키텍처를 제공하기 위해 머신 러닝을 활용해 데이터 엔지니어 및 분석가가 현대의 다양한 데이터를 효율적으로 탐색하고 준비할 수 있게 합니다.
 * **WANdisco Fusion HDI 앱**은 위치에 상관없이 변경되는 데이터에 일관되게 계속 연결할 수 있도록 합니다. 이렇게 하면 중지 및 중단 없이 언제 어디서나 데이터에 액세스할 수 있습니다.
 
-이 문서에서 제공하는 지침은 Azure Portal을 사용합니다. 또한 포털에서 Azure Resource Manager 템플릿을 내보내거나 공급 업체에서 Resource Manager 템플릿의 복사본을 가져오고 Azure PowerShell 및 Azure CLI를 사용하여 템플릿을 배포할 수 있습니다.  [Resource Manager 템플릿을 사용하여 HDInsight의 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
+이 문서에서 제공하는 지침은 Azure Portal을 사용합니다. 또한 포털에서 Azure Resource Manager 템플릿을 내보내거나 공급 업체에서 Resource Manager 템플릿의 복사본을 가져오고 Azure PowerShell 및 Azure 클래식 CLI를 사용하여 템플릿을 배포할 수 있습니다.  [Resource Manager 템플릿을 사용하여 HDInsight의 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 기존 HDInsight 클러스터에 HDInsight 응용 프로그램을 설치하려면 HDInsight 클러스터가 있어야 합니다. HDInsight 클러스터를 만들려면 [클러스터 만들기](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)를 참조하세요. HDInsight 클러스터를 만들 경우 HDInsight 응용 프로그램도 설치할 수 있습니다.

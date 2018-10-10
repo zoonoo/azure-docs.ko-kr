@@ -1,6 +1,6 @@
 ---
 title: 새 Azure IoT Edge 장치 등록(CLI) | Microsoft Docs
-description: Azure CLI 2.0용 IoT 확장을 사용하여 새 IoT Edge 장치 등록
+description: Azure CLI용 IoT 확장을 사용하여 새 IoT Edge 장치 등록
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -9,26 +9,26 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 451f4df31cd1c520b14227829923f72fe80c38c3
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: ee5e68d45c7d966619238312dabedc1628a4bf61
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325499"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998035"
 ---
-# <a name="register-a-new-azure-iot-edge-device-with-azure-cli-20"></a>Azure CLI 2.0을 사용하여 새 Azure IoT Edge 장치 등록
+# <a name="register-a-new-azure-iot-edge-device-with-azure-cli"></a>Azure CLI를 사용하여 새 Azure IoT Edge 장치 등록
 
 Azure IoT Edge에서 IoT 장치를 사용하려면 먼저 IoT Hub에 등록해야 합니다. 장치를 등록하면 에지 워크로드에 대해 장치를 설정하는 데 사용할 수 있는 연결 문자열을 받게 됩니다. 
 
-[Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)은 IoT Edge 같은 Azure 리소스를 관리하기 위한 오픈 소스 교차 플랫폼 명령줄 도구입니다. 이 기능을 사용하면 Azure IoT Hub 리소스, 장치 프로비전 서비스 인스턴스 및 연결된 허브를 즉시 관리할 수 있습니다. 새로운 IoT 확장은 장치 관리 및 전체 IoT Edge 같은 기능으로 Azure CLI 2.0을 강화합니다.
+[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)는 IoT Edge 같은 Azure 리소스를 관리하기 위한 오픈 소스 교차 플랫폼 명령줄 도구입니다. 이 기능을 사용하면 Azure IoT Hub 리소스, 장치 프로비전 서비스 인스턴스 및 연결된 허브를 즉시 관리할 수 있습니다. 새로운 IoT 확장은 장치 관리 및 전체 IoT Edge 같은 기능으로 Azure CLI를 강화합니다.
 
-이 아티클에서는 Azure CLI 2.0을 사용하여 새 IoT Edge 장치를 등록하는 방법을 보여줍니다.
+이 문서에서는 Azure CLI를 사용하여 새 IoT Edge 장치를 등록하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-using-cli.md) 
-* 사용자 환경의 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Azure CLI 2.0 버전이 2.0.24 이상이어야 합니다. `az –-version` 명령을 사용하여 유효성을 검사합니다. 이 버전은 az extension 명령을 지원하며 Knack 명령 프레임워크를 도입했습니다. 
-* [Azure CLI 2.0에 대한 IoT 확장](https://github.com/Azure/azure-iot-cli-extension).
+* 사용자 환경의 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Azure CLI 버전이 2.0.24 이상이어야 합니다. `az –-version` 명령을 사용하여 유효성을 검사합니다. 이 버전은 az extension 명령을 지원하며 Knack 명령 프레임워크를 도입했습니다. 
+* [Azure CLI용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="create-a-device"></a>장치 만들기
 
@@ -67,4 +67,4 @@ IoT Edge 장치로 등록된 모든 장치에서는 **capabilities.iotEdge** 속
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure CLI 2.0을 사용하여 장치에 모듈을 배포](how-to-deploy-modules-cli.md)하는 방법을 알아봅니다.
+[Azure CLI를 사용하여 장치에 모듈을 배포](how-to-deploy-modules-cli.md)하는 방법을 알아봅니다.

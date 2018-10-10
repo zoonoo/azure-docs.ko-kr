@@ -15,16 +15,17 @@ ms.workload: big-compute
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 85bda9e1a936f19a37be2f2c1c42f948cab727d6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 98bd088d4995bd1444b059531dc5b19d0283f551
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122470"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965537"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>진단 평가 및 모니터링을 위한 일괄 처리 메트릭, 경고 및 로그
 
-이 문서에서는 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md)의 기능을 사용하여 배치 계정을 모니터링하는 방법을 설명합니다. Azure Monitor는 배치 계정의 리소스에 대해 [메트릭](../monitoring-and-diagnostics/monitoring-overview-metrics.md) 및 [진단 로그](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)를 수집합니다. 이 데이터를 다양한 방법으로 수집하고 사용하여 배치 계정을 모니터링하고 문제를 진단합니다. 또한 메트릭이 지정된 값에 도달할 때 알림을 받을 수 있도록 [메트릭 경고](../monitoring-and-diagnostics/monitoring-overview-alerts.md#alerts-on-azure-monitor-data)를 구성할 수 있습니다. 
+ 
+이 문서에서는 [Azure Monitor](../azure-monitor/overview.md)의 기능을 사용하여 배치 계정을 모니터링하는 방법을 설명합니다. Azure Monitor는 배치 계정의 리소스에 대해 [메트릭](../monitoring/monitoring-data-collection.md#metrics) 및 [진단 로그](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)를 수집합니다. 이 데이터를 다양한 방법으로 수집하고 사용하여 배치 계정을 모니터링하고 문제를 진단합니다. 또한 메트릭이 지정된 값에 도달할 때 알림을 받을 수 있도록 [메트릭 경고](../monitoring-and-diagnostics/monitoring-overview-alerts.md)를 구성할 수 있습니다. 
 
 ## <a name="batch-metrics"></a>일괄 처리 메트릭
 
@@ -64,7 +65,8 @@ Azure Portal에서 배치 계정에 대한 메트릭을 봅니다. 기본적으�
 2. **모니터링**에서 **경고 규칙** > **메트릭 경고 추가**를 클릭합니다.
 3. 메트릭, 경고 조건(예: 메트릭이 일정 기간 동안 특정 값을 초과하는 경우) 및 하나 이상의 알림을 선택합니다.
 
-또한 [REST API](https://docs.microsoft.com/rest/api/monitor/)를 사용하여 거의 실시간으로 경고를 구성할 수 있습니다. 자세한 내용은 [Azure Portal에서 Azure 서비스에 대한 최신 메트릭 경고 사용](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)을 참조하세요.
+또한 [REST API](https://docs.microsoft.com/rest/api/monitor/)를 사용하여 거의 실시간으로 경고를 구성할 수 있습니다. 자세한 내용은 [경고 개요](../monitoring-and-diagnostics/monitoring-overview-alerts.md)를 참조하세요.
+
 ## <a name="batch-diagnostics"></a>일괄 처리 진단
 
 진단 로그에는 각 리소스의 작업을 설명하는 Azure 리소스에서 내보낸 정보가 포함됩니다. 일괄 처리의 경우 다음 로그를 수집할 수 있습니다.

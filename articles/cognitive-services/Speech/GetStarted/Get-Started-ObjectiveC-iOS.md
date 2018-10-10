@@ -1,22 +1,24 @@
 ---
-title: iOS의 Objective-C에서 Microsoft Speech Recognition API 시작 | Microsoft Docs
-description: Microsoft Speech Recognition API를 사용하여 음성 오디오를 텍스트로 변환하는 iOS 응용 프로그램을 개발합니다.
+title: iOS의 Objective-C에서 Bing Speech Recognition API 시작 | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Bing Speech Recognition API를 사용하여 음성 오디오를 텍스트로 변환하는 iOS 응용 프로그램을 개발합니다.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: bbb8d3975cdab537135b97ca9bbf6e845aa3fa0e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: a12c9b5325898afe508398f67939c39e591eb1cc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373879"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954503"
 ---
-# <a name="get-started-with-the-speech-recognition-api-in-objective-c-on-ios"></a>iOS의 Objective-C에서 Speech Recognition API 시작
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-objective-c-on-ios"></a>빠른 시작: iOS의 Objective-C에서 Bing Speech Recognition API 사용
 
 Speech Recognition API를 사용하면 클라우드 기반 Speech Service를 사용하여 음성 오디오를 텍스트로 변환하는 iOS 응용 프로그램을 개발할 수 있습니다. API는 실시간 스트리밍을 지원하므로 응용 프로그램에서 오디오를 서비스에 보내는 동시에 부분 인식 결과를 동시에 비동기적으로 받을 수 있습니다.
 

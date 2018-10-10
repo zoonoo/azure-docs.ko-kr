@@ -1,25 +1,25 @@
 ---
-title: 자습서 - Azure Cost Management로 소비 예측 | Microsoft Docs
+title: 자습서 - Azure에서 Cloudyn을 사용하여 소비 예측 | Microsoft Docs
 description: 이 자습서에서는 기존 사용량 및 소비 데이터를 사용하여 소비를 예측하는 방법을 알아봅니다.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 411b4797510b26dec43ea7f2232457199808c857
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 587459be69fe250b3e73fb9eb9d5cd08cf2e7a42
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162197"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953687"
 ---
 # <a name="tutorial-forecast-future-spending"></a>자습서: 향후 소비 예측
 
-Azure Cost Management는 기존 사용량 및 소비 데이터를 사용하여 향후 소비를 예측하는 데 도움이 됩니다. Cloudyn 보고서를 사용하여 모든 비용 예상 데이터를 볼 수 있습니다. 이 자습서의 예제는 보고서를 사용하여 비용 예상의 검토 과정을 안내합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+Cloudyn은 기존 사용량 및 소비 데이터를 사용하여 향후 소비를 예측하는 데 도움이 됩니다. Cloudyn 보고서를 사용하여 모든 비용 예상 데이터를 볼 수 있습니다. 이 자습서의 예제는 보고서를 사용하여 비용 예상의 검토 과정을 안내합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 향후 소비 예측
@@ -29,7 +29,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 ## <a name="prerequisites"></a>필수 조건
 
 - Azure 계정이 있어야 합니다.
-- Azure Cost Management에 대한 평가판 등록 또는 유료 구독이 있어야 합니다.
+- Cloudyn 평가판 등록 또는 유료 구독이 있어야 합니다.
 
 ## <a name="forecast-future-spending"></a>향후 소비 예측
 

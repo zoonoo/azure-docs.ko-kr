@@ -8,19 +8,19 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 7704e08246798108aa251c19a4ab0c3baaaad570
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 2e4b356fec642e06e3223700967eeacd19f1c49c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140553"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952480"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>장치 및 모듈 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어
 
 IoT Hub는 [장치 쌍][lnk-twins] 및 [작업][lnk-jobs] 그리고 [메시지 라우팅][lnk-devguide-messaging-routes]과 관련된 정보를 검색할 수 있는 강력한 SQL 유형의 언어를 제공합니다. 이 문서에 제공되는 내용:
 
 * IoT Hub 쿼리 언어의 주요 기능 소개 및
-* 언어에 대한 자세한 설명
+* 언어에 대한 자세한 설명 메시지 라우팅의 쿼리 언어에 대한 자세한 내용은 [메시지 라우팅의 쿼리](../iot-hub/iot-hub-devguide-routing-query-syntax.md)를 참조하세요.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -305,126 +305,6 @@ WHERE devices.jobs.jobId = 'myJobId'
 * 작업 속성 외에 장치 쌍을 참조하는 조건(앞 섹션 참조)
 * 집계 수행(예: count, avg, group by)
 
-## <a name="device-to-cloud-message-routes-query-expressions"></a>장치-클라우드 메시지 경로에 대한 쿼리 식
-
-[장치-클라우드 경로][lnk-devguide-messaging-routes]를 사용하면 장치-클라우드 메시지를 다른 엔드포인트로 전달하도록 IoT Hub를 구성할 수 있습니다. 이러한 전달은 개별 메시지에 대해 평가된 식을 기준으로 합니다.
-
-[조건][lnk-query-expressions] 경로는 IoT Hub 쿼리 언어 구문을 쌍 및 작업 쿼리에 조건으로 사용하지만, 함수의 하위 집합만 제공됩니다. 메시지 헤더 및 본문에서 경로 조건이 평가됩니다. 라우팅 쿼리 식에 메시지 본문 헤더만 포함될 수도 있고, 메시지 본문만 포함될 수도 있고, 메시지 헤더와 메시지 본문이 모두 포함될 수도 있습니다. IoT Hub는 메시지를 전달하기 위해 헤더와 메시지 본문에 대한 특정 스키마를 가정하며, 다음 섹션에서는 IoT Hub가 적절히 라우팅하려면 무엇이 필요한지 설명합니다.
-
-### <a name="routing-on-message-headers"></a>메시지 헤더에서 라우팅
-
-IoT Hub는 메시지 라우팅에 대해 메시지 헤더의 다음 JSON 표현을 가정합니다.
-
-```json
-{
-  "message": {
-    "systemProperties": {
-      "contentType": "application/json",
-      "contentEncoding": "utf-8",
-      "iothub-message-source": "deviceMessages",
-      "iothub-enqueuedtime": "2017-05-08T18:55:31.8514657Z"
-    },
-    "appProperties": {
-      "processingPath": "<optional>",
-      "verbose": "<optional>",
-      "severity": "<optional>",
-      "testDevice": "<optional>"
-    },
-    "body": "{\"Weather\":{\"Temperature\":50}}"
-  }
-}
-```
-
-메시지 시스템 속성 앞에 `'$'` 기호를 붙입니다.
-사용자 속성은 항상 이름을 사용하여 액세스됩니다. 사용자 속성 이름이 시스템 속성과 일치하는 것으로 나타나면(예: `$contentType`) 사용자 속성을 `$contentType` 식을 사용하여 검색합니다.
-항상 괄호 `{}`를 사용하여 시스템 속성에 액세스할 수 있습니다. 예를 들어 식 `{$contentType}`를 사용하여 시스템 속성 `contentType`에 액세스할 수 있습니다. 속성 이름을 대괄호로 묶으면 항상 해당 시스템 속성이 검색됩니다.
-
-속성 이름은 대/소문자를 구분하지 않습니다.
-
-> [!NOTE]
-> 모든 메시지 속성은 문자열입니다. [개발자 가이드][lnk-devguide-messaging-format]에서 설명한 대로 시스템 속성은 현재 쿼리에서 사용할 수 없습니다.
->
-
-예를 들어 `messageType` 속성을 사용하는 경우 모든 원격 분석을 하나의 엔드포인트로 라우팅하고, 모든 경고를 다른 엔드포인트로 라우팅할 수 있습니다. 다음 식을 작성하면 원격 분석을 라우팅할 수 있습니다.
-
-```sql
-messageType = 'telemetry'
-```
-
-그리고 다음 식으로 경고 메시지를 라우팅합니다.
-
-```sql
-messageType = 'alert'
-```
-
-부울 식 및 함수도 지원됩니다. 이 기능을 사용하면 심각도 수준을 구분할 수 있습니다. 예를 들어 다음과 같습니다.
-
-```sql
-messageType = 'alerts' AND as_number(severity) <= 2
-```
-
-지원되는 연산자와 함수의 전체 목록은 [식 및 조건][lnk-query-expressions] 섹션을 참조하세요.
-
-### <a name="routing-on-message-bodies"></a>메시지 본문에서 라우팅
-
-메시지 본문이 UTF-8, UTF-16 또는 UTF-32로 적절하게 인코딩된 JSON 형식이어야 IoT Hub가 메시지 본문 콘텐츠를 기반으로 라우팅할 수 있습니다. 메시지 콘텐츠 형식을 `application/json`으로 설정합니다. 콘텐츠 인코딩을 메시지 헤더에서 지원되는 UTF 인코딩 중 하나로 설정합니다. 헤더 중 하나를 지정하지 않으면 IoT Hub는 메시지에 대한 본문과 관련된 쿼리 식을 평가하지 않습니다. 메시지가 JSON 메시지가 아니거나 메시지에서 콘텐츠 유형 및 콘텐츠 인코딩을 지정하지 않더라도 여전히 메시지 라우팅을 사용하여 메시지 헤더를 기반으로 메시지를 라우팅할 수도 있습니다.
-
-다음 예제에서는 올바르게 구성되고 인코딩된 JSON 본문을 사용하여 메시지를 만드는 방법을 보여 줍니다.
-
-```csharp
-string messageBody = @"{ 
-                            ""Weather"":{ 
-                                ""Temperature"":50, 
-                                ""Time"":""2017-03-09T00:00:00.000Z"", 
-                                ""PrevTemperatures"":[ 
-                                    20, 
-                                    30, 
-                                    40 
-                                ], 
-                                ""IsEnabled"":true, 
-                                ""Location"":{ 
-                                    ""Street"":""One Microsoft Way"", 
-                                    ""City"":""Redmond"", 
-                                    ""State"":""WA"" 
-                                }, 
-                                ""HistoricalData"":[ 
-                                    { 
-                                    ""Month"":""Feb"", 
-                                    ""Temperature"":40 
-                                    }, 
-                                    { 
-                                    ""Month"":""Jan"", 
-                                    ""Temperature"":30 
-                                    } 
-                                ] 
-                            } 
-                        }"; 
- 
-// Encode message body using UTF-8 
-byte[] messageBytes = Encoding.UTF8.GetBytes(messageBody); 
- 
-using (var message = new Message(messageBytes)) 
-{ 
-    // Set message body type and content encoding. 
-    message.ContentEncoding = "utf-8"; 
-    message.ContentType = "application/json"; 
- 
-    // Add other custom application properties.  
-    message.Properties["Status"] = "Active";    
- 
-    await deviceClient.SendEventAsync(message); 
-}
-```
-
-쿼리 식에 `$body`를 사용하여 메시지를 라우팅할 수 있습니다. 쿼리 식에 간단한 본문 참조, 본문 배열 참조 또는 여러 본문 참조를 사용할 수 있습니다. 쿼리 식에서 본문 참조를 메시지 헤더 참조와 결합할 수도 있습니다. 예를 들어 다음은 모든 유효한 쿼리 식입니다.
-
-```sql
-$body.Weather.HistoricalData[0].Month = 'Feb'
-$body.Weather.Temperature = 50 AND $body.Weather.IsEnabled
-length($body.Weather.Location.State) = 2
-$body.Weather.Temperature = 50 AND Status = 'Active'
-```
-
 ## <a name="basics-of-an-iot-hub-query"></a>IoT Hub 쿼리의 기초
 모든 IoT Hub 쿼리는 SELECT 및 FROM 절로 이루어지며 선택적으로 WHERE 및 GROUP BY 절이 포함됩니다. 모든 쿼리는 JSON 문서(예: 장치 쌍) 컬렉션에 대해 실행됩니다. FROM 절은 반복이 수행될 문서 컬렉션을 나타냅니다(예: **devices** 또는 **devices.jobs**). 그런 다음 WHERE 절의 필터가 적용됩니다. 집계를 사용할 경우 이 단계의 결과는 GROUP BY 절에 지정된 대로 그룹화됩니다. 각 그룹에 대해 SELECT 절에 지정된 대로 행이 생성됩니다.
 
@@ -614,8 +494,7 @@ GROUP BY <group_by_element>
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-devguide-messaging-routes]: iot-hub-devguide-messages-read-custom.md
+[lnk-devguide-messaging-routes]: iot-hub-devguide-messages-d2c.md
 [lnk-devguide-messaging-format]: iot-hub-devguide-messages-construct.md
-[lnk-devguide-messaging-routes]: ./iot-hub-devguide-messages-read-custom.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md

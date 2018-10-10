@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: sngun
-ms.openlocfilehash: faa213caf415f98c230af741822e17a511b6fe43
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: aa2613f7cb73c2c338189aaaa48587c49a3093f5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696298"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962210"
 ---
 # <a name="build-a-java-application-by-using-azure-cosmos-db-async-java-sdk"></a>Azure Cosmos DB Async Java SDK를 사용하여 Java 응용 프로그램 빌드 
 
@@ -26,7 +26,6 @@ ms.locfileid: "43696298"
 > * [Java](sql-api-java-get-started.md)
 > * [비동기 Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
-> * [Node.js- v2](sql-api-nodejs-get-started-preview.md) 
 > 
 
 Azure Cosmos DB는 전 세계에 배포된 다중 모델 데이터베이스입니다. 이 자습서에서는 Azure Cosmos DB SQL API 계정을 사용하여 Async Java 응용 프로그램을 통해 데이터를 저장 및 액세스하는 방법을 보여줍니다. 
@@ -101,7 +100,7 @@ public class AccountSettings
 ![Java 콘솔 응용 프로그램을 만들기 위해 NoSQL 자습서에서 사용하는 Azure Portal의 스크린샷입니다. 액티브 허브, Azure Cosmos DB 계정 블레이드의 키 단추 및 키 블레이드의 URI, 기본 키 및 보조 키 값이 강조 표시된 Azure Cosmos DB 계정을 보여 줌][keys]
 
 ## <a name="step-4-initialize-the-client-object"></a>4단계: 클라이언트 개체 초기화
-호스트 URI와 "AccountSettings.java" 파일에 정의된 기본 키 값을 사용하여 클라이언트 개체를 초기화합니다.
+호스트 URI와 “AccountSettings.java” 파일에 정의된 기본 키 값을 사용하여 클라이언트 개체를 초기화합니다.
 
 ```java
 client = new AsyncDocumentClient.Builder()

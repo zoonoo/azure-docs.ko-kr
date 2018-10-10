@@ -1,29 +1,31 @@
 ---
-title: Azure 빠른 시작 - Azure Storage 탐색기를 사용하여 개체 저장소에 Blob 만들기 | Microsoft Docs
-description: 이 빠른 시작에서는 개체(Blob) 저장소에서 Azure Storage 탐색기를 사용합니다. 그런 다음, Storage 탐색기를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
+title: '빠른 시작: Azure Storage 탐색기를 사용하여 개체 저장소에 Blob 만들기'
+description: 이 빠른 시작에서는 Azure Storage 탐색기를 사용하여 컨테이너 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 컨테이너의 모든 Blob을 보는 방법을 알아봅니다. 또한 Blob의 스냅숏을 만들고, 컨테이너 액세스 정책을 관리하고, 공유 액세스 서명을 만드는 방법을 알아봅니다.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/09/2018
+ms.date: 08/27/2018
 ms.author: tamram
-ms.openlocfilehash: 83698abd3006671c5edce37e3cada26d07d25b8f
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 3f0418e9ccdc5fe3babd2f1ac4482795994fe3b4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399639"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996131"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>빠른 시작: Azure Storage 탐색기를 사용하여 BLOB 업로드, 다운로드 및 나열
+# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>빠른 시작: Azure Storage 탐색기를 사용하여 개체 저장소에 Blob 만들기
 
-[Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)는 저장소 계정 콘텐츠를 관리하는 데 사용되는 다중 플랫폼 사용자 인터페이스입니다. 이 가이드에서는 Azure Storage 탐색기를 사용하여 로컬 디스크와 Azure Blob Storage 간에 파일을 전송하는 방법을 설명합니다.
+이 빠른 시작에서는 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 컨테이너 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 컨테이너의 모든 Blob을 보는 방법을 알아봅니다. 또한 Blob의 스냅숏을 만들고, 컨테이너 액세스 정책을 관리하고, 공유 액세스 서명을 만드는 방법을 알아봅니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 사용하려면 Azure Storage 탐색기를 설치해야 합니다. 설치해야 하는 경우 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)에 방문하여 Windows, Macintosh 또는 Linux용을 다운로드합니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+이 빠른 시작을 사용하려면 Azure Storage 탐색기를 설치해야 합니다. Windows, Macintosh 또는 Linux용 Azure Storage 탐색기를 설치하려면 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 참조하세요.
+
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="log-in-to-storage-explorer"></a>Storage 탐색기에 로그인
 

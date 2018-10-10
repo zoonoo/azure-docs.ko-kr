@@ -9,28 +9,28 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: jasonh
-ms.openlocfilehash: 1988593fa7cb0d84baffc4264147d350962bb6bc
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: d036922d68116689d1c54c2c3e89be5accedb533
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093070"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983489"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>HDInsight 클러스터용 Azure Resource Manager 기반 개발 도구에 마이그레이션
 
-HDInsight에서는 HDInsight용 ASM(Azure 서비스 관리자) 기반 도구를 지원하지 않습니다. Azure PowerShell, Azure CLI 또는 HDInsight .NET SDK를 사용하여 HDInsight 클러스터와 함께 작업한 경우 앞으로 Azure Resource Manager 버전의 PowerShell, CLI 및 .NET SDK를 사용하는 것이 좋습니다. 이 문서는 새 Resource Manager 기반 접근 방법에 마이그레이션하는 방법에 대한 포인터를 제공합니다. 해당되는 경우 이 문서에서는 HDInsight에 대한 ASM 및 Resource Manager 접근 방법 간의 차이점을 강조합니다.
+HDInsight에서는 HDInsight용 ASM(Azure 서비스 관리자) 기반 도구를 지원하지 않습니다. Azure PowerShell, Azure 클래식 CLI 또는 HDInsight .NET SDK를 사용하여 HDInsight 클러스터와 함께 작업한 경우 앞으로 Azure Resource Manager 버전의 PowerShell, CLI 및 .NET SDK를 사용하는 것이 좋습니다. 이 문서는 새 Resource Manager 기반 접근 방법에 마이그레이션하는 방법에 대한 포인터를 제공합니다. 해당되는 경우 이 문서에서는 HDInsight에 대한 ASM 및 Resource Manager 접근 방법 간의 차이점을 강조합니다.
 
 > [!IMPORTANT]
 > ASM 기반 PowerShell, CLI 및 .NET SDK에 대한 지원은 **2017년 1월 1일**에 중단됩니다.
 > 
 > 
 
-## <a name="migrating-azure-cli-to-azure-resource-manager"></a>Azure Resource Manager로 Azure CLI 마이그레이션
+## <a name="migrating-azure-classic-cli-to-azure-resource-manager"></a>Azure Resource Manager로 Azure 클래식 CLI 마이그레이션
 
 > [!IMPORTANT]
-> Azure CLI 2.0에서는 HDInsight 클러스터 작업을 위한 지원을 제공하지 않습니다. 여전히 HDInsight와 함께 Azure CLI 1.0을 사용할 수 있지만 Azure CLI 1.0은 사용되지 않습니다.
+> Azure CLI에서는 HDInsight 클러스터 작업을 위한 지원을 제공하지 않습니다. 여전히 HDInsight와 함께 Azure 클래식 CLI를 사용할 수 있지만 Azure 클래식 CLI는 사용되지 않습니다.
 
-다음은 Azure CLI 1.0을 통한 HDInsight를 사용하기 위한 기본 명령입니다.
+다음은 Azure 클래식 CLI를 통해 HDInsight를 사용하기 위한 기본 명령입니다.
 
 * `azure hdinsight cluster create` - 새 HDInsight 클러스터를 만듭니다.
 * `azure hdinsight cluster delete` - 새 HDInsight 클러스터를 삭제합니다.

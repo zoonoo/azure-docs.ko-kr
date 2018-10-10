@@ -8,13 +8,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/06/2018
-ms.openlocfilehash: cd1219fda7821fdc99e334de58826317113415d4
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.date: 09/08/2018
+ms.openlocfilehash: f261c59193349d55d407e6079002b75884273e84
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053644"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960246"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Azure Kubernetes Service 및 Terraform을 사용하여 Kubernetes 클러스터 만들기
 [AKS(Azure Kubernetes Service)](/azure/aks/)는 호스팅된 Kubernetes 환경을 관리하므로 컨테이너 오케스트레이션에 대한 전문 지식 없이 컨테이너화된 응용 프로그램을 빠르고 쉽게 배포하고 관리할 수 있습니다. 또한 응용 프로그램을 오프라인으로 변경하지 않고 주문형 리소스를 프로비전하고, 업그레이드하고, 크기 조정하여 진행 중인 작업 및 유지 관리 부담을 제거합니다.
@@ -32,7 +32,7 @@ ms.locfileid: "44053644"
 
 - **Terraform 구성**: [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)(Terraform 및 Azure 액세스 구성) 문서의 지침을 따릅니다.
 
-- **Azure 서비스 주체**: [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal)(Azure CLI 2.0으로 Azure 서비스 주체 만들기) 문서의 **Create the service principal(서비스 주체 만들기)** 섹션에 나온 지침을 따릅니다. appId, displayName, 암호, 테넌트를 기록해 둡니다.
+- **Azure 서비스 주체**: [Azure CLI를 사용하여 Azure 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal) 문서의 **서비스 주체 만들기** 섹션에 나온 지침을 따릅니다. appId, displayName, 암호, 테넌트를 기록해 둡니다.
 
 ## <a name="create-the-directory-structure"></a>디렉터리 구조 만들기
 첫 번째 단계는 연습용 Terraform 구성 파일을 넣을 디렉터리를 만드는 것입니다.
@@ -295,7 +295,14 @@ Terraform은 `terraform.tfstate` 파일을 통해 로컬로 상태를 추적합�
 
     ![“terraform init” 결과의 예](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-init-complete.png)
 
-1. `terraform plan` 명령을 실행하여 인프라 요소를 정의하는 Terraform 계획을 만듭니다. 이 명령은 두 값, 즉 **var.client_id** 및 **var.client_secret**을 요청합니다. **var.client_id** 변수의 경우, 서비스 주체와 연결된 **appId** 값을 입력합니다. **var.client_secret** 변수의 경우, 서비스 주체와 연결된 **password** 값을 입력합니다.
+1. 서비스 주체 자격 증명 내보내기 &lt;your-client-id> 및 &lt;your-client-secret> 자리 표시자를 각각 서비스 주체와 연결된 **appId** 및 **password** 값으로 바꿉니다.
+
+    ```bash
+    export TF_VAR_client_id=<your-client-id>
+    export TF_VAR_client_secret=<your-client-secret>
+    ```
+
+1. `terraform plan` 명령을 실행하여 인프라 요소를 정의하는 Terraform 계획을 만듭니다. 
 
     ```bash
     terraform plan -out out.plan

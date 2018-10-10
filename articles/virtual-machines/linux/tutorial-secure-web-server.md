@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Azure에서 SSL 인증서로 Linux 웹 서버 보호 | Microsoft Docs
-description: 이 자습서에서는 Azure CLI 2.0을 사용하여 Azure Key Vault에 저장된 SSL 인증서로 NGINX 웹 서버를 실행하는 Linux 가상 머신을 보호하는 방법을 설명합니다.
+description: 이 자습서에서는 Azure CLI를 사용하여 Azure Key Vault에 저장된 SSL 인증서로 NGINX 웹 서버를 실행하는 Linux 가상 머신을 보호하는 방법을 설명합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 11d884d9f1e7f805dd0796696152dda063ed7755
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: a0156167142e87ffb7935828de1000a302f12e31
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886134"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981706"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>자습서: Key Vault에 저장된 SSL 인증서로 Azure에서 Linux 가상 머신의 웹 서버 보호
 웹 서버를 보호하기 위해 웹 트래픽을 암호화하는 데 SSL(Secure Sockets Layer) 인증서를 사용할 수 있습니다. 이러한 SSL 인증서는 Azure Key Vault에 저장될 수 있으며 Azure에서 Linux VM(가상 머신)에 인증서의 보안 배포를 허용합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -34,7 +34,7 @@ ms.locfileid: "42886134"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 
 ## <a name="overview"></a>개요

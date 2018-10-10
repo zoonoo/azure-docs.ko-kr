@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 117e73c35bb66578976ef990e61eea606e2e8e36
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 9661722c5d35e4336d5e42374a1444cf50734fba
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736884"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998341"
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>내부 부하 분산 장치에 대해 고가용성 포트 구성
 
@@ -45,7 +45,7 @@ ms.locfileid: "34736884"
 
 고가용성 포트를 구성하려면 백 엔드 풀의 NVA를 사용하여 내부 부하 분산 장치를 설정합니다. 고가용성 포트를 사용하여 NVA 상태 및 부하 분산 장치 규칙을 검색하려면 해당 부하 분산 장치 상태 프로브 구성을 설정합니다. 일반적인 부하 분산 장치 관련 구성에 대해서는 [시작](load-balancer-get-started-ilb-arm-portal.md)을 참조하세요. 이 문서에서는 고가용성 포트 구성을 중점적으로 설명합니다.
 
-구성에서는 기본적으로 프런트 엔드 포트와 백 엔드 포트 값을 **0**으로 설정합니다. 프로토콜 값은 **All**로 설정합니다. 이 문서에서는 Azure Portal, PowerShell 및 Azure CLI 2.0을 사용하여 고가용성 포트를 구성하는 방법에 대해 설명합니다.
+구성에서는 기본적으로 프런트 엔드 포트와 백 엔드 포트 값을 **0**으로 설정합니다. 프로토콜 값은 **All**로 설정합니다. 이 문서에서는 Azure Portal, PowerShell 및 Azure CLI를 사용하여 고가용성 포트를 구성하는 방법에 대해 설명합니다.
 
 ### <a name="configure-a-high-availability-ports-load-balancer-rule-with-the-azure-portal"></a>Azure Portal을 사용하여 고가용성 포트 부하 분산 장치 규칙 구성
 
@@ -95,7 +95,7 @@ PowerShell을 사용하여 내부 부하 분산 장치를 만드는 동안 다�
 lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "All" -FrontendPort 0 -BackendPort 0
 ```
 
-### <a name="configure-a-high-availability-ports-load-balancer-rule-with-azure-cli-20"></a>Azure CLI 2.0을 사용하여 고가용성 포트 부하 분산 장치 규칙 구성
+### <a name="configure-a-high-availability-ports-load-balancer-rule-with-azure-cli"></a>Azure CLI를 사용하여 고가용성 포트 부하 분산 장치 규칙 구성
 
 [내부 부하 분산 장치 집합 만들기](load-balancer-get-started-ilb-arm-cli.md) 4단계에서 다음 명령을 사용하여 고가용성 포트 부하 분산 장치 규칙을 만듭니다.
 

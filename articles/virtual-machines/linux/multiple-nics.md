@@ -1,6 +1,6 @@
 ---
 title: 여러 NIC를 사용하여 Azure에서 Linux VM 만들기 | Microsoft Docs
-description: Azure CLI 2.0 또는 Resource Manager 템플릿을 사용하여 여러 NIC가 있는 Linux VM을 만드는 방법을 알아봅니다.
+description: Azure CLI 또는 Resource Manager 템플릿을 사용하여 여러 NIC가 연결된 Linux VM을 만드는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
@@ -14,21 +14,20 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: iainfou
-ms.openlocfilehash: 77feb52a4ba2013bd6ec0afcd30a20f05227031e
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 4982de352af2ce33f4dbf6dba00ff9296cc9b873
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42143577"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999754"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>여러 네트워크 인터페이스 카드를 사용하여 Azure에서 Linux 가상 머신을 만드는 방법
-Azure에서 여러 가상 NIC(네트워크 인터페이스)가 연결된 VM(가상 머신)을 만들 수 있습니다. 일반적인 시나리오는 프런트 엔드 및 백 엔드 연결에 다른 서브넷을 사용하거나 모니터링 또는 백업 솔루션 전용 네트워크를 두는 것입니다. 이 문서에서는 여러 NIC가 연결되어 있는 VM을 만드는 방법과 기존 VM에서 NIC를 추가 또는 제거하는 방법을 자세히 설명합니다. [VM 크기](sizes.md) 가 다르면 다양한 NIC가 지원되므로 그에 따라 VM 크기를 지정하도록 합니다.
 
-이 문서에서는 Azure CLI 2.0을 사용하여 여러 NIC가 있는 VM을 만드는 방법을 설명합니다. [Azure CLI 1.0](multiple-nics-nodejs.md)에서 이러한 단계를 수행할 수도 있습니다.
 
+이 문서에서는 Azure CLI를 사용하여 여러 NIC가 있는 VM을 만드는 방법을 설명합니다.
 
 ## <a name="create-supporting-resources"></a>지원 리소스 만들기
-최신 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인합니다.
+최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인합니다.
 
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *mystorageaccount* 및 *myVM*이 포함됩니다.
 
@@ -104,7 +103,7 @@ az vm create \
 [여러 Nic에 대 한 게스트 OS 구성](#configure-guest-os-for- multiple-nics)의 단계를 완료하여 라우팅 테이블을 게스트 OS에 추가합니다.
 
 ## <a name="add-a-nic-to-a-vm"></a>VM에 NIC 추가
-이전 단계에서는 여러 NIC가 있는 VM을 만들었습니다. Azure CLI 2.0을 사용해서 기존 VM에 NIC를 추가할 수도 있습니다. [VM 크기](sizes.md) 가 다르면 다양한 NIC가 지원되므로 그에 따라 VM 크기를 지정하도록 합니다. 필요한 경우 [VM의 크기를 조정](change-vm-size.md)할 수 있습니다.
+이전 단계에서는 여러 NIC가 있는 VM을 만들었습니다. Azure CLI를 사용해서 기존 VM에 NIC를 추가할 수도 있습니다. [VM 크기](sizes.md) 가 다르면 다양한 NIC가 지원되므로 그에 따라 VM 크기를 지정하도록 합니다. 필요한 경우 [VM의 크기를 조정](change-vm-size.md)할 수 있습니다.
 
 [az network nic create](/cli/azure/network/nic#az_network_nic_create)를 사용하여 다른 NIC를 만듭니다. 다음 예제에서는 이전 단계에서 만든 백 엔드 서브넷 및 네트워크 보안 그룹에 연결된 *myNic3*라는 NIC를 만듭니다.
 

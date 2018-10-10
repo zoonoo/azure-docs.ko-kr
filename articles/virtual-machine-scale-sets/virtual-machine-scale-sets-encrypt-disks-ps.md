@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 850140404d95b77b3494754666e118b3566221c1
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c39df127e07601dbc5125d246f25da22ce4a0e40
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630235"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981766"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell-preview"></a>Azure PowerShell(미리 보기)을 사용하여 가상 머신 확장 집합에서 OS 및 연결된 데이터 디스크 암호화
 
@@ -158,4 +158,4 @@ Disable-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vm
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 가상 머신 확장 집합을 암호화하는 데 Azure PowerShell을 사용했습니다. [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) 또는 [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)에 대해 [Azure CLI 2.0](virtual-machine-scale-sets-encrypt-disks-cli.md) 또는 템플릿을 사용할 수도 있습니다.
+이 문서에서는 가상 머신 확장 집합을 암호화하는 데 Azure PowerShell을 사용했습니다. [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) 또는 [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)에 대해 [Azure CLI](virtual-machine-scale-sets-encrypt-disks-cli.md) 또는 템플릿을 사용할 수도 있습니다.

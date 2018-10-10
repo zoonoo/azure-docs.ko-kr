@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Service Fabric Mesh에 다중 서비스 웹 응용 프로그램 만들기, 디버그 및 배포 | Microsoft Docs
+title: 자습서 - Service Fabric Mesh에 대한 다중 서비스 응용 프로그램 만들기, 디버그, 배포 및 모니터링 | Microsoft Docs
 description: 이 자습서에서는 백 엔드 웹 서비스와 통신하고, 로컬로 디버그하고, Azure에 게시하는 ASP.NET Core 웹 사이트로 구성된 다중 서비스 Azure Service Fabric Mesh 응용 프로그램을 만듭니다.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -12,26 +12,28 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2018
+ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 59ff3434e7b984f4530ad4f8b03b27991d3a9c1c
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 09112aafdbabf0cda2b3ae13af73a9223533a6e1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41924810"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979197"
 ---
-# <a name="tutorial-create-debug-and-deploy-a-multi-service-web-application-to-service-fabric-mesh"></a>자습서 - Service Fabric Mesh에 다중 서비스 웹 응용 프로그램 만들기, 디버그 및 배포
+# <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>자습서: 다중 서비스 Service Fabric Mesh 앱 만들기, 디버그, 배포 및 업그레이드
 
-이 자습서는 시리즈의 1부입니다. ASP.NET 웹 프런트 엔드 및 ASP.NET Core 웹 API 백 엔드 서비스가 있는 Azure Service Fabric Mesh 응용 프로그램을 만드는 방법에 대해 알아봅니다. 그런 다음, 로컬 개발 클러스터에서 응용 프로그램을 디버그하고 Azure에 응용 프로그램을 게시합니다. 작업이 완료되면 Azure Service Fabric Mesh에서 실행되는 Service Fabric Mesh 응용 프로그램에서 서비스 간 호출을 보여 주는 간단한 할 일 앱이 만들어집니다.
+이 자습서는 시리즈의 1부입니다. Visual Studio를 사용하여 ASP.NET 웹 프런트 엔드 및 ASP.NET Core 웹 API 백 엔드 서비스가 있는 Azure Service Fabric Mesh 앱을 만드는 방법에 대해 알아봅니다. 그런 다음, 로컬 개발 클러스터에서 앱을 디버그합니다. 앱을 Azure에 게시한 후 구성 및 코드를 변경하고 앱을 업그레이드합니다. 마지막으로 사용되지 않는 Azure 리소스를 정리하여 사용하지 않는 항목에 대한 비용이 청구되지 않도록 합니다.
+
+작업이 완료되면 앱 수명 주기 관리의 대부분 단계를 수행하고 Service Fabric Mesh 앱에서 서비스 간 호출을 보여 주는 앱을 빌드하게 됩니다.
 
 할 일 응용 프로그램을 수동으로 만들지 않으려면 완성된 응용 프로그램에 대한 [소스 코드를 다운로드](https://github.com/azure-samples/service-fabric-mesh)하고 [로컬로 응용 프로그램을 디버그](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)하도록 건너뛸 수 있습니다.
 
 시리즈 1부에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * ASP.NET 웹 프런트 엔드로 구성된 Service Fabric Mesh 응용 프로그램을 만듭니다.
+> * Visual Studio를 사용하여 ASP.NET 웹 프런트 엔드로 구성된 Service Fabric Mesh 앱을 만듭니다.
 > * 할 일 항목을 나타내는 모델을 만듭니다.
 > * 백 엔드 서비스를 만들고 이 서비스에서 데이터를 검색합니다.
 > * 백 엔드 서비스에 대한 모델 뷰 컨트롤러 패턴의 일부로 컨트롤러와 DataContext를 추가합니다.
@@ -40,9 +42,11 @@ ms.locfileid: "41924810"
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * Service Fabric Mesh 응용 프로그램 빌드
-> * [로컬로 앱 디버그](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
-> * [Azure에 앱 게시](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * Visual Studio에서 Service Fabric Mesh 앱 만들기
+> * [로컬 개발 클러스터에서 실행 중인 Service Fabric Mesh 앱 디버그](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> * [Service Fabric Mesh 앱 배포](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Service Fabric Mesh 앱 업그레이드](service-fabric-mesh-tutorial-upgrade.md)
+> * [Service Fabric Mesh 리소스 정리](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -54,9 +58,7 @@ ms.locfileid: "41924810"
 
 * Service Fabric 런타임, SDK, Docker 및 Visual Studio 2017 설치가 포함된 [개발 환경을 설정](service-fabric-mesh-howto-setup-developer-environment-sdk.md)했는지 확인합니다.
 
-* 이 자습서의 앱은 현재 영어 로캘을 사용하여 빌드해야 합니다.
-
-## <a name="create-a-service-fabric-mesh-project"></a>Service Fabric Mesh 프로젝트 만들기
+## <a name="create-a-service-fabric-mesh-project-in-visual-studio"></a>Visual Studio에서 Service Fabric Mesh 프로젝트 만들기
 
 Visual Studio를 열고 **파일** > **새로 만들기** > **프로젝트...** 를 차례로 선택합니다.
 
@@ -212,10 +214,7 @@ public static class DataContext
 
     static DataContext()
     {
-        ToDoList = new Model.ToDoList("Main List");
-
         // Seed to-do list
-
         ToDoList.Add(Model.ToDoItem.Load("Learn about microservices", 0, true));
         ToDoList.Add(Model.ToDoItem.Load("Learn about Service Fabric", 1, true));
         ToDoList.Add(Model.ToDoItem.Load("Learn about Service Fabric Mesh", 2, false));
@@ -368,6 +367,7 @@ service.yaml 파일에서 `environmentVariables` 아래에 다음 변수를 추�
 
 > [!IMPORTANT]
 > service.yaml 파일에서 탭이 아닌 공백은 변수 들여쓰기에 사용해야 합니다. 그렇지 않으면 컴파일되지 않습니다. 환경 변수를 만들 때 Visual Studio에서 탭을 삽입할 수 있습니다. 모든 탭을 공백으로 바꾸세요. **빌드** 디버그 출력에 오류가 표시되지만 앱은 계속 실행됩니다. 그러나 탭을 공백으로 변환할 때까지는 작동하지 않습니다. service.yaml 파일에 탭이 없는지 확인하려면 Visual Studio 편집기에서 **편집**  > **고급**  > **공백 보기**를 차례로 사용하여 공백이 표시되도록 할 수 있습니다.
+> service.yaml 파일은 영어 로캘을 사용하여 처리됩니다.  예를 들어 소수 구분 기호를 사용해야 하는 경우 쉼표가 아닌 마침표를 사용합니다.
 
 `ApiHostPort` 값이 다를 수도 있지만 **WebFrontEnd** 프로젝트의 **service.yaml** 파일은 다음과 같을 수 있습니다.
 
@@ -380,7 +380,7 @@ service.yaml 파일에서 `environmentVariables` 아래에 다음 변수를 추�
 자습서의 이 부분에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * ASP.NET 웹 프런트 엔드로 구성된 Service Fabric Mesh 응용 프로그램을 만듭니다.
+> * ASP.NET 웹 프런트 엔드로 구성된 Service Fabric Mesh 앱을 만듭니다.
 > * 할 일 항목을 나타내는 모델을 만듭니다.
 > * 백 엔드 서비스를 만들고 이 서비스에서 데이터를 검색합니다.
 > * 백 엔드 서비스에 대한 모델 뷰 컨트롤러 패턴의 일부로 컨트롤러와 DataContext를 추가합니다.
@@ -389,4 +389,4 @@ service.yaml 파일에서 `environmentVariables` 아래에 다음 변수를 추�
 
 다음 자습서를 진행합니다.
 > [!div class="nextstepaction"]
-> [로컬로 실행되는 Service Fabric Mesh 응용 프로그램 디버그](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> [로컬 개발 클러스터에서 실행 중인 Service Fabric Mesh 응용 프로그램 디버그](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)

@@ -1,6 +1,6 @@
 ---
 title: cloud-init를 사용하여 Azure의 Linux VM에서 패키지 업데이트 및 설치 | Microsoft Docs
-description: Azure CLI 2.0에서 cloud-init를 사용하여 생성 중인 Linux VM의 패키지를 업데이트 및 설치하는 방법
+description: Azure CLI에서 cloud-init를 사용하여 생성 중인 Linux VM의 패키지를 업데이트 및 설치하는 방법
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: rclaus
-ms.openlocfilehash: 8d5835b5d1b0c2f77bdf5e1a2b808478b8f4de22
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 84fab18d4e1f385f8770db52b18ac85151f48afd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186157"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988056"
 ---
 # <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>cloud-init를 사용하여 Azure의 Linux VM에서 패키지 업데이트 및 설치
 이 문서는 [cloud-init](https://cloudinit.readthedocs.io)를 사용하여 Azure의 프로비전 시간에서 Linux VM(가상 머신) 또는 VMSS(가상 머신 확장 집합)의 패키지를 업데이트하는 방법을 보여 줍니다. Azure에서 리소스가 프로비전되면 처음 부팅 시 이러한 cloud-init 스크립트가 실행됩니다. 기본적으로 cloud-init가 Azure에서 작동되는 방식과 지원되는 Linux 배포판에 대한 자세한 내용은 [cloud-init 개요](using-cloud-init.md)를 참조하세요.

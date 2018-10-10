@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 9df3b20cd72236d7001aac94bae302b5a6f9eb8d
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 5e3194b856766502e4cc8c68ffa4bb936634adfa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43110575"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983143"
 ---
 # <a name="install-custom-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 사용자 지정 Hadoop 응용 프로그램 설치
 
@@ -66,7 +66,7 @@ HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 사용�
     이 단추는 Azure 포털에서 Resource Manager 템플릿을 엽니다.  Resource Manager 템플릿의 위치는 [https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json)입니다.  이 Resource Manager 템플릿을 작성하는 방법을 알아보려면 [MSDN: HDInsight 응용 프로그램 설치](https://msdn.microsoft.com/library/mt706515.aspx)를 참조하세요.
 2. 지시를 따라서 클러스터를 만들고 Hue를 설치합니다. HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
-Azure Portal 외에도 [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-powershell) 및 [Azure CLI](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-cli)를 사용하여 Resource Manager 템플릿을 호출할 수도 있습니다.
+Azure Portal 외에도 [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-powershell) 및 [Azure 클래식 CLI](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-azure-cli)를 사용하여 Resource Manager 템플릿을 호출할 수도 있습니다.
 
 ## <a name="validate-the-installation"></a>설치 유효성 검사
 Azure 포털에서 응용 프로그램 상태를 확인하여 응용 프로그램 설치를 확인할 수 있습니다. 또한 예상 대로 나타난 HTTP 엔드포인트 및 웹 페이지가 존재하는 경우 확인할 수도 있습니다.
@@ -117,8 +117,8 @@ HDInsight 응용 프로그램을 삭제하는 방법에는 여러 가지가 있�
 ### <a name="use-azure-powershell"></a>Azure PowerShell 사용
 Azure PowerShell을 사용하여 클러스터 또는 리소스 그룹을 삭제할 수 있습니다. [Azure PowerShell을 사용하여 클러스터 삭제](hdinsight-administer-use-powershell.md#delete-clusters)를 참조하세요.
 
-### <a name="use-azure-cli"></a>Azure CLI 사용
-Azure CLI를 사용하여 클러스터 또는 리소스 그룹을 삭제할 수 있습니다. [Azure CLI를 사용하여 클러스터 삭제](hdinsight-administer-use-command-line.md#delete-clusters)를 참조하세요.
+### <a name="use-azure-classic-cli"></a>Azure 클래식 CLI 사용
+Azure 클래식 CLI를 사용하여 클러스터 또는 리소스 그룹을 삭제할 수 있습니다. [Azure 클래식 CLI를 사용하여 클러스터 삭제](hdinsight-administer-use-command-line.md#delete-clusters)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [MSDN: HDInsight 응용 프로그램 설치](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight 응용 프로그램을 배포하기 위해 Resource Manager 템플릿을 개발하는 방법을 알아봅니다.

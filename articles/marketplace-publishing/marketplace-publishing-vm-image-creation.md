@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: bf2ba6d31c170715a52b84439276c45665293c35
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 893b0ee70f577d9240d577e76062eea36b704058
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246811"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989875"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure Marketplace에 대한 가상 머신 이미지 만들기 가이드
 이 문서의 **2단계**에서는 Azure Marketplace에 배포할 VHD(가상 하드 디스크)를 준비하는 과정을 안내합니다. VHD는 SKU의 기반입니다. Linux 기반 SKU를 제공할지 Windows 기반 SKU를 제공할지 여부에 따라 프로세스는 다릅니다. 이 문서에서는 두 시나리오를 모두 다룹니다. 이 프로세스는 [계정 만들기 및 등록][link-acct-creation]과 함께 병렬로 수행할 수 있습니다.
@@ -189,9 +189,9 @@ VM 이미지에 대해 자세히 알아보려면 다음 블로그 게시물을 �
 * [VM 이미지 PowerShell 방법](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 * [Azure에서 VM 이미지 정보](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 
-### <a name="set-up-the-necessary-tools-powershell-and-azure-cli"></a>필요한 도구, PowerShell 및 Azure CLI 설정
+### <a name="set-up-the-necessary-tools-powershell-and-azure-classic-cli"></a>필요한 도구, PowerShell 및 Azure 클래식 CLI 설정
 * [PowerShell을 설정하는 방법](/powershell/azure/overview)
-* [Azure CLI를 설정하는 방법](../cli-install-nodejs.md)
+* [Azure 클래식 CLI를 설정하는 방법](../cli-install-nodejs.md)
 
 ### <a name="41-create-a-user-vm-image"></a>4.1 사용자 VM 이미지 만들기
 #### <a name="capture-vm"></a>VM 캡처
@@ -427,11 +427,13 @@ Microsoft Azure Storage Explorer를 사용하여 SAS URL을 생성하는 단계�
 
 11. SKU에서 각 VHD에 대해 이 단계를 반복합니다.
 
-**Azure CLI(Windows가 아닌 연속 통합에 권장됨)**
+**Azure 클래식 CLI(Windows가 아닌 연속 통합에 권장됨)**
 
-Azure CLI를 사용하여 SAS URL을 생성하는 단계는 다음과 같습니다.
+Azure 클래식 CLI를 사용하여 SAS URL을 생성하는 단계는 다음과 같습니다.
 
-1.  Microsoft Azure CLI를 [여기](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/)에서 다운로드합니다. **[Windows](http://aka.ms/webpi-azure-cli)** 및 **[MAC OS](http://aka.ms/mac-azure-cli)** 에 대한 다양한 링크를 찾을 수도 있습니다.
+[!INCLUDE [outdated-cli-content](../../includes/contains-classic-cli-content.md)]
+
+1.  [여기](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/)에서 Azure 클래식 CLI를 다운로드합니다. **[Windows](http://aka.ms/webpi-azure-cli)** 및 **[MAC OS](http://aka.ms/mac-azure-cli)** 에 대한 다양한 링크를 찾을 수도 있습니다.
 
 2.  다운로드되면 설치하세요.
 
@@ -447,9 +449,9 @@ Azure CLI를 사용하여 SAS URL을 생성하는 단계는 다음과 같습니�
 
     b. **`<Storage Account Key>`**: 저장소 계정 키를 제공합니다.
 
-    다. **`<Permission Start Date>`**: UTC 시간을 보호하려면 현재 이전 날짜를 선택합니다. 예를 들어, 현재 날짜가 2016년 10월 26일이면 값은 2016/10/25입니다. Azure CLI 2.0(az 명령)을 사용하는 경우 시작 및 종료 날짜에 날짜 및 시간을 제공합니다(예: 10-25-2016T00:00:00Z).
+    다. **`<Permission Start Date>`**: UTC 시간을 보호하려면 현재 이전 날짜를 선택합니다. 예를 들어, 현재 날짜가 2016년 10월 26일이면 값은 2016/10/25입니다. Azure CLI 버전 2.0 이상을 사용하는 경우 시작 및 종료 날짜에 날짜 및 시간을 제공합니다(예: 10-25-2016T00:00:00Z).
 
-    d. **`<Permission End Date>`**: **시작 날짜** 이후 3주 이상 지난 날짜를 선택합니다. 값은 **11/02/2016**이어야 합니다. Azure CLI 2.0(az 명령)을 사용하는 경우 시작 및 종료 날짜에 날짜 및 시간을 제공합니다(예: 11-02-2016T00:00:00Z).
+    d. **`<Permission End Date>`**: **시작 날짜** 이후 3주 이상 지난 날짜를 선택합니다. 값은 **11/02/2016**이어야 합니다. Azure CLI 버전 2.0 이상을 사용하는 경우 시작 및 종료 날짜에 날짜 및 시간을 제공합니다(예: 11-02-2016T00:00:00Z).
 
     다음은 적절한 매개 변수를 업데이트한 후의 예제 코드입니다.
 
@@ -520,14 +522,13 @@ Azure CLI를 사용하여 SAS URL을 생성하는 단계는 다음과 같습니�
 |이미지 복사 중 오류 - “sp=rl”이 SAS URL에 없습니다|오류: 이미지 복사 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.|"읽기" 및 "나열"로 설정된 사용 권한으로 SAS URL 업데이트|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |이미지 복사 중 오류 - SAS URL은 VHD 이름에 공백을 포함합니다|오류: 이미지 복사 제공된 SAS URI를 사용하여 Blob을 다운로드할 수 없습니다.|공백 없이 SAS URL 업데이트|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |이미지 복사 중 오류 – SAS URL 권한 부여 오류|오류: 이미지 복사 권한 부여 오류로 인해 Blob을 다운로드할 수 없습니다.|SAS URL 다시 생성|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|이미지 복사 실패 – SAS Url "st" 및 "se" 매개 변수에 전체 날짜/시간 사양이 없습니다.|오류: 이미지 복사 잘못된 SAS URL로 인해 Blob을 다운로드할 수 없습니다. |SAS Url 시작 및 종료 날짜 매개 변수("st", "se")에는 날짜만 지정하거나 약식 시간 버전을 지정하면 안 되며 전체 날짜/시간 사양(예: 11-02-2017T00:00:00Z)을 지정해야 합니다. Azure CLI 2.0(az 명령)을 사용하는 경우 이러한 시나리오가 발생하기 쉽습니다. 전체 날짜/시간 사양을 제공하고 SAS Url을 다시 생성해야 합니다.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|이미지 복사 실패 – SAS Url "st" 및 "se" 매개 변수에 전체 날짜/시간 사양이 없습니다.|오류: 이미지 복사 잘못된 SAS URL로 인해 Blob을 다운로드할 수 없습니다. |SAS Url 시작 및 종료 날짜 매개 변수("st", "se")에는 날짜만 지정하거나 약식 시간 버전을 지정하면 안 되며 전체 날짜/시간 사양(예: 11-02-2017T00:00:00Z)을 지정해야 합니다. Azure CLI 버전 2.0 이상을 사용하는 경우 이러한 시나리오가 발생하기 쉽습니다. 전체 날짜/시간 사양을 제공하고 SAS Url을 다시 생성해야 합니다.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>다음 단계
 SKU 세부 정보를 완료하면 [Azure Marketplace 마케팅 콘텐츠 가이드][link-pushstaging]를 진행할 수 있습니다. 게시 프로세스의 해당 단계에서는 **3단계: 스테이징에서 VM 제품 테스트** 이전에 필요한 마케팅 콘텐츠, 가격 책정 및 기타 정보를 제공합니다. 여기에서 제품을 Azure Marketplace에 배포하여 일반에게 공개하고 판매하기 전에 다양한 사용 사례 시나리오를 테스트합니다.  
 
 ## <a name="see-also"></a>참고 항목
-* 
-  [시작: Azure Marketplace에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
+* [시작: Azure Marketplace에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
 
 [img-acom-1]:media/marketplace-publishing-vm-image-creation/vm-image-acom-datacenter.png
 [img-portal-vm-size]:media/marketplace-publishing-vm-image-creation/vm-image-portal-size.png

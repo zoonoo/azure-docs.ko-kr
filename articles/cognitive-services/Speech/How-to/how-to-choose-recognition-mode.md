@@ -1,24 +1,26 @@
 ---
-title: 인식 모드를 선택하는 방법 | Microsoft Docs
-description: 최상의 인식 모드를 선택하는 방법입니다.
+title: Bing Speech 인식 모드를 선택하는 방법 | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Bing Speech에서 최상의 인식 모드를 선택하는 방법입니다.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 4f02b683dde16b537ae5554e6435c068f0fcb808
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: a39b357a26823e322d4e902f2d99b67488bbf2df
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373791"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950882"
 ---
-# <a name="speech-recognition-modes"></a>음성 인식 모드
+# <a name="bing-speech-recognition-modes"></a>Bing Speech 인식 모드
 
-Microsoft의 *Speech to Text* API는 여러 음성 인식 모드를 지원합니다. 응용 프로그램에 가장 적합한 인식 결과를 생성하는 모드를 선택합니다.
+Bing Speech to Text API는 여러 음성 인식 모드를 지원합니다. 응용 프로그램에 가장 적합한 인식 결과를 생성하는 모드를 선택합니다.
 
 | Mode | 설명 |
 |---|---|

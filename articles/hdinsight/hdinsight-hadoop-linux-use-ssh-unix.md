@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: f7e6651e0aa776c4bbcac1fc70017139c21a7512
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 7054bf34fea5b499fdec167667242d918cc01c8e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105023"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981726"
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>SSH를 사용하여 HDInsight(Hadoop)에 연결
 
@@ -102,7 +102,7 @@ SSH 키는 [공개 키 암호화](https://en.wikipedia.org/wiki/Public-key_crypt
 | ------- | ------- |
 | **Azure Portal** | __클러스터 로그인으로 동일한 암호 사용__의 선택을 취소한 다음 __공개 키__를 SSH 인증 유형으로 선택합니다. 마지막으로 공개 키 파일을 선택하거나 __SSH 공개 키__ 필드에 파일의 텍스트 내용을 붙여 넣습니다.</br>![HDInsight 클러스터 생성의 SSH 공개 키 대화 상자](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
 | **Azure PowerShell** | `New-AzureRmHdinsightCluster` cmdlet의 `-SshPublicKey` 매개 변수를 사용하여 공개 키의 내용을 문자열로 전달합니다.|
-| **Azure CLI 1.0** | `azure hdinsight cluster create` 명령의 `--sshPublicKey` 매개 변수를 사용하여 공개 키의 내용을 문자열로 전달합니다. |
+| **Azure 클래식 CLI** | `azure hdinsight cluster create` 명령의 `--sshPublicKey` 매개 변수를 사용하여 공개 키의 내용을 문자열로 전달합니다. |
 | **Resource Manager 템플릿** | 템플릿에서 SSH 키를 사용하는 예제는 [SSH 키를 사용하여 Linux에서 HDInsight 배포](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/)를 참조하세요. [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) 파일의 `publicKeys` 요소는 클러스터를 만들 때 Azure에 키를 전달하는 데 사용됩니다. |
 
 ## <a id="sshpassword"></a>인증: 암호
@@ -121,7 +121,7 @@ SSH 계정은 암호를 사용하여 보호될 수 있습니다. SSH를 사용�
 | --------------- | ---------------- |
 | **Azure Portal** | 기본적으로 SSH 사용자 계정에는 클러스터 로그인 계정인 동일한 암호가 있습니다. 다른 암호를 사용하려면 __클러스터 로그인으로 동일한 암호 사용__의 선택을 취소한 다음 __SSH 암호__ 필드에 암호를 입력합니다.</br>![HDInsight 클러스터 생성의 SSH 암호 대화 상자](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
 | **Azure PowerShell** | `New-AzureRmHdinsightCluster` cmdlet의 `--SshCredential` 매개 변수를 사용하고 SSH 사용자 계정 이름 및 암호를 포함하는 `PSCredential` 개체를 전달합니다. |
-| **Azure CLI 1.0** | `azure hdinsight cluster create` 명령의 `--sshPassword` 매개 변수를 사용하여 암호 값을 제공합니다. |
+| **Azure 클래식 CLI** | `azure hdinsight cluster create` 명령의 `--sshPassword` 매개 변수를 사용하여 암호 값을 제공합니다. |
 | **Resource Manager 템플릿** | 템플릿에서 암호를 사용하는 예제는 [SSH 암호를 사용하여 Linux에서 HDInsight 배포](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/)를 참조하세요. [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) 파일의 `linuxOperatingSystemProfile` 요소는 클러스터를 만들 때 Azure에 SSH 계정 이름 및 암호를 전달하는 데 사용됩니다.|
 
 ### <a name="change-the-ssh-password"></a>SSH 암호 변경

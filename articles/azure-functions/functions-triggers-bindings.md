@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 05/24/2018
 ms.author: glenga
-ms.openlocfilehash: e3f2cc24a3ff765a33d27bbe5a43ca9d5a229e1b
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: cc965073863375d76efb969ad66cf5750c9755bb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092958"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969430"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 트리거 및 바인딩 개념
 
@@ -160,7 +160,7 @@ function generateRandomId() {
 |Visual Studio 2017을 사용하는 C# 클래스 라이브러리|[NuGet 도구 사용](#c-class-library-with-visual-studio-2017)|[NuGet 도구 사용](#c-class-library-with-visual-studio-2017)|
 |Visual Studio Code를 사용하는 C# 클래스 라이브러리|해당 없음|[.NET Core CLI 사용](#c-class-library-with-visual-studio-code)|
 
-다음과 같은 바인딩 유형은 HTTP, 타이머 및 Azure Storage(Blob, 큐 및 테이블)와 같은 환경 및 모든 버전에서 자동으로 등록되기 때문에 명시적인 등록이 필요하지 않은 예외 항목입니다. 
+다음과 같은 바인딩 유형은 HTTP 및 타이머와 같은 환경 및 모든 버전에서 자동으로 등록되기 때문에 명시적인 등록이 필요하지 않은 예외 항목입니다.
 
 ### <a name="azure-portal-development"></a>Azure Portal 개발
 

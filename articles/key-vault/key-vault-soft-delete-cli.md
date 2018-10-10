@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: bryanla
-ms.openlocfilehash: 0554e2e184ce3f3140d3b9e90eb33c20774ed789
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 73ece43c26c3957a1b7dba02a673099f7d35e8d6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303007"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951783"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>CLI로 Key Vault 일시 삭제를 사용하는 방법
 
@@ -25,15 +25,15 @@ Azure Key Vault의 일시 삭제 기능을 사용하면 삭제된 자격 증명 
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Azure CLI 2.0 - 사용자 환경에 이 단계가 없는 경우 [CLI 2.0을 사용한 Key Vault 관리](key-vault-manage-with-cli2.md)를 참조하세요.
+- Azure CLI - 사용자 환경에 이 단계가 없는 경우 [Azure CLI를 사용한 Key Vault 관리](key-vault-manage-with-cli2.md)를 참조하세요.
 
-CLI에 대한 Key Vault 관련 특정 참조 정보는 [Azure CLI 2.0 Key Vault 참조](https://docs.microsoft.com/cli/azure/keyvault)를 참조하세요.
+CLI에 대한 Key Vault 관련 특정 참조 정보는 [Azure CLI Key Vault 참조](https://docs.microsoft.com/cli/azure/keyvault)를 참조하세요.
 
 ## <a name="required-permissions"></a>필요한 사용 권한
 
 Key Vault 작업은 RBAC(역할 기반 액세스 제어) 권한을 통해 다음과 같이 별도로 관리됩니다.
 
-| 작업 | 설명 | 사용자 권한 |
+| 작업(Operation) | 설명 | 사용자 권한 |
 |:--|:--|:--|
 |나열|삭제된 Key Vault를 나열합니다.|Microsoft.KeyVault/deletedVaults/read|
 |복구|삭제된 Key Vault를 복구합니다.|Microsoft.KeyVault/vaults/write|

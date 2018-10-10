@@ -1,6 +1,6 @@
 ---
 title: Linux VM에서 데이터 디스크 분리 - Azure | Microsoft Docs
-description: CLI 2.0 또는 Azure Portal을 사용하여 Azure의 가상 머신에서 디스크를 분리하는 방법을 알아봅니다.
+description: Azure CLI 또는 Azure Portal을 사용하여 Azure의 가상 머신에서 데이터 디스크를 분리하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/18/2018
 ms.author: cynthn
-ms.openlocfilehash: 0225c6605109489c4b9b599918dc09983ae25ac8
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: b087040e5d219941ec0b2ee0f58dfe0058a1ad04
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144077"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968354"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Linux 가상 머신에서 데이터 디스크를 분리하는 방법
 
@@ -99,7 +99,7 @@ sudo umount /dev/sdc1 /datadrive
 ```
 
 
-## <a name="detach-a-data-disk-using-cli-20"></a>CLI 2.0을 사용하여 데이터 디스크 분리
+## <a name="detach-a-data-disk-using-azure-cli"></a>Azure CLI를 사용하여 데이터 디스크 분리 
 
 이 예제에서는 *myResourceGroup*의 VM *myVM*에서 *myDataDisk* 디스크를 분리합니다.
 

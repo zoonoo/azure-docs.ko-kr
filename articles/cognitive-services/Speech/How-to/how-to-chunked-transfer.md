@@ -1,20 +1,22 @@
 ---
 title: 오디오 스트림을 청크 분할하여 전송하는 방법 | Microsoft Docs
-description: 청크 분할 전송을 사용하여 오디오 스트림을 음성 서비스로 보내는 방법입니다.
+titlesuffix: Azure Cognitive Services
+description: 청크 분할 전송을 사용하여 오디오 스트림을 Bing Speech 서비스로 보내는 방법
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 7d02340932dfc547893c4c40cbe08978b7b93756
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: cf21b11f76592f5df2d81e6bdc10413c79fe895e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373790"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979229"
 ---
 # <a name="chunked-transfer-encoding"></a>청크 분할 전송 인코딩
 

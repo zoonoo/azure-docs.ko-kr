@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 1009a7a1d9f354f7a41b0e3a0fbc49d57992bc31
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 034731ac2c965d6b9b682c62b9866870e558ff6d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42916473"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964670"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>빠른 시작: Azure Data Lake Storage Gen2 미리 보기 저장소 계정 만들기
 
@@ -49,7 +49,7 @@ Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Ba
 
 ### <a name="install-the-cli-locally"></a>로컬에서 CLI 설치
 
-Azure CLI를 로컬에서 설치하여 사용할 수도 있습니다. 이 빠른 시작에서는 Azure CLI 버전 2.0.38 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요.
+Azure CLI를 로컬에서 설치하여 사용할 수도 있습니다. 이 빠른 시작에서는 Azure CLI 버전 2.0.38 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="overview-of-creating-an-azure-data-lake-storage-gen2-account"></a>Azure Data Lake Storage Gen2 계정 만들기에 대한 개요
 
@@ -58,7 +58,7 @@ Azure CLI를 로컬에서 설치하여 사용할 수도 있습니다. 이 빠른
 > [!NOTE]
 > Data Lake Storage Gen2 기능을 활용하려면 새 저장소 계정을 **StorageV2(범용 V2)** 유형으로 만들어야 합니다.  
 
-저장소 계정 유형에 대한 자세한 내용은 [Azure Storage 계정 옵션](../common/storage-account-options.md)을 참조하세요.
+저장소 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
 
 저장소 계정의 이름을 지정할 때는 다음 규칙에 유의하세요.
 

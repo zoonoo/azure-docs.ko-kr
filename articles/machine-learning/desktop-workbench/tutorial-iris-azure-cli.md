@@ -10,14 +10,18 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: 10fe861682da6c1d1ac701a565cef11f9b44cd1e
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: b9b515a2ccaedc40fc531d6a1cc58cbe98212b4a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41917638"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967900"
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>자습서: 명령줄 인터페이스를 사용하여 아이리스 분류
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, 실험을 개발하고, 클라우드 범위에서 모델을 배포할 수 있는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다.
 
 이 자습서에서는 Azure Machine Learning 미리 보기 기능에서 CLI(명령줄 인터페이스) 도구를 사용하여 다음을 수행하는 방법에 대해 알아봅니다. 
@@ -34,7 +38,7 @@ Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, �
   
   Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-- [빠른 시작: Azure Machine Learning 서비스 설치 및 시작](../service/quickstart-installation.md)의 설명에 따라 설치된 Azure Machine Learning Workbench 응용 프로그램. 
+- [빠른 시작: Azure Machine Learning 서비스 설치 및 시작](quickstart-installation.md)의 설명에 따라 설치된 Azure Machine Learning Workbench 응용 프로그램. 
 
   >[!IMPORTANT]
   >이 문서에서 CLI를 사용하여 Azure Machine Learning 서비스 계정을 만들 것이므로 Azure Machine Learning 서비스 계정을 만들지 마십시오.
@@ -139,16 +143,16 @@ $ az ml project create --name <project name> --workspace <workspace name> --acco
 ```
 
 ### <a name="create-a-new-project-associated-with-a-cloud-git-repository"></a>클라우드 Git 리포지토리와 연결된 새 프로젝트 만들기
-VSTS(Visual Studio Team Service) Git 리포지토리와 연결된 새 프로젝트를 만들 수 있습니다. 실험이 제출될 때마다 전체 프로젝트 폴더의 스냅숏이 원격 Git 리포지토리로 커밋됩니다. 자세한 내용은 [Azure Machine Learning Workbench 프로젝트에서 Git 리포지토리 사용](using-git-ml-project.md)을 참조하세요.
+Azure DevOps Git 리포지토리와 연결된 새 프로젝트를 만들 수 있습니다. 실험이 제출될 때마다 전체 프로젝트 폴더의 스냅숏이 원격 Git 리포지토리로 커밋됩니다. 자세한 내용은 [Azure Machine Learning Workbench 프로젝트에서 Git 리포지토리 사용](using-git-ml-project.md)을 참조하세요.
 
 > [!NOTE]
-> Azure Machine Learning은 VSTS에서 만들어진 빈 Git 리포지토리만 지원합니다.
+> Azure Machine Learning은 Azure DevOps에서 만들어진 빈 Git 리포지토리만 지원합니다.
 
 ```azure-cli
 $ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --repo <VSTS repo URL>
 ```
 > [!TIP]
-> "리포지토리 URL이 유효하지 않거나 사용자에게 액세스 권한이 없음"이라는 오류가 발생하는 경우, VSTS(_보안_, _개인 액세스 토큰 추가_ 메뉴)에서 보안 토큰을 만들고, 프로젝트를 만들 때 `--vststoken` 인수를 사용할 수 있습니다. 
+> “리포지토리 URL이 유효하지 않거나 사용자에게 액세스 권한이 없음”이라는 오류가 발생하는 경우, Azure DevOps(‘보안’, ‘개인 액세스 토큰 추가’ 메뉴)에서 보안 토큰을 만들고, 프로젝트를 만들 때 `--vststoken` 인수를 사용할 수 있습니다. 
 
 ### <a name="sample_create"></a>샘플에서 새 프로젝트 만들기
 이 예제에서는 샘플 프로젝트를 템플릿으로 사용하여 새 프로젝트를 만듭니다.

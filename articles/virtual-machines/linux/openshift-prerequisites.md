@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 178f4d6dab5c87c9c53ab87c4a3b1edcfa61c221
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 36271116d697e5ee6c6ed08d5fdc6063a511e820
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29847127"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984341"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Azure에서 OpenShift를 배포하기 위한 일반적인 필수 조건
 
@@ -50,7 +50,7 @@ VM(가상 머신)은 Azure Resource Manager 템플릿을 통해 배포되기 때
 > * OpenShift 클러스터에 대한 SSH 키를 관리하는 키 자격 증명 모음을 만듭니다.
 > * Azure 클라우드 솔루션 공급자가 사용할 서비스 주체를 만듭니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인 
 [az login](/cli/azure/reference-index#az_login) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따르거나 **시도**를 클릭하여 Cloud Shell을 사용합니다.
@@ -124,7 +124,7 @@ az ad sp create-for-rbac --name openshiftsp \
  > [!WARNING] 
  > 보안 암호를 만들어야 합니다. [Azure AD 암호 규칙 및 제한 사항](/azure/active-directory/active-directory-passwords-policy) 지침을 따르세요.
 
-서비스 주체에 대한 자세한 내용은 [Azure CLI 2.0을 사용하여 Azure 서비스 주체 만들기](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)를 참조하세요.
+서비스 주체에 대한 자세한 내용은 [Azure CLI를 사용하여 Azure 서비스 주체 만들기](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

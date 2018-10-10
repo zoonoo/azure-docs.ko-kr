@@ -1,161 +1,159 @@
 ---
 title: Azure Portal을 사용하여 IoT Hub 만들기 | Microsoft 문서
 description: Azure Portal을 통해 Azure IoT Hub를 만들고 관리하고 삭제하는 방법입니다. 가격 책정 계층, 보안, 배율 및 메시징 구성에 대한 정보가 포함됩니다.
-author: dominicbetts
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.author: dobett
-ms.openlocfilehash: 0b03ae434e93dbab45235fe67c499497e1257064
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.date: 09/06/2018
+ms.author: robinsh
+ms.openlocfilehash: 8f08141f5c14a734f89ba91045767e2a36a44fd2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42141798"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985608"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Azure Portal을 사용하여 IoT Hub 만들기
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-이 문서에서는 다음을 설명합니다.
+이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 IoT 허브를 만들고 관리하는 방법에 대해 설명합니다.
 
-* Azure Portal에서 IoT Hub 서비스를 찾는 방법.
-* IoT Hub 만들기 및 관리 방법.
-
-## <a name="where-to-find-the-iot-hub-service"></a>IoT Hub 서비스를 찾을 위치.
-
-IoT Hub 서비스를 포털의 다음 위치에서 찾을 수 있습니다.
-
-* **+새로 만들기**를 선택한 다음, **사물 인터넷**을 선택합니다.
-* Marketplace에서 **사물 인터넷**을 선택합니다.
+이 자습서의 단계를 사용하려면 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
-다음 메서드를 통해 IoT Hub를 만들 수 있습니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
-* **+ 새로 만들기** 옵션에서 다음 스크린 샷에 표시된 블레이드가 열립니다. 이 메서드는 Marketplace를 통해 IoT Hub를 만드는 단계와 동일합니다.
+2. **+ 리소스 만들기**, **사물 인터넷**을 차례로 선택합니다.
 
-* Marketplace에서 **만들기**를 선택하여 다음 스크린 샷에 표시된 블레이드를 엽니다.
+3. 오른쪽의 목록에서 **Iot Hub**를 클릭합니다. IoT 허브를 만들기 위한 첫 번째 화면이 표시됩니다.
 
-다음 섹션에서는 IoT Hub를 만드는 몇 가지 단계를 설명합니다.
+   ![Azure Portal에서 허브 만들기를 보여 주는 스크린샷](./media/iot-hub-create-through-portal/iot-hub-create-screen-basics.png)
 
-### <a name="choose-the-name-of-the-iot-hub"></a>IoT Hub 이름 선택
+   필드를 입력합니다.
 
-IoT Hub를 만들려면 IoT Hub의 이름을 지정해야 합니다. 이 이름은 모든 IoT Hub에서 고유해야 합니다.
+   **구독**: IoT 허브에 사용할 구독을 선택합니다.
 
-[!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+   **리소스 그룹**: 새 리소스 그룹을 만들거나 기존 리소스 그룹을 사용할 수 있습니다. 새 리소스 그룹을 만들려면 **새로 만들기**를 클릭하고 사용하려는 이름을 입력합니다. 기존 리소스 그룹을 사용하려면 **기존 항목 사용**을 클릭하고 드롭다운 목록에서 리소스 그룹을 선택합니다.
 
-### <a name="choose-the-pricing-tier"></a>가격 책정 계층 선택
+   **지역**: 드롭다운 목록에서 허브를 배치할 지역을 선택합니다.
 
-원하는 기능 수 그리고 하루에 솔루션을 통해 보내는 메시지 수에 따라 여러 계층에서 선택할 수 있습니다. 무료 계층은 테스트와 평가를 위해 제공됩니다. IoT Hub에 500개 장치를 연결할 수 있으며 하루에 8,000개 메시지까지 허용합니다. 각 Azure 구독은 무료 계층에 하나의 IoT Hub를 만들 수 있습니다. 
+   **IoT Hub이름**: IoT Hub의 이름을 입력합니다. 이 이름은 전역적으로 고유해야 합니다. 
 
-다른 계층 옵션에 대한 자세한 내용은 [적절한 IoT Hub 계층 선택](iot-hub-scaling.md)을 참조하세요.
+   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
-### <a name="iot-hub-units"></a>IoT Hub 단위
+4. **다음: 크기 및 배율**을 클릭하여 다음 화면으로 이동합니다.
 
-하루 단위당 허용되는 메시지의 수는 허브의 가격 책정 계층에 따라 다릅니다. 예를 들어 IoT Hub가 700,000개의 메시지 수신을 지원하려면 S1 계층 단위 2개를 선택합니다.
+   ![Azure Portal을 사용하여 새 IoT 허브의 크기 및 배율 설정을 보여 주는 스크린샷](./media/iot-hub-create-through-portal/iot-hub-create-screen-size-scale.png)
 
-### <a name="device-to-cloud-partitions-and-resource-group"></a>클라우드 파티션 및 리소스 그룹에 대한 장치
+   이 화면에서 기본값을 적용하고 아래쪽의 **검토 + 만들기**를 클릭하면 됩니다. 또는 필요에 따라 필드를 채울 수 있습니다.
 
-IoT Hub에 대한 파티션 수를 변경할 수 있습니다. 기본 파티션 수는 4개로, 드롭다운 목록에서 다른 숫자를 선택할 수 있습니다.
+   **가격 책정 및 크기 조정 계층**: 원하는 기능 수와 솔루션을 통해 보내는 일당 메시지 수에 따라 여러 계층 중에서 선택할 수 있습니다. 무료 계층은 테스트와 평가를 위해 제공됩니다. IoT Hub에 500개 장치를 연결할 수 있으며 하루에 8,000개 메시지까지 허용합니다. 각 Azure 구독은 무료 계층에 하나의 IoT Hub를 만들 수 있습니다. 
 
-빈 리소스 그룹을 명시적으로 만들지 않아도 됩니다. 리소스를 만들 때 새로 만들거나 기존 리소스 그룹을 사용하도록 선택할 수 있습니다.
+   **IoT Hub 단위**: 허용되는 일/단위당 메시지의 수는 허브의 가격 책정 계층에 따라 다릅니다. 예를 들어 IoT Hub가 700,000개의 메시지 수신을 지원하려면 S1 계층 단위 2개를 선택합니다.
 
-![Azure Portal에서 허브 만들기를 보여 주는 스크린샷](./media/iot-hub-create-through-portal/location1.png)
+   다른 계층 옵션에 대한 자세한 내용은 [적절한 IoT Hub 계층 선택](iot-hub-scaling.md)을 참조하세요.
 
-### <a name="choose-subscription"></a>구독 선택
+   **고급/장치-클라우드 파티션**: 이 속성은 장치-클라우드 메시지를 메시지의 동시 판독기 수와 연결합니다. 대부분의 IoT 허브에는 4개의 파티션만 필요합니다. 
 
-Azure IoT Hub에 사용자 계정을 연결할 Azure 구독 목록이 자동으로 표시됩니다. Azure 구독을 선택하여 IoT Hub를 연결할 수 있습니다.
+5. **검토 + 만들기**를 클릭하여 선택 사항을 검토합니다. 다음 화면과 비슷하게 표시됩니다.
 
-### <a name="choose-the-location"></a>위치 선택
+   ![새 IoT 허브를 만들기 위한 정보를 검토하는 스크린샷](./media/iot-hub-create-through-portal/iot-hub-create-review.png)
 
-위치 옵션은 IoT Hub가 제공되는 지역 목록을 제공합니다.
-
-### <a name="create-the-iot-hub"></a>IoT Hub 만들기
-
-이전 단계를 모두 완료하면 IoT Hub를 만들 수 있습니다. 백 엔드 프로세스를 시작하도록 **만들기**를 클릭하여 선택한 옵션으로 IoT Hub를 만들고 배포합니다.
-
-적절한 위치 서버에서 백 엔드 배포가 실행되는 데 시간이 소요되므로 IoT Hub를 만드는 데 몇 분이 소요될 수 있습니다.
+5. **만들기**를 클릭하여 새 IoT 허브를 만듭니다. 허브를 만드는 데 몇 분이 걸립니다.
 
 ## <a name="change-the-settings-of-the-iot-hub"></a>IoT Hub의 설정 변경
-<!--robinsh these screenshots are out of date -->
 
-IoT Hub 블레이드에서 IoT Hub를 만든 후에 기존 IoT Hub의 설정을 변경할 수 있습니다.
+만든 기존 IoT 허브의 설정은 IoT Hub 창에서 변경할 수 있습니다.
 
-![IoT Hub에 대한 설정을 보여 주는 스크린샷](./media/iot-hub-create-through-portal/portal-settings.png)
+![IoT Hub에 대한 설정을 보여 주는 스크린샷](./media/iot-hub-create-through-portal/iot-hub-settings-panel.png)
 
-**공유 액세스 정책**: IoT Hub에 연결할 장치 및 서비스에 대한 권한을 정의합니다. **일반**에서 **공유 액세스 정책**을 클릭하여 이러한 정책에 액세스할 수 있습니다. 이 블레이드에서 기존 정책을 수정하거나 새 정책을 추가할 수 있습니다.
+IoT 허브에 설정할 수 있는 몇 가지 속성은 다음 과같습니다.
 
-### <a name="create-a-policy"></a>정책 만들기
+**가격 및 크기**: 이 속성을 사용하여 다른 계층으로 마이그레이션하거나 IoT 허브 단위의 수를 설정할 수 있습니다. 
 
-* **추가**를 클릭하여 블레이드를 엽니다. 여기에서 다음 그림에 표시된 것처럼 새 정책 이름과 이 정책과 연결할 권한을 입력할 수 있습니다.
+**작업 모니터링**: 장치-클라우드 메시지 또는 클라우드-장치 메시지와 관련된 이벤트 로깅과 같은 다양한 모니터링 범주를 설정하거나 해제합니다.
 
-    이러한 공유 정책과 연결할 수 있는 몇 개의 권한이 있습니다. **레지스트리 읽기** 및 **레지스트리 쓰기** 정책은 ID 레지스트리에 대한 읽기 및 쓰기 액세스 권한을 부여합니다. 쓰기 옵션을 선택하면 읽기 옵션도 자동으로 선택됩니다.
+**IP 필터**: IoT 허브에서 수락하거나 거부할 IP 주소 범위를 지정합니다.
 
-    **서비스 연결** 정책은 **장치-클라우드 수신**과 같은 서비스 엔드포인트에 액세스할 수 있는 권한을 부여합니다. **장치 연결** 정책은 IoT Hub 장치 쪽 엔드포인트를 사용하여 메시지를 주고받기 위한 권한을 부여합니다.
+**속성**: 리소스 ID, 리소스 그룹, 위치 등 다른 곳에 복사하여 사용할 수 있는 속성의 목록을 제공합니다.
 
-* **만들기** 를 클릭하여 새로 만들어진 이 정책을 기존 목록에 추가합니다.
+### <a name="shared-access-policies"></a>공유 액세스 정책
 
-   ![공유 액세스 정책 추가를 보여 주는 스크린샷](./media/iot-hub-create-through-portal/shared-access-policies.png)
+**설정** 섹션에서 **공유 액세스 정책**을 클릭하여 공유 액세스 정책 목록을 보거나 수정할 수도 있습니다. 이러한 정책은 장치와 서비스에서 IoT Hub에 연결할 수 있는 권한을 정의합니다. 
 
-## <a name="endpoints"></a>엔드포인트
+**추가**를 클릭하여 **공유 액세스 정책 추가** 블레이드를 엽니다.  다음 그림과 같이 새 정책 이름과 이 정책에 연결하려는 권한을 입력할 수 있습니다.
 
-**엔드포인트**를 클릭하여 수정하는 IoT Hub에 대한 엔드포인트 목록을 표시합니다. 엔드포인트의 두 가지 유형은 IoT Hub에 기본 제공된 엔드포인트 및 IoT Hub를 만든 후 여기에 추가된 엔드포인트입니다.
+![공유 액세스 정책 추가를 보여 주는 스크린샷](./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png)
 
-![엔드포인트 추가를 보여 주는 스크린샷](./media/iot-hub-create-through-portal/messaging-settings.png)
+* **레지스트리 읽기** 및 **레지스트리 쓰기** 정책은 ID 레지스트리에 대한 읽기 및 쓰기 액세스 권한을 부여합니다. 쓰기 옵션을 선택하면 읽기 옵션도 자동으로 선택됩니다.
 
-### <a name="built-in-endpoints"></a>기본 제공 엔드포인트
+* **서비스 연결** 정책은 **장치-클라우드 수신**과 같은 서비스 엔드포인트에 액세스할 수 있는 권한을 부여합니다. 
 
-두 가지 기본 제공 엔드포인트인 **클라우드-장치 피드백** 및 **이벤트**가 있습니다.
+* **장치 연결** 정책은 IoT Hub 장치 쪽 엔드포인트를 사용하여 메시지를 주고받기 위한 권한을 부여합니다.
 
-* **클라우드-장치 피드백** 설정: 이 설정에는 메시지에 대한 **클라우드-장치 TTL**(time-to-live) 및 **보존 시간**(시간 단위)의 두 가지 하위 설정이 포함됩니다. IoT Hub를 처음 만들 때 이 두 가지 설정 모두 1시간이 기본값 입니다. 이러한 설정을 조정하려면 슬라이더를 사용하거나 값을 입력합니다.
+**만들기** 를 클릭하여 새로 만들어진 이 정책을 기존 목록에 추가합니다.
 
-* **이벤트** 설정: 이 설정에는 몇 가지 하위 설정이 있고 일부는 읽기 전용입니다. 다음 목록은 이러한 설정에 대해 설명합니다.
+## <a name="message-routing-for-an-iot-hub"></a>IoT 허브에 대한 메시지 라우팅
 
-  * **파티션**: IoT Hub가 만들어질 때 기본 값이 설정됩니다. 이 설정을 통해 파티션 수를 변경할 수 있습니다.
+**메시지** 아래의 **메시지 라우팅**을 클릭하여 허브에 대한 경로 및 사용자 지정 엔드포인트를 정의하는 [메시지 라우팅] 창을 확인합니다. [메시지 라우팅](iot-hub-devguide-messages-d2c.md)을 사용하면 데이터를 장치에서 엔드포인트로 보내는 방법을 관리할 수 있습니다. 첫 번째 단계는 새 경로를 추가하는 것입니다. 그런 다음, 이 경로에 기존 엔드포인트를 추가하거나 Blob 저장소와 같이 지원되는 유형 중 하나를 새로 만들 수 있습니다. 
 
-  * **이벤트 허브 호환 이름 및 엔드포인트**: IoT Hub가 만들어질 때 특정 상황에서 사용자가 액세스해야 하는 이벤트 허브가 내부적으로 만들어집니다. Event Hub 호환 이름 및 엔드포인트 값을 사용자 지정할 수는 없지만 **복사**를 클릭하여 복사할 수 있습니다.
+![메시지 라우팅 창](./media/iot-hub-create-through-portal/iot-hub-message-routing.png)
 
-  * **보존 시간**: 기본적으로 1일로 설정되지만 드롭다운 목록을 사용하여 변경할 수 있습니다. 이 값은 장치-클라우드 설정에 대한 일 단위입니다.
+### <a name="routes"></a>경로
 
-  * **소비자 그룹**: 소비자 그룹은 여러 판독기에서 IoT Hub의 메시지를 독립적으로 읽을 수 있도록 합니다. 모든 IoT Hub가 기본 소비자 그룹으로 만들어집니다. 그러나 이 설정을 사용하여 소비자 그룹을 IoT Hub에 추가 또는 삭제할 수 있습니다.
+[경로]는 [메시지 라우팅] 창의 첫 번째 탭입니다. 새 경로를 추가하려면 **+ 추가**를 클릭합니다. 다음과 같은 화면이 표시됩니다. 
 
-  > [!NOTE]
-  > 기본 소비자 그룹을 편집하거나 삭제할 수 없습니다.
+![새 경로 추가를 보여 주는 스크린샷](./media/iot-hub-create-through-portal/iot-hub-add-route-storage-endpoint.png)
+
+허브 이름을 지정합니다. 이름은 해당 허브에 대한 경로 목록 내에서 고유해야 합니다. 
+
+**엔드포인트**의 경우 드롭다운 목록에서 하나를 선택하거나 새로 추가할 수 있습니다. 이 예에서는 저장소 계정과 컨테이너를 이미 사용할 수 있습니다. 이러한 항목을 엔드포인트로 추가하려면 [엔드포인트] 드롭다운 옆에 있는 **+ 추가**를 클릭하고 **Blob Storage**를 선택합니다. 다음 화면에서는 저장소 계정 및 컨테이너가 지정된 위치를 보여 줍니다.
+
+![라우팅 규칙에 대한 저장소 엔드포인트의 추가를 보여 주는 스크린샷](./media/iot-hub-create-through-portal/iot-hub-routing-add-storage-endpoint.png)
+
+**컨테이너 선택**을 클릭하여 저장소 계정과 컨테이너를 선택합니다. 이러한 필드가 선택되었으면 [엔드포인트] 분할 창으로 돌아갑니다. 나머지 필드에는 기본값을 사용하고, **만들기**를 선택하여 저장소 계정에 대한 엔드포인트를 만들고 이를 라우팅 규칙에 추가합니다.
+
+**데이터 원본**에 대해 [장치 원격 분석 메시지]를 선택합니다. 
+
+다음으로, 라우팅 쿼리를 추가합니다. 이 예에서는 `critical`과 동일한 값이 있는 `level`이라는 응용 프로그램 속성이 있는 메시지가 저장소 계정으로 라우팅됩니다.
+
+![새 경로 규칙 저장을 보여 주는 스크린샷](./media/iot-hub-create-through-portal/iot-hub-add-route.png)
+
+**저장**을 클릭하여 라우팅 규칙을 저장합니다. [메시지 라우팅] 창으로 돌아가고 새 라우팅 규칙이 표시됩니다.
 
 ### <a name="custom-endpoints"></a>사용자 지정 엔드포인트
 
-포털을 사용하여 IoT Hub에 사용자 지정 엔드포인트를 추가할 수 있습니다. **엔드포인트** 블레이드에서 맨 위의 **추가**를 클릭하여 **엔드포인트 추가** 블레이드를 엽니다. 필요한 정보를 입력한 다음 **확인**을 클릭합니다. 사용자 지정 엔드포인트가 기본 **엔드포인트** 블레이드에 표시됩니다.
+**사용자 지정 엔드포인트** 탭을 클릭합니다. 이미 만든 사용자 지정 엔드포인트가 표시됩니다. 여기서는 새 엔드포인트를 추가하거나 기존 엔드포인트를 삭제할 수 있습니다. 
 
-![사용자 지정 엔드포인트 만들기를 보여 주는 스크린샷](./media/iot-hub-create-through-portal/endpoint-creation.png)
+> [!NOTE]
+> 경로를 삭제하더라도 해당 경로에 할당된 엔드포인트는 삭제되지 않습니다. 엔드포인트를 삭제하려면 [사용자 지정 엔드포인트] 탭을 클릭하고, 삭제하려는 엔드포인트를 선택한 다음,[삭제]를 클릭합니다.
+>
 
-[참조 - IoT Hub 엔드포인트]( iot-hub-devguide-endpoints.md)에서 사용자 지정 엔드포인트에 대해 자세히 알아볼 수 있습니다.
+[참조 - IoT Hub 엔드포인트](iot-hub-devguide-endpoints.md)에서 사용자 지정 엔드포인트에 대해 자세히 알아볼 수 있습니다.
 
-## <a name="routes"></a>경로
+IoT 허브에 대해 최대 10개의 사용자 지정 엔드포인트를 정의할 수 있습니다. 
 
-**경로**를 클릭하여 IoT Hub가 장치-클라우드 메시지를 발송하는 방법을 관리합니다.
+라우팅을 통해 사용자 지정 엔드포인트를 사용하는 방법에 대한 전체 예제를 보려면 [IoT 허브로 메시지 라우팅](tutorial-routing.md)을 참조하세요.
 
-![새 경로 추가를 보여 주는 스크린샷](./media/iot-hub-create-through-portal/routes-list.png)
+## <a name="find-a-specific-iot-hub"></a>특정 IoT 허브 찾기
 
-**경로** * 블레이드에서 맨 위의 **추가**를 클릭하여 필요한 정보를 입력하고 **확인** 을 클릭하여 IoT Hub에 경로를 추가할 수 있습니다. 그러면 기본 **경로** 블레이드에 경로가 나열됩니다. 경로 목록에서 경로를 클릭하면 편집할 수 있습니다. 경로를 사용하려면 경로 목록에서 경로를 클릭하고 **사용** 토글을 **해제**로 설정합니다. 변경 내용을 저장하려면 블레이드의 맨 아래에서 **확인**을 클릭합니다.
+구독에서 특정 IoT 허브를 찾는 두 가지 방법은 다음과 같습니다.
 
-![새 경로 규칙 편집을 보여 주는 스크린샷](./media/iot-hub-create-through-portal/route-edit.png)
+1. IoT 허브가 속한 리소스 그룹을 알고 있으면 **리소스 그룹**을 클릭한 다음, 목록에서 해당 리소스 그룹을 선택합니다. 리소스 그룹 화면에는 IoT 허브를 포함하여 해당 그룹의 모든 리소스가 표시됩니다. 찾고 있는 허브를 클릭합니다.
+
+2. **모든 리소스**를 클릭합니다. **모든 리소스** 창에는 기본적으로 `All types`로 지정된 드롭다운 목록이 있습니다. 드롭다운 목록을 클릭하고 `Select all`을 선택 취소합니다. `IoT Hub`을 찾아서 확인합니다. 드롭다운 목록 상자를 클릭하여 닫습니다. 그러면 항목이 필터링되어 IoT 허브만 표시됩니다.
 
 ## <a name="delete-the-iot-hub"></a>IoT Hub 삭제
 
-**찾아보기**를 클릭한 후 삭제할 해당 허브를 선택하여 삭제할 IoT Hub를 찾아볼 수 있습니다. IoT Hub를 삭제하려면 IoT Hub 이름 아래의 **삭제** 단추를 클릭합니다.
+Iot 허브를 삭제하려면 삭제하려는 IoT 허브를 찾은 다음, IoT 허브 이름 아래에 있는 **삭제** 단추를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 알아보려면 다음 링크를 따라가세요.
 
-* [IoT 장치 대량 관리](iot-hub-bulk-identity-mgmt.md)
+* [IoT Hub로 메시지 라우팅](tutorial-routing.md)
 * [IoT Hub 메트릭](iot-hub-metrics.md)
 * [작업 모니터링](iot-hub-operations-monitoring.md)
-
-IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
-
-* [IoT Hub 개발자 가이드](iot-hub-devguide.md)
-* [Azure IoT Edge를 사용하여 에지 장치에 AI 배포](../iot-edge/tutorial-simulate-device-linux.md)
-* [처음부터 IoT 솔루션 보안 유지](../iot-fundamentals/iot-security-ground-up.md)

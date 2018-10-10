@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: df32578c92b1973568c9b811cb7f9e9db067915f
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 5520c08d2bf5dba85ece1de0bca7329286625911
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29691396"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968053"
 ---
 # <a name="customize-server-configuration-parameters-using-azure-cli"></a>Azure CLI를 사용하여 서버 구성 매개 변수 사용자 지정
 Azure CLI(명령줄 인터페이스)를 사용하여 Azure PostgreSQL 서버의 구성 매개 변수를 나열하고, 표시하며, 업데이트할 수 있습니다. 엔진 구성의 하위 집합은 서버 수준에서 노출되고 수정할 수 있습니다. 
@@ -23,7 +23,7 @@ Azure CLI(명령줄 인터페이스)를 사용하여 Azure PostgreSQL 서버의 
 ## <a name="prerequisites"></a>필수 조건
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 - [Azure Database for PostgreSQL 만들기](quickstart-create-server-database-azure-cli.md)에 따라 Azure Database for PostgreSQL 서버 및 데이터베이스 만들기
-- [Azure CLI 2.0](/cli/azure/install-azure-cli) 명령줄 인터페이스를 컴퓨터에 설치하거나 브라우저를 사용하여 Azure Portal의 [Azure Cloud Shell](../cloud-shell/overview.md)을 사용합니다.
+- [Azure CLI](/cli/azure/install-azure-cli) 명령줄 인터페이스를 머신에 설치하거나 브라우저를 사용하여 Azure Portal의 [Azure Cloud Shell](../cloud-shell/overview.md)을 사용합니다.
 
 ## <a name="list-server-configuration-parameters-for-azure-database-for-postgresql-server"></a>PostgreSQL 서버용 Azure 데이터베이스에 대한 서버 구성 매개 변수 나열
 서버의 수정 가능한 모든 매개 변수와 해당 값을 나열하려면 [az postgres server configuration list](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_list) 명령을 실행합니다.

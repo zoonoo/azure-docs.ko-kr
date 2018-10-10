@@ -1,6 +1,6 @@
 ---
-title: Azure Application Gateway 만들기 - Azure CLI 1.0 | Microsoft Docs
-description: Resource Manager에서 Azure CLI 1.0을 사용하여 Application Gateway를 만드는 방법 알아보기
+title: Azure Application Gateway 만들기 - Azure 클래식 CLI | Microsoft Docs
+description: Resource Manager에서 Azure 클래식 CLI를 사용하여 Application Gateway를 만드는 방법을 알아봅니다.
 services: application-gateway
 documentationcenter: na
 author: vhorne
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 29eec4ad1883db9d824b416bdfc7e984a5af4fbe
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: e834b1633f17ecec74ae17e962de445ad8d6dccd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35640272"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974428"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Azure CLI를 사용하여 Application Gateway 만들기
 
@@ -29,8 +29,8 @@ ms.locfileid: "35640272"
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure 클래식 PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager 템플릿](application-gateway-create-gateway-arm-template.md)
-> * [Azure CLI 1.0](application-gateway-create-gateway-cli.md)
-> * [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
+> * [Azure 클래식 CLI](application-gateway-create-gateway-cli.md)
+> * [Azure CLI](application-gateway-create-gateway-cli.md)
 > 
 > 
 
@@ -38,7 +38,7 @@ Azure Application Gateway는 계층 7 부하 분산 장치입니다. 클라우�
 
 ## <a name="prerequisite-install-the-azure-cli"></a>필수 조건: Azure CLI 설치
 
-이 문서의 단계를 수행하려면 [Mac, Linux 및 Windows용 Azure 명령줄 인터페이스(Azure CLI)를 설치](../xplat-cli-install.md)하고 [Azure에 로그온](/cli/azure/authenticate-azure-cli)해야 합니다. 
+이 문서의 단계를 수행하려면 [Azure CLI를 설치](../xplat-cli-install.md)하고 [Azure에 로그온](/cli/azure/authenticate-azure-cli)해야 합니다. 
 
 > [!NOTE]
 > Azure 계정이 없는 경우 계정이 필요합니다. [여기서 무료 평가판](../active-directory/fundamentals/sign-up-organization.md)에 등록합니다.

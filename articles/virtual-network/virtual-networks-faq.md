@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 2802a725bca7f63f6956293048b0e854ebfb59b5
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: e92c099d9e0dfacff71c13382059acb06037bb1e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143015"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999871"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -259,3 +259,24 @@ VNet 피어링 연결은 한 VNet 연결이 삭제되면 *연결 끊김* 상태�
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>피어링 연결에 대역폭 제한이 있나요?
 아니요. 로컬이든 글로벌이든 VNet 피어링에는 대역폭 제한이 없습니다. 대역폭은 VM 또는 계산 리소스에서만 제한됩니다.
 
+## <a name="virtual-network-tap"></a>가상 네트워크 TAP
+
+### <a name="which-azure-regions-are-available-for-virtual-network-tap"></a>가상 네트워크 TAP을 사용할 수 있는 Azure 지역은 어디인가요?
+개발자 미리 보기 동안 기능은 미국 중서부 지역에서 사용할 수 있습니다. 모니터링된 네트워크 인터페이스, 가상 네트워크 TAP 리소스 및 수집기 또는 분석 솔루션은 동일한 지역에 배포되어야 합니다.
+
+### <a name="does-virtual-network-tap-support-any-filtering-capabilities-on-the-mirrored-packets"></a>Virtual Network TAP은 미러링된 패킷에서 모든 필터링 기능을 지원하나요?
+필터링 기능은 가상 네트워크 TAP 미리 보기에서 지원되지 않습니다. TAP 구성이 네트워크 인터페이스에 추가되는 경우 네트워크 인터페이스에서 모든 송수신 트래픽의 전체 복사본은 TAP 대상으로 스트리밍됩니다.
+
+### <a name="can-multiple-tap-configurations-be-added-to-a-monitored-network-interface"></a>여러 TAP 구성을 모니터링된 네트워크 인터페이스에 추가할 수 있나요?
+모니터링된 네트워크 인터페이스에는 하나의 TAP 구성만 있을 수 있습니다. 기능에 대한 개별 [파트너 솔루션](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions)이 사용자가 선택한 분석 도구로 TAP 트래픽의 여러 복사본을 스트리밍하는지 확인합니다.
+
+### <a name="can-the-same-virtual-network-tap-resource-aggregate-traffic-from-monitored-network-interfaces-in-more-than-one-virtual-network"></a>동일한 가상 네트워크 TAP 리소스가 하나를 초과하는 가상 네트워크의 모니터링된 네트워크 인터페이스에서 트래픽을 집계할 수 있나요?
+예. 동일한 구독 또는 다른 구독에서 피어링된 가상 네트워크의 모니터링된 네트워크 인터페이스에서 미러링된 트래픽을 집계하는 데 동일한 가상 네트워크 TAP 리소스를 사용할 수 있습니다. 가상 네트워크 TAP 리소스 및 대상 부하 분산 장치 또는 대상 네트워크 인터페이스는 동일한 구독에 있어야 합니다. 모든 구독은 동일한 Azure Active Directory 테넌트 아래 있어야 합니다.
+
+### <a name="are-there-any-performance-considerations-on-production-traffic-if-i-enable-a-virtual-network-tap-configuration-on-a-network-interface"></a>네트워크 인터페이스에서 가상 네트워크 TAP 구성을 사용하도록 설정하는 경우 프로덕션 트래픽에 대한 성능 고려 사항이 있나요?
+
+가상 네트워크 TAP은 개발자 미리 보기 상태에 있습니다. 미리 보기 중에는 서비스 수준 계약이 없습니다. 프로덕션 워크 로드에 기능을 사용할 수 없습니다. TAP 구성을 통해 가상 머신 네트워크 인터페이스를 사용하도록 설정하는 경우 Azure 호스트에서 프로덕션 트래픽을 보내기 위해 가상 머신에 할당된 동일한 리소스는 미러링 함수를 수행하고 미러링된 패킷을 보내는 데 사용됩니다. 올바른 [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신 크기를 선택하여 가상 머신이 프로덕션 트래픽 및 미러링된 트래픽을 보내기 위해 충분한 리소스를 사용할 수 있는지 확인합니다.
+
+### <a name="is-accelerated-networking-for-linuxcreate-vm-accelerated-networking-climd-or-windowscreate-vm-accelerated-networking-powershellmd-supported-with-virtual-network-tap"></a>[Linux](create-vm-accelerated-networking-cli.md) 또는 [Windows](create-vm-accelerated-networking-powershell.md)에 대해 가속화된 네트워킹은 가상 네트워크 TAP에서 지원되나요?
+
+가속화된 네트워킹에서 사용하도록 설정된 가상 머신과 연결된 네트워크 인터페이스에 TAP 구성을 추가할 수 있습니다. 하지만 현재 Azure 가속 네트워킹에서 미러링 트래픽에 대한 오프로드를 지원하지 않으므로 TAP 구성을 추가하여 가상 머신의 성능 및 대기 시간에 영향을 주게 됩니다.

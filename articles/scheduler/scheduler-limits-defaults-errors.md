@@ -1,49 +1,40 @@
 ---
-title: 스케줄러 제한 및 기본값
-description: 스케줄러 제한 및 기본값
+title: Azure Scheduler의 한도, 할당량 및 임계값
+description: Azure Scheduler에 대한 한도, 할당량, 기본값 및 제한 임계값에 대해 알아보기
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: 88f4a3e9-6dbd-4943-8543-f0649d423061
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.assetid: 88f4a3e9-6dbd-4943-8543-f0649d423061
 ms.topic: article
 ms.date: 08/18/2016
-ms.author: deli
-ms.openlocfilehash: db6b1c196cb468f41c7a7ce34758de346b522abb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c1e704a3bdec239c87d879ae1ef95e6e76d27fc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23043168"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966911"
 ---
-# <a name="scheduler-limits-and-defaults"></a>스케줄러 제한 및 기본값
-## <a name="scheduler-quotas-limits-defaults-and-throttles"></a>스케줄러 할당량, 제한, 기본값 및 한계
+# <a name="limits-quotas-and-throttle-thresholds-in-azure-scheduler"></a>Azure Scheduler의 한도, 할당량 및 제한 임계값
+
+> [!IMPORTANT]
+> Azure Scheduler는 사용이 중지되며 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)가 대신 제공됩니다. 작업을 예약하려는 경우 [Azure Logic Apps를 대신 사용해 보세요](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+
+## <a name="limits-quotas-and-thresholds"></a>한도, 할당량 및 임계값
+
 [!INCLUDE [scheduler-limits-table](../../includes/scheduler-limits-table.md)]
 
-## <a name="the-x-ms-request-id-header"></a>x-ms-request-id 헤더
-스케줄러 서비스에 대한 모든 요청에서는 이름이**x-ms-request-id**인 응답 헤더를 반환합니다. 이 헤더는 요청을 고유하게 식별하는 불투명 값을 포함합니다.
+## <a name="x-ms-request-id-header"></a>x-ms-request-id 헤더
 
-요청이 계속 실패하고 해당 요청이 제대로 구성되었음을 확인한 경우 이 값을 사용하여 오류를 Microsoft에 보고할 수 있습니다. 보고서에는 x-ms-request-id 값, 요청을 수행한 대략적인 시간, 구독 식별자, 작업 컬렉션 및/또는 작업, 요청이 시도한 작업 유형을 포함합니다.
+Scheduler 서비스에 대한 모든 요청에서는 이름이 **x-ms-request-id**인 응답 헤더를 반환합니다. 이 헤더는 요청을 고유하게 식별하는 불투명 값을 포함합니다. 따라서 요청의 형식이 제대로 지정되었음을 확인했는데 요청이 지속적으로 실패하면 **x-ms-request-id** 응답 헤더 값을 제공하고 다음 세부 정보를 Microsoft에 오류를 보고할 수 있습니다. 
+
+* **x-ms-request-id** 값
+* 요청이 작성된 대략적인 시간 
+* Azure 구독, 작업 컬렉션 및 작업에 대한 식별자 
+* 요청이 시도한 작업의 유형
 
 ## <a name="see-also"></a>참고 항목
- [스케줄러란?](scheduler-intro.md)
 
- [Azure 스케줄러 개념, 용어 및 엔터티 계층 구조](scheduler-concepts-terms.md)
-
- [Azure 포털에서 스케줄러 사용 시작](scheduler-get-started-portal.md)
-
- [Azure 스케줄러의 버전 및 요금 청구](scheduler-plans-billing.md)
-
- [Azure 스케줄러 REST API 참조](https://msdn.microsoft.com/library/mt629143)
-
- [Azure 스케줄러 PowerShell cmdlet 참조](scheduler-powershell-reference.md)
-
- [Azure 스케줄러 고가용성 및 안정성](scheduler-high-availability-reliability.md)
-
- [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
-
+* [Azure Scheduler란?](scheduler-intro.md)
+* [Azure Scheduler 개념, 용어 및 엔터티 계층 구조](scheduler-concepts-terms.md)

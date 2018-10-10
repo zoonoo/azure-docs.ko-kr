@@ -1,29 +1,26 @@
 ---
-title: Speech Service(미리 보기)란?
+title: Speech Service란?
 description: Microsoft Cognitive Services의 일부인 Speech Service는 이전에 개별적으로 사용할 수 있었던 Bing Speech(음성 인식 및 텍스트 음성 변환으로 구성), Custom Speech 및 Speech Translation과 같은 여러 가지 Azure 음성 서비스를 통합합니다.
-titleSuffix: Microsoft Cognitive Services
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: v-jerkin
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: overview
-ms.date: 05/07/2018
+ms.date: 09/24/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 922320bb0b880e933b27025257e6a533fe257680
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c12cd754d9979683fac4b819739d53e78ab9259c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43091475"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990198"
 ---
 # <a name="what-is-the-speech-service"></a>Speech Service란?
 
 Speech 서비스는 이전에 [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/speech/home), [Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/), [Custom Speech](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home) 및 [Custom Voice](http://customvoice.ai/) 서비스를 통해 제공된 Azure 음성 기능을 통합했습니다. 이제 하나의 구독으로 이러한 모든 기능에 액세스할 수 있습니다.
 
-다른 Azure 음성 서비스와 마찬가지로 Speech 서비스는 Cortana 및 Microsoft Office와 같은 제품에서 사용되어 입증된 음성 기술을 통해 구현됩니다. 결과의 품질과 Azure 클라우드의 안정성을 믿을 수 있습니다.
-
-> [!NOTE]
-> Speech Service는 현재 공개 미리 보기로 제공됩니다. 설명서 업데이트, 새 코드 샘플 등을 보려면 정기적으로 여기를 방문하세요.
+다른 Azure 음성 서비스와 마찬가지로 Speech 서비스는 Cortana 및 Microsoft Office와 같은 제품에서 사용되어 음성 기술을 통해 구현됩니다. 결과의 품질과 클라우드 플랫폼의 안정성을 믿을 수 있습니다.
 
 ## <a name="main-speech-service-functions"></a>기본 Speech 서비스 기능
 
@@ -37,26 +34,24 @@ Speech 서비스의 주요 기능은 Speech to Text(음성 인식 또는 전사)
 
 \* *의도를 인식하려면 LUIS 구독이 필요합니다.*
 
+## <a name="customize-speech-features"></a>음성 사용자 지정 기능
 
-## <a name="customizing-speech-features"></a>음성 사용자 지정 기능
-
-Speech 서비스를 사용하면 사용자 고유의 데이터를 사용하여 Speech 서비스의 Speech to Text 및 Text to Speech 기능의 기본 모델을 학습할 수 있습니다. 
+사용자 고유의 데이터를 사용하여 Speech 서비스의 Speech to Text 및 Text to Speech 기능의 기본 모델을 학습할 수 있습니다.
 
 |기능|모델|목적|
 |-|-|-|
 |음성을 텍스트로 변환|[음향 모델](how-to-customize-acoustic-models.md)|자동차 또는 공장과 같은 특정 화자 및 환경을 전사하는 데 도움이 됩니다.|
 ||[언어 모델](how-to-customize-language-model.md)|의료 또는 IT 전문 용어와 같은 필드 특정 어휘 및 문법을 전사하는 데 도움이 됩니다.|
-||[발음 모델](how-to-customize-pronunciation.md)|"i oh you"에 대한 "IOU"와 같은 약어 및 머리글자어를 전사하는 데 도움이 됩니다. |
-|Text to Speech|[음성 글꼴](how-to-customize-voice-font.md)|실제 음성의 샘플에서 모델을 학습하여 앱 고유의 음성을 앱에 제공합니다.|
+||[발음 모델](how-to-customize-pronunciation.md)|"I owe you."에 대한 "IOU"와 같은 약어 및 머리글자어를 전사하는 데 도움이 됩니다. |
+|텍스트에서 음성 변환|[음성 글꼴](how-to-customize-voice-font.md)|실제 음성의 샘플에서 모델을 학습하여 앱 고유의 음성을 앱에 제공합니다.|
 
-만들어진 사용자 지정 모델은 앱의 Speech to Text 또는 Text to Speech 기능에서 표준 모델을 사용하는 모든 위치에서 사용할 수 있습니다.
+앱의 Speech to Text 또는 Text to Speech 기능에서 표준 모델을 사용하는 모든 위치에서 사용자 지정 모델을 사용할 수 있습니다.
 
-
-## <a name="using-the-speech-service"></a>Speech Service 사용
+## <a name="use-the-speech-service"></a>Speech 서비스 사용
 
 음성 지원 응용 프로그램의 개발을 간소화하기 위해 Microsoft는 새 Speech 서비스에서 사용할 [Speech SDK](speech-sdk.md)를 제공합니다. Speech SDK는 C#, C++ 및 Java에 일관된 네이티브 Speech to Text 및 Speech Translation API를 제공합니다. 이러한 언어 중 하나를 사용하여 개발하는 경우 Speech SDK를 통해 네트워크 세부 정보를 처리하여 더 쉽게 개발할 수 있습니다.
 
-또한 Speech 서비스에는 HTTP 요청을 수행할 수 있는 프로그래밍 언어를 사용하는 [REST API](rest-apis.md)도 있습니다. 그러나 REST 인터페이스는 SDK의 실시간 스트리밍 기능을 제공하지 않습니다.
+또한 Speech 서비스에는 HTTP 요청을 수행할 수 있는 프로그래밍 언어를 사용하는 [REST API](rest-apis.md)도 있습니다. REST 인터페이스는 SDK의 실시간 스트리밍 기능을 제공하지 않습니다.
 
 |<br>방법|음성<br>to Text|Text to<br>음성|음성<br>Translation|<br>설명|
 |-|-|-|-|-|
@@ -65,14 +60,13 @@ Speech 서비스를 사용하면 사용자 고유의 데이터를 사용하여 S
 
 ### <a name="websockets"></a>WebSockets
 
-Speech 서비스에는 Speech to Text와 Speech Translation을 스트림하기 위한 WebSockets 프로토콜도 있습니다. Speech SDK는 이러한 프로토콜을 사용하여 Speech 서비스와 통신합니다. Speech 서비스와의 사용자 고유 WebSockets 통신을 구현하는 대신 Speech SDK를 사용해야 합니다.
+Speech 서비스에는 Speech to Text와 Speech Translation을 스트림하기 위한 WebSocket 프로토콜도 있습니다. Speech SDK는 이러한 프로토콜을 사용하여 Speech 서비스와 통신합니다. Speech 서비스와의 사용자 고유 WebSocket 통신을 구현하는 대신 Speech SDK를 사용합니다.
 
-그러나 WebSockets를 통해 Bing Speech 또는 Translator Speech를 사용하는 코드가 이미 있는 경우 해당 코드에서 Speech 서비스를 사용하도록 쉽게 업데이트할 수 있습니다. WebSockets 프로토콜은 호환 가능하며, 엔드포인트만 다릅니다.
+그러나 WebSocket을 통해 Bing Speech 또는 Translator Speech를 사용하는 코드가 이미 있는 경우 해당 코드에서 Speech 서비스를 사용하도록 업데이트할 수 있습니다. WebSocket 프로토콜은 호환 가능하며, 엔드포인트만 다릅니다.
 
 ### <a name="speech-devices-sdk"></a>Speech Devices SDK
 
 [Speech Devices SDK](speech-devices-sdk.md)는 음성 지원 장치 개발자를 위한 통합 하드웨어 및 소프트웨어 플랫폼입니다. 하드웨어 파트너는 참조 디자인 및 개발 단위를 제공합니다. Microsoft는 하드웨어 기능을 최대한 활용하는 장치에 최적화된 SDK를 제공합니다.
-
 
 ## <a name="speech-scenarios"></a>음성 시나리오
 
@@ -85,29 +79,29 @@ Speech 서비스의 사용 사례는 다음과 같습니다.
 
 ### <a name="voice-user-interface"></a>음성 사용자 인터페이스
 
-음성 입력은 앱을 유연하고 핸즈프리가 가능하며 빠르게 사용할 수 있도록 해주는 좋은 방법입니다. 음성 지원 앱에서 사용자는 탐색할 필요 없이 원하는 정보를 요청할 수 있습니다.
+음성 입력은 앱을 유연하고 핸즈프리가 가능하며 빠르게 사용할 수 있도록 해주는 좋은 방법입니다. 음성 지원 앱에서 사용자는 원하는 정보를 요청할 수 있습니다.
 
 일반 대중이 사용하는 앱이면 기본 음성 인식 모델을 사용할 수 있습니다. 이러한 모델은 일반적인 환경에서 다양한 화자를 인식합니다.
 
-앱이 특정 분야(예: 의학 또는 IT)에서 사용될 예정인 경우 Speech Service에 해당 앱에 사용된 특수 용어를 학습시키기 위해 [언어 모델](how-to-customize-language-model.md)을 만들 수 있습니다.
+특정 도메인에서 앱이 사용되는 경우(의약품 또는 IT) [언어 모델](how-to-customize-language-model.md)을 만들 수 있습니다. 이 모델을 사용하여 앱에서 사용되는 특별한 용어에 대해 Speech 서비스에 설명할 수 있습니다.
 
-앱이 공장과 같이 시끄러운 환경에서 사용될 예정인 경우 Speech Service가 음성과 소음을 더욱 잘 구분할 수 있도록 사용자 지정 [음향 모델](how-to-customize-acoustic-models.md)을 만들 수 있습니다.
+공장과 같은 시끄러운 환경에서 앱이 사용되는 경우 사용자 지정 [어쿠스틱 모델](how-to-customize-acoustic-models.md)을 만들 수 있습니다. 이 모델은 소음에서 음성을 구분하도록 Speech 서비스를 도와줍니다.
 
-[음성 SDK](speech-sdk.md)를 다운로드하고 관련 [빠른 시작](quickstart-csharp-dotnet-windows.md) 문서를 따르는 것만으로 쉽게 시작할 수 있습니다.
+시작하기 쉽습니다. [Speech SDK](speech-sdk.md)를 다운로드하고 관련 [빠른 시작](quickstart-csharp-dotnet-windows.md) 문서를 따릅니다.
 
 ### <a name="call-center-transcription"></a>호출 센터 전사
 
-호출 센터 녹음은 주로 호출에 문제가 발생했을 때만 참조됩니다. Speech Service를 사용하면 모든 녹음 내용을 텍스트로 쉽게 기록할 수 있습니다. 텍스트로 되어 있으면 [전체 텍스트 검색](https://docs.microsoft.com/azure/search/search-what-is-azure-search)을 위해 쉽게 인덱스를 만들거나 [텍스트 분석](https://docs.microsoft.com/azure/cognitive-services/Text-Analytics/)을 적용하여 감정, 언어 및 핵심 구문을 검색할 수 있습니다.
+호출 센터 녹음은 주로 호출에 문제가 발생했을 때만 참조됩니다. Speech Service를 사용하면 모든 녹음 내용을 텍스트로 쉽게 기록할 수 있습니다. [전체 텍스트 검색](https://docs.microsoft.com/azure/search/search-what-is-azure-search)을 위해 텍스트를 쉽게 인덱싱하거나 [텍스트 분석](https://docs.microsoft.com/azure/cognitive-services/Text-Analytics/)을 적용하여 감정, 언어 및 핵심 구문을 검색할 수 있습니다.
 
-호출 센터 녹음이 전문 용어(예: 제품 이름 또는 IT 전문 용어)를 중심으로 진행되는 경우 [언어 모델](how-to-customize-language-model.md)을 만들어 Speech 서비스에 해당 어휘를 학습시킬 수 있습니다. 사용자 지정 [음향 모델](how-to-customize-acoustic-models.md)은 Speech Service가 상태가 최적화되지 않은 전화 연결을 이해하는 데 도움이 됩니다.
+호출 센터 녹음이 전문 용어(예: 제품 이름 또는 IT 전문 용어)를 포함하는 경우 [언어 모델](how-to-customize-language-model.md)을 만들어 Speech 서비스에 해당 어휘를 학습시킬 수 있습니다. 사용자 지정 [음향 모델](how-to-customize-acoustic-models.md)은 Speech Service가 상태가 최적화되지 않은 전화 연결을 이해하는 데 도움이 됩니다.
 
 이 시나리오에 대한 자세한 내용은 Speech Service 지원 [일괄 처리 전사](batch-transcription.md)를 참조하세요.
 
 ### <a name="voice-bots"></a>음성 봇
 
-[봇](https://dev.botframework.com/)은 사용자를 그들이 원하는 정보와 연결하고 고객을 그들이 좋아하는 비즈니스에 연결하는 더욱 보편화되고 있는 방법입니다. 대화형 사용자 인터페이스를 웹 사이트나 앱에 추가하면 기능을 더 쉽게 찾고 더 빨리 액세스할 수 있습니다. 이 대화는 Speech 서비스를 통해 음성 쿼리에 동일하게 응답함으로써 새로운 차원의 유창성을 적용하고 있습니다.
+[봇](https://dev.botframework.com/)은 사용자를 그들이 원하는 정보와 연결하고 고객을 그들이 좋아하는 비즈니스에 연결하는 보편화되고 있는 방법입니다. 대화형 사용자 인터페이스를 웹 사이트나 앱에 추가하면 기능을 더 쉽게 찾고 더 빨리 액세스할 수 있습니다. 이 대화는 Speech 서비스를 통해 음성 쿼리에 동일하게 응답함으로써 새로운 차원의 유창성을 적용하고 있습니다.
 
-음성 지원 봇에 독특한 개성을 추가하고 브랜드를 강화하기 위해 고유한 음성을 부여할 수 있습니다. 사용자 지정 음성 만들기는 2단계 프로세스입니다. 먼저, 사용하려는 음성의 [녹음을 만듭니다](record-custom-voice-samples.md). 그런 다음, Speech Service의 [음성 사용자 지정 포털](https://cris.ai/Home/CustomVoice)에 [녹음 내용을 제출](how-to-customize-voice-font.md)(텍스트 기록과 함께)하면 포털에서 나머지 작업을 수행합니다. 사용자 지정 음성을 만든 후에는 앱에서 간단하게 사용할 수 있습니다.
+음성 지원 봇에 독특한 개성을 추가하기 위해 고유한 음성을 부여할 수 있습니다. 사용자 지정 음성 만들기는 2단계 프로세스입니다. 먼저 사용하려는 음성의 [녹음을 만듭니다](record-custom-voice-samples.md). 그런 다음, Speech 서비스의 [음성 사용자 지정 포털](https://cris.ai/Home/CustomVoice)에 [녹음 내용을 제출](how-to-customize-voice-font.md)(텍스트 기록과 함께)하면 포털에서 나머지 작업을 수행합니다. 사용자 지정 음성을 만든 후에 앱에서 사용하는 단계는 간단합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

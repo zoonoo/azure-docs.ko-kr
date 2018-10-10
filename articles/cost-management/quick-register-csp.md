@@ -1,25 +1,25 @@
 ---
-title: CSP 파트너 정보를 사용하여 Azure Cost Management에 등록 | Microsoft Docs
-description: CSP 파트너 정보를 사용하여 Azure Cost Management에 등록합니다.
+title: CSP 파트너 정보를 사용하여 Azure의 Cloudyn에 등록 | Microsoft Docs
+description: CSP 파트너 정보를 사용하여 Cloudyn에 등록합니다.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 08/06/2018
+ms.date: 09/18/2018
 ms.topic: quickstart
 ms.custom: ''
 ms.service: cost-management
 manager: dougeby
-ms.openlocfilehash: e97ac06d5740a793d5f811e1a7ac01fef1a32806
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 698ddab4f5bca5aacf79cb952a51c385a67eee32
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578061"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985450"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>CSP 파트너 프로그램에 등록 및 데이터 비용 보기
 
-CSP 파트너인 사용자는 Azure Cost Management에 등록할 수 있습니다. 등록하면 Cloudyn 포털에 액세스할 수 있습니다. 이 빠른 시작 정보에서는 Cloudyn 평가판 구독을 만들고 Cloudyn 포털에 로그인하는 데 필요한 등록 프로세스를 상세히 설명합니다. 또한 비용 데이터를 즉시 보기 시작하는 방법을 보여줍니다.
+CSP 파트너로서 Cloudyn에 등록할 수 있습니다. 등록하면 Cloudyn 포털에 액세스할 수 있습니다. 이 빠른 시작 정보에서는 Cloudyn 평가판 구독을 만들고 Cloudyn 포털에 로그인하는 데 필요한 등록 프로세스를 상세히 설명합니다. 또한 비용 데이터를 즉시 보기 시작하는 방법을 보여줍니다.
 
 
 >[!NOTE]
@@ -35,12 +35,12 @@ CSP 파트너인 사용자는 Azure Cost Management에 등록할 수 있습니�
 
 - http://portal.azure.com에서 Azure Portal에 로그인합니다.
 
-## <a name="register-with-azure-cost-management"></a>Azure Cost Management에 등록
+## <a name="register-with-cloudyn"></a>Cloudyn에 등록
 
 1. Azure Portal의 서비스 목록에서 **Cost Management + 청구**를 클릭합니다.
-2. **개요**에서 **Cost Management**를 클릭합니다.  
-    ![Cost Management 페이지](./media/quick-register-csp/cost-mgt-billing-service.png)
-3. **Cost Management** 페이지에서 **Cost Management로 이동**을 클릭하여 새 창에 Cloudyn 등록 페이지를 엽니다.
+2. **개요**에서 **Cloudyn**을 클릭합니다.  
+    ![Cloudyn 페이지](./media/quick-register-csp/cost-mgt-billing-service.png)
+3. **Cloudyn** 페이지에서 **Cloudyn으로 이동**을 클릭하여 새 창에 Cloudyn 등록 페이지를 엽니다.
 4. Cloudyn 포털 평가판 등록 페이지에서 회사 이름을 입력하고 **Microsoft CSP 파트너 프로그램 관리자**를 선택하고 **다음**을 클릭합니다.  
 5. **응용 프로그램 ID**, **상거래 ID**, **응용 프로그램 비밀 키**를 입력하고 **기본 가격 책정 계획**을 선택합니다. 정보가 없는 경우 기본 관리자 계정을 사용하여 [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com)에서 파트너 센터 포털에 로그인하고 다음 단계를 수행합니다.
   1. **대시보드**로 이동하고, **설정** 기호를 클릭하고, **파트너 설정**을 클릭하고, **앱 관리**를 클릭합니다.
@@ -62,7 +62,7 @@ CSP 파트너인 사용자는 Azure Cost Management에 등록할 수 있습니�
 간접 CSP 고객이나 파트너에 대한 액세스를 사용하도록 설정하려면 [평가판 등록 만들기](#create-a-trial-registration) 단계에 따라 평가판 등록을 설정합니다. 다음에는 Cloudyn 엔터티 그룹으로 다음 단계를 완료하여 간접 CSP 데이터를 분할합니다. 그런 다음 엔터티 그룹에 적절한 사용자 권한을 할당합니다.
 
 1. [엔터티 만들기](tutorial-user-access.md#create-and-manage-entities)의 정보를 사용하여 엔터티 그룹을 만듭니다.
-2. [비용 엔터티에 구독 할당](https://support.cloudyn.com/hc/en-us/articles/115005139425-Video-Assigning-subscriptions-to-Cost-Entities)의 단계를 따릅니다. 간접 CSP 고객의 계정 및 Azure 구독을 이전에 만든 엔터티를 연결합니다.
+2. [비용 엔터티에 구독 할당](https://support.cloudyn.com/hc/articles/115005139425-Video-Assigning-subscriptions-to-Cost-Entities)의 단계를 따릅니다. 간접 CSP 고객의 계정 및 Azure 구독을 이전에 만든 엔터티를 연결합니다.
 3. [관리자 액세스 권한이 있는 사용자 만들기](tutorial-user-access.md#create-a-user-with-admin-access)의 단계에 따라 관리자 액세스 권한이 있는 사용자 계정을 만듭니다. 그런 다음 사용자 계정이 간접 계정에 대해 이전에 만든 특정 엔터티에 대한 관리자 액세스 권한을 갖는지 확인합니다.
 
 간접 CSP 파트너는 만들어진 계정을 사용하여 Cloudyn 포털에 로그인합니다.
@@ -72,7 +72,7 @@ CSP 파트너인 사용자는 Azure Cost Management에 등록할 수 있습니�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 CSP 정보를 사용하여 Cost Management에 등록했습니다. 또한 Cloudyn 포털에 로그인하여 비용 데이터 보기를 시작했습니다. Azure Cost Management에 대해 자세히 알아보려면 Cost Management의 자습서를 계속 진행하세요.
+이 빠른 시작에서는 CSP 정보를 사용하여 Cloudyn에 등록했습니다. 또한 Cloudyn 포털에 로그인하여 비용 데이터 보기를 시작했습니다. Cloudyn에 대해 자세히 알아보려면 Cloudyn용 자습서를 계속 확인하세요.
 
 > [!div class="nextstepaction"]
 > [사용량 및 비용 검토](./tutorial-review-usage.md)

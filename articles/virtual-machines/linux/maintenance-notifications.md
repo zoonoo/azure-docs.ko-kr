@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: 543c30b4d2c960f3c7453369162a62dc4606d06e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 1ac965896dc3356f33e6461cf390e4345663c3d3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068630"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982089"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Linux 가상 머신에 대한 계획된 유지 관리 처리
 
@@ -108,7 +108,7 @@ az vm perform-maintenance -g rgName -n vmName
 
 ## <a name="classic-deployments"></a>클래식 배포
 
-클래식 배포 모델을 사용하여 배포된 레거시 VM이 아직 있는 경우 CLI 1.0을 사용하여 VM을 쿼리하고 유지 관리를 시작할 수 있습니다.
+클래식 배포 모델을 사용하여 배포된 레거시 VM이 아직 있는 경우 Azure 클래식 CLI를 사용하여 VM을 쿼리하고 유지 관리를 시작할 수 있습니다.
 
 다음을 입력하여 클래식 VM에서 작동하도록 올바른 모드에 있는지 확인합니다.
 

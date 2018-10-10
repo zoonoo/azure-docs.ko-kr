@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 9eaaaaa4cc9be661cdc2ffde2b634e062c95a404
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ff382becb71f187ac38b0ef5d31c1b29c43f3fe7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523260"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972558"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 Virtual Network 구성
 Azure Storage는 계층화된 보안을 제공하여 허용되는 특정 네트워크 집합에만 연결되도록 저장소 계정을 보호할 수 있도록 합니다.  네트워크 규칙이 구성된 경우 허용되는 네트워크의 응용 프로그램만 저장소 계정에 액세스할 수 있습니다.  허용되는 네트워크에서 호출되면 응용 프로그램은 저장소 계정에 액세스하기 위한 적절한 인증(유효한 액세스 키 또는 SAS 토큰)을 계속 요구합니다.
 
 > [!IMPORTANT]
-> 저장소 계정에 대한 방화벽 규칙을 설정하면 다른 Azure 서비스에서 들어오는 요청을 포함하여, 들어오는 데이터 요청에 대한 액세스가 차단됩니다.  여기에는 포털 사용, 로그 작성 등이 포함됩니다.  서비스에 참여하기 위해 아래의 [예외](#Exceptions) 섹션에서 기능을 사용하도록 설정할 수 있습니다.  포털에 액세스하려면 설정한 신뢰할 수 있는 경계(IP 또는 VNet) 내의 컴퓨터에서 액세스해야 합니다.
+> 저장소 계정에 대한 방화벽 규칙을 설정하면 다른 Azure 서비스에서 들어오는 요청을 포함하여, 들어오는 데이터 요청에 대한 액세스가 차단됩니다.  여기에는 포털 사용, 로그 작성 등이 포함됩니다.  서비스에 참여하기 위해 아래의 [예외](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) 섹션에서 기능을 사용하도록 설정할 수 있습니다.  포털에 액세스하려면 설정한 신뢰할 수 있는 경계(IP 또는 VNet) 내의 컴퓨터에서 액세스해야 합니다.
 >
 
 ## <a name="scenarios"></a>시나리오
@@ -35,7 +35,7 @@ Virtual Machine 디스크 트래픽(탑재 및 분리 작업 및 디스크 IO �
 
 클래식 저장소 계정은 Firewall 및 Virtual Network를 지원하지 **않습니다**.
 
-네트워크 규칙이 적용된 저장소 계정에서 관리되지 않는 디스크를 사용한 Virtual Machines의 백업 및 복원은 이 문서의 [예외](/storage/common/storage-network-security#exceptions) 섹션에 설명된 대로 예외 만들기를 통해 지원됩니다.  Azure에 의해 이미 관리되므로 방화벽 예외는 Managed Disks를 사용하여 적용되지 않습니다.
+네트워크 규칙이 적용된 저장소 계정에서 관리되지 않는 디스크를 사용한 Virtual Machines의 백업 및 복원은 이 문서의 [예외](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) 섹션에 설명된 대로 예외 만들기를 통해 지원됩니다.  Azure에 의해 이미 관리되므로 방화벽 예외는 Managed Disks를 사용하여 적용되지 않습니다.
 
 ## <a name="change-the-default-network-access-rule"></a>기본 네트워크 액세스 규칙 변경
 기본적으로 저장소 계정은 네트워크에 있는 모든 클라이언트로부터의 연결을 허용합니다.  선택한 네트워크에 대한 액세스를 제한하려면 먼저 기본 동작을 변경해야 합니다.
@@ -70,7 +70,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 ```    
 
 #### <a name="cliv2"></a>CLIv2
-1. [Azure CLI 2.0을 설치](/cli/azure/install-azure-cli)하고 [로그인](/cli/azure/authenticate-azure-cli)합니다.
+1. [Azure CLI를 설치](/cli/azure/install-azure-cli)하고 [로그인](/cli/azure/authenticate-azure-cli)합니다.
 2. 저장소 계정에 대한 기본 규칙의 상태를 표시합니다.
 ```azurecli
 az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
@@ -89,17 +89,17 @@ az storage account update --name "mystorageaccount" --resource-group "myresource
 ## <a name="grant-access-from-a-virtual-network"></a>가상 네트워크의 액세스 허가
 특정 Azure Virtual Network의 액세스만 허용하도록 저장소 계정을 구성할 수 있습니다. 
 
-Virtual Network 내에서 Azure Storage에 대한 [서비스 끝점](/azure/virtual-network/virtual-network-service-endpoints-overview)을 사용하도록 설정하면 트래픽이 Azure Storage 서비스에 대한 최적 경로로 전송됩니다. 가상 네트워크 및 서브넷의 ID 또한 각 요청과 함께 전송됩니다.  관리자는 저장소 계정에 대해 Virtual Network의 특정 서브넷에서 요청이 수신될 수 있도록 하는 네트워크 규칙을 구성할 수 있습니다.  이러한 네트워크 규칙을 통해 액세스가 허가된 클라이언트는 데이터에 액세스하기 위해 저장소 계정의 인증 요구 사항을 계속 충족해야 합니다.
+Virtual Network 내에서 Azure Storage에 대한 [서비스 엔드포인트](/azure/virtual-network/virtual-network-service-endpoints-overview)를 사용하도록 설정하면 트래픽이 Azure Storage 서비스에 대한 최적 경로로 전송됩니다. 가상 네트워크 및 서브넷의 ID 또한 각 요청과 함께 전송됩니다.  관리자는 저장소 계정에 대해 Virtual Network의 특정 서브넷에서 요청이 수신될 수 있도록 하는 네트워크 규칙을 구성할 수 있습니다.  이러한 네트워크 규칙을 통해 액세스가 허가된 클라이언트는 데이터에 액세스하기 위해 저장소 계정의 인증 요구 사항을 계속 충족해야 합니다.
 
 각 저장소 계정은 [IP 네트워크 규칙](#grant-access-from-an-internet-ip-range)과 결합될 수 있는 최대 100개의 가상 네트워크 규칙을 지원할 수 있습니다.
 
 ### <a name="available-virtual-network-regions"></a>사용 가능한 가상 네트워크 지역
-일반적으로 서비스 끝점은 가상 네트워크와 같은 Azure 지역의 서비스 인스턴스 간에 작동합니다.  Azure Storage에서 서비스 끝점이 사용될 경우 이 범위는 [쌍으로 연결된 지역](/azure/best-practices-availability-paired-regions)을 포함하도록 확장됩니다.  이를 통해 지역별 장애 조치(Failover) 동안 연속성이 유지될 뿐 아니라 읽기 전용 지역 중복 저장소(RA-GRS) 인스턴스에 원활하게 액세스할 수 있습니다.  가상 네트워크에서 저장소 계정으로의 액세스를 허가하는 네트워크 규칙은 모든 RA-GRS 인스턴스에 대한 액세스도 허가합니다.
+일반적으로 서비스 엔드포인트는 가상 네트워크와 같은 Azure 지역의 서비스 인스턴스 간에 작동합니다.  Azure Storage에서 서비스 엔드포인트가 사용될 경우 이 범위는 [쌍으로 연결된 지역](/azure/best-practices-availability-paired-regions)을 포함하도록 확장됩니다.  이를 통해 지역별 장애 조치(Failover) 동안 연속성이 유지될 뿐 아니라 읽기 전용 지역 중복 저장소(RA-GRS) 인스턴스에 원활하게 액세스할 수 있습니다.  가상 네트워크에서 저장소 계정으로의 액세스를 허가하는 네트워크 규칙은 모든 RA-GRS 인스턴스에 대한 액세스도 허가합니다.
 
-지역 가동 중단 동안 재해 복구를 계획할 때 쌍으로 연결된 지역에서 Virtual Network를 미리 프로비전해야 합니다. Azure Storage에 대한 서비스 끝점이 사용되도록 설정되어야 하고 이러한 대체 Virtual Network의 액세스를 허가하는 네트워크 규칙을 지역 중복 저장소 계정에 적용해야 합니다.
+지역 가동 중단 동안 재해 복구를 계획할 때 쌍으로 연결된 지역에서 Virtual Network를 미리 프로비전해야 합니다. Azure Storage에 대한 서비스 엔드포인트가 사용되도록 설정되어야 하고 이러한 대체 Virtual Network의 액세스를 허가하는 네트워크 규칙을 지역 중복 저장소 계정에 적용해야 합니다.
 
 > [!NOTE]
-> 서비스 끝점은 Virtual Network 지역 및 지정된 지역 쌍 외부의 트래픽에는 적용되지 않습니다.  Virtual Network에서 저장소 계정으로의 액세스를 허가하는 네트워크 규칙은 저장소 계정의 기본 지역 또는 지정된 쌍으로 연결된 지역의 Virtual Network에만 적용될 수 있습니다.
+> 서비스 엔드포인트는 Virtual Network 지역 및 지정된 지역 쌍 외부의 트래픽에는 적용되지 않습니다.  Virtual Network에서 저장소 계정으로의 액세스를 허가하는 네트워크 규칙은 저장소 계정의 기본 지역 또는 지정된 쌍으로 연결된 지역의 Virtual Network에만 적용될 수 있습니다.
 >
 
 ### <a name="required-permissions"></a>필요한 사용 권한
@@ -117,7 +117,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 저장소 계정에 대한 Virtu
 4. 새 네트워크 규칙을 사용하여 Virtual Network에 대한 액세스를 허가하려면 "Virtual Network"에서 "기존 항목 추가"를 클릭하여 기존 Virtual Network 및 서브넷을 선택한 후 *추가*를 클릭합니다.  새 Virtual Network를 만들고 액세스 권한을 부여하려면 *새로 추가*를 클릭하고 새 Virtual Network를 만드는 데 필요한 정보를 제공하고 *만들기*를 클릭합니다.
 
 > [!NOTE]
-> Azure Storage에 대한 서비스 끝점이 선택한 Virtual Network 및 서브넷에 대해 미리 구성되지 않은 경우 이 작업을 수행하면서 구성할 수 있습니다.
+> Azure Storage에 대한 서비스 엔드포인트가 선택한 Virtual Network 및 서브넷에 대해 미리 구성되지 않은 경우 이 작업을 수행하면서 구성할 수 있습니다.
 >
 
 5. Virtual Network 또는 서브넷 규칙을 제거하려면 Virtual Network 또는 서브넷에 대한 상황에 맞는 메뉴를 열고 "..."를 클릭한 후 "제거"를 클릭합니다.
@@ -130,7 +130,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 저장소 계정에 대한 Virtu
 (Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").VirtualNetworkRules
 ```
 
-3. Virtual Network 및 서브넷에서 Azure Storage에 대한 서비스 끝점을 사용하도록 설정합니다.
+3. Virtual Network 및 서브넷에서 Azure Storage에 대한 서비스 엔드포인트를 사용하도록 설정합니다.
 ```PowerShell
 Get-AzureRmVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzureRmVirtualNetworkSubnetConfig -Name "mysubnet"  -AddressPrefix "10.1.1.0/24" -ServiceEndpoint "Microsoft.Storage" | Set-AzureRmVirtualNetwork
 ```
@@ -152,13 +152,13 @@ Remove-AzureRmStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Na
 >
 
 #### <a name="cliv2"></a>CLIv2
-1. [Azure CLI 2.0을 설치](/cli/azure/install-azure-cli)하고 [로그인](/cli/azure/authenticate-azure-cli)합니다.
+1. [Azure CLI를 설치](/cli/azure/install-azure-cli)하고 [로그인](/cli/azure/authenticate-azure-cli)합니다.
 2. Virtual Network 규칙을 나열합니다.
 ```azurecli
 az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query virtualNetworkRules
 ```
 
-2. Virtual Network 및 서브넷에서 Azure Storage에 대한 서비스 끝점을 사용하도록 설정합니다.
+2. Virtual Network 및 서브넷에서 Azure Storage에 대한 서비스 엔드포인트를 사용하도록 설정합니다.
 ```azurecli
 az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.Storage"
 ```
@@ -208,7 +208,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 저장소 계정에 대한 IP �
 2. **Firewall 및 Virtual Network**이라는 설정 메뉴를 클릭합니다.
 3. ‘선택한 네트워크’의 액세스를 허용하도록 선택했는지 확인합니다.
 4. 인터넷 IP 범위에 액세스를 허가하려면 방화벽, 주소 범위에서 IP 주소 또는 주소 범위(CIDR 형식)를 입력합니다.
-5. IP 네트워크 규칙을 제거하려면 "..."를 클릭하여 규칙에 대한 상황에 맞는 메뉴를 열고 "제거"를 클릭합니다.
+5. IP 네트워크 규칙을 제거하려면 네트워크 규칙 옆에 있는 휴지통 아이콘을 클릭합니다.
 6. *저장*을 클릭하여 변경 내용을 적용합니다.
 
 #### <a name="powershell"></a>PowerShell
@@ -243,7 +243,7 @@ Remove-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Ac
 >
 
 #### <a name="cliv2"></a>CLIv2
-1. [Azure CLI 2.0을 설치](/cli/azure/install-azure-cli)하고 [로그인](/cli/azure/authenticate-azure-cli)합니다.
+1. [Azure CLI를 설치](/cli/azure/install-azure-cli)하고 [로그인](/cli/azure/authenticate-azure-cli)합니다.
 2. IP 네트워크 규칙을 나열합니다.
 ```azurecli
 az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query ipRules
@@ -290,7 +290,9 @@ az storage account network-rule remove --resource-group "myresourcegroup" --acco
 |Azure Event Grid|Microsoft.EventGrid|Blob Storage 이벤트 게시를 사용하도록 설정합니다.  [자세히 알아보기](https://docs.microsoft.com/azure/event-grid/overview).|
 |Azure Event Hubs|Microsoft.EventHub|Event Hubs 캡처로 데이터를 보관합니다.  [자세한 정보](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
 |Azure 네트워킹|Microsoft.Networking|네트워크 트래픽 로그를 저장 및 분석합니다.  [자세히 알아보기](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
-||||
+|Azure Monitor|Microsoft.Insights| 보안 저장소 계정에 모니터링 데이터를 쓸 수 있습니다[자세히 알아보기](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
+|
+
 
 ### <a name="storage-analytics-data-access"></a>저장소 분석 데이터 액세스
 경우에 따라 네트워크 경계 밖에서 진단 로그 및 메트릭을 읽을 수 있는 권한이 필요합니다.  저장소 계정 로그 파일이나 메트릭 테이블 또는 둘 다에 대해 읽기 액세스를 허용하도록 네트워크 규칙에 대한 예외를 허가할 수 있습니다. [저장소 분석 작업에 대한 자세한 정보](/azure/storage/storage-analytics)
@@ -327,7 +329,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 >
 
 #### <a name="cliv2"></a>CLIv2
-1. [Azure CLI 2.0을 설치](/cli/azure/install-azure-cli)하고 [로그인](/cli/azure/authenticate-azure-cli)합니다.
+1. [Azure CLI를 설치](/cli/azure/install-azure-cli)하고 [로그인](/cli/azure/authenticate-azure-cli)합니다.
 2. 저장소 계정 네트워크 규칙에 대한 예외를 표시합니다.
 ```azurecli
 az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.bypass
@@ -348,6 +350,6 @@ az storage account update --resource-group "myresourcegroup" --name "mystorageac
 >
 
 ## <a name="next-steps"></a>다음 단계
-[서비스 끝점](/azure/virtual-network/virtual-network-service-endpoints-overview)에서 Azure 네트워크 서비스 끝점에 대해 자세히 알아봅니다.
+[서비스 엔드포인트](/azure/virtual-network/virtual-network-service-endpoints-overview)에서 Azure 네트워크 서비스 엔드포인트에 대해 자세히 알아봅니다.
 
 [Azure Storage 보안 가이드](storage-security-guide.md)에서 Azure Storage 보안에 대해 자세히 알아봅니다.

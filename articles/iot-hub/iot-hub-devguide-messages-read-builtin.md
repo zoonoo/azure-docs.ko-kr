@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub 기본 제공 엔드포인트 이해 | Microsoft Docs
-description: 개발자 가이드에서는 기본 제공 이벤트 허브 호환 엔드포인트를 사용하여 장치-클라우드 메시지를 읽는 방법을 설명합니다.
+description: 개발자 가이드에서는 기본 제공 Event Hub 호환 엔드포인트를 사용하여 장치-클라우드 메시지를 읽는 방법을 설명합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 767c91e4926e553b63b8331ac99edcd7823d2c13
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 02624b4f3b0fceb1816f4f43b1f435356f8d5235
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055018"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984044"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>기본 제공 엔드포인트에서 장치-클라우드 메시지 읽기
 
@@ -26,7 +26,7 @@ ms.locfileid: "44055018"
 
 또한 IoT Hub를 사용하면 기본 제공 장치-클라우드 수신 엔드포인트에서 소비자 그룹을 관리할 수 있습니다.
 
-기본적으로 메시지 라우팅 규칙과 명시적으로 일치하지 않는 모든 메시지는 기본 제공 엔드포인트에 기록됩니다. 이 대체 경로를 비활성화하면 메시지 라우팅 규칙과 명시적으로 일치하지 않는 메시지는 삭제됩니다.
+[메시지 라우팅](iot-hub-devguide-messages-d2c.md)을 사용하고 [대체 경로](iot-hub-devguide-messages-d2c.md#fallback-route)가 사용하도록 설정된 경우 경로의 쿼리와 일치하지 않는 모든 메시지가 기본 제공 엔드포인트에 기록됩니다. 이 대체 경로를 사용하지 않도록 설정하면 쿼리와 일치하지 않는 메시지가 삭제됩니다.
 
 [IoT Hub 리소스 공급자 REST API][lnk-resource-provider-apis]를 사용하여 또는 [Azure Portal][lnk-management-portal]을 사용하여 프로그래밍 방식으로 보존 시간을 수정할 수 있습니다.
 
@@ -39,9 +39,8 @@ IoT Hub는 허브에서 수신한 장치-클라우드 메시지를 읽도록 백
 IoT Hub를 인식하지 않는 SDK(또는 제품 통합)를 사용하는 경우 Event Hub 호환 엔드포인트 및 Event Hub 호환 이름을 검색해야 합니다.
 
 1. [Azure Portal][lnk-management-portal]에 로그인하고 IoT 허브로 이동합니다.
-1. **엔드포인트**를 클릭합니다.
-1. **기본 제공 엔드포인트** 섹션에서 **이벤트**를 클릭합니다. 
-1. **Event Hub 호환 엔드포인트**, **Event Hub 호환 이름**, **파티션**, **보존 시간** 및 **소비자 그룹** 값을 포함하는 속성 페이지가 열립니다.
+1. **기본 제공 엔드포인트**를 클릭합니다.
+1. **이벤트** 섹션에는 **Event Hub 호환 엔드포인트**, **Event Hub 호환 이름**, **파티션**, **보존 시간** 및 **소비자 그룹** 값이 포함됩니다.
 
     ![장치-클라우드 설정][img-eventhubcompatible]
 
@@ -63,11 +62,9 @@ IoT Hub를 노출하는 이벤트 허브와 호환 가능한 엔드포인트로 
 
 ## <a name="next-steps"></a>다음 단계
 
-IoT Hub 엔드포인트에 대한 자세한 내용은 [IoT Hub 엔드포인트][lnk-endpoints]를 참조하세요.
-
-[빠른 시작][lnk-get-started]에서는 시뮬레이션된 장치에서 장치-클라우드 메시지를 보내고 기본 제공 엔드포인트에서 메시지를 읽는 방법을 보여 줍니다. 자세한 내용은 [경로를 사용하여 IoT Hub 장치-클라우드 메시지 처리][lnk-d2c-tutorial] 자습서를 참조하세요.
-
-장치-클라우드 메시지를 사용자 지정 엔드포인트로 라우팅하려면 [장치-클라우드 메시지에 대해 메시지 라우팅 및 사용자 지정 엔드포인트 사용][lnk-custom]을 참조하세요.
+* IoT Hub 엔드포인트에 대한 자세한 내용은 [IoT Hub 엔드포인트][lnk-endpoints]를 참조하세요.
+* [빠른 시작][lnk-get-started]에서는 시뮬레이션된 장치에서 장치-클라우드 메시지를 보내고 기본 제공 엔드포인트에서 메시지를 읽는 방법을 보여 줍니다. 자세한 내용은 [경로를 사용하여 IoT Hub 장치-클라우드 메시지 처리][lnk-d2c-tutorial] 자습서를 참조하세요.
+* 장치-클라우드 메시지를 사용자 지정 엔드포인트로 라우팅하려면 [장치-클라우드 메시지에 대해 메시지 라우팅 및 사용자 지정 엔드포인트 사용][lnk-custom]을 참조하세요.
 
 [img-eventhubcompatible]: ./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png
 

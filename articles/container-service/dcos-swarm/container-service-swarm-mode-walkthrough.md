@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: d3438f42753cba82a28d16be2b63926c4762b26b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c8f9db2674976d2c1efa7686b8b224b48a19a534
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421936"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964448"
 ---
 # <a name="deploy-docker-ce-cluster"></a>Docker CE 클러스터 배포
 
@@ -24,7 +24,7 @@ Azure Container Service에서 Docker CE는 미리 보기 상태이며 **프로�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -169,7 +169,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 이 빠른 시작에서는 Docker Swarm 클러스터를 배포하고, 이 클러스터에 다중 컨테이너 응용 프로그램을 배포했습니다.
 
-Docker Swarm을 Visual Studio Team Services와 통합하는 방법에 대해 자세히 알아보려면 Docker Swarm 및 VSTS를 사용하는 CI/CD를 진행합니다.
+Docker Swarm을 Azure DevOps와 통합하는 방법에 대해 알아보려면 Docker Swarm 및 Azure DevOps를 사용하는 CI/CD를 진행합니다.
 
 > [!div class="nextstepaction"]
-> [Docker Swarm 및 VSTS를 사용하는 CI/CD](./container-service-docker-swarm-setup-ci-cd.md)
+> [Docker Swarm 및 Azure DevOps를 사용하는 CI/CD](./container-service-docker-swarm-setup-ci-cd.md)

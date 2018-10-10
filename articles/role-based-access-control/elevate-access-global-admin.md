@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/29/2018
+ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0abf0a5971435fc3842a93e79d39468cba5c74da
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fb0fb4e0f23413cb56b1bb5ec419c44dfc52e7b6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445214"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996845"
 ---
 # <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Azure Active Directory에서 전역 관리자에 대한 액세스 권한 상승
 
@@ -37,7 +37,9 @@ ms.locfileid: "37445214"
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-## <a name="elevate-access-for-a-global-administrator-using-the-azure-portal"></a>Azure Portal을 사용하여 전역 관리자에 대한 액세스 권한 상승
+## <a name="azure-portal"></a>Azure portal
+
+다음 단계에 따라 Azure Portal을 사용하여 전역 관리자에 대한 액세스 권한을 상승시킵니다.
 
 1. [Azure Portal](https://portal.azure.com) 또는 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 
@@ -59,7 +61,9 @@ ms.locfileid: "37445214"
 
 1. 권한이 상승된 액세스를 확인하는 데 필요한 작업을 수행합니다. 작업이 완료되면 스위치를 다시 **아니요**로 설정합니다.
 
-## <a name="list-role-assignment-at-the-root-scope--using-powershell"></a>PowerShell을 사용하여 루트 범위(/)에서 역할 할당 나열
+## <a name="azure-powershell"></a>Azure PowerShell
+
+### <a name="list-role-assignment-at-the-root-scope-"></a>루트 범위(/)에 있는 역할 할당 나열
 
 루트 범위(`/`)에서 사용자에 대한 사용자 액세스 관리자 역할 할당을 나열하려면 [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) 명령을 사용합니다.
 
@@ -79,7 +83,7 @@ ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc
 ObjectType         : User
 ```
 
-## <a name="remove-a-role-assignment-at-the-root-scope--using-powershell"></a>PowerShell을 사용하여 루트 범위(/)에서 역할 할당 제거
+### <a name="remove-a-role-assignment-at-the-root-scope-"></a>루트 범위(/)에 있는 역할 할당 제거
 
 루트 범위(`/`)에서 사용자에 대한 사용자 액세스 관리자 역할 할당을 제거하려면 [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) 명령을 사용합니다.
 
@@ -88,7 +92,9 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
   -RoleDefinitionName "User Access Administrator" -Scope "/"
 ```
 
-## <a name="elevate-access-for-a-global-administrator-using-the-rest-api"></a>REST API를 사용하여 전역 관리자에 대한 액세스 권한 상승
+## <a name="rest-api"></a>REST API
+
+### <a name="elevate-access-for-a-global-administrator"></a>전역 관리자에 대한 액세스 권한 상승
 
 다음과 같은 기본 단계를 사용하여 REST API를 사용하는 전역 관리자에 대한 액세스 권한을 상승시킵니다.
 
@@ -117,7 +123,7 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
 
 1. 다시 필요할 때까지 사용자 액세스 관리자 권한을 제거합니다.
 
-## <a name="list-role-assignments-at-the-root-scope--using-the-rest-api"></a>REST API를 사용하여 루트 범위(/)에서 역할 할당 나열
+### <a name="list-role-assignments-at-the-root-scope-"></a>루트 범위(/)에 있는 역할 할당 나열
 
 루트 범위(`/`)에서 사용자에 대한 역할 할당을 모두 나열할 수 있습니다.
 
@@ -127,7 +133,17 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
    GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectIdOfUser}'
    ```
 
-## <a name="remove-elevated-access-using-the-rest-api"></a>REST API를 사용하여 상승된 액세스 제거
+### <a name="list-deny-assignments-at-the-root-scope-"></a>루트 범위(/)에 있는 거부 할당을 나열합니다.
+
+루트 범위(`/`)에 있는 사용자에 대한 거부 할당을 모두 나열할 수 있습니다.
+
+- `{objectIdOfUser}`가 거부 할당을 검색하려는 사용자의 개체 ID인 경우 GET denyAssignments를 호출합니다.
+
+   ```http
+   GET https://management.azure.com/providers/Microsoft.Authorization/denyAssignments?api-version=2018-07-01-preview&$filter=gdprExportPrincipalId+eq+'{objectIdOfUser}'
+   ```
+
+### <a name="remove-elevated-access"></a>상승된 액세스 제거
 
 `elevateAccess`를 호출하는 경우 해당 권한을 취소하려면 할당을 제거해야 하므로 스스로 역할 할당을 만듭니다.
 

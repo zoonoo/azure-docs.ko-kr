@@ -8,12 +8,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: b6fb39ef5941157cfe0d18324deeb9d836d7ab09
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 860b58a18fbc14532a8591fc753453d60492d3c0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377624"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981375"
 ---
 # <a name="batch-transcription"></a>일괄 처리 기록
 
@@ -30,7 +30,7 @@ Batch 전사 API는 추가 기능과 함께 비동기 음성 텍스트 변환 �
 
 Batch 전사 API에서 지원하는 형식은 다음과 같습니다.
 
-Name| 채널  |
+이름| 채널  |
 ----|----------|
 mp3 |   Mono   |   
 mp3 |  스테레오  | 
@@ -59,36 +59,38 @@ wav |  스테레오  |
 
 ## <a name="authorization-token"></a>권한 부여 토큰
 
-통합 Speech Service의 모든 기능과 마찬가지로, [Azure Portal](https://portal.azure.com)에서 구독 키를 만듭니다. 또한 Speech 포털에서 API 키를 얻습니다. 
+통합 Speech Service의 모든 기능과 마찬가지로, [시작 가이드](get-started.md)에 따라 [Azure Portal](https://portal.azure.com)에서 구독 키를 만듭니다. 기준 모델에서 전사를 가져오려는 경우 이 작업만 수행하면 됩니다. 
+
+사용자 지정 모델을 사용자 지정하고 사용하려는 경우에는 다음과 같이 사용자 지정 음성 포털에 이 구독 키를 추가해야 합니다.
 
 1. [Custom Speech](https://customspeech.ai)에 로그인합니다.
 
 2. **구독**을 선택합니다.
 
-3. **API 키 생성**을 선택합니다.
+3. **기존 구독 연결**을 선택합니다.
+
+4. 표시되는 보기에 구독 키 및 별칭 추가
 
     ![Custom Speech 구독 페이지의 스크린샷](media/stt/Subscriptions.jpg)
 
-4. 해당 키를 복사하여 다음 샘플의 클라이언트 코드에 붙여넣습니다.
+5. 해당 키를 복사하여 다음 샘플의 클라이언트 코드에 붙여넣습니다.
 
 > [!NOTE]
-> 사용자 지정 모델을 사용하려면 해당 모델의 ID도 필요합니다. [엔드포인트 세부 정보] 보기에서 찾은 배포 또는 엔드포인트 ID가 아닙니다. 해당 모델의 세부 정보를 선택할 때 검색할 수 있는 모델 ID입니다.
+> 사용자 지정 모델을 사용하려면 해당 모델의 ID도 필요합니다. [엔드포인트 세부 정보] 보기에서 찾은 엔드포인트 ID가 아닙니다. 해당 모델의 세부 정보를 선택할 때 검색할 수 있는 모델 ID입니다.
 
 ## <a name="sample-code"></a>샘플 코드
 
 구독 키와 API 키를 사용하여 다음 샘플 코드를 사용자 지정합니다. 이렇게 하면 전달자 토큰을 가져올 수 있습니다.
 
 ```cs
-    public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
+     public static CrisClient CreateApiV2Client(string key, string hostName, int port)
+
         {
             var client = new HttpClient();
             client.Timeout = TimeSpan.FromMinutes(25);
             client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
-
-            var tokenProviderPath = "/oauth/ctoken";
-            var clientToken = await CreateClientTokenAsync(client, hostName, port, tokenProviderPath, username, key).ConfigureAwait(false);
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", clientToken.AccessToken);
-
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+         
             return new CrisClient(client);
         }
 ```
@@ -98,8 +100,8 @@ wav |  스테레오  |
 ```cs
    static async Task TranscribeAsync()
         { 
-            private const string SubscriptionKey = "<your Speech[Preview] subscription key>";
-            private const string HostName = "cris.ai";
+            private const string SubscriptionKey = "<your Speech subscription key>";
+            private const string HostName = "westus.cris.ai";
             private const int Port = 443;
     
             // Creating a Batch transcription API Client
@@ -167,7 +169,7 @@ wav |  스테레오  |
 ```
 
 > [!NOTE]
-> 앞의 코드에서 구독 키는 Azure Portal에서 만든 Speech(미리 보기) 리소스의 구독 키입니다. Custom Speech Service 리소스에서 가져온 키는 작동하지 않습니다.
+> 앞의 코드에서 구독 키는 Azure Portal에서 만든 Speech 리소스의 구독 키입니다. Custom Speech Service 리소스에서 가져온 키는 작동하지 않습니다.
 
 오디오 게시 및 기록 상태 수신에 대한 비동기 설정을 확인합니다. 만든 클라이언트는 .NET Http 클라이언트입니다. 오디오 파일 세부 정보를 전송하기 위한 `PostTranscriptions` 메서드와, 결과를 수신하기 위한 `GetTranscriptions` 메서드가 있습니다. `PostTranscriptions`는 핸들을 반환하고, `GetTranscriptions`는 이 핸들을 사용하여 전사 상태를 가져오기 위한 핸들을 만듭니다.
 

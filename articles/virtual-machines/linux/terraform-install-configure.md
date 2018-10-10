@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/19/2018
 ms.author: echuvyrov
-ms.openlocfilehash: 1af96b686a1502d638b4335e22259b79169d1065
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 0943bd1bffb3df7beda97ea0619f1aced4ca3a41
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173250"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946785"
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Azure에 VM 및 기타 인프라를 프로비전하기 위해 Terraform 설치 및 구성
  
@@ -65,17 +65,17 @@ az account set --subscription="${SUBSCRIPTION_ID}"
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"
 ```
 
-*appId*, *암호*, *sp_name* 및 *테넌트*가 반환됩니다. *appId* 및 *암호*를 기록해 둡니다.
+`appId`, `password`, `sp_name` 및 `tenant`가 반환됩니다. `appId` 및 `password`를 기록해 둡니다.
 
 ## <a name="configure-terraform-environment-variables"></a>Terraform 환경 변수 구성
 
 Azure AD 서비스 사용자를 사용하도록 Terraform을 구성하려면 다음 환경 변수를 설정합니다. 이 환경 변수는 [Azure Terraform 모듈](https://registry.terraform.io/modules/Azure)에 사용됩니다. Azure 공용이 아닌 Azure 클라우드에서 작업하는 경우 환경을 설정할 수도 있습니다.
 
-- ARM_SUBSCRIPTION_ID
-- ARM_CLIENT_ID
-- ARM_CLIENT_SECRET
-- ARM_TENANT_ID
-- ARM_ENVIRONMENT
+- `ARM_SUBSCRIPTION_ID`
+- `ARM_CLIENT_ID`
+- `ARM_CLIENT_SECRET`
+- `ARM_TENANT_ID`
+- `ARM_ENVIRONMENT`
 
 다음 샘플 셸 스크립트를 사용하여 해당 변수를 설정할 수 있습니다.
 

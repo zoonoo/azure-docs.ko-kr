@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 7d37a60ad3ae3bea8490006bdd35dc47d728b88e
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: bdf4c7527e2c0056b2de2321fbae280e9008cb1b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43103857"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990676"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>HDInsight에 추가 저장소 계정 추가
 
@@ -58,7 +58,7 @@ __요구 사항__:
 
 ## <a name="to-use-the-script"></a>스크립트 사용
 
-Azure Portal, Azure PowerShell 또는 Azure CLI 1.0에서 이 스크립트를 사용할 수 있습니다. 자세한 내용은 [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)을 참조하세요.
+Azure Portal, Azure PowerShell 또는 Azure 클래식 CLI에서 이 스크립트를 사용할 수 있습니다. 자세한 내용은 [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)을 참조하세요.
 
 > [!IMPORTANT]
 > 사용자 지정 문서에 제공된 단계를 사용할 때는 다음 정보를 사용하여 이 스크립트를 적용하세요.
@@ -71,7 +71,7 @@ Azure Portal, Azure PowerShell 또는 Azure CLI 1.0에서 이 스크립트를 �
 
 ### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>Azure Portal 또는 도구에 Storage 계정이 표시되지 않음
 
-Azure Portal에서 HDInsight 클러스터를 볼 때 __속성__에서 __Storage 계정__ 항목을 선택하면 이 스크립트 동작을 통해 추가된 Storage 계정이 표시되지 않습니다. Azure PowerShell 및 Azure CLI도 추가 저장소 계정을 표시하지 않습니다.
+Azure Portal에서 HDInsight 클러스터를 볼 때 __속성__에서 __Storage 계정__ 항목을 선택하면 이 스크립트 동작을 통해 추가된 Storage 계정이 표시되지 않습니다. Azure PowerShell 및 Azure 클래식 CLI도 추가 저장소 계정을 표시하지 않습니다.
 
 이 저장소 정보는 스크립트에서 클러스터의 core-site.xml 구성만 수정하기 때문에 표시되지 않습니다. 이 정보는 Azure 관리 API를 사용하여 클러스터 정보를 검색할 때 사용되지 않습니다.
 

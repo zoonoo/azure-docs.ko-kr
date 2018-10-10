@@ -7,19 +7,20 @@ ms.author: kefzhou
 manager: akannava
 ms.reviewer: akannava, haining, mldocs, jmartens, jasonwhowell
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
-ms.openlocfilehash: 077af8b5d3367dd2188cbd6e5d76aaf52512a1e8
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 094fd6d8c6c6d647533cf5409d1a85283c71c80e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830802"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953245"
 ---
 # <a name="find-runs-with-the-best-accuracy-and-lowest-duration"></a>가장 짧은 기간 동안 가장 높은 정확도의 실행 확인
-다수의 실행 중 한 가지 사용 사례는 최고 정확도의 실행을 찾는 것입니다. 한 가지 방법은 [JMESPath](http://jmespath.org/) 쿼리와 함께 CLI(명령줄 인터페이스 )를 사용하는 것입니다. Azure CLI에서 JMESPath를 사용하는 방법에 대한 자세한 내용은 [Azure CLI 2.0에서 JMESPath 쿼리 사용](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest)을 참조하세요. 다음 예제에서는 정밀도 값이 0, 0.98, 1, 1인 네 개의 실행이 작성됩니다. `Threshold = .03`인 `[MaxAccuracy-Threshold, MaxAccuracy]` 범위에 있으면 실행이 필터링됩니다.
+다수의 실행 중 한 가지 사용 사례는 최고 정확도의 실행을 찾는 것입니다. 한 가지 방법은 [JMESPath](http://jmespath.org/) 쿼리와 함께 CLI(명령줄 인터페이스 )를 사용하는 것입니다. Azure CLI에서 JMESPath를 사용하는 방법에 대한 자세한 내용은 [Azure CLI에서 JMESPath 쿼리 사용](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest)을 참조하세요. 다음 예제에서는 정밀도 값이 0, 0.98, 1, 1인 네 개의 실행이 작성됩니다. `Threshold = .03`인 `[MaxAccuracy-Threshold, MaxAccuracy]` 범위에 있으면 실행이 필터링됩니다.
 
 ## <a name="sample-data"></a>샘플 데이터
 `Accuracy` 값을 사용하는 기존 실행이 없는 경우 다음 단계에서 쿼리를 위한 실행을 생성합니다.

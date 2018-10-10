@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: f986246e74305789eb2978a95fd6a3e51accd25e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0011ee646215c01e84aec71c7b992afca1ca3c2a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30909754"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997168"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Azure CLI를 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션
-이러한 단계에서는 Azure CLI(명령줄 인터페이스) 명령을 사용하여 클래식 배포 모델의 laaS(Infrastructure as a Service) 리소스를 Azure Resource Manager 배포 모델로 마이그레이션하는 방법을 보여 줍니다. 이 문서는 [Azure CLI 1.0](../../cli-install-nodejs.md)이 필요합니다. Azure CLI 2.0은 Azure Resource Manager 리소스에만 적용할 수 있으므로 이 마이그레이션에 사용할 수 없습니다.
+이러한 단계에서는 Azure CLI(명령줄 인터페이스) 명령을 사용하여 클래식 배포 모델의 laaS(Infrastructure as a Service) 리소스를 Azure Resource Manager 배포 모델로 마이그레이션하는 방법을 보여 줍니다. 이 문서는 [Azure 클래식 CLI](../../cli-install-nodejs.md)가 필요합니다. Azure CLI는 Azure Resource Manager 리소스에만 적용할 수 있으므로 이 마이그레이션에 사용할 수 없습니다.
 
 > [!NOTE]
 > 여기에 설명된 모든 작업은 idempotent 방식입니다. 지원되지 않는 기능 또는 구성 오류 이외의 문제가 발생하는 경우 준비, 중단 또는 커밋 작업을 다시 시도하는 것이 좋습니다. 그러면 플랫폼에서 작업을 다시 시도합니다.

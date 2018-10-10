@@ -1,6 +1,6 @@
 ---
 title: HDInsight에서 Hadoop 작업용 데이터 업로드
-description: Azure CLI, Azure Storage 탐색기, Azure PowerShell, Hadoop 명령줄 또는 Sqoop을 사용하여 HDInsight에서 Hadoop 작업 데이터를 업로드 및 액세스하는 방법에 대해 알아봅니다.
+description: Azure 클래식 CLI, Azure Storage 탐색기, Azure PowerShell, Hadoop 명령줄 또는 Sqoop을 사용하여 HDInsight에서 Hadoop 작업 데이터를 업로드 및 액세스하는 방법에 대해 알아봅니다.
 keywords: etl hadoop, hadoop으로 데이터 가져오기, hadoop 데이터 로드
 services: hdinsight
 author: jasonwhowell
@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 838444898500ce7127e1a9e999d0b5ee7b1e3687
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 44aaccee436011bd7d27bec87515fde0e898732e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051827"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985982"
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>HDInsight에서 Hadoop 작업용 데이터 업로드
 
@@ -38,22 +38,22 @@ Microsoft는 Azure Storage에서 작업할 다음 유틸리티를 제공합니�
 
 | 도구 | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Azure 명령줄 인터페이스][azurecli] |✔ |✔ |✔ |
+| [Azure 클래식 CLI][azurecli] |✔ |✔ |✔ |
 | [Azure PowerShell][azure-powershell] | | |✔ |
 | [AzCopy][azure-azcopy] |✔ | |✔ |
 | [Hadoop 명령](#commandline) |✔ |✔ |✔ |
 
 > [!NOTE]
-> Azure CLI, Azure PowerShell 및 AzCopy가 모두 Azure 외부에서 사용될 수 있지만, Hadoop 명령은 HDInsight 클러스터에서만 사용할 수 있습니다. 명령을 사용하면 데이터를 로컬 파일 시스템에서 Azure Blob 저장소로 로드할 수 있습니다.
+> Azure 클래식 CLI, Azure PowerShell 및 AzCopy가 모두 Azure 외부에서 사용될 수 있지만, Hadoop 명령은 HDInsight 클러스터에서만 사용할 수 있습니다. 명령을 사용하면 데이터를 로컬 파일 시스템에서 Azure Blob 저장소로 로드할 수 있습니다.
 >
 >
 
-#### <a id="xplatcli"></a>Azure CLI
-Azure CLI는 Azure 서비스를 관리할 수 있도록 하는 크로스 플랫폼 도구입니다. Azure Storage에 데이터를 업로드하려면 다음 단계를 사용합니다:
+#### <a id="xplatcli"></a>Azure 클래식 CLI
+Azure 클래식 CLI는 Azure 서비스를 관리할 수 있도록 하는 플랫폼 간 도구입니다. Azure Storage에 데이터를 업로드하려면 다음 단계를 사용합니다:
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-1. [Mac, Linux 및 Windows용 Azure CLI를 설치하고 구성합니다](../cli-install-nodejs.md).
+1. [Mac, Linux 및 Windows용 Azure 클래식 CLI를 설치하고 구성합니다](../cli-install-nodejs.md).
 2. 명령 프롬프트, bash 또는 다른 셸을 열고 다음을 사용하여 Azure 구독을 인증합니다.
 
     ```cli

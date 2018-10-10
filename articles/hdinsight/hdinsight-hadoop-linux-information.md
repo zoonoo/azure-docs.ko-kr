@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: 0b22e51814f79b00257433a7e601349ad25cd2b7
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: d725bbe31de0f93d1b741ffd008bf39086904b61
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104303"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997508"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux에서 HDInsight 사용에 관한 정보
 
@@ -29,7 +29,7 @@ Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 
 
 * [cURL](https://curl.haxx.se/) - 웹 기반 서비스와 통신하는 데 사용됩니다
 * [jq](https://stedolan.github.io/jq/) -JSON 문서를 구문 분석하는 데 사용됩니다
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) - Azure 서비스를 원격으로 관리 하는 데 사용됩니다.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) - Azure 서비스를 원격으로 관리 하는 데 사용됩니다.
 
 ## <a name="users"></a>사용자
 
@@ -176,7 +176,7 @@ HDInsight 클러스터 외부에서 데이터에 액세스하는 다양한 방�
 
 __Azure Storage__를 사용하는 경우 다음 링크를 참조하여 데이터에 액세스할 수 있습니다.
 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2): Azure로 작업하기 위한 명령줄 인터페이스 명령입니다. 설치 후 저장소 사용에 대한 도움말은 `az storage`를 참조하고 Blob 관련 명령에 대한 도움말은 `az storage blob`을 참조하세요.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): Azure로 작업하기 위한 명령줄 인터페이스 명령입니다. 설치 후 저장소 사용에 대한 도움말은 `az storage`를 참조하고 Blob 관련 명령에 대한 도움말은 `az storage blob`을 참조하세요.
 * [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): Azure Storage의 Blob 작업을 위한 python 스크립트입니다.
 * 다양한 SDK:
 
@@ -192,7 +192,7 @@ __Azure Data Lake Store__를 사용하는 경우 다음 링크를 참조하여 �
 
 * [웹 브라우저](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
-* [Azure CLI 2.0](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
+* [Azure CLI](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
 * [WebHDFS REST API](../data-lake-store/data-lake-store-get-started-rest-api.md)
 * [Data Lake Tools for Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
 * [.NET](../data-lake-store/data-lake-store-get-started-net-sdk.md)

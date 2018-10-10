@@ -1,5 +1,6 @@
 ---
 title: Microsoft Bing Speech Service | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Microsoft Speech API를 사용하여 사용자와의 실시간 상호 작용을 포함하여 앱에 음성 기반 작업을 추가합니다.
 services: cognitive-services
 author: zhouwangzw
@@ -7,16 +8,17 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: d58642b95a60d4f1c83dfd969d0c76511dca4653
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3b4ab55f4bd8bbd66f2edc8c262524169c79d7f5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43097398"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46975639"
 ---
-# <a name="microsoft-bing-speech-api-overview"></a>Microsoft Bing Speech API 개요
+# <a name="what-is-bing-speech"></a>Bing Speech란?
 
 클라우드 기반 Microsoft Bing Speech API를 사용하면 개발자가 음성 명령 제어, 자연스러운 음성 대화를 사용하는 사용자 대화 및 음성 전사/받아쓰기와 같이 응용 프로그램에서 강력한 음성 사용 기능을 쉽게 만들 수 있습니다. Microsoft Speech API는 *Speech to Text* 및 *Text to Speech* 변환을 모두 지원합니다.
 

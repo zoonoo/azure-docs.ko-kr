@@ -1,25 +1,27 @@
 ---
-title: Azure Cognitive Services용 Python 빠른 시작, Microsoft Translator Speech API | Microsoft Docs
-description: Azure의 Microsoft Cognitive Services에서 Microsoft Translator Speech API를 사용하여 빠르게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
+title: '빠른 시작: Translator Speech API Python'
+titlesuffix: Azure Cognitive Services
+description: Translator Speech API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 확인합니다.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a24ccd456df533542e7cbd2315fc1050cd82afbf
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ROBOTS: NOINDEX
+ms.openlocfilehash: 601e8473482cf6d90151b221309aef4d48d368d0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42093835"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979018"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-python"></a>Python을 사용한 Microsoft Translator Speech API 빠른 시작 
+# <a name="quickstart-translator-speech-api-with-python"></a>빠른 시작: Python을 사용한 Translator Speech API
 <a name="HOLTop"></a>
 
-이 문서에서는 Microsoft Translator Speech API를 사용하여 .wav 파일에서 발화된 단어를 변환하는 방법을 보여 줍니다.
+이 문서에서는 Translator Speech API를 사용하여 .wav 파일에서 발화된 단어를 변환하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: af32ea826f8150284c242fb6d1013924945aee97
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 25e6fba6ac8aa34c0c30fd61f5fe297b94720439
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247785"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983670"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Azure Blob Storage 수명 주기 관리(미리 보기)
 
@@ -30,7 +30,7 @@ ms.locfileid: "43247785"
 
 ## <a name="storage-account-support"></a>저장소 계정 지원
 
-수명 주기 관리 정책은 범용 v2(GPv2) 계정과 Blob Storage 계정에 모두 사용할 수 있습니다. Azure Portal에서 간단한 원클릭 프로세스를 이용하여 기존의 범용(GPv1) 계정을 GPv2 계정으로 변환할 수 있습니다. 자세히 알아보려면 [Azure Storage 계정 옵션](../common/storage-account-options.md)을 참조하세요.  
+수명 주기 관리 정책은 범용 v2(GPv2) 계정과 Blob Storage 계정에 모두 사용할 수 있습니다. Azure Portal에서 간단한 원클릭 프로세스를 이용하여 기존의 범용(GPv1) 계정을 GPv2 계정으로 변환할 수 있습니다. 저장소 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.  
 
 ## <a name="pricing"></a>가격 
 
@@ -54,7 +54,7 @@ Get-AzureRmProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage
 ```
 기능이 승인되고 적절하게 등록되면 "등록됨" 상태가 반환됩니다.
 
-### <a name="cli-20"></a>CLI 2.0
+### <a name="azure-cli"></a>Azure CLI
 
 요청을 제출하려면: 
 ```cli
@@ -69,7 +69,7 @@ az feature show --namespace Microsoft.Storage --name DLM
 
 ## <a name="add-or-remove-policies"></a>정책 추가 또는 제거 
 
-Azure Portal, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [REST API](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts/createorupdatemanagementpolicies) 또는 클라이언트 도구를 사용하여 [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby]( https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2) 언어로 정책을 추가, 편집 또는 제거할 수 있습니다. 
+Azure Portal, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [REST API](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/createorupdatemanagementpolicies) 또는 클라이언트 도구를 사용하여 [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2) 언어로 정책을 추가, 편집 또는 제거할 수 있습니다. 
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -126,7 +126,7 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
 
 | 매개 변수 이름 | 매개 변수 형식 | 메모 |
 |----------------|----------------|-------|
-| Name           | 문자열 | 규칙 이름에는 모든 영숫자 문자 조합이 허용됩니다. 규칙 이름은 대/소문자를 구분합니다. 정책 내에서 고유해야 합니다. |
+| 이름           | 문자열 | 규칙 이름에는 모든 영숫자 문자 조합이 허용됩니다. 규칙 이름은 대/소문자를 구분합니다. 정책 내에서 고유해야 합니다. |
 | 형식           | 열거형 값 | 미리 보기에 유효한 값은 `Lifecycle` |
 | 정의     | 수명 주기 규칙을 정의하는 개체 | 각 정의는 필터 집합과 작업 집합으로 구성됩니다. |
 

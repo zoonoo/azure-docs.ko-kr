@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 4f8ad67fafa20fd9adce62e8beb619999203ef62
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: db9c22acfba0f6f1781348b36a1d253a515cc063
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346664"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977278"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>C용 Azure IoT 장치 SDK
 
@@ -71,7 +71,7 @@ IoT Hub를 관리하는 데 도움이 되는 몇 가지 오픈 소스 도구가 
 
 * [장치 탐색기](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)라는 Windows 응용 프로그램
 * [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)라는 플랫폼 간 Visual Studio Code 확장
-* [Azure CLI 2.0에 대한 IoT 확장](https://github.com/Azure/azure-iot-cli-extension)이라고 하는 플랫폼 간 Python CLI 도구
+* [Azure CLI에 대한 IoT 확장](https://github.com/Azure/azure-iot-cli-extension)이라고 하는 플랫폼 간 Python CLI 도구
 
 이 자습서에서는 그래픽 *장치 탐색기* 도구를 사용합니다. VS Code에서 개발하는 경우 *VS Code용 Azure IoT Toolkit 확장*을 사용할 수 있습니다. 또한 CLI 도구를 사용하려면 *Azure CLI 2.0에 대한 IoT 확장* 도구를 사용할 수도 있습니다.
 

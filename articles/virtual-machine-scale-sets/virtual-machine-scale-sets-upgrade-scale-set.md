@@ -1,6 +1,6 @@
 ---
 title: Azure 가상 머신 확장 집합 수정 | Microsoft Docs
-description: REST API, Azure PowerShell 및 Azure CLI 2.0으로 Azure 가상 머신 확장 집합을 수정 및 업데이트하는 방법 알아보기
+description: REST API, Azure PowerShell 및 Azure CLI로 Azure 가상 머신 확장 집합을 수정 및 업데이트하는 방법 알아보기
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: gatneil
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 662cea7ac47e411b127540faf5cab8b3c4d8964a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 628d407869d24f466b5a7c056d51d76217e29798
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32194049"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996658"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 수정
-응용 프로그램의 수명 주기 전반에 걸쳐 가상 머신 확장 집합을 수정하거나 업데이트해야 할 수도 있습니다. 이러한 업데이트에는 확장 집합의 구성을 업데이트하거나 응용 프로그램 구성을 변경하는 방법이 포함될 수 있습니다. 이 문서에서는 REST API, Azure PowerShell 또는 Azure CLI 2.0을 사용하여 기존 확장 집합을 수정하는 방법에 대해 설명합니다.
+응용 프로그램의 수명 주기 전반에 걸쳐 가상 머신 확장 집합을 수정하거나 업데이트해야 할 수도 있습니다. 이러한 업데이트에는 확장 집합의 구성을 업데이트하거나 응용 프로그램 구성을 변경하는 방법이 포함될 수 있습니다. 이 문서에서는 REST API, Azure PowerShell 또는 Azure CLI를 사용하여 기존 확장 집합을 수정하는 방법에 대해 설명합니다.
 
 ## <a name="fundamental-concepts"></a>기본 개념
 
@@ -42,7 +42,7 @@ ms.locfileid: "32194049"
     Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
     ```
 
-- Azure CLI 2.0에서 [az vmss show](/cli/azure/vmss#az_vmss_show):
+- Azure CLI에서 [az vmss show](/cli/azure/vmss#az_vmss_show):
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -50,7 +50,7 @@ ms.locfileid: "32194049"
 
 - [resources.azure.com](https://resources.azure.com) 또는 언어별 [Azure SDK](https://azure.microsoft.com/downloads/)를 사용할 수도 있습니다.
 
-정확한 출력 표시는 명령에 제공하는 옵션에 따라 달라집니다. 다음 예제는 Azure CLI 2.0의 압축된 샘플 출력입니다.
+정확한 출력 표시는 명령에 제공하는 옵션에 따라 달라집니다. 다음 예제는 Azure CLI의 압축된 샘플 출력입니다.
 
 ```azurecli
 az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -86,7 +86,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
     Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
     ```
 
-- Azure CLI 2.0에서 [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view):
+- Azure CLI에서 [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view):
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
@@ -94,7 +94,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 - [resources.azure.com](https://resources.azure.com) 또는 언어별 [Azure SDK](https://azure.microsoft.com/downloads/)를 사용할 수도 있습니다.
 
-정확한 출력 표시는 명령에 제공하는 옵션에 따라 달라집니다. 다음 예제는 Azure CLI 2.0의 압축된 샘플 출력입니다.
+정확한 출력 표시는 명령에 제공하는 옵션에 따라 달라집니다. 다음 예제는 Azure CLI의 압축된 샘플 출력입니다.
 
 ```azurecli
 $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
@@ -140,7 +140,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
     Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- Azure CLI 2.0에서 [az vmss show](/cli/azure/vmss#az_vmss_show):
+- Azure CLI에서 [az vmss show](/cli/azure/vmss#az_vmss_show):
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -148,7 +148,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
 
 - [resources.azure.com](https://resources.azure.com) 또는 [Azure SDK](https://azure.microsoft.com/downloads/)를 사용할 수도 있습니다.
 
-정확한 출력 표시는 명령에 제공하는 옵션에 따라 달라집니다. 다음 예제는 Azure CLI 2.0의 압축된 샘플 출력입니다.
+정확한 출력 표시는 명령에 제공하는 옵션에 따라 달라집니다. 다음 예제는 Azure CLI의 압축된 샘플 출력입니다.
 
 ```azurecli
 $ az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -180,7 +180,7 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
     Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
     ```
 
-- Azure CLI 2.0에서 [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view):
+- Azure CLI에서 [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view)
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -188,7 +188,7 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 - [resources.azure.com](https://resources.azure.com) 또는 [Azure SDK](https://azure.microsoft.com/downloads/)를 사용할 수도 있습니다.
 
-정확한 출력 표시는 명령에 제공하는 옵션에 따라 달라집니다. 다음 예제는 Azure CLI 2.0의 압축된 샘플 출력입니다.
+정확한 출력 표시는 명령에 제공하는 옵션에 따라 달라집니다. 다음 예제는 Azure CLI의 압축된 샘플 출력입니다.
 
 ```azurecli
 $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -259,7 +259,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet {scaleSetConfigPowershellObject}
     ```
 
-- Azure CLI 2.0에서 [az vmss update](/cli/azure/vmss#az_vmss_update):
+- Azure CLI에서 [az vmss update](/cli/azure/vmss#az_vmss_update):
     - 속성을 수정하려면:
 
         ```azurecli
@@ -306,7 +306,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
     Update-AzureRmVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- Azure CLI 2.0에서 [az vmss update-instances](/cli/azure/vmss#az_vmss_update_instances):
+- Azure CLI에서 [az vmss update-instances](/cli/azure/vmss#az_vmss_update_instances):
 
     ```azurecli
     az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
@@ -331,7 +331,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
     Set-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
     ```
 
-- Azure CLI 2.0에서 [az vmss reimage](https://docs.microsoft.com/cli/azure/vmss#az_vmss_reimage):
+- Azure CLI에서 [az vmss reimage](https://docs.microsoft.com/cli/azure/vmss#az_vmss_reimage):
 
     ```azurecli
     az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -392,7 +392,7 @@ Azure 플랫폼 이미지를 사용하는 경우 *imageReference*를 수정하�
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -ImageReferenceVersion 16.04.201801090
     ```
 
-- Azure CLI 2.0에서 [az vmss update](/cli/azure/vmss#az_vmss_update_instances):
+- Azure CLI에서 [az vmss update](/cli/azure/vmss#az_vmss_update_instances):
 
     ```azurecli
     az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090
@@ -418,7 +418,7 @@ Azure Load Balancer가 있는 확장 집합이 있으며 Azure Load Balancer를 
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -virtualMachineScaleSet $vmss
     ```
 
-- Azure CLI 2.0:
+- Azure CLI:
 
     ```azurecli
     # Remove the load balancer backend pool from the scale set model
@@ -436,4 +436,4 @@ Azure Load Balancer가 있는 확장 집합이 있으며 Azure Load Balancer를 
 
 
 ## <a name="next-steps"></a>다음 단계
-[Azure CLI 2.0](virtual-machine-scale-sets-manage-cli.md) 또는 [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md)을 사용하여 확장 집합에서 일반 관리 작업을 수행할 수도 있습니다.
+[Azure CLI](virtual-machine-scale-sets-manage-cli.md) 또는 [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md)을 사용하여 확장 집합에서 일반 관리 작업을 수행할 수도 있습니다.

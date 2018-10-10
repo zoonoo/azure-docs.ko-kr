@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 05/29/2018
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: dc857760cf0d3fa2e146f22196b7bc36d119df5f
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 5a09211dc134cdb372a9712c1f45d7c44660a759
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869595"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966863"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>자습서: 시뮬레이션된 장치를 사용하여 IoT 허브와의 연결 테스트
 
@@ -33,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서에서 실행하는 CLI 스크립트에서 [Azure CLI 2.0용 Microsoft Azure IoT 확장](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md)을 사용해야 합니다. 이 확장을 설치하려면 다음 CLI 명령을 실행합니다.
+이 자습서에서 실행하는 CLI 스크립트에서 [Azure CLI용 Microsoft Azure IoT 확장](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md)을 사용해야 합니다. 이 확장을 설치하려면 다음 CLI 명령을 실행합니다.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
@@ -100,7 +100,7 @@ node SimulatedDevice-1.js "{your device connection string}"
 # Generate a new Base64 encoded key using the current date
 read key < <(date +%s | sha256sum | base64 | head -c 32)
 
-# Requires the IoT Extension for Azure CLI 2.0
+# Requires the IoT Extension for Azure CLI
 # az extension add --name azure-cli-iot-ext
 
 # Reset the primary device key for MyTestDevice

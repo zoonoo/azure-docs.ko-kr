@@ -1,6 +1,6 @@
 ---
-title: 내부 부하 분산 장치 만들기 - Azure CLI 클래식 | Microsoft Docs
-description: Azure CLI를 사용하여 클래식 배포 모델에서 내부 부하 분산 장치를 만드는 방법에 대해 알아봅니다.
+title: 내부 부하 분산 장치 만들기 - Azure 클래식 CLI | Microsoft Docs
+description: Azure 클래식 CLI를 사용하여 클래식 배포 모델에서 내부 부하 분산 장치를 만드는 방법에 대해 알아봅니다.
 services: load-balancer
 documentationcenter: na
 author: genlin
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 06/18/2018
 ms.author: genli
-ms.openlocfilehash: 8f0ac03ff7b749e47692d03d65502df0a19bb758
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fb8929b31fa4325b996ddf4c5ec48e4acb0b930a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38539520"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966921"
 ---
-# <a name="get-started-creating-an-internal-load-balancer-classic-using-the-azure-cli"></a>Azure CLI를 사용하여 내부 부하 분산 장치(클래식) 만들기 시작
+# <a name="get-started-creating-an-internal-load-balancer-using-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 내부 부하 분산 장치 만들기 시작
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
@@ -40,15 +40,15 @@ ms.locfileid: "38539520"
 
 내부 부하 분산 장치 집합과 이 집합으로 해당 트래픽을 전송할 서버를 만들려면 다음을 수행해야 합니다.
 
-1. 부하가 분산된 집합의 서버 간에 부하가 분산되어 들어오는 트래픽의 끝점이 되는 내부 부하 분산의 인스턴스를 만듭니다.
-2. 들어오는 트래픽을 수신할 수 있는 가상 머신에 해당하는 끝점을 추가합니다.
+1. 부하가 분산된 집합의 서버 간에 부하가 분산되어 들어오는 트래픽의 엔드포인트가 되는 내부 부하 분산의 인스턴스를 만듭니다.
+2. 들어오는 트래픽을 수신할 수 있는 가상 머신에 해당하는 엔드포인트를 추가합니다.
 3. 서버가 해당 트래픽을 내부 부하 분산 인스턴스의 VIP(가상 IP) 주소로 전송하도록 구성합니다.
 
-## <a name="step-by-step-creating-an-internal-load-balancer-using-cli"></a>CLI를 사용하여 내부 부하 분산 장치 만들기 단계별 지침
+## <a name="step-by-step-creating-an-internal-load-balancer-using-classic-cli"></a>클래식 CLI를 사용하여 내부 부하 분산 장치 만들기 단계별 지침
 
 이 가이드에서는 위의 시나리오에 따라 내부 부하 분산 장치를 만드는 방법을 보여 줍니다.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../cli-install-nodejs.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+1. 클래식 CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../cli-install-nodejs.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
 2. 아래와 같이 **azure config mode** 명령을 실행하여 클래식 모드로 전환합니다.
 
     ```azurecli
@@ -59,7 +59,7 @@ ms.locfileid: "38539520"
 
         info:    New mode is asm
 
-## <a name="create-endpoint-and-load-balancer-set"></a>끝점과 부하 분산 장치 집합 만들기
+## <a name="create-endpoint-and-load-balancer-set"></a>엔드포인트와 부하 분산 장치 집합 만들기
 
 시나리오는 "mytestcloud"라는 클라우드 서비스에 가상 머신 "DB1" 및 "DB2"가 있다고 가정합니다. 두 가상 머신은 서브넷 "subnet-1"과 함께 내 "testvnet"이라는 가상 네트워크를 사용합니다.
 
@@ -92,7 +92,7 @@ azure service internal-load-balancer add --serviceName mytestcloud --internalLBN
 
 ### <a name="step-2"></a>2단계
 
-첫 번째 끝점을 추가할 때 내부 부하 분산 장치 집합을 구성합니다. 이 단계에서 끝점, 가상 머신 및 프로브 포트를 내부 부하 분산 장치 집합에 연결할 수 있습니다.
+첫 번째 엔드포인트를 추가할 때 내부 부하 분산 장치 집합을 구성합니다. 이 단계에서 엔드포인트, 가상 머신 및 프로브 포트를 내부 부하 분산 장치 집합에 연결할 수 있습니다.
 
 ```azurecli
 azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
@@ -155,9 +155,9 @@ azure vm show DB1
     data:    Network Endpoints 2 loadBalancerName "ilbset"
     info:    vm show command OK
 
-## <a name="create-a-remote-desktop-endpoint-for-a-virtual-machine"></a>가상 머신을 위한 원격 데스크톱 끝점 만들기
+## <a name="create-a-remote-desktop-endpoint-for-a-virtual-machine"></a>가상 머신을 위한 원격 데스크톱 엔드포인트 만들기
 
-`azure vm endpoint create`을 사용하여 특정 가상 머신의 공용 포트에서 로컬 포트로 네트워크 트래픽을 전달하는 원격 데스크톱 끝점을 만들 수 있습니다.
+`azure vm endpoint create`을 사용하여 특정 가상 머신의 공용 포트에서 로컬 포트로 네트워크 트래픽을 전달하는 원격 데스크톱 엔드포인트를 만들 수 있습니다.
 
 ```azurecli
 azure vm endpoint create web1 54580 -k 3389
@@ -165,9 +165,9 @@ azure vm endpoint create web1 54580 -k 3389
 
 ## <a name="remove-virtual-machine-from-load-balancer"></a>부하 분산 장치에서 가상 컴퓨터 제거
 
-연결된 된 끝점을 삭제하여 내부 부하 분산 장치 집합에서 가상 머신을 제거할 수 있습니다. 끝점이 제거되면 가상 머신은 더 이상 부하 분산 장치 집합에 속하지 않습니다.
+연결된 된 엔드포인트를 삭제하여 내부 부하 분산 장치 집합에서 가상 머신을 제거할 수 있습니다. 엔드포인트가 제거되면 가상 머신은 더 이상 부하 분산 장치 집합에 속하지 않습니다.
 
-위의 예제를 통해 명령 `azure vm endpoint delete`를 사용하여 내부 부하 분산 장치 "lbset"에서 가상 머신 "DB1"을 위해 만들어진 끝점을 제거할 수 있습니다.
+위의 예제를 통해 명령 `azure vm endpoint delete`를 사용하여 내부 부하 분산 장치 "lbset"에서 가상 컴퓨터 "DB1"을 위해 만들어진 엔드포인트를 제거할 수 있습니다.
 
 ```azurecli
 azure vm endpoint delete DB1 tcp-1433-1433

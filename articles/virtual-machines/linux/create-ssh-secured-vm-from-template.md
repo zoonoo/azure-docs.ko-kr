@@ -16,16 +16,19 @@ ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e6b431ee55ee73b4f5a69471cca3cc16270198c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 33b0b2b4148a8cfbe97413bf3cdec23d375206bb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930242"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983891"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Linux 가상 머신을 만드는 방법
-이 문서에서는 Azure Resource Manager 템플릿 및 Azure CLI를 사용하여 Linux VM(가상 머신)을 신속하게 배포하는 방법을 보여 줍니다. 
 
+이 문서에서는 Azure Resource Manager 템플릿 및 Azure CLI를 사용하여 Linux VM(가상 머신)을 신속하게 배포하는 방법을 보여 줍니다. [Azure 클래식 CLI](create-ssh-secured-vm-from-template-nodejs.md)에서 이러한 단계를 수행할 수도 있습니다.
+
+
+이 문서에서는 Azure Resource Manager 템플릿 및 Azure CLI를 사용하여 Linux VM(가상 머신)을 신속하게 배포하는 방법을 보여 줍니다. 
 
 ## <a name="templates-overview"></a>템플릿 개요
 Azure Resource Manager 템플릿은 Azure 솔루션의 인프라와 구성을 정의하는 JSON 파일입니다. 템플릿을 사용하여 수명 주기 내내 솔루션을 반복적으로 배포하고 안심하고 일관된 상태로 리소스를 배포할 수 있습니다. 템플릿의 형식 및 템플릿을 생성하는 방법에 대해 자세히 알아보려면 [첫 번째 Azure Resource Manager 템플릿 만들기](../../azure-resource-manager/resource-manager-create-first-template.md)를 참조하세요. 리소스 유형의 JSON 구문을 보려면 [Azure Resource Manager 템플릿에서 리소스 정의](/azure/templates/)를 참조하세요.

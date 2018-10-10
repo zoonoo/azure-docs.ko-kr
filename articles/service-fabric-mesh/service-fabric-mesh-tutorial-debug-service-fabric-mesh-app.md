@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure Service Fabric Mesh 웹 응용 프로그램 디버그 | Microsoft Docs
+title: 자습서 - 로컬 개발 클러스터에서 실행 중인 Azure Service Fabric Mesh 웹 응용 프로그램 디버그 | Microsoft Docs
 description: 이 자습서에서는 로컬 클러스터에서 실행 중인 Azure Service Fabric Mesh 응용 프로그램을 디버그합니다.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2018
+ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c519d24a8401823039f3d6598276890ec6498bbc
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 27e4c8f6ac24d40a6afacf10175413745f5151d9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41919455"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997015"
 ---
-# <a name="tutorial-debug-a-service-fabric-mesh-web-application"></a>자습서: Service Fabric Mesh 웹 응용 프로그램 디버그
+# <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>자습서: 로컬 개발 클러스터에서 실행 중인 Service Fabric Mesh 응용 프로그램 디버그
 
-이 자습서는 시리즈의 2부로, 로컬 개발 클러스터에서 Azure Service Fabric Mesh 웹 응용 프로그램을 디버그하는 방법을 보여줍니다.
+이 자습서는 시리즈의 2부로, 로컬 개발 클러스터에서 Azure Service Fabric Mesh 앱을 빌드 및 디버그하는 방법을 보여 줍니다.
 
 이 자습서에서는 다음에 대해 알아봅니다.
 
@@ -34,9 +34,11 @@ ms.locfileid: "41919455"
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * [Service Fabric Mesh 응용 프로그램 빌드](service-fabric-mesh-tutorial-create-dotnetcore.md)
-> * 로컬로 앱 디버그
-> * [Azure에 앱 게시](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Visual Studio에서 Service Fabric Mesh 앱 만들기](service-fabric-mesh-tutorial-create-dotnetcore.md)
+> * 로컬 개발 클러스터에서 실행 중인 Service Fabric Mesh 앱 디버그
+> * [Service Fabric Mesh 앱 배포](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Service Fabric Mesh 앱 업그레이드](service-fabric-mesh-tutorial-upgrade.md)
+> * [Service Fabric Mesh 리소스 정리](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -105,4 +107,4 @@ Visual Studio에서 Service Fabric Mesh 응용 프로그램을 디버깅할 때 
 
 다음 자습서를 진행합니다.
 > [!div class="nextstepaction"]
-> [Service Fabric Mesh 웹 응용 프로그램 게시](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> [Service Fabric Mesh 앱 배포](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)

@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: big-compute
 ms.date: 08/02/2018
 ms.author: danlep
-ms.openlocfilehash: 50ed5a6b57c3c994f636db5cc975ad1908e50c7d
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 753a36eb6fb7a0c007c62bbab7fe7390e706b1f5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493436"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964295"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Azure Batch CLI 템플릿 및 파일 전송 사용
 
@@ -47,7 +47,7 @@ Batch 템플릿은 풀, 작업, 태스크 및 기타 항목을 생성할 때 속
 
 ## <a name="installation"></a>설치
 
-Azure Batch CLI 확장을 설치하려면 먼저 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)하거나 [Azure Cloud Shell](../cloud-shell/overview.md)에서 Azure CLI를 실행합니다.
+Azure Batch CLI 확장을 설치하려면 먼저 [Azure CLI 2.0을 설치](/cli/azure/install-azure-cli)하거나 [Azure Cloud Shell](../cloud-shell/overview.md)에서 Azure CLI를 실행합니다.
 
 다음 Azure CLI 명령을 사용하여 최신 버전의 Batch 확장을 설치합니다.
 

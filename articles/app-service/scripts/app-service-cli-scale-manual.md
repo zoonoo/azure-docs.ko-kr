@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 스크립트 샘플 - Azure CLI 2.0을 사용하여 수동으로 웹앱 크기 조정 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - Azure CLI 2.0을 사용하여 수동으로 웹앱 크기 조정
+title: Azure CLI 스크립트 샘플 - Azure CLI를 사용하여 수동으로 웹앱 크기 조정 | Microsoft Docs
+description: Azure CLI 스크립트 샘플 - Azure CLI를 사용하여 수동으로 웹앱 크기 조정
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
@@ -16,12 +16,12 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 844250dce567bac280ae3a9a688cc8e5bc5852c9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 28ca20d44d18e8fe25153b7f9298d5174412ad79
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30282449"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988583"
 ---
 # <a name="scale-a-web-app-manually"></a>수동으로 웹앱 크기 조정
 
@@ -31,7 +31,7 @@ ms.locfileid: "30282449"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택하는 경우 Azure CLI 버전 2.0 이상이 필요합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택하는 경우 Azure CLI 버전 2.0 이상이 필요합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="sample-script"></a>샘플 스크립트
 

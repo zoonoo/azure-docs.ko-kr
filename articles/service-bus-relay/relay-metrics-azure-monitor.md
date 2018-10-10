@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: spelluru
-ms.openlocfilehash: 6d9c154e4942e39d68c30ac52dee0f743e428b9e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: cffc84cdb86c01f5ca892b987a23dc3ded611dd9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696890"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986957"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Azure Monitor의 Azure Relay 메트릭(미리 보기)
 
@@ -29,7 +29,7 @@ Azure Monitor는 다양한 Azure 서비스를 모니터링하기 위한 통합�
 
 ## <a name="access-metrics"></a>메트릭에 액세스
 
-Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합니다. [Azure Portal](https://portal.azure.com)을 통해 메트릭에 액세스하거나 Azure Monitor API(REST 및 .NET) 및 Operation Management Suite 및 Event Hubs 같은 분석 솔루션을 사용할 수 있습니다. 자세한 내용은 [Azure Monitor 메트릭](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api)을 참조하세요.
+Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합니다. [Azure Portal](https://portal.azure.com)을 통해 메트릭에 액세스하거나 Azure Monitor API(REST 및 .NET) 및 Operation Management Suite 및 Event Hubs 같은 분석 솔루션을 사용할 수 있습니다. 자세한 내용은 [Azure Monitor에서 수집된 데이터 모니터링](../monitoring/monitoring-data-collection.md)을 참조하세요.
 
 메트릭은 기본적으로 활성화되며 최근 30일분 데이터에 액세스할 수 있습니다. 더 오랜 기간에 대한 데이터를 보존해야 하는 경우 메트릭 데이터를 Azure Storage 계정에 보관할 수 있습니다. Azure Monitor의 [진단 설정](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)에서 이렇게 구성합니다.
 

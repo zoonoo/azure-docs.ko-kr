@@ -1,6 +1,6 @@
 ---
-title: 자습서 - Service Fabric Mesh에 Service Fabric Mesh 응용 프로그램 배포 | Microsoft Docs
-description: 백 엔드 웹 서비스와 통신하는 ASP.NET Core 웹 사이트로 구성된 Azure Service Fabric Mesh 응용 프로그램을 게시하는 방법을 알아봅니다.
+title: 자습서 - Service Fabric Mesh 응용 프로그램 배포 | Microsoft Docs
+description: Visual Studio를 사용하여 백 엔드 웹 서비스와 통신하는 ASP.NET Core 웹 사이트로 구성된 Azure Service Fabric Mesh 응용 프로그램을 게시하는 방법을 알아봅니다.
 services: service-fabric-mesh
 documentationcenter: .net
 author: TylerMSFT
@@ -12,35 +12,35 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/26/2018
+ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 350749161260768071afbb47b854cb2e9184bd9d
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 467484824ec3a3ceffb6dfa692953406ed6acc1b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284730"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963324"
 ---
-# <a name="tutorial-deploy-a-service-fabric-mesh-web-application"></a>자습서: Service Fabric Mesh 웹 응용 프로그램 배포
+# <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>자습서: Service Fabric Mesh 응용 프로그램 배포
 
 이 자습서는 시리즈의 3부이며, Visual Studio에서 직접 Azure Service Fabric Mesh 웹 응용 프로그램을 게시하는 방법을 보여 줍니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * Azure에 앱 게시
+> * Visual Studio를 사용하여 Azure에 앱을 게시합니다.
 > * 응용 프로그램 배포 상태 확인
 > * 현재 구독에 배포된 모든 응용 프로그램 보기
-> * 응용 프로그램 로그 보기
-> * 앱에서 사용하는 리소스 정리
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * [Service Fabric Mesh 웹 응용 프로그램 빌드](service-fabric-mesh-tutorial-create-dotnetcore.md)
-> * [로컬로 앱 디버그](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
-> * Azure에 앱 게시
+> * [Visual Studio에서 Service Fabric Mesh 앱 만들기](service-fabric-mesh-tutorial-create-dotnetcore.md)
+> * [로컬 개발 클러스터에서 실행 중인 Service Fabric Mesh 앱 디버그](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> * Service Fabric Mesh 앱 배포
+> * [Service Fabric Mesh 앱 업그레이드](service-fabric-mesh-tutorial-upgrade.md)
+> * [Service Fabric Mesh 리소스 정리](service-fabric-mesh-tutorial-cleanup-resources.md)
 
-ASP.NET 웹 프런트 엔드 및 ASP.NET Core 웹 API 백 엔드 서비스가 있는 Azure Service Fabric Mesh 응용 프로그램을 만드는 방법에 대해 알아봅니다. 그런 다음, 로컬 개발 클러스터에서 응용 프로그램을 디버그하고 Azure에 응용 프로그램을 게시합니다. 작업이 완료되면 Service Fabric Mesh 웹 응용 프로그램에서 서비스 간 호출을 수행하는 간단한 할 일 앱이 만들어집니다.
+[!INCLUDE [preview note](./includes/include-preview-note.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -62,7 +62,7 @@ git clone https://github.com/azure-samples/service-fabric-mesh
 
 ## <a name="publish-to-azure"></a>Azure에 게시
 
-Service Fabric Mesh 프로젝트를 Azure에 게시하려면 Visual Studio에서 **ServiceFabricMeshApp**을 마우스 오른쪽 단추로 클릭하고 **게시...** 를 선택합니다.
+Service Fabric Mesh 프로젝트를 Azure에 게시하려면 Visual Studio에서 **todolistapp**을 마우스 오른쪽 단추로 클릭하고 **게시...** 를 선택합니다.
 
 그러면 **Service Fabric 응용 프로그램 게시** 대화 상자가 표시됩니다.
 
@@ -74,11 +74,11 @@ Azure 계정과 구독을 선택합니다. **위치**를 선택합니다. 이 �
 
 ![Visual Studio의 Service Fabric Mesh 새 리소스 그룹 대화 상자](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-resource-group-dialog.png)
 
-**Service Fabric 응용 프로그램 게시** 대화 상자로 돌아간 다음, **Azure Container Registry**에서 **\<새 컨테이너 레지스트리 만들기...>** 를 선택합니다. **컨테이너 레지스트리 만들기** 대화 상자에서 **컨테이너 레지스트리 이름**에 대해 고유한 이름을 사용합니다. **위치**를 지정합니다(이 자습서에서는 **미국 동부** 사용). 드롭다운에서 이전 단계에서 만든 **리소스 그룹**(예: **sfmeshTutorial1RG**)을 선택합니다. **SKU**를 **기본**으로 설정한 다음, **만들기**를 눌러 게시 대화 상자로 돌아갑니다.
+**Service Fabric 응용 프로그램 게시** 대화 상자로 돌아간 다음, **Azure Container Registry**에서 **\<새 컨테이너 레지스트리 만들기...>** 를 선택합니다. **컨테이너 레지스트리 만들기** 대화 상자에서 **컨테이너 레지스트리 이름**에 대해 고유한 이름을 사용합니다. **위치**를 지정합니다(이 자습서에서는 **미국 동부** 사용). 드롭다운에서 이전 단계에서 만든 **리소스 그룹**(예: **sfmeshTutorial1RG**)을 선택합니다. **SKU**를 **기본**으로 설정한 후 **만들기**를 눌러 개인 Azure 컨테이너 레지스트리를 만들고 게시 대화 상자로 돌아갑니다.
 
-![Visual Studio의 Service Fabric Mesh 새 리소스 그룹 대화 상자](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-container-registry-dialog.png)
+![Visual Studio Service Fabric Mesh 새 컨테이너 레지스트리 대화 상자](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-container-registry-dialog.png)
 
-리소스 공급자가 구독에 등록되지 않았다는 오류가 표시되면 구독을 등록할 수 있습니다. 먼저 리소스 공급자를 구독에 사용할 수 있는지 확인합니다.
+리소스 공급자가 구독에 등록되지 않았다는 오류가 표시되는 경우, 리소스 공급자를 등록할 수 있습니다. 먼저 리소스 공급자를 구독에 사용할 수 있는지 확인합니다.
 
 ```Powershell
 Get-AzureRmResourceProvider -ListAvailable
@@ -109,7 +109,6 @@ The application was deployed successfully and it can be accessed at http://10.00
 ## <a name="set-up-service-fabric-mesh-cli"></a>Service Fabric Mesh CLI 설정 
 나머지 단계에서는 Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용할 수 있습니다. 다음 [지침](service-fabric-mesh-howto-setup-cli.md)에 따라 Azure Service Fabric Mesh CLI 확장 모듈을 설치합니다.
 
-
 ## <a name="check-application-deployment-status"></a>응용 프로그램 배포 상태 확인
 
 이 시점에서 응용 프로그램이 배포되었습니다. `app show` 명령을 사용하여 상태를 확인할 수 있습니다. 
@@ -124,46 +123,20 @@ az mesh app show --resource-group $rg --name ServiceMeshApp
 
 “app list” 명령을 사용하여 구독에 배포한 응용 프로그램 목록을 가져올 수 있습니다.
 
-```cli
+```azurecli-interactive
 az mesh app list --output table
 ```
 
-## <a name="see-the-application-logs"></a>응용 프로그램 로그 보기
-
-배포된 응용 프로그램에 대한 로그를 검사합니다.
-
-```azurecli-interactive
-az mesh code-package-log get --resource-group $rg --application-name ServiceMeshApp --service-name todoservice --replica-name 0 --code-package-name ServiceMeshApp
-```
-
-## <a name="clean-up-resources"></a>리소스 정리
-
-더 이상 필요하지 않은 경우 만든 리소스를 모두 삭제합니다. ACR 및 Service Fabric Mesh 서비스 리소스를 모두 호스팅하는 새 리소스 그룹을 만들었으므로 이 리소스 그룹을 안전하게 삭제할 수 있습니다. 그러면 해당 그룹과 연결된 리소스가 모두 삭제됩니다.
-
-```azurecli
-az group delete --resource-group sfmeshTutorial1RG
-```
-
-```powershell
-Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
-```
-
-또는 [포털](../azure-resource-manager/resource-group-portal.md#delete-resource-group-or-resources)에서 리소스 그룹을 삭제할 수 있습니다. 
-
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서 부분에서는 다음에 대해 알아보았습니다.
+자습서의 이 부분에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
 > * Azure에 앱 게시
 > * 응용 프로그램 배포 상태 확인
 > * 현재 구독에 배포된 모든 응용 프로그램 보기
-> * 응용 프로그램 로그 보기
-> * 앱에서 사용하는 리소스 정리
 
-이제 Azure에 대한 Service Fabric Mesh 응용 프로그램 게시가 완료되었으므로 다음을 시도해 보세요.
-
-* [투표 앱 샘플](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/votingapp)을 탐색하여 서비스 간 통신의 다른 예제를 확인합니다.
-* [Service Fabric 리소스](service-fabric-mesh-service-fabric-resources.md)에 대해 알아봅니다.
-* [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)에 대해 알아봅니다.
+다음 자습서를 진행합니다.
+> [!div class="nextstepaction"]
+> [Service Fabric Mesh 앱 업그레이드](service-fabric-mesh-tutorial-upgrade.md)
 
 [azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: jasonh
-ms.openlocfilehash: 0e584343e568c5cd0d91a1e6ff51dc899c5434d7
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: b00c88e526bf72f51df0d2a3d6a87fbd5bc1f991
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106532"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991983"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리
 
@@ -207,7 +207,7 @@ HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩�
 
 * 사용자 Azure 데이터 팩터리. 주문형 HDInsight 연결된 서비스 만들기는 [Azure Data Factory를 사용하여 HDInsight에서 주문형 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-adf.md) 를 참조하세요.
 * Azure PowerShell 사용  [비행 지연 데이터 분석](hdinsight-analyze-flight-delay-data.md)을 참조하세요.
-* Azure CLI 사용 [Azure CLI를 사용하여 HDInsight 클러스터 관리](hdinsight-administer-use-command-line.md)를 참조하세요.
+* Azure 클래식 CLI 사용. [Azure 클래식 CLI를 사용하여 HDInsight 클러스터 관리](hdinsight-administer-use-command-line.md)를 참조하세요.
 * HDInsight .NET SDK 사용 [Hadoop 작업 제출](hadoop/submit-apache-hadoop-jobs-programmatically.md)을 참조하세요.
 
 가격 정보는 [HDInsight 가격](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요. 포털에서 클러스터를 삭제하려면 [클러스터 삭제](#delete-clusters)
@@ -275,7 +275,7 @@ Ambari는 클러스터의 모든 노드에 대해 암호를 변경합니다.
 
    | 필드 | 값 |
    | --- | --- |
-   | Name |SSH 암호 변경 |
+   | 이름 |SSH 암호 변경 |
    | Bash 스크립트 URI |Changepassword.sh 파일에 대한 URI |
    | 노드(헤드, 작업자, Nimbus, 감독자, Zookeeper 등) |나열된 모든 노드 형식에 대한 ✓ |
    | 매개 변수 |SSH 사용자 이름 및 새 암호를 입력합니다. 사용자 이름과 암호 사이에 공백이 하나 있어야 합니다. |
@@ -291,7 +291,7 @@ HDInsight 클러스터에는 다음과 같은 HTTP 웹 서비스가 있습니다
 * Oozie
 * Templeton
 
-이러한 서비스에는 기본적으로 액세스 권한이 부여됩니다. [Azure CLI](hdinsight-administer-use-command-line.md#enabledisable-http-access-for-a-cluster) 및 [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access)을 사용하여 액세스 권한을 해지/부여할 수 있습니다.
+이러한 서비스에는 기본적으로 액세스 권한이 부여됩니다. [Azure 클래식 CLI](hdinsight-administer-use-command-line.md#enabledisable-http-access-for-a-cluster) 및 [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access)을 사용하여 액세스 권한을 해지/부여할 수 있습니다.
 
 ## <a name="find-the-subscription-id"></a>구독 ID 찾기
 
@@ -363,7 +363,7 @@ HDInsight 클러스터 블레이드의 **사용량** 섹션에는 HDInsight에�
 이 문서에서는 몇 가지 기본 관리 함수에 대해 배웠습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure PowerShell을 사용하여 HDInsight 관리](hdinsight-administer-use-powershell.md)
-* [Azure CLI를 사용하여 HDInsight 관리](hdinsight-administer-use-command-line.md)
+* [Azure 클래식 CLI를 사용하여 HDInsight 관리](hdinsight-administer-use-command-line.md)
 * [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)
 * [Ambari 웹 UI 사용에 대한 자세한 내용](hdinsight-hadoop-manage-ambari.md)
 * [Ambari REST API 사용에 자세한 내용](hdinsight-hadoop-manage-ambari-rest-api.md)

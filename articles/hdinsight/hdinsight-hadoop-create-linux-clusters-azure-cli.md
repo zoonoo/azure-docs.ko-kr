@@ -1,6 +1,6 @@
 ---
-title: 명령줄을 사용하여 Hadoop 클러스터 만들기 - Azure HDInsight
-description: 플랫폼 간 Azure CLI 1.0을 사용하여 HDInsight 클러스터를 만드는 방법을 알아봅니다.
+title: Azure 클래식 CLI를 사용하여 Hadoop 클러스터 만들기 - Azure HDInsight
+description: 플랫폼 간 Azure 클래식 CLI를 사용하여 HDInsight 클러스터를 만드는 방법을 알아봅니다.
 services: hdinsight
 author: jasonwhowell
 ms.reviewer: jasonh
@@ -9,23 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: jasonh
-ms.openlocfilehash: 523c2a85929d8474c283055a8ae38d489cbd4b12
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 84b352fea0c5b9c98cd3b4e814e448cf8b706402
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090977"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992816"
 ---
-# <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Azure CLI를 사용하여 HDInsight 클러스터 만들기
+# <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 HDInsight 클러스터 만들기
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-이 문서의 단계는 Azure CLI 1.0을 사용하여 HDInsight 3.5 클러스터 만들기 과정을 연습합니다.
+이 문서의 단계는 Azure 클래식 CLI를 사용하여 HDInsight 3.5 클러스터를 만드는 과정을 연습합니다.
 
-> [!IMPORTANT]
-> 이 항목에서는 Azure CLI 1.0을 사용하여 HDInsight 클러스터를 만드는 방법을 설명합니다. 이 버전의 CLI는 더 이상 사용되지 않으며, Azure CLI 2.0에는 HDInsight 클러스터를 만드는 기능 지원이 추가되지 않았습니다.
->
-> Azure PowerShell을 사용하여 HDInsight 클러스터를 만들 수도 있습니다. 자세한 내용은 [Azure PowerShell을 사용하여 HDInsight 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) 문서를 참조하세요.
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -33,14 +30,11 @@ ms.locfileid: "43090977"
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
-* **Azure CLI**. 이 문서의 단계는 Azure CLI 버전 0.10.14에서 마지막으로 테스트되었습니다.
-
-    > [!IMPORTANT]
-    > Azure CLI 1.0은 더 이상 사용되지 않으며, Azure CLI 2.0에는 HDInsight 클러스터를 만드는 기능 지원이 추가되지 않았습니다.
+* **Azure 클래식 CLI**. 이 문서의 단계는 Azure 클래식 CLI 버전 0.10.14에서 마지막으로 테스트되었습니다.
 
 ## <a name="log-in-to-your-azure-subscription"></a>Azure 구독에 로그인합니다.
 
-[Azure CLI(Azure 명령줄 인터페이스)에서 Azure 구독에 연결](/cli/azure/authenticate-azure-cli) 에서 설명된 단계에 따라 **login** 메서드를 사용하여 구독에 연결합니다.
+[Azure 명령줄 인터페이스에서 Azure 구독에 연결](/cli/azure/authenticate-azure-cli)에서 설명된 단계에 따라 **login** 메서드를 사용하여 구독에 연결합니다.
 
 ## <a name="create-a-cluster"></a>클러스터 만들기
 
@@ -50,7 +44,7 @@ PowerShell 또는 Bash 등의 명령줄에서 다음 단계를 수행해야 합�
 
         azure login
 
-    사용자 이름 및 암호를 제공하라는 메시지가 표시됩니다. 여러 Azure 구독이 있는 경우 `azure account set <subscriptionname>` 을 사용하여 Azure CLI 명령이 사용할 구독을 설정합니다.
+    사용자 이름 및 암호를 제공하라는 메시지가 표시됩니다. 여러 Azure 구독이 있는 경우 `azure account set <subscriptionname>`을 사용하여 클래식 CLI 명령이 사용할 구독을 설정합니다.
 
 2. 다음 명령을 사용하여 Azure 리소스 관리자 모드로 전환합니다.
 
@@ -124,7 +118,7 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure CLI를 사용하여 HDInsight 클러스터를 정상적으로 만들었으므로 다음을 사용하여 클러스터 작업을 수행하는 방법을 알아봅니다.
+클래식 CLI를 사용하여 HDInsight 클러스터를 정상적으로 만들었으므로 다음을 사용하여 클러스터 작업을 수행하는 방법을 알아봅니다.
 
 ### <a name="hadoop-clusters"></a>Hadoop 클러스터
 

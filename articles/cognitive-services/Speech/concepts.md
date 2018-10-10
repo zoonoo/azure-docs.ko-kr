@@ -1,5 +1,6 @@
 ---
-title: 개념 | Microsoft Docs
+title: Bing Speech 개념 | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Microsoft Speech Service에서 사용되는 기본 개념입니다.
 services: cognitive-services
 author: zhouwangzw
@@ -7,14 +8,15 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: bc23f4fb7dfc045a0f8cc87155c31875c4de8450
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 08790d73dd4fd182d8129c755a291fd99b6136a2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373974"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954112"
 ---
 # <a name="basic-concepts"></a>기본 개념
 
@@ -77,10 +79,10 @@ Microsoft Speech Service는 일부 상태에 참여하므로 서비스 프로토
 
 | 사용 사례 | [REST API](GetStarted/GetStartedREST.md) | [클라이언트 라이브러리](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| 중간 결과가 없는 짧은 음성 오디오(예: 오디오 길이가 15초 미만인 명령) 변환 | 예 | 예 |
-| 긴 오디오(15초 초과) 변환 | 아니오 | 예 |
-| 중간 결과가 필요한 오디오 스트림 | 아니오 | 예 |
-| LUIS를 사용하여 오디오에서 변환된 텍스트 인식 | 아니오 | 예 |
+| 중간 결과가 없는 짧은 음성 오디오(예: 오디오 길이가 15초 미만인 명령) 변환 | yes | yes |
+| 긴 오디오(15초 초과) 변환 | 아니요 | yes |
+| 중간 결과가 필요한 오디오 스트림 | 아니요 | yes |
+| LUIS를 사용하여 오디오에서 변환된 텍스트 인식 | 아니요 | yes |
 
  언어 또는 플랫폼에 아직 SDK가 없는 경우 [프로토콜 설명서](API-Reference-REST/websocketprotocol.md)에 따라 사용자 고유의 구현을 만들 수 있습니다.
 

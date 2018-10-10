@@ -1,6 +1,6 @@
 ---
-title: 자습서 - Azure CLI 2.0을 사용하여 자동으로 확장 집합 크기 조정 | Microsoft Docs
-description: Azure CLI 2.0을 사용하여 CPU 요구량이 늘거나 줄어듦에 따라 가상 머신 확장 집합의 크기를 자동으로 조정하는 방법을 알아봅니다.
+title: 자습서 - Azure CLI를 사용하여 자동으로 확장 집합 크기 조정 | Microsoft Docs
+description: Azure CLI를 사용하여 CPU 요구량이 늘거나 줄어듦에 따라 가상 머신 확장 집합의 크기를 자동으로 조정하는 방법을 알아봅니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4dedf4a84d5eaa47018fe0cd1cb6fd9a92d8ef7e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7c3d536cd4fb99d6d83b973989279d289e8434a8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630155"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995382"
 ---
-# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>자습서: Azure CLI 2.0을 사용하여 자동으로 가상 머신 확장 집합 크기 조정
+# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 자동으로 가상 머신 확장 집합 크기 조정
 
 확장 집합을 만들 때 실행하려는 VM 인스턴스 수를 정의합니다. 응용 프로그램 수요가 변경될 때는 VM 인스턴스 수를 자동으로 늘리거나 줄일 수 있습니다. 자동 크기 조정 기능을 사용하면 고객 수요에 따라 조정하거나 앱 수명 주기 동안 응용 프로그램 성능 변화에 대응할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.32 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.32 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-a-scale-set"></a>확장 집합 만들기
 
@@ -216,7 +216,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure CLI 2.0을 사용하여 다음과 같이 확장 집합을 자동으로 확장하거나 축소하는 방법을 알아보았습니다.
+이 자습서에서는 Azure CLI를 사용하여 다음과 같이 확장 집합을 자동으로 확장하거나 축소하는 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 확장 집합에 자동 크기 조정 사용
@@ -224,7 +224,7 @@ az group delete --name myResourceGroup --yes --no-wait
 > * VM 인스턴스 스트레스 테스트 및 자동 크기 조정 규칙 트리거
 > * 요구량이 줄면 자동으로 다시 크기 조정
 
-작동 중인 가상 머신 확장 집합에 대한 자세한 예제는 다음 샘플 Azure CLI 2.0 샘플 스크립트를 참조하세요.
+실제로 사용되는 가상 머신 확장 집합의 추가 예제는 다음 샘플 Azure CLI 샘플 스크립트를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Azure CLI 2.0용 확장 집합 스크립트 샘플](cli-samples.md)
+> [Azure CLI용 확장 집합 스크립트 샘플](cli-samples.md)

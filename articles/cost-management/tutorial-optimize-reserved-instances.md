@@ -1,30 +1,30 @@
 ---
-title: 자습서 - Azure Cost Management를 사용하여 예약 인스턴스 비용 최적화 | Microsoft Docs
+title: 자습서 - Azure의 Cloudyn을 사용하여 예약 인스턴스 비용 최적화 | Microsoft Docs
 description: 이 자습서에서는 Azure 및 AWS(Amazon Web Services)에 대한 예약 인스턴스 비용을 최적화하는 방법을 알아봅니다.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: f0edad58256ecc29e2fd215095e8b5ab13d69ce8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c50259f0df955c3a22edc979dfebc8bfb2059e16
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32177326"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987773"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
 
 # <a name="tutorial-optimize-reserved-instances"></a>자습서: 예약 인스턴스 최적화
 
-이 자습서에서는 Cost Management를 사용하여 Azure 및 AWS(Amazon Web Services)에 대한 예약 인스턴스 비용 및 사용률을 최적화하는 방법을 알아봅니다. 두 클라우드 서비스 공급자 중 하나와 예약된 인스턴스는 나중에 VM을 사용하기 위해 선불로 약정한 장기 계약에 대한 약속입니다. 또한 잠재적으로 표준 사용량 기준 과금 VM 가격 책정 모델에 비해 상당한 절약 효과를 제공할 수 있습니다. 예약 인스턴스의 용량을 완전히 사용하는 경우에만 잠재적 절약 효과가 실현됩니다.
+이 자습서에서는 Cloudyn을 사용하여 Azure 및 AWS(Amazon Web Services)에 대한 예약 인스턴스 비용 및 사용률을 최적화하는 방법을 알아봅니다. 두 클라우드 서비스 공급자 중 하나와 예약된 인스턴스는 나중에 VM을 사용하기 위해 선불로 약정한 장기 계약에 대한 약속입니다. 또한 잠재적으로 표준 사용량 기준 과금 VM 가격 책정 모델에 비해 상당한 절약 효과를 제공할 수 있습니다. 예약 인스턴스의 용량을 완전히 사용하는 경우에만 잠재적 절약 효과가 실현됩니다.
 
-이 자습서에서는 Cost Management를 통해 Azure 및 AWS RI(예약 인스턴스)를 지원하는 방법에 대해 설명합니다. 또한 예약 인스턴스 비용을 최적화할 수 있는 방법도 설명합니다. 주로 예약이 완전히 활용되도록 보장합니다. 이 자습서에서는 다음을 수행합니다.
+이 자습서에서는 Cloudyn을 통해 Azure 및 AWS RI(예약 인스턴스)를 지원하는 방법에 대해 설명합니다. 또한 예약 인스턴스 비용을 최적화할 수 있는 방법도 설명합니다. 주로 예약이 완전히 활용되도록 보장합니다. 이 자습서에서는 다음을 수행합니다.
 
 > [!div class="checklist"]
 > * Azure RI 비용 이해
@@ -41,7 +41,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 ## <a name="prerequisites"></a>필수 조건
 
 - Azure 계정이 있어야 합니다.
-- Azure Cost Management에 대한 평가판 등록 또는 유료 구독이 있어야 합니다.
+- Cloudyn 평가판 등록 또는 유료 구독이 있어야 합니다.
 - Azure 또는 AWS에서 RI를 구매해야 합니다.
 
 ## <a name="understand-azure-ri-costs"></a>Azure RI 비용 이해
@@ -85,7 +85,7 @@ VM이 예약 손익 분기점에 도달하는 데 충분한 시간이 걸리는 
 
 ## <a name="optimize-azure-ri-costs"></a>Azure RI 비용 최적화
 
-Azure Cost Management에서 지원하는 예약 인스턴스 및 하이브리드 혜택은 다음과 같습니다.
+Cloudyn에서 지원하는 예약 인스턴스 및 하이브리드 혜택은 다음과 같습니다.
 
 - 가격 책정 모델과 관련된 비용 표시
 - RI 사용량 추적
@@ -116,7 +116,7 @@ Cloudyn 포털에서 **최적화 프로그램** > **RI 비교**로 차례로 이
 
 ## <a name="view-ri-costs"></a>RI 비용 보기
 
-예약을 구매하는 경우 일시불로 지불합니다. Cost Management에서 결제를 확인하는 데는 두 가지 방법이 있습니다.
+예약을 구매하는 경우 일시불로 지불합니다. Cloudyn에서 결제를 확인하는 데는 두 가지 방법이 있습니다.
 
 - 실제 비용
 - 분할 상환 비용

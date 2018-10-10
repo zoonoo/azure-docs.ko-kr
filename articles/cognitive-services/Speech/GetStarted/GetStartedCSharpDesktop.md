@@ -1,22 +1,24 @@
 ---
-title: C# 데스크톱 라이브러리를 사용하여 Microsoft Speech Recognition API 시작 | Microsoft Docs
-description: Microsoft Speech Recognition API를 사용하여 음성 오디오를 텍스트로 변환하는 기본 Windows 응용 프로그램을 개발합니다.
+title: C# 데스크톱 라이브러리를 사용하여 Bing Speech Recognition API 시작 | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Bing Speech Recognition API를 사용하여 음성 오디오를 텍스트로 변환하는 기본 Windows 응용 프로그램을 개발합니다.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: e59b0e25401fb5182edd52f82985ffed9052286d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5b85a548d692b06a6da009432678d9c02242cb50
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373887"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996828"
 ---
-# <a name="get-started-with-the-speech-recognition-api-in-c35-for-net-on-windows"></a>Windows의.NET용 C#에서 Speech Recognition API 시작
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>빠른 시작: Windows의 .NET용 C&#35;에서 Bing Speech Recognition API 사용
 
 이 페이지에서는 Speech Recognition API를 사용하여 음성 오디오를 텍스트로 변환하는 기본 Windows 응용 프로그램을 개발하는 방법을 보여 줍니다. 클라이언트 라이브러리를 사용하면 실시간 스트리밍이 가능합니다. 즉, 클라이언트 응용 프로그램에서 오디오를 서비스로 보낼 때 부분 인식 결과를 동시에 비동기적으로 다시 받습니다.
 

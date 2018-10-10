@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
-ms.openlocfilehash: f81ef3c231874f314d6fe023ba247a0bcff61e90
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 6535eee93b0fcaa2c0888fc6b647811c21e564d9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42143688"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971912"
 ---
 # <a name="configure-and-monitor-iot-devices-at-scale-using-the-azure-cli"></a>Azure CLI를 사용하여 대규모로 IoT 장치 구성 및 모니터링
 
@@ -34,8 +34,8 @@ Azure IoT Hub에서 자동 장치 관리는 전체 수명 주기를 통해 대�
 ## <a name="cli-prerequisites"></a>CLI 필수 조건
 
 * Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-using-cli.md) 
-* 사용자 환경의 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Azure CLI 2.0 버전이 2.0.24 이상이어야 합니다. `az –-version` 명령을 사용하여 유효성을 검사합니다. 이 버전은 az extension 명령을 지원하며 Knack 명령 프레임워크를 도입했습니다. 
-* [Azure CLI 2.0에 대한 IoT 확장](https://github.com/Azure/azure-iot-cli-extension).
+* 사용자 환경의 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Azure CLI 버전이 2.0.24 이상이어야 합니다. `az –-version` 명령을 사용하여 유효성을 검사합니다. 이 버전은 az extension 명령을 지원하며 Knack 명령 프레임워크를 도입했습니다. 
+* [Azure CLI용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="implement-device-twins-to-configure-devices"></a>장치 쌍 구현으로 장치를 구성
 
@@ -56,7 +56,7 @@ Azure IoT Hub에서 자동 장치 관리는 전체 수명 주기를 통해 대�
 
 ## <a name="define-the-target-content-and-metrics"></a>대상 콘텐츠 및 메트릭 정의
 
-대상 콘텐츠 및 메트릭 쿼리는 설정할 원하는 장치 쌍 속성과 측정할 보고된 속성을 설명하는 JSON 문서로 지정됩니다.  Azure CLI 2.0을 사용하여 자동 장치 구성을 만들려면 대상 콘텐츠와 메트릭을 로컬에 .txt 파일로 저장합니다. 이후 섹션에서 명령을 실행하여 장치에 구성을 적용할 때 파일 경로를 사용합니다. 
+대상 콘텐츠 및 메트릭 쿼리는 설정할 원하는 장치 쌍 속성과 측정할 보고된 속성을 설명하는 JSON 문서로 지정됩니다.  Azure CLI를 사용하여 자동 장치 구성을 만들려면 대상 콘텐츠와 메트릭을 로컬에 .txt 파일로 저장합니다. 이후 섹션에서 명령을 실행하여 장치에 구성을 적용할 때 파일 경로를 사용합니다. 
 
 다음은 기본 대상 콘텐츠 샘플입니다.
 

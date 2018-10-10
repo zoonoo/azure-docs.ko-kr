@@ -1,6 +1,6 @@
 ---
 title: 연결되지 않은 Azure NIC를 찾아서 삭제 | Microsoft Docs
-description: Azure CLI 2.0을 사용하여 VM에 연결되지 않은 Azure NIC를 찾아서 삭제하는 방법
+description: Azure CLI를 사용하여 VM에 연결되지 않은 Azure NIC를 찾아서 삭제하는 방법
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 54315b2b66b9fb11ae904593c285eb7623cccdbb
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 9d8345aacb603a6411fdc693ac9f808778d27333
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930514"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954333"
 ---
 # <a name="how-to-find-and-delete-unattached-network-interface-cards-nics-for-azure-vms"></a>Azure VM에 대한 연결되지 않은 NIC(네트워크 인터페이스 카드)를 찾아서 삭제하는 방법
 Azure에서 VM(가상 머신)을 삭제하는 경우 NIC(네트워크 인터페이스 카드)는 삭제되지 않습니다. 여러 VM을 만들고 삭제하는 경우 사용되지 않은 NIC는 내부 IP 주소 임대를 계속 사용합니다. 다른 VM NIC를 만들 때는 서브넷의 주소 공간에서 IP 임대를 획득하지 못할 수 있습니다. 이 문서에서는 연결되지 않은 NIC를 찾아서 삭제하는 방법을 보여 줍니다.

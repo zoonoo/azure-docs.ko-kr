@@ -1,25 +1,26 @@
 ---
-title: Microsoft Translator Speech API Languages 메서드 | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Microsoft Translator Speech API Languages 메서드를 사용합니다.
+title: Translator Speech API Languages 메서드
+titleSuffix: Azure Cognitive Services
+description: Translator Speech API Languages 메서드를 사용합니다.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-speech
+ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ms.openlocfilehash: 5396e3be17345c3c36197a9b6cbace86e1f574c1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9fbbba7ed5e81cae1d30c5a480b9f7f7a13342c5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382925"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986424"
 ---
-# <a name="speech-api-languages"></a>Speech API: Languages
+# <a name="translator-speech-api-languages"></a>Translator Speech API: 언어
 
-Microsoft Translator는 서비스에서 지원되는 언어 목록을 지속적으로 확장합니다. 이 API를 사용하여 현재 Speech Translation Service에서 사용할 수 있는 언어 집합을 검색합니다.
+Translator Speech는 서비스에서 지원되는 언어 목록을 지속적으로 확장합니다. 이 API를 사용하여 현재 Translator Speech 서비스에서 사용할 수 있는 언어 집합을 검색합니다.
 
 이 API를 사용하여 사용 가능한 언어를 확인하는 방법을 보여 주는 코드 샘플은 [Microsoft Translator Github 사이트](https://github.com/MicrosoftTranslator)에서 사용할 수 있습니다.
 

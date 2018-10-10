@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 스크립트 샘플 - Visual Studio Team Services의 연속 배포를 사용하여 웹앱 만들기 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - Visual Studio Team Services의 연속 배포를 사용하여 웹앱 만들기
+title: Azure CLI 스크립트 샘플 - Azure DevOps Services의 지속적인 배포를 사용하여 웹앱 만들기 | Microsoft Docs
+description: Azure CLI 스크립트 샘플 - Azure DevOps Services의 지속적인 배포를 사용하여 웹앱 만들기
 services: app-service\web
 documentationcenter: ''
 author: syntaxc4
@@ -16,30 +16,30 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: e3748654f85e32edeb6f0c7478418068aeb4ae5f
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: fcb55c72f63a9964f04fba1e2b8abbaf39fe6b46
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30282881"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967044"
 ---
-# <a name="create-a-web-app-with-continuous-deployment-from-visual-studio-team-services"></a>Visual Studio Team Services의 연속 배포를 사용하여 웹앱 만들기
+# <a name="create-a-web-app-with-continuous-deployment-from-azure-devops"></a>Azure DevOps의 지속적인 배포를 사용하여 웹앱 만들기
 
-이 샘플 스크립트는 관련된 리소스를 사용하여 App Service에서 웹앱을 만든 다음 Visual Studio Team Services 리포지토리의 연속 배포를 설정합니다. 이 샘플에는 다음이 필요합니다.
+이 샘플 스크립트는 관련된 리소스를 사용하여 App Service에서 웹앱을 만든 다음, Azure DevOps 리포지토리의 지속적인 배포를 설정합니다. 이 샘플에는 다음이 필요합니다.
 
-* 관리 권한이 있는 응용 프로그램 코드를 포함하는 Visual Studio Team Services 리포지토리
-* Visual Studio Team Services 계정용 [PAT(개인 액세스 토큰)](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate).
+* 관리 권한이 있는 응용 프로그램 코드를 포함하는 Azure DevOps 리포지토리
+* Azure DevOps 조직에 대한 [PAT(개인용 액세스 토큰)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택하는 경우 Azure CLI 버전 2.0 이상이 필요합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택하는 경우 Azure CLI 버전 2.0 이상이 필요합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous.sh?highlight=3-4 "Create a web app with continuous deployment from Visual Studio Team Services")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous.sh?highlight=3-4 "Create a web app with continuous deployment from Azure DevOps")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

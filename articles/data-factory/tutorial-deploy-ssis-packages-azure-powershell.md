@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: tutorial
-ms.date: 06/27/2018
+ms.date: 09/23/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 9ffb6e593ebec4c1a657333eb87179465c0a2d1d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: d57e350bc63a8acf7c4719572d43b4e703de019e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579737"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990929"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory-with-powershell"></a>PowerShell을 사용하여 Azure Data Factory에서 Azure-SSIS 통합 런타임 프로비전
 이 자습서에서는 Azure Data Factory에서 Azure-SSIS IR(통합 런타임)을 프로비전하는 단계를 제공합니다. 그런 다음, SSDT(SQL Server Data Tools) 또는 SSMS(SQL Server Management Studio)를 사용하여 Azure에서 이 런타임에 SSIS(SQL Server Integration Services) 패키지를 배포하고 실행할 수 있습니다. 이 자습서에서 수행하는 단계는 다음과 같습니다.
@@ -36,8 +36,8 @@ ms.locfileid: "45579737"
 ## <a name="prerequisites"></a>필수 조건
 - **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다. Azure-SSIS IR의 개념 정보는 [Azure-SSIS 통합 런타임 개요](concepts-integration-runtime.md#azure-ssis-integration-runtime)를 참조하세요. 
 - **Azure SQL Database 서버**. 데이터베이스 서버가 아직 없는 경우 시작하기 전에 Azure Portal에서 이 서버를 만듭니다. 이 서버는 SSISDB(SSIS 카탈로그 데이터베이스)를 호스팅합니다. Integration Runtime과 동일한 Azure 지역에 데이터베이스 서버를 만드는 것이 좋습니다. 이 구성을 사용하면 Integration Runtime에서 Azure 지역을 벗어나지 않고 SSISDB에 실행 로그를 쓸 수 있습니다. 
-    - SSISDB는 선택한 데이터베이스 서버에 따라 사용자를 대신하여 공용 네트워크에서 액세스하거나 가상 네트워크를 조인하여 단일 데이터베이스, 탄력적 풀의 일부 또는 Managed Instance(미리 보기)로 만들 수 있습니다. SSISDB를 호스팅할 데이터베이스 서버의 유형을 선택하는 방법에 대한 지침은 [SQL Database 및 Managed Instance(미리 보기) 비교](create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview)를 참조하세요. Azure SQL Database를 가상 네트워크 서비스 엔드포인트/Managed Instance(미리 보기)와 함께 사용하여 SSISDB를 호스트하거나 온-프레미스 데이터에 액세스하도록 요구하는 경우 Azure-SSIS IR을 가상 네트워크에 조인해야 합니다. 자세한 내용은 [가상 네트워크에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요. 
-    - 데이터베이스 서버에 대해 "**Azure 서비스에 대한 액세스 허용**" 설정이 **켜져** 있는지 확인합니다. Azure SQL Database를 가상 네트워크 서비스 엔드포인트/Managed Instance(미리 보기)와 함께 사용하여 SSISDB를 호스트하는 경우 이 설정이 적용되지 않습니다. 자세한 내용은 [Azure SQL Database 보호](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal)를 참조하세요. PowerShell을 사용하여 이 설정을 사용하려면 [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1)을 참조하세요. 
+    - 선택한 데이터베이스 서버에 따라 사용자를 대신하여 단일 데이터베이스로, 탄력적 풀의 일부분으로, 또는 Managed Instance에서 SSISDB를 만들 수 있습니다. 이러한 SSISDB는 공용 네트워크에서 액세스하거나 가상 네트워크에 조인하여 액세스할 수 있습니다. SSISDB를 호스팅할 데이터베이스 서버의 유형을 선택하는 방법에 대한 지침은 [SQL Database 논리 서버 및 Managed Instance 비교](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance)를 참조하세요. Azure SQL Database를 가상 네트워크 서비스 엔드포인트/Managed Instance와 함께 사용하여 SSISDB를 호스팅하거나 온-프레미스 데이터에 액세스하도록 요구하는 경우 Azure-SSIS IR을 가상 네트워크에 조인해야 합니다. 자세한 내용은 [가상 네트워크에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요. 
+    - 데이터베이스 서버에 대해 "**Azure 서비스에 대한 액세스 허용**" 설정이 **켜져** 있는지 확인합니다. Azure SQL Database를 가상 네트워크 서비스 엔드포인트/Managed Instance와 함께 사용하여 SSISDB를 호스트하는 경우 이 설정이 적용되지 않습니다. 자세한 내용은 [Azure SQL Database 보호](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal)를 참조하세요. PowerShell을 사용하여 이 설정을 사용하려면 [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1)을 참조하세요. 
     - 데이터베이스 서버에 대한 방화벽 설정에서 클라이언트 IP 주소 목록에 클라이언트 컴퓨터의 IP 주소를 포함하는 클라이언트 컴퓨터의 IP 주소 또는 IP 주소의 범위를 추가합니다. 자세한 내용은 [Azure SQL Database 서버 수준 및 데이터베이스 수준 방화벽 규칙 구성](../sql-database/sql-database-firewall-configure.md)을 참조하세요. 
     - 서버 관리자 자격 증명을 통한 SQL 인증을 사용하여 또는 AAD(Azure Active Directory) 인증을 사용하여 데이터베이스 서버를 Azure Data Factory MSI(관리 서비스 ID)에 연결할 수 있습니다.  후자의 경우 Data Factory MSI를 데이터베이스 서버에 대한 액세스 권한이 있는 AAD 그룹에 추가해야 합니다. [AAD 인증을 사용하여 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요. 
     - Azure SQL Database 서버에 SSIS 카탈로그(SSISDB 데이터베이스)가 없는지 확인합니다. Azure-SSIS IR 프로비전은 기존 SSIS 카탈로그 사용을 지원하지 않습니다. 
@@ -83,7 +83,7 @@ $SetupScriptContainerSasUri = "" # OPTIONAL to provide SAS URI of blob container
 $SSISDBServerEndpoint = "[your Azure SQL Database server name].database.windows.net" # WARNING: Please ensure that there is no existing SSISDB, so we can prepare and manage one on your behalf    
 $SSISDBServerAdminUserName = "[your server admin username for SQL authentication]"
 $SSISDBServerAdminPassword = "[your server admin password for SQL authentication]"
-# For the basic pricing tier, specify "Basic", not "B". For standard/premium/Elastic Pool tiers, specify "S0", "S1", "S2", "S3", etc.
+# For the basic pricing tier, specify "Basic", not "B". For standard/premium/elastic pool tiers, specify "S0", "S1", "S2", "S3", etc.
 $SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>)]"
 ```
 
@@ -252,7 +252,7 @@ $SetupScriptContainerSasUri = "" # OPTIONAL to provide SAS URI of blob container
 $SSISDBServerEndpoint = "[your Azure SQL Database server name].database.windows.net" # WARNING: Please ensure that there is no existing SSISDB, so we can prepare and manage one on your behalf    
 $SSISDBServerAdminUserName = "[your server admin username for SQL authentication]"
 $SSISDBServerAdminPassword = "[your server admin password for SQL authentication]"
-# For the basic pricing tier, specify "Basic", not "B". For standard/premium/Elastic Pool tiers, specify "S0", "S1", "S2", "S3", etc.
+# For the basic pricing tier, specify "Basic", not "B". For standard/premium/elastic pool tiers, specify "S0", "S1", "S2", "S3", etc.
 $SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>)]"
 
 $SSISDBConnectionString = "Data Source=" + $SSISDBServerEndpoint + ";User ID=" + $SSISDBServerAdminUserName + ";Password=" + $SSISDBServerAdminPassword    
@@ -309,7 +309,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 ```
 
 ## <a name="join-azure-ssis-ir-to-a-virtual-network"></a>Azure-SSIS IR을 가상 네트워크에 조인
-가상 네트워크를 조인하여 SSISDB를 호스트하는 가상 네트워크 서비스 엔드포인트/Managed Instance(미리 보기)에 Azure SQL Database를 사용하는 경우 Azure-SSIS 통합 런타임을 동일한 가상 네트워크에 조인해야 합니다. Azure Data Factory를 사용하면 Azure-SSIS 통합 런타임을 가상 네트워크에 조인할 수 있습니다. 자세한 내용은 [Azure-SSIS 통합 런타임을 가상 네트워크에 조인](join-azure-ssis-integration-runtime-virtual-network.md)을 참조하세요.
+가상 네트워크를 조인하여 SSISDB를 호스트하는 가상 네트워크 서비스 엔드포인트/Managed Instance에 Azure SQL Database를 사용하는 경우 Azure-SSIS 통합 런타임을 동일한 가상 네트워크에 조인해야 합니다. Azure Data Factory를 사용하면 Azure-SSIS 통합 런타임을 가상 네트워크에 조인할 수 있습니다. 자세한 내용은 [Azure-SSIS 통합 런타임을 가상 네트워크에 조인](join-azure-ssis-integration-runtime-virtual-network.md)을 참조하세요.
 
 가상 네트워크를 조인하는 Azure-SSIS 통합 런타임을 만드는 전체 스크립트는 [Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md)를 참조하세요.
 
