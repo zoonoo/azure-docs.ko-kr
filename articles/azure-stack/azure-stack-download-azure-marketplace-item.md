@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/03/2018
+ms.date: 10/09/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 785161d0f897b583c0c5536440afc1e8f05e736e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: cf6bc980f6fd821056a987d0c830863bd15ba779
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854833"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902011"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure에서 Azure Stack marketplace 항목 다운로드
 
@@ -126,7 +126,10 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
    ```PowerShell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
-   Export-AzSOfflineMarketplaceItem -destination "Destination folder path"
+   Sync-AzSOfflineMarketplaceItem 
+      -Destination "Destination folder path in quotes" `
+      -AzureTenantID $AzureContext.Tenant.TenantId `
+      -AzureSubscriptionId $AzureContext.Subscription.Id 
    ```
 
 6. 도구를 실행 하는 경우 Azure 계정 자격 증명을 입력 하 라는 메시지가 표시 됩니다. Azure Stack 등록을 사용 하면 Azure 계정에 로그인 합니다. 로그인에 성공 하면 다음 이미지에서는 사용할 수 있는 marketplace 항목의 목록과 같은 화면이 표시 됩니다.  

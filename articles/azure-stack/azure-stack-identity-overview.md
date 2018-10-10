@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/22/2018
+ms.date: 10/09/2018
 ms.author: patricka
 ms.reviewer: ''
-ms.openlocfilehash: 84ab374c95f3e77b2897ff142c3cacef3df87140
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 1bc4fcda360a899fb2f58e2ac26270d160227a65
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718919"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902844"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Azure Stack에 대 한 id 개요
 
@@ -59,7 +59,7 @@ Azure Stack 환경에 의존 하는 옵션에 대 한 자세한 내용은 다음
 
 Azure stack에서 사용자 계정:
 
-- 생성 되는 *username@domain* 형식. AD FS의 사용을 지원 하지 않는 AD FS는 Active Directory 인스턴스에 사용자 계정 매핑되지만 합니다  *\<도메인 >\<별칭 >* 형식입니다.
+- 생성 되는 *username@domain* 형식. AD FS의 사용을 지원 하지 않는 AD FS는 Active Directory 인스턴스에 사용자 계정 매핑되지만 합니다  *\\ \<도메인 >\\\<별칭 >* 형식입니다.
 - 다단계 인증을 사용 하도록를 설정할 수 있습니다.
 - 조직의 디렉터리가 있는 디렉터리를 먼저 등록을 제한 됩니다.
 - 온-프레미스 디렉터리에서 가져올 수 있습니다. 자세한 내용은 [Azure Active Directory와 온-프레미스 디렉터리 통합](/azure/active-directory/connect/active-directory-aadconnect)합니다.

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: ffd22f3612d55258737cb9c004b2b0f4e9326f07
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 5a97a683e7f25029199ba68ce3d5cee410c3cf29
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452516"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886827"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Azure Stack에서 Java를 사용 하 여 API 버전 프로필 사용
 
@@ -40,7 +40,7 @@ Java SDK는 Azure Stack Resource Manager에 대 한 빌드 및 인프라를 관�
     
       - 이.NET와 마찬가지로 오른쪽 클래스 드롭다운 목록에서 선택 하는 경우 모듈을 자동으로 로드 하는 종속성으로 Pom.xml 파일에 지정 되어야 합니다.
         
-          - 각 모듈의 맨 위에 다음과 같이 나타납니다.         
+      - 각 모듈의 맨 위에 다음과 같이 나타납니다.         
            `Import com.microsoft.azure.management.resources.v2018_03_01.ResourceGroup`
              
 
@@ -93,11 +93,11 @@ Azure Stack을 사용 하 여 Azure Java SDK를 사용 하려면 다음 값을 �
 
 | 값                     | 환경 변수 | 설명                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 테넌트 ID                 | TENANT_ID            | Azure Stack에 값 [ <span class="underline">테 넌 트 ID</span>](../azure-stack-identity-overview.md)합니다.                                                          |
-| 클라이언트 ID                 | CLIENT_ID             | 주 응용 프로그램 ID 저장이 문서의 이전 섹션에서 서비스 주체를 만들 때 서비스입니다.                                                                                              |
-| 구독 ID           | SUBSCRIPTION_ID      | 합니다 [ <span class="underline">구독 ID</span> ](../azure-stack-plan-offer-quota-overview.md#subscriptions) 제품을 액세스 하는 방법에 Azure Stack에서.                |
-| 클라이언트 암호             | CLIENT_SECRET        | 서비스 주체 응용 프로그램 서비스 주체를 만들 때 암호 저장 합니다.                                                                                                                                   |
-| Resource Manager 끝점 | 끝점              | 참조 [ <span class="underline">Azure Stack 리소스 관리자 끝점</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)합니다. |
+| 테넌트 ID                 | AZURE_TENANT_ID            | Azure Stack에 값 [ <span class="underline">테 넌 트 ID</span>](../azure-stack-identity-overview.md)합니다.                                                          |
+| 클라이언트 ID                 | AZURE_CLIENT_ID             | 주 응용 프로그램 ID 저장이 문서의 이전 섹션에서 서비스 주체를 만들 때 서비스입니다.                                                                                              |
+| 구독 ID           | AZURE_SUBSCRIPTION_ID      | 합니다 [ <span class="underline">구독 ID</span> ](../azure-stack-plan-offer-quota-overview.md#subscriptions) 제품을 액세스 하는 방법에 Azure Stack에서.                |
+| 클라이언트 암호             | AZURE_CLIENT_SECRET        | 서비스 주체 응용 프로그램 서비스 주체를 만들 때 암호 저장 합니다.                                                                                                                                   |
+| Resource Manager 끝점 | ARM_ENDPOINT              | 참조 [ <span class="underline">Azure Stack 리소스 관리자 끝점</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)합니다. |
 | 위치                  | RESOURCE_LOCATION    | Azure Stack에 대 한 로컬                                                                                                                                                                                                |
 
 Azure Stack에 대 한 테 넌 트 ID를 찾으려면 지침을 따릅니다 하세요 [여기](../azure-stack-csp-ref-operations.md)합니다. 환경 변수를 설정 하려면 다음을 수행 합니다.
@@ -107,7 +107,7 @@ Azure Stack에 대 한 테 넌 트 ID를 찾으려면 지침을 따릅니다 하
 Windows 명령 프롬프트에서 환경 변수를 설정 하려면 다음 형식을 사용 합니다.
 
 ```shell
-Set Azure_Tenant_ID=<Your_Tenant_ID>
+Set AZURE_TENANT_ID=<Your_Tenant_ID>
 ```
 
 ### <a name="macos-linux-and-unix-based-systems"></a>macOS, Linux 및 Unix 기반 시스템
@@ -115,7 +115,7 @@ Set Azure_Tenant_ID=<Your_Tenant_ID>
 Unix 기반 시스템에서 다음 명령을 사용할 수 있습니다.
 
 ```shell
-Export Azure_Tenant_ID=<Your_Tenant_ID>
+Export AZURE_TENANT_ID=<Your_Tenant_ID>
 ```
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>Azure Stack resource manager 끝점
@@ -162,7 +162,8 @@ API 및 Azure Stack 프로필에 대 한 자세한 내용은 참조는 [API의 �
 ```java
 AzureTokenCredentials credentials = new ApplicationTokenCredentials(client, tenant, key, AZURE_STACK)
                     .withDefaultSubscriptionId(subscriptionId);
-            Azure azureStack = Azure.configure().withLogLevel(com.microsoft.rest.LogLevel.BASIC)
+Azure azureStack = Azure.configure()
+                    .withLogLevel(com.microsoft.rest.LogLevel.BASIC)
                     .authenticate(credentials, credentials.defaultSubscriptionId());
 ```
 
@@ -182,7 +183,7 @@ AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>(
                     put("activeDirectoryResourceId", settings.get("audience"));
                     put("activeDirectoryGraphResourceId", settings.get("graphEndpoint"));
                     put("storageEndpointSuffix", armEndpoint.substring(armEndpoint.indexOf('.')));
-                    put("keyVaultDnsSuffix", ".adminvault" + armEndpoint.substring(armEndpoint.indexOf('.')));
+                    put("keyVaultDnsSuffix", ".vault" + armEndpoint.substring(armEndpoint.indexOf('.')));
                 }
             });
 ```
@@ -205,8 +206,7 @@ HttpGet getRequest = new
 HttpGet(String.format("%s/metadata/endpoints?api-version=1.0",
 armEndpoint));
 
-// Add additional header to getRequest which accepts application/xml
-data
+// Add additional header to getRequest which accepts application/xml data
 getRequest.addHeader("accept", "application/xml");
 
 // Execute request and catch response
@@ -217,37 +217,37 @@ HttpResponse response = httpClient.execute(getRequest);
 
 .NET 및 Azure Stack API 프로필을 사용 하 여 솔루션을 만들기 위한 참조로 다음 GitHub 샘플을 사용할 수 있습니다.
 
-  - [리소스 그룹 관리](https://github.com/viananth/resources-java-manage-resource-group/tree/stack/Hybrid)
+  - [리소스 그룹 관리](https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group)
 
-  - [저장소 계정 관리](https://github.com/viananth/storage-java-manage-storage-accounts/tree/stack/Hybrid)
+  - [저장소 계정 관리](https://github.com/Azure-Samples/hybrid-storage-java-manage-storage-accounts)
 
-  - [가상 컴퓨터를 관리 합니다.](https://github.com/viananth/compute-java-manage-vm/tree/stack/Hybrid)
+  - [가상 컴퓨터를 관리 합니다.](https://github.com/Azure-Samples/hybrid-compute-java-manage-vm)
 
 ### <a name="sample-unit-test-project"></a>샘플 단위 테스트 프로젝트 
 
 1.  다음 명령을 사용 하 여 리포지토리를 복제 합니다.
     
-    `git clone https://github.com/viananth/resources-java-manage-resource-group/tree/stack/Hybrid`
+    `git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
 
 2.  Azure 서비스 주체 만들기 및 구독에 액세스 하는 역할을 할당 합니다. 서비스 주체를 만드는 방법에 지침은 [인증서를 사용 하 여 서비스 주체를 만들려면 Azure PowerShell을 사용 하 여](../azure-stack-create-service-principals.md)입니다.
 
 3.  다음 필수 환경 변수 값을 검색 합니다.
     
-   1.  TENANT_ID
-   2.  CLIENT_ID
-   3.  CLIENT_SECRET
-   4.  SUBSCRIPTION_ID
-   5.  ARM_ENDPOINT
-   6.  RESOURCE_LOCATION
+    -  AZURE_TENANT_ID
+    -  AZURE_CLIENT_ID
+    -  AZURE_CLIENT_SECRET
+    -  AZURE_SUBSCRIPTION_ID
+    -  ARM_ENDPOINT
+    -  RESOURCE_LOCATION
 
 4.  명령 프롬프트를 사용 하 여 만든 서비스 주체에서를 검색 한 정보를 사용 하 여 다음 환경 변수를 설정 합니다.
     
-   1. TENANT_ID 내보내기 = {테 넌 트 id}
-   2. CLIENT_ID 내보내기 = {client id}
-   3. CLIENT_SECRET 내보내기 = {클라이언트 암호}
-   4. SUBSCRIPTION_ID 내보내기 = {구독 id}
-   5. ARM_ENDPOINT 내보내기 = {에 Azure Stack Resource manager URL}
-   6. RESOURCE_LOCATION 내보내기 = {location Azure Stack의}
+    - AZURE_TENANT_ID 내보내기 = {테 넌 트 id}
+    - AZURE_CLIENT_ID 내보내기 = {client id}
+    - AZURE_CLIENT_SECRET 내보내기 = {클라이언트 암호}
+    - AZURE_SUBSCRIPTION_ID 내보내기 = {구독 id}
+    - ARM_ENDPOINT 내보내기 = {에 Azure Stack Resource manager URL}
+    - RESOURCE_LOCATION 내보내기 = {location Azure Stack의}
 
    Windows를 사용 하 여 **설정할** of **내보내기**합니다.
 

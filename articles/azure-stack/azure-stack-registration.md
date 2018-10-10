@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 10/09/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: d59de5beb01da3b23de0a7e177fd1cb1887694fc
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 410566e62daeb42100443e72f2d8a1acb8dad5a3
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586056"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902283"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure를 사용 하 여 Azure Stack 등록
 
@@ -210,11 +210,11 @@ Run: get-azurestackstampinformation
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
       -AgreementNumber <EA agreement number> `
-      -BillingModel Capacity
+      -BillingModel Capacity `
       -RegistrationName $RegistrationName
   ```
    > [!Note]  
-   > 사용 현황에 대 한 UsageReportingEnabled 매개 변수를 사용 하 여 보고를 비활성화할 수 있습니다 합니다 **집합 AzsRegistration** cmdlet. 매개 변수를 false로 설정 합니다. 예를 들어: ' UsageReportingEnabled
+   > 사용 현황에 대 한 UsageReportingEnabled 매개 변수를 사용 하 여 보고를 비활성화할 수 있습니다 합니다 **집합 AzsRegistration** cmdlet 매개 변수를 false로 설정 합니다. 
    
   집합 AzsRegistration cmdlet에 대 한 자세한 내용은 참조 하세요. [등록 참조](#registration-reference)합니다.
 

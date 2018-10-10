@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 10/08/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 82d99f575837b47a29bd6d8330ee58f442b6110a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 71fdf609badd6c8a9f4db5a5a1d2aa70c8c2e5f5
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409357"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887475"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Azure Stack에 Kubernetes 배포
 
@@ -165,6 +165,9 @@ Kubernetes에서 사용할 수 있습니다.
 2. 설정을 검토 합니다.
 
 3. 선택 **확인** 클러스터를 배포 합니다.
+
+> [!TIP]  
+>  배포에 대 한 질문이 있으면 질문을 게시 하거나 경우 사용자에 대 한 답변이 이미 질문에 참조를 [Azure Stack 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)합니다. 
 
 ## <a name="connect-to-your-cluster"></a>클러스터에 연결
 
