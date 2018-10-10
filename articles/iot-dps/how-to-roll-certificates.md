@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: a8ba667e6af316620d7a8530f29a6640edada13d
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: a40f4489e63c30a101dd708b5a175c25788fb04b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42142208"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976757"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>X.509 장치 인증서 배포 방법
 
@@ -41,7 +41,7 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 타사에서 인증서를 가져온 경우 해당하는 인증서 배포 방법을 살펴보어야 합니다.  준비된 프로세스가 포함되어 있거나 별도의 서비스를 제공할 수 있습니다. 
 
-자체 장치 인증서를 관리할 경우 인증서 업데이트를 위한 자체 파이프라인을 작성해야 합니다. 이전 및 새 리프 인증서가 동일한 CN(공통 이름)을 갖는지 확인합니다. 동일한 CN을 통해 장치는 중복 등록 레코드를 만들지 않고 스스로 다시 프로비전할 수 있습니다.
+자체 장치 인증서를 관리할 경우 인증서 업데이트를 위한 자체 파이프라인을 작성해야 합니다. 이전 및 새 리프 인증서가 동일한 CN(공통 이름)을 갖는지 확인합니다. 동일한 CN을 통해 장치는 중복 등록 레코드를 만들지 않고 스스로 다시 프로비전할 수 있습니다. 
 
 
 ## <a name="roll-the-certificate-in-the-iot-hub"></a>IoT hub에 인증서 배포
@@ -78,10 +78,13 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
     ![개별 등록 관리](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
 
-3. 손상된 인증서를 프로비전 서비스에서 제거한 후에는 IoT hub로 이동하고 손상된 인증서와 연결된 장치 등록을 제거합니다.     
+3. 손상된 인증서가 프로비전 서비스에서 제거된 후, IoT 허브에 대한 장치 등록이 존재하는 한 인증서를 계속 사용하여 IoT 허브에 장치를 연결할 수 있습니다. 이 문제는 두 가지 방법으로 해결할 수 있습니다. 
+
+    첫 번째 방법은 수동으로 IoT 허브로 이동하여 손상된 인증서와 연결된 장치 등록을 즉시 제거하는 것입니다. 그런 다음 업데이트된 인증서로 장치가 다시 프로비전되면 새 장치 등록이 만들어집니다.     
 
     ![IoT hub 장치 등록 제거](./media/how-to-roll-certificates/remove-hub-device-registration.png)
 
+    두 번째 방법은 다시 프로비전 지원을 사용하여 장치를 동일한 IoT 허브로 다시 프로비전하는 것입니다. 이 방법은 IoT Hub에서 장치 등록을 위해 인증서를 교체하는 데 사용할 수 있습니다. 자세한 내용은 [장치를 다시 프로비전하는 방법](how-to-reprovision.md)을 참조하세요.
 
 ## <a name="individual-enrollments-and-certificate-expiration"></a>개별 등록 및 인증서 만료
 
@@ -118,9 +121,14 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
     ![새 루트 CA 인증서 선택](./media/how-to-roll-certificates/select-new-root-cert.png)
 
-6. 손상된 인증서를 프로비전 서비스에서 제거한 후에는 손상된 장치 등록이 포함된 연결된 IoT hub로 이동하고 손상된 인증서와 연결된 등록을 제거합니다.
+6. 손상된 인증서가 프로비전 서비스에서 제거된 후, IoT 허브에 대한 장치 등록이 존재하는 한 인증서를 계속 사용하여 IoT 허브에 장치를 연결할 수 있습니다. 이 문제는 두 가지 방법으로 해결할 수 있습니다. 
+
+    첫 번째 방법은 수동으로 IoT 허브로 이동하여 손상된 인증서와 연결된 장치 등록을 즉시 제거하는 것입니다. 그런 다음 업데이트된 인증서로 장치를 다시 프로비전하면 각 장치마다 새 장치 등록이 만들어집니다.     
 
     ![IoT hub 장치 등록 제거](./media/how-to-roll-certificates/remove-hub-device-registration.png)
+
+    두 번째 방법은 다시 프로비전 지원을 사용하여 장치를 동일한 IoT 허브로 다시 프로비전하는 것입니다. 이 방법은 IoT Hub에서 장치 등록을 위해 인증서를 교체하는 데 사용할 수 있습니다. 자세한 내용은 [장치를 다시 프로비전하는 방법](how-to-reprovision.md)을 참조하세요.
+
 
 
 #### <a name="update-compromised-intermediate-certificates"></a>손상된 중간 인증서 업데이트 
@@ -134,9 +142,13 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
     ![개별 등록 관리](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
 
 
-3. 손상된 인증서를 프로비전 서비스에서 제거한 후에는 장치 등록이 포함된 연결된 IoT hub로 이동하고 손상된 인증서와 연결된 등록을 제거합니다.
+3. 손상된 인증서가 프로비전 서비스에서 제거된 후, IoT 허브에 대한 장치 등록이 존재하는 한 인증서를 계속 사용하여 IoT 허브에 장치를 연결할 수 있습니다. 이 문제는 두 가지 방법으로 해결할 수 있습니다. 
+
+    첫 번째 방법은 수동으로 IoT 허브로 이동하여 손상된 인증서와 연결된 장치 등록을 즉시 제거하는 것입니다. 그런 다음 업데이트된 인증서로 장치를 다시 프로비전하면 각 장치마다 새 장치 등록이 만들어집니다.     
 
     ![IoT hub 장치 등록 제거](./media/how-to-roll-certificates/remove-hub-device-registration.png)
+
+    두 번째 방법은 다시 프로비전 지원을 사용하여 장치를 동일한 IoT 허브로 다시 프로비전하는 것입니다. 이 방법은 IoT Hub에서 장치 등록을 위해 인증서를 교체하는 데 사용할 수 있습니다. 자세한 내용은 [장치를 다시 프로비전하는 방법](how-to-reprovision.md)을 참조하세요.
 
 
 ## <a name="enrollment-groups-and-certificate-expiration"></a>등록 그룹 및 인증서 만료

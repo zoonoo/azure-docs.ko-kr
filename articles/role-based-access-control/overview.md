@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d0d140a1656719b406567fee431d8e48a51852c5
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 37498394bc163852d397337cf5728b4941ae45a7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714454"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956509"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)란?
 
@@ -89,7 +89,7 @@ Azure는 여러 수준([관리 그룹](../azure-resource-manager/management-grou
 - 구독 범위에서 그룹에 [읽기 권한자](built-in-roles.md#reader) 역할을 할당하면 해당 그룹의 멤버가 구독의 모든 리소스 그룹 및 리소스를 볼 수 있습니다.
 - 리소스 그룹 범위에서 응용 프로그램에 [기여자](built-in-roles.md#contributor) 역할을 할당하면 해당 응용 프로그램은 해당 리소스 그룹의 모든 리소스 종류를 관리할 수 있지만, 구독의 다른 리소스 그룹을 관리할 수 없습니다.
 
-### <a name="role-assignment"></a>역할 할당
+### <a name="role-assignments"></a>역할 할당
 
 *역할 할당*은 액세스 권한을 부여하기 위해 특정 범위에서 역할 정의를 사용자, 그룹 또는 서비스 주체에 바인딩하는 프로세스입니다. 역할 할당을 만들어서 액세스 권한을 부여하고, 역할 할당을 제거하여 액세스 권한을 취소합니다.
 
@@ -98,6 +98,32 @@ Azure는 여러 수준([관리 그룹](../azure-resource-manager/management-grou
 ![액세스를 제어하는 역할 할당](./media/overview/rbac-overview.png)
 
 Azure Portal, Azure CLI, Azure PowerShell, Azure SDK 또는 REST API를 사용하여 역할 할당을 만들 수 있습니다. 각 구독에서 최대 2000개의 역할 할당을 유지할 수 있습니다. 역할 할당을 만들거나 제거하려면 `Microsoft.Authorization/roleAssignments/*` 권한이 필요합니다. 이 권한은 [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 역할을 통해 부여됩니다.
+
+## <a name="deny-assignments"></a>거부 할당
+
+이전에는 RBAC가 거부가 없는 허용 전용 모델이었지만 이제 RBAC는 제한된 방식으로 거부 할당을 지원합니다. 거부 할당은 역할 할당과 마찬가지로 액세스를 거부하기 위해 특정 범위에서 사용자, 그룹 또는 서비스 주체에게 거부 작업 집합을 바인딩합니다. 역할 할당은 허용된 일련의 작업을 정의하고 거부 할당은 허용되지 않는 일련의 작업을 정의합니다. 즉, 거부 할당은 역할 할당이 사용자에게 액세스 권한을 부여하더라도 지정된 작업을 사용자가 수행할 수 없도록 차단합니다. 거부 할당은 역할 할당보다 우선합니다.
+
+현재 거부 할당은 **읽기 전용**이며 Azure를 통해서만 설정할 수 있습니다. 자신의 거부 할당을 만들 수는 없지만, 할당이 사용자의 유효한 권한에 영향을 줄 수 있으므로 거부 할당을 나열할 수 있습니다. 거부 할당에 대한 정보를 얻으려면 `Microsoft.Authorization/denyAssignments/read` 권한이 있어야 하며, 이것은 대부분의 [기본 제공 역할](built-in-roles.md#owner)에 포함됩니다. 자세한 내용은 [거부 할당 이해](deny-assignments.md)를 참조하세요.
+
+## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>RBAC에서 사용자가 리소스에 액세스 권한이 있는지 확인하는 방법
+
+다음은 관리 평면에서 리소스에 액세스할 수 있는지 확인하기 위해 RBAC가 사용하는 고급 단계입니다. 이 단계는 액세스 문제를 해결하려는 경우 이해하는 데 도움이 됩니다.
+
+1. 사용자(또는 서비스 주체)가 Azure Resource Manager에 대한 토큰을 획득합니다.
+
+    토큰에는 사용자의 그룹 멤버 자격(전이적 그룹 멤버 자격)이 포함됩니다.
+
+1. 사용자는 연결된 토큰을 사용하여 Azure Resource Manager에 REST API를 호출합니다.
+
+1. Azure Resource Manager는 모든 역할 할당을 검색하고 작업이 수행될 때 리소스에 적용되는 할당을 거부합니다.
+
+1. Azure Resource Manager는 이 사용자 또는 그룹에 적용되는 역할 할당을 범위를 좁히고 사용자가 이 리소스에 대해 갖는 역할을 결정합니다.
+
+1. Azure Resource Manager는 사용자가 이 리소스에 대해 갖는 역할에 API 호출의 동작이 포함되는지 여부를 결정합니다.
+
+1. 사용자에게 요청한 범위의 작업이 있는 역할이 없으면 액세스가 허용되지 않습니다. 그렇지 않으면, Azure Resource Manager는 거부 할당이 적용되는지 확인합니다.
+
+1. 거부 할당이 적용되면 액세스가 차단됩니다. 그렇지 않으면 액세스 권한이 부여됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

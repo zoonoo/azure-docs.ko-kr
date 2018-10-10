@@ -1,27 +1,27 @@
 ---
-title: Azure Blob 저장소에 대한 변경 불가능한 저장소(미리 보기) | Microsoft Docs
+title: Azure Storage Blob에 대한 변경 불가능한 저장소 | Microsoft Docs
 description: Azure Storage는 사용자가 지정한 간격 동안 지울 수 없고 수정할 수 없는 상태로 데이터를 저장할 수 있게 하는 Blob(개체) 저장소에 대한 WORM(Write Once, Read Many) 지원을 제공합니다.
 services: storage
-author: sangsinh
+author: MichaelHauss
 ms.service: storage
 ms.topic: article
-ms.date: 05/29/2018
-ms.author: sangsinh
+ms.date: 09/18/2018
+ms.author: mihauss
 ms.component: blobs
-ms.openlocfilehash: cfc25906e926e8dd6687eeccd311a38653772c4d
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 14b5dfb0a12df6c5251ee9f9e6b35a7ce527a1d3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399001"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961980"
 ---
-# <a name="store-business-critical-data-in-azure-blob-storage-preview"></a>Azure Blob 저장소에 중요 비즈니스용 데이터 저장(미리 보기)
+# <a name="store-business-critical-data-in-azure-blob-storage"></a>Azure Blob Storage에 중요 비즈니스용 데이터 저장
 
 Azure Blob(개체) 저장소에 대한 변경 불가능한 저장소를 사용하면 사용자가 중요 비즈니스용 데이터를 WORM(Write Once, Read Many) 상태로 저장할 수 있습니다. 이 상태는 사용자가 지정한 간격 동안 데이터를 지울 수 없고 수정할 수 없게 만듭니다. 보존 간격 기간 동안 Blob을 만들고 읽을 수 있지만, 수정하거나 삭제할 수는 없습니다.
 
 ## <a name="overview"></a>개요
 
-변경 불가능한 저장소는 금융 기관 및 관련 업계, 특히 증권 중개인 조직에서 데이터를 안전하게 저장하는 데 도움이 됩니다.
+변경 불가능한 저장소는 금융 기관 및 관련 업계, 특히 증권 중개인 조직에서 데이터를 안전하게 저장하는 데 도움이 됩니다. 모든 시나리오에서 중요한 데이터가 삭제되지 않도록 보호하는 데 활용할 수도 있습니다.  
 
 일반적인 적용 분야는 다음과 같습니다.
 
@@ -37,9 +37,9 @@ Azure Blob(개체) 저장소에 대한 변경 불가능한 저장소를 사용�
 
 - **법적 보존 정책 지원:** 보존 간격을 알 수 없는 경우 사용자가 법적 보존을 지울 때까지 데이터를 변경할 수 없는 상태로 저장하도록 법적 보존을 설정할 수 있습니다.  법적 보존을 설정하면 BLOB을 만들고 읽을 수 있지만, 수정하거나 삭제할 수는 없습니다. 각 법적 보존은 식별자 문자열(예: 사례 ID)로 사용되는 사용자 정의 영숫자 태그와 연결됩니다.
 
-- **모든 Blob 계층 지원:** WORM 정책은 Azure Blob 저장소 계층과 별개이며, 모든 계층(핫, 쿨 및 보관)에 적용됩니다. 사용자가 데이터 불변성을 유지하면서 해당 워크로드에 대해 비용이 가장 최적화된 계층에 데이터를 저장할 수 있습니다.
+- **모든 Blob 계층 지원:** WORM 정책은 Azure Blob 저장소 계층과 별개이며, 모든 계층(핫, 쿨 및 보관)에 적용됩니다. 사용자가 데이터 불변성을 유지하면서 해당 워크로드에 대해 비용이 가장 최적화된 계층으로 데이터를 전환할 수 있습니다.
 
-- **컨테이너 수준 구성:** 사용자가 컨테이너 수준에서 시간 기준 보존 정책 및 법적 보존 태그를 구성할 수 있습니다. 사용자는 간단한 컨테이너 수준 설정을 사용하여 시간 기준 보존 정책을 만들거나 잠그고, 보존 간격을 연장하고, 법적 보존을 지우는 등의 작업을 수행할 있습니다. 이러한 정책은 컨테이너의 모든 Blob(기존 및 신규)에 적용됩니다.
+- **컨테이너 수준 구성:** 사용자가 컨테이너 수준에서 시간 기준 보존 정책 및 법적 보존 태그를 구성할 수 있습니다. 사용자는 간단한 컨테이너 수준 설정을 사용하여 시간 기반 보존 정책을 만들거나 잠그고, 보존 간격을 연장하고, 법적 보존을 설정 및 해제하는 등의 작업을 수행할 있습니다. 이러한 정책은 컨테이너의 모든 Blob(기존 및 신규)에 적용됩니다.
 
 - **감사 로깅 지원**: 각 컨테이너에는 감사 로그가 포함됩니다. 최대 3개의 보존 간격 연장 로그를 사용하여 잠긴 시간 기준 보존 정책에 대해 시간 기준 보존 명령을 최대 5개까지 표시합니다. 시간 기준 보존의 경우 로그에는 사용자 ID, 명령 유형, 타임스탬프 및 보존 간격이 포함됩니다. 법적 보존의 경우 로그에는 사용자 ID, 명령 유형, 타임스탬프 및 법적 보존 태그가 포함됩니다. 이 로그는 SEC 17a-4(f) 규정 지침에 따라 컨테이너 수명 동안 유지됩니다. [Azure 활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)는 모든 제어 평면 활동에 대한 더 포괄적인 로그를 보여 줍니다. 이러한 로그는 규정 또는 다른 목적으로 필요할 수 있으므로 사용자가 이러한 로그를 영구적으로 저장할 책임이 있습니다.
 
@@ -54,13 +54,13 @@ Azure Blob 저장소에 대한 변경 불가능한 저장소는 두 가지 유�
 > [!IMPORTANT]
 > SEC 17a-4(f) 및 기타 규정을 준수하도록 Blob을 변경 불가능한 상태(쓰기 및 삭제 금지)로 유지하려면 시간 기준 보존 정책을 *잠가야* 합니다. 적절한 시간(일반적으로 24 시간 이내)에 정책을 잠그는 것이 좋습니다. 단기간의 기능 평가 이외의 용도로는 *잠금 해제* 상태를 사용하지 않는 것이 좋습니다.
 
-컨테이너에 시간 기준 보존 정책을 적용하면 컨테이너의 모든 Blob이 *유효* 보존 기간 동안 변경 불가능한 상태로 유지됩니다. 기존 BLOB의 유효 보존 기간은 BLOB 생성 시간과 사용자가 지정한 보존 기간의 차와 같습니다. 
+컨테이너에 시간 기준 보존 정책을 적용하면 컨테이너의 모든 Blob이 *유효* 보존 기간 동안 변경 불가능한 상태로 유지됩니다. 기존 BLOB의 유효 보존 기간은 BLOB 생성 시간과 사용자가 지정한 보존 기간의 차와 같습니다.
 
-새 BLOB의 경우 유효 보존 기간은 사용자가 지정한 보존 기간과 같습니다. 사용자가 보존 간격을 변경할 수 있으므로 변경 불가능한 저장소는 사용자 지정 보존 간격의 최신 값을 사용하여 유효 보존 기간을 계산합니다.
+새 BLOB의 경우 유효 보존 기간은 사용자가 지정한 보존 기간과 같습니다. 사용자가 보존 간격을 연장할 수 있으므로 변경 불가능한 저장소는 사용자 지정 보존 간격의 최신 값을 사용하여 유효 보존 기간을 계산합니다.
 
 > [!TIP]
 > 예제:
-> 
+>
 > 사용자가 5년 보존 간격의 시간 기준 보존 정책을 만듭니다.
 >
 > 해당 컨테이너에 있는 기존 Blob인 testblob1은 1년 전에 만들었습니다. testblob1의 유효 보존 기간은 4년입니다.
@@ -77,35 +77,30 @@ Azure Blob 저장소에 대한 변경 불가능한 저장소는 두 가지 유�
 
 |시나리오  |Blob 상태  |허용되지 않는 Blob 작업  |
 |---------|---------|---------|
-|BLOB의 유효 보존 기간이 아직 만료되지 않았고/않았거나 법적 보존이 설정되어 있음     |변경할 수 없음: 삭제 및 쓰기 금지         |컨테이너 삭제, Blob 삭제, Blob1 배치, 블록 배치, 블록 목록 배치, Blob 메타데이터 설정, 페이지 배치, Blob 속성 설정, 스냅숏 Blob, Blob 증분 복사, 블록 추가         |
-|BLOB의 유효 보존 기간이 만료됨     |쓰기만 금지(삭제 작업은 허용)         |Blob 배치, 블록 배치, 블록 목록 배치, Blob 메타데이터 설정, 페이지 배치, Blob 속성 설정, 스냅숏 Blob, Blob 증분 복사, 블록 추가         |
+|BLOB의 유효 보존 기간이 아직 만료되지 않았고/않았거나 법적 보존이 설정되어 있음     |변경할 수 없음: 삭제 및 쓰기 금지         |컨테이너 삭제, Blob 삭제, Blob<sup>1</sup> 배치, 블록<sup>1</sup> 배치, 블록 목록<sup>1</sup> 배치, Blob 메타데이터 설정, 페이지 배치, Blob 속성 설정, 스냅숏 Blob, Blob 증분 복사, 블록 추가         |
+|BLOB의 유효 보존 기간이 만료됨     |쓰기만 금지(삭제 작업은 허용)         |Blob<sup>1</sup> 배치, 블록<sup>1</sup> 배치, 블록 목록<sup>1</sup> 배치, Blob 메타데이터 설정, 페이지 배치, Blob 속성 설정, 스냅숏 Blob, Blob 증분 복사, 블록 추가         |
 |모든 법적 보존을 지우고,컨테이너에 시간 기준 보존 정책이 설정되지 않음     |변경 가능         |없음         |
 |만들어진 WORM 정책(시간 기준 보존 또는 법적 보존)이 없음     |변경 가능         |없음         |
 
+<sup>1</sup> 응용 프로그램에서 이 작업을 호출하여 Blob을 한 번 만들 수 있습니다. Blob에 대한 모든 후속 작업은 허용되지 않습니다.
+
 > [!NOTE]
-> 앞의 표에 나오는 처음 두 시나리오에서는 첫 번째 Blob 배치와 Blob을 만드는 데 필요한 블록 목록 배치 및 블록 배치 작업이 허용됩니다. 모든 후속 작업은 허용되지 않습니다.
 >
-> 변경 불가능한 저장소는 GPv2 및 Blob 저장소 계정에서만 사용할 수 있으며, [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 통해 만들어야 합니다.
+> 변경 불가능한 저장소는 범용 v2 및 Blob Storage 계정에서만 사용할 수 있습니다. 계정은 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 통해 만들어야 합니다.
 
 ## <a name="pricing"></a>가격
 
-이 기능을 사용하는 경우 추가 요금이 부과되지 않습니다. 변경 불가능한 데이터는 일반적으로 변경 가능한 데이터와 동일한 방식으로 가격이 책정됩니다. 가격 책정에 대한 자세한 내용은 [Azure Storage 가격 페이지](https://azure.microsoft.com/pricing/details/storage/blobs/)를 참조하세요.
+이 기능을 사용하는 경우 추가 요금이 부과되지 않습니다. 변경 불가능한 데이터는 일반적으로 변경 가능한 데이터와 동일한 방식으로 가격이 책정됩니다. Azure Blob Storage의 가격 책정에 대한 자세한 내용은 [Azure Storage 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/blobs/)를 참조하세요.
 
-### <a name="restrictions"></a>제한
-
-공개 미리 보기 기간에는 다음과 같은 제한 사항이 적용됩니다.
-
-- *프로덕션 또는 중요 비즈니스용 데이터는 저장하지 못합니다.*
-- 모든 미리 보기 및 NDA 제한이 적용됩니다.
 
 ## <a name="getting-started"></a>시작
 
-최신 릴리스의 [Azure Portal](http://portal.azure.com), [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 및 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018)은 Azure Blob 저장소에 대한 변경 불가능한 저장소를 지원합니다.
+최신 릴리스의 [Azure Portal](http://portal.azure.com) 및 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)는 물론 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018)의 미리 보기 버전은 Azure Blob 저장소에 대한 변경 불가능한 저장소를 지원합니다.
 
 ### <a name="azure-portal"></a>Azure portal
 
 1. 변경할 수 없는 상태로 유지해야 하는 BLOB을 저장할 새 컨테이너를 만들거나 기존 컨테이너를 선택합니다.
- 컨테이너는 GPv2 저장소 계정에 있어야 합니다.
+ 컨테이너는 GPv2 또는 Blob 저장소 계정에 있어야 합니다.
 2. 컨테이너 설정에서 **액세스 정책**을 선택합니다. 그런 다음, **변경 불가능한 Blob 저장소** 아래에서 **+ 정책 추가**를 선택합니다.
 
     ![포털의 컨테이너 설정](media/storage-blob-immutable-storage/portal-image-1.png)
@@ -134,11 +129,9 @@ Azure Blob 저장소에 대한 변경 불가능한 저장소는 두 가지 유�
 
     ![정책 유형 아래의 "태그 이름" 상자](media/storage-blob-immutable-storage/portal-image-set-legal-hold-tags.png)
 
-### <a name="azure-cli-20"></a>Azure CLI 2.0
+8. 법적 보존을 삭제하려면 태그를 제거하면 됩니다.
 
-`az extension add -n storage-preview`를 사용하여 [Azure CLI 확장](http://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)을 설치합니다.
-
-확장이 이미 설치되어 있는 경우 `az extension update -n storage-preview` 명령을 사용하여 변경 불가능한 저장소를 사용하도록 설정합니다.
+### <a name="azure-cli"></a>Azure CLI
 
 이 기능은 `az storage container immutability-policy` 및 `az storage container legal-hold` 명령 그룹에 포함되어 있습니다. 이러한 그룹에 `-h`를 실행하여 명령을 확인합니다.
 
@@ -160,7 +153,8 @@ Azure Blob 저장소에 대한 변경 불가능한 저장소를 지원하는 클
 
 - [.NET 클라이언트 라이브러리 버전 7.2.0-preview 이상](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/7.2.0-preview)
 - [Node.js 클라이언트 라이브러리 버전 4.0.0 이상](https://www.npmjs.com/package/azure-arm-storage)
-- [Python 클라이언트 라이브러리 버전 2.0.0 릴리스 후보 2 이상](https://pypi.org/project/azure-mgmt-storage/2.0.0rc1/)
+- [Python 클라이언트 라이브러리 버전 2.0.0 릴리스 후보 2 이상](https://pypi.org/project/azure-mgmt-storage/2.0.0rc2/)
+- [Java 클라이언트 라이브러리](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/storage/resource-manager/Microsoft.Storage/preview/2018-03-01-preview)
 
 ## <a name="supported-values"></a>지원되는 값
 
@@ -176,15 +170,15 @@ Azure Blob 저장소에 대한 변경 불가능한 저장소를 지원하는 클
 
 **이 기능은 블록 Blob에만 적용되나요, 아니면 페이지 및 추가 Blob에도 적용되나요?**
 
-변경 불가능한 저장소는 모든 Blob 유형에 사용할 수 있습니다.  그러나 블록 Blob에 주로 사용하는 것이 좋습니다. 블록 Blob과는 달리, 페이지 Blob과 추가 Blob은 WORM 컨테이너 외부에서 만든 후에 복사해야 합니다. 이러한 Blob이 WORM 컨테이너에 복사되면 더 이상 추가 Blob에 *추가*하거나 페이지 Blob을 변경할 수 없습니다.
+변경이 불가능한 저장소를 모든 Blob 유형과 함께 사용할 수 있지만 블록 Blob에 주로 사용하는 것이 좋습니다. 블록 Blob과는 달리, 페이지 Blob과 추가 Blob은 WORM 컨테이너 외부에서 만든 후에 복사해야 합니다. 이러한 Blob이 WORM 컨테이너에 복사되면 더 이상 추가 Blob에 *추가*하거나 페이지 Blob을 변경할 수 없습니다.
 
 **이 기능을 사용하려면 항상 새 저장소 계정을 만들어야 하나요?**
 
-계정 유형이 GPv2인 경우 기존 GPv2 계정 또는 새 저장소 계정에서 변경 불가능한 저장소를 사용할 수 있습니다. 이 기능은 Blob 저장소에서만 사용할 수 있습니다.
+변경이 불가능한 저장소를 기존 또는 새로 만든 범용 V2나 Blob Storage 계정과 함께 사용할 수 있습니다. 이 기능은 Blob 저장소에서만 사용할 수 있습니다.
 
 ***잠긴* 시간 기반 보존 정책 또는 법적 보존이 있는 컨테이너를 삭제하려고 시도하면 어떻게 되나요?**
 
-잠긴 시간 기준 보존 정책 또는 법적 보존 정책이 있는 Blob이 하나 이상 있는 경우 컨테이너 삭제 작업이 실패합니다. 데이터가 [소프트 삭제](storage-blob-soft-delete.md)되는 경우에도 마찬가지입니다. BLOB에 활성 보존 기간이 없고 법적 보존이 없는 경우 컨테이너 삭제 작업이 성공합니다. 컨테이너를 삭제하려면 먼저 Blob을 삭제해야 합니다. 
+잠긴 시간 기반 보존 정책 또는 법적 보존이 있는 Blob이 하나 이상 있는 경우 컨테이너 삭제 작업이 실패합니다. 활성 보존 기간이 있는 BLOB이 없고 법적 보존이 없는 경우에만 컨테이너 삭제 작업이 성공합니다. 컨테이너를 삭제하려면 먼저 Blob을 삭제해야 합니다.
 
 **WORM 컨테이너에 *잠긴* 시간 기반 보존 정책 또는 법적 보존이 있는 저장소 계정을 삭제하려고 시도하면 어떻게 되나요?**
 
@@ -192,7 +186,7 @@ Azure Blob 저장소에 대한 변경 불가능한 저장소를 지원하는 클
 
 **BLOB이 변경할 수 없는 상태인 경우 BLOB 계층(핫, 쿨, 콜드) 간에 데이터를 이동할 수 있나요?**
 
-예, Blob 계층 설정 명령을 사용하면 데이터를 변경할 수 없는 상태로 유지하면서 BLOB 계층 간에 데이터를 이동할 수 있습니다. 변경 불가능한 저장소는 핫, 쿨 및 콜드 Blob 계층에서 지원됩니다.
+예, Blob 계층 설정 명령을 사용하면 데이터를 변경할 수 없는 상태로 유지하면서 BLOB 계층 간에 데이터를 이동할 수 있습니다. 변경 불가능한 저장소는 핫, 쿨 및 아카이브 Blob 계층에서 지원됩니다.
 
 **보존 기간이 만료되지는 않았지만 요금을 지불하지 않은 경우 어떻게 되나요?**
 
@@ -209,6 +203,8 @@ Azure Blob 저장소에 대한 변경 불가능한 저장소를 지원하는 클
 ## <a name="sample-powershell-code"></a>PowerShell 코드 샘플
 
 다음 PowerShell 스크립트 샘플은 참조하기 위한 목적으로 제공되는 것입니다. 이 스크립트는 새 저장소 계정과 컨테이너를 만듭니다. 그런 다음, 법적 보존 정책을 설정하고 지우고, 시간 기준 보존 정책(변경 불가능한 정책이라고도 함)을 만들고 잠그며, 보존 간격을 연장하는 방법을 보여 줍니다.
+
+Azure Storage 계정 설정 및 테스트:
 
 ```powershell
 $ResourceGroup = "<Enter your resource group>”
@@ -258,115 +254,128 @@ Remove-AzureRmStorageContainer -StorageAccount $accountObject -Name $container2
 # Remove a container with a container object
 $containerObject2 = Get-AzureRmStorageContainer -StorageAccount $accountObject -Name $container2
 Remove-AzureRmStorageContainer -InputObject $containerObject2
+```
 
+법적 보존 설정 및 지우기:
+
+```powershell
 # Set a legal hold
 Add-AzureRmStorageContainerLegalHold -ResourceGroupName $ResourceGroup `
-    -StorageAccountName $StorageAccount -Name $container -Tag tag1,tag2
+    -StorageAccountName $StorageAccount -Name $container -Tag <tag1>,<tag2>,...
 
-# Set a legal hold with an account object
-Add-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag tag3
+# with an account object
+Add-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag <tag3>
 
-# Set a legal hold with a container object
-Add-AzureRmStorageContainerLegalHold -Container $containerObject -Tag tag4,tag5
+# with a container object
+Add-AzureRmStorageContainerLegalHold -Container $containerObject -Tag <tag4>,<tag5>,...
 
 # Clear a legal hold
 Remove-AzureRmStorageContainerLegalHold -ResourceGroupName $ResourceGroup `
-    -StorageAccountName $StorageAccount -Name $container -Tag tag2
+    -StorageAccountName $StorageAccount -Name $container -Tag <tag2>
 
-# Clear a legal hold with an account object
-Remove-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag tag3,tag5
+# with an account object
+Remove-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag <tag3>,<tag5>
 
-# Clear a legal hold with a container object
-Remove-AzureRmStorageContainerLegalHold -Container $containerObject -Tag tag4
+# with a container object
+Remove-AzureRmStorageContainerLegalHold -Container $containerObject -Tag <tag4>
+```
 
-# Create or update an immutability policy
-## with an account name or container name
-
+불변성 정책 만들기 또는 업데이트:
+```powershell
+# with an account name or container name
 Set-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -ContainerName $container -ImmutabilityPeriod 10
 
-## with an account object
+# with an account object
 Set-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
     -ContainerName $container -ImmutabilityPeriod 1 -Etag $policy.Etag
 
-## with a container object
+# with a container object
 $policy = Set-AzureRmStorageContainerImmutabilityPolicy -Container `
     $containerObject -ImmutabilityPeriod 7
 
-## with an immutability policy object
+# with an immutability policy object
 Set-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy -ImmutabilityPeriod 5
+```
 
+불변성 정책 검색:
+```powershell
 # Get an immutability policy
 Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -ContainerName $container
 
-# Get an immutability policy with an account object
+# with an account object
 Get-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
     -ContainerName $container
 
-# Get an immutability policy with a container object
+# with a container object
 Get-AzureRmStorageContainerImmutabilityPolicy -Container $containerObject
+```
 
-# Lock an immutability policy (add -Force to dismiss the prompt)
-## with an immutability policy object
-
+불변성 정책 잠금(추가 -프롬프트 강제로 닫기):
+```powershell
+# with an immutability policy object
 $policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
 $policy = Lock-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy -force
 
-## with an account name or container name
+# with an account name or container name
 $policy = Lock-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
     -Etag $policy.Etag
 
-## with an account object
+# with an account object
 $policy = Lock-AzureRmStorageContainerImmutabilityPolicy -StorageAccount `
     $accountObject -ContainerName $container -Etag $policy.Etag
 
-## with a container object
+# with a container object
 $policy = Lock-AzureRmStorageContainerImmutabilityPolicy -Container `
     $containerObject -Etag $policy.Etag -force
+```
 
-# Extend an immutability policy
-## with an immutability policy object
+불변성 정책 확장:
+```powershell
 
+# with an immutability policy object
 $policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
 
 $policy = Set-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy `
     $policy -ImmutabilityPeriod 11 -ExtendPolicy
 
-## with an account name or container name
+# with an account name or container name
 $policy = Set-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
     -ImmutabilityPeriod 11 -Etag $policy.Etag -ExtendPolicy
 
-## with an account object
+# with an account object
 $policy = Set-AzureRmStorageContainerImmutabilityPolicy -StorageAccount `
     $accountObject -ContainerName $container -ImmutabilityPeriod 12 -Etag `
     $policy.Etag -ExtendPolicy
 
-## with a container object
+# with a container object
 $policy = Set-AzureRmStorageContainerImmutabilityPolicy -Container `
     $containerObject -ImmutabilityPeriod 13 -Etag $policy.Etag -ExtendPolicy
+```
 
-# Remove an immutability policy (add -Force to dismiss the prompt)
-## with an immutability policy object
+불변성 정책 제거(추가 -프롬프트 강제로 닫기):
+```powershell
+# with an immutability policy object
 $policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
 Remove-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
-## with an account name or container name
+# with an account name or container name
 Remove-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
     -Etag $policy.Etag
 
-## with an account object
+# with an account object
 Remove-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
     -ContainerName $container -Etag $policy.Etag
 
-## with a container object
+# with a container object
 Remove-AzureRmStorageContainerImmutabilityPolicy -Container $containerObject `
     -Etag $policy.Etag
-    
+
 ```
