@@ -2,18 +2,17 @@
 title: Azure Container Registry 웹후크
 description: 레지스트리 리포지토리 중 하나에서 특정 작업이 수행되는 경우 웹후크를 사용하여 이벤트를 트리거하는 방법을 알아봅니다.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 08/20/2017
-ms.author: marsma
-ms.openlocfilehash: c424e81b13c3c60e975d3721693b1f80e00cfdd7
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.author: danlep
+ms.openlocfilehash: 350ae16aa66276e7e64c5c35718dca74a70f499e
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142672"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854102"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Azure Container Registry 웹후크 사용
 
@@ -36,7 +35,7 @@ Webhook 요청에 대한 세부 정보는 [Azure Container Registry 웹후크 �
 
 | 값 | 설명 |
 |---|---|
-| Name | 웹후크에 지정하려는 이름입니다. 소문자와 숫자만 포함할 수 있으며 길이는 5-50자여야 합니다. |
+| 이름 | 웹후크에 지정하려는 이름입니다. 소문자와 숫자만 포함할 수 있으며 길이는 5-50자여야 합니다. |
 | 서비스 URI | 웹후크가 POST 알림을 보내야 하는 URI입니다. |
 | 사용자 지정 헤더 | POST 요청과 함께 전달하려는 헤더입니다. "키: 값" 형식이어야 합니다. |
 | 트리거 동작 | 웹후크를 트리거하는 동작입니다. 현재 웹후크는 이미지 밀어넣기 및/또는 삭제 동작에 의해 트리거될 수 있습니다. |

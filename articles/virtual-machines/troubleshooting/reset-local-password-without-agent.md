@@ -3,7 +3,7 @@ title: Azure 에이전트 없이 로컬 Windows 암호 재설정 | Microsoft Doc
 description: Azure 게스트 에이전트가 설치되어 있지 않거나 VM에서 작동하지 않는 경우 로컬 Windows 사용자 계정의 암호를 재설정하는 방법
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
+author: genlin
 manager: jeconnoc
 editor: ''
 ms.assetid: cf353dd3-89c9-47f6-a449-f874f0957013
@@ -12,13 +12,13 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
-ms.author: cynthn
-ms.openlocfilehash: d9dc78d73f7290c39e339320b3d2314069232b42
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.author: genli
+ms.openlocfilehash: a69692d9f50d0362a6b10d3237e1e5448c43baab
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412018"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268719"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Azure VM 오프라인의 로컬 Windows 암호 재설정
 Azure 게스트 에이전트 설치가 제공되는 [Azure Portal 또는 Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하여 Azure에서 VM의 로컬 Windows 암호를 재설정할 수 있습니다. 이 방법은 Azure VM의 암호를 재설정하는 기본 방법입니다. Azure 게스트 에이전트가 응답하지 않거나 사용자 지정 이미지를 업로드한 후 설치에 실패하는 문제가 발생하는 경우 Windows 암호를 수동으로 재설정할 수 있습니다. 이 문서에는 다른 VM에 원본 OS 가상 디스크를 연결하여 로컬 계정 암호를 재설정하는 방법을 자세히 설명합니다. 이 문서에 설명된 단계는 Windows 도메인 컨트롤러에는 적용되지 않습니다. 

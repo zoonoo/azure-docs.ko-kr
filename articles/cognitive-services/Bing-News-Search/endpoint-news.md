@@ -1,22 +1,23 @@
 ---
-title: Bing News Search 엔드포인트 | Microsoft Docs
+title: Bing News Search 엔드포인트
+titlesuffix: Azure Cognitive Services
 description: News Search API 엔드포인트에 대한 요약 정보입니다.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: v-gedod
-ms.openlocfilehash: ab892e947566adf025499382b213a52ed3e96e35
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 0ed8b9048c04c4aff5214cea697810a0c573559e
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433687"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48800548"
 ---
-# <a name="news-search-endpoints"></a>News Search 엔드포인트
+# <a name="bing-news-search-endpoints"></a>Bing News Search 엔드포인트
 **News Search API**는 뉴스 기사, 웹 페이지, 이미지, 비디오 및 [엔터티](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web)를 반환합니다. 엔터티에는 사람, 장소 또는 토픽에 대한 요약 정보가 포함됩니다.
 ## <a name="endpoints"></a>엔드포인트
 Bing API를 사용하여 뉴스 검색 결과를 가져오려면 다음 엔드포인트 중 하나로 `GET` 요청을 보냅니다. 헤더 및 URL 매개 변수는 추가 사양을 정의합니다.

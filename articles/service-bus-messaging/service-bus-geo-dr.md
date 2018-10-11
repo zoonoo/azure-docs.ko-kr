@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: spelluru
-ms.openlocfilehash: 8cf21b283053760077ca2903349f0dc5e4cbb9e2
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 0436248dac2812c447d25de16a4ac6b45bd7248f
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392490"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855183"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus 지역 재해 복구
 
@@ -121,7 +121,6 @@ Azure Portal을 사용하여 새로운 네임스페이스에서만 가용성 영
 
 Service Bus 메시징에 대해 자세히 알아보려면 다음 문서를 참조하세요.
 
-* [Service Bus 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus 큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus 토픽 및 구독을 사용하는 방법](service-bus-dotnet-how-to-use-topics-subscriptions.md)

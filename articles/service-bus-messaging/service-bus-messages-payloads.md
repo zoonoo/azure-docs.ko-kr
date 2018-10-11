@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: 636b48f409c1a86f7da87c38b6250610026d4547
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 00c7605b09c32328a8324b13b8151a258a39dc22
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392606"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857604"
 ---
 # <a name="messages-payloads-and-serialization"></a>메시지, 페이로드 및 serialization
 
@@ -89,7 +89,6 @@ Java 또는 .NET Standard 변형과 달리, Service Bus API의 .NET Framework �
 
 Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
-* [Service Bus 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus 큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus 토픽 및 구독을 사용하는 방법](service-bus-dotnet-how-to-use-topics-subscriptions.md)

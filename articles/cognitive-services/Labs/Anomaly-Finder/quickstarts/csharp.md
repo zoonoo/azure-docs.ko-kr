@@ -9,14 +9,16 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 867ce4d0262c94de8da0dadeb8de71c28a8295d5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 3ae3d85e8e37fbf896405948f9bc7042bcdaca7b
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35375342"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246451"
 ---
 # <a name="use-the-anomaly-finder-api-with-c"></a>C# 및 Anomaly Finder API 사용
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 이 문서에서 제공하는 정보 및 코드 샘플을 통해 C#과 함께 Anomaly Finder API 사용을 빠르게 시작하여 시계열 데이터의 변칙 결과를 가져오는 작업을 수행할 수 있습니다.
 

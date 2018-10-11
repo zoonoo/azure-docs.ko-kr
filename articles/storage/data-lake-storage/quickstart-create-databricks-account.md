@@ -8,12 +8,12 @@ ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
-ms.openlocfilehash: 1cf21dfee0e0e5bcbfff80945a3bfdfbc4bad83b
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: b0db5e79ac3f52bfcd9c7791a843265a421ef1bf
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300595"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48903014"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Databricks에서 Spark 작업 실행
 
@@ -105,7 +105,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ```scala
     spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
-    dbutils.fs.ls("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/")
+    dbutils.fs.ls("abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/")
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false") 
     ```
 
@@ -119,13 +119,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 노트북 셀에 다음 코드를 입력합니다.
 
-    %sh wget -P /tmp https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
+    %sh wget -P /tmp https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
 
 셀에서 `Shift` + `Enter` 키를 눌러 코드를 실행합니다.
 
 이제 이 아래에 있는 새 셀에서, 다음 코드를 입력합니다(**FILE_SYSTEM** 및 **ACCOUNT_NAME**을 앞에서 사용한 값으로 변경).
 
-    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfs://<FILE_SYSTEM>@<ACCOUNT_NAME>.dfs.core.windows.net/")
+    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://<FILE_SYSTEM>@<ACCOUNT_NAME>.dfs.core.windows.net/")
 
 셀에서 `Shift` + `Enter` 키를 눌러 코드를 실행합니다.
 
@@ -141,7 +141,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     CREATE TABLE radio_sample_data
     USING json
     OPTIONS (
-     path  "abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>/small_radio_json.json"
+     path  "abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>/small_radio_json.json"
     )
     ```
 

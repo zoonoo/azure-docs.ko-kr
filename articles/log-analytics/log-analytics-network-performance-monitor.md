@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.component: na
-ms.openlocfilehash: 3640f5bb2c2e9457e269bd189cbec3b627ee7349
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.component: ''
+ms.openlocfilehash: e12c513f8812381897804412616be1ef7c743a3d
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626875"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044096"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -69,7 +69,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
     네트워크 링크를 모니터링하려면 해당 링크의 엔드포인트 양쪽 모두에 에이전트를 설치해야 합니다. 네트워크 토폴로지를 확실히 모를 경우 사이의 네트워크 성능을 모니터링하려는 중요 워크로드가 있는 서버에 에이전트를 설치합니다. 예를 들어, 웹 서버와 SQL을 실행하는 서버 간의 네트워크 연결을 모니터링하려는 경우 두 서버 모두에 에이전트를 설치합니다. 에이전트는 호스트 자체가 아닌 호스트 간의 네트워크 연결(링크)을 모니터링합니다. 
 
-* **서비스 연결 모니터:** 서비스 끝점에 대한 네트워크 연결을 모니터링하려는 각 노드에 Operations Management Suite 에이전트를 설치합니다. 예를 들어 O1, O2 및 O3 레이블이 지정된 사무실 사이트에서 Office 365에 대한 네트워크 연결을 모니터링하려는 경우 O1, O2 및 O3 각각 하나 이상의 노드에 Operations Management Suite 에이전트를 설치합니다. 
+* **서비스 연결 모니터:** 서비스 엔드포인트에 대한 네트워크 연결을 모니터링하려는 각 노드에 Operations Management Suite 에이전트를 설치합니다. 예를 들어 O1, O2 및 O3 레이블이 지정된 사무실 사이트에서 Office 365에 대한 네트워크 연결을 모니터링하려는 경우 O1, O2 및 O3 각각 하나 이상의 노드에 Operations Management Suite 에이전트를 설치합니다. 
 
 * **ExpressRoute 모니터**: Azure 가상 네트워크에 Operations Management Suite 에이전트를 하나 이상 설치합니다. 또한 ExpressRoute 개인 피어링을 통해 연결된 온-프레미스 서브네트워크에 에이전트를 하나 이상 설치합니다.  
 
@@ -253,7 +253,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 네트워크 성능 모니터 대시보드 및 드릴다운 페이지를 통해 그래픽으로 노출되는 모든 데이터는 [Log Analytics 검색](log-analytics-log-search-new.md)에서도 기본적으로 사용할 수 있습니다. 리포지토리의 데이터를 대화형으로 분석하고 여러 원본의 데이터를 상호 연결할 수 있습니다. 사용자 지정 경고 및 보기를 만들 수 있고 Excel, Power BI 또는 공유할 수 있는 링크로 데이터를 내보낼 수도 있습니다. 대시보드의  **일반 쿼리**  영역에는 자신의 쿼리와 보고서를 만드는 데 사용할 수 있는 유용한 쿼리가 몇 가지 있습니다. 
 
-## <a name="alerts"></a>Alerts
+## <a name="alerts"></a>경고
 
 네트워크 성능 모니터는 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)의 경고 기능을 사용합니다.
 

@@ -2,17 +2,18 @@
 title: Azure Site Recovery를 사용하여 Azure에 VMware 복제를 위한 용량 및 크기 조정 계획 | Microsoft Docs
 description: Azure Site Recovery를 사용하여 Azure에 VMware VM을 복제하는 경우 용량 및 크기 조정을 계획하려면 이 문서를 사용합니다.
 services: site-recovery
-author: rayne-wiselman
+author: nsoneji
+manager: garavd
 ms.service: site-recovery
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.topic: conceptual
 ms.author: rayne
-ms.openlocfilehash: b615ffa3571730ef9607893882f509b2fa490f35
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 833000cb09d315a996ebc9e2d66210c805160f2a
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056344"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067556"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Azure Site Recovery를 사용하여 VMware 복제를 위한 용량 및 크기 조정 계획
 

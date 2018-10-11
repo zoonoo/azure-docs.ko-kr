@@ -2,18 +2,17 @@
 title: 다시 시작 정책을 사용하여 Azure Container Instances에서 컨테이너 작업 실행
 description: Azure Container Instances를 사용하여 빌드, 테스트 또는 이미지 렌더링 작업에서처럼 완료될 때까지 실행되는 작업을 실행하는 방법에 대해 알아봅니다.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 07/26/2018
-ms.author: marsma
-ms.openlocfilehash: f4d30a9902261c0e785a1af36a7c1c7a8a0fec46
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: danlep
+ms.openlocfilehash: c9e3fadd5164ca0d770f36ba95c30db933efcd39
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444948"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48853895"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>다시 시작 정책으로 컨테이너 작업 실행
 

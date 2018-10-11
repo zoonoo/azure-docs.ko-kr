@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 60a6061d6ac0998064897462c0e82db811bdc187
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 9a867289cffa17030e397ef170e9055451057410
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435658"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237741"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Speech Service API에 대한 언어 및 지역 지원
 
@@ -31,16 +31,16 @@ Microsoft Speech Recognition API는 다음 언어를 지원합니다. 서로 다
  ca-ES | 카탈로니아어(스페인) | 아니요 | 아니요 | 아니요
  da-DK | 덴마크어(덴마크) | 아니요 | 아니요 | 아니요
  de-DE | 독일어(독일) | yes | yes | 아니요
- en-AU | 영어(오스트레일리아) | yes | 예 | yes
- en-CA | 영어(캐나다) | yes | 예 | yes
- en-GB | 영어(영국) | yes | 예 | yes
- en-IN | 영어(인도) | 아니요 | 예 | yes
- en-NZ | 영어(뉴질랜드) | yes | 예 | yes  
+ en-AU | 영어(오스트레일리아) | 아니요 | 예 | yes
+ en-CA | 영어(캐나다) | 아니요 | 예 | yes
+ en-GB | 영어(영국) | 아니요 | 예 | yes
+ en-IN | 영어(인도) | yes | 예 | yes
+ en-NZ | 영어(뉴질랜드) | 아니요 | 예 | yes  
  ko-KR | 영어(미국) | yes | 예 | yes
- es-ES | 스페인어(스페인) | yes | yes | 아니요
- es-MX | 스페인어(멕시코) | yes | yes | 아니요
+ es-ES | 스페인어(스페인) | 아니요 | yes | 아니요
+ es-MX | 스페인어(멕시코) | 아니요 | yes | 아니요
  fi-FI | 핀란드어(핀란드) | 아니요 | 아니요 | 아니요
- fr-CA | 프랑스어(캐나다) | yes | yes | 아니요
+ fr-CA | 프랑스어(캐나다) | 아니요 | yes | 아니요
  fr-FR | 프랑스어(프랑스) | yes | yes | 아니요
  hi-IN | 힌디어(인도) | 아니요 | yes | 아니요
  it-IT | 이탈리아어(이탈리아) | yes | yes | 아니요
@@ -51,7 +51,7 @@ Microsoft Speech Recognition API는 다음 언어를 지원합니다. 서로 다
  pl-PL | 폴란드어(폴란드) | 아니요 | 아니요 | 아니요
  pt-BR | 포르투갈어(브라질) | 아니요 | yes | 아니요
  pt-PT | 포르투갈어(포르투갈) | 아니요 | yes | 아니요
- ru-RU | 러시아어(러시아) | 아니요 | yes | 아니요
+ ru-RU | 러시아어(러시아) | yes | yes | 아니요
  sv-SE | 스웨덴어(스웨덴) | 아니요 | 아니요 | 아니요
  zh-CN | 중국어(북경어, 간체) | yes | yes | 아니요
  zh-HK | 중국어(북경어, 번체) | 아니요 | yes | 아니요
@@ -70,7 +70,7 @@ ar-SA | 아랍어(사우디아라비아) | Male | “Microsoft Server Speech Tex
 bg-BG | 불가리아어 | Male | “Microsoft Server Speech Text to Speech Voice(bg-BG, Ivan)”
 ca-ES | 카탈로니아어(스페인) | Female | “Microsoft Server Speech Text to Speech Voice(ca-ES, HerenaRUS)”
 cs-CZ | 체코어 | Male | “Microsoft Server Speech Text to Speech Voice(cs-CZ, Jakub)”
-cs-CZ | 체코어 | Male | "Microsoft Server Speech Text to Speech Voice(cs-CZ, Vit)"
+cs-CZ | 체코어 | Male | “Microsoft Server Speech Text to Speech Voice(cs-CZ, Vit)”
 da-DK | 덴마크어 | Female | “Microsoft Server Speech Text to Speech Voice(da-DK, HelleRUS)”
 de-AT | 독일어(오스트리아) | Male | “Microsoft Server Speech Text to Speech Voice(de-AT, Michael)”
 de-CH | 독일어(스위스) | Male | “Microsoft Server Speech Text to Speech Voice(de-CH, Karsten)”
@@ -86,7 +86,7 @@ en-GB | 영어(영국) | Female | “Microsoft Server Speech Text to Speech Voic
 | | |Female | “Microsoft Server Speech Text to Speech Voice(en-GB, HazelRUS)”
 | | |Male | “Microsoft Server Speech Text to Speech Voice(en-GB, George, Apollo)”
 en-IE | 영어(아일랜드) |Male | “Microsoft Server Speech Text to Speech Voice(en-IE, Sean)”
-en-IE | 영어(아일랜드) |Male | "Microsoft Server Speech Text to Speech Voice(en-IE, Shaun)"
+en-IE | 영어(아일랜드) |Male | “Microsoft Server Speech Text to Speech Voice(en-IE, Shaun)”
 en-IN | 영어(인도) | Female | “Microsoft Server Speech Text to Speech Voice(en-IN, Heera, Apollo)”
 | | |Female | “Microsoft Server Speech Text to Speech Voice(en-IN, PriyaRUS)”
 | | |Male | “Microsoft Server Speech Text to Speech Voice(en-IN, Ravi, Apollo)”
@@ -135,7 +135,7 @@ sk-SK | 슬로바키아어|Male | “Microsoft Server Speech Text to Speech Voic
 sl-SI | 슬로베니아어|Male | “Microsoft Server Speech Text to Speech Voice(sl-SI, Lado)”
 sv-SE | 스웨덴어|Female | “Microsoft Server Speech Text to Speech Voice(sv-SE, HedvigRUS)”
 ta-IN | 타밀어(인도) |Male | “Microsoft Server Speech Text to Speech Voice(ta-IN, Valluvar)”
-te-IN | 텔루구어(인도) |Female | "Microsoft Server Speech Text to Speech Voice(te-IN, Chitra)"
+te-IN | 텔루구어(인도) |Female | “Microsoft Server Speech Text to Speech Voice(te-IN, Chitra)”
 th-TH | 태국어|Male | “Microsoft Server Speech Text to Speech Voice(th-TH, Pattara)”
 tr-TR |터키어| Female | “Microsoft Server Speech Text to Speech Voice(tr-TR, SedaRUS)”
 vi-VN | 베트남어|Male | “Microsoft Server Speech Text to Speech Voice(vi-VN, An)”
@@ -156,13 +156,11 @@ zh-TW | 중국어(대만)|Female | “Microsoft Server Speech Text to Speech Voi
 음성 사용자 지정이 가능한 언어는 미국 영어(en-US), 본토 중국어(zh-CN) 및 이탈리아어(it-IT)입니다.
 
 > [!NOTE]
-> 이탈리아 음성 학습은 2,000개 이상의 발화로 이루어진 데이터 집합으로 시작합니다. 중국어-영어 이중 언어 모델도 2,000개 이상의 발언으로 이루어진 초기 데이터 집합으로 지원됩니다.
+> 이탈리아 음성 학습은 2,000개 이상의 발화로 이루어진 데이터 집합으로 시작합니다. 중국어-영어 이중 언어 모델도 2,000개 이상의 발화로 이루어진 초기 데이터 집합으로 지원됩니다.
 
 ## <a name="speech-translation"></a>Speech Translation
 
 **Speech Translation** API는 음성 간 음성 및 음성을 텍스트로 번역에 대해 다른 언어를 지원합니다. 원본 언어는 다음과 같은 음성 언어 테이블 중 하나여야 합니다. 사용 가능한 대상 언어는 번역 대상이 음성인지 또는 텍스트인지에 따라 달라집니다.
-
-REST API의 언어 엔드포인트를 사용하여 프로그래밍 방식으로 언어 목록을 가져올 수 있습니다. 목록에서는 영어 또는 지원되는 다른 언어의 언어 이름뿐만 아니라 각 언어 코드도 제공합니다. 이 목록은 새 언어를 사용할 수 있을 때마다 Microsoft Translator 서비스에서 업데이트됩니다.
 
 ### <a name="speech-languages"></a>음성 언어
 

@@ -10,12 +10,12 @@ ms.author: tedway
 author: tedway
 ms.date: 05/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: cb1abdce3bbd7349695ece70ff336c7e513c0918
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 344423ea9943e04dc5f02ebee0903d179be90bbd
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162188"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887584"
 ---
 # <a name="azure-machine-learning-hardware-acceleration-package"></a>Azure Machine Learning 하드웨어 가속 패키지
 
@@ -148,7 +148,7 @@ Azure Machine Learning 하드웨어 가속 패키지는 Azure Machine Learning�
 
 ## <a name="reporting-issues"></a>문제 보고
 
-[포럼](https://aka.ms/aml-forum)을 사용하여 패키지와 관련된 모든 문제를 보고하세요.
+[포럼](https://aka.ms/aml-forum-service)을 사용하여 패키지와 관련된 모든 문제를 보고하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

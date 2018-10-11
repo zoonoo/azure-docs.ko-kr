@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 74da7e96ed52b441bc63d5fb5a032db9c6d57774
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.component: ''
+ms.openlocfilehash: ac1b04d0b8c50939ff04a87a11fd1a315c2266ff
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494279"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042832"
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>OMS 게이트웨이를 사용하여 인터넷 액세스 없이 컴퓨터 연결
 이 문서에서는 직접 연결되거나 Operations Manager 모니터링 컴퓨터가 인터넷에 액세스할 수 없는 경우, OMS 게이트웨이를 사용하여 Azure Automation 및 Log Analytics와의 통신을 구성하는 방법을 설명합니다.  HTTP CONNECT 명령을 사용하여 HTTP 터널링을 지원하는 HTTP 전달 프록시인 OMS 게이트웨이에서 데이터를 수집하고 대신하여 Azure Automation 및 Log Analytics로 보낼 수 있습니다.  
@@ -121,7 +121,7 @@ OMS 게이트웨이는 TLS(전송 계층 보안) 1.0, 1.1 및 1.2만 지원합�
 1. **포트 및 프록시 주소** 페이지에서 다음 단계를 수행합니다.
    1. 게이트웨이에 사용될 TCP 포트 번호를 입력합니다. 설치 프로그램에서 Windows 방화벽의 인바운드 규칙을 이 포트 번호로 구성합니다.  기본값은 8080입니다.
       유효한 포트 번호 범위는 1 ~ 65535입니다. 입력한 내용이 이 범위를 벗어나면 오류 메시지가 표시됩니다.
-   1. 필요에 따라 게이트웨이가 설치되어 있는 서버에서 프록시를 통해 통신해야 하는 경우 게이트웨이에서 연결해야 하는 프록시 주소를 입력합니다. 예: `http://myorgname.corp.contoso.com:80`  비워 두면 게이트웨이에서 인터넷에 직접 연결을 시도합니다.  프록시 서버에 인증이 필요한 경우 사용자 이름과 암호를 입력합니다.<br><br> ![게이트웨이 마법사 프록시 구성](./media/log-analytics-oms-gateway/gateway-wizard02.png)<br>   
+   1. 필요에 따라 게이트웨이가 설치되어 있는 서버에서 프록시를 통해 통신해야 하는 경우 게이트웨이에서 연결해야 하는 프록시 주소를 입력합니다. 예: `http://myorgname.corp.contoso.com:80`.  비워 두면 게이트웨이에서 인터넷에 직접 연결을 시도합니다.  프록시 서버에 인증이 필요한 경우 사용자 이름과 암호를 입력합니다.<br><br> ![게이트웨이 마법사 프록시 구성](./media/log-analytics-oms-gateway/gateway-wizard02.png)<br>   
    1. **다음**을 클릭합니다.
 1. Microsoft 업데이트를 사용할 수 없는 경우 이를 사용하도록 설정할 수 있는 [Microsoft 업데이트] 페이지가 표시됩니다. 선택한 후에 **다음**을 클릭합니다. 그렇지 않은 경우 다음 단계를 계속 진행합니다.
 1. **대상 폴더** 페이지에서 C:\Program Files\OMS Gateway 기본 폴더를 그대로 유지하거나 게이트웨이를 설치할 위치를 입력하고 **다음**을 클릭합니다.
@@ -162,7 +162,7 @@ Operations Manager 관리 그룹이 Log Analytics 작업 영역에 처음으로 
 
 1. 관리자 권한 명령 프롬프트를 엽니다.
    a. **시작**으로 이동하여 **cmd**를 입력합니다.
-   나. **명령 프롬프트**를 마우스 오른쪽 단추로 클릭하고 관리자 권한으로 실행**을 선택합니다.
+   b. **명령 프롬프트**를 마우스 오른쪽 단추로 클릭하고 관리자 권한으로 실행**을 선택합니다.
 1. 다음 명령을 입력하고 **Enter** 키를 누릅니다.
 
     `netsh winhttp set proxy <proxy>:<port>`
@@ -198,7 +198,7 @@ Log Analytics와 통합을 완료한 후 `netsh winhttp reset proxy`를 실행�
 
 다음 단계에서 Automation 계정이 있는 Azure 지역을 알아야 합니다. 지역을 확인하려면:
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. Azure Automation 서비스를 선택합니다.
 1. 적절한 Azure Automation 계정을 선택합니다.
 1. **위치** 아래에서 해당 지역을 확인합니다.<br><br> ![Azure Portal – Automation 계정 위치](./media/log-analytics-oms-gateway/location.png)  

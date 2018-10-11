@@ -1,4 +1,26 @@
-
+---
+title: 포함 파일
+description: 포함 파일
+services: active-directory
+documentationcenter: dev-center-name
+author: jmprieur
+manager: mtillman
+editor: ''
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/17/2018
+ms.author: jmprieur
+ms.custom: include file
+ms.openlocfilehash: fb521fc9d4927a953cdd66948101969dfc102de4
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48842864"
+---
 ## <a name="register-your-application"></a>응용 프로그램 등록
 두 가지 방법 중 하나로 응용 프로그램을 등록할 수 있습니다.
 

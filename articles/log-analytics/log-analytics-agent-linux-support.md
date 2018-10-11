@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 49a53b68fd394772f38b6040b80ec80c93d9c46c
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: baa81a52d4b007cd690a2b01df642cd3775f7d6b
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131772"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044139"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-linux-agent-for-log-analytics"></a>Log Analytics용 Linux 에이전트의 문제를 해결하는 방법
 
@@ -30,14 +30,14 @@ ms.locfileid: "37131772"
 
 ### <a name="probable-causes"></a>가능한 원인
 * 등록하는 동안 지정된 프록시가 올바르지 않습니다.
-* Log Analytics 및 Azure Automation 서비스 끝점이 데이터 센터의 허용 목록에 없습니다. 
+* Log Analytics 및 Azure Automation 서비스 엔드포인트가 데이터 센터의 허용 목록에 없습니다. 
 
 ### <a name="resolutions"></a>해결 방법
 1. 다음 명령과 `-v` 옵션을 사용하여 OMS Agent for Linux가 있는 Log Analytics 서비스에 다시 등록합니다. OMS 서비스에 대한 프록시를 통해 연결되는 에이전트의 자세한 정보를 출력할 수 있습니다. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
 2. [프록시 설정 업데이트](log-analytics-agent-manage.md#update-proxy-settings) 섹션을 검토하여 프록시 서버를 통해 통신하도록 에이전트를 제대로 구성했는지 확인합니다.    
-* 다음 Log Analytics 서비스 끝점이 허용 목록에 있는지 한 번 더 확인합니다.
+* 다음 Log Analytics 서비스 엔드포인트가 허용 목록에 있는지 한 번 더 확인합니다.
 
     |에이전트 리소스| 포트 | 방향 |
     |------|---------|----------|  

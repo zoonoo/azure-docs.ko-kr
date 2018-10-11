@@ -6,16 +6,16 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
-ms.topic: article
+ms.component: language-understanding
+ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: c97092385cdc28ba6e4d916ae8039f065f97d31d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6c15fc256a330c7de154c551c1ef4c78913f470a
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030817"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885889"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>패턴을 추가하여 예측 정확도를 개선하는 방법
 LUIS 앱이 엔드포인트 발화를 수신한 후 패턴의 [개념](luis-concept-patterns.md)을 사용하여 단어 순서 및 단어 선택에 패턴을 노출하는 발화에 대한 예측 정확도를 개선합니다. 패턴은 [엔터티](luis-concept-entity-types.md) 및 해당 역할을 사용하여 특정 패턴 구문을 통해 데이터를 추출합니다. 

@@ -1,3 +1,26 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: active-directory
+documentationcenter: dev-center-name
+author: jmprieur
+manager: mtillman
+editor: ''
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/17/2018
+ms.author: jmprieur
+ms.custom: include file
+ms.openlocfilehash: d333f8ecd7e1044575f570d893227f9dcb394974
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843588"
+---
 ## <a name="test-your-code"></a>코드 테스트
 
 **F5**를 선택하여 Visual Studio에서 프로젝트를 실행합니다. 응용 프로그램 **MainWindow**는 다음과 같이 표시됩니다.
@@ -18,9 +41,9 @@
 
 |자산  |형식  |설명 |
 |---------|---------|---------|
-|**name** |사용자의 전체 이름 |사용자의 이름과 성입니다.|
+|**Name** |사용자의 전체 이름 |사용자의 이름과 성입니다.|
 |**사용자 이름** |<span>user@domain.com</span> |사용자를 식별하는 데 사용하는 사용자 이름입니다.|
-|**토큰 만료** |DateTime |토큰이 만료되는 시간입니다. MSAL은 필요에 따라 토큰을 갱신하여 만료 날짜를 연장합니다.|
+|**토큰 만료** |Datetime |토큰이 만료되는 시간입니다. MSAL은 필요에 따라 토큰을 갱신하여 만료 날짜를 연장합니다.|
 |**액세스 토큰** |문자열 |*인증 헤더*가 필요한 HTTP 요청으로 전송된 토큰 문자열|
 
 <!--start-collapse-->

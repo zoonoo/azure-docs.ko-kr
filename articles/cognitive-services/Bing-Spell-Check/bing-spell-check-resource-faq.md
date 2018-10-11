@@ -1,20 +1,21 @@
 ---
-title: Bing Spell Check API에 대한 FAQ(질문과 대답) - Azure Cognitive Services | Microsoft Docs
+title: Bing Spell Check API에 대한 FAQ(질문과 대답)
+titlesuffix: Azure Cognitive Services
 description: Azure에서 Bing Spell Check API에 대한 일반적인 질문과 대답을 확인합니다.
 services: cognitive-services
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
 ms.topic: conceptual
 ms.date: 07/26/2017
 ms.author: heidist
-ms.openlocfilehash: 87b1f3ed3e0aaa9f3c3c804dc9eac3ee60b4a565
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e6662ffcbab9ea274a67bc4437ca1600f1625ff1
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377494"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801508"
 ---
 # <a name="frequently-asked-questions-about-the-bing-spell-check-api"></a>Bing Spell Check API에 대한 FAQ(질문과 대답)
 
@@ -36,7 +37,7 @@ ms.locfileid: "35377494"
 
     npm install -g cors-proxy-server
 
-다음으로, HTML 파일에서 Bing Spell Check API 끝점을 다음으로 변경합니다.
+다음으로, HTML 파일에서 Bing Spell Check API 엔드포인트를 다음으로 변경합니다.
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/spellcheck/
 

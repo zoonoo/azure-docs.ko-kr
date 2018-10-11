@@ -11,12 +11,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: d72f1b986671bfab1d79772ac50935918da7e681
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8177808fd4d666ea04b1bc097f261c7643931704
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963273"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885050"
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - 알려진 문제 및 문제 해결 가이드 
 이 문서는 Azure Machine Learning Workbench 응용 프로그램 사용의 일부로 발생하는 오류 또는 실패를 찾고 수정하는 데 도움을 줍니다. 
@@ -25,7 +25,7 @@ ms.locfileid: "46963273"
 지원 팀과 논의할 때는 Workbench 앱의 빌드 번호가 있어야 합니다. **도움말** 메뉴를 클릭하여 Windows에서 빌드 번호를 확인하고 **Azure ML Workbench 정보**를 선택할 수 있습니다. MacOS 등에서 **Azure ML Workbench** 메뉴를 클릭하고 **Azure ML Workbench**를 선택할 수 있습니다.
 
 ## <a name="machine-learning-msdn-forum"></a>Machine Learning MSDN 포럼
-질문을 게시할 수 있는 MSDN 포럼이 있습니다. 제품 팀에서 포럼을 적극적으로 모니터링합니다. 포럼 URL은 [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum)입니다. 
+질문을 게시할 수 있는 MSDN 포럼이 있습니다. 제품 팀에서 포럼을 적극적으로 모니터링합니다. 포럼 URL은 [https://aka.ms/aml-forum-service](https://aka.ms/aml-forum-service)입니다. 
 
 ## <a name="gather-diagnostics-information"></a>진단 정보 수집
 도움말을 요청할 때 진단 정보를 제공할 수 있는 경우에 유용할 수 있습니다. 로그 파일 위치는 다음과 같습니다.

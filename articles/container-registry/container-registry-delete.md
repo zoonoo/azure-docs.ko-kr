@@ -2,18 +2,17 @@
 title: Azure Container Registry에서 이미지 리소스 삭제
 description: 컨테이너 이미지 데이터를 삭제하여 레지스트리 크기를 효과적으로 관리하는 방법에 대한 세부 정보입니다.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 07/27/2018
-ms.author: marsma
-ms.openlocfilehash: 6ab667a01eddd84d1145868a3ae499e7497035c9
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.author: danlep
+ms.openlocfilehash: a1644f68465cffa8cce27257bb91100c111af8a1
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39267114"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857774"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Azure Container Registry에서 컨테이너 이미지 삭제
 
@@ -71,7 +70,7 @@ myregistry.azurecr.io/marketing/campaign10-18/web:v2
 
 ### <a name="manifest"></a>매니페스트
 
-컨테이너 레지스트리로 끌어온 각 컨테이너 이미지는 *매니페스트*와 연결됩니다. 이미지를 밀어넣을 때 레지스트리에서 생성된 매니패스트는 이미지를 고유하게 식별하고 해당 계층을 지정합니다. Azure CLI 명령 [az acr repository show-manifests][az-acr-repository-show-manifests]를 사용하여 리포지토리에 대한 매니페스트를 나열할 수 있습니다.
+컨테이너 레지스트리로 끌어온 각 컨테이너 이미지는 *매니페스트*와 연결됩니다. 이미지를 밀어넣을 때 레지스트리에서 생성된 매니페스트는 이미지를 고유하게 식별하고 해당 계층을 지정합니다. Azure CLI 명령 [az acr repository show-manifests][az-acr-repository-show-manifests]를 사용하여 리포지토리에 대한 매니페스트를 나열할 수 있습니다.
 
 ```azurecli
 az acr repository show-manifests --name <acrName> --repository <repositoryName>
@@ -113,9 +112,9 @@ $ az acr repository show-manifests --name myregistry --repository acr-helloworld
 
 ### <a name="manifest-digest"></a>매니페스트 다이제스트
 
-매니페스트는 고유한 SHA-256 해시 또는 *매니페스트 다이제스트*에 의해 식별됩니다. 태그 지정 여부에 관계없이 각 이미지는 해당 다이제스트로 식별됩니다. 다이제스트 값은 이미지의 계층 데이터가 다른 이미지의 계층 데이터와 동일하더라도 고유합니다. 이 메커니즘에 따르면 동일하게 태그가 지정된 이미지를 레지스트리에 반복적으로 밀어넣을 수 있습니다. 예를 들어, 각 이미지는 고유한 다이제스트로 식별되므로 `myimage:latest`를 레지스트리에 오류 없이 반복적으로 밀어넣을 수 있습니다.
+매니페스트는 고유한 SHA-256 해시 또는 *매니페스트 다이제스트*에 의해 식별됩니다. 태그 지정 여부에 관계없이 각 이미지는 해당 다이제스트로 식별됩니다. 다이제스트 값은 이미지의 계층 데이터가 다른 이미지의 계층 데이터와 동일하더라도 고유합니다. 이 메커니즘에 따르면 동일하게 태그가 지정된 이미지를 레지스트리에 반복적으로 밀어넣을 수 있습니다. 예를 들어, 각 이미지는 고유한 다이제스트로 식별되므로 `myimage:latest`(을)를 레지스트리에 오류 없이 반복적으로 밀어넣을 수 있습니다.
 
-끌어오기 작업에서 해당 다이제스트를 지정하여 레지스트리에서 이미지를 끌어올 수 있습니다. 일부 시스템은 동일하게 태그가 지정된 이미지를 나중에 레지스트리로 밀어넣더라도 해당 이미지 버전을 끌어올 것으로 보장하므로 다이제스트별로 끌어오도록 구성할 수 있습니다.
+끌어오기 작업에서 해당 다이제스트를 지정하여 레지스트리에서 이미지를 끌어올 수 있습니다. 일부 시스템은 다이제스트별로 끌어오도록 구성이 가능합니다. 동일하게 태그가 지정된 이미지를 나중에 레지스트리로 밀어넣더라도 해당 이미지 버전 끌어오기가 보장되기 때문입니다.
 
 예를 들어, 매니페스트 다이제스트에 따라 "acr-helloworld" 리포지토리에서 이미지를 끌어오려면 다음과 같이 입력합니다.
 
@@ -124,7 +123,7 @@ $ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea
 ```
 
 > [!IMPORTANT]
-> 동일한 태그를 갖는 수정된 이미지를 반복적으로 밀어넣을 경우 태그가 지정되지 않은 분리된 이미지가 생성될 수 있지만 이 이미지는 여전히 레지스트리에서 공간을 차지합니다. 태그가 지정되지 않은 이미지는 태그를 기준으로 이미지를 나열하거나 표시할 경우 Azure CLI 또는 Azure Portal에 표시되지 않습니다. 그러나 해당 계층은 여전히 존재하며 레지스트리에서 공간을 차지합니다. 이 문서의 [태그가 지정되지 않은 이미지 삭제](#delete-untagged-images) 섹션에서는 태그가 지정되지 않은 이미지에서 사용되는 공간을 사용 가능하게 해제하는 방법을 설명합니다.
+> 동일한 태그가 지정된 이미지를 수정 후 반복적으로 밀어넣을 경우 태그가 지정되지 않은 이미지는 별도로 분리되어 생성될 수 있지만 이 이미지는 여전히 레지스트리에서 공간을 차지합니다. 태그가 지정되지 않은 이미지는 태그를 기준으로 이미지를 나열하거나 표시할 경우 Azure CLI 또는 Azure Portal에 표시되지 않습니다. 그러나 해당 계층은 여전히 존재하며 레지스트리에서 공간을 차지합니다. 이 문서의 [태그가 지정되지 않은 이미지 삭제](#delete-untagged-images) 섹션에서는 태그가 지정되지 않은 이미지에서 사용되는 공간을 사용 가능하게 해제하는 방법을 설명합니다.
 
 ## <a name="delete-image-data"></a>이미지 데이터 삭제
 
@@ -206,7 +205,7 @@ Are you sure you want to continue? (y/n): y
 
 ## <a name="delete-untagged-images"></a>태그가 지정되지 않은 이미지 삭제
 
-[매니페스트 다이제스트](#manifest-digest) 섹션에 설명된 것처럼 기존 태그를 사용하여 수정된 이미지를 밀어넣으면 이전에 밀어넣은 이미지가 **태그 해제**되어 분리된(또는 "현 수") 이미지가 됩니다. 이전에 밀어넣은 이미지 매니페스트와 해당 계층 데이터는 레지스트리에 유지됩니다. 다음과 같은 이벤트 시퀀스를 고려해 보세요.
+[매니페스트 다이제스트](#manifest-digest) 섹션에 설명된 것처럼 기존 태그를 사용하여 수정된 이미지를 밀어넣으면 이전에 밀어넣은 이미지가 **태그 해제**되어 분리된(또는 "현수") 이미지가 됩니다. 이전에 밀어넣은 이미지 매니페스트와 해당 계층 데이터는 레지스트리에 유지됩니다. 다음과 같은 이벤트 시퀀스를 고려해 보세요.
 
 1. 태그 **latest**를 사용하여 *acr helloworld* 이미지를 밀어넣습니다. `docker push myregistry.azurecr.io/acr-helloworld:latest`
 1. 리포지토리 *acr-helloworld*에 대한 매니페스트를 확인합니다.
@@ -250,7 +249,7 @@ Are you sure you want to continue? (y/n): y
 
 ### <a name="list-untagged-images"></a>태그가 지정되지 않은 이미지 나열
 
-다음 Azure CLI 명령을 사용하여 리포지토리의 태그가 지정되지 않은 모든 이미지를 나열할 수 있습니다. `<acrName>` 및 `<repositoryName>`을 사용자 환경에 적절한 값으로 바꿉니다.
+다음 Azure CLI 명령을 사용하여 리포지토리의 태그가 지정되지 않은 모든 이미지를 나열할 수 있습니다. `<acrName>` 및 `<repositoryName>`을(를) 사용자 환경에 적절한 값으로 바꿉니다.
 
 ```azurecli
 az acr repository show-manifests --name <acrName> --repository <repositoryName>  --query "[?tags==null].digest"
@@ -262,7 +261,7 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 
 **Bash의 Azure CLI**
 
-다음 Bash 스크립트는 리포지토리에서 태그가 지정되지 않은 모든 이미지를 삭제합니다. 여기에는 Azure CLI 및 **xargs**가 필요합니다. 기본적으로 스크립트는 삭제하지 않고 수행됩니다. 이미지가 삭제되도록 설정하려면 `ENABLE_DELETE` 값을 `true`로 변경합니다.
+다음 Bash 스크립트는 리포지토리에서 태그가 지정되지 않은 모든 이미지를 삭제합니다. 여기에는 Azure CLI 및 **xargs**가 필요합니다. 기본적으로 스크립트는 삭제하지 않고 수행됩니다. 이미지를 삭제하도록 설정하려면 `ENABLE_DELETE` 값을 `true`(으)로 변경합니다.
 
 > [!WARNING]
 > 시스템에서 매니페스트 다이제스트(이미지 이름 아님)에 의해 이미지를 끌어오는 경우와 이 스크립트를 실행하지 않아야 합니다. 태그가 지정되지 않은 이미지를 삭제하면 해당 시스템은 레지스트리에서 이미지를 끌어올 수 없게 됩니다. 매니페스트에 따라 끌어오는 대신, [권장 모범 사례][tagging-best-practices]에 해당하는 *고유 태그 지정* 체계를 채택하는 것이 좋습니다.
@@ -293,7 +292,7 @@ fi
 
 **PowerShell의 Azure CLI**
 
-다음 PowerShell 스크립트는 리포지토리에서 태그가 지정되지 않은 모든 이미지를 삭제합니다. PowerShell 및 Azure CLI가 모두 필요합니다. 기본적으로 스크립트는 삭제하지 않고 수행됩니다. 이미지가 삭제되도록 설정하려면 `$enableDelete` 값을 `$TRUE`로 변경합니다.
+다음 PowerShell 스크립트는 리포지토리에서 태그가 지정되지 않은 모든 이미지를 삭제합니다. PowerShell 및 Azure CLI가 모두 필요합니다. 기본적으로 스크립트는 삭제하지 않고 수행됩니다. 이미지를 삭제하도록 설정하려면 `$enableDelete` 값을 `$TRUE`(으)로 변경합니다.
 
 > [!WARNING]
 > 시스템에서 매니페스트 다이제스트(이미지 이름 아님)에 의해 이미지를 끌어오는 경우와 이 스크립트를 실행하지 않아야 합니다. 태그가 지정되지 않은 이미지를 삭제하면 해당 시스템은 레지스트리에서 이미지를 끌어올 수 없게 됩니다. 매니페스트에 따라 끌어오는 대신, [권장 모범 사례][tagging-best-practices]에 해당하는 *고유 태그 지정* 체계를 채택하는 것이 좋습니다.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 738ebdcc612d944db3794525085d220b33533245
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
+ms.openlocfilehash: 87d5389abd72875c62ea3484fc3f9ca43c339447
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "30198233"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48240218"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>사용자 지정 IPsec/IKE 정책은 모든 Azure VPN Gateway SKU에서 지원되나요?
 사용자 지정 IPsec/IKE 정책은 **VpnGw1, VpnGw2, VpnGw3, 표준** 및 **HighPerformance** VPN Gateway에서 지원됩니다. **기본** SKU는 지원되지 **않습니다**.
@@ -76,7 +76,7 @@ SA 수명은 로컬 사양일 뿐이며 일치하지 않아도 됩니다.
 | 2                         | DHGroup2                 | PFS2         | 1024비트 MODP  |
 | 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | 2048비트 MODP  |
 | 19                        | ECP256                   | ECP256       | 256비트 ECP    |
-| 20                        | ECP384                   | ECP284       | 384비트 ECP    |
+| 20                        | ECP384                   | ECP384       | 384비트 ECP    |
 | 24                        | DHGroup24                | PFS24        | 2048비트 MODP  |
 |                           |                          |              |                |
 

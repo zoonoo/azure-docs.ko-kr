@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: b5834bfd47cf2ab8462462c43394c8f05e43afa3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0c626bd193d883f292bf8d20913ff21d86d0d761
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971402"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268482"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-service"></a>Azure Machine Learning 서비스에 대한 지원 및 교육 받기
 
@@ -35,7 +35,7 @@ ms.locfileid: "46971402"
 
 + **기술 지원**: [Azure 기술 지원](https://azure.microsoft.com/support/options/)을 방문하고 Machine Learning을 선택합니다. 
 
-+ **사용자 포럼**: [MSDN의 Azure Machine Learning 서비스 지원 포럼](https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning)에서 질문하고 답변하고 다른 사용자와 연락합니다.
++ **사용자 포럼**: [MSDN의 Azure Machine Learning 서비스 지원 포럼](https://aka.ms/aml-forum-service)에서 질문하고 답변하고 다른 사용자와 연락합니다.
 
 + **Stack Overflow**: "Azure-Machine-Learning" 태그가 지정되어 있는 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning)의 Azure Machine Learning 커뮤니티를 방문합니다.
 

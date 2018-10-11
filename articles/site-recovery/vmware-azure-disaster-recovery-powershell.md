@@ -2,17 +2,18 @@
 title: Azure Site Recovery에서 PowerShell을 사용하여 VMware VM을 Azure로 복제 및 장애 조치(failover) | Microsoft Docs
 description: Azure Site Recovery에서 PowerShell을 사용하여 VMware VM에 대한 Azure로 복제 및 장애 조치(failover)를 설정하는 방법을 알아봅니다.
 services: site-recovery
-author: bsiva
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
 ms.date: 07/06/2018
 ms.topic: conceptual
-ms.author: bsiva
-ms.openlocfilehash: a826817b8f2b4ebff8442da1fbee79a95990a9e8
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.author: sutalasi
+ms.openlocfilehash: 070e51b132828e4fdf597d28fc2ad602adf76692
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917815"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042805"
 ---
 # <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>PowerShell을 사용하여 Azure로 VMware VM 복제 및 장애 조치(failover)
 

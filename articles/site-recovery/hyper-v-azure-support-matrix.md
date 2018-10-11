@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 08/14/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: e363885afb77a60bfc0229a872fdb4e519d5979d
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 83d2fabbe3a1b0ab44cb97e53baf0aa40349aeed
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42146944"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079211"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Azure로의 Hyper-V 복제용 지원 행렬
 
@@ -59,16 +59,16 @@ VM 구성 | Azure로 복제하는 VM은 [Azure 요구 사항](#azure-vm-requirem
 
 **구성 요소** | **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | ---
-호스트 네트워크: NIC 팀 | yes
-호스트 네트워크: VLAN | yes
-호스트 네트워크: IPv4 | yes
-호스트 네트워크: IPv6 | 아니요
-게스트 VM 네트워크: NIC 팀 | 아니요
-게스트 VM 네트워크: IPv4 | yes
-게스트 VM 네트워크: IPv6 | 아니요
-게스트 VM 네트워크: 고정 IP(Windows) | yes
-게스트 VM 네트워크: 고정 IP(Linux) | 아니요
-게스트 VM 네트워크: 다중 NIC | yes
+호스트 네트워크: NIC 팀 | yes | yes
+호스트 네트워크: VLAN | yes | yes
+호스트 네트워크: IPv4 | yes | yes
+호스트 네트워크: IPv6 | 아니요 | 아니요
+게스트 VM 네트워크: NIC 팀 | 아니요 | 아니요
+게스트 VM 네트워크: IPv4 | yes | yes
+게스트 VM 네트워크: IPv6 | 아니요 | yes
+게스트 VM 네트워크: 고정 IP(Windows) | yes | yes
+게스트 VM 네트워크: 고정 IP(Linux) | 아니요 | 아니요
+게스트 VM 네트워크: 다중 NIC | yes | yes
 
 
 

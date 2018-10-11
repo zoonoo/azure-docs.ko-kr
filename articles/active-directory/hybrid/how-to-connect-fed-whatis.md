@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 10/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 85ae48a07e1d9d47ac50835f3bd7af5cf331ab74
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 214dd95bb277053794656e1ba3dd148c085688ce
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46307302"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900447"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect 및 페더레이션
 Azure AD(Azure Active Directory) Connect를 통해 온-프레미스 AD FS(Active Directory Federation Services) 및 Azure AD와 페더레이션을 구성할 수 있습니다. 페더레이션 로그인에서, 사용자가 자신의 온-프레미스 암호로 Azure AD 기반 서비스에 로그인 하고 자신의 암호를 다시 입력하지 않고도 회사 네트워크에 로그인하도록 설정할 수 있습니다. AD FS와 페더레이션 옵션을 사용하여 AD FS의 새 설치를 배포하거나 Windows Server 2012 R2 팜에 기존 설치를 지정할 수 있습니다.

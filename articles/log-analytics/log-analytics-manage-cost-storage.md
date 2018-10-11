@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 179d5c71a309fd79c23519544d1da6bcc07cda0c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.component: ''
+ms.openlocfilehash: dfb95a57da62037df8f7fbe7e5d8edd970e264ac
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045003"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044368"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Log Analytics에서 데이터 볼륨 및 보존을 제어하여 비용 관리
 
@@ -54,7 +54,7 @@ Log Analytics는 Azure에 배포되거나 회사의 모든 원본에서 일당 �
 ## <a name="review-estimated-cost"></a>예상 비용 검토
 Log Analytics를 사용하면 최근 사용 패턴에 따른 가능한 비용을 쉽게 파악할 수 있습니다.  이렇게 하려면 다음 단계를 수행합니다.  
 
-1. [Azure 포털](http://portal.azure.com)에 로그인합니다. 
+1. [Azure Portal](http://portal.azure.com)에 로그인합니다. 
 2. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.<br><br> ![Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 3. Log Analytics 창에서 작업 영역을 선택한 다음, 왼쪽 창에서 **사용량 및 예상 비용**을 클릭합니다.<br><br> ![사용량 및 예상 비용](media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
 
