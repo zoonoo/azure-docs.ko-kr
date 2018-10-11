@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 5feefdb8fe6204bc8ef42a5e65bf1e30354e0cf9
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 39fd393e78a2b66749c6aa34a758b185b38effdf
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393930"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041190"
 ---
 # <a name="multi-master-conflict-resolution-in-azure-cosmos-db"></a>Azure Cosmos DB의 다중 마스터 충돌 해결 
 
@@ -157,7 +157,7 @@ function myUdpStoredProcedure(incomingDocument, existingDocument, isDeleteConfli
 
 * **conflictingDocuments:** ID 열 또는 다른 고유 인덱스 필드에서 incomingDocument와 충돌하는 데이터베이스에서 커밋된 모든 문서 버전의 컬렉션을 지정합니다. 이러한 문서는 incomingDocument와 비교할 때 다른 "rid" 값을 갖게 됩니다.
 
-사용자 정의 프로시저에는 Cosmos DB 파티션 키에 대한 모든 권한이 있으며 충돌을 해결하기 위한 모든 저장소 작업을 수행할 수 있습니다. 사용자 정의 프로시저가 충돌 버전을 커밋하지 않는 경우 시스템은 충돌을 삭제하고 existingDocument는 커밋된 상태로 유지됩니다. 사용자 정의 프로시저 실패하거나 없는 경우 Azure Cosmos DB는 [비동기 충돌 해결 모드]()에 표시된 것과 같이 비동기적으로 처리될 수 있는 읽기 전용 충돌 피드로 모든 충돌을 추가합니다. 
+사용자 정의 프로시저에는 Cosmos DB 파티션 키에 대한 모든 권한이 있으며 충돌을 해결하기 위한 모든 저장소 작업을 수행할 수 있습니다. 사용자 정의 프로시저가 충돌 버전을 커밋하지 않는 경우 시스템은 충돌을 삭제하고 existingDocument는 커밋된 상태로 유지됩니다. 사용자 정의 프로시저 실패하거나 없는 경우 Azure Cosmos DB는 [비동기 충돌 해결 모드](#custom--asynchronous)에 표시된 것과 같이 비동기적으로 처리될 수 있는 읽기 전용 충돌 피드로 모든 충돌을 추가합니다. 
 
 ### <a name="custom--asynchronous"></a>사용자 지정 - 비동기  
 

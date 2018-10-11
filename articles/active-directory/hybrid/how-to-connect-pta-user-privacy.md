@@ -72,7 +72,7 @@ Foreach ($file in $Files) {
 
 ### <a name="delete-authentication-agent-trace-log-files"></a>인증 에이전트 추적 로그 파일 삭제
 
-**%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\** 의 콘텐츠를 주기적으로 확인하면서 이 폴더의 콘텐츠를 48시간마다 삭제해야 합니다. 
+**%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\** 의 콘텐츠를 주기적으로 확인하면서 이 폴더의 콘텐츠를 48시간마다 삭제해야 합니다. 
 
 >[!IMPORTANT]
 >인증 에이전트 서비스가 실행 중이면 폴더에서 현재 로그 파일을 삭제할 수 없습니다. 서비스를 중지한 후 다시 시도하세요. 사용자 로그인 오류를 방지하려면 [고가용성](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)에 대해 통과 인증이 구성되어 있어야 합니다.

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 611f3e70425cd6c80f8a976606dc6cd592571c6e
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.component: ''
+ms.openlocfilehash: 433914bc4501b13ba65015d15b0c513a38bf1273
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503471"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041665"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Log Analytics에 구성 관리자 연결
 System Center Configuration Manager 환경을 Azure Log Analytics에 연결하여 장치 수집 데이터를 동기화하고 Log Analytics 및 Azure Automation에서 이러한 컬렉션을 참조할 수 있습니다.  

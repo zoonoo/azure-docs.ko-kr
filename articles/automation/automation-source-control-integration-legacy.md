@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 09/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: eae44572d142bf256779545dea35012c78cf99e6
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a6ae91ba768f9aa002c2814133b26dd152c7ef25
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046886"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784813"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Azure Automation에서 소스 제어 통합 - 레거시
 

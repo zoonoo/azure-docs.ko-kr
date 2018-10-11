@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 90860759e8a20bca03d3eb74e4859d0b26d14da1
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 0e8ce37e39e536383b77a7dc98d88a18e58182c6
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091869"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239432"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>지속성 함수의 검사점 및 재생(Azure Functions)
 
@@ -50,7 +50,7 @@ public static async Task<List<string>> Run(
 ```javascript
 const df = require("durable-functions");
 
-module.exports = df(function*(context) {
+module.exports = df.orchestrator(function*(context) {
     const output = [];
     output.push(yield context.df.callActivityAsync("E1_SayHello", "Tokyo"));
     output.push(yield context.df.callActivityAsync("E1_SayHello", "Seattle"));
@@ -77,7 +77,7 @@ module.exports = df(function*(context) {
 
 완료 시 이전에 표시된 함수의 기록은 Azure Table Storage에서 다음과 비슷합니다(이해를 돕기 위해 약어로 표시).
 
-| PartitionKey(InstanceId)                     | EventType             | 타임 스탬프               | 입력 | Name             | 결과                                                    | 상태 | 
+| PartitionKey(InstanceId)                     | EventType             | 타임 스탬프               | 입력 | 이름             | 결과                                                    | 상태 | 
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------| 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     | 
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     | 

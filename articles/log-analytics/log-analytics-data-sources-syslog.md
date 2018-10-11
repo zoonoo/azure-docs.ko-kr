@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
-ms.author: magoedte;bwren
-ms.component: na
-ms.openlocfilehash: 1e7806e802f9b1dda16a9d5d477783663d03d416
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: magoedte
+ms.component: ''
+ms.openlocfilehash: 3b1724853b4c874a1482a13c4de0ccb179f52f98
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131789"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041106"
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Log Analytics의 Syslog 데이터 원본
 Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다.  응용 프로그램은 로컬 컴퓨터에 저장되거나 Syslog 수집기에 배달될 수 있는 메시지를 전송합니다.  Linux용 OMS 에이전트를 설치하면 에이전트에 메시지를 전달하도록 로컬 Syslog 디먼이 구성됩니다.  그러면 에이전트는 Log Analytics에 해당 메시지를 보내며 OMS 리포지토리에 해당 레코드가 만들어집니다.  

@@ -2,18 +2,18 @@
 title: PowerShell을 사용하여 보조 사이트에 Virtual Machine Manager 클라우드의 Hyper-V VM 복제(Azure Resource Manager) | Microsoft Docs
 description: PowerShell을 사용하여 보조 Virtual Machine Manager 사이트에 Virtual Machine Manager 클라우드의 Hyper-V VM을 복제하는 방법을 설명합니다(Resource Manager).
 services: site-recovery
-author: sujaytalasila
+author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: sutalasi
-ms.openlocfilehash: 0fecc7ba48daf396c3d25969cdda5891bdf08232
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 896b3cb3c40673dfbc7269cab1d37790f78912b0
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917968"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041359"
 ---
 # <a name="replicate-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>PowerShell을 사용하여 Hyper-V VM을 보조 사이트에 복제(Resource Manager)
 

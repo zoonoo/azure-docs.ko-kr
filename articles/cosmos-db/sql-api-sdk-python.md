@@ -12,23 +12,23 @@ ms.topic: reference
 ms.date: 9/24/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8bfe815b9664e499f7ae458dfc42b88199e0ecb4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 75b5fd2f586a9122aa1248ba88d7ceab59b13215
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037935"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269295"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK for SQL API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.js](sql-api-sdk-node.md)
+> * [Node.JS](sql-api-sdk-node.md)
 > * [비동기 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
@@ -38,7 +38,7 @@ ms.locfileid: "47037935"
 
 <tr><td>**SDK 다운로드**</td><td>[PyPI](https://pypi.org/project/azure-cosmos)</td></tr>
 
-<tr><td>**API 설명서**</td><td>[Python API 참조 설명서](https://docs.microsoft.com/python/api/azure-cosmos)</td></tr>
+<tr><td>**API 설명서**</td><td>[Python API 참조 설명서](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)</td></tr>
 
 <tr><td>**SDK 설치 지침**</td><td>[Python SDK 설치 지침](https://github.com/Azure/azure-cosmos-python)</td></tr>
 
