@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/10/2018
 ms.author: alkohli
-ms.openlocfilehash: 969f8cdf7b8cc406cd98bb5a4f30b5c395b0e8fc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0d77353b510dbeb18e96e2d8313e9010c04e25a7
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989365"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077936"
 ---
 # <a name="tutorial-order-azure-data-box"></a>자습서: Azure Data Box 주문
 
@@ -42,9 +42,9 @@ Azure Data Box는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레�
 시작하기 전에 다음 사항을 확인합니다.
 - 액세스 자격 증명이 있는 Microsoft Azure 저장소 계정이 있습니다.
 - Data Box 서비스에 사용할 구독이 다음 형식 중 하나인지 확인합니다.
-    - Microsoft EA(기업 계약) [EA 구독](https://azure.microsoft.com/pricing/enterprise-agreement/)에 대해 자세히 알아보세요.
-    - CSP(클라우드 솔루션 공급자) [Azure CSP 프로그램](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)에 대해 자세히 알아보세요.
-    - 소비 - 종량제 요금 Azure [종량제 구독](https://azure.microsoft.com/offers/ms-azr-0003p/)에 대해 자세히 알아보세요.
+    - Microsoft EA(기업계약). [EA 구독](https://azure.microsoft.com/pricing/enterprise-agreement/)에 대해 자세히 알아보세요.
+    - CSP(클라우드 솔루션 공급자). [CSP 프로그램](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)에 대해 자세히 알아보세요.
+    - 소비 - 종량제. Azure [종량제 구독](https://azure.microsoft.com/offers/ms-azr-0003p/)에 대해 자세히 알아보세요.
 
 - Data Box 주문을 만드는 구독에 대한 소유자 또는 기여자 액세스 권한이 있는지 확인합니다.
 

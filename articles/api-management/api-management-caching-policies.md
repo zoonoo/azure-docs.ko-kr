@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: f3734304bdcc4b3f0944ebf568094595eea01a4e
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 160172b25f4bcdb04ac9f9649bca6b08e0be1b0d
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214903"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269075"
 ---
 # <a name="api-management-caching-policies"></a>API Management 캐싱 정책
 이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](http://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
@@ -83,7 +83,7 @@ ms.locfileid: "39214903"
  이 예제에서는 지원 서비스의 `Cache-Control` 지시문에 지정된 대로 백 엔드 서비스의 응답 캐싱과 일치하는 API Management 응답 캐싱 기간을 구성하는 방법을 보여 줍니다. 이 정책을 구성하고 사용하는 데모는 [클라우드 표지 에피소드 177: Vlad Vinogradsky와 함께 하는 추가 API Management 기능](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)(영문)에서 25:25 지점으로 빨리 감기하면서 참조하세요.  
   
 ```xml  
-<!-- The following cache policy snippets demonstrate how to control API Management reponse cache duration with Cache-Control headers sent by the backend service. -->  
+<!-- The following cache policy snippets demonstrate how to control API Management response cache duration with Cache-Control headers sent by the backend service. -->  
   
 <!-- Copy this snippet into the inbound section -->  
 <cache-lookup vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="public" must-revalidate="true" >  
@@ -91,7 +91,7 @@ ms.locfileid: "39214903"
   <vary-by-header>Accept-Charset</vary-by-header>  
 </cache-lookup>  
   
-<!-- Copy this snippet into the outbound section. Note that cache duration is set to the max-age value provided in the Cache-Control header received from the backend service or to the deafult value of 5 min if none is found  -->  
+<!-- Copy this snippet into the outbound section. Note that cache duration is set to the max-age value provided in the Cache-Control header received from the backend service or to the default value of 5 min if none is found  -->  
 <cache-store duration="@{  
     var header = context.Response.Headers.GetValueOrDefault("Cache-Control","");  
     var maxAge = Regex.Match(header, @"max-age=(?<maxAge>\d+)").Groups["maxAge"]?.Value;  
@@ -104,19 +104,19 @@ ms.locfileid: "39214903"
   
 ### <a name="elements"></a>요소  
   
-|Name|설명|필수|  
+|이름|설명|필수|  
 |----------|-----------------|--------------|  
 |cache-lookup|루트 요소입니다.|yes|  
-|vary-by-header|지정된 헤더 값당 시작 캐싱 응답입니다(예: Accept, Accept-Charset, Accept-Encoding, Accept-Language, Authorization, Expect, From, Host, If-Match).|아니오|  
-|vary-by-query-parameter|지정된 쿼리 매개 변수의 값에 따라 응답 캐싱을 시작합니다. 단일 또는 여러 매개 변수를 입력합니다. 세미콜론을 구분 기호로 사용합니다. 지정하지 않은 경우 모든 쿼리 매개 변수가 사용됩니다.|아니오|  
+|vary-by-header|지정된 헤더 값당 시작 캐싱 응답입니다(예: Accept, Accept-Charset, Accept-Encoding, Accept-Language, Authorization, Expect, From, Host, If-Match).|아니요|  
+|vary-by-query-parameter|지정된 쿼리 매개 변수의 값에 따라 응답 캐싱을 시작합니다. 단일 또는 여러 매개 변수를 입력합니다. 세미콜론을 구분 기호로 사용합니다. 지정하지 않은 경우 모든 쿼리 매개 변수가 사용됩니다.|아니요|  
   
 ### <a name="attributes"></a>특성  
   
-|Name|설명|필수|기본값|  
+|이름|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
-|allow-private-response-caching|`true`로 설정하면 Authorization 헤더를 포함하는 요청의 캐싱을 허용합니다.|아니오|false|  
-|downstream-caching-type|이 특성은 다음 값 중 하나로 설정해야 합니다.<br /><br /> -   none - 다운스트림 캐싱이 허용되지 않습니다.<br />-   private - 다운스트림 캐싱이 허용됩니다.<br />-   public - 개인 및 공유 다운스트림 캐싱이 허용됩니다.|아니오|없음|  
-|must-revalidate|다운스트림 캐싱을 사용하는 경우 이 특성이 게이트웨이 응답에서 `must-revalidate` 캐시 제어 지시문을 설정 또는 해제합니다.|아니오|true|  
+|allow-private-response-caching|`true`로 설정하면 Authorization 헤더를 포함하는 요청의 캐싱을 허용합니다.|아니요|false|  
+|downstream-caching-type|이 특성은 다음 값 중 하나로 설정해야 합니다.<br /><br /> -   none - 다운스트림 캐싱이 허용되지 않습니다.<br />-   private - 다운스트림 캐싱이 허용됩니다.<br />-   public - 개인 및 공유 다운스트림 캐싱이 허용됩니다.|아니요|없음|  
+|must-revalidate|다운스트림 캐싱을 사용하는 경우 이 특성이 게이트웨이 응답에서 `must-revalidate` 캐시 제어 지시문을 설정 또는 해제합니다.|아니요|true|  
 |vary-by-developer|개발자 키별 캐시 응답을 위해서는 `true`로 설정합니다.|yes||  
 |vary-by-developer-groups|사용자 역할별 캐시 응답을 위해서는 `true`로 설정합니다.|yes||  
   
@@ -161,7 +161,7 @@ ms.locfileid: "39214903"
  이 예제에서는 지원 서비스의 `Cache-Control` 지시문에 지정된 대로 백 엔드 서비스의 응답 캐싱과 일치하는 API Management 응답 캐싱 기간을 구성하는 방법을 보여 줍니다. 이 정책을 구성하고 사용하는 데모는 [클라우드 표지 에피소드 177: Vlad Vinogradsky와 함께 하는 추가 API Management 기능](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)(영문)에서 25:25 지점으로 빨리 감기하면서 참조하세요.  
   
 ```xml  
-<!-- The following cache policy snippets demonstrate how to control API Management reponse cache duration with Cache-Control headers sent by the backend service. -->  
+<!-- The following cache policy snippets demonstrate how to control API Management response cache duration with Cache-Control headers sent by the backend service. -->  
   
 <!-- Copy this snippet into the inbound section -->  
 <cache-lookup vary-by-developer="false" vary-by-developer-groups="false" downstream-caching-type="public" must-revalidate="true" >  
@@ -169,7 +169,7 @@ ms.locfileid: "39214903"
   <vary-by-header>Accept-Charset</vary-by-header>  
 </cache-lookup>  
   
-<!-- Copy this snippet into the outbound section. Note that cache duration is set to the max-age value provided in the Cache-Control header received from the backend service or to the deafult value of 5 min if none is found  -->  
+<!-- Copy this snippet into the outbound section. Note that cache duration is set to the max-age value provided in the Cache-Control header received from the backend service or to the default value of 5 min if none is found  -->  
 <cache-store duration="@{  
     var header = context.Response.Headers.GetValueOrDefault("Cache-Control","");  
     var maxAge = Regex.Match(header, @"max-age=(?<maxAge>\d+)").Groups["maxAge"]?.Value;  
@@ -182,13 +182,13 @@ ms.locfileid: "39214903"
   
 ### <a name="elements"></a>요소  
   
-|Name|설명|필수|  
+|이름|설명|필수|  
 |----------|-----------------|--------------|  
 |cache-store|루트 요소입니다.|yes|  
   
 ### <a name="attributes"></a>특성  
   
-|Name|설명|필수|기본값|  
+|이름|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
 |duration|캐시된 항목의 TTL(Time-to-Live)로 초 단위로 지정합니다.|yes|해당 없음|  
   
@@ -224,15 +224,15 @@ ms.locfileid: "39214903"
   
 ### <a name="elements"></a>요소  
   
-|Name|설명|필수|  
+|이름|설명|필수|  
 |----------|-----------------|--------------|  
 |cache-lookup-value|루트 요소입니다.|yes|  
   
 ### <a name="attributes"></a>특성  
   
-|Name|설명|필수|기본값|  
+|이름|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
-|default-value|캐시 키 조회 시 누락 항목이 있는 경우 변수에 할당할 값입니다. 이 특성을 지정하지 않으면 `null`이 할당됩니다.|아니오|`null`|  
+|default-value|캐시 키 조회 시 누락 항목이 있는 경우 변수에 할당할 값입니다. 이 특성을 지정하지 않으면 `null`이 할당됩니다.|아니요|`null`|  
 |key|조회에 사용할 캐시 키 값입니다.|yes|해당 없음|  
 |variable-name|조회에 성공한 경우 조회된 값이 할당될 [컨텍스트 변수](api-management-policy-expressions.md#ContextVariables)의 이름입니다. 조회 시 누락 항목이 있는 경우 변수에 `default-value` 특성 또는 `null`(`default-value` 특성이 생략된 경우)이 할당됩니다.|yes|해당 없음|  
   
@@ -266,13 +266,13 @@ ms.locfileid: "39214903"
   
 ### <a name="elements"></a>요소  
   
-|Name|설명|필수|  
+|이름|설명|필수|  
 |----------|-----------------|--------------|  
 |cache-store-value|루트 요소입니다.|yes|  
   
 ### <a name="attributes"></a>특성  
   
-|Name|설명|필수|기본값|  
+|이름|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
 |duration|제공된 기간 값 동안 값(초 단위로 지정)이 캐시됩니다.|yes|해당 없음|  
 |key|값을 저장할 캐시 키입니다.|yes|해당 없음|  
@@ -305,13 +305,13 @@ ms.locfileid: "39214903"
   
 #### <a name="elements"></a>요소  
   
-|Name|설명|필수|  
+|이름|설명|필수|  
 |----------|-----------------|--------------|  
 |cache-remove-value|루트 요소입니다.|yes|  
   
 #### <a name="attributes"></a>특성  
   
-|Name|설명|필수|기본값|  
+|이름|설명|필수|기본값|  
 |----------|-----------------|--------------|-------------|  
 |key|캐시에서 제거할 이전에 캐시된 값의 키입니다.|yes|해당 없음|  
   

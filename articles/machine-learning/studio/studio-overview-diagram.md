@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/04/2017
-ms.openlocfilehash: f1364435d2f7b50c642d1bb5b41708ec52bda533
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 240be0e7dc199a84130739244743d245b780b608
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946207"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902079"
 ---
 # <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Azure Machine Learning Studio 기능 개요 다이어그램
 **Microsoft Azure Machine Learning Studio 기능 개요** 다이어그램은 Machine Learning Studio를 사용하여 예측 분석 모델을 개발하고 해당 모델을 Azure 클라우드에서 운영할 수 있는 방법을 개략적으로 설명합니다.
@@ -47,7 +47,7 @@ ms.locfileid: "46946207"
 
 
 ## <a name="more-help-with-machine-learning-studio"></a>Machine Learning Studio에 대한 추가 도움말
-* Microsoft Azure Machine Learning의 개요는 [Microsoft Azure의 기계 학습 소개](what-is-machine-learning.md)
+* Microsoft Azure Machine Learning의 개요는 [Microsoft Azure의 기계 학습 소개](../service/overview-what-is-azure-ml.md)
 * Machine Learning Studio에 대한 개요는 [Azure Machine Learning Studio란?](what-is-ml-studio.md)을 참조하세요.
 * Machine Learning Studio에서 사용 가능한 기계 학습 알고리즘에 대해 자세히 알아보려면 [Microsoft Azure Machine Learning을 위한 알고리즘 선택 방법](algorithm-choice.md)을 참조하세요.
 

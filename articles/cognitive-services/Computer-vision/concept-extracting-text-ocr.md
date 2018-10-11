@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: v-deken
-ms.openlocfilehash: 4cbc8ebcdd19aa65a37ffe0f82019a7681f1c6c5
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 8cfc654e881c7477e430515e62f8c78cfd0a2b84
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434877"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238591"
 ---
 # <a name="extracting-text-with-ocr"></a>OCR을 사용하여 텍스트 추출
 
@@ -33,7 +33,7 @@ Computer Vision에서는 이미지에서 OCR을 사용하여 다음 요구 사�
 
 * 이미지가 JPEG, PNG, GIF 또는 BMP 형식으로 제공되어야 합니다.
 * 입력 이미지의 크기는 50x50 픽셀에서 4200x4200 픽셀 사이여야 합니다.
-* 이미지는 10메가픽셀보다 클 수 없습니다.
+
 
 90도의 배수에 최대 40도의 작은 각도를 더한 값만큼 입력 이미지를 회전할 수 있습니다.
 

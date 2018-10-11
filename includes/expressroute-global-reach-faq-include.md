@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 343bd2bc4f0e875c84ddb69ea064e30f3f7671c4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: b9c4cf6c90ef5507b318b4f13afb982aab151c79
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060516"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48874076"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>ExpressRoute Global Reach란?
 
@@ -35,13 +35,13 @@ ExpressRoute를 사용하면 온-프레미스 네트워크를 Microsoft 클라�
 
 ExpressRoute Global Reach는 다음 국가에서 지원됩니다. ExpressRoute 회로는 다음 국가에 있는 피어링 위치에서 만들어야 합니다.
 
-* 미국
-* 영국
+* 오스트레일리아
 * 홍콩
 * 아일랜드
-* 네덜란드
 * 일본
-
+* 네덜란드
+* 영국
+* 미국
 
 ### <a name="i-have-more-than-two-on-premises-networks-each-connected-to-an-expressroute-circuit-can-i-enable-expressroute-global-reach-to-connect-all-of-my-on-premises-networks-together"></a>각각 ExpressRoute 회로에 연결된 두 개를 초과하는 온-프레미스 네트워크가 있습니다. ExpressRoute Global Reach를 사용하여 모든 온-프레미스 네트워크를 함께 연결할 수 있나요?
 

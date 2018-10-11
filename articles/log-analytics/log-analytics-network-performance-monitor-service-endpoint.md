@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.component: na
-ms.openlocfilehash: 3c9352e8e4aee7817b1195c15f74503e86e597ea
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.component: ''
+ms.openlocfilehash: 04e348d2b144bdb8fd626c52f990a560d76c08a2
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37434922"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044674"
 ---
 # <a name="service-connectivity-monitor"></a>서비스 연결 모니터
 
-[네트워크 성능 모니터](log-analytics-network-performance-monitor.md)에서 서비스 연결 모니터 기능을 사용하여 열린 TCP 포트가 있는 모든 엔드포인트에 대한 네트워크 연결을 모니터링할 수 있습니다. 이러한 끝점에는 웹 사이트, SaaS 응용 프로그램, PaaS 응용 프로그램 및 SQL Database가 포함됩니다. 
+[네트워크 성능 모니터](log-analytics-network-performance-monitor.md)에서 서비스 연결 모니터 기능을 사용하여 열린 TCP 포트가 있는 모든 엔드포인트에 대한 네트워크 연결을 모니터링할 수 있습니다. 이러한 엔드포인트에는 웹 사이트, SaaS 응용 프로그램, PaaS 응용 프로그램 및 SQL Database가 포함됩니다. 
 
 서비스 연결 모니터를 사용하여 다음 기능을 수행할 수 있습니다. 
 
 - 여러 지사 또는 위치에서 응용 프로그램 및 네트워크 서비스에 대한 네트워크 연결을 모니터링합니다. 응용 프로그램 및 네트워크 서비스에는 Office 365, Dynamics CRM, 내부 LOB(기간 업무) 애플리케이션 및 SQL 데이터베이스가 포함됩니다.
-- 기본 제공 테스트를 사용하여 Office 365 및 Dynamics 365 끝점에 대한 네트워크 연결을 모니터링합니다. 
-- 끝점에 연결할 때 발생하는 응답 시간, 네트워크 대기 시간, 패킷 손실을 확인합니다.
+- 기본 제공 테스트를 사용하여 Office 365 및 Dynamics 365 엔드포인트에 대한 네트워크 연결을 모니터링합니다. 
+- 엔드포인트에 연결할 때 발생하는 응답 시간, 네트워크 대기 시간, 패킷 손실을 확인합니다.
 - 응용 프로그램 성능 저하가 네트워크 때문인지 또는 응용 프로그램 공급자 끝의 문제 때문인지 확인합니다.
 - 토폴로지 맵의 각 홉으로 인한 대기 시간을 확인하여 응용 프로그램 성능 저하를 일으킬 수 있는 네트워크의 핫스폿 식별입니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "37434922"
 
 
 ### <a name="configure-operations-management-suite-agents-for-monitoring"></a>모니터링을 위해 Operations Management Suite 에이전트 구성
-솔루션이 서비스 끝점에 대한 노드에서 토폴로지를 검색할 수 있도록 모니터링에 사용되는 노드에서 다음과 같은 방화벽 규칙을 사용하도록 설정합니다. 
+솔루션이 서비스 엔드포인트에 대한 노드에서 토폴로지를 검색할 수 있도록 모니터링에 사용되는 노드에서 다음과 같은 방화벽 규칙을 사용하도록 설정합니다. 
 
 ```
 netsh advfirewall firewall add rule name="NPMDICMPV4Echo" protocol="icmpv4:8,any" dir=in action=allow 
@@ -58,7 +58,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
 ### <a name="create-service-connectivity-monitor-tests"></a>서비스 연결 모니터 테스트 만들기 
 
-서비스 끝점에 대한 네트워크 연결을 모니터링하기 위한 테스트를 만들기 시작합니다.
+서비스 엔드포인트에 대한 네트워크 연결을 모니터링하기 위한 테스트를 만들기 시작합니다.
 
 1. **서비스 연결 모니터** 탭을 선택합니다.
 2. **테스트 추가**를 선택하고 테스트 이름 및 설명을 입력합니다. 
@@ -105,7 +105,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
     ![서비스 연결 모니터 네트워크 문제](media/log-analytics-network-performance-monitor/service-endpoint-network-issue.png)
 
-네트워크로 인한 문제인지 확인한 후에 **토폴로지** 보기 링크를 선택하여 토폴로지 맵에서 문제가 있는 홉을 식별합니다. 예제가 다음 이미지에 표시됩니다. 노드와 응용 프로그램 끝점 사이의 총 105ms 대기 시간 중에서 96ms가 빨간색으로 표시된 홉 때문입니다. 문제가 있는 홉을 식별한 후에 정정 작업을 수행할 수 있습니다. 
+네트워크로 인한 문제인지 확인한 후에 **토폴로지** 보기 링크를 선택하여 토폴로지 맵에서 문제가 있는 홉을 식별합니다. 예제가 다음 이미지에 표시됩니다. 노드와 응용 프로그램 엔드포인트 사이의 총 105ms 대기 시간 중에서 96ms가 빨간색으로 표시된 홉 때문입니다. 문제가 있는 홉을 식별한 후에 정정 작업을 수행할 수 있습니다. 
 
 ![서비스 연결 모니터 테스트](media/log-analytics-network-performance-monitor/service-endpoint-topology.png)
 

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 528274844908f9a1b2a604de42d8e84f4dc7d6f2
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 5120fa869d9c3fe28630b189b84b9c3e3f5577e2
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127354"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044572"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Log Analytics에서 Linux 응용 프로그램에 대한 성능 카운터 수집 
 이 문서에서는 특정 응용 프로그램에 대한 성능 카운터를 수집하도록 [Linux용 OMS 에이전트](https://github.com/Microsoft/OMS-Agent-for-Linux)를 구성하는 세부 정보를 제공합니다.  이 문서에 포함된 응용 프로그램은 다음과 같습니다.  
@@ -78,7 +78,7 @@ MySQL OMI 공급자의 설치에 포함된 것은 MySQL OMI 인증 파일 편집
 
 다음 테이블에서 mycimprovauth 사용에 대한 구문의 세부 정보를 제공합니다.
 
-| 작업 | 예 | 설명
+| 작업(Operation) | 예 | 설명
 |:--|:--|:--|
 | autoupdate *false or true* | mycimprovauth autoupdate false | 다시 시작 또는 업데이트 시 인증 파일이 자동으로 업데이트될지 여부를 설정합니다. |
 | default *bind-address username password* | mycimprovauth default 127.0.0.1 root pwd | MySQL OMI 인증 파일에서 기본 인스턴스를 설정합니다.<br>암호 필드는 일반 텍스트로 입력되어야 하며 MySQL OMI 인증 파일의 암호는 Base 64로 인코딩됩니다. |

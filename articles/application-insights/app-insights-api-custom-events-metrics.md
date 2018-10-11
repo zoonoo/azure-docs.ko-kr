@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7ee1dc7a3e3ae6bff6f2084d7290a37dc999dec7
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 865dfa1f3adbcea5907c309c8cbf2daa30513fd6
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040214"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855757"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
 
@@ -28,6 +28,7 @@ ms.locfileid: "47040214"
 > `TrackMetric()`은 더 이상 .NET 기반 응용 프로그램에 대한 사용자 지정 메트릭을 보내기 위해 선호되는 메서드가 아닙니다. Application Insights .NET SDK [버전 2.60-베타 3](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/CHANGELOG.md#version-260-beta3)에서는 새로운 메서드인 [`TelemetryClient.GetMetric()`](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet)이 도입되었습니다. Application Insights .NET SDK [버전 2.72](https://docs.microsoft.com/en-us/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet)를 기준으로 이 기능은 안정적인 릴리스에 포함됩니다.
 
 ## <a name="api-summary"></a>API 요약
+
 핵심 API는 `GetMetric`(.NET만 해당)과 같은 사소한 차이를 제외하고 모든 플랫폼에서 동일합니다.
 
 | 방법 | 용도 |
@@ -44,6 +45,7 @@ ms.locfileid: "47040214"
 이러한 대부분의 원격 분석 호출에 [속성 및 메트릭을 연결](#properties) 할 수 있습니다.
 
 ## <a name="prep"></a>시작하기 전에
+
 Application Insights SDK에 대한 참조가 아직 없는 경우:
 
 * 프로젝트에 Application Insights SDK 추가:
@@ -59,28 +61,36 @@ Application Insights SDK에 대한 참조가 아직 없는 경우:
     *Visual Basic:* `Imports Microsoft.ApplicationInsights`
 
     *Java:* `import com.microsoft.applicationinsights.TelemetryClient;`
-    
+
     *Node.js:* `var applicationInsights = require("applicationinsights");`
 
 ## <a name="get-a-telemetryclient-instance"></a>TelemetryClient 인스턴스 가져오기
+
 `TelemetryClient`의 인스턴스 가져오기(웹 페이지의 JavaScript는 제외):
 
 *C#*
 
-    private TelemetryClient telemetry = new TelemetryClient();
+```csharp
+private TelemetryClient telemetry = new TelemetryClient();
+```
 
 *Visual Basic*
 
-    Private Dim telemetry As New TelemetryClient
+```vb
+Private Dim telemetry As New TelemetryClient
+```
 
 *Java*
 
-    private TelemetryClient telemetry = new TelemetryClient();
-    
-*Node.js*
+```java
+private TelemetryClient telemetry = new TelemetryClient();
+``` 
 
-    var telemetry = applicationInsights.defaultClient;
+*Node.JS*
 
+```javascript
+var telemetry = applicationInsights.defaultClient;
+```
 
 TelemetryClient는 스레드로부터 안전합니다.
 
@@ -88,17 +98,22 @@ ASP.NET 및 Java 프로젝트의 경우 들어오는 HTTP 요청은 자동으로
 
 *C#*
 
-    TelemetryClient.Context.User.Id = "...";
-    TelemetryClient.Context.Device.Id = "...";
+```csharp
+TelemetryClient.Context.User.Id = "...";
+TelemetryClient.Context.Device.Id = "...";
+```
 
 *Java*
 
-    telemetry.getContext().getUser().setId("...);
-    telemetry.getContext().getDevice().setId("...");
+```java
+telemetry.getContext().getUser().setId("...");
+telemetry.getContext().getDevice().setId("...");
+```
 
 Node.js 프로젝트에서 `new applicationInsights.TelemetryClient(instrumentationKey?)`를 사용하여 새 인스턴스를 만들 수 있지만 단일 항목 `defaultClient`와 격리된 구성이 필요한 시나리오에만 권장됩니다.
 
 ## <a name="trackevent"></a>TrackEvent
+
 Application Insights에서 *사용자 지정 이벤트*는 [메트릭 탐색기](app-insights-metrics-explorer.md)에 집계된 개수로 표시하고 [진단 검색](app-insights-diagnostic-search.md)에 개별 항목으로 표시할 수 있는 데이터 요소입니다. MVC 또는 다른 프레임워크 "이벤트"와 관련이 없습니다.
 
 다양한 이벤트를 계산하기 위해 코드에 `TrackEvent`를 삽입합니다. 사용자가 특정 기능을 얼마나 자주 선택하는지, 특정 목표를 얼마나 자주 달성하는지 또는 특정 유형의 실수를 얼마나 자주 하는지를 계산할 수 있습니다.
@@ -107,33 +122,43 @@ Application Insights에서 *사용자 지정 이벤트*는 [메트릭 탐색기]
 
 *JavaScript*
 
-    appInsights.trackEvent("WinGame");
+```javascript
+appInsights.trackEvent("WinGame");
+```
 
 *C#*
 
-    telemetry.TrackEvent("WinGame");
+```csharp
+telemetry.TrackEvent("WinGame");
+```
 
 *Visual Basic*
 
-    telemetry.TrackEvent("WinGame")
+```vb
+telemetry.TrackEvent("WinGame")
+```
 
 *Java*
 
-    telemetry.trackEvent("WinGame");
-    
-*Node.js*
+```java
+telemetry.trackEvent("WinGame");
+```
 
-    telemetry.trackEvent({name: "WinGame"});
+*Node.JS*
+
+```javascript
+telemetry.trackEvent({name: "WinGame"});
+```
 
 ### <a name="custom-events-in-analytics"></a>분석의 사용자 지정 이벤트
 
-[Application Insights 분석](app-insights-analytics.md)의 `customEvents` 테이블에서 원격 분석을 사용할 수 있습니다. 각 행은 앱의 `trackEvent(..)` 호출을 나타냅니다. 
+[Application Insights 분석](app-insights-analytics.md)의 `customEvents` 테이블에서 원격 분석을 사용할 수 있습니다. 각 행은 앱의 `trackEvent(..)` 호출을 나타냅니다.
 
 [샘플링](app-insights-sampling.md)이 작동 중이면 itemCount 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 trackEvent()에 대한 10개 호출의 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 따라서 정확한 사용자 지정 이벤트 수를 가져오려면 `customEvent | summarize sum(itemCount)`와 같은 코드를 사용해야 합니다.
 
 ## <a name="getmetric"></a>GetMetric
 
-### <a name="examples"></a>예제:
+### <a name="examples"></a>예
 
 *C#*
 
@@ -229,13 +254,13 @@ namespace User.Namespace.Example01
 
 Application Insights에서는 특정 이벤트에 연결되지 않은 메트릭을 차트로 작성할 수 있습니다. 예를 들어 정기적으로 큐 길이를 모니터링할 수 있습니다. 메트릭을 사용할 경우 개별 측정값보다 변형 및 추세에 좀 더 관심을 갖게 되며 통계 차트가 유용합니다.
 
-Application Insights로 메트릭을 보내려면 `TrackMetric(..)` API를 사용할 수 있습니다. 메트릭을 전송하는 방법에는 다음 두 가지가 있습니다. 
+Application Insights로 메트릭을 보내려면 `TrackMetric(..)` API를 사용할 수 있습니다. 메트릭을 전송하는 방법에는 다음 두 가지가 있습니다.
 
-* 단일 값. 응용 프로그램에서 측정을 수행할 때마다 Application Insights에 해당 값을 보냅니다. 예를 들어 컨테이너의 항목 수를 설명하는 메트릭이 있다고 가정합니다. 특정 기간 동안 먼저 컨테이너에 3개 항목을 추가한 다음 2개 항목을 제거합니다. 따라서 `TrackMetric`을 두 번 호출합니다. 처음에는 값 `3`을 전달하고 그 다음에는 값 `-2`를 전달합니다. Application Insights는 두 값을 자동으로 저장합니다. 
+* 단일 값. 응용 프로그램에서 측정을 수행할 때마다 Application Insights에 해당 값을 보냅니다. 예를 들어 컨테이너의 항목 수를 설명하는 메트릭이 있다고 가정합니다. 특정 기간 동안 먼저 컨테이너에 3개 항목을 추가한 다음 2개 항목을 제거합니다. 따라서 `TrackMetric`을 두 번 호출합니다. 처음에는 값 `3`을 전달하고 그 다음에는 값 `-2`를 전달합니다. Application Insights는 두 값을 자동으로 저장합니다.
 
 * 집계. 메트릭을 사용하여 작업하는 경우 모든 단일 측정값은 거의 유용하지 않습니다. 대신 특정 기간 동안 발생한 내용의 요약이 중요합니다. 이러한 요약을 _집계_라고 합니다. 위의 예에서는 해당 기간에 대한 집계 메트릭 합계는 `1`이고 메트릭 값의 개수는 `2`입니다. 집계 방법을 사용할 때는 `TrackMetric`을 기간당 한 번만 호출하고 집계 값을 보냅니다. 이렇게 하면 모든 관련 정보를 수집하는 동안 더 적은 데이터 요소를 Application Insights로 보냄으로써 비용 및 성능 오버헤드를 상당히 줄일 수 있기 때문에 권장되는 방법입니다.
 
-### <a name="examples"></a>예제:
+### <a name="examples"></a>예
 
 #### <a name="single-values"></a>단일 값
 
@@ -243,67 +268,78 @@ Application Insights로 메트릭을 보내려면 `TrackMetric(..)` API를 사�
 
 *JavaScript*
 
- ```Javascript
-     appInsights.trackMetric("queueLength", 42.0);
+ ```javascript
+appInsights.trackMetric("queueLength", 42.0);
  ```
 
 *C#*
 
 ```csharp
-    var sample = new MetricTelemetry();
-    sample.Name = "metric name";
-    sample.Value = 42.3;
-    telemetryClient.TrackMetric(sample);
+var sample = new MetricTelemetry();
+sample.Name = "metric name";
+sample.Value = 42.3;
+telemetryClient.TrackMetric(sample);
 ```
 
 *Java*
 
-```Java
-    
-    telemetry.trackMetric("queueLength", 42.0);
-
+```java
+telemetry.trackMetric("queueLength", 42.0);
 ```
 
-*Node.js*
+*Node.JS*
 
- ```Javascript
-     telemetry.trackMetric({name: "queueLength", value: 42.0});
+ ```javascript
+telemetry.trackMetric({name: "queueLength", value: 42.0});
  ```
 
 ### <a name="custom-metrics-in-analytics"></a>분석의 사용자 지정 메트릭
 
 [Application Insights 분석](app-insights-analytics.md)의 `customMetrics` 테이블에서 원격 분석을 사용할 수 있습니다. 각 행은 앱의 `trackMetric(..)` 호출을 나타냅니다.
+
 * `valueSum` - 측정값의 합계입니다. 평균 값을 가져오려면 `valueCount`로 나눕니다.
 * `valueCount` - 이 `trackMetric(..)` 호출로 집계된 측정값의 수입니다.
 
 ## <a name="page-views"></a>페이지 보기
+
 장치 또는 웹 페이지 앱에서 각 화면 또는 페이지가 로드되면 기본적으로 페이지 보기 원격 분석이 전송됩니다. 하지만 추가 시간에 또는 다른 시간에 페이지 보기를 추적하도록 변경할 수 있습니다. 예를 들어 탭 또는 블레이드를 표시하는 앱에서 사용자가 새 블레이드를 열 때마다 "페이지"를 추적할 수 있습니다.
 
 사용자 및 세션 데이터는 페이지 보기와 함께 속성으로 전송됩니다. 따라서 페이지 보기 원격 분석이 있으면 사용자 및 세션 차트가 실시간으로 표시됩니다.
 
 ### <a name="custom-page-views"></a>사용자 지정 페이지 보기
+
 *JavaScript*
 
-    appInsights.trackPageView("tab1");
+```javascript
+appInsights.trackPageView("tab1");
+```
 
 *C#*
 
-    telemetry.TrackPageView("GameReviewPage");
-
-*Java*
-
-    telemetry.trackPageView("GameReviewPage");
+```csharp
+telemetry.TrackPageView("GameReviewPage");
+```
 
 *Visual Basic*
 
-    telemetry.TrackPageView("GameReviewPage")
+```vb
+telemetry.TrackPageView("GameReviewPage")
+```
 
+*Java*
+
+```java
+telemetry.trackPageView("GameReviewPage");
+```
 
 여러 다른 HTML 페이지 내에 여러 탭이 있으면 URL도 지정할 수 있습니다.
 
-    appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
+```javascript
+appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
+```
 
 ### <a name="timing-page-views"></a>페이지 보기 시간
+
 기본적으로 시간은 브라우저가 요청을 보낼 때부터 브라우저의 페이지 로드 이벤트를 호출할 때까지 측정되는 **페이지 보기 로드 시간**으로 보고됩니다.
 
 대신, 다음을 수행할 수 있습니다.
@@ -313,13 +349,15 @@ Application Insights로 메트릭을 보내려면 `TrackMetric(..)` API를 사�
 
 *JavaScript*
 
-    // To start timing a page:
-    appInsights.startTrackPage("Page1");
+```javascript
+// To start timing a page:
+appInsights.startTrackPage("Page1");
 
 ...
 
-    // To stop timing and log the page:
-    appInsights.stopTrackPage("Page1", url, properties, measurements);
+// To stop timing and log the page:
+appInsights.stopTrackPage("Page1", url, properties, measurements);
+```
 
 첫 번째 매개 변수로 사용하는 이름은 시작 및 중지 호출을 연결합니다. 기본적으로 현재 페이지 이름이 지정됩니다.
 
@@ -334,23 +372,27 @@ Application Insights로 메트릭을 보내려면 `TrackMetric(..)` API를 사�
 
 브라우저가 다른 페이지를 처리하는 데 걸리는 시간을 보려면
 
-```
-browserTimings | summarize avg(networkDuration), avg(processingDuration), avg(totalDuration) by name 
+```kusto
+browserTimings
+| summarize avg(networkDuration), avg(processingDuration), avg(totalDuration) by name
 ```
 
 서로 다른 브라우저의 인기도를 검색하려면
 
-```
-pageViews | summarize count() by client_Browser
+```kusto
+pageViews
+| summarize count() by client_Browser
 ```
 
 페이지 보기를 AJAX 호출과 상호 연결하려면(종속성과 조인)
 
-```
-pageViews | join (dependencies) on operation_Id 
+```kusto
+pageViews
+| join (dependencies) on operation_Id 
 ```
 
 ## <a name="trackrequest"></a>TrackRequest
+
 서버 SDK는 TrackRequest를 사용하여 HTTP 요청을 기록합니다.
 
 실행 중인 웹 서비스 모듈이 없는 상황에서 요청을 시뮬레이션하고 싶다면 사용자가 직접 호출할 수도 있습니다.
@@ -358,6 +400,7 @@ pageViews | join (dependencies) on operation_Id
 그러나 요청 원격 분석을 전송하는 권장 방법은 요청이 <a href="#operation-context">작업 컨텍스트</a>로 작동하는 경우입니다.
 
 ## <a name="operation-context"></a>작업 컨텍스트
+
 원격 분석 항목을 작업 컨텍스트와 연결하여 상호 연결할 수 있습니다. 표준 요청 추적 모듈은 예외 및 HTTP 요청이 처리되는 동안 전송되는 다른 이벤트에 대해 이를 수행합니다. [검색](app-insights-diagnostic-search.md) 및 [분석](app-insights-analytics.md)에서 작업 ID를 사용하여 요청과 연결된 모든 이벤트를 쉽게 찾을 수 있습니다.
 
 상관 관계에 대한 자세한 내용은 [Application Insights의 원격 분석 상관 관계](application-insights-correlation.md)를 참조하세요.
@@ -374,6 +417,7 @@ using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operati
     ...
     telemetryClient.TrackTrace(...); // or other Track* calls
     ...
+
     // Set properties of containing telemetry item--for example:
     operation.Telemetry.ResponseCode = "200";
 
@@ -385,7 +429,7 @@ using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operati
 
 작업 컨텍스트 설정과 함께 `StartOperation`은 지정하는 유형의 원격 분석 항목을 만듭니다. 작업을 삭제할 때 또는 명시적으로 `StopOperation`을 호출하는 경우 원격 분석 항목을 보냅니다. 원격 분석 형식으로 `RequestTelemetry`를 사용하는 경우 해당 기간은 시작 및 중지 사이의 시간 제한 간격으로 설정됩니다.
 
-작업의 범위 내에서 보고되는 원격 분석 항목은 이러한 작업의 '자식'이 됩니다. 작업 컨텍스트는 중첩될 수 있습니다. 
+작업의 범위 내에서 보고되는 원격 분석 항목은 이러한 작업의 '자식'이 됩니다. 작업 컨텍스트는 중첩될 수 있습니다.
 
 검색에서 작업 컨텍스트는 **관련 항목** 목록을 만드는 데 사용됩니다.
 
@@ -399,12 +443,13 @@ using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operati
 
 [샘플링](app-insights-sampling.md)이 작동 중이면 itemCount 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 trackRequest()에 대한 10개 호출의 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 요청 이름별로 분할된 정확한 요청 수 및 평균 기간을 가져오려면 다음과 같은 코드를 사용합니다.
 
-```AIQL
-requests | summarize count = sum(itemCount), avgduration = avg(duration) by name
+```kusto
+requests
+| summarize count = sum(itemCount), avgduration = avg(duration) by name
 ```
 
-
 ## <a name="trackexception"></a>TrackException
+
 Application Insights로 예외를 보냅니다.
 
 * 문제의 빈도 표시로 [계산](app-insights-metrics-explorer.md)하려면
@@ -414,44 +459,52 @@ Application Insights로 예외를 보냅니다.
 
 *C#*
 
-    try
-    {
-        ...
-    }
-    catch (Exception ex)
-    {
-       telemetry.TrackException(ex);
-    }
+```csharp
+try
+{
+    ...
+}
+catch (Exception ex)
+{
+    telemetry.TrackException(ex);
+}
+```
 
 *Java*
 
-    try {
-        ...
-    } catch (Exception ex) {
-        telemetry.trackException(ex);
-    }
+```java
+try {
+    ...
+} catch (Exception ex) {
+    telemetry.trackException(ex);
+}
+```
 
 *JavaScript*
 
-    try
-    {
-       ...
-    }
-    catch (ex)
-    {
-       appInsights.trackException(ex);
-    }
-    
-*Node.js*
+```javascript
+try
+{
+    ...
+}
+catch (ex)
+{
+    appInsights.trackException(ex);
+}
+```
 
-    try
-    {
-       ...
-    }
-    catch (ex)
-    {
-       telemetry.trackException({exception: ex});
-    }
+*Node.JS*
+
+```javascript
+try
+{
+    ...
+}
+catch (ex)
+{
+    telemetry.trackException({exception: ex});
+}
+```
 
 SDK에서 대부분의 예외를 자동으로 catch하므로 항상 TrackException을 명시적으로 호출할 필요는 없습니다.
 
@@ -459,12 +512,12 @@ SDK에서 대부분의 예외를 자동으로 catch하므로 항상 TrackExcepti
 * J2EE: [예외가 자동으로 catch됨](app-insights-java-get-started.md#exceptions-and-request-failures).
 * JavaScript: 예외가 자동으로 catch됨. 자동 수집을 사용하지 않도록 설정하려면 웹 페이지에 삽입하는 코드 조각에 다음 한 줄을 추가합니다.
 
-    ```
-    ({
-      instrumentationKey: "your key"
-      , disableExceptionTracking: true
-    })
-    ```
+```javascript
+({
+    instrumentationKey: "your key",
+    disableExceptionTracking: true
+})
+```
 
 ### <a name="exceptions-in-analytics"></a>분석의 예외
 
@@ -472,25 +525,27 @@ SDK에서 대부분의 예외를 자동으로 catch하므로 항상 TrackExcepti
 
 [샘플링](app-insights-sampling.md)이 작동 중이면 `itemCount` 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 trackException()에 대한 10개 호출의 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 예외 유형별로 분할된 정확한 예외 수를 가져오려면 다음과 같은 코드를 사용합니다.
 
-```
-exceptions | summarize sum(itemCount) by type
+```kusto
+exceptions
+| summarize sum(itemCount) by type
 ```
 
 대부분의 중요한 스택 정보는 이미 별도 변수로 추출되지만 좀 더 자세한 정보를 위해 `details` 구조를 분리할 수 있습니다. 이 구조는 동적이므로 원하는 유형으로 결과를 캐스트해야 합니다. 예: 
 
-```AIQL
+```kusto
 exceptions
 | extend method2 = tostring(details[0].parsedStack[1].method)
 ```
 
 예외를 관련 요청과 연결하려면 다음과 같이 조인을 사용합니다.
 
-```
+```kusto
 exceptions
-| join (requests) on operation_Id 
+| join (requests) on operation_Id
 ```
 
 ## <a name="tracktrace"></a>TrackTrace
+
 이 TrackTrace를 사용하여 Application Insights에 '이동 경로 트레일'을 전송하면 문제 진단에 도움이 됩니다. 진단 데이터의 청크를 보내고 [진단 검색](app-insights-diagnostic-search.md)에서 검사할 수 있습니다.
 
 .NET에서 [로그 어댑터](app-insights-asp-net-trace-logs.md)는 이 API를 사용하여 포털에 타사 로그를 보냅니다.
@@ -499,16 +554,25 @@ exceptions
 
 *C#*
 
-    telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
+```csharp
+telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
+```
 
 *Java*
 
-    telemetry.trackTrace(message, SeverityLevel.Warning, properties);
-    
-*Node.js*
+```java
+telemetry.trackTrace(message, SeverityLevel.Warning, properties);
+```
 
-    telemetry.trackTrace({message: message, severity:applicationInsights.Contracts.SeverityLevel.Warning, properties:properties});
+*Node.JS*
 
+```javascript
+telemetry.trackTrace({
+    message: message,
+    severity: applicationInsights.Contracts.SeverityLevel.Warning,
+    properties: properties
+});
+```
 
 메시지 내용을 검색할 수 있지만 속성 값과는 달리 필터링할 수는 없습니다.
 
@@ -519,25 +583,22 @@ TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수
 
 *C#*
 
-```C#
-    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
-    telemetry.TrackTrace("Slow database response",
-                   SeverityLevel.Warning,
-                   new Dictionary<string,string> { {"database", db.ID} });
+```csharp
+var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+telemetry.TrackTrace("Slow database response",
+                SeverityLevel.Warning,
+                new Dictionary<string,string> { {"database", db.ID} });
 ```
 
 *Java*
 
-```Java
-
-    Map<String, Integer> properties = new HashMap<>();
-    properties.put("Database", db.ID);
-    telemetry.trackTrace("Slow Database response", SeverityLevel.Warning, properties);
-
+```java
+Map<String, Integer> properties = new HashMap<>();
+properties.put("Database", db.ID);
+telemetry.trackTrace("Slow Database response", SeverityLevel.Warning, properties);
 ```
 
 [검색](app-insights-diagnostic-search.md)에서 특정 데이터베이스와 관련된 특정 심각도 수준의 모든 메시지를 쉽게 필터링할 수 있습니다.
-
 
 ### <a name="traces-in-analytics"></a>분석의 추적
 
@@ -546,6 +607,7 @@ TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수
 [샘플링](app-insights-sampling.md)이 작동 중이면 itemCount 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 `trackTrace()`에 대한 10개 호출 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 따라서 정확한 추적 호출 수를 가져오려면 `traces | summarize sum(itemCount)`와 같은 코드를 사용해야 합니다.
 
 ## <a name="trackdependency"></a>TrackDependency
+
 TrackDependency 호출을 사용하여 응답 시간과 외부 코드 부분에 대한 호출의 성공률을 추적합니다. 포털에서 종속성 차트에 결과가 나타납니다.
 
 *C#*
@@ -569,25 +631,24 @@ finally
 
 *Java*
 
-```Java
-    boolean success = false;
-    long startTime = System.currentTimeMillis();
-    try {
-        success = dependency.call();
-    }
-    finally {
-        long endTime = System.currentTimeMillis();
-        long delta = endTime - startTime;
-        RemoteDependencyTelemetry dependencyTelemetry = new RemoteDependencyTelemetry("My Dependency", "myCall", delta, success);
-        telemetry.setTimeStamp(startTime);
-        telemetry.trackDependency(dependencyTelemetry);
-    }
-
+```java
+boolean success = false;
+long startTime = System.currentTimeMillis();
+try {
+    success = dependency.call();
+}
+finally {
+    long endTime = System.currentTimeMillis();
+    long delta = endTime - startTime;
+    RemoteDependencyTelemetry dependencyTelemetry = new RemoteDependencyTelemetry("My Dependency", "myCall", delta, success);
+    telemetry.setTimeStamp(startTime);
+    telemetry.trackDependency(dependencyTelemetry);
+}
 ```
 
 *JavaScript*
 
-```Javascript
+```javascript
 var success = false;
 var startTime = new Date().getTime();
 try
@@ -597,7 +658,12 @@ try
 finally
 {
     var elapsed = new Date() - startTime;
-    telemetry.trackDependency({dependencyTypeName: "myDependency", name: "myCall", duration: elapsed, success:success});
+    telemetry.trackDependency({
+        dependencyTypeName: "myDependency",
+        name: "myCall",
+        duration: elapsed,
+        success: success
+    });
 }
 ```
 
@@ -615,53 +681,57 @@ C#에서 표준 종속성 추적 모듈을 해제하려면 [ApplicationInsights.
 
 [샘플링](app-insights-sampling.md)이 작동 중이면 itemCount 속성에 1보다 큰 값이 표시됩니다. 예를 들어 itemCount==10은 trackDependency()에 대한 10개 호출의 샘플링을 의미하며 샘플링 프로세스는 이 중 하나만 전송했습니다. 대상 구성 요소별로 분할된 정확한 종속 수를 가져오려면 다음과 같은 코드를 사용합니다.
 
-```
-dependencies | summarize sum(itemCount) by target
+```kusto
+dependencies
+| summarize sum(itemCount) by target
 ```
 
 종속성을 관련 요청과 연결하려면 다음과 같이 조인을 사용합니다.
 
-```
+```kusto
 dependencies
-| join (requests) on operation_Id 
+| join (requests) on operation_Id
 ```
 
 ## <a name="flushing-data"></a>데이터 플러시
+
 일반적으로 SDK는 사용자에 미치는 영향을 최소화하기 위해 선택한 시간에 데이터를 보냅니다. 그러나 버퍼를 플러시하려는 경우가 있습니다. 종료되는 응용 프로그램에서 SDK를 사용하는 경우를 예로 들 수 있습니다.
 
 *C#*
- 
- ```C#
-    telemetry.Flush();
-    // Allow some time for flushing before shutdown.
-    System.Threading.Thread.Sleep(5000);
+
+ ```csharp
+telemetry.Flush();
+// Allow some time for flushing before shutdown.
+System.Threading.Thread.Sleep(5000);
 ```
 
 *Java*
 
-```Java
-    telemetry.flush();
-    //Allow some time for flushing before shutting down
-    Thread.sleep(5000);
+```java
+telemetry.flush();
+//Allow some time for flushing before shutting down
+Thread.sleep(5000);
 ```
 
-    
-*Node.js*
+*Node.JS*
 
-    telemetry.flush();
+```javascript
+telemetry.flush();
+```
 
 함수는 [서버 원격 분석 채널](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/)에 대해 비동기입니다.
 
 이상적으로 응용 프로그램의 종료 작업에서 플러시() 메서드를 사용해야 합니다.
 
 ## <a name="authenticated-users"></a>인증된 사용자
+
 웹앱에서 사용자는 기본적으로 쿠키로 식별됩니다. 사용자가 다른 컴퓨터 또는 브라우저에서 앱에 액세스하거나 쿠키를 삭제하는 경우 두 번 이상 계산될 수 있습니다.
 
 사용자가 앱에 로그인하면 브라우저 코드에서 인증된 사용자 ID를 설정하여 보다 정확한 개수를 얻을 수 있습니다.
 
 *JavaScript*
 
-```JS
+```javascript
 // Called when my app has identified the user.
 function Authenticated(signInId) {
     var validatedId = signInId.replace(/[,;=| ]+/g, "_");
@@ -674,14 +744,16 @@ ASP.NET 웹 MVC 응용 프로그램에서의 예:
 
 *Razor*
 
-        @if (Request.IsAuthenticated)
-        {
-            <script>
-                appInsights.setAuthenticatedUserContext("@User.Identity.Name
-                   .Replace("\\", "\\\\")"
-                   .replace(/[,;=| ]+/g, "_"));
-            </script>
-        }
+```cshtml
+@if (Request.IsAuthenticated)
+{
+    <script>
+        appInsights.setAuthenticatedUserContext("@User.Identity.Name
+            .Replace("\\", "\\\\")"
+            .replace(/[,;=| ]+/g, "_"));
+    </script>
+}
+```
 
 사용자의 실제 로그인 이름을 사용할 필요는 없습니다. 해당 사용자에게 고유한 ID이기만 하면 됩니다. 공백이나 `,;=|` 문자를 포함할 수 없습니다.
 
@@ -689,13 +761,16 @@ ASP.NET 웹 MVC 응용 프로그램에서의 예:
 
 앱이 사용자를 계정으로 그룹화하는 경우 계정 식별자를 전달할 수도 있습니다(동일한 문자 제한이 적용됨).
 
-      appInsights.setAuthenticatedUserContext(validatedId, accountId);
+```javascript
+appInsights.setAuthenticatedUserContext(validatedId, accountId);
+```
 
 [메트릭 탐색기](app-insights-metrics-explorer.md)에서 **사용자, 인증** 및 **사용자 계정**을 계산하는 차트를 만들 수 있습니다.
 
 특정 사용자 이름과 계정으로 클라이언트 데이터 지점을 [검색](app-insights-diagnostic-search.md)할 수도 있습니다.
 
 ## <a name="properties"></a>속성을 사용하여 데이터를 필터링, 검색 및 세분화
+
 이벤트에(그리고 메트릭, 페이지 보기, 예외 및 기타 원격 분석 데이터에) 속성 및 측정을 연결할 수 있습니다.
 
 *속성*은 사용 현황 보고서에서 원격 분석을 필터링하는 데 사용할 수 있는 문자열 값입니다. 예를 들어 앱이 여러 게임을 제공하는 경우 각 이벤트에 게임 이름을 연결하여 인기가 더 많은 게임을 확인할 수 있습니다.
@@ -710,91 +785,99 @@ ASP.NET 웹 MVC 응용 프로그램에서의 예:
 
 *JavaScript*
 
-    appInsights.trackEvent
-      ("WinGame",
-         // String properties:
-         {Game: currentGame.name, Difficulty: currentGame.difficulty},
-         // Numeric metrics:
-         {Score: currentGame.score, Opponents: currentGame.opponentCount}
-         );
+```javascript
+appInsights.trackEvent
+    ("WinGame",
+        // String properties:
+        {Game: currentGame.name, Difficulty: currentGame.difficulty},
+        // Numeric metrics:
+        {Score: currentGame.score, Opponents: currentGame.opponentCount}
+        );
 
-    appInsights.trackPageView
-        ("page name", "http://fabrikam.com/pageurl.html",
-          // String properties:
-         {Game: currentGame.name, Difficulty: currentGame.difficulty},
-         // Numeric metrics:
-         {Score: currentGame.score, Opponents: currentGame.opponentCount}
-         );
-
+appInsights.trackPageView
+    ("page name", "http://fabrikam.com/pageurl.html",
+        // String properties:
+        {Game: currentGame.name, Difficulty: currentGame.difficulty},
+        // Numeric metrics:
+        {Score: currentGame.score, Opponents: currentGame.opponentCount}
+        );
+```
 
 *C#*
 
-    // Set up some properties and metrics:
-    var properties = new Dictionary <string, string>
-       {{"game", currentGame.Name}, {"difficulty", currentGame.Difficulty}};
-    var metrics = new Dictionary <string, double>
-       {{"Score", currentGame.Score}, {"Opponents", currentGame.OpponentCount}};
+```csharp
+// Set up some properties and metrics:
+var properties = new Dictionary <string, string>
+    {{"game", currentGame.Name}, {"difficulty", currentGame.Difficulty}};
+var metrics = new Dictionary <string, double>
+    {{"Score", currentGame.Score}, {"Opponents", currentGame.OpponentCount}};
 
-    // Send the event:
-    telemetry.TrackEvent("WinGame", properties, metrics);
+// Send the event:
+telemetry.TrackEvent("WinGame", properties, metrics);
+```
 
-*Node.js*
+*Node.JS*
 
-    // Set up some properties and metrics:
-    var properties = {"game": currentGame.Name, "difficulty": currentGame.Difficulty};
-    var metrics = {"Score": currentGame.Score, "Opponents": currentGame.OpponentCount};
+```javascript
+// Set up some properties and metrics:
+var properties = {"game": currentGame.Name, "difficulty": currentGame.Difficulty};
+var metrics = {"Score": currentGame.Score, "Opponents": currentGame.OpponentCount};
 
-    // Send the event:
-    telemetry.trackEvent({name: "WinGame", properties: properties, measurements: metrics});
-
+// Send the event:
+telemetry.trackEvent({name: "WinGame", properties: properties, measurements: metrics});
+```
 
 *Visual Basic*
 
-    ' Set up some properties:
-    Dim properties = New Dictionary (Of String, String)
-    properties.Add("game", currentGame.Name)
-    properties.Add("difficulty", currentGame.Difficulty)
+```vb
+' Set up some properties:
+Dim properties = New Dictionary (Of String, String)
+properties.Add("game", currentGame.Name)
+properties.Add("difficulty", currentGame.Difficulty)
 
-    Dim metrics = New Dictionary (Of String, Double)
-    metrics.Add("Score", currentGame.Score)
-    metrics.Add("Opponents", currentGame.OpponentCount)
+Dim metrics = New Dictionary (Of String, Double)
+metrics.Add("Score", currentGame.Score)
+metrics.Add("Opponents", currentGame.OpponentCount)
 
-    ' Send the event:
-    telemetry.TrackEvent("WinGame", properties, metrics)
-
+' Send the event:
+telemetry.TrackEvent("WinGame", properties, metrics)
+```
 
 *Java*
 
-    Map<String, String> properties = new HashMap<String, String>();
-    properties.put("game", currentGame.getName());
-    properties.put("difficulty", currentGame.getDifficulty());
+```java
+Map<String, String> properties = new HashMap<String, String>();
+properties.put("game", currentGame.getName());
+properties.put("difficulty", currentGame.getDifficulty());
 
-    Map<String, Double> metrics = new HashMap<String, Double>();
-    metrics.put("Score", currentGame.getScore());
-    metrics.put("Opponents", currentGame.getOpponentCount());
+Map<String, Double> metrics = new HashMap<String, Double>();
+metrics.put("Score", currentGame.getScore());
+metrics.put("Opponents", currentGame.getOpponentCount());
 
-    telemetry.trackEvent("WinGame", properties, metrics);
-
+telemetry.trackEvent("WinGame", properties, metrics);
+```
 
 > [!NOTE]
 > 속성에 개인 식별이 가능한 정보를 기록하지 않도록 주의해야 합니다.
 >
 >
 
-
 ### <a name="alternative-way-to-set-properties-and-metrics"></a>속성 및 메트릭을 설정하는 또 다른 방법
+
 이벤트 매개 변수를 별도의 개체에 수집하는 방법이 더 편하다면 이 방법을 사용해도 됩니다.
 
-    var event = new EventTelemetry();
+```csharp
+var event = new EventTelemetry();
 
-    event.Name = "WinGame";
-    event.Metrics["processingTime"] = stopwatch.Elapsed.TotalMilliseconds;
-    event.Properties["game"] = currentGame.Name;
-    event.Properties["difficulty"] = currentGame.Difficulty;
-    event.Metrics["Score"] = currentGame.Score;
-    event.Metrics["Opponents"] = currentGame.Opponents.Length;
+event.Name = "WinGame";
+event.Metrics["processingTime"] = stopwatch.Elapsed.TotalMilliseconds;
+event.Properties["game"] = currentGame.Name;
+event.Properties["difficulty"] = currentGame.Difficulty;
+event.Metrics["Score"] = currentGame.Score;
+event.Metrics["Opponents"] = currentGame.Opponents.Length;
 
-    telemetry.TrackEvent(event);
+telemetry.TrackEvent(event);
+```
 
 > [!WARNING]
 > Track*()을 여러 번 호출하기 위해 같은 원격 분석 항목 인스턴스(이 예에서 `event`)를 다시 사용하지 않습니다. 그러면 원격 분석을 잘못된 구성과 함께 보낼 수 있습니다.
@@ -807,9 +890,9 @@ ASP.NET 웹 MVC 응용 프로그램에서의 예:
 
 예를 들어 요청 원격 분석에 "game"이라는 속성을 추가한 경우 다음 쿼리는 "game"의 값이 다를 때마다의 횟수를 계산하여 사용자 지정 메트릭 "score"의 평균을 표시합니다.
 
-```
+```kusto
 requests
-| summarize sum(itemCount), avg(todouble(customMeasurements.score)) by tostring(customDimensions.game) 
+| summarize sum(itemCount), avg(todouble(customMeasurements.score)) by tostring(customDimensions.game)
 ```
 
 다음에 유의합니다.
@@ -817,92 +900,96 @@ requests
 * customDimensions 또는 customMeasurements JSON에서 값을 추출하면 동적 유형이므로 `tostring` 또는 `todouble`로 캐스트해야 합니다.
 * [샘플링](app-insights-sampling.md)의 가능성을 고려하려면 `count()`가 아닌 `sum(itemCount)`을 사용해야 합니다.
 
-
-
 ## <a name="timed"></a> 타이밍 이벤트
+
 작업을 수행하는 데 걸리는 시간을 차트로 표시하고 싶은 경우가 있습니다. 예를 들어 게임에서 사용자가 옵션을 선택하는 데 걸리는 시간을 알고 싶을 수 있습니다. 이를 위해 측정 매개 변수를 사용할 수 있습니다.
 
 *C#*
 
-```C#
-    var stopwatch = System.Diagnostics.Stopwatch.StartNew();
+```csharp
+var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
-    // ... perform the timed action ...
+// ... perform the timed action ...
 
-    stopwatch.Stop();
+stopwatch.Stop();
 
-    var metrics = new Dictionary <string, double>
-       {{"processingTime", stopwatch.Elapsed.TotalMilliseconds}};
+var metrics = new Dictionary <string, double>
+    {{"processingTime", stopwatch.Elapsed.TotalMilliseconds}};
 
-    // Set up some properties:
-    var properties = new Dictionary <string, string>
-       {{"signalSource", currentSignalSource.Name}};
+// Set up some properties:
+var properties = new Dictionary <string, string>
+    {{"signalSource", currentSignalSource.Name}};
 
-    // Send the event:
-    telemetry.TrackEvent("SignalProcessed", properties, metrics);
+// Send the event:
+telemetry.TrackEvent("SignalProcessed", properties, metrics);
 ```
 
 *Java*
 
-```Java
-    long startTime = System.currentTimeMillis();
+```java
+long startTime = System.currentTimeMillis();
 
-    // perform timed action
+// Perform timed action
 
-    long endTime = System.currentTimeMillis();
-    Map<String, Double> metrics = new HashMap<>();
-    metrics.put("ProcessingTime", endTime-startTime);
+long endTime = System.currentTimeMillis();
+Map<String, Double> metrics = new HashMap<>();
+metrics.put("ProcessingTime", endTime-startTime);
 
-    // Setup some propereties
-    Map<String, String> properties = new HashMap<>();
-    properties.put("signalSource", currentSignalSource.getName());
+// Setup some properties
+Map<String, String> properties = new HashMap<>();
+properties.put("signalSource", currentSignalSource.getName());
 
-    //send the event
-    telemetry.trackEvent("SignalProcessed", properties, metrics);
-
+// Send the event
+telemetry.trackEvent("SignalProcessed", properties, metrics);
 ```
 
-
 ## <a name="defaults"></a>사용자 지정 원격 분석에 대한 기본 속성
+
 작성하는 사용자 정의 이벤트의 일부에 대해 기본 속성 값을 설정하려는 경우 TelemetryClient 인스턴스에서 설정할 수 있습니다. 설정된 값은 해당 클라이언트에서 보낸 모든 원격 분석 항목에 연결됩니다.
 
 *C#*
 
-    using Microsoft.ApplicationInsights.DataContracts;
+```csharp
+using Microsoft.ApplicationInsights.DataContracts;
 
-    var gameTelemetry = new TelemetryClient();
-    gameTelemetry.Context.Properties["Game"] = currentGame.Name;
-    // Now all telemetry will automatically be sent with the context property:
-    gameTelemetry.TrackEvent("WinGame");
+var gameTelemetry = new TelemetryClient();
+gameTelemetry.Context.Properties["Game"] = currentGame.Name;
+// Now all telemetry will automatically be sent with the context property:
+gameTelemetry.TrackEvent("WinGame");
+```
 
 *Visual Basic*
 
-    Dim gameTelemetry = New TelemetryClient()
-    gameTelemetry.Context.Properties("Game") = currentGame.Name
-    ' Now all telemetry will automatically be sent with the context property:
-    gameTelemetry.TrackEvent("WinGame")
+```vb
+Dim gameTelemetry = New TelemetryClient()
+gameTelemetry.Context.Properties("Game") = currentGame.Name
+' Now all telemetry will automatically be sent with the context property:
+gameTelemetry.TrackEvent("WinGame")
+```
 
 *Java*
 
-    import com.microsoft.applicationinsights.TelemetryClient;
-    import com.microsoft.applicationinsights.TelemetryContext;
-    ...
+```java
+import com.microsoft.applicationinsights.TelemetryClient;
+import com.microsoft.applicationinsights.TelemetryContext;
+...
 
 
-    TelemetryClient gameTelemetry = new TelemetryClient();
-    TelemetryContext context = gameTelemetry.getContext();
-    context.getProperties().put("Game", currentGame.Name);
+TelemetryClient gameTelemetry = new TelemetryClient();
+TelemetryContext context = gameTelemetry.getContext();
+context.getProperties().put("Game", currentGame.Name);
 
-    gameTelemetry.TrackEvent("WinGame");
-    
-*Node.js*
+gameTelemetry.TrackEvent("WinGame");
+```
 
-    var gameTelemetry = new applicationInsights.TelemetryClient();
-    gameTelemetry.commonProperties["Game"] = currentGame.Name;
+*Node.JS*
 
-    gameTelemetry.TrackEvent({name: "WinGame"});
+```javascript
+var gameTelemetry = new applicationInsights.TelemetryClient();
+gameTelemetry.commonProperties["Game"] = currentGame.Name;
 
-
+gameTelemetry.TrackEvent({name: "WinGame"});
+```
 
 개별 원격 분석 호출이 자신의 속성 사전에 있는 기본값을 재정의할 수 있습니다.
 
@@ -911,6 +998,7 @@ requests
 표준 컬렉션 모듈의 데이터를 포함하여 *모든 원격 분석에 속성을 추가하려면* [`ITelemetryInitializer`를 구현합니다](app-insights-api-filtering-sampling.md#add-properties).
 
 ## <a name="sampling-filtering-and-processing-telemetry"></a>원격 분석 샘플링, 필터링 및 처리
+
 SDK에서 전송하기 전에 원격 분석을 처리하는 코드를 작성할 수 있습니다. 처리는 HTTP 요청 컬렉션 및 종속성 컬렉션과 같은 표준 원격 분석 모듈에서 전송된 데이터를 포함합니다.
 
 `ITelemetryInitializer`를 구현하여 원격 분석에 [속성을 추가](app-insights-api-filtering-sampling.md#add-properties)합니다. 예를 들어 다른 속성에서 계산된 버전 번호 또는 값을 추가할 수 있습니다.
@@ -922,109 +1010,119 @@ SDK에서 전송하기 전에 원격 분석을 처리하는 코드를 작성할 
 [자세히 알아보기](app-insights-api-filtering-sampling.md).
 
 ## <a name="disabling-telemetry"></a>원격 분석 사용 안 함
+
 원격 분석의 컬렉션 및 전송을 *동적으로 중지 및 시작하려면* :
 
 *C#*
 
 ```csharp
+using  Microsoft.ApplicationInsights.Extensibility;
 
-    using  Microsoft.ApplicationInsights.Extensibility;
-
-    TelemetryConfiguration.Active.DisableTelemetry = true;
+TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
 *Java*
 
-```Java
-    
-    telemetry.getConfiguration().setTrackingDisabled(true);
-
+```java
+telemetry.getConfiguration().setTrackingDisabled(true);
 ```
 
 *선택한 표준 수집기(예: 성능 카운터, HTTP 요청 또는 종속성)를 사용하지 않도록 설정*하려면 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에서 관련 줄을 삭제하거나 주석으로 처리합니다. 사용자 고유의 TrackRequest 데이터를 전송하려는 경우를 예로 들 수 있습니다.
 
-*Node.js*
+*Node.JS*
 
-```Javascript
-
-    telemetry.config.disableAppInsights = true;
+```javascript
+telemetry.config.disableAppInsights = true;
 ```
 
 *선택한 표준 수집기를 사용하지 않도록 설정*(예를 들어 성능 카운터, HTTP 요청 또는 종속성)하려면 초기화 시 구성 메서드를 SDK 초기화 코드로 체이닝합니다.
 
-```Javascript
-
-    applicationInsights.setup()
-        .setAutoCollectRequests(false)
-        .setAutoCollectPerformance(false)
-        .setAutoCollectExceptions(false)
-        .setAutoCollectDependencies(false)
-        .setAutoCollectConsole(false)
-        .start();
+```javascript
+applicationInsights.setup()
+    .setAutoCollectRequests(false)
+    .setAutoCollectPerformance(false)
+    .setAutoCollectExceptions(false)
+    .setAutoCollectDependencies(false)
+    .setAutoCollectConsole(false)
+    .start();
 ```
 
 초기화 후에 이러한 수집기를 사용하지 않도록 설정하려면 구성 개체 `applicationInsights.Configuration.setAutoCollectRequests(false)`를 사용합니다.
 
 ## <a name="debug"></a>개발자 모드
+
 디버깅하는 동안 결과를 즉시 볼 수 있도록 파이프라인을 통해 원격 분석을 신속하게 처리할 때 유용합니다. 또한 원격 분석과 관련된 모든 문제를 추적하는 데 도움이 되는 추가 메시지가 제공됩니다. 앱이 느려질 수 있으므로 프로덕션 환경에서는 끄는 것이 좋습니다.
 
 *C#*
 
-    TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
+```csharp
+TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
+```
 
 *Visual Basic*
 
-    TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
-
+```vb
+TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
+```
 
 ## <a name="ikey"></a> 선택한 사용자 지정 원격 분석에 대해 계측 키 설정
+
 *C#*
 
-    var telemetry = new TelemetryClient();
-    telemetry.InstrumentationKey = "---my key---";
-    // ...
-
+```csharp
+var telemetry = new TelemetryClient();
+telemetry.InstrumentationKey = "---my key---";
+// ...
+```
 
 ## <a name="dynamic-ikey"></a> 동적 계측 키
+
 개발, 테스트 및 프로덕션 환경에서 원격 분석이 섞이지 않게 방지하려면 [별도의 Application Insights 리소스를 만들고](app-insights-create-new-resource.md) 환경에 따라 키를 변경하세요.
 
 구성 파일에서 계측 키를 가져오는 대신 코드에서 설정할 수 있습니다. ASP.NET 서비스의 global.aspx.cs 같은 초기화 메서드에서 키를 설정합니다.
 
 *C#*
 
-    protected void Application_Start()
-    {
-      Microsoft.ApplicationInsights.Extensibility.
-        TelemetryConfiguration.Active.InstrumentationKey =
-          // - for example -
-          WebConfigurationManager.Settings["ikey"];
-      ...
+```csharp
+protected void Application_Start()
+{
+    Microsoft.ApplicationInsights.Extensibility.
+    TelemetryConfiguration.Active.InstrumentationKey =
+        // - for example -
+        WebConfigurationManager.Settings["ikey"];
+    ...
+}
+```
 
 *JavaScript*
 
-    appInsights.config.instrumentationKey = myKey;
-
-
+```javascript
+appInsights.config.instrumentationKey = myKey;
+```
 
 웹 페이지에서 문자 그대로 스크립트에 코딩하는 대신 웹 서버의 상태를 이용하여 설정할 수 있습니다. 예를 들어 ASP.NET 앱에서 생성된 웹 페이지에서 다음과 같이 설정합니다.
 
 *Razor에서 JavaScript*
 
-    <script type="text/javascript">
-    // Standard Application Insights webpage script:
-    var appInsights = window.appInsights || function(config){ ...
-    // Modify this part:
-    }({instrumentationKey:  
-      // Generate from server property:
-      @Microsoft.ApplicationInsights.Extensibility.
-         TelemetryConfiguration.Active.InstrumentationKey;
-    }) // ...
-
+```cshtml
+<script type="text/javascript">
+// Standard Application Insights webpage script:
+var appInsights = window.appInsights || function(config){ ...
+// Modify this part:
+}({instrumentationKey:  
+    // Generate from server property:
+    @Microsoft.ApplicationInsights.Extensibility.
+        TelemetryConfiguration.Active.InstrumentationKey;
+}) // ...
+```
 
 ## <a name="telemetrycontext"></a>TelemetryContext
+
 TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 예: 
 
-    telemetry.Context.Operation.Name = "MyOperationName";
+```csharp
+telemetry.Context.Operation.Name = "MyOperationName";
+```
 
 이러한 값을 직접 설정하는 경우 사용자의 값과 표준 값이 혼동되지 않도록 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에서 관련 줄을 제거해야 합니다.
 
@@ -1041,6 +1139,7 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 * **User**: 사용자 정보입니다.
 
 ## <a name="limits"></a>제한
+
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
 데이터 속도 제한에 도달하지 않도록 하려면 [샘플링](app-insights-sampling.md)을 사용합니다.
@@ -1048,6 +1147,7 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 데이터 유지 기간을 결정하려면 [데이터 보존 및 개인 정보](app-insights-data-retention-privacy.md)를 참조하세요.
 
 ## <a name="reference-docs"></a>참조 문서
+
 * [ASP.NET 참조](https://msdn.microsoft.com/library/dn817570.aspx)
 * [Java 참조](http://dl.windowsazure.com/applicationinsights/javadoc/)
 * [JavaScript 참조](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
@@ -1055,6 +1155,7 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 * [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
 
 ## <a name="sdk-code"></a>SDK 코드
+
 * [ASP.NET 핵심 SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
 * [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Windows Server 패키지](https://github.com/Microsoft/applicationInsights-dotnet-server)
@@ -1064,6 +1165,7 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 * [모든 플랫폼](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
 ## <a name="questions"></a>질문
+
 * *Track_() 호출에서 발생할 수 있는 예외는 무엇인가요?*
 
     없음. try-catch 절에 래핑할 필요가 없습니다. SDK에 문제가 발생하는 경우 디버그 콘솔 출력에 메시지를 작성하고 메시지가 완료되는 경우 진단 검색에 표시됩니다.
@@ -1072,6 +1174,6 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
     예, [데이터 액세스 API](https://dev.applicationinsights.io/)가 있습니다. 데이터를 추출하는 다른 방법에는 [Analytics에서 Power BI로 내보내기](app-insights-export-power-bi.md) 및 [연속 내보내기](app-insights-export-telemetry.md)가 있습니다.
 
 ## <a name="next"></a>다음 단계
-* [검색 이벤트 및 로그](app-insights-diagnostic-search.md)
 
+* [검색 이벤트 및 로그](app-insights-diagnostic-search.md)
 * [문제 해결](app-insights-troubleshoot-faq.md)

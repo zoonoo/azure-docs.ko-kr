@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.component: na
-ms.openlocfilehash: 96eb26d6a4faf8c6907d23ebf21f2446722c913b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 9e9fdfce9dbb165227f88e9f72bc219dce8f3307
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127096"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043386"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Azure 네트워크 성능 모니터에 대한 가격 책정 변경
 
@@ -103,7 +103,7 @@ ExpressRoute가 개인 피어링 연결을 모니터링할 때 생성되는 매�
 
 더 높은 백분위(앞의 표에서)에 속하는 고객은 일반적으로 온-프레미스 네트워크에 몇 가지 유리한 지점에서 해당 회로를 모니터링합니다. 또한 여러 에이전트는 네트워크에서 더 깊이, 서비스 공급자 에지 라우터에서 더 멀리 배치됩니다. 종종 에이전트는 데이터 센터의 여러 사용자 사이트, 분기 및 랙에 배치됩니다.
 
-## <a name="service-endpoint-monitor"></a>서비스 끝점 모니터
+## <a name="service-endpoint-monitor"></a>서비스 엔드포인트 모니터
 
 **서비스 엔드포인트 모니터의 사용에 대한 요금은 얼마인가요?**
 

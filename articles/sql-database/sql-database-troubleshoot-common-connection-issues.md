@@ -12,12 +12,12 @@ ms.author: daleche
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 276a2d6d717497538a6633a9b0926bb89b9e875c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: a34745c5586fa90d3e167bb3be22e93dfa83b7af
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161100"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041733"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Azure SQL Database에 대한 연결 문제 해결
 Azure SQL Database에 대한 연결이 실패하면 [오류 메시지](sql-database-develop-error-messages.md)가 표시됩니다. 이 문서는 Azure SQL Database 연결 문제를 해결하는 데 도움이 되는 중앙 집중식 항목입니다. 여기서는 연결 문제의 [일반적인 원인](#cause)을 소개하고, 문제 식별에 도움이 되는 [문제 해결 도구](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues)를 추천하며, [일시적인 오류](#troubleshoot-transient-errors) 및 [영구적이거나 일시적이지 않은 오류](#troubleshoot-persistent-errors)를 해결하는 문제 해결 단계를 제공합니다. 
@@ -62,7 +62,7 @@ Azure 데이터베이스를 이동하거나 다시 구성하는 중이어서 SQL
 
 1. [Microsoft Azure 서비스 대시보드](https://azure.microsoft.com/status) 에서 응용 프로그램이 오류를 보고한 시간 동안 발생한 알려진 서비스 중단을 확인합니다.
 2. Azure SQL Database와 같이 클라우드 서비스에 연결하는 응용 프로그램에서는 주기적으로 다시 구성 이벤트가 발생하므로, 이러한 이벤트를 사용자에게 응용 프로그램 오류로 표시하는 대신 해당 오류를 처리하는 다시 시도 논리를 구현해야 합니다. 자세한 내용과 일반적인 다시 시도 전략을 확인하려면 [일시적인 오류](sql-database-connectivity-issues.md) 섹션과 [SQL Database 개발 개요](sql-database-develop-overview.md)에서 모범 사례 및 설계 지침을 검토하세요. 그런 다음 세부 사항은 [SQL Database 및 SQL Server에 대한 연결 라이브러리](sql-database-libraries.md) 에서 코드 샘플을 참조하세요.
-3. 데이터베이스가 리소스 한계에 도달하면 일시적인 연결 문제가 발생한 것처럼 보일 수 있습니다. [리소스 한도](sql-database-resource-limits.md)를 참조하세요.
+3. 데이터베이스가 리소스 한계에 도달하면 일시적인 연결 문제가 발생한 것처럼 보일 수 있습니다. [리소스 한도](sql-database-resource-limits-logical-server.md#what-happens-when-database-resource-limits-are-reached)를 참조하세요.
 4. 연결 문제가 계속 발생하거나 응용 프로그램에서 오류가 발생하는 기간이 60초를 초과하는 경우 또는 특정일에 오류가 여러 번 발생하는 경우에는 **Azure 지원** 사이트에서 [지원 받기](https://azure.microsoft.com/support/options) 를 선택하여 Azure 지원 요청을 접수합니다.
 
 ## <a name="troubleshoot-persistent-errors"></a>영구 오류 문제 해결

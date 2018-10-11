@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: c223e8fb000686aedefa1c02e93c1c8cbb30ec73
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 0c2adcfa4e11e444f66e1a9c04bea6e3d352f117
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888296"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077729"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Azure App Service에 대한 SSL 인증서 구입 및 구성
 
@@ -198,14 +198,6 @@ IP 기반 SSL 바인딩을 구성하면 앱에 전용 IP 주소가 할당됩니�
 
 > [!NOTE]
 > 갱신된 인증서는 수동으로 갱신했는지 또는 자동으로 갱신했는지 여부에 따라 앱에 자동으로 바인딩되지 않습니다. 앱에 바인딩하려면 [인증서 갱신](./app-service-web-tutorial-custom-ssl.md#renew-certificates)을 참조하세요. 
-
-<a name="notrenewed"></a>
-## <a name="why-is-my-certificate-not-auto-renewed"></a>내 인증서가 자동 갱신되지 않는 이유는 무엇인가요?
-
-SSL 인증서가 자동 갱신에 대해 구성되었지만 자동으로 갱신되지 않는 경우 보류 중인 도메인 확인이 있을 수 있습니다. 다음 사항에 유의하세요. 
-
-- App Service 인증서를 생성하는 GoDaddy는 2년에 한 번 도메인 확인이 필요합니다. 도메인 관리자는 도메인을 확인하기 위한 전자 메일을 3년에 한 번 받습니다. 전자 메일 확인 또는 도메인 확인에 대한 실패는 App Service 인증서가 자동으로 갱신되는 것을 방지합니다. 
-- GoDaddy 정책의 변경으로 인해 2017년 3월 1일 이전에 발급된 모든 App Service 인증서는 다음 갱신 시 도메인의 확인이 필요합니다(인증서에 대해 자동 갱신이 활성화된 경우에도). 전자 메일을 확인하고 이 일회성 도메인 확인을 완료하여 App Service 인증서의 자동 갱신을 계속합니다. 
 
 ## <a name="more-resources"></a>추가 리소스
 

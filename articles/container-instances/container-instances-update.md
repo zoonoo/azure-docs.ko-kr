@@ -2,18 +2,17 @@
 title: Azure Container Instances에서 컨테이너 업데이트
 description: Azure Containers Instances 컨테이너 그룹에서 실행되는 컨테이너를 업데이트하는 방법을 알아봅니다.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 08/01/2018
-ms.author: marsma
-ms.openlocfilehash: 5a42b0983b0f754b119fa304317e758a976fb4f6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: danlep
+ms.openlocfilehash: 2df6a2724cbdcd6bbb6c6ca6636256b7e399da8e
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432619"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854544"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Azure Container Instances에서 컨테이너 업데이트
 
@@ -23,7 +22,7 @@ ms.locfileid: "39432619"
 
 하나 이상의 수정된 속성으로 기존 그룹을 다시 배포하여 컨테이너 그룹의 컨테이너를 업데이트합니다. 컨테이너 그룹을 업데이트하면 그룹에서 실행되는 모든 컨테이너가 다시 시작됩니다.
 
-create 명령을 실행하거나 Azure Portal을 사용하여 기존 컨테이너 그룹을 다시 배포하고 기존 그룹의 이름을 지정합니다. create 명령을 실행하여 재배포가 트리거되면 그룹의 유효한 속성을 하나 이상 수정합니다. 일부 컨테이너 그룹 속성은 재배포에 적합하지 않습니다. 지원되지 않는 속성에 대한 목록은 [삭제해야 하는 속성](#properties-that-require-delete)을 참조하세요.
+create 명령을 실행하거나 Azure Portal을 사용하여 기존 컨테이너 그룹을 다시 배포하고 기존 그룹의 이름을 지정합니다. create 명령을 실행하여 재배포가 트리거되면 그룹의 유효한 속성을 하나 이상 수정합니다. 일부 컨테이너 그룹 속성은 재배포에 적합하지 않습니다. 지원되지 않는 속성에 대한 목록은 [삭제해야 하는 속성](#properties-that-require-container-delete)을 참조하세요.
 
 다음 Azure CLI 예제에서는 컨테이너 그룹을 새 DNS 이름 레이블로 업데이트합니다. 그룹의 DNS 이름 레이블 속성이 수정되므로 컨테이너 그룹이 다시 배포되고 해당 컨테이너가 다시 시작됩니다.
 

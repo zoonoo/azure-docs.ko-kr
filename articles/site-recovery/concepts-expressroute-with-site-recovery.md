@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: ac64c73ac26c610c08dceff13cbd524916853146
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: eb28a3d165bcb6cc5e63162053029ce14b0d7f8f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916424"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078140"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure Site Recovery를 사용한 Azure ExpressRoute
 
@@ -30,8 +30,7 @@ ExpressRoute 회로는 연결 공급자를 통한 온-프레미스 인프라와 
 
 ExpressRoute 회로에는 연결된 여러 라우팅 도메인이 있습니다.
 -   [Azure 개인 피어링](../expressroute/expressroute-circuit-peerings.md#azure-private-peering) - Azure 계산 서비스, 즉 가상 머신 (IaaS) 및 가상 네트워크 내에 배포된 클라우드 서비스(PaaS)는 개인 피어링 도메인을 통해 연결될 수 있습니다. 개인 피어링 도메인은 Microsoft Azure로의 핵심 네트워크의 신뢰할 수 있는 확장으로 간주됩니다.
--   
-  [Azure 공용 피어링](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) - Azure Storage, SQL Databases 및 Websites와 같은 서비스는 공용 IP 주소에 제공됩니다. 공용 피어링 라우팅 도메인을 통해 공용 IP 주소(클라우드 서비스의 VIP 포함)에서 호스팅되는 서비스에 개인적으로 연결할 수 있습니다. 새 만들기에 대해 공용 피어링을 사용하지 않으며 Azure PaaS 서비스에 대해 Microsoft 피어링을 대신 사용해야 합니다.
+-   [Azure 공용 피어링](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) - Azure Storage, SQL Databases 및 Websites와 같은 서비스는 공용 IP 주소에 제공됩니다. 공용 피어링 라우팅 도메인을 통해 공용 IP 주소(클라우드 서비스의 VIP 포함)에서 호스팅되는 서비스에 개인적으로 연결할 수 있습니다. 새 만들기에 대해 공용 피어링을 사용하지 않으며 Azure PaaS 서비스에 대해 Microsoft 피어링을 대신 사용해야 합니다.
 -   [Microsoft 피어링](../expressroute/expressroute-circuit-peerings.md#microsoft-peering) - Microsoft 피어링을 통해 Microsoft 온라인 서비스(Office 365, Dynamics 365 및 Azure PaaS 서비스)에 대해 연결됩니다. Microsoft 피어링은 Azure PaaS 서비스에 연결하는 데 권장하는 라우팅 도메인입니다.
 
 [여기](../expressroute/expressroute-circuit-peerings.md#routing-domain-comparison)에서 ExpressRoute 라우팅 도메인을 비교하고 자세히 알아봅니다.
@@ -50,7 +49,7 @@ Azure Site Recovery를 사용하면 [Azure 가상 머신](azure-to-azure-archite
 
 Azure VM 재해 복구의 경우 기본적으로 ExpressRoute는 복제에 필요하지 않습니다. 가상 머신이 대상 Azure 지역으로 장애 조치된 후 [개인 피어링](../expressroute/expressroute-circuit-peerings.md#azure-private-peering)을 사용하여 해당 가상 머신에 액세스할 수 있습니다.
 
-온-프레미스 데이터센터에서 원본 지역의 Azure VM에 연결하기 위해 이미 ExpressRoute를 사용하고 있는 경우 장애 조치 대상 지역에서 ExpressRoute 연결을 다시 설정하기 위한 계획을 세울 수 있습니다. 새 가상 네트워크 연결을 통해 대상 지역에 연결하거나 별도 ExpressRoute 회로 및 재해 복구용 연결을 활용하려면 동일한 ExpressRoute 회로를 사용할 수 있습니다. 여러 가능한 시나리오가 [여기](azure-vm-disaster-recovery-with-expressroute.md#failover-models-with-expressroute)에 설명돼 있습니다.
+온-프레미스 데이터센터에서 원본 지역의 Azure VM에 연결하기 위해 이미 ExpressRoute를 사용하고 있는 경우 장애 조치 대상 지역에서 ExpressRoute 연결을 다시 설정하기 위한 계획을 세울 수 있습니다. 새 가상 네트워크 연결을 통해 대상 지역에 연결하거나 별도 ExpressRoute 회로 및 재해 복구용 연결을 활용하려면 동일한 ExpressRoute 회로를 사용할 수 있습니다. 여러 가능한 시나리오가 [여기](azure-vm-disaster-recovery-with-expressroute.md#fail-over-azure-vms-when-using-expressroute)에 설명돼 있습니다.
 
 [여기](../site-recovery/azure-to-azure-support-matrix.md#region-support)에 설명된 대로 동일한 지리적 클러스터 내에서 Azure 가상 머신을 Azure 지역에 복제할 수 있습니다. 선택한 대상 Azure 지역이 원본과 동일한 지리적 지역 내에 없는 경우 ExpressRoute 프리미엄을 사용해야 할 수 있습니다. 자세한 내용은 [ExpressRoute 위치](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) 및 [ExpressRoute 가격 책정](https://azure.microsoft.com/pricing/details/expressroute/)을 확인하세요.
 

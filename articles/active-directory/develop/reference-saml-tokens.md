@@ -17,12 +17,12 @@ ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4989d221ccc21b2dd454339f8d83245f1556c109
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8f24f25a4eb4db9e9f3e0b4569874dab94ef11b5
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971351"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900961"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Azure AD SAML 토큰 참조
 
@@ -156,7 +156,7 @@ Azure AD(Azure Active Directory)는 각 인증 흐름의 처리 과정에서 여
 
 ## <a name="related-content"></a>관련 콘텐츠
 * Azure AD Graph API 통해 토큰 수명 정책을 관리하는 방법에 대한 자세한 내용은 Azure AD 그래프 [정책 작업](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) 및 [정책 엔터티](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity)를 참조하세요.
-* 자세한 내용과 예제를 포함하여, PowerShell cmdlet를 통한 정책 관리 방법에 대한 샘플은 [Azure AD에서 구성 가능한 토큰 수명](../active-directory-configurable-token-lifetimes.md)을 참조하십시오. 
+* 자세한 내용과 예제를 포함하여, PowerShell cmdlet를 통한 정책 관리 방법에 대한 샘플은 [Azure AD에서 구성 가능한 토큰 수명](active-directory-configurable-token-lifetimes.md)을 참조하십시오. 
 * [사용자 지정 및 선택적 클레임](active-directory-optional-claims.md)을 응용 프로그램의 토큰에 추가합니다.
 * [SAML로 SSO(Single Sign-On)](single-sign-on-saml-protocol.md)를 사용합니다.
 * [Azure Single Sign Out SAML 프로토콜](single-sign-out-saml-protocol.md)을 사용합니다.

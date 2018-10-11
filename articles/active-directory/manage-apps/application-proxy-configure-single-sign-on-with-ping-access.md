@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: aae73816b883fe782eff27c56174c71f14c253c4
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 53d613052713e5144cb9d96aeeb937392fd4736a
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577189"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902929"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>응용 프로그램 프록시 및 PingAccess를 사용하여 Single Sign-On에 대한 헤더 기반 인증
 
@@ -162,10 +162,10 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 >[!NOTE]
 >사용자 지정 클레임을 사용하려면 사용자 지정 정책도 정의하고 응용 프로그램에 할당해야 합니다.  이 정책은 필요한 모든 사용자 지정 특성을 포함해야 합니다.
 >
->정책 정의 및 할당은 PowerShell, Azure AD Graph 탐색기 또는 MS Graph를 통해 수행할 수 있습니다.  이 작업을 PowerShell에서 수행하는 경우 먼저 `New-AzureADPolicy `를 사용한 후 `Set-AzureADServicePrincipalPolicy`를 사용하여 응용 프로그램에 할당해야 할 수 있습니다.  자세한 내용은 [Azure AD 정책 설명서](../active-directory-claims-mapping.md#claims-mapping-policy-assignment)를 참조하세요.
+>정책 정의 및 할당은 PowerShell, Azure AD Graph 탐색기 또는 MS Graph를 통해 수행할 수 있습니다.  이 작업을 PowerShell에서 수행하는 경우 먼저 `New-AzureADPolicy `를 사용한 후 `Set-AzureADServicePrincipalPolicy`를 사용하여 응용 프로그램에 할당해야 할 수 있습니다.  자세한 내용은 [Azure AD 정책 설명서](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment)를 참조하세요.
 
 ### <a name="optional---use-a-custom-claim"></a>선택 사항 - 사용자 지정 클레임 사용
-응용 프로그램에서 사용자 지정 클레임을 사용하도록 하고 추가 필드를 포함하려면 [사용자 지정 클레임 매핑 정책을 만들고 응용 프로그램에 할당](../active-directory-claims-mapping.md#claims-mapping-policy-assignment)해야 합니다.
+응용 프로그램에서 사용자 지정 클레임을 사용하도록 하고 추가 필드를 포함하려면 [사용자 지정 클레임 매핑 정책을 만들고 응용 프로그램에 할당](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment)해야 합니다.
 
 ## <a name="download-pingaccess-and-configure-your-app"></a>PingAccess 다운로드 및 앱 구성
 

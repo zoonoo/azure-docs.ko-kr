@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: 8d5f31f09d51794f9ad3c126edf2fd935f379221
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: fa19c932a18102107068303e1474abd992df3161
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296478"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48903031"
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>AD FS 온-프레미스 앱을 Azure로 마이그레이션 
 
@@ -151,7 +151,7 @@ SAML 2.0 응용 프로그램은 Marketplace의 Azure AD 응용 프로그램을 �
 - 이름
 - 성
 - SAML **NameID**로 대체되는 특성(Azure AD 메일 특성, 메일 접두사, 직원 ID, 확장 특성(1-15) 또는 온-프레미스 **SamAccountName** 특성 포함). 자세한 내용은 [NameIdentifier 클레임 편집](../develop/active-directory-saml-claims-customization.md)을 참조하세요.
-- 사용자 지정 클레임. 지원되는 클레임 매핑에 대한 자세한 내용은 [Azure Active Directory의 클레임 매핑](../active-directory-claims-mapping.md) 및 [Azure Active Directory의 엔터프라이즈 응용 프로그램에 SAML 토큰에서 발급된 클레임 사용자 지정](../develop/active-directory-saml-claims-customization.md)을 참조하세요.
+- 사용자 지정 클레임. 지원되는 클레임 매핑에 대한 자세한 내용은 [Azure Active Directory의 클레임 매핑](../develop/active-directory-claims-mapping.md) 및 [Azure Active Directory의 엔터프라이즈 응용 프로그램에 SAML 토큰에서 발급된 클레임 사용자 지정](../develop/active-directory-saml-claims-customization.md)을 참조하세요.
 
 사용자 지정 클레임 및 **NameID** 요소 외에도, Azure AD에서 마이그레이션의 일부로 추가 구성 단계가 필요한 구성은 다음과 같습니다.
 - AD FS에서 사용자 지정 권한 부여 또는 Multi-Factor Authentication 규칙을 사용자 지정합니다. [Azure AD 조건부 액세스](../active-directory-conditional-access-azure-portal.md) 기능을 사용하여 구성합니다.
@@ -171,7 +171,7 @@ SAML 2.0 응용 프로그램은 Marketplace의 Azure AD 응용 프로그램을 �
 - 토큰의 클레임 기능
     - 온-프레미스 그룹 이름을 클레임으로 발급
     - Azure AD 이외의 저장소로부터의 클레임
-    - 복잡한 클레임 발급 변환 규칙. 지원되는 클레임 매핑에 대한 자세한 내용은 [Azure Active Directory의 클레임 매핑](../active-directory-claims-mapping.md) 및 [Azure Active Directory의 엔터프라이즈 응용 프로그램에 SAML 토큰에서 발급된 클레임 사용자 지정](../develop/active-directory-saml-claims-customization.md)을 참조하세요.
+    - 복잡한 클레임 발급 변환 규칙. 지원되는 클레임 매핑에 대한 자세한 내용은 [Azure Active Directory의 클레임 매핑](../develop/active-directory-claims-mapping.md) 및 [Azure Active Directory의 엔터프라이즈 응용 프로그램에 SAML 토큰에서 발급된 클레임 사용자 지정](../develop/active-directory-saml-claims-customization.md)을 참조하세요.
     - 디렉터리 확장을 클레임으로 발급
     - **NameID** 형식의 사양 사용자 지정
     - 다중 값 특성의 발급

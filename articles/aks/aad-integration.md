@@ -5,17 +5,16 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 8/9/2018
+ms.date: 08/09/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: 5a93cb7b2abbf0eaa25304f61a8a422edf209959
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: bd7f8748dc5260ed6574a1b48632318e9399bca0
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091172"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042124"
 ---
-# <a name="integrate-azure-active-directory-with-aks"></a>AKS와 Azure Active Directory 통합
+# <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Kubernetes Service와 Azure Active Directory 통합
 
 사용자 인증을 위해 Azure AD(Active Directory)를 사용하도록 AKS(Azure Kubernetes Service)를 구성할 수 있습니다. 이 구성에서 Azure Active Directory 인증 토큰을 사용하여 AKS 클러스터에 로그인할 수 있습니다. 또한 클러스터 관리자는 사용자 ID 또는 디렉터리 그룹 구성원 자격에 따라 Kubernetes RBAC(역할 기반 액세스 제어)를 구성할 수 있습니다.
 
@@ -120,13 +119,16 @@ Azure Portal에서 **Azure Active Directory** > **속성**을 선택하고 **디
 [az group create][az-group-create] 명령을 사용하여 AKS 클러스터에 대한 리소스 그룹을 만듭니다.
 
 ```azurecli
-az group create --name myAKSCluster --location eastus
+az group create --name myResourceGroup --location eastus
 ```
 
 [az aks create][az-aks-create] 명령을 사용하여 클러스터를 배포합니다. 아래 샘플 명령의 값을 Azure AD 응용 프로그램을 만들 때 수집한 값으로 바꿉니다.
 
 ```azurecli
-az aks create --resource-group myAKSCluster --name myAKSCluster --generate-ssh-keys --enable-rbac \
+az aks create \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --generate-ssh-keys \
   --aad-server-app-id b1536b67-29ab-4b63-b60f-9444d0c15df1 \
   --aad-server-app-secret wHYomLe2i1mHR2B3/d4sFrooHwADZccKwfoQwK2QHg= \
   --aad-client-app-id 8aaf8bd5-1bdd-4822-99ad-02bfaa63eea7 \
@@ -140,7 +142,7 @@ Azure Active Directory 계정을 AKS 클러스터와 함께 사용하려면 역�
 먼저 `--admin` 인수와 함께 [az aks get-credentials][az-aks-get-credentials] 명령을 사용하여 관리자 액세스로 클러스터에 로그인합니다.
 
 ```azurecli
-az aks get-credentials --resource-group myAKSCluster --name myAKSCluster --admin
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
 다음으로 다음 매니페스트를 사용하여 Azure AD 계정에 대한 ClusterRoleBinding을 만듭니다. 사용자 이름을 Azure AD 테넌트의 이름으로 업데이트합니다. 이 예제에서는 계정에 클러스터의 모든 네임스페이스에 대한 모든 권한을 제공합니다.
@@ -184,7 +186,7 @@ RBAC를 사용하여 Kubernetes 클러스터 보호에 대한 자세한 내용�
 다음으로 [az aks get-credentials][az-aks-get-credentials] 명령을 사용하여 비 관리자 사용자에 대한 컨텍스트를 끌어 옵니다.
 
 ```azurecli
-az aks get-credentials --resource-group myAKSCluster --name myAKSCluster
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
 모든 kubectl 명령을 실행한 후에 Azure에 인증할지를 묻는 메시지가 표시됩니다. 화면에 나타나는 지침을 따릅니다.
@@ -195,18 +197,18 @@ $ kubectl get nodes
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BUJHWDGNL to authenticate.
 
 NAME                       STATUS    ROLES     AGE       VERSION
-aks-nodepool1-42032720-0   Ready     agent     1h        v1.9.6
-aks-nodepool1-42032720-1   Ready     agent     1h        v1.9.6
-aks-nodepool1-42032720-2   Ready     agent     1h        v1.9.6
+aks-nodepool1-79590246-0   Ready     agent     1h        v1.9.9
+aks-nodepool1-79590246-1   Ready     agent     1h        v1.9.9
+aks-nodepool1-79590246-2   Ready     agent     1h        v1.9.9
 ```
 
 완료되면 인증 토큰이 캐시됩니다. 토큰이 만료되거나 Kubernetes config 파일이 다시 생성될 때 로그인할지를 묻는 메시지가 다시 표시됩니다.
 
 성공적으로 로그인한 후 인증 오류 메시지가 표시되는 경우 로그인하는 사용자가 Azure AD에서 게스트가 아닌지 확인합니다(다른 디렉터리에서 페더레이션된 로그인을 사용하는 경우 게스트인 경우가 종종 있음).
+
 ```console
 error: You must be logged in to the server (Unauthorized)
 ```
-
 
 ## <a name="next-steps"></a>다음 단계
 

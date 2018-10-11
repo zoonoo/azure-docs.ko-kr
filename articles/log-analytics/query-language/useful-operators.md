@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: ce397b1ba8d77d2916caa2798c0161ba55f51dbb
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 0b14c13462f15dd90285ed9e37080487324a4d85
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42447119"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831282"
 ---
 # <a name="useful-operators-in-log-analytics-queries"></a>Log Analytics 쿼리의 유용한 연산자
 
@@ -31,7 +31,7 @@ ms.locfileid: "42447119"
 Category                                |관련 분석 함수
 ----------------------------------------|----------------------------------------
 선택 영역 및 열 별칭            |`project`, `project-away`, `extend`
-임시 테이블 및 상수          |`let scalar_alias_name = …;` <br> `let table_alias_name = (){ … &#124; … &#124; … };`
+임시 테이블 및 상수          |`let scalar_alias_name = …;` <br> `let table_alias_name =  …  …  … ;`| 
 비교 및 문자열 연산자         |`startswith`, `!startswith`, `has`, `!has` <br> `contains`, `!contains`, `containscs` <br> `hasprefix`, `!hasprefix`, `hassuffix`, `!hassuffix`, `in`, `!in` <br> `matches regex` <br> `==`, `=~`, `!=`, `!~`
 일반 문자열 함수                 |`strcat()`, `replace()`, `tolower()`, `toupper()`, `substring()`, `strlen()`
 일반 수식 함수                   |`sqrt()`, `abs()` <br> `exp()`, `exp2()`, `exp10()`, `log()`, `log2()`, `log10()`, `pow()` <br> `gamma()`, `gammaln()`
@@ -48,4 +48,4 @@ Machine Learning                        |`evaluate autocluster`, `basket`, `diff
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Log Analytics에서 쿼리를 작성하는 방법](get-started-queries.md)에 대한 단원을 진행합니다.
+- [Log Analytics에서 쿼리 작성](get-started-queries.md)에 대한 단원을 계속 진행하세요.

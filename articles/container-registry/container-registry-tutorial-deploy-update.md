@@ -2,19 +2,18 @@
 title: Azure Container Registry 자습서 - 지역 배포에 업데이트된 이미지 푸시
 description: 수정된 Docker 이미지를 지역에서 복제된 Azure 컨테이너 레지스트리에 푸시한 다음 여러 지역에서 실행되는 웹앱에 자동으로 배포되는 변경 내용을 확인합니다. 3부로 구성된 시리즈 중 제3부입니다.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2018
-ms.author: marsma
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 1a18b6f627a28b912baeda6f180297dc703e665e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 96e46c84039b7c72d5419972c7a5a401eab64659
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031206"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855513"
 ---
 # <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>자습서: 지역 배포에 업데이트된 이미지 푸시
 

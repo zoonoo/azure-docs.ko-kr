@@ -2,19 +2,18 @@
 title: Azure Container Registry 자습서 - Azure Container Registry에서 웹앱 배포
 description: 지리적 복제 Azure Container Registry의 컨테이너 이미지를 사용하여 Linux 기반 웹앱을 배포합니다. 3부로 구성된 시리즈 중 제2부입니다.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 08/20/2018
-ms.author: marsma
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 25e3fdfe72fc2a6ffec1bcee23cd9f1edc783838
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: d1924d730f2c2a64063496d4be759194cef99175
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41918973"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48853864"
 ---
 # <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>자습서: Azure Container Registry에서 웹앱 배포
 

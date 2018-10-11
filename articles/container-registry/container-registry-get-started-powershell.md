@@ -2,19 +2,18 @@
 title: 빠른 시작 - PowerShell을 사용하여 Azure에서 개인 Docker 레지스트리 만들기
 description: Azure에서 PowerShell을 사용하여 개인 Docker 컨테이너 레지스트리를 만드는 방법을 빠르게 알아봅니다.
 services: container-registry
-author: marsma
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 05/08/2018
-ms.author: marsma
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: e6c3330519692eb829803af2582b711be2fb3efe
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: fe21ab3e29b7a4cbf204be82246d37a4b91128e4
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43092881"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856686"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Container Registry 만들기
 

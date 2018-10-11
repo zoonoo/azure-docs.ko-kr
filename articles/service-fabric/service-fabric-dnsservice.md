@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 3c8eac98414fa43213136940fb4c91694a78a2c1
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: a420033d96a1366a79f5f2032693c38d7eca4ac3
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397529"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830976"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service Fabric의 DNS 서비스
 DNS 서비스는 DNS 프로토콜을 통해 다른 서비스를 검색하기 위해 클러스터에서 사용할 수 있는 선택적 시스템 서비스입니다. 
 
-많은 서비스, 특히 컨테이너 서비스는 기존 URL을 통해 주소를 지정할 수 있습니다. Service Fabric Naming Service 프로토콜보다는 표준 DNS 프로토콜을 사용하여 이러한 서비스를 해결할 수 있어야 합니다. DNS 서비스를 통해 DNS 이름을 서비스 이름에 매핑할 수 있으므로 끝점 IP 주소를 확인할 수 있습니다. 이러한 기능은 다양한 플랫폼에서 컨테이너 서비스의 이식성을 유지하며 명명 서비스를 활용할 수 있도록 코드를 다시 작성하기보다는 기존 서비스 URL을 사용할 수 있도록 하여 “리프트 앤 시프트”시나리오를 보다 쉽게 만들 수 있습니다. 
+많은 서비스, 특히 컨테이너 서비스는 기존 URL을 통해 주소를 지정할 수 있습니다. Service Fabric Naming Service 프로토콜보다는 표준 DNS 프로토콜을 사용하여 이러한 서비스를 해결할 수 있어야 합니다. DNS 서비스를 통해 DNS 이름을 서비스 이름에 매핑할 수 있으므로 엔드포인트 IP 주소를 확인할 수 있습니다. 이러한 기능은 다양한 플랫폼에서 컨테이너 서비스의 이식성을 유지하며 명명 서비스를 활용할 수 있도록 코드를 다시 작성하기보다는 기존 서비스 URL을 사용할 수 있도록 하여 “리프트 앤 시프트”시나리오를 보다 쉽게 만들 수 있습니다. 
 
-DNS 서비스는 DNS 이름을 서비스 이름에 매핑하며, 서비스 이름은 명명 서비스를 통해 확인되어 서비스 끝점이 반환됩니다. 서비스의 DNS 이름은 생성 시 제공됩니다. 다음 다이어그램은 상태 비저장 서비스에 대해 DNS 서비스가 작동하는 방식을 보여 줍니다.
+DNS 서비스는 DNS 이름을 서비스 이름에 매핑하며, 서비스 이름은 명명 서비스를 통해 확인되어 서비스 엔드포인트가 반환됩니다. 서비스의 DNS 이름은 생성 시 제공됩니다. 다음 다이어그램은 상태 비저장 서비스에 대해 DNS 서비스가 작동하는 방식을 보여 줍니다.
 
-![서비스 끝점](./media/service-fabric-dnsservice/stateless-dns.png)
+![서비스 엔드포인트](./media/service-fabric-dnsservice/stateless-dns.png)
 
 Service Fabric 버전 6.3부터, 분할된 상태 저장 서비스 주소 지정 체계를 포함하도록 Service Fabric DNS 프로토콜이 확장되었습니다. 이러한 확장을 통해 상태 저장 서비스 DNS 이름과 파티션 이름을 조합하여 특정 파티션 IP 주소를 확인할 수 있습니다. 세 가지 파티션 구성표가 모두 지원됩니다.
 
@@ -130,9 +130,9 @@ Visual Studio 또는 원하는 편집기에서 프로젝트를 연 다음 Applic
 ```
 응용 프로그램을 배포한 후 Service Fabric Explorer의 서비스 인스턴스에는 다음 그림에 나와 있는 것처럼 이 인스턴스에 대한 DNS 이름이 표시됩니다. 
 
-![서비스 끝점](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
+![서비스 엔드포인트](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
-다음 예제에서는 상태 저장 서비스에 대한 DNS 이름을 `statefulsvc.app`으로 설정합니다. 서비스는 이름 지정된 파티션 구성표를 사용합니다. 파티션 이름은 소문자입니다. 이것은 DNS 쿼리에서 대상이 될 파티션에 대한 요구 사항입니다. 자세한 내용은 [상태 저장 서비스 파티션에서 DNS 쿼리 만들기](#making-dns-queries-on-a-stateful-service-partition)를 참조하세요.
+다음 예제에서는 상태 저장 서비스에 대한 DNS 이름을 `statefulsvc.app`으로 설정합니다. 서비스는 이름 지정된 파티션 구성표를 사용합니다. 파티션 이름은 소문자입니다. 이것은 DNS 쿼리에서 대상이 될 파티션에 대한 요구 사항입니다. 자세한 내용은 [상태 저장 서비스 파티션에서 DNS 쿼리 만들기](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition)를 참조하세요.
 
 ```xml
     <Service Name="Stateful1" ServiceDnsName="statefulsvc.app" />

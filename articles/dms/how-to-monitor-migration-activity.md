@@ -2,21 +2,21 @@
 title: Azure Database Migration Service를 사용하여 마이그레이션 작업 모니터링 | Microsoft Docs
 description: Azure Database Migration Service를 사용하여 마이그레이션 작업을 모니터링하는 방법을 알아봅니다.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: ''
 ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/27/2018
-ms.openlocfilehash: 78ad7a503cb2c99b9dac19a5500a01c8f7b7bfc3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 10/09/2018
+ms.openlocfilehash: 8c30af5023cb83ee1f9ca0f41db5b7f977cc4bc7
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045401"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883910"
 ---
 # <a name="monitor-migration-activity"></a>마이그레이션 작업 모니터링
 이 문서에서는 데이터베이스 수준 및 테이블 수준 모두에서 마이그레이션의 진행률을 모니터링하는 방법을 알아봅니다.

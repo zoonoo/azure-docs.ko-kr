@@ -5,16 +5,16 @@ description: C#용 Speech SDK를 사용하여 음성을 번역하는 방법을 �
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 32cbfada359fb39e71abdf1b9ab892a7cd407cc2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2e69dabb3be0aada952fe3acba4d4c0b30f62945
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996675"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887618"
 ---
 # <a name="translate-speech-with-the-cognitive-services-speech-sdk-for-c"></a>Cognitive Services C#용 Speech SDK로 음성 번역
 

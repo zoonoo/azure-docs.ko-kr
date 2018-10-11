@@ -2,21 +2,21 @@
 title: Azure Database Migration Service 사용을 위한 필수 구성 요소 개요 | Microsoft Docs
 description: Azure Database Migration Service를 사용하여 데이터베이스 마이그레이션을 수행하기 위한 필수 구성 요소의 개요를 알아봅니다.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: ''
 ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 06/19/2018
-ms.openlocfilehash: 3dc449724e405f83ce976b9f8b01a89c25d693fe
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.date: 10/09/2018
+ms.openlocfilehash: b3c974eaf4e44a80046efc4b1545f29797fcaf0c
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221253"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887669"
 ---
 # <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>Azure Database Migration Service 사용을 위한 필수 구성 요소 개요
 데이터베이스 마이그레이션을 수행할 때 Azure Database Migration Service가 원활히 실행되도록 하기 위해 필요한 필수 구성 요소가 몇 가지 있습니다. 일부 필수 구성 요소는 서비스가 지원하는 모든 시나리오(원본-대상 쌍)에 적용되는 반면에 특정 시나리오에만 적용되는 필수 구성 요소도 있습니다.
@@ -48,19 +48,19 @@ Azure Database Migration Service를 사용하여 SQL Server에서 Azure SQL Data
    > Azure Database Migration Service를 사용하여 SQL Server에서 Azure SQL Database로 마이그레이션을 수행하기 위해 필요한 전체 필수 구성 요소 목록은 [SQL Server를 Azure SQL Database로 마이그레이션](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-azure-sql) 자습서를 참조하세요.
    > 
 
-## <a name="prerequisites-for-migrating-sql-server-to-azure-sql-database-managed-instance"></a>SQL Server를 Azure SQL Database 관리되는 인스턴스로 마이그레이션하기 위한 필수 구성 요소
-- [Azure Portal에서 Azure SQL Database 관리되는 인스턴스 만들기](https://aka.ms/sqldbmi) 문서의 세부 지침에 따라 Azure SQL Database 관리되는 인스턴스를 만듭니다.
+## <a name="prerequisites-for-migrating-sql-server-to-azure-sql-database-managed-instance"></a>SQL Server를 Azure SQL Database Managed Instance로 마이그레이션하기 위한 필수 구성 요소
+- [Azure Portal에서 Azure SQL Database Managed Instance 만들기](https://aka.ms/sqldbmi) 문서의 세부 지침에 따라 Azure SQL Database Managed Instance를 만듭니다.
 - 방화벽을 열고 Azure Database Migration Service IP 주소 또는 서브넷 범위에 대한 포트 445에서 SMB 트래픽을 허용합니다.
 - Azure Database Migration Service가 기본적으로 TCP 포트 1433인 원본 SQL Server에 액세스하도록 허용하려면 Windows 방화벽을 엽니다.
 - 동적 포트를 사용하여 명명된 여러 SQL Server 인스턴스를 실행하는 경우 SQL Browser 서비스를 사용하도록 설정하고 Azure Database Migration Service가 원본 서버에서 명명된 인스턴스에 연결할 수 있도록 방화벽을 통해 UDP 포트 1434에 액세스할 수 있습니다.
-- 원본 SQL Server와 대상 관리되는 인스턴스를 연결하는 데 사용되는 로그인이 sysadmin 서버 역할의 구성원인지 확인합니다.
+- 원본 SQL Server와 대상 Managed Instance를 연결하는 데 사용되는 로그인이 sysadmin 서버 역할의 구성원인지 확인합니다.
 - Azure Database Migration Service가 원본 데이터베이스를 백업하는 데 사용할 수 있는 네트워크 공유를 만듭니다.
 - 원본 SQL Server 인스턴스를 실행 중인 서비스 계정에 본인이 만든 네트워크 공유에 대한 쓰기 권한이 있고, 원본 서버의 컴퓨터 계정에 동일한 공유에 대한 읽기/쓰기 액세스 권한이 있는지 확인합니다.
 - 이전에 만든 네트워크 공유에 대한 전체 제어 권한을 갖고 있는 Windows 사용자(및 암호)를 메모해 둡니다. Azure Database Migration Service는 사용자 자격 증명을 가장하여 복원 작업을 위한 Azure Storage 컨테이너에 백업 파일을 업로드합니다.
 - [Storage 탐색기를 사용하여 Azure Blob Storage 리소스 관리](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) 문서의 단계에 따라 Blob 컨테이너를 만들고 해당 SAS URI를 검색합니다. SAS URI를 만드는 동안 정책 창에서 모든 권한(읽기, 쓰기, 삭제, 나열)을 선택해야 합니다.
 
    > [!NOTE]
-   > Azure Database Migration Service를 사용하여 SQL Server에서 Azure SQL Database 관리되는 인스턴스로 마이그레이션을 수행하기 위해 필요한 전체 필수 구성 요소 목록은 [SQL Server를 Azure SQL Database 관리되는 인스턴스로 마이그레이션](https://aka.ms/migratetomiusingdms) 자습서를 참조하세요.
+   > Azure Database Migration Service를 사용하여 SQL Server에서 Azure SQL Database Managed Instance로 마이그레이션을 수행하기 위해 필요한 전체 필수 구성 요소 목록은 [SQL Server를 Azure SQL Database Managed Instance로 마이그레이션](https://aka.ms/migratetomiusingdms) 자습서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Database Migration Service 및 국가별 가용성에 대한 개요는 [Azure Database Migration Service란?](dms-overview.md) 문서를 참조하세요. 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 1bb96821b61647f5dfad54c8b0cb6248eb0db4af
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.component: ''
+ms.openlocfilehash: 8039a660a0f9fc94471e4b3e28b1b00bfb0d6b9e
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140773"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042448"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics에서 데이터 사용 현황 분석
 
@@ -168,8 +168,7 @@ Log Analytics는 데이터를 전송한 소스 및 전송되는 데이터의 다
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>예상보다 더 많은 노드가 있는지 확인합니다.
 *노드당(OMS)* 가격 책정 계층에 있는 경우 사용한 노드 및 솔루션의 수에 따라 요금이 청구됩니다. 사용 대시보드의 *제품* 섹션에서 사용 중인 각 제품의 노드 수를 볼 수 있습니다.<br><br> ![사용량 대시보드](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
-
-  **모두 표시...** 를 클릭하여 선택한 제품에 데이터를 전송하는 컴퓨터의 전체 목록을 볼 수 있습니다.
+**모두 표시...** 를 클릭하여 선택한 제품에 데이터를 전송하는 컴퓨터의 전체 목록을 볼 수 있습니다.
 
 [솔루션 대상](../operations-management-suite/operations-management-suite-solution-targeting.md)을 사용하여 필수 그룹의 컴퓨터에서 데이터를 수집합니다.
 

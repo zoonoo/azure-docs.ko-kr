@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 3ac97ac5e9ae0a7059d9c74c5918212f1ce02790
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5a8e43934393c2e6a97b81809284781a5c207e41
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959957"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816347"
 ---
 # <a name="application-types-in-v10"></a>v1.0의 응용 프로그램 유형
 
@@ -69,7 +69,7 @@ Azure AD로 인증을 아웃소싱하는 응용 프로그램을 디렉터리에 
 Azure AD를 사용하여 개발 및 통합할 수 있는 두 가지 범주의 응용 프로그램이 있다는 것을 이해하면 프로비저닝이 더 분명해집니다.
 
 * **단일 테넌트 응용 프로그램** - 단일 테넌트 응용 프로그램은 단일 조직에서 사용하기 위한 것입니다. 일반적으로 엔터프라이즈 개발자가 작성한 LoB(기간 업무) 응용 프로그램이 이에 해당합니다. 단일 테넌트 응용 프로그램은 하나의 디렉터리에 있는 사용자들만 액세스해야 하므로 하나의 디렉터리에서만 프로비전해야 합니다. 이 응용 프로그램은 일반적으로 조직 내에서 개발자가 등록합니다.
-* **다중 테넌트 응용 프로그램** - 다중 테넌트 응용 프로그램은 하나의 조직이 아니라 많은 조직에서 사용하기 위한 것입니다. 일반적으로 ISV(Independent Software Vendor)가 작성한 SaaS(Software-as-a-Service) 응용 프로그램이 이에 해당합니다. 다중 테넌트 응용 프로그램은 사용될 각 디렉터리에서 프로비저닝해야 하며, 그러려면 사용자나 관리자가 등록에 동의해야 합니다. 이러한 동의 프로세스는 응용 프로그램이 디렉터리에 등록되고 Graph API 또는 다른 웹 API에 대한 액세스 권한이 제공되면 시작됩니다. 다른 조직의 사용자나 관리자가 응용 프로그램을 사용하기 위해 등록할 때는 응용 프로그램에서 요구되는 권한을 표시하는 대화 상자가 표시됩니다. 이 사용자 또는 관리자는 응용 프로그램에 동의할 수 있으며, 이 경우 응용 프로그램에서 주어진 데이터에 액세스할 수 있게 되고 최종적으로 디렉터리에서 응용 프로그램이 등록됩니다. 자세한 내용은 [동의 프레임 워크 개요](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework)를 참조하세요.
+* **다중 테넌트 응용 프로그램** - 다중 테넌트 응용 프로그램은 하나의 조직이 아니라 많은 조직에서 사용하기 위한 것입니다. 일반적으로 ISV(Independent Software Vendor)가 작성한 SaaS(Software-as-a-Service) 응용 프로그램이 이에 해당합니다. 다중 테넌트 응용 프로그램은 사용될 각 디렉터리에서 프로비저닝해야 하며, 그러려면 사용자나 관리자가 등록에 동의해야 합니다. 이러한 동의 프로세스는 응용 프로그램이 디렉터리에 등록되고 Graph API 또는 다른 웹 API에 대한 액세스 권한이 제공되면 시작됩니다. 다른 조직의 사용자나 관리자가 응용 프로그램을 사용하기 위해 등록할 때는 응용 프로그램에서 요구되는 권한을 표시하는 대화 상자가 표시됩니다. 이 사용자 또는 관리자는 응용 프로그램에 동의할 수 있으며, 이 경우 응용 프로그램에서 주어진 데이터에 액세스할 수 있게 되고 최종적으로 디렉터리에서 응용 프로그램이 등록됩니다. 자세한 내용은 [동의 프레임 워크 개요](consent-framework.md)를 참조하세요.
 
 ### <a name="additional-considerations-when-developing-single-tenant-or-multi-tenant-apps"></a>단일 테넌트 또는 다중 테넌트 응용 프로그램 개발 시의 추가 고려 사항
 

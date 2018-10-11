@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: fbbc5a199116e46aac0874f3dc6d6d9aa18c60cd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b0fb2cd79c0ee685ad2000c5444a84d53e462f24
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954025"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868278"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Azure 데이터 탐색기 데이터베이스 권한 관리
 
@@ -31,14 +31,13 @@ Azure 데이터 탐색기에는 다음 역할이 있습니다.
 |데이터베이스 사용자              |데이터베이스의 모든 데이터 및 메타데이터를 읽을 수 있습니다. 또한 데이터베이스에서 테이블(해당 테이블의 테이블 관리자가 됨) 및 함수를 만들 수 있습니다.|
 |데이터베이스 보기 권한자            |데이터베이스의 모든 데이터 및 메타데이터를 읽을 수 있습니다.|
 |데이터베이스 수집 권한자          |데이터베이스의 모든 기존 테이블에 데이터를 수집할 수 있지만 데이터를 쿼리할 수 없습니다.|
-|데이터베이스 무제한 보기 권한자|**RestrictedViewAccess** 정책이 사용되는 테이블을 쿼리할 수 있습니다. 다른 테이블을 쿼리할 수 없습니다.|
 |데이터베이스 모니터           |데이터베이스 및 해당 자식 엔터티의 컨텍스트에서 '.show ...' 명령을 실행할 수 있습니다.|
 |테이블 관리자                |특정 테이블의 범위에서 모든 작업을 수행할 수 있습니다. |
 |테이블 수집 권한자             |특정 테이블의 범위에서 데이터를 수집할 수 있지만 데이터를 쿼리할 수 없습니다.|
 
 ## <a name="manage-permissions-in-the-azure-portal"></a>Azure Portal에서 권한 관리
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. Azure 데이터 탐색기 클러스터로 이동합니다.
 
@@ -78,4 +77,4 @@ Azure 데이터 탐색기에는 다음 역할이 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[쿼리 쓰기](write-queries.md)
+[쿼리 작성](write-queries.md)

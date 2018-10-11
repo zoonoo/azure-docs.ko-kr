@@ -2,19 +2,18 @@
 title: 'Azure Container Instances 자습서 - 앱 준비 '
 description: Azure Container Instances 자습서 1/3부 - Azure Container Instances에 배포할 앱 준비
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
-ms.author: marsma
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 79041123196559c5759789638228ea0dd21f2762
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dfe494eba64f546616e4e6cc9898f9d63d81eaa2
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163285"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854782"
 ---
 # <a name="tutorial-create-container-for-deployment-to-azure-container-instances"></a>자습서: Azure Container Instances에 배포를 위한 컨테이너 만들기
 

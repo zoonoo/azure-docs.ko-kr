@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 941c29506aa8f17dcb6262495b28dd26e78194d5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e0cdda629ddded121a424af61377c04ee8d958d3
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036063"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867547"
 ---
 # <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>자습서 7: 간단한 엔터티 및 구 목록을 사용하여 이름 추출
 
@@ -299,7 +299,7 @@ LUIS-Samples Github 리포지토리에서 [jobs-phrase-list.csv](https://github.
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "구 목록 값 상자에 단어가 포함된 새 구 목록 대화 상자 팝업의 스크린샷")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
-5. 구 목록을 사용할 수 있도록 앱을 다시 [학습](#train-the-luis-app) 및 [게시](#publish-the-app-to-get-the-endpoint-URL)합니다.
+5. 구 목록을 사용할 수 있도록 앱을 다시 [학습](#train) 및 [게시](#publish)합니다.
 
 6. 동일한 `This is the lead welder paperwork.` 발화를 사용하여 엔드포인트에서 다시 쿼리합니다.
 

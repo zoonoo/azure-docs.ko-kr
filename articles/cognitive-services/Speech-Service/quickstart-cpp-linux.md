@@ -5,16 +5,16 @@ description: 'Cognitive Services Speech # SDK를 사용하여 Linux 기반 C++�
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 98007a11ceadcdddbcd881607f7dda1222d90bc4
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: f3bcbc7bcbd57e9baa5a01f3a2ef572b09128260
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055920"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886248"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Linux 기반 C++에서 음성 인식
 
@@ -24,7 +24,7 @@ ms.locfileid: "47055920"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 완료하려면 음성 서비스 구독 키가 필요합니다. 무료로 얻을 수 있습니다. 자세한 내용은 [음성 서비스를 무료로 체험해보기](get-started.md)를 참조하세요.
+이 빠른 시작을 완료하려면 음성 서비스 구독 키가 필요합니다. 무료로 가져올 수 있습니다. 자세한 내용은 [음성 서비스를 무료로 체험해보기](get-started.md)를 참조하세요.
 
 ## <a name="install-speech-sdk"></a>Speech SDK 설치
 
@@ -121,7 +121,7 @@ SDK를 다음과 같이 다운로드하고 설치합니다.
    ./helloworld
    ```
 
-1.  아무 말이나 하라는 메시지가 콘솔 창에 나타납니다. 영어 구 또는 문장을 말하세요. 음성은 음성 서비스로 전송되어 텍스트로 기록되고, 동일한 창에 표시됩니다.
+1.  아무 말이나 하라는 메시지가 콘솔 창에 나타납니다. 영어 구 또는 문장을 말하세요. 음성은 음성 서비스로 전송되어 텍스트로 변환되고, 동일한 창에 표시됩니다.
 
    ```text
    Say something...

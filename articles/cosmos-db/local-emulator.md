@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 7067a71eea3ffbfadf006a102ee926fb15347f63
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: a5481f9b2b443a0860ce0df5643427f357e1c294
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423649"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785374"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos DB 에뮬레이터 사용
 
@@ -466,54 +466,6 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 2. Windows 검색 상자에 **앱 및 기능**을 입력하고 **앱 및 기능(시스템 설정)** 결과를 클릭합니다.
 3. 앱 목록에서 **Azure Cosmos DB 에뮬레이터**로 스크롤하여 선택하고, **제거**를 클릭한 다음, 확인하고 **제거**를 다시 클릭합니다.
 4. 앱을 제거할 때 `C:\Users\<user>\AppData\Local\CosmosDBEmulator`로 이동하여 폴더를 삭제합니다. 
-
-## <a name="change-list"></a>변경 목록
-
-작업 표시줄에서 로컬 에뮬레이터 아이콘을 마우스 오른쪽 단추로 클릭하고 정보 메뉴 항목을 클릭하여 버전 번호를 확인할 수 있습니다.
-
-### <a name="1220-released-on-april-20-2018"></a>1.22.0. 2018년 4월 20일 릴리스
-
-Cosmos DB 클라우드 서비스와의 패리티를 위한 에뮬레이터 서비스 업데이트 외에도, 개선된 PowerShell 설명서와 여러 가지 버그 수정이 포함되어 있습니다.
-
-### <a name="12106-released-on-march-27-2018"></a>1.21.0.6 - 2018년 3월 27일 릴리스
-
-Cosmos DB 클라우드 서비스와의 패리티를 위한 에뮬레이터 서비스 업데이트 외에도, 새로운 기능 하나와 두 개의 버그 수정이 이 릴리스에 포함되어 있습니다.
-
-#### <a name="features"></a>기능
-
-1. 이제 Start-CosmosDbEmulator 명령에 시작 옵션이 포함됩니다.
-
-#### <a name="bug-fixes"></a>버그 수정
-
-1. Microsoft.Azure.CosmosDB.Emulator PowerShell 모듈은 이제 `ServiceControllerStatus` 열거형이 로드됩니다.
-
-2. Microsoft.Azure.CosmosDB.Emulator PowerShell 모듈에는 첫 번째 릴리스에서 생략되었던 매니페스트가 포함되어 있습니다.
-
-### <a name="1201084-released-on-february-14-2018"></a>1.20.108.4 - 2018년 2월 14일 릴리즈
-
-이 릴리즈에 한 개의 새 기능 및 두 개의 버그 수정이 포함됐습니다. 이 문제를 발견하고 해결하는 데 도움을 준 고객에게 감사드립니다.
-
-#### <a name="bug-fixes"></a>버그 수정
-
-1. 에뮬레이터는 이제 1개나 2개 코어(또는 가상 Cpu)를 장착한 컴퓨터에서 작동합니다.
-
-   Cosmos DB는 다양한 서비스를 수행하기 위해 작업을 할당합니다. 할당 작업 수는 호스트의 코어 수의 배수입니다. 코어 수가 방대한 프로덕션 환경에서 기본 배수가 잘 작동 합니다. 그러나 1개 또는 2개 프로세서가 있는 머신에서 이 배수가 적용될 경우 해당 서비스를 수행하도록 작업이 할당되지 않습니다.
-
-   에뮬레이터에 구성 재정의를 추가해 이를 수정했습니다. 이제 1의 배수를 적용합니다. 다양한 서비스를 수행하도록 할당된 작업의 수는 호스트의 코어 수와 동일합니다.
-
-   이 릴리스에 대해 아무 것도 하지 않았다면 이 문제를 해결할 수 있었을 것입니다. 에뮬레이터를 호스팅하는 많은 개발/테스트 환경은 1개 또는 2개의 코어를 갖습니다.
-
-2. 에뮬레이터는 더 이상 Microsoft Visual C++ 2015 재배포 가능 패키지 설치를 요구하지 않습니다.
-
-   Windows(데스크톱 및 서버 버전)의 새로운 설치는 이 재배포 가능 패키지를 포함하지 않습니다. 따라서 재배포 가능 이진 파일을 에뮬레이터와 함께 번들로 제공합니다.
-
-#### <a name="features"></a>기능
-
-대화를 나눈 고객 대부분이 에뮬레이터가 스크립트가 가능하면 좋겠다는 말을 했습니다. 따라서 이 릴리스에 몇 가지 스크립트 기능을 추가했습니다. 에뮬레이터는 자체 시작, 중지, 상태 가져오기 및 제거를 위한 PowerShell 모듈을 포함합니다`Microsoft.Azure.CosmosDB.Emulator`. 
-
-### <a name="120911-released-on-january-26-2018"></a>1.20.91.1 - 2018년 1월 26일 릴리스
-
-* 기본적으로 MongoDB 집계 파이프라인을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

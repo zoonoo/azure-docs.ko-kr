@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 6ec59c8af290a9ff7b7d9640b2253a0f91886256
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b905feef4d3a5445ba27b92637448443c3bbb4a3
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394355"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855615"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Azure Service Bus 큐를 사용하는 .NET 다중 계층 응용 프로그램
 
@@ -352,7 +352,6 @@ Service Bus는 조정된 메시징을 지원하는 두 개의 엔터티인 큐�
 ## <a name="next-steps"></a>다음 단계
 Service Bus에 대한 자세한 내용은 다음 리소스를 참조하십시오.  
 
-* [Service Bus 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus 큐 사용 시작][sbacomqhowto]
 * [Service Bus 서비스 페이지][sbacom]  
 

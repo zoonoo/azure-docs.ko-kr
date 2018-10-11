@@ -8,14 +8,16 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: tonyxing
-ms.openlocfilehash: 1080bb0ad1d901a8b9a5ace4993d4e0d46924a03
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2a0715d3becf695600ed84edbae38151acf055a8
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35375351"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246845"
 ---
 # <a name="what-is-anomaly-finder"></a>Anomaly Finder란?
+
+[!INCLUDE [PrivatePreviewNote](../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 Anomaly Finder를 사용하면 시간에 따라 데이터를 모니터링하고 업계, 시나리오 또는 데이터 볼륨에 관계없이 올바른 통계 모델을 자동으로 적용하여 고유 데이터에 맞게 수정되는 Machine Learning으로 변칙을 검색할 수 있습니다. 시계열을 입력으로 사용하여 Anomaly Finder API는 데이터 요소가 변칙인지 여부를 반환하고, 시각화를 위한 예상 값과 상한 및 하한을 결정합니다. 미리 빌드된 AI 서비스인 Anomaly Finder는 RESTful API를 사용하는 방법만 이해하면 Machine Learning 전문 지식이 필요하지 않습니다. 이 때문에 모든 시계열 데이터에서 작동하고 스트리밍 데이터 시스템에도 빌드될 수 있으므로 개발이 단순하고 유연해집니다. Anomaly Finder는 사기, 도난, 변화하는 지역/국가, 비즈니스 인시던트를 관리하거나 익명성을 유지하면서 IoT 장치 트래픽을 모니터링하기 위한 재무 도구 등 광범위한 사용 사례를 포괄합니다. 이 솔루션을 최종 고객이 데이터, 지출, 투자 수익 또는 사용자 활동의 변경 내용을 파악하기 위한 서비스의 일부로 제공하여 수익을 창출할 수도 있습니다.
 Anomaly Finder API를 사용해 보고 데이터에 대해 자세히 알아봅니다. 

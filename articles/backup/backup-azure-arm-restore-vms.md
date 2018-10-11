@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: geg
-ms.openlocfilehash: eb47b1d8d3f2859b2b5c0b79633b2d37e5a40756
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: f7561ef4978e19439eafb6ef1a6ca1275c0f2bc7
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380168"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804619"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Azure Portal을 사용하여 가상 머신 복원
 정의된 간격으로 데이터의 스냅숏을 찍어 데이터를 보호합니다. 이러한 스냅숏은 복구 지점이라고 하며 Recovery Services 자격 증명 모음에 저장됩니다. VM(가상 머신)을 복구하거나 다시 빌드해야 하는 경우 저장된 복구 지점 중 하나에서 VM을 복원할 수 있습니다. 복구 지점을 복원할 때 다음을 수행할 수 있습니다.
@@ -37,6 +37,7 @@ VM 백업에서 VM 또는 모든 디스크를 복원하는 작업은 다음과 �
 * 복원 유형 선택을 선택하고, 새 VM을 만들거나 디스크를 복원하고, 필수 매개 변수를 지정합니다. 
 
 ## <a name="select-a-restore-point-for-restore"></a>복원을 위해 복원 지점 선택
+
 1. [Azure Portal](http://portal.azure.com/)에 로그인합니다.
 
 1. Azure 메뉴에서 **찾아보기**를 선택합니다. 이 서비스 목록에서 **Recovery Services**를 입력합니다. 서비스 목록은 입력하는 항목에 조정됩니다. **Recovery Services 자격 증명 모음**이 표시되면 이를 선택합니다.
@@ -102,7 +103,7 @@ VM 백업에서 VM 또는 모든 디스크를 복원하는 작업은 다음과 �
 포털은 복원된 VM에 대해 **빨리 만들기** 옵션을 제공합니다. VM 구성 또는 새 VM 선택 만들기의 일환으로 만들어진 리소스 이름을 사용자 지정하려면 PowerShell이나 포털을 사용하여 백업된 디스크를 복원합니다. PowerShell 명령을 사용하여 사용자가 선택한 VM 구성에 연결합니다. 또는 복원된 디스크에 수반되는 템플릿을 사용하여 복원된 VM을 사용자 지정합니다. 여러 NIC가 있거나 부하 분산 장치가 적용되는 VM의 복원 방법에 대한 내용은 [특수 네트워크 구성이 있는 VM 복원](#restore-vms-with-special-network-configurations)을 참조하세요. Windows VM이 [허브 라이선스](../virtual-machines/windows/hybrid-use-benefit-licensing.md)를 사용하는 경우 디스크를 복원하고 이 문서에서 명시한 대로 PowerShell/템플릿을 사용하여 VM을 만듭니다. 복원된 VM에서 허브 혜택을 사용할 수 있게 **라이선스 형식**을 "Windows_Server"로 지정했는지 확인합니다. 
  
 ## <a name="create-a-new-vm-from-a-restore-point"></a>복원 지점에서 새 VM 만들기
-1. 아직 수행하지 않은 경우 복원 지점에서 새 VM을 만들기 전에 [복원 지점을 선택합니다](#restore-a vm-with-special-network-configurations). 복원 지점을 선택하면 **복원 구성** 블레이드에서 다음 필드 각각에 대해 값을 입력하거나 선택합니다.
+1. 아직 수행하지 않은 경우 복원 지점에서 새 VM을 만들기 전에 [복원 지점을 선택합니다](#select-a-restore-point-for-restore). 복원 지점을 선택하면 **복원 구성** 블레이드에서 다음 필드 각각에 대해 값을 입력하거나 선택합니다.
 
     a. **형식을 복원**합니다. 가상 머신을 만듭니다.
 
@@ -239,9 +240,9 @@ Azure Portal에서 또는 PowerShell을 사용하여 다른 VM과 마찬가지�
 
    b. [인터넷 연결 부하 분산 장치](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/)에 연결하는 VM을 만듭니다.
 
-   다. [여러 NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/)가 있는 VM을 만듭니다.
+   다. [여러 NIC](../virtual-machines/windows/multiple-nics.md)가 있는 VM을 만듭니다.
 
-   d. [여러 예약된 IP](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/)가 있는 VM을 만듭니다.
+   d. [여러 예약된 IP](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md)가 있는 VM을 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
 VM을 복원할 수 있습니다. VM의 일반적인 오류에 대한 정보에 대한 문제 해결 문서를 참조하세요. 또한 VM을 사용하는 작업 관리에 대한 문서를 확인합니다.

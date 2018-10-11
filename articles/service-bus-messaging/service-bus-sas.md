@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: spelluru
-ms.openlocfilehash: d75f8654a33d670f107508b9e91661b1a7719755
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: adc9d64c4756e055b3ff9b772feebd80902d2c9f
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408558"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857876"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>공유 액세스 서명을 사용한 Service Bus 액세스 제어
 
@@ -31,7 +31,7 @@ SAS는 권한 부여 규칙에 따라 Service Bus에 대한 액세스를 보호�
 
 공유 액세스 서명은 간단한 토큰을 사용하는 클레임 기반 권한 부여 메커니즘입니다. SAS를 사용하여 키는 연결 중에 전달되지 않습니다. 키는 서비스에 의해 나중에 확인될 수 있는 정보를 암호화하여 서명하는 데 사용됩니다. SAS는 클라이언트가 권한 부여 규칙 이름 및 일치 키를 즉시 소유하는 사용자 이름 및 암호 구성표와 유사하게 사용될 수 있습니다. SAS는 또한 클라이언트가 서명 키의 소유 없이 보안 토큰 서비스에서 시간 제한 및 서명된 액세스 토큰을 받는 페더레이션된 보안 모델과 유사하게 사용될 수도 있습니다.
 
-Service Bus에서 SAS 인증은 연결된 액세스 권한 및 기본 및 보조 암호화 키 쌍이 있는 [공유 액세스 권한 부여 규칙](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)으로 구성됩니다. 키는 Base64 표현에서 256비트 값입니다. Service Bus [릴레이](service-bus-fundamentals-hybrid-solutions.md#relays), [큐](service-bus-fundamentals-hybrid-solutions.md#queues) 및 [항목](service-bus-fundamentals-hybrid-solutions.md#topics)의 네임스페이스 수준에서 규칙을 구성할 수 있습니다.
+Service Bus에서 SAS 인증은 연결된 액세스 권한 및 기본 및 보조 암호화 키 쌍이 있는 [공유 액세스 권한 부여 규칙](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)으로 구성됩니다. 키는 Base64 표현에서 256비트 값입니다. Service Bus [릴레이](../service-bus-relay/relay-what-is-it.md), [큐](/service-bus-messaging/service-bus-messaging-overview.md#queues) 및 [항목](/service-bus-messaging/service-bus-messaging-overview.md#topics)의 네임스페이스 수준에서 규칙을 구성할 수 있습니다.
 
 [공유 액세스 서명](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) 토큰은 선택한 권한 부여 규칙의 이름, 액세스해야 하는 리소스의 URI, 만료 인스턴트 및 선택한 권한 부여 규칙의 기본 또는 보조 암호화 키를 사용하여 이러한 필드를 통해 계산된 HMAC-SHA256 암호화 서명을 포함합니다.
 
@@ -301,7 +301,6 @@ AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니
 
 Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
-* [Service Bus 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus 큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)
 * [Service Bus 큐를 사용하는 방법](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus 토픽 및 구독을 사용하는 방법](service-bus-dotnet-how-to-use-topics-subscriptions.md)

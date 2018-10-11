@@ -1,28 +1,29 @@
 ---
-title: Project Answer Search 개요 - Microsoft Cognitive Services | Microsoft Docs
+title: Project Answer Search란?
+titlesuffix: Azure Cognitive Services
 description: Project Answer Search 소개입니다.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: overview
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: d87cf1390970d2c815b94bcaee7e07c19bc03cce
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 5658054b3cc77db20edd64f6c560ee5d4a58eb46
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376383"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883723"
 ---
 # <a name="what-is-project-answer-search"></a>Project Answer Search란?
-Project Answer Search API는 Bing v7 끝점을 사용하여 질문 형태의 쿼리에 대한 답변을 가져옵니다. “What is the circumference of the earth?”와 같은 질문은 팩트 정보가 포함된 답변을 반환합니다.  사람, 장소 또는 사물에 대한 쿼리는 쿼리에 의해 식별된 엔터티에 대한 정보를 반환합니다. 대화 봇, 메시징 앱, 리더 등과 같은 응용 프로그램에서는 이러한 시나리오가 유용할 수 있습니다.  
+Project Answer Search API는 Bing v7 엔드포인트를 사용하여 질문 형태의 쿼리에 대한 답변을 가져옵니다. “What is the circumference of the earth?”와 같은 질문은 팩트 정보가 포함된 답변을 반환합니다.  사람, 장소 또는 사물에 대한 쿼리는 쿼리에 의해 식별된 엔터티에 대한 정보를 반환합니다. 대화 봇, 메시징 앱, 리더 등과 같은 응용 프로그램에서는 이러한 시나리오가 유용할 수 있습니다.  
 
 쿼리는 쿼리 시나리오에 종속된 응답을 반환합니다. 웹 페이지는 항상 반환되는 반면, [팩트](fact-queries.md) 및/또는 [엔터티](entity-queries.md)는 관련된 경우에 반환됩니다.
 
-## <a name="endpoint"></a>끝점
-사람, 장소 또는 사물에 대한 정보나 질문에 대한 답변을 가져오려면 Answer Search API 끝점에 요청을 보냅니다. 다양한 사양을 위해 헤더 및 URL 매개 변수를 사용합니다.  유효한 토큰이 포함된 *Ocp-Apim-Subscription-Key* 헤더를 포함합니다.  지역/국가 매개 변수가 필요합니다. 현재, `en-us` 지역/국가만 지원됩니다.
+## <a name="endpoint"></a>엔드포인트
+사람, 장소 또는 사물에 대한 정보나 질문에 대한 답변을 가져오려면 Answer Search API 엔드포인트에 요청을 보냅니다. 다양한 사양을 위해 헤더 및 URL 매개 변수를 사용합니다.  유효한 토큰이 포함된 *Ocp-Apim-Subscription-Key* 헤더를 포함합니다.  지역/국가 매개 변수가 필요합니다. 현재, `en-us` 지역/국가만 지원됩니다.
 
 다음 쿼리는 질문에 대한 답변을 가져옵니다. “What is the circumference of the earth?”
 

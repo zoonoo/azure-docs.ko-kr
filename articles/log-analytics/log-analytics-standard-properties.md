@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: bcc5f23c163a391639d916b8a50c2c05d228ee91
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.component: ''
+ms.openlocfilehash: c43f8acf7f9278ca412bee9ad15f2d51541cd27b
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432089"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044334"
 ---
 # <a name="standard-properties-in-log-analytics-records"></a>Log Analytics 레코드의 표준 속성
 [Log Analytics](../log-analytics/log-analytics-queries.md)의 데이터는 각각 고유한 속성 집합이 있는 특정 데이터 형식의 레코드 집합으로 저장됩니다. 많은 데이터 형식에는 여러 형식에 공통적인 표준 속성이 있습니다. 이 문서에서는 이러한 속성에 대해 설명하고 쿼리에 속성을 사용하는 방법의 예를 제공합니다.

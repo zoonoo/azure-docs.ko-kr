@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 8a7ecac3776d767160b07f550251c54793926056
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 8fbfd37be0bc6f05f30b71fdae2e7cc88601d628
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033195"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785548"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>작성 및 엔드포인트 사용자 액세스
 작성 액세스는 소유자 및 협력자가 사용할 수 있습니다. 개인 앱의 경우 소유자 및 협력자는 엔드포인트 액세스를 사용할 수 있습니다. 공용 앱의 경우 LUIS 계정을 소유하고 공용 앱 ID를 가진 모든 사용자가 엔드포인트 액세스를 사용할 수 있습니다. 
@@ -85,7 +85,7 @@ If the Microsoft user account is part of an Azure Active Directory (AAD), and th
 
 ## <a name="security-compliance"></a>보안 준수
  
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-security-compliance.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-security-compliance.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

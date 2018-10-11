@@ -5,16 +5,16 @@ titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: v-jerkin
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: speech
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 7ba62ce0cc2d391c96c31795aabaac9c8796f6d5
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 52f1d9cb242f140d485ccf7b39a55a46ee575a3d
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165537"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883621"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Speech Service를 사용하여 사용자 지정 절전 모드 해제 단어 만들기
 
@@ -36,7 +36,7 @@ ms.locfileid: "47165537"
 
 * 일반적인 단어는 선택하지 않도록 합니다. 예를 들어, "eat"과 “go”는 사람들이 평상시 대화에서 자주 말하는 단어입니다. 이러한 단어는 장치를 잘못 트리거할 수 있습니다.
 
-* 대체 발음이 있을 수 있는 절전 모드 해제 단어는 사용하지 않습니다. 사용자는 장치의 반응을 얻기 위해 "올바른" 발음을 알고 있어야 합니다. 예를 들어 "509"는 "five zero nine", "five oh nine" 또는 "five hundred and nine"으로 발음할 수 있습니다. "R.E.I."는 "R E I" 또는 "Ray"로, "Live"는 "/līv/" 또는 "/liv/"로 발음할 수 있습니다.
+* 대체 발음이 있을 수 있는 절전 모드 해제 단어는 사용하지 않습니다. 사용자는 장치의 반응을 얻기 위해 "올바른" 발음을 알고 있어야 합니다. 예를 들어 "509"는 "five zero nine", "five oh nine" 또는 "five hundred and nine"으로 발음할 수 있습니다. "R.E.I." "R E I" 또는 "Ray"로, "Live"는 "/līv/" 또는 "/liv/"로 발음할 수 있습니다.
 
 * 특수 문자, 기호 또는 숫자는 사용하지 않도록 합니다. 예를 들어, "Go #" 및 "20 + cats"는 좋은 절전 모드 해제 단어가 아닙니다. 그러나 "go sharp" 또는 "twenty plus cats"는 적합할 수 있습니다. 여전히 브랜딩에 기호를 사용하고, 마케팅 및 설명서를 사용하여 적절한 발음을 강화할 수 있습니다.
 
@@ -49,30 +49,29 @@ ms.locfileid: "47165537"
 
 1. [Custom Speech Service 포털](https://cris.ai/)로 이동합니다.
 
-2. Azure Active Directory에 대한 초대를 받은 이메일 주소를 사용하여 새 계정을 만듭니다. 
+1. Azure Active Directory에 대한 초대를 받은 이메일 주소를 사용하여 새 계정을 만듭니다. 
 
     ![새 계정 만들기](media/speech-devices-sdk/wake-word-1.png)
  
-3.  로그인한 후 양식을 작성한 다음, **경험 시작**을 선택합니다.
+1.  로그인한 후 양식을 작성한 다음, **경험 시작**을 선택합니다.
 
     ![정상 로그인된 후의 화면](media/speech-devices-sdk/wake-word-3.png)
  
-4. 일반 사용자는 **사용자 지정 절전 모드 해제 단어** 페이지를 사용할 수 없으므로 이 페이지로 이동할 수 있는 직접 링크가 없습니다. Custom Speech 기능을 사용하려면 Azure 구독이 필요하지만 사용자 지정 절전 모드 해제 단어 기능은 필요하지 않습니다. **구독을 찾을 수 없습니다.** 오류 페이지가 표시되면, URL에서 **"Subscriptions?errorMessage=No%20Subscriptions%20found"** 를 "**customkws**"로 바꾸고 Enter 키를 누르기만 하면 됩니다. URL은 해당 지역의 위치에 따라 https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws 또는 https://northeurope.cris.ai/customkws 중 하나여야 합니다.   
-
+1. 일반 사용자는 **사용자 지정 절전 모드 해제 단어** 페이지를 사용할 수 없으므로 이 페이지로 이동할 수 있는 직접 링크가 없습니다. Custom Speech 기능을 사용하려면 Azure 구독이 필요하지만 사용자 지정 절전 모드 해제 단어 기능은 필요하지 않습니다. **구독을 찾을 수 없습니다.** 오류 페이지가 표시되면, URL에서 **"Subscriptions?errorMessage=No%20Subscriptions%20found"** 를 "**customkws**"로 바꾸고 Enter 키를 누르기만 하면 됩니다. URL은 해당 지역의 위치에 따라 https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws 또는 https://northeurope.cris.ai/customkws 중 하나여야 합니다.
 
     ![숨겨져 있는 [사용자 지정 절전 모드 해제] 페이지](media/speech-devices-sdk/wake-word-4.png)
  
-6. 선택한 절전 모드 해제 단어를 입력하고 **단어 제출**을 선택합니다.
+1. 선택한 절전 모드 해제 단어를 입력하고 **단어 제출**을 선택합니다.
 
     ![절전 모드 해제 단어 입력](media/speech-devices-sdk/wake-word-5.png)
  
-7. 파일을 생성하는 데 몇 분 정도 걸릴 수 있습니다. 브라우저 창에 회전하는 원이 표시됩니다. 잠시 후에 .zip 파일을 다운로드하도록 요구하는 알림 표시줄이 표시됩니다.
+1. 파일을 생성하는 데 몇 분 정도 걸릴 수 있습니다. 브라우저 창에 회전하는 원이 표시됩니다. 잠시 후에 .zip 파일을 다운로드하도록 요구하는 알림 표시줄이 표시됩니다.
 
     ![.zip 파일 받기](media/speech-devices-sdk/wake-word-6.png)
 
-8. .zip 파일을 컴퓨터에 저장합니다. 이 파일은 사용자 지정 절전 모드 해제 단어를 개발 키트에 배포하는 데 필요합니다. 사용자 지정 절전 모드 해제 단어를 배포하려면 [Speech 장치 SDK 시작](speech-devices-sdk-qsg.md)의 지침을 따릅니다.
+1. .zip 파일을 컴퓨터에 저장합니다. 이 파일은 사용자 지정 절전 모드 해제 단어를 개발 키트에 배포하는 데 필요합니다. 사용자 지정 절전 모드 해제 단어를 배포하려면 [Speech 장치 SDK 시작](speech-devices-sdk-qsg.md)의 지침을 따릅니다.
 
-9. **로그아웃**을 선택합니다.
+1. **로그아웃**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

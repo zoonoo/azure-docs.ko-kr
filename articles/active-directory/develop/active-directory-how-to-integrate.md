@@ -17,14 +17,15 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: fdc33f4009ce9434b241611851fecec451783a1a
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: cde2706db255746293ddc29c6d5bdd31d970e535
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495342"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901552"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Azure Active Directory와의 통합
+
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 Azure Active Directory는 클라우드 응용 프로그램에 대해 엔터프라이즈급 ID 관리를 조직에 제공합니다. Azure AD 통합은 사용자에게 효율적인 로그인 환경을 제공하고 응용 프로그램이 IT 정책을 준수하도록 돕습니다.
