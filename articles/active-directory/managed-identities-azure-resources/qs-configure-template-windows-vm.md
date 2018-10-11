@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: bb62f892ec3d171958764d10f4b069bbd536d2ea
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f50714538cdfd1a0bd258a3b78d0885e3c7beed1
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223443"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018488"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>템플릿을 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -188,7 +188,7 @@ VM에서 시스템 할당 관리 ID를 사용하도록 설정한 후 해당 VM�
 
    VM에 시스템 할당 관리 ID와 사용자 할당 관리 ID가 둘 다 있는 경우, ID 유형에서 `SystemAssigned`를 제거하고 `userAssignedIdentities` 사전 값과 함께 `UserAssigned`를 유지합니다.
 
-   **Microsoft.Compute/virtualMachines API 버전 2018-06-01 이하**
+   **Microsoft.Compute/virtualMachines API 버전 2018-06-01**
    
    `apiVersion`이 `2017-12-01`이고 VM에 시스템 할당 ID와 사용자 할당 관리 ID가 둘 다 있는 경우, ID 유형에서 `SystemAssigned`를 제거하고 사용자 할당 관리 ID의 `identityIds` 배열과 함께 `UserAssigned`를 유지합니다.  
    
@@ -235,7 +235,7 @@ VM에서 시스템 할당 관리 ID를 사용하도록 설정한 후 해당 VM�
    }
    ```
    
-   **Microsoft.Compute/virtualMachines API 버전 2017-12-01 이하**
+   **Microsoft.Compute/virtualMachines API 버전 2017-12-01**
     
    `apiVersion`이 `2017-12-01`이고 사용자 할당 관리 ID가 `identityIds` 배열에 저장되는 경우에는 템플릿의 `variables` 섹션에 정의된 변수에 `<USERASSIGNEDIDENTITYNAME>` 값이 저장되어야 합니다.
     
@@ -316,7 +316,7 @@ VM에서 시스템 할당 관리 ID를 사용하도록 설정한 후 해당 VM�
        }
     ]
    ```
-   **Microsoft.Compute/virtualMachines API 버전 2017-12-01 이하**
+   **Microsoft.Compute/virtualMachines API 버전 2017-12-01**
    
    ```JSON
    "resources": [
@@ -375,7 +375,7 @@ VM에서 시스템 할당 관리 ID를 사용하도록 설정한 후 해당 VM�
     }
    ```
    
-   **Microsoft.Compute/virtualMachines API 버전 2018-06-01 이하**
+   **Microsoft.Compute/virtualMachines API 버전 2018-06-01**
     
    VM에서 단일 사용자 할당 관리 ID를 제거하려면 `useraAssignedIdentities` 사전에서 제거합니다.
 

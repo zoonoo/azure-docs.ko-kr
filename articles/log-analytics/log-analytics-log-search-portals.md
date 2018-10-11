@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 4677b8d5601dcafbf4760e6f185ef70393229b1a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.component: ''
+ms.openlocfilehash: 8a73ad7c17710ab3e6e4ed41eced643ce9eb86dc
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961062"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042481"
 ---
 # <a name="viewing-and-analyzing-data-in-log-analytics"></a>Log Analytics에서 데이터 확인 및 분석
 Azure Portal에서 Log Analytics에 저장된 데이터를 분석하고 임시 분석용 쿼리를 만드는 방법은 두 가지가 있습니다. 이러한 포털을 사용하여 만드는 쿼리는 경고 및 대시보드와 같은 다른 기능에 사용될 수 있습니다.

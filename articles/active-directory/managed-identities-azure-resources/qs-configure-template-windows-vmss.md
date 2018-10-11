@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 4bfaed3d908574eff3521cedcef4b117d45e1ca2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: c6bc77e5ee1fa5e180b41dca50640dc01fee0691
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220922"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017519"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-azure-virtual-machine-scale-using-a-template"></a>템플릿을 사용하여 Azure 가상 머신 확장에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -146,7 +146,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
 
    apiVersion이 `2018-06-01`이고 VM에 시스템 할당 ID와 사용자 할당 관리 ID가 둘 다 있는 경우, ID 유형에서 `SystemAssigned`를 제거하고 userAssignedIdentities 사전 값과 함께 `UserAssigned`를 유지합니다.
 
-   **Microsoft.Compute/virtualMachineScaleSets API 버전 2018-06-01 및 이전**
+   **Microsoft.Compute/virtualMachineScaleSets API 버전 2018-06-01**
 
    apiVersion이 `2017-12-01`이고 가상 머신 확장 집합에 시스템 할당 관리 ID와 사용자 할당 ID가 둘 다 있는 경우 ID 형식에서 `SystemAssigned`를 제거하고 사용자 할당 관리 ID의 `identityIds` 배열과 함께 `UserAssigned`를 유지합니다. 
    
@@ -279,7 +279,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
     ]
    ```
 
-   **Microsoft.Compute/virtualMachines API 버전 2017-12-01 및 이전**
+   **Microsoft.Compute/virtualMachines API 버전 2017-12-01**
 
    ```json
    "resources": [

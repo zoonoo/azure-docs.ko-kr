@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/27/2018
-ms.openlocfilehash: b79d529822f2b1acca9c8a120202b4ce4010949e
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 72bf467cc0f2ba195aa4f25228bc9e08605cd4ee
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412852"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018597"
 ---
 # <a name="use-managed-identities-to-authenticate-azure-stream-analytics-jobs-to-azure-data-lake-storage-gen1-output-preview"></a>관리 ID를 사용하여 Azure Data Lake Storage Gen1 출력(미리 보기)에 대한 Azure Stream Analytics 작업 인증
 
@@ -93,17 +93,17 @@ Azure Stream Analytics는 ADLS(Azure Data Lake Storage) Gen1 출력을 사용하
    "outputs": [
          {
            "name": "string",
-           "properties": {
+           "properties":{
              "datasource": {        
-   "type": "Microsoft.DataLake/Accounts",
-                "properties": {     
-                  "accountName": “myDataLakeAccountName",
-              "filePathPrefix": “cluster1/logs/{date}/{time}",
-              "dateFormat": "YYYY/MM/DD",
-              "timeFormat": "HH",
-          "authenticationMode": "Msi"
-          }
-       }
+               "type": "Microsoft.DataLake/Accounts",
+               "properties": {
+                 "accountName": “myDataLakeAccountName",
+                 "filePathPrefix": “cluster1/logs/{date}/{time}",
+                 "dateFormat": "YYYY/MM/DD",
+                 "timeFormat": "HH",
+                 "authenticationMode": "Msi"
+                 }
+                 
    }
    ```
   

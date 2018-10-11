@@ -8,12 +8,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 54bf38bf5a5858a2d7ac7237f58fc4db386dbac1
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 01a386d37841c78e4aae96111e4671ec33b87e00
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423326"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017554"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>자습서: 사용자 지정 언어 모델 만들기
 
@@ -63,7 +63,7 @@ Azure Portal에서 Speech Service 구독을 만드는 방법에 대한 자세한
 
 ## <a name="language-support"></a>언어 지원
 
-사용자 지정 **음성을 텍스트로 변환** 언어 모델은 [지원되는 언어](supported-languages.md) 전체 목록을 참조하세요.
+사용자 지정 **음성을 텍스트로 변환** 언어 모델은 [지원되는 언어](language-support.md#text-to-speech) 전체 목록을 참조하세요.
 
 
 
