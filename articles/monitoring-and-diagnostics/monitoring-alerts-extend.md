@@ -5,15 +5,15 @@ author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 13a84b7254207a9cfcfff4af43283130a0f6c587
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eb3489c24bd5aa328620c5a6c14ee71882a6a6f2
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998477"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249573"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Log Analytics 경고를 Azure Alerts로 확장
 최근까지 Azure Log Analytics에는 Log Analytics 데이터에 기반한 조건을 사전에 알려줄 수 있는 자체 경고 기능이 포함됩니다. Microsoft Operations Management Suite 포털에서 경고 규칙을 관리했습니다. 새 경고 환경은 이제 Microsoft Azure의 다양한 서비스에서 경고를 통합했습니다. 이 환경은 Azure Portal에서 Azure Monitor 아래의 **경고**로 사용 가능하며 Log Analytics 및 Azure Application Insights에서 활동 로그, 메트릭 및 로그의 경고를 지원합니다. 

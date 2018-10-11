@@ -3,7 +3,7 @@ title: 다른 Azure Stack 개발 키트 환경의 두 가상 네트워크 간의
 description: 클라우드 관리자가 두 개의 단일 노드 Azure Stack 개발 키트 환경 간에 사이트 간 VPN 연결을 만드는 데 사용 하는 단계별 절차입니다.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 3f1b4e02-dbab-46a3-8e11-a777722120ec
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: scottnap
 ROBOTS: NOINDEX
-ms.openlocfilehash: a219f44cb27bb6ebe4e17079ad487457ae8852f0
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b17b1b077a1acac5ddb0e9eea8c4a2cf44697979
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718120"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078905"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>다른 Azure Stack 개발 키트 환경의 두 가상 네트워크 간의 사이트 간 VPN 연결 만들기
 ## <a name="overview"></a>개요

@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 13b4dc6e49c67ae9fd880ab64880966835242dec
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e1a0ee2a9ad958a5938569927a489785edd8ee1f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37923421"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078841"
 ---
 # <a name="support-matrix-for-replication-of-hyper-v-vms-to-a-secondary-site"></a>Hyper-V VM을 보조 사이트에 복제하기 위한 지원 매트릭스
 
@@ -55,15 +55,15 @@ Windows Server 2012 R2 | Windows Server 2012 R2에서 [Hyper-V가 지원하는](
 
 **구성** | **지원됨**  
 --- | --- 
-호스트 - NIC 팀 | 예 
-호스트 - VLAN | 예 
-호스트 - IPv4 | 예 
-호스트 - IPv6 | 아니오 
-게스트 VM - NIC 팀 | 아니오
-게스트 VM - IPv4 | 예
-게스트 VM - IPv6 | 아니오
-게스트 VM - Windows/Linux - 고정 IP 주소 | 예
-게스트 VM - 다중 NIC | 예
+호스트 - NIC 팀 | yes 
+호스트 - VLAN | yes 
+호스트 - IPv4 | yes 
+호스트 - IPv6 | 아니요 
+게스트 VM - NIC 팀 | 아니요
+게스트 VM - IPv4 | yes
+게스트 VM - IPv6 | 아니요
+게스트 VM - Windows/Linux - 고정 IP 주소 | yes
+게스트 VM - 다중 NIC | yes
 
 
 ## <a name="storage"></a>Storage
@@ -73,9 +73,9 @@ Windows Server 2012 R2 | Windows Server 2012 R2에서 [Hyper-V가 지원하는](
 **Storage(호스트)** | **지원됨**
 --- | --- 
 NFS | 해당 없음
-SMB 3.0 |  예
-SAN(ISCSI) | 예
-다중 경로(MPIO) | 예
+SMB 3.0 |  yes
+SAN(ISCSI) | yes
+다중 경로(MPIO) | yes
 
 ### <a name="guest-or-physical-server-storage"></a>게스트 또는 물리적 서버 저장소
 
@@ -83,26 +83,26 @@ SAN(ISCSI) | 예
 --- | --- | 
 VMDK |  해당 없음
 VHD/VHDX | 예(최대 16개 디스크)
-2세대 VM | 예
-공유 클러스터 디스크 | 아니오
-암호화된 디스크 | 아니오
+2세대 VM | yes
+공유 클러스터 디스크 | 아니요
+암호화된 디스크 | 아니요
 UEFI| 해당 없음
-NFS | 아니오
-SMB 3.0 | 아니오
+NFS | 아니요
+SMB 3.0 | 아니요
 RDM | 해당 없음
-디스크 > 1TB | 예
-스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM | 예
-저장소 공간 | 예
-디스크 핫 추가/제거 | 아니오
-디스크 제외 | 예
-다중 경로(MPIO) | 예
+디스크 > 1TB | yes
+스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM | yes
+저장소 공간 | yes
+디스크 핫 추가/제거 | 아니요
+디스크 제외 | yes
+다중 경로(MPIO) | yes
 
 ## <a name="vaults"></a>자격 증명 모음
 
 **작업** | **지원됨**
 --- | --- 
-리소스 그룹 간에 자격 증명 모음 이동(동일 구독 내 또는 구독 간에) |  아니오
-리소스 그룹 간에 저장소, 네트워크, Azure VM 이동(동일 구독 내 또는 구독 간에) | 아니오
+리소스 그룹 간에 자격 증명 모음 이동(동일 구독 내 또는 구독 간에) |  아니요
+리소스 그룹 간에 저장소, 네트워크, Azure VM 이동(동일 구독 내 또는 구독 간에) | 아니요
 
 ## <a name="azure-site-recovery-provider"></a>Azure Site Recovery 공급자
 

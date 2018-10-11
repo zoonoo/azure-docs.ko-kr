@@ -3,7 +3,7 @@ title: 이 자습서에서는 Azure Stack 제품을 구독 하는 방법을 알�
 description: 이 자습서에서는 Azure Stack 서비스에 새 구독을 만들고 테스트 가상 머신을 만들어 제품을 테스트 하는 방법을 보여 줍니다.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/05/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 0e2fa9b01d27d68c1eab9097a20b6e350ba47f99
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: aff20cba3bc07924f669420a8c367613b41111a1
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028817"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49076103"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>자습서: 만들기 및 구독 테스트
 이 자습서는 제품을 포함 하는 구독을 만들고 다음 테스트 하는 방법을 보여줍니다. 테스트의 경우 클라우드 관리자로 Azure Stack 사용자 포털에 로그인, 제품을 구독할 및 다음 가상 컴퓨터를 만들가 있습니다.

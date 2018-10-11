@@ -2,20 +2,20 @@
 title: Virtual Machine Scale Sets를 Azure Stack에서 사용할 수 있도록 | Microsoft Docs
 description: 클라우드 운영자가 Azure Stack Marketplace에 Virtual Machine Scale Sets을 추가할 수는 하는 방법에 대해 알아봅니다.
 services: azure-stack
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: article
 ms.date: 09/05/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: 3fbc3047688fed877280ca2d0f079ddea66bceb8
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 37122f11990d292e250c0a0bc42c0527731f599a
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024734"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49076395"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Azure Stack에서 Virtual Machine Scale Sets 사용 가능
 

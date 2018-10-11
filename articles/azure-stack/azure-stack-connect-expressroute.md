@@ -3,7 +3,7 @@ title: Azure Stack ExpressRoute를 사용 하 여 Azure에 연결
 description: Azure Stack에서 가상 네트워크 ExpressRoute를 사용 하 여 Azure에서 가상 네트워크를 연결 하는 방법을 알아봅니다.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: db9f19154668fa33bb94e59a4da6735b1a6d3d49
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: eee4407af8d7def94061002941d758a99237645f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720500"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078701"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Azure Stack Azure ExpressRoute를 사용 하 여 Azure에 연결
 
@@ -345,7 +345,7 @@ Azure에서 가상 네트워크를 만드는 방법에 대 한 자세한 내용�
 
 허브 VNet ExpressRoute 회로 연결 하려면의 단계를 따릅니다 [가상 네트워크를 ExpressRoute 회로에 연결할](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)합니다.
 
-### <a name="peer-the-vnets"></a>Vnet 피어 링
+### <a name="peer-the-vnets"></a>VNet 피어링
 
 허브를 피어 링 및 Vnet의 단계를 사용 하 여 스포크 [Azure portal을 사용 하 여 가상 네트워크 피어 링 만들기](../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md)합니다. VNet 피어 링을 구성할 때 다음 옵션을 사용할 수 있는지 확인 합니다.
 

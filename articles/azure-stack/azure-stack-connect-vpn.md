@@ -3,7 +3,7 @@ title: Azure Stack VPN을 사용 하 여 Azure에 연결
 description: Azure Stack에서 가상 네트워크 VPN을 사용 하 여 Azure에서 가상 네트워크를 연결 하는 방법입니다.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: scottnap
-ms.openlocfilehash: bd36f423fe2c7acb05b805154da8f6e6c35f9455
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: dcbe222d8dd3d3c658e5778fdc4bc1cc01b5c12d
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718137"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078888"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Azure Stack VPN을 사용 하 여 Azure에 연결
 

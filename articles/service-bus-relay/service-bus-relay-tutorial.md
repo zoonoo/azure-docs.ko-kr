@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: spelluru
-ms.openlocfilehash: 0833a7ec71a0aea66f8ebfdfff81d88925019309
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 12902fef0a27aa0af5995d2fd6ab87d951413d1d
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701868"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857978"
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Azure WCF 릴레이 자습서
 
@@ -55,7 +55,7 @@ ms.locfileid: "43701868"
 
 3. Service Bus NuGet 패키지를 설치합니다. 이 패키지는 WCF **System.ServiceModel** 뿐만 아니라 Service Bus 라이브러리에 대한 참조를 자동으로 추가합니다. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx)은 WCF의 기본 기능에 프로그래밍 방식으로 액세스할 수 있도록 하는 네임스페이스입니다. Service Bus는 WCF의 많은 개체와 특성을 사용하여 서비스 계약을 정의합니다.
 
-    솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리...** 를 클릭합니다. **찾아보기** 탭을 클릭한 다음 **WindowsAzure.ServiceBus**를 검색합니다. 프로젝트 이름이 **버전** 상자에서 선택되어 있는지 확인합니다. **설치**를 클릭하고 사용 약관에 동의합니다.
+    솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리...** 를 클릭합니다. 찾아보기 탭을 클릭한 다음 **WindowsAzure.ServiceBus**를 검색합니다. 프로젝트 이름이 **버전** 상자에서 선택되어 있는지 확인합니다. **설치**를 클릭하고 사용 약관에 동의합니다.
 
     ![][3]
 4. 아직 열리지 않은 경우 솔루션 탐색기에서 Program.cs 파일을 두 번 클릭하여 편집기에서 엽니다.
@@ -719,7 +719,6 @@ namespace Microsoft.ServiceBus.Samples
 
 Azure 릴레이에 대한 자세한 내용은 다음 항목을 참조하세요.
 
-* [Azure Service Bus 아키텍처 개요](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
 * [Azure Relay 개요](relay-what-is-it.md)
 * [.NET과 함께 WCF 릴레이 서비스를 사용하는 방법](relay-wcf-dotnet-get-started.md)
 

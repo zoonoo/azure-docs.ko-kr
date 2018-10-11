@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ac117994140f96ec993e4fed739626f736ad7efc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 98de7a84dc388f74c64d7c265d2ce8ed32995a5a
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965282"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784778"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>경고를 사용하여 Azure Automation Runbook 트리거
 
@@ -211,7 +211,7 @@ Runbook은 **AzureRunAsConnection** [실행 계정](automation-create-runas-acco
    ![작업 그룹 페이지 추가](./media/automation-create-alert-triggered-runbook/add-action-group.png)
 1. 작업 그룹을 만들려면 **확인**을 선택합니다.
 
-만드는 [활동 로그 경고](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) 및 [근 실시간 경고](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md?toc=%2fazure%2fautomation%2ftoc.json#create-an-alert-rule-with-the-azure-portal)에서 이 작업 그룹을 사용할 수 있습니다.
+만드는 [활동 로그 경고](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) 및 [근 실시간 경고](../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)에서 이 작업 그룹을 사용할 수 있습니다.
 
 ## <a name="classic-alert"></a>클래식 경고
 
@@ -231,4 +231,4 @@ Runbook은 **AzureRunAsConnection** [실행 계정](automation-create-runas-acco
 * 웹후크를 사용하여 Automation Runbook을 시작하는 방법에 대한 자세한 내용은 [웹후크에서 Runbook 시작](automation-webhooks.md)을 참조하세요.
 * Runbook을 시작하는 다양한 방법에 대한 자세한 내용은 [Runbook 시작](automation-starting-a-runbook.md)을 참조하세요.
 * 활동 로그 경고를 만드는 방법을 알아보려면 [활동 로그 경고 만들기](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)를 참조하세요.
-* 근 실시간 경고를 만드는 방법을 보려면 [Azure Portal에서 경고 규칙 만들기](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md?toc=%2fazure%2fautomation%2ftoc.json#create-an-alert-rule-with-the-azure-portal)를 참조하세요.
+* 근 실시간 경고를 만드는 방법을 보려면 [Azure Portal에서 경고 규칙 만들기](../monitoring-and-diagnostics/alert-metric.md?toc=/azure/azure-monitor/toc.json)를 참조하세요.

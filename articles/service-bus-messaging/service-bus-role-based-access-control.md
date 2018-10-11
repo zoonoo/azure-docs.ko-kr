@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: spelluru
-ms.openlocfilehash: 5f8c35be2a4d9605fff7c4c0f6d547ad28723b7b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 0da4fdf5afc0cbe76e19260b486aa9112d0d74c8
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407249"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854323"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 역할 기반 액세스 제어(미리 보기)
 
@@ -80,7 +80,6 @@ Azure AD RBAC를 사용하는 응용 프로그램은 SAS 규칙 및 키 또는 �
 
 Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
-* [Service Bus 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus 큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus 토픽 및 구독을 사용하는 방법](service-bus-dotnet-how-to-use-topics-subscriptions.md)

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 56ad633807a59eaa7ae75dc334aa630fb3bf94a3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.component: ''
+ms.openlocfilehash: 9bb7adaeec89979ff86920b4bfd74c6399bda298
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436729"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043636"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS 분석 미리 보기 솔루션으로 DNS 인프라에 대한 정보 수집
 
@@ -173,7 +173,7 @@ Operations Manager 관리 그룹이 Operations Management Suite 작업 영역에
 
     a. 조회 쿼리에 대한 로그 데이터를 보려면 왼쪽의 패싯 컨트롤에서 **하위 유형** 필터로 **LookUpQuery**를 선택합니다. 선택한 기간에 대한 모든 조회 쿼리 이벤트를 나열하는 테이블이 표시됩니다.
 
-    나. 동적 등록에 대한 로그 데이터를 보려면 왼쪽의 패싯 컨트롤에서 **하위 유형** 필터로 **DynamicRegistration**을 선택합니다. 선택한 기간에 대한 모든 동적 등록 이벤트를 나열하는 테이블이 표시됩니다.
+    b. 동적 등록에 대한 로그 데이터를 보려면 왼쪽의 패싯 컨트롤에서 **하위 유형** 필터로 **DynamicRegistration**을 선택합니다. 선택한 기간에 대한 모든 동적 등록 이벤트를 나열하는 테이블이 표시됩니다.
 
     다. 구성 변경에 대한 로그 데이터를 보려면 왼쪽의 패싯 컨트롤에서 **하위 유형** 필터로 **ConfigurationChange**를 선택합니다. 선택한 기간에 대한 모든 구성 변경 이벤트를 나열하는 테이블이 표시됩니다.
 

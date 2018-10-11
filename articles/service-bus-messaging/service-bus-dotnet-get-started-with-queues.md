@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/07/2018
 ms.author: spelluru
-ms.openlocfilehash: b989c8b12b9093d45a655dcd003b38aa18d53e96
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 30ff970a1f6243bbba6aa42046cf6e08c808f4e5
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392508"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068863"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Service Bus 큐 시작
 
@@ -173,7 +173,7 @@ Visual Studio를 시작하고 새로운 **콘솔 앱(.NET Core)** 프로젝트�
                 queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
 
                 Console.WriteLine("======================================================");
-                Console.WriteLine("Press ENTER key to exit after receiving all the messages.");
+                Console.WriteLine("Press ENTER key to exit after sending all the messages.");
                 Console.WriteLine("======================================================");
 
                 // Send Messages

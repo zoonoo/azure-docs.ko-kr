@@ -3,7 +3,7 @@ title: Azure Stack에 대 한 인증서 문제 해결 | Microsoft Docs
 description: Azure Stack 준비 검사를 사용 하 여 검토 하 고 인증서 문제 해결.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/08/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 6bc7839e7db0022beaa9b31c390655f31d1d52c0
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 5e96c731496d79ca081091e2059a35545f963bd6
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053468"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078639"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>Azure Stack PKI 인증서에 대 한 일반적인 문제 해결
 이 문서의 정보를 이해 하 고 Azure Stack PKI 인증서에 대 한 일반적인 문제를 해결 하면 도움이 됩니다. Azure Stack 준비 상태 검사기 도구를 사용 하는 경우 문제를 검색할 수 있습니다 [Azure Stack PKI 인증서의 유효성을 검사](azure-stack-validate-pki-certs.md)합니다. 인증서는 Azure Stack 배포 및 Azure Stack 암호 회전 PKI 요구 사항을 충족 하 고 결과 로그인 확인을 [report.json 파일](azure-stack-validation-report.md)합니다.  

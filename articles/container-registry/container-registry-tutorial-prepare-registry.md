@@ -2,19 +2,18 @@
 title: Azure Container Registry 자습서 - 지리적 복제 Azure Container Registry 준비
 description: Azure Container Registry를 만들고 지리적 복제를 구성하고 Docker 이미지를 준비한 다음 레지스트리에 배포합니다. 3부로 구성된 시리즈 중 제1부입니다.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2017
-ms.author: marsma
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 379878e261007eca13a4e455ef2b97237c81eeba
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9d1371dc02f37889b15b3448d82c62d76472f847
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450031"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854306"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>자습서: 지역 복제 Azure Container Registry 준비
 
@@ -42,7 +41,7 @@ Azure Cloud Shell에는 이 자습서의 모든 단계를 완료하는 데 필�
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
-[Azure 포털](http://portal.azure.com)에 로그인합니다.
+[Azure Portal](http://portal.azure.com)에 로그인합니다.
 
 **리소스 만들기** > **컨테이너** > **Azure Container Registry**를 선택합니다.
 

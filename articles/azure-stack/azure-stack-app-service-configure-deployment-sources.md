@@ -3,7 +3,7 @@ title: Azure Stack에서 App Services에 대한 배포 원본 구성 | Microsoft
 description: 서비스 관리자가 Azure Stack에서 App Services에 대해 배포 원본(Git, GitHub, BitBucket, DropBox 및 OneDrive)을 구성하는 방법
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: 4945ab0b8da961fc5739388d83f7c645f40e510d
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: fdb91f8989bced3d148c858f131e7d78f1d9f51c
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093064"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077140"
 ---
 # <a name="configure-deployment-sources"></a>배포 원본 구성
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
@@ -49,7 +49,7 @@ Azure Stack에서 App Service는 여러 소스 제어 공급자로부터 주문�
 1. GitHub에 로그인, 이동할 https://www.github.com/settings/developers 을 클릭 **새 응용 프로그램을 등록**합니다.
     ![GitHub-새 응용 프로그램 등록][3]
 2. 입력을 **응용 프로그램 이름** 예를 들어 App Service on Azure Stack.
-3. **홈 페이지 URL**을 입력합니다. 홈 페이지 URL에는 Azure Stack Portal 주소 여야 합니다. 예: https://portal.local.azurestack.external
+3. **홈 페이지 URL**을 입력합니다. 홈 페이지 URL에는 Azure Stack Portal 주소 여야 합니다. 예: https://portal.local.azurestack.external.
 4. 입력을 **응용 프로그램 설명**합니다.
 5. **권한 부여 콜백 URL**을 입력합니다.  기본 Azure Stack 배포의 경우 Url은 형태로 https://portal.local.azurestack.external/TokenAuthorizelocal.azurestack.external에 대 한 도메인 대체 하는 다른 도메인에서 실행 중인 경우
 6. **응용 프로그램 등록**을 클릭합니다.  이제 응용 프로그램에 대한 **클라이언트 ID** 및 **클라이언트 비밀**이 나열된 페이지가 표시됩니다.

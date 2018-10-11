@@ -2,18 +2,17 @@
 title: Azure Container Instances의 Azure Container Registry를 사용하여 인증
 description: Azure Active Directory 서비스 주체를 사용하여 Azure Container Instances에서 개인 컨테이너 레지스트리에 있는 이미지에 대한 액세스 권한을 제공하는 방법에 대해 알아봅니다.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: marsma
-ms.openlocfilehash: daa9c098de0c410bd4033cc62ee911631eb3b634
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: danlep
+ms.openlocfilehash: 32b1788d73e1c323d93b40b778bc64a1ba45c4ad
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33768229"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855836"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Azure Container Instances의 Azure Container Registry를 사용하여 인증
 

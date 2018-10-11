@@ -2,18 +2,17 @@
 title: Azure Container Registry SKU
 description: Azure Container Registry에서 사용할 수 있는 서로 다른 서비스 계층을 비교합니다.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 08/30/2018
-ms.author: marsma
-ms.openlocfilehash: eb3a1745677871211df05d18e28d32061f360bac
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.author: danlep
+ms.openlocfilehash: 80ee1033ef7a5fee849126ab2b614de18b71e051
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301819"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855853"
 ---
 # <a name="azure-container-registry-skus"></a>Azure Container Registry SKU
 

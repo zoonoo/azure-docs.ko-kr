@@ -5,16 +5,16 @@ description: Cognitive Services Speech SDK를 사용하여 브라우저에서 Ja
 services: cognitive-services
 author: fmegen
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: b925a382a32f320c5d6906bc3fa23f046d260cb0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 75dcda643741e3aeb1238f82128e4c5b058be840
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997440"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883661"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-cognitive-services-speech-sdk"></a>빠른 시작: Cognitive Services Speech SDK를 사용하여 브라우저에서 JavaScript로 음성 인식
 
@@ -36,6 +36,8 @@ ms.locfileid: "46997440"
 빈 폴더를 새로 만듭니다. 웹 서버에 샘플을 호스트하려면 웹 서버가 폴더에 액세스할 수 있는지 확인합니다.
 
 ## <a name="unpack-the-speech-sdk-for-javascript-into-that-folder"></a>JavaScript용 Speech SDK를 해당 폴더에 압축 해제합니다.
+
+[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 Speech SDK를 [.zip 패키지](https://aka.ms/csspeech/jsbrowserpackage)로 다운로드하여 새로 만든 폴더에 압축 해체합니다. 그러면 압축이 풀린 두 개의 파일(`microsoft.cognitiveservices.speech.sdk.bundle.js` 및 `microsoft.cognitiveservices.speech.sdk.bundle.js.map`)이 생깁니다.
 두 번째 파일은 옵션이며, 필요할 때 SDK 코드를 디버깅하는 데 사용됩니다.

@@ -17,12 +17,12 @@ ms.date: 09/14/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 3d6692808bad2010779323cecc42778def32a38c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dd164882f9820cab970edd4d01f2f28c26771f88
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980273"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815222"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>방법: Azure Active Directory 응용 프로그램 갤러리에 응용 프로그램 나열
 
@@ -39,7 +39,7 @@ ms.locfileid: "46980273"
 
 - 페더레이션 응용 프로그램(Open ID 및 SAML/WS-Fed)의 경우 응용 프로그램은 Azure AD 갤러리에 나열된 SaaS 모델을 지원해야 합니다. 엔터프라이즈 갤러리 응용 프로그램은 특정 고객이 아닌 여러 고객 구성을 지원해야 합니다.
 
-- Open ID Connect의 경우 응용 프로그램은 다중 테넌트화되어야 하며, [Azure AD 동의 프레임워크](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework)는 응용 프로그램에 대해 올바르게 구현되어야 합니다. 모든 고객이 응용 프로그램에 동의를 제공할 수 있도록 사용자가 공통 엔드포인트에 로그인 요청을 보낼 수 있습니다. 토큰에 수신된 테넌트 ID 및 사용자의 UPN을 기반으로 사용자 액세스를 제어할 수 있습니다.
+- Open ID Connect의 경우 응용 프로그램은 다중 테넌트화되어야 하며, [Azure AD 동의 프레임워크](consent-framework.md)는 응용 프로그램에 대해 올바르게 구현되어야 합니다. 모든 고객이 응용 프로그램에 동의를 제공할 수 있도록 사용자가 공통 엔드포인트에 로그인 요청을 보낼 수 있습니다. 토큰에 수신된 테넌트 ID 및 사용자의 UPN을 기반으로 사용자 액세스를 제어할 수 있습니다.
 
 - SAML 2.0/WS-Fed의 경우 SP 또는 IDP 모드에서 SAML/WS-Fed SSO 통합을 수행하는 기능이 응용 프로그램에 있어야 합니다. 요청을 제출하기 전에 제대로 작동하는지 확인하세요.
 

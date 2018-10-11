@@ -9,14 +9,16 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: kefre
-ms.openlocfilehash: 8152c23e6c5332d243d851be56bab1e4085dbe5a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 84997b5d50f879fd4be286a3ca362e70f90c9202
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35375358"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249188"
 ---
 # <a name="use-the-anomaly-finder-api-with-java"></a>Java 및 Anomaly Finder API 사용
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 이 문서에서 제공하는 정보 및 코드 샘플을 통해 Java와 함께 Anomaly Finder API 사용을 빠르게 시작하여 시계열 데이터의 변칙 검색 결과를 가져오는 작업을 수행할 수 있습니다.
 

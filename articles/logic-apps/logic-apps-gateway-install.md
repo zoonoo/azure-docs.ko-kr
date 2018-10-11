@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: yshoukry, LADocs
 ms.topic: article
 ms.date: 07/20/2018
-ms.openlocfilehash: d4fbbcb81433876e4c57763b8a90b3ff1168a699
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 5fc4ccacaaedfc3fe6c77fa9a0ad693530bdde93
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842450"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855428"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
 
@@ -101,7 +101,7 @@ Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타
 
 ## <a name="install-data-gateway"></a>데이터 게이트웨이 설치
 
-1. [로컬 컴퓨터에서 게이트웨이 설치 관리자를 다운로드하고 저장하고 실행합니다](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+1. [로컬 컴퓨터에서 게이트웨이 설치 관리자를 다운로드하고 저장하고 실행합니다](https://aka.ms/on-premises-data-gateway-installer).
 
 2. 기본 설치 경로를 그대로 적용하거나 게이트웨이를 설치하려는 컴퓨터의 위치를 지정합니다.
 
@@ -182,7 +182,7 @@ Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타
 
 1. 컴퓨터의 **제어판**에서 **프로그램 및 기능**으로 이동합니다. 프로그램 목록에서 **온-프레미스 데이터 게이트웨이**를 선택한 후 **제거**를 선택합니다.
 
-2. [온-프레미스 데이터 게이트웨이 다시 설치](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+2. [온-프레미스 데이터 게이트웨이 다시 설치](https://aka.ms/on-premises-data-gateway-installer).
 
 3. 설치 관리자가 열리면 이전에 게이트웨이 설치에 사용한 것과 동일한 회사 또는 학교 계정으로 로그인합니다.
 
@@ -211,7 +211,7 @@ Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타
 > [!NOTE]
 > 이 명령은 Azure Service Bus에 대한 네트워크 연결 및 연결만을 테스트합니다. 이 명령은 게이트웨이 또는 게이트웨이 클라우드 서비스에서 자격 증명 및 게이트웨이 세부 정보를 암호화하고 저장하는 작업을 수행하는 것과 아무 관련이 없습니다. 
 >
-> 또한 이 명령은 Windows Server 2012 R2 이상 및 Windows 8.1 이상에서만 사용할 수 있습니다. 이전 OS 버전에서 연결을 테스트하는 데 텔넷을 사용할 수 있습니다. [Azure Service Bus 및 하이브리드 솔루션](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)에 대해 자세히 알아봅니다.
+> 또한 이 명령은 Windows Server 2012 R2 이상 및 Windows 8.1 이상에서만 사용할 수 있습니다. 이전 OS 버전에서 연결을 테스트하는 데 텔넷을 사용할 수 있습니다. [Azure Service Bus 및 하이브리드 솔루션](../service-bus-messaging/service-bus-messaging-overview.md)에 대해 자세히 알아봅니다.
 
 결과는 **TcpTestSucceeded**가 **True**로 설정된 다음 예제와 비슷하게 표시됩니다.
 
@@ -232,7 +232,7 @@ TcpTestSucceeded       : True
 
 ## <a name="configure-ports"></a>포트 구성
 
-게이트웨이는 [Azure Service Bus](https://azure.microsoft.com/services/service-bus/)에 대한 아웃바운드 연결을 만들고 아웃바운드 포트인 TCP 443(기본값), 5671, 5672, 9350~9354에서 통신합니다. 게이트웨이에 인바운드 포트가 필요하지 않습니다. [Azure Service Bus 및 하이브리드 솔루션](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)에 대해 자세히 알아봅니다.
+게이트웨이는 [Azure Service Bus](https://azure.microsoft.com/services/service-bus/)에 대한 아웃바운드 연결을 만들고 아웃바운드 포트인 TCP 443(기본값), 5671, 5672, 9350~9354에서 통신합니다. 게이트웨이에 인바운드 포트가 필요하지 않습니다. [Azure Service Bus 및 하이브리드 솔루션](../service-bus-messaging/service-bus-messaging-overview.md)에 대해 자세히 알아봅니다.
 
 게이트웨이는 다음과 같은 정규화된 도메인 이름을 사용합니다.
 

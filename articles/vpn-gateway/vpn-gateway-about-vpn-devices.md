@@ -2,25 +2,19 @@
 title: 크로스-프레미스 Azure 연결에 대한 VPN 장치 정보 | Microsoft Docs
 description: 이 문서에서는 S2S VPN Gateway 크로스-프레미스 연결에 대한 VPN 장치 및 IPsec 매개 변수에 대해 설명합니다. 구성 지침과 샘플에 대한 링크를 제공합니다.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
 manager: rossort
-editor: ''
-tags: azure-resource-manager, azure-service-management
-ms.assetid: ba449333-2716-4b7f-9889-ecc521e4d616
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2018
+ms.date: 10/05/2018
 ms.author: yushwang
-ms.openlocfilehash: 9a97927bb3309fd3ea833cbc7ff0e1eb8a5141f0
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7153b4054c1efc6e8e320cee61bc36674061b7d3
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042538"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815820"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>사이트 간 VPN Gateway 연결에 대한 VPN 장치 및 IPsec/IKE 매개 변수 정보
 
@@ -69,7 +63,7 @@ VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 링크�
 | Juniper |SSG |ScreenOS 6.2 |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |[구성 샘플](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
 | Microsoft |라우팅 및 원격 액세스 서비스 |Windows Server 2012 |호환되지 않음 |[구성 샘플](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
 | 개방형 시스템 AG |핵심 업무 제어 보안 게이트웨이 |해당 없음 |[구성 가이드](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |호환되지 않음 |
-| Palo Alto Networks |PAN-OS를 실행하는 모든 장치 |PAN-OS<br>정책 기반: 6.1.5 이상<br>경로 기반: 7.1.4 |[구성 가이드](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[구성 가이드](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
+| Palo Alto Networks |PAN-OS를 실행하는 모든 장치 |PAN-OS<br>정책 기반: 6.1.5 이상<br>경로 기반: 7.1.4 |[구성 가이드](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[구성 가이드](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |
 | ShareTech | 차세대 UTM(NU 시리즈) | 9.0.1.3 | 호환되지 않음 | [구성 가이드](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
 | SonicWall |TZ 시리즈, NSA 시리즈<br>SuperMassive 시리즈<br>E-클래스 NSA 시리즈 |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |호환되지 않음 |[구성 가이드](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
 | Sophos | XG 차세대 방화벽 | XG v17 | | [구성 가이드](https://community.sophos.com/kb/127546) |

@@ -1,20 +1,21 @@
 ---
-title: Acoustics 소개 - Cognitive Services
+title: 프로젝트 Acoustics란?
+titlesuffix: Azure Cognitive Services
 description: 프로젝트 Acoustics Unity 플러그인은 VR 및 기존 화면을 대상으로 하는 프로젝트를 위한 폐색, 반향 및 공간화를 제공합니다.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
 ms.topic: overview
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 08c6d8b8e229aabcc05fdfde2d8ffadf3a6346c2
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 6a3c97ead40cfb24604edac0624e38a9b0713fc0
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181877"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901027"
 ---
 # <a name="what-is-project-acoustics"></a>프로젝트 Acoustics란?
 프로젝트 Acoustics Unity 플러그인은 VR 및 기존 화면을 대상으로 하는 프로젝트를 위한 폐색, 반향 및 공간화를 제공합니다. 물리학 기반 시뮬레이션 위에 디자이너의 의도를 입히는 게임 음향을 디자인하는 방법을 제공합니다.
@@ -56,7 +57,7 @@ ms.locfileid: "40181877"
 * Android(x86 및 ARM64)
 
 ## <a name="download"></a>다운로드
-음향 플러그 인 평가에 관심이 있는 분은 [여기](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)서 디자이너 미리 보기에 등록하세요.
+Acoustics 플러그 인 평가에 관심이 있는 분은 [여기](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)서 디자이너 미리 보기에 등록하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [디자인 프로세스](design-process.md) 자세히 알아보기

@@ -3,7 +3,7 @@ title: Azure Stack 사용자 구독의 소유자를 업데이트 합니다. | Mi
 description: Azure STack 사용자 구독의 청구 소유자를 변경 합니다.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
 ms.date: 06/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: shnatara
-ms.openlocfilehash: de8610944e11d8cf106ac484a0c6634c8661b5a2
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a784f169bfdf23255b27d50f0e135384db6b2b88
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009491"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077633"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Azure Stack 사용자 구독에 대 한 소유자를 변경 합니다.
 

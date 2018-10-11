@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.component: na
-ms.openlocfilehash: 661107779b74b6e21dec01aecf6d545ec2b7a702
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 50ab09d39fc0c224a97b6cf0c758c55026ac8ce7
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131755"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042847"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM 제품/서비스를 IT Service Management Connector에 연결
 이 문서에서는 ITSM 제품/서비스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요](log-analytics-itsmc-overview.md)를 참조하세요.
@@ -126,7 +126,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 1. **Azure 리소스** 아래에서 Service Manager 웹앱을 찾습니다.
 2. **설정** > **네트워킹**을 클릭합니다.
-3. **하이브리드 연결**에서 **하이브리드 연결 끝점 구성**을 클릭합니다.
+3. **하이브리드 연결**에서 **하이브리드 연결 엔드포인트 구성**을 클릭합니다.
 
     ![하이브리드 연결 네트워킹](./media/log-analytics-itsmc/itsmc-hybrid-connection-networking-and-end-points.png)
 4. **하이브리드 연결** 블레이드에서 **하이브리드 연결 추가**를 클릭합니다.
@@ -139,9 +139,9 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 6. 다음 값을 입력합니다.
 
-    - **끝점 이름**: 새 하이브리드 연결의 이름을 지정합니다.
-    -  **끝점 호스트**: Service Manager 관리 서버의 FQDN입니다.
-    - **끝점 포트**: 5724를 입력합니다.
+    - **엔드포인트 이름**: 새 하이브리드 연결의 이름을 지정합니다.
+    -  **엔드포인트 호스트**: Service Manager 관리 서버의 FQDN입니다.
+    - **엔드포인트 포트**: 5724를 입력합니다.
     - **Servicebus 네임스페이스**: 기존 Servicebus 네임스페이스를 사용하거나 새로 만듭니다.
     - **위치**: 위치를 선택합니다.
     -  **이름**: servicebus를 만드는 경우 이름을 지정합니다.

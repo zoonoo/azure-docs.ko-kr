@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
 ms.author: spelluru
-ms.openlocfilehash: fa5b4ba02eda75d16243c9aebbf38dfb30afe53d
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: d4ecbb7101e7b1f0f3dd6978ae7d35bb5066126d
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43695411"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854935"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Azure WCF 릴레이 REST 자습서
 
@@ -561,7 +561,6 @@ namespace Microsoft.ServiceBus.Samples
 ## <a name="next-steps"></a>다음 단계
 이제 Azure Relay 서비스를 사용하는 응용 프로그램을 빌드했습니다. 자세한 정보는 다음 문서를 참조하세요.
 
-* [Azure Service Bus 아키텍처 개요](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 * [Azure Relay 개요](relay-what-is-it.md)
 * [.NET과 함께 WCF 릴레이 서비스를 사용하는 방법](relay-wcf-dotnet-get-started.md)
 

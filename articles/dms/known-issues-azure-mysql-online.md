@@ -3,20 +3,20 @@ title: Azure Database for MySQL로의 온라인 마이그레이션과 관련된 
 description: Azure Database for MySQL로의 온라인 마이그레이션과 관련된 알려진 문제/마이그레이션 제한 사항에 대해 알아봅니다.
 services: database-migration
 author: HJToland3
-ms.author: jtoland
+ms.author: scphang
 manager: ''
 ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/24/2018
-ms.openlocfilehash: d1d1483edd31702b1b9f14eaf4aba1a3f38ed142
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.date: 10/09/2018
+ms.openlocfilehash: 6e82c10d8e9109279045095c1b856520245a5a6f
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42889245"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884513"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Azure DB for MySQL로의 온라인 마이그레이션과 관련된 알려진 문제/마이그레이션 제한 사항
 

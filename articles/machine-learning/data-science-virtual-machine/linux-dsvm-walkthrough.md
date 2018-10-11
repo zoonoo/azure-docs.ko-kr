@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: d9b89329e2a9bdb26c9aa1d12bc181c61518dcb8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: c125f503166e3f63599dbd09acf42c69fab8d2ce
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116166"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044657"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Azure에서 Linux 데이터 과학 Virtual Machine을 사용하여 데이터 과학
 이 연습에서는 Linux 데이터 과학 VM을 사용하여 몇 가지 일반 데이터 과학 작업을 수행하는 방법을 보여 줍니다. Linux DSVM(데이터 과학 Virtual Machine)은 데이터 분석 및 기계 학습에 흔히 사용되는 도구 모음과 함께 미리 설치된, Azure에서 사용 가능한 가상 머신 이미지입니다. 주요 소프트웨어 구성 요소는 [Linux 데이터 과학 Virtual Machine 프로비전](linux-dsvm-intro.md) 항목에 항목별로 나와 있습니다. VM 이미지를 사용하면 각 도구를 개별적으로 설치하고 구성할 필요 없이 몇 분 내에 데이터 과학 작업을 쉽게 시작할 수 있습니다. 필요한 경우 VM을 쉽게 확장하고 사용하지 않을 때 중지할 수 있습니다. 따라서 이 리소스는 탄력적이고 비용 효율적입니다.
@@ -215,9 +215,9 @@ R을 사용하여 데이터를 검사하고 몇 가지 기본 Machine Learning�
     spamWebService <- publishWebService(ws, fun = predictSpam, name="spamWebService", inputSchema = smallTrainSet, data.frame=TRUE)
 
 
-이 함수는 **predictSpam** 함수를 가져와서 입력 및 출력이 정의된 **spamWebService**라는 웹 서비스를 만들고 새 끝점에 대한 정보를 반환합니다.
+이 함수는 **predictSpam** 함수를 가져와서 입력 및 출력이 정의된 **spamWebService**라는 웹 서비스를 만들고 새 엔드포인트에 대한 정보를 반환합니다.
 
-다음 명령을 통해 API 끝점 및 액세스 키를 포함하여 게시된 최신 웹 서비스의 세부 정보를 봅니다.
+다음 명령을 통해 API 엔드포인트 및 액세스 키를 포함하여 게시된 최신 웹 서비스의 세부 정보를 봅니다.
 
     s<-tail(services(ws, name = "spamWebService"), 1)
     ep <- endpoints(ws,s)
@@ -232,7 +232,7 @@ R을 사용하여 데이터를 검사하고 몇 가지 기본 Machine Learning�
 나머지 섹션에서는 Linux 데이터 과학 VM에 설치된 일부 도구의 사용 방법을 보여 줍니다. 설명할 도구 목록은 다음과 같습니다.
 
 * XGBoost
-* 파이썬
+* Python
 * Jupyterhub
 * Rattle
 * PostgreSQL 및 Squirrel SQL
@@ -257,7 +257,7 @@ R을 사용하여 데이터를 검사하고 몇 가지 기본 Machine Learning�
 
 XGBoost는 python 또는 명령줄에서 호출할 수도 있습니다.
 
-## <a name="python"></a>파이썬
+## <a name="python"></a>Python
 Python을 사용하여 개발하는 경우를 위해 Anaconda Python 배포 2.7 및 3.5가 DSVM에 설치되었습니다.
 
 > [!NOTE]
@@ -279,7 +279,7 @@ spambase 데이터 집합의 일부를 읽고 scikit-learn에서 벡터 컴퓨�
 
     clf.predict(X.ix[0:20, :])
 
-AzureML 끝점을 게시하는 방법을 보여 주기 위해 이전에 R 모델을 게시할 때처럼 3개의 변수를 사용하여 더 간단한 모델을 만들어 보겠습니다.
+AzureML 엔드포인트를 게시하는 방법을 보여 주기 위해 이전에 R 모델을 게시할 때처럼 3개의 변수를 사용하여 더 간단한 모델을 만들어 보겠습니다.
 
     X = data[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
     y = data.ix[:, 57]
@@ -544,6 +544,6 @@ sqlcmd를 사용하여 쿼리:
 Squirrel SQL을 사용하여 쿼리할 수도 있습니다. ***/usr/share/java/jdbcdrivers/sqljdbc42.jar***에 있을 수 있는 Microsoft MSSQL Server JDBC 드라이버를 사용하여 PostgreSQL과 비슷한 단계를 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계
-Azure에서 데이터 과학 프로세스를 구성하는 작업을 안내하는 항목에 대한 개요는 [팀 데이터 과학 프로세스](http://aka.ms/datascienceprocess)를 참조하세요.
+Azure에서 데이터 과학 프로세스를 구성하는 작업을 안내하는 항목에 대한 개요는 [팀 데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview)를 참조하세요.
 
 특정 시나리오에 대한 팀 데이터 과학 프로세스의 단계를 보여 주는 다른 종단 간 연습에 대한 설명은 [팀 데이터 과학 프로세스 연습](../team-data-science-process/walkthroughs.md)을 참조하세요. 또한 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 응용 프로그램을 만드는 방법을 설명합니다.

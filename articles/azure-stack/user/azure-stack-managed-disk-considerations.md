@@ -3,7 +3,7 @@ title: 차이점 및 Azure Stack의 Managed Disks에 대 한 고려 사항 | Mic
 description: Azure Stack의 Managed Disks를 사용 하 여 작업 하는 경우 차이점 및 고려 사항에 알아봅니다.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: 26f8880d01da00780317ee2a6f66ee5007576a50
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2870bf8911c48ac4cbb442278f172b37a474152b
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347667"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078056"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack의 Managed Disks: 차이점 및 고려 사항
 이 문서에서는 Azure Stack의 Managed Disks 및 azure Managed Disks의 알려진된 차이점을 요약 합니다. Azure Stack 및 Azure 간의 대략적인 차이 대 한 자세한 내용은 참조는 [고려 사항 키](azure-stack-considerations.md) 문서.

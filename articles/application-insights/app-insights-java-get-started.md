@@ -3,7 +3,7 @@ title: Azure Application Insights로 Java 웹앱 분석 | Microsoft Docs
 description: 'Application Insights를 사용하여 Java 웹앱에 대한 응용 프로그램 성능 모니터링. '
 services: application-insights
 documentationcenter: java
-author: mrbullwinkle
+author: lgayhardt
 manager: carmonm
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/19/2018
-ms.author: mbullwin
-ms.openlocfilehash: 093124432314472da06065fad3a7cdff0f558d22
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/09/2018
+ms.author: lagayhar
+ms.openlocfilehash: 216cebe74b7661e0ca336480774a56ea953ddc75
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999820"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069474"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java 웹 프로젝트에서 Application Insights 시작하기
 
@@ -177,49 +177,60 @@ Application Insights SDK는 다음 순서로 키를 찾습니다.
 구성 클래스에서 Application Insights `WebRequestTrackingFilter`를 등록합니다.
 
 ```Java
-package devCamp.WebApp.configurations;
+package <yourpackagename>.configurations;
 
-    import javax.servlet.Filter;
+import javax.servlet.Filter;
 
-    import org.springframework.boot.web.servlet.FilterRegistrationBean;
-    import org.springframework.context.annotation.Bean;
-    import org.springframework.core.Ordered;
-    import org.springframework.beans.factory.annotation.Value;
-    import org.springframework.context.annotation.Configuration;
-    import com.microsoft.applicationinsights.TelemetryConfiguration;
-    import com.microsoft.applicationinsights.web.internal.WebRequestTrackingFilter;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.core.Ordered;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
+import com.microsoft.applicationinsights.TelemetryConfiguration;
+import com.microsoft.applicationinsights.web.internal.WebRequestTrackingFilter;
 
+@Configuration
+public class AppInsightsConfig {
 
-    @Configuration
-    public class AppInsightsConfig {
-
-    //Initialize AI TelemetryConfiguration via Spring Beans
-        @Bean
-        public String telemetryConfig() {
-            String telemetryKey = System.getenv("APPLICATION_INSIGHTS_IKEY");
-            if (telemetryKey != null) {
-                TelemetryConfiguration.getActive().setInstrumentationKey(telemetryKey);
-            }
-            return telemetryKey;
+    @Bean
+    public String telemetryConfig() {
+        String telemetryKey = System.getenv("<instrumentation key>");
+        if (telemetryKey != null) {
+            TelemetryConfiguration.getActive().setInstrumentationKey(telemetryKey);
         }
-    
-    //Set AI Web Request Tracking Filter
-        @Bean
-        public FilterRegistrationBean aiFilterRegistration(@Value("${spring.application.name:application}") String applicationName) {
-           FilterRegistrationBean registration = new FilterRegistrationBean();
-           registration.setFilter(new WebRequestTrackingFilter(applicationName));
-           registration.setName("webRequestTrackingFilter");
-           registration.addUrlPatterns("/*");
-           registration.setOrder(Ordered.HIGHEST_PRECEDENCE + 10);
-           return registration;
-       } 
-
-    //Set up AI Web Request Tracking Filter
-        @Bean(name = "WebRequestTrackingFilter")
-        public Filter webRequestTrackingFilter(@Value("${spring.application.name:application}") String applicationName) {
-            return new WebRequestTrackingFilter(applicationName);
-        }   
+        return telemetryKey;
     }
+
+    /**
+     * Programmatically registers a FilterRegistrationBean to register WebRequestTrackingFilter
+     * @param webRequestTrackingFilter
+     * @return Bean of type {@link FilterRegistrationBean}
+     */
+    @Bean
+    public FilterRegistrationBean webRequestTrackingFilterRegistrationBean(WebRequestTrackingFilter webRequestTrackingFilter) {
+        FilterRegistrationBean registration = new FilterRegistrationBean();
+        registration.setFilter(webRequestTrackingFilter);
+        registration.addUrlPatterns("/*");
+        registration.setOrder(Ordered.HIGHEST_PRECEDENCE + 10);
+        return registration;
+    }
+
+
+    /**
+     * Creates bean of type WebRequestTrackingFilter for request tracking
+     * @param applicationName Name of the application to bind filter to
+     * @return {@link Bean} of type {@link WebRequestTrackingFilter}
+     */
+    @Bean
+    @ConditionalOnMissingBean
+
+    public WebRequestTrackingFilter webRequestTrackingFilter(@Value("${spring.application.name:application}") String applicationName) {
+        return new WebRequestTrackingFilter(applicationName);
+    }
+
+
+}
 ```
 
 > [!NOTE]
@@ -232,7 +243,6 @@ package devCamp.WebApp.configurations;
 이 클래스는 `WebRequestTrackingFilter`가 http 필터 체인에서 첫 번째 필터가 되도록 구성합니다. 또한 사용 가능한 경우 운영 체제 환경 변수에서 계측 키를 끌어옵니다.
 
 > Spring Boot 응용 프로그램이고 고유한 Spring MVC가 구성되었기 때문에 Spring MVC를 구성하지 않고 웹 http 필터 구성을 사용합니다. Spring MVC 특정 구성은 아래 섹션을 참조하세요.
-
 
 ### <a name="applications-using-webxml"></a>Web.xml를 사용하는 응용 프로그램
 프로젝트에서 web.xml 파일을 찾아 열고, 응용 프로그램 필터가 구성된 웹앱 노드 아래에 다음 코드를 병합합니다.
@@ -251,6 +261,11 @@ package devCamp.WebApp.configurations;
        <filter-name>ApplicationInsightsWebFilter</filter-name>
        <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+   <!-- This listener handles shutting down the TelemetryClient when an application/servlet is undeployed. -->
+    <listener>
+      <listener-class>com.microsoft.applicationinsights.web.internal.ApplicationInsightsServletContextListener</listener-class>
+    </listener>
 ```
 
 #### <a name="if-youre-using-spring-web-mvc-31-or-later"></a>Spring Web MVC 3.1 이상을 사용하는 경우

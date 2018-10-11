@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 59b637e6887a645430d902cd846cacda13b14cfe
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6042aa4dd8b26a0986737edc3c89b8e165ae970a
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972813"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067706"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack에서 Azure CLI를 사용 하 여 API 버전 프로필 사용
 
@@ -44,7 +44,7 @@ Azure CLI 및 컴퓨터에 설치 된 기타 종속 된 라이브러리의 버�
     python -c "import certifi; print(certifi.where())"
   ```
 
-  인증서 위치를 기록해 둡니다. 예: `~/lib/python3.5/site-packages/certifi/cacert.pem` 특정 경로 설치 된 Python의 버전 및 OS에 따라 달라 집니다.
+  인증서 위치를 기록해 둡니다. 예: `~/lib/python3.5/site-packages/certifi/cacert.pem`. 특정 경로 설치 된 Python의 버전 및 OS에 따라 달라 집니다.
 
 ### <a name="set-the-path-for-a-development-machine-inside-the-cloud"></a>클라우드 내에서 개발 컴퓨터에 대 한 경로 설정 합니다.
 
@@ -168,7 +168,8 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
 
 1. 사용 하 여 Azure Stack 환경에 로그인 합니다 `az login` 명령입니다. 로그인 할 수 있습니다 Azure Stack 환경에 사용자 또는으로 [서비스 주체](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects)합니다. 
 
-   * 으로 로그인을 *사용자*: username 및 password 내에서 직접 지정할 수 있습니다는 `az login` 명령을 선택 하거나 브라우저를 사용 하 여 인증 합니다. 사용자 계정에 multi-factor authentication 사용 하는 경우에 후자를 수행 해야 합니다.
+    * AAD 환경
+      * 으로 로그인을 *사용자*: username 및 password 내에서 직접 지정할 수 있습니다는 `az login` 명령을 선택 하거나 브라우저를 사용 하 여 인증 합니다. 사용자 계정에 multi-factor authentication 사용 하는 경우에 후자를 수행 해야 합니다.
 
       ```azurecli
       az login \
@@ -179,7 +180,7 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
       > [!NOTE]
       > 사용자 계정에 multi-factor authentication 사용 하는 경우 사용할 수 있습니다 합니다 `az login command` 제공 하지 않고는 `-u` 매개 변수입니다. URL 및 인증을 사용 해야 하는 코드를 제공 명령을 실행 합니다.
    
-   * 으로 로그인을 *서비스 주체*: 로그인 하기 전에 [Azure portal 통해 서비스 주체 만들기](azure-stack-create-service-principals.md) 또는 CLI 역할을 할당 합니다. 이제 다음 명령을 사용 하 여 로그인 합니다.
+      * 으로 로그인을 *서비스 주체*: 로그인 하기 전에 [Azure portal 통해 서비스 주체 만들기](azure-stack-create-service-principals.md) 또는 CLI 역할을 할당 합니다. 이제 다음 명령을 사용 하 여 로그인 합니다.
 
       ```azurecli
       az login \
@@ -188,6 +189,22 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
         -u <Application Id of the Service Principal> \
         -p <Key generated for the Service Principal>
       ```
+    * AD FS 환경
+
+        * 으로 로그인을 *서비스 주체*: 
+          1.    서비스 보안 주체 로그인에 사용 되는.pem 파일을 준비 합니다.
+                * 보안 주체가 생성 된 위치를 클라이언트 컴퓨터에서 서비스 주체 인증서를 pfx로 개인 키를 사용 하 여 내보내기 (cert: \CurrentUser\My;에 있는 인증서 이름을 주 서버는 같은 이름을 가진).
+
+                *   Pfx에서 pem (사용 하 여 OpenSSL 유틸리티)으로 변환 합니다.
+
+          1.    CLI에 로그인합니다. :
+                ```azurecli
+                az login --service-principal \
+                 -u <Client ID from the Service Principal details> \
+                 -p <Certificate's fully qualified name. Eg. C:\certs\spn.pem>
+                 --tenant <Tenant ID> \
+                 --debug 
+                ```
 
 ## <a name="test-the-connectivity"></a>연결 테스트
 

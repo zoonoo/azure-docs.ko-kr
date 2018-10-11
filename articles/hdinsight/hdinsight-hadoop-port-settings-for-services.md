@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jasonh
-ms.openlocfilehash: 3dea97d674c2027307ac7eb7cae34b6664e40b0b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 29d6aa99b972dacb12ffb016eabb3a46afab7c7a
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108123"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804075"
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>HDInsight의 Hadoop 서비스에서 사용하는 포트
 
@@ -37,7 +37,7 @@ Linux 기반 HDInsight 클러스터는 인터넷에서 세 포트(22, 23, 443)�
 HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있으며 인터넷에서 직접 액세스할 수 없습니다. 공용 게이트웨이는 모든 HDInsight 클러스터 유형에 대해 일반적인 다음 포트에 대한 인터넷 액세스를 제공합니다.
 
 | 서비스 | 포트 | 프로토콜 | 설명 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | sshd |22 |SSH |기본 헤드 노드에서 sshd에 클라이언트를 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. |
 | sshd |22 |SSH |에지 노드에서 클라이언트를 sshd에 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. |
 | sshd |23 |SSH |보조 헤드 노드에서 sshd에 클라이언트를 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. |

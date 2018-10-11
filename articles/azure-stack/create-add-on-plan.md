@@ -3,7 +3,7 @@ title: 이 문서에서는 Azure Stack 제품 및 계획을 업데이트 하는 
 description: 이 문서에서는 기존 Azure Stack 제품 및 계획 보기 및 수정 하는 방법을 설명 합니다.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.custom: mvc
 ms.date: 07/30/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: a35ba993e6fd1162fa4a18bc0d6bc9351fe7dfa2
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: f6b85d2197a4db9cdfc526e5857e4b6ce707beb2
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358283"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49076794"
 ---
 # <a name="azure-stack-add-on-plans"></a>Azure Stack 추가 요금제
 
@@ -58,5 +58,4 @@ Azure Stack 운영자를 수정 하려면 추가 기능 계획을 만들를 [ *�
     ![](media/create-add-on-plan/4.PNG)
 
 ## <a name="next-steps"></a>다음 단계
-
-  [제안 만들기](azure-stack-create-offer.md)
+[제안 만들기](azure-stack-create-offer.md)

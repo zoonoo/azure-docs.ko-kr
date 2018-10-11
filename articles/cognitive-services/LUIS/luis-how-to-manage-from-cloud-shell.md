@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: diberry
-ms.openlocfilehash: b0a02d2e5e0a1f1765098e1b1e258424b6443878
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 42bd8ef95ac1b55e76fe1cf0702b79de91832741
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039581"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870182"
 ---
 # <a name="usage-data-for-luis-service-from-azure-cloud-shell"></a>Azure Cloud Shell의 LUIS 서비스 사용량 데이터
 Azure Portal에서 PowerShell cmdlet을 사용하여 LUIS 리소스 작업을 수행할 수 있습니다. 
@@ -23,7 +23,7 @@ Azure Portal에서 PowerShell cmdlet을 사용하여 LUIS 리소스 작업을 �
 이러한 cmdlet을 사용하여 LUIS 구독을 [만들고](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/new-azurermcognitiveservicesaccount?view=azurermps-6.0.0), [사용량](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/get-azurermcognitiveservicesaccountusage?view=azurermps-6.0.0)을 비롯한 구독 정보를 가져오고, 구독을 [제거](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/remove-azurermcognitiveservicesaccount?view=azurermps-6.0.0)할 수 있습니다. 
 
 ## <a name="cloud-shell-storage-account-and-authentication"></a>Cloud Shell 저장소 계정 및 인증
-Azure Portal [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell)에서 PowerShell을 사용하려면 Azure Storage 계정이 있어야 합니다. [저장소 계정](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage#set-up-a-clouddrive-file-share)이 없는 경우 계정을 만들라는 메시지가 표시됩니다. 저장소 계정을 사용하면 Cloud Shell에 PowerShell 스크립트를 저장할 수 있습니다.  
+Azure Portal [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell)에서 PowerShell을 사용하려면 Azure Storage 계정이 있어야 합니다. [저장소 계정](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage)이 없는 경우 계정을 만들라는 메시지가 표시됩니다. 저장소 계정을 사용하면 Cloud Shell에 PowerShell 스크립트를 저장할 수 있습니다.  
 
 또한 리소스에 액세스하려면 Cloud Shell에서 Azure에 인증해야 합니다. 
 

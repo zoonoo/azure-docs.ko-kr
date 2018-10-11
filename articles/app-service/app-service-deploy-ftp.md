@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: 66d375022d200cc916c77c059fa64eb6dbbc17e2
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: f82a01f3a2b88e66988717eb008a65c8f2aecf28
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308149"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900328"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>FTP/S를 사용하여 앱에 Azure App Service에 배포
 
 이 문서는 FTP 또는 FTPS를 사용하여 웹앱, 모바일 앱 백 엔드 또는 API 앱을 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)에 배포하는 방법을 보여 줍니다.
 
-앱에 대한 FTP/S 끝점은 이미 활성화되어 있습니다. FTP/S 배포를 사용하도록 설정하는 데 필요한 구성은 없습니다.
+앱에 대한 FTP/S 엔드포인트는 이미 활성화되어 있습니다. FTP/S 배포를 사용하도록 설정하는 데 필요한 구성은 없습니다.
 
 ## <a name="open-ftp-dashboard"></a>FTP 대시보드 열기
 
@@ -109,4 +109,4 @@ Azure App Service는 활성 및 수동 모드를 통한 연결을 모두 지원�
 
 ## <a name="more-resources"></a>추가 리소스
 
-* [Azure App Service 배포 자격 증명](app-service-deploy-ftp.md)
+* [Azure App Service 배포 자격 증명](app-service-deployment-credentials.md)

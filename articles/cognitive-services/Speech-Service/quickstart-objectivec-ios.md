@@ -5,16 +5,16 @@ description: Cognitive Services Speech SDK를 사용하여 iOS의 Objective-C에
 services: cognitive-services
 author: chlandsi
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: chlandsi
-ms.openlocfilehash: e343c24a5ef223e1fd6dc618f41d4acf89fc2f5d
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 3945bf0ae6edc0af0db90efca6811aeb22494592
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226027"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883435"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-cognitive-services-speech-sdk"></a>빠른 시작: Cognitive Services Speech SDK를 사용하여 iOS의 Objective-C에서 음성 인식
 

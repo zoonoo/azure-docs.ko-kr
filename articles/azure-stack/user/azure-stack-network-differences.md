@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.author: brenduns
 ms.date: 08/02/2018
 ms.topic: article
 ms.service: azure-stack
+ms.author: mabrigg
 ms.reviewer: scottnap
-ms.openlocfilehash: 50fe3c0c7fda745047c71afb8eedf7fa8806c4ec
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 1863236a51d89dd311cd8aacfcd737faddf21ab0
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139538"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079194"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Azure Stack 네트워킹에 대 한 고려 사항
 
@@ -40,7 +40,7 @@ Azure Stack 네트워킹에는 다양 한 Azure 네트워킹에서 제공 하는
 |  | 확장 집합 IP 구성 | 지원됨 | 아직 지원 되지 않습니다. |
 |  | 개인 액세스 서비스 (서브넷) | 지원됨 | 아직 지원 되지 않습니다. |
 |  | 서비스 엔드포인트 | Azure 서비스에 내부 (인터넷이 아닌) 연결에 대 한 지원. | 아직 지원 되지 않습니다. |
-| IPv4만 지원됩니다. | 서비스 끝점 정책 | 지원됨 | 아직 지원 되지 않습니다. |
+| IPv4만 지원됩니다. | 서비스 엔드포인트 정책 | 지원됨 | 아직 지원 되지 않습니다. |
 |  | 서비스 터널 | 지원됨 | 아직 지원 되지 않습니다.  |
 | 네트워크 보안 그룹 | 보강 된 보안 규칙 | 지원됨 | 아직 지원 되지 않습니다. |
 |  | 효과적인 보안 규칙 | 지원됨 | 아직 지원 되지 않습니다. |
@@ -63,7 +63,7 @@ Azure Stack 네트워킹에는 다양 한 Azure 네트워킹에서 제공 하는
 | 공용 IP 주소 | 공용 IP 주소 버전 | Azure에서는 IPv6과 IPv4를 모두 지원합니다. | IPv4만 지원됩니다. |
 | 네트워크 인터페이스 | 유효한 경로 테이블 가져오기 | 지원됨 | 아직 지원 되지 않습니다. |
 |  | 효과적인 Acl 가져오기 | 지원됨 | 아직 지원 되지 않습니다. |
-|  | 가속화 된 네트워킹을 사용 하도록 설정 | 지원됨 | 아직 지원 되지 않습니다. |
+|  | 가속화된 네트워킹 사용 | 지원됨 | 아직 지원 되지 않습니다. |
 |  | IP 전달 | 기본적으로 사용 하지 않도록 설정 합니다.  사용할 수 있습니다. | 이 설정을 토글 하면 지원 되지 않습니다.  기본적으로 합니다. |
 |  | 인터페이스 당 여러 IP 구성 | 지원됨 | 아직 지원 되지 않습니다. |
 |  | 응용 프로그램 보안 그룹 | 지원됨 | 아직 지원 되지 않습니다. |

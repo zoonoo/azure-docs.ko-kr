@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 90d4756c251103275fe0a37b0c36562b69a0e035
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 9837316cab503e6ade623e91a41176e6f4bfc84a
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166659"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867672"
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>SQL Database 및 SQL Data Warehouse에 대한 유니버설 인증(MFA에 대한 SSMS 지원)
 Azure SQL Database 및 Azure SQL Data Warehouse는 *Active Directory 유니버설 인증*을 사용하여 SSMS(SQL Server Management Studio)에서의 연결을 지원합니다. 
@@ -56,7 +56,7 @@ Azure AD B2B 시나리오에서 게스트 사용자로 지원되는 Azure AD 사
 - 방화벽을 통해 연결할 수 있는지 확인합니다. [Azure Portal을 사용하여 Azure SQL Database 서버 수준 방화벽 규칙 구성](sql-database-configure-firewall-settings.md)  
 - [SQL Database 또는 SQL Data Warehouse에서의 Azure Active Directory 인증 구성 및 관리](sql-database-aad-authentication-configure.md)  
 - [Microsoft SQL Server Data-Tier Application Framework(17.0.0 GA)](https://www.microsoft.com/download/details.aspx?id=55088)  
-- [SQLPackage.exe](https://msdn.microsoft.com/library/hh550080.aspx)  
+- [SQLPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage)  
 - [새 Azure SQL Database에 BACPAC 파일 가져오기](../sql-database/sql-database-import.md)  
 - [Azure SQL Database를 BACPAC 파일로 내보내기](../sql-database/sql-database-export.md)  
 - C# 인터페이스 [IUniversalAuthProvider Interface](https://msdn.microsoft.com/library/microsoft.sqlserver.dac.iuniversalauthprovider.aspx)  

@@ -3,7 +3,7 @@ title: 시작-AzsReadinessChecker cmdlet 참조 | Microsoft Docs
 description: Azure Stack 준비 검사 모듈에 대 한 PowerShell cmdlet 도움말입니다.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: a5b2a30549072387df0ae9300de6523ba4069514
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 60e9a790a9b74bce7ccbdd58b320ad969c0932f3
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221284"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079285"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>시작-AzsReadinessChecker cmdlet 참조
 
@@ -572,9 +572,9 @@ PaaS 서비스/호스트 이름이 인증서 요청에 추가 해야 하는 경�
 |와일드 카드 문자를 허용 합니다. |False             |
 
 
-> -확인  
+> -Confirm  
 
-Cmdlet을 실행 하기 전에 확인 메시지를 표시 합니다.
+cmdlet를 실행하기 전에 확인 메시지를 표시합니다.
 |  |  |
 |----------------------------|------------------|
 |형식:                       |SwitchParameter   |
@@ -587,7 +587,7 @@ Cmdlet을 실행 하기 전에 확인 메시지를 표시 합니다.
 
 > -WhatIf  
 
-Cmdlet을 실행 하는 경우 어떤 상황이 표시 됩니다. Cmdlet은 실행 되지 않습니다.
+cmdlet을 실행할 경우 발생하는 일을 표시합니다. cmdlet은 실행되지 않습니다.
 |  |  |
 |----------------------------|------------------|
 |형식:                       |SwitchParameter   |

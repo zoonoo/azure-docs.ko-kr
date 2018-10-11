@@ -3,22 +3,22 @@ title: Azure Stack API를 사용 하 여 | Microsoft Docs
 description: Azure Stack API 요청을 하려면 Azure에서 인증을 검색 하는 방법에 알아봅니다.
 services: azure-stack
 documentationcenter: ''
-author: cblackuk
+author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 10/10/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 3b89564bf17a9884640b51faa1c3966dce93f89a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 945c5df9aa76cef6d55b759e3cef7c00bf54e1c4
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346793"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078333"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
@@ -28,13 +28,13 @@ ms.locfileid: "37346793"
 
 Azure Stack 클라우드에 VM을 추가 하는 등 작업을 자동화 하는 응용 프로그램 프로그래밍 인터페이스 (API)를 사용할 수 있습니다.
 
-API를 Microsoft Azure 로그인 끝점에 인증 하 여 클라이언트에 필요 합니다. 끝점의 Azure Stack API로 전송 된 모든 요청 헤더에 사용할 토큰을 반환 합니다. Microsoft Azure는 Oauth 2.0을 사용 합니다.
+API에는 Microsoft Azure에 로그인 한 끝점을 인증할 수 클라이언트에 필요 합니다. 끝점의 Azure Stack API로 전송 된 모든 요청 헤더에 사용할 토큰을 반환 합니다. Microsoft Azure는 Oauth 2.0을 사용 합니다.
 
 이 문서에서는 사용 하는 예제를 제공 합니다 **cURL** Azure Stack 요청을 만드는 유틸리티입니다. CURL을 응용 프로그램에는 데이터 전송에 대 한 라이브러리를 사용 하 여 명령줄 도구입니다. 이 예제에서는 Azure Stack API에 액세스 하는 토큰을 검색 하는 과정을 안내 합니다. 대부분의 프로그래밍 언어는 이러한 토큰 새로 고침 토큰으로 실행 되는 강력한 관리 및 처리 작업을 포함 하는 Oauth 2.0 라이브러리를 제공 합니다.
 
 와 같은 제네릭 REST 클라이언트를 사용 하 여 Azure Stack REST API를 사용 하는 전체 프로세스를 검토 **cURL**를 요청 및 응답 페이로드를 수신 하도록 기대할 수 있는 보여 줍니다. 기본을 이해 하는 데 도움이 됩니다.
 
-이 문서에서는 대화형 로그인과 같은 토큰을 검색 하거나 전용된 앱 Id 만들기에 대 한 사용 가능한 모든 옵션을 탐색 하지 않습니다. 이러한 항목에 대 한 정보를 참조 하세요 [Azure REST API 참조](https://docs.microsoft.com/rest/api/)합니다.
+이 문서에서는 대화형 로그인 같은 토큰을 검색 하거나 전용된 앱 Id 만들기에 대 한 사용 가능한 모든 옵션을 탐색 하지 않습니다. 이러한 항목에 대 한 정보를 참조 하세요 [Azure REST API 참조](https://docs.microsoft.com/rest/api/)합니다.
 
 ## <a name="get-a-token-from-azure"></a>Azure에서 토큰을 가져옵니다.
 

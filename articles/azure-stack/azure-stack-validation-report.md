@@ -3,7 +3,7 @@ title: Azure Stack에 대 한 유효성 검사 보고서 | Microsoft Docs
 description: Azure Stack 준비 검사 보고서를 사용 하 여 유효성 검사 결과를 검토 합니다.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/08/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 06b5660a9428e98d2e99b5d447a05700968ec884
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 156b84e4941363716721b5cee6c19333ffe7594c
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43381916"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079449"
 ---
 # <a name="azure-stack-validation-report"></a>Azure Stack 유효성 검사 보고서
 Azure Stack 준비 검사 도구를 사용 하 여 배포 및 Azure Stack 환경 서비스를 지 원하는 유효성 검사를 실행 합니다. .Json 보고서 파일에 결과 기록 하는 도구입니다. 보고서에는 Azure Stack의 배포를 위한 필수 구성 요소의 상태에 대 한 자세 하 고 요약 된 데이터가 표시 됩니다. 또한 보고서에는 기존 Azure Stack 배포에 대 한 비밀 회전 하는 방법에 대 한 정보가 표시 됩니다.  

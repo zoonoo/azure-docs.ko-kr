@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: a741cb1c2643e48080018e5c9f4ada7038bce29e
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: b24b21ee5fc929d3e7bd026191ce8791d79f9abc
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434809"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870777"
 ---
 # <a name="glossary"></a>용어
 Language Understanding(LUIS) 용어집에서는 LUIS API 서비스를 사용할 때 나타날 수 있는 용어에 대해 설명합니다.
@@ -74,7 +74,7 @@ LUIS 컨텍스트에서 **도메인**은 정보 영역입니다. 도메인은 �
 
 ## <a name="endpoint"></a>엔드포인트
 
-[LUIS 엔드포인트](https://aka.ms/luis-endpoint-apis) URL은 [LUIS 앱](#luis-app)이 작성되고 게시된 후 LUIS 쿼리를 제출하는 위치입니다. 엔드포인트 URL에는 앱 ID와 게시된 앱의 지역이 포함됩니다. 앱의 **[키 및 엔드포인트](/luis-how-to-manage-keys.md)** 페이지에 있는 엔드포인트를 찾거나 [앱 정보 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API에서 엔드포인트 URL을 가져올 수 있습니다.
+[LUIS 엔드포인트](https://aka.ms/luis-endpoint-apis) URL은 [LUIS 앱](#luis-app)이 작성되고 게시된 후 LUIS 쿼리를 제출하는 위치입니다. 엔드포인트 URL에는 앱 ID와 게시된 앱의 지역이 포함됩니다. 앱의 **[키 및 엔드포인트](luis-how-to-manage-keys.md)** 페이지에 있는 엔드포인트를 찾거나 [앱 정보 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API에서 엔드포인트 URL을 가져올 수 있습니다.
 
 예제 엔드포인트가 다음과 같이 표시됩니다.
 

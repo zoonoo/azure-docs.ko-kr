@@ -6,16 +6,16 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: language-understanding
-ms.topic: article
+ms.component: language-understanding
+ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 4ff4a7085a8caeedebe2a734014afb1cb46d9fbf
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 90dc7b8bc69c86128b65c16920886b7c4af5c5cf
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164398"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888308"
 ---
 # <a name="tutorial-5-extract-free-form-data"></a>자습서 5: 자유 형식 데이터 추출
 
@@ -72,7 +72,7 @@ pattern.any 엔터티를 사용하면 엔터티의 표현이 발화의 나머지
 
 3. **관리** 섹션의 **버전** 탭에서 버전을 복제하고 `patt-any`라는 이름을 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 버전 이름이 URL 경로의 일부로 사용되므로 이름에는 URL에 유효하지 않은 문자가 포함될 수 없습니다.
 
-## <a name="add-example-utterances"></a>발화 예제 추가 
+## <a name="add-example-utterances"></a>예제 발화 추가 
 FormName 엔터티를 만들고 레이블을 지정하기 어려운 경우 미리 빌드한 keyPhrase 엔터티를 제거합니다. 
 
 1. 위쪽 탐색 영역에서 **빌드**를 선택한 후 왼쪽 탐색 영역에서 **의도**를 선택합니다.

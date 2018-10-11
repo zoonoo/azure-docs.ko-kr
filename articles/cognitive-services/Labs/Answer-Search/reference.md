@@ -1,20 +1,21 @@
 ---
-title: Project Answer Search 참조 - Microsoft Cognitive Services | Microsoft Docs
+title: Project Answer Search 참조
+titlesuffix: Azure Cognitive Services
 description: Project Answer Search 엔드포인트에 대한 참조입니다.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 28a73918b50d7b13248fe5b6a17f2c95287a1ba4
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 1149f4d5ec0a3ef55c435d0555f944329cf5b890
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666291"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869601"
 ---
 # <a name="project-answer-search-v7-reference"></a>Project Answer Search v7 참조
 
@@ -82,7 +83,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 요청에 다음과 같은 쿼리 매개 변수를 포함할 수 있습니다. 필수 매개 변수는 필수 열을 참조하세요. 쿼리 매개 변수는 URL로 인코드해야 합니다.  
   
   
-|Name|값|type|필수|  
+|이름|값|type|필수|  
 |----------|-----------|----------|--------------|  
 |<a name="mkt" />mkt|결과가 나오는 지역/국가입니다. <br /><br />가능한 지역/국가 값 목록은 [지역/국가 코드](#market-codes)를 참조하세요.<br /><br /> **참고:** URL Preview API는 현재 en-us 지역/국가와 언어만 지원합니다.<br /><br />|문자열|yes|  
 |<a name="query" />q|미리 보기할 URL입니다.|문자열|yes|  
@@ -118,7 +119,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ### <a name="errorresponse"></a>ErrorResponse  
 요청이 실패할 경우 응답에 포함되는 최상위 개체입니다.  
   
-|Name|값|type|  
+|이름|값|type|  
 |----------|-----------|----------|  
 |_type|유형 힌트입니다.|문자열|  
 |<a name="errors" />errors|요청이 실패한 이유를 설명하는 오류 목록입니다.|[오류](#error)|  
@@ -128,7 +129,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ### <a name="license"></a>License  
 텍스트 또는 사진을 사용할 수 있는 라이선스를 정의합니다.  
   
-|Name|값|type|  
+|이름|값|type|  
 |----------|-----------|----------|  
 |이름|라이선스의 이름입니다.|문자열|  
 |URL|사용자가 라이선스에 대한 자세한 정보를 얻을 수 있는 웹 사이트의 URL입니다.<br /><br /> 하이퍼링크를 만들려면 이름 및 URL을 사용합니다.|문자열|  
@@ -137,7 +138,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ### <a name="licenseattribution"></a>LicenseAttribution  
 라이선스 특성에 대한 계약 규칙을 정의합니다.  
   
-|Name|값|type|  
+|이름|값|type|  
 |----------|-----------|----------|  
 |_type|LicenseAttribution으로 설정되는 유형 힌트입니다.|문자열|  
 |license|콘텐츠를 사용할 수 있는 라이선스입니다.|[라이선스](#license)|  
@@ -149,7 +150,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ### <a name="link"></a>링크  
 하이퍼링크의 구성 요소를 정의합니다.  
   
-|Name|값|type|  
+|이름|값|type|  
 |----------|-----------|----------|  
 |_type|유형 힌트입니다.|문자열|  
 |text|표시 텍스트입니다.|문자열|  
@@ -159,7 +160,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ### <a name="linkattribution"></a>LinkAttribution  
 링크 특성에 대한 계약 규칙을 정의합니다.  
   
-|Name|값|type|  
+|이름|값|type|  
 |----------|-----------|----------|  
 |_type|LinkAttribution으로 설정되는 유형 힌트입니다.|문자열|  
 |mustBeCloseToContent|규칙의 콘텐츠를 규칙이 적용되는 필드에 근접한 위치에 배치해야 하는지 여부를 결정하는 부울 값입니다. **true**이면 콘텐츠를 근접한 위치에 배치해야 합니다. **false**이거나 이 필드가 없으면 콘텐츠를 호출자가 임의로 배치할 수 있습니다.|BOOLEAN|  
@@ -171,7 +172,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ### <a name="mediaattribution"></a>MediaAttribution  
 미디어 특성에 대한 계약 규칙을 정의합니다.  
   
-|Name|값|type|  
+|이름|값|type|  
 |----------|-----------|----------|  
 |_type|MediaAttribution으로 설정되는 유형 힌트입니다.|문자열|  
 |mustBeCloseToContent|규칙의 콘텐츠를 규칙이 적용되는 필드에 근접한 위치에 배치해야 하는지 여부를 결정하는 부울 값입니다. **true**이면 콘텐츠를 근접한 위치에 배치해야 합니다. **false**이거나 이 필드가 없으면 콘텐츠를 호출자가 임의로 배치할 수 있습니다.|BOOLEAN|  
@@ -185,7 +186,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
   
 게시자는 자신의 이름, 웹 사이트 또는 둘 다를 제공할 수 있습니다.  
   
-|Name|값|type|  
+|이름|값|type|  
 |----------|-----------|----------|  
 |이름|게시자의 이름입니다.|문자열|  
 |URL|게시자 웹 사이트의 URL입니다.<br /><br /> 게시자가 웹 사이트를 제공하지 않을 수도 있습니다.|문자열|  
@@ -195,7 +196,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ### <a name="webpage"></a>WebPage  
 미리 보기의 웹 페이지에 대한 정보를 정의합니다.  
   
-|Name|값|type|  
+|이름|값|type|  
 |----------|-----------|----------|
 |이름|페이지 제목입니다. HTML 제목이 아닐 수도 있습니다.|문자열|
 |URL|실제로 크롤링된 URL입니다. 요청이 리디렉션을 따랐을 수도 있습니다.|문자열|  
@@ -216,19 +217,19 @@ Bing이 요청에 사용한 쿼리 컨텍스트를 정의합니다.
 |originalQuery|요청에 지정된 쿼리 문자열입니다.|문자열|  
 
 ### <a name="identifiable"></a>Identifiable
-|Name|값|type|  
+|이름|값|type|  
 |-------------|-----------------|----------|
 |id|리소스 식별자|문자열|
  
 ### <a name="rankinggroup"></a>RankingGroup
 mainline과 같은 검색 결과 그룹을 정의합니다.
-|Name|값|type|  
+|이름|값|type|  
 |-------------|-----------------|----------|
 |items|그룹에 표시할 검색 결과 목록입니다.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 표시할 검색 결과 항목을 정의합니다.
-|Name|값|type|  
+|이름|값|type|  
 |-------------|-----------------|----------|
 |resultIndex|답변에서 표시할 항목의 0부터 시작 인덱스입니다. 항목에 이 필드가 없는 경우 답변에 있는 모든 항목을 표시합니다. 예를 들어 뉴스 답변에 있는 모든 뉴스 기사를 표시합니다.|정수 |
 |answerType|표시할 항목이 포함된 답변입니다. 예를 들어 뉴스입니다.<br /><br />유형을 사용하여 SearchResponse 개체에서 답변을 찾습니다. 유형은 SearchResponse 필드의 이름입니다.<br /><br /> 그러나 이 개체에 value 필드가 포함된 경우에만 답변 유형을 사용합니다. value 필드가 없으면 무시합니다.|문자열|
@@ -238,7 +239,7 @@ mainline과 같은 검색 결과 그룹을 정의합니다.
 ### <a name="rankingresponse"></a>RankingResponse  
 검색 결과 페이지에서 콘텐츠를 배치할 위치와 순서를 정의합니다.  
   
-|Name|값|  
+|이름|값|  
 |----------|-----------|  
 |<a name="ranking-mainline" />mainline|mainline에 표시할 검색 결과입니다.|  
 |<a name="ranking-pole" />pole|가장 잘 보이도록 처리(예: 기본 줄과 사이드바 위에 표시)해야 하는 검색 결과입니다.|  
@@ -250,7 +251,7 @@ mainline과 같은 검색 결과 그룹을 정의합니다.
   
 서비스에서 서비스 거부 공격을 의심할 경우 요청이 성공하지만(HTTP 상태 코드는 200 OK) 응답의 본문이 비어 있습니다.  
   
-|Name|값|type|  
+|이름|값|type|  
 |----------|-----------|----------|  
 |_type|SearchResponse로 설정되는 유형 힌트입니다.|문자열|  
 |WebPage|미리 보기를 정의하는 JSON 개체입니다.|string|  
@@ -259,7 +260,7 @@ mainline과 같은 검색 결과 그룹을 정의합니다.
 ### <a name="textattribution"></a>TextAttribution  
 일반 텍스트 특성에 대한 계약 규칙을 정의합니다.  
   
-|Name|값|type|  
+|이름|값|type|  
 |----------|-----------|----------|  
 |_type|TextAttribution으로 설정되는 유형 힌트입니다.|문자열|  
 |text|특성 텍스트입니다.<br /><br /> 텍스트 특성은 엔터티 전체에 적용되며, 엔터티 프레젠테이션 바로 다음에 표시되어야 합니다. 대상을 지정하지 않는 텍스트 또는 링크 특성 규칙이 여러 개 있는 경우 규칙을 연결하고 “Data from:” 레이블을 사용하여 표시해야 합니다.|문자열| 
