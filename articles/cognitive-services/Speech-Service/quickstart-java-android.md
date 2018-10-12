@@ -5,16 +5,16 @@ description: Cognitive Services Speech SDK를 사용하여 Android의 Java에서
 services: cognitive-services
 author: fmegen
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: 0a52889ef879aeb8a5a1ed59b74619dc3337e1e9
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 6428dbaabfe176e8d741818ee338bbc2a6bc70bb
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432799"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883876"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Android의 Java에서 음성 인식
 
@@ -112,7 +112,7 @@ Speech SDK를 사용하도록 프로젝트를 설정합니다. Android Studio �
 
 ## <a name="add-sample-code"></a>샘플 코드 추가
 
-1. `MainActivity.java` 소스 파일을 엽니다. `package` 문 이후의 모든 코드를 다음으로 바꿉니다.
+1. `MainActivity.java` 소스 파일을 엽니다. 이 파일의 모든 코드를 다음으로 바꿉니다.
 
    [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/quickstart/MainActivity.java#code)]
 

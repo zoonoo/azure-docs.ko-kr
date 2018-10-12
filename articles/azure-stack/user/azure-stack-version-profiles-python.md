@@ -14,12 +14,12 @@ ms.date: 08/15/2018
 ms.author: sethm
 ms.reviewer: sijuman
 <!-- dev: viananth -->
-ms.openlocfilehash: c55dcf0736642690f245f680db5cb1620c2175e7
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: c4600eda74fbc0ae53f30dac00e0127a984a4fff
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390965"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093418"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>API 버전 프로필을 사용 하 여 Azure Stack에서 Python 사용
 
@@ -129,7 +129,7 @@ Azure Stack 사용자의 가상 머신에 대 한 일반적인 관리 작업을 
     export ARM_ENDPOINT={your AzureStack Resource Manager Endpoint}
     ```
 
-7.  이 샘플을 실행 하려면 Ubuntu 16.04-LTS 및 windows Server 2012-R2-Datacenter 이미지에 Azure Stack 마켓플레이스에 이어야 합니다. 일 수 있습니다 이러한 [Azure에서 다운로드](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) 하거나 [플랫폼 이미지 리포지토리에 추가](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image)합니다.
+7.  이 샘플을 실행 하려면 Ubuntu 16.04-LTS 및 windows Server 2012-R2-Datacenter 이미지에 Azure Stack marketplace 이어야 합니다. 일 수 있습니다 이러한 [Azure에서 다운로드](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) 하거나 [플랫폼 이미지 리포지토리에 추가](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image)합니다.
 
 8. 샘플을 실행합니다.
 

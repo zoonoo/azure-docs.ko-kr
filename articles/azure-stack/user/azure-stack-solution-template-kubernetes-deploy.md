@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 10/09/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 71fdf609badd6c8a9f4db5a5a1d2aa70c8c2e5f5
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 62eb28c6cdb2dd6c1ddff1487826c01ef3bf6e3e
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887475"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091592"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Azure Stack에 Kubernetes 배포
 
@@ -39,6 +39,8 @@ Kubernetes에서 사용할 수 있습니다.
 - 초 후에 배포할 수 있는 확장성이 매우 뛰어난, 업그레이드, 응용 프로그램을 개발 합니다. 
 - 응용 프로그램의 설계를 간소화 하 고 다른 Helm 응용 프로그램에서 안정성을 개선 합니다. [Helm](https://github.com/kubernetes/helm)은 Kubernetes 응용 프로그램을 설치하고 수명 주기를 관리하는 오픈 소스 패키징 도구입니다.
 - 모니터링 및 확장을 사용 하 여 응용 프로그램의 상태를 진단 하 고 업그레이드 기능을 쉽게 합니다.
+
+만 청구 됩니다 노드에서 클러스터를 지 원하는 데 필요한 계산 사용 합니다. 자세한 내용은 [사용 및 Azure Stack에서 청구](https://docs.microsoft.com/azure/azure-stack/azure-stack-billing-and-chargeback)합니다.
 
 ## <a name="prerequisites"></a>필수 조건 
 

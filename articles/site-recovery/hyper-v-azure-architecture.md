@@ -2,16 +2,17 @@
 title: Azure Site Recovery의 Hyper-V와 Azure 간 복제 아키텍처 | Microsoft Docs
 description: 이 문서에서는 Azure Site Recovery 서비스를 사용하여 온-프레미스 Hyper-V VM(VMM 없음)을 Azure로 복제할 때 사용되는 구성 요소 및 아키텍처 개요를 제공합니다.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: c5d31b6217d3afe8ddb3550c145820be5996c96a
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 49059415c5f96eeb4dd871e7d2c8ae4ab9b2c12e
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920606"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078361"
 ---
 # <a name="hyper-v-to-azure-replication-architecture"></a>Hyper-V와 Azure 간 복제 아키텍처
 
@@ -69,7 +70,7 @@ Hyper-V호스트는 선택적으로 System Center VMM(Virtual Machine Manager) �
 1. Azure Portal 또는 온-프레미스에서 Hyper-V VM에 대한 보호를 사용하도록 설정하면 **보호 활성화**가 시작됩니다.
 2. 이 작업은 사용자가 구성한 설정으로 Azure에 대한 복제를 설정하기 위해 [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) 메서드를 호출하기 전에 해당 컴퓨터가 전제 조건에 부합하는지 확인합니다.
 3. 작업은 [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) 메서드를 호출하여 초기 복제를 시작하여 전체 VM 복제를 초기화하고 Azure로 VM의 가상 디스크를 전송합니다.
-4. **작업** 탭에서 작업을 모니터링할 수 있습니다.      ![작업 목록](media/hyper-v-azure-architecture/image1.png)![보호 드릴 다운 사용](media/hyper-v-azure-architecture/image2.png)
+4. **작업** 탭에서 작업을 모니터링할 수 있습니다.      ![작업 목록](media/hyper-v-azure-architecture/image1.png) ![보호 드릴 다운 사용](media/hyper-v-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>초기 데이터 복제

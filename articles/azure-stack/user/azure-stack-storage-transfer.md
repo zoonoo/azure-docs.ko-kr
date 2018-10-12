@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.date: 10/10/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 77b25b7a5291786fe81953499c730fdac506e5c8
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 45bf9bbffdbba22336da08c81df069ce0267686f
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078788"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092663"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Azure Stack 저장소에 대 한 데이터 전송 도구를 사용 합니다.
 
@@ -157,7 +157,7 @@ Azure Stack 호환 가능한 Azure PowerShell 모듈은 Azure Stack을 사용 �
 ```PowerShell  
 # begin
 
-$ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environemnt name
+$ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environment name
 $ARMEndPoint = "https://management.local.azurestack.external" 
 $GraphAudiance = "https://graph.windows.net/" 
 $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com" 

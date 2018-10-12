@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/30/2018
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: 54a81e6c5c6e1fe5c37b985e40174dc369edfe6d
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: cf6604730ab3bd9ee04fac36e703022f63dcb949
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630412"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49090368"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Azure에 Azure Stack 사용 현황 데이터를 보고 합니다. 
 
@@ -95,10 +95,6 @@ Azure Stack multinode EA (기업 계약) 및 CSP 구독 지원 됩니다. Azure 
 ## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>사용량 데이터 보고 sovereign cloud에서 작업 합니까?
 
 Azure Stack 개발 키트에서 사용 데이터 보고에 전역 Azure 시스템에서 만들어진 구독에는 필요 합니다. 소 버린 클라우드 (Azure Government, Azure 독일 및 Azure 중국 클라우드) 중 하나에서 만들어진 구독 사용량 데이터 보고를 지원 하지 되므로 Azure를 사용 하 여 등록할 수 없습니다.
-
-## <a name="how-can-users-identify-azure-stack-usage-data-in-the-azure-billing-portal"></a>사용자 수는 Azure 청구 포털에서 Azure Stack 사용 현황 데이터를 식별 하는 방법
-
-사용량 세부 정보 파일의 Azure Stack 사용 현황 데이터를 볼 수 있습니다. 참조 사용 현황 세부 정보 파일을 가져오는 방법에 대해 알아야 합니다 [Azure 계정 센터 아티클에서 사용 현황 파일을 다운로드](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv)합니다. 사용량 세부 정보 파일을 Azure Stack 저장소 및 Vm을 식별 하는 Azure Stack 미터를 포함 합니다. Azure Stack에서 사용 하는 모든 리소스는 "Azure Stack." 라는 지역에서 보고 되는
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Azure Stack에서 보고 된 사용량 하지 Azure 계정 센터에서 생성 된 보고서를 일치 하는 이유
 
