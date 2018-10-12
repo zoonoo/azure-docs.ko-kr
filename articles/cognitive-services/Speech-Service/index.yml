@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 01b288136036fc5ff719c179821801aeac95c5c5
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 7bfa1becd3eed5bcf3e2d0bec160a4b4e2f254a3
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830535"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091882"
 documentType: LandingData
 title: Speech Service SDK 설명서
 metadata:
@@ -26,15 +26,6 @@ metadata:
   ms.author: nitinme
 abstract:
   description: Speech Service 및 Speech SDK를 사용하여 앱에 음성 지원 기능을 추가하는 방법을 알아봅니다. Speech SDK를 사용하여 <i>음성 텍스트 변환</i>(음성 인식/SR), <i>의도</i>, <i>번역</i> 및 <i>텍스트 음성 변환</i>(TTS) 기능을 앱에 추가할 수 있습니다. 또한 Speech Service에는 HTTP 요청을 수행할 수 있는 모든 프로그래밍 언어를 사용하여 작동되는 REST API도 있습니다.
-  aside:
-    image:
-      alt: 
-      height: 110
-      src: ../media/index/speech-landing-page-video.png
-      width: 250
-    title: Speech Service 개요(10:34)
-    href: https://azure.microsoft.com/resources/videos/connect-2017-microsoft-cognitive-services-overview-of-advanced-speech-capabilities/
-    width: 250
 sections:
 - items:
   - type: list

@@ -11,12 +11,12 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
 ms.author: carolz
-ms.openlocfilehash: 76afc558048f1890e5e2440fd002361172acbea2
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: c1dab114ddd010daa88222f380ad7a47f1dd1767
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433839"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49090708"
 ---
 <div class="content">
    <h1>Azure의 Docker</h1>   
@@ -38,7 +38,7 @@ Docker는 Linux 및 Windows에서 컨테이너와 함께 빠르게 사용할 수
 </ol>
 <h2>리소스</h2>
 <p>Azure에서 Docker를 사용하는 방법에 대한 추가 참조 자료 및 도구는 다음 링크를 참조하세요.</p>
-<a href="https://www.docker.com/docker-azure">Docker Azure 사이트</a><br/>
+<a href="https://docs.docker.com/docker-for-azure/why/">Docker Azure 사이트</a><br/>
 <a href="https://docs.docker.com/machine/drivers/azure/">Docker Azure 드라이버</a><br/>
 <a href="https://docker.com">Docker에 대해 알아보기</a><br/>
 </div>
