@@ -11,12 +11,12 @@ ms.date: 09/24/2018
 ms.topic: hub-page
 ms.prod: cognitive-services
 ms.technology: cognitive-services
-ms.openlocfilehash: 5403ec448725504c0b0a57a3d82853d0884c7c48
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1c07a02369af90580615fd9e7eaf6e239949ea36
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985436"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068471"
 ---
 <h1>Azure Cognitive Services 설명서</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">사용자의 요구 사항을 자연스러운 의사 소통 방식으로 보고 듣고 말하고 이해할 수 있도록 앱, 웹사이트 및 봇에 지능적인 알고리즘을 빌드하는 방법을 알아봅니다. 자습서, 빠른 시작, API 참조 및 예제는 방법을 보여줍니다.</p>
@@ -28,7 +28,7 @@ ms.locfileid: "46985436"
                     <div class="cardPadding">
                         <div class="card">
                             <div class="cardImageOuter">
-                                <div class="cardImage"> 
+                                <div class="cardImage">
                                     <img src="media/index/i_overview.svg" alt="" />
                                 </div>
                             </div>
@@ -115,6 +115,8 @@ ms.locfileid: "46985436"
                         <h3>Speech Service를 사용하여 음성 인식</h3>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-csharp-windows/">C# 사용</a></p>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-java-jre">Java 사용</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service/quickstart-objectivec-ios">Objective-C 사용</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service/quickstart-js-browser">JavaScript 사용</a></p>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-cpp-windows">C++ 사용</a></p>
                     </div>
                 </div>
@@ -274,7 +276,7 @@ ms.locfileid: "46985436"
                 <div class="card">
                     <div class="cardText">
                         <h3>Speech API</h3>
-                        <p><a href="/azure/cognitive-services/speech-service">Speech Service</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service">Speech Service API</a></p>
                         <p><a href="/azure/cognitive-services/speech/home">Bing Speech API</a></p>
                         <p><a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><span>Custom Speech Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>Speaker Recognition&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
