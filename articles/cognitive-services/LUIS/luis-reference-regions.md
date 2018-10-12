@@ -59,11 +59,11 @@ https://www.luis.ai에서 만들어진 LUIS 앱은 [유럽](#publishing-to-europ
 
 ## <a name="publishing-to-europe"></a>유럽에 게시
 
-유럽 지역에 게시하려면 https://eu.luis.ai에만 LUIS 앱을 만듭니다. 유럽 지역의 키를 사용하여 다른 곳에 게시하려고 하면 LUIS가 경고 메시지를 표시합니다. 대신 https://eu.luis.ai을(를) 사용하세요. [https://eu.luis.ai][eu.luis.ai]에서 만들어진 LUIS 앱은 다른 지역으로 자동으로 마이그레이션되지 않습니다. LUIS 앱을 마이그레이션하려면 내보낸 다음, 가져옵니다.
+유럽 지역에 게시하려면 https://eu.luis.ai에만 LUIS 앱을 만듭니다. 유럽 지역의 키를 사용하여 다른 곳에 게시하려고 하면 LUIS가 경고 메시지를 표시합니다. 대신 https://eu.luis.ai 을(를) 사용하세요. [https://eu.luis.ai][eu.luis.ai]에서 만들어진 LUIS 앱은 다른 지역으로 자동으로 마이그레이션되지 않습니다. LUIS 앱을 마이그레이션하려면 내보낸 다음, 가져옵니다.
 
 ## <a name="publishing-to-australia"></a>오스트레일리아에 게시
 
-오스트레일리아 지역에 게시하려면 https://au.luis.ai에만 LUIS 앱을 만듭니다. 오스트레일리아 지역의 키를 사용하여 다른 곳에 게시하려고 하면 LUIS가 경고 메시지를 표시합니다. 대신 https://au.luis.ai을(를) 사용하세요. [https://au.luis.ai][au.luis.ai]에서 만들어진 LUIS 앱은 다른 지역으로 자동으로 마이그레이션되지 않습니다. LUIS 앱을 마이그레이션하려면 내보낸 다음, 가져옵니다.
+오스트레일리아 지역에 게시하려면 https://au.luis.ai에만 LUIS 앱을 만듭니다. 오스트레일리아 지역의 키를 사용하여 다른 곳에 게시하려고 하면 LUIS가 경고 메시지를 표시합니다. 대신 https://au.luis.ai 을(를) 사용하세요. [https://au.luis.ai][au.luis.ai]에서 만들어진 LUIS 앱은 다른 지역으로 자동으로 마이그레이션되지 않습니다. LUIS 앱을 마이그레이션하려면 내보낸 다음, 가져옵니다.
 
 ## <a name="endpoints"></a>엔드포인트
 
