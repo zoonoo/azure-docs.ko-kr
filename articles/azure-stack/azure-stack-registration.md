@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 410566e62daeb42100443e72f2d8a1acb8dad5a3
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: c9106557c7c113281b04d37f1bc3d8b29e2087cc
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902283"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310456"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure를 사용 하 여 Azure Stack 등록
 
@@ -45,7 +45,7 @@ Azure를 사용 하 여 Azure Stack 등록 하면 Azure에서 마켓플레이스
 
 Azure Stack에 Azure를 등록 하기 전에 다음이 필요 합니다.
 
-- Azure 구독에 대 한 구독 ID입니다. EA, CSP 또는 CSP 공유 서비스 구독 등록에 대해 지원 됩니다. Csp를 결정 해야 합니다. 것인지 [CSPSS 또는 CSP 구독을 사용 하 여](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-cspss-subscription)입니다.<br><br>ID를 가져오려면 Azure에 로그인, 클릭 **모든 서비스**합니다. 그런 다음 합니다 **일반** 범주를 선택한 **구독**를 사용 하려는 구독을 클릭 및 아래 **Essentials** id입니다. 구독을 찾을 수 있습니다
+- Azure 구독에 대 한 구독 ID입니다. EA, CSP 또는 CSP 공유 서비스 구독 등록에 대해 지원 됩니다. Csp를 결정 해야 합니다. 것인지 [APSS 또는 CSP 구독을 사용 하 여](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)입니다.<br><br>ID를 가져오려면 Azure에 로그인, 클릭 **모든 서비스**합니다. 그런 다음 합니다 **일반** 범주를 선택한 **구독**를 사용 하려는 구독을 클릭 및 아래 **Essentials** id입니다. 구독을 찾을 수 있습니다
 
   > [!Note]  
   > 독일 클라우드 구독은 현재 지원 되지 않습니다.

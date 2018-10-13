@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2018
+ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: a870ba238239a20af154f611f88e7c2fdb95f9f7
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 2e913881faadd4892ad1ebc8cb404efe6489eb0d
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870930"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310901"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 업데이트
 
@@ -52,7 +52,7 @@ Azure Stack 1808 업데이트 빌드 번호는 **1.1808.0.97**합니다.
 - **확장 호스트에 대 한 준비**합니다. 확장 호스트 필요한 TCP/IP 포트의 수를 줄여 Azure Stack 보안 하는 데 사용할 수 있습니다. 1808 업데이트를 준비, Azure Stack에 확장 호스트에 대 한 준비 수 있습니다. 자세한 내용은 [Azure Stack에 대 한 확장 호스트에 대 한 준비](/azure/azure-stack/azure-stack-extension-host-prepare)합니다.
 
 <!-- IS --> 
-- **Virtual Machine Scale Sets에 대 한 갤러리 항목은 기본 제공 이제**합니다. Virtual Machine Scale Set 갤러리 항목의는 이제 가능 사용자 및 관리자 포털에서 다운로드 하지 않고도 합니다.  1808를 업그레이드할 경우 업그레이드 완료 시 제공 됩니다.  
+- **Virtual Machine Scale Sets에 대 한 갤러리 항목은 이제 기본 제공**합니다. Virtual Machine Scale Set 갤러리 항목의는 이제 가능 사용자 및 관리자 포털에서 다운로드 하지 않고도 합니다.  1808를 업그레이드할 경우 업그레이드 완료 시 제공 됩니다.  
 
 <!-- IS, ASDK --> 
 - **가상 머신 확장 집합 크기 조정**합니다. 포털을 사용할 수 있습니다 [가상 머신 확장 집합 확장](azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).    
@@ -61,10 +61,10 @@ Azure Stack 1808 업데이트 빌드 번호는 **1.1808.0.97**합니다.
 - **사용자 지정 IPSec/IKE 정책 구성에 대 한 지원을** 에 대 한 [VPN 게이트웨이가 Azure Stack에서](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways)합니다.
 
 <!-- | IS ASDK--> 
-- **Kubernetes 마켓플레이스 항목**합니다. 이제 사용 하 여 Kubernetes 클러스터를 배포할 수 있습니다 합니다 [Kubernetes 마켓플레이스 항목](azure-stack-solution-template-kubernetes-cluster-add.md)합니다. 사용자는 Kubernetes 항목을 선택 하 고 Azure Stack에 Kubernetes 클러스터를 배포 하는 몇 가지 매개 변수를 채울 수 있습니다. 템플릿의 목적은 간단 하 게 몇 가지 단계에서 개발/테스트 Kubernetes 배포의 설치는 사용자에 게입니다.
+- **Kubernetes 마켓플레이스 항목**합니다. 이제 사용 하 여 Kubernetes 클러스터를 배포할 수 있습니다 합니다 [Kubernetes 마켓플레이스 항목](azure-stack-solution-template-kubernetes-cluster-add.md)합니다. 사용자는 Kubernetes 항목을 선택 하 고 Azure Stack에 Kubernetes 클러스터를 배포 하는 몇 가지 매개 변수를 채울 수 있습니다. 템플릿의 목적은 간단 하 게 몇 가지 단계에서 개발/테스트 Kubernetes 배포를 설정 하는 사용자에 게입니다.
 
 <!-- | IS ASDK--> 
-- **블록 체인 템플릿**합니다. 이제 실행할 수 있습니다 [Ethereum 컨소시엄 배포](azure-stack-ethereum.md) Azure Stack에서. 세 개의 새로운 템플릿이 있습니다 합니다 [Azure Stack 빠른 시작 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates)합니다. 사용자가 배포를 한 지식이 별로 없더라도 Azure 및 Ethereum 다중 멤버 컨소시엄 Ethereum 네트워크를 구성할 수 있습니다. 템플릿의 목적은 간단 하 게 몇 가지 단계에서 개발/테스트 Blockchain 배포의 설치는 사용자에 게입니다.
+- **블록 체인 템플릿**합니다. 이제 실행할 수 있습니다 [Ethereum 컨소시엄 배포](azure-stack-ethereum.md) Azure Stack에서. 세 개의 새로운 템플릿이 있습니다 합니다 [Azure Stack 빠른 시작 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates)합니다. 사용자가 배포를 한 지식이 별로 없더라도 Azure 및 Ethereum 다중 멤버 컨소시엄 Ethereum 네트워크를 구성할 수 있습니다. 템플릿의 목적은 간단 하 게 몇 가지 단계에서 개발/테스트 Blockchain 배포를 설정 하는 사용자에 게입니다.
 
 <!-- | IS ASDK--> 
 - **API 버전 프로필 2017-03-09-프로필 2018-03-01-하이브리드로 업데이트 되었습니다**합니다. 프로필 API는 Azure 리소스 공급자 및 Azure REST 끝점에 대 한 API 버전을 지정합니다. 프로필에 대 한 자세한 내용은 참조 하세요. [Azure Stack에서 관리 하는 API 버전 프로필](/azure/azure-stack/user/azure-stack-version-profiles)합니다.
@@ -145,6 +145,13 @@ Azure Stack 1808 업데이트 빌드 번호는 **1.1808.0.97**합니다.
 
 ### <a name="known-issues-with-the-update-process"></a>업데이트 프로세스를 사용 하 여 알려진된 문제
 
+<!-- TBD - IS -->
+- 반복적으로 나타나고 나타났다가 사라집니다 Azure Stack 시스템에 다음 경고가 표시 될 수 있습니다.
+   - *인프라 역할 인스턴스를 사용할 수 없음*
+   - *확장 단위 노드에 오프 라인 상태입니다.*
+   
+  실행 하십시오 합니다 [테스트 AzureStack](azure-stack-diagnostic-test.md) 인프라 역할 인스턴스의 상태를 확인 하 고 단위 노드의 크기를 조정 하는 cmdlet입니다. 문제가 감지 되 면 [테스트 AzureStack](azure-stack-diagnostic-test.md), 이러한 경고를 무시할 수 있습니다. 문제가 감지 될 경우에 인프라 역할 인스턴스 또는 관리 포털 또는 PowerShell을 사용 하 여 노드를 시작 하려면 시작할 수 있습니다.
+
 - 실행할 때 [테스트 AzureStack](azure-stack-diagnostic-test.md) 1808 업데이트 후 베이스 보드 관리 컨트롤러 (BMC)에서 경고 메시지가 표시 됩니다. 이 경고를 안전 하 게 무시할 수 있습니다.
 
 <!-- 2468613 - IS --> 
@@ -170,7 +177,7 @@ Azure Stack 1808 업데이트 빌드 번호는 **1.1808.0.97**합니다.
 - Azure Stack 기술 설명서는 최신 버전에 중점을 둡니다. 릴리스 간의 포털 변경으로 인해 Azure Stack 포털을 사용 하는 경우 표시 되는 내용 설명서에 표시 되는 내용에서 달라질 수 있습니다. 
 
 <!-- TBD - IS ASDK --> 
-- 포털에서 빈 대시보드를 볼 수 있습니다. 대시보드를 복구 하려면 클릭 **대시보드 편집**, 한 다음 마우스 오른쪽 단추로 클릭 하 고 선택 **기본 상태로 재설정**합니다.
+- 포털에서 빈 대시보드를 볼 수 있습니다. 대시보드를 복구 하려면 클릭 **대시보드 편집**, 한 다음 마우스 오른쪽 단추로 **기본 상태로 재설정**합니다.
 
 <!-- 2930718 - IS ASDK --> 
 - 관리자 포털에서 사용자 구독 하는 경우의 세부 정보 블레이드를 닫고 클릭 한 후에 액세스할 때 **최근**, 사용자 구독 이름이 표시 되지 않습니다.
@@ -226,7 +233,7 @@ Azure Stack 1808 업데이트 빌드 번호는 **1.1808.0.97**합니다.
 
 
 <!-- 2812138 | IS --> 
-- 에 대 한 경고가 표시 될 수 있습니다 **저장소** 다음 세부 정보는 구성 요소:
+- 에 대 한 경고가 표시 될 수 있습니다 **저장소** 다음 세부 정보를 포함 하는 구성 요소:
 
    - 이름: 저장소 서비스의 내부 통신 오류  
    - 심각도: 위험  
