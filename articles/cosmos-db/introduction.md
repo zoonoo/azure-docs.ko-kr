@@ -86,7 +86,7 @@ Azure Cosmos DB는 기존의 관계형 및 비관계형 데이터베이스의 �
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Azure Cosmos DB를 활용하는 솔루션
 
-다양한 데이터에 대한 거의 실제적인 응답 시간을 통해 [전역적으로](distribute-data-globally.md) 대량의 데이터, 읽기 및 쓰기를 처리해야 하는 모든 [웹, 모바일, 게임 및 IoT 응용 프로그램](use-cases.md)은 Azure Cosmos DB에서 [보장](https://azure.microsoft.com/support/legal/sla/cosmos-db/)하는 고가용성, 높은 처리량, 짧은 대기 시간 및 조정 가능한 일관성의 이점을 누릴 수 있습니다. Azure Cosmos DB를 [IoT 및 전자 통신 정보](use-cases.md#iot-and-telematics), [소매 및 마케팅](use-cases.md#retail-and-marketing), [게임](use-cases.md#gaming) 및 [웹 및 모바일 응용 프로그램](use-cases.md#web-and-mobile-applications)에 적용하는 방법에 대해 알아보세요.
+다양한 데이터에 대한 실시간에 준하는 응답 시간을 통해 [전역적으로](distribute-data-globally.md) 대량의 데이터, 읽기 및 쓰기를 처리해야 하는 모든 [웹, 모바일, 게임 및 IoT 응용 프로그램](use-cases.md)은 Azure Cosmos DB에서 [보장](https://azure.microsoft.com/support/legal/sla/cosmos-db/)하는 고가용성, 높은 처리량, 짧은 대기 시간 및 조정 가능한 일관성의 이점을 누릴 수 있습니다. Azure Cosmos DB를 [IoT 및 전자 통신 정보](use-cases.md#iot-and-telematics), [소매 및 마케팅](use-cases.md#retail-and-marketing), [게임](use-cases.md#gaming) 및 [웹 및 모바일 응용 프로그램](use-cases.md#web-and-mobile-applications)에 적용하는 방법에 대해 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 다음 요약 설명서를 통해 Azure Cosmos DB를 시작해 보세요.
