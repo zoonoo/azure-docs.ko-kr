@@ -28,6 +28,7 @@
 ### [액세스 제어](data-lake-store-access-control.md)
 ### [저장된 데이터 보호](data-lake-store-secure-data.md)
 ### [암호화](data-lake-store-encryption.md)
+### [가상 네트워크 통합(미리 보기)](data-lake-store-network-security.md)
 
 ## Data Lake Storage Gen1을 사용하여 인증
 ### [인증 옵션](data-lakes-store-authentication-using-azure-active-directory.md)
@@ -87,10 +88,10 @@
 ## [Azure PowerShell](/powershell/module/azurerm.datalakestore)
 ## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 ## [Java](/java/api/com.microsoft.azure.datalake.store)
-## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
+## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-store)
 ## [Python(계정 관리)](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python)
 ## [Python(파일 시스템 관리)](http://azure-datalake-store.readthedocs.io/en/latest)
-## [REST](/rest/api/datalakestore)
+## [REST (영문)](/rest/api/datalakestore)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/dls)
 
 # 리소스

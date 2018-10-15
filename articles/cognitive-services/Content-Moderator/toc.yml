@@ -4,6 +4,18 @@ items:
   items:
   - name: Content Moderator란?
     href: overview.md
+- name: 빠른 시작
+  items:
+  - name: Content Moderator 시작
+    href: quick-start.md
+  - name: .NET SDK 사용
+    items:
+    - name: 이미지 콘텐츠 확인
+      href: image-moderation-quickstart-dotnet.md
+    - name: 텍스트 콘텐츠 확인
+      href: text-moderation-quickstart-dotnet.md
+    - name: 비디오 콘텐츠 확인
+      href: video-moderation-api.md
 - name: 샘플
   items:
   - name: .NET SDK 샘플
@@ -26,30 +38,20 @@ items:
   items:
   - name: Content Moderator 평가판 사용
     items:
-    - name: Content Moderator 시작
-      href: quick-start.md
     - name: 중재 API
       items:
-      - name: 도우미 라이브러리 - .NET
-        href: content-moderator-helper-quickstart-dotnet.md
       - name: 이미지 - API 콘솔
         href: try-image-api.md
-      - name: 이미지 - .NET
-        href: image-moderation-quickstart-dotnet.md
+      - name: 사용자 지정 목록에 대한 이미지 확인
+        href: image-lists-quickstart-dotnet.md
       - name: 사용자 지정 이미지 - API 콘솔
         href: try-image-list-api.md
-      - name: 사용자 지정 이미지 - .NET
-        href: image-lists-quickstart-dotnet.md
       - name: 텍스트 - API 콘솔
         href: try-text-api.md
-      - name: 텍스트 - .NET
-        href: text-moderation-quickstart-dotnet.md
+      - name: 사용자 지정 용어에 대한 텍스트 확인
+        href: term-lists-quickstart-dotnet.md
       - name: 사용자 지정 사용 약관 - API 콘솔
         href: try-terms-list-api.md
-      - name: 사용자 지정 사용 약관 - .NET
-        href: term-lists-quickstart-dotnet.md
-      - name: 비디오 - .NET
-        href: video-moderation-api.md
     - name: API 검토
       items:
       - name: 작업 - API 콘솔
@@ -132,9 +134,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: 주문형 웹 세미나
     href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
-ms.openlocfilehash: 32f0c64253836d3080cc815753e361d810e1f2e8
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 68febbe4e4206c774f75e1a07216eddf86dc5888
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433808"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309828"
