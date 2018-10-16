@@ -3,7 +3,7 @@ title: Azure Security Center 빠른 시작 - Security Center에 Linux 컴퓨터 
 description: 이 빠른 시작에서는 Security Center에 Linux 컴퓨터를 온보딩하는 방법을 보여 줍니다.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
-ms.author: terrylan
-ms.openlocfilehash: 05e4bed0f9b4dfb6d1879408085447ef53db8655
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 09/02/2018
+ms.author: rkarlin
+ms.openlocfilehash: 1eab54d16dcc0facace9a51a4cf5b5d1243baf4f
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630100"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025396"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>빠른 시작: Azure Security Center에 Linux 컴퓨터 온보딩
 Azure 구독을 온보딩한 후 Linux 에이전트를 프로비전하여 Azure 외부(예: 온-프레미스 또는 다른 클라우드)에서 실행되는 Linux 리소스에 Security Center를 사용하도록 설정할 수 있습니다.
@@ -39,13 +39,12 @@ Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야
 
  ![Security Center 개요][2]
 
-3. Security Center 주 메뉴에서 **고급 보안으로 온보딩**을 선택합니다.
-4. **비 Azure 컴퓨터를 추가할까요?** 를 선택합니다.
-   ![고급 보안으로 온보딩][3]
+3. Security Center 주 메뉴에서 **시작하기**를 선택합니다.
+4. **시작하기** 탭을 선택합니다. ![시작하기][3]
 
-5. **새 비 Azure 컴퓨터 추가**에 Log Analytics 작업 영역 목록이 표시됩니다. 이 목록에는 자동 프로비저닝을 사용하는 경우 Security Center에서 자동으로 생성되는 기본 작업 영역이 포함됩니다(해당하는 경우). 이 작업 영역이나 사용할 다른 작업 영역을 선택합니다.
+5. **새 비 Azure 컴퓨터 추가**에서 **구성**을 클릭하면 Log Analytics 작업 영역 목록이 표시됩니다. 이 목록에는 자동 프로비저닝을 사용하는 경우 Security Center에서 자동으로 생성되는 기본 작업 영역이 포함됩니다(해당하는 경우). 이 작업 영역이나 사용할 다른 작업 영역을 선택합니다.
 
-    ![비 Azure 컴퓨터 추가][4]
+    ![비 Azure 컴퓨터 추가](./media/quick-onboard-linux-computer/non-azure.png)
 
 6.  **직접 에이전트** 페이지의 **Linux용 에이전트 다운로드 및 온보딩** 아래에서 **복사** 단추를 선택하여 *wget* 명령을 복사합니다.
 
@@ -91,7 +90,7 @@ Linux용 Security Center 에이전트에 대한 로그는 */var/opt/microsoft/om
 <!--Image references-->
 [1]: ./media/quick-onboard-linux-computer/portal.png
 [2]: ./media/quick-onboard-linux-computer/overview.png
-[3]: ./media/quick-onboard-linux-computer/onboard-windows-computer.png
+[3]: ./media/quick-onboard-linux-computer/get-started.png
 [4]: ./media/quick-onboard-linux-computer/add-computer.png
 [5]: ./media/quick-onboard-linux-computer/pgrep-command.png
 [6]: ./media/quick-onboard-linux-computer/logs-for-agent.png

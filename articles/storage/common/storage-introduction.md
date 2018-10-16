@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 07/11/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 59e6f4126e8a39ab695015fae2a2013529383418
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 693ba07e46900ba6f3e025d97cb34aad9e244ace
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41920097"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027047"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure Storage 소개
 
@@ -93,7 +93,7 @@ Table 저장소에 대한 자세한 내용은 [Azure Table 저장소 개요](../
 
 |**저장소 계정의 유형**|**범용 표준**|**범용 프리미엄**|**Blob Storage, 핫 및 쿨 액세스 계층**|
 |-----|-----|-----|-----|
-|**지원되는 서비스**| Blob, File, Queue 서비스 | Blob Service | Blob Service|
+|**지원되는 서비스**| Blob, File, Queue 및 Table 서비스 | Blob Service | Blob Service|
 |**지원되는 Blob 유형**|블록 Blob, 페이지 Blob 및 추가 Blob | 페이지 Blob | 블록 Blob 및 추가 Blob|
 
 ### <a name="general-purpose-storage-accounts"></a>범용 저장소 계정

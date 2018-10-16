@@ -3,7 +3,7 @@ title: Azure Security Center 자습서 - Azure Security Center로 리소스 보�
 description: 이 자습서는 Just-In-Time VM 액세스 정책과 응용 프로그램 제어 정책을 구성하는 방법을 보여 줍니다.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
-ms.author: terrylan
-ms.openlocfilehash: b882f9740a9b29cddb2cbe0359056cf66c293717
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.date: 08/30/2018
+ms.author: rkarlin
+ms.openlocfilehash: 1d3d775a13f83ada6ca702eb984262668507f7e9
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363757"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025449"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>자습서: Azure Security Center로 리소스 보호
 Security Center는 액세스 및 응용 프로그램 제어를 통해 악성 활동을 차단하여 위협에 대한 노출을 제한합니다. Just-In-Time VM(가상 머신) 액세스는 지속적인 VM 액세스를 거부할 수 있도록 하여 공격에 대한 노출을 줄입니다. 대신, 필요한 경우에만 VM에 대한 제어 및 감사된 액세스를 제공합니다. 적응형 응용 프로그램 제어는 VM에서 실행할 수 있는 응용 프로그램을 제어하여 맬웨어로부터 VM을 강화합니다. Security Center는 기계 학습을 통해 VM에서 실행 중인 프로세스를 분석하고 이러한 인텔리전스를 사용하여 허용 목록 규칙을 적용할 수 있습니다.

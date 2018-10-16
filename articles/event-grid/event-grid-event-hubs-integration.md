@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 432436ee13519cf342313ad369c168ba764f9264
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: aad7a24d8b0e0bc74815cad3604db1cc21a6db96
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616518"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163229"
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>데이터 웨어하우스로 빅 데이터 스트림
 
@@ -184,6 +184,7 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
 ## <a name="next-steps"></a>다음 단계
 
+* Azure 메시징 서비스의 차이점을 알아보려면 [메시지를 배달하는 Azure 서비스 중에서 선택](compare-messaging-services.md)을 참조하세요.
 * Event Grid에 대한 소개는 [Event Grid 정보](overview.md)를 참조하세요.
 * Event Hubs 캡처에 대한 소개는 [Azure Portal을 사용하여 Event Hubs 캡처를 사용하도록 설정](../event-hubs/event-hubs-capture-enable-through-portal.md)을 참조하세요.
 * 샘플 설정 및 실행에 대한 자세한 내용은 [Event Hubs 캡처 및 Event Grid 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)을 참조하세요.

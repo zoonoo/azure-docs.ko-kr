@@ -14,16 +14,16 @@ ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 02c1cb90fef4472e97ec16f9eca0fc8a3b6a11c0
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 3b2264817dce63885ce0c428fe4df8427f7cdde6
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842814"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049250"
 ---
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>Azure Active Directory에서 삭제된 Office 365 그룹 복원
 
-Azure AD(Azure Active Directory)에서 Office 365 그룹을 삭제하는 경우 삭제된 그룹은 유지되지만 삭제일로부터 30일 동안 표시되지 않습니다. 필요한 경우 그룹 및 해당 콘텐츠를 복원할 수 있습니다. 이 기능은 Azure AD의 Office 365 그룹에만 제한됩니다. 보안 그룹 및 배포 그룹에는 사용할 수 없습니다.
+Azure AD(Azure Active Directory)에서 Office 365 그룹을 삭제하는 경우 삭제된 그룹은 유지되지만 삭제일로부터 30일 동안 표시되지 않습니다. 이 동작에 따라 필요한 경우 그룹 및 해당 콘텐츠를 복원할 수 있습니다. 이 기능은 Azure AD의 Office 365 그룹에만 제한됩니다. 보안 그룹 및 배포 그룹에는 사용할 수 없습니다.
 
 > [!NOTE]
 > `Remove-MsolGroup`을 사용하면 그룹이 영구적으로 제거되므로 사용하지 않도록 합니다. 항상 `Remove-AzureADMSGroup`을 사용하여 O365 그룹을 삭제하세요.

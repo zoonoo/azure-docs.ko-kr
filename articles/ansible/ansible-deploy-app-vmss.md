@@ -7,13 +7,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 08/24/2018
-ms.openlocfilehash: 762c14b5b6e30f6410a8d572d69651c803f079c2
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.date: 09/11/2018
+ms.openlocfilehash: 3512cb7eda9f9e5a6e18dc83f6523029b17a9de2
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918089"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391473"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Ansible을 사용하여 Azure에서 가상 머신 확장 집합에 응용 프로그램 배포
 Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Ansible을 사용하여 Azure에 응용 프로그램을 배포할 수 있습니다. 이 문서에서는 Azure VMSS(가상 머신 확장 집합)에 Java 응용 프로그램을 배포하는 방법을 보여줍니다.  
@@ -31,7 +31,7 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
 
 ## <a name="get-host-information"></a>호스트 정보 가져오기
 
-이 섹션에서는 Ansible을 사용하여 Azure 가상 머신의 그룹에 대한 호스트 정보를 검색하는 방법을 보여줍니다. 다음은 샘플 Ansible 플레이북입니다. 코드는 지정된 리소스 그룹 내에서 공용 IP 주소 및 부하 분산 장치를 가져오고, 인벤토리에 **saclesethosts**라는 호스트 그룹을 만듭니다. 
+이 섹션에서는 Ansible을 사용하여 Azure 가상 머신의 그룹에 대한 호스트 정보를 검색하는 방법을 보여줍니다. 다음은 샘플 Ansible 플레이북입니다. 코드는 지정된 리소스 그룹 내에서 공용 IP 주소 및 부하 분산 장치를 가져오고, 인벤토리에 **scalesethosts**라는 호스트 그룹을 만듭니다. 
 
 다음 샘플 플레이북을 `get-hosts-tasks.yml`로 저장합니다. 
 

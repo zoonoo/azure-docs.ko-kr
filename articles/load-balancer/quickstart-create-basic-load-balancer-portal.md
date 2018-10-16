@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 49fa4cf9b24c432b0956f930a1429e1cdf827f1b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 7451d6ade7f8b042a68f456e604e2919cacab0a5
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304881"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378434"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 공용 기본 부하 분산 장치 만들기
 
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-basic-load-balancer"></a>기본 부하 분산 장치 만들기
 
-이 섹션에서는 포털을 사용하여 공용 기본 부하 분산 장치를 만듭니다. 포털을 사용하여 부하 공용 IP 및 분산 장치 리소스를 만들 때 공용 IP 주소는 자동으로 부하 분산 장치의 프런트 엔드로 구성됩니다. 프런트 엔드의 이름은 **LoadBalancerFrontend**입니다.
+이 섹션에서는 포털을 사용하여 공용 기본 부하 분산 장치를 만듭니다. 포털을 사용하여 부하 공용 IP 및 분산 장치 리소스를 만들 때 공용 IP 주소는 자동으로 부하 분산 장치의 프런트 엔드로 구성됩니다. 프런트 엔드의 이름은 **myLoadBalancer**입니다.
 
 1. 포털의 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **Load Balancer**를 선택합니다.
 2. **부하 분산 장치 만들기** 창에서 이러한 값을 입력합니다.

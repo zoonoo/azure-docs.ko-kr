@@ -8,22 +8,22 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: b364dfb033c3af640892bb305d7df3c916dd3fef
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a6ad40f90e12bbf4dd85c3cbd22839d39a734ca1
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095770"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391168"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Jenkins 플러그 인을 사용하여 Azure App Service에 배포 
 
 Azure에 Java 웹앱을 배포하려면 [Jenkins 파이프라인](/azure/jenkins/execute-cli-jenkins-pipeline)의 Azure CLI를 사용하거나 [Azure App Service Jenkins 플러그 인](https://plugins.jenkins.io/azure-app-service)을 사용할 수 있습니다. Jenkins 플러그 인 버전 1.0은 다음을 통해 Azure App Service의 Web Apps 기능을 사용하여 지속적인 배포를 지원합니다.
-* Git 또는 FTP.
+* 파일 업로드
 * Linux의 Web Apps용 Docker.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * Git 또는 FTP를 통해 Web Apps를 배포하도록 Jenkins 구성
+> * 파일 업로드를 통해 Web Apps를 배포하도록 Jenkins 구성
 > * Web App for Containers를 배포하도록 Jenkins 구성.
 
 ## <a name="create-and-configure-a-jenkins-instance"></a>Jenkins 인스턴스 만들기 및 구성
@@ -37,7 +37,7 @@ Jenkins 마스터가 없는 경우 JDK(Java Development Kit) 버전 8 및 다음
 
 Jenkins 플러그 인을 사용하여 Web Apps에 지원되는 언어(예: C#, PHP, Java, Node.js)로 웹앱을 배포할 수 있습니다. 이 자습서에서는 [Azure용 간단한 Java 웹앱](https://github.com/azure-devops/javawebappsample)을 사용합니다. 자신의 GitHub 계정에 리포지토리를 분기하려면 GitHub 인터페이스의 오른쪽 위 모서리에 있는 **분기** 단추를 선택합니다.  
 > [!NOTE]
-> Java 프로젝트를 빌드하려면 Java JDK 및 Maven이 필요합니다. 지속적인 통합을 위해 에이전트를 사용하는 경우 Jenkins 마스터 또는 VM 에이전트에 구성 요소를 설치하십시오. 
+> Java 프로젝트를 빌드하려면 Java JDK 및 Maven이 필요합니다. 지속적인 통합을 위해 에이전트를 사용하는 경우 Jenkins 마스터 또는 VM 에이전트에 구성 요소를 설치하십시오. Java SE 응용 프로그램을 배포하는 경우 빌드 서버에서 ZIP도 필요합니다.
 
 구성 요소를 설치하려면 SSH로 Jenkins 인스턴스에 로그인하고 다음 명령을 실행합니다.
 
@@ -60,7 +60,11 @@ Azure에 배포하려면 Azure 서비스 주체가 필요합니다.
 
 ## <a name="configure-jenkins-to-deploy-web-apps-by-uploading-files"></a>파일을 업로드하여 Web Apps를 배포하도록 Jenkins 구성
 
-Web Apps에 프로젝트를 배포하려면 Git 또는 FTP를 사용하여 빌드 아티팩트(예: Java의 WAR 파일)를 업로드할 수 있습니다.
+웹앱에 프로젝트를 배포하려면 파일을 업로드하여 빌드 아티팩트를 업로드할 수 있습니다. Azure App Service는 여러 배포 옵션을 지원합니다. Azure App Service Jenkins 플러그 인은 배포를 간소화하며, 파일 형식에 따라 다른 배포 옵션을 제공합니다. 
+
+* Java EE 응용 프로그램의 경우 [WAR 배포](/azure/app-service/app-service-deploy-zip#deploy-war-file)가 사용됩니다.
+* Java SE 응용 프로그램의 경우 [ZIP 배포](/azure/app-service/app-service-deploy-zip#deploy-zip-file)가 사용됩니다.
+* 다른 언어의 경우 [Git 배포](/azure/app-service/app-service-deploy-local-git)가 사용됩니다.
 
 Jenkins에서 작업을 설정하기 전에 Java 앱을 실행하려면 웹앱과 Azure App Service 계획이 필요합니다.
 
@@ -127,7 +131,7 @@ Azure App Service Jenkins 플러그 인은 파이프 라인을 지원합니다. 
 
 Linux의 Web Apps는 Docker를 사용하여 배포를 지원합니다. Docker를 사용하여 웹앱을 배포하려면 서비스 런타임에 웹앱을 Docker 이미지로 패키지화하는 Dockerfile을 제공해야 합니다. 그러면 Jenkins 플러그 인이 이미지를 빌드하고 Docker 레지스트리에 푸시하고 이미지를 웹앱에 배포합니다.
 
-Linux에서 Web Apps는 Git 및 FTP와 같은 일반적인 배포 방법도 지원하지만 기본 제공되는 언어(.NET Core, Node.js, PHP 및 Ruby)에 한합니다. 다른 언어의 경우 응용 프로그램 코드와 서비스 런타임을 함께 Docker 이미지로 패키징하고 Docker를 사용하여 배포해야 합니다.
+Linux에서 Web Apps는 Git 및 파일 업로드와 같은 일반적인 배포 방법도 지원하지만 기본 제공되는 언어(.NET Core, Node.js, PHP 및 Ruby)에 한합니다. 다른 언어의 경우 응용 프로그램 코드와 서비스 런타임을 함께 Docker 이미지로 패키징하고 Docker를 사용하여 배포해야 합니다.
 
 Jenkins에서 작업을 설정하기 전에 Linux에 웹앱이 필요합니다. 개인 Docker 컨테이너 이미지를 저장하고 관리하기 위해 컨테이너 레지스트리도 필요합니다. DockerHub를 사용하여 컨테이너 레지스트리를 만들 수 있습니다. 이 예제에서는 Azure Container Registry를 사용합니다.
 
@@ -232,5 +236,5 @@ Jenkins 플러그 인에서 버그가 발생하면 [Jenkins JIRA](https://issues
 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * FTP를 통해 Azure App Service를 배포하도록 Jenkins 구성 
+> * 파일 업로드를 통해 Azure App Service를 배포하도록 Jenkins 구성 
 > * Web App for Containers에 배포하도록 Jenkins 구성 

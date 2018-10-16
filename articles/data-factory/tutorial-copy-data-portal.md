@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: b083884a7afa0f2c4f1bb7c119399e1612767abf
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: f7d6f34c75069f91e06d58c960249d040b2bda8a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43091955"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299203"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob 저장소에서 SQL 데이터베이스로 데이터 복사
 이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 데이터 팩터리를 만듭니다. 데이터 팩터리의 파이프라인은 Azure Blob 저장소에서 SQL 데이터베이스로 데이터를 복사합니다. 이 자습서의 구성 패턴은 파일 기반 데이터 저장소에서 관계형 데이터 저장소로 복사하는 데 적용됩니다. 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
@@ -229,7 +229,7 @@ ms.locfileid: "43091955"
 오른쪽 위에서 **코드**를 클릭하여 파이프라인과 연결된 JSON 코드를 볼 수 있습니다.
 
 ## <a name="debug-and-publish-the-pipeline"></a>파이프라인 디버그 및 게시
-아티팩트(연결된 서비스, 데이터 집합 및 파이프라인)를 Data Factory 또는 고유한 Visual Studio Team Services Git 리포지토리에 게시하기 전에 파이프라인을 디버그할 수 있습니다. 
+아티팩트(연결된 서비스, 데이터 집합 및 파이프라인)를 Data Factory 또는 고유한 Azure Repos Git 리포지토리에 게시하기 전에 파이프라인을 디버그할 수 있습니다. 
 
 1. 파이프라인을 디버그하려면 도구 모음에서 **디버그**를 선택합니다. 창의 아래쪽에 있는 **출력** 탭에서 파이프라인 실행 상태가 표시됩니다. 
 

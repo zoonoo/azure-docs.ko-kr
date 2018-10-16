@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/28/2018
+ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 596c4b15ea6ef76d4471bca6994377bf4d5ddc01
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: b4ec329fc5b1f3df9e6641bee3e1378c3a4d09c6
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143426"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378349"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>빠른 시작: Azure Portal(미리 보기)을 사용하여 Azure Data Box Disk 배포
 
@@ -68,12 +68,12 @@ Data Box Disk는 UPS Express 상자에 배송됩니다. 상자를 열고 상자�
 
 이 단계에는 약 5분 정도가 걸립니다.
 
-1. 포함된 케이블을 사용하여 지원되는 버전을 실행하는 Windows 컴퓨터에 디스크를 연결합니다. 지원되는 OS 버전에 대한 자세한 내용은 [Azure Data Box Disk 시스템 요구 사항](data-box-disk-system-requirements.md)으로 이동합니다. 
+1. 포함된 케이블을 사용하여 지원되는 버전을 실행하는 Windows/Linux 컴퓨터에 디스크를 연결합니다. 지원되는 OS 버전에 대한 자세한 내용은 [Azure Data Box Disk 시스템 요구 사항](data-box-disk-system-requirements.md)으로 이동합니다. 
 2. 디스크의 잠금을 해제하려면:
 
     1. Azure Portal에서 **일반 > 장치 세부 정보**로 이동하여 암호를 가져옵니다.
-    2. 디스크에 데이터 디스크를 복사하는 데 사용되는 컴퓨터에서 Data Box Disk 잠금 해제 도구를 다운로드하고 추출합니다. 
-    3. *DataBoxDiskUnlock.exe*를 실행하여 암호를 제공합니다. 디스크를 다시 삽입하려면 잠금 해제 도구를 다시 실행하고 암호를 제공합니다. **BitLocker 대화 상자 또는 BitLocker 키를 사용하여 디스크를 잠금 해제하지 마세요.** 
+    2. 디스크에 데이터 디스크를 복사하는 데 사용되는 컴퓨터에서 운영 체제별 Data Box Disk 잠금 해제 도구를 다운로드하고 추출합니다. 
+    3. Data Box Disk 잠금 해제 도구를 실행하고 지원 암호를 제공합니다. 디스크를 다시 삽입하려면 잠금 해제 도구를 다시 실행하고 암호를 제공합니다. **BitLocker 대화 상자 또는 BitLocker 키를 사용하여 디스크를 잠금 해제하지 마세요.** 디스크 잠금 해제 방법에 대한 자세한 내용은 [Windows 클라이언트에서 디스크 잠금 해제]() 또는 [Linux 클라이언트에서 디스크 잠금 해제]()로 이동하세요.
     4. 디스크에 할당한 드라이브 문자가 도구에 의해 표시됩니다. 디스크 드라이브 문자를 기록해 둡니다. 이후 단계에서 사용됩니다.
 
 ## <a name="copy-data-and-verify"></a>데이터를 복사 및 확인
@@ -86,9 +86,9 @@ Data Box Disk는 UPS Express 상자에 배송됩니다. 상자를 열고 상자�
 
     > [!NOTE] 
     > - 모든 컨테이너 및 Blob은 [Azure 명명 규칙](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions)을 준수해야 합니다. 이러한 규칙을 따르지 않는 경우 Azure로 데이터 업로드에 실패합니다.
-    > - 파일이 블록 Blob에 대해 4.7TiB 및 페이지 Blob에 대해 8TiB를 초과하지 않도록 합니다.
+    > - 파일이 블록 Blob에 대해 4.75TiB 및 페이지 Blob에 대해 8TiB를 초과하지 않도록 합니다.
 
-2. (선택 사항) 복사가 완료된 후 *AzureImportExport* 폴더에 제공된 `AzureExpressDiskService.cmd`을 실행하여 유효성 검사에 대한 체크섬을 생성하는 것이 좋습니다. 데이터 크기에 따라 이 단계는 시간이 걸릴 수 있습니다. 
+2. (선택 사항) 복사가 완료된 후 *AzureImportExport* 폴더에 제공된 `DataBoxDiskValidation.cmd`을 실행하여 유효성 검사에 대한 체크섬을 생성하는 것이 좋습니다. 데이터 크기에 따라 이 단계는 시간이 걸릴 수 있습니다. 
 3. 드라이브를 분리합니다. 
 
 

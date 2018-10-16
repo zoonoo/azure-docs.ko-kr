@@ -2,10 +2,10 @@ Cloud Shell에서 [`az appservice plan create`](/cli/azure/appservice/plan?view=
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
-다음 예제에서는 **표준** 가격 책정 계층(`--sku S1`) 및 Linux 컨테이너(`--is-linux`)에서 `myAppServicePlan`이라는 App Service 계획을 만듭니다.
+다음 예제에서는 **기본** 가격 책정 계층(`--sku B1`) 및 Linux 컨테이너(`--is-linux`)에서 `myAppServicePlan`이라는 App Service 계획을 만듭니다.
 
 ```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1 --is-linux
 ```
 
 App Service 계획을 만든 경우 Azure CLI는 다음 예제와 비슷한 정보를 표시합니다.

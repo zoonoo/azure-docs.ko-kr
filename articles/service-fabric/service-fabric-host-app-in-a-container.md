@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: a1e8c53263093554bb616ec130cd17a0d6d4339c
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 7573746b91f057d83a299d54801785118cc1c878
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302918"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380134"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>자습서: Azure Service Fabric에 Windows 컨테이너의 .NET 응용 프로그램 배포
 
@@ -225,7 +225,7 @@ $vnetRuleObject1 = New-AzureRmSqlServerVirtualNetworkRule `
 ![Fabrikam 웹 샘플][fabrikam-web-page-deployed]
 
 ## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Service Fabric 클러스터와의 CI/CD(지속적인 통합 및 지속적인 배포) 설정
-VSTS를 사용하여 Service Fabric 클러스터에 대한 CI/CD 응용 프로그램 배포를 구성하는 방법을 알아보려면 [자습서: Service Fabric 클러스터에 CI/CD로 응용 프로그램 배포](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)를 참조하세요. 이 자습서에 설명된 프로세스는 이 (FabrikamFiber) 프로젝트와 동일하므로, Voting 샘플 다운로드 과정을 건너뛰고 리포지토리 이름으로 Voting 대신 FabrikamFiber를 사용합니다.
+Azure DevOps를 사용하여 Service Fabric 클러스터에 대한 CI/CD 응용 프로그램 배포를 구성하는 방법을 알아보려면 [자습서: Service Fabric 클러스터에 CI/CD로 응용 프로그램 배포](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)를 참조하세요. 이 자습서에 설명된 프로세스는 이 (FabrikamFiber) 프로젝트와 동일하므로, Voting 샘플 다운로드 과정을 건너뛰고 리포지토리 이름으로 Voting 대신 FabrikamFiber를 사용합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 완료된 경우 만든 모든 리소스를 제거해야 합니다.  가장 간단한 방법은 Service Fabric 클러스터, Azure SQL DB 및 Azure Container Registry를 포함하는 리소스 그룹을 제거하는 것입니다.
@@ -254,8 +254,7 @@ Remove-AzureRmResourceGroup -Name $clusterresourcegroupname
 > * Azure Container Registry 만들기
 > * Azure에 Service Fabric 응용 프로그램 배포
 
-자습서의 다음 부분에서는 [컨테이너에 대한 모니터링](service-fabric-tutorial-monitoring-wincontainers.md)을 설정하는 방법을 알아봅니다.
-
+자습서의 다음 부분에서 [Service Fabric 클러스터에 CI/CD로 컨테이너 응용 프로그램 배포](service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md) 방법을 알아봅니다.
 
 [link-fabrikam-github]: https://aka.ms/fabrikamcontainer
 [link-azure-powershell-install]: /powershell/azure/install-azurerm-ps

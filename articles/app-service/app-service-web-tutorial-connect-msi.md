@@ -1,6 +1,6 @@
 ---
-title: 관리되는 서비스 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호 | Microsoft Docs
-description: 관리되는 서비스 ID를 사용하여 데이터베이스 연결을 보다 안전하게 만드는 방법과 이를 다른 Azure 서비스에 적용하는 방법에 대해 알아봅니다.
+title: 관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호 | Microsoft Docs
+description: 관리 ID를 사용하여 데이터베이스 연결을 보다 안전하게 만드는 방법과 이를 다른 Azure 서비스에 적용하는 방법에 대해 알아봅니다.
 services: app-service\web
 documentationcenter: dotnet
 author: cephalin
@@ -14,24 +14,24 @@ ms.topic: tutorial
 ms.date: 04/17/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 173588c0200666c52f3ac0a5d2e70d667cfe3294
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3125db03dc13f70524fd094736f50b563ef712a4
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445564"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379930"
 ---
-# <a name="tutorial-secure-sql-database-connection-with-managed-service-identity"></a>자습서: 관리되는 서비스 ID를 사용하여 SQL Database 연결 보호
+# <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>자습서: 관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호
 
-[App Service](app-service-web-overview.md)는 Azure에서 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 또한 [Azure SQL Database](/azure/sql-database/) 및 기타 Azure 서비스에 대한 액세스를 보호하기 위한 턴키 솔루션인 [관리되는 서비스 ID](app-service-managed-service-identity.md)를 앱에 제공합니다. App Service의 관리되는 서비스 ID는 연결 문자열의 자격 증명과 같은 비밀을 앱에서 제거하여 앱의 보안을 보다 강화합니다. 이 자습서에서는 [자습서: SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드](app-service-web-tutorial-dotnet-sqldatabase.md)에서 만든 샘플 ASP.NET 웹앱에 관리되는 서비스 ID를 추가합니다. 완료되면 샘플 앱은 사용자 이름과 암호 없이도 안전하게 SQL Database에 연결됩니다.
+[App Service](app-service-web-overview.md)는 Azure에서 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 또한 [Azure SQL Database](/azure/sql-database/) 및 기타 Azure 서비스에 대한 액세스를 보호하기 위한 턴키 솔루션인 [관리 ID](app-service-managed-service-identity.md)를 앱에 제공합니다. App Service의 관리 ID는 연결 문자열의 자격 증명과 같은 비밀을 앱에서 제거하여 앱의 보안을 보다 강화합니다. 이 자습서에서는 [자습서: SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드](app-service-web-tutorial-dotnet-sqldatabase.md)에서 만든 샘플 ASP.NET 웹앱에 관리 ID를 추가합니다. 완료되면 샘플 앱은 사용자 이름과 암호 없이도 안전하게 SQL Database에 연결됩니다.
 
 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 관리되는 서비스 ID 사용
-> * 서비스 ID에 SQL Database 액세스 권한 부여
+> * 관리 ID 사용
+> * 관리 ID에 SQL Database 액세스 권한 부여
 > * Azure Active Directory 인증을 사용하여 SQL Database로 인증하도록 응용 프로그램 코드 구성
-> * SQL Database에서 서비스 ID에 최소한의 권한 부여
+> * SQL Database에서 관리 ID에 최소한의 권한 부여
 
 > [!NOTE]
 > Azure Active Directory 인증은 온-프레미스 Active Directory(AD DS)의 [통합 Windows 인증](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10))과 _다릅니다_. AD DS 및 Azure Active Directory는 완전히 다른 인증 프로토콜을 사용합니다. 자세한 내용은 [Windows Server AD DS와 Azure AD 간의 차이](../active-directory/fundamentals/understand-azure-identity-solutions.md#the-difference-between-windows-server-ad-ds-and-azure-ad)를 참조하세요.
@@ -46,9 +46,9 @@ ms.locfileid: "39445564"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="enable-managed-service-identity"></a>관리되는 서비스 ID 사용
+## <a name="enable-managed-identities"></a>관리 ID 사용
 
-Azure 앱에 대한 서비스 ID를 사용하려면 Cloud Shell에서 [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) 명령을 사용합니다. 다음 명령에서 *\<app_name>* 을 바꿉니다.
+Azure 앱의 관리 ID를 사용하려면 Cloud Shell에서 [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) 명령을 사용합니다. 다음 명령에서 *\<app_name>* 을 바꿉니다.
 
 ```azurecli-interactive
 az webapp identity assign --resource-group myResourceGroup --name <app name>
@@ -73,13 +73,13 @@ az ad sp show --id <principalid>
 
 ## <a name="grant-database-access-to-identity"></a>ID에 데이터베이스 액세스 권한 부여
 
-다음으로 Cloud Shell에서 [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin_create) 명령을 사용하여 앱의 서비스 ID에 데이터베이스 액세스 권한을 부여합니다. 다음 명령에서 *\<server_name>* 및 <principalid_from_last_step>을 바꿉니다. *\<admin_user>* 에 관리자 이름을 입력합니다.
+다음으로 Cloud Shell에서 [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin_create) 명령을 사용하여 앱의 관리 ID에 데이터베이스 액세스 권한을 부여합니다. 다음 명령에서 *\<server_name>* 및 <principalid_from_last_step>을 바꿉니다. *\<admin_user>* 에 관리자 이름을 입력합니다.
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server_name> --display-name <admin_user> --object-id <principalid_from_last_step>
 ```
 
-이제 관리되는 서비스 ID가 Azure SQL Database 서버에 액세스할 수 있습니다.
+이제 관리 ID가 Azure SQL Database 서버에 액세스할 수 있습니다.
 
 ## <a name="modify-connection-string"></a>연결 문자열 수정
 
@@ -119,7 +119,7 @@ public MyDatabaseContext(SqlConnection conn) : base(conn, true)
 }
 ```
 
-이 생성자는 App Service의 Azure SQL Database에 대한 액세스 토큰을 사용하도록 사용자 지정 SqlConnection 개체를 구성합니다. 이 액세스 토큰을 사용하면 App Service 앱이 관리되는 서비스 ID를 사용하여 Azure SQL Database로 인증됩니다. 자세한 내용은 [Azure 리소스 토큰 가져오기](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources)를 참조하세요. `if` 문을 사용하면 LocalDB에서 로컬로 앱을 계속 테스트할 수 있습니다.
+이 생성자는 App Service의 Azure SQL Database에 대한 액세스 토큰을 사용하도록 사용자 지정 SqlConnection 개체를 구성합니다. 이 액세스 토큰을 사용하면 App Service 앱이 관리 ID를 사용하여 Azure SQL Database로 인증됩니다. 자세한 내용은 [Azure 리소스 토큰 가져오기](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources)를 참조하세요. `if` 문을 사용하면 LocalDB에서 로컬로 앱을 계속 테스트할 수 있습니다.
 
 > [!NOTE]
 > `SqlConnection.AccessToken`은 현재 .NET Framework 4.6 이상에서만 지원되며 [.NET Core](https://www.microsoft.com/net/learn/get-started/windows)에서는 지원되지 않습니다.
@@ -141,7 +141,7 @@ private MyDatabaseContext db = new MyDatabaseContext(new SqlConnection());
 
 ![솔루션 탐색기에서 게시](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
-게시 페이지에서 **게시**를 클릭합니다. 새 웹 페이지에 할 일 목록이 표시되면 앱이 관리되는 서비스 ID를 사용하여 데이터베이스에 연결합니다.
+게시 페이지에서 **게시**를 클릭합니다. 새 웹 페이지에 할 일 목록이 표시되면 앱이 관리 ID를 사용하여 데이터베이스에 연결합니다.
 
 ![Code First 마이그레이션 후 Azure 웹앱](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
@@ -151,11 +151,11 @@ private MyDatabaseContext db = new MyDatabaseContext(new SqlConnection());
 
 ## <a name="grant-minimal-privileges-to-identity"></a>ID에 최소한의 권한 부여
 
-이전 단계에서는 관리되는 서비스 ID가 SQL Server에 Azure AD 관리자로 연결되어 있습니다. 관리되는 서비스 ID에 최소한의 권한을 부여하려면 Azure AD 관리자로 Azure SQL Database 서버에 로그인한 다음, 서비스 ID가 포함된 Azure Active Directory 그룹을 추가합니다. 
+이전 단계에서는 관리 ID가 SQL Server에 Azure AD 관리자로 연결되어 있습니다. 관리 ID에 최소한의 권한을 부여하려면 Azure AD 관리자로 Azure SQL Database 서버에 로그인한 다음, 관리 ID가 포함된 Azure Active Directory 그룹을 추가합니다. 
 
-### <a name="add-managed-service-identity-to-an-azure-active-directory-group"></a>Azure Active Directory 그룹에 관리되는 서비스 ID 추가
+### <a name="add-managed-identity-to-an-azure-active-directory-group"></a>Azure Active Directory 그룹에 관리 ID 추가
 
-Cloud Shell에서 다음 스크립트에 표시된 _myAzureSQLDBAccessGroup_이라는 새로운 Azure Active Directory 그룹에 앱용 관리되는 서비스 ID를 추가합니다.
+Cloud Shell에서 다음 스크립트에 표시된 _myAzureSQLDBAccessGroup_이라는 새로운 Azure Active Directory 그룹에 앱용 관리 ID를 추가합니다.
 
 ```azurecli-interactive
 groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
@@ -168,7 +168,7 @@ az ad group member list -g $groupid
 
 ### <a name="reconfigure-azure-ad-administrator"></a>Azure AD 관리자 다시 구성
 
-이전에는 관리되는 서비스 ID를 SQL Database의 Azure AD 관리자로 할당했습니다. 이 ID는 대화형 로그인(데이터베이스 사용자 추가용)에 사용할 수 없으므로, 실제 Azure AD 사용자를 사용해야 합니다. Azure AD 사용자를 추가하려면 [Azure SQL Database 서버에 대한 Azure Active Directory 관리자 프로비전](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)의 단계를 따릅니다. 
+이전에는 관리 ID를 SQL Database의 Azure AD 관리자로 할당했습니다. 이 ID는 대화형 로그인(데이터베이스 사용자 추가용)에 사용할 수 없으므로, 실제 Azure AD 사용자를 사용해야 합니다. Azure AD 사용자를 추가하려면 [Azure SQL Database 서버에 대한 Azure Active Directory 관리자 프로비전](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)의 단계를 따릅니다. 
 
 ### <a name="grant-permissions-to-azure-active-directory-group"></a>Azure Active Directory 그룹에 사용 권한 부여
 
@@ -204,10 +204,10 @@ GO
 학습한 내용은 다음과 같습니다.
 
 > [!div class="checklist"]
-> * 관리되는 서비스 ID 사용
-> * 서비스 ID에 SQL Database 액세스 권한 부여
+> * 관리 ID 사용
+> * 관리 ID에 SQL Database 액세스 권한 부여
 > * Azure Active Directory 인증을 사용하여 SQL Database로 인증하도록 응용 프로그램 코드 구성
-> * SQL Database에서 서비스 ID에 최소한의 권한 부여
+> * SQL Database에서 관리 ID에 최소한의 권한 부여
 
 다음 자습서로 이동하여 사용자 지정 DNS 이름을 웹앱에 매핑하는 방법을 알아봅니다.
 

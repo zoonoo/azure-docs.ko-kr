@@ -1,6 +1,6 @@
 ---
-title: VSTS를 사용하여 CI/CD로 Azure Stream Analytics 작업 배포 자습서
-description: 이 문서에서는 VSTS를 사용하여 CI/CD로 Stream Analytics 작업을 배포하는 방법을 설명합니다.
+title: Azure DevOps Services 자습서를 사용하여 CI/CD로 Azure Stream Analytics 작업 배포
+description: 이 문서에서는 Azure DevOps Services를 사용하여 CI/CD로 Stream Analytics 작업을 배포하는 방법을 설명합니다.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
@@ -9,22 +9,22 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 7/10/2018
-ms.openlocfilehash: d4f1e188a1a145ba3be5fb45d2b0ea4d0bfd57a7
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: adacbaf718c5ef293b4ee3fa833083704aa41f5c
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41921036"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297945"
 ---
-# <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-vsts"></a>자습서: VSTS를 사용하여 CI/CD로 Azure Stream Analytics 작업 배포
-이 자습서에서는 Visual Studio Team Services를 사용하여 Azure Stream Analytics 작업에 대한 연속 통합 및 배포를 설정하는 방법을 설명합니다. 
+# <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>자습서: Azure Pipelines를 사용하여 CI/CD로 Azure Stream Analytics 작업 배포
+이 자습서에서는 Azure Pipelines를 사용하여 Azure Stream Analytics 작업에 대한 연속 통합 및 배포를 설정하는 방법을 설명합니다. 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 프로젝트에 소스 제어 추가
-> * Team Services에서 빌드 정의 만들기
-> * Team Services에서 릴리스 정의 만들기
+> * Azure Pipelines에서 빌드 파이프라인 만들기
+> * Azure Pipelines에서 릴리스 파이프라인 만들기
 > * 응용 프로그램 자동 배포 및 업그레이드
 
 ## <a name="prerequisites"></a>필수 조건
@@ -33,7 +33,7 @@ ms.locfileid: "41921036"
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) 및 **Azure 개발** 또는 **데이터 저장소 및 처리** 워크로드를 설치합니다.
 * [Visual Studio에서 Stream Analytics 프로젝트](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs)를 만듭니다.
-* [Visual Studio Team Services](https://visualstudio.microsoft.com/team-services/) 계정을 만듭니다.
+* [Azure DevOps 조직](https://visualstudio.microsoft.com/team-services/)을 만듭니다.
 
 ## <a name="configure-nuget-package-dependency"></a>NuGet 패키지 종속성 구성
 임의의 시스템에서 자동 빌드 및 자동 배포를 수행하려면 NuGet 패키지 `Microsoft.Azure.StreamAnalytics.CICD`를 사용해야 합니다. Stream Analytics Visual Studio 프로젝트의 지속적 통합과 배포를 지원하는 MSBuild, 로컬 실행 및 배포 도구를 제공합니다. 자세한 내용은 [Stream Analytics CI/CD 도구](stream-analytics-tools-for-visual-studio-cicd.md)를 참조하세요.
@@ -47,34 +47,35 @@ ms.locfileid: "41921036"
 </packages>
 ```
 
-## <a name="share-your-visual-studio-solution-to-a-new-team-services-git-repo"></a>새 Team Services Git 리포지토리에 Visual Studio 솔루션 공유
-응용 프로그램 소스 파일을 Team Services의 팀 프로젝트에 공유하여 빌드를 생성할 수 있습니다.  
+## <a name="share-your-visual-studio-solution-to-a-new-azure-repos-git-repo"></a>새 Azure Repos Git 리포지토리에 Visual Studio 솔루션 공유
+
+응용 프로그램 소스 파일을 Azure DevOps의 프로젝트에 공유하여 빌드를 생성할 수 있습니다.  
 
 1. Visual Studio의 오른쪽 하단의 상태 표시줄에서 **소스 제어에 추가**를 선택한 다음, **Git**을 선택하여 프로젝트에 대한 새 로컬 Git 리포지토리를 만듭니다. 
 
-2. **팀 탐색기**의 **동기화** 보기에서 **Visual Studio Team Services에 푸시** 아래에 있는 **Git 리포지토리 게시** 단추를 선택합니다.
+2. **팀 탐색기**의 **동기화** 보기에서 **Azure DevOps Services에 푸시** 아래에 있는 **Git 리포지토리 게시** 단추를 선택합니다.
 
    ![Git 리포지토리 푸시](./media/stream-analytics-tools-visual-studio-cicd-vsts/publishgitrepo.png)
 
-3. 사용자의 전자 메일을 확인하고 **Team Services 도메인** 드롭다운에서 계정을 선택합니다. 리포지토리 이름을 입력하고 **리포지토리 게시**를 선택합니다.
+3. 사용자의 전자 메일을 확인하고 **Azure DevOps Services 도메인** 드롭다운에서 조직을 선택합니다. 리포지토리 이름을 입력하고 **리포지토리 게시**를 선택합니다.
 
    ![Git 리포지토리 푸시](./media/stream-analytics-tools-visual-studio-cicd-vsts/publishcode.png)
 
-    리포지토리를 게시하면 사용자 계정에 로컬 리포지토리와 같은 이름으로 새 팀 프로젝트가 만들어집니다. 기존 팀 프로젝트에서 리포지토리를 만들려면 **리포지토리** 이름 옆에서 **고급**을 클릭하고 팀 프로젝트를 선택합니다. **웹에서 확인하세요**를 선택하면 웹에서 코드를 볼 수 있습니다.
+    리포지토리를 게시하면 조직에 로컬 리포지토리와 같은 이름으로 새 프로젝트가 만들어집니다. 기존 프로젝트에서 리포지토리를 만들려면 **리포지토리** 이름 옆에서 **고급**을 클릭하고 프로젝트를 선택합니다. **웹에서 확인하세요**를 선택하면 웹에서 코드를 볼 수 있습니다.
  
-## <a name="configure-continuous-delivery-with-vsts"></a>VSTS를 사용한 지속적인 업데이트 구성
-Team Services 빌드 정의는 순차적으로 실행되는 빌드 단계로 구성된 워크플로를 설명합니다. [Team Services 빌드 정의](https://www.visualstudio.com/docs/build/define/create)에 대해 자세히 알아봅니다. 
+## <a name="configure-continuous-delivery-with-azure-devops"></a>Azure DevOps를 사용한 지속적인 업데이트 구성
+Azure Pipelines 빌드 파이프라인은 순차적으로 실행되는 빌드 단계로 구성된 워크플로를 설명합니다. [Azure Pipelines 빌드 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav)에 대해 자세히 알아봅니다. 
 
-Team Services 릴리스 정의에서는 응용 프로그램 패키지를 클러스터에 배포하는 워크플로를 설명합니다. 빌드 정의와 릴리스 정의를 함께 사용할 경우 소스 파일로 시작하여 클러스터에서 실행 중인 응용 프로그램에서 종료할 때까지 전체 워크플로를 실행합니다. Team Services [릴리스 정의](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)에 대해 자세히 알아봅니다.
+Azure Pipelines 릴리스 파이프라인에서는 응용 프로그램 패키지를 클러스터에 배포하는 워크플로를 설명합니다. 빌드 파이프라인와 릴리스 파이프라인을 함께 사용할 경우 소스 파일로 시작하여 클러스터에서 실행 중인 응용 프로그램에서 종료할 때까지 전체 워크플로를 실행합니다. Azure Pipelines [릴리스 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)에 대해 자세히 알아봅니다.
 
-### <a name="create-a-build-definition"></a>빌드 정의 만들기
-웹 브라우저를 열고 [Visual Studio Team Services](https://app.vsaex.visualstudio.com/)에서 방금 만든 팀 프로젝트로 이동합니다. 
+### <a name="create-a-build-pipeline"></a>빌드 파이프라인 만들기
+웹 브라우저를 열고 [Azure DevOps](https://app.vsaex.visualstudio.com/)에서 방금 만든 프로젝트로 이동합니다. 
 
-1. **빌드 및 릴리스** 탭 아래에서 **빌드**를 선택한 다음, **+새로 만들기**를 선택합니다.  **VSTS Git**를 선택하고 **계속**을 선택합니다.
+1. **빌드 및 릴리스** 탭 아래에서 **빌드**를 선택한 다음, **+새로 만들기**를 선택합니다.  **Azure DevOps Services Git** 및 **계속**을 차례로 선택합니다.
     
     ![원본 선택](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-source.png)
 
-2. **템플릿 선택**에서 **빈 프로세스**를 클릭하여 빈 정의로 시작합니다.
+2. **템플릿 선택**에서 **빈 프로세스**를 클릭하여 빈 파이프라인으로 시작합니다.
     
     ![빌드 템플릿 선택](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-template.png)
 
@@ -82,7 +83,7 @@ Team Services 릴리스 정의에서는 응용 프로그램 패키지를 클러�
     
     ![트리거 상태](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger.png)
 
-4. 빌드는 푸시 또는 체크인할 때도 트리거됩니다. 빌드 진행률을 확인하려면 **빌드** 탭으로 전환합니다.  빌드가 성공적으로 실행되는지 확인한 후에는 응용 프로그램을 클러스터에 배포하는 릴리스 정의를 정의해야 합니다. 빌드 정의 옆의 줄임표를 마우스 오른쪽 단추로 클릭하고 **편집**을 선택합니다.
+4. 빌드는 푸시 또는 체크인할 때도 트리거됩니다. 빌드 진행률을 확인하려면 **빌드** 탭으로 전환합니다.  빌드가 성공적으로 실행되는지 확인한 후에는 응용 프로그램을 클러스터에 배포하는 릴리스 파이프라인을 정의해야 합니다. 빌드 파이프라인 옆의 줄임표를 마우스 오른쪽 단추로 클릭하고 **편집**을 선택합니다.
 
 5.  **작업**에서 **에이전트 큐**로 "호스트된"을 입력합니다.
     
@@ -125,17 +126,17 @@ Team Services 릴리스 정의에서는 응용 프로그램 패키지를 클러�
     
     ![속성 설정](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deploy-2.png)
 
-12. **저장 및 큐에 넣기**를 클릭하여 빌드 정의를 테스트합니다.
+12. **저장 및 큐에 넣기**를 클릭하여 빌드 파이프라인을 테스트합니다.
     
     ![재정의 매개 변수 설정](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-save-queue.png)
 
 ### <a name="failed-build-process"></a>실패한 빌드 프로세스
-빌드 정의의 **Azure Resource 그룹 배포** 작업에서 템플릿 매개 변수를 재정의하지 않은 경우 null 배포 매개 변수에 대한 오류가 발생할 수 있습니다. 빌드 정의로 돌아가서 null 매개 변수를 재정의하여 오류를 해결합니다.
+빌드 파이프라인의 **Azure Resource 그룹 배포** 작업에서 템플릿 매개 변수를 재정의하지 않은 경우 null 배포 매개 변수에 대한 오류가 발생할 수 있습니다. 빌드 파이프라인으로 돌아가서 null 매개 변수를 재정의하여 오류를 해결합니다.
 
    ![빌드 프로세스 실패](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-process-failed.png)
 
 ### <a name="commit-and-push-changes-to-trigger-a-release"></a>변경 내용을 커밋 및 푸시하여 릴리스 트리거
-Team Services에 코드 변경을 체크 인하여 연속 통합 파이프라인이 작동하는지 확인합니다.    
+Azure DevOps의 일부 코드 변경을 체크 인하여 연속 통합 파이프라인이 작동하는지 확인합니다.    
 
 코드를 작성하면 Visual Studio에서 변경 내용을 자동으로 추적합니다. 오른쪽 하단의 상태 표시줄에서 보류 중인 변경 내용 아이콘을 선택하여 로컬 Git 리포지토리로 변경 내용을 커밋합니다.
 
@@ -143,11 +144,11 @@ Team Services에 코드 변경을 체크 인하여 연속 통합 파이프라인
 
     ![변경 내용 커밋 및 푸시](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes.png)
 
-2. 팀 탐색기에서 게시 취소된 변경 내용 상태 표시줄 아이콘 또는 동기화 보기를 선택합니다. **푸시**를 선택하여 Team Services/TFS에서 코드를 업데이트합니다.
+2. 팀 탐색기에서 게시 취소된 변경 내용 상태 표시줄 아이콘 또는 동기화 보기를 선택합니다. **푸시**를 선택하여 Azure DevOps에서 코드를 업데이트합니다.
 
     ![변경 내용 커밋 및 푸시](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes-2.png)
 
-Team Services에 변경 내용을 푸시하면 빌드가 자동으로 트리거됩니다.  빌드 정의가 성공적으로 완료되면 릴리스가 자동으로 만들어지고 클러스터에서 작업 업데이트가 시작됩니다.
+Azure DevOps Services에 변경 내용을 푸시하면 빌드가 자동으로 트리거됩니다.  빌드 파이프라인이 성공적으로 완료되면 릴리스가 자동으로 만들어지고 클러스터에서 작업 업데이트가 시작됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

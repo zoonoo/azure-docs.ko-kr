@@ -14,25 +14,25 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: df4730078b890353c697b0e9213fb66cdb4e7f9b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e9d1f77a85d4b5cfb5bb7d3cb80380be3c79315d
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436695"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378281"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>App Service Environment에서 내부 부하 분산 장치 만들기 및 사용 #
 
  Azure App Service Environment는 Azure App Service를 Azure VNet(Virtual Network)의 서브넷에 배포한 것입니다. ASE(App Service Environment)에는 두 가지 배포 방법이 있습니다. 
 
 - 외부 ASE라고도 하는 외부 IP 주소의 VIP 사용
-- 내부 끝점이 ILB(내부 부하 분산 장치)이기 때문에 ILB ASE라고도 하는 내부 IP 주소의 VIP 사용 
+- 내부 엔드포인트가 ILB(내부 부하 분산 장치)이기 때문에 ILB ASE라고도 하는 내부 IP 주소의 VIP 사용 
 
 이 문서에서는 ILB ASE를 만드는 방법을 보여 줍니다. ASE의 개요는 [App Service Environment에 대한 소개][Intro]를 참조하세요. 외부 ASE를 만드는 방법을 알아보려면 [외부 ASE 만들기][MakeExternalASE]를 참조하세요.
 
 ## <a name="overview"></a>개요 ##
 
-VNet의 인터넷 액세스 가능 끝점 또는 IP 주소를 사용하여 ASE를 배포할 수 있습니다. IP 주소를 VNet 주소로 설정하려면 ASE는 ILB를 사용하여 배포되어야 합니다. ILB를 사용하여 ASE를 배포하는 경우 다음과 같은 항목을 제공해야 합니다.
+VNet의 인터넷 액세스 가능 엔드포인트 또는 IP 주소를 사용하여 ASE를 배포할 수 있습니다. IP 주소를 VNet 주소로 설정하려면 ASE는 ILB를 사용하여 배포되어야 합니다. ILB를 사용하여 ASE를 배포하는 경우 다음과 같은 항목을 제공해야 합니다.
 
 -   앱을 만들 때 사용하는 고유한 도메인
 -   HTTPS에 사용되는 인증서
@@ -56,7 +56,7 @@ ILB ASE를 사용하는 경우 수행할 수 없는 작업도 있습니다.
 
 ILB ASE를 만들려면
 
-1. Azure Portal에서 **리소스 만들기** > **웹 + 모바일** > **App Service Environment**를 선택합니다.
+1. Azure Portal에서 **리소스 만들기** > **웹** > **App Service Environment**를 선택합니다.
 
 1. 구독을 선택합니다.
 
@@ -172,7 +172,7 @@ SSL 인증서를 .pfx 파일로 변환/저장합니다. .pfx 파일에는 모든
 
     a. ASE의 도메인 이름이 _.ilbase.com_이고 _mytestapp_이라는 웹앱을 만든 경우 _mytestapp.ilbase.com_으로 주소가 지정됩니다. 그런 다음 _mytestapp.ilbase.com_을 설정하여 ILB 주소로 확인할 수 있습니다. (Windows에서 호스트 파일은 _C:\Windows\System32\drivers\etc\_에 있습니다.)
 
-    나. 웹 배포 게시를 테스트하거나 고급 콘솔에 액세스하려면 _mytestapp.scm.ilbase.com_의 레코드를 만듭니다.
+    b. 웹 배포 게시를 테스트하거나 고급 콘솔에 액세스하려면 _mytestapp.scm.ilbase.com_의 레코드를 만듭니다.
 
 1. 해당 VM에서 브라우저를 사용하여 http://mytestapp.ilbase.com로 이동합니다. (또는 도메인에서 웹앱 이름으로 이동합니다.)
 
@@ -203,19 +203,19 @@ ILB ASE 도메인이 해당 ASE 외부에서 여러 작업에 사용되는 경�
 
 ## <a name="publish-with-an-ilb-ase"></a>ILB ASE로 게시 ##
 
-만든 모든 앱에는 두 개의 끝점이 있습니다. ILB ASE에는 *&lt;앱 이름>.&lt;ILB ASE 도메인>* 과 *&lt;앱 이름>.scm.&lt; ILB ASE 도메인>* 이 있습니다. 
+만든 모든 앱에는 두 개의 엔드포인트가 있습니다. ILB ASE에는 *&lt;앱 이름>.&lt;ILB ASE 도메인>* 과 *&lt;앱 이름>.scm.&lt; ILB ASE 도메인>* 이 있습니다. 
 
 SCM 사이트 이름은 Azure Portal 내에서 **고급 포털**이라고 하는 Kudu 콘솔로 이동합니다. Kudu 콘솔을 통해 환경 변수를 확인하고, 디스크를 탐색하고, 콘솔을 사용할 수 있습니다. 자세한 내용은 [Azure App Service의 Kudu 콘솔][Kudu]을 참조하세요. 
 
 다중 테넌트 App Service 및 외부 ASE에는 Azure Portal과 Kudu 콘솔 간의 Single Sign-On이 포함됩니다. 그러나 ILB ASE의 경우 게시 자격 증명을 사용하여 Kudu 콘솔에 로그인해야 합니다.
 
-GitHub 및 Visual Studio Team Services와 같은 인터넷 기반 CI 시스템은 빌드 에이전트가 인터넷에 액세스할 수 있고 ILB ASE와 동일한 네트워크에 있는 경우 ILB ASE와 함께 작동합니다. 따라서 Visual Studio Team Services의 경우 빌드 에이전트가 ILB ASE와 동일한 VNET에서 만들어지면(다른 서브넷은 문제 없음) VSTS git에서 코드를 끌어오고 ILB ASE에 배포할 수 있습니다. 사용자 고유의 빌드 에이전트를 만들지 않으려면 Dropbox 등의 끌어오기 모델을 사용하는 CI 시스템을 사용해야 합니다.
+GitHub 및 Azure DevOps와 같은 인터넷 기반 CI 시스템은 빌드 에이전트가 인터넷에 액세스할 수 있고 ILB ASE와 동일한 네트워크에 있는 경우 ILB ASE와 함께 작동합니다. 따라서 Azure DevOps의 경우 빌드 에이전트가 ILB ASE와 동일한 VNET에서 만들어지면(다른 서브넷은 문제 없음) Azure DevOps git에서 코드를 끌어오고 ILB ASE에 배포할 수 있습니다. 사용자 고유의 빌드 에이전트를 만들지 않으려면 Dropbox 등의 끌어오기 모델을 사용하는 CI 시스템을 사용해야 합니다.
 
-ILB ASE의 앱에 대한 게시 끝점에서는 ILB ASE가 만들어진 도메인을 사용합니다. 이 도메인은 앱의 게시 프로필과 앱의 포털 블레이드(**개요** > **Essentials** 및 **속성**)에서 표시됩니다. 하위 도메인이 *contoso.net*인 ILB ASE 및 *mytest*라는 앱이 있는 경우 FTP에 *mytest.contoso.net*을 사용하고 웹 배포에 *mytest.scm.contoso.net*을 사용합니다.
+ILB ASE의 앱에 대한 게시 엔드포인트에서는 ILB ASE가 만들어진 도메인을 사용합니다. 이 도메인은 앱의 게시 프로필과 앱의 포털 블레이드(**개요** > **Essentials** 및 **속성**)에서 표시됩니다. 하위 도메인이 *contoso.net*인 ILB ASE 및 *mytest*라는 앱이 있는 경우 FTP에 *mytest.contoso.net*을 사용하고 웹 배포에 *mytest.scm.contoso.net*을 사용합니다.
 
 ## <a name="couple-an-ilb-ase-with-a-waf-device"></a>WAF 장치로 ILB ASE 연결 ##
 
-Azure App Service는 시스템을 보호하는 많은 보안 조치를 제공합니다. 앱이 해킹되었는지를 확인할 수도 있습니다. 웹 응용 프로그램을 보호하기 위해 WAF(웹 응용 프로그램 방화벽)를 사용하여 Azure App Service와 같은 호스팅 플랫폼을 결합해야 합니다. ILB ASE에 네트워크 격리 응용 프로그램 끝점이 있기 때문에 사용하기에 적합합니다.
+Azure App Service는 시스템을 보호하는 많은 보안 조치를 제공합니다. 앱이 해킹되었는지를 확인할 수도 있습니다. 웹 응용 프로그램을 보호하기 위해 WAF(웹 응용 프로그램 방화벽)를 사용하여 Azure App Service와 같은 호스팅 플랫폼을 결합해야 합니다. ILB ASE에 네트워크 격리 응용 프로그램 엔드포인트가 있기 때문에 사용하기에 적합합니다.
 
 WAF 장치를 사용하여 ILB ASE를 구성하는 방법에 대한 자세한 내용은 [App Service Environment를 사용하여 웹 응용 프로그램 방화벽 구성][ASEWAF]을 참조하세요. 이 문서에서는 ASE를 사용하여 Barracuda 가상 어플라이언스를 사용하는 방법을 보여줍니다. 다른 방법은 Azure Application Gateway를 사용하는 것입니다. Application Gateway는 이후에 배치할 모든 응용 프로그램을 보호하기 위해 OWASP 핵심 규칙을 사용합니다. Application Gateway에 대한 자세한 내용은 [Azure 웹 응용 프로그램 방화벽 소개][AppGW]를 참조하세요.
 

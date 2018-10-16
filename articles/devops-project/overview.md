@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/03/2018
 ms.author: mlearned
-ms.openlocfilehash: eef71aabaab71f908f950a4467da918dca1787fa
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 39dffad597b8382dea4df6fa1b0726d9582d67d1
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492552"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44293629"
 ---
 # <a name="overview-of-azure-devops-project"></a>Azure DevOps Project 개요
 
@@ -35,8 +35,8 @@ Azure DevOps 프로젝트는 Azure Portal에 Azure DevOps Project 대시보드 �
 Azure DevOps Project를 사용하여 다음을 수행할 수 있습니다.
 
 * Azure에 응용 프로그램 신속 배포
-* VSTS CI/CD 파이프라인의 설정 자동화
-* DevOps 프로젝트를 템플릿으로 사용하여 VSTS로 Azure에 CI/CD를 올바르게 설정하는 방법을 보고 이해합니다.
+* Azure CI/CD 파이프라인의 설정 자동화
+* DevOps 프로젝트를 템플릿으로 사용하여 Azure DevOps로 Azure에 CI/CD를 올바르게 설정하는 방법을 보고 이해합니다.
 * Azure에 CI/CD 파이프라인 시작한 다음 특정 시나리오에 따라 릴리스 파이프라인을 추가로 사용자 지정
 
 ## <a name="how-do-i-use-the-azure-devops-project"></a>Azure DevOps Project를 사용하려면 어떻게 해야 합니까?
@@ -49,16 +49,16 @@ Azure DevOps Project는 Azure Portal에서 구할 수 있습니다.  포털에�
 * 앱 언어 선택
 * 언어를 기반으로 App 프레임워크 선택
 * Azure 서비스 선택 (배포 대상)
-* VSTS 계정 (신규 또는 기존)
+* Azure DevOps 조직(신규 또는 기존)
 * Azure 구독 선택
 * Azure 서비스 위치 선택
 * Azure 서비스에 대한 다양한 가격 책정 계층에서 선택
 
 Azure DevOps Project를 사용하여 Azure Portal의 Azure DevOps Project 대시보드에서 모든 리소스를 한 곳에서 삭제할 수 있습니다.
 
-## <a name="azure-devops-project-and-vsts-integration"></a>Azure DevOps 프로젝트 및 VSTS 통합
+## <a name="azure-devops-project-and-azure-devops-integration"></a>Azure DevOps 프로젝트 및 Azure DevOps 통합
 
-DevOps 프로젝트는 VSTS를 기반으로 합니다.  DevOps 프로젝트는 VSTS에서 CI/CD를 Azure에 설정하는 데 필요한 모든 작업을 자동화합니다.  Git 리포지토리는 새 VSTS 계정이나 기존 VSTS 계정에 만들어집니다.  DevOps 프로젝트는 샘플 응용 프로그램이나 기존 코드를 새로운 Git 리포지토리에 커밋합니다.  자동화는 또한 모든 새로운 코드 커밋이 빌드를 시작할 수 있도록 빌드를 위한 CI 트리거를 설정합니다.  또한 DevOps 프로젝트는 CD 트리거를 만들고 원하는 Azure 서비스에 모든 새로운 성공적인 빌드를 배포합니다.  빌드 및 릴리스 정의는 추가 시나리오에 맞게 사용자 지정할 수 있습니다.  또한 다른 프로젝트에서 사용할 수 있도록 빌드 및 릴리스 정의를 복제할 수도 있습니다.
+DevOps 프로젝트는 Azure DevOps를 기반으로 합니다.  DevOps 프로젝트는 Azure DevOps에서 CI/CD를 Azure에 설정하는 데 필요한 모든 작업을 자동화합니다.  Git 리포지토리는 새 Azure DevOps 조직이나 기존 Azure DevOps 조직에 만들어집니다.  DevOps 프로젝트는 샘플 응용 프로그램이나 기존 코드를 새로운 Git 리포지토리에 커밋합니다.  자동화는 또한 모든 새로운 코드 커밋이 빌드를 시작할 수 있도록 빌드를 위한 CI 트리거를 설정합니다.  또한 DevOps 프로젝트는 CD 트리거를 만들고 원하는 Azure 서비스에 모든 새로운 성공적인 빌드를 배포합니다.  빌드 및 릴리스 파이프라인은 추가 시나리오에 맞게 사용자 지정할 수 있습니다.  또한 다른 프로젝트에서 사용할 수 있도록 빌드 및 릴리스 파이프라인을 복제할 수도 있습니다.
 
 DevOps Project를 만든 후 다음을 수행할 수 있습니다.
 

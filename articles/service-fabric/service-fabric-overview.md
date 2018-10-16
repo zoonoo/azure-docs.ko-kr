@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.openlocfilehash: fdb710868a75f64c3fe9f3742482c70ff86f4365
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5c7586ae2ff1a648348c1155a528035fa72c7744
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207838"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299817"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric의 개요
 Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 관리하도록 배포된 시스템 플랫폼입니다. 또한 Service Fabric은 클라우드 네이티브 응용 프로그램 개발 및 관리에서 발생하는 중요한 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있으며 관리가 가능하도록 구현하는 데 집중할 수 있습니다. Service Fabric은 컨테이너에서 실행되는 엔터프라이즈급 계층 1 클라우드 규모의 응용 프로그램을 빌드 및 관리하기 위한 차세대 플랫폼을 나타냅니다.
@@ -66,7 +66,7 @@ Service Fabric 응용 프로그램 수명 주기 관리 기능을 사용하면 �
 
 대부분의 응용 프로그램은 함께 배포되는 상태 비저장 및 상태 저장 마이크로 서비스, 컨테이너 및 다른 실행 파일의 조합으로 구성됩니다. 응용 프로그램에 대한 강력한 형식을 가지고 있으므로, Service Fabric을 사용하면 여러 응용 프로그램 인스턴스를 배포할 수 있습니다. 각 인스턴스는 독립적으로 관리 및 업그레이드됩니다. 무엇보다도 Service Fabric은 컨테이너 또는 모든 실행 파일을 배포하고 안정적으로 만들 수 있습니다. 예를 들어 Service Fabric은 .NET, ASP.NET Core, node.js, Windows 컨테이너, Linux 컨테이너, Java 가상 머신, 스크립트, Angular 또는 응용 프로그램을 구성하는 다른 모든 항목을 배포할 수 있습니다.
 
-Service Fabric은 [Visual Studio Team Services](https://www.visualstudio.com/team-services/), [Jenkins](https://jenkins.io/index.html) 및 [Octopus 배포](https://octopus.com/)와 같은 CI/CD 도구와 통합되고 다른 인기 있는 CI/CD 도구와 함께 사용할 수 있습니다.
+Service Fabric은 [Azure Pipelines](https://www.visualstudio.com/team-services/), [Jenkins](https://jenkins.io/index.html) 및 [Octopus Deploy](https://octopus.com/)와 같은 CI/CD 도구와 통합되고 다른 인기 있는 CI/CD 도구와 함께 사용할 수 있습니다.
 
 응용 프로그램 수명 주기 관리에 대한 자세한 내용은 [응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)를 참조하세요. 모든 코드를 배포하는 방법에 대한 자세한 내용은 [게스트 실행 파일 배포](service-fabric-deploy-existing-app.md)를 참조하세요.
 

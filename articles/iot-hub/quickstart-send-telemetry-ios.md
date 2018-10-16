@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/20/2018
 ms.author: kgremban
-ms.openlocfilehash: dbc1cc4a72d0346c92d506358c39a66a4d780b32
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: aecb9a1819060e0da6338e8e16bf681fad42dd22
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38309748"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161920"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>빠른 시작: 원격 분석을 장치에서 IoT 허브로 전송(iOS)
 
@@ -32,17 +32,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 - [Azure 샘플](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip)에서 코드 샘플 다운로드 
 - 최신 버전의 iOS SDK를 실행 중인 최신 버전의 [XCode](https://developer.apple.com/xcode/). 이 빠른 시작은 XCode 9.3 및 iOS 11.3에서 테스트되었습니다.
-- 최신 버전의 [CocoaPod](https://guides.cocoapods.org/using/getting-started.html).
-- IoT Hub에서 원격 분석을 읽는 iothub-explorer CLI 유틸리티. 설치하려면 먼저 [Node.js](https://nodejs.org) v4.x.x 이상을 설치한 후, 다음 명령을 실행합니다. 
-
-   ```sh
-   sudo npm install -g iothub-explorer
-   ```
+- 최신 버전의 [CocoaPods](https://guides.cocoapods.org/using/getting-started.html).
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
 [!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
-
 
 ## <a name="register-a-device"></a>장치 등록
 
@@ -64,14 +58,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    ```
 
    `Hostname=...=`과 같은 장치 연결 문자열을 기록해 둡니다. 이 값은 이 아티클의 뒷부분에서 사용합니다.
-
-1. 또한 백 엔드 응용 프로그램이 IoT Hub에 연결하고 장치-클라우드 메시지를 검색할 수 있게 하려면 _서비스 연결 문자열_이 필요합니다. 다음 명령은 IoT Hub에 대한 서비스 연결 문자열을 검색합니다.
-
-   ```azurecli-interactive
-   az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
-   ```
-
-   `Hostname=...=`과 같은 서비스 연결 문자열을 기록해 둡니다. 이 값은 이 아티클의 뒷부분에서 사용합니다.
 
 ## <a name="send-simulated-telemetry"></a>시뮬레이션된 원격 분석 전송
 
@@ -119,19 +105,19 @@ pod install
 
 ## <a name="read-the-telemetry-from-your-hub"></a>허브에서 원격 분석 읽기
 
-XCode 에뮬레이터에서 실행된 샘플 앱은 장치에서 보낸 메시지에 대한 데이터를 보여 줍니다. IoT Hub를 통해 데이터를 받은 상태 그대로 볼 수도 있습니다. `iothub-explorer` CLI 유틸리티는 IoT Hub의 서비스 측 **이벤트** 엔드포인트에 연결합니다. 
+XCode 에뮬레이터에서 실행된 샘플 앱은 장치에서 보낸 메시지에 대한 데이터를 보여 줍니다. IoT Hub를 통해 데이터를 받은 상태 그대로 볼 수도 있습니다. IoT Hub 확장은 IoT Hub의 서비스 쪽 **이벤트** 엔드포인트에 연결합니다. 이 확장은 시뮬레이트된 장치에서 전송하는 장치-클라우드 메시지를 받습니다. IoT Hub 백 엔드 응용 프로그램은 일반적으로 클라우드에서 실행되며 장치-클라우드 메시지를 수신하고 처리합니다.
 
-새 터미널 창을 엽니다. {your hub service connection string}을 이 아티클의 시작 부분에서 검색한 서비스 연결 문자열로 바꾸는 다음 명령을 실행합니다.
+`{YourIoTHubName}`을 IoT Hub의 이름으로 바꾸어 다음 Azure CLI 명령을 실행합니다.
 
-```sh
-iothub-explorer monitor-events myiOSdevice --login "{your hub service connection string}"
+```azurecli-interactive
+az iot hub monitor-events --device-id myiOSdevice --hub-name {YourIoTHubName}
 ```
+
+다음 스크린샷은 확장이 시뮬레이트된 장치가 허브에 보낸 원격 분석을 수신할 때의 출력을 보여 줍니다.
 
 다음 스크린샷에서는 터미널 창에 표시되는 원격 분석 유형을 보여 줍니다.
 
 ![원격 분석 보기](media/quickstart-send-telemetry-ios/view-telemetry.png)
-
-Iothub-explorer 명령을 실행할 때 오류가 나타나면 IoT 장치의 *장치 연결 문자열* 대신 IoT Hub의 *서비스 연결 문자열*을 사용하고 있는지 다시 한 번 확인합니다. 두 연결 문자열은 모두 **Hostname={iothubname}** 으로 시작하지만, 장치 연결 문자열에는 **DeviceID**가 포함되어 있고, 서비스 연결 문자열에는 **SharedAccessKeyName** 속성이 포함되어 있습니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

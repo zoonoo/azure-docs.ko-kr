@@ -3,7 +3,7 @@ title: Azure Security Center 자습서 - 보안 정책 정의 및 평가 | Micro
 description: Azure Security Center 자습서 - 보안 정책 정의 및 평가
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
-ms.author: terrylan
-ms.openlocfilehash: 15c69bce87ede96eb3a7bc0bada4e4f6a6669abb
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.date: 08/30/2018
+ms.author: rkarlin
+ms.openlocfilehash: fcd3c2a95cea0a838fc16149a0a74fad95ea3300
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358611"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027064"
 ---
 # <a name="tutorial-define-and-assess-security-policies"></a>자습서: 보안 정책 정의 및 평가
 Security Center는 보안 정책을 사용하여 원하는 작업 구성을 정의함으로써 회사 또는 규정 보안 요구 사항을 준수하는 데 도움이 됩니다. Azure 구독에 대한 정책을 정의하고 이 정책을 작업 유형 또는 데이터의 민감도에 적용하면 Security Center에서 계산, 응용 프로그램, 네트워킹, 데이터 및 저장소, ID 및 액세스 리소스에 대한 보안 권장 사항을 제공할 수 있습니다. 이 자습서에서는 다음 방법을 알아봅니다.
@@ -42,8 +42,7 @@ Security Center는 각 Azure 구독에 대한 기본 보안 정책을 자동으�
 
   ![보안 정책](./media/tutorial-security-policy/tutorial-security-policy-fig1.png)  
 
-3. **정책 구성 요소** 아래에서 **보안 정책**을 선택합니다.
-4. 모니터링하려는 각 보안 구성에 대해 **설정**을 선택합니다. Security Center에서는 사용자 환경의 구성을 지속적으로 평가하고, 취약성이 존재하면 보안 권장 사항을 생성합니다. 보안 구성이 권장되지 않거나 관련이 없는 경우 **해제**를 선택합니다. 예를 들어 개발/테스트 환경에서는 프로덕션 환경과 동일한 보안 수준이 필요하지 않을 수도 있습니다. 사용자 환경에 적용할 수 있는 정책을 선택한 후 **저장**을 클릭합니다.
+3. **계산 및 앱**, **네트워크** 및 **데이터**에서 모니터링하려는 각 보안 구성을 **켜짐**으로 설정합니다. Security Center에서는 사용자 환경의 구성을 지속적으로 평가하고, 취약성이 존재하면 보안 권장 사항을 생성합니다. 보안 구성이 권장되지 않거나 관련이 없는 경우 **해제**를 선택합니다. 예를 들어 개발/테스트 환경에서는 프로덕션 환경과 동일한 보안 수준이 필요하지 않을 수도 있습니다. 사용자 환경에 적용할 수 있는 정책을 선택한 후 **저장**을 클릭합니다.
 
   ![보안 구성](./media/tutorial-security-policy/tutorial-security-policy-fig6.png)  
 

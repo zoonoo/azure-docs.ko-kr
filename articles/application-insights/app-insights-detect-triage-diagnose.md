@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.custom: mvc
 ms.topic: overview
-ms.date: 06/26/2017
+ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: b83d08b9dac4fccc033ad4537afd343a6fbe02c2
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 799593758bf24924d91d38bd6a626b945247183b
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
-ms.locfileid: "23660598"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050241"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>DevOps용 Application Insights 개요
 
@@ -64,7 +64,7 @@ Marcela Markova는 OBS 팀에서 선임 개발자이며 온라인 성능 모니�
 ## <a name="monitor-performance"></a>성능 모니터링
 Application Insights의 개요 페이지에는 [주요 메트릭](app-insights-web-monitor-performance.md)을 보여 주는 차트가 있습니다.
 
-![다양한 메트릭](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
+![개요 성능 KPI 그래프 스크린샷](./media/app-insights-detect-triage-diagnose/overview-graphs.png)
 
 브라우저 페이지 로드 시간은 웹 페이지에서 직접 전송한 원격 분석에서 파생됩니다. 서버 응답 시간, 서버 요청 수 및 실패한 요청 수는 웹 서버에서 측정되며 여기에서 Application Insights로 전송됩니다.
 
@@ -72,7 +72,7 @@ Marcela는 서버 응답 그래프 때문에 약간 걱정을 하고 있습니�
 
 Marcela는 서버 차트를 엽니다.
 
-![다양한 메트릭](./media/app-insights-detect-triage-diagnose/06.png)
+![다양한 메트릭](./media/app-insights-detect-triage-diagnose/002-servers.png)
 
 서버 차트에 리소스 한계의 징후는 없어 보이므로 서버 응답 차트의 범프는 단순한 우연인 것 같습니다.
 
@@ -154,7 +154,7 @@ TrackException은 스택 복사본을 보내기 때문에 예외 사항을 보�
 ## <a name="monitor-proactively"></a>사전 모니터링
 Marcela는 가만히 앉아서 경고를 기다리고 있지는 않습니다. 매든 재배포 후 곧바로 예외 수뿐 아니라 가장 느린 요청의 전체적인 수치 및 표 모두 [응답 시간](app-insights-web-monitor-performance.md)을 살펴봅니다.  
 
-![응답 시간 그래프 및 서버 응답 시간 표.](./media/app-insights-detect-triage-diagnose/09-dependencies.png)
+![응답 시간 그래프 및 서버 응답 시간 표.](./media/app-insights-detect-triage-diagnose/response-time.png)
 
 일반적으로 매주 마지막을 비교하여 모든 배포의 성능 효과를 평가할 수 있습니다. 갑작스러운 악화가 있는 경우 관련 개발자와 함께 해당 수치를 높입니다.
 
@@ -168,8 +168,6 @@ Marcela는 가만히 앉아서 경고를 기다리고 있지는 않습니다. �
 유용한 심사 방법은 직접 해보기입니다. 동일한 문제를 실행하면 진실을 알 수 있습니다.
 
 사용자의 어느 부분에 영향을 미치나요? 대략적인 답을 얻으려면 실패율을 세션 수로 나눕니다.
-
-![실패한 요청 및 세션 차트](./media/app-insights-detect-triage-diagnose/10-failureRate.png)
 
 느린 응답이 있는 경우 가장 느린 응답 요청의 테이블과 각 페이지의 사용 빈도를 비교합니다.
 
@@ -203,7 +201,6 @@ Fabrikam 은행 개발팀은 보다 구조화된 접근법으로 Application Ins
 * Application Insights 개요 페이지에서 특정 측정값을 기준으로 성능 목표를 설정합니다.
 * 'funnels.'를 통해 사용자 진행률을 측정하는 메트릭과 같이 시작부터 응용 프로그램에 성능 측정값을 디자인합니다.  
 
-
 ## <a name="monitor-user-activity"></a>사용자 활동 모니터링
 응답 시간이 일관적으로 양호하고 예외가 거의 없으면 개발 팀에서 유용성으로 넘어갈 수 있습니다. 사용자의 경험을 개선하는 방법과 더 많은 사용자가 원하는 목표를 달성하도록 유도하는 방법에 대해 고민할 수 있습니다.
 
@@ -211,7 +208,7 @@ Application Insights는 사용자가 앱으로 수행할 작업에 대해 알아
 
 예를 들어 웹 사이트를 통한 일반적인 사용자 여정에는 명확한 "깔때기"가 있습니다. 많은 고객들이 다양한 유형의 대출 금리를 살펴봅니다. 견적서를 작성하는 단계로 넘어가는 고객은 그보다 수가 적습니다. 견적서를 작성한 고객 중에서 일부만 다음 단계로 넘어가서 대출을 실행합니다.
 
-![페이지 보기 수](./media/app-insights-detect-triage-diagnose/12-funnel.png)
+![페이지 보기 수](./media/app-insights-detect-triage-diagnose/funnel.png)
 
 빠져나가는 고객의 수가 가장 많은 영역을 고려하면, 깔때기형 차트의 아래쪽을 통해 더 많은 사용자를 받는 방법에 대해 작업할 수 있습니다. 일부의 경우 사용자 환경(UX) 실패일 수 있습니다. 예를 들어 '다음' 단추를 찾기 어렵거나 지침이 분명하지 않습니다. 탈퇴에 가장 중요한 비즈니스 이유는 대출 이율이 너무 높기 때문일 수 있습니다.
 

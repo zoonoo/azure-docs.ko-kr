@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 31a3a0618330b74c611afcdf70560ce47eeb85e3
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 7cccb47bd7489e88649ee82c4d52c72af0d91e8e
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42022362"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44390948"
 ---
 # <a name="what-is-azure-network-watcher"></a>Azure Network Watcher란?
 
@@ -36,6 +36,8 @@ Azure Network Watcher는 Azure 가상 네트워크의 리소스를 모니터링 
 엔드포인트에 연결할 수 없으면 연결 문제 해결 기능이 그 원인을 알립니다. 가능한 원인으로 DNS 이름 확인 문제, VM 운영 체제 내의 CPU, 메모리 또는 방화벽, 사용자 지정 경로의 홉 형식, 또는 아웃바운드 연결의 VM 또는 서브넷의 사용자 지정 경로나 보안 규칙이 있습니다. Azure의 [보안 규칙](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#security-rules) 및 [경로 홉 형식](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)에 대해 알아봅니다.
 
 연결 모니터는 시간 경과에 따라 관찰한 최소, 평균 및 최대 대기 시간도 제공합니다. 연결의 대기 시간을 알아본 후 Azure 리소스를 다른 Azure 지역으로 이동하여 대기 시간을 줄일 수 있다는 것을 확인할 수도 있습니다. [Azure 지역과 인터넷 서비스 공급자 간의 상대 대기 시간](#determine-relative-latencies-between-azure-regions-and-internet-service-providers) 및 [연결 모니터](connection-monitor.md)로 VM과 엔드포인트 간의 통신을 모니터링하는 방법의 결정에 대해 더 자세히 알아봅니다. 연결 모니터로 수행하는 것과 유사하게 시간 경과에 따른 연결을 모니터링하지 않고 어느 시점에 연결을 시험하려는 경우, [연결 문제 해결](#connection-troubleshoot) 기능을 사용합니다.
+
+네트워크 성능 모니터는 네트워크 인프라의 다양한 지점 간 네트워크 성능을 모니터링하는 데 도움이 되는 클라우드 기반 하이브리드 네트워크 모니터링 솔루션입니다. 또한 서비스 및 응용 프로그램 엔드포인트에 대한 네트워크 연결을 모니터링하고 Azure ExpressRoute의 성능을 모니터링하는 데 도움이 됩니다. 네트워크 성능 모니터는 트래픽 블랙홀링, 라우팅 오류와 같은 네트워크 문제와 기존 네트워크 모니터링 방법으로 감지할 수 없는 문제를 감지합니다. 이 솔루션은 네트워크 링크에 임계값이 위반되면 경고를 생성하고 사용자에게 알립니다. 또한 네트워크 성능 문제를 적시에 감지하고 문제의 원인을 특정 네트워크 세그먼트 또는 장치로 국한시킵니다. [네트워크 성능 모니터](../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)에 대해 자세히 알아봅니다.
 
 ### <a name="view-resources-in-a-virtual-network-and-their-relationships"></a>가상 네트워크의 리소스와 해당 리소스의 관계 보기
 

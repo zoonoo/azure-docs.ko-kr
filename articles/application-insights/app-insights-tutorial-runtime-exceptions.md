@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 7c2e67605cd2489f2c8d9da5ac80386056464afa
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: f45cb6a47756fae7b75d8c3df80a0bc754742063
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42815116"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299007"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Azure Application Insights를 사용하여 런타임 예외 찾기 및 진단
 
@@ -101,6 +101,15 @@ Application Insights에 의해 수집된 모든 데이터는 여러 가지 방�
     ![코드](media/app-insights-tutorial-runtime-exceptions/codelens.png)
 
 9. **영향 분석**을 클릭하여 Application Insights Analytics를 엽니다.  영향을 받는 사용자, 브라우저 및 지역과 같은 실패한 요청의 세부 정보를 제공하는 여러 쿼리로 채워집니다.<br><br>![분석](media/app-insights-tutorial-runtime-exceptions/analytics.png)<br>
+
+## <a name="add-work-item"></a>작업 항목 추가
+Application Insights를 Azure DevOps 또는 GitHub와 같은 추적 시스템에 연결하는 경우 Application Insights에서 직접 작업 항목을 만들 수 있습니다.
+
+1. Application Insights의 **예외 속성** 패널로 돌아옵니다.
+2. **새 작업 항목**을 클릭합니다.
+3. **새 작업 항목** 패널이 이미 채워진 예외에 대한 세부 정보와 함께 열립니다.  저장하기 전에 추가 정보를 추가할 수 있습니다.
+
+    ![새 작업 항목](media/app-insights-tutorial-runtime-exceptions/new-work-item.png)
 
 ## <a name="next-steps"></a>다음 단계
 이제 런타임 예외를 식별하는 방법을 배웠으므로 성능 문제를 식별하고 진단하는 방법을 알아보는 다음 자습서로 진행합니다.

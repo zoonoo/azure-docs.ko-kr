@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: rafats
 ms.custom: mvc
-ms.openlocfilehash: 1d0a660845052f51af84b78584787760e01f16a6
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 624c5e78287fac57b06f6b5112d2523e31256ae0
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38542649"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049771"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>SQL API를 사용하여 Azure Cosmos DB 전역 배포 설정
 
@@ -34,7 +34,7 @@ ms.locfileid: "38542649"
 
 ## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a>SQL API를 사용하여 기본 설정 지역에 연결
 
-[전역 배포](distribute-data-globally.md)를 활용하기 위해 클라이언트 응용 프로그램은 문서 작업을 수행하는 데 사용할 정렬된 기본 지역 목록을 지정할 수 있습니다. 이는 연결 정책을 설정하여 수행할 수 있습니다. SQL SDK에서 Azure Cosmos DB 계정 구성, 현재 지역 가용성 및 지정된 기본 설정 목록을 기반으로 하여 쓰기 및 읽기 작업을 수행하는 데 가장 적합한 끝점을 선택합니다.
+[전역 배포](distribute-data-globally.md)를 활용하기 위해 클라이언트 응용 프로그램은 문서 작업을 수행하는 데 사용할 정렬된 기본 지역 목록을 지정할 수 있습니다. 이는 연결 정책을 설정하여 수행할 수 있습니다. SQL SDK에서 Azure Cosmos DB 계정 구성, 현재 지역 가용성 및 지정된 기본 설정 목록을 기반으로 하여 쓰기 및 읽기 작업을 수행하는 데 가장 적합한 엔드포인트를 선택합니다.
 
 이 기본 설정 목록은 SQL SDK를 사용하여 연결을 초기화할 때 지정됩니다. SDK는 Azure 지역의 정렬된 목록인 "PreferredLocations"라는 선택적 매개 변수를 수락합니다.
 
@@ -44,7 +44,7 @@ SDK는 현재 쓰기 지역에 모든 쓰기를 자동 전송합니다.
 
 SDK는 PreferredLocations에 지정된 지역에서만 읽기를 시도합니다. 따라서 가령 데이터베이스 계정이 4개 지역에서 사용될 수 있지만 클라이언트는 PreferredLocations에 두 읽기(쓰기 아님) 지역만 지정했다면, PreferredLocations에 지정되지 않은 읽기 지역에서 읽기를 제공하지 않습니다. PreferredLocations에 지정된 읽기 영역을 사용할 수 없는 경우 읽기는 쓰기 영역 외부로 처리됩니다.
 
-응용 프로그램은 두 가지 속성(WirteEndpoint 및 ReadEndpoint)을 확인하여 SDK가 선택한 현재의 쓰기 끝점과 읽기 끝점을 확인할 수 있습니다. SDK 버전 1.8 이상부터 사용 가능합니다.
+응용 프로그램은 두 가지 속성(WirteEndpoint 및 ReadEndpoint)을 확인하여 SDK가 선택한 현재의 쓰기 엔드포인트와 읽기 엔드포인트를 확인할 수 있습니다. SDK 버전 1.8 이상부터 사용 가능합니다.
 
 PreferredLocations 속성이 설정되지 않는다면 모든 요청은 현재 쓰기 지역에서 제공됩니다.
 
@@ -53,10 +53,10 @@ SDK는 코드 변경 없이 사용할 수 있습니다. 이 경우 SDK는 읽기
 
 .NET SDK의 1.8 버전 이상에서 DocumentClient 생성자의 ConnectionPolicy 매개 변수는 Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations라는 속성이 있습니다. 이 속성은 컬렉션 `<string>` 형식이며 지역 이름 목록을 포함합니다. 문자열 값은 [Azure 지역][regions] 페이지의 지역 이름 열에 따라 서식이 지정되고 첫 글자와 마지막 글자 앞/뒤에 공백이 없습니다.
 
-현재 읽기 및 쓰기 끝점은 각각 DocumentClient.WriteEndpoint와 DocumentClient.ReadEndpoint에서 이용할 수 있습니다.
+현재 읽기 및 쓰기 엔드포인트는 각각 DocumentClient.WriteEndpoint와 DocumentClient.ReadEndpoint에서 이용할 수 있습니다.
 
 > [!NOTE]
-> 끝점의 URL은 수명이 긴 상수로 간주하지 말아야 합니다. 서비스는 언제든지 이 URL을 업데이트할 수 있습니다. SDK가 이런 변경 내용을 자동으로 처리합니다.
+> 엔드포인트의 URL은 수명이 긴 상수로 간주하지 말아야 합니다. 서비스는 언제든지 이 URL을 업데이트할 수 있습니다. SDK가 이런 변경 내용을 자동으로 처리합니다.
 >
 >
 
@@ -87,10 +87,10 @@ SDK는 코드 변경 없이 사용할 수 있습니다. 이 경우 SDK는 읽기
 
 각 SDK의 1.8 버전 이상에서 DocumentClient 생성자의 ConnectionPolicy 매개 변수에는 DocumentClient.ConnectionPolicy.PreferredLocations라는 새로운 속성이 있습니다. 이 매개 변수는 지역 이름 목록을 가지는 문자열 배열입니다. 이름은 [Azure 지역][regions] 페이지의 지역 이름 열에 따라 서식이 지정됩니다. 또한, 편의 개체 AzureDocuments.Regions에 사전 지정된 상수를 사용할 수도 있습니다.
 
-현재 쓰기 및 읽기 끝점은 각각 DocumentClient.getWriteEndpoint와 DocumentClient.getReadEndpoint에서 이용할 수 있습니다.
+현재 쓰기 및 읽기 엔드포인트는 각각 DocumentClient.getWriteEndpoint와 DocumentClient.getReadEndpoint에서 이용할 수 있습니다.
 
 > [!NOTE]
-> 끝점의 URL은 수명이 긴 상수로 간주하지 말아야 합니다. 서비스는 언제든지 이 URL을 업데이트할 수 있습니다. SDK가 이런 변경 내용을 자동으로 처리합니다.
+> 엔드포인트의 URL은 수명이 긴 상수로 간주하지 말아야 합니다. 서비스는 언제든지 이 URL을 업데이트할 수 있습니다. SDK가 이런 변경 내용을 자동으로 처리합니다.
 >
 >
 
@@ -115,7 +115,7 @@ var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPoli
 
     https://{databaseaccount}.documents.azure.com/
 
-서비스에서 복제본에 대한 지역 목록과 해당 Azure Cosmos DB 끝점 URI를 반환합니다. 현재 쓰기 지역이 응답에 표시됩니다. 클라이언트는 다음과 같이 모든 추가 REST API 요청에 알맞은 끝점을 선택할 수 있습니다.
+서비스에서 복제본에 대한 지역 목록과 해당 Azure Cosmos DB 엔드포인트 URI를 반환합니다. 현재 쓰기 지역이 응답에 표시됩니다. 클라이언트는 다음과 같이 모든 추가 REST API 요청에 알맞은 엔드포인트를 선택할 수 있습니다.
 
 예제 응답
 
@@ -151,7 +151,7 @@ var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPoli
 
 
 * 모든 PUT, POST 및 DELETE 요청은 표시된 쓰기 URI로 이동해야 합니다.
-* 모든 GET과 다른 읽기 전용 요청(예: 쿼리)은 클라이언트가 선택한 끝점으로 이동할 수 있습니다.
+* 모든 GET과 다른 읽기 전용 요청(예: 쿼리)은 클라이언트가 선택한 엔드포인트로 이동할 수 있습니다.
 
 읽기 전용 지역에 대한 쓰기 요청은 HTTP 오류 코드 403(“사용 권한 없음”)과 함께 실패합니다.
 

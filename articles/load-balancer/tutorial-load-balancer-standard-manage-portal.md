@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 08/20/18
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: be80c637a250e8a86727ce34f86832fef10426b7
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 7c3e5c0cc8297ba60925d36d667e0b72a5072553
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616398"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380049"
 ---
 # <a name="tutorial-create-and-manage-standard-load-balancer-using-the-azure-portal"></a>자습서: Azure Portal을 사용한 표준 Load Balancer 생성 및 관리
 
@@ -92,7 +92,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
         2. **네트워크 보안 그룹 선택** 페이지에서 **이름**의 경우 *myNetworkSecurityGroup*을 새 네트워크 보안 그룹의 이름으로 선택한 다음, **확인**을 선택합니다.
 5. **사용 안 함**을 클릭하여 부팅 진단을 사용하지 않도록 설정합니다.
 6. **확인**을 클릭하고 요약 페이지에서 설정을 검토한 다음, **만들기**를 클릭합니다.
-7. 1-6단계를 사용하여 가상 네트워크가 *myVnet*이고, 서브넷이 *myBackendSubnet*이고, 네트워크 보안 그룹이 **myNetworkSecurityGroup*인 *VM2* 및 *VM3*이라는 두 개의 VM을 더 만듭니다. 
+7. 1-6단계를 사용하여 가상 네트워크가 *myVnet*이고, 서브넷이 *myBackendSubnet*이고, 네트워크 보안 그룹이 *myNetworkSecurityGroup*인 *VM2* 및 *VM3*이라는 두 개의 VM을 더 만듭니다. 
 
 ### <a name="create-network-security-group-rule"></a>네트워크 보안 그룹 규칙 만들기
 
@@ -198,7 +198,7 @@ VM으로 트래픽을 분산하기 위해 백 엔드 주소 풀에 부하 분산
 2. **설정**에서 백 엔드 풀 목록에 있는 **백 엔드 풀**을 클릭하고 **myBackendPool**을 클릭합니다.
 3. **myBackendPool** 페이지의 **대상 네트워크 IP 구성**에서 *VM1*을 백 엔드에서 제거하려면 **가상 머신: myVM1** 옆에 있는 삭제 아이콘을 클릭합니다.
 
-*myVM1*이 백 엔드 주소 풀에 더 이상 없으면 *myVM1*에 소프트웨어 업데이트 설치와 같은 유지 관리 작업을 수행할 수 있습니다. *VM1**이 없으면 부하는 *myVM2* 및 *myVM3*에 분산됩니다. 
+*myVM1*이 백 엔드 주소 풀에 더 이상 없으면 *myVM1*에 소프트웨어 업데이트 설치와 같은 유지 관리 작업을 수행할 수 있습니다. *VM1*\*이 없으면 부하는 *myVM2* 및 *myVM3* 에 분산됩니다. 
 
 백 엔드 풀에 *myVM1*을 다시 추가하려면 이 문서의 *백 엔드 풀에 VM 추가* 섹션에 나와 있는 절차를 따릅니다.
 
