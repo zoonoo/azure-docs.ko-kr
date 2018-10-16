@@ -33,7 +33,6 @@
 ### [Ruby on Rails 웹 응용 프로그램](ruby-rails-web-app.md)
 ### [Cassandra 및 Node.js 클라이언트](cassandra-nodejs.md)
 ### [Tomcat](setup-tomcat.md)
-### [MPI 응용 프로그램을 실행하는 RDMA 클러스터](rdma-cluster.md)
 ### HPC 팩
 #### [Linux 작업에 대한 클러스터 만들기](hpcpack-cluster-powershell-script.md)
 #### [Linux 노드가 포함된 클러스터 관리](hpcpack-cluster.md)
