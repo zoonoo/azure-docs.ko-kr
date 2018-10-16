@@ -2,19 +2,19 @@
 title: Azure Database for MySQL의 백업 및 복원
 description: Azure Database for MySQL 서버를 자동 백업하고 복원하는 방법을 알아봅니다.
 services: mysql
-author: kamathsun
-ms.author: sukamat
+author: ajlam
+ms.author: andrela
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: bdc9a0ef393b55563691d7a52f8fa074eacc4594
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 9d07f6cd5fa6a2df82dc2cbf9c1ebe08e5941acf
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264479"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125020"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Azure Database for MySQL의 백업 및 복원
 
@@ -53,7 +53,7 @@ Azure Database for MySQL에서 복원을 수행하면 원래 서버의 백업에
 예상 복구 시간은 데이터베이스 크기, 트랜잭션 로그 크기, 네트워크 대역폭 및 동일한 지역에서 동시에 복구되는 데이터베이스의 총 수를 포함한 여러 요소에 따라 달라집니다. 복구 시간은 일반적으로 12시간 미만입니다.
 
 > [!IMPORTANT]
-> 서버를 삭제하면 해당 서버에 속한 모든 데이터베이스도 삭제되고 복구할 수 없습니다. 삭제된 서버는 복원할 수 없습니다.
+> 삭제된 서버는 복원할 수 **없습니다**. 서버를 삭제하면 해당 서버에 속한 모든 데이터베이스도 삭제되고 복구할 수 없습니다. 
 
 ### <a name="point-in-time-restore"></a>지정 시간 복원
 
@@ -66,6 +66,8 @@ Azure Database for MySQL에서 복원을 수행하면 원래 서버의 백업에
 ### <a name="geo-restore"></a>지역 복원
 
 지역 중복 백업을 위해 서버를 구성한 경우 서비스를 사용할 수 있는 다른 Azure 지역으로 서버를 복원할 수 있습니다. 지역 복원은 서버가 호스팅되는 지역에 사고가 발생하여 서버를 사용할 수 없는 경우에 대비한 기본 복구 옵션입니다. 지역에서 발생한 대규모 사고로 인해 데이터베이스 응용 프로그램을 사용할 수 없는 경우 지역 중복 백업에서 다른 지역에 있는 서버로 서버를 복원할 수 있습니다. 백업을 수행할 때와 다른 지역으로 복제할 때 사이에 지연이 있습니다. 재해가 발생한 경우 최대 1시간 동안의 데이터가 손실되므로 이 지연은 최대 1시간일 수 있습니다.
+
+지역 복원 중에 변경할 수 있는 서버 구성으로는 컴퓨팅 생성, vCore, 백업 보존 기간 및 백업 중복 옵션이 있습니다. 가격 책정 계층(기본, 범용 또는 메모리 최적화) 또는 저장소 크기는 지역 복원 중에 변경할 수 없습니다.
 
 ### <a name="perform-post-restore-tasks"></a>복원 후 작업 수행
 

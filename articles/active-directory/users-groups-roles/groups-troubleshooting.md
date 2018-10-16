@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/11/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 82a5c57ce874e77a7912945a6fca07acee339197
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e189fb8b2bc5079d1560d3b7a54fea2db7366fe7
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444490"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46293975"
 ---
 # <a name="troubleshooting-dynamic-memberships-for-groups"></a>그룹의 동적 멤버 자격 문제 해결
 
@@ -42,6 +42,6 @@ ms.locfileid: "39444490"
 이러한 문서는 Azure Active Directory에 대한 추가 정보를 제공합니다.
 
 * [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](../fundamentals/active-directory-manage-groups.md)
-* [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](../active-directory-apps-index.md)
+* [Azure Active Directory의 응용 프로그램 관리](../manage-apps/what-is-application-management.md)
 * [Azure Active Directory란?](../fundamentals/active-directory-whatis.md)
-* [Azure Active Directory와 온-프레미스 ID 통합](../connect/active-directory-aadconnect.md)
+* [Azure Active Directory와 온-프레미스 ID 통합](../hybrid/whatis-hybrid-identity.md)

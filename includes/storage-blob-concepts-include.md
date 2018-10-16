@@ -8,14 +8,16 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 63593ff5f02f5e37fc25c988c4cef071a03a00b4
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: a934a1b75e85e03b6803be5c8afcd8fe74b0fad5
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37066036"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45739201"
 ---
 Azure Blob 저장소는 클라우드를 위한 Microsoft의 개체 저장소 솔루션입니다. Blob 저장소는 텍스트 또는 이진 데이터와 같이 구조화되지 않은 대량의 데이터를 저장하는 데 최적화되어 있습니다.
+
+구조화되지 않은 데이터를 위한 대규모 확장 가능한 개체 저장소
 
 Blob 저장소는 다음에 이상적입니다.
 
@@ -36,7 +38,7 @@ Blob Storage는 세 가지 리소스(저장소 계정, 계정의 컨테이너, �
 
 ### <a name="storage-account"></a>Storage 계정
 
-Azure Storage의 데이터 개체에 대한 모든 액세스는 저장소 계정을 통해 수행됩니다. 자세한 내용은 [Azure 저장소 계정 정보](../articles/storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.
+Azure Storage의 데이터 개체에 대한 모든 액세스는 저장소 계정을 통해 수행됩니다. 자세한 내용은 [Azure Storage 계정 개요](../articles/storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.
 
 ### <a name="container"></a>컨테이너
 

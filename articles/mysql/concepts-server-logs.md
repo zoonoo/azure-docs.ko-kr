@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 50e4b9b8b8f9433ec725aaa982e969cec7afb91c
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 09/17/2018
+ms.openlocfilehash: ac5be20815b552c08e5cd1054bf24d7a10b56498
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265788"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124272"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Azure Database for MySQL의 서버 로그
 Azure Database for MySQL에서는 사용자에게 느린 쿼리 로그를 제공합니다. 트랜잭션 로그에 대한 액세스는 지원되지 않습니다. 느린 쿼리 로그를 사용하여 문제 해결을 위한 성능 병목을 파악할 수 있습니다. 
@@ -29,9 +29,9 @@ Azure Portal에서 Azure Database for MySQL Server를 찾습니다. **모니터�
 Azure CLI에 대한 자세한 내용은 [Azure CLI를 사용한 서버 로그 구성 및 액세스](howto-configure-server-logs-in-cli.md)를 참조하세요.
 
 ## <a name="log-retention"></a>로그 보존
-로그는 생성 시점에서 최대 7일까지 사용할 수 있습니다. 사용 가능한 로그의 전체 크기가 7.5GB를 초과하면 여유 공간이 생길 때까지 가장 오래된 파일을 삭제합니다. 
+로그는 생성 시점에서 최대 7일까지 사용할 수 있습니다. 사용 가능한 로그의 전체 크기가 7GB를 초과하면 여유 공간이 생길 때까지 가장 오래된 파일이 삭제됩니다. 
 
-로그는 24시간마다 또는 7.5GB마다 회전됩니다(먼저 해당되는 쪽).
+즉, 24시간이 지나거나 전체 크기가 7GB를 초과할 때마다(먼저 해당되는 쪽) 로그가 가장 오래된 파일부터 삭제됩니다.
 
 
 ## <a name="configure-logging"></a>로깅 구성 

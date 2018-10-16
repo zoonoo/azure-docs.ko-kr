@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 09/11/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: c8d7f1f5b793fcb684e9896bb93213a23d489860
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 163972329161f90ad364b25e7e60e9e5a04324d5
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448546"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720007"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Azure AD와 계정 공유
 ## <a name="overview"></a>개요
@@ -71,7 +71,7 @@ Azure AD를 사용하여 계정을 공유하려면 다음이 필요합니다.
 또한 MFA(Multi-Factor Authentication)로 공유 계정의 보안을 강화하고([Azure AD를 통한 응용 프로그램 보호](authentication/concept-mfa-whichversion.md)에 대한 자세한 정보) [Azure AD 셀프 서비스](users-groups-roles/groups-self-service-management.md) 그룹 관리를 사용하여 응용 프로그램에 대한 액세스 권한이 있는 관리자에게 기능을 위임할 수 있습니다.
 
 ## <a name="related-articles"></a>관련 문서
-* [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)
+* [Azure Active Directory의 응용 프로그램 관리](manage-apps/what-is-application-management.md)
 * [조건부 액세스를 사용한 앱 보호](active-directory-conditional-access-azure-portal.md)
 * [셀프 서비스 그룹 관리/SSAA](users-groups-roles/groups-self-service-management.md)
 

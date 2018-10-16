@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 998bc7cb7e3289a85a9ffc315f7c1f5e568a75cb
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: f0b62f73650294349e1879b306beebabdaf974a7
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41917979"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633404"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service를 사용하여 장치 프로비전
 
@@ -45,12 +45,20 @@ ms.locfileid: "41917979"
 
 Device Provisioning Service 클라이언트 SDK는 장치 등록 소프트웨어를 구현하는 데 도움을 줍니다. 하지만 사용하려면 개발 클라이언트 플랫폼 및 증명 메커니즘과 관련된 SDK의 버전을 빌드해야 합니다. 이 자습서에서는 Windows 개발 플랫폼에서 지원되는 증명 형식에 Visual Studio 2017을 사용하는 SDK를 빌드합니다.
 
-1. 최신 릴리스 버전의 [CMake 빌드 시스템](https://cmake.org/download/)을 다운로드합니다. 동일한 사이트에서 선택한 이진 배포의 버전에 대한 암호화 해시를 조회합니다. 해당하는 암호화 해시 값을 사용하여 다운로드된 이진 파일을 확인합니다. 다음 예제에서는 Windows PowerShell을 사용하여 x64 MSI 배포의 3.11.4 버전에 대한 암호화 해시를 확인했습니다.
+1. [CMake 빌드 시스템](https://cmake.org/download/)의 버전 3.11.4를 다운로드합니다. 해당하는 암호화 해시 값을 사용하여 다운로드된 이진 파일을 확인합니다. 다음 예제에서는 Windows PowerShell을 사용하여 x64 MSI 배포의 3.11.4 버전에 대한 암호화 해시를 확인했습니다.
 
     ```PowerShell
-    PS C:\Users\wesmc\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Users\wesmc\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
     True
+    ```
+    
+    3.11.4 버전에 대한 다음 해시 값이 작성 시 CMake 사이트에 나열되었습니다.
+
+    ```
+    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
+    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
+    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
     ```
 
     `CMake` 설치를 시작하기 **전에** Visual Studio 필수 구성 요소(Visual Studio 및 'C++를 사용한 데스크톱 개발' 워크로드)를 머신에 설치해야 합니다. 필수 구성 요소가 설치되고 다운로드를 확인하면 CMake 빌드 시스템을 설치합니다.
@@ -149,7 +157,7 @@ Device Provisioning Service 클라이언트 SDK는 장치 등록 소프트웨어
 
 1. Azure Portal에서 Device Provisioning 서비스에 대한 **개요** 블레이드를 선택하고 **_ID 범위_** 값을 복사합니다. *ID 범위*는 서비스에 의해 생성되고 고유성이 보장됩니다. 이는 변경할 수 없으며 등록 ID를 고유하게 식별하는 데 사용됩니다.
 
-    ![포털 블레이드에서 장치 프로비전 서비스 엔드포인트 정보 추출](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
+    ![포털 블레이드에서 장치 프로비저닝 서비스 엔드포인트 정보 추출](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
 
 1. 컴퓨터의 Visual Studio *솔루션 탐색기*에서 **Provision\_Samples** 폴더로 이동합니다. **prov\_dev\_client\_sample**이라는 샘플 프로젝트를 선택하고, **prov\_dev\_client\_sample.c** 원본 파일을 엽니다.
 

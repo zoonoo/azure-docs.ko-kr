@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/09/2017
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: jeedes
-ms.openlocfilehash: 7bae891bd16ecd3fbbad88022fbbffd32ff41eae
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d7a5bf23f2855b43c4a2e4022568028d852c094b
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577552"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719582"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Azure Active Directory에서 페더레이션된 Single Sign-On에 대한 인증서 관리
 이 문서에서는 Azure AD(Azure Active Directory)에서 SaaS 응용 프로그램에 페더레이션된 SSO(Single Sign-On)를 설정하기 위해 만드는 인증서와 관련된 일반적인 질문과 정보를 다룹니다. Azure AD 앱 갤러리에서 또는 비갤러리 응용 프로그램 템플릿을 사용하여 응용 프로그램을 추가하고, 페더레이션된 SSO 옵션을 사용하여 응용 프로그램을 구성합니다.
@@ -85,7 +85,7 @@ aadnotification@microsoft.com으로부터 알림 이메일을 받습니다. 이�
     ![새 인증서 생성](./media/manage-certificates-for-federated-single-sign-on/new_certificate_download.png)
 
 ## <a name="related-articles"></a>관련 문서
-* [Azure Active Directory를 사용하여 SaaS 앱을 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)
-* [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](../active-directory-apps-index.md)
+* [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)
+* [Azure Active Directory의 응용 프로그램 관리](what-is-application-management.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On](what-is-single-sign-on.md)
 * [SAML 기반 Single Sign-On 문제 해결](../develop/howto-v1-debug-saml-sso-issues.md)

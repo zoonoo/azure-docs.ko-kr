@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: get-started-article
-ms.date: 09/07/2017
+ms.date: 09/11/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 8254f6c72141f7a9babfc5af3c319e7e66f30bbf
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7966705df2a352f2011d5f7611277e92d8e2d11a
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448672"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294240"
 ---
 # <a name="set-up-azure-active-directory-for-self-service-group-management"></a>셀프 서비스 그룹 관리를 위한 Azure Active Directory 설정
 사용자가 Azure AD(Azure Active Directory)에서 보안 그룹 또는 Office 365 그룹을 만들고 관리할 수 있습니다. 사용자는 보안 그룹 또는 Office 365 그룹 멤버 자격을 요청할 수도 있고 그룹의 소유자는 멤버 자격을 수락하거나 거부할 수 있습니다. 그룹 멤버 자격에 대한 일상적인 제어를 해당 멤버 자격에 대한 비즈니스 컨텍스트를 이해하는 사람에게 위임할 수 있습니다. 셀프 서비스 그룹 관리 기능은 보안 그룹 및 Office 365 그룹에 대해서만 사용할 수 있지만 메일 사용 가능 보안 그룹 및 메일 그룹에는 사용할 수 없습니다.
@@ -46,6 +46,6 @@ ms.locfileid: "37448672"
 
 * [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](../fundamentals/active-directory-manage-groups.md)
 * [그룹 설정을 구성하는 Azure Active Directory cmdlets](groups-settings-cmdlets.md)
-* [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](../active-directory-apps-index.md)
+* [Azure Active Directory의 응용 프로그램 관리](../manage-apps/what-is-application-management.md)
 * [Azure Active Directory란?](../fundamentals/active-directory-whatis.md)
-* [Azure Active Directory와 온-프레미스 ID 통합](../connect/active-directory-aadconnect.md)
+* [Azure Active Directory와 온-프레미스 ID 통합](../hybrid/whatis-hybrid-identity.md)

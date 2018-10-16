@@ -1,3 +1,20 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 09/15/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: 075e19ecb078bbbd5be0d46ed58405b18ebc8334
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45738470"
+---
 ## <a name="set-up-your-development-environment"></a>개발 환경 설정
 다음으로 이 가이드에 코드 예제를 사용할 준비가 되도록 Visual Studio에서 개발 환경을 설정합니다.
 
@@ -41,7 +58,7 @@ NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단
 * 클라우드에서 Azure Storage 계정에 대한 코드를 실행할 수 있습니다. 
 * Azure 저장소 에뮬레이터에 대해 코드를 실행할 수 있습니다. 저장소 에뮬레이터는 클라우드에서 Azure Storage 계정을 에뮬레이트하는 로컬 환경입니다. 에뮬레이터는 응용 프로그램을 개발하는 동안 코드의 테스트 및 디버깅하기 위한 무료 옵션입니다. 에뮬레이터는 잘 알려진 계정 및 키를 사용합니다. 자세한 내용은 [개발 및 테스트에 Azure Storage 에뮬레이터 사용](../articles/storage/common/storage-use-emulator.md)을 참조하세요.
 
-클라우드에서 저장소 계정을 대상으로 하는 경우 Azure Portal에서 저장소 계정에 대한 기본 선택키를 복사합니다. 자세한 내용은 [저장소 액세스 키 보기 및 복사](../articles/storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys)를 참조하세요.
+클라우드에서 저장소 계정을 대상으로 하는 경우 Azure Portal에서 저장소 계정에 대한 기본 선택키를 복사합니다. 자세한 내용은 [액세스 키](../articles/storage/common/storage-account-manage.md#access-keys)를 참조하세요.
 
 > [!NOTE]
 > Azure Storage와 연결하여 비용이 초래되지 않도록 저장소 에뮬레이터를 대상으로 할 수 있습니다. 그러나 클라우드에서 Azure 저장소 계정을 대상으로 하도록 선택하는 경우 이 자습서를 수행하는 비용은 무시됩니다.
@@ -49,7 +66,7 @@ NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단
 > 
 
 ### <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
-Azure Storage Client Library for .NET은 저장소 연결 문자열을 사용하여 저장소 서비스에 액세스하기 위한 끝점 및 자격 증명을 구성하는 작업을 지원합니다. 저장소 연결 문자열을 유지하는 가장 좋은 방법은 구성 파일 안에 있습니다. 
+Azure Storage Client Library for .NET은 저장소 연결 문자열을 사용하여 저장소 서비스에 액세스하기 위한 엔드포인트 및 자격 증명을 구성하는 작업을 지원합니다. 저장소 연결 문자열을 유지하는 가장 좋은 방법은 구성 파일 안에 있습니다. 
 
 연결 문자열에 대한 자세한 내용은 [Azure Storage에 연결 문자열 구성](../articles/storage/common/storage-configure-connection-string.md)을 참조하세요.
 
