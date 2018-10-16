@@ -1,0 +1,37 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 74743b3e9e32a844098f3097e3c036b38c391c02
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49323016"
+documentType: LandingData
+title: Azure Digital Twins 설명서
+metadata:
+  title: Azure Digital Twins 설명서 - 자습서, API 참조 | Microsoft Docs
+  description: Azure Digital Twins를 사용하여 스마트 공간 솔루션을 만듭니다.
+  author: dsk-2015
+  manager: timlt
+  ms.service: digital-twins
+  services: digital-twins
+  ms.topic: landing-page
+  ms.date: 10/15/2018
+  ms.author: dkshir
+abstract:
+  description: Azure Digital Twins를 사용하여 사람, 장소 및 항목을 연결하고 공간 인텔리전스를 사용하여 IoT 솔루션을 빌드하는 방법을 알아봅니다. 가상의 스마트 건물을 모니터링하고, 자세한 개념을 알아보고, 실제 환경을 모델링하는 차세대 IoT 솔루션을 만드는 빠른 시작 및 자습서를 설명합니다.
+sections:
+- title: 5분 빠른 시작
+  items:
+  - type: paragraph
+    text: <a href="quickstart-view-occupancy-dotnet">Azure Digital Twins .NET 샘플을 사용하여 공기가 좋은 사용 가능한 공간을 찾는</a> 방법을 알아봅니다.
+- title: 단계별 자습서
+  items:
+  - type: paragraph
+    text: Azure Digital Twins를 사용자 지정하고 사용하여 기능을 모니터링하는 방법을 알아봅니다.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/digital-twins/tutorial-facilities-setup">샘플 건물 프로비전</a>
+    - html: <a href="/azure/digital-twins/tutorial-facilities-udf">건물의 조건 모니터링</a>
+    - html: <a href="/azure/digital-twins/tutorial-facilities-events">건물의 알림 받기</a>
+    - html: <a href="/azure/digital-twins/tutorial-facilities-analyze">건물의 이벤트 분석</a>
