@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 343c29db4ac5fba37d8ea1b17862b86566ae15ca
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: ee336fb5a60998aaac1518a85b8b92f63d9d4b64
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309198"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318132"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>계획, 제안, 할당량 및 구독 개요
 
@@ -52,7 +52,7 @@ ms.locfileid: "49309198"
 
 을 클라우드 용량을 관리할 수 있도록 하려면 사용할 수 있습니다 미리 구성 된 *할당량*, 계획의 각 서비스에 대 한 새 할당량을 만들거나 합니다. 할당량은 사용자 구독 프로 비전 하거나 사용할 수 있는 상위 리소스 한도 정의 합니다. 예를 들어 할당량 사용자 최대 5 개의 Vm (가상 머신)을 만들 수 있습니다.
 
-지역에서 할당량을 구성할 수 있습니다. 예를 들어 지역 A에 대 한 계산 서비스를 제공 하는 계획을 4GB RAM 및 CPU 코어가 8 개를 사용 하 여 두 Vm의 할당량이 없습니다.
+지역에서 할당량을 구성할 수 있습니다. 예를 들어 지역 A에 대 한 계산 서비스를 제공 하는 계획을 두 Vm의 할당량이 없습니다.
 
 >[!NOTE]
 >Azure Stack Development Kit를 하나의 지역에서 (이라는 *로컬*)를 사용할 수 있습니다.

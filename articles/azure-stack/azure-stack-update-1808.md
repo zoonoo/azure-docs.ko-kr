@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 2e913881faadd4892ad1ebc8cb404efe6489eb0d
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 2e40f0520c0f5e605974f883b3327699ff26313e
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310901"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321821"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 업데이트
 
@@ -145,13 +145,6 @@ Azure Stack 1808 업데이트 빌드 번호는 **1.1808.0.97**합니다.
 
 ### <a name="known-issues-with-the-update-process"></a>업데이트 프로세스를 사용 하 여 알려진된 문제
 
-<!-- TBD - IS -->
-- 반복적으로 나타나고 나타났다가 사라집니다 Azure Stack 시스템에 다음 경고가 표시 될 수 있습니다.
-   - *인프라 역할 인스턴스를 사용할 수 없음*
-   - *확장 단위 노드에 오프 라인 상태입니다.*
-   
-  실행 하십시오 합니다 [테스트 AzureStack](azure-stack-diagnostic-test.md) 인프라 역할 인스턴스의 상태를 확인 하 고 단위 노드의 크기를 조정 하는 cmdlet입니다. 문제가 감지 되 면 [테스트 AzureStack](azure-stack-diagnostic-test.md), 이러한 경고를 무시할 수 있습니다. 문제가 감지 될 경우에 인프라 역할 인스턴스 또는 관리 포털 또는 PowerShell을 사용 하 여 노드를 시작 하려면 시작할 수 있습니다.
-
 - 실행할 때 [테스트 AzureStack](azure-stack-diagnostic-test.md) 1808 업데이트 후 베이스 보드 관리 컨트롤러 (BMC)에서 경고 메시지가 표시 됩니다. 이 경고를 안전 하 게 무시할 수 있습니다.
 
 <!-- 2468613 - IS --> 
@@ -174,7 +167,7 @@ Azure Stack 1808 업데이트 빌드 번호는 **1.1808.0.97**합니다.
 
 ### <a name="portal"></a>포털
 
-- Azure Stack 기술 설명서는 최신 버전에 중점을 둡니다. 릴리스 간의 포털 변경으로 인해 Azure Stack 포털을 사용 하는 경우 표시 되는 내용 설명서에 표시 되는 내용에서 달라질 수 있습니다. 
+- Azure Stack 기술 설명서는 최신 릴리스의 Azure Stack에 중점을 둡니다. 릴리스 간의 포털 변경으로 인해 Azure Stack 포털을 사용 하는 경우 표시 되는 내용 설명서에 표시 되는 내용에서 달라질 수 있습니다. 
 
 <!-- TBD - IS ASDK --> 
 - 포털에서 빈 대시보드를 볼 수 있습니다. 대시보드를 복구 하려면 클릭 **대시보드 편집**, 한 다음 마우스 오른쪽 단추로 **기본 상태로 재설정**합니다.
@@ -214,6 +207,14 @@ Azure Stack 1808 업데이트 빌드 번호는 **1.1808.0.97**합니다.
 
 
 ### <a name="health-and-monitoring"></a>상태 및 모니터링
+
+<!-- TBD - IS -->
+- 반복적으로 나타나고 나타났다가 사라집니다 Azure Stack 시스템에 다음 경고가 표시 될 수 있습니다.
+   - *인프라 역할 인스턴스를 사용할 수 없음*
+   - *확장 단위 노드에 오프 라인 상태입니다.*
+   
+  실행 하십시오 합니다 [테스트 AzureStack](azure-stack-diagnostic-test.md) 인프라 역할 인스턴스의 상태를 확인 하 고 단위 노드의 크기를 조정 하는 cmdlet입니다. 문제가 감지 되 면 [테스트 AzureStack](azure-stack-diagnostic-test.md), 이러한 경고를 무시할 수 있습니다. 문제가 감지 될 경우에 인프라 역할 인스턴스 또는 관리 포털 또는 PowerShell을 사용 하 여 노드를 시작 하려면 시작할 수 있습니다.
+
 <!-- 1264761 - IS ASDK --> 
 - 에 대 한 경고를 표시 될 수 있습니다 합니다 **상태 컨트롤러** 다음 세부 정보는 구성 요소:  
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: bce76827c56fd660b6ab4353fed1c43f88132587
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: b4ee3354d024034fd47ee50ae78d25d5bb4a38f5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868822"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345274"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 업데이트
 
@@ -232,6 +232,14 @@ Azure Stack 호스트 키 인프라를 Windows Server 2016의 Server Core 설치
 
 
 ### <a name="health-and-monitoring"></a>상태 및 모니터링
+
+<!-- TBD - IS -->
+- 반복적으로 나타나고 나타났다가 사라집니다 Azure Stack 시스템에 다음 경고가 표시 될 수 있습니다.
+   - *인프라 역할 인스턴스를 사용할 수 없음*
+   - *확장 단위 노드에 오프 라인 상태입니다.*
+   
+  실행 하십시오 합니다 [테스트 AzureStack](azure-stack-diagnostic-test.md) 인프라 역할 인스턴스의 상태를 확인 하 고 단위 노드의 크기를 조정 하는 cmdlet입니다. 문제가 감지 되 면 [테스트 AzureStack](azure-stack-diagnostic-test.md), 이러한 경고를 무시할 수 있습니다. 문제가 감지 될 경우에 인프라 역할 인스턴스 또는 관리 포털 또는 PowerShell을 사용 하 여 노드를 시작 하려면 시작할 수 있습니다.
+
 <!-- 1264761 - IS ASDK -->  
 - 에 대 한 경고를 표시 될 수 있습니다 합니다 **상태 컨트롤러** 다음 세부 정보는 구성 요소:  
 

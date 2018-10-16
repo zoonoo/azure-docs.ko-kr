@@ -5,21 +5,20 @@ services: azure-stack
 author: mattbriggs
 manager: femila
 cloud: azure-stack
-ms.assetid: D44641CB-BF3C-46FE-BCF1-D7F7E1D01AFA
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 10/15/2018
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: a70c736489b25f6e8fd0d838c4c7b4b4db96a4f2
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 3f4dc6e4136d8d2e3eb1ca5e822306aae2217e3b
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188869"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340854"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Azure Stack에 대 한 유효성 검사 테스트를 실행 합니다.
 
@@ -64,14 +63,14 @@ Azure Stack의 상태를 확인합니다. Cmdlet은 Azure Stack 하드웨어 및
 
 | 매개 변수               | 값           | 필수 | 기본값 |
 | ---                     | ---             | ---      | ---     |
-| ServiceAdminCredentials | PSCredential    | 아니요       | FALSE   |
-| DoNotDeployTenantVm     | SwitchParameter | 아니요       | FALSE   |
-| AdminCredential         | PSCredential    | 아니요       | 해당 없음      |
-| 나열                    | SwitchParameter | 아니요       | FALSE   |
-| 무시                  | 문자열          | 아니요       | 해당 없음      |
-| 포함                 | 문자열          | 아니요       | 해당 없음      |
-| BackupSharePath         | 문자열          | 아니요       | 해당 없음      |
-| BackupShareCredential   | PSCredential    | 아니요       | 해당 없음      |
+| ServiceAdminCredentials | 문자열    | 아닙니다.       | FALSE   |
+| DoNotDeployTenantVm     | SwitchParameter | 아닙니다.       | FALSE   |
+| AdminCredential         | PSCredential    | 아닙니다.       | 해당 없음      |
+| 나열                    | SwitchParameter | 아닙니다.       | FALSE   |
+| 무시                  | 문자열          | 아닙니다.       | 해당 없음      |
+| 포함                 | 문자열          | 아닙니다.       | 해당 없음      |
+| BackupSharePath         | 문자열          | 아닙니다.       | 해당 없음      |
+| BackupShareCredential   | PSCredential    | 아닙니다.       | 해당 없음      |
 
 
 테스트-azurestack의 경우 cmdlet은 공통 매개 변수를 지원 합니다: Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable, 및 OutVariable 합니다. 자세한 내용은 [에 대 한 일반 매개 변수](http://go.microsoft.com/fwlink/?LinkID=113216)합니다. 

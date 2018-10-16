@@ -3,7 +3,7 @@ title: Azure Stack 관리 기본 사항 | Microsoft Docs
 description: Azure Stack을 관리 하기 위해 알아야 할 내용을 알아보세요.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
-ms.author: mabrigg
-ms.openlocfilehash: ead76fd2f03a5d445f9fdbb6c10edb852fd046cf
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.date: 10/15/2018
+ms.author: jeffgilb
+ms.openlocfilehash: 37b8eff2d4ed89c90f1fa6f128673ed5bacaaa90
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585767"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339953"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack 관리 기본 사항
 Azure Stack 관리 접하는 경우 알아야 할 몇 가지 있습니다. 이 지침은 Azure Stack 운영자 역할의 개요 및 생산성을 높이려는 신속 하 게 사용자에 게 필요한를 제공 합니다.
@@ -144,6 +144,6 @@ PowerShell을 사용 하는 경우 서비스 사용 하기 전에 리소스 공�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Stack의 지역 관리](azure-stack-region-management.md)
+[Azure Stack의 지역 관리](azure-stack-region-management.md)
 
 

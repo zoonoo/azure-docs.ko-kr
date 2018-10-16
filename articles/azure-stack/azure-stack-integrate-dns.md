@@ -6,19 +6,19 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: b4935dc95ccf525c0a40b10dcc8c59ec8aba710e
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: bf412809f9d10296ad600e64abb6d870dbb88d3e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42139382"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339681"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Azure Stack 데이터 센터 통합-DNS
-Azure Stack 끝점에 액세스할 수 있으려면 (`portal`, `adminportal`를 `management`, `adminmanagement`등.)  외부 Azure Stack에서 Azure Stack에서 사용 하려는 DNS 영역을 호스트 하는 DNS 서버를 사용 하 여 Azure Stack DNS 서비스를 통합 해야 합니다.
+Azure Stack 끝점에 액세스할 수 있으려면 (**포털**, **adminportal**를 **management**, **adminmanagement**등.)  외부 Azure Stack에서 Azure Stack에서 사용 하려는 DNS 영역을 호스트 하는 DNS 서버를 사용 하 여 Azure Stack DNS 서비스를 통합 해야 합니다.
 
 ## <a name="azure-stack-dns-namespace"></a>Azure Stack DNS 네임 스페이스
 Azure Stack을 배포 하는 경우 DNS와 관련 된 몇 가지 중요 한 정보를 제공 하면 됩니다.

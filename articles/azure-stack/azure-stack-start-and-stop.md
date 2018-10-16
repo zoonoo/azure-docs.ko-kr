@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: dd1e64d5ad6982c85a8205e3036d30a2ede92f7c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 6da81ab90a87285f9e1874e3f10eff4570124192
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930293"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344016"
 ---
 # <a name="start-and-stop-azure-stack"></a>시작 하 고 Azure Stack 중지
 이 문서의 적절히 종료 하 고 Azure Stack 서비스를 다시 시작 절차를 따라야 합니다. 종료는 실제로 환경의 전원을 끄고 전체 Azure Stack. 시작 모든 인프라 역할을 구동 하 고 종료 하기 전에 있었을 전원 상태를 테 넌 트 리소스를 반환 합니다.
@@ -90,4 +90,4 @@ ms.locfileid: "37930293"
 
 ## <a name="next-steps"></a>다음 단계 
 
-Azure Stack의 진단 도구에 대 한 자세한 로깅 문제를 참조 하세요 [진단 도구를 Azure Stack](azure-stack-diagnostics.md)합니다.
+자세한 내용은 [Azure Stack의 진단 도구](azure-stack-diagnostics.md)
