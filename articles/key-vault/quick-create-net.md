@@ -6,26 +6,26 @@ author: prashanthyv
 manager: sumedhb
 ms.service: key-vault
 ms.topic: quickstart
-ms.date: 07/24/2018
+ms.date: 09/12/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: a9ae1fb3243c31eb92231320c5ced93d80301a0d
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 7f71e92513aedb1eb9c394c1e8f547173cfb4dbe
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917437"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604181"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>빠른 시작: .NET 웹앱을 사용하여 Azure Key Vault에서 비밀 설정 및 검색
 
-이 빠른 시작에서는 관리 서비스 ID를 사용하여 Azure Key Vault에서 정보를 읽는 Azure 웹 응용 프로그램을 가져오는 데 필요한 단계를 수행합니다. 다음 방법에 대해 알아봅니다.
+이 빠른 시작에서는 Azure 리소스의 관리 ID를 사용하여 Azure Key Vault에서 정보를 읽는 Azure 웹 응용 프로그램을 가져오는 데 필요한 단계를 수행합니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 키 자격 증명 모음을 만듭니다.
 > * 키 자격 증명 모음에 비밀을 저장합니다.
 > * 키 자격 증명 모음에서 비밀을 검색합니다.
 > * Azure 웹 응용 프로그램을 만듭니다.
-> * [관리되는 서비스 ID를 사용하도록 설정합니다](../active-directory/managed-service-identity/overview.md).
+> * 웹앱의 [관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하도록 설정합니다.
 > * 웹 응용 프로그램이 키 자격 증명 모음에서 데이터를 읽는 데 필요한 권한을 부여합니다.
 
 본론으로 들어가기 전에 [기본 개념](key-vault-whatis.md#basic-concepts)을 읽어보세요.
@@ -33,7 +33,7 @@ ms.locfileid: "42917437"
 >[!NOTE]
 >Key Vault는 프로그래밍 방식으로 비밀을 저장하는 중앙 리포지토리입니다. 하지만 이렇게 하려면 응용 프로그램과 사용자가 먼저 Key Vault에 인증해야 합니다. 즉, 비밀을 제공해야 합니다. 보안 모범 사례에 따라 이 첫 번째 비밀을 정기적으로 회전시켜야 합니다. 
 >
->[관리 서비스 ID](../active-directory/managed-service-identity/overview.md)를 사용하면 Azure에서 실행되는 응용 프로그램에 Azure에서 자동으로 관리하는 ID가 부여됩니다. 이렇게 하면 *비밀 소개 문제*를 해결할 수 있으므로 사용자와 응용 프로그램에서 모범 사례를 따를 수 있고 첫 번째 비밀을 회전시켜야 하는 것에 대해 걱정할 필요가 없습니다.
+>[Azure 리소스의 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하면 Azure에서 실행되는 응용 프로그램에 Azure에서 자동으로 관리하는 ID가 부여됩니다. 이렇게 하면 *비밀 소개 문제*를 해결할 수 있으므로 사용자와 응용 프로그램에서 모범 사례를 따를 수 있고 첫 번째 비밀을 회전시켜야 하는 것에 대해 걱정할 필요가 없습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -139,9 +139,9 @@ Visual Studio 2017의 주 메뉴에서 **디버그** > **디버깅하지 않고 
 
 >[!VIDEO https://sec.ch9.ms/ch9/e93d/a6ac417f-2e63-4125-a37a-8f34bf0fe93d/KeyVault_high.mp4]
 
-## <a name="enable-managed-service-identities"></a>관리되는 서비스 ID를 사용하도록 설정합니다.
+## <a name="enable-a-managed-identity-for-the-web-app"></a>웹앱의 관리 ID를 사용하도록 설정
 
-Azure Key Vault를 사용하면 자격 증명과 기타 키 및 비밀을 안전하게 저장할 수 있습니다. 하지만 이러한 자격 증명/키/비밀을 검색하려면 코드가 Azure Key Vault에 인증해야 합니다. 관리 서비스 ID를 사용하면 Azure AD(Azure Active Directory)에서 자동으로 관리되는 ID를 Azure 서비스에 제공하여 이 작업을 더 쉽게 수행할 수 있습니다. 이 ID를 사용하면 Key Vault를 비롯하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다.
+Azure Key Vault를 사용하면 자격 증명과 기타 키 및 비밀을 안전하게 저장할 수 있습니다. 하지만 이러한 자격 증명/키/비밀을 검색하려면 코드가 Key Vault에 인증해야 합니다. [Azure 리소스에 대한 관리 ID 개요](../active-directory/managed-identities-azure-resources/overview.md)를 통해 Azure AD(Azure Active Directory)에서 자동으로 관리되는 ID를 Azure 서비스에 제공함으로써 이 문제를 보다 간편하게 해결할 수 있습니다. 이 ID를 사용하면 Key Vault를 비롯하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다.
 
 1. Azure CLI로 돌아갑니다.
 2. 이 응용 프로그램에 대한 ID를 만들려면 assign-identity 명령을 실행합니다.
@@ -151,7 +151,7 @@ Azure Key Vault를 사용하면 자격 증명과 기타 키 및 비밀을 안전
    ```
 
 >[!NOTE]
->이 절차의 명령은 포털로 이동하여 웹 응용 프로그램 속성에서 **관리 서비스 ID**를 **켜기**로 전환하는 것과 같습니다.
+>이 절차의 명령은 포털로 이동하여 웹 응용 프로그램 속성에서 **ID/시스템 할당됨** 설정을 **켜기**로 전환하는 것과 동일합니다.
 
 ## <a name="assign-permissions-to-your-application-to-read-secrets-from-key-vault"></a>응용 프로그램에 Key Vault에서 비밀을 읽을 수 있는 권한 할당
 
@@ -167,11 +167,11 @@ Azure에 응용 프로그램을 게시할 때 출력을 적어 둡니다. 형식
 
 ```azurecli
 
-az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get
+az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get list
 
 ```
 
-이제 응용 프로그램이 실행되면 검색된 비밀 값이 표시됩니다.
+이제 응용 프로그램이 실행되면 검색된 비밀 값이 표시됩니다. 위 명령에서는 Key Vault에서 **가져오기** 및 **나열** 작업을 수행할 App Service 권한의 ID(MSI)를 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

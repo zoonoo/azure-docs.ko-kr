@@ -1,21 +1,21 @@
 ---
-title: Computer Vision 빠른 시작 요약 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 이러한 빠른 시작에서는 Cognitive Services에서 Computer Vision을 사용하여 이미지를 분석하고, 썸네일을 만들고, 인쇄되고 필기된 텍스트를 추출합니다.
+title: Computer Vision 빠른 시작 요약
+titleSuffix: Azure Cognitive Services
+description: 이러한 빠른 시작에서는 Computer Vision API를 사용하여 이미지를 분석하고, 썸네일을 만들고, 인쇄되고 필기된 텍스트를 추출합니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 94424de3f175e82cf8490bad98f4a775761979e4
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 89502fe49f5eb4b9692d7ee4233c7c46d645b3fb
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43750683"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576887"
 ---
 # <a name="quickstart-summary"></a>빠른 시작: 요약
 
@@ -53,7 +53,7 @@ Computer Vision 서비스를 사용하여 다음 작업을 수행할 수 있습�
 
 ## <a name="next-steps"></a>다음 단계
 
-Computer Vision API를 탐색하여 이미지를 분석하고, 유명인 및 랜드마크를 검색하고, 썸네일을 만들고, 인쇄되고 필기된 텍스트를 추출합니다.
+이미지를 분석하고, 유명인 및 랜드마크를 검색하고, 썸네일을 만들고, 인쇄 및 필기 텍스트를 추출하는 데 사용되는 Computer Vision API를 탐색합니다.
 
 > [!div class="nextstepaction"]
 > [Computer Vision API 탐색](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

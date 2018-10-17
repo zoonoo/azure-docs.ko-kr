@@ -1,6 +1,6 @@
 ---
 title: Azure 빠른 시작 - Batch AI 클러스터 만들기 - Azure CLI | Microsoft Docs
-description: 빠른 시작 - Machine Learning 및 AI 모델 학습을 위한 Batch AI 클러스터 만들기 - Azure CLI
+description: 빠른 시작 - 기계 학습 및 AI 모델 학습을 위한 Batch AI 클러스터 만들기 - Azure CLI
 services: batch-ai
 documentationcenter: na
 author: dlepow
@@ -24,7 +24,7 @@ ms.locfileid: "44057801"
 ---
 # <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Batch AI 학습 작업에 대한 클러스터 만들기
 
-이 빠른 시작에서는 Azure CLI를 사용하여 AI 및 Machine Learning 모델을 학습하는 데 사용할 수 있는 Batch AI 클러스터를 만드는 방법을 보여 줍니다. Batch AI는 데이터 과학자 및 AI 연구원이 Azure Virtual Machines 클러스터에서 AI 및 기타 Machine Learning 모델을 대규모로 학습하기 위한 관리 서비스입니다.
+이 빠른 시작에서는 Azure CLI를 사용하여 AI 및 기계 학습 모델을 학습하는 데 사용할 수 있는 Batch AI 클러스터를 만드는 방법을 보여 줍니다. Batch AI는 데이터 과학자 및 AI 연구원이 Azure Virtual Machines 클러스터에서 AI 및 기타 기계 학습 모델을 대규모로 학습하기 위한 관리 서비스입니다.
 
 처음에는 클러스터에 단일 노드 GPU가 있습니다. 이 빠른 시작을 완료하면 규모를 확대한 후 모델을 학습하는 데 사용할 수 있는 클러스터가 형성됩니다. Batch AI, [Azure Machine Learning](../machine-learning/service/overview-what-is-azure-ml.md) 도구 또는 [Visual Studio Tools for AI](https://github.com/Microsoft/vs-tools-for-ai)를 사용하여 클러스터에 학습 작업을 제출합니다.
 
@@ -153,7 +153,7 @@ az batchai cluster resize \
     --target 0
 ```
 
-나중에 작업을 실행하기 위해 하나 이상의 노드로 크기를 조정합니다. 클러스터가 더 이상 필요하지 않으면 `az batchai cluster delete` 명령을 사용하여 삭제합니다.
+나중에 작업을 실행하려면 클러스터 크기를 하나 이상의 노드로 조정합니다. 클러스터가 더 이상 필요하지 않으면 `az batchai cluster delete` 명령을 사용하여 삭제합니다.
 
 ```azurecli-interactive
 az batchai cluster delete \

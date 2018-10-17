@@ -18,7 +18,7 @@ ms.locfileid: "44299137"
 ---
 # <a name="tutorial--deploy-your-aspnet-app-to-azure-virtual-machines-with-the-azure-devops-project"></a>자습서: Azure DevOps 프로젝트를 사용하여 Azure Virtual Machines에 ASP.NET 앱 배포
 
-Azure DevOps 프로젝트는 기존 코드와 Git 리포지토리를 가져오거나 샘플 응용 프로그램 중 하나를 선택하여 Azure에 CI(연속 통합) 및 CD(지속적인 업데이트) 파이프라인을 만드는 간소화된 환경을 제공합니다.  DevOps 프로젝트는 자동으로 새 Azure Virtual Machine 같은 Azure 리소스를 만들고, CI의 빌드 파이프라인을 포함하는 Azure DevOps의 릴리스 파이프라인을 만들고 구성하고, CD의 릴리스 파이프라인을 설정한 다음, 모니터링을 위해 Azure Application Insights 리소스를 만듭니다.
+Azure DevOps 프로젝트는 기존 코드와 Git 리포지토리를 가져오거나 샘플 응용 프로그램 중 하나를 선택하여 Azure에 CI(연속 통합) 및 CD(지속적인 업데이트) 파이프라인을 만드는 간소화된 환경을 제공합니다.  DevOps 프로젝트는 자동으로 새 Azure Virtual Machine 같은 Azure 리소스를 만들고, CI의 빌드 파이프라인을 포함하는 Azure DevOps의 릴리스 파이프라인을 만들고 구성하며, CD의 릴리스 파이프라인을 설정한 다음, 모니터링을 위해 Azure Application Insights 리소스를 만듭니다.
 
 다음을 수행합니다.
 
@@ -71,7 +71,7 @@ Azure DevOps 프로젝트는 Azure에 CI/CD 파이프라인을 만듭니다.  **
     
 ## <a name="examine-the-azure-devops-services-ci-pipeline"></a>Azure DevOps Services CI 파이프라인 검토
  
-Azure DevOps 프로젝트는 Azure DevOps Services 조직에서 전체 Azure CI/CD 파이프라인을 자동으로 구성합니다.  파이프라인을 탐색하고 사용자 지정할 수 있습니다.  Azure DevOps Services 빌드 정의를 숙지하려면 다음 단계를 수행합니다.
+Azure DevOps 프로젝트는 Azure DevOps Services 조직에서 전체 Azure CI/CD 파이프라인을 자동으로 구성합니다.  파이프라인을 탐색하고 사용자 지정할 수 있습니다.  Azure DevOps Services 빌드 파이프라인을 숙지하려면 다음 단계를 수행합니다.
 
 1. **Azure DevOps 프로젝트 대시보드**의 **위쪽**에서 **빌드 파이프라인**을 선택합니다.  이 링크는 브라우저 탭 및 새 프로젝트에 대한 Azure DevOps Services 빌드 파이프라인을 엽니다.
 
@@ -79,7 +79,7 @@ Azure DevOps 프로젝트는 Azure DevOps Services 조직에서 전체 Azure CI/
 
 1. **편집**을 선택합니다.
 
-1. 이 보기에서 빌드 파이프라인에 대한 **다양한 작업을 검사합니다**.  빌드는 Azure DevOps Services Git 리포지토리에서 원본 가져오기, 종속성 복원 및 배포에 사용된 출력 게시 등 다양한 작업을 실행합니다.
+1. 이 보기에서 빌드 파이프라인의 **다양한 작업을 검사합니다**.  빌드는 Azure DevOps Services Git 리포지토리에서 원본 가져오기, 종속성 복원 및 배포에 사용된 출력 게시 등 다양한 작업을 실행합니다.
 
 1. 빌드 파이프라인의 맨 위에서 **빌드 파이프라인 이름**을 선택합니다.
 
@@ -93,15 +93,15 @@ Azure DevOps 프로젝트는 Azure DevOps Services 조직에서 전체 Azure CI/
 
 ## <a name="examine-the-azure-devops-services-cd-pipeline"></a>Azure DevOps Services CD 파이프라인 검토
 
-Azure DevOps 프로젝트는 Azure DevOps Services 조직에서 Azure 구독에 배포하는 데 필요한 단계를 자동으로 만들고 구성합니다.  이러한 단계에는 Azure 구독에 Azure DevOps Services를 인증하기 위한 Azure 서비스 연결 구성이 포함됩니다.  또한 자동화는 Azure DevOps Services CD 파이프라인을 만들고 Azure Virtual Machine에 이 CD를 제공합니다.  Azure DevOps Services CD 파이프라인에 대해 자세히 검사하려면 다음 단계를 수행합니다.수행 합니다.
+Azure DevOps 프로젝트는 Azure DevOps Services 조직에서 Azure 구독에 배포하는 데 필요한 단계를 자동으로 만들고 구성합니다.  이러한 단계에는 Azure 구독에 Azure DevOps Services를 인증하기 위한 Azure 서비스 연결 구성이 포함됩니다.  또한 자동화는 Azure DevOps Services CD 파이프라인을 만들고 Azure Virtual Machine에 이 CD를 제공합니다.  Azure DevOps Services CD 파이프라인에 대해 자세히 검사하려면 다음 단계를 수행합니다.
 
 1. **빌드 및 릴리스**를 선택한 다음, **릴리스**를 선택합니다.  Azure DevOps 프로젝트는 Azure에 배포를 관리하는 Azure DevOps Services 릴리스 파이프라인을 만들었습니다.
 
 1. 브라우저의 왼쪽에서 릴리스 파이프라인 옆에 있는 **줄임표**를 선택한 다음, **편집**을 선택합니다.
 
-1. 릴리스 파이프라인에는 릴리스 프로세스를 정의하는 **파이프라인**이 포함됩니다.  **아티팩트** 아래에서 **드롭**을 선택합니다.  이전 단계에서 검사한 빌드 파이프라인을 아티팩트에 사용된 출력을 생성합니다. 
+1. 릴리스 파이프라인에는 릴리스 프로세스를 정의하는 **파이프라인**이 포함됩니다.  **아티팩트** 아래에서 **드롭**을 선택합니다.  이전 단계에서 검사한 빌드 파이프라인이 아티팩트에 사용된 출력을 생성합니다. 
 
-1. **Drop** 아이콘의 오른쪽에서 **지속적인 배포 트리거** **아이콘**(번개 표시)를 선택합니다.  이 릴리스 파이프라인을 CD 트리거를 사용하도록 설정했습니다.  새 빌드 아티팩트를 사용할 수 있을 때마다 트리거가 배포를 시작합니다.  필요에 따라 트리거를 비활성화할 수 있으므로 배포는 수동 실행이 필요하게 됩니다. 
+1. **Drop** 아이콘의 오른쪽에서 **지속적인 배포 트리거** **아이콘**(번개 표시)를 선택합니다.  이 릴리스 파이프라인에는 사용하도록 설정된 CD 트리거가 있습니다.  새 빌드 아티팩트를 사용할 수 있을 때마다 트리거가 배포를 시작합니다.  필요에 따라 트리거를 비활성화할 수 있으므로 배포는 수동 실행이 필요하게 됩니다. 
 
 1. 브라우저의 왼쪽에서 선택 **태스크**를 선택한 후에 **환경**합니다.  
 

@@ -1,51 +1,49 @@
 ---
-title: Computer Vision Python 빠른 시작 도메인 모델 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 이 빠른 시작에서는 도메인 모델에서 Cognitive Services의 Python과 Computer Vision을 사용하여 이미지의 유명인과 랜드마크를 식별합니다.
+title: '빠른 시작: 도메인 모델 사용 - REST, Python - Computer Vision'
+titleSuffix: Azure Cognitive Services
+description: 이 빠른 시작에서는 도메인 모델에서 Python과 함께 Computer Vision API를 사용하여 이미지의 유명인과 랜드마크를 식별합니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 357cab72c0a6c9a2254350c84cda91c366ac685a
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 93027e2f9cd3a9b0e9c6ef261b8af876022632a4
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43750600"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632452"
 ---
-# <a name="quickstart-use-a-domain-model---rest-python"></a>빠른 시작: 도메인 모델 사용 - REST, Python
+# <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 Python을 통해 도메인 모델 사용
 
-이 빠른 시작에서는 도메인 모델에서 Computer Vision을 사용하여 이미지의 유명 인사와 랜드마크를 식별합니다.
+이 빠른 시작에서는 Computer Vision의 REST API를 사용하여 원격으로 저장된 이미지에서 랜드마크 또는 선택적으로 유명인을 식별하는 데 도메인 모델을 사용합니다. [도메인 특정 콘텐츠 인식](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) 메서드를 사용하면 도메인 특정 모델을 적용하여 이미지에서 콘텐츠를 인식할 수 있습니다.
 
 [MyBinder](https://mybinder.org)의 Jupyter Notebook을 사용하면 이 빠른 시작을 단계별로 실행할 수 있습니다. Binder를 시작하려면 다음 단추를 선택합니다.
 
 [![바인더](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)을 만듭니다.
+
 ## <a name="prerequisites"></a>필수 조건
 
-Computer Vision을 사용하려면 구독 키가 필요합니다. [구독 키 얻기](../Vision-API-How-to-Topics/HowToSubscribe.md)를 참조하세요.
+- 샘플을 로컬로 실행하려면 [Python](https://www.python.org/downloads/)이 설치되어 있어야 합니다.
+- Computer Vision에 대한 구독 키가 있어야 합니다. 구독 키를 가져오려면 [구독 키 얻기](../Vision-API-How-to-Topics/HowToSubscribe.md)를 참조하세요.
 
-## <a name="identify-celebrities-and-landmarks"></a>유명인 및 랜드마크 식별
+## <a name="create-and-run-the-landmarks-sample"></a>랜드마크 샘플 만들기 및 실행
 
-[도메인 특정 콘텐츠 메서드 인식](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200)을 사용하여 이미지에서 개체의 특정 집합을 식별할 수 있습니다. 현재 사용할 수 있는 두 개의 도메인 특정 모델은 _유명인_ 및 _랜드마크_입니다.
+랜드마크 샘플을 만들고 실행하려면 다음 단계를 수행합니다.
 
-샘플을 실행하려면 다음 단계를 수행합니다.
-
-1. 새 Python 스크립트 파일에 다음 코드를 복사합니다.
-1. `<Subscription Key>`를 유효한 구독 키로 바꿉니다.
-1. 필요한 경우 `vision_base_url` 값을 구독 키를 가져온 위치로 변경합니다.
-1. 필요에 따라 `image_url` 값을 다른 이미지로 변경합니다.
-1. 스크립트를 실행합니다.
-
-다음 코드에서는 Python `requests` 라이브러리를 사용하여 Computer Vision 분석 이미지 API를 호출합니다. 결과는 JSON 개체로 반환됩니다. API 키는 `headers` 사전을 통해 전달됩니다. 사용할 모델은 `params` 사전을 통해 전달됩니다.
-
-## <a name="landmark-identification"></a>랜드마크 식별
-
-### <a name="recognize-landmark-request"></a>랜드마크 인식 요청
+1. 다음 코드를 텍스트 편집기에 복사합니다.
+1. 필요한 경우 코드에서 다음 내용을 변경합니다.
+    1. `subscription_key`의 값을 구독 키로 바꿉니다.
+    1. 필요한 경우 `vision_base_url`의 값을 구독 키를 가져온 Azure 지역의 Computer Vision 리소스에 대한 엔드포인트 URL로 바꿉니다.
+    1. 필요에 따라 `image_url`의 값을 랜드마크를 감지하려는 다른 이미지의 URL로 바꿉니다.
+1. 코드를 `.py` 확장명의 파일로 저장합니다. 예: `get-landmarks.py`
+1. 명령 프롬프트 창을 엽니다.
+1. 프롬프트에서 `python` 명령을 사용하여 샘플을 실행합니다. 예: `python get-landmarks.py`
 
 ```python
 import requests
@@ -95,9 +93,9 @@ plt.axis("off")
 _ = plt.title(landmark_name, size="x-large", y=-0.1)
 ```
 
-### <a name="recognize-landmark-response"></a>랜드마크 인식 응답
+## <a name="examine-the-response-for-the-landmarks-sample"></a>랜드마크 샘플에 대한 응답 검사
 
-성공적인 응답이 JSON 형식으로 반환됩니다. 예:
+성공적인 응답이 JSON을 통해 반환됩니다. 샘플 웹 페이지는 다음 예제와 유사하게 명령 프롬프트 창에서 성공한 응답을 구문 분석하고 표시합니다.
 
 ```json
 {
@@ -118,9 +116,18 @@ _ = plt.title(landmark_name, size="x-large", y=-0.1)
 }
 ```
 
-## <a name="celebrity-identification"></a>유명인 식별
+## <a name="create-and-run-the-celebrities-sample"></a>유명인 샘플 만들기 및 실행
 
-### <a name="recognize-celebrity-request"></a>유명인 인식 요청
+랜드마크 샘플을 만들고 실행하려면 다음 단계를 수행합니다.
+
+1. 다음 코드를 텍스트 편집기에 복사합니다.
+1. 필요한 경우 코드에서 다음 내용을 변경합니다.
+    1. `subscription_key`의 값을 구독 키로 바꿉니다.
+    1. 필요한 경우 `vision_base_url`의 값을 구독 키를 가져온 Azure 지역의 Computer Vision 리소스에 대한 엔드포인트 URL로 바꿉니다.
+    1. 필요에 따라 `image_url`의 값을 유명인을 감지하려는 다른 이미지의 URL로 바꿉니다.
+1. 코드를 `.py` 확장명의 파일로 저장합니다. 예: `get-celebrities.py`
+1. 명령 프롬프트 창을 엽니다.
+1. 프롬프트에서 `python` 명령을 사용하여 샘플을 실행합니다. 예: `python get-celebrities.py`
 
 ```python
 import requests
@@ -163,9 +170,10 @@ plt.axis("off")
 _ = plt.title(celebrity_name, size="x-large", y=-0.1)
 ```
 
-### <a name="recognize-celebrity-response"></a>유명인 인식 응답
+## <a name="examine-the-response-for-the-celebrities-sample"></a>유명인 샘플에 대한 응답 검사
 
-성공적인 응답이 JSON 형식으로 반환됩니다. 예:
+성공적인 응답이 JSON을 통해 반환됩니다. 샘플 웹 페이지는 다음 예제와 유사하게 명령 프롬프트 창에서 성공한 응답을 구문 분석하고 표시합니다.
+
 
 ```json
 {
@@ -191,6 +199,10 @@ _ = plt.title(celebrity_name, size="x-large", y=-0.1)
   }
 }
 ```
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+더 이상 필요하지 않은 경우 두 샘플의 파일을 모두 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

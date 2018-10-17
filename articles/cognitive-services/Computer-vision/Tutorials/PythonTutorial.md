@@ -1,22 +1,23 @@
 ---
-title: Computer Vision API Python 자습서 | Microsoft Docs
-description: Microsoft Cognitive Services에서 Jupyter 노트북을 사용하여 Computer Vision API Python을 사용하는 방법을 알아봅니다. 유명 라이브러리를 사용하여 결과를 시각화합니다.
+title: '자습서: Computer Vision API Python'
+titlesuffix: Azure Cognitive Services
+description: Jupyter 노트북을 사용하여 Computer Vision API Python을 사용하는 방법을 알아봅니다. 유명 라이브러리를 사용하여 결과를 시각화합니다.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/25/2017
 ms.author: kefre
-ms.openlocfilehash: a093c2d066e70a8daf1fe1cd33ccf794ecb196af
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 59e88ecb253bc6da803ddf34a4a02229b99e259d
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374063"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45981714"
 ---
-# <a name="computer-vision-api-python-tutorial"></a>Computer Vision API Python 자습서
+# <a name="tutorial-computer-vision-api-python"></a>자습서: Computer Vision API Python
 
 이 자습서는 Python에서 Computer Vision API를 사용하는 방법 및 몇몇 유명 라이브러리를 이용해 결과를 시각화하는 방법을 보여줍니다. Jupyter를 사용하여 자습서를 실행합니다. 대화형 Jupyter 노트북 시작 방법을 알아보려면 [Jupyter 설명서](http://jupyter.readthedocs.io/en/latest/index.html)를 참조합니다. 
 
@@ -30,7 +31,7 @@ ms.locfileid: "35374063"
 
 ### <a name="running-the-tutorial"></a>자습서 실행
 
-이 노트북을 사용하려면 Computer Vision API에 대한 구독 키가 필요합니다. 등록하려면 [구독 페이지](https://azure.microsoft.com/try/cognitive-services/)를 방문합니다. "로그인" 페이지에서 Microsoft 계정을 사용하여 로그인하면 무료 키를 구독하고 가져올 수 있습니다. 등록 프로세스를 완료한 후 사용자의 키를 노트북의 변수 섹션에 붙여 넣습니다(아래 재현됨). 기본 또는 보조 키 중 하나가 작동합니다. 키를 문자열로 만들려면 따옴표로 묶었는지 확인합니다.
+이 노트북을 사용하려면 Computer Vision API에 대한 구독 키가 필요합니다. 등록하려면 [구독 페이지](https://azure.microsoft.com/try/cognitive-services/)를 방문합니다. "로그인" 페이지에서 Microsoft 계정을 사용하여 로그인하면 무료 키를 구독하고 가져올 수 있습니다. 등록 프로세스를 완료한 후 사용자의 키를 노트북의 변수 섹션에 붙여 넣습니다(아래 재현됨). 기본 키 또는 보조 키 중 하나가 작동합니다. 키를 문자열로 만들려면 따옴표로 묶어야 합니다.
 
 ```python
 # Variables

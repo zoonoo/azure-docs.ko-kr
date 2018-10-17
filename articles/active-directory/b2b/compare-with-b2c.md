@@ -4,22 +4,28 @@ description: Azure Active Directory B2B 공동 작업과 Azure AD B2C 간의 차
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: overview
 ms.date: 03/15/2017
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: b59dba541394c105370cfd3af0768a8477ddb4e6
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 42fbb8b08a2dc24ced436c4a6104f03ae3bca1e9
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39347840"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982813"
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Azure Active Directory에서 B2B 공동 작업과 B2C 비교
 
 Azure Active Directory(Azure AD) B2B 공동 작업 및 Azure AD B2C 모두를 사용하여 Azure AD에서 외부 사용자와 함께 작업할 수 있습니다. 하지만 어떻게 비교할 수 있나요?
+
+**Azure AD B2B**는 공동 작업할 수 있도록 외부 사용자와 파일 및 리소스를 안전하게 공유하려는 비즈니스에 유용합니다. Azure 관리자는 Azure Portal에서 B2B를 설정하고 Azure AD가 비즈니스와 외부 파트너 간에 페더레이션을 관리합니다. 사용자는 자신의 회사 또는 학교 계정이나 메일 계정으로 간단한 초대 및 사용 프로세스를 통해 공유 리소스에 로그인합니다.
+ 
+**Azure AD B2C**는 주로 고객 관련 앱을 만드는 비즈니스 및 개발자에 유용합니다. Azure AD B2C에서 개발자는 해당 응용 프로그램의 전체 기능을 갖춘 ID 시스템으로 Azure AD를 사용할 수 있고 고객이 이미 설정한 ID(예: Facebook 또는 Gmail)를 사용하여 로그인하도록 합니다.
+
+아래 표에서는 자세한 비교를 제공합니다.
 
 
 B2B 공동 작업 기능 |     Azure AD B2C 독립 실행형 제품

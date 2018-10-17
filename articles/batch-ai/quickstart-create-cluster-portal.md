@@ -1,6 +1,6 @@
 ---
 title: Azure 빠른 시작 - Batch AI 클러스터 만들기 - Portal | Microsoft Docs
-description: 빠른 시작 - Machine Learning 및 AI 모델 학습을 위한 Batch AI 클러스터 만들기 - Azure Portal
+description: 빠른 시작 - 기계 학습 및 AI 모델 학습을 위한 Batch AI 클러스터 만들기 - Azure Portal
 services: batch-ai
 documentationcenter: na
 author: dlepow
@@ -24,7 +24,7 @@ ms.locfileid: "44057738"
 ---
 # <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Batch AI 학습 작업에 대한 클러스터 만들기
 
-이 빠른 시작에서는 Azure Portal을 사용하여 AI 및 Machine Learning 모델을 학습하는 데 사용할 수 있는 Batch AI 클러스터를 만드는 방법을 보여 줍니다. Batch AI는 데이터 과학자 및 AI 연구원이 Azure Virtual Machines 클러스터에서 AI 및 기타 Machine Learning 모델을 대규모로 학습하기 위한 관리 서비스입니다.
+이 빠른 시작에서는 Azure Portal을 사용하여 AI 및 기계 학습 모델을 학습하는 데 사용할 수 있는 Batch AI 클러스터를 만드는 방법을 보여 줍니다. Batch AI는 데이터 과학자 및 AI 연구원이 Azure Virtual Machines 클러스터에서 AI 및 기타 기계 학습 모델을 대규모로 학습하기 위한 관리 서비스입니다.
 
 클러스터는 초기에는 단일 GPU 노드 및 연결된 파일 서버를 포함합니다. 이 빠른 시작을 완료하면 규모를 확대한 후 Deep Learning 모델을 학습하는 데 사용할 수 있는 클러스터가 형성됩니다. Batch AI, [Azure Machine Learning](../machine-learning/service/overview-what-is-azure-ml.md) 도구 또는 [Visual Studio Tools for AI](https://github.com/Microsoft/vs-tools-for-ai)를 사용하여 클러스터에 학습 작업을 제출합니다.
 

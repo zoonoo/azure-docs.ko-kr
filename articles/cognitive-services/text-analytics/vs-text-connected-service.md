@@ -1,23 +1,23 @@
 ---
-title: Text Analytics C# 자습서 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: '자습서: C#과 함께 Text Analytics 사용'
+titleSuffix: Azure Cognitive Services
 description: ASP.NET Core 웹 응용 프로그램에서 Text Analytics에 연결합니다.
 services: cognitive-services
 author: ghogen
-manager: douge
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: conceptual
-ms.date: 06/01/2018
+ms.topic: tutorial
+ms.date: 09/12/2018
 ms.author: ghogen
-ms.openlocfilehash: eb9730f785b01a620e36a265216488c401eac63a
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 95de174087fb2a73ad6c75a2e96caf872c351854
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068491"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605235"
 ---
-# <a name="connect-to-the-text-analytics-service-by-using-connected-services-in-visual-studio"></a>Visual Studio의 연결된 서비스를 사용하여 Text Analytics 서비스에 연결
+# <a name="tutorial-connect-to-the-text-analytics-cognitive-service-by-using-connected-services-in-visual-studio"></a>자습서: Visual Studio의 연결된 서비스를 사용하여 Text Analytics Cognitive Service에 연결
 
 Text Analytics 서비스를 사용하여 다양한 정보를 추출하여 시각적 데이터를 분류 및 처리하고 이미지의 기계 지원 수정을 수행하여 서비스 조정을 지원할 수 있습니다.
 

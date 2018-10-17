@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
-ms.date: 06/21/2018
+ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 1be4769a8a07ac5d4a968ed5aa15ed2e0a2b6db2
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c1f94c04db69ad44203ef1ada1c3b9fa3df2d779
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43086829"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718092"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용하여 Azure Blob 저장소에서 SQL 데이터베이스로 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -72,13 +72,7 @@ ms.locfileid: "43086829"
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-1. Azure 서비스에서 SQL Server에 액세스하도록 허용합니다. SQL Server를 실행하는 서버에 대해 **Azure 서비스 방문 허용** 설정을 사용하도록 설정되어 있는지 확인합니다. 이 설정을 사용하면 Data Factory에서 SQL Server 인스턴스에 데이터를 쓸 수 있습니다. 이 설정을 확인하고 설정하려면 다음 단계를 수행합니다.
-
-    a. 왼쪽에서 **더 많은 서비스**를 선택한 다음, **SQL 서버**를 선택합니다.
-
-    b. 서버를 선택한 다음, **설정** > **방화벽**을 차례로 선택합니다.
-
-    다. **방화벽 설정** 페이지에서 **Azure 서비스 방문 허용** 옵션을 **켜기**로 설정합니다.
+2. Azure 서비스에서 SQL Server에 액세스하도록 허용합니다. SQL Database를 실행하는 서버에 대해 **Azure 서비스에 대한 액세스 허용** 설정을 사용하도록 설정되어 있는지 확인합니다. 이 설정을 사용하면 Data Factory에서 데이터베이스 인스턴스에 데이터를 쓸 수 있습니다. 이 설정을 확인하고 켜려면 Azure SQL Server > **보안** > **방화벽 및 가상 네트워크**로 이동하고 **Azure 서비스에 대한 액세스 허용** 옵션을 **켜기**로 설정합니다.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 

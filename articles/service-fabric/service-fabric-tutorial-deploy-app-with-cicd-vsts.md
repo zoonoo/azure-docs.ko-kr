@@ -31,7 +31,7 @@ ms.locfileid: "44380151"
 > [!div class="checklist"]
 > * 프로젝트에 소스 제어 추가
 > * Azure DevOps에서 빌드 파이프라인 만들기
-> * Azure devops에서 릴리스 파이프라인 만들기
+> * Azure DevOps에서 릴리스 파이프라인 만들기
 > * 응용 프로그램 자동 배포 및 업그레이드
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
@@ -88,7 +88,7 @@ Visual Studio의 오른쪽 하단의 상태 표시줄에서 **소스 제어에 �
 
 Azure DevOps 빌드 파이프라인은 순차적으로 실행되는 빌드 단계 집합으로 구성된 워크플로를 설명합니다. Service Fabric 응용 프로그램 패키지 및 기타 아티팩트를 생성하는 빌드 파이프라인을 만들어 Service Fabric 클러스터를 배포합니다. [Azure DevOps 빌드 파이프라인](https://www.visualstudio.com/docs/build/define/create)에 대해 자세히 알아봅니다. 
 
-Azure DevOps 릴리스 파이프라인에서는 응용 프로그램 패키지를 클러스터에 배포하는 워크플로를 설명합니다. 빌드 파이프라인와 릴리스 파이프라인을 함께 사용할 경우 소스 파일로 시작하여 클러스터에서 실행 중인 응용 프로그램에서 종료할 때까지 전체 워크플로를 실행합니다. Azure DevOps [릴리스 파이프라인](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)에 대해 자세히 알아봅니다.
+Azure DevOps 릴리스 파이프라인에서는 응용 프로그램 패키지를 클러스터에 배포하는 워크플로를 설명합니다. 빌드 파이프라인과 릴리스 파이프라인을 함께 사용할 경우 소스 파일로 시작하여 클러스터에서 실행 중인 응용 프로그램에서 종료할 때까지 전체 워크플로를 실행합니다. Azure DevOps [릴리스 파이프라인](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)에 대해 자세히 알아봅니다.
 
 ### <a name="create-a-build-pipeline"></a>빌드 파이프라인 만들기
 

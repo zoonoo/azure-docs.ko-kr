@@ -9,12 +9,12 @@ ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
 ms.component: alerts
-ms.openlocfilehash: 01955ba7a61b3eb46be6bad72c7243c4918add12
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 8f3be2b1eb9c12aab212fb198283dce9ee3d3912
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263051"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982864"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>메트릭 값이 조건을 충족할 경우 알림 받기
 
@@ -47,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 6. 다음 다이어그램에 표시된 대로 값을 설정합니다.
 
-    ![포털 패널에서 논리 앱 트리거 구성](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png)에서도 확인할 수 있습니다. 
+    ![포털 패널에서 논리 앱 트리거 구성](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png) 
 
 7. 디자이너에서 **되풀이** 트리거를 선택합니다.
 

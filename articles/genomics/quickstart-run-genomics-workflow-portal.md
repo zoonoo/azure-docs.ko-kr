@@ -1,25 +1,25 @@
 ---
-title: '빠른 시작: Microsoft Genomics 서비스를 통해 워크플로 실행 | Microsoft Docs'
+title: '빠른 시작: Microsoft Genomics를 통해 워크플로 실행'
 description: 빠른 시작은 Azure Blob Storage에 입력 데이터를 로드하고 Microsoft Genomics 서비스를 통해 워크플로를 실행하는 방법을 보여줍니다.
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: 4387e1c935ada99e1f9c335fb7e1b67905c01188
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: e1d10b578d33ba8d96f43666b82e94ef5503fe77
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42023593"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731090"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>빠른 시작: Microsoft Genomics 서비스를 통해 워크플로 실행
 
-Microsoft Genomics는 원시 읽기에서 시작하여 정렬된 읽기 및 변형 호출을 생성하여 신속하게 게놈을 처리할 수 있는 2차 분석을 위한 확장형 보안 서비스입니다. 몇 단계만 거치면 시작할 수 있습니다. 
+이 빠른 시작은 Azure Blob Storage에 입력 데이터를 로드하고 Microsoft Genomics 서비스를 통해 워크플로를 실행하는 방법을 보여 줍니다. Microsoft Genomics는 원시 읽기에서 시작하여 정렬된 읽기 및 변형 호출을 생성하여 신속하게 게놈을 처리할 수 있는 2차 분석을 위한 확장형 보안 서비스입니다. 
+
+몇 단계만 거치면 시작할 수 있습니다. 
 1.  설정: Azure Portal을 통해 Microsoft Genomics 계정을 만들고 로컬 환경에 Microsoft Genomics Python 클라이언트를 설치합니다. 
 2.  입력 데이터 업로드: Azure Portal을 통해 Microsoft Azure Storage 계정을 만들고 입력 파일을 업로드합니다. 입력 파일은 페어드 엔드 리드(paired-end reads)이어야 합니다(fastq 또는 bam 파일).
 3.  실행: Microsoft Genomics 명령줄 인터페이스를 사용하여 Microsoft Genomics 서비스를 통해 워크플로를 실행합니다. 
@@ -117,7 +117,7 @@ Azure Storage 계정에 이미 데이터가 있다면 Genomics 계정과 동일�
 
  |**설정**          |  **제안 값**  | **필드 설명** |
  |:-------------------------       |:-------------         |:----------            |
- |Name         | MyStorageAccount     |고유한 계정 식별자를 선택합니다. 유효한 이름은 [이름 지정 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
+ |이름         | MyStorageAccount     |고유한 계정 식별자를 선택합니다. 유효한 이름은 [이름 지정 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
  |배포 모델         | 리소스 관리자| 리소스 관리자는 권장되는 배포 모델입니다. 자세한 내용은 [리소스 관리자 배포 이해](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model)를 참조하세요. |      
  |계정 종류       | Blob 저장소       |  Blob Storage는 다운로드 및 업로드 시 범용보다 2-5배 빨라질 수 있습니다. |
  |성능                  | Standard                   | 기본값은 표준입니다. 표준 및 프리미엄 저장소 계정에 대한 자세한 내용은 [Microsoft Azure Storage 소개 ](https://docs.microsoft.com/azure/storage/common/storage-introduction)를 참조하세요.    |

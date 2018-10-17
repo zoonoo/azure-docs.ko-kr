@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 08/22/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f1c933c9dcb3e3e2c2cb267073386d4b9c4e2022
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 8b6e543a4835410368e752e70e7e8cb6d8805c0e
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746021"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735582"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch를 사용하여 대규모 병렬 계산 솔루션 개발
 
@@ -79,11 +79,13 @@ Batch 계정은 Batch 서비스 내에서 고유 하게 식별되는 엔터티�
 
 대부분의 Batch 솔루션은 리소스 파일 및 출력 파일을 저장하기 위해 Azure Storage를 사용합니다. 예를 들어 Batch 태스크(표준 태스크, 시작 태스크, 작업 준비 태스크 및 작업 릴리스 태스크 포함)는 일반적으로 저장소 계정에 상주하는 리소스 파일을 지정합니다.
 
-Batch는 다음과 같은 Azure Storage [계정 옵션](../storage/common/storage-account-options.md)을 지원합니다.
+Batch는 다음 유형의 Azure Storage 계정을 지원합니다.
 
 * 범용 v2(GPv2) 계정 
 * 범용 v1(GPv1) 계정
 * Blob 저장소 계정(현재 가상 머신 구성에서 풀에 대해 지원됨)
+
+저장소 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../storage/common/storage-account-overview.md)를 참조하세요.
 
 Batch 계정을 만들 때 또는 나중에 저장소 계정을 Batch 계정에 연결할 수 있습니다. 저장소 계정을 선택할 때 비용 및 성능 요구 사항을 고려해야 합니다. 예를 들어 GPv2 및 BLOB 저장소 계정 옵션은 GPv1보다 큰 [용량 및 확장성 제한](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)을 지원합니다. (저장소 제한을 늘리려면 Azure 고객 지원팀에 문의하세요.) 이러한 계정 옵션은 저장소 계정에서 데이터를 읽어 오거나 저장소 계정에 데이터를 쓰는 다수의 병렬 태스크를 포함하고 있는 Batch 솔루션의 성능을 향상할 수 있습니다.
 
@@ -540,7 +542,7 @@ Batch 솔루션 내에서 태스크 오류와 응용 프로그램 오류를 모�
 [net_rdpfile]: https://msdn.microsoft.com/library/azure/Mt272127.aspx
 [vnet]: https://msdn.microsoft.com/library/azure/dn820174.aspx#bk_netconf
 
-[py_add_user]: https://docs.microsoft.com/en-us/python/azure/?view=azure-python
+[py_add_user]: https://docs.microsoft.com/python/azure/?view=azure-python
 
 [batch_rest_api]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [rest_add_job]: https://msdn.microsoft.com/library/azure/mt282178.aspx

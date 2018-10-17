@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/14/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 030774716e1af4a7d6817d64ae66ded2bcaf4081
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: fde063cb593ca1f610dc35cd044fe41e34ab9202
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41918924"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578372"
 ---
 # <a name="users-flagged-for-risk-security-report-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 위험에 대한 플래그가 지정된 사용자 보안 보고서
 
@@ -29,9 +29,9 @@ Azure Active Directory는 사용자 계정에 관련된 의심스러운 작업�
 
 감지된 위험 이벤트를 계산하는 데 사용합니다.
 
-- **위험한 로그인** - 위험한 로그인은 사용자 계정의 정당한 소유자가 아닌 사용자에 의해 수행된 로그인 시도에 대한 지표입니다. 자세한 내용은 [위험한 로그인](../identity-protection/overview.md#risky-sign-ins)을 참조하세요. 
+- **위험한 로그인** - 위험한 로그인은 사용자 계정의 정당한 소유자가 아닌 사용자에 의해 수행된 로그인 시도에 대한 지표입니다. 자세한 내용은 [로그인 위험 정책을 구성하는 방법](../identity-protection/howto-sign-in-risk-policy.md)을 참조하세요. 
 
-- **위험 플래그가 지정된 사용자** - 위험한 사용자는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다. 자세한 내용은 [위험 플래그가 지정된 사용자](../identity-protection/overview.md#users-flagged-for-risk)를 참조하세요.  
+- **위험 플래그가 지정된 사용자** - 위험한 사용자는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다. 자세한 내용은 [사용자 위험 정책을 구성하는 방법](../identity-protection/howto-user-risk-policy.md)을 참조하세요.  
 
 Azure Portal의 **보안** 섹션에서 **Azure Active Directory** 블레이드에 대한 보안 보고서를 찾을 수 있습니다.  
 
@@ -78,13 +78,13 @@ Azure Active Directory 평가판 및 기본 버전의 위험에 대한 플래그
 
 Azure Active Directory Premium Edition의 위험에 대한 플래그가 지정된 사용자 보고서에 제공되는 내용:
 
-- 손상되었을 수 있는 [사용자 계정 목록](../identity-protection/overview.md#users-flagged-for-risk) 
+- 손상되었을 수 있는 사용자 계정 목록 
 
 - 감지된 [위험 이벤트 유형](concept-risk-events.md)에 대해 집계된 정보
 
 - 보고서를 다운로드할 수 있는 옵션
 
-- [사용자 위험 수정 정책](../identity-protection/overview.md#user-risk-security-policy)을 구성할 수 있는 옵션  
+- [사용자 위험 수정 정책](../identity-protection/howto-user-risk-policy.md)을 구성할 수 있는 옵션  
 
 
 ![위험한 로그인](./media/concept-user-at-risk/71.png)
@@ -103,7 +103,7 @@ Azure Active Directory Premium Edition의 위험에 대한 플래그가 지정�
 ![위험한 로그인](./media/concept-user-at-risk/324.png)
 
 
-위험 이벤트를 조사하려면 목록에서 이벤트를 하나 선택하고 이 위험 이벤트에 대한 **세부 정보** 블레이드를 엽니다. **세부 정보** 블레이드에 [위험 이벤트를 수동으로 닫거나](../identity-protection/overview.md#closing-risk-events-manually) 수동으로 닫은 위험 이벤트를 다시 활성화할 수 있는 옵션이 있습니다. 
+위험 이벤트를 조사하려면 목록에서 이벤트를 하나 선택하고 이 위험 이벤트에 대한 **세부 정보** 블레이드를 엽니다. **세부 정보** 블레이드에 위험 이벤트를 수동으로 닫거나 수동으로 닫은 위험 이벤트를 다시 활성화할 수 있는 옵션이 있습니다. 
 
 
 ![위험한 로그인](./media/concept-user-at-risk/325.png)

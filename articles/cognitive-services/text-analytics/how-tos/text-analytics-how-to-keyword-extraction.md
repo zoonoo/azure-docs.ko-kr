@@ -1,22 +1,23 @@
 ---
-title: 텍스트 분석 REST API(Azure의 Microsoft Cognitive Services)에서 핵심 구를 추출하는 방법 | Microsoft Docs
-description: 이 연습 자습서에서는 Azure의 Microsoft Cognitive Services에서 텍스트 분석 REST API를 사용하여 핵심 구를 추출하는 방법을 알아봅니다.
+title: '예: Text Analytics에서 핵심 구를 추출하는 방법'
+titleSuffix: Azure Cognitive Services
+description: Text Analytics REST API를 사용하여 핵심 구를 추출하는 방법을 알아봅니다.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 3/07/2018
+ms.topic: sample
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 78b100e737242fa9f56e50275ef2038d8895349e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 62c078a8a72cd0a3633b7dd5fda1545f01067dbc
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373871"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605490"
 ---
-# <a name="how-to-extract-key-phrases-in-text-analytics"></a>Text Analytics에서 핵심 구를 추출하는 방법
+# <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>예: Text Analytics에서 핵심 구를 추출하는 방법
 
 [핵심 구 추출 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)는 구조화되지 않은 텍스트를 평가하고 각 JSON 문서에 대해 핵심 구 목록을 반환합니다. 
 

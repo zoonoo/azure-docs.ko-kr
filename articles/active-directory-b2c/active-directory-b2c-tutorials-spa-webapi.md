@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 54ddafbf0e4fe02bfc1445aad23ac3e20b42acb0
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: efe975fa4f89a262faef82df3cc79820d393b60e
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339389"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605762"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-app-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 단일 페이지 앱에서 ASP.NET Core Web API로의 액세스 권한 부여
 
@@ -46,9 +46,9 @@ Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azur
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-1. Azure Portal의 서비스 목록에서 **Azure AD B2C**를 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다. 이전 자습서에서 만든 테넌트를 사용해야 합니다.
 
-2. B2C 설정에서 **응용 프로그램**, **추가**를 차례로 클릭합니다.
+2. **응용 프로그램**을 선택하고 **추가**를 선택합니다.
 
     샘플 웹 API를 테넌트에 등록하려면 다음 설정을 사용합니다.
     
@@ -59,7 +59,7 @@ Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azur
     | **Name** | Hello Core API | 개발자에게 웹 API를 설명하는 **이름**을 입력합니다. |
     | **웹앱/웹 API 포함** | yes | 웹 API에 **예**를 선택합니다. |
     | **암시적 흐름 허용** | yes | API에서 [OpenID Connect 로그인](active-directory-b2c-reference-oidc.md)을 사용하므로 **예**를 선택합니다. |
-    | **회신 URL** | `http://localhost:44332` | 회신 URL은 Azure AD B2C에서 API가 요청한 토큰을 반환하는 엔드포인트입니다. 이 자습서에서는 샘플 웹 API가 로컬(로컬 호스트)에서 실행되고 5000 포트에서 수신 대기합니다. |
+    | **회신 URL** | `http://localhost:5000` | 회신 URL은 Azure AD B2C에서 API가 요청한 토큰을 반환하는 엔드포인트입니다. 이 자습서에서는 샘플 웹 API가 로컬(로컬 호스트)에서 실행되고 5000 포트에서 수신 대기합니다(이 자습서의 뒷부분에서 구성된 후). |
     | **앱 ID URI** | HelloCoreAPI | URI는 테넌트에서 API를 고유하게 식별합니다. 이 설정을 사용하면 테넌트별로 여러 API를 등록할 수 있습니다. [범위](../active-directory/develop/developer-glossary.md#scopes)는 보호된 API 리소스에 대한 액세스를 제어하고 앱 ID URI별로 정의됩니다. |
     | **네이티브 클라이언트** | 아니요 | 이는 웹 API이지만 기본 클라이언트가 아니기 때문에 [아니요]를 선택합니다. |
     
@@ -111,7 +111,7 @@ Azure AD B2C를 사용하여 웹 API를 등록하면 트러스트 관계가 정�
 
 5. **확인**을 클릭합니다.
 
-**내 샘플 단일 페이지 앱**은 보호되는 **Hello Core API**를 호출하도록 등록되었습니다. 사용자는 Azure AD B2C로 [인증](../active-directory/develop/developer-glossary.md#authentication)하여 WPF 데스크톱 앱을 사용합니다. 데스크톱 앱은 Azure AD B2C에서 [권한 부여](../active-directory/develop/developer-glossary.md#authorization-grant)를 받아 보호되는 웹 API에 액세스합니다.
+**내 샘플 단일 페이지 앱**은 보호되는 **Hello Core API**를 호출하도록 등록되었습니다. 사용자가 Azure AD B2C로 [인증](../active-directory/develop/developer-glossary.md#authentication)하여 단일 페이지 앱을 사용합니다. 단일 페이지 앱은 Azure AD B2C에서 [권한 부여](../active-directory/develop/developer-glossary.md#authorization-grant)를 받아 보호되는 웹 API에 액세스합니다.
 
 ## <a name="update-code"></a>코드 업데이트
 
@@ -158,7 +158,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
         builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
     ```
 
-3. **속성**에서 **launchSettings.json** 파일을 열고 *applicationURL* 설정을 찾은 후 다음 섹션에서 사용할 값을 기록합니다.
+3. **속성**에서 **launchSettings.json** 파일을 열고, **iisSettings** *applicationURL* 설정을 찾고, 포트 번호를 API Reply URL `http://localhost:5000`용으로 등록된 값으로 설정합니다.
 
 ### <a name="configure-the-single-page-app"></a>단일 페이지 앱 구성
 
@@ -174,7 +174,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
         clientID: '<Application ID for your SPA obtained from portal app registration>',
         authority: "https://<your-tenant-name>.b2clogin.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
         b2cScopes: ["https://<Your tenant name>.onmicrosoft.com/HelloCoreAPI/demo.read"],
-        webApi: 'http://localhost:64791/api/values',
+        webApi: 'http://localhost:5000/api/values',
     };
     ```
 

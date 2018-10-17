@@ -1,49 +1,52 @@
 ---
-title: Computer Vision Python 빠른 시작 필기 텍스트 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 이 빠른 시작에서는 Cognitive Services에서 Python과 함께 Computer Vision을 사용하여 이미지의 필기 텍스트를 추출합니다.
+title: '빠른 시작: 필기 텍스트 추출 - REST, Python - Computer Vision'
+titleSuffix: Azure Cognitive Services
+description: 이 빠른 시작에서는 Python과 함께 Computer Vision API를 사용하여 이미지의 필기 텍스트를 추출합니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 43b541daf8632af7fb8111886b53981c4c646772
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 91cff6205af70968b6397af9756a5385ddb0c989
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43750604"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631364"
 ---
-# <a name="quickstart-extract-handwritten-text---rest-python"></a>빠른 시작: 필기 텍스트 추출 - REST, Python
+# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-python-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 Python을 사용하여 필기 텍스트 추출
 
-이 빠른 시작에서는 Computer Vision을 사용하여 이미지의 필기 텍스트를 추출합니다.
+이 빠른 시작에서는 Computer Vision의 REST API를 사용하여 이미지의 필기 텍스트를 추출합니다. [텍스트 인식](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) 및 [텍스트 인식 작업 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) 메서드를 사용하면 이미지의 필기 텍스트를 감지한 후 인식된 문자를 머신에서 사용 가능한 문자 스트림으로 추출할 수 있습니다.
+
+> [!IMPORTANT]
+> [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 메서드와 달리, [텍스트 인식](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) 메서드는 비동기적으로 실행됩니다. 이 메서드는 성공한 응답의 본문에 있는 정보를 반환하지 않습니다. 대신 텍스트 인식 메서드는 `Operation-Content` 응답 헤더 필드의 값으로 URI를 반환합니다. 그런 다음, [텍스트 인식 작업 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) 메서드를 나타내는 이 URI를 호출하여 상태를 확인하고 텍스트 인식 메서드 호출 결과를 반환할 수 있습니다.
 
 [MyBinder](https://mybinder.org)의 Jupyter Notebook을 사용하면 이 빠른 시작을 단계별로 실행할 수 있습니다. Binder를 시작하려면 다음 단추를 선택합니다.
 
 [![바인더](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)을 만듭니다.
+
 ## <a name="prerequisites"></a>필수 조건
 
-Computer Vision을 사용하려면 구독 키가 필요합니다. [구독 키 얻기](../Vision-API-How-to-Topics/HowToSubscribe.md)를 참조하세요.
+- 샘플을 로컬로 실행하려면 [Python](https://www.python.org/downloads/)이 설치되어 있어야 합니다.
+- Computer Vision에 대한 구독 키가 있어야 합니다. 구독 키를 가져오려면 [구독 키 얻기](../Vision-API-How-to-Topics/HowToSubscribe.md)를 참조하세요.
 
-## <a name="extract-handwritten-text"></a>필기 텍스트 추출
+## <a name="create-and-run-the-sample"></a>샘플 만들기 및 실행
 
-[텍스트 인식](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) 및 [텍스트 인식 작업 결과 가져오기 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201)를 사용하면 이미지의 필기 텍스트를 감지하고 인식된 문자를 머신에서 사용 가능한 문자 스트림으로 추출할 수 있습니다.
+샘플을 만들고 실행하려면 다음 단계를 수행합니다.
 
-샘플을 실행하려면 다음 단계를 수행합니다.
-
-1. 새 Python 스크립트 파일에 다음 코드를 복사합니다.
-1. `<Subscription Key>`를 유효한 구독 키로 바꿉니다.
-1. 필요한 경우 `vision_base_url` 값을 구독 키를 가져온 위치로 변경합니다.
-1. 필요에 따라 `image_url` 값을 다른 이미지로 변경합니다.
-1. 스크립트를 실행합니다.
-
-다음 코드에서는 Python `requests` 라이브러리를 사용하여 Computer Vision 분석 이미지 API를 호출합니다. 결과는 JSON 개체로 반환됩니다. API 키는 `headers` 사전을 통해 전달됩니다.
-
-## <a name="recognize-text-request"></a>텍스트 인식 요청
+1. 다음 코드를 텍스트 편집기에 복사합니다.
+1. 필요한 경우 코드에서 다음 내용을 변경합니다.
+    1. `subscription_key`의 값을 구독 키로 바꿉니다.
+    1. 필요한 경우 `vision_base_url`의 값을 구독 키를 가져온 Azure 지역의 Computer Vision 리소스에 대한 엔드포인트 URL로 바꿉니다.
+    1. 필요에 따라 `image_url`의 값을 필기 텍스트를 추출하려는 다른 이미지의 URL로 바꿉니다.
+1. 코드를 `.py` 확장명의 파일로 저장합니다. 예: `get-handwritten-text.py`
+1. 명령 프롬프트 창을 엽니다.
+1. 프롬프트에서 `python` 명령을 사용하여 샘플을 실행합니다. 예: `python get-handwritten-text.py`
 
 ```python
 import requests
@@ -122,9 +125,9 @@ for polygon in polygons:
 _ = plt.axis("off")
 ```
 
-## <a name="recognize-text-response"></a>텍스트 인식 응답
+## <a name="examine-the-response"></a>응답 검사
 
-성공적인 응답이 JSON 형식으로 반환됩니다. 예:
+성공적인 응답이 JSON을 통해 반환됩니다. 샘플 웹 페이지는 다음 예제와 유사하게 명령 프롬프트 창에서 성공한 응답을 구문 분석하고 표시합니다.
 
 ```json
 {
@@ -401,6 +404,10 @@ _ = plt.axis("off")
   }
 }
 ```
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+더 이상 필요하지 않은 경우 파일을 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

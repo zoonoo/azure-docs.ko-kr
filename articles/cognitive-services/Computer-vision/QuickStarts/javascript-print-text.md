@@ -1,43 +1,45 @@
 ---
-title: Computer Vision API JavaScript 빠른 시작 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 이 빠른 시작에서는 Cognitive Services에서 JavaScript와 함께 Computer Vision을 사용하여 이미지의 인쇄 텍스트를 추출합니다.
+title: '빠른 시작: 인쇄 텍스트 추출(OCR) - REST, JavaScript - Computer Vision'
+titleSuffix: Azure Cognitive Services
+description: 이 빠른 시작에서는 JavaScript와 함께 Computer Vision API를 사용하여 이미지의 인쇄 텍스트를 추출합니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 09/10/2018
 ms.author: v-deken
-ms.openlocfilehash: 01e417d8931471dc8ba83025fcbe7deb1baef1ff
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: df4d60170c676e7e2666a8a3c7179cf4b90b15eb
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43750605"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634016"
 ---
-# <a name="quickstart-extract-printed-text-ocr---rest-javascript"></a>빠른 시작: 인쇄 텍스트 추출(OCR) - REST, JavaScript
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-javascript-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 JavaScript를 사용하여 인쇄 텍스트 추출(OCR)
 
-이 빠른 시작에서는 Computer Vision을 사용하여 이미지에서 인쇄 텍스트를 추출하며, 이 기능은 OCR(광학 문자 인식)이라고도 합니다.
+이 빠른 시작에서는 Computer Vision의 REST API를 사용하여 이미지에서 OCR(광학 문자 인식)이 포함된 인쇄 텍스트를 추출합니다. [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 메서드를 사용하여 이미지의 인쇄 텍스트를 감지하고, 인식된 문자를 머신에서 사용 가능한 문자 스트림으로 추출할 수 있습니다.
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-Computer Vision을 사용하려면 구독 키가 필요합니다. [구독 키 얻기](../Vision-API-How-to-Topics/HowToSubscribe.md)를 참조하세요.
+Computer Vision에 대한 구독 키가 있어야 합니다. 구독 키를 가져오려면 [구독 키 얻기](../Vision-API-How-to-Topics/HowToSubscribe.md)를 참조하세요.
 
-## <a name="ocr-request"></a>OCR 요청
+## <a name="create-and-run-the-sample"></a>샘플 만들기 및 실행
 
-[OCR 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc)를 사용하여 이미지의 인쇄 텍스트를 감지하고, 인식된 문자를 머신에서 사용 가능한 문자 스트림으로 추출할 수 있습니다.
+샘플을 만들고 실행하려면 다음 단계를 수행합니다.
 
-샘플을 실행하려면 다음 단계를 수행합니다.
-
-1. 다음을 복사하고 `ocr.html` 같은 파일에 저장합니다.
-1. `<Subscription Key>`를 유효한 구독 키로 바꿉니다.
-1. 필요한 경우 `uriBase` 값을 구독 키를 가져온 위치로 변경합니다.
-1. 파일을 브라우저로 끌어서 놓습니다.
-1. `Read image` 단추를 클릭합니다.
-
-이 샘플에서는 jQuery 1.9.0을 사용합니다. jQuery 없이 JavaScript를 사용하는 샘플을 보려면 [지능적으로 썸네일 생성](javascript-thumb.md)을 참조하세요.
+1. 다음 코드를 텍스트 편집기에 복사합니다.
+1. 필요한 경우 코드에서 다음 내용을 변경합니다.
+    1. `subscriptionKey`의 값을 구독 키로 바꿉니다.
+    1. 필요한 경우 `uriBase`의 값을 구독 키를 가져온 Azure 지역의 [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 메서드에 대한 엔드포인트 URL로 바꿉니다.
+    1. 필요한 경우 `inputImage` 컨트롤에 대한 `value` 특성의 값을 분석하려는 다른 이미지의 URL로 바꿉니다.
+1. 코드를 `.html` 확장명의 파일로 저장합니다. 예: `get-printed-text.html`
+1. 브라우저 창을 엽니다.
+1. 브라우저에서 파일을 브라우저 창으로 끌어서 놓습니다.
+1. 웹 페이지가 브라우저에 표시되면 **이미지 읽기** 단추를 선택합니다.
 
 ```html
 <!DOCTYPE html>
@@ -57,11 +59,12 @@ Computer Vision을 사용하려면 구독 키가 필요합니다. [구독 키 �
         // Replace <Subscription Key> with your valid subscription key.
         var subscriptionKey = "<Subscription Key>";
 
-        // You must use the same region in your REST call as you used to get your
-        // subscription keys. For example, if you got your subscription keys from
-        // westus, replace "westcentralus" in the URI below with "westus".
+        // You must use the same Azure region in your REST API method as you used to
+        // get your subscription keys. For example, if you got your subscription keys
+        // from the West US region, replace "westcentralus" in the URL
+        // below with "westus".
         //
-        // Free trial subscription keys are generated in the westcentralus region.
+        // Free trial subscription keys are generated in the West Central US region.
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         var uriBase =
@@ -137,11 +140,9 @@ Image to read:
 </html>
 ```
 
-## <a name="ocr-response"></a>OCR 응답
+## <a name="examine-the-response"></a>응답 검사
 
-성공적인 응답이 JSON을 통해 반환됩니다. 반환되는 OCR 결과에는 텍스트, 영역, 선 및 단어의 경계 상자가 포함됩니다.
-
-이 프로그램은 다음 JSON과 유사한 출력을 생성합니다.
+성공적인 응답이 JSON을 통해 반환됩니다. 샘플 웹 페이지는 다음 예제와 유사하게 브라우저 창에서 성공한 응답을 구문 분석하고 표시합니다.
 
 ```json
 {
@@ -241,6 +242,10 @@ Image to read:
   ]
 }
 ```
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+더 이상 필요하지 않은 경우 파일을 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

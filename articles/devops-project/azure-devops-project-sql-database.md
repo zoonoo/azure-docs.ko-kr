@@ -67,13 +67,13 @@ Azure DevOps 프로젝트는 Azure에 CI/CD 파이프라인을 만듭니다.  **
     
 ## <a name="examine-the-azure-devops-services-ci-pipeline"></a>Azure DevOps Services CI 파이프라인 검토
 
-Azure DevOps 프로젝트는 Azure DevOps Services 조직에서 전체 Azure CI/CD 파이프라인을 자동으로 구성합니다.  파이프라인을 탐색하고 사용자 지정할 수 있습니다.  Azure DevOps Services 빌드 정의를 숙지하려면 다음 단계를 수행합니다.
+Azure DevOps 프로젝트는 Azure DevOps Services 조직에서 전체 Azure CI/CD 파이프라인을 자동으로 구성합니다.  파이프라인을 탐색하고 사용자 지정할 수 있습니다.  Azure DevOps Services 빌드 파이프라인을 숙지하려면 다음 단계를 수행합니다.
 
 1. **Azure DevOps 프로젝트 대시보드**로 이동합니다.
 
 1. **Azure DevOps 프로젝트 대시보드**의 **위쪽**에서 **빌드 파이프라인**을 선택합니다.  이 링크는 브라우저 탭 및 새 프로젝트에 대한 Azure DevOps Services 빌드 파이프라인을 엽니다.
 
-1. **상태** 필드 옆에 빌드 파이프라인의 오른쪽으로 마우스 커서를 이동합니다. 나타나는 **줄임표**를 선택합니다.  이 작업은 **새 빌드 큐**, **빌드 일시 중지** 및 **빌드 파이프라인 편집** 같은 여러 활동을 수행할 수 있는 메뉴를 엽니다.
+1. **상태** 필드 옆에 빌드 파이프라인의 오른쪽으로 마우스 커서를 이동합니다. 나타나는 **줄임표**를 선택합니다.  이 작업은 **새 빌드 큐**, **빌드 일시 중지** 및 **빌드 파이프라인 편집** 등 여러 활동을 수행할 수 있는 메뉴를 엽니다.
 
 1. **편집**을 선택합니다.
 

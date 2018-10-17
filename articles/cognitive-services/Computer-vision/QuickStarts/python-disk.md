@@ -1,52 +1,49 @@
 ---
-title: 'Computer Vision Python 빠른 시작: 로컬 이미지 분석 | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: 이 빠른 시작에서는 Cognitive Services에서 Python과 함께 Computer Vision을 사용하여 로컬 이미지를 분석합니다.
+title: '빠른 시작: 로컬 이미지 분석 - REST, Python - Computer Vision'
+titleSuffix: Azure Cognitive Services
+description: 이 빠른 시작에서는 Python과 함께 Computer Vision API를 사용하여 로컬 이미지를 분석합니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: a1f3fce5a547f143f7c4884c6642e78f53d160e9
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 48a6602c9f3029cc008f3db7d4701499c14e7ce1
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43750597"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633863"
 ---
-# <a name="quickstart-analyze-a-local-image---rest-python"></a>빠른 시작: 로컬 이미지 분석 - REST, Python
+# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-python-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 Python을 사용하여 로컬 이미지 분석
 
-이 빠른 시작에서는 Computer Vision을 사용하여 로컬 이미지를 분석합니다. 원격 이미지를 분석하려면 [Python을 사용하여 원격 이미지 분석](python-analyze.md)을 참조하세요.
+이 빠른 시작에서는 Computer Vision의 REST API를 사용하여 시각적 기능을 추출하기 위해 로컬로 저장된 이미지를 분석합니다. [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 메서드를 사용하면 이미지 콘텐츠를 기반으로 시각적 기능을 추출할 수 있습니다.
 
 [MyBinder](https://mybinder.org)의 Jupyter Notebook을 사용하면 이 빠른 시작을 단계별로 실행할 수 있습니다. Binder를 시작하려면 다음 단추를 선택합니다.
 
 [![바인더](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)을 만듭니다.
+
 ## <a name="prerequisites"></a>필수 조건
 
-Computer Vision을 사용하려면 구독 키가 필요합니다. [구독 키 얻기](../Vision-API-How-to-Topics/HowToSubscribe.md)를 참조하세요.
+- 샘플을 로컬로 실행하려면 [Python](https://www.python.org/downloads/)이 설치되어 있어야 합니다.
+- Computer Vision에 대한 구독 키가 있어야 합니다. 구독 키를 가져오려면 [구독 키 얻기](../Vision-API-How-to-Topics/HowToSubscribe.md)를 참조하세요.
 
-## <a name="analyze-a-local-image"></a>로컬 이미지 분석
+## <a name="create-and-run-the-sample"></a>샘플 만들기 및 실행
 
-이 샘플은 분석할 이미지가 디스크에서 로컬로 읽는다는 점을 제외하고 [Python을 사용하여 원격 이미지 분석](python-analyze.md)과 비슷합니다. 두 가지를 변경해야 합니다.
+샘플을 만들고 실행하려면 다음 단계를 수행합니다.
 
-- `{"Content-Type": "application/octet-stream"}` 헤더를 요청에 추가합니다.
-- 요청 본문에 이미지 데이터(바이트 배열)를 추가합니다.
-
-샘플을 실행하려면 다음 단계를 수행합니다.
-
-1. 새 Python 스크립트 파일에 다음 코드를 복사합니다.
-1. `<Subscription Key>`를 유효한 구독 키로 바꿉니다.
-1. 필요한 경우 `vision_base_url` 값을 구독 키를 가져온 위치로 변경합니다.
-1. `image_path` 값을 로컬 이미지의 경로로 변경합니다.
-1. 스크립트를 실행합니다.
-
-다음 코드에서는 Python `requests` 라이브러리를 사용하여 Computer Vision 분석 이미지 API를 호출합니다. 결과는 JSON 개체로 반환됩니다. API 키는 `headers` 사전을 통해 전달됩니다. 인식할 특징의 유형은 `params` 사전을 통해 전달됩니다. 이진 이미지 데이터가 `data` 매개 변수를 통해 `requests.post`에 전달됩니다.
-
-## <a name="analyze-image-request"></a>이미지 분석 요청
+1. 다음 코드를 텍스트 편집기에 복사합니다.
+1. 필요한 경우 코드에서 다음 내용을 변경합니다.
+    1. `subscription_key`의 값을 구독 키로 바꿉니다.
+    1. 필요한 경우 `vision_base_url`의 값을 구독 키를 가져온 Azure 지역의 Computer Vision 리소스에 대한 엔드포인트 URL로 바꿉니다.
+    1. 필요한 경우 `image_path`의 값을 분석하려는 다른 이미지의 경로 및 파일 이름으로 바꿉니다.
+1. 코드를 `.py` 확장명의 파일로 저장합니다. 예: `analyze-local-image.py`
+1. 명령 프롬프트 창을 엽니다.
+1. 프롬프트에서 `python` 명령을 사용하여 샘플을 실행합니다. 예: `python analyze-local-image.py`
 
 ```python
 import requests
@@ -96,9 +93,9 @@ plt.axis("off")
 _ = plt.title(image_caption, size="x-large", y=-0.1)
 ```
 
-## <a name="analyze-image-response"></a>이미지 분석 응답
+## <a name="examine-the-response"></a>응답 검사
 
-성공적인 응답이 JSON 형식으로 반환됩니다. 예:
+성공적인 응답이 JSON을 통해 반환됩니다. 샘플 웹 페이지는 다음 예제와 유사하게 명령 프롬프트 창에서 성공한 응답을 구문 분석하고 표시합니다.
 
 ```json
 {
@@ -171,6 +168,10 @@ _ = plt.title(image_caption, size="x-large", y=-0.1)
   }
 }
 ```
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+더 이상 필요하지 않은 경우 파일을 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

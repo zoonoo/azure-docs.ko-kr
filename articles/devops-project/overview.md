@@ -23,7 +23,7 @@ ms.locfileid: "44293629"
 ---
 # <a name="overview-of-azure-devops-project"></a>Azure DevOps Project 개요
 
-Azure DevOps Project를 사용하면 Azure를 쉽게 시작할 수 있습니다. DevOps 프로젝트 리소스를 사용하면 Azure Portal에서 단 몇 단계를 거쳐 빠르게 원하는 Azure 서비스에 좋아하는 앱 유형을 시작할 수 있습니다. DevOps Project는 응용 프로그램 개발, 배포 및 모니터링에 필요한 모든 것을 설정합니다.
+Azure DevOps Project를 사용하면 Azure를 쉽게 시작할 수 있습니다. DevOps 프로젝트 리소스를 사용하면 Azure Portal에서 단 몇 단계로 원하는 Azure 서비스에 좋아하는 앱 유형을 빠르게 시작할 수 있습니다. DevOps Project는 응용 프로그램 개발, 배포 및 모니터링에 필요한 모든 것을 설정합니다.
 DevOps Project 대시 보드를 사용하면 Azure Portal에서 한 번에 코드 커밋, 빌드 및 배포를 모니터링 할 수 있습니다.
 
 ## <a name="why-should-i-use-the-azure-devops-project"></a>Azure DevOps Project를 사용해야 하는 이유는 무엇인가요?

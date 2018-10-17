@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: a2601f55bbc7e99321689afdafcab3135b94bd5b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 7121c83aea75f3b23820a7b0504fa704ec9f3016
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702547"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984308"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>자습서: Azure IoT Central 응용 프로그램에서 새 장치 유형 정의
 
@@ -427,7 +427,7 @@ _명령_을 사용하여 운영자가 장치에서 직접 명령을 실행하도
     | 제목                   | 일련 번호 |
     | 설정 및 속성 | 일련 번호 |
 
-    ![일련 번호 속성 설정](./media/tutorial-define-device-type/propertysettings1.png)
+    ![일련 번호 속성 설정](./media/tutorial-define-device-type/propertysettings3.png)
 
     그런 다음, **저장**을 선택합니다.
 
@@ -442,7 +442,7 @@ _명령_을 사용하여 운영자가 장치에서 직접 명령을 실행하도
     | 제목                   | 펌웨어 버전 |
     | 설정 및 속성 | 펌웨어 버전 |
 
-    ![일련 번호 속성 설정](./media/tutorial-define-device-type/propertysettings2.png)
+    ![일련 번호 속성 설정](./media/tutorial-define-device-type/propertysettings3.png)
 
     그런 다음, **저장**을 선택합니다.
 

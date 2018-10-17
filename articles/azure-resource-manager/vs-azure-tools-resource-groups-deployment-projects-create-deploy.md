@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 62e376a345be837e910ea615f8648e6b8d196ae1
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: c5f1c5add069be99f7a6f467f6e3e2bd9c2b3535
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006250"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543091"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포
 Visual Studio를 사용하여 Azure로 인프라 및 코드를 배포하는 프로젝트를 만들 수 있습니다. 예를 들어 앱에 대한 웹 호스트, 웹 사이트 및 데이터베이스를 정의하고 코드와 함께 해당 인프라를 배포할 수 있습니다. Visual Studio는 일반 시나리오를 배포하기 위한 다양한 서로 다른 시작 템플릿을 제공합니다. 이 문서에서는 웹앱 및 SQL Database를 배포합니다.  
@@ -305,5 +305,8 @@ Visual Studio 인터페이스를 통해 사용할 수 있는 리소스로만 제
 RBAC 그룹을 사용하여 대시보드에 대한 액세스를 관리할 수 있습니다. 또한 배포 후 대시보드의 모양을 사용자 지정할 수 있습니다. 그러나 리소스 그룹을 다시 배포하는 경우 대시보드는 템플릿에서 기본 상태로 다시 설정됩니다. 대시보드 만들기에 대한 자세한 내용은 [Azure 대시보드를 프로그래밍 방식으로 만들기](../azure-portal/azure-portal-dashboards-create-programmatically.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* 템플릿에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 
+이 빠른 시작에서는 Visual Studio를 사용하여 템플릿을 만들고 배포하는 방법을 알아보았습니다. 다음 자습서에서는 템플릿 참조에서 정보를 찾아 암호화된 Azure Storage 계정을 만드는 방법을 보여 줍니다.
+
+> [!div class="nextstepaction"]
+> [암호화된 저장소 계정 만들기](./resource-manager-tutorial-create-encrypted-storage-accounts.md)

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: 9168a66c3afcd8dd0b05de15f5833c516ddb2250
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: abed9fd8d466b582b534b365f4be4257f4986435
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38767105"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736005"
 ---
 # <a name="quickstart-create-an-azure-media-services-account"></a>빠른 시작: Azure Media Services 계정을 만듭니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "38767105"
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드를 해야 할 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="set-the-azure-subscription"></a>Azure 구독 설정
 
@@ -58,7 +58,7 @@ az group create -n <myresourcegroup> -l westus2
 
 미디어 서비스 계정을 만들 때는 Azure Storage 계정 리소스의 ID를 제공해야 합니다. 지정된 저장소 계정은 Media Services 계정에 연결됩니다. 
 
-**기본** 저장소 계정이 하나 있어야 하며 미디어 서비스 계정과 연결된 **보조** 저장소 계정이 여러 개 있을 수 있습니다. Media Services는 **범용 v2**(GPv2) 또는 **범용 v1**(GPv1) 계정을 지원합니다. Blob 전용 계정은 **기본**으로 허용되지 않습니다. 저장소 계정에 대한 자세한 내용은 [Azure 저장소 계정 옵션](../../storage/common/storage-account-options.md)을 참조하세요. 
+**기본** 저장소 계정은 하나 있어야 하며 Media Services 계정과 연결된 **보조** 저장소 계정은 여러 개 사용할 수 있습니다. Media Services는 **범용 v2** 또는 **범용 v1** 계정을 지원합니다. Blob Storage 계정은 **기본**으로 허용되지 않습니다. 저장소 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../../storage/common/storage-account-overview.md)를 참조하세요. 
 
 다음 명령은 미디어 서비스 계정(기본)과 연결될 저장소 계정을 만듭니다. 아래 스크립트에서 *storageaccountforams* 자리 표시자를 대체합니다. 'account_name'의 길이는 24 미만이어야 합니다.
 

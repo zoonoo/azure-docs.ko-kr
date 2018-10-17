@@ -1,20 +1,21 @@
 ---
-title: Microsoft Cognitive Services용 Computer Vision API | Microsoft Docs
-description: Computer Vision API에 있는 고급 알고리즘을 사용하여 Microsoft Cognitive Services에서 이미지를 처리하고 정보를 반환할 수 있습니다.
+title: Computer Vision API란?
+titlesuffix: Azure Cognitive Services
+description: Computer Vision API는 개발자에게 이미지를 처리하고 정보를 반환하는 고급 알고리즘에 대한 액세스를 제공합니다.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
-ms.openlocfilehash: 86e0441c600162e479c678d3cb1dbeaad423ddb5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e2f3a5655b2fbedf3ad80d555421599e26225196
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377222"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982106"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>Computer Vision API 버전 1.0이란?
 
@@ -48,7 +49,7 @@ Computer Vision API에서는 2,000가지 이상의 인식할 수 있는 사물, 
 이미지를 업로드하거나 이미지 URL을 지정한 후 Computer Vision API의 알고리즘은 이미지에서 식별된 사물, 생물 및 작업을 기준으로 태그를 출력합니다. 태그 지정은 전면에 있는 사람과 같은 주 피사체로 제한되지 않고 설정(실내 또는 옥외), 가구, 도구, 식물, 동물, 액세서리, 가젯 등도 포함합니다.
 
 ### <a name="example"></a>예
-![House_Yard](./Images/house_yard.jpg) '
+![House_Yard](./Images/house_yard.png) '
 
 ```json
 Returned Json
@@ -95,15 +96,15 @@ Computer Vision API는 태그 지정 및 설명 외에도 이전 버전에서 �
 ### <a name="the-86-category-concept"></a>86개 범주 개념
 다음 다이어그램에 표시된 86개 개념 목록에 따라 이미지에서 찾은 시각적 기능을 대분류에서 소분류까지 분류할 수 있습니다. 전체 분류를 텍스트 형식으로 보려면 [범주 분류](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)를 참조하세요.
 
-![범주 분석](./Images/analyze_categories.jpg)
+![범주 분석](./Images/analyze_categories.png)
 
 이미지                                                  | response
 ------------------------------------------------------ | ----------------
-![여성 지붕](./Images/woman_roof.jpg)                 | 사람
-![가족 사진](./Images/family_photo.jpg)             | people_crowd
-![귀여운 개](./Images/cute_dog.jpg)                     | animal_dog
-![옥외 산](./Images/mountain_vista.jpg)       | outdoor_mountain
-![비전 분석 음식 빵](./Images/bread.jpg)       | food_bread
+![여성 지붕](./Images/woman_roof.png)                 | 사람
+![가족 사진](./Images/family_photo.png)             | people_crowd
+![귀여운 개](./Images/cute_dog.png)                     | animal_dog
+![옥외 산](./Images/mountain_vista.png)       | outdoor_mountain
+![비전 분석 음식 빵](./Images/bread.png)       | food_bread
 
 ## <a name="identifying-image-types"></a>이미지 형식 식별
 이미지를 분류하는 몇 가지 방법이 있습니다. Computer Vision API는 부울 플래그를 설정하여 이미지가 흑백인지, 컬러인지를 나타낼 수 있습니다. 플래그를 설정하여 이미지가 선 그리기인지 여부를 나타낼 수도 있습니다. 또한 이미지가 클립 아트인지 여부를 나타내고 0-3의 눈금에 품질을 표시할 수 있습니다.
@@ -120,16 +121,16 @@ Computer Vision API는 태그 지정 및 설명 외에도 이전 버전에서 �
 
 이미지|response
 ----|----
-![비전 분석 치즈 클립 아트](./Images/cheese_clipart.jpg)|3 좋은 클립 아트
-![비전 분석 주택 야드](./Images/house_yard.jpg)|0 클립 아트 아님
+![비전 분석 치즈 클립 아트](./Images/cheese_clipart.png)|3 좋은 클립 아트
+![비전 분석 주택 야드](./Images/house_yard.png)|0 클립 아트 아님
 
 ### <a name="line-drawing-type"></a>선 그리기 형식
 이미지가 선 그리기인지 여부를 감지합니다.
 
 이미지|response
 ----|----
-![비전 분석 사자 그리기](./Images/lion_drawing.jpg)|True
-![비전 분석 꽃](./Images/flower.jpg)|False
+![비전 분석 사자 그리기](./Images/lion_drawing.png)|True
+![비전 분석 꽃](./Images/flower.png)|False
 
 ### <a name="faces"></a>얼굴
 사진에서 사람 얼굴을 감지하고 얼굴 좌표, 얼굴 사각형, 성별 및 연령을 생성합니다. 이러한 시각적 기능은 얼굴에 대해 생성된 메타데이터의 하위 집합입니다. 얼굴에 대해 보다 광범위한 메타데이터(얼굴 식별, 포즈 감지 등)를 생성하려면 Face API를 사용합니다.  
@@ -159,7 +160,7 @@ HTTP POST 호출을 수행하여 선택한 모델만 분석합니다. 이 옵션
 Computer Vision API의 알고리즘은 이미지의 콘텐츠를 분석합니다. 이 분석은 완전한 문장의, 사람이 읽을 수 있는 언어로 표시되는 ‘설명’의 토대가 됩니다. 설명은 이미지에서 찾은 내용을 요약합니다. Computer Vision API의 알고리즘은 이미지에서 식별된 개체를 기준으로 다양한 설명을 생성합니다. 설명이 각각 평가되고 신뢰도 점수가 생성됩니다. 그런 다음, 가장 높은 신뢰도 점수부터 가장 낮은 점수 순으로 정렬된 목록이 반환됩니다. 이 기술을 사용하여 이미지 캡션을 생성하는 봇의 예는 [여기](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption)에서 찾을 수 있습니다.  
 
 ### <a name="example-description-generation"></a>예제 설명 생성
-![B&W 건물](./Images/bw_buildings.jpg) '
+![B&W 건물](./Images/bw_buildings.png) '
 ```json
  Returned Json
 
@@ -202,18 +203,18 @@ Computer Vision 알고리즘은 이미지에서 색을 추출합니다. 추출�
 
 이미지                                                       | 전경 |백그라운드| 색
 ----------------------------------------------------------- | --------- | ------- | ------
-![옥외 산](./Images/mountain_vista.jpg)            | 검정     | 검정   | 흰색
-![비전 분석 꽃](./Images/flower.jpg)               | 검정     | 흰색   | 흰색, 검정, 녹색
-![비전 분석 학습 스테이션](./Images/train_station.jpg) | 검정     | 검정   | 검정
+![옥외 산](./Images/mountain_vista.png)            | 검정     | 검정   | 흰색
+![비전 분석 꽃](./Images/flower.png)               | 검정     | 흰색   | 흰색, 검정, 녹색
+![비전 분석 학습 스테이션](./Images/train_station.png) | 검정     | 검정   | 검정
 
 ### <a name="accent-color"></a>강조 색
 이미지에서 추출된 색으로, 주요 색과 채도를 혼합하여 사용자에게 가장 잘 맞는 색을 나타냅니다.
 
 이미지                                                       | response
 ----------------------------------------------------------- | ----
-![옥외 산](./Images/mountain_vista.jpg)            | #BC6F0F
-![비전 분석 꽃](./Images/flower.jpg)               | #CAA501
-![비전 분석 학습 스테이션](./Images/train_station.jpg) | #484B83
+![옥외 산](./Images/mountain_vista.png)            | #BC6F0F
+![비전 분석 꽃](./Images/flower.png)               | #CAA501
+![비전 분석 학습 스테이션](./Images/train_station.png) | #484B83
 
 
 ### <a name="black--white"></a>흑백
@@ -221,8 +222,8 @@ Computer Vision 알고리즘은 이미지에서 색을 추출합니다. 추출�
 
 이미지                                                      | response
 ---------------------------------------------------------- | ----
-![비전 분석 건물](./Images/bw_buildings.jpg)      | True
-![비전 분석 주택 야드](./Images/house_yard.jpg)      | False
+![비전 분석 건물](./Images/bw_buildings.png)      | True
+![비전 분석 주택 야드](./Images/house_yard.png)      | False
 
 ## <a name="flagging-adult-content"></a>성인 콘텐츠에 플래그 지정
 다양한 시각적 범주 중 성인/외설 그룹을 사용하면 성인용 자료를 검색하고 성적인 콘텐츠를 포함하는 이미지 표시를 제한할 수 있습니다. 사용자의 기본 설정에 맞게 슬라이딩 눈금에 성인/외설 콘텐츠 검색 필터를 설정할 수 있습니다.

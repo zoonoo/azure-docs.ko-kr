@@ -8,12 +8,12 @@ ms.author: tomfitz
 ms.date: 08/13/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: a47beb3e4299c62ec4b7959b4834d0440fee06f7
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 17fba267e85c7b1421e632930c8bea2bfaf6ff5f
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42744588"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736498"
 ---
 # <a name="create-and-route-blob-storage-events-with-the-azure-portal-and-event-grid"></a>Azure Portal 및 Event Grid를 사용하여 Blob 저장소 이벤트 만들기 및 라우팅
 
@@ -37,7 +37,7 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문
 
    ![저장소 선택](./media/blob-event-quickstart-portal/create-storage.png)
 
-1. 이벤트의 경우 [Blob Storage 계정](../storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) 또는 [범용 v2 저장소 계정](../storage/common/storage-account-options.md#general-purpose-v2-accounts)을 만들어야 합니다. 블록 또는 연결 Blob 저장소만 필요한 응용 프로그램의 경우 Blob 저장소 계정을 사용하는 것이 좋습니다. Blob 또는 StorageV2 계정의 값을 입력합니다. 계정의 고유한 이름을 입력합니다. 값 입력을 완료한 후 **만들기**를 선택합니다.
+1. 이벤트를 구독하려면 범용 v2 저장소 계정 또는 Blob Storage 계정을 만듭니다. 자세한 내용은 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md) 를 참조하세요.
 
    ![시작 단계](./media/blob-event-quickstart-portal/provide-blob-values.png)
 

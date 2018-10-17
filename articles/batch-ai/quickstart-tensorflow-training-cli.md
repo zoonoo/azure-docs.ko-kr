@@ -1,6 +1,6 @@
 ---
 title: Azure 빠른 시작 - Deep Learning 학습 - Azure CLI | Microsoft Docs
-description: 빠른 시작 - Azure CLI를 사용하여 Batch AI의 단일 GPU로 TensorFlow Deep Learning 신경망을 학습하는 방법을 간단히 알아봅니다
+description: 빠른 시작 - Azure CLI를 사용하여 Batch AI의 단일 GPU로 TensorFlow Deep Learning 신경망을 학습하는 방법을 간단히 알아봅니다.
 services: batch-ai
 documentationcenter: na
 author: dlepow
@@ -34,7 +34,7 @@ ms.locfileid: "44157925"
 
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서는 Azure CLI 버전 2.0.38 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
 
-이 빠른 시작에서는 Cloud Shell 또는 로컬 컴퓨터의 Bash 셸에서 명령을 실행한다고 가정합니다. [Azure CLI를 사용하여 Batch AI 클러스터를 만들기](quickstart-create-cluster-cli.md) 위한 빠른 시작을 이미 완료했으므로 리소스 그룹 및 Batch AI 클러스터를 만드는 처음 두 단계를 건너뜁니다.
+이 빠른 시작에서는 Cloud Shell 또는 로컬 컴퓨터의 Bash 셸에서 명령을 실행한다고 가정합니다. [Azure CLI를 사용하여 Batch AI 클러스터를 만들기](quickstart-create-cluster-cli.md) 위한 빠른 시작을 이미 완료한 경우 리소스 그룹 및 Batch AI 클러스터를 만드는 처음 두 단계를 건너뜁니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -62,7 +62,7 @@ Batch AI 클러스터를 만들려면 `az batchai cluster create` 명령을 사�
 
 * NVIDIA Tesla K80 GPU가 1개 있는 NC6 VM 크기를 사용합니다. Azure는 다양한 NVIDIA GPU를 갖는 여러 VM 크기를 제공합니다.
 * 컨테이너 기반 응용 프로그램을 호스트하도록 디자인된 기본 Ubuntu Server 이미지를 실행합니다. 이 배포의 학습 워크로드 대부분을 실행할 수 있습니다. 
-* *myusername*이라는 사용자 계정을 추가하고 , SSH 키가 로컬 환경의 기본 키 위치(*~/.ssh*)에 아직 없는 경우 생성합니다.
+* *myusername*이라는 사용자 계정을 추가하고, SSH 키가 로컬 환경의 기본 키 위치(*~/.ssh*)에 아직 없는 경우 생성합니다.
 
 ```azurecli-interactive
 az batchai cluster create \
@@ -132,7 +132,7 @@ az storage directory create \
     --account-name mystorageaccount
 ```
 
-Bash 셸에서 로컬 작업 디렉터리를 만들고 TensorFlow [convolutional.py](https://raw.githubusercontent.com/tensorflow/models/master/tutorials/image/mnist/convolutional.py) 샘플을 다운로드합니다. Python 스크립트는 0부터 9까지 손으로 쓴 60,000자 숫자로 이루어진 MNIST 이미지 집합을 콘볼루션 신경망에 학습시킵니다. 그런 다음, 테스트 예제 집합을 대상으로 모델을 테스트합니다.
+Bash 셸에서 로컬 작업 디렉터리를 만들고 TensorFlow [convolutional.py](https://raw.githubusercontent.com/tensorflow/models/master/tutorials/image/mnist/convolutional.py) 샘플을 다운로드합니다. Python 스크립트는 0부터 9까지 손으로 쓴 60,000개의 숫자로 이루어진 MNIST 이미지 집합을 콘볼루션 신경망에 학습시킵니다. 그런 다음, 테스트 예제 집합을 대상으로 모델을 테스트합니다.
 
 ```bash
 wget https://raw.githubusercontent.com/tensorflow/models/master/tutorials/image/mnist/convolutional.py

@@ -18,7 +18,7 @@ ms.locfileid: "44058135"
 ---
 # <a name="tutorial-train-a-distributed-model-with-horovod"></a>자습서: Horovod로 분산 모델 학습
 
-이 자습서에서는 Batch AI 클러스터의 여러 노드에서 병렬로 실행하여 분산 Deep Learning 모델을 학습합니다. Batch AI는 Azure GPU에서 Machine Learning 및 AI 모델을 대규모로 학습하기 위한 관리 서비스입니다. 
+이 자습서에서는 Batch AI 클러스터의 여러 노드에서 병렬로 실행하여 분산 Deep Learning 모델을 학습합니다. Batch AI는 Azure GPU에서 기계 학습 및 AI 모델을 대규모로 학습하기 위한 관리 서비스입니다. 
 
 이 자습서에서는 Azure CLI를 통해 Batch AI 리소스와 상호 작용하는 방법과 일반적인 Batch AI 워크플로를 소개합니다. 다음 내용을 다룹니다.
 
@@ -465,7 +465,7 @@ az storage file download --path cifar/saved_models/keras_cifar10_trained_model.h
 az batchai cluster resize --name nc6cluster --resource-group batchai.horovod --target 0 --workspace batchaidev
 ```
 
-나중에 작업을 실행하기 위해 하나 이상의 노드로 크기를 조정합니다. 
+나중에 작업을 실행하려면 클러스터 크기를 하나 이상의 노드로 조정합니다. 
 
 나중에 작업 영역 및 저장소 계정을 사용하지 않으려는 경우 `az group delete` 명령을 사용하여 리소스 그룹을 삭제합니다. 리소스 그룹을 삭제하면 해당 그룹에 있는 리소스도 모두 삭제됩니다.
 

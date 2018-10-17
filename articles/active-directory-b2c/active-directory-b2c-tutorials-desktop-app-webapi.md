@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 98c86f5613116dce5423aa9ca6a2ff43e5414592
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: b8cdf6cb07215f4c1e2a472f60513aff765dcfb5
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39594783"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603197"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 데스크톱 앱에서 Node.js Web API로의 액세스 권한 부여
 
@@ -110,7 +110,7 @@ Azure AD B2C를 사용하여 웹 API를 등록하면 트러스트 관계가 정�
 
 5. **확인**을 클릭합니다.
 
-**내 샘플 WPF 앱**은 보호되는 **내 샘플 Node.js Web API**를 호출하도록 등록되었습니다. 사용자는 Azure AD B2C로 [인증](../active-directory/develop/developer-glossary.md#authentication)하여 WPF 데스크톱 앱을 사용합니다. 데스크톱 앱은 Azure AD B2C에서 [권한 부여](../active-directory/develop/developer-glossary.md#authorization-grant)를 받아 보호되는 웹 API에 액세스합니다.
+**내 샘플 WPF 앱**은 보호되는 **내 샘플 Node.js Web API**를 호출하도록 등록되었습니다. 사용자는 Azure AD B2C로 [인증](../active-directory/develop/developer-glossary.md#authentication)하여 WPF 데스크톱 응용 프로그램을 사용합니다. 데스크톱 응용 프로그램은 Azure AD B2C에서 [권한 부여](../active-directory/develop/developer-glossary.md#authorization-grant)를 받아 보호되는 웹 API에 액세스합니다.
 
 ## <a name="update-web-api-code"></a>웹 API 코드 업데이트
 

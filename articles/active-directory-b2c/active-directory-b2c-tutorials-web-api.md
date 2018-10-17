@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 469a3662b5bc4db467dde3285d557ac8bbae368e
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 2b70ed174331b88f9afc9aa30d14a585986496a5
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39609092"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604344"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 웹앱에서 ASP.NET Web API로의 액세스 권한 부여
 
@@ -40,19 +40,13 @@ ms.locfileid: "39609092"
 
 Azure Active Directory에서 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)을 제공하는 [클라이언트 응용 프로그램](../active-directory/develop/developer-glossary.md#client-application)을 통해 [보호된 리소스 요청](../active-directory/develop/developer-glossary.md#resource-server)을 수락하고 이에 응답하려면, 먼저 웹 API 리소스를 테넌트에 등록해야 합니다. 등록하면 [응용 프로그램 및 서비스 사용자 개체](../active-directory/develop/developer-glossary.md#application-object)가 테넌트에 설정됩니다. 
 
-1. Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-2. Azure Portal의 오른쪽 상단 모서리에서 전환하여 Azure AD B2C 테넌트가 있는 디렉터리를 사용하고 있는지 확인합니다. 구독 정보를 선택한 다음, **디렉터리 전환**을 선택합니다.
+[!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-    ![디렉터리 전환](./media/active-directory-b2c-tutorials-web-api/switch-directories.png)
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다. 이전 자습서에서 만든 테넌트를 사용해야 합니다.
 
-3. 테넌트를 포함하는 디렉터리를 선택합니다.
-
-    ![디렉터리 선택](./media/active-directory-b2c-tutorials-web-api/select-directory.png)
-
-4. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다. 이전 자습서에서 만든 테넌트를 사용해야 합니다.
-
-5. **응용 프로그램**을 선택하고 **추가**를 선택합니다.
+2. **응용 프로그램**을 선택하고 **추가**를 선택합니다.
 
     샘플 웹 API를 테넌트에 등록하려면 다음 설정을 사용합니다.
     
@@ -67,7 +61,7 @@ Azure Active Directory에서 [액세스 토큰](../active-directory/develop/deve
     | **앱 ID URI** | myAPISample | URI는 테넌트에서 API를 고유하게 식별합니다. 이 설정을 사용하면 테넌트별로 여러 API를 등록할 수 있습니다. [범위](../active-directory/develop/developer-glossary.md#scopes)는 보호된 API 리소스에 대한 액세스를 제어하고 앱 ID URI별로 정의됩니다. |
     | **네이티브 클라이언트** | 아니요 | 이는 웹 API이지만 기본 클라이언트가 아니기 때문에 [아니요]를 선택합니다. |
     
-6. **만들기**를 클릭하여 API를 등록합니다.
+3. **만들기**를 클릭하여 API를 등록합니다.
 
 등록된 API는 Azure AD B2C 테넌트에 대한 응용 프로그램 목록에 표시됩니다. 목록에서 웹 API를 선택합니다. 웹 API의 속성 창이 표시됩니다.
 

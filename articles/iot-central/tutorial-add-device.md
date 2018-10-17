@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: dd68b65825c9c22453e0191d42a0fcce3b65ca64
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 2e01f61ff915a8fe4327aa78c8867d666dc36fda
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236089"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983229"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>자습서: Azure IoT Central 응용 프로그램에 실제 장치 추가
 
@@ -56,7 +56,7 @@ ms.locfileid: "35236089"
 
    ![실제 연결된 새 공조 장치 추가 시작](media/tutorial-add-device/newreal.png)
 
-3. 필요에 따라 장치 이름을 선택하고 값을 편집하여 새 장치 이름을 바꿀 수 있습니다.
+3. 장치 ID(**소문자여야 함**)를 입력하거나 제안된 장치 ID를 사용합니다. 새 장치의 이름을 입력할 수도 있습니다.  
 
    ![장치 이름 바꾸기](media/tutorial-add-device/rename.png)
 
@@ -68,23 +68,36 @@ ms.locfileid: "35236089"
 
     ![설정 동기화 표시](media/tutorial-add-device/settingssyncing.png)
 
-2. 실제 연결된 새 공조 장치 장치에 대한 **속성** 페이지에서 **일련 번호**를 **rcac0010**로 설정하고 **펌웨어 버전**을 9.75로 설정합니다. 그런 다음, **저장**을 선택합니다.
+2. 실제 연결된 새 공조 장치 장치에 대한 **속성** 페이지에서 **일련 번호**를 **10001**로 설정하고 **펌웨어 버전**을 9.75로 설정합니다. 그런 다음, **저장**을 선택합니다.
 
     ![실제 장치에 대한 속성 설정](media/tutorial-add-device/setproperties.png)
 
 3. 빌더로서 실제 장치에 대한 **측정**, **규칙** 및 **대시보드** 페이지를 볼 수 있습니다.
 
-## <a name="get-connection-string-for-real-device-from-application"></a>응용 프로그램에서 실제 장치에 대한 연결 문자열 가져오기
+## <a name="get-connection-details-for-real-device-from-application"></a>응용 프로그램에서 실제 장치에 대한 연결 정보 가져오기
 
-장치 개발자는 장치에서 실행되는 코드에서 실제 장치에 대한 *연결 문자열*을 포함해야 합니다. 연결 문자열을 사용하면 장치를 Azure IoT Central 응용 프로그램에 안전하게 연결할 수 있습니다. 모든 장치 인스턴스에는 고유 연결 문자열이 있습니다. 다음 단계에서는 응용 프로그램에서 인스턴스 장치에 대한 연결 문자열을 찾는 방법을 보여 줍니다.
+장치 개발자는 장치에서 실행되는 코드에서 실제 장치에 대한 ‘장치 연결 정보’를 포함해야 합니다. 연결 문자열을 사용하면 장치를 Azure IoT Central 응용 프로그램에 안전하게 연결할 수 있습니다. 다음 단계에서는 응용 프로그램에서 인스턴스 장치에 대한 연결 문자열을 찾는 방법을 보여 줍니다.
 
 1. 실제 연결된 공조 장치에 대한 **장치** 화면에서 **이 장치에 연결**을 선택합니다.
 
     ![연결 정보 링크를 보여주는 장치 페이지](media/tutorial-add-device/connectionlink.png)
 
-2. **연결** 페이지에서 **기본 연결 문자열**을 복사하고 저장합니다. 이 자습서의 2부 중간 부분에서 이 값을 사용합니다. 장치 개발자는 장치에서 실행되는 클라이언트 응용 프로그램에서 이 값을 사용합니다.
+2. **연결** 페이지에서 **범위 ID, 장치 ID 및 기본 키**를 복사하고 저장합니다.
 
-    ![연결 문자열 값](media/tutorial-add-device/connectionstring.png)
+   ![연결 정보](media/tutorial-add-device/device-connect.PNG)
+
+   아래 명령줄 도구를 사용하여 장치 연결 문자열 가져오기  
+
+    ```cmd/sh
+    npm i -g dps-keygen
+    ```
+    **사용 현황**
+    
+    연결 문자열을 만들려면 bin/ 폴더 아래에 있는 이진 파일을 찾습니다.
+    ```cmd/sh
+    dps_cstr <scope_id> <device_id> <Primary Key(for device)>
+    ```
+    [여기에서 명령줄 도구](https://www.npmjs.com/package/dps-keygen)에 대해 자세히 알아보세요.
 
 ## <a name="prepare-the-client-code"></a>클라이언트 코드 준비
 
@@ -130,14 +143,17 @@ ms.locfileid: "35236089"
 
 8. 다음 변수 선언을 파일에 추가합니다.
 
+ 
+
    ```javascript
    var connectionString = '{your device connection string}';
    var targetTemperature = 0;
    var client = clientFromConnectionString(connectionString);
    ```
+   
 
    > [!NOTE]
-   > 이후 단계에서 자리 표시자 `{your device connection string}`을 업데이트합니다.
+   > 이후 단계에서 자리 표시자 `{your device connection string}`을 업데이트합니다. 
 
 9. 지금까지 한 변경을 저장하지만 파일을 열어 놓습니다.
 
@@ -248,8 +264,7 @@ ms.locfileid: "35236089"
 
 ## <a name="configure-client-code-for-the-real-device"></a>실제 장치에 대한 클라이언트 코드 구성
 
-<!-- Add the connection string to the sample code, build, and run -->
-Azure IoT Central 응용 프로그램에 연결할 클라이언트 코드를 구성하려면 이 자습서의 앞부분에서 언급한 실제 장치에 대한 연결 문자열을 추가해야 합니다.
+<!-- Add the connection string to the sample code, build, and run --> Azure IoT Central 응용 프로그램에 연결할 클라이언트 코드를 구성하려면 이 자습서의 앞부분에서 언급한 실제 장치에 대한 연결 문자열을 추가해야 합니다.
 
 1. **ConnectedAirConditioner.js** 파일에서 다음 코드 줄을 찾습니다.
 

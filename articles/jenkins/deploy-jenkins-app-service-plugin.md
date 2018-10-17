@@ -60,7 +60,7 @@ Azure에 배포하려면 Azure 서비스 주체가 필요합니다.
 
 ## <a name="configure-jenkins-to-deploy-web-apps-by-uploading-files"></a>파일을 업로드하여 Web Apps를 배포하도록 Jenkins 구성
 
-웹앱에 프로젝트를 배포하려면 파일을 업로드하여 빌드 아티팩트를 업로드할 수 있습니다. Azure App Service는 여러 배포 옵션을 지원합니다. Azure App Service Jenkins 플러그 인은 배포를 간소화하며, 파일 형식에 따라 다른 배포 옵션을 제공합니다. 
+Web Apps에 프로젝트를 배포하려면 파일을 업로드하여 빌드 아티팩트를 업로드할 수 있습니다. Azure App Service는 여러 배포 옵션을 지원합니다. Azure App Service Jenkins 플러그 인은 배포를 간소화하며, 파일 형식에 따라 다른 배포 옵션을 제공합니다. 
 
 * Java EE 응용 프로그램의 경우 [WAR 배포](/azure/app-service/app-service-deploy-zip#deploy-war-file)가 사용됩니다.
 * Java SE 응용 프로그램의 경우 [ZIP 배포](/azure/app-service/app-service-deploy-zip#deploy-zip-file)가 사용됩니다.

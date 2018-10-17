@@ -17,7 +17,7 @@ ms.lasthandoff: 09/10/2018
 ms.locfileid: "44297945"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>자습서: Azure Pipelines를 사용하여 CI/CD로 Azure Stream Analytics 작업 배포
-이 자습서에서는 Azure Pipelines를 사용하여 Azure Stream Analytics 작업에 대한 연속 통합 및 배포를 설정하는 방법을 설명합니다. 
+이 자습서에서는 Azure Pipelines를 사용하여 Azure Stream Analytics 작업의 연속 통합 및 배포를 설정하는 방법을 설명합니다. 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -61,12 +61,12 @@ ms.locfileid: "44297945"
 
    ![Git 리포지토리 푸시](./media/stream-analytics-tools-visual-studio-cicd-vsts/publishcode.png)
 
-    리포지토리를 게시하면 조직에 로컬 리포지토리와 같은 이름으로 새 프로젝트가 만들어집니다. 기존 프로젝트에서 리포지토리를 만들려면 **리포지토리** 이름 옆에서 **고급**을 클릭하고 프로젝트를 선택합니다. **웹에서 확인하세요**를 선택하면 웹에서 코드를 볼 수 있습니다.
+    리포지토리를 게시하면 조직에 로컬 리포지토리와 같은 이름으로 새 프로젝트가 만들어집니다. 기존 프로젝트에서 리포지토리를 만들려면 **리포지토리** 이름 옆의 **고급**을 클릭하고 프로젝트를 선택합니다. **웹에서 확인하세요**를 선택하면 웹에서 코드를 볼 수 있습니다.
  
 ## <a name="configure-continuous-delivery-with-azure-devops"></a>Azure DevOps를 사용한 지속적인 업데이트 구성
 Azure Pipelines 빌드 파이프라인은 순차적으로 실행되는 빌드 단계로 구성된 워크플로를 설명합니다. [Azure Pipelines 빌드 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav)에 대해 자세히 알아봅니다. 
 
-Azure Pipelines 릴리스 파이프라인에서는 응용 프로그램 패키지를 클러스터에 배포하는 워크플로를 설명합니다. 빌드 파이프라인와 릴리스 파이프라인을 함께 사용할 경우 소스 파일로 시작하여 클러스터에서 실행 중인 응용 프로그램에서 종료할 때까지 전체 워크플로를 실행합니다. Azure Pipelines [릴리스 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)에 대해 자세히 알아봅니다.
+Azure Pipelines 릴리스 파이프라인에서는 응용 프로그램 패키지를 클러스터에 배포하는 워크플로를 설명합니다. 빌드 파이프라인과 릴리스 파이프라인을 함께 사용할 경우 소스 파일로 시작하여 클러스터에서 실행 중인 응용 프로그램에서 종료할 때까지 전체 워크플로를 실행합니다. Azure Pipelines [릴리스 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)에 대해 자세히 알아봅니다.
 
 ### <a name="create-a-build-pipeline"></a>빌드 파이프라인 만들기
 웹 브라우저를 열고 [Azure DevOps](https://app.vsaex.visualstudio.com/)에서 방금 만든 프로젝트로 이동합니다. 

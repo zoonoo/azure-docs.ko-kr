@@ -1,24 +1,22 @@
 ---
-title: '빠른 시작: FASTQ 파일 입력을 사용하여 워크플로 제출 | Microsoft Docs'
+title: '빠른 시작: FASTQ 파일 입력을 사용하여 워크플로 제출 - Microsoft Genomics'
 titleSuffix: Azure
 description: 빠른 시작은 msgen 클라이언트가 설치되어 있고 서비스를 통해 샘플 데이터를 성공적으로 실행했다고 가정합니다.
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: f093397803f21c023a2c32e42709ecfcd0e3aec7
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: acbcceb32ec54ab85db05ef743e9c10cd8cf025c
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
-ms.locfileid: "26684486"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735852"
 ---
-# <a name="submit-a-workflow-using-fastq-file-inputs"></a>FASTQ 파일 입력을 사용하여 워크플로 제출
+# <a name="submit-a-workflow-using-fastq-file-inputs-in-microsoft-genomics"></a>Microsoft Genomics에서 FASTQ 파일 입력을 사용하여 워크플로 제출
 
 이 빠른 시작은 입력 파일이 하나의 쌍으로 연결된 FASTQ 파일인 경우 Microsoft Genomics 서비스에 워크플로를 제출하는 방법을 보여줍니다. 이 항목에서는 사용자가 이미 `msgen` 클라이언트를 설치하여 실행하고 있으며 Azure Storage 사용 방법에 익숙하다고 가정합니다. 제공된 샘플 데이터를 사용하여 워크플로를 성공적으로 제출한 경우 이 빠른 시작을 진행할 준비가 된 것입니다. 
 

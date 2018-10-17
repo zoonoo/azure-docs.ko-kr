@@ -1,22 +1,23 @@
 ---
-title: 텍스트 분석 REST API(Azure의 Microsoft Cognitive Services)에서 언어를 감지하는 방법 | Microsoft Docs
-description: 이 연습 자습서에서는 Azure의 Microsoft Cognitive Services에서 텍스트 분석 REST API를 사용하여 언어를 감지하는 방법을 알아봅니다.
+title: '예: Text Analytics REST API를 사용하여 언어 감지'
+titleSuffix: Azure Cognitive Services
+description: Text Analytics REST API를 사용하여 언어를 감지하는 방법을 알아봅니다.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 3/07/2018
+ms.topic: sample
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: f8e2d9a36533c298addcf42d3cb2061e9c2d1ac7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fa71e4ce2e5cb5967bb583c7314072830de08051
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373870"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604555"
 ---
-# <a name="how-to-detect-language-in-text-analytics"></a>Text Analytics에서 언어를 감지하는 방법
+# <a name="example-how-to-detect-language-in-text-analytics"></a>예: Text Analytics에서 언어를 감지하는 방법
 
 [언어 감지 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)는 텍스트 입력을 평가하고, 각 문서에 대해 분석 강도를 나타내는 점수가 있는 언어 식별자를 반환합니다. Text Analytics는 최대 120개 언어를 인식합니다.
 
