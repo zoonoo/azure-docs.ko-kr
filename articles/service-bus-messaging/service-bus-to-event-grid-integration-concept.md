@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 02/15/2018
+ms.date: 09/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 2b6f46c10603e54f0f77a635b3233073aadac0cd
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 9e7e853ad7562bf5d449479ad730a5dabd6a97b8
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700126"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585427"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure Service Bus-Event Grid 통합 개요
 
@@ -129,9 +129,9 @@ Service Bus 네임스페이스로 이동하여 여기에 표시된 바와 같이
 2. 왼쪽 창에서 **Event Grid**를 선택합니다. 
 3. **이벤트 구독**을 선택합니다.  
 
-   다음 이미지는 몇 가지 Event Grid 구독이 있는 네임스페이스를 표시합니다.
+   다음 이미지는 Event Grid 구독이 있는 네임스페이스를 표시합니다.
 
-   ![20][]
+   ![Event Grid 구독](./media/service-bus-to-event-grid-integration-concept/sbtoeventgridportal.png)
 
    다음 이미지는 특정 필터링 없이 함수 또는 웹 후크를 구독하는 방법을 보여줍니다.
 
@@ -176,7 +176,7 @@ New-AzureRmEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBS
 ## <a name="next-steps"></a>다음 단계
 
 * Service Bus 및 Event Grid [예제](service-bus-to-event-grid-integration-example.md)를 가져옵니다.
-* [Event Grid](https://docs.microsoft.com/azure/azure-functions/)에 대해 자세히 알아봅니다.
+* [Event Grid](https://docs.microsoft.com/azure/event-grid/)에 대해 자세히 알아봅니다.
 * [Azure Functions](https://docs.microsoft.com/azure/azure-functions/)에 대해 자세히 알아봅니다.
 * [Logic Apps](https://docs.microsoft.com/azure/logic-apps/)에 대해 자세히 알아봅니다.
 * [Service Bus](https://docs.microsoft.com/azure/azure-functions/)에 대한 자세히 알아봅니다.

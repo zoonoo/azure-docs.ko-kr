@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2018
+ms.date: 10/01/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 5a173340be424c74c76da659816b1b95b74c465f
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: a96aa2ee8b474bcc4e3e9362d6b1ba755e3fdbc3
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419545"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017451"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>자습서: VMware에서 Azure Data Box Gateway 프로비전(미리 보기)
 
@@ -96,7 +96,7 @@ VMware ESXi 6.0 또는 6.5를 실행하는 호스트 시스템에서 가상 장�
 
 1. 시스템에서 가상 장치 이미지를 복사합니다. Azure Portal을 통해 이 가상 이미지(두 개 파일)를 다운로드했습니다. 나중에 절차에서 이 이미지를 사용하므로 이미지를 복사한 위치를 적어 둡니다.
 
-2. vSphere 클라이언트를 사용하여 ESXi 서버에 로그인합니다. 가상 머신을 만들려면 관리자 권한이 필요합니다.
+2. vSphere 웹 클라이언트를 사용하여 ESXi 서버에 로그인합니다. 가상 머신을 만들려면 관리자 권한이 필요합니다.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   
@@ -104,7 +104,10 @@ VMware ESXi 6.0 또는 6.5를 실행하는 호스트 시스템에서 가상 장�
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image2.png)
 
-4. 오른쪽 창의 **데이터 저장소**아래에서 VMDK를 업로드할 데이터 저장소를 선택합니다. 데이터 저장소는 VMFS 5 형식이어야 합니다. 데이터 저장소에는 OS 및 데이터 디스크에 충분한 여유 공간도 있어야 합니다.
+4. 오른쪽 창의 **데이터 저장소**아래에서 VMDK를 업로드할 데이터 저장소를 선택합니다. 
+
+    - 데이터 저장소는 VMFS5 형식이어야 합니다. 
+    - 데이터 저장소에는 OS 및 데이터 디스크에 충분한 여유 공간도 있어야 합니다.
    
 5. **데이터 저장소 찾아보기**를 마우스 오른쪽 단추를 클릭하고 선택합니다.
 
@@ -145,11 +148,11 @@ VMware ESXi 6.0 또는 6.5를 실행하는 호스트 시스템에서 가상 장�
 15. **저장소 선택** 페이지에서 VM을 프로비전하는 데 사용할 데이터 저장소를 선택합니다. **다음**을 클릭합니다.
 
     ![](./media/data-box-gateway-deploy-provision-vmware/image12.png)
-16. **사용자 지정 설정** 페이지에서 설정는 **CPU**를 4로 설정하고, **메모리**를 8192MB(이상)으로 설정하고, **하드 디스크 1**을 2TB(이상)으로 설정합니다. 추가할 **SCSI 하드 디스크**의 형식을 선택합니다. 이 경우에는 LSI 논리 SAS이었습니다. **정적 IDE 디스크는 지원되지 않습니다.** **하드 디스크 1**은 가상 데이터 디스크입니다. 프로비전한 후에는 디스크를 축소할 수 없습니다.
+16. **사용자 지정 설정** 페이지에서 설정는 **CPU**를 4로 설정하고, **메모리**를 8192MB(이상)으로 설정하고, **하드 디스크 1**을 2TB(이상)으로 설정합니다. 추가할 **SCSI 하드 디스크**를 선택합니다. 이 경우에는 LSI 논리 SAS이었습니다. **정적 IDE 디스크는 지원되지 않습니다.** **하드 디스크 1**은 가상 데이터 디스크입니다. 프로비전한 후에는 디스크를 축소할 수 없습니다.
 
     ![](./media/data-box-gateway-deploy-provision-vmware/image13.png)
 
-    같은 페이지에서 **하드 디스크 추가**를 클릭한 다음, **기존 하드 디스크**를 선택합니다. 그러면 OS 디스크를 추가합니다. 
+    같은 페이지에서 **하드 디스크 추가**를 클릭한 다음, **기존 하드 디스크**를 선택합니다. 데이터 저장소에 VMDK 파일을 선택합니다. 그러면 OS 디스크가 추가됩니다. 
 
      ![](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 

@@ -1,23 +1,23 @@
 ---
-title: Bing News Search SDK Java 빠른 시작 | Microsoft Docs
-description: Bing News Search SDK 콘솔 응용 프로그램을 설치하는 방법을 알아봅니다.
+title: '빠른 시작: Bing News Search SDK, Java'
 titleSuffix: Azure Cognitive Services
+description: Bing News Search SDK 콘솔 응용 프로그램을 설치하는 방법을 알아봅니다.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: a6d4baf307fa3edcc0886d32204f2872fe310ce2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7919f13e8c5aaa592a416190d3cd11edbf31af2c
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377918"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802480"
 ---
-# <a name="bing-news-search-sdk-java-quickstart"></a>Bing News Search SDK Java 빠른 시작
+# <a name="quickstart-bing-news-search-sdk-with-java"></a>빠른 시작: Java를 통해 Bing News Search SDK 설정
 
 Bing News Search SDK는 뉴스 쿼리 및 구문 분석 결과에 대한 REST API 기능을 제공합니다. 
 

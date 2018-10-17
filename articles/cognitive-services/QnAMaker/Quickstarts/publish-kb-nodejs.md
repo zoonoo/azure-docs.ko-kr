@@ -1,135 +1,97 @@
 ---
-title: '빠른 시작: Node.js 기술 자료 게시 - QnA Maker'
+title: '빠른 시작: 기술 자료 게시 - REST, Node.js - QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: QnA Maker용 Node.js로 기술 자료를 게시하는 방법입니다.
+description: 이 빠른 시작에서는 KB(기술 자료)를 프로그래밍 방식으로 게시하는 방법을 안내합니다. 게시는 최신 버전의 기술 자료를 전용 Azure Search 인덱스에 푸시하고, 응용 프로그램 또는 챗봇에서 호출할 수 있는 엔드포인트를 만듭니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/02/2018
 ms.author: diberry
-ms.openlocfilehash: 00642661995e16bda9ad995e69545b28468779c5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c70b90a6e465c72193f63afd7ab9106579e2c634
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040941"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886613"
 ---
-# <a name="publish-a-knowledge-base-in-nodejs"></a>Node.js로 기술 자료 게시
+# <a name="quickstart-publish-a-qna-maker-knowledge-base-in-nodejs"></a>빠른 시작: Node.js에서 QnA Maker 기술 자료 게시
 
-다음 코드는 [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) 메서드를 사용하여 기존 기술 자료를 게시합니다.
+이 빠른 시작에서는 KB(기술 자료)를 프로그래밍 방식으로 게시하는 방법을 안내합니다. 게시는 최신 버전의 기술 자료를 전용 Azure Search 인덱스에 푸시하고, 응용 프로그램 또는 챗봇에서 호출할 수 있는 엔드포인트를 만듭니다.
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
+이 빠른 시작에서 호출하는 QnA Maker API는 다음과 같습니다.
+* [게시](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) - 이 API는 요청 본문에 어떤 정보도 요구하지 않습니다.
+
+## <a name="prerequisites"></a>필수 조건
+
+* [Node.js 6+](https://nodejs.org/en/download/)
+* [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)가 있어야 합니다. 키를 검색하려면 대시보드의 **리소스 관리** 아래에서 **키**를 선택합니다. 
+* QnA Maker KB(기술 자료) ID는 아래와 같이 kbid 쿼리 문자열 매개 변수의 URL에 있습니다.
+
+    ![QnA Maker 기술 자료 ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
 아직 기술 자료가 없는 경우 샘플을 만들어서 빠른 시작: [새 기술 자료 만들기](create-new-kb-nodejs.md)에서 사용하면 됩니다.
 
-1. 즐겨 찾는 IDE에서 새 노드 프로젝트를 만듭니다.
-1. 아래 제공된 코드를 추가합니다.
-1. `subscriptionKey` 값을 유효한 구독 키로 바꿉니다.
-1. `kb` 값을 기술 자료 ID로 바꿉니다. 이 값은 [QnA Maker 기술 자료](https://www.qnamaker.ai/Home/MyServices) 중 한 곳으로 이동하여 찾을 수 있습니다. 게시할 기술 자료를 선택합니다. 해당 페이지가 열리면 다음 예제와 같이 URL에서 'kdid='을 찾습니다. 해당 값을 코드 샘플에 사용합니다.
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
-    ![QnA Maker 기술 자료 ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
-1. 프로그램을 실행합니다.
+## <a name="create-a-knowledge-base-nodejs-file"></a>기술 자료 만들기 Node.js 파일
 
-``` Node.js
-'use strict';
+`publish-knowledge-base.js`라는 파일을 만듭니다.
 
-let fs = require ('fs');
-let https = require ('https');
+## <a name="add-required-dependencies"></a>필요한 종속성 추가
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+`publish-knowledge-base.js`의 맨 위에 프로젝트에 필요한 종속성을 추가하는 다음 줄을 추가합니다.
 
-// Replace this with a valid subscription key.
-let subscriptionKey = 'ENTER KEY HERE';
+[!code-nodejs[Add the dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=1-4 "Add the dependencies")]
 
-// NOTE: Replace this with a valid knowledge base ID.
-let kb = 'ENTER ID HERE';
+## <a name="add-required-constants"></a>필요한 상수 추가
 
-let host = 'westus.api.cognitive.microsoft.com';
-let service = '/qnamaker/v4.0';
-let method = '/knowledgebases/';
+앞서의 필요한 종속성 뒤에 QnA Maker에 액세스하는 데 필요한 상수를 추가합니다. `subscriptionKey` 변수의 값을 사용자 고유의 QnA Maker 키로 바꿉니다. 
 
-let pretty_print = function (s) {
-    return JSON.stringify(JSON.parse(s), null, 4);
-}
+[!code-nodejs[Add required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=10-17 "Add required constants")]
 
-// callback is the function to call when we have the entire response.
-let response_handler = function (callback, response) {
-    let body = '';
-    response.on ('data', function (d) {
-        body += d;
-    });
-    response.on ('end', function () {
-// Call the callback function with the status code, headers, and body of the response.
-        callback ({ status : response.statusCode, headers : response.headers, body : body });
-    });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
-    });
-};
+## <a name="add-knowledge-base-id"></a>기술 자료 ID 추가
 
-// Get an HTTP response handler that calls the specified callback function when we have the entire response.
-let get_response_handler = function (callback) {
-// Return a function that takes an HTTP response, and is closed over the specified callback.
-// This function signature is required by https.request, hence the need for the closure.
-    return function (response) {
-        response_handler (callback, response);
-    }
-}
+앞서의 상수 뒤에 기술 자료 ID를 추가하고 경로에 이 ID를 추가합니다.
 
-// callback is the function to call when we have the entire response from the POST request.
-let post = function (path, content, callback) {
-    let request_params = {
-        method : 'POST',
-        hostname : host,
-        path : path,
-        headers : {
-            'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
-            'Ocp-Apim-Subscription-Key' : subscriptionKey,
-        }
-    };
+[!code-nodejs[Add knowledge base ID](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=19-23 "Add knowledge base ID")]
 
-// Pass the callback function to the response handler.
-    let req = https.request (request_params, get_response_handler (callback));
-    req.write (content);
-    req.end ();
-}
+## <a name="add-supporting-functions"></a>지원하는 함수 추가
 
-// callback is the function to call when we have the response from the /knowledgebases POST method.
-let publish_kb = function (path, req, callback) {
-    console.log ('Calling ' + host + path + '.');
-// Send the POST request.
-    post (path, req, function (response) {
-// Extract the data we want from the POST response and pass it to the callback function.
-        if (response.status == '204') {
-            let result = {'result':'Success'};
-            callback (JSON.stringify(result));
-        }
-        else {
-            callback (response.body);
-        }
-    });
-}
+다음으로, 지원하는 다음 함수를 추가합니다.
 
-var path = service + method + kb;
-publish_kb (path, '', function (result) {
-    console.log (pretty_print(result));
-});
-```
+1. JSON을 읽을 수 있는 형식으로 출력하는 다음 함수를 추가합니다.
 
-## <a name="understand-what-qna-maker-returns"></a>QnA Maker에서 반환되는 내용 이해하기
+   [!code-nodejs[Add supporting functions, step 1](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=25-28 "Add supporting functions, step 1")]
 
-성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다.
+2. HTTP 응답을 관리하여 만들기 작업 상태를 가져오는 다음 함수를 추가합니다.
 
-```json
-{
-  "result": "Success."
-}
+   [!code-nodejs[Add supporting functions, step 2](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=30-52 "Add supporting functions, step 2")]
+
+## <a name="add-the-publishkb-function-and-main-function"></a>publish_kb 함수 및 main 함수 추가
+
+다음 코드에서는 KB를 게시하도록 QnA Maker API에 HTTPS 요청을 하고 응답을 받습니다.
+
+[!code-nodejs[Add POST request to publish KB](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=54-71 "Add POST request to publish KB")]
+
+[!code-nodejs[Add the publish_kb function](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=73-91 "Add the publish_kb function and main function")]
+
+## <a name="add-the-main-function"></a>main 함수 추가
+
+요청과 응답을 관리하는 다음 함수를 추가합니다.
+
+[!code-nodejs[Add the main function](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=94-97 "Add the main function")]
+
+## <a name="run-the-program"></a>프로그램 실행
+
+프로그램을 빌드하고 실행합니다. 그러면 자동으로 KB를 게시하기 위한 요청을 QnA Maker API에 보낸 다음, 응답이 콘솔 창에 출력됩니다.
+
+기술 자료가 게시되면 클라이언트 응용 프로그램 또는 챗봇을 사용하여 엔드포인트에서 쿼리할 수 있습니다. 
+
+```bash
+node publish-knowledge-base.js
 ```
 
 ## <a name="next-steps"></a>다음 단계

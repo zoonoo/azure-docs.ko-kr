@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: bc2b391457d7652b62558c9a752376b07b50a8c1
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 2f020bdf79811c959e07d753231fc133fe597861
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391812"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855184"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>자습서: 페더레이션된 도메인용 하이브리드 Azure Active Directory 조인 구성
 
@@ -78,7 +78,9 @@ Azure AD에 장치를 가져오면 클라우드와 온-프레미스 리소스에
 - 조직의 STS(페더레이션된 도메인)
 - https://autologon.microsoftazuread-sso.com(Seamless SSO를 사용 중이거나 사용할 예정인 경우)
 
-조직이 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우 Windows 10 1709부터 GPO(그룹 정책 개체)를 사용하여 컴퓨터에 대해 프록시 설정을 구성할 수 있습니다. 컴퓨터에서 Windows 10 1709 이전 버전이 실행 중인 경우 WPAD(웹 프록시 자동 검색)을 구현하여 Windows 10 컴퓨터가 Azure AD에 장치를 등록하도록 해야 합니다. 
+Windows 10 1803부터 AD FS와 같은 페더레이션된 도메인에 대한 즉각적인 하이브리드 Azure AD 조인이 실패하는 경우, Azure AD Connect를 사용하여 Azure AD에서 컴퓨터 개체를 동기화한 다음, 하이브리드 Azure AD 조인에 대한 장치 등록을 완료합니다.
+
+조직에서 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우, Windows 10 1709부터 [GPO(그룹 정책 개체)를 사용하여 컴퓨터에서 프록시 설정을 구성](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/)할 수 있습니다. 컴퓨터에서 Windows 10 1709 이전 버전을 실행하는 경우, Windows 10 컴퓨터에서 Azure AD에 장치를 등록할 수 있도록 WPAD(웹 프록시 자동 검색)를 구현해야 합니다. 
 
 조직에서 인증된 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우 Windows 10 컴퓨터에서 아웃바운드 프록시를 성공적으로 인증할 수 있는지 확인해야 합니다. Windows 10 컴퓨터는 머신 컨텍스트를 사용하여 장치 등록을 실행하므로 머신 컨텍스트를 사용하여 아웃바운드 프록시 인증을 구성해야 합니다. 아웃바운드 프록시 공급자와 함께 구성 요구 사항을 준수하세요. 
 

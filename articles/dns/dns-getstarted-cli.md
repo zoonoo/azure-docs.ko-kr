@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 7/16/2018
 ms.author: victorh
-ms.openlocfilehash: 3fb39558ff99c35786dedc133a9d1d1a450b5928
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: f80488f555cfa3b7be6f35b9f23ea0a501a27fd9
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090125"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831600"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure DNS 영역 및 레코드 만들기
 
@@ -20,11 +20,11 @@ ms.locfileid: "39090125"
 
 DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. Azure DNS에서 도메인 호스팅을 시작하려면 해당 도메인 이름의 DNS 영역을 만들어야 합니다. 그러면 이 DNS 영역 안에 도메인의 각 DNS 레코드가 생성됩니다. 마지막으로 DNS 영역을 인터넷에 게시하려면 도메인에 대한 이름 서버를 구성해야 합니다. 아래에서는 이러한 각 단계에 대해 설명합니다.
 
-Azure DNS는 이제 사설 DNS 영역(현재는 공개 미리 보기)도 지원합니다. 사설 DNS 영역에 대해 자세히 알아보려면 [사설 도메인에 Azure DNS 사용](private-dns-overview.md)을 참조하세요. 사설 DNS 영역을 만드는 방법은 [CLI를 사용하여 Azure DNS 사설 영역 시작](./private-dns-getstarted-cli.md)을 참조하세요.
+Azure DNS는 이제 사설 DNS 영역(현재는 공개 미리 보기)도 지원합니다. 사설 DNS 영역에 대해 자세히 알아보려면 [사설 도메인에 Azure DNS 사용](private-dns-overview.md)을 참조하세요. 사설 DNS 영역을 만드는 방법에 대한 예제는 [CLI를 사용하여 Azure DNS 사설 영역 시작](./private-dns-getstarted-cli.md)을 참조하세요.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="create-the-resource-group"></a>리소스 그룹 만들기
 
@@ -46,9 +46,9 @@ az network dns zone create -g MyResourceGroup -n contoso.com
 
 ## <a name="create-a-dns-record"></a>DNS 레코드 만들기
 
-DNS 레코드를 만들려면 `az network dns record-set [record type] add-record` 명령을 사용합니다. 도움말과 A 레코드에 대한 예제는 `azure network dns record-set A add-record -h`을 참조하세요.
+DNS 레코드를 만들려면 `az network dns record-set [record type] add-record` 명령을 사용합니다. A 레코드에 대한 도움말은 `azure network dns record-set A add-record -h`를 참조하세요.
 
-다음 예제에서는 리소스 그룹 "MyResourceGroup"에서 DNS 영역 "contoso.com"에 상대적 이름 "www"가 포함된 레코드를 만듭니다. 레코드의 정규화된 이름은 “www.contoso.com”입니다. 레코드 유형은 "A"이고, IP 주소는 "1.2.3.4", 기본 TTL은 3600초(1시간)가 사용됩니다.
+다음 예제에서는 "MyResourceGroup" 리소스 그룹의 "contoso.com" DNS 영역에 상대적 이름이 "www"인 레코드를 만듭니다. 레코드의 정규화된 이름은 “www.contoso.com”입니다. 레코드 종류는 "A"이며, IP 주소는 "1.2.3.4"이고, 기본 TTL은 3,600초(1시간)입니다.
 
 ```azurecli
 az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www -a 1.2.3.4
@@ -56,7 +56,7 @@ az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www 
 
 ## <a name="view-records"></a>레코드 보기
 
-사용자 영역에 DNS 레코드를 나열하려면 다음을 사용하세요.
+사용자 영역에 DNS 레코드를 나열하려면 다음을 실행하세요.
 
 ```azurecli
 az network dns record-set list -g MyResourceGroup -z contoso.com
@@ -64,7 +64,7 @@ az network dns record-set list -g MyResourceGroup -z contoso.com
 
 ## <a name="update-name-servers"></a>이름 서버 업데이트
 
-DNS 영역 및 레코드가 적절히 설정되었다면 Azure DNS 이름 서버를 사용하도록 도메인 이름을 구성해야 합니다. 이렇게 하면 인터넷에 있는 다른 사용자가 DNS 레코드를 찾을 수 있습니다.
+DNS 영역 및 레코드가 올바르게 설정되었다고 확신하면 인터넷의 다른 사용자가 Azure DNS 이름 서버를 통해 DNS 레코드를 찾을 수 있도록 도메인 이름을 구성해야 합니다.
 
 영역에 대한 이름 서버는 `az network dns zone show` 명령으로 지정됩니다. 이름 서버 이름을 보려면 다음 예에 표시된 것처럼 JSON 출력을 사용하세요.
 

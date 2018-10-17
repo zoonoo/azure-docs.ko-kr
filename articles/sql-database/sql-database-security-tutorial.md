@@ -12,12 +12,12 @@ ms.author: daredis
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 09/07/2018
-ms.openlocfilehash: 7db0276f03511273e2607378f993957ce3a6c094
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ceed69503900b38d7f6a29bbe116ab9a4d54e396
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160437"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857961"
 ---
 # <a name="secure-your-azure-sql-database"></a>Azure SQL Database 보안
 
@@ -53,7 +53,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure 포털](https://portal.azure.com/)에 로그인합니다.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Azure Portal에서 서버 수준 방화벽 규칙 만들기
 
@@ -174,7 +174,7 @@ Azure SQL Database 감사는 데이터베이스 이벤트를 추적하고 Azure 
 
 1. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 클릭합니다. 
 
-2. 설정 블레이드에서 **감사 및 위협 감지**를 선택합니다. 서버 수준 감사를 비활성화하면 이 컨텍스트의 서버 감사 설정을 보거나 수정할 수 있는 **서버 감사 설정 보기** 링크가 표시됩니다.
+2. 설정 블레이드에서 **감사 및 위협 감지**를 선택합니다. 서버 수준 감사가 사용되지 않고, 이 컨텍스트에서 서버 감사 설정을 보거나 수정할 수 있는 **서버 설정 보기** 링크가 있습니다.
 
     ![감사 블레이드](./media/sql-database-security-tutorial/auditing-get-started-settings.png)
 

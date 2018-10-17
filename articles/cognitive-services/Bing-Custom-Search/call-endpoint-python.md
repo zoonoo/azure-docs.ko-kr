@@ -1,22 +1,23 @@
 ---
-title: Python - Bing Custom Search - Microsoft Cognitive Services를 사용하여 엔드포인트 호출
+title: '빠른 시작: Python을 사용하여 엔드포인트 호출 - Bing Custom Search'
+titlesuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Python으로 Bing Custom Search 엔드포인트를 호출하여 사용자 지정 검색 인스턴스에서 검색 결과를 요청하는 방법을 보여줍니다.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 3666e92372e9bed80e5c0c7991dcac730cebb588
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d16b7354b0ef727ba3c670b97105e1bd6f99034e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967595"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815463"
 ---
-# <a name="call-bing-custom-search-endpoint-python"></a>Bing Custom Search 엔드포인트 호출(Python)
+# <a name="quickstart-call-bing-custom-search-endpoint-python"></a>빠른 시작: Bing Custom Search 엔드포인트 호출(Python)
 
 이 빠른 시작에서는 Python으로 Bing Custom Search 엔드포인트를 호출하여 사용자 지정 검색 인스턴스에서 검색 결과를 요청하는 방법을 보여줍니다. 
 
@@ -26,7 +27,7 @@ ms.locfileid: "46967595"
 
 - 바로 사용할 수 있는 사용자 지정 검색 인스턴스. [처음으로 Bing Custom Search 인스턴스 만들기](quick-start.md)를 참조하세요.
 - 설치된 [Python](https://www.python.org/).
-- 구독 키 [무료 평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)을 정품 인증하면 구독 키를 받을 수 있습니다. Azure 대시보드에서 유료 구독 키를 사용할 수도 있습니다([Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 참조).    
+- 구독 키 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search)을 정품 인증하면 구독 키를 받을 수 있습니다. Azure 대시보드에서 유료 구독 키를 사용할 수도 있습니다([Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 참조).    
 
 
 ## <a name="run-the-code"></a>코드 실행

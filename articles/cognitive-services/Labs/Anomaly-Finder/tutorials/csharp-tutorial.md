@@ -1,22 +1,25 @@
 ---
-title: 변칙 검색 C# 앱 - Microsoft Cognitive Services | Microsoft Docs
-description: Microsoft Cognitive Services의 변칙 검색 API를 사용하는 C# 앱을 탐색합니다. 원래 데이터 요소를 API에 전송하고 예상 값과 변칙 요소를 가져옵니다.
+title: '자습서: 변칙 검색, C#'
+titlesuffix: Azure Cognitive Services
+description: 변칙 검색 API를 사용하는 C# 앱을 탐색합니다. 원래 데이터 요소를 API에 전송하고 예상 값과 변칙 요소를 가져옵니다.
 services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 7d4f6a12c94620f447b5d6df4d7715d32eac2d98
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: f99ce765c1d9417fd5ca88b49214eca8a3b0bf49
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42099878"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887652"
 ---
-# <a name="anomaly-detection-c-application"></a>변칙 검색 C# 응용 프로그램
+# <a name="tutorial-anomaly-detection-with-c-application"></a>자습서: C# 응용 프로그램을 사용하여 변칙 검색
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 변칙 검색 API를 사용하여 입력에서 변칙을 검색하는 기본 Windows 응용 프로그램을 탐색합니다. 예제는 시계열 데이터를 구독 키가 있는 변칙 검색 API에 제출한 후 API에서 각 데이터 요소에 대한 모든 변칙 요소와 예상 값을 가져옵니다.
 

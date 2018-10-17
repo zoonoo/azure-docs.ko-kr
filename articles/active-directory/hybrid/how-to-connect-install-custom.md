@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 10/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e984dc985100bcdabbee4fb86bd1819a329301a5
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 95a0ffc6deecb7fd3bd6fce740f578352fdf2d66
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452635"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888149"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect의 사용자 지정 설치
 설치에 더 많은 옵션이 필요한 경우 Azure AD Connect **사용자 지정 설정**을 사용합니다. 여러 포리스트가 있는 경우 또한 빠른 설치에서 다루지 않는 선택적 기능을 구성하려는 경우에 사용합니다. [**빠른 설치**](how-to-connect-install-express.md) 옵션이 배포 또는 토폴로지 옵션을 충족하지 않는 경우에 사용합니다.
@@ -156,12 +156,19 @@ sourceAnchor 특성은 사용자 개체의 수명 동안 변경할 수 없는 �
 ### <a name="optional-features"></a>선택적 기능
 이 화면을 사용하면 특정 시나리오에 대 한 선택적 기능을 선택할 수 있습니다.
 
+>[!WARNING]
+>Azure AD Connect 버전 **1.0.8641.0** 이상에서는 비밀번호 쓰기 저장을 위해 Azure Access Control 서비스를 사용합니다.  이 서비스는 **2018년 11월 7일**에 사용이 중지됩니다.  이러한 버전의 Azure AD Connect 중 하나를 사용하고 있고 비밀번호 쓰기 저장을 사용하도록 설정한 경우 서비스의 사용이 중지되면 사용자가 암호를 변경하거나 다시 설정할 수 없게 됩니다. 이러한 버전의 Azure AD Connect를 통한 비밀번호 쓰기 저장이 지원되지 않습니다.
+>
+>Azure Access Control 서비스에 대한 자세한 내용은 [방법: Azure Access Control 서비스에서 마이그레이션](../develop/active-directory-acs-migration.md)을 참조하세요.
+>
+>최신 버전의 Azure AD Connect를 다운로드하려면 [여기](https://www.microsoft.com/en-us/download/details.aspx?id=47594)를 클릭하세요.
+
 ![선택적 기능](./media/how-to-connect-install-custom/optional2.png)
 
 > [!WARNING]
 > 현재 디렉터리 동기화 또는 Azure AD Sync가 활성화되어 있는 경우 Azure AD Connect에서 쓰기 저장 기능을 활성화하지 마세요.
->
->
+
+
 
 | 선택적 기능 | 설명 |
 | --- | --- |
@@ -190,6 +197,9 @@ Azure AD에 동기화되는 특성을 제한 하려면 먼저 사용 중인 서�
 
 ### <a name="directory-extension-attribute-sync"></a>디렉터리 확장 특성 동기화
 Azure AD에서 조직이 추가한 사용자 지정 특성 또는 Active Directory의 다른 특성으로 스키마를 확장할 수 있습니다. 이 기능을 사용하려면, **선택적 기능** 페이지에서 **디렉터리 확장 특성 동기화**를 선택합니다. 이 페이지에서 동기화할 더 많은 특성을 선택할 수 있습니다.
+
+>[!NOTE]
+>[사용 가능한 특성] 상자는 대/소문자를 구분합니다.
 
 ![디렉터리 확장](./media/how-to-connect-install-custom/extension2.png)
 

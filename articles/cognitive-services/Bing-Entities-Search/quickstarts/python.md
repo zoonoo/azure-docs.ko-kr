@@ -1,23 +1,23 @@
 ---
-title: Azure Cognitive Services, Bing Entity Search API에 대한 Python 빠른 시작 | Microsoft Docs
-description: Azure의 Microsoft Cognitive Services에서 Bing Entity Search API를 사용하여 신속하게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
+title: '빠른 시작: Bing Entity Search API, Python'
+titlesuffix: Azure Cognitive Services
+description: Bing Entity Search API를 사용하여 빠르게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 88e954af0254b158ea59a88ed4523e3b141a135e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 80265c883214812acbd0af3bd186a0fbd3703132
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377327"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814341"
 ---
-# <a name="quickstart-for-microsoft-bing-entity-search-api-with-python"></a>Microsoft Bing Entity Search API 및 Python에 대한 빠른 시작 
-<a name="HOLTop"></a>
+# <a name="quickstart-for-bing-entity-search-api-with-python"></a>빠른 시작: Python을 통해 Bing Video Search API 사용
 
 이 아티클에서는 Python에서 [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API를 사용하는 방법을 보여줍니다.
 
@@ -27,13 +27,13 @@ ms.locfileid: "35377327"
 
 **Bing Entity Search API**를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api)이면 충분합니다. 평가판을 활성화할 때 제공된 액세스 키가 필요하며, Azure 대시보드에서 유료 구독 키를 사용해도 됩니다.
 
-## <a name="search-entities"></a>검색 엔터티
+## <a name="search-entities"></a>엔터티 검색
 
 이 응용 프로그램을 실행하려면 다음 단계를 따릅니다.
 
 1. 좋아하는 IDE에 새 Python 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```python
@@ -70,7 +70,7 @@ print (json.dumps(json.loads(result), indent=4))
 
 **응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {

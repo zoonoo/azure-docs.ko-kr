@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 2aca366e6a433e3e71cccb49a13638dedacc38d6
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 700465279a43a8490c5863e7181c4c4d009ee97b
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887509"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857927"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>자습서: Azure Web Apps에 기존 사용자 지정 SSL 인증서 바인딩
 
@@ -66,7 +66,7 @@ App Service에서 인증서를 사용하려면 인증서가 다음 요구 사항
 
 ## <a name="prepare-your-web-app"></a>웹앱 준비
 
-사용자 지정 SSL 인증서를 웹앱에 바인딩하려면 [App Service 가격](https://azure.microsoft.com/pricing/details/app-service/)이 **기본**, **표준** 또는 **프리미엄** 계층에 있어야 합니다. 이 단계에서는 웹앱이 지원되는 가격 책정 계층에 있음을 확인합니다.
+사용자 지정 SSL 인증서를 웹앱에 바인딩하려면 [App Service 계획](https://azure.microsoft.com/pricing/details/app-service/)이 **기본**, **표준**, **프리미엄** 또는 **격리**계층에 있어야 합니다. 이 단계에서는 웹앱이 지원되는 가격 책정 계층에 있음을 확인합니다.
 
 ### <a name="log-in-to-azure"></a>Azure에 로그인
 

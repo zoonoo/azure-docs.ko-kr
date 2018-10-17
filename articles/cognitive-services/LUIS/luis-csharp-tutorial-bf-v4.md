@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/25/2018
 ms.author: diberry
-ms.openlocfilehash: f8350d46fecff726dd9f591fe3df0272f556b3e7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ce5b704a7ac251621698352608ea3eefa4629aea
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47168245"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886581"
 ---
 # <a name="tutorial-luis-bot-in-c"></a>자습서: C#의 LUIS 봇
 C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드할 수 있습니다. 이 봇은 HomeAutomation 앱을 사용하여 봇 솔루션을 구현합니다. 봇은 [Bot Framework 버전](https://github.com/Microsoft/botbuilder-js) v4 및 Azure [웹앱 봇](https://docs.microsoft.com/azure/bot-service/)을 사용하여 빌드되었습니다.
@@ -286,20 +286,20 @@ C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드할
 
     ```JSON
     TurnOn intent found, JSON response: {"$instance":{“HomeAutomation_Device”:[{“startIndex”:23,“endIndex”:29,“score”:0.9776345,“text”:“lights”,“type”:“HomeAutomation.Device”}],“HomeAutomation_Room”:[{“startIndex”:12,“endIndex”:22,“score”:0.9079433,“text”:“livingroom”,“type”:“HomeAutomation.Room”}]},“HomeAutomation_Device”:[“lights”],“HomeAutomation_Room”:[“livingroom”]}
-    ```    ```
+    ```    
 
-## Learn more about Bot Framework
-Azure Bot service uses the Bot Framework SDK. Learn more about the SDK and bot framework:
+## <a name="learn-more-about-bot-framework"></a>Bot Framework에 대해 자세히 알아보기
+Azure Bot Service는 Bot Framework SDK를 사용합니다. SDK 및 봇 프레임워크에 대해 자세히 알아보세요.
 
-* [Azure Bot Service](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4 documentation
-* [Bot Builder Samples](https://github.com/Microsoft/botbuilder-samples)
+* [Azure Bot Service](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4 설명서
+* [Bot Builder 샘플](https://github.com/Microsoft/botbuilder-samples)
 * [Bot Builder SDK](https://docs.microsoft.com/en-us/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
-* [Bot Builder tools](https://github.com/Microsoft/botbuilder-tools):
+* [Bot Builder 도구](https://github.com/Microsoft/botbuilder-tools):
 
-## Next steps
+## <a name="next-steps"></a>다음 단계
 
-You created an Azure bot service, copied the bot secret and `.bot` file path, downloaded the zip file of the code. You added the prebuilt HomeAutomation domain to the LUIS app created as part of the new Azure bot service, then trained and published the app again. You extracted the code project, created an environment file (`.env`), and set the bot secret and the `.bot` file path. In the bot.js file, you added code to handle the two new intents. Then you tested the bot in the bot emulator to see the LUIS response for an utterance of one of the new intents. 
+Azure 봇 서비스를 만들고, 봇 비밀 및 `.bot` 파일 경로를 복사하고, 코드의 Zip 파일을 다운로드했습니다. 미리 빌드된 HomeAutomation 도메인을 새 Azure 봇 서비스의 일환으로 만든 LUIS 앱에 추가한 다음, 앱을 다시 학습하고 게시했습니다. 코드 프로젝트를 추출하고, 환경 파일(`.env`)을 만들고, 봇 비밀과 `.bot` 파일 경로를 설정했습니다. 두 개의 새 의도를 처리하는 코드가 bot.js 파일에 추가되었습니다. 그런 다음, 봇 에뮬레이터에서 봇을 테스트하여 새 의도 중 하나의 발화에 대한 LUIS 응답을 확인했습니다. 
 
 
 > [!div class="nextstepaction"]
-> [Build a custom domain in LUIS](luis-quickstart-intents-only.md)
+> [LUIS에서 사용자 지정 도메인 빌드](luis-quickstart-intents-only.md)

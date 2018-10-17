@@ -1,23 +1,23 @@
 ---
-title: '빠른 시작: Python 게시 기술 자료 - QnA Maker'
+title: '빠른 시작: Python에서 기술 자료 게시 - QnA Maker'
 titleSuffix: Azure Cognitive Services
 description: QnA Maker용 Python으로 기술 자료를 게시하는 방법입니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: bb5606d1192a7985b0b25ec5eb928ca8a722c58d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 92a0f54c8fca6a53cf869ce21c8007ad2a1eba5b
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037544"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887720"
 ---
-# <a name="publish-a-knowledge-base-in-python"></a>Python으로 기술 자료 게시
+# <a name="quickstart-publish-a-knowledge-base-in-python"></a>빠른 시작: Python에서 기술 자료 게시
 
 다음 코드는 [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) 메서드를 사용하여 기존 기술 자료를 게시합니다.
 

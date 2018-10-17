@@ -1,27 +1,28 @@
 ---
-title: Android용 Emotion API Java 빠른 시작 | Microsoft Docs
-description: Cognitive Services에서 Android용 Java로 Emotion API를 빠르게 사용하는 데 도움이 되는 정보 및 코드 샘플을 가져옵니다.
+title: '빠른 시작: 이미지에 있는 얼굴에서 감정 인식 - Emotion API, Java'
+description: Android용 Java로 Emotion API를 빠르게 사용하는 데 도움이 되는 정보 및 코드 샘플을 가져옵니다.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: 0e7d3991b195a83a8b87e306b3b34fbed2098581
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5c845c07eff2d4627dd756a49f4b3fee2fca6a7a
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018029"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237623"
 ---
-# <a name="emotion-api-java-for-android-quick-start"></a>Android용 Emotion API Java 빠른 시작
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>빠른 시작: 이미지에서 얼굴의 감정을 인식하기 위한 앱을 빌드합니다.
 
 > [!IMPORTANT]
-> Video API 미리 보기는 2017년 10월 30일에 종료됩니다. 새 [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) 미리 보기를 사용하여 비디오에서 정보를 쉽게 추출하고 말이나 얼굴, 성격, 감정을 감지하여 검색 결과를 제시하는 등 콘텐츠 검색 경험을 향상하세요. [자세히 알아보기](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> Emotion API는 2019년 2월 15일부터 더 이상 사용되지 않습니다. 이제 감정 인식 기능은 [Face API](https://docs.microsoft.com/azure/cognitive-services/face/)의 일부로 일반 공급됩니다. 
 
-이 문서에서는 Emotion API Android 클라이언트 라이브러리의 [Emotion Recognize 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)를 빠르게 사용하는 데 도움이 되는 정보 및 코드 샘플을 제공합니다. 이 샘플은 Java를 사용하여 사람이 나타내는 감정을 인식하는 방법을 보여 줍니다. 
+이 문서에서는 Emotion API Android 클라이언트 라이브러리의 [Emotion Recognize 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)를 빠르게 사용하는 데 도움이 되는 정보 및 코드 샘플을 제공합니다. 이 샘플은 Java를 사용하여 사람이 나타내는 감정을 인식하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 * [여기](https://github.com/Microsoft/Cognitive-emotion-android)에서 Android SDK용 Emotion API Java 가져오기
@@ -50,7 +51,7 @@ public class Main
         try
         {
             // NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the
             //   URL below with "westcentralus".
             URIBuilder uriBuilder = new URIBuilder("https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize");
 
@@ -84,10 +85,10 @@ public class Main
 ## <a name="recognize-emotions-sample-response"></a>감정 인식 샘플 응답
 호출이 성공하면 얼굴 사각형 크기의 내림차순으로 얼굴 항목 및 연결된 감정 점수 배열이 반환됩니다. 빈 응답은 검색된 얼굴이 없는 것을 나타냅니다. 감정 항목에는 다음 필드가 포함됩니다.
 * faceRectangle - 이미지에서 얼굴의 사각형 위치입니다.
-* scores - 이미지의 각 얼굴에 대한 감정 점수입니다. 
+* scores - 이미지의 각 얼굴에 대한 감정 점수입니다.
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {

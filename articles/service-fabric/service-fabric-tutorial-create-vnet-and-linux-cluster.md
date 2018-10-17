@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 27600cd4656f70b4cd01745667c0e0fd2a2f4997
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 33b95c1b0e3d654ce8bb6eda3e96b7b3e9c9bc13
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405822"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831486"
 ---
 # <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>자습서: Azure 가상 네트워크에 Linux Service Fabric 클러스터 배포
 
@@ -85,7 +85,7 @@ Azure Key Vault는 Azure에서 서비스 패브릭 클러스터에 대한 인증
 
 ### <a name="service-fabric-cluster"></a>Service Fabric 클러스터
 
-Linux 클러스터는 다음과 같은 특성으로 배포됩니다.
+**Microsoft.ServiceFabric/clusters** 리소스에서 다음과 같은 특성이 있는 Linux 클러스터가 배포됩니다.
 
 * 단일 노드 형식
 * 기본 노드 형식에서 5개의 노드(템플릿 매개 변수에서 구성 가능)
@@ -99,7 +99,7 @@ Linux 클러스터는 다음과 같은 특성으로 배포됩니다.
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 
-부하 분산 장치가 배포되고 다음 포트에 대해 프로브 및 규칙을 설정합니다.
+**Microsoft.Network/loadBalancers** 리소스에서 부하 분산 장치가 구성되고 다음 포트에 대한 프로브 및 규칙이 설정됩니다.
 
 * 클라이언트 연결 엔드포인트: 19000
 * HTTP 게이트웨이 엔드포인트 19080
@@ -108,7 +108,7 @@ Linux 클러스터는 다음과 같은 특성으로 배포됩니다.
 
 ### <a name="virtual-network-and-subnet"></a>가상 네트워크 및 서브넷
 
-가상 네트워크 및 서브넷의 이름은 템플릿 매개 변수에서 선언됩니다.  가상 네트워크 및 서브넷의 주소 공간은 템플릿 매개 변수에서 선언됩니다.
+가상 네트워크 및 서브넷의 이름은 템플릿 매개 변수에서 선언됩니다.  가상 네트워크 및 서브넷의 주소 공간도 템플릿 매개 변수로 선언되고 **Microsoft.Network/virtualNetworks** 리소스에 구성됩니다.
 
 * 가상 네트워크 주소 공간: 10.0.0.0/16
 * Service Fabric 서브넷 주소 공간: 10.0.2.0/24

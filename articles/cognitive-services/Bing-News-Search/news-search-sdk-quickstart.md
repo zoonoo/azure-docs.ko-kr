@@ -1,23 +1,23 @@
 ---
-title: News search SDK C# 빠른 시작 | Microsoft Docs
-description: News Search SDK 콘솔 응용 프로그램을 설치합니다.
-titleSuffix: Azure cognitive services News search SDK C# quickstart
+title: '빠른 시작: Bing News Search SDK, C#'
+titleSuffix: Azure Cognitive Services
+description: Bing News Search SDK 콘솔 응용 프로그램을 설정합니다.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: e803fd579c6b71b8b1754546446715795a12087a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 416557b11ebef953411fb6fabcddb72d08dcb5af
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377927"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802987"
 ---
-# <a name="news-search-sdk-c-quickstart"></a>News Search SDK C# 빠른 시작
+# <a name="quickstart-bing-news-search-sdk-with-c"></a>빠른 시작: C#을 통해 Bing News Search SDK 설정
 
 Bing News Search SDK는 뉴스 쿼리 및 구문 분석 결과에 대한 REST API 기능을 포함하고 있습니다. 
 

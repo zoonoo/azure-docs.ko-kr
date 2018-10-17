@@ -7,14 +7,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: overview
-ms.date: 08/15/2018
+ms.date: 10/06/2018
 ms.author: diberry
-ms.openlocfilehash: a8e9deb7c677d04634b223045adc2d31fa74ba6e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0520c00ab20ca7210b3bb13567f9998e7231be43
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033042"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867676"
 ---
 # <a name="what-is-language-understanding-luis"></a>LUIS(Language Understanding)란?
 
@@ -151,7 +151,7 @@ An example [utterance](luis-how-to-add-example-utterances.md) is text input from
 
 ## <a name="improve-model-prediction"></a>모델 예측 개선
 
-LUIS 모델이 게시되고 실제 사용자 발언이 수신되면, LUIS는 엔드포인트 발언의 [능동적 학습](#active-learning), 도메인 단어 포함을 위한 [문구 목록](#phrase-lists) 및 필요한 발언 수를 줄이기 위한 [패턴](#patterns)과 같이 예측 정확도를 향상시키는 몇 가지 방법을 제공합니다.
+LUIS 모델이 게시되고 실제 사용자 발언이 수신되면, LUIS는 엔드포인트 발언의 [능동적 학습](luis-concept-review-endpoint-utterances.md), 도메인 단어 포함을 위한 [문구 목록](luis-concept-feature.md) 및 필요한 발언 수를 줄이기 위한 [패턴](luis-concept-patterns.md)과 같이 예측 정확도를 향상시키는 몇 가지 방법을 제공합니다.
 <!--
 ### Active learning
 
@@ -171,25 +171,37 @@ Patterns allow you to simplify an intent's utterance collection into common [tem
 Author LUIS from the [authoring](https://aka.ms/luis-authoring-apis) APIs or from the LUIS portal. Query the published prediction endpoint of the model from the [endpoint](https://aka.ms/luis-endpoint-apis) APIs.
 -->
 
-## <a name="integrating-with-luis"></a>LUIS와 통합
+## <a name="development-lifecycle"></a>개발 수명 주기
+LUIS는 클라이언트 응용 프로그램 및 언어 모델 수준에서 전체 개발 수명 주기에 통합될 수 있는 도구, 버전 관리 및 다른 LUIS 작성자와의 공동 작업을 제공합니다. 
+
+## <a name="implementing-luis"></a>LUIS 구현
 LUIS는 REST API로써 HTTP 요청을 만드는 모든 제품, 서비스 또는 프레임워크에 사용할 수 있습니다. 다음 목록은 LUIS에 가장 많이 사용되는 Microsoft 제품 및 서비스입니다.
 
-LUIS용 Microsoft 클라이언트 응용 프로그램에는 다음이 포함됩니다.
+LUIS에 대한 상위 클라이언트 응용 프로그램은 다음과 같습니다.
 * [웹앱 봇](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-3.0)은 신속하게 LUIS 지원 챗봇을 만들어서 텍스트 입력을 통해 사용자와 대화합니다. 완전한 봇 환경을 구축하기 위해 [Bot Framework][bot-framework] 버전 [3.x](https://github.com/Microsoft/BotBuilder) 또는 [4.x](https://github.com/Microsoft/botbuilder-dotnet)를 사용합니다.
-* [Windows Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/) - LUIS를 사용하는 이 [혼합 현실 과정](https://docs.microsoft.com/windows/mixed-reality/mr-azure-303)을 통해 자세히 알아보세요. 
 
-봇에 LUIS를 사용하는 Microsoft 도구:
-* [디스패치](https://aka.ms/dispatch-tool)는 디스패처 모델을 사용하는 부모 앱에서 여러 LUIS 및 QnA Maker 앱을 사용할 수 있도록 허용합니다.
-* [대화 학습자](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview)를 사용하면 LUIS를 사용하여 보다 빠르게 봇 대화를 빌드할 수 있습니다.
-* [프로젝트 개인 정보 채팅](https://docs.microsoft.com/azure/cognitive-services/project-personality-chat/overview)은 봇 짧은 대화를 처리합니다.
+봇에서 LUIS를 빠르고 쉽게 사용할 수 있는 도구는 다음과 같습니다.
+* [LUIS CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS) - NPM 패키지에서 독립 실행형 명령줄 도구 또는 가져오기를 사용하여 작성 및 자동 완성을 제공합니다. 
+* [LUISGen](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUISGen) - LUISGen은 내보낸 LUIS 모델에서 강력한 형식의 C# 및 TypeScript 소스 코드를 생성하는 도구입니다.
+* [디스패치](https://aka.ms/dispatch-tool) - 디스패처 모델을 사용하는 부모 앱에서 여러 LUIS 및 QnA Maker 앱을 사용할 수 있도록 허용합니다.
+* [LUDown](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Ludown) - LUDown은 봇용 언어 모델을 관리하는 데 유용한 명령줄 도구입니다.
 
 LUIS에 사용되는 다른 Cognitive Services:
 * [QnA Maker][qnamaker]에서는 몇 가지 유형의 텍스트를 질문 및 답변 기술 자료로 결합할 수 있습니다.
 * [Bing Spell Check API](../bing-spell-check/proof-text.md)는 예측 전에 텍스트를 수정할 수 있도록 합니다. 
 * [음성 서비스](../Speech-Service/overview.md)는 음성 언어 요청을 텍스트로 변환합니다. 
+* [대화 학습자](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview)를 사용하면 LUIS를 사용하여 보다 빠르게 봇 대화를 빌드할 수 있습니다.
+* [프로젝트 개인 정보 채팅](https://docs.microsoft.com/azure/cognitive-services/project-personality-chat/overview)은 봇 짧은 대화를 처리합니다.
+<!--
+## Other ways of implementing LUIS
+
+A client application for LUIS is:
+* [Windows Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/) - learn more with this [Mixed reality course](https://docs.microsoft.com/windows/mixed-reality/mr-azure-303) with LUIS. 
 
 
+Labs: 
 
+-->
 ## <a name="next-steps"></a>다음 단계
 
 [미리 작성된](luis-get-started-create-app.md) 또는 [사용자 지정](luis-quickstart-intents-only.md) 도메인으로 새 LUIS 앱을 작성합니다. 공용 IoT 앱의 [예측 엔드포인트를 쿼리합니다](luis-get-started-cs-get-intent.md).

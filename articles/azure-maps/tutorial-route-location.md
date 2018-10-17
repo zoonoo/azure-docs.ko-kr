@@ -3,18 +3,18 @@ title: Azure Maps로 경로 찾기 | Microsoft Docs
 description: Azure Maps를 사용하여 관심 지점으로 라우팅
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/04/2018
+ms.date: 10/02/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 68d7df575e3d413780b8181c11dd59a22469708b
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 3bf1aa6d1b9bd65c28ef99ddbac71fb75daf99e7
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578940"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816721"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Azure Maps를 사용하여 관심 지점으로 라우팅
 
@@ -126,14 +126,16 @@ ms.locfileid: "45578940"
         padding: 50
     });
 
-    // Add pins to the map for the start and end point of the route
-    map.addPins([startPin, destinationPin], {
-        name: "route-pins",
-        textFont: "SegoeUi-Regular",
-        textOffset: [0, -20]
+    map.addEventListener("load", function () { 
+        // Add pins to the map for the start and end point of the route
+        map.addPins([startPin, destinationPin], {
+            name: "route-pins",
+            textFont: "SegoeUi-Regular",
+            textOffset: [0, -20]
+        });
     });
     ```
-    **map.setCameraBounds**는 출발점과 도착점의 좌표에 따라 지도 창을 조정합니다. API **map.addPins**는 점을 시각적 구성 요소로 맵 컨트롤에 추가합니다.
+    **map.setCameraBounds**는 출발점과 도착점의 좌표에 따라 지도 창을 조정합니다. **map.addEventListener**는 지도가 완전히 로드된 후 지도에 추가된 모든 맵 함수가 로드되도록 합니다. 이벤트 수신기 내의 **map.addPins** API는 점을 시각적 구성 요소로 맵 컨트롤에 추가합니다.
 
 3. **MapRoute.html** 파일을 저장하고, 브라우저를 새로 고칩니다. 이제 지도의 중심에 시애틀이 표시되며, 출발점을 표시하는 둥근 파란색 핀과 도착점을 표시하는 파란색 핀을 볼 수 있습니다.
 
@@ -143,7 +145,7 @@ ms.locfileid: "45578940"
 
 ## <a name="get-directions"></a>방향 가져오기
 
-이 섹션에서는 Maps의 경로 서비스 API를 사용하여 주어진 출발점에서 목적지까지 경로를 찾는 방법을 보여줍니다. 경로 서비스는 두 위치 간의 *최소 시간*, *최단 거리*, *최적* 또는 *모험* 경로를 계획할 수 있는 API를 제공합니다. 또한 사용자는 Azure의 광범위한 교통 기록 데이터베이스를 사용해 어떤 날짜 및 시간에 대한 경로 기간을 예측하여 미래의 경로를 계획할 수 있습니다. 자세한 내용은 [경로 방향 가져오기](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)를 참조하세요.
+이 섹션에서는 Maps의 경로 서비스 API를 사용하여 주어진 출발점에서 목적지까지 경로를 찾는 방법을 보여줍니다. 경로 서비스는 두 위치 간의 *최소 시간*, *최단 거리*, *최적* 또는 *모험* 경로를 계획할 수 있는 API를 제공합니다. 또한 사용자는 Azure의 광범위한 교통 기록 데이터베이스를 사용해 어떤 날짜 및 시간에 대한 경로 기간을 예측하여 미래의 경로를 계획할 수 있습니다. 자세한 내용은 [경로 방향 가져오기](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)를 참조하세요. 다음 기능은 모두 맵 로드 후에 지도가 완전히 로드되도록 **map load eventListener 내**에 추가해야 합니다.
 
 1. 먼저 지도에 새 레이어를 추가하여 경로 또는 *linestring*을 표시합니다. 다음 JavaScript 코드를 *스크립트* 블록에 추가합니다.
 
@@ -204,6 +206,10 @@ ms.locfileid: "45578940"
 > * 지도 컨트롤 API를 사용하여 새 웹 페이지 만들기
 > * 주소 좌표 설정
 > * 관심 지점으로의 방향에 대한 경로 서비스 쿼리
+
+이 자습서에서 사용할 코드 샘플에 액세스하려면 다음을 참조하세요.
+
+> [Azure Maps로 경로 찾기](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/route.html)
 
 다음 자습서에는 이동 모드 또는 화물 유형과 같은 제한을 적용하여 경로 쿼리를 만든 다음, 같은 지도에 여러 경로를 표시하는 방법을 보여줍니다.
 

@@ -1,22 +1,23 @@
 ---
-title: 'Bing Custom Search: 사용자 지정 검색 웹 페이지 만들기 | Microsoft Docs'
+title: '자습서: 사용자 지정 검색 웹 페이지 만들기 - Bing Custom Search'
+titlesuffix: Azure Cognitive Services
 description: 사용자 지정 검색 인스턴스를 구성하고 웹 페이지에 통합하는 방법을 설명합니다.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/16/2017
 ms.author: v-brapel
-ms.openlocfilehash: 8bc1520325afc256ac62cc1f1dfaf24c53da4b83
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3e892131a0109d2fff924940542b5d8b2b701950
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980001"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815378"
 ---
-# <a name="build-a-custom-search-web-page"></a>Custom Search 웹 페이지 빌드
+# <a name="tutorial-build-a-custom-search-web-page"></a>자습서: Custom Search 웹 페이지 작성
 
 Bing Custom Search를 사용하면 관심 있는 토픽에 대한 맞춤형 검색 경험을 만들 수 있습니다. 예를 들어 검색 환경을 제공하는 무술 웹 사이트를 소유하고 있는 경우 Bing에서 검색하는 도메인, 하위 사이트 및 웹 페이지를 지정할 수 있습니다. 사용자는 관련 없는 콘텐츠를 포함할 수 있는 일반적인 검색 결과를 페이징할 필요 없이 관심 있는 콘텐츠에 맞게 조정된 검색 결과를 보게 됩니다. 
 

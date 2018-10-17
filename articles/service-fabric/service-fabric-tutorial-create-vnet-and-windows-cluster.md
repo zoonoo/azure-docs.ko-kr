@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 1ee3000ab26dbb0eea33de828812959fe709aaa2
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 2f503a534f79440e6e6c572b7fb29ce3048ee7bc
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410020"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831572"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>자습서: Azure 가상 네트워크에 Service Fabric Windows 클러스터 배포
 
@@ -88,7 +88,7 @@ Azure Key Vault는 Azure에서 서비스 패브릭 클러스터에 대한 인증
 
 ### <a name="service-fabric-cluster"></a>Service Fabric 클러스터
 
-Windows 클러스터는 다음과 같은 특성으로 배포됩니다.
+**Microsoft.ServiceFabric/clusters** 리소스에서 Windows 클러스터가 다음과 같은 특성으로 구성됩니다.
 
 * 단일 노드 형식
 * 기본 노드 형식의 5개 노드(템플릿 매개 변수에서 구성 가능)
@@ -103,7 +103,7 @@ Windows 클러스터는 다음과 같은 특성으로 배포됩니다.
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 
-부하 분산 장치가 배포되고, 다음 포트에 대한 프로브 및 규칙이 설정됩니다.
+**Microsoft.Network/loadBalancers** 리소스에서 부하 분산 장치가 구성되고 다음 포트에 대한 프로브 및 규칙이 설정됩니다.
 
 * 클라이언트 연결 엔드포인트: 19000
 * HTTP 게이트웨이 엔드포인트 19080
@@ -111,16 +111,16 @@ Windows 클러스터는 다음과 같은 특성으로 배포됩니다.
 * 응용 프로그램 포트: 443
 * Service Fabric 역방향 프록시: 19081
 
-다른 응용 프로그램 포트가 필요한 경우 트래픽을 허용하도록 Microsoft.Network/loadBalancers 리소스 및 Microsoft.Network/networkSecurityGroups 리소스를 조정해야 합니다.
+다른 응용 프로그램 포트가 필요한 경우 트래픽을 허용하도록 **Microsoft.Network/loadBalancers** 리소스 및 **Microsoft.Network/networkSecurityGroups** 리소스를 조정해야 합니다.
 
 ### <a name="virtual-network-subnet-and-network-security-group"></a>가상 네트워크, 서브넷 및 네트워크 보안 그룹
 
-가상 네트워크, 서브넷 및 네트워크 보안 그룹의 이름은 템플릿 매개 변수에서 선언됩니다.  가상 네트워크 및 서브넷의 주소 공간은 템플릿 매개 변수에서 선언됩니다.
+가상 네트워크, 서브넷 및 네트워크 보안 그룹의 이름은 템플릿 매개 변수에서 선언됩니다.  가상 네트워크 및 서브넷의 주소 공간도 템플릿 매개 변수로 선언되고 **Microsoft.Network/virtualNetworks** 리소스에 구성됩니다.
 
 * 가상 네트워크 주소 공간: 172.16.0.0/20
 * Service Fabric 서브넷 주소 공간: 172.16.2.0/23
 
-네트워크 보안 그룹에서 다음과 같은 인바운드 트래픽 규칙이 활성화됩니다. 템플릿 변수를 변경하여 포트 값을 변경할 수 있습니다.
+**Microsoft.Network/networkSecurityGroups** 리소스에서 다음 인바운드 트래픽 규칙을 사용하도록 설정할 수 있습니다. 템플릿 변수를 변경하여 포트 값을 변경할 수 있습니다.
 
 * ClientConnectionEndpoint(TCP): 19000
 * HttpGatewayEndpoint(HTTP/TCP): 19080
@@ -131,7 +131,7 @@ Windows 클러스터는 다음과 같은 특성으로 배포됩니다.
 * 응용 프로그램 포트 범위 – 49152~65534(서비스 간 통신에 사용되며 부하 분산 장치에서 열리지 않음)
 * 다른 모든 포트 차단
 
-다른 응용 프로그램 포트가 필요한 경우 트래픽을 허용하도록 Microsoft.Network/loadBalancers 리소스 및 Microsoft.Network/networkSecurityGroups 리소스를 조정해야 합니다.
+다른 응용 프로그램 포트가 필요한 경우 트래픽을 허용하도록 **Microsoft.Network/loadBalancers** 리소스 및 **Microsoft.Network/networkSecurityGroups** 리소스를 조정해야 합니다.
 
 ## <a name="set-template-parameters"></a>템플릿 매개 변수 설정
 

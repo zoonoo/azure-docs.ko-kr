@@ -6,15 +6,15 @@ author: vhorne
 manager: jpconnock
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 10/5/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: ff8df51011ef664950ecfeb9eef0b201306c8ad5
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 8fb459d197c15cf7760a924c7161fed59cc1caac
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221657"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801882"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Firewall 배포 및 구성
 
@@ -186,6 +186,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 10. **서브넷**을 클릭한 다음, **연결**을 클릭합니다.
 11. **가상 네트워크**를 클릭한 다음, **Test-FW-VN**을 선택합니다.
 12. **서브넷**의 경우 **Workload-SN**을 클릭합니다.
+
+    > [!IMPORTANT]
+    > 이 경로에 대해 **Workload-SN** 서브넷만 선택해야 합니다. 그렇지 않으면 방화벽이 제대로 작동하지 않습니다.
+
 13. **확인**을 클릭합니다.
 14. **경로**를 클릭한 다음, **추가**를 클릭합니다.
 15. **경로 이름**에 **FW-DG**를 입력합니다.
@@ -193,8 +197,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 17. **다음 홉 형식**의 경우 **가상 어플라이언스**를 선택합니다.
 
     Azure Firewall은 실제로 관리되는 서비스이지만 가상 어플라이언스는 이 상황에서 작동합니다.
-1. **다음 홉 주소**에 이전에 적어둔 방화벽에 대한 개인 IP 주소를 입력합니다.
-2. **확인**을 클릭합니다.
+18. **다음 홉 주소**에 이전에 적어둔 방화벽에 대한 개인 IP 주소를 입력합니다.
+19. **확인**을 클릭합니다.
 
 
 ## <a name="configure-application-rules"></a>응용 프로그램 규칙 구성

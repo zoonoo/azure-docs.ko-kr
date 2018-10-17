@@ -6,17 +6,17 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 ms.author: ghogen
-ms.date: 07/09/2018
+ms.date: 09/26/2018
 ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: douge
-ms.openlocfilehash: d17a1c7700f1e0ac9533b7117b50a14431d0e5f1
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: a5bcd814cce6612c0074f2a85bb8757b50f183ca
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716624"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585597"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>빠른 시작: Azure Dev Spaces(.NET Core 및 VS Code)를 사용하여 Kubernetes 개발 환경 만들기
 
@@ -32,11 +32,14 @@ ms.locfileid: "44716624"
 ## <a name="prerequisites"></a>필수 조건
 
 - Azure 구독. 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/free)에 만들 수 있습니다.
-- 미국 동부, 미국 중부, 미국 서부 2, 서유럽, 캐나다 중부 또는 캐나다 동부 지역에서 **Http 응용 프로그램 라우팅**이 활성화된 상태로 Kubernetes 1.9.6 이상을 실행하는 [Kubernetes 클러스터](https://ms.portal.azure.com/#create/microsoft.aks).
-
-  ![Http 응용 프로그램 라우팅을 활성화해야 합니다.](media/common/Kubernetes-Create-Cluster-3.PNG)
-
 - [Visual Studio Code](https://code.visualstudio.com/download)
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 버전 2.0.43 이상.
+- 미국 동부, 미국 중부, 미국 서부 2, 서유럽, 캐나다 중부 또는 캐나다 동부 지역에서 **Http 응용 프로그램 라우팅**이 활성화된 상태로 Kubernetes 1.9.6 이상을 실행하는 Kubernetes 클러스터.
+
+    ```cmd
+    az group create --name MyResourceGroup --region <region>
+    az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing
+    ```
 
 ## <a name="set-up-azure-dev-spaces"></a>Azure Dev Spaces 설치
 
@@ -44,7 +47,6 @@ Azure CLI 및 Azure Dev Spaces 확장은 Windows, Mac 또는 Linux 머신에 설
 
 다음 단계에 따라 Azure Dev Spaces를 설치합니다.
 
-1. [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)(버전 2.0.43 이상)를 설치합니다.
 1. AKS 클러스터에 Dev Spaces 설치: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
 1. VS Code용 [Azure Dev Spaces 확장](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds)을 다운로드합니다. 확장의 Marketplace 페이지 및 VS Code에서 [설치]를 한 번 클릭합니다.
 

@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/20/2018
+ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 8e3bdd402cbd16469fb333cc470471629f85538c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3df96451838fe90b7d45d1aedd272fc10d798e57
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045458"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883978"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>자습서: Front Door 사용자 지정 도메인에서 HTTPS 구성
 
@@ -45,15 +45,14 @@ Azure Front Door Service는 기본적으로 Front Door 기본 호스트 이름�
 
 이 자습서에서 단계를 완료하기 전에 먼저 Front Door를 만들고 하나 이상의 사용자 지정 도메인을 등록해야 합니다. 자세한 내용은 [자습서: Front Door에 사용자 지정 도메인 추가](front-door-custom-domain.md)를 참조하세요.
 
----
-
 ## <a name="ssl-certificates"></a>SSL 인증서
+
 Front Door 사용자 지정 도메인에서 콘텐츠를 안전하게 제공하기 위해 HTTPS 프로토콜을 활성화하려면 SSL 인증서를 사용해야 합니다. Azure Front Door Service에서 관리되는 인증서를 사용하거나 사용자 고유의 인증서를 사용하도록 선택할 수 있습니다.
 
 
-# <a name="option-1-default-enable-https-with-an-afd-managed-certificatetaboption-1-default-enable-https-with-an-afd-managed-certificate"></a>[옵션 1(기본값): AFD 관리 인증서를 사용하여 HTTPS 활성화](#tab/option-1-default-enable-https-with-an-afd-managed-certificate)
+### <a name="option-1-default-use-a-certificate-managed-by-front-door"></a>옵션 1(기본값): Front Door에서 관리되는 인증서 사용
 
-AFD 관리 인증서를 사용하면 단 몇 번의 클릭으로 HTTPS 기능을 설정할 수 있습니다. Azure Front Door Service는 조달 및 갱신과 같은 인증서 관리 작업을 완전히 처리합니다. 기능을 활성화하면 프로세스는 즉시 시작됩니다. 사용자 지정 도메인이 Front Door의 기본 프런트 엔드 호스트(`{hostname}.azurefd.net`)에 이미 매핑된 경우 추가적인 조치가 필요하지 않습니다. Front Door는 단계를 처리하고 자동으로 요청을 완료합니다. 그러나 사용자 지정 도메인이 다른 곳에 매핑된 경우 이메일을 사용하여 도메인 소유권의 유효성을 검사해야 합니다.
+Azure Front Door Service에서 관리되는 인증서를 사용하면 단 몇 번의 클릭으로 HTTPS 기능을 설정할 수 있습니다. Azure Front Door Service는 조달 및 갱신과 같은 인증서 관리 작업을 완전히 처리합니다. 기능을 활성화하면 프로세스는 즉시 시작됩니다. 사용자 지정 도메인이 Front Door의 기본 프런트 엔드 호스트(`{hostname}.azurefd.net`)에 이미 매핑된 경우 추가적인 조치가 필요하지 않습니다. Front Door는 단계를 처리하고 자동으로 요청을 완료합니다. 그러나 사용자 지정 도메인이 다른 곳에 매핑된 경우 이메일을 사용하여 도메인 소유권의 유효성을 검사해야 합니다.
 
 사용자 지정 도메인에서 HTTPS를 활성화하려면 다음 단계를 따르세요.
 
@@ -68,11 +67,11 @@ AFD 관리 인증서를 사용하면 단 몇 번의 클릭으로 HTTPS 기능을
 5. [도메인의 유효성 검사](#validate-the-domain)를 진행합니다.
 
 
-# <a name="option-2-enable-https-with-your-own-certificatetaboption-2-enable-https-with-your-own-certificate"></a>[옵션 2: 사용자 고유의 인증서를 사용하여 HTTPS 활성화](#tab/option-2-enable-https-with-your-own-certificate)
+### <a name="option-2-use-your-own-certificate"></a>옵션 2: 사용자 고유의 인증서 사용
 
 사용자 고유의 인증서를 사용하여 HTTPS 기능을 활성화합니다. 이 프로세스는 인증서를 안전하게 저장할 수 있도록 하는 Azure Key Vault와의 통합을 통해 수행됩니다. Azure Front Door Service는 이 보안 메커니즘을 사용하여 인증서를 가져오며 몇 가지 추가 단계를 수행해야 합니다. SSL 인증서를 만들 때 허용된 CA(인증 기관)에서 만들어야 합니다. 그렇지 않고 허용되지 않는 CA를 사용하는 경우 요청이 거부됩니다. 허용되는 CA 목록은 [Azure Front Door Service에서 사용자 지정 HTTPS를 사용하기 위해 허용되는 인증 기관](front-door-troubleshoot-allowed-ca.md)을 참조하세요.
 
-### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Azure 키 자격 증명 모음 계정 및 인증서 준비
+#### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Azure 키 자격 증명 모음 계정 및 인증서 준비
  
 1. Azure Key Vault: 사용자 지정 HTTPS를 활성화하려는 Front Door와 동일한 구독에서 Azure Key Vault 계정을 실행해야 합니다. 아직 Azure Key Vault 계정이 없는 경우 새로 하나 만듭니다.
  
@@ -83,7 +82,7 @@ AFD 관리 인증서를 사용하면 단 몇 번의 클릭으로 HTTPS 기능을
 > </br> - Azure Front Door Service는 현재 비밀 섹션에 저장된 Key Vault 인증서만 지원합니다. 비밀 섹션 대신 인증서 섹션에 저장하면 인증서 가져오기가 실패합니다.
 > </br> - Azure Front Door Service는 현재 암호 **없이** PFX를 사용하여 업로드된 인증서만 지원합니다.
 
-### <a name="register-azure-front-door-service"></a>Azure Front Door Service 등록
+#### <a name="register-azure-front-door-service"></a>Azure Front Door Service 등록
 
 PowerShell을 통해 Azure Active Directory에 Azure Front Door Service의 서비스 사용자를 앱으로 등록합니다.
 
@@ -93,7 +92,7 @@ PowerShell을 통해 Azure Active Directory에 Azure Front Door Service의 서�
 
      `New-AzureRmADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
 
-### <a name="grant-azure-front-door-service-access-to-your-key-vault"></a>키 자격 증명 모음에 Azure Front Door Service 액세스 권한 부여
+#### <a name="grant-azure-front-door-service-access-to-your-key-vault"></a>키 자격 증명 모음에 Azure Front Door Service 액세스 권한 부여
  
 Azure Key Vault 계정에서 비밀의 인증서에 액세스하려면 Azure Front Door Service 사용 권한을 부여합니다.
 
@@ -108,7 +107,7 @@ Azure Key Vault 계정에서 비밀의 인증서에 액세스하려면 Azure Fro
 
     Azure Front Door Service는 이제 이 키 자격 증명 모음에 저장된 이 키 자격 증명 모음 및 인증서(비밀)에 액세스할 수 있습니다.
  
-### <a name="select-the-certificate-for-azure-front-door-service-to-deploy"></a>배포할 Azure Front Door Service 인증서 선택
+#### <a name="select-the-certificate-for-azure-front-door-service-to-deploy"></a>배포할 Azure Front Door Service 인증서 선택
  
 1. 포털에서 Front Door로 돌아갑니다. 
 
@@ -126,8 +125,6 @@ Azure Key Vault 계정에서 비밀의 인증서에 액세스하려면 Azure Fro
     - 사용 가능한 인증서 버전 
  
 5. 사용자 고유의 인증서를 사용할 경우 도메인 유효성 검사가 필요하지 않습니다. [전파 대기](#wait-for-propagation)를 진행합니다.
-
----
 
 ## <a name="validate-the-domain"></a>도메인의 유효성 검사
 
@@ -265,4 +262,4 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 ## <a name="next-steps"></a>다음 단계
 
 - [Front Door를 만드는](quickstart-create-front-door.md) 방법을 알아봅니다.
-- [Front Door 작동 방식](front-door-routing-architecture.md)에 대해 알아보세요.
+- [Front Door의 작동 원리](front-door-routing-architecture.md)를 알아봅니다.

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 7196cd6c18680583494a485c136081d90960464d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cabc4f2212e18d774066efad70d9654bb70020d5
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991286"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831503"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹 앱에 Microsoft 로그인 추가
 
@@ -37,15 +37,15 @@ ms.locfileid: "46991286"
 > #### <a name="step-1-register-your-application"></a>1단계: 응용 프로그램 등록
 > 
 > 1. [Microsoft 응용 프로그램 등록 포털](https://apps.dev.microsoft.com/portal/register-app)로 이동합니다.
-> 1. 응용 프로그램에 이름을 입력하고 **안내 설정**의 옵션이 선택 취소되었는지 확인 후 **만들기**를 클릭합니다.
+> 1. 응용 프로그램에 대한 이름을 입력하고, **단계별 설정**에 대한 옵션이 선택 취소되었는지 확인한 다음, **만들기**를 클릭합니다.
 > 1. `Add Platform`을 클릭한 다음, `Web`을 선택합니다.
-> 1. **암시적 흐름 허용**이 *표시된* 채로 둡니다.
-> 1. **리디렉션 URL**에 `https://localhost:44368/`를 입력합니다.
-> 1. 페이지 아래로 스크롤하여 **저장**을 클릭합니다.
+> 1. **암시적 흐름 허용**이 *선택*되어 있는지 확인합니다.
+> 1. **리디렉션 URL**에서 `https://localhost:44368/`을 입력합니다.
+> 1. 페이지의 아래쪽으로 스크롤하여 **저장**을 클릭합니다.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>1단계: Azure Portal에서 응용 프로그램 구성
-> 이 빠른 시작용 코드 샘플을 작동하려면 `https://localhost:44368/`로서 회신 URL을 추가해야 합니다.
+> 이 빠른 시작용 코드 샘플이 작동하려면 회신 URL을 `https://localhost:44368/`으로 추가해야 합니다.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [자동 변경]()
 >
@@ -58,7 +58,7 @@ ms.locfileid: "46991286"
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>3단계: Visual Studio 프로젝트 구성
 
-1. 로컬 폴더(예를 들어 **C:\Azure-Samples**)에 Zip 파일 추출하기
+1. Zip 파일을 루트 폴더에 가까운 로컬 폴더(예: **C:\Azure-Samples**)로 추출합니다.
 1. Visual Studio(AppModelv2-WebApp-OpenIDConnect-DotNet.sln)에서 솔루션 열기
 1. **Web.config**를 편집하고 방금 등록한 응용 프로그램의 응용 프로그램 ID로 `Enter_the_Application_Id_here` 바꾸기
 
@@ -72,7 +72,7 @@ ms.locfileid: "46991286"
 
 ## <a name="more-information"></a>자세한 정보
 
-이 섹션에서는 로그인 사용자에게 필요한 코드 개요를 제공합니다. 이는 작동 방식과 기본 인수를 이해하고 기존 ASP.NET 응용 프로그램에 로그인을 추가하려는 경우에도 유용합니다.
+이 섹션에서는 로그인 사용자에 필요한 코드에 대한 개요를 제공합니다. 이는 작동 방식과 기본 인수를 이해하고 기존 ASP.NET 응용 프로그램에 로그인을 추가하려는 경우에도 유용합니다.
 
 ### <a name="owin-middleware-nuget-packages"></a>OWIN 미들웨어 NuGet 패키지
 

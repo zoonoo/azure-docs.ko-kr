@@ -1,6 +1,6 @@
 ---
 title: Azure Data Box 설정| Microsoft Docs
-description: Azure Data Box의 소프트웨어 및 네트워킹 요구 사항에 대해 알아보기
+description: 장치에 케이블을 연결하고 Azure Data Box에 연결하는 방법을 알아봅니다.
 services: databox
 documentationcenter: NA
 author: alkohli
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: alkohli
-ms.openlocfilehash: 6623744a26d79ccbc8b68ba84baf3a37024e0ed7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f9671e3acdb71affe2187258582254561785780e
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952310"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785639"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>자습서: Azure Data Box에 케이블 연결
 
@@ -36,16 +36,16 @@ ms.locfileid: "46952310"
 시작하기 전에 다음 사항을 확인합니다.
 
 1. [자습서: Azure Data Box 주문](data-box-deploy-ordered.md)을 완료했습니다.
-2. Data Box를 받았고 포털의 주문 상태가 **배달됨**입니다. 
+2. Data Box를 받았고 포털의 주문 상태가 **배달됨**입니다. 현재 레이블 아래의 장치에 부착된 투명 주머니에 배송 레이블이 있습니다. 반품 발송 시 사용할 수 있으므로 이 레이블을 안전하게 보관하세요.
 3. [Data Box 안전 지침](data-box-safety.md)을 검토했습니다.
-4. 100TB 저장소 장치에 사용할 접지된 전원 코드를 하나 받았습니다.
+4. 100TB 저장소 장치에 사용할 하나의 접지식 전원 코드를 수취했습니다.
 5. Data Box에 복사할 데이터가 포함된 호스트 컴퓨터가 있습니다. 호스트 컴퓨터는 다음 사항이 필수입니다.
     - [지원되는 운영 체제](data-box-system-requirements.md)를 실행합니다.
-    - 고속 네트워크에 연결되어 있습니다. 10GbE 연결이 하나 이상 있는 것이 좋습니다. 10GbE 연결을 사용할 수 없으면 1GbE 데이터 링크를 사용할 수 있지만 복사 속도에 영향을 미칩니다. 
-6. Data Box를 놓을 수 있는 평평한 표면에 액세스가 가능해야 합니다. 표준 랙 선반에 장치를 놓으려면 데이터 센터 랙에 7U 슬롯이 있어야 합니다. 장치는 랙에 평평하게 놓거나 똑바로 세울 수 있습니다.
-7. Data Box를 호스트 컴퓨터에 연결하기 위해 다음과 같은 케이블을 조달했습니다.
-    - 2개의 10GbE SFP + Twinax 구리 케이블(DATA 1, DATA 2 네트워크 인터페이스에 사용)
-    - RJ-45 CAT 6 네트워크 케이블 하나(MGMT 네트워크 인터페이스에 사용)
+    - 고속 네트워크에 연결되어 있어야 합니다. 10GbE 연결이 하나 이상 있는 것이 좋습니다. 10GbE 연결을 사용할 수 없는 경우 1GbE 데이터 링크를 사용할 수 있지만 복사 속도에 영향을 미칩니다. 
+6. Data Box를 놓을 평평한 표면이 있어야 합니다. 표준 랙 선반에 장치를 놓으려면 데이터 센터 랙에 7U 슬롯이 있어야 합니다. 장치는 랙에 평평하게 놓거나 똑바로 세울 수 있습니다.
+7. Data Box를 호스트 컴퓨터에 연결하기 위해 다음과 같은 케이블을 준비해 둔 상태여야 합니다.
+    - 10GbE SFP+ 2축 동 케이블 2개(DATA 1, DATA 2 네트워크 인터페이스에 사용)
+    - RJ-45 CAT 6 네트워크 케이블 1개(MGMT 네트워크 인터페이스에 사용)
     - RJ-45 CAT 6A 하나 또는 RJ-45 CAT 6 네트워크 케이블 하나(각각 10Gbps 또는 1Gbps로 구성된 DATA 3 네트워크 인터페이스에 사용)
 
 ## <a name="cable-your-device"></a>장치 케이블 연결
@@ -54,15 +54,15 @@ ms.locfileid: "46952310"
 
 1. 장치에 변조의 증거 또는 기타 명백한 손상이 있는지 검사합니다. 장치가 변조되거나 심각하게 손상된 경우에는 진행하지 마십시오. 장치의 작동 상태가 양호한지 교체품을 배송해야 하는지 여부를 평가하는 데 도움을 얻으려면 Microsoft 지원에 즉시 문의하세요.
 2. 장치의 전원을 켜려는 위치로 장치를 옮깁니다. 표면이 평평한 곳에 장치를 놓습니다. 표준 랙 선반 위에 장치를 놓을 수도 있습니다.
-3. 전원 및 네트워크 케이블을 연결합니다. 공통 구성을 위한 연결된 장치의 백플레인은 아래와 같습니다. 
+3. 전원 및 네트워크 케이블을 연결합니다. 연결된 장치의 백플레인에 대한 일반적 구성은 아래와 같습니다. 
     
-    ![케이블이 연결된 Data Box 장치 백플레인](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)
+    ![케이블이 연결된 Data Box 장치의 백플레인](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)
 
     1. 레이블이 지정된 전원 입력 위치에 전원 케이블을 연결합니다. 전원 케이블의 다른 쪽 끝은 배전 장치에 연결해야 합니다.
     2. RJ-45 CAT 6 케이블의 한쪽 끝은 MGMT 포트에 연결하고 다른 쪽 끝은 랩톱에 연결합니다.            
     3. RJ-45 CAT 6A 케이블의 한쪽 끝을 DATA 3 포트에 연결합니다. DATA 3은 RJ-45 CAT 6A 케이블을 통해 연결하는 경우 10GbE로, RJ-45 CAT 6 케이블을 통해 연결하는 경우에는 1GbE로 구성됩니다.
-    4. 10 GbE SFP + Twinax 구리 케이블을 사용하여 DATA 1 및 DATA 2 포트를 각각 연결합니다. 
-    5. 데이터 포트의 케이블의 다른 쪽 끝은 10GbE 스위치를 통해 호스트 컴퓨터에 연결됩니다.
+    4. 10 GbE SFP + 2축 동 케이블을 사용하여 DATA 1 및 DATA 2 포트 각각에 연결합니다. 
+    5. 데이터 포트에 연결된 케이블의 다른 쪽 끝은 10GbE 스위치를 통해 호스트 컴퓨터에 연결됩니다.
 
 4. 장치의 전면 조작 패널에서 전원 단추를 찾습니다. 장치를 켭니다.
 

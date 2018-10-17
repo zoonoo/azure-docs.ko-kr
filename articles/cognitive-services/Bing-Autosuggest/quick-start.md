@@ -1,34 +1,34 @@
 ---
-title: Autosuggest API 빠른 시작 | Microsoft Docs
+title: '빠른 시작: Bing Autosuggest API'
+titlesuffix: Azure Cognitive Services
 description: Bing Autosuggest API 사용을 시작하는 방법을 보여 줍니다.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 1482E781-7352-4A3F-B1D5-B896381348C4
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: a7b54a1fb0b7c76eb72097357a6b51aa02e6e2fd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 446d271854a4e45bcea8c261a0dc078e549f8229
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376999"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830756"
 ---
-# <a name="making-your-first-autosuggest-query"></a>첫 번째 Autosuggest 쿼리 수행
+# <a name="quickstart-making-your-first-autosuggest-query"></a>빠른 시작: 첫 번째 Autosuggest 쿼리 만들기
 
 첫 번째 호출을 수행하기 전에 먼저 Cognitive Services 구독 키를 가져와야 합니다. 키를 받으려면 [Cognitive Services 체험하기](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api)를 참조하세요.
 
-웹 검색 결과를 가져오려면 다음 끝점으로 GET 요청을 보냅니다.
+웹 검색 결과를 가져오려면 다음 엔드포인트로 GET 요청을 보냅니다.
 
 ```http
 https://api.cognitive.microsoft.com/bing/v5.0/Suggestions
 ```
 
 > [!NOTE]
-> V7 미리 보기 끝점:
+> V7 미리 보기 엔드포인트:
 >
 > ```http
 > https://api.cognitive.microsoft.com/bing/v7.0/Suggestions

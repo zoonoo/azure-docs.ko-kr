@@ -1,27 +1,29 @@
 ---
-title: Project URL Preview에 대한 Java 빠른 시작 - Microsoft Cognitive Services | Microsoft Docs
-description: Azure의 Microsoft Cognitive Services에서 Project URL Preview를 사용하여 시작하기 위한 샘플 스크립트입니다.
+title: '빠른 시작: Project URL Preview, Java'
+titlesuffix: Azure Cognitive Services
+description: Java를 통해 Project URL Preview를 사용하여 시작하는 스크립트 샘플입니다.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 2de74f48882605bfcf05f65723ba5d8993587f51
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 95e33ceddc2fbbab51d3c4f0164b410847430244
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376270"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867119"
 ---
-# <a name="url-preview-java-quickstart"></a>URL Preview Java 빠른 시작
+# <a name="quickstart-url-preview-with-java"></a>빠른 시작: Java를 통해 URL Preview 사용
 
 다음 Java 예제에서는 SwiftKey 웹 사이트(https://swiftkey.com/en)에 대한 URL 미리 보기를 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-[Cognitive Services Labs](https://aka.ms/answersearchsubscription) 체험 평가판에 대한 액세스 키 가져오기
+[Cognitive Services Labs](https://aka.ms/answersearchsubscription) 평가판에 대한 액세스 키 가져오기
 
 ## <a name="request"></a>요청 
 

@@ -1,23 +1,23 @@
 ---
-title: Bing Entity Search SDK Java 빠른 시작 | Microsoft Docs
+title: '빠른 시작: Bing Entity Search SDK, Java'
+titlesuffix: Azure Cognitive Services
 description: Bing Entity Search SDK 콘솔 응용 프로그램을 설치합니다.
-titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/19/2018
 ms.author: v-gedod
-ms.openlocfilehash: ebfabc00b5dc031ac4e5284450a9d639c383e78f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: eeb8e6e0ac132ef2d927aa2de03817389230191e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377879"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814494"
 ---
-# <a name="bing-entity-search-sdk-java-quickstart"></a>Bing Entity Search SDK Java 빠른 시작
+# <a name="quickstart-bing-entity-search-sdk-with-java"></a>빠른 시작: Java를 통해 Bing Entity Search SDK 설정
 
 Bing Entity Search SDK는 엔터티 쿼리 및 구문 분석 결과에 대한 REST API 기능을 제공합니다. 
 

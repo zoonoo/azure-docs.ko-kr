@@ -1,20 +1,21 @@
 ---
-title: 프로젝트 Acoustics 샘플 연습 - Cognitive Services
+title: '예제: 프로젝트 Acoustics'
+titlesuffix: Azure Cognitive Services
 description: 이 연습에서는 데스크톱 및 VR로의 배포를 포함하여 프로젝트 Acoustics의 Unity 샘플 장면에 대해 설명합니다.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: sample
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: eaf7ff9f7f791fd6d04e6b76d256b4987c50cd13
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: f5ea565e68579dfad601d1037daeb4113e3daa43
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434095"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901161"
 ---
 # <a name="unity-sample-walkthrough"></a>Unity 샘플 연습
 이것은 프로젝트 Acoustics 샘플의 연습 과정입니다. 프로젝트 Acoustics가 무엇인지에 대한 자세한 내용은 [프로젝트 Acoustics 소개](what-is-acoustics.md)를 참조하세요. 기존 Unity 프로젝트에 프로젝트 Acoustics 패키지를 추가하는 데 도움이 필요한 경우 [시작 가이드](getting-started.md)를 참조하세요.

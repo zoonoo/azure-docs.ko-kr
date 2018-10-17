@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 0638aaa9165bcf760dabca330f6ee396807e4597
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: fc4b1dce1b01d9294cf422c910f39d68cbd49c87
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43087957"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018250"
 ---
 # <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Azure Data Factory UI를 사용하여 데이터 팩터리 만들기
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [버전 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [현재 버전](quickstart-create-data-factory-portal.md)
 
-이 빠른 시작에서는 Azure Data Factory UI를 사용하여 데이터 팩터리를 만들고 모니터링하는 방법에 대해 설명합니다. 이 데이터 팩터리에서 만든 파이프라인은 Azure Blob 저장소의 한 폴더에서 다른 폴더로 데이터를 *복사합니다*. Azure Data Factory를 사용하여 데이터를 *변환*하는 방법에 대한 자습서는 [자습서: Apache Spark를 사용하여 데이터 변환](tutorial-transform-data-spark-portal.md)을 참조하세요. 
+이 빠른 시작에서는 Azure Data Factory UI를 사용하여 데이터 팩터리를 만들고 모니터링하는 방법에 대해 설명합니다. 이 데이터 팩터리에서 만든 파이프라인은 Azure Blob 저장소의 한 폴더에서 다른 폴더로 데이터를 *복사합니다*. Azure Data Factory를 사용하여 데이터를 *변환*하는 방법에 대한 자습서는 [자습서: Apache Spark를 사용하여 데이터 변환](tutorial-transform-data-spark-portal.md)을 참조하세요.
 
 > [!NOTE]
 > Azure Data Factory를 처음 사용하는 경우 이 빠른 시작을 수행하기 전에 [Azure Data Factory 소개](data-factory-introduction.md)를 참조하세요. 
@@ -38,7 +38,7 @@ ms.locfileid: "43087957"
 
 1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
 1. [Azure 포털](https://portal.azure.com)로 이동합니다. 
-1. 왼쪽 메뉴에서 **새로 만들기**를 선택하고 **데이터 + 분석**을 선택한 다음 **데이터 팩터리**를 선택합니다. 
+1. 왼쪽 메뉴에서 **리소스 만들기**, **분석**, **데이터 팩터리**를 차례로 선택합니다. 
    
    !["새로 만들기" 창에서 데이터 팩터리 선택](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 1. **새 데이터 팩터리** 페이지에서 **이름**에 대해 **ADFTutorialDataFactory**를 입력합니다. 
@@ -58,12 +58,10 @@ ms.locfileid: "43087957"
 1. **버전**에서 **V2**를 선택합니다.
 1. **위치**에 데이터 팩터리의 위치를 선택합니다.
 
-   목록은 데이터 팩터리에서 지원하는 위치만 표시합니다. 데이터 팩터리에서 사용하는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(Azure HDInsight 등)은 다른 위치에 있을 수 있습니다.
-1. **대시보드에 고정**을 선택합니다.     
-1. **만들기**를 선택합니다.
-1. 대시보드에서 **데이터 팩터리 배포 중** 상태의 다음과 같은 타일이 표시됩니다. 
+   이 목록은 데이터 팩터리가 지원하는 위치 및 Azure Data Factory 메타데이터가 저장될 위치만 표시합니다. 데이터 팩터리에서 사용하는 연결된 데이터 저장소(Azure Storage 및 Azure SQL Database 등) 및 계산(Azure HDInsight 등)은 다른 하위 지역에서 실행할 수 있습니다.
 
-   !["데이터 팩터리 배포 중" 타일](media//quickstart-create-data-factory-portal/deploying-data-factory.png)
+1. **만들기**를 선택합니다.
+
 1. 만들기가 완료되면 **데이터 팩터리** 페이지가 표시됩니다. **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 Azure Data Factory UI(사용자 인터페이스) 응용 프로그램을 시작합니다.
    
    !["작성 및 모니터링" 타일이 있는 데이터 팩터리에 대한 홈페이지](./media/quickstart-create-data-factory-portal/data-factory-home-page.png)
@@ -88,7 +86,7 @@ ms.locfileid: "43087957"
 
    다. **연결 테스트**를 선택하여 데이터 팩터리 서비스에서 저장소 계정에 연결할 수 있는지 확인합니다. 
 
-   d. **저장**을 선택하여 연결된 서비스를 저장합니다. 
+   d. **마침**을 선택하여 연결된 서비스를 저장합니다. 
 
    ![Azure Storage 연결된 서비스 설정](./media/quickstart-create-data-factory-portal/azure-storage-linked-service.png) 
 
@@ -128,7 +126,7 @@ ms.locfileid: "43087957"
 
    다. **일반** 테이블에서 이름으로 **OutputDataset**를 지정합니다.
 
-   d. **연결** 탭에서 연결된 서비스로 **AzureStorageLinkedService**를 선택하고, 폴더로 **adftutorial/output**을 입력합니다. **출력** 폴더가 존재하지 않는 경우 복사 작업은 런타임 시 해당 폴더를 만듭니다.
+   d. **연결** 탭에서 연결된 서비스로 **AzureStorageLinkedService**를 선택하고 디렉터리 필드에 폴더로 **adftutorial/output**을 입력합니다. **출력** 폴더가 존재하지 않는 경우 복사 작업은 런타임 시 해당 폴더를 만듭니다.
 
 ## <a name="create-a-pipeline"></a>파이프라인을 만듭니다. 
 이 절차에서는 입력 및 출력 데이터 집합을 사용하는 복사 활동이 있는 파이프라인을 만들고 유효성을 검사합니다. 복사 작업은 입력 데이터 집합 설정에 지정된 파일의 데이터를 출력 데이터 집합 설정에 지정된 파일로 복사합니다. 입력 데이터 집합에서 폴더(파일 이름 제외)만 지정하면 복사 활동에서 원본 폴더의 모든 파일을 대상에 복사합니다. 
@@ -138,7 +136,7 @@ ms.locfileid: "43087957"
    ![새 파이프라인 만들기에 대한 메뉴](./media/quickstart-create-data-factory-portal/new-pipeline-menu.png)
 1. **일반** 탭에서 **이름**으로 **CopyPipeline**을 지정합니다. 
 
-1. **활동** 도구 상자에서 **데이터 흐름**을 확장합니다. **복사** 활동을 **활동** 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓습니다. 또한 **활동** 도구 상자에서 활동을 검색할 수도 있습니다. **이름**에 대해 **CopyFromBlobToBlob**을 지정합니다.
+1. **활동** 도구 상자에서 **이동 및 변환**을 펼칩니다. **복사** 활동을 **활동** 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓습니다. 또한 **활동** 도구 상자에서 활동을 검색할 수도 있습니다. **이름**에 대해 **CopyFromBlobToBlob**을 지정합니다.
 
    ![복사 활동 일반 설정](./media/quickstart-create-data-factory-portal/copy-activity-general-settings.png)
 1. 복사 활동 설정의 **원본** 탭으로 전환하고, **원본 데이터 집합**에 대해 **InputDataset**를 선택합니다.
@@ -205,7 +203,7 @@ ms.locfileid: "43087957"
    **트리거 기준** 열의 값을 확인합니다. 수동 트리거 실행은 이전 단계(**지금 트리거**)에서 수행되었습니다. 
 
    ![트리거된 실행 목록](./media/quickstart-create-data-factory-portal/monitor-triggered-runs.png)
-1. **파이프라인 실행** 옆의 아래쪽 화살표를 선택하여 **트리거 실행** 보기로 전환합니다. 
+1. **트리거 실행** 보기로 전환합니다. 
 
    !["트리거 실행" 보기로 전환](./media/quickstart-create-data-factory-portal/monitor-trigger-runs.png)    
 1. 지정된 종료 날짜 및 시간까지의 모든 파이프라인 실행에 대한 출력 파일이 **output** 폴더에 만들어졌는지 확인합니다. 

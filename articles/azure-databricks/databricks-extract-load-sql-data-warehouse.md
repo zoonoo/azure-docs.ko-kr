@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 07/26/2018
-ms.openlocfilehash: 11046089bd25e1ca9e117d5d8908471858450e6d
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: c416937f98f6bcb49f86fce18213ca4ed349c513
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308799"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902062"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 데이터 추출, 변환 및 로드
 
@@ -47,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 이 자습서를 시작하기 전에 다음 요구 사항이 충족되는지 확인합니다.
 - Azure SQL Data Warehouse를 만들고, 서버 수준 방화벽 규칙을 만들고, 서버 관리자로 서버에 연결합니다. [빠른 시작: Azure SQL Data Warehouse 만들기](../sql-data-warehouse/create-data-warehouse-portal.md)의 지침을 따르세요.
 - Azure SQL Data Warehouse에 대한 데이터베이스 마스터 키를 만듭니다. [데이터베이스 마스터 키 만들기](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key)의 지침을 따르세요.
-- Azure Blob Storage 계정을 만들고, 그 안에 컨테이너를 만듭니다. 또한 저장소 계정에 액세스하는 데 사용되는 액세스 키를 검색합니다. [빠른 시작: Azure Blob Storage 계정 만들기](../storage/blobs/storage-quickstart-blobs-portal.md)의 지침을 따르세요.
+- Azure Blob Storage 계정을 만들고, 그 안에 컨테이너를 만듭니다. 또한 저장소 계정에 액세스하는 데 사용되는 액세스 키를 검색합니다. [빠른 시작: Azure Blob 저장소 계정 만들기](../storage/blobs/storage-quickstart-blobs-portal.md)의 지침을 따르세요.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 

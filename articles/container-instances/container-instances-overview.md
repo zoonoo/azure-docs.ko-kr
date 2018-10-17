@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 07/19/2018
+ms.date: 10/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 953d1dfd633f2fee52a2e6d197c6f32e7ab053f7
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 33d6d89e91ecdec00c1b17ecddf91128e9d07526
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160453"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802103"
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -24,7 +24,7 @@ Azure Container Instances는 간단한 응용 프로그램, 작업 자동화 및
 
 ## <a name="fast-startup-times"></a>빠른 시작 시간
 
-컨테이너는 가상 머신을 통한 상당한 시작 이점을 제공합니다. Azure Container Instances는 VM을 프로비전 및 관리할 필요 없이 Azure에서 몇 초 안에 컨테이너를 시작할 수 있습니다.
+컨테이너는 VM(가상 머신)에 비해 상당한 시작 이점을 제공합니다. Azure Container Instances는 VM을 프로비전 및 관리할 필요 없이 Azure에서 몇 초 안에 컨테이너를 시작할 수 있습니다.
 
 ## <a name="public-ip-connectivity-and-dns-name"></a>공용 IP 연결 및 DNS 이름
 
@@ -54,9 +54,19 @@ Azure Container Instances는 LTSC(장기 서비스 채널) 버전 기반의 Wind
 
 Azure Container Instances는 호스트 컴퓨터, 로컬 네트워크, 저장소 및 수명 주기를 공유하는 [다중 컨테이너 그룹](container-instances-container-groups.md)의 예약을 지원합니다. 이렇게 하면 주 응용 프로그램 컨테이너를 로깅 사이드카 같은 다른 지원 역할 컨테이너와 결합할 수 있습니다.
 
+## <a name="virtual-network-deployment-preview"></a>가상 네트워크 배포(미리 보기)
+
+현재 미리 보기에서는 Azure Containers Instances의 이 기능을 사용하면 [Azure 가상 네트워크에 컨테이너 인스턴스를 배포](container-instances-vnet.md)하도록 설정할 수 있습니다. 컨테이너 인스턴스를 가상 네트워크 내의 서브넷에 배포하면 [VPN 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [ExpressRoute](../expressroute/expressroute-introduction.md)를 통해 온-프레미스에 있는 컨테이너 인스턴스를 포함하여 가상 네트워크의 다른 리소스와 안전하게 통신할 수 있습니다.
+
+> [!IMPORTANT]
+> 가상 네트워크에 컨테이너 그룹을 배포하는 기능은 현재 미리 보기로 있으며 일부 [제한 사항이 적용됩니다](container-instances-vnet.md#preview-limitations). [추가 사용 조건][terms-of-use]에 동의하는 조건으로 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 빠른 시작 가이드를 사용하여 단일 명령으로 Azure에 컨테이너를 배포해 보세요.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances 빠른 시작](container-instances-quickstart.md)
+
+<!-- LINKS - External -->
+[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 62c8ff225b9c649afa7532ad5edfdd627e573d81
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a6f085b0fa11f117b181714a3b92cdc3a7c9e9a9
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032234"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870675"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Linux/Windows용 Azure 데이터 과학 Virtual Machine에 대한 소개
 
-데이터 과학 Virtual Machine(DSVM)은 데이터 과학 수행을 위해 특별히 구축된 Microsoft Azure 클라우드의 사용자 지정 VM 이미지입니다. 여기에는 고급 분석을 위한 지능형 응용 프로그램 구축에 바로 뛰어들 수 있도록 다수의 유명한 데이터 과학 및 기타 도구가 미리 설치 및 구성되어 있습니다. DSVM은 Windows Server 및 Linux에서 사용할 수 있습니다. Windows Server 2016 및 2012에서 Windows 버전의 DSVM이 제공됩니다. Ubuntu 16.04 LTS 및 CentOS 7.4에서 DSVM의 Linux 버전을 제공합니다.
+데이터 과학 Virtual Machine(DSVM)은 데이터 과학 수행을 위해 특별히 구축된 Microsoft Azure 클라우드의 사용자 지정 VM 이미지입니다. 여기에는 고급 분석을 위한 지능형 응용 프로그램 구축에 바로 뛰어들 수 있도록 다수의 유명한 데이터 과학 및 기타 도구가 미리 설치 및 구성되어 있습니다. Windows Server 및 Linux에서 사용할 수 있습니다. Windows Server 2016 및 2012에서 Windows 버전의 DSVM이 제공됩니다. Ubuntu 16.04 LTS 및 CentOS 7.4에서 DSVM의 Linux 버전을 제공합니다.
 
 이 항목은 데이터 과학 VM으로 할 수 있는 작업 및 VM 사용에 대한 몇 가지 주요 시나리오를 설명하고 Windows 및 Linux 버전에서 사용할 수 있는 주요 기능을 항목별로 설명하고 이를 사용하여 시작하는 방법에 대한 지침을 제공합니다.
 
 
 ## <a name="what-can-i-do-with-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine으로 무엇을 할 수 있나요?
-DSVM(데이터 과학 가상 머신)의 목표는 기술 수준 및 모든 역할에 상관없이 모든 데이터 전문가에게 효율적이고 사전 구성된 완전 통합형 데이터 과학 환경을 제공하는 것입니다. 필적할 만한 작업 영역을 직접 롤아웃하는 대신 DSVM을 프로비전하면 설치, 구성 및 패키지 관리 프로세스에 소요되는 _시간_을 절약할 수 있습니다. DSVM이 할당된 후 데이터 과학 프로젝트에 대한 작업을 즉시 시작할 수 있습니다.
+DSVM(Data Science Virtual Machine)의 목표는 산업 전반에 걸쳐 모든 기술 수준의 데이터 전문가에게 마찰이 없고, 미리 구성되고, 완벽하게 통합된 데이터 과학 환경을 제공하는 것입니다. 필적할 만한 작업 영역을 직접 롤아웃하는 대신 DSVM을 프로비전하면 설치, 구성 및 패키지 관리 프로세스에 소요되는 _시간_을 절약할 수 있습니다. DSVM이 할당된 후 데이터 과학 프로젝트에 대한 작업을 즉시 시작할 수 있습니다.
 
-데이터 과학 VM은 광범위한 사용 시나리오에서 작동하도록 설계 및 구성되었습니다. 프로젝트의 요구가 변함에 따라 환경을 확장하거나 축소할 수 있습니다. 원하는 언어를 사용하여 데이터 과학 작업을 프로그래밍할 수 있습니다. 요구에 딱 맞도록 다른 도구를 설치하고 시스템을 사용자 지정할 수 있습니다.
+데이터 과학 VM은 광범위한 사용 시나리오에서 작동하도록 설계 및 구성되었습니다. 프로젝트 요구 변화에 따라 환경을 확장하거나 축소하고, 원하는 언어를 사용하여 데이터 과학 작업을 프로그래밍하고, 정확한 요구 사항에 맞게 시스템을 사용자 지정할 수 있는 다른 도구를 설치할 수 있습니다.
 
 ## <a name="key-scenarios"></a>주요 시나리오
 이 섹션은 데이터 과학 VM을 배포할 수 있는 주요 시나리오를 제안합니다.
@@ -47,13 +47,13 @@ DSVM(데이터 과학 가상 머신)의 목표는 기술 수준 및 모든 역�
 데이터 과학 해카톤/시합 또는 대규모 데이터 모델링 탐사에는, 일반적으로 짧은 기간 동안 확장된 하드웨어 용량이 필요합니다. 데이터 과학 VM은 요구에 따라서 데이터 과학 환경을 고성능 컴퓨팅 리소스가 필요한 실험을 허용하는 확장된 서버에서 신속하게 복제하도록 지원할 수 있습니다.
 
 ### <a name="short-term-experimentation-and-evaluation"></a>단기 실험 및 평가
-데이터 과학 VM은 Microsoft ML Server, SQL Server, Visual Studio Tools, Jupyter, Deep Learning/ML 도구 키트 및 최소한의 설치 업무로 인해 커뮤니티에서 인기를 끌고 있는 새로운 도구를 비롯한 다양한 도구를 평가하거나 학습하는 데 사용할 수 있습니다. 데이터 과학 VM을 신속하게 설정할 수 있기 때문에 게시된 실험을 복제하고, 데모를 실행하고, 온라인 세션이나 회의 자습서의 과정 따라 연습하는 등의 기타 단기 사용 시나리오에 적용할 수 있습니다.
+데이터 과학 VM은 Microsoft ML Server, SQL Server, Visual Studio Tools, Jupyter, Deep Learning/ML 도구 키트 및 최소한의 설치 업무로 인해 커뮤니티에서 인기를 끌고 있는 새로운 도구를 비롯한 다양한 도구를 평가하거나 학습하는 데 사용할 수 있습니다. Data Science VM은 빠르게 설정할 수 있으므로 게시된 실험을 복제하고, 데모를 실행하고, 온라인 세션과 회의 자습서의 단계별 연습을 수행하는 것처럼 다른 단기 사용 시나리오에 적용할 수 있습니다.
 
 ### <a name="deep-learning"></a>심층 학습
-GPU(그래픽 처리 장치) 기반 하드웨어에서 심층 학습 알고리즘을 사용하여 학습 모델에 대한 데이터 과학 VM을 사용할 수 있습니다. Azure 클라우드의 VM 크기 조정 기능을 활용하면 DSVM을 통해 필요에 따라 클라우드에서 GPU 기반 하드웨어를 사용할 수 있습니다. 큰 모델을 학습할 때 GPU 기반 VM으로 전환하거나, 동일한 OS 디스크를 유지하면서 고속 계산이 필요할 수 있습니다.  Windows Server 2016 버전 DSVM에는 GPU 드라이버, 프레임워크 및 GPU 버전 심층 학습 프레임워크가 미리 설치되어 있습니다. Linux에서는 GPU 심층 학습이 CentOS 및 Ubuntu DSVM 모두에서 사용하도록 설정됩니다. Ubuntu, CentOS 및 Windows 2016 버전의 데이터 과학 VM은 비GPU 기반 Azure 가상 머신에 배포할 수 있습니다. 이 경우 모든 심층 학습 프레임워크가 CPU 모드로 대체됩니다. 
+Data Science VM은 GPU(그래픽 처리 장치) 기반 하드웨어에서 딥 러닝 알고리즘을 사용하여 모델을 학습하는 데 사용할 수 있습니다. Azure 클라우드의 VM 크기 조정 기능을 활용하면 DSVM을 통해 필요에 따라 클라우드에서 GPU 기반 하드웨어를 사용할 수 있습니다. 큰 모델을 학습할 때 GPU 기반 VM으로 전환하거나, 동일한 OS 디스크를 유지하면서 고속 계산이 필요할 수 있습니다.  Windows Server 2016 버전 DSVM에는 GPU 드라이버, 프레임워크 및 GPU 버전 심층 학습 프레임워크가 미리 설치되어 있습니다. Linux 버전의 경우 CentOS 및 Ubuntu DSVM 모두에서 GPU에 대한 딥 러닝이 활성화됩니다. Ubuntu, CentOS 및 Windows 2016 버전의 Data Science VM은 GPU 기반이 아닌 Azure 가상 머신에 배포할 수 있습니다. 이 경우 모든 딥 러닝 프레임워크는 CPU 모드로 대체됩니다. 
 
 ## <a name="whats-included-in-the-data-science-vm"></a>데이터 과학 VM에는 무엇이 포함되어 있나요?
-데이터 과학 Virtual Machine에는 다수의 유명한 데이터 과학 및 심층 학습 도구가 이미 설치 및 구성되어 있습니다. 다양한 Azure 데이터 및 분석 제품을 사용하기 쉽게 해주는 도구도 포함되어 있습니다. Microsoft ML Server(R, Python)를 사용하거나 SQL Server 2017을 사용하여 대규모 데이터 집합에서 예측 모델을 탐색하고 구축할 수 있습니다. 오픈 소스 커뮤니티 및 Microsoft의 다양한 도구는 물론 샘플 코드와 노트북이 포함되어 있습니다. 다음 테이블에는 데이터 과학 Virtual Machine의 Windows 및 Linux 버전에 포함된 주요 구성 요소를 항목별로 정리하여 비교해 두었습니다.
+데이터 과학 Virtual Machine에는 다수의 유명한 데이터 과학 및 심층 학습 도구가 이미 설치 및 구성되어 있습니다. 또한 예측 모델 작성을 위한 Microsoft ML Server(R, Python) 또는 대규모 데이터 집합 탐색을 위한 SQL Server 2017과 같은 다양한 Azure 데이터 및 분석 제품을 사용하여 쉽게 작업할 수 있는 도구가 포함되어 있습니다. 오픈 소스 커뮤니티 및 Microsoft의 다양한 도구는 물론 샘플 코드와 노트북이 포함되어 있습니다. 다음 테이블에는 데이터 과학 Virtual Machine의 Windows 및 Linux 버전에 포함된 주요 구성 요소를 항목별로 정리하여 비교해 두었습니다.
 
 
 | **도구**                                                           | **Windows 버전** | **Linux 버전** |

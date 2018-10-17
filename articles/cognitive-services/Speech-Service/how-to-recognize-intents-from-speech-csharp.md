@@ -6,16 +6,16 @@ description: >
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 16424c44003be14e3ba04f6b5cce0ce518a0d7e8
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9210aaf2ddfa917ff480f4126c02137f46788dc3
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063033"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884345"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>자습서: C#용 Speech SDK를 사용하여 음성에서 의도 인식
 
@@ -123,7 +123,7 @@ static async Task RecognizeIntentAsync()
 음성에서 의도를 인식하기 위한 첫 번째 단계는 LUIS 엔드포인트 키 및 지역으로 음성 구성을 만드는 것입니다. 음성 구성은 Speech SDK의 다양한 기능에 대한 인식기를 만드는 데 사용할 수 있습니다. 음성 구성은 사용할 구독을 지정하는 여러 가지 방법을 제공하는데, 여기서는 구독 키와 영역을 사용하는 `FromSubscription`으로 하겠습니다.
 
 > [!NOTE]
-> 음성 구독이 아닌 LUIS 구독의 키와 영역을 사용합니다.
+> Speech Service 구독이 아닌 LUIS 구독의 키와 지역을 사용합니다.
 
 다음으로, `new IntentRecognizer(config)`를 사용하여 의도 인식기를 만듭니다. 어떤 구독을 사용해야 하는지 구성에서 이미 알고 있으므로 인식기를 만들 때 구독 키와 엔드포인트를 다시 지정할 필요가 없습니다.
 
@@ -166,7 +166,7 @@ result.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_Js
 
 ## <a name="specify-recognition-language"></a>인식 언어 지정
 
-기본적으로 LUIS는 미국 영어(`en-us`)로 의도를 인식합니다. 음성 구성의 `SpeechRecognitionLanguage` 속성에 로캘 코드를 할당하여 다른 언어로 의도를 인식할 수 있습니다. 예를 들어 독일어로 의도를 인식하는 인식기를 만들려면 먼저 자습서 응용 프로그램에서 `config.SpeechRecognitionLanguage = "de-de";`를 추가합니다. [지원되는 언어](supported-languages.md#speech-to-text)를 참조하세요.
+기본적으로 LUIS는 미국 영어(`en-us`)로 의도를 인식합니다. 음성 구성의 `SpeechRecognitionLanguage` 속성에 로캘 코드를 할당하여 다른 언어로 의도를 인식할 수 있습니다. 예를 들어 독일어로 의도를 인식하는 인식기를 만들려면 먼저 자습서 응용 프로그램에서 `config.SpeechRecognitionLanguage = "de-de";`를 추가합니다. [지원되는 언어](language-support.md#speech-to-text)를 참조하세요.
 
 ## <a name="continuous-recognition-from-a-file"></a>파일에서 연속 인식
 

@@ -5,16 +5,16 @@ description: Java(Windows 또는 Linux)에서 음성을 인식하는 방법 알�
 services: cognitive-services
 author: fmegen
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: 00603c467ec96e52fc2b7745263153a68d20f584
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: c0963fa8453dd51dfb05af20a5468e1eed1fc7cf
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47053965"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885221"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Windows 또는 Linux 기반 Java에서 음성 인식
 
@@ -23,11 +23,11 @@ ms.locfileid: "47053965"
 이 문서에서는 [Speech SDK](speech-sdk.md)를 사용하여 Java 콘솔 응용 프로그램을 만듭니다. PC에서 마이크를 사용하여 실시간으로 음성을 텍스트로 변환합니다. 응용 프로그램은 Speech SDK Maven 패키지와 64비트 Windows 또는 Ubuntu Linux 16.04 기반의 Eclipse Java IDE(v4.8)를 사용하여 빌드됩니다. 64비트 Java 8 JRE(Java Runtime Environment)에서 실행됩니다.
 
 > [!NOTE]
-> 음성 장치 SDK 및 Roobo 장치에 대한 내용은 [음성 장치 SDK](speech-devices-sdk.md)를 참조하세요.
+> Speech Devices SDK 및 Roobo 장치에 대한 내용은 [Speech Devices SDK](speech-devices-sdk.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 완료하려면 음성 서비스 구독 키가 필요합니다. 무료로 얻을 수 있습니다. 자세한 내용은 [음성 서비스를 무료로 체험해보기](get-started.md)를 참조하세요.
+이 빠른 시작을 완료하려면 음성 서비스 구독 키가 필요합니다. 무료로 가져올 수 있습니다. 자세한 내용은 [음성 서비스를 무료로 체험해보기](get-started.md)를 참조하세요.
 
 
 ## <a name="create-and-configure-project"></a>프로젝트 만들기 및 구성
@@ -69,11 +69,11 @@ Ubuntu 16.04를 사용하는 경우 Eclipse를 시작하기 전에 다음 명령
 
 1. **pom.xml** 파일을 열고 편집합니다.
 
-   * 파일 끝부분의 닫는 태그 `</project>` 앞에 다음과 같이 Speech SDK의 Maven 리포지토리에 대한 참조를 사용하여 리포지토리 섹션을 만듭니다.
+   * 파일 끝 부분에서 닫는 `</project>` 태그 앞에 다음과 같이 Speech SDK의 Maven 리포지토리에 대한 참조를 사용하여 `repositories` 요소를 만듭니다.
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
-  * 그리고 그 뒤에 Speech SDK 버전 1.0.0을 종속성으로 사용하여 종속성 섹션을 추가합니다.
+  * 또한 Speech SDK 버전 1.0.0을 종속성으로 사용하여 `dependencies` 요소를 추가합니다.
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 

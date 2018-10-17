@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: ff2a161cbc39cdb4cf35cad2b8bd403ef2d3260c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b3a3baaf22fa9c382bb45a5b2a2065ef7678faf5
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222170"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855957"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>자습서: 관리되는 도메인용 하이브리드 Azure Active Directory 조인 구성
 
@@ -68,7 +68,7 @@ Azure AD Connect에서 Azure AD에 조인된 하이브리드 Azure AD가 되려�
 - https://device.login.microsoftonline.com
 - https://autologon.microsoftazuread-sso.com(Seamless SSO를 사용 중이거나 사용할 예정인 경우)
 
-조직이 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우 Windows 10 1709부터 GPO(그룹 정책 개체)를 사용하여 컴퓨터에 대해 프록시 설정을 구성할 수 있습니다. 컴퓨터에서 Windows 10 1709 이전 버전이 실행 중인 경우 WPAD(웹 프록시 자동 검색)을 구현하여 Windows 10 컴퓨터가 Azure AD에 장치를 등록하도록 해야 합니다. 
+조직에서 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우, Windows 10 1709부터 [GPO(그룹 정책 개체)를 사용하여 컴퓨터에서 프록시 설정을 구성](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/)할 수 있습니다. 컴퓨터에서 Windows 10 1709 이전 버전이 실행 중인 경우 WPAD(웹 프록시 자동 검색)을 구현하여 Windows 10 컴퓨터가 Azure AD에 장치를 등록하도록 해야 합니다. 
 
 조직에서 인증된 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우 Windows 10 컴퓨터에서 아웃바운드 프록시를 성공적으로 인증할 수 있는지 확인해야 합니다. Windows 10 컴퓨터는 머신 컨텍스트를 사용하여 장치 등록을 실행하므로 머신 컨텍스트를 사용하여 아웃바운드 프록시 인증을 구성해야 합니다. 아웃바운드 프록시 공급자와 함께 구성 요구 사항을 준수하세요. 
 

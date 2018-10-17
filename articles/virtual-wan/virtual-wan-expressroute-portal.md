@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/26/2018
+ms.date: 10/5/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporoate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 0b8de4d04d9cca47423634164e458e8699154f30
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 10b73843e2ca2e0ee0af766ef1ad7ee9cbf61f94
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405311"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854610"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>자습서: Azure Virtual WAN을 사용하여 ExpressRoute 연결 만들기(미리 보기)
 
@@ -41,28 +41,12 @@ ms.locfileid: "47405311"
 
 ## <a name="register"></a>이 기능 등록
 
-**TryIt**을 클릭하고 Azure Cloud Shell을 사용하여 간편하게 이 기능을 등록하세요.
+Virtual WAN을 구성하려면 그 전에 먼저 미리 보기에서 구독을 등록해야 합니다. 그렇지 않으면 포털에서 가상 WAN을 사용할 수 없습니다. 등록하려면 구독 ID로 **azurevirtualwan@microsoft.com**에 이메일을 전송합니다. 구독이 등록되면 이메일 회신을 받게 됩니다.
 
->[!NOTE]
->이 기능을 등록하지 않으면 사용할 수 없거나 포털에서 표시되지 않습니다.
->
->
+**미리 보기 고려 사항:**
 
-**TryIt**을 클릭하여 Azure Cloud Shell을 연 후, 다음 명령을 복사하여 붙여넣습니다.
-
-```azurepowershell-interactive
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowCortexExpressRouteGateway
-```
- 
-```azurepowershell-interactive
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowCortexExpressRouteGateway
-```
-
-기능이 등록되었다고 표시되면 Microsoft.Network 네임스페이스에 대한 구독을 등록합니다.
-
-```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
+* 지역 가용성: 미국 중서부
+* ExpressRoute 회로는 [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported)를 지원하는 국가에서 사용하도록 설정해야 합니다.
 
 ## <a name="vnet"></a>1. 가상 네트워크 만들기
 

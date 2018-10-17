@@ -1,27 +1,28 @@
 ---
-title: Emotion API Python 빠른 시작 | Microsoft Docs
-description: Cognitive Services에서 Python으로 Emotion API를 빠르게 사용하는 데 도움이 되는 정보 및 코드 샘플을 가져옵니다.
+title: '빠른 시작: 이미지에 있는 얼굴에서 감정 인식 - Emotion API, Python'
+description: Python으로 Emotion API를 빠르게 사용하는 데 도움이 되는 정보 및 코드 샘플을 가져옵니다.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/05/2018
 ms.author: anroth
-ms.openlocfilehash: ff1f6b2ddc872d0ee63d9885b04b1f007bc86e33
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: c7611628918cf40800d173dc9404b0948b9a68a4
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373070"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48236570"
 ---
-# <a name="emotion-api-python-quickstart"></a>Emotion API Python 빠른 시작
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>빠른 시작: 이미지에서 얼굴의 감정을 인식하기 위한 앱을 빌드합니다.
 
 > [!IMPORTANT]
-> Video API 미리 보기는 2017년 10월 30일에 종료되었습니다. 새 [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) 미리 보기를 사용하여 비디오에서 정보를 쉽게 추출하고 말이나 얼굴, 성격, 감정을 감지하여 검색 결과를 제시하는 등 콘텐츠 검색 경험을 향상하세요. [자세히 알아보기](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> Emotion API는 2019년 2월 15일부터 더 이상 사용되지 않습니다. 이제 감정 인식 기능은 [Face API](https://docs.microsoft.com/azure/cognitive-services/face/)의 일부로 일반 공급됩니다. 
 
-이 문서에서는 Python으로 [Emotion API Recognize 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)를 빠르게 사용하여 이미지에서 한 명 이상의 사용자가 표현하는 감정을 인식하는 데 도움이 되는 정보 및 코드 샘플을 제공합니다. 
+이 문서에서는 Python으로 [Emotion API Recognize 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)를 빠르게 사용하여 이미지에서 한 명 이상의 사용자가 표현하는 감정을 인식하는 데 도움이 되는 정보 및 코드 샘플을 제공합니다.
 
 바인더 배지 시작: [![바인더](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=EmotionAPI.ipynb)를 클릭하여 [MyBinder](https://mybinder.org)에서 Jupyter Notebook으로 이 예제를 실행할 수 있습니다.
 
@@ -101,7 +102,7 @@ analysis
 
 
 
-반환된 JSON 개체에는 감지된 감정과 함께 인식된 얼굴의 경계 상자가 포함됩니다. 각 감정은 0~1 사이의 점수와 연결되며 점수가 높을수록 감정이 직설적입니다. 
+반환된 JSON 개체에는 감지된 감정과 함께 인식된 얼굴의 경계 상자가 포함됩니다. 각 감정은 0~1 사이의 점수와 연결되며 점수가 높을수록 감정이 직설적입니다.
 
 다음 코드 줄은 `matplotlib` 라이브러리를 사용하여 이미지의 얼굴에 드러난 감정을 감지했습니다. 혼잡을 방지하기 위해 상위 3개 감정만 표시됩니다.
 

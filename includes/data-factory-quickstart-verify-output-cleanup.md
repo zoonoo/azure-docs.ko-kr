@@ -17,6 +17,8 @@
 Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
+참고: 리소스 그룹 삭제는 약간의 시간이 걸릴 수 있습니다. 프로세스에 대해 조금 기다려 주십시오
+
 전체 리소스 그룹이 아니라 데이터 팩터리만 삭제하려면 다음 명령을 실행 합니다. 
 
 ```powershell

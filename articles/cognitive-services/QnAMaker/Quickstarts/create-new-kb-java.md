@@ -1,21 +1,21 @@
 ---
 title: '빠른 시작: API Java - 기술 자료 만들기 - QnA Maker'
 titlesuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 Cognitive Services API 계정의 Azure 대시보드에 표시될 샘플 QnA Maker 기술 자료를 프로그래밍 방식으로 만드는 과정을 단계별로 안내합니다.
+description: 이 빠른 시작에서는 Cognitive Services API 계정의 Azure 대시보드에 표시될 QnA Maker 기술 자료 샘플을 프로그래밍 방식으로 만드는 방법을 안내합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 5dfea3a8b4b5a79585b910fd2fad4ffbda4729fd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e8a876d1e5416547d0eead0882b69bdf68818c5d
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037612"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886214"
 ---
 # <a name="create-a-new-knowledge-base-in-java"></a>Java로 새 기술 자료 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "47037612"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 코드를 컴파일하고 실행하려면 [JDK 7 또는 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)이 필요합니다. 자주 사용하는 Java IDE를 사용해도 되지만, 텍스트 편집기로도 충분합니다.
+이 코드를 컴파일하고 실행하려면 [JDK 7 또는 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)이 필요합니다. 자주 사용하는 Java IDE를 사용해도 되지만, 텍스트 편집기로도 충분합니다.
 
 **QnA Maker**를 리소스로 선택한 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. [Azure 대시보드](https://portal.azure.com/#create/Microsoft.CognitiveServices)의 새 API 계정에서 유료 구독 키가 필요합니다. 두 키 모두 이 빠른 시작에서 작동합니다.
 

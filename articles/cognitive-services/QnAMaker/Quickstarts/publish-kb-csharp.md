@@ -1,114 +1,128 @@
 ---
-title: '빠른 시작: C# 기술 자료 게시 - QnA Maker'
+title: '빠른 시작: 기술 자료 게시 - REST, C# - QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: QnA Maker용 C#으로 기술 자료를 게시하는 방법입니다.
+description: 이 빠른 시작에서는 테스트된 최신 버전의 기술 자료를 게시된 기술 자료를 나타내는 Azure Search 인덱스에 푸시하는 방법(KB 게시)을 안내합니다. 또한 응용 프로그램 또는 챗봇에서 호출할 수 있는 엔드포인트를 만듭니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/01/2018
 ms.author: diberry
-ms.openlocfilehash: 232b8a31ccfd8fad580af1f71b6816f93342faea
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f2aa73dacdffaebcddbf91b2f5c7c3db4a331431
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033059"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883587"
 ---
-# <a name="publish-a-knowledge-base-in-c"></a>C#으로 기술 자료 게시
+# <a name="quickstart-publish-a-qna-maker-knowledge-base-in-c"></a>빠른 시작: C#에서 QnA Maker 기술 자료 게시
 
-다음 코드는 [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) 메서드를 사용하여 기존 기술 자료를 게시합니다.
+이 빠른 시작에서는 KB(기술 자료)를 프로그래밍 방식으로 게시하는 방법을 안내합니다. 게시는 최신 버전의 기술 자료를 전용 Azure Search 인덱스에 푸시하고, 응용 프로그램 또는 챗봇에서 호출할 수 있는 엔드포인트를 만듭니다.
+
+이 빠른 시작에서 호출하는 QnA Maker API는 다음과 같습니다.
+* [게시](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) - 이 API는 요청 본문에 어떤 정보도 요구하지 않습니다.
+
+## <a name="prerequisites"></a>필수 조건
+
+* 최신 [**Visual Studio Community Edition**](https://www.visualstudio.com/downloads/)
+* [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)가 있어야 합니다. 키를 검색하려면 대시보드의 **리소스 관리** 아래에서 **키**를 선택합니다. 
+* QnA Maker KB(기술 자료) ID는 아래와 같이 kbid 쿼리 문자열 매개 변수의 URL에 있습니다.
+
+    ![QnA Maker 기술 자료 ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
+
+아직 기술 자료가 없는 경우 샘플을 만들어서 빠른 시작: [새 기술 자료 만들기](create-new-kb-csharp.md)에서 사용하면 됩니다.
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 
-1. 즐겨 찾는 IDE에서 새 C# 프로젝트를 만듭니다.
-2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
-4. 프로그램을 실행합니다.
+## <a name="create-knowledge-base-project"></a>기술 자료 프로젝트 만들기
+
+[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-create-project.md)] 
+
+## <a name="add-required-dependencies"></a>필요한 종속성 추가
+
+[!INCLUDE [Add required dependencies to code file](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-required-dependencies.md)] 
+
+## <a name="add-required-constants"></a>필요한 상수 추가
+
+[!INCLUDE [Add required constants to code file](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-required-constants.md)]  
+
+## <a name="add-knowledge-base-id"></a>기술 자료 ID 추가
+
+[!INCLUDE [Add knowledge base ID as constant](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-kb-id.md)] 
+
+## <a name="add-supporting-functions-and-structures"></a>지원하는 함수 및 구조 추가
+
+Program 클래스 내에 다음 코드 블록을 추가합니다.
 
 ```csharp
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-
-// NOTE: Install the Newtonsoft.Json NuGet package.
-using Newtonsoft.Json;
-
-namespace QnAMaker
+static string PrettyPrint(string s)
 {
-    class Program
+    return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);
+}
+```
+
+## <a name="add-post-request-to-publish-kb"></a>KB를 게시하기 위한 POST 요청 추가
+
+다음 코드에서는 KB를 게시하도록 QnA Maker API에 HTTPS 요청을 하고 응답을 받습니다.
+
+```csharp
+async static void PublishKB()
+{
+    string responseText;
+
+    var uri = host + service + method + kb;
+    Console.WriteLine("Calling " + uri + ".");
+    using (var client = new HttpClient())
+    using (var request = new HttpRequestMessage())
     {
-        static string host = "https://westus.api.cognitive.microsoft.com";
-        static string service = "/qnamaker/v4.0";
-        static string method = "/knowledgebases/";
+        request.Method = HttpMethod.Post;
+        request.RequestUri = new Uri(uri);
+        request.Headers.Add("Ocp-Apim-Subscription-Key", key);
 
-        // NOTE: Replace this with a valid subscription key.
-        static string key = "ENTER KEY HERE";
+        var response = await client.SendAsync(request);
 
-        // NOTE: Replace this with a valid knowledge base ID.
-        static string kb = "ENTER ID HERE";
-
-        static string PrettyPrint(string s)
+        // successful status doesn't return an JSON so create one
+        if (response.IsSuccessStatusCode)
         {
-            return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);
+            responseText = "{'result' : 'Success.'}";
         }
-
-        async static Task<string> Post(string uri)
+        else
         {
-            using (var client = new HttpClient())
-            using (var request = new HttpRequestMessage())
-            {
-                request.Method = HttpMethod.Post;
-                request.RequestUri = new Uri(uri);
-                request.Headers.Add("Ocp-Apim-Subscription-Key", key);
-
-                var response = await client.SendAsync(request);
-                if (response.IsSuccessStatusCode)
-                {
-                    return "{'result' : 'Success.'}";
-                }
-                else
-                {
-                    return await response.Content.ReadAsStringAsync();
-                }
-            }
-        }
-
-        async static void PublishKB()
-        {
-            var uri = host + service + method + kb;
-            Console.WriteLine("Calling " + uri + ".");
-            var response = await Post(uri);
-            Console.WriteLine(PrettyPrint(response));
-            Console.WriteLine("Press any key to continue.");
-        }
-
-        static void Main(string[] args)
-        {
-            PublishKB();
-            Console.ReadLine();
+            responseText =  await response.Content.ReadAsStringAsync();
         }
     }
+    Console.WriteLine(PrettyPrint(responseText));
+    Console.WriteLine("Press any key to continue.");
 }
-
 ```
 
-## <a name="the-publish-a-knowledge-base-response"></a>기술 자료 게시 응답
+API 호출은 성공적인 게시에 대해 응답 본문에 내용이 없는 204 상태를 반환합니다. 이 코드는 204 응답에 대한 내용을 추가합니다.
 
-성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
+다른 응답의 경우 해당 응답은 변경되지 않은 채 반환됩니다.
+ 
+## <a name="add-the-publishkb-method-to-main"></a>Main에 PublishKB 메서드 추가
 
-```json
+CreateKB 메서드를 호출하도록 Main 메서드를 변경합니다.
+
+```csharp
+static void Main(string[] args)
 {
-  "result": "Success."
+
+    // Call the PublishKB() method to publish a knowledge base.
+    PublishKB();
+
+    // The console waits for a key to be pressed before closing.
+    Console.ReadLine();
 }
 ```
+
+## <a name="build-and-run-the-program"></a>프로그램 빌드 및 실행
+
+프로그램을 빌드하고 실행합니다. 그러면 자동으로 KB를 게시하기 위한 요청을 QnA Maker API에 보낸 다음, 응답이 콘솔 창에 출력됩니다.
+
+기술 자료가 게시되면 클라이언트 응용 프로그램 또는 챗봇을 사용하여 엔드포인트에서 쿼리할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

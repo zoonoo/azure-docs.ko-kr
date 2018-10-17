@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: d314c04a40155fccc99660bacdb9f646ce77b22f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a4e41408a3af2e6bb68c14f2e34bf1141bf349c1
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107591"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017810"
 ---
 # <a name="use-the-copy-data-tool-to-copy-data"></a>데이터 복사 도구를 사용하여 데이터 복사 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -52,13 +52,9 @@ ms.locfileid: "43107591"
 1. **버전**에서 **V2**를 선택합니다.
 1. **위치**에 데이터 팩터리의 위치를 선택합니다. 
 
-   목록은 지원되는 위치만 표시합니다. 데이터 팩터리에서 사용하는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(Azure HDInsight 등)은 다른 위치/지역에 있을 수 있습니다.
+   이 목록은 데이터 팩터리가 지원하는 위치 및 Azure Data Factory 메타데이터가 저장될 위치만 표시합니다. 데이터 팩터리에서 사용하는 연결된 데이터 저장소(Azure Storage 및 Azure SQL Database 등) 및 계산(Azure HDInsight 등)은 다른 하위 지역에서 실행할 수 있습니다.
 
-1. **대시보드에 고정**을 선택합니다.     
 1. **만들기**를 선택합니다.
-1. 대시보드에서 **데이터 팩터리 배포 중** 상태의 다음과 같은 타일이 표시됩니다. 
-
-    !["데이터 팩터리 배포 중" 타일](media/quickstart-create-data-factory-copy-data-tool/deploying-data-factory.png)
 1. 만들기가 완료되면 **데이터 팩터리** 페이지가 표시됩니다. **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 Azure Data Factory UI(사용자 인터페이스) 응용 프로그램을 시작합니다.
    
    !["작성 및 모니터링" 타일이 있는 데이터 팩터리에 대한 홈페이지](./media/quickstart-create-data-factory-copy-data-tool/data-factory-home-page.png)

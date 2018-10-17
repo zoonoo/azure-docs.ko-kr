@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: e3e04bf7e35b22a56465810f476323ed217e047a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f68281f71ed525798410fb80b0d0175d38050c40
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967628"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829922"
 ---
 # <a name="what-is-azure-dns"></a>Azure DNS란?
 
@@ -24,11 +24,11 @@ Azure DNS를 사용하여 도메인 이름을 구매할 수 없습니다. 연간
 
 ## <a name="reliability-and-performance"></a>안정성 및 성능
 
-Azure DNS의 DNS 도메인은 DNS 이름 서버의 Azure 글로벌 네트워크에 호스팅됩니다. 사용 가능한 가장 가까운 DNS 서버에서 각 DNS 쿼리에 응답하도록 Azure DNS에서는 애니캐스트 네트워킹을 사용합니다. 이렇게 하면 도메인에 대해 빠른 성능과 고가용성이 제공됩니다.
+Azure DNS의 DNS 도메인은 DNS 이름 서버의 Azure 글로벌 네트워크에 호스팅됩니다. Azure DNS는 도메인에 대해 빠른 성능과 고가용성을 제공하는 가장 가까운 사용 가능한 DNS 서버에서 각 DNS 쿼리에 응답하도록 애니케스트 네트워킹을 사용합니다.
 
 ## <a name="security"></a>보안
 
-Azure DNS 서비스는 Azure Resource Manager를 기반으로 합니다. 따라서 다음과 같은 Resource Manager 기능을 사용할 수 있습니다.
+Azure DNS 서비스에서 Azure Resource Manager를 기반으로 하여 제공하는 기능은 다음과 같습니다.
 
 * [역할 기반 액세스 제어](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control) - 조직에 대한 특정 작업에 액세스하는 사람을 제어할 수 있습니다.
 
@@ -41,9 +41,9 @@ Azure DNS 서비스는 Azure Resource Manager를 기반으로 합니다. 따라�
 
 ## <a name="ease-of-use"></a>사용 편의성
 
-Azure DNS 서비스는 Azure 서비스에 대한 DNS 레코드를 관리하고 외부 리소스에 대한 DNS를 제공할 수 있습니다. Azure DNS는 Azure Portal에 통합되며 다른 Azure 서비스와 동일한 자격 증명, 지원 계약 및 청구를 사용합니다. 
+Azure DNS 서비스는 Azure 서비스에 대한 DNS 레코드를 관리하고, 외부 리소스에 대한 DNS도 제공할 수 있습니다. Azure DNS는 Azure Portal에 통합되며 다른 Azure 서비스와 동일한 자격 증명, 지원 계약 및 청구를 사용합니다. 
 
-DNS 요금 청구는 Azure에 호스트되는 DNS 영역의 수와 DNS 쿼리 수를 기준으로 합니다. 가격 책정에 대한 자세한 내용은 [Azure DNS 가격 책정](https://azure.microsoft.com/pricing/details/dns/)을 참조하세요.
+DNS 요금 청구는 Azure에서 호스팅되는 DNS 영역의 수와 수신되는 DNS 쿼리의 수에 따라 결정됩니다. 가격 책정에 대한 자세한 내용은 [Azure DNS 가격 책정](https://azure.microsoft.com/pricing/details/dns/)을 참조하세요.
 
 도메인과 레코드는 Azure Portal, Azure PowerShell cmdlet 및 플랫폼 간 Azure CLI를 사용하여 관리할 수 있습니다. 자동 DNS 관리가 필요한 응용 프로그램은 REST API 및 SDK를 사용하여 서비스와 통합할 수 있습니다.
 

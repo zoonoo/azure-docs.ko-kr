@@ -1,22 +1,25 @@
 ---
-title: 변칙 검색 Python 앱 - Microsoft Cognitive Services | Microsoft Docs
-description: Microsoft Cognitive Services의 변칙 검색 API를 사용하는 Python 노트북을 탐색합니다. 원래 데이터 요소를 API에 전송하고 예상 값과 변칙 요소를 가져옵니다.
+title: '자습서: 변칙 검색, Python'
+titlesuffix: Azure Cognitive Services
+description: 변칙 검색 API를 사용하는 Python 노트북을 탐색합니다. 원래 데이터 요소를 API에 전송하고 예상 값과 변칙 요소를 가져옵니다.
 services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: d35f41ddab21aa155376ad52ff4084298dab8fc5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 98f83fbc4db8685526833c3d4f1d15903419ad3f
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376143"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887754"
 ---
-# <a name="anomaly-detection-python-application"></a>변칙 검색 Python 응용 프로그램
+# <a name="tutorial-anomaly-detection-with-python-application"></a>자습서: Python 응용 프로그램을 사용하여 변칙 검색
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 이 자습서는 Python에서 변칙 검색 API를 사용하는 방법 및 인기 라이브러리를 사용하여 결과를 시각화하는 방법을 보여 줍니다. Jupyter를 사용하여 자습서를 실행하고 구독 키로 사용자 고유 데이터를 시도합니다. 대화형 Jupyter 노트북을 시작하는 방법을 알아보려면 [Jupyter 문서](http://jupyter.readthedocs.io/en/latest/index.html)를 참조하세요. 
 

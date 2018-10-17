@@ -1,32 +1,34 @@
 ---
-title: 비디오용 Emotion API 호출 | Microsoft Docs
+title: '예제: 비디오용 Emotion API 호출'
+titlesuffix: Azure Cognitive Services
 description: Cognitive Services에서 비디오용 Emotion API를 호출하는 방법을 알아봅니다.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: sample
 ms.date: 02/06/2017
 ms.author: anroth
-ms.openlocfilehash: 0875013b2061a84e3e23ae90c1106382672fdca6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2687145a89c11efb4a3bcb1494a39806e9aae551
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374158"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238610"
 ---
-# <a name="how-to-call-emotion-api-for-video"></a>비디오용 Emotion API 호출하는 방법
+# <a name="example-call-emotion-api-for-video"></a>예제: 비디오용 Emotion API 호출
 
 > [!IMPORTANT]
-> Video API 미리 보기는 2017년 10월 30일에 종료됩니다. 새 [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) 미리 보기를 사용하여 비디오에서 정보를 쉽게 추출하고 말이나 얼굴, 성격, 감정을 감지하여 검색 결과를 제시하는 등 콘텐츠 검색 경험을 향상하세요. [자세히 알아보기](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> Emotion API는 2019년 2월 15일부터 더 이상 사용되지 않습니다. 이제 감정 인식 기능은 [Face API](https://docs.microsoft.com/azure/cognitive-services/face/)의 일부로 일반 공급됩니다. 
 
 이 가이드는 비디오용 Emotion API를 호출하는 방법을 보여줍니다. 샘플은 비디오용 Emotion API 클라이언트 라이브러리를 사용하여 C#에서 작성됩니다.
 
-### <a name="Prep">준비</a> 
+### <a name="Prep">준비</a>
 비디오용 Emotion API를 사용하려면 사람을 포함하는 비디오, 특히 사람이 카메라를 대면하고 있는 비디오가 필요합니다.
 
-### <a name="Step1">1단계: API 호출 권한 부여</a> 
+### <a name="Step1">1단계: API 호출 권한 부여</a>
 비디오용 Emotion API에 대한 모든 호출은 구독 키가 필요합니다. 이 키는 쿼리 문자열 매개 변수를 통해 전달되거나 요청 헤더에서 지정되어야 합니다. 쿼리 문자열을 통해 구독 키를 전달하려면 예를 들어 비디오용 Emotion API에 대한 아래 요청 URL을 참조합니다.
 
 ```
@@ -44,7 +46,7 @@ ocp-apim-subscription-key: <Your subscription key>
 ```
 var emotionServiceClient = new emotionServiceClient("Your subscription key");
 ```
-구독 키를 얻으려면 [구독](https://azure.microsoft.com/try/cognitive-services/)을 참조합니다. 
+구독 키를 얻으려면 [구독](https://azure.microsoft.com/try/cognitive-services/)을 참조합니다.
 
 ### <a name="Step2">2단계: 서비스에 비디오 업로드 및 상태 확인</a>
 비디오용 Emotion API 호출을 수행하는 가장 기초적인 방법은 직접 비디오를 업로드하는 것입니다. 비디오 파일에서 데이터 판독과 함께 응용 프로그램/옥텟 스트림 콘텐츠 형식으로 "POST" 요청을 보내 수행합니다. 비디오의 최대 크기는 100MB입니다.
@@ -71,7 +73,7 @@ Operation videoOperation = await videoServiceClient.CreateOperationAsync(videoUr
 
 ```
 
-이 업로드 메서드는 모든 비디오용 Emotion API 호출에 대해 동일합니다. 
+이 업로드 메서드는 모든 비디오용 Emotion API 호출에 대해 동일합니다.
 
 비디오를 업로드하면 수행하려는 다음 작업은 비디오 상태를 확인하는 것입니다. 비디오 파일은 대개 다른 파일보다 더 다양하고 더 크기 때문에 사용자는 이 단계에서 긴 처리 시간을 예상할 수 있습니다. 시간은 파일의 크기 및 길이에 따라 다릅니다.
 

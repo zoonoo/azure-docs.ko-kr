@@ -1,20 +1,21 @@
 ---
-title: Bing Entity Search 단일 페이지 웹앱 | Microsoft Docs
+title: '자습서: Bing Entity Search 단일 페이지 웹앱'
+titlesuffix: Azure Cognitive Services
 description: 단일 페이지 웹 응용 프로그램에서 Bing Entity Search API를 사용하는 방법을 보여줍니다.
 services: cognitive-services
 author: v-jerkin
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 12/08/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 91c60913cd806baf100e5511cbf59299bf9a84f0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9aabecbec144797b9fbafdff7179213b68921447
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377455"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815548"
 ---
 # <a name="tutorial-single-page-web-app"></a>자습서: 단일 페이지 웹앱
 
@@ -532,11 +533,11 @@ Bing Search API의 응답에는 후속 요청과 함께 API로 다시 전송되�
 
     npm install -g cors-proxy-server
 
-HTML 파일에서 Bing Web Search 끝점을 다음으로 변경합니다.
+다음으로, HTML 파일에서 Bing Web Search 엔드포인트를 변경합니다.
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
-마지막으로, 다음 명령을 사용하여 CORS 프록시를 시작합니다.
+마지막으로 다음 명령을 사용하여 CORS 프록시를 시작합니다.
 
     cors-proxy-server
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/10/2018
 ms.author: douglasl
-ms.openlocfilehash: c6817fa20d4177efd3e38f1454f3142f6d40a07d
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: f1cc1b728a91c22f9b4b2062ed5c423314e561c8
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108621"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017587"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Azure Data Factory에서 Spark 작업을 사용하여 클라우드의 데이터 변환
 이 자습서에서는 Azure Portal을 사용하여 Azure Data Factory 파이프라인을 만듭니다. 이 파이프라인은 Spark 활동 및 주문형 HDInsight 연결된 서비스를 사용하여 데이터를 변환합니다. 
@@ -30,10 +30,14 @@ ms.locfileid: "43108621"
 > * 파이프라인 실행 트리거
 > * 파이프라인 실행을 모니터링합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 * **Azure Storage 계정**. Python 스크립트와 입력 파일을 만들고 Azure Storage에 업로드합니다. Spark 프로그램의 출력은 이 저장소 계정에 저장됩니다. 주문형 Spark 클러스터는 기본 저장소와 동일한 저장소 계정을 사용합니다.  
+
+> [!NOTE]
+> HdInsight는 표준 계층을 포함하는 범용 저장소 계정만 지원합니다. 계정이 프리미엄 또는 BLOB 전용 저장소 계정인지 확인합니다.
+
 * **Azure PowerShell**. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-azurerm-ps)의 지침을 따르세요.
 
 
@@ -99,11 +103,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 1. **위치**에 데이터 팩터리의 위치를 선택합니다. 
 
    Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용하는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
-1. **대시보드에 고정**을 선택합니다.     
-1. **만들기**를 선택합니다.
-1. 대시보드에서 **데이터 팩터리 배포 중** 상태의 다음과 같은 타일이 표시됩니다. 
 
-   !["데이터 팩터리 배포 중" 타일](media//tutorial-transform-data-spark-portal/deploying-data-factory.png)
+1. **만들기**를 선택합니다.
+
 1. 만들기가 완료되면 **데이터 팩터리** 페이지가 표시됩니다. **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 Data Factory UI 응용 프로그램을 시작합니다.
 
     !["작성 및 모니터링" 타일이 있는 데이터 팩터리에 대한 홈페이지](./media/tutorial-transform-data-spark-portal/data-factory-home-page.png)
@@ -157,11 +159,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    
    h. **OS 유형**을 펼칩니다.
    
-   i. 클러스터 사용자의 이름을 입력합니다. 
+   i. **클러스터 사용자 이름**에 대한 이름을 입력합니다. 
    
-   j. 사용자의 암호를 입력합니다. 
+   j. 사용자에 대한 **클러스터 암호**를 입력합니다. 
    
-   k. **저장**을 선택합니다. 
+   k. **마침**을 선택합니다. 
 
    ![HDInsight 연결된 서비스 설정](./media/tutorial-transform-data-spark-portal/azure-hdinsight-linked-service-settings.png)
 

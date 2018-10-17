@@ -1,19 +1,21 @@
 ---
-title: Azure Cognitive Services, Bing News Search API에 대한 Python 빠른 시작 | Microsoft Docs
-description: Azure의 Microsoft Cognitive Services에서 Bing News Search API를 사용하여 신속하게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
+title: '빠른 시작: Bing News Search API, Python'
+titlesuffix: Azure Cognitive Services
+description: Bing News Search API를 사용하여 빠르게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
 services: cognitive-services
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 0fde478b650513aa1527c1d47f5b453ba094506c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 583b304a742d9abfd799442c9aa2999ad6783a34
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374031"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803548"
 ---
 # <a name="quickstart-for-bing-news-search-api-with-python"></a>Python을 사용하여 Bing News Search API에 대한 빠른 시작
 이 연습에서는 Bing News Search API를 호출하고 결과 JSON 개체를 사후 처리하는 간단한 예를 보여 줍니다. 자세한 내용은 [Bing News Search 설명서](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)를 참조하세요.  

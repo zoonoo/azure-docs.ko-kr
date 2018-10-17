@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: negat
-ms.openlocfilehash: 8b3956860a38057771770b965006606ffb3e24f8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 43aa74e7250f4825702e249032db1566346ab558
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963784"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831214"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합에 대한 네트워킹
 
@@ -288,8 +288,10 @@ GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG 
 }
 ```
 
-## <a name="nsg-per-scale-set"></a>확장 집합당 NSG
+## <a name="nsg--asgs-per-scale-set"></a>확장 집합당 NSG 및 ASG
 네트워크 보안 그룹은 확장 집합 가상 머신 속성의 네트워크 인터페이스 구성 섹션에 참조를 추가하여 확장 집합에 직접 적용할 수 있습니다.
+
+응용 프로그램 보안 그룹도 확장 집합 가상 머신 속성의 네트워크 인터페이스 구성 섹션에 참조를 추가하여 확장 집합에 직접 지정할 수 있습니다.
 
 예:  
 ```
@@ -305,7 +307,12 @@ GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG 
                         "properties": {
                             "subnet": {
                                 "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', variables('vnetName'), '/subnets/subnet1')]"
-                            }
+                            },
+                            "applicationSecurityGroups": [
+                                {
+                                    "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/applicationSecurityGroups/', variables('asgName'))]"
+                                }
+                            ],
                 "loadBalancerInboundNatPools": [
                                 {
                                     "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lbName'), '/inboundNatPools/natPool1')]"

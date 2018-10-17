@@ -1,22 +1,23 @@
 ---
-title: 처음으로 Bing Custom Search 인스턴스 만들기 - Microsoft Cognitive Services
+title: '빠른 시작: 첫 번째 Bing Custom Search 인스턴스 만들기'
+titlesuffix: Azure Cognitive Services
 description: Bing Custom Search를 사용하려면 웹 보기 또는 조각을 정의하는 사용자 지정 검색 인스턴스를 만들어야 합니다. 인스턴스에는 Bing에서 검색하려는 공용 도메인, 하위 사이트 및 웹 페이지를 지정하는 설정과 모든 순위 조정이 포함됩니다.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 05/07/2017
 ms.author: v-brapel
-ms.openlocfilehash: 25d622772fe47ffad001834d476e612f8c606904
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 866d32aa4de45076fcbc4e413d8c2e67d5346878
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981661"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816242"
 ---
-# <a name="create-your-first-bing-custom-search-instance"></a>처음으로 Bing Custom Search 인스턴스 만들기
+# <a name="quickstart-create-your-first-bing-custom-search-instance"></a>빠른 시작: 첫 번째 Bing Custom Search 인스턴스 만들기
 Bing Custom Search를 사용하려면 웹 보기 또는 조각을 정의하는 사용자 지정 검색 인스턴스를 만들어야 합니다. 인스턴스에는 Bing에서 검색하려는 공용 도메인, 웹 사이트 및 웹 페이지를 지정하는 설정과 모든 순위 조정이 포함됩니다. 인스턴스를 만들려면 Bing Custom Search [포털](https://customsearch.ai)을 사용합니다. 
 
 ## <a name="create-a-custom-search-instance"></a>사용자 지정 검색 인스턴스 만들기

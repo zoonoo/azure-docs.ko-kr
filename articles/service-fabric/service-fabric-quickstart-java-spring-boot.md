@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 702d247bf331a4231b4b71ae6661ff88c9e0be2e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ea74d7893a55e37b5a198de17d71754b6f23a09e
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982769"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870063"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>빠른 시작: Service Fabric에 Java Spring Boot 응용 프로그램 배포
 
@@ -140,7 +140,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
 
-    Mac을 사용하는 경우 Docker 이미지에서 로컬 클러스터를 시작합니다([필수 조건](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-a-local-container-and-set-up-service-fabric)을 따라 Mac용 로컬 클러스터를 설정한 것으로 가정함). 
+    Mac을 사용하는 경우 Docker 이미지에서 로컬 클러스터를 시작합니다. 여기서는 [필수 조건](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-a-local-container-and-set-up-service-fabric)에 따라 Mac용 로컬 클러스터를 설정했다고 가정합니다. 
 
     ```bash
     docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 -p 8080:8080 mysfcluster

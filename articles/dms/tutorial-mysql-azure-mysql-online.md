@@ -3,20 +3,20 @@ title: Azure Database Migration Service를 사용하여 Azure Database for MySQL
 description: Azure Database Migration Service를 사용하여 온라인 마이그레이션을 MySQL 온-프레미스에서 Azure Database for MySQL로 수행하는 방법을 알아봅니다.
 services: dms
 author: HJToland3
-ms.author: jtoland
+ms.author: scphang
 manager: craigg
 ms.reviewer: ''
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/31/2018
-ms.openlocfilehash: c36a771266f595f6d8dc8575d100fa5bb9496584
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.date: 10/06/2018
+ms.openlocfilehash: 4825985253f5525314a496f2adbc40657231f5d5
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714934"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829854"
 ---
 # <a name="migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>DMS를 사용하여 Azure Database for MySQL로 온라인 MySQL 마이그레이션
 Azure Database Migration Service를 사용하여 가동 중지 시간을 최소화하면서 데이터베이스를 온-프레미스 MySQL 인스턴스에서 [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/)로 마이그레이션할 수 있습니다. 즉 응용 프로그램의 가동 중지 시간을 최소화하면서 마이그레이션을 수행할 수 있습니다. 이 자습서에서는 Azure Database Migration Service에서 온라인 마이그레이션 작업을 사용하여 **Employees** 샘플 데이터베이스를 MySQL 5.7의 온-프레미스 인스턴스에서 Azure Database for MySQL로 마이그레이션합니다.
@@ -50,13 +50,23 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 - Azure Database for MySQL은 InnoDB 테이블만 지원합니다. MyISAM 테이블을 InnoDB로 변환하려면 [MyISAM에서 InnoDB로 테이블 변환](https://dev.mysql.com/doc/refman/5.7/en/converting-tables-to-innodb.html) 문서를 참조하세요. 
 
 - 다음 구성을 사용하여 원본 데이터베이스의 my.ini(Windows) 또는 my.cnf(Unix) 파일에서 이진 로깅을 사용하도록 설정합니다.
+
+    - **server_id** = 1 이상(MySQL 5.6에만 해당)
+    - **log-bin** =<path>(MySQL 5.6에만 해당)
+
+        예: log-bin = E:\MySQL_logs\BinLog
+    - **binlog_format** = row
+    - **Expire_logs_days** = 5(0은 사용하지 않는 것이 좋음, MySQL 5.6에만 해당)
+    - **Binlog_row_image** = full(MySQL 5.6에만 해당)
+    - **log_slave_updates** = 1
+ 
 - 다음 권한이 있는 ReplicationAdmin 역할이 사용자에게 있어야 합니다.
     - **REPLICATION CLIENT** - 변경 처리 작업에만 필요합니다. 즉, 전체 로드 전용 작업에는 이 권한이 필요하지 않습니다.
     - **REPLICATION REPLICA** - 변경 처리 작업에만 필요합니다. 즉, 전체 로드 전용 작업에는 이 권한이 필요하지 않습니다.
     - **SUPER** - MySQL 5.6.6 이전 버전에서만 필요합니다.
 
 ## <a name="migrate-the-sample-schema"></a>샘플 스키마 마이그레이션
-테이블 스키마, 인덱스 및 저장 프로시저와 같은 모든 데이터베이스 개체를 완료하려면 원본 데이터베이스에서 스키마를 추출하고 데이터베이스에 적용해야 합니다. 스키마를 추출하려면 - - no-data 매개 변수와 함께 mysqldump를 사용할 수 있습니다.
+테이블 스키마, 인덱스 및 저장 프로시저와 같은 모든 데이터베이스 개체를 완료하려면 원본 데이터베이스에서 스키마를 추출하고 데이터베이스에 적용해야 합니다. 스키마를 추출하려면 `--no-data` 매개 변수가 있는 mysqldump를 사용할 수 있습니다.
  
 온-프레미스 시스템에 MySQL employees 샘플 데이터베이스가 있다고 가정하는 경우 mysqldump를 사용하여 스키마 마이그레이션을 수행하는 명령은 다음과 같습니다.
 ```

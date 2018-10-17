@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/25/2018
+ms.date: 10/2/2018
 ms.author: victorh
-ms.openlocfilehash: 919051a945d423a104b286e9c5703c5b749cf026
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 27221ac4b23f52dd6976a959e6e5529eb0cc89fa
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946462"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856074"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 하이브리드 네트워크에서 Azure Firewall 배포 및 구성
 
@@ -134,6 +134,28 @@ $VNetSpoke = New-AzureRmVirtualNetwork -Name $VnetNameSpoke -ResourceGroupName $
 -Location $Location1 -AddressPrefix $VNetSpokePrefix -Subnet $Spokesub,$GWsubSpoke
 ```
 
+## <a name="create-and-configure-the-onprem-vnet"></a>OnPrem VNet 만들기 및 구성
+
+VNet에 포함될 서브넷을 정의합니다.
+
+```azurepowershell
+$Onpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNNameOnprem -AddressPrefix $SNOnpremPrefix
+$GWOnpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNGWOnpremPrefix
+```
+
+이제 OnPrem VNet을 만듭니다.
+
+```azurepowershell
+$VNetOnprem = New-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1 `
+-Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
+```
+VNet용으로 만들 게이트웨이에 할당할 공용 IP 주소를 요청합니다. *AllocationMethod*가 **동적**인지 확인합니다. 사용할 IP 주소를 지정할 수는 없습니다. IP 주소는 게이트웨이에 동적으로 할당됩니다. 
+
+  ```azurepowershell
+  $gwOnprempip = New-AzureRmPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
+  -Location $Location1 -AllocationMethod Dynamic
+```
+
 ## <a name="configure-and-deploy-the-firewall"></a>방화벽 구성 및 배포
 
 이제 허브 VNet에 방화벽을 배포합니다.
@@ -154,11 +176,13 @@ $AzfwPrivateIP
 
 ### <a name="configure-network-rules"></a>네트워크 규칙 구성
 
+<!--- $Rule2 = New-AzureRmFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
+   -DestinationAddress $VNetSpokePrefix -DestinationPort *--->
+
 ```azurepowershell
 $Rule1 = New-AzureRmFirewallNetworkRule -Name "AllowWeb" -Protocol TCP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort 80
-$Rule2 = New-AzureRmFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
-   -DestinationAddress $VNetSpokePrefix -DestinationPort *
+
 $Rule3 = New-AzureRmFirewallNetworkRule -Name "AllowRDP" -Protocol TCP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort 3389
 
@@ -262,27 +286,7 @@ cmdlet이 완료되면 값을 봅니다. 다음 예제에서는 연결 상태가
 "egressBytesTransferred": 4142431
 ```
 
-## <a name="create-and-configure-the-onprem-vnet"></a>OnPrem VNet 만들기 및 구성
 
-VNet에 포함될 서브넷을 정의합니다.
-
-```azurepowershell
-$Onpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNNameOnprem -AddressPrefix $SNOnpremPrefix
-$GWOnpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNGWOnpremPrefix
-```
-
-이제 OnPrem VNet을 만듭니다.
-
-```azurepowershell
-$VNetOnprem = New-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1 `
--Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
-```
-VNet용으로 만들 게이트웨이에 할당할 공용 IP 주소를 요청합니다. *AllocationMethod*가 **동적**인지 확인합니다. 사용할 IP 주소를 지정할 수는 없습니다. IP 주소는 게이트웨이에 동적으로 할당됩니다. 
-
-  ```azurepowershell
-  $gwOnprempip = New-AzureRmPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
-  -Location $Location1 -AllocationMethod Dynamic
-```
 
 ## <a name="peer-the-hub-and-spoke-vnets"></a>허브 및 스포크 VNet 피어링
 
@@ -300,6 +304,9 @@ Add-AzureRmVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -Re
 다음으로 두 경로 만듭니다. 
 - 허브 게이트웨이 서브넷에서 방화벽 IP 주소를 통해 스포크 서브넷으로 가는 경로
 - 방화벽 IP 주소를 통해 스포크 서브넷으로부터의 기본 경로
+
+> [!NOTE]
+> Azure Firewall은 BGP를 사용하여 온-프레미스 네트워크를 학습합니다. 여기에는 온-프레미스 네트워크를 통해 인터넷 트래픽을 다시 라우팅하는 기본 경로가 포함될 수 있습니다. 대신, 인터넷 트래픽을 방화벽에서 인터넷으로 직접 보내려면 다음 홉 형식이 **인터넷**인 AzureFirewallSubnet에 사용자 정의 기본 경로(0.0.0.0/0)를 추가합니다. 온-프레미스 대상 트래픽은 BGP에서 학습된 더 구체적인 경로를 사용하여 VPN/ExpressRoute 게이트웨이를 통해 여전히 강제로 터널링됩니다.
 
 ```azurepowershell
 #Create a route table
@@ -397,8 +404,9 @@ Set-AzureRmVMExtension `
     -TypeHandlerVersion 1.4 `
     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server"}' `
     -Location $Location1
+```
 
-#Create a host firewall rule to allow ping in
+<!---#Create a host firewall rule to allow ping in
 Set-AzureRmVMExtension `
     -ResourceGroupName $RG1 `
     -ExtensionName IIS `
@@ -407,8 +415,8 @@ Set-AzureRmVMExtension `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.4 `
     -SettingString '{"commandToExecute":"powershell New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4"}' `
-    -Location $Location1
-```
+    -Location $Location1--->
+
 
 ### <a name="create-the-onprem-virtual-machine"></a>OnPrem 가상 머신 만들기
 원격 데스크톱을 사용하여 공용 IP 주소에 연결할 수 있는 간단한 가상 머신입니다. 여기에서 방화벽을 통해 OnPrem 서버에 연결할 수 있습니다. 메시지가 표시되면 가상 머신의 사용자 이름 및 암호를 입력합니다.
@@ -431,10 +439,10 @@ $NIC.IpConfigurations.privateipaddress
 ```
 
 1. Azure Portal에서 **VM-Onprem** 가상 머신에 연결합니다.
-2. **VM-Onprem**에서 Windows PowerShell 명령 프롬프트를 열고 **VM-spoke-01**의 개인 IP를 Ping합니다.
+<!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
-   응답을 얻게 됩니다.
-1. **VM-Onprem**에서 웹 브라우저를 열고 http://\<VM-spoke-01 private IP\>로 이동합니다.
+   You should get a reply.--->
+2. **VM-Onprem**에서 웹 브라우저를 열고 http://\<VM-spoke-01 private IP\>로 이동합니다.
 
    Internet Information Services 기본 페이지가 표시됩니다.
 
@@ -444,7 +452,7 @@ $NIC.IpConfigurations.privateipaddress
 
 이제 방화벽 규칙이 작동하는지 확인했습니다.
 
-- 스포크 VNet에 있는 서버를 Ping할 수 있습니다.
+<!---- You can ping the server on the spoke VNet.--->
 - 스포크 VNet에서 웹 서버를 탐색할 수 있습니다.
 - RDP를 사용하여 스포크 VNet에 있는 서버에 연결할 수 있습니다.
 

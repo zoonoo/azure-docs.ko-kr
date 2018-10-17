@@ -9,18 +9,18 @@ author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 1db13ee31ea826833d2b13f20b3b0a2be8ef4444
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: df1c19c0e16b9862b09dcc652ef2831e0c5bf3a5
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220871"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802358"
 ---
-# <a name="tutorial-train-a-classification-model-with-automated-machine-learning-in-azure-machine-learning"></a>자습서: Azure Machine Learning에서 자동화된 Machine Learning을 사용하여 분류 모델 학습
+# <a name="tutorial-train-a-classification-model-with-automated-machine-learning-in-azure-machine-learning-service"></a>자습서: Azure Machine Learning 서비스에서 자동화된 기계 학습을 사용하여 분류 모델 학습
 
-이 자습서에서는 자동화된 ML(자동화된 Machine Learning)을 사용하여 Machine Learning 모델을 생성하는 방법에 대해 알아봅니다.  Azure Machine Learning은 데이터 전처리, 알고리즘 선택 및 하이퍼 매개 변수 선택을 자동화된 방식으로 수행할 수 있습니다. [모델 배포](tutorial-deploy-models-with-aml.md) 자습서의 워크플로에 따라 최종 모델을 배포할 수 있습니다.
+이 자습서에서는 자동화된 ML(자동화된 Machine Learning)을 사용하여 Machine Learning 모델을 생성하는 방법에 대해 알아봅니다.  Azure Machine Learning 서비스는 데이터 전처리, 알고리즘 선택 및 하이퍼 매개 변수 선택을 자동화된 방식으로 수행할 수 있습니다. [모델 배포](tutorial-deploy-models-with-aml.md) 자습서의 워크플로에 따라 최종 모델을 배포할 수 있습니다.
 
-[ ![흐름 다이어그램](./media/tutorial-auto-train-models/flow2.png) ](./media/tutorial-auto-train-models/flow2.png#lightbox)
+![흐름 다이어그램](./media/tutorial-auto-train-models/flow2.png)
 
 [학습 모델 자습서](tutorial-train-models-with-aml.md)와 유사하게, 이 자습서는 [MNIST](http://yann.lecun.com/exdb/mnist/) 데이터 집합에서 숫자(0-9)의 필기 이미지를 분류합니다. 하지만 이번에는 알고리즘을 지정하거나 하이퍼 매개 변수를 조정하지 않습니다. 자동화된 ML 기술은 사용자의 기준을 기반으로 최상의 모델을 발견할 때까지 알고리즘과 하이퍼 매개 변수의 여러 조합을 반복합니다.
 
@@ -38,7 +38,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="get-the-notebook"></a>Notebook 가져오기
 
-편의를 위해 이 자습서를 Jupyter Notebook으로 사용할 수 있습니다. 다음 방법 중 하나를 사용하여 `tutorials/03.auto-train-models.ipynb` Notebook을 실행합니다.
+이 자습서는 사용자의 편의를 위해 [Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/03.auto-train-models.ipynb)으로 사용할 수 있습니다. Azure Notebooks 또는 사용자 고유의 Jupyter 노트북 서버에서 `03.auto-train-models.ipynb` 노트북을 실행합니다.
+
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -104,13 +105,9 @@ from sklearn import datasets
 
 digits = datasets.load_digits()
 
-# only take the first 100 rows if you want the training steps to run faster
-X_digits = digits.data[:100,:]
-y_digits = digits.target[:100]
-
-# use full dataset
-#X_digits = digits.data
-#y_digits = digits.target
+# Exclude the first 100 rows from training so that they can be used for test.
+X_train = digits.data[100:,:]
+y_train = digits.target[100:]
 ```
 
 ### <a name="display-some-sample-images"></a>일부 샘플 이미지 표시
@@ -121,13 +118,13 @@ y_digits = digits.target[:100]
 count = 0
 sample_size = 30
 plt.figure(figsize = (16, 6))
-for i in np.random.permutation(X_digits.shape[0])[:sample_size]:
+for i in np.random.permutation(X_train.shape[0])[:sample_size]:
     count = count + 1
     plt.subplot(1, sample_size, count)
     plt.axhline('')
     plt.axvline('')
-    plt.text(x = 2, y = -2, s = y_digits[i], fontsize = 18)
-    plt.imshow(X_digits[i].reshape(8, 8), cmap = plt.cm.Greys)
+    plt.text(x = 2, y = -2, s = y_train[i], fontsize = 18)
+    plt.imshow(X_train[i].reshape(8, 8), cmap = plt.cm.Greys)
 plt.show()
 ```
 이미지의 무작위 샘플이 다음과 같이 표시됩니다.
@@ -151,9 +148,9 @@ plt.show()
 |**primary_metric**|AUC 가중치 적용 | 최적화하려는 메트릭입니다.|
 |**max_time_sec**|12,000|각 반복에 대한 초 단위 시간 제한입니다.|
 |**iterations**|20|반복 횟수입니다. 각 반복에서 모델은 특정 파이프라인을 통해 데이터를 학습합니다.|
-|**n_cross_validations**|3|교차 유효성 검사 분할의 개수입니다.|
+|**n_cross_validations**|3|교차 유효성 검사 분할의 수입니다.|
 |**preprocess**|False| *True/False* 입력에 대한 전처리를 수행하도록 실험을 활성화합니다.  전처리는 *누락된 데이터*를 처리하고 몇 가지 공통 *기능 추출*을 수행합니다.|
-|**exit_score**|0.995|*primary_metric*에 대한 대상을 나타내는 *이중* 값입니다. 대상이 초과하면 실행이 종료됩니다.|
+|**exit_score**|0.9985|*primary_metric*에 대한 대상을 나타내는 *이중* 값입니다. 대상이 초과하면 실행이 종료됩니다.|
 |**blacklist_algos**|['kNN','LinearSVM']|무시할 알고리즘을 나타내는 *strings*의 *Array*입니다.
 |
 
@@ -167,10 +164,10 @@ Automl_config = AutoMLConfig(task = 'classification',
                              iterations = 20,
                              n_cross_validations = 3,
                              preprocess = False,
-                             exit_score = 0.995,
+                             exit_score = 0.9985,
                              blacklist_algos = ['kNN','LinearSVM'],
-                             X = X_digits,
-                             y = y_digits,
+                             X = X_train,
+                             y = y_train,
                              path=project_folder)
 ```
 
@@ -497,8 +494,10 @@ local_run.model_id # Use this id to deploy the model as a web service in Azure
 ```python
 # find 30 random samples from test set
 n = 30
-sample_indices = np.random.permutation(X_digits.shape[0])[0:n]
-test_samples = X_digits[sample_indices]
+X_test = digits.data[:100, :]
+y_test = digits.target[:100]
+sample_indices = np.random.permutation(X_test.shape[0])[0:n]
+test_samples = X_test[sample_indices]
 
 
 # predict using the  model
@@ -514,11 +513,11 @@ for s in sample_indices:
     plt.axvline('')
     
     # use different color for misclassified sample
-    font_color = 'red' if y_digits[s] != result[i] else 'black'
-    clr_map = plt.cm.gray if y_digits[s] != result[i] else plt.cm.Greys
+    font_color = 'red' if y_test[s] != result[i] else 'black'
+    clr_map = plt.cm.gray if y_test[s] != result[i] else plt.cm.Greys
     
     plt.text(x = 2, y = -2, s = result[i], fontsize = 18, color = font_color)
-    plt.imshow(X_digits[s].reshape(8, 8), cmap = clr_map)
+    plt.imshow(X_test[s].reshape(8, 8), cmap = clr_map)
     
     i = i + 1
 plt.show()
@@ -534,7 +533,7 @@ plt.show()
 
 ## <a name="next-steps"></a>다음 단계
 
-이 Azure Machine Learning 자습서에서는 Python을 사용하여 다음을 수행했습니다.
+이 Azure Machine Learning 서비스 자습서에서는 Python을 사용하여 다음을 수행했습니다.
 
 > [!div class="checklist"]
 > * 개발 환경 설정

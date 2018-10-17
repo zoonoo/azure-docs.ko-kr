@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: 7e556d3900d257410050e37b714d2005675e185d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 96c52beadb9424bda31726b2fa6da8b4c5b94fbf
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967713"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830143"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Azure CLI를 사용하여 VM 부하를 분산하는 내부 부하 분산 장치 만들기
 
@@ -89,7 +89,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ### <a name="create-the-load-balancer-rule"></a>부하 분산 장치 규칙 만들기
 
-부하 분산 장치 규칙은 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 받을 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create)를 사용하여 *myFrontEndPool* 프런트 엔드 풀에서 80 포트를 수신 대기하고, 마찬가지로 80 포트를 통해 *myBackEndPool* 백 엔드 주소 풀에 부하 분산된 네트워크 트래픽을 보내는 *myLoadBalancerRuleWeb* 부하 분산 장치 규칙을 만듭니다. 
+부하 분산 장치 규칙은 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 받을 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create)를 사용하여 *myFrontEnd* 프런트 엔드 풀의 80 포트에서 수신 대기하고, 마찬가지로 80 포트를 통해 부하 분산된 네트워크 트래픽을 *myBackEndPool* 백 엔드 주소 풀에 보내는 *myHTTPRule* 부하 분산 장치 규칙을 만듭니다. 
 
 ```azurecli-interactive
   az network lb rule create \

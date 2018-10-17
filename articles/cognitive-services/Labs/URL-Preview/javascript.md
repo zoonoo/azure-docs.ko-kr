@@ -1,21 +1,23 @@
 ---
-title: Project URL Preview에 대한 JavaScript 빠른 시작 - Microsoft Cognitive Services | Microsoft Docs
-description: Azure의 Microsoft Cognitive Services에서 Bing URL Preview API를 사용하여 빠르게 시작하기 위한 샘플 스크립트입니다.
+title: '빠른 시작: Project URL Preview, JavaScript'
+titlesuffix: Azure Cognitive Services
+description: JavaScript를 통해 Bing URL Preview API를 사용하여 빠르게 시작하는 스크립트 샘플입니다.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: dda6f7c105dfbadc3c22f0c008aa8759fe12fa03
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.author: rosh
+ms.openlocfilehash: b10e33a0947057c35bb6227cc43f92c4f0a56ceb
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301355"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869468"
 ---
-# <a name="url-preview-in-javascript"></a>JavaScript의 URL 미리 보기 
+# <a name="quickstart-url-preview-in-javascript"></a>빠른 시작: JavaScript에서 URL Preview 사용 
 
 다음 단일 페이지 응용 프로그램은 JavaScript를 사용하여 SwiftKey 사이트에 대한 URL 미리 보기를 만듭니다. https://swiftkey.com/en 
 

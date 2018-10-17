@@ -6,16 +6,16 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: language-understanding
-ms.topic: article
+ms.component: language-understanding
+ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 14956fd716a6939d5e7dd9d670cc78b58adf7f45
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f98d640f032fed5f91df8e9d4fb55d3f20550339
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042077"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883927"
 ---
 # <a name="integrate-speech-service"></a>Speech Service 통합
 [Speech Service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/)를 사용하면 단일 요청을 통해 오디오를 수신하고 LUIS 예측 JSON 개체를 반환할 수 있습니다. 이 문서에서는 C# 프로젝트를 다운로드한 후 Visual Studio에서 사용하여 마이크에 말을 하고 LUIS 예측 정보를 수신합니다. 이 프로젝트에서는 이미 참조로 포함되어 있는 Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) 패키지를 사용합니다. 
@@ -26,7 +26,7 @@ ms.locfileid: "47042077"
 Azure Portal에서 LUIS(**Language Understanding**) 키를 [만듭니다](luis-how-to-azure-subscription.md#create-luis-endpoint-key). 
 
 ## <a name="import-human-resources-luis-app"></a>Human Resources LUIS 앱 가져오기
-이 문서의 의도 및 발언은 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github 리포지토리에서 사용할 수 있는 Human Resources LUIS 앱에서 가져온 것입니다. [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) 파일을 다운로드하고 *.json 확장명으로 저장한 후 LUIS로 [가져옵니다](luis-how-to-start-new-app.md#import-new-app). 
+이 문서의 의도 및 발언은 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github 리포지토리에서 사용할 수 있는 Human Resources LUIS 앱에서 가져온 것입니다. [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json) 파일을 다운로드하고, `.json` 확장명으로 저장하고, LUIS로 [가져옵니다](luis-how-to-start-new-app.md#import-new-app). 
 
 이 앱에는 Human Resources 도메인과 관련된 의도, 엔터티 및 발언이 있습니다. 발언 예제는 다음과 같습니다.
 
@@ -68,57 +68,29 @@ Speech SDK는 이미 참조로 포함되어 있습니다.
 [![](./media/luis-tutorial-speech-to-intent/nuget-package.png "Microsoft.CognitiveServices.Speech NuGet 패키지를 표시하는 Visual Studio 2017 스크린샷")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>C# 코드 수정
-**LUIS_samples.cs** 파일을 열고 다음 변수를 변경합니다.
+`Program.cs` 파일을 열고 다음 변수를 변경합니다.
 
 |변수 이름|목적|
 |--|--|
-|luisSubscriptionKey|게시 페이지에서 엔드포인트 URL 등록 키 값에 해당합니다.|
-|luisRegion|엔드포인트 URL의 첫 번째 하위 도메인에 해당합니다.|
-|luisAppId|**app/** 다음의 엔드포인트 URL 경로에 해당합니다.|
+|LUIS_assigned_endpoint_key|[게시] 페이지에서 엔드포인트 URL의 할당된 구독 키 값에 해당합니다.|
+|LUIS_endpoint_key_region|엔드포인트 URL의 첫 번째 하위 도메인에 해당합니다(예: `westus`).|
+|LUIS_app_ID|**app/** 다음의 엔드포인트 URL 경로에 해당합니다.|
 
-[![](./media/luis-tutorial-speech-to-intent/change-variables.png "LUIS_samples.cs 변수를 표시하는 Visual Studio 2017 스크린샷")](./media/luis-tutorial-speech-to-intent/change-variables.png#lightbox)
-
-파일에는 이미 Human Resources 의도가 매핑되어 있습니다.
-
-[![](./media/luis-tutorial-speech-to-intent/intents.png "LUIS_samples.cs 의도를 표시하는 Visual Studio 2017 스크린샷")](./media/luis-tutorial-speech-to-intent/intents.png#lightbox)
+`Program.cs` 파일에는 이미 [인적 자원] 의도가 매핑되어 있습니다.
 
 앱을 빌드 및 실행합니다. 
 
 ## <a name="test-code-with-utterance"></a>발언을 사용하여 코드 테스트
-**1**을 선택하고 마이크에 대고 "Who is the manager of John Smith"라고 말합니다.
+마이크에 대고 "레드몬드에서 인가된 치과 의사는 누구인가요?"라고 말합니다.
 
-```cmd
-1. Speech recognition of LUIS intent.
-0. Stop.
-Your choice: 1
-LUIS...
-Say something...
-ResultId:cc83cebc9d6040d5956880bcdc5f5a98 Status:Recognized IntentId:<GetEmployeeOrgChart> Recognized text:<Who is the manager of John Smith?> Recognized Json:{"DisplayText":"Who is the manager of John Smith?","Duration":25700000,"Offset":9200000,"RecognitionStatus":"Success"}. LanguageUnderstandingJson:{
-  "query": "Who is the manager of John Smith?",
-  "topScoringIntent": {
-    "intent": "GetEmployeeOrgChart",
-    "score": 0.617331
-  },
-  "entities": [
-    {
-      "entity": "manager of john smith",
-      "type": "builtin.keyPhrase",
-      "startIndex": 11,
-      "endIndex": 31
-    }
-  ]
-}
+[!code-console[Command line response from spoken utterance](~/samples-luis/documentation-samples/tutorial-speech-intent-recognition/console-output.txt "Command line response from spoken utterance")]
 
-Recognition done. Your Choice:
-
-```
-
-올바른 의도 **GetEmployeeOrgChart**가 61% 신뢰도로 검색되었습니다. keyPhrase 엔터티가 반환되었습니다. 
+올바른 **GetEmployeeBenefits** 의도가 85%의 신뢰도로 검색되었습니다. keyPhrase 엔터티가 반환되었습니다. 
 
 Speech SDK가 전체 LUIS 응답을 반환합니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
-더 이상 필요하지 않은 경우 LUIS HumanResources 앱을 삭제합니다. 이렇게 하려면 앱 목록에서 앱 이름 오른쪽에 있는 줄임표(***...***) 단추를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
+더 이상 필요하지 않은 경우 LUIS HumanResources 앱을 삭제합니다. 이렇게 하려면 앱을 선택한 다음, 목록 위의 상황에 맞는 도구 모음에서 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
 
 샘플 코드 사용이 완료되면 LUIS-Samples 디렉터리를 삭제해야 합니다.
 

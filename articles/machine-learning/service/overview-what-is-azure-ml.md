@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 09/24/2018
-ms.openlocfilehash: 6e0294f99d1c2291e84bf2ac5d5b1f771222b551
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 660e5515b765e133d5bc9309be5439209b957353
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433415"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238521"
 ---
 # <a name="what-is-azure-machine-learning-service-preview"></a>Azure Machine Learning 서비스(미리 보기)란?
 
@@ -48,7 +48,7 @@ Azure Machine Learning 서비스를 사용하면 로컬 머신 학습을 시작�
 Azure Machine Learning 서비스는 모델을 자동으로 생성하여 사용자에 맞게 조정할 수 있습니다.
 예제는 [자습서: Azure 자동화된 Machine Learning을 사용하여 자동으로 분류 모델 학습시키기](tutorial-auto-train-models.md)를 참조하세요.
 
-또는 Python용 Azure Machine Learning <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>와 오픈 소스 Python 패키지를 함께 사용하여 Azure Machine Learning 작업 영역에서 매우 정확한 기계 학습 및 심층 학습 모델을 직접 빌드 및 교육할 수 있습니다.
+또는 Python용 Azure Machine Learning <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>와 오픈 소스 Python 패키지를 함께 사용하여 Azure Machine Learning 서비스 작업 영역에서 매우 정확한 기계 학습 및 딥 러닝 모델을 직접 빌드 및 교육할 수 있습니다.
 오픈 소스 Python 패키지에서 다음과 같이 다양한 기계 학습 구성 요소를 선택할 수 있습니다.
 
 - <a href="http://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
@@ -80,7 +80,7 @@ Python 환경에서 작업하거나, 기계 학습 알고리즘에 대한 제어
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Portal을 사용하여 시작하기](quickstart-get-started.md) 문서를 사용하여 기계 학습 작업 영역을 만듭니다.
+- [Azure Portal을 사용하여 시작](quickstart-get-started.md) 문서를 사용하여 기계 학습 작업 영역을 만듭니다.
  
 - 전체 자습서 [Azure Machine Learning으로 이미지 분류 모델 학습](tutorial-train-models-with-aml.md)의 단계에 따라 작업 영역을 사용하여 Azure Machine Learning 서비스로 모델을 빌드, 교육 및 배포하는 방법을 알아보세요.
 

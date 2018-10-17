@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 01/16/2018
+ms.date: 09/06/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b5431feec23e2e0681967a9fe0345edc1db567aa
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d22e5111a0413c1774d4d41290741414c82039f7
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31513829"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814834"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>빠른 시작: .NET API를 사용하여 첫 번째 Azure Batch 작업 실행
 
@@ -27,7 +27,7 @@ ms.locfileid: "31513829"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Visual Studio IDE](https://www.visualstudio.com/vs)(Visual Studio 2015 또는 최신 버전) 
+* Linux, macOS 또는 Windows의 경우 [Visual Studio 2017](https://www.visualstudio.com/vs) 또는 [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) 
 
 * Batch 계정 및 연결된 Azure Storage 계정. 이러한 계정을 만들려면 [Azure Portal](quick-create-portal.md) 또는 [Azure CLI](quick-create-cli.md)를 사용하는 Batch 빠른 시작을 참조하세요. 
 
@@ -60,9 +60,11 @@ private const string StorageAccountName = "mystorageaccount";
 private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ==";
 ```
 
+[!INCLUDE [batch-credentials-include](../../includes/batch-credentials-include.md)]
+
 ## <a name="build-and-run-the-app"></a>앱 빌드 및 실행
 
-작업에서 Batch 워크플로를 보려면 응용 프로그램을 빌드하고 실행합니다. 응용 프로그램이 실행되면 코드를 검토하여 응용 프로그램의 각 부분에서 수행하는 작업을 알아봅니다. 
+작동 중인 Batch 워크플로를 보려면 Visual Studio 또는 명령줄에서 `dotnet build` 및 `dotnet run` 명령을 사용하여 응용 프로그램을 빌드 및 실행합니다. 응용 프로그램이 실행되면 코드를 검토하여 응용 프로그램의 각 부분에서 수행하는 작업을 알아봅니다. 예를 들어 Visual Studio의 경우 다음과 같습니다.
 
 * [솔루션 탐색기]에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **솔루션 빌드**를 클릭합니다. 
 
@@ -122,9 +124,9 @@ CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 ```csharp
 List<string> inputFilePaths = new List<string>
 {
-    @"..\..\taskdata0.txt",
-    @"..\..\taskdata1.txt",
-    @"..\..\taskdata2.txt"
+    "taskdata0.txt",
+    "taskdata1.txt",
+    "taskdata2.txt"
 };
 
 List<ResourceFile> inputFiles = new List<ResourceFile>();
@@ -192,7 +194,7 @@ try
 
     job.Commit(); 
 }
-...       
+...
 ```
 
 ### <a name="create-tasks"></a>태스크 만들기

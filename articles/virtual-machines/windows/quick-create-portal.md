@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 692d8c0a1a427fa65a94d474f78792b1a071de46
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 2b9997fb1fe86d8ffdb67e74fc053773997fb113
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219722"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816483"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Windows 가상 머신 만들기
 
@@ -72,7 +72,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 2. 다운로드한 RDP 파일을 열고 메시지가 표시되면 **연결**을 클릭합니다. 
 
-3. **Windows 보안** 창에서 **추가 선택 사항** 및 **다른 계정 사용**을 차례로 선택합니다. 사용자 이름으로 *vmname*\\*username*을 입력하고, 가상 머신을 만들 때 설정한 암호를 입력한 다음, **확인**을 클릭합니다.
+3. **Windows 보안** 창에서 **추가 선택 사항** 및 **다른 계정 사용**을 차례로 선택합니다. 사용자 이름으로 **localhost**\\*username*을 입력하고, 가상 머신에 대해 만든 암호를 입력한 다음, **확인**을 클릭합니다.
 
 4. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. **예** 또는 **계속**을 클릭하여 연결을 만듭니다.
 

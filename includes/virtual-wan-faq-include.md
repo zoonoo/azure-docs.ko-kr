@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 09/10/2018
+ms.date: 10/05/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: de744a4a23b246223ed0f42f3d079b1ac2e5521a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 761b68ca99df8ae5b4d379b95e7d2a300f7e6238
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47008827"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48874115"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Azure 가상 네트워크 게이트웨이(VPN Gateway)와 Azure Virtual WAN vpngateway 간의 차이점은 무엇입니까?
 
@@ -21,7 +21,11 @@ Virtual WAN은 대규모 사이트 간 연결을 제공하며 처리량, 확장�
 
 ### <a name="which-device-providers-virtual-wan-partners-are-supported-at-launch-time"></a>장치 공급자(Virtual WAN 파트너)는 시작 시 지원되나요? 
 
-이 때 Citrix와 Riverbed는 완전히 자동화된 Virtual WAN 환경을 지원합니다. 자세한 내용은 [Virtual WAN 파트너](https://go.microsoft.com/fwlink/p/?linkid=2019615)를 참조하세요.
+현재 많은 파트너가 완전히 자동화된 Virtual WAN 환경을 지원합니다. 자세한 내용은 [Virtual WAN 파트너](https://go.microsoft.com/fwlink/p/?linkid=2019615)를 참조하세요. 
+
+### <a name="what-are-the-virtual-wan-partner-automation-steps"></a>Virtual WAN 파트너 자동화 단계란?
+
+자세한 내용은 [Virtual WAN 파트너 자동화](../articles/virtual-wan/virtual-wan-configure-automation-providers.md)를 참조하세요.
 
 ### <a name="am-i-required-to-use-a-preferred-partner-device"></a>원하는 파트너 장치를 사용해야 하나요?
 
@@ -41,7 +45,7 @@ Virtual WAN은 대규모 사이트 간 연결을 제공하며 처리량, 확장�
 
 ### <a name="how-many-vpn-devices-can-connect-to-a-single-hub"></a>단일 허브에 연결할 수 있는 VPN 장치의 수는 몇 개인가요?
 
-가상 허브당 최대 100개의 연결이 지원됩니다. 각 연결은 활성-활성 구성에 있는 두 개 터널로 구성됩니다. 터널은 Azure Virtual Hub vpngateway에서 종료합니다.
+가상 허브당 최대 1,000개의 연결이 지원됩니다. 각 연결은 활성-활성 구성에 있는 두 개 터널로 구성됩니다. 터널은 Azure Virtual Hub vpngateway에서 종료합니다.
 
 ### <a name="can-the-on-premises-vpn-device-connect-to-multiple-hubs"></a>온-프레미스 VPN 장치가 여러 허브에 연결할 수 있나요?
 
@@ -66,7 +70,6 @@ Virtual WAN은 대규모 사이트 간 연결을 제공하며 처리량, 확장�
 ### <a name="is-there-support-for-bgp"></a>BGP에 대한 지원이 있습니까?
 
 예, BGP가 지원됩니다. NVA VNet의 경로가 적절하게 보급되었는지 확인하려면 스포크(NVA VNet에 연결되어 있는 경우)가 BGP를 사용하지 않도록 설정해야 합니다. NVA VNet은 가상 허브에 연결됩니다. 또한 스포크 VNet 경로가 온-프레미스 시스템으로 전파되도록 스포크 VNet을 가상 허브에 연결합니다.
-가상 허브에서 UDR을 사용하여 트래픽을 보낼 수 있나요?
 
 ### <a name="can-i-direct-traffic-using-udr-in-the-virtual-hub"></a>가상 허브에서 UDR을 사용하여 트래픽을 보낼 수 있나요?
 
@@ -94,7 +97,7 @@ azurevirtualwan@microsoft.com에 전자 메일을 보냅니다. IKEv1 또는 IKE
 
 ### <a name="how-is-virtual-wan-different-from-the-existing-azure-virtual-network-gateway"></a>Virtual WAN은 기존 Azure Virtual Network 게이트웨이와 어떻게 다른가요?
 
-Virtual Network 게이트웨이 VPN은 터널 30개로 제한됩니다. 연결에는 대규모 VPN을 위한 Virtual WAN을 사용해야 합니다. 허브에서는 2Gbps 분기 연결을 100개까지 설정할 수 있습니다. 연결은 온-프레미스 VPN 장치에서 가상 허브로의 활성-활성 터널입니다. 지역당 허브 하나를 사용할 수 있으므로 허브 간에 100개가 넘는 분기를 연결할 수 있습니다.
+Virtual Network 게이트웨이 VPN은 터널 30개로 제한됩니다. 연결에는 대규모 VPN을 위한 Virtual WAN을 사용해야 합니다. 중서부 지역을 제외한 모든 지역의 허브에서 2Gbps의 최대 1,000개 분기 연결을 연결할 수 있습니다. 중서부 지역의 경우 20Gbps를 사용할 수 있습니다. 앞으로 추가 지역에는 20Gbps로 출시됩니다. 연결은 온-프레미스 VPN 장치에서 가상 허브로의 활성-활성 터널입니다. 지역당 하나의 허브만 있을 수 있습니다. 즉 허브에서 1,000개가 넘는 분기를 연결할 수 있습니다.
 
 ### <a name="does-this-virtual-wan-require-expressroute-from-each-site"></a>이 Virtual WAN은 각 사이트의 ExpressRoute가 필요한가요?
 
@@ -102,7 +105,7 @@ Virtual Network 게이트웨이 VPN은 터널 30개로 제한됩니다. 연결�
 
 ### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>Azure Virtual WAN을 사용하는 경우 네트워크 처리량 제한이 있나요?
 
-분기 수는 허브/지역당 연결 100개와 허브의 총 용량 2G로 제한됩니다.
+허브에서 분기 수는 허브/지역당 1,000개 연결, 속도는 총 2Gbps로 제한됩니다. 단, 미국 중서부 지역은 총 20Gbps입니다. 앞으로 다른 지역에는 20Gbps로 출시됩니다.
 
 ### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>Virtual WAN은 온-프레미스 장치가 여러 ISP를 병렬로 사용하는 것을 허용하나요 아니면 항상 단일 VPN 터널인가요?
 
@@ -110,7 +113,7 @@ Virtual Network 게이트웨이 VPN은 터널 30개로 제한됩니다. 연결�
 
 ### <a name="how-is-traffic-routed-on-the-azure-backbone"></a>Azure 백본에서 트래픽은 어떻게 라우팅되나요?
 
-트래픽은 분기 장치 ->ISP->Microsoft Edge->Microsoft DC->Microsoft edge->ISP->분기 장치 패턴을 따릅니다.
+트래픽은 분기 장치 -> ISP -> Microsoft Edge -> Microsoft DC -> Microsoft Edge -> ISP -> 분기 장치 패턴을 따릅니다.
 
 ### <a name="in-this-model-what-do-you-need-at-each-site-just-an-internet-connection"></a>이 모델은 각 사이트에서 무엇이 필요합니까? 인터넷 연결만 있으면 되나요?
 

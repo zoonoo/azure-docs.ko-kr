@@ -1,23 +1,23 @@
 ---
-title: Entity Search SDK Python 빠른 시작 | Microsoft Docs
-description: Entity Search SDK 콘솔 응용 프로그램을 설치합니다.
-titleSuffix: Azure Entity Search SDK Python quickstart
+title: '빠른 시작: Bing Entity Search SDK, Python'
+titlesuffix: Azure Cognitive Services
+description: Bing Entity Search SDK 콘솔 응용 프로그램을 설정합니다.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/15/2018
 ms.author: v-gedod
-ms.openlocfilehash: 95449fa3753291269e1a83d1431df3bf0cbe372f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 908373a216d0b14bb2dd41d3bb740b5582ac3ab1
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377895"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814239"
 ---
-# <a name="entity-search-sdk-python-quickstart"></a>Entity Search SDK Python 빠른 시작
+# <a name="quickstart-bing-entity-search-sdk-with-python"></a>빠른 시작: Python을 통해 Bing Entity Search SDK 설정
 
 Entity Search SDK는 웹 쿼리 및 구문 분석 결과에 대한 REST API 기능을 포함하고 있습니다.
 

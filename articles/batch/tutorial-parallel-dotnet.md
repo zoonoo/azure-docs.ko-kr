@@ -8,15 +8,15 @@ ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 01/23/2018
+ms.date: 09/07/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a9772ae9ac346daa205c146263a4632a641ee038
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 02b715ade9a9a537f6bd0e476ada299140bff4bb
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38722816"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815514"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>자습서: .NET API를 사용하여 Azure Batch에서 병렬 워크로드 실행
 
@@ -37,7 +37,7 @@ ms.locfileid: "38722816"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Visual Studio 2017](https://www.visualstudio.com/vs). 
+* Linux, macOS 또는 Windows의 경우 [Visual Studio 2017](https://www.visualstudio.com/vs) 또는 [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1)
 
 * Batch 계정 및 연결된 Azure Storage 계정. 이러한 계정을 만들려면 [Azure Portal](quick-create-portal.md) 또는 [Azure CLI](quick-create-cli.md)를 사용하는 Batch 빠른 시작을 참조하세요.
 
@@ -46,7 +46,6 @@ ms.locfileid: "38722816"
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
-
 
 ## <a name="add-an-application-package"></a>응용 프로그램 패키지 추가
 
@@ -85,13 +84,18 @@ private const string StorageAccountName = "mystorageaccount";
 private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ==";
 ```
 
+[!INCLUDE [batch-credentials-include](../../includes/batch-credentials-include.md)]
+
 또한 솔루션의 ffmpeg 응용 프로그램 패키지 참조가 Batch 계정에 업로드한 ffmpeg 패키지의 ID 및 버전과 일치하는지 확인하세요.
 
 ```csharp
 const string appPackageId = "ffmpeg";
 const string appPackageVersion = "3.4";
 ```
+
 ### <a name="build-and-run-the-sample-project"></a>샘플 프로젝트 빌드 및 실행
+
+Visual Studio 또는 명령줄에서 `dotnet build` 및 `dotnet run` 명령을 사용하여 응용 프로그램을 빌드 및 실행합니다. 응용 프로그램이 실행되면 코드를 검토하여 응용 프로그램의 각 부분에서 수행하는 작업을 알아봅니다. 예를 들어 Visual Studio의 경우 다음과 같습니다.
 
 * 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **솔루션 빌드**를 클릭합니다. 
 
@@ -134,7 +138,7 @@ Azure Portal에서 Batch 계정으로 가서 풀, 계산 노드, 작업 및 태�
 
 ## <a name="review-the-code"></a>코드 검토
 
-다음 섹션에서는 샘플 응용 프로그램을 Batch 서비스에서 워크로드를 처리하기 위해 수행하는 단계로 세분화합니다. 샘플에 있는 코드의 모든 줄이 설명되어 있지 않으므로 이 문서의 나머지 부분을 읽을 때 Visual Studio에서 공개 솔루션을 참조하세요.
+다음 섹션에서는 샘플 응용 프로그램을 Batch 서비스에서 워크로드를 처리하기 위해 수행하는 단계로 세분화합니다. 샘플의 코드 줄을 모두 설명하지는 않으므로 이 문서의 나머지 부분을 읽는 동안 솔루션의 `Program.cs` 파일을 참조하세요.
 
 ### <a name="authenticate-blob-and-batch-clients"></a>Blob 및 Batch 클라이언트 인증
 
@@ -143,7 +147,7 @@ Azure Portal에서 Batch 계정으로 가서 풀, 계산 노드, 작업 및 태�
 ```csharp
 // Construct the Storage account connection string
 string storageConnectionString = String.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
-StorageAccountName, StorageAccountKey);
+                                StorageAccountName, StorageAccountKey);
 
 // Retrieve the storage account
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
@@ -162,41 +166,43 @@ using (BatchClient batchClient = BatchClient.Open(sharedKeyCredentials))
 
 ### <a name="upload-input-files"></a>입력 파일 업로드
 
-이 앱은 `CreateContainerIfNotExist` 메서드에 `blobClient` 개체를 전달하여 입력 파일(MP4 형식)에 대한 저장소 컨테이너와 태스크 출력에 대한 컨테이너를 만듭니다.
+이 앱은 `CreateContainerIfNotExistAsync` 메서드에 `blobClient` 개체를 전달하여 입력 파일(MP4 형식)에 대한 저장소 컨테이너와 태스크 출력에 대한 컨테이너를 만듭니다.
 
 ```csharp
-  CreateContainerIfNotExist(blobClient, inputContainerName;
-  CreateContainerIfNotExist(blobClient, outputContainerName);
+CreateContainerIfNotExistAsync(blobClient, inputContainerName;
+CreateContainerIfNotExistAsync(blobClient, outputContainerName);
 ```
 
 그러면 파일이 로컬 `InputFiles` 폴더에서 입력 컨테이너로 업로드됩니다. 저장소의 파일은 Batch가 나중에 계산 노드에 다운로드할 수 있는 Batch [ResourceFile](/dotnet/api/microsoft.azure.batch.resourcefile) 개체로 정의됩니다. 
 
 `Program.cs`의 두 메서드는 파일 업로드에 관여합니다.
 
-* `UploadResourceFilesToContainer`: ResourceFile 개체의 컬렉션을 반환하고 내부적으로 `UploadResourceFileToContainer`을 호출하여 `filePaths` 매개 변수에 전달된 각 파일을 업로드합니다.
-* `UploadResourceFileToContainer`: 입력 컨테이너에 각 파일을 Blob으로 업로드합니다. 파일 업로드 후 Blob에 대한 SAS(공유 액세스 서명)을 가져오고 이를 나타내는 ResourceFile 개체를 반환합니다. 
+* `UploadResourceFilesToContainerAsync`: ResourceFile 개체의 컬렉션을 반환하고 내부적으로 `UploadResourceFileToContainerAsync`을 호출하여 `inputFilePaths` 매개 변수에 전달된 각 파일을 업로드합니다.
+* `UploadResourceFileToContainerAsync`: 입력 컨테이너에 각 파일을 Blob으로 업로드합니다. 파일 업로드 후 Blob에 대한 SAS(공유 액세스 서명)을 가져오고 이를 나타내는 ResourceFile 개체를 반환합니다. 
 
 ```csharp
-  List<string> inputFilePaths = new List<string>(Directory.GetFileSystemEntries(@"..\..\InputFiles", "*.mp4",
-      SearchOption.TopDirectoryOnly));
+string inputPath = Path.Combine(Environment.CurrentDirectory, "InputFiles");
 
-  List<ResourceFile> inputFiles = UploadResourceFilesToContainer(
-    blobClient,
-    inputContainerName,
-    inputFilePaths);
+List<string> inputFilePaths = new List<string>(Directory.GetFileSystemEntries(inputPath, "*.mp4",
+    SearchOption.TopDirectoryOnly));
+
+List<ResourceFile> inputFiles = await UploadResourceFilesToContainerAsync(
+  blobClient,
+  inputContainerName,
+  inputFilePaths);
 ```
 
-.NET을 사용하여 저장소 계정에 Blob으로 파일을 업로드하는 방법에 대한 자세한 내용은 [.NET을 사용하여 Azure Blob Storage 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md)을 참조하세요.
+.NET을 사용하여 파일을 Blob으로 저장소 계정에 업로드하는 방법에 대한 자세한 내용은 [.NET을 사용하여 Blob 업로드, 다운로드 및 나열](../storage/blobs/storage-quickstart-blobs-dotnet.md)을 참조하세요.
 
 ### <a name="create-a-pool-of-compute-nodes"></a>계산 노드 풀 만들기
 
-그런 다음, 샘플이 `CreatePoolIfNotExist`에 대한 호출을 통해 Batch 계정에 계산 노드의 풀을 만듭니다. 이 정의된 메서드는 [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) 메서드를 사용하여 노드 수, VM 크기 및 풀 구성을 설정합니다. 여기서 [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) 개체는 Azure Marketplace에 게시된 Windows Server 이미지에 대한 [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference)를 지정합니다. Batch는 Azure Marketplace의 광범위한 VM 이미지뿐만 아니라 사용자 지정 VM 이미지도 지원합니다.
+그런 다음, 샘플이 `CreatePoolIfNotExistAsync`에 대한 호출을 통해 Batch 계정에 계산 노드의 풀을 만듭니다. 이 정의된 메서드는 [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) 메서드를 사용하여 노드 수, VM 크기 및 풀 구성을 설정합니다. 여기서 [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) 개체는 Azure Marketplace에 게시된 Windows Server 이미지에 대한 [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference)를 지정합니다. Batch는 Azure Marketplace의 광범위한 VM 이미지뿐만 아니라 사용자 지정 VM 이미지도 지원합니다.
 
 노드 수 및 VM 크기는 정의된 상수를 사용하여 설정됩니다. Batch는 전용 노드와 [우선 순위가 낮은](batch-low-pri-vms.md) 노드를 지원하며, 풀에서 하나 또는 둘 다 사용할 수 있습니다. 전용 노드는 풀에 예약되어 있습니다. 우선 순위가 낮은 노드는 Azure의 잔여 VM 용량에서 할인된 가격으로 제공됩니다. Azure에 충분한 용량이 없으면 우선 순위가 낮은 노드는 사용할 수 없게 됩니다. 이 샘플은 기본적으로 *Standard_A1_v2* 크기의 우선 순위가 낮은 노드 5개만 포함된 풀을 만듭니다. 
 
 풀 구성에 [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference)를 추가하면 계산 노드에 ffmpeg 응용 프로그램이 배포됩니다. 
 
-[Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) 메서드는 풀을 Batch 서비스에 제출합니다.
+[CommitAsync](/dotnet/api/microsoft.azure.batch.cloudpool.commitasync) 메서드는 풀을 Batch 서비스에 제출합니다.
 
 ```csharp
 ImageReference imageReference = new ImageReference(
@@ -223,30 +229,30 @@ pool.ApplicationPackageReferences = new List<ApplicationPackageReference>
     ApplicationId = appPackageId,
     Version = appPackageVersion}};
 
-pool.Commit();  
+await pool.CommitAsync();  
 ```
 
 ### <a name="create-a-job"></a>작업 만들기
 
-Batch 작업은 태스크를 실행할 풀과 우선 순위 및 작업 일정과 같은 선택적 설정을 지정합니다. 이 샘플은 `CreateJobIfNotExist`를 호출하여 작업을 만듭니다. 이 정의된 메서드는 [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) 메서드를 사용하여 풀에 작업을 만듭니다. 
+Batch 작업은 태스크를 실행할 풀과 우선 순위 및 작업 일정과 같은 선택적 설정을 지정합니다. 이 샘플은 `CreateJobAsync`를 호출하여 작업을 만듭니다. 이 정의된 메서드는 [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) 메서드를 사용하여 풀에 작업을 만듭니다. 
 
-[Commit](/dotnet/api/microsoft.azure.batch.cloudjob.commit) 메서드는 Batch 서비스에 작업을 제출합니다. 처음에는 작업에 태스크가 없습니다.
+[CommitAsync](/dotnet/api/microsoft.azure.batch.cloudjob.commitasync) 메서드는 작업을 Batch 서비스에 제출합니다. 처음에는 작업에 태스크가 없습니다.
 
 ```csharp
 CloudJob job = batchClient.JobOperations.CreateJob();
-    job.Id = JobId;
-    job.PoolInformation = new PoolInformation { PoolId = PoolId };
+job.Id = JobId;
+job.PoolInformation = new PoolInformation { PoolId = PoolId };
 
-job.Commit();        
+await job.CommitAsync();
 ```
 
 ### <a name="create-tasks"></a>태스크 만들기
 
-이 샘플은 [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) 개체 목록을 만드는 `AddTasks` 메서드를 호출하여 작업에 태스크를 만듭니다. 각 `CloudTask`는 [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline) 속성을 사용하여 입력된 `ResourceFile` 개체를 처리하는 ffmpeg를 실행합니다. ffmpeg는 이전에 풀이 생성될 때 각 노드에 설치되었습니다. 여기서 명령줄은 fmpeg를 실행하여 입력된 각 MP4(비디오) 파일을 MP3(오디오) 파일로 변환합니다.
+이 샘플은 [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) 개체 목록을 만드는 `AddTasksAsync` 메서드를 호출하여 작업에 태스크를 만듭니다. 각 `CloudTask`는 [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline) 속성을 사용하여 입력된 `ResourceFile` 개체를 처리하는 ffmpeg를 실행합니다. ffmpeg는 이전에 풀이 생성될 때 각 노드에 설치되었습니다. 여기서 명령줄은 fmpeg를 실행하여 입력된 각 MP4(비디오) 파일을 MP3(오디오) 파일로 변환합니다.
 
 이 샘플에서는 명령줄을 실행한 후 MP3 파일에 대한 [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) 개체를 만듭니다. 각 태스크의 출력 파일(이 경우에는 하나)은 태스크의 [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) 속성을 사용하여 연결된 저장소 계정의 컨테이너에 업로드됩니다.
 
-그런 다음 이 샘플은 [AddTask](/dotnet/api/microsoft.azure.batch.joboperations.addtask) 메서드를 사용하여 작업에 태스크를 추가하고, 계산 노드 실행 대기열에 추가합니다. 
+그런 다음, 샘플에서는 [AddTaskAsync](/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync) 메서드를 사용하여 작업에 태스크를 추가하고, 해당 태스크를 계산 노드에서 실행할 때까지 큐에서 대기합니다. 
 
 ```csharp
 for (int i = 0; i < inputFiles.Count; i++)
@@ -264,7 +270,6 @@ for (int i = 0; i < inputFiles.Count; i++)
     // Create a cloud task (with the task ID and command line) 
     CloudTask task = new CloudTask(taskId, taskCommandLine);
     task.ResourceFiles = new List<ResourceFile> { inputFiles[i] };
-   
 
     // Task output file
     List<OutputFile> outputFileList = new List<OutputFile>();
@@ -278,7 +283,8 @@ for (int i = 0; i < inputFiles.Count; i++)
 }
 
 // Add tasks as a collection
-batchClient.JobOperations.AddTask(jobId, tasks);
+await batchClient.JobOperations.AddTaskAsync(jobId, tasks);
+return tasks
 ```
 
 ### <a name="monitor-tasks"></a>태스크 모니터링
@@ -291,23 +297,25 @@ Batch가 작업에 태스크를 추가하면 서비스가 연결된 풀의 계�
 TaskStateMonitor taskStateMonitor = batchClient.Utilities.CreateTaskStateMonitor();
 try
 {
-    batchClient.Utilities.CreateTaskStateMonitor().WaitAll(addedTasks, TaskState.Completed, timeout);
+    await taskStateMonitor.WhenAll(addedTasks, TaskState.Completed, timeout);
 }
 catch (TimeoutException)
 {
-    batchClient.JobOperations.TerminateJob(jobId, failureMessage);
-    Console.WriteLine(failureMessage);
+    batchClient.JobOperations.TerminateJob(jobId);
+    Console.WriteLine(incompleteMessage);
+    return false;
 }
-batchClient.JobOperations.TerminateJob(jobId, successMessage);
+batchClient.JobOperations.TerminateJob(jobId);
+ Console.WriteLine(completeMessage);
 ...
 
 ```
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-앱은 태스크를 실행한 후 생성된 입력 저장소 컨테이너를 자동으로 삭제하고 사용자에게 Batch 풀 및 작업을 삭제하는 옵션을 제공합니다. BatchClient의 [JobOperations](/dotnet/api/microsoft.azure.batch.batchclient.joboperations) 및 [PoolOperations](/dotnet/api/microsoft.azure.batch.batchclient.pooloperations) 클래스에는 해당하는 삭제 메서드가 있고 이는 삭제를 확인하는 경우 호출됩니다. 작업 및 태스크 자체에 대한 요금이 부과되지 않지만 계산 노드에 대한 요금이 청구됩니다. 따라서 풀을 필요할 때만 할당하는 것이 좋습니다. 풀을 삭제하면 노드의 모든 태스크 출력이 삭제됩니다. 그러나 입력 및 출력 파일은 저장소 계정에 남아 있습니다.
+앱은 태스크를 실행한 후 생성된 입력 저장소 컨테이너를 자동으로 삭제하고 사용자에게 Batch 풀 및 작업을 삭제하는 옵션을 제공합니다. BatchClient의 [JobOperations](/dotnet/api/microsoft.azure.batch.batchclient.joboperations) 및 [PoolOperations](/dotnet/api/microsoft.azure.batch.batchclient.pooloperations) 클래스에는 해당하는 삭제 메서드가 있고 이는 삭제를 확인하는 경우 호출됩니다. 작업 및 태스크 자체에 대한 요금이 부과되지 않지만 계산 노드에 대한 요금이 청구됩니다. 따라서 풀을 필요할 때만 할당하는 것이 좋습니다. 풀을 삭제하면 노드의 모든 태스크 출력이 삭제됩니다. 그러나 출력 파일은 저장소 계정에 남아 있습니다.
 
-더 이상 필요하지 않은 경우 리소스 그룹, Batch 계정 및 저장소 계정을 삭제합니다. Azure Portal에서 이렇게 하려면 배치 계정에 대한 리소스 그룹을 선택하고 **리소스 그룹 삭제**를 클릭합니다.
+더 이상 필요하지 않으면 리소스 그룹, 배치 계정 및 저장소 계정을 삭제합니다. Azure Portal에서 이렇게 하려면 배치 계정에 대한 리소스 그룹을 선택하고 **리소스 그룹 삭제**를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -325,4 +333,4 @@ batchClient.JobOperations.TerminateJob(jobId, successMessage);
 .NET API를 사용하여 Batch 워크로드를 예약하고 처리하는 방법에 대한 예를 더 보려면 GitHub의 샘플을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Batch C# 샘플](https://github.com/Azure/azure-batch-samples/tree/master/CSharp)
+> [Batch C# 샘플](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)

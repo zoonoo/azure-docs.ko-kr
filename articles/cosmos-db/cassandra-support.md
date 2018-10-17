@@ -9,12 +9,12 @@ ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 636b0d9ef42ad1e87d891329be7b7c11c4efcb4a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 06f2f81f5be496e2e55874c07a31fdf1c0a5d0f2
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220145"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868685"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API에서 지원하는 Apache Cassandra 기능 
 
@@ -106,11 +106,13 @@ Azure Cosmos DB Cassandra API는 관리되는 서비스 플랫폼입니다. 그�
 
 Apache Cassandra 3.1.1과 함께 제공되는 CQLSH 명령줄 유틸리티는 다음 환경 변수가 사용하도록 설정된 상태로 기본 작동합니다.
 
+다음 명령을 실행하기 전에 [cacerts 저장소에 Baltimore 루트 인증서를 추가](https://docs.microsoft.com/java/azure/java-sdk-add-certificate-ca-store?view=azure-java-stable#to-add-a-root-certificate-to-the-cacerts-store)합니다. 
+
 **Windows:** 
 
 ```bash
 set SSL_VERSION=TLSv1_2 
-SSL_CERTIFICATE=<path to balitmore root ca cert>
+SSL_CERTIFICATE=<path to Baltimore root ca cert>
 set CQLSH_PORT=10350 
 cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> –ssl 
 ```
@@ -118,7 +120,7 @@ cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NA
 
 ```bash
 export SSL_VERSION=TLSv1_2 
-SSL_CERTIFICATE=<path to balitmore root ca cert>
+SSL_CERTIFICATE=<path to Baltimore root ca cert>
 cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> –ssl 
 ```
 
@@ -127,24 +129,17 @@ cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NA
 Azure Cosmos DB는 Cassandra API 계정에서 다음 데이터베이스 명령을 지원합니다.
 
 * CREATE KEYSPACE 
-
 * CREATE TABLE 
-
 * ALTER TABLE 
-
 * USE 
-
 * INSERT 
-
 * SELECT 
-
 * UPDATE 
-
 * BATCH - 로깅되지 않는 명령만 지원됨 
-
 * 삭제
 
 CQLV4 호환 SDK를 통해 실행하는 모든 CRUD 작업에서는 오류, 사용한 요청 단위 및 활동 ID와 관련된 추가 정보가 반환됩니다. 프로비전된 리소스를 과도하게 사용하지 않으려면 리소스 거버넌스를 고려하여 삭제 및 업데이트 명령을 처리해야 합니다. 
+* 참고: gc_grace_seconds 값은 지정하는 경우 0이어야 합니다.
 
 ```csharp
 var tableInsertStatement = table.Insert(sampleEntity); 
@@ -165,6 +160,14 @@ Azure Cosmos DB Cassandra API에서는 읽기 작업을 일관되게 수행할�
 ## <a name="permission-and-role-management"></a>권한 및 역할 관리
 
 Azure Cosmos DB는 [Azure Portal](https://portal.azure.com을 통해 가져올 수 있는 RBAC(역할 기반 액세스 제어)와 읽기-쓰기 및 읽기 전용 암호/키를 지원합니다. 데이터 평면 활동을 위한 사용자와 역할은 아직 지원되지 않습니다. 
+
+## <a name="planned-support"></a>계획된 지원 
+* 타임스탬프와 TTL을 모두 사용합니다.  
+* create keyspace 명령의 지역 이름은 현재 무시됩니다. 데이터 배포는 기본 Cosmos DB 플랫폼에서 구현되고, 포털 또는 PowerShell을 통해 계정에 제공됩니다. 
+
+
+
+
 
 ## <a name="next-steps"></a>다음 단계
 

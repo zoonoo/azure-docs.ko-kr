@@ -1,25 +1,25 @@
 ---
-title: News Search API 빠른 시작 | Microsoft Docs
+title: '빠른 시작: Bing News Search API'
+titlesuffix: Azure Cognitive Services
 description: Bing News Search API 사용을 시작하는 방법을 보여 줍니다.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 9CF6EAF3-42D8-4321-983C-4AC3896E8E03
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: b3f2b36034ab33b4f5eec2d138103c3e4d8e21f4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bc3d2e43983791cf8f666660675a7dd537f04d77
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034334"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802528"
 ---
-# <a name="your-first-news-search-query"></a>첫 번째 뉴스 검색 쿼리
+# <a name="quickstart-your-first-news-search-query"></a>빠른 시작: 첫 번째 뉴스 검색 쿼리
 
-첫 번째 호출을 만들려면 Cognitive Services 구독 키가 필요합니다. 이 키를 얻는 방법은 [Cognitive Services 체험하기](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api)를 참조하세요.
+첫 번째 호출을 수행하기 전에 먼저 Cognitive Services 구독 키를 가져와야 합니다. 이 키를 얻는 방법은 [Cognitive Services 체험하기](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api)를 참조하세요.
 
 뉴스 전용 검색 결과를 가져오려면 다음 엔드포인트로 GET 요청을 보냅니다.
 

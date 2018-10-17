@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: a6e5e96757caeda267aa068db0868b1aa8ddb0fd
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: e208c8b52c14b99129bf3fce9ae54ba11f1c0a28
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220673"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584305"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure AD Graph API에 액세스
 
@@ -29,9 +29,9 @@ ms.locfileid: "47220673"
 
 > [!div class="checklist"]
 > * Azure에 연결
-> * Azure AD의 그룹에 VM ID를 추가 
+> * Azure AD에서 그룹에 VM ID 추가 
 > * Azure AD Graph에 대한 VM ID 액세스 권한 부여 
-> * VM ID를 사용하여 액세스 토큰을 가져와 Azure AD Graph를 호출하는 데 사용
+> * VM ID를 사용하여 액세스 토큰을 가져온 다음, Azure AD Graph를 호출하는 데 사용
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -45,11 +45,11 @@ ms.locfileid: "47220673"
 
 - [가상 머신에서 시스템 할당 관리 ID를 사용하도록 설정](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
-- Azure AD Graph에 VM ID 액세스 권한을 부여하려면 Azure AD의 **글로벌 관리자** 역할이 계정에 할당되어야 합니다.
+- Azure AD Graph에 대한 VM ID 액세스 권한을 부여하려면 Azure AD에서 **글로벌 관리자** 역할을 계정에 할당해야 합니다.
 
 ## <a name="connect-to-azure-ad"></a>Azure에 연결
 
-그룹에 VM을 할당하고 또한 해당 그룹 구성원 자격을 검색할 VM 사용 권한을 부여하려면 Azure AD에 연결해야 합니다.
+Azure AD에 연결하여 VM을 그룹에 할당하고 그룹 멤버 자격을 검색할 수 있는 권한을 VM에 부여해야 합니다.
 
 ```powershell
 Connect-AzureAD
@@ -67,13 +67,13 @@ Add-AzureADGroupMember -ObjectId $AzureADGroup.ObjectID -RefObjectId $ManagedIde
 ```
 ## <a name="grant-your-vm-access-to-the-azure-ad-graph-api"></a>Azure AD Graph API에 대한 VM 액세스 권한 부여
 
-Azure 리소스에 대한 관리 ID를 사용하면 코드에서 Azure AD 인증을 지원하는 리소스에 인증하기 위한 액세스 토큰을 가져올 수 있습니다. Microsoft Azure AD Graph API는 Azure AD 인증을 지원합니다. 이 단계에서는 그룹 구성원 자격을 쿼리할 수 있도록 Azure AD Graph에 VM ID의 서비스 주체 액세스 권한을 부여합니다. 서비스 주체에게는 **응용 프로그램 사용 권한**을 통해 Microsoft 또는 Azure AD Graph에 대한 액세스 권한이 부여됩니다. 부여해야 하는 응용 프로그램 사용 권한의 유형은 MS 또는 Azure AD Graph에서 액세스하려는 엔터티에 따라 달라집니다.
+Azure 리소스에 대한 관리 ID를 사용하면 코드에서 Azure AD 인증을 지원하는 리소스에 인증하기 위한 액세스 토큰을 가져올 수 있습니다. Microsoft Azure AD Graph API는 Azure AD 인증을 지원합니다. 이 단계에서는 Azure AD Graph에 대한 VM ID의 서비스 주체 액세스 권한을 부여하여 그룹 멤버 자격을 쿼리할 수 있습니다. 서비스 주체에게는 **응용 프로그램 권한**을 통해 Microsoft 또는 Azure AD Graph에 대한 액세스 권한이 부여됩니다. 부여해야 하는 응용 프로그램 권한의 유형은 MS 또는 Azure AD Graph에서 액세스하려는 엔터티에 따라 다릅니다.
 
-이 자습서에서는 ```Directory.Read.All``` 응용 프로그램 사용 권한을 사용하여 그룹 구성원 자격을 쿼리하는 기능을 사용자 VM ID에 부여합니다. 이 권한을 부여하려면 Azure AD의 글로벌 관리자 역할이 할당된 사용자 계정이 필요합니다. 일반적으로 Azure Portal에서 응용 프로그램 등록을 방문하여 사용 권한을 추가함으로써 응용 프로그램 사용 권한을 부여합니다. 그러나 Azure 리소스에 대한 관리 ID는 Azure AD에서 응용 프로그램 개체를 등록하지 않고, 서비스 주체만 등록합니다. 응용 프로그램 사용 권한을 등록하려면 Azure AD PowerShell 명령줄 도구를 사용합니다. 
+이 자습서에서는 ```Directory.Read.All``` 응용 프로그램 권한을 사용하여 그룹 멤버 자격을 쿼리할 수 있는 능력을 VM ID에 부여합니다. 이 권한을 부여하려면 Azure AD에서 글로벌 관리자 역할이 할당된 사용자 계정이 필요합니다. 일반적으로 Azure Portal에서 응용 프로그램의 등록으로 이동하고, 여기서 권한을 추가하여 응용 프로그램 권한을 부여합니다. 그러나 Azure 리소스에 대한 관리 ID는 Azure AD에서 응용 프로그램 개체를 등록하지 않고 서비스 주체만 등록합니다. 응용 프로그램 권한을 등록하려면 Azure AD PowerShell 명령줄 도구를 사용합니다. 
 
 Azure AD Graph:
-- 서비스 주체 appId(앱 사용 권한을 부여하는 경우에 사용): 00000002-0000-0000-c000-000000000000
-- 리소스 ID(Azure 리소스에 대한 관리 ID에서 액세스 토큰을 요청하는 경우에 사용): https://graph.windows.net
+- 서비스 주체 appId(앱 권한을 부여할 때 사용됨): 00000002-0000-0000-c000-000000000000
+- 리소스 ID(Azure 리소스에 대한 관리 ID에서 액세스 토큰을 요청할 때 사용됨): https://graph.windows.net
 - 사용 권한 범위 참조: [Azure AD Graph 사용 권한 참조](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
 
 ### <a name="grant-application-permissions-using-azure-ad-powershell"></a>Azure AD PowerShell을 사용하여 응용 프로그램 사용 권한 부여
@@ -136,7 +136,7 @@ Azure AD Graph:
    Remove-AzureADServiceAppRoleAssignment -AppRoleAssignmentId $ServiceAppRoleAssignment.ObjectId -ObjectId $ManagedIdentitiesServicePrincipal.ObjectId
    ```
  
-## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-ad-graph"></a>VM ID를 사용하여 액세스 토큰을 가져와 Azure AD Graph를 호출하는 데 사용 
+## <a name="get-an-access-token-using-the-vms-identity-to-call-azure-ad-graph"></a>VM ID를 사용하여 액세스 토큰을 가져와서 Azure AD Graph를 호출 
 
 Azure AD Graph의 인증을 위해 VM의 시스템 할당 관리 ID를 사용하려면 VM에서 요청해야 합니다.
 

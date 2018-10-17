@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 92b6327cbb97ed871cd4b10977bcd73a81494e20
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a469bc600715b2e276d6654596da50d75659aadb
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042128"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831027"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>자습서 5: 컨텍스트 관련 데이터 추출
 이 자습서에서는 컨텍스트를 기반으로 관련 데이터 조각을 찾습니다. 예를 들어 한 건물과 사무실에서 다른 건물과 사무실로 이사할 경우 출발지 및 목적지 위치는 서로 관련이 있습니다. 작업 순서를 생성하려면 두 데이터 조각이 모두 필요하며, 서로 관련이 있습니다.  
@@ -28,7 +28,7 @@ ms.locfileid: "47042128"
 * 발언의 컨텍스트에서 서로 관련되어 있습니다.
 * 특정 단어를 사용하여 각 위치를 나타냅니다. 이러한 단어의 예로 에서/(으)로, 떠나/~을(를) 향해, ~에서 꺼내/방향으로 등이 있습니다.
 * 두 위치 모두는 종종 동일한 발화에 있습니다. 
-* 클라이언트 앱에서 정보 단위로 그룹화하고 처리해야 합니다.
+* 클라이언트 앱에서 정보 단위로 그룹화하고 처리되어야 합니다.
 
 **이 자습서에서는 다음 방법에 대해 알아봅니다.**
 
@@ -61,7 +61,7 @@ ms.locfileid: "47042128"
 
 2. 왼쪽 메뉴에서 **엔터티**를 선택합니다.
 
-3. 목록에서 숫자 엔터티 오른쪽에 있는 줄임표(***...***) 단추를 선택합니다. **삭제**를 선택합니다. 
+3. 목록에서 숫자 엔터티의 왼쪽에 있는 확인란을 선택합니다. **삭제**를 선택합니다. 
 
 ## <a name="add-utterances-to-moveemployee-intent"></a>MoveEmployee 의도에 발언 추가
 

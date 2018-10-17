@@ -1,33 +1,35 @@
 ---
-title: Project URL Preview에 대한 Node.js 빠른 시작 - Microsoft Cognitive Services | Microsoft Docs
+title: '빠른 시작: Project URL Preview, Node.js'
+titlesuffix: Azure Cognitive Services
 description: Azure의 Microsoft Cognitive Services에서 URL Preview를 사용하여 시작합니다.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 195033d2740b11873baae095cec028dc8d19ce49
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: b8410127ed9a0444ab400eb3242868a85bd5b2c9
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376246"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883570"
 ---
-# <a name="url-preview-node-quickstart"></a>URL Preview Node 빠른 시작
+# <a name="quickstart-url-preview-with-nodejs"></a>빠른 시작: Node.js를 통해 URL Preview 사용 
 
 다음 Node 예제에서는 SwiftKey 웹 사이트(https://swiftkey.com/en)에 대한 URL 미리 보기를 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-[Cognitive Services Labs](https://aka.ms/answersearchsubscription) 체험 평가판에 대한 액세스 키 가져오기
+[Cognitive Services Labs](https://aka.ms/answersearchsubscription) 평가판에 대한 액세스 키 가져오기
 
 ## <a name="code-scenario"></a>코드 시나리오 
 
 다음 코드는 URL 미리 보기 데이터를 가져옵니다.
 다음 단계로 구현됩니다.
-1. 변수를 선언하여 호스트 및 경로별로 끝점을 지정합니다.
+1. 변수를 선언하여 호스트 및 경로별로 엔드포인트를 지정합니다.
 2. 미리 보기를 위한 쿼리 URL을 지정하고 쿼리 매개 변수를 추가합니다.  
 3. 응답에 대한 처리기 함수를 만듭니다.
 4. 요청을 만들고 *Ocp-Apim-Subscription-Key* 헤더를 추가하는 검색 기능을 정의합니다.

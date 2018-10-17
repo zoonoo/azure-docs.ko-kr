@@ -1,23 +1,23 @@
 ---
-title: Custom Search SDK C# 빠른 시작 | Microsoft Docs
-titleSuffix: Cognitive Services
+title: '빠른 시작: Custom Search SDK, C#'
+titleSuffix: Azure Cognitive Services
 description: Custom Search SDK C# 콘솔 응용 프로그램을 설치합니다.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/06/2018
 ms.author: scottwhi
-ms.openlocfilehash: 6c9917e3a63515f36b386e444edcc53de07799fc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5abf1027059bed9c685e0eb44f17ab41dfabf655
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949930"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816772"
 ---
-# <a name="c-sdk-quickstart"></a>C# SDK 빠른 시작
+# <a name="quickstart-using-the-bing-custom-search-sdk-with-c"></a>빠른 시작: C#을 통해 Bing Custom Search SDK 설정
 
 Bing Custom Search SDK는 Bing Custom Search REST API보다 쉬운 프로그래밍 모델을 제공합니다. 이 섹션에서는 C# SDK를 사용하여 첫 번째 사용자 지정 검색 호출을 만드는 방법을 안내합니다.
 

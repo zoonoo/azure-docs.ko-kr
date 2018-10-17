@@ -1,29 +1,28 @@
 ---
-title: Entities Search API 빠른 시작 | Microsoft Docs
-description: Bing Entities Search API 사용을 시작하는 방법을 보여줍니다.
+title: '빠른 시작: Bing Entity Search API'
+description: Bing Entity Search API를 사용하여 시작하는 방법을 보여 줍니다.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: B206A254-B7E9-49FF-AFD5-87B1E4D6D30B
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 07/06/2017
 ms.author: scottwhi
-ms.openlocfilehash: 12031d2447920c7e2d6180f35cf4fb29aa1b6150
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ffc9ebb21c6646b1a39af4659053adf4157d204b
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372927"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48813960"
 ---
-# <a name="making-your-first-entities-request"></a>첫 번째 엔터티 요청 만들기
+# <a name="quickstart-making-your-first-bing-entity-search-request"></a>빠른 시작: 첫 번째 Bing Entity Search 요청 만들기
 
-Entity Search API는 Bing에 검색 쿼리를 보내고 엔터티 및 장소가 포함된 결과를 가져옵니다. 장소 결과에는 식당, 호텔 또는 다른 현지 회사가 포함됩니다. 장소의 경우 쿼리에서 현지 회사의 이름을 지정하거나 목록을 요청할 수 있습니다(예: 근처의 식당). 엔터티 결과에는 사람, 장소 또는 사물이 포함됩니다. 이 컨텍스트의 장소는 관광 명소, 주, 국가 등입니다. 
+Bing Entity Search API는 Bing에 검색 쿼리를 보내고 엔터티 및 장소가 포함된 결과를 가져옵니다. 장소 결과에는 식당, 호텔 또는 다른 현지 회사가 포함됩니다. 장소의 경우 쿼리에서 현지 회사의 이름을 지정하거나 목록을 요청할 수 있습니다(예: 근처의 식당). 엔터티 결과에는 사람, 장소 또는 사물이 포함됩니다. 이 컨텍스트의 장소는 관광 명소, 주, 국가 등입니다. 
 
 ## <a name="first-steps"></a>첫 번째 단계
 
-첫 번째 호출을 만들려면 Cognitive Services 구독 키가 필요합니다. 키를 얻는 방법은 [Cognitive Services 체험하기](https://azure.microsoft.com/try/cognitive-services/?api=bing-entities-search-api)를 참조하세요. (맨 위에 Entities Search API가 보이지 않는 경우 **검색** 탭을 클릭하고 API가 보일 때까지 아래로 스크롤합니다.)
+첫 번째 호출을 수행하기 전에 먼저 Cognitive Services 구독 키를 가져와야 합니다. 키를 얻는 방법은 [Cognitive Services 체험하기](https://azure.microsoft.com/try/cognitive-services/?api=bing-entities-search-api)를 참조하세요. (맨 위에 Entities Search API가 보이지 않는 경우 **검색** 탭을 클릭하고 API가 보일 때까지 아래로 스크롤합니다.)
 
 ## <a name="the-endpoint"></a>엔드포인트
 
@@ -66,11 +65,11 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Bing API 중 하나를 처음으로 호출하는 경우 클라이언트 ID 헤더를 포함하지 마세요. 이전에 Bing API를 호출했고 Bing이 사용자 및 장치 조합에 대한 클라이언트 ID를 반환한 경우 클라이언트 ID만 포함하세요.
+Bing API 중 하나를 처음으로 호출하는 경우 클라이언트 ID 헤더를 포함하지 마세요. 전에 Bing API를 호출하고 Bing이 사용자 및 장치 조합에 대한 클라이언트 ID를 반환한 경우만 클라이언트 ID를 포함합니다.
 
 ## <a name="the-response"></a>응답
 
-다음은 이전 쿼리에 대한 응답을 보여줍니다. 또한 이 예제는 Bing 관련 응답 헤더를 보여줍니다. 응답 개체에 대한 정보는 [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse)를 참조하세요.
+다음은 이전 쿼리에 대한 응답을 보여 줍니다. 또한 이 예제는 Bing 관련 응답 헤더를 보여줍니다. 응답 개체에 대한 정보는 [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse)를 참조하세요.
 
 ```
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC

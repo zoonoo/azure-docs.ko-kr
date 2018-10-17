@@ -1,20 +1,21 @@
 ---
-title: Azure Cognitive Services, Bing News Search API에 대한 Java 빠른 시작 | Microsoft Docs
-description: Azure의 Microsoft Cognitive Services에서 Bing News Search API를 사용하여 신속하게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
+title: '빠른 시작: Bing News Search API, Java'
+titlesuffix: Azure Cognitive Services
+description: Azure의 Microsoft Cognitive Services에서 Bing News Search API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 확인합니다.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 15d0f6490a517466036d3caba1058cfefa551321
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f7011ceb51d4fb4a5a92c6aeb56a0c26e7d86388
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377375"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803633"
 ---
 # <a name="quickstart-for-bing-news-search-api-with-java"></a>Bing News Search API 및 Java에 대한 빠른 시작
 
@@ -28,14 +29,14 @@ API에 대한 기술 정보는 [API 참조](https://docs.microsoft.com/rest/api/
 
 **Bing Search API**를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)이면 충분합니다. 평가판을 활성화할 때 제공된 액세스 키가 필요하며, Azure 대시보드에서 유료 구독 키를 사용해도 됩니다.
 
-## <a name="bing-news-search"></a>Bing News search
+## <a name="bing-news-search"></a>Bing News Search
 
 [Bing News Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference)는 Bing 검색 엔진의 뉴스 결과를 반환합니다.
 
 1. [gson 라이브러리](https://github.com/google/gson)를 다운로드하거나 설치합니다.
 2. 즐겨 찾는 IDE 또는 편집기에서 새 Java 프로젝트를 만듭니다.
 3. 아래 제공된 코드를 추가합니다.
-4. `subscriptionKey` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+4. `subscriptionKey` 값을 구독에 유효한 액세스 키로 바꿉니다.
 5. 프로그램을 실행합니다.
 
 ```java
@@ -148,7 +149,7 @@ class SearchResults{
 
 **응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다.
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다.
 
 ```json
 {

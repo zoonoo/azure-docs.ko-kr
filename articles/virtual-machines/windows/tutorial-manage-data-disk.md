@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Azure PowerShell을 사용하여 Azure 디스크 관리 | Microsoft Docs
-description: 이 자습서에서는 Azure PowerShell은 사용하여 가상 머신을 위한 Azure 디스크를 만들고 관리하는 방법을 알아봅니다.
+description: 이 자습서에서는 Azure PowerShell은 사용하여 가상 머신용 Azure 디스크를 만들고 관리하는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 67e95ea4b816e1c21b5a43233360c7fa89f43a7a
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 94c36316f201abb7b86d56547551c4baefbcc031
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929307"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867836"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>자습서- Azure PowerShell을 사용하여 Azure 디스크 관리
 

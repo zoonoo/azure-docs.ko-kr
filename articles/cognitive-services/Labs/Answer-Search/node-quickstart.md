@@ -1,27 +1,28 @@
 ---
-title: Microsoft Cognitive Services, Project Answer Search에 대한 Node 빠른 시작 | Microsoft Docs
-description: Azure의 Microsoft Cognitive Services인 Project Answer Search 사용을 시작합니다.
+title: '빠른 시작: Project Answer Search, Node'
+description: Node를 통해 Project Answer Search를 사용하여 시작합니다.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 36b2709d39230aae7929164ba4c9306f57043b43
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 99dba482c9dec4448110301201c7c9e79a7a6380
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376191"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867428"
 ---
-# <a name="project-answer-search-node-quickstart"></a>Project Answer Search Node 빠른 시작
+# <a name="quickstart-project-answer-search-with-node"></a>빠른 시작: Node를 통해 Project Answer Search 사용
 
 다음 Node 예제에서는 요세미티 국립 공원에 대한 정보 쿼리를 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-[Cognitive Services Labs](https://aka.ms/answersearchsubscription) 체험 평가판에 대한 액세스 키 가져오기
+[Cognitive Services Labs](https://aka.ms/answersearchsubscription) 평가판에 대한 액세스 키 가져오기
 
 이 예제에서는 Node v8.9.4를 사용합니다.
 
@@ -29,7 +30,7 @@ ms.locfileid: "35376191"
 
 다음 코드는 답변을 가져옵니다.
 다음 단계로 구현됩니다.
-1. 변수를 선언하여 호스트 및 경로별로 끝점을 지정합니다.
+1. 변수를 선언하여 호스트 및 경로별로 엔드포인트를 지정합니다.
 2. 미리 보기를 위한 쿼리 URL을 지정하고 쿼리 매개 변수를 추가합니다.  
 3. 응답에 대한 처리기 함수를 만듭니다.
 4. 요청을 만들고 *Ocp-Apim-Subscription-Key* 헤더를 추가하는 검색 기능을 정의합니다.

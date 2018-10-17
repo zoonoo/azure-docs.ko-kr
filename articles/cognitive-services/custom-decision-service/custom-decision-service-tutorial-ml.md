@@ -1,21 +1,23 @@
 ---
-title: Machine Learning - Azure Cognitive Services | Microsoft Docs
-description: 상황에 맞는 결정을 위한 클라우드 기반 API인 Azure Custom Decision Service의 Machine Learning에 대한 자습서입니다.
+title: '자습서: 기능 개발 및 기능 사양 - Custom Decision Service'
+titlesuffix: Azure Cognitive Services
+description: Custom Decision Service의 기계 학습 기능 개발 및 기능 사양에 대한 자습서입니다.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: tutorial
 ms.date: 05/08/2018
-ms.author: slivkins;marcozo;alekh
-ms.openlocfilehash: 50814d67ee39c6657954610358462d877843416e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: slivkins
+ms.openlocfilehash: 1e5d012706d1de5a201eecb8ad805b4d6faaf411
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377023"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869593"
 ---
-# <a name="machine-learning"></a>Machine Learning
+# <a name="tutorial-featurization-and-feature-specification"></a>자습서: 기능 개발 및 기능 사양
 
 이 자습서에서는 Custom Decision Service의 고급 Machine Learning 기능에 대해 설명합니다. 자습서는 [기능 개발](#featurization-concepts-and-implementation) 및 [기능 사양](#feature-specification-format-and-apis)의 두 부분으로 구성되어 있습니다. 기능 개발은 Machine Learning을 위한 “기능”으로 데이터를 나타내는 것을 가리킵니다. 기능 사양은 기능을 지정하는 데 필요한 보조 API 및 JSON 형식을 다룹니다.
 
@@ -158,7 +160,7 @@ X 기능과 Y 기능 간의 상호 작용을 고려하려면 값이 X\*Y인 *정
 
 #### <a name="feature-set-api"></a>기능 집합 API
 
-기능 집합 API는 앞에서 설명한 JSON 형식으로 기능 목록을 반환합니다. 여러 개의 기능 집합 API 끝점을 사용할 수 있습니다. 각 끝점은 기능 집합 ID와 URL로 식별됩니다. 기능 집합 ID와 URL 간의 매핑은 포털에서 설정됩니다.
+기능 집합 API는 앞에서 설명한 JSON 형식으로 기능 목록을 반환합니다. 여러 개의 기능 집합 API 엔드포인트를 사용할 수 있습니다. 각 엔드포인트는 기능 집합 ID와 URL로 식별됩니다. 기능 집합 ID와 URL 간의 매핑은 포털에서 설정됩니다.
 
 JSON에서 적절한 위치에 해당 기능 집합 ID를 삽입하여 기능 집합 API를 호출합니다. 작업 종속 기능의 경우 작업 ID를 통해 호출이 자동으로 매개 변수화됩니다. 동일한 작업에 대해 여러 개의 기능 집합 ID를 지정할 수 있습니다.
 
@@ -170,6 +172,6 @@ JSON에서 적절한 위치에 해당 기능 집합 ID를 삽입하여 기능 �
 
 순위 API에는 HTTP POST 호출을 사용하는 버전이 있습니다. 이 호출의 본문은 유연한 JSON 구문을 통해 작업과 기능을 지정합니다.
 
-작업은 명시적으로 및/또는 작업 집합 API를 통해 지정할 수 있습니다. 작업 집합 ID가 발견될 때마다 해당 작업 집합 API 끝점에 대한 호출이 실행됩니다.
+작업은 명시적으로 및/또는 작업 집합 API를 통해 지정할 수 있습니다. 작업 집합 ID가 발견될 때마다 해당 작업 집합 API 엔드포인트에 대한 호출이 실행됩니다.
 
 작업 집합 API의 경우 명시적으로 및/또는 기능 집합 API를 통해 기능을 지정할 수 있습니다. 공유 기능은 모든 작업에 대해 한 번 지정할 수 있습니다.

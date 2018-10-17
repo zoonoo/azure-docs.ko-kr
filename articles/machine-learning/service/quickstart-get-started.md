@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: 기계 학습 작업 영역 만들기 - Azure'
-description: Azure Portal을 사용하여 Azure Machine Learning 작업 영역을 만듭니다. 이 작업 영역은 Azure Machine Learning 서비스로 기계 학습 모델을 실험하고, 교육하고, 배포하는 데 사용되는 클라우드의 기본 요소입니다.
+title: '빠른 시작: Azure Portal에서 기계 학습 서비스 작업 영역 만들기 - Azure Machine Learning'
+description: Azure Portal을 사용하여 Azure Machine Learning 서비스 작업 영역을 만듭니다. 이 작업 영역은 Azure Machine Learning 서비스로 기계 학습 모델을 실험하고, 교육하고, 배포하는 데 사용되는 클라우드의 기본 요소입니다.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,16 +9,16 @@ ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
 ms.date: 09/24/2018
-ms.openlocfilehash: c1610291e06255e2c724268f63d740f7e4debea4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b6f0201a36a676e7647b9f5e60bc2df3415b9594
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959991"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831333"
 ---
-# <a name="quickstart-get-started-with-azure-machine-learning-service"></a>빠른 시작: Azure Machine Learning 서비스 시작
+# <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning-service"></a>빠른 시작: Azure Portal을 사용하여 Azure Machine Learning 서비스 시작
 
-이 빠른 시작에서는 Azure Portal을 사용하여 Azure Machine Learning 작업 영역을 만듭니다. 이 작업 영역은 Azure Machine Learning 서비스로 기계 학습 모델을 실험하고, 교육하고, 배포하는 데 사용되는 클라우드의 기본 요소입니다. 
+이 빠른 시작에서는 Azure Portal을 사용하여 Azure Machine Learning 서비스 작업 영역을 만듭니다. 이 작업 영역은 Azure Machine Learning 서비스로 기계 학습 모델을 실험하고, 교육하고, 배포하는 데 사용되는 클라우드의 기본 요소입니다. 
 
 이 자습서에서는 다음을 수행합니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "46959991"
 
 편의상 해당 지역에서 사용 가능한 경우 [Container Registry](https://azure.microsoft.com/services/container-registry/), [Storage](https://azure.microsoft.com/services/storage/), [Application Insights](https://azure.microsoft.com/services/application-insights/) 및 [Key Vault](https://azure.microsoft.com/services/key-vault/) Azure 리소스는 사용자 작업 영역에 자동으로 추가됩니다.
 
-사용자가 만드는 리소스는 다른 Azure Machine Learning 자습서 및 방법 문서의 필수 구성 요소로 사용할 수 있습니다. 다른 Azure 서비스와 마찬가지로, Azure Machine Learning 서비스와 관련하여 특정 리소스에 대한 제한(예: BatchAI 클러스터 크기)이 있습니다. 기본 제한 및 추가 할당량을 요청하는 방법에 대한 [이 문서](how-to-manage-quotas.md)를 읽어 보세요.
+사용자가 만든 리소스는 다른 Azure Machine Learning 서비스 자습서 및 방법 문서의 필수 구성 요소로 사용할 수 있습니다. 다른 Azure 서비스와 마찬가지로, Azure Machine Learning 서비스와 관련하여 특정 리소스에 대한 제한(예: BatchAI 클러스터 크기)이 있습니다. 기본 제한 및 추가 할당량을 요청하는 방법에 대한 [이 문서](how-to-manage-quotas.md)를 읽어 보세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-작업 영역 페이지에서 `Explore your Azure Machine Learning Workspace`를 클릭합니다.
+작업 영역 페이지에서 `Explore your Azure Machine Learning service workspace`를 클릭합니다.
 
  ![작업 영역 탐색](./media/quickstart-get-started/explore_aml.png)
 
@@ -69,9 +69,9 @@ Azure Notebooks는 Jupyter Notebooks를 위한 무료 클라우드 플랫폼을 
 
 `01.run-experiment.ipynb`를 클릭하여 노트북을 엽니다.
 
-`Shift`+`Enter`를 사용하여 셀을 한 번에 하나씩 실행할 수 있습니다.  또는 `Cells` > `Run All` 메뉴를 사용하여 전체 노트북을 실행할 수 있습니다.
+`Shift`+`Enter`를 사용하여 셀을 한 번에 하나씩 실행할 수 있습니다.  또는 `Cells` > `Run All` 메뉴를 사용하여 전체 노트북을 실행할 수 있습니다.  셀 옆에 [*]가 표시되면 해당 셀이 실행되고 있는 것입니다.  해당 셀에 대한 코드가 완료되면 숫자가 표시됩니다.
 
-로그인하라는 메시지가 표시됩니다.  메시지의 코드를 복사한 후 링크를 클릭하고 코드를 새 창에 붙여 넣습니다.  코드 앞뒤에 있는 공백을 복사하지 않아야 합니다.
+로그인하라는 메시지가 표시될 수 있습니다.  메시지의 코드를 복사한 후 링크를 클릭하고 코드를 새 창에 붙여 넣습니다.  코드 앞뒤에 있는 공백을 복사하지 않아야 합니다.  Azure Portal에서 사용한 것과 동일한 계정으로 로그인합니다.
 
  ![로그인](./media/quickstart-get-started/login.png)
 

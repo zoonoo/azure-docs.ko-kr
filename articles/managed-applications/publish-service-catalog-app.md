@@ -3,21 +3,20 @@ title: Azure 서비스 카탈로그 관리되는 응용 프로그램 만들기 �
 description: 조직의 구성원을 위한 Azure 관리되는 응용 프로그램을 만드는 방법이 나와 있습니다.
 services: managed-applications
 author: tfitzmac
-manager: timlt
 ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 06/08/2018
+ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3b1da6e9068be3c96cce5973f29344fe7e4b4872
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: a2e6e78268f97136533b4f72ce28373642b6c394
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095843"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801270"
 ---
-# <a name="publish-a-managed-application-for-internal-consumption"></a>내부 사용을 위한 관리되는 응용 프로그램 게시
+# <a name="create-and-publish-a-managed-application-definition"></a>관리되는 응용 프로그램 정의 만들기 및 게시
 
 조직의 구성원을 위한 Azure [관리되는 응용 프로그램](overview.md)을 만들고 게시할 수 있습니다. 예를 들어 IT 부서에서는 조직 표준을 충족하는 관리되는 응용 프로그램을 게시할 수 있습니다. 이러한 관리되는 응용 프로그램은 Azure Marketplace가 아닌 서비스 카탈로그를 통해 사용할 수 있습니다.
 
@@ -215,80 +214,7 @@ New-AzureRmManagedApplicationDefinition `
 
 사용자가 관리되는 응용 프로그램 정의에 액세스할 수 있지만 조직의 다른 사용자도 액세스할 수 있는 것이 좋습니다. 정의에서 최소한 읽기 역할을 부여합니다. 구독 또는 리소스 그룹에서 이 수준의 액세스를 상속받을 수 있습니다. 정의에 대한 액세스 권한이 있고 사용자나 그룹을 추가하려면 [역할 기반 액세스 제어를 사용하여 Azure 구독 리소스에 대한 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
-## <a name="create-the-managed-application"></a>관리되는 응용 프로그램 만들기
-
-포털, PowerShell 또는 Azure CLI를 통해 관리되는 응용 프로그램을 배포할 수 있습니다.
-
-### <a name="powershell"></a>PowerShell
-
-먼저 PowerShell을 사용하여 관리되는 응용 프로그램을 배포합니다.
-
-```powershell
-# Create resource group
-New-AzureRmResourceGroup -Name applicationGroup -Location westcentralus
-
-# Get ID of managed application definition
-$appid=(Get-AzureRmManagedApplicationDefinition -ResourceGroupName appDefinitionGroup -Name ManagedStorage).ManagedApplicationDefinitionId
-
-# Create the managed application
-New-AzureRmManagedApplication `
-  -Name storageApp `
-  -Location westcentralus `
-  -Kind ServiceCatalog `
-  -ResourceGroupName applicationGroup `
-  -ManagedApplicationDefinitionId $appid `
-  -ManagedResourceGroupName "InfrastructureGroup" `
-  -Parameter "{`"storageAccountNamePrefix`": {`"value`": `"demostorage`"}, `"storageAccountType`": {`"value`": `"Standard_LRS`"}}"
-```
-
-이제 관리되는 응용 프로그램 및 관리되는 인프라가 구독에 존재합니다.
-
-### <a name="portal"></a>포털
-
-이제 포털을 사용하여 관리되는 응용 프로그램을 배포합니다. 패키지에서 만든 사용자 인터페이스를 확인합니다.
-
-1. Azure Portal로 이동합니다. **+ 리소스 만들기**를 선택하고 **서비스 카탈로그**를 검색합니다.
-
-   ![Search 서비스 카탈로그](./media/publish-service-catalog-app/create-new.png)
-
-1. **서비스 카탈로그 관리되는 응용 프로그램**을 선택합니다.
-
-   ![서비스 카탈로그 선택](./media/publish-service-catalog-app/select-service-catalog-managed-app.png)
-
-1. **만들기**를 선택합니다.
-
-   ![만들기 선택](./media/publish-service-catalog-app/select-create.png)
-
-1. 사용 가능한 솔루션의 목록에서 만들려는 관리되는 응용 프로그램을 찾아 선택합니다. **만들기**를 선택합니다.
-
-   ![관리되는 응용 프로그램 찾기](./media/publish-service-catalog-app/find-application.png)
-
-   포털을 통해 관리되는 응용 프로그램 정의를 볼 수 없는 경우 포털 설정을 변경해야 합니다. **디렉터리 및 구독 필터**를 선택합니다.
-
-   ![구독 필터 선택](./media/publish-service-catalog-app/select-filter.png)
-
-   관리되는 응용 프로그램 정의를 포함하는 구독이 전역 구독 필터에 포함되어 있는지 확인합니다.
-
-   ![구독 필터 확인](./media/publish-service-catalog-app/check-global-filter.png)
-
-   구독을 선택한 후에 서비스 카탈로그 관리 응용 프로그램을 만드는 것부터 다시 시작합니다. 이제 표시되어야 합니다.
-
-1. 관리되는 응용 프로그램에 필요한 기본 정보를 제공합니다. 관리되는 응용 프로그램을 포함할 구독 및 새 리소스 그룹을 지정합니다. 위치에 **미국 중서부**를 선택합니다. 완료되면 **확인**을 선택합니다.
-
-   ![관리되는 응용 프로그램 매개 변수 제공](./media/publish-service-catalog-app/add-basics.png)
-
-1. 관리되는 응용 프로그램의 리소스에 관련된 값을 제공합니다. 완료되면 **확인**을 선택합니다.
-
-   ![리소스 매개 변수 제공](./media/publish-service-catalog-app/add-storage-settings.png)
-
-1. 템플릿에서 사용자가 제공한 값의 유효성을 검사합니다. 유효성 검사에 성공하면 **확인**을 선택하여 배포를 시작합니다.
-
-   ![관리되는 응용 프로그램 유효성 검사](./media/publish-service-catalog-app/view-summary.png)
-
-배포가 완료되면 관리되는 응용 프로그램은 applicationGroup이라는 리소스 그룹에 포함됩니다. 저장소 계정은 applicationGroup이라는 리소스 그룹과 해시된 문자열 값에 들어 있습니다.
-
 ## <a name="next-steps"></a>다음 단계
 
-* 관리되는 응용 프로그램에 대한 소개는 [관리되는 응용 프로그램 개요](overview.md)를 참조하세요.
-* 예제 프로젝트는 [Azure 관리되는 응용 프로그램의 샘플 프로젝트](sample-projects.md)를 참조하세요.
-* 관리되는 응용 프로그램에 대한 UI 정의 파일을 만드는 방법은 [CreateUiDefinition 시작](create-uidefinition-overview.md)을 참조하세요.
+* 관리되는 응용 프로그램을 Azure Marketplace에 게시하려면 [Marketplace의 Azure 관리되는 응용 프로그램](publish-marketplace-app.md)을 참조하세요.
+* 관리되는 응용 프로그램 인스턴스를 배포하려면 [Azure Portal을 통해 서비스 카탈로그 앱 배포](deploy-service-catalog-quickstart.md)를 참조하세요.

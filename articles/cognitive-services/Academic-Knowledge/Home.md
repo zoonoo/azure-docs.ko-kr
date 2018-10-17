@@ -1,20 +1,21 @@
 ---
-title: Microsoft Academic Graph용 Academic Knowledge API | Microsoft Docs
-description: 사용자 쿼리를 해석하고 Microsoft Cognitive Services의 Academic Graph에서 풍부한 정보를 검색하려면 Academic Knowledge API를 사용합니다.
+title: Academic Knowledge API란?
+titlesuffix: Azure Cognitive Services
+description: Academic Knowledge API를 사용하여 사용자 쿼리를 해석하고 Academic Graph에서 다양한 정보를 검색합니다.
 services: cognitive-services
 author: mvorvoreanu
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: overview
 ms.date: 03/27/2017
 ms.author: mivorvor
-ms.openlocfilehash: e241f9a87cd58b62eafd754bd3cb4283aa0a1e92
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d08cd7124b232e50365e72753eba97c6309f401c
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374022"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901213"
 ---
 # <a name="academic-knowledge-api"></a>Academic Knowledge API
 

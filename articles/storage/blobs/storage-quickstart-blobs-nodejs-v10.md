@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 09/19/2018
 ms.author: cshoe
-ms.openlocfilehash: a325029ded60a1cd8274743a88f7a4d410466dea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6e23e888a1c90e1c6c7eecf25491f048e9077f11
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987580"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857893"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript-preview"></a>빠른 시작: JavaScript용 Azure Storage v10 SDK(미리 보기)를 사용하여 blob 업로드, 다운로드, 나열 및 삭제
 
@@ -128,7 +128,7 @@ const ACCOUNT_ACCESS_KEY = process.env.AZURE_STORAGE_ACCOUNT_ACCESS_KEY;
 const ONE_MEGABYTE = 1024 * 1024;
 const FOUR_MEGABYTES = 4 * ONE_MEGABYTE;
 ```
-API에 의해 수행된 요청은 지정된 간격 이후의 시간 초과로 설정할 수 있습니다. *Aborter* 클래스는 요청이 시간 초과되는 방식을 관리하는 역할을 담당하며, 이 샘플에서 사용되는 시간 제한을 정의하는 데 다음 상수가 사용됩니다.
+API에 의해 수행된 요청은 지정된 간격 이후의 시간 초과로 설정할 수 있습니다. [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-preview) 클래스는 요청이 시간 초과되는 방식을 관리하는 역할을 담당하며, 이 샘플에서 사용되는 시간 제한을 정의하는 데 다음 상수가 사용됩니다.
 ```javascript
 const ONE_MINUTE = 60 * 1000;
 ```
@@ -163,13 +163,13 @@ const serviceURL = new ServiceURL(`https://${STORAGE_ACCOUNT_NAME}.blob.core.win
 ```
 다음 클래스가 이 코드 블록에 사용됩니다.
 
-- *SharedKeyCredential* 클래스는 요청 파이프라인에 제공하기 위해 저장소 계정 자격 증명을 래핑하는 일을 담당합니다.
+- [SharedKeyCredential](/javascript/api/%40azure/storage-blob/sharedkeycredential?view=azure-node-preview) 클래스는 요청 파이프라인에 제공하기 위해 저장소 계정 자격 증명을 래핑하는 일을 담당합니다.
 
-- *StorageURL* 클래스는 새 파이프라인을 만듭니다.
+- [StorageURL](/javascript/api/%40azure/storage-blob/storageurl?view=azure-node-preview) 클래스는 새 파이프라인을 만듭니다.
 
-- *ServiceURL*은 REST API에 사용되는 URL을 모델링합니다. 이 클래스의 인스턴스를 사용하면 컨테이너를 나열하는 등의 작업을 수행하고, 컨텍스트 정보를 제공하여 컨테이너 URL을 생성할 수 있습니다.
+- [ServiceURL](/javascript/api/%40azure/storage-blob/serviceurl?view=azure-node-preview)은 REST API에 사용되는 URL을 모델링합니다. 이 클래스의 인스턴스를 사용하면 컨테이너를 나열하는 등의 작업을 수행하고, 컨텍스트 정보를 제공하여 컨테이너 URL을 생성할 수 있습니다.
 
-저장소 계정에서 컨테이너 및 blob을 관리하는 데 *ServiceURL*의 인스턴스가 *ContainerURL* 및 *BlockBlobURL* 인스턴스와 함께 사용됩니다.
+저장소 계정에서 컨테이너 및 blob을 관리하는 데 *ServiceURL*의 인스턴스가 [ContainerURL](/javascript/api/%40azure/storage-blob/containerurl?view=azure-node-preview) 및 [BlockBlobURL](/javascript/api/%40azure/storage-blob/blockbloburl?view=azure-node-preview) 인스턴스와 함께 사용됩니다.
 
 ```javascript
 const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName);
@@ -202,7 +202,7 @@ Aborters는 사용자에게 다음을 허용하여 요청에 대한 제어를 �
 - 요청의 일괄 처리를 위한 시간 지정
 - 개별 요청이 일괄 처리에서 실행되어야 하는 기간 지정
 - 요청을 취소할 수 있도록 허용
-- *Aborter.None* 정적 멤버를 사용하여 시간 제한에서 요청을 모두 중지
+- 요청이 모두 시간 초과되지 않도록 *Aborter.none* 정적 멤버 사용
 
 ### <a name="show-container-names"></a>컨테이너 이름 표시
 계정은 많은 컨테이너를 저장할 수 있습니다. 다음 코드는 많은 컨테이너를 순환할 수 있도록 분할된 방식으로 컨테이너를 나열하는 방법을 설명합니다. *showContainerNames* 함수가 *ServiceURL* 및 *Aborter*의 인스턴스에 전달됩니다.

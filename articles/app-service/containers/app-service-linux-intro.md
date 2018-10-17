@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 02/16/2017
+ms.date: 10/09/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 8645443e5f41fd36b3439a6a7d49407eb0ccf6f8
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 9efa6dc8427c58c82702fd5b3449fcd4805bf9e3
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366576"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902096"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux의 Azure App Service 소개
 
@@ -36,9 +36,9 @@ Linux의 App Service는 개발자의 생산성을 향상시키기 위해 수많�
 | Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 9.4, 10.1 |
 | Java * | 8.0 |
 | PHP | 5.6, 7.0, 7.2 |
+| Python(미리 보기) | 3.7 |
 | .NET Core | 1.0, 1.1, 2.0 |
 | Ruby | 2.3 |
-| Go | 1.0 |
 | Apache Tomcat | 8.5, 9.0 |
 
 자세한 내용은 [Linux의 App Service에서 Java 웹앱 만들기](https://docs.microsoft.com/azure/app-service/containers/quickstart-java)를 참조하세요.
@@ -91,15 +91,25 @@ Linux의 App Service는 [기본, 표준 및 프리미엄](https://azure.microsof
 
 ## <a name="next-steps"></a>다음 단계
 
-Linux에서 App Service를 시작하려면 다음 링크를 참조하세요. [당사 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)에 질문 및 문제를 게시할 수 있습니다.
+다음 문서에서는 다양한 언어로 작성된 웹앱을 사용하여 Linux의 App Service를 시작합니다.
 
-* [Web App for Containers에 사용자 지정 Docker 이미지를 사용하는 방법](quickstart-docker-go.md)
-* [Linux의 Azure App Service에서 .NET Core 사용](quickstart-dotnetcore.md)
-* [Linux의 Azure App Service에서 Ruby 사용](quickstart-ruby.md)
-* [Containers용 Azure App Service Web App 관련 FAQ](app-service-linux-faq.md)
-* [Linux의 Azure App Service에 대한 SSH 지원](app-service-linux-ssh-support.md)
-* [Azure App Service에서 스테이징 환경 설정](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Web App for Containers를 사용한 Docker 허브 연속 배포](./app-service-linux-ci-cd.md)
+* [.NET Core](quickstart-dotnetcore.md)
+* [PHP](quickstart-dotnetcore.md)
+* [Node.JS](quickstart-nodejs.md)
+* [Java](quickstart-java.md)
+* [Python](quickstart-python.md)
+* [Ruby](quickstart-ruby.md)
+* [Go](quickstart-docker-go.md)
+* [다중 컨테이너 앱](quickstart-multi-container.md)
+
+또한 Linux의 App Service에 대한 자세한 내용은 다음 문서를 참조하세요.
+
+* [Linux의 App Service FAQ](app-service-linux-faq.md)
+* [Linux의 App Service에 대한 SSH 지원](app-service-linux-ssh-support.md)
+* [App Service에서 스테이징 환경 설정](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Docker 허브 지속적인 배포](app-service-linux-ci-cd.md)
+
+[당사 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)에 질문 및 문제를 게시할 수 있습니다.
 
 <!--Image references-->
 [1]: ./media/app-service-linux-intro/kudu-docker-logs.png

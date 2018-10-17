@@ -1,20 +1,21 @@
 ---
-title: Azure Cognitive Services, Bing News Search API에 대한 Node.js 빠른 시작 | Microsoft Docs
-description: Azure의 Microsoft Cognitive Services에서 Bing News Search API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 확인합니다.
+title: '빠른 시작: Bing News Search API, Node.js'
+titlesuffix: Azure Cognitive Services
+description: Bing News Search API를 사용하여 빠르게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 1c68e75319a34f4ac9726c047fc7d6d0269634ba
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 923566dc2764037164725f795e411beef939d92a
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377374"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802073"
 ---
 # <a name="quickstart-for-bing-news-search-api-with-nodejs"></a>Bing News Search API 및 Node.js에 대한 빠른 시작
 

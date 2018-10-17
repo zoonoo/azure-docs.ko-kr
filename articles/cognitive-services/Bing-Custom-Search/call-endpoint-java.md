@@ -1,22 +1,23 @@
 ---
-title: Java - Bing Custom Search - Microsoft Cognitive Services를 사용하여 엔드포인트 호출
+title: '빠른 시작: Java를 사용하여 엔드포인트 호출 - Bing Custom Search'
+titlesuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Java로 Bing Custom Search 엔드포인트를 호출하여 사용자 지정 검색 인스턴스에서 검색 결과를 요청하는 방법을 보여줍니다.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 7ef4de749d5b9152bbe043a26d3c60fe7f09f869
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ba1eb9799bc95dede081c6f1a6d972896c126da6
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951817"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814120"
 ---
-# <a name="call-bing-custom-search-endpoint-java"></a>Bing Custom Search 엔드포인트 호출(Java)
+# <a name="quickstart-call-bing-custom-search-endpoint-java"></a>빠른 시작: Bing Custom Search 엔드포인트 호출(Java)
 
 이 빠른 시작에서는 Java로 Bing Custom Search 엔드포인트를 호출하여 사용자 지정 검색 인스턴스에서 검색 결과를 요청하는 방법을 보여줍니다. 
 

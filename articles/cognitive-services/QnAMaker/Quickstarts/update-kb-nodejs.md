@@ -1,226 +1,154 @@
 ---
-title: '빠른 시작: Node.js 기술 자료 업데이트 - QnA Maker'
+title: '빠른 시작: 기술 자료 업데이트 - REST, Node.js - QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: QnA Maker용 Node.js로 기술 자료를 업데이트하는 방법입니다.
+description: 이 빠른 시작에서는 기존 QnA Maker KB(기술 자료)를 프로그래밍 방식으로 업데이트하는 방법을 안내합니다.  이 JSON을 사용하면 데이터 원본을 새로 추가, 변경 또는 삭제하여 KB를 업데이트할 수 있습니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/02/2018
 ms.author: diberry
-ms.openlocfilehash: a987993da5202abc9b543aa2dba0f080a622e199
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3bbc55b3bb064b2cf4b140a395e99209b71a5ce1
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033621"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816234"
 ---
-# <a name="update-a-knowledge-base-in-nodejs"></a>Node.js로 기술 자료 업데이트
+# <a name="quickstart-update-a-qna-maker-knowledge-base-in-nodejs"></a>빠른 시작: Node.js에서 QnA Maker 기술 자료 업데이트
 
-다음 코드는 [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) 메서드를 사용하여 기존 기술 자료를 업데이트합니다.
+이 빠른 시작에서는 기존 QnA Maker KB(기술 자료)를 프로그래밍 방식으로 업데이트하는 방법을 안내합니다.  이 JSON을 사용하면 데이터 원본을 새로 추가, 변경 또는 삭제하여 KB를 업데이트할 수 있습니다.
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
+이 API는 QnA Maker 포털에서 편집한 다음, **저장 및 학습** 단추를 사용하는 것과 같습니다.
 
-아직 기술 자료가 없는 경우 샘플을 만들어서 빠른 시작: [새 기술 자료 만들기](create-new-kb-nodejs.md)에서 사용하면 됩니다.
+이 빠른 시작에서 호출하는 QnA Maker API는 다음과 같습니다.
+* [업데이트](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) - 기술 자료 모델은 API 요청 본문에 전송된 JSON에 정의됩니다. 
+* [작업 세부 정보 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
-1. 즐겨 찾는 IDE에서 새 Node.js 프로젝트를 만듭니다. JavaScript 버전 ECMAScript 6+를 사용합니다.
-1. 아래 제공된 코드를 추가합니다.
-1. `subscriptionKey` 값을 유효한 구독 키로 바꿉니다.
-1. `kb` 값을 기술 자료 ID로 바꿉니다. 이 값은 [QnA Maker 기술 자료](https://www.qnamaker.ai/Home/MyServices) 중 한 곳으로 이동하여 찾을 수 있습니다. 업데이트할 기술 자료를 선택합니다. 해당 페이지가 열리면 다음 예제와 같이 URL에서 'kdid='을 찾습니다. 해당 값을 코드 샘플에 사용합니다.
+## <a name="prerequisites"></a>필수 조건
+
+* [Node.js 6+](https://nodejs.org/en/download/)
+* [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)가 있어야 합니다. 키를 검색하려면 대시보드의 **리소스 관리** 아래에서 **키**를 선택합니다. 
+* QnA Maker KB(기술 자료) ID는 아래와 같이 kbid 쿼리 문자열 매개 변수의 URL에 있습니다.
 
     ![QnA Maker 기술 자료 ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
-1. 프로그램을 실행합니다.
+아직 기술 자료가 없는 경우 샘플을 만들어서 빠른 시작: [새 기술 자료 만들기](create-new-kb-nodejs.md)에서 사용하면 됩니다.
 
-```nodejs
-'use strict';
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
-let fs = require ('fs');
-let https = require ('https');
+## <a name="create-a-knowledge-base-nodejs-file"></a>기술 자료 만들기 Node.js 파일
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+`update-knowledge-base.js`라는 파일을 만듭니다.
 
-// Replace this with a valid subscription key.
-let subscriptionKey = 'ADD KEY HERE';
+## <a name="add-the-required-dependencies"></a>필요한 종속성 추가
 
-// Replace this with a valid knowledge base ID.
-let kb = 'ADD ID HERE';
+`update-knowledge-base.js`의 맨 위에 프로젝트에 필요한 종속성을 추가하는 다음 줄을 추가합니다.
 
-// Represents the various elements used to create HTTP request URIs
-// for QnA Maker operations.
-let host = 'westus.api.cognitive.microsoft.com';
-let service = '/qnamaker/v4.0';
-let method = '/knowledgebases/';
+[!code-nodejs[Add the dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=1-4 "Add the dependencies")]
 
-// Formats and indents JSON for display.
-let pretty_print = function(s) {
-    return JSON.stringify(JSON.parse(s), null, 4);
-}
+## <a name="add-required-constants"></a>필요한 상수 추가
+앞서의 필요한 종속성 뒤에 QnA Maker에 액세스하는 데 필요한 상수를 추가합니다. `subscriptionKey` 변수의 값을 사용자 고유의 QnA Maker 키로 바꿉니다. 
 
-// Call 'callback' after we have the entire response.
-let response_handler = function (callback, response) {
-    let body = '';
-    response.on('data', function(d) {
-        body += d;
-    });
-    response.on('end', function() {
-    // Calls 'callback' with the status code, headers, and body of the response.
-    callback ({ status : response.statusCode, headers : response.headers, body : body });
-    });
-    response.on('error', function(e) {
-        console.log ('Error: ' + e.message);
-    });
-};
+[!code-nodejs[Add required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=10-17 "Add required constants")]
 
-// HTTP response handler calls 'callback' after we have the entire response.
-let get_response_handler = function(callback) {
-    // Return a function that takes an HTTP response and is closed over the specified callback.
-    // This function signature is required by https.request, hence the need for the closure.
-    return function(response) {
-        response_handler(callback, response);
-    }
-}
+## <a name="add-knowledge-base-id"></a>기술 자료 ID 추가
 
-// Calls 'callback' after we have the entire PATCH request response.
-let patch = function(path, content, callback) {
-    let request_params = {
-        method : 'PATCH',
-        hostname : host,
-        path : path,
-        headers : {
-            'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
-            'Ocp-Apim-Subscription-Key' : subscriptionKey,
-        }
-    };
+앞서의 상수 뒤에 기술 자료 ID를 추가하고 경로에 이 ID를 추가합니다.
 
-    // Pass the callback function to the response handler.
-    let req = https.request(request_params, get_response_handler(callback));
-    req.write(content);
-    req.end ();
-}
+[!code-nodejs[Add knowledge base ID](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=19-23 "Add knowledge base ID")]
 
-// Calls 'callback' after we have the entire GET request response.
-let get = function(path, callback) {
-    let request_params = {
-        method : 'GET',
-        hostname : host,
-        path : path,
-        headers : {
-            'Ocp-Apim-Subscription-Key' : subscriptionKey,
-        }
-    };
+## <a name="add-the-kb-update-model-definition"></a>KB 업데이트 모델 정의 추가
 
-    // Pass the callback function to the response handler.
-    let req = https.request(request_params, get_response_handler(callback));
-    req.end ();
-}
+다음 KB 업데이트 정의를 상수 뒤에 추가합니다. 업데이트 정의에는 다음 세 개의 섹션이 있습니다.
 
-// Calls 'callback' after we have the response from the /knowledgebases PATCH method.
-let update_kb = function(path, req, callback) {
-    console.log('Calling ' + host + path + '.');
-    // Send the PATCH request.
-    patch(path, req, function (response) {
-        // Extract the data we want from the PATCH response and pass it to the callback function.
-        callback({ operation : response.headers.location, response : response.body });
-    });
-}
+* 추가
+* update
+* delete
 
-// Calls 'callback' after we have the response from the GET request to check the status.
-let check_status = function(path, callback) {
-    console.log('Calling ' + host + path + '.');
-    // Send the GET request.
-    get(path, function (response) {
-        // Extract the data we want from the GET response and pass it to the callback function.
-        callback({ wait : response.headers['retry-after'], response : response.body });
-    });
-}
+각 섹션은 API에 대한 동일한 단일 요청에 사용할 수 있습니다. 
 
-// Dictionary that holds the knowledge base. Modify knowledge base here.
-let req = {
-  'add': {
-    'qnaList': [
-      {
-        'id': 1,
-        'answer': 'You can change the default message if you use the QnAMakerDialog. See this for details: https://docs.botframework.com/en-us/azure-bot-service/templates/qnamaker/#navtitle',
-        'source': 'Custom Editorial',
-        'questions': [
-          'How can I change the default message from QnA Maker?'
-        ],
-        'metadata': []
-      }
-    ],
-    'urls': []
-  },
-  'update' : {
-    'name' : 'New KB Name'
-  },
-  'delete': {
-    'ids': [
-      0
-    ]
-  }
-};
+[!code-nodejs[Add the KB update definition](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=25-53 "Add the KB update definition")]
 
-var path = service + method + kb;
-// Convert the request to a string.
-let content = JSON.stringify(req);
 
-// Sends the request to update the knowledge base.
-update_kb(path, content, function (result) {
-    console.log(pretty_print(result.response));
-    // Loop until the operation is complete.
-    let loop = function() {
-        path = service + result.operation;
-        // Check the status of the operation.
-        check_status(path, function(status) {
-            // Write out the status.
-            console.log(pretty_print(status.response));
-            // Convert the status into an object and get the value of the operationState field.
-            var state = (JSON.parse(status.response)).operationState;
-            // If the operation isn't complete, wait and query again.
-            if (state == 'Running' || state == 'NotStarted') {
-                console.log('Waiting ' + status.wait + ' seconds...');
-                setTimeout(loop, status.wait * 1000);
-            }
-        });
-    }
-    // Begin the loop.
-    loop();
-});
-```
+## <a name="add-supporting-functions"></a>지원하는 함수 추가
 
-## <a name="understand-what-qna-maker-returns"></a>QnA Maker에서 반환되는 내용 이해하기
+다음으로, 지원하는 다음 함수를 추가합니다.
 
-성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 결과가 약간 다를 수도 있습니다. 최종 호출이 "성공" 상태를 반환하면 기술 자료가 업데이트된 것입니다. 문제를 해결하려면 QnA Maker API의 [기술 자료 업데이트](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) 응답 코드를 참조하세요.
+1. JSON을 읽을 수 있는 형식으로 출력하는 다음 함수를 추가합니다.
 
-```json
+   [!code-nodejs[Add supporting functions, step 1](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=55-58 "Add supporting functions, step 1")]
+
+2. HTTP 응답을 관리하여 만들기 작업 상태를 가져오는 다음 함수를 추가합니다.
+
+   [!code-nodejs[Add supporting functions, step 2](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=60-82 "Add supporting functions, step 2")]
+
+## <a name="add-patch-request-to-update-kb"></a>KB를 업데이트하기 위한 PATCH 요청 추가
+
+기술 자료를 업데이트하도록 HTTP PATCH 요청을 하는 다음 함수를 추가합니다. `Ocp-Apim-Subscription-Key`는 인증에 사용되는 QnA Maker 서비스 키입니다.
+
+[!code-nodejs[Add PATCH request to update KB](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=84-111 "Add PATCH request to update KB")]
+
+다음 API 호출은 작업 ID를 포함한 JSON 응답을 반환합니다. 작업 ID는 작업이 완료되지 않은 경우 상태를 요청하는 데 필요합니다.
+
+```JSON
 {
   "operationState": "NotStarted",
-  "createdTimestamp": "2018-04-13T01:49:48Z",
-  "lastActionTimestamp": "2018-04-13T01:49:48Z",
-  "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
-  "operationId": "5156f64e-e31d-4638-ad7c-a2bdd7f41658"
+  "createdTimestamp": "2018-10-02T01:23:00Z",
+  "lastActionTimestamp": "2018-10-02T01:23:00Z",
+  "userId": "335c3841df0b42cdb00f53a49d51a89c",
+  "operationId": "e7be3897-88ff-44e5-a06c-01df0e05b78c"
 }
-...
-{
-  "operationState": "Succeeded",
-  "createdTimestamp": "2018-04-13T01:49:48Z",
-  "lastActionTimestamp": "2018-04-13T01:49:50Z",
-  "resourceLocation": "/knowledgebases/140a46f3-b248-4f1b-9349-614bfd6e5563",
-  "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
-  "operationId": "5156f64e-e31d-4638-ad7c-a2bdd7f41658"
-}
-Press any key to continue.
 ```
 
-기술 자료가 업데이트되면 QnA Maker 포털의 [내 기술 자료](https://www.qnamaker.ai/Home/MyServices) 페이지에서 볼 수 있습니다. 이제 기술 자료에 'New KB Name'이라는 새로운 이름과 추가적인 QnA 쌍이 있습니다.
+## <a name="add-get-request-to-determine-operation-status"></a>작업 상태를 확인하기 위한 GET 요청 추가
 
-기술 자료의 다른 요소를 수정하려면 QnA Maker [JSON 스키마](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600)를 참조하여 `req` 문자열을 수정합니다.
+작업의 상태를 확인합니다.
+    
+[!code-nodejs[Add GET request to determine operation status](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=113-137 "Add GET request to determine operation status")]
+
+다음 API 호출은 작업 상태를 포함한 JSON 응답을 반환합니다. 
+
+```JSON
+{
+  "operationState": "NotStarted",
+  "createdTimestamp": "2018-09-26T05:22:53Z",
+  "lastActionTimestamp": "2018-09-26T05:22:53Z",
+  "userId": "XXX9549466094e1cb4fd063b646e1ad6",
+  "operationId": "177e12ff-5d04-4b73-b594-8575f9787963"
+}
+```
+
+성공하거나 실패할 때까지 호출을 반복합니다. 
+
+```JSON
+{
+  "operationState": "Succeeded",
+  "createdTimestamp": "2018-09-26T05:22:53Z",
+  "lastActionTimestamp": "2018-09-26T05:23:08Z",
+  "resourceLocation": "/knowledgebases/XXX7892b-10cf-47e2-a3ae-e40683adb714",
+  "userId": "XXX9549466094e1cb4fd063b646e1ad6",
+  "operationId": "177e12ff-5d04-4b73-b594-8575f9787963"
+}
+```
+
+## <a name="add-updatekb-method"></a>update_kb 메서드 추가
+
+다음 메서드는 KB를 업데이트하고 상태 확인을 반복합니다. KB를 만드는 데 시간이 걸릴 수 있으므로 상태가 성공 또는 실패일 때까지 상태를 확인하기 위한 호출을 반복해야 합니다.
+
+[!code-nodejs[Add update_kb method](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/update-knowledge-base/update-knowledge-base.js?range=139-169 "Add update_kb method")]
+
+## <a name="run-the-program"></a>프로그램 실행
+
+프로그램을 실행하려면 명령줄에 다음 명령을 입력합니다. 그러면 KB를 업데이트하기 위한 요청을 QnA Maker API에 보낸 다음, 30초마다 결과를 폴링합니다. 각 응답이 콘솔 창에 출력됩니다.
+
+```bash
+node update-knowledge-base.js
+```
+
+기술 자료가 업데이트되면 QnA Maker 포털의 [내 기술 자료](https://www.qnamaker.ai/Home/MyServices) 페이지에서 해당 기술 자료를 볼 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

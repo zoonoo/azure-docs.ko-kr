@@ -1,23 +1,23 @@
 ---
-title: Spell Check SDK C# 빠른 시작 - Azure Cognitive Services | Microsoft Docs
+title: '빠른 시작: Bing Spell Check SDK, C#'
+titlesuffix: Azure Cognitive Services
 description: Spell Check SDK 콘솔 응용 프로그램 설치
-titleSuffix: Azure cognitive services setup Spell check search SDK C# console application
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: b64c1be49a26e1fadb504bed3ff8eb78d791539f
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3a6f7511407ba29b8fc6d8d3a41369bcd8cf18bc
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "43750503"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803107"
 ---
-# <a name="spell-check-sdk-c-quickstart"></a>Spell Check SDK C# 빠른 시작
+# <a name="quickstart-bing-spell-check-sdk-with-c"></a>빠른 시작: C#을 통해 Bing Spell Check SDK 설정
 
 Bing Spell Check SDK는 맞춤법 검사를 위한 REST API 기능을 포함하고 있습니다.
 

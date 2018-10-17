@@ -3,18 +3,18 @@ title: Azure Maps를 사용하여 검색 | Microsoft Docs
 description: Azure Maps를 사용하여 주변 관심 지점 검색
 author: dsk-2015
 ms.author: dkshir
-ms.date: 08/23/2018
+ms.date: 10/02/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e30d84c70f786a5bea25073c70a29b63c9a00ae9
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 761674c5839f0513532355116db07604f9e9d9dc
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917665"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816823"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Azure Maps를 사용하여 주변 관심 지점 검색
 
@@ -26,9 +26,10 @@ ms.locfileid: "42917665"
 > * 지도 컨트롤 API를 사용하여 새 웹 페이지 만들기
 > * Maps 검색 서비스를 사용하여 주변 관심 지점 찾기
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
+
 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 <a id="createaccount"></a>
@@ -39,17 +40,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. [Azure Portal](https://portal.azure.com)의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
 2. *마켓플레이스 검색* 상자에서 **Maps**를 입력합니다.
-3. *결과*에서 **Maps**를 선택합니다. 맵 아래에 나타나는 **만들기** 단추를 클릭합니다. 
+3. *결과*에서 **Maps**를 선택합니다. 맵 아래에 나타나는 **만들기** 단추를 클릭합니다.
 4. **Maps 계정 만들기** 페이지에서 다음 값을 입력합니다.
-    - 새 계정의 *이름*. 
-    - 이 계정에 사용하려는 *구독*.
-    - 이 계정에 대한 *리소스 그룹* 이름. *새로 만들기* 또는 *기존* 리소스 그룹 사용을 선택할 수도 있습니다.
-    - *리소스 그룹 위치*를 선택합니다.
-    - *라이선스* 및 *개인정보처리방침*을 읽고 조건에 동의하는 확인란을 선택합니다. 
-    - **만들기** 단추를 클릭합니다.
-   
-    ![포털에서 Maps 계정 만들기](./media/tutorial-search-location/create-account.png)
+    * 새 계정의 *이름*.
+    * 이 계정에 사용하려는 *구독*.
+    * 이 계정에 대한 *리소스 그룹* 이름. *새로 만들기* 또는 *기존* 리소스 그룹 사용을 선택할 수도 있습니다.
+    * *리소스 그룹 위치*를 선택합니다.
+    * *라이선스* 및 *개인정보처리방침*을 읽고 조건에 동의하는 확인란을 선택합니다.
+    * **만들기** 단추를 클릭합니다.
 
+    ![포털에서 Maps 계정 만들기](./media/tutorial-search-location/create-account.png)
 
 <a id="getkey"></a>
 
@@ -59,17 +59,17 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
 
 1. 포털에서 Maps 계정을 엽니다.
 2. 설정 섹션에서 **키**를 선택합니다.
-3. **기본 키**를 클립보드로 복사합니다. 이 자습서의 뒷부분에서 사용하기 위해 로컬로 저장합니다. 
+3. **기본 키**를 클립보드로 복사합니다. 이 자습서의 뒷부분에서 사용하기 위해 로컬로 저장합니다.
 
     ![포털에서 기본 키 가져오기](./media/tutorial-search-location/get-key.png)
 
-
 <a id="createmap"></a>
 
-## <a name="create-a-new-map"></a>새 지도 만들기 
-지도 컨트롤 API는 Maps를 웹 응용 프로그램에 쉽게 통합할 수 있도록 하는 편리한 클라이언트 라이브러리입니다. 기본 REST 서비스 호출의 복잡성을 숨기고 스타일 지정 및 사용자 지정 가능한 구성 요소를 사용하여 생산성을 향상합니다. 다음 단계에서는 지도 컨트롤 API가 포함된 정적 HTML 페이지를 만드는 방법을 보여줍니다. 
+## <a name="create-a-new-map"></a>새 지도 만들기
 
-1. 로컬 컴퓨터에서 새 파일을 만들고 이름을 **MapSearch.html**로 지정합니다. 
+지도 컨트롤 API는 Maps를 웹 응용 프로그램에 쉽게 통합할 수 있도록 하는 편리한 클라이언트 라이브러리입니다. 기본 REST 서비스 호출의 복잡성을 숨기고 스타일 지정 및 사용자 지정 가능한 구성 요소를 사용하여 생산성을 향상합니다. 다음 단계에서는 지도 컨트롤 API가 포함된 정적 HTML 페이지를 만드는 방법을 보여줍니다.
+
+1. 로컬 컴퓨터에서 새 파일을 만들고 이름을 **MapSearch.html**로 지정합니다.
 2. 다음 HTML 구성 요소를 파일에 추가합니다.
 
     ```HTML
@@ -81,9 +81,9 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
         <meta name="viewport" content="width=device-width, user-scalable=no" />
         <title>Map Search</title>
 
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" /> 
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script> 
-        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.min.js?api-version=1"></script> 
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
+        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.min.js?api-version=1"></script>
 
         <style>
             html,
@@ -109,9 +109,9 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
     </body>
 
     </html>
-    ``` 
+    ```
     HTML 헤더는 Azure 맵 컨트롤 라이브러리에서 호스팅하는 CSS 및 JavaScript 리소스 파일을 포함합니다. *스크립트* 세그먼트가 HTML 파일의 *body*에 추가됨을 참고합니다. 이 세그먼트에는 Azure Maps API에 액세스할 수 있는 인라인 JavaScript 코드가 포함됩니다.
- 
+
 3. 다음 JavaScript 코드를 HTML 파일의 *스크립트* 블록에 추가합니다. **\<계정 키\>** 문자열을 Maps 계정에서 복사한 기본 키로 바꿉니다.
 
     ```JavaScript
@@ -121,87 +121,93 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
         "subscription-key": MapsAccountKey
     });
     ```
-    이 세그먼트는 Azure Maps 계정 키에 대한 지도 컨트롤 API를 시작합니다. **Atlas**는 API 및 관련 시각적 구성 요소가 포함된 네임스페이스입니다. **Atlas.Map**은 시각적 및 대화형 웹 지도에 대한 컨트롤을 제공합니다. 
-    
-4. 변경 내용을 파일에 저장하고 브라우저에서 해당 HTML 페이지를 엽니다. 이 지도는 **atlas.map**을 호출하고 계정 키를 제공하여 만들 수 있는 가장 기본적인 지도입니다. 
+    이 세그먼트는 Azure Maps 계정 키에 대한 맵 컨트롤 API를 초기화합니다. **Atlas**는 API 및 관련 시각적 구성 요소가 포함된 네임스페이스입니다. **Atlas.Map**은 시각적 및 대화형 웹 지도에 대한 컨트롤을 제공합니다.
+
+4. 변경 내용을 파일에 저장하고 브라우저에서 해당 HTML 페이지를 엽니다. 이는 계정 키를 사용하여 **atlas.map**을 호출함으로써 만들 수 있는 가장 기본적인 지도입니다.
 
    ![지도 보기](./media/tutorial-search-location/basic-map.png)
-
 
 <a id="usesearch"></a>
 
 ## <a name="add-search-capabilities"></a>검색 기능 추가
 
-이 섹션에서는 Maps 검색 API를 사용하여 지도에서 관심 지점을 찾는 방법을 보여 줍니다. 개발자가 주소, 관심 지점 및 기타 지역 정보를 검색할 수 있도록 설계된 RESTful API입니다. 검색 서비스에서 지정된 주소에 위도와 경도 정보를 할당합니다. 아래에서 설명하는 **서비스 모듈**은 Maps Search API를 사용하여 위치를 검색하는 데 사용할 수 있습니다.
+이 섹션에서는 Maps 검색 API를 사용하여 지도에서 관심 지점을 찾는 방법을 보여 줍니다. 이는 개발자가 주소, 관심 지점 및 다른 지리적 위치 정보를 검색할 수 있도록 설계된 RESTful API입니다. 검색 서비스에서 지정된 주소에 위도와 경도 정보를 할당합니다. 아래에서 설명하는 **서비스 모듈**은 Maps Search API를 사용하여 위치를 검색하는 데 사용할 수 있습니다.
 
 ### <a name="service-module"></a>서비스 모듈
 
-1. 지도에 새 레이어를 추가하여 검색 결과를 표시합니다. 지도를 초기화하는 코드 뒤에 있는 스크립트 블록에 다음 JavaScript 코드를 추가합니다. 
-    
+1. 지도에 새 레이어를 추가하여 검색 결과를 표시합니다. 지도를 초기화하는 코드 뒤에 있는 스크립트 블록에 다음 JavaScript 코드를 추가합니다.
+
     ```JavaScript
     // Initialize the pin layer for search results to the map
     var searchLayerName = "search-results";
-    map.addPins([], {
-        name: searchLayerName,
-        cluster: false,
-        icon: "pin-round-darkblue"
-    });
     ```
 
 2. 클라이언트 서비스를 인스턴스화하려면 지도를 초기화하는 코드 뒤에 있는 스크립트 블록에 다음 JavaScript 코드를 추가합니다.
 
     ```JavaScript
-    var client = new atlas.service.Client(subscriptionKey);
+    var client = new atlas.service.Client(MapsAccountKey);
     ```
 
-3. 다음 스크립트 블록을 추가하여 쿼리를 작성합니다. Search Service의 기본 검색 API인 유사 항목 검색 서비스를 사용합니다. 유사 항목 검색 서비스는 주소와 POI(관심 지점) 토큰의 조합과 같은 대부분의 유사 항목 입력을 처리합니다. 지정된 반경 내에서 가까운 주유소를 검색합니다. 그러면 응답이 GeoJSON 형식으로 구문 분석되고 지점 기능으로 변환되어 지도에 핀으로 추가됩니다. 스크립트의 마지막 부분에서는 Map의 [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) 속성을 사용하여 지도에 대한 카메라 한도를 추가합니다.
+3. 지도가 로드되면 지도의 모든 함수를 로드해야 합니다. 이렇게 하려면 모든 맵 함수를 map eventListener 블록 내에 배치합니다. 다음 코드 줄을 추가하여 기능을 추가하기 전에 지도가 완전히 로드되도록 [eventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener)를 맵에 추가합니다.
+    
+    ```JavaScript
+         map.addEventListener("load", function() {
+         });
+    ```
+
+4. 다음 스크립트 블록을 **map load eventListener** 내에 추가하여 쿼리를 작성합니다. Search Service의 기본 검색 API인 유사 항목 검색 서비스를 사용합니다. 유사 항목 검색 서비스는 주소와 POI(관심 지점) 토큰의 조합과 같은 대부분의 유사 항목 입력을 처리합니다. 지정된 반경 내에서 가까운 주유소를 검색합니다. 그러면 응답이 GeoJSON 형식으로 구문 분석되고 지점 기능으로 변환되어 지도에 핀으로 추가됩니다. 스크립트의 마지막 부분에서는 Map의 [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) 속성을 사용하여 지도에 대한 카메라 한도를 추가합니다.
 
     ```JavaScript
-    client.search.getSearchFuzzy("gasoline station", {
-     lat: 47.6292,
-     lon: -122.2337,
-     radius: 100000
-    }).then(response => {
-       // Parse the response into GeoJSON 
-       var geojsonResponse = new atlas.service.geojson.GeoJsonSearchResponse(response); 
- 
-       // Create the point features that will be added to the map as pins 
-       var searchPins = geojsonResponse.getGeoJsonResults().features.map(poiResult => { 
-           var poiPosition = [poiResult.properties.position.lon, poiResult.properties.position.lat]; 
-           return new atlas.data.Feature(new atlas.data.Point(poiPosition), { 
-                name: poiResult.properties.poi.name, 
-                address: poiResult.properties.address.freeformAddress, 
-                position: poiPosition[1] + ", " + poiPosition[0] 
-           }); 
-       }); 
- 
-       // Add pins to the map for each POI 
-       map.addPins(searchPins, { 
-           name: searchLayerName 
-       }); 
- 
-       // Set the camera bounds 
-       map.setCameraBounds({ 
-           bounds: geojsonResponse.getGeoJsonResults().bbox, 
-           padding: 50 
-       ); 
-    }); 
+
+            // Execute a POI search query then add pins to the map for each result once a response is received
+            client.search.getSearchFuzzy("gasoline station", {
+            lat: 47.6292,
+            lon: -122.2337,
+            radius: 100000
+            }).then(response => {
+       
+            // Parse the response into GeoJSON 
+            var geojsonResponse = new atlas.service.geojson.GeoJsonSearchResponse(response);
+
+            // Create the point features that will be added to the map as pins
+            var searchPins = geojsonResponse.getGeoJsonResults().features.map(poiResult => {
+               var poiPosition = [poiResult.properties.position.lon, poiResult.properties.position.lat];
+               return new atlas.data.Feature(new atlas.data.Point(poiPosition), {
+                name: poiResult.properties.poi.name,
+                address: poiResult.properties.address.freeformAddress,
+                position: poiPosition[1] + ", " + poiPosition[0]
+               });
+            });
+
+            // Add pins to the map for each POI
+            map.addPins(searchPins, {
+               name: searchLayerName,
+               cluster: false, 
+               icon: "pin-round-darkblue" 
+            });
+
+            // Set the camera bounds
+            map.setCameraBounds({
+               bounds: geojsonResponse.getGeoJsonResults().bbox,
+               padding: 50
+            );
+        });
     ```
-4. **MapSearch.html** 파일을 저장하고, 브라우저를 새로 고칩니다. 이제 지도가 시애틀 중심부에 있고 파란색 핀이 해당 영역의 주유소 위치를 표시하고 있습니다. 
+5. **MapSearch.html** 파일을 저장하고, 브라우저를 새로 고칩니다. 이제 지도가 시애틀 중심에 있고, 파란색 핀이 해당 영역의 주유소 위치를 표시하고 있습니다.
 
    ![검색 결과가 포함된 지도 보기](./media/tutorial-search-location/pins-map.png)
 
-5. 브라우저에 다음 HTTPRequest를 입력하여 지도에서 렌더링하는 원시 데이터를 볼 수 있습니다. \<계정 키\>를 기본 키로 바꿉니다. 
+6. 브라우저에 다음 HTTPRequest를 입력하여 지도에서 렌더링하는 원시 데이터를 볼 수 있습니다. \<계정 키\>를 기본 키로 바꿉니다.
 
    ```http
    https://atlas.microsoft.com/search/fuzzy/json?api-version=1.0&query=gasoline%20station&subscription-key=<your account key>&lat=47.6292&lon=-122.2337&radius=100000
    ```
 
-이 시점에서 MapSearch 페이지에는 유사 항목 검색 쿼리에서 반환된 관심 지점의 위치가 표시될 수 있습니다. 몇 가지 대화형 기능과 위치에 대한 자세한 정보를 추가해 보겠습니다. 
+이 시점에서 MapSearch 페이지에는 유사 항목 검색 쿼리에서 반환된 관심 지점의 위치가 표시될 수 있습니다. 몇 가지 대화형 기능과 위치에 대한 자세한 정보를 추가해 보겠습니다.
 
 ## <a name="add-interactive-data"></a>대화형 데이터 추가
 
-지금까지 만든 지도에서는 검색 결과의 위도/경도 데이터만 조사했습니다. 그러나 Maps 검색 서비스에서 반환하는 원시 JSON을 살펴보면 이름과 주소를 포함하여 각 주유소에 대한 추가 정보가 있음을 알 수 있습니다. 대화형 팝업 상자를 사용하여 해당 데이터를 지도에 통합할 수 있습니다. 
+지금까지 만든 지도에서는 검색 결과의 위도/경도 데이터만 조사했습니다. 그러나 Maps 검색 서비스에서 반환하는 원시 JSON을 살펴보면 이름과 주소를 포함하여 각 주유소에 대한 추가 정보가 있음을 알 수 있습니다. 대화형 팝업 상자를 사용하여 해당 데이터를 지도에 통합할 수 있습니다.
 
 1. 다음 코드 줄을 *스크립트* 블록에 추가하여 Search Service에서 반환한 관심 지점에 대한 팝업을 만듭니다.
 
@@ -232,14 +238,14 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
         popup.open(map);
     });
     ```
-    API **atlas Popup**은 맵의 필수 지점에 고정된 정보 창을 제공합니다. 이 코드 조각은 팝업에 대한 콘텐츠 및 위치를 설정할 뿐만 아니라 _마우스_가 팝업을 롤오버하도록 기다려 이벤트 수신기를 `map` 컨트롤에 추가합니다. 
+    API **atlas Popup**은 맵의 필수 지점에 고정된 정보 창을 제공합니다. 이 코드 조각은 팝업의 콘텐츠와 위치를 설정합니다. 또한 _마우스_가 팝업 위로 롤오버될 때까지 기다리는 `map` 컨트롤에 이벤트 수신기를 추가합니다.
 
-4. 파일을 저장하고 브라우저를 새로 고칩니다. 이제 브라우저의 지도에서 검색 핀 위를 마우스로 가리키면 정보 팝업이 표시됩니다. 
+2. 파일을 저장하고 브라우저를 새로 고칩니다. 이제 브라우저의 지도에서 검색 핀 위를 마우스로 가리키면 정보 팝업이 표시됩니다.
 
     ![Azure 맵 컨트롤 및 Search Service](./media/tutorial-search-location/popup-map.png)
 
-
 ## <a name="next-steps"></a>다음 단계
+
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
@@ -248,7 +254,11 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
 > * 맵 컨트롤 API를 사용하여 새 웹 페이지 만들기
 > * 주변 관심 지점을 찾기 위해 Search Service 사용
 
-다음 자습서에서는 두 위치 사이의 경로를 표시하는 방법을 보여 줍니다. 
+이 자습서에서 사용할 코드 샘플에 액세스하려면 다음을 참조하세요.
+
+> [Azure Maps를 사용하여 위치 검색](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/search.html)
+
+다음 자습서에서는 두 위치 사이의 경로를 표시하는 방법을 보여 줍니다.
 
 > [!div class="nextstepaction"]
 > [대상으로 라우팅](./tutorial-route-location.md)

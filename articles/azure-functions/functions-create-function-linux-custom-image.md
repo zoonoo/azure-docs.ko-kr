@@ -11,16 +11,16 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: eb03d2dae42d656e62b8f02eeccf1f7312f07732
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a77018d5ee1738f24518742c2386e6e261a7c6a8
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962443"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901451"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>사용자 지정 이미지를 사용하여 Linux에서 함수 만들기(미리 보기)
 
-Azure Functions를 사용하면 사용자 지정 컨테이너에서 Linux의 함수를 호스팅할 수 있습니다. [기본 Azure App Service 컨테이너에 호스팅](functions-create-first-azure-function-azure-cli-linux.md)할 수도 있습니다. 이 기능은 현재 미리 보기 상태이므로 [Functions 2.0 런타임](functions-versions.md)(마찬가지로 미리 보기 상태)이 필요합니다.
+Azure Functions를 사용하면 사용자 지정 컨테이너에서 Linux의 함수를 호스팅할 수 있습니다. [기본 Azure App Service 컨테이너에 호스팅](functions-create-first-azure-function-azure-cli-linux.md)할 수도 있습니다. 이 기능은 현재 미리 보기로 있으므로 [Functions 2.0 런타임](functions-versions.md)이 필요합니다.
 
 이 자습서에서는 함수 앱을 사용자 지정 Docker 이미지로 배포하는 방법에 대해 알아봅니다. 이 패턴은 기본 제공 App Service 컨테이너 이미지를 사용자 지정해야 하는 경우에 유용합니다. 함수에 특정 언어 버전이 필요하거나 기본 제공 이미지에서 제공되지 않는 특정 종속성 또는 구성이 필요한 경우 사용자 지정 이미지를 사용할 수 있습니다.
 
