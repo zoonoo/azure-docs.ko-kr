@@ -7,42 +7,44 @@ items:
     href: Overview/overview.md
 - name: 빠른 시작
   items:
-  - name: 새 기술 자료 만들기
+  - name: REST API 사용
     items:
-    - name: C#
-      href: Quickstarts/create-new-kb-csharp.md
-    - name: Go
-      href: Quickstarts/create-new-kb-go.md
-    - name: 자바
-      href: Quickstarts/create-new-kb-java.md
-    - name: Node.js
-      href: Quickstarts/create-new-kb-nodejs.md
-    - name: Python
-      href: Quickstarts/create-new-kb-python.md
-  - name: 기술 자료 업데이트
-    items:
-    - name: C#
-      href: Quickstarts/update-kb-csharp.md
-    - name: Go
-      href: Quickstarts/update-kb-go.md
-    - name: 자바
-      href: Quickstarts/update-kb-java.md
-    - name: Node.js
-      href: Quickstarts/update-kb-nodejs.md
-    - name: Python
-      href: Quickstarts/update-kb-python.md
-  - name: 기술 자료 게시
-    items:
-    - name: C#
-      href: Quickstarts/publish-kb-csharp.md
-    - name: Go
-      href: Quickstarts/publish-kb-go.md
-    - name: 자바
-      href: Quickstarts/publish-kb-java.md
-    - name: Node.js
-      href: Quickstarts/publish-kb-nodejs.md
-    - name: Python
-      href: Quickstarts/publish-kb-python.md
+    - name: 새 기술 자료 만들기
+      items:
+      - name: C#
+        href: Quickstarts/create-new-kb-csharp.md
+      - name: Go
+        href: Quickstarts/create-new-kb-go.md
+      - name: 자바
+        href: Quickstarts/create-new-kb-java.md
+      - name: Node.js
+        href: Quickstarts/create-new-kb-nodejs.md
+      - name: Python
+        href: Quickstarts/create-new-kb-python.md
+    - name: 기술 자료 업데이트
+      items:
+      - name: C#
+        href: Quickstarts/update-kb-csharp.md
+      - name: Go
+        href: Quickstarts/update-kb-go.md
+      - name: 자바
+        href: Quickstarts/update-kb-java.md
+      - name: Node.js
+        href: Quickstarts/update-kb-nodejs.md
+      - name: Python
+        href: Quickstarts/update-kb-python.md
+    - name: 기술 자료 게시
+      items:
+      - name: C#
+        href: Quickstarts/publish-kb-csharp.md
+      - name: Go
+        href: Quickstarts/publish-kb-go.md
+      - name: 자바
+        href: Quickstarts/publish-kb-java.md
+      - name: Node.js
+        href: Quickstarts/publish-kb-nodejs.md
+      - name: Python
+        href: Quickstarts/publish-kb-python.md
 - name: 개념
   items:
   - name: 기술 자료
@@ -95,7 +97,7 @@ items:
     href: How-To/upgrade-qnamaker-service.md
   - name: QnAMaker 런타임 문제 해결 및 업데이트
     href: How-To/troubleshooting-runtime.md
-  - name: QnA Maker API 사용
+  - name: REST API 사용
     items:
     - name: C#
       href: Quickstarts/csharp.md
@@ -109,7 +111,7 @@ items:
       href: Quickstarts/go.md
 - name: 참고 자료
   items:
-  - name: API 참조
+  - name: REST API 참조
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff
   - name: FAQ
     href: faqs.md
@@ -122,7 +124,7 @@ items:
 - name: 리소스
   items:
   - name: 국가별 가용성
-    href: https://azure.microsoft.com/en-us/global-infrastructure/services/
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure 로드맵
     href: https://azure.microsoft.com/roadmap/
   - name: 가격
@@ -137,9 +139,9 @@ items:
     href: https://docs.microsoft.com/en-us/search/index?search=QnAMaker
   - name: 블로그
     href: https://blog.botframework.com/category/QnAMaker/
-ms.openlocfilehash: 39b0fac1a13eee2baaaeda4cf7fcaee11da1d306
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: ea1d0116ddd0e2b9958355b07c810a86713fae98
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078735"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361771"

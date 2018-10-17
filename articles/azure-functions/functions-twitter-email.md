@@ -8,15 +8,15 @@ manager: jeconnoc
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.service: azure-functions
 ms.topic: tutorial
-ms.date: 12/12/2017
+ms.date: 09/24/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 23db8d307892b100f291a1f32c9b77c73a60f23e
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 0b2e0ff800ab80a2c638293ce23fc1911390f2dd
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090766"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221119"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Azure Logic Apps와 통합하는 함수 만들기
 
@@ -84,6 +84,8 @@ Cognitive Services API는 Azure에서 개별 리소스로 사용할 수 있습�
 
     ![HTTP 트리거 선택](./media/functions-twitter-email/select-http-trigger-portal.png)
 
+    함수 앱에 추가되는 모든 후속 함수는 C# 언어 템플릿을 사용합니다.
+
 3. 함수의 **이름**을 입력하고 **[인증 수준](functions-bindings-http-webhook.md#http-auth)** 에 대해 `Function`을 선택한 후 **만들기**를 선택합니다. 
 
     ![HTTP 트리거 함수 만들기](./media/functions-twitter-email/select-http-trigger-portal-2.png)
@@ -93,28 +95,35 @@ Cognitive Services API는 Azure에서 개별 리소스로 사용할 수 있습�
 4. `run.csx` 파일의 콘텐츠를 다음 코드로 바꾼 다음 **저장**을 클릭합니다.
 
     ```csharp
-    using System.Net;
+    #r "Newtonsoft.Json"
     
-    public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+    using System;
+    using System.Net;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Primitives;
+    using Newtonsoft.Json;
+    
+    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
     {
-        // The sentiment category defaults to 'GREEN'. 
         string category = "GREEN";
     
-        // Get the sentiment score from the request body.
-        double score = await req.Content.ReadAsAsync<double>();
-        log.Info(string.Format("The sentiment score received is '{0}'.",
-                    score.ToString()));
+        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+        log.LogInformation(string.Format("The sentiment score received is '{0}'.", requestBody));
     
-        // Set the category based on the sentiment score.
-        if (score < .3)
+        double score = Convert.ToDouble(requestBody);
+    
+        if(score < .3)
         {
             category = "RED";
         }
-        else if (score < .6)
+        else if (score < .6) 
         {
             category = "YELLOW";
         }
-        return req.CreateResponse(HttpStatusCode.OK, category);
+    
+        return requestBody != null
+            ? (ActionResult)new OkObjectResult(category)
+            : new BadRequestObjectResult("Please pass a value on the query string or in the request body");
     }
     ```
     이 함수 코드는 요청에서 받은 감정 점수를 기준으로 색 범주를 반환합니다. 

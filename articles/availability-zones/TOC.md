@@ -38,7 +38,7 @@
 ### [공용 IP 주소](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
 ### SQL Database
-#### [SQL Database를 사용하는 가용성 영역](../sql-database/sql-database-high-availability.md#availability-zones)
+#### [SQL Database를 사용하는 가용성 영역](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
 
 ### Storage
 #### [영역 중복 저장소](../storage/common/storage-redundancy-zrs.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: spelluru
-ms.openlocfilehash: 4f7aa0b0c5142237f3b6fc66bb8593302c95f5af
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: e66a1651a46cfaeb7fb8b232eeb7cf6a2fb8044d
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41920352"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451225"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>.NET에서 Relay 하이브리드 연결 HTTP 요청 시작
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -64,9 +64,14 @@ Visual Studio에서 메시지를 릴레이로 보낼 C# 콘솔 응용 프로그�
 [!INCLUDE [relay-hybrid-connections-http-requests-dotnet-get-started-client](../../includes/relay-hybrid-connections-http-requests-dotnet-get-started-client.md)]
 
 ## <a name="5-run-the-applications"></a>5. 응용 프로그램 실행
-1. 서버 응용 프로그램을 실행합니다.
-2. 클라이언트 응용 프로그램을 실행하고 일부 텍스트를 입력합니다.
-3. 서버 응용 프로그램 콘솔에서 클라이언트 응용 프로그램에 입력된 텍스트가 표시되는지 확인합니다.
+1. 서버 응용 프로그램을 실행합니다. 콘솔 창에서 다음과 같은 텍스트가 표시됩니다.
+
+    ```
+    Online
+    Server listening
+    ```
+1. 클라이언트 응용 프로그램을 실행합니다. 클라이언트 창에서 `hello!`가 표시됩니다. 클라이언트는 HTTP 요청을 서버에 보냈고, 서버는 `hello!`로 응답했습니다. 
+3. 이제 콘솔 창을 닫으려면 콘솔 창에서 **ENTER** 키를 누릅니다. 
 
 축하합니다. 종단 간 하이브리드 연결 응용 프로그램을 만들었습니다.
 

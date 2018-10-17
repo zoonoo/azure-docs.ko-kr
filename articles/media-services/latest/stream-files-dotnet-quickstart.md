@@ -4,28 +4,29 @@ description: 이 빠른 시작의 단계에 따라 새로운 Azure Media Service
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 keywords: Azure Media Services, 스트림
 ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/08/2018
+ms.date: 09/25/2018
 ms.author: juliako
-ms.openlocfilehash: 48f85311f38d7e4ab1414dfc22c111b92163740e
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 8bef52bb7cb56646b0f09e2cb7910bab3f55e0c0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42022637"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223545"
 ---
 # <a name="quickstart-stream-video-files---net"></a>빠른 시작: 비디오 파일 스트리밍 - .NET
 
 > [!NOTE]
 > Azure Media Services의 최신 버전은 미리보기에 있으며 v3라고도 합니다. v3 API를 사용하기 시작하려면 이 빠른 시작에서 설명한 대로 새 Media Services 계정을 만들어야 합니다. 
 
-이 빠른 시작은 Azure Media Services를 사용하여 다양한 브라우저 및 장치에서 비디오 스트리밍을 시작하는 것이 얼마나 쉬운지 보여줍니다. 이 항목의 샘플에서는 콘텐츠를 인코딩하여 HTTPS URL을 통해 액세스할 수 있게 만듭니다. 
+이 빠른 시작은 Azure Media Services를 사용하여 다양한 브라우저 및 장치에서 비디오 스트리밍을 인코딩하고 시작하는 것이 얼마나 쉬운지 보여줍니다. 입력 내용은 HTTPS URL, SAS URL 또는 Azure Blob 저장소에 있는 파일 경로를 사용하여 지정할 수 있습니다.
+이 항목의 샘플에서는 콘텐츠를 인코딩하여 HTTPS URL을 통해 액세스할 수 있게 만듭니다. 현재 AMS v3은 HTTPS URL을 통한 청크 분할 전송 인코딩을 지원하지 않습니다.
 
 빠른 시작이 끝나면 비디오를 스트리밍 할 수 있습니다.  
 

@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.service: resource-graph
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 7a706c65fbdd64103854b02e891c96cbf927f8a1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1a2bc5626e94f5fcb0ec8c2be8d91c8fc6484e0b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962541"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224565"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-powershell"></a>Azure PowerShell을 사용하여 첫 번째 Resource Graph 쿼리 실행
 
-Azure Resource Graph를 사용하는 첫 번째 단계는 Azure PowerShell용 모듈이 설치되어 있는지 확인하는 것입니다. 이 빠른 시작에서는 Azure PowerShell 설치에 모듈을 추가하는 과정을 안내합니다. Azure PowerShell이 로컬로 설치된 상태로 또는 [Azure Cloud Shell](https://shell.azure.com)을 통해 모듈을 사용할 수 있습니다.
+Azure Resource Graph를 사용하는 첫 번째 단계는 Azure PowerShell용 모듈이 설치되어 있는지 확인하는 것입니다. 이 빠른 시작에서는 Azure PowerShell 설치에 모듈을 추가하는 과정을 안내합니다.
 
 이 프로세스가 끝나면 선택한 Azure PowerShell 설치에 모듈이 추가되고 첫 번째 Resource Graph 쿼리를 실행하게 됩니다.
 
@@ -26,23 +26,63 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="add-the-resource-graph-module"></a>Resource Graph 모듈 추가
 
-Azure PowerShell을 사용하도록 설정하여 Azure Resource Graph를 쿼리하려면 해당 모듈을 추가해야 합니다. 이 모듈은 [Cloud Shell](https://shell.azure.com)(독립형 및 포털 내부형), [Azure PowerShell Docker 이미지](https://hub.docker.com/r/azuresdk/azure-powershell/)를 포함하여 Azure PowerShell이 사용되거나 로컬로 설치될 수 있는 모든 위치에서 작동됩니다.
+Azure PowerShell을 사용하도록 설정하여 Azure Resource Graph를 쿼리하려면 해당 모듈을 추가해야 합니다. 로컬로 설치된 Windows PowerShell 및 PowerShell Core와 [Azure PowerShell Docker 이미지](https://hub.docker.com/r/azuresdk/azure-powershell/)로 이 모듈을 사용할 수 있습니다.
 
-1. Azure PowerShell 6.3.0 이상이 설치되어 있는지 확인합니다. 아직 설치되지 않은 경우 [다음 지침](/powershell/azure/install-azurerm-ps)을 따릅니다.
+### <a name="base-requirements"></a>기본 요구 사항
 
-1. PowerShellGet이 설치되어 있는지 확인합니다. 설치되거나 업데이트되지 않은 경우 [다음 지침](/powershell/gallery/installing-psget)을 따릅니다.
+Azure Resource Graph 모듈에는 다음 소프트웨어가 필요합니다.
 
-1. **관리자** PowerShell 프롬프트에서 다음 명령을 실행합니다.
+- Azure PowerShell 6.3.0 이상 아직 설치되지 않은 경우 [다음 지침](/powershell/azure/install-azurerm-ps)을 따릅니다.
 
-   ```azurepowershell-interactive
+  - PowerShell Core의 경우 Azure PowerShell 모듈의 **Az** 버전을 사용합니다.
+
+  - Windows PowerShell의 경우 Azure PowerShell 모듈의 **AzureRm** 버전을 사용합니다.
+
+  > [!NOTE]
+  > 현재 Cloud Shell에 모듈을 설치하는 것은 좋지 않습니다.
+
+- PowerShellGet 설치되거나 업데이트되지 않은 경우 [다음 지침](/powershell/gallery/installing-psget)을 따릅니다.
+
+### <a name="powershell-core"></a>PowerShell Core
+
+PowerShell Core용 Resource Graph 모듈은 **Az.ResourceGraph**입니다.
+
+1. **관리자** PowerShell Core 프롬프트에서 다음 명령을 실행합니다.
+
+   ```powershell
    # Install the Resource Graph module from PowerShell Gallery
-   Install-Module AzureRm.ResourceGraph
+   Install-Module -Name Az.ResourceGraph
    ```
 
-1. 모듈을 가져왔는지와 올바른 버전(0.1.0)인지 확인합니다.
+1. 모듈을 가져왔는지와 올바른 버전(0.2.0)인지 확인합니다.
 
-   ```azurepowershell-interactive
-   # Get a list of commands for the imported AzureRm.Graph module
+   ```powershell
+   # Get a list of commands for the imported Az.ResourceGraph module
+   Get-Command -Module 'Az.ResourceGraph' -CommandType 'Cmdlet'
+   ```
+
+1. **Az**에 대한 이전 버전 별칭을 다음 명령을 사용하여 **AzureRm**으로 활성화합니다.
+
+   ```powershell
+   # Enable backwards alias compatibility
+   Enable-AzureRmAlias
+   ```
+
+### <a name="windows-powershell"></a>Windows PowerShell
+
+Windows PowerShell용 Resource Graph 모듈은 **AzureRm.ResourceGraph**입니다.
+
+1. **관리자** Windows PowerShell 프롬프트에서 다음 명령을 실행합니다.
+
+   ```powershell
+   # Install the Resource Graph (prerelease) module from PowerShell Gallery
+   Install-Module -Name AzureRm.ResourceGraph -AllowPrerelease
+   ```
+
+1. 모듈을 가져왔는지와 올바른 버전(0.1.0-미리 보기)인지 확인합니다.
+
+   ```powershell
+   # Get a list of commands for the imported AzureRm.ResourceGraph module
    Get-Command -Module 'AzureRm.ResourceGraph' -CommandType 'Cmdlet'
    ```
 
@@ -52,8 +92,8 @@ Azure PowerShell을 사용하도록 설정하여 Azure Resource Graph를 쿼리�
 
 1. `Search-AzureRmGraph` cmdlet을 사용하여 첫 번째 Azure Resource Graph 쿼리를 실행합니다.
 
-   ```azurepowershell-interactive
-   # Login first with Connect-AzureRmAccount if not using Cloud Shell
+   ```powershell
+   # Login first with Connect-AzureRmAccount
 
    # Run Azure Resource Graph query
    Search-AzureRmGraph -Query 'project name, type | limit 5'
@@ -64,7 +104,7 @@ Azure PowerShell을 사용하도록 설정하여 Azure Resource Graph를 쿼리�
 
 1. 다음과 같이 **Name** 속성에 대해 `order by`를 수행하도록 쿼리를 업데이트합니다.
 
-   ```azurepowershell-interactive
+   ```powershell
    # Run Azure Resource Graph query with 'order by'
    Search-AzureRmGraph -Query 'project name, type | limit 5 | order by name asc'
    ```
@@ -74,18 +114,18 @@ Azure PowerShell을 사용하도록 설정하여 Azure Resource Graph를 쿼리�
 
 1. **Name** 속성에 대해 `order by`를 먼저 수행한 후 상위 5개 결과로 `limit`를 수행하도록 쿼리를 업데이트합니다.
 
-   ```azurepowershell-interactive
+   ```powershell
    # Run Azure Resource Graph query with `order by` first, then with `limit`
    Search-AzureRmGraph -Query 'project name, type | order by name asc | limit 5'
    ```
 
 최종 쿼리가 여러 번 실행되는 경우, 사용자 환경이 전혀 변경되지 않는다고 가정하면, 반환되는 결과는 일치하며 예상대로 **Name** 속성별로 정렬되지만 여전히 상위 5개 결과로 제한됩니다.
 
-## <a name="clean-up"></a>정리
+## <a name="cleanup"></a>정리
 
 Azure PowerShell 환경에서 Resource Graph 모듈을 제거하려면 다음 명령을 사용하여 이 작업을 수행할 수 있습니다.
 
-```azurepowershell-interactive
+```powershell
 # Remove the Resource Graph module from the Azure PowerShell environment
 Remove-Module -Name 'AzureRm.ResourceGraph'
 ```
@@ -100,3 +140,4 @@ Remove-Module -Name 'AzureRm.ResourceGraph'
 - [Azure CLI](first-query-azurecli.md)로 첫 번째 쿼리 실행
 - [시작 쿼리](./samples/starter.md) 샘플 보기
 - [고급 쿼리](./samples/advanced.md) 샘플 참조
+- [UserVoice](https://feedback.azure.com/forums/915958-azure-governance)에서 사용자 의견 제공

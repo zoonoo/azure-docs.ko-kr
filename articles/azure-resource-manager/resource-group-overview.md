@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 09/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 24add63639f5fffe18e4b4468bfd78600a38c5f3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dc73bbd775da31faecf236716a2b028171438b7c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969294"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220890"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 개요
 응용 프로그램에 대한 인프라는 일반적으로 가상 머신, 저장소 계정 및 가상 네트워크 또는 웹앱, 데이터베이스, 데이터베이스 서버 및 타사 서비스 등의 많은 구성 요소를 만듭니다. 이러한 구성 요소를 별도 엔터티로 표시하지 않으면, 대신 관련된 단일 엔터티의 상호 종속적으로 부분으로 표시됩니다. 그룹으로 배포, 관리 및 모니터링하려고 합니다. Azure 리소스 관리자를 사용하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다. 조정된 단일 작업에서 솔루션에 대한 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다. 배포용 템플릿을 사용하고 이 템플릿을 테스트, 스테이징 및 프로덕션과 같은 여러 환경에서 사용할 수 있습니다. 리소스 관리자는 보안, 감사 및 태그 기능을 제공하여 배포 후에 리소스를 관리할 수 있습니다. 
@@ -155,6 +155,12 @@ Resource Manager는 설치에 포함되지 않은 특정 소프트웨어를 설�
 * [Resource Manager 템플릿과 Azure Portal로 리소스 배포](resource-group-template-deploy-portal.md)
 * [Resource Manager 템플릿과 Resource Manager REST API로 리소스 배포](resource-group-template-deploy-rest.md)
 
+## <a name="safe-deployment-practices"></a>안전한 배포 사례
+
+복잡한 서비스를 Azure에 배포할 때 여러 지역에 서비스를 배포하고, 다음 단계를 진행하기 전에 해당 상태를 확인해야 합니다. [Azure 배포 관리자](deployment-manager-overview.md)를 사용하여 서비스의 단계적 출시를 조정합니다. 서비스의 출시를 준비하여 모든 지역에 배포되기 전에 잠재적인 문제를 찾을 수 있습니다. 이러한 예방 조치가 필요하지 않은 경우 이전 섹션의 배포 작업이 더 나은 옵션입니다.
+
+배포 관리자는 현재 공개 미리 보기로 제공됩니다.
+
 ## <a name="tags"></a>태그들
 리소스 관리자는 관리 또는 청구에 대한 요구 사항에 따라 리소스를 분류할 수 있는 태그 지정 기능을 제공합니다. 리소스 그룹 및 리소스의 복잡한 컬렉션이 있고 해당 자산을 사용자에게 가장 적합한 방식으로 시각화할 필요가 있을 때 태그를 사용합니다. 예를 들어 조직에서 비슷한 역할을 제공하거나 동일한 부서에 속한 리소스를 태그로 지정할 수 있습니다. 조직의 사용자는 태그 없이 나중에 식별하고 관리하기 어려울 수 있는 여러 리소스를 만들 수 있습니다. 예를 들어 특정 프로젝트에 대한 모든 리소스를 삭제하려고 할 수 있습니다. 해당 리소스가 프로젝트에 대해 태그가 지정되지 않은 경우 수동으로 찾아야 합니다. 태그를 지정하는 작업은 구독에서 불필요한 비용을 줄일 수 있는 좋은 방법입니다. 
 
@@ -176,20 +182,6 @@ Resource Manager는 설치에 포함되지 않은 특정 소프트웨어를 설�
   }
 ]
 ```
-
-태그 값을 사용하는 모든 리소스를 검색하려면 다음 PowerShell cmdlet을 사용합니다.
-
-```powershell
-Find-AzureRmResource -TagName costCenter -TagValue Finance
-```
-
-또는 다음 Azure CLI 명령을 사용합니다.
-
-```azurecli
-az resource list --tag costCenter=Finance
-```
-
-Azure Portal을 통해 태그가 지정된 리소스를 볼 수도 있습니다.
 
 구독에 대한 [사용 현황 보고서](../billing/billing-understand-your-bill.md)는 태그 이름 및 값을 포함하며 이를 통해 태그별 비용을 알아낼 수 있습니다. 태그에 대한 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](resource-group-using-tags.md)을 참조하십시오.
 
@@ -228,29 +220,8 @@ Azure는 몇 가지 리소스 특정 역할도 제공합니다. 몇 가지 일�
 
 또한 사용자가 삭제 및 수정하는 것을 방지하기 위해 명시적으로 중요한 리소스를 잠글 수 있습니다. 자세한 내용은 [Azure 리소스 관리자를 사용하여 리소스 잠그기](resource-group-lock-resources.md)를 참조하세요.
 
-## <a name="activity-logs"></a>활동 로그
-Resource Manager는 리소스를 만들거나 수정 또는 삭제하는 모든 작업을 기록합니다. 활동 로그를 사용하여 문제를 해결할 때 오류를 찾거나 조직의 사용자가 리소스를 수정한 방법을 모니터링할 수 있습니다. 작업을 시작한 사용자를 포함하여 여러 다른 값으로 로그를 필터링할 수 있습니다. 활동 로그 작업에 대한 내용은 [Azure 리소스 관리를 위한 활동 로그 보기](resource-group-audit.md)를 참조하세요.
-
 ## <a name="customized-policies"></a>사용자 지정된 정책
 리소스 관리자를 사용하면 리소스를 관리하기 위해 사용자 지정된 정책을 만들 수 있습니다. 만든 정책의 유형에는 다양한 시나리오가 포함될 수 있습니다. 리소스에 대한 명명 규칙을 적용하거나 배포할 수 있는 리소스의 형식 및 인스턴스를 제한하거나 리소스 종류를 호스트할 수 있는 지역을 제한할 수 있습니다. 부서별로 청구를 구성하기 위해 리소스에 대한 태그 값이 필요할 수 있습니다. 구독에서 비용을 절감하고 일관성을 유지하는 데 도움이 되는 정책을 만들 수 있습니다. 
-
-JSON을 사용하여 정책을 정의하고 구독 전체 또는 리소스 그룹 내에서 해당 정책을 적용합니다. 정책은 리소스 유형에 적용되기 때문에 역할 기반 Access Control와 다릅니다.
-
-다음 예제에서는 모든 리소스에 costCenter 태그가 포함되는지를 지정하여 태그 일관성을 보장하는 정책을 보여 줍니다.
-
-```json
-{
-  "if": {
-    "not" : {
-      "field" : "tags",
-      "containsKey" : "costCenter"
-    }
-  },
-  "then" : {
-    "effect" : "deny"
-  }
-}
-```
 
 더 다양한 유형의 정책을 만들 수 있습니다. 자세한 내용은 [Azure Policy란?](../azure-policy/azure-policy-introduction.md)을 참조하세요.
 

@@ -13,20 +13,22 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 7e86ba2b7fc729bd4663503282a936a5eaddf3ca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8cf779f203850ca03942ba2395baf07412712610
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637876"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092972"
 ---
 # <a name="compare-managed-labs-in-azure-lab-services-and-devtest-labs"></a>Azure Lab Services에서 관리되는 랩 및 DevTest 랩 비교
 두 가지 유형의 랩, 즉 Azure Lab Services를 사용하여 **관리되는 랩** 및 Azure DevTest Labs를 사용하여 **사용자 지정 랩**을 만들 수 있습니다. 단지 랩에서 필요한 것을 입력하고 랩에 필요한 인프라를 설정하고 관리하도록 하려면 **관리되는 랩** 중 하나를 선택합니다. 현재 **클래스룸 랩**은 Azure Lab Services로 만들 수 있는 관리되는 랩의 유일한 유형입니다. 자신의 인프라를 관리하려면 Azure DevTest Labs를 사용하여 랩을 만듭니다.
 
 다음 섹션에서는 이러한 랩을 대한 자세한 정보를 제공합니다. 
 
-## <a name="managed-labs"></a>관리되는 랩
-관리되는 랩은 특정 요구에 맞는 다양한 유형의 랩을 제공합니다. 현재 Azure Lab Services는 **클래스룸 랩** 만을 관리되는 랩으로 지원합니다. 관리되는 랩을 사용하면 최소한의 설정으로 바로 시작할 수 있습니다. 서비스 자체는 VM 가동에서 오류 처리 및 인프라 확장에 이르기까지 랩의 모든 인프라 관리를 처리합니다. 관리되는 랩을 만들려면 먼저 조직의 랩 계정을 만들어야 합니다. 랩 계정은 조직의 모든 랩을 관리하는 중앙 계정 역할을 합니다. 
+## <a name="managed-lab-types"></a>관리되는 랩 형식
+Azure Lab Services를 사용하면 Azure에서 해당 인프라를 관리하는 랩을 만들 수 있습니다. 이 문서에서는 관리되는 랩을 나타냅니다. 관리되는 랩은 특정 요구에 맞는 다양한 유형의 랩을 제공합니다. 현재 지원되는 관리되는 랩의 유형은 **클래스룸 랩**입니다. 
+
+관리되는 랩을 사용하면 최소한의 설정으로 바로 시작할 수 있습니다. 서비스 자체는 VM 가동에서 오류 처리 및 인프라 확장에 이르기까지 랩의 모든 인프라 관리를 처리합니다. 클래스룸 랩과 같은 관리되는 랩을 만들려면 먼저 조직의 랩 계정을 만들어야 합니다. 랩 계정은 조직의 모든 랩을 관리하는 중앙 계정 역할을 합니다. 
 
 이러한 관리되는 랩에서 Azure 리소스를 만들고 사용할 때 이 서비스는 내부 Microsoft 구독에 리소스를 만들고 관리합니다. 그것들은 자신의 Azure 구독에서 만들어지지 않았습니다. 이 서비스는 내부 Microsoft 구독에서 이러한 리소스의 사용을 추적합니다. 이 사용량은 랩 계정이 포함된 Azure 구독에 청구됩니다.   
 
@@ -51,11 +53,11 @@ ms.locfileid: "34637876"
 - 최신 버전의 제품으로 구성된 랩을 사용하여 고객에게 교육 세션을 제공합니다. 각 고객에게 랩에서 사용할 제한된 시간을 줍니다. 
 
 
-## <a name="managed-labs-vs-devtest-labs"></a>관리되는 랩 및 DevTest Labs
+## <a name="managed-lab-types-vs-devtest-labs"></a>관리되는 랩 형식과 다음을 비교 DevTest Labs
 다음 표는 Azure Lab Services에서 지원하는 두 가지 유형의 랩을 비교합니다. 
 
 | 기능 | 관리되는 랩 | DevTest Labs |
-| -------- | ----------------  | ---------- |
+| -------- | ----------------- | ---------- |
 | 랩에서 Azure 인프라 관리. |  서비스에 의한 자동 관리 | 직접 관리  |
 | 인프라 문제에 대한 기본 복원력 | 서비스에 의한 자동 처리 | 직접 관리  |
 | 구독 관리 | 서비스는 서비스를 지원하는 Microsoft 구독 내 리소스 할당을 처리합니다. 크기 조정은 서비스에 의해 자동 처리됩니다. | 자신의 Azure 구독으로 직접 관리합니다. 구독에는 자동 크기 조정 기능이 없습니다. |

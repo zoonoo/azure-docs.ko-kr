@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 8df9054e069540398c137290e682bb4160b4a799
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 46c65cd7ac5734134fa7c4ad6fd85f39d1188e28
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036641"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392556"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>자습서: Batch 탐색기를 사용하여 Blender 장면 렌더링
 
@@ -24,11 +24,11 @@ ms.locfileid: "40036641"
 > * 여러 프레임 렌더링
 > * 렌더링된 프레임 파일 보기 및 다운로드
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
-
 ## <a name="prerequisites"></a>필수 조건
 
-저장소 계정이 연결된 Azure Batch 계정.  [CLI 아티클](https://docs.microsoft.com/azure/batch/quick-create-cli)과 같은 Batch 빠른 시작 아티클 중 하나를 참조하여 Batch 계정을 만듭니다.
+사용량 기준 과금 단위로 일괄 처리에서 렌더링 응용 프로그램을 사용하는 데 종량제 구독 또는 다른 Azure 구입 옵션이 필요합니다. 사용량 기준 과금 라이선스는 금액 크레딧을 제공하는 무료 Azure 제품을 사용하는 경우 지원되지 않습니다.
+
+저장소 계정이 연결된 Azure Batch 계정이 필요합니다.  [CLI 아티클](https://docs.microsoft.com/azure/batch/quick-create-cli)과 같은 Batch 빠른 시작 아티클 중 하나를 참조하여 Batch 계정을 만듭니다.
 
 이 자습서에 지정된 VM 크기 및 VM 수에 대해 우선 순위가 낮은 코어 할당량으로 최소 50개 코어가 필요합니다. 기본 할당량을 사용할 수 있지만 작은 VM 크기를 사용해야 합니다. 그러면 이미지를 렌더링하는 데 더 많은 시간이 걸립니다. 코어 할당량을 증가하도록 요청하는 프로세스는 [이 아티클](https://docs.microsoft.com/azure/batch/batch-quota-limit)에 자세히 설명됩니다.
 

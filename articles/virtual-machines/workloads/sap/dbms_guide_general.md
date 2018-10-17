@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2018
+ms.date: 09/06/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e7ad93cbfd096cacadaef8666b0ea5b31d7fd992
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: e46503f8dc97f58db1cd5acfd2122e2895fb15b0
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918804"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162311"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -272,6 +272,11 @@ Azure 가용성 집합을 설정하는 방법은 [이 자습서](https://docs.mi
 - VNet 내의 VM에는 개인 IP 주소의 정적 할당이 있습니다. 참고 자료로 [Azure의 IP 주소 유형 및 할당 방법](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) 문서를 참조하세요.
 - DBMS VM 간의 라우팅 제한은 로컬 DBMS VM에 설치된 방화벽으로 **설정되지 않습니다**. 대신 트래픽 라우팅은 [Azure NSG(네트워크 보안 그룹)](https://docs.microsoft.com/azure/virtual-network/security-overview)로 정의됩니다.
 - DBMS VM으로의 트래픽을 분리하고 격리하기 위해 서로 다른 NIC를 VM에 할당합니다. 모든 NIC에는 서로 다른 IP 주소가 있으며, 각 NIC는 모두 서로 다른 NSG 규칙이 있는 별도의 VNet 서브넷에 할당됩니다. 네트워크 트래픽의 격리 또는 분리는 라우팅에 대한 측정값일 뿐이며 네트워크 처리량에 대한 할당량 설정을 허용하지 않습니다.
+
+> [!NOTE]
+> Azure 평균을 통해 고정 IP 주소를 개별 vNIC에 할당해야 합니다. 게스트 OS 내에서 고정 IP 주소를 vNIC에 할당하지 않아야 합니다. Azure Backup 서비스와 같은 일부 Azure 서비스는 최소한 기본 vNIC가 고정 IP 주소가 아닌 DHCP로 설정된다는 사실에 의존합니다. [Azure 가상 머신 백업 문제 해결](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking) 문서도 참조하세요. VM에 여러 고정 IP 주소를 할당해야 하는 경우 VM에 여러 vNIC를 할당해야 합니다.
+>
+>
 
 Azure 가용성 집합 내에 프로덕션 DBMS를 배포하기 위한 두 개의 VM, SAP 응용 프로그램 계층에 대한 별도의 라우팅 및 두 개의 DBMS VM에 대한 관리 및 운영 트래픽을 사용하는 경우 대략적인 다이어그램은 다음과 같습니다.
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: c0b42c3efd5e015eaf1fbd750f835d8de8818de9
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: d99b76faf618439e51735d5f1096fd4f1cfd2364
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43185854"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038292"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>자습서: Azure IoT Central 연산자의 뷰 사용자 지정
 
@@ -50,9 +50,9 @@ ms.locfileid: "43185854"
 
     ![연결된 공조 장치 선택](media/tutorial-customize-operator/selectdevice.png)
 
-    **연결된 공조 장치-1** 같은 장치를 변경하는 경우 기본 템플릿을 변경합니다. 자세한 내용은 [새 장치 템플릿 버전 만들기](howto-version-devicetemplate.md)를 참조하세요.
+    **연결된 공조 장치-1**과 같은 장치 내에서 **템플릿 편집**을 선택하여 기본 템플릿을 변경할 수 있습니다. 자세한 내용은 [새 장치 템플릿 버전 만들기](howto-version-devicetemplate.md)를 참조하세요.
 
-3. 대시보드를 편집하려면 **대시보드**를 선택하세요.
+3. 대시보드를 편집하려면 **대시보드**를 선택하고, **템플릿 편집**을 선택합니다.
 
     ![장치 템플릿 대시보드 페이지](media/tutorial-customize-operator/dashboard.png)
 
@@ -64,7 +64,7 @@ ms.locfileid: "43185854"
 
     | 설정     | 값 |
     | ----------- | ----- |
-    | Name        | 최대 온도 |
+    | 이름        | 최대 온도 |
     | 측정 | 온도 |
     | 집계 | 최대 |
     | 시간 범위  | 지난 1주 |
@@ -77,11 +77,13 @@ ms.locfileid: "43185854"
 
     ![대시보드 레이아웃 편집](media/tutorial-customize-operator/dashboardlayout.png)
 
+7. 변경 작업을 마쳤으면 **완료**를 클릭합니다.
+
 ## <a name="configure-your-settings-layout"></a>설정 레이아웃 구성
 
 작성기로서 장치 설정의 연산자의 뷰를 구성할 수 있습니다. 연산자는 장치 설정 페이지를 사용하여 장치를 구성합니다. 예를 들어 연산자는 냉장고에 대한 대상 온도를 설정하기 위한 설정 페이지를 사용합니다.
 
-1. 연결된 공조 장치에 대한 설정 레이아웃을 편집하려면 **설정**을 선택합니다.
+1. 연결된 공조 장치에 대한 설정 레이아웃을 편집하려면 **설정**을 선택하고, **템플릿 편집**을 선택합니다.
 
     ![설정 페이지](media/tutorial-customize-operator/settings.png)
 
@@ -89,14 +91,16 @@ ms.locfileid: "43185854"
 
     ![설정 레이아웃 편집](media/tutorial-customize-operator/settingslayout.png)
 
+3. 변경 작업을 마쳤으면 **완료**를 클릭합니다.
+
 > [!NOTE]
-> **디자인 모드**에서는 설정 값을 편집할 수 없습니다.
+> **템플릿 편집** 모드에서는 설정 값을 편집할 수 없습니다.
 
 ## <a name="configure-your-properties-layout"></a>속성 레이아웃 구성
 
 대시보드 및 설정 외에도 장치 속성의 연산자의 뷰를 구성할 수 있습니다. 연산자는 장치 속성 페이지를 사용하여 장치 메타데이터를 관리합니다. 예를 들어 연산자는 속성 페이지를 사용하여 장치 일련 번호를 확인하거나 제조업체의 연락처 세부 정보를 업데이트합니다.
 
-1. 연결된 공조 장치에 대한 속성 레이아웃을 편집하려면 **속성**을 선택합니다.
+1. 연결된 공조 장치에 대한 속성 레이아웃을 편집하려면 **속성**을 선택하고, **템플릿 편집**을 선택합니다.
 
     ![속성 페이지](media/tutorial-customize-operator/properties.png)
 
@@ -104,16 +108,18 @@ ms.locfileid: "43185854"
 
     ![속성 레이아웃 편집](media/tutorial-customize-operator/propertieslayout.png)
 
+3. 변경 작업을 마쳤으면 **완료**를 클릭합니다.
+
 > [!NOTE]
-> **디자인 모드**에서는 속성 값을 편집할 수 없습니다.
+> **템플릿 편집** 모드에서는 속성 값을 편집할 수 없습니다.
 
 ## <a name="preview-the-connected-air-conditioner-device-as-an-operator"></a>연산자로서 연결된 공조 장치 미리 보기
 
-**디자인 모드**에서 연산자에 대한 대시보드, 설정 및 속성 페이지를 사용자 지정할 수 있습니다. **디자인 모드**를 해제하면 연산자로서 응용 프로그램을 볼 수 있습니다.
+**템플릿 편집** 모드에서 연산자에 대한 대시보드, 설정 및 속성 페이지를 사용자 지정할 수 있습니다. **템플릿 편집** 모드에 있지 않은 경우 운영자 권한으로 응용 프로그램을 볼 수 있습니다.
 
-1. 연산자로서 연결된 공조 장치를 보려면 **디자인 모드**를 해제해야 합니다. **디자인 모드**를 해제하려면 페이지의 오른쪽 상단에서 **디자인 모드**를 해제합니다.
+1. 운영자로서 연결된 공조 장치를 보려면 템플릿 편집을 중지하기 위해 **완료**를 클릭해야 합니다. 장치의 운영자 보기로 돌아갑니다.
 
-2. 이 장치의 일련 번호를 업데이트하려면 일련 번호 타일에서 값을 편집하고 **저장**을 선택합니다.
+2. 이 장치의 위치를 업데이트하려면 위치 타일에서 값을 편집하고 **저장**을 선택합니다.
 
     ![속성 값 편집](media/tutorial-customize-operator/editproperty.png)
 
@@ -131,7 +137,7 @@ ms.locfileid: "43185854"
 
 작성기 또는 연산자가 Azure IoT Central 응용 프로그램에 로그인하면 홈 페이지가 표시됩니다. 작성기로서 연산자에 대한 가장 유용하고 관련이 큰 콘텐츠를 포함하려면 이 홈 페이지의 콘텐츠를 구성할 수 있습니다.
 
-1. 기본 홈 페이지를 사용자 지정하려면 **홈** 페이지로 이동하여 페이지의 오른쪽 상단에서 **디자인 모드**를 설정합니다. **디자인 모드**를 켜면 패널은 홈 페이지에 추가할 수 있는 개체의 목록을 사용하여 오른쪽에서 슬라이드 아웃됩니다.
+1. 기본 홈 페이지를 사용자 지정하려면 **홈** 페이지로 이동하여 페이지의 오른쪽 상단에서 **편집**을 선택합니다. **편집**을 선택하면 패널은 홈 페이지에 추가할 수 있는 개체의 목록을 사용하여 오른쪽에서 슬라이드 아웃됩니다.
 
     ![응용 프로그램 개발자 페이지](media/tutorial-customize-operator/builderhome.png)
 
@@ -150,7 +156,7 @@ ms.locfileid: "43185854"
 
 ## <a name="preview-the-default-home-page-as-an-operator"></a>연산자로서 기본 홈 페이지 미리 보기
 
-연산자로서 홈 페이지를 미리 보기하려면 페이지의 오른쪽 상단에서 **디자인 모드**를 해제합니다.
+운영자로서 홈 페이지를 미리 보기하고 더 이상 편집을 하지 않으려면 페이지의 오른쪽 상단에서 **완료**를 선택합니다.
 
 ![디자인 모드 설정/해제](media/tutorial-customize-operator/operatorviewhome.png)
 

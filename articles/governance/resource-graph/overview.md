@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: bcfee71af25ccb996f9467922aa38cabe2b252ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d68183f4d0a928ac72f3f73ea5225ad174820cb7
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959022"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162103"
 ---
 # <a name="what-is-azure-resource-graph"></a>Azure Resource Graph란?
 
@@ -29,7 +29,7 @@ Azure Resource Graph는 모든 구독 및 관리 그룹에서 대규모로 쿼�
 > [!NOTE]
 > Azure Resource Graph는 Azure Portal의 새로운 '모든 리소스' 탐색 환경에서 사용됩니다. 이 기능은 대규모 환경을 관리하는 데 도움이 되도록 디자인되었습니다.
 
-## <a name="how-does-azure-resource-graph-complement-azure-resource-manager"></a>Azure Resource Graph가 Azure Resource Manager를 보완하는 방법
+## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Resource Graph가 Azure Resource Manager를 보완하는 방법
 
 Azure Resource Manager는 현재 여러 리소스 필드, 특히 리소스 이름, ID, 유형, 리소스 그룹, 구독 및 위치를 표시하는 제한된 리소스 캐시로 데이터를 보냅니다. 현재, 더 많은 리소스 속성으로 작업하려는 경우 각 개별 리소스 공급자를 호출하고 각 리소스에 대한 요청 속성 세부 정보를 호출해야 합니다.
 
@@ -39,7 +39,7 @@ Azure Resource Graph를 사용하면 각 리소스 공급자를 별도로 호출
 
 지금까지 Azure Resource Graph에 대해 알아보았으므로 이제 쿼리 생성 방법을 자세히 살펴보겠습니다.
 
-Azure Resource Graph의 쿼리 언어는 유사하지만 KQL([Kusto 쿼리 언어](https://docs.loganalytics.io/docs/Language-Reference/))과 동일하지 않음을 이해하는 것이 중요합니다.
+Azure Resource Graph의 쿼리 언어는 [Azure Data Explorer 쿼리 언어](../../data-explorer/data-explorer-overview.md)에 기반을 두고 있다는 것을 이해하는 것이 중요합니다.
 
 먼저 Azure Resource Graph에서 사용할 수 있는 작업 및 함수에 대한 자세한 내용은 [Resource Graph 쿼리 언어](./concepts/query-language.md)를 참조하세요. 리소스를 찾아보려면 [리소스 탐색](./concepts/explore-resources.md)을 참조하세요.
 

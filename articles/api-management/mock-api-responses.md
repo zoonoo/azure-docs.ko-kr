@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/27/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 4383ce3788f6fade5299d69ef99b80221c58d9e7
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 916d0cf37ab3588091d4ca2d45f43a5669afe4f1
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936986"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094898"
 ---
 # <a name="mock-api-responses"></a>모의 API 응답
 
@@ -46,7 +46,7 @@ ms.locfileid: "33936986"
 
 이 섹션의 단계에서는 백 엔드 없는 빈 API를 만드는 방법을 보여 줍니다. 또한 API에 작업을 추가하는 방법을 보여 줍니다. 이 섹션의 단계를 완료한 후 작업을 호출하면 오류가 발생합니다. "모의 응답 사용" 섹션의 단계를 완료하면 오류가 발생하지 않습니다.
 
-1. **API Management**에서 **API**를 선택합니다.
+1. **API Management** 서비스에서 **API**를 선택합니다.
 2. 왼쪽 메뉴에서 **+API 추가**를 선택합니다.
 3. 목록에서 **빈 API**를 선택합니다.
 4. **표시 이름**에 "*테스트 API*"를 입력합니다.
@@ -57,14 +57,13 @@ ms.locfileid: "33936986"
 
 1. 이전 단계에서 만든 API를 선택합니다.
 2. **+작업 추가**를 클릭합니다.
-
-    ![모의 작업 응답](./media/mock-api-responses/mock-api-responses02.png)
+    ![모의 작업 응답](./media/mock-api-responses/mock-api-responses-add-operation.png)
 
     |설정|값|설명|
     |---|---|---|
+    |**표시 이름**|*테스트 호출*|**개발자 포털**에 표시되는 이름입니다.|
     |**URL**(HTTP 동사)|GET|미리 정의된 HTTP 동사 중 하나를 선택할 수 있습니다.|
     |**URL** |*/테스트*|API에 대한 URL 경로입니다. |
-    |**표시 이름**|*테스트 호출*|**개발자 포털**에 표시되는 이름입니다.|
     |**설명**||**개발자 포털**에서 이 API를 사용하는 개발자에게 문서를 제공하는 데 사용되는 작업에 대한 설명을 제공합니다.|
     |**쿼리** 탭||쿼리 매개 변수를 추가할 수 있습니다. 이름 및 설명 제공 외에도 이 매개 변수에 할당될 수 있는 값을 제공할 수 있습니다. 값 중 하나를 기본값으로 표시할 수 있습니다(선택 사항).|
     |**요청** 탭||요청 콘텐츠 형식, 예제 및 스키마를 정의할 수 있습니다. |
@@ -75,18 +74,19 @@ ms.locfileid: "33936986"
 5. 목록에서 **200 정상**을 선택합니다.
 6. 오른쪽의 **표시** 제목 아래에서 **+표시 추가**를 선택합니다.
 7. "*응용 프로그램/json*"을 검색 상자에 입력하고 **응용 프로그램/json** 콘텐츠 형식을 선택합니다.
-8. **샘플** 텍스트 상자에 "*{ 'sampleField' : 'test' }*"를 입력합니다.
-9. **저장**을 선택합니다.
+8. **샘플** 텍스트 상자에 `{ 'sampleField' : 'test' }`를 입력합니다.
+9. **만들기**를 선택합니다.
 
 ## <a name="enable-response-mocking"></a>모의 응답 사용
 
 1. "테스트 API 만들기" 단계에서 만든 API를 선택합니다.
 2. 추가한 테스트 작업을 선택합니다.
-2. 오른쪽 창에서 **디자인** 탭을 클릭합니다.
-3. **인바운드 처리** 창에서 연필 아이콘을 클릭합니다.
-4. **모의** 탭에서 **모의 동작**에 대해 **정적 응답**을 선택합니다.
-5. **다음 응답을 반환하는 API Management:** 텍스트 상자에 **200 정상, 응용 프로그램/json**을 입력합니다. 이 섹션은 API가 이전 섹션에서 정의한 응답을 반환해야 함을 나타냅니다.
-6. **저장**을 선택합니다.
+3. 오른쪽 창에서 **디자인** 탭을 클릭합니다.
+4. **인바운드 처리** 창에서 연필 아이콘을 클릭합니다.
+5. **모의** 탭에서 **모의 동작**에 대해 **정적 응답**을 선택합니다.
+6. **다음 응답을 반환하는 API Management:** 텍스트 상자에 **200 정상, 응용 프로그램/json**을 입력합니다. 이 섹션은 API가 이전 섹션에서 정의한 응답을 반환해야 함을 나타냅니다.
+    ![모의 응답 사용](./media/mock-api-responses/mock-api-responses-set-mocking.png)
+7. **저장**을 클릭합니다.
 
 ## <a name="test-the-mocked-api"></a>모의 API 테스트
 
@@ -97,8 +97,9 @@ ms.locfileid: "33936986"
     > [!TIP]
     > **모의가 활성화됨** 텍스트가 있는 노란색 막대는 응답이 API Management에서 반환되었음을 나타내고, 실제 백 엔드 응답이 아닌 모의 정책을 전송합니다.
 
-3. **보내기**를 선택하여 테스트 호출을 수행합니다.
-4. **HTTP 응답**은 자습서의 첫 번째 섹션에서 샘플로 제공된 JSON을 표시합니다.
+4. **보내기**를 선택하여 테스트 호출을 수행합니다.
+5. **HTTP 응답**은 자습서의 첫 번째 섹션에서 샘플로 제공된 JSON을 표시합니다.
+    ![모의 응답 사용](./media/mock-api-responses/mock-api-responses-test-response.png)
 
 ## <a name="video"></a>비디오
 

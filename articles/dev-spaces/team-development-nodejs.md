@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: douge
-ms.openlocfilehash: b4c355c864f83bcd76c310fecb0f26dd3372e760
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 215807798e6ae15f11302fa647e21238bdfb7751
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162753"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434271"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Azure Dev Spaces로 팀 개발
 
@@ -62,6 +62,7 @@ ms.locfileid: "44162753"
        });
     });
     ```
+ 4. `server.js`의 끝에서 `server.close()` 줄을 *제거*합니다.
 
 위의 코드 예제는 `azds-route-as` 헤더를 수신 요청에서 발신 요청으로 전달합니다. 나중에 이를 통해 공동 작업 개발 팀에 어떻게 도움이 되는지 살펴보겠습니다.
 
@@ -76,7 +77,7 @@ ms.locfileid: "44162753"
 
 ## <a name="learn-about-team-development"></a>팀 개발 알아보기
 
-[!INCLUDE [](includes/team-development-1.md)]
+[!INCLUDE [](../../includes/team-development-1.md)]
 
 이제 작동을 확인합니다.
 1. `mywebapi`에 대한 VS Code 창으로 이동하고, 기본 `/` GET 처리기에 대한 코드를 편집합니다. 예를 들어 다음과 같습니다.
@@ -87,11 +88,28 @@ ms.locfileid: "44162753"
     });
     ```
 
-[!INCLUDE [](includes/team-development-2.md)]
+[!INCLUDE [](../../includes/team-development-2.md)]
 
-[!INCLUDE [](includes/well-done.md)]
+### <a name="well-done"></a>모두 완료되었습니다!
+시작 가이드를 완료했습니다! 다음 방법에 대해 알아보았습니다.
 
-[!INCLUDE [](includes/clean-up.md)]
+> [!div class="checklist"]
+> * Azure에서 관리되는 Kubernetes 클러스터를 사용하여 Azure Dev Spaces를 설정합니다.
+> * 컨테이너에서 반복적으로 코드를 개발합니다.
+> * 독립적으로 별도의 두 서비스를 개발하고, Kubernetes의 DNS 서비스 검색을 사용하여 다른 서비스를 호출합니다.
+> * 팀 환경에서 코드를 생산적으로 개발하고 테스트합니다.
+
+Azure Dev Spaces를 알아보았으므로 [팀 멤버와 개발 공간을 공유](how-to/share-dev-spaces.md)하고 함께 공동 작업을 수행하는 것이 얼마나 쉬운지 알 수 있습니다.
+
+## <a name="clean-up"></a>정리
+모든 개발 환경 및 그 안에서 실행되는 서비스를 포함하여 클러스터에서 Azure Dev Spaces 인스턴스를 완전히 삭제하려면 `az aks remove-dev-spaces` 명령을 사용합니다. 이 작업은 되돌릴 수 없습니다. 클러스터에서 Azure Dev Spaces에 대한 지원을 추가할 수 있지만 마치 다시 시작하는 것 같을 것입니다. 이전 서비스와 공간을 복원할 수 없습니다.
+
+다음 예제에서는 활성 구독에 Azure Dev Spaces 컨트롤러를 나열한 다음, 리소스 그룹 'myaks-rg'에서 AKS 클러스터 'myaks'와 연결되는 Azure Dev Spaces 컨트롤러를 삭제합니다.
+
+```cmd
+    azds controller list
+    az aks remove-dev-spaces --name myaks --resource-group myaks-rg
+```
 
 
 
