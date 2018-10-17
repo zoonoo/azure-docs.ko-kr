@@ -8,14 +8,14 @@ ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
 ms.workload: infrastructure-services
-ms.date: 5/15/2018
+ms.date: 10/11/2018
 ms.author: victorh
-ms.openlocfilehash: 045443637c06745472458dd9e33670875a33352b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8352a95fa0701f6d2a0261d8d2fe2431971eccef
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193070"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068098"
 ---
 # <a name="what-is-azure-application-gateway"></a>Azure Application Gateway란?
 
@@ -27,7 +27,38 @@ Azure Application Gateway는 웹 응용 프로그램에 대한 트래픽을 관�
 
 이 유형의 라우팅은 응용 프로그램 계층(OSI 계층 7) 부하 분산이라고 합니다. Azure Application Gateway는 URL 기반 라우팅 및 기타 작업을 수행할 수 있습니다. 
 
-다음 기능이 Azure Application Gateway에 포함되어 있습니다. 
+다음 기능이 Azure Application Gateway에 포함되어 있습니다.
+
+## <a name="autoscaling-public-preview"></a>공개 미리 보기 자동 크기 조정
+
+이 문서에 설명된 기능 외에도 Application Gateway는 자동 크기 조정 및 기타 중요한 성능 향상을 제공하는 새로운 SKU [Standard_V2]의 공개 미리 보기를 제공합니다.
+
+- **자동 크기 조정** - 자동 크기 조정 SKU의 Application Gateway 또는 WAF 배포는 트래픽 부하 패턴의 변화에 따라 강화하거나 축소할 수 있습니다. 또한 자동 크기 조정을 사용하면 프로비전 시 배포 크기 또는 인스턴스 수를 선택할 필요가 없습니다. 
+
+- **영역 중복** - Application Gateway 또는 WAF 배포가 여러 가용성 영역으로 확장될 수 있으므로 Traffic Manager를 사용하여 각 영역에 별도의 Application Gateway 인스턴스를 프로비전하고 작동할 필요가 없습니다.
+
+- **정적 VIP** - 응용 프로그램 게이트웨이 VIP가 이제 정적 VIP 유형만 독점적으로 지원합니다. 따라서 재시작 후에도 응용 프로그램 게이트웨이와 연결된 VIP가 변하지 않습니다.
+
+- 일반 공급되는 SKU에 비해 **배포 및 업데이트 시간이 빠릅**니다. 
+
+- 일발 공급되는 SKU에 비해 **SSL 오프로드 성능이 5배 우수**합니다.
+
+Application Gateway 공개 미리 보기 기능에 대한 자세한 내용은 [자동 크기 조정 및 영역 중복 Application Gateway(공개 미리 보기)](application-gateway-autoscaling-zone-redundant.md)를 참조하세요.
+
+## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>AKS(Azure Kubernetes Service) 수신 컨트롤러 미리 보기 
+
+AKS 클러스터 내에서 Pod로 실행되는 Application Gateway 수신 컨트롤러를 사용하면 Application Gateway가 AKS 클러스터에 대한 입구로 작동할 수 있습니다. 
+
+자세한 내용은 [Azure Application Gateway 수신 컨트롤러](https://azure.github.io/application-gateway-kubernetes-ingress/)를 참조하세요.
+
+## <a name="connection-draining"></a>연결 드레이닝
+
+연결 드레이닝은 예정된 서비스 업데이트 중에 백 엔드 풀 멤버를 정상적으로 제거하는 데 도움이 됩니다. 이 설정은 백 엔드 http 설정을 통해 사용이 가능하며 규칙을 만드는 동안 백 엔드 풀의 모든 멤버에 적용할 수 있습니다. 일단 활성화되면 Application Gateway는 기존 요청이 구성된 제한 시간 내에 완료되도록 하면서 백 엔드 풀의 모든 등록 취소 인스턴스가 새로운 요청을 받지 않도록 합니다. 이것은 API 호출에 의해 백엔드 풀에서 명시적으로 제거된 백 엔드 인스턴스와 상태 프로브에 의해 확인된 대로 비정상 상태로 보고된 백엔드 인스턴스에 모두 적용됩니다.
+
+## <a name="custom-error-pages"></a>사용자 지정 오류 페이지
+Application Gateway를 사용하면 기본 오류 페이지를 표시하는 대신 사용자 지정 오류 페이지를 만들 수 있습니다. 사용자 지정 오류 페이지를 사용하여 자체 브랜딩과 레이아웃을 사용할 수 있습니다.
+
+자세한 내용은 [Application Gateway 사용자 지정 오류 페이지 만들기](custom-error.md)를 참조하세요.
 
 ## <a name="secure-sockets-layer-ssl-termination"></a>SSL(Secure Sockets Layer) 종료
 

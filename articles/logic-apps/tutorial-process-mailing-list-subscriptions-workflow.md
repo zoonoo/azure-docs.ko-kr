@@ -10,14 +10,14 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 4ac5861dabbc473099886b4f099824cde60f38b9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 96a151b3de5d59ad74eaf7061b1a3ff91d602759
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122872"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044419"
 ---
-# <a name="manage-mailing-list-requests-with-a-logic-app"></a>논리 앱으로 메일 그룹 요청 관리
+# <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>Azure Logic Apps로 메일 그룹 요청 관리
 
 Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스, Microsoft 서비스, 기타 SaaS(software-as-a-service) 앱 및 온-프레미스 시스템의 데이터를 통합할 수 있습니다. 이 자습서에서는 [MailChimp](https://mailchimp.com/) 서비스를 통해 관리되는 메일 그룹에 대한 구독 요청을 처리하는 [논리 앱](../logic-apps/logic-apps-overview.md)을 만드는 방법을 보여줍니다.
 이 논리 앱은 이러한 요청에 대한 이메일 계정을 모니터링하고, 이러한 승인 요청을 보내고, 승인된 구성원을 메일 그룹에 추가합니다.

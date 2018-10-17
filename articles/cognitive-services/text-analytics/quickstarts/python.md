@@ -1,21 +1,23 @@
 ---
-title: Azure Cognitive Services, 텍스트 분석 API에 대한 Python 빠른 시작 | Microsoft Docs
+title: '빠른 시작: Python을 사용하여 텍스트 분석 API 호출'
+titleSuffix: Azure Cognitive Services
 description: Azure의 Microsoft Cognitive Services에서 텍스트 분석 API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 확인합니다.
 services: cognitive-services
 author: ashmaka
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 05/02/2018
+ms.topic: quickstart
+ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: b4c02767320b71912050ad511811767e6b5decf4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 07b7327b01987d79a6447ed67de27b69c02c14ee
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374518"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268362"
 ---
-# <a name="quickstart-for-text-analytics-api-with-python"></a>텍스트 분석 API 및 Python에 대한 빠른 시작 
+# <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: Python을 사용하여 텍스트 분석 Cognitive Service 호출 
 <a name="HOLTop"></a>
 
 이 연습에서는 [텍스트 분석 API](//go.microsoft.com/fwlink/?LinkID=759711) 및 Python을 사용하여 [언어 감지](#Detect), [감정 분석](#SentimentAnalysis) 및 [핵심 구 추출](#KeyPhraseExtraction)을 수행하는 방법을 보여 줍니다.
@@ -24,13 +26,13 @@ ms.locfileid: "35374518"
 
 [![바인더](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=TextAnalytics.ipynb)
 
-API에 대한 기술 문서는 [API 정의](//go.microsoft.com/fwlink/?LinkID=759346)를 참조하세요.
+API 기술 문서는 [API 정의](//go.microsoft.com/fwlink/?LinkID=759346)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
 **텍스트 분석 API**를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. **매월 5,000개 트랜잭션의 체험 계층**을 사용하여 이 연습을 완료할 수 있습니다.
 
-등록하는 동안 생성된 [끝점 및 액세스 키](../How-tos/text-analytics-how-to-access-key.md)도 있어야 합니다. 
+등록하는 동안 생성된 [엔드포인트 및 액세스 키](../How-tos/text-analytics-how-to-access-key.md)도 있어야 합니다. 
 
 이 연습을 계속하려면 `subscription_key`를 앞에서 받은 유효한 구독 키로 바꿉니다.
 
@@ -51,7 +53,7 @@ text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/tex
 
 ## <a name="detect-languages"></a>언어 감지
 
-언어 감지 API는 [언어 감지 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)를 사용하여 텍스트 문서의 언어를 감지합니다. 해당 지역에 대한 언어 감지 API의 서비스 끝점은 다음 URL을 통해 사용할 수 있습니다.
+언어 감지 API는 [언어 감지 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)를 사용하여 텍스트 문서의 언어를 감지합니다. 해당 지역에 대한 언어 감지 API의 서비스 엔드포인트는 다음 URL을 통해 사용할 수 있습니다.
 
 
 ```python
@@ -121,7 +123,7 @@ HTML("<table><tr><th>Text</th><th>Detected languages(scores)</th></tr>{0}</table
 
 감정 분석 API는 [감정 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)를 사용하여 텍스트 레코드 집합의 감정을 감지합니다. 다음 예제에서는 두 개의 문서(영어 문서와 스페인어 문서 각 1개)에 점수를 매깁니다.
 
-감정 분석을 위한 서비스 끝점은 다음 URL을 통해 해당 지역에 사용할 수 있습니다.
+감정 분석을 위한 서비스 엔드포인트는 다음 URL을 통해 해당 지역에 사용할 수 있습니다.
 
 
 ```python
@@ -168,7 +170,7 @@ pprint(sentiments)
 
 핵심 구 추출 API는 [핵심 구 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)를 사용하여 텍스트 문서에서 핵심 구를 추출합니다. 이 연습 섹션에서는 영어 문서와 스페인어 문서 둘 다에서 핵심 구를 추출합니다.
 
-핵심 구 추출 서비스의 서비스 끝점은 다음 URL을 통해 액세스합니다.
+핵심 구 추출 서비스의 서비스 엔드포인트는 다음 URL을 통해 액세스합니다.
 
 
 ```python
@@ -218,11 +220,11 @@ for document in key_phrases["documents"]:
 HTML("<table><tr><th>Text</th><th>Key phrases</th></tr>{0}</table>".format("\n".join(table)))
 ```
 
-## <a name="identify-linked-entities"></a>연결된 엔터티 식별
+## <a name="identify-entities"></a>엔터티 식별
 
-엔터티 링크 설정 API는 [엔터티 링크 설정 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)를 사용하여 텍스트 문서에서 잘 알려진 엔터티를 식별합니다. 다음 예제에서는 영어 문서의 엔터티를 식별합니다.
+엔터티 API는 [엔터티 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)를 사용하여 텍스트 문서에서 잘 알려진 엔터티를 식별합니다. 다음 예제에서는 영어 문서의 엔터티를 식별합니다.
 
-엔터티 링크 설정 서비스의 서비스 끝점은 다음 URL을 통해 액세스합니다.
+엔터티 링크 설정 서비스의 서비스 엔드포인트는 다음 URL을 통해 액세스합니다.
 
 
 ```python
@@ -230,7 +232,7 @@ entity_linking_api_url = text_analytics_base_url + "entities"
 print(entity_linking_api_url)
 ```
 
-    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/entities
+    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities
 
 
 문서 컬렉션은 다음과 같습니다.
@@ -238,8 +240,8 @@ print(entity_linking_api_url)
 
 ```python
 documents = {'documents' : [
-  {'id': '1', 'text': 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.'},
-  {'id': '2', 'text': 'The Seattle Seahawks won the Super Bowl in 2014.'}
+  {'id': '1', 'text': 'Jeff bought three dozen eggs because there was a 50% discount.'},
+  {'id': '2', 'text': 'The Great Depression began in 1929. By 1933, the GDP in America fell by 25%.'}
 ]}
 ```
 
@@ -250,63 +252,162 @@ headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
 response  = requests.post(entity_linking_api_url, headers=headers, json=documents)
 entities = response.json()
 ```
-    {
-        "documents": [
-            {
-                "id": "1",
-                "entities": [
-                    {
-                        "name": "Xbox One",
-                        "matches": [
-                            {
-                                "text": "XBox One",
-                                "offset": 23,
-                                "length": 8
-                            }
-                        ],
-                        "wikipediaLanguage": "en",
-                        "wikipediaId": "Xbox One",
-                        "wikipediaUrl": "https://en.wikipedia.org/wiki/Xbox_One",
-                        "bingId": "446bb4df-4999-4243-84c0-74e0f6c60e75"
-                    },
-                    {
-                        "name": "Ultra-high-definition television",
-                        "matches": [
-                            {
-                                "text": "4K",
-                                "offset": 63,
-                                "length": 2
-                            }
-                        ],
-                        "wikipediaLanguage": "en",
-                        "wikipediaId": "Ultra-high-definition television",
-                        "wikipediaUrl": "https://en.wikipedia.org/wiki/Ultra-high-definition_television",
-                        "bingId": "7ee02026-b6ec-878b-f4de-f0bc7b0ab8c4"
-                    }
-                ]
-            },
-            {
-                "id": "2",
-                "entities": [
-                    {
-                        "name": "2013 Seattle Seahawks season",
-                        "matches": [
-                            {
-                                "text": "Seattle Seahawks",
-                                "offset": 4,
-                                "length": 16
-                            }
-                        ],
-                        "wikipediaLanguage": "en",
-                        "wikipediaId": "2013 Seattle Seahawks season",
-                        "wikipediaUrl": "https://en.wikipedia.org/wiki/2013_Seattle_Seahawks_season",
-                        "bingId": "eb637865-4722-4eca-be9e-0ac0c376d361"
-                    }
-                ]
-            }
-        ],
-        "errors": []
-    }
+
+```json
+{
+    "Documents": [
+        {
+            "Id": "1",
+            "Entities": [
+                {
+                    "Name": "Jeff",
+                    "Matches": [
+                        {
+                            "Text": "Jeff",
+                            "Offset": 0,
+                            "Length": 4
+                        }
+                    ],
+                    "Type": "Person"
+                },
+                {
+                    "Name": "three dozen",
+                    "Matches": [
+                        {
+                            "Text": "three dozen",
+                            "Offset": 12,
+                            "Length": 11
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50",
+                    "Matches": [
+                        {
+                            "Text": "50",
+                            "Offset": 49,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50%",
+                    "Matches": [
+                        {
+                            "Text": "50%",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
+                }
+            ]
+        },
+        {
+            "Id": "2",
+            "Entities": [
+                {
+                    "Name": "Great Depression",
+                    "Matches": [
+                        {
+                            "Text": "The Great Depression",
+                            "Offset": 0,
+                            "Length": 20
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Great Depression",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
+                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
+                },
+                {
+                    "Name": "1929",
+                    "Matches": [
+                        {
+                            "Text": "1929",
+                            "Offset": 30,
+                            "Length": 4
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "By 1933",
+                    "Matches": [
+                        {
+                            "Text": "By 1933",
+                            "Offset": 36,
+                            "Length": 7
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "Gross domestic product",
+                    "Matches": [
+                        {
+                            "Text": "GDP",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Gross domestic product",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
+                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
+                },
+                {
+                    "Name": "United States",
+                    "Matches": [
+                        {
+                            "Text": "America",
+                            "Offset": 56,
+                            "Length": 7
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "United States",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
+                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
+                    "Type": "Location"
+                },
+                {
+                    "Name": "25",
+                    "Matches": [
+                        {
+                            "Text": "25",
+                            "Offset": 72,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "25%",
+                    "Matches": [
+                        {
+                            "Text": "25%",
+                            "Offset": 72,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
+                }
+            ]
+        }
+    ],
+    "Errors": []
+}
+```
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -315,5 +416,5 @@ entities = response.json()
 
 ## <a name="see-also"></a>참고 항목 
 
- [텍스트 분석 개요](../overview.md)  
+ [Text Analytics 개요](../overview.md)  
  [FAQ(질문과 대답)](../text-analytics-resource-faq.md)

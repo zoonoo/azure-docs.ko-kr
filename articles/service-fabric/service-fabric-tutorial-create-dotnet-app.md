@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/28/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4aac44d46b6c5d202431aa34a1dc7b962466c799
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1af74cc44391c95fba781cbce14e9118ca36c14b
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346191"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078497"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>자습서: ASP.NET Core Web API 프런트 엔드 서비스 및 상태 저장 백 엔드 서비스로 응용 프로그램 만들기 및 배포
 
@@ -40,7 +40,7 @@ ms.locfileid: "37346191"
 > * .NET Service Fabric 응용 프로그램 빌드
 > * [응용 프로그램을 원격 클러스터에 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [ASP.NET Core 프런트 엔드 서비스에 HTTPS 엔드포인트 추가](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
-> * [Visual Studio Team Services를 사용하여 CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Azure Pipelines를 사용하여 CI/CD 구성](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [응용 프로그램에 대한 모니터링 및 진단 설정](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>필수 조건
@@ -309,7 +309,7 @@ namespace VotingWeb.Controllers
 
 ### <a name="configure-the-listening-port"></a>수신 대기 포트 구성
 
-VotingWeb 프런트 엔드 서비스를 만들면 Visual Studio에서는 수신할 서비스에 대한 포트를 임의로 선택합니다.  VotingWeb 서비스는 이 응용 프로그램에 대한 프런트 엔드로 작동하고 외부 트래픽을 허용하므로 이 서비스를 고정된 잘 알려진 포트에 바인딩하겠습니다.  [서비스 매니페스트](service-fabric-application-and-service-manifests.md)가 서비스 끝점을 선언합니다.
+VotingWeb 프런트 엔드 서비스를 만들면 Visual Studio에서는 수신할 서비스에 대한 포트를 임의로 선택합니다.  VotingWeb 서비스는 이 응용 프로그램에 대한 프런트 엔드로 작동하고 외부 트래픽을 허용하므로 이 서비스를 고정된 잘 알려진 포트에 바인딩하겠습니다.  [서비스 매니페스트](service-fabric-application-and-service-manifests.md)가 서비스 엔드포인트를 선언합니다.
 
 솔루션 탐색기에서 *VotingWeb/PackageRoot/ServiceManifest.xml*을 엽니다.  **리소스** 섹션에서 **Endpoint** 요소를 찾아서 **포트** 값을 **8080**으로 변경합니다. 응용 프로그램을 로컬로 배포하고 실행하려면 응용 프로그램 수신 대기 포트가 열려 있고 컴퓨터에서 사용할 수 있어야 합니다.
 
@@ -455,6 +455,9 @@ namespace VotingData.Controllers
 서비스 패브릭은 신뢰할 수 있는 서비스와 유연하게 통신할 수 있는 방법을 제공합니다. 단일 응용 프로그램 내에는 TCP를 통해 액세스할 수 있는 서비스가 있을 수 있습니다. HTTP REST API 및 다른 서비스를 통해 액세스할 수 있는 기타 서비스는 웹 소켓을 통해 액세스할 수 있습니다. 제공되는 옵션 및 관련 장단점에 대한 배경 정보는 [서비스와의 통신](service-fabric-connect-and-communicate-with-services.md)을 참조하세요.
 
 VotingWeb 프런트 엔드 웹 서비스가 VotingData 백 엔드 데이터 서비스와 통신할 수 있도록 이 자습서에서는 [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) 및 [Service Fabric 역방향 프록시](service-fabric-reverseproxy.md)를 사용합니다. 역방향 프록시는 기본적으로 19081 포트를 사용하도록 구성되며 이 자습서에서 정상적으로 작동합니다. 이 포트는 클러스터 설정에 사용되도록 ARM 템플릿에서 설정됩니다. 사용되는 포트를 찾으려면 **Microsoft.ServiceFabric/clusters** 리소스에서 클러스터 템플릿을 확인하거나 클러스터 매니페스트에서 HttpApplicationGatewayEndpoint 요소를 확인합니다.
+
+> [!NOTE]
+> 역방향 프록시는 Windows 8 이상 또는 Windows Server 2012 이상을 실행하는 클러스터에서만 지원됩니다.
 
 <u>Microsoft.ServiceFabric/clusters reverseProxyEndpointPort 리소스</u>
 

@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/13/2018
+ms.date: 10/09/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: c3089ad11dc951d3105b25b6857b7697f8c38d1a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 52429d44c41d990fb0de4c01c63d4af9fe5863d4
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432072"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902895"
 ---
 # <a name="create-a-python-web-app-in-azure-app-service-on-linux-preview"></a>Linux의 Azure App Service에서 Python 웹앱 만들기(미리 보기)
 
@@ -172,13 +172,13 @@ git push azure master
 
 ## <a name="next-steps"></a>다음 단계
 
-Linux의 App Service에서 기본 제공 Python 이미지는 현재 미리 보기 중입니다. 그 대신 사용자 지정 컨테이너를 사용하여 프로덕션 Python 앱을 만들 수 있습니다.
+Linux의 App Service에 기본 제공되는 Python 이미지는 현재 미리 보기로 제공되며, 앱 시작에 사용되는 명령을 사용자 지정할 수 있습니다. 사용자 지정 컨테이너를 대신 사용하여 프로덕션 Python 앱을 만들 수도 있습니다.
 
 > [!div class="nextstepaction"]
 > [PostgreSQL을 사용하는 Python](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [기본 제공 Python 이미지 구성](how-to-configure-python.md)
+> [사용자 지정 시작 명령 구성](how-to-configure-python.md#custom-startup-command)
 
 > [!div class="nextstepaction"]
 > [사용자 지정 이미지 사용](tutorial-custom-docker-image.md)

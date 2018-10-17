@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 72824e5afb9f8d77c2f7d3bd01e6ff2035e95a95
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 833d8e7960bfb7ee3c135df57e6d4dfec97af037
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237267"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364668"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>MySQL 리소스 공급자에 대 한 호스팅 서버를 추가 합니다.
 
@@ -75,6 +75,24 @@ MySQL 버전 5.6, 5.7 및 8.0 호스팅 서버에 대해 사용할 수 있습니
 ## <a name="increase-backend-database-capacity"></a>백 엔드 데이터베이스 용량 늘리기
 
 Azure Stack 포털에 더 많은 MySQL 서버를 배포 하 여 백 엔드 데이터베이스 용량을 늘릴 수 있습니다. 기존 또는 새 SKU로 이러한 서버를 추가 합니다. 기존 SKU에는 서버를 추가 하는 경우 서버 특성이 SKU에서 다른 서버와 동일 해야 합니다.
+
+## <a name="sku-notes"></a>SKU 정보
+SKU 용량 및 성능과 같은 서버 기능을 설명 하는 SKU 이름을 사용 합니다. 사용자가 적절 한 SKU를 해당 데이터베이스를 배포 하는 데 대 한 지원으로 이름이 사용 됩니다. 예를 들어 다음 특징에 따라 서비스 제공을 구분 하기 위해 SKU 이름을 사용할 수 있습니다.
+  
+* 큰 용량
+* 고성능
+* 고가용성
+
+모범 사례로, SKU에서 모든 호스팅 서버가 동일한 리소스 및 성능 특징 있어야 합니다.
+
+Sku는 특정 사용자 또는 그룹에 할당할 수 없습니다.
+
+Sku는 포털에 표시 되도록 한 시간이 걸릴 수 있습니다. 사용자는 SKU를 완벽 하 게 만들 때까지 데이터베이스를 만들 수 없습니다.
+
+SKU를 편집 하려면로 이동 **모든 서비스** > **MySQL 어댑터** > **Sku**합니다. 수정, 필요한 내용을 변경 하 고 클릭 하 고 SKU 선택 **저장** 변경 내용을 저장 합니다. 더 이상 필요 없는 하는 SKU를 삭제 하려면로 이동 **모든 서비스** > **MySQL 어댑터** > **Sku**합니다. 선택한 SKU 이름을 마우스 오른쪽 단추로 클릭 **삭제** 삭제 합니다.
+
+> [!TIP]
+> 편집 하거나 동일한 위치에 MySQL 리소스 공급자 할당량을 삭제할 수 있습니다.
 
 ## <a name="make-mysql-database-servers-available-to-your-users"></a>사용자에 게 MySQL 데이터베이스 서버를 사용할 수 있도록
 

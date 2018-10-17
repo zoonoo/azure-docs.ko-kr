@@ -1,20 +1,19 @@
 ---
-title: 빠른 시작 - Azure Kubernetes 클러스터 포털 빠른 시작
-description: AKS에서 Azure Portal을 사용하여 Linux 컨테이너용 Kubernetes 클러스터를 빠르게 만드는 방법에 대해 알아봅니다.
+title: 빠른 시작 - 포털에서 Azure Kubernetes Service 클러스터 만들기
+description: Azure Portal을 사용하여 AKS(Azure Kubernetes Service) 클러스터를 신속하게 생성한 다음, 응용 프로그램을 배포하고 모니터링하는 방법을 알아봅니다.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 07/27/2018
+ms.date: 09/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: aceddc2594065c9c36f8dbf63fce2ad03577a383
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5d70f00294b1f08d2cc4cede6575efd3149599dd
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443370"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067461"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>빠른 시작: AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -40,15 +39,13 @@ AKS 클러스터를 만들려면 다음 단계를 완료합니다.
     - *크기 조정*: AKS 노드의 VM 크기를 선택합니다. AKS 클러스터를 배포한 후에는 VM 크기를 변경할 수 **없습니다**.
         - 클러스터에 배포할 노드 수를 선택합니다. 이 빠른 시작에서는 **노드 수**를 *1*로 설정합니다. 클러스터를 배포한 후에 노드 수를 조정할 수 **있습니다**.
     
-    ![AKS 클러스터 만들기 - 기본 정보를 입력합니다.](media/kubernetes-walkthrough-portal/create-cluster-1.png)
+    ![AKS 클러스터 만들기 - 기본 정보를 입력합니다.](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
     완료되면 **다음: 인증**을 선택합니다.
 
 1. **인증**: 다음 옵션을 구성합니다.
     - 새 서비스 주체를 만들거나 기존 서비스 주체를 사용하도록 *구성*합니다. 기존 SPN을 사용하는 경우 SPN 클라이언트 ID와 암호를 제공해야 합니다.
     - Kubernetes RBAC(역할 기반 액세스 제어)에 대한 옵션을 사용하도록 설정합니다. 이러한 컨트롤을 사용하면 AKS 클러스터에 배포된 Kubernetes 리소스에 대한 액세스를 정밀하게 제어할 수 있습니다.
-
-    ![AKS 클러스터 만들기 - 인증 구성](media/kubernetes-walkthrough-portal/create-cluster-2.png)
 
     완료되면 **다음: 네트워킹**을 선택합니다.
 
@@ -59,7 +56,7 @@ AKS 클러스터를 만들려면 다음 단계를 완료합니다.
     
     완료되면 **다음: 모니터링**을 선택합니다.
 
-1. AKS 클러스터를 배포할 때 AKS 클러스터 및 클러스터에서 실행되는 Pod의 상태를 모니터링하도록 Azure Container Insights를 구성할 수 있습니다. 컨테이너 상태 모니터링에 대한 자세한 내용은 [Azure Kubernetes Service 상태 모니터링][aks-monitor]을 참조하세요.
+1. AKS 클러스터를 배포할 때 AKS 클러스터 및 클러스터에서 실행 중인 Pod의 상태를 모니터링하도록 컨테이너용 Azure Monitor를 구성할 수 있습니다. 컨테이너 상태 모니터링에 대한 자세한 내용은 [Azure Kubernetes Service 상태 모니터링][aks-monitor]을 참조하세요.
 
     **예**를 선택하여 컨테이너 모니터링을 사용하도록 설정하고 기존 Log Analytics 작업 영역을 선택하거나 새로 만듭니다.
     
@@ -93,7 +90,7 @@ kubectl get nodes
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION
-aks-agentpool-14693408-0   Ready     agent     10m       v1.10.5
+aks-agentpool-14693408-0   Ready     agent     10m       v1.11.2
 ```
 
 ## <a name="run-the-application"></a>응용 프로그램 실행
@@ -117,6 +114,13 @@ spec:
       containers:
       - name: azure-vote-back
         image: redis
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         ports:
         - containerPort: 6379
           name: redis
@@ -145,6 +149,13 @@ spec:
       containers:
       - name: azure-vote-front
         image: microsoft/azure-vote-front:v1
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         ports:
         - containerPort: 80
         env:
@@ -209,13 +220,20 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 클러스터를 만들 때 컨테이너 인사이트 모니터링이 활성화되었습니다. 이 모니터링 기능은 클러스터에서 실행되는 AKS 클러스터와 Pod의 상태 메트릭을 제공합니다. 컨테이너 상태 모니터링에 대한 자세한 내용은 [Azure Kubernetes Service 상태 모니터링][aks-monitor]을 참조하세요.
 
-이 데이터로 Azure Portal을 채우는 데 몇 분 정도 걸릴 수 있습니다. Azure Vote Pod의 현재 상태, 작동 시간 및 리소스 사용량을 보려면 Azure Portal에서 *myAKSCluster* 같은 AKS 리소스로 돌아갑니다. **컨테이너 상태 모니터링** > **기본** 네임스페이스 > **컨테이너**를 차례로 선택합니다.  *azure-vote-back* 및 *azure-vote-front* 컨테이너가 표시됩니다.
+이 데이터로 Azure Portal을 채우는 데 몇 분 정도 걸릴 수 있습니다. Azure Vote Pod의 현재 상태, 작동 시간 및 리소스 사용량을 보려면 Azure Portal에서 *myAKSCluster* 같은 AKS 리소스로 돌아갑니다. 그런 다음, 다음과 같이 상태에 액세스할 수 있습니다.
+
+1. 왼쪽에 있는 **모니터링** 아래에서 **인사이트(미리 보기)** 를 선택합니다.
+1. 상단에서 **+ 필터 추가**를 클릭합니다.
+1. *네임스페이스*를 속성으로 선택한 다음, *\<All but kube-system\>* 을 선택합니다.
+1. **컨테이너** 보기를 선택합니다.
+
+다음 예와 같이 *azure-vote-back* 및 *azure-vote-front* 컨테이너가 표시됩니다.
 
 ![AKS에서 실행 중인 컨테이너의 상태 보기](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-`azure-vote-front` Pod에 대한 로그를 보려면 컨테이너 목록의 오른쪽에서 **로그 보기** 링크를 선택합니다. 이러한 로그는 컨테이너의 *stdout* 및 *stderr* 스트림을 포함합니다.
+`azure-vote-front` Pod에 대한 로그를 보려면 컨테이너 목록의 오른쪽에서 **컨테이너 로그 보기** 링크를 선택합니다. 이러한 로그는 컨테이너의 *stdout* 및 *stderr* 스트림을 포함합니다.
 
-![AKS에서 컨테이너 로그 보기](media/kubernetes-walkthrough-portal/monitor-containers-logs.png)
+![AKS에서 컨테이너 로그 보기](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 
 ## <a name="delete-cluster"></a>클러스터 삭제
 
@@ -224,6 +242,9 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```azurecli-interactive
 az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 ```
+
+> [!NOTE]
+> 클러스터를 삭제할 때, AKS 클러스터에 사용되는 Azure Active Directory 서비스 주체는 제거되지 않습니다. 서비스 주체를 제거하는 방법에 대한 단계는 [AKS 서비스 주체 고려 사항 및 삭제][sp-delete]를 참조하세요.
 
 ## <a name="get-the-code"></a>코드 가져오기
 
@@ -258,3 +279,4 @@ AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 �
 [aks-network]: ./networking-overview.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [http-routing]: ./http-application-routing.md
+[sp-delete]: kubernetes-service-principal.md#additional-considerations

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018s
+ms.date: 10/10/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 9092629c7bef46cdb7c464fca5e22d4aea0da9fc
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 12b7a605350b07565660e9e4d1334b286aa5ac00
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041543"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079109"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>빠른 시작: 비용 분석을 사용하여 비용 탐색 및 분석
 
@@ -34,13 +34,21 @@ Azure 비용을 적절히 제어하고 최적화하려면 먼저 조직 내의 �
 
 비용 분석은 모든 [EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/) 고객이 사용할 수 있습니다. 비용 데이터를 보려면 다음 범위 중 하나 이상에 대해 최소한 읽기 권한이 있어야 합니다.
 
-- 청구 계정
-- department
-- 등록 계정
-- 관리 그룹
-- 구독
-- 리소스 그룹
+- *청구 계정* 범위는 https://ea.azure.com에 정의되며 엔터프라이즈 관리자 액세스가 필요합니다. 필수 구성 요소 EA 설정은 필요하지 않습니다. 비용 분석의 청구 정보는 기업 계약의 모든 구독에 대해 통합됩니다. 청구 계정을 *기업계약* 또는 *등록*이라고 하는 경우도 있습니다.
 
+- *부서* 범위는 https://ea.azure.com에 정의되며 부서 관리자 액세스가 필요합니다. EA 포털에는 **DA 요금 보기**가 가능한 설정이 필요합니다. 비용 분석의 청구 정보는 부서에 연결된 등록 계정에 속하는 모든 구독에 대해 통합됩니다.
+
+- *등록 계정* 범위는 https://ea.azure.com에 정의되며 계정 소유자 액세스가 필요합니다. EA 포털에는 **AO 요금 보기**가 가능한 설정이 필요합니다. 비용 분석의 청구 정보는 등록 계정에 속하는 모든 구독에 대해 통합됩니다. 등록 계정은 *계정 소유자*라고 하는 경우가 많습니다.
+
+- *관리 그룹* 범위는 https://portal.azure.com에 정의되며 Cost Management 읽기 권한자(또는 읽기 권한자) 액세스가 필요합니다. EA 포털에는 **AO 요금 보기**가 가능한 설정이 필요합니다. 비용 분석의 청구 정보는 관리 그룹 아래 모든 구독에 대해 통합됩니다.
+
+- *구독* 범위는 https://portal.azure.com에 정의되며 Cost Management 읽기 권한자(또는 읽기 권한자) 액세스가 필요합니다. EA 포털에는 **AO 요금 보기**가 가능한 설정이 필요합니다. 비용 분석의 청구 정보는 구독의 모든 리소스와 리소스 그룹에 대해 통합됩니다.
+
+- *리소스 그룹* 범위는 https://portal.azure.com에 정의되며 Cost Management 읽기 권한자(또는 읽기 권한자) 액세스가 필요합니다. EA 포털에는 **AO 요금 보기**가 가능한 설정이 필요합니다. 비용 분석의 청구 정보는 리소스 그룹의 모든 리소스에 대해 통합됩니다.
+
+
+
+**DA 요금 보기** 및 **AO 요금 보기** 설정을 구성하는 방법에 대한 자세한 내용은 [비용에 대한 액세스 사용](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs)을 참조하세요.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -94,6 +102,11 @@ Azure 비용을 적절히 제어하고 최적화하려면 먼저 조직 내의 �
 ![현재 보기의 전체 데이터](./media/quick-acm-cost-analysis/full-data-set.png)
 
 위의 그림에는 리소스 그룹 이름이 표시되어 있습니다. 비용 분석 보기, 필터 또는 그룹에서는 리소스의 태그를 볼 수 없습니다.
+
+특정 특성별로 비용을 그룹화하는 경우 상위 10개 비용 기여자가 높은 점수에서 낮은 점수순으로 표시됩니다. 그룹이 10개를 초과하면 상위 9개 비용 기여자와 **기타** 그룹이 표시되며 여기에는 나머지 모든 그룹이 함께 포함됩니다.
+
+*클래식*(Azure Service Management 또는 ASM) 가상 머신, 네트워킹 및 저장소 리소스는 자세한 청구 데이터를 공유하지 않습니다. 이러한 리소스는 비용을 그룹화할 때 **클래식 서비스**로 병합됩니다.
+
 
 ## <a name="download-cost-analysis-data"></a>비용 분석 데이터 다운로드
 

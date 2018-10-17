@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: eda4a1dabd20eee73cfbfa4dc0dd2b0eaa56788e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: b1ae3fb5de3e28f44ef39731f49a33e2086255a1
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031240"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785344"
 ---
 # <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>자습서 #2: ACI(Azure Container Instance)에서 이미지 분류 모델 배포
 
@@ -35,14 +35,14 @@ ACI는 프로덕션 배포에는 이상적이지 않지만, 워크플로를 테�
 
 ## <a name="get-the-notebook"></a>Notebook 가져오기
 
-편의를 위해 이 자습서를 Jupyter Notebook으로 사용할 수 있습니다. 다음 방법 중 하나를 사용하여 `tutorials/02.deploy-models.ipynb` Notebook을 실행합니다.
+사용자의 편의를 위해 이 자습서는 [Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/02.deploy-models.ipynb)으로 제공됩니다. Azure Notebooks 또는 자체 Jupyter 노트북 서버에서 `02.deploy-models.ipynb` 노트북을 실행할 수 있습니다.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 
 ## <a name="prerequisites"></a>필수 조건
 
-[자습서 1의 모델 학을 완료합니다: Azure Machine Learning](tutorial-train-models-with-aml.md) Notebook을 사용하여 이미지 분류 모델을 학습합니다.  
+[자습서 1: Azure Machine Learning Service를 통해 이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 노트북의 모델 학습을 완료합니다.  
 
 
 ## <a name="set-up-the-environment"></a>환경 설정
@@ -374,7 +374,7 @@ service.delete()
 
 ## <a name="next-steps"></a>다음 단계
 
-이 Azure Machine Learning 자습서에서는 Python을 사용하여 다음을 수행했습니다.
+이 Azure Machine Learning Service 자습서에서는 Python을 사용하여 다음 작업을 수행했습니다.
 
 > [!div class="checklist"]
 > * 테스트 환경 설정
@@ -383,4 +383,4 @@ service.delete()
 > * ACI에 모델 배포
 > * 배포된 모델 테스트
  
-또한 [자동 알고리즘 선택]() 자습서를 사용하여 Azure Machine Learning이 모델에 대한 최상의 알고리즘을 자동 선택하고 조정하며 해당 모델을 빌드하는 방법을 볼 수 있습니다.
+또한 [자동 알고리즘 선택]() 자습서를 통해 Azure Machine Learning Service에서 모델에 가장 적합한 알고리즘이 자동으로 선택되고 조정되어 해당 모델이 구축되는 방법을 확인했습니다.

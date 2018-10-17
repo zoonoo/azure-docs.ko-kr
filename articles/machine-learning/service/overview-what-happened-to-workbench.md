@@ -1,6 +1,6 @@
 ---
-title: Azure Machine Learning Workbench는 어떻게 되었나요? | Microsoft Docs
-description: Workbench 응용 프로그램에서 변경된 내용, Azure Machine Learning에서 변경된 내용 및 지원 타임라인에 대해 알아보세요.
+title: Azure Machine Learning Workbench는 어떻게 되나요? | Microsoft Docs
+description: Workbench 응용 프로그램에서 변경되는 내용, Azure Machine Learning에서 변경된 내용 및 지원 타임라인에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,28 +9,28 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 620d8b370b050a4d91ee6d94cba2c133b4313aed
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 88e7dad15a7080c4132a6983d949f9451ad5ce69
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159987"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239265"
 ---
-# <a name="what-happened-to-workbench-in-azure-machine-learning-preview"></a>Azure Machine Learning Workbench(미리 보기)는 어떻게 되었나요?
+# <a name="what-is-happening-to-workbench-in-azure-machine-learning-preview"></a>Azure Machine Learning Workbench(미리 보기)는 어떻게 되나요?
 
-[아키텍처](concept-azure-machine-learning-architecture.md)를 개선하기 위해 Workbench 응용 프로그램 및 일부 초기 기능이 2018년 9월 릴리스에서 사용 중지되었습니다. 환경을 개선하기 위해 고객 피드백을 반영한 중요 업데이트가 릴리스에 포함될 수 있습니다. 실험 실행부터 배포 모델링에 이르는 핵심 기능은 변경되지 않았지만, 이제는 강력한 <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> 및 [CLI](reference-azure-machine-learning-cli.md)를 사용하여 기계 학습 작업 및 파이프라인을 수행할 수 있습니다.  
+[아키텍처](concept-azure-machine-learning-architecture.md)를 개선하기 위해 Workbench 응용 프로그램 및 일부 초기 기능이 2018년 9월 릴리스에서 대체되었습니다. 환경을 개선하기 위해 고객 피드백을 반영한 중요 업데이트가 릴리스에 포함될 수 있습니다. 실험 실행부터 배포 모델링에 이르는 핵심 기능은 변경되지 않았지만, 이제는 강력한 <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> 및 [CLI](reference-azure-machine-learning-cli.md)를 사용하여 기계 학습 작업 및 파이프라인을 수행할 수 있습니다.  
 
 이 문서에서는 무엇이 변경되었는지, 이러한 변화가 Azure Machine Learning 서비스를 사용하는 기존 작업에 어떤 영향을 미치는지 알아볼 것입니다.
 
 ## <a name="what-changed"></a>변경 내용
 
-Azure Machine Learning 최신 릴리스에는 다음이 포함되어 있습니다.
+Azure Machine Learning Service 최신 릴리스에는 다음이 포함되어 있습니다.
 + [간소화된 Azure 리소스 모델](concept-azure-machine-learning-architecture.md)
 + 실험 및 계산 대상을 관리할 수 있는 [새로운 포털 UI](how-to-track-experiments.md)
 + 좀 더 포괄적인 새로운 Python <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>
 + 기계 학습을 위한 확장된 새 [Azure CLI 확장](reference-azure-machine-learning-cli.md)
 
-[아키텍처](concept-azure-machine-learning-architecture.md)는 사용 편의성을 염두에 두고 다시 설계되었습니다. 여러 Azure 리소스 및 계정 대신 [Azure Machine Learning 작업 영역](concept-azure-machine-learning-architecture.md#workspace)만 있으면 됩니다.  [Azure Portal](quickstart-get-started.md)에서 신속하게 작업 영역을 만들 수 있습니다.  여러 사용자가 작업 영역을 사용하여 교육 및 배포 계산 대상, 모델 실험, Docker 이미지, 배포된 모델 등을 저장할 수 있습니다.
+[아키텍처](concept-azure-machine-learning-architecture.md)는 사용 편의성을 염두에 두고 다시 설계되었습니다. 여러 Azure 리소스 및 계정 대신 [Azure Machine Learning Service 작업 영역](concept-azure-machine-learning-architecture.md#workspace)만 있으면 됩니다.  [Azure Portal](quickstart-get-started.md)에서 신속하게 작업 영역을 만들 수 있습니다.  여러 사용자가 작업 영역을 사용하여 교육 및 배포 계산 대상, 모델 실험, Docker 이미지, 배포된 모델 등을 저장할 수 있습니다.
 
 최신 릴리스에 향상된 새 CLI와 SDK 클라이언트가 있기는 하지만, 데스크톱 Workbench 응용 프로그램 자체는 사용되지 않습니다. 이제 [Azure 웹 포털의 작업 영역 대시보드](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal)에서 실험을 모니터링할 수 있습니다. 대시보드를 사용하여 실험 기록을 가져오고, 작업 영역에 연결된 계산 대상을 관리하고, 모델 및 Docker 이미지를 관리하고, 심지어 웹 서비스를 배포할 수 있습니다.
 
@@ -73,7 +73,7 @@ Portal의 작업 영역 대시보드는 Edge, Chrome 및 Firefox 브라우저에
 
 ## <a name="will-projects-persist"></a>프로젝트는 유지되나요?
 
-코드 또는 작업은 사라지지 않습니다. 이전 버전에서는 프로젝트가 로컬 디렉터리를 사용하는 클라우드 엔터티입니다. 최신 버전에서는 로컬 구성 파일을 사용하여 Azure Machine Learning 작업 영역에 로컬 디렉터리를 연결합니다. [최신 아키텍처의 다이어그램을 확인해 보세요](concept-azure-machine-learning-architecture.md).
+코드 또는 작업은 사라지지 않습니다. 이전 버전에서는 프로젝트가 로컬 디렉터리를 사용하는 클라우드 엔터티입니다. 최신 버전에서는 로컬 구성 파일을 사용하여 Azure Machine Learning Service 작업 영역에 로컬 디렉터리를 연결합니다. [최신 아키텍처의 다이어그램을 확인해 보세요](concept-azure-machine-learning-architecture.md).
 
 대부분의 프로젝트 콘텐츠가 이미 로컬 머신에 있으므로 해당 디렉터리에 구성 파일을 만들고 코드에서 참조하여 작업 영역에 연결하기만 하면 됩니다. [기존 프로젝트를 마이그레이션하는 방법을 알아보세요.](how-to-migrate.md#projects)
 

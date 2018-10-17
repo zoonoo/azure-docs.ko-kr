@@ -1,5 +1,5 @@
 ---
-title: .NET을 사용하여 Azure Table Storage 및 Azure Cosmos DB Table API 시작 | Microsoft Docs
+title: .NET을 사용하여 Azure Table Storage 및 Azure Cosmos DB Table API 시작
 description: Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하여 클라우드에 구조화된 데이터를 저장합니다.
 services: cosmos-db
 author: SnehaGunda
@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: sample
 ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: c084a08ffef868af751d065c5857a9b67a12485f
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 00bc950493e7b4eaad4a2165779f5c8151070aee
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41918416"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042583"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>.NET을 사용하여 Azure Table Storage 및 Azure Cosmos DB Table API 시작
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -105,7 +105,7 @@ NuGet 패키지를 가져오려면 다음 단계를 수행합니다.
 * 클라우드에서 Azure Cosmos DB 계정에 대해 코드를 실행할 수 있습니다.
 * Azure 저장소 에뮬레이터에 대해 코드를 실행할 수 있습니다. 저장소 에뮬레이터는 클라우드에서 Azure Storage 계정을 에뮬레이트하는 로컬 환경입니다. 에뮬레이터는 응용 프로그램을 개발하는 동안 코드의 테스트 및 디버깅하기 위한 무료 옵션입니다. 에뮬레이터는 잘 알려진 계정 및 키를 사용합니다. 자세한 내용은 [개발 및 테스트에 Azure Storage 에뮬레이터 사용](../storage/common/storage-use-emulator.md)을 참조하세요.
 
-클라우드에서 저장소 계정을 대상으로 하는 경우 Azure Portal에서 저장소 계정에 대한 기본 선택키를 복사합니다. 자세한 내용은 [저장소 액세스 키 보기 및 복사](../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys)를 참조하세요.
+클라우드에서 저장소 계정을 대상으로 하는 경우 Azure Portal에서 저장소 계정에 대한 기본 선택키를 복사합니다. 자세한 내용은 [저장소 계정 액세스 키](../storage/common/storage-account-manage.md#access-keys)를 참조하세요.
 
 > [!NOTE]
 > Azure Storage와 연결하여 비용이 초래되지 않도록 저장소 에뮬레이터를 대상으로 할 수 있습니다. 그러나 클라우드에서 Azure 저장소 계정을 대상으로 하도록 선택하는 경우 이 샘플을 수행하는 비용은 무시됩니다.
@@ -121,7 +121,6 @@ Azure Storage Common Library for .NET은 저장소 연결 문자열을 사용하
 
 > [!NOTE]
 > 계정 키는 저장소 계정의 루트 암호와 비슷합니다. 항상 저장소 계정 키를 보호해야 합니다. 다른 사용자에게 배포하거나 하드 코딩하거나 다른 사람이 액세스할 수 있는 일반 텍스트 파일에 저장하지 마십시오. 손상되었다고 생각되면 Azure Portal을 사용하여 키를 다시 생성합니다.
-> 
 > 
 
 연결 문자열을 구성하려면 Visual Studio의 솔루션 탐색기에서 `app.config` 파일을 엽니다. 아래와 같이 `<appSettings>` 요소의 콘텐츠를 추가합니다. `account-name`을 계정 이름으로, `account-key`를 계정 액세스 키로 바꿉니다.

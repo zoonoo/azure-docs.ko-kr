@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 08/27/2018
+ms.date: 10/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ae2d312feb0fcefab85bcbbd2db7ac46c328213f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a23e9dc8fad52bac85de834c53d2c710423211c7
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104985"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269244"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 
@@ -39,7 +39,7 @@ Azure Analysis Services는 **개발자**, **기본** 및 **표준** 계층에서
 
 ### <a name="developer-tier"></a>개발자 계층
 
-이 계층은 평가, 개발 및 테스트 시나리오에 권장됩니다. 단일 계획에는 표준 계층과 동일한 기능이 포함되지만, 처리 능력, QPU 및 메모리 크기가 제한됩니다. 쿼리 복제본 스케일 아웃은 이 계층에 사용할 수 없습니다. 이 계층은 SLA를 제공하지 않습니다.
+이 계층은 평가, 개발 및 테스트 시나리오에 권장됩니다. 단일 계획에는 표준 계층과 동일한 기능이 포함되지만, 처리 능력, QPU 및 메모리 크기가 제한됩니다. 쿼리 복제본 스케일 아웃은 이 계층에 *사용할 수 없습니다*. 이 계층에는 SLA를 제공하지 않습니다.
 
 |계획  |QPU  |메모리(GB)  |
 |---------|---------|---------|
@@ -102,6 +102,7 @@ Azure Analysis Services는 전 세계 지역에서 지원됩니다. 지원되는
 |지역  | 지원되는 계획 | 쿼리 복제본(표준 계획만) |
 |---------|---------|:---------:|
 |오스트레일리아 남동부     | B1, B2, S0, S1, S2, S4, D1       |    1     |
+|오스트레일리아 동부     |    B1, B2, S0, S1, S2, S4    <br>S8, S9    |    3<br>1     |
 |일본 동부  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
 |동남아시아     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   1      |
 |인도 서부     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
@@ -128,7 +129,7 @@ Azure Analysis Services는 전 세계 지역에서 지원됩니다. 지원되는
 
 Azure Analysis Services는 이미 SQL Server Analysis Services Enterprise Edition에 있은 훌륭한 기능과 호환 가능하며, 1200 이상 [호환성 수준](analysis-services-compat-level.md)의 테이블 형식 모델을 지원합니다. 테이블 형식 모델은 관계형 모델링 구문(모델, 테이블, 열)이며 TMSL(Tabular Model Scripting Language) 및 TOM(Tabular Object Model) 코드로 테이블 형식 메타데이터 개체 정의에 명시됩니다. 파티션, 큐브 뷰, 행 수준 보안, 양방향 관계 및 변환을 모두 지원합니다\*. 다차원 모델 및 PowerPivot for Sharepoint는 Azure Analysis Services에서 지원되지 *않습니다*.
 
-메모리 내 및 DirectQuery 모드 모두에서 테이블 형식 모델이 지원됩니다. 메모리 내 모드(기본값) 테이블 형식 모델은 여러 데이터 원본을 지원합니다. 모델 데이터가 고도로 압축되고 메모리 내에 캐시되었기 때문에서 이 모드는 대량의 데이터에 가장 빠른 쿼리 응답을 제공합니다. 또한 복잡한 데이터 집합 및 쿼리에 가장 훌륭한 유연성을 제공합니다. 분할하면 증분 로드를 활성화하고, 평행을 증가하고, 메모리 소비를 줄입니다. 계산된 테이블 및 모든 DAX 함수와 같은 기타 고급 데이터 모델링 기능이 지원됩니다. 데이터 원본에서 캐시된 데이터를 업데이트하기 위해 메모리 내 모델을 새로 고칠(처리할) 수 있어야 합니다. Azure 서비스 사용자 지원에서 PowerShell, TOM, TMSL 및 REST를 사용하는 무인 새로 고침 작업은 모델 데이터를 항상 최신 상태로 유지하도록 유연성을 제공합니다. 
+메모리 내 및 DirectQuery 모드 모두에서 테이블 형식 모델이 지원됩니다. 메모리 내 모드(기본값) 테이블 형식 모델은 여러 데이터 원본을 지원합니다. 모델 데이터가 고도로 압축되고 메모리 내에 캐시되었기 때문에서 이 모드는 대량의 데이터에 가장 빠른 쿼리 응답을 제공합니다. 또한 복잡한 데이터 집합 및 쿼리에 가장 훌륭한 유연성을 제공합니다. 분할하면 증분 로드를 활성화하고, 평행을 증가하고, 메모리 소비를 줄입니다. 계산된 테이블 및 모든 DAX 함수와 같은 기타 고급 데이터 모델링 기능이 지원됩니다. 데이터 원본에서 캐시된 데이터를 업데이트하기 위해 메모리 내 모델을 새로 고칠(처리할) 수 있어야 합니다. Azure 서비스 사용자 지원에서 PowerShell, TOM, TMSL 및 REST를 사용하는 무인 새로 고침 작업은 모델 데이터를 항상 최신 상태로 유지할 수 있는 유연성을 제공합니다. 
 
 DirectQuery 모드*는 저장소 및 쿼리 실행에 백 엔드 관계형 데이터베이스를 활용합니다. 단일 SQL Server, SQL Server 데이터 웨어하우스, Azure SQL Database, Azure SQL Data Warehouse, Oracle 및 Teradata 데이터 원본에서 초대량의 데이터 집합이 지원됩니다. 백 엔드 데이터 집합은 사용 가능한 서버 리소스 메모리를 초과할 수 있습니다. 복잡한 데이터 모델 새로 고침 시나리오가 필요하지 않습니다. 또한 제한된 데이터 원본 형식, DAX 수식 제한 사항과 같은 몇 가지 제한 사항이 있으며 일부 고급 데이터 모델링 기능이 지원되지 않습니다. 사용자에게 적절한 모드를 결정하기 전에 [직접 쿼리 모드](https://docs.microsoft.com/sql/analysis-services/tabular-models/directquery-mode-ssas-tabular)를 참조하세요.
 

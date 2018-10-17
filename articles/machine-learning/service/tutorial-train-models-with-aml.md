@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Machine Learning으로 이미지 분류 모델 학습'
+title: '자습서: Azure Machine Learning Service로 이미지 분류 모델 학습시키기'
 description: 이 자습서에서는 Azure Machine Learning 서비스를 사용하여 Python Jupyter 노트북의 scikit-learn을 통해 이미지 분류 모델을 학습하는 방법을 보여 줍니다. 이 자습서는 2부로 구성된 시리즈 중 제1부입니다.
 services: machine-learning
 ms.service: machine-learning
@@ -9,18 +9,18 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 6fbca5e83d8ab4b3c34c6448c7a2303697da623b
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 7110d8df5ee837829f97fec8ab26d929689e3436
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181401"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785141"
 ---
-# <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning"></a>자습서 #1: Azure Machine Learning으로 이미지 분류 모델 학습
+# <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>자습서 1: Azure Machine Learning Service로 이미지 분류 모델 학습시키기
 
 이 자습서에서는 로컬로 및 원격 계산 리소스에 대해 Machine Learning 모델을 학습합니다. Python Jupyter 노트북에서 Azure Machine Learning 서비스(미리 보기)에 대한 학습 및 배포 워크플로를 사용합니다.  그런 다음, 이 노트를 템플릿으로 사용하여 자신의 데이터로 고유한 Machine Learning 모델을 학습할 수 있습니다. 이 자습서는 **2부로 구성된 자습서 시리즈 중 제1부**입니다.  
 
-이 자습서에서는 Azure Machine Learning과 함께 [MNIST](http://yann.lecun.com/exdb/mnist/) 데이터 집합 및 [scikit-learn](http://scikit-learn.org)을 사용하여 간단한 로지스틱 회귀 분석을 학습합니다.  MNIST는 70,000개의 회색조 이미지로 구성된 인기 있는 데이터 집합입니다. 각 이미지는 0-9의 숫자를 나타내는 28x28픽셀의 필기체 숫자입니다. 목표는 지정된 이미지가 나타내는 숫자를 식별하기 위한 다중 클래스 분류자를 만드는 것입니다. 
+이 자습서에서는 Azure Machine Learning Service와 [MNIST](http://yann.lecun.com/exdb/mnist/) 데이터 집합 및 [scikit-learn](http://scikit-learn.org)을 사용하여 간단한 로지스틱 회귀를 학습합니다.  MNIST는 70,000개의 회색조 이미지로 구성된 인기 있는 데이터 집합입니다. 각 이미지는 0-9의 숫자를 나타내는 28x28픽셀의 필기체 숫자입니다. 목표는 지정된 이미지가 나타내는 숫자를 식별하기 위한 다중 클래스 분류자를 만드는 것입니다. 
 
 방법 배우기:
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="get-the-notebook"></a>Notebook 가져오기
 
-편의를 위해 이 자습서를 Jupyter Notebook으로 사용할 수 있습니다. 아래의 두 가지 방법 중 하나를 사용하여 [Machine Learning 노트북 샘플 GitHub 리포지토리](https://github.com/Azure/MachineLearningNotebooks)를 복제하고 `tutorials/01.train-models.ipynb` 노트북을 실행합니다.
+사용자의 편의를 위해 이 자습서는 [Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb)으로 제공됩니다. Azure Notebooks 또는 자체 Jupyter 노트북 서버에서 `01.train-models.ipynb` 노트북을 실행할 수 있습니다.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -454,7 +454,7 @@ compute_target.delete()
 
 ## <a name="next-steps"></a>다음 단계
 
-이 Azure Machine Learning 자습서에서는 Python을 사용하여 다음을 수행했습니다.
+이 Azure Machine Learning Service 자습서에서는 Python을 사용하여 다음 작업을 수행했습니다.
 
 > [!div class="checklist"]
 > * 개발 환경 설정

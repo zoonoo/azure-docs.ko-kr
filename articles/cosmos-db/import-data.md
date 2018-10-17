@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/30/2018
 ms.author: dech
 ms.custom: mvc
-ms.openlocfilehash: 771c4a33603ddf262df3b35992d318d34de6c2dc
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: af6faa6abcc54ef11e066d3a348dac28b23c7af4
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698114"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079092"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>데이터 마이그레이션 도구를 사용하여 Azure Cosmos DB로 데이터 마이그레이션 
 
@@ -42,7 +42,9 @@ Azure Cosmos DB와 함께 사용할 API는 무엇인가요?
 
 * [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) 이상
 
-* 처리량 늘리기: 데이터 마이그레이션 기간은 개별 컬렉션 또는 컬렉션 집합에 대해 설정한 처리량에 따라 다릅니다. 대량 데이터 마이그레이션의 경우 처리량을 늘려야 합니다. 마이그레이션을 완료한 후에는 비용을 절약하기 위해 처리량을 줄이세요. Azure Portal에서 처리량을 늘리는 방법에 대한 자세한 내용은 Azure Cosmos DB의 성능 수준 및 가격 책정 계층을 참조하세요.
+* **처리량 늘리기:** 데이터 마이그레이션 기간은 개별 컬렉션 또는 컬렉션 집합에 대해 설정한 처리량에 따라 다릅니다. 대량 데이터 마이그레이션의 경우 처리량을 늘려야 합니다. 마이그레이션을 완료한 후에는 비용을 절약하기 위해 처리량을 줄이세요. Azure Portal에서 처리량을 늘리는 방법에 대한 자세한 내용은 Azure Cosmos DB의 성능 수준 및 가격 책정 계층을 참조하세요.
+
+* **Azure Cosmos DB 리소스 만들기:** 데이터 마이그레이션을 시작하기 전에 Azure Portal에서 모든 컬렉션을 미리 만듭니다. 데이터베이스 수준 처리량이 있는 Azure Cosmos DB 계정으로 마이그레이션하는 경우에는 Azure Cosmos DB 컬렉션을 만들 때 파티션 키를 제공해야 합니다.
 
 ## <a id="Overviewl"></a>개요
 데이터 마이그레이션 도구는 다음을 비롯한 다양한 원본에서 Azure Cosmos DB로 데이터를 가져오는 오픈 소스 솔루션입니다.
@@ -201,7 +203,7 @@ DomainInfo.Domain_Name 및 RedirectInfo.Redirecting과 같은 별칭을 확인�
 CSV 가져오기에 대해 다른 두 가지 사항을 기억해야 합니다.
 
 1. 기본적으로 따옴표가 없는 값이 항상 잘리지만, 따옴표로 묶인 값은 그대로 유지됩니다. Trim 따옴표로 묶인 값 확인란을 선택 또는 /s.TrimQuoted 명령줄 옵션으로 이 동작을 재정의할 수 있습니다.
-2. 기본적으로는 따옴표가 없는 null은 null 값으로 처리됩니다. 따옴표가 없는 NULL을 문자열 확인란이나 /s.NoUnquotedNulls 명령줄 옵션으로 이 동작을 재정의할 수 있습니다(예: "null" 문자열로 따옴표가 없는 null 처리).
+2. 기본적으로는 따옴표가 없는 null은 null 값으로 처리됩니다. 이 동작은 따옴표가 없는 NULL을 문자열 확인란이나 /s.NoUnquotedNulls 명령줄 옵션으로 재정의할 수 있습니다(예: 따옴표가 없는 null을 "null" 문자열로 처리).
 
 CSV 가져오기에 대한 명령줄 샘플은 다음과 같습니다.
 
@@ -522,6 +524,14 @@ Azure Cosmos DB JSON 내보내기를 사용하면 사용 가능한 모든 원본
       }
     ]
     }]
+
+다음은 JSON 파일을 Azure Blob 저장소로 내보내는 명령줄 샘플입니다.
+
+```
+dt.exe /ErrorDetails:All /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB database_name>" /s.Collection:<CosmosDB collection_name>
+/t:JsonFile /t.File:"blobs://<Storage account key>@<Storage account name>.blob.core.windows.net:443/<Container_name>/<Blob_name>"
+/t.Overwrite
+```
 
 ## <a name="advanced-configuration"></a>고급 구성
 고급 구성 화면에서 원하는 모든 오류가 기록된 로그 파일의 위치를 지정합니다. 이 페이지에는 다음 규칙이 적용됩니다.

@@ -1,19 +1,18 @@
 ---
-title: Azure IoT(사물 인터넷) 소개
-description: Azure IoT 및 관련 서비스와 기술에 대해 간략히 설명합니다.
-author: BryanLa
-manager: timlt
+title: Azure 및 IoT(사물 인터넷)에 대한 소개
+description: Azure IoT 및 그 안에 포함된 서비스에 대한 개요
+author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 05/18/2018
-ms.author: bryanla
-ms.openlocfilehash: ed96181606e2db4102aa609973ade9ecbfde6c90
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.date: 10/09/2018
+ms.author: robinsh
+ms.openlocfilehash: d7e5949be9ea09f94ff6ee86c9f996f2e203eac7
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187277"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069440"
 ---
 # <a name="introduction-to-azure-and-the-internet-of-things"></a>Azure IoT(사물 인터넷) 소개
 
@@ -28,14 +27,14 @@ IoT 솔루션은 수백만 대에 이르는 장치 및 솔루션 백 엔드 사�
 * 다른 기간 업무 응용 프로그램
 * 대시보드 또는 다른 프레젠테이션 장치를 통한 인간 조작자
 
-![IoT 솔루션 아키텍처][img-solution-architecture]
+![IoT 솔루션 아키텍처](./media/iot-introduction/iot-reference-architecture.png)
 
 > [!NOTE]
-> IoT 아키텍처에 대한 자세한 설명은 [Microsoft Azure IoT 참조 아키텍처][lnk-refarch]를 참조하세요.
+> IoT 아키텍처에 대한 심층적인 설명은 [Microsoft Azure IoT 참조 아키텍처](https://aka.ms/iotrefarchitecture)를 참조하세요.
 
 ### <a name="device-connectivity"></a>장치 연결
 
-IoT 솔루션 아키텍처에서 장치는 일반적으로 저장 및 처리를 위해 클라우드에 원격 분석을 보냅니다. 예를 들어 예측 유지 관리 시나리오에서 솔루션 백 엔드는 센서 데이터 스트림을 사용하여 특정 펌프에 유지 관리가 필요한 시기를 결정할 수 있습니다. 또한 장치는 클라우드 끝점에서 메시지를 읽어 수신하고 클라우드-장치 메시지에 응답할 수 있습니다. 동일한 예에서 솔루션 백 엔드는 메시지를 펌핑 스테이션의 다른 펌프로 보내서 유지 관리가 시작되기 직전에 라우팅 흐름을 다시 시작할 수 있습니다. 이 절차를 통해 유지 관리 엔지니어가 도착하는 즉시 작업을 시작할 수 있는지 확인합니다.
+IoT 솔루션 아키텍처에서 장치는 일반적으로 저장 및 처리를 위해 클라우드에 원격 분석을 보냅니다. 예를 들어 예측 유지 관리 시나리오에서 솔루션 백 엔드는 센서 데이터 스트림을 사용하여 특정 펌프에 유지 관리가 필요한 시기를 결정할 수 있습니다. 또한 장치는 클라우드 엔드포인트에서 메시지를 읽어 수신하고 클라우드-장치 메시지에 응답할 수 있습니다. 동일한 예에서 솔루션 백 엔드는 메시지를 펌핑 스테이션의 다른 펌프로 보내서 유지 관리가 시작되기 직전에 라우팅 흐름을 다시 시작할 수 있습니다. 이 절차를 통해 유지 관리 엔지니어가 도착하는 즉시 작업을 시작할 수 있는지 확인합니다.
 
 장치를 안전하고 안정적으로 연결하는 것은 종종 IoT 솔루션의 가장 중요한 과제입니다. 이는 브라우저 및 모바일 앱과 같은 다른 클라이언트에 비해 다른 특징이 IoT 장치에 있기 때문입니다. IoT 장치의 이러한 특징은 구체적으로 다음과 같습니다.
 
@@ -82,8 +81,10 @@ IoT 솔루션 아키텍처에서 장치는 일반적으로 저장 및 처리를 
 
 Azure IoT는 IoT 프로젝트의 복잡성을 간소화하고, 보안, 인프라 비호환성 및 IoT 솔루션 크기 조정과 같은 과제를 처리합니다. 방법은 다음과 같습니다.
 
-**민첩성** <br>
+### <a name="agile"></a>민첩성
+
 IoT 과정 가속화
+
 * 규모: 작은 규모로 시작하여 원하는 크기로 언제 어디서나 확장할 수 있습니다. 전 세계 대부분의 지역에서 수백만 개의 장치, 테라바이트 단위의 데이터를 사용할 수 있습니다.
 
 * 개방: 장치, 소프트웨어 또는 서비스에 연결하여 현재 보유하고 있는 기능을 사용하거나 미래를 위해 현대화합니다.
@@ -92,7 +93,8 @@ IoT 과정 가속화
 
 * 속도: 더 빠르게 배포하고, 제품 출시 시간을 앞당기고, IoT의 솔루션 가속기 및 혁신 속도 분야에서 선도업체와의 경쟁 우위를 유지하고 있습니다.
 
-**포괄성** <br>
+### <a name="comprehensive"></a>포괄성
+
 강력한 비즈니스 효과
 
 * 완전: Microsoft는 빅 데이터, 고급 분석 및 관리 서비스를 통해 장치를 클라우드로 확장하는 완벽한 플랫폼을 갖춘 유일한 IoT 솔루션 공급자입니다.
@@ -103,8 +105,9 @@ IoT 과정 가속화
 
 * 장치 중심: Microsoft IoT를 사용하면 레거시 장비에서 인증된 하드웨어의 방대한 에코시스템에 이르기까지 모든 장치를 연결할 수 있으며, 에지, 모바일 및 포함된 시스템 전반에 걸쳐 자신의 장치를 직접 구축할 수 있습니다.
 
-**보안** <br>
-가장 어려운 IoT 부분 - 보안 해결
+### <a name="secure"></a>보안
+
+IoT의 가장 어려운 부분인 보안 문제 해결
 
 * 권한 부여: Microsoft IoT를 사용하면 기술, 모범 사례 및 기능과 함께 비전을 제공하여 가장 어려운 IoT 부분인 보안을 해결할 수 있습니다.
 
@@ -116,70 +119,21 @@ IoT 과정 가속화
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 기술 및 솔루션 영역을 살펴보거나 왼쪽의 목차에서 Azure IoT 서비스 목록을 참조하세요.
+기술 및 솔루션에 대한 다음과 같은 영역을 탐색합니다.
 
-<ul class="panelContent cardsF">  
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>솔루션</h3>
-                        <a href="/azure/iot-suite">IoT 솔루션 가속기</a><br/>
-                        <a href="/azure/iot-central">IoT Central</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>플랫폼 서비스</h3>
-  
-                        <a href="/azure/iot-hub">IoT Hub</a><br/>
-                        <a href="/azure/iot-dps">IoT Hub Device Provisioning 서비스</a><br/>
-                        <a href="/azure/azure-maps">Maps</a><br/>
-                        <a href="/azure/time-series-insights">Time Series Insights</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>  
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Edge</h3>
-                        <a href="/azure/iot-edge">IoT Edge</a><br/>
-                        <a href="/azure/iot-edge/how-iot-edge-works">IoT Edge란?</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>      
-</ul>
+**솔루션**
 
-[img-paas-saas-technologies-solutions]: media/index/paas-saas-technologies-solutions.png
-[img-solution-architecture]: ./media/iot-introduction/iot-reference-architecture.png
-[img-dashboard]: ./media/iot-introduction/iot-suite.png
+* [IoT 솔루션 가속기](/azure/iot-suite)
+* [IoT Central](/azure/iot-central)
 
-[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
-[lnk-iot-central-land]: https://docs.microsoft.com/microsoft-iot-central/
-[lnk-iot-dps-land]: /azure/iot-dps/index.yml
-[lnk-iot-edge-land]: /azure/iot-edge/index.yml
-[lnk-iot-hub-land]: /azure/iot-hub/index.md
-[lnk-iot-maps-land]: /azure/maps/index.yml
-[lnk-iot-sa-land]: ../iot-accelerators/index.yml
-[lnk-iot-tsi-land]: /azure/time-series-insights/index.yml
+**플랫폼 서비스**
 
-[lnk-iot-hub]: ../iot-hub/about-iot-hub.md
-[lnk-iot-sa]: ../iot-accelerators/about-iot-accelerators.md
-[lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
-[lnk-protocol-gateway]:  ../iot-hub/iot-hub-protocol-gateway.md
-[lnk-refarch]: https://aka.ms/iotrefarchitecture
+* [IoT Hub](/azure/iot-hub)
+* [IoT Hub Device Provisioning 서비스](/azure/iot-dps)
+* [Azure Maps](/azure/azure-maps/)
+* [Time Series Insights](/azure/time-series-insights)
 
+**Edge**
 
+* [IoT Edge 개요](/azure/iot-edge)
+* [IoT Edge란?](/azure/how-iot-edge-works)

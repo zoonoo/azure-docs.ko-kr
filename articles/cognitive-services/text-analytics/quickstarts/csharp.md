@@ -1,22 +1,23 @@
 ---
-title: Cognitive Services, 텍스트 분석 API의 C# 빠른 시작 | Microsoft Docs
-description: Azure의 Microsoft Cognitive Services에서 텍스트 분석 API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 확인합니다.
+title: '빠른 시작: C#을 사용하여 텍스트 분석 API 호출'
+titleSuffix: Azure Cognitive Services
+description: 텍스트 분석 API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 구합니다.
 services: cognitive-services
-documentationcenter: ''
-author: luiscabrer
+author: ashmaka
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 08/30/2018
+ms.topic: quickstart
+ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 42a682898303b742a17b0a6d4d98c2b9fedf9003
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: ce3629a140db97e922a28792c6230d9566682982
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841697"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269329"
 ---
-# <a name="quickstart-for-the-text-analytics-api-with-c"></a>C#을 사용한 텍스트 분석 API 빠른 시작 
+# <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: C#을 사용하여 텍스트 분석 Cognitive Service 호출
 <a name="HOLTop"></a>
 
 이 문서에서는 [텍스트 분석 API](//go.microsoft.com/fwlink/?LinkID=759711) 및 C#을 사용하여 언어 감지, 감정 분석 및 핵심 구 추출을 수행하는 방법을 보여 줍니다. 코드는 최소한의 외부 라이브러리 참조를 사용하여 .NET Core 응용 프로그램에서 작동하도록 작성되었으므로, Linux 또는 MacOS에서 실행할 수도 있습니다.
@@ -25,30 +26,30 @@ API 기술 문서는 [API 정의](//go.microsoft.com/fwlink/?LinkID=759346)를 �
 
 ## <a name="prerequisites"></a>필수 조건
 
-텍스트 분석 API를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. *매월 5,000개 트랜잭션의 체험 계층*을 사용하여 이 빠른 시작을 완료할 수 있습니다.
+**텍스트 분석 API**를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. **매월 5,000개 트랜잭션의 체험 계층**을 사용하여 이 빠른 시작을 완료할 수 있습니다.
 
 등록하는 동안 생성된 [엔드포인트 및 액세스 키](../How-tos/text-analytics-how-to-access-key.md)도 있어야 합니다. 
 
 
-## <a name="install-the-nuget-sdk-package"></a>NuGet SDK 패키지 설치
+## <a name="install-the-nuget-sdk-package"></a>Nuget SDK 패키지 설치
 1. Visual Studio에서 새 콘솔 솔루션을 만듭니다.
-1. 솔루션을 마우스 오른쪽 단추로 클릭하고 **솔루션에 대한 NuGet 패키지 관리**를 선택합니다.
+1. 솔루션을 마우스 오른쪽 단추로 클릭한 다음, **솔루션용 NuGet 패키지 관리**를 클릭합니다.
 1. **시험판 포함** 확인란을 선택합니다.
-1. **찾아보기** 탭을 선택하고 **Microsoft.Azure.CognitiveServices.Language**를 검색합니다.
-1. **Microsoft.Azure.CognitiveServices.Language.TextAnalytics** NuGet 패키지를 선택하고 설치합니다.
+1. **찾아보기** 탭을 선택하고 **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**를 검색합니다.
+1. Nuget 패키지를 선택하고 설치합니다.
 
 > [!Tip]
-> C#에서 직접 [HTTP 엔드포인트](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)를 호출할 수 있지만, Microsoft.Azure.CognitiveServices.Language SDK에서는 JSON 직렬화 및 역직렬화를 걱정하지 않고도 서비스를 훨씬 더 쉽게 호출할 수 있습니다.
+>  C#에서 직접 [HTTP 엔드포인트](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)를 호출할 수 있지만, Microsoft.Azure.CognitiveServices.Language SDK에서는 JSON 직렬화 및 역직렬화를 걱정하지 않고도 서비스를 훨씬 더 쉽게 호출할 수 있습니다.
 >
-> 다음은 도움이 될 만한 링크입니다.
-> - [SDK NuGet 페이지](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
+> 몇 가지 유용한 링크:
+> - [SDK Nuget 페이지](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
 > - [SDK 코드](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
 
 
-## <a name="call-the-text-analytics-api-by-using-the-sdk"></a>SDK를 사용하여 텍스트 분석 API 호출
-1. Program.cs를 다음 코드로 바꿉니다. 이 프로그램은 3개 섹션(언어 추출, 키 구문 추출 및 감정 분석)에서 텍스트 분석 API의 기능을 보여줍니다.
+## <a name="call-the-text-analytics-api-using-the-sdk"></a>SDK를 사용하여 텍스트 분석 API 호출
+1. Program.cs를 아래에 제공된 코드로 바꿉니다. 이 프로그램은 3개 섹션(언어 추출, 키 구문 추출 및 감정 분석)에서 텍스트 분석 API의 기능을 보여줍니다.
 1. `Ocp-Apim-Subscription-Key` 헤더 값을 구독에 유효한 액세스 키로 바꿉니다.
-1. `Endpoint`의 위치를 등록한 엔드포인트로 바꿉니다. Azure Portal 리소스에서 엔드포인트를 찾을 수 있습니다. 엔드포인트는 일반적으로 "https://[region].api.cognitive.microsoft.com"으로 시작합니다. 프로토콜 및 호스트 이름만 포함합니다.
+1. `Endpoint`의 위치를 등록한 끝점으로 바꿉니다. Azure Portal 리소스에서 끝점을 찾을 수 있습니다. 엔드포인트는 일반적으로 "https://[region].api.cognitive.microsoft.com"으로 시작되며 여기에서는 프로토콜과 호스트 이름만 포함시킵니다.
 1. 프로그램을 실행합니다.
 
 ```csharp
@@ -57,7 +58,6 @@ using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
 using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
 using System.Collections.Generic;
 using Microsoft.Rest;
-using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -73,7 +73,7 @@ namespace ConsoleApp1
         {
             public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
             {
-                request.Headers.Add("Ocp-Apim-Subscription-Key", "ENTER KEY HERE");
+                request.Headers.Add("Ocp-Apim-Subscription-Key", "4d4705adaf4a4656b1118b68d671d5b6");
                 return base.ProcessHttpRequestAsync(request, cancellationToken);
             }
         }
@@ -85,20 +85,14 @@ namespace ConsoleApp1
             ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials())
             {
                 Endpoint = "https://westus.api.cognitive.microsoft.com"
-            };
+            }; //Replace 'westus' with the correct region for your Text Analytics subscription
 
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-```
 
-## <a name="detect-language"></a>언어 검색
-
-언어 감지 API는 [언어 감지 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)를 사용하여 텍스트 문서의 언어를 감지합니다.
-
-```csharp
-            // Extracting language.
+            // Extracting language
             Console.WriteLine("===== LANGUAGE EXTRACTION ======");
 
-            var result =  client.DetectLanguageAsync(new BatchInput(
+            var result = client.DetectLanguageAsync(new BatchInput(
                     new List<Input>()
                         {
                           new Input("1", "This is a document written in English."),
@@ -111,14 +105,8 @@ namespace ConsoleApp1
             {
                 Console.WriteLine("Document ID: {0} , Language: {1}", document.Id, document.DetectedLanguages[0].Name);
             }
-```
 
-## <a name="extract-key-phrases"></a>핵심 구 추출
-
-핵심 구 추출 API는 [핵심 구 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)를 사용하여 텍스트 문서에서 핵심 구를 추출합니다.
-
-```csharp
-            // Getting key phrases.
+            // Getting key-phrases
             Console.WriteLine("\n\n===== KEY-PHRASE EXTRACTION ======");
 
             KeyPhraseBatchResult result2 = client.KeyPhrasesAsync(new MultiLanguageBatchInput(
@@ -130,7 +118,7 @@ namespace ConsoleApp1
                           new MultiLanguageInput("es", "4", "A mi me encanta el fútbol!")
                         })).Result;
 
-            // Printing key phrases.
+            // Printing keyphrases
             foreach (var document in result2.Documents)
             {
                 Console.WriteLine("Document ID: {0} ", document.Id);
@@ -142,14 +130,8 @@ namespace ConsoleApp1
                     Console.WriteLine("\t\t" + keyphrase);
                 }
             }
-```
 
-## <a name="analyze-sentiment"></a>감정 분석
-
-감정 분석 API는 [감정 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)를 사용하여 텍스트 레코드 집합의 감정을 감지합니다.
-
-```csharp
-            // Analyzing sentiment.
+            // Extracting sentiment
             Console.WriteLine("\n\n===== SENTIMENT ANALYSIS ======");
 
             SentimentBatchResult result3 = client.SentimentAsync(
@@ -163,34 +145,37 @@ namespace ConsoleApp1
                         })).Result;
 
 
-            // Printing sentiment results.
+            // Printing sentiment results
             foreach (var document in result3.Documents)
             {
                 Console.WriteLine("Document ID: {0} , Sentiment Score: {1:0.00}", document.Id, document.Score);
             }
-```
 
-## <a name="identify-linked-entities"></a>연결된 엔터티 식별
 
-엔터티 링크 설정 API는 [엔터티 링크 설정 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)를 사용하여 텍스트 문서에서 잘 알려진 엔터티를 식별합니다.
-
-```csharp
-            // Linking entities
-            Console.WriteLine("\n\n===== ENTITY LINKING ======");
+            // Identify entities
+            Console.WriteLine("\n\n===== ENTITIES ======");
 
             EntitiesBatchResult result4 = client.EntitiesAsync(
                     new MultiLanguageBatchInput(
                         new List<MultiLanguageInput>()
                         {
-                            new MultiLanguageInput("en", "0", "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable."),
-                            new MultiLanguageInput("en", "1", "The Seattle Seahawks won the Super Bowl in 2014."),
+                          new MultiLanguageInput("en", "0", "The Great Depression began in 1929. By 1933, the GDP in America fell by 25%.")
                         })).Result;
 
-            // Printing entity results.
+            // Printing entities results
             foreach (var document in result4.Documents)
             {
-                Console.WriteLine("Document ID: {0} , Entities: {1}", document.Id, String.Join(", ", document.Entities.Select(entity => entity.Name)));
+                Console.WriteLine("Document ID: {0} ", document.Id);
+
+                Console.WriteLine("\t Entities:");
+
+                foreach (EntityRecord entity in document.Entities)
+                {
+                    Console.WriteLine("\t\t" + entity.Name);
+                }
             }
+
+            Console.ReadLine();
         }
     }
 }
@@ -199,9 +184,10 @@ namespace ConsoleApp1
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Power BI를 사용한 텍스트 분석](../tutorials/tutorial-power-bi-key-phrases.md)
+> [텍스트 분석 및 Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
 ## <a name="see-also"></a>참고 항목 
 
  [Text Analytics 개요](../overview.md)  
  [FAQ(질문과 대답)](../text-analytics-resource-faq.md)
+

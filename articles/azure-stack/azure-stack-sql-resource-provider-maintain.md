@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: ad899739dab1dc51d64368d2136ab87f73f6f3a0
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.reviewer: quying
+ms.openlocfilehash: 360661402289ab9b06eb01be447dc98942c93302
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "36300913"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364098"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL 리소스 공급자 유지 관리 작업
 
@@ -53,9 +53,9 @@ SQL 리소스 공급자는 추가 기능 구성 요소 이기 때문에 Azure St
 
 ## <a name="secrets-rotation"></a>비밀 회전
 
-*이러한 지침은 Azure Stack 통합 시스템 버전 1804 이상에 적용 됩니다. 이전 버전 1804 Azure Stack 버전의 암호를 회전 하려고 하지 마세요.*
+*이러한 지침은 Azure Stack 통합 시스템에만 적용 됩니다.*
 
-SQL 및 MySQL 리소스 공급자를 사용 하 여 Azure stack 통합 시스템을 다음 인프라 (배포) 암호를 회전할 수 있습니다.
+SQL 및 MySQL 리소스 공급자를 사용 하 여 Azure Stack을 사용 하 여 시스템에 통합 하는 경우 Azure Stack 운영자는 만료 되지 않는 것을 확인 하려면 다음 리소스 공급자 인프라 암호를 회전 하는 일을 담당 합니다.
 
 - 외부 SSL 인증서 [배포 중에 제공 된](azure-stack-pki-certs.md)합니다.
 - 리소스 공급자 VM 로컬 관리자 계정 암호를 배포 중에 제공 합니다.

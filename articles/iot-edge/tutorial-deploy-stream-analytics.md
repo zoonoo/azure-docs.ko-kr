@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6997d40603bd6ebf39f8797a3e354e92c04da58d
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: de856aed32b596209f7af2861b76ed6648d0caca
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422748"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067825"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>자습서: Azure Stream Analytics를 IoT Edge 모듈로 배포(미리 보기)
 
@@ -139,7 +139,9 @@ Azure Portal에서 Stream Analytics 작업을 만든 후에는 통과하는 데�
 
 IoT Edge 장치에 배포할 Stream Analytics 작업을 준비하려면 작업을 저장소 계정의 컨테이너에 연결해야 합니다. 작업을 배포하려고 이동하면 작업 정의가 저장소 컨테이너로 내보내집니다. 
 
-1. **구성** 아래에서 **IoT Edge 설정**을 선택합니다.
+1. **구성**에서 **저장소 계정 설정**을 선택합니다.
+
+1. **저장소 계정 추가**를 선택합니다. 
 
 1. 드롭다운 메뉴에서 **저장소 계정**을 선택합니다.
 

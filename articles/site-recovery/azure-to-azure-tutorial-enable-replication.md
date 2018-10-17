@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 4638b697dcaa0d4c11bae1878a94f76f6237d4a4
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 0404774f1cb347ceead8b78d1a9a6506712dea5c
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42154784"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069100"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>보조 Azure 지역에 Azure VM의 재해 복구 설정
 
@@ -169,6 +169,19 @@ Site Recovery는 대상 지역에 대한 기본 설정 및 복제 정책을 만�
 
 > [!IMPORTANT]
   다중 VM 일관성을 사용하도록 설정하면 복제 그룹의 컴퓨터는 20004 포트를 통해 서로 통신하게 됩니다. 20004 포트를 통한 VM 간의 내부 통신을 차단하는 방화벽 어플라이언스가 없는지 확인합니다. Linux VM을 복제 그룹에 포함하고 싶다면 특정 Linux 버전의 지침에 따라 20004 포트의 아웃바운드 트래픽을 수동으로 열어야 합니다.
+
+### <a name="configure-encryption-settings"></a>암호화 설정 구성
+
+원본 가상 머신에 ADE(Azure Disk Encryption)를 사용하도록 설정되어 있으면 아래 암호화 설정 섹션이 나타납니다.
+
+- **디스크 암호화 키 자격 증명 모음**: 기본적으로 Azure Site Recovery는 원본 VM 디스크 암호화 키를 기반으로 대상 지역에 접미사 "asr"이 포함된 이름으로 새로운 키 자격 증명 모음을 만듭니다. Azure Site Recovery에서 만든 키 자격 증명 모음이 이미 있으면 재사용 됩니다.
+- **키 암호화 키 자격 증명 모음**: 기본적으로 Azure Site Recovery는 원본 VM 키 암호화 키를 기반으로 대상 지역에 접미사 "asr"이 포함된 이름으로 새로운 키 자격 증명 모음을 만듭니다. Azure Site Recovery에서 만든 키 자격 증명 모음이 이미 있으면 재사용 됩니다.
+
+암호화 설정 옆에 있는 [사용자 지정]을 클릭하여 기본값을 재정의하고 사용자 지정 키 자격 증명 모음을 선택합니다.
+
+>[!NOTE]
+>Azure Site Recovery에서는 Windows OS에서 실행 중인 Azure VM과 [Azure AD 앱을 통한 암호화가 가능](https://aka.ms/ade-aad-app)한 Azure VM만 지원됩니다.
+>
 
 ### <a name="track-replication-status"></a>복제 상태 추적
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/19/2018
 ms.author: dobett
-ms.openlocfilehash: dc255a36e2347aac204f7bd32fe3e9cf25d54b19
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 8a5a6ff2eab8a9ef5fb631ef81818a30db00078b
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42022627"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784953"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-nodejs"></a>빠른 시작: 장치에서 IoT 허브로 원격 분석을 보내고 백 엔드 응용 프로그램(Node.js)으로 허브에서 원격 분석을 읽습니다.
 
@@ -49,44 +49,59 @@ https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip에서
 
 ## <a name="register-a-device"></a>장치 등록
 
-연결을 위해 장치를 IoT Hub에 등록해야 합니다. 이 빠른 시작에서는 Azure CLI를 사용하여 시뮬레이션된 장치를 등록합니다.
+연결을 위해 장치를 IoT Hub에 등록해야 합니다. 이 빠른 시작에서는 Azure Cloud Shell을 사용하여 시뮬레이션된 장치를 등록합니다.
 
-1. IoT Hub CLI 확장을 추가하고 장치 ID를 만듭니다. `{YourIoTHubName}`을 IoT 허브에 대해 선택한 이름으로 바꿉니다.
+1. Azure Cloud Shell에서 다음 명령을 실행하여 IoT Hub CLI 확장을 추가하고 장치 ID를 만듭니다. 
+
+   **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyNodeDevice
+    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyNodeDevice
     ```
 
     장치에 다른 이름을 선택하는 경우 샘플 응용 프로그램에서 실행하기 전에 장치 이름을 업데이트합니다.
 
-1. 방금 등록한 장치의 _장치 연결 문자열_을 가져오려면 다음 명령을 실행합니다.
+1. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 장치의 _장치 연결 문자열_을 가져옵니다.
+
+   **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyNodeDevice --output table
+    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyNodeDevice --output table
     ```
+    
+    다음과 같은 장치 연결 문자열을 기록해 둡니다.
 
-    `Hostname=...=`과 같은 장치 연결 문자열을 기록해 둡니다. 이 값은 빠른 시작의 뒷부분에서 사용합니다.
+   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
+
+    이 값은 빠른 시작의 뒷부분에서 사용합니다.
 
 1. 또한 백 엔드 응용 프로그램을 IoT 허브에 연결하여 메시지를 검색할 수 있게 하려면 _서비스 연결 문자열_이 필요합니다. 다음 명령은 IoT Hub에 대한 서비스 연결 문자열을 검색합니다.
+   
+   **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --name {YourIoTHubName} --output table
+    az iot hub show-connection-string --hub-name YourIoTHubName --output table
     ```
+     
+    다음과 같은 서비스 연결 문자열을 기록해 둡니다.
 
-    `Hostname=...=`과 같은 서비스 연결 문자열을 기록해 둡니다. 이 값은 빠른 시작의 뒷부분에서 사용합니다. 서비스 연결 문자열은 장치 연결 문자열과는 다릅니다.
+   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
+
+    이 값은 빠른 시작의 뒷부분에서 사용합니다. 서비스 연결 문자열은 장치 연결 문자열과는 다릅니다.
+
 
 ## <a name="send-simulated-telemetry"></a>시뮬레이션된 원격 분석 전송
 
 시뮬레이션된 장치 응용 프로그램은 IoT 허브의 장치 관련 엔드포인트에 연결하고 시뮬레이션된 온도 및 습도 원격 분석을 전송합니다.
 
-1. 터미널 창에서 샘플 Node.js 프로젝트의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\simulated-device** 폴더로 이동합니다.
+1. 로컬 터미널 창을 열고 샘플 Node.js 프로젝트의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\simulated-device** 폴더로 이동합니다.
 
 1. 원하는 텍스트 편집기에서 **SimulatedDevice.js** 파일을 엽니다.
 
     `connectionString` 변수의 값을 이전에 적어둔 장치 연결 문자열로 바꿉니다. 그런 다음 변경 사항을 **SimulatedDevice.js** 파일에 저장합니다.
 
-1. 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 장치 응용 프로그램을 실행합니다.
+1. 로컬 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 장치 응용 프로그램을 실행합니다.
 
     ```cmd/sh
     npm install
@@ -101,13 +116,13 @@ https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip에서
 
 백 엔드 응용 프로그램은 IoT Hub의 서비스 측 **이벤트** 엔드포인트에 연결합니다. 응용 프로그램은 시뮬레이션된 장치에서 전송하는 장치-클라우드 메시지를 받습니다. IoT Hub 백 엔드 응용 프로그램은 일반적으로 클라우드에서 실행되며 장치-클라우드 메시지를 수신하고 처리합니다.
 
-1. 또 다른 터미널 창에서 샘플 Node.js 프로젝트의 루트 폴더로 이동합니다. 그런 다음 **read-d2c-messages** 폴더로 이동합니다.
+1. 또 다른 로컬 터미널 창을 열고 샘플 Node.js 프로젝트의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\read-d2c-messages** 폴더로 이동합니다.
 
-1. 원하는 텍스트 편집기에서 **iot-hub\Quickstarts\ReadDeviceToCloudMessages.js** 파일을 엽니다.
+1. 원하는 텍스트 편집기에서 **ReadDeviceToCloudMessages.js** 파일을 엽니다.
 
     `connectionString` 변수의 값을 이전에 적어둔 서비스 연결 문자열로 바꿉니다. 그런 다음 변경 사항을 **ReadDeviceToCloudMessages.js** 파일에 저장합니다.
 
-1. 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 백 엔드 응용 프로그램을 실행합니다.
+1. 로컬 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 백 엔드 응용 프로그램을 실행합니다.
 
     ```cmd/sh
     npm install

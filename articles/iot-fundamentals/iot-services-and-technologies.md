@@ -1,27 +1,28 @@
 ---
 title: Azure IoT(사물 인터넷) 기술 및 솔루션
 description: Azure IoT 솔루션 구축에 사용할 수 있는 PaaS/SaaS 기술 컬렉션을 제공합니다.
-author: BryanLa
-manager: timlt
+author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 05/18/2018
-ms.author: bryanla
-ms.openlocfilehash: e875ec599323b3d037ba704d4cc54a48ff9b1b57
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 10/09/2018
+ms.author: robinsh
+ms.openlocfilehash: 6a44c36b5dd87c28db3de34a6858e29fb5730117
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631414"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067337"
 ---
 # <a name="azure-iot-technologies-and-solutions-paas-and-saas"></a>Azure IoT 기술 및 솔루션: PaaS 및 SaaS
 
 Microsoft는 모든 사람이 디지털 변환의 혜택을 누릴 수 있도록 모든 고객의 요구 사항을 지원하는 포트폴리오를 만들었습니다. Azure IoT 제품 포트폴리오는 사용 가능한 PaaS/SaaS 기술 및 솔루션의 개요를 보여줍니다. 고객이 고유의 솔루션을 구축하는 데 사용할 수 있는 두 가지 경로를 제공합니다.
+
 - PaaS(Platform as a Service): 사용자 지정 IoT 솔루션의 개발을 가속화하는 미리 구성된 엔터프라이즈급 솔루션 컬렉션인 [Azure IoT 솔루션 가속기](https://www.azureiotsolutions.com/)를 사용하여 응용 프로그램을 빌드하세요.
+
 - SaaS(Software as a Service): IoT 솔루션의 복잡성에 노출되지 않고 IoT 응용 프로그램을 개발할 수 있는 새로운 SaaS 솔루션인 [Azure IoT Central](https://azure.microsoft.com/services/iot-central/)로 빠르게 시작하세요. 조직에 고유의 IoT 솔루션을 빌드하는 데 필요한 리소스가 없는 경우 Azure IoT Central은 몇 분 안에 장치 모델, 대시보드 및 규칙을 만들 수 있는 코드 없는 IoT 솔루션입니다.
 
-![Azure IoT 기술 및 솔루션][img-paas-saas-technologies-solutions]
+![Azure IoT 기술 및 솔루션](./media/iot-comparison/paas-saas-technologies-solutions.png)
 
 ## <a name="solutions"></a>솔루션
 
@@ -96,20 +97,12 @@ Azure IoT 제품을 선택하는 것은 IoT 솔루션 계획의 중요한 부분
 ### <a name="edge"></a>Edge
 [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/)는 IoT(사물 인터넷) 서비스입니다. 이 서비스는 클라우드가 아닌 장치에서 즉, "에지"의 데이터를 관리하려는 고객을 대상으로 합니다. 워크로드의 일부를 에지로 이동하면 대기 시간이 단축되고 오프라인 시나리오에 대한 옵션이 제공됩니다.
 
-
 ### <a name="data-and-analytics"></a>데이터 및 분석
 Azure Machine Learning을 사용하여 클라우드 인텔리전스를 에지로 가져오고, Azure Data Lake를 사용하여 IoT 장치 데이터를 비용 효율적인 방법으로 저장하고, [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)를 사용하여 IoT 장치의 데이터를 대량으로 시각화하는 등 IoT 솔루션에서 제공하는 다양한 Azure 데이터 및 분석 PaaS 서비스를 활용해 보세요.
 
 ### <a name="visualization-and-integration"></a>시각화 및 통합
 Microsoft Azure는 지속적으로 증가하는 통합 클라우드 서비스 컬렉션을 업계 최고의 데이터 보호 및 개인 정보 보호 노력과 결합하는 완전한 클라우드 솔루션을 제공합니다. [Microsoft Azure](https://azure.microsoft.com/)에 대해 자세히 알아보세요.
 
-
-
-
-
 ## <a name="next-steps"></a>다음 단계
 
-[시작](/azure/iot-hub/iot-hub-get-started) 섹션을 살펴보고 IoT 기능을 쉽고 빠르게 경험해 보세요. 심층적인 실습 경험을 원하는 경우 [자습서](/azure/iot-edge/tutorial-simulate-device-windows) 중 하나를 수행하세요.
-
-[img-paas-saas-technologies-solutions]: media/iot-comparison/paas-saas-technologies-solutions.png
-
+IoT 기능을 쉽고 빠르게 경험해보려면 [IoT Hub 설명서의 시작 섹션](/azure/iot-hub/iot-hub-get-started)을 참조하세요. 심층적인 실습 경험을 얻으려면 [IoT Edge 자습서](/azure/iot-edge/tutorial-simulate-device-windows) 중 하나를 시도해 보세요.

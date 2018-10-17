@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: e4a913aaeb6eeb3c58b70dbcd714f1360875594f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b1e647c6aee251bebd257db5e4e631deba0be3fa
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161539"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068811"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>자습서: Azure Data Box Disk 압축 풀기, 연결 및 잠금 해제
 
@@ -76,12 +76,14 @@ Windows 또는 Linux 클라이언트에 연결되는지에 따라 디스크의 �
 다음 단계를 수행하여 디스크를 연결하고 잠금 해제합니다.
      
 1. Azure Portal에서 **일반 > 장치 세부 정보**로 이동합니다. 
-2. Windows 클라이언트에 해당하는 Data Box Disk 도구 집합을 다운로드합니다. 
+2. Windows 클라이언트에 해당하는 Data Box Disk 도구 집합을 다운로드합니다. 이 도구 집합에는 Data Box 디스크 잠금 해제 도구, Data Box 디스크 유효성 검사 도구 및 Data Box 디스크 분할 복사 도구라는 3가지 도구가 포함됩니다. 
+
+    이 절차에서는 Data Box 디스크 잠금 해제 도구만 사용합니다. 다른 두 가지 도구는 나중에 사용됩니다.
 
     > [!div class="nextstepaction"]
     > [Windows용 Data Box Disk 도구 집합 다운로드](http://aka.ms/databoxdisktoolswin)         
 
-3. 데이터를 복사하는 데 사용할 동일한 컴퓨터에서 도구를 추출합니다.
+3. 데이터를 복사하는 데 사용할 동일한 컴퓨터에서 도구 집합을 추출합니다. 
 4. 명령 프롬프트 창을 열거나 동일한 컴퓨터에서 관리자 권한으로 Windows PowerShell을 실행합니다.
 5. (선택 사항) 디스크를 잠금 해제하는 데 사용하는 컴퓨터가 운영 체제 요구 사항을 충족하는지 확인하려면 시스템 검사 명령을 실행합니다. 샘플 출력은 다음과 같습니다. 
 

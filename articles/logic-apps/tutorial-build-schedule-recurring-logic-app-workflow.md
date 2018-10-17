@@ -10,14 +10,14 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 43f826414ae7f279c23f6e9e2e39d4d21267e158
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 70d7adc9ea8c65a7e6a21165864b7e6d661c6f8c
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124021"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042294"
 ---
-# <a name="check-traffic-with-a-schedule-based-logic-app"></a>일정 기반 논리 앱으로 트래픽 확인
+# <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Azure Logic Apps로 일정에 따른 트래픽 확인
 
 Azure Logic Apps는 일정에 따라 실행되는 워크플로를 자동화하는 데 도움을 줍니다. 이 자습서에서는 평일 아침마다 실행되어 트래픽을 포함한 두 장소 간의 이동 시간을 확인하는 스케줄러 트리거를 사용하여 [논리 앱](../logic-apps/logic-apps-overview.md)을 빌드하는 방법을 보여줍니다. 시간이 특정 제한을 초과하면 논리 앱에서는 이동 시간 및 목적지에 도달하는 데 걸리는 추가 시간이 포함된 이메일을 보냅니다.
 

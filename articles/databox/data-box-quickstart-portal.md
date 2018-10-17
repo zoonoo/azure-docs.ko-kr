@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/04/2018
 ms.author: alkohli
-ms.openlocfilehash: 514b2a026ea34f4bd82f13ebc73c09f71637ce30
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fe15167a5e88dbc9a97383c9a074a32c91f4219a
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978355"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784640"
 ---
 # <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Data Box 배포
 
@@ -35,10 +35,11 @@ ms.locfileid: "46978355"
     - Microsoft EA(기업계약). [EA 구독](https://azure.microsoft.com/pricing/enterprise-agreement/)에 대해 자세히 알아보세요.
     - CSP(클라우드 솔루션 공급자). [CSP 프로그램](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)에 대해 자세히 알아보세요.
     - 소비 - 종량제. Azure [종량제 구독](https://azure.microsoft.com/offers/ms-azr-0003p/)에 대해 자세히 알아보세요.
+    - Microsoft Azure 스폰서쉽. [Azure 스폰서쉽 프로그램](https://azure.microsoft.com/en-in/offers/ms-azr-0036p/)에 대해 자세히 알아보세요. 
 
 - Data Box 주문을 작성할 구독에 대한 소유자 또는 참가자 권한이 있는지 확인합니다.
 - [Data Box 관련 보안 지침](data-box-safety.md)을 검토하세요.
-- Data Box에 복사할 데이터가 포함된 호스트 컴퓨터가 있어야 합니다. 호스트 컴퓨터는 다음 사항이 필수입니다.
+- Data Box에 복사할 데이터가 포함된 호스트 컴퓨터가 있습니다. 호스트 컴퓨터는 다음 사항이 필수입니다.
     - [지원되는 운영 체제](data-box-system-requirements.md)를 실행합니다.
     - 고속 네트워크에 연결되어 있어야 합니다. 10GbE 연결이 하나 이상 있는 것이 좋습니다. 10GbE 연결을 사용할 수 없으면 1GbE 데이터 링크를 사용할 수 있지만, 이 경우 복사 속도가 떨어집니다. 
 - Data Box를 놓을 평평한 표면이 있어야 합니다. 표준 랙 선반에 장치를 놓으려면 데이터 센터 랙에 7U 슬롯이 있어야 합니다. 장치는 랙에 평평하게 놓거나 똑바로 세울 수 있습니다.

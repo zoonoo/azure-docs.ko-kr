@@ -9,12 +9,12 @@ ms.author: govindk
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 0bf5e47513ded4b2c65e7291db497e53a42776a8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f73a201a25bb2f975e8a261a6c21aa7b066c3a7c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976179"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247853"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-cassandra-api-account"></a>Azure Cosmos DB Cassandra API 계정으로 데이터 마이그레이션
 
@@ -62,7 +62,7 @@ ms.locfileid: "46976179"
 
 ## <a name="prerequisites-for-migration"></a>마이그레이션을 위한 필수 조건
 
-* **Azure Cosmos DB Cassandra API 계정에 테이블 만들기:** 데이터 마이그레이션을 시작하기 전에 Azure Portal이나 cqlsh를 통해 모든 테이블을 미리 작성합니다.
+* **Azure Cosmos DB Cassandra API 계정에 테이블 만들기:** 데이터 마이그레이션을 시작하기 전에 Azure Portal이나 cqlsh를 통해 모든 테이블을 미리 작성합니다. 데이터베이스 수준 처리량이 있는 Azure Cosmos DB 계정으로 마이그레이션하는 경우에는 Azure Cosmos DB 컨테이너를 만들 때 파티션 키를 제공해야 합니다.
 
 * **처리량 늘리기:** 데이터 마이그레이션 기간은 Azure Cosmos DB의 테이블에 대해 프로비전한 처리량에 따라 다릅니다. 마이그레이션 기간에 대한 처리량을 늘립니다. 처리량이 높을수록 속도 제한을 피하고 마이그레이션 시간을 단축할 수 있습니다. 마이그레이션을 완료한 후에는 비용을 절약하기 위해 처리량을 줄이세요. 처리량 증가에 대한 자세한 내용은 Azure Cosmos DB 컨테이너에 대한 [처리량 설정](set-throughput.md)을 참조하세요. Azure Cosmos DB 계정은 원본 데이터베이스와 같은 지역에 두는 것이 좋습니다. 
 

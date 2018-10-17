@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 09/27/2018
 ms.author: cephalin;msangapu
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 05dd53fdfda5446cf848a7b8503a09bc5e5c2d20
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 347fc291fc7357481bfdc88c9019c3d688925c2f
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433466"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067520"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Azure에서 Node.js 웹앱 만들기
 
@@ -46,10 +46,15 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 여기서 설명하는 단�
 
 [https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip](https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip)에서 Node.js 프로젝트 샘플을 다운로드하고 ZIP 보관 파일을 추출합니다.
 
-터미널 창에서 샘플 Node.js 프로젝트의 루트 디렉터리(_index.js_ 포함)로 이동합니다.
+_index.js_를 열어서 다음 줄을 찾습니다.
 
-> [!NOTE]
-> 필요하면 샘플 앱을 사용하지 않고 자체 Node 코드를 사용할 수 있습니다. 그러나 앱에 대한 포트는 런타임에 Azure가 설정하며 `process.env.PORT`로 사용 가능합니다. Express를 사용하는 경우 시작 중(`app.listen`)에 `process.env.PORT || 3000`에 대해 검사합니다. 이렇게 하지 않고 포트가 Azure에서 런타임에 설정한 것과 일치하지 않으면 `Service Unavailable` 메시지가 표시됩니다. 
+```javascript
+var port = process.env.PORT || 1337;
+```
+
+App Service가 process.env.PORT를 응용 프로그램에 삽입하기 때문에 코드가 변수를 사용하여 수신할 포트를 파악합니다. 
+
+터미널 창에서 샘플 Node.js 프로젝트의 루트 디렉터리(_index.js_ 포함)로 이동합니다.
 
 ## <a name="run-the-app-locally"></a>로컬에서 앱 실행하기
 
@@ -68,7 +73,7 @@ npm start
 터미널 창에서 **Ctrl+C**를 눌러 웹 서버를 종료합니다.
 
 > [!NOTE]
-> Azure App Service에서 앱은 [iisnode](https://github.com/tjanczuk/iisnode)를 사용하여 IIS에서 실행됩니다. iisnode를 통해 앱을 실행하도록 설정하려면 루트 앱 디렉터리 web.config 파일이 있어야 합니다. 이 파일은 IIS에서 읽을 수 있으며, iisnode 관련 설정은 [iisnode GitHub 리포지토리](https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/web.config)에 설명되어 있습니다.
+> Azure App Service에서 앱은 [iisnode](https://github.com/Azure/iisnode)를 사용하여 IIS에서 실행됩니다. iisnode를 통해 앱을 실행하도록 설정하려면 루트 앱 디렉터리 web.config 파일이 있어야 합니다. 이 파일은 IIS에서 읽을 수 있으며, iisnode 관련 설정은 [iisnode GitHub 리포지토리](https://github.com/Azure/iisnode/blob/master/src/samples/configuration/web.config)에 설명되어 있습니다.
 
 [!INCLUDE [Create ZIP file](../../includes/app-service-web-create-zip.md)]
 

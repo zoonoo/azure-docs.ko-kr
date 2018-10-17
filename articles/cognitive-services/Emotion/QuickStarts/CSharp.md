@@ -1,27 +1,29 @@
 ---
-title: Emotion API C# 빠른 시작 | Microsoft Docs
-description: Cognitive Services에서 C#으로 Emotion API를 빠르게 사용하는 데 도움이 되는 정보 및 코드 샘플을 가져옵니다.
+title: '빠른 시작: 이미지에 있는 얼굴에서 감정 인식 - Emotion API, C#'
+titlesuffix: Azure Cognitive Services
+description: C#으로 Emotion API를 빠르게 사용하는 데 도움이 되는 정보 및 코드 샘플을 가져옵니다.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/02/2017
 ms.author: anroth
-ms.openlocfilehash: 89735ae54395447e3cb421f45db3d6b99001ecd6
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 530d05887e585884b184635e01031c1332fad3fb
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37016568"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239373"
 ---
-# <a name="emotion-api-c-quick-start"></a>Emotion API C# 빠른 시작
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>빠른 시작: 이미지에서 얼굴의 감정을 인식하기 위한 앱을 빌드합니다.
 
 > [!IMPORTANT]
-> Video API 미리 보기는 2017년 10월 30일에 종료됩니다. 비디오의 정보를 빠르게 확인하려면 새 [Video Indexer API 미리 보기](https://azure.microsoft.com/services/cognitive-services/video-indexer/)를 사용해 보세요. 음성, 얼굴, 성격 및 감정을 감지하여 검색 결과와 같은 콘텐츠 검색 환경을 향상시키는 데 사용할 수 있습니다. 자세히 알아보려면 [Video Indexer 미리 보기](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview) 개요를 참조하세요.
+> Emotion API는 2019년 2월 15일부터 더 이상 사용되지 않습니다. 이제 감정 인식 기능은 [Face API](https://docs.microsoft.com/azure/cognitive-services/face/)의 일부로 일반 공급됩니다.
 
-이 문서에서는 C#에서 [Emotion API Recognize 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)를 빠르게 사용하는 데 도움이 되는 정보 및 코드 샘플을 제공합니다. 이미지의 한 명 이상의 사람이 나타내는 감정을 인식하는 데 사용할 수 있습니다. 
+이 문서에서는 C#에서 [Emotion API Recognize 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)를 빠르게 사용하는 데 도움이 되는 정보 및 코드 샘플을 제공합니다. 이미지의 한 명 이상의 사람이 나타내는 감정을 인식하는 데 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 * Cognitive Services [Emotion API Windows SDK](https://www.nuget.org/packages/Microsoft.ProjectOxford.Emotion/)를 구합니다.
@@ -29,7 +31,7 @@ ms.locfileid: "37016568"
 
 ## <a name="emotion-recognition-c-example-request"></a>감정 인식 C# 예제 요청
 
-Visual Studio에서 새 콘솔 솔루션을 만든 후 Program.cs를 다음 코드로 바꿉니다. 구독 키를 획득한 지역을 사용하도록 `string uri`를 변경합니다. **Ocp-Apim-Subscription-Key** 값을 유효한 구독 키로 바꿉니다. 구독 키를 찾으려면 Azure Portal로 이동합니다. 왼쪽의 탐색 창에 있는 **키** 섹션 아래에서 Emotion API 리소스를 찾습니다. 마찬가지로 **끝점** 아래에 나열된 리소스에 대한 **개요** 패널에서 적절한 연결 URI를 가져올 수 있습니다.
+Visual Studio에서 새 콘솔 솔루션을 만든 후 Program.cs를 다음 코드로 바꿉니다. 구독 키를 획득한 지역을 사용하도록 `string uri`를 변경합니다. **Ocp-Apim-Subscription-Key** 값을 유효한 구독 키로 바꿉니다. 구독 키를 찾으려면 Azure Portal로 이동합니다. 왼쪽의 탐색 창에 있는 **키** 섹션 아래에서 Emotion API 리소스를 찾습니다. 마찬가지로 **엔드포인트** 아래에 나열된 리소스에 대한 **개요** 패널에서 적절한 연결 URI를 가져올 수 있습니다.
 
 ![API 리소스 키](../../media/emotion-api/keys.png)
 
@@ -71,10 +73,10 @@ namespace CSHttpClientSample
             var client = new HttpClient();
 
             // Request headers - replace this example key with your valid key.
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "<your-subscription-key>"); // 
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "<your-subscription-key>"); //
 
             // NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the
             //   URI below with "westcentralus".
             string uri = "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize?";
             HttpResponseMessage response;
@@ -124,10 +126,10 @@ namespace CSHttpClientSample
 호출이 성공하면 얼굴 항목 및 연결된 감정 점수 배열이 반환됩니다. 이러한 결과는 얼굴 사각형 크기의 내림차순으로 순위가 지정됩니다. 빈 응답은 검색된 얼굴이 없는 것을 나타냅니다. 감정 항목에는 다음 필드가 포함됩니다.
 
 * faceRectangle: 이미지에서 얼굴의 사각형 위치입니다.
-* scores: 이미지의 각 얼굴에 대한 감정 점수입니다. 
+* scores: 이미지의 각 얼굴에 대한 감정 점수입니다.
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {

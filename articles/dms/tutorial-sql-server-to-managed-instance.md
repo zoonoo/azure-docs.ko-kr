@@ -2,27 +2,24 @@
 title: DMS를 사용하여 Azure SQL Database Managed Instance로 마이그레이션 | Microsoft Docs
 description: Azure Database Migration Service를 사용하여 SQL Server 온-프레미스에서 Azure SQL Database Managed Instance로 마이그레이션하는 방법에 대해 알아봅니다.
 services: dms
-author: edmacauley
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: ''
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/24/2018
-ms.openlocfilehash: dbf71b1fcc15743f4670c4072921f1a167a90e97
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.date: 10/10/2018
+ms.openlocfilehash: 2e8e9706a9572b85030a636dd75d4809447eabbc
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887305"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067894"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-managed-instance-offline-using-dms"></a>DMS를 사용하여 SQL Server를 Azure SQL Database Managed Instance로 오프라인으로 마이그레이션
 Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인스턴스에서 [Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance.md)로 마이그레이션할 수 있습니다. 수동 작업이 필요한 추가적인 방법은 [SQL Server 인스턴스를 Azure SQL Database Managed Instance로 마이그레이션](../sql-database/sql-database-managed-instance-migrate.md) 문서를 참조하세요.
-
-> [!IMPORTANT]
-> SQL Server에서 Azure SQL Database Managed Instance로의 마이그레이션 프로젝트는 미리 보기 상태이며 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)의 적용을 받습니다.
 
 이 자습서에서는 Azure Database Migration Service를 사용하여 **Adventureworks2012** 데이터베이스를 SQL Server의 온-프레미스 인스턴스에서 Azure SQL Database Managed Instance로 마이그레이션합니다.
 
@@ -102,7 +99,7 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
 
     ![Azure Database Migration Service의 모든 인스턴스 찾기](media\tutorial-sql-server-to-managed-instance\dms-search.png)
 
-2. **Azure Database Migration Services** 화면에서 방금 만든 인스턴스를 검색하고 인스턴스를 선택합니다.
+2. **Azure Database Migration Services** 화면에서 직접 만든 인스턴스의 이름을 검색한 다음, 인스턴스를 선택합니다.
  
 3. **+ 새 마이그레이션 프로젝트**를 선택합니다.
 
@@ -137,7 +134,7 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
 
 1.  **마이그레이션 대상 세부 정보** 화면에서 대상에 대한 연결 세부 정보를 지정합니다. 이 대상은 **AdventureWorks2012** 데이터베이스를 마이그레이션할 미리 프로비전된 Azure SQL Database Managed Instance입니다.
 
-    Azure SQL Database Managed Instance를 아직 프로비저닝하지 않은 경우 인스턴스를 프로비저닝하는 데 도움이 되는 링크에 대해 **아니요**를 선택합니다. 프로젝트 생성은 계속 진행할 수 있으며, Azure SQL Database Managed Instance가 준비되면 이 특정 프로젝트로 돌아가서 마이그레이션을 실행합니다.   
+    Azure SQL Database Managed Instance를 아직 프로비전하지 않은 경우 인스턴스를 프로비저닝하는 데 도움이 되는 링크에 대해 **아니요**를 선택합니다. 프로젝트 생성은 계속 진행할 수 있으며, Azure SQL Database Managed Instance가 준비되면 이 특정 프로젝트로 돌아가서 마이그레이션을 실행합니다.   
  
        ![대상 선택](media\tutorial-sql-server-to-managed-instance\dms-target-details2.png)
 
@@ -173,7 +170,7 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
     |**사용자 이름** | Windows 사용자가 위에서 입력한 네트워크 공유에 대한 전체 제어 권한을 갖고 있는지 확인합니다. Azure Database Migration Service는 사용자 자격 증명을 가장하여 복원 작업을 위한 Azure Storage 컨테이너에 백업 파일을 업로드합니다. TDE 가능 데이터베이스를 마이그레이션하기로 선택하는 경우 인증서 파일을 업로드하고 삭제할 수 있도록 위의 Windows 사용자가 기본 제공 관리자 계정이어야 하고, Azure Database Migration Service에 [사용자 계정 컨트롤](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/user-account-control-overview)을 사용하지 않도록 설정해야 합니다. |
     |**암호** | 사용자에 대한 암호입니다. |
     |**저장소 계정 설정** | Azure SQL Database Managed Instance로 데이터베이스를 마이그레이션하는 데 사용되며 백업 파일을 업로드하는 저장소 계정 컨테이너에 대한 액세스 권한이 있는 Azure Database Migration Service를 제공하는 SAS URI입니다. [Blob 컨테이너에 대한 SAS URI를 가져오는 방법을 알아봅니다](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).|
-    |**TDE 설정** | TDE(투명한 데이터 암호화)가 설정된 원본 데이터베이스를 마이그레이션하려면 대상 Azure SQL DB Managed Instance에 대한 쓰기 권한이 필요합니다.  드롭다운 메뉴에서 Azure SQL DB Managed Instance가 프로비전되는 구독을 선택합니다.  드롭다운 메뉴에서 대상 Azure SQL DB Managed Instance 인스턴스를 선택합니다. |
+    |**TDE 설정** | TDE(투명한 데이터 암호화)가 설정된 원본 데이터베이스를 마이그레이션하려면 대상 Azure SQL Database Managed Instance에 대한 쓰기 권한이 필요합니다.  드롭다운 메뉴에서 Azure SQL DB Managed Instance가 프로비전되는 구독을 선택합니다.  드롭다운 메뉴에서 대상 **Azure SQL Database Managed Instance**를 선택합니다. |
     
     ![마이그레이션 설정 구성](media\tutorial-sql-server-to-managed-instance\dms-configure-migration-settings3.png)
 

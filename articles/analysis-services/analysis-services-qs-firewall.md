@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c16a189e72edd94cf6fc60580d89dd4cfd1742e8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9af0c0a32706c6745412401c9136e032e2e3f9ff
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443446"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268921"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>빠른 시작: 서버 방화벽 구성 - 포털
 

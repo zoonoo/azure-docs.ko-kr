@@ -8,12 +8,12 @@ ms.author: jasonh
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 05/23/2018
-ms.openlocfilehash: c8ec39c6962c4044810d0ae65d2736043bdd4d72
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 82979adb3dd640c238bd4e5fcd1bc4d645f018fe
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620215"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069491"
 ---
 # <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>빠른 시작: HDInsight 클러스터에서 Kafka 만들기
 
@@ -69,7 +69,7 @@ HDInsight 클러스터에 Kafka를 만들려면 다음 단계를 수행합니다
     | 설정 | 값 |
     | --- | --- |
     | 클러스터 유형 | Kafka |
-    | 버전 | Kafka 1.0.0(HDI 3.6) |
+    | 버전 | Kafka 1.1.0(HDI 3.6) |
 
     **선택** 단추를 사용하여 클러스터 유형 설정을 저장하고 __기본__으로 돌아갑니다.
 

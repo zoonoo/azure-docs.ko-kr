@@ -6,14 +6,14 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 08/27/2018
+ms.date: 10/09/2018
 ms.author: tamram
-ms.openlocfilehash: 3f0418e9ccdc5fe3babd2f1ac4482795994fe3b4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 336fecf95dab36dcf00b5a0c92b700297622cc6d
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996131"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902980"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>빠른 시작: Azure Storage 탐색기를 사용하여 개체 저장소에 Blob 만들기
 
@@ -79,7 +79,7 @@ Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. 
 
 ## <a name="manage-snapshots"></a>스냅숏 관리
 
-Azure Storage 탐색기는 Blob의 [스냅숏](storage-blob-snapshots.md)을 가져와서 관리할 수 있는 기능을 제공합니다. Blob의 스냅숏을 찍으려면 Blob을 마우스 오른쪽 단추로 클릭하고 **스냅숏 만들기**를 선택합니다. Blob의 스냅숏을 보려면 Blob을 마우스 오른쪽 단추로 클릭하고 **스냅숏 관리**를 선택합니다. Blob의 스냅숏 목록이 현재 탭에 표시됩니다.
+Azure Storage 탐색기는 Blob의 [스냅숏](storage-blob-snapshots.md)을 가져와서 관리할 수 있는 기능을 제공합니다. Blob 스냅숏을 생성하려면 Blob을 마우스 오른쪽 단추로 클릭하고 **스냅숏 만들기**를 선택합니다. Blob의 스냅숏을 보려면 Blob을 마우스 오른쪽 단추로 클릭하고 **스냅숏 관리**를 선택합니다. Blob의 스냅숏 목록이 현재 탭에 표시됩니다.
 
 ![Microsoft Azure Storage 탐색기 - 컨테이너의 Blob 나열](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
 

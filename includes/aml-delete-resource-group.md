@@ -9,15 +9,15 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 07/27/2018
-ms.openlocfilehash: dcd2854585e2c776f361aa4718af6b99d8cbb593
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fb874d06fbccc7e1db542a5d063b9b6acd35b83f
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47002081"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48240237"
 ---
 >[!IMPORTANT]
->다른 Azure Machine Learning 자습서 및 방법 아티클에 대한 필수 조건으로 만든 리소스를 사용할 수 있습니다. 
+>직접 만든 리소스는 다른 Azure Machine Learning Service 자습서 및 방법 문서에 대한 필수 조건으로 사용할 수 있습니다. 
 
 
 여기에서 만든 항목을 사용하지 않으려는 경우 요금이 발생하지 않도록 이 빠른 시작에서 방금 만든 리소스를 삭제합니다.

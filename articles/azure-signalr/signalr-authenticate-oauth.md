@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 696139a3e37f7bd1e32b4e7cec836b3c66df16a6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8751e3485b97b67fd8dd4821480fecd7735c08cd
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974326"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268515"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>자습서: Azure SignalR Service 인증
 
@@ -29,7 +29,7 @@ ms.locfileid: "46974326"
 
 처음에 빠른 시작의 대화방 응용 프로그램에서 사용된 인증은 실제 시나리오에 비해 너무 간단합니다. 이 응용 프로그램에서 각 클라이언트는 자신이 누구인지 클레임할 수 있으며, 서버는 간단히 수락합니다. 이 방법은 Rogue 사용자가 다른 사람을 가장하여 중요한 데이터에 액세스하는 실제 응용 프로그램에서는 별로 유용하지 않습니다. 
 
-[GitHub](https://github.com/)는 [OAuth](https://oauth.net/)라는 인기 있는 업계 표준 프로토콜에 따른 인증 API를 제공합니다. 이러한 API는 타사 응용 프로그램에서 GitHub 계정을 인증할 수 있도록 합니다. 이 자습서에서는 클라이언트가 대화방 응용 프로그램에 로그인하도록 허용하기 전에 이러한 API를 사용하여 Github 계정을 통한 인증을 구현합니다. GitHub 계정을 인증한 후 계정 정보는 웹 클라이언트가 인증받는 데 사용하는 쿠키로 추가됩니다.
+[GitHub](https://github.com/)는 [OAuth](https://oauth.net/)라는 인기 있는 업계 표준 프로토콜에 따른 인증 API를 제공합니다. 이러한 API는 타사 응용 프로그램에서 GitHub 계정을 인증할 수 있도록 합니다. 이 자습서에서는 클라이언트가 대화방 응용 프로그램에 로그인하도록 허용하기 전에 이러한 API를 사용하여 GitHub 계정을 통한 인증을 구현합니다. GitHub 계정을 인증한 후 계정 정보는 웹 클라이언트가 인증받는 데 사용하는 쿠키로 추가됩니다.
 
 GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [인증 기본 사항](https://developer.github.com/v3/guides/basics-of-authentication/)을 참조하세요.
 
@@ -405,7 +405,7 @@ az extension add -n signalr
 
 ### <a name="create-the-web-app-and-plan"></a>웹앱 및 계획 만들기
 
-아래에서 명령 텍스트를 복사하고 매개 변수를 업데이트합니다. 업데이트된 스크립트를 Azure Cloud Shell에 붙여넣고 **Enter** 키를 눌러 새 App Service 계획 및 웹앱을 만듭니다.
+아래에서 명령 텍스트를 복사하고 매개 변수를 업데이트합니다. 업데이트된 스크립트를 Azure Cloud Shell에 붙여 넣고 **Enter** 키를 눌러 새 App Service 계획 및 웹앱을 만듭니다.
 
 ```azurecli-interactive
 #========================================================================
@@ -447,7 +447,7 @@ az webapp create --name $WebAppName --resource-group $ResourceGroupName \
 * GitHub OAuth 앱 클라이언트 ID
 * GitHub OAuth 앱 클라이언트 암호
 
-아래에서 명령 텍스트를 복사하고 매개 변수를 업데이트합니다. 업데이트된 스크립트를 Azure Cloud Shell에 붙여넣고 **Enter** 키를 눌러 앱 설정을 추가합니다.
+아래에서 명령 텍스트를 복사하고 매개 변수를 업데이트합니다. 업데이트된 스크립트를 Azure Cloud Shell에 붙여 넣고 **Enter** 키를 눌러 앱 설정을 추가합니다.
 
 ```azurecli-interactive
 #========================================================================
@@ -501,7 +501,7 @@ az webapp config appsettings set --name $WebAppName \
 
 ### <a name="configure-the-web-app-for-local-git-deployment"></a>로컬 Git 배포에 대한 웹앱 구성
 
-Azure Cloud Shell에서 다음 스크립트를 붙여넣습니다. 이 스크립트는 Git을 사용하여 웹앱에 코드를 배포할 때 사용할 새 배포 사용자 이름 및 암호를 만듭니다. 또한 로컬 Git 리포지토리로 배포하기 위해 웹앱을 구성하고, Git 배포 URL을 반환합니다.
+Azure Cloud Shell에서 다음 스크립트를 붙여 넣습니다. 이 스크립트는 Git을 사용하여 웹앱에 코드를 배포할 때 사용할 새 배포 사용자 이름 및 암호를 만듭니다. 또한 로컬 Git 리포지토리로 배포하기 위해 웹앱을 구성하고, Git 배포 URL을 반환합니다.
 
 ```azurecli-interactive
 #========================================================================

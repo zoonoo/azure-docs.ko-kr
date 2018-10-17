@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/25/2018
+ms.date: 10/10/2018
 ms.author: alkohli
-ms.openlocfilehash: 9bc84a9b08c4cfbdf7f24416c923e0dbd7076556
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d606b7b536147b7e1d96bfb6cebf2522e5b4f85f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161933"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078860"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box"></a>자습서: Azure Data Box에 데이터 복사 
 
@@ -88,11 +88,11 @@ Windows Server 호스트 컴퓨터를 사용하는 경우 다음 단계에 따�
     The command completed successfully.
     ```
 
-4. Windows + R을 누르고 **실행** 창에서 `\\<device IP address>`를 지정합니다. **확인**을 클릭합니다. 그러면 [파일 탐색기]가 열립니다.
+4. Windows + R을 누르고 **실행** 창에서 `\\<device IP address>`를 지정합니다. **확인**을 클릭합니다. 그러면 [파일 탐색기]가 열립니다. 이제 공유가 폴더로 표시될 것입니다.
     
     ![파일 탐색기를 통해 공유에 연결 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
-5. 이제 공유가 폴더로 표시될 것입니다. 복사할 파일(이 예에서는 템플릿)에 대한 폴더를 만듭니다. 때로는 폴더에 회색 + 기호가 표시될 수 있습니다. 이 기호는 오류 조건을 나타내는 것이 아닙니다. 응용 프로그램이 상태를 추적하기 위해 폴더에 플래그를 지정합니다.
+5.  **복사하려는 파일에 대한 폴더는 항상 공유 아래에 만든 다음 이 폴더에 파일을 복사합니다**. 때로는 폴더에 회색 + 기호가 표시될 수 있습니다. 이 기호는 오류 조건을 나타내는 것이 아닙니다. 응용 프로그램이 상태를 추적하기 위해 폴더에 플래그를 지정합니다.
     
     ![파일 탐색기를 통해 공유에 연결 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) ![파일 탐색기를 통해 공유에 연결 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
 
@@ -239,11 +239,14 @@ Linux 호스트 컴퓨터를 사용하는 경우 Robocopy와 비슷한 복사 �
 
  - Linux 클라이언트에서 사용하는 파일 시스템에 따라 **CIFS 유틸리티** 또는 **NFS 유틸리티** 패키지를 설치합니다.
 
-    `sudo apt-get install cifs-utils` `sudo apt-get install nfs-utils`
+    `sudo apt-get install cifs-utils`
+
+    `sudo apt-get install nfs-utils`
 
  -  **Rsync** 및 **Parallel**을 설치합니다(Linux 배포판 버전에 따라 다름).
 
     `sudo apt-get install rsync`
+   
     `sudo apt-get install parallel` 
 
  - 탑재 지점을 만듭니다.

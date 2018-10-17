@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2018
+ms.date: 10/09/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 776f70b6b24288006d52cb0e91797d1074180160
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 7eb17138f42cdada10edd5ef08873eb2afee91fe
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452618"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068981"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>자습서: Azure Data Box Disk에 데이터 복사 및 확인
 
@@ -163,7 +163,75 @@ ms.locfileid: "47452618"
 > -  데이터를 복사하는 동안 데이터 크기가 [Azure 저장소 및 Data Box Disk 제한](data-box-disk-limits.md)에 설명된 크기 제한을 준수하는지 확인합니다. 
 > - Data Box Disk에 의해 업로드되는 데이터가 Data Box Disk 외부의 다른 응용 프로그램에 의해 동시에 업로드되는 경우 업로드 작업이 실패하고 데이터 손상이 발생할 수 있습니다.
 
-## <a name="verify-data"></a>데이터 확인 
+### <a name="split-and-copy-data-to-disks"></a>데이터 분할 및 디스크에 복사
+
+이 선택적인 절차는 여러 디스크를 사용 중이고 데이터를 분할하여 모든 디스크에 복사해야 하는 대용량 데이터 집합이 있는 경우에 사용할 수 있습니다. Data Box 분할 복사 도구는 Windows 컴퓨터에서 데이터를 분할하여 복사하는 데 도움이 됩니다.
+
+1. Windows 컴퓨터에서 Data Box 분할 복사 도구가 다운로드되어 로컬 폴더에 추출되어 있는지 확인합니다. 이 도구는 Windows용 Data Box Disk 도구 집합을 다운로드할 때 다운로드됩니다.
+2. 파일 탐색기를 엽니다. 데이터 원본 드라이브 및 Data Box Disk에 할당된 드라이브 문자를 적어둡니다. 
+
+     ![데이터 분할 복사 ](media/data-box-disk-deploy-copy-data/split-copy-1.png)
+ 
+3. 복사할 원본 데이터를 확인합니다. 예를 들어, 이 경우:
+    - 다음 블록 Blob 데이터가 확인되었습니다.
+
+         ![데이터 분할 복사 ](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
+
+    - 다음 페이지 Blob 데이터가 확인되었습니다.
+
+         ![데이터 분할 복사 ](media/data-box-disk-deploy-copy-data/split-copy-3.png)
+ 
+4. 소프트웨어를 추출한 폴더로 이동합니다. 이 폴더에서 SampleConfig.json 파일을 찾습니다. 이 파일은 수정하여 저장할 수 있는 읽기 전용 파일입니다.
+
+   ![데이터 분할 복사 ](media/data-box-disk-deploy-copy-data/split-copy-4.png)
+ 
+5. SampleConfig.json 파일을 수정합니다.
+ 
+    - 작업 이름을 제공합니다. Data Box Disk에 폴더가 만들어지고 이 디스크와 연결된 Azure 저장소 계정의 컨테이너가 됩니다. 작업 이름은 Azure 컨테이너 명명 규칙을 따라야 합니다. 
+    - SampleConfigFile.json에서 경로 형식을 기록하는 소스 경로를 제공합니다. 
+    - 대상 디스크에 해당하는 드라이브 문자를 입력합니다. 소스 경로의 데이터를 가져다가 여러 디스크에 복사됩니다.
+    - 로그 파일에 대한 경로를 제공합니다. 기본적으로 .exe 파일이 있는 현재 디렉터리로 전송됩니다.
+
+     ![데이터 분할 복사 ](media/data-box-disk-deploy-copy-data/split-copy-5.png)
+
+6. 파일 형식의 유효성을 검사하려면 JSONlint로 이동합니다. ConfigFile.json으로 파일을 저장합니다. 
+
+     ![데이터 분할 복사 ](media/data-box-disk-deploy-copy-data/split-copy-6.png)
+ 
+7. 명령 프롬프트 창을 엽니다. 
+
+8. DataBoxDiskSplitCopy.exe 파일을 실행합니다. type
+
+    `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
+
+     ![데이터 분할 복사 ](media/data-box-disk-deploy-copy-data/split-copy-7.png)
+ 
+9. Enter 키를 눌러서 스크립트를 계속합니다.
+
+    ![데이터 분할 복사 ](media/data-box-disk-deploy-copy-data/split-copy-8.png)
+  
+10. 데이터 집합이 분할되고 복사되면 복사 세션의 분할 복사 도구에 대한 요약이 표시됩니다. 샘플 출력은 다음과 같습니다.
+
+    ![데이터 분할 복사 ](media/data-box-disk-deploy-copy-data/split-copy-9.png)
+ 
+11. 데이터가 대상 디스크 전반에 분할되어 있는지 확인합니다. 
+ 
+    ![데이터 분할 복사 ](media/data-box-disk-deploy-copy-data/split-copy-10.png)
+    ![데이터 분할 복사 ](media/data-box-disk-deploy-copy-data/split-copy-11.png)
+     
+    n: 드라이브의 내용을 자세히 살펴보면 블록 Blob 및 페이지 Blob 형식 데이터에 해당하는 두 개의 하위 폴더가 만들어져 있는 것이 보입니다.
+    
+     ![데이터 분할 복사 ](media/data-box-disk-deploy-copy-data/split-copy-12.png)
+
+12. 복사 세션이 실패한 경우 복구하고 다시 시작하려면 다음 명령을 사용합니다.
+
+    `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
+
+
+데이터 복사가 완료된 후 다음 단계는 데이터의 유효성을 검사하는 것입니다. 
+
+
+## <a name="validate-data"></a>데이터 유효성 검사 
 
 데이터의 유효성을 검사하려면 다음 단계를 수행합니다.
 
@@ -171,7 +239,7 @@ ms.locfileid: "47452618"
     
     ![Data Box Disk 유효성 검사 도구 출력](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
-2. 적절한 옵션을 선택합니다. **항상 옵션 2를 선택하여 파일의 유효성을 검사하고 체크섬을 생성하는 것이 좋습니다.**. 데이터 크기에 따라 이 단계는 시간이 걸릴 수 있습니다. 스크립트가 완료되면 명령 창을 종료합니다. 유효성 검사 및 체크섬 생성 중에 오류가 있으면 알림이 표시되고 오류 로그에 대한 링크도 제공됩니다.
+2. 적절한 옵션을 선택합니다. **항상 옵션 2를 선택하여 파일의 유효성을 검사하고 체크섬을 생성하는 것이 좋습니다**. 데이터 크기에 따라 이 단계는 시간이 걸릴 수 있습니다. 스크립트가 완료되면 명령 창을 종료합니다. 유효성 검사 및 체크섬 생성 중에 오류가 있으면 알림이 표시되고 오류 로그에 대한 링크도 제공됩니다.
 
     ![체크섬 출력](media/data-box-disk-deploy-copy-data/data-box-disk-checksum-output.png)
 

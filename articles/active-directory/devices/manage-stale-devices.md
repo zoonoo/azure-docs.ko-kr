@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/20/2018
+ms.date: 10/03/2018
 ms.author: markvi
-ms.reviewer: jairoc
-ms.openlocfilehash: f9664e22be5d7a17dd2a2a7c328593d8168c26f0
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.reviewer: spunukol
+ms.openlocfilehash: 1b8a6e6a6b5f482a4e3575c4da18a02a958c4081
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434741"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249369"
 ---
 # <a name="how-to-manage-the-stale-devices-in-azure-ad"></a>방법: Azure AD에서 부실 장치 관리
 
@@ -101,7 +101,7 @@ Azure AD에서 장치를 업데이트하려면 다음 역할 중 하나가 할�
 
 ### <a name="disable-devices"></a>장치 비활성화
 
-거짓 긍정의 경우 삭제를 취소할 수 없으므로 오래된 것으로 보이는 장치를 즉시 삭제하는 것은 권장하지 않습니다. 유예 기간 동안 장치를 삭제하기 전에 사용하지 않도록 설정하는 것이 가장 좋습니다. 정책에서 정책을 삭제하기 전에 사용하지 않도록 설정할 시간 범위를 정의합니다.
+거짓 긍정의 경우 삭제를 취소할 수 없으므로 오래된 것으로 보이는 장치를 즉시 삭제하는 것은 권장하지 않습니다. 유예 기간 동안 장치를 삭제하기 전에 사용하지 않도록 설정하는 것이 가장 좋습니다. 정책에서 장치를 삭제하기 전에 사용하지 않도록 설정할 시간대를 정의합니다.
 
 
 ### <a name="mdm-controlled-devices"></a>MDM 제어 장치
@@ -111,7 +111,7 @@ Azure AD에서 장치를 업데이트하려면 다음 역할 중 하나가 할�
 
 ### <a name="system-managed-devices"></a>시스템 관리 장치
 
-시스템 관리 장치는 삭제하지 마세요. 이러한 장치는 일반적으로 자동 파일럿과 같은 장치이며, 일단 삭제되면 다시 프로비전할 수 없습니다. 새 Get-MmsolDevice cmdlet은 기본적으로 시스템 관리 장치를 제외합니다. 
+시스템 관리 장치는 삭제하지 마세요. 이러한 장치는 일반적으로 자동 파일럿과 같은 장치이며, 일단 삭제되면 다시 프로비전할 수 없습니다. 새 `get-msoldevice` cmdlet은 기본적으로 시스템 관리 장치를 제외합니다. 
 
 
 ### <a name="hybrid-azure-ad-joined-devices"></a>하이브리드 Azure AD 가입 장치
@@ -137,7 +137,7 @@ Azure AD에서 Azure AD 등록 장치를 사용하지 않도록 설정하거나 
 
 
 
-## <a name="cleanup-stale-devices-in-the-azure-portal"></a>Azure Portal에서 부실 장치 정리  
+## <a name="clean-up-stale-devices-in-the-azure-portal"></a>Azure Portal에서 부실 장치 정리  
 
 부실 장치는 Azure Portal에서 정리할 수 있지만, 이 프로세스는 PowerShell 스크립트를 사용하여 처리하는 것이 더 효율적입니다. 최신 PowerShell V1 모듈을 통해 타임스탬프 필터를 사용하고 자동 파일럿과 같은 시스템 관리 장치를 필터링합니다. 이 시점에서 PowerShell V2는 사용하지 않는 것이 좋습니다.
 
@@ -150,7 +150,9 @@ Azure AD에서 Azure AD 등록 장치를 사용하지 않도록 설정하거나 
 
 3. [Disable-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0) cmdlet을 사용하여 장치를 사용하지 않도록 설정합니다. 
 
-4. [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0) cmdlet을 사용하여 장치를 제거합니다.
+4. 장치를 삭제하기 전에 선택한 며칠 동안의 유예 기간 동안 기다립니다.
+
+5. [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0) cmdlet을 사용하여 장치를 제거합니다.
 
 ### <a name="get-the-list-of-devices"></a>장치 목록 가져오기
 

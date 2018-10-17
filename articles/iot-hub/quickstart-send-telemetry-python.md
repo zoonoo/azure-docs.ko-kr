@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/30/2018
+ms.date: 09/07/2018
 ms.author: dobett
-ms.openlocfilehash: 7d5f2246eec20144a30e0abbc31038bdf04ab2b0
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 2d851bc8d5af7f824512cc9f14e6b1120026dd07
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339279"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785158"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-python"></a>빠른 시작: 장치에서 IoT 허브로 원격 분석을 보내고 백 엔드 응용 프로그램(Python)으로 허브에서 원격 분석을 읽습니다.
 
@@ -33,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 빠른 시작에서 실행하는 두 개의 샘플 응용 프로그램은 Python을 사용하여 작성되었습니다. 개발 컴퓨터에 Python 2.7.x 또는 3.5.x가 필요합니다.
 
-[Python.org](https://www.python.org/downloads/)에서 여러 플랫폼용 Python을 다운로드할 수 있습니다.
+[Python.org](https://www.python.org/downloads/)에서 여러 플랫폼용 Python을 다운로드할 수 있습니다. 선택한 Python 설치 관리자는 사용하는 시스템의 아키텍처를 기반으로 해야 합니다. 시스템 CPU 아키텍처가 32비트이면 Python.org의 기본 설치 관리자인 x86을 다운로드하고 64비트 아키텍처이면 x86-64 설치 관리자를 다운로드해야 합니다.
 
 다음 명령 중 하나를 사용하여 개발 컴퓨터에서 Python의 현재 버전을 확인할 수 있습니다.
 
@@ -46,20 +46,6 @@ python3 --version
 ```
 
 https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip에서 샘플 Python 프로젝트를 다운로드하고 ZIP 보관 파일을 추출합니다.
-
-IoT 허브에서 원격 분석을 읽는 CLI 유틸리티를 설치하려면 먼저 개발 컴퓨터에 Node.js v4.x.x 이상을 설치합니다. [nodejs.org](https://nodejs.org)에서 여러 플랫폼에 대한 Node.js를 다운로드할 수 있습니다.
-
-다음 명령을 사용하여 개발 컴퓨터에서 Node.js의 현재 버전을 확인할 수 있습니다.
-
-```cmd/sh
-node --version
-```
-
-`iothub-explorer` CLI 유틸리티를 설치하려면 다음 명령을 실행합니다.
-
-```cmd/sh
-npm install -g iothub-explorer
-```
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -85,14 +71,6 @@ npm install -g iothub-explorer
     ```
 
     `Hostname=...=`과 같은 장치 연결 문자열을 기록해 둡니다. 이 값은 빠른 시작의 뒷부분에서 사용합니다.
-
-1. 또한 `iothub-explorer` CLI 유틸리티를 IoT 허브에 연결하여 메시지를 검색할 수 있게 하려면 _서비스 연결 문자열_이 필요합니다. 다음 명령은 IoT Hub에 대한 서비스 연결 문자열을 검색합니다.
-
-    ```azurecli-interactive
-    az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
-    ```
-
-    `Hostname=...=`과 같은 서비스 연결 문자열을 기록해 둡니다. 이 값은 빠른 시작의 뒷부분에서 사용합니다. 서비스 연결 문자열은 장치 연결 문자열과는 다릅니다.
 
 ## <a name="send-simulated-telemetry"></a>시뮬레이션된 원격 분석 전송
 
@@ -122,15 +100,15 @@ npm install -g iothub-explorer
 
 ## <a name="read-the-telemetry-from-your-hub"></a>허브에서 원격 분석 읽기
 
-`iothub-explorer` CLI 유틸리티는 IoT Hub의 서비스 측 **이벤트** 엔드포인트에 연결합니다. 유틸리티는 시뮬레이션된 장치에서 전송하는 장치-클라우드 메시지를 받습니다. IoT Hub 백 엔드 응용 프로그램은 일반적으로 클라우드에서 실행되며 장치-클라우드 메시지를 수신하고 처리합니다.
+IoT Hub CLI 확장은 IoT Hub의 서비스 쪽 **이벤트** 엔드포인트에 연결할 수 있습니다. 이 확장은 시뮬레이트된 장치에서 보낸 장치-클라우드 메시지를 받습니다. IoT Hub 백 엔드 응용 프로그램은 일반적으로 클라우드에서 실행되며 장치-클라우드 메시지를 수신하고 처리합니다.
 
-또 다른 터미널 창에서 `{your hub service connection string}`을 이전에 적어둔 서비스 연결 문자열로 대체하는 다음 명령을 실행합니다.
+다음 Azure CLI 명령에서 `{YourIoTHubName}`을 사용자의 IoT Hub 이름으로 변경하여 실행합니다.
 
-```cmd/sh
-iothub-explorer monitor-events MyPythonDevice --login "{your hub service connection string}"
+```azurecli-interactive
+az iot hub monitor-events --device-id MyPythonDevice --hub-name {YourIoTHubName}
 ```
 
-다음 스크린 샷은 시뮬레이션된 장치가 허브에 보낸 원격 분석을 유틸리티가 수신할 때 출력을 보여줍니다.
+다음 스크린샷은 시뮬레이션된 장치가 허브에 보낸 원격 분석 데이터를 확장 프로그램이 수신하면서 출력한 내용을 보여줍니다.
 
 ![백 엔드 응용 프로그램 실행](media/quickstart-send-telemetry-python/ReadDeviceToCloud.png)
 

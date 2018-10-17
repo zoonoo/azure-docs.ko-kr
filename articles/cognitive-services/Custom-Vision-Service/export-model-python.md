@@ -1,22 +1,23 @@
 ---
-title: Python에서 TensorFlow 모델 실행 - Custom Vision Service - Azure Cognitive Services | Microsoft Docs
-description: Python에서 TensorFlow 모델 실행
+title: '자습서: Python으로 TensorFlow 모델 실행 - Custom Vision Service'
+titlesuffix: Azure Cognitive Services
+description: Python으로 TensorFlow 모델을 실행합니다.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/17/2018
 ms.author: areddish
-ms.openlocfilehash: d31036404604104ca28328b6c8bc5d3ca74d83ea
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 26427406b045b96f2f3f612e4444b7dc2afcefc6
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35378143"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247315"
 ---
-# <a name="run-tensorflow-model-in-python"></a>Python에서 TensorFlow 모델 실행
+# <a name="tutorial-run-tensorflow-model-in-python"></a>자습서: Python으로 TensorFlow 모델 실행
 
 Custom Vision Service에서 [TensorFlow 모델을 내보낸](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) 후에 이 빠른 시작을 참조하여 이 모델을 로컬로 사용하여 이미지를 분류하는 방법을 알아봅니다.
 
@@ -189,8 +190,8 @@ with tf.Session() as sess:
 
     # Or you can print out all of the results mapping labels to probabilities.
     label_index = 0
-    for p in predictions:
-        truncated_probablity = np.float64(round(p,8))
+    for p in predictions[0]:
+        truncated_probablity = np.float64(np.round(p,8))
         print (labels[label_index], truncated_probablity)
         label_index += 1
 ```

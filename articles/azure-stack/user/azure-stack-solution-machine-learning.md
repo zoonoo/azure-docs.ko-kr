@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: c195f2ee24b61a57c098d5214a37f65e80845074
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 28ff8dbf073596e5f9565c56ae903af6af68f3e2
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410207"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353719"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack을 사용 하 여 솔루션을 학습 하는 edge 컴퓨터 만들기
 
@@ -210,7 +210,7 @@ Azure portal에서 Ubuntu 데이터 과학 Virtual Machine (DSVM)을 만듭니�
 
     d.  에 대 한 합니다 **진단 저장소 계정이**, 이전에 만든 저장소 계정을 선택 합니다.
 
-    e.  참고: 활성화 되 고 Azure 구독에 대 한 구성 AAD를 사용 하 여 관리 서비스 Id 수도 함께 활성화 합니다.
+    e.  참고:을 사용 하도록 설정 하 고 Azure 구독에 대해 구성 된 AAD에 Azure 리소스에 대 한 관리 되는 id 수도 함께 활성화 합니다.
 
 2.  **확인**을 선택합니다.
 
@@ -357,8 +357,8 @@ Azure Machine Learning Workbench를 이제 Windows나 macOS에서 사용할 수 
     |-------------------------------------|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | 프로젝트 이름 | myIris | 계정을 식별 하는 고유한 이름을 입력 합니다. 부서를 사용 하 여 또는 프로젝트 실험을 가장 잘 식별 하는 이름입니다. 이름은 2~32자여야 합니다. 영숫자 문자 및 대시(-) 문자만 포함되어야 합니다. |
     | 프로젝트 디렉터리 | c:\Temp\ | 프로젝트가 만들어지는 디렉터리를 지정합니다. |
-    | 프로젝트 설명 | 비워 둡니다 | 프로젝트를 설명하기에 유용한 선택적 필드입니다. |
-    | Visualstudio.com GIT 리포지토리 URL | 비워 둡니다 | 선택적 필드입니다. 소스 제어 및 공동 작업에 대 한 Visual Studio Team Services에서 Git 리포지토리를 사용 하 여 프로젝트를 연결 합니다. [리포지토리를 설정 하는 방법을 알아봅니다](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project)합니다. |
+    | 프로젝트 설명 | 비워 둡니다. | 프로젝트를 설명하기에 유용한 선택적 필드입니다. |
+    | Visualstudio.com GIT 리포지토리 URL | 비워 둡니다. | 선택적 필드입니다. 소스 제어 및 공동 작업에 대 한 Visual Studio Team Services에서 Git 리포지토리를 사용 하 여 프로젝트를 연결 합니다. [리포지토리를 설정 하는 방법을 알아봅니다](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project)합니다. |
     | 선택한 작업 영역 | IrisGarden(있는 경우) | Azure portal에서 실험 계정에 대해 만든 작업 영역을 선택 합니다. <br>빠른 시작을 사용 하 여, IrisGarden의 이름으로 작업 영역에 나열 됩니다. 실험 계정 이름 또는 기본 계정 이름을 사용 하 여 작업 영역을 사용 하십시오. |
     | 프로젝트 템플릿 | 아이리스 분류 | 템플릿에 제품을 탐색 하는 데 사용 되는 데이터 및 스크립트에 포함 됩니다. 이 템플릿은 스크립트 및이 설명서 사이트에서이 빠른 시작 및 기타 자습서에 필요한 데이터를 포함 합니다. |
 

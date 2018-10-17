@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/06/2018
+ms.date: 010/01/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: da9e1ce17e21f4d87286c0be5d425419f6ed0300
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 1af4cdb361c1db378991201fc42f17dcbf67fe67
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408513"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238768"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>자습서: Azure에서 Service Fabric 클러스터 크기 조정
 
@@ -114,14 +114,14 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
 
 ## <a name="scale-in"></a>규모 감축
 
-규모 감축은 더 낮은 **용량** 값을 사용하는 것을 제외하고 규모 확장과 동일합니다. 확장 집합을 규모 감축하는 경우 확장 집합에서 가상 머신 인스턴스를 제거합니다. 일반적으로 Service Fabric은 어떤 일이 발생했는지 알지 못하며 노드가 누락되었다고 생각합니다. 그러면 Service Fabric은 클러스터의 비정상 상태를 보고합니다. 잘못된 상태를 방지하려면 노드가 사라질 것으로 예상한다는 것을 서비스 패브릭에 알려야 합니다.
+규모 감축은 더 낮은 **용량** 값을 사용하는 것을 제외하고 규모 확장과 동일합니다. 확장 집합을 규모 감축하는 경우 확장 집합에서 가상 머신 인스턴스를 제거합니다. 일반적으로 Service Fabric은 어떤 일이 발생했는지 알지 못하며 노드가 누락되었다고 생각합니다. 그러면 Service Fabric은 클러스터의 비정상 상태를 보고합니다. 잘못된 상태를 방지하려면 노드가 사라질 것으로 예상한다는 것을 Service Fabric에 알려야 합니다.
 
-### <a name="remove-the-service-fabric-node"></a>서비스 패브릭 노드 제거
+### <a name="remove-the-service-fabric-node"></a>Service Fabric 노드 제거
 
 > [!NOTE]
 > 이 부분만 *Bronze* 내구성 계층에 적용됩니다. 내구성에 자세한 내용은 [Service Fabric 클러스터 용량 계획][durability]을 참조하세요.
 
-가상 머신 확장 집합의 규모를 감축할 때 확장 집합(대부분의 경우)은 마지막으로 만든 가상 머신 인스턴스를 제거합니다. 따라서 마지막으로 만들고 일치하는 서비스 패브릭 노드를 찾아야 합니다. 서비스 패브릭 노드에서 가장 큰 `NodeInstanceId` 속성 값을 확인하여 이 마지막 노드를 찾을 수 있습니다. 아래의 코드 예제는 노드 인스턴스별로 정렬하고 가장 큰 ID 값을 가진 인스턴스에 대한 세부 정보를 반환합니다.
+클러스터의 노드를 업그레이드 도메인과 장애 도메인 전체에 고르게 분산하여 균등하게 사용하려면 가장 최근에 생성된 노드를 먼저 제거해야 합니다. 즉, 노드는 생성된 순서의 역순으로 제거되어야 합니다. 가장 최근에 생성된 노드는 `virtual machine scale set InstanceId` 속성 값이 최대인 노드입니다. 아래 코드 예제에는 가장 최근에 생성된 노드를 반환합니다.
 
 ```powershell
 Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
@@ -131,13 +131,13 @@ Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastInde
 sfctl node list --query "sort_by(items[*], &name)[-1]"
 ```
 
-서비스 패브릭 클러스터는 이 노드가 제거될 것임을 알아야 합니다. 수행해야 하는 세 가지 단계가 있습니다.
+Service Fabric 클러스터는 이 노드가 제거될 것임을 알아야 합니다. 수행해야 하는 세 가지 단계가 있습니다.
 
 1. 더 이상 데이터가 복제되지 않도록 노드를 사용하지 않도록 설정합니다.  
 PowerShell: `Disable-ServiceFabricNode`  
 sfctl: `sfctl node disable`
 
-2. 노드를 중지하여 서비스 패브릭 런타임이 완전히 종료되고 앱이 종료 요청을 받도록 하십시오.  
+2. 노드를 중지하여 Service Fabric 런타임이 완전히 종료되고 앱이 종료 요청을 받도록 하십시오.  
 PowerShell: `Start-ServiceFabricNodeTransition -Stop`  
 sfctl: `sfctl node transition --node-transition-type Stop`
 
@@ -232,7 +232,7 @@ sfctl node remove-state --node-name _nt1vm_5
 
 ### <a name="scale-in-the-scale-set"></a>확장 집합 규모 감축
 
-이제 클러스터에서 서비스 패브릭 노드가 제거되었으며 가상 머신 확장 집합을 규모 감축할 수 있습니다. 아래 예제에서는 확장 집합 용량이 1식 줄어듭니다.
+이제 클러스터에서 Service Fabric 노드가 제거되었으며 가상 머신 확장 집합의 규모를 감축할 수 있습니다. 아래 예제에서는 확장 집합 용량이 1식 줄어듭니다.
 
 ```powershell
 $scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm

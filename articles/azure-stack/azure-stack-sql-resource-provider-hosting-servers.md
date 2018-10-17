@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 57033de3224b5966b2dfa80dd1cb45fafd83b26b
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a0a482e44617732c9dc6cd6609672e8204001dbc
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238734"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362061"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL 리소스 공급자에 대 한 호스팅 서버를 추가 합니다.
 
@@ -173,23 +173,24 @@ SQL Always On 인스턴스를 구성 하려면 추가 단계가 필요 하며 3 
    > 동일한 SKU에서 Always On 인스턴스를 사용 하 여 독립 실행형 서버를 혼합할 수 없습니다. 오류가 첫 번째 호스팅 서버 결과 추가한 후 유형을 혼합 하려고 합니다.
 
 ## <a name="sku-notes"></a>SKU 정보
-
-서비스 제공을 구분 하기 위해 Sku를 사용할 수 있습니다. 예를 들어, 다음과 같은 특징이 있는 Sql 인스턴스를 할 수 있습니다.
+SKU 용량 및 성능과 같은 서버 기능을 설명 하는 SKU 이름을 사용 합니다. 사용자가 적절 한 SKU를 해당 데이터베이스를 배포 하는 데 대 한 지원으로 이름이 사용 됩니다. 예를 들어 다음 특징에 따라 서비스 제공을 구분 하기 위해 SKU 이름을 사용할 수 있습니다.
   
 * 큰 용량
 * 고성능
 * 고가용성
 
-Sku는 특정 사용자 또는이 릴리스에서 그룹에 할당할 수 없습니다.
-
- Sku는 포털에 표시 되도록 한 시간이 걸릴 수 있습니다. 사용자는 SKU를 완벽 하 게 만들 때까지 데이터베이스를 만들 수 없습니다.
-
->[!TIP]
->반영 하는 SKU 이름을 사용 하 여 용량 및 성능과 같은 SKU의 서버 기능을 설명 합니다. 사용자가 적절 한 SKU를 해당 데이터베이스를 배포 하는 데 대 한 지원으로 이름이 사용 됩니다.
-
 모범 사례로, SKU에서 모든 호스팅 서버가 동일한 리소스 및 성능 특징 있어야 합니다.
 
-## <a name="make-the-sql-databases-available-to-users"></a>사용자에 게 SQL 데이터베이스 제공
+Sku는 특정 사용자 또는 그룹에 할당할 수 없습니다.
+
+Sku는 포털에 표시 되도록 한 시간이 걸릴 수 있습니다. 사용자는 SKU를 완벽 하 게 만들 때까지 데이터베이스를 만들 수 없습니다.
+
+SKU를 편집 하려면로 이동 **모든 서비스** > **SQL 어댑터** > **Sku**합니다. 수정, 필요한 내용을 변경 하 고 클릭 하 고 SKU 선택 **저장** 변경 내용을 저장 합니다. 더 이상 필요 없는 하는 SKU를 삭제 하려면로 이동 **모든 서비스** > **SQL 어댑터** > **Sku**합니다. 선택한 SKU 이름을 마우스 오른쪽 단추로 클릭 **삭제** 삭제 합니다.
+
+> [!TIP]
+> 편집 하거나 동일한 위치에 SQL 리소스 공급자 할당량을 삭제할 수 있습니다.
+
+## <a name="make-sql-databases-available-to-users"></a>사용자에 게 SQL database를 사용할 수 있도록
 
 계획 및 제품은 사용자에 대 한 SQL database에서 사용할 수 있도록 만듭니다. 추가 합니다 **Microsoft.SqlAdapter** 새 할당량을 만들고 서비스를 계획 합니다.
 

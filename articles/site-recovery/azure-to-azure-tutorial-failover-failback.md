@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 61b354dfd6f704eb0677991c02f28de08e49ee37
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 1c9af5c94aa05f60220080b779921a2c79c322f3
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917502"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067434"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Azure 지역 간에 Azure VM 장애 조치(Failover) 및 장애 복구
 
@@ -71,4 +71,4 @@ VM의 장애 조치(failover) 후 주 지역에 다시 복제되도록 다시 �
 
 ## <a name="fail-back-to-the-primary-region"></a>주 지역으로 장애 복구(failback)
 
-VM이 다시 보호된 후 필요에 따라 주 지역으로 장애 복구(failback)할 수 있습니다. 이렇게 하려면 [장애 조치(failover)](#run-a-failover) 지침을 따르세요.
+VM이 다시 보호된 후 필요에 따라 주 지역으로 장애 복구(failback)할 수 있습니다. 이렇게 하려면 이 문서의 설명에 따라 보조 지역에서 주 지역으로의 장애 조치(failover)를 설정하세요.

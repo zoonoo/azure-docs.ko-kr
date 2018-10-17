@@ -13,12 +13,12 @@ ms.topic: sample
 ms.date: 11/16/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 367108fbd2406d9e5e0b0bf374cc424cd8a6f171
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 10f9b4729a7d586f42cfdc40d1e50ee21cef40fa
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38239869"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268211"
 ---
 # <a name="scale-the-service-instance"></a>서비스 인스턴스 크기 조정
 
@@ -44,4 +44,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 Azure PowerShell 모듈에 대한 자세한 내용은 [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/azure/overview)를 참조하세요.
 
-Azure API Management에 대한 추가 Azure PowerShell 샘플은 [PowerShell 샘플](../powershell-samples.md)에서 확인할 수 있습니다.
+Azure API Management에 대한 추가 Azure PowerShell 샘플은 [PowerShell 샘플](../powershell-samples.md)에서 찾을 수 있습니다.

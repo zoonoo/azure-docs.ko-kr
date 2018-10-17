@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: f0f28d4b6573e4e6fecf0e6dd84814d4fc66cd60
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5e399a237fe533b46997365c16b75dce14149dec
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050501"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064325"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Azure Mobile Apps에 관리되는 클라이언트를 사용하는 방법
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -62,7 +62,7 @@ public class TodoItem
 
 [JsonPropertyAttribute][6]는 클라이언트 필드와 테이블 필드 간의 *PropertyName* 매핑을 정의하는 데 사용됩니다.
 
-Mobile Apps 백 엔드에서 테이블을 만드는 방법을 알아보려면 [.NET 서버 SDK 토픽][7] 또는 [Node.js 서버 SDK 토픽][8]을 참조하세요. 빠른 시작을 사용하여 Azure Portal에서 Mobile App 백 엔드를 만든 경우 **Azure Portal** 에서 [Azure Portal]설정을 사용할 수도 있습니다.
+Mobile Apps 백 엔드에서 테이블을 만드는 방법을 알아보려면 [.NET 서버 SDK 토픽][7] 또는 [Node.js 서버 SDK 토픽][8]을 참조하세요. 빠른 시작을 사용하여 Azure Portal에서 Mobile App 백 엔드를 만든 경우 [Azure Portal] 에서 **쉬운 테이블**설정을 사용할 수도 있습니다.
 
 ### <a name="how-to-install-the-managed-client-sdk-package"></a>방법: 관리되는 클라이언트 SDK 패키지 설치
 다음 메서드 중 하나를 사용하여 [NuGet][9]에서 Mobile Apps용 관리되는 클라이언트 SDK 패키지를 설치합니다.
@@ -75,6 +75,9 @@ Mobile Apps 백 엔드에서 테이블을 만드는 방법을 알아보려면 [.
 ```
 using Microsoft.WindowsAzure.MobileServices;
 ```
+
+> [!NOTE]
+> Android 프로젝트에서 참조하는 모든 지원 패키지의 버전이 동일해야 합니다. SDK에는 Android 플랫폼에 대한 `Xamarin.Android.Support.CustomTabs` 종속성이 있으므로 프로젝트에서 최신 지원 패키지를 사용하는 경우 충돌 방지를 위해 필수 버전이 포함된 이 패키지를 직접 설치해야 합니다.
 
 ### <a name="symbolsource"></a>방법: Visual Studio에서 디버그 작업
 Microsoft.Azure.Mobile 네임스페이스의 기호는 [SymbolSource][10]에 있습니다.  SymbolSource를 Visual Studio와 통합하려면 [SymbolSource 지침][11]을 참조하세요.
@@ -113,7 +116,7 @@ var client = new MobileServiceClient("MOBILE_APP_URL");
 IMobileServiceTable<TodoItem> todoTable = client.GetTable<TodoItem>();
 ```
 
-반환된 개체는 형식화된 직렬화 모델을 사용합니다. 형식화되지 않은 직렬화 모델도 지원됩니다. 다음 예제는 [형식화되지 않은 테이블에 참조를 만듭니다.]
+반환된 개체는 형식화된 직렬화 모델을 사용합니다. 형식화되지 않은 직렬화 모델도 지원됩니다. 다음 예제는 [형식화되지 않은 테이블에 참조를 만듭니다].
 
 ```
 // Get an untyped table reference
@@ -602,7 +605,7 @@ SDK는 레코드를 끌어오기 전에 암시적 `PushAsync()`을(를) 수행�
 `PullAsync()` 메서드에서 충돌 처리가 발생합니다.  온라인 테이블과 같은 방식으로 충돌을 처리할 수 있습니다.  충돌은 삽입, 업데이트 또는 삭제하는 동안 이를 대신하여 `PullAsync()`이 호출될 때 충돌이 생성됩니다. 여러 충돌이 발생하는 경우 단일 MobileServicePushFailedException에 함께 포함됩니다.  각 오류를 개별적으로 처리합니다.
 
 ## <a name="#customapi"></a>사용자 지정 API 작업
-사용자 지정 API는 삽입, 업데이트, 삭제 또는 읽기 작업에 매핑되지 않는 서버 기능을 노출하는 사용자 지정 끝점을 정의할 수 있게 합니다. 사용자 지정 API를 사용하면 HTTP 메시지 헤더 읽기와 설정 및 JSON 이외의 메시지 본문 형식 정의를 비롯하여 더 효율적으로 메시징을 제어할 수 있습니다.
+사용자 지정 API는 삽입, 업데이트, 삭제 또는 읽기 작업에 매핑되지 않는 서버 기능을 노출하는 사용자 지정 엔드포인트를 정의할 수 있게 합니다. 사용자 지정 API를 사용하면 HTTP 메시지 헤더 읽기와 설정 및 JSON 이외의 메시지 본문 형식 정의를 비롯하여 더 효율적으로 메시징을 제어할 수 있습니다.
 
 클라이언트에서 [InvokeApiAsync] 메서드 중 하나를 호출하여 사용자 지정 API를 호출합니다. 예를 들어 다음 코드 줄은 백 엔드에서 **completeAll** API로 POST 요청을 보냅니다.
 
@@ -655,7 +658,7 @@ Azure Active Directory 인증을 사용하여 클라이언트에서 사용자 �
    * **INSERT-AUTHORITY-HERE** 를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.microsoftonline.com/contoso.onmicrosoft.com이어야 합니다. 이 값은 [Azure Portal]의 Azure Active Directory에 있는 도메인 탭에서 복사할 수 있습니다.
    * **INSERT-RESOURCE-ID-HERE** 를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 Azure **Active Directory 설정**에 있는 **고급** 탭에서 클라이언트 ID를 가져올 수 있습니다.
    * **INSERT-CLIENT-ID-HERE** 를 네이티브 클라이언트 응용 프로그램에서 복사한 클라이언트 ID로 바꿉니다.
-   * HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE** 를 사이트의 */.auth/login/done* 끝점으로 바꿉니다. 이 값은 *https://contoso.azurewebsites.net/.auth/login/done*과 비슷해야 합니다.
+   * HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE** 를 사이트의 */.auth/login/done* 엔드포인트로 바꿉니다. 이 값은 *https://contoso.azurewebsites.net/.auth/login/done*과 비슷해야 합니다.
 
      각 플랫폼에 필요한 코드는 다음과 같습니다.
 
@@ -1106,7 +1109,7 @@ public class MyHandler : DelegatingHandler
 [MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser(v=azure.10).aspx
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken(v=azure.10).aspx
 [GetTable]: https://msdn.microsoft.com/library/azure/jj554275(v=azure.10).aspx
-[형식화되지 않은 테이블에 참조를 만듭니다.]: https://msdn.microsoft.com/library/azure/jj554278(v=azure.10).aspx
+[형식화되지 않은 테이블에 참조를 만듭니다]: https://msdn.microsoft.com/library/azure/jj554278(v=azure.10).aspx
 [DeleteAsync]: https://msdn.microsoft.com/library/azure/dn296407(v=azure.10).aspx
 [IncludeTotalCount]: https://msdn.microsoft.com/library/azure/dn250560(v=azure.10).aspx
 [InsertAsync]: https://msdn.microsoft.com/library/azure/dn296400(v=azure.10).aspx
