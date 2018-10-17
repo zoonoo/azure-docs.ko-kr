@@ -1,21 +1,21 @@
 ---
-title: Translator Text PHP를 사용하여 지원되는 언어 가져오기 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 이 빠른 시작에서는 Cognitive Services에서 PHP와 함께 Translator Text API를 사용하여 번역, 음역, 사전 조회에 지원되는 언어 목록과 예제를 가져옵니다.
+title: '빠른 시작: 지원되는 언어 가져오기 - Translator Text, PHP'
+titleSuffix: Azure Cognitive Services
+description: 이 빠른 시작에서는 PHP와 함께 Translator Text API를 사용하여 번역, 음역, 사전 조회에 지원되는 언어 목록과 예제를 가져옵니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 95b48f15ffe8cea14f9ffb7612193b819e03f5f3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2924a61a31037fcf52986d250007b906ffb40b98
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43750477"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128710"
 ---
 # <a name="quickstart-get-supported-languages-with-php"></a>빠른 시작: PHP를 사용하여 지원되는 언어 가져오기
 

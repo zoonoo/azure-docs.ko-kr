@@ -1,21 +1,21 @@
 ---
-title: '자습서: C#을 사용하여 Translator Text에 대한 WPF 응용 프로그램 작성 | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
+title: '자습서: C#을 사용하여 Translator Text에 대한 WPF 응용 프로그램 작성'
+titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 Translator Text API를 사용하여 C#을 통해 WPF 응용 프로그램을 빌드하여 텍스트를 번역하고, 지원되는 언어의 지역화된 목록을 가져오는 등의 방법을 알아봅니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: nolachar
-ms.openlocfilehash: 353c1d91b7925a84667ef1bb7c38ab87c6a89cc1
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 97660985b275bbe4384acb3fc92be8aaa0b57881
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716375"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123966"
 ---
 # <a name="tutorial-write-a-wpf-application-for-translator-text-using-c35"></a>자습서: C&#35;을 사용하여 Translator Text에 대한 WPF 응용 프로그램 작성
 
@@ -369,7 +369,7 @@ namespace MSTranslatorTextDemo
 </Window>
 ```
 
-## <a name="service-endpoints"></a>서비스 끝점
+## <a name="service-endpoints"></a>서비스 엔드포인트
 
 Microsoft Translator 서비스에는 다양한 번역 기능을 제공하는 많은 엔드포인트가 있습니다. 이 자습서에서 사용하는 엔드포인트는 다음과 같습니다.
 

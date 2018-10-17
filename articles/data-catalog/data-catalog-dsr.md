@@ -2,18 +2,18 @@
 title: Azure Data Catalog에서 지원되는 데이터 원본
 description: 이 문서에서는 현재 지원되는 데이터 원본의 사양을 나열합니다.
 services: data-catalog
-author: steelanddata
-ms.author: maroche
+author: markingmyname
+ms.author: maghan
 ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 0f7ee285e77b9e54e2ff720f10f0d24c5b764014
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 56fa449bd665457ab1b98b67bb42ec52e0742c5f
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042942"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410190"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 지원되는 데이터 원본
 
@@ -369,7 +369,7 @@ ms.locfileid: "43042942"
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td></td>
+      <td>Azure DocumentDB의 레거시 컬렉션과 Azure Cosmos DB의 SQL API 컬렉션만 호환됩니다. 최신 Cosmos DB API는 아직 지원되지 않습니다. 데이터 원본 목록에서 Azure DocumentDB를 선택하세요.</td>
     </tr>
     <tr>
       <td>일반 ODBC 테이블</td>
@@ -534,32 +534,6 @@ ms.locfileid: "43042942"
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name
-        
-      </td>
-    </tr>
-    <tr>
-      <td>Cosmos</td>
-      <td>Container</td>
-      <td>Virtual cluster</td>
-      <td>
-        
-            Protocol: cosmos
-            <br>Authentication: {basic, windows}
-            <br>Address:
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
-        
-      </td>
-    </tr>
-    <tr>
-      <td>Cosmos</td>
-      <td>Table</td>
-      <td>Stream, stream set, view</td>
-      <td>
-        
-            Protocol: cosmos
-            <br>Authentication: {basic, windows}
-            <br>Address:
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
         
       </td>
     </tr>

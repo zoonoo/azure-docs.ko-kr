@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 2c6db85763b448133d53b22c0600b27b533b2041
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d298cfe22328db68cfbb6b4c7fc82b2de0c186b1
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424231"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423598"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 개발자를 위한 시작 가이드
 
@@ -58,7 +58,7 @@ Azure는 필요한 응용 프로그램 개발 및 호스팅 요구 사항을 지
 
 세 개의 앱 유형 모두 App Service 런타임을 공유하므로 동일한 프로젝트나 솔루션에서 웹 사이트를 호스트하고 모바일 클라이언트를 지원하며 Azure의 API를 노출할 수 있습니다. App Service에 대해 자세히 알아보려면 [Azure Web Apps이란?](../../app-service/app-service-web-overview.md)을 참조하세요.
 
-App Service는 DevOps를 염두에 두고 설계되었습니다. GitHub Webhook, Jenkins, Visual Studio Team Services, TeamCity 등을 포함하여 게시 및 연속 통합 배포를 위한 다양한 도구를 지원합니다.
+App Service는 DevOps를 염두에 두고 설계되었습니다. GitHub webhooks, Jenkins, Azure DevOps, TeamCity 등을 포함하여 게시 및 연속 통합 배포를 위한 다양한 도구를 지원합니다.
 
 [온라인 마이그레이션 도구](https://www.migratetoazure.net/)를 사용하여 App Service에 기존 응용 프로그램을 마이그레이션할 수 있습니다.
 
@@ -80,8 +80,7 @@ VM에 대한 제어 수준으로 인해 Azure에서 PaaS 모델에 적합하지 
 
 #### <a name="azure-functions-serverless"></a>Azure Functions(서버를 사용하지 않음)
 
-코드를 실행하기 위해 전체 응용 프로그램 또는 인프라를 빌드하고 관리하는 것에 대해 걱정할 필요가 없습니다. 코드를 작성하여 이를 이벤트 응답이나 일정에 따라 실행할 수 있다면 어떨까요?  
-  [Azure Functions](../../azure-functions/functions-overview.md)는 "서버를 사용하지 않는" 스타일 제공 사항으로, 필요한 코드만 작성할 수 있습니다. Functions를 사용하면 코드 실행이 HTTP 요청, Webhook, 클라우드 서비스 이벤트 또는 일정에 따라 트리거됩니다. C\#, F\#, Node.js, Python 또는 PHP와 같은 원하는 개발 언어로 코드를 작성할 수 있습니다. 사용량 기반 요금 청구의 경우 코드 실행 시간에 대해서만 지불하고 Azure는 필요에 따라 확장합니다.
+코드를 실행하기 위해 전체 응용 프로그램 또는 인프라를 빌드하고 관리하는 것에 대해 걱정할 필요가 없습니다. 코드를 작성하여 이를 이벤트 응답이나 일정에 따라 실행할 수 있다면 어떨까요?  [Azure Functions](../../azure-functions/functions-overview.md)는 "서버를 사용하지 않는" 스타일 제공 사항으로, 필요한 코드만 작성할 수 있습니다. Functions를 사용하면 코드 실행이 HTTP 요청, Webhook, 클라우드 서비스 이벤트 또는 일정에 따라 트리거됩니다. C\#, F\#, Node.js, Python 또는 PHP와 같은 원하는 개발 언어로 코드를 작성할 수 있습니다. 사용량 기반 요금 청구의 경우 코드 실행 시간에 대해서만 지불하고 Azure는 필요에 따라 확장합니다.
 
 >**사용 시기**: 다른 Azure 서비스에 의해, 웹 기반 이벤트 또는 일정에 따라 트리거되는 코드가 있는 경우 Azure Functions를 사용합니다. 완전히 호스트된 프로젝트의 오버헤드가 필요하지 않은 경우 또는 코드 실행 시간에 대해서만 비용을 지불하려는 경우에도 Functions를 사용할 수 있습니다. 자세한 내용은 [Azure Functions 개요](../../azure-functions/functions-overview.md)를 참조하세요.
 
@@ -112,8 +111,7 @@ Service Fabric은 OWIN(Open Web Interface for .NET) 및 ASP.NET Core를 사용�
 
     >**시작하기**: [Azure Cosmos DB 웹앱을 빌드합니다](../../cosmos-db/create-sql-api-dotnet.md). MongoDB 개발자라면 [Azure Cosmos DB를 통한 MongoDB 웹앱 빌드](../../cosmos-db/create-mongodb-dotnet.md)를 참조하세요.
 
--   
-  **Azure Storage**: Blob, 큐, 파일 및 다른 종류의 비관계형 데이터에 대한 항상 사용 가능한 지속형 저장소를 제공합니다. Storage는 VM의 저장소 기반을 제공합니다.
+-   **Azure Storage**: Blob, 큐, 파일 및 다른 종류의 비관계형 데이터에 대한 항상 사용 가능한 지속형 저장소를 제공합니다. Storage는 VM의 저장소 기반을 제공합니다.
 
     >**사용 시기**: 앱이 키-값 쌍(테이블), Blob, 파일 공유 또는 메시지(큐)와 같은 비관계형 데이터를 저장하는 경우
 
@@ -160,7 +158,7 @@ Azure는 응용 프로그램에서 컨테이너를 사용하는 여러 방법을
 
 응용 프로그램 사용자를 파악하는 것뿐만 아니라 리소스의 무단 액세스를 방지하는 것도 중요합니다. Azure는 앱 클라이언트를 인증하는 여러 방법을 제공합니다.
 
--   **Azure AD(Azure Active Directory)**: Microsoft 다중 테넌트, 클라우드 기반 ID 및 액세스 관리 서비스입니다. Azure AD와 통합하여 응용 프로그램에 SSO(Single Sign-On)를 추가할 수 있습니다. Azure AD Graph API를 직접 사용하거나 Microsoft Graph API를 사용하여 디렉터리 속성에 액세스할 수 있습니다. 네이티브 HTTP/REST 끝점 및 다중 플랫폼 Azure AD 인증 라이브러리를 사용하여 OAuth2.0 권한 부여 프레임워크 및 Open ID Connect 대한 Azure AD 지원과 통합할 수 있습니다.
+-   **Azure AD(Azure Active Directory)**: Microsoft 다중 테넌트, 클라우드 기반 ID 및 액세스 관리 서비스입니다. Azure AD와 통합하여 응용 프로그램에 SSO(Single Sign-On)를 추가할 수 있습니다. Azure AD Graph API를 직접 사용하거나 Microsoft Graph API를 사용하여 디렉터리 속성에 액세스할 수 있습니다. 네이티브 HTTP/REST 엔드포인트 및 다중 플랫폼 Azure AD 인증 라이브러리를 사용하여 OAuth2.0 권한 부여 프레임워크 및 Open ID Connect 대한 Azure AD 지원과 통합할 수 있습니다.
 
     >**사용 시기**: SSO 환경 제공, 그래프 기반 데이터 작업 또는 도메인 기반 사용자를 인증하려는 경우
 
@@ -188,7 +186,7 @@ Azure에서 응용 프로그램을 실행하는 경우 성능을 모니터링하
 
 ### <a name="devops-integration"></a>DevOps 통합
 
-VM을 프로비전하든 연속 통합을 사용하여 웹앱을 게시하든, Azure는 대부분의 인기 있는 DevOps 도구와 통합합니다. Jenkins, GitHub, Puppet, Chef, TeamCity, Ansible, VSTS 등과 같은 도구에 대한 지원을 통해 기존 도구를 사용하여 작업하고 기존 환경을 최대화할 수 있습니다.
+VM을 프로비전하든 연속 통합을 사용하여 웹앱을 게시하든, Azure는 대부분의 인기 있는 DevOps 도구와 통합합니다. Jenkins, GitHub, Puppet, Chef, TeamCity, Ansible, Azure DevOps 등과 같은 도구가 지원되므로 기존 도구를 사용하여 작업하고 기존 환경을 최대한 활용할 수 있습니다.
 
 >**지금 사용해 보기:** [다양한 DevOps 통합을 사용해 봅니다](https://azure.microsoft.com/try/devops/).
 
@@ -263,7 +261,7 @@ JSON 형식 문서인 Azure Resource Manager 템플릿을 사용하여 이러한
 
 ### <a name="what-is-an-azure-account"></a>Azure 계정이란?
 
-Azure 구독을 만들거나 작업하려면 Azure 계정이 있어야 합니다. Azure 계정은 Azure AD 또는 회사나 학교 조직과 같은 디렉터리의 단순한 ID로, Azure AD에서 신뢰할 수 있는 것입니다. 이러한 조직에 속해 있지 않은 경우 Azure AD에서 신뢰할 수 있는 Microsoft 계정을 사용하여 항상 구독을 만들 수 있습니다. 온-프레미스 Windows Server Active Directory를 Azure AD와 통합하는 방법에 대해 알아보려면 [온-프레미스 ID를 Azure Active Directory와 통합](../../active-directory/active-directory-aadconnect.md)을 참조하세요.
+Azure 구독을 만들거나 작업하려면 Azure 계정이 있어야 합니다. Azure 계정은 Azure AD 또는 회사나 학교 조직과 같은 디렉터리의 단순한 ID로, Azure AD에서 신뢰할 수 있는 것입니다. 이러한 조직에 속해 있지 않은 경우 Azure AD에서 신뢰할 수 있는 Microsoft 계정을 사용하여 항상 구독을 만들 수 있습니다. 온-프레미스 Windows Server Active Directory를 Azure AD와 통합하는 방법에 대해 알아보려면 [온-프레미스 ID를 Azure Active Directory와 통합](../../active-directory/hybrid/whatis-hybrid-identity.md)을 참조하세요.
 
 모든 Azure 구독은 Azure AD 인스턴스와 트러스트 관계가 있습니다. 이는 Azure 구독이 사용자, 서비스, 장치를 인증하는 해당 디렉터리를 신뢰함을 의미합니다. 여러 구독에서 동일한 디렉터리를 신뢰할 수 있지만 구독은 하나의 디렉터리만 신뢰합니다. 자세한 내용은 [Azure 구독과 Azure Active Directory의 연관 관계](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
 
@@ -271,19 +269,7 @@ Azure 구독을 만들거나 작업하려면 Azure 계정이 있어야 합니다
 
 ### <a name="manage-your-subscriptions"></a>구독 관리
 
-구독은 Azure 계정에 연결된 Azure 서비스의 논리적 단위입니다. 각 연결된 계정에는 구독에서의 역할이 있습니다. Azure 서비스에 대한 청구는 구독 단위로 이루어집니다. 유형별로 제공되는 사용 가능한 구독 목록은 [Microsoft Azure 제안 세부 정보](https://azure.microsoft.com/support/legal/offer-details/)를 참조하세요.
-
-#### <a name="administrator-roles"></a>관리자 역할
-
-Azure 구독에는 언제든지 할당할 수 있는 여러 계정 관리자 역할이 있습니다.
-
--   **계정 관리자**: 이 역할은 구독에 대한 모든 권한을 가지며 청구를 담당하는 계정입니다.
-
--   **서비스 관리자**: 이 역할은 구독에서 모든 서비스에 대해 제어할 수 있습니다. 기본적으로 계정 관리자와 동일한 계정입니다.
-
--   **공동 관리자**: 이 역할은 서비스 관리자와 동일한 액세스 권한을 갖지만 Azure 디렉터리에 대한 구독의 연결을 변경할 수는 없습니다.
-
-관리자 역할에 대해 자세히 알아보려면 [Azure 관리자 역할을 추가 또는 변경하는 방법](../../billing/billing-add-change-azure-subscription-administrator.md#add-an-admin-for-a-subscription)을 참조하세요.
+구독은 Azure 계정에 연결된 Azure 서비스의 논리적 그룹입니다. 단일 Azure 계정에 여러 구독이 포함될 수 있습니다. Azure 서비스에 대한 청구는 구독 단위로 이루어집니다. 유형별로 제공되는 사용 가능한 구독 목록은 [Microsoft Azure 제안 세부 정보](https://azure.microsoft.com/support/legal/offer-details/)를 참조하세요. Azure 구독에는 구독에 대한 모든 권한을 가진 계정 관리자와 구독의 모든 서비스를 제어할 수 있는 서비스 관리자가 있습니다. 클래식 구독 관리자에 대한 자세한 내용은 [Azure 구독 관리자 추가 또는 변경](../../billing/billing-add-change-azure-subscription-administrator.md)을 참조하세요. 관리자 외에도 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 사용하여 Azure 리소스를 세부적으로 제어할 수 있는 권한을 개별 계정에 부여할 수 있습니다.
 
 #### <a name="resource-groups"></a>리소스 그룹
 
@@ -295,11 +281,11 @@ Azure Resource Explorer는 구독에서 이미 만든 리소스를 시각화하�
 
 Azure 리소스에 대한 액세스를 허용하는 경우 항상 사용자에게 지정된 작업을 수행하는 데 필요한 최소 권한을 제공하는 것이 좋습니다.
 
--   **RBAC(역할 기반 액세스 제어)**: Azure에서 지정된 범위(구독, 리소스 그룹 또는 개별 리소스)에서 사용자 계정(주체)에 액세스 권한을 부여할 수 있습니다. RBAC를 사용하면 리소스 그룹에 리소스 집합을 배포하고 특정 사용자 또는 그룹에 권한을 부여할 수 있습니다. 또한 대상 리소스 그룹에 속한 리소스에 대해서만 액세스를 제한할 수 있습니다. 가상 머신 또는 가상 네트워크와 같은 단일 리소스에 대한 액세스 권한을 부여할 수 있습니다. 액세스 권한을 부여하려면 사용자, 그룹 또는 서비스 주체에 역할을 할당합니다. 미리 정의된 많은 역할이 있으며 자체 사용자 지정 역할을 정의할 수도 있습니다.
+-   **RBAC(역할 기반 액세스 제어)**: Azure에서 지정된 범위(구독, 리소스 그룹 또는 개별 리소스)에서 사용자 계정(주체)에 액세스 권한을 부여할 수 있습니다. RBAC를 사용하면 리소스 그룹에 리소스 집합을 배포하고 특정 사용자 또는 그룹에 권한을 부여할 수 있습니다. 또한 대상 리소스 그룹에 속한 리소스에 대해서만 액세스를 제한할 수 있습니다. 가상 머신 또는 가상 네트워크와 같은 단일 리소스에 대한 액세스 권한을 부여할 수 있습니다. 액세스 권한을 부여하려면 사용자, 그룹 또는 서비스 주체에 역할을 할당합니다. 미리 정의된 많은 역할이 있으며 자체 사용자 지정 역할을 정의할 수도 있습니다. 자세히 알아보려면 [RBAC(역할 기반 액세스 제어)란?](../../role-based-access-control/overview.md)을 참조하세요.
 
-    >**사용 시기**: 사용자 및 그룹에 대한 세분화된 액세스 관리가 필요한 경우
+    >**사용 가능한 상황**: 사용자와 그룹의 액세스를 세부적으로 관리해야 하거나 특정 사용자를 구독 소유자로 지정해야 하는 경우
 
-    >**시작하기**: 자세한 내용은 [Azure Portal에서 액세스 관리 시작](../../role-based-access-control/overview.md)을 참조하세요.
+    >**시작**: 자세히 알아보려면 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
 -   **서비스 주체 개체**: 사용자 계정 및 그룹에 대한 액세스 권한을 제공할 뿐만 아니라 동일한 액세스 권한을 서비스 주체에게 부여할 수 있습니다.
 
@@ -324,9 +310,3 @@ Azure는 Azure 구독에 대한 메타데이터 정보 및 리소스 사용에 �
 비용을 미리 예측하기가 어렵긴 하지만 Azure에는 [가격 계산기](https://azure.microsoft.com/pricing/calculator/)가 있어 배포된 리소스의 비용을 예측할 때 사용할 수 있습니다. 또한 포털의 청구 블레이드 및 청구 REST API를 사용하여 현재 사용량을 기반으로 향후 비용을 예측할 수 있습니다.
 
 >**시작하기**: 참조 [Azure 청구 사용량 및 RateCard API 개요](../../billing-usage-rate-card-overview.md)를 참조하세요.
-
-#### <a name="set-up-billing-alerts"></a>청구 경고 설정
-
-Azure에 응용 프로그램이나 솔루션을 배포한 후에는 경고에 정의된 지출 한도에 다달했을 때 메일을 보내는 경고를 만들 수 있습니다.
-
->**시작하기**: 자세한 내용은 [Microsoft Azure 구독에 대한 청구 경고 설정](../../billing-set-up-alerts.md)을 참조하세요.

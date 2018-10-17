@@ -1,21 +1,21 @@
 ---
-title: Translator Text Java를 사용하여 대체 번역 찾기 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 이 빠른 시작에서는 Cognitive Services에서 Java와 함께 Translator Text API를 사용하여 컨텍스트의 용어를 대체하는 번역과 예제를 찾아봅니다.
+title: '빠른 시작: 대체 번역 찾기 - Translator Text, Java'
+titleSuffix: Azure Cognitive Services
+description: 이 빠른 시작에서는 Java와 함께 Translator Text API를 사용하여 컨텍스트의 용어를 대체하는 번역과 예제를 찾아봅니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 0abb9c1a39b8183730bacde285eff05607754191
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c0e7fc3d51772df40bd5da7c762c15c40ad5744f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43750485"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127077"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-java"></a>빠른 시작: Java를 사용하여 대체 번역 및 사용법 찾기
 

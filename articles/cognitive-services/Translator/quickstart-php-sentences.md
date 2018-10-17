@@ -1,21 +1,21 @@
 ---
-title: Translator Text PHP를 사용하여 문장 길이 가져오기 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 이 빠른 시작에서는 Cognitive Services에서 PHP와 함께 Translator Text API를 사용하여 텍스트에서 문장 길이를 찾습니다.
+title: '빠른 시작: 문장 길이 가져오기 - Translator Text, PHP'
+titleSuffix: Azure Cognitive Services
+description: 이 빠른 시작에서는 PHP와 함께 Translator Text API를 사용하여 텍스트에서 문장 길이를 찾습니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: e93a8e3fa900933bc3a169f4527f898e8431a194
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 63c2822e7b61eb437a43fb394cfa3cc8172d9af3
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43750492"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124748"
 ---
 # <a name="quickstart-get-sentence-lengths-with-php"></a>빠른 시작: PHP를 사용하여 문장 길이 가져오기
 

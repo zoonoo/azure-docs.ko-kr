@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Shell의 PowerShell(미리 보기) 빠른 시작 | Microsoft Docs
+title: Azure Cloud Shell의 PowerShell 빠른 시작 | Microsoft Docs
 description: Azure Cloud Shell의 PowerShell에 대한 빠른 시작
 services: Azure
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2018
 ms.author: damaerte
-ms.openlocfilehash: cb4b7f8851c6c891ca43f6c215ba812a0c784d28
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 83fb07d718681a9d14176868d11b45a199f60543
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108141"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166207"
 ---
-# <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Azure Cloud Shell의 PowerShell에 대한 빠른 시작(미리 보기)
+# <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Azure Cloud Shell의 PowerShell에 대한 빠른 시작
 
-이 문서는 [Azure Portal](https://aka.ms/PSCloudPreview)에서 Azure Cloud Shell의 PowerShell을 사용하는 방법을 자세히 설명합니다.
+이 문서는 [Azure Portal](https://portal.azure.com/)에서 Azure Cloud Shell의 PowerShell을 사용하는 방법을 자세히 설명합니다.
 
 > [!NOTE]
 > [Azure Cloud Shell의 Bash](quickstart.md) 빠른 시작도 사용할 수 있습니다.

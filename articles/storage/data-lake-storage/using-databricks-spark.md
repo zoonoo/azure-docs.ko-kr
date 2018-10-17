@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: 7d951a959da28187a5971ee218f2bd921d331727
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: fd9dfaa2042cae0923c919f4e76d7b59a170918e
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301801"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46466033"
 ---
 # <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>자습서: Azure Databricks에서 Spark를 사용하여 Azure Data Lake Storage Gen2 미리 보기 데이터에 액세스
 
@@ -22,12 +22,11 @@ ms.locfileid: "43301801"
 > [!div class="checklist"]
 > * Databricks 클러스터 만들기
 > * 저장소 계정으로 비구조적 데이터 수집
-> * Azure Function을 트리거하여 데이터 처리
 > * Blob 저장소의 데이터에 대한 분석 실행
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서에서는 [미국 운수부](https://transtats.bts.gov/Tables.asp?DB_ID=120&DB_Name=Airline%20On-Time%20Performance%20Data&DB_Short_Name=On-Time)에서 사용할 수 있는 항공사 비행 데이터를 사용하고 쿼리하는 방법을 보여 줍니다. 2년 이상의 항공사 데이터를 다운로드하고(모든 필드 선택) 컴퓨터에 결과를 저장합니다. 다운로드한 파일의 이름과 경로를 적어 둡니다. 이 정보는 이후의 단계에서 필요합니다.
+이 자습서에서는 [미국 운수부](https://transtats.bts.gov/Tables.asp?DB_ID=120&DB_Name=Airline%20On-Time%20Performance%20Data&DB_Short_Name=On-Time)에서 사용할 수 있는 항공사 비행 데이터를 사용하고 쿼리하는 방법을 보여 줍니다. 2년 이상의 항공사 데이터를 다운로드하고(모든 필드 선택) 머신에 결과를 저장합니다. 다운로드한 파일의 이름과 경로를 적어 둡니다. 이 정보는 이후의 단계에서 필요합니다.
 
 > [!NOTE]
 > **미리 압축된 파일** 확인란을 클릭하여 모든 데이터 필드를 선택합니다. 다운로드는 상당한 크기의 기가바이트 분량이지만, 분석에는 이 정도의 데이터가 필요합니다.
@@ -36,11 +35,8 @@ ms.locfileid: "43301801"
 
 시작하려면 새 [Azure Data Lake Storage Gen2 계정](quickstart-create-account.md)을 만들고 고유한 이름을 지정합니다. 그런 다음, 저장소 계정으로 이동하여 구성 설정을 검색합니다.
 
-> [!IMPORTANT]
-> 미리 보기로 있는 동안 Azure Functions는 단일 구조 네임스페이스로 만든 Azure Data Lake Storage Gen2 계정에서만 작동합니다.
-
 1. **설정** 아래에서 **액세스 키**를 클릭합니다.
-3. **key1** 옆의 **복사** 단추를 클릭하여 키 값을 복사합니다.
+2. **key1** 옆의 **복사** 단추를 클릭하여 키 값을 복사합니다.
 
 계정 이름과 키는 모두 이 자습서의 이후 단계에서 필요합니다. 텍스트 편집기를 열고 나중에 참조할 수 있도록 계정 이름과 키를 별도로 보관합니다.
 
@@ -74,7 +70,7 @@ ms.locfileid: "43301801"
 
 ### <a name="copy-source-data-into-the-storage-account"></a>저장소 계정에 원본 데이터 복사
 
-다음 작업은 AzCopy를 사용하여 *.csv* 파일의 데이터를 Azure 저장소에 복사하는 것입니다. 명령 프롬프트 창을 열고 다음 명령을 입력합니다. `<DOWNLOAD_FILE_PATH>`, `<ACCOUNT_NAME>` 및 `<ACCOUNT_KEY>` 자리 표시자는 이전 단계에서 별도로 설정한 해당 값으로 바꿔야 합니다.
+다음 작업은 AzCopy를 사용하여 *.csv* 파일의 데이터를 Azure 저장소에 복사하는 것입니다. 명령 프롬프트 창을 열고 다음 명령을 입력합니다. `<DOWNLOAD_FILE_PATH>`, `<ACCOUNT_KEY>`, <ph id="ph3">`&lt;ACCOUNT_NAME&gt;`</ph> 자리 표시자를 이전 단계에서 별도로 보관한 해당 값으로 바꿔야 합니다.
 
 ```bash
 set ACCOUNT_NAME=<ACCOUNT_NAME>
@@ -159,7 +155,7 @@ dbutils.fs.ls(source + "/temp/parquet/flights")
 acDF = spark.read.format('csv').options(header='true', inferschema='true').load(accountsource + "/<YOUR_CSV_FILE_NAME>.csv")
 acDF.write.parquet(accountsource + '/parquet/airlinecodes')
 
-#read the existing parquet file for the flights database that was created via the Azure Function
+#read the existing parquet file for the flights database that was created earlier
 flightDF = spark.read.format('parquet').options(header='true', inferschema='true').load(accountsource + "/parquet/flights")
 
 #print the schema of the dataframes

@@ -4,17 +4,16 @@ description: 이 문서에서는 Azure Database for PostgreSQL 서버 구성 및
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 05/22/2018
-ms.openlocfilehash: f877f6df51cd7aed29260331d27d5c96f0584afc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 09/27/2018
+ms.openlocfilehash: 8fcb5e8371d6c813eb7f0ab4d23a5aac5c41fb3b
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640016"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404642"
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Azure Database for PostgreSQL 서버
 이 문서에서는 Azure Database for PostgreSQL 서버를 사용할 때의 고려 사항 및 지침을 제공합니다.
@@ -29,7 +28,7 @@ PostgreSQL용 Azure 데이터베이스 서버:
 - 데이터베이스에 대한 네임스페이스를 제공합니다.
 - 강력한 수명 의미 체계를 가진 컨테이너로서 서버를 삭제하고 포함된 데이터베이스를 삭제합니다.
 - 하위 지역에 리소스를 배치합니다.
-- 서버 및 데이터베이스 액세스에 대한 연결 끝점(.postgresql.database.azure.com)을 제공합니다.
+- 서버 및 데이터베이스 액세스에 대한 연결 엔드포인트(.postgresql.database.azure.com)를 제공합니다.
 - 로그인, 방화벽, 사용자, 역할 구성 등 해당 데이터베이스에 적용되는 관리 정책에 대한 범위를 제공합니다.
 - 여러 버전으로 제공됩니다. 자세한 내용은 [지원되는 PostgreSQL 데이터베이스 버전](concepts-supported-versions.md)을 참조하세요.
 - 사용자가 확장할 수 있습니다. 자세한 내용은 [PostgreSQL 확장](concepts-extensions.md)을 참조하세요.
@@ -56,6 +55,7 @@ PostgreSQL 슈퍼 사용자 특성은 관리 서비스에 속하는 azure_superu
 Azure Database for PostgreSQL 서버에는 두 가지 기본 데이터베이스가 있습니다. 
 - **postgres** - 서버가 만들어지면 연결할 수 있는 기본 데이터베이스입니다.
 - **azure_maintenance** - 이 데이터베이스는 관리 서비스를 제공하는 프로세스를 사용자 작업으로부터 분리하는 데 사용됩니다. 이 데이터베이스에 대해서는 액세스 권한이 없습니다.
+- **azure_sys** - 쿼리 저장소용 데이터베이스입니다. 쿼리 저장소가 꺼져 있으면 이 데이터베이스에는 데이터가 누적되지 않습니다(기본 설정). 자세한 내용은 [쿼리 저장소 개요](concepts-query-store.md)를 참조하세요.
 
 
 ## <a name="server-parameters"></a>서버 매개 변수

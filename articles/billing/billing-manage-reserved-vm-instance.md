@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
-ms.author: yashesvi
-ms.openlocfilehash: c530fdca9d5fe499df680211a741bfd9950bb1fe
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.author: cwatson
+ms.openlocfilehash: 0b19bb0d77bb600258596ce369713464641a7d2f
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382153"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423241"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Azure 리소스에 대한 예약 관리
 
@@ -28,7 +28,7 @@ Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 �
 
 ## <a name="change-the-scope-for-a-reservation"></a>예약할 범위 변경
 
- 예약 할인은 예약과 일치하고 예약 범위 내에서 실행되는 가상 머신, SQL 데이터베이스 또는 다른 리소스에 적용됩니다. 예약 범위는 청구 컨텍스트에서 단일 구독이나 모든 구독일 수 있습니다. 단일 구독으로 범위를 설정하는 경우 예약은 선택한 구독에서 실행 중인 리소스와 일치됩니다. 범위를 공유로 설정하는 경우 Azure에서 예약을 청구 컨텍스트 내 모든 구독에서 실행하는 리소스와 일치시킵니다. 청구 컨텍스트는 예약을 구입하는 데 사용되는 구독에 따라 달라집니다.
+ 예약 할인은 예약과 일치하고 예약 범위 내에서 실행되는 가상 머신, SQL 데이터베이스, Azure Cosmos DB 또는 다른 리소스에 적용됩니다. 예약 범위는 청구 컨텍스트에서 단일 구독이나 모든 구독일 수 있습니다. 단일 구독으로 범위를 설정하는 경우 예약은 선택한 구독에서 실행 중인 리소스와 일치됩니다. 범위를 공유로 설정하는 경우 Azure에서 예약을 청구 컨텍스트 내 모든 구독에서 실행하는 리소스와 일치시킵니다. 청구 컨텍스트는 예약을 구입하는 데 사용되는 구독에 따라 달라집니다.
 
 예약의 범위를 업데이트하려면:
 
@@ -91,9 +91,17 @@ Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 �
     Update-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
     ```
 
+## <a name="cancellations-and-exchanges"></a>취소 및 교환
+
+예약 형식에 따라 예약을 취소하거나 교환할 수 있습니다. 자세한 내용은 다음 항목에서 취소 및 교환 섹션을 참조하세요.
+
+- [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](..//virtual-machines/windows/prepay-reserved-vm-instances.md#cancellations-and-exchanges)
+- [Azure Reservations에서 SUSE 소프트웨어 요금제에 대한 선불](../virtual-machines/linux/prepay-suse-software-charges.md#cancellation-and-exchanges-not-allowed)
+- [Azure SQL Database 예약된 용량을 사용하여 SQL Database 계산 리소스 요금 선결제](../sql-database/sql-database-reserved-capacity.md#cancellations-and-exchanges)
+
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Reserved VM Instances에 대한 최적화 설정 변경
 
- Reserved VM Instance를 구매하는 경우 인스턴스 크기 유연성 또는 용량 우선 순위를 선택합니다. 인스턴스 크기 유연성은 동일한 [VM 크기 그룹](https://aka.ms/RIVMGroups)의 다른 VM에 예약 할인을 적용합니다. 용량 우선 순위는 배포를 위해 데이터 센터 용량을 예약합니다. 이 옵션을 사용하면 필요할 때 VM 인스턴스를 보다 확실히 시작할 수 있게 됩니다.
+ Reserved VM Instance를 구매하는 경우 인스턴스 크기 유연성 또는 용량 우선 순위를 선택합니다. 인스턴스 크기 유연성은 동일한 [VM 크기 그룹](https://aka.ms/RIVMGroups)의 다른 VM에 예약 할인을 적용합니다. 용량 우선 순위는 배포를 위해 데이터 센터 용량에서 우선됩니다. 이 옵션을 사용하면 필요할 때 VM 인스턴스를 보다 확실히 시작할 수 있게 됩니다.
 
 기본적으로 예약의 범위를 공유할 경우 인스턴스 크기 유연성이 켜집니다. 데이터 센터 용량은 VM 배포에서 우선적으로 고려되지 않습니다.
 
@@ -114,6 +122,7 @@ Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [Azure 예약이란?](billing-save-compute-costs-reservations.md)
 - [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Azure SQL Database 예약된 용량을 사용하여 SQL Database 계산 리소스 요금 선결제](../sql-database/sql-database-reserved-capacity.md)
+- [Azure Cosmos DB 예약된 용량을 사용하여 Azure Cosmos DB 리소스 요금 선결제](../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Azure Reservations에서 SUSE 소프트웨어 요금제에 대한 선불](../virtual-machines/linux/prepay-suse-software-charges.md)
 - [VM 예약 할인이 적용되는 방식 이해](billing-understand-vm-reservation-charges.md)
 - [SUSE Linux Enterprise 소프트웨어 요금제 할인이 적용되는 방식 이해](../billing/billing-understand-suse-reservation-charges.md)

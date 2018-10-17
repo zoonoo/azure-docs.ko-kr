@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/30/2018
+ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: e124ea3f932a81634191785e7ee69c2492cb32fa
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 75c6b5c34559ad17f662c895352bff5a58da00d4
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312545"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395851"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure Service Bus 및 Event Hubs 프로토콜 가이드의 AMQP 1.0
 
@@ -47,7 +47,7 @@ AMQP는 프레이밍 및 전송 프로토콜입니다. 프레이밍은 네트워
 
 이 프로토콜은 Azure Service Bus와 마찬가지로, 큐 및 게시/구독 엔터티를 지원하는 메시지 브로커와의 상호 작용을 위해 대칭 피어-투-피어 통신에 사용될 수 있습니다. 또한 Azure Event Hubs의 경우와 마찬가지로 상호 작용 패턴이 일반 큐와 다른 메시징 인프라와의 상호 작용에도 사용될 수 있습니다. 이벤트 허브는 이벤트가 전송될 때는 큐처럼 작동하지만, 이벤트가 읽혀질 때 직렬 저장소 서비스처럼 작동합니다. 따라서 테이프 드라이브와 유사한 부분이 있습니다. 클라이언트는 사용 가능한 데이터 스트림으로의 오프셋을 선택한 다음 모든 이벤트를 최신 해당 오프셋에서 사용 가능한 최신 오프셋으로 처리합니다.
 
-AMQP 1.0 프로토콜은 확장 가능하게 설계되었으며 사양을 추가하여 기능을 향상할 수 있습니다. 이 문서에서 설명하는 세 가지 확장 사양이 이러한 경우를 보여 줍니다. 네이티브 AMQP TCP 포트를 구성하는 것이 어려울 수 있는 기존 HTTPS/WebSocket 인프라를 통해 통신할 수 있도록 하기 위해 바인딩 사양에 WebSocket을 통해 AMQP를 계층화하는 방법을 정의합니다. 관리를 위해 요청/응답 방식으로 메시지 인프라와 상호 작용하거나 고급 기능을 제공하기 위해 AMQP 관리 사양은 필요한 기본적인 상호 작용 기본 형식을 정의합니다. 페더레이션된 인증 모델 통합을 위해 AMQP 클레임 기반 보안 사양은 권한 부여 토큰을 연결하고 링크와 연결된 이러한 토큰을 갱신하는 방법을 정의합니다.
+AMQP 1.0 프로토콜은 확장 가능하게 설계되었으며 사양을 추가하여 기능을 향상할 수 있습니다. 이 문서에서 설명하는 세 가지 확장 사양이 이러한 경우를 보여 줍니다. 기존 HTTPS/WebSocket 인프라를 통한 통신에서는 네이티브 AMQP TCP 포트를 구성하기가 어려울 수 있습니다. WebSocket을 통해 AMQP를 계층화하는 방법은 바인딩 사양에서 정의됩니다. 관리를 위해 요청/응답 방식으로 메시지 인프라와 상호 작용하거나 고급 기능을 제공하기 위해 AMQP 관리 사양은 필요한 기본적인 상호 작용 기본 형식을 정의합니다. 페더레이션된 인증 모델 통합을 위해 AMQP 클레임 기반 보안 사양은 권한 부여 토큰을 연결하고 링크와 연결된 이러한 토큰을 갱신하는 방법을 정의합니다.
 
 ## <a name="basic-amqp-scenarios"></a>기본 AMQP 시나리오
 
@@ -68,7 +68,7 @@ Azure Service Bus에서는 항상 TLS를 사용해야 합니다. TLS는 TCP 포�
 Service Bus는 연결 및 TLS를 설정한 후 다음과 같은 두 가지 SASL 메커니즘 옵션을 제공합니다.
 
 * SASL PLAIN은 일반적으로 서버에 사용자 이름 및 암호 자격 증명을 전달하는 데 사용됩니다. Service Bus에는 계정이 없지만, 권한을 부여하고 키와 연결되어 있는 [공유 액세스 보안 규칙](service-bus-sas.md)이 있습니다. 규칙의 이름은 사용자 이름으로 사용되고 키(base64로 인코딩된 텍스트)는 암호로 사용됩니다. 선택한 규칙에 연결된 권한에 따라 연결에서 허용되는 작업이 제어됩니다.
-* SASL ANONYMOUS는 클라이언트가 이후에 설명되는 CBS(클레임 기반 보안) 모델을 사용하려는 경우 SASL 권한 부여를 무시하는 데 사용됩니다. 이 옵션을 사용하면 클라이언트가 CBS 끝점과 상호 작용할 수 있는 정도의 짧은 시간 동안 클라이언트 연결이 익명으로 설정될 수 있으며 CBS 핸드셰이크를 완료해야 합니다.
+* SASL ANONYMOUS는 클라이언트가 이후에 설명되는 CBS(클레임 기반 보안) 모델을 사용하려는 경우 SASL 권한 부여를 무시하는 데 사용됩니다. 이 옵션을 사용하면 클라이언트가 CBS 엔드포인트와 상호 작용할 수 있는 정도의 짧은 시간 동안 클라이언트 연결이 익명으로 설정될 수 있으며 CBS 핸드셰이크를 완료해야 합니다.
 
 전송 연결이 설정된 후에 각 컨테이너는 자발적으로 처리할 최대 프레임 크기를 선언하며, 유휴 시간이 초과한 후 연결에 대해 활동이 없는 경우 일반적으로 연결을 끊습니다.
 
@@ -94,7 +94,7 @@ AMQP는 링크를 통해 메시지를 전송합니다. 링크는 세션을 통�
 
 링크의 이름이 지정되고 노드와 연결됩니다. 맨 앞 부분에서 설명한 것처럼 노드는 컨테이너 내 통신 엔터티입니다.
 
-Service Bus에서 노드는 큐, 토픽, 구독 또는 큐나 구독의 배달 못한 편지 하위 큐에 해당합니다. 따라서 AMQP에 사용되는 노드는 Service Bus 네임스페이스 내에 있는 엔터티의 상대적 이름을 갖습니다. 큐 이름이 **myqueue**이면 AMQP 노드 이름도 같습니다. 토픽 구독은 "구독" 리소스 컬렉션으로 정렬되어 HTTP API 규칙을 따르므로 구독 **sub** 또는 토픽 **mytopic**의 AMQP 노드 이름은 **mytopic/subscriptions/sub**입니다.
+Service Bus에서 노드는 큐, 토픽, 구독 또는 큐나 구독의 배달 못한 편지 하위 큐에 해당합니다. 따라서 AMQP에 사용되는 노드는 Service Bus 네임스페이스 내에 있는 엔터티의 상대적 이름을 갖습니다. 큐 이름이 `myqueue`이면 AMQP 노드 이름도 같습니다. 토픽 구독은 "구독" 리소스 컬렉션으로 정렬되어 HTTP API 규칙을 따르므로 구독 **sub** 또는 토픽 **mytopic**의 AMQP 노드 이름은 **mytopic/subscriptions/sub**입니다.
 
 링크를 만들기 위해서는 연결하는 클라이언트가 로컬 노드 이름을 사용해야 합니다. Service Bus는 이러한 노드 이름을 강제적으로 규정하지 않으며 해석하지 않습니다. AMQP 1.0 클라이언트 스택은 일반적으로 클라이언트의 범위에서 이러한 임시 노드 이름이 고유하도록 하는 체계를 사용합니다.
 
@@ -146,21 +146,21 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 
 | 클라이언트 | Service Bus |
 | --- | --- |
-| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={entity name},<br/>target={client link id}<br/>) |클라이언트는 수신자로서 엔터티에 연결합니다. |
-| Service Bus는 응답하고 링크의 해당 끝을 연결합니다. |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={entity name},<br/>target={client link id}<br/>) |
+| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={entity name},<br/>target={client link ID}<br/>) |클라이언트는 수신자로서 엔터티에 연결합니다. |
+| Service Bus는 응답하고 링크의 해당 끝을 연결합니다. |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={entity name},<br/>target={client link ID}<br/>) |
 
 #### <a name="create-message-sender"></a>메시지 발신자 만들기
 
 | 클라이언트 | Service Bus |
 | --- | --- |
-| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>) |작업 없음 |
-| 작업 없음 |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={client link id},<br/>target={entity name}<br/>) |
+| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link ID},<br/>target={entity name}<br/>) |작업 없음 |
+| 작업 없음 |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={client link ID},<br/>target={entity name}<br/>) |
 
 #### <a name="create-message-sender-error"></a>메시지 발신자 만들기(오류)
 
 | 클라이언트 | Service Bus |
 | --- | --- |
-| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>) |작업 없음 |
+| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link ID},<br/>target={entity name}<br/>) |작업 없음 |
 | 작업 없음 |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={numeric handle},<br/>closed=**true**,<br/>error={error info}<br/>) |
 
 #### <a name="close-message-receiversender"></a>메시지 수신자/발신자 닫기
@@ -175,14 +175,14 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 | 클라이언트 | Service Bus |
 | --- | --- |
 | --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |작업 없음 |
-| 작업 없음 |<-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**<br/>) |
+| 작업 없음 |<-- disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>state=**accepted**<br/>) |
 
 #### <a name="send-error"></a>전송(오류)
 
 | 클라이언트 | Service Bus |
 | --- | --- |
 | --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |작업 없음 |
-| 작업 없음 |<-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={error info}<br/>)<br/>) |
+| 작업 없음 |<-- disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={error info}<br/>)<br/>) |
 
 #### <a name="receive"></a>수신
 
@@ -190,7 +190,7 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 | --- | --- |
 | --> flow(<br/>link-credit=1<br/>) |작업 없음 |
 | 작업 없음 |< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
-| --> disposition(<br/>role=**receiver**,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**<br/>) |작업 없음 |
+| --> disposition(<br/>role=**receiver**,<br/>first={delivery ID},<br/>last={delivery ID},<br/>settled=**true**,<br/>state=**accepted**<br/>) |작업 없음 |
 
 #### <a name="multi-message-receive"></a>다중 메시지 수신
 
@@ -200,7 +200,7 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 | 작업 없음 |< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
 | 작업 없음 |< transfer(<br/>delivery-id={numeric handle+1},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
 | 작업 없음 |< transfer(<br/>delivery-id={numeric handle+2},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
-| --> disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id+2},<br/>settled=**true**,<br/>state=**accepted**<br/>) |작업 없음 |
+| --> disposition(<br/>role=receiver,<br/>first={delivery ID},<br/>last={delivery ID+2},<br/>settled=**true**,<br/>state=**accepted**<br/>) |작업 없음 |
 
 ### <a name="messages"></a>메시지
 
@@ -225,7 +225,7 @@ Service Bus API는 현재 이러한 옵션을 직접적으로 제공하지 않�
 | message-id |이 메시지에 대한 응용 프로그램 정의 자유 형식 식별자입니다. 중복 검색에 사용됩니다. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) |
 | user-id |Service Bus에서 해석되지 않는 응용 프로그램 정의 사용자 식별자입니다. |Service Bus API를 통해 액세스할 수 없습니다. |
 | to |Service Bus에서 해석되지 않는 응용 프로그램 정의 대상 식별자입니다. |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
-| subject |Service Bus에서 해석되지 않는 응용 프로그램 정의 메시지 용도 식별자입니다. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
+| 제목 |Service Bus에서 해석되지 않는 응용 프로그램 정의 메시지 용도 식별자입니다. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
 | reply-to |Service Bus에서 해석되지 않는 응용 프로그램 정의 회산 경로 식별자입니다. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
 | correlation-id |Service Bus에서 해석되지 않는 응용 프로그램 정의 상관 관계 식별자입니다. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CorrelationId) |
 | content-type |Service Bus에서 해석되지 않는 본문에 대한 응용 프로그램 정의 콘텐츠 형식 지표입니다. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
@@ -264,14 +264,14 @@ AMQP 메시지 속성의 일부가 아니고, 메시지의 `MessageAnnotations`�
 
 #### <a name="starting-a-transaction"></a>트랜잭션 시작
 
-트랜잭션 작업을 시작하려면 컨트롤러가 코디네이터에서 `txn-id`를 가져와야 합니다. 이를 위해 `declare` 형식 메시지를 전송합니다. 선언에 성공하면 코디네이터가 할당된 `txn-id`를 전달하는 `declared`의 배치 결과로 응답합니다.
+트랜잭션 작업을 시작하려면 컨트롤러가 코디네이터에서 `txn-id`를 가져와야 합니다. 이를 위해 `declare` 형식 메시지를 전송합니다. 선언에 성공하면 코디네이터가 다음과 같은 처리 결과로 응답을 합니다. 이 응답에 할당된 `txn-id`가 포함되어 있습니다.
 
 | 클라이언트(컨트롤러) | | Service Bus(코디네이터) |
 | --- | --- | --- |
 | attach(<br/>name={link name},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>) | ------> |  |
 |  | <------ | attach(<br/>name={link name},<br/>... ,<br/>target=Coordinator()<br/>) |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (**Declare()**)}| ------> |  |
-|  | <------ | disposition( <br/> first=0, last=0, <br/>state=**Declared**(<br/>**txn-id**={transaction id}<br/>))|
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=**Declared**(<br/>**txn-id**={transaction ID}<br/>))|
 
 #### <a name="discharging-a-transaction"></a>트랜잭션 해제
 
@@ -282,8 +282,8 @@ AMQP 메시지 속성의 일부가 아니고, 메시지의 `MessageAnnotations`�
 | 클라이언트(컨트롤러) | | Service Bus(코디네이터) |
 | --- | --- | --- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
-|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction id}<br/>))|
-| | 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. <br/>다른 링크의<br/>트랜잭션 작업<br/> 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. 에서도 확인할 수 있습니다. |
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
+| | . . . <br/>다른 링크의<br/>트랜잭션 작업<br/> . . . |
 | transfer(<br/>delivery-id=57, ...)<br/>{ AmqpValue (<br/>**Discharge(txn-id=0,<br/>fail=false)**)}| ------> |  |
 | | <------ | disposition( <br/> first=57, last=57, <br/>state=**Accepted()**)|
 
@@ -294,7 +294,7 @@ AMQP 메시지 속성의 일부가 아니고, 메시지의 `MessageAnnotations`�
 | 클라이언트(컨트롤러) | | Service Bus(코디네이터) |
 | --- | --- | --- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
-|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction id}<br/>))|
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
 | transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)**)<br/>{ payload }| ------> |  |
 | | <------ | disposition( <br/> first=1, last=1, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))|
 
@@ -305,7 +305,7 @@ AMQP 메시지 속성의 일부가 아니고, 메시지의 `MessageAnnotations`�
 | 클라이언트(컨트롤러) | | Service Bus(코디네이터) |
 | --- | --- | --- |
 | transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (Declare())}| ------> |  |
-|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction id}<br/>))|
+|  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={transaction ID}<br/>))|
 | | <------ |transfer(<br/>handle=2,<br/>delivery-id=11, <br/>state=null)<br/>{ payload }|  
 | disposition( <br/> first=11, last=11, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))| ------> |
 
@@ -361,10 +361,10 @@ CBS는 *$cbs*라는 가상 관리 노드가 메시징 인프라에 의해 제공
 
 | 키 | 옵션 | 값 형식 | 값 내용 |
 | --- | --- | --- | --- |
-| operation |아니오 |string |**put-token** |
-| 형식 |아니오 |string |배치되는 토큰의 형식입니다. |
-| 이름 |아니오 |string |토큰이 적용되는 "대상"입니다. |
-| expiration |예 |timestamp |토큰의 만료 시간입니다. |
+| operation |아니요 |string |**put-token** |
+| 형식 |아니요 |string |배치되는 토큰의 형식입니다. |
+| 이름 |아니요 |string |토큰이 적용되는 "대상"입니다. |
+| expiration |yes |timestamp |토큰의 만료 시간입니다. |
 
 *name* 속성은 토큰이 연결되어야 하는 엔터티를 식별합니다. Service Bus에서 큐 또는 토픽/구독에 대한 경로에 해당합니다. *type* 속성은 토큰 형식을 식별합니다.
 
@@ -380,8 +380,8 @@ CBS는 *$cbs*라는 가상 관리 노드가 메시징 인프라에 의해 제공
 
 | 키 | 옵션 | 값 형식 | 값 내용 |
 | --- | --- | --- | --- |
-| status-code |아니오 |int |HTTP 응답 코드 **[RFC2616]** |
-| status-description |예 |string |상태에 대한 설명입니다. |
+| status-code |아니요 |int |HTTP 응답 코드 **[RFC2616]** |
+| status-description |yes |string |상태에 대한 설명입니다. |
 
 클라이언트는 메시징 인프라의 모든 엔터티에 대해 반복적으로 *put-token*을 호출할 수 있습니다. 토큰은 현재 클라이언트로 범위가 지정되며 현재 연결에 고정됩니다. 즉, 연결이 삭제되면 서버는 보유된 토큰을 모두 삭제합니다.
 
@@ -391,11 +391,11 @@ CBS는 *$cbs*라는 가상 관리 노드가 메시징 인프라에 의해 제공
 
 연결 및 세션이 설정되고 나면 링크가 *$cbs* 노드에 연결되고 *put-token* 요청이 전송될 수만 있습니다. 연결이 설정되고 20초 이내에 일부 엔터티 노드에 대해 *put-token* 요청을 사용하여 유효한 토큰을 설정해야 합니다. 그러지 않으면 Service Bus에서 일방적으로 연결을 삭제합니다.
 
-클라이언트는 이후에 토큰 만료를 계속 추적해야 합니다. 토큰이 만료되면 Service Bus는 각 엔터티에 대한 연결에서 모든 링크를 즉시 삭제합니다. 이를 방지하기 위해 클라이언트는 다른 링크에서 흐르는 페이로드 트래픽을 방해하지 않으면서 가상 *$cbs* 관리 노드에서 *put-token* 제스처를 사용하여 언제든지 노드에 대한 토큰을 새 토큰으로 바꿀 수 있습니다.
+클라이언트는 이후에 토큰 만료를 계속 추적해야 합니다. 토큰이 만료되면 Service Bus는 각 엔터티에 대한 연결에서 모든 링크를 즉시 삭제합니다. 문제 발생을 방지하기 위해 클라이언트는 다른 링크에서 흐르는 페이로드 트래픽을 방해하지 않으면서 가상 *$cbs* 관리 노드에서 *put-token* 제스처를 사용하여 언제든지 노드에 대한 토큰을 새 토큰으로 바꿀 수 있습니다.
 
 ### <a name="send-via-functionality"></a>경유 전송 기능
 
-[경유 전송/전송자 전송](service-bus-transactions.md#transfers-and-send-via)은 서비스 버스가 다른 엔터티를 통해 특정 메시지를 대상 엔터티로 전달할 수 있게 해주는 기능입니다. 이는 주로 단일 트랜잭션 내에서 엔터티 간 작업을 수행하는 데 사용됩니다.
+[경유 전송/전송자 전송](service-bus-transactions.md#transfers-and-send-via)은 서비스 버스가 다른 엔터티를 통해 특정 메시지를 대상 엔터티로 전달할 수 있게 해주는 기능입니다. 이 기능은 단일 트랜잭션 내에서 엔터티 간 작업을 수행하는 데 사용됩니다.
 
 이 기능을 통해 전송자를 만들고 `via-entity`에 대한 링크를 설정할 수 있습니다. 링크를 설정하는 동안 이 링크의 메시지/전송 대상을 설정하기 위한 추가 정보가 전달됩니다. 연결에 성공하면 이 링크에 전송된 모든 메시지가 *via-entity*를 통해 *destination-entity*로 자동 전달됩니다. 
 
@@ -403,8 +403,8 @@ CBS는 *$cbs*라는 가상 관리 노드가 메시징 인프라에 의해 제공
 
 | 클라이언트 | | Service Bus |
 | --- | --- | --- |
-| attach(<br/>name={link name},<br/>role=sender,<br/>source={client link id},<br/>target=**{via-entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
-| | <------ | attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link id},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |
+| attach(<br/>name={link name},<br/>role=sender,<br/>source={client link ID},<br/>target=**{via-entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
+| | <------ | attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link ID},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |
 
 ## <a name="next-steps"></a>다음 단계
 

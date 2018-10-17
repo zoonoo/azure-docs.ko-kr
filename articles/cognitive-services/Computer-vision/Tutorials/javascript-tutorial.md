@@ -1,24 +1,25 @@
 ---
-title: Computer Vision API JavaScript 자습서 | Microsoft Docs
-description: Microsoft Cognitive Services에서 Computer Vision API를 사용하는 기본 JavaScript 앱을 살펴봅니다. OCR을 수행하고, 썸네일을 만들고, 이미지에서 시각적 기능을 사용하여 작업합니다.
+title: '자습서: Computer Vision API JavaScript'
+titlesuffix: Azure Cognitive Services
+description: Azure Cognitive Services에서 Computer Vision API를 사용하는 기본 JavaScript 앱을 살펴봅니다. OCR를 수행하고, 썸네일을 만들고, 이미지의 시각적 기능으로 작업합니다.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: kefre
-ms.openlocfilehash: 89bdc0524e07c1cb6a1473e0a52791fe20271e06
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6dc6eec729fc1be3f0a859834597bf2d5785d9bc
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373446"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984927"
 ---
-# <a name="computer-vision-api-javascript-tutorial"></a>Computer Vision API JavaScript 자습서
+# <a name="tutorial-computer-vision-api-javascript"></a>자습서: Computer Vision API JavaScript
 
-이 자습서에서는 Microsoft Cognitive Services Computer Vision REST API의 기능을 보여 줍니다.
+이 자습서에서는 Azure Cognitive Services Computer Vision REST API의 기능을 보여 줍니다.
 
 Computer Vision REST API를 사용하는 JavaScript 응용 프로그램을 탐색하여 OCR(광학 인식)을 수행하고, 스마트하게 잘리는 썸네일을 만들고, 이미지에서 얼굴을 포함한 시각적 기능을 감지, 분류, 태그 지정 및 설명합니다. 이 예제에서는 분석 또는 처리할 이미지 URL을 제출할 수 있습니다. 이 오픈 소스 예제는 JavaScript에서 사용자 고유의 앱을 빌드하여 Computer Vision REST API를 사용하기 위한 템플릿으로 사용할 수 있습니다.
 
@@ -32,7 +33,7 @@ JavaScript 양식 응용 프로그램은 이미 작성되어 있지만 Computer 
 
 ### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Computer Vision API 구독 및 구독 키 가져오기 
 
-예제를 만들기 전에 먼저 Microsoft Cognitive Services의 일부인 Computer Vision API를 구독해야 합니다. 구독 및 키 관리에 대한 자세한 내용은 [구독](https://azure.microsoft.com/try/cognitive-services/)을 참조하세요. 기본 및 보조 키는 모두 이 자습서에서 사용할 수 있습니다. 
+예제를 만들기 전에 먼저 Azure Cognitive Services의 일부인 Computer Vision API를 구독해야 합니다. 구독 및 키 관리에 대한 자세한 내용은 [구독](https://azure.microsoft.com/try/cognitive-services/)을 참조하세요. 기본 및 보조 키는 모두 이 자습서에서 사용할 수 있습니다. 
 
 ## <a name="download-the-tutorial-project"></a>자습서 프로젝트 다운로드
 

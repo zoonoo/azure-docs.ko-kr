@@ -4,39 +4,36 @@ description: Azure Event Grid를 사용하여 Media Services 작업 상태 변�
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 09/20/2018
 ms.author: juliako
-ms.openlocfilehash: e9df0cd24ef890765b78c25a073d671889be10a7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e7268a066acf41c454de0c66aa21603199d85a60
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723745"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034844"
 ---
 # <a name="route-azure-media-services-events-to-a-custom-web-endpoint-using-cli"></a>CLI를 사용하여 Azure Media Services 이벤트를 사용자 지정 웹 엔드포인트로 라우팅
 
 Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문서에서는 Azure CLI를 사용하여 Azure Media Services 작업 상태 변경 이벤트를 구독하고 이벤트를 트리거하여 결과를 확인합니다. 
 
-일반적으로 이벤트에 응답하는 끝점(예: 웹후크 또는 Azure Function)으로 이벤트를 보냅니다. 이 자습서는 웹후크를 만들고 설정하는 방법을 보여줍니다.
+일반적으로 이벤트에 응답하는 엔드포인트(예: 웹후크 또는 Azure Function)로 이벤트를 보냅니다. 이 자습서는 웹후크를 만들고 설정하는 방법을 보여줍니다.
 
-이 문서에서 설명하는 단계를 완료하면 이벤트 데이터가 끝점으로 보내졌음을 알 수 있습니다.
+이 문서에서 설명하는 단계를 완료하면 이벤트 데이터가 엔드포인트로 보내졌음을 알 수 있습니다.
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+## <a name="prerequisites"></a>필수 조건
 
-다음 단계와 같이[Azure Portal](http://portal.azure.com)에 로그인하고 **CloudShell**을 시작하여 CLI명령을 실행합니다.
+- 활성 Azure 구독
+- [Media Services 계정 만들기](create-account-cli-how-to.md)
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+    리소스 그룹 이름 및 Media Services 계정 이름에 사용한 값을 기억해 두세요.
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 문서에서 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
-
-Media Services 계정 이름, 저장소 이름 및 리소스 이름에 사용한 값을 기억해야 합니다.
+- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 설치합니다. 이 문서에서 설명하는 단계를 수행하려면 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. [Azure Cloud Shell](https://shell.azure.com/bash)을 사용할 수도 있습니다.
 
 ## <a name="enable-event-grid-resource-provider"></a>Event Grid 리소스 공급자를 사용하도록 설정
 
@@ -45,14 +42,14 @@ Media Services 계정 이름, 저장소 이름 및 리소스 이름에 사용한
 **Azure** Portal에서 다음을 수행합니다.
 
 1. 구독으로 이동합니다.
-2. 사용 중인 구독을 선택합니다.
+2. 구독을 선택합니다.
 3. 설정에서 리소스 공급자를 선택합니다.
 4. "EventGrid"를 검색합니다.
 5. Event Grid가 등록되어 있는지 확인합니다. 그렇지 않으면 **등록** 단추를 누릅니다.  
 
 ## <a name="create-a-generic-azure-function-webhook"></a>제네릭 Azure Function 웹후크 만들기 
 
-### <a name="create-a-message-endpoint"></a>메시지 끝점 만들기
+### <a name="create-a-message-endpoint"></a>메시지 엔드포인트 만들기
 
 Event Grid의 문서를 구독하기 전에 메시지를 볼 수 있도록 메시지를 수집하는 엔드포인트를 만듭니다.
 
@@ -132,7 +129,7 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 
 추적하려는 이벤트를 Event Grid에 알리도록 문서를 구독합니다. 다음 예제에서는 사용자가 만든 Media Services 계정을 구독하고 이벤트 알림을 위해 엔드포인트로 만든 Azure Function 웹후크의 URL을 전달합니다. 
 
-`<event_subscription_name>`을 이벤트 구독의 고유 이름으로 바꿉니다. `<resource_group_name>` 및 `<ams_account_name>`에는 앞에서 만든 값을 사용합니다.  `<endpoint_URL>`에 대해 엔드포인트 URL을 붙여넣습니다. URL에서 *&clientID=default*를 제거합니다. 구독할 때 끝점을 지정하면 Event Grid에서 해당 끝점으로 이벤트 라우팅을 처리합니다. 
+`<event_subscription_name>`을 이벤트 구독의 고유 이름으로 바꿉니다. `<resource_group_name>` 및 `<ams_account_name>`에는 Media Services 계정을 만들 때 사용한 값을 사용합니다. `<endpoint_URL>`에 대해 엔드포인트 URL을 붙여넣습니다. URL에서 *&clientID=default*를 제거합니다. 구독할 때 엔드포인트를 지정하면 Event Grid에서 해당 엔드포인트로 이벤트 라우팅을 처리합니다. 
 
 ```cli
 amsResourceId=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
@@ -145,15 +142,17 @@ az eventgrid event-subscription create \
 
 Media Services 계정 리소스 ID 값은 다음과 유사합니다.
 
+```
 /subscriptions/81212121-2f4f-4b5d-a3dc-ba0015515f7b/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amstestaccount
+```
 
 ## <a name="test-the-events"></a>이벤트 테스트
 
 인코딩 작업을 실행합니다. 예를 들어 [비디오 파일 스트리밍](stream-files-dotnet-quickstart.md) 빠른 시작을 참조합니다.
 
-이벤트를 트리거했고 Event Grid가 구독할 때 구성한 끝점으로 메시지를 보냈습니다. 앞에서 작성한 웹후크로 이동합니다. **모니터**와 **새로 고침**을 클릭합니다. 작업의 상태 변경 이벤트는 "큐에 대기됨", "예약됨", "처리 중", "완료됨", "오류", "취소됨", "취소 중"으로 표시됩니다.  자세한 내용은 [Media Services 이벤트 스키마](media-services-event-schemas.md)를 참조하세요.
+이벤트를 트리거했고 Event Grid가 구독할 때 구성한 엔드포인트로 메시지를 보냈습니다. 앞에서 작성한 웹후크로 이동합니다. **모니터**와 **새로 고침**을 클릭합니다. 작업의 상태 변경 이벤트는 "큐에 대기됨", "예약됨", "처리 중", "완료됨", "오류", "취소됨", "취소 중"으로 표시됩니다.  자세한 내용은 [Media Services 이벤트 스키마](media-services-event-schemas.md)를 참조하세요.
 
-예: 
+JobStateChange 이벤트의 스키마를 보여 주는 예제는 다음과 같습니다.
 
 ```json
 [{
@@ -172,16 +171,6 @@ Media Services 계정 리소스 ID 값은 다음과 유사합니다.
 ```
 
 ![테스트 이벤트](./media/job-state-events-cli-how-to/test_events.png)
-
-## <a name="clean-up-resources"></a>리소스 정리
-
-이 저장소 계정 및 이벤트 구독을 계속 사용하려면 이 문서에서 만든 리소스를 정리하지 마세요. 계속하지 않으려는 경우 다음 명령을 사용하여 이 문서에서 만든 리소스를 삭제합니다.
-
-`<resource_group_name>`을 위에서 만든 리소스 그룹으로 바꿉니다.
-
-```azurecli-interactive
-az group delete --name <resource_group_name>
-```
 
 ## <a name="next-steps"></a>다음 단계
 

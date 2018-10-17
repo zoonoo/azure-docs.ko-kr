@@ -1,25 +1,25 @@
 ---
-title: Translator Text Java를 사용하여 텍스트 스크립트 변환 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 이 빠른 시작에서는 Cognitive Services에서 Java와 함께 Translator Text API를 사용하여 특정 언어의 텍스트를 한 스크립트에서 다른 스크립트로 변환합니다.
+title: '빠른 시작: 텍스트 스크립트 변환 - Translator Text, Java'
+titleSuffix: Azure Cognitive Services
+description: 이 빠른 시작에서는 Java와 함께 Translator Text API를 사용하여 하나의 스크립트에서 한 언어의 텍스트를 다른 언어로 변환합니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 6f7353ba0a51bdeec2450d7435f3b738687db766
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 47d0462dcf7e54a3c2b2e2ea8b713b02af2baf37
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "43750428"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297434"
 ---
 # <a name="quickstart-transliterate-text-with-java"></a>빠른 시작: Java를 사용하여 텍스트 음역
 
-이 빠른 시작에서는 Translator Text API를 사용하여 한 언어의 텍스트를 다른 언어로 변환합니다.
+이 빠른 시작에서는 Translator Text API를 사용하여 하나의 스크립트에서 한 언어의 텍스트를 다른 언어로 변환합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

@@ -14,23 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 143d0d4b66fc8e6e62364090e3d3187c4aa7bb51
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 4dc61258df2311c4e7ccd4c05ebe077b3e2343eb
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42919009"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222287"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿으로 다중 VM 환경 및 PaaS 리소스 만들기
 
 [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040)을 사용하면 쉽게 [랩에 한 번에 하나의 VM을 추가](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm)할 수 있습니다. 그러나 환경에서 여러 VM을 포함하는 경우 각 VM을 개별적으로 만들어야 합니다. 다중 계층 웹앱 또는 SharePoint 팜과 같은 시나리오의 경우 한 번에 여러 VM을 만들 수 있는 메커니즘이 필요합니다. Azure Resource Manager 템플릿을 사용하면 Azure 솔루션의 인프라와 구성을 정의하고 여러 VM을 일관된 상태로 반복적으로 배포할 수 있습니다. 이 기능은 다음과 같은 이점을 제공합니다.
 
-- Azure Resource Manager 템플릿은 소스 제어 리포지토리(GitHub 또는 Team Services Git)에서 직접 로드됩니다.
+- Azure Resource Manager 템플릿은 소스 제어 리포지토리(GitHub 또는 Azure DevOps Services Git)에서 직접 로드됩니다.
 - 일단 구성되면 사용자가 Azure Portal에서 다른 유형의 [VM 자료](./devtest-lab-comparing-vm-base-image-types.md)를 처리하는 것처럼 Azure Resource Manager 템플릿을 선택하여 환경을 만들 수 있습니다.
 - Azure Resource Manager 템플릿과 IaaS VM의 환경에서 Azure PaaS 리소스를 프로비전할 수 있습니다.
 - 다른 유형의 자료로 만든 개별 VM 외에도 랩에서 환경의 비용을 추적할 수 있습니다.
 - PaaS 리소스가 만들어지고 비용 추적에 표시되지만 VM 자동 종료는 PaaS 리소스에 적용되지 않습니다.
-- 사용자가 단일 랩 VM 환경과 동일한 VM 정책을 제어할 수 있습니다.
 
 단일 작업에서 모든 랩 리소스를 배포, 업데이트 또는 삭제하는 데 많은 [Resource Manager 템플릿 사용의 이점](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#the-benefits-of-using-resource-manager)에 대해 자세히 알아봅니다.
 
@@ -42,7 +41,7 @@ ms.locfileid: "42919009"
 Azure DevTest Labs에 제공되는 [Azure Resource Manager 템플릿의 공용 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Environments)를 사용하면 외부 GitHub 소스에 직접 연결하지 않고도 환경을 구축할 수 있습니다. 이 리포지토리에는 Azure Web Apps, Service Fabric Cluster 및 개발 SharePoint Farm 환경처럼 자주 사용되는 템플릿이 포함되어 있습니다. 이 기능은 사용자가 만든 모든 랩에 포함된 아티팩트의 공용 리포지토리와 비슷합니다. 이 환경 리포지토리를 사용하면 랩 내에서 PaaS 리소스에 원활한 시작 환경을 제공하기 위해 최소한의 입력 매개 변수로 미리 작성된 환경 템플릿으로 빠르게 시작할 수 있습니다. 자세한 내용은 [DevTest Labs에서 공용 환경 구성 및 사용](devtest-lab-configure-use-public-environments.md)을 참조하세요.
 
 ## <a name="configure-your-own-template-repositories"></a>사용자 고유의 템플릿 리포지토리 구성
-코드 기반 인프라와 코드 기반 구성을 사용하는 모범 사례 중 하나인 환경 템플릿은 소스 제어에서 관리해야 합니다. Azure DevTest Labs에서는 이 사례를 따르고 GitHub 또는 VSTS Git 리포지토리에서 직접 Azure Resource Manager 템플릿을 모두 로드합니다. 결과적으로, Resource Manager 템플릿은 테스트 환경에서 프로덕션 환경까지 전체 릴리스 주기에서 사용될 수 있습니다.
+코드 기반 인프라와 코드 기반 구성을 사용하는 모범 사례 중 하나인 환경 템플릿은 소스 제어에서 관리해야 합니다. Azure DevTest Labs에서는 이 사례를 따르고 GitHub 또는 Azure DevOps Services Git 리포지토리에서 직접 Azure Resource Manager 템플릿을 모두 로드합니다. 결과적으로, Resource Manager 템플릿은 테스트 환경에서 프로덕션 환경까지 전체 릴리스 주기에서 사용될 수 있습니다.
 
 [공용 GitHub 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Environments)에서 DevTest Labs 팀이 만든 템플릿을 확인하세요. 이 공용 리포지토리에서 직접 사용하거나 필요에 맞게 사용자 지정할 수 있으며 다른 사용자가 공유한 템플릿을 볼 수 있습니다. 템플릿을 만든 후 이를 다른 사용자와 공유하려면 이 리포지토리에 저장합니다. 클라우드에서 환경을 설정하는 데 사용될 수 있는 템플릿으로 사용자 고유의 Git 리포지토리를 설정할 수 있습니다. 
 
@@ -79,9 +78,9 @@ Azure DevTest Labs에 제공되는 [Azure Resource Manager 템플릿의 공용 �
 1. **추가+** 를 선택하여 Azure Resource Manager 템플릿 리포지토리를 추가합니다.
 1. 두 번째 **리포지토리** 창이 열리면 다음과 같이 필요한 정보를 입력합니다.
     - **이름** - 랩에서 사용되는 리포지토리 이름을 입력합니다.
-    - **Git 복제 URL** - GitHub 또는 Visual Studio Team Services의 GIT HTTPS 복제 URL을 입력합니다.  
+    - **Git 복제 URL** - GitHub 또는 Azure DevOps Services의 GIT HTTPS 복제 URL을 입력합니다.  
     - **분기** - Azure Resource Manager 템플릿 정의에 액세스하기 위한 분기 이름을 입력합니다. 
-    - **개인 액세스 토큰** - 개인 액세스 토큰은 리포지토리에 안전하게 액세스하는 데 사용됩니다. Visual Studio Team Services에서 토큰을 가져오려면 **&lt;YourName>> 내 프로필> 보안> 공용 액세스 토큰**을 차례로 선택합니다. GitHub에서 토큰을 가져오려면 **설정 > 공용 액세스 토큰**을 선택한 다음 아바타를 선택합니다. 
+    - **개인 액세스 토큰** - 개인 액세스 토큰은 리포지토리에 안전하게 액세스하는 데 사용됩니다. Azure DevOps Services에서 토큰을 가져오려면 **&lt;YourName> > 내 프로필 > 보안 > 공용 액세스 토큰**을 차례로 선택합니다. GitHub에서 토큰을 가져오려면 **설정 > 공용 액세스 토큰**을 선택한 다음 아바타를 선택합니다. 
     - **폴더 경로** - 두 입력 필드 중 하나를 사용하여 슬래시(/)로 시작하는 폴더 경로를 입력합니다. 이 경로는 아티팩트 정의(첫 번째 입력 필드) 또는 Azure Resource Manager 템플릿 정의에 대한 Git 복제 URI의 상대 경로입니다.   
     
         ![공용 리포지토리](./media/devtest-lab-create-environment-from-arm/repo-values.png)

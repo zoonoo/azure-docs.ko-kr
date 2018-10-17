@@ -97,6 +97,8 @@ items:
         href: sql-database-service-tiers-general-purpose-business-critical.md
       - name: 하이퍼스케일
         href: sql-database-service-tier-hyperscale.md
+      - name: 하이퍼스케일 FAQ
+        href: sql-database-service-tier-hyperscale-faq.md
     - name: DTU 서비스 계층
       href: sql-database-service-tiers-dtu.md
     - name: 예약된 용량 선불
@@ -161,6 +163,8 @@ items:
       href: sql-database-business-continuity.md
     - name: 고가용성
       href: sql-database-high-availability.md
+    - name: 가속 데이터베이스 복구
+      href: sql-database-accelerated-database-recovery.md
     - name: 데이터베이스 백업
       href: sql-database-automated-backups.md
     - name: 장기 백업 보존
@@ -179,13 +183,13 @@ items:
         href: sql-database-geo-replication-portal.md
       - name: 복제본에 대한 보안 구성
         href: sql-database-geo-replication-security-config.md
-    - name: 데이터베이스 복구
+    - name: 데이터베이스 복구 옵션
       items:
-      - name: 데이터베이스 복구
+      - name: 백업을 사용한 복구
         href: sql-database-recovery-using-backups.md
-      - name: 가동 중단에서 복구
+      - name: 중단 복구 지침
         href: sql-database-disaster-recovery.md
-      - name: 복구 드릴 수행
+      - name: 복구 훈련
         href: sql-database-disaster-recovery-drills.md
     - name: 앱 디자인
       items:
@@ -319,7 +323,7 @@ items:
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: SQL 기능 비교
     href: sql-database-features.md
-  - name: 성능 및 튜닝
+  - name: 성능 및 모니터링
     items:
     - name: 지능형 성능
       items:
@@ -630,9 +634,9 @@ items:
     href: /azure/architecture/
   - name: 고객 사례
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: abafd9d9022b306ce090b618ecc9477cd95c714e
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: e39e94ccbf1da42b10cd8c618cd27c2a7eb214de
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869247"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353513"

@@ -2,16 +2,17 @@
 ms.assetid: ''
 title: Azure Key Vault 일시 삭제 | Microsoft Docs
 ms.service: key-vault
+ms.topic: conceptual
 author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: ccdefc83642285194635ffe7b561e9e322360533
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: ac34f03c896e9e2180b653c41faa7f7525a40e33
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42146435"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407878"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault 일시 삭제 개요
 
@@ -36,9 +37,26 @@ Azure Key Vault는 Azure Resource Manager에서 관리하는 추적된 리소스
 
 ### <a name="soft-delete-behavior"></a>일시 삭제 동작
 
-이 기능을 사용할 경우 Key Vault 또는 Key Vault 개체에 대한 삭제 작업이 일시 삭제되므로, 개체가 삭제된 것처럼 표시되지만 지정된 보존 기간 동안 리소스가 유지됩니다. 또한 서비스는 삭제된 개체를 복구하고 기본적으로 삭제를 취소하는 메커니즘을 제공합니다. 
+이 기능을 사용할 경우 Key Vault 또는 Key Vault 개체에 대한 DELETE 작업은 일시 삭제로 수행됩니다. 즉, 지정된 보존 기간(90일) 동안 리소스가 유지되며 개체는 삭제된 것으로 표시됩니다. 또한 서비스는 삭제된 개체를 복구하고 기본적으로 삭제를 취소하는 메커니즘을 제공합니다. 
 
 일시 삭제는 선택적 Key Vault 동작이며, 이 릴리스에서 **기본적으로 사용되지 않습니다**. 
+
+### <a name="purge-protection--flag"></a>보호 플래그 제거
+제거 보호(Azure CLI의 **--enable-purge-protection**) 플래그는 기본적으로 해제되어 있습니다. 이 플래그를 설정하면 보존 기간인 90일이 지날 때까지 삭제된 상태의 자격 증명 모음이나 개체를 제거할 수 없습니다. 즉, 이러한 자격 증명 모음 또는 개체는 여전히 복구할 수 있는 상태입니다. 고객은 이 플래그를 설정함으로써 보존 기간이 지날 때까지는 자격 증명 모음이나 개체가 영구적으로 삭제되지 않도록 할 수 있습니다. 제거 보호 플래그는 일시 삭제 플래그가 설정되어 있는 경우에만 설정할 수 있습니다. 또는 자격 증명 모음 생성 시에 일시 삭제와 제거 보호를 모두 설정할 수 있습니다.
+
+[!NOTE] 제거 보호 설정을 위한 필수 구성 요소는 일시 삭제를 설정해야 한다는 것입니다. Azure CLI 2에서 일시 삭제를 설정하는 명령은 다음과 같습니다.
+
+```
+az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true
+```
+
+### <a name="permitted-purge"></a>허용된 제거
+
+프록시 리소스에 대한 POST 작업을 통해 주요 자격 증명 모음을 영구 삭제, 즉 제거할 수 있으며, 특별한 권한이 필요합니다. 일반적으로 구독 소유자만 주요 자격 증명 모음을 제거할 수 있습니다. POST 작업은 해당 자격 증명 모음에 대해 즉각적이고 복구할 수 없는 삭제를 트리거합니다. 
+
+이 규칙의 예외는 다음과 같습니다.
+- Azure 구독이 *삭제할 수 없음*으로 표시된 경우. 이 경우 서비스는 실제 삭제만 수행할 수 있으며, 예약된 프로세스로 삭제합니다. 
+- 자격 증명 모음 자체에서 --enable-purge-protection 플래그가 사용하도록 설정되어 있는 경우. 이 경우 Key Vault는 원래 비밀 개체가 삭제 대상으로 표시된 시점으로부터 90일 동안 기다렸다가 개체를 영구적으로 삭제합니다.
 
 ### <a name="key-vault-recovery"></a>주요 자격 증명 모음 복구
 
@@ -62,12 +80,6 @@ Key Vault를 삭제하면 서비스가 구독 아래에 프록시 리소스를 �
 - 특별한 권한이 있는 사용자만 해당 프록시 리소스에서 삭제 명령을 실행하여 주요 자격 증명 모음 또는 주요 자격 증명 모음 개체를 강제로 삭제할 수 있습니다.
 
 Key Vault 또는 Key Vault 개체를 복구하지 않으면 보존 간격이 끝난 후 서비스가 일시 삭제된 Key Vault 또는 Key Vault 개체와 해당 내용을 제거합니다. 리소스 삭제를 다시 예약하지 못할 수 있습니다.
-
-### <a name="permitted-purge"></a>허용된 제거
-
-프록시 리소스에 대한 POST 작업을 통해 주요 자격 증명 모음을 영구 삭제, 즉 제거할 수 있으며, 특별한 권한이 필요합니다. 일반적으로 구독 소유자만 주요 자격 증명 모음을 제거할 수 있습니다. POST 작업은 해당 자격 증명 모음에 대해 즉각적이고 복구할 수 없는 삭제를 트리거합니다. 
-
-단, Azure 구독이 *삭제할 수 없음*으로 표시된 경우는 예외입니다. 이 경우 서비스는 실제 삭제만 수행할 수 있으며, 예약된 프로세스로 삭제합니다. 
 
 ### <a name="billing-implications"></a>요금 청구 영향
 

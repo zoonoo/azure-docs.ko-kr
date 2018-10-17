@@ -4,14 +4,14 @@ description: Azure Migrate 서비스의 알려진 문제에 대한 개요와 일
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/25/2018
+ms.date: 09/28/2018
 ms.author: raynew
-ms.openlocfilehash: ca34f27e1d22c6235ec0d6b965d49ec5266f17f6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 906c6e56b670dfc26b5905a453fd43a3c72086c3
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126367"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433500"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Migrate 문제 해결
 
@@ -34,6 +34,12 @@ vCenter server의 통계 설정 수준이 3 미만으로 설정되면 이 현상
 ### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>에이전트를 설치하고 종속성 시각화 그룹을 사용하여 그룹을 만들었습니다. 장애 조치(failover) 이후, 컴퓨터가 "종속성 보기" 대신 "에이전트 설치" 작업을 표시합니다.
 * 계획된 또는 계획되지 않은 장애 조치(failover) 후에는 온-프레미스 컴퓨터가 꺼지고 동급 컴퓨터가 Azure에 생성됩니다. 이러한 컴퓨터는 다른 MAC 주소를 갖습니다. 사용자가 온-프레미스 IP 주소를 유지하는지 여부에 따라 다른 IP 주소를 가질 수도 있습니다. MAC 및 IP 주소가 모두 다르면 Azure Migrate는 온-프레미스 컴퓨터를 서비스 맵 종속성 데이터와 연결하지 않으며, 종속성을 보는 대신 사용자에게 에이전트를 설치하라고 요청합니다.
 * 테스트 장애 조치(failover) 후에도 온-프레미스 컴퓨터는 예상대로 계속 켜져 있습니다. Azure에서 생성된 동급 컴퓨터는 다른 MAC 주소를 획득하며 다른 IP 주소를 획득할 수도 있습니다. 사용자가 이러한 컴퓨터에서 나가는 Log Analytics 트래픽을 차단하지 않는 이상, Azure Migrate는 온-프레미스 컴퓨터를 서비스 맵 종속성 데이터와 연결하지 않으며, 종속성을 보는 대신 사용자에게 에이전트를 설치하라고 요청합니다.
+
+### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>마이그레이션 프로젝트를 만들 때 Azure 지역을 지정했습니다. 검색된 메타데이터가 저장되는 정확한 Azure 지역은 어떻게 확인할 수 있나요?
+
+프로젝트 **개요** 페이지의 **기본 정보** 섹션으로 이동하면 메타데이터가 저장되는 조정확한 위치를 확인할 수 있습니다. 위치는 Azure Migrate를 통해 지역 내에서 임의로 선택되며 수정할 수는 없습니다. 특정 지역에만 프로젝트를 만들려는 경우 REST API를 사용하여 마이그레이션 프로젝트를 만든 다음 원하는 지역을 전달하면 됩니다.
+
+   ![프로젝트 위치](./media/troubleshooting-general/geography-location.png)
 
 ## <a name="collector-errors"></a>수집기 오류
 
@@ -86,9 +92,11 @@ Azure Migrate 수집기는 PowerCLI를 다운로드하여 어플라이언스에 
 
 ### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>오류 UnhandledException 내부 오류가 발생했습니다. System.IO.FileNotFoundException
 
-1.0.9.5 미만인 수집기 버전에서 표시되는 오류입니다. 수집기 버전 1.0.9.2 또는 1.0.8.59와 같은 이전 GA 버전을 사용하는 경우 이 문제가 발생합니다. [자세한 응답은 포럼에 지정된 링크](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate)를 따릅니다.
+이 문제는 VMware PowerCLI 설치 문제로 인해 발생할 수 있습니다. 문제를 해결하려면 아래 단계를 수행합니다.
 
-[문제를 해결하기 위해 수집기 업그레이드](https://aka.ms/migrate/col/checkforupdates)
+1. 수집기 어플라이언스의 최신 버전을 사용하고 있지 않다면 [수집기를 최신 버전으로 업그레이드](https://aka.ms/migrate/col/checkforupdates)한 후에 문제가 해결되었는지 확인합니다.
+2. 최신 수집기 버전을 이미 사용 중이라면 [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016)를 수동으로 설치한 후에 문제가 해결되었는지 확인합니다.
+3. 위의 단계를 수행해도 문제가 해결되지 않으면 C:\Program Files\ProfilerService 폴더로 이동하여 해당 폴더에 있는 VMware.dll 및 VimService65.dll 파일을 제거한 다음 Windows 서비스 관리자에서 ‘Azure Migrate Collector’ 서비스를 다시 시작합니다. 이렇게 하려면 ‘실행’을 열고 ‘services.msc’를 입력해 Windows 서비스 관리자를 엽니다.
 
 ### <a name="error-unabletoconnecttoserver"></a>오류 UnableToConnectToServer
 
@@ -102,6 +110,37 @@ Azure Migrate 수집기는 PowerCLI를 다운로드하여 어플라이언스에 
 2. 1단계가 실패하는 경우 IP 주소를 통해 vCenter Server에 연결해보세요.
 3. vCenter에 연결할 정확한 포트 번호를 식별합니다.
 4. 마지막으로 vCenter Server가 실행 중인지 확인합니다.
+
+## <a name="troubleshoot-dependency-visualization-issues"></a>종속성 시각화 문제 해결
+
+### <a name="i-installed-the-microsoft-monitoring-agent-mma-and-the-dependency-agent-on-my-on-premises-vms-but-the-dependencies-are-now-showing-up-in-the-azure-migrate-portal"></a>온-프레미스 VM에 MMA(Microsoft Monitoring Agent) 및 종속성 에이전트를 설치했는데 종속성이 Azure Migrate 포털에 표시됩니다.
+
+일반적으로는 에이전트를 설치한 후 15~30분이 지나면 Azure Migrate 포털에 종속성이 표시됩니다. 30분 이상 기다렸다면 아래 단계를 수행하여 MMA 에이전트가 OMS 작업 영역과 통신할 수 있는지 확인합니다.
+
+Windows VM:
+1. **제어판**으로 이동하여 **Microsoft Monitoring Agent**를 시작합니다.
+2. MMA 속성 팝업에서 **Azure Log Analytics(OMS)** 탭으로 이동합니다.
+3. 작업 영역의 **상태**가 녹색인지 확인합니다.
+4. 상태가 녹색이 아니면 작업 영역을 제거했다가 MMA에 다시 추가해 봅니다.
+        ![MMA 상태](./media/troubleshooting-general/mma-status.png)
+
+Linux VM의 경우 MMA 및 종속 에이전트 설치 명령이 정상적으로 실행되었는지 확인합니다.
+
+### <a name="what-are-the-operating-systems-supported-by-mma"></a>MMA에서는 어떤 운영 체제가 지원되나요?
+
+MMA에서 지원하는 Windows 운영 체제 목록은 [여기](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems)에 나와 있습니다.
+MMA에서 지원하는 Linux 운영 체제 목록은 [여기](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems)에 나와 있습니다.
+
+### <a name="what-are-the-operating-systems-supported-by-dependency-agent"></a>종속성 에이전트는 어떤 운영 체제를 지원하나요?
+
+종속성 에이전트가 지원하는 Windows 운영 체제 목록은 [여기](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems)에 나와 있습니다.
+종속성 에이전트가 지원하는 Linux 운영 체제 목록은 [여기](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems)에 나와 있습니다.
+
+### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>1시간이 넘는 기간에 대해서는 Azure Migrate의 종속성을 시각화할 수 없나요?
+Azure Migrate에서는 최대 1시간 동안의 종속성을 시각화할 수 있습니다. 하지만 Azure Migrate에서는 최대 1개월 전의 특정 날짜로 돌아가 종속성을 시각화할 수 있습니다. 종속성을 시각화할 수 있는 최대 기간은 1시간입니다. 예를 들어 종속성 맵의 기간 기능을 사용해 어제의 종속성을 확인할 수는 있지만, 종속성을 확인할 수 있는 시간은 1시간입니다.
+
+### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>VM이 10개보다 많은 그룹의 종속성은 시각화할 수 없나요?
+[그룹의 종속성 시각화](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) 시에 허용되는 최대 VM 수는 10개입니다. VM이 10개보다 많은 그룹이 있다면 더 작은 그룹 여러 개로 분할한 다음 종속성을 시각화하는 것이 좋습니다.
 
 ## <a name="troubleshoot-readiness-issues"></a>준비 관련 문제 해결
 

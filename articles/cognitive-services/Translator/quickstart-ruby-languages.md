@@ -1,21 +1,21 @@
 ---
-title: Translator Text Ruby를 사용하여 지원되는 언어 가져오기 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 이 빠른 시작에서는 Cognitive Services에서 Ruby와 함께 Translator Text API를 사용하여 번역, 음역, 사전 조회에 지원되는 언어 목록과 예제를 가져옵니다.
+title: '빠른 시작: 지원되는 언어 가져오기 - Translator Text, Ruby'
+titleSuffix: Azure Cognitive Services
+description: 이 빠른 시작에서는 Ruby와 함께 Translator Text API를 사용하여 번역, 음역, 사전 조회에 지원되는 언어 목록과 예제를 가져옵니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 1080d79f6dddfd57816989b7d1c4f95348493ad6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f000d2c4c1519f26b4d82a36803b86f016716c5e
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43750473"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121841"
 ---
 # <a name="quickstart-get-supported-languages-with-ruby"></a>빠른 시작: Ruby를 사용하여 지원되는 언어 가져오기
 

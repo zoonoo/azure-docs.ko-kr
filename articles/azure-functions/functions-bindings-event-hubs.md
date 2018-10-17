@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: 2c78e1d39227153dd65f145512fab4769b09e5c0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c99ad77bba60a4573faae1c857b3e6dc0203c4ab
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966573"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434690"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Functions의 Azure Event Hubs 바인딩
 
@@ -63,7 +63,7 @@ Event Hubs 트리거 함수를 트리거하는 경우 트리거되는 메시지�
 
 * **N 이상 함수 인스턴스 추가됨**: Functions의 크기 조정 논리는 `Function_0` 및 `Function_1` 모두에서 처리할 수 있는 것보다 더 많은 메시지가 있는지 확인합니다. 새 함수 앱 인스턴스 `Function_2`...`Functions_N`가 만들어지고 여기서 `N`은 이벤트 허브 파티션 수보다 큽니다. 이 예에서 Event Hubs는 다시 파티션을 부하 분산합니다(이 경우, 인스턴스 `Function_0`...`Functions_9`로). 
 
-Functions가 이벤트 허브 파티션 수보다 큰 `N` 인스턴스로 크기 조정됩니다. 이렇게 하면 다른 인스턴스에서 사용할 수 있으므로 파티션에 대한 잠금을 확보하기 위해 항상 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) 인스턴스가 사용 가능하도록 합니다. 사용자에게는 함수 인스턴스가 실행될 때 사용되는 리소스에 대한 요금이 청구되고 과도한 프로비전에 대한 비용이 청구되지 않습니다.
+위에도 나와 있는 것처럼, Functions가 `N`개 인스턴스로 크기 조정될 때 N은 이벤트 허브 파티션 수보다 큰 값입니다. 이렇게 하면 다른 인스턴스에서 사용할 수 있으므로 파티션에 대한 잠금을 확보하기 위해 항상 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) 인스턴스가 사용 가능하도록 합니다. 사용자에게는 함수 인스턴스가 실행될 때 사용되는 리소스에 대한 요금이 청구되고 과도한 프로비전에 대한 비용이 청구되지 않습니다.
 
 모든 함수 실행이 오류 없이 완료되면 연결된 저장소 계정에 검사점이 추가됩니다. 검사점이 성공하면 모든 1000개의 메시지는 다시 검색되지 않습니다.
 
@@ -342,7 +342,7 @@ public void eventHubProcessor(
 
 ## <a name="trigger---attributes"></a>트리거 - 특성
 
-[C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs) 특성을 사용합니다.
+[C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubTriggerAttribute.cs) 특성을 사용합니다.
 
 특성의 생성자는 이벤트 허브의 이름, 소비자 그룹의 이름 및 연결 문자열을 포함하는 앱 설정의 이름을 사용합니다. 이러한 설정에 대한 자세한 내용은 [트리거 구성 섹션](#trigger---configuration)을 참조하세요. `EventHubTriggerAttribute` 특성 예제는 다음과 같습니다.
 

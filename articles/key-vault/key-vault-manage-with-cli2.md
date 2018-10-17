@@ -1,6 +1,6 @@
 ---
 title: CLI를 사용하여 Azure Key Vault 관리 | Microsoft Docs
-description: 이 문서에서는 CLI 2.0을 사용하여 Key Vault에서 일반 작업을 자동화합니다.
+description: 이 문서를 참조하여 Azure CLI를 사용해 Key Vault에서 일반 작업을 자동화할 수 있습니다.
 services: key-vault
 documentationcenter: ''
 author: barclayn
@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: f88e98561a88380fbe40ecc9627ffabe39b0071c
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: ba39ba2d4206fa86ed32bddf0538a2e997a79339
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295177"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220570"
 ---
-# <a name="manage-key-vault-using-cli-20"></a>CLI 2.0을 사용하여 Key Vault 관리
+# <a name="manage-key-vault-using-the-azure-cli"></a>Azure CLI를 사용하여 Key Vault 관리 
 
-이 문서에서는 Azure CLI 2.0을 사용하여 Azure Key Vault를 시작하는 방법을 설명합니다. 다음과 같은 정보를 확인할 수 있습니다.
+이 문서에서는 Azure CLI를 사용하여 Azure Key Vault 관련 작업을 시작하는 방법을 설명합니다.  다음과 같은 정보를 확인할 수 있습니다.
 
-- 필수 조건
 - Azure에서 확정된 컨테이너(자격 증명 모음)를 만드는 방법
 - 키 자격 증명 모음에 키, 비밀 또는 인증서 추가
 - Azure Active Directory에 응용 프로그램 등록
@@ -50,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이 문서에서 Azure CLI 명령을 사용하려면 다음 항목이 있어야 합니다.
 
 * Microsoft Azure에 대한 구독. 아직 구독하지 않은 경우 [평가판](https://azure.microsoft.com/pricing/free-trial)에 등록할 수 있습니다.
-* 명령줄 인터페이스 버전 2.0 이상. 최신 버전을 설치하려면 [Azure 플랫폼 간 명령줄 인터페이스 2.0 설치 및 구성](/cli/azure/install-azure-cli)을 참조하세요.
+* Azure 명령줄 인터페이스 버전 2.0 이상. 최신 버전을 설치하려면 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 * 이 문서에서 만드는 키 또는 암호를 사용하도록 구성되는 응용 프로그램. 샘플 응용 프로그램은 [Microsoft 다운로드 센터](http://www.microsoft.com/download/details.aspx?id=45343)에서 사용할 수 있습니다. 지침은 포함된 추가 정보 파일을 참조하세요.
 
 ### <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Azure 플랫폼 간 명령줄 인터페이스 도움말 보기
@@ -67,7 +66,7 @@ az account set -h
 다음 문서를 참조하여 Azure 플랫폼 간 명령줄 인터페이스에서 Azure Resource Manager를 익힐 수 있습니다.
 
 * [Azure CLI 설치](/cli/azure/install-azure-cli)
-* [Azure CLI 2.0 시작](/cli/azure/get-started-with-azure-cli)
+* [Azure CLI 시작](/cli/azure/get-started-with-azure-cli)
 
 ## <a name="how-to-create-a-hardened-container-a-vault-in-azure"></a>Azure에서 확정된 컨테이너(자격 증명 모음)를 만드는 방법
 
@@ -200,7 +199,7 @@ az keyvault certificate list --vault-name 'ContosoKeyVault'
 
 응용 프로그램은 토큰을 가져올 Azure Active Directory에 이 두 값 모두가 있어야 합니다. 토큰을 가져오도록 응용 프로그램을 구성하는 방법은 응용 프로그램에 따라 다릅니다. [Key Vault 샘플 응용 프로그램](https://www.microsoft.com/download/details.aspx?id=45343)의 경우, 응용 프로그램 소유자는 app.config 파일에서 이러한 값을 설정합니다.
 
-Azure Active Directory에 응용 프로그램을 등록하는 방법에 대한 자세한 단계를 알아보려면 [Azure Active Directory와 응용 프로그램 통합](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md), [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md) 및 [Azure CLI 2.0을 사용하여 Azure 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli) 문서를 검토해야 합니다.
+Azure Active Directory에 응용 프로그램을 등록하는 방법에 대한 자세한 단계를 알아보려면 [Azure Active Directory와 응용 프로그램 통합](../active-directory/develop/active-directory-integrating-applications.md), [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md) 및 [Azure CLI를 사용하여 Azure 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli) 문서를 검토해야 합니다.
 
 Azure Active Directory에서 응용 프로그램을 등록하려면 다음을 수행합니다.
 

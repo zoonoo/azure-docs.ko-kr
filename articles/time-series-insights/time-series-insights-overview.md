@@ -10,12 +10,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: overview
 ms.date: 01/26/2018
-ms.openlocfilehash: fa66ded9a35109f874bda00a4bde3af78b436cd5
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: f865086a7e57898adb7d43ec0c02c7d38ef0da9c
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630724"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365575"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Azure Time Series Insights란?
 
@@ -33,6 +33,12 @@ Time Series Insights에는 다음 4가지 핵심 작업이 포함됩니다.
 내부에서 사용하거나 외부 고객을 위해 응용 프로그램을 빌드하는 경우 Time Series Insights는 시계열 데이터를 인덱싱, 저장 및 집계하기 위한 백 엔드로 사용할 수 있습니다. 맨 위에 사용자 지정 시각화 및 사용자 환경을 빌드할 수 있습니다.  Time Series Insights는 이 시나리오가 가능하도록 쿼리 API를 공개합니다.  
 
 데이터가 시계열인지 잘 모를 경우 알아야 할 항목은 다음과 같습니다.  시계열 데이터는 자산 또는 프로세스가 시간이 지남에 따라 어떻게 달라지는지를 나타냅니다.  타임스탬프가 있으며 시간이 축처럼 가장 중요하다는 점이 독특합니다.  시계열 데이터는 일반적으로 시간 순서대로 도착하며, 데이터베이스에 대한 업데이트보다는 삽입으로 처리됩니다.  Time Series Insights는 모든 새 이벤트를 캡처하여 행으로 저장하고, 변경 내용이 시간에 따라 측정되므로 이전 데이터를 보고 향후 변화를 예측할 수 있습니다.  대용량인 경우 시계열 데이터를 저장, 인덱싱, 쿼리, 분석 및 시각화하는 것이 어려울 수 있습니다.  
+
+## <a name="video"></a>비디오: 
+
+### <a name="in-this-video-we-provide-an-overview-of-time-series-insights-a-cloud-based-iot-analytics-platformbr"></a>이 비디오에서는 클라우드 기반 IoT 분석 플랫폼인 Time Series Insights를 간략하게 살펴봅니다.</br>
+
+> [!VIDEO https://www.youtube.com/embed/qNc9gQTLROs]
 
 ## <a name="primary-scenarios"></a>기본 시나리오
 

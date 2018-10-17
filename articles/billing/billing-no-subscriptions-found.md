@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
-ms.author: genli
-ms.openlocfilehash: 475a4ad72a1c2fc2ebf99387e193713797cc2586
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: cwatson
+ms.openlocfilehash: a1e90f946508f1ffc0a1ee812dde46ee733d715a
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070620"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392442"
 ---
 # <a name="no-subscriptions-found-error-in-azure-portal-or-azure-account-center"></a>Azure Portal 또는 Azure 계정 센터에 로그인을 시도할 때 구독을 찾을 수 없음 오류 발생
 
@@ -43,7 +43,7 @@ ms.locfileid: "34070620"
 * 오른쪽 위에 있는 계정을 클릭하여 올바른 Azure 디렉터리를 선택했는지 확인합니다.
 
   ![Azure Portal 오른쪽 위에 있는 디렉터리를 선택합니다.](./media/billing-no-subscriptions-found/directory-switch.png)
-* 올바른 Azure 디렉터리를 선택했으나 여전히 오류 메시지가 표시되면 [계정을 소유자로 추가](billing-add-change-azure-subscription-administrator.md)합니다.
+* 올바른 Azure 디렉터리를 선택했으나 여전히 오류 메시지가 표시되면 [계정에 소유자 역할을 할당](../role-based-access-control/role-assignments-portal.md)합니다.
 
 ### <a name="scenario-2-error-message-is-received-in-the-azure-account-centerhttpsaccountwindowsazurecomsubscriptions"></a>시나리오 2: [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에서 오류 메시지가 표시됨
 

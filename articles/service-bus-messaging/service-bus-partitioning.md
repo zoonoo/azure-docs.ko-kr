@@ -6,14 +6,14 @@ author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 09/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 821d9bf3c844da030d1d351e895704a81678fb4e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 2ca2063158634dfa42da094b77c70a2730e82176
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699474"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423173"
 ---
 # <a name="partitioned-queues-and-topics"></a>분할 큐 및 항목
 
@@ -140,7 +140,7 @@ Service Bus는 분할된 엔터티 간에 자동 메시지 전달을 지원합�
 
 현재 Service Bus에서는 분할된 큐 및 항목에 다음과 같은 제한 사항이 적용됩니다.
 
-* 프리미엄 메시징 계층에서 분할된 큐 및 항목이 지원되지 않습니다.
+* 프리미엄 메시징 계층에서 분할된 큐 및 항목이 지원되지 않습니다. 세션은 SessionId를 사용하는 방식을 통해 프리미어 계층에서 지원됩니다. 
 * 분할된 큐 및 항목은 단일 트랜잭션에서 다른 세션에 속한 보내는 메시지를 지원하지 않습니다.
 * Service Bus는 현재 네임스페이스당 최대 100개의 분할된 큐 또는 항목을 허용합니다. 각 분할된 큐 또는 항목은 네임스페이스 당 10,000개의 엔터티를 할당량으로 계산합니다(프리미엄 계층에는 적용되지 않음).
 

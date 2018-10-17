@@ -1,27 +1,27 @@
 ---
-title: Face API Python 자습서 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Python SDK와 함께 Face API를 사용하여 Cognitive Services에서 이미지의 인간 얼굴을 감지하는 방법을 알아봅니다.
+title: '자습서: 이미지에서 얼굴 감지 및 포착 - Face API, Python'
+titleSuffix: Azure Cognitive Services
+description: Python SDK와 함께 Face API를 사용하여 이미지의 인간 얼굴을 감지하는 방법을 알아봅니다.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 90d74d8df2ed59e6f3313ef7c620284d1022a667
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 6cc3ac25d2196c0275b445503b79b9ac06a791d3
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049114"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127740"
 ---
-# <a name="getting-started-with-face-api-in-python-tutorial"></a>Python에서 Face API 시작 자습서
+# <a name="tutorial-detect-and-frame-faces-with-the-face-api-and-python"></a>자습서: Face API 및 Python을 사용하여 얼굴 감지 및 포착 
 
 이 자습서에서는 Python SDK를 통해 Face API를 호출하여 이미지의 인간 얼굴을 감지하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a> 필수 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 사용하려면 다음을 수행해야 합니다.
 
@@ -35,7 +35,7 @@ pip install cognitive_face
 
 - Microsoft Cognitive Services에 대한 [구독 키](https://azure.microsoft.com/try/cognitive-services/)를 구합니다. 이 자습서의 주 또는 보조 키를 사용할 수 있습니다. (Face API를 사용하려면 유효한 구독 키가 있어야 합니다.)
 
-## <a name="sdk-example"></a> 이미지의 얼굴 감지
+## <a name="detect-a-face-in-an-image"></a>이미지에서 얼굴 감지
 
 ```python
 import cognitive_face as CF
@@ -93,7 +93,7 @@ for face in faces:
 img.show()
 ```
 
-## <a name='further'></a> 추가 탐색
+## <a name="further-exploration"></a>추가 탐색
 
 Face API를 추가로 탐색하는 데 도움이 되도록 이 자습서는 GUI 예제를 제공합니다. 이를 실행하려면 먼저 [wxPython](https://wxpython.org/pages/downloads/)을 설치한 후 아래 명령을 실행합니다.
 
@@ -103,11 +103,11 @@ cd Cognitive-Face-Python
 python sample
 ```
 
-## <a name="summary"></a> 요약
+## <a name="summary"></a>요약
 
 이 자습서에서는 Python SDK 호출을 통해 Face API를 사용하기 위한 기본 프로세스에 배웠습니다. API 세부 사항에 대한 자세한 내용은 방법 및 [API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)를 참조하세요.
 
-## <a name="related"></a> 관련 항목
+## <a name="related-topics"></a>관련 항목
 
 - [CSharp에서 Face API 시작](FaceAPIinCSharpTutorial.md)
 - [Android용 Java에서 Face API 시작](FaceAPIinJavaForAndroidTutorial.md)

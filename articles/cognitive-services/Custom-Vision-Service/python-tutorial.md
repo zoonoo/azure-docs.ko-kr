@@ -1,24 +1,25 @@
 ---
-title: Custom Vision Service Python 자습서 만들기 - Azure Cognitive Services | Microsoft Docs
-description: Microsoft Cognitive Services의 Custom Vision API를 사용하는 기본 Python 앱을 탐색합니다. 기본 끝점을 사용하여 프로젝트를 만들고, 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 예측을 수행합니다.
+title: '자습서: 이미지 분류 프로젝트 만들기 - Custom Vision Service, Python'
+titlesuffix: Azure Cognitive Services
+description: 기본 엔드포인트를 사용하여 프로젝트를 만들고, 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 예측을 수행합니다.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
-ms.date: 05/07/2018
+ms.topic: tutorial
+ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: 0359935bf266d4f2a5cf845dd0d23183f4f77b72
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 14b805a60637a889698132e169d5a41670a8bce0
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35375278"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363380"
 ---
-# <a name="custom-vision-api-python-tutorial"></a>Custom Vision API Python 자습서
+# <a name="tutorial-create-an-image-classification-project-using-the-custom-vision-service-with-python"></a>자습서: Python과 함께 Custom Vision Service를 사용하여 이미지 분류 프로젝트 만들기
 
-Custom Vision Service 및 기본 Python 스크립트를 사용하여 이미지 분류 프로젝트를 만드는 방법을 알아봅니다. 프로젝트를 만든 후에는 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 기본 예측 엔드포인트 URL를 가져오고, 해당 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. 이 오픈 소스 예제를 Custom Vision API를 사용하여 사용자 고유의 앱을 빌드하기 위한 템플릿으로 사용합니다.
+Custom Vision Service 및 기본 Python 스크립트를 사용하여 이미지 분류 프로젝트를 만드는 방법을 알아봅니다. 프로젝트를 만든 후에는 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습시키고, 프로젝트의 기본 예측 엔드포인트 URL을 가져오고, 해당 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. 이 오픈 소스 예제를 Custom Vision API를 사용하여 사용자 고유의 앱을 빌드하기 위한 템플릿으로 사용합니다.
 
 
 

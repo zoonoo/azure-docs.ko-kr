@@ -1,37 +1,41 @@
 ---
-title: '빠른 시작: Python에서 Bing Image Search API용 REST API를 사용하여 검색 쿼리 보내기'
-description: 이 빠른 시작에서는 Bing Search API로 검색 쿼리를 보내고, Python을 사용하여 관련 이미지 목록을 가져옵니다.
+title: '빠른 시작: Python을 사용하여 이미지 검색 수행 - Bing Image Search API'
+description: 이 빠른 시작을 사용하여 Bing Image Search API를 처음 호출하고 JSON 응답을 받습니다. 이 간단한 Python 응용 프로그램은 검색 쿼리를 API에 보내고 원시 결과를 표시합니다.
 services: cognitive-services
-author: v-jerkin
+author: aahill
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
-ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: bc527ba39b580935f113f56aa63f7bdd283ba304
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.topic: quickstart
+ms.date: 8/20/2018
+ms.author: aahi
+ms.openlocfilehash: 44cc556e68234fb9957c01fa9f04861293e96e6a
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42093867"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298169"
 ---
 # <a name="quickstart-send-search-queries-using-the-rest-api-and-python"></a>빠른 시작: REST API 및 Python을 사용하여 검색 쿼리 보내기
 
-Bing Images Search API는 사용자 검색 쿼리를 Bing에 전송하고 관련 이미지 목록을 받을 수 있게 하여 Bing.com/Images와 유사한 환경을 제공합니다.
+이 빠른 시작을 사용하여 Bing Image Search API를 처음 호출하고 JSON 응답을 받습니다. 이 간단한 Python 응용 프로그램은 검색 쿼리를 API에 보내고 원시 결과를 표시합니다.
 
-이 연습에서는 Bing Image Search API를 호출하고 결과 JSON 개체를 사후 처리하는 간단한 예를 보여 줍니다. 자세한 내용은 [Bing Image Search 설명서](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)를 참조하세요.
+이 응용 프로그램은 Python에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
-바인더 배지 시작을 클릭하여 [MyBinder](https://mybinder.org)에서 Jupyter 노트북으로 이 예제를 실행할 수 있습니다. 
+바인더 배지 시작을 클릭하여 [MyBinder](https://mybinder.org)에서 Jupyter 노트북으로 이 예제를 실행할 수 있습니다.
 
 [![바인더](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingImageSearchAPI.ipynb)
+
+
+또한 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingImageSearchv7.py)에 제공됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## <a name="running-the-walkthrough"></a>연습 실행
-연습을 계속하려면 Bing API 서비스에 대한 API 키에 `subscription_key`를 설정합니다.
+## <a name="running-the-quickstart"></a>빠른 시작 실행
 
+시작하려면 `subscription_key`를 Bing API 서비스의 유효한 구독 키로 설정합니다.
 
 ```python
 subscription_key = None
@@ -72,7 +76,7 @@ search_results = response.json()
 thumbnail_urls = [img["thumbnailUrl"] for img in search_results["value"][:16]]
 ```
 
-그런 다음, `PIL` 라이브러리를 사용하여 썸네일 이미지를 다운로드하고 `matplotlib` 라이브러리를 사용하여 썸네일 이미지를 $4 \times 4$ 그리드에 렌더링할 수 있습니다.
+그런 다음, `PIL` 라이브러리를 사용하여 썸네일 이미지를 다운로드하고 `matplotlib` 라이브러리를 사용하여 썸네일 이미지를 4 X 4 그리드에 렌더링합니다.
 
 
 ```python
@@ -89,6 +93,55 @@ for i in range(4):
         image = Image.open(BytesIO(image_data.content))        
         axes[i][j].imshow(image)
         axes[i][j].axis("off")
+plt.show()
+```
+
+## <a name="sample-json-response"></a>샘플 JSON 응답
+
+Bing Image Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답은 단일 결과를 표시하도록 잘렸습니다.
+
+```json
+{
+"_type":"Images",
+"instrumentation":{
+    "_type":"ResponseInstrumentation"
+},
+"readLink":"images\/search?q=tropical ocean",
+"webSearchUrl":"https:\/\/www.bing.com\/images\/search?q=tropical ocean&FORM=OIIARP",
+"totalEstimatedMatches":842,
+"nextOffset":47,
+"value":[
+    {
+        "webSearchUrl":"https:\/\/www.bing.com\/images\/search?view=detailv2&FORM=OIIRPO&q=tropical+ocean&id=8607ACDACB243BDEA7E1EF78127DA931E680E3A5&simid=608027248313960152",
+        "name":"My Life in the Ocean | The greatest WordPress.com site in ...",
+        "thumbnailUrl":"https:\/\/tse3.mm.bing.net\/th?id=OIP.fmwSKKmKpmZtJiBDps1kLAHaEo&pid=Api",
+        "datePublished":"2017-11-03T08:51:00.0000000Z",
+        "contentUrl":"https:\/\/mylifeintheocean.files.wordpress.com\/2012\/11\/tropical-ocean-wallpaper-1920x12003.jpg",
+        "hostPageUrl":"https:\/\/mylifeintheocean.wordpress.com\/",
+        "contentSize":"897388 B",
+        "encodingFormat":"jpeg",
+        "hostPageDisplayUrl":"https:\/\/mylifeintheocean.wordpress.com",
+        "width":1920,
+        "height":1200,
+        "thumbnail":{
+        "width":474,
+        "height":296
+        },
+        "imageInsightsToken":"ccid_fmwSKKmK*mid_8607ACDACB243BDEA7E1EF78127DA931E680E3A5*simid_608027248313960152*thid_OIP.fmwSKKmKpmZtJiBDps1kLAHaEo",
+        "insightsMetadata":{
+        "recipeSourcesCount":0,
+        "bestRepresentativeQuery":{
+            "text":"Tropical Beaches Desktop Wallpaper",
+            "displayText":"Tropical Beaches Desktop Wallpaper",
+            "webSearchUrl":"https:\/\/www.bing.com\/images\/search?q=Tropical+Beaches+Desktop+Wallpaper&id=8607ACDACB243BDEA7E1EF78127DA931E680E3A5&FORM=IDBQDM"
+        },
+        "pagesIncludingCount":115,
+        "availableSizesCount":44
+        },
+        "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
+        "accentColor":"0050B2"
+    }
+}
 ```
 
 ## <a name="next-steps"></a>다음 단계
@@ -96,9 +149,10 @@ for i in range(4):
 > [!div class="nextstepaction"]
 > [Bing Image Search 단일 페이지 앱 자습서](../tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>참고 항목 
+## <a name="see-also"></a>참고 항목
 
-[Bing Image Search 개요](../overview.md)  
-[체험해 보기](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-[평가판 액세스 키 받기](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-[Bing Image Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Bing Image Search란?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [온라인 대화형 데모 사용해보기](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [무료 Cognitive Services 액세스 키 가져오기](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+* [Azure Cognitive Services 설명서](https://docs.microsoft.com/azure/cognitive-services)
+* [Bing Image Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

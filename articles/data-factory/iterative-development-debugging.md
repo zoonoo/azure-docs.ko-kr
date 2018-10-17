@@ -4,7 +4,7 @@ description: Azure Portal에서 Data Factory 파이프라인을 반복적으로 
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 05/14/2018
+ms.date: 09/26/2018
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -12,12 +12,12 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: a4d3f991dbba8a686c7242aabff11d9228300777
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 610f0c8691714bf30415347dd2775b6fa3625c11
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865168"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391100"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Azure Data Factory를 사용한 반복적인 개발 및 디버깅
 
@@ -40,13 +40,22 @@ Azure Data Factory를 사용하면 Data Factory 파이프라인을 반복적인 
 
 ![테스트 실행 취소](media/iterative-development-debugging/iterative-development-image3.png)
 
-테스트 실행을 수행할 때 **디버그**를 선택하기 전에 데이터 팩터리에 변경 사항을 게시할 필요가 없습니다. 데이터 팩터리 워크플로를 업데이트하기 전에 변경 내용이 예상대로 작동하는지 확인하려는 시나리오에서 유용합니다.
+테스트 실행을 수행할 때 **디버그**를 선택하기 전에 데이터 팩터리에 변경 사항을 게시할 필요가 없습니다. 이 기능은 데이터 팩터리 워크플로를 업데이트하기 전에 변경 내용이 예상대로 작동하는지 확인하려는 시나리오에서 유용합니다.
 
-## <a name="more-info-about-debugging"></a>디버깅에 대한 자세한 정보
+> [!IMPORTANT]
+> **디버그**를 선택하면 실제로 파이프라인이 실행됩니다. 예를 들어 파이프라인에 복사 작업이 포함된 경우 테스트 실행은 원본에서 대상으로 데이터를 복사합니다. 따라서 디버깅하는 경우 복사 작업 및 다른 작업에 테스트 폴더를 사용하는 것이 좋습니다. 파이프라인을 디버깅한 후 정상 작업에서 사용할 실제 폴더로 전환하십시오.
 
-1. **디버그** 기능으로 시작된 테스트 실행은 **모니터** 탭의 목록에서 사용할 수 없습니다. **모니터** 탭에서 **지금 트리거**, **예약** 또는 **연속 창** 트리거로 트리거된 실행만 볼 수 있습니다. 파이프라인 캔버스의 **출력** 창에서 **디버그** 기능으로 시작된 마지막 테스트 실행을 볼 수 있습니다.
+## <a name="visualizing-debug-runs"></a>디버그 실행 시각화
 
-2. **디버그**를 선택하면 실제로 파이프라인이 실행됩니다. 예를 들어 파이프라인에 복사 작업이 포함된 경우 테스트 실행은 원본에서 대상으로 데이터를 복사합니다. 따라서 디버깅하는 경우 복사 작업 및 다른 작업에 테스트 폴더를 사용하는 것이 좋습니다. 파이프라인을 디버깅한 후 정상 작업에서 사용할 실제 폴더로 전환하십시오.
+데이터 팩터리에 대해 진행 중인 모든 디버그 실행을 한 곳에서 시각화할 수 있습니다. 이렇게 하려면 페이지의 오른쪽 위에 있는 **디버그 실행 보기**를 선택합니다. 이 기능은 마스터 파이프라인이 하위 파이프라인에 대해 디버그 실행을 시작하는 상황에서 모든 활성 디버그 실행을 한 보기에서 확인하려는 시나리오에서 유용합니다.
+
+![활성 디버그 실행 보기 아이콘 선택](media/iterative-development-debugging/view-debug-runs-image1.png)
+
+![활성 디버그 실행 샘플 목록](media/iterative-development-debugging/view-debug-runs-image2.png)
+
+## <a name="monitoring-debug-runs"></a>디버그 실행 모니터링
+
+**디버그** 기능으로 시작된 테스트 실행은 **모니터** 탭의 목록에서 사용할 수 없습니다. **모니터** 탭에서 **지금 트리거**, **예약** 또는 **연속 창** 트리거로 트리거된 실행만 볼 수 있습니다. 파이프라인 캔버스의 **출력** 창에서 **디버그** 기능으로 시작된 마지막 테스트 실행을 볼 수 있습니다.
 
 ## <a name="setting-breakpoints-for-debugging"></a>디버깅을 위한 중단점 설정
 

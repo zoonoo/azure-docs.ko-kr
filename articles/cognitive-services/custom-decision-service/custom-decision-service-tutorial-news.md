@@ -1,21 +1,23 @@
 ---
-title: 아티클 개인 설정 - Azure Cognitive Services | Microsoft Docs
-description: 상황에 맞는 결정을 위한 클라우드 기반 API인 Azure Custom Decision Service를 사용하는 아티클 개인 설정에 대한 자습서입니다.
+title: '자습서: 문서 개인 설정 - Custom Decision Service'
+titlesuffix: Azure Cognitive Services
+description: 상황에 맞는 의사 결정을 위한 문서 개인 설정의 자습서입니다.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: tutorial
 ms.date: 05/08/2018
-ms.author: slivkins;marcozo;alekh;marossi
-ms.openlocfilehash: 35d0567f81a23d4726461059eb6fd31e04228697
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: slivkins
+ms.openlocfilehash: b142fe2051c017d0c0ec3c4cac6aaedd563f6cd7
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377014"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366338"
 ---
-# <a name="article-personalization"></a>문서 개인 설정
+# <a name="tutorial-article-personalization-for-contextual-decision-making"></a>자습서: 상황에 맞는 의사 결정을 위한 문서 개인 설정
 
 이 자습서에서는 웹 사이트의 앞 페이지에 표시되는 기사 선택을 개인 설정하는 방법에 집중합니다. 예를 들어 Custom Decision Service는 앞 페이지의 *여러* 아티클에 영향을 줍니다. 아마도 페이지는 정치 및 스포츠를 다루는 뉴스 웹 사이트입니다. 정치, 스포츠 및 최신 등 아티클의 세 가지 순위 목록을 보여줍니다.
 

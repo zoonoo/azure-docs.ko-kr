@@ -4,28 +4,43 @@ description: Azure Migrate 서비스에서 그룹 종속성 매핑을 사용하�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: 37c4ce8638c8f0481151449317d6cd387b61b256
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 9f95ffe47275cfda77efa294ca6e8ccebe0070eb
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622901"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158617"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>그룹 종속성 매핑을 사용하여 그룹 구체화
 
-이 문서에서는 그룹에 있는 모든 컴퓨터의 종속성을 시각화하여 그룹을 구체화하는 방법을 설명합니다. 일반적으로 이 방법은 평가를 실행하기 전에 그룹 종속성을 교차 확인하여 기존 그룹에 대한 멤버 자격을 구체화하려는 경우에 사용합니다. 종속성 시각화를 사용하여 그룹을 구체화하면 Azure로의 마이그레이션을 효과적으로 계획할 수 있습니다. 즉, 함께 마이그레이션해야 하는 상호 종속 시스템을 모두 검색할 수 있습니다. 따라서 Azure로 마이그레이션할 때 하나도 남겨두지 않고 전부 가져올 수 있으며 예기치 않은 중단이 발생하지 않습니다. 
+이 문서에서는 그룹에 있는 모든 컴퓨터의 종속성을 시각화하여 그룹을 구체화하는 방법을 설명합니다. 일반적으로 이 방법은 평가를 실행하기 전에 그룹 종속성을 교차 확인하여 기존 그룹에 대한 멤버 자격을 구체화하려는 경우에 사용합니다. 종속성 시각화를 사용하여 그룹을 구체화하면 Azure로의 마이그레이션을 효과적으로 계획할 수 있습니다. 함께 마이그레이션해야 하는 모든 상호 종속적 시스템을 검색할 수 있습니다. 따라서 Azure로 마이그레이션할 때 하나도 남겨두지 않고 전부 가져올 수 있으며 예기치 않은 중단이 발생하지 않습니다.
 
 
 > [!NOTE]
 > 종속성을 시각화하려는 그룹에는 10개 이하의 컴퓨터만 포함되어 있어야 합니다. 그룹에 10개 이상의 컴퓨터가 있는 경우에는 작은 그룹으로 분할하여 종속성 시각화 기능을 활용하는 것이 좋습니다.
 
 
-# <a name="prepare-the-group-for-dependency-visualization"></a>종속성 시각화를 위해 그룹 준비
-그룹의 종속성을 보려면 그룹에 속한 각 온-프레미스 컴퓨터에 에이전트를 다운로드하여 설치해야 합니다. 또한 인터넷에 연결되지 않은 컴퓨터가 있으면 [OMS 게이트웨이](../log-analytics/log-analytics-oms-gateway.md)를 다운로드하여 설치해야 합니다.
+## <a name="prepare-for-dependency-visualization"></a>종속성 시각화 준비
+Azure Migrate는 Log Analytics의 서비스 맵 솔루션을 활용하여 컴퓨터의 종속성 시각화 기능을 사용하도록 설정합니다.
+
+### <a name="associate-a-log-analytics-workspace"></a>Log Analytics 작업 영역 연결
+종속성 시각화를 활용하려면 신규 또는 기존 Log Analytics 작업 영역을 Azure Migrate 프로젝트와 연결해야 합니다. 작업 영역은 마이그레이션 프로젝트를 만든 것과 같은 구독에서만 만들거나 연결할 수 있습니다.
+
+- 프로젝트에 Log Analytics 작업 영역을 연결하려면 **개요**에서 프로젝트의 **필수** 섹션으로 이동한 다음 **구성 필요**를 클릭합니다.
+
+    ![Log Analytics 작업 영역 연결](./media/concepts-dependency-visualization/associate-workspace.png)
+
+- 새 작업 영역을 만들 때는 작업 영역의 이름을 지정해야 합니다. 그러면 마이그레이션 프로젝트와 같은 [Azure 지리적 위치](https://azure.microsoft.com/global-infrastructure/geographies/)에 해당하는 지역에서 마이그레이션 프로젝트와 같은 구독에 작업 영역이 작성됩니다.
+- **기존 항목 사용** 옵션을 선택하는 경우에는 서비스 맵이 제공되는 지역에서 만든 작업 영역만 나열됩니다. 서비스 맵이 제공되지 않는 지역에 있는 작업 영역은 드롭다운에 나열되지 않습니다.
+
+> [!NOTE]
+> 마이그레이션 프로젝트에 연결된 작업 영역은 변경할 수 없습니다.
 
 ### <a name="download-and-install-the-vm-agents"></a>VM 에이전트 다운로드 및 설치
+그룹의 종속성을 보려면 그룹에 속한 각 온-프레미스 컴퓨터에 에이전트를 다운로드하여 설치해야 합니다. 또한 인터넷에 연결되지 않은 컴퓨터가 있으면 [OMS 게이트웨이](../log-analytics/log-analytics-oms-gateway.md)를 다운로드하여 설치해야 합니다.
+
 1. **개요**에서 **관리** > **그룹**을 클릭하고 필요한 그룹으로 이동합니다.
 2. 컴퓨터 목록의 **종속성 에이전트** 열에서 **설치 필요**를 클릭하여 에이전트를 다운로드하여 설치하는 방법과 관련된 지침을 확인합니다.
 3. **종속성** 페이지에서 그룹에 속한 각 VM에 MMA(Microsoft Monitoring Agent) 및 종속성 에이전트를 다운로드하여 설치합니다.
@@ -37,8 +52,8 @@ Windows 컴퓨터에 에이전트를 설치하려면
 
 1. 다운로드한 에이전트를 두 번 클릭합니다.
 2. **Welcome** 페이지에서 **다음**을 클릭합니다. **사용 조건** 페이지에서 **동의함**을 클릭하여 라이선스에 동의합니다.
-3. **대상 폴더**에서 기본 설치 폴더를 유지하거나 수정하고 **다음**을 클릭합니다. 
-4. **에이전트 설치 옵션**에서 **Azure Log Analytics** > **다음**을 차례로 선택합니다. 
+3. **대상 폴더**에서 기본 설치 폴더를 유지하거나 수정하고 **다음**을 클릭합니다.
+4. **에이전트 설치 옵션**에서 **Azure Log Analytics** > **다음**을 차례로 선택합니다.
 5. **추가**를 클릭하여 새로운 Log Analytics 작업 영역을 추가합니다. 포털에서 복사한 작업 영역 ID와 키를 붙여넣습니다. **다음**을 클릭합니다.
 
 
@@ -66,7 +81,7 @@ Linux 컴퓨터에 에이전트를 설치하려면
 3. 그룹의 종속성 맵은 다음과 같은 세부 정보를 보여 줍니다.
     - 그룹에 속한 모든 컴퓨터와 주고받는 인바운드(클라이언트) 및 아웃바운드(서버) TCP 연결
         - MMA 및 종속성 에이전트가 설치되지 않은 종속 컴퓨터는 포트 번호별로 그룹화됩니다.
-        - MMA 및 종속성 에이전트가 설치된 종속 컴퓨터는 별도의 상자로 표시됩니다. 
+        - MMA 및 종속성 에이전트가 설치된 종속 컴퓨터는 별도의 상자로 표시됩니다.
     - 컴퓨터 내부에서 실행 중인 프로세스. 각 컴퓨터 상자를 확장하여 프로세스를 볼 수 있습니다.
     - 각 컴퓨터의 정규화된 도메인 이름, 운영 체제, MAC 주소 등과 같은 속성. 각 시스템 상자를 클릭하여 이러한 세부 정보를 볼 수 있습니다.
 
@@ -86,5 +101,5 @@ Linux 컴퓨터에 에이전트를 설치하려면
 
 
 ## <a name="next-steps"></a>다음 단계
-
-평가를 계산하는 방법에 대해 [자세히 알아봅니다](concepts-assessment-calculation.md).
+- 종속성 시각화 관련 FAQ를 [자세히 확인](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization)해 보세요.
+- 평가를 계산하는 방법에 대해 [자세히 알아봅니다](concepts-assessment-calculation.md).

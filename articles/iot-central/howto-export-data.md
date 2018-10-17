@@ -4,18 +4,20 @@ description: Azure IoT Central 응용 프로그램에서 데이터를 내보내�
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 07/3/2018
-ms.topic: article
-ms.prod: azure-iot-central
+ms.date: 09/18/2018
+ms.topic: conceptual
+ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 3ca2bc56c03e5bbabbd9b2f17edc621bdd94b02f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 86128abd82ee41459a84fc7d9169042179807793
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622486"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034912"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Azure IoT Central에서 데이터 내보내기
+
+*이 항목의 내용은 관리자에게 적용됩니다.*
 
 이 문서에서는 Azure IoT Central의 연속 데이터 내보내기 기능을 사용하여 정기적으로 Azure Blob 저장소 계정에 데이터를 내보내는 방법을 설명합니다. [Apache AVRO](https://avro.apache.org/docs/current/index.html) 형식의 파일로 **측정값**, **장치** 및 **장치 템플릿**을 내보낼 수 있습니다. 내보낸 데이터는 Azure Machine Learning의 학습 모델 또는 Microsoft Power BI의 장기 추세 분석과 같은 콜드 경로 분석에 사용할 수 있습니다.
 
@@ -33,10 +35,10 @@ ms.locfileid: "39622486"
 
 ### <a name="measurements"></a>측정값
 
-장치에서 보내는 측정값은 1분에 한 번 저장소 계정으로 내보내집니다. 데이터에는 해당 시간에 IoT Central이 모든 장치에서 받은 모든 새 메시지가 포함되어 있습니다. 내보낸 AVRO 파일은 [IoT Hub 메시지 라우팅](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-csharp-csharp-process-d2c)에서 Blob 저장소로 내보낸 메시지 파일과 동일한 형식을 사용합니다.
+장치에서 보내는 측정값은 1분에 한 번 저장소 계정으로 내보내집니다. 데이터에는 해당 시간에 IoT Central이 모든 장치에서 받은 모든 새 메시지가 포함되어 있습니다. 내보낸 AVRO 파일은 [IoT Hub 메시지 라우팅](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c)에서 Blob 저장소로 내보낸 메시지 파일과 동일한 형식을 사용합니다.
 
 > [!NOTE]
-> 측정값을 보내는 장치는 장치 ID로 표시됩니다(아래 섹션 참조). 장치 이름을 가져오려면 장치 스냅숏을 내보냅니다. 장치 ID와 일치하는 **connectionDeviceId**를 사용하여 각 메시지 레코드의 상관 관계를 지정합니다.
+> 측정값을 보내는 장치는 장치 ID로 표시됩니다(아래 섹션 참조). 장치 이름을 가져오려면 장치 스냅숏을 내보냅니다. 장치 레코드의 **deviceId**와 일치하는 **connectionDeviceId**를 사용하여 각 메시지 레코드의 상관 관계를 지정합니다.
 
 다음 예제에서는 디코딩된 AVRO 파일의 레코드를 보여줍니다.
 
@@ -45,9 +47,9 @@ ms.locfileid: "39622486"
     "EnqueuedTimeUtc": "2018-06-11T00:00:08.2250000Z",
     "Properties": {},
     "SystemProperties": {
-        "connectionDeviceId": "2383d8ba-c98c-403a-b4d5-8963859643bb",
+        "connectionDeviceId": "<connectionDeviceId>",
         "connectionAuthMethod": "{\"scope\":\"hub\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
-        "connectionDeviceGenerationId": "636614021491644195",
+        "connectionDeviceGenerationId": "<generationId>",
         "enqueuedTime": "2018-06-11T00:00:08.2250000Z"
     },
     "Body": "{\"humidity\":80.59100954598546,\"magnetometerX\":0.29451796907056726,\"magnetometerY\":0.5550332126050068,\"magnetometerZ\":-0.04116681874733441,\"connectivity\":\"connected\",\"opened\":\"triggered\"}"
@@ -56,10 +58,11 @@ ms.locfileid: "39622486"
 
 ### <a name="devices"></a>장치
 
-연속 데이터 내보내기를 처음으로 켜면 모든 장치가 포함된 단일 스냅숏이 내보내집니다. 스냅숏에는 다음이 포함됩니다.
-- 장치 ID
-- 장치 이름
-- 장치 템플릿 ID
+연속 데이터 내보내기를 처음으로 켜면 모든 장치가 포함된 단일 스냅숏이 내보내집니다. 각 장치에는 다음 항목이 포함됩니다.
+- IoT Central의 장치 `id`
+- 장치의 `name`
+- [Device Provisioning Service](https://aka.ms/iotcentraldocsdps)의 `deviceId`
+- 장치 템플릿 정보
 - 속성 값
 - 설정 값
 
@@ -73,15 +76,16 @@ ms.locfileid: "39622486"
 >
 > 각 장치가 속하는 장치 템플릿은 장치 템플릿 ID로 표시됩니다. 장치 템플릿 이름을 가져오려면 장치 템플릿 스냅숏을 내보내야 합니다.
 
-디코딩된 AVRO 파일의 각 레코드는 다음과 같습니다.
+디코딩된 AVRO 파일의 A 레코드는 다음과 같을 수 있습니다.
 
 ```json
 {
-    "id": "2383d8ba-c98c-403a-b4d5-8963859643bb",
+    "id": "<id>",
     "name": "Refrigerator 2",
     "simulated": true,
+    "deviceId": "<deviceId>",
     "deviceTemplate": {
-        "id": "c318d580-39fc-4aca-b995-843719821049",
+        "id": "<template id>",
         "version": "1.0.0"
     },
     "properties": {
@@ -104,8 +108,10 @@ ms.locfileid: "39622486"
 
 ### <a name="device-templates"></a>장치 템플릿
 
-연속 데이터 내보내기를 처음으로 켜면 모든 장치 템플릿이 포함된 단일 스냅숏이 내보내집니다. 스냅숏에는 다음이 포함됩니다. 
-- 장치 템플릿 ID
+연속 데이터 내보내기를 처음으로 켜면 모든 장치 템플릿이 포함된 단일 스냅숏이 내보내집니다. 각 장치 템플릿에는 다음 항목이 포함됩니다.
+- 장치 템플릿의 `id`
+- 장치 템플릿의 `name`
+- 장치 템플릿의 `version`
 - 측정 데이터 형식 및 최솟/최댓값
 - 속성 데이터 형식 및 기본값
 - 설정 데이터 형식 및 기본값
@@ -118,11 +124,11 @@ ms.locfileid: "39622486"
 > [!NOTE]
 > 마지막 스냅숏 이후에 삭제된 장치 템플릿은 내보내지지 않습니다. 현재는 삭제된 장치 템플릿을 나타내는 표시기가 스냅숏에 없습니다.
 
-디코딩된 AVRO 파일의 각 레코드는 다음과 같습니다.
+디코딩된 AVRO 파일의 A 레코드는 다음과 같을 수 있습니다.
 
 ```json
 {
-    "id": "c318d580-39fc-4aca-b995-843719821049",
+    "id": "<id>",
     "name": "Refrigerated Vending Machine",
     "version": "1.0.0",
     "measurements": {
@@ -209,16 +215,16 @@ ms.locfileid: "39622486"
 
 4. **관리** 아래에서 **데이터 내보내기**를 선택합니다.
 
-   ![연속 데이터 내보내기 구성](media/howto-export-data/continuousdataexport.PNG)
-
 5. **저장소 계정** 드롭다운 목록 상자에서 저장소 계정을 선택합니다. **컨테이너** 드롭다운 목록 상자에서 컨테이너를 선택합니다. **데이터 내보내기** 아래에서 형식을 **켜기**로 설정하여 내보낼 각 데이터 형식을 지정합니다.
 
 6. 연속 데이터 내보내기를 켜려면 **데이터 내보내기**를 **켜기**로 설정합니다. **저장**을 선택합니다.
 
+  ![연속 데이터 내보내기 구성](media/howto-export-data/continuousdataexport.PNG)
+
 7. 몇 분 후 저장소 계정에 데이터가 나타납니다. 저장소 계정을 찾습니다. **Blob 찾아보기** > 컨테이너를 선택합니다. 데이터 내보내기용 폴더 세 개가 보일 것입니다. 데이터 내보내기를 사용하는 AVRO 파일의 기본 경로는 다음과 같습니다.
-    - 메시지: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
-    - 장치: {container}/devices/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
-    - 장치 템플릿: {container}/deviceTemplates/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
+    - 메시지: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+    - 장치: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+    - 장치 템플릿: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 
 ## <a name="read-exported-avro-files"></a>내보낸 AVRO 파일 읽기
 
@@ -280,7 +286,7 @@ def parse(filePath):
     transformed = pd.DataFrame()
 
     # The device ID is available in the id column.
-    transformed["device_id"] = devices["id"]
+    transformed["device_id"] = devices["deviceId"]
 
     # The template ID and version are present in a dictionary under
     # the deviceTemplate column.
@@ -395,7 +401,7 @@ public static async Task Run(string filePath)
                 {
                     // Get the field value directly. You can also yield return
                     // records and make the function IEnumerable<AvroRecord>.
-                    var deviceId = record.GetField<string>("id");
+                    var deviceId = record.GetField<string>("deviceId");
 
                     // The device template information is stored in a sub-record
                     // under the deviceTemplate field.
@@ -411,7 +417,7 @@ public static async Task Run(string filePath)
                     var fanSpeed = deviceSettingsRecord["fanSpeed"];
                     
                     Console.WriteLine(
-                        "ID: {0}, Template ID: {1}, Template Version: {2}, Fan Speed: {3}",
+                        "Device ID: {0}, Template ID: {1}, Template Version: {2}, Fan Speed: {3}",
                         deviceId,
                         templateId,
                         templateVersion,
@@ -524,8 +530,8 @@ const avro = require('avsc');
 async function parse(filePath) {
     const records = await load(filePath);
     for (const record of records) {
-        // Fetch the device ID from the id property.
-        const deviceId = record.id;
+        // Fetch the device ID from the deviceId property.
+        const deviceId = record.deviceId;
 
         // Fetch the template ID and version from the deviceTemplate property.
         const deviceTemplateId = record.deviceTemplate.id;
@@ -535,7 +541,7 @@ async function parse(filePath) {
         const fanSpeed = record.settings.device.fanSpeed;
 
         // Log the retrieved device ID and humidity.
-        console.log(`ID: ${deviceId}, Template ID: ${deviceTemplateId}, Template Version: ${deviceTemplateVersion}, Fan Speed: ${fanSpeed}`);
+        console.log(`deviceID: ${deviceId}, Template ID: ${deviceTemplateId}, Template Version: ${deviceTemplateVersion}, Fan Speed: ${fanSpeed}`);
     }
 }
 

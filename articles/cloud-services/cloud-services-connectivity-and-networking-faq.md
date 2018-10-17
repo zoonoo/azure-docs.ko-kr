@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: ab0fa22e9ba776db3d4af301499545f6e0822478
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 034d59c39628a08c389c5ceb67c5872bbea10d59
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070175"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223171"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 연결 및 네트워킹 문제: FAQ(질문과 대답)
 
@@ -110,3 +110,19 @@ IIS의 URL 다시 쓰기 모듈을 사용하여 클라우드 서비스의 기본
 ## <a name="how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services"></a>클라우드 서비스와 Azure Resource Manager 가상 네트워크를 사용하려면 어떻게 해야 하나요? 
 
 클라우드 서비스는 Azure Resource Manager 가상 네트워크에 배치할 수 없습니다. Resource Manager 가상 네트워크 및 클래식 배포 가상 네트워크는 피어링을 통해 연결할 수 있습니다. 자세한 내용은 [가상 네트워크 피어링](../virtual-network/virtual-network-peering-overview.md)을 참조하세요.
+
+
+## <a name="how-can-i-get-the-list-of-public-ips-used-by-my-cloud-services"></a>Cloud Services에서 사용되는 공용 IP 목록은 어떻게 확인할 수 있나요?
+
+다음 PS 스크립트를 사용하면 구독에서 Cloud Services에 사용되는 공용 IP 목록을 확인할 수 있습니다.
+
+    $services = Get-AzureService  | Group-Object -Property ServiceName
+
+    foreach ($service in $services) 
+    {
+        "Cloud Service '$($service.Name)'"
+
+        $deployment = Get-AzureDeployment -ServiceName $service.Name 
+        "VIP - " +  $deployment.VirtualIPs[0].Address
+        "================================="
+    }

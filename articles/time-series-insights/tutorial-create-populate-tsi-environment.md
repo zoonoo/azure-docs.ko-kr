@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 06/04/2018
 ms.author: anshan
 manager: cshankar
-ms.openlocfilehash: 7faec1608845d218a738c70f147f79248a549dde
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 46fecf6f1b2826f0e23b7b6c4f4511ce9a662d1c
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626775"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365692"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>자습서: Azure Time Series Insights 환경 만들기
 
@@ -26,11 +26,17 @@ ms.locfileid: "39626775"
 > * TSI 환경으로 데이터를 스트리밍하도록 장치 시뮬레이션 실행
 > * 시뮬레이션된 원격 분석 데이터 확인
 
+## <a name="video"></a>비디오: 
+
+### <a name="in-this-video-we-show-you-how-to-use-an-azure-iot-solution-accelerator-to-generate-data-that-can-be-used-to-get-started-with-time-series-insightsbr"></a>이 비디오에서는 Azure IoT 솔루션 가속기를 사용하여 Time Series Insights를 시작하는 데 사용할 수 있는 데이터를 생성하는 방법을 보여 줍니다.</br>
+
+> [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
+
 ## <a name="prerequisites"></a>필수 조건
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다. 
 
-Azure 로그인 계정도 구독에서 “소유자” 역할의 구성원이어야 합니다. 자세한 내용은 [Azure 구독 관리자 추가 또는 변경](/azure/billing/billing-add-change-azure-subscription-administrator)을 참조하세요.
+Azure 로그인 계정도 구독에서 소유자 역할의 멤버여야 합니다. 자세한 내용은 [RBAC 및 Azure Portal을 사용하여 액세스 관리](/azure/role-based-access-control/role-assignments-portal)를 참조하세요.
 
 ## <a name="overview"></a>개요
 

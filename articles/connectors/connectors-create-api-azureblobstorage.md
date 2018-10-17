@@ -1,33 +1,41 @@
 ---
 title: Azure Blob 저장소에 연결 - Azure Logic Apps | Microsoft Docs
 description: Azure Logic Apps를 사용하여 Azure 저장소에서 Blob 만들기 및 관리
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 05/21/2018
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
+ms.service: logic-apps
 ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.topic: article
+ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: 49d08135dee4568d1a9d65ec2d22d17ee3bda2ea
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: d8658740772ed4a11fdfd70a0c925ac1b597dd69
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "35294682"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452023"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Azure Blob 저장소에서 Blob 만들기 및 관리
 
 이 문서에서는 Azure Blob Storage 커넥터를 사용하여 논리 앱 내에서 Azure 저장소 계정의 Blob으로 저장된 파일에 액세스하고 관리하는 방법을 보여줍니다. 이러한 방식으로 파일을 관리하는 작업 및 워크플로를 자동화하는 논리 앱을 만들 수 있습니다. 예를 들어 저장소 계정에서 파일을 만들고, 가져오고, 업데이트하고, 삭제하는 논리 앱을 빌드할 수 있습니다.
 
-Azure 웹 사이트에서 업데이트되는 도구가 있다고 가정해 보십시오. 논리 앱에 대한 트리거의 역할을 합니다. 이 이벤트가 발생하면 논리 앱에서 Blob 저장소 컨테이너의 일부 파일을 업데이트하도록 할 수 있습니다. 이는 논리 앱의 작업입니다. 
+Azure 웹 사이트에서 업데이트되는 도구가 있다고 가정해 보겠습니다. 이 도구는 논리 앱에 대한 트리거의 역할을 합니다. 이 이벤트가 발생하면 논리 앱에서 Blob 저장소 컨테이너의 일부 파일을 업데이트하도록 할 수 있습니다. 이는 논리 앱의 작업입니다. 
 
-Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 논리 앱을 처음 사용하는 경우 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토합니다.
+> [!NOTE]
+> Logic Apps는 방화벽을 통해 Azure Storage 계정에 직접 연결하도록 지원하지 않습니다. 이러한 저장소 계정에 액세스하려면 다음 옵션 중 하나를 사용합니다. 
+>
+> * [통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)을 만듭니다. Azure Virtual Network의 리소스에 연결할 수 있습니다. 
+> 
+> * API Management를 이미 사용 중인 경우 이 시나리오에 이 서비스를 사용할 수 있습니다. 자세한 내용은 [간단한 엔터프라이즈 통합 아키텍처](http://aka.ms/aisarch)를 참조하세요.
+
+논리 앱을 처음 사용하는 경우 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토합니다.
 커넥터 관련 기술 정보는 <a href="https://docs.microsoft.com/connectors/azureblobconnector/" target="blank">Azure Blob Storage 커넥터 참조</a>를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
+
+* Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 
 
 * [Azure 저장소 계정 및 저장소 컨테이너](../storage/blobs/storage-quickstart-blobs-portal.md)
 
@@ -94,7 +102,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
   
       ![폴더 선택](./media/connectors-create-api-azureblobstorage/action-select-folder.png)
 
-   2. Blob의 **Id** 번호에 따라 원하는 파일을 찾고 선택합니다. 앞에서 설명한 Blob 저장소 트리거에 의해 반환되는 Blob의 메타데이터에서 이 **Id** 숫자를 찾을 수 있습니다.
+   2. Blob의 **Id** 번호에 따라 원하는 파일을 찾고 선택합니다. 앞에서 설명한 Blob 저장소 트리거에 의해 반환되는 Blob의 메타데이터에서 이 **Id** 번호를 찾을 수 있습니다.
 
 5. 완료되면 디자이너 도구 모음에서 **저장**을 선택합니다.
 논리 앱을 테스트하려면 선택한 폴더에 Blob이 포함되어 있는지 확인합니다.

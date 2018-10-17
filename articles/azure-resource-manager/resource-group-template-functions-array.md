@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: cdc8222675a9f0099edccb24310bcea03bf963f4
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 81638136589fc474d5183341d2fe0f9f896d6b41
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929682"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434469"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에 대한 배열 및 개체 함수 
 
@@ -56,7 +56,7 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| convertToArray |예 |int, 문자열, 배열 또는 개체 |배열로 변환할 값입니다. |
+| convertToArray |yes |int, 문자열, 배열 또는 개체 |배열로 변환할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -134,8 +134,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |int, 문자열, 배열 또는 개체 |null인지 테스트할 첫 번째 값입니다. |
-| 추가 인수 |아니오 |int, 문자열, 배열 또는 개체 |null인지 테스트할 추가 값입니다. |
+| arg1 |yes |int, 문자열, 배열 또는 개체 |null인지 테스트할 첫 번째 값입니다. |
+| 추가 인수 |아니요 |int, 문자열, 배열 또는 개체 |null인지 테스트할 추가 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -223,7 +223,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |연결을 위한 첫 번째 배열 또는 문자열입니다. |
-| 추가 인수 |아니오 |배열 또는 문자열 |연결 순서로 나타낸 추가 배열 또는 문자열입니다. |
+| 추가 인수 |아니요 |배열 또는 문자열 |연결 순서로 나타낸 추가 배열 또는 문자열입니다. |
 
 이 함수는 인수를 개수에 관계없이 사용할 수 있으며 매개 변수에 대한 문자열이나 배열 중 하나를 사용할 수 있습니다.
 
@@ -330,7 +330,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="contains"></a>contains
 `contains(container, itemToFind)`
 
-배열에 값이 포함되는지, 개체에 키가 포함되는지 또는 문자열에 하위 문자열이 포함되는지를 확인합니다.
+배열에 값이 포함되는지, 개체에 키가 포함되는지 또는 문자열에 하위 문자열이 포함되는지를 확인합니다. 문자열 비교에서는 대/소문자를 구분합니다. 그러나 개체에 키가 포함되어 있는지를 테스트할 때는 비교에서 대/소문자를 구분하지 않습니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -430,8 +430,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |문자열, 정수, 배열 또는 개체 |배열의 첫 번째 값입니다. |
-| 추가 인수 |아니오 |문자열, 정수, 배열 또는 개체 |배열의 추가 값입니다. |
+| arg1 |yes |문자열, 정수, 배열 또는 개체 |배열의 첫 번째 값입니다. |
+| 추가 인수 |아니요 |문자열, 정수, 배열 또는 개체 |배열의 추가 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -654,9 +654,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 첫 번째 값입니다. |
-| arg2 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 두 번째 값입니다. |
-| 추가 인수 |아니오 |배열 또는 개체 |공통 요소를 찾는 데 사용할 추가 값입니다. |
+| arg1 |yes |배열 또는 개체 |공통 요소를 찾는 데 사용할 첫 번째 값입니다. |
+| arg2 |yes |배열 또는 개체 |공통 요소를 찾는 데 사용할 두 번째 값입니다. |
+| 추가 인수 |아니요 |배열 또는 개체 |공통 요소를 찾는 데 사용할 추가 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -731,12 +731,16 @@ JSON 개체를 반환합니다.
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |string |JSON으로 변환할 값입니다. |
+| arg1 |yes |string |JSON으로 변환할 값입니다. |
 
 
 ### <a name="return-value"></a>반환 값
 
 지정된 문자열의 JSON 개체이거나, **null**을 지정한 경우 빈 개체입니다.
+
+### <a name="remarks"></a>설명
+
+JSON 개체에 매개 변수 값이나 변수를 포함해야 하는 경우 [concat](resource-group-template-functions-string.md#concat) 함수를 사용하여 함수로 전달할 문자열을 작성합니다.
 
 ### <a name="example"></a>예
 
@@ -746,6 +750,12 @@ JSON 개체를 반환합니다.
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testValue": {
+            "type": "string",
+            "defaultValue": "demo value"
+        }
+    },
     "resources": [
     ],
     "outputs": {
@@ -756,6 +766,10 @@ JSON 개체를 반환합니다.
         "nullOutput": {
             "type": "bool",
             "value": "[empty(json('null'))]"
+        },
+        "paramOutput": {
+            "type": "object",
+            "value": "[json(concat('{\"a\": \"', parameters('testValue'), '\"}'))]"
         }
     }
 }
@@ -767,6 +781,7 @@ JSON 개체를 반환합니다.
 | ---- | ---- | ----- |
 | jsonOutput | Object | {"a": "b"} |
 | nullOutput | BOOLEAN | True |
+| paramOutput | Object | {"a": "demo value"}
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -939,7 +954,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최대값을 가져올 컬렉션입니다. |
+| arg1 |yes |정수 배열 또는 쉼표로 구분된 정수 목록 |최대값을 가져올 컬렉션입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -1003,7 +1018,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |정수 배열 또는 쉼표로 구분된 정수 목록 |최소값을 가져올 컬렉션입니다. |
+| arg1 |yes |정수 배열 또는 쉼표로 구분된 정수 목록 |최소값을 가져올 컬렉션입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -1067,8 +1082,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| startingInteger |예 |int |배열에서 첫 번째 정수입니다. |
-| numberofElements |예 |int |배열에 있는 정수의 수입니다. |
+| startingInteger |yes |int |배열에서 첫 번째 정수입니다. |
+| numberofElements |yes |int |배열에 있는 정수의 수입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -1293,9 +1308,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 첫 번째 값입니다. |
-| arg2 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 두 번째 값입니다. |
-| 추가 인수 |아니오 |배열 또는 개체 |요소를 조인하는 데 사용할 추가 값입니다. |
+| arg1 |yes |배열 또는 개체 |요소를 조인하는 데 사용할 첫 번째 값입니다. |
+| arg2 |yes |배열 또는 개체 |요소를 조인하는 데 사용할 두 번째 값입니다. |
+| 추가 인수 |아니요 |배열 또는 개체 |요소를 조인하는 데 사용할 추가 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 

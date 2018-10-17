@@ -1,23 +1,25 @@
 ---
-title: C#로 개체 검색 프로젝트 빌드 - Custom Vision Service - Azure Cognitive Services | Microsoft Docs
-description: Microsoft Cognitive Services의 Custom Vision API를 사용하는 기본 Windows 앱을 탐색합니다. 기본 끝점을 사용하여 프로젝트를 만들고, 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 예측을 수행합니다.
+title: '자습서: C#에서 개체 검색 프로젝트 빌드 - Custom Vision Service'
+titlesuffix: Azure Cognitive Services
+description: 기본 엔드포인트를 사용하여 프로젝트를 만들고, 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 예측을 수행합니다.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: areddish
-ms.openlocfilehash: e3def864267a590c86a2dd6663561d8488081ad6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: d04fb86abbc0f174e895c166d97fc5467831206f
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "36301083"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366916"
 ---
-# <a name="use-custom-vision-api-to-build-an-object-detection-project-in-c35"></a>Custom Vision API를 사용하여 C&#35;에서 개체 검색 프로젝트 빌드 
-Computer Vision API를 사용하여 개체 검색 프로젝트를 만드는 기본 Windows 응용 프로그램을 사용하는 방법을 알아봅니다. 프로젝트를 만든 후에는 태그가 지정된 지역을 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 기본 예측 끝점 URL를 획득하고, 해당 끝점을 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. 이 오픈 소스 예제를 Custom Vision API를 사용하여 사용자 고유의 Windows용 앱을 빌드하기 위한 템플릿으로 사용합니다.
+# <a name="tutorial-use-custom-vision-api-to-build-an-object-detection-project-in-c"></a>자습서: Custom Vision API를 사용하여 C#에서 개체 검색 프로젝트 빌드
+
+Computer Vision API를 사용하여 개체 검색 프로젝트를 만드는 기본 Windows 응용 프로그램을 사용하는 방법을 알아봅니다. 프로젝트를 만든 후에는 태그가 지정된 지역을 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 기본 예측 엔드포인트 URL를 획득하고, 해당 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. 이 오픈 소스 예제를 Custom Vision API를 사용하여 사용자 고유의 Windows용 앱을 빌드하기 위한 템플릿으로 사용합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -200,12 +202,12 @@ namespace SampleObjectDetection
     Console.WriteLine("Done!\n");
 ```
 
-## <a name="step-6-get-and-use-the-default-prediction-endpoint"></a>6단계: 기본 예측 끝점 가져오기 및 사용
+## <a name="step-6-get-and-use-the-default-prediction-endpoint"></a>6단계: 기본 예측 엔드포인트 가져오기 및 사용
 
 이제 예측을 위해 모델을 사용할 준비가 되었습니다. 
 
-1. **Main()** 끝에 다음 코드를 삽입하여 기본 반복과 연결된 끝점을 획득합니다. 
-2. 해당 끝점을 사용하여 프로젝트에 테스트 이미지를 보냅니다.
+1. **Main()** 끝에 다음 코드를 삽입하여 기본 반복과 연결된 엔드포인트를 획득합니다. 
+2. 해당 엔드포인트를 사용하여 프로젝트에 테스트 이미지를 보냅니다.
 
 ```csharp
     // Now there is a trained endpoint, it can be used to make a prediction

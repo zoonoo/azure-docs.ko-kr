@@ -1,21 +1,21 @@
 ---
-title: Translator Text Go를 사용하여 문장 길이 가져오기 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 이 빠른 시작에서는 Cognitive Services에서 Go와 함께 Translator Text API를 사용하여 텍스트에서 문장 길이를 찾습니다.
+title: '빠른 시작: 문장 길이 가져오기 - Translator Text, Go'
+titleSuffix: Azure Cognitive Services
+description: 이 빠른 시작에서는 Go와 함께 Translator Text API를 사용하여 텍스트에서 문장 길이를 찾습니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
 ms.author: nolachar
-ms.openlocfilehash: 441f7c9ced91899896b63f4925f1ec204a9f52fb
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 34b30179d674a42f6c9c2c358c0feb6e083089f6
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "43750510"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129457"
 ---
 # <a name="quickstart-get-sentence-lengths-with-go"></a>빠른 시작: Go를 사용하여 문장 길이 가져오기
 

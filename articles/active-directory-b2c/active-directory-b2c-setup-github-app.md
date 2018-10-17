@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 11f3f190c0f55e45c549a8bd1de35f78eb7b752d
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 7f8b2c6dc570f7a610c0d661da0c6df7491647bd
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43337432"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182181"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 GitHub 계정으로 등록 설정 및 로그인
 
@@ -28,23 +28,16 @@ Azure AD(Azure Active Directory) B2C에서 GitHub 계정을 ID 공급자로 사�
 ## <a name="create-a-github-oauth-application"></a>GitHub OAuth 응용 프로그램 만들기
 
 1. GitHub 자격 증명을 사용하여 [GitHub Developer](https://github.com/settings/developers) 웹 사이트에 로그인합니다.
-2. **OAuth Apps**를 선택한 후 **새 응용 프로그램을 등록**을 선택합니다.
+2. **OAuth 앱**, **새 OAuth 앱**을 차례로 선택합니다.
 3. **응용 프로그램 이름** 및 **홈페이지 URL**을 입력합니다.
-4. **권한 부여 콜백 URL**에 `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp`를 입력합니다. **{tenant}** 를 자신의 Azure AD B2C 테넌트 이름(예: contosob2c)으로 바꿉니다.
+4. **권한 부여 콜백 URL**에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다.
 5. **응용 프로그램 등록**을 클릭합니다.
 6. **클라이언트 ID** 및 **클라이언트 비밀** 값을 복사합니다. 테넌트에 ID 공급자를 추가하려면 둘 다 필요합니다.
 
 ## <a name="configure-a-github-account-as-an-identity-provider"></a>GitHub 계정을 ID 공급자로 구성
 
 1. Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure Portal의 오른쪽 상단 모서리에서 전환하여 Azure AD B2C 테넌트가 있는 디렉터리를 사용하고 있는지 확인합니다. 구독 정보를 선택한 다음, **디렉터리 전환**을 선택합니다. 
-
-    ![Azure AD B2C 테넌트로 전환](./media/active-directory-b2c-setup-github-app/switch-directories.png)
-
-    테넌트를 포함하는 디렉터리를 선택합니다.
-
-    ![디렉터리 선택](./media/active-directory-b2c-setup-github-app/select-directory.png)
-
+2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. **ID 공급자**를 선택한 다음, **추가**를 선택합니다.
 5. **이름**을 제공합니다. 예를 들어 *Github*를 입력합니다.

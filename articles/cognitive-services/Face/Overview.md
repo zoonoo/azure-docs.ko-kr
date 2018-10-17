@@ -1,24 +1,24 @@
 ---
-title: Face API Service 개요 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 이 용어집에서는 Face API Service를 사용할 때 나타날 수 있는 용어에 대해 설명합니다.
+title: Face API 서비스란?
+titleSuffix: Azure Cognitive Services
+description: Face API 서비스를 사용할 때 나타날 수 있는 용어에 대해 설명합니다.
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: overview
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: fb1d14ff80bf53adc3008d79cc998739ffffde1b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 15de899be5ab85e9fe84ba1b6284bc9419fcf8a1
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048672"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123473"
 ---
-# <a name="what-is-face-api"></a>Face API란?
+# <a name="what-is-the-face-api-service"></a>Face API 서비스란?
 
-최고급 얼굴 알고리즘을 제공하는 클라우드 기반 서비스인 Microsoft Face API에 오신 것을 환영합니다. Face API는 특성을 사용한 얼굴 감지와 얼굴 인식이라는 두 가지 주요 기능을 제공합니다.
+최고급 얼굴 알고리즘을 제공하는 클라우드 기반 서비스인 Face API 서비스에 오신 것을 환영합니다. Face API는 특성을 사용한 얼굴 감지와 얼굴 인식이라는 두 가지 주요 기능을 제공합니다.
 
 ## <a name="face-detection"></a>얼굴 감지
 

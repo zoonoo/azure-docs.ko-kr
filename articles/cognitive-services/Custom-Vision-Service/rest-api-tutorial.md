@@ -1,20 +1,21 @@
 ---
-title: Custom Vision Service REST API 사용 - Azure Cognitive Services | Microsoft Docs
+title: '자습서: Custom Vision Service REST API 사용'
+titlesuffix: Azure Cognitive Services
 description: REST API를 사용하여 Custom Vision 모델 생성, 교육, 테스트, 내보내기를 수행합니다.
 services: cognitive-services
 author: blackmist
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: larryfr
-ms.openlocfilehash: 44fa4d45c33f3064c089724ee761a70d0a8421ab
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: a38f737b5281903328a53d6552b1666ca4f58d80
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40250695"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364961"
 ---
 # <a name="tutorial-use-the-custom-vision-rest-api"></a>자습서: Custom Vision REST API 사용
 

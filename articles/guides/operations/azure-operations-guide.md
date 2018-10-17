@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 06365e4397075d18150095f7e77367f457e3308c
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: c10e071100410f6d5d995d88657bdd85c08a9715
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190428"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423496"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure IT 운영자를 위한 시작하기
 
@@ -149,7 +149,7 @@ Azure를 사용할 때 얻을 수 있는 장점 중 하나는 전 세계의 다�
 
 ### <a name="azure-portal"></a>Azure portal
 
-Azure Portal은 Azure 리소스 및 서비스를 만들고 관리하고 제거하는 데 사용할 수 있는 웹 기반 응용 프로그램입니다. Azure Portal은 [Shell.Azure.com](https://portal.azure.com)에 있습니다. 여기에는 Azure 리소스 관리를 위해 사용자 지정 가능한 대시보드 및 도구가 포함되어 있습니다. 또한 청구 및 구독 정보를 제공합니다. 자세한 내용은 [Microsoft Azure Portal 개요](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) 및 [포털을 통해 Azure 리소스 관리](https://docs.microsoft.com/azure/azure-portal/resource-group-portal)를 참조하세요.
+Azure Portal은 Azure 리소스 및 서비스를 만들고 관리하고 제거하는 데 사용할 수 있는 웹 기반 응용 프로그램입니다. Azure Portal의 주소는 [portal.azure.com](https://portal.azure.com)입니다. 여기에는 Azure 리소스 관리를 위해 사용자 지정 가능한 대시보드 및 도구가 포함되어 있습니다. 또한 청구 및 구독 정보를 제공합니다. 자세한 내용은 [Microsoft Azure Portal 개요](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) 및 [포털을 통해 Azure 리소스 관리](https://docs.microsoft.com/azure/azure-portal/resource-group-portal)를 참조하세요.
 
 ### <a name="resources"></a>리소스
 
@@ -185,7 +185,7 @@ Azure는 Azure Portal UI를 지원하는 REST API 집합을 기반으로 합니�
 
 ## <a name="azure-subscriptions"></a>Azure 구독
 
-구독은 Azure 계정에 연결된 Azure 서비스의 논리적 그룹입니다. 단일 Azure 계정에 여러 구독이 포함될 수 있습니다. Azure 서비스에 대한 청구는 구독 단위로 이루어집니다. Azure 구독에는 구독에 대한 모든 권한을 가진 계정 관리자와 구독의 모든 서비스를 제어할 수 있는 서비스 관리자가 있습니다. 관리자 외에도 RBAC(역할 기반 액세스 제어)를 통해 Azure 리소스를 세부적으로 제어할 수 있는 권한을 개별 계정에 부여할 수 있습니다.
+구독은 Azure 계정에 연결된 Azure 서비스의 논리적 그룹입니다. 단일 Azure 계정에 여러 구독이 포함될 수 있습니다. Azure 서비스에 대한 청구는 구독 단위로 이루어집니다. Azure 구독에는 구독에 대한 모든 권한을 가진 계정 관리자와 구독의 모든 서비스를 제어할 수 있는 서비스 관리자가 있습니다. 클래식 구독 관리자에 대한 자세한 내용은 [Azure 구독 관리자 추가 또는 변경](../../billing/billing-add-change-azure-subscription-administrator.md)을 참조하세요. 관리자 외에도 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 사용하여 Azure 리소스를 세부적으로 제어할 수 있는 권한을 개별 계정에 부여할 수 있습니다.
 
 ### <a name="select-and-enable-an-azure-subscription"></a>Azure 구독 선택 및 사용
 
@@ -205,13 +205,9 @@ Azure 서비스를 사용하려면 먼저 구독이 있어야 합니다. 여러 
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Azure 구독에 대한 관리 액세스 권한 부여
 
-여러 계정 관리자 역할을 사용할 수 있으며 언제든지 변경할 수 있습니다. 두 가지 주요 역할이 있습니다.
+RBAC에는 권한을 할당하는 데 사용할 수 있는 몇 가지 기본 제공 역할이 있습니다. 특정 사용자를 Azure 구독의 관리자로 지정하려면 해당 사용자에게 구독 범위에서 [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할을 할당합니다. 소유자 역할을 할당하면 다른 사용자에게 액세스를 위임할 수 있는 권한을 비롯한 구독의 리소스에 대한 모든 권한이 사용자에게 제공됩니다.
 
-- **서비스 관리자**: 이 역할은 Azure 서비스를 관리할 권한이 있습니다. 기본적으로 계정 관리자와 동일한 계정에 대한 액세스 권한을 부여합니다.
-
-- **공동 관리자**: 이 역할은 서비스 관리자와 동일한 액세스 권한을 가집니다. 그러나 이 역할은 Azure 디렉터리에 대한 구독 연결을 변경할 수 없습니다.
-
-자세한 내용은 [Azure 관리자 역할을 추가 또는 변경하는 방법](../../billing/billing-add-change-azure-subscription-administrator.md)을 참조하세요.
+자세한 내용은 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
 ### <a name="view-billing-information-in-the-azure-portal"></a>Azure Portal에서 청구 정보 보기
 
@@ -232,10 +228,6 @@ Azure의 중요한 구성 요소 중 하나가 청구 정보를 볼 수 있는 �
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>가격 계산기로 비용 예측
 
 Azure의 각 서비스 가격은 다릅니다. 많은 Azure 서비스는 기본, 표준 및 프리미엄 계층을 제공합니다. 일반적으로 각 계층에는 여러 가지 가격 및 성능 수준이 있습니다. [온라인 가격 계산기](http://azure.microsoft.com/pricing/calculator)를 사용하여 가격을 예측할 수 있습니다. 계산기는 단일 리소스 또는 리소스 그룹에 대한 비용을 예측할 수 있는 유연성을 제공합니다.
-
-### <a name="set-up-billing-alerts"></a>청구 경고 설정
-
-Azure에 응용 프로그램이나 솔루션을 배포한 후에는 경고에 정의된 지출 한도에 다다랐을 때 메일을 보내는 경고를 만들 수 있습니다. 자세한 내용은 [Microsoft Azure 구독에 대한 청구 경고 설정](../../billing/billing-set-up-alerts.md)을 참조하세요.
 
 ## <a name="azure-resource-manager"></a>Azure 리소스 관리자
 
@@ -307,21 +299,21 @@ Resource Manager 템플릿은 4개의 섹션으로 구성됩니다.
 
 액세스 권한을 부여하려면 사용자 또는 사용자 그룹에 역할을 할당합니다. 많은 역할이 미리 정의되어 있습니다. 자체 사용자 지정 역할을 직접 정의할 수도 있습니다.
 
-다음은 Azure에서 기본으로 제공하는 몇 가지 예제 역할입니다.
+아래에는 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)의 몇 가지 예가 나와 있습니다.
 
 - **소유자**: 이 역할을 가진 사용자는 액세스를 포함하여 모든 사항을 관리할 수 있습니다.
 
 - **읽기**: 이 역할을 가진 사용자는 모든 유형의 리소스(암호 제외)를 읽을 수 있지만 변경할 수는 없습니다.
 
-- **가상 머신 참가자**: 이 역할을 가진 사용자는 가상 머신을 관리할 수는 있지만 가상 머신이 연결된 가상 네트워크나 VHD 파일이 있는 저장소 계정은 관리할 수 없습니다.
+- **가상 머신 참가자**: 이 역할에 속한 사용자는 가상 머신을 관리할 수는 있지만 가상 머신이 연결된 가상 네트워크나 VHD 파일이 있는 저장소 계정은 관리할 수 없습니다.
 
-- **SQL DB 참가자**: 이 역할을 가진 사용자는 SQL Database를 관리할 수 있지만 보안 관련 정책은 관리할 수 없습니다.
+- **SQL DB 참가자**: 이 역할에 속한 사용자는 SQL Database를 관리할 수 있지만 보안 관련 정책은 관리할 수 없습니다.
 
-- **SQL 보안 관리자**: 이 역할을 가진 사용자는 SQL Server 및 Database의 보안 관련 정책을 관리할 수 있습니다.
+- **SQL 보안 관리자**: 이 역할에 속한 사용자는 SQL Server 및 Database의 보안 관련 정책을 관리할 수 있습니다.
 
-- **Storage 계정 참가자**: 이 역할을 가진 사용자는 Storage 계정을 관리할 수 있지만 Storage 계정에 대한 액세스는 관리할 수 없습니다.
+- **Storage 계정 참가자**: 이 역할에 속한 사용자는 Storage 계정을 관리할 수 있지만 Storage 계정에 대한 액세스는 관리할 수 없습니다.
 
-자세한 내용은 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+자세한 내용은 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
 ## <a name="azure-virtual-machines"></a>Azure Virtual Machines
 

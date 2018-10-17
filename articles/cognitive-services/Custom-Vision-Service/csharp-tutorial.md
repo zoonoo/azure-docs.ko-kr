@@ -1,22 +1,23 @@
 ---
-title: C# 응용 프로그램에서 Custom Vision Service 사용 - Azure Cognitive Services | Microsoft Docs
-description: Microsoft Cognitive Services의 Custom Vision API를 사용하는 기본 C# 앱을 탐색합니다. 기본 엔드포인트를 사용하여 프로젝트를 만들고, 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 예측을 수행합니다.
+title: '자습서: C#을 사용하여 Custom Vision Service를 위한 Windows 앱 빌드'
+titlesuffix: Azure Cognitive Services
+description: 기본 엔드포인트를 사용하여 프로젝트를 만들고, 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 예측을 수행합니다.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: d3c2ffb0fd9578458bd07241eed4a87cf70d3c3c
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 9e5ed71d4620f7ffeac8acb15f90d67964a86870
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617437"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366644"
 ---
-# <a name="use-the-custom-vision-service-from-a-c35-application"></a>C&#35; 응용 프로그램에서 Custom Vision Service 사용
+# <a name="tutorial-use-the-custom-vision-service-from-a-c-application"></a>자습서: C# 응용 프로그램에서 Custom Vision Service 사용
 
 C# 응용 프로그램에서 Custom Vision Service를 사용하는 방법을 알아봅니다. 프로젝트를 만든 후에는 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 기본 예측 엔드포인트 URL를 획득하고, 해당 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. 이 오픈 소스 예제를 Custom Vision Service API를 사용하여 사용자 고유의 Windows용 앱을 빌드하기 위한 템플릿으로 사용합니다.
 

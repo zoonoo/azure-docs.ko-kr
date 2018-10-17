@@ -1,21 +1,21 @@
 ---
-title: Translator Text Node.js를 사용하여 지원되는 언어 가져오기 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 이 빠른 시작에서는 Cognitive Services에서 Node.js와 함께 Translator Text API를 사용하여 번역, 음역, 사전 조회에 지원되는 언어 목록과 예제를 가져옵니다.
+title: '빠른 시작: 지원되는 언어 가져오기 - Translator Text, Node.js'
+titleSuffix: Azure Cognitive Services
+description: 이 빠른 시작에서는 Node.js와 함께 Translator Text API를 사용하여 번역, 음역, 사전 조회에 지원되는 언어 목록과 예제를 가져옵니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: dd37aab3707c6f06b8cc2e942366e19746694252
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: a3b9dde8983b87a63858b3eb1381f7c74545cb1a
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43750450"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122861"
 ---
 # <a name="quickstart-get-supported-languages-with-nodejs"></a>빠른 시작: Node.js를 사용하여 지원되는 언어 가져오기
 

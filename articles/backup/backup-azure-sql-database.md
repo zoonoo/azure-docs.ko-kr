@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: c3321fb64c423b1b3c80f48fb97a70cc7dbc83f9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: aab0ac2dfba47741eaf5a75ef46d9ca5f8873d50
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433568"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434248"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Azure에 SQL Server 데이터베이스 백업
 
@@ -823,6 +823,10 @@ SQL 데이터베이스에 대한 보호가 중지된 경우 **백업 데이터 �
 ### <a name="can-i-protect-sql-always-on-availability-groups-where-the-primary-replica-is-on-premises"></a>주 복제본이 온-프레미스에 있는 경우 SQL AlwaysOn 가용성 그룹을 보호할 수 있나요?
 
 아니요. Azure Backup은 Azure에서 실행하는 SQL Server만 보호합니다. AG(가용성 그룹)이 Azure와 온-프레미스 머신 간에 분산되어 있는 경우 주 복제본을 Azure에서 실행하는 경우에만 가용성 그룹이 보호될 수 있습니다. 또한 Azure Backup은 Recovery Services 자격 증명 모음과 동일한 Azure 지역에서 실행 중인 노드만 보호합니다.
+
+### <a name="can-i-protect-sql-always-on-availability-groups-which-are-spread-across-azure-regions"></a>여러 Azure 지역에 분산되어 있는 SQL AlwaysOn 가용성 그룹을 보호할 수 있나요?
+Azure Backup Recovery Services Vault는 Recovery Services Vault와 같은 지역에 있는 모든 노드를 검색하고 보호할 수 있습니다. SQL AlwaysOn 가용성 그룹이 여러 Azure 지역에 분산되어 있는 경우에는 기본 노드가 있는 지역에서 백업을 구성해야 합니다. 그러면 Azure Backup이 백업 기본 설정에 따라 가용성 그룹의 모든 데이터베이스를 검색하고 보호할 수 있습니다. 백업 기본 설정이 충족되지 않으면 백업은 실패하며 오류 경고가 표시됩니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

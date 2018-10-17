@@ -6,17 +6,17 @@ ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 author: ghogen
 ms.author: ghogen
-ms.date: 05/11/2018
+ms.date: 09/11/2018
 ms.topic: article
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: douge
-ms.openlocfilehash: b66e43c0f40f184bfb2c62327f5742346ff8b187
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 91bec065b2c83eac6b646ae6a55bc1ae0aae01db
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841612"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226894"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
 
@@ -26,9 +26,13 @@ ms.locfileid: "43841612"
 
 문제를 더 효과적으로 해결하기 위해 검토에 대한 더 자세한 로그를 만드는 게 유용할 수 있습니다.
 
-Visual Studio 확장의 경우 `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` 환경 변수를 1로 설정하면 이를 수행할 수 있습니다. 환경 변수가 적용되도록 Visual Studio를 다시 시작해야 합니다. 사용하도록 설정하면 자세한 로그가 사용자 `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` 디렉터리에 작성됩니다.
+Visual Studio 확장의 경우 `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` 환경 변수를 1로 설정합니다. 환경 변수가 적용되도록 Visual Studio를 다시 시작해야 합니다. 사용하도록 설정하면 자세한 로그가 사용자 `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` 디렉터리에 작성됩니다.
 
-CLI에서 `--verbose` 전환을 사용하여 명령을 실행하는 동안 자세한 정보를 출력할 수 있습니다.
+CLI에서 `--verbose` 전환을 사용하여 명령을 실행하는 동안 자세한 정보를 출력할 수 있습니다. `%TEMP%\Azure Dev Spaces`에서 자세한 로그를 찾아볼 수도 있습니다. Mac의 경우 터미널 창에서 `echo $TMPDIR`을 실행하면 TEMP 디렉터리를 찾을 수 있습니다. Linux 컴퓨터에서 TEMP 디렉터리는 일반적으로 `/tmp`입니다.
+
+## <a name="debugging-services-with-multiple-instances"></a>여러 인스턴스를 사용하여 서비스 디버깅
+
+현재 Azure Dev Spaces는 단일 인스턴스(Pod) 디버깅 시에 가장 효율적으로 작동합니다. azds.yaml 파일에는 서비스용으로 실행될 Pod 수를 나타내는 설정인 replicaCount가 포함되어 있습니다. 앱이 지정된 서비스용으로 여러 Pod를 실행하도록 구성하기 위해 replicaCount를 변경하면 디버거는 첫 번째 Pod(사전순으로 나열된 경우)에 연결합니다. 해당 Pod가 재순환하는 경우 디버거는 다른 Pod에 연결하므로 예기치 않은 동작이 발생할 수 있습니다.
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>'Azure Dev Spaces 컨트롤러를 만들지 못했음' 오류
 
@@ -74,7 +78,7 @@ Visual Studio에서
     
 ## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Dev Spaces 서비스에 연결된 공용 URL에 대한 DNS 이름 확인 실패
 
-이 경우 Dev Spaces 서비스에 연결된 공용 URL에 연결을 시도하면 웹 브라우저에 "페이지를 표시할 수 없음" 또는 "이 사이트는 연결할 수 없음" 오류가 표시될 수 있습니다.
+DNS 이름 확인이 실패하는 경우 Dev Spaces 서비스에 연결된 공용 URL에 연결을 시도하면 웹 브라우저에 "페이지를 표시할 수 없음" 또는 "이 사이트는 연결할 수 없음" 오류가 표시될 수 있습니다.
 
 ### <a name="try"></a>다음을 시도해 보세요.
 
@@ -84,7 +88,7 @@ Visual Studio에서
 azds list-uris
 ```
 
-URL이 *보류 중* 상태이면 Dev Spaces가 DNS 등록 완료를 대기 중임을 의미합니다. 경우에 따라 이 작업은 몇 분 정도 걸립니다. Dev Spaces는 각 서비스마다 localhost 터널도 엽니다. 이것을 DNS 등록을 대기하는 동안 사용할 수 있습니다.
+URL이 *보류 중* 상태이면 Dev Spaces가 DNS 등록 완료를 대기 중임을 의미합니다. 경우에 따라 등록을 완료하려면 몇 분 정도 걸립니다. Dev Spaces는 각 서비스마다 localhost 터널도 엽니다. 이것을 DNS 등록을 대기하는 동안 사용할 수 있습니다.
 
 URL이 5분 넘게 *보류 중* 상태로 있으면 공용 엔드포인트를 만드는 외부 DNS Pod 및/또는 공용 엔드포인트를 획득하는 nginx 수신 컨트롤러에 문제가 있는 것일 수 있습니다. 다음 명령을 사용하여 이러한 Pod를 삭제할 수 있습니다. 삭제된 Pod는 자동으로 다시 만들어집니다.
 
@@ -121,7 +125,7 @@ Azure Dev Spaces는 C# 및 Node.js에 대해 네이티브 지원을 제공합니
 다른 언어로 작성된 코드를 사용하여 Azure Dev Spaces를 계속 사용할 수 있지만, 처음으로 *azds up*을 실행하기 전에는 Dockerfile을 직접 만들어야 합니다.
 
 ### <a name="try"></a>다음을 시도해 보세요.
-응용 프로그램이 Azure Dev Spaces가 고유하게 지원하지 않는 언어로 작성된 경우 코드를 실행하는 컨테이너 이미지를 빌드하기 위해 적절한 Dockerfile을 제공해야 합니다. Docker는 이를 수행하는 데 유용할 수 있는 [Dockerfile 참조](https://docs.docker.com/engine/reference/builder/)와 함께 [Dockerfile 작성에 대한 모범 사례 목록](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)을 제공합니다.
+응용 프로그램이 Azure Dev Spaces가 고유하게 지원하지 않는 언어로 작성된 경우 코드를 실행하는 컨테이너 이미지를 빌드하기 위해 적절한 Dockerfile을 제공해야 합니다. Docker는 필요에 맞는 Dockerfile을 작성하는 데 활용할 수 있는 [Dockerfile 참조](https://docs.docker.com/engine/reference/builder/)와 함께 [Dockerfile 작성에 대한 모범 사례 목록](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)을 제공합니다.
 
 적절한 Dockerfile을 만들고 나면 *azds up*을 계속 실행하여 Azure Dev Spaces에서 응용 프로그램을 실행할 수 있습니다.
 
@@ -152,7 +156,7 @@ Azure Dev Spaces는 C# 및 Node.js에 대해 네이티브 지원을 제공합니
 1. 코드 폴더에 _azds.yaml_ 파일이 없는 경우 `azds prep`를 실행하여 Docker, Kubernetes 및 Azure Dev Spaces 자산을 생성합니다.
 
 ## <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>오류: '파이프 프로그램 'azds'가 코드 126으로 예기치 않게 종료되었습니다.'
-VS Code 디버거를 시작하면 때때로 이 오류가 발생할 수 있습니다. 이는 알려진 문제입니다.
+VS Code 디버거를 시작하면 때때로 이 오류가 발생할 수 있습니다.
 
 ### <a name="try"></a>다음을 시도해 보세요.
 1. VS Code를 닫았다가 다시 엽니다.
@@ -162,7 +166,7 @@ VS Code 디버거를 시작하면 때때로 이 오류가 발생할 수 있습�
 VS Code 디버거를 실행하면 오류를 보고합니다. `Failed to find debugger extension for type:coreclr.`
 
 ### <a name="reason"></a>이유
-.Net Core에 대한 디버깅 지원(CoreCLR)이 포함된 C#용 VS Code 확장이 개발 머신에 설치되지 않았습니다.
+개발 컴퓨터에 C#용 VS Code 확장이 설치되어 있지 않습니다. C# 확장에는 .Net Core(CoreCLR)용 디버깅 지원이 포함되어 있습니다.
 
 ### <a name="try"></a>다음을 시도해 보세요.
 [C#용 VS Code 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)을 설치합니다.

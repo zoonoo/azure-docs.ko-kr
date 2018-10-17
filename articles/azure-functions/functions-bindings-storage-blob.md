@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: glenga
-ms.openlocfilehash: 9efe3c3d65dc1d809285eb760ca373c648ad66c0
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 40ed6105dca5ea14c64fb2b103c5623cd56333af
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094573"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393369"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Blob Storage 바인딩
 
@@ -29,7 +29,7 @@ ms.locfileid: "44094573"
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> BLOB 전용 저장소 계정 및 높은 확장성을 위해 또는 콜드 부팅 지연을 방지하기 위해 Blob 저장소 트리거 대신 Event Grid 트리거를 사용합니다. 자세한 내용은 [트리거](#trigger) 섹션을 참조하세요. 
+> 확장성을 높이거나 콜드 부팅 지연을 방지하려면 BLOB 저장소 계정에는 Blob 저장소 트리거 대신 Event Grid 트리거를 사용합니다. 자세한 내용은 [트리거](#trigger) 섹션을 참조하세요. 
 
 ## <a name="packages---functions-1x"></a>패키지 - Functions 1.x
 
@@ -53,13 +53,13 @@ Blob Storage 트리거는 신규 또는 업데이트된 Blob를 검색할 때 �
 
 다음과 같은 시나리오에 대해 Blob 저장소 트리거 대신 Event Grid를 사용합니다.
 
-* BLOB 전용 저장소 계정
+* Blob 저장소 계정
 * 높은 확장성
 * 콜드 부팅 지연 시간 최소화
 
-### <a name="blob-only-storage-accounts"></a>BLOB 전용 저장소 계정
+### <a name="blob-storage-accounts"></a>Blob 저장소 계정
 
-[Blob 전용 저장소 계정](../storage/common/storage-create-storage-account.md#blob-storage-accounts)은 BLOB 입력 및 바인딩 출력을 지원하지만 Blob 트리거는 지원하지 않습니다. Blob Storage 트리거에는 범용 저장소 계정이 필요합니다.
+[Blob 저장소 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)은 BLOB 입력 및 바인딩 출력을 지원하지만 Blob 트리거는 지원하지 않습니다. Blob Storage 트리거에는 범용 저장소 계정이 필요합니다.
 
 ### <a name="high-scale"></a>높은 확장성
 
@@ -284,7 +284,7 @@ Java 코드는 다음과 같습니다.
 |**direction** | 해당 없음 | `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. 예외는 [사용](#trigger---usage) 섹션에서 표시됩니다. |
 |**name** | 해당 없음 | 함수 코드에서 Blob을 나타내는 변수의 이름입니다. | 
 |**path** | **BlobPath** |모니터링할 컨테이너입니다.  [Blob 이름 패턴](#trigger-blob-name-patterns)일 수 있습니다. | 
-|**연결** | **연결** | 이 바인딩에 사용할 저장소 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 저장소 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 저장소 계정](../storage/common/storage-create-storage-account.md#blob-storage-accounts)이 아닌 범용 저장소 계정의 문자열이어야 합니다.|
+|**연결** | **연결** | 이 바인딩에 사용할 저장소 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 저장소 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 저장소 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 저장소 계정의 문자열이어야 합니다.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -602,7 +602,7 @@ public static void Run(
 |**direction** | 해당 없음 | `in`로 설정해야 합니다. 예외는 [사용](#input---usage) 섹션에서 표시됩니다. |
 |**name** | 해당 없음 | 함수 코드에서 Blob을 나타내는 변수의 이름입니다.|
 |**path** |**BlobPath** | Blob에 대한 경로입니다. | 
-|**연결** |**연결**| 이 바인딩에 사용할 저장소 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 저장소 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 저장소 계정](../storage/common/storage-create-storage-account.md#blob-storage-accounts)이 아닌 범용 저장소 계정의 문자열이어야 합니다.|
+|**연결** |**연결**| 이 바인딩에 사용할 저장소 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 저장소 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 저장소 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 저장소 계정의 문자열이어야 합니다.|
 |해당 없음 | **Access** | 읽기 또는 쓰기를 나타냅니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -834,7 +834,7 @@ public static void Run(
 |**direction** | 해당 없음 | 출력 바인딩에 대해 `out`로 설정해야 합니다. 예외는 [사용](#output---usage) 섹션에서 표시됩니다. |
 |**name** | 해당 없음 | 함수 코드에서 Blob을 나타내는 변수의 이름입니다.  `$return`으로 설정하여 함수 반환 값을 참조합니다.|
 |**path** |**BlobPath** | Blob에 대한 경로입니다. | 
-|**연결** |**연결**| 이 바인딩에 사용할 저장소 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 저장소 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 저장소 계정](../storage/common/storage-create-storage-account.md#blob-storage-accounts)이 아닌 범용 저장소 계정의 문자열이어야 합니다.|
+|**연결** |**연결**| 이 바인딩에 사용할 저장소 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 저장소 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 저장소 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 저장소 계정의 문자열이어야 합니다.|
 |해당 없음 | **Access** | 읽기 또는 쓰기를 나타냅니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -878,8 +878,9 @@ JavaScript에서는 `context.bindings.<name from function.json>`을 사용하여
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [Blob Storage 트리거를 사용하는 빠른 시작으로 이동](functions-create-storage-blob-triggered-function.md)
+* [Azure Functions 트리거 및 바인딩에 대한 자세한 정보](functions-triggers-bindings.md)
 
+<!---
 > [!div class="nextstepaction"]
-> [Azure Functions 트리거 및 바인딩에 대한 자세한 정보](functions-triggers-bindings.md)
+> [Go to a quickstart that uses a Blob storage trigger](functions-create-storage-blob-triggered-function.md)
+--->

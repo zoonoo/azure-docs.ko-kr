@@ -3,12 +3,12 @@ layout: HubPage
 hide_bc: true
 title: Microsoft Azure 설명서
 description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다.
-ms.openlocfilehash: 16d1466180e90d45b7c2adf00ab699bb39d5d785
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: db35de8eead8ce0242fd67fbcee8a43a3b2498cc
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302459"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056760"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -905,12 +905,6 @@ ms.locfileid: "44302459"
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/mobile-engagement/">
-                                                <img src="media/index/MobileEngagement.svg" alt="" />
-                                                <p>Mobile Engagement</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/notification-hubs/">
                                                 <img src="media/index/NotificationHubs.svg" alt="" />
                                                 <p>Notification Hubs</p>
@@ -1635,25 +1629,6 @@ ms.locfileid: "44302459"
                                                 <div class="cardText">
                                                     <h3>검색</h3>
                                                     <p>완전히 관리되는 SaaS(Search-as-a-Service)</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/mobile-engagement/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/MobileEngagement.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Mobile Engagement</h3>
-                                                    <p>앱 사용 및 사용자 유지 증가</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3313,12 +3288,12 @@ ms.locfileid: "44302459"
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI 2.0 </h3>
+                                                <h3>Azure CLI </h3>
                                                 <p>
                                                     <a href="/cli/azure">시작</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/cli/azure/install-azure-cli">Azure CLI 2.0 다운로드</a>
+                                                    <a href="/cli/azure/install-azure-cli">Azure CLI 다운로드</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure">참조</a>
@@ -3363,7 +3338,7 @@ ms.locfileid: "44302459"
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI </h3>
+                                                <h3>Azure 클래식 CLI </h3>
                                                 <p>
                                                     <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">시작</a>
                                                 </p>

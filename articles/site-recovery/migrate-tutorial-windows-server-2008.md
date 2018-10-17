@@ -11,14 +11,14 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/23/2018
+ms.date: 09/22/2018
 ms.author: bsiva
-ms.openlocfilehash: 6e5946f3f9dcf1c7d941054c844adcf683b485ab
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: d15a5b62a148e971c0740f01744fce308e502340
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308646"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056039"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Windows Server 2008을 실행하는 서버에서 Azure로 마이그레이션
 
@@ -59,14 +59,11 @@ Windows Server 2008 또는 Windows Server 2008 R2를 실행 중인 Hyper-V 가�
 
 ## <a name="limitations-and-known-issues"></a>제한 사항 및 알려진 문제
 
-- 구성 서버, 추가 프로세스 서버 및 Windows Server 2008 SP2 서버를 마이그레이션하는 데 사용되는 모바일 서비스는 Azure Site Recovery 소프트웨어의 버전 9.18.0.1을 실행해야 합니다. 구성 서버 및 프로세스 서버의 버전 9.18.0.1에 대한 통합된 설치 프로그램은 [https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup)에서 다운로드할 수 있습니다.
-
-- Windows Server 2008 SP2를 실행하는 서버를 마이그레이션하는 데 기존 구성 서버 또는 프로세스 서버를 사용할 수 없습니다. 새 구성 서버는 Azure Site Recovery 소프트웨어의 버전 9.18.0.1으로 프로비전되어야 합니다. 이 구성 서버는 Azure로 Windows 서버 마이그레이션에만 사용되어야 합니다.
+- 구성 서버, 추가 프로세스 서버 및 Windows Server 2008 SP2 서버를 마이그레이션하는 데 사용되는 모바일 서비스는 Azure Site Recovery 소프트웨어의 버전 9.19.0.0 이상을 실행해야 합니다.
 
 - 응용 프로그램 일치 복구 지점 및 다중 VM 일관성 기능은 Windows Server 2008 SP2를 실행하는 서버의 복제에 대해 지원되지 않습니다. Windows Server 2008 SP2 서버는 크래시 일치 복구 지점으로 마이그레이션되어야 합니다. 기본적으로 5분마다 크래시 일치 복구 지점이 생성됩니다. 구성된 응용 프로그램 일치 스냅숏 빈도로 복제 정책을 사용하면 응용 프로그램 일치 복구 지점의 부족으로 인해 복제 상태가 위험으로 전환될 수 있습니다. 거짓 긍정을 방지하려면 복제 정책에서 응용 프로그램 일치 스냅숏 빈도를 "꺼짐"으로 설정합니다.
 
 - 마이그레이션되는 서버에는 작업할 모바일 서비스에 대한 .NET Framework 3.5 서비스 팩 1이 있어야 합니다.
-
 
 - 서버에 동적 디스크가 있는 경우 특정 구성에서 장애 조치된 서버의 이러한 디스크가 오프라인 상태로 표시되거나 외부 디스크와 같이 표시되어 있음을 확인할 수 있습니다. 동적 디스크에서 미러된 볼륨에 대한 미러된 집합 상태가 "중복 실패"로 표시되어 있음을 확인할 수도 있습니다. 수동으로 이러한 디스크를 가져오고 다시 활성화하여 diskmgmt.msc에서 이 문제를 해결할 수 있습니다.
 
@@ -109,48 +106,8 @@ Windows Server 2008 또는 Windows Server 2008 R2를 실행 중인 Hyper-V 가�
 
 ## <a name="prepare-your-on-premises-environment-for-migration"></a>마이그레이션을 위한 온-프레미스 환경 준비
 
-- [https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup)에서 구성 서버 설치 관리자(통합 설치) 다운로드
-- 이전 단계에서 다운로드한 설치 관리자 파일을 사용하여 원본 환경을 설정하려면 아래 설명된 단계를 수행합니다.
-
-> [!IMPORTANT]
-> - 위의 첫 번째 단계에서 다운로드한 설치 파일을 사용하여 구성 서버를 설치하고 등록합니다. Azure Portal에서 설치 파일을 다운로드하지 마십시오. [https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup)에서 사용할 수 있는 설치 파일은 Windows Server 2008 마이그레이션을 지원하는 유일한 버전입니다.
->
-> - 기존 구성 서버를 사용하여 Windows Server 2008을 실행하는 머신을 마이그레이션할 수 없습니다. 위에 제공된 링크를 사용하여 새 구성 서버를 설치해야 합니다.
->
-> - 구성 서버를 설치하려면 아래 제공된 단계를 수행합니다. 통합 설치 프로그램을 직접 실행하 여 GUI 기반 설치 프로시저를 사용하려 하지 마십시오. 이렇게 하면 인터넷이 연결되지 않았다는 잘못된 오류 메시지를 통해 설치 시도가 실패하게 됩니다.
-
- 
-1) 포털에서 자격 증명 모음 자격 증명 파일 다운로드: Azure Portal에서 이전 단계에서 만든 Recovery Services 자격 증명 모음을 선택합니다. 자격 증명 모음 페이지의 메뉴에서 **Site Recovery 인프라** > **구성 서버**를 선택합니다. 그런 다음, **+Server**를 클릭합니다. 열리는 페이지의 드롭다운 양식에서 *물리적 컴퓨터용 구성 서버*를 선택합니다. 자격 증명 모음 자격 증명 파일을 다운로드하려면 4단계에서 다운로드 단추를 클릭합니다.
-
- ![자격 증명 모음 등록 키 다운로드](media/migrate-tutorial-windows-server-2008/download-vault-credentials.png) 
-
-2) 이전 단계에서 다운로드한 자격 증명 모음 자격 증명 파일 및 이전에 다운로드한 통합 설치 파일을 구성 서버 컴퓨터(구성 서버 소프트웨어를 설치하려는 Windows Server 2012 R2 또는 Windows Server 2016 컴퓨터)의 바탕 화면에 복사합니다.
-
-3) 구성 서버에 인터넷이 연결되고 컴퓨터의 시스템 클록 및 표준 시간대 설정이 올바르게 구성되어 있는지 확인합니다. [MySQL 5.7](https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi) 설치 관리자를 다운로드하고 *C:\Temp\ASRSetup*(디렉터리가존재하지 않으면 만듭니다)에 배치합니다. 
-
-4) 다음 줄을 사용하여 MySQL 자격 증명 파일을 만들고 **C:\Users\Administrator\MySQLCreds.txt**에 있는 바탕 화면에 배치 합니다. 아래 "암호~1"을 적합하고 강력한 암호로 바꿉니다.
-
-```
-[MySQLCredentials]
-MySQLRootPassword = "Password~1"
-MySQLUserPassword = "Password~1"
-```
-
-5) 다음 명령을 실행하여 바탕 화면에 다운로드한 통합 설치 파일의 내용을 추출합니다.
-
-```
-cd C:\Users\Administrator\Desktop
-
-MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Users\Administrator\Desktop\9.18
-```
-  
-6) 다음 명령을 실행함으로써 추출한 내용을 사용하여 구성 서버 소프트웨어를 설치합니다.
-
-```
-cd C:\Users\Administrator\Desktop\9.18.1
-
-UnifiedSetup.exe /AcceptThirdpartyEULA /ServerMode CS /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /MySQLCredsFilePath "C:\Users\Administrator\Desktop\MySQLCreds.txt" /VaultCredsFilePath <vault credentials file path> /EnvType VMWare /SkipSpaceCheck
-```
+- VMware에서 실행 중인 Windows Server 2008 가상 머신을 마이그레이션하려면 [VMware에서 온-프레미스 구성 서버를 설정](vmware-azure-tutorial.md#set-up-the-source-environment)합니다.
+- 구성 서버를 VMware 가상 머신으로 설정할 수 없는 경우 [온-프레미스 실제 서버 또는 가상 머신에서 구성 서버를 설정](physical-azure-disaster-recovery.md#set-up-the-source-environment)합니다.
 
 ## <a name="set-up-the-target-environment"></a>대상 환경 설정
 

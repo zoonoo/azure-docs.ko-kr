@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 21438b107632166f3717c07b0fd01a56a2944f34
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 71351a979e8bb443864c975b91539c527bea7f2a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294059"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033433"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 미사용 데이터 암호화
 
@@ -259,28 +259,28 @@ Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypt
 |----------------------------------|--------------------|--------------------|--------------------|--------------------|
 |                                  | **서비스 관리 키를 사용하는 서버 쪽**     | **Key Vault에 고객 관리를 사용하는 서버 쪽**             |  **온-프레미스에서 고객 관리를 사용하는 서버 쪽**                  | **클라이언트 관리를 사용하는 클라이언트**      |
 | **저장소 및 데이터베이스**        |                    |                    |                    |                    |                    |
-| 디스크(IaaS)                      | -                  | 예, RSA 2048비트  | 예               | -                  |
-| SQL Server(IaaS)                | 예                | 예, RSA 2048비트  | 예                | 예                |
-| Azure SQL Database(PaaS)        | 예                | 예, RSA 2048비트  | -                  | 예                |
-| Azure Storage(블록/페이지 Blob) | 예                | 예, RSA 2048비트  | -                  | 예                |
-| Azure Storage(파일)            | 예                | 예, RSA 2048비트  | -                  | -                  |
-| Azure Storage(테이블, 큐)   | 예                | -                  | -                  | 예                |
-| Cosmos DB(Document DB)          | 예                | -                  | -                  | -                  |
-| StorSimple                       | 예                | -                  | -                  | 예                |
-| Backup                           | -                  | -                  | -                  | 예                |
+| 디스크(IaaS)                      | -                  | 예, RSA 2048비트  | yes               | -                  |
+| SQL Server(IaaS)                | yes                | 예, RSA 2048비트  | yes                | yes                |
+| Azure SQL(Database/Data Warehouse) | yes                | 예, RSA 2048비트  | -                  | yes                |
+| Azure Storage(블록/페이지 Blob) | yes                | 예, RSA 2048비트  | -                  | yes                |
+| Azure Storage(파일)            | yes                | 예, RSA 2048비트  | -                  | -                  |
+| Azure Storage(테이블, 큐)   | yes                | -                  | -                  | yes                |
+| Cosmos DB(Document DB)          | yes                | -                  | -                  | -                  |
+| StorSimple                       | yes                | -                  | -                  | yes                |
+| Backup                           | -                  | -                  | -                  | yes                |
 | **인텔리전스 및 분석**   |                    |                    |                    |                    |
-| Azure 데이터 팩터리               | 예                | -                  | -                  | -                  |
+| Azure 데이터 팩터리               | yes                | -                  | -                  | -                  |
 | Azure Machine Learning           | -                  | 미리 보기, RSA 2048비트 | -                  | -                  |
-| Azure Stream Analytics           | 예                | -                  | -                  | -                  |
-| HDInsight(Azure Blob Storage)   | 예                | -                  | -                  | -                  |
-| HDInsight(Data Lake Storage)    | 예                | -                  | -                  | -                  |
-| Azure Data Lake Store            | 예                | 예, RSA 2048비트  | -                  | -                  |
-| Azure Data Catalog               | 예                | -                  | -                  | -                  |
-| Power BI                         | 예                | -                  | -                  | -                  |
+| Azure Stream Analytics           | yes                | -                  | -                  | -                  |
+| HDInsight(Azure Blob Storage)   | yes                | -                  | -                  | -                  |
+| HDInsight(Data Lake Storage)    | yes                | -                  | -                  | -                  |
+| Azure Data Lake Store            | yes                | 예, RSA 2048비트  | -                  | -                  |
+| Azure Data Catalog               | yes                | -                  | -                  | -                  |
+| Power BI                         | yes                | -                  | -                  | -                  |
 | **IoT 서비스**                 |                    |                    |                    |                    |
-| IoT Hub                          | -                  | -                  | -                  | 예                |
-| Service Bus                      | 예                | -                  | -                  | 예                |
-| Event Hubs                       | 예                | -                  | -                  | -                  |
+| IoT Hub                          | -                  | -                  | -                  | yes                |
+| Service Bus                      | yes                | -                  | -                  | yes                |
+| Event Hubs                       | yes                | -                  | -                  | -                  |
 
 
 ## <a name="conclusion"></a>결론

@@ -1,24 +1,25 @@
 ---
-title: Custom Vision Service 기계 학습에 대한 개요 - Azure Cognitive Services | Microsoft Docs
-description: Custom Vision Service는 Azure 플랫폼에서 사용자 지정 이미지 분류자를 만들 수 있는 Microsoft Cognitive Service입니다.
+title: Custom Vision Service란?
+titlesuffix: Azure Cognitive Services
+description: Custom Vision Service를 사용하면 Azure 클라우드에서 사용자 지정 이미지 분류자를 빌드할 수 있습니다.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: overview
 ms.date: 05/02/2018
 ms.author: anroth
-ms.openlocfilehash: d2daf7c211f9474f5636b6af69c5b700d597aa14
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 1d3d1a82cf59b06625487fb241a63f51352e18e5
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43285247"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365862"
 ---
 # <a name="what-is-the-custom-vision-service"></a>Custom Vision Service란?
 
-Custom Vision Service는 사용자 지정 이미지 분류자를 만들 수 있는 Microsoft Cognitive Service입니다. 이미지 분류자를 쉽고 빠르게 작성, 배포 및 개선할 수 있습니다. Custom Vision Service 는 이미지를 업로드하고 분류자를 학습시킬 수 있는 REST API와 웹 인터페이스를 제공합니다.
+Custom Vision Service는 사용자 지정 이미지 분류자를 빌드할 수 있는 Azure Cognitive Service입니다. 이미지 분류자를 쉽고 빠르게 작성, 배포 및 개선할 수 있습니다. Custom Vision Service 는 이미지를 업로드하고 분류자를 학습시킬 수 있는 REST API와 웹 인터페이스를 제공합니다.
 
 ## <a name="what-does-custom-vision-service-do-well"></a>Custom Vision Service에는 어떤 좋은 기능이 있습니까?
 

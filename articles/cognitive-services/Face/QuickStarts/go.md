@@ -1,21 +1,21 @@
 ---
-title: Face API Go 빠른 시작 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 이 빠른 시작에서는 Cognitive Services에서 Go와 함께 Face API를 사용하여 이미지의 얼굴을 감지합니다.
+title: '빠른 시작: 이미지에서 얼굴 감지 - Face API, Go'
+titleSuffix: Azure Cognitive Services
+description: 이 빠른 시작에서는 Go와 함께 Face API를 사용하여 이미지에서 얼굴을 감지합니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 06/25/2018
 ms.author: nolachar
-ms.openlocfilehash: e4d7f3f605b110f51488d9a7f483fc2832a149b9
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 0c8a70153ac9a54f3e46e5fb1a2ee3404a960dd3
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "43750500"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125428"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-go"></a>빠른 시작: Go를 사용하여 이미지에서 얼굴 감지
 

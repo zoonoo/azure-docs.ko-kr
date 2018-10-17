@@ -1,21 +1,21 @@
 ---
-title: Translator Text Ruby를 사용하여 텍스트의 언어 식별 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 이 빠른 시작에서는 Cognitive Services에서 Ruby와 함께 Translator Text API를 사용하여 원본 텍스트의 언어를 식별합니다.
+title: '빠른 시작: 텍스트의 언어 식별 - Translator Text, Ruby'
+titleSuffix: Azure Cognitive Services
+description: 이 빠른 시작에서는 Ruby와 함께 Translator Text API를 사용하여 원본 텍스트의 언어를 식별합니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: b692b66454cc86e6d81aec9c3139b39a905d0d66
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e2b138b5c28047487da2ca7a72169a10a125eaf5
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43750474"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121706"
 ---
 # <a name="quickstart-identify-language-from-text-with-ruby"></a>빠른 시작: Ruby를 사용하여 텍스트의 언어 식별
 

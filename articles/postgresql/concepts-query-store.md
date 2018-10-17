@@ -6,20 +6,20 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 149840157c5e9bb47be70f669b2078585fe4b56c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 09/26/2018
+ms.openlocfilehash: 03f22a7975e8f331efa9dcc30fd088f32bee1649
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953030"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393494"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>쿼리 저장소를 사용하여 성능 모니터링
 
 **적용 대상:** Azure Database for PostgreSQL 9.6 및 10
 
 > [!IMPORTANT]
-> 쿼리 저장소 기능은 공용 미리 보기로 제공됩니다.
+> Query Store 기능은 일부 지역에서 공개 미리 보기로 제공됩니다.
 
 
 Azure Database for PostgreSQL의 쿼리 저장소 기능은 시간 경과에 따라 쿼리 성능을 추적하는 방법을 제공합니다. 쿼리 저장소는 가장 오래 실행되고 리소스를 가장 많이 사용하는 쿼리를 신속하게 찾도록 지원하여 성능 문제 해결을 단순화합니다. 쿼리 저장소는 쿼리 및 런타임 통계의 기록을 자동으로 캡처하고 검토를 위해 보존합니다. 데이터베이스 사용량 패턴을 볼 수 있도록 데이터를 기간별로 구분합니다. 모든 사용자, 데이터베이스 및 쿼리에 대한 데이터는 Azure Database for PostgreSQL 인스턴스의 **azure_sys**라는 데이터베이스에 저장됩니다.
@@ -117,7 +117,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 |query_id   |bigint  || 문의 구문 분석 트리에서 계산된 내부 해시 코드|
 |query_sql_text |Varchar(10000)  || 대표 문의 텍스트. 동일한 구조의 서로 다른 쿼리가 함께 클러스터되고, 이 텍스트는 클러스터에 있는 첫 번째 쿼리의 텍스트입니다.|
 |plan_id    |bigint |   |이 쿼리에 해당하는 계획의 ID로, 아직 사용할 수 없음|
-|start_time |timestamp  ||  쿼리가 시간 버킷별로 집계되며 버킷의 시간 범위는 기본적으로 15분이고 구성 가능합니다. 이는 이 항목의 시간 버킷에 해당하는 시작 시간.|
+|start_time |timestamp  ||  쿼리는 시간 버킷별로 집계되며 버킷의 시간 범위는 기본적으로 15분입니다. 이는 이 항목의 시간 버킷에 해당하는 시작 시간.|
 |end_time   |timestamp  ||  이 항목의 시간 버킷에 해당하는 종료 시간.|
 |calls  |bigint  || 쿼리 실행 횟수|
 |total_time |double precision   ||  총 쿼리 실행 시간(밀리초)|
@@ -168,6 +168,10 @@ Query_store.qs_reset() returns void
 Query_store.staging_data_reset() returns void
 
 `staging_data_reset`은 쿼리 저장소가 메모리에서 수집한 모든 통계(즉, 아직 데이터베이스로 플러시되지 않은 메모리의 데이터)를 무시합니다. 이 함수는 서버 관리자 역할만 실행할 수 있습니다.
+
+## <a name="limitations-and-known-issues"></a>제한 사항 및 알려진 문제
+- PostgreSQL 서버에서 default_transaction_read_only 매개 변수가 설정되어 있으면 Query Store가 데이터를 캡처할 수 없습니다.
+- 6000바이트 이상의 긴 유니코드 쿼리가 발견되면 Query Store 기능이 중단될 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

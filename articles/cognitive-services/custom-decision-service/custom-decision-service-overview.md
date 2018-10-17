@@ -1,19 +1,21 @@
 ---
-title: Custom Decision Service란? - Azure Cognitive Services | Microsoft Docs
-description: 이 문서에서는 컨텍스트에 따라 의사를 결정하고 경험을 통해 점점 개선되는 클라우드 기반 API인 Azure Custom Decision Service의 개요를 제공합니다.
+title: Custom Decision Service란?
+titlesuffix: Azure Cognitive Services
+description: 이 문서에서는 Custom Decision Service에 대한 개요를 제공합니다.
 services: cognitive-services
 author: alekh
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: overview
 ms.date: 05/08/2018
-ms.author: slivkins;marcozo;alekh;marossi
-ms.openlocfilehash: 774467446513dcd7ade7255d998b11f41824cafe
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.author: slivkins
+ms.openlocfilehash: 273f2965a0fcaaa729175c5232da1aba69589eec
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35383429"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364213"
 ---
 # <a name="what-is-custom-decision-service"></a>Custom Decision Service란?
 

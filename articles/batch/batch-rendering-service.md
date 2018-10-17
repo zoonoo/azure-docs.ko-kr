@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4101f6819dff81376dcab47adb57e4b8ef35e094
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: fc26e1d32332bb0ed9624b7442e38ea79b7bfb1d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036762"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393556"
 ---
 # <a name="rendering-using-azure"></a>Azure를 사용한 렌더링
 
@@ -69,7 +69,7 @@ Azure Batch은 많은 워크로드에 사용되지만 다음 기능은 특히 �
   * 인기 그래픽 및 렌더링 응용 프로그램을 포함하는 Azure Marketplace VM 이미지를 사용할 수 있으므로 응용 프로그램을 직접 설치하거나 설치된 응용 프로그램으로 자체 사용자 지정 이미지를 만들 필요가 없습니다. 
 * 렌더링 응용 프로그램에 대한 종량제 라이선스
   * 계산 VM에 대한 결제 외에 분 단위로 응용 프로그램을 결제하도록 선택할 수 있습니다. 이 경우 라이선스 구매나 응용 프로그램에 대한 라이선스 서버 구성이 필요하지 않습니다.  사용에 대해 결제한다는 것은 고정 라이선스 수가 없으므로, 변화하는 예기치 않은 로드를 서비스할 수 있다는 뜻입니다.
-  * 종량제 라이선스를 사용하지 않고 자체 라이선스로 사전 설치된 응용 프로그램을 사용할 수도 있습니다.
+  * 종량제 라이선스를 사용하지 않고 자체 라이선스로 사전 설치된 응용 프로그램을 사용할 수도 있습니다. 이렇게 하려는 경우 대개 온-프레미스 또는 Azure 기반 라이선스 서버를 설치한 다음 Azure Virtual Network를 사용하여 렌더링 풀을 라이선스 서버에 연결합니다.
 * 클라이언트 디자인 및 모델링 응용 프로그램에 대한 플러그 인:
   * 플러그 인을 통해 최종 사용자는 Autodesk Maya 같은 클라이언트 응용 프로그램에서 직접 Azure Batch를 사용하여 풀을 만들고, 작업을 제출하며, 더 많은 계산 용량을 사용하여 렌더링을 더 빠르게 수행할 수 있습니다.
 * 렌더링 관리자 통합:

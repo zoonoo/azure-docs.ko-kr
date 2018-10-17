@@ -8,14 +8,14 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 09/11/2018
 ms.author: byvinyal
-ms.openlocfilehash: 00955d5de314e6efb0e491e33708495fbdd14f3b
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: efaca1b9506ada02c52ad0833139d3b4e441d456
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782593"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393616"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간 경과에 따라 이 목록은 더 많은 플랫폼에 적용되도록 확장 및 업데이트됩니다.
@@ -52,10 +52,12 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [Azure Database for PostgreSQL](#azure-database-for-postgresql)
 * [Azure Event Grid](#azure-event-grid-limits)
 * [Azure Maps](#azure-maps-limits)
+* [Azure Monitor](#monitor-limits)
 * [Azure Policy](#azure-policy-limits)
 * [Azure Redis 캐시(영문)](#azure-redis-cache-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
+* [Batch AI](#batch-ai-limits)
 * [BizTalk Services](#biztalk-services-limits)
 * [CDN](#cdn-limits)
 * [Cloud Services](#cloud-services-limits)
@@ -69,6 +71,7 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [DNS](#dns-limits)
 * [Event Hubs](#event-hubs-limits)
 * [Azure Firewall](#azure-firewall-limits)
+* [Front Door](#azure-front-door-service-limits)
 * [IoT Hub](#iot-hub-limits)
 * [IoT Hub Device Provisioning 서비스](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
@@ -77,7 +80,6 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [Media Services](#media-services-limits)
 * [모바일 고객 관리](#mobile-engagement-limits)
 * [Mobile Services](#mobile-services-limits)
-* [모니터](#monitor-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication)
 * [네트워킹](#networking-limits)
 * [Network Watcher](#network-watcher-limits)
@@ -87,7 +89,8 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [Scheduler](#scheduler-limits)
 * [이를 통해 검색](#search-limits)
 * [Service Bus](#service-bus-limits)
-* [사이트 복구](#site-recovery-limits)
+* [SignalR 서비스](#signalr-service-limits)
+* [Site Recovery](#site-recovery-limits)
 * [SQL Database](#sql-database-limits)
 * [SQL Data Warehouse](#sql-data-warehouse-limits)
 * [Storage](#storage-limits)
@@ -156,11 +159,16 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 #### <a name="azure-firewall-limits"></a>Azure Firewall 제한
 [!INCLUDE [azure-firewall-limits](../includes/firewall-limits.md)]
 
-### <a name="storage-limits"></a>저장소 제한
-Storage 계정 제한에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](storage/common/storage-scalability-targets.md)를 참조하세요.
+#### <a name="azure-front-door-service-limits"></a>Azure Front Door Service 제한
+[!INCLUDE [azure-front-door-service-limits](../includes/front-door-limits.md)]
 
+### <a name="storage-limits"></a>저장소 제한
 <!--like # storage accts -->
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
+
+Storage 계정 제한에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](storage/common/storage-scalability-targets.md)를 참조하세요.
+
+#### <a name="storage-resource-provider-limits"></a>Storage 리소스 공급자 제한 
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -211,6 +219,9 @@ Azure Files 한도에 대한 자세한 내용은 [Azure Files 확장성 및 성�
 ### <a name="batch-limits"></a>Batch 제한
 [!INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
+### <a name="batch-ai-limits"></a>Batch AI 제한
+[!INCLUDE [azure-batch-ai-limits](../includes/azure-batch-ai-limits.md)]
+
 ### <a name="biztalk-services-limits"></a>BizTalk Services 제한
 다음 표에서는 Azure Biztalk 서비스에 대한 제한을 보여 줍니다.
 
@@ -224,9 +235,6 @@ Azure Database for MySQL 제한은 [Azure Database for MySQL의 제한 사항](m
 
 ### <a name="azure-database-for-postgresql"></a>Azure Database for PostgreSQL
 Azure Database for PostgreSQL 제한은 [Azure Database for PostgreSQL의 제한 사항](postgresql/concepts-limits.md)을 참조하세요.
-
-### <a name="mobile-engagement-limits"></a>모바일 참여 제한
-[!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
 
 ### <a name="search-limits"></a>검색 제한
 가격 책정 계층은 검색 서비스의 용량 및 제한을 결정합니다. 계층은 다음을 포함합니다.
@@ -307,6 +315,9 @@ Azure Database for PostgreSQL 제한은 [Azure Database for PostgreSQL의 제한
 
 ### <a name="backup-limits"></a>Backup 제한
 [!INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
+
+### <a name="signalr-service-limits"></a>SignalR Service 제한
+[!INCLUDE [signalr-service-limits](../includes/signalr-service-limits.md)]
 
 ### <a name="site-recovery-limits"></a>사이트 복구 제한
 [!INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]

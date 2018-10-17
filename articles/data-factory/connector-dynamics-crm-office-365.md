@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/02/2018
+ms.date: 09/26/2018
 ms.author: jingwang
-ms.openlocfilehash: e8e106bc71b87af8cd36f7edb0fe64fcddd6133e
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: ce3c494dc0b8c962c8dae0af38d3cb5476cdf48b
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574677"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406178"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Dynamics 365(Common Data Service) 또는 Dynamics CRM 간에 데이터 복사
 
@@ -158,7 +158,8 @@ Dynamics 간에 데이터를 복사하려면 데이터 집합의 type 속성을 
 | entityName | 검색할 엔터티의의 논리적 이름입니다. | 원본에는 아니요(작업 원본에서 "query"가 지정된 경우)이고 싱크에는 예입니다. |
 
 > [!IMPORTANT]
->- Dynamics에서 데이터를 복사할 때 Dynamics 데이터 집합에 "구조" 섹션이 필요합니다. 이것은 복사하려는 Dynamics 데이터의 열 이름과 데이터 형식을 정의합니다. 자세한 내용은 [데이터 집합 구조](concepts-datasets-linked-services.md#dataset-structure) 및 [Dynamics에 대한 데이터 형식 매핑](#data-type-mapping-for-dynamics)을 참조하세요.
+>- Dynamics에서 데이터를 복사할 때 "structure" 섹션은 필요한 경우에만 포함하면 되지만, Dynamics 데이터 집합에 해당 섹션이 있으면 데이터를 확실하게 복사할 수 있으므로 포함하는 것이 좋습니다. 이것은 복사하려는 Dynamics 데이터의 열 이름과 데이터 형식을 정의합니다. 자세한 내용은 [데이터 집합 구조](concepts-datasets-linked-services.md#dataset-structure) 및 [Dynamics에 대한 데이터 형식 매핑](#data-type-mapping-for-dynamics)을 참조하세요.
+>- UI 작성 과정에서 스키마를 가져올 때 ADF는 Dynamics 쿼리 결과의 맨 위 행을 샘플링하여 스키마를 유추해 구조 생성을 초기화합니다. 이 경우 값이 없는 열은 생략됩니다. 필요에 따라 열을 검토하여 더 많은 열을 Dynamics 데이터 집합 스키마/구조에 추가할 수 있습니다. 그러면 복사 런타임에 해당 열이 유지됩니다.
 >- Dynamics에 데이터를 복사하는 경우 Dynamics 데이터 집합에서 "structure" 섹션은 선택 사항입니다. 어떤 열에 복사할 것인지는 원본 데이터 스키마에 따라 결정됩니다. 입력 데이터 집합에서 원본이 헤더 없는 CSV 파일인 경우 열 이름과 데이터 형식으로 "구조"를 지정합니다. CSV 파일의 필드에 순서대로 일대일로 매핑됩니다.
 
 **예제:**

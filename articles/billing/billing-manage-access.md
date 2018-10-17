@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/22/2017
-ms.author: vikdesai
-ms.openlocfilehash: 7329b06171bd538cc6e9aa8172380a2d4dd47dae
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.author: cwatson
+ms.openlocfilehash: 623856f05eed44eca3752d56f047f9bb282bdc8e
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33204125"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392089"
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>역할 기반 액세스 제어를 사용하여 Azure의 요금 청구 정보에 대한 액세스 관리
 
@@ -71,7 +71,7 @@ ms.locfileid: "33204125"
 
 ## <a name="adding-users-to-other-roles"></a>다른 역할에 사용자 추가
 
-소유자 또는 참가자 등의 다른 역할의 사용자는 청구 정보에 액세스할 수만 있고 Azure 서비스에는 액세스할 수 없습니다. 이러한 역할을 관리하려면 [구독 또는 서비스를 관리하는 Azure 관리자 역할 추가 또는 변경](billing-add-change-azure-subscription-administrator.md)을 참조하세요.
+소유자 또는 참가자 등의 다른 역할의 사용자는 청구 정보에 액세스할 수만 있고 Azure 서비스에는 액세스할 수 없습니다. 이러한 역할을 관리하려면 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
 ## <a name="who-can-access-the-account-centerhttpsaccountwindowsazurecom"></a>누가 [계정 센터](https://account.windowsazure.com)에 액세스할 수 있나요?
 

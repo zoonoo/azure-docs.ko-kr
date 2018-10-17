@@ -1,21 +1,21 @@
 ---
-title: Translator Text Ruby를 사용하여 텍스트 스크립트 변환 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 이 빠른 시작에서는 Cognitive Services에서 Ruby와 함께 Translator Text API를 사용하여 특정 언어의 텍스트를 한 스크립트에서 다른 스크립트로 변환합니다.
+title: '빠른 시작: 텍스트 스크립트 변환 - Translator Text, Ruby'
+titleSuffix: Azure Cognitive Services
+description: 이 빠른 시작에서는 Ruby와 함께 Translator Text API를 사용하여 하나의 스크립트에서 한 언어의 텍스트를 다른 언어로 변환합니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 56872ed6b6d7168fb1bf2c45de8104a592af34e3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6595e486a93811fdded21050c39e99d4f7e5a760
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43750490"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121756"
 ---
 # <a name="quickstart-transliterate-text-with-ruby"></a>빠른 시작: Ruby를 사용하여 텍스트 음역
 

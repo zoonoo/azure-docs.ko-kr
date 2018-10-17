@@ -1,21 +1,21 @@
 ---
-title: Translator Text PHP를 사용하여 텍스트 스크립트 변환 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 이 빠른 시작에서는 Cognitive Services에서 PHP와 함께 Translator Text API를 사용하여 특정 언어의 텍스트를 한 스크립트에서 다른 스크립트로 변환합니다.
+title: '빠른 시작: 텍스트 스크립트 변환 - Translator Text, PHP'
+titleSuffix: Azure Cognitive Services
+description: 하나의 스크립트에서 이 빠른 시작에서는 PHP와 함께 Translator Text API를 사용하여 한 언어의 텍스트를 다른 언어로 변환합니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: aec4dfe9c99f95eb971148ace4a9e692a01998c2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b2b1773bc6eeea3a19d197faae75039511e77cf9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43750475"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123870"
 ---
 # <a name="quickstart-transliterate-text-with-php"></a>빠른 시작: PHP를 사용하여 텍스트 음역
 

@@ -1,21 +1,21 @@
 ---
-title: Face API C# 자습서 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: '자습서: Face API C#'
+titleSuffix: Azure Cognitive Services
 description: Cognitive Services Face API를 사용하여 이미지에서 얼굴 특성을 감지하는 간단한 Windows 앱을 만듭니다.
 services: cognitive-services
 author: ghogen
-manager: douge
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: ghogen
-ms.openlocfilehash: b51760f889db27aa25e54582070ee7d3adcf66f8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 70414674e563cf3703d2cf3ebc57f09afcdf2691
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38663891"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129525"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Visual Studio의 연결된 서비스를 사용하여 Cognitive Services Face API에 연결
 

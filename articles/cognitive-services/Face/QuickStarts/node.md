@@ -1,21 +1,21 @@
 ---
-title: Face API Node.js 빠른 시작 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: '빠른 시작: 이미지에서 얼굴 감지 - Face API, Node.js'
+titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Cognitive Services에서 Node.js와 함께 Face API를 사용하여 이미지의 얼굴을 감지합니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 06/08/2018
 ms.author: nolachar
-ms.openlocfilehash: 15e6db9c9d92e60f18bf2d7708403fd8b0b7a990
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 53d5ed6c13c2f2822374134d8b403493079e1956
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "43750412"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124000"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-nodejs"></a>빠른 시작: Node.js를 사용하여 이미지에서 얼굴 감지
 

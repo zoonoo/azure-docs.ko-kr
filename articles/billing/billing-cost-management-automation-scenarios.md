@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: c5445eb5e936fe73d51a41936b052f6495b1bcc6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 97f6339e5c9532250245a97a81dade12db139e98
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39633645"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227370"
 ---
 # <a name="billing-and-cost-management-automation-scenarios"></a>청구 및 비용 관리 자동화 시나리오
 
@@ -44,7 +44,7 @@ ms.locfileid: "39633645"
 
 ## <a name="scenario-to-api-mappings"></a>시나리오-API 매핑
 
-|         API/시나리오        | 청구서 조정    | 교차 청구    | 비용 최적화    | 비용 추적    | 월 중순 지출    | Alerts    |
+|         API/시나리오        | 청구서 조정    | 교차 청구    | 비용 최적화    | 비용 추적    | 월 중순 지출    | 경고    |
 |:---------------------------:|:-------------------------:|:----------------:|:--------------------:|:----------------:|:------------------:|:---------:|
 | 예산                     |                           |                  |           X          |                  |                    |     X     |
 | Marketplace                |             X             |         X        |           X          |         X        |          X         |     X     |

@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/04/2018
+ms.date: 09/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: 35bd895636bcedf0fd3fad073819d238c7850326
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 33d5560f2bfef04678cf7a2236fd920385d68aac
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783341"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452159"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -163,7 +163,7 @@ Authorization: Bearer <access-token>
 
 ## <a name="services-that-can-be-moved"></a>이동할 수 있는 서비스
 
-새 리소스 그룹 및 구독으로 이동할 수 있게 하는 서비스는 다음과 같습니다.
+아래 목록에서는 새 리소스 그룹 및 구독으로 이동할 수 있는 Azure 서비스의 일반적인 요약 정보가 제공됩니다. 자세한 내용은 [리소스에 대한 이동 작업 지원](move-support-resources.md)을 참조하세요.
 
 * Analysis Services
 * API Management
@@ -173,6 +173,9 @@ Authorization: Bearer <access-token>
 * Automation
 * Azure Active Directory B2C
 * Azure Cosmos DB
+* Azure Database for MySQL
+* Azure Database for PostgreSQL
+* Azure DevOps - 타사 확장을 구매한 Azure DevOps 조직은 [구매를 취소](https://go.microsoft.com/fwlink/?linkid=871160)해야 구독 간에 계정을 이동할 수 있습니다.
 * Azure Maps
 * Azure Relay
 * Azure Stack - 등록
@@ -193,6 +196,7 @@ Authorization: Bearer <access-token>
 * DNS
 * Event Grid
 * Event Hubs
+* Front Door
 * HDInsight 클러스터 - [HDInsight 제한 사항](#hdinsight-limitations) 참조
 * Iot Central
 * IoT Hub
@@ -201,44 +205,41 @@ Authorization: Bearer <access-token>
 * Log Analytics
 * Logic Apps
 * 기계 학습 - Machine Learning Studio 웹 서비스는 동일한 구독의 리소스 그룹으로 이동할 수 있지만 다른 구독으로 이동할 수는 없습니다. 다른 Machine Learning 리소스는 구독 간에 이동할 수 있습니다.
+* Managed Disks - [Virtual Machines 제한 사항](#virtual-machines-limitations)에서 제약 조건 참조
 * 관리 ID - 사용자 할당
 * Media Services
-* 모바일 고객 관리
 * Notification Hubs
 * Operational Insights
 * 운영 관리
 * 포털 대시보드
 * Power BI - Power BI Embedded 및 Power BI Workspace Collection 모두
 * 공용 IP - [공용 IP 제한 사항](#pip-limitations) 참조
-* Redis Cache
+* Redis Cache - 가상 네트워크를 사용하여 Redis Cache 인스턴스를 구성하는 경우 다른 구독으로 인스턴스를 이동할 수 없습니다. [가상 네트워크 제한 사항](#virtual-networks-limitations)을 참조하십시오.
 * Scheduler
 * 검색
 * Service Bus
 * Service Fabric
 * Service Fabric Mesh
 * SignalR Service
-* Storage
+* Storage - 서로 다른 지역의 여러 Storage 계정을 같은 작업에서 이동할 수는 없습니다. 대신 각 지역에 대해 별도의 작업을 사용해야 합니다.
 * 저장소(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations)
 * Stream Analytics - 실행 중 상태일 때는 Stream Analytics 작업을 이동할 수 없습니다.
 * SQL Database 서버 - 데이터베이스와 서버는 동일한 리소스 그룹에 있어야 합니다. SQL Server를 이동하면 모든 해당 데이터베이스도 함께 이동합니다. 이 동작은 Azure SQL Database 및 Azure SQL Data Warehouse 데이터베이스에 적용됩니다.
 * Time Series Insights
 * Traffic Manager
-* Virtual Machines - 관리 디스크가 있는 VM은 이동할 수 없습니다. [Virtual Machines 제한 사항](#virtual-machines-limitations) 참조
+* 가상 머신 - Managed Disks가 있는 VM의 경우 [가상 머신 제한 사항](#virtual-machines-limitations) 참조
 * Virtual Machines(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations)
 * Virtual Machine Scale Sets - [Virtual Machines 제한 사항](#virtual-machines-limitations) 참조
 * Virtual Networks - [Virtual Networks 제한 사항](#virtual-networks-limitations) 참조
-* Visual Studio Team Services - Microsoft가 아닌 확장 구매가 있는 VSTS 계정은 [구매를 취소](https://go.microsoft.com/fwlink/?linkid=871160)해야만 구독 간에 계정을 이동할 수 있습니다.
 * VPN Gateway
 
 ## <a name="services-that-cannot-be-moved"></a>이동할 수 없는 서비스
 
-현재 리소스 이동을 사용하지 않는 서비스는 다음과 같습니다.
+아래 목록에서는 새 리소스 그룹 및 구독으로 이동할 수 없는 Azure 서비스의 일반적인 요약 정보가 제공됩니다. 자세한 내용은 [리소스에 대한 이동 작업 지원](move-support-resources.md)을 참조하세요.
 
 * AD Domain Services
 * AD 하이브리드 상태 관리 서비스
 * Application Gateway
-* Azure Database for MySQL
-* Azure Database for PostgreSQL
 * Azure Database Migration
 * Azure Databricks
 * Azure Migrate
@@ -254,7 +255,6 @@ Authorization: Bearer <access-token>
 * Lab Services - 동일한 구독에서 새 리소스 그룹으로 이동은 가능하지만, 구독 간 이동은 가능하지 않습니다.
 * 부하 분산 장치 - [부하 분산 장치 제한 사항](#lb-limitations) 참조
 * Managed Applications
-* Managed Disks - [Virtual Machines 제한 사항](#virtual-machines-limitations) 참조
 * Microsoft Genomics
 * NetApp
 * 공용 IP - [공용 IP 제한 사항](#pip-limitations) 참조
@@ -267,22 +267,62 @@ Authorization: Bearer <access-token>
 
 ## <a name="virtual-machines-limitations"></a>Virtual Machines 제한 사항
 
-관리 디스크는 이동을 지원하지 않습니다. 이 제한 사항은 여러 관련 리소스도 이동할 수 없음을 의미합니다. 다음은 이동할 수 없습니다.
+Managed Disks는 2018년 9월 24일부터 이동 가능합니다. 
 
-* 관리 디스크
+1. 이 기능을 사용하려면 등록을 해야 합니다.
+
+  ```azurepowershell-interactive
+  Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+  ```
+
+  ```azurecli-interactive
+  az feature register --namespace Microsoft.Compute --name ManagedResourcesMove
+  ```
+
+1. 등록 요청에서는 초기 응답으로 `Registering` 상태가 반환됩니다. 다음 코드를 사용하여 현재 상태를 확인할 수 있습니다.
+
+  ```azurepowershell-interactive
+  Get-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+  ```
+
+  ```azurecli-interactive
+  az feature show --namespace Microsoft.Compute --name ManagedResourcesMove
+  ```
+
+1. 상태가 `Registered`로 변경될 때까지 몇 분 정도 기다립니다.
+
+1. 기능이 등록되고 나면 `Microsoft.Compute` 리소스 공급자를 등록합니다. 리소스 공급자를 이전에 등록했더라도 이 단계를 수행합니다.
+
+  ```azurepowershell-interactive
+  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+  ```
+
+  ```azurecli-interactive
+  az provider register --namespace Microsoft.Compute
+  ```
+
+이와 같이 이동되면 다음 항목도 이동할 수 있게 됩니다.
+
 * 관리 디스크가 있는 가상 머신
-* 관리 디스크에서 만든 이미지
-* 관리 디스크에서 만든 스냅숏
+* 관리되는 이미지
+* 관리되는 스냅숏
 * 관리 디스크가 있는 가상 머신이 포함된 가용성 집합
 
-관리 디스크를 이동할 수는 없지만 복사본을 만든 후 기존 관리 디스크에서 새 가상 시스템을 작성할 수 있습니다. 자세한 내용은 다음을 참조하세요.
+아직 지원되지 않는 제약 조건은 다음과 같습니다.
 
-* [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md) 또는 [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md)를 사용하여 같은 구독 또는 다른 구독에 관리 디스크를 복사합니다.
-* [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md) 또는 [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md)와 함께 기존 관리 OS 디스크를 사용하여 가상 머신을 만듭니다.
+* Key Vault에 저장된 인증서가 있는 Virtual Machines는 동일한 구독에서 새 리소스 그룹으로 이동할 수 있지만 구독 간에는 이동할 수 없습니다.
+* Azure Backup을 사용하여 구성된 가상 머신. 이러한 가상 머신을 이동하려면 아래 해결 방법을 사용하세요.
+  * 가상 머신 위치를 찾습니다.
+  * 명명 패턴이 `AzureBackupRG_<location of your VM>_1`인 리소스 그룹을 찾습니다(예: AzureBackupRG_westus2_1).
+  * Azure Portal에서 작업하는 경우 “숨겨진 형식 표시”를 선택합니다.
+  * PowerShell에서 작업하는 경우에는 `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet을 사용합니다.
+  * CLI에서 작업하는 경우에는 `az resource list -g AzureBackupRG_<location of your VM>_1`을 사용합니다.
+  * 이제 종류가 `Microsoft.Compute/restorePointCollections`이고 명명 패턴이 `AzureBackup_<name of your VM that you're trying to move>_###########`인 리소스를 찾습니다.
+  * 이 리소스를 삭제합니다.
+  * 삭제가 완료되면 가상 머신을 이동할 수 있습니다.
+* 표준 SKU 부하 분산 장치 또는 표준 SKU 공용 IP를 사용하는 Virtual Machine Scale Sets는 이동할 수 없습니다.
+* 연결된 계획이 있는 Marketplace 리소스에서 만든 가상 머신은 리소스 그룹 또는 구독 간에 이동할 수 없습니다. 현재 구독의 가상 머신을 프로비전 해제하고 새 구독에 다시 배포합니다.
 
-연결된 계획이 있는 Marketplace 리소스에서 만든 가상 머신은 리소스 그룹 또는 구독 간에 이동할 수 없습니다. 현재 구독의 가상 머신을 프로비전 해제하고 새 구독에 다시 배포합니다.
-
-Key Vault에 저장된 인증서가 있는 Virtual Machines는 동일한 구독에서 새 리소스 그룹으로 이동할 수 있지만 구독 간에는 이동할 수 없습니다.
 
 ## <a name="virtual-networks-limitations"></a>Virtual Networks 제한 사항
 

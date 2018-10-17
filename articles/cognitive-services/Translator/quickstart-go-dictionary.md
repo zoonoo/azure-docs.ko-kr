@@ -1,21 +1,21 @@
 ---
-title: Translator Text Go를 사용하여 대체 번역 찾기 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 이 빠른 시작에서는 Cognitive Services에서 Go와 함께 Translator Text API를 사용하여 컨텍스트의 용어를 대체하는 번역과 예제를 찾아봅니다.
+title: '빠른 시작: 대체 번역 찾기 - Translator Text, Go'
+titleSuffix: Azure Cognitive Services
+description: 이 빠른 시작에서는 Go와 함께 Translator Text API를 사용하여 컨텍스트의 용어를 대체하는 번역과 예제를 찾아봅니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
 ms.author: nolachar
-ms.openlocfilehash: a076418dbf969a61107c28f191457fc336a8b907
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 4ea21673c993c6dd9478f42bfee790b62317946f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "43750508"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128879"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-go"></a>빠른 시작: Go를 사용하여 대체 번역 및 사용법 찾기
 

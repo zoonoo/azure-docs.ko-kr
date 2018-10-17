@@ -1,21 +1,21 @@
 ---
-title: Android용 Face API Java 자습서 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 이 자습서에서는 이미지에서 얼굴을 감지하고 포착하는 Cognitive Services Face 서비스를 사용하는 간단한 Android 앱을 만듭니다.
+title: '자습서: 이미지에서 얼굴 감지 및 포착 - Face API, Android용 Java'
+titleSuffix: Azure Cognitive Services
+description: 이 자습서에서는 Face API를 사용하여 이미지에서 얼굴을 감지하고 포착하는 샘플 Android 앱을 만듭니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: tutorial
 ms.date: 07/12/2018
 ms.author: nolachar
-ms.openlocfilehash: ad7b85b378db9e9687b5f8081bc9832e91e9ee5e
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 50185588b77f01bced9462d5fd1ad67bb5de6e08
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125639"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129729"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>자습서: 이미지에서 얼굴을 감지하고 포착하는 Android 앱 만들기
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a1cd2ecc738434fc8d5de03ef538be3ea896fa2b
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 81eb23a0955bbc6a5f9dcd95c6874f0c5a8c286c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971009"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434041"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
 ## <a name="overview"></a>개요
@@ -92,8 +92,7 @@ Azure Resource Manager 템플릿 기반 배포를 사용하면 표준 보안 제
 충돌, 오류 또는 성능 문제가 있는 경우 세부 정보에서 원격 분석 데이터를 통해 검색하여 원인을 진단할 수 있습니다. 그리고 앱의 가용성과 성능에 변경 사항이 있는 경우 서비스에서 사용자에게 전자 메일을 보냅니다. 따라서 Application Insight는 기밀성, 무결성 및 가용성 보안 3요소를 한 조로 묶어 가용성을 높이는 데 도움이 되므로 중요한 보안 도구가 됩니다.
 
 ### <a name="azure-monitor"></a>Azure Monitor
-
-  [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) – Azure 인프라([활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs))와 개별 Azure 리소스([진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)) 모두의 데이터에 대한 시각화, 쿼리, 라우팅, 경고, 자동 크기 조정 및 자동화를 제공합니다. Azure Monitor를 사용하여 Azure 로그에서 생성된 보안 관련 이벤트에 대해 사용자에게 알릴 수 있습니다.
+[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) – Azure 인프라([활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs))와 개별 Azure 리소스([진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)) 모두의 데이터에 대한 시각화, 쿼리, 라우팅, 경고, 자동 크기 조정 및 자동화를 제공합니다. Azure Monitor를 사용하여 Azure 로그에서 생성된 보안 관련 이벤트에 대해 사용자에게 알릴 수 있습니다.
 
 ### <a name="log-analytics"></a>Log Analytics
 [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)의 [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) 구성 요소 – Azure 리소스 외에도 온-프레미스 및 타사 클라우드 기반 인프라(예: AWS) 모두를 위한 IT 관리 솔루션을 제공합니다. Azure Monitor의 데이터를 Log Analytics로 직접 라우팅할 수 있으므로 전체 환경에 대한 메트릭 및 로그를 한 곳에서 볼 수 있습니다.
@@ -271,9 +270,9 @@ Application Gateway에 CPU 집약적인 SSL 종료를 오프로드하여("SSL �
 
 웹 공격으로부터 보호하는 중앙 집중식 웹 응용 프로그램 방화벽은 보안 관리가 훨씬 간단하고 침입 위협으로부터 응용 프로그램을 더욱 효과적으로 보호합니다. 또한 WAF 솔루션은 각각의 웹 응용 프로그램을 보호하는 대신 중앙의 위치에서 알려진 취약점에 패치를 적용하여 보다 신속하게 보안 위협에 대응할 수 있습니다. 기존 응용 프로그램 게이트웨이는 웹 응용 프로그램 방화벽을 통해 응용 프로그램 게이트웨이로 쉽게 변환될 수 있습니다.
 ### <a name="traffic-manager"></a>Traffic Manager
-Microsoft [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)를 사용하면 여러 데이터 센터에 있는 서비스 끝점에 대한 사용자 트래픽의 배포를 제어할 수 있습니다. Traffic Manager에서 지원하는 서비스 끝점에는 Azure VM, Web Apps 및 클라우드 서비스가 포함됩니다. 또한 외부, Azure가 아닌 끝점으로 Traffic Manager를 사용할 수 있습니다. Traffic Manager는 DNS(Domain Name System)를 사용하여 클라이언트 요청을 [트래픽 라우팅 메서드](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods) 및 끝점의 상태를 기반으로 가장 적절한 끝점으로 리디렉션합니다.
+Microsoft [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview)를 사용하면 여러 데이터 센터에 있는 서비스 엔드포인트에 대한 사용자 트래픽의 배포를 제어할 수 있습니다. Traffic Manager에서 지원하는 서비스 엔드포인트에는 Azure VM, Web Apps 및 클라우드 서비스가 포함됩니다. 또한 외부, Azure가 아닌 엔드포인트로 Traffic Manager를 사용할 수 있습니다. Traffic Manager는 DNS(Domain Name System)를 사용하여 클라이언트 요청을 [트래픽 라우팅 메서드](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods) 및 엔드포인트의 상태를 기반으로 가장 적절한 엔드포인트로 리디렉션합니다.
 
-Traffic Manager는 다양한 응용 프로그램 요구 사항, 끝점 상태 [모니터링](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring) 및 자동 장애 조치에 잘 맞는 트래픽 라우팅 메서드를 제공합니다. Traffic Manager는 전체 Azure 지역의 오류를 포함한, 오류에 대해 복원력을 갖습니다.
+Traffic Manager는 다양한 응용 프로그램 요구 사항, 엔드포인트 상태 [모니터링](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring) 및 자동 장애 조치에 잘 맞는 트래픽 라우팅 메서드를 제공합니다. Traffic Manager는 전체 Azure 지역의 오류를 포함한, 오류에 대해 복원력을 갖습니다.
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)는 응용 프로그램에 고가용성 및 네트워크 성능을 제공합니다. 이 장치는 부하 분산 장치 집합에 정의된 서비스의 정상 인스턴스 간에 들어오는 트래픽을 분산하는 계층 4(TCP, UDP) 부하 분산 장치입니다. Azure Load Balancer는 다음과 같이 구성할 수 있습니다.
 
@@ -305,7 +304,7 @@ Security Center는 위협을 예방, 검색 및 대응하는 데 도움이 되�
 
 -   [서브넷 또는 가상 머신에서 네트워크 보안 그룹 사용](https://docs.microsoft.com/azure/security-center/security-center-enable-network-security-groups) - 서브넷 또는 VM에서 NSG를 사용하는 것이 좋습니다.
 
--   [인터넷 연결 끝점을 통한 액세스 제한](https://docs.microsoft.com/azure/security-center/security-center-restrict-access-through-internet-facing-endpoints) - NSG에 대한 인바운드 트래픽 규칙을 구성하는 것이 좋습니다.
+-   [인터넷 연결 엔드포인트를 통한 액세스 제한](https://docs.microsoft.com/azure/security-center/security-center-restrict-access-through-internet-facing-endpoints) - NSG에 대한 인바운드 트래픽 규칙을 구성하는 것이 좋습니다.
 
 
 ## <a name="compute"></a>컴퓨팅

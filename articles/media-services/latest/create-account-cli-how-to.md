@@ -1,5 +1,5 @@
 ---
-title: CLI 2.0을 사용하여 Azure Media Services 계정 만들기 | Microsoft Docs
+title: Azure CLI를 사용하여 Azure Media Services 계정 만들기 | Microsoft Docs
 description: Azure Media Services 계정을 만들려면 빠른 시작의 단계를 수행합니다.
 services: media-services
 documentationcenter: ''
@@ -12,17 +12,18 @@ ms.topic: article
 ms.custom: ''
 ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: a9660ac61bab9f8b9eb9563aab4cc584786b25ae
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ca01f32709ce7c9fc49629415cd8697a9d9ba43a
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47091952"
 ---
 # <a name="create-an-azure-media-services-account"></a>Azure Media Services 계정 만들기
 
 Azure에서 암호화, 인코딩, 분석, 관리 및 스트리밍을 시작하려면 Media Services 계정을 만들어야 합니다. Media Services 계정을 만들 때 Media Services 계정과 동일한 지역에 관련 저장소 계정도 만들거나 기존 저장소 계정을 사용합니다.
 
-이 항목에서는 CLI 2.0을 사용하여 새로운 Azure Media Services 계정을 만드는 단계를 설명합니다.  
+이 항목에서는 Azure CLI를 사용하여 새로운 Azure Media Services 계정을 만드는 단계를 설명합니다.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -32,7 +33,7 @@ Azure에서 암호화, 인코딩, 분석, 관리 및 스트리밍을 시작하�
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="set-the-azure-subscription"></a>Azure 구독 설정
 

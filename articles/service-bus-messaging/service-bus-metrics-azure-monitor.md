@@ -7,14 +7,14 @@ author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 09/24/2018
 ms.author: spelluru
-ms.openlocfilehash: b4865c1ba7532910ef0b4a41a5a19d2880e37d6e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 293cde00e53171e848263df8564ec85f273c1a40
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698964"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166336"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Monitor에서 Azure Service Bus 메트릭(미리 보기)
 
@@ -27,7 +27,7 @@ Azure Monitor는 다양한 Azure 서비스를 모니터링하기 위한 통합�
 
 ## <a name="access-metrics"></a>메트릭에 액세스
 
-Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합니다. [Azure Portal](https://portal.azure.com)을 통해 메트릭에 액세스하거나 Azure Monitor API(REST 및 .NET) 및 Log Analytics 및 Event Hubs 같은 분석 솔루션을 사용할 수 있습니다. 자세한 내용은 [Azure Monitor 메트릭](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api)을 참조하세요.
+Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합니다. [Azure Portal](https://portal.azure.com)을 통해 메트릭에 액세스하거나 Azure Monitor API(REST 및 .NET) 및 Log Analytics 및 Event Hubs 같은 분석 솔루션을 사용할 수 있습니다. 자세한 내용은 [Azure Monitor에서 수집된 데이터 모니터링](../monitoring/monitoring-data-collection.md)을 참조하세요.
 
 메트릭은 기본적으로 활성화되며 최근 30일분 데이터에 액세스할 수 있습니다. 더 오랜 기간에 대한 데이터를 보존해야 하는 경우 메트릭 데이터를 Azure Storage 계정에 보관할 수 있습니다. Azure Monitor의 [진단 설정](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)에서 이렇게 구성합니다.
 
@@ -70,7 +70,7 @@ Azure Monitor에서 메트릭 사용은 미리 보기 상태인 동안 무료입
 
 다음 두 가지 유형의 오류는 사용자 오류로 분류됩니다.
 
-1. 클라이언트 쪽 오류(400 오류인 HTTP에서)입니다.
+1. 클라이언트 쪽 오류(HTTP의 경우 400 오류)
 2. [MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception)과 같은 메시지를 처리하는 동안 발생하는 오류입니다.
 
 
@@ -90,6 +90,9 @@ Azure Monitor에서 메트릭 사용은 미리 보기 상태인 동안 무료입
 |닫힌 연결(미리 보기)|닫힌 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName |
 
 ## <a name="resource-usage-metrics"></a>리소스 사용량 메트릭
+
+> [!NOTE] 
+> 다음 메트릭은 **프리미엄** 계층에서만 제공됩니다. 
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |

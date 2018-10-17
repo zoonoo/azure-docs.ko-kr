@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: genli
-ms.openlocfilehash: 474400d92660b68fd7fef906216b8e37c6e8c94d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: a9993942c20f2c33d944b74fb124a363d0663ced
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094636"
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Azure 리소스 정책의 RequestDisallowedByPolicy 오류
 
@@ -50,7 +51,7 @@ PowerShell에서 해당 정책 식별자를 `Id` 매개 변수로 제공하여 �
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure CLI 2.0에서 정책 정의 이름을 제공합니다.
+Azure CLI에서 정책 정의 이름을 제공합니다.
 
 ```azurecli
 az policy definition show --name regionPolicyAssignment

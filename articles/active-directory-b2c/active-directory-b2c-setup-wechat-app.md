@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 418f399213f2b1b60d4d4f464fd9fe89c6f35ba7
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 45afd0d4c038123a1daf5f57de18e5f2799faa31
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338210"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181263"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-wechat-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 WeChat 계정으로 등록 설정 및 로그인
 
@@ -32,20 +32,13 @@ Azure AD(Azure Active Directory) B2C에서 WeChat 계정을 ID 공급자로 사�
 1. WeChat 자격 증명을 사용하여 [https://open.weixin.qq.com/](https://open.weixin.qq.com/)에 로그인합니다.
 2. **管理中心**(관리 센터)를 선택합니다.
 3. 새 응용 프로그램을 등록하기 위한 단계를 따릅니다.
-4. **授权回调域**(콜백 URL)에 `https://{tenant_name}.b2clogin.com/te/{tenant_name}.onmicrosoft.com/oauth2/authresp`를 입력합니다. 예를 들어 `tenant_name`이 contoso인 경우 URL을 `https://contoso.b2clogin.com/te/contoso.onmicrosoft.com/oauth2/authresp`가 되도록 설정합니다.
+4. **授权回调域**(콜백 URL)에 `https://your-tenant_name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. 예를 들어 테넌트 이름이 contoso인 경우 URL을 `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`로 설정합니다.
 5. **앱 ID** 및 **앱 키**를 복사합니다. 테넌트에 ID 공급자를 추가하려면 이러한 항목이 필요합니다.
 
 ## <a name="configure-wechat-as-an-identity-provider-in-your-tenant"></a>테넌트에서 WeChat을 ID 공급자로 구성
 
 1. Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure Portal의 오른쪽 상단 모서리에서 전환하여 Azure AD B2C 테넌트가 있는 디렉터리를 사용하고 있는지 확인합니다. 구독 정보를 선택한 다음, **디렉터리 전환**을 선택합니다. 
-
-    ![Azure AD B2C 테넌트로 전환](./media/active-directory-b2c-setup-wechat-app/switch-directories.png)
-
-    테넌트를 포함하는 디렉터리를 선택합니다.
-
-    ![디렉터리 선택](./media/active-directory-b2c-setup-wechat-app/select-directory.png)
-
+2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. **ID 공급자**를 선택한 다음, **추가**를 선택합니다.
 5. **이름**을 제공합니다. 예를 들어 *WeChat*을 입력합니다.

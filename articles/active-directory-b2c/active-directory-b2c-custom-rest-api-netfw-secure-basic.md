@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f157602ce3a9c5b6f15a03ad816d8aece4e22805
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: e6cff4e2daf86b63bc0db0d4f2d537322d2841df
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339170"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409306"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>HTTP 기본 인증을 사용하여 RESTful 서비스 보호
 
@@ -237,7 +237,7 @@ Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러
 
 6. **암호** 상자에 앞에서 정의한 앱 ID를 입력합니다.
 
-7. **키 사용**에서 **암호**를 선택합니다.
+7. **키 사용**에서 **서명**을 선택합니다.
 
 8. **만들기**를 선택합니다.
 
@@ -257,7 +257,7 @@ Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러
 
 6. **암호** 상자에 앞에서 정의한 앱 암호를 입력합니다.
 
-7. **키 사용**에서 **암호**를 선택합니다.
+7. **키 사용**에서 **서명**을 선택합니다.
 
 8. **만들기**를 선택합니다.
 

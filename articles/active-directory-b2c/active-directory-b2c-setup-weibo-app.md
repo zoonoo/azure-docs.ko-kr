@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 06a79250bac977fc4ade7853594c5307bb11d983
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 4600ec9d76f682f0dedf8c802d23b32fd6126481
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336948"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181501"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Weibo 계정으로 등록 설정 및 로그인
 
@@ -45,20 +45,13 @@ Azure AD(Azure Active Directory) B2C에서 Weibo 계정을 ID 공급자로 사�
 6. **保存以上信息**(저장)을 선택합니다.
 7. **高级信息**(고급 정보)를 선택합니다.
 8. OAuth2.0 **授权设置**(리디렉션 URL)에 대한 필드 옆의 **编辑**(편집)을 선택합니다.
-9. OAuth2.0 **授权设置**(리디렉션 URL)에 `https://{tenant_name}.b2clogin.com/te/{tenant_name}.onmicrosoft.com/oauth2/authresp`를 입력합니다. 예를 들어 `tenant_name`이 contoso인 경우 URL을 `https://contoso.b2clogin.com/te/contoso.onmicrosoft.com/oauth2/authresp`가 되도록 설정합니다.
+9. OAuth2.0 **授权设置**(리디렉션 URL)에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. 예를 들어 테넌트 이름이 contoso인 경우 URL을 `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`로 설정합니다.
 10. **提交**(제출)을 선택합니다.  
 
 ## <a name="configure-a-weibo-account-as-an-identity-provider"></a>Weibo 계정을 ID 공급자로 구성
 
 1. Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure Portal의 오른쪽 상단 모서리에서 전환하여 Azure AD B2C 테넌트가 있는 디렉터리를 사용하고 있는지 확인합니다. 구독 정보를 선택한 다음, **디렉터리 전환**을 선택합니다. 
-
-    ![Azure AD B2C 테넌트로 전환](./media/active-directory-b2c-setup-weibo-app/switch-directories.png)
-
-    테넌트를 포함하는 디렉터리를 선택합니다.
-
-    ![디렉터리 선택](./media/active-directory-b2c-setup-weibo-app/select-directory.png)
-
+2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. **ID 공급자**를 선택한 다음, **추가**를 선택합니다.
 5. **이름**을 제공합니다. 예를 들어, *Weibo*를 입력합니다.

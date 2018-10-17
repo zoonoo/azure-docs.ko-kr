@@ -6,15 +6,15 @@ author: zjalexander
 ms.service: automation
 ms.component: update-management
 ms.topic: tutorial
-ms.date: 08/29/2018
+ms.date: 09/18/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 8458aaee9f8d328d959fb47fb3e32af176d545b1
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 4d504e0488d35c5c606468faa35bece1318503b4
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247371"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498524"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Azure Automation을 사용하여 Windows 업데이트 관리
 
@@ -158,6 +158,8 @@ VM에 대한 새 업데이트 배포를 예약하려면 **업데이트 관리**�
 
 * **운영 체제**: 업데이트 배포의 대상 OS를 선택합니다.
 
+* **업데이트할 그룹(미리 보기)**: 배포에 포함할 Azure VM의 동적 그룹을 빌드하기 위해 구독, 리소스 그룹, 위치 및 태그의 조합을 기반으로 쿼리를 정의합니다. 자세한 내용은 [동적 그룹](automation-update-management.md#using-dynamic-groups)을 참조하세요.
+
 * **업데이트할 머신**: 저장된 검색, 가져온 그룹을 선택하거나 드롭다운에서 머신을 선택하고 개별 머신을 선택합니다. **머신**을 선택한 경우 머신의 준비는 **업데이트 에이전트 준비** 열에 표시됩니다. Log Analytics에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Log Analytics의 컴퓨터 그룹](../log-analytics/log-analytics-computer-groups.md)을 참조하세요.
 
 * **업데이트 분류**: 배포에 포함되는 업데이트 배포 소프트웨어의 종류를 선택합니다. 이 자습서에서는 모든 종류가 선택된 상태로 둡니다.
@@ -171,10 +173,13 @@ VM에 대한 새 업데이트 배포를 예약하려면 **업데이트 관리**�
 
    분류 형식에 대한 설명은 [업데이트 분류](automation-update-management.md#update-classifications)를 참조하세요.
 
+* **포함/제외할 업데이트** - **포함/제외** 페이지가 열립니다. 포함 또는 제외할 업데이트는 별도의 탭에 있습니다. 포함이 처리되는 방식에 대한 자세한 내용은 [inclusion behavior](automation-update-management.md#inclusion-behavior)(포함 동작)를 참조하세요.
+
 * **일정 설정**: **일정 설정** 창이 열립니다. 기본 시작 시간은 현재 시간으로부터 30분 후입니다. 앞으로 10분 이후부터 언제든지 시작 시간을 설정할 수 있습니다.
 
    배포가 한 번만 수행될지 여부를 지정하거나 되풀이 일정을 설정할 수도 있습니다. **되풀이**에서 **한 번**을 선택합니다. 기본값을 1일로 그대로 두고 **확인**을 선택합니다. 이렇게 하면 되풀이 일정이 설정됩니다.
 
+* **사전 스크립트 + 사후 스크립트**: 배포 전후에 실행할 스크립트를 선택합니다. 자세한 내용은 [사전 및 사후 스크립트 관리](pre-post-scripts.md)를 참조하세요.
 * **유지 관리 기간(분)**: 기본값으로 그대로 둡니다. 업데이트 배포를 수행하려는 기간을 설정할 수 있습니다. 이 설정을 통해 정해진 서비스 기간 내에 변경 내용을 수행할 수 있습니다.
 
 * **다시 부팅 옵션**: 다시 부팅을 처리하는 방법을 결정합니다. 사용 가능한 옵션은 다음과 같습니다.

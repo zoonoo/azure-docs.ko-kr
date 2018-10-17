@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 09/27/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a2855ca5dbb76d3fcc30c4b1007c20bb48c91c9b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: e164488a1bf176d5b6c0e28a84cd1ec22cae4cce
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42141391"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423581"
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Power BI Desktop 파일 가져오기
 
@@ -22,10 +22,13 @@ Azure Analysis Services로 Power BI Desktop 파일(pbix)의 데이터 모델을 
 **제한 사항**   
 
 - pbix 파일에서 가져오기는 현재 **미리 보기**로 제공되는 포털의 웹 디자이너 기능을 사용합니다. 기능이 제한됩니다. 고급 모델을 개발하고 테스트하려면 Visual Studio(SSDT) 및 SSMS(SQL Server Management Studio)를 사용하는 것이 가장 좋습니다.
+- Power BI Desktop 2018년 7월 업데이트(2.60.5169.3201) 이후 버전에서 데이터 모델을 만드는 경우 사용하도록 설정된 미리 보기 기능이 없는지 확인합니다. 미리 보기 기능은 Azure Analysis Services에서 아직 지원되지 않습니다.  
+가져오기를 진행할 때 다음 오류가 표시되는 경우에는 Azure Analysis Services에서 아직 지원되지 않는 미리 보기 기능이 pbix 파일에서 사용하도록 설정되어 있는 것입니다.
+
+    ![호환성 수준 경고](./media/analysis-services-import-pbix/aas-import-pbix-cl-warning.png)   
 - pbix 파일에서 가져오려면 서버 관리자 권한이 있어야 합니다.
 - pbix 모델은 **Azure SQL Database** 및 **Azure SQL Data Warehouse** 데이터 원본에만 연결할 수 있습니다.
 - pbix 모델에는 라이브 연결이나 DirectQuery 연결이 불가능합니다. 
-- pbix 데이터 모델이 Analysis Services에서 지원되지 않는 메타데이터를 포함하는 경우 가져오기에 실패할 수 있습니다.
 
 
 ## <a name="to-import-from-pbix"></a>pbix를 가져오려면

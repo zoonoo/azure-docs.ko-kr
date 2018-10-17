@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: 6ff28443dda65e91fa69fececaff95aa8e872603
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: f613fb9bd3e9cf6d070b34403bab617e23261c56
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604252"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226451"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Virtual Kubelet 사용
 
@@ -36,7 +36,7 @@ Virtual Kubelet을 설치하려면 [Helm](https://docs.helm.sh/using_helm/#insta
 
 ### <a name="for-rbac-enabled-clusters"></a>RBAC 지원 클러스터의 경우
 
-AKS 클러스터에서 RBAC가 지원될 경우 Tiller에서 사용할 수 있게 서비스 계정 및 역할 바인딩을 만들어야 합니다. 자세한 내용은 [Helm 역할 기반 액세스 제어][helm-rbac].를 참조하세요. 서비스 계정과 역할 바인딩을 만들려면 *rbac-virtualkubelet.yaml*이라는 파일을 만들고 다음 정의를 붙여넣습니다.
+AKS 클러스터에서 RBAC가 지원될 경우 Tiller에서 사용할 수 있게 서비스 계정 및 역할 바인딩을 만들어야 합니다. 자세한 내용은 [Helm 역할 기반 액세스 제어][helm-rbac].를 참조하세요. 서비스 계정과 역할 바인딩을 만들려면 *rbac-virtual-kubelet.yaml* 파일을 만들고 다음 정의를 붙여넣습니다.
 
 ```yaml
 apiVersion: v1
@@ -59,7 +59,7 @@ subjects:
     namespace: kube-system
 ```
 
-[kubectl apply][kubectl-apply]를 사용하여 서비스 계정과 바인딩을 적용하고 다음 예제와 같이 *rbac-virtualkubelet.yaml* 파일을 지정합니다.
+[kubectl apply][kubectl-apply]를 사용하여 서비스 계정과 바인딩을 적용하고 다음 예제와 같이 *rbac-virtual-kubelet.yaml* 파일을 지정합니다.
 
 ```
 $ kubectl apply -f rbac-virtual-kubelet.yaml
@@ -182,7 +182,9 @@ spec:
       nodeSelector:
         kubernetes.io/hostname: virtual-kubelet-virtual-kubelet-win
       tolerations:
-      - key: azure.com/aci
+      - key: virtual-kubelet.io/provider
+        operator: Equal
+        value: azure
         effect: NoSchedule
 ```
 

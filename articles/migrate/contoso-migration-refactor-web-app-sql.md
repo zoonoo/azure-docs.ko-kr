@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/03/2018
+ms.date: 09/20/2018
 ms.author: raynew
-ms.openlocfilehash: 370f90f0bbc2ebdb386aca5f47b909640271dbbf
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 39444b20dfefd947abb2f2bc00a9945398996dd0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783051"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040536"
 ---
 # <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Contoso 마이그레이션: Azure 웹앱 및 Azure SQL 데이터베이스로 온-프레미스 앱 리팩터링
 
@@ -22,19 +22,19 @@ ms.locfileid: "43783051"
 
 **문서** | **세부 정보** | **상태**
 --- | --- | ---
-[문서 1: 개요](contoso-migration-overview.md) | 문서 시리즈, Contoso의 마이그레이션 전략 및 시리즈에서 사용되는 샘플 앱에 대해 간략히 설명합니다. | 사용 가능
-[문서 2: Azure 인프라 배포](contoso-migration-infrastructure.md) | Contoso에서 마이그레이션을 위해 온-프레미스 인프라와 Azure 인프라를 준비합니다. 이 시리즈의 모든 마이그레이션 관련 문서에서 동일한 인프라가 사용됩니다. | 사용 가능
-[문서 3: Azure로 마이그레이션할 온-프레미스 리소스 평가](contoso-migration-assessment.md)  | Contoso가 VMware에서 실행되는 온-프레미스 SmartHotel360 앱의 평가를 실행합니다. Contoso에서 Azure Migrate 서비스를 사용하여 앱 VM을 평가하고, Database Migration Assistant를 사용하여 앱 SQL Server 데이터베이스를 평가합니다. | 사용 가능
-[문서 4: Azure VM 및 SQL Database Managed Instance에서 앱 다시 호스트](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso가 온-프레미스 SmartHotel360 앱을 Azure로 리프트 앤 시프트 방식으로 마이그레이션합니다. Contoso에서 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하여 앱 프런트 엔드 VM을 마이그레이션하고, [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)를 사용하여 앱 데이터베이스를 Azure SQL Database Managed Instance로 마이그레이션합니다. | 사용 가능   
-[문서 5: 앱을 Azure VM에 다시 호스트](contoso-migration-rehost-vm.md) | Contoso에서 Site Recovery 서비스를 사용하여 SmartHotel360 앱 VM을 Azure VM으로 마이그레이션합니다. | 사용 가능
-[문서 6: 앱을 Azure VM 및 SQL Server Always On 가용성 그룹에 다시 호스트](contoso-migration-rehost-vm-sql-ag.md) | Contoso가 SmartHotel360 앱을 마이그레이션합니다. Contoso에서 Site Recovery를 사용하여 앱 VM을 마이그레이션하고, Database Migration Service를 사용하여 앱 데이터베이스를 AlwaysOn 가용성 그룹으로 보호되는 SQL Server 클러스터로 마이그레이션합니다. | 사용 가능
-[문서 7: Azure VM에서 Linux 앱 다시 호스트](contoso-migration-rehost-linux-vm.md) | Contoso에서 Azure Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 리프트 앤 시프트 방식으로 마이그레이션합니다. | 사용 가능
-[문서 8: Azure VM 및 Azure MySQL 서버에 Linux 앱 다시 호스트](contoso-migration-rehost-linux-vm-mysql.md) | Contoso에서 Azure Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 마이그레이션하고, MySQL Workbench를 사용하여 앱 데이터베이스를 Azure MySQL 서버 인스턴스로 마이그레이션합니다. | 사용 가능
-문서 9: Azure 웹앱 및 Azure SQL 데이터베이스에서 앱 리팩터링 | Contoso에서 SmartHotel360 앱을 Azure Web App으로 마이그레이션하고, Database Migration Assistant를 사용하여 앱 데이터베이스를 Azure SQL Server 인스턴스로 마이그레이션합니다. | 이 문서의 내용
-[문서 10: Azure Web Apps 및 Azure MySQL에서 Linux 앱 리팩터링](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso에서 지속적인 업데이트를 위해 GitHub와 통합된 Azure Traffic Manager를 사용하여 Linux osTicket 앱을 여러 Azure 지역의 Azure 웹앱으로 마이그레이션합니다. Contoso에서 앱 데이터베이스를 Azure Database for MySQL 인스턴스로 마이그레이션합니다. | 사용 가능 
-[문서 11: VSTS에서 TFS 리팩터링](contoso-migration-tfs-vsts.md) | Contoso에서 온-프레미스 Team Foundation Server 배포를 Azure의 Visual Studio Team Services로 마이그레이션합니다. | 사용 가능
-[문서 12: Azure 컨테이너 및 Azure SQL Database에서 앱 아키텍처 변경](contoso-migration-rearchitect-container-sql.md) | Contoso가 SmartHotel360 앱을 Azure로 마이그레이션합니다. 그런 다음, 웹앱 계층을 Azure Service Fabric에서 실행되는 Windows 컨테이너로 재설계하고 Azure SQL Database를 사용하여 데이터베이스를 재설계합니다. | 사용 가능
-[문서 13: Azure에서 앱 다시 빌드](contoso-migration-rebuild.md) | Contoso가 다양한 Azure 기능과 서비스(Azure App Service, AKS(Azure Kubernetes Service), Azure Functions, Azure Cognitive Services 및 Azure Cosmos DB 포함)를 사용하여 SmartHotel360 앱을 다시 빌드합니다. | 사용 가능
+[문서 1: 개요](contoso-migration-overview.md) | Contoso 마이그레이션 전략, 문서 시리즈 및 사용할 샘플 앱에 대해 간략히 설명합니다. | 사용 가능
+[문서 2: Azure 인프라 배포](contoso-migration-infrastructure.md) | Contoso가 마이그레이션을 위해 온-프레미스 및 Azure 인프라를 준비하는 방법을 설명합니다. 모든 마이그레이션 문서에 동일한 인프라가 사용됩니다. | 사용 가능
+[문서 3: 온-프레미스 리소스 평가](contoso-migration-assessment.md)  | Contoso가 VMware에서 실행되는 온-프레미스 2계층 SmartHotel 앱 평가를 실행하는 방법을 보여 줍니다. Contoso가 [Azure Migrate](migrate-overview.md) 서비스로 앱 VM을 평가하고 [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)로 앱 SQL Server 데이터베이스를 평가합니다. | 사용 가능
+[문서 4: 앱을 Azure VM 및 SQL Managed Instance에 다시 호스트](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso가 SmartHotel 앱에 대해 Azure로의 리프트 앤 시프트 마이그레이션을 실행하는 방법을 보여 줍니다. Contoso는 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하여 앱 프런트 엔드 VM을 마이그레이션하고 [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)를 사용하여 앱 데이터베이스를 SQL Managed Instance로 마이그레이션합니다. | 사용 가능
+[문서 5: 앱을 Azure VM에 다시 호스트](contoso-migration-rehost-vm.md) | Contoso가 Site Recovery만 사용하여 SmartHotel 앱 VM을 마이그레이션하는 방법을 보여 줍니다. | 사용 가능
+[문서 6: 앱을 Azure VM 및 SQL Server Always On 가용성 그룹에 다시 호스트](contoso-migration-rehost-vm-sql-ag.md) | Contoso에서 SmartHotel 앱을 마이그레이션하는 방법을 보여 줍니다. Contoso가 Site Recovery를 사용하여 앱 VM을 마이그레이션하고 Database Migration Service를 사용하여 앱 데이터베이스를 AlwaysOn 가용성 그룹에서 보호하는 SQL Server 클러스터로 마이그레이션합니다. | 사용 가능
+[문서 7: Azure VM에 Linux 앱 다시 호스팅](contoso-migration-rehost-linux-vm.md) | Contoso가 Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 리프트 앤 시프트 마이그레이션하는 방법을 보여 줍니다. | 사용 가능
+[문서 8: Azure VM 및 Azure MySQL 서버에 Linux 앱 다시 호스팅](contoso-migration-rehost-linux-vm-mysql.md) | Contoso가 Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 마이그레이션하고 MySQL Workbench를 사용하여 앱 데이터베이스를 Azure MySQL 서버 인스턴스로 마이그레이션하는 방법을 보여 줍니다. | 사용 가능
+문서 9: Azure 웹앱 및 Azure SQL 데이터베이스에 앱 리팩터링 | Contoso가 SmartHotel 앱을 Azure 웹앱으로 마이그레이션하고, 앱 데이터베이스를 Azure SQL Server 인스턴스로 마이그레이션하는 방법 시연 | 이 문서의 내용:
+[문서 10: Azure Web Apps 및 Azure MySQL에 Linux 앱 리팩터링](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso가 지속적인 업데이트를 위해 GitHub와 통합된, 여러 사이트의 Azure Web Apps로 Linux osTicket 앱을 마이그레이션하는 방법을 보여줍니다. Azure MySQL 인스턴스로 앱 데이터베이스를 마이그레이션합니다. | 사용 가능
+[문서 11: Azure DevOps Services에서 TFS 리팩터링](contoso-migration-tfs-vsts.md) | Contoso가 온-프레미스 TFS(Team Foundation Server) 배포를 Azure의 Azure DevOps Services로 마이그레이션하는 방법을 보여 줍니다. | 사용 가능
+[문서 12: Azure 컨테이너 및 Azure SQL Database에서 앱 아키텍처 변경](contoso-migration-rearchitect-container-sql.md) | Contoso가 SmartHotel 앱을 Azure로 마이그레이션하고 아키텍처를 변경하는 방법을 보여줍니다. 앱 웹 계층의 아키텍처를 Windows 컨테이너 및 Azure SQL Database의 앱 데이터베이스로 변경합니다. | 사용 가능
+[문서 13: Azure에서 앱 다시 빌드](contoso-migration-rebuild.md) | Contoso가 App Services, Azure Kubernetes, Azure Functions, Cognitive services 및 Cosmos DB를 포함한 다양한 Azure 기능 및 서비스를 사용하여 자체 SmartHotel 앱을 다시 빌드하는 방법을 보여줍니다. | 사용 가능
 
 이 문서에서 Contoso는 2계층 Windows를 마이그레이션합니다. VMware VM에서 실행되는 NET SmartHotel360 앱을 Azure로. 이 앱을 사용하려는 경우 오픈 소스로 제공되므로 [GitHub](https://github.com/Microsoft/SmartHotel360)에서 다운로드할 수 있습니다.
 
@@ -57,7 +57,7 @@ Contoso 클라우드 팀은 이 마이그레이션에 대한 목표를 확정했
 **앱** | Azure의 앱은 지금처럼 중요하게 유지됩니다.<br/><br/> 앞으로도 현재 VMWare에서 수행하는 것과 동일한 성능을 갖추어야 합니다.<br/><br/> 팀은 앱에 투자하려고 하지 않습니다. 이제 관리자는 앱을 안전하게 클라우드로 이동시키기만 하면 됩니다.<br/><br/> 앱이 현재 실행하는 Windows Server 2008 R2 지원을 팀이 중지하려고 합니다.<br/><br/> 팀은 SQL Server 2008 R2에서 관리에 대한 필요성을 최소화하는 최신 PaaS 데이터베이스 플랫폼으로 이동하려고 합니다.<br/><br/> Contoso는 가능한 경우 SQL Server 라이선싱 및 Software Assurance에 대한 투자를 활용하려고 합니다.<br/><br/> 또한 Contoso는 웹 계층에서 단일 실패 지점을 완화하려고 합니다.
 **제한 사항** | 앱은 동일한 VM에서 실행되는 ASP.NET 앱 및 WCF 서비스로 구성됩니다. Contoso는 Azure App Service를 사용하여 두 개의 웹앱에서 분할하려고 합니다. 
 **Azure** | Contoso는 앱을 Azure로 이동하려고 하지만 VM에서 실행하지 않으려고 합니다. Contoso는 웹 및 데이터 계층에 대해 Azure PaaS 서비스를 활용하려고 합니다. 
-**DevOps** | Contoso는 빌드 및 릴리스 파이프라인에 대해 VSTS(Visual Studio Team Services)를 사용하여 DevOps 모델로 이동하려고 합니다.
+**DevOps** | Contoso는 빌드 및 릴리스 파이프라인에 Azure DevOps를 사용하여 DevOps 모델로 이동하려고 합니다.
 
 ## <a name="solution-design"></a>솔루션 디자인
 
@@ -80,7 +80,7 @@ Contoso 클라우드 팀은 이 마이그레이션에 대한 목표를 확정했
     - Software Assurance와 함께 사용하면 Contoso는 SQL Database에서 SQL Server에 대한 Azure 하이브리드 혜택을 사용하여 기존 라이선스를 할인된 가격에 교환할 수 있습니다. 최대 30%까지 비용 절감을 제공할 수 있습니다.
     - SQL Database는 상시 암호화, 동적 데이터 마스킹 및 행 수준 보안/위협 검색을 포함하는 다양한 보안 기능을 제공합니다.
 - 앱 웹 계층의 경우 Contoso는 Azure App Service를 사용하기로 결정했습니다. 이 PaaS 서비스를 사용하면 몇 가지 구성 변경 내용만으로 앱을 배포할 수 있습니다. Contoso는 Visual Studio를 사용하여 내용을 변경하고, 두 개의 웹앱을 배포합니다. 각각 웹 사이트 및 WCF 서비스에 대한 것입니다.
-- DevOps 파이프라인에 대한 요구 사항을 충족하기 위해 Contoso는 VSTS를 사용하기로 선택했습니다. Git 리포지토리를 사용하여 SCM(소스 코드 관리)에 대한 VSTS를 배포하게 됩니다. 자동화된 빌드 및 릴리스를 사용하여 코드를 작성하고 Azure Web Apps에 배포합니다.
+- DevOps 파이프라인 요구 사항을 충족하기 위해 Contoso는 Git 리포지토리와 함께 SCM(소스 코드 관리)용 Azure DevOps를 사용하기로 선택했습니다. 자동화된 빌드 및 릴리스를 사용하여 코드를 작성하고 Azure Web Apps에 배포합니다.
   
 ### <a name="solution-review"></a>솔루션 검토
 Contoso는 장점 및 단점 목록을 함께 조합하여 제안된 디자인을 평가합니다.
@@ -109,6 +109,7 @@ Contoso는 장점 및 단점 목록을 함께 조합하여 제안된 디자인�
 [DMA(Database Migration Assistant)](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Contoso는 DMA를 사용하여 Azure의 데이터베이스 기능에 영향을 줄 수 있는 호환성 문제를 평가하고 검색합니다. DMA는 SQL 원본과 대상 간의 기능 패리티를 평가하고 성능 및 안정성을 향상하기 위한 방안을 제시합니다. | DMA는 무료로 다운로드할 수 있는 도구입니다.
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) | 완전히 관리되는 지능적인 관계형 클라우드 데이터베이스 서비스입니다. | 기능, 처리량 및 크기에 따른 비용입니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 [Azure App Services - Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) | 완전히 관리되는 플랫폼을 사용하여 강력한 클라우드 앱 만들기 | 크기, 위치 및 사용 기간에 따른 비용입니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/app-service/windows/).
+[Azure DevOps](https://docs.microsoft.com/azure/azure-portal/tutorial-azureportal-devops) | 앱 개발을 위한 CI/CD(연속 통합 및 연속 배포) 파이프라인을 제공합니다. 이 파이프라인은 앱 코드 관리용 Git 리포지토리, 패키지 및 기타 빌드 아티팩트 생성용 빌드 시스템, 그리고 개발/테스트/프로덕션 환경에서 변경 내용을 배포하기 위한 릴리스 관리 시스템을 초기 구성 요소로 포함합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -128,9 +129,9 @@ Contoso가 마이그레이션을 실행하는 방법은 다음과 같습니다.
 > * **1단계: Azure에서 SQL Database 인스턴스 프로비전**: Contoso는 Azure에서 SQL 인스턴스를 프로비전합니다. 앱 웹 사이트를 Azure로 마이그레이션한 후 WCF 서비스 웹앱은 이 인스턴스를 가리킵니다.
 > * **2단계: DMA를 사용하여 데이터베이스 마이그레이션**: Contoso는 Database Migration Assistant를 사용하여 앱 데이터베이스를 마이그레이션합니다.
 > * **3단계: 웹앱 프로비전**: Contoso는 두 개의 웹앱을 프로비전합니다.
-> * **4단계: VSTS 설정**: Contoso는 새 VSTS 프로젝트를 만들고 Git 리포지토리를 가져옵니다.
+> * **4단계: Azure DevOps 설정**: Contoso는 새 Azure DevOps 프로젝트를 만들고 Git 리포지토리를 가져옵니다.
 > * **5단계: 연결 문자열 구성**: Contoso는 웹 계층 웹앱, WCF 서비스 웹앱 및 SQL 인스턴스가 통신할 수 있도록 연결 문자열을 구성합니다.
-> * **6단계: VSTS에서 빌드 및 릴리스 파이프라인 설정**: 최종 단계로, Contoso는 빌드 및 릴리스 파이프라인을 설정하여 앱을 만들고, 두 개의 별도 Azure Web Apps에 배포합니다.
+> * **6단계: 빌드 및 릴리스 파이프라인 설정**: 최종 단계로, Contoso는 빌드 및 릴리스 파이프라인을 설정하여 앱을 만들고, 두 개의 별도 Azure Web Apps에 배포합니다.
 
 
 ## <a name="step-1-provision-an-azure-sql-database"></a>1단계: Azure SQL Database 프로비전
@@ -236,26 +237,26 @@ Contoso 관리자는 이제 DMA를 사용하여 SmartHotel360 데이터베이스
 4. 작업이 완료되면 성공적으로 생성되었는지 확인하도록 앱의 주소로 이동합니다.
 
 
-## <a name="step-4-set-up-vsts"></a>4단계: VSTS 설정
+## <a name="step-4-set-up-azure-devops"></a>4단계: Azure DevOps 설정
 
 
-Contoso는 응용 프로그램에 대한 DevOps 인프라 및 파이프라인을 빌드해야 합니다.  이를 위해 Contoso 관리자는 새 VSTS 프로젝트를 만들고, 해당 코드를 가져온 다음, 빌드 및 릴리스 파이프라인을 설정합니다.
+Contoso는 응용 프로그램에 대한 DevOps 인프라 및 파이프라인을 빌드해야 합니다.  이를 위해 Contoso 관리자는 새 DevOps 프로젝트를 만들고 코드를 가져온 다음 빌드 및 릴리스 파이프라인을 설정합니다.
 
-1.   Contoso VSTS 계정에서 새 프로젝트(**ContosoSmartHotelRefactor**)를 만들고, 버전 제어에 대한 **Git**을 선택합니다.
+1.   Contoso Azure DevOps 계정에서 새 프로젝트(**ContosoSmartHotelRefactor**)를 만들고 버전 제어용 **Git**을 선택합니다.
 
     ![새 프로젝트](./media/contoso-migration-refactor-web-app-sql/vsts1.png)
-
 2. 현재 해당 앱 코드를 포함하는 Git 리포지토리를 가져옵니다. [공용 리포지토리](https://github.com/Microsoft/SmartHotel360-internal-booking-apps)에 있으며 다운로드할 수 있습니다.
 
     ![앱 코드 다운로드](./media/contoso-migration-refactor-web-app-sql/vsts2.png)
-
+    
 3. 코드를 가져온 후 Visual Studio를 리포지토리를 연결하고, 팀 탐색기를 사용하여 코드를 복제합니다.
 
-    ![리포지토리에 연결](./media/contoso-migration-refactor-web-app-sql/vsts3.png)
+    ![프로젝트에 연결](./media/contoso-migration-refactor-web-app-sql/devops1.png)
 
 4. 개발자 머신에 리포지토리가 복제된 후 해당 앱에 대한 솔루션 파일을 엽니다. 웹앱 및 wcf 서비스는 각각 파일 내에서 별도의 프로젝트를 갖습니다.
 
     ![솔루션 파일](./media/contoso-migration-refactor-web-app-sql/vsts4.png)
+    
 
 ## <a name="step-5-configure-connection-strings"></a>5단계: 연결 문자열 구성
 
@@ -277,15 +278,15 @@ Contoso 관리자는 웹앱 및 데이터베이스가 모두 통신할 수 있�
 5. 코드에 변경 사항이 있으면 관리자는 변경 내용을 커밋해야 합니다. Visual Studio에서 팀 탐색기를 사용하여 커밋 및 동기화합니다.
 
 
-## <a name="step-6-set-up-build-and-release-pipelines-in-vsts"></a>6단계: VSTS에서 빌드 및 릴리스 파이프라인 설정
+## <a name="step-6-set-up-build-and-release-pipelines-in-azure-devops"></a>6단계: Azure DevOps에서 빌드 및 릴리스 파이프라인 설정
 
-Contoso 관리자는 이제 작업 DevOps 사례에 대한 빌드 및 릴리스 프로세스를 수행하도록 VSTS를 구성합니다.
+Contoso 관리자는 이제 빌드 및 릴리스 프로세스를 수행하도록 Azure DevOps를 구성합니다.
 
-1. VSTS에서 **빌드 및 릴리스** > **새 파이프라인**을 클릭합니다.
+1. 이를 위해 Azure DevOps에서 **빌드 및 릴리스** > **새 파이프라인**을 클릭합니다.
 
     ![새 파이프라인](./media/contoso-migration-refactor-web-app-sql/pipeline1.png)
 
-2. **VSTS Git** 및 관련 리포지토리를 선택합니다.
+2. **Azure Repos Git** 및 관련 리포지토리를 선택합니다.
 
     ![Git 및 리포지토리](./media/contoso-migration-refactor-web-app-sql/pipeline2.png)
 
@@ -293,15 +294,15 @@ Contoso 관리자는 이제 작업 DevOps 사례에 대한 빌드 및 릴리스 
 
      ![ASP.NET 템플릿](./media/contoso-migration-refactor-web-app-sql/pipeline3.png)
     
-4. 빌드에 대한 ContosoSmartHotelRefactor-ASP.NET-CI 이름을 지정하고 **저장 및 큐**를 클릭합니다.
+4. 빌드 이름으로는 **ContosoSmartHotelRefactor-ASP.NET-CI**가 사용됩니다. **저장 및 큐에 넣기**를 클릭합니다.
 
      ![저장 및 큐](./media/contoso-migration-refactor-web-app-sql/pipeline4.png)
 
-5. 첫 번째 빌드가 시작됩니다. 프로세스를 보려면 빌드 번호를 클릭합니다. 완료된 후 프로세스 피드백을 볼 수 있습니다.
+5. 첫 번째 빌드가 시작됩니다. 프로세스를 보려면 빌드 번호를 클릭합니다. 빌드가 완료되면 프로세스 피드백을 확인한 후 **아티팩트**를 클릭하여 빌드 결과를 확인할 수 있습니다.
 
-    ![사용자 의견](./media/contoso-migration-refactor-web-app-sql/pipeline5.png)
+    ![검토](./media/contoso-migration-refactor-web-app-sql/pipeline5.png)
 
-6. 성공적으로 빌드된 후 빌드를 열고 **아티팩트**를 클릭합니다. 이 폴더에는 빌드 결과가 포함되어 있습니다.
+6. **Drop** 폴더에 빌드 결과가 포함되어 있습니다.
 
     - 두 zip 파일은 앱을 포함하는 패키지입니다.
     - 이러한 파일은 Azure Web Apps에 배포하기 위한 릴리스 파이프라인에서 사용됩니다.
@@ -316,11 +317,11 @@ Contoso 관리자는 이제 작업 DevOps 사례에 대한 빌드 및 릴리스 
 
     ![Azure App Service 템플릿](./media/contoso-migration-refactor-web-app-sql/pipeline8.png)
 
-9. **ContosoSmartHotelRefactor** 릴리스 파이프라인의 이름을 지정하고 환경 이름에 대한 WCF 웹앱(SHWCF-EUS2)의 이름을 지정합니다.
+9. 릴리스 파이프라인의 이름을 **ContosoSmartHotel360Refactor**로 지정하고 **단계** 이름으로는 WCF 웹앱의 이름(SHWCF-EUS2)을 지정합니다.
 
     ![Environment](./media/contoso-migration-refactor-web-app-sql/pipeline9.png)
 
-10. 환경에서 **1단계, 1작업**을 클릭하여 WCF 서비스의 배포를 구성합니다.
+10. 단계 아래에서 **1개 작업, 1개 태스크**를 클릭하여 WCF 서비스의 배포를 구성합니다.
 
     ![WCF 배포](./media/contoso-migration-refactor-web-app-sql/pipeline10.png)
 
@@ -328,7 +329,7 @@ Contoso 관리자는 이제 작업 DevOps 사례에 대한 빌드 및 릴리스 
 
      ![앱 서비스 선택](./media/contoso-migration-refactor-web-app-sql/pipeline11.png)
 
-12. **아티팩트**에서 **+아티팩트 추가**를 선택하고 **ContosoSmarthotelRefactor-ASP.NET-CI** 파이프라인으로 빌드하도록 선택합니다.
+12. 파이프라인 > **아티팩트**에서 **+아티팩트 추가**를 선택하고 **ContosoSmarthotel360Refactor** 파이프라인으로 빌드하도록 선택합니다.
 
      ![빌드](./media/contoso-migration-refactor-web-app-sql/pipeline12.png)
 
@@ -336,11 +337,11 @@ Contoso 관리자는 이제 작업 DevOps 사례에 대한 빌드 및 릴리스 
 
      ![번개](./media/contoso-migration-refactor-web-app-sql/pipeline13.png)
 
-16. 또한 지속적인 배포 트리거가 **사용**으로 설정되어야 합니다.
+16. 또한 연속 배포 트리거가 **사용**으로 설정되어야 합니다.
 
    ![연속 배포 사용](./media/contoso-migration-refactor-web-app-sql/pipeline14.png) 
 
-17. 이제 **Azure App Service 배포**를 클릭합니다.
+17. 이제 단계 1개 작업, 1개 태스크로 돌아가서 **Azure App Service 배포**를 클릭합니다.
 
     ![앱 서비스 배포](./media/contoso-migration-refactor-web-app-sql/pipeline15.png)
 
@@ -348,7 +349,7 @@ Contoso 관리자는 이제 작업 DevOps 사례에 대한 빌드 및 릴리스 
 
     ![WCF 저장](./media/contoso-migration-refactor-web-app-sql/pipeline16.png)
 
-19. **파이프라인** >**+추가**를 클릭하고 다른 Azure App Service 배포를 선택하여 **SHWEB-EUS2**에 대한 환경을 추가합니다.
+19. **파이프라인** > **단계** **+추가**를 클릭하여 **SHWEB-EUS2**용 환경을 추가합니다. 그리고 다른 Azure App Service 배포를 선택합니다.
 
     ![환경 추가](./media/contoso-migration-refactor-web-app-sql/pipeline17.png)
 
@@ -368,7 +369,7 @@ Contoso 관리자는 이제 작업 DevOps 사례에 대한 빌드 및 릴리스 
 
     ![파이프라인 저장](./media/contoso-migration-refactor-web-app-sql/pipeline21.png)
 
-24. Contoso 관리자는 VSTS에서 빌드 및 릴리스 파이프라인 프로세스를 수행할 수 있습니다. 빌드가 완료되면 릴리스가 시작됩니다.
+24. Contoso 관리자는 Azure DevOps에서 빌드 및 릴리스 파이프라인 프로세스를 수행할 수 있습니다. 빌드가 완료되면 릴리스가 시작됩니다.
 
     ![빌드 및 릴리스 앱](./media/contoso-migration-refactor-web-app-sql/pipeline22.png)
 

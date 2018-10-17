@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3f2fa055af63ab3920fec79ad93c25b8ea7e5ed9
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 6d79cdf279022320f654fbbeadb870f82db88cab
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42144059"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392788"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch 렌더링 기능
 
@@ -50,9 +50,12 @@ Windows 2016 이미지 및 CentOS 이미지가 있습니다.  [Azure Marketplace
 * [풀을 만드는](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body) 경우 `applicationLicenses` 속성을 지정합니다.  문자열 배열에서 "vray", "arnold", "3dsmax", "maya" 등의 값이 지정될 수 있습니다.
 * 하나 이상의 응용 프로그램을 지정하면 해당 응용 프로그램의 비용은 VM 비용에 추가됩니다.  응용 프로그램 가격은 [Azure Batch 가격 책정 페이지](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering)에 나열되어 있습니다.
 
+> [!NOTE]
+> 대신 라이선스 서버에 연결하여 렌더링 응용 프로그램을 사용하는 경우에는 `applicationLicenses` 속성을 지정하지 마세요.
+
 응용 프로그램을 선택하고 응용 프로그램 가격을 표시하려면 Azure Portal 또는 Batch Explorer를 사용할 수 있습니다.
 
-응용 프로그램을 사용하려고 시도하지만 풀 구성의 `applicationLicenses` 속성에 응용 프로그램이 지정되지 않은 경우 응용 프로그램 실행은 라이선스 오류 및 0이 아닌 종료 코드로 인해 실패합니다.
+응용 프로그램을 사용하려고 하는데 응용 프로그램이 풀 구성의 `applicationLicenses` 속성에 지정되지 않았거나 라이선스 서버에 연결하지 않는 경우 응용 프로그램 실행이 실패하며 라이선스 오류와 0이 아닌 종료 코드가 표시됩니다.
 
 ### <a name="environment-variables-for-pre-installed-applications"></a>미리 설치된 응용 프로그램에 대한 환경 변수
 

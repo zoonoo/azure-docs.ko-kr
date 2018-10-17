@@ -1,25 +1,27 @@
 ---
-title: Translator Text C#을 사용하여 문장 길이 가져오기 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 이 빠른 시작에서는 Cognitive Services에서 C#과 함께 Translator Text API를 사용하여 텍스트에서 문장 길이를 찾습니다.
+title: '빠른 시작: 문장 길이 가져오기 - Translator Text API, C#'
+titleSuffix: Azure Cognitive Services
+description: 이 빠른 시작에서는 C#과 함께 Translator Text API를 사용하여 텍스트에서 문장 길이를 찾습니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: b3e7f1099b1a7584435646fe3fae237cd458967f
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 4569a580dfdad3a71201e607ae5b7895d0d01099
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "43750418"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364349"
 ---
 # <a name="quickstart-get-sentence-lengths-with-c35"></a>빠른 시작: C&#35;을 사용하여 문장 길이 가져오기
 
 이 빠른 시작에서는 Translator Text API를 사용하여 텍스트에서 문장 길이를 찾습니다.
+
+이 샘플의 소스 코드는 [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp)에 제공됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

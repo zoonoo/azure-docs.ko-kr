@@ -13,19 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: genli
-ms.openlocfilehash: 448622f0406eb709c8d94d60722edb4ef00f42de
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.author: cwatson
+ms.openlocfilehash: 614102d65407485d31963afa9185400938a7d95b
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43670004"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423088"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Azure 지출 한도의 작동 방식 및 제거 방법 이해
 
 Azure에서 지출 한도는 크레딧 액수를 초과하여 지출하는 것을 방지하기 위해 존재합니다. 평가판이나 여러 달의 크레딧을 포함하는 제품에 등록하는 모든 신규 고객은 기본적으로 지출 한도가 설정됩니다. 지출 한도는 $0입니다. 이 값은 변경할 수 없습니다. 종량제 구독 및 약정 플랜과 같은 구독 유형에는 지출 한도를 사용할 수 없습니다. [전체 Azure 제품 목록 및 지출 한도 가용성](https://azure.microsoft.com/support/legal/offer-details/)를 참조하세요.
-
-**결제 경고를 찾고 있습니까?** [Azure 구독에 대한 청구 또는 크레딧 경고 설정](billing-set-up-alerts.md)을 참조하세요.
 
 ## <a name="what-happens-when-i-reach-the-spending-limit"></a>지출 한도에 도달하면 어떻게 되나요?
 
@@ -64,7 +62,7 @@ Azure에서 지출 한도는 크레딧 액수를 초과하여 지출하는 것�
 
 지출 한도에 도달하면 특정 타사 및 Microsoft 서비스를 배포 또는 사용할 수 없게 됩니다. 다음은 구독에 대한 지출 한도를 제거해야 하는 시나리오입니다.
 
-* Oracle, Visual Studio Team Services 등의 서비스와 같은 자사 이미지를 배포할 계획인 경우. 이 경우 지출 한도가 거의 순식간에 초과되어 구독이 비활성화됩니다.
+* Oracle 등의 자사 이미지와 Azure DevOps Services 등의 서비스를 배포하려는 경우. 이 경우 지출 한도가 거의 순식간에 초과되어 구독이 비활성화됩니다.
 * 중단하면 안 되는 서비스가 있는 경우
 * 손실되지 않아야 하는 가상 IP 주소와 같은 설정을 사용하는 서비스 및 리소스가 있는 경우. 서비스 및 리소스의 할당이 취소되면 이러한 설정이 손실됩니다.
 
@@ -78,7 +76,7 @@ Azure에서 지출 한도는 크레딧 액수를 초과하여 지출하는 것�
 
 ### <a name="how-do-i-set-a-custom-spending-limit"></a>사용자 지정 지출 한도를 설정하려면 어떻게 하나요?
 
-현재 사용자 지정 지출 한도는 없습니다. 그러나 [지출을 제어하도록 청구 경고를 사용](billing-set-up-alerts.md)하도록 선택할 수 있습니다.
+사용자 지정 지출 한도는 사용할 수 없습니다.
 
 ### <a name="does-the-spending-limit-prevent-all-charges-from-azure"></a>지출 한도는 Azure의 모든 요금을 방지하나요?
 

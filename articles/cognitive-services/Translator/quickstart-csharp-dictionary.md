@@ -1,25 +1,27 @@
 ---
-title: Translator Text C#을 사용하여 대체 번역 찾기 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 이 빠른 시작에서는 Cognitive Services에서 C#과 함께 Translator Text API를 사용하여 컨텍스트의 용어를 대체하는 번역과 예제를 찾아봅니다.
+title: '빠른 시작: 대체 번역 찾기 - Translator Text API, C#'
+titleSuffix: Azure Cognitive Services
+description: 이 빠른 시작에서는 C#과 함께 Translator Text API를 사용하여 컨텍스트의 용어를 대체하는 번역과 예제를 찾아봅니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 3f45e7281456f9ae09912a2ee665cb480dc5052f
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 328f5996a9b830ea6c2ff4b4a535d5311f39e08e
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "43750421"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365259"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-c35"></a>빠른 시작: C&#35;을 사용하여 대체 번역 및 사용법 찾기
 
 이 빠른 시작에서는 Translator Text API를 사용하여 용어를 대신할 수 있는 대체 번역의 상세 정보와 대체 번역의 사용 예제를 찾아봅니다.
+
+이 샘플의 소스 코드는 [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp)에 제공됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

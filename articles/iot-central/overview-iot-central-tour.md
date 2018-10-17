@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 69898358026eab716c057f339d8594df43db136f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 11112e01e38f85db9f71280c53c27b130275d86f
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629374"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498269"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Azure IoT Central UI 둘러보기
 
@@ -39,7 +39,7 @@ _운영자_는 Azure IoT Central UI를 사용하여 Azure IoT Central 솔루션�
 
 | 메뉴 | 설명 |
 | ---- | ----------- |
-| ![왼쪽 탐색 메뉴](media/overview-iot-central-tour/navigationbar.png) | <ul><li>**홈** 단추는 응용 프로그램의 홈 페이지를 표시합니다. 개발자는 운영자에 맞게 이 홈 페이지를 사용자 지정할 수 있습니다.</li><li>**Device Explorer** 단추는 응용 프로그램에 정의된 장치 템플릿과 각 장치 템플릿에 연결된 시뮬레이션 및 실제 장치를 모두 나열합니다. 운영자는 **Device Explorer**를 사용하여 연결된 장치를 관리합니다.</li><li>**장치 집합** 단추를 사용하여 장치 집합을 보고 만들 수 있습니다. 운영자는 장치 집합을 쿼리에 지정된 논리 컬렉션으로 만들 수 있습니다.</li><li>**Analytics** 단추는 장치 및 장치 집합에 대한 장치 원격 분석에서 파생된 분석을 보여 줍니다. 운영자는 장치 데이터 위에 사용자 지정 보기를 만들어 응용 프로그램에서 인사이트를 끌어낼 수 있습니다.</li><li>**응용 프로그램 개발자** 단추는 **장치 템플릿 만들기** 도구와 같이 개발자가 사용하는 도구를 표시합니다.</li><li>**관리** 단추는 관리자가 응용 프로그램 설정, 사용자 및 역할을 관리할 수 있는 응용 프로그램 관리 페이지를 표시합니다.</li></ul> |
+| ![왼쪽 탐색 메뉴](media/overview-iot-central-tour/navigationbar.png) | <ul><li>**홈** 단추는 응용 프로그램의 홈 페이지를 표시합니다. 개발자는 운영자에 맞게 이 홈 페이지를 사용자 지정할 수 있습니다.</li><li>**Device Explorer** 단추는 응용 프로그램에 정의된 장치 템플릿과 각 장치 템플릿에 연결된 시뮬레이션 및 실제 장치를 모두 나열합니다. 운영자는 **Device Explorer**를 사용하여 연결된 장치를 관리합니다.</li><li>**장치 집합** 단추를 사용하여 장치 집합을 보고 만들 수 있습니다. 운영자는 장치 집합을 쿼리에 지정된 논리 컬렉션으로 만들 수 있습니다.</li><li>**Analytics** 단추는 장치 및 장치 집합에 대한 장치 원격 분석에서 파생된 분석을 보여 줍니다. 운영자는 장치 데이터 위에 사용자 지정 보기를 만들어 응용 프로그램에서 인사이트를 끌어낼 수 있습니다.</li><li>**작업** 단추를 사용하면 대규모 업데이트를 수행하는 작업을 생성하고 실행하여 대량 장치 관리를 수행할 수 있습니다.</li><li>**응용 프로그램 개발자** 단추는 **장치 템플릿 만들기** 도구와 같이 개발자가 사용하는 도구를 표시합니다.</li><li>**관리** 단추는 관리자가 응용 프로그램 설정, 사용자 및 역할을 관리할 수 있는 응용 프로그램 관리 페이지를 표시합니다.</li></ul> |
 
 ## <a name="search-help-and-support"></a>검색, 도움말 및 지원
 
@@ -82,7 +82,13 @@ _장치 집합_ 페이지는 개발자가 만든 장치 집합을 표시합니�
 
 분석 페이지에는 응용 프로그램에 연결된 장치의 작동 방식을 이해하는 데 도움이 되는 차트가 표시됩니다. 운영자는 이 페이지를 사용하여 연결된 장치의 문제를 모니터링하고 조사합니다. 개발자는 이 페이지에 표시되는 차트를 정의할 수 있습니다. 자세한 내용은 [Azure IoT Central 응용 프로그램을 위한 사용자 지정 분석 만들기](howto-create-analytics.md) 문서를 참조하세요.
 
-## <a name="application-builder"></a>응용 프로그램 개발자
+## <a name="jobs"></a>교육
+
+![작업 페이지](media/overview-iot-central-tour/jobs.png)
+
+작업 페이지에서는 장치에 대한 대량 장치 관리 작업을 수행할 수 있습니다. 이 빌더에서는 이 페이지를 사용하여 장치 속성, 설정 및 명령을 업데이트합니다. 자세한 내용은 [작업 실행](howto-run-a-job.md) 문서를 참조하세요.
+
+## <a name="application-builder"></a>응용 프로그램 작성자
 
 ![응용 프로그램 개발자 페이지](media/overview-iot-central-tour/applicationbuilder.png)
 

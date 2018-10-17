@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: genli
-ms.openlocfilehash: d76d02ba326cf93582c03937b3ab54d806acaff1
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: cwatson
+ms.openlocfilehash: 3fc7e316289201f5a800b56a7dc63f559c1f90a2
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067608"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422663"
 ---
 # <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>내 Azure 구독이 비활성화된 이유 및 다시 활성화하는 방법은 무엇인가요?
 
@@ -38,7 +38,7 @@ Azure 체험 계정에 등록하면 30일 동안 사용할 수 있는 $200의 Az
 > [!NOTE] 
 > 평가판 구독을 사용하고 지출 한도를 제거한 경우 평가판이 끝나면 구독은 종량제로 변환됩니다. 구독을 만든 날로부터 30일 동안 남은 크레딧이 유지됩니다. 12개월 동안 체험 서비스에 액세스할 수 있습니다.
 
-Azure에 대한 청구 작업을 모니터링하고 관리하려면 [Azure 청구 및 비용 관리를 사용하여 예상치 못한 비용 방지](billing-getting-started.md) 및 [Microsoft Azure 구독에 대한 청구 경고 설정](billing-set-up-alerts.md)을 참조하세요.
+Azure에 대한 청구 작업을 모니터링하고 관리하려면 [Azure 청구 및 비용 관리를 사용하여 예상치 못한 비용 방지](billing-getting-started.md)를 참조하세요.
 
 
 ## <a name="your-bill-is-past-due"></a>청구 기한 경과

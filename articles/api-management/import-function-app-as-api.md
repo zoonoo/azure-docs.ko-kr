@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: apimpm
-ms.openlocfilehash: ea6078088417099045006f81dcaf1f769bbd64d7
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: b5a38b9f16224c8b2b128b464106fe83d018b308
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43246818"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129763"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Azure API Management에서 Azure 함수 앱을 API로 가져오기
 
@@ -71,9 +71,11 @@ Azure API Management는 Azure 함수 앱을 새 API로 가져오거나 기존 AP
     > [!NOTE]
     > HTTP 트리거를 기반으로 하는 Functions만 가져오고 인증 수준 설정을 *익명* 또는 *함수*로 설정할 수 있습니다.
 
-7. 필요한 경우 미리 채워진 필드를 편집합니다. **만들기**를 클릭합니다.
+7. **전체** 보기로 전환하고 새 API에 **제품**을 할당합니다. 필요한 경우 미리 채워진 다른 필드를 편집합니다.
 
     ![함수 앱에서 추가](./media/import-function-app-as-api/add-06.png)
+
+8. **만들기**를 클릭합니다.
 
 ## <a name="append-azure-function-app-to-api"></a> Azure 함수 앱을 기존 API에 추가
 

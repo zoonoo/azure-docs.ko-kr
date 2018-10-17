@@ -1,21 +1,21 @@
 ---
-title: Translator Text PHP를 사용하여 텍스트의 언어 식별 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 이 빠른 시작에서는 Cognitive Services에서 PHP와 함께 Translator Text API를 사용하여 원본 텍스트의 언어를 식별합니다.
+title: '빠른 시작: 텍스트의 언어 식별 - Translator Text, PHP'
+titleSuffix: Azure Cognitive Services
+description: 이 빠른 시작에서는 PHP와 함께 Translator Text API를 사용하여 원본 텍스트의 언어를 식별합니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 2888ea96ac31d56f6870b2f2ccbb04ff8328a1b8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: cb643503f72f9cf21c83f35477ca6878d8938339
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43750493"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125972"
 ---
 # <a name="quickstart-identify-language-from-text-with-php"></a>빠른 시작: PHP를 사용하여 텍스트의 언어 식별
 

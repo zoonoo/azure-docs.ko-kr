@@ -8,12 +8,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
-ms.openlocfilehash: 445584ef8f9a2534d7f183a4452df19ee87d0025
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 85d6ac0084343dc821a4eaf91c8053c9885ccfeb
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626997"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366049"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>자습서: Azure Time Series Insights JavaScript 클라이언트 라이브러리
 
@@ -27,6 +27,12 @@ ms.locfileid: "39626997"
 > * TSI 샘플 응용 프로그램.
 > * TSI JavaScript 클라이언트 라이브러리.
 > * 샘플 응용 프로그램이 라이브러리를 사용하여 TSI 데이터를 시각화하는 방법.
+
+## <a name="video"></a>비디오: 
+
+### <a name="in-this-video-we-introduce-the-open-source-time-series-insights-javascript-sdkbr"></a>이 비디오에서는 오픈 소스 Time Series Insights JavaScript SDK를 소개합니다.</br>
+
+> [!VIDEO https://www.youtube.com/embed/X8sSm7Pl9aA]
 
 ## <a name="prerequisites"></a>필수 조건
 

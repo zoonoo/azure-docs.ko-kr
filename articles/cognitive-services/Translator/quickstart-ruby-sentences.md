@@ -1,21 +1,21 @@
 ---
-title: Translator Text Ruby를 사용하여 문장 길이 가져오기 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 이 빠른 시작에서는 Cognitive Services에서 Ruby와 함께 Translator Text API를 사용하여 텍스트에서 문장 길이를 찾습니다.
+title: '빠른 시작: 문장 길이 가져오기 - Translator Text, Ruby'
+titleSuffix: Azure Cognitive Services
+description: 이 빠른 시작에서는 Ruby와 함께 Translator Text API를 사용하여 텍스트에서 문장 길이를 찾습니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 3a4fc999961e06b084a0d7da42ed5576962e5722
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a39982555b281cfe0537a0033c9a67a7f5a1fe63
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43750472"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122572"
 ---
 # <a name="quickstart-get-sentence-lengths-with-ruby"></a>빠른 시작: Ruby를 사용하여 문장 길이 가져오기
 

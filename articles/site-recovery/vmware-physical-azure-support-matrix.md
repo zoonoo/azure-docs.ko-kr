@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/09/2018
+ms.date: 09/10/2018
 ms.author: raynew
-ms.openlocfilehash: d19aa4c3765beecc853a1b800a7ba1d3ebd74e9c
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 25db7d1f0a546cb5c6071ec4d625a7a52867053a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004330"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433926"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Azure에 VMware 및 물리적 서버 복제를 위한 지원 매트릭스
 
@@ -64,7 +64,7 @@ Site Recovery는 지원되는 컴퓨터에서 실행되는 모든 워크로드�
 --- | ---
 컴퓨터 설정 | Azure로 복제하는 컴퓨터는 [Azure 요구 사항](#azure-vm-requirements)을 충족해야 합니다.
 Windows 운영 체제 | 64비트 Windows Server 2016(Server Core, 데스크톱 환경 포함 서버), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1 이상 </br></br>  [SP2 이상을 사용하는 Windows Server 2008 - 32비트 및 64비트](migrate-tutorial-windows-server-2008.md)(마이그레이션만 해당) </br></br> Windows 2016 Nano Server는 지원되지 않습니다.
-Linux 운영 체제 | Red Hat Enterprise Linux: 5.2~5.11<b>\*\*</b>, 6.1~6.9<b>\*\*</b>, 7.0~7.5 <br/><br/>CentOS: 5.2~5.11<b>\*\*</b>, 6.1~6.9<b>\*\*</b>, 7.0~7.5 <br/><br/>Ubuntu 14.04 LTS 서버[(지원되는 커널 버전)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS 서버[(지원되는 커널 버전)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[(지원되는 커널 버전)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (지원되는 커널 버전)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4, 6.5(Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3) 실행) <br/><br/></br>* *복제된 머신을 SUSE Linux Enterprise Server 11 SP3에서 SP4로 업그레이드하는 것은 지원되지 않습니다. 업그레이드하려면 복제를 사용하지 않도록 설정하고, 업그레이드 후에 다시 사용하도록 설정합니다.*</br></br><b>\*\*</b> *Azure의 Linux 및 오픈 소스 기술에 대한 지원을 이해하려면 [Azure의 Linux 가상 머신에 대한 지원](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure)을 참조하세요. Azure Site Recovery를 사용하면 Azure에서 Linux 서버를 장애 조치(failover)하고 실행할 수 있지만 Linux 공급업체가 수명 끝에 도달하지 않은 배포 버전으로만 지원을 제한할 수 있습니다.*
+Linux 운영 체제 | Red Hat Enterprise Linux: 5.2~5.11<b>\*\*</b>, 6.1~ 6.10<b>\*\*</b>, 7.0~7.5 <br/><br/>CentOS: 5.2~5.11<b>\*\*</b>, 6.1~6.10<b>\*\*</b>, 7.0~7.5 <br/><br/>Ubuntu 14.04 LTS 서버[(지원되는 커널 버전)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS 서버[(지원되는 커널 버전)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[(지원되는 커널 버전)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (지원되는 커널 버전)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4, 6.5, 6.6, 6.7(Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3) 실행) <br/><br/></br>* *복제된 머신을 SUSE Linux Enterprise Server 11 SP3에서 SP4로 업그레이드하는 것은 지원되지 않습니다. 업그레이드하려면 복제를 사용하지 않도록 설정하고, 업그레이드 후에 다시 사용하도록 설정합니다.*</br></br><b>\*\*</b> *Azure의 Linux 및 오픈 소스 기술에 대한 지원을 이해하려면 [Azure의 Linux 가상 머신에 대한 지원](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure)을 참조하세요. Azure Site Recovery를 사용하면 Azure에서 Linux 서버를 장애 조치(failover)하고 실행할 수 있지만 Linux 공급업체가 수명 끝에 도달하지 않은 배포 버전으로만 지원을 제한할 수 있습니다.*
 
 
 >[!NOTE]
@@ -73,22 +73,22 @@ Linux 운영 체제 | Red Hat Enterprise Linux: 5.2~5.11<b>\*\*</b>, 6.1~6.9<b>\
 >
 > - 주요 Linux 배포 버전에서 보호된 시스템을 업그레이드하는 것은 지원되지 않습니다. 업그레이드하려면 복제를 사용하지 않도록 설정하고, 운영 체제를 업그레이드한 다음, 복제를 다시 사용하도록 설정합니다.
 >
-> - Red Hat Enterprise Linux 5.2 ~ 5.11 또는 CentOS 5.2 ~ 5.11을 실행하는 서버에는 머신을 Azure에서 부팅하기 위해 LIS(Linux Integration Services) 구성 요소를 설치해야 합니다.
+> - Red Hat Enterprise Linux 5.2~5.11 또는 CentOS 5.2~5.11을 실행하는 서버에는 머신을 Azure에서 부팅하기 위해 [LIS(Linux Integration Services) 구성 요소](https://www.microsoft.com/en-us/download/details.aspx?id=55106)를 설치해야 합니다.
 
 ### <a name="ubuntu-kernel-versions"></a>Ubuntu 커널 버전
 
 
 **지원되는 릴리스** | **Azure Site Recovery Mobility Service 버전** | **커널 버전** |
 --- | --- | --- |
+14.04 LTS | 9.19 | 3.13.0-24-generic에서 3.13.0-153-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-131-generic |
 14.04 LTS | 9.18 | 3.13.0-24-generic에서 3.13.0-153-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-130-generic |
 14.04 LTS | 9.17 | 3.13.0-24-generic에서 3.13.0-149-generic까지,<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-127-generic까지 |
 14.04 LTS | 9.16 | 3.13.0-24-generic to 3.13.0-144-generic,<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic to 4.4.0-119-generic |
-14.04 LTS | 9.15 | 3.13.0-24-generic to 3.13.0-144-generic,<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic to 4.4.0-119-generic |
 |||
+16.04 LTS | 9.19 | 4.4.0-21-generic에서 4.4.0-131-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-generic에서 4.15.0-30-generic<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-azure에서 4.15.0-1019-azure|
 16.04 LTS | 9.18 | 4.4.0-21-generic에서 4.4.0-130-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic |
 16.04 LTS | 9.17 | 4.4.0-21-generic에서 4.4.0-127-generic까지,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-43-generic까지 |
 16.04 LTS | 9.16 | 4.4.0-21-generic to 4.4.0-119-generic,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-38-generic까지 |
-16.04 LTS | 9.15 | 4.4.0-21-generic to 4.4.0-119-generic,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-38-generic까지 |
 
 
 ### <a name="debian-kernel-versions"></a>Debian 커널 버전
@@ -96,17 +96,18 @@ Linux 운영 체제 | Red Hat Enterprise Linux: 5.2~5.11<b>\*\*</b>, 6.1~6.9<b>\
 
 **지원되는 릴리스** | **Azure Site Recovery Mobility Service 버전** | **커널 버전** |
 --- | --- | --- |
-Debian 7 | 9.17, 9.18 | 3.2.0-4-amd64에서 3.2.0-6-amd64까지, 3.16.0-0.bpo.4-amd64 |
-Debian 7 | 9.15, 9.16 | 3.2.0-4-amd64에서 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.17,9.18,9.19 | 3.2.0-4-amd64에서 3.2.0-6-amd64까지, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.16 | 3.2.0-4-amd64에서 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
+Debian 8 | 9.19 | 3.16.0-4-amd64에서 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64에서 4.9.0-0.bpo.7-amd64 |
 Debian 8 | 9.17, 9.18 | 3.16.0-4-amd64에서 3.16.0-6-amd64까지, 4.9.0-0.bpo.4-amd64에서 4.9.0-0.bpo.6-amd64까지 |
 Debian 8 | 9.16 | 3.16.0-4-amd64에서 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64에서 4.9.0-0.bpo.6-amd64 |
-Debian 8 | 9.15 | 3.16.0-4-amd64에서 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64에서 4.9.0-0.bpo.5-amd64 |
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 지원되는 커널 버전
 
 **릴리스** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 12(SP1,SP2,SP3) | 9.19 | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default에서 3.12.74-60.64.96-default</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default에서 4.4.121-92.85-default</br></br>SP3 4.4.73-5-default에서 4.4.140-94.42-default |
 SUSE Linux Enterprise Server 12(SP1,SP2,SP3) | 9.18 | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default에서 3.12.74-60.64.96-default</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default에서 4.4.121-92.85-default</br></br>SP3 4.4.73-5-default에서 4.4.138-94.39-default |
 
 ## <a name="linux-file-systemsguest-storage"></a>Linux 파일 시스템/게스트 저장소
@@ -157,7 +158,7 @@ Azure Traffic Manager | yes
 예약된 IP 주소 | yes
 IPv4 | yes
 원본 IP 주소 유지 | yes
-Azure Virtual Network 서비스 끝점<br/> (Azure Storage 방화벽 없음) | yes
+Azure Virtual Network 서비스 엔드포인트<br/> (Azure Storage 방화벽 없음) | yes
 가속 네트워킹 | 아니요
 
 ## <a name="storage"></a>Storage
@@ -245,7 +246,7 @@ VM 이름 | 1~63자 사이입니다.<br/><br/> 문자, 숫자 및 하이픈으�
 
 ## <a name="download-latest-azure-site-recovery-components"></a>최신 Azure Site Recovery 구성 요소 다운로드
 
-**Name** | **설명** | **최신 버전 다운로드 지침** 
+**Name** | **설명** | **최신 버전 다운로드 지침**
 --- | --- | --- | --- | ---
 구성 서버 | 온-프레미스 VMware 서버와 Azure 간 통신 조정  <br/><br/> 온-프레미스 VMware 서버에 설치 | 새로 설치는 [여기](vmware-azure-deploy-configuration-server.md)를 클릭합니다. 기존 구성 요소를 최신 버전으로 업그레이드는 [여기](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)를 클릭합니다.
 프로세스 서버|기본적으로 구성 서버에 설치합니다. 복제 데이터를 수신하고, 캐싱, 압축 및 암호화를 사용하여 최적화하며, Azure Storage로 보냅니다. 배포가 늘어나면 프로세스 서버로 실행하는 별도의 프로세스 서버를 추가하여 더 큰 복제 트래픽을 처리할 수 있습니다.| 새로 설치는 [여기](vmware-azure-set-up-process-server-scale.md)를 클릭합니다. 기존 구성 요소를 최신 버전으로 업그레이드는 [여기](vmware-azure-manage-process-server.md#upgrade-a-process-server)를 클릭합니다.

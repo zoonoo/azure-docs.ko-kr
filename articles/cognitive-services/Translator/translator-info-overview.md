@@ -1,26 +1,27 @@
 ---
-title: Microsoft Translator Text API 개요 - Azure Cognitive Services | Microsoft Docs
-description: Microsoft Translator Text API를 응용 프로그램, 웹 사이트, 도구 및 기타 솔루션에 통합하여 다국어 사용자 환경을 제공합니다.
+title: Translator Text API란?
+titlesuffix: Azure Cognitive Services
+description: Translator Text API를 응용 프로그램, 웹 사이트, 도구 및 기타 솔루션에 통합하여 다국어 사용자 환경을 제공합니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: overview
 ms.date: 05/10/2018
 ms.author: nolachar
-ms.openlocfilehash: bfbb316ac41045add7f424b5d478581aa226fc19
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 47ac3c81b85424a5cacab00863cd88fab9463fb9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42890048"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124663"
 ---
-# <a name="what-is-microsoft-translator"></a>Microsoft Translator란?
+# <a name="what-is-translator-text-api"></a>Translator Text API란?
 
-Microsoft Translator Text API는 응용 프로그램, 웹 사이트, 도구 또는 기타 솔루션에 원활하게 통합되어 [60개 언어가 넘는](languages.md) 다국어 사용자 환경을 제공할 수 있습니다. 모든 하드웨어 플랫폼 및 모든 운영 체제에서 텍스트-텍스트 언어 번역을 수행하는 데 사용할 수 있습니다.
+Translator Text API는 응용 프로그램, 웹 사이트, 도구 또는 기타 솔루션에 원활하게 통합되어 [60개 언어가 넘는](languages.md) 다국어 사용자 환경을 제공할 수 있습니다. 모든 하드웨어 플랫폼 및 모든 운영 체제에서 텍스트-텍스트 언어 번역을 수행하는 데 사용할 수 있습니다.
 
-Microsoft Translator Text API는 개발 프로젝트에서 쉽게 사용할 수 있는 클라우드의 기계 학습 및 AI 알고리즘에 대한 Microsoft [Cognitive Services API](https://docs.microsoft.com/azure/#pivot=products&panel=ai) 컬렉션의 일부입니다.
+Translator Text API는 사용자 개발 프로젝트에서 쉽게 사용할 수 있는 클라우드의 AI 알고리즘 및 기계 학습의 Azure [Cognitive Services API](https://docs.microsoft.com/azure/#pivot=products&panel=ai) 컬렉션에 포함됩니다.
 
 ## <a name="about-microsoft-translator"></a>Microsoft Translator 정보
 

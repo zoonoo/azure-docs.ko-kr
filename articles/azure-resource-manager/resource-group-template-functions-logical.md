@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 09/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: d8a7ae412fc80dff7bd91c1cdc5d4fcd985e07f4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8745519f1a0fdda7a5feb6ffb3f61e5250bb260a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359070"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164790"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 논리 함수
 
@@ -40,8 +40,8 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |부울 |true인지 확인할 첫 번째 값입니다. |
-| arg2 |예 |부울 |true인지 확인할 두 번째 값입니다. |
+| arg1 |yes |부울 |true인지 확인할 첫 번째 값입니다. |
+| arg2 |yes |부울 |true인지 확인할 두 번째 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -75,7 +75,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 위 예제의 출력은 다음과 같습니다.
 
-| Name | type | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -102,7 +102,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |문자열 또는 int |부울로 변환할 값입니다. |
+| arg1 |yes |문자열 또는 int |부울로 변환할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 변환된 값의 부울입니다.
@@ -167,9 +167,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| condition |예 |부울 |true인지 확인할 값입니다. |
-| trueValue |예 | 문자열, 정수, 개체 또는 배열 |조건이 true이면 반환할 값입니다. |
-| falseValue |예 | 문자열, 정수, 개체 또는 배열 |조건이 false이면 반환할 값입니다. |
+| condition |yes |부울 |true인지 확인할 값입니다. |
+| trueValue |yes | 문자열, 정수, 개체 또는 배열 |조건이 true이면 반환할 값입니다. |
+| falseValue |yes | 문자열, 정수, 개체 또는 배열 |조건이 false이면 반환할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -239,6 +239,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
         "noOutput": {
             "type": "string",
             "value": "[if(equals('a', 'b'), 'yes', 'no')]"
+        },
+        "objectOutput": {
+            "type": "object",
+            "value": "[if(equals('a', 'a'), json('{\"test\": \"value1\"}'), json('null'))]"
         }
     }
 }
@@ -246,10 +250,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 위 예제의 출력은 다음과 같습니다.
 
-| Name | type | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | yesOutput | 문자열 | 예 |
 | noOutput | 문자열 | no |
+| objectOutput | Object | { "test": "value1" } |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -272,7 +277,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |부울 |변환할 값입니다. |
+| arg1 |yes |부울 |변환할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -306,7 +311,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 위 예제의 출력은 다음과 같습니다.
 
-| Name | type | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -342,7 +347,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 위 예제의 출력은 다음과 같습니다.
 
-| Name | type | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -367,8 +372,8 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |부울 |true인지 확인할 첫 번째 값입니다. |
-| arg2 |예 |부울 |true인지 확인할 두 번째 값입니다. |
+| arg1 |yes |부울 |true인지 확인할 첫 번째 값입니다. |
+| arg2 |yes |부울 |true인지 확인할 두 번째 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -402,7 +407,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 위 예제의 출력은 다음과 같습니다.
 
-| Name | type | 값 |
+| 이름 | type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |

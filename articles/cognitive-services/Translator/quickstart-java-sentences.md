@@ -1,21 +1,21 @@
 ---
-title: Translator Text Java를 사용하여 문장 길이 가져오기 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: '빠른 시작: 문장 길이 가져오기 - Translator Text, Java'
+titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Cognitive Services에서 Java와 함께 Translator Text API를 사용하여 텍스트에서 문장 길이를 찾습니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 1e68f6b888aa670644ef1e05e5f4f3e26cf70b18
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: d0459b04bbd0dbbda3dab80623a39742a6f843b2
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "43750434"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122625"
 ---
 # <a name="quickstart-get-sentence-lengths-with-java"></a>빠른 시작: Java를 사용하여 문장 길이 가져오기
 

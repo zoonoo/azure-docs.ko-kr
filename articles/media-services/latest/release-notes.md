@@ -4,19 +4,19 @@ description: 최신 개발 정보를 확인할 수 있도록 이 문서에서는
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 09/25/2018
 ms.author: juliako
-ms.openlocfilehash: fc6c5ba6cd97c261dd44eade33bf21e8d1b74bf0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ed2550c1df4645933fb968c54ee536995c810136
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782642"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219332"
 ---
 # <a name="azure-media-services-v3-preview-release-notes"></a>Azure Media Services v3(미리 보기) 릴리스 정보 
 
@@ -43,9 +43,7 @@ ms.locfileid: "33782642"
 
 ### <a name="known-issues"></a>알려진 문제
 
-알려진 문제:
-
-원본 콘텐트를 가리키는 HTTPS URL(JobInputHttp)이 포함된 작업을 제출하는 경우에는 HTTP 서버가 'HEAD' 요청을 지원하는지 확인해야 합니다. 그렇지 않으면 작업이 거부됩니다.
+* 작업을 제출할 때는 HTTPS URL, SAS URL 또는 Azure Blob Storage에 있는 파일의 경로를 사용하여 원본 비디오를 수집하도록 지정할 수 있습니다. 현재 AMS v3은 HTTPS URL을 통한 청크 분할 전송 인코딩을 지원하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
-ms.author: tonguyen
-ms.openlocfilehash: 9396e954305ecc9ff6cbdd664c6cb71846bd5bfa
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.author: cwatson
+ms.openlocfilehash: 6b497fd9f4280c36adcbeb4d94e469525c9dad6e
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42919129"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423003"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure 청구 및 비용 관리를 사용하여 예기치 않은 비용 방지
 
@@ -54,17 +54,6 @@ Azure에 등록하면 몇 가지 방법을 통해 지출을 보다 명확히 파
 일반적으로 Azure Portal에서 서비스를 추가하는 경우 유사한 월별 예상 비용이 표시되는 보기가 제공됩니다. 예를 들어 Windows VM의 크기를 선택하는 경우 계산 시간에 대해 예상되는 월별 비용이 표시됩니다.
 
 ![예제: A1 Windows VM의 월별 비용이 $66.96 USD로 예측됨](./media/billing-getting-started/vm-size-cost.PNG)
-
-### <a name="set-up-billing-alerts"></a>청구 경고 설정
-
-사용 비용이 지정한 금액을 초과하는 경우 전자 메일을 받도록 청구 경고를 설정합니다. 월별 크레딧이 있는 경우 지정된 금액을 다 사용하는 경우에 대해 경고를 설정합니다. 자세한 내용은 [Microsoft Azure 구독에 대한 청구 경고 설정](billing-set-up-alerts.md)을 참조하세요.
-
-![청구 경고 전자 메일 스크린 샷](./media/billing-getting-started/billing-alert.png)
-
-> [!NOTE]
-> 이 기능은 미리 보기 상태이므로 정기적으로 사용 현황을 확인해야 합니다.
-
-가격 계산기의 예상 비용을 첫 번째 경고에 대한 지침으로 사용할 수도 있습니다.
 
 ### <a name="spending-limit"></a> 지출 한도가 설정되어 있는지 확인
 
@@ -166,7 +155,7 @@ Advisor 대시보드의 **비용** 탭에서 실행 가능한 권장 지침을 �
     - 사용자는 부서 관리자이며 등록 관리자가 "DA 보기 요금" 설정을 비활성화했습니다.  등록 관리자에게 액세스 권한을 문의하세요. 
     - 채널 파트너를 통해 Azure를 구매했고 파트너가 가격 정보를 릴리스하지 않았습니다.  
 - 엔터프라이즈 포털 내에서 비용 액세스와 관련된 설정이 업데이트되는 경우 Azure Portal에 변경 내용이 반영되기까지 몇 분 간의 지연이 있습니다.
-- 지출 한도, 청구 경고 및 송장 지침은 EA 구독에 적용되지 않습니다.
+- 지출 한도 및 송장 지침은 EA 구독에 적용되지 않습니다.
 
 ### <a name="check-your-subscription-and-access"></a>구독 및 액세스 권한 확인
 

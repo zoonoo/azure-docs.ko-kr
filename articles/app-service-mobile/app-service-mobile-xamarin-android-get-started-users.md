@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 09/24/2018
 ms.author: panarasi
-ms.openlocfilehash: 97207b722b65ccf98c57304cd559b0927aacd5a4
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: d496801894560310a4225eae8a32fced52bcc428
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27595298"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063543"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Xamarin Android 앱에 인증 추가
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -125,6 +125,12 @@ Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 장치
         </activity>
 
 6. Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 장치 또는 에뮬레이터에서 실행하고 선택된 ID 공급자로 로그인합니다. 성공적으로 로그인하면 앱이 로그인 ID 및 todo 항목 목록을 표시하고 사용자가 데이터를 업데이트할 수 있습니다.
+
+## <a name="troubleshooting"></a>문제 해결
+
+**응용 프로그램 작동이 중단되고 `Java.Lang.NoSuchMethodError: No static method startActivity`** 메시지가 표시됨
+
+지원 패키지의 충돌 현상이 Visual Studio에서는 경고로만 표시되는데 런타임에 응용 프로그램 작동이 중단되고 이 예외가 표시되는 경우가 있습니다. 이 경우에는 프로젝트에서 참조하는 모든 지원 패키지의 버전이 동일한지 확인해야 합니다. [Azure Mobile Apps NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/)에는 Android 플랫폼에 대한 `Xamarin.Android.Support.CustomTabs` 종속성이 있으므로 프로젝트에서 최신 지원 패키지를 사용하는 경우 충돌 방지를 위해 필수 버전이 포함된 이 패키지를 직접 설치해야 합니다.
 
 <!-- URLs. -->
 [Xamarin Android 앱 만들기]: app-service-mobile-xamarin-android-get-started.md

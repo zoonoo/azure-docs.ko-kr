@@ -4,24 +4,39 @@ description: Azure Migrate 서비스에서 컴퓨터 종속성을 사용하여 �
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 09/21/2018
 ms.author: raynew
-ms.openlocfilehash: 4b83380558c10bc4f96d56f89a5cc2b7b53edc2e
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: ac1cf5a30dee29f2737a05133aed774e86f78932
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621082"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163429"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>컴퓨터 종속성 매핑을 사용하여 컴퓨터 그룹화
 
 이 문서에서는 컴퓨터 종속성을 시각화하여 [Azure Migrate](migrate-overview.md) 평가를 위한 컴퓨터 그룹을 만드는 방법에 대해 설명합니다. 일반적으로 평가를 실행하기 전에 컴퓨터 종속성을 교차 확인하여 더 높은 수준의 신뢰도로 VM 그룹을 평가하려는 경우에 이 방법을 사용합니다. 종속성을 시각화화면 Azure로의 마이그레이션을 효과적으로 계획할 수 있습니다. Azure로 마이그레이션할 때 하나도 남겨두지 않고 전부 가져올 수 있으며 예기치 않은 중단이 발생하지 않습니다. 함께 마이그레이션해야 하는 모든 상호 종속적인 시스템을 검색하고, 실행 중인 시스템이 여전히 사용자에게 서비스 중인지 아니면 마이그레이션 대신 서비스 해제가 적합한지 여부를 식별할 수 있습니다.
 
 
-## <a name="prepare-machines-for-dependency-mapping"></a>종속성 매핑을 위한 컴퓨터 준비
-컴퓨터의 종속성을 보려면 평가하려는 각 온-프레미스 컴퓨터에 에이전트를 다운로드하여 설치해야 합니다. 또한 인터넷에 연결되지 않은 컴퓨터가 있으면 [OMS 게이트웨이](../log-analytics/log-analytics-oms-gateway.md)를 다운로드하여 설치해야 합니다.
+## <a name="prepare-for-dependency-visualization"></a>종속성 시각화 준비
+Azure Migrate는 Log Analytics의 서비스 맵 솔루션을 활용하여 컴퓨터의 종속성 시각화 기능을 사용하도록 설정합니다.
+
+### <a name="associate-a-log-analytics-workspace"></a>Log Analytics 작업 영역 연결
+종속성 시각화를 활용하려면 신규 또는 기존 Log Analytics 작업 영역을 Azure Migrate 프로젝트와 연결해야 합니다. 작업 영역은 마이그레이션 프로젝트를 만든 것과 같은 구독에서만 만들거나 연결할 수 있습니다.
+
+- 프로젝트에 Log Analytics 작업 영역을 연결하려면 **개요**에서 프로젝트의 **필수** 섹션으로 이동한 다음 **구성 필요**를 클릭합니다.
+
+    ![Log Analytics 작업 영역 연결](./media/concepts-dependency-visualization/associate-workspace.png)
+
+- 새 작업 영역을 만들 때는 작업 영역의 이름을 지정해야 합니다. 그러면 마이그레이션 프로젝트와 같은 [Azure 지리적 위치](https://azure.microsoft.com/global-infrastructure/geographies/)에 해당하는 지역에서 마이그레이션 프로젝트와 같은 구독에 작업 영역이 작성됩니다.
+- **기존 항목 사용** 옵션을 선택하는 경우에는 서비스 맵이 제공되는 지역에서 만든 작업 영역만 나열됩니다. 서비스 맵이 제공되지 않는 지역에 있는 작업 영역은 드롭다운에 나열되지 않습니다.
+
+> [!NOTE]
+> 마이그레이션 프로젝트에 연결된 작업 영역은 변경할 수 없습니다.
 
 ### <a name="download-and-install-the-vm-agents"></a>VM 에이전트 다운로드 및 설치
+작업 영역을 구성한 후에는 평가하려는 각 온-프레미스 컴퓨터에 에이전트를 다운로드하여 설치해야 합니다. 또한 인터넷에 연결되지 않은 컴퓨터가 있으면 [OMS 게이트웨이](../log-analytics/log-analytics-oms-gateway.md)를 다운로드하여 설치해야 합니다.
+
 1. **개요**에서 **관리** > **컴퓨터**를 차례로 클릭하고 필요한 컴퓨터를 선택합니다.
 2. **종속성** 열에서 **에이전트 설치**를 클릭합니다.
 3. **종속성** 페이지에서 평가하려는 각 VM에 MMA(Microsoft Monitoring Agent) 및 종속성 에이전트를 다운로드하여 설치합니다.
@@ -40,6 +55,7 @@ Windows 컴퓨터에 에이전트를 설치하려면
 4. **에이전트 설치 옵션**에서 **Azure Log Analytics** > **다음**을 차례로 선택합니다.
 5. **추가**를 클릭하여 새로운 Log Analytics 작업 영역을 추가합니다. 포털에서 복사한 작업 영역 ID와 키를 붙여넣습니다. **다음**을 클릭합니다.
 
+MMA에서 지원하는 Windows 운영 체제 목록을 [자세히 확인](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems)해 보세요.
 
 Linux 컴퓨터에 에이전트를 설치하려면
 
@@ -48,6 +64,7 @@ Linux 컴퓨터에 에이전트를 설치하려면
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
+MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems)해 보세요.
 
 ### <a name="install-the-dependency-agent"></a>종속성 에이전트 설치
 1. Windows 컴퓨터에 종속성 에이전트를 설치하려면 설치 파일을 두 x 누르고 마법사를 따릅니다.
@@ -87,5 +104,6 @@ Linux 컴퓨터에 에이전트를 설치하려면
 
 ## <a name="next-steps"></a>다음 단계
 
-- 그룹 종속성을 시각화하여 그룹을 구체화하는 [방법을 알아봅니다](how-to-create-group-dependencies.md).
+- 종속성 시각화 관련 FAQ를 [자세히 확인](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization)해 보세요.
+- 그룹 종속성을 시각화하여 그룹을 구체화하는 [방법을 확인해 보세요](how-to-create-group-dependencies.md).
 - 평가를 계산하는 방법에 대해 [자세히 알아봅니다](concepts-assessment-calculation.md).

@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 보고 | Microsoft Docs
-description: Azure Active Directory 보고에 대한 일반적 개요를 제공합니다.
+title: Azure Active Directory 보고서란? | Microsoft Docs
+description: Azure Active Directory 보고서에 대한 일반적 개요를 제공합니다.
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -9,23 +9,23 @@ editor: ''
 ms.assetid: 6141a333-38db-478a-927e-526f1e7614f4
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
 ms.date: 01/15/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 96faeaefc6c58f03328a85b626528267396121a5
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 220f27ccf2d3eaefd8347e1d52824be2d601d9c9
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42141323"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364400"
 ---
-# <a name="azure-active-directory-reporting"></a>Azure Active Directory 보고
+# <a name="what-are-azure-active-directory-reports"></a>Azure Active Directory 보고서란?
 
-Azure Active Directory 보고 기능을 사용하면 환경이 작동하는 방법에 대한 정보를 얻을 수 있습니다.  
+Azure Active Directory 보고서를 사용하면 환경이 작동하는 방법에 대한 인사이트를 얻을 수 있습니다.  
 제공된 데이터를 통해 다음을 수행할 수 있습니다.
 
 - 사용자가 앱과 서비스를 활용하는 방식을 결정합니다.
@@ -50,6 +50,7 @@ Azure Active Directory에는 두 가지 유형의 보안 보고서가 있습니�
 - **위험한 로그인** - [위험한 로그인 보안 보고서](concept-risky-sign-ins.md)를 사용하면 사용자 계정의 정당한 소유자가 아닌 사람이 수행한 로그인 시도에 대한 지표를 얻을 수 있습니다. 
 
 **보안 보고서에 액세스하는 데 필요한 Azure AD 라이선스는 무엇인가요?**  
+
 모든 Azure Active Directory 버전에서 위험 플래그가 지정된 사용자 보고서 및 위험한 로그인 보고서를 제공합니다.  
 그러나 보고서의 세분성 수준은 다음과 같이 버전에 따라 다릅니다. 
 
@@ -69,9 +70,7 @@ Azure Active Directory에는 두 가지 유형의 활동 보고서가 있습니�
 - **로그인** - [로그인 활동 보고서](concept-sign-ins.md)를 사용하면 감사 로그 보고서에서 보고한 작업을 수행한 사람을 확인할 수 있습니다.
 
 
-
-**감사 로그 보고서**는 규정 준수에 대한 시스템 활동 기록을 제공합니다.
-제공된 데이터를 사용하면 다음과 같은 일반적인 시나리오를 처리할 수 있습니다.
+**감사 로그 보고서**는 규정 준수에 대한 시스템 활동 기록을 제공합니다. 이 데이터를 사용하면 다음과 같은 일반적인 시나리오를 처리할 수 있습니다.
 
 - 내 테넌트의 누군가가 관리 그룹에 액세스할 수 있었습니다. 이들에게 액세스 권한을 부여한 사람을 알고 싶습니다. 
 
@@ -81,10 +80,10 @@ Azure Active Directory에는 두 가지 유형의 활동 보고서가 있습니�
 
 
 **감사 로그 보고서에 액세스하는 데 필요한 Azure AD 라이선스는 무엇인가요?**  
+
 감사 로그 보고서는 라이선스가 있는 기능에 대해 사용할 수 있습니다. 특정 기능에 대한 라이선스가 있으면 해당 기능에 대한 감사 로그 정보에 액세스할 수도 있습니다.
 
 자세한 내용은 [Azure Active Directory 기능](https://www.microsoft.com/cloud-platform/azure-active-directory-features)의 **Free, Basic 및 Premium 버전의 일반 공급 기능 비교**를 참조하세요.   
-
 
 
 **로그인 활동 보고서**는 다음 질문에 대한 대답을 찾을 수 있습니다.
@@ -95,8 +94,8 @@ Azure Active Directory에는 두 가지 유형의 활동 보고서가 있습니�
 
 
 **로그인 활동 보고서에 액세스하는 데 필요한 Azure AD 라이선스는 무엇인가요?**  
-로그인 활동 보고서에 액세스하려면 이와 연결된 Azure AD Premium 라이선스가 테넌트에 있어야 합니다.
 
+로그인 활동 보고서에 액세스하려면 이와 연결된 Azure AD Premium 라이선스가 테넌트에 있어야 합니다.
 
 ## <a name="programmatic-access"></a>프로그래밍 방식 액세스
 
@@ -105,17 +104,6 @@ Azure Active Directory 보고에서는 사용자 인터페이스 외에도 [프�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Active Directory의 다양한 보고서 유형에 대한 자세한 내용은 다음을 참조하세요.
-
-- [위험 플래그가 지정된 사용자 보고서](concept-user-at-risk.md)
 - [위험한 로그인 보고서](concept-risky-sign-ins.md)
 - [감사 로그 보고서](concept-audit-logs.md)
 - [로그인 로그 보고서](concept-sign-ins.md)
-
-보고 API를 사용하여 보고 데이터에 액세스하는 방법에 대한 자세한 내용은 다음을 참조하세요. 
-
-- [Azure Active Directory 보고 API 시작](concept-reporting-api.md)
-
-
-<!--Image references-->
-[1]: ./media/active-directory-reporting-azure-portal/ic195031.png

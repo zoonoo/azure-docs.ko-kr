@@ -1,19 +1,21 @@
 ---
-title: '빠른 시작: C#을 사용하여 Bing Web Search API 호출'
+title: '빠른 시작: C#을 사용하여 검색 수행 - Bing Web Search API'
+titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 C#을 사용하여 Bing Web Search API를 처음 호출하고 JSON 응답을 받는 방법을 알아봅니다.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: erhopf
-ms.openlocfilehash: 9db551f89a3b7834119fe85a22e4cdc8d0402252
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 7f0555a9bb655109ff8786d3a0873d997d715477
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888511"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124765"
 ---
 # <a name="quickstart-use-c-to-call-the-bing-web-search-api"></a>빠른 시작: C#을 사용하여 Bing Web Search API 호출  
 

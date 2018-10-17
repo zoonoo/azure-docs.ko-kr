@@ -1,21 +1,21 @@
 ---
-title: Translator Text Ruby를 사용하여 대체 번역 찾기 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 이 빠른 시작에서는 Cognitive Services에서 Ruby와 함께 Translator Text API를 사용하여 컨텍스트의 용어를 대체하는 번역과 예제를 찾아봅니다.
+title: '빠른 시작: 대체 번역 찾기 - Translator Text, Ruby'
+titleSuffix: Azure Cognitive Services
+description: 이 빠른 시작에서는 Ruby와 함께 Translator Text API를 사용하여 컨텍스트의 용어를 대체하는 번역과 예제를 찾아봅니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 6462a48c2f15c8ac4a6b9bce49d23ea3d38dcbd5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7cd34e3482df666de8b974380302ee6b4c592496
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43750476"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122810"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-ruby"></a>빠른 시작: Ruby를 사용하여 대체 번역 및 사용법 찾기
 
