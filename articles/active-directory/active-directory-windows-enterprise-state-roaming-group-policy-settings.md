@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 9db0fa29f6af0053d45f9f0238b52ac34fdb464a
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: f1bbbecf1f40b110614b3da9874d5d2c560f9e58
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223264"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024638"
 ---
 # <a name="group-policy-and-mdm-settings"></a>그룹 정책 및 MDM 설정
 이러한 정책은 사용자의 장치 전체에 적용되므로 회사 소유의 장치에만 그룹 정책 및 MDM(모바일 장치 관리) 설정을 사용하세요. 개인의 설정 동기화를 비활성화하는 MDM 정책을 적용하면 사용자 소유의 장치가 해당 장치 사용에 부정적인 영향을 미치게 됩니다. 뿐만 아니라 해당 장치의 다른 사용자도 정책의 영향을 받습니다.
@@ -30,7 +30,7 @@ ms.locfileid: "39223264"
 다음은 사용 가능한 정책을 설명하는 테이블입니다.
 
 ## <a name="mdm-settings"></a>MDM 설정
-MDM 정책 설정은 Windows 10 및 Windows 10 Mobile에 모두 적용됩니다.  Windows 10 Mobile 지원은 사용자의 OneDrive 계정을 통한 Microsoft 계정 기반의 로밍에 대해서만 제공됩니다.  Azure AD 기반 동기화가 지원되는 장치에 대한 내용은 "장치 및 끝점" 섹션을 참조하세요.
+MDM 정책 설정은 Windows 10 및 Windows 10 Mobile에 모두 적용됩니다.  Windows 10 Mobile 지원은 사용자의 OneDrive 계정을 통한 Microsoft 계정 기반의 로밍에 대해서만 제공됩니다.  Microsoft Azure Active Directory 기반 동기화가 지원되는 장치에 대한 자세한 내용은 [장치 및 엔드포인트](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)를 참조하세요.
 
 | Name | 설명 |
 | --- | --- |

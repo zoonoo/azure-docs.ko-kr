@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: maheshu
-ms.openlocfilehash: 02b722feece5458a31e89e4041d51104b94e52c6
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 8747e597883d96756e676061bde04b920b13cadd
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505868"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023208"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: 자주 묻는 질문과 대답(FAQ)
 이 페이지는 Azure Active Directory Domain Services에 대한 자주 묻는 질문을 응답합니다. 업데이트를 계속 확인합니다.
@@ -96,6 +96,9 @@ Azure AD Domain Services 관리되는 도메인의 기본 암호 수명은 90일
 
 ### <a name="can-i-pause-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인을 일시 중지할 수 있나요? 
 아니요. Azure AD Domain Services 관리되는 도메인을 사용하도록 설정했으면 관리되는 도메인을 사용하지 않거나/삭제할 때까지 선택한 가상 네트워크에서 해당 서비스가 제공됩니다. 서비스를 일시 중지할 방법은 없습니다. 관리되는 도메인을 삭제할 때까지 시간 기준으로 계속 청구됩니다.
+
+### <a name="can-i-failover-azure-ad-domain-services-to-another-region-for-a-dr-event"></a>Azure AD Domain Services를 DR 이벤트의 다른 지역으로 장애 조치(failover)할 수 있나요?
+아니요.  현재 Azure AD Domain Services는 지역 중복 배포 모델을 제공하지 않습니다. 지역은 Azure 지역의 단일 가상 네트워크로 제한되어 있습니다. 여러 Azure 지역을 사용하려면 Azure IaaS VM에서 Active Directory 도메인 컨트롤러를 실행해야 합니다.  아키텍처 지침은 [여기](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain)에서 찾을 수 있습니다.
 
 ### <a name="can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services"></a>Enterprise Mobility Suite(EMS)의 일부로 Azure AD 도메인 서비스를 가져올 수 있습니까? Azure AD Domain Services를 사용하려면 Azure AD Premium이 필요합니까?
 아니요. Azure AD Domain Services는 종량제 Azure 서비스이며 EMS의 일부가 아닙니다. Azure AD Domain Services는 모든 에디션의 Azure AD(무료, 기본 및 프리미엄)에 사용할 수 있습니다. 사용 방식에 따라 시간 단위로 청구됩니다.

@@ -1,6 +1,6 @@
 ---
-title: 행위자 기반 Azure 마이크로 서비스의 다시 표시 | Microsoft Docs
-description: 서비스 패브릭 Reliable Actors의 다시 표시에 대해 소개합니다.
+title: Azure 서비스 패브릭 행위자의 다시 표시 | Microsoft Docs
+description: Service Fabric Reliable Actors의 다시 표시에 대해 소개합니다.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 40f52cb399f2d7391657ce4356a0c30921d46e5f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c7a4066a949ad6e66c45dff67f1e80801f2fa4cd
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207097"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055263"
 ---
 # <a name="reliable-actors-reentrancy"></a>Reliable Actors 다시 표시
 기본적으로 Reliable Actors 런타임을 사용하면 논리적 호출 컨텍스트를 기반으로 다시 표시할 수 있습니다. 따라서 동일한 호출 컨텍스트 체인에 있는 경우 행위자가 다시 표시되도록 할 수 있습니다. 예를 들어 행위자 A가 행위자 C에 메시지를 보내는 행위자 B에 메시지를 보내는 경우 메시지 처리 과정의 일부로 행위자 C가 행위자 A를 호출하면 해당 메시지가 다시 표시됩니다. 다른 호출 컨텍스트의 일부인 다른 모든 메시지는 처리를 완료할 때까지 행위자 A에서 차단됩니다.

@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: rafats
-ms.openlocfilehash: 11aac0ab4476494f74453ca64a1b77964197adaa
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: b090c1593b49bec4f51fea8d498860e8af8b2f4b
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42751550"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053087"
 ---
 # <a name="use-key-vault-to-store-and-access-azure-cosmos-db-keys"></a>Key Vault를 사용하여 Azure Cosmos DB 키 저장 및 액세스
 
@@ -56,7 +56,7 @@ Key Vault에서 Azure Cosmos DB 액세스 키를 저장하고 읽으려면 다�
 
 ## <a name="create-an-azure-web-application"></a>Azure 웹 응용 프로그램 만들기
 
-1. Azure 웹 응용 프로그램을 만들거나 [GitHub 리포지토리](https://github.com/rsarosh/CosmosDB-KeyVault)에서 앱을 다운로드할 수 있습니다. 간단한 MVC 응용 프로그램입니다.  
+1. Azure 웹 응용 프로그램을 만들거나 [GitHub 리포지토리](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/Demo/keyvaultdemo)에서 앱을 다운로드할 수 있습니다. 간단한 MVC 응용 프로그램입니다.  
 
 2. 다운로드한 응용 프로그램의 압축을 풀고 **HomeController.cs** 파일을 엽니다. 다음 줄에서 비밀 ID를 업데이트합니다.
 
@@ -87,11 +87,9 @@ Key Vault에서 Azure Cosmos DB 액세스 키를 저장하고 읽으려면 다�
 
 ![비밀로 배포된 앱](./media/access-secrets-from-keyvault/app-deployed-with-access.png)
  
-마찬가지로, 키 자격 증명 모음에 액세스할 사용자를 추가할 수 있습니다. “액세스 정책”을 클릭하여 자신을 Key Vault에 추가한 다음, Visual Studio에서 응용 프로그램을 실행하는 데 필요한 모든 권한을 부여해야 합니다. 이 응용 프로그램이 데스크톱에서 실행될 때 사용자의 ID를 사용합니다.
+마찬가지로, 키 자격 증명 모음에 액세스할 사용자를 추가할 수 있습니다. **액세스 정책**을 선택하여 자신을 Key Vault에 추가한 다음, Visual Studio에서 응용 프로그램을 실행하는 데 필요한 모든 권한을 부여해야 합니다. 이 응용 프로그램이 데스크톱에서 실행될 때 사용자의 ID를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * Azure Cosmos DB에 대한 방화벽을 구성하려면 [방화벽 지원](firewall-support.md) 문서를 참조하세요.
 * 가상 네트워크 서비스 엔드포인트를 구성하려면 [VNet 서비스 엔드포인트를 사용하여 보안 액세스](vnet-service-endpoint.md)를 참조하세요.
-
-

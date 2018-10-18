@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: cephalin
-ms.openlocfilehash: 6800bf766deb2044d400f92dbe370fa15bdd5f00
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 87c9cd5955dda1a379733e5ad48d58f8361f0e6b
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26047604"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051479"
 ---
 # <a name="use-an-ssl-certificate-in-your-application-code-in-azure-app-service"></a>Azure App Service의 응용 프로그램 코드에서 SSL 인증서 사용
 
@@ -51,7 +51,7 @@ App Service에 업로드되거나 가져온 인증서를 사용하려면 먼저 
 
 왼쪽 탐색 영역에서 **응용 프로그램 설정**을 클릭합니다.
 
-`WEBSITE_LOAD_CERTIFICATES`라는 앱 설정을 추가하고 인증서의 지문에 해당 값을 설정합니다. 여러 인증서에 액세스할 수 있도록 하려면 쉼표로 구분된 지문 값을 사용합니다. 모든 인증서에 액세스할 수 있도록 하려면 값을 `*`로 설정합니다. 
+`WEBSITE_LOAD_CERTIFICATES`라는 앱 설정을 추가하고 인증서의 지문에 해당 값을 설정합니다. 여러 인증서에 액세스할 수 있도록 하려면 쉼표로 구분된 지문 값을 사용합니다. 모든 인증서에 액세스할 수 있도록 하려면 값을 `*`로 설정합니다. 이렇게 설정하면 인증서가 `CurrentUser\My` 저장소에 배치됩니다.
 
 ![앱 설정 구성](./media/app-service-web-ssl-cert-load/configure-app-setting.png)
 

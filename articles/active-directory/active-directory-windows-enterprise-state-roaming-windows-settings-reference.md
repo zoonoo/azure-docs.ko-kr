@@ -16,25 +16,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 9a06ff345d1bf91efd1abff9960a1a6f9a681dce
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 40e67dfd4ffa427ac47198e88994762a4a45cc94
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223670"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023354"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Windows 10 로밍 설정 참조
 다음은 Windows 10에서 로밍 또는 백업되는 모든 설정의 전체 목록입니다. 
 
-## <a name="devices-and-endpoints"></a>장치 및 끝점
+## <a name="devices-and-endpoints"></a>장치 및 엔드포인트
 Windows 10의 동기화, 백업 및 복원 프레임워크에서 지원되는 장치 및 계정 유형에 대한 요약 정보는 다음 테이블을 참조하세요.
 
 | 계정 유형 및 작업 | 데스크톱 | 모바일 |
 | --- | --- | --- |
-| Azure Active Directory: 동기화 |yes |아니오 |
-| Azure Active Directory: 백업/복원 |아니오 |아니오 |
+| Azure Active Directory: 동기화 |yes |아니요 |
+| Azure Active Directory: 백업/복원 |아니요 |아니요 |
 | Microsoft 계정: 동기화 |yes |yes |
-| Microsoft 계정: 백업/복원 |아니오 |yes |
+| Microsoft 계정: 백업/복원 |아니요 |yes |
 
 ## <a name="what-is-backup"></a>백업이란?
 Windows 설정은 동기화가 기본이지만 장치에 설치된 응용 프로그램 목록 같은 일부 설정은 백업되기만 합니다. Backup은 모바일 장치에 대해서만 사용할 수 있으며 현재 엔터프라이즈 상태 로밍 사용자를 위해서는 사용할 수 없습니다. Backup은 Microsoft 계정을 사용하고 설정 및 응용 프로그램 데이터를 OneDrive에 저장합니다. 사용자가 설정 앱을 사용하여 장치의 동기화를 비활성화하면 평소에는 동기화되는 응용 프로그램 데이터가 백업되기만 합니다. Backup 데이터는 새 장치를 처음으로 실행하는 동안 복원 작업을 통해서만 액세스할 수 있습니다. Backup은 장치 설정을 통해 비활성화할 수 있으며 사용자의 OneDrive 계정을 통해 관리 및 삭제됩니다.
@@ -44,10 +44,11 @@ Windows 설정은 동기화가 기본이지만 장치에 설치된 응용 프로
 
 * 테마: 바탕 화면 배경, 사용자 타일, 작업 표시줄 위치 등 
 * Internet Explorer 설정: 검색 기록, 입력한 URL, 즐겨찾기 등 
-* 암호: [Windows 자격 증명 보관](https://technet.microsoft.com/library/jj554668.aspx), Wi-Fi 프로필 포함 
+* 암호: Windows 자격 증명 관리자, Wi-Fi 프로필 포함 
 * 언어 기본 설정: 맞춤법 사전, 시스템 언어 설정 
 * 간편한 액세스: 내레이터, 화상 키보드, 돋보기 
 * 기타 Windows 설정: Windows 설정 세부 정보를 참조하세요.
+* Edge 브라우저 설정: Microsoft Edge 즐겨찾기, 읽기 목록 및 기타 설정
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
@@ -73,7 +74,7 @@ Windows 10 버전 1803 이상의 경우 Internet Explorer 설정 그룹(즐겨�
 | **앱 데이터**: 개별 앱이 데이터 동기화 가능 |백업 동기화 |백업 동기화 |내부 |
 | **앱 목록**: 설치된 앱 목록 |X |backup |기타 |
 | **Bluetooth**: 모든 Bluetooth 설정 |X |X | |
-| **명령 프롬프트**: 명령 프롬프트 "기본값" 설정 |sync |X | |
+| **명령 프롬프트**: 명령 프롬프트 "기본값" 설정 |sync |X |내부 |
 | **자격 증명**: 자격 증명 보관 |sync |sync |암호 |
 | **날짜, 시간 및 지역**: 자동 시간(인터넷 시간 동기화) |sync |sync |언어 |
 | **날짜, 시간 및 지역**: 24시간 |sync |X |언어 |

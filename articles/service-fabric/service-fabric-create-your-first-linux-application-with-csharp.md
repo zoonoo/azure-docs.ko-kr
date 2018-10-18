@@ -1,6 +1,6 @@
 ---
-title: C#을 사용하여 Linux에서 첫 번째 Azure 마이크로 서비스 만들기 | Microsoft Docs
-description: C#을 사용하여 Service Fabric 응용 프로그램 만들기 및 배포
+title: C#을 사용하여 Linux에서 Azure Service Fabric 앱 처음 만들기 | Microsoft Docs
+description: C# 및 .NET Core 2.0을 사용하여 Service Fabric 응용 프로그램을 만들고 배포하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: csharp
 author: mani-ramaswamy
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: 7427af3e814752801c4738675f7cd2263843f9b8
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: e917119e2d0f9b7b5cfa9ea145cc6e540486ac66
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617089"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052599"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>첫 번째 Azure Service Fabric 응용 프로그램 만들기
 > [!div class="op_single_selector"]

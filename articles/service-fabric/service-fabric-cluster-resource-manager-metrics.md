@@ -1,5 +1,5 @@
 ---
-title: 메트릭을 사용하여 Azure 마이크로 서비스 부하 관리 | Microsoft Docs
+title: 메트릭을 사용하여 Azure Service Fabric 앱 로드 관리 | Microsoft Docs
 description: 서비스 리소스 소비를 관리하기 위해 Service Fabric에서 메트릭을 구성하고 사용하는 방법에 대해 알아봅니다.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: e16f1ae28f2212d0cec61368a2fba946d48fd811
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 7a7d3ad59d743287e5fe13c52c6c6a1a115d53f3
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006287"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053315"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>메트릭을 사용하여 Service Fabric에서 리소스 부하 및 소비 관리
 *메트릭*은 서비스에서 관심을 갖고 클러스터의 노드에서 제공하는 리소스입니다. 메트릭은 서비스 성능을 향상시키거나 모니터링하기 위해 관리하려는 모든 항목입니다. 예를 들어 메모리 사용량을 조사하여 서비스가 오버로드 상태인지 여부를 확인할 수 있습니다. 또 다른 용도는 더 나은 성능을 얻기 위해 메모리 제약이 심하지 않은 위치로 서비스를 이동할 수 있는지 여부를 파악하는 것입니다.

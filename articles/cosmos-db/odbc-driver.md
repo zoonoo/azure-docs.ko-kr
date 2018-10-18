@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 131ba3dfb8bd8ad8be893e26fcc22c5a0e65f145
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 010556dae1649754df5199fb81c10efcf4c5a226
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431643"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050003"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>ODBC 드라이버와 함께 BI 분석 도구를 사용하여 Azure Cosmos DB에 연결
 
@@ -88,7 +88,7 @@ Azure Cosmos DB는 스키마 없는 데이터베이스이기 때문에 응용 �
 1. 샘플링할 하나 이상의 컬렉션을 선택하고 **샘플**을 클릭합니다. 
 1. **디자인 보기** 탭에 데이터베이스, 스키마 및 테이블이 표시됩니다. 테이블 보기에서 검색을 수행하면 열 이름(예: SQL 이름, 원본 이름 등)과 관련된 속성 집합이 표시됩니다.
     각 열에 대해 SQL 열 이름, SQL 형식, SQL 길이(해당되는 경우), 소수 자릿수(해당되는 경우), 전체 자릿수(해당되는 경우) 및 null 허용을 수정할 수 있습니다.
-    - 쿼리 결과에서 해당 열을 제외하려면 **Hide Column**을 **true**로 설정합니다. Hide Column = true로 표시된 열은 스키마의 일부이지만 선택 및 프로젝션의 경우에는 반환되지 않습니다. 예를 들어 "_"로 시작하는 모든 Azure Cosmos DB 시스템 필수 속성을 숨길 수 있습니다.
+    - 쿼리 결과에서 해당 열을 제외하려면 **Hide Column**을 **true**로 설정합니다. Hide Column = true로 표시된 열은 스키마의 일부이지만 선택 및 프로젝션의 경우에는 반환되지 않습니다. 예를 들어 “_”로 시작하는 모든 Azure Cosmos DB 시스템 필수 속성을 숨길 수 있습니다.
     - **id** 열은 정규화된 스키마에서 기본 키로 사용되기 때문에 숨길 수 없는 유일한 필드입니다. 
 1. 스키마 정의를 끝낸 후에 **파일** | **저장**을 클릭한 후 스키마를 저장할 디렉터리로 이동하고 **저장**을 클릭합니다.
 
@@ -98,7 +98,7 @@ Azure Cosmos DB는 스키마 없는 데이터베이스이기 때문에 응용 �
 
 **컬렉션 매핑** 또는 **테이블 구분 기호**의 두 가지 유형의 샘플링 방법을 사용할 수 있습니다. 샘플링 세션은 두 가지 샘플링 방법을 모두 사용할 수 있지만 각 컬렉션은 특정 샘플링 방법만 사용할 수 있습니다. 
 
-다음 단계는 **테이블 구분 기호** 매핑 방법을 사용하여 하나 이상의 컬렉션에 있는 데이터에 대한 스키마를 만듭니다. 컬렉션에 형식이 다른 데이터가 포함되어 있으면 이 샘플링 방법을 사용하는 것이 좋습니다. 이 방법을 사용하여 샘플링 범위를 특성 집합 및 해당 값으로 지정할 수 있습니다. 예를 들어 문서에 "Type" 속성이 포함된 경우 샘플링 범위를 이 속성의 값으로 지정할 수 있습니다. 샘플링의 최종 결과는 지정한 Type의 각 값에 대한 테이블 집합입니다. 예를 들어, Type = Car를 지정하면 Car 테이블이 생성되지만 Type = Plane을 지정하면 Plane 테이블이 생성됩니다.
+다음 단계는 **테이블 구분 기호** 매핑 방법을 사용하여 하나 이상의 컬렉션에 있는 데이터에 대한 스키마를 만듭니다. 컬렉션에 형식이 다른 데이터가 포함되어 있으면 이 샘플링 방법을 사용하는 것이 좋습니다. 이 방법을 사용하여 샘플링 범위를 특성 집합 및 해당 값으로 지정할 수 있습니다. 예를 들어 문서에 “Type” 속성이 포함된 경우 샘플링 범위를 이 속성의 값으로 지정할 수 있습니다. 샘플링의 최종 결과는 지정한 Type의 각 값에 대한 테이블 집합입니다. 예를 들어, Type = Car를 지정하면 Car 테이블이 생성되지만 Type = Plane을 지정하면 Plane 테이블이 생성됩니다.
 
 1. [Azure Cosmos DB 데이터베이스에 연결](#connect)의 1-4단계를 완료한 후 Azure Cosmos DB ODBC 드라이버 DSN 설정 창에서 **스키마 편집기**를 클릭합니다.
 1. **스키마 편집기** 창에서 **새로 만들기**를 클릭합니다.
@@ -107,7 +107,7 @@ Azure Cosmos DB는 스키마 없는 데이터베이스이기 때문에 응용 �
 
     a. **특성** 상자에 구분 기호 속성의 이름을 입력합니다. 이것은 문서에서 샘플링 범위로 지정하려는 속성(예: City)입니다. 그런 후 Enter 키를 누릅니다. 
 
-    나. 방금 입력한 특성에 대한 특정 값으로 샘플링 범위를 지정하려는 경우 선택 상자에서 해당 특성을 선택하고 **값** 상자에 값(예: Seattle)을 입력하고 Enter 키를 누릅니다. 특성에 대해 여러 값을 계속 추가할 수 있습니다. 값을 입력할 때 올바른 속성이 선택되어 있는지 확인하기만 하면 됩니다.
+    b. 방금 입력한 특성에 대한 특정 값으로 샘플링 범위를 지정하려는 경우 선택 상자에서 해당 특성을 선택하고 **값** 상자에 값(예: Seattle)을 입력하고 Enter 키를 누릅니다. 특성에 대해 여러 값을 계속 추가할 수 있습니다. 값을 입력할 때 올바른 속성이 선택되어 있는지 확인하기만 하면 됩니다.
 
     예를 들어 **특성** 값으로 City를 포함하고 city 값이 New York과 Dubai인 행만 포함하도록 테이블을 제한하려면 특성 상자에 City를 입력하고 **값** 상자에 New York을 입력한 후 Dubai를 입력합니다.
 1. **확인**을 클릭합니다. 
@@ -173,7 +173,7 @@ Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server
 
 데이터에 대한 뷰를 만들려면 **스키마 편집기** 창의 **뷰 정의** 열에서 샘플링할 컬렉션 행에 대해 **추가**를 클릭합니다. 그런 다음 **뷰 정의** 창에서 다음을 수행합니다.
 1. **새로 만들기**를 클릭하고 뷰 이름(예: EmployeesfromSeattleView)을 입력하고 **확인**을 클릭합니다.
-1. **뷰 편집** 창에서 Azure Cosmos DB 쿼리를 입력합니다. Azure Cosmos DB SQL 쿼리(예: `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = “Seattle”`)여야 합니다. 그런 후 **확인**을 클릭합니다.
+1. **뷰 편집** 창에서 Azure Cosmos DB 쿼리를 입력합니다. Azure Cosmos DB SQL 쿼리(예: `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = "Seattle"`)여야 합니다. 그런 후 **확인**을 클릭합니다.
 
 원하는 수만큼 뷰를 만들 수 있습니다. 뷰 정의가 끝나면 데이터를 샘플링할 수 있습니다. 
 

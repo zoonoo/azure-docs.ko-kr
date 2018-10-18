@@ -18,12 +18,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: a80bec460fffcc7c7170204d541d578428980394
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: c7a2428e4e5e3b5af0e9e01514ba433707e6a3c8
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223952"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022801"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 상태 로밍 설정 문제 해결
 
@@ -71,7 +71,7 @@ ms.locfileid: "39223952"
 **잠재적인 문제**: **WamDefaultSet** 및 **AzureAdJoined** 필드 값이 모두 "NO"이고 장치가 도메인에 가입되고 Azure AD에 등록되었으며 장치가 동기화되지 않습니다. 이것이 표시되는 경우 장치를 Azure AD에 연결할 때 장치는 정책을 적용하거나 장치에 대한 인증이 실패할 때까지 대기해야 합니다. 사용자는 정책이 적용될 때까지 몇 시간을 대기해야 할 수 있습니다. 기타 문제 해결 단계에는 로그아웃하고 다시 로그인함으로써 자동 등록 다시 시도 또는 작업 Scheduler에서 작업 시작이 포함될 수 있습니다. 경우에 따라 관리자 권한 명령 프롬프트 창에서 "*dsregcmd.exe /leave*"를 실행하고 다시 부팅하여 등록을 다시 시도하면 이 문제 해결에 도움이 될 수 있습니다.
 
 
-**잠재적인 문제**: **AzureAdSettingsUrl** 필드가 비어있고 장치가 동기화되지 않습니다. 사용자가 Azure Active Directory 포털에서 엔터프라이즈 상태 로밍을 사용하기 전에 장치에 마지막으로 로그인했을 수 있습니다. 장치를 다시 시작하고 사용자에게 로그인하게 합니다. 필요한 경우 포털에서 IT 관리자에게 설정 및 엔터프라이즈 앱 데이터 동기화가 허용되는 사용자를 비활성화했다가 다시 활성화하도록 합니다. 다시 활성화되면 장치를 다시 시작하고 사용자에게 로그인하게 합니다. 그래도 문제가 해결되지 않으면 장치 인증서의 경우 **AzureAdSettingsUrl**이 비어 있을 수 있습니다. 이 경우 관리자 권한 명령 프롬프트 창에서 "*dsregcmd.exe /leave*"를 실행하고 다시 부팅하여 등록을 다시 시도하면 이 문제 해결에 도움이 될 수 있습니다.
+**잠재적인 문제**: **SettingsUrl** 필드가 비어 있고 장치가 동기화되지 않습니다. 사용자가 Azure Active Directory 포털에서 엔터프라이즈 상태 로밍을 사용하기 전에 장치에 마지막으로 로그인했을 수 있습니다. 장치를 다시 시작하고 사용자에게 로그인하게 합니다. 필요한 경우 포털에서 IT 관리자에게 설정 및 엔터프라이즈 앱 데이터 동기화가 허용되는 사용자를 비활성화했다가 다시 활성화하도록 합니다. 다시 활성화되면 장치를 다시 시작하고 사용자에게 로그인하게 합니다. 그래도 문제가 해결되지 않는다면 잘못된 장치 인증서의 경우 **SettingsUrl**가 비어 있는 것일 수 있습니다. 이 경우 관리자 권한 명령 프롬프트 창에서 "*dsregcmd.exe /leave*"를 실행하고 다시 부팅하여 등록을 다시 시도하면 이 문제 해결에 도움이 될 수 있습니다.
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>엔터프라이즈 상태 로밍 및 Multi-Factor Authentication 
 특정 조건에서 엔터프라이즈 상태 로밍은 Azure Multi-Factor Authentication이 구성된 경우 데이터를 동기화하는 데 실패할 수 있습니다. 이러한 현상에 대한 자세한 내용은 [KB3193683](https://support.microsoft.com/kb/3193683) 지원 문서를 참조하세요. 
@@ -81,7 +81,7 @@ ms.locfileid: "39223952"
 **잠재적인 문제**: 관리자가 Active Directory Federation Services Multi-Factor Authentication 조건부 액세스 정책을 구성하고 장치에 대한 액세스 토큰이 만료된 경우 동기화는 실패할 수 있습니다. Office 365와 같은 다른 Azure 서비스에 액세스하는 동안 Microsoft Passport for Work PIN을 사용하거나 Multi-Factor Authentication을 완료하여 로그인 및 로그아웃해야 합니다.
 
 ### <a name="event-viewer"></a>이벤트 뷰어
-고급 문제 해결의 경우 이벤트 뷰어를 사용하여 특정 오류를 찾을 수 있습니다. 이는 아래 표에 설명되어 있습니다. 이벤트는 이벤트 뷰어 > 응용 프로그램 및 서비스 로그 > **Microsoft** > **Windows** > **SettingSync**에서, 그리고 동기화의 ID 관련 문제는 **Microsoft** > **Windows** > **AAD**에서 찾을 수 있습니다.
+고급 문제 해결의 경우 이벤트 뷰어를 사용하여 특정 오류를 찾을 수 있습니다. 이는 아래 표에 설명되어 있습니다. 이벤트는 이벤트 뷰어 > 응용 프로그램 및 서비스 로그 > **Microsoft** > **Windows** > **SettingSync-Azure**에서, 그리고 동기화의 ID 관련 문제는 **Microsoft** > **Windows** > **AAD**에서 찾을 수 있습니다.
 
 
 ## <a name="known-issues"></a>알려진 문제
@@ -174,14 +174,6 @@ AAD/Operational 로그에 있는 이벤트 뷰어에서 이벤트 1104: AAD 클�
 
 **권장 작업**  
 [KB3196528](https://support.microsoft.com/kb/3196528)에 나열된 단계를 수행합니다.  
-
-
-
-## <a name="next-steps"></a>다음 단계
-
-- 피드백을 제공하고 엔터프라이즈 상태 로밍을 개선하는 방법에 대해 제안하려면 [사용자 음성](https://social.technet.microsoft.com/Forums/windows/en-US/f51c856c-db92-4cf7-a497-720da21d7d31/enterprise-state-roaming) 포럼을 사용합니다.
-
-- 자세한 내용은 [엔터프라이즈 상태 로밍 개요](active-directory-windows-enterprise-state-roaming-overview.md)를 참조하세요. 
 
 ## <a name="related-topics"></a>관련된 항목
 * [엔터프라이즈 상태 로밍 개요](active-directory-windows-enterprise-state-roaming-overview.md)

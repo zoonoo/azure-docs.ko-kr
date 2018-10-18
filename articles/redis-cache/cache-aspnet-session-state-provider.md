@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 05/01/2017
 ms.author: wesmc
-ms.openlocfilehash: bb0c53433af8a679811f00bfff2efee94d211a24
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 047d23184ccf640dd6510faca9f508eef0dc50cb
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31518759"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050816"
 ---
 # <a name="aspnet-session-state-provider-for-azure-redis-cache"></a>Azure Redis Cache에 대한 ASP.NET 세션 상태 제공자
 Azure Redis Cache는 메모리 내 또는 SQL Server 데이터베이스가 아니라 Redis Cache를 통해 세션 상태를 저장하는 데 사용할 수 있는 세션 상태 공급자를 제공합니다. 캐싱 세션 상태 제공자를 사용하려면 먼저 캐시를 구성하고 Redis Cache 세션 상태 NuGet 패키지를 사용하여 캐시용 ASP.NET 응용 프로그램을 구성합니다.
@@ -51,23 +51,33 @@ NuGet 패키지에서는 필수 어셈블리 참조를 다운로드하고 추가
 
 ```xml
 <sessionState mode="Custom" customProvider="MySessionStateStore">
-    <providers>
+  <providers>
+    <!-- Either use 'connectionString' OR 'settingsClassName' and 'settingsMethodName' OR use 'host','port','accessKey','ssl','connectionTimeoutInMilliseconds' and 'operationTimeoutInMilliseconds'. -->
+    <!-- 'throwOnError','retryTimeoutInMilliseconds','databaseId' and 'applicationName' can be used with both options. -->
     <!--
-    <add name="MySessionStateStore"
-           host = "127.0.0.1" [String]
+      <add name="MySessionStateStore" 
+        host = "127.0.0.1" [String]
         port = "" [number]
         accessKey = "" [String]
         ssl = "false" [true|false]
         throwOnError = "true" [true|false]
-        retryTimeoutInMilliseconds = "0" [number]
+        retryTimeoutInMilliseconds = "5000" [number]
         databaseId = "0" [number]
         applicationName = "" [String]
         connectionTimeoutInMilliseconds = "5000" [number]
-        operationTimeoutInMilliseconds = "5000" [number]
-    />
+        operationTimeoutInMilliseconds = "1000" [number]
+        connectionString = "<Valid StackExchange.Redis connection string>" [String]
+        settingsClassName = "<Assembly qualified class name that contains settings method specified below. Which basically return 'connectionString' value>" [String]
+        settingsMethodName = "<Settings method should be defined in settingsClass. It should be public, static, does not take any parameters and should have a return type of 'String', which is basically 'connectionString' value.>" [String]
+        loggingClassName = "<Assembly qualified class name that contains logging method specified below>" [String]
+        loggingMethodName = "<Logging method should be defined in loggingClass. It should be public, static, does not take any parameters and should have a return type of System.IO.TextWriter.>" [String]
+        redisSerializerType = "<Assembly qualified class name that implements Microsoft.Web.Redis.ISerializer>" [String]
+      />
     -->
-    <add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false"/>
-    </providers>
+    <add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider"
+         host=""
+         accessKey=""
+         ssl="true" />
 </sessionState>
 ```
 
@@ -75,7 +85,7 @@ NuGet 패키지에서는 필수 어셈블리 참조를 다운로드하고 추가
 
 Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성하고, 필요에 따라 다른 값을 구성합니다. 캐시 속성에 액세스 하는 방법은 [Redis 캐시 설정 구성](cache-configure.md#configure-redis-cache-settings)을 참조하세요.
 
-* **호스트** – 캐시 끝점을 지정합니다.
+* **호스트** – 캐시 엔드포인트를 지정합니다.
 * **포트** – ssl 설정에 따라 비-SSL 포트 또는 SSL 포트를 사용합니다.
 * **선택키** – 캐시에 적합한 기본 또는 보조 키를 사용합니다.
 * **ssl** – ssl로 캐시/클라이언트 통신을 보호하려는 경우 true가 되고, 그 외의 경우 false입니다. 올바른 포트를 지정해야 합니다.
@@ -86,6 +96,7 @@ Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성�
 * **applicationName** – `{<Application Name>_<Session ID>}_Data`로 redis에 저장된 키입니다. 이 이름 지정 체계를 사용하면 여러 응용 프로그램에서 동일한 Redis 인스턴스를 공유할 수 있습니다. 이 매개변수는 선택적이며 사용자가 제공하지 않으면 기본값이 사용됩니다.
 * **connectionTimeoutInMilliseconds** – 이 설정은 StackExchange.Redis 클라이언트의 connectTimeout 설정을 무시할 수 있게 해줍니다. 지정하지 않으면 기본 connectTimeout 설정인 5000이 사용됩니다. 더 자세한 내용은 [StackExchange.Redis 구성 모델](http://go.microsoft.com/fwlink/?LinkId=398705)을 참조하세요.
 * **operationTimeoutInMilliseconds** – 이 설정은 StackExchange.Redis 클라이언트의 syncTimeout 설정을 무시할 수 있게 해 줍니다. 지정하지 않으면 기본 syncTimeout 설정인 1000이 사용됩니다. 더 자세한 내용은 [StackExchange.Redis 구성 모델](http://go.microsoft.com/fwlink/?LinkId=398705)을 참조하세요.
+* **redisSerializerType** - 이 설정을 사용하면 Redis로 전송되는 세션 콘텐츠의 사용자 지정 serialization을 지정할 수 있습니다. 지정된 형식은 `Microsoft.Web.Redis.ISerializer`를 구현해야 하며 공용 매개 변수가 없는 생성자를 선언해야 합니다. 기본적으로 `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter`가 사용됩니다.
 
 이러한 속성에 대한 자세한 내용은 [Redis에 대한 ASP.NET 세션 상태 제공자 발표](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)에서 원래 블로그 게시물 발표를 참조하세요.
 

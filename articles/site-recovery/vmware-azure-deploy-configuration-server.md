@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: bd456e0f881f606f36f2b4d80e704ce138f7db0f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 4222214705c42fe09d90d77faa7be63cc2a13206
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666435"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025279"
 ---
 # <a name="deploy-a-configuration-server"></a>구성 서버 배포
 
@@ -42,7 +42,7 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
 | 12개 vCPU(2개 소켓 * 6코어 \@ 2.5GHz) |18GB |600GB |500GB ~ 1TB |100 ~ 150대 컴퓨터를 복제합니다. |
 | 16개 vCPU(2개 소켓 * 8코어 \@ 2.5GHz) |32GB |1TB |1TB ~ 2TB |150 ~ 200대 컴퓨터를 복제합니다. |
 
-둘 이상의 VMware VM을 복제하는 경우 [용량 계획 고려 사항](https://docs.microsoft.com/azure/site-recovery/site-recovery-plan-capacity-vmware)을 참조하세요. VMware 복제를 위한 [Deployment Planner 도구](site-recovery-deployment-planner.md)를 실행합니다.
+둘 이상의 VMware VM을 복제하는 경우 [용량 계획 고려 사항](site-recovery-plan-capacity-vmware.md)을 참조하세요. VMware 복제를 위한 [Deployment Planner 도구](site-recovery-deployment-planner.md)를 실행합니다.
 
 ## <a name="download-the-template"></a>템플릿 다운로드
 
@@ -121,19 +121,19 @@ OVA 템플릿과 함께 제공되는 라이선스는 180일 동안 유효한 평
 
 1. 구성 서버가 설치된 VM을 다른 용도로 사용할 수 있나요?
 
-    **아니요**, 구성 서버 용도로만 VM을 사용하는 것이 좋습니다. 재해 복구를 효율적으로 관리하려면 [이전 섹션](vmware-azure-deploy-configuration-server.md#Prerequisites)에 언급된 사양을 모두 따라야 합니다.
+    **아니요**, 구성 서버 용도로만 VM을 사용하는 것이 좋습니다. 재해 복구를 효율적으로 관리하려면 [필수 구성 요소](#prerequisites)에 설명된 사양을 모두 따라야 합니다.
 2. 구성 서버에 이미 등록된 자격 증명 모음을 새로 만든 자격 증명 모음으로 전환할 수 있나요?
 
     **아니요**, 구성 서버에 등록된 후에는 자격 증명 모음을 변경할 수 없습니다.
 3. 물리적 컴퓨터와 가상 머신을 모두 보호하는 데 동일한 구성 서버를 사용할 수 있나요?
 
-    **예**, 물리적 컴퓨터와 가상 머신을 복제하는 데 동일한 구성 서버를 사용할 수 있습니다. 그러나 물리적 머신은 VMware VM으로만 장애 복구(failback)할 수 있습니다.
+    **예**, 물리적 머신과 가상 머신을 복제하는 데 동일한 구성 서버를 사용할 수 있습니다. 그러나 물리적 머신은 VMware VM으로만 장애 복구(failback)할 수 있습니다.
 4. 구성 서버의 용도는 무엇이고, 어디서 사용되나요?
 
-    구성 서버 및 해당 기능에 대한 자세한 내용은 [여기](vmware-azure-architecture.md)에 나와 있는 Azure Site Recovery 아키텍처를 참조하세요.
+    구성 서버 및 해당 기능에 대해 자세히 알아보려면 [VMware를 Azure 복제 아키텍처로](vmware-azure-architecture.md)를 참조하세요.
 5. 최신 버전의 구성 서버는 어디서 찾을 수 있나요?
 
-    [포털을 통해](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) 구성 서버를 업그레이드하는 단계에 대한 문서를 참조하세요. [Microsoft 다운로드 센터](https://aka.ms/asrconfigurationserver)에서 직접 다운로드할 수도 있습니다.
+    포털을 통해 구성 서버를 업그레이드하는 단계는 [구성 서버 업그레이드](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)를 참조하세요. [Microsoft 다운로드 센터](https://aka.ms/asrconfigurationserver)에서 직접 다운로드할 수도 있습니다.
 6. 구성 서버의 암호는 어디서 다운로드할 수 있나요?
 
     암호를 다운로드하려면 [이 문서](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase)를 참조하세요.
@@ -143,7 +143,7 @@ OVA 템플릿과 함께 제공되는 라이선스는 180일 동안 유효한 평
 
 ## <a name="upgrade-the-configuration-server"></a>구성 서버 업그레이드
 
-구성 서버를 최신 버전으로 업그레이드하려면 [여기에서](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) 지정된 단계를 읽어 보세요.
+구성 서버를 최신 버전으로 업그레이드하려면 다음 [단계](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)를 따르세요.
 
 ## <a name="manage-the-configuration-server"></a>구성 서버 관리
 

@@ -1,3 +1,21 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: site-recovery
+author: rayne-wiselman
+manager: carmonm
+ms.service: site-recovery
+ms.topic: include
+ms.date: 09/06/2018
+ms.author: raynew
+ms.custom: include file
+ms.openlocfilehash: 2ca4916d48da6fe8a2c061056a1ea0fed9a78bb6
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44058513"
+---
 1. 통합 설치 프로그램 설치 파일을 실행합니다.
 2. **시작하기 전에**에서 **구성 서버 및 프로세스 서버 설치**를 선택합니다.
 
@@ -21,10 +39,7 @@
 7. **MySQL 구성**에서 설치된 MySQL 서버 인스턴스에 로그온하기 위한 자격 증명을 만듭니다.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz6.png)
-8. **환경 세부 정보**에서 VMware VM을 복제 여부를 선택합니다. 복제할 경우 설치 프로그램에서 PowerCLI 6.0이 설치되어 있는지 확인합니다.
-
-    ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz7.png)
-
+8. Azure Stack VM 또는 실제 서버를 복제하는 경우 **환경 세부 정보**에서 [아니요]를 선택합니다. 
 9. **설치 위치**에서 이진 파일을 설치하고 캐시를 저장할 위치를 선택합니다. 최소 5GB의 디스크 공간이 있는 드라이브를 선택해야 하지만 600GB 이상의 사용 가능한 공간이 있는 캐시 드라이브를 선택하는 것이 좋습니다.
 
     ![설치 위치](./media/site-recovery-add-configuration-server/combined-wiz8.png)

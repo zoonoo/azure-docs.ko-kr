@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 08/16/2018
+ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: 9852edfca26e78ad1b373418970dfe9c7ab477d8
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: e90c5640e571aaf28e184e9439f6228e3a5bbc6b
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42147001"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023565"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK for SQL API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -52,6 +52,13 @@ SQL API 비동기 Java SDK는 [Netty 라이브러리](http://netty.io/)를 지�
 </table></br>
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* 프록시에 대한 지원이 추가되었습니다.
+* 리소스 토큰 권한 부여에 대한 지원이 추가되었습니다.
+* 대용량 파티션 키([github #63](https://github.com/Azure/azure-cosmosdb-java/issues/63))를 처리할 때 발생하는 버그가 수정되었습니다.
+* 설명서가 개선되었습니다.
+* SDK가 더욱 세분화된 모듈로 재구성되었습니다.
 
 ### <a name="a-name201201"></a><a name="2.0.1"/>2.0.1
 * 영어가 아닌 로캘에 대한 버그가 수정되었습니다([github #51](https://github.com/Azure/azure-cosmosdb-java/issues/51)).
@@ -103,6 +110,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.1.0](#2.1.0) |2018년 9월 5일|--- |
 | [2.0.1](#2.0.1) |2018년 8월 16일|--- |
 | [2.0.0](#2.0.0) |2018년 6월 20일|--- |
 | [1.0.2](#1.0.2) |2018년 5월 18일|--- |

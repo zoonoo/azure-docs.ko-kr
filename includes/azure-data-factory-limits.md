@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/20/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 67144407b078a30c521201cbc31c6087c839fa26
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 4aa4809c57eaf26b10053d432f9191580ec143a0
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39030024"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44381102"
 ---
 데이터 팩터리는 각각 다른 작업 부하에서 고객 구독이 보호되도록 하기 위해 다음 기본 제한을 적용한 다중 테넌트 서비스입니다. 지원에 문의하여 최대 한도까지 구독에 대한 제한 수를 늘릴 수 있습니다.
 
@@ -38,6 +38,8 @@ ms.locfileid: "39030024"
 | 복사 작업 실행당 데이터 통합 단위 <sup>3</sup> | 256 | [지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | API 호출 쓰기 | 2500/시간<br/><br/> 이 제한은 Azure Data Factory가 아닌 Azure Resource Manager가 부과합니다. | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | API 호출 읽기 | 12,500/시간<br/><br/> 이 제한은 Azure Data Factory가 아닌 Azure Resource Manager가 부과합니다. | [지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| 분당 모니터링 쿼리 | 1000 | [지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| 분당 엔터티 CRUD 작업 | 50 | [지원에 문의](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 
 
 ### <a name="version-1"></a>버전 1

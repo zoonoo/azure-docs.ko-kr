@@ -11,12 +11,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: orkostak
-ms.openlocfilehash: d0c74bd2ba7a4a77a16d481ddb3b76f90a923254
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: a3dadfc4257d43f9df1b93f5d486e5577b7889d6
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989512"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055314"
 ---
 # <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB: MongoDB API에서 인덱싱
 
@@ -41,7 +41,7 @@ Azure Cosmos DB MongoDB API는 Azure Cosmos DB의 자동 인덱스 관리 기능
 >[!important] 
 > 현재 컬렉션이 비어 있는 경우에만 고유 인덱스를 만들 수 있습니다(문서를 포함하지 않음). 
 
-다음 명령은 "student_id" 필드에 고유 인덱스를 만듭니다.
+다음 명령은 “student_id” 필드에 고유 인덱스를 만듭니다.
 
 ```JavaScript
 globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} ) 

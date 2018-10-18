@@ -22,6 +22,12 @@ Azure에서 가상 디스크 암호화는 무료입니다. 암호화 키는 소�
 
 VM에 연결할 때 public-key cryptography를 사용하면 더욱 안전한 방법으로 VM에 로그인할 수 있습니다. 이 프로세스는 사용자를 인증하는 데 있어 사용자 이름과 암호가 아니라 SSH(보안 셸) 명령을 사용하는 공용 및 개인 키의 교환과 관계됩니다. 암호는 무차별 암호 대입 공격, 특히 웹 서버와 같은 인터넷 연결 VM에 대한 공격에 취약합니다. SSH(보안 셸) 키 쌍을 사용하면 인증을 위해 SSH 키를 사용하는 [Linux VM](../articles/virtual-machines/linux/mac-create-ssh-keys.md)을 만들 수 있으며 로그인하기 위해 암호가 필요하지 않게 됩니다. SSH 키를 사용하여 [Windows VM](../articles/virtual-machines/linux/ssh-from-windows.md)에서 Linux VM에 연결할 수도 있습니다.
 
+## <a name="managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID
+
+클라우드 응용 프로그램을 빌드할 때 일반적으로 직면하는 난관 중 하나는 코드에서 클라우드 서비스에 인증하는 데 사용되는 자격 증명을 관리하는 방법입니다. 자격 증명을 안전하게 보호하는 것이 중요합니다. 자격 증명이 개발자 워크스테이션에 표시되지 않고 소스 제거에 체크 인되지 않는 것이 가장 좋습니다. Azure Key Vault를 사용하면 자격 증명, 비밀 및 기타 키를 안전하게 저장할 수 있지만, 자격 증명/키/비밀을 검색하려면 코드가 Key Vault에 인증해야 합니다. 
+
+Azure AD(Azure Active Directory)의 Azure 리소스에 대한 관리 ID 기능은 이 문제를 해결합니다. 이 기능은 Azure AD에서 자동으로 관리되는 ID를 Azure 서비스에 제공합니다. 이 ID를 사용하면 Key Vault를 비롯하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명이 필요 없습니다.  VM에서 실행되는 코드는 VM 내에서만 액세스할 수 있는 두 엔드포인트에서 토큰을 요청할 수 있습니다. 이 서비스에 대한 자세한 내용은 [Azure 리소스의 관리 ID](../articles/active-directory/managed-identities-azure-resources/overview.md) 개요 페이지를 참조하세요.   
+
 ## <a name="policies"></a>정책
 
 [Azure 정책](../articles/azure-policy/azure-policy-introduction.md)을 사용하여 조직의 [Windows VM](../articles/virtual-machines/windows/policy.md) 및 [Linux VM](../articles/virtual-machines/linux/policy.md)에 대해 원하는 동작을 정의할 수 있습니다. 조직은 정책을 사용하여 엔터프라이즈 전체에 다양한 규칙을 적용할 수 있습니다. 원하는 동작을 적용하여 조직의 성공에 기여함과 동시에 위험을 완화할 수 있습니다.

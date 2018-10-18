@@ -1,6 +1,6 @@
 ---
-title: C#에서 첫 번째 행위자 기반 Azure 마이크로 서비스 만들기 | Microsoft Docs
-description: 이 자습서에서는 서비스 패브릭 Reliable Actors를 사용하여 간단한 행위자 기반 서비스를 생성, 디버깅 및 배포하는 과정을 단계별로 안내합니다.
+title: Azure Service Fabric에 행위자 기반 서비스 만들기 | Microsoft Docs
+description: Service Fabric Reliable Actors를 사용하여 C#에 행위자 기반 서비스를 처음 생성, 디버그 및 배포하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: 32d3fa09c863c47753267e97e7c4730dff869887
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4ff896902c1a92c244c3bcd147c3daeeb9e49c77
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211408"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054760"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors 시작
 > [!div class="op_single_selector"]

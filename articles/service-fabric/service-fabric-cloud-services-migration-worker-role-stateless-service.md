@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Services 앱을 마이크로 서비스로 변환 | Microsoft Docs
+title: Azure Cloud Services 앱을 Service Fabric으로 변환 | Microsoft Docs
 description: 이 가이드에서는 Cloud Services에서 서비스 패브릭으로 마이그레이션할 수 있도록 Cloud Services 웹과 작업자 역할 및 서비스 패브릭 상태 비저장 서비스를 비교합니다.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: c6bdd6f88c9008a8d9c15d22bdcf263190424649
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4eed3825d52fe52025077980e21f3763cc5751ac
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206685"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049952"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>웹 및 작업자 역할을 서비스 패브릭 상태 비저장 서비스로 변환하기 위한 가이드
 이 문서에서는 Cloud Services 웹 및 작업자 역할을 서비스 패브릭 상태 비저장 서비스로 마이그레이션하는 방법을 설명합니다. Cloud Services에서 전반적인 아키텍처를 대략적으로 동일하게 유지하는 응용 프로그램에 대한 서비스 패브릭으로의 가장 간단한 마이그레이션 경로입니다.
@@ -41,13 +41,13 @@ ms.locfileid: "34206685"
 
 | **응용 프로그램** | **지원됨** | **마이그레이션 경로** |
 | --- | --- | --- |
-| ASP.NET 웹 양식 |아니오 |ASP.NET Core 1 MVC로 변환 |
+| ASP.NET 웹 양식 |아니요 |ASP.NET Core 1 MVC로 변환 |
 | ASP.NET MVC |마이그레이션 사용 |ASP.NET Core 1 MVC로 업그레이드 |
 | ASP.NET Web API |마이그레이션 사용 |자체 호스팅된 서버 또는 ASP.NET Core 1 사용 |
-| ASP.NET Core 1 |예 |해당 없음 |
+| ASP.NET Core 1 |yes |해당 없음 |
 
 ## <a name="entry-point-api-and-lifecycle"></a>진입점 API 및 수명 주기
-작업자 역할 및 서비스 패브릭 서비스 API는 비슷한 진입점을 제공합니다. 
+작업자 역할 및 Service Fabric 서비스 API는 비슷한 진입점을 제공합니다. 
 
 | **진입점** | **작업자 역할** | **서비스 패브릭 서비스** |
 | --- | --- | --- |
@@ -122,7 +122,7 @@ Cloud Services 환경 API는 현재 VM 인스턴스에 대한 정보 및 기능 
 | --- | --- | --- |
 | 구성 설정 및 변경 알림 |`RoleEnvironment` |`CodePackageActivationContext` |
 | 로컬 저장소 |`RoleEnvironment` |`CodePackageActivationContext` |
-| 끝점 정보 |`RoleInstance` <ul><li>현재 인스턴스: `RoleEnvironment.CurrentRoleInstance`</li><li>다른 역할 및 인스턴스: `RoleEnvironment.Roles`</li> |<ul><li>현재 노드 주소의 경우 `NodeContext`</li><li>서비스 끝점 검색의 경우 `FabricClient` 및 `ServicePartitionResolver`</li> |
+| 엔드포인트 정보 |`RoleInstance` <ul><li>현재 인스턴스: `RoleEnvironment.CurrentRoleInstance`</li><li>다른 역할 및 인스턴스: `RoleEnvironment.Roles`</li> |<ul><li>현재 노드 주소의 경우 `NodeContext`</li><li>서비스 엔드포인트 검색의 경우 `FabricClient` 및 `ServicePartitionResolver`</li> |
 | 환경 에뮬레이션 |`RoleEnvironment.IsEmulated` |해당 없음 |
 | 동시 변경 이벤트 |`RoleEnvironment` |해당 없음 |
 

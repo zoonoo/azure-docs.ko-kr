@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: e6cb83eb6aaaea38686c63d0f3f70738efa4bcff
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 39d3913013d9528405191c5f052a943f1869048a
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630759"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026859"
 ---
 # <a name="settings-and-data-roaming-faq"></a>설정 및 데이터 로밍 FAQ
 이 문서에서는 설정 및 앱 데이터 동기화에 대한 IT 관리자의 질문에 답변합니다.
@@ -35,12 +35,12 @@ ms.locfileid: "39630759"
 * *암호*- 인터넷 암호, Wi-Fi 프로필 등 포함
 * *언어 기본 설정*- 키보드 레이아웃, 시스템 언어, 날짜 및 시간 등에 대한 설정 포함
 * *접근성 기능*- 고대비 테마, 내레이터, 돋보기 등
-* *기타 Windows 설정*- 명령 프롬프트 설정, 응용 프로그램 목록 등
+* 마우스 설정과 같은 *기타 Windows 설정*입니다.
 
 **응용 프로그램 데이터**- 범용 Windows 앱은 “로밍” 폴더에 설정 데이터를 쓸 수 있으며, 이 폴더에 쓰여진 모든 데이터는 자동으로 동기화됩니다. 이 기능을 활용하는 앱 디자인 여부는 개별 앱 개발자의 결정에 달렸습니다. 로밍을 사용하는 범용 Windows 앱을 개발하는 방법에 대한 자세한 내용은 [앱 데이터 저장소 API](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) 및 [Windows 8 앱 데이터 로밍 개발자 블로그](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx)를 참조하세요.
 
 ## <a name="what-account-is-used-for-settings-sync"></a>설정 동기화에 어떤 계정이 사용됩니까?
-Windows 8 및 Windows 8.1에서는 설정 동기화에 항상 소비자 Microsoft 계정이 사용되었습니다. 엔터프라이즈 사용자가 Microsoft 계정을 Active Directory 도메인 계정에 연결하여 설정 동기화에 대한 액세스 권한을 얻을 수 있었습니다. Windows 10에서는 이 연결된 Microsoft 계정 기능이 기본/보조 계정 프레임워크로 대체됩니다.
+Windows 8.1에서는 설정 동기화에 항상 소비자 Microsoft 계정이 사용되었습니다. 엔터프라이즈 사용자가 Microsoft 계정을 Active Directory 도메인 계정에 연결하여 설정 동기화에 대한 액세스 권한을 얻을 수 있었습니다. Windows 10에서는 이 연결된 Microsoft 계정 기능이 기본/보조 계정 프레임워크로 대체됩니다.
 
 기본 계정이란 Windows에 로그인하는 데 사용되는 계정으로, Microsoft 계정, Azure Active Directory(Azure AD) 계정, 온-프레미스 Active Directory 계정 또는 로컬 계정일 수 있습니다. 기본 계정 외에도 Windows 10 사용자는 장치에 하나 이상의 보조 클라우드 계정을 추가할 수 있습니다. 보조 계정은 일반적으로 Microsoft 계정, Azure AD 계정 또는 Gmail이나 Facebook과 같은 기타 계정입니다. 이러한 보조 계정은 Single Sign-On, Windows 스토어 등의 추가 서비스에 대한 액세스를 제공하지만 설정 동기화는 지원하지 않습니다.
 
@@ -59,7 +59,7 @@ Windows 10에서 장치의 기본 계정만 설정 동기화에 사용할 수 �
 >
 
 ## <a name="how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10"></a>Windows 8의 Microsoft 계정 설정 동기화에서 Windows 10의 Azure AD 설정 동기화로 업그레이드하려면 어떻게 해야 하나요?
-Microsoft 계정이 연결된 Windows 8 또는 Windows 8.1을 실행하는 Active Directory 도메인에 조인된 경우 Microsoft 계정을 통해 설정을 동기화합니다. Windows 10으로 업그레이드가 완료되면 도메인에 가입된 사용자인 경우 Active Directory 도메인이 Azure AD와 연결되지 않는 한 계속해서 Microsoft 계정을 통해 사용자 설정을 동기화하게 됩니다.
+Microsoft 계정이 연결된 Windows 8.1을 실행하는 Active Directory 도메인에 조인된 경우 Microsoft 계정을 통해 설정을 동기화합니다. Windows 10으로 업그레이드가 완료되면 도메인에 가입된 사용자인 경우 Active Directory 도메인이 Azure AD와 연결되지 않는 한 계속해서 Microsoft 계정을 통해 사용자 설정을 동기화하게 됩니다.
 
 온-프레미스 Active Directory 도메인이 Azure AD와 연결되면 장치에서 연결된 Azure AD 계정을 사용하여 설정을 동기화하려고 시도합니다. Azure AD 관리자가 엔터프라이즈 상태 로밍을 활성화하지 않으면 연결된 Azure AD 계정이 설정 동기화를 중지하게 됩니다. Windows 10 사용자인 경우 Azure AD ID로 로그인하면 관리자가 Azure AD를 통한 설정 동기화를 활성화하는 즉시 Windows 설정 동기화가 시작됩니다.
 
@@ -94,7 +94,7 @@ Windows 10의 2015년 11월 이후 릴리스에서 엔터프라이즈 상태 로
 앞으로 Microsoft는 UE-V를 Windows와 긴밀하게 통합하고 Azure AD 클라우드를 통해 설정을 로밍할 수 있도록 UE-V를 확장하는 방법을 연구할 것입니다.
 
 ## <a name="can-i-store-synced-settings-and-data-on-premises"></a>동기화된 설정 및 데이터를 온-프레미스에 저장할 수 있나요?
-엔터프라이즈 상태 로밍은 Azure 클라우드에 동기화된 모든 데이터를 저장합니다. UE-V는 온-프레미스 로밍 솔루션을 제공합니다.
+Enterprise State Roaming은 Microsoft 클라우드에 동기화된 모든 데이터를 저장합니다. UE-V는 온-프레미스 로밍 솔루션을 제공합니다.
 
 ## <a name="who-owns-the-data-thats-being-roamed"></a>로밍되는 데이터를 소유한 사람은 누구인가요?
 엔터프라이즈는 엔터프라이즈 상태 로밍을 통해 로밍되는 데이터를 소유합니다. 데이터는 Azure 데이터 센터에 저장됩니다. 모든 사용자 데이터는 Azure Information Protection의 Azure Rights Management 서비스를 사용하여 클라우드에서 전송 중 및 대기 중에 암호화됩니다. 이는 사용자 자격 증명 같은 민감한 특정 데이터만 장치에서 내보내기 전에 암호화하는 Microsoft 계정 기반 설정 동기화에 비해 향상된 기능입니다.

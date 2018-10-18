@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 8e68a90c347d4802a99072d6ee4492e01dab54ca
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 9285b0ea50b7207aa40cea2dcab50f79863ffda9
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859979"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050190"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Bulk Executor Java 라이브러리를 사용하여 Azure Cosmos DB 데이터에서 대량 작업 수행
 

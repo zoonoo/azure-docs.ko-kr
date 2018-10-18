@@ -1,5 +1,5 @@
 ---
-title: Java에서 첫 번째 신뢰할 수 있는 Azure 마이크로 서비스 만들기 | Microsoft Docs
+title: Java에서 Azure Service Fabric Reliable Services 처음 만들기 | Microsoft Docs
 description: 상태 비저장 및 상태 저장 서비스를 사용하여 Microsoft Azure 서비스 패브릭 응용 프로그램 만들기 소개
 services: service-fabric
 documentationcenter: java
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 7e83f141791bb49130f7cf01086537f8ae08c406
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: d4e3419241d44744f8a692896848edb6cebb56a0
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019698"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049697"
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services로 시작하기
 > [!div class="op_single_selector"]

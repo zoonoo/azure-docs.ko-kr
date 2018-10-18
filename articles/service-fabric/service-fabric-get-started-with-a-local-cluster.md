@@ -1,5 +1,5 @@
 ---
-title: Azure 마이크로 서비스 로컬로 배포 및 업그레이드 | Microsoft Docs
+title: Azure Service Fabric 서비스를 로컬로 배포 및 업그레이드 | Microsoft Docs
 description: 로컬 서비스 패브릭 클러스터를 설정하고 기존 응용 프로그램을 거기에 배포한 다음 해당 응용 프로그램을 업그레이드하는방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: 244a26df25e39fd4000a8a2692edd8205e354582
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0243f6ca96b5e2c20b40bf6e0fc11e8d760db475
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643246"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053366"
 ---
 # <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>로컬 클러스터에서 응용 프로그램 배포 및 업그레이드 시작
 Azure 서비스 패브릭 SDK에서는 전체 로컬 개발 환경을 포함하고 로컬 클러스터에서 응용 프로그램을 배포 및 관리하는 작업을 빠르게 시작하는 데 사용할 수 있습니다. 이 문서에서는 Windows PowerShell에서 로컬 클러스터를 만들고 기존 응용 프로그램을 거기에 배포한 다음 새 버전으로 해당 응용 프로그램을 업그레이드합니다.

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: laviswa
-ms.openlocfilehash: a3a1f376c36004851d6e64f2fa037bebfc24665b
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 766a2a9a2b71d9cd013f26b843d413d7603ab1fd
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287761"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051360"
 ---
 # <a name="query-azure-cosmos-db-data-with-sql-queries"></a>SQL 쿼리를 사용하여 Azure Cosmos DB 데이터 쿼리
 
@@ -1550,7 +1550,7 @@ Cosmos DB는 일반적인 작업을 위해 많은 기본 제공 함수도 지원
 ```json
     [4]
 ```
-Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데이터 및 혼합된 스키마 데이터에서 잘 작동하도록 설계되었다는 것입니다. 예를 들어 Size 속성이 없거나 "unknown"과 같은 숫자가 아닌 값을 가진 문서가 있는 경우 오류를 반환하는 대신 문서를 건너뜁니다.
+Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데이터 및 혼합된 스키마 데이터에서 잘 작동하도록 설계되었다는 것입니다. 예를 들어 Size 속성이 없거나 “unknown”과 같은 숫자가 아닌 값을 가진 문서가 있는 경우 오류를 반환하는 대신 문서를 건너뜁니다.
 
 ### <a name="type-checking-functions"></a>형식 검사 함수
 형식 검사 함수를 통해 SQL 쿼리 내에서 식의 형식을 검사할 수 있습니다. 형식 검사 함수를 사용하여 변수이거나 알 수 없는 경우 문서 내의 속성 형식을 즉시 확인할 수 있습니다. 다음은 지원되는 기본 제공 형식 검사 함수 표입니다.
@@ -1691,7 +1691,7 @@ Cosmos DB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데�
 ```
 
 ### <a name="array-functions"></a>배열 함수
-다음 스칼라 함수는 배열 입력 값에 대해 작업을 수행하고 숫자, 부울, 또는 배열 값을 반환합니다. 기본 제공 배열 함수의 테이블은 다음과 같습니다.
+다음 스칼라 함수는 배열 입력 값에 대해 작업을 수행하고 숫자, 부울 또는 배열 값을 반환합니다. 기본 제공 배열 함수의 테이블은 다음과 같습니다.
 
 | 사용 현황 | 설명 |
 | --- | --- |

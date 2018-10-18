@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: af2a3da788fd26387ccdcc36422ffa5b11893212
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 529612aeecfcea1d775c2f4359c5135ca3c6885e
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888086"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052546"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>개발 및 테스트에 Azure Storage 에뮬레이터 사용
 
@@ -68,7 +68,7 @@ Azure Storage 에뮬레이터를 시작하려면:
 
   기본 SQL Server 인스턴스를 사용하도록 에뮬레이터에 지시하는 다음 명령을 사용할 수도 있습니다.
 
-  `AzureStorageEmulator.exe init /server .\\`
+  `AzureStorageEmulator.exe init /server .`
 
   또는 LocalDB 인스턴스를 다시 초기화하는 다음 명령을 사용할 수도 있습니다.
 
@@ -93,10 +93,10 @@ Xamarin 라이브러리와 같은 일부 Azure 저장소 클라이언트 라이�
 또한 Azure PowerShell을 사용하여 SAS 토큰을 생성할 수 있습니다. 다음 예제에서는 blob 컨테이너에 대한 모든 권한을 가진 SAS 토큰을 생성합니다.
 
 1. Azure PowerShell이 아직 없는 경우 설치합니다(최신 버전의 Azure PowerShell cmdlet 사용 권장). 설치 지침은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/install-azurerm-ps)을 참조하세요.
-2. Azure PowerShell을 열고 `ACCOUNT_NAME` 및 `ACCOUNT_KEY==`를 자신의 자격 증명으로 바꾸고 `CONTAINER_NAME`을 선택한 이름으로 바꿔서 다음 명령을 실행합니다.
+2. Azure PowerShell을 열고 다음 명령을 실행하여 `CONTAINER_NAME`을 선택한 이름으로 바꿉니다.
 
 ```powershell
-$context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
+$context = New-AzureStorageContext -Local
 
 New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
 
@@ -108,7 +108,7 @@ New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryT
 새 컨테이너에 대해 결과적으로 생성된 공유 액세스 서명 URI는 다음과 유사해야 합니다.
 
 ```
-https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
+http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
 ```
 
 이 예제를 사용하여 만든 공유 액세스 서명은 하루 동안 유효 합니다. 서명은 컨테이너 내에서 blob에 대해 모든 권한을 부여합니다(읽기, 쓰기, 삭제, 나열).

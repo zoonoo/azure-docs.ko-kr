@@ -1,5 +1,5 @@
 ---
-title: Azure 마이크로 서비스에서 KVSActorStateProvider 설정 변경 | Microsoft Docs
+title: Azure 서비스 패브릭 행위자에서 KVSActorStateProvider 설정 변경 | Microsoft Docs
 description: "'KVSActorStateProvider' 형식의 Azure 서비스 패브릭 상태 저장 행위자를 구성하는 방법에 대해 알아봅니다."
 services: Service-Fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: c01bcfecea8d79784b764e715f077c76e7d4be45
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 81c09d61a5213319fa01ef5cc7070ffe385bbab1
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017650"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049513"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Reliable Actors 구성--KVSActorStateProvider
 KVSActorStateProvider의 기본 구성은 지정된 행위자에 대해 Microsoft Visual Studio 패키지 루트의 Config 폴더에 생성된 settings.xml 파일을 변경하여 수정할 수 있습니다.
@@ -53,7 +53,7 @@ Azure 서비스 패브릭 런타임은 settings.xml 파일에서 미리 정의�
 | Name | 단위 | 기본값 | 설명 |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |초 |0.015 |작업을 수신한 후 주 복제본에 대한 승인을 다시 보내기 전에 보조 복제본의 복제자가 대기하는 시간. 이 간격 내에서 처리하는 작업에 대해 보낼 나머지 승인은 모두 하나의 응답으로 전송됩니다. |
-| ReplicatorEndpoint |해당 없음 |기본값 없음--필수 매개 변수 |주/보조 복제자가 복제본 세트의 다른 복제자와 통신하는 데 사용할 IP 주소 및 포트. 서비스 매니페스트의 TCP 리소스 끝점을 참조해야 합니다. 서비스 매니페스트에서 끝점 리소스를 정의하는 방법에 대한 자세한 내용은 [서비스 매니페스트 리소스](service-fabric-service-manifest-resources.md) 를 참조하세요. |
+| ReplicatorEndpoint |해당 없음 |기본값 없음--필수 매개 변수 |주/보조 복제자가 복제본 세트의 다른 복제자와 통신하는 데 사용할 IP 주소 및 포트. 서비스 매니페스트의 TCP 리소스 엔드포인트를 참조해야 합니다. 서비스 매니페스트에서 엔드포인트 리소스를 정의하는 방법에 대한 자세한 내용은 [서비스 매니페스트 리소스](service-fabric-service-manifest-resources.md) 를 참조하세요. |
 | RetryInterval |초 |5 |작업에 대한 승인을 받지 못한 경우 복제자가 메시지를 다시 전송한 후의 시간 간격. |
 | MaxReplicationMessageSize |바이트 |50MB |단일 메시지에서 전송할 수 있는 복제 데이터의 최대 크기. |
 | MaxPrimaryReplicationQueueSize |작업의 수 |1024 |기본 큐의 최대 작업 수. 작업은 주 복제자가 모든 보조 복제자로부터 승인을 받은 후 해제됩니다. 이 값은 64보다 크고 2의 제곱이어야 합니다. |

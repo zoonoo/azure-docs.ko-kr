@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: fd93f1ad83f6627f27534eca17f91c9fe9b2cc9f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: d9df71f6fa2f64544cbefc7d9aca8c153c86ac98
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667860"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094258"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Azure Virtual Machine 사용 이해 
-Azure 사용 데이터를 분석하면 조직 전체의 비용 관리와 할당을 개선할 수 있는 강력한 소비 통찰력을 확보할 수 있습니다. 이 문서에서는 Azure Compute 소비에 대한 심층적인 세부 정보를 제공합니다. 일반 Azure 사용에 대한 자세한 내용은 [청구서 이해](/billing/billing-understand-your-bill.md)로 이동합니다.
+Azure 사용 데이터를 분석하면 조직 전체의 비용 관리와 할당을 개선할 수 있는 강력한 소비 통찰력을 확보할 수 있습니다. 이 문서에서는 Azure Compute 소비에 대한 심층적인 세부 정보를 제공합니다. 일반 Azure 사용에 대한 자세한 내용은 [청구서 이해](https://docs.microsoft.com/azure/billing/billing-understand-your-bill)로 이동합니다.
 
 ## <a name="download-your-usage-details"></a>사용 세부 정보 다운로드
 먼저 [사용 세부 정보를 다운로드](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv)합니다. 다음 표에서는 Azure Resource Manager를 통해 배포된 Virtual Machines의 정의 및 예제 값을 제공합니다. 이 문서에는 클래식 모델을 통해 배포된 VM에 대한 상세 정보는 없습니다.
@@ -143,5 +143,6 @@ Microsoft.ClassicCompute는 Azure Service Manager를 통해 배포된 클래식 
 프리미엄 저장소를 지원하는 VM은 비 프리미엄 저장소 지원 VM과 같은 요금으로 청구됩니다. 저장소 비용만 다릅니다. 자세한 내용은 [저장소 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-사용 세부 정보에 대한 자세한 내용은 [Microsoft Azure 청구서 이해](/billing/billing-understand-your-bill.md)를 참조하세요.
+사용 세부 정보에 대한 자세한 내용은 [Microsoft Azure 청구서 이해](https://docs.microsoft.com/azure/billing/billing-understand-your-bill
+)를 참조하세요.
 
