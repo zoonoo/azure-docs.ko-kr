@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: 85d8eb555d96b1c50da0ed00ae1f06c3eec1a5ba
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: de67d71a209ea0889b4dc5c87fed254700cb9916
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722214"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395141"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB FAQ
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos 기본 사항
@@ -466,7 +466,7 @@ Azure Cosmos DB는 [수평 분할](partition-data.md)을 활용하여 저장소 
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Gremlin 드라이버를 사용하여 삽입 공격을 방지하려면 어떻게 하나요? 
 
-대부분의 네이티브 Tinkerpop Gremlin 드라이버는 쿼리 실행에 매개 변수 사전을 제공하는 옵션을 허용합니다. 다음은 [Gremlin.Net]((http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet)) 및 [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js)에서 수행하는 방법의 예제입니다.
+대부분의 네이티브 Tinkerpop Gremlin 드라이버는 쿼리 실행에 매개 변수 사전을 제공하는 옵션을 허용합니다. 다음은 [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) 및 [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js)에서 수행하는 방법의 예제입니다.
 
 ### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>"Gremlin 쿼리 컴파일 오류: 메서드를 찾을 수 없음” 오류가 표시되는 이유는 무엇인가요?
 

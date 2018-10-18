@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2018
 ms.author: barclayn
-ms.openlocfilehash: 0addad1db4d9f897736a7793c5489897bca2cd38
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 32174af9edcd6da7b87b6b38c0824fa7f07aa8f9
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093429"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49384890"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Azure에서 사용 가능한 보안 서비스 및 기술
 
@@ -48,7 +48,7 @@ ms.locfileid: "47093429"
 | [Azure Storage 공유 액세스 서명](../storage/common/storage-dotnet-shared-access-signature-part-1.md)|공유 액세스 서명은 저장소 계정의 리소스에 대한 위임된 권한을 제공합니다.  |
 |[Azure Storage 계정 키](../storage/common/storage-create-storage-account.md)| 저장소 계정에 액세스할 때 인증에 사용되는 Azure Storage에 대한 액세스 제어 방법입니다. |
 |[SMB 3.0 암호화를 사용한 Azure 파일 공유](../storage/files/storage-files-introduction.md)|SMB(서버 메시지 블록) 파일 공유 프로토콜에 자동 네트워크 암호화를 사용하는 네트워크 보안 기술입니다. |
-|[Azure Storage 분석](https://docs.microsoft.com/en-us/rest/api/storageservices/Storage-Analytics)| 저장소 계정의 데이터에 대한 로깅 및 메트릭 생성 기술입니다. |
+|[Azure Storage 분석](https://docs.microsoft.com/rest/api/storageservices/Storage-Analytics)| 저장소 계정의 데이터에 대한 로깅 및 메트릭 생성 기술입니다. |
 
 <!------>
 
@@ -58,8 +58,8 @@ ms.locfileid: "47093429"
 | [Azure&nbsp;SQL&nbsp;방화벽](../sql-database/sql-database-firewall-configure.md)|데이터베이스에 대한 네트워크 기반 공격으로부터 보호하는 네트워크 액세스 제어 기능입니다. |
 |[Azure&nbsp;SQL&nbsp;셀&nbsp;수준 암호화](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)| 세부적인 수준에서 암호화를 제공하는 데이터베이스 보안 기술입니다.  |
 | [Azure&nbsp;SQL&nbsp;연결 암호화](../sql-database/sql-database-control-access.md)|SQL Database는 보안을 제공하기 위해 IP 주소로 연결을 제한하는 방화벽 규칙, 사용자가 해당 ID를 증명하도록 하는 인증 메커니즘 및 특정 작업 및 데이터에 대한 사용자를 제한하는 권한 부여 메커니즘을 사용하여 액세스를 제어합니다. |
-| [Azure SQL 항상 암호화](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|Azure SQL Database 또는 SQL Server 데이터베이스에 저장된 신용 카드 번호 또는 주민 등록 번호(예: 미국 사회 보장 번호)와 같은 중요한 데이터를 보호합니다.  |
-| [Azure&nbsp;SQL&nbsp;투명한 데이터 암호화](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| 전체 데이터베이스의 저장소를 암호화하는 데이터베이스 보안 기능입니다. |
+| [Azure SQL 항상 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|Azure SQL Database 또는 SQL Server 데이터베이스에 저장된 신용 카드 번호 또는 주민 등록 번호(예: 미국 사회 보장 번호)와 같은 중요한 데이터를 보호합니다.  |
+| [Azure&nbsp;SQL&nbsp;투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| 전체 데이터베이스의 저장소를 암호화하는 데이터베이스 보안 기능입니다. |
 | [Azure SQL Database 감사](../sql-database/sql-database-auditing.md)|데이터베이스 이벤트를 추적하고 이를 Azure Storage 계정의 감사 로그에 기록하는 데이터베이스 감사 기능입니다.  |
 
 

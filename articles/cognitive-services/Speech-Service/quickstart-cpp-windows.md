@@ -7,14 +7,14 @@ author: wolfma61
 ms.service: cognitive-services
 ms.component: Speech
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: 12faf7ae7e45e6f6ede739b24d9ead28ff26313e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 2adad78760c1d12da688106c45e86c91a8b13f91
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886332"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339358"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Windows의 C++에서 음성 인식
 
@@ -59,7 +59,7 @@ ms.locfileid: "48886332"
     ![솔루션에 대한 패키지 관리 대화 상자 스크린샷](media/sdk/qs-cpp-windows-04-nuget-install-1.0.0.png)
 
     > [!NOTE]
-    > Cognitive Services 음성 SDK의 현재 버전은 `1.0.0`입니다.
+    > Cognitive Services 음성 SDK의 현재 버전은 `1.0.1`입니다.
 
 1. NuGet 패키지를 설치하려면 표시된 라이선스에 동의합니다.
 

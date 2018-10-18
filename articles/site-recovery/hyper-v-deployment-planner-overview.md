@@ -6,15 +6,15 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 9981db7e2994b9a4f20f99f4997a89b0368d343c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7a91217e35ae7a32714478171dcebc002e384fcb
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423677"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093598"
 ---
 # <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Hyper-V에서 Azure로 Site Recovery Deployment Planner
 
@@ -102,7 +102,7 @@ Azure Site Recovery Deployment Planner 실행 인스턴스당 프로파일링할
 
             set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
-    나. PowerShell 원격 기능을 사용할 수 있어야 합니다.
+    b. PowerShell 원격 기능을 사용할 수 있어야 합니다.
 
             Enable-PSRemoting -Force
 

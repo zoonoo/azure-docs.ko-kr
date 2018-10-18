@@ -3,24 +3,24 @@ title: Azure Site Recovery를 사용한 Azure Traffic Manager | Microsoft Docs
 description: 재해 복구 및 마이그레이션에 Azure Site Recovery를 사용한 Azure Traffic Manager를 사용하는 방법 설명
 services: site-recovery
 documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: 0be013a1b8d2c619d58034157240eafb241c4e59
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: 8f303ec3349b0003ef764e437c6f06cf498dcc57
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919039"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353257"
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Azure Site Recovery를 사용한 Azure Traffic Manager
 
-Azure Traffic Manager를 사용하면 응용 프로그램 끝점에 트래픽 분산을 제어할 수 있습니다. 끝점은 Azure의 내부 또는 외부에서 호스팅되는 모든 인터넷 연결 서비스입니다.
+Azure Traffic Manager를 사용하면 응용 프로그램 엔드포인트에 트래픽 분산을 제어할 수 있습니다. 엔드포인트는 Azure의 내부 또는 외부에서 호스팅되는 모든 인터넷 연결 서비스입니다.
 
-Traffic Manager는 DNS(Domain Name System)를 사용하여 클라이언트 요청을 트래픽 라우팅 메서드 및 엔드포인트의 상태를 기반으로 가장 적절한 엔드포인트로 리디렉션합니다. Traffic Manager는 다양한 응용 프로그램 요구와 자동 장애 조치(failover)에 맞는 [트래픽 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md) 및 [끝점 모니터링 옵션](../traffic-manager/traffic-manager-monitoring.md)을 제공합니다. 클라이언트는 선택한 끝점에 직접 연결됩니다. Traffic Manager는 프록시 또는 게이트웨이가 아니며, 클라이언트와 서비스 간에 전달되는 트래픽을 표시하지 않습니다.
+Traffic Manager는 DNS(Domain Name System)를 사용하여 클라이언트 요청을 트래픽 라우팅 메서드 및 엔드포인트의 상태를 기반으로 가장 적절한 엔드포인트로 리디렉션합니다. Traffic Manager는 다양한 응용 프로그램 요구와 자동 장애 조치(failover)에 맞는 [트래픽 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md) 및 [엔드포인트 모니터링 옵션](../traffic-manager/traffic-manager-monitoring.md)을 제공합니다. 클라이언트는 선택한 엔드포인트에 직접 연결됩니다. Traffic Manager는 프록시 또는 게이트웨이가 아니며, 클라이언트와 서비스 간에 전달되는 트래픽을 표시하지 않습니다.
 
 이 문서에서는 Azure Site Recovery의 강력한 재해 복구 및 마이그레이션 기능으로 Azure Traffic Monitor의 지능형 라우팅을 결합하는 방법을 설명합니다.
 
@@ -102,7 +102,7 @@ Azure Traffic Manager의 [가중치](../traffic-manager/traffic-manager-configur
 
 예를 들어 독일 중부의 엔드포인트에서 장애가 발생하면 독일 북동부로 신속하게 복구할 수 있습니다. 새 엔드포인트는 독일에서 시작된 트래픽을 처리하여 가동 중지 시간을 최소화합니다. 마찬가지로 유럽 서부의 엔드포인트에서 정전이 발생할 경우 응용 프로그램 워크로드를 북유럽에 복구하여 문제를 해결할 수 있으며, DNS를 처리하는 Azure Traffic Manager는 사용 가능한 엔드포인트로 리디렉션됩니다.
 
-필요한 만큼 영역 및 끝점 조합을 포함하도록 위의 설정을 확장할 수 있습니다. Traffic Manager는 최대 10단계의 중첩 프로필을 허용하며 중첩 구성 내에서 루프를 허용하지 않습니다.
+필요한 만큼 영역 및 엔드포인트 조합을 포함하도록 위의 설정을 확장할 수 있습니다. Traffic Manager는 최대 10단계의 중첩 프로필을 허용하며 중첩 구성 내에서 루프를 허용하지 않습니다.
 
 ## <a name="recovery-time-objective-rto-considerations"></a>RTO(복구 시간 목표) 고려 사항
 
@@ -119,5 +119,5 @@ Traffic Manager를 활용하면 DNS 업데이트에 필요한 작업을 미리 �
 ## <a name="next-steps"></a>다음 단계
 - Traffic Manager [라우팅 메서드](../traffic-manager/traffic-manager-routing-methods.md)에 대해 자세히 알아봅니다.
 - [중첩 Traffic Manager 프로필](../traffic-manager/traffic-manager-nested-profiles.md)에 대해 자세히 알아봅니다.
-- [끝점 모니터링](../traffic-manager/traffic-manager-monitoring.md)에 대해 자세히 알아보세요.
+- [엔드포인트 모니터링](../traffic-manager/traffic-manager-monitoring.md)에 대해 자세히 알아보세요.
 - 응용 프로그램 장애 조치(failover)를 자동화하는 [복구 계획](site-recovery-create-recovery-plans.md)에 대해 자세히 알아봅니다.

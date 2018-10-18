@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: f8f12263ca71b8e88033484bc03fc4cff9e25bc8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8b11b5e3e420577590e95c6839673f54c52d078b
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435216"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116179"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>자습서: LinkedIn Elevate와 Azure Active Directory 통합
 
@@ -121,7 +121,7 @@ LinkedIn Elevate에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     a. **식별자** 텍스트 상자에 LinkedIn 포털에서 복사한 **엔티티 ID**를 입력합니다. 
 
-    나. **회신 URL** 텍스트 상자에 LinkedIn 포털에서 복사한 **ACS(Assertion Consumer Access) URL**을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 LinkedIn 포털에서 복사한 **ACS(Assertion Consumer Access) URL**을 입력합니다.
 
 1. **SP 시작**에서 SSO를 구성하려면 구성 섹션에서 고급 URL 설정 표시 옵션을 클릭하고 다음 패턴으로 로그인 URL을 구성합니다.
 
@@ -145,7 +145,7 @@ LinkedIn Elevate에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
       ![Azure AD 테스트 사용자 만들기](./media/linkedinelevate-tutorial/adduserattribute.png)
 
-      나. **확인**을 클릭하여 해당 특성을 저장합니다.
+      b. **확인**을 클릭하여 해당 특성을 저장합니다.
 
       다. 특성 **emailaddress**의 이름을 **email**로 변경합니다.
 
@@ -190,7 +190,7 @@ LinkedIn Elevate에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 

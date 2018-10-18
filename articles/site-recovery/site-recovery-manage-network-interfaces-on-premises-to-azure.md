@@ -2,18 +2,18 @@
 title: 온-프레미스에서 Azure로 복제에서 Azure Site Recovery의 네트워크 인터페이스 관리 | Microsoft Docs
 description: Azure Site Recovery를 사용하여 온-프레미스에서 Azure로 복제에서 네트워크 인터페이스를 관리하는 방법을 설명합니다.
 services: site-recovery
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: 75220d964f3e1208c85d34c1da97fab32044e62b
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: 0ca2d32910e57042d2cbc9d3b772d226d835b545
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917111"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352413"
 ---
 # <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-replication"></a>온-프레미스에서 Azure로 복제에서 가상 머신 네트워크 인터페이스 관리
 

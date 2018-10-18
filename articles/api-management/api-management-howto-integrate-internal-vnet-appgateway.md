@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: ce4fd27c89f529b9c12999689152c3025648d2ce
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: c85aa2f7a41511d809405f3b92c9ded2eb0693ad
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038398"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319866"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>내부 VNET에서 Application Gateway와 API Management 통합
 
-##<a name="overview"> </a> 개요
+## <a name="overview"> </a> 개요
 
 Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual Network에서 API Management 서비스를 구성할 수 있습니다. Azure Application Gateway는 계층 7 부하 분산 장치를 제공하는 PAAS 서비스입니다. 역방향 프록시 서비스 역할을 하고 제품에 WAF(웹 응용 프로그램 방화벽)를 제공합니다.
 
@@ -43,7 +43,7 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 
 * 인증서 - API 호스트 이름에 대한 pfx 및 cer, 개발자 포털의 호스트 이름에 대한 pfx입니다.
 
-##<a name="scenario"> </a> 시나리오
+## <a name="scenario"> </a> 시나리오
 
 이 문서에서는 내부 및 외부 소비자가 단일 API Management 서비스를 사용하여 온-프레미스 및 클라우드 API에서 단일 프런트 엔드 역할을 하도록 만드는 방법을 다룹니다. Application Gateway에서 사용 가능한 라우팅 기능을 사용하여 외부 소비에 대해 API(예제에서 녹색으로 강조 표시됨)의 하위 집합만을 노출하는 방법을 확인할 수도 있습니다.
 
@@ -230,7 +230,7 @@ $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name "gatewayIP01" -S
 
 ### <a name="step-2"></a>2단계
 
-공용 IP 끝점에 대한 프런트 엔드 IP 포트를 구성합니다. 이 포트는 최종 사용자가 연결하는 포트입니다.
+공용 IP 엔드포인트에 대한 프런트 엔드 IP 포트를 구성합니다. 이 포트는 최종 사용자가 연결하는 포트입니다.
 
 ```powershell
 $fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "port01"  -Port 443
@@ -238,7 +238,7 @@ $fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "port01"  -Port 443
 
 ### <a name="step-3"></a>3단계
 
-공용 IP 끝점으로 프런트 엔드 IP를 구성합니다.
+공용 IP 엔드포인트로 프런트 엔드 IP를 구성합니다.
 
 ```powershell
 $fipconfig01 = New-AzureRmApplicationGatewayFrontendIPConfig -Name "frontend1" -PublicIPAddress $publicip
@@ -266,7 +266,7 @@ $portalListener = New-AzureRmApplicationGatewayHttpListener -Name "listener02" -
 
 ### <a name="step-6"></a>6단계
 
-API Management 서비스 `ContosoApi` 프록시 도메인 엔드포인트에 사용자 지정 프로브를 만듭니다. 경로 `/status-0123456789abcdef`는 모든 API Management 서비스에서 호스트되는 기본 상태 끝점입니다. `api.contoso.net`을 사용자 지정 프로브 호스트 이름으로 지정하여 SSL 인증서로 보호합니다.
+API Management 서비스 `ContosoApi` 프록시 도메인 엔드포인트에 사용자 지정 프로브를 만듭니다. 경로 `/status-0123456789abcdef`는 모든 API Management 서비스에서 호스트되는 기본 상태 엔드포인트입니다. `api.contoso.net`을 사용자 지정 프로브 호스트 이름으로 지정하여 SSL 인증서로 보호합니다.
 
 > [!NOTE]
 > 호스트 이름 `contosoapi.azure-api.net`은 서비스 `contosoapi`가 공용 Azure에서 생성될 때 구성된 기본 프록시 호스트 이름입니다.
@@ -349,7 +349,7 @@ Application Gateway의 DNS 이름은 APIM 프록시 호스트 이름(예: 위의
 Get-AzureRmPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
-##<a name="summary"> </a> 요약
+## <a name="summary"> </a> 요약
 VNET에서 구성된 Azure API Management는 온-프레미스 또는 클라우드에서 호스트되었는지 여부에 상관 없이 구성된 모든 API에 대한 단일 게이트웨이 인터페이스를 제공합니다. Application Gateway와 API Management의 통합을 통해 특정 API를 인터넷에 액세스할 수 있도록 선택적으로 유연성을 향상시키고 API Management 인스턴스에 대한 프런트 엔드로 웹 응용 프로그램 방화벽을 제공합니다.
 
 ##<a name="next-steps"> </a> 다음 단계

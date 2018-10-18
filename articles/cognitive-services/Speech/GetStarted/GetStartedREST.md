@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 0f98182a73cebdd4df9f7849b2306f89c620f24b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a9f74f4032a78ee51ea2a8f020cd1418bb3330ca
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973952"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345359"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>빠른 시작: Bing Speech Recognition REST API 사용
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 클라우드 기반 Bing Speech Service를 사용하여 REST API를 통해 음성 오디오를 텍스트로 변환함으로써 응용 프로그램을 개발할 수 있습니다.
 

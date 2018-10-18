@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: diberry
-ms.openlocfilehash: 260ec46d292e244dfe51a3714e8b97e9d4689068
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: e6b8c769082b688b07bac78bca5e2dca59a2d9c2
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883418"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389414"
 ---
 # <a name="quickstart-create-a-qna-maker-knowledge-base-in-c"></a>빠른 시작: C#에서 QnA Maker 기술 자료 만들기
 
@@ -36,7 +36,7 @@ ms.locfileid: "48883418"
 
 [!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-create-project.md)] 
 
-## <a name="add-the-required-dependencies"></a>필요한 종속성 추가
+## <a name="add-the-required-dependencies"></a>필수 종속성 추가
 
 [!INCLUDE [Add required constants to code file](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-required-dependencies.md)]  
 
@@ -69,8 +69,8 @@ static string kb = @"
     }
   ],
   'urls': [
-    'https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs',
-    'https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq'
+    'https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs',
+    'https://docs.microsoft.com/bot-framework/resources-bot-framework-faq'
   ],
   'files': []
 }

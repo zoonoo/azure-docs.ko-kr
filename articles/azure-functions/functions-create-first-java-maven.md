@@ -12,18 +12,18 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 16d6dd6a589256ad98a37465e64e847778d0cc7e
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 7483ac4521b0b997111dcc5705ba8c28a8443299
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092596"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116405"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Java 및 Maven을 사용하여 Azure에서 첫 번째 함수 만들기(미리 보기)
 
 [!INCLUDE [functions-java-preview-note](../../includes/functions-java-preview-note.md)]
 
-이 빠른 시작에서는 Maven을 사용하여 [서버 없는](https://azure.microsoft.com/overview/serverless-computing/) 함수 프로젝트를 만들어 로컬로 테스트하고 Azure Functions에 배포하는 과정을 안내합니다. 마친 후에는 Azure에서 HTTP 트리거 함수 앱이 실행됩니다.
+이 빠른 시작에서는 Maven을 사용하여 [서버 없는](https://azure.microsoft.com/solutions/serverless/) 함수 프로젝트를 만들어 로컬로 테스트하고 Azure Functions에 배포하는 과정을 안내합니다. 마친 후에는 Azure에서 HTTP 트리거 함수 앱이 실행됩니다.
 
 ![cURL로 명령줄에서 Hello World 함수 액세스](media/functions-create-java-maven/hello-azure.png)
 

@@ -4,7 +4,7 @@ description: SQL 테이블 만들기 및 SQL 테이블로 데이터 로드
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 50f8b862-4d32-44b2-a1e2-4fbc8024acaa
 ms.service: machine-learning
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2018
 ms.author: deguhath
-ms.openlocfilehash: f9e456ec28695c63384f1c4fdd4b04ec37fefc14
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 99141b7542cc9adadadda6ada670b644d3aba5f3
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45728814"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393646"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Azure Machine Learning을 위해 Azure SQL Database로 데이터 이동
 이 토픽에서는 플랫 파일(CSV 또는 TSV 형식) 또는 온-프레미스 SQL Server에 저장된 데이터에서 Azure SQL Database로 데이터를 이동하기 위한 옵션에 대해 간략히 설명합니다. 클라우드로 데이터를 이동하는 이러한 작업은 팀 데이터 과학 프로세스의 일부입니다.

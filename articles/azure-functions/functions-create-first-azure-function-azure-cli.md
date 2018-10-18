@@ -12,16 +12,16 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: f65ff3e38e3768dccf04e9eaa4345ffcea4daa9e
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: ef5459b2b31b67afe187612ffc1ab079a5045a8c
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451123"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114913"
 ---
 # <a name="create-your-first-function-from-the-command-line"></a>명령줄에서 첫 번째 함수 만들기
 
-이 빠른 시작 토픽에서는 명령줄 또는 터미널에서 첫 번째 함수를 만드는 방법을 설명합니다. Azure CLI를 사용하여 함수를 호스트하고 [서버를 사용하지 않는](https://azure.microsoft.com/overview/serverless-computing/) 인프라인 함수 앱을 만듭니다. 함수 코드 프로젝트는 Azure에 함수 앱 프로젝트를 배포하는 데도 사용되는 [Azure Functions Core Tools](functions-run-local.md)를 사용하여 템플릿에서 생성됩니다.
+이 빠른 시작 토픽에서는 명령줄 또는 터미널에서 첫 번째 함수를 만드는 방법을 설명합니다. Azure CLI를 사용하여 함수를 호스트하고 [서버를 사용하지 않는](https://azure.microsoft.com/solutions/serverless/) 인프라인 함수 앱을 만듭니다. 함수 코드 프로젝트는 Azure에 함수 앱 프로젝트를 배포하는 데도 사용되는 [Azure Functions Core Tools](functions-run-local.md)를 사용하여 템플릿에서 생성됩니다.
 
 Mac, Windows 또는 Linux 컴퓨터를 사용하여 아래 단계를 따르면 됩니다.
 

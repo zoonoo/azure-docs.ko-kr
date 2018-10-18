@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: c20375d42786b817f677be22dee8f4e71e710bc5
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 493beb254852464765d506c61c7ae6ce3b3835d3
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41919571"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362894"
 ---
 # <a name="virtual-network-peering"></a>가상 네트워크 피어링
 
@@ -92,7 +92,7 @@ Network Watcher의 [연결 확인](../network-watcher/network-watcher-connectivi
 
 가상 네트워크 피어링 연결을 활용하는 수신 및 송신 트래픽에 대한 명목 요금이 부과됩니다. VNet 피어링 및 전역 VNet 피어링 가격 책정에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-network)를 참조하세요.
 
-게이트웨이 전송은 프레미스 간 또는 VNet 간 연결의 피어링된 가상 네트워크에서 VPN Gateway를 활용하도록 가상 네트워크를 설정하는 피어링 속성입니다. 이 시나리오에서 원격 게이트웨이를 통해 전달되는 트래픽은 [VPN Gateway 요금](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/)이 적용되고 [VNet 피어링 요금](https://azure.microsoft.com/pricing/details/virtual-network)이 발생하지 않습니다. 예를 들어 VNetA에 온-프레미스 연결에 대한 VPN Gateway가 있고 VNetB가 적절한 속성이 구성된 VNetA에 피어링된 경우 VNetB에서 온-프레미스로 전달되는 트래픽은 VPN Gateway 가격 책정당 송신만이 청구됩니다. VNet 피어링 요금이 적용되지 않습니다. [가상 네트워크 피어링을 위한 VPN Gateway 전송을 구성](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)하는 방법을 알아봅니다.
+게이트웨이 전송은 프레미스 간 또는 VNet 간 연결의 피어링된 가상 네트워크에서 VPN Gateway를 활용하도록 가상 네트워크를 설정하는 피어링 속성입니다. 이 시나리오에서 원격 게이트웨이를 통해 전달되는 트래픽은 [VPN Gateway 요금](https://azure.microsoft.com/pricing/details/vpn-gateway/)이 적용되고 [VNet 피어링 요금](https://azure.microsoft.com/pricing/details/virtual-network)이 발생하지 않습니다. 예를 들어 VNetA에 온-프레미스 연결에 대한 VPN Gateway가 있고 VNetB가 적절한 속성이 구성된 VNetA에 피어링된 경우 VNetB에서 온-프레미스로 전달되는 트래픽은 VPN Gateway 가격 책정당 송신만이 청구됩니다. VNet 피어링 요금이 적용되지 않습니다. [가상 네트워크 피어링을 위한 VPN Gateway 전송을 구성](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)하는 방법을 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 70269fc71fcb2ef9158b50d3bb281097abee0740
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 6d826702d8302246a225ebfcdf0a5987cf9d2045
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992417"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167055"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 웹 페이지 또는 앱의 성능 및 사용 현황에 대해 알아봅니다. 페이지 스크립트에 [Application Insights](app-insights-overview.md)를 추가하면 페이지 로드 및 AJAX 호출의 타이밍, 브라우저 예외 및 AJAX 실패의 개수 및 세부 정보뿐만 아니라 사용자 및 세션 개수를 얻을 수 있습니다. 이러한 모든 요소를 페이지, 클라이언트 OS 및 브라우저 버전, 지리적 위치 및 기타 차원으로 분할할 수 있습니다. 실패 횟수 또는 느린 페이지 로딩에 대한 경고를 설정할 수도 있습니다. 또한 JavaScript 코드에 추적 호출을 삽입하여 웹 페이지 응용 프로그램의 다양한 기능 사용 방법을 추적할 수 있습니다.
@@ -48,12 +48,6 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 *벌써 질문이 있나요?* [리소스 만들기에 대해 자세히 알아보세요](app-insights-create-new-resource.md)를 구독해야 합니다.
 
 ### <a name="add-the-sdk-script-to-your-app-or-web-pages"></a>앱 또는 웹 페이지에 SDK 스크립트를 추가합니다.
-빠른 시작에서 웹 페이지용 스크립트를 가져옵니다.
-
-![앱 개요 블레이드에서 빠른 시작, 내 웹 페이지를 모니터링할 코드 가져오기를 선택합니다. 스크립트를 복사합니다.](./media/app-insights-javascript/02-monitor-web-page.png)
-
-> [!NOTE]
-> *시작* 환경은 Application Insights 리소스를 만들 때 선택하는 응용 프로그램 종류에 따라 달라집니다. 이전 스크린샷에서 본 것처럼 앱에 대한 스크립트가 없는 경우 다음 스크립트만 사용합니다.
 
 ```HTML
 <!-- 
@@ -127,7 +121,7 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 
 ![Portal.azure.com에서 앱의 리소스 열고 설정, 브라우저를 클릭합니다.](./media/app-insights-javascript/03.png)
 
-아직 아무 데이터도 없나요? 페이지 위쪽에서 **새로 고침**을 클릭합니다. 여전히 아무 데이터도 없나요? [문제 해결](app-insights-troubleshoot-faq.md)을 참조하세요.
+아직 아무 데이터도 없나요? 페이지 위쪽에서 **새로 고침을 클릭합니다. 여전히 아무 데이터도 없나요? [문제 해결](app-insights-troubleshoot-faq.md)을 참조하세요.
 
 브라우저 블레이드는 미리 설정된 필터와 차트를 선택할 수 있는 [메트릭 탐색기 블레이드](app-insights-metrics-explorer.md)입니다. 원하는 경우 시간 범위, 필터 및 차트 구성을 편집하고 즐겨찾기로 결과를 저장할 수 있습니다. **기본값 복원**을 클릭하여 원래 블레이드 구성으로 돌아갑니다.
 

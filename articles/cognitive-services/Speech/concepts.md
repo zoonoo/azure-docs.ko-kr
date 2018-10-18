@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 08790d73dd4fd182d8129c755a291fd99b6136a2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6089f053472faaa7fa8c957904f73c7061cb2d3f
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954112"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344928"
 ---
 # <a name="basic-concepts"></a>기본 개념
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 이 페이지에서는 Microsoft 음성 인식 서비스에 대한 몇 가지 기본 개념에 대해 설명합니다. 응용 프로그램에서 Microsoft 음성 인식 API를 사용하기 전에 먼저 이 페이지를 참조하는 것이 좋습니다.
 

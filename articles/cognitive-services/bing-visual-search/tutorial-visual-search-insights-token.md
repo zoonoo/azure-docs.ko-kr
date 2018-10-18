@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: rosh
-ms.openlocfilehash: bda4bdeea019d8cf3ae677d5eaf81e631ca38d16
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 06d6bc8e53276b5542210c2843d7221d6fd79c09
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222576"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386437"
 ---
 # <a name="tutorial-bing-visual-search-sdk-imageinsightstoken-and-results"></a>자습서: Bing Visual Search SDK ImageInsightsToken 및 결과
 Visual Search SDK에는 `ImageInsightsToken`을 반환하는 이전 검색에서 온라인으로 이미지를 찾는 옵션이 포함됩니다.  이 예제는 `ImageInsightsToken`을 가져와 후속 검색에서 토큰을 사용합니다.  코드는 `ImageInsightsToken`을 Bing에 보내고 Bing Search URL 및 온라인에서 찾은 비슷한 이미지의 URL을 포함하는 결과를 반환합니다.
@@ -25,7 +25,7 @@ Visual Studio 2017. 필요하면 여기(https://www.visualstudio.com/vs/communit
 Cognitive Services API 키는 SDK 호출을 인증하는 데 필요합니다. 평가판 키에 등록합니다. 평가판 키는 초당 한 번의 호출로 7일 동안 유효합니다. 프로덕션 시나리오의 경우 액세스 키를 구입하세요. 가격 책정 정보도 참조하세요.
 .NET core SDK 및 .net core 1.1 앱을 실행하는 기능입니다. 여기(https://www.microsoft.com/net/download/)에서 코어, 프레임워크 및 런타임을 가져올 수 있습니다.
 
-##<a name="application-dependencies"></a>응용 프로그램 종속성
+## <a name="application-dependencies"></a>응용 프로그램 종속성
 Bing Web Search SDK를 사용하여 콘솔 응용 프로그램을 설정하려면 Visual Studio의 솔루션 탐색기에서 NuGet 패키지 관리 옵션을 찾습니다. 추가:
 * Microsoft.Azure.CognitiveServices.Search.VisualSearch
 * Microsoft.Azure.CognitiveServices.Search.ImageSearchpackage 패키지입니다.
@@ -37,7 +37,8 @@ NuGet Web Search SDK 패키지 설치는 다음을 포함한 종속성도 설치
 * Newtonsoft.Json
 
 ## <a name="get-the-imageinsightstoken-from-image-search"></a>Image Search에서 ImageInsightsToken 가져오기
-이 예제는 다음 방법으로 얻은 `ImageInsightsToken`을 사용합니다.  이 호출에 대한 자세한 내용은 [Image Search SDK C# 빠른 시작](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart)을 참조합니다.
+
+이 예제는 다음 방법으로 얻은 `ImageInsightsToken`을 사용합니다.  이 호출에 대한 자세한 내용은 [Image Search SDK C# 빠른 시작](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart)을 참조합니다.
 
 코드는 'Canadian Rockies'에 대한 쿼리의 결과를 검색하고 ImageInsightsToken을 가져옵니다. 첫 번째 이미지의 인사이트 토큰, 썸네일 URL 및 이미지 콘텐츠 URL을 인쇄합니다.  메서드는 후속 Visual Search 요청에서 사용하기 위해 `ImageInsightsToken`을 반환합니다.
 
@@ -86,12 +87,15 @@ NuGet Web Search SDK 패키지 설치는 다음을 포함한 종속성도 설치
 ```
 
 ## <a name="specify-the-imageinsightstoken-for-visual-search-request"></a>Visual Search 요청에 대해 ImageInsightsToken 지정
+
 이 예제에서는 이전 메서드에서 반환한 인사이트 토큰을 사용합니다. 다음 코드는 `ImageInsightsToken`에서 `ImageInfo` 개체를 만들고 ImageInfo 개체를 `VisualSearchRequest`로 로드합니다. `VisualSearchRequest`에 대한 `ImageInfo`에서 `ImageInsightsToken` 지정
 
 ```
 ImageInfo ImageInfo = new ImageInfo(imageInsightsToken: insightsTok);
 ```
+
 ## <a name="use-visual-search-to-find-images-from-an-imageinsightstoken"></a>ImageInsightsToken에서 이미지를 찾으려면 Visual Search 사용
+
 `VisualSearchRequest`는 `ImageInfo` 개체에서 검색할 이미지에 대한 정보를 포함합니다.  `VisualSearchMethodAsync` 메서드가 결과를 가져옵니다.
 ```
 // An image binary is not necessary here, as the image is specified by insights token.
@@ -135,7 +139,8 @@ Console.WriteLine("\r\n" + "ActionType: " + i.ActionType + " -> WebSearchUrl: " 
         }
     }
 ```
-이러한 데이터 형식에 대한 자세한 내용은 [이미지 - Visual Search](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch)를 참조합니다.
+이러한 데이터 형식에 대한 자세한 내용은 [이미지 - Visual Search](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch)를 참조합니다.
+
 ## <a name="complete-code"></a>전체 코드
 
 다음 코드는 앞의 예제를 실행합니다. 후속 요청에서 `ImageInsightsToken`을 보냅니다. 그런 다음, 각 ActionType에 대한 Bing 검색 URL을 인쇄합니다. ActionType이 `PagesIncluding`이면 코드는 `Data`에서 `ImageObject` 항목을 가져옵니다.  `Data`는 웹 페이지의 이미지 URL인 값의 목록을 포함합니다.  결과 Visual Search URL을 복사하여 브라우저에 붙여넣어 결과를 표시합니다. ContentUrl 항목을 복사하여 브라우저에 붙여넣어 이미지를 표시합니다.
@@ -283,5 +288,6 @@ namespace VisualSearchFeatures
 }
 
 ```
+
 ## <a name="next-steps"></a>다음 단계
 [Visual Search 응답](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response)

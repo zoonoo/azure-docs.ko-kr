@@ -17,17 +17,17 @@ ms.date: 04/24/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 45b1597d3b61a9386fc015b5a7272d948fa5772b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930949"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394785"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure에서 Linux 가상 머신 만들기
 
 PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure PowerShell 모듈이 사용됩니다. 이 빠른 시작에서는 Azure PowerShell 모듈을 사용하여 Ubuntu를 실행하는 Azure에서 Linux VM(가상 머신)을 배포하는 방법을 보여줍니다. 작업에서 VM을 보려면 VM에 SSH를 수행하고 NGINX 웹 서버를 설치합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 

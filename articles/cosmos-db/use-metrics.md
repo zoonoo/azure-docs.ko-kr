@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 792e0b3f8fdfe4ab1b79fec5f45d0587033eca0d
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 5c9dded95fe3ae36a716544368e3dc44c9b86afe
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055202"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365495"
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Azure Cosmos DB에서 메트릭을 사용하여 모니터링 및 디버깅
 
@@ -54,7 +54,8 @@ Azure Cosmos DB는 처리량, 저장소, 일관성, 가용성 및 대기 시간�
 
 ## <a name="comparing-data-size-against-index-size"></a>데이터 크기 및 인덱스 크기 비교
 
-Azure Cosmos DB에서 사용된 총 저장소는 데이터 크기와 인덱스 크기의 조합입니다. 일반적으로 인덱스 크기는 데이터 크기의 비율입니다. [Azure Portal](https://portal.azure.com)의 메트릭 블레이드에서, 저장소 탭에는 저장소 사용량이 데이터 및 인덱스에 따라 분석되어 표시됩니다. 이미지(예상) 또는 SDK에서 컬렉션 읽기를 통해 현재 저장소 사용량을 찾을 수 있습니다.
+Azure Cosmos DB에서 사용된 총 저장소는 데이터 크기와 인덱스 크기의 조합입니다. 일반적으로 인덱스 크기는 데이터 크기의 비율입니다. [Azure Portal](https://portal.azure.com)의 메트릭 블레이드에서, 저장소 탭에는 저장소 사용량이 데이터 및 인덱스에 따라 분석되어 표시됩니다. 
+
 ```csharp
 // Measure the document size usage (which includes the index size)  
 ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("db", "coll")); 

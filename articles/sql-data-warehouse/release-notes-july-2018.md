@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/06/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 5c54505625f40d7c0bd00111e2ff260dc9afaf1c
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: c7d2211ca69fcd18588ea1b20b638b2970b8439c
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288007"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318846"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-july-2018"></a>Azure SQL Data Warehouse의 새로운 기능 2018년 7월
 Azure SQL Data Warehouse는 지속적으로 개선 사항을 수신합니다. 이 문서에서는 2018년 7월에 도입된 새로운 기능과 변경 사항에 대해 설명합니다.
@@ -30,7 +30,7 @@ Azure SQL Data Warehouse는 지속적으로 개선 사항을 수신합니다. �
 ![Azure SQL Data Warehouse는 Amazon Redshift보다 빠르고 저렴합니다.](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/cb76447e-621e-414b-861e-732ffee5345a.png)
 <sub>출처: [Gigaom Research Analyst Report: Data Warehouse in the Cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
 
-###<a name="query-concurrency"></a>쿼리 동시성
+### <a name="query-concurrency"></a>쿼리 동시성
 또한 SQL Data Warehouse는 조직 전체에서 데이터에 액세스할 수 있게 보장합니다. Microsoft는 더 많은 사용자가 동일한 데이터베이스를 쿼리하고 다른 요청으로 인해 차단되지 않도록 128개의 동시 쿼리를 지원할 수 있게 서비스를 개선했습니다. 이에 비해 Amazon Redshift는 최대 동시 쿼리를 50개로 제한하여, 조직 내 데이터 액세스를 제한합니다.
 
 SQL Data Warehouse는 저장소와 계산이 분리된 고유한 아키텍처를 기반으로 가격 상승 없이 이러한 쿼리 성능 및 쿼리 동시성 향상을 제공합니다.

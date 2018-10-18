@@ -2,25 +2,19 @@
 title: Microsoft Azure Data Box Disk 개요 | Microsoft Docs
 description: 많은 양의 데이터를 Azure로 전송할 수 있는 클라우드 솔루션인 Azure Data Box Disk에 대해 설명합니다.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: overview
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 09/04/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: b1beb0e9a5a0435bdf298eddbefc230b2f95ed0a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 322c398bd6384821697e2b672825cc0805eb43ad
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698505"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092901"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>Azure Data Box Disk란? (미리 보기)
 

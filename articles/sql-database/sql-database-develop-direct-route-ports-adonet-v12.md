@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 560d96b188a02f8df0d41b040c90db9b813e3c0a
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 89802722e9e848b5cd5ede952287d5c934c142c3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063254"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351322"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>ADO.NET 4.5에 대한 1433 이외 포트
 이 문서에서는 ADO.NET 4.5 이상 버전을 사용하는 클라이언트의 Azure SQL Database 연결 동작에 대해 설명합니다. 
@@ -69,7 +69,7 @@ Azure 클라이언트 컴퓨터에 있는 11000-11999 및 14000-14999 범위의 
 * ADO.NET 4.5는 2012년 8월 15일에 출시되었습니다. .NET 팀의 블로그 알림은 [여기](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx)서 확인할 수 있습니다. 
   * ADO.NET 4.5.1에 관한 블로그 게시물은 [여기](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx)서 확인할 수 있습니다.
 
-* Microsoft® ODBC Driver 17 for SQL Server® - Windows, Linux 및 macOS https://www.microsoft.com/en-us/download/details.aspx?id=56567
+* Microsoft® ODBC Driver 17 for SQL Server® - Windows, Linux 및 macOS https://www.microsoft.com/download/details.aspx?id=56567
 
 * 리디렉션을 통해 Azure SQL Database V12에 연결 https://blogs.msdn.microsoft.com/sqlcat/2016/09/08/connect-to-azure-sql-database-v12-via-redirection/
 

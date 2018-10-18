@@ -10,16 +10,17 @@ ms.component: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ROBOTS: NOINDEX
-ms.openlocfilehash: dde7d3dc7c1a744da9a22c0e4c0a483a186aa327
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4147e164434109a90a2a044565a1fb0b2e1b48bf
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969464"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386505"
 ---
 # <a name="quickstart-translator-speech-api-with-java"></a>빠른 시작: Java를 사용한 Translator Speech API 
 <a name="HOLTop"></a>
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
 이 문서에서는 Translator Speech API를 사용하여 .wav 파일에서 발화된 단어를 변환하는 방법을 보여 줍니다.
 
@@ -38,7 +39,7 @@ ms.locfileid: "46969464"
 - [javax-websocket-client-impl-9.4.11.v20180605.jar(이상)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/javax-websocket-client-impl)
 - [jetty-client-9.4.11.v20180605.jar(이상)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-client)
 
-아래 코드에서 컴파일하는 실행 파일과 동일한 폴더에 "speak.wav"라는 .wav 파일이 필요합니다. 이 .wav 파일은 표준 PCM, 16비트, 16kHz, 모노 형식이어야 합니다. 이러한 .wav 파일은 [Text to Speech API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech)에서 가져올 수 있습니다.
+아래 코드에서 컴파일하는 실행 파일과 동일한 폴더에 "speak.wav"라는 .wav 파일이 필요합니다. 이 .wav 파일은 표준 PCM, 16비트, 16kHz, 모노 형식이어야 합니다. 이러한 .wav 파일은 [Text to Speech API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech)에서 가져올 수 있습니다.
 
 **Microsoft Translator Speech API**와 함께 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. [Azure 대시보드](https://portal.azure.com/#create/Microsoft.CognitiveServices)에서 유료 구독 키가 필요합니다.
 

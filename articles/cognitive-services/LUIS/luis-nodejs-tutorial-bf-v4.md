@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: acd9d9ff0b97bf0eaaca2f8ae9a6909e18e320d6
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ad21754b3f55a0d14bb43a2898d5bd4b8b8150ae
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47168243"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385909"
 ---
 # <a name="tutorial-luis-bot-in-nodejs"></a>자습서: Node.js의 LUIS 봇
 Node.js를 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드할 수 있습니다. 이 봇은 HomeAutomation 앱을 사용하여 봇 솔루션을 구현합니다. 봇은 [Bot Framework 버전](https://github.com/Microsoft/botbuilder-js) v4 및 Azure [웹앱 봇](https://docs.microsoft.com/azure/bot-service/)을 사용하여 빌드되었습니다.
@@ -350,9 +350,9 @@ https://github.com/Microsoft/BotBuilder-Samples/tree/v4/javascript_nodejs/12.nlp
 ## <a name="learn-more-about-bot-framework"></a>Bot Framework에 대해 자세히 알아보기
 Azure Bot Service는 Bot Framework SDK를 사용합니다. SDK 및 봇 프레임워크에 대해 자세히 알아보세요.
 
-* [Azure Bot Service](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4 설명서
+* [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4 설명서
 * [Bot Builder 샘플](https://github.com/Microsoft/botbuilder-samples)
-* [Bot Builder SDK](https://docs.microsoft.com/en-us/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
+* [Bot Builder SDK](https://docs.microsoft.com/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
 * [Bot Builder 도구](https://github.com/Microsoft/botbuilder-tools):
 
 ## <a name="next-steps"></a>다음 단계

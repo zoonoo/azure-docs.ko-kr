@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: abfe7f0b39463a842b1eb167661af7da90bc9eca
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bed0c15504323aba4ebf680273870720a8ff833a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980851"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388314"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Azure Monitor에서 로그 메트릭 경고 만들기  
 
@@ -58,11 +58,11 @@ Log Analytics 데이터에서 수집된 로그에 대한 메트릭이 작동하�
 - 선택한 *Log Analytics 작업 영역*에 대한 메트릭 경고로 선택한 신호는 **메트릭** 유형입니다.
 - 차원 필터를 사용하여 특정 조건 또는 리소스를 필터링합니다. 로그에 대한 메트릭은 다차원입니다.
 - *신호 논리*를 구성할 때 단일 경고를 만들어 여러 차원 값(예: 컴퓨터)에 걸쳐 있을 수 있습니다.
-- Azure Portal을 사용하여 선택한 *Log Analytics 작업 영역*에 대한 메트릭 경고를 만들지 **않는** 경우, 사용자는 먼저 [Azure Monitor - 예약된 쿼리 규칙](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules
+- Azure Portal을 사용하여 선택한 *Log Analytics 작업 영역*에 대한 메트릭 경고를 만들지 **않는** 경우, 사용자는 먼저 [Azure Monitor - 예약된 쿼리 규칙](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules
 )을 사용하여 로그 데이터를 메트릭으로 변환하는 명시적 규칙을 수동으로 만들어야 합니다.
 
 > [!NOTE]
-> Azure Portal을 통해 Log Analytics 작업 영역에 대한 메트릭 경고를 만드는 경우, *사용자가 개입하거나 작업할 필요 없이* [Azure Monitor - 예약된 쿼리 규칙](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules)을 통해 로그 데이터를 메트릭으로 변환하는 해당 규칙이 백그라운드에서 자동으로 만들어집니다. Azure Portal 이외의 수단을 사용하여 로그 메트릭 경고를 만드는 경우, 메트릭 경고를 만들기 전에 ScheduledQueryRule 기반 로그를 메트릭 변환 규칙으로 만드는 샘플 수단에 대한 [로그 메트릭 경고에 대한 리소스 템플릿](#resource-template-for-metric-alerts-for-logs) 섹션을 참조하세요. 그렇지 않으면 만들어진 로그 메트릭 경고에 대한 데이터가 없습니다.
+> Azure Portal을 통해 Log Analytics 작업 영역에 대한 메트릭 경고를 만드는 경우, *사용자가 개입하거나 작업할 필요 없이* [Azure Monitor - 예약된 쿼리 규칙](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)을 통해 로그 데이터를 메트릭으로 변환하는 해당 규칙이 백그라운드에서 자동으로 만들어집니다. Azure Portal 이외의 수단을 사용하여 로그 메트릭 경고를 만드는 경우, 메트릭 경고를 만들기 전에 ScheduledQueryRule 기반 로그를 메트릭 변환 규칙으로 만드는 샘플 수단에 대한 [로그 메트릭 경고에 대한 리소스 템플릿](#resource-template-for-metric-alerts-for-logs) 섹션을 참조하세요. 그렇지 않으면 만들어진 로그 메트릭 경고에 대한 데이터가 없습니다.
 
 ## <a name="resource-template-for-metric-alerts-for-logs"></a>로그 메트릭 경고에 대한 리소스 템플릿
 앞에서 설명한 대로 로그에서 메트릭 경고를 만드는 프로세스는 다음 두 가지 단계로 구분됩니다.

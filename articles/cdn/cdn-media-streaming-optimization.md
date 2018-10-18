@@ -3,8 +3,8 @@ title: Azure CDN을 통해 미디어 스트리밍 최적화
 description: 부드러운 배달을 위한 스트리밍 미디어 파일 최적화
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
-ms.author: v-deasim
-ms.openlocfilehash: 8a2b69aaa601e1d00152f57841a4d67f98680181
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: magattus
+ms.openlocfilehash: 9802296170f07bb8599058e230798f647e900d4d
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33766175"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093700"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Azure CDN을 통해 미디어 스트리밍 최적화 
  
@@ -32,7 +32,7 @@ ms.locfileid: "33766175"
 
 ## <a name="media-streaming-optimizations-for-azure-cdn-from-microsoft"></a>Microsoft의 Azure CDN에 대한 미디어 스트리밍 최적화
 
-**Microsoft의 Azure CDN 표준** 끝점은 일반 웹 배달 최적화 형식을 사용하여 스트리밍 미디어 자산을 직접 배달할 수 있습니다. 
+**Microsoft의 Azure CDN 표준** 엔드포인트는 일반 웹 배달 최적화 형식을 사용하여 스트리밍 미디어 자산을 직접 배달할 수 있습니다. 
 
 **Microsoft의 Azure CDN 표준**에 대한 미디어 스트리밍 최적화는 배달에 개별 미디어 조각을 사용하는 라이브 또는 주문형 비디오 스트리밍 미디어에 효과적입니다. 이 프로세스는 점진적 다운로드 또는 바이트 범위 요청을 통해 전송되는 단일 대규모 자산과 다릅니다. 해당 스타일의 미디어 배달에 대한 자세한 내용은 [Azure CDN을 통해 대용량 파일 다운로드 최적화](cdn-large-file-optimization.md)를 참조하세요.
 
@@ -44,7 +44,7 @@ ms.locfileid: "33766175"
 
 ## <a name="media-streaming-optimizations-for-azure-cdn-from-verizon"></a>Verizon의 Azure CDN에 대한 미디어 스트리밍 최적화
 
-**Verizon의 Azure CDN 표준** 및 **Verizon의 Azure CDN 프리미엄** 끝점은 일반 웹 배달 최적화 형식을 사용하여 스트리밍 미디어 자산을 직접 배달할 수 있습니다. 기본적으로 CDN에는 미디어 자산 배달에 직접 도움이 되는 몇 가지 기능이 있습니다.
+**Verizon의 Azure CDN 표준** 및 **Verizon의 Azure CDN 프리미엄** 엔드포인트는 일반 웹 배달 최적화 형식을 사용하여 스트리밍 미디어 자산을 직접 배달할 수 있습니다. 기본적으로 CDN에는 미디어 자산 배달에 직접 도움이 되는 몇 가지 기능이 있습니다.
 
 ### <a name="partial-cache-sharing"></a>부분 캐시 공유
 
@@ -63,19 +63,19 @@ ms.locfileid: "33766175"
 
 일반 미디어 배달 또는 주문형 비디오 미디어 배달 최적화 형식은 백 엔드 최적화가 포함된 CDN을 사용하여 미디어 자산을 더 빠르게 배달합니다. 또한 시간이 지남에 따라 학습된 모범 사례에 따라 미디어 자산에 대한 구성을 사용합니다.
 
-### <a name="configure-an-akamai-cdn-endpoint-to-optimize-media-streaming"></a>미디어 스트리밍을 최적화하도록 Akamai CDN 끝점 구성
+### <a name="configure-an-akamai-cdn-endpoint-to-optimize-media-streaming"></a>미디어 스트리밍을 최적화하도록 Akamai CDN 엔드포인트 구성
  
-Azure Portal을 통해 대용량 파일 배달을 최적화하도록 CDN(Content Delivery Network) 끝점을 구성할 수 있습니다. REST API나 클라이언트 SDK를 사용할 수도 있습니다. 다음 단계에서는 **Akamai의 Azure CDN 표준** 프로필에 대해 Azure Portal을 통한 프로세스를 보여줍니다.
+Azure Portal을 통해 대용량 파일 배달을 최적화하도록 CDN(Content Delivery Network) 엔드포인트를 구성할 수 있습니다. REST API나 클라이언트 SDK를 사용할 수도 있습니다. 다음 단계에서는 **Akamai의 Azure CDN 표준** 프로필에 대해 Azure Portal을 통한 프로세스를 보여줍니다.
 
-1. 새 끝점을 추가하려면 Akamai **CDN 프로필** 페이지에서 **끝점**을 선택합니다.
+1. 새 엔드포인트를 추가하려면 Akamai **CDN 프로필** 페이지에서 **엔드포인트**를 선택합니다.
   
-    ![새 끝점](./media/cdn-media-streaming-optimization/cdn-new-akamai-endpoint.png)
+    ![새 엔드포인트](./media/cdn-media-streaming-optimization/cdn-new-akamai-endpoint.png)
 
 2. **Optimized for**(최적화 대상) 드롭다운 목록에서 주문형 비디오 자산에 대한 **주문형 비디오 미디어 스트리밍**을 선택합니다. 라이브 및 주문형 비디오 스트리밍을 조합하는 경우 **일반 미디어 스트리밍**을 선택합니다.
 
     ![스트리밍 선택됨](./media/cdn-media-streaming-optimization/02_Creating.png) 
  
-끝점을 만든 후에 특정 기준과 일치하는 모든 파일에 대해 최적화를 적용합니다. 다음 섹션에서는 이 프로세스에 대해 자세히 설명합니다. 
+엔드포인트를 만든 후에 특정 기준과 일치하는 모든 파일에 대해 최적화를 적용합니다. 다음 섹션에서는 이 프로세스에 대해 자세히 설명합니다. 
 
 ### <a name="caching"></a>구성
 

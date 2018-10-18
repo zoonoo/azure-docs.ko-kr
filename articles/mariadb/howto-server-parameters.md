@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: c992783db3b63c73feb18c8c493ca1b43f9ea370
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 865a95a5e6f6feb945475e50bbd9f6692688c12b
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975210"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310048"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MariaDB에서 서버 매개 변수를 구성하는 방법
 
@@ -52,29 +52,6 @@ InnoDB 버퍼 풀 및 최대 연결은 구성할 수 없으며 [가격 책정 �
 |메모리 최적화| 4| 15360| 1250|
 |메모리 최적화| 8| 30720| 2500|
 |메모리 최적화| 16| 62464| 5,000|
-
-<!-- 
-|**Pricing Tier**| **Compute Generation**|**vCore(s)**|**InnoDB Buffer Pool (MB)**| **Max Connections**|
-|---|---|---|---|--|
-|Basic| Gen 4| 1| 1024| 50|
-|Basic| Gen 4| 2| 2560| 100|
-|Basic| Gen 5| 1| 1024| 50|
-|Basic| Gen 5| 2| 2560| 100|
-|General Purpose| Gen 4| 2| 3584| 300|
-|General Purpose| Gen 4| 4| 7680| 625|
-|General Purpose| Gen 4| 8| 15360| 1250|
-|General Purpose| Gen 4| 16| 31232| 2500|
-|General Purpose| Gen 4| 32| 62976| 5000|
-|General Purpose| Gen 5| 2| 3584| 300|
-|General Purpose| Gen 5| 4| 7680| 625|
-|General Purpose| Gen 5| 8| 15360| 1250|
-|General Purpose| Gen 5| 16| 31232| 2500|
-|General Purpose| Gen 5| 32| 62976| 5000|
-|Memory Optimized| Gen 5| 2| 7168| 600|
-|Memory Optimized| Gen 5| 4| 15360| 1250|
-|Memory Optimized| Gen 5| 8| 30720| 2500|
-|Memory Optimized| Gen 5| 16| 62464| 5000|
--->
 
 이러한 추가 서버 매개 변수는 시스템에서 구성할 수 없습니다.
 

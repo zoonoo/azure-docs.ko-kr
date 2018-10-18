@@ -3,25 +3,25 @@ title: '빠른 시작: 인쇄 텍스트 추출(OCR) - REST, Java - Computer Visi
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Java와 함께 Computer Vision API를 사용하여 이미지의 인쇄 텍스트를 추출합니다.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: a0b5967e8796f494e14dde3728c785191c2882d5
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 83675a146d6d43ce5bc25b24809924d7be1331dd
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632503"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339970"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-java-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 Java를 사용하여 인쇄 텍스트 추출(OCR)
 
 이 빠른 시작에서는 Computer Vision의 REST API를 사용하여 이미지에서 OCR(광학 문자 인식)이 포함된 인쇄 텍스트를 추출합니다. [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 메서드를 사용하여 이미지의 인쇄 텍스트를 감지하고, 인식된 문자를 머신에서 사용 가능한 문자 스트림으로 추출할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -57,7 +57,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    1. 필요한 경우 `uriBase`의 값을 구독 키를 가져온 Azure 지역의 [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 메서드에 대한 엔드포인트 URL로 바꿉니다.
    1. 필요에 따라 `imageToAnalyze`의 값을 인쇄 텍스트를 추출하려는 다른 이미지의 URL로 바꿉니다.
 1. 저장한 다음, Java 프로젝트를 빌드합니다.
-1. IDE를 사용하는 경우 `Main`을 실행합니다. 그렇지 않은 경우 명령 프롬프트 창을 연 다음, `java` 명령을 사용하여 컴파일된 클래스를 실행합니다. 예: `java Main`
+1. IDE를 사용하는 경우 `Main`을 실행합니다. 그렇지 않은 경우 명령 프롬프트 창을 연 다음, `java` 명령을 사용하여 컴파일된 클래스를 실행합니다. 예: `java Main`.
 
 ```java
 public class Main {

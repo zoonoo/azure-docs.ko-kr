@@ -1,12 +1,25 @@
-<a name="-headarticlesvirtual-machinestroubleshootingtroubleshoot-recovery-disks-linuxmd"></a><<<<<<< HEAD:articles/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux.md
 ---
-
-제목: Azure CLI에서 Linux 문제 해결 VM 사용 | Microsoft Docs 설명: Azure CLI 서비스를 사용하여 OS 디스크를 복구 VM에 연결하여 Linux VM 문제 해결 방법 알아보기: virtual-machines-linux documentationCenter: '' authors: genlin manager: jeconnoc editor: ''
-
-ms.service: virtual-machines-linux ms.devlang: azurecli ms.topic: troubleshooting ms.tgt_pltfrm: vm-linux ms.workload: infrastructure ms.date: 02/16/2017 ms.author: genli
-
+title: Azure CLI를 통해 Linux 문제 해결 VM 사용 | Microsoft Docs
+description: Azure CLI를 사용하여 OS 디스크를 복구 VM에 연결함으로써 Linux VM 문제를 해결하는 방법에 대해 알아봅니다.
+services: virtual-machines-linux
+documentationCenter: ''
+authors: genlin
+manager: jeconnoc
+editor: ''
+ms.service: virtual-machines-linux
+ms.devlang: azurecli
+ms.topic: troubleshooting
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 02/16/2017
+ms.author: genli
+ms.openlocfilehash: 2f10a231c4edc3e01d3f8c5f7f4db1854f83044d
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49392405"
 ---
-
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Azure CLI를 사용하여 OS 디스크를 복구 VM에 연결하는 방식으로 Linux VM 문제 해결
 Linux 가상 머신(VM)에 부팅 또는 디스크 오류가 발생하는 경우 가상 하드 디스크에서 바로 문제 해결 단계를 수행해야 합니다. 일반적인 예로는 `/etc/fstab`의 잘못된 항목으로 인해 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에는 가상 하드 디스크를 다른 Linux VM에 연결하여 모든 오류를 수정한 후 원래 VM을 다시 만들기 위해 Azure CLI를 사용하는 방법을 자세히 설명합니다. 
 

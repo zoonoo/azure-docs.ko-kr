@@ -3,25 +3,25 @@ title: '빠른 시작: 인쇄 텍스트 추출(OCR) - REST, cURL - Computer Visi
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 cURL과 함께 Computer Vision API를 사용하여 이미지의 인쇄 텍스트를 추출합니다.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
-ms.author: v-deken
-ms.openlocfilehash: ed064728d32f24e5d61da26f3f9e8297bff8bc99
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 6917e6f4ba0c2f8045d3f7da9a2e23acd949cf48
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630187"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341245"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-curl-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 cURL을 사용하여 인쇄 텍스트 추출(OCR)
 
 이 빠른 시작에서는 Computer Vision의 REST API를 사용하여 이미지에서 OCR(광학 문자 인식)이 포함된 인쇄 텍스트를 추출합니다. [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 메서드를 사용하여 이미지의 인쇄 텍스트를 감지하고, 인식된 문자를 머신에서 사용 가능한 문자 스트림으로 추출할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

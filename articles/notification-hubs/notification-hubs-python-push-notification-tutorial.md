@@ -14,12 +14,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 339029f14c4fd9a0158f2b7a4fb80bf03bd83cf3
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: b0aa61c86b08a4fe2eddb5eb1fb5b33c4cb901a0
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42144286"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386590"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Python에서 Notification Hubs를 사용하는 방법
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -261,7 +261,7 @@ Windows 알림 메시지를 보내려면
 이러한 메서드는 알림을 보내기 위한 올바른 본문과 헤더가 있는 알림 허브의 /messages 엔드포인트로 HTTP POST 요청을 보냅니다.
 
 ### <a name="using-debug-property-to-enable-detailed-logging"></a>디버그 속성을 통해 자세한 로깅 사용
-알림 허브를 초기화하는 동안 디버그 속성을 사용하면 HTTP 요청 및 응답 덤프에 대한 자세한 로깅 정보 및 자세한 알림 메시지 전송 결과가 기록됩니다. [Notification Hubs TestSend 속성](https://docs.microsoft.com/en-us/previous-versions/azure/reference/dn495827(v=azure.100))은 알림 보내기 결과에 대한 자세한 정보를 반환합니다. 이 속성을 사용하려면 다음 코드를 사용하여 초기화합니다.
+알림 허브를 초기화하는 동안 디버그 속성을 사용하면 HTTP 요청 및 응답 덤프에 대한 자세한 로깅 정보 및 자세한 알림 메시지 전송 결과가 기록됩니다. [Notification Hubs TestSend 속성](https://docs.microsoft.com/previous-versions/azure/reference/dn495827(v=azure.100))은 알림 보내기 결과에 대한 자세한 정보를 반환합니다. 이 속성을 사용하려면 다음 코드를 사용하여 초기화합니다.
 
     hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 

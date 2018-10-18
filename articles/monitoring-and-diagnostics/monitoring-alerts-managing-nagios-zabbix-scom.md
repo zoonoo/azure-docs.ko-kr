@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 0a3e0f1ecc40213aca37e37e80c9ba35abedb3d6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d9d0cb326fb063e0a6bbfaab6a85961ab2b35416
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961216"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389391"
 ---
 # <a name="manage-alerts-from-other-monitoring-services"></a>다른 모니터링 서비스의 경고 관리
 
@@ -21,8 +21,8 @@ ms.locfileid: "46961216"
 
 ## <a name="prerequisites"></a>필수 조건
 Log Analytics 리포지토리에서 경고 유형인 모든 레코드를 통합 경고 환경으로 가져오므로, 이러한 레코드를 수집하는 데 필요한 구성을 수행해야 합니다.
-1. **Nagios** 및 **Zabbix** 경고의 경우 Log Analytics로 경고를 보내도록 [해당 서버를 구성](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-linux-agents)합니다.
-1. **System Center Operations Manager** 경고의 경우 [Operations Manager 관리 그룹을 Log Analytics 작업 영역에 연결](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-om-agents)합니다. 그러면 System Center Operations Manager에서 생성된 모든 경고를 Log Analytics로 가져옵니다.
+1. **Nagios** 및 **Zabbix** 경고의 경우 Log Analytics로 경고를 보내도록 [해당 서버를 구성](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)합니다.
+1. **System Center Operations Manager** 경고의 경우 [Operations Manager 관리 그룹을 Log Analytics 작업 영역에 연결](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents)합니다. 그러면 System Center Operations Manager에서 생성된 모든 경고를 Log Analytics로 가져옵니다.
 
 ## <a name="view-your-alert-instances"></a>경고 인스턴스 보기
 Log Analytics로 가져오기를 구성하고 나면, [통합 경고 환경](https://aka.ms/azure-alerts-overview)에서 이러한 모니터링 서비스의 경고 인스턴스 보기를 시작할 수 있습니다. 통합 경고 환경에 표시되면 [경고 인스턴스 관리](https://aka.ms/managing-alert-instances), [이 경고에 대해 생성된 스마트 그룹 관리](https://aka.ms/managing-smart-groups), [경고 및 스마트 그룹의 상태 변경](https://aka.ms/managing-alert-smart-group-states)을 수행할 수 있습니다.

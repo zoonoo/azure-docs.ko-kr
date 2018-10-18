@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 6a64d85cc476c7494a1730959b96e9480115cd90
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 56f48f6676b3c878effe788316024e642c17ff5a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047006"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49400351"
 ---
 공유 이미지 갤러리는 사용자 지정 VM 이미지를 기준으로 구조와 조직을 구축하는 데 도움이 되는 서비스입니다. 공유 이미지 갤러리는 세 가지 주요 가치 제안을 제공합니다.
 - 간단한 관리
@@ -146,7 +146,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 
 **Q.** 특수한 디스크에서 이미지 버전을 만들 수 있나요?
 
- a. 아니요. 현재는 특수한 디스크를 이미지로 지원하지 않습니다. 특수한 디스크가 있는 경우 새로운 VM에 특수한 디스크를 연결하여 [VHD에서 VM을 생성](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk)해야 합니다. 실행 중인 VM이 있다면 [Windows VM](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-custom-images) 또는 [Linux VM](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-custom-images)에서 관리되는 이미지를 만드는 지침을 따라야 합니다. 일반화된 관리되는 이미지가 있을 경우 공유 이미지 설명 및 이미지 버전을 만드는 프로세스를 시작할 수 있습니다.
+ a. 아니요. 현재는 특수한 디스크를 이미지로 지원하지 않습니다. 특수한 디스크가 있는 경우 새로운 VM에 특수한 디스크를 연결하여 [VHD에서 VM을 생성](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk)해야 합니다. 실행 중인 VM이 있다면 [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) 또는 [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images)에서 관리되는 이미지를 만드는 지침을 따라야 합니다. 일반화된 관리되는 이미지가 있을 경우 공유 이미지 설명 및 이미지 버전을 만드는 프로세스를 시작할 수 있습니다.
 
 
 **Q.** Azure Portal을 통해 공유 이미지 갤러리, 이미지 정의 및 이미지 버전을 만들 수 있나요?

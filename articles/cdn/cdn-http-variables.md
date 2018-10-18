@@ -3,8 +3,8 @@ title: Azure CDN 규칙 엔진에 대한 HTTP 변수 | Microsoft Docs
 description: HTTP 변수를 사용하면 HTTP 요청 및 응답 메타데이터를 검색할 수 있습니다.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: v-deasim
-ms.openlocfilehash: 36c1b20219fabd1b7c02247d9a93bb7b7cfc898d
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: magattus
+ms.openlocfilehash: 39084fd8408a123e8152ad96fa92025fd04ed42b
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011461"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092816"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Azure CDN 규칙 엔진에 대한 HTTP 변수
 HTTP 변수는 HTTP 요청 및 응답 메타데이터를 검색할 수 있는 수단을 제공합니다. 이 메타데이터는 요청 또는 응답을 동적으로 변경하는 데 사용할 수 있습니다. HTTP 변수의 사용은 다음 규칙 엔진 기능으로 제한됩니다.
@@ -34,7 +34,7 @@ HTTP 변수는 HTTP 요청 및 응답 메타데이터를 검색할 수 있는 �
 다음 표에 지원되는 HTTP 변수가 설명되어 있습니다. 지역 메타데이터(예: 우편 번호)를 특정 요청에 대해 사용할 수 없는 경우에는 빈 값이 반환됩니다.
 
 
-| Name | 변수 | 설명 | 샘플 값 |
+| 이름 | 변수 | 설명 | 샘플 값 |
 | ---- | -------- | ----------- | ------------ |
 | ASN(요청자) | %{geo_asnum} | 요청자의 AS 번호를 나타냅니다. <br /><br />**사용되지 않음:** %{virt_dst_asnum}. <br />이 변수는 %{geo_asnum}에 대해 사용되지 않습니다. 이 사용되지 않는 변수를 사용하는 규칙을 계속 사용할 수 있더라도, 새 변수를 사용하도록 업데이트해야 합니다. | AS15133 |
 | 도시(요청자) | %{geo_city} | 요청자의 도시를 나타냅니다. | 로스앤젤레스 |
@@ -156,7 +156,7 @@ HTTP 변수 이름은 영문자 및 밑줄만 지원합니다. 지원되지 않�
      - 양수: 시작 문자부터 오른쪽 방향으로 부분 문자열의 길이를 결정합니다.
      - 음수: 시작 문자부터 왼쪽 방향으로 부분 문자열의 길이를 결정합니다.
 
-#### <a name="example"></a>예:
+#### <a name="example"></a>예제:
 
 다음 예제에서는 다음 샘플 요청 URL를 사용합니다.
 
@@ -179,7 +179,7 @@ https:\//www.mydomain.com/mobile/marketing/proposal.htm
 | %{Variable#Pattern} | 변수 값의 시작 부분에서 지정된 패턴이 발견되면 텍스트를 제거합니다. |
 | %{Variable%Pattern} | 변수 값의 마지막 부분에서 지정된 패턴이 발견되면 텍스트를 제거합니다. |
 
-#### <a name="example"></a>예:
+#### <a name="example"></a>예제:
 
 이 샘플 시나리오에서 *request_uri* 변수는 다음으로 설정됩니다.
 

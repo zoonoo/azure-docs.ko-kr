@@ -3,8 +3,8 @@ title: Azure CDN 엔드포인트 만들기 | Microsoft Docs
 description: 이 문서에서는 고급 설정을 포함하여 새 Azure CDN(Content Delivery Network) 엔드포인트를 만드는 방법을 보여줍니다.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.service: cdn
 ms.workload: media
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 16a939c69d9ed9be597306765f316ffe32db6665
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: a3fd85d1dbcba769f47e537e0231f63110752492
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094039"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093683"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Azure CDN 엔드포인트 만들기
 이 문서에서는 기존 CDN 프로필에서 [Azure CDN(Content Delivery Network)](cdn-overview.md) 엔드포인트를 만드는 모든 설정에 대해 설명합니다. 프로필과 엔드포인트를 만든 후에는 고객에게 콘텐츠를 제공할 수 있습니다. 프로필 및 엔드포인트를 만드는 빠른 시작은 [빠른 시작: Azure CDN 프로필 및 엔드포인트 만들기](cdn-create-new-endpoint.md)를 참조하세요.

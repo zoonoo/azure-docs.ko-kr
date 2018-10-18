@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.reviewer: ramach
 ms.author: mbullwin
-ms.openlocfilehash: 2da281f52a85992c6fade360c94fbf473c38dc20
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: eb2ec0c0b77e71a54d1e7f852a22d82203abf7b6
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424027"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091983"
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Azure VM, Service Fabric 및 Azure Cloud Services에서 Application Insights Profiler 사용
 
@@ -48,7 +48,7 @@ Profiler를 완전히 활성화하려면 세 위치에서 구성을 변경해야
 
    ![계측 키의 위치](./media/enable-profiler-compute/CopyAIKey.png)
 
-1. Profiler에 대한 Application Insights 인스턴스 설정을 마치려면 Profiler 사용에 설명된 단계를 완료합니다. 이 단계는 앱 서비스 리소스에만 해당되므로 웹앱을 연결할 필요가 없습니다. **Profiler 구성** 창에 Profiler가 활성화되어 있는지 확인합니다.
+1. Profiler에 대한 Application Insights 인스턴스 설정을 마치려면 [프로파일러 사용](https://docs.microsoft.com/azure/application-insights/app-insights-profiler)에 설명된 단계를 완료합니다. 이 단계는 앱 서비스 리소스에만 해당되므로 웹앱을 연결할 필요가 없습니다. **Profiler 구성** 창에 Profiler가 활성화되어 있는지 확인합니다.
 
 
 ## <a name="set-up-the-application-source-code"></a>응용 프로그램 소스 코드 설정
@@ -219,7 +219,7 @@ Profiler 및 응용 프로그램을 실행하는 환경은 가상 머신, 가상
     ```powershell
     Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
     ```  
-   나. 원격 액세스 설정에 문제가 있을 경우에는 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 다음 명령을 실행할 수 있습니다.  
+   b. 원격 액세스 설정에 문제가 있을 경우에는 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 다음 명령을 실행할 수 있습니다.  
 
     ```powershell
     az vm run-command invoke -g MyResourceGroupName -n MyVirtualMachineName --command-id RunPowerShellScript --scripts "Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All"

@@ -2,19 +2,19 @@
 title: Azure Site Recovery를 사용하여 Azure에 VMware VM을 복제(CSP)하기 위한 다중 테넌트 지원 개요 | Microsoft Docs
 description: CSP 프로그램을 통해 다중 테넌트 환경에서 테넌트 구독에 대한 Azure Site Recovery 지원의 개요를 제공합니다.
 services: site-recovery
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: 2f1a158b6ff4ec603c77f834212cb92fa862b424
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: 4cd0c3baf385a864e2173de9bbce897bb5066dae
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919940"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352874"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-replication-to-azure-with-csp"></a>CSP를 사용하여 Azure로 VMware를 복제하기 위한 다중 테넌트 지원 개요
 

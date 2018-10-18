@@ -1,24 +1,24 @@
 ---
-title: '자습서: 어쿠스틱 모델 만들기 - Custom Speech Service'
-titlesuffix: Azure Cognitive Services
-description: 이 자습서에서는 Custom Speech Service를 사용하여 어쿠스틱 모델을 만드는 방법을 알아봅니다.
+title: Custom Speech Service를 사용한 어쿠스틱 모델 만들기 자습서 - Microsoft Cognitive Services | Microsoft Docs
+description: 이 자습서에서는 Microsoft Cognitive Services에서 Custom Speech Service를 사용하여 어쿠스틱 모델을 만드는 방법을 알아봅니다.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 72c5a0dfb8f33f273ba850378c1fefeef82b4d7a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 53e93a08782ba66e69b903c32c4c3c7417e5a801
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220234"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344577"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>자습서: 사용자 지정 어쿠스틱 모델 만들기
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 이 자습서에서는 응용 프로그램에서 인식하려는 음성 데이터에 대한 사용자 지정 어쿠스틱 모델을 만듭니다. 응용 프로그램이 시끄러운 공장 등의 특정 환경 또는 특정 사용자 집단에서 사용하도록 설계된 경우에 사용자 지정 어쿠스틱 모델을 만드는 것이 유용합니다.
 
@@ -140,4 +140,4 @@ Azure Portal에서 사용자 지정 Search Service 구독을 만드는 방법에
 이 자습서에서는 오디오 파일 및 스크립트에 사용할 사용자 지정 어쿠스틱 모델을 개발했습니다. 텍스트 파일에 사용할 사용자 지정 언어 파일을 만들려면 사용자 지정 언어 모델 만들기 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [사용자 지정 음향 모델 만들기](cognitive-services-custom-speech-create-language-model.md)
+> [사용자 지정 언어 모델 만들기](cognitive-services-custom-speech-create-language-model.md)

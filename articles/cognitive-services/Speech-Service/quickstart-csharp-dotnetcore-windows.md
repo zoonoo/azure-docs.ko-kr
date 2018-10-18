@@ -7,14 +7,14 @@ author: wolfma61
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: 2cb89606986645d567136655d5ab3f07223ba70d
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 04cdfd487036e79eccbb4fb879902a12e077d104
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434775"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341653"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-core-on-windows-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Windows .NET Core의 C#에서 음성을 인식하는 방법 알아보기
 
@@ -61,7 +61,7 @@ ms.locfileid: "47434775"
 
 1. `Program.cs`를 열고 모든 코드를 다음으로 바꿉니다.
 
-    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnetcore-windows/helloworld/Program.cs#code)]
+    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnetcore/helloworld/Program.cs#code)]
 
 1. 동일한 파일에서 문자열 `YourSubscriptionKey`를 구독 키로 바꿉니다.
 

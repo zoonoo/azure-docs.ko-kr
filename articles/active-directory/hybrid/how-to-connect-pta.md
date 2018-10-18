@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8055faad3cd546e538def5e7292287b49ce96cb4
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 4ae84ff481b25f1e91a29c067dea74ba25f924aa
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309542"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320325"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증으로 사용자 로그인
 
@@ -69,7 +69,7 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 ## <a name="next-steps"></a>다음 단계
 
 - [빠른 시작](how-to-connect-pta-quick-start.md) - Azure AD 통과 인증을 준비하고 실행합니다.
-- [AD FS에서 통과 인증으로 마이그레이션](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) - AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그레이션하는 방법에 대한 자세한 가이드입니다.
+- [AD FS에서 통과 인증으로 마이그레이션](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) - AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그레이션하는 방법에 대한 자세한 가이드입니다.
 - [스마트 잠금](../authentication/howto-password-smart-lockout.md) - 테넌트에서 사용자 계정을 보호하도록 스마트 잠금 기능을 구성합니다.
 - [현재 제한 사항](how-to-connect-pta-current-limitations.md) - 지원되는 시나리오와 지원되지 않는 시나리오에 대해 알아봅니다.
 - [기술 심층 분석](how-to-connect-pta-how-it-works.md) - 이 기능의 작동 방식을 이해합니다.

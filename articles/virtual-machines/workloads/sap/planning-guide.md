@@ -17,14 +17,15 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b190e539c411811e8e77b39e7b0738e9d7c3c8c6
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 51711e3cb0a2e26e8e10590e98414d4d72cc4d59
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227608"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320580"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
+
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
@@ -600,8 +601,8 @@ SAP에서 인증된 Azure VM 제품군의 대부분은 Premium Storage 및 또�
 
 Premium Storage에 관한 자세한 내용은 다음 항목에서 찾을 수 있습니다. <http://azure.microsoft.com/blog/2015/04/16/azure-premium-storage-now-generally-available-2>
 
-
 #### <a name="azure-storage-accounts"></a>Azure Storage 계정
+
 Azure에서 서비스 또는 VM을 배포할 때 VHD 및 VM 이미지의 배포는 Azure Storage 계정이라는 단위로 구성할 수 있습니다. Azure 배포를 계획할 때는 Azure의 제한 사항을 신중히 고려해야 합니다. 한쪽 측면에서는 Azure 구독당 Storage 계정 수가 제한되어 있습니다. 각 Azure Storage 계정은 많은 수의 VHD 파일을 보유할 수 있지만 Storage 계정당 총 IOPS 수의 한도는 고정되어 있습니다. DBMS 시스템에 수백 개의 SAP VM을 배포하여 많은 I/O 호출을 발생하는 경우 여러 Azure Storage 계정 간에 높은 IOPS DBMS VM을 배포하는 것이 좋습니다. 구독당 적용되는 Azure Storage 계정의 현재 제한을 초과하지 않도록 주의해야 합니다. 저장소는 SAP 시스템의 데이터베이스 배포에서 중요한 부분이므로 이 개념은 이미 언급한 [DBMS 배포 가이드][dbms-guide]에서 더 자세히 설명합니다.
 
 Azure Storage 계정에 대한 자세한 내용은 [이 문서][storage-scalability-targets]에 있습니다. 이 문서를 읽으면 Azure Standard Storage 계정과 Premium Storage 계정에서 제한 사항이 서로 다르다는 것을 알게 될 것입니다. 주요 차이점은 이러한 Storage 계정 내에 저장할 수 있는 데이터의 볼륨입니다. Standard Storage에서 이 볼륨은 Premium Storage를 사용할 때보다 훨씬 더 큽니다. 그 밖에도 Standard Storage 계정은 IOPS에서 크게 제한되지만(**총 요청 속도** 열 참조) Azure Premium Storage 계정에는 이러한 제한이 없습니다. SAP 시스템, 특히 DBMS 서버의 배포를 설명할 때 이러한 차이점의 세부 정보 및 결과를 살펴보겠습니다.
@@ -615,13 +616,14 @@ Azure 내에서 VHD 이름은 Azure 내에서 VHD에 대해 고유한 이름을 
 위의 문자열은 Azure Storage에 저장된 VHD를 고유하게 식별해야 합니다.
 
 #### <a name="c55b2c6e-3ca1-4476-be16-16c81927550f"></a>Managed Disks
+
 Managed Disks는 Azure Storage 계정에 저장된 VHD 대신 사용할 수 있는 Azure Resource Manager의 새로운 리소스 종류입니다. Managed Disks는 연결되어 있는 가상 머신의 가용성 집합에 맞게 자동으로 조정되므로, 가상 머신에서 실행되는 서비스와 가상 머신의 가용성을 높여 줍니다. 자세한 내용은 [개요 문서](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)를 참조하세요.
 
 관리 디스크를 사용하면 가상 머신을 간편하고 배포 및 관리할 수 있으므로 사용하는 것이 좋습니다.
 SAP는 현재 지원 프리미엄 관리 디스크만 지원합니다. 자세한 내용은 SAP Note [1928533]을 참조하세요.
 
-
 #### <a name="microsoft-azure-storage-resiliency"></a>Microsoft Azure Storage 복원력
+
 Microsoft Azure Storage는 최소 3개의 별도 저장소 노드에 기본 VHD(OS 포함) 및 연결된 디스크 또는 Blob을 저장합니다. 이 사실을 LRS(로컬 중복 저장소)라고 합니다. LRS는 Azure의 모든 저장소 유형에 대한 기본값입니다. 
 
 [ 가지 더 많은 중복 방법이 있으며, Azure Storage 복제](https://docs.microsoft.com/azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)에서 모두 설명하고 있습니다.
@@ -635,6 +637,7 @@ Microsoft Azure Storage는 최소 3개의 별도 저장소 노드에 기본 VHD(
 
 
 ### <a name="61678387-8868-435d-9f8c-450b2424f5bd"></a>Microsoft Azure 네트워킹
+
 Microsoft Azure는 구현하려는 모든 시나리오의 SAP 소프트웨어 매핑을 가능하게 하는 네트워크 인프라를 제공합니다. 해당 기능은 다음과 같습니다.
 
 * 외부에서 Windows 터미널 서비스 또는 ssh/VNC를 통해 VM에 직접 액세스
@@ -652,6 +655,7 @@ Azure에서 다양한 방식으로 이름 및 IP 확인을 구성할 수 있습�
 네트워킹과 이름 확인은 SAP 시스템의 데이터베이스 배포에서 중요한 부분이므로 이 개념은 [DBMS 배포 가이드 ][dbms-guide]에서 더 자세히 설명합니다.
 
 ##### <a name="azure-virtual-networks"></a>Azure Virtual Networks
+
 Azure Virtual Network를 구축하여 Azure DHCP 기능에 의해 할당된 개인 IP 주소의 주소 범위를 정의할 수 있습니다. 크로스-프레미스 시나리오에서 정의된 IP 주소 범위는 여전히 DHCP를 사용하여 Azure에서 할당됩니다. 그러나 도메인 이름 확인은 온-프레미스에서 수행되므로(VM을 온-프레미스 도메인의 일부로 가정) 다른 Azure Cloud Services 이외의 주소를 확인할 수 있습니다.
 
 Azure의 모든 Virtual Machine을 Virtual Network에 연결해야 합니다.
@@ -670,11 +674,12 @@ Azure의 모든 Virtual Machine을 Virtual Network에 연결해야 합니다.
 Azure Virtual Network 내의 VM에 고정 또는 예약된 IP 주소를 할당할 수 있습니다. Azure Virtual Network의 VM을 실행하면 일부 시나리오에 필요한 경우 이 기능이 사용될 확률이 높아집니다. IP 할당은 VM이 실행 중인지 또는 종료되었는지에 관계없이 VM이 존재하는 동안 계속 유효합니다. 결과적으로 Virtual Network의 IP 주소 범위를 정의할 때 VM의 전체 수(실행 중인 VM 및 중지된 VM)를 고려해야 합니다. IP 주소는 VM 및 해당 네트워크 인터페이스가 삭제되거나 IP 주소가 다시 할당 취소될 때까지 할당된 상태로 유지됩니다. 자세한 내용은 [이 문서][virtual-networks-static-private-ip-arm-pportal]를 참조하세요.
 
 > [!NOTE]
-> Azure 평균을 통해 고정 IP 주소를 개별 vNIC에 할당해야 합니다. 게스트 OS 내에서 고정 IP 주소를 vNIC에 할당하지 않아야 합니다. Azure Backup 서비스와 같은 일부 Azure 서비스는 최소한 기본 vNIC가 고정 IP 주소가 아닌 DHCP로 설정된다는 사실에 의존합니다. [Azure 가상 머신 백업 문제 해결](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking) 문서도 참조하세요. VM에 여러 고정 IP 주소를 할당해야 하는 경우 VM에 여러 vNIC를 할당해야 합니다.
+> Azure 평균을 통해 고정 IP 주소를 개별 vNIC에 할당해야 합니다. 게스트 OS 내에서 고정 IP 주소를 vNIC에 할당하지 않아야 합니다. Azure Backup 서비스와 같은 일부 Azure 서비스는 최소한 기본 vNIC가 고정 IP 주소가 아닌 DHCP로 설정된다는 사실에 의존합니다. [Azure 가상 머신 백업 문제 해결](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking) 문서도 참조하세요.
 >
 >
 
 ##### <a name="multiple-nics-per-vm"></a>VM당 여러 NIC
+
 Azure Virtual Machine에 대해 여러 개의 vNIC(가상 네트워크 인터페이스 카드)를 정의할 수 있습니다. 여러 vNIC를 정의할 수 있으면 클라이언트 트래픽이 한 vNIC를 통해 라우팅되고 백 엔드 트래픽이 또 다른 vNIC를 통해 라우팅되는 네트워크 트래픽 분리를 설정할 수 있습니다. VM의 유형에 따라, vNIC의 수와 관련해서 다른 제한이 적용될 수 있습니다. 정확한 세부 정보, 기능 및 제한 사항은 다음 문서에서 찾을 수 있습니다.
 
 * [여러 NIC가 있는 Windows VM 만들기][virtual-networks-multiple-nics-windows]
@@ -684,9 +689,11 @@ Azure Virtual Machine에 대해 여러 개의 vNIC(가상 네트워크 인터페
 * [Azure CLI를 사용하여 다중 NIC VM 배포][virtual-network-deploy-multinic-arm-cli]
 
 #### <a name="site-to-site-connectivity"></a>사이트 간 연결
+
 크로스-프레미스에서는 투명한 영구 VPN 연결을 사용하여 Azure VM과 온-프레미스가 연결되어 있습니다. 이것이 Azure에서 가장 일반적인 SAP 배포 패턴이 될 것입니다. 그렇지만 Azure의 SAP 인스턴스에 대한 운영 절차 및 프로세스가 투명하게 진행되어야 합니다. 즉, 이러한 시스템에서 결과를 출력하고 SAP TMS(전송 관리 시스템)를 사용하여 Azure의 개발 시스템 변경 내용을 온-프레미스에 배포되는 테스트 시스템으로 전송할 수 있어야 합니다. 사이트 간 연결에 대한 추가 설명서는 [이 문서][vpn-gateway-create-site-to-site-rm-powershell]에 있습니다.
 
 ##### <a name="vpn-tunnel-device"></a>VPN 터널 장치
+
 사이트 간 연결(온-프레미스 데이터에서 Azure 데이터 센터로의 연결)을 만들려면 VPN 장치를 얻은 후 구성하거나 Windows Server 2012에 소프트웨어 구성 요소로 도입된 RRAS(라우팅 및 원격 액세스 서비스)를 사용해야 합니다.
 
 * [PowerShell을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기][vpn-gateway-create-site-to-site-rm-powershell]
@@ -698,6 +705,7 @@ Azure Virtual Machine에 대해 여러 개의 vNIC(가상 네트워크 인터페
 위의 그림에서는 Azure의 Virtual Network에서 사용하도록 예약된 IP 주소 하위 범위가 두 개의 Azure 구독에 있는 경우를 보여 줍니다. 온-프레미스 네트워크에서 Azure로의 연결은 VPN을 통해 설정됩니다.
 
 #### <a name="point-to-site-vpn"></a>지점 및 사이트 간 VPN
+
 지점 및 사이트 간 VPN에서는 모든 클라이언트 컴퓨터가 자체 VPN을 통해 Azure에 연결되어야 합니다. 우리가 보고 있는 SAP 시나리오의 경우 지점 및 사이트 간 연결이 가능하지 않습니다. 따라서 지점 및 사이트 간 VPN 연결에 대한 추가 참조는 제공되지 않습니다.
 
 자세한 내용은 다음 항목에 있습니다.
@@ -705,16 +713,17 @@ Azure Virtual Machine에 대해 여러 개의 vNIC(가상 네트워크 인터페
 * [PowerShell을 사용하여 VNet에 지점 및 사이트 간 연결 구성](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps)
 
 #### <a name="multi-site-vpn"></a>다중 사이트 VPN
+
 현재 Azure는 단일 Azure 구독에 대해 다중 사이트 VPN 연결을 만들 수 있도록 합니다. 이전에는 구독이 1개 있으면 사이트 간 VPN 연결 1개로 제한되었습니다. 이 제한은 단일 구독에 대한 다중 사이트 VPN 연결을 통해 해결되었습니다. 따라서 크로스-프레미스 구성을 통해 특정 구독에 대해 둘 이상의 Azure 지역을 사용할 수 있습니다.
 
 추가 설명서는 [이 문서][vpn-gateway-create-site-to-site-rm-powershell]를 참조하세요.
 
-
-
 #### <a name="vnet-to-vnet-connection"></a>VNet 간 연결
+
 다중 사이트 VPN을 사용할 경우 각 지역에 별도의 Azure Virtual Network를 구성해야 합니다. 그러나 다른 지역의 소프트웨어 구성 요소가 서로 통신해야 하는 경우가 많습니다. 이상적으로 이러한 통신은 한 Azure 지역에서 온-프레미스로 라우팅되었다가 다시 여기서 다른 Azure 지역으로 라우팅되면 안 됩니다. 간단히 말해서 Azure는 한 지역의 Azure Virtual Network에서 다른 지역의 다른 Azure Virtual Network로의 연결을 구성할 수 있도록 합니다. 이 기능을 VNet 간 연결이라고 합니다. 이 기능에 대한 자세한 내용은 <https://azure.microsoft.com/documentation/articles/vpn-gateway-vnet-vnet-rm-ps/>를 참조하세요.
 
 #### <a name="private-connection-to-azure-expressroute"></a>Azure ExpressRoute에 대한 비공개 연결
+
 Microsoft Azure ExpressRoute를 사용하여 Azure 데이터 센터와 고객의 온-프레미스 인프라 또는 공동 배치 환경 간에 개인 연결을 만들 수 있습니다. 다양한 MPLS(패킷 전환) VPN 공급자 또는 기타 네트워크 서비스 공급자에서 ExpressRoute를 제공합니다. ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. ExpressRoute 연결은 인터넷을 통한 일반 연결보다 더 높은 보안을 제공하고 여러 병렬 회로를 통해 안정성을 높이며 더 빠른 속도와 짧은 대기 시간을 제공합니다.
 
 Azure ExpressRoute 및 제공 서비스에 대한 자세한 내용은 여기에서 찾을 수 있습니다.
@@ -736,6 +745,7 @@ ExpressRoute는 여기에 설명된 것처럼 단일 ExpressRoute 회로를 통�
 ExpressRoute를 사용한 강제 터널링은 ExpressRoute BGP 피어링 세션을 통해 기본 경로를 보급한 고객으로 활성화됩니다.
 
 #### <a name="summary-of-azure-networking"></a>Azure 네트워킹 요약
+
 이 장에서는 Azure 네트워킹에 대한 여러 가지 중요 사항이 포함되어 있습니다. 중요 사항은 다음과 같이 요약할 수 있습니다.
 
 * Azure Virtual Network를 사용하면 Azure 배포에 네트워크 구조를 넣을 수 있습니다. VNet은 서로 격리되거나 VNet 간의 네트워크 보안 그룹 트래픽의 도움으로 제어될 수 있습니다.
@@ -778,7 +788,9 @@ Azure의 SAP 크기 조정에 대한 내용은 이 블로그와 첨부 문서를
 * 충분한 IOPS를 제공하기 위한 DBMS VM의 VHD 수
 
 ## <a name="managing-azure-assets"></a>Azure 자산 관리
+
 ### <a name="azure-portal"></a>Azure portal
+
 Azure Portal은 Azure VM 배포를 관리하기 위한 세 가지 인터페이스 중 하나입니다. 이미지에서 VM을 배포하는 등의 기본적인 관리 작업은 Azure Portal을 통해 수행할 수 있습니다. 또한 Storage 계정, Virtual Network 및 기타 Azure 구성 요소 만들기 작업은 Azure Portal에서 효율적으로 처리할 수 있는 작업이기도 합니다. 그러나 온-프레미스에서 Azure로 VHD를 업로드하거나, Azure 내에서 VHD를 복사하는 등의 기능을 수행하려면 타사 도구나 PowerShell 또는 CLI를 통한 관리가 필요합니다.
 
 ![Microsoft Azure Portal - Virtual Machine 개요][planning-guide-figure-800]
@@ -800,6 +812,7 @@ Azure Portal은 VM 및 기타 여러 Azure 서비스를 배포 및 구성하기 
 [comment]: <> (MSSedusch - 또한 Azure Portal에서는 배포와 관련된 모든 유형의 자동화가 가능하지 않습니다. 여러 VM의 스크립팅된 배포와 같은 작업은 Azure Portal을 통해 수행할 수 없습니다.)
 
 ### <a name="management-via-microsoft-azure-powershell-cmdlets"></a>Microsoft Azure PowerShell cmdlet을 통한 관리
+
 Windows PowerShell은 Azure에서 많은 수의 시스템을 배포하는 고객에 의해 널리 채택되어온 강력하고 확장 가능한 프레임워크입니다. 데스크톱, 랩톱 또는 전용 관리 스테이션에 PowerShell cmdlet을 설치한 후 원격으로 실행할 수 있습니다.
 
 Azure PowerShell cmdlet을 사용할 수 있도록 로컬 데스크톱/랩톱을 설정하는 프로세스와 Azure 구독에서 이러한 cmdlet을 사용하도록 구성하는 방법은 [이 문서][powershell-install-configure]에서 설명하고 있습니다.
@@ -818,6 +831,7 @@ Azure에서는 더 많은 기능을 제공하므로 cmdlet 업데이트를 요�
 Azure 관련 PowerShell 명령의 일반 목록은 <https://docs.microsoft.com/powershell/azure/overview>에서 확인하세요.
 
 ### <a name="management-via-microsoft-azure-cli-commands"></a>Microsoft Azure CLI 명령을 통한 관리
+
 Linux를 사용하고 Azure 리소스를 관리하려는 고객의 경우에는 Powershell을 사용하지 못할 수 있습니다. Microsoft는 대안으로 Azure CLI를 제공합니다.
 Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령 집합을 제공합니다. Azure CLI는 Azure 포털에 있는 동일한 기능을 대부분 제공합니다.
 
@@ -830,15 +844,19 @@ Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령
 또한 Azure CLI를 사용하여 SAP용 Azure 모니터링 확장을 배포하는 방법에 대해서는 [배포 가이드][planning-guide]의 [Linux VM용 Azure CLI][deployment-guide-4.5.2] 장도 읽어보세요.
 
 ## <a name="different-ways-to-deploy-vms-for-sap-in-azure"></a>Azure에서 SAP용 VM을 배포하는 다른 방법
+
 이 장에서는 Azure에서 VM을 배포하는 다양한 방법을 알아봅니다. 이 장에서는 Azure의 VM 및 VHD의 처리뿐만 아니라 추가 준비 절차도 설명합니다.
 
 ### <a name="deployment-of-vms-for-sap"></a>SAP용 VM 배포
+
 Microsoft Azure는 VM 및 관련 디스크를 배포하기 위한 여러 가지 방법을 제공합니다. 따라서 배포 방법에 따라 VM 준비가 달라질 수 있으므로 차이점을 이해해야 합니다. 일반적으로 다음과 같은 시나리오를 살펴보겠습니다.
 
 #### <a name="4d175f1b-7353-4137-9d2f-817683c26e53"></a>일반화되지 않은 디스크를 사용하여 온-프레미스에서 Azure로 VM 이동
+
 온-프레미스에서 Azure로 특정 SAP 시스템을 이동하려고 합니다. 이 작업은 OS, SAP 바이너리 및 DBMS 바이너리를 포함하는 VHD와 DBMS 데이터와 로그 파일이 있는 VHD를 Azure에 업로드하여 수행할 수 있습니다. [아래의 시나리오 2][planning-guide-5.1.2]와 달리 온-프레미스 환경에서 구성한 대로 Azure VM에서 호스트 이름, SAP SID 및 SAP 사용자 계정을 유지합니다. 그러므로 이미지 일반화는 필요하지 않습니다. 일반화되지 않은 VM 또는 VHD를 온-프레미스에서 준비하는 단계와 Azure로 업로드하는 방법에 대해서는 이 문서의 [일반화되지 않은 디스크를 사용하여 온-프레미스에서 Azure로 VM 이동 준비][planning-guide-5.2.1] 장을 참조하세요. Azure에서 이러한 이미지를 배포하는 자세한 단계에 대해서는 [배포 가이드][deployment-guide]의 [시나리오 3: SAP에서 일반화되지 않은 Azure VHD를 사용하여 온-프레미스에서 VM 이동][deployment-guide-3.4] 장을 읽어보세요.
 
 #### <a name="e18f7839-c0e2-4385-b1e6-4538453a285c"></a>고객별 이미지를 사용하여 VM 배포
+
 OS 또는 DBMS 버전의 특정 패치 요구 사항으로 인해 Azure Marketplace에 제공된 이미지가 용도에 맞지 않을 수 있습니다. 따라서 자체 개인 OS/DBMS VM 이미지를 사용하는 VM을 만들어 이후 여러 번 배포할 수 있습니다. 중복성 유지를 위해 이러한 개인 이미지를 준비하려면 다음 항목을 고려해야 합니다.
 
 - - -
@@ -857,12 +875,15 @@ OS 또는 DBMS 버전의 특정 패치 요구 사항으로 인해 Azure Marketpl
 온-프레미스 VM(특히 2계층 시스템)에 SAP 콘텐츠를 이미 설치한 경우 Azure VM 배포 후 SAP Software Provisioning Manager에서 지원하는 인스턴스 이름 변경 절차를 통해 SAP 시스템 설정을 적용할 수 있습니다(SAP Note [1619720]). 온-프레미스 준비 단계 및 Azure로 일반화된 VM 업로드에 대해서는 이 문서의 [SAP용 고객별 이미지를 사용하여 VM 배포 준비][planning-guide-5.2.2] 및 [온-프레미스에서 Azure로 VHD 업로드][planning-guide-5.3.2] 장을 참조하세요. Azure에서 이러한 이미지를 배포하는 자세한 단계는 [배포 가이드][deployment-guide]의 [시나리오 2: SAP용 사용자 지정 이미지를 사용하여 VM 배포][deployment-guide-3.3] 장을 참조하세요.
 
 #### <a name="deploying-a-vm-out-of-the-azure-marketplace"></a>Azure Marketplace에서 VM 배포
+
 Azure Marketplace에서 Microsoft 또는 타사 제공 VM 이미지를 사용하여 VM을 배포하려는 경우가 있을 수 있습니다. Azure에서 VM을 배포한 후 온-프레미스 환경에서와 동일한 지침 및 도구를 사용하여 VM 내부에 SAP 소프트웨어 및/또는 DBMS를 설치합니다. 자세한 배포 설명은 [배포 가이드][deployment-guide]의 [시나리오 1: SAP용 Azure Marketplace에서 VM 배포][deployment-guide-3.2] 장을 참조하세요.
 
 ### <a name="6ffb9f41-a292-40bf-9e70-8204448559e7"></a>Azure용 SAP로 VM 준비
+
 VM을 Azure에 업로드하기 전에 VM 및 VHD가 특정 요구 사항을 충족하는지 확인해야 합니다. 사용되는 배포 방법에 따라 약간의 차이가 있습니다.
 
 #### <a name="1b287330-944b-495d-9ea7-94b83aff73ef"></a>일반화되지 않은 디스크를 사용하여 온-프레미스에서 Azure로 VM 이동 준비
+
 일반적인 배포 방법은 SAP 시스템을 실행하는 기존 VM을 온-프레미스에서 Azure로 이동하는 것입니다. 해당 VM 및 VM의 SAP 시스템은 동일한 호스트 이름과 거의 동일한 SAP SID를 사용하여 Azure에서 실행되어야 합니다. 이 경우 다중 배포를 위해 VM의 게스트 OS를 일반화해야 합니다. 온-프레미스 네트워크가 Azure로 확장된 경우(이 문서의 [크로스 프레미스 - 온-프레미스 네트워크에 완전히 통합될 필요가 있는 단일 또는 다중 SAP VM을 Azure에 배포][planning-guide-2.2] 장 참조) 온-프레미스 이전에 사용된 것과 같은 동일한 도메인 계정을 VM 내에서 사용할 수도 있습니다.
 
 고유한 Azure VM 디스크를 준비할 때의 요구 사항은 다음과 같습니다.
@@ -891,6 +912,7 @@ VM을 Azure에 업로드하기 전에 VM 및 VHD가 특정 요구 사항을 충�
 
 - - -
 #### <a name="57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3"></a>SAP용 고객별 이미지를 사용하여 VM 배포 준비
+
 일반화된 OS를 포함하는 VHD 파일은 Azure Storage 계정의 컨테이너에 저장되거나 관리 디스크 이미지로 저장됩니다. [배포 가이드][deployment-guide]의 [시나리오 2: SAP용 사용자 지정 이미지를 사용하여 VM 배포][deployment-guide-3.3] 장에서 설명한 대로 배포 템플릿 파일에서 VHD 또는 관리 디스크 이미지를 원본으로 참조하여 이러한 이미지에서 새 VM을 배포할 수 있습니다.
 
 고유한 Azure VM 이미지를 준비할 때의 요구 사항은 다음과 같습니다.
@@ -1055,7 +1077,9 @@ Azure Infrastructure as a Services는 VHD 및 SAP 시스템을 업로드만 할 
   ```
 
 ### <a name="transferring-vms-and-disks-within-azure"></a>Azure 내에서 VM 및 디스크 전송
+
 #### <a name="copying-sap-systems-within-azure"></a>Azure 내에서 SAP 시스템 복사
+
 SAP 시스템 또는 SAP 응용 프로그램 계층을 지원하는 전용 DBMS 서버까지도 SAP 데이터베이스의 바이너리 또는 데이터 및 로그 파일과 함께 OS를 포함하는 여러 디스크로 구성될 수 있습니다. 디스크를 복사하는 Azure의 기능과 디스크를 로컬 디스크에 저장하는 Azure의 기능 모두 여러 디스크의 스냅숏을 일관된 방식으로 만드는 동기화 메커니즘을 사용하지 않습니다. 따라서 복사 또는 저장된 디스크의 상태는 같은 VM에 탑재되는 경우에도 다를 수 있습니다. 즉, 여러 다른 디스크에 다른 데이터 및 로그 파일이 포함된 구체적인 경우에도 데이터베이스는 일관되지 않게 됩니다.
 
 **결론: SAP 시스템 구성의 일부로 디스크를 복사하거나 저장하려면 SAP 시스템을 중지하고 배포된 VM도 종료해야 합니다. 그런 후에만 디스크 집합을 복사 또는 다운로드하여 Azure 또는 온-프레미스에서 SAP 시스템의 복사본을 만들 수 있습니다.**
@@ -1067,6 +1091,7 @@ SAP 시스템 또는 SAP 응용 프로그램 계층을 지원하는 전용 DBMS 
 데이터 디스크를 관리 디스크로 사용할 수도 있습니다. 이 경우에는 관리 디스크를 사용하여 새 관리 디스크를 만든 후 가상 머신에 연결합니다. 관리 디스크의 이름은 리소스 그룹 내에서 고유해야 합니다.
 
 ##### <a name="powershell"></a>PowerShell
+
 [이 문서][storage-powershell-guide-full-copy-vhd]에서 보여 주듯이 Azure PowerShell cmdlet을 사용하여 VHD를 복사할 수 있습니다. 새 관리 디스크를 만들려면 다음 예제에 나와 있는 것처럼 New-AzureRmDiskConfig 및 New-AzureRmDisk를 사용합니다.
 
 ```powershell
@@ -1075,6 +1100,7 @@ New-AzureRmDisk -ResourceGroupName <resource group name> -DiskName <disk name> -
 ```
 
 ##### <a name="azure-cli"></a>Azure CLI
+
 [이 문서][storage-azure-cli-copy-blobs]에서 보여 주듯이 Azure CLI를 사용하여 VHD를 복사할 수 있습니다. 새 관리 디스크를 만들려면 다음 예제에 나와 있는 것처럼 *az disk create*를 사용합니다.
 
 ```
@@ -1082,6 +1108,7 @@ az disk create --source "/subscriptions/<subscription id>/resourceGroups/<resour
 ```
 
 ##### <a name="azure-storage-tools"></a>Azure Storage 도구
+
 * <http://storageexplorer.com/>
 
 Azure Storage 탐색기의 전문가 버전은 아래 페이지에서 확인할 수 있습니다.
@@ -1092,6 +1119,7 @@ Azure Storage 탐색기의 전문가 버전은 아래 페이지에서 확인할 
 저장소 계정 내에서 VHD 자체를 복사하는 작업은 몇 초면 끝나는 프로세스입니다(지연 복사 및 기록 중 복사를 사용하여 스냅숏을 만드는 SAN 하드웨어와 유사). VHD 파일의 복사본을 만든 후에는 가상 머신에 연결하거나 VHD 복사본을 가상 머신에는 연결하기 위한 이미지로 사용할 수 있습니다.
 
 ##### <a name="powershell"></a>PowerShell
+
 ```powershell
 # attach a vhd to a vm
 $vm = Get-AzureRmVM -ResourceGroupName <resource group name> -Name <vm name>
@@ -1116,6 +1144,7 @@ $vm = Add-AzureRmVMDataDisk -VM $vm -Caching <caching option> -Lun <lun, for exa
 $vm | Update-AzureRmVM
 ```
 ##### <a name="azure-cli"></a>Azure CLI
+
 ```
 
 # attach a vhd to a vm
@@ -1176,7 +1205,9 @@ az storage blob show --name <target blob name> --container <target container nam
 예제는 [이 문서][storage-azure-cli-copy-blobs]를 참조하세요.
 
 ### <a name="disk-handling"></a>디스크 처리
+
 #### <a name="4efec401-91e0-40c0-8e64-f2dceadff646"></a>SAP 배포를 위한 VM/디스크 구조
+
 이상적으로 VM 및 관련된 디스크의 구조를 처리하는 작업은 간단해야 합니다. 온-프레미스 설치에서 고객은 서버 설치를 구성하는 여러 가지 방법을 개발했습니다.
 
 * OS와 DBMS 및/또는 SAP의 모든 바이너리가 들어 있는 하나의 기본 디스크 2015년 3월부터 이전의 127GB 제한이 없어지면서 이 디스크는 최대 1TB까지 포함할 수 있습니다.
@@ -1240,6 +1271,7 @@ OS와 SAP의 바이너리 및 데이터베이스(기본 VM)도 포함하는 디�
 특히 DBMS VM에 대한 추가 제안 사항과 자세한 내용은 [DBMS 배포 가이드][dbms-guide]를 참조하세요.
 
 #### <a name="disk-handling"></a>디스크 처리
+
 대부분의 시나리오에서는 VM으로 SAP 데이터베이스를 배포하기 위해 추가 디스크를 만들 필요가 있습니다. 이 문서의 [SAP 배포를 위한 VM/디스크 구조][planning-guide-5.5.1] 장에서 디스크 수에 대한 고려 사항을 설명했습니다. Azure Portal을 사용하면 기본 VM을 배포한 후 디스크를 연결 및 분리할 수 있습니다. VM이 가동 및 실행 중일 때와 중지될 때 디스크를 연결/분리할 수 있습니다. 디스크를 연결할 때 Azure Portal은 빈 디스크 또는 기존 디스크(이 시점에 다른 VM에 연결되지 않은)에 연결할 수 있도록 합니다.
 
 **참고**: 디스크는 언제나 한 번에 하나의 VM에만 연결할 수 있습니다.
@@ -1299,14 +1331,17 @@ Azure 지역에서 복제 기능은 VM의 각 VHD에서 로컬로 작동하며, 
 
 - - -
 ### <a name="final-deployment"></a>최종 배포
+
 최종 배포 및 정확한 단계(특히 SAP 확장 모니터링의 배포와 관련된 정보)는 [배포 가이드][deployment-guide]를 참조하세요.
 
 ## <a name="accessing-sap-systems-running-within-azure-vms"></a>Azure VM 내에서 실행되는 SAP 시스템에 액세스
+
 클라우드 전용 시나리오의 경우 SAP GUI를 사용하여 공용 인터넷을 통해 해당 SAP 시스템에 연결하려고 할 수 있습니다. 이러한 경우 다음 절차를 적용해야 합니다.
 
 이 문서 뒷부분에서는 사이트 간 연결(VPN 터널) 또는 온-프레미스 시스템과 Azure 시스템 간의 Azure ExpressRoute 연결이 있는 프레미스 간 배포에서 SAP 시스템에 연결하는 다른 주요 시나리오가 나와 있습니다.
 
 ### <a name="remote-access-to-sap-systems"></a>SAP 시스템에 대한 원격 액세스
+
 Azure Resource Manager를 사용할 경우 더 이상 이전의 클래식 모델과 같은 기본 엔드포인트가 없습니다. 다음과 같은 조건이 충족되면 Azure Resource Manager VM의 모든 포트는 열려 있습니다.
 
 1. 서브넷 또는 네트워크 인터페이스에 대해 정의된 네트워크 보안 그룹이 없습니다. Azure VM으로의 네트워크 트래픽이 "네트워크 보안 그룹"을 통해 보호될 수 있습니다. 자세한 내용은 [NSG(네트워크 보안 그룹)란?][virtual-networks-nsg]을 참조하세요.
@@ -1315,9 +1350,11 @@ Azure Resource Manager를 사용할 경우 더 이상 이전의 클래식 모델
 [이 문서][virtual-machines-azure-resource-manager-architecture]에서 설명하는 클래식 모델과 ARM의 아키텍처 차이를 참조하세요.
 
 #### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-for-cloud-only-scenario"></a>클라우드 전용 시나리오에 대한 SAP 시스템 및 SAP GUI 연결 구성
+
 이 항목에 대한 세부 정보를 설명하는 <http://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx> 문서를 참조하세요.
 
 #### <a name="changing-firewall-settings-within-vm"></a>VM 내의 방화벽 설정 변경
+
 SAP 시스템으로의 인바운드 트래픽을 허용하도록 가상 머신에서 방화벽을 구성해야 할 수도 있습니다.
 
 - - -
@@ -1346,6 +1383,7 @@ SAP 시스템으로의 인바운드 트래픽을 허용하도록 가상 머신�
 
 - - -
 #### <a name="security-recommendations"></a>보안 권장 사항
+
 SAP GUI는 실행 중인 어떤 SAP 인스턴스(포트 32xx)에도 직접 연결되지 않으며 먼저 열린 포트를 통해 SAP 메시지 서버 프로세스(포트 36xx)로 연결됩니다. 이전에는 응용 프로그램 인스턴스에 대한 내부 통신을 위해 메시지 서버에서 동일한 포트가 사용되었습니다. 온-프레미스 응용 프로그램 서버가 Azure의 메시지 서버와 우연히 통신하는 일을 방지하기 위해 통신 포트를 변경할 수 있습니다. SAP 메시지 서버와 해당 응용 프로그램 인스턴스 간의 내부 통신을 온-프레미스 시스템에서 복제된 시스템(프로젝트 테스트를 위한 개발 복제본 등)의 다른 포트 번호로 변경할 것을 강력히 권장합니다. 이 작업은 기본 프로필 매개 변수를 사용하여 수행할 수 있습니다.
 
 > rdisp/msserv_internal
@@ -1355,7 +1393,9 @@ SAP GUI는 실행 중인 어떤 SAP 인스턴스(포트 32xx)에도 직접 연�
 해당 작업 방법은 [SAP 메시지 서버에 대한 보안 설정](https://help.sap.com/saphelp_nwpi71/helpdata/en/47/c56a6938fb2d65e10000000a42189c/content.htm)에 설명되어 있습니다.
 
 ## <a name="96a77628-a05e-475d-9df3-fb82217e8f14"></a>SAP 인스턴스의 클라우드 전용 배포 개념
+
 ### <a name="3e9c3690-da67-421a-bc3f-12c520d99a30"></a>SAP NetWeaver 데모/학습 시나리오가 있는 단일 VM
+
 ![Azure Cloud Services에 격리된 같은 VM 이름의 단일 VM SAP 데모 시스템 실행][planning-guide-figure-1700]
 
 이 시나리오(이 문서의 [클라우드 전용][planning-guide-2.1] 장 참조)에서는 전체 학습/데모 시나리오가 단일 VM에 포함된 전형적인 학습/데모 시스템 시나리오를 구현하고 있습니다. VM 이미지 템플릿을 통해 배포했다고 가정합니다. 또한 이러한 여러 데모/학습 VM을 동일한 이름의 VM과 함께 배포해야 한다고 가정합니다.
@@ -1365,6 +1405,7 @@ SAP GUI는 실행 중인 어떤 SAP 인스턴스(포트 32xx)에도 직접 연�
 시나리오를 구현하는 이벤트의 순서는 다음과 같습니다.
 
 ##### <a name="powershell"></a>PowerShell
+
 * 모든 학습/데모 환경에 대한 새 리소스 그룹 만들기
 
 ```powershell
@@ -1479,6 +1520,7 @@ Add-AzureRmVMDataDisk -VM $vm -Name datadisk -DiskSizeInGB 1023 -CreateOption em
 ```
 
 ##### <a name="cli"></a>CLI
+
 다음 코드 예제는 Linux에서 사용할 수 있습니다. Windows의 경우 위에서 설명한 것처럼 PowerShell을 사용하거나, 예제를 조정하여 $rgName 대신 %rgName%을 사용하고 Windows 명령 *set*를 사용하여 환경 변수를 설정합니다.
 
 * 모든 학습/데모 환경에 대한 새 리소스 그룹 만들기
@@ -1563,6 +1605,7 @@ az vm disk attach --resource-group $rgName --vm-name SAPERPDemo --size-gb 1023 -
 ```
 
 ##### <a name="template"></a>Template
+
 github의 azure-quickstart-templates 저장소에 있는 샘플 템플릿을 사용할 수 있습니다.
 
 * [간단한 Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
@@ -1570,6 +1613,7 @@ github의 azure-quickstart-templates 저장소에 있는 샘플 템플릿을 사
 * [이미지의 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
 ### <a name="implement-a-set-of-vms-that-communicate-within-azure"></a>Azure 내에서 통신하는 VM 집합 구현
+
 이 클라우드 전용 시나리오는 데모 및 학습 시나리오를 나타내는 소프트웨어가 여러 VM에 걸쳐 분산되어 있는 학습 및 데모용 일반 시나리오입니다. 여러 VM에 설치된 다양한 구성 요소는 서로 통신해야 합니다. 또한 이 시나리오에서는 온-프레미스 네트워크 통신이나 크로스-프레미스 시나리오가 필요하지 않습니다.
 
 이 시나리오는 이 문서의 [SAP NetWeaver 데모/학습 시나리오가 있는 단일 VM][planning-guide-7.1] 장에서 설명한 설치의 확장입니다. 이 경우 더 많은 가상 머신이 기존 리소스 그룹에 추가됩니다. 다음 예제에서 교육 환경은 SAP ASCS/SCS VM, DBMS가 실행되는 VM 및 SAP 응용 프로그램 서버 인스턴스 VM으로 구성됩니다.
@@ -1577,11 +1621,13 @@ github의 azure-quickstart-templates 저장소에 있는 샘플 템플릿을 사
 이 시나리오를 작성하기 전에 시나리오에서 이미 실행한 기본 설정을 고려해야 합니다.
 
 #### <a name="resource-group-and-virtual-machine-naming"></a>리소스 그룹 및 Virtual Machine 이름 지정
+
 모든 리소스 그룹 이름은 고유해야 합니다. `<rg-name`>-접미사와 같은 리소스의 고유한 이름 지정 체계를 개발합니다.
 
 가상 머신 이름은 리소스 그룹 내에서 고유해야 합니다.
 
 #### <a name="set-up-network-for-communication-between-the-different-vms"></a>여러 VM 간의 통신을 위한 네트워크 설정
+
 ![Azure Virtual Network 내의 VM 집합][planning-guide-figure-1900]
 
 동일한 학습/데모 환경의 복제본과의 이름 충돌을 방지하려면 모든 환경에 대해 Azure Virtual Network를 만들어야 합니다. Azure에서 제공하는 DNS 이름 확인을 사용하거나 Azure 외부에서 자체 DNS 서버를 구성할 수도 있습니다(여기서는 자세히 다루지 않음). 이 시나리오에서는 자체 DNS를 구성하지 않습니다. 단일 Azure Virtual Network 내의 모든 가상 머신의 경우 호스트 이름을 통한 통신이 사용되도록 설정됩니다.
@@ -1594,11 +1640,13 @@ github의 azure-quickstart-templates 저장소에 있는 샘플 템플릿을 사
 Azure Virtual Networks 및 이러한 네트워크를 정의하는 방법에 대한 자세한 내용은 [이 문서][virtual-networks-create-vnet-arm-pportal]에 있습니다.
 
 ## <a name="deploying-sap-vms-with-corporate-network-connectivity-cross-premises"></a>회사 네트워크 연결을 사용하여 SAP VM 배포(프레미스 간)
+
 SAP 지형을 실행하고 고급 DBMS 서버용 운영 체제 미설치 영역, 응용 프로그램 계층 및 보다 작은 2계층으로 구성된 SAP 시스템과 Azure IaaS에 대한 온-프레미스 가상화 환경 간에 배포를 나눌 수 있습니다. 기본 가정은 단일 SAP 지형 내의 SAP 시스템은 배포 형식에 관계없이 서로 간에, 그리고 회사에 배포된 여러 다른 소프트웨어 구성 요소와 통신해야 한다는 것입니다. SAP GUI를 사용하여 연결하는 최종 사용자와 다른 인터페이스를 사용하여 연결하는 사용자는 배포 형식에 따른 차이를 느끼지 못해야 합니다. 이러한 조건은 온-프레미스 Active Directory/OpenLDAP 및 DNS 서비스를 사이트 간/다중 사이트 연결 또는 개인 연결(예: Azure ExpressRoute)을 통해 Azure 시스템으로 확장할 때만 충족될 수 있습니다.
 
 Azure의 SAP 구현 세부 사항에 대한 배경 지식을 얻으려면 이 문서의 [SAP 인스턴스의 클라우드 전용 배포 개념][planning-guide-7] 장을 읽어보세요. 여기서는 Azure 기본 구조의 일부와 Azure에서 SAP 응용 프로그램을 통해 이러한 구조를 사용하는 방법을 설명합니다.
 
 ### <a name="scenario-of-an-sap-landscape"></a>SAP 지형 시나리오
+
 크로스-프레미스 시나리오는 아래 그래픽과 같이 대략적으로 나타낼 수 있습니다.
 
 ![온-프레미스와 Azure 자산 간의 사이트 간 연결][planning-guide-figure-2100]
@@ -1606,6 +1654,7 @@ Azure의 SAP 구현 세부 사항에 대한 배경 지식을 얻으려면 이 �
 위에 나와 있는 시나리오는 온-프레미스 AD/OpenLDAP 및 DNS가 Azure로 확장되는 시나리오를 설명합니다. 온-프레미스 쪽에서 특정 IP 주소 범위는 Azure 구독을 기준으로 예약됩니다. IP 주소 범위는 Azure 쪽의 Azure Virtual Network에 할당됩니다.
 
 #### <a name="security-considerations"></a>보안 고려 사항
+
 최소 요구 사항은 Azure 서비스의 브라우저 액세스를 위해서는 SSL/TLS, 시스템 액세스를 위해서는 VPN 기반 연결과 같은 보안 통신 프로토콜의 사용입니다. 단, 회사에서는 회사 네트워크와 Azure 간의 VPN 연결을 다르게 처리하는 것을 전제로 합니다. 일부 회사에서는 모든 포트를 완전히 열어둘 수 있습니다. 또 다른 회사에서는 열어야 하는 포트를 정확하게 지정하려고 할 수 있습니다.
 
 아래 표에는 일반적인 SAP 통신 포트가 나와 있습니다. 기본적으로 SAP 게이트웨이 포트만 열어도 충분합니다.
@@ -1627,10 +1676,13 @@ Azure의 SAP 구현 세부 사항에 대한 배경 지식을 얻으려면 이 �
 이러한 시나리오에서 VM을 배포할 경우 다른 보안 조치는 [네트워크 보안 그룹][virtual-networks-nsg]을 만들어 액세스 규칙을 정의할 수 있습니다.
 
 ### <a name="dealing-with-different-virtual-machine-series"></a>다른 Virtual Machine 시리즈 처리
+
 Microsoft는 vCPU 수, 메모리 또는 좀 더 중요하게 VM이 실행되는 하드웨어가 다른 VM 유형을 추가했습니다. 이러한 모든 VM이 SAP에서 지원되는 것은 아닙니다(SAP 정보 [1928533]에서 지원되는 VM 형식 참조). 해당 VM 중 일부는 다른 호스트 하드웨어 세대에서 실행됩니다. 이러한 호스트 하드웨어 세대는 Azure 확장 단위 세분성에 따라 배포됩니다. 선택한 다른 형식의 VM을 같은 확장 단위로 실행할 수 없는 경우가 발생할 수 있습니다. 가용성 집합은 다른 하드웨어를 기반으로 확장 단위를 넓히는 능력이 제한되어 있습니다.  예를 들어 HA 구성에서 보조 DBMS 인스턴스를 실행하는 VM과 함께 가용성 집합에 있는 E64s_v3 VM에서 SAP DBMS 계층을 실행하는 경우 VM을 업그레이드할 수 있으므로 M 시리즈 VM으로 보조 VM을 중지하고 다시 시작할 수 없습니다. 이유는 M 시리즈 VM 및 Ev3 시리즈 VM이 다른 하드웨어 및 다른 확장 단위에서 실행 중이기 때문입니다. 새 가용성 집합을 만들고, 저장소를 삭제하지 않고 보조 Ev3 시리즈 VM을 삭제하고, M 시리즈 VM으로 VM을 새 가용성 집합에 다시 배포해야 합니다.
 
 #### <a name="printing-on-a-local-network-printer-from-sap-instance-in-azure"></a>Azure의 SAP 인스턴스에서 로컬 네트워크 프린터로 인쇄
+
 ##### <a name="printing-over-tcpip-in-cross-premises-scenario"></a>프레미스 간 시나리오에서 TCP/IP를 통해 인쇄
+
 Azure VM에서 온-프레미스 TCP/IP 기반 네트워크 프린터를 설정하는 것은 VPN 사이트 간 터널 또는 ExpressRoute 연결을 설정했다고 가정할 경우 회사 네트워크에서 작업하는 경우와 전반적으로 동일합니다.
 
 - - -
@@ -1656,6 +1708,7 @@ Azure VM에서 온-프레미스 TCP/IP 기반 네트워크 프린터를 설정�
 ![네트워크 인쇄][planning-guide-figure-2200]
 
 ##### <a name="host-based-printer-over-smb-shared-printer-in-cross-premises-scenario"></a>프레미스 간 시나리오에서 SMB를 통한 호스트 기반 프린터(공유 프린터)
+
 호스트 기반 프린터는 기본적으로 네트워크와 호환되지 않습니다. 그러나 전원이 켜진 컴퓨터에 프린터가 연결되기만 하면 네트워크 상의 컴퓨터 간에 호스트 기반 프린터가 공유될 수 있습니다. 회사 네트워크를 사이트 간 또는 ExpressRoute에 연결하고 로컬 프린터를 공유합니다. SMB 프로토콜은 이름 서비스로 DNS가 아닌 NetBIOS를 사용합니다. NetBIOS 호스트 이름은 DNS 호스트 이름과 다를 수 있습니다. NetBIOS 호스트 이름과 DNS 호스트 이름이 동일한 경우가 일반적인 경우입니다. DNS 도메인은 NetBIOS 네임스페이스에서는 의미가 없습니다. 따라서 DNS 호스트 이름과 DNS 도메인으로 이루어진 정규화된 DNS 호스트 이름은 NetBIOS 네임스페이스에서 사용하지 말아야 합니다.
 
 프린터 공유는 네트워크에서 고유한 이름으로 식별됩니다.
@@ -1685,6 +1738,7 @@ Azure VM에서 온-프레미스 TCP/IP 기반 네트워크 프린터를 설정�
 
 - - -
 ##### <a name="usb-printer-printer-forwarding"></a>USB 프린터(프린터 전달)
+
 Azure에서는 원격 세션에서 사용자가 로컬 프린터 장치에 액세스할 수 있도록 하는 원격 데스크톱 서비스의 기능을 사용할 수 없습니다.
 
 - - -
@@ -1696,9 +1750,11 @@ Azure에서는 원격 세션에서 사용자가 로컬 프린터 장치에 액�
 
 - - -
 #### <a name="integration-of-sap-azure-systems-into-correction-and-transport-system-tms-in-cross-premises"></a>프레미스 간에 SAP Azure 시스템을 Correction and Transport System(TMS)에 통합
+
 SAP Change and Transport System(TMS)은 지형 내에서 시스템 간에 전송 요청을 내보내고 가져오도록 구성되어야 합니다. QA(품질 보증) 및 PRD(생산 시스템)은 온-프레미스에 있지만 SAP 시스템의 DEV(개발) 인스턴스는 Azure에 있다고 가정해 보겠습니다. 또한 중앙 전송 디렉터리가 있다고 가정합니다.
 
 ##### <a name="configuring-the-transport-domain"></a>전송 도메인 구성
+
 [전송 도메인 컨트롤러 구성](http://help.sap.com/erp2005_ehp_04/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm)에 설명된 대로 전송 도메인 컨트롤러로 지정한 시스템에서 전송 도메인을 구성합니다. 시스템 사용자 TMSADM이 만들어지고 필수 RFC 대상이 생성됩니다. 트랜잭션 SM59를 사용하여 이러한 RFC 연결을 확인할 수 있습니다. 전송 도메인 전체에서 호스트 이름 확인을 사용할 수 있어야 합니다.
 
 방법:
@@ -1709,6 +1765,7 @@ SAP Change and Transport System(TMS)은 지형 내에서 시스템 간에 전송
 ![도메인 컨트롤러의 트랜잭션 STMS 초기 화면][planning-guide-figure-2300]
 
 #### <a name="including-sap-systems-in-the-transport-domain"></a>전송 도메인에 SAP 시스템 포함
+
 전송 도메인에 SAP 시스템을 포함하는 순서는 다음과 같습니다.
 
 * Azure의 DEV 시스템에서 전송 시스템(클라이언트 000)으로 이동한 다음 트랜잭션 STMS를 호출합니다. 대화 상자에서 기타 구성을 선택하고 도메인에 시스템 포함 작업을 계속 진행합니다. 도메인 컨트롤러를 대상 호스트로 지정합니다([전송 도메인에 SAP 시스템 포함](http://help.sap.com/erp2005_ehp_04/helpdata/en/44/b4a0c17acc11d1899e0000e829fbbd/content.htm?frameset=/en/44/b4a0b47acc11d1899e0000e829fbbd/frameset.htm)). 이제 시스템은 전송 도메인에 포함될 때까지 대기합니다.
@@ -1738,18 +1795,23 @@ SAP Change and Transport System(TMS)은 지형 내에서 시스템 간에 전송
 * 연결된 시스템으로 구성을 배포합니다.
 
 #### <a name="rfc-traffic-between-sap-instances-located-in-azure-and-on-premises-cross-premises"></a>Azure 및 온-프레미스에 있는 SAP 인스턴스 간의 RFC 트래픽(프레미스 간)
+
 온-프레미스 및 Azure에 있는 시스템 간에 RFC 트래픽이 작동해야 합니다. 연결을 설정하려면 대상 시스템에 대해 RFC 연결을 정의해야 하는 원본 시스템에서 트랜잭션 SM59를 호출합니다. 해당 구성은 RFC 연결의 표준 설정과 비슷합니다.
 
 프레미스 간 시나리오에서는 서로 통신해야 하는 SAP 시스템을 실행하는 VM이 동일한 도메인에 있다고 가정합니다. 따라서 SAP 시스템 간의 RFC 연결을 설정하는 작업이 온-프레미스 시나리오의 설정 단계 및 입력과 다르지 않습니다.
 
 #### <a name="accessing-local-fileshares-from-sap-instances-located-in-azure-or-vice-versa"></a>Azure에 있는 SAP 인스턴스의 '로컬' 파일 공유에 액세스하기 또는 그 반대로 액세스하기
+
 Azure에 있는 SAP 인스턴스는 회사 프레미스 내에 있는 파일 공유에 액세스해야 합니다. 또한 온-프레미스 SAP 인스턴스는 Azure에 있는 파일 공유에 액세스해야 합니다. 파일 공유를 사용하도록 설정하려면 로컬 시스템에서 사용 권한 및 공유 옵션을 구성해야 합니다. VPN의 포트 또는 Azure와 데이터 센터 간의 ExpressRoute 연결을 열어야 합니다.
 
 ## <a name="supportability"></a>지원 가능성
+
 ### <a name="6f0a47f3-a289-4090-a053-2521618a28c3"></a>SAP용 Azure 모니터링 솔루션
+
 Azure에서 업무에 중요한 SAP 시스템의 모니터링을 사용하도록 설정하기 위해 SAP 모니터링 도구인 SAPOSCOL 또는 SAP 호스트 에이전트가 SAP용 Azure 모니터링 확장을 통해 Azure Virtual Machine 서비스 호스트에서 데이터를 가져옵니다. SAP의 요구는 SAP 응용 프로그램에 따라 크게 달라지므로 Microsoft는 일반적으로 Azure에 필요한 기능을 구현하지 않기로 결정했지만, 고객이 Azure에서 실행되는 Virtual Machines에 필요한 모니터링 구성 요소와 구성을 배포할 수 있도록 허용합니다. 그러나 모니터링 구성 요소의 배포 및 수명 주기 관리는 대부분 Azure에서 자동으로 수행됩니다.
 
 #### <a name="solution-design"></a>솔루션 디자인
+
 SAP 모니터링을 사용 가능하도록 하기 위해 개발된 솔루션은 Azure VM 에이전트 및 확장 프레임워크의 아키텍처를 기반으로 합니다. Azure VM 에이전트 및 확장 프레임워크는 VM 내에 있는 Azure VM 확장 갤러리에서 소프트웨어 응용 프로그램을 설치할 수 있도록 허용합니다. 이 개념의 원리는 특수한 기능을 VM에 배포하고 배포 시에 이러한 소프트웨어를 구성할 수 있도록 하는 것입니다(SAP용 Azure 모니터링 확장과 같음).
 
 Azure Portal에서 VM을 생성할 때 기본적으로 VM 내의 특정 Azure VM 확장을 처리할 수 있도록 하는 'Azure VM 에이전트'가 Windows에 주입됩니다. SUSE, Red Hat 또는 Oracle Linux의 경우 VM 에이전트가 이미 Azure Marketplace 이미지의 일부입니다. Linux VM을 온-프레미스에서 Azure로 업로드하는 경우 VM 에이전트를 수동으로 설치해야 합니다.
@@ -1771,6 +1833,7 @@ SAP용 Azure 모니터링 솔루션의 전반적인 아키텍처는 다음과 �
 **배포 중에 이러한 PowerShell cmdlet 또는 CLI 명령을 사용하는 정확한 방법 및 자세한 단계는 [배포 가이드][deployment-guide]에서 제공하는 지침을 따르세요.**
 
 ### <a name="integration-of-azure-located-sap-instance-into-saprouter"></a>Azure 배치 SAP 인스턴스를 SAProuter에 통합
+
 Azure에서 실행되는 SAP 인스턴스도 SAProuter에서 액세스할 수 있어야 합니다.
 
 ![SAP-라우터 네트워크 연결][planning-guide-figure-2600]
@@ -1779,9 +1842,11 @@ SAProuter를 사용하면 직접적인 IP 연결이 없는 경우에도 참여 �
 SAProuter를 통해 SAP 인스턴스를 연결하려면 연결을 시도할 때 SAProuter 문자열과 호스트 이름을 지정해야 합니다.
 
 ## <a name="sap-netweaver-as-java"></a>SAP NetWeaver AS Java
+
 지금까지 이 문서는 일반적으로 SAP NetWeaver 또는 SAP NetWeaver ABAP 스택에 중점을 두었습니다. 이 작은 섹션에서는 SAP Java 스택에 대한 특별한 고려 사항이 표시됩니다. SAP NetWeaver Java만을 기반으로 하는 가장 중요한 응용 프로그램 중 하나는 SAP Enterprise Portal입니다. SAP PI 및 SAP Solution Manager와 같은 기타 SAP NetWeaver 기반 응용 프로그램은 SAP NetWeaver ABAP 및 Java 스택을 모두 사용합니다. 따라서 SAP NetWeaver Java 스택과 관련된 특정 측면도 반드시 고려해야 합니다.
 
 ### <a name="sap-enterprise-portal"></a>SAP Enterprise Portal
+
 크로스-프레미스 시나리오에서 배포하는 경우 Azure Virtual Machine의 SAP Portal 설정은 온-프레미스 설치와 다르지 않습니다. DNS는 온-프레미스에 의해 수행되므로 개별 인스턴스의 포트 설정은 구성된 온-프레미스로 수행될 수 있습니다. 지금까지 이 문서에 설명된 권장 사항 및 제한 사항은 일반적으로 SAP Enterprise Portal 또는 SAP NetWeaver Java 스택과 같은 응용 프로그램에 적용됩니다.
 
 ![공개된 SAP 포털][planning-guide-figure-2700]
@@ -1798,12 +1863,15 @@ SAP Enterprise Portal의 URL 및/또는 포트를 사용자 지정하려는 경�
 * [기본 포트 번호, 포털 포트 번호 변경](http://wiki.scn.sap.com/wiki/display/NWTech/Change+Default++port+numbers%2C+Portal+port+numbers)
 
 ## <a name="high-availability-ha-and-disaster-recovery-dr-for-sap-netweaver-running-on-azure-virtual-machines"></a>Azure Virtual Machines에서 실행되는 SAP NetWeaver의 HA(고가용성) 및 DR(재해 복구)
+
 ### <a name="definition-of-terminologies"></a>용어 정의
+
 용어 **HA(고가용성)** 는 일반적으로 **동일한** 데이터 센터 내의 중복성, 내결함성 또는 장애 조치(failover) 보호 구성 요소를 통해 IT 서비스의 비즈니스 연속성을 제공함으로써 IT 작업 중단을 최소화하는 일련의 기술과 관련되어 있습니다. 우리의 경우에는 단일 Azure 지역 내부에서의 고가용성이 고려됩니다.
 
 **DR(재해 복구)** 또한 IT 서비스 중단을 최소화하고 복구를 수행하는 것을 목표로 하지만 일반적으로 수백 킬로미터 거리에 있는 **여러 다른** 데이터 센터 간에 발생하게 됩니다. 우리의 경우에는 동일한 지정학적 지역 내의 다양한 Azure 지역 간이나 고객이 설정한 Azure 지역 사이를 의미합니다.
 
 ### <a name="overview-of-high-availability"></a>고가용성 개요
+
 Azure의 SAP 고가용성에 대한 논의는 다음 두 부분으로 구분할 수 있습니다.
 
 * **Azure 인프라 고가용성** - 계산(VM), 네트워크, 저장소 등의 HA와 이러한 HA가 SAP 응용 프로그램 가용성 향상에 주는 이점
@@ -1817,6 +1885,7 @@ Azure의 SAP 고가용성에 대한 논의는 다음 두 부분으로 구분할 
 Azure의 SAP 고가용성은 온-프레미스 물리적 또는 가상 환경의 SAP 고가용성에 비해 몇 가지 차이점이 있습니다. SAP의 다음 백서에서는 가상화된 Windows 환경의 표준 SAP 고가용성 구성에 대해 설명합니다. <http://scn.sap.com/docs/DOC-44415> Windows의 경우와 마찬가지로 Linux용 sapinst 통합 SAP-HA 구성은 없습니다. Linux용 온-프레미스 SAP HA에 대한 자세한 내용은 <http://scn.sap.com/docs/DOC-8541>에서 확인할 수 있습니다.
 
 ### <a name="azure-infrastructure-high-availability"></a>Azure 인프라 고가용성
+
 현재 단일 VM SLA는 99.9%입니다. 다양한 Azure SLA의 제품을 빌드해 보면 단일 VM의 가용성이 어떻게 나타나는지 이해하는 데 도움이 됩니다. <https://azure.microsoft.com/support/legal/sla/>
 
 이 계산은 한 달이 30일 또는 43200분이라는 기준에서 출발합니다. 따라서 가동 중지 시간 0.05%는 21.6분에 해당합니다. 일반적으로 다양한 서비스의 가용성은 다음과 같이 배가됩니다.
@@ -1828,6 +1897,7 @@ Azure의 SAP 고가용성은 온-프레미스 물리적 또는 가상 환경의 
 (99.95/100) * (99.9/100) * (99.9/100) = 0.9975 또는 전체 가용성 99.75%
 
 #### <a name="virtual-machine-vm-high-availability"></a>VM(Virtual Machine) 고가용성
+
 가상 머신의 가용성에 영향을 줄 수 있는 두 가지 유형의 Azure 플랫폼 이벤트인 계획된 유지 관리와 계획되지 않은 유지 관리가 있습니다.
 
 * 계획된 유지 관리 이벤트는 가상 머신이 실행 중인 플랫폼 인프라의 전체적인 안정성, 성능 및 보안을 향상시키기 위해 Microsoft가 기본 Azure 플랫폼에 적용하는 주기적인 업데이트입니다.
@@ -1836,6 +1906,7 @@ Azure의 SAP 고가용성은 온-프레미스 물리적 또는 가상 환경의 
 자세한 내용은 <http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability> 설명서를 참조하세요.
 
 #### <a name="azure-storage-redundancy"></a>Azure Storage 중복성
+
 Microsoft Azure Storage 계정의 데이터는 항상 내구성 및 고가용성을 보증하도록 복제되며 일시적인 하드웨어 오류가 발생하는 경우에도 Azure Storage SLA를 충족합니다.
 
 Azure Storage는 기본적으로 데이터 이미지 3개를 유지하므로 여러 Azure 디스크에 있는 RAID5 또는 RAID1은 필요하지 않습니다.
@@ -1843,6 +1914,7 @@ Azure Storage는 기본적으로 데이터 이미지 3개를 유지하므로 여
 자세한 내용은 <http://azure.microsoft.com/documentation/articles/storage-redundancy/> 문서를 참조하세요.
 
 #### <a name="utilizing-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-sap-applications"></a>Azure 인프라 VM 다시 시작을 활용하여 SAP 응용 프로그램의 "고가용성" 확보
+
 WSFC(Windows 서버 장애 조치(failover) 클러스터링) 또는 Linux의 Peacemaker(현재 SLES 12 이상에서만 지원됨) 등의 기능을 사용하지 않기로 결정하는 경우 Azure VM 다시 시작 기능을 활용하여 Azure 물리적 서버 인프라 및 전반적인 기본 Azure 플랫폼의 예정되었거나 갑작스러운 가동 중지 시간으로부터 SAP 시스템을 보호합니다.
 
 > [!NOTE]
@@ -1885,9 +1957,11 @@ Azure 인프라 HA 및 관리 디스크를 사용하는 SAP NetWeaver 시스템�
   단일 VM에서 실행되는 DBMS는 SPOF이기도 하며 전체 SAP 지형의 가용성을 결정하는 중요한 요소가 됩니다.
 
 ### <a name="sap-application-high-availability-on-azure-iaas"></a>Azure IaaS의 SAP 응용 프로그램 고가용성
+
 전체 SAP 시스템의 고가용성을 달성하려면 모든 중요 SAP 시스템 구성 요소(예: 중복 SAP 응용 프로그램 서버), SAP (A)SCS 인스턴스 및 DBMS와 같은 고유한 구성 요소(예: 단일 실패 지점)를 보호해야 합니다.
 
 #### <a name="5d9d36f9-9058-435d-8367-5ad05f00de77"></a>SAP 응용 프로그램 서버의 고가용성
+
 SAP 응용 프로그램 서버/대화 상자 인스턴스의 경우 특정 고가용성 솔루션을 고려할 필요가 없습니다. 고가용성은 중복성에 의해 획득되므로 다른 가상 머신에서 충분히 확보될 수 있습니다. 예정된 유지 관리 가동 중지와 동시에 VM이 업데이트되지 않도록 하려면 모두 동일한 Azure 가용성 집합에 두어야 합니다. Azure 배율 단위 내의 다른 업그레이드 도메인 및 장애 도메인을 기반으로 하는 기본 기능은 이미 [업그레이드 도메인][planning-guide-3.2.2] 챕터에서 살펴보았습니다. Azure 가용성 집합은 이 문서의 [Azure 가용성 집합][planning-guide-3.2.3] 장에서 설명했습니다.
 
 Azure 배율 단위 내에서 Azure 가용성 집합이 사용할 수 있는 장애 도메인 및 업그레이드 도메인 수는 제한되어 있습니다. 즉, 여러 VM을 가용성 집합 하나에 포함하면 최종적으로는 동일한 장애 도메인이나 업그레이드 도메인에 VM이 여러 개 포함됩니다.
@@ -1899,20 +1973,24 @@ Azure 배율 단위 내에서 Azure 가용성 집합이 사용할 수 있는 장
 자세한 내용은 <http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability> 설명서를 참조하세요.
 
 #### <a name="high-availability-for-sap-central-services-on-azure"></a>Azure에서 SAP Central Services에 대한 고가용성
+
 Azure에서 SAP Central Services의 고가용성 아키텍처의 경우 항목 정보로 [SAP NetWeaver에 대한 고가용성 아키텍처 및 시나리오](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios) 문서를 참조하세요. 이 문서는 특정 운영 체제에 대한 자세한 설명을 가리킵니다.
 
 #### <a name="high-availability-for-the-sap-database-instance"></a>SAP 데이터베이스 인스턴스의 고가용성
+
 일반적인 SAP DBMS HA 설치는 DBMS 고가용성 기능이 활성 DBMS 인스턴스에서 두 번째 VM의 수동 DBMS 인스턴스로 데이터를 복제하는 데 사용되는 경우 두 개의 DBMS VM을 기반으로 합니다.
 
 일반적으로 DBMS 및 특정 DBMS에 대한 고가용성 및 재해 복구 기능은 [DBMS 배포 가이드][dbms-guide]에서 설명하고 있습니다.
 
 #### <a name="end-to-end-high-availability-for-the-complete-sap-system"></a>전체 SAP 시스템의 종단 간 고가용성
+
 Azure의 전체 SAP NetWeaver HA 아키텍처의 두 가지 예는 Windows용과 Linux용입니다.
 
 비관리 디스크에만 해당하는 내용: 아래에 설명된 개념은 많은 SAP 시스템을 배포하고 배포된 VM 수가 구독당 Storage 계정의 최대 제한을 초과할 경우 약간의 조정이 필요할 수 있습니다. 이러한 경우 VM의 VHD를 단일 Storage 계정 내에 결합해야 합니다. 일반적으로는 이를 위해 여러 다른 SAP 시스템에 있는 SAP 응용 프로그램 계층 VM의 VHD를 결합할 수 있습니다.  여기서는 서로 다른 SAP 시스템에 있는 여러 DBMS VM의 다른 VHD를 단일 Azure Storage 계정에 결합했습니다. Azure Storage 계정의 IOPS 제한에 유의합니다(<https://azure.microsoft.com/documentation/articles/storage-scalability-targets>).
 
 
 ##### <a name="windowslogowindows-ha-on-windows"></a>![Windows][Logo_Windows] Windows의 HA
+
 ![Azure IaaS의 SQL Server를 사용한 SAP NetWeaver 응용 프로그램 HA 아키텍처][planning-guide-figure-3200]
 
 다음 Azure 구성은 인프라 문제 및 호스트 패치에 의한 영향을 최소화하기 위해 SAP NetWeaver 시스템에서 사용됩니다.
@@ -1934,9 +2012,11 @@ Azure의 전체 SAP NetWeaver HA 아키텍처의 두 가지 예는 Windows용과
 ![Azure IaaS의 SQL Server를 사용한 SAP NetWeaver 응용 프로그램 HA 아키텍처][planning-guide-figure-3201]
 
 ##### <a name="linuxlogolinux-ha-on-linux"></a>![Linux][Logo_Linux] Linux의 HA
+
 Azure의 Linux에 대한 SAP HA 아키텍처는 기본적으로 위에 설명된 것처럼 Windows의 경우와 동일합니다. 지원되는 고가용성 솔루션의 목록은 SAP Note [1928533]을 참조하세요.
 
 ### <a name="4e165b58-74ca-474f-a7f4-5e695a93204f"></a>SAP 인스턴스에 대해 자동 시작 사용
+
 SAP는 VM 내에서 운영 체제가 시작된 후 즉시 SAP 인스턴스를 시작하기 위한 기능을 제공합니다. 정확한 단계는 SAP 기술 자료 문서 [1909114]에 설명되어 있습니다. 그러나 SAP는 인스턴스 다시 시작 순서가 제어되지 않고 둘 이상의 VM이 영향을 받거나 VM당 여러 인스턴스가 실행되었다고 가정하므로 이러한 설정을 사용하는 것을 더 이상 권장하지 않습니다. VM 하나에 단일 SAP 응용 프로그램 서버 인스턴스가 있는 일반적인 Azure 시나리오와 단일 VM이 다시 시작되는 경우를 가정하면, 자동 시작은 중요하지 않으며 이 매개 변수를 다음에 추가하여 사용되도록 설정할 수 있습니다.
 
     Autostart = 1
@@ -1974,6 +2054,7 @@ Azure Portal 사용을 종료하는 것 외에도, <https://azure.microsoft.com/
 위에 설명된 대로 VM 백업을 복원하면 새 하드웨어 키가 생성되므로 새 SAP 라이선스를 설치해야 합니다.
 
 ### <a name="online-backup-of-an-sap-system"></a>SAP 시스템의 온라인 백업
+
 DBMS의 Backup은 [DBMS 가이드][dbms-guide]에서 설명한 대로 DBMS 관련 메서드를 사용하여 수행됩니다.
 
 SAP 시스템 내의 다른 VM은 Azure Virtual Machine Backup 기능을 사용하여 백업할 수 있습니다. Azure Virtual Machine Backup은 Azure에서 전체 VM을 백업하는 표준 방법입니다. Azure Backup은 Azure에 백업을 저장하고 VM을 다시 복원할 수 있도록 합니다.
@@ -1997,11 +2078,13 @@ SAP 시스템 내의 다른 VM은 Azure Virtual Machine Backup 기능을 사용�
 >
 
 ### <a name="azure-as-dr-site-for-production-sap-landscapes"></a>프로덕션 SAP 지형에 대한 DR 사이트로 사용되는 Azure
+
 2014년 중반부터 Hyper-V, System Center 및 Azure와 관련한 다양한 구성 요소가 확장되면서 Azure를 Hyper-V를 기준으로 온-프레미스에서 실행되는 VM에 대한 DR 사이트로 사용할 수 있게 되었습니다.
 
 이 솔루션을 배포하는 방법을 자세히 설명하는 블로그는 <http://blogs.msdn.com/b/saponsqlserver/archive/2014/11/19/protecting-sap-solutions-with-azure-site-recovery.aspx>에 설명되어 있습니다.
 
 ## <a name="summary"></a>요약
+
 Azure의 SAP 시스템 고가용성의 핵심 사항은 다음과 같습니다.
 
 * 현재 온-프레미스 배포의 경우와 정확히 동일한 방식으로 SAP 단일 실패 지점을 보호할 수는 없습니다. 그 이유는 타사 소프트웨어를 사용하지 않을 경우 아직 Azure에서 공유 디스크 클러스터를 구축할 수 없기 때문입니다.
@@ -2015,7 +2098,7 @@ Azure의 SAP 시스템 고가용성의 핵심 사항은 다음과 같습니다.
 * 간단한 대화 상자 인스턴스를 재배포하는 것이 더 빠르므로 SAP 대화 상자 인스턴스를 백업하는 것은 거의 의미가 없습니다.
 * SAP 시스템의 전체 디렉터리를 포함하는 VM과 다양한 인스턴스의 모든 프로필을 백업하는 것은 도움이 되며 Windows Backup 또는 Linux의 tar 등을 사용하여 수행해야 합니다. Windows Server 2008(R2) 및 Windows Server 2012(R2) 간에는 차이가 있으며 좀 더 최신의 Windows Server 릴리스를 사용하여 백업하는 것이 더 쉬우므로 Windows Server 2012(R2)를 Windows 게스트 운영 체제로 실행하는 것이 좋습니다.
 
-##<a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 문서를 읽어보세요.
 
 - [SAP NetWeaver에 대한 Azure Virtual Machines 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide)

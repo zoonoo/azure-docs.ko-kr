@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: a4bd20f9f8a6a8317e161b1d84e948391cd08140
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d0e7c3f7aeb42fd1525519b7908b1be6fc48aa65
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034929"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362520"
 ---
 # <a name="keys-in-luis"></a>LUIS의 키
 LUIS는 두 가지 키인 [작성](#programmatic-key) 및 [엔드포인트](#endpoint-key)를 사용합니다. 작성 키는 LUIS 계정을 만들 때 자동으로 생성됩니다. LUIS 앱을 게시할 준비가 되면 [엔드포인트 키를 만들고](luis-how-to-azure-subscription.md#create-luis-endpoint-key), LUIS 앱에 [할당](luis-how-to-manage-keys.md#assign-endpoint-key)하고, [엔드포인트 쿼리에서 사용](#use-endpoint-key-in-query)해야 합니다. 
@@ -60,7 +60,7 @@ LUIS 엔드포인트는 두 가지 쿼리를 허용하고, 두 가지 쿼리는 
 |[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`<br><br>`subscription-key`의 쿼리 문자열 값<br><br>LUIS 엔드포인트 키 할당량 요금을 사용하려면 작성(시작) 키에서 새 엔드포인트 키로 `subscription-key`의 엔드포인트 쿼리 값을 변경합니다. 키를 만들고 할당하지만 ‘subscription-key’의 엔드포인트 쿼리 값을 변경하지 않는 경우에는 엔드포인트 키 할당량을 사용하지 않습니다.|
 |[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`<br><br> `Ocp-Apim-Subscription-Key`의 헤더 값<br><br>LUIS 엔드포인트 키 할당량 요금을 사용하려면 작성(시작) 키에서 새 엔드포인트 키로 `Ocp-Apim-Subscription-Key`의 엔드포인트 쿼리 값을 변경합니다. 키를 만들고 할당하지만 `Ocp-Apim-Subscription-Key`의 엔드포인트 쿼리 값을 변경하지 않는 경우에는 엔드포인트 키 할당량을 사용하지 않습니다.|
 
-이전 URL에 사용되던 앱 ID `df67dcdb-c37d-46af-88e1-8b97951ca1c2`는 [대화형 데모](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/)에 사용되는 공용 IoT 앱입니다. 
+이전 URL에 사용되던 앱 ID `df67dcdb-c37d-46af-88e1-8b97951ca1c2`는 [대화형 데모](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/)에 사용되는 공용 IoT 앱입니다. 
 
 ## <a name="api-usage-of-ocp-apim-subscription-key"></a>Ocp-Apim-Subscription-Key의 API 사용법
 LUIS API는 `Ocp-Apim-Subscription-Key` 헤더를 사용합니다. 헤더 이름은 사용 중인 키 및 API 집합에 따라 변경되지 않습니다. 헤더를 작성 API의 작성 키로 설정합니다. 엔드포인트를 사용하는 경우, 헤더를 엔드포인트 키로 설정합니다. 

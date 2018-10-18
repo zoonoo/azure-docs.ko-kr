@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 9072a25b55bf461ad7dcc8393b98a66d87866d48
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: ae7eba9997c4f567eb7b07e23ab42c9ac7740698
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42143338"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388112"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>서비스 패브릭 Reliable Services 분할
 이 문서에서는 Azure 서비스 패브릭 Reliable Services 분할의 기본 개념에 대한 소개를 제공합니다. 문서에 사용되는 소스 코드는 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)에서도 확인할 수 있습니다.
@@ -365,7 +365,7 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
 샘플의 전체 소스 코드는 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)에서 확인할 수 있습니다.
 
 ## <a name="reliable-services-and-actor-forking-subprocesses"></a>Reliable Services 및 작업자 포크 하위 프로세스
-Service Fabric은 신뢰할 수 있는 서비스 및 이후의 신뢰할 수 있는 작업자 포크 하위 프로세스를 지원하지 않습니다. 지원되지 않는 이유의 예제는 [CodePackageActivationContext](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet)를 지원되지 않는 하위 프로세스를 등록하는 데 사용할 수 없으며, 취소 토큰은 등록된 프로세스에만 전송되기 때문입니다. 부모 프로세스에서 취소 토큰을 받은 후 하위 프로세스를 닫지 않는 경우 업그레이드 실패와 같은 모든 종류의 문제가 발생합니다. 
+Service Fabric은 신뢰할 수 있는 서비스 및 이후의 신뢰할 수 있는 작업자 포크 하위 프로세스를 지원하지 않습니다. 지원되지 않는 이유의 예제는 [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet)를 지원되지 않는 하위 프로세스를 등록하는 데 사용할 수 없으며, 취소 토큰은 등록된 프로세스에만 전송되기 때문입니다. 부모 프로세스에서 취소 토큰을 받은 후 하위 프로세스를 닫지 않는 경우 업그레이드 실패와 같은 모든 종류의 문제가 발생합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 서비스 패브릭 개념에 대한 자세한 내용은 다음을 참조하십시오.

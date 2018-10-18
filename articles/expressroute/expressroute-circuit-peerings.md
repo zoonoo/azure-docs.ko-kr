@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: cherylmc
-ms.openlocfilehash: c1fbc99702e077e600f01959224f3321e7543e59
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 8ef231982cfdc9a2c4387ee47e651fdf1af0baaf
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044402"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388428"
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>ExpressRoute 회로 및 라우팅 도메인
  연결 공급자를 통해 온-프레미스 인프라를 Microsoft에 연결하려면 *ExpressRoute 회로* 를 주문해야 합니다. 다음 그림은 WAN 및 Microsoft 간 연결의 논리적 표현을 보여 줍니다.
@@ -82,7 +82,7 @@ Azure Storage, SQL Databases 및 Websites와 같은 서비스는 공용 IP 주�
 ## <a name="expressroute-health"></a>ExpressRoute 상태
 ExpressRoute 회로는 NPM([네트워크 성능 모니터](https://docs.microsoft.com/azure/networking/network-monitoring-overview))을 사용하여 가용성, VNet에 대한 연결성 및 대역폭 사용률에 대해 모니터링할 수 있습니다.
 
-NPM은 Azure 개인 피어링 및 Microsoft 피어링의 상태를 모니터링합니다.  자세한 내용은 [포스트](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/)를 확인하세요.
+NPM은 Azure 개인 피어링 및 Microsoft 피어링의 상태를 모니터링합니다.  자세한 내용은 [포스트](https://azure.microsoft.com/blog/monitoring-of-azure-expressroute-in-preview/)를 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * 서비스 공급자를 찾습니다. [ExpressRoute 서비스 공급자 및 위치](expressroute-locations.md)를 참조하세요.

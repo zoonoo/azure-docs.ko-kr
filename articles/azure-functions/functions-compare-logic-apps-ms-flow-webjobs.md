@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 789b572a1d3b049bcfd9a739182c49c4da27fc96
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: e449703dd8d012037af9540397ecd3b7bc0c7e7f
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817010"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114643"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>Flow, Logic Apps, Functions 및 WebJobs 비교
 
@@ -84,7 +84,7 @@ Azure Functions는 WebJobs SDK 기반이므로 다른 Azure 서비스와 여러 
 
 |  | Functions | WebJobs with WebJobs SDK |
 | --- | --- | --- |
-|[자동 크기 조정](functions-scale.md#how-the-consumption-plan-works)이 가능한 [서버 없는 응용 프로그램 모델](https://azure.microsoft.com/overview/serverless-computing/)|✔||
+|[자동 크기 조정](functions-scale.md#how-the-consumption-plan-works)이 가능한 [서버 없는 응용 프로그램 모델](https://azure.microsoft.com/solutions/serverless/)|✔||
 |[브라우저에서 개발 및 테스트](functions-create-first-azure-function.md) |✔||
 |[사용량 기준 과금 가격 책정](functions-scale.md#consumption-plan)|✔||
 |[Logic Apps와 통합](functions-twitter-email.md)|✔||

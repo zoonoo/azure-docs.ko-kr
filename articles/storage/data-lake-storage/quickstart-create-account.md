@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 034731ac2c965d6b9b682c62b9866870e558ff6d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4c3354786d7320caee0dfe2f0eca44909d77f2fe
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964670"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386854"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>빠른 시작: Azure Data Lake Storage Gen2 미리 보기 저장소 계정 만들기
 
@@ -27,7 +27,7 @@ Azure Data Lake Storage Gen2 미리 보기 계정은 HDFS(Hadoop 분산 파일 �
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 |           | 필수 요소 |
 |-----------|--------------|
@@ -224,4 +224,4 @@ az group delete --name myResourceGroup
 
 이 빠른 시작에서는 Data Lake Storage Gen2 저장소 계정을 만들었습니다. 저장소 계정에서 Blob을 업로드 및 다운로드하는 방법을 알아보려면 계속해서 Blob 저장소 빠른 시작을 진행합니다.
 
-* [AzCopy를 사용하여 Azure Blob Storage 간 데이터 이동](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azcopy)
+* [AzCopy를 사용하여 Azure Blob Storage 간 데이터 이동](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azcopy)

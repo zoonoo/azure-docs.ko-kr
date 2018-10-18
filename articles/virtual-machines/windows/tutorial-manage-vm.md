@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: dc3bd6258d2da331c83d0aaa9c6c0e57b44f2930
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d7862ef96b5a237c4c9e553f3bea5d39684468e6
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950083"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388547"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows VM 만들기 및 관리
 
@@ -54,7 +54,7 @@ New-AzureRmResourceGroup -ResourceGroupName "myResourceGroupVM" -Location "EastU
 
 가상 머신을 만들 때 운영 체제 이미지, 네트워크 구성 및 관리 자격 증명과 같은 몇 가지 옵션을 사용할 수 있습니다. 이 예제에서는 최신의 Windows Server 2016 Datacenter 기본 버전을 실행하는 *myVM*이라는 가상 머신이 만들어집니다.
 
-[Get-Credential](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/get-credential?view=powershell-6)을 사용하여 가상 머신의 관리자 계정에 필요한 사용자 이름 및 암호를 설정합니다.
+[Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-6)을 사용하여 가상 머신의 관리자 계정에 필요한 사용자 이름 및 암호를 설정합니다.
 
 ```azurepowershell-interactive
 $cred = Get-Credential

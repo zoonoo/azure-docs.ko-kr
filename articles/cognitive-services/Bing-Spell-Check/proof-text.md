@@ -10,12 +10,12 @@ ms.component: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar
-ms.openlocfilehash: 81c80ab6c8d10d263de96566f5554709a2404a24
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 4caa05ffa96dbc15922fed85edfdefdb68ead68b
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802596"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361714"
 ---
 # <a name="what-is-bing-spell-check-api"></a>Bing Spell Check API란?
 
@@ -36,7 +36,7 @@ Bing Spell Check API를 사용하면 문맥에 맞는 문법 및 맞춤법 검�
 
 ## <a name="spell-check-modes"></a>맞춤법 검사 모드
 
-API에서 지원하는 두 가지 교정 모드는 `Proof` 및 `Spell`입니다.  [여기](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/)에 있는 예제를 사용해 보세요.
+API에서 지원하는 두 가지 교정 모드는 `Proof` 및 `Spell`입니다.  [여기](https://azure.microsoft.com/services/cognitive-services/spell-check/)에 있는 예제를 사용해 보세요.
 ### <a name="proof---for-documents-scenario"></a>Proof(교정) - 문서 시나리오용
 기본 모드는 `Proof`입니다. `Proof` 맞춤법 모드는 대문자 표시, 기본 문장 부호 및 다른 기능을 추가하여 문서 작성에 유용한 가장 포괄적인 검사를 제공합니다. 그러나 이는 en-US(미국 영어), es-ES(스페인어), pt-BR(포르투갈어) 시장에서만 사용할 수 있습니다(참고: 스페인어 및 포르투갈어의 경우만 베타 버전임). 다른 모든 시장의 경우 모드 쿼리 매개 변수를 [맞춤법 검사]로 설정합니다. 
 <br /><br/>**참고:** 쿼리 텍스트의 길이가 4,096자를 초과하면 4,096자까지 자른 텍스트를 처리합니다. 

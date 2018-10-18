@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 6712ecbc81abdf4756cb72f4949f51d2ffca4142
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e93c4721f34b06fec853d876543e9939220efd9f
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435848"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116439"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>자습서: Land Gorilla Client와 Azure Active Directory 통합
 
@@ -124,7 +124,7 @@ Land Gorilla Client에서 Azure AD Single Sign-On을 구성하고 테스트하�
     
     `https://www.<customer domain>.landgorilla.com`
 
-    나. **회신 URL** 텍스트 상자에 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
 
     `https://<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php`
 
@@ -173,7 +173,7 @@ Land Gorilla Client에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 

@@ -3,8 +3,8 @@ title: CDN(콘텐츠 배달 네트워크)이란? - Azure | Microsoft Docs
 description: Azure CDN(Content Delivery Network) 무엇인지 알아보고 고대역폭 콘텐츠를 배달하는 방법을 알아봅니다.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
 ms.service: cdn
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 05/09/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 2f760c1b47da7273827ce2a980cdc9b4db943904
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: bdc98a87a71dc7f8552f4bf869ec035409e0535e
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34057688"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091541"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>Azure의 콘텐츠 배달 네트워크란?
 CDN(콘텐츠 배달 네트워크)은 사용자에게 웹 콘텐츠를 효율적으로 제공할 수 있는 서버의 분산 네트워크입니다. CDN은 최종 사용자와 가까운 POP(point-of-presence) 위치의 Edge 서버에 캐시된 콘텐츠를 저장하여 대기 시간을 최소화합니다. 
 
-Azure CDN(콘텐츠 배달 네트워크)은 전 세계에 전략적으로 배치된 물리적 노드에서 콘텐츠를 캐싱하여 사용자에게 고대역폭 콘텐츠를 신속하게 배달할 수 있는 글로벌 솔루션을 개발자에게 제공합니다. Azure CDN은 캐싱할 수 없는 동적 콘텐츠를 CDN POP를 사용하는 다양한 네트워크 최적화를 활용하여 가속화할 수 있습니다. 예를 들면 BGP(Border Gateway Protocol)를 우회하는 경로 최적화가 있습니다.
+Azure CDN(콘텐츠 전송 네트워크)은 전 세계에 전략적으로 배치된 물리적 노드에서 콘텐츠를 캐싱하여 사용자에게 고대역폭 콘텐츠를 신속하게 전송할 수 있는 글로벌 솔루션을 개발자에게 제공합니다. Azure CDN은 캐싱할 수 없는 동적 콘텐츠를 CDN POP를 사용하는 다양한 네트워크 최적화를 활용하여 가속화할 수 있습니다. 예를 들면 BGP(Border Gateway Protocol)를 우회하는 경로 최적화가 있습니다.
 
 Azure CDN을 사용하여 웹 사이트 자산을 배달하면 다음과 같은 이점이 있습니다.
 
@@ -75,7 +75,7 @@ Azure CDN은 다음과 같은 주요 기능을 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - CDN을 시작하려면 [Azure CDN 프로필 및 엔드포인트 만들기](cdn-create-new-endpoint.md)를 참조하세요.
-- [Microsoft Azure Portal](https://portal.azure.com) 또는 [PowerShell](cdn-manage-powershell.md)을 통해 CDN 끝점을 관리합니다.
+- [Microsoft Azure Portal](https://portal.azure.com) 또는 [PowerShell](cdn-manage-powershell.md)을 통해 CDN 엔드포인트를 관리합니다.
 - [.NET](cdn-app-dev-net.md) 또는 [Node.js](cdn-app-dev-node.md)를 사용하여 Azure CDN을 자동화하는 방법을 알아봅니다.
 - 작업 중인 Azure CDN을 보려면 [Azure CDN 비디오](https://azure.microsoft.com/resources/videos/index/?services=cdn&sort=newest)를 시청하세요.
 - 최신 Azure CDN 기능에 대한 내용은 [Azure CDN 블로그](https://azure.microsoft.com/blog/tag/azure-cdn/)를 참조하세요.

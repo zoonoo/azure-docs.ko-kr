@@ -2,25 +2,19 @@
 title: Microsoft Azure Data Box Disk 주문 자습서 | Microsoft Docs
 description: 이 자습서를 사용하여 Azure로 데이터를 가져오기 위해 Azure Data Box Disk에 등록하고 주문하는 방법을 알아봅니다.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/04/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 37130e946aad00ef4eca14b7ce7942a8e435e6cd
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: bd90d3c4c9207374d6a6085df6a3962ef42b68a9
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782331"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091436"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk-preview"></a>자습서: Azure Data Box Disk 주문(미리 보기)
 
@@ -78,7 +72,7 @@ Data Box Disk를 주문하려면 [Azure Portal](https://aka.ms/azuredataboxfromd
 
     |설정|값|
     |---|---|
-    |Name|주문을 추적하는 데 친숙한 이름을 입력합니다.<br> 이 이름은 2~24자 사이의 문자, 숫자 및 하이픈일 수 있습니다. <br> 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. |
+    |이름|주문을 추적하는 데 친숙한 이름을 입력합니다.<br> 이 이름은 2~24자 사이의 문자, 숫자 및 하이픈일 수 있습니다. <br> 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. |
     |리소스 그룹| 기존 그룹을 사용하거나 새 그룹을 만듭니다. <br> 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다. |
     |대상 Azure 지역| 저장소 계정에 대한 지역을 선택합니다.<br> 현재 미국, 서유럽, 북유럽, 캐나다 및 오스트레일리아 모든 지역의 저장소 계정이 지원됩니다. |
     |저장소 계정|지정한 Azure 지역에 따라 필터링된 기존 저장소 계정 목록에서 선택합니다. <br>새 범용 v1 또는 범용 v2 계정도 만들 수 있습니다. |

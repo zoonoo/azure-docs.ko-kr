@@ -2,24 +2,18 @@
 title: Microsoft Azure Data Box 주문 | Microsoft Docs
 description: 배포 필수 구성 요소 및 Azure Data Box를 주문하는 방법을 알아봅니다
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/10/2018
 ms.author: alkohli
-ms.openlocfilehash: 0d77353b510dbeb18e96e2d8313e9010c04e25a7
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: d02557ecd84ea14db297ee07f7055a08304e7fcd
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077936"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091218"
 ---
 # <a name="tutorial-order-azure-data-box"></a>자습서: Azure Data Box 주문
 

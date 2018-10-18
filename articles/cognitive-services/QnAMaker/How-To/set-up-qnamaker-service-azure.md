@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 87bcd23983c1d973f7e90caf806092c909b7b9e4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 103da0c65bcf9b9bd24130082f844b9bd12a9a02
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032549"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389720"
 ---
 # <a name="create-a-qna-maker-service"></a>QnA Maker 서비스 만들기
 
@@ -41,10 +41,10 @@ QnA Maker 기술 자료를 만들려면 먼저 Azure에서 QnA Maker 서비스�
     * QnA Maker 리소스가 배포되는 **구독**을 선택합니다.
     * QnA Maker 관리 서비스(포털 및 관리 API)에 대한 **관리 가격 책정 계층**을 선택합니다. SKU 가격 책정에 대한 자세한 내용은 [여기](https://aka.ms/qnamaker-pricing)를 참조하세요.
     * 새 **리소스 그룹**을 만들거나(권장), QnA Maker 리소스를 배포할 기존 리소스 그룹을 사용합니다.
-    * Azure Search 서비스의 **검색 가격 책정 계층**을 선택합니다. 체험 계층 옵션이 회색으로 표시되는 경우 이미 구독에 체험 Azure Search 계층이 배포되어 있는 것입니다. 이 경우 기본 Azure Search 계층으로 시작해야 합니다. [여기](https://azure.microsoft.com/en-us/pricing/details/search/)에서 Azure Search 가격 책정 정보를 참조하세요.
+    * Azure Search 서비스의 **검색 가격 책정 계층**을 선택합니다. 체험 계층 옵션이 회색으로 표시되는 경우 이미 구독에 체험 Azure Search 계층이 배포되어 있는 것입니다. 이 경우 기본 Azure Search 계층으로 시작해야 합니다. [여기](https://azure.microsoft.com/pricing/details/search/)에서 Azure Search 가격 책정 정보를 참조하세요.
     * Azure Search 데이터를 배포할 **검색 위치**를 선택합니다. 고객 데이터를 저장해야 하는 위치의 제한은 Azure Search에 대해 선택한 위치를 알립니다.
     * **앱 이름**에 App Service의 이름을 지정합니다.
-    * 기본적으로 App Service의 기본값은 표준(S1) 계층입니다. 계획을 만든 후에 변경할 수 있습니다. [여기](https://azure.microsoft.com/en-in/pricing/details/app-service/)에서 App Service 가격 책정 정보를 참조하세요.
+    * 기본적으로 App Service의 기본값은 표준(S1) 계층입니다. 계획을 만든 후에 변경할 수 있습니다. [여기](https://azure.microsoft.com/pricing/details/app-service/)에서 App Service 가격 책정 정보를 참조하세요.
     * App Service를 배포할 **웹 사이트 위치**를 선택합니다.
 
         > [!NOTE]

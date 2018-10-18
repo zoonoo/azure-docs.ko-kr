@@ -1,26 +1,19 @@
 ---
 title: VMware에서 Azure Data Box Gateway 프로비전 자습서 | Microsoft Docs
 description: Azure Data Box Gateway를 배포하는 두 번째 자습서에는 VMware에서 가상 장치를 프로비전하는 작업이 포함됩니다.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/01/2018
 ms.author: alkohli
-ms.custom: ''
-ms.openlocfilehash: a96aa2ee8b474bcc4e3e9362d6b1ba755e3fdbc3
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: ea4203c45f482b990122a966fc2ec13b3fb41c84
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017451"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167157"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>자습서: VMware에서 Azure Data Box Gateway 프로비전(미리 보기)
 

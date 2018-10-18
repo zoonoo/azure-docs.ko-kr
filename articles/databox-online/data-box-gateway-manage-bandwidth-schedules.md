@@ -1,26 +1,19 @@
 ---
 title: Azure Data Box Gateway 사용자 관리 | Microsoft Docs
 description: Azure Portal을 사용하여 Azure Data Box Gateway에서 대역폭 일정을 관리하는 방법을 설명합니다.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: gateway
 ms.topic: overview
-ms.custom: ''
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 10/09/2018
 ms.author: alkohli
-ms.openlocfilehash: d1049ef66ad02987c6523e4b5ec5dd9959e0fa47
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: e4bc5de9345bcb65f82ca7ac0095b3e0fd3907e9
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49070543"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166001"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Azure Portal을 사용하여 Azure Data Box Gateway에서 대역폭 일정 관리  
 

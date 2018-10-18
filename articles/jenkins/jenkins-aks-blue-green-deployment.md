@@ -7,13 +7,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 07/23/2018
-ms.openlocfilehash: d3d3ed8aaac16bc0a8cf817f4972ed3b771ed8d0
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 10/11/2018
+ms.openlocfilehash: 6cd3938844d7f6977c7b0912acffbfb1679dc42e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093557"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387389"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Jenkins와 파란색/녹색 배포 패턴을 사용하여 AKS(Azure Kubernetes Service) 배포
 
@@ -32,7 +32,7 @@ AKS(Azure Kubernetes Service)는 호스팅된 Kubernetes 환경을 관리하므�
 
 ## <a name="prerequisites"></a>필수 조건
 - [GitHub 계정](https://github.com): 샘플 리포지토리를 복제하려면 GitHub 계정이 필요합니다.
-- [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest): Azure CLI 2.0을 사용하여 Kubernetes 클러스터를 만들 수 있습니다.
+- [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest): Azure CLI 2.0을 사용하여 Kubernetes 클러스터를 만들 수 있습니다.
 - [Chocolatey](https://chocolatey.org): kubectl을 설치하는 데 사용하는 패키지 관리자입니다.
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/): Kubernetes 클러스터에 대한 명령을 실행하기 위해 사용하는 명령줄 인터페이스입니다.
 - [jq](https://stedolan.github.io/jq/download/): 간단한 명령줄 JSON 프로세서입니다.
@@ -82,9 +82,6 @@ GitHub의 Microsoft 리포지토리에서 Jenkins와 파란색/녹색 배포 패
 - Azure CLI 2.0을 사용하여 관리되는 Kubernetes 클러스터를 만듭니다.
 - 설치 스크립트를 사용하거나 수동으로 클러스터를 설정하는 방법에 대해 알아봅니다.
 - Azure Container Registry 서비스의 인스턴스를 만듭니다.
-
-> [!NOTE]   
-> AKS는 현재 미리 보기로 제공되고 있습니다. Azure 구독에 대한 미리 보기 사용 방법에 대한 자세한 내용은 [빠른 시작: AKS(Azure Kubernetes Service) 클러스터 배포](/azure/aks/kubernetes-walkthrough#enabling-aks-preview-for-your-azure-subscription)를 참조하세요.
 
 ### <a name="use-the-azure-cli-20-to-create-a-managed-kubernetes-cluster"></a>Azure CLI 2.0을 사용하여 관리되는 Kubernetes 클러스터 만들기
 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)으로 관리되는 Kubernetes 클러스터를 만들려면 Azure CLI 버전 2.0.25 이상을 사용하고 있어야 합니다.

@@ -3,8 +3,8 @@ title: Azure CDN 규칙 엔진의 Verizon 특정 HTTP 헤더 | Microsoft Docs
 description: 이 문서에서는 Azure CDN 규칙 엔진에서 Verizon 특정 HTTP 헤더를 사용하는 방법을 설명합니다.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
-ms.author: v-deasim
-ms.openlocfilehash: 1a4bb48efe2a91c85b773341bb38b0f3ce4c7d9b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: magattus
+ms.openlocfilehash: 7fa76a2c5b01e623e490edd0091f7fb372b7085f
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31516297"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093241"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Azure CDN 규칙 엔진의 Verizon 특정 HTTP 헤더
 

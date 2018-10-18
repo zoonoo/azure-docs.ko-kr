@@ -12,16 +12,16 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 5a5e14c2a8501ce2672923545df8d32a32dee8fa
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 4809c09b5aa7b8212981cc13589602a365a23a37
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093990"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113617"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Azure에서 타이머에 따라 트리거되는 함수 만들기
 
-Azure Functions를 사용하여 정의한 일정에 따라 실행되는 [서버를 사용하지 않는](https://azure.microsoft.com/overview/serverless-computing/) 함수를 만드는 방법을 알아봅니다.
+Azure Functions를 사용하여 정의한 일정에 따라 실행되는 [서버를 사용하지 않는](https://azure.microsoft.com/solutions/serverless/) 함수를 만드는 방법을 알아봅니다.
 
 ![Azure Portal에서 함수 앱 만들기](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 

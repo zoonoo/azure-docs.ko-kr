@@ -4,8 +4,8 @@ description: Azure의 SQL Server 가상 머신에서 데이터를 탐색하고 �
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
-editor: ''
+manager: cgronlun
+editor: cgronlun
 ms.assetid: 3949fb2c-ffab-49fb-908d-27d5e42f743b
 ms.service: machine-learning
 ms.component: team-data-science-process
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: deguhath
-ms.openlocfilehash: 39bdbce4ada225c0fa7df8559f68b591ccfc68b7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 350e634ce87e2f61352beb194b4468828aea60c6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838659"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394955"
 ---
 # <a name="heading"></a>Azure의 SQL Server 가상 컴퓨터에서 데이터 처리
 이 문서에서는 Azure의 SQL Server VM에 저장된 데이터를 탐색하고 데이터에 대한 기능을 생성하는 방법에 대해 알아봅니다. 이렇게 하려면 SQL을 사용하여 데이터 랭글링을 수행하거나 Python과 같은 프로그래밍 언어를 사용합니다.

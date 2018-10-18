@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: e9d1bf1a6a2383a58a890ce9add816f9e9060273
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2682236ae9f9256b91d1259248e72139c907c8e5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948148"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345019"
 ---
 # <a name="get-started-with-bing-speech-service-client-libraries"></a>Bing Speech Service 클라이언트 라이브러리 시작
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Bing Speech Service는 REST API를 통해 직접 HTTP를 요청하는 것 외에도 개발자에게 다양한 언어의 Speech 클라이언트 라이브러리를 제공합니다. Speech 클라이언트 라이브러리의 특징은 다음과 같습니다.
 
@@ -33,9 +34,6 @@ Bing Speech Service는 REST API를 통해 직접 HTTP를 요청하는 것 외에
 - [JavaScript 라이브러리](GetStartedJSWebsockets.md)
 - [Android용 Java 라이브러리](GetStartedJavaAndroid.md)
 - [iOS용 Objective-C 라이브러리](Get-Started-ObjectiveC-iOS.md)
-
-> [!NOTE] 
-2018년 5월 공개 미리 보기에서 새 [Speech Service](../../speech-service/index.yml)도 릴리스되었습니다. [체험 평가판을 사용해 보세요](../../speech-service/get-started.md). 
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -4,20 +4,20 @@ description: 이 자습서의 단계에 따라 REST를 사용하여 Azure Media 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/16/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 5cc109467f9affa9cf5f43342203e8d4298269e0
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: e49b450ef2c731e9ddbafa0c8366d9eae29dc5ef
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115209"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377434"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>자습서: REST를 사용하여 비디오 업로드, 인코딩 및 스트림
 

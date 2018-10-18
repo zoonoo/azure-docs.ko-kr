@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 2405ba9087e63b57c7bd6bc6f290cdafacaf7a49
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 0bd61c3f1a4f660076be4e87bb5443302e5dc013
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227353"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363997"
 ---
 # <a name="tutorial-ecommerce-catalog-moderation-with-machine-learning"></a>자습서: 기계 학습을 사용하여 전자 상거래 카탈로그 조정
 
@@ -159,7 +159,7 @@ ms.locfileid: "47227353"
 
 ## <a name="classify-into-flags-toys-and-pens"></a>국기, 장난감 및 펜으로 분류
 
-1. [Custom Vision API 미리 보기](https://www.customvision.ai/)에 [로그인](https://azure.microsoft.com/en-us/services/cognitive-services/custom-vision-service/)합니다.
+1. [Custom Vision API 미리 보기](https://www.customvision.ai/)에 [로그인](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/)합니다.
 2. [빠른 시작](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier)을 사용하여 국기, 장난감 및 펜이 있을 가능성을 감지하도록 사용자 지정 분류자를 빌드합니다.
    ![Custom Vision 학습 이미지](images/tutorial-ecommerce-custom-vision.PNG)
 3. 사용자 지정 분류자에 대한 [예측 엔드포인트 URL을 가져옵니다](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api).

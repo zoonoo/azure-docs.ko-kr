@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/01/2018
 ms.author: jonbeck
-ms.openlocfilehash: 47253fd05cb1df96841b30357ac6e7cfe75c12c5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cefcad9c427770c083e6451c088ce5cfc10a68f2
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039687"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394469"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Azure에서 Windows 가상 머신에 대한 크기
 
@@ -29,12 +29,12 @@ ms.locfileid: "47039687"
 
 | type                     | 크기           |    설명       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [범용](sizes-general.md)          | B, Dsv3, Dv3, DSv2, Dv2, Av2 | CPU 대 메모리 비율이 적당합니다. 테스트 및 개발, 중소 규모 데이터베이스 및 트래픽이 적거나 중간 정도인 웹 서버에 적합합니다. |
+| [범용](sizes-general.md)          | B, Dsv3, Dv3, DSv2, Dv2, Av2, DC | CPU 대 메모리 비율이 적당합니다. 테스트 및 개발, 중소 규모 데이터베이스 및 트래픽이 적거나 중간 정도인 웹 서버에 적합합니다. |
 | [Compute에 최적화](sizes-compute.md)        | Fsv2, Fs, F             | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 웹 서버, 네트워크 어플라이언스, 일괄 처리 프로세스 및 응용 프로그램 서버에 적합합니다.        |
 | [메모리에 최적화](../virtual-machines-windows-sizes-memory.md)         | Esv3, Ev3, M, GS, G, DSv2, Dv2  | 메모리 대 CPU 비율이 높습니다. 관계형 데이터베이스 서버, 중대형 캐시 및 메모리 내 분석에 적합합니다.                 |
 | [Storage에 최적화](../virtual-machines-windows-sizes-storage.md)        | Ls                | 높은 디스크 처리량 및 IO 빅 데이터, SQL, NoSQL 데이터베이스에 적합합니다.                                                         |
 | [GPU](sizes-gpu.md)            | NV, NVv2, NC, NCv2, NCv3, ND            | 고급 그래픽 렌더링 및 비디오 편집뿐만 아니라 딥 러닝을 통한 모델 학습 및 추론(ND)도 목표로 하는 특수화된 가상 머신입니다. 한 개 이상의 GPU를 사용할 수 있습니다.       |
-| [고성능 계산](sizes-hpc.md) | H       | Microsoft의 가장 빠르고 강력한 CPU 가상 머신으로, 필요한 경우 처리량이 높은 네트워크 인터페이스(RDMA)도 제공합니다. 
+| [고성능 계산](sizes-hpc.md) | H       | Microsoft의 가장 빠르고 강력한 CPU 가상 머신으로, 필요한 경우 처리량이 높은 네트워크 인터페이스(RDMA)도 제공합니다. |
 
 
 <br> 
@@ -49,9 +49,9 @@ ms.locfileid: "47039687"
 
 REST API를 사용하여 VM 크기에 대해 쿼리하는 방법은 다음을 참조하세요.
 
-- [크기 조정에 사용 가능한 가상 머신 크기 나열](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)
-- [구독에 사용 가능한 가상 머신 크기 나열](https://docs.microsoft.com/rest/api/compute/virtualmachinesizes/list)
-- [가용성 집합에서 사용 가능한 가상 머신 크기 나열](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes)
+- [크기 조정에 사용 가능한 가상 머신 크기 나열](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines_listavailablesizes)
+- [구독에 사용 가능한 가상 머신 크기 나열](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines_listall)
+- [가용성 집합에서 사용 가능한 가상 머신 크기 나열](https://docs.microsoft.com/rest/api/compute/availabilitysets/availabilitysets_listavailablesizes)
 
 ## <a name="acu"></a>ACU
 

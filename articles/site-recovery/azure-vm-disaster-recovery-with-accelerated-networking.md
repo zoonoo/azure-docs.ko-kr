@@ -3,18 +3,18 @@ title: Azure 가상 머신 장애 복구에서 가속화된 네트워킹 | Micro
 description: Azure 가상 머신 재해 복구에 대해 Azure Site Recovery에서 가속화된 네트워킹을 사용하는 방법을 설명합니다.
 services: site-recovery
 documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 08/24/2018
-ms.author: manayar
-ms.openlocfilehash: af29333956fb962ed31133260ecbc9607de38fd3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: bb4a3f433f213984c4c351439760ddd3327cda73
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052066"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353139"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Azure 가상 머신 장애 복구에서 가속화된 네트워킹
 

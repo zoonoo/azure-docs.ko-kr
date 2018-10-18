@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: abf9cd311af141a646c56f452ded77a914bc1d2f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 294353cfcfba617ab19e703f11f35402bcf7ea82
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093301"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387584"
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>HDInsight에서 Hive를 사용하여 Twitter 데이터 분석
 소셜 웹 사이트는 빅데이터 채택의 주요 추진력 중 하나입니다. Twitter와 같은 사이트에서 제공하는 공개 API는 대중적인 추세를 분석하고 이해하는 데 유용한 데이터 원본입니다.
@@ -78,7 +78,7 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용
 
    | 필드 | 값 |
    | --- | --- |
-   |  Name |MyHDInsightApp |
+   |  이름 |MyHDInsightApp |
    |  설명 |MyHDInsightApp |
    |  Website |http://www.myhdinsightapp.com |
 4. **Yes, I agree**를 선택한 후 **Create your Twitter application**을 클릭합니다.
@@ -95,7 +95,7 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용
 
 **트윗을 가져오려면**
 
-1. Windows PowerShell ISE(통합 스크립팅 환경)를 엽니다. (Windows 8 시작 화면에서 **PowerShell_ISE**를 입력하고 **Windows PowerShell ISE**를 클릭하면 됩니다. [Windows 8 및 Windows에서 Windows PowerShell 시작](https://docs.microsoft.com/en-us/powershell/scripting/setup/starting-windows-powershell?view=powershell-6)을 참조하세요.
+1. Windows PowerShell ISE(통합 스크립팅 환경)를 엽니다. (Windows 8 시작 화면에서 **PowerShell_ISE**를 입력하고 **Windows PowerShell ISE**를 클릭하면 됩니다. [Windows 8 및 Windows에서 Windows PowerShell 시작](https://docs.microsoft.com/powershell/scripting/setup/starting-windows-powershell?view=powershell-6)을 참조하세요.
 2. 스크립트 창에서 다음 스크립트를 복사합니다.
 
     ```powershell

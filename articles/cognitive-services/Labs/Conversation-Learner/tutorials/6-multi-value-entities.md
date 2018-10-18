@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 6193a515f0d8136e0d420b7554cf26fee8f50953
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: a80577bb226cbec080edf5e06dbd0f31c80a5890
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173104"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321430"
 ---
 # <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>Conversation Learner 모델에서 다중값 엔터티를 사용하는 방법
 이 자습서는 엔터티의 “다중값” 속성을 보여 줍니다.
@@ -24,7 +24,7 @@ ms.locfileid: "39173104"
 
 [![자습서 6 미리 보기](http://aka.ms/cl-tutorial-06-preview)](http://aka.ms/blis-tutorial-06)
 
-##<a name="requirements"></a>요구 사항
+## <a name="requirements"></a>요구 사항
 이 자습서를 수행하려면 일반 자습서 봇이 실행 중이어야 합니다.
 
     npm run tutorial-general
@@ -58,13 +58,13 @@ ms.locfileid: "39173104"
 1. 작업, 새 작업을 차례로 클릭합니다.
 2. 응답에 ‘What toppings do you want?’를 입력합니다.
 3. Disqualifying(실격) 엔터티에 Toppings를 입력합니다.
-3. 만들기 클릭
+3. 만들기 클릭 
 
 그런 다음, 두 번째 작업을 만듭니다.
 
 1. 작업, 새 작업을 차례로 클릭하여 두 번째 작업을 만듭니다.
 3. 응답에 ‘Here are your toppings: $Toppings’를 입력합니다.
-4. 만들기 클릭
+4. 만들기 클릭 
 
 이제 두 가지 작업이 있습니다.
 

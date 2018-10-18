@@ -4,14 +4,14 @@ description: VMware에서 Azure로의 복제에서 VM 디스크를 제외하는 
 author: nsoneji
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: e7c9c1db52dc23c576782ffa8b21426c75230c51
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: ea0e9f3572287139612256863ee28b72c83cd4ef
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921283"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092426"
 ---
 # <a name="exclude-disks-from-replication-for-vmware-to-azure-scenario"></a>VMware에서 Azure 시나리오의 복제에서 디스크를 제외
 

@@ -10,15 +10,17 @@ ms.component: translator-speech
 ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
-ROBOTS: NOINDEX
-ms.openlocfilehash: 3c0d0e17026dc0c970138c30f83dc9eb98db4228
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dd1c60a2c2ad88abf686e89972d29768ef600e4e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950185"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344560"
 ---
 # <a name="languages-supported-by-the-translator-speech-api"></a>Translator Speech API에서 지원되는 언어
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
 음성 번역에 다음 언어가 지원됩니다. 두 언어가 음성 번역에 지원되는 경우 음성 - 음성 변환 또는 음성 - 텍스트 변환이 지원됩니다. 대상 언어가 음성 번역을 지원하지 않으면 음성 - 텍스트 변환만 지원됩니다. 
 
 | 음성 언어    |

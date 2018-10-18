@@ -5,6 +5,7 @@ services: machine-learning, team-data-science-process
 documentationcenter: ''
 author: deguhath
 ms.author: deguhath
+manager: cgronlun
 editor: cgronlun
 ms.assetid: b8fbef77-3e80-4911-8e84-23dbf42c9bee
 ms.service: machine-learning
@@ -14,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
-ms.openlocfilehash: 427ea1f3f22855b2c54beacbfb89a8f7fd37cce0
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: ee2e797f3838b8b6b36174d14c73e97fe9790315
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246650"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49392815"
 ---
 # <a name="skin-cancer-image-classification-with-the-azure-machine-learning-package-for-computer-vision-and-team-data-science-process"></a>AMLPCV(Azure Machine Learning Package for Computer Vision) 및 TDSP(팀 데이터 과학 프로세스)를 사용한 피부암 이미지 분류
 
-이 문서에서는 [AMLPCV(Azure Machine Learning Package for Computer Vision](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest))를 사용하여 *이미지 분류* 모델을 학습, 테스트 및 배포하는 방법을 보여 줍니다. 샘플은 [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-installation)의 TDSP(팀 데이터 과학 프로세스) 구조와 템플릿을 사용합니다. 이 연습은 전체 샘플을 제공합니다. [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/)을 딥 러닝 프레임워크로 사용하므로 [데이터 과학 가상 머신](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview) GPU 컴퓨터에서 학습이 수행됩니다. 배포에서는 Azure Machine Learning Operationalization CLI를 사용합니다.
+이 문서에서는 [AMLPCV(Azure Machine Learning Package for Computer Vision](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest))를 사용하여 *이미지 분류* 모델을 학습, 테스트 및 배포하는 방법을 보여 줍니다. 샘플은 [Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/service/quickstart-installation)의 TDSP(팀 데이터 과학 프로세스) 구조와 템플릿을 사용합니다. 이 연습은 전체 샘플을 제공합니다. [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/)을 딥 러닝 프레임워크로 사용하므로 [데이터 과학 가상 머신](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview) GPU 컴퓨터에서 학습이 수행됩니다. 배포에서는 Azure Machine Learning Operationalization CLI를 사용합니다.
 
 Computer Vision 도메인의 많은 응용 프로그램은 이미지 분류 문제로 구분될 수 있습니다. 여기에는 “이미지에 개체가 있습니까?”(개체는 개, 자동차 또는 배일 수 있음)와 같은 질문에 대답하는 모델 작성이 포함됩니다. 또한 “이 환자의 망막 스캔을 통해 안과 질환에 대해 어떤 종류의 심각도가 표시됩니까?”와 같은 보다 복잡한 질문에 대한 대답도 포함됩니다. AMLPCV(Azure Machine Learning Package for Computer Vision)는 이미지 분류 데이터 처리 및 모델링 파이프라인을 간소화합니다. 
 
@@ -32,7 +33,7 @@ Computer Vision 도메인의 많은 응용 프로그램은 이미지 분류 문�
 
 ## <a name="team-data-science-process-walkthrough"></a>팀 데이터 과학 프로세스 연습
 
-이 연습에서는 [팀 데이터 과학 프로세스](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview) 수명 주기를 사용합니다. 이 연습에서 다루는 수명 주기 단계는 다음과 같습니다.
+이 연습에서는 [팀 데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 수명 주기를 사용합니다. 이 연습에서 다루는 수명 주기 단계는 다음과 같습니다.
 
 ### <a name="1-data-acquisitionhttpsgithubcomazuremachinelearningsamples-amlvisionpackage-isicimageclassificationblobmastercode01dataacquisitionandunderstanding"></a>[1. 데이터 취득](https://github.com/Azure/MachineLearningSamples-AMLVisionPackage-ISICImageClassification/blob/master/code/01_data_acquisition_and_understanding)
 이미지 분류 작업에 ISIC(International Skin Imaging Collaboration) 데이터 집합이 사용됩니다. ISIC는 디지털 피부 영상 응용 프로그램의 사용을 용이하게 하여 흑색종 사망을 연구하고 이를 줄이는 데 도움을 주기 위해 설립된 산학 협력 단체입니다. [ISIC Archive](https://isic-archive.com/#images)에는 양성 또는 악성 레이블이 지정된 13,000가지를 초과하는 피부 병변 이미지가 포함되어 있습니다. 이미지 샘플은 ISIC Archive에서 다운로드합니다.
@@ -71,13 +72,13 @@ Computer Vision 도메인의 많은 응용 프로그램은 이미지 분류 문�
 이 단계에서는 모델링 단계에서 생성된 모델을 운용합니다. 필수 구성 요소 및 필요한 설정을 소개합니다. 웹 서비스 사용에 대해서도 설명합니다. 이 자습서에서는 AMLPCV(Azure Machine Learning Package for Computer Vision)를 통해 심층 학습 모델을 작성하고 Azure에서 모델을 운영하는 방법에 대해 배웁니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [AMLPCV(Azure Machine Learning Package for Computer Vision)](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest)에 대한 추가 설명서를 읽어 보세요.
+- [AMLPCV(Azure Machine Learning Package for Computer Vision)](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest)에 대한 추가 설명서를 읽어 보세요.
 - 시작하려면 [팀 데이터 과학 프로세스](https://aka.ms/tdsp) 설명서를 읽어보세요.
 
 
 ## <a name="references"></a>참조
 
-* [AMLPCV(Azure Machine Learning Package for Computer Vision)](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest)
-* [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-installation)
+* [AMLPCV(Azure Machine Learning Package for Computer Vision)](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest)
+* [Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/service/quickstart-installation)
 * [데이터 과학 가상 머신](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)
 

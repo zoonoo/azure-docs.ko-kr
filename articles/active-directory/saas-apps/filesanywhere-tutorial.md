@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 8a08155dd67c6fcf2fb080325840bc163dc6da60
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 220b5a486f5bb5d22c671ac6935e610a6eef62cf
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447359"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115988"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>자습서:FilesAnywhere와 Azure Active Directory 통합
 
@@ -127,7 +127,7 @@ FilesAnywhere에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     a. **고급 URL 설정 표시** 옵션을 클릭합니다.
 
-    나. **로그온 URL** 텍스트 상자에서 다음 패턴 `https://<sub domain>.filesanywhere.com/`을 사용하여 URL을 입력합니다.
+    b. **로그온 URL** 텍스트 상자에서 다음 패턴 `https://<sub domain>.filesanywhere.com/`을 사용하여 URL을 입력합니다.
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 회신 URL로 값을 업데이트해야 합니다. 이러한 값을 얻으려면 [FilesAnywhere 지원 팀](mailto:support@FilesAnywhere.com)에 문의하세요. 
@@ -153,7 +153,7 @@ FilesAnywhere에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     ![Configure Single Sign-On](./media/filesanywhere-tutorial/tutorial_FilesAnywhere_05.png)
     
-    나. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
+    b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
     
     다. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
     
@@ -200,7 +200,7 @@ FilesAnywhere에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 

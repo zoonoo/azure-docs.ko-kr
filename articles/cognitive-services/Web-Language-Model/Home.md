@@ -11,17 +11,17 @@ ms.topic: overview
 ms.date: 08/12/2016
 ms.author: pibehre
 ROBOTS: NOINDEX
-ms.openlocfilehash: f6cfaa05a6107d3e1ef689103da43960ea4df366
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 79b126fc33175b7cd6df96ab07cd7b726d6065a7
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48039994"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389941"
 ---
 # <a name="what-is-the-web-language-model-api-preview"></a>Web Language Model API란? (미리 보기)
 
 > [!IMPORTANT]
-> Web Language Model 미리 보기는 2018년 8월 9일부로 서비스 해제되었습니다. 텍스트 처리 및 분석에는 [Azure Machine Learning 텍스트 분석 모듈](https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/text-analytics)을 사용하는 것이 좋습니다.
+> Web Language Model 미리 보기는 2018년 8월 9일부로 서비스 해제되었습니다. 텍스트 처리 및 분석에는 [Azure Machine Learning 텍스트 분석 모듈](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics)을 사용하는 것이 좋습니다.
 
 Microsoft Web Language Model API는 자연어 처리를 위한 첨단 도구를 제공하는 REST 기반 클라우드 서비스입니다. 이 API를 사용하면 Bing이 en-US 시장에서 수집한 웹 규모 자료에 대해 학습한 언어 모델을 통해 빅 데이터의 강력한 힘을 응용 프로그램에서 활용할 수 있습니다.
 

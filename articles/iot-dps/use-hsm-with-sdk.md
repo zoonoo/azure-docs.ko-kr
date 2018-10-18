@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.custom: mvc
-ms.openlocfilehash: c94b5d4800f5776b51247c6ec2f6662a6ab26abc
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 4ab558b680a0d00d1b9bdfbcb1529219f6c37b37
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42146694"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319255"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Azure에서 C용 Device Provisioning 서비스 클라이언트 SDK와 함께 다른 증명 메커니즘을 사용하는 방법
 
@@ -143,6 +143,7 @@ cmake -Ddps_auth_type=tpm_simulator ..
 TPM을 사용하는 경우 ["Azure IoT Hub Device Provisioning Service를 사용하여 시뮬레이션된 장치 만들기 및 프로비전"](./quick-create-simulated-device.md)의 지침에 따라 Device Provisioning Service에 장치 등록 항목을 만들고 첫 번째 부팅을 시뮬레이션합니다.
 
 ### <a name="x509"></a>X **.** 509
+
 1. 프로비전 서비스에 장치를 등록하려면 클라이언트 SDK에서 제공하는 프로비전 도구에 표시된 각 장치에 대한 인증 키와 등록 ID를 기록해 둡니다. 다음 명령을 실행하여 루트 CA 인증서(그룹 등록의 경우) 및 리프 인증서(개별 등록의 경우)를 출력합니다.
       ```
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
@@ -185,4 +186,3 @@ TPM을 사용하는 경우 ["Azure IoT Hub Device Provisioning Service를 사용
   ```
   IOTHUB_CLIENT_LL_HANDLE handle = IoTHubClient_LL_CreateFromDeviceAuth(iothub_uri, device_id, iothub_transport);
   ```
-

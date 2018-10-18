@@ -1,25 +1,19 @@
 ---
 title: Microsoft Azure Data Box Gateway 시스템 요구 사항 | Microsoft Docs
 description: Azure Data Box Gateway의 소프트웨어 및 네트워킹 요구 사항에 관해 알아봅니다.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 915190f6f2773d22d14c75be1140f96b7dd40559
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f70cd5de29cc3050142dfff905acae2008dab115
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991575"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379125"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Azure Data Box Gateway 시스템 요구 사항(미리 보기)
 
@@ -118,7 +112,7 @@ Data Box Gateway 고정 IP 주소에 따라 대부분의 경우에서 자유롭�
 
 |     URL 패턴                                                                                                                                                                                                                                                                                                                                                                                                                                       |     구성 요소/기능                                                                             |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-|    https://*.databoxedge.azure.com/*<br>https://*.accesscontrol.windows.net/*<br>https://*.servicebus.windows.net/*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                        |    Azure Data Box Gateway 서비스<br>Access Control Service<br>Azure Service Bus<br>인증 서비스    |
+|    https://*.databoxedge.azure.com/*<br>https://*.servicebus.windows.net/*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                        |    Azure Data Box Gateway 서비스<br>Azure Service Bus<br>인증 서비스    |
 |    http://*.backup.windowsazure.com                                                                                                                                                                                                                                                                                                                                                                                                                   |    장치 활성화                                                                                    |
 |    http://crl.microsoft.com/pki/*   http://www.microsoft.com/pki/*                                                                                                                                                                                                                                                                                                                                                                                    |    인증서 해지                                                                               |
 |    https://*.core.windows.net/*   https://*.data.microsoft.com   http://*.msftncsi.com                                                                                                                                                                                                                                                                                                                                                                |    Azure 저장소 계정 및 모니터링                                                                |

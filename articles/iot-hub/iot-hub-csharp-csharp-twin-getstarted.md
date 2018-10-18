@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: dobett
-ms.openlocfilehash: 340453448d38db66558e59edb845f2caf4454cf9
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: defb9f72148e319b36954a8d448d5f441621fc43
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104153"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321583"
 ---
 # <a name="get-started-with-device-twins-netnet"></a>장치 쌍(.NET/.NET) 시작
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -236,4 +236,4 @@ ms.locfileid: "43104153"
 
 * [desired 속성을 사용하여 장치 구성](tutorial-device-twins.md) 자습서를 참조하여 장치 쌍의 desired 속성을 사용하여 장치 구성,
 
-* [직접 메서드 사용](quickstart-control-device-node.md) 자습서를 참조하여 대화형으로(예: 사용자가 제어하는 앱에서 팬을 켬) 장치 제어
+* [직접 메서드 사용](quickstart-control-device-dotnet.md) 자습서를 참조하여 대화형으로(예: 사용자가 제어하는 앱에서 팬을 켬) 장치 제어

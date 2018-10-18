@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 72f320279d23dc701f045ee6db1681a355f98808
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 4964b6d531d777ea5080e51fbff5a589efd5249d
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022289"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386871"
 ---
 # <a name="managing-azure-file-shares-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 파일 공유 관리 
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows, Linux 및 macOS에 탑재할 수 있습니다. 이 가이드에서는 PowerShell을 사용하여 Azure 파일 공유로 작업하는 기본 사항을 설명합니다. 이 문서에서는 다음 방법을 알아봅니다.
@@ -165,7 +165,7 @@ Get-AzureStorageFile -Context $storageAcct.Context -ShareName "myshare2" -Path "
 
 ## <a name="create-and-modify-share-snapshots"></a>공유 스냅숏 만들기 및 수정
 Azure 파일 공유로 수행할 수 있는 유용한 한 가지 추가 작업은 공유 스냅숏을 만드는 것입니다. 스냅숏은 Azure 파일 공유의 지정 시간을 유지합니다. 공유 스냅숏은 이미 익숙한 다음과 같은 운영 시스템 기술과 유사합니다.
-- NTFS 및 ReFS와 같은 Windows 파일 시스템용 [VSS(볼륨 섀도 복사본 서비스)](https://docs.microsoft.com/en-us/windows/desktop/VSS/volume-shadow-copy-service-portal)
+- NTFS 및 ReFS와 같은 Windows 파일 시스템용 [VSS(볼륨 섀도 복사본 서비스)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal)
 - Linux 시스템용 [LVM(논리 볼륨 관리자)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) 스냅숏
 - macOS용 [APFS(Apple 파일 시스템)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) 스냅숏 
 

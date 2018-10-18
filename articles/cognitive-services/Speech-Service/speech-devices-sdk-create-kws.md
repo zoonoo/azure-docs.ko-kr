@@ -3,18 +3,18 @@ title: 사용자 지정 절전 모드 해제 단어 만들기
 description: Speech 장치 SDK에 대한 사용자 지정 절전 모드 해제 단어를 만드는 방법을 알아봅니다.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: speech
 ms.topic: article
 ms.date: 04/28/2018
-ms.author: v-jerkin
-ms.openlocfilehash: 52f1d9cb242f140d485ccf7b39a55a46ee575a3d
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.author: erhopf
+ms.openlocfilehash: ab2bc9a83feadd9ece8876559e730e7bc955908a
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883621"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165473"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Speech Service를 사용하여 사용자 지정 절전 모드 해제 단어 만들기
 

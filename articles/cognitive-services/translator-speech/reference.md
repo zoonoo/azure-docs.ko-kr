@@ -10,15 +10,16 @@ ms.component: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ROBOTS: NOINDEX
-ms.openlocfilehash: 46aeab52014a28d1a962195de802d0e000b62509
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1fc48687141ea8a7e8cb30d3438d81e8f1088e4f
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978712"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340446"
 ---
 # <a name="translator-speech-api"></a>Translator Speech API
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
 이 서비스는 한 언어의 대화 음성을 다른 언어의 텍스트로 기록하기 위한 스트리밍 API를 제공합니다. 또한 이 API는 텍스트에서 음성 변환 기능을 통합하여 번역된 텍스트를 다시 읽어줍니다. Translator Speech API는 Skype Translator에서 볼 수 있는 것처럼 실시간 대화 번역과 같은 시나리오도 허용합니다.
 

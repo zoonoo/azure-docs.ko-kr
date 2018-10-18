@@ -8,18 +8,17 @@ ms.topic: include
 ms.date: 05/29/2018
 ms.author: azcspmt;jonbeck;cynthn;danlep
 ms.custom: include file
-ms.openlocfilehash: 296e92d803bb69376f286aa60cfb4a955b08010f
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: c12fff63cdb7241d89e7511a3dac2ff9c1363ae6
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34669349"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49346107"
 ---
 ## <a name="deployment-considerations"></a>배포 고려 사항
 * **Azure 구독** - 몇몇 계산 집약적 인스턴스를 배포하려면 종량제 구독 또는 기타 구매 옵션을 고려합니다. [Azure 무료 계정](https://azure.microsoft.com/free/)을 사용하는 경우, 제한된 수의 Azure 계산 코어만 사용할 수 있습니다.
 
-* 
-  **가격 책정 및 가용성** - 이러한 VM 크기는 표준 가격 책정 계층에만 제공됩니다. Azure 지역의 가용성에 대해 [지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services/)을 확인하세요. 
+* **가격 책정 및 가용성** - 이러한 VM 크기는 표준 가격 책정 계층에만 제공됩니다. [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/) 에서 Azure 지역의 가용성을 확인하세요. 
 * **코어 할당량** – 기본값에서 Azure 구독의 코어 할당량을 늘려야 합니다. 구독에 따라서도 H 시리즈를 포함하여 특정 VM 크기 제품군에 배포할 수 있는 코어 수가 제한될 수 있습니다. 할당량 증가를 요청하려면 무료로 [온라인 고객 지원 요청을 개설](../articles/azure-supportability/how-to-create-azure-support-request.md) 합니다. (기본 제한은 구독 범주에 따라 달라질 수 있습니다.)
   
   > [!NOTE]
@@ -38,4 +37,3 @@ ms.locfileid: "34669349"
 > IP over IB는 Azure에서 지원되지 않습니다. RDMA over IB만 지원됩니다.
 >
 
-동일한 가용성 집합이나 VM 확장 집합(Azure Resource Manager 배포 모델 사용 시) 또는 동일한 클라우드 서비스(클래식 배포 모델 사용 시)에 RDMA 가능 HPC VM을 배포합니다. VM 확장 집합을 사용하는 경우 배포를 단일 배치 그룹으로 제한해야 합니다. 예를 들어, Resource Manager 템플릿에서 *singlePlacementGroup* 속성을 *true*로 설정합니다. RDMA 가능 HPC VM에서 Azure RDMA 네트워크에 액세스하기 위한 추가 요구 사항을 따릅니다.

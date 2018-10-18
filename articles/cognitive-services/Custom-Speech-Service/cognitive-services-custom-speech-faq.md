@@ -1,24 +1,24 @@
 ---
-title: 질문과 대답 - Custom Speech Service
-titlesuffix: Azure Cognitive Services
+title: Azure의 Custom Speech Service에 대한 질문과 대답 | Microsoft Docs
 description: 다음은 Custom Speech Service에 대해 가장 자주 묻는 질문에 대한 답변입니다.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: faq
+ms.topic: article
 ms.date: 11/21/2016
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 2de2efe3287cbb0b915434c2c9ad982fe162d741
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 8e3d5e0e2b70d8f97099103ed369e48dd74d56e2
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223727"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341364"
 ---
 # <a name="custom-speech-service-frequently-asked-questions"></a>Custom Speech Service 질문과 대답
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)] 
 
 여기 FAQ에서 질문에 대한 답변을 찾을 수 없는 경우에는 [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive)와 [UserVoice](https://cognitive.uservoice.com/)에서 Custom Speech Service 커뮤니티에 문의해 보세요.
 

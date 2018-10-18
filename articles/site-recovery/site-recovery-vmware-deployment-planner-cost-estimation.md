@@ -6,14 +6,14 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: a946ecb31697591a7490c80496c02c5f907c6f36
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 7470dab537a8ab248228b9c445e1124e7ec9c444
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182385"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387806"
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner의 비용 예측 보고서  
 
@@ -125,7 +125,7 @@ VM을 수동으로 추가하려면:
 
 **연간 DR 드릴 횟수**: 연간 DR 드릴을 수행하는 횟수입니다. 기본적으로 1년에 4번입니다. 특정 VM의 기간을 수정하거나 맨 위 행에 새 값을 입력하고 'Apply to all(모든 항목에 적용)' 단추를 클릭하여 새 값을 모든 VM에 적용할 수 있습니다. 연간 DR 드릴 횟수와 각 DR 드릴 지속 시간에 따라 총 DR 드릴 비용이 계산됩니다.  
 
-**각 DR 드릴 지속 시간(일)**: 각 DR 드릴의 지속 시간입니다. 기본적으로 [재해 복구 Software Assurance 혜택](https://azure.microsoft.com/en-in/pricing/details/site-recovery)당 90일마다 7일입니다. 특정 VM의 기간을 수정하거나 맨 위 행에 새 값을 입력하고 'Apply to all(모든 항목에 적용)' 단추를 클릭하여 새 값을 모든 VM에 적용할 수 있습니다. 총 DR 드릴 비용은 연간 DR 드릴 횟수와 각 DR 드릴 지속 시간을 기반으로 계산됩니다.
+**각 DR 드릴 지속 시간(일)**: 각 DR 드릴의 지속 시간입니다. 기본적으로 [재해 복구 Software Assurance 혜택](https://azure.microsoft.com/pricing/details/site-recovery)당 90일마다 7일입니다. 특정 VM의 기간을 수정하거나 맨 위 행에 새 값을 입력하고 'Apply to all(모든 항목에 적용)' 단추를 클릭하여 새 값을 모든 VM에 적용할 수 있습니다. 총 DR 드릴 비용은 연간 DR 드릴 횟수와 각 DR 드릴 지속 시간을 기반으로 계산됩니다.
   
 **OS 종류**: VM의 OS 종류입니다. Windows 또는 Linux입니다. OS 종류가 Windows이면 Azure 하이브리드 사용 혜택을 해당 VM에 적용할 수 있습니다. 
 

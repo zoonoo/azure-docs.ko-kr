@@ -10,15 +10,17 @@ ms.component: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
-ROBOTS: NOINDEX
-ms.openlocfilehash: fd974d153e9db48b25c1b732b9719c21b16b5e01
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 77e60fe39f7cbb985ee0e7ed2785805e80c389ae
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948777"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341143"
 ---
 # <a name="what-is-translator-speech-api"></a>Translator Speech API란?
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
 Translator Speech API는 대상 OS 또는 개발 언어와 관계없이 다국어 음성 번역이 필요한 응용 프로그램, 도구 또는 솔루션에 통합형 실시간 음성 번역을 추가하는 데 사용할 수 있습니다. API는 음성 대 음성 및 음성 대 텍스트 번역 모두에 사용될 수 있습니다.
 
 Translator Text API는 사용자 개발 프로젝트에서 쉽게 사용할 수 있는 클라우드의 AI 알고리즘 및 기계 학습의 [Azure Cognitive Services API 컬렉션](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive)에 속한 Azure 서비스입니다.

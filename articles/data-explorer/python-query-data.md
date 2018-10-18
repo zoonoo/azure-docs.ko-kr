@@ -2,18 +2,18 @@
 title: '빠른 시작: Azure 데이터 탐색기 Python 라이브러리를 사용하여 데이터 쿼리'
 description: 이 빠른 시작에서는 Python을 사용하여 Azure 데이터 탐색기에서 데이터를 쿼리하는 방법을 알아봅니다.
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: fee982812456548ed6d1e15d86151df88532389f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 17504cec6ddf98aca8ddfc6c91d21d34055902f6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956101"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394856"
 ---
 # <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>빠른 시작: Azure 데이터 탐색기 Python 라이브러리를 사용하여 데이터 쿼리
 
@@ -32,7 +32,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
 *azure-kusto-data*를 설치합니다.
 
 ```python
-pip install azure-kusto-data
+pip install azure-kusto-data==0.0.13
 ```
 
 ## <a name="add-import-statements-and-constants"></a>import 문 및 상수 추가
@@ -42,6 +42,7 @@ pip install azure-kusto-data
 ```python
 from azure.kusto.data.request import KustoClient, KustoConnectionStringBuilder
 from azure.kusto.data.exceptions import KustoServiceError
+from azure.kusto.data.helpers import dataframe_from_result_table
 import pandas as pd
 ```
 
@@ -51,10 +52,10 @@ import pandas as pd
 https://login.windows.net/<YourDomain>/.well-known/openid-configuration/
 ```
 
-예를 들어 도메인이 *contoso.com*인 경우 URL은 [https://login.windows.net/contoso.com/.well-known/openid-configuration/](https://login.windows.net/contoso.com/.well-known/openid-configuration/)입니다. 결과를 보려면 이 URL을 클릭합니다. 첫 번째 줄은 다음과 같습니다. 
+예를 들어 도메인이 *contoso.com*인 경우 URL은 [https://login.windows.net/contoso.com/.well-known/openid-configuration/](https://login.windows.net/contoso.com/.well-known/openid-configuration/)입니다. 결과를 보려면 이 URL을 클릭합니다. 첫 번째 줄은 다음과 같습니다.
 
 ```
-`"authorization_endpoint":"https://login.windows.net/6babcaad-604b-40ac-a9d7-9fd97c0b779f/oauth2/authorize"`
+"authorization_endpoint":"https://login.windows.net/6babcaad-604b-40ac-a9d7-9fd97c0b779f/oauth2/authorize"
 ```
 
 이 경우의 테넌트 ID는 `6babcaad-604b-40ac-a9d7-9fd97c0b779f`입니다. 이 코드를 실행하기 전에 AAD_TENANT_ID에 대한 값을 설정합니다.
@@ -80,7 +81,7 @@ KCSB.authority_id = AAD_TENANT_ID
 KUSTO_CLIENT  = KustoClient(KCSB)
 KUSTO_QUERY  = "StormEvents | sort by StartTime desc | take 10"
 
-df = KUSTO_CLIENT.execute_query(KUSTO_DATABASE, KUSTO_QUERY).primary_results[0].to_dataframe()
+RESPONSE = KUSTO_CLIENT.execute(KUSTO_DATABASE, KUSTO_QUERY)
 ```
 
 ## <a name="explore-data-in-dataframe"></a>DataFrame에서 데이터 탐색
@@ -88,6 +89,7 @@ df = KUSTO_CLIENT.execute_query(KUSTO_DATABASE, KUSTO_QUERY).primary_results[0].
 로그인을 입력한 후 쿼리가 결과를 반환하고 결과는 데이터 프레임에 저장됩니다. 다른 데이터 프레임을 사용하는 것처럼 결과를 사용할 수 있습니다.
 
 ```python
+df = dataframe_from_result_table(RESPONSE.primary_results[0])
 df
 ```
 

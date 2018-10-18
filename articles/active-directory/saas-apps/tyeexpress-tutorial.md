@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: jeedes
-ms.openlocfilehash: f3b9a2ed9b374192151a8a737a5b51d9085d53ff
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ff4d634fb7f6f8057e5f370a694e46ca5e0d772d
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430920"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114076"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>자습서: T&E Express와 Azure Active Directory 통합
 
@@ -114,7 +114,7 @@ T&E Express에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
     a. **식별자** 텍스트 상자에 해당 값으로 `https://<domain>.tyeexpress.com`을 입력합니다.
 
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트해야 합니다. 식별자에는 고유한 문자열 값을 사용하는 것이 좋습니다. 이러한 값을 얻으려면 [T&E Express 지원 팀](http://www.tyeexpress.com/contacto.aspx)에 문의하세요.
@@ -165,7 +165,7 @@ T&E Express에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 

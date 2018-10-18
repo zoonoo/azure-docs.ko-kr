@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 56df09f461458071093088159d3b468755b0e4ad
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 71d8bfa116fd4d0e824d80da26df7271121a595c
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434945"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311374"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 상태 로밍 활성화
 Azure AD Premium 또는 EMS(Enterprise Mobility + Security) 라이선스를 사용하는 모든 조직에서 Enterprise State Roaming을 사용할 수 있습니다. Azure AD 구독 방법에 대한 자세한 내용은 [Azure AD 제품 페이지](https://azure.microsoft.com/services/active-directory)를 참조하세요.
@@ -32,9 +32,9 @@ Enterprise State Roaming을 사용하도록 설정하면 Azure Information Prote
 
 1. [Azure AD 관리 센터](https://aad.portal.azure.com/)에 로그인합니다.
 
-2. **Azure Active Directory** &gt; **장치** &gt; **Enterprise State Roaming**을 차례로 선택합니다.
+1. **Azure Active Directory** &gt; **장치** &gt; **Enterprise State Roaming**을 차례로 선택합니다.
 
-3. **사용자가 장치에서 설정 및 앱 데이터를 동기화할 수 있습니다.** 를 선택합니다. 자세한 내용은 [장치 설정을 구성하는 방법](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal)을 참조하세요.
+1. **사용자가 장치에서 설정 및 앱 데이터를 동기화할 수 있습니다.** 를 선택합니다. 자세한 내용은 [장치 설정을 구성하는 방법](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal)을 참조하세요.
   
   ![사용자자 장치 간에 설정 및 앱 데이터를 동기화할 수 있습니다.라고 레이블이 지정된 장치 설정 이미지](./media/active-directory-windows-enterprise-state-roaming-enable/device-settings.png)
   
@@ -57,15 +57,15 @@ APAC 국가(예: 오스트레일리아 또는 뉴질랜드) | 아시아 내 하�
 
 1. [Azure AD 관리 센터](https://aad.portal.azure.com/)에 로그인합니다.
 
-2. **Azure Active Directory** &gt; **사용자** &gt; **모든 사용자**를 선택합니다.
+1. **Azure Active Directory** &gt; **사용자** &gt; **모든 사용자**를 선택합니다.
 
-3. 사용자를 선택한 다음 **장치**를 선택합니다.
+1. 사용자를 선택한 다음 **장치**를 선택합니다.
 
-4. **표시** 아래에서 **설정 및 앱 데이터를 동기화하는 장치**를 선택하여 동기화 상태를 표시합니다.
+1. **표시** 아래에서 **설정 및 앱 데이터를 동기화하는 장치**를 선택하여 동기화 상태를 표시합니다.
   
   ![장치 동기화 데이터 설정의 이미지](./media/active-directory-windows-enterprise-state-roaming-enable/sync-status.png)
   
-5. 이 사용자에게 동기화된 장치가 있는 경우 여기에 표시된 대로 장치가 표시됩니다.
+1. 이 사용자에게 동기화된 장치가 있는 경우 여기에 표시된 대로 장치가 표시됩니다.
   
   ![장치 동기화 열 형식 데이터의 이미지](./media/active-directory-windows-enterprise-state-roaming-enable/device-status-row.png)
 

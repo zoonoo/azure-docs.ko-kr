@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 611eabd377705af7758276a3d920f9cb4c38ac55
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 4f2ceae349c921ce0d83fb7401e3b18404722763
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46304712"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362911"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 통과 인증: 질문과 대답
 
@@ -92,7 +92,7 @@ ms.locfileid: "46304712"
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>이미 AD FS를 사용하여 Azure AD에 로그인하고 있습니다. 통과 인증으로 전환하려면 어떻게 하나요?
 
-AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그레이션하는 경우 [여기](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx)에 게시된 자세한 배포 가이드를 따르는 것이 좋습니다.
+AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그레이션하는 경우 [여기](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true)에 게시된 자세한 배포 가이드를 따르는 것이 좋습니다.
 
 ## <a name="can-i-use-pass-through-authentication-in-a-multi-forest-active-directory-environment"></a>다중 포리스트 Active Directory 환경에서 통과 인증을 사용할 수 있나요?
 
@@ -132,7 +132,7 @@ Azure AD Connect 마법사를 다시 실행하고 사용자 로그인 방법을 
 ## <a name="next-steps"></a>다음 단계
 - [현재 제한 사항](how-to-connect-pta-current-limitations.md): 지원되는 시나리오와 지원되지 않는 시나리오를 알아봅니다.
 - [빠른 시작](how-to-connect-pta-quick-start.md): Azure AD 통과 인증을 구성하고 실행합니다.
-- [AD FS에서 통과 인증으로 마이그레이션](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) - AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그레이션하는 방법에 대한 자세한 가이드입니다.
+- [AD FS에서 통과 인증으로 마이그레이션](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) - AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그레이션하는 방법에 대한 자세한 가이드입니다.
 - [스마트 잠금](../authentication/howto-password-smart-lockout.md): 테넌트에서 스마트 잠금 기능을 구성하여 사용자 계정을 보호하는 방법을 알아봅니다.
 - [기술 심층 분석](how-to-connect-pta-how-it-works.md): 통과 인증 기능이 작동하는 원리를 이해합니다.
 - [문제 해결](tshoot-connect-pass-through-authentication.md): 통과 인증 기능의 일반적인 문제를 해결하는 방법을 알아봅니다.

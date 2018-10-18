@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: d0f2669610f2086c29d52d95c9796e6a2939622e
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 9d2fa8ec96f629ff85d785897398bc9af52ab3bc
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985448"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165762"
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Azure Active Directory B2B 공동 작업 코드 및 PowerShell 샘플
 
@@ -34,14 +34,14 @@ ms.locfileid: "45985448"
 
 3. 테넌시에 로그인
 
-    ```
+    ```powershell
     $cred = Get-Credential
     Connect-AzureAD -Credential $cred
     ```
 
 4. PowerShell cmdlet 실행
 
-  ```
+  ```powershell
   $invitations = import-csv C:\data\invitations.csv
   $messageInfo = New-Object Microsoft.Open.MSGraph.Model.InvitedUserMessageInfo
   $messageInfo.customizedMessageBody = "Hey there! Check this out. I created an invitation through PowerShell"
@@ -56,7 +56,7 @@ ms.locfileid: "45985448"
 ## <a name="code-sample"></a>코드 샘플
 여기에서는 "앱 전용" 모드로 초대 API를 호출하여 B2B 사용자를 초대하는 리소스에 대한 상환 URL을 가져오는 방법을 보여 줍니다. 목표는 사용자 지정 초대 전자 메일을 보내는 것입니다. HTTP 클라이언트를 통해 전자 메일을 작성하여 Graph API를 통해 표시되고 전송되는 방식을 사용자 지정할 수 있습니다.
 
-```
+```csharp
 namespace SampleInviteApp
 {
     using System;

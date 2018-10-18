@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 4aeb37d656dcb5ebca1a48253c418186dfca0a7a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: eeaa0e9a940f16c2416418959c98cd17e4816afc
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575424"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387636"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Azure Service Fabric의 정기 백업 구성 이해
 
@@ -155,23 +155,23 @@ Service Fabric에서 응용 프로그램, 서비스 및 파티션 간의 관계�
 
 이러한 데이터 백업 요구 사항을 해결하기 위해 백업 정책 BP_1~BP_5가 만들어지고 다음과 같이 백업을 사용하도록 설정합니다.
 1. MyApp_A
-    1. 백업 정책 _BP_1_을 빈도 기반 백업 일정으로 만들고 빈도를 24시간으로 설정합니다. 백업 저장소는 저장소 위치 _BackupStore1_을 사용하도록 구성합니다. [Enable Application Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-enableapplicationbackup)(응용 프로그램 백업 사용) API를 사용하여 _MyApp_A_ 응용 프로그램에 이 정책을 사용하도록 설정합니다. 이 작업을 수행하면 _MyApp_A_ 응용 프로그램에 속하는 _Reliable Stateful_ 서비스 및 _Reliable Actors_의 모든 파티션에 대해 백업 정책 _BP_1_을 사용하여 데이터를 백업하도록 설정됩니다.
+    1. 백업 정책 _BP_1_을 빈도 기반 백업 일정으로 만들고 빈도를 24시간으로 설정합니다. 백업 저장소는 저장소 위치 _BackupStore1_을 사용하도록 구성합니다. [Enable Application Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableapplicationbackup)(응용 프로그램 백업 사용) API를 사용하여 _MyApp_A_ 응용 프로그램에 이 정책을 사용하도록 설정합니다. 이 작업을 수행하면 _MyApp_A_ 응용 프로그램에 속하는 _Reliable Stateful_ 서비스 및 _Reliable Actors_의 모든 파티션에 대해 백업 정책 _BP_1_을 사용하여 데이터를 백업하도록 설정됩니다.
 
-    2. 백업 정책 _BP_2_를 빈도 기반 백업 일정으로 만들고 빈도를 1시간으로 설정합니다. 백업 저장소는 저장소 위치 _BackupStore1_을 사용하도록 구성합니다. [Enable Service Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-enableservicebackup)(서비스 백업 사용) API를 사용하여 _SvcA3_ 서비스에 이 정책을 사용하도록 설정합니다. 이 작업은 _SvcA3_ 서비스의 모든 파티션에 대해 전파된 정책 _BP_1_을 명시적으로 활성화된 백업 정책 _BP_2_로 재정의하여, 해당 파티션에 대해 백업 정책 _BP_2_를 사용하여 데이터가 백업되도록 합니다.
+    2. 백업 정책 _BP_2_를 빈도 기반 백업 일정으로 만들고 빈도를 1시간으로 설정합니다. 백업 저장소는 저장소 위치 _BackupStore1_을 사용하도록 구성합니다. [Enable Service Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup)(서비스 백업 사용) API를 사용하여 _SvcA3_ 서비스에 이 정책을 사용하도록 설정합니다. 이 작업은 _SvcA3_ 서비스의 모든 파티션에 대해 전파된 정책 _BP_1_을 명시적으로 활성화된 백업 정책 _BP_2_로 재정의하여, 해당 파티션에 대해 백업 정책 _BP_2_를 사용하여 데이터가 백업되도록 합니다.
 
-    3. 백업 정책 _BP_3_을 빈도 기반 백업 일정으로 만들고 빈도를 24시간으로 설정합니다. 백업 저장소는 저장소 위치 _BackupStore2_를 사용하도록 구성합니다. [Enable Partition Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-enablepartitionbackup)(파티션 백업 사용) API를 사용하여 _SvcA1_P2_ 파티션에 이 정책을 사용하도록 설정합니다. 이 작업은 _SvcA1_P2_ 파티션에 대해 전파된 정책 _BP_1_을 명시적으로 활성화된 백업 정책 _BP_3_으로 재정의합니다.
+    3. 백업 정책 _BP_3_을 빈도 기반 백업 일정으로 만들고 빈도를 24시간으로 설정합니다. 백업 저장소는 저장소 위치 _BackupStore2_를 사용하도록 구성합니다. [Enable Partition Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup)(파티션 백업 사용) API를 사용하여 _SvcA1_P2_ 파티션에 이 정책을 사용하도록 설정합니다. 이 작업은 _SvcA1_P2_ 파티션에 대해 전파된 정책 _BP_1_을 명시적으로 활성화된 백업 정책 _BP_3_으로 재정의합니다.
 
 2. MyApp_B
-    1. 백업 정책 _BP_4_를 시간 기반 백업 일정으로 만들고 일정 빈도 유형을 매주로 설정하고 실행 요일을 일요일로, 실행 시간은 오전 8시로 설정합니다. 백업 저장소는 저장소 위치 _BackupStore1_을 사용하도록 구성합니다. [Enable Service Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-enableservicebackup)(서비스 백업 사용) API를 사용하여 _SvcB1_ 서비스에 이 정책을 사용하도록 설정합니다. 이 작업을 수행하면 _SvcB1_ 서비스의 모든 파티션에 대해 백업 정책 _BP_4_를 사용하여 데이터를 백업하도록 설정됩니다.
+    1. 백업 정책 _BP_4_를 시간 기반 백업 일정으로 만들고 일정 빈도 유형을 매주로 설정하고 실행 요일을 일요일로, 실행 시간은 오전 8시로 설정합니다. 백업 저장소는 저장소 위치 _BackupStore1_을 사용하도록 구성합니다. [Enable Service Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enableservicebackup)(서비스 백업 사용) API를 사용하여 _SvcB1_ 서비스에 이 정책을 사용하도록 설정합니다. 이 작업을 수행하면 _SvcB1_ 서비스의 모든 파티션에 대해 백업 정책 _BP_4_를 사용하여 데이터를 백업하도록 설정됩니다.
 
-    2. 백업 정책 _BP_5_를 시간 기반 백업 일정으로 만들고 일정 빈도 유형을 매일로 설정하고 실행 시간은 오전 8시로 설정합니다. 백업 저장소는 저장소 위치 _BackupStore1_을 사용하도록 구성합니다. [Enable Partition Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-enablepartitionbackup)(파티션 백업 사용) API를 사용하여 _SvcB2_P1_ 파티션에 이 정책을 사용하도록 설정합니다. 이 작업을 수행하면 _SvcB2_P1_ 파티션에 대해 백업 정책 _BP_5_를 사용하여 데이터를 백업하도록 설정됩니다.
+    2. 백업 정책 _BP_5_를 시간 기반 백업 일정으로 만들고 일정 빈도 유형을 매일로 설정하고 실행 시간은 오전 8시로 설정합니다. 백업 저장소는 저장소 위치 _BackupStore1_을 사용하도록 구성합니다. [Enable Partition Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-enablepartitionbackup)(파티션 백업 사용) API를 사용하여 _SvcB2_P1_ 파티션에 이 정책을 사용하도록 설정합니다. 이 작업을 수행하면 _SvcB2_P1_ 파티션에 대해 백업 정책 _BP_5_를 사용하여 데이터를 백업하도록 설정됩니다.
 
 다음 다이어그램에서는 명시적으로 활성화된 백업 정책과 전파된 백업 정책을 보여줍니다.
 
 ![Service Fabric 응용 프로그램 계층 구조][0]
 
 ## <a name="disable-backup"></a>백업 사용 안 함
-데이터를 백업할 필요가 없으면 백업 정책을 사용하지 않도록 설정할 수 있습니다. 응용 프로그램에 사용하도록 설정된 백업 정책은 [Disable Application Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-disableapplicationbackup)(응용 프로그램 백업 사용 안 함) API를 사용하여 동일한 응용 프로그램에서만 사용하지 않도록 설정할 수 있고, 서비스에 사용하도록 설정된 백업 정책은 [Disable Service Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-disableservicebackup)(서비스 백업 사용 안 함) API를 사용하여 동일한 서비스에서 사용하지 않도록 설정할 수 있으며 파티션에 사용하도록 설정된 백업 정책은 [Disable Partition Backup](https://docs.microsoft.com/en-in/rest/api/servicefabric/sfclient-api-disablepartitionbackup)(파티션 백업 사용 안 함) API를 사용하여 동일한 파티션에서 사용하지 않도록 설정할 수 있습니다.
+데이터를 백업할 필요가 없으면 백업 정책을 사용하지 않도록 설정할 수 있습니다. 응용 프로그램에 사용하도록 설정된 백업 정책은 [Disable Application Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableapplicationbackup)(응용 프로그램 백업 사용 안 함) API를 사용하여 동일한 응용 프로그램에서만 사용하지 않도록 설정할 수 있고, 서비스에 사용하도록 설정된 백업 정책은 [Disable Service Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disableservicebackup)(서비스 백업 사용 안 함) API를 사용하여 동일한 서비스에서 사용하지 않도록 설정할 수 있으며 파티션에 사용하도록 설정된 백업 정책은 [Disable Partition Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-disablepartitionbackup)(파티션 백업 사용 안 함) API를 사용하여 동일한 파티션에서 사용하지 않도록 설정할 수 있습니다.
 
 * 응용 프로그램에 대한 백업 정책을 사용하지 않도록 설정하면 Reliable Stateful 서비스 파티션이나 Reliable Actor 파티션에 백업 정책을 전파한 결과로 발생하는 정기적인 데이터 백업을 모두 중지합니다.
 

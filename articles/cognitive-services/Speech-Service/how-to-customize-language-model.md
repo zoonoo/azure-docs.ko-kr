@@ -8,12 +8,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 01a386d37841c78e4aae96111e4671ec33b87e00
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: d74a5ded7d86969b3ca2cc20a59ddc20af7dc932
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017554"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364118"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>자습서: 사용자 지정 언어 모델 만들기
 
@@ -98,8 +98,6 @@ Azure Portal에서 Speech Service 구독을 만드는 방법에 대한 자세한
 Language Model 만들기 페이지에 사용된 데이터 집합 같은 이 모델에 대한 관련 정보를 계속 추적할 수 있도록 **이름** 및 **설명**을 입력합니다. 다음으로, 드롭 다운 메뉴에서 **기본 Language Model**을 선택합니다. 이 모델은 사용자 지정에 대한 시작점입니다. 
 
 선택할 두 가지 기본 언어 모델이 있습니다. 검색 및 받아쓰기 모델은 명령, 검색 쿼리 또는 받아쓰기 등의 응용 프로그램의 지시 음성에 적합합니다. 대화형 모델은 대화 스타일로 통용되는 음성을 인식하는 데 적합합니다. 이런 유형의 음성은 일반적으로 다른 사람을 대상으로 지시하며 콜센터나 회의에서 사용됩니다. 
-
-"Language Model 만들기" 페이지에 사용한 데이터 집합 같은 이 모델에 대한 관련 정보를 계속 추적할 수 있도록 **이름** 및 **설명**을 입력합니다. 다음으로, 드롭 다운 메뉴에서 **기본 Language Model**을 선택합니다. 이 모델은 사용자 지정에 대한 시작점입니다. 선택할 두 가지 기본 언어 모델이 있습니다. 
 
 검색 및 받아쓰기 모델은 명령, 검색 쿼리 또는 받아쓰기 등의 응용 프로그램의 지시 음성에 적합합니다. 대화형 모델은 대화 스타일로 통용되는 음성을 인식하는 데 적합합니다. 이런 유형의 음성은 일반적으로 다른 사람을 대상으로 지시하며 콜센터나 회의에서 사용됩니다. "범용"이라는 새 모델도 공개적으로 사용할 수 있습니다. 범용은 모든 시나리오에 대응하고 결국 검색, 받아쓰기 및 대화형 모델을 대체하는 것이 목적입니다.
 

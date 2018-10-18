@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 77154d596eb9202c4f9d1063ba7f4e1ec4855181
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 33be58ae3ac5fcc8d0b35b240f9f378ccce134cc
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665008"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387687"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Azure에서 StorSimple Cloud Appliance 배포 및 관리(업데이트 3 이상)
 
@@ -265,7 +265,7 @@ StorSimple Cloud Appliance를 이전에 구성하고 사용했지만 이제 용�
 ## <a name="troubleshoot-internet-connectivity-errors"></a>인터넷 연결 오류 문제 해결
 클라우드 어플라이언스를 만드는 동안 인터넷에 연결되지 않은 경우 생성 단계가 실패합니다. 인터넷 연결 오류 문제를 해결하려면 Azure Portal에서 다음 단계를 수행합니다.
 
-1. [Azure Portal에서 Windows 가상 머신 만들기](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal) 이 가상 머신은 클라우드 어플라이언스에서 사용한 동일한 저장소 계정, VNet 및 서브넷을 사용해야 합니다. Azure에서 동일한 저장소 계정, VNet 및 서브넷을 사용하는 기존 Windows Server 호스트가 있는 경우 인터넷 연결 문제를 해결하는 데 사용할 수 있습니다.
+1. [Azure Portal에서 Windows 가상 머신 만들기](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) 이 가상 머신은 클라우드 어플라이언스에서 사용한 동일한 저장소 계정, VNet 및 서브넷을 사용해야 합니다. Azure에서 동일한 저장소 계정, VNet 및 서브넷을 사용하는 기존 Windows Server 호스트가 있는 경우 인터넷 연결 문제를 해결하는 데 사용할 수 있습니다.
 2. 이전 단계에서 만든 가상 머신에 원격 로그인합니다.
 3. 가상 머신 내의 명령 창을 엽니다(Win + R 및 `cmd`을 입력).
 4. 프롬프트에서 다음 cmd를 실행합니다.

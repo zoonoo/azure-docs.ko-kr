@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.component: compliance
 ms.date: 09/04/2018
 ms.author: rolyon
-ms.openlocfilehash: 9fa966999e220ea4357d5b5c37f0038c75fe2339
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b6cc81a49875739a61aa397a65eb70c6b4f082ef
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45607113"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393986"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 사용 약관 기능
 Azure AD 사용 약관은 조직이 최종 사용자에게 정보를 제공하는 데 사용할 수 있는 간단한 방법을 제공합니다. 이 프레젠테이션은 사용자가 법률 또는 규정 준수 요구 사항에 대한 관련 고지 사항을 볼 수 있게 해줍니다. 이 문서는 Azure AD 사용 약관을 시작하는 방법을 설명합니다.
@@ -242,4 +242,4 @@ A: [이전에 수락한 사용 약관을 검토](#how-users-can-review-their-ter
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory의 조건부 액세스 모범 사례](../../cognitive-services/qnamaker/concepts/best-practices.md)
+- [Azure Active Directory의 조건부 액세스 모범 사례](../../active-directory/conditional-access/best-practices.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: 95e5c53da2556293fc676fa5b1db9b4585038300
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a498ac9f973bbcf87bec104f18b542cc7e8b5800
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37922741"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318693"
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-by-using-site-recovery"></a>Site Recovery를 사용하여 다중 계층 SAP NetWeaver 응용 프로그램 배포 보호
 
@@ -71,10 +71,10 @@ DR(재해 복구)의 경우 장애 조치를 보조 지역으로 수행할 수 �
 #### <a name="vms-running-sap-web-dispatcher-pool"></a>SAP Web Dispatcher 풀을 실행하는 VM 
 Web Dispatcher 구성 요소가 SAP 응용 프로그램 서버 간의 SAP 트래픽을 위한 부하 분산 장치로 사용됩니다. Web Dispatcher 구성 요소의 고가용성을 달성하기 위해 Azure Load Balancer를 사용하여 분산 풀에서 사용할 수 있는 Web Dispatcher 간에 HTTP(S) 트래픽 분산에 대한 라운드 로빈 구성에서 병렬 Web Dispatcher 설정을 구현합니다. ASR(Azure Site Recovery)을 사용하여 복제되며, 자동화 스크립트는 재해 복구 영역에서 부하 분산 장치를 구성하는 데 사용됩니다. 
 
-####<a name="vms-running-application-servers-pool"></a>응용 프로그램 서버 풀을 실행하는 VM
+#### <a name="vms-running-application-servers-pool"></a>응용 프로그램 서버 풀을 실행하는 VM
 ABAP 응용 프로그램 서버에 대한 로그온 그룹을 관리하기 위해 SMLG 트랜잭션이 사용됩니다. Central Services의 메시지 서버 내에서 부하 분산 기능을 사용하여 SAPGUI 및 RFC 트래픽용 SAP 응용 프로그램 서버 풀 간의 워크로드를 분산합니다. Azure Site Recovery를 사용하여 복제 
 
-####<a name="vms-running-sap-central-services-cluster"></a>SAP Central Services 클러스터를 실행하는 VM
+#### <a name="vms-running-sap-central-services-cluster"></a>SAP Central Services 클러스터를 실행하는 VM
 이 참조 아키텍처는 응용 프로그램 계층의 VM에서 Central Services를 실행합니다. 단일 VM에 배포하는 경우(고가용성이 요구 사항이 아닌 경우의 일반적인 배포) Central Services는 잠재적인 SPOF(단일 실패 지점)입니다.<br>
 
 고가용성 솔루션을 구현하려면 공유 디스크 클러스터 또는 파일 공유 클러스터 중 하나를 사용할 수 있습니다. 공유 디스크 클러스터에 대해 VM을 구성하려면 Windows Server 장애 조치(failover) 클러스터를 사용합니다. 클라우드 감시는 쿼럼 감시로 사용하는 것이 좋습니다. 
@@ -110,7 +110,7 @@ Azure Site Recovery를 사용하여 Azure 지역에 걸쳐 전체 SAP 배포의 
 **Active Directory 가상 머신** |  Active Directory 복제 
 **SQL Database 서버** |  SQL Always On 복제
 
-##<a name="replicate-virtual-machines"></a>가상 머신 복제
+## <a name="replicate-virtual-machines"></a>가상 머신 복제
 
 모든 SAP 응용 프로그램 가상 머신을 Azure 재해 복구 데이터 센터로 복제하는 작업을 시작하려면 [Azure로 가상 머신 복제](azure-to-azure-walkthrough-enable-replication.md)의 지침을 따릅니다.
 

@@ -12,14 +12,15 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
-ms.openlocfilehash: 26f303318320eb8b039503666841e518f75348e4
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: a114833b40fe834aa0108d1a2f3821f0b7cbddbc
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42142521"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321855"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Azure Queue Storage 및 Visual Studio 연결 서비스 시작(ASP.NET)
+
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>개요
@@ -28,7 +29,7 @@ Azure Queue Storage는 응용 프로그램 구성 요소 간에 클라우드 메
 
 이 자습서에서는 Azure Queue Storage 항목을 사용하여 몇 가지 일반적인 시나리오에 대한 ASP.NET 코드를 작성하는 방법을 보여 줍니다. 이러한 시나리오는 Azure 큐 작성, 큐 메시지 추가, 수정, 읽기 및 제거와 같은 일반적인 작업을 포함합니다.
 
-##<a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 조건
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure 저장소 계정](../storage/common/storage-quickstart-create-account.md)
@@ -452,7 +453,7 @@ Azure Queue Storage는 응용 프로그램 구성 요소 간에 클라우드 메
     queue.FetchAttributes();
     ```
 
-6. **CloudQueue.ApproximateMessageCount** 속성에 액세스하여 큐의 길이를 가져옵니다.
+1. **CloudQueue.ApproximateMessageCount** 속성에 액세스하여 큐의 길이를 가져옵니다.
  
     ```csharp
     int? nMessages = queue.ApproximateMessageCount;

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: a420033d96a1366a79f5f2032693c38d7eca4ac3
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 70ea33f2c3e3a79d1754b72d12e8fc27689e38ea
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830976"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387941"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service Fabric의 DNS 서비스
 DNS 서비스는 DNS 프로토콜을 통해 다른 서비스를 검색하기 위해 클러스터에서 사용할 수 있는 선택적 시스템 서비스입니다. 
@@ -132,7 +132,7 @@ Visual Studio 또는 원하는 편집기에서 프로젝트를 연 다음 Applic
 
 ![서비스 엔드포인트](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
-다음 예제에서는 상태 저장 서비스에 대한 DNS 이름을 `statefulsvc.app`으로 설정합니다. 서비스는 이름 지정된 파티션 구성표를 사용합니다. 파티션 이름은 소문자입니다. 이것은 DNS 쿼리에서 대상이 될 파티션에 대한 요구 사항입니다. 자세한 내용은 [상태 저장 서비스 파티션에서 DNS 쿼리 만들기](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition)를 참조하세요.
+다음 예제에서는 상태 저장 서비스에 대한 DNS 이름을 `statefulsvc.app`으로 설정합니다. 서비스는 이름 지정된 파티션 구성표를 사용합니다. 파티션 이름은 소문자입니다. 이것은 DNS 쿼리에서 대상이 될 파티션에 대한 요구 사항입니다. 자세한 내용은 [상태 저장 서비스 파티션에서 DNS 쿼리 만들기](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition)를 참조하세요.
 
 ```xml
     <Service Name="Stateful1" ServiceDnsName="statefulsvc.app" />

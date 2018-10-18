@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 6ee61a38615ac8cbf4c4fcf6b8d631c5f9a8f7d1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0bbc6b638d11335e6d46501fa651996f05957dd5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962779"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341823"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Bing Speech WebSocket 프로토콜
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Bing Speech는 음성 오디오를 텍스트로 변환할 수 있는 최고급 알고리즘을 탑재한 클라우드 기반 플랫폼입니다. Bing Speech 프로토콜은 클라이언트 응용 프로그램과 서비스 간의 [연결 설정](#connection-establishment) 및 상대 간에 교환하는 음성 인식 메시지([클라이언트 시작 메시지](#client-originated-messages) 및 [서비스 시작 메시지](#service-originated-messages))를 정의합니다. 또한 [원격 분석 메시지](#telemetry-schema) 및 [오류 처리](#error-handling)를 설명합니다.
 

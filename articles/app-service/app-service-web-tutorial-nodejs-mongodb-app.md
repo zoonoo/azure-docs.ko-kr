@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 70b7af1701c13e6a5d7644f04e4502f76ef7743a
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 2363f7f2e17bfc451ea9fd5486ba60fbc8ccb993
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43187848"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364288"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>자습서: Azure에서 Node.js 및 MongoDB 웹앱 빌드
 
@@ -136,7 +136,7 @@ MongoDB의 경우 이 자습서에서는 [Azure Cosmos DB](/azure/documentdb/)�
 ### <a name="create-a-cosmos-db-account"></a>Cosmos DB 계정 만들기
 
 > [!NOTE]
-> 이 자습서에서는 사용자의 Azure 구독에 Azure Cosmos DB 데이터베이스를 만드는 비용이 발생합니다. 7일 동안 체험판 Azure Cosmos DB 계정을 사용하려면 [무료로 Azure Cosmos DB 사용해 보기](https://azure.microsoft.com/en-us/try/cosmosdb/) 경험을 사용하면 됩니다. MongoDB 타일에서 **만들기** 단추를 클릭하고 Azure에서 체험판 MongoDB 데이터베이스를 만들면 됩니다. 데이터베이스를 만든 후에는 포털에서 **연결 문자열**로 이동하여 이 자습서의 뒷부분에서 사용할 Azure Cosmos DB 연결 문자열을 검색합니다.
+> 이 자습서에서는 사용자의 Azure 구독에 Azure Cosmos DB 데이터베이스를 만드는 비용이 발생합니다. 7일 동안 체험판 Azure Cosmos DB 계정을 사용하려면 [무료로 Azure Cosmos DB 사용해 보기](https://azure.microsoft.com/try/cosmosdb/) 경험을 사용하면 됩니다. MongoDB 타일에서 **만들기** 단추를 클릭하고 Azure에서 체험판 MongoDB 데이터베이스를 만들면 됩니다. 데이터베이스를 만든 후에는 포털에서 **연결 문자열**로 이동하여 이 자습서의 뒷부분에서 사용할 Azure Cosmos DB 연결 문자열을 검색합니다.
 >
 
 Cloud Shell에서 [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create) 명령을 사용하여 Cosmos DB 계정을 만듭니다.

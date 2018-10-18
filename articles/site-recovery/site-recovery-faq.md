@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: cd0af3bc9489452dfc98efaa3ded768a8ca775ab
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 71d96d7e88404c1f8b617370ef5cc841aad882f8
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079483"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390043"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: FAQ(질문과 대답)
 이 문서는 Azure Site Recovery에 대한 질문과 대답을 제공합니다. 이 문서를 읽은 후 질문이 있다면 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)에 게시해 주세요.
@@ -70,7 +70,7 @@ VMware VM을 보호하려면 vSphere 하이퍼바이저 및 VMware 도구를 실
 예. 지사에서 Site Recovery를 사용하여 복제를 오케스트레이션하고 장애 조치(failover)를 수행하면 중앙의 한 위치에 모든 지사 워크로드의 통합되지 않은 오케스트레이션 및 보기가 표시됩니다. 지사를 방문하지 않고 본사에서 간편하게 모든 지사의 장애 조치(failover)를 수행하고 재해 복구를 관리할 수 있습니다.
 
 ## <a name="pricing"></a>가격
-가격 관련 질문은 [Azure Site Recovery 가격](https://azure.microsoft.com/en-in/pricing/details/site-recovery/) FAQ를 참조하세요.
+가격 관련 질문은 [Azure Site Recovery 가격](https://azure.microsoft.com/pricing/details/site-recovery/) FAQ를 참조하세요.
 
 ## <a name="security"></a>보안
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>복제 데이터가 Site Recovery 서비스로 전송되나요?

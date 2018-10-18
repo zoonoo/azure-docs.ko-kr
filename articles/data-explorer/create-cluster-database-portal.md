@@ -2,18 +2,18 @@
 title: '빠른 시작: Azure 데이터 탐색기 클러스터 및 데이터베이스 만들기'
 description: 이 빠른 시작에서 Azure 데이터 탐색기 클러스터 및 데이터베이스를 만들고 데이터를 수집(로드)하는 방법을 알아봅니다.
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 3280709c59edfd5d8e810c7ab33aa615e13f4b93
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6aff31c662a845028a02cecd7a99837f92bc87e5
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974717"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394224"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>빠른 시작: Azure 데이터 탐색기 클러스터 및 데이터베이스 만들기
 
@@ -23,7 +23,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure 포털](https://portal.azure.com/)에 로그인합니다.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-a-cluster"></a>클러스터 만들기
 

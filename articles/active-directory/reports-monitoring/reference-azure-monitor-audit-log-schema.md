@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6d22758d84d7b5acb3c5f7f1b3f26a9d8ef78b12
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 3df0087a21547585883f791d4d385025f92580c7
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732179"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395040"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Azure Monitor(미리 보기)에서 Azure AD 감사 로그 스키마 해석
 
@@ -136,4 +136,4 @@ ms.locfileid: "45732179"
 
 * [Azure Monitor에서 로그인 로그 스키마 해석](reference-azure-monitor-sign-ins-log-schema.md)
 * [Azure 진단 로그에 대해 자세히 알아보기](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
-* [질문과 대답 및 알려진 문제](concept-activity-logs-in-azure-monitor.md#frequently-asked-questions)
+* [질문과 대답 및 알려진 문제](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

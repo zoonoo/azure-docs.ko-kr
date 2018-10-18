@@ -5,15 +5,15 @@ services: storage
 author: lakasa
 ms.service: storage
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 10/11/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: 6b73a802b186e5fcf2380f5f4c80c1bb67d253fa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0ed05cab774360c4165e89399ba16f7443debb85
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981868"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165162"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Azure Key Vault의 고객 관리 키를 사용하는 Storage 서비스 암호화
 Microsoft Azure는 고객 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호하도록 지원하는 데 최선을 다하고 있습니다. Azure 저장소 플랫폼이 데이터를 보호하는 한 가지 방법은 데이터를 저장소에 쓸 때 암호화하고 데이터를 검색할 때 암호를 해독하는 SSE(저장소 서비스 암호화)를 사용하는 것입니다. 암호화 및 암호 해독은 자동으로 적용되며 투명하고, 사용 가능한 가장 강력한 블록 암호 중 하나인 256비트 [AES 암호화](https://wikipedia.org/wiki/Advanced_Encryption_Standard)를 사용합니다.
@@ -101,7 +101,7 @@ $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName "myresourcegroup"
 $keyVault = Get-AzureRmKeyVault -VaultName "mykeyvault"
 $key = Get-AzureKeyVaultKey -VaultName $keyVault.VaultName -Name "keytoencrypt"
 Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
-Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -EnableEncryptionService "Blob" -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
+Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
 ```
 
 ### <a name="step-5-copy-data-to-storage-account"></a>5단계: 저장소 계정에 데이터 복사

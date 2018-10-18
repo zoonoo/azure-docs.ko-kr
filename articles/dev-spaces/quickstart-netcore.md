@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: douge
-ms.openlocfilehash: a5bcd814cce6612c0074f2a85bb8757b50f183ca
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: abceef1d73cafdc24099f9ac9ca67bb36e7e96d1
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585597"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318064"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>빠른 시작: Azure Dev Spaces(.NET Core 및 VS Code)를 사용하여 Kubernetes 개발 환경 만들기
 
@@ -34,11 +34,11 @@ ms.locfileid: "47585597"
 - Azure 구독. 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/free)에 만들 수 있습니다.
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 버전 2.0.43 이상.
-- 미국 동부, 미국 중부, 미국 서부 2, 서유럽, 캐나다 중부 또는 캐나다 동부 지역에서 **Http 응용 프로그램 라우팅**이 활성화된 상태로 Kubernetes 1.9.6 이상을 실행하는 Kubernetes 클러스터.
+- 미국 동부, 미국 중부, 미국 서부 2, 서유럽, 캐나다 중부 또는 캐나다 동부 지역에서 **Http 응용 프로그램**이 활성화된 상태로 Kubernetes 1.9.6 이상을 실행하는 Kubernetes 클러스터.
 
     ```cmd
-    az group create --name MyResourceGroup --region <region>
-    az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing
+    az group create --name MyResourceGroup --location <region>
+    az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing --generate-ssh-keys
     ```
 
 ## <a name="set-up-azure-dev-spaces"></a>Azure Dev Spaces 설치

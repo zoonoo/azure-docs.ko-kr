@@ -4,7 +4,7 @@ description: 플랫 파일 또는 온-프레미스 SQL Server에서 Azure VM의 
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 2c9ef1d3-4f5c-4b1f-bf06-223646c8af06
 ms.service: machine-learning
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: d6567b18984a6369a4a9e653270d0b788272aba4
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a87d02732196af7471636346fa802f9a58869c95
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729912"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393576"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Azure 가상 머신에서 SQL Server로 데이터 이동
 이 토픽에서는 플랫 파일(CSV 또는 TSV 형식) 또는 온-프레미스 SQL Server에서 Azure 가상 머신의 SQL Server로 데이터를 이동하기 위한 옵션에 대해 간략히 설명합니다. 클라우드로 데이터를 이동하는 이러한 작업은 팀 데이터 과학 프로세스의 일부입니다.

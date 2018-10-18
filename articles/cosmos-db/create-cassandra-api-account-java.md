@@ -9,12 +9,12 @@ ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: e5b412042d0a872443c0b30c774dfd4926555a5a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b5e3d87e026b65a602b7bdf2e52365d13b21f62f
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221669"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166834"
 ---
 # <a name="create-an-azure-cosmos-db-cassandra-api-account-database-and-a-table-by-using-a-java-application"></a>Java 응용 프로그램을 사용하여 Azure Cosmos DB Cassandra API 계정, 데이터베이스 및 테이블 만들기
 
@@ -76,7 +76,7 @@ Azure Portal에서 연결 문자열 정보를 가져오고 이를 Java 구성 �
 
 ```java
 cassandra_host=<FILLME_with_CONTACT POINT> 
-cassandra_host = 10350 
+cassandra_port = 10350 
 cassandra_username=<FILLME_with_USERNAME> 
 cassandra_password=<FILLME_with_PRIMARY PASSWORD> 
 ```

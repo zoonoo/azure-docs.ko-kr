@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 4ffe6cf3f1da4c149d1cb39856d02fc40acd20cf
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 396fb947a95ebc634ab0dea24d20f35126bc006e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984795"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389448"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Google을 B2B 게스트 사용자에 대한 ID 공급자로 추가
 
@@ -84,7 +84,7 @@ Google Gmail 사용자에게 초대를 보낼 때 게스트 사용자는 테넌�
    `New-AzureADMSIdentityProvider -Type Google -Name Google -ClientId [Client ID] -ClientSecret [Client secret]`
  
    > [!NOTE]
-   > “1단계: Google 개발자 프로젝트 구성”에서 만든 앱의 클라이언트 ID 및 클라이언트 비밀을 사용합니다. 자세한 내용은 [New-AzureADMSIdentityProvider](https://docs.microsoft.com/en-us/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) 문서를 참조하세요. 
+   > “1단계: Google 개발자 프로젝트 구성”에서 만든 앱의 클라이언트 ID 및 클라이언트 비밀을 사용합니다. 자세한 내용은 [New-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) 문서를 참조하세요. 
  
 ## <a name="how-do-i-remove-google-federation"></a>Google 페더레이션은 어떻게 제거하나요?
 Google 페더레이션 설치 프로그램을 삭제할 수 있습니다. 이렇게 하면 이미 초대를 사용한 Google 게스트 사용자는 로그인할 수 없게 되지만, 디렉터리에서 해당 사용자를 삭제하고 다시 초대하여 리소스에 대한 액세스 권한을 다시 부여할 수 있습니다. 
@@ -108,4 +108,4 @@ Google 페더레이션 설치 프로그램을 삭제할 수 있습니다. 이렇
     `Remove-AzureADMSIdentityProvider -Id Google-OAUTH`
 
    > [!NOTE]
-   > 자세한 내용은 [Remove-AzureADMSIdentityProvider](https://docs.microsoft.com/en-us/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview)를 참조하세요. 
+   > 자세한 내용은 [Remove-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview)를 참조하세요. 

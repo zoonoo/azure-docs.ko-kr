@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 07/19/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: fe20cae4c316462e3af3f0a5e7e6052f6ba5719d
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 487e0c763ca4b247f1818b2beaf3282734fc4e27
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344426"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388445"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>일반적인 질문 - VMware에서 Azure로 복제
 
@@ -22,7 +22,7 @@ ms.locfileid: "43344426"
 
 ## <a name="general"></a>일반
 ### <a name="how-is-site-recovery-priced"></a>Site Recovery 비용은 어떻게 책정하는가요?
-[Azure Site Recovery 가격](https://azure.microsoft.com/en-in/pricing/details/site-recovery/) 세부 정보를 검토하세요.
+[Azure Site Recovery 가격](https://azure.microsoft.com/pricing/details/site-recovery/) 세부 정보를 검토하세요.
 
 ### <a name="how-do-i-pay-for-azure-vms"></a>Azure VM에 대한 요금을 지불하려면 어떻게 할까요?
 복제 중에 데이터는 Azure 저장소로 복제되며 어떠한 VM 변경에도 지불하지 않습니다. Azure에 장애 조치를 실행하면 Site Recovery에서 Azure IaaS 가상 머신을 자동으로 만듭니다. 그러면 Azure에서 사용하는 컴퓨팅 리소스에 대한 요금이 청구됩니다.

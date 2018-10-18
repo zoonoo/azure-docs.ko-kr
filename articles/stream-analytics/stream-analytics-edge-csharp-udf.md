@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: cad5ec059c88290b94919c58ff6bd1071a2b8fdf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d593930705c7455d03e20af2affd2de3c418d4a5
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972107"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389071"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-an-azure-stream-analytics-edge-job-in-visual-studio-preview"></a>자습서: Visual Studio(Preview)에서 Azure Stream Analytics Edge 작업용 C# 사용자 정의 함수 작성
 
@@ -37,7 +37,7 @@ Visual Studio에서 만든 C# UDF(사용자 정의 함수)를 사용하면 원�
 
 ## <a name="create-a-container-in-your-azure-storage-account"></a>Azure 저장소 계정에 컨테이너 만들기
 
-여기서 만드는 컨테이너는 컴파일된 C# 패키지를 저장하고 IoT Edge 장치에 해당 패키지를 배포하는 데 사용됩니다. 각 Stream Analytics 작업 전용 컨테이너를 사용하세요. 여러 Stream Analytics Edge 작업에 같은 컨테이너를 다시 사용할 수는 없습니다. 기존 컨테이너가 포함된 저장소 계정이 이미 있는 경우에는 해당 컨테이너를 사용하면 됩니다. 그렇지 않은 경우에는 [새 컨테이너를 만드세요](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal). 
+여기서 만드는 컨테이너는 컴파일된 C# 패키지를 저장하고 IoT Edge 장치에 해당 패키지를 배포하는 데 사용됩니다. 각 Stream Analytics 작업 전용 컨테이너를 사용하세요. 여러 Stream Analytics Edge 작업에 같은 컨테이너를 다시 사용할 수는 없습니다. 기존 컨테이너가 포함된 저장소 계정이 이미 있는 경우에는 해당 컨테이너를 사용하면 됩니다. 그렇지 않은 경우에는 [새 컨테이너를 만드세요](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). 
 
 ## <a name="create-a-stream-analytics-edge-project-in-visual-studio"></a>Visual Studio에서 Stream Analytics Edge 프로젝트 만들기
 
@@ -146,7 +146,7 @@ CodeBehind 파일은 ASA Edge 쿼리 스크립트 하나와 연결된 C# 파일�
 ![Visual Studio에서 Azure에 Stream Analytics Edge 작업 제출](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-submit-job.png)
 
 ## <a name="deploy-to-iot-edge-devices"></a>IoT Edge 장치에 배포
-이제 Stream Analytics 작업을 IoT Edge 모듈로 배포할 준비가 되었습니다. [IoT Edge 빠른 시작](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart)의 설명에 따라 IoT Hub를 만들고, IoT Edge 장치를 등록하고, 장치에서 IoT Edge 런타임을 설치 및 시작합니다. 그런 다음 [작업 배포](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-stream-analytics#deploy-the-job) 자습서의 설명에 따라 Stream Analytics 작업을 IoT Edge 모듈로 배포합니다. 
+이제 Stream Analytics 작업을 IoT Edge 모듈로 배포할 준비가 되었습니다. [IoT Edge 빠른 시작](https://docs.microsoft.com/azure/iot-edge/quickstart)의 설명에 따라 IoT Hub를 만들고, IoT Edge 장치를 등록하고, 장치에서 IoT Edge 런타임을 설치 및 시작합니다. 그런 다음 [작업 배포](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics#deploy-the-job) 자습서의 설명에 따라 Stream Analytics 작업을 IoT Edge 모듈로 배포합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

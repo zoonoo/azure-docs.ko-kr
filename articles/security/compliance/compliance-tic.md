@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: 637f837ec2421f0bef5131a33c709087b891aa0f
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d52785dd7569560f4b6986080b14723762537ec8
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505114"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388323"
 ---
 # <a name="trusted-internet-connections-guidance"></a>TIC(Trusted Internet Connections) 지침
 
@@ -223,7 +223,7 @@ TIC 준수 시나리오에 사용할 수 있는 샘플 정책은 다음과 같�
 
 ### <a name="network-watcher-traffic-analytics"></a>Network Watcher 트래픽 분석
 
-Network Watcher [트래픽 분석](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/)은 흐름 로그 데이터 및 기타 로그를 사용하여 네트워크 트래픽에 대한 개괄적인 개요를 제공합니다. 이 데이터는 TIC 준수를 감사하고 문제 지점을 식별하는 데 유용합니다. 고급 대시보드를 사용하여 인터넷과 통신하는 가상 머신을 빠르게 화면에 표시하고 TIC 라우팅에 초점을 맞춘 목록을 얻을 수 있습니다.
+Network Watcher [트래픽 분석](https://azure.microsoft.com/blog/traffic-analytics-in-preview/)은 흐름 로그 데이터 및 기타 로그를 사용하여 네트워크 트래픽에 대한 개괄적인 개요를 제공합니다. 이 데이터는 TIC 준수를 감사하고 문제 지점을 식별하는 데 유용합니다. 고급 대시보드를 사용하여 인터넷과 통신하는 가상 머신을 빠르게 화면에 표시하고 TIC 라우팅에 초점을 맞춘 목록을 얻을 수 있습니다.
 
 ![트래픽 분석](media/tic-traffic-analytics-1.png)
 
@@ -247,7 +247,7 @@ Microsoft Azure, Office 365 및 Dynamics 365에 대한 액세스를 쉽게 구�
 
 ## <a name="appendix-trusted-internet-connections-patterns-for-common-workloads"></a>부록: 일반적인 워크로드에 대한 TIC(Trusted Internet Connections) 패턴
 
-| Category | 워크로드 | IaaS | 전용 PaaS/가상 네트워크 삽입  | 서비스 끝점  |
+| Category | 워크로드 | IaaS | 전용 PaaS/가상 네트워크 삽입  | 서비스 엔드포인트  |
 |---------|---------|---------|---------|--------|
 | 컴퓨팅 | Azure Linux 가상 머신 | yes | | |
 | 컴퓨팅 | Azure Windows 가상 머신 | yes | | |

@@ -2,18 +2,18 @@
 title: '빠른 시작: Azure 데이터 탐색기에서 데이터 쿼리'
 description: 이 빠른 시작에서는 Azure 데이터 탐색기에서 데이터를 쿼리하고 공유하는 방법을 알아봅니다.
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: ab29152dde4d567e8552295b3dff4f4088bdf5b8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7b9bc52e07bccf931593cd2dbddd68e973d1b26c
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977658"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394360"
 ---
 # <a name="quickstart-query-data-in-azure-data-explorer"></a>빠른 시작: Azure 데이터 탐색기에서 데이터 쿼리
 

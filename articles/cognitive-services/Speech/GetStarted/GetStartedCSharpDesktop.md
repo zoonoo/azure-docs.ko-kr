@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 5b85a548d692b06a6da009432678d9c02242cb50
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f79b148558e7881f852ccd57916b0b0f31a98219
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996828"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342333"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>빠른 시작: Windows의 .NET용 C&#35;에서 Bing Speech Recognition API 사용
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 이 페이지에서는 Speech Recognition API를 사용하여 음성 오디오를 텍스트로 변환하는 기본 Windows 응용 프로그램을 개발하는 방법을 보여 줍니다. 클라이언트 라이브러리를 사용하면 실시간 스트리밍이 가능합니다. 즉, 클라이언트 응용 프로그램에서 오디오를 서비스로 보낼 때 부분 인식 결과를 동시에 비동기적으로 다시 받습니다.
 

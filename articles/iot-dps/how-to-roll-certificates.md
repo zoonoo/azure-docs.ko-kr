@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: a40f4489e63c30a101dd708b5a175c25788fb04b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 51e96065f726fadd528323157609034b5bb3f151
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976757"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387891"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>X.509 장치 인증서 배포 방법
 
@@ -52,7 +52,7 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 새 리프 인증서가 장치에 배포되면 새 인증서를 사용하여 연결하므로 더 이상 IoT hub에 연결할 수 없습니다. IoT Hub는 이전 인증서가 있는 장치만 인식합니다. 장치의 연결 시도 결과는 "권한 없음" 연결 오류입니다. 이 오류를 해결하려면 장치의 새 리프 인증서에 부합하게 장치에 대한 등록 항목을 업데이트해야 합니다. 그러면 장치가 다시 프로비전될 때 프로비전 서비스가 IoT Hub 장치 레지스트리 정보를 필요에 따라 업데이트할 수 있습니다. 
 
-이 연결 실패의 가능한 예외 하나는 프로비전서비스에서 장치에 대해 [등록 그룹](concepts-service.md#enrollment-group)을 만드는 시나리오입니다. 이 상황에서는 장치의 인증서 신뢰 체인에 루트 또는 중간 인증서를 배포하지 않는 경우, 새 인증서가 등록 그룹에 정의된 신뢰 체인의 일부일 때 장치가 인식됩니다. 이 시나리오는 보안 위반에 대한 조치로 발생하며 최소한 위반된 것으로 간주되는 그룹의 특정 장치 인증서를 블랙리스트 처리해야 합니다. 자세한 내용은 [등록 그룹의 특정 장치 블랙리스트 처리](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group)를 참조하세요.
+이 연결 실패의 가능한 예외 하나는 프로비전서비스에서 장치에 대해 [등록 그룹](concepts-service.md#enrollment-group)을 만드는 시나리오입니다. 이 상황에서는 장치의 인증서 신뢰 체인에 루트 또는 중간 인증서를 배포하지 않는 경우, 새 인증서가 등록 그룹에 정의된 신뢰 체인의 일부일 때 장치가 인식됩니다. 이 시나리오는 보안 위반에 대한 조치로 발생하며 최소한 위반된 것으로 간주되는 그룹의 특정 장치 인증서를 블랙리스트 처리해야 합니다. 자세한 내용은 [등록 그룹의 특정 장치 블랙리스트 처리](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group)를 참조하세요.
 
 등록된 인증서에 대한 등록 항목 업데이트는 **등록 관리** 페이지에서 수행됩니다. 이 페이지에 액세스하려면 다음 단계를 따르세요.
 

@@ -10,23 +10,21 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 3b4ab55f4bd8bbd66f2edc8c262524169c79d7f5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 960d2d402f223b306aa6ff05b567d13525e3d525
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975639"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340361"
 ---
 # <a name="what-is-bing-speech"></a>Bing Speech란?
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 클라우드 기반 Microsoft Bing Speech API를 사용하면 개발자가 음성 명령 제어, 자연스러운 음성 대화를 사용하는 사용자 대화 및 음성 전사/받아쓰기와 같이 응용 프로그램에서 강력한 음성 사용 기능을 쉽게 만들 수 있습니다. Microsoft Speech API는 *Speech to Text* 및 *Text to Speech* 변환을 모두 지원합니다.
 
 - **Speech to Text**(음성 - 텍스트 변환) API는 인간의 음성을 텍스트로 변환하여 응용 프로그램을 제어하기 위한 입력 또는 명령으로 사용할 수 있습니다.
 - **Text to Speech**(텍스트 음성 변환) API는 텍스트를 오디오 스트림으로 변환하여 응용 프로그램 사용자에게 재생할 수 있습니다.
-
-> [!NOTE] 
-> 2018년 5월 공개 미리 보기에서 새 [Speech Service](../speech-service/overview.md)가 릴리스되었습니다. [체험 평가판을 사용해 보세요](../speech-service/get-started.md).
 
 ## <a name="speech-to-text-speech-recognition"></a>음성 - 텍스트 변환(음성 인식)
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: caf3607dbd33d75916ff65b0ab498fa228e2a823
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: cc61ed7d83b7ff4858b97a0b05f149cf4e7c9952
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068916"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394935"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>빠른 시작: AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -100,12 +100,15 @@ Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되�
 `azure-vote.yaml`이라는 파일을 만들고 다음 YAML 코드에 복사합니다. Azure Cloud Shell에서 작업하고 있는 경우 이 파일은 가상 또는 실제 시스템에서 작업하고 있는 것처럼 vi 또는 Nano를 사용하여 만들 수 있습니다.
 
 ```yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: azure-vote-back
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: azure-vote-back
   template:
     metadata:
       labels:
@@ -135,12 +138,15 @@ spec:
   selector:
     app: azure-vote-back
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: azure-vote-front
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: azure-vote-front
   template:
     metadata:
       labels:

@@ -4,19 +4,19 @@ description: Media Services를 사용할 때 비디오를 처리하기 위한 �
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: b755e0573098d3dbed1bea18a40af634be609f76
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 214d4d3d11255e417f3df1e5f6e648b2a30225ea
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34272083"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377311"
 ---
 # <a name="transforms-and-jobs"></a>Transform 및 Job
 
@@ -32,7 +32,7 @@ Azure Media Services REST API의 최신 버전(v3)에는 비디오 인코딩 및
 
 다음 표에서는 변환의 속성을 표시하고 해당 정의를 제공합니다.
 
-|Name|type|설명|
+|이름|type|설명|
 |---|---|---|
 |Id|string|리소스에 대한 정규화된 리소스 ID입니다.|
 |이름|string|리소스의 이름입니다.|
@@ -40,7 +40,7 @@ Azure Media Services REST API의 최신 버전(v3)에는 비디오 인코딩 및
 |properties.description |string|변환에 대한 자세한 정보 표시 설명입니다(선택 사항).|
 |properties.lastModified |string|변환이 마지막으로 업데이트될 때 UTC 날짜 및 시간은 'YYYY-MM-DDThh:mm:ssZ' 형식입니다.|
 |properties.outputs |TransformOutput[]|변환이 생성해야 하는 하나 이상의 TransformOutputs의 배열입니다.|
-|형식|string|리소스 유형입니다.|
+|형식|string|리소스 형식입니다.|
 
 전체 정의는 [변환](https://docs.microsoft.com/rest/api/media/transforms)을 참조합니다.
 
@@ -48,7 +48,7 @@ Azure Media Services REST API의 최신 버전(v3)에는 비디오 인코딩 및
 
 다음 표에서는 작업의 속성을 표시하고 해당 정의를 제공합니다.
 
-|Name|type|설명|
+|이름|type|설명|
 |---|---|---|
 |Id|string|리소스에 대한 정규화된 리소스 ID입니다.|
 |이름|string|리소스의 이름입니다.|
@@ -58,7 +58,7 @@ Azure Media Services REST API의 최신 버전(v3)에는 비디오 인코딩 및
 |properties.outputs |JobOutput[]:JobOutputAsset[] |작업에 대한 출력입니다.|
 |properties.priority |우선 순위 |작업을 처리해야 하는 우선 순위입니다. 우선 순위가 높은 작업은 우선 순위가 낮은 작업보다 먼저 처리됩니다. 설정하지 않은 경우 기본값은 보통입니다.
 |properties.state |JobState |작업의 현재 상태입니다.
-|형식|string|리소스 유형입니다.|
+|형식|string|리소스 형식입니다.|
 
 전체 정의는 [작업](https://docs.microsoft.com/rest/api/media/jobs)을 참조합니다.
 
@@ -78,5 +78,4 @@ Azure Media Services REST API의 최신 버전(v3)에는 비디오 인코딩 및
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [비디오 파일 스트리밍](stream-files-dotnet-quickstart.md)
+[비디오 파일 스트리밍](stream-files-dotnet-quickstart.md)

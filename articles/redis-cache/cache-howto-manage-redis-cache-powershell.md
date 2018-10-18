@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 980a183261c394bd83292170ab133fe17229013d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 11b399bdbbbe92d1e1544f4cbae0824140ce52c1
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42143710"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364509"
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Redis Cache 관리
 > [!div class="op_single_selector"]
@@ -125,7 +125,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 
 | 매개 변수 | 설명 | 기본값 |
 | --- | --- | --- |
-| Name |캐시의 이름 | |
+| 이름 |캐시의 이름 | |
 | 위치 |캐시의 위치 | |
 | ResourceGroupName |캐시를 만들 리소스 그룹 이름 | |
 | 크기 |캐시의 크기. 유효한 값: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB |1GB |
@@ -783,7 +783,7 @@ Azure에서 Windows PowerShell 사용에 대한 자세한 내용은 다음 리�
 * [MSDN에 있는 Azure Redis Cache cmdlet 설명서](https://docs.microsoft.com/powershell/module/azurerm.rediscache/?view=azurermps-6.6.0)
 * [Azure Resource Manager Cmdlet](http://go.microsoft.com/fwlink/?LinkID=394765): Azure Resource Manager 모듈에서 cmdlet을 사용하는 방법을 알아봅니다.
 * [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-template-deploy-portal.md): Azure 포털에서 리소스 그룹을 만들고 관리하는 방법에 대해 알아봅니다.
-* [Azure 블로그](https://azure.microsoft.com/en-us/blog/): Azure의 새로운 기능에 대해 알아봅니다.
+* [Azure 블로그](https://azure.microsoft.com/blog/): Azure의 새로운 기능에 대해 알아봅니다.
 * [Windows PowerShell 블로그](http://blogs.msdn.com/powershell): Windows PowerShell의 새로운 기능에 대해 알아봅니다.
 * ["Hey, Scripting Guy!" 블로그](http://blogs.technet.com/b/heyscriptingguy/): Windows PowerShell 커뮤니티에서 실제 팁과 요령을 확인합니다.
 

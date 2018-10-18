@@ -2,25 +2,18 @@
 title: Azure Data Box 디스크 제한 | Microsoft Docs
 description: Microsoft Azure Data Box Disk의 시스템 제한 및 권장 크기를 설명합니다.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 09/04/2018
 ms.author: alkohli
-ms.custom: ''
-ms.openlocfilehash: b7de39ca8723df2d15da7677b7032c98e84ecb1d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1a4fe30881f06d8af851a67f389a6faafbe3dfef
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960620"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389465"
 ---
 # <a name="azure-data-box-disk-limits-preview"></a>Azure Data Box Disk 제한(미리 보기)
 
@@ -64,7 +57,7 @@ Azure 저장소 서비스 제한에 대한 최신 정보 및 공유, 컨테이�
 
 ## <a name="azure-storage-account-size-limits"></a>Azure Storage 계정 크기 제한
 
-저장소 계정에 복사되는 데이터 크기에 대한 제한은 다음과 같습니다. 업로드한 데이터가 이러한 제한을 준수하는지 확인합니다. 이러한 제한에 대한 최신 정보는 [Azure Blob 저장소 크기 조정 목표](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) 및 [Azure Files 크기 조정 목표](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-files-scale-targets)로 이동합니다.
+저장소 계정에 복사되는 데이터 크기에 대한 제한은 다음과 같습니다. 업로드한 데이터가 이러한 제한을 준수하는지 확인합니다. 이러한 제한에 대한 최신 정보는 [Azure Blob 저장소 크기 조정 목표](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) 및 [Azure Files 크기 조정 목표](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-files-scale-targets)로 이동합니다.
 
 | Azure 저장소 계정에 복사되는 데이터의 크기                      | 기본 제한          |
 |---------------------------------------------------------------------|------------------------|

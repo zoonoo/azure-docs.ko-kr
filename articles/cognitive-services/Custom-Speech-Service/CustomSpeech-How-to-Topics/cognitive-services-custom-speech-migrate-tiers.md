@@ -1,24 +1,25 @@
 ---
-title: 엔드포인트의 가격 책정 계층 마이그레이션 - Custom Speech Service
-titlesuffix: Azure Cognitive Services
-description: Custom Speech Service 엔드포인트의 S0 및 S1 계층에서 S2 계층으로 배포를 마이그레이션하는 방법을 알아봅니다.
+title: Azure의 Custom Speech Service에서 엔드포인트의 가격 책정 계층 마이그레이션 | Microsoft Docs
+description: Cognitive Services에서 Custom Speech Service 엔드포인트의 S0 및 S1 계층에서 S2 계층으로 배포를 마이그레이션하는 방법을 알아봅니다.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 07/05/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 560aa0a7b9748f75cdde99691db7f33e2fc10221
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a9bdb257137db0063d39f028a69e2164eccbdc31
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224854"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340463"
 ---
 # <a name="migrate-deployments-to-the-new-pricing-model"></a>새 가격 책정 모델로 배포 마이그레이션
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 2017년 7월 현재, Custom Speech Service는 [새 가격 책정 모델](https://azure.microsoft.com/pricing/details/cognitive-services/custom-speech-service/)을 제공합니다. 새 모델은 *이해하기가 더 쉽고*, *비용 계산이 더 간단하며*, 크기 조정 면에서 *더 유연*합니다. 크기 조정의 경우 Microsoft는 배율 단위 개념을 도입했습니다. 각 배율 단위는 동시 요청 5개를 처리할 수 있습니다. 이전 모델에서 동시 요청에 대한 크기 조정은 S0 계층의 경우 동시 요청 5개, S1 계층의 경우 12개로 설정됐습니다. 사용 사례 요구 사항을 사용하여 더 큰 유연성을 제공하기 위해 이러한 제한을 시작했습니다.
 
 이전 S0 또는 S1 계층을 실행하는 경우 기존 배포를 새 S2 계층으로 마이그레이션하는 것이 좋습니다. 새 S2 계층은 S0 및 S1 계층 둘 다 포함합니다. 다음 그림에서 사용 가능한 옵션을 확인할 수 있습니다.

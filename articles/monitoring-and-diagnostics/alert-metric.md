@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 6ac31818a68aa2b4624410b423b7559b84275777
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: a6c38ce465b8e4e68694f2a6cc0d467e34a09852
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409374"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388161"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리
 
@@ -82,7 +82,7 @@ Azure Monitor의 메트릭 경고를 사용하면 메트릭 중 하나가 임계
 
 ## <a name="with-azure-cli"></a>Azure CLI 사용
 
-이전 섹션에서는 Azure Portal을 사용하여 메트릭 경고 규칙을 만들고, 보고, 관리하는 방법을 설명했습니다. 이번 섹션에서는 플랫폼 간 [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)를 사용하여 동일한 작업을 수행하는 방법을 설명합니다. Azure CLI를 가장 빠르게 사용하는 방법은 [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview?view=azure-cli-latest)입니다. 이 문서에서는 Cloud shell을 사용하겠습니다.
+이전 섹션에서는 Azure Portal을 사용하여 메트릭 경고 규칙을 만들고, 보고, 관리하는 방법을 설명했습니다. 이번 섹션에서는 플랫폼 간 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)를 사용하여 동일한 작업을 수행하는 방법을 설명합니다. Azure CLI를 가장 빠르게 사용하는 방법은 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)입니다. 이 문서에서는 Cloud shell을 사용하겠습니다.
 
 1. Azure Portal로 이동하여 **Cloud shell**을 클릭합니다.
 
