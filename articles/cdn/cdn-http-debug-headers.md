@@ -3,8 +3,8 @@ title: Azure CDN 규칙 엔진의 X-EC-Debug HTTP 헤더 | Microsoft Docs
 description: X-EC-Debug 디버그 캐시 요청 헤더는 요청된 자산에 적용되는 캐시 정책에 대한 추가 정보를 제공합니다. 이 헤더는 Verizon에만 해당됩니다.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
-ms.author: v-deasim
-ms.openlocfilehash: 3a99e322d81748c54585e7dd0eb06959bfeb9569
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: magattus
+ms.openlocfilehash: 4ba42850ee28e2e212d9bc2b7b64be103218757c
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31516277"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094227"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Azure CDN 규칙 엔진의 X-EC-Debug HTTP 헤더
 `X-EC-Debug` 디버그 캐시 요청 헤더는 요청된 자산에 적용되는 캐시 정책에 대한 추가 정보를 제공합니다. 이러한 헤더는 **Verizon의 Azure CDN Premium** 제품에만 해당됩니다.

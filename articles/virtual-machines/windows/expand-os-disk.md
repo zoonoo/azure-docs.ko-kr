@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: kirpas
-ms.openlocfilehash: 3ea57a834bfbb1583c53bbb1be80daffe1f05de6
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 097aa128affb6a7ac0770c861ab70ec9d04e2d98
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380270"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319118"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>가상 머신의 OS 드라이브 확장 방법
 
@@ -210,9 +210,6 @@ VM의 디스크를 확장한 후에는 OS로 이동하고 볼륨을 확장하여
 4.  **DISKPART** 프롬프트에 `extend [size=<size>]`를 입력합니다. 선택된 볼륨이 *size*(MB)만큼 확장됩니다.
 
 
-##<a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 
 [Azure Portal](attach-managed-disk-portal.md)을 사용하여 디스크를 연결할 수도 있습니다.
-
-
-

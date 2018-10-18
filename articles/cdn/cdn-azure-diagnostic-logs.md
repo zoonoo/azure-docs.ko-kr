@@ -3,8 +3,8 @@ title: Azure 진단 로그 | Microsoft Docs
 description: 고객은 Azure CDN에 대한 Log Analytics를 사용하도록 설정할 수 있습니다.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
-ms.author: v-deasim
-ms.openlocfilehash: 0baa43977099af9c6c0d9c2e4c03abc121ec279d
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.author: magattus
+ms.openlocfilehash: 6834222ec2befa305b558abf0976a1c9899a7086
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47097009"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093029"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure 진단 로그
 
@@ -49,7 +49,7 @@ Azure 진단 로그를 사용하면 사용자 지정 방식으로 사용할 수 
 
 CDN 핵심 분석에서 로깅을 사용하도록 설정하려면 아래 단계를 따르세요.
 
-[Azure 포털](http://portal.azure.com)에 로그인합니다. 워크플로에 대한 CDN을 사용하도록 설정하지 않은 경우 계속 진행하기 전에 [Azure CDN 프로필 및 엔드포인트를 만듭니다](cdn-create-new-endpoint.md).
+[Azure Portal](http://portal.azure.com)에 로그인합니다. 워크플로에 대한 CDN을 사용하도록 설정하지 않은 경우 계속 진행하기 전에 [Azure CDN 프로필 및 엔드포인트를 만듭니다](cdn-create-new-endpoint.md).
 
 1. Azure Portal에서 **CDN 프로필**로 이동합니다.
 

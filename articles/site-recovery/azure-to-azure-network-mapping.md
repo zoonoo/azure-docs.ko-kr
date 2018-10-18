@@ -3,23 +3,23 @@ title: Azure Site Recovery에서 두 Azure 지역 간 가상 네트워크 매핑
 description: Azure Site Recovery는 가상 머신 및 실제 서버의 복제, 장애 조치 및 복구를 조정합니다. Azure로 또는 보조 데이터 센터로 장애 조치에 대해 알아봅니다.
 services: site-recovery
 documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 editor: ''
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: aed804a257376308c668ce0c2f3e8ce652ee9b3f
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: 95e6a388d0638d2fd477d33aaf7c39cf120e29aa
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42140304"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353438"
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>다른 Azure 지역에 있는 가상 네트워크 매핑
 
@@ -106,7 +106,7 @@ ms.locfileid: "42140304"
 장애 조치(Failover)된 VM에는 서브넷 주소 범위의 끝에서부터 사용 가능한 다음 IP인 10.0.0.254가 할당됩니다. </br>
 
 **참고:** 용어 **프로덕션 vNet**은 재해 복구 구성 동안 매핑되는 '대상 네트워크'를 나타냅니다.
-####<a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. 선택한 대상 네트워크가 프로덕션 vNet이 아니지만 프로덕션 네트워크와 동일한 서브넷 범위에 있는 경우 
+#### <a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. 선택한 대상 네트워크가 프로덕션 vNet이 아니지만 프로덕션 네트워크와 동일한 서브넷 범위에 있는 경우
 
 - 복구 IP(대상 IP)는 장애 조치(Failover)용으로 예약된 **IP 주소(예: 구성된 고정 IP 주소)와 동일한** 고정 IP가 됩니다. 단, 동일한 IP 주소가 사용 가능해야 합니다.
 - 구성된 고정 IP가 이미 일부 다른 VM/장치에 할당되면 복구 IP는 서브넷 주소 범위의 끝에서부터 사용 가능한 다음 IP가 됩니다.

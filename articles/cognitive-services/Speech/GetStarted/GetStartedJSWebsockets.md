@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: c4fb331076f88d4f14f56201aa31a00160f395aa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 79f2aa9c3e73037aa25848b7d11c34a73bf35f64
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995349"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342401"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>JavaScript에서 Speech Recognition API 시작
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Speech Recognition API를 사용하여 음성 오디오를 텍스트로 변환하는 응용 프로그램을 개발할 수 있습니다. JavaScript 클라이언트 라이브러리는 [Speech Service WebSocket 프로토콜](../API-Reference-REST/websocketprotocol.md)을 사용하여 전사된 텍스트를 동시에 말하고 받을 수 있습니다. 이 문서는 JavaScript에서 Speech Recognition API를 시작하는 데 도움이 됩니다.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: cd7f8871cedb36157f3a16f093b09073576fe56e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 339c924fc03faddae6326b79cc376b59c567829e
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443854"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116558"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-inkling"></a>자습서: Inkling과 Azure Active Directory 통합
 
@@ -119,7 +119,7 @@ Inkling에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     a. **식별자** 텍스트 상자에서 `https://api.inkling.com/saml/v2/metadata/<user-id>` 패턴을 사용하여 URL을 입력합니다.
 
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://api.inkling.com/saml/v2/acs/<user-id>`
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://api.inkling.com/saml/v2/acs/<user-id>`
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트해야 합니다. 이러한 값을 얻으려면 [Inkling 지원 팀](mailto:press@inkling.com)에 문의하세요.
@@ -172,7 +172,7 @@ Inkling에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 

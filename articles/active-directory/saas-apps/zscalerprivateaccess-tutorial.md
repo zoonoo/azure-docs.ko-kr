@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: a967272442c4b05657fbd3567fe89a4eec8418f4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5858ab1846ccdc2e2b78f2be4173ea3cc17a3605
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425162"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116575"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-zpa"></a>자습서: Azure Active Directory와 ZPA(Zscaler Private Access) 통합
 
@@ -119,7 +119,7 @@ ZPA(Zscaler Private Access)에서 Azure AD Single Sign-On을 구성하고 테스
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴 `https://samlsp.private.zscaler.com/auth/login?domain=<your-domain-name>`을 사용하여 URL을 입력합니다.
 
-    나. **식별자** 텍스트 상자에 `https://samlsp.private.zscaler.com/auth/metadata`를 입력합니다.
+    b. **식별자** 텍스트 상자에 `https://samlsp.private.zscaler.com/auth/metadata`를 입력합니다.
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트해야 합니다. 식별자에는 고유한 URL 값을 사용하는 것이 좋습니다. 이러한 값을 얻으려면 [ZPA(Zscaler Private Access) 지원 팀](https://help.zscaler.com/zpa-submit-ticket)에 문의하세요.
@@ -160,7 +160,7 @@ ZPA(Zscaler Private Access)에서 Azure AD Single Sign-On을 구성하고 테스
 
     a. **파일 선택**을 클릭하고 다운로드한 메타데이터 파일을 업로드합니다.
 
-    나. **저장** 단추를 클릭합니다.
+    b. **저장** 단추를 클릭합니다.
     
 
 
@@ -189,7 +189,7 @@ ZPA(Zscaler Private Access)에서 Azure AD Single Sign-On을 구성하고 테스
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 

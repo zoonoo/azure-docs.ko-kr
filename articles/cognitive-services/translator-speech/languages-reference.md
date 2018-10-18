@@ -10,15 +10,16 @@ ms.component: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ROBOTS: NOINDEX
-ms.openlocfilehash: 9fbbba7ed5e81cae1d30c5a480b9f7f7a13342c5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b7005811898df9132be6bc199e26f6c6dc358618
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986424"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345206"
 ---
 # <a name="translator-speech-api-languages"></a>Translator Speech API: 언어
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
 Translator Speech는 서비스에서 지원되는 언어 목록을 지속적으로 확장합니다. 이 API를 사용하여 현재 Translator Speech 서비스에서 사용할 수 있는 언어 집합을 검색합니다.
 
@@ -36,7 +37,7 @@ GET /languages
 * **텍스트 번역:** 쿼리 매개 변수 `scope=text`를 사용하여 기록한 텍스트를 번역하는 데 사용할 수 있는 언어 집합을 검색합니다.
 * **텍스트 음성 변환:** 쿼리 매개 변수 `scope=tts`를 사용하여 번역된 텍스트를 다시 음성으로 합성하는 데 사용할 수 있는 언어 및 음성 집합을 검색합니다.
 
-클라이언트는 쉼표로 구분된 선택 항목 목록을 지정하여 동시에 여러 집합을 검색할 수 있습니다. 예: `scope=speech,text,tts`
+클라이언트는 쉼표로 구분된 선택 항목 목록을 지정하여 동시에 여러 집합을 검색할 수 있습니다. 예: `scope=speech,text,tts`.
 
 성공적인 응답은 요청된 각 집합에 대한 하나의 속성이 있는 JSON 개체입니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: e6e792c31f9856bcaf1d777e534dcac8d8be3dd3
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: b1ea195ab0b06c4ca0fab37fe7e5701229b34938
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113530"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387041"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>StorSimple에 새 인증 사용
 
@@ -28,7 +28,7 @@ ms.locfileid: "37113530"
 StorSimple Device Manager 서비스는 Microsoft Azure에서 실행되며 여러 StorSimple 장치에 연결됩니다. 현재까지 StorSimple 장치 관리자 서비스는 ACS(Access Control Service)를 사용하여 StorSimple 장치에 대한 서비스를 인증했습니다. ACS 메커니즘은 조만간 사용되지 않고 AAD(Azure Active Directory) 인증으로 대체될 예정입니다. 자세한 내용은 ACS 사용 중단 및 AAD 인증 사용에 대한 다음 공지 사항을 참조하세요.
 
 - [Azure ACS의 미래는 Azure Active Directory입니다.](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/12/the-future-of-azure-acs-is-azure-active-directory/)
-- [Microsoft Access Control Service의 향후 변경 사항](https://azure.microsoft.com/en-in/blog/acs-access-control-service-namespace-creation-restriction/)
+- [Microsoft Access Control Service의 향후 변경 사항](https://azure.microsoft.com/blog/acs-access-control-service-namespace-creation-restriction/)
 
 이 문서에서는 StorSimple 장치에 적용할 수 있는 방화벽 규칙에 대한 수정과 AAD 인증 및 연결된 신규 서비스 등록 키에 대해 자세히 설명합니다. 이 문서에 포함된 정보는 StorSimple 8000 시리즈 장치에만 적용됩니다.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: msangapu
-ms.openlocfilehash: 012f78fc07f237e8ed532246c81a3c86bb6ab4ac
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c619ae164f8f8b6e94d9061c4346de58bd6cb795
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764345"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319441"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>사용자 지정 이미지, 다중 컨테이너 또는 기본 제공 플랫폼 이미지
 
@@ -30,7 +30,7 @@ ms.locfileid: "33764345"
 - **다중 컨테이너 배포**: Docker Compose 또는 Kubernetes 구성 파일을 사용하여 앱을 여러 컨테이너 간에 "Docker화"합니다. 자세한 내용은 [다중 컨테이너 앱](#multi-container-apps-supportability)을 참조하세요.
 - **기본 제공 플랫폼 이미지를 사용한 앱 배포**: 기본 제공 플랫폼 이미지는 노드 및 PHP와 같은 일반적인 웹앱 런타임 및 종속성을 포함합니다. [Azure App Service 배포 방법](../app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) 중 하나를 사용하여 앱을 웹앱의 저장소에 배포한 후 기본 제공 플랫폼 이미지를 사용하여 실행합니다.
 
-##<a name="which-method-is-right-for-your-app"></a>앱에 적합한 방법은 무엇인가요? 
+## <a name="which-method-is-right-for-your-app"></a>앱에 적합한 방법은 무엇인가요? 
 
 고려해야 할 주요 요소는 다음과 같습니다.
 

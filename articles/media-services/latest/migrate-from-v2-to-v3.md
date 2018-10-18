@@ -4,7 +4,7 @@ description: 이 문서에서는 Azure Media Services v3에서 도입된 변경 
 services: media-services
 documentationcenter: na
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 tags: ''
 keywords: Azure Media Services, 스트림, 브로드캐스트, 라이브, 오프라인
@@ -13,19 +13,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 06/12/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: a382af644d30f9f0ebb586273c982ef1766f50b0
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: a17bad5beb651aaa085c626296c200a00c30647e
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36292048"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376365"
 ---
 # <a name="migrate-from-media-services-v2-to-v3"></a>Media Services v2에서 v3으로 마이그레이션
-
-> [!NOTE]
-> Azure Media Services의 최신 버전은 미리보기에 있으며 v3라고도 합니다.
 
 이 문서에서는 AMS(Azure Media Services) v3에서 도입된 변경 내용을 설명하고 두 버전 간의 차이점을 보여 줍니다.
 

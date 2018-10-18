@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 2ca95f6fd94036e86aae2059c05a3fbb0380005e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2a8fe814801d00b3f27e52484d742cbe6c7b0770
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446299"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114009"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>자습서: Velpic SAML과 Azure Active Directory 통합
 
@@ -114,7 +114,7 @@ Velpic SAML에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
     a. **로그인 URL** 텍스트 상자에서 값으로 `https://<sub-domain>.velpicsaml.net`를 입력합니다.
 
-    나. **식별자** 텍스트 상자에 **'Single Sign-On URL'** 값 `https://auth.velpic.com/saml/v2/<entity-id>/login`을 붙여 넣습니다.
+    b. **식별자** 텍스트 상자에 **'Single Sign-On URL'** 값 `https://auth.velpic.com/saml/v2/<entity-id>/login`을 붙여 넣습니다.
     
     > [!NOTE]
     > Velpic SAML 쪽에서 SSO 플러그 인을 구성한 경우 로그온 URL은 Velpic SAML 팀에서 제공하고 식별자 값을 사용할 수 있습니다. Velpic SAML 응용 프로그램 페이지에서 해당 값을 복사하고 여기에 붙여 넣어야 합니다.
@@ -153,7 +153,7 @@ Velpic SAML에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
     a. **이름** 텍스트 상자에 SAML 플러그 인의 이름을 입력합니다.
 
-    나. **발급자 URL** 텍스트 상자에 Azure Portal의 **로그온 구성** 창에서 복사한 **SAML 엔터티 ID**를 붙여 넣습니다.
+    b. **발급자 URL** 텍스트 상자에 Azure Portal의 **로그온 구성** 창에서 복사한 **SAML 엔터티 ID**를 붙여 넣습니다.
 
     다. **공급자 메타데이터 구성**에 Azure Portal에서 다운로드한 메타데이터 XML 파일을 업로드합니다.
 
@@ -188,7 +188,7 @@ Velpic SAML에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -210,7 +210,7 @@ Velpic SAML 회사 사이트에 관리자 권한으로 로그인하고 다음 �
     
     a. **이름** 텍스트 상자에 Britta Simon의 이름을 입력합니다.
 
-    나. **성** 텍스트 상자에 Britta Simon의 성을 입력합니다.
+    b. **성** 텍스트 상자에 Britta Simon의 성을 입력합니다.
 
     다. **사용자 이름** 텍스트 상자에 Britta Simon의 사용자 이름을 입력합니다.
 

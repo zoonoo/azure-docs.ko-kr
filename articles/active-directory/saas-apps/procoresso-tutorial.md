@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-ms.openlocfilehash: 871fde799f064f52b11b75e190b9b7c8a73a843d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ffc1e0d66761700cb0da1f998c2639afc5abb2c4
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445208"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114059"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>자습서: Procore SSO와 Azure Active Directory 통합
 
@@ -136,7 +136,7 @@ Procore SSO에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
     a. **Single Sign-On 발급자 URL** 상자에 Azure Portal에서 복사한 SAML 엔터티 ID를 붙여 넣습니다.
 
-    나. **SAML 로그온 대상 URL** 상자에 Azure Portal에서 복사한 SAML Single Sign-On 서비스 URL을 붙여 넣습니다.
+    b. **SAML 로그온 대상 URL** 상자에 Azure Portal에서 복사한 SAML Single Sign-On 서비스 URL을 붙여 넣습니다.
 
     다. 이제 앞에서 Azure Portal에서 다운로드한 **메타데이터 XML**을 열고 **X509Certificate**라는 태그에서 인증서를 복사합니다. 복사한 값을 **Single Sign-On x509 인증서** 상자에 붙여 넣습니다.
 
@@ -182,7 +182,7 @@ To ensure users can sign-in to Procore SSO after it has been configured to use A
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -204,7 +204,7 @@ Procore 측에서 Procore 테스트 사용자를 만들려면 다음 단계를 �
 
     a. **이름** 텍스트 상자에 사용자의 이름(예: **Britta**)을 입력합니다.
 
-    나. **성** 텍스트 상자에 사용자의 성(예: **Simon**)을 입력합니다.
+    b. **성** 텍스트 상자에 사용자의 성(예: **Simon**)을 입력합니다.
 
     다. **전자 메일 주소** 텍스트 상자에 사용자의 전자 메일 주소(예: **BrittaSimon@contoso.com**)를 입력합니다.
 

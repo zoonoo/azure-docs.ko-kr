@@ -3,8 +3,8 @@ title: Azure CDN을 통해 대용량 파일 다운로드 최적화
 description: 이 문서에서는 대용량 파일 다운로드를 최적화하는 방법을 설명합니다.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
-ms.author: v-deasim
-ms.openlocfilehash: 2bdb6bdea7b6180e34458883d026161403e4cb58
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: magattus
+ms.openlocfilehash: 9793348b47763e6de10992b9a8a4606fc532cc4d
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33766209"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094023"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Azure CDN을 통해 대용량 파일 다운로드 최적화
 
@@ -34,7 +34,7 @@ ms.locfileid: "33766209"
 
 ## <a name="optimize-for-delivery-of-large-files-with-azure-cdn-from-microsoft"></a>Microsoft의 Azure CDN을 사용하여 대용량 파일의 배달 최적화
 
-**Microsoft의 Azure CDN 표준** 끝점은 파일 크기 제한 없이, 대용량 파일을 배달합니다. 추가 기능은 기본적으로 대용량 파일의 전송 속도를 높이도록 설정됩니다.
+**Microsoft의 Azure CDN 표준** 엔드포인트는 파일 크기 제한 없이, 대용량 파일을 배달합니다. 추가 기능은 기본적으로 대용량 파일의 전송 속도를 높이도록 설정됩니다.
 
 ### <a name="object-chunking"></a>개체 청크 
 
@@ -52,7 +52,7 @@ CDN은 받은 청크를 모두 캐시합니다. CDN 캐시에서 전체 파일�
 
 ## <a name="optimize-for-delivery-of-large-files-with-azure-cdn-from-verizon"></a>Verizon의 Azure CDN을 사용하여 대용량 파일의 배달 최적화
 
-**Verizon의 Azure CDN 표준** 및 **Verizon의 Azure CDN 프리미엄** 끝점은 파일 크기 제한 없이, 대용량 파일을 배달합니다. 추가 기능은 기본적으로 대용량 파일의 전송 속도를 높이도록 설정됩니다.
+**Verizon의 Azure CDN 표준** 및 **Verizon의 Azure CDN 프리미엄** 엔드포인트는 파일 크기 제한 없이, 대용량 파일을 배달합니다. 추가 기능은 기본적으로 대용량 파일의 전송 속도를 높이도록 설정됩니다.
 
 ### <a name="complete-cache-fill"></a>전체 캐시 채우기
 
@@ -79,20 +79,20 @@ CDN은 받은 청크를 모두 캐시합니다. CDN 캐시에서 전체 파일�
 
 대용량 파일 최적화는 특정 조건이 충족될 때 효과적입니다. 조건에는 원본 서버가 작동하는 방법 및 요청되는 파일의 크기와 형식이 포함됩니다. 
 
-### <a name="configure-an-akamai-cdn-endpoint-to-optimize-delivery-of-large-files"></a>대용량 파일 배달을 최적화하기 위한 Akamai CDN 끝점 구성
+### <a name="configure-an-akamai-cdn-endpoint-to-optimize-delivery-of-large-files"></a>대용량 파일 배달을 최적화하기 위한 Akamai CDN 엔드포인트 구성
 
-Azure Portal을 통해 대용량 파일 배달을 최적화하도록 **Akamai의 Azure CDN 표준** 끝점을 구성할 수 있습니다. REST API나 클라이언트 SDK를 사용할 수도 있습니다. 다음 단계에서는 **Akamai의 Azure CDN 표준** 프로필에 대해 Azure Portal을 통한 프로세스를 보여줍니다.
+Azure Portal을 통해 대용량 파일 배달을 최적화하도록 **Akamai의 Azure CDN 표준** 엔드포인트를 구성할 수 있습니다. REST API나 클라이언트 SDK를 사용할 수도 있습니다. 다음 단계에서는 **Akamai의 Azure CDN 표준** 프로필에 대해 Azure Portal을 통한 프로세스를 보여줍니다.
 
-1. 새 끝점을 추가하려면 Akamai **CDN 프로필** 페이지에서 **끝점**을 선택합니다.
+1. 새 엔드포인트를 추가하려면 Akamai **CDN 프로필** 페이지에서 **엔드포인트**를 선택합니다.
 
-    ![새 끝점](./media/cdn-large-file-optimization/cdn-new-akamai-endpoint.png)    
+    ![새 엔드포인트](./media/cdn-large-file-optimization/cdn-new-akamai-endpoint.png)    
  
 2. **Optimized for**(최적화 대상) 드롭다운 목록에서 **대용량 파일 다운로드**를 선택합니다.
 
     ![대용량 파일 최적화 선택](./media/cdn-large-file-optimization/cdn-large-file-select.png)
 
 
-CDN 끝점을 만든 후에 특정 기준과 일치하는 모든 파일에 대해 대용량 파일 최적화를 적용합니다. 다음 섹션에서는 이 프로세스에 대해 자세히 설명합니다.
+CDN 엔드포인트를 만든 후에 특정 기준과 일치하는 모든 파일에 대해 대용량 파일 최적화를 적용합니다. 다음 섹션에서는 이 프로세스에 대해 자세히 설명합니다.
 
 ### <a name="object-chunking"></a>개체 청크 
 

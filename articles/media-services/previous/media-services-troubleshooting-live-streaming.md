@@ -4,22 +4,21 @@ description: 이 토픽에서는 라이브 스트리밍 문제를 해결하는 �
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: 3a7f6c1d-ce57-4fa4-a7a6-edb526b3ffbf
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 84e3e9fc18671d7199eeaf638377a6681cf09fb4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e6b135e14f06ecf4edfbb97913c411f55711854a
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940927"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351455"
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>라이브 스트리밍 문제 해결 가이드
 이 문서에서는 일부 라이브 스트리밍 문제를 해결하는 방법에 대한 제안을 제공합니다.
@@ -54,9 +53,6 @@ ms.locfileid: "33940927"
 > 문제 해결 단계를 수행한 후에도 여전히 성공적으로 스트리밍되지 않으면 Azure Portal을 사용하여 지원 티켓을 제출하세요.
 > 
 > 
-
-## <a name="media-services-learning-paths"></a>Media Services 학습 경로
-[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

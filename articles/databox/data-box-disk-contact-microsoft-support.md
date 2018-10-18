@@ -4,16 +4,17 @@ description: Data Box 또는 Data Box Disk 주문 관련 문제에 대한 지원
 services: databox
 author: alkohli
 ms.service: databox
+ms.subservice: disk
 ms.topic: article
 ms.date: 09/27/2018
-ms.author: alkohli;
+ms.author: alkohli
 ms.component: ''
-ms.openlocfilehash: 9bab8a55301a5eb40b38bec984205fff2a52559e
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 86d89f50a6d137d0c3ebf9148478ac6cec9951f6
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422816"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092493"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Azure Data Box에 대한 지원 티켓 열기 
 
