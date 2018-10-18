@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.component: common
-ms.openlocfilehash: e560eb9e0bbce09c541bfc66ea760ea3e636f841
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 0807bc5df9d4ee8782ae017dbb7ed63c38a13443
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528717"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304682"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage 모니터링, 진단 및 문제 해결
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -73,7 +73,7 @@ Azure Storage 응용 프로그램에서 종단간 문제 해결 실습 가이드
   * [부록2: Wireshark를 사용하여 네트워크 트래픽 캡처]
   * [부록3; Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처를 참조하세요.]
   * [부록4; Excel을 사용하여 메트릭 및 로그 데이터 보기]
-  * [부록5: Visual Studio Team Services용 Application Insights를 사용한 모니터링]
+  * [부록5: Azure DevOps용 Application Insights를 사용한 모니터링]
 
 ## <a name="introduction"></a>소개
 이 가이드에서는 Azure Storage 분석 등의 도구, Azure Storage 클라이언트 라이브러리의 클라이언트 쪽 로깅 그리고 기타 타사 도구를 사용하여 Azure Storage 관련 문제를 파악, 진단 및 해결하는 방법에 대해 설명합니다.
@@ -125,7 +125,7 @@ Azure 응용 프로그램을 지속적으로 모니터링한 후 다음을 수�
 [Azure Portal](https://portal.azure.com)에서는 여러 Azure 서비스에 영향을 주는 문제에 대한 알림도 제공합니다.
 참고: 이전에는 이 정보가 [Azure 서비스 대시보드](http://status.azure.com)에서 기록 데이터와 함께 제공되었습니다.
 
-[Azure Portal](https://portal.azure.com)은 Azure 데이터 센터 내부에서 상태 정보를 수집하는 반면(직접적인 상호 작용 모니터링) 간접적인 방식을 도입해 여러 위치에서 Azure 호스팅 웹 응용 프로그램에 주기적으로 액세스하는 가상 트랜잭션을 생성할 수도 있습니다. 이러한 방식의 예로는 [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) 및 Visual Studio Team Services용 Application Insights에서 제공하는 서비스가 있습니다. Visual Studio Team Services용 Application Insights에 대한 자세한 내용은 "[부록 5: Visual Studio Team Services용 Application Insights를 사용한 모니터링](#appendix-5)"을 참조하세요.
+[Azure Portal](https://portal.azure.com)은 Azure 데이터 센터 내부에서 상태 정보를 수집하는 반면(직접적인 상호 작용 모니터링) 간접적인 방식을 도입해 여러 위치에서 Azure 호스팅 웹 응용 프로그램에 주기적으로 액세스하는 가상 트랜잭션을 생성할 수도 있습니다. 이러한 방식의 예로는 [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) 및 Azure DevOps용 Application Insights에서 제공하는 서비스가 있습니다. Azure DevOps용 Application Insights에 대한 자세한 내용은 “[부록 5: Azure DevOps용 Application Insights를 사용한 모니터링](#appendix-5)”을 참조하세요.
 
 ### <a name="monitoring-capacity"></a>용량 모니터링
 일반적으로는 저장되는 데이터 중 Blob가 가장 큰 비율을 차지하므로, Storage 메트릭은 Blob service의 용량 메트릭만을 저장합니다. 이 문서 작성 당시에는 Storage 메트릭을 사용하여 테이블과 큐의 용량을 모니터링할 수 없었습니다. Blob service에 대해 모니터링을 사용하도록 설정한 경우 **$MetricsCapacityBlob** 테이블에서 이 데이터를 확인할 수 있습니다. Storage 메트릭은 매일 한 번씩 이 데이터를 기록하며, **RowKey**의 값을 사용하여 행에 사용자 데이터(**데이터** 값) 또는 분석 데이터(**분석** 값)와 관련된 엔터티가 포함되어 있는지 확인할 수 있습니다. 저장되는 각 엔터티에는 사용된 저장소 공간(바이트 단위로 측정되는 **용량**)과 저장소 계정에서 사용되는 현재 컨테이너 수(**ContainerCount**) 및 Blob 수(**ObjectCount**)에 대한 정보가 포함됩니다. **$MetricsCapacityBlob** 테이블에 저장되는 용량 메트릭에 대한 자세한 내용은 [저장소 분석 메트릭 테이블 스키마](http://msdn.microsoft.com/library/azure/hh343264.aspx)를 참조하세요.
@@ -722,7 +722,7 @@ Fiddler를 시작하면 로컬 컴퓨터에서 HTTP 및 HTTPS 트래픽 캡처�
 * 트래픽 캡처를 중지 및 시작하려면 주 메뉴에서 **파일**로 이동한 다음 **트래픽 캡처**를 클릭하여 캡처를 설정하거나 해제합니다.
 * 캡처된 트래픽 데이터를 저장하려면 주 메뉴에서 **파일**로 이동한 다음 **저장**, **모든 세션**을 차례로 클릭하면 세션 보관 파일에 트래픽을 저장할 수 있습니다. 세션 보관 파일은 나중에 분석을 위해 다시 로드하거나 Microsoft 지원에서 요청하는 경우 전송할 수 있습니다.
 
-Fiddler가 캡처하는 트래픽의 양을 제한하려면 **필터** 탭에서 구성하는 필터를 사용할 수 있습니다. 아래 스크린샷에는 **contosoemaildist.table.core.windows.net** 저장소 끝점으로 전송되는 트래픽만 캡처하는 필터가 나와 있습니다.
+Fiddler가 캡처하는 트래픽의 양을 제한하려면 **필터** 탭에서 구성하는 필터를 사용할 수 있습니다. 아래 스크린샷에는 **contosoemaildist.table.core.windows.net** 저장소 엔드포인트로 전송되는 트래픽만 캡처하는 필터가 나와 있습니다.
 
 ![][5]
 
@@ -734,10 +734,10 @@ Fiddler가 캡처하는 트래픽의 양을 제한하려면 **필터** 탭에서
 1. 로컬 컴퓨터에서 Wireshark를 시작합니다.
 2. **시작** 섹션에서 로컬 네트워크 인터페이스 또는 인터넷에 연결된 인터페이스를 선택합니다.
 3. **캡처 옵션**을 클릭합니다.
-4. **캡처 필터** 텍스트 상자에 필터를 추가합니다. 예를 들어 **host contosoemaildist.table.core.windows.net**은 **contosoemaildist** 저장소 계정의 Table service 끝점에서 보내거나 받는 패킷만 캡처하도록 Wireshark를 구성합니다. [캡처 필터의 전체 목록](http://wiki.wireshark.org/CaptureFilters)을 확인하세요.
+4. **캡처 필터** 텍스트 상자에 필터를 추가합니다. 예를 들어 **host contosoemaildist.table.core.windows.net**은 **contosoemaildist** 저장소 계정의 Table service 엔드포인트에서 보내거나 받는 패킷만 캡처하도록 Wireshark를 구성합니다. [캡처 필터의 전체 목록](http://wiki.wireshark.org/CaptureFilters)을 확인하세요.
    
    ![][6]
-5. **시작**을 클릭합니다. 그러면 로컬 컴퓨터에서 클라이언트 응용 프로그램을 사용할 때 Wireshark가 테이블 서비스 끝점에서 보내거나 받는 모든 패킷을 캡처합니다.
+5. **시작**을 클릭합니다. 그러면 로컬 컴퓨터에서 클라이언트 응용 프로그램을 사용할 때 Wireshark가 테이블 서비스 엔드포인트에서 보내거나 받는 모든 패킷을 캡처합니다.
 6. 작업을 마쳤으면 주 메뉴에서 **캡처**와 **중지**를 차례로 클릭합니다.
 7. 캡처된 데이터를 Wireshark 캡처 파일에 저장하려면 주 메뉴에서 **파일**과 **저장**을 차례로 클릭합니다.
 
@@ -758,7 +758,7 @@ TCP 데이터를 마우스 오른쪽 단추로 클릭하고 **TCP 스트림 확�
 Microsoft Message Analyzer를 사용하여 Fiddler와 비슷한 방식으로 HTTP 및 HTTPS 트래픽을 캡처할 수 있으며 Wireshark와 비슷한 방식으로 네트워크 트래픽을 캡처할 수 있습니다.
 
 #### <a name="configure-a-web-tracing-session-using-microsoft-message-analyzer"></a>Microsoft Message Analyzer를 사용하여 웹 추적 세션 구성
-Microsoft Message Analyzer를 사용하여 HTTP 및 HTTPS 트래픽에 대해 웹 추적 세션을 구성하려면 Microsoft Message Analyzer 응용 프로그램을 시작하고 **파일** 메뉴에서 **캡처/추적**을 클릭합니다. 사용 가능한 추적 시나리오 목록에서 **웹 프록시**를 선택합니다. 그런 다음 **추적 시나리오 구성** 패널의 **HostnameFilter** 텍스트 상자에 저장소 끝점의 이름을 추가합니다. [Azure Portal](https://portal.azure.com)에서 이러한 이름을 조회할 수 있습니다. 예를 들어 Azure storage 계정의 이름이 **contosodata**인 경우 **HostnameFilter** 텍스트 상자에 다음을 추가해야 합니다.
+Microsoft Message Analyzer를 사용하여 HTTP 및 HTTPS 트래픽에 대해 웹 추적 세션을 구성하려면 Microsoft Message Analyzer 응용 프로그램을 시작하고 **파일** 메뉴에서 **캡처/추적**을 클릭합니다. 사용 가능한 추적 시나리오 목록에서 **웹 프록시**를 선택합니다. 그런 다음 **추적 시나리오 구성** 패널의 **HostnameFilter** 텍스트 상자에 저장소 엔드포인트의 이름을 추가합니다. [Azure Portal](https://portal.azure.com)에서 이러한 이름을 조회할 수 있습니다. 예를 들어 Azure storage 계정의 이름이 **contosodata**인 경우 **HostnameFilter** 텍스트 상자에 다음을 추가해야 합니다.
 
 ```
 contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata.queue.core.windows.net
@@ -799,8 +799,8 @@ Blob Storage에서 다운로드한 저장소 로깅 데이터를 Excel로 가져
 
 **텍스트 가져오기 마법사**의 1단계에서 구분 기호로 **세미콜론**만 선택하고 **텍스트 한정자**로 큰따옴표를 선택합니다. 그런 다음 **마침** 을 클릭하고 통합 문서에서 데이터를 배치할 위치를 선택합니다.
 
-### <a name="appendix-5"></a>부록5: Visual Studio Team Services용 Application Insights를 사용한 모니터링
-성능 및 가용성 모니터링의 일부분으로 Visual Studio Team Services의 Application Insights 기능을 사용할 수도 있습니다. 이 도구는 다음과 같은 작업을 수행할 수 있습니다.
+### <a name="appendix-5"></a>부록5: Azure DevOps용 Application Insights를 사용한 모니터링
+성능 및 가용성 모니터링의 일부분으로 Azure DevOps의 Application Insights 기능을 사용할 수도 있습니다. 이 도구는 다음과 같은 작업을 수행할 수 있습니다.
 
 * 웹 서비스가 사용 가능하며 응답할 수 있는 상태인지 확인합니다. 앱이 웹 서비스를 사용하는 웹 사이트 또는 장치 앱인 경우에도 전 세계 여러 위치에서 몇 분마다 URL을 테스트하고 문제가 있는지 알려 줍니다.
 * 웹 서비스의 성능 문제나 예외를 빠르게 진단합니다. CPU 또는 기타 리소스가 확대되는지 확인하고 예외에서 스택 추적을 가져오며 로그 추적을 쉽게 검색할 수 있습니다. 앱 성능이 허용 한도 미만으로 떨어지면 이메일이 전송될 수 있습니다. .NET 및 Java 웹 서비스를 모두 모니터링할 수 있습니다.
@@ -865,7 +865,7 @@ Blob Storage에서 다운로드한 저장소 로깅 데이터를 Excel로 가져
 [부록2: Wireshark를 사용하여 네트워크 트래픽 캡처]: #appendix-2
 [부록3; Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처를 참조하세요.]: #appendix-3
 [부록4; Excel을 사용하여 메트릭 및 로그 데이터 보기]: #appendix-4
-[부록5: Visual Studio Team Services용 Application Insights를 사용한 모니터링]: #appendix-5
+[부록5: Azure DevOps용 Application Insights를 사용한 모니터링]: #appendix-5
 
 <!--Image references-->
 [1]: ./media/storage-monitoring-diagnosing-troubleshooting/overview.png

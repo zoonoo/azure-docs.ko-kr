@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: ea9c9d773cb863c6ee2b052fcbd097275f00fc87
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: bd6ac05da5f60fdbe86897ce03ccd6646e6bf191
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300990"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390265"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Azure 보안 및 규정 준수 청사진 - Australia PROTECTED용 PaaS 웹 응용 프로그램
 
@@ -82,7 +82,6 @@ ASD 규정 준수를 구현하려면 정보 보안 등록 평가자가 시스템
 -   [Azure 진단 확장](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
 -   Azure Key Vault를 사용하는 [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
 -   사용하지 않을 때 가상 머신 사용을 줄이는 [자동 종료 정책](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/)
--   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard)를 사용하도록 설정하여 자격 증명과 다른 비밀이 실행 중인 운영 체제와 격리된 보호된 환경에서 실행됩니다.
 
 **App Service Environment v2**: [Azure App Service Environment](https://docs.microsoft.com/azure/app-service/environment/intro)는 App Service 응용 프로그램을 높은 수준에서 안전하게 실행하기 위해 완전히 격리된 전용 환경을 제공하는 Azure App Service 기능입니다.
 
@@ -202,7 +201,7 @@ Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위
 
 **Azure Monitor**: [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) 를 사용하면 사용자의 Azure 리소스에서 API 호출을 추적하는 것을 포함하여 조직에서 감사, 경고 만들기 및 데이터 보관을 수행할 수 있도록 하여 사용자가 성능을 추적하고, 보안을 유지하고, 추세를 식별할 수 있습니다.
 
-Azure Network Watcher: [Azure Network Watcher]9 https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview)는 Azure 가상 네트워크의 리소스를 모니터링 및 진단하고 메트릭을 보고 그에 대한 로그를 활성화 또는 비활성화하는 도구를 제공합니다.  연방 엔터티는 NSG 및 Virtual Machines에 대한 Network Watcher 흐름 로그를 구현해야 합니다. 이러한 로그는 보안 로그만 저장되는 전용 저장소 계정에 저장되어야 하며, 저장소 계정에 대한 액세스는 역할 기반 액세스 제어로 보호되어야 합니다.
+Azure Network Watcher: [Azure Network Watcher]9 https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)는 Azure 가상 네트워크의 리소스를 모니터링 및 진단하고 메트릭을 보고 그에 대한 로그를 활성화 또는 비활성화하는 도구를 제공합니다.  연방 엔터티는 NSG 및 Virtual Machines에 대한 Network Watcher 흐름 로그를 구현해야 합니다. 이러한 로그는 보안 로그만 저장되는 전용 저장소 계정에 저장되어야 하며, 저장소 계정에 대한 액세스는 역할 기반 액세스 제어로 보호되어야 합니다.
 
 ## <a name="threat-model"></a>위협 모델
 

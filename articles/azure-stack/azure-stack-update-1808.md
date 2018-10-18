@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 2e40f0520c0f5e605974f883b3327699ff26313e
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 3843898ba2d7cdd3697236a9f4cc19070c6f07c3
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321821"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395176"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 업데이트
 
@@ -261,6 +261,10 @@ Azure Stack 1808 업데이트 빌드 번호는 **1.1808.0.97**합니다.
    2. 다중 테 넌 트 환경에 구성한 게스트 디렉터리와 연결 된 구독에서 Vm을 배포할 내부 오류 메시지와 함께 실패할 수 있습니다. 이 오류를 해결 하려면 다음이 단계를 수행 합니다.
       1. 적용 된 [1808 Azure Stack 핫픽스](https://support.microsoft.com/help/4467062/)합니다.
       2. 단계를 따릅니다 [이 문서에서는](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) 각 게스트 디렉터리를 다시 구성 합니다.
+      
+<!-- 3179561 - IS --> 
+- 에 설명 된 대로 관리 되는 디스크 사용량이 시간에 보고 합니다 [Azure Stack 사용 FAQ](azure-stack-usage-related-faq.md#managed-disks)합니다. 그러나 Azure Stack 청구의 월별 가격 대신 사용 될 수 있습니다 가져오기 올바르게 비용이 청구 되지 않습니다 또는 그 27 년 9 월 이전에 Managed Disks 사용량에 대 한 합니다. 에서는 일시적으로 일시 중지 했 요금 Managed Disks에 대 한 청구 문제가 해결 될 때까지 27를 년 9 월 후. 하면 요금이 청구 되지 올바르게 Managed Disks 사용량에 대 한, Microsoft 대금 청구 지원에 문의 하세요.
+Azure Stack 사용량 Api에서에서 생성 된 사용 현황 보고서 올바른 수량을 표시 하 고 사용할 수 있습니다.
 
 <!-- 2869209 – IS, ASDK --> 
 - 사용 하는 경우는 [ **추가 AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0)를 사용 해야 합니다는 **-OsUri** storage 계정과 디스크 업로드 되는 URI 매개 변수입니다. 다음 오류로 인해 cmdlet이 실패 하면 디스크의 로컬 경로 사용 하는 경우: *장기 실행 작업 상태 '실패'를 사용 하 여 실패 한*합니다. 

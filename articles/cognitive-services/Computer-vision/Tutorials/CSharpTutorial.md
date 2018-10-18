@@ -3,19 +3,19 @@ title: '자습서: 이미지 처리 앱 빌드 - C#'
 titleSuffix: Computer Vision - Cognitive Services - Azure
 description: Microsoft Cognitive Services의 Computer Vision API를 사용하는 기본 Windows 앱을 탐색합니다. OCR를 수행하고, 썸네일을 만들고, 이미지의 시각적 기능으로 작업합니다.
 services: cognitive-services
-author: deken
+author: PatrickFarley
 manager: nolachar
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: article
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 9ea562e7fa2ec3e32da2f0f1453db36dda319303
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.author: pafarley
+ms.openlocfilehash: d1fa468874cdc51bad3421f700a69f3ffb268635
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295855"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342656"
 ---
 # <a name="tutorial-build-an-image-processing-app---c35"></a>자습서: 이미지 처리 앱 빌드 - C#
 

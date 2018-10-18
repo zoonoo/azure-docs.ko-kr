@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/23/2018
 ms.author: anmola
-ms.openlocfilehash: d3ed1ff46bf4c82a172954828ec74bae80241288
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 5672f5fffd9c93f710f8001285380fdbfcab0c5d
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44056944"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386989"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Windows에서 Service Fabric Reliable Services 및 Reliable Actors 컨테이너화
 
@@ -103,7 +103,7 @@ Service Fabric은 Service Fabric 마이크로 서비스(Reliable Services 및 Re
 </Policies>
  ```
 
-9. 컨테이너 격리 모드 구성에 대해 알아보려면 [격리 모드 구성]( https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode)을 참조하세요. Windows는 컨테이너, 즉 프로세스 및 Hyper-V에 대한 두 가지 격리 모드를 지원합니다. 다음 코드 조각은 격리 모드가 응용 프로그램 매니페스트 파일에서 지정되는 방법을 보여 줍니다.
+9. 컨테이너 격리 모드 구성에 대해 알아보려면 [격리 모드 구성]( https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode)을 참조하세요. Windows는 컨테이너, 즉 프로세스 및 Hyper-V에 대한 두 가지 격리 모드를 지원합니다. 다음 코드 조각은 격리 모드가 응용 프로그램 매니페스트 파일에서 지정되는 방법을 보여 줍니다.
 
  ```xml
 <Policies>

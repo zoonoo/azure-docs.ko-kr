@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 2197d197e68528866c892cc51323bc61a208bcc0
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: ea3e6c2e616f2618200c1e3904786abd72bbd75d
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49366711"
+ms.locfileid: "49376808"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>자습서: 항상 사용 가능한 MySQL 데이터베이스를 제공 합니다.
 
@@ -198,4 +198,4 @@ MySQL Server 데이터베이스 기능을 포함 하 여 구독을 사용 하 �
 
 에 대해 알아보려면 다음 자습서로 이동 하는 방법.
 > [!div class="nextstepaction"]
-> [Web apps 제공](/azure-stack-tutorial-app-service.md)
+> [Web apps 제공](azure-stack-tutorial-app-service.md)

@@ -10,12 +10,12 @@ ms.component: monitor and tune
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1cf2fcb2ce99d4c6c670e5afdb1c4208158ea4de
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 1d366850bc886dc48afc59ffaf0958b39314ebb1
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44096060"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385535"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>Gen2 캐시 모니터링 방법
 Gen2 저장소 아키텍처는 Gen2 데이터 웨어하우스용으로 설계된 NVMe 기반의 SSD에 있는 캐시에 가장 자주 쿼리되는 columnstore 세그먼트를 자동으로 계층화합니다. 쿼리가 캐시에 있는 세그먼트를 검색하면 성능이 향상됩니다. 이 문서에서는 워크로드가 Gen2 캐시를 최적으로 활용하는지 판단하여 쿼리 성능을 모니터링하고 문제를 해결하는 방법에 대해 설명합니다.  
@@ -43,7 +43,7 @@ Gen2 캐시 문제 해결에 대한 키 메트릭은 **캐시 적중 비율** �
 
 **시나리오 2:** 현재 작업 중인 데이터 집합이 물리적 읽기로 인해 낮은 캐시 적중 비율을 초래할 수 있어 캐시에 적합하지 않습니다. 성능 수준의 규모를 확장하고 워크로드를 다시 실행하여 캐시를 채우는 것을 고려하세요.
 
-**시나리오 3:** 캐시와 관련이 없는 이유로 인해 쿼리가 느리게 실행되는 것 같습니다. 쿼리 속도를 저하시킬 수 있는 다른 영역의 [문제를 해결](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)하세요. 또한 캐시 크기를 줄여 비용을 절약하도록 [인스턴스 규모를 축소](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)하는 것을 고려해 보세요. 
+**시나리오 3:** 캐시와 관련이 없는 이유로 인해 쿼리가 느리게 실행되는 것 같습니다. 쿼리 속도를 저하시킬 수 있는 다른 영역의 [문제를 해결](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)하세요. 또한 캐시 크기를 줄여 비용을 절약하도록 [인스턴스 규모를 축소](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)하는 것을 고려해 보세요. 
 
 **시나리오 4:** 쿼리가 느려진 원인일 수 있는 콜드 캐시가 있습니다. 작업 데이터 집합이 캐시될 때 쿼리를 다시 실행해보세요. 
 

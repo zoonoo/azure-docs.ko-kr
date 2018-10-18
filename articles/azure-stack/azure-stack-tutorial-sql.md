@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: cb659a79f374b7a48cd3cc29f9f46bc6598c04dc
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 17f06a08388720c4483ef1c187edf20ec8359121
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49366700"
+ms.locfileid: "49386386"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>자습서: 항상 사용 가능한 SQL 데이터베이스 제공
 
@@ -123,7 +123,7 @@ Azure Stack marketplace에 항목을 추가 하는 방법에 대 한 자세한 �
 >  ![보조 SQL 인스턴스 스크립트](./media/azure-stack-tutorial-sqlrp/sql2.png)
 
 ### <a name="configure-contained-database-authentication"></a>포함 된 데이터베이스 인증 구성
-가용성 그룹에 포함된 된 데이터베이스에 추가 하기 전에 contained database authentication 서버 옵션 가용성 그룹에 대 한 가용성 복제본을 호스팅하는 모든 서버 인스턴스에서 1로 설정 되어 있는지 확인 합니다. 자세한 내용은 [포함 된 데이터베이스 인증](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017)합니다.
+가용성 그룹에 포함된 된 데이터베이스에 추가 하기 전에 contained database authentication 서버 옵션 가용성 그룹에 대 한 가용성 복제본을 호스팅하는 모든 서버 인스턴스에서 1로 설정 되어 있는지 확인 합니다. 자세한 내용은 [포함 된 데이터베이스 인증](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017)합니다.
 
 이러한 명령을 사용 하 여 가용성 그룹에서 각 SQL Server 인스턴스에 대 한 포함 된 데이터베이스 인증 서버 옵션을 설정 합니다.
 
