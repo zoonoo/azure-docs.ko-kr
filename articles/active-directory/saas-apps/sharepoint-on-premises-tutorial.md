@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: jeedes
-ms.openlocfilehash: e2037ff2f1b95a5ce5de69d76d66ec81cc9badb4
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 100ea0147bf56242ba15bee39e4bda1b65af27da
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064206"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390094"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>자습서: SharePoint 온-프레미스와 Azure Active Directory 통합
 
@@ -144,7 +144,7 @@ SharePoint 온-프레미스에서 Azure AD Single Sign-On을 구성하고 테스
     SharePoint Server 2016 서버에 로그인하고 SharePoint 2016 관리 셸을 엽니다. Azure Portal에서 $realm(Azure Portal의 온-프레미스 도메인 및 URL 섹션에서 SharePoint의 식별자 값), $wsfedurl(Single Sign-On 서비스 URL) 및 $filepath(인증서 파일을 다운로드한 파일 경로)의 값을 채우고 다음 명령을 실행하여 새 신뢰할 수 있는 ID 공급자를 구성합니다.
 
     > [!TIP]
-    > PowerShell을 처음 사용하거나 PowerShell 작동 방법에 대해 자세히 알아보려면 [SharePoint PowerShell](https://docs.microsoft.com/en-us/powershell/sharepoint/overview?view=sharepoint-ps)을 참조하세요. 
+    > PowerShell을 처음 사용하거나 PowerShell 작동 방법에 대해 자세히 알아보려면 [SharePoint PowerShell](https://docs.microsoft.com/powershell/sharepoint/overview?view=sharepoint-ps)을 참조하세요. 
 
     ```
     $realm = "<Identifier value from the SharePoint on-premises Domain and URLs section in the Azure portal>"
@@ -310,7 +310,7 @@ Azure AD에 로그인하고 SharePoint에 액세스할 사용자는 응용 프�
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
-* [SharePoint Server 인증에 대해 Azure AD 사용](https://docs.microsoft.com/en-us/office365/enterprise/using-azure-ad-for-sharepoint-server-authentication)
+* [SharePoint Server 인증에 대해 Azure AD 사용](https://docs.microsoft.com/office365/enterprise/using-azure-ad-for-sharepoint-server-authentication)
 
 <!--Image references-->
 

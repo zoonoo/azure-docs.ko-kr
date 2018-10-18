@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/22/2018
 ms.author: shlo
-ms.openlocfilehash: d0f36551fb06e04b50af464bac6953dda64c6202
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 2e8c5b3d9624d3a622f16d770f68bc8614993d36
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054151"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387485"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Azure Monitor를 사용하여 데이터 팩터리 경고 및 모니터링
 클라우드 응용 프로그램은 이동하는 부분이 많아 복잡합니다. 모니터링은 응용 프로그램을 유지하고 정상 상태에서 실행할 수 있는 데이터를 제공합니다. 또한 잠재적 문제를 방지하거나 지난 문제를 해결할 수 있습니다. 또한 응용 프로그램에 대해 깊이 이해하는 데 모니터링 데이터를 사용할 수 있습니다. 이러한 정보를 사용하면 응용 프로그램 성능 또는 유지 관리 편의성을 향상시키거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화할 수 있습니다.
@@ -231,7 +231,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-[자세한 내용 참고](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings)
+[자세한 내용 참고](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 
 ## <a name="schema-of-logs--events"></a>로그 및 이벤트의 스키마
 
@@ -463,7 +463,7 @@ Azure Monitor와 Azure Data Factory 통합을 사용하여 Azure Monitor로 데�
 
 ![monitor-oms-image8.png](media/data-factory-monitor-oms/monitor-oms-image8.png)
 
-## <a name="alerts"></a>Alerts
+## <a name="alerts"></a>경고
 
 Data Factory의 지원되는 메트릭에 대해 경고를 발생시킬 수 있습니다. Data Factory **모니터** 페이지에서 **경고** 단추를 클릭합니다.
 

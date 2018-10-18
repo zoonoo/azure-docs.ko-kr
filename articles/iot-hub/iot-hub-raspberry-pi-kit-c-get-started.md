@@ -10,12 +10,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 8962f41d971ac88134f639a61ef0b42c60bbd419
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: c8e2dcfef1db8bfe3d76ac917f8c14a4060e3968
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161495"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318761"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Raspberry Pi를 Azure IoT Hub에 연결(C)
 
@@ -61,10 +61,9 @@ ms.locfileid: "44161495"
 * F/M 점퍼 와이어 6개.
 * 확산형 10mm LED.
 
-
 > [!NOTE] 
-코드 샘플이 시뮬레이션된 센서 데이터를 지원하므로 이러한 항목은 선택 사항입니다.
-
+> 코드 샘플이 시뮬레이션된 센서 데이터를 지원하므로 이러한 항목은 선택 사항입니다.
+>
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
@@ -97,7 +96,8 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
    ![Raspberry Pi에서 SPI 및 SSH를 사용하도록 설정](media/iot-hub-raspberry-pi-kit-c-get-started/2_enable-spi-ssh-on-raspberry-pi.png)
 
 > [!NOTE] 
-SSH 및 SPI를 사용하려는 경우 [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) 및 [RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md)에서 더 많은 참조 문서를 찾을 수 있습니다.
+> SSH 및 SPI를 사용하려는 경우 [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) 및 [RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md)에서 더 많은 참조 문서를 찾을 수 있습니다.
+>
 
 ### <a name="connect-the-sensor-to-pi"></a>Pi에 센서 연결
 
@@ -171,6 +171,7 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
 
    > [!NOTE] 
    > **실제 BME280이 없는** 경우 '--simulated-data'를 명령줄 매개 변수로 사용하여 온도 및 습도 데이터를 시뮬레이션할 수 있습니다. `sudo ./setup.sh --simulated-data`
+   >
 
 ### <a name="build-and-run-the-sample-application"></a>응용 프로그램 빌드 및 실행
 
@@ -179,6 +180,7 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
    ```bash
    cmake . && make
    ```
+   
    ![빌드 출력](media/iot-hub-raspberry-pi-kit-c-get-started/7_build-output.png)
 
 1. 다음 명령을 실행하여 샘플 응용 프로그램을 실행합니다.
@@ -188,8 +190,8 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
    ```
 
    > [!NOTE] 
-   장치 연결 문자열을 복사하여 작은따옴표 안에 붙여 넣습니다.
-
+   > 장치 연결 문자열을 복사하여 작은따옴표 안에 붙여 넣습니다.
+   >
 
 IoT Hub로 전송되는 센서 데이터와 메시지를 보여 주는 다음 출력이 표시됩니다.
 

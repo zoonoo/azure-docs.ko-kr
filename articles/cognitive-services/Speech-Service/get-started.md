@@ -3,18 +3,18 @@ title: Speech Service 체험해 보기
 description: Speech Service를 체험해 보는 방법을 알아봅니다.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 09/24/2018
-ms.author: v-jerkin
-ms.openlocfilehash: 1615e3a492cd91fb998680094f131db454945303
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.author: erhopf
+ms.openlocfilehash: 7ca423a4953dbe05af119d6b6eb12976c722e374
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182572"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393272"
 ---
 # <a name="try-the-speech-service-for-free"></a>Speech Service 체험해 보기
 
@@ -67,7 +67,7 @@ Azure 계정이 만들어지면 다음 섹션의 단계에 따라 Speech 서비�
 
 Speech 서비스 리소스(체험 또는 유료 계층)를 Azure 계정에 추가하려면 다음을 수행합니다.
 
-1. Microsoft 계정을 사용하여 [Azure Portal](https://ms.portal.azure.com/)에 로그인합니다.
+1. Microsoft 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. 포털의 왼쪽 위에서 **리소스 만들기**를 선택합니다.
 

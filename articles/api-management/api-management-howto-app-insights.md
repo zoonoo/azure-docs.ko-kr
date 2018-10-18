@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: a660b36f383eaf1fd0e868200ad7f59aba0f8225
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 52e034f9a0c11c2b27888d181304bc16c3369e4a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42141552"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390026"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Azure Application Insights와 Azure API Management를 통합하는 방법
 
@@ -51,7 +51,7 @@ Azure Application Insight를 사용하려면 먼저 서비스의 인스턴스를
     ![Application Insights 로거](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> 내부적으로 Application Insights 인스턴스의 계측 키를 포함하는 API Management 인스턴스에 [로거](https://docs.microsoft.com/en-us/rest/api/apimanagement/logger/createorupdate) 엔터티가 만들어집니다.
+> 내부적으로 Application Insights 인스턴스의 계측 키를 포함하는 API Management 인스턴스에 [로거](https://docs.microsoft.com/rest/api/apimanagement/logger/createorupdate) 엔터티가 만들어집니다.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>API에 대한 Application Insights 로깅 사용
 
@@ -68,7 +68,7 @@ Azure Application Insight를 사용하려면 먼저 서비스의 인스턴스를
 10. **저장**을 클릭합니다.
 
 > [!NOTE]
-> 내부적으로 이름이 'applicationinsights'인 [진단](https://docs.microsoft.com/en-us/rest/api/apimanagement/diagnostic/createorupdate) 엔터티가 API 수준에서 만들어집니다.
+> 내부적으로 이름이 'applicationinsights'인 [진단](https://docs.microsoft.com/rest/api/apimanagement/diagnostic/createorupdate) 엔터티가 API 수준에서 만들어집니다.
 
 | 설정 이름                        | 값 형식                        | 설명                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -123,5 +123,5 @@ Azure Application Insights에서 받는 항목은 다음과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-+ [Azure Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/)에 대해 자세히 알아봅니다.
++ [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/)에 대해 자세히 알아봅니다.
 + [Azure Event Hubs에 로깅](api-management-howto-log-event-hubs.md)을 살펴봅니다.

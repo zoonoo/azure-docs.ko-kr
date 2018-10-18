@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ee2a72a65902347a2e58f79d0f621c9d08178104
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: d9cf46a1fd28985d9ca98d173bbef17380b7de21
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410309"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354396"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 리소스 공급자 작업
 
@@ -3346,9 +3346,7 @@ ms.locfileid: "47410309"
 > | 액션(Action) | Microsoft.Network/loadBalancers/backendAddressPools/join/action | 부하 분산 장치 백 엔드 주소 풀을 연결합니다. |
 > | 액션(Action) | Microsoft.Network/loadBalancers/backendAddressPools/read | 부하 분산 장치 백 엔드 주소 풀 정의를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/loadBalancers/delete | 부하 분산 장치를 삭제합니다. |
-> | 액션(Action) | Microsoft.Network/loadBalancers/frontendIPConfigurations/join/action | 부하 분산 장치 프런트 엔드 IP 구성을 조인합니다. |
-> | 액션(Action) | Microsoft.Network/loadBalancers/frontendIPConfigurations/read | 부하 분산 장치 프런트 엔드 IP 구성 정의를 가져옵니다. |
-> | 액션(Action) | Microsoft.Network/loadBalancers/inboundNatPools/join/action | 부하 분산 장치 인바운드 NAT 풀을 연결합니다. |
+> | 조치 | Microsoft.Network/loadBalancers/inboundNatPools/join/action | 부하 분산 장치 인바운드 NAT 풀을 연결합니다. |
 > | 액션(Action) | Microsoft.Network/loadBalancers/inboundNatPools/read | 부하 분산 장치 인바운드 NAT 풀 정의를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/loadBalancers/inboundNatRules/delete | 부하 분산 장치 인바운드 NAT 규칙을 삭제합니다. |
 > | 액션(Action) | Microsoft.Network/loadBalancers/inboundNatRules/join/action | 부하 분산 장치 인바운드 NAT 규칙을 연결합니다. |
@@ -3394,9 +3392,9 @@ ms.locfileid: "47410309"
 > | 액션(Action) | Microsoft.Network/networkInterfaces/joinViaPrivateIp/action | 서비스 연결을 통해 리소스를 네트워크 인터페이스에 조인합니다. |
 > | 액션(Action) | Microsoft.Network/networkInterfaces/loadBalancers/read | 네트워크 인터페이스가 속하는 모든 부하 분산 장치를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/networkInterfaces/providers/Microsoft.Insights/metricDefinitions/read | 네트워크 인터페이스에 사용 가능한 메트릭을 가져옵니다. |
-> | 조치 | Microsoft.Network/networkInterfaces/read | 네트워크 인터페이스 정의를 가져옵니다.  |
+> | 액션(Action) | Microsoft.Network/networkInterfaces/read | 네트워크 인터페이스 정의를 가져옵니다.  |
 > | 액션(Action) | Microsoft.Network/networkInterfaces/serviceAssociations/delete | 서비스 연결을 삭제합니다. |
-> | 액션(Action) | Microsoft.Network/networkInterfaces/serviceAssociations/read | 서비스 연결 정의를 가져옵니다. |
+> | 조치 | Microsoft.Network/networkInterfaces/serviceAssociations/read | 서비스 연결 정의를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/networkInterfaces/serviceAssociations/validate/action | 서비스 연결의 유효성을 검사합니다. |
 > | 액션(Action) | Microsoft.Network/networkInterfaces/serviceAssociations/write | 새 서비스 연결을 만들거나 기존 서비스 연결을 수정합니다. |
 > | 액션(Action) | Microsoft.Network/networkInterfaces/tapConfigurations/delete | 네트워크 인터페이스 탭 구성을 삭제합니다. |
@@ -3477,11 +3475,7 @@ ms.locfileid: "47410309"
 > | 액션(Action) | Microsoft.Network/publicIPAddresses/dnsAliases/read | 공용 Ip 주소 Dns 별칭 리소스를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/publicIPAddresses/dnsAliases/write | 공용 Ip 주소 Dns 별칭 리소스를 만듭니다. |
 > | 액션(Action) | Microsoft.Network/publicIPAddresses/join/action | 공용 IP 주소를 연결합니다. |
-> | 액션(Action) | Microsoft.Network/publicIPAddresses/loadBalancerPools/delete | 공용 IP 주소 부하 분산 장치 백 엔드 풀을 삭제합니다. |
-> | 액션(Action) | Microsoft.Network/publicIPAddresses/loadBalancerPools/join/action | 공용 IP 주소 부하 분산 장치 백 엔드 풀을 조인합니다. |
-> | 액션(Action) | Microsoft.Network/publicIPAddresses/loadBalancerPools/read | 공용 IP 주소 부하 분산 장치 백 엔드 풀 정의를 가져옵니다. |
-> | 액션(Action) | Microsoft.Network/publicIPAddresses/loadBalancerPools/write | 공용 IP 주소 부하 분산 장치 백 엔드 풀을 만들거나 기존 공용 IP 주소 부하 분산 장치 백 엔드 풀을 업데이트합니다. |
-> | 액션(Action) | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/read | 공용 IP 주소의 진단 설정을 가져옵니다. |
+> | 조치 | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/read | 공용 IP 주소의 진단 설정을 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/write | 공용 IP 주소의 진단 설정을 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/logDefinitions/read | 공용 IP 주소의 로그 정의를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/metricDefinitions/read | 공용 IP 주소의 메트릭 정의를 가져옵니다. |
@@ -4459,7 +4453,7 @@ ms.locfileid: "47410309"
 > | 액션(Action) | Microsoft.ServiceFabric/clusters/applications/services/delete | 서비스를 삭제합니다. |
 > | 액션(Action) | Microsoft.ServiceFabric/clusters/applications/services/partitions/read | 파티션을 읽습니다. |
 > | 액션(Action) | Microsoft.ServiceFabric/clusters/applications/services/partitions/replicas/read | 복제본을 읽습니다. |
-> | 액션(Action) | Microsoft.ServiceFabric/clusters/applications/services/read | 서비스를 읽습니다. |
+> | 조치 | Microsoft.ServiceFabric/clusters/applications/services/read | 서비스를 읽습니다. |
 > | 액션(Action) | Microsoft.ServiceFabric/clusters/applications/services/statuses/read | 서비스 상태를 읽습니다. |
 > | 액션(Action) | Microsoft.ServiceFabric/clusters/applications/services/write | 서비스를 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.ServiceFabric/clusters/applications/write | 응용 프로그램을 만들거나 업데이트합니다. |
@@ -5342,13 +5336,13 @@ ms.locfileid: "47410309"
 > | 액션(Action) | microsoft.web/sites/backups/delete | Web Apps Backup을 삭제합니다. |
 > | 액션(Action) | microsoft.web/sites/backups/list/action | Web Apps Backup을 나열합니다. |
 > | 액션(Action) | Microsoft.Web/sites/backups/Read | 웹앱 백업의 속성을 가져옵니다. |
-> | 조치 | microsoft.web/sites/backups/restore/action | Web Apps Backup을 복원합니다. |
+> | 액션(Action) | microsoft.web/sites/backups/restore/action | Web Apps Backup을 복원합니다. |
 > | 액션(Action) | microsoft.web/sites/backups/write | Web Apps 백업을 업데이트합니다. |
 > | 액션(Action) | microsoft.web/sites/config/delete | Web Apps 구성을 삭제합니다. |
 > | 액션(Action) | Microsoft.Web/sites/config/list/Action | 게시 자격 증명, 앱 설정 및 연결 문자열과 같은 웹앱 보안 중요 설정을 나열합니다. |
 > | 액션(Action) | Microsoft.Web/sites/config/Read | 웹앱 구성 설정을 가져옵니다. |
 > | 액션(Action) | microsoft.web/sites/config/snapshots/read | Web Apps 구성 스냅숏을 가져옵니다. |
-> | 액션(Action) | Microsoft.Web/sites/config/Write | 웹앱 구성 설정을 업데이트합니다. |
+> | 조치 | Microsoft.Web/sites/config/Write | 웹앱 구성 설정을 업데이트합니다. |
 > | 액션(Action) | microsoft.web/sites/containerlogs/action | 웹앱에 대한 압축된 컨테이너 로그를 가져옵니다. |
 > | 액션(Action) | microsoft.web/sites/continuouswebjobs/delete | Web Apps 연속 웹 작업을 삭제합니다. |
 > | 액션(Action) | microsoft.web/sites/continuouswebjobs/read | Web Apps 연속 웹 작업을 가져옵니다. |
@@ -5509,13 +5503,13 @@ ms.locfileid: "47410309"
 > | 액션(Action) | microsoft.web/sites/slots/hostnamebindings/delete | Web Apps 슬롯 호스트 이름 바인딩을 삭제합니다. |
 > | 액션(Action) | microsoft.web/sites/slots/hostnamebindings/read | Web Apps 슬롯 호스트 이름 바인딩을 가져옵니다. |
 > | 액션(Action) | microsoft.web/sites/slots/hostnamebindings/write | Web Apps 슬롯 호스트 이름 바인딩을 업데이트합니다. |
-> | 조치 | microsoft.web/sites/slots/hybridconnection/delete | Web Apps 슬롯 하이브리드 연결을 삭제합니다. |
+> | 액션(Action) | microsoft.web/sites/slots/hybridconnection/delete | Web Apps 슬롯 하이브리드 연결을 삭제합니다. |
 > | 액션(Action) | microsoft.web/sites/slots/hybridconnection/read | Web Apps 슬롯 하이브리드 연결을 가져옵니다. |
 > | 액션(Action) | microsoft.web/sites/slots/hybridconnection/write | Web Apps 슬롯 하이브리드 연결을 업데이트합니다. |
 > | 액션(Action) | microsoft.web/sites/slots/hybridconnectionnamespaces/relays/delete | Web Apps 슬롯 하이브리드 연결 네임스페이스 릴레이를 삭제합니다. |
 > | 액션(Action) | microsoft.web/sites/slots/hybridconnectionnamespaces/relays/write | Web Apps 슬롯 하이브리드 연결 네임스페이스 릴레이를 업데이트합니다. |
 > | 액션(Action) | microsoft.web/sites/slots/hybridconnectionrelays/read | Web Apps 슬롯 하이브리드 연결 릴레이를 가져옵니다. |
-> | 액션(Action) | microsoft.web/sites/slots/instances/deployments/read | Web Apps 슬롯 인스턴스 배포를 가져옵니다. |
+> | 조치 | microsoft.web/sites/slots/instances/deployments/read | Web Apps 슬롯 인스턴스 배포를 가져옵니다. |
 > | 액션(Action) | microsoft.web/sites/slots/instances/processes/delete | Web Apps 슬롯 인스턴스 프로세스를 삭제합니다. |
 > | 액션(Action) | microsoft.web/sites/slots/instances/processes/read | Web Apps 슬롯 인스턴스 프로세스를 가져옵니다. |
 > | 액션(Action) | microsoft.web/sites/slots/instances/read | Web Apps 슬롯 인스턴스를 가져옵니다. |

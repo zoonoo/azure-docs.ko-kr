@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 59b33bcc75890372a7b27b9aca40ad1e22c58281
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: c60dc354fa0c5f64ece9acae95744477c145bc27
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364281"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393629"
 ---
 # <a name="integrate-azure-ad-logs-with-splunk-by-using-azure-monitor-preview"></a>Azure Monitor(미리 보기)를 사용하여 Splunk와 Azure AD 로그 통합
 
@@ -55,4 +55,4 @@ ms.locfileid: "46364281"
 
 * [Azure Monitor에서 감사 로그 스키마 해석](reference-azure-monitor-audit-log-schema.md)
 * [Azure Monitor에서 로그인 로그 스키마 해석](reference-azure-monitor-sign-ins-log-schema.md)
-* [질문과 대답 및 알려진 문제](concept-activity-logs-in-azure-monitor.md#frequently-asked-questions)
+* [질문과 대답 및 알려진 문제](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

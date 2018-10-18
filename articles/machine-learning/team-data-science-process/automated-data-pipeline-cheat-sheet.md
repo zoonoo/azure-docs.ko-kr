@@ -4,7 +4,7 @@ description: 데이터가 온-프레미스인지, 스트리밍인지, Azure에 �
 services: machine-learning
 documentationcenter: ''
 author: garyericson
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 22674d6b-4491-4805-a3ac-d423611177bb
 ms.service: machine-learning
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: garye
-ms.openlocfilehash: 54a3aca4c3519948a9e18d035565f746964b38bc
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: cd08f6a31f431900a2cb7ed9ed222409f9583b55
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836163"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393374"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Azure Machine Learning 예측에 대한 자동화된 데이터 파이프라인용 참고 자료
 **Microsoft Azure Machine Learning 자동화 데이터 파이프라인 참고 자료** 를 사용하면 예측 분석 모델별로 점수를 매길 수 있는 Machine Learning 웹 서비스로 데이터를 가져오는 데 사용할 수 있는 기술을 탐색하는 데 도움이 됩니다.
 
-점수 매기기를 위해 웹 서비스 끝점으로 데이터를 이동할 때 데이터가 온-프레미스인지, 클라우드에 있는지, 실시간 스트리밍인지 여부에 따라 여러 메커니즘을 사용할 수 있습니다.
+점수 매기기를 위해 웹 서비스 엔드포인트로 데이터를 이동할 때 데이터가 온-프레미스인지, 클라우드에 있는지, 실시간 스트리밍인지 여부에 따라 여러 메커니즘을 사용할 수 있습니다.
 이 참고 자료는 필요한 결정을 내리는 단계를 안내하고 솔루션 개발에 도움이 될 수 있는 링크를 제공합니다.
 
 ## <a name="download-the-machine-learning-automated-data-pipeline-cheat-sheet"></a>Machine Learning 자동화된 데이터 파이프라인 참고 자료 다운로드

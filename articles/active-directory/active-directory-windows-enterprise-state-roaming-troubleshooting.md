@@ -18,25 +18,26 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: c7a2428e4e5e3b5af0e9e01514ba433707e6a3c8
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: c9d22bab6d45bd301b37d367c5dd380ff6cd7a1a
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022801"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321923"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 상태 로밍 설정 문제 해결
 
 이 항목은 엔터프라이즈 상태 로밍과 관련된 문제를 진단하고 해결하는 방법에 관한 정보와 알려진 문제 목록을 제공합니다.
 
 ## <a name="preliminary-steps-for-troubleshooting"></a>문제 해결을 위한 준비 단계 
+
 문제 해결을 시작하기 전에 사용자 및 장치가 적절하게 구성되었고 Enterprise State Roaming의 모든 요구 사항을 충족하는지 확인합니다. 
 
 1. 최신 업데이트된 Windows 10와 최소 버전 1511(OS 빌드 10586 이상)이 장치에 설치되어 있습니다. 
-2. 장치는 Azure AD나 하이브리드 Azure AD에 조인되어 있습니다. 자세한 내용은 [Azure AD에서 장치를 제어하는 방법](device-management-introduction.md)을 참조하세요.
-3. [Enterprise State Roaming을 사용하려면](active-directory-windows-enterprise-state-roaming-enable.md)에 설명된 대로 Azure AD에서 테넌트에 대해 **Enterprise State Roaming**을 활성화합니다. 모든 사용자 또는 선택한 사용자 그룹만을 로밍할 수 있습니다.
-4. 이미 사용자에게는 Azure Active Directory Premium 라이선스가 할당되어야 합니다.  
-25. Enterprise State Roaming 기능에 액세스하려면 장치를 다시 시작해야 하고 사용자가 다시 로그인해야 합니다.
+1. 장치는 Azure AD나 하이브리드 Azure AD에 조인되어 있습니다. 자세한 내용은 [Azure AD에서 장치를 제어하는 방법](device-management-introduction.md)을 참조하세요.
+1. [Enterprise State Roaming을 사용하려면](active-directory-windows-enterprise-state-roaming-enable.md)에 설명된 대로 Azure AD에서 테넌트에 대해 **Enterprise State Roaming**을 활성화합니다. 모든 사용자 또는 선택한 사용자 그룹만을 로밍할 수 있습니다.
+1. 이미 사용자에게는 Azure Active Directory Premium 라이선스가 할당되어야 합니다.  
+1. Enterprise State Roaming 기능에 액세스하려면 장치를 다시 시작해야 하고 사용자가 다시 로그인해야 합니다.
 
 ## <a name="information-to-include-when-you-need-help"></a>도움이 필요한 경우 포함할 정보
 아래 지침 관련 문제를 해결할 수 없는 경우 지원 엔지니어에 문의할 수 있습니다. 문의할 때 다음 정보를 포함합니다.
@@ -55,13 +56,15 @@ ms.locfileid: "44022801"
 ## <a name="verify-sync-and-the-sync-your-settings-settings-page"></a>동기화 및 "설정 동기화" 설정 페이지 확인 
 
 1. Enterprise State Roaming을 허용하도록 구성되어 있는 도메인에 Windows 10 PC를 연결한 후에 회사 계정으로 로그인합니다. **설정** > **계정** > **설정 동기화**로 이동하여 동기화 및 개별 설정이 켜져 있는지 그리고 설정 페이지의 맨 위에서 사용자가 자신의 작업 계정과 동기화 중임을 나타내는지 확인합니다. **설정** > **계정** > **사용자 정보**에서 동일한 계정이 로그인 계정으로 사용되고 있는지 확인합니다. 
-2. 작업 표시줄을 화면 오른쪽이나 위쪽으로 이동하는 등 원본 컴퓨터에서 일부 내용을 변경하여 여러 대의 컴퓨터에서 동기화가 작동하는지 확인합니다. 변경 사항이 5분 이내에 두 번째 컴퓨터에 적용되는지 확인합니다. 
+1. 작업 표시줄을 화면 오른쪽이나 위쪽으로 이동하는 등 원본 컴퓨터에서 일부 내용을 변경하여 여러 대의 컴퓨터에서 동기화가 작동하는지 확인합니다. 변경 사항이 5분 이내에 두 번째 컴퓨터에 적용되는지 확인합니다. 
+
   * 화면을 잠갔다가 해제하면(Win + L) 동기화 트리거에 도움이 될 수 있습니다.
   * Enterprise State Roaming은 컴퓨터 계정이 아닌 사용자 계정에 연결되어 있으므로 동기화가 작동하려면 두 PC에서 동일한 계정을 사용하여 로그인해야 합니다.
 
 **잠재적인 문제**: **설정** 페이지에서 제어를 사용할 수 없는 경우 "일부 Windows 기능은 Microsoft 계정 또는 회사 계정을 사용하는 경우에만 사용할 수 있습니다."라는 메시지가 표시됩니다. 장치가 도메인에 조인되어 Azure AD에 등록되도록 설정되었지만 Azure AD에 성공적으로 인증되지 않은 경우 이러한 문제가 발생할 수 있습니다. 이는 장치 정책을 적용해야 하지만 이 응용 프로그램이 비동기적으로 작동하여 몇 시간 지연되는 것이 원인일 수 있습니다. 
 
 ### <a name="verify-the-device-registration-status"></a>장치 등록 상태 확인
+
 엔터프라이즈 상태 로밍은 Azure AD에 등록된 장치가 필요합니다. 엔터프라이즈 상태 로밍에는 해당하지 않지만 아래 지침을 따르면 Windows 10 클라이언트 등록 여부뿐만 아니라, 지문, Azure AD 설정 URL, NGC 상태 및 기타 정보를 확인하는 데 도움이 됩니다.
 
 1.  비관리자 권한 명령 프롬프트를 엽니다. Windows에서 이 작업을 수행하려면 실행 시작 관리자(Win + R)를 열고 "cmd"를 입력하여 엽니다.
@@ -74,6 +77,7 @@ ms.locfileid: "44022801"
 **잠재적인 문제**: **SettingsUrl** 필드가 비어 있고 장치가 동기화되지 않습니다. 사용자가 Azure Active Directory 포털에서 엔터프라이즈 상태 로밍을 사용하기 전에 장치에 마지막으로 로그인했을 수 있습니다. 장치를 다시 시작하고 사용자에게 로그인하게 합니다. 필요한 경우 포털에서 IT 관리자에게 설정 및 엔터프라이즈 앱 데이터 동기화가 허용되는 사용자를 비활성화했다가 다시 활성화하도록 합니다. 다시 활성화되면 장치를 다시 시작하고 사용자에게 로그인하게 합니다. 그래도 문제가 해결되지 않는다면 잘못된 장치 인증서의 경우 **SettingsUrl**가 비어 있는 것일 수 있습니다. 이 경우 관리자 권한 명령 프롬프트 창에서 "*dsregcmd.exe /leave*"를 실행하고 다시 부팅하여 등록을 다시 시도하면 이 문제 해결에 도움이 될 수 있습니다.
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>엔터프라이즈 상태 로밍 및 Multi-Factor Authentication 
+
 특정 조건에서 엔터프라이즈 상태 로밍은 Azure Multi-Factor Authentication이 구성된 경우 데이터를 동기화하는 데 실패할 수 있습니다. 이러한 현상에 대한 자세한 내용은 [KB3193683](https://support.microsoft.com/kb/3193683) 지원 문서를 참조하세요. 
 
 **잠재적인 문제**: Azure Active Directory 포털에서 Multi-Factor Authentication을 필요로 하도록 장치가 구성된 경우 암호를 사용하여 Windows 10 장치에 로그인하는 동안 설정을 동기화하는 데 실패할 수 있습니다. 이러한 형식의 Multi-Factor Authentication 구성은 Azure 관리자 계정을 보호하도록 계획되었습니다. 관리자 사용자는 Office 365와 같은 다른 Azure 서비스에 액세스하는 동안 Microsoft Passport for Work PIN을 사용하거나 Multi-Factor Authentication을 완료하여 해당 Windows 10 장치에 로그인함으로써 동기화할 수 있습니다.
@@ -81,8 +85,8 @@ ms.locfileid: "44022801"
 **잠재적인 문제**: 관리자가 Active Directory Federation Services Multi-Factor Authentication 조건부 액세스 정책을 구성하고 장치에 대한 액세스 토큰이 만료된 경우 동기화는 실패할 수 있습니다. Office 365와 같은 다른 Azure 서비스에 액세스하는 동안 Microsoft Passport for Work PIN을 사용하거나 Multi-Factor Authentication을 완료하여 로그인 및 로그아웃해야 합니다.
 
 ### <a name="event-viewer"></a>이벤트 뷰어
-고급 문제 해결의 경우 이벤트 뷰어를 사용하여 특정 오류를 찾을 수 있습니다. 이는 아래 표에 설명되어 있습니다. 이벤트는 이벤트 뷰어 > 응용 프로그램 및 서비스 로그 > **Microsoft** > **Windows** > **SettingSync-Azure**에서, 그리고 동기화의 ID 관련 문제는 **Microsoft** > **Windows** > **AAD**에서 찾을 수 있습니다.
 
+고급 문제 해결의 경우 이벤트 뷰어를 사용하여 특정 오류를 찾을 수 있습니다. 이는 아래 표에 설명되어 있습니다. 이벤트는 이벤트 뷰어 > 응용 프로그램 및 서비스 로그 > **Microsoft** > **Windows** > **SettingSync-Azure**에서, 그리고 동기화의 ID 관련 문제는 **Microsoft** > **Windows** > **AAD**에서 찾을 수 있습니다.
 
 ## <a name="known-issues"></a>알려진 문제
 
@@ -108,8 +112,6 @@ Windows 10 v1511 클라이언트에 2016년 7월 누적 업데이트가 있는�
 
 데이터 누출을 방지하기 위해 [Windows Information Protection](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-wip)으로 보호되는 데이터는 Windows 10 기념일 업데이트를 사용하는 장치에 대한 엔터프라이즈 상태 로밍을 통해 동기화되지 않습니다.
 
-
-
 **권장 작업**  
 없음. 이 문제는 추후에 있을 Windows에서 해결될 것입니다.
 
@@ -134,6 +136,7 @@ Windows 10 v1511 클라이언트에 누적 업데이트([KB3140743](https://supp
 ---
 
 ### <a name="sync-does-not-work-on-devices-that-use-smart-card-for-login"></a>동기화는 로그인 시 스마트 카드를 사용하는 장치에서 작동하지 않음
+
 스마트 카드 또는 가상 스마트 카드를 사용하여 Windows 장치에 로그인하려고 하면 설정 동기화가 중지됩니다.     
 
 **권장 작업**  
@@ -142,6 +145,7 @@ Windows 10 v1511 클라이언트에 누적 업데이트([KB3140743](https://supp
 ---
 
 ### <a name="domain-joined-device-is-not-syncing-after-leaving-corporate-network"></a>도메인에 가입된 장치가 회사 네트워크에서 벗어난 후 동기화되지 않음     
+
 Azure AD에 등록된 도메인 가입 장치는 오랜 시간 장치가 현장을 벗어나 있고 도메인 인증을 완료할 수 없는 경우 동기화가 실패할 수 있습니다.
 
 **권장 작업**  
@@ -149,8 +153,9 @@ Azure AD에 등록된 도메인 가입 장치는 오랜 시간 장치가 현장�
 
 ---
 
- ### <a name="azure-ad-joined-device-is-not-syncing-and-the-user-has-a-mixed-case-user-principal-name"></a>Azure AD 조인 장치가 동기화되지 않고 사용자 계정 이름에 대/소문자가 혼합되어 있습니다.
- 사용자의 UPN에 대/소문자가 혼합되어 있고(예: username 대신 UserName) 사용자가 Windows 10 빌드 10586에서 14393으로 업그레이드한 Azure AD 조인 장치에 있는 경우 사용자 장치는 동기화에 실패할 수 있습니다. 
+### <a name="azure-ad-joined-device-is-not-syncing-and-the-user-has-a-mixed-case-user-principal-name"></a>Azure AD 조인 장치가 동기화되지 않고 사용자 계정 이름에 대/소문자가 혼합되어 있습니다.
+
+사용자의 UPN에 대/소문자가 혼합되어 있고(예: username 대신 UserName) 사용자가 Windows 10 빌드 10586에서 14393으로 업그레이드한 Azure AD 조인 장치에 있는 경우 사용자 장치는 동기화에 실패할 수 있습니다. 
 
 **권장 작업**  
 사용자가 장치의 연결을 해제하고 클라우드에 다시 연결해야 합니다. 이렇게 하려면 로컬 관리자 사용자로 로그인하고 **설정** > **시스템** > **정보**로 이동하여 장치의 연결을 해제한 후 "회사 또는 학교에서 관리 또는 연결 끊기"를 선택합니다. 아래 파일을 정리한 다음 **설정** > **시스템** > **정보**에서 "회사 또는 학교에 연결"을 선택하여 장치를 Azure AD에 다시 연결합니다. 장치를 계속 Azure Active Directory에 연결하고 흐름을 완료합니다.
@@ -162,6 +167,7 @@ Azure AD에 등록된 도메인 가입 장치는 오랜 시간 장치가 현장�
 ---
 
 ### <a name="event-id-6065-80070533-this-user-cant-sign-in-because-this-account-is-currently-disabled"></a>이벤트 ID 6065: 80070533 이 사용자는 현재 이 계정을 사용할 수 없기 때문에 로그인 할 수 없음  
+
 사용자의 자격 증명이 만료된 경우 이벤트 뷰어의 SettingSync/Debug 로그 아래에 이 오류가 표시될 수 있습니다. 또한 테넌트가 AzureRMS를 자동으로 프로비전하지 않은 경우에도 이 오류가 발생할 수 있습니다. 
 
 **권장 작업**  
@@ -170,12 +176,14 @@ Azure AD에 등록된 도메인 가입 장치는 오랜 시간 장치가 현장�
 ---
 
 ### <a name="event-id-1098-error-0xcaa5001c-token-broker-operation-failed"></a>이벤트 ID 1098: 오류: 0xCAA5001C 토큰 브로커 작업 실패  
+
 AAD/Operational 로그에 있는 이벤트 뷰어에서 이벤트 1104: AAD 클라우드 AP 플러그 인 호출이 반환된 토큰 가져오기 오류: 0xC000005F와 함께 이 오류가 나타날 수 있습니다. 이 문제는 권한 또는 소유권 특성이 없는 경우 발생합니다.  
 
 **권장 작업**  
 [KB3196528](https://support.microsoft.com/kb/3196528)에 나열된 단계를 수행합니다.  
 
 ## <a name="related-topics"></a>관련된 항목
+
 * [엔터프라이즈 상태 로밍 개요](active-directory-windows-enterprise-state-roaming-overview.md)
 * [Azure Active Directory에서 엔터프라이즈 상태 로밍 활성화](active-directory-windows-enterprise-state-roaming-enable.md)
 * [설정 및 데이터 로밍 FAQ](active-directory-windows-enterprise-state-roaming-faqs.md)

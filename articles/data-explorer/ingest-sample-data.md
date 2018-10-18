@@ -2,18 +2,18 @@
 title: Azure 데이터 탐색기로 샘플 데이터 수집
 description: Azure 데이터 탐색기로 날씨 관련 샘플 데이터를 수집(로드)하는 방법을 알아봅니다.
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 7eb0e48a5b66775ac97ed0cab751db0ef367f667
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7fdd32f9263b4d1694a0516a98b681ba8744ab6b
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964618"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394581"
 ---
 # <a name="ingest-sample-data-into-azure-data-explorer"></a>Azure 데이터 탐색기로 샘플 데이터 수집
 

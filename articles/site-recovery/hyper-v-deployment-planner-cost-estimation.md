@@ -5,15 +5,15 @@ services: site-recovery
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: d5b3bf62999c197c437e55a66ee6ba935bdc6ea8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 40a8e2e6d994608d4aa26f6d9b3723c0ee27d3db
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428533"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387245"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner의 비용 예측 보고서 
 
@@ -109,7 +109,7 @@ VM을 수동으로 추가하려면:
 
     a. **VM 수**
 
-    나. **IaaS 크기(선택)**
+    b. **IaaS 크기(선택)**
 
     다. **저장소 유형(표준/프리미엄)**
 
@@ -143,7 +143,7 @@ VM을 수동으로 추가하려면:
 
 **연간 DR 드릴 횟수**: 1년 동안 DR 드릴을 수행하는 횟수입니다. 기본적으로 1년에 4번입니다. 특정 VM에 대한 기간을 수정하거나 새 값을 모든 VM에 적용할 수 있습니다. 맨 위 행에 새 값을 입력하고 **모든 항목에 적용**을 선택합니다. 연간 DR 드릴 횟수와 각 DR 드릴 기간에 따라 총 DR 드릴 비용이 계산됩니다. 
 
-**각 DR 드릴 기간(일)**: 각 DR 드릴의 기간입니다. [재해 복구 Software Assurance 혜택](https://azure.microsoft.com/en-in/pricing/details/site-recovery)에 따라 기본적으로 90일마다 7일입니다. 특정 VM에 대한 기간을 수정하거나 새 값을 모든 VM에 적용할 수 있습니다. 맨 위 행에 새 값을 입력하고 **모든 항목에 적용**을 선택합니다. 연간 DR 드릴 횟수와 각 DR 드릴 기간에 따라 총 DR 드릴 비용이 계산됩니다.
+**각 DR 드릴 기간(일)**: 각 DR 드릴의 기간입니다. [재해 복구 Software Assurance 혜택](https://azure.microsoft.com/pricing/details/site-recovery)에 따라 기본적으로 90일마다 7일입니다. 특정 VM에 대한 기간을 수정하거나 새 값을 모든 VM에 적용할 수 있습니다. 맨 위 행에 새 값을 입력하고 **모든 항목에 적용**을 선택합니다. 연간 DR 드릴 횟수와 각 DR 드릴 기간에 따라 총 DR 드릴 비용이 계산됩니다.
  
 **OS 종류**: VM의 운영 체제(OS) 종류입니다. Windows 또는 Linux입니다. OS 종류가 Windows이면 Azure 하이브리드 사용 혜택을 해당 VM에 적용할 수 있습니다. 
 
@@ -167,7 +167,7 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>지원되는 통화
 Site Recovery Deployment Planner는 다음 통화 중 하나로 비용 보고서를 생성할 수 있습니다.
 
-|통화|Name||통화|Name||통화|Name|
+|통화|이름||통화|이름||통화|이름|
 |---|---|---|---|---|---|---|---|
 |ARS|아르헨티나 페소($)||AUD|호주 달러($)||BRL|브라질 헤알(R$)|
 |CAD|캐나다 달러($)||CHF|스위스 프랑(chf)||DKK|덴마크 크로네(kr)|

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: ef404b106d600f5cb25a46319d75c8978148b466
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: d0826d60d766874ddd186bcf406ea987134dab16
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895877"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385869"
 ---
 # <a name="azure-service-fabric-security-checklist"></a>Azure Service Fabric 보안 검사 목록
 이 문서에서는 Azure Service Fabric 환경을 보호하는 데 도움이 되는 사용하기 쉬운 검사 목록을 제공합니다.
@@ -37,13 +37,13 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 |[X.509 인증서 및 Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) | <ul><li>프로덕션 워크로드를 실행하는 클러스터에 사용되는 [인증서](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/working-with-certificates)는 올바르게 구성된 Windows Server 인증서 서비스를 사용하여 만들어지거나 승인된 [CA(인증 기관)](https://en.wikipedia.org/wiki/Certificate_authority)에서 획득해야 합니다.</li><li>프로덕션 환경에서 [MakeCert.exe](https://msdn.microsoft.com/library/windows/desktop/aa386968.aspx)와 같은 도구를 사용하여 만든 [임시 또는 테스트 인증서](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-create-temporary-certificates-for-use-during-development)를 사용하지 마세요. </li><li>[자체 서명된 인증서](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security)를 사용할 수 있지만 프로덕션이 아닌 테스트 클러스터에 대해서만 이러한 인증서를 사용해야 합니다.</li></ul>|
 |[클러스터 보안](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) | <ul><li>클러스터 보안 시나리오에는 노드 간 보안, 클라이언트-노드 보안, [역할 기반 액세스 제어(RBAC)](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-roles)가 포함됩니다.</li></ul>|
 |[클러스터 인증](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) | <ul><li>클러스터 페더레이션에 대한 [노드 간 통신](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-fabric/service-fabric-cluster-security.md)을 인증합니다. </li></ul>|
-|[서버 인증](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) | <ul><li>관리 클라이언트에 대해 [클러스터 관리 끝점](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)을 인증합니다.</li></ul>|
+|[서버 인증](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) | <ul><li>관리 클라이언트에 대해 [클러스터 관리 엔드포인트](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)를 인증합니다.</li></ul>|
 |[응용 프로그램 보안](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)| <ul><li>응용 프로그램 구성 값의 암호화 및 암호 해독</li><li>   복제 중에 노드 간 데이터 암호화</li></ul>|
 |[클러스터 인증서](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) | <ul><li>이 인증서는 클러스터에서 노드 간의 통신을 보호해야 합니다.</li><li>    지문 섹션에서 기본 인증서의 지문 및 ThumbprintSecondary 변수에서 보조 인증서의 지문을 설정합니다.</li></ul>|
 |[ServerCertificate](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security)| <ul><li>이 인증서가 클러스터에 연결하려고 시도할 때 클라이언트에 표시됩니다. 업그레이드에 두 개의 다른 서버 인증서, 기본 및 보조 인증서를 사용할 수 있습니다.</li></ul>|
 |ClientCertificateThumbprints| <ul><li>인증된 클라이언트에 설치하려는 인증서의 집합입니다. </li></ul>|
 |ClientCertificateCommonNames| <ul><li>CertificateCommonName에 대한 첫 번째 클라이언트 인증서의 일반 이름을 설정합니다. CertificateIssuerThumbprint는 이 인증서의 발급자 지문입니다. </li></ul>|
-|ReverseProxyCertificate| <ul><li>이는 [역방향 프록시](https://docs.microsoft.com/en-in/azure/service-fabric/service-fabric-reverseproxy)를 보호하려는 경우 지정될 수 있는 선택적인 인증서입니다. </li></ul>|
+|ReverseProxyCertificate| <ul><li>이는 [역방향 프록시](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy)를 보호하려는 경우 지정될 수 있는 선택적인 인증서입니다. </li></ul>|
 |Key Vault| <ul><li>Azure에서 Service Fabric 클러스터에 대한 인증서를 관리하는 데 사용됩니다.  </li></ul>|
 
 

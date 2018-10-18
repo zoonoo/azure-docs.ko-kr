@@ -2,24 +2,18 @@
 title: Microsoft Azure Data Box Disk 시스템 요구 사항 | Microsoft Docs
 description: Azure Data Box Disk의 소프트웨어 및 네트워킹 요구 사항에 대해 알아봅니다.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/06/2018
 ms.author: alkohli
-ms.openlocfilehash: aaa4e4bb24ca42adb9d283e6286dbef879bcb1ea
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: d10ca5d704892ae0a1494d729b46abf0fc06aa64
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299851"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092255"
 ---
 # <a name="azure-data-box-disk-system-requirements-preview"></a>Azure Data Box Disk 시스템 요구 사항(미리 보기)
 

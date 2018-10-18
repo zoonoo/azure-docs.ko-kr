@@ -7,19 +7,19 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 3cd3ebf86221db1531bd19e94bb072b4559d07d6
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: fc354a9545f3073a858c2b669d428d1fa4185073
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395596"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377483"
 ---
 # <a name="usage-scenarios-for-query-store"></a>쿼리 저장소 사용 시나리오
 
 **적용 대상:** Azure Database for PostgreSQL 9.6 및 10
 
 > [!IMPORTANT]
-> Query Store 기능은 일부 지역에서 공개 미리 보기로 제공됩니다.
+> 쿼리 저장소 기능은 공용 미리 보기로 제공됩니다.
 
 예측 가능한 작업 로드 성능을 추적하고 유지 관리하는 것이 중요한 매우 다양한 시나리오에서 쿼리 저장소를 사용할 수 있습니다. 다음 예제를 살펴보세요. 
 - 비용이 많이 드는 상위 쿼리 식별 및 조정 

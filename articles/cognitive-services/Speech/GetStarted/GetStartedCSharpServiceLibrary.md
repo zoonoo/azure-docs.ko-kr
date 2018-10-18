@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 5716f7a0af16bd3e40dea4468e2fae884f911718
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e9b3d3207f5aca6cba3555ba2578b5c66b3bd193
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967560"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343694"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>빠른 시작: .NET Windows용 C&#35;에서 Bing Speech 인식 서비스 라이브러리 사용
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 서비스 라이브러리는 자신의 클라우드 서비스가 있고 이 서비스에서 Speech Service를 호출하려는 개발자를 위한 것입니다. 장치에 바인딩된 응용 프로그램에서 음성 인식 서비스를 호출하려면 이 SDK를 사용하지 마세요. 대신 다른 클라이언트 라이브러리 또는 REST API를 사용합니다.
 

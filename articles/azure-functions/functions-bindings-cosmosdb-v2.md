@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 0ea2a58e61d781e6ebfb72b860a3b7aed6ce0c7d
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 0726bd3ded0618d7fb45a589c21325717da7a5cf
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394484"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319033"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Functions 2.x의 Azure Cosmos DB 바인딩
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
-> * [버전 1 - GA](functions-bindings-cosmosdb.md)
-> * [버전 2 - 미리 보기](functions-bindings-cosmosdb-v2.md)
+> * [버전 1](functions-bindings-cosmosdb.md)
+> * [버전 2](functions-bindings-cosmosdb-v2.md)
 
 이 아티클에서는 Azure Functions 2.x에서 [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) 바인딩을 사용하는 방법을 설명합니다. Azure Functions는 Azure Cosmos DB에 대한 트리거, 입력 및 출력 바인딩을 지원합니다.
 

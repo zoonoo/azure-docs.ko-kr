@@ -2,18 +2,18 @@
 title: Site Recovery와 CSP(클라우드 솔루션 공급자) 프로그램을 사용하여 다중 테넌트 환경에서 Azure에 대한 VMware 복제 설정 | Microsoft Docs
 description: CSP를 통해 테넌트 구독을 만들고 관리하며 다중 테넌트 설정에서 Azure Site Recovery를 배포하는 방법을 설명합니다
 services: site-recovery
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: d384a77054cdcab0305b9e6d3fe5bb824e49bb16
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: bd356a7e4285f8663b91da1f200cc2ae3c266bf3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916805"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354124"
 ---
 # <a name="set-up-vmware-replication-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>CSP(클라우드 솔루션 공급자) 프로그램을 사용하여 다중 테넌트 환경에서 VMware 복제 설정
 

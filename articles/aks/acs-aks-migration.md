@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
-ms.openlocfilehash: cb143998ac46f7f86b2dbf47b69cee7843418f5d
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: e42b0e7bd1bce40b7c58d75cb07f5a3f8afa5836
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191378"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385044"
 ---
 # <a name="migrating-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>ACS(Azure Container Service)에서 AKS(Azure Kubernetes Service)로 마이그레이션
 
@@ -29,7 +29,7 @@ ACS와 AKS는 마이그레이션에 영향을 주는 일부 주요 영역에서 
     * Azure 디스크에 대한 사용자 지정 `StorageClass` 개체는 `unmanaged`에서 `managed`로 변경해야 합니다.
     * 모든 `PersistentVolumes`에서 `kind: Managed`를 사용해야 합니다.
 * AKS는 현재 하나의 에이전트 풀만 지원합니다.
-* Windows Server 기반 노드는 현재 [비공개 미리 보기](https://azure.microsoft.com/en-us/blog/kubernetes-on-azure/)로 있습니다.
+* Windows Server 기반 노드는 현재 [비공개 미리 보기](https://azure.microsoft.com/blog/kubernetes-on-azure/)로 있습니다.
 * AKS [지원 지역](https://docs.microsoft.com/azure/aks/container-service-quotas) 목록을 확인합니다.
 * AKS는 호스팅된 Kubernetes 제어 평면을 사용하는 관리되는 서비스입니다. 이전에 ACS 마스터의 구성을 수정한 경우 응용 프로그램을 수정해야 할 수도 있습니다
 
@@ -48,12 +48,12 @@ AKS에서 Kubernetes 제어 평면을 관리하는 동안에도 새 클러스터
 
 예제:
 
-| Name | 개수 | VM 크기 | 운영 체제 |
+| 이름 | 개수 | VM 크기 | 운영 체제 |
 | --- | --- | --- | --- |
 | agentpool0 | 3 | Standard_D8_v2 | Linux |
 | agentpool1 | 1 | Standard_D2_v2 | Windows |
 
-마이그레이션 중에 추가 가상 머신이 구독에 배포되므로 할당량과 한도가 이러한 리소스에 충분한지 확인해야 합니다. [Azure 구독 및 서비스 제한](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits)을 검토하여 자세히 알아볼 수 있습니다. 현재 할당량을 확인하려면 Azure Portal에서 [구독 블레이드](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)로 이동하고, 구독을 선택한 다음, `Usage + quotas`를 선택합니다.
+마이그레이션 중에 추가 가상 머신이 구독에 배포되므로 할당량과 한도가 이러한 리소스에 충분한지 확인해야 합니다. [Azure 구독 및 서비스 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits)을 검토하여 자세히 알아볼 수 있습니다. 현재 할당량을 확인하려면 Azure Portal에서 [구독 블레이드](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)로 이동하고, 구독을 선택한 다음, `Usage + quotas`를 선택합니다.
 
 ### <a name="networking"></a>네트워킹
 
@@ -86,7 +86,7 @@ AKS에서 Kubernetes 제어 평면을 관리하는 동안에도 새 클러스터
 2. 디스크 스냅숏
 3. 스냅숏에서 새 Managed Disks 만들기
 4. AKS에서 영구적 볼륨 만들기
-5. PersistentVolumeClaims(정적 프로비전) 대신 [기존 볼륨을 사용](https://docs.microsoft.com/en-us/azure/aks/azure-disk-volume)하도록 Pod 사양 업데이트
+5. PersistentVolumeClaims(정적 프로비전) 대신 [기존 볼륨을 사용](https://docs.microsoft.com/azure/aks/azure-disk-volume)하도록 Pod 사양 업데이트
 6. AKS에 응용 프로그램 배포
 7. 유효성 검사
 8. AKS 클러스터를 가리키도록 트래픽 지정
@@ -112,7 +112,7 @@ Managed Disks를 만들고 Kubernetes 클러스터 간에 볼륨을 마이그레
 4. 유효성 검사
 5. AKS 클러스터를 가리키도록 트래픽 지정
 
-빈 공유로 시작한 다음, 원본 데이터의 복사본을 만들려면 [`az storage file copy`](https://docs.microsoft.com/en-us/cli/azure/storage/file/copy?view=azure-cli-latest) 명령을 사용하여 데이터를 마이그레이션할 수 있습니다.
+빈 공유로 시작한 다음, 원본 데이터의 복사본을 만들려면 [`az storage file copy`](https://docs.microsoft.com/cli/azure/storage/file/copy?view=azure-cli-latest) 명령을 사용하여 데이터를 마이그레이션할 수 있습니다.
 
 ### <a name="deployment-strategy"></a>배포 전략
 
@@ -134,7 +134,7 @@ kubectl get deployment -o=yaml --export > deployments.yaml
 
 ### <a name="1-create-an-aks-cluster"></a>1. AKS 클러스터 만들기
 
-문서의 지침에 따라 Azure Portal, Azure CLI 또는 Resource Manager 템플릿을 통해 [AKS 클러스터를 만들](https://docs.microsoft.com/en-us/azure/aks/create-cluster) 수 있습니다.
+문서의 지침에 따라 Azure Portal, Azure CLI 또는 Resource Manager 템플릿을 통해 [AKS 클러스터를 만들](https://docs.microsoft.com/azure/aks/create-cluster) 수 있습니다.
 
 > GitHub의 [Azure/AKS](https://github.com/Azure/AKS/tree/master/examples/vnet) 리포지토리에서 AKS용 Azure Resource Manager 템플릿 샘플을 찾을 수 있습니다
 

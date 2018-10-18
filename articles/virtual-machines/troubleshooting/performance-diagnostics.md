@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: f79be44d33a327f3ead8d950885cb5d47ce3a015
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 67778a269aa962b3184bf55c692154570e8357ba
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412520"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387394"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Azure 가상 머신의 성능 진단
 
@@ -103,7 +103,7 @@ Windows 10, Windows 8, Windows 8 Enterprise, Windows 8 Pro, Windows 8.1, Windows
 **설정** 도구 모음 단추를 사용하여 진단 정보 및 출력을 저장할 수 있는 저장소 계정을 변경합니다. 성능 진단을 사용하는 여러 VM에 대해 동일한 저장소 계정을 사용할 수 있습니다. 저장소 계정을 변경하는 경우 이전 보고서 및 정보는 삭제되지 않습니다. 그러나 이전 보고서 및 정보는 진단 보고서 목록에 더 이상 표시되지 않습니다. 
 
 ## <a name="review-insights-and-performance-diagnostics-report"></a>인사이트 및 성능 진단 보고서 검토
-각 진단 실행에는 오프라인 보기용 보고서 외에 인사이트 및 권장 사항, 영향을 받는 리소스, 로그 파일, 수집되는 기타 다양한 진단 정보의 목록이 포함됩니다. 모든 수집된 진단 데이터의 전체 목록은 [PerfInsights에서 수집하는 정보 유형은?](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-use-perfinsights#what-kind-of-information-is-collected-by-perfinsights)을 참조하세요. 
+각 진단 실행에는 오프라인 보기용 보고서 외에 인사이트 및 권장 사항, 영향을 받는 리소스, 로그 파일, 수집되는 기타 다양한 진단 정보의 목록이 포함됩니다. 모든 수집된 진단 데이터의 전체 목록은 [PerfInsights에서 수집하는 정보 유형은?](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-use-perfinsights#what-kind-of-information-is-collected-by-perfinsights)을 참조하세요. 
 
 ### <a name="select-a-performance-diagnostics-report"></a>성능 진단 보고서 선택
 진단 보고서 목록을 사용하여 실행된 모든 진단 보고서를 찾을 수 있습니다. 목록에는 사용된 분석에 대한 세부 정보, 발견된 정보 및 해당 영향 수준이 포함됩니다. 행을 선택하여 자세한 내용을 봅니다.
@@ -123,7 +123,7 @@ Windows 10, Windows 8, Windows 8 Enterprise, Windows 8 Pro, Windows 8.1, Windows
 ![성능 진단 인사이트 세부 정보의 스크린샷](media/performance-diagnostics/insight-detail.png)
 
 ### <a name="download-and-review-the-full-performance-diagnostics-report"></a>전체 성능 진단 보고서 다운로드 및 검토
-**보고서 다운로드** 단추를 사용하여 저장소 및 네트워크 구성, 성능 카운터, 추적, 프로세스 목록 및 로그와 같은 다양한 추가 진단 정보가 포함된 HTML 보고서를 다운로드할 수 있습니다. 콘텐츠는 선택한 분석에 따라 달라집니다. 고급 문제 해결의 보고서에는 추가 정보 및 높은 CPU 사용량, 높은 디스크 사용량 및 과도한 메모리를 사용하는 프로세스에 관련된 대화형 차트가 포함될 수 있습니다. 성능 진단 보고서에 대한 자세한 내용은 [진단 보고서 검토](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-use-perfinsights#review-the-diagnostics-report)를 참조하세요.
+**보고서 다운로드** 단추를 사용하여 저장소 및 네트워크 구성, 성능 카운터, 추적, 프로세스 목록 및 로그와 같은 다양한 추가 진단 정보가 포함된 HTML 보고서를 다운로드할 수 있습니다. 콘텐츠는 선택한 분석에 따라 달라집니다. 고급 문제 해결의 보고서에는 추가 정보 및 높은 CPU 사용량, 높은 디스크 사용량 및 과도한 메모리를 사용하는 프로세스에 관련된 대화형 차트가 포함될 수 있습니다. 성능 진단 보고서에 대한 자세한 내용은 [진단 보고서 검토](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-use-perfinsights#review-the-diagnostics-report)를 참조하세요.
 
 ## <a name="manage-performance-diagnostics-reports"></a>성능 진단 보고서 관리
 **보고서 삭제** 단추를 사용하여 하나 이상의 성능 진단 보고서를 삭제할 수 있습니다.
