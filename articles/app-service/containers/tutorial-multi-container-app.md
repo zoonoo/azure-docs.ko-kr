@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: ff3659bd0f4001424ce27484f08a645f364c2ef6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: c8002b10e2c7c0823cd59bf300283d04fca5ce2e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054641"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390213"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>자습서: Web App for Containers에서 다중 컨테이너(미리 보기) 앱 만들기
 
@@ -235,7 +235,7 @@ az mysql db create --resource-group myResourceGroup --server-name <mysql_server_
 
 ### <a name="configure-database-variables-in-wordpress"></a>WordPress의 데이터베이스 변수 구성
 
-WordPress 앱을 이 새 MySQL 서버에 연결하려면 `MYSQL_SSL_CA`에서 정의된 SSL CA 경로를 포함하여 몇 가지 WordPress 관련 환경 변수를 구성합니다. [DigiCert](http://www.digicert.com/)의 [Baltimore CyberTrust Root](https://www.digicert.com/digicert-root-certificates.htm)는 아래의 [사용자 지정 이미지](https://docs.microsoft.com/en-us/azure/app-service/containers/tutorial-multi-container-app#use-a-custom-image-for-mysql-ssl-and-other-configurations)에서 제공됩니다.
+WordPress 앱을 이 새 MySQL 서버에 연결하려면 `MYSQL_SSL_CA`에서 정의된 SSL CA 경로를 포함하여 몇 가지 WordPress 관련 환경 변수를 구성합니다. [DigiCert](http://www.digicert.com/)의 [Baltimore CyberTrust Root](https://www.digicert.com/digicert-root-certificates.htm)는 아래의 [사용자 지정 이미지](https://docs.microsoft.com/azure/app-service/containers/tutorial-multi-container-app#use-a-custom-image-for-mysql-ssl-and-other-configurations)에서 제공됩니다.
 
 이렇게 변경하려면 Cloud Shell에서 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 명령을 사용합니다. 앱 설정은 대/소문자를 구분하고 공백으로 구분합니다.
 

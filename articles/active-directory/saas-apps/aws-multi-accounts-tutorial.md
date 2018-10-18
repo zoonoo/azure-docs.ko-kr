@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: jeedes
-ms.openlocfilehash: 55a271e49977feb6d8e5c188f1724b66db4cb4f5
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: a7d77df4d6be1572d2076684cfa4702cb32b5ed6
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42146457"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391915"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>자습서: AWS(Amazon Web Services)와 여러 Azure Active Directory 계정 통합
 
@@ -317,6 +317,9 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 27. 그룹을 만든 후에는 그룹을 선택하여 응용 프로그램에 할당합니다.
 
     ![Single Sign-On 구성 추가](./media/aws-multi-accounts-tutorial/graph-explorer-new5.png)
+
+> [!Note]
+> 그룹을 할당할 때 중첩 그룹은 지원되지 않습니다.
 
 28. 그룹에 역할을 할당하려면 역할을 선택하고 페이지 아래의 **할당** 단추를 클릭합니다.
 

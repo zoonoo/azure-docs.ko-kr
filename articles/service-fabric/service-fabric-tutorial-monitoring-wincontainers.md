@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/08/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9eea0cabebb67095d4c6c813e7d13c885a447db4
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 24b4cbe0eb13a41ccd6ae98db90d4bf0cf7d22a7
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378893"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311221"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>자습서: Log Analytics를 사용하여 Service Fabric에서 Windows 컨테이너 모니터링
 
@@ -42,7 +42,7 @@ ms.locfileid: "44378893"
 
 ## <a name="setting-up-log-analytics-with-your-cluster-in-the-resource-manager-template"></a>Resource Manager 템플릿에서 클러스터를 사용하여 Log Analytics 설정
 
-이 자습서의 1부에서 [제공된 템플릿](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial)을 사용한 경우 제네릭 Service Fabric Azure Resource Manager 템플릿에 다음 내용을 추가해야 합니다. Log Analytics를 사용하여 컨테이너를 모니터링하기 위해 설정하려면 고유한 클러스터가 있는 경우:
+이 자습서의 1부에서 [제공된 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-OMS-UnSecure)을 사용한 경우 제네릭 Service Fabric Azure Resource Manager 템플릿에 다음 내용을 추가해야 합니다. Log Analytics를 사용하여 컨테이너를 모니터링하기 위해 설정하려면 고유한 클러스터가 있는 경우:
 
 * Resource Manager 템플릿을 다음과 같이 변경합니다.
 * PowerShell을 통해 배포하여 [템플릿 배포](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)를 통해 클러스터를 업그레이드합니다. Azure Resource Manager는 리소스가 있음을 인식하므로 업그레이드로 배포됩니다.

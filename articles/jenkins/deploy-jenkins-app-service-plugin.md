@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: a6ad40f90e12bbf4dd85c3cbd22839d39a734ca1
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 5f76d18662105df6d278e09e047baa13773ab4ac
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391168"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319356"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Jenkins 플러그 인을 사용하여 Azure App Service에 배포 
 
@@ -36,8 +36,10 @@ Jenkins 마스터가 없는 경우 JDK(Java Development Kit) 버전 8 및 다음
 * [Azure App Service](https://plugins.jenkins.io/azure-app-service) 버전 0.1
 
 Jenkins 플러그 인을 사용하여 Web Apps에 지원되는 언어(예: C#, PHP, Java, Node.js)로 웹앱을 배포할 수 있습니다. 이 자습서에서는 [Azure용 간단한 Java 웹앱](https://github.com/azure-devops/javawebappsample)을 사용합니다. 자신의 GitHub 계정에 리포지토리를 분기하려면 GitHub 인터페이스의 오른쪽 위 모서리에 있는 **분기** 단추를 선택합니다.  
+
 > [!NOTE]
 > Java 프로젝트를 빌드하려면 Java JDK 및 Maven이 필요합니다. 지속적인 통합을 위해 에이전트를 사용하는 경우 Jenkins 마스터 또는 VM 에이전트에 구성 요소를 설치하십시오. Java SE 응용 프로그램을 배포하는 경우 빌드 서버에서 ZIP도 필요합니다.
+>
 
 구성 요소를 설치하려면 SSH로 Jenkins 인스턴스에 로그인하고 다음 명령을 실행합니다.
 
@@ -48,7 +50,7 @@ sudo apt-get install -y maven
 
 Web App for Containers에 배포하려면 Jenkins 마스터 또는 빌드에 사용되는 VM 에이전트에 Docker를 설치합니다. 지침은 [Ubuntu에 Docker 설치](https://docs.docker.com/engine/installation/linux/ubuntu/)를 참조하세요.
 
-##<a name="service-principal"></a> Jenkins 자격 증명에 Azure 서비스 주체 추가
+## <a name="service-principal"></a> Jenkins 자격 증명에 Azure 서비스 주체 추가
 
 Azure에 배포하려면 Azure 서비스 주체가 필요합니다. 
 

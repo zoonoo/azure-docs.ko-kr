@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: a9a6e513d95df5dafba82556f74ec209529ff58d
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e77389411e52853efb52252a17c8612f0480fa61
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294914"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298645"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Application Insights로 웹앱 및 서비스 심층 진단
 ## <a name="why-do-i-need-application-insights"></a>Application Insights가 필요한 이유는 무엇일까요?
@@ -152,7 +152,7 @@ Application Insights가 예외를 기록하면 Visual Studio에서 데이터 포
 디버그할 때는 원격 분석을 개발 컴퓨터에 보관하는 옵션이 있습니다. Visual Studio에서 볼 수는 있지만 포털에 전송하지는 않습니다. 이 로컬 옵션은 디버깅과 프로덕션 원격 분석이 섞이지 않도록 방지합니다.
 
 ### <a name="build-annotations"></a>빌드 주석
-Visual Studio Team Services를 사용하여 앱을 빌드하고 배포한다면 포털에 있는 차트에 배포 주석이 나타납니다. 최신 릴리스가 메트릭에 영향을 미칠 경우, 그 결과가 명확히 나타납니다.
+Azure DevOps를 사용하여 앱을 빌드하고 배포한다면 포털에 있는 차트에 배포 주석이 나타납니다. 최신 릴리스가 메트릭에 영향을 미칠 경우, 그 결과가 명확히 나타납니다.
 
 ![빌드 주석](./media/app-insights-devops/070.png)
 

@@ -1,33 +1,34 @@
 ---
-title: "VSTS 및 Azure Application Insights를 사용한 DevOps 릴리스 파이프라인의 연속 모니터링 | Microsoft Docs"
-description: "Application Insights를 사용하여 연속 모니터링을 빠르게 설정하기 위한 지침을 제공합니다."
+title: Azure DevOps 및 Azure Application Insights를 사용한 DevOps 릴리스 파이프라인의 연속 모니터링 | Microsoft Docs
+description: Application Insights를 사용하여 연속 모니터링을 빠르게 설정하기 위한 지침을 제공합니다.
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/13/2017
 ms.service: application-insights
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5bfbdd0033f966422a84071a694845627827f016
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ecda8621640223f1c27f32834f2e4a098da4aba6
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301630"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>릴리스 파이프라인에 연속 모니터링 추가
 
-VSTS(Visual Studio Team Services)는 Azure Application Insights와 통합되어 소프트웨어 개발 수명 주기 내내 DevOps 릴리스 파이프라인을 지속적으로 모니터링할 수 있습니다. 
+Azure DevOps Services는 Azure Application Insights와 통합되어 소프트웨어 개발 수명 주기 내내 DevOps 릴리스 파이프라인을 지속적으로 모니터링할 수 있습니다. 
 
-현재 VSTS는 릴리스 파이프라인이 Application Insights 및 기타 Azure 리소스의 모니터링 데이터를 통합할 수 있는 연속 모니터링을 지원합니다. Application Insights 경고가 검색되면 경고가 해결될 때까지 배포가 제어된 상태로 유지되거나 롤백될 수 있습니다. 모든 검사에 통과하면 수동 개입 없이도 테스트에서 프로덕션까지 자동으로 진행할 수 있습니다. 
+현재 Azure DevOps Services는 릴리스 파이프라인이 Application Insights 및 기타 Azure 리소스의 모니터링 데이터를 통합할 수 있는 연속 모니터링을 지원합니다. Application Insights 경고가 검색되면 경고가 해결될 때까지 배포가 제어된 상태로 유지되거나 롤백될 수 있습니다. 모든 검사에 통과하면 수동 개입 없이도 테스트에서 프로덕션까지 자동으로 진행할 수 있습니다. 
 
 ## <a name="configure-continuous-monitoring"></a>연속 모니터링 구성
 
-1. 기존 VSTS 프로젝트를 선택합니다.
+1. 기존 Azure DevOps Services 프로젝트를 선택합니다.
 
 2. 마우스로 **빌드 및 릴리스**를 가리키고, **릴리스**를 선택하고, **더하기 기호** > **릴리스 정의 만들기**를 클릭하고, **모니터링** > **Azure App Service 배포 및 연속 모니터링**을 검색합니다.
 
-   ![새 VSTS 릴리스 정의](.\media\app-insights-continuous-monitoring\001.png)
+   ![새 Azure DevOps Services 릴리스 파이프라인](.\media\app-insights-continuous-monitoring\001.png)
 
 3. **적용**을 클릭합니다.
 
@@ -39,8 +40,8 @@ VSTS(Visual Studio Team Services)는 Azure Application Insights와 통합되어 
 
     | 매개 변수        | 값 |
    | ------------- |:-----|
-   | **환경 이름**      | 릴리스 정의 환경을 설명하는 이름입니다. |
-   | **Azure 구독** | 드롭다운이 VSTS 계정에 연결된 모든 Azure 구독으로 채워집니다.|
+   | **환경 이름**      | 릴리스 파이프라인 환경을 설명하는 이름입니다. |
+   | **Azure 구독** | 드롭다운이 Azure DevOps Services 조직에 연결된 모든 Azure 구독으로 채워집니다.|
    | **App Service 이름** | 다른 항목을 선택할 경우 이 필드에 새 값을 수동으로 입력해야 할 수 있습니다. |
    | **리소스 그룹**    | 드롭다운이 사용 가능한 리소스 그룹으로 채워집니다. |
    | **Application Insights 리소스 이름** | 드롭다운이 이전에 선택된 리소스 그룹에 해당하는 모든 Application Insights 리소스로 채워집니다.
@@ -51,7 +52,7 @@ VSTS(Visual Studio Team Services)는 Azure Application Insights와 통합되어 
 
 ## <a name="modify-alert-rules"></a>경고 규칙 수정
 
-1. 미리 정의된 경고 설정을 수정하려면 **경고 규칙**의 오른쪽에 **줄임표...**가 있는 상자를 클릭합니다.
+1. 미리 정의된 경고 설정을 수정하려면 **경고 규칙**의 오른쪽에 **줄임표...** 가 있는 상자를 클릭합니다.
 
    기본 제공되는 네 가지 경고 규칙은 가용성, 실패한 요청, 서버 응답 시간 및 서버 예외입니다.
 
@@ -89,4 +90,4 @@ VSTS(Visual Studio Team Services)는 Azure Application Insights와 통합되어 
 
 ## <a name="next-steps"></a>다음 단계
 
-VSTS 빌드 및 릴리스에 대해 자세히 알아보려면 이 [빠른 시작](https://docs.microsoft.com/vsts/build-release/)을 사용해 보세요.
+Azure Pipelines에 대한 자세한 내용은 이 [빠른 시작](https://docs.microsoft.com/azure/devops/pipelines)을 참조하세요.

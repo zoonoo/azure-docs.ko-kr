@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: db26dd12d7c44f6079ee38364a4e9e240d2e7bc8
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: cc4372a8a8a8f39bf4f77f637b459c5281b8852d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246615"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299528"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Visual Studio를 사용하여 로컬로 Stream Analytics 쿼리 테스트
 
@@ -76,5 +76,5 @@ Event Hubs 또는 IoT Hub에서만 데이터 스트리밍을 샘플링할 수 �
 
 * [Visual Studio를 사용하여 Azure Stream Analytics 작업 보기](stream-analytics-vs-tools.md)
 * [빠른 시작: Visual Studio를 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-vs.md)
-* [자습서: VSTS를 사용하여 CI/CD로 Azure Stream Analytics 작업 배포](stream-analytics-tools-visual-studio-cicd-vsts.md)
+* [자습서: Azure DevOps를 사용하여 CI/CD로 Azure Stream Analytics 작업 배포](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Stream Analytics 도구를 사용하여 지속적으로 통합 및 개발](stream-analytics-tools-for-visual-studio-cicd.md)

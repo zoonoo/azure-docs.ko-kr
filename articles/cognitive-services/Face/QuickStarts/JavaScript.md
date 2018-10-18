@@ -3,19 +3,19 @@ title: '빠른 시작: 이미지에서 얼굴 감지 - Face API, JavaScript'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Cognitive Services에서 JavaScript와 함께 Face API를 사용하여 이미지의 얼굴을 감지합니다.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
-ms.author: nolachar
-ms.openlocfilehash: b5c2b5bb6e0a4507a294700a6de78a1498cbe961
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: pafarley
+ms.openlocfilehash: eb860c054ddb18d6c26cc4853e1bf230739aa51d
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129406"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340191"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-javascript"></a>빠른 시작: JavaScript를 사용하여 이미지에서 얼굴 감지
 

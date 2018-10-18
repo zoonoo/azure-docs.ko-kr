@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: ae34355485f7d5081cc11ce4dd36df5ba81ae320
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 82ffcc6f891a64650375121b9418daad33dc2628
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041231"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301698"
 ---
 # <a name="test-your-azure-data-lake-analytics-code"></a>Azure Data Lake Analytics 코드 테스트
 
@@ -111,11 +111,11 @@ UDO 함수를 호출한 후 C# 어설션 함수를 사용하여 스키마 및 �
 
 테스트 프로젝트를 빌드한 후, **테스트 탐색기 > 재생 목록**을 통해 또는 .cs 파일을 마우스 오른쪽 단추로 클릭한 후 **테스트 실행**을 선택하여 모든 테스트 사례를 실행할 수 있습니다.
 
-## <a name="run-test-cases-in-visual-studio-team-service"></a>Visual Studio Team Service에서 테스트 사례 실행
+## <a name="run-test-cases-in-azure-devops"></a>Azure DevOps에서 테스트 사례 실행
 
-**U-SQL 스크립트 테스트 프로젝트** 및 **C# UDO 테스트 프로젝트** 둘 다 C# 단위 테스트 프로젝트를 상속합니다. Visual Studio Team Services의 [Visual Studio 테스트 작업](https://docs.microsoft.com/vsts/pipelines/test/getting-started-with-continuous-testing?view=vsts)은 이러한 테스트 사례를 실행할 수 있습니다. 
+**U-SQL 스크립트 테스트 프로젝트** 및 **C# UDO 테스트 프로젝트** 둘 다 C# 단위 테스트 프로젝트를 상속합니다. Azure DevOps의 [Visual Studio 테스트 작업](https://docs.microsoft.com/azure/devops/pipelines/test/getting-started-with-continuous-testing?view=vsts)은 이러한 테스트 사례를 실행할 수 있습니다. 
 
-### <a name="run-u-sql-test-cases-in-visual-studio-team-service"></a>Visual Studio Team Service에서 U-SQL 테스트 사례 실행
+### <a name="run-u-sql-test-cases-in-azure-devops"></a>Azure DevOps에서 U-SQL 테스트 사례 실행
 
 U-SQL 테스트의 경우 빌드 컴퓨터에 `CPPSDK`를 로드하고 USqlScriptTestRunner에 대한 `CPPSDK` 경로(cppSdkFolderFullPath: \@"")를 제공해야 합니다.
 
@@ -126,16 +126,16 @@ CPPSDK는 Microsoft Visual C++ 14 및 Windows SDK 10.0.10240.0을 포함하는 �
 - Visual Studio 2015의 경우 `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Microsoft Azure Data Lake Tools for Visual Studio 2015\X.X.XXXX.X\CppSDK` 아래에 있습니다.
 - Visual Studio 2017의 경우 `C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\SDK\ScopeCppSDK` 아래에 있습니다.
 
-**Visual Studio Team Service 빌드 에이전트에서 CPPSDK 준비**
+**Azure DevOps 빌드 에이전트에서 CPPSDK 준비**
 
-Visual Studio Team Service에서 CPPSDK 종속성을 준비하기 위한 가장 일반적인 방법은 다음과 같습니다.
+Azure DevOps에서 CPPSDK 종속성을 준비하기 위한 가장 일반적인 방법은 다음과 같습니다.
 
 1.  CPPSDK 라이브러리가 포함된 폴더를 zip으로 압축합니다.
 2.  zip 파일을 원본 제어 시스템으로 체크 인합니다. (.zip 파일은 CPPSDK 폴더 아래에 있는 모든 라이브러리를 체크 인하여 일부 파일이 ".gitignore"에 의해 무시되지 않도록 합니다.)   
 3.  빌드 파이프라인에서 .zip 파일의 압축을 풉니다.
 4.  `USqlScriptTestRunner`가 빌드 컴퓨터에서 압축을 푼 이 폴더를 가리키도록 합니다.
 
-### <a name="run-c-udo-test-cases-in-visual-studio-team-services"></a>Visual Studio Team Services에서 C# UDO 테스트 사례 실행
+### <a name="run-c-udo-test-cases-in-azure-devops"></a>Azure DevOps에서 C# UDO 테스트 사례 실행
 
 C# UDO 테스트의 경우, UDO에 필요한 다음 어셈블리를 참조해야 합니다. [Nuget 패키지 Microsoft.Azure.DataLake.USQL.Interfaces](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.Interfaces/)를 통해 참조하는 경우 빌드 파이프라인에 NuGet 복원 태스크를 추가해야 합니다.
 

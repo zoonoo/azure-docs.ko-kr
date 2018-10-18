@@ -1,24 +1,24 @@
 ---
-title: '자습서: 언어 모델 만들기 - Custom Speech Service'
-titlesuffix: Azure Cognitive Services
-description: 이 자습서에서는 Custom Speech Service를 사용하여 언어 모델을 만드는 방법을 알아봅니다.
+title: Custom Speech Service를 사용한 언어 모델 만들기 자습서 - Microsoft Cognitive Services | Microsoft Docs
+description: 이 자습서에서는 Microsoft Cognitive Services에서 Custom Speech Service를 사용하여 언어 모델을 만드는 방법을 알아봅니다.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: b7216688efb6a2124748cd08111d57b122085143
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6af2da9ffc7678a58fcf1c647ba89c586066d2ad
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219318"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339099"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>자습서: 사용자 지정 언어 모델 만들기
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 이 자습서에서는 텍스트 쿼리에 대한 사용자 지정 언어 모델 또는 사용자가 응용 프로그램에 입력 하거나 언급할 것으로 예상하는 발언을 만듭니다. 그런 다음, 응용 프로그램에 음성 상호 작용을 추가하려면 Microsoft에서 기존의 최신 음성 모델과 함께 이 사용자 지정 언어 모델을 사용할 수 있습니다.
 

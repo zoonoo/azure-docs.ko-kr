@@ -2,25 +2,19 @@
 title: Microsoft Azure Data Box Disk 설정 | Microsoft Docs
 description: 이 자습서를 사용하여 Azure Data Box Disk를 설정하는 방법 알아보기
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b1e647c6aee251bebd257db5e4e631deba0be3fa
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 24de05a60c3cda47a1968bb1f83f9cb91e4e03de
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068811"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091201"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>자습서: Azure Data Box Disk 압축 풀기, 연결 및 잠금 해제
 

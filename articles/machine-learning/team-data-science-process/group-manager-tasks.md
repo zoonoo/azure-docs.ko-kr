@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: a6cf6627d18917a2102dc0537cd44dc7701b063f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a89c0f916f67de1bae81a5e1b3dcfc2cae41d248
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837245"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304189"
 ---
 # <a name="group-manager-tasks"></a>그룹 관리자 작업
 
@@ -30,13 +30,13 @@ ms.locfileid: "34837245"
 ![0](./media/group-manager-tasks/tdsp-group-manager.png)
 
 
->[AZURE.NOTE] 아래 지침에서 VSTS를 사용하여 TDSP 그룹 환경을 설정하는 데 필요한 단계를 설명합니다. Microsoft에서 TDSP를 구현하는 방법이기 때문에 VSTS를 사용하여 이러한 작업을 수행하는 방법을 지정합니다. 다른 코드 호스팅 플랫폼이 그룹에 사용되는 경우 그룹 관리자가 완료해야 하는 작업은 일반적으로 변경되지 않습니다. 그러나 이러한 작업을 완료하는 방법은 달라질 것입니다.
+>[AZURE.NOTE] 아래 지침에서 Azure DevOps Services를 사용하여 TDSP 그룹 환경을 설정하는 데 필요한 단계를 설명합니다. Microsoft에서 TDSP를 구현하는 방법이기 때문에 Azure DevOps Services를 사용하여 이러한 작업을 수행하는 방법을 지정합니다. 다른 코드 호스팅 플랫폼이 그룹에 사용되는 경우 그룹 관리자가 완료해야 하는 작업은 일반적으로 변경되지 않습니다. 그러나 이러한 작업을 완료하는 방법은 다를 수 있습니다.
 
-1. 그룹의 **VSTS(Visual Studio Team Services) 서버**를 설정합니다.
-2. Visual Studio Team Services 서버에서 **그룹 팀 프로젝트**를 만듭니다(VSTS 사용자용).
+1. 그룹에 대한 **Azure DevOps Services**를 설정합니다.
+2. Azure DevOps Services에서 **그룹 프로젝트** 만들기(Azure DevOps Services 사용자의 경우)
 3. **GroupProjectTemplate** 리포지토리를 만듭니다.
 4. **GroupUtilities** 리포지토리를 만듭니다.
-5. VSTS 서버용 **GroupProjectTemplate** 및 **GroupUtilities** 리포지토리에 TDSP 리포지토리의 콘텐츠를 시드합니다.
+5. Azure DevOps Services용 **GroupProjectTemplate** 및 **GroupUtilities** 리포지토리에 TDSP 리포지토리의 콘텐츠를 시드합니다.
 6. GroupProjectTemplate 및 GroupUtilities 리포지토리에 액세스하는 팀 구성원의 **보안 제어**를 설정합니다.
 
 앞의 단계가 구체적으로 설명되어 있습니다. 하지만 먼저 약식 이름을 숙지하고 리포지토리를 사용하기 위한 필수 구성 요소부터 살펴보겠습니다.
@@ -47,28 +47,28 @@ ms.locfileid: "34837245"
 
 - **G1**: Microsoft TDSP 팀에서 개발하고 관리하는 프로젝트 템플릿 리포지토리입니다.
 - **G2**: Microsoft TDSP 팀에서 개발하고 관리하는 유틸리티 리포지토리입니다.
-- **R1**: 그룹 관리자가 VSTS 그룹 서버에 설정한 Git의 GroupProjectTemplate 리포지토리입니다.
-- **R2**: 그룹 관리자가 VSTS 그룹 서버에 설정한 Git의 GroupUtilities 리포지토리입니다.
+- **R1**: 그룹 관리자가 Azure DevOps 그룹 서버에 설정한 Git의 GroupProjectTemplate 리포지토리입니다.
+- **R2**: 그룹 관리자가 Azure DevOps 그룹 서버에 설정한 Git의 GroupUtilities 리포지토리입니다.
 - **LG1** 및 **LG2**: 그룹 관리자가 각각 G1 및 G2에 복제하는 컴퓨터의 로컬 디렉터리입니다.
 - **LR1** 및 **LR2**: 그룹 관리자가 각각 R1 및 R2에 복제하는 컴퓨터의 로컬 디렉터리입니다.
 
 ### <a name="pre-requisites-for-cloning-repositories-and-checking-code-in-and-out"></a>리포지토리를 복제하고 시작 및 종료 코드를 확인하기 위한 필수 조건
  
 - Git가 컴퓨터에 설치되어야 합니다. DSVM(데이터 과학 Virtual Machine)을 사용하는 경우 Git가 사전 설치되어 있으므로 계속 진행할 수 있습니다. 그렇지 않은 경우 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)을 참조하세요.  
-- **Windows DSVM**을 사용하는 경우 컴퓨터에 [GCM(Git Credential Manager)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)이 설치되어 있어야 합니다. README.md 파일에서 **다운로드 및 설치** 섹션으로 스크롤한 다음 *최신 설치 관리자*를 클릭합니다. 이 단계를 수행하면 최신 설치 관리자 페이지로 이동됩니다. 여기에서 .exe 설치 관리자를 다운로드하여 실행합니다. 
-- **Linux DSVM**을 사용하는 경우 DSVM에서 SSH 공개 키를 만들고 그룹 VSTS 서버에 추가합니다. SSH에 대한 자세한 내용은 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)의 **SSH 공개 키 만들기** 섹션을 참조하세요. 
+- **Windows DSVM**을 사용하는 경우 컴퓨터에 [GCM(Git Credential Manager)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)이 설치되어 있어야 합니다. README.md 파일에서 **다운로드 및 설치** 섹션으로 스크롤한 다음 *최신 설치 관리자*를 클릭합니다. 이 단계를 수행하면 최신 설치 관리자 페이지로 이동됩니다. 여기서 .exe 설치 관리자를 다운로드하여 실행합니다. 
+- **Linux DSVM**을 사용하는 경우 DSVM에서 SSH 공개 키를 만들고 그룹 Azure DevOps Services 서버에 추가합니다. SSH에 대한 자세한 내용은 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)의 **SSH 공개 키 만들기** 섹션을 참조하세요. 
 
 
-## <a name="1-create-account-on-vsts-server"></a>1. VSTS 서버에 계정 만들기
+## <a name="1-create-account-on-azure-devops-services"></a>1. Azure DevOps Services에서 계정 만들기
 
-VSTS 서버는 다음 리포지토리를 호스트합니다.
+Azure DevOps Services는 다음 리포지토리를 호스트합니다.
 
 - **그룹 일반 리포지토리**: 그룹 내 여러 팀에서 여러 데이터 과학 프로젝트에 사용할 수 있는 범용 리포지토리입니다. *GroupProjectTemplate* 및 *GroupUtilities* 리포지토리를 예로 들 수 있습니다.
 - **팀 리포지토리**: 그룹 내 특정 팀을 위한 리포지토리입니다. 이러한 리포지토리는 팀의 요구 사항으로 한정되며, 해당 팀에서 실행한 여러 프로젝트에 사용할 수는 있지만 데이터 과학 그룹 내의 여러 팀이 유용하게 사용하기에는 범용성이 충분하지 않습니다. 
 - **프로젝트 리포지토리**: 특정 프로젝트에 사용할 수 있는 리포지토리입니다. 이러한 리포지토리는 한 팀에서 수행하는 여러 프로젝트 및 데이터 과학 그룹 내 여러 팀에서 유용하게 사용하기에는 범용성이 충분하지 않을 수 있습니다.
 
 
-### <a name="setting-up-the-vsts-server-sign-into-your-microsoft-account"></a>Microsoft 계정에 VSTS 서버 로그인 설정
+### <a name="setting-up-the-azure-devops-services-sign-into-your-microsoft-account"></a>Microsoft 계정에 Azure DevOps Services 로그인 설정
     
 [Visual Studio Online](https://www.visualstudio.com/)으로 이동하고, 오른쪽 위 모서리에서 **로그인**을 클릭하여 Microsoft 계정에 로그인합니다. 
     
@@ -86,7 +86,7 @@ Microsoft 계정이 없는 경우 **지금 등록**을 클릭하여 Microsoft �
         
 ![3](./media/group-manager-tasks/create-account-1.PNG)
         
-다음 값을 사용하여 **계정 만들기** 마법사에서 만들려는 VSTS 서버에 대한 정보를 입력합니다. 
+다음 값을 사용하여 **계정 만들기** 마법사에서 만들려는 Azure DevOps Services에 대한 정보를 입력합니다. 
 
 - **서버 URL**: *mysamplegroup*을 해당 *서버 이름*으로 바꿉니다. 서버 URL은 *https://\<servername\>. visualstudio.com* 형식입니다. 
 - **코드 관리 앱:** **_Git_** 를 선택합니다.
@@ -103,17 +103,17 @@ Microsoft 계정이 없는 경우 **지금 등록**을 클릭하여 Microsoft �
 
 **계속**을 클릭합니다. 
 
-## <a name="2-groupcommon-team-project"></a>2. GroupCommon 팀 프로젝트
+## <a name="2-groupcommon-project"></a>2. GroupCommon 프로젝트
 
-VSTS 서버가 생성된 후 **GroupCommon** 페이지(*https://\<servername\>.visualstudio.com/GroupCommon*)가 열립니다.
+Azure DevOps Services가 생성된 후 **GroupCommon** 페이지(*https://\<servername\>.visualstudio.com/GroupCommon*)가 열립니다.
                             
 ![6](./media/group-manager-tasks/server-created-2.PNG)
 
 ## <a name="3-create-the-grouputilities-r2-repository"></a>3. GroupUtilities(R2) 리포지토리 만들기
 
-VSTS 서버 아래에서 **GroupUtilities**(R2) 리포지토리를 만들려면:
+Azure DevOps Services 아래에서 **GroupUtilities**(R2) 리포지토리를 만들려면:
 
-- **새 리포지토리 만들기** 마법사를 열려면 팀 프로젝트의 **버전 제어** 탭에서 **새 리포지토리**를 클릭합니다. 
+- **새 리포지토리 만들기** 마법사를 열려면 프로젝트의 **버전 제어** 탭에서 **새 리포지토리**를 클릭합니다. 
 
 ![7](./media/group-manager-tasks/create-grouputilities-repo-1.png) 
 
@@ -128,10 +128,10 @@ VSTS 서버 아래에서 **GroupUtilities**(R2) 리포지토리를 만들려면:
 
 ## <a name="4-create-the-groupprojecttemplate-r1-repository"></a>4. GroupProjectTemplate(R1) 리포지토리 만들기
 
-VSTS 그룹 서버용 리포지토리를 설정하는 과정은 다음 두 작업으로 구성됩니다.
+Azure DevOps 그룹 서버용 리포지토리를 설정하는 과정은 다음 두 작업으로 구성됩니다.
 
 - 기본 **GroupCommon** 리포지토리***GroupProjectTemplate*** 이름을 변경합니다.
-- 팀 프로젝트 **GroupCommon** 아래에서 VSTS 서버에 **GroupUtilities** 리포지토리를 만듭니다. 
+- 프로젝트 **GroupCommon** 아래에서 Azure DevOps Services에 **GroupUtilities** 리포지토리를 만듭니다. 
 
 첫 번째 작업에 대한 지침은 명명 규칙에 대한 설명 또는 리포지토리 및 디렉터리 이후 섹션에 포함되어 있습니다. 두 번째 작업에 대한 지침은 4단계에 대한 다음 섹션에 포함되어 있습니다.
 
@@ -139,12 +139,12 @@ VSTS 그룹 서버용 리포지토리를 설정하는 과정은 다음 두 작�
 
 기본 **GroupCommon** 리포지토리 이름을 *GroupProjectTemplate*으로 바꾸려면(이 자습서에서는 **R1**이라고 함):
     
-- **GroupCommon** 팀 프로젝트 페이지에서 **코드에 대해 공동 작업**을 클릭합니다. 그러면 팀 프로젝트 **GroupCommon**의 기본 Git 리포지토리 페이지로 이동됩니다. 현재 이 Git 리포지토리는 비어 있습니다. 
+- **GroupCommon** 프로젝트 페이지에서 **코드에 대해 공동 작업**을 클릭합니다. 그러면 프로젝트 **GroupCommon**의 기본 Git 리포지토리 페이지로 이동됩니다. 현재 이 Git 리포지토리는 비어 있습니다. 
 
 ![10](./media/group-manager-tasks/rename-groupcommon-repo-3.png)
         
 - **GroupCommon**의 Git 리포지토리 페이지에서 왼쪽 위 모서리에 있는 **GroupCommon**(다음 그림에서 빨간색 상자로 강조 표시된)을 클릭하고, **리포지토리 관리**(다음 그림에서 녹색 상자로 강조 표시된)를 선택합니다. 이 프로시저를 수행하면 **제어판**이 표시됩니다. 
-- 팀 프로젝트의 **버전 제어** 탭을 선택합니다. 
+- 프로젝트의 **버전 제어** 탭을 선택합니다. 
 
 ![11](./media/group-manager-tasks/rename-groupcommon-repo-4.png)
 
@@ -158,7 +158,7 @@ VSTS 그룹 서버용 리포지토리를 설정하는 과정은 다음 두 작�
 
 
 
-## <a name="5-seed-the-r1--r2-repositories-on-the-vsts-server"></a>5. VSTS 서버에 R1 및 R2 리포지토리 시드
+## <a name="5-seed-the-r1--r2-repositories-on-the-azure-devops-services"></a>5. Azure DevOps Services에 R1 및 R2 리포지토리 시드
 
 본 프로시저의 이번 단계에서는 이전 섹션에서 설정한 *GroupProjectTemplate*(R1) 및 *GroupUtilities*(R2) 리포지토리를 시드합니다. 이러한 리포지토리는 Microsoft에서 관리하는 Team Data Science Process용 ***ProjectTemplate***(**G1**) 및 ***Utilities***(**G2**) 리포지토리로 시드됩니다. 이 시드가 완료되면:
 
@@ -198,7 +198,7 @@ VSTS 그룹 서버용 리포지토리를 설정하는 과정은 다음 두 작�
 
 이 단계에서는 GroupProjectTemplate 리포지토리(R1) 및 GroupUtilities 리포지토리(R2)를 DSVM의 **GitRepos\GroupCommon** 아래에 있는 로컬 디렉터리(각각 LR1 및 LR2)에 복제합니다.
 
-- R1 및 R2 리포지토리의 URL을 가져오려면 VSTS에서 **GroupCommon** 홈페이지로 이동합니다. 일반적으로 URL *https://\<VSTS 서버 이름\>.visualstudio.com/GroupCommon*이 붙습니다. 
+- R1 및 R2 리포지토리의 URL을 가져오려면 Azure DevOps Services에서 **GroupCommon** 홈페이지로 이동합니다. 일반적으로 URL *https://\<Azure DevOps Services 이름\>.visualstudio.com/GroupCommon*이 붙습니다. 
 - **코드**를 클릭합니다. 
 - **GroupProjectTemplate** 및 **GroupUtilities** 리포지토리를 선택합니다. 다음 스크립트에 사용할 수 있도록 **복제 URL** 요소의 각 URL을 차례대로 복사 및 저장합니다(HTTPS는 Windows용, SSH는 Linux용).  
 
@@ -283,7 +283,7 @@ GitRepos\GroupCommon\GroupProjectTemplate 디렉터리에서 다음 명령을 �
 
 ![22](./media/group-manager-tasks/push-to-group-server-2.PNG)
 
-그룹의 VSTS 서버에서 GroupProjectTemplate 리포지토리의 파일이 즉시 동기화되는 것을 볼 수 있습니다.
+그룹의 Azure DevOps Services에서 GroupProjectTemplate 리포지토리의 파일이 즉시 동기화되는 것을 볼 수 있습니다.
 
 ![23](./media/group-manager-tasks/push-to-group-server-showed-up-2.PNG)
 
@@ -308,7 +308,7 @@ GitRepos\GroupCommon\GroupProjectTemplate 디렉터리에서 다음 명령을 �
 
 ## <a name="6-add-group-members-to-the-group-server"></a>6. 그룹 서버에 그룹 구성원 추가
 
-그룹 VSTS 서버의 홈페이지에서 오른쪽 상단의 사용자 이름 옆에 있는 **톱니 바퀴 아이콘**을 클릭하고 **보안** 탭을 선택합니다. 여기서 다양한 권한을 사용하여 그룹에 구성원을 추가할 수 있습니다.
+그룹 Azure DevOps Services의 홈페이지에서 오른쪽 상단의 사용자 이름 옆에 있는 **톱니 바퀴 아이콘**을 클릭하고 **보안** 탭을 선택합니다. 여기서 다양한 권한을 사용하여 그룹에 구성원을 추가할 수 있습니다.
 
 ![24](./media/group-manager-tasks/add_member_to_group.PNG) 
 

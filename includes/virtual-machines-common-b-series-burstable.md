@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 533fa1a8491a701571011f407b338e04fb6a7e8b
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 14feb7ad09a24904034f9ae90cf4a54cf786a44c
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40183325"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44369535"
 ---
 B 시리즈 VM 제품군을 사용하면 워크로드에 필요한 기준 수준 성능을 제공하는 VM 크기를 선택할 수 있으며, Intel® Broadwell E5-2673 v4 2.3GHz 또는 Intel® Haswell 2.4GHz E5-2673 v3 프로세서 vCPU의 CPU 성능을 최대 100%까지 버스트할 수 있습니다.
 
-B 시리즈 VM은 웹 서버, 소규모 데이터베이스 및 개발 및 테스트 환경과 같이 CPU의 전체 성능이 지속적으로 필요하지 않은 작업에 적합합니다. 이러한 작업에는 일반적으로 버스트 가능한 성능 요구 사항이 있습니다. B 시리즈는 기준 성능을 갖춘 VM 크기를 구입할 수 있는 기능을 제공하며, 기준 성능보다 적게 사용할 경우 VM 인스턴스에서 크레딧을 적립합니다. VM에 대한 크레딧이 적립되면 응용 프로그램에 더 높은 CPU 성능이 필요할 때 VM이 vCPU의 최대 100%까지 사용하여 기준 이상으로 버스트할 수 있습니다.
+B 시리즈 VM은 웹 서버, 개념 증명, 소규모 데이터베이스 및 개발 및 빌드 환경과 같이 CPU의 전체 성능이 지속적으로 필요하지 않은 작업에 적합합니다. 이러한 작업에는 일반적으로 버스트 가능한 성능 요구 사항이 있습니다. B 시리즈는 기준 성능을 갖춘 VM 크기를 구입할 수 있는 기능을 제공하며, 기준 성능보다 적게 사용할 경우 VM 인스턴스에서 크레딧을 적립합니다. VM에 대한 크레딧이 적립되면 응용 프로그램에 더 높은 CPU 성능이 필요할 때 VM이 vCPU의 최대 100%까지 사용하여 기준 이상으로 버스트할 수 있습니다.
 
 B 시리즈는 다음 6가지 VM 크기로 제공됩니다.
 

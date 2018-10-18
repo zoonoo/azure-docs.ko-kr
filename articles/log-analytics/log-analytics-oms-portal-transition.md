@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: c7ccfd53b52416c8216b90f93f8d08f382c859d8
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6e3026ea3aca897ab63f4ad7d72eac438fdb7199
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042107"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389114"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Azure로 이동하는 OMS 포털
 
@@ -98,7 +98,7 @@ OMS 모바일 앱은 OMS 포털과 함께 종료됩니다. OMS 모바일 앱 대
 
 
 ## <a name="azure-network-security-group-analytics"></a>Azure 네트워크 보안 그룹 분석
-[Azure 네트워크 보안 그룹 분석 솔루션](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics)은 최근에 시작된 [트래픽 분석](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/)으로 대체되어 클라우드 네트워크에서 사용자 및 응용 프로그램 작업에 대한 가시성을 제공합니다. 트래픽 분석은 조직의 네트워크 활동을 감사하고, 응용 프로그램 및 데이터를 보호하고, 워크로드 성능을 최적화하고, 준수 상태를 유지하는 데 도움이 됩니다. 
+[Azure 네트워크 보안 그룹 분석 솔루션](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics)은 최근에 시작된 [트래픽 분석](https://azure.microsoft.com/blog/traffic-analytics-in-preview/)으로 대체되어 클라우드 네트워크에서 사용자 및 응용 프로그램 작업에 대한 가시성을 제공합니다. 트래픽 분석은 조직의 네트워크 활동을 감사하고, 응용 프로그램 및 데이터를 보호하고, 워크로드 성능을 최적화하고, 준수 상태를 유지하는 데 도움이 됩니다. 
 
 이 솔루션은 NSG 흐름 로그를 분석하고 다음에 대한 인사이트를 제공합니다.
 

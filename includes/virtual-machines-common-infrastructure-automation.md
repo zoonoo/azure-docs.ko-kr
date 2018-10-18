@@ -10,8 +10,7 @@ Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리�
     - [Azure Automation](#azure-automation)은 Azure와 온-프레미스 인프라에 걸쳐 작업을 수행할 수 있습니다.
 
 - 응용 프로그램 배포 및 전달 자동화
-    - 예로는 [Visual Studio Team Services](#visual-studio-team-services)와 [Jenkins](#jenkins)가 있습니다.
-
+    - 예로는 [Azure DevOps Services](#visual-studio-team-services)와 [Jenkins](#jenkins)가 있습니다.
 
 ## <a name="ansible"></a>Ansible
 [Ansible](https://www.ansible.com/)은 구성 관리, VM 만들기 또는 응용 프로그램 배포를 위한 자동화 엔진입니다. Ansible은 대개 SSH 키가 있는 에이전트 없는 모델을 사용하여 대상 컴퓨터를 인증하고 관리합니다. 구성 작업은 플레이북에서 정의되며, 특정 작업을 수행하는 데 사용할 수 있는 다양한 Ansible 모듈이 포함됩니다. 자세한 내용은 [Ansible 작동 방법(영문)](https://www.ansible.com/how-ansible-works)을 참조하세요.
@@ -114,12 +113,12 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 - [Azure Automation DSC 사용](../articles/automation/automation-dsc-getting-started.md)
 
 
-## <a name="visual-studio-team-services"></a>Visual Studio Team Services
-[Team Services](https://www.visualstudio.com/team-services/)는 코드 공유 및 추적, 자동화된 빌드 사용 및 완전한 CI/CD(연속 통합 및 연속 개발) 파이프라인 만들기를 지원하는 도구 모음입니다. Team Services는 Visual Studio 및 다른 편집기와 통합되어 사용을 간소화합니다. 또한 Team Services로 Azure VM을 만들고 구성한 다음, Azure VM에 코드를 배포할 수도 있습니다.
+## <a name="azure-devops-services"></a>Azure DevOps Services
+[Azure DevOps Services](https://www.visualstudio.com/team-services/)는 코드 공유 및 추적, 자동화된 빌드 사용 및 완전한 CI/CD(연속 통합 및 연속 개발) 파이프라인 만들기를 지원하는 도구 모음입니다. Azure DevOps Services는 Visual Studio 및 다른 편집기와 통합되어 사용을 간소화합니다. 또한 Azure DevOps Services로 Azure VM을 만들고 구성한 다음, Azure VM에 코드를 배포할 수도 있습니다.
 
 방법 배우기:
 
-- [Team Services를 사용하여 연속 통합 파이프라인 만들기](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md)
+- [Azure DevOps Services를 사용하여 연속 통합 파이프라인 만들기](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md)
 
 
 ## <a name="jenkins"></a>Jenkins

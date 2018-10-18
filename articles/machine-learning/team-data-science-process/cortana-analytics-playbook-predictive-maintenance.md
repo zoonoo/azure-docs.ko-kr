@@ -4,7 +4,7 @@ description: 여러 수직 산업 분야에서 예측 유지 관리 솔루션을
 services: machine-learning
 author: fboylu
 manager: cgronlun
-editor: ''
+editor: cgronlun
 ms.assetid: 2e8b66db-91eb-432b-b305-6abccca25620
 ms.service: machine-learning
 ms.component: team-data-science-process
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 7802aa8ea9798b18d5424c2342ba63c01406b25a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 2a5d8540dba491dec8b2da227b0e84c10ff09c77
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221709"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395007"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>예측 유지 관리 솔루션에 대한 Azure AI 가이드
 

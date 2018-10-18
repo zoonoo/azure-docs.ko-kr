@@ -8,20 +8,20 @@ ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 62d8d770f6b4c3a62a2395eb8c1505dbc3835c28
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5099ca70503ba2ed4ae8f4969a9199816c4986fb
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047458"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302574"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Azure IoT Edge 연속 통합 및 지속적인 배포
 
-이 아티클에서는 Visual Studio Team Services(VSTS) 및 Microsoft Team Foundation Server(TFS)의 연속 통합 및 지속적인 배포 기능을 사용하여 응용 프로그램을 빠르고 효율적으로 빌드, 테스트하고 Azure IoT Edge에 배포하는 방법을 설명합니다. 
+이 문서에서는 Azure DevOps Services 및 Microsoft Team Foundation Server(TFS)의 연속 통합 및 지속적인 배포 기능을 사용하여 응용 프로그램을 빠르고 효율적으로 빌드, 테스트하고 Azure IoT Edge에 배포하는 방법을 설명합니다. 
 
 이 아티클에서는 다음 방법을 설명합니다.
 * 단위 테스트가 포함된 샘플 IoT Edge 솔루션을 만들고 체크 인합니다.
-* VSTS에 대한 Azure IoT Edge 확장 프로그램을 설치합니다.
+* Azure DevOps에 대한 Azure IoT Edge 확장 프로그램을 설치합니다.
 * 연속 통합(CI)을 구성하여 솔루션을 빌드하고 단위 테스트를 실행합니다.
 * 지속적인 배포(CD)를 구성하여 솔루션을 배포하고 응답을 봅니다.
 
@@ -277,31 +277,31 @@ ms.locfileid: "37047458"
 
     ![단위 테스트](./media/how-to-ci-cd/unit-test.png)
 
-7. 이러한 프로젝트를 저장한 다음, VSTS 또는 TFS 리포지토리를 확인합니다.
+7. 이러한 프로젝트를 저장한 다음, Azure DevOps 또는 TFS 리포지토리를 확인합니다.
     
 
 > [!NOTE]
-> VSTS Code 리포지토리를 사용하는 방법에 대한 자세한 내용은 [Visual Studio 및 VSTS Git와 코드 공유](https://docs.microsoft.com/vsts/git/share-your-code-in-git-vs?view=vsts)를 참조하세요.
+> Azure Repos를 사용하는 방법에 대한 자세한 내용은 [Share your code with Visual Studio and Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts)(Visual Studio 및 Azure Repos와 코드 공유)를 참조하세요.
 
 
 ## <a name="configure-continuous-integration"></a>연속 통합 구성
-이 섹션에서는 샘플 IoT Edge 솔루션에 변경 사항을 체크 인하면 자동으로 실행되도록 구성된 빌드 정의를 만듭니다. 이 빌드 정의는 자체적으로 포함된 단위 테스트를 자동으로 실행하게 됩니다.
+이 섹션에서는 샘플 IoT Edge 솔루션에 변경 사항을 체크 인하면 자동으로 실행되도록 구성된 빌드 파이프라인을 만듭니다. 이 빌드 정의는 자체적으로 포함된 단위 테스트를 자동으로 실행하게 됩니다.
 
-1. VSTS 계정(**https://**_your-account_**.visualstudio.com**)에 로그인하고 샘플 앱을 체크 인한 프로젝트를 엽니다.
+1. Azure DevOps 조직(**https://**_your-account_**.visualstudio.com**)에 로그인하고 샘플 앱을 체크 인한 프로젝트를 엽니다.
 
     ![코드 체크 인](./media/how-to-ci-cd/init-project.png)
 
-1. VSTS Marketplace에서 [Azure IoT Edge For VSTS](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy)를 방문합니다. **무료로 받기**를 클릭하고 마법사를 따라 이 확장 프로그램을 VSTS 계정에 설치하거나 TFS에 다운로드합니다.
+1. Azure DevOps Marketplace에서 [Azure DevOps용 Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy)를 방문하세요. **무료로 받기**를 클릭하고 마법사를 따라 이 확장 프로그램을 Azure DevOps 조직에 설치하거나 TFS에 다운로드합니다.
 
     ![확장 설치](./media/how-to-ci-cd/install-extension.png)
 
-1. VSTS에서 **빌드 &amp; 릴리스** 허브를 열고 **빌드** 탭에서 **+ 새 정의**를 선택합니다. 또는 빌드 정의가 이미 있는 경우 **+ 새로 만들기** 단추를 선택합니다. 
+1. Azure DevOps에서 **빌드 &amp; 릴리스** 허브를 열고 **빌드** 탭에서 **+ 새 파이프라인**을 선택합니다. 또는 빌드 파이프라인이 이미 있는 경우 **+ 새로 만들기** 단추를 선택합니다. 
 
     ![새 빌드](./media/how-to-ci-cd/add-new-build.png)
 
-1. 메시지가 표시되면 **VSTS Git** 원본 형식을 선택한 다음, 코드가 있는 프로젝트, 리포지토리 및 분기를 선택합니다. **계속**을 선택합니다.
+1. 메시지가 표시되면 **Azure DevOps Git** 원본 형식을 선택한 다음, 코드가 있는 프로젝트, 리포지토리 및 분기를 선택합니다. **계속**을 선택합니다.
 
-    ![VSTS Git 선택](./media/how-to-ci-cd/select-vsts-git.png)
+    ![Azure DevOps git을 선택합니다.](./media/how-to-ci-cd/select-vsts-git.png)
 
 1. **템플릿 선택** 창에서 **빈 프로세스로 시작**을 선택합니다.
 
@@ -343,9 +343,9 @@ ms.locfileid: "37047458"
 
     ![트리거](./media/how-to-ci-cd/configure-trigger.png)
 
-1. 새 빌드 정의를 저장하고 새 빌드를 큐에 넣습니다. **저장 및 큐에 넣기** 단추를 클릭합니다.
+1. 새 빌드 파이프라인을 저장하고 새 빌드를 큐에 넣습니다. **저장 및 큐에 넣기** 단추를 클릭합니다.
 
-1. 메시지 표시줄이 나타나면 빌드에 대한 링크를 선택합니다. 또는 빌드 정의로 이동하여 큐에 대기 중인 최신 빌드 작업을 봅니다.
+1. 메시지 표시줄이 나타나면 빌드에 대한 링크를 선택합니다. 또는 빌드 파이프라인으로 이동하여 큐에 대기 중인 최신 빌드 작업을 봅니다.
 
     ![빌드](./media/how-to-ci-cd/build-def.png)
 

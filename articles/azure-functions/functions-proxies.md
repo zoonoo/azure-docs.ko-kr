@@ -2,28 +2,24 @@
 title: Azure Functions에서 프록시 사용 | Microsoft Docs
 description: Azure Functions 프록시를 사용하는 방법의 개요
 services: functions
-documentationcenter: ''
 author: alexkarcher-msft
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 0e7fe474c3b247baa6550770c661af62e83b3737
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2aa8036149f4056f2d197f0712b86104f5cf2215
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "29933778"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44095048"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure Functions 프록시 사용
 
-이 문서에서는 Azure Functions 프록시를 구성하고 사용하는 방법을 설명합니다. 이 기능을 사용하면 다른 리소스에서 구현된 함수 앱에 끝점을 지정할 수 있습니다. 이러한 프록시를 사용하면 클라이언트에 대해 단일 API 화면을 계속 제공하면서 큰 API를 여러 개의 함수 앱으로 나눌 수 있습니다(마이크로 서비스 아키텍처 참조).
+이 문서에서는 Azure Functions 프록시를 구성하고 사용하는 방법을 설명합니다. 이 기능을 사용하면 다른 리소스에서 구현된 함수 앱에 엔드포인트를 지정할 수 있습니다. 이러한 프록시를 사용하면 클라이언트에 대해 단일 API 화면을 계속 제공하면서 큰 API를 여러 개의 함수 앱으로 나눌 수 있습니다(마이크로 서비스 아키텍처 참조).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -37,11 +33,11 @@ ms.locfileid: "29933778"
 1. [Azure Portal]을 열고 함수 앱으로 이동합니다.
 2. 왼쪽 창에서 **새 프록시**를 선택합니다.
 3. 프록시의 이름을 제공합니다.
-4. **경로 템플릿** 및 **HTTP 메서드**를 지정하여 이 함수 앱에 노출되는 끝점을 구성합니다. 이러한 매개 변수는 [HTTP 트리거]에 대한 규칙에 따라 동작합니다.
-5. **백 엔드 URL**을 다른 끝점으로 설정합니다. 이러한 끝점은 다른 함수 앱의 함수이거나 다른 API일 수 있습니다. 정적 값이 아니어도 되며 [응용 프로그램 설정] 및 [원래 클라이언트 요청의 매개 변수]를 참조할 수 있습니다.
+4. **경로 템플릿** 및 **HTTP 메서드**를 지정하여 이 함수 앱에 노출되는 엔드포인트를 구성합니다. 이러한 매개 변수는 [HTTP 트리거]에 대한 규칙에 따라 동작합니다.
+5. **백 엔드 URL**을 다른 엔드포인트로 설정합니다. 이러한 엔드포인트는 다른 함수 앱의 함수이거나 다른 API일 수 있습니다. 정적 값이 아니어도 되며 [응용 프로그램 설정] 및 [원래 클라이언트 요청의 매개 변수]를 참조할 수 있습니다.
 6. **만들기**를 클릭합니다.
 
-이제 프록시는 함수 앱에서 새 끝점으로 존재합니다. 클라이언트 관점에서 Azure Functions의 HttpTrigger에 같습니다. 프록시 URL을 복사하고 자주 사용하는 HTTP 클라이언트에서 테스트하여 새 프록시를 시험해볼 수 있습니다.
+이제 프록시는 함수 앱에서 새 엔드포인트로 존재합니다. 클라이언트 관점에서 Azure Functions의 HttpTrigger에 같습니다. 프록시 URL을 복사하고 자주 사용하는 HTTP 클라이언트에서 테스트하여 새 프록시를 시험해볼 수 있습니다.
 
 ## <a name="modify-requests-responses"></a>요청 및 응답 수정
 

@@ -3,8 +3,8 @@ title: 자습서 - Azure CDN 사용자 지정 도메인에서 HTTPS 구성 | Mic
 description: 이 자습서에서는 Azure CDN 엔드포인트 사용자 지정 도메인에서 HTTPS를 활성화하거나 비활성화하는 방법을 알아봅니다.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 10337468-7015-4598-9586-0b66591d939b
 ms.service: cdn
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/29/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 5d13c565302ae16b6fb2894f6a5a3843f47f9547
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: c7540ed2715d13921f005ed9b217f7bfb9cd0a0a
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342228"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092086"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>자습서: Azure CDN 사용자 지정 도메인에서 HTTPS 구성
 
@@ -47,9 +47,9 @@ Azure CDN은 기본적으로 CDN 엔드포인트에서 HTTPS를 지원합니다.
 > - 도메인의 유효성 검사
 > - 사용자 지정 도메인에서 HTTPS 프로토콜을 사용하지 않도록 설정합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
-이 자습서에서 단계를 완료하기 전에 먼저 CDN 프로필 및 하나 이상의 CDN 끝점을 만들어야 합니다. 자세한 내용은 [빠른 시작: Azure CDN 프로필 및 끝점 만들기](cdn-create-new-endpoint.md)를 참조하세요.
+이 자습서에서 단계를 완료하기 전에 먼저 CDN 프로필 및 하나 이상의 CDN 엔드포인트를 만들어야 합니다. 자세한 내용은 [빠른 시작: Azure CDN 프로필 및 엔드포인트 만들기](cdn-create-new-endpoint.md)를 참조하세요.
 
 또한 CDN 엔드포인트에서 Azure CDN 사용자 지정 도메인을 연결해야 합니다. 자세한 내용은 [자습서: Azure CDN 엔드포인트에 사용자 지정 도메인 추가](cdn-map-content-to-custom-domain.md)를 참조하세요.
 
@@ -169,9 +169,9 @@ CNAME 레코드를 사용하여 사용자 지정 엔드포인트에 매핑되는
 
 사용자 고유의 인증서를 사용 중인 경우 도메인 유효성 검사가 필요하지 않습니다.
 
-CNAME 레코드는 다음 형식이어야 합니다. 여기서 *Name*은 사용자 지정 도메인 이름이고 *Value*는 CDN 끝점 호스트 이름입니다.
+CNAME 레코드는 다음 형식이어야 합니다. 여기서 *Name*은 사용자 지정 도메인 이름이고 *Value*는 CDN 엔드포인트 호스트 이름입니다.
 
-| 이름            | 형식  | 값                 |
+| 이름            | type  | 값                 |
 |-----------------|-------|-----------------------|
 | www.contoso.com | CNAME | contoso.azureedge.net |
 
@@ -186,7 +186,7 @@ CNAME 레코드가 올바른 형식이면 DigiCert는 사용자 지정 도메인
 
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>사용자 지정 도메인이 CDN 엔드포인트에 매핑되지 않음
 
-끝점에 대한 CNAME 레코드 항목이 더 이상 없거나 cdnverify 하위 도메인을 포함하는 경우 이 단계의 나머지 지침을 따르세요.
+엔드포인트에 대한 CNAME 레코드 항목이 더 이상 없거나 cdnverify 하위 도메인을 포함하는 경우 이 단계의 나머지 지침을 따르세요.
 
 사용자 지정 도메인에서 HTTPS를 활성화한 후에 DigiCert CA에서 도메인의 [WHOIS](http://whois.domaintools.com/) 등록자 정보에 따라 등록자에게 연락하여 도메인 소유권에 대한 유효성을 검사합니다. 기본적으로 WHOIS에 등록된 전자 메일 주소 또는 전화 번호를 통해 연락합니다. 사용자 지정 도메인에서 HTTPS를 활성화하기 전에 도메인 유효성 검사를 완료해야 합니다. 업무일 기준 6일 이내 도메인이 승인되어야 합니다. 6 영업일 이내에 승인되지 않은 요청은 자동으로 취소됩니다. 
 
@@ -200,9 +200,9 @@ webmaster@&lt;your-domain-name.com&gt;
 hostmaster@&lt;your-domain-name.com&gt;  
 postmaster@&lt;your-domain-name.com&gt;  
 
-잠시 후 다음 예제와 비슷한 승인 요청 전자 메일을 받게 됩니다. 스팸 필터를 사용하는 경우 admin@digicert.com을 허용 목록에 추가입니다. 24시간 이내에 이메일을 받지 못하면 Microsoft 지원에 문의하세요.
+잠시 후 다음 예제와 비슷한 승인 요청 전자 메일을 받게 됩니다. 스팸 필터를 사용하는 경우 admin@digicert.com을 허용 목록에 추가입니다. 24시간 이내에 전자 메일을 받지 못하면 Microsoft 지원에 문의하세요.
     
-![도메인 유효성 검사 이메일](./media/cdn-custom-ssl/domain-validation-email.png)
+![도메인 유효성 검사 전자 메일](./media/cdn-custom-ssl/domain-validation-email.png)
 
 승인 링크를 클릭하는 경우 다음과 같은 온라인 승인 양식으로 이동됩니다. 
     
@@ -258,7 +258,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 1. [Azure Portal](https://portal.azure.com)에서 **Microsoft의 Azure CDN 표준**, **Verizon의 Azure CDN 표준** 또는 **Verizon의 Azure CDN 프리미엄** 프로필로 이동합니다.
 
-2. 끝점 목록에서 사용자 지정 도메인을 포함하는 끝점을 클릭합니다.
+2. 엔드포인트 목록에서 사용자 지정 도메인을 포함하는 엔드포인트를 클릭합니다.
 
 3. HTTPS를 비활성화하도록 설정할 사용자 지정 도메인을 클릭합니다.
 
@@ -296,7 +296,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 3. *DigiCert로부터 도메인 확인 메일을 받지 못한 경우 어떻게 하나요?*
 
-    끝점 호스트 이름을 직접 가리키는 사용자 지정 도메인에 대한 CNAME 항목이 있고 cdnverify 하위 도메인 이름을 사용하지 않는 경우에는 도메인 확인 메일이 수신되지 않습니다. 유효성 검사가 자동으로 수행됩니다. 그렇지 않은 경우 CNAME 항목이 없고 24시간 내에 이메일을 받지 못했으면 Microsoft 지원에 문의하세요.
+    엔드포인트 호스트 이름을 직접 가리키는 사용자 지정 도메인에 대한 CNAME 항목이 있고 cdnverify 하위 도메인 이름을 사용하지 않는 경우에는 도메인 확인 메일이 수신되지 않습니다. 유효성 검사가 자동으로 수행됩니다. 그렇지 않은 경우 CNAME 항목이 없고 24시간 내에 이메일을 받지 못했으면 Microsoft 지원에 문의하세요.
 
 4. *SAN 인증서를 사용하는 것보다 전용 인증서를 사용하는 것이 더 안전한가요?*
     

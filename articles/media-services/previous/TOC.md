@@ -8,7 +8,7 @@
 ## [계정 만들기 및 관리](media-services-portal-create-account.md)
 ## [개발 환경 설정](media-services-set-up-computer.md)
 ### [.NET](media-services-dotnet-how-to-use.md)
-### [REST](media-services-rest-how-to-use.md)  
+### [REST (영문)](media-services-rest-how-to-use.md)  
 ## [AAD 인증을 사용하여 API 액세스](media-services-use-aad-auth-to-access-ams-api.md)
 ### [포털을 사용하여 AAD 인증 관리](media-services-portal-get-started-with-aad.md)
 ### [.NET으로 API 액세스](media-services-dotnet-get-started-with-aad.md)
@@ -20,7 +20,7 @@
 ### [Azure Portal](media-services-portal-vod-get-started.md)
 ### [.NET SDK](media-services-dotnet-get-started.md)
 ### [Java](media-services-java-how-to-use.md)
-### [REST](media-services-rest-get-started.md)
+### [REST (영문)](media-services-rest-get-started.md)
 ## 라이브 스트리밍 수행
 ### [Azure Portal](media-services-portal-live-passthrough-get-started.md)
 ### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -64,6 +64,7 @@
 ##### [Media Encoder Standard 사전 설정 사용자 지정](media-services-custom-mes-presets-with-dotnet.md)
 ##### [.NET과 함께 Media Encoder Standard를 사용하여 미리 보기를 생성하는 방법](media-services-dotnet-generate-thumbnail-with-mes.md)
 ##### [미디어 인코더 표준으로 비디오 자르기](media-services-crop-video.md)
+##### [썸네일 스프라이트 생성](generate-thumbnail-sprite.md)
 #### MES 스키마
 ##### [Media Encoder Standard 스키마](media-services-mes-schema.md)
 ##### [입력 메타데이터](media-services-input-metadata-schema.md)
@@ -151,11 +152,11 @@
 #### [Widevine 라이선스 템플릿](media-services-widevine-license-template-overview.md)
 ### 자산 배달 정책 구성
 #### [.NET](media-services-dotnet-configure-asset-delivery-policy.md)
-#### [REST](media-services-rest-configure-asset-delivery-policy.md)
+#### [REST (영문)](media-services-rest-configure-asset-delivery-policy.md)
 ### 콘텐츠 키 인증 정책 구성
 #### [Azure Portal](media-services-portal-configure-content-key-auth-policy.md)
 #### [.NET](media-services-dotnet-configure-content-key-auth-policy.md)
-#### [REST](media-services-rest-configure-content-key-auth-policy.md)
+#### [REST (영문)](media-services-rest-configure-content-key-auth-policy.md)
 ### [AMS로 인증 토큰 캐시 전달](media-services-pass-authentication-tokens.md)
 ### 참조 디자인
 #### [하이브리드 DRM 시스템 디자인](hybrid-design-drm-sybsystem.md)
@@ -177,7 +178,7 @@
 
 ## [원격 분석 구성](media-services-telemetry-overview.md)
 ###[.NET](media-services-dotnet-telemetry.md)
-###[REST](media-services-rest-telemetry.md)
+###[REST (영문)](media-services-rest-telemetry.md)
 
 ## 확장
 ### [미디어 처리](media-services-scale-media-processing-overview.md)
@@ -232,7 +233,7 @@
 ## [Azure PowerShell(Resource Manager)](/powershell/module/azurerm.media)
 ## [Azure PowerShell(서비스 관리)](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
-## [REST](/rest/api/media/mediaservice)
+## [REST (영문)](/rest/api/media/mediaservice)
 ## 사양
 ### [라이브 수집 - 분할된 MP4 라이브 수집 사양](media-services-fmp4-live-ingest-overview.md)
 ### [라이브 수집 - 라이브 스트리밍에서 신호 타이밍 메타데이터](media-services-specifications-live-timed-metadata.md)

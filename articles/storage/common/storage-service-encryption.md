@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: 5b676bbc764cb5689a6c80e81f597776fe80413e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c6001b0c95186dff53f33c73833b4cea30688db2
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520727"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094895"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>미사용 데이터에 대한 Azure Storage 서비스 암호화
-미사용 데이터에 대한 Azure Storage 서비스 암호화를 사용하면 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호할 수 있습니다. 이 기능을 사용하면 Azure 저장소 플랫폼에서 데이터를 자동으로 암호화한 후에 Azure Managed Disks, Azure Blob 저장소, Azure Files 또는 Azure Queue 저장소에 보관하고, 데이터를 검색하기 전에 암호를 해독합니다. Storage 서비스 암호화의 암호화, 미사용 데이터의 암호화, 암호 해독, 키 관리는 완전히 투명한 방식으로 처리됩니다. Azure 저장소 플랫폼에 쓴 모든 데이터는 가장 강력한 블록 암호화 기술 중 하나인 256비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 통해 암호화됩니다.
+미사용 데이터에 대한 Azure Storage 서비스 암호화를 사용하면 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호할 수 있습니다. 이 기능을 사용하면 Azure Storage 플랫폼에서 데이터를 자동으로 암호화한 후에 Azure Managed Disks, Azure Blob, Queue, Table Storage 또는 Azure Files에 보관하고, 데이터를 검색하기 전에 암호를 해독합니다. Storage 서비스 암호화의 암호화, 미사용 데이터의 암호화, 암호 해독, 키 관리는 완전히 투명한 방식으로 처리됩니다. Azure 저장소 플랫폼에 쓴 모든 데이터는 가장 강력한 블록 암호화 기술 중 하나인 256비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 통해 암호화됩니다.
 
 Storage 서비스 암호화는 모든 신규 및 기존 저장소 계정에 대해 사용되도록 설정되며 비활성화할 수 없습니다. 사용자 데이터는 기본적으로 보호되므로 Storage 서비스 암호화를 활용하기 위해 코드 또는 응용 프로그램을 수정할 필요가 없습니다.
 

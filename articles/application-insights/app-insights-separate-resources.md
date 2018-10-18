@@ -1,8 +1,8 @@
 ---
-title: "Azure Application Insights에서 개발, 테스트 및 릴리스의 원격 분석 구분 | Microsoft Docs"
-description: "개발, 테스트 및 프로덕션 스탬프에 대한 다양한 리소스에 직접 원격 분석"
+title: Azure Application Insights에서 개발, 테스트 및 릴리스의 원격 분석 구분 | Microsoft Docs
+description: 개발, 테스트 및 프로덕션 스탬프에 대한 다양한 리소스에 직접 원격 분석
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 578e30f0-31ed-4f39-baa8-01b4c2f310c9
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8d95958bce0597bfb16ef1c6b99b72ce9134e66f
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 88626c3a4bfd4a1ff3a2e9cbc8c3f2b1c5553295
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303628"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>개발, 테스트 및 프로덕션의 원격 분석 구분
 
@@ -153,7 +154,7 @@ iKey는 [빠른 시작 블레이드에서 가져온 스크립트](app-insights-j
 그러나 빌드 버전 번호는 Visual Studio의 개발자 빌드가 아니라 Microsoft Build Engine에서만 생성된다는 점에 유의해야 합니다.
 
 ### <a name="release-annotations"></a>릴리스 주석
-Visual Studio Team Services를 사용하는 경우 새 버전을 릴리스할 때마다 [주석 표식](app-insights-annotations.md)이 차트에 추가됩니다. 다음 이미지는 이러한 표식이 어떻게 나타나는지를 보여줍니다.
+Azure DevOps를 사용하는 경우 새 버전을 릴리스할 때마다 [주석 표식](app-insights-annotations.md)이 차트에 추가됩니다. 다음 이미지는 이러한 표식이 어떻게 나타나는지를 보여줍니다.
 
 ![차트의 샘플 릴리스 주석 스크린샷](./media/app-insights-asp-net/release-annotation.png)
 ## <a name="next-steps"></a>다음 단계

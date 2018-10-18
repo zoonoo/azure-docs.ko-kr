@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: 68e655490470db6aade53c6f3523d0c9d87c3fbd
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 393543bbb1891e14ed67487aff26a7bda1eebcd5
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123468"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304240"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>논리 앱 배포를 위한 Azure Resource Manager 템플릿 만들기
 
@@ -173,7 +173,7 @@ parameters, variables, resourceId, concat 등과 같은 템플릿 함수를 사�
 
 ## <a name="deploy-a-logic-app-template"></a>논리 앱 템플릿 배포
 
-템플릿을 만든 후에는 PowerShell, REST API, [Visual Studio Team Services Release Management](#team-services), Azure Portal을 통한 템플릿 배포와 같은 여러 도구를 사용하여 배포할 수 있습니다.
+템플릿을 만든 후에는 PowerShell, REST API, [Azure DevOps Release Management](#team-services), Azure Portal을 통한 템플릿 배포와 같은 여러 도구를 사용하여 배포할 수 있습니다.
 또한, 매개 변수 값을 저장할 [매개 변수 파일](../azure-resource-manager/resource-group-template-deploy.md#parameter-files)을 만드는 것이 좋습니다.
 [Azure Resource Manager 템플릿 및 PowerShell로 리소스 배포](../azure-resource-manager/resource-group-template-deploy.md) 또는 [Azure Resource Manager 템플릿 및 Azure Portal로 리소스 배포](../azure-resource-manager/resource-group-template-deploy-portal.md) 방법을 알아봅니다.
 
@@ -185,13 +185,13 @@ OAuth 연결에 권한을 부여하려면 Logic Apps Designer에서 논리 앱�
 GitHub에 [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) 프로젝트라는 예시가 있습니다.
 
 <a name="team-services"></a>
-## <a name="visual-studio-team-services-release-management"></a>Visual Studio Team Services 릴리스 관리
+## <a name="azure-devops-release-management"></a>Azure DevOps Release Management
 
-환경을 배포 및 관리하는 일반적인 시나리오는 논리 앱 배포 템플릿과 함께 Visual Studio Team Services의 릴리스 관리 등의 도구를 사용하는 것입니다. Visual Studio Team Services에는 모든 빌드 또는 릴리스 파이프라인에 추가할 수 있는 [Azure 리소스 그룹 배포](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) 작업이 포함됩니다. 배포 권한 부여를 위해서는 [서비스 주체](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) 가 필요하며 그 다음 릴리스 정의를 생성할 수 있습니다.
+환경을 배포 및 관리하는 일반적인 시나리오는 논리 앱 배포 템플릿과 함께 Azure DevOps의 Release Management 같은 도구를 사용하는 것입니다. Azure DevOps에는 모든 빌드 또는 릴리스 파이프라인에 추가할 수 있는 [Azure 리소스 그룹 배포](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) 작업이 포함됩니다. [서비스 주체](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/)가 있어야 배포 권한을 부여한 다음 릴리스 파이프라인을 생성할 수 있습니다.
 
-1. 릴리스 관리에서 빈 정의를 생성할 수 있도록 **비어 있음**을 선택합니다.
+1. Release Management에서 빈 파이프라인을 생성할 수 있도록 **비어 있음**을 선택합니다.
 
-    ![빈 정의 만들기][1]
+    ![빈 파이프라인 만들기][1]
 
 2. 수동으로 또는 빌드 프로세스의 일부로 생성된 논리 앱 템플릿을 포함할 가능성이 높은 필요한 리소스를 선택합니다.
 3. **Azure 리소스 그룹 배포** 작업을 추가합니다.

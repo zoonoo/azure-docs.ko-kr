@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: f465a6e6cb0642f64670a8d2727c939f91bad134
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 6fe85d7ac527179ab39e89739f5744f3aa1ef8e2
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617252"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297558"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Security and Compliance Blueprint: UK OFFICIAL 워크로드 준수 PaaS 웹 응용 프로그램 호스팅
 
@@ -27,7 +27,7 @@ Azure Blueprint는 승인 또는 규정 준수 요구 사항이 있는 시나리
 
 이 청사진은 영국 NCSC(National Cyber Security Centre)에서 검토되었으며 NCSC 14개 클라우드 보안 원칙에 부합합니다.
 
-아키텍처에서는 Azure [PaaS(Platform as a Service)](https://azure.microsoft.com/overview/what-is-paas/) 구성 요소를 사용하여 고객이 소프트웨어 라이선스를 구입하고 기본 응용 프로그램 인프라와 미들웨어 또는 개발 도구 및 기타 리소스를 관리하는 비용과 복잡성을 방지할 수 있는 환경을 제공합니다. 고객은 비즈니스 가치를 제공하는 데 집중하여 개발한 응용 프로그램과 서비스를 관리하는 한편, Microsoft Azure는 가상 머신, 저장소 및 네트워킹과 같은 다른 Azure 리소스를 관리하여 인프라 관리에 대한 [책임 분담](https://docs.microsoft.com/azure/security/security-paas-deployments#division-of-responsibility)을 Azure 플랫폼에 더 많이 배치합니다. [Azure App Services](https://azure.microsoft.com/services/app-service/)는 자동 크기 조정과 고가용성을 제공하고, Windows 및 Linux를 지원하며, GitHub, Visual Studio Team Services 또는 모든 Git 리포지토리에서 자동화된 배포를 기본 서비스로 지원할 수 있도록 합니다. 개발자는 App Services를 사용하여 인프라 관리 오버헤드 없이 비즈니스 가치를 제공하는 데 집중할 수 있습니다. 개발 가능한 새로운 Java, PHP, Node.js, Python, HTML 또는 C# 웹 응용 프로그램을 구축하거나 기존의 클라우드 또는 온-프레미스 웹 응용 프로그램을 Azure App Services로 마이그레이션할 수도 있습니다(성능 확인을 위한 철저한 실사와 테스트가 필요함).
+아키텍처에서는 Azure [PaaS(Platform as a Service)](https://azure.microsoft.com/overview/what-is-paas/) 구성 요소를 사용하여 고객이 소프트웨어 라이선스를 구입하고 기본 응용 프로그램 인프라와 미들웨어 또는 개발 도구 및 기타 리소스를 관리하는 비용과 복잡성을 방지할 수 있는 환경을 제공합니다. 고객은 비즈니스 가치를 제공하는 데 집중하여 개발한 응용 프로그램과 서비스를 관리하는 한편, Microsoft Azure는 가상 머신, 저장소 및 네트워킹과 같은 다른 Azure 리소스를 관리하여 인프라 관리에 대한 [책임 분담](https://docs.microsoft.com/azure/security/security-paas-deployments#division-of-responsibility)을 Azure 플랫폼에 더 많이 배치합니다. [Azure App Services](https://azure.microsoft.com/services/app-service/)는 자동 크기 조정과 고가용성을 제공하고, Windows 및 Linux를 지원하며, GitHub, Azure DevOps 또는 모든 Git 리포지토리에서 자동화된 배포를 기본 서비스로 지원할 수 있도록 합니다. 개발자는 App Services를 사용하여 인프라 관리 오버헤드 없이 비즈니스 가치를 제공하는 데 집중할 수 있습니다. 개발 가능한 새로운 Java, PHP, Node.js, Python, HTML 또는 C# 웹 응용 프로그램을 구축하거나 기존의 클라우드 또는 온-프레미스 웹 응용 프로그램을 Azure App Services로 마이그레이션할 수도 있습니다(성능 확인을 위한 철저한 실사와 테스트가 필요함).
 
 이 청사진은 공용 및 백오피스 사용자를 위한 보안 기반 [PaaS(Platform as a Service)](https://azure.microsoft.com/overview/what-is-paas/) 웹 기반 인터페이스를 프로비전하는 데 집중하고 있습니다. 이 청사진 설계 시나리오에서는 공용 사용자가 중요한 데이터를 안전하게 제출, 열람 및 관리할 수 있는 Azure 호스팅 웹 기반 서비스를 사용하는 것이 좋습니다. 또한 백오피스 또는 정부 운영자가 제출된 공용 사용자의 중요한 데이터를 안전하게 처리할 수 있습니다. 이 시나리오에 포함될 수 있는 사용 사례는 다음과 같습니다.
 
@@ -103,7 +103,7 @@ Azure Blueprint는 승인 또는 규정 준수 요구 사항이 있는 시나리
 
 #### <a name="azure-app-service"></a>Azure App Service
 
-Azure Web Apps는 인프라를 관리할 필요 없이 Java, PHP, Node.js Python, HTML 및 C#으로 개발된 웹 응용 프로그램을 위해 완벽하게 관리되는 웹 호스팅 환경을 제공합니다. 자동 크기 조정 및 고가용성을 제공하고, Windows 및 Linux를 모두 지원하며, [Visual Studio Team Services](https://azure.microsoft.com/services/visual-studio-team-services/) 또는 Git 기반 리포지토리에서 자동화된 배포를 지원합니다.
+Azure Web Apps는 인프라를 관리할 필요 없이 Java, PHP, Node.js Python, HTML 및 C#으로 개발된 웹 응용 프로그램을 위해 완벽하게 관리되는 웹 호스팅 환경을 제공합니다. 여기서는 자동 크기 조정 및 고가용성을 제공하고, Windows 및 Linux를 모두 지원하며 [Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/) 또는 Git 기반 리포지토리에서 자동화된 배포를 사용합니다.
 
 App Service는 [ISO, SOC 및 PCI 규격](https://www.microsoft.com/TrustCenter/)이며, [Azure Active Directory](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) 또는 소셜 로그인([Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication), [Facebook](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-facebook-authentication), [Twitter](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-twitter-authentication) 및 [Microsoft 인증](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication)을 통해 사용자를 인증합니다.
 

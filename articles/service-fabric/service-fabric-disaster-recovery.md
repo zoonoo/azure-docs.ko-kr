@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric 재해 복구 | Microsoft Docs
-description: Azure 서비스 패브릭은 모든 유형의 재해를 처리하는 데 필요한 기능을 제공합니다. 이 문서에서는 발생할 수 있는 재해의 유형과 처리하는 방법을 설명합니다.
+description: Azure Service Fabric은 모든 유형의 재해를 처리하는 데 필요한 기능을 제공합니다. 이 문서에서는 발생할 수 있는 재해의 유형과 처리하는 방법을 설명합니다.
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 295772b70529f79c7a4c135d8ea7c12a1c661fe6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4b13d2d277721d37a6b96f6640377c875f0b5c0f
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206439"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161581"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Azure 서비스 패브릭에서 재해 복구
 고가용성 전달의 중요한 부분은 서비스가 다른 모든 유형의 오류를 감당할 수 있는지 확인하는 것입니다. 계획되지 않으며 사용자 통제 하에 있지 않은 오류의 경우 특히 이러한 과정이 중요합니다. 이 문서에서는 올바르게 모델링 및 관리되지 않는 경우 재해가 될 수 있는 몇 가지 일반적인 오류 모드에 대해 설명합니다. 또한 재해가 발생할 경우 수행할 완화 및 작업에 대해서도 설명합니다. 목표는 계획 여부에 관계없이 오류가 발생할 때 가동 중지 시간 또는 데이터 손실의 위험을 없애거나 제한하는 것입니다.
@@ -99,9 +99,9 @@ Service Fabric의 목표는 오류를 거의 항상 자동으로 관리하는 �
     - 영구 상태가 아닌 서비스의 경우 쿼럼 이상의 복제본에 오류가 발생하면 _즉시_ 영구 쿼럼 손실이 발생합니다. Service Fabric이 상태 저장 비영구 서비스에서 쿼럼 손실을 발견하면 (잠재적) 데이터 손실을 선언하여 3단계를 즉시 진행합니다. Service Fabric은 복제본이 복구되더라도 빈 상태가 되므로 복제본이 복구되기를 기다려도 소용이 없다는 사실을 알고 있습니다. 따라서 데이터 손실이 발생해도 작업을 계속 진행합니다.
     - 상태 저장 영구 서비스의 경우 쿼럼 이상의 복제본에 오류가 발생하면 Service Fabric은 복제본이 복구되고 쿼럼을 복원하기를 기다리기 시작합니다. 이로 인해 서비스의 영향 받는 파티션(또는 "복제본 세트")에 대한 _쓰기_ 동안 서비스가 중단됩니다. 그러나 일관성은 감소하지만 읽기는 계속 진행될 수 있습니다. 계속 진행은 (잠재적) 데이터 손실 이벤트이며 다른 위험을 수반하게 되므로 Service Fabric이 쿼럼 복원을 기다리는 기본 시간은 한정되지 않습니다. 기본 `QuorumLossWaitDuration` 값을 재정의할 수 있지만 권장되지 않습니다. 대신 이때는 가동 중단된 복제본을 복원하기 위해 모든 노력을 기울여야 합니다. 이를 위해서는 가동 중단된 노드를 다시 작동하고 로컬 영구 상태를 저장한 드라이브가 다시 탑재되도록 해야 합니다. 쿼럼 손실이 프로세스 오류로 인해 발생하는 경우 Service Fabric은 프로세스를 자동으로 다시 만들고 내부 복제본을 다시 시작하려고 합니다. 이 작업이 실패하면 Service Fabric은 상태 오류를 보고합니다. 이러한 오류가 해결될 수 있으면 복제본은 복구됩니다. 그렇지만 경우에 따라 복제본이 복구되지 못할 수도 있습니다. 예를 들어 모든 드라이브에 오류가 발생하거나 컴퓨터가 실제로 손상될 수 있습니다. 이러한 경우 영구 쿼럼 손실 이벤트가 발생하게 됩니다. 클러스터 관리자는 Service Fabric에 가동 중단된 복제본의 복구를 더 이상 대기하지 말 것을 알리기 위해 영향 받는 서비스의 파티션을 파악하고 `Repair-ServiceFabricPartition -PartitionId` 또는 ` System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` API를 호출해야 합니다.  이 API를 사용하여 쿼럼 손실에서 벗어나 잠재적 데이터 손실로 전환할 파티션의 ID를 지정할 수 있습니다.
 
-> [!NOTE]
-> 특정 파티션에만 적용되는 방식이 아닌 이 API를 사용하는 것은 _절대_ 안전하지 않습니다. 
->
+  > [!NOTE]
+  > 특정 파티션에만 적용되는 방식이 아닌 이 API를 사용하는 것은 _절대_ 안전하지 않습니다. 
+  >
 
 3. 실제 데이터 손실이 있었는지 확인 및 백업에서 복원
   - Service Fabric이 `OnDataLossAsync` 메서드를 호출할 때는 항상 데이터 손실이 _의심_될 때입니다. Service Fabric은 이 호출이 _최상의_ 나머지 복제본으로 전달되도록 합니다. 가장 많이 진행된 복제본이 여기에 해당됩니다. 항상 데이터 손실이 _의심_된다고 말하는 이유는 나머지 복제본이 실제로 가동 중단되었을 때 주 복제본과 같은 상태를 가질 수 있기 때문입니다. 그러나 비교할 상태가 없으면 Service Fabric 또는 운영자가 확인할 방법이 없습니다. 또한 Service Fabric은 다른 복제본이 복구되지 않을 것이라는 사실도 알고 있습니다. 이것은 쿼럼 손실의 자체 해결을 더 이상 기다리지 않기로 했을 때 이미 결정된 사항이었습니다. 서비스에 대한 최선의 작업 과정은 중단된 후 특정 관리 개입을 기다리는 것입니다. 그렇다면 `OnDataLossAsync` 메서드의 일반적인 구현은 어떤 작업을 수행할까요?

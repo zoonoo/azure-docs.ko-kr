@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 9b22890bceba6205c995a01105cdf11a08a9c10b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 551fe303994f6c72f8a4bf39e76f12c62f58026b
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998749"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309538"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>덤프 및 복원을 사용하여 MariaDB Database를 Azure Database for MariaDB로 마이그레이션
 이 문서에서는 Azure Database for MariaDB에서 데이터베이스를 백업 및 복원하는 2가지 일반적인 방법에 대해 설명
@@ -30,7 +30,9 @@ ms.locfileid: "46998749"
 MySQL Workbench, mysqldump, Toad 또는 Navicat과 같은 일반 유틸리티 및 도구를 사용하여 Azure Database for MariaDB에 원격으로 연결하고 데이터를 복원합니다. 인터넷에 연결된 클라이언트 머신에서 이러한 도구를 사용하여 Azure Database for MariaDB에 연결합니다. 최상의 보안을 위해 SSL 암호화 연결을 사용하려면 [Azure Database for MariaDB에서 SSL 연결 구성](concepts-ssl-connection-security.md)도 참조하세요. Azure Database for MariaDB로 마이그레이션할 때 덤프 파일을 특수한 클라우드 위치로 이동할 필요가 없습니다. 
 
 ## <a name="common-uses-for-dump-and-restore"></a>덤프 및 복원을 위한 일반적인 사용
-몇 가지 일반적인 시나리오에서 mysqldump 및 mysqlpump와 같은 MySQL 유틸리티를 사용하여 데이터베이스를 Azure Database for MariaDB로 덤프 및 로드할 수 있습니다. <!--In other scenarios, you may use the [Import and Export](concepts-migrate-import-export.md) approach instead.-->
+몇 가지 일반적인 시나리오에서 mysqldump 및 mysqlpump와 같은 MySQL 유틸리티를 사용하여 데이터베이스를 Azure Database for MariaDB로 덤프 및 로드할 수 있습니다. 
+
+<!--In other scenarios, you may use the [Import and Export](howto-migrate-import-export.md) approach instead.-->
 
 - 전체 데이터베이스를 마이그레이션할 때 데이터베이스 덤프를 사용합니다. 많은 양의 데이터를 이동하거나 실시간 사이트 또는 응용 프로그램에 대한 서비스 중단을 최소화하려는 경우 이 권장 사항이 유지됩니다. 
 -  데이터베이스의 모든 테이블이 데이터를 Azure Database for MariaDB로 로드할 때 InnoDB 저장소 엔진을 사용해야 합니다. Azure Database for MariaDB는 InnoDB 저장소 엔진만을 지원하므로 대체 저장소 엔진을 지원하지 않습니다. 테이블이 다른 저장소 엔진으로 구성된 경우 Azure Database for MariaDB로 마이그레이션하기 전에 해당 테이블을InnoDB 엔진 형식으로 변환합니다.

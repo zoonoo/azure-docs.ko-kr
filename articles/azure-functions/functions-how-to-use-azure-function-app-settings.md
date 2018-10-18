@@ -4,23 +4,19 @@ description: Azure 함수 앱 설정을 구성하는 방법에 알아봅니다.
 services: ''
 documentationcenter: .net
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: dotnet
-ms.devlang: na
-ms.topic: article
+ms.service: azure-functions
+ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 8974b2ca243da5dd2f7202c66602f7254496d040
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 18e4adb47ecf8e6d44edea873a4b3cc73492b273
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30283805"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301486"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Azure Portal에서 함수 앱을 관리하는 방법 
 
@@ -32,9 +28,9 @@ Azure Functions에서 함수 앱은 개별 함수에 대한 실행 컨텍스트�
 
 ## <a name="favorite"></a>포털의 즐겨 찾는 함수 
 
-경우에 따라 [Azure 포털]에서 리소스를 찾기 어려울 수 있습니다. 자신이 만든 함수 앱을 더 쉽게 찾을 수 있도록 하려면 포털의 즐겨찾기에 함수 앱을 추가합니다. 
+경우에 따라 [Azure Portal]에서 리소스를 찾기 어려울 수 있습니다. 자신이 만든 함수 앱을 더 쉽게 찾을 수 있도록 하려면 포털의 즐겨찾기에 함수 앱을 추가합니다. 
 
-1. [Azure 포털] 에 로그인합니다.
+1. [Azure Portal]에 로그인합니다.
 
 2. 맨 아래 왼쪽에서 화살표를 클릭하여 모든 서비스를 확장하고 **필터** 필드에 `Functions`를 입력한 후 **Function Apps** 옆의 별 모양을 클릭합니다.  
  
@@ -46,7 +42,7 @@ Azure Functions에서 함수 앱은 개별 함수에 대한 실행 컨텍스트�
  
     ![즐겨찾기의 함수 앱](./media/functions-how-to-use-azure-function-app-settings/functions-function-apps-hub.png)
  
-[Azure 포털]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
 ## <a name="manage-app-service-settings"></a>함수 앱 설정 탭
 
@@ -106,7 +102,7 @@ App Service 설정을 사용하는 방법에 대한 자세한 내용은 [Azure A
 
 | | |
 |-|-|
-| ![Azure Portal의 함수 앱 Kudu](./media/functions-how-to-use-azure-function-app-settings/function-app-advanced-tools.png) | App Service용 고급 도구(Kudu라고도 함)를 사용하면 함수 앱의 고급 관리 기능에 액세스할 수 있습니다. Kudu에서 시스템 정보, 앱 설정, 환경 변수, 사이트 확장, HTTP 헤더 및 서버 변수를 관리할 수 있습니다. `https://<myfunctionapp>.scm.azurewebsites.net/`과 같은 함수 앱에 대한 SCM 끝점으로 이동하여 **Kudu**를 시작할 수도 있습니다. |
+| ![Azure Portal의 함수 앱 Kudu](./media/functions-how-to-use-azure-function-app-settings/function-app-advanced-tools.png) | App Service용 고급 도구(Kudu라고도 함)를 사용하면 함수 앱의 고급 관리 기능에 액세스할 수 있습니다. Kudu에서 시스템 정보, 앱 설정, 환경 변수, 사이트 확장, HTTP 헤더 및 서버 변수를 관리할 수 있습니다. `https://<myfunctionapp>.scm.azurewebsites.net/`과 같은 함수 앱에 대한 SCM 엔드포인트로 이동하여 **Kudu**를 시작할 수도 있습니다. |
 
 ![Kudu 구성](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-kudu.png)
 
@@ -115,7 +111,7 @@ App Service 설정을 사용하는 방법에 대한 자세한 내용은 [Azure A
 
 | | |
 |-|-|
-| ![Azure Portal의 함수 앱 배포 옵션](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | Functions를 사용하면 로컬 컴퓨터에서 함수 코드를 개발할 수 있습니다. 그런 다음 Azure에 로컬 함수 앱 프로젝트를 업로드할 수 있습니다. 기존 FTP 업로드 외에도 Functions를 사용하면 GitHub, VSTS, Dropbox, Bitbucket 등과 같은 인기 있는 연속 통합 솔루션을 사용하여 함수 앱을 배포할 수 있습니다. 자세한 내용은 [Azure Functions에 대한 연속 배포](functions-continuous-deployment.md)를 참조하세요. FTP 또는 로컬 Git을 사용하여 수동으로 업로드하려면 [배포 자격 증명을 구성](functions-continuous-deployment.md#credentials)해야 합니다. |
+| ![Azure Portal의 함수 앱 배포 옵션](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | Functions를 사용하면 로컬 컴퓨터에서 함수 코드를 개발할 수 있습니다. 그런 다음 Azure에 로컬 함수 앱 프로젝트를 업로드할 수 있습니다. 기존 FTP 업로드 외에도 Functions를 사용하면 GitHub, Azure DevOps, Dropbox, Bitbucket 등과 같은 인기 있는 연속 통합 솔루션을 사용하여 함수 앱을 배포할 수 있습니다. 자세한 내용은 [Azure Functions에 대한 연속 배포](functions-continuous-deployment.md)를 참조하세요. FTP 또는 로컬 Git을 사용하여 수동으로 업로드하려면 [배포 자격 증명을 구성](functions-continuous-deployment.md#credentials)해야 합니다. |
 
 
 ### <a name="cors"></a>CORS

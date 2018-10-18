@@ -3,8 +3,8 @@ title: 빠른 시작 - Azure CDN과 Azure 저장소 계정 통합 | Microsoft Do
 description: Azure Storage에서 Blob을 캐시하여 고대역폭 콘텐츠를 배달하기 위해 Azure CDN(Content Delivery Network)을 사용하는 방법을 알아봅니다.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: cbc2ff98-916d-4339-8959-622823c5b772
 ms.service: cdn
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/24/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 1f720c8921a9a49e76465cce1c8226232fdb12ea
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 025f2ecef070170fef216d7533150359cf11c50f
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096244"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092588"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>빠른 시작: Azure CDN과 Azure 저장소 계정 통합
 이 빠른 시작에서는 [Azure CDN(콘텐츠 배달 네트워크)](cdn-overview.md)이 Azure 저장소에서 콘텐츠를 캐시하도록 활성화합니다. Azure CDN은 개발자에게 고대역폭 콘텐츠를 배달하기 위한 전역 솔루션을 제공합니다. 미국, 유럽, 아시아, 오스트레일리아 및 남아메리카의 물리적 노드에 계산 인스턴스의 Blob 및 정적 콘텐츠를 캐시할 수 있습니다.

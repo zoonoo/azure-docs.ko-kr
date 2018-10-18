@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jainr
-ms.openlocfilehash: 4d95fc25ed6f2f2efec8313e5b208b3cccbb619f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: b0368e742c990feed626a1c4982bfedc35785b49
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968794"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304291"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>AI(인공 지능) 응용 프로그램에 대한 DevOps: Docker 및 Kubernetes를 사용하여 Azure에서 지속적인 통합 파이프라인 만들기
 AI 응용 프로그램의 경우 대개 Machine Learning 모델을 빌드하는 데이터 과학자와 응용 프로그램을 빌드하고 사용할 최종 사용자에게 노출하는 앱 개발자라는 두 가지 작업 스트림이 있습니다. 이 문서에서는 AI 응용 프로그램을 위한 CI(지속적인 통합)/CD(지속적인 배포) 파이프라인을 구현하는 방법을 설명합니다. AI 응용 프로그램은 미리 학습된 ML(Machine Learning) 모델이 포함된 응용 프로그램 코드의 조합입니다. 이 문서의 경우 개인 Azure blob 저장소 계정에서 미리 학습된 모델을 페치합니다. 이는 AWS S3 계정에도 적용될 수 있습니다. 문서에서는 간단한 python flask 웹 응용 프로그램을 사용합니다.
@@ -35,7 +35,7 @@ AI 응용 프로그램의 경우 대개 Machine Learning 모델을 빌드하는 
 
 ## <a name="pre-requisites"></a>필수 조건
 다음은 아래에 설명된 CI/CD 파이프라인을 수행하기 위한 필수 구성 요소입니다.
-* [Visual Studio Team Services 계정](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student)
+* [Azure DevOps 조직](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Kubernetes를 실행하는 AKS(Azure Container Service) 클러스터](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
 * [ACR(Azure Container Registy) 계정](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
@@ -53,19 +53,19 @@ AI 응용 프로그램의 경우 대개 Machine Learning 모델을 빌드하는 
 
 ## <a name="steps-of-the-cicd-pipeline"></a>CI/CD 파이프라인의 단계
 1. 개발자는 응용 프로그램 코드 중 선택한 IDE에서 작업합니다.
-2. 선택한 소스 제어에 대한 코드를 커밋합니다. (VSTS에 다양한 소스 제어를 위한 지원이 있습니다.)
+2. 선택한 소스 제어에 대한 코드를 커밋합니다(Azure DevOps에 다양한 소스 제어를 위한 지원이 있음).
 3. 이와 별도로, 데이터 과학자는 자신의 모델을 개발합니다.
 4. 만족스러우면 모델을 모델 리포지토리에 게시합니다. 이 경우 blob 저장소 계정을 사용합니다. 이는 REST API를 통해 Azure ML Workbench의 모델 관리 서비스로 쉽게 바꿀 수 있습니다.
-5. 빌드가 GitHub의 커밋에 따라 VSTS에서 시작됩니다.
-6. VSTS 빌드 파이프라인은 Blob 컨테이너에서 최신 모델을 끌어와 컨테이너를 만듭니다.
-7. VSTS는 이미지를 Azure Container Registry의 개인 이미지 리포지토리에 푸시합니다.
+5. 빌드가 GitHub의 커밋에 따라 Azure DevOps에서 시작됩니다.
+6. Azure DevOps 빌드 파이프라인은 Blob 컨테이너에서 최신 모델을 끌어와 컨테이너를 만듭니다.
+7. Azure DevOps는 이미지를 Azure Container Registry의 개인 이미지 리포지토리에 푸시합니다.
 8. 지정된 일정(야간)에 따라 릴리스 파이프라인이 시작됩니다.
 9. ACR에서 최신 이미지를 끌어오고 ACS에서 Kubernetes 클러스터 전체에 배포합니다.
 10. 앱에 대한 사용자 요청은 DNS 서버를 통해 이동합니다.
 11. DNS 서버는 부하 분산 장치에 요청을 전달하고 사용자에게 다시 응답을 보냅니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [자습서]((https://github.com/Azure/DevOps-For-AI-Apps/blob/master/Tutorial.md))를 참조하여 세부 정보를 수행하고 사용자의 응용 프로그램에 대한 사용자 소유의 CI/CD 파이프라인을 구현합니다.
+* [자습서](https://github.com/Azure/DevOps-For-AI-Apps/blob/master/Tutorial.md)를 참조하여 세부 정보를 수행하고 사용자의 응용 프로그램에 대한 사용자 소유의 CI/CD 파이프라인을 구현합니다.
 
 ## <a name="references"></a>참조
 * [TDSP(Team Data Science Process)](https://aka.ms/tdsp)

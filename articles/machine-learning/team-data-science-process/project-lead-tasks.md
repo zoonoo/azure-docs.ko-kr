@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 58c5826240b7c49ba29c0d8e86a2896e3ce2f7f7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 6a618efc6860371883bff7ebb953880293ad3120
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838401"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303884"
 ---
 # <a name="project-lead-tasks"></a>프로젝트 리더 작업
 
@@ -31,7 +31,7 @@ ms.locfileid: "34838401"
 
 이 항목에서는 현재 프로젝트 리더에 대한 1, 2 및 6 워크플로 작업을 설명합니다.
 
->[AZURE.NOTE] 다음 지침에서는 VSTS(Visual Studio Team Services)를 사용하여 프로젝트에 대한 TDSP 팀 환경을 설정하는 데 필요한 단계에 대해 설명합니다. Microsoft에서 TDSP를 구현하는 방법이기 때문에 VSTS를 사용하여 이러한 작업을 수행하는 방법을 지정합니다. 그룹에 다른 코드 호스팅 플랫폼이 사용되는 경우 팀 리더가 수행해야 하는 작업은 일반적으로 변경되지 않습니다. 그러나 이러한 작업을 완료하는 방법은 다를 수 있습니다.
+>[AZURE.NOTE] 다음 지침에서 Azure DevOps를 사용하여 프로젝트를 위한 TDSP 팀 환경을 설정하는 데 필요한 단계를 설명합니다. Microsoft에서 TDSP를 구현하는 방법이기 때문에 Azure DevOps를 사용하여 이러한 작업을 수행하는 방법을 지정합니다. 그룹에 다른 코드 호스팅 플랫폼이 사용되는 경우 팀 리더가 수행해야 하는 작업은 일반적으로 변경되지 않습니다. 그러나 이러한 작업을 완료하는 방법은 다를 수 있습니다.
 
 
 ## <a name="repositories-and-directories"></a>리포지토리 및 디렉터리
@@ -50,27 +50,27 @@ ms.locfileid: "34838401"
 
 여기서 요약하면, 팀 리더 작업을 시작하기 전에 다음 요구 사항이 충족되어야 합니다. 
 
-- 그룹 관리자가 **그룹 VSTS 서버**(또는 다른 일부 코드 호스팅 플랫폼의 그룹 계정)를 설정했습니다.
+- 그룹 관리자가 **그룹 Azure DevOps Services**(또는 다른 일부 코드 호스팅 플랫폼의 그룹 계정)를 설정했습니다.
 - 팀 리더가 사용하려는 코드 호스팅 플랫폼의 그룹 계정에 **TeamProjectTemplate 리포지토리**(R3)를 설정했습니다.
 - 팀 리더가 **권한을 부여**하여 구성원인 사용자가 팀의 그룹 계정에 리포지토리를 만들었습니다.
 - Git가 컴퓨터에 설치되어야 합니다. DSVM(데이터 과학 Virtual Machine)을 사용하는 경우 Git가 사전 설치되어 있으므로 계속 진행할 수 있습니다. 그렇지 않은 경우 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)을 참조하세요.  
 - **Windows DSVM**을 사용하는 경우 컴퓨터에 [GCM(Git Credential Manager)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)이 설치되어 있어야 합니다. README.md 파일에서 **다운로드 및 설치** 섹션으로 스크롤한 다음 *최신 설치 관리자*를 클릭합니다. 이렇게 하면 최신 설치 관리자 페이지로 이동합니다. 여기서 .exe 설치 관리자를 다운로드하여 실행합니다. 
-- **Linux DSVM**을 사용하는 경우 DSVM에서 SSH 공개 키를 만들고 그룹 VSTS 서버에 추가합니다. SSH에 대한 자세한 내용은 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)의 **SSH 공개 키 만들기** 섹션을 참조하세요. 
+- **Linux DSVM**을 사용하는 경우 DSVM에서 SSH 공개 키를 만들고 그룹 Azure DevOps Services 서버에 추가합니다. SSH에 대한 자세한 내용은 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)의 **SSH 공개 키 만들기** 섹션을 참조하세요. 
 
 
 ## <a name="1-create-a-project-repository-r5"></a>1. 프로젝트 리포지토리(R5) 만들기
 
-- *https://\<VSTS 서버 이름\>.visualstudio.com*에 있는 그룹 VSTS 서버에 로그인합니다. 
-- **최근 프로젝트 및 팀**에서 **찾아보기**를 클릭합니다. 표시되는 창에서 VSTS 서버의 모든 팀 프로젝트가 나열됩니다. 
+- 그룹 Azure DevOps Services(*https://\<Azure DevOps Services Name\>.visualstudio.com*)에 로그인합니다. 
+- **최근 프로젝트 및 팀**에서 **찾아보기**를 클릭합니다. 표시되는 창에서 Azure DevOps Services의 모든 프로젝트가 나열됩니다. 
 
     ![2](./media/project-lead-tasks/project-leads-2-create-project-repo.png)
 
-- 프로젝트 리포지토리를 만들 팀 프로젝트 이름을 클릭합니다. 이 예에서는 **MyTeam**을 클릭합니다. 
-- 그런 다음 **탐색**을 클릭하여 **MyTeam** 팀 프로젝트의 홈 페이지로 이동합니다.
+- 프로젝트 리포지토리를 만들 프로젝트 이름을 클릭합니다. 이 예에서는 **MyTeam**을 클릭합니다. 
+- 그런 다음 **탐색**을 클릭하여 **MyTeam** 프로젝트의 홈페이지로 이동합니다.
 
     ![3](./media/project-lead-tasks/project-leads-3-create-project-repo-2.png)
 
-- **코드에 대한 공동 작업**을 클릭하여 팀 프로젝트의 git 홈 페이지로 이동합니다.  
+- **코드에 대한 공동 작업**을 클릭하여 프로젝트의 git 홈페이지로 이동합니다.  
 
     ![4](./media/project-lead-tasks/project-leads-4-create-project-repo-3.png)
 
@@ -87,33 +87,33 @@ ms.locfileid: "34838401"
 
 ## <a name="2-seed-the-dsproject1-project-repository"></a>2. DSProject1 프로젝트 리포지토리 시드
 
-여기서는 팀 프로젝트 템플릿 리포지토리(R3)의 **DSProject1** 프로젝트 리포지토리(R5)를 시드하는 작업을 수행합니다. 시드 절차에서는 로컬 DSVM의 D3 및 D5 디렉터리를 중간 스테이징 사이트로 사용합니다. 요약하면, 시드 경로가 R3 -> D3 -> D5 -> R5입니다.
+여기서는 프로젝트 템플릿 리포지토리(R3)의 **DSProject1** 프로젝트 리포지토리(R5)를 시드하는 작업을 수행합니다. 시드 절차에서는 로컬 DSVM의 D3 및 D5 디렉터리를 중간 스테이징 사이트로 사용합니다. 요약하면, 시드 경로가 R3 -> D3 -> D5 -> R5입니다.
 
 특정 프로젝트의 요구 사항에 맞게 **DSProject1** 프로젝트 리포지토리를 사용자 지정해야 하는 경우, 다음 절차의 마지막 두 번째 단계에서 이 사용자 지정 작업을 수행합니다. 다음은 **DSProject1** 프로젝트 리포지토리의 콘텐츠를 시드하는 데 사용되는 단계를 요약하고 있습니다. 개별 단계는 시드 절차의 하위 섹션에 해당합니다.
 
-- 팀 프로젝트 템플릿 리포지토리를 로컬 디렉터리에 복제합니다(로컬 D3에 팀 R3 복제).
+- 프로젝트 템플릿 리포지토리를 로컬 디렉터리에 복제합니다(로컬 D3에 팀 R3 복제).
 - DSProject1 리포지토리를 로컬 디렉터리에 복제합니다(로컬 D5에 팀 R5 복제).
-- 복제된 팀 프로젝트 템플릿 콘텐츠를 DSProject1 리포지토리의 로컬 복제본에 복사합니다(D5에 D3 콘텐츠 복사).
+- 복제된 프로젝트 템플릿 콘텐츠를 DSProject1 리포지토리의 로컬 복제본에 복사합니다(D5에 D3 콘텐츠 복사).
 - (선택 사항) 로컬 D5를 사용자 지정합니다.
 - 로컬 DSProject1 콘텐츠를 팀 리포지토리에 푸시합니다(팀 R5에 D5 콘텐츠 추가).
 
 
-### <a name="clone-your-team-project-template-repository-r3-to-a-directory-d3-on-your-local-machine"></a>로컬 컴퓨터의 디렉터리(D3)에 팀 프로젝트 템플릿 리포지토리(R3) 복제
+### <a name="clone-your-project-template-repository-r3-to-a-directory-d3-on-your-local-machine"></a>로컬 컴퓨터의 디렉터리(D3)에 팀 프로젝트 템플릿 리포지토리(R3)를 복제합니다.
 
 로컬 컴퓨터에서 다음 디렉터리를 만듭니다.
 
 - *C:\GitRepos\MyTeamCommon*(Windows의 경우) 
 - *$home/GitRepos/MyTeamCommon*(Linux의 경우)
 
-해당 디렉터리로 변경합니다. 그리고 나서 다음 명령을 실행하여 팀 프로젝트 템플릿 리포지토리를 로컬 컴퓨터에 복제합니다. 
+해당 디렉터리로 변경합니다. 그러고 나서 다음 명령을 실행하여 프로젝트 템플릿 리포지토리를 로컬 컴퓨터에 복제합니다. 
 
 **Windows**
             
     git clone <the HTTPS URL of the TeamProjectTemplate repository>
     
-VSTS를 코드 호스팅 플랫폼으로 사용하는 경우 일반적으로 *팀 프로젝트 템플릿 리포지토리의 HTTPS URL*은 다음과 같습니다.
+Azure DevOps를 코드 호스팅 플랫폼으로 사용하는 경우 일반적으로 *프로젝트 템플릿 리포지토리의 HTTPS URL*은 다음과 같습니다.
 
- ***https://\<VSTS 서버 이름\>.visualstudio.com/\<팀 프로젝트 이름\>/_git/\<팀 프로젝트 템플릿 리포지토리 이름\>*** 
+ ***https://\<Azure DevOps Services 이름\>.visualstudio.com/\<프로젝트 이름\>/_git/\<프로젝트 템플릿 리포지토리 이름\>*** 
 
 이 예제에서 사용한 URL은 다음과 같습니다.
 
@@ -127,9 +127,9 @@ VSTS를 코드 호스팅 플랫폼으로 사용하는 경우 일반적으로 *�
         
 ![8](./media/project-lead-tasks/project-leads-8-clone-team-project-template-linux.png)
 
-VSTS를 코드 호스팅 플랫폼으로 사용하는 경우 일반적으로 *팀 프로젝트 템플릿 리포지토리의 SSH URL*은 다음과 같습니다.
+Azure DevOps를 코드 호스팅 플랫폼으로 사용하는 경우 일반적으로 *프로젝트 템플릿 리포지토리의 SSH URL*은 다음과 같습니다.
 
-***ssh://\<VSTS 서버 이름\>@\<VSTS 서버 이름\>.visualstudio.com:22/\<팀 프로젝트 이름>/_git/\<팀 프로젝트 템플릿 리포지토리 이름\>.*** 
+***ssh://\<Azure DevOps Services 이름\>@\<Azure DevOps Services 이름\>.visualstudio.com:22/\<프로젝트 이름>/_git/\<프로젝트 템플릿 리포지토리 이름\>*** 
 
 이 예제에서 사용한 URL은 다음과 같습니다.
 
@@ -145,7 +145,7 @@ VSTS를 코드 호스팅 플랫폼으로 사용하는 경우 일반적으로 *�
 
 ![9](./media/project-lead-tasks/project-leads-9-clone-project-repository.png)
 
-VSTS를 코드 호스팅 플랫폼으로 사용하는 경우 일반적으로 _Project 리포지토리의 HTTPS URL_은 ***https://\<VSTS 서버 이름\>.visualstudio.com/\<팀 프로젝트 이름>/_git/<프로젝트 리포지토리 이름\>*** 입니다. 이 예제에서는 ***https://mysamplegroup.visualstudio.com/MyTeam/_git/DSProject1***을 사용합니다.
+Azure DevOps를 코드 호스팅 플랫폼으로 사용하는 경우 일반적으로 _프로젝트 리포지토리의 HTTPS URL_은 ***https://\<Azure DevOps Services 이름\>.visualstudio.com/\<프로젝트 이름>/_git/<프로젝트 리포지토리 이름\>*** 입니다. 이 예제에서는 ***https://mysamplegroup.visualstudio.com/MyTeam/_git/DSProject1***을 사용합니다.
 
 **Linux**
 
@@ -153,7 +153,7 @@ VSTS를 코드 호스팅 플랫폼으로 사용하는 경우 일반적으로 _Pr
 
 ![10](./media/project-lead-tasks/project-leads-10-clone-project-repository-linux.png)
 
-VSTS를 코드 호스팅 플랫폼으로 사용하는 경우 일반적으로 _Project 리포지토리의 SSH URL_은 _ssh://<VSTS 서버 이름\>@<VSTS 서버 이름\>.visualstudio.com:22/<Your Team Project Name>/\_git/<프로젝트 리포지토리 이름\>입니다. 이 예제에서는 ***ssh://mysamplegroup@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***을 사용합니다.
+Azure DevOps를 코드 호스팅 플랫폼으로 사용하는 경우 일반적으로 _프로젝트 리포지토리의 SSH URL_은 _ssh://<Azure DevOps Services 이름\>@<Azure DevOps Services 이름\>.visualstudio.com:22/<Your Project Name>/\_git/<프로젝트 리포지토리 이름\>입니다. 이 예제에서는 ***ssh://mysamplegroup@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***을 사용합니다.
 
 ### <a name="copy-contents-of-d3-to-d5"></a>D5에 D3 콘텐츠 복사 
 
@@ -184,11 +184,11 @@ VSTS를 코드 호스팅 플랫폼으로 사용하는 경우 일반적으로 _Pr
 
 ### <a name="customize-d5-if-you-need-to-optional"></a>필요한 경우 D5 사용자 지정(선택 사항)
 
-팀 프로젝트 템플릿(이전 단계에서 D5 디렉터리에 복사됨)에서 가져온 것이 아닌 특정 디렉터리 또는 문서가 프로젝트에 필요한 경우 이제 D5의 콘텐츠를 사용자 지정할 수 있습니다. 
+프로젝트 템플릿(이전 단계에서 D5 디렉터리에 복사됨)에서 가져온 것이 아닌 특정 디렉터리 또는 문서가 프로젝트에 필요한 경우 이제 D5의 콘텐츠를 사용자 지정할 수 있습니다. 
 
-### <a name="add-contents-of-dsproject1-in-d5-to-r5-on-your-group-vsts-server"></a>그룹 VSTS 서버의 D5에 R5의 DSProject1 콘텐츠 추가
+### <a name="add-contents-of-dsproject1-in-d5-to-r5-on-your-group-azure-devops-services"></a>그룹 Azure DevOps Services의 R5에 D5의 DSProject1 콘텐츠 추가
 
-이제 **_DSProject1_** 의 콘텐츠를 그룹의 VSTS 서버에 있는 팀 프로젝트의_R5_ 리포지토리에 푸시해야 합니다. 
+이제 **_DSProject1_** 의 콘텐츠를 그룹의 Azure DevOps Services에 있는 프로젝트의_R5_ 리포지토리에 푸시해야 합니다. 
 
 
 - **D5** 디렉터리로 변경합니다. 

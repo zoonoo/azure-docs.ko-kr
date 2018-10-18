@@ -1,25 +1,24 @@
 ---
-title: ".NET SDK: Azure Data Lake Store에서의 파일 시스템 작업 | Microsoft Docs"
-description: "Azure Data Lake Store .NET SDK를 사용하여 Data Lake Store에서 폴더 만들기 등의 파일 시스템 작업을 수행합니다."
+title: '.NET SDK: Azure Data Lake Storage Gen1에서의 파일 시스템 작업 | Microsoft Docs'
+description: Azure Data Lake Storage Gen1 .NET SDK를 사용하여 Data Lake Storage Gen1에서 폴더 만들기 등의 파일 시스템 작업을 수행할 수 있습니다.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/30/2018
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 1094a5ea3c000707aa7736d22d4df0558da32b5e
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 71ddbc2363075b721bfbd418bd29e5154baba866
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391490"
 ---
-# <a name="filesystem-operations-on-azure-data-lake-store-using-net-sdk"></a>.NET SDK를 사용한 Azure Data Lake Store에서의 파일 시스템 작업
+# <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>.NET SDK를 사용한 Azure Data Lake Storage Gen1에서의 파일 시스템 작업
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
@@ -28,16 +27,16 @@ ms.lasthandoff: 02/27/2018
 >
 >
 
-이 문서에서는 .NET SDK를 사용하여 Data Lake Store에서 파일 시스템 작업을 수행하는 방법을 알아 봅니다. 파일 시스템 작업에는 Data Lake Store 계정에 폴더 만들기, 파일 업로드, 파일 다운로드 등이 포함됩니다.
+이 문서에서는 .NET SDK를 사용하여 Data Lake Storage Gen1에서 파일 시스템 작업을 수행하는 방법을 알아봅니다. 파일 시스템 작업에는 Data Lake Storage Gen1 계정에 폴더 만들기, 파일 업로드, 파일 다운로드 등이 포함됩니다.
 
-.NET SDK를 사용하여 Data Lake Store에서 계정 관리 작업을 수행하는 방법에 대한 지침은 [.NET SDK를 사용한 Data Lake Store에서의 계정 관리 작업](data-lake-store-get-started-net-sdk.md)을 참조하세요.
+.NET SDK를 사용하여 Data Lake Storage Gen1에서 계정 관리 작업을 수행하는 방법에 대한 지침은 [.NET SDK를 사용한 Data Lake Storage Gen1에서의 계정 관리 작업](data-lake-store-get-started-net-sdk.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 * **Visual Studio 2013, 2015 또는 2017**. 아래 지침에서는 Visual Studio 2017을 사용합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-* **Azure Data Lake Store 계정**. 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Store 시작](data-lake-store-get-started-portal.md)을 참조하세요.
+* **Azure Data Lake Storage Gen1 계정**. 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)을 참조하세요.
 
 ## <a name="create-a-net-application"></a>.NET 응용 프로그램 만들기
 [GitHub에서](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) 사용 가능한 코드 샘플은 저장소에서 파일 만들기, 파일 연결, 파일 다운로드 및 저장소에서 파일 삭제와 같은 프로세스를 설명합니다. 문서의 이 섹션은 코드의 주요 부분을 설명합니다.
@@ -85,7 +84,7 @@ ms.lasthandoff: 02/27/2018
         {
             class Program
             {
-                private static string _adlsAccountName = "<DATA-LAKE-STORE-NAME>.azuredatalakestore.net";        
+                private static string _adlsg1AccountName = "<DATA-LAKE-STORAGE-GEN1-NAME>.azuredatalakestore.net";        
             }
         }
 
@@ -93,21 +92,21 @@ ms.lasthandoff: 02/27/2018
 
 ## <a name="authentication"></a>인증
 
-* 응용 프로그램에 대한 최종 사용자 인증의 경우 [.NET SDK를 사용한 Data Lake Store의 최종 사용자 인증](data-lake-store-end-user-authenticate-net-sdk.md)을 참조하세요.
-* 응용 프로그램에 대한 서비스 간 인증의 경우 [.NET SDK를 사용한 Data Lake Store의 서비스 간 인증](data-lake-store-service-to-service-authenticate-net-sdk.md)을 참조하세요.
+* 응용 프로그램에 대한 최종 사용자 인증의 경우 [.NET SDK를 사용한 Data Lake Storage Gen1의 최종 사용자 인증](data-lake-store-end-user-authenticate-net-sdk.md)을 참조하세요.
+* 응용 프로그램에 대한 서비스 간 인증의 경우 [.NET SDK를 사용한 Data Lake Storage Gen1의 서비스 간 인증](data-lake-store-service-to-service-authenticate-net-sdk.md)을 참조하세요.
 
 
 ## <a name="create-client-object"></a>클라이언트 개체 만들기
-다음 코드 조각은 이는 서비스에 요청을 발급하는 데 사용되는 Data Lake Store 파일 시스템 클라이언트 개체를 만듭니다.
+다음 코드 조각은 이는 서비스에 요청을 발급하는 데 사용되는 Data Lake Storage Gen1 파일 시스템 클라이언트 개체를 만듭니다.
 
     // Create client objects
-    AdlsClient client = AdlsClient.CreateClient(_adlsAccountName, adlCreds);
+    AdlsClient client = AdlsClient.CreateClient(_adlsg1AccountName, adlCreds);
 
 ## <a name="create-a-file-and-directory"></a>파일 및 디렉터리 만들기
 응용 프로그램에 다음 코드 조각을 추가합니다. 이 코드 조각은 파일을 추가할 뿐만 아니라 존재하지 않는 모든 부모 디렉터리도 추가합니다.
 
     // Create a file - automatically creates any parent directories that don't exist
-    // The AdlsOuputStream preserves record boundaries - it does not break records while writing to the store
+    // The AdlsOutputStream preserves record boundaries - it does not break records while writing to the store
     using (var stream = client.CreateFile(fileName, IfExists.Overwrite))
     {
         byte[] textByteArray = Encoding.UTF8.GetBytes("This is test data to write.\r\n");
@@ -118,7 +117,7 @@ ms.lasthandoff: 02/27/2018
     }
 
 ## <a name="append-to-a-file"></a>파일에 추가
-다음 코드 조각은 Data Lake Store 계정의 기존 파일에 데이터를 추가합니다.
+다음 코드 조각은 Data Lake Storage Gen1 계정의 기존 파일에 데이터를 추가합니다.
 
     // Append to existing file
     using (var stream = client.GetAppendStream(fileName))
@@ -128,7 +127,7 @@ ms.lasthandoff: 02/27/2018
     }
 
 ## <a name="read-a-file"></a>파일 읽기
-다음 코드 조각은 Data Lake Store에서 파일의 콘텐츠를 읽습니다.
+다음 코드 조각은 Data Lake Storage Gen1에서 파일 내용을 읽습니다.
 
     //Read file contents
     using (var readStream = new StreamReader(client.GetReadStream(fileName)))
@@ -150,14 +149,14 @@ ms.lasthandoff: 02/27/2018
 `PrintDirectoryEntry` 메서드의 정의는 [Github에서](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) 샘플의 일부로 사용할 수 있습니다. 
 
 ## <a name="rename-a-file"></a>파일 이름 바꾸기
-다음 코드 조각은 Data Lake Store 계정의 기존 파일 이름을 변경합니다.
+다음 코드 조각은 Data Lake Storage Gen1 계정의 기존 파일 이름을 바꿉니다.
 
     // Rename a file
     string destFilePath = "/Test/testRenameDest3.txt";
     client.Rename(fileName, destFilePath, true);
 
 ## <a name="enumerate-a-directory"></a>디렉터리 열거
-다음 코드 조각은 Data Lake Store 계정에서 디렉터리를 열거합니다.
+다음 코드 조각은 Data Lake Storage Gen1 계정의 디렉터리를 열거합니다.
 
     // Enumerate directory
     foreach (var entry in client.EnumerateDirectory("/Test"))
@@ -170,17 +169,17 @@ ms.lasthandoff: 02/27/2018
 ## <a name="delete-directories-recursively"></a>디렉터리를 재귀적으로 삭제
 다음 코드 조각은 디렉터리 및 모든 해당 하위 디렉터리를 재귀적으로 삭제합니다.
 
-    // Delete a directory and all it's subdirectories and files
+    // Delete a directory and all its subdirectories and files
     client.DeleteRecursive("/Test");
 
 ## <a name="samples"></a>샘플
-Data Lake Store 파일 시스템 SDK를 사용하는 방법에 대한 몇 가지 샘플은 다음과 같습니다.
+Data Lake Storage Gen1 파일 시스템 SDK를 사용하는 방법에 대한 몇 가지 샘플은 다음과 같습니다.
 * [GitHub의 기본 샘플](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
 * [GitHub의 고급 샘플](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
 ## <a name="see-also"></a>참고 항목
-* [.NET SDK를 사용한 Data Lake Store에서의 계정 관리 작업](data-lake-store-get-started-net-sdk.md)
-* [Data Lake Store .NET SDK 참조](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
+* [.NET SDK를 사용한 Data Lake Storage Gen1에서의 계정 관리 작업](data-lake-store-get-started-net-sdk.md)
+* [Data Lake Storage Gen1 .NET SDK 참조](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>다음 단계
-* [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
+* [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)

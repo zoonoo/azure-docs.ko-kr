@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: c894fed56393e1504f54999e57bba6f9ffed27a7
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 18a6234eb56902625fdcc8f150a41b7551d229cc
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288257"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318540"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse 감사
 
@@ -112,7 +112,7 @@ SQL Data Warehouse 데이터베이스 감사를 사용하여 다음을 수행할
 
 ## <a id="subheading-3"></a>감사 로그 및 보고서 분석
 
-###<a name="server-level-policy-audit-logs"></a>서버 수준 정책 감사 로그
+### <a name="server-level-policy-audit-logs"></a>서버 수준 정책 감사 로그
 서버 수준 감사 로그는 Azure 구독의 Azure Blob 저장소에 있는 **Blob 추가**에 기록됩니다. **sqldbauditlogs**라는 컨테이너 내부에 Blob 파일 컬렉션으로 저장됩니다.
 
 저장소 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대한 자세한 내용은 [BLOB 감사 로그 형식 참조](https://go.microsoft.com/fwlink/?linkid=829599)를 참조하세요.
@@ -147,7 +147,7 @@ Blob 감사 로그를 볼 수 있는 여러 가지 방법이 있습니다.
 
 
 <br>
-###<a name="database-level-policy-audit-logs"></a>데이터베이스 수준 정책 감사 로그
+### <a name="database-level-policy-audit-logs"></a>데이터베이스 수준 정책 감사 로그
 데이터베이스 수준 감사 로그는 설치 중에 선택한 Azure 저장소 계정의 **SQLDBAuditLogs** 접두사가 포함된 저장소 테이블의 컬렉션에 집계됩니다. [Azure Storage 탐색기](http://azurestorageexplorer.codeplex.com)와 같은 도구를 사용하여 로그 파일을 볼 수 있습니다.
 
 미리 구성된 대시보드 보고서 템플릿은 로그 데이터를 빠르게 분석하는 데 도움이 되는 [다운로드 가능 Excel 스프레드시트](http://go.microsoft.com/fwlink/?LinkId=403540)로 사용할 수 있습니다. 감사 로그의 템플릿을 사용하려면 Excel 2013 이상과 파워 쿼리가 필요하며 이러한 프로그램은 [여기](http://www.microsoft.com/download/details.aspx?id=39379)에서 다운로드할 수 있습니다.

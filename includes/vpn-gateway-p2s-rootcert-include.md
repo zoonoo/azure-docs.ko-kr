@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/06/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: afee9450bc1485f781eb0d70b5d4dd2f50424573
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 5ceb2d737083e2a218fc624c4e1a2f6d8fd0db1d
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44343161"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49312551"
 ---
 엔터프라이즈 솔루션을 사용하여 생성되는 루트 인증서를 사용하거나(권장됨) 자체 서명된 인증서를 생성할 수 있습니다. 루트 인증서를 만든 후 Base-64 인코딩된 X.509 .cer 파일로 공용 인증서 데이터(개인 키 아님)를 내보내고 공용 인증서 데이터를 Azure로 업로드합니다.
 
@@ -22,4 +22,4 @@ ms.locfileid: "44343161"
 
   * [Windows 10 PowerShell 지침](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md): Windows 10 및 PowerShell에서 인증서를 생성해야 합니다. 루트 인증서에서 생성된 클라이언트 인증서는 지원되는 모든 P2S 클라이언트에 설치할 수 있습니다.
   * [MakeCert 지침](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md): 사용할 Windows 10 컴퓨터에 액세스할 수 없는 경우 MakeCert를 사용하여 인증서를 생성합니다. MakeCert는 사용되지 않지만, 그래도 MakeCert를 사용하여 인증서를 생성할 수 있습니다. 루트 인증서에서 생성된 클라이언트 인증서는 지원되는 모든 P2S 클라이언트에 설치할 수 있습니다.
-  * [Linux 지침](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md)
+  * [Linux 지침](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md)

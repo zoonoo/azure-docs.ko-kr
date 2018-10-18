@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: bryanla
-ms.openlocfilehash: d5cc634451c5412f9a3339c8d2d26654c4d5c1b8
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 60920aaa62d8472eaca8f929c62ce1c0af08f9a4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298916"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385637"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault 인증서 시작
 다음과 같은 시나리오는 키 자격 증명 모음에서 첫 번째 인증서를 만드는 데 필요한 추가 단계를 포함하여 몇 가지 Key Vault의 인증서 관리 서비스의 기본 사용을 간략하게 설명합니다.
@@ -83,7 +83,7 @@ ms.locfileid: "44298916"
       -   갱신 정보 -> 예 만료 90일 전  
 
   - 인증서 만들기 프로세스는 일반적으로 비동기 프로세스이며 인증서 만들기 작업의 상태에 대한 키 자격 증명 모음 폴링을 포함합니다.  
-[인증서 작업 가져오기](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation)  
+[인증서 작업 가져오기](https://docs.microsoft.com/rest/api/keyvault/getcertificateoperation)  
       -   상태: 완료, 오류 정보와 함께 실패 또는 취소  
       -   만들기에 대한 지연으로 인해 취소 작업을 시작할 수 있습니다. 취소가 적용되거나 적용되지 않을 수 있습니다.  
 

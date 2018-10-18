@@ -3,19 +3,19 @@ title: '빠른 시작: 원격 이미지 분석 - REST, Python - Computer Vision'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Computer Vision API를 사용하여 Python을 통해 원격 이미지를 분석합니다.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 1fc7c58ec4e5c200ae62c70698db7ec813d82703
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.author: pafarley
+ms.openlocfilehash: 8f8503277ec03bd6036431bcacd3719dac7378de
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883944"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338743"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-python-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API와 Python을 사용하여 원격 이미지 분석
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 샘플을 만들고 실행하려면 다음 단계를 수행합니다.
 
 1. 다음 코드를 텍스트 편집기에 복사합니다.
-1. 필요한 경우 코드에서 다음과 같이 변경합니다.
+1. 필요한 경우 코드에서 다음 내용을 변경합니다.
     1. `subscription_key`의 값을 구독 키로 바꿉니다.
     1. 필요한 경우 `vision_base_url` 값을 구독 키가 제공된 Azure 지역의 Computer Vision 리소스에 대한 엔드포인트 URL로 바꿉니다.
     1. 필요에 따라 `image_url` 값을 분석하려는 다른 이미지의 URL로 바꿉니다.

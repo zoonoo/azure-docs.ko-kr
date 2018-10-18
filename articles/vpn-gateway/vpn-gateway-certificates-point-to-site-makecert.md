@@ -4,36 +4,20 @@ description: MakeCert를 사용하여 자체 서명된 루트 인증서를 만�
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/12/2018
+ms.date: 09/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: b2f31761e4560cf4b9b9a5b92f5de9982a663a75
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3ff7e754a55e15a8fa8a32f846efbbbe5025e46e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38651790"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297862"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>MakeCert를 사용하여 지점 및 사이트 간 연결에 대한 인증서 생성 및 내보내기
 
-지점 및 사이트 간 연결은 인증서를 사용하여 인증을 합니다. 이 문서에서는 MakeCert를 사용하여 자체 서명된 루트 인증서를 만들고 클라이언트 인증서를 생성하는 방법을 보여 줍니다. 루트 인증서 업로드 방법 등 지점 및 사이트 간 구성 단계를 찾고 있는 경우 다음 목록에서 '지점 및 사이트 간 구성' 문서 중 하나를 선택합니다.
-
-> [!div class="op_single_selector"]
-> * [자체 서명된 인증서 만들기 - PowerShell](vpn-gateway-certificates-point-to-site.md)
-> * [자체 서명된 인증서 만들기 - MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)
-> * [지점 및 사이트 간 구성 - Resource Manager - Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-> * [지점 및 사이트 간 구성 - Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [지점 및 사이트 간 구성 - Classic - Azure Portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
-> 
-> 
+지점 및 사이트 간 연결은 인증서를 사용하여 인증을 합니다. 이 문서에서는 MakeCert를 사용하여 자체 서명된 루트 인증서를 만들고 클라이언트 인증서를 생성하는 방법을 보여 줍니다. 다른 인증서 지침을 찾는 경우 [인증서 - PowerShell](vpn-gateway-certificates-point-to-site.md) 또는 [인증서 - Linux](vpn-gateway-certificates-point-to-site-linux.md)를 참조하세요.
 
 [Windows 10 PowerShell 단계](vpn-gateway-certificates-point-to-site.md)를 사용하여 인증서를 만드는 것이 좋지만 하나의 선택적 방법으로 이러한 MakeCert 지침을 제공합니다. 두 방법 중 하나를 사용하여 생성하는 인증서는 [지원되는 모든 클라이언트 운영 체제](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq)에 설치할 수 있습니다. 그러나 MakeCert에는 다음과 같은 제한이 있습니다.
 

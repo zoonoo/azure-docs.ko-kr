@@ -4,26 +4,22 @@ description: Azure App Service의 연속 배포 기능을 사용하여 Azure Fun
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: db10cd957f4dc59f787e2ac625355a96c888356e
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 7529d20535eedab92d164df5a0435efeda83fca2
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735706"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301551"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Azure Functions에 대한 연속 배포
-Azure Functions를 사용하면 App Service 연속 통합을 사용하여 함수 앱을 쉽게 배포할 수 있습니다. Functions는 BitBucket, Dropbox, GitHub 및 VSTS(Visual Studio Team Services)와 통합됩니다. 따라서 Azure에사 이러한 통합된 서비스 트리거 배포 중 하나를 사용하여 함수 코드가 업데이트된 워크플로를 구현할 수 있습니다. Azure Functions를 처음 접하는 경우 [Azure 함수 개요](functions-overview.md)로 시작합니다.
+Azure Functions를 사용하면 App Service 연속 통합을 사용하여 함수 앱을 쉽게 배포할 수 있습니다. Functions는 BitBucket, Dropbox, GitHub 및 Azure DevOps와 통합됩니다. 따라서 Azure에사 이러한 통합된 서비스 트리거 배포 중 하나를 사용하여 함수 코드가 업데이트된 워크플로를 구현할 수 있습니다. Azure Functions를 처음 접하는 경우 [Azure 함수 개요](functions-overview.md)로 시작합니다.
 
 연속 배포는 여러 개의 빈번한 작성자가 통합되는 프로젝트에 적합한 옵션입니다. 또한 함수 코드에서 소스 제어를 유지 관리할 수 있습니다. 현재 지원되는 배포 원본은 다음과 같습니다.
 
@@ -33,7 +29,7 @@ Azure Functions를 사용하면 App Service 연속 통합을 사용하여 함수
 * [Git 로컬 리포지토리](../app-service/app-service-deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
-* [Visual Studio Team Services](https://www.visualstudio.com/team-services/)
+* [Azure DevOps Services](https://www.visualstudio.com/team-services/)
 
 배포는 함수 앱별로 구성됩니다. 연속 배포가 활성화된 후 포털에서 함수 코드에 대한 액세스는 *읽기 전용*으로 설정됩니다.
 
@@ -43,10 +39,10 @@ Azure Functions를 사용하면 App Service 연속 통합을 사용하여 함수
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-VSTS에서 배포할 수 있으려면 먼저 Azure 구독과 VSTS 계정을 연결해야 합니다. 자세한 내용은 [VSTS 계정에 대한 청구 설정](https://docs.microsoft.com/vsts/billing/set-up-billing-for-your-account-vs?view=vsts#set-up-billing-via-the-azure-portal)을 참조하세요.
+Azure DevOps에서 배포할 수 있으려면 먼저 Azure 구독과 Azure DevOps 조직을 연결해야 합니다. 자세한 내용은 [Set up billing for your Azure DevOps organization](https://docs.microsoft.com/azure/devops/organizations/billing/set-up-billing-for-your-organization-vs?view=vsts#set-up-billing-via-the-azure-portal)(Azure DevOps 조직에 대한 청구 설정)을 참조하세요.
 
 ## <a name="set-up-continuous-deployment"></a>연속 배포 설정
-다음 절차를 사용하여 기존 함수 앱에 대한 연속 배포를 구성합니다. 다음 단계에서는 GitHub 리포지토리와의 통합을 보여 주지만 Visual Studio Team Services 또는 기타 배포 서비스에도 유사한 단계가 적용됩니다.
+다음 절차를 사용하여 기존 함수 앱에 대한 연속 배포를 구성합니다. 다음 단계에서는 GitHub 리포지토리와의 통합을 보여 주지만 Azure DevOps 또는 기타 배포 서비스에도 유사한 단계가 적용됩니다.
 
 1. [Azure Portal](https://portal.azure.com)의 함수 앱에서 **플랫폼 기능** 및 **배포 옵션**을 클릭합니다. 
    

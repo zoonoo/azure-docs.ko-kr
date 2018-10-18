@@ -9,12 +9,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 85b4630492d5f5b3fb71d563b0947d8a72ae4e1d
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 99f9259c9fa73a9ba4842b2684cde8a44f73145a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886568"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389669"
 ---
 # <a name="quickstart-create-train-and-publish-your-knowledge-base"></a>빠른 시작: 기술 자료 만들기, 학습 및 게시
 
@@ -41,7 +41,7 @@ FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker �
 
 5. 3단계 - KB **내 샘플 QnA KB**에 이름을 지정합니다.
 
-6. KB에 콘텐츠를 추가하려면 세 가지 유형의 데이터 원본을 추가합니다. 4단계 - **KB 입력**의 **URL** 상자에 [BitLocker 복구 FAQ](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) URL을 추가합니다.
+6. KB에 콘텐츠를 추가하려면 세 가지 유형의 데이터 원본을 추가합니다. 4단계 - **KB 입력**의 **URL** 상자에 [BitLocker 복구 FAQ](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) URL을 추가합니다.
 
    ![QnA 서비스 KB 선택](../media/qnamaker-quickstart-kb/add-datasources.png)
 

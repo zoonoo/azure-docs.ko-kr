@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 0f053c0293488f19adcd058f1ba8304d8d238738
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 3ec67488b238118067e771baf3dd5124308a84cf
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128309"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296196"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Azure App Service에서 느린 웹앱 성능 문제 해결
 이 문서에서는 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)의 느린 웹앱 성능 문제를 해결하는 데 도움을 줍니다.
@@ -88,7 +88,7 @@ Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 �
 
 각 App Service 웹앱은 사이트 확장처럼 사용할 수 있는 배포된 강력한 도구 집합인 확장 가능한 관리 끝점을 제공합니다. 확장은 다음을 포함합니다. 
 
-- [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx)와 같은 소스 코드 편집기. 
+- [Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx)와 같은 소스 코드 편집기. 
 - 웹앱에 연결된 MySQL 데이터베이스와 같은 연결된 리소스에 대한 관리 도구.
 
 [Azure Application Insights](https://azure.microsoft.com/services/application-insights/)도 사용할 수 있는 성능 모니터링 사이트 확장입니다. Application Insights를 사용하려면 SDK를 통해 코드를 다시 빌드합니다. 추가 데이터에 대한 액세스를 제공하는 확장을 설치할 수도 있습니다. SDK를 통해 앱의 사용과 성능을 보다 자세하게 모니터링하기 위한 코드를 작성할 수 있습니다. 자세한 내용은 [웹 응용 프로그램의 성능 모니터링](../application-insights/app-insights-web-monitor-performance.md)을 참조하세요.
@@ -158,7 +158,7 @@ Kudu가 제공하는 것은 다음과 같습니다.
 
 Kudu의 또 다른 유용한 기능은 응용 프로그램에 첫 번째 예외가 발생할 경우, 메모리 덤프를 만들기 위해 Kudu와 SysInternal 도구 Procdump를 사용할 수 있습니다. 메모리 덤프는 프로세스의 스냅숏이며 웹앱의 더욱 복잡한 문제를 해결하는 데 많은 도움을 줍니다.
 
-Kudu에서 사용 가능한 기능에 대한 자세한 내용은 [사용자가 꼭 알아야 할 Azure Websites 팀 서비스 도구](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/)를 참조하세요.
+Kudu에서 사용 가능한 기능에 대한 자세한 내용은 [사용자가 꼭 알아야 할 Azure DevOps 온라인 도구](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/)를 참조하세요.
 
 <a name="mitigate" />
 

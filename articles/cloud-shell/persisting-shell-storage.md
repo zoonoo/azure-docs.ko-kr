@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 9a22b14df18e10342bb2a872b82b94ab4ea62d0a
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 606b36be4a2bbeff8dd226f41341d60e23f0d988
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859870"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163280"
 ---
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
@@ -42,9 +42,7 @@ Azure Cloud Shell의 Bash에서 `clouddrive` 명령을 실행하여 Azure Cloud 
 #### <a name="prerequisites-for-manual-mounting"></a>수동 마운트를 위한 필수 구성 요소
 `clouddrive mount` 명령을 사용하여 Cloud Shell과 연결된 파일 공유를 업데이트할 수 있습니다.
 
-기존 파일 공유를 마운트할 경우 저장소 계정은 다음과 같아야 합니다.
-* 파일 공유를 지원하는 로컬 중복 저장소 또는 지역 중복 구성 저장소
-* 할당된 지역에 위치합니다. 시작할 때 사용자가 할당된 지역이 리소스 그룹 이름 `cloud-shell-storage-<region>`에 나열됩니다.
+기존 파일 공유를 탑재할 경우 저장소 계정은 선택하는 Cloud Shell 영역에 있어야 합니다. Bash에서 `env`를 실행하고 `ACC_LOCATION`을 확인하여 위치를 검색합니다.
 
 #### <a name="the-clouddrive-mount-command"></a>`clouddrive mount` 명령
 

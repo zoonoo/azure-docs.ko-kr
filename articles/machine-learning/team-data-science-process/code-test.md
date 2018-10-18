@@ -1,5 +1,5 @@
 ---
-title: UCI 성인 소득 예측 데이터 집합을 활용하여 Azure에서 데이터 과학 코드 테스트 - Team Data Science Process 및 Visual Studio Team Services
+title: UCI 성인 소득 예측 데이터 집합을 활용하여 Azure에서 데이터 과학 코드 테스트 - Team Data Science Process 및 Azure DevOps Services
 description: UCI 성인 소득 예측 데이터를 활용한 데이터 과학 코드 테스트
 services: machine-learning, team-data-science-process
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: weig
-ms.openlocfilehash: 46d156ce09b1ebcdcceb27ede6e7fa1595d30da6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ad0a8b5b0bb9afbbe626c9481961f20ccd4797bf
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439500"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294698"
 ---
 # <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>UCI 성인 소득 예측 데이터 집합을 활용한 데이터 과학 코드 테스트
 이 문서에서는 데이터 과학 워크플로에서 코드를 테스트하기 위한 예비 지침을 제공합니다. 이러한 테스트를 통해 데이터 과학자는 체계적이며 효율적인 방식으로 품질 및 예상되는 코드의 결과를 확인할 수 있습니다. 코드 테스트가 어떻게 수행되는지 보여 주기 위해 이전에 게시한 [UCI 성인 소득 데이터 집합을 사용하는 TDSP(Team Data Science Process) 프로젝트](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome)를 사용합니다. 
@@ -37,8 +37,8 @@ ms.locfileid: "39439500"
 
 이 문서는 유용한 리소스로 참조를 제공합니다.
 
-## <a name="visual-studio-team-services-for-the-testing-framework"></a>테스트 프레임워크에 대한 Visual Studio Team Services
-이 문서에서는 VSTS(Visual Studio Team Services)를 사용하여 테스트를 수행하고 자동화하는 방법을 설명합니다. 다른 도구를 사용할 수도 있습니다. 또한 VSTS 및 빌드 에이전트를 사용하여 자동 빌드를 설정하는 방법을 보여 줍니다. 빌드 에이전트의 경우 Azure DSVM(Data Science Virtual Machines)를 사용합니다.
+## <a name="azure-devops-for-the-testing-framework"></a>테스트 프레임워크에 대한 Azure DevOps
+이 문서에서는 Azure DevOps를 사용하여 테스트를 수행하고 자동화하는 방법을 설명합니다. 다른 도구를 사용할 수도 있습니다. 또한 Azure DevOps 및 빌드 에이전트를 사용하여 자동 빌드를 설정하는 방법을 보여 줍니다. 빌드 에이전트의 경우 Azure DSVM(Data Science Virtual Machines)를 사용합니다.
 
 ## <a name="flow-of-code-testing"></a>코드 테스트의 흐름
 데이터 과학 프로젝트에서 코드 테스트의 전체 워크플로는 다음과 같습니다. 
@@ -48,7 +48,7 @@ ms.locfileid: "39439500"
     
 ## <a name="detailed-steps"></a>자세한 단계
 
-다음 단계를 사용하여 빌드 에이전트와 VSTS를 사용하여 자동화된 빌드 및 코드 테스트를 설정하고 실행합니다.
+다음 단계를 사용하여 빌드 에이전트와 Azure DevOps를 사용하여 자동화된 빌드 및 코드 테스트를 설정하고 실행합니다.
 
 1. Visual Studio 데스크톱 응용 프로그램에서 프로젝트를 만듭니다.
 
@@ -60,7 +60,7 @@ ms.locfileid: "39439500"
 
     ![Controllers\HomeController.cs](./media/code-test/solution_explorer_in_vs.PNG)
 
-1. VSTS 프로젝트 코드 리포지토리로 프로젝트 코드를 피드합니다. 
+1. Azure DevOps 프로젝트 코드 리포지토리로 프로젝트 코드를 피드합니다. 
 
     ![프로젝트 코드 리포지토리](./media/code-test/create_repo.PNG)
 
@@ -108,19 +108,19 @@ ms.locfileid: "39439500"
 
     ![테스트 실행](./media/code-test/run_tests.PNG)
 
-1. Git 명령을 사용하여 프로젝트 리포지토리에 사용자 코드를 체크 인합니다. 가장 최근 작업이 VSTS에서 즉시 반영됩니다.
+1. Git 명령을 사용하여 프로젝트 리포지토리에 사용자 코드를 체크 인합니다. 가장 최근 작업이 Azure DevOps에서 즉시 반영됩니다.
 
     ![코드에서의 검사를 위한 Git 명령](./media/code-test/git_check_in.PNG)
 
-    ![VSTS의 가장 최근 작업](./media/code-test/git_check_in_most_recent_work.PNG)
+    ![Azure DevOps의 가장 최근 작업](./media/code-test/git_check_in_most_recent_work.PNG)
 
-1. 자동 빌드를 설정하고 VSTS에서 테스트합니다.
+1. 자동 빌드를 설정하고 Azure DevOps에서 테스트합니다.
 
     a. 프로젝트 리포지토리에서 **빌드 및 릴리스**를 선택한 다음, **+새로 만들기**를 선택하여 새 빌드 프로세스를 만듭니다.
 
        ![Selections for starting a new build process](./media/code-test/create_new_build.PNG)
 
-    나. 화면에 표시되는 메시지에 따라 소스 코드 위치, 프로젝트 이름, 리포지토리 및 분기 정보를 선택합니다.
+    b. 화면에 표시되는 메시지에 따라 소스 코드 위치, 프로젝트 이름, 리포지토리 및 분기 정보를 선택합니다.
     
        ![Source, name, repository, and branch information](./media/code-test/fill_in_build_info.PNG)
 
@@ -128,7 +128,7 @@ ms.locfileid: "39439500"
 
        ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
 
-    d. 빌드에 이름을 지정하고 에이전트를 선택합니다. DSVM을 사용하여 빌드 프로세스를 완료하려면 여기서 기본값을 선택할 수 있습니다. 에이전트 설정에 대한 자세한 내용은 [빌드 및 릴리스 에이전트](https://docs.microsoft.com/vsts/build-release/concepts/agents/agents?view=vsts)를 참조하세요.
+    d. 빌드에 이름을 지정하고 에이전트를 선택합니다. DSVM을 사용하여 빌드 프로세스를 완료하려면 여기서 기본값을 선택할 수 있습니다. 에이전트 설정에 대한 자세한 내용은 [빌드 및 릴리스 에이전트](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts)를 참조하세요.
     
        ![Build and agent selections](./media/code-test/select_agent.PNG)
 
@@ -142,17 +142,17 @@ ms.locfileid: "39439500"
     
        ![PowerShell details](./media/code-test/powershell_scripts.PNG)
 
-    g. **저장 및 큐**를 선택하여 빌드 정의 프로세스를 완료합니다.
+    g. **저장 및 큐**를 선택하여 빌드 파이프라인 프로세스를 완료합니다.
 
        !["Save & queue" button](./media/code-test/save_and_queue_build_definition.PNG)
 
 이제 코드 리포지토리에 새 커밋이 푸시될 때마다 빌드 프로세스가 자동으로 시작됩니다. (여기서는 마스터를 리포지토리로 사용하지만, 사용자가 모든 분기를 정의할 수 있습니다.) 프로세스는 코드에 정의된 모든 내용이 제대로 실행되도록 에이전트 컴퓨터에서 **test1.py** 파일을 실행합니다. 
 
-알림이 제대로 설정되어 있는 경우 빌드가 완료되면 사용자에게 이메일로 알립니다. 또한 VSTS에서 빌드 상태를 확인할 수 있습니다. 실패한 경우 빌드의 세부 정보를 확인 수 있으며 끊어진 부분을 찾을 수 있습니다.
+알림이 제대로 설정되어 있는 경우 빌드가 완료되면 사용자에게 이메일로 알립니다. 또한 Azure DevOps에서 빌드 상태를 확인할 수 있습니다. 실패한 경우 빌드의 세부 정보를 확인 수 있으며 끊어진 부분을 찾을 수 있습니다.
 
 ![빌드 성공의 이메일 알림](./media/code-test/email_build_succeed.PNG)
 
-![빌드 성공의 VSTS 알림](./media/code-test/vs_online_build_succeed.PNG)
+![빌드 성공의 Azure DevOps 알림](./media/code-test/vs_online_build_succeed.PNG)
 
 ## <a name="next-steps"></a>다음 단계
 * [UCI 소득 예측 리포지토리](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome)를 참조하여 데이터 과학 시나리오에 대한 단위 테스트의 구체적인 예를 확인하세요.
@@ -161,5 +161,5 @@ ms.locfileid: "39439500"
 ## <a name="references"></a>참조
 * [Team Data Science Process](https://aka.ms/tdsp)
 * [Visual Studio 테스트 도구](https://www.visualstudio.com/vs/features/testing-tools/)
-* [VSTS 테스트 리소스](https://www.visualstudio.com/team-services/)
+* [Azure DevOps 테스트 리소스](https://www.visualstudio.com/team-services/)
 * [데이터 과학 가상 머신](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

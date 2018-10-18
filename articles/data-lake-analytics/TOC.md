@@ -21,7 +21,7 @@
 #### [.NET](data-lake-analytics-manage-use-dotnet-sdk.md)
 #### [Python](data-lake-analytics-manage-use-python-sdk.md)
 #### [Java](data-lake-analytics-manage-use-java-sdk.md)
-#### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+#### [Node.JS](data-lake-analytics-manage-use-nodejs.md)
 ### [사용자 추가](data-lake-analytics-add-users.md)
 ### [정책](data-lake-analytics-policies.md)
 ### [보안 작업 폴더](data-lake-analytics-secure.md)
@@ -70,9 +70,9 @@
 # 참고 자료
 ## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
-## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
-## [Python](https://docs.microsoft.com/en-us/python/api/overview/azure/data-lake-analytics?view=azure-python)
-## [REST](/rest/api/datalakeanalytics/)
+## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-analytics)
+## [Python](https://docs.microsoft.com/python/api/overview/azure/data-lake-analytics?view=azure-python)
+## [REST (영문)](/rest/api/datalakeanalytics/)
 ## [CLI](https://docs.microsoft.com/cli/azure/dla)
 
 # 리소스

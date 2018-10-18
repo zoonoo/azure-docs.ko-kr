@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: deguhath
-ms.openlocfilehash: e50390a1b6385cabfd0e6b30340634860a062d8d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 32390b05d2ec258a68ed4f53135399675105a7e9
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838945"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302088"
 ---
 # <a name="track-progress-of-data-science-projects"></a>데이터 과학 프로젝트의 진행률 추적
 
-데이터 과학 그룹 관리자, 팀 리더 및 프로젝트 리더는 팀 프로젝트의 진행 상황, 수행된 작업, 작업 수행자 및 할 일 목록에 남아 있는 작업을 추적해야 합니다. 
+데이터 과학 그룹 관리자, 팀 리더 및 프로젝트 리더는 프로젝트의 진행 상황, 수행된 작업, 작업 수행자 및 할 일 목록에 남아 있는 작업을 추적해야 합니다. 
 
-## <a name="vsts-dashboards"></a>VSTS 대시보드
-VSTS(Visual Studio Team Services)를 사용하는 경우 대시보드를 작성하여 지정된 Agile 프로젝트와 연결된 작업 및 작업 항목을 추적할 수 있습니다. 
+## <a name="azure-devops-dashboards"></a>Azure DevOps 대시보드
+Azure DevOps를 사용하는 경우 대시보드를 작성하여 지정된 Agile 프로젝트와 연결된 작업 및 작업 항목을 추적할 수 있습니다. 
 
-Visual Studio Team Services에서 사용자 지정 대시보드 및 위젯을 만드는 방법에 대한 자세한 내용은 다음 지침 세트를 참조하세요.
+Azure DevOps에서 사용자 지정 대시보드 및 위젯을 만드는 방법에 대한 자세한 내용은 다음 지침 세트를 참조하세요.
 
-- [대시보드 추가 및 관리](https://docs.microsoft.com/vsts/report/dashboards/dashboards)
-- [대시보드에 위젯을 추가](https://docs.microsoft.com/vsts/report/dashboards/add-widget-to-dashboard)합니다.
+- [대시보드 추가 및 관리](https://docs.microsoft.com/azure/devops/report/dashboards/dashboards)
+- [대시보드에 위젯을 추가](https://docs.microsoft.com/azure/devops/report/dashboards/add-widget-to-dashboard)합니다.
 
 ## <a name="example-dashboard"></a>예제 대시보드
 
@@ -49,7 +49,7 @@ Visual Studio Team Services에서 사용자 지정 대시보드 및 위젯을 �
 
 ![dashboard](./media/track-progress/dashboard.png)
 
-이러한 차트를 작성하는 방법에 대한 자세한 내용은 [대시보드](https://docs.microsoft.com/vsts/report/dashboards/)에서 퀵 스타트 및 자습서를 참조하세요.
+이러한 차트를 작성하는 방법에 대한 자세한 내용은 [대시보드](https://docs.microsoft.com/azure/devops/report/dashboards/)에서 퀵 스타트 및 자습서를 참조하세요.
  
 ## <a name="next-steps"></a>다음 단계
 

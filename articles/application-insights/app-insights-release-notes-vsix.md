@@ -10,15 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/20/2017
-ms.author: mbullwin; aruna
-ms.openlocfilehash: 53a4d7fe1d92826b92866e170fd731edbd5ba1bf
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: aruna
+ms.author: mbullwin
+ms.openlocfilehash: 016d13a08ea3fe591529ad6dd29b25534d9c603d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869549"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303747"
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>개발자 분석 도구에 대한 릴리스 정보
 
@@ -193,7 +194,7 @@ Windows Form 프로젝트 노드의 상황에 맞는 메뉴에는 이제 HockeyA
 
 이 마법사의 새 필드에서 앱의 버전을 지정할 수 있습니다. 유니버셜 Windows 앱에 대 한 정보는 매니페스트로부터 채워집니다. 그러나 Windows Forms 앱은 이 기능과 동일하지 않습니다. 수동으로 지정해야 합니다.
 
-나머지 흐름은 유니버설 Windows 앱과 유사합니다. 빌드 및 릴리스 옵션을 선택하고, 릴리스 정보를 추가하고, 업로드하고, HockeyApp 포털에서 관리할 수 있습니다.
+나머지 흐름은 유니버설 Windows 앱과 유사합니다. Azure Pipelines 옵션을 선택하고, 릴리스 정보를 추가하고, 업로드하고, HockeyApp 포털에서 관리할 수 있습니다.
 
 그만큼 간단합니다. 사용해 보시고 의견을 알려 주시기 바랍니다.
 

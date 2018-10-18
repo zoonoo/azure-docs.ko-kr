@@ -1,28 +1,21 @@
 ---
-title: '공존할 수 있는 ExpressRoute 및 사이트 간 VPN 연결 구성: Resource Manager: Azure | Microsoft Docs'
-description: 이 문서에서는 Resource Manager 모델에 대해 공존할 수 있는 ExpressRoute와 사이트 간 VPN 연결을 구성하는 과정을 안내합니다.
-documentationcenter: na
+title: '공존할 수 있는 ExpressRoute 및 사이트 간 VPN 연결 구성: PowerShell: Azure | Microsoft Docs'
+description: 이 문서에서는 PowerShell을 사용하여 Resource Manager 모델에 대해 공존할 수 있는 ExpressRoute와 사이트 간 VPN 연결을 구성하는 과정을 안내합니다.
 services: expressroute
 author: charwen
 manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: c7717b14-3da3-4a6d-b78e-a5020766bc2c
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/17/2018
-ms.author: charwen,cherylmc,rambala
-ms.openlocfilehash: 0e69a85f320a0a8d77bd07fc0dedb77eb99efb36
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.topic: conceptual
+ms.date: 09/07/2018
+ms.author: charwen
+ms.openlocfilehash: c267e5002fbd603e4bb749550c19e8d022ce4d54
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41919841"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162345"
 ---
-# <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>ExpressRoute 및 사이트 간 공존 연결 구성
+# <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>PowerShell을 사용하여 사이트 간 연결 및 ExpressRoute 공존 연결 구성
 > [!div class="op_single_selector"]
 > * [PowerShell - Resource Manager](expressroute-howto-coexist-resource-manager.md)
 > * [PowerShell - 클래식](expressroute-howto-coexist-classic.md)
@@ -34,7 +27,7 @@ ms.locfileid: "41919841"
 * 사이트 간 VPN을 ExpressRoute에 대한 안전한 장애 조치(failover) 경로로 구성할 수 있습니다. 
 * 또는 사이트 간 VPN을 사용하여 ExpressRoute를 통해 연결되어 있지 않은 사이트에 연결할 수 있습니다. 
 
-이 문서에서는 두 시나리오를 모두 구성하는 단계를 설명합니다. 이 문서는 Resource Manager 배포 모델에 적용되며 PowerShell을 사용합니다. 
+이 문서에서는 두 시나리오를 모두 구성하는 단계를 설명합니다. 이 문서는 Resource Manager 배포 모델에 적용되며 PowerShell을 사용합니다. 설명서를 아직 사용할 수는 없지만 Azure Portal을 사용하여 이러한 시나리오를 구성할 수도 있습니다.
 
 >[!NOTE]
 >ExpressRoute 회로를 통해 사이트 간 VPN을 만들려면 [이 문서](site-to-site-vpn-over-microsoft-peering.md)를 참조하세요.

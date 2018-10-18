@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 6acea70ca929310fe37f36fe98698e6adb76101b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 922e7ed5d55f50b2069dad71ead73d9ef4475ed0
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997831"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389907"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob 저장소: 프리미엄(미리 보기), 핫, 쿨 및 보관 저장소 계층
 
@@ -113,7 +113,7 @@ Blob 수준 계층화를 사용하면 [Blob 계층 설정](/rest/api/storageserv
 프리미엄 액세스 계층에 저장된 데이터는 [Blob 계층 설정](/rest/api/storageservices/set-blob-tier) 또는 Azure Blob Storage 수명 주기 관리를 사용하여 핫, 쿨 또는 보관으로 계층화될 수 없습니다. 데이터를 이동하려면 [URL에서 블록 배치 API](/rest/api/storageservices/put-block-from-url) 또는 이 API를 지원하는 AzCopy 버전을 사용하여 프리미엄 액세스 계층에서 핫 액세스 계층으로 Blob을 동기적으로 복사하면 됩니다. *URL에서 블록 배치* API는 서버에서 데이터를 동기적으로 복사합니다. 이는 모든 데이터를 원래 서버 위치에서 대상 위치로 이동하면 호출이 완료된다는 의미입니다.
 
 ### <a name="blob-lifecycle-management"></a>Blob 수명 주기 관리
-Blob Storage 수명 주기 관리(미리 보기)는 데이터를 최적의 액세스 계층으로 전환하고 수명 주기가 끝나면 데이터를 만료할 수 있는 풍부한 규칙 기반 정책을 제공합니다. [Azure Blob Storage 수명 주기 관리](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts)를 참조하여 자세히 알아보세요.  
+Blob Storage 수명 주기 관리(미리 보기)는 데이터를 최적의 액세스 계층으로 전환하고 수명 주기가 끝나면 데이터를 만료할 수 있는 풍부한 규칙 기반 정책을 제공합니다. [Azure Blob Storage 수명 주기 관리](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts)를 참조하여 자세히 알아보세요.  
 
 ### <a name="blob-level-tiering-billing"></a>Blob 수준 계층화 청구
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2018
 ms.author: genli
-ms.openlocfilehash: 59a9011edef49494288716ab16f30e28e440293b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5dd87c75638c3d084226becaace5c9454660c907
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195185"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303679"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-web-apps"></a>Azure 웹앱에서 도메인 및 SSL 인증서 문제 해결
 
@@ -80,7 +80,7 @@ Azure Portal에서 [Azure App Service 인증서](./web-sites-purchase-ssl-web-si
 
     **해결 방법**: 구독에 유효한 신용 카드를 추가합니다. 
 
-- 구독 제품은 Microsoft Student 같은 App Service 인증서 구매를 지원하지 않습니다.  
+- 구독 제안은 Microsoft Student 같은 App Service 인증서 구매를 지원하지 않습니다.  
 
     **해결 방법**: 구독을 업그레이드합니다. 
 
@@ -167,7 +167,7 @@ Azure Portal의 Web Apps 또는 App Service 도메인에서 도메인을 구입�
 
 - 구독 소유자가 아니므로 도메인을 구입할 수 있는 권한이 없습니다.
 
-    **해결 방법**: 계정에 [소유자 역할을 추가](../billing/billing-add-change-azure-subscription-administrator.md)합니다. 또는 구독 관리자에게 문의하여 도메인을 구입할 수 있는 권한을 가져옵니다.
+    **해결 방법**: 계정에 [소유자 역할을 할당](../role-based-access-control/role-assignments-portal.md)합니다. 또는 구독 관리자에게 문의하여 도메인을 구입할 수 있는 권한을 가져옵니다.
 - 구독의 도메인 구매 한도에 도달했습니다. 현재 한도는 20개입니다.
 
     **해결 방법**: 한도를 늘리려면 [Azure 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 문의하세요.

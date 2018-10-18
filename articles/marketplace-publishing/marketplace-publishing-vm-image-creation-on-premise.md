@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: d86f60c3d7ed28f435c2514e1ab77594079b399a
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: f68dadab96e27cc7b90f44681d87ffa7cce8126b
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42141175"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390060"
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Azure Marketplace를 위해 온-프레미스 가상 컴퓨터 이미지 개발
 원격 데스크톱 프로토콜을 사용하여 Azure VHD(가상 하드 디스크)를 클라우드에서 직접 개발하는 것이 좋습니다. 그러나 꼭 필요한 경우 VHD를 다운로드하고 온-프레미스 인프라를 사용하여 개발할 수 있습니다.  
@@ -113,11 +113,11 @@ VHD를 미국의 지역에 있는 저장소 계정에 업로드하는 것이 좋
   ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img10.png)
 
 ### <a name="create-a-storage-account-by-using-powershell"></a>PowerShell을 사용하여 저장소 계정 만들기
-PowerShell을 사용하여 [New-AzureStorageAccount](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure/new-azurestorageaccount) cmdlet를 사용 저장소 계정을 만듭니다.
+PowerShell을 사용하여 [New-AzureStorageAccount](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azurestorageaccount) cmdlet를 사용 저장소 계정을 만듭니다.
 
         New-AzureStorageAccount -StorageAccountName “mystorageaccount” -Location “West US”
 
-그 후 [New-AzureStorageContainer](https://docs.microsoft.com/en-us/powershell/module/azure.storage/new-azurestoragecontainer) cmdlet를 사용하여 해당 저장소 계정 내에 컨테이너를 만들 수 있습니다.
+그 후 [New-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) cmdlet를 사용하여 해당 저장소 계정 내에 컨테이너를 만들 수 있습니다.
 
         New-AzureStorageContainer -Name “containername” -Permission “Off”
 

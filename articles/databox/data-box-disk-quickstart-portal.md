@@ -2,25 +2,19 @@
 title: Microsoft Azure Data Box Disk에 대한 빠른 시작 | Microsoft Docs
 description: 이 빠른 시작을 사용하여 Azure Portal에서 Azure Data Box Disk를 신속하게 배포
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: b4ec329fc5b1f3df9e6641bee3e1378c3a4d09c6
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: ca0fb177c8b6a16cf624fd4533c9c9040e6d9dee
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378349"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365237"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>빠른 시작: Azure Portal(미리 보기)을 사용하여 Azure Data Box Disk 배포
 
@@ -28,7 +22,7 @@ ms.locfileid: "44378349"
 
 자세한 단계별 배포 및 지침 추적은 [자습서: Azure Data Box Disk 주문](data-box-disk-deploy-ordered.md)으로 이동합니다. 
 
-Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 > [!IMPORTANT]
 > Data Box Disk는 미리 보기로 제공됩니다. 이 솔루션을 배포하기 전에 [미리 보기에 대한 Azure 서비스 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요.

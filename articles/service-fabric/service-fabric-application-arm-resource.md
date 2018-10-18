@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: 7aa7fc2620fa02af4a720a97eece3c0734252245
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: feb9d0a01cbba75fc9868f5a603d494c5c09ae2e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42142832"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386300"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>응용 프로그램 및 서비스를 Azure Resource Manager 리소스로 관리
 
@@ -264,7 +264,7 @@ Azure Resource Manager를 통해 Service Fabric 클러스터에 응용 프로그
 클러스터가 이미 작동 중이며 Resource Manager 리소스로 관리하려는 일부 응용 프로그램이 이미 클러스터에 배포된 경우, 응용 프로그램을 제거한 후 다시 배포하는 대신, 동일한 API를 통해 PUT 호출을 사용하여 응용 프로그램이 Resource Manager 리소스로 승인되도록 할 수 있습니다. 
 
 > [!NOTE]
-> 클러스터 업그레이드에서 비정상 응용 프로그램을 무시하도록 허용하려면 고객은 “upgradeDescription/healthPolicy” 섹션에서 “maxPercentUnhealthyApplications: 100”을 지정할 수 있습니다. 모든 설정에 대한 자세한 설명은 [Service Fabrics REST API 클러스터 업그레이드 정책 설명서](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfrp-model-clusterupgradepolicy)에 있습니다.
+> 클러스터 업그레이드에서 비정상 응용 프로그램을 무시하도록 허용하려면 고객은 “upgradeDescription/healthPolicy” 섹션에서 “maxPercentUnhealthyApplications: 100”을 지정할 수 있습니다. 모든 설정에 대한 자세한 설명은 [Service Fabrics REST API 클러스터 업그레이드 정책 설명서](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy)에 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

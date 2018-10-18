@@ -7,12 +7,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 2e4d625cd123583baa30fde8e9826f5b57da49fe
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: ef8809afa2da36f44384d784e32532b7b121e3a9
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393591"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379147"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql"></a>자습서: Azure Database for PostgreSQL의 모니터링 및 튜닝
 
@@ -28,7 +28,7 @@ Azure Database for PostgreSQL에는 서버 성능을 이해하고 개선하는 �
 PostgreSQL 버전 9.6 또는 10을 포함하는 Azure Database for PostgreSQL 서버가 필요합니다. [만들기 자습서](tutorial-design-database-using-azure-portal.md)의 단계에 따라 서버를 만들 수 있습니다.
 
 > [!IMPORTANT]
-> **쿼리 저장소**, **Query Performance Insight** 및 **성능 권장 사항**은 제한된 수의 지역에서 공개 미리 보기로 제공됩니다.
+> **쿼리 저장소**, **Query Performance Insight** 및 **성능 권장 사항**은 공용 미리 보기로 제공됩니다.
 
 ## <a name="enabling-data-collection"></a>데이터 수집 사용
 [쿼리 저장소](concepts-query-store.md)는 쿼리의 기록을 캡처하고 서버의 통계를 기다렸다가 서버의 **azure_sys** 데이터베이스에 저장합니다. 이 기능은 옵트인(opt-in) 기능입니다. 다음과 같이 사용하도록 설정합니다.

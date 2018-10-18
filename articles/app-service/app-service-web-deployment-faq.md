@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 54c99cc9dde6a9706c75401dd75b98f8f5de7cec
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: ab8750e5824cf9f7635d11a6b2be332b2f9a761c
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068073"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302591"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 배포 FAQ
 
@@ -62,7 +62,7 @@ App Service 앱의 파일 구조에 대한 자세한 내용은 [File structure i
 
 ## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>내 App Service 웹앱에 대한 지속적인 배포를 설정하려면 어떻게 하나요?
 
-Visual Studio Team Services, OneDrive, GitHub, Bitbucket, Dropbox 및 기타 Git 리포지토리를 포함한 여러 리소스에서 지속적인 배포를 설정할 수 있습니다. 이러한 옵션은 포털에서 사용할 수 있습니다. [App Service에 대한 지속적인 배포](app-service-continuous-deployment.md)는 지속적인 배포를 설정하는 방법을 설명하는 유용한 자습서입니다.
+Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox 및 기타 Git 리포지토리를 포함한 여러 리소스에서 지속적인 배포를 설정할 수 있습니다. 이러한 옵션은 포털에서 사용할 수 있습니다. [App Service에 대한 지속적인 배포](app-service-continuous-deployment.md)는 지속적인 배포를 설정하는 방법을 설명하는 유용한 자습서입니다.
 
 ## <a name="how-do-i-troubleshoot-issues-with-continuous-deployment-from-github-and-bitbucket"></a>GitHub 및 Bitbucket의 지속적인 배포 관련 문제를 해결하려면 어떻게 하나요?
 
@@ -85,9 +85,9 @@ Azure 빠른 시작은 선택한 배포 스택 및 방법을 사용하여 앱을
 
 응용 프로그램 배포 후 다시 시작되는 경우를 알아보려면 [Deployment vs. runtime issues](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues#deployments-and-web-app-restarts")(배포 및 런타임 문제)를 참조하세요. 문서에서 설명하는 대로 App Service는 파일을 wwwroot 폴더에 배포합니다. 앱을 직접 다시 시작하지는 않습니다.
 
-## <a name="how-do-i-integrate-visual-studio-team-services-code-with-app-service"></a>App Service에 Visual Studio Team Services 코드를 통합하려면 어떻게 하나요?
+## <a name="how-do-i-integrate-azure-devops-code-with-app-service"></a>Azure DevOps 코드를 App Service와 통합하려면 어떻게 하나요?
 
-Visual Studio Team Services에서 지속적인 배포를 사용할 수 있는 다음과 같은 두 가지 옵션이 있습니다.
+Azure DevOps에서 지속적인 배포를 사용할 수 있는 다음과 같은 두 가지 옵션이 있습니다.
 
 *   Git 프로젝트를 사용합니다. 해당 리포지토리에 대한 배포 옵션을 사용하여 App Service를 통해 연결합니다.
 *   TFVC(Team Foundation Version Control) 프로젝트를 사용합니다. App Service에 대한 빌드 에이전트를 사용하여 배포합니다.
@@ -95,7 +95,7 @@ Visual Studio Team Services에서 지속적인 배포를 사용할 수 있는 �
 이러한 두 가지 옵션에 대한 연속 코드 배포는 기존 개발자 워크플로 및 체크 인 절차에 따라 달라집니다. 자세한 내용은 다음 문서를 참조하세요. 
 
 *   [Implement continuous deployment of your app to an Azure website](https://www.visualstudio.com/docs/release/examples/azure/azure-web-apps-from-build-and-release-hubs)(Azure 웹 사이트에 대한 앱 지속적인 배포 구현)
-*   [Set up a Visual Studio Team Services account so it can deploy to a web app](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)(웹앱에 배포할 수 있도록 Visual Studio Team Services 계정 설정)
+*   [Set up an Azure DevOps organization so it can deploy to a web app](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)(웹앱에 배포할 수 있도록 Azure DevOps 조직 설정)
 
 ## <a name="how-do-i-use-ftp-or-ftps-to-deploy-my-app-to-app-service"></a>FTP 또는 FTPS를 사용하여 App Service에 내 앱을 배포하려면 어떻게 하나요?
 

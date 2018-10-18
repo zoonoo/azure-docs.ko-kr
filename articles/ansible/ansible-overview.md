@@ -6,14 +6,14 @@ keywords: Ansible, Azure, DevOps, 개요, 클라우드 프로비전, 구성 관�
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 01/19/2018
+ms.date: 09/02/2018
 ms.topic: article
-ms.openlocfilehash: e710770131c844598762feebe09ba50dc120de0c
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 977fef390c0efecd47ec5e19b1a82c05e2ecfd0f
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106903"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160748"
 ---
 # <a name="ansible-with-azure"></a>Azure에서 Ansible 사용
 
@@ -37,13 +37,17 @@ Azure 서비스와 상호 작용하기 위해 Ansible에는 Azure에서 인프�
 
 ## <a name="automate-cloud-native-application-in-azure"></a>Azure에서 클라우드 네이티브 응용 프로그램 자동화
 
-Ansible을 사용하면 Azure 마이크로 서비스(예: [Azure Functions](https://azure.microsoft.com//services/functions/)와 [Azure의 Kuurenetes](https://azure.microsoft.com/services/container-service/kubernetes/))를 사용하여 Azure에서 클라우드 네이티브 응용 프로그램을 자동화할 수 있습니다.  
+Ansible을 사용하면 Azure 마이크로 서비스(예: [Azure Functions](https://azure.microsoft.com//services/functions/)와 [Azure의 Kubernetes](https://azure.microsoft.com/services/container-service/kubernetes/))를 사용하여 Azure에서 클라우드 네이티브 응용 프로그램을 자동화할 수 있습니다.  
 
 ## <a name="manage-deployments-with-dynamic-inventory"></a>동적 인벤토리를 사용하여 배포 관리
 Ansible은 [동적 인벤토리](http://docs.ansible.com/ansible/intro_dynamic_inventory.html) 기능을 통해 Azure 리소스에서 인벤토리를 끌어오는 기능을 제공합니다. 그런 다음, 기존 Azure 배포에 태그를 지정하고, Ansible을 통해 이러한 태그가 지정된 배포를 관리할 수 있습니다.
 
 ## <a name="additional-azure-marketplace-options"></a>추가 Azure Marketplace 옵션
 Red Hat의 [Ansible Tower](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.ansible-tower) Azure Marketplace 이미지는 조직에서 IT 자동화의 크기를 조정하고 실제, 가상 및 클라우드 인프라에서 복잡한 배포를 관리하는 데 도움이 됩니다. Ansible Tower에는 오늘날의 기업에 필요한 가시성, 제어, 보안 및 효율성의 추가 수준을 제공하는 기능이 포함되어 있습니다. Ansible Tower는 Azure 및 SSH 키와 같은 자격 증명을 암호화하므로 자격 증명이 노출될 위험 없이 경험이 부족한 직원에게 작업을 위임할 수 있습니다.
+
+## <a name="ansible-module-and-version-matrix-for-azure"></a>Azure용 Ansible 모듈 및 버전 매트릭스
+Ansible은 원격 호스트에서 직접 또는 플레이북을 통해 실행할 수 있는 여러 모듈과 함께 제공됩니다.
+[Ansible 모듈 및 버전 매트릭스](./ansible-matrix.md)에서는 가상 머신, 네트워킹 및 컨테이너 서비스와 같은 Azure 클라우드 리소스를 프로비전할 수 있는 Azure용 Ansible 모듈을 나열합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 - [Ansible 구성](/azure/virtual-machines/linux/ansible-install-configure?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)

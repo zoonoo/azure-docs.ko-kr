@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/28/2018
+ms.date: 09/06/2018
 ms.author: alkohli
-ms.openlocfilehash: 2fdd574adf3587f11984bee2a2549d9bcd0c4c0d
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: aaa4e4bb24ca42adb9d283e6286dbef879bcb1ea
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126008"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299851"
 ---
 # <a name="azure-data-box-disk-system-requirements-preview"></a>Azure Data Box Disk 시스템 요구 사항(미리 보기)
 
@@ -35,17 +35,29 @@ ms.locfileid: "43126008"
 
 Data Box Disk에 연결된 클라이언트를 통해 디스크 잠금 해제 및 데이터 복사 작업에 대해 지원되는 운영 체제의 목록은 다음과 같습니다.
 
-| **운영 체제/플랫폼** | **버전** |
+| **운영 체제** | **테스트 버전** |
 | --- | --- |
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
 | Windows |7, 8, 10 |
-| Windows PowerShell |4.0 |
+|Linux <br> <li> Ubuntu </li><li> Debian </li><li> RHEL(Red Hat Enterprise Linux) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8.11, 9 <br> 7.0 <br> 6.5, 6.9, 7.0, 7.5 |  
+
+## <a name="other-required-software-for-windows-clients"></a>Windows 클라이언트에 필요한 다른 소프트웨어
+
+Windows 클라이언트의 경우 다음 항목도 설치해야 합니다.
+
+| **소프트웨어**| **버전** |
+| --- | --- |
+| Windows PowerShell |5.0 |
 | .NET Framework |4.5.1 |
-| Windows Management Framework |4.0|
+| Windows Management Framework |5.0|
+| BitLocker| - |
 
-> [!NOTE] 
-> 디스크 잠금 해제 도구를 실행하고 데이터를 복사하는 데 사용되는 클라이언트에서 BitLocker를 활성화해야 합니다.
+## <a name="other-required-software-for-linux-clients"></a>Linux 클라이언트에 필요한 다른 소프트웨어
 
+Linux 클라이언트의 경우 Data Box Disk 도구 집합이 다음 필수 소프트웨어를 설치합니다.
+
+- dislocker
+- OpenSSL
 
 ## <a name="supported-storage-accounts"></a>지원되는 저장소 계정
 

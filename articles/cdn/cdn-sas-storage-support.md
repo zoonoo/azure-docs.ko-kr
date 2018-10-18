@@ -3,8 +3,8 @@ title: SAS로 Azure CDN 사용 | Microsoft Docs
 description: Azure CDN은 개인 저장소 컨테이너에 제한된 액세스 권한을 부여하기 위한 SAS(공유 액세스 서명)의 사용을 지원합니다.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
-ms.author: v-deasim
-ms.openlocfilehash: 15a4e0a8d62b38fa7aa542d95e53d29621965666
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: magattus
+ms.openlocfilehash: 7180e51a6ac1392e4a3f072097b1aeef3648c605
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316571"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093292"
 ---
 # <a name="using-azure-cdn-with-sas"></a>SAS로 Azure CDN 사용
 

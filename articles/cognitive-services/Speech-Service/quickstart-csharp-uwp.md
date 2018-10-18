@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 2eb6bda7066a01e5532fe7c0e20b0ee13f4289b6
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: d9a90869e060d2f8f1a1c522a4528e74841caada
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432990"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339617"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 UWP 앱에서 음성 인식
 
@@ -31,7 +31,7 @@ ms.locfileid: "47432990"
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
-1. Visual Studio 2017을 사용합니다.
+1. Visual Studio 2017을 시작합니다.
 
 1. **유니버설 Windows 플랫폼 개발** 워크로드를 사용할 수 있는지 확인합니다. Visual Studio 메뉴 모음에서 **도구** > **도구 및 기능 가져오기**를 선택하여 Visual Studio 설치 관리자를 엽니다. 이 워크로드를 이미 사용하도록 설정한 경우 대화 상자를 닫습니다. 
 
@@ -58,7 +58,7 @@ ms.locfileid: "47432990"
 
     ![솔루션 옵션의 NuGet 패키지 관리를 강조 표시한 솔루션 탐색기 스크린샷](media/sdk/qs-csharp-uwp-04-manage-nuget-packages.png)
 
-1. 오른쪽 위 모서리의 **패키지 소스** 필드에서 **nuget.org**를 선택합니다. `Microsoft.CognitiveServices.Speech` 패키지를 검색한 후 **helloworld** 프로젝트에 설치합니다.
+1. 오른쪽 위 모서리의 **패키지 원본** 필드에서 **nuget.org**를 선택합니다. `Microsoft.CognitiveServices.Speech` 패키지를 검색한 후 **helloworld** 프로젝트에 설치합니다.
 
     ![솔루션에 대한 패키지 관리 대화 상자 스크린샷](media/sdk/qs-csharp-uwp-05-nuget-install-1.0.0.png "NuGet 패키지 설치")
 
@@ -69,7 +69,7 @@ ms.locfileid: "47432990"
 1. 패키지 관리자 콘솔에 다음 출력 줄이 표시됩니다.
 
    ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 1.0.0' to helloworld
+   Successfully installed 'Microsoft.CognitiveServices.Speech 1.0.1' to helloworld
    ```
 
 1. 응용 프로그램은 음성 입력에 마이크를 사용하므로 **마이크** 기능을 프로젝트에 추가합니다. 솔루션 탐색기에서 **Package.appxmanifest**를 두 번 클릭하여 응용 프로그램 매니페스트를 편집합니다. 그런 다음, **기능** 탭으로 전환하고 **마이크** 기능에 대한 확인란을 선택한 후 변경 내용을 저장합니다.

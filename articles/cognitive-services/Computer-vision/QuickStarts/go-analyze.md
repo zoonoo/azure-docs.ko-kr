@@ -3,25 +3,25 @@ title: '빠른 시작: 원격 이미지 분석 - REST, Go - Computer Vision'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Go와 함께 Computer Vision API를 사용하여 이미지를 분석합니다.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: ccdd8922993fb1ea3e723a68f28f95f7b6ffe93b
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 57c8309af47e71226f41df8cce255e73f33b27c5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632231"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341041"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-go-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 Go를 사용하여 원격 이미지 분석
 
-이 빠른 시작에서는 Computer Vision의 REST API를 사용하여 시각적 기능을 추출하기 위해 원격으로 저장된 이미지를 분석합니다. [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 메서드를 사용하면 이미지 콘텐츠를 기반으로 시각적 기능을 추출할 수 있습니다.
+이 빠른 시작에서는 Computer Vision의 REST API를 사용하여 시각적 기능을 추출하기 위해 원격으로 저장된 이미지를 분석합니다. [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 메서드를 사용하면 이미지 콘텐츠를 기반으로 하여 시각적 특징을 추출할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -37,10 +37,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     1. `subscriptionKey`의 값을 구독 키로 바꿉니다.
     1. 필요한 경우 `uriBase`의 값을 구독 키를 가져온 Azure 지역의 [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 메서드에 대한 엔드포인트 URL로 바꿉니다.
     1. 필요한 경우 `imageUrl`의 값을 분석하려는 다른 이미지의 URL로 바꿉니다.
-1. 코드를 `.go` 확장명의 파일로 저장합니다. 예: `analyze-image.go`
+1. 코드를 `.go` 확장명의 파일로 저장합니다. 예: `analyze-image.go`.
 1. 명령 프롬프트 창을 엽니다.
-1. 프롬프트에서 `go build` 명령을 실행하여 파일에서 패키지를 컴파일합니다. 예: `go build analyze-image.go`
-1. 프롬프트에서 컴파일된 패키지를 실행합니다. 예: `analyze-image`
+1. 프롬프트에서 `go build` 명령을 실행하여 파일에서 패키지를 컴파일합니다. 예: `go build analyze-image.go`.
+1. 프롬프트에서 컴파일된 패키지를 실행합니다. 예: `analyze-image`.
 
 ```go
 package main

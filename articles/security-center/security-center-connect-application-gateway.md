@@ -3,23 +3,23 @@ title: Azure Security Center에 Microsoft Azure Application Gateway 연결 | Mic
 description: Application Gateway와 Azure Security Center를 통합하여 리소스의 전반적인 보안을 강화하는 방법을 알아봅니다.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
-ms.topic: article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2018
-ms.author: terrylan
-ms.openlocfilehash: 7c15e5a86df7ff2a374aa9b62d2775b1eb035fc6
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.date: 08/30/2018
+ms.author: rkarlin
+ms.openlocfilehash: 5638b71147592ae71c741ca86da68ddfec668af5
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29854285"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299069"
 ---
 # <a name="connecting-microsoft-azure-application-gateway-to-azure-security-center"></a>Azure Security Center에 Microsoft Azure Application Gateway 연결
 이 문서는 Application Gateway WAF(웹 응용 프로그램 방화벽)와 Security Center의 통합을 구성하는 데 도움을 줍니다.
@@ -37,9 +37,9 @@ Security Center는 구독에서 이전에 배포된 WAF 인스턴스를 검색�
 
 1. [Azure 포털](https://azure.microsoft.com/features/azure-portal/)에 로그인합니다.
 
-2. **Microsoft Azure 메뉴**에서 **Security Center**를 선택합니다. **Security Center - 개요**가 열립니다.
+2. **Microsoft Azure 메뉴**에서 **Security Center**를 선택합니다.
 
-3. **개요**에서 **보안 솔루션**을 선택합니다.
+3. **리소스 보안 예방 조치**에서 **보안 솔루션**을 선택합니다.
 
   ![Security Center 개요](./media/security-center-connect-application-gateway/overview.png)
 

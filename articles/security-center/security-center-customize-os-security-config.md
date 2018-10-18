@@ -3,23 +3,23 @@ title: Azure Security Center에서 OS 보안 구성 사용자 지정(미리 보�
 description: 이 문서에서는 보안 센터 평가를 사용자 지정하는 방법을 설명합니다.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2018
-ms.author: terrylan
-ms.openlocfilehash: f12441a960db9f1c45bca2a5b95f3669923c7e3d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.date: 18/30/2018
+ms.author: rkarlin
+ms.openlocfilehash: 08174a6781772abdebd9e203a3433a1a4ac82859
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28200013"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378366"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Azure Security Center에서 OS 보안 구성 사용자 지정(미리 보기)
 
@@ -53,29 +53,27 @@ Security Center에서 기본 OS 보안 구성을 사용자 지정하려면 다�
 
 1.  **Security Center** 대시보드를 엽니다.
 
-2.  왼쪽 창의 **보안 정책**을 선택합니다.  
-    **Security Center - 보안 정책** 창이 열립니다.
+2.  왼쪽 창의 **보안 정책**을 선택합니다.      
 
-    ![보안 정책 목록](media/security-center-customize-os-security-config/open-security-policy.png)
+    ![보안 정책 목록](media/security-center-customize-os-security-config/manual-provision.png)
 
-3.  사용자 지정할 구독을 선택합니다.
+3.  사용자 지정할 구독의 행에서 **설정 편집**을 클릭합니다.
 
-4. **정책 구성 요소** 아래에서 **보안 구성 편집**을 선택합니다.  
-    **보안 구성 편집** 창이 열립니다.
-
+4. **보안 구성 편집**을 선택합니다.  
+    
     !["보안 구성 편집" 창](media/security-center-customize-os-security-config/blade.png)
 
-5. 오른쪽 창에서 수정된 파일을 다운로드, 편집 및 업로드하는 단계를 수행합니다.
+5. 단계에 따라 파일을 다운로드 및 편집하고 수정된 파일을 업로드합니다.
 
    > [!NOTE]
    > 기본적으로 다운로드한 구성 파일은 *json* 형식입니다. 파일을 수정하는 방법에 대한 지침은 [구성 파일 사용자 지정](#customize-the-configuration-file)을 참조하세요.
    >
 
-   파일 저장이 완료되면 구독 아래 모든 작업 영역에 연결된 컴퓨터와 모든 VM에 구성이 적용됩니다. 이 프로세스는 일반적으로 몇 분 정도 소요되지만 인프라 규모에 따라 더 오래 걸릴 수 있습니다.
-
 6. 변경 내용을 커밋하려면 **저장**을 선택합니다. 그렇지 않으면 정책이 저장되지 않습니다.
 
     ![저장 단추](media/security-center-customize-os-security-config/save-successfully.png)
+
+   파일 저장이 완료되면 구독 아래 작업 영역에 연결된 컴퓨터와 모든 VM에 구성이 적용됩니다. 이 프로세스는 일반적으로 몇 분 정도 소요되지만 인프라 규모에 따라 더 오래 걸릴 수 있습니다.
 
 언제든 현재 정책 구성을 기본 상태로 재설정할 수 있습니다. 이렇게 하려면 **OS 보안 구성 규칙 편집** 창에서 **재설정**을 선택합니다. 확인 팝업 창에서 **예**를 선택하여 이 옵션을 확인합니다.
 
@@ -116,9 +114,7 @@ Security Center에서 기본 OS 보안 구성을 사용자 지정하려면 다�
 
 -   **state**: 이 문자열에는 *Disabled*나 *Enabled* 옵션을 포함할 수 있습니다. 이 비공개 미리 보기 릴리스에서는 문자열이 대/소문자를 구분합니다.
 
-구성할 수 있는 필드는 이뿐입니다. 파일 형식 또는 크기를 위반하면 변경 내용을 저장할 수 없습니다. 파일을 처리할 수 없는 경우 다음과 같은 오류 메시지가 표시됩니다.
-
-![보안 구성 오류 메시지](media/security-center-customize-os-security-config/invalid-json.png)
+구성할 수 있는 필드는 이뿐입니다. 파일 형식 또는 크기를 위반하면 변경 내용을 저장할 수 없습니다. 유효한 JSON 구성 파일을 업로드해야 함을 알려 주는 오류가 표시됩니다.
 
 다른 잠재적 오류 목록은 [오류 코드](#error-codes)를 참조하세요.
 
@@ -267,9 +263,7 @@ Security Center에서 기본 OS 보안 구성을 사용자 지정하려면 다�
 
 ## <a name="file-upload-failures"></a>파일 업로드 오류
 
-제출된 구성 파일이 값 또는 형식 오류로 인해 잘못된 경우 오류가 표시됩니다. 수정된 구성 파일을 다시 제출하기 전에 자세한 오류 CSV 보고서를 다운로드하여 오류를 수정할 수 있습니다.
-
-!["저장 작업 실패" 오류 메시지](media/security-center-customize-os-security-config/invalid-configuration.png)
+제출된 구성 파일이 값 또는 형식 오류로 인해 잘못된 경우 오류가 표시됩니다(예: **저장 작업 실패**). 수정된 구성 파일을 다시 제출하기 전에 자세한 오류 CSV 보고서를 다운로드하여 오류를 수정할 수 있습니다.
 
 오류 파일의 예:
 
@@ -281,10 +275,10 @@ Security Center에서 기본 OS 보안 구성을 사용자 지정하려면 다�
 
 | **오류**                                | **설명**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| BaselineConfiguratiohSchemaVersionError  | *schemaVersion* 속성이 잘못되었거나 비어 있습니다. 값을 *{0}* 으로 설정해야 합니다.                                                         |
+| BaselineConfiguratiohSchemaVersionError  | *schemaVersion* 속성이 잘못되었거나 비어 있습니다. 값을 *{0}*(으)로 설정해야 합니다.                                                         |
 | BaselineInvalidStringError               | *{0}* 속성에 *\\n*을 포함할 수 없습니다.                                                                                                         |
 | BaselineNullRuleError                    | 기준 구성 규칙 목록에 값이 *null*인 규칙이 있습니다.                                                                         |
-| BaselineRuleCceIdNotUniqueError          | CCE-ID *{0}* 이 고유하지 않습니다.                                                                                                                  |
+| BaselineRuleCceIdNotUniqueError          | CCE-ID *{0}* 이(가) 고유하지 않습니다.                                                                                                                  |
 | BaselineRuleEmptyProperty                | *{0}* 속성이 없거나 잘못되었습니다.                                                                                                       |
 | BaselineRuleIdNotInDefault               | 규칙에 소스 속성 *Microsoft*가 있지만 Microsoft 기본 규칙 집합에 없습니다.                                                   |
 | BaselineRuleIdNotUniqueError             | 규칙 ID가 고유하지 않습니다.                                                                                                                       |
@@ -309,9 +303,9 @@ Security Center에서 기본 OS 보안 구성을 사용자 지정하려면 다�
 | ErrorNullRulesetsPropertyOnCustom        | 지정된 구성 상태가 *Custom*인데 *baselineRulesets* 속성이 null이거나 비어 있습니다.                                             |
 | ErrorParsingBaselineConfig               | 지정된 구성이 잘못되었습니다. 정의된 하나 이상의 값이 null 값이거나 잘못된 형식입니다.                                  |
 | ErrorParsingIsDefaultProperty            | 지정된 *configurationStatus* 값 *{0}* 이(가) 잘못되었습니다. 값에 *Default* 또는 *Custom*만 지정할 수 있습니다.                                         |
-| InCompatibleViewVersion                  | 뷰 버전 *{0}* 은(는) 이 작업 영역 유형에서 지원되지 *않습니다*.                                                                                   |
+| InCompatibleViewVersion                  | 보기 버전 *{0}* 은(는) 이 작업 영역 유형에서 지원되지 *않습니다*.                                                                                   |
 | InvalidBaselineConfigurationGeneralError | 지정된 기준 구성에 하나 이상의 형식 유효성 검사 오류가 있습니다.                                                          |
-| ViewConversionError                      | 뷰가 작업 영역에서 지원하는 버전보다 오래된 버전입니다. 뷰 변환 실패: {0}                                                                 |
+| ViewConversionError                      | 뷰가 작업 영역에서 지원하는 버전보다 오래된 버전입니다. 보기 변환 실패: {0}.                                                                 |
 
 충분한 권한이 없을 경우 다음과 같은 일반 오류가 표시될 수 있습니다.
 

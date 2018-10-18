@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5c2cd38001a9645011bbab84cff3b9366aa64b1d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3bd77891cc7508eeb1fee2152d37478c654a7e37
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206143"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294706"
 ---
 # <a name="service-fabric-patterns-and-scenarios"></a>Service Fabric 패턴 및 시나리오
 Azure Service Fabric을 사용하여 대규모 마이크로 서비스를 빌드하려면 PaaS(platform as a service)를 디자인하고 빌드한 전문가에게 알아봅니다. 적절한 아키텍처를 시작한 다음 응용 프로그램에 대한 리소스를 최적화하는 방법을 알아봅니다. [Service Fabric 패턴 및 사례](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) 과정에서는 Service Fabric 시나리오 및 응용 프로그램 영역에 대해 실제 고객이 가장 자주 묻는 질문에 답변합니다.
@@ -72,7 +72,7 @@ Azure IoT 파이프라인, 다중 테넌트 지원 및 대규모 IoT를 비롯�
 </table>
 
 ## <a name="continuous-delivery"></a>지속적인 업데이트
-Visual Studio Team Services를 통한 지속적인 통합/지속적인 업데이트, 워크플로 빌드/패키지/게시, 다중 환경 설치 및 서비스 패키지/공유를 포함한 개념을 살펴봅니다.
+Azure Pipelines를 통한 지속적인 통합/지속적인 업데이트, 워크플로 빌드/패키지/게시, 다중 환경 설치 및 서비스 패키지/공유를 포함한 개념을 살펴봅니다.
 
 <table><tr><th>비디오</th><th>PowerPoint 데크</th></tr>
 <tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=78h5ofSGD_305167344">

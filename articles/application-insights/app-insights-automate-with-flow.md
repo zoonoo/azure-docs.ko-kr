@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 28228755f76f38ef2ed5e50c776a99427118e090
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 449a6274b67f3eb72ea6d8bd19f555fc59158d7e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424554"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299103"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Microsoft Flow용 커넥터를 사용하여 Azure Application Insights 프로세스 자동화
 
@@ -25,7 +25,7 @@ ms.locfileid: "39424554"
 
 이 통합 덕분에 이제 코드 한 줄 작성하지 않고도 수많은 프로세스를 자동화할 수 있습니다. Application Insights 작업을 사용하여 흐름을 만들고 나면 이 흐름에서 Application Insights Analytics 쿼리가 자동으로 실행됩니다. 
 
-작업을 더 추가할 수도 있습니다. Microsoft Flow는 수백 개의 작업을 사용할 수 있게 해줍니다. 예를 들어 Microsoft Flow를 사용하여 자동으로 메일 알림을 보내거나 Visual Studio Team Services에서 버그를 만들 수 있습니다. Microsoft Flow용 커넥터에 사용할 수 있는 많은 [템플릿](https://ms.flow.microsoft.com/en-us/connectors/shared_applicationinsights/?slug=azure-application-insights) 중 하나를 사용할 수 있습니다. 이러한 템플릿을 사용하면 흐름 만들기 프로세스를 빠르게 진행할 수 있습니다. 
+작업을 더 추가할 수도 있습니다. Microsoft Flow는 수백 개의 작업을 사용할 수 있게 해줍니다. 예를 들어 Microsoft Flow를 사용하여 자동으로 메일 알림을 보내거나 Azure DevOps에서 버그를 만들 수 있습니다. Microsoft Flow용 커넥터에 사용할 수 있는 많은 [템플릿](https://ms.flow.microsoft.com/en-us/connectors/shared_applicationinsights/?slug=azure-application-insights) 중 하나를 사용할 수 있습니다. 이러한 템플릿을 사용하면 흐름 만들기 프로세스를 빠르게 진행할 수 있습니다. 
 
 <!--The Application Insights connector also works with [Azure Power Apps](https://powerapps.microsoft.com/en-us/) and [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/?v=17.23h). --> 
 
@@ -93,7 +93,7 @@ ms.locfileid: "39424554"
 
    a. 받는 사람의 이메일 주소를 입력합니다.
 
-   나. 이메일의 제목을 입력합니다.
+   b. 이메일의 제목을 입력합니다.
 
    다. **본문** 상자의 임의의 위치를 클릭한 다음, 오른쪽에서 열리는 동적 콘텐츠 메뉴에서 **본문**을 선택합니다.
 
@@ -105,7 +105,7 @@ ms.locfileid: "39424554"
 
     a. **첨부 파일 이름**을 선택합니다.
 
-    나. **첨부 파일 콘텐츠**를 선택합니다.
+    b. **첨부 파일 콘텐츠**를 선택합니다.
     
     다. **HTML임** 상자에서 **예**를 선택합니다.
 

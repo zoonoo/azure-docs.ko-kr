@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 07/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 35ae3d1a8a6de2d348f90e2f55b732421b879917
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 57bce631a570f549d46a9b0beefcb5adce4decfc
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307640"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380117"
 ---
 # <a name="sql-data-warehouse-recommendations"></a>SQL Data Warehouse 권장 사항
 
@@ -37,6 +37,6 @@ SQL Data Warehouse Advisor에 대한 피드백이 있거나 문제가 있는 경
 
 최적 통계가 아니면 SQL Data Warehouse 쿼리 최적화 프로그램이 최적이 아닌 쿼리 계획을 생성할 수 있으므로 쿼리 성능에 심각한 악영향을 미칠 수 있습니다. 다음 문서에서는 통계 생성 및 업데이트와 관련된 모범 사례를 설명합니다.
 
-- [테이블 통계 생성 및 업데이트](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistic)
+- [테이블 통계 생성 및 업데이트](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics)
 
-이러한 두 권장 사항과 관련하여, 관리자는 지속적으로 다음 [T-SQL 스크립트](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables)를 실행하여 기울이기 및 통계 권장 사항의 영향을 받는 테이블을 식별해야 합니다.
+이러한 권장 사항의 영향을 받은 테이블 목록을 보려면 다음 [T-SQL 스크립트](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables)를 실행합니다. 관리자는 계속 동일한 T-SQL 스크립트를 실행하여 이러한 권장 사항을 생성합니다.

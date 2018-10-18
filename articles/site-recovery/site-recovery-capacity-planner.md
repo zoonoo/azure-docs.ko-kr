@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 0a1cd8eb-a8f7-4228-ab84-9449e0b2887b
 ms.service: site-recovery
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: d177dae71cd0787a343bbada7c900aebdbad86cc
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 3df7bd5ed44bdf514d48e451468329bd11fdf596
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920664"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094040"
 ---
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Site Recovery를 사용하여 Hyper-V VM을 보호하기 위한 용량 계획
 
@@ -60,7 +60,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
    a. **시나리오 선택**에서 **Hyper-V에서 Azure로** 또는 **VMware/물리적 컴퓨터에서 Azure로**를 선택합니다.
 
-   나. **평균 일일 데이터 변경률(%)** 에서 [Hyper-V 용량 계획 도구](site-recovery-capacity-planning-for-hyper-v-replication.md) 또는 [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md)를 사용하여 수집한 정보를 입력합니다.
+   b. **평균 일일 데이터 변경률(%)** 에서 [Hyper-V 용량 계획 도구](site-recovery-capacity-planning-for-hyper-v-replication.md) 또는 [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md)를 사용하여 수집한 정보를 입력합니다.
 
    다. **압축** 설정은 Hyper-V VM을 Azure에 복제하는 경우에 사용되지 않습니다. 압축의 경우 Riverbed와 같은 타사 어플라이언스를 사용합니다.
 
@@ -98,7 +98,7 @@ Site Recovery Capacity Planner를 사용하여 원본 환경 및 워크로드를
 
    a. **프로세서 코어**에는 원본 서버의 총 코어 수를 지정합니다.
 
-   나. **메모리 할당(MB)** 에는 원본 서버의 RAM 크기를 지정합니다.
+   b. **메모리 할당(MB)** 에는 원본 서버의 RAM 크기를 지정합니다.
 
    다. **NIC 수**에는 원본 서버의 네트워크 어댑터의 수를 지정합니다.
 

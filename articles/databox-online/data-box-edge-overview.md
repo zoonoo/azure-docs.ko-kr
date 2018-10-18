@@ -1,26 +1,19 @@
 ---
 title: Microsoft Azure Data Box Edge 개요 | Microsoft Docs
 description: Azure로의 네트워크 기반 전송에 물리적 장치를 사용하는 저장소 솔루션인 Azure Data Box Edge에 대해 설명합니다.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: edge
 ms.topic: overview
-ms.custom: ''
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: b64489912725872db971c19965ac58c84cb2fc2e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6422482a31ad8022b795cb357c37ad8560781767
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993530"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166596"
 ---
 # <a name="what-is-azure-data-box-edge-preview"></a>Azure Data Box Edge(미리 보기)란? 
 

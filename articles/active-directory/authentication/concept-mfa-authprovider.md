@@ -5,23 +5,23 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 09/01/2018
+ms.date: 09/06/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: b601a3d23b23faa16925881a54e2ceba85c800f8
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 8e77a33667bd6794f667348958e0edb9c6a8fb0d
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669068"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094980"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Azure Multi-Factor Authentication 공급자를 사용하는 시기
 
 두 단계 인증은 기본적으로 Azure Active Directory 및 Office 365 사용자가 있는 전역 관리자를 위해 사용할 수 있습니다. 그러나 [고급 기능](howto-mfa-mfasettings.md)을 활용하려는 경우 Azure MFA(Multi-Factor Authentication)의 전체 버전을 구입해야 합니다.
 
-Azure Multi-Factor Auth 공급자는 Azure Multi-Factor Authentication에서 **라이선스가 없는** 사용자에게 제공하는 기능을 활용하는 데 사용됩니다. 
+Azure Multi-Factor Auth 공급자는 Azure Multi-Factor Authentication에서 **라이선스가 없는** 사용자에게 제공하는 기능을 활용하는 데 사용됩니다.
 
 조직 내 모든 사용자가 범위에 포함되는 라이선스를 보유한 경우 Azure Multi-Factor Auth 공급자가 필요 없습니다. 라이선스가 없는 일부 사용자를 위해 2단계 인증을 제공해야 하는 경우에만 Azure Multi-Factor Authentication 공급자를 만들면 됩니다.
 
@@ -36,41 +36,16 @@ SDK를 다운로드하려면 Azure MFA, AAD Premium 또는 다른 번들 라이�
 
 ## <a name="what-is-an-mfa-provider"></a>MFA 공급자란?
 
-Azure Multi-Factor Authentication에 대한 라이선스가 없는 경우 사용자에 대해 2단계 인증을 요구하는 인증 공급자를 만들 수 있습니다.
-
 두 가지 유형의 Auth 공급자가 있으며 Azure 구독이 청구되는 방식에 따라 구분합니다. 인증 단위 옵션은 한 달에 테넌트에 대해 수행한 인증 수를 계산합니다. 이 옵션은 가끔씩만 인증하는 여러 사용자가 있는 경우에 가장 적합합니다. 사용자당 옵션은 테넌트에서 한 달 동안 2단계 인증을 수행하는 개인 수를 계산한 것입니다. 이 옵션은 라이선스를 갖고 있지만 라이선스 한도를 초과하여 더 많은 사용자까지 MFA를 확장해야 하는 사용자가 있는 경우 가장 적합합니다.
-
-## <a name="create-an-mfa-provider"></a>MFA 공급자 만들기
-
-다음 단계를 따라 Azure Portal에서 Azure Multi-Factor Authentication 공급자를 만듭니다.
-
-1. 전역 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **Azure Active Directory** > **MFA 서버** > **공급자**를 선택합니다.
-
-   ![공급자][Providers]
-
-3. **추가**를 선택합니다.
-4. 다음 필드를 입력한 다음 **추가**를 선택합니다.
-   - **이름** - 공급자의 이름입니다.
-   - **사용 모델** – 두 가지 옵션 중 하나를 선택합니다.
-      * 인증당 - 인증 단위로 요금이 청구되는 구매 모델입니다. 일반적으로 소비자 지향 응용 프로그램에서 Azure Multi-Factor Authentication을 사용하는 시나리오에 사용됩니다.
-      * 활성화된 사용자별 – 활성화된 사용자 단위로 요금이 청구되는 구매 모델입니다. 일반적으로 Office 365와 같은 응용 프로그램에 대한 직원 액세스에 사용합니다. 이미 Azure MFA에 대한 사용이 허가된 사용자가 있는 경우 이 옵션을 선택합니다.
-   - **구독** - 공급자를 통해 2단계 인증 작업에 대해 청구되는 Azure 구독입니다.
-   - **디렉터리** – 공급자와 연결된 Azure Active Directory 테넌트입니다.
-      * 공급자를 만드는 데 Azure AD 디렉터리가 필요하지는 않습니다. Azure Multi-Factor Authentication 서버를 다운로드하려는 경우에만 이 상자를 비워둡니다.
-      * 공급자를 Azure AD 디렉터리와 연결하여 고급 기능을 활용해야 합니다.
-      * 한 공급자를 한 Azure AD 디렉터리에만 연결할 수 있습니다.
 
 ## <a name="manage-your-mfa-provider"></a>MFA 공급자 관리
 
-MFA 공급자를 만든 후에는 사용 모델(활성화된 사용자별 또는 인증별)을 변경할 수 없습니다. 하지만 MFA 공급자를 삭제하고 다른 사용 모델로 새 공급자를 만들 수 있습니다.
+MFA 공급자를 만든 후에는 사용 모델(활성화된 사용자별 또는 인증별)을 변경할 수 없습니다.
 
-현재 Multi-Factor Auth 공급자가 Azure AD 디렉터리(Azure AD 테넌트라고도 함)에 연결된 경우 MFA 공급자를 안전하게 삭제하고 동일한 Azure AD 테넌트에 연결된 새 공급자를 만들 수 있습니다. 또는 MFA로 설정된 모든 사용자를 처리할 만큼 충분한 라이선스를 구입한 경우 MFA 공급자를 모두 삭제할 수 있습니다.
+MFA로 설정된 모든 사용자를 처리할 만큼 충분한 라이선스를 구매한 경우 MFA 공급자를 모두 삭제할 수 있습니다.
 
-하지만 MFA 공급자가 Azure AD 테넌트에 연결되어 있지 않거나 새 MFA 공급자를 다른 Azure AD 테넌트에 연결한 경우 사용자 설정 및 구성 옵션이 전송되지 않습니다. 또한 새 MFA 공급자를 통해 생성된 활성화 자격 증명을 사용하여 기존 Azure MFA 서버를 다시 활성화해야 합니다. MFA 서버를 새 MFA 공급자에 연결하기 위해 다시 활성화해도 전화 및 문자 메시지 인증에는 영향을 미치지 않지만 모바일 앱을 다시 활성화할 때까지 모바일 앱 알림이 모든 사용자에 대해 작동 중지됩니다.
+하지만 MFA 공급자가 Azure AD 테넌트에 연결되어 있지 않거나 새 MFA 공급자를 다른 Azure AD 테넌트에 연결한 경우 사용자 설정 및 구성 옵션이 전송되지 않습니다. 또한 MFA 공급자를 통해 생성된 활성화 자격 증명을 사용하여 기존 Azure MFA 서버를 다시 활성화해야 합니다. MFA 서버를 MFA 공급자에 연결하기 위해 다시 활성화해도 전화 및 문자 메시지 인증에는 영향을 미치지 않지만 모바일 앱을 다시 활성화할 때까지 모바일 앱 알림이 모든 사용자에 대해 작동 중지됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 [Multi-Factor Authentication 설정 구성](howto-mfa-mfasettings.md)
-
-[Providers]: ./media/concept-mfa-authprovider/add-providers.png "MFA 공급자 추가"

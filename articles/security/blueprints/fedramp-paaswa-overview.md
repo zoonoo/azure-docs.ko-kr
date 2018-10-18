@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: jomolesk
-ms.openlocfilehash: 20aa842fb8168bc28a388c817f4e4eedbdd63ebd
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: eb8db75a8ff5af11b98ee2c61628f923a8422153
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726693"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299936"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-fedramp"></a>Azure 보안 및 규정 준수 청사진: FedRAMP에 대한 PaaS 웹 응용 프로그램
 
@@ -28,7 +28,7 @@ ms.locfileid: "34726693"
 ## <a name="architecture-diagram-and-components"></a>아키텍처 다이어그램 및 구성 요소
 이 솔루션은 Azure SQL Database 백 엔드가 있는 PaaS 웹 응용 프로그램에 대한 참조 아키텍처를 제공합니다. 웹 응용 프로그램은 Azure 데이터 센터의 개인 전용 환경인 격리된 Azure App Service Environment에서 호스팅됩니다. 환경은 Azure에서 관리되는 VM 간에 웹 응용 프로그램에 대한 트래픽의 부하를 분산합니다. 이 아키텍처에는 네트워크 보안 그룹, Application Gateway, Azure DNS 및 Load Balancer도 포함됩니다. 또한 Operations Management Suite는 시스템 상태 및 보안의 실시간 분석을 제공합니다. **Azure에서는 관리 및 참조 아키텍처 서브넷에 데이터 가져오기를 위해 VPN 또는 ExpressRoute 연결을 구성하는 것이 좋습니다**.
 
-![FedRAMP에 대한 PaaS 웹 응용 프로그램 참조 아키텍처 다이어그램](images/fedramp-paaswa-architecture.png?raw=true) "FedRAMP에 대한 PaaS 웹 응용 프로그램 참조 아키텍처 다이어그램"
+![FedRAMP용 PaaS 웹 응용 프로그램 참조 아키텍처 다이어그램](images/fedramp-paaswa-architecture.png?raw=true "FedRAMP용 PaaS 웹 응용 프로그램 참조 아키텍처 다이어그램")
 
 이 솔루션에서는 다음과 같은 Azure 서비스를 사용합니다. 배포 아키텍처의 세부 정보는 [배포 아키텍처](#deployment-architecture) 섹션에 있습니다.
 
@@ -73,7 +73,7 @@ ASE는 단일 고객의 응용 프로그램만 실행하도록 격리되며 항�
 
 [지침 및 권장 사항](#guidance-and-recommendations) 섹션에는 ASE에 대한 추가 정보가 포함됩니다.
 
-**Azure Web App**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/)를 사용하면 고객이 인프라를 관리할 필요 없이 선택한 프로그래밍 언어로 웹 응용 프로그램을 빌드하고 호스팅할 수 있습니다. Azure Web Apps는 자동 크기 조정 및 고가용성을 제공하고, Windows 및 Linux를 지원하며, GitHub, Visual Studio Team Services 또는 Git 리포지토리에서 자동화된 배포를 지원합니다.
+**Azure Web App**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/)를 사용하면 고객이 인프라를 관리할 필요 없이 선택한 프로그래밍 언어로 웹 응용 프로그램을 빌드하고 호스팅할 수 있습니다. 여기서는 자동 크기 조정 및 고가용성을 제공하고, Windows 및 Linux를 모두 지원하며, GitHub, Azure DevOps 또는 Git 리포지토리에서 자동화된 배포를 사용합니다.
 
 ### <a name="virtual-network"></a>Virtual Network
 아키텍처는 10.200.0.0/16 주소 공간으로 개인 가상 네트워크를 정의합니다.

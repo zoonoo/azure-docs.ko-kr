@@ -3,19 +3,19 @@ title: '빠른 시작: 인쇄 텍스트 추출(OCR) - REST, Python - Computer Vi
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Python과 함께 Computer Vision API를 사용하여 이미지의 인쇄 텍스트를 추출합니다.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: b02a3f382dd0049b635ca2ca99c2e102d364a1f6
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: e206f3e716bed558c8041b5714433cecbf9500ac
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629389"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345116"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-python-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 Python을 사용하여 인쇄 텍스트 추출(OCR)
 
@@ -25,7 +25,7 @@ ms.locfileid: "45629389"
 
 [![바인더](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -41,9 +41,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     1. `subscription_key`의 값을 구독 키로 바꿉니다.
     1. 필요한 경우 `vision_base_url`의 값을 구독 키를 가져온 Azure 지역의 Computer Vision 리소스에 대한 엔드포인트 URL로 바꿉니다.
     1. 필요에 따라 `image_url`의 값을 인쇄 텍스트를 추출하려는 다른 이미지의 URL로 바꿉니다.
-1. 코드를 `.py` 확장명의 파일로 저장합니다. 예: `get-printed-text.py`
+1. 코드를 `.py` 확장명의 파일로 저장합니다. 예: `get-printed-text.py`.
 1. 명령 프롬프트 창을 엽니다.
-1. 프롬프트에서 `python` 명령을 사용하여 샘플을 실행합니다. 예: `python get-printed-text.py`
+1. 프롬프트에서 `python` 명령을 사용하여 샘플을 실행합니다. 예: `python get-printed-text.py`.
 
 ```python
 import requests
@@ -106,7 +106,7 @@ plt.axis("off")
 
 ## <a name="examine-the-response"></a>응답 검사
 
-성공적인 응답이 JSON을 통해 반환됩니다. 샘플 웹 페이지는 다음 예제와 유사하게 명령 프롬프트 창에서 성공한 응답을 구문 분석하고 표시합니다.
+성공적인 응답이 JSON을 통해 반환됩니다. 샘플 웹 페이지에서 다음 예제와 비슷한 성공적인 응답을 구문 분석하고 명령 프롬프트 창에 표시합니다.
 
 ```json
 {

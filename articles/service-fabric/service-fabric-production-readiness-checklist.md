@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
 ms.author: subramar
-ms.openlocfilehash: 5092bf377f6ab213a2db52e01fb7b89ff0c218ce
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 6ebe83794f23ed3cf637f668d2810b9ba7521084
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39127490"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295873"
 ---
 # <a name="production-readiness-checklist"></a>프로덕션 준비 검사 목록
 
@@ -45,7 +45,7 @@ ms.locfileid: "39127490"
 15. 서비스에 대해 RPO(복구 지점 목표)를 설정하고, [재해 복구 프로세스](service-fabric-disaster-recovery.md)를 설정한 후 테스트합니다.
 16. 수동 또는 프로그래밍 방식의 클러스터 [크기 조정](service-fabric-cluster-scaling.md)을 계획합니다.
 17. 클러스터 노드 [패치 적용](service-fabric-patch-orchestration-application.md)을 계획합니다. 
-18. 최신 변경 내용이 지속적으로 테스트되도록 CI/CD 파이프라인을 설정합니다. 예를 들어, [VSTS](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) 또는 [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)를 사용합니다.
+18. 최신 변경 내용이 지속적으로 테스트되도록 CI/CD 파이프라인을 설정합니다. 예를 들어 [Azure DevOps](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) 또는 [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)를 사용합니다.
 19. [Fault Analysis Service](service-fabric-testability-overview.md)를 사용하여 부하 상태에서 개발 및 스테이징 클러스터를 테스트하고, 제어된 [혼란](service-fabric-controlled-chaos.md)을 유도합니다. 
 20. 응용 프로그램 [크기 조정](service-fabric-concepts-scalability.md)을 계획합니다. 
 

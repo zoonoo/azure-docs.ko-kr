@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: yili
-ms.openlocfilehash: cd107ddc5ac443daee592c40bbed451c913a8a3b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: aba6a1f7028ac09cad8acf587fd56dcc2c16919b
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444592"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295721"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux의 Azure App Service에 대한 FAQ
 
@@ -74,7 +74,7 @@ Node.js의 경우 PM2 구성 파일 또는 스크립트 파일을 지정합니�
 
 Linux 웹앱에 대한 Git 배포가 실패하면 다음 옵션 중 하나를 선택하여 응용 프로그램 코드를 배포할 수 있습니다.
 
-- 지속적인 업데이트(미리 보기) 기능 사용: Azure 지속적인 업데이트를 사용하도록 Team Services Git 리포지토리 또는 GitHub 리포지토리에 앱의 소스 코드를 저장할 수 있습니다. 자세한 내용은 [Linux 웹앱에 지속적인 업데이트를 구성하는 방법](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/)을 참조하세요.
+- 지속적인 업데이트(미리 보기) 기능 사용: Azure 지속적인 업데이트를 사용하도록 Azure DevOps Git 리포지토리 또는 GitHub 리포지토리에 앱의 소스 코드를 저장할 수 있습니다. 자세한 내용은 [Linux 웹앱에 지속적인 업데이트를 구성하는 방법](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/)을 참조하세요.
 
 - [ZIP 배포 API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file) 사용: 이 API를 사용하려면 [웹앱에 SSH를 실행하고](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) 코드를 배포할 폴더로 이동합니다. 다음 코드를 실행합니다.
 

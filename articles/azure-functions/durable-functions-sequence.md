@@ -3,23 +3,19 @@ title: 지속성 함수의 함수 체이닝 - Azure
 description: 일련의 함수를 실행하는 지속성 함수 샘플을 실행하는 방법에 대해 알아봅니다.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 03/19/2018
+ms.topic: conceptual
+ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a5b337e5318154e299f82b1102ca832303d752f7
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: c84977dacddcf9ccca7fde735ad4acb8a1523fa9
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970057"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378706"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>지속성 함수의 함수 체이닝 - Hello 시퀀스 샘플
 
@@ -109,6 +105,9 @@ JavaScript 오케스트레이션 함수와 달리, JavaScript 작업 함수는 �
 POST http://{host}/orchestrators/E1_HelloSequence
 ```
 
+> [!NOTE]
+> 이전 HTTP 코드 조각에서는 모든 HTTP 트리거 함수 URL에서 기본 `api/` 접두사를 제거하는 항목이 `host.json` 파일에 있다고 가정합니다. 샘플의 `host.json` 파일에서 이 구성에 대한 변경 내용을 찾을 수 있습니다.
+
 예를 들어 "myfunctionapp"이라는 함수 앱에서 샘플을 실행하는 경우 "{host}"를 "myfunctionapp.azurewebsites.net"으로 바꿉니다.
 
 결과는 다음과 같은 HTTP 202 응답입니다(간결하게 정리되었음).
@@ -141,7 +140,7 @@ Content-Type: application/json; charset=utf-8
 여기서 볼 수 있듯이 인스턴스의 `runtimeStatus`는 *완료됨*이고 `output`에는 JSON 직렬화된 오케스트레이터 함수 실행 결과가 포함됩니다.
 
 > [!NOTE]
-> 오케스트레이터 함수를 시작한 HTTP POST 끝점은 샘플 앱에서 "HttpStart"라는 HTTP 트리거 함수로 구현됩니다. `queueTrigger`, `eventHubTrigger` 또는 `timerTrigger`와 같은 다른 트리거 형식에 대해 비슷한 시작 논리를 구현할 수 있습니다.
+> 오케스트레이터 함수를 시작한 HTTP POST 엔드포인트는 샘플 앱에서 "HttpStart"라는 HTTP 트리거 함수로 구현됩니다. `queueTrigger`, `eventHubTrigger` 또는 `timerTrigger`와 같은 다른 트리거 형식에 대해 비슷한 시작 논리를 구현할 수 있습니다.
 
 함수 실행 로그를 검토합니다. `E1_HelloSequence` 함수는 [개요](durable-functions-overview.md)에서 설명한 재생 동작으로 인해 여러 번 시작되고 완료되었습니다. 반면에 이러한 함수 실행이 재생되지 않으므로 `E1_SayHello`는 3회만 실행되었습니다.
 

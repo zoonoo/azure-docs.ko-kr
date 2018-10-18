@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/13/2018
+ms.date: 09/10/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 10bcf54da9660da1edcc8358f10289e9678be5cb
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 1ef5d51db34e0d0a947a4d6ba6c7e614b1ac3384
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42145186"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348891"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이 설치 및 구성
 동일한 지역에 하나 이상의 Azure Analysis Services 서버를 온-프레미스 데이터 원본에 연결하는 경우 온-프레미스 데이터 게이트웨이가 필요합니다. 게이트웨이에 대한 자세한 내용은 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 참조하세요.
@@ -37,6 +37,7 @@ ms.locfileid: "42145186"
 * 단일 컴퓨터에는 하나의 게이트웨이를 설치할 수 있습니다.
 * 유지되고 대기 상태로 전환되지 않는 컴퓨터에 게이트웨이를 설치합니다.
 * 네트워크에 무선으로 연결된 컴퓨터에 게이트웨이를 설치하지 않습니다. 성능이 감소될 수 있습니다.
+* 게이트웨이를 설치할 때 컴퓨터에 로그인한 사용자 계정에는 서비스로 로그온 권한이 있어야 합니다. 설치가 완료되면 온-프레미스 데이터 게이트웨이 서비스가 NT SERVICE\PBIEgwService 계정을 사용하여 서비스로 로그온합니다. 다른 계정은 설정하는 동안 지정하거나 설정 완료 후 서비스에서 지정할 수 있습니다. 그룹 정책 설정에서 설치할 때 로그인한 계정 및 사용자가 선택한 서비스로 로그온 권한이 있는 서비스 계정을 둘 다 허용하는지 확인합니다.
 * 게이트웨이를 등록한 구독과 동일한 [테넌트](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)의 Azure AD 계정으로 Azure에 로그인합니다. 게이트웨이를 설치 및 등록할 때 Azure B2B(게스트) 계정은 지원되지 않습니다.
 * 데이터 원본이 Azure VNet(Virtual Network)에 있는 경우 [AlwaysUseGateway](analysis-services-vnet-gateway.md) 서버 속성을 구성해야 합니다.
 * 여기에 설명된 (통합) 게이트웨이는 Azure Government, Azure 독일 및 Azure 중국 자치 지역에서 지원되지 않습니다. 포털에 있는 서버의 **빠른 시작**에서 설치된 **Azure Analysis Services에 대한 전용 온-프레미스 게이트웨이**를 사용합니다. 
@@ -78,7 +79,7 @@ Azure에서 게이트웨이 리소스를 만들기 위해 게이트웨이 클라
 ## <a name="create-resource"></a>Azure 게이트웨이 리소스 만들기
 게이트웨이를 설치 및 등록한 후 Azure 구독에 게이트웨이 리소스를 만들어야 합니다. 게이트웨이를 등록할 때 사용했던 동일한 계정으로 Azure에 로그인합니다.
 
-1. Azure Portal에서 **새 서비스 만들기** > **엔터프라이즈 통합** > **온-프레미스 데이터 게이트웨이** > **만들기**를 클릭합니다.
+1. Azure Portal에서 **리소스 만들기** > **통합** > **온-프레미스 데이터 게이트웨이**를 클릭합니다.
 
    ![게이트웨이 리소스 만들기](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
 

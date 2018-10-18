@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 108abe45b4b296e0d7928f2da00a06ac43e1ccbe
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b7ce07547eccd52a8b10d4cffecaf1456778da4a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438786"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301211"
 ---
-# <a name="integrate-azure-devtest-labs-into-your-vsts-continuous-integration-and-delivery-pipeline"></a>VSTS 지속적인 통합 및 배달 파이프라인에 Azure DevTest Labs 통합
-VSTS(Visual Studio Team Services)에 설치된 *Azure DevTest Labs 작업* 확장을 사용하여 CI/CD 빌드 및 릴리스 파이프라인을 Azure DevTest Labs와 손쉽게 통합할 수 있습니다. 확장은 다음과 같은 세 가지 작업을 설치합니다. 
+# <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Azure DevOps 지속적인 통합 및 배달 파이프라인에 Azure DevTest Labs 통합
+Azure DevOps에 설치된 *Azure DevTest Labs 작업* 확장을 사용하여 CI/CD 빌드 및 릴리스 파이프라인을 Azure DevTest Labs와 손쉽게 통합할 수 있습니다. 확장은 다음과 같은 세 가지 작업을 설치합니다. 
 * VM 만들기
 * VM에서 사용자 지정 이미지 만들기
 * VM 삭제 
@@ -85,20 +85,20 @@ CI/CD 파이프라인을 Azure DevTest Labs와 통합하기 전에 Visual Studio
 
 1. 소스 제어 시스템에서 스크립트를 검사합니다. 이름을 **GetLabVMParams.ps1**과 같이 지정합니다.
 
-   릴리스 정의의 일부로 에이전트에서 이 스크립트를 실행할 때, *Azure 파일 복사* 또는 *대상 컴퓨터의 PowerShell*과 같은 작업 단계를 사용하는 경우 스크립트는 앱을 VM에 배포하는 데 필요한 값을 수집합니다. 일반적으로 이러한 작업을 사용하여 Azure VM에 앱을 배포합니다. VM 리소스 그룹 이름, IP 주소 및 FDQN(정규화된 도메인 이름)과 같은 값을 요구하는 작업입니다.
+   릴리스 파이프라인의 일부로 에이전트에서 이 스크립트를 실행할 때, *Azure 파일 복사* 또는 *대상 컴퓨터의 PowerShell*과 같은 작업 단계를 사용하는 경우 스크립트는 앱을 VM에 배포하는 데 필요한 값을 수집합니다. 일반적으로 이러한 작업을 사용하여 Azure VM에 앱을 배포합니다. VM 리소스 그룹 이름, IP 주소 및 FDQN(정규화된 도메인 이름)과 같은 값을 요구하는 작업입니다.
 
-## <a name="create-a-release-definition-in-release-management"></a>Release Management에서 릴리스 정의 만들기
-릴리스 정의를 만들려면 다음을 수행합니다.
+## <a name="create-a-release-pipeline-in-release-management"></a>Release Management에서 릴리스 파이프라인 만들기
+릴리스 파이프라인을 만들려면 다음을 수행합니다.
 
 1. **빌드 및 릴리스** 허브의 **릴리스** 탭에서 더하기 기호(+) 단추를 선택합니다.
 1. **릴리스 정의 만들기** 창에서 **빈** 템플릿을 선택한 후, **다음**을 선택합니다.
-1. **나중에 선택**을 선택한 후 **만들기**를 선택하여 하나의 기본 환경이 있고 연결된 아티팩트가 없는 새 릴리스 정의를 만듭니다.
-1. 바로 가기 메뉴를 열려면 새 릴리스 정의에서 환경 이름 옆에 있는 줄임표(...)를 선택한 다음 **변수 구성**을 선택합니다. 
-1. **구성 - 환경** 창에서 릴리스 정의 작업에 사용하는 변수에 다음 값을 입력합니다.
+1. **나중에 선택**을 선택한 후 **만들기**를 선택하여 하나의 기본 환경이 있고 연결된 아티팩트가 없는 새 릴리스 파이프라인을 만듭니다.
+1. 바로 가기 메뉴를 열려면 새 릴리스 파이프라인에서 환경 이름 옆에 있는 줄임표(...)를 선택한 다음 **변수 구성**을 선택합니다. 
+1. **구성 - 환경** 창에서 릴리스 파이프라인 작업에 사용하는 변수에 다음 값을 입력합니다.
 
    a. **vmName**의 경우 Azure Portal에서 Resource Manager 템플릿을 만들 때 VM에 할당한 이름을 입력합니다.
 
-   나. **userName**의 경우 Azure Portal에서 Resource Manager 템플릿을 만들 때 VM에 할당한 사용자 이름을 입력합니다.
+   b. **userName**의 경우 Azure Portal에서 Resource Manager 템플릿을 만들 때 VM에 할당한 사용자 이름을 입력합니다.
 
    다. **password**의 경우 Azure Portal에서 Resource Manager 템플릿을 만들 때 VM에 할당한 암호를 입력합니다. 암호를 숨기고 보호하려면 “자물쇠” 아이콘을 사용합니다.
 
@@ -106,15 +106,15 @@ CI/CD 파이프라인을 Azure DevTest Labs와 통합하기 전에 Visual Studio
 
 배포의 다음 단계는 후속 배포를 위한 “골든 이미지”로 사용할 VM을 만드는 것입니다. 이 목적을 위해 특별히 개발된 작업을 사용하여 Azure DevTest Lab 인스턴스 내에서 VM을 만듭니다. 
 
-1. 릴리스 정의에서 **작업 추가**를 선택합니다.
+1. 릴리스 파이프라인에서 **작업 추가**를 선택합니다.
 1. **배포** 탭에서 *Azure DevTest Labs VM 만들기* 작업을 추가합니다. 아래와 같이 작업을 구성합니다.
 
    > [!NOTE]
    > 후속 배포에 사용할 VM을 만들려면 [Azure DevTest Labs 작업](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)을 참조하세요.
 
-   a. **Azure RM 구독**의 경우 **사용할 수 있는 Azure 서비스 연결** 목록에서 연결을 선택하거나, Azure 구독에 좀 더 제한된 권한 연결을 만듭니다. 자세한 내용은 [Azure Resource Manager 서비스 엔드포인트](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm)를 참조하세요.
+   a. **Azure RM 구독**의 경우 **사용할 수 있는 Azure 서비스 연결** 목록에서 연결을 선택하거나, Azure 구독에 좀 더 제한된 권한 연결을 만듭니다. 자세한 내용은 [Azure Resource Manager 서비스 엔드포인트](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm)를 참조하세요.
 
-   나. **랩 이름**의 경우 앞서 만든 인스턴스의 이름을 선택합니다.
+   b. **랩 이름**의 경우 앞서 만든 인스턴스의 이름을 선택합니다.
 
    다. **템플릿 이름**의 경우 소스 코드 리포지토리에 저장한 템플릿 파일의 전체 경로 및 이름을 입력합니다. 다음 예와 같이 Release Management의 기본 제공 속성을 사용하여 경로를 간소화할 수 있습니다.
 
@@ -135,14 +135,14 @@ CI/CD 파이프라인을 Azure DevTest Labs와 통합하기 전에 Visual Studio
    ```
 
 1. 이전에 만든 스크립트를 실행하여 DevTest Labs VM의 세부 정보를 수집합니다. 
-1. 릴리스 정의에서 **작업 추가**를 선택한 후 **배포** 탭에서 *Azure PowerShell* 작업을 추가합니다. 아래와 같이 작업을 구성합니다.
+1. 릴리스 파이프라인에서 **작업 추가**를 선택한 후 **배포** 탭에서 *Azure PowerShell* 작업을 추가합니다. 아래와 같이 작업을 구성합니다.
 
    > [!NOTE]
    > DevTest Labs VM의 세부 정보를 수집하려면 [배포: Azure PowerShell](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzurePowerShell)을 참조하여 스크립트를 실행합니다.
 
    a. **Azure 연결 형식**의 경우 **Azure Resource Manager**를 선택합니다.
 
-   나. **Azure RM 구독**의 경우 **사용할 수 있는 Azure 서비스 연결** 목록에서 연결을 선택하거나, Azure 구독에 좀 더 제한된 권한 연결을 만듭니다. 자세한 내용은 [Azure Resource Manager 서비스 엔드포인트](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm)를 참조하세요.
+   b. **Azure RM 구독**의 경우 **사용할 수 있는 Azure 서비스 연결** 목록에서 연결을 선택하거나, Azure 구독에 좀 더 제한된 권한 연결을 만듭니다. 자세한 내용은 [Azure Resource Manager 서비스 엔드포인트](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm)를 참조하세요.
 
    다. **스크립트 형식**의 경우 **스크립트 파일**을 선택합니다.
  
@@ -154,24 +154,24 @@ CI/CD 파이프라인을 Azure DevTest Labs와 통합하기 전에 Visual Studio
       ```
       -labVmId '$(labVMId)'
       ```
-    스크립트는 필수 값을 수집하여 이후 단계에서 쉽게 참조할 수 있도록 릴리스 정의 내 환경 변수에 이를 저장합니다.
+    스크립트는 필수 값을 수집하여 이후 단계에서 쉽게 참조할 수 있도록 릴리스 파이프라인 내 환경 변수에 이를 저장합니다.
 
 1. 새 DevTest Labs VM에 앱을 배포합니다. 일반적으로 앱을 배포하는 데 사용하는 작업은 *Azure 파일 복사* 및 *대상 컴퓨터의 PowerShell*입니다.
-   이러한 작업의 매개 변수에 필요한 VM에 대한 정보는 릴리스 정의 내 **labVmRgName**, **labVMIpAddress** 및 **labVMFqdn**이라는 세 가지 구성 변수에 저장됩니다. 앱을 배포하지 않고 DevTest Labs VM 및 사용자 지정 이미지를 만들어 시험하려는 경우 이 단계를 건너뛸 수 있습니다.
+   이러한 작업의 매개 변수에 필요한 VM에 대한 정보는 릴리스 파이프라인 내 **labVmRgName**, **labVMIpAddress** 및 **labVMFqdn**이라는 세 가지 구성 변수에 저장됩니다. 앱을 배포하지 않고 DevTest Labs VM 및 사용자 지정 이미지를 만들어 시험하려는 경우 이 단계를 건너뛸 수 있습니다.
 
 ### <a name="create-an-image"></a>이미지 만들기
 
 다음 단계는 Azure DevTest Labs 인스턴스에 새로 배포된 VM의 이미지를 만드는 것입니다. 그런 다음, 개발 작업을 실행하거나 일부 테스트를 실행하고자 할 때마다 필요에 따라 이미지를 사용하여 VM의 복사본을 만듭니다. 
 
-1. 릴리스 정의에서 **작업 추가**를 선택합니다.
+1. 릴리스 파이프라인에서 **작업 추가**를 선택합니다.
 1. **배포** 탭에서 **Azure DevTest Labs 사용자 지정 이미지 만들기** 작업을 추가합니다. 다음과 같이 구성합니다.
 
    > [!NOTE]
    > 이미지를 만들려면 [Azure DevTest Labs 작업](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)을 참조하세요.
 
-   a. **Azure RM 구독**의 경우 **사용할 수 있는 Azure 서비스 연결** 목록에서 연결을 선택하거나, Azure 구독에 좀 더 제한된 권한 연결을 만듭니다. 자세한 내용은 [Azure Resource Manager 서비스 엔드포인트](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm)를 참조하세요.
+   a. **Azure RM 구독**의 경우 **사용할 수 있는 Azure 서비스 연결** 목록에서 연결을 선택하거나, Azure 구독에 좀 더 제한된 권한 연결을 만듭니다. 자세한 내용은 [Azure Resource Manager 서비스 엔드포인트](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm)를 참조하세요.
 
-   나. **랩 이름**의 경우 앞서 만든 인스턴스의 이름을 선택합니다.
+   b. **랩 이름**의 경우 앞서 만든 인스턴스의 이름을 선택합니다.
 
    다. **사용자 지정 이미지 이름**의 경우 사용자 지정 이미지에 대한 이름을 입력합니다.
 
@@ -185,17 +185,17 @@ CI/CD 파이프라인을 Azure DevTest Labs와 통합하기 전에 Visual Studio
 
 최종 단계는 Azure DevTest Labs 인스턴스에 배포된 VM을 삭제하는 것입니다. 일반적으로 배포된 VM에서 필요한 개발 작업을 실행하거나 테스트를 실행한 후 VM을 삭제합니다. 
 
-1. 릴리스 정의에서 **작업 추가**를 선택한 후 **배포** 탭에서 *Azure DevTest Labs VM 삭제* 작업을 추가합니다. 다음과 같이 구성합니다.
+1. 릴리스 파이프라인에서 **작업 추가**를 선택한 후 **배포** 탭에서 *Azure DevTest Labs VM 삭제* 작업을 추가합니다. 다음과 같이 구성합니다.
 
       > [!NOTE]
       > VM을 삭제하려면 [Azure DevTest Labs 작업](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)을 참조하세요.
 
-   a. **Azure RM 구독**의 경우 **사용할 수 있는 Azure 서비스 연결** 목록에서 연결을 선택하거나, Azure 구독에 좀 더 제한된 권한 연결을 만듭니다. 자세한 내용은 [Azure Resource Manager 서비스 엔드포인트](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm)를 참조하세요.
+   a. **Azure RM 구독**의 경우 **사용할 수 있는 Azure 서비스 연결** 목록에서 연결을 선택하거나, Azure 구독에 좀 더 제한된 권한 연결을 만듭니다. 자세한 내용은 [Azure Resource Manager 서비스 엔드포인트](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm)를 참조하세요.
  
-   나. **랩 VM ID**의 경우 이전 작업에서 랩 VM의 ID로 자동으로 채워진 환경 변수의 기본 이름을 변경했으면 여기에서 편집합니다. 기본값은 **$(labVMId)** 입니다.
+   b. **랩 VM ID**의 경우 이전 작업에서 랩 VM의 ID로 자동으로 채워진 환경 변수의 기본 이름을 변경했으면 여기에서 편집합니다. 기본값은 **$(labVMId)** 입니다.
 
-1. 릴리스 정의 대한 이름을 입력한 다음, 저장합니다.
-1. 새 릴리스를 만들고, 최신 빌드를 선택하고, 정의의 단일 환경에 배포합니다.
+1. 릴리스 파이프라인의 이름을 입력한 다음, 저장합니다.
+1. 새 릴리스를 만들고, 최신 빌드를 선택하고, 파이프라인의 단일 환경에 배포합니다.
 
 각 단계에서 Azure Portal의 DevTest Labs 인스턴스 보기를 새로 고치면 생성 중인 VM 및 이미지와 더불어 삭제 중인 VM을 다시 볼 수 있습니다.
 
@@ -207,5 +207,5 @@ CI/CD 파이프라인을 Azure DevTest Labs와 통합하기 전에 Visual Studio
 ## <a name="next-steps"></a>다음 단계
 * [Resource Manager 템플릿으로 다중 VM 환경을 만드는](devtest-lab-create-environment-from-arm.md) 방법을 알아봅니다.
 * [공용 DevTest Labs GitHub 리포지토리](https://github.com/Azure/azure-quickstart-templates)에서 DevTest Labs 자동화를 위한 더 많은 빠른 시작 Resource Manager 템플릿을 살펴봅니다.
-* 필요한 경우 [VSTS 문제 해결](https://docs.microsoft.com/vsts/build-release/actions/troubleshooting) 페이지를 참조하세요.
+* 필요한 경우 [Azure DevOps 문제 해결](https://docs.microsoft.com/azure/devops/pipelines/troubleshooting) 페이지를 참조하세요.
  

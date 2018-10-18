@@ -3,8 +3,8 @@ title: Azure CDN에서 웹 콘텐츠의 만료 관리 | Microsoft Docs
 description: Azure CDN에서 Azure Web Apps/Cloud Services, ASP.NET 또는 IIS 콘텐츠의 만료를 관리하는 방법을 알아봅니다.
 services: cdn
 documentationcenter: .NET
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: bef53fcc-bb13-4002-9324-9edee9da8288
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
-ms.author: mazha
-ms.openlocfilehash: fc74d7fdd082cf497b7cabf30d96509ebe8b6b68
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: magattus
+ms.openlocfilehash: d4ae0c4d5924fab8fcdaf1b4da5c8183a3a5fd0f
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426024"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092476"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Azure CDN에서 웹 콘텐츠의 만료 관리
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ TTL(time-to-live)이 경과할 때까지 원본 웹 서버에서 공개적으로
 
 **CDN 캐싱 규칙 페이지로 이동하려면**:
 
-1. Azure Portal에서 CDN 프로필을 선택한 다음, 웹 서버용 끝점을 선택합니다.
+1. Azure Portal에서 CDN 프로필을 선택한 다음, 웹 서버용 엔드포인트를 선택합니다.
 
 1. 설정 아래의 왼쪽 창에서 **캐싱 규칙**을 선택합니다.
 
@@ -64,7 +64,7 @@ TTL(time-to-live)이 경과할 때까지 원본 웹 서버에서 공개적으로
 
    ![CDN 전역 캐싱 규칙 예](./media/cdn-manage-expiration-of-cloud-service-content/cdn-global-caching-rules-example.png)
 
-   해당 전역 캐싱 규칙은 1시간의 캐시 기간을 설정하고 끝점에 대한 모든 요청에 영향을 줍니다. 끝점에서 지정한 원본 서버가 보낸 `Cache-Control` 또는 `Expires` HTTP 헤더를 재정의합니다.   
+   해당 전역 캐싱 규칙은 1시간의 캐시 기간을 설정하고 엔드포인트에 대한 모든 요청에 영향을 줍니다. 엔드포인트에서 지정한 원본 서버가 보낸 `Cache-Control` 또는 `Expires` HTTP 헤더를 재정의합니다.   
 
 1. **저장**을 선택합니다.
 
@@ -74,11 +74,11 @@ TTL(time-to-live)이 경과할 때까지 원본 웹 서버에서 공개적으로
 
      a. 첫 번째 일치 조건의 경우 **일치 조건**을 **경로**로 설정하고 **일치 값**으로 `/webfolder1/*`을 입력합니다. **캐싱 동작**을 **재정의**로 설정하고 **시간** 상자에 4시간을 입력합니다.
 
-     나. 두 번째 일치 조건의 경우 **일치 조건**을 **경로**로 설정하고 **일치 값**으로 `/webfolder1/file1.txt`를 입력합니다. **캐싱 동작**을 **재정의**로 설정하고 **시간** 상자에 2시간을 입력합니다.
+     b. 두 번째 일치 조건의 경우 **일치 조건**을 **경로**로 설정하고 **일치 값**으로 `/webfolder1/file1.txt`를 입력합니다. **캐싱 동작**을 **재정의**로 설정하고 **시간** 상자에 2시간을 입력합니다.
 
     ![CDN 사용자 지정 캐싱 규칙 예](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
 
-    첫 번째 사용자 지정 캐싱 규칙은 끝점에서 지정한 원본 서버의 `/webfolder1`폴더 내 모든 파일에 대해 4시간의 캐시 기간을 설정합니다. 두 번째 규칙은 `file1.txt` 파일을 위한 첫 번째 규칙을 재정의하고 이에 대해 2시간의 캐시 기간을 설정합니다.
+    첫 번째 사용자 지정 캐싱 규칙은 엔드포인트에서 지정한 원본 서버의 `/webfolder1`폴더 내 모든 파일에 대해 4시간의 캐시 기간을 설정합니다. 두 번째 규칙은 `file1.txt` 파일을 위한 첫 번째 규칙을 재정의하고 이에 대해 2시간의 캐시 기간을 설정합니다.
 
 1. **저장**을 선택합니다.
 

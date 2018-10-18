@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 06/04/2018
-ms.openlocfilehash: 9b6a7187827622443c3cb29566dfb5eef840d595
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 7ae97274b03dda4dcf5150c8faacc7d406dad9fd
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666198"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389618"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Terraform을 사용하여 Azure Virtual Machine Scale Set 만들기
 
@@ -38,7 +38,7 @@ ms.locfileid: "43666198"
 
 - **Terraform 설치**: [Terraform 및 Azure 액세스 구성](/azure/virtual-machines/linux/terraform-install-configure) 문서의 지침을 따릅니다.
 
-- **SSH 키 쌍 만들기**: 아직 SSH 키 쌍이 없다면 [Azure에서 Linux VM용 SSH 공개-개인 키 쌍을 만들고 사용하는 방법](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys) 문서의 지침을 따릅니다.
+- **SSH 키 쌍 만들기**: 아직 SSH 키 쌍이 없다면 [Azure에서 Linux VM용 SSH 공개-개인 키 쌍을 만들고 사용하는 방법](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) 문서의 지침을 따릅니다.
 
 ## <a name="create-the-directory-structure"></a>디렉터리 구조 만들기
 

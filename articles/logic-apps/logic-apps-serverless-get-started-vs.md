@@ -11,12 +11,12 @@ ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.custom: vs-azure
 ms.topic: article
 ms.date: 08/01/2018
-ms.openlocfilehash: a69c129d5ae1405462e3a54a24cd2edbad2a86a7
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: f5555d9a60934529bf8fed6db6a18dd783f46075
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126780"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297471"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Azure Logic Apps 및 Azure Functions를 사용하여 첫 번째 서버리스 앱 개발 - Visual Studio
 
@@ -122,7 +122,7 @@ JavaScript, Python, F#, PowerShell, Batch 또는 Bash를 사용하여 Functions 
 
 ## <a name="deploy-functions-from-visual-studio"></a>Visual Studio에서 함수 배포
 
-배포 템플릿은 솔루션에 있는 Azure 함수를 `azuredeploy.json` 파일의 변수로 지정된 Git 리포지토리에서 배포합니다. 솔루션에서 Functions 프로젝트를 만들고 작성하는 경우 해당 프로젝트를 Git 소스 제어(예: GitHub 또는 Visual Studio Team Services)에서 확인한 다음, `repo` 변수를 업데이트하여 템플릿에서 Azure 함수를 배포할 수 있습니다.
+배포 템플릿은 솔루션에 있는 Azure 함수를 `azuredeploy.json` 파일의 변수로 지정된 Git 리포지토리에서 배포합니다. 솔루션에서 Functions 프로젝트를 만들고 작성하는 경우 해당 프로젝트를 Git 소스 제어(예: GitHub 또는 Azure DevOps)에서 확인한 다음, `repo` 변수를 업데이트하여 템플릿에서 Azure 함수를 배포할 수 있습니다.
 
 ## <a name="manage-logic-apps-and-view-run-history"></a>논리 앱 관리 및 실행 기록 보기
 

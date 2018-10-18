@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: d4eb8f3e805d96a276851052b74cac90465d1185
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4c1696fc373975eb9857c40366829fbe6a535911
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141369"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391881"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Azure API Management에서 Azure Active Directory를 사용하여 개발자 계정에 권한 부여
 
@@ -79,7 +79,10 @@ ms.locfileid: "42141369"
 
     ![사용 권한의 확인란](./media/api-management-howto-aad/api-management-with-aad005.png)
 
+1. **권한 부여**를 선택하여 응용 프로그램 권한에 동의합니다.
+
     응용 프로그램 권한 및 위임된 권한에 대한 자세한 내용은 [Graph API에 액세스][Accessing the Graph API]를 참조하세요.
+    
 1. 왼쪽 창에서 **응용 프로그램 ID** 값을 복사합니다.
 
     !["응용 프로그램 ID" 값](./media/api-management-howto-aad/application-id.png)
@@ -98,6 +101,7 @@ ms.locfileid: "42141369"
     > 이 키를 기록해 둡니다. Azure AD 구성 창을 닫으면 키를 다시 표시할 수 없습니다.
     > 
     > 
+
 1. API Management 응용 프로그램으로 다시 전환합니다. 
 
     **ID 공급자 추가** 창의 **클라이언트 암호** 텍스트 상자에 키를 붙여넣습니다.
@@ -106,6 +110,7 @@ ms.locfileid: "42141369"
     > 키가 만료되기 전에 **클라이언트 암호**를 업데이트해야 합니다. 
     >  
     >
+
 1. **ID 공급자 추가** 창에는 **허용된 테넌트** 텍스트 상자도 포함됩니다. 여기에서 API Management 서비스 인스턴스의 API에 대한 액세스 권한을 부여하려는 Azure AD 인스턴스의 도메인을 지정합니다. 줄바꿈, 공백 또는 쉼표로 여러 도메인을 구분할 수 있습니다.
 
     **허용된 테넌트** 섹션에서 여러 도메인을 지정할 수 있습니다. 사용자가 응용 프로그램이 등록되었던 원래 도메인이 아닌 다른 도메인에서 로그인하려면, 다른 도메인의 전역 관리자가 디렉터리 데이터에 액세스할 수 있도록 응용 프로그램에 권한을 부여해야 합니다. 사용 권한을 부여하려면 전역 관리자는 다음을 수행해야 합니다.

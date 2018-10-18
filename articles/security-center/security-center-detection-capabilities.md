@@ -8,18 +8,18 @@ manager: mbaldwin
 editor: ''
 ms.assetid: 4c5599cc-99a1-430f-895f-601615ef12a0
 ms.service: security-center
-ms.topic: hero-article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2017
 ms.author: yurid
-ms.openlocfilehash: 699903ff874ace4991c5c4b0584d4661d3e45f33
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: a0a218fc18c1c9ede71de590179b0c93221eb80c
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894255"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161036"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Azure Security Center 감지 기능
 이 문서에서는 Microsoft Azure 리소스를 대상으로 하는 활성 위협을 식별하는 데 도움을 주고 신속하게 응답하는 데 필요한 정보를 제공하는 Azure Security Center의 고급 감지 기능을 설명합니다.
@@ -34,7 +34,7 @@ ms.locfileid: "33894255"
 
 이 방법은 공격자 순위에서 이례적인 전문성 수준이 되었습니다. 공격자는 더 이상 웹 손상에 관심이 없습니다. 이제는 오픈 마켓에서 현금을 생성하거나 특정 비즈니스, 정치적 또는 군사 위치를 활용하는 데 사용할 수 있는 정보, 재무 계정 및 개인 데이터를 도용하는 데 관심이 있습니다. 재무 목표를 가진 공격자보다 더욱 걱정되는 것은 인프라 및 사용자에게 해를 입히기 위해 네트워크를 위반하는 공격자입니다.
 
-이에 대한 응답으로 조직은 종종 알려진 공격 서명을 검색하여 엔터프라이즈 경계 또는 끝점 방어에 집중하는 다양한 지점 솔루션을 배포합니다. 이러한 솔루션은 보안 분석가에게 심사 및 조사를 요구하는 대용량의 낮은 신뢰 경고를 생성하는 경향이 있습니다. 대부분의 조직은 이러한 경고에 응답하는 데 필요한 시간 및 전문 지식이 부족하므로 많은 경고가 해결되지 않습니다.  한편, 공격자는 많은 서명 기반 방어를 무너뜨리고 [클라우드 환경에 적응](https://azure.microsoft.com/blog/detecting-threats-with-azure-security-center/)하기 위해 메서드를 발전시켜 왔습니다. 새로운 위협 요소를 보다 신속하게 식별하고 감지 및 대응을 신속하게 처리하기 위해 새로운 접근 방식이 필요합니다. 
+이에 대한 응답으로 조직은 종종 알려진 공격 서명을 검색하여 엔터프라이즈 경계 또는 엔드포인트 방어에 집중하는 다양한 지점 솔루션을 배포합니다. 이러한 솔루션은 보안 분석가에게 심사 및 조사를 요구하는 대용량의 낮은 신뢰 경고를 생성하는 경향이 있습니다. 대부분의 조직은 이러한 경고에 응답하는 데 필요한 시간 및 전문 지식이 부족하므로 많은 경고가 해결되지 않습니다.  한편, 공격자는 많은 서명 기반 방어를 무너뜨리고 [클라우드 환경에 적응](https://azure.microsoft.com/blog/detecting-threats-with-azure-security-center/)하기 위해 메서드를 발전시켜 왔습니다. 새로운 위협 요소를 보다 신속하게 식별하고 감지 및 대응을 신속하게 처리하기 위해 새로운 접근 방식이 필요합니다. 
 
 ## <a name="how-azure-security-center-detects-and-responds-to-threats"></a>Azure Security Center가 위협을 감지하고 대응하는 방법
 Microsoft 보안 연구원은 지속적으로 위협을 지켜보고 있습니다. 클라우드 및 온-프레미스에 존재하는 Microsoft의 글로벌 서비스에서 얻은 원격 분석의 포괄적인 집합에 액세스할 수 있습니다. 이 광범위하고 다양한 데이터 집합의 컬렉션을 통해 Microsoft는 온라인 서비스 뿐만 아니라 해당 온-프레미스 소비자 및 엔터프라이즈 제품에서도 새로운 공격 패턴 및 추세를 검색할 수 있습니다. 결과적으로 보안 센터는 공격자가 새롭고 더욱 정교한 악용을 릴리스하는 동안 신속하게 해당 감지 알고리즘을 업데이트할 수 있습니다. 이 방법을 통해 빠르게 움직이는 위협 환경을 지속적으로 관리할 수 있습니다. 
@@ -74,7 +74,7 @@ Azure Security Center는 이상 감지를 사용하여 위협을 식별합니다
 Azure Security Center는 위협 상황에서 변경 내용을 지속적으로 모니터링하는 보안 연구 및 데이터 과학 팀을 운영합니다. 다음 이니셔티브가 포함됩니다.
 
 * **위협 인텔리전스 모니터링**: 위협 인텔리전스는 기존 또는 새로운 위협에 대한 메커니즘, 표시기, 영향 및 조치 가능한 조언을 포함합니다. 이 정보는 보안 커뮤니티에서 공유되고 Microsoft는 내부 및 외부 소스에서 위협 인텔리전스 피드를 지속적으로 모니터링합니다.
-* **신호 공유**: Microsoft의 클라우드 및 온-프레미스 서비스, 서버 및 클라이언트 끝점 장치의 광범위한 포트폴리오에 대한 보안 팀의 정보는 공유 및 분석됩니다. 
+* **신호 공유**: Microsoft의 클라우드 및 온-프레미스 서비스, 서버 및 클라이언트 엔드포인트 장치의 광범위한 포트폴리오에 대한 보안 팀의 정보는 공유 및 분석됩니다. 
 * **Microsoft 보안 전문가**: 과학 수사 및 웹 공격 감지와 같은 특수 보안 필드에서 활동하는 Microsoft 팀과의 지속적인 참여입니다.
 * **감지 튜닝**: 알고리즘은 실제 고객 데이터 집합에 대해 실행되며 보안 연구원은 고객과 협력하여 결과의 유효성을 검사합니다. 기계 학습 알고리즘을 구체화하기 위해 참 및 거짓 긍정이 사용됩니다.
 

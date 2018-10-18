@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: gokuma
-ms.openlocfilehash: 8131122f78f743d04e332bfc8dfeba87a8c34236
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 37a30055e567b27f4e215dac162642d4447a8e49
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782657"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298208"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Azure에서 Windows 데이터 과학 Virtual Machine 프로비전
 Microsoft DSVM(Data Science Virtual Machine)은 Microsoft Azure VM(가상 머신) 이미지입니다. 사전 설치되고 데이터 분석 및 기계 학습에 사용되는 여러 가지 도구로 구성됩니다. 포함된 도구는 다음과 같습니다.
@@ -40,7 +40,7 @@ Microsoft DSVM(Data Science Virtual Machine)은 Microsoft Azure VM(가상 머신
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/). Java 형식의 시각적 데이터 마이닝 및 기계 학습 소프트웨어입니다.
   * [Apache Drill](https://drill.apache.org/). 스키마가 없는 Apache Hadoop, NoSQL 및 클라우드 저장소용 SQL 쿼리 엔진입니다.  Power BI, Microsoft Excel 및 Tableau와 같은 표준 BI 도구에서 NoSQL 및 파일을 쿼리하기 위한 ODBC 및 JDBC 인터페이스를 지원합니다.
 * Azure Machine Learning 및 기타 Azure 서비스에서 사용하기 위한 R 및 Python의 라이브러리
-* Git(Git Bash 포함)에서 GitHub 및 Visual Studio Team Services가 포함된 소스 코드 리포지토리를 사용하여 작업할 수 있습니다. Git은 Git Bash와 명령 프롬프트에서 모두 액세스할 수 있는 몇 가지 인기 있는 Linux 명령줄 유틸리티를 제공합니다. 예를 들어 awk, sed, perl, grep, find, wget 및 curl이 있습니다.
+* Git(Git Bash 포함)에서 GitHub 및 Azure DevOps가 포함된 소스 코드 리포지토리를 사용하여 작업할 수 있습니다. Git은 Git Bash와 명령 프롬프트에서 모두 액세스할 수 있는 몇 가지 인기 있는 Linux 명령줄 유틸리티를 제공합니다. 예를 들어 awk, sed, perl, grep, find, wget 및 curl이 있습니다.
 
 데이터 과학은 다음과 같은 일련의 작업을 반복합니다.
 

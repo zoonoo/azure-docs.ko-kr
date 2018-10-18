@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: f461a9a7cc900ce5f8fdba7b255417b1790d3f4d
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: ae8739a65efbe7662a8f72e961d772fecaf4b527
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42140364"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303698"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Azure App Service에 대한 로컬 Git 배포
 
@@ -101,10 +101,10 @@ git push azure master
 
 앱으로 이동하여 콘텐츠가 배포되었는지 확인합니다.
 
-## <a name="deploy-from-local-git-with-vsts-builds"></a>VSTS 빌드로 로컬 Git에서 배포
+## <a name="deploy-from-local-git-with-azure-devops-services-builds"></a>Azure DevOps Services 빌드를 사용하여 로컬 Git에서 배포
 
 > [!NOTE]
-> App Service가 필요한 빌드를 만들고 VSTS 계정에 정의를 릴리스하려면 사용자의 Azure 계정에 Azure 구독의 **소유자**의 역할이 있어야 합니다.
+> App Service가 Azure DevOps Services 조직에서 필요한 Azure Pipelines를 만들려면 사용자의 Azure 계정에 Azure 구독의 **소유자**의 역할이 있어야 합니다.
 >
 
 Kudu 빌드 서버로 앱에 대한 로컬 Git 배포를 사용하도록 설정하려면 [Azure Portal](https://portal.azure.com)에서 앱으로 이동합니다.
@@ -113,14 +113,14 @@ Kudu 빌드 서버로 앱에 대한 로컬 Git 배포를 사용하도록 설정�
 
 ![](media/app-service-deploy-local-git/portal-enable.png)
 
-**VSTS 지속적인 업데이트** > **계속**을 클릭합니다.
+**Azure DevOps Services 지속적인 업데이트** > **계속**을 클릭합니다.
 
 ![](media/app-service-deploy-local-git/vsts-build-server.png)
 
-**구성** 페이지에서 새 VSTS 계정을 구성하거나 기존 계정을 지정합니다. 작업을 마쳤으면 **계속**을 클릭합니다.
+**구성** 페이지에서 새 Azure DevOps Services 조직을 구성하거나 기존 조직을 지정합니다. 작업을 마쳤으면 **계속**을 클릭합니다.
 
 > [!NOTE]
-> 나열되지 않은 기존 VSTS 계정을 사용하려는 경우 [VSTS 계정을 Azure 구독에 연결](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)해야 합니다.
+> 나열되지 않은 기존 Azure DevOps Services 조직을 사용하려면 [Azure DevOps Services 조직을 Azure 구독에 연결](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)해야 합니다.
 
 **테스트** 페이지에서 부하 테스트를 사용하도록 설정한 다음, **계속**을 클릭합니다.
 
@@ -128,7 +128,7 @@ App Service 계획의 [가격 책정 계층](https://azure.microsoft.com/pricing
 
 **요약** 페이지에서 옵션을 확인하고 **마침**을 클릭합니다.
 
-VSTS 계정을 준비하는 데 몇 분 정도 걸립니다. 준비되면 배포 센터에서 Git 리포지토리 URL을 복사합니다.
+Azure DevOps Services 조직을 준비하는 데 몇 분 정도 걸립니다. 준비되면 배포 센터에서 Git 리포지토리 URL을 복사합니다.
 
 ![](media/app-service-deploy-local-git/vsts-repo-ready.png)
 
@@ -138,7 +138,7 @@ _로컬 터미널 창_으로 돌아와서 로컬 Git 리포지토리에 Azure �
 git remote add vsts <url>
 ```
 
-다음 명령을 사용하여 Azure 원격에 푸시하여 앱을 배포합니다. Git 자격 증명 관리자에서 메시지가 표시되면 visualstudio.com 사용자를 사용하여 로그인합니다. 추가 인증 방법은 [VSTS 인증 개요](/vsts/git/auth-overview?view=vsts)를 참조하세요.
+다음 명령을 사용하여 Azure 원격에 푸시하여 앱을 배포합니다. Git 자격 증명 관리자에서 메시지가 표시되면 visualstudio.com 사용자를 사용하여 로그인합니다. 추가 인증 방법은 [Azure DevOps Services authentication overview](/vsts/git/auth-overview?view=vsts)(Azure DevOps Services 인증 개요)를 참조하세요.
 
 ```bash
 git push vsts master

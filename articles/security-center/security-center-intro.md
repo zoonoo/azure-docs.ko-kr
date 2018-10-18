@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 10/10/2018
 ms.author: rkarlin
-ms.openlocfilehash: bd0e517845b9cfcbe6090dff8d656edcca782c83
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 1b0a6c6d6daa686404021afb2e10b25bb9f54191
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126295"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319390"
 ---
 # <a name="what-is-azure-security-center"></a>Azure Security Center란?
 Azure Security Center는 하이브리드 클라우드 워크로드에 통합 보안 관리 및 고급 위협 방지를 제공합니다. Security Center를 사용하여 워크로드에 보안 정책을 적용하고, 위협에 대한 노출을 제한하고, 공격을 검색 및 대응할 수 있습니다.

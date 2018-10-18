@@ -2,25 +2,18 @@
 title: Microsoft Azure Data Box Disk 개요 | Microsoft Docs
 description: 많은 양의 데이터를 Azure로 전송할 수 있는 클라우드 솔루션인 Azure Data Box Disk에 대해 설명합니다.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: overview
-ms.custom: mvc
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 07/10/2018
 ms.author: alkohli
-ms.openlocfilehash: ecdf604cf15ec68875b67f2a4c990103b3375243
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 569442f5dfdf96f03a95f7210bfe1ed7dc3af8de
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009742"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091490"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection-preview"></a>Azure Data Box Disk 보안 및 데이터 보호(미리 보기)
 
@@ -103,5 +96,5 @@ Azure Data Box Disk는 서비스의 다음 키 인스턴스에서 개인 정보�
 ## <a name="next-steps"></a>다음 단계
 
 - [Data Box Disk 요구 사항](data-box-disk-system-requirements.md)을 검토합니다.
-- [Data Box Disk 제한 사항](data-box-disk-limits.md)을 이해합니다.
-- Azure Portal에서 [Azure Data Box Disk](data-box-disk-quickstart-portal.md)를 신속하게 배포합니다.
+- [Data Box Disk 제한](data-box-disk-limits.md)을 알아봅니다.
+- Azure Portal에서 [Azure Data Box Disk](data-box-disk-quickstart-portal.md)를 빠르게 배포합니다.

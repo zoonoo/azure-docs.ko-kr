@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: b3550c771b4c2916987c66f318010e5bb246fa39
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 80abe29c80898b691aa6e5e47bf068a9e69e50e4
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446853"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303373"
 ---
 # <a name="use-an-app-service-environment"></a>App Service Environment 사용 #
 
@@ -68,7 +68,7 @@ ASE에서 웹앱을 만들려면:
 
     a. **새로 만들기**를 선택합니다.
 
-    나. App Service 계획의 이름을 입력합니다.
+    b. App Service 계획의 이름을 입력합니다.
 
     다. **위치** 드롭다운 목록에서 해당 ASE를 선택합니다. ASE에서 Linux 앱을 호스트하는 것은 현재 **미국 서 부, 미국 동부, 유럽 서부, 유럽 북부, 오스트레일리아 동부, 동남 아시아**의 6개 지역에서만 가능합니다. 
 
@@ -106,7 +106,7 @@ ASEv2에서 App Service 계획을 규모 확장할 때는 이러한 계획을 �
 
 대부분의 시나리오에서는 이 정도의 프런트 엔드만으로도 충분합니다. 그러나 더 빠른 속도로 규모를 확장할 수도 있습니다. 인스턴스 5개마다 프런트 엔드가 하나씩 생성되도록 비율을 더 낮게 변경할 수 있습니다. 비율 변경 시에는 요금이 발생합니다. 자세한 내용은 [Azure App Service 가격][Pricing]을 참조하세요.
 
-프런트 엔드 리소스는 ASE의 HTTP/HTTPS 끝점입니다. 기본 프런트 엔드 구성에서는 프런트 엔드당 메모리 사용량이 일관되게 약 60%입니다. 고객 작업은 프런트 엔드에서 실행되지 않습니다. 확장과 관련한 프런트 엔드의 주요 요인은 CPU입니다. CPU는 주로 HTTPS 트래픽에 의해 결정됩니다.
+프런트 엔드 리소스는 ASE의 HTTP/HTTPS 엔드포인트입니다. 기본 프런트 엔드 구성에서는 프런트 엔드당 메모리 사용량이 일관되게 약 60%입니다. 고객 작업은 프런트 엔드에서 실행되지 않습니다. 확장과 관련한 프런트 엔드의 주요 요인은 CPU입니다. CPU는 주로 HTTPS 트래픽에 의해 결정됩니다.
 
 ## <a name="app-access"></a>앱 액세스 ##
 
@@ -134,11 +134,11 @@ ILB ASE에서는 배포 시간에 도메인을 결정합니다. ILB ASE를 만�
 
 외부 ASE에서는 이러한 게시 옵션이 모두 동일하게 동작합니다. 자세한 내용은 [Azure App Service의 배포][AppDeploy]를 참조하세요. 
 
-게시에서 중요한 차이점은 ILB ASE와 관련된 내용입니다. ILB ASE에서 게시 끝점은 모두 ILB를 통해서만 사용할 수 있습니다. ILB는 Virtual Network의 ASE 서브넷에 있는 개인 IP에 있습니다. ILB에 대한 네트워크 액세스 권한이 없는 경우 해당 ASE에 앱을 게시할 수 없습니다. [ILB ASE 만들기 및 사용][MakeILBASE]에 설명된 것처럼 시스템에서 앱에 대한 DNS를 구성해야 합니다. 여기에 SCM 끝점이 포함됩니다. SCM 끝점이 올바르게 정의되어 있지 않으면 게시할 수 없습니다. 또한 직접 ILB에 게시하려면 IDE에 ILB에 대한 네트워크 액세스 권한이 있어야 합니다.
+게시에서 중요한 차이점은 ILB ASE와 관련된 내용입니다. ILB ASE에서 게시 엔드포인트는 모두 ILB를 통해서만 사용할 수 있습니다. ILB는 Virtual Network의 ASE 서브넷에 있는 개인 IP에 있습니다. ILB에 대한 네트워크 액세스 권한이 없는 경우 해당 ASE에 앱을 게시할 수 없습니다. [ILB ASE 만들기 및 사용][MakeILBASE]에 설명된 것처럼 시스템에서 앱에 대한 DNS를 구성해야 합니다. 여기에 SCM 엔드포인트가 포함됩니다. SCM 끝점이 올바르게 정의되어 있지 않으면 게시할 수 없습니다. 또한 직접 ILB에 게시하려면 IDE에 ILB에 대한 네트워크 액세스 권한이 있어야 합니다.
 
-ILB ASE에서는 GitHub, Visual Studio Team Services 등의 인터넷 기반 CI 시스템이 작동하지 않습니다. 게시 끝점이 인터넷에 액세스할 수 없기 때문입니다. 대신 끌어오기 모델을 사용하는 CI 시스템(예: Dropbox)을 사용해야 합니다.
+게시 엔드포인트가 인터넷에 액세스할 수 없는 경우 인터넷 기반 CI 시스템(예: GitHub 및 Azure DevOps)은 ILB ASE와 작동하지 않습니다. 대신 끌어오기 모델을 사용하는 CI 시스템(예: Dropbox)을 사용해야 합니다.
 
-ILB ASE의 앱에 대한 게시 끝점에서는 ILB ASE가 만들어진 도메인을 사용합니다. 해당 도메인은 앱의 게시 프로필과 앱의 포털 블레이드(**개요** > **필수** 및 **속성**)에서 확인할 수 있습니다. 
+ILB ASE의 앱에 대한 게시 엔드포인트에서는 ILB ASE가 만들어진 도메인을 사용합니다. 해당 도메인은 앱의 게시 프로필과 앱의 포털 블레이드(**개요** > **필수** 및 **속성**)에서 확인할 수 있습니다. 
 
 ## <a name="pricing"></a>가격 ##
 

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017, mvc
 ms.topic: overview
 ms.date: 05/07/2018
-ms.openlocfilehash: 634abb107ce3578de4baccdfdec2c5bdde166f11
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 840ade08f7dffb23beb9541da63855c4ead374e7
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668295"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387004"
 ---
 # <a name="what-is-azure-hdinsight-and-the-hadoop-technology-stack"></a>Azure HDInsight 및 Hadoop 기술 스택이란?
 
@@ -117,13 +117,13 @@ HDInsight 클러스터, 즉 Spark, HBase, Kafka, Hadoop 및 기타 클러스터�
 ## <a name="development-tools-for-hdinsight"></a>HDInsight에 대한 개발 도구 
 IntelliJ, Eclipse, Visual Studio Code 및 Visual Studio를 포함하여 HDInsight 개발 도구를 사용하여 Azure와의 원활한 통합으로 HDInsight 데이터 쿼리 및 작업을 작성하고 제출할 수 있습니다.
 
-* [IntelliJ용 Azure 도구 키트](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-intellij-tool-plugin)
+* [IntelliJ용 Azure 도구 키트](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin)
 
-* [Eclipse용 Azure 도구 키트](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-eclipse-tool-plugin)
+* [Eclipse용 Azure 도구 키트](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-eclipse-tool-plugin)
 
-* [VS Code용 Azure HDInsight 도구](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-for-vscode?branch=pr-en-us-22999)
+* [VS Code용 Azure HDInsight 도구](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode?branch=pr-en-us-22999)
 
-* [Visual Studio용 Azure Data Lake 도구](https://docs.microsoft.com/en-us/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started)
+* [Visual Studio용 Azure Data Lake 도구](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started)
 
 ## <a name="business-intelligence-on-hdinsight"></a>HDInsight의 비즈니스 인텔리전스
 익숙한 BI(비즈니스 인텔리전스) 도구는 파워 쿼리 추가 기능이나 Microsoft Hive ODBC Driver를 사용하여 HDInsight와 통합된 데이터를 검색, 분석 및 보고합니다.

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 4b0c5d55c8a62dadbe11382997f4d258e66e1a31
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 0c5cfaad096b5702f321eead1f3da0d9225f4b53
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951144"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302863"
 ---
-# <a name="platforms-and-tools-for-data-science-team-projects"></a>데이터 과학 팀 프로젝트용 플랫폼 및 도구
+# <a name="platforms-and-tools-for-data-science-projects"></a>데이터 과학 프로젝트용 플랫폼 및 도구
 
 Microsoft는 클라우드 또는 온 프레미스 플랫폼 모두에 대해 광범위한 데이터 및 분석 서비스와 리소스를 제공합니다. 데이터 과학 프로젝트의 실행이 효율적이고 확장 가능하게 되도록 배포할 수 있습니다. 추적 가능하고, 버전을 제어하고, 공동 작업을 수행하는 방식으로 데이터 과학 프로젝트를 구현하는 팀에 대한 지침은 [TDSP(Team Data Science Process)](overview.md)에서 제공됩니다.  이 프로세스를 표준화하는 데이터 과학 팀에서 처리하는 인력 역할 및 관련 작업에 대한 개요는 [Team Data Science Process 역할 및 작업](roles-tasks.md)을 참조하세요.
 
@@ -126,7 +126,7 @@ Linux(CentOS) 컴퓨터에 Git를 설치하려면 다음 bash 명령을 실행�
 
 ### <a name="generate-public-ssh-key-on-linux-centos-machines"></a>Linux(CentOS) 컴퓨터에서 공개 SSH 키 생성
 
-Linux(CentOS) 컴퓨터를 사용하여 git 명령을 실행하는 경우 VSTS 서버에 공개 SSH 키를 추가해야 VSTS 서버에서 이 컴퓨터를 인식할 수 있습니다. 먼저 공개 SSH 키를 생성한 다음, VSTS 보안 설정 페이지의 SSH 공개 키에 이 키를 추가해야 합니다. 
+Linux(CentOS) 컴퓨터를 사용하여 git 명령을 실행하는 경우 Azure DevOps Services에 공개 SSH 키를 추가해야 Azure DevOps Services에서 이 컴퓨터를 인식할 수 있습니다. 먼저 공개 SSH 키를 생성한 다음, Azure DevOps Services 보안 설정 페이지의 SSH 공개 키에 이 키를 추가해야 합니다. 
 
 - SSH 키를 생성하려면 다음 두 명령을 실행합니다. 
 
@@ -136,7 +136,7 @@ Linux(CentOS) 컴퓨터를 사용하여 git 명령을 실행하는 경우 VSTS �
 ![](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
 - *ssh-rsa*가 포함된 ssh 키 전체를 복사합니다. 
-- VSTS 서버에 로그인합니다. 
+- Azure DevOps Services에 로그인합니다. 
 - 페이지의 오른쪽 위 모서리에 있는 **<사용자 이름\>** 을 클릭하고 **보안**을 클릭합니다. 
     
     ![](./media/platforms-and-tools/resources-2-user-setting.png)

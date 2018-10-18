@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 15ad606578970290cef440ec4efdd967ca0c0b32
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: dac96ef6fce38a0557444e181fa6eccb649cfb9a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205232"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298338"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>여러 환경에 대한 응용 프로그램 관리
 
@@ -34,7 +34,7 @@ Azure Service Fabric 클러스터를 사용하면 하나의 컴퓨터에서 수�
 제공한 구성은 다음 두 범주로 구분될 수 있습니다.
 
 - 서비스가 실행되는 방법에 적용되는 구성
-  - 예: 끝점에 대한 포트 번호 또는 서비스의 인스턴스 수
+  - 예: 엔드포인트에 대한 포트 번호 또는 서비스의 인스턴스 수
   - 이 구성은 응용 프로그램 또는 서비스 매니페스트 파일에 지정됩니다.
 - 응용 프로그램 코드에 적용되는 구성
   - 예: 데이터베이스에 대한 바인딩 정보
@@ -42,7 +42,7 @@ Azure Service Fabric 클러스터를 사용하면 하나의 컴퓨터에서 수�
 
 > [!NOTE]
 > 응용 프로그램 및 서비스 매니페스트 파일의 모든 특성이 매개 변수를 지원하지는 않습니다.
-> 해당 경우 배포 워크플로의 일부로 문자열을 대체해야 합니다. Visual Studio Team Services에서는 토큰 바꾸기 https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens와 같은 확장을 사용할 수 있고, Jenkins에서는 값을 바꾸는 스크립트 태스크를 실행할 수 있습니다.
+> 해당 경우 배포 워크플로의 일부로 문자열을 대체해야 합니다. Azure DevOps에서는 토큰 바꾸기 https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens와 같은 확장을 사용할 수 있고, Jenkins에서는 값을 바꾸는 스크립트 태스크를 실행할 수 있습니다.
 >
 
 ## <a name="specifying-parameters-during-application-creation"></a>응용 프로그램 생성 중에 매개 변수 지정
@@ -51,7 +51,7 @@ Service Fabric에서 명명된 응용 프로그램 인스턴스를 만들 때 �
 
   - PowerShell에서 [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet은 응용 프로그램 매개 변수를 해시 테이블로 사용합니다.
   - sfctl를 사용하여 [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) 명령은 매개 변수를 JSON 문자열로 사용합니다. install.sh 스크립트는 sfctl을 사용합니다.
-  - Visual Studio에서는 응용 프로그램 프로젝트의 Parameters 폴더에 매개 변수 파일 집합을 제공합니다. 이러한 매개 변수 파일은 Visual Studio Team Service 또는 Team Foundation Server를 사용하여 Visual Studio에서 게시할 때 사용됩니다. Visual Studio에서 매개 변수 파일은 Deploy-fabricapplication.ps1 스크립트에 전달됩니다.
+  - Visual Studio에서는 응용 프로그램 프로젝트의 Parameters 폴더에 매개 변수 파일 집합을 제공합니다. 이러한 매개 변수 파일은 Azure DevOps Services 또는 Team Foundation Server를 사용하여 Visual Studio에서 게시할 때 사용됩니다. Visual Studio에서 매개 변수 파일은 Deploy-fabricapplication.ps1 스크립트에 전달됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 다음 문서에서는 여기에 설명된 개념 중 일부를 사용하는 방법을 보여 줍니다.

@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 62a5c69eb03733133856ec9ec88ba46d7cf7bec0
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 348186bcb29b272b7e6512ce42221d54d6b388d9
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185757"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161818"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Raspberry Pi를 Azure IoT Hub에 연결(Node.js)
 
@@ -45,7 +45,7 @@ ms.locfileid: "39185757"
 ![필요한 항목](media/iot-hub-raspberry-pi-kit-node-get-started/0_starter_kit.jpg)
 
 * Raspberry Pi 2 또는 Raspberry Pi 3 보드.
-* Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+* Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * Pi에 연결할 모니터, USB 키보드 및 마우스.
 * Windows 또는 Linux를 실행하는 Mac 또는 PC.
 * 인터넷 연결.
@@ -78,13 +78,13 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
    > [!WARNING]
    > 위의 링크를 사용하여 `raspbian-2017-07-5` zip 이미지를 다운로드하십시오. 최신 버전의 Raspbian 이미지에는 Wiring-Pi Node와 관련된 몇 가지 알려진 문제점이 있으며 이로 인해 다음 단계에서 오류가 발생할 수 있습니다.
  
-   나. 컴퓨터의 폴더에 Raspbian 이미지의 압축을 풉니다.
+   b. 컴퓨터의 폴더에 Raspbian 이미지의 압축을 풉니다.
 
 2. microSD 카드에 Raspbian을 설치합니다.
 
    a. [Etcher SD 카드 버너 유틸리티를 다운로드하여 설치합니다](https://etcher.io/).
 
-   나. Etcher를 실행하고 1단계에서 압축을 푼 Raspbian 이미지를 선택합니다.
+   b. Etcher를 실행하고 1단계에서 압축을 푼 Raspbian 이미지를 선택합니다.
 
    다. microSD 카드 드라이브를 선택합니다. Etcher가 이미 정확한 드라이브를 선택했을 수 있습니다.
 
@@ -155,7 +155,7 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
   
    a. Windows용 [PuTTY](http://www.putty.org/)를 다운로드 및 설치합니다. 
 
-   나. 호스트 이름(또는 IP 주소) 섹션에 Pi의 IP 주소를 복사하고 연결 형식으로 SSH를 선택합니다.
+   b. 호스트 이름(또는 IP 주소) 섹션에 Pi의 IP 주소를 복사하고 연결 형식으로 SSH를 선택합니다.
    
    ![PuTTy](media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
    
@@ -230,6 +230,6 @@ IoT Hub로 전송되는 센서 데이터와 메시지를 보여 주는 다음 �
 
 ## <a name="next-steps"></a>다음 단계
 
-샘플 응용 프로그램을 실행하여 센서 데이터를 수집하고 IoT Hub로 전송했습니다. Raspberry Pi가 사용자 IoT Hub로 보낸 메시지를 보거나 명령줄 인터페이스에서 Raspberry Pi로 메시지를 보내려면 [iothub-explorer를 사용한 클라우드 장치 메시징 관리 자습서](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging)를 참조하세요.
+샘플 응용 프로그램을 실행하여 센서 데이터를 수집하고 IoT Hub로 전송했습니다. Raspberry Pi가 IoT Hub로 보낸 메시지를 보거나 Raspberry Pi에 메시지를 보내려면 [Visual Studio Code용 Azure IoT Toolkit 확장을 사용하여 장치와 IoT Hub 간에 메시지 주고받기](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)를 참조하세요.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

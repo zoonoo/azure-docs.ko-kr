@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 07/11/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 693ba07e46900ba6f3e025d97cb34aad9e244ace
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: f03872a125e4e4d2f1e0b458a31d67a07802f2c8
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027047"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387450"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure Storage 소개
 
@@ -85,7 +85,7 @@ Table 저장소에 대한 자세한 내용은 [Azure Table 저장소 개요](../
 
 ## <a name="disk-storage"></a>디스크 저장소
 
-또한 Azure Storage는 가상 머신에서 사용하는 관리되는 디스크 및 관리되지 않는 디스크 기능을 포함합니다. 이러한 기능에 대한 자세한 내용은 [Compute Service 설명서](https://docs.microsoft.com/en-gb/azure/#pivot=products&panel=Compute)를 참조하세요.
+또한 Azure Storage는 가상 머신에서 사용하는 관리되는 디스크 및 관리되지 않는 디스크 기능을 포함합니다. 이러한 기능에 대한 자세한 내용은 [Compute Service 설명서](https://docs.microsoft.com/azure/#pivot=products&panel=Compute)를 참조하세요.
 
 ## <a name="types-of-storage-accounts"></a>저장소 계정 유형
 

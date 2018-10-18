@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: bbb782e700781dcfedbbd340c7d10db53767b035
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 28eacdce922e26d391cf34f78cb03ead9c6887a1
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32180388"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391269"
 ---
 # <a name="use-next-hop-to-diagnose-virtual-machine-routing-problems"></a>다음 홉을 사용하여 가상 머신 라우팅 문제 진단
 
@@ -32,8 +32,10 @@ VM(가상 머신)의 트래픽은 NIC(네트워크 인터페이스)와 연결된
 * 인터넷
 * VirtualAppliance
 * VirtualNetworkGateway
-* VnetLocal
-* VnetPeering
+* VirtualNetwork
+* VirtualNetworkPeering
+* VirtualNetworkServiceEndpoint 
+* MicrosoftEdge
 * 없음
 
 각 다음 홉 형식에 대해 자세히 알아보려면 [라우팅 개요](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.

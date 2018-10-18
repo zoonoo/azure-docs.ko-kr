@@ -3,18 +3,18 @@ title: Speech Service를 사용하여 텍스트 음성 변환 사용
 description: Speech Service에서 텍스트에서 음성 변환을 사용하는 방법을 알아봅니다.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 09/08/2018
-ms.author: v-jerkin
-ms.openlocfilehash: 5822c313cf0fb5848726cf85c46cda2a3a408264
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.author: erhopf
+ms.openlocfilehash: 774425d19101e4d326f0d6435d56aff1b37a31f7
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434622"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165048"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Speech Service에서 "텍스트에서 음성 변환" 사용
 

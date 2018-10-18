@@ -4,25 +4,22 @@ description: Azure Media Services 계정을 만들려면 빠른 시작의 단계
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cflower
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/27/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: abed9fd8d466b582b534b365f4be4257f4986435
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: de54571308b737b9160a39ee4ba5d4b2d9f15775
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736005"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376536"
 ---
 # <a name="quickstart-create-an-azure-media-services-account"></a>빠른 시작: Azure Media Services 계정을 만듭니다.
-
-> [!NOTE]
-> Azure Media Services(2018-03-30)의 최신 버전이 미리보기에 있습니다. 이 버전을 v3이라고도 합니다. 
 
 개발자 또는 미디어 콘텐츠 제작자이든, Azure에서 미디어 콘텐츠를 저장, 암호화, 인코딩, 관리 및 스트리밍하려면 Media Services 계정을 만들어야 합니다. 미디어 서비스 계정을 만들 때는 Azure Storage 계정 리소스의 ID를 제공해야 합니다. 지정된 저장소 계정은 Media Services 계정에 연결됩니다. 이 저장소 계정 리소스는 미디어 서비스 계정과 동일한 지역에 있어야 합니다.  
 

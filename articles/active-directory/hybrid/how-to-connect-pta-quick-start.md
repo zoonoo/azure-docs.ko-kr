@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 29517f057599c7bf108d1c4d525b6c67c1b6b46a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 8b45acebf95d5bf24ff2045f5739c8584f374842
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305172"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320461"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory 통과 인증: 빠른 시작
 
@@ -48,7 +48,7 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 2. 이전 단계에서 찾은 서버에 [최신 버전의 Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)를 설치합니다. Azure AD Connect가 이미 실행되고 있는 경우 버전이 1.1.750.0 이상인지 확인합니다.
 
     >[!NOTE]
-    >Azure AD Connect 버전 1.1.557.0, 1.1.558.0, 1.1.561.0 및 1.1.614.0에는 암호 해시 동기화와 관련된 문제가 있습니다. 암호 해시 동기화를 통과 인증과 함께 사용하지 _않으려는_ 경우 [Azure AD Connect 릴리스 정보](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470)를 참조하세요.
+    >Azure AD Connect 버전 1.1.557.0, 1.1.558.0, 1.1.561.0 및 1.1.614.0에는 암호 해시 동기화와 관련된 문제가 있습니다. 암호 해시 동기화를 통과 인증과 함께 사용하지 _않으려는_ 경우 [Azure AD Connect 릴리스 정보](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#116470)를 참조하세요.
 
 3. 독립 실행형 인증 에이전트를 실행할 수 있도록 Windows Server 2012 R2 이상을 실행 중인 하나 이상의 추가 서버를 찾습니다. 이러한 추가 서버는 로그인 요청의 고가용성을 보장하기 위해 필요합니다. 암호의 유효성을 검사해야 하는 사용자와 동일한 Active Directory 포리스트에 서버를 추가합니다.
 
@@ -57,13 +57,13 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 
 4. 서버와 Azure AD 사이에 방화벽이 있는 경우 다음 항목을 구성합니다.
    - 인증 에이전트가 다음 포트를 통해 Azure AD에 대한 *아웃바운드* 요청을 만들 수 있는지 확인합니다.
-   
+
     | 포트 번호 | 사용 방법 |
     | --- | --- |
     | **80** | SSL 인증서의 유효성을 검사하는 동안 CRL(인증서 해지 목록) 다운로드 |
     | **443** | 서비스와의 모든 아웃바운드 통신 처리 |
     | **8080**(선택 사항) | 인증 에이전트는 포트 443을 사용할 수 없는 경우 포트 8080을 통해 10분마다 해당 상태를 보고합니다. 이 상태는 Azure AD 포털에 표시됩니다. 포트 8080은 사용자 로그인에 사용되지 _않습니다_. |
-   
+
     방화벽이 원래 사용자에 따라 규칙에 적용되는 경우 네트워크 서비스로 실행하는 Windows 서비스의 트래픽에 대해 이러한 포트를 엽니다.
    - 방화벽이나 프록시에서 DNS 허용 목록을 허용하면 **\*.msappproxy.net** 및 **\*.servicebus.windows.net**에 대한 연결을 허용 목록에 추가합니다. 그렇지 않으면 매주 업데이트되는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 액세스하도록 허용합니다.
    - 인증 에이전트는 초기 등록을 위해 **login.windows.net** 및 **login.microsoftonline.com**에 액세스해야 합니다. 이러한 URL에 대한 방화벽도 엽니다.
@@ -132,13 +132,13 @@ Azure AD Connect를 처음 설치하는 경우 [사용자 지정 설치 경로](
 
 1. 다음 명령을 실행하여 인증 에이전트를 설치합니다. `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`
 2. Windows PowerShell을 사용하여 서비스에 인증 에이전트를 등록할 수 있습니다. 테넌트에 대한 전역 관리자 사용자 이름 및 암호를 포함하는 PowerShell 자격 증명 개체 `$cred`를 만듭니다. 다음 명령에서 *\<username\>* 및 *\<암호\>* 를 바꿔서 실행합니다.
-   
+
         $User = "<username>"
         $PlainPassword = '<password>'
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
         $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
 3. **C:\Program Files\Microsoft Azure AD Connect Authentication Agent**로 이동하여 사용자가 만든 `$cred` 개체를 사용하여 다음 스크립트를 실행합니다.
-   
+
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 ## <a name="next-steps"></a>다음 단계
@@ -151,4 +151,3 @@ Azure AD Connect를 처음 설치하는 경우 [사용자 지정 설치 경로](
 - [보안 심층 분석](how-to-connect-pta-security-deep-dive.md): 통과 인증 기능에 대한 기술 정보를 가져옵니다.
 - [Azure AD Seamless SSO](how-to-connect-sso.md): 보완적인 Azure AD Seamless SSO 기능을 알아봅니다.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Azure Active Directory 포럼을 사용하여 새 기능 요청을 제출합니다.
-

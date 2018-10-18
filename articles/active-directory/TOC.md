@@ -105,6 +105,7 @@
 #### [Azure Storage 계정에 활동 로그 보관](reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 #### [Azure Monitor를 사용하여 활동 로그를 Splunk와 통합](reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md)
 #### [Azure Monitor를 사용하여 활동 로그를 SumoLogic과 통합](reports-monitoring/howto-integrate-activity-logs-with-sumologic.md)
+#### [Azure Monitor를 사용하여 활동 로그를 Log Analytics와 통합](reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 ### 참고 자료
 #### [보존](reports-monitoring/reference-reports-data-retention.md)

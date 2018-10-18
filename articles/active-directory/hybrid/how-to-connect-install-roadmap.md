@@ -12,14 +12,14 @@ ms.topic: get-started-article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1fdfea3ac6b84088002521700e1d50d17398be31
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 04d950b0a8001fd76e3754b73a9d7c4c5fe2893d
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46303097"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318642"
 ---
-#<a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Azure AD Connect 및 Azure AD Connect Health 설치 로드맵
+# <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Azure AD Connect 및 Azure AD Connect Health 설치 로드맵
 
 ## <a name="install-azure-ad-connect"></a>Azure AD Connect 설치
 
@@ -169,7 +169,6 @@ Azure AD Connect Health 포털에서 경고 보기, 성능 모니터링 및 사�
 
 ## <a name="next-steps"></a>다음 단계
 
-
 - [하드웨어 및 필수 구성 요소](how-to-connect-install-prerequisites.md) 
 - [Express 설정](how-to-connect-install-express.md)
 - [사용자 지정된 설정](how-to-connect-install-custom.md)
@@ -178,6 +177,3 @@ Azure AD Connect Health 포털에서 경고 보기, 성능 모니터링 및 사�
 - [Azure AD Connect 및 페더레이션](how-to-connect-fed-whatis.md)
 - [Azure AD Connect Health 에이전트 설치](how-to-connect-health-agent-install.md) 
 - [Azure AD Connect 동기화](how-to-connect-sync-whatis.md)
-
-
-

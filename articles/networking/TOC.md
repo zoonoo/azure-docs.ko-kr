@@ -17,7 +17,7 @@
 ##  개념
 ### [가상 네트워크](../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [네트워크 부하 분산](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [응용 프로그램 부하 분산](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [응용 프로그램 부하 분산](../application-gateway/overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [DNS](../dns/dns-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [DNS 기반 트래픽 분산](../traffic-manager/traffic-manager-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [온-프레미스 연결 - VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -60,8 +60,8 @@
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/network)
 ## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/?view=azurermps-3.8.0)
 ## [.Net](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network?view=azuremgmtnetwork-9.1.0-preview)
-## [Node.js](https://azure.microsoft.com/develop/nodejs/#azure-sdk)
-## [REST](https://msdn.microsoft.com/library/mt163658.aspx)
+## [Node.JS](https://azure.microsoft.com/develop/nodejs/#azure-sdk)
+## [REST (영문)](https://msdn.microsoft.com/library/mt163658.aspx)
 
 # 리소스
 ## [작성자 템플릿](/azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json)

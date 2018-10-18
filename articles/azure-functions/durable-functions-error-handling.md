@@ -3,23 +3,19 @@ title: 지속성 함수의 오류 처리 - Azure
 description: Azure Functions의 지속성 함수 확장에서 오류를 처리하는 방법을 알아봅니다.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 04/30/2018
+ms.topic: conceptual
+ms.date: 09/05/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 944fab5ccc55bc9a697e870208338bd0e697672d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6bf9eb2cd2ebdf5f6d53e00923146bab49a142bf
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763308"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377908"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>지속성 함수의 오류 처리(Azure Functions)
 
@@ -96,7 +92,7 @@ public static async Task Run(DurableOrchestrationContext context)
 * **백오프 계수**: 백오프의 증가율을 결정하는 데 사용되는 계수입니다. 기본값은 1입니다.
 * **최대 다시 시도 간격**: 다시 시도 간에 기다리는 최대 시간입니다.
 * **다시 시도 시간 제한**: 다시 시도하는 데 소요되는 최대 시간입니다. 기본 동작은 무기한으로 다시 시도하는 것입니다.
-* **사용자 지정**: 함수 호출을 다시 시도해야 하는지 여부를 결정하는 사용자 정의 콜백을 지정할 수 있습니다.
+* **처리**: 함수 호출을 다시 시도해야 하는지 여부를 결정하는 사용자 정의 콜백을 지정할 수 있습니다.
 
 ## <a name="function-timeouts"></a>함수 시간 제한
 

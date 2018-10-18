@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30ca8fe89105584b1062c5a068e107bdfde154fc
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: be8adf9779c2d168c0ac7a0ed7dbc3e85935df68
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579523"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44293731"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>개인 Docker 컨테이너 레지스트리로 인증
 
@@ -48,7 +48,7 @@ az acr login --name <acrName>
 
   * *읽기 권한자*: 레지스트리에서 Kubernetes, DC/OS 및 Docker Swarm을 포함한 오케스트레이션 시스템으로 컨테이너 배포 컨테이너 레지스트리에서 관련 Azure 서비스(예: [AKS](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/) 등)로 가져올 수도 있습니다.
 
-  * *참가자*: 컨테이너 이미지를 빌드하고 레지스트리로 푸시하는 연속 통합 및 배포 솔루션(예: VSTS(Visual Studio Team Services) 또는 Jenkins)
+  * *Contributor*: 컨테이너 이미지를 빌드하고 레지스트리로 푸시하는 연속 통합 및 배포 솔루션(예: Azure DevOps 또는 Jenkins)입니다.
 
 > [!TIP]
 > [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials) 명령을 실행하여 서비스 주체의 암호를 다시 생성할 수 있습니다.

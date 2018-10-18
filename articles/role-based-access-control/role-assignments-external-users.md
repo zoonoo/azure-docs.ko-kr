@@ -16,12 +16,12 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 58108bd2851050e96df1b5453ce96856374b7163
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: bd75ecde75d0f22dc66f047cd063dd85807f6f33
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437038"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304444"
 ---
 # <a name="manage-access-for-external-users-using-rbac"></a>RBAC를 사용하여 외부 사용자를 위한 액세스 관리
 
@@ -42,7 +42,7 @@ RBAC가 사용되는 일반적인 두 가지 예는 다음과 같습니다(제�
 RBAC 역할은 구독의 **소유자**만 부여할 수 있습니다. 따라서 관리자는 이 역할이 미리 할당되었거나 Azure 구독을 만든 사용자로 로그인해야 합니다.
 
 Azure Portal에서 관리자로 로그인한 후에 "구독"을 선택하고 원하는 구독을 선택합니다.
-![Azure Portal의 구독 블레이드](./media/role-assignments-external-users/0.png) 기본적으로 관리 사용자가 Azure 구독을 구매한 경우 사용자는 **계정 관리자**로 표시되고 이는 구독 역할입니다. Azure 구독 역할에 대한 자세한 내용은 [구독 또는 서비스를 관리하는 Azure 관리자 역할 추가 또는 변경](../billing/billing-add-change-azure-subscription-administrator.md)을 참조하세요.
+![Azure Portal의 구독 블레이드](./media/role-assignments-external-users/0.png) 기본적으로 관리 사용자가 Azure 구독을 구매한 경우 사용자는 **계정 관리자**로 표시되고 이는 구독 역할입니다. Azure 구독 역할에 대한 자세한 내용은 [Azure 구독 관리자 추가 또는 변경](../billing/billing-add-change-azure-subscription-administrator.md)을 참조하세요.
 
 이 예제에서 사용자 "alflanigan@outlook.com"은 AAD 테넌트 "기본 테넌트 Azure"에서 "체험 평가판" 구독의 **소유자**입니다. 이 사용자가 초기 Microsoft 계정 "Outlook"을 사용하여 Azure 구독을 만들었으므로(Microsoft 계정 = Outlook, Live 등) 이 테넌트에 추가된 다른 모든 사용자의 기본 도메인 이름은 **"\@alflaniganuoutlook.onmicrosoft.com"** 입니다. 기본적으로 테넌트를 만든 사용자의 사용자 이름 및 도메인 이름을 결합하고 **".onmicrosoft.com"** 확장을 추가하여 새 도메인의 구문 형식을 지정합니다.
 또한 사용자는 새 테넌트에 추가하고 확인한 후에 테넌트에 있는 사용자 지정 도메인 이름을 사용하여 로그인할 수 있습니다. Azure Active Directory 테넌트에서 사용자 지정 도메인 이름을 확인하는 방법에 대한 자세한 내용은 [디렉터리에 사용자 지정 도메인 이름 추가](/active-directory/active-directory-add-domain)를 참조하세요.
@@ -87,8 +87,7 @@ Azure Portal에서 관리자로 로그인한 후에 "구독"을 선택하고 원
 
 Azure Active Directory와 Azure 구독에는 다른 Azure 리소스와 Azure 구독이 가진 것과 같은 자식-부모 관계가 없습니다(예: 가상 머신, 가상 네트워크, 웹앱, 저장소 등). 후자가 모두 Azure 구독에서 생성되고 관리되며 요금이 청구되는 반면 Azure 구독은 Azure 디렉터리에 대한 액세스를 관리하는 데 사용됩니다. 자세한 내용은 [Azure 구독과 Azure AD의 연관 관계](/active-directory/active-directory-how-subscriptions-associated-directory)를 참조하세요.
 
-모든 기본 제공 RBAC 역할에서 **소유자** 및 **기여자**는 환경에서 모든 리소스에 대한 완전한 관리 액세스를 제공합니다. 두 역할의 차이는 새 RBAC 역할을 만들고 삭제할 수 없다는 점입니다. 
-  **Virtual Machine 기여자**와 같은 다른 기본 제공 역할은 생성되는 **리소스 그룹**에 관계없이 이름으로 표시된 리소스에만 완전한 관리 액세스를 제공합니다.
+모든 기본 제공 RBAC 역할에서 **소유자** 및 **기여자**는 환경에서 모든 리소스에 대한 완전한 관리 액세스를 제공합니다. 두 역할의 차이는 새 RBAC 역할을 만들고 삭제할 수 없다는 점입니다. **Virtual Machine 기여자**와 같은 다른 기본 제공 역할은 생성되는 **리소스 그룹**에 관계없이 이름으로 표시된 리소스에만 완전한 관리 액세스를 제공합니다.
 
 **Virtual Machine 참여자**의 기본 제공 RBAC 역할을 구독 수준에서 할당한다는 것은 사용자에게 역할을 할당했다는 의미입니다.
 

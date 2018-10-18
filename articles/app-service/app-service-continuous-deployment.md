@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: 4d3f1c66c6403720bf02c80af1d6833dc3cee3f1
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: bd440e0ef017e2bf116e80ad049883e2338efddb
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42139926"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298950"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Azure App Service에 지속적인 배포
-이 문서에서는 [Azure App Service](app-service-web-overview.md)에 대해 지속적인 배포를 구성하는 방법을 보여 줍니다. App Service는 BitBucket, GitHub 및 [VSTS(Visual Studio Team Services)](https://www.visualstudio.com/team-services/) 중 하나의 기존 리포지토리에서 최신 업데이트를 가져와서 이러한 서비스에서 지속적인 배포를 활성화합니다.
+이 문서에서는 [Azure App Service](app-service-web-overview.md)에 대해 지속적인 배포를 구성하는 방법을 보여 줍니다. App Service는 BitBucket, GitHub 및 [Azure DevOps Services](https://www.visualstudio.com/team-services/) 중 하나의 기존 리포지토리에서 최신 업데이트를 가져와서 이러한 서비스에서 지속적인 배포를 활성화합니다.
 
 Azure Portal에 의해 나열되지 않은 클라우드 리포지토리에서 수동으로 지속적인 배포를 구성하는 방법을 확인하려면(예: [GitLab](https://gitlab.com/)), [수동 단계를 사용하여 지속적인 배포 설정](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps)을 참조하세요.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
-지원되는 서비스 중 하나에 준비된 리포지토리를 게시합니다. 이러한 서비스에 프로젝트를 게시하는 것에 대한 자세한 내용은 [리포지토리 만들기(GitHub)], [리포지토리 만들기(BitBucket)] 및 [VSTS 시작]을 참조하세요.
+지원되는 서비스 중 하나에 준비된 리포지토리를 게시합니다. 이러한 서비스에 프로젝트를 게시하는 것에 대한 자세한 내용은 [리포지토리 만들기(GitHub)], [리포지토리 만들기(BitBucket)] 및 [Azure DevOps Services 시작]을 참조하세요.
 
 ## <a name="deploy-continuously-from-github"></a>GitHub에서 지속적으로 배포
 
@@ -47,18 +47,18 @@ GitHub를 통해 지속적인 배포를 사용하도록 설정하려면 [Azure P
 
 **구성** 페이지에서 지속적으로 배포하려는 조직, 리포지토리 및 분기를 선택합니다. 작업을 마쳤으면 **계속**을 클릭합니다.
 
-### <a name="option-2-use-vsts-continuous-delivery"></a>옵션 2: VSTS 지속적인 업데이트 사용
+### <a name="option-2-use-azure-devops-services-continuous-delivery"></a>옵션 2: Azure DevOps Services 지속적인 업데이트 사용
 
 > [!NOTE]
-> App Service가 필요한 빌드를 만들고 VSTS 계정에 정의를 릴리스하려면 사용자의 Azure 계정에 Azure 구독의 **소유자**의 역할이 있어야 합니다.
+> App Service가 Azure DevOps Services 조직에서 필요한 Azure Pipelines를 만들려면 사용자의 Azure 계정에 Azure 구독의 **소유자**의 역할이 있어야 합니다.
 >
 
 **구성** 페이지의 **코드** 섹션에서 지속적으로 배포하려는 조직, 리포지토리 및 분기를 선택합니다. 작업을 마쳤으면 **계속**을 클릭합니다.
 
-**구성** 페이지의 **빌드** 섹션에서 새 VSTS 계정을 구성하거나 기존 계정을 지정합니다. 작업을 마쳤으면 **계속**을 클릭합니다.
+**구성** 페이지의 **빌드** 섹션에서 새 Azure DevOps Services 조직을 구성하거나 기존 조직을 지정합니다. 작업을 마쳤으면 **계속**을 클릭합니다.
 
 > [!NOTE]
-> 나열되지 않은 기존 VSTS 계정을 사용하려는 경우 [VSTS 계정을 Azure 구독에 연결](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)해야 합니다.
+> 나열되지 않은 기존 Azure DevOps Services 조직을 사용하려면 [Azure DevOps Services 조직을 Azure 구독에 연결](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)해야 합니다.
 
 **테스트** 페이지에서 부하 테스트를 사용하도록 설정한 다음, **계속**을 클릭합니다.
 
@@ -90,11 +90,11 @@ BitBucket을 통해 지속적인 배포를 사용하도록 설정하려면 [Azur
 
 구성이 완료되면 선택한 리포지토리에 새 커밋이 App Service 앱에 지속적으로 배포됩니다.
 
-## <a name="deploy-continuously-from-vsts"></a>VSTS에서 지속적으로 배포
+## <a name="deploy-continuously-from-azure-devops-services"></a>Azure DevOps Services에서 지속적으로 배포
 
-VSTS를 통해 지속적인 배포를 사용하도록 설정하려면 [Azure Portal](https://portal.azure.com)에서 App Service 앱 페이지로 이동합니다.
+Azure DevOps Services를 통해 지속적인 배포를 사용하도록 설정하려면 [Azure Portal](https://portal.azure.com)에서 App Service 앱 페이지로 이동합니다.
 
-왼쪽 메뉴에서 **배포 센터** > **VSTS** > **계속**을 클릭합니다. 
+왼쪽 메뉴에서 **배포 센터** > **Azure DevOps Services** > **계속**을 클릭합니다. 
 
 ![](media/app-service-continuous-deployment/vsts-choose-source.png)
 
@@ -102,20 +102,20 @@ VSTS를 통해 지속적인 배포를 사용하도록 설정하려면 [Azure Por
 
 ### <a name="option-1-use-app-service-kudu-build-server"></a>옵션 1: App Service Kudu 빌드 서버 사용
 
-**구성** 페이지에서 지속적으로 배포하려는 VSTS 계정, 프로젝트, 리포지토리 및 분기를 선택합니다. 작업을 마쳤으면 **계속**을 클릭합니다.
+**구성** 페이지에서 지속적으로 배포하려는 Azure DevOps Services 조직, 프로젝트, 리포지토리 및 분기를 선택합니다. 작업을 마쳤으면 **계속**을 클릭합니다.
 
-### <a name="option-2-use-vsts-continuous-delivery"></a>옵션 2: VSTS 지속적인 업데이트 사용
+### <a name="option-2-use-azure-devops-services-continuous-delivery"></a>옵션 2: Azure DevOps Services 지속적인 업데이트 사용
 
 > [!NOTE]
-> App Service가 필요한 빌드를 만들고 VSTS 계정에 정의를 릴리스하려면 사용자의 Azure 계정에 Azure 구독의 **소유자**의 역할이 있어야 합니다.
+> App Service가 Azure DevOps Services 조직에서 필요한 Azure Pipelines를 만들려면 사용자의 Azure 계정에 Azure 구독의 **소유자**의 역할이 있어야 합니다.
 >
 
-**구성** 페이지의 **코드** 섹션에서 지속적으로 배포하려는 VSTS 계정, 프로젝트, 리포지토리 및 분기를 선택합니다. 작업을 마쳤으면 **계속**을 클릭합니다.
+**구성** 페이지의 **코드** 섹션에서 지속적으로 배포하려는 Azure DevOps Services 조직, 프로젝트, 리포지토리 및 분기를 선택합니다. 작업을 마쳤으면 **계속**을 클릭합니다.
 
 > [!NOTE]
-> 나열되지 않은 기존 VSTS 계정을 사용하려는 경우 [VSTS 계정을 Azure 구독에 연결](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)해야 합니다.
+> 나열되지 않은 기존 Azure DevOps Services 조직을 사용하려면 [Azure DevOps Services 조직을 Azure 구독에 연결](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)해야 합니다.
 
-**구성** 페이지의 **빌드** 섹션에서 선택한 리포지토리에 대한 빌드 작업을 실행하는 데 VSTS에서 사용해야 하는 언어 프레임워크를 지정합니다. 작업을 마쳤으면 **계속**을 클릭합니다.
+**구성** 페이지의 **빌드** 섹션에서 선택한 리포지토리에 대한 빌드 작업을 실행하는 데 Azure DevOps Services에서 사용해야 하는 언어 프레임워크를 지정합니다. 작업을 마쳤으면 **계속**을 클릭합니다.
 
 **테스트** 페이지에서 부하 테스트를 사용하도록 설정한 다음, **계속**을 클릭합니다.
 
@@ -131,7 +131,7 @@ App Service 계획의 [가격 책정 계층](https://azure.microsoft.com/pricing
 
 지속적인 배포를 사용하지 않도록 설정하려면 [Azure Portal](https://portal.azure.com)에서 App Service 앱 페이지로 이동합니다.
 
-왼쪽 메뉴에서 **배포 센터** > **GitHub** 또는 **VSTS** 또는 **BitBucket** > **연결 해제**를 클릭합니다.
+왼쪽 메뉴에서 **배포 센터** > **GitHub** 또는 **Azure DevOps Services** 또는 **BitBucket** > **연결 해제**를 클릭합니다.
 
 ![](media/app-service-continuous-deployment/disable.png)
 
@@ -153,4 +153,4 @@ App Service 계획의 [가격 책정 계층](https://azure.microsoft.com/pricing
 
 [리포지토리 만들기(GitHub)]: https://help.github.com/articles/create-a-repo
 [리포지토리 만들기(BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
-[VSTS 시작]: https://www.visualstudio.com/docs/vsts-tfs-overview
+[Azure DevOps Services 시작]: https://www.visualstudio.com/docs/vsts-tfs-overview

@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/25/2017
 ms.author: ghogen
-ms.openlocfilehash: a4be3f063c51f26e1df9ecf4cca4ae0655554750
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 596db56a71d4cc73517b9a9cbfe9b97e536aa83a
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42145954"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378849"
 ---
 # <a name="manage-the-resources-associated-with-your-azure-accounts-in-visual-studio-cloud-explorer"></a>Visual Studio 클라우드 탐색기에서 Azure 계정과 연결된 리소스 관리
 클라우드 탐색기를 사용하여 Azure 리소스 및 리소스 그룹을 보고, 해당 속성을 검사하고, Visual Studio 내에서 핵심 개발자 진단 작업을 수행할 수 있습니다. 
@@ -40,9 +40,9 @@ Azure 계정에 연결된 리소스를 보려면 먼저 클라우드 탐색기�
 
     ![클라우드 탐색기 Azure 계정 설정 아이콘](media/vs-azure-tools-resources-managing-with-cloud-explorer/azure-account-settings.png)
 
-1. **새 계정 추가**를 선택합니다. 
+1. **계정 관리**를 선택합니다. 
 
-    ![클라우드 탐색기 계정 추가 링크](media/vs-azure-tools-resources-managing-with-cloud-explorer/add-account-link.png)
+    ![클라우드 탐색기 계정 추가 링크](media/vs-azure-tools-resources-managing-with-cloud-explorer/manage-accounts-link.png)
 
 1. 해당 리소스를 검색하려는 Azure 계정에 로그인합니다. 
 
@@ -56,13 +56,17 @@ Azure 계정에 연결된 리소스를 보려면 먼저 클라우드 탐색기�
 
 ## <a name="remove-an-azure-account-from-cloud-explorer"></a>클라우드 탐색기에서 Azure 계정 제거 
 
-1. **클라우드 탐색기**에서 **Azure 계정 설정**을 선택합니다.
+1. **클라우드 탐색기**에서 **계정 관리**를 선택합니다.
 
     ![클라우드 탐색기 Azure 계정 설정 아이콘](media/vs-azure-tools-resources-managing-with-cloud-explorer/azure-account-settings.png)
 
-1. 제거할 계정 옆에 있는 **제거**를 선택합니다.
+1. 제거할 계정 옆에 있는 **계정 관리**를 선택합니다.
 
     ![클라우드 탐색기 Azure 계정 설정 아이콘](media/vs-azure-tools-resources-managing-with-cloud-explorer/remove-account.png)
+
+1. **제거**를 선택하여 계정을 제거합니다.
+
+    ![클라우드 탐색기 계정 관리 대화 상자](media/vs-azure-tools-resources-managing-with-cloud-explorer/accountmanage.PNG)
 
 ## <a name="view-resource-types-or-resource-groups"></a>리소스 종류 또는 리소스 그룹 보기
 Azure 리소스를 보려면 **리소스 종류** 또는 **리소스 그룹** 보기를 선택할 수 있습니다.

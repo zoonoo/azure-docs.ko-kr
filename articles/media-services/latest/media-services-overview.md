@@ -13,24 +13,17 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 09/25/2018
+ms.date: 10/16/2018
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 3641806870c3eab0b3a05f538015a72d9a0b34ef
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 66c9b8297254b41156131d795376857029424e97
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221937"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377916"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Azure Media Services v3란?
-
-> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
-> * [버전 2-GA](../previous/media-services-overview.md)
-> * [버전 3-미리 보기](media-services-overview.md)
-
-> [!NOTE]
-> Azure Media Services의 최신 버전은 미리보기에 있으며 v3라고도 합니다.
 
 Azure Media Services는 브로드캐스트 품질의 비디오 스트리밍을 구현하고, 접근성과 배포를 향상시키며, 콘텐츠를 분석하는 등 여러 작업을 수행하는 솔루션을 빌드할 수 있게 하는 클라우드 기반 플랫폼입니다. 응용 프로그램 개발자, 콜센터, 정부 기관, 엔터테인먼트 회사이든 Media Services는 현재 가장 인기있는 모바일 장치 및 브라우저를 통해 뛰어난 품질의 미디어 경험을 많은 사용자에게 제공하는 응용 프로그램을 만들 수 있도록 도와줍니다. 
 
@@ -133,6 +126,7 @@ Microsoft는 다음 클라이언트 라이브러리를 생성하고 지원합니
 |[Node.js 예제](https://aka.ms/ams-v3-nodejs-ref)|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk)|[Node.js 샘플](https://github.com/Azure-Samples/media-services-v3-node-tutorials)||
 |[Python 예제](https://aka.ms/ams-v3-python-ref)|[Python SDK](https://aka.ms/ams-v3-python-sdk)||
 |[참조로 이동](https://aka.ms/ams-v3-go-ref)|[SDK로 이동](https://aka.ms/ams-v3-go-sdk)||
+|Ruby|[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
 
 ## <a name="next-steps"></a>다음 단계
 

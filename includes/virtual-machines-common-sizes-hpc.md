@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: ac8686d0ea5704492bfc2e08972a2f70c9b34c43
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 16e2a9cfbd9f08428fddade290117b27bc3401f7
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37906822"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44369249"
 ---
-Azure H 시리즈 가상 머신은 분자 모델링 및 컴퓨팅 유체 역학과 같은 고급 계산 요구 사항에 맞춘 최신 고성능 컴퓨팅 VM입니다. 이러한 8 및 16 vCPU VM은 DDR4 메모리 및 SSD 기반 임시 저장소를 제공하는 Intel Haswell E5-2667 V3 프로세서 기술을 토대로 구축되었습니다. 
+Azure H 시리즈 가상 머신은 일괄 처리, 분석, 분자 모델링 및 유체 역학과 같은 워크로드 처리에 맞춘 최신 고성능 컴퓨팅 VM입니다. 이러한 8 및 16 vCPU VM은 DDR4 메모리 및 SSD 기반 임시 저장소를 제공하는 Intel Haswell E5-2667 V3 프로세서 기술을 토대로 구축되었습니다. 
 
 H 시리즈 제품은 뛰어난 CPU 처리 능력 외에도 FDR InfiniBand 및 여러 메모리 구성을 사용하는 낮은 대기 시간 RDMA 네트워킹을 위한 다양한 옵션을 제공하여 메모리 집약적 계산 요구 사항을 지원합니다.
 

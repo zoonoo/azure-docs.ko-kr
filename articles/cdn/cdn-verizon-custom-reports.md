@@ -3,8 +3,8 @@ title: Verizon의 사용자 지정 보고서 | Microsoft Docs
 description: 대역폭, 전송되는 데이터, 적중 횟수, 캐시 상태, 캐시 적중률, 전송되는 IPV4/IPV6 데이터와 같은 보고서를 사용하여 CDN 사용 패턴을 볼 수 있습니다.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: ''
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: v-deasim
-ms.openlocfilehash: f18b6edb900640e48e5ca87639f71cec9287af38
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.author: magattus
+ms.openlocfilehash: 75a1fb4beb4025dc3ec63d29944331d07be35d8a
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159744"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092069"
 ---
 # <a name="custom-reports-from-verizon"></a>Verizon의 사용자 지정 보고서
 
