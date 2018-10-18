@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/25/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: ba67acec778a48c084897095aa457e5637240a57
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 4ab3d0b74e8305d67af862020197c69b15221086
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227437"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830228"
 ---
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>ASP.NET Core 웹앱에 Microsoft로 로그인 추가
 
@@ -42,7 +42,7 @@ ms.locfileid: "47227437"
 > 1. 응용 프로그램에 대한 이름을 입력하고, **단계별 설정**에 대한 옵션이 선택 취소되었는지 확인한 다음, **만들기**를 클릭합니다.
 > 1. `Add Platform`을 클릭한 다음, `Web`을 선택합니다.
 > 1. **암시적 흐름 허용**이 *선택*되어 있는지 확인합니다.
-> 1. **리디렉션 URL**에서 `https://localhost:3110/`을 입력합니다.
+> 1. **리디렉션 URL**에서 `http://localhost:3110/`을 입력합니다.
 > 1. 페이지의 아래쪽으로 스크롤하여 **저장**을 클릭합니다.
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -60,7 +60,7 @@ ms.locfileid: "47227437"
 
 #### <a name="step-3-configure-your-project"></a>3단계: 프로젝트 구성
 
-1. zip 파일을 로컬 폴더(예: **C:\Azure-Samples**)에 추출합니다.
+1. Zip 파일을 루트 폴더에 가까운 로컬 폴더(예: **C:\Azure-Samples**)로 추출합니다.
 1. Visual Studio 2017을 사용하는 경우 Visual Studio에서 프로젝트를 엽니다(선택 사항).
 1. **appsettings.json**을 편집하고, `ClientId` 값을 방금 등록한 응용 프로그램의 응용 프로그램 ID로 바꿉니다.
 
