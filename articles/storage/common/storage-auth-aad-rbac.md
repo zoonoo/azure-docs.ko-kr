@@ -1,6 +1,6 @@
 ---
-title: RBAC를 사용하여 Azure Storage 컨테이너 및 큐에 대한 액세스 권한 관리(미리 보기) | Microsoft Docs
-description: RBAC(역할 기반 액세스 제어)를 사용하여 사용자, 그룹, 응용 프로그램 서비스 사용자 또는 관리 서비스 ID에 Azure Storage 데이터에 대한 액세스 권한을 할당합니다. Azure Storage는 컨테이너 및 큐에 대한 액세스 권한에 기본 제공 및 사용자 지정 역할을 지원합니다.
+title: RBAC를 사용하여 컨테이너 및 큐에 대한 액세스 권한 관리(미리 보기) - Azure Storage | Microsoft Docs
+description: RBAC(역할 기반 액세스 제어)를 사용하여 사용자, 그룹, 응용 프로그램 서비스 주체 또는 관리 서비스 ID에 Blob 및 큐 데이터에 대한 액세스 권한을 할당합니다. Azure Storage는 컨테이너 및 큐에 대한 액세스 권한에 기본 제공 및 사용자 지정 역할을 지원합니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 09/07/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 2a85277c72b63f248fa6d2b06cc1daa1ccbf5ce5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c26eee05a59a10036138f81086b3f6a9e0de6d5d
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298678"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737297"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>RBAC를 사용하여 Azure Storage 데이터에 대한 액세스 권한 관리(미리 보기)
 
 Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/overview)를 통해 보호된 리소스에 액세스 권한을 부여합니다. Azure Storage는 컨테이너 또는 큐에 액세스하는 데 사용되는 사용 권한의 공통 집합을 포함하는 기본 제공 RBAC 역할 집합을 정의합니다. RBAC 역할이 Azure AD ID에 할당되면 ID에는 지정된 범위에 따라 해당 리소스에 대한 액세스 권한이 부여됩니다. 액세스 권한은 구독, 리소스 그룹, 저장소 계정 또는 개별 컨테이너나 큐의 수준에 범위를 지정할 수 있습니다. Azure Portal, Azure 명령줄 도구 또는 Azure Management API를 사용하여 Azure Storage 리소스에 액세스 권한을 할당할 수 있습니다. 
 
-Azure AD ID는 사용자, 그룹 또는 응용 프로그램 서비스 주체일 수도 있고, *관리 서비스 ID*일 수도 있습니다. 보안 주체는 사용자, 그룹 또는 응용 프로그램 서비스 사용자일 수 있습니다. [관리 서비스 ID](../../active-directory/managed-identities-azure-resources/overview.md)는 Azure 가상 머신, 기능 앱, 가상 머신 확장 집합 및 기타 기능에서 실행 중인 응용 프로그램에서 인증하는 데 사용되는 자동으로 관리되는 ID입니다. Azure AD에서 ID는 [Azure ID 솔루션 이해](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions)를 참조하세요.
+Azure AD ID는 사용자, 그룹 또는 응용 프로그램 서비스 주체일 수도 있고, Azure 리소스의 관리 ID일 수도 있습니다. 보안 주체는 사용자, 그룹 또는 응용 프로그램 서비스 사용자일 수 있습니다. [Azure 리소스의 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)는 Azure 가상 머신, 기능 앱, 가상 머신 확장 집합 및 기타 기능에서 실행 중인 응용 프로그램에서 인증하는 데 사용되는 자동으로 관리되는 ID입니다. Azure AD에서 ID는 [Azure ID 솔루션 이해](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions)를 참조하세요.
 
-## <a name="rbac-roles-for-azure-storage"></a>Azure Storage에 대한 RBAC 역할
+## <a name="rbac-roles-for-blobs-and-queues"></a>Blob 및 큐의 RBAC 역할
 
 Azure Storage는 기본 제공 및 사용자 지정 RBAC 역할을 지원합니다. Azure Storage는 Azure AD에 사용하기 위해 이러한 기본 제공 RBAC 역할을 제공합니다.
 

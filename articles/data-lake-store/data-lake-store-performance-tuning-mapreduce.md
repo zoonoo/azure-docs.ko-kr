@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Store MapReduce 성능 조정 지침 | Microsoft Docs
-description: Azure Data Lake Store MapReduce 성능 조정 지침
+title: Azure Data Lake Storage Gen1 MapReduce 성능 조정 지침 | Microsoft Docs
+description: Azure Data Lake Storage Gen1 MapReduce 성능 조정 지침
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: f5586e7706d4dad7e3c943b2a661fa296b4d30bf
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b661499786057a3083f79684dfd12c85266b7b5c
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198636"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128794"
 ---
-# <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-store"></a>HDInsight and Azure Data Lake Store에서 MapReduce에 대한 성능 조정 지침
+# <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen1"></a>HDInsight의 MapReduce 및 Azure Data Lake Storage Gen1에 대한 성능 조정 지침
 
 ## <a name="prerequisites"></a>필수 조건
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **Azure 데이터 레이크 저장소 계정**. 만드는 방법에 대한 지침은 [Azure 데이터 레이크 저장소 시작](data-lake-store-get-started-portal.md)
-* **Azure HDInsight 클러스터** 입니다. [Data Lake Store가 있는 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
+* **Azure Data Lake Storage Gen1 계정**. 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)을 참조하세요.
+* Data Lake Storage Gen1 계정에 대한 액세스 권한이 있는 **Azure HDInsight 클러스터**. [Data Lake Storage Gen1을 사용하여 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
 * **HDInsight에서 MapReduce 사용**.  자세한 내용은 [HDInsight에서 Hadoop과 MapReduce 사용](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)을 참조하세요.
-* **ADLS에서 성능 조정 지침**.  일반적인 성능 개념은 [Data Lake Store 성능 조정 지침](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)을 참조하세요.
+* **Data Lake Storage Gen1 성능 조정 지침**.  일반적인 성능 개념은 [Data Lake Storage Gen1 성능 조정 지침](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)을 참조하세요.
 
 ## <a name="parameters"></a>매개 변수
 
-MapReduce 작업을 실행할 때 ADLS에서 성능을 향상시키기 위해 구성할 수 있는 가장 중요한 매개 변수가 있습니다.
+MapReduce 작업을 실행할 때 Data Lake Storage Gen1에서 성능을 향상시키기 위해 구성할 수 있는 가장 중요한 매개 변수가 있습니다.
 
 * **Mapreduce.map.memory.mb** – 각 매퍼에 할당할 메모리 양
 * **Mapreduce.job.maps** – 작업당 맵 태스크 수
@@ -83,9 +83,9 @@ MapReduce 작업을 실행할 때 ADLS에서 성능을 향상시키기 위해 �
 
 ## <a name="limitations"></a>제한 사항
 
-**ADLS 제한**
+**Data Lake Storage Gen1 제한**
 
-다중 테넌트 서비스로 ADLS는 계정 수준 대역폭 제한을 설정합니다.  이러한 제한에 도달하면 태스크 실패가 표시되기 시작합니다. 이것은 태스크 로그에서 제한 오류를 확인하여 파악할 수 있습니다.  작업에 대한 대역폭이 더 필요한 경우 문의하세요.   
+다중 테넌트 서비스로서 Data Lake Storage Gen1은 계정 수준 대역폭 제한을 설정합니다.  이러한 제한에 도달하면 태스크 실패가 표시되기 시작합니다. 이것은 태스크 로그에서 제한 오류를 확인하여 파악할 수 있습니다.  작업에 대한 대역폭이 더 필요한 경우 문의하세요.   
 
 제한 여부를 확인하려면 클라이언트 쪽에서 디버그 로깅을 사용하도록 설정해야 합니다. 그 방법은 다음과 같습니다.
 
@@ -97,7 +97,7 @@ MapReduce 작업을 실행할 때 ADLS에서 성능을 향상시키기 위해 �
 
 ## <a name="examples-to-run"></a>실행 예
 
-Azure Data Lake Store에서 MapReduce가 실행되는 방식을 보여 주기 위해 다음 설정으로 클러스터에서 실행된 샘플 코드가 아래에 제공됩니다.
+Data Lake Storage Gen1에서 MapReduce가 실행되는 방식을 보여 주기 위해 다음 설정으로 클러스터에서 실행된 샘플 코드가 아래에 제공됩니다.
 
 * 16 노드 D14v2
 * HDI 3.6을 실행하는 Hadoop 클러스터

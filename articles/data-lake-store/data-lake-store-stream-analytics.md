@@ -1,6 +1,6 @@
 ---
-title: Stream Analytics에서 Data Lake Store로 데이터 스트리밍 | Microsoft 문서
-description: Azure Stream Analytics를 사용하여 Azure Data Lake 저장소에 데이터 스트리밍
+title: Stream Analytics에서 Azure Data Lake Storage Gen1로 데이터 스트리밍 | Microsoft Docs
+description: Azure Stream Analytics를 사용하여 Azure Data Lake Storage Gen1에 데이터 스트리밍
 services: data-lake-store,stream-analytics
 documentationcenter: ''
 author: nitinme
@@ -12,27 +12,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 396d514d0d75c43f20ab7b0fcdf8c7351cb3dd89
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 0d9ddbeae3a666d3b3cf56f80ae633a7ecaa650a
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213455"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294036"
 ---
-# <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Azure Stream Analytics를 사용하여 Azure Storage Blob에서 Data Lake 저장소에 데이터 스트리밍
-이 문서는 Azure Stream Analytics 작업에 대한 출력으로 Azure Data Lake 저장소를 사용하는 방법을 알아봅니다. 이 문서에서는 Azure Storage Blob(입력)에서 데이터를 읽고 Data Lake 저장소(출력)에 데이터를 기록하는 간단한 시나리오를 보여줍니다.
+# <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Azure Stream Analytics를 사용하여 Azure Storage Blob에서 Azure Data Lake Storage Gen1에 데이터 스트리밍
+이 문서는 Azure Stream Analytics 작업에 대한 출력으로 Azure Data Lake Storage Gen1을 사용하는 방법을 알아봅니다. 이 문서에서는 Azure Storage Blob(입력)에서 데이터를 읽고 Data Lake Storage Gen1(출력)에 데이터를 기록하는 간단한 시나리오를 보여줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 * **Azure Storage 계정**. 이 계정에서 Blob 컨테이너를 사용하여 Stream Analytics 작업에 대한 데이터를 입력합니다. 이 자습서의 경우 **storageforasa**라는 저장소 계정 및 **storageforasacontainer**라는 계정 내의 컨테이너가 있다고 가정합니다. 컨테이너를 만든 후에 샘플 데이터 파일을 거기에 업로드합니다. 
   
-* **Azure Data Lake Store 계정**. [Azure Portal을 사용하여 Azure Data Lake Store 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다. **asadatalakestore**라는 Data Lake Store 계정이 있다고 가정합니다. 
+* **Data Lake Storage Gen1 계정**. [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다. **myadlsg1**라는 Data Lake Storage Gen1 계정이 있다고 가정합니다. 
 
 ## <a name="create-a-stream-analytics-job"></a>Stream Analytics 작업 만들기
-입력 원본 및 출력 대상을 포함하는 Stream Analytics 작업을 만들어 시작합니다. 이 자습서의 경우 원본은 Azure blob 컨테이너이고 대상은 Data Lake 저장소입니다.
+입력 원본 및 출력 대상을 포함하는 Stream Analytics 작업을 만들어 시작합니다. 이 자습서의 경우 원본은 Azure blob 컨테이너이고 대상은 Data Lake Storage Gen1입니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -67,9 +67,9 @@ ms.locfileid: "39213455"
     **만들기**를 클릭합니다. 이제 포털에 입력이 추가되고 연결을 테스트합니다.
 
 
-## <a name="create-a-data-lake-store-output-for-the-job"></a>작업에 대한 Data Lake 저장소 출력 만들기
+## <a name="create-a-data-lake-storage-gen1-output-for-the-job"></a>작업에 대한 Data Lake Storage Gen1 출력 만들기
 
-1. Stream Analytics 작업에 대한 페이지를 열고 **출력** 탭을 클릭한 다음 **추가**를 클릭합니다.
+1. Stream Analytics 작업에 대한 페이지를 열고 **출력** 탭을 클릭한 다음, **추가**를 클릭하고 **Data Lake Storage Gen1**을 선택합니다.
 
     ![작업에 출력 추가](./media/data-lake-store-stream-analytics/create.output.1.png "작업에 출력 추가")
 
@@ -77,16 +77,15 @@ ms.locfileid: "39213455"
 
     ![작업에 출력 추가](./media/data-lake-store-stream-analytics/create.output.2.png "작업에 출력 추가")
 
-    * **입력 별칭**에 작업 출력에 대한 고유한 이름을 입력합니다. 쿼리 출력을 이 Data Lake 저장소로 직접 보내기 위해 쿼리에서 사용되는 식별 이름입니다.
-    * **싱크**로 **Data Lake Store**를 선택합니다.
-    * Data Lake Store 계정에 대한 액세스 권한을 부여하라는 메시지가 표시됩니다. **권한 부여**를 클릭합니다.
+    * **입력 별칭**에 작업 출력에 대한 고유한 이름을 입력합니다. 쿼리 출력을 이 Data Lake Storage Gen1 계정으로 직접 보내기 위해 쿼리에서 사용되는 식별 이름입니다.
+    * Data Lake Storage Gen1 계정에 대한 액세스 권한을 부여하라는 메시지가 표시됩니다. **권한 부여**를 클릭합니다.
 
 3. **새 출력** 블레이드에서 계속 다음 값을 제공합니다.
 
     ![작업에 출력 추가](./media/data-lake-store-stream-analytics/create.output.3.png "작업에 출력 추가")
 
-    * **계정 이름**에는 작업 출력을 전송하려는 위치에 미리 만든 Data Lake Store 계정을 선택합니다.
-    * **경로 접두사 패턴**에는 지정된 Data Lake Store 계정 내에서 파일을 작성하는 데 사용되는 파일 경로를 입력합니다.
+    * **계정 이름**에는 작업 출력을 전송하려는 위치에 미리 만든 Data Lake Storage Gen1 계정을 선택합니다.
+    * **경로 접두사 패턴**에는 지정된 Data Lake Storage Gen1 계정 내에서 파일을 작성하는 데 사용되는 파일 경로를 입력합니다.
     * **날짜 형식**의 경우, 접두사 경로에 날짜 토큰을 사용한 경우 파일을 구성하는 날짜 형식을 선택할 수 있습니다.
     * **시간 형식**의 경우, 접두사 경로에 시간 토큰을 사용한 경우 파일을 구성하는 시간 형식을 지정합니다.
     * **이벤트 직렬화 형식**으로 **CSV**를 선택합니다.
@@ -113,11 +112,11 @@ ms.locfileid: "39213455"
 
     ![작업 모니터링](./media/data-lake-store-stream-analytics/run.query.3.png "작업 모니터링")
 
-5. 마지막으로 Data Lake Store 계정에서 작업 출력 데이터가 제공되는 것을 확인할 수 있습니다. 
+5. 마지막으로 Data Lake Storage Gen1 계정에서 작업 출력 데이터가 제공되는 것을 확인할 수 있습니다. 
 
     ![출력 확인](./media/data-lake-store-stream-analytics/run.query.4.png "출력 확인")
 
-    데이터 탐색기 창에서 Data Lake Store 출력 설정(`streamanalytics/job/output/{date}/{time}`)에 지정된 대로 출력이 폴더 경로에 기록됩니다.  
+    데이터 탐색기 창에서 Data Lake Storage Gen1 출력 설정(`streamanalytics/job/output/{date}/{time}`)에 지정된 대로 출력이 폴더 경로에 기록됩니다.  
 
 ## <a name="see-also"></a>참고 항목
-* [HDInsight 클러스터를 만들어 Data Lake 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [HDInsight 클러스터를 만들어 Data Lake Storage Gen1 사용](data-lake-store-hdinsight-hadoop-use-portal.md)

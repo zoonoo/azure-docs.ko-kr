@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ea9ff8f93ede3b9ec5e7eed83c6049b0c23de7e8
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 94de5566db2395a3daf24c99a43cca6853e12cce
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205462"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736974"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에 MXChip IoT DevKit 장치 연결
 
@@ -43,26 +43,34 @@ ms.locfileid: "39205462"
 
 ## <a name="add-a-real-device"></a>실제 장치 추가
 
-Azure IoT Central 응용 프로그램에서 **MXChip** 장치 템플릿으로 실제 장치를 추가하고 장치 연결 문자열을 기록해 둡니다. 자세한 내용은 [Azure IoT Central 응용 프로그램에 실제 장치 추가](tutorial-add-device.md)를 참조하세요.
+Azure IoT Central 응용 프로그램에서 **MXChip** 장치 템플릿으로 실제 장치를 추가하고 장치 연결 정보(**범위 ID, 장치 ID 및 기본 키**)를 기록해 둡니다.
+
+1. Device Explorer에서 **실제 장치**를 추가하고 **+새로 만들기 > 실제 장치**를 클릭하여 실제 장치를 추가합니다.
+    * 장치 ID**<span style="color:Red">(소문자여야 함)</span>** 를 입력하거나 제안된 장치 ID를 사용합니다.
+    * 장치 이름을 입력하거나 제안된 이름을 사용합니다.
+    
+    ![장치 추가](media\concepts-connectivity\add-device.png)
+
+
+1. 장치 페이지에서 **연결**을 클릭하여 추가 장치의 **범위 ID, 장치 ID 및 기본 키** 같은 연결 정보를 가져옵니다.
+ 
+    ![연결 정보](media\concepts-connectivity\device-connect.PNG)
+
+3. DevKit 장치를 준비할 때 일시적으로 인터넷 연결이 끊어지므로 이러한 세부 정보를 저장해야 합니다. 
+
 
 ### <a name="prepare-the-devkit-device"></a>DevKit 장치 준비
 
 > [!NOTE]
 > 이전에 장치를 사용했고 WiFi 자격 증명을 저장했으며 다른 WiFi 네트워크, 연결 문자열 또는 원격 분석 측정값을 사용하도록 장치를 다시 구성하려면 보드의 **A** 및 **B** 단추를 동시에 누릅니다. 이 방법이 작동하지 않으면 **재설정** 단추를 눌러 다시 시도합니다.
 
-#### <a name="before-you-start-configuring-the-device"></a>장치 구성을 시작하기 전에 다음을 수행합니다.
-1. IoT Central **샘플 Devkits**에서 `Device Explorer`-> `select MXChip Template` -> `Click on +New and choose **Real** Device` -> `Connect this device`(오른쪽 위)로 이동 
-2. 기본 연결 문자열을 복사합니다.
-3. DevKit 장치를 준비할 때 일시적으로 인터넷 연결이 끊어지므로 연결 문자열을 저장해야 합니다. 
 
 
 #### <a name="to-prepare-the-devkit-device"></a>DevKit 장치를 준비하려면:
 
 
-1. GitHub의 [릴리스](https://github.com/Azure/iot-central-firmware/releases) 페이지에서 MXChip의 최신 사전 빌드 Azure IoT Central 펌웨어를 다운로드합니다. 릴리스 페이지의 다운로드 파일 이름은 `AZ3166-IoT-Central-X.X.X.bin` 형식입니다.
-
+1. GitHub의 [릴리스](http://aka.ms/iotcentral-docs-MXChip-releases) 페이지에서 MXChip의 최신 사전 빌드 Azure IoT Central 펌웨어를 다운로드합니다.
 1. USB 케이블을 사용하여 DevKit 장치를 개발 컴퓨터에 연결합니다. Windows에서, DevKit 장치의 저장소에 매핑된 드라이브에서 파일 탐색기 창이 열립니다. 예를 들어 드라이브 이름이 **AZ3166 (D:)** 일 수 있습니다.
-
 1. **iotCentral.bin** 파일을 드라이브 창으로 끌어다 놓습니다. 복사가 완료되면 새 펌웨어를 사용하여 장치가 다시 부팅됩니다.
 
 1. DevKit 장치가 다시 시작되면 다음 화면이 표시됩니다.
@@ -75,7 +83,7 @@ Azure IoT Central 응용 프로그램에서 **MXChip** 장치 템플릿으로 �
     ```
 
     > [!NOTE]
-    > 화면이 다른 요소를 표시하는 경우 장치를 다시 부팅하려면 장치에서 **A** 및 **B** 단추를 동시에 누릅니다. 
+    > 화면이 다른 요소를 표시하는 경우 장치를 다시 설정하고 장치에서 **A** 및 **B** 단추를 동시에 눌러 장치를 다시 부팅합니다. 
 
 1. 이제 장치가 AP(액세스 지점) 모드에 있습니다. 컴퓨터 또는 모바일 장치에서 이 WiFi 액세스 지점에 연결할 수 있습니다.
 
@@ -89,7 +97,7 @@ Azure IoT Central 응용 프로그램에서 **MXChip** 장치 템플릿으로 �
     - WiFi 네트워크 이름 
     - WiFi 네트워크 암호
     - LCD 장치에 표시된 PIN 코드 
-    - 단계를 수행하여 이미 저장했어야 할 장치의 연결 문자열입니다. `https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect this device`(오른쪽 위)에서 해당 연결 문자열을 찾을 수 있습니다.
+    - 장치의 연결 정보 **범위 ID, 장치 ID 및 기본 키**(단계에 따라 이 정보를 이미 저장했어야 함)      
     - 사용 가능한 모든 원격 분석 측정값을 선택합니다. 
 
 1. **장치 구성**을 선택하면 이 페이지가 표시됩니다.
@@ -99,7 +107,6 @@ Azure IoT Central 응용 프로그램에서 **MXChip** 장치 템플릿으로 �
 1. 장치의 **재설정** 단추를 누릅니다.
 
 
-
 ## <a name="view-the-telemetry"></a>원격 분석 보기
 
 DevKit 장치가 다시 시작되면 장치에 다음과 같은 화면이 표시됩니다.
@@ -107,6 +114,9 @@ DevKit 장치가 다시 시작되면 장치에 다음과 같은 화면이 표시
 * 전송된 원격 분석 메시지 수.
 * 실패 횟수.
 * 받은 desired 속성 수 및 보낸 reported 속성 수.
+
+> [!NOTE]
+> 장치가 연결 중에 반복되는 것으로 나타나면 장치가 IoT Central에서 ‘차단’되어 있는지 확인하고 앱에 연결할 수 있도록 장치를 ‘차단 해제’합니다.
 
 장치를 흔들면 보낸 reported 속성 수가 증가합니다. 장치에서 **다이 번호** 장치 속성으로 임의의 숫자를 보냅니다.
 
@@ -193,12 +203,12 @@ Azure IoT Central 응용 프로그램으로 속성 값이 보고되는 원리를
 
 
 #### <a name="states"></a>상태 
-| Name          | 표시 이름   | 정상 | 주의 | 위험 | 
+| 이름          | 표시 이름   | 정상 | 주의 | 위험 | 
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | 장치 상태   | 녹색  | 주황색  | 빨강    | 
 
 #### <a name="events"></a>이벤트 
-| Name             | 표시 이름      | 
+| 이름             | 표시 이름      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | 단추 B 누름  | 
 

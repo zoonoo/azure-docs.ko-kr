@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 09/12/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: fb820d124fd9b5e882cad538ad436532d7865fbc
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: f1899817ee2d0efec4ab561a64f24e49cb173c29
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37923491"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720772"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Azure로의 재해 복구용으로 온-프레미스 Hyper-V 서버 준비
 
@@ -60,13 +60,15 @@ VMM을 사용하는 경우 [네트워크 매핑](site-recovery-network-mapping.m
 ## <a name="verify-internet-access"></a>인터넷 액세스 확인
 
 1. 이 자습서에서 가장 단순한 구성은 Hyper-V 호스트와 VMM 서버가 프록시를 사용하지 않고 인터넷에 직접 액세스하도록 설정하는 것입니다. 
-2. Hyper-V 호스트와 VMM 서버(관련된 경우)가 다음 URL에 액세스할 수 있는지 확인합니다. 
-
-    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
-    
+2. Hyper-V 호스트와 VMM 서버(관련된 경우)가 아래의 필요한 URL에 액세스할 수 있는지 확인합니다.   
 3. IP 주소로 액세스를 제어하는 경우 다음을 확인합니다.
     - IP 주소 기준 방화벽 규칙은 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653) 및 HTTPS(443) 포트에 연결할 수 있습니다.
     - 구독의 Azure 지역에 대해 IP 주소 범위를 허용합니다.
+    
+### <a name="required-urls"></a>필요한 URL
+
+
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
 
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>장애 조치(Failover) 후 Azure VM에 연결할 준비

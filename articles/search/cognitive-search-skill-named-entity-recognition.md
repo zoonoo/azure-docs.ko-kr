@@ -10,16 +10,19 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 73ffcf5e2ced63fddaf0f5ef2ca7e72a7d94b966
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 653a4675d546432eea8478ba6203be1df71ec4f4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786822"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731396"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>명명된 엔터티 인식 기술
 
 **명명된 엔터티 인식** 기술은 텍스트에서 명명된 엔터티를 추출합니다. 사용가능한 엔터티는 `person`, `location` 및 `organization` 형식을 포함니다.
+
+> [!NOTE]
+> 인식 검색은 현재 공개 미리 보기로 제공됩니다. 기능 실행과 이미지 추출 및 정규화는 현재 무료로 제공됩니다. 이러한 기능의 가격은 추후에 발표될 예정입니다. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.NamedEntityRecognitionSkill
@@ -140,4 +143,4 @@ Microsoft.Skills.Text.NamedEntityRecognitionSkill
 ## <a name="see-also"></a>참고 항목
 
 + [미리 정의된 기술](cognitive-search-predefined-skills.md)
-+ [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
++ [기능을 정의하는 방법](cognitive-search-defining-skillset.md)

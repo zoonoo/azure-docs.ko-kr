@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Store Storm 성능 조정 지침 | Microsoft Docs
-description: Azure Data Lake Store Storm 성능 조정 지침
+title: Azure Data Lake Storage Gen1 Storm 성능 조정 지침 | Microsoft Docs
+description: Azure Data Lake Storage Gen1 Storm 성능 조정 지침
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -12,28 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 5ebca90ffd679de1c30d1bc324bf4f1c3b9f6f70
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: aa4d42a53e6fb8ea236a9d544102aab3dff19013
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198863"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129236"
 ---
-# <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-store"></a>HDInsight의 Storm 및 Azure Data Lake Store에 대한 성능 조정 지침
+# <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>HDInsight의 Storm 및 Azure Data Lake Storage Gen1에 대한 성능 조정 지침
 
 Azure Storm 토폴로지의 성능을 조정할 때 고려해야 하는 요소를 이해합니다. 예를 들어, Spout 및 Bolt(작업이 I/O 또는 메모리 집약적인지에 따름)에서 수행한 작업의 특징을 이해하는 것이 중요합니다. 이 문서에서는 다양한 성능 조정 지침, 일반적인 문제 해결 등을 다룹니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **Azure 데이터 레이크 저장소 계정**. 만드는 방법에 대한 지침은 [Azure Data Lake Store 시작](data-lake-store-get-started-portal.md)을 참조하세요.
-* Data Lake Store 계정에 액세스하는 **Azure HDInsight 클러스터**입니다. [Data Lake Store가 있는 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
-* **Data Lake Store에서 실행 중인 Storm 클러스터** 자세한 내용은 [HDInsight의 Storm](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview)을 참조하세요.
-* **Data Lake Store 성능 조정 지침**  일반적인 성능 개념은 [Data Lake Store 성능 조정 지침](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)을 참조하세요.  
+* **Azure Data Lake Storage Gen1 계정**. 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)을 참조하세요.
+* Data Lake Storage Gen1 계정에 대한 액세스 권한이 있는 **Azure HDInsight 클러스터**. [Data Lake Storage Gen1을 사용하여 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
+* **Data Lake Storage Gen1에서 Storm 클러스터 실행**. 자세한 내용은 [HDInsight의 Storm](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview)을 참조하세요.
+* **Data Lake Storage Gen1 성능 조정 지침**.  일반적인 성능 개념은 [Data Lake Storage Gen1 성능 조정 지침](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)을 참조하세요.  
 
 ## <a name="tune-the-parallelism-of-the-topology"></a>토폴로지의 병렬 처리 조정
 
-Data Lake Store와의 I/O 동시성을 늘리면 성능을 개설할 수 있습니다. Storm 토폴로지에는 병렬 처리를 결정하는 일련의 구성이 포함되어 있습니다.
+Data Lake Storage Gen1과의 I/O 동시성을 늘리면 성능을 개설할 수 있습니다. Storm 토폴로지에는 병렬 처리를 결정하는 일련의 구성이 포함되어 있습니다.
 * 작업자 프로세스 수(작업자는 VM 간에 균일하게 분산됨).
 * Spout 실행기 인스턴스 수
 * Bolt 실행기 인스턴스 수
@@ -51,9 +51,9 @@ Storm에는 다양한 구성 요소가 관련되어 있으며 여기서는 이 �
 * Spout 및 Bolt 실행기 인스턴스 각 실행기 인스턴스는 작업자(JVM) 내에서 실행 중인 스레드에 해당합니다.
 * Storm 태스크 이러한 각 스레드가 실행되는 논리적 태스크입니다. 병렬 처리 수준은 변경되지 않으므로 실행기당 여러 태스크가 필요한지 평가해야 합니다.
 
-### <a name="get-the-best-performance-from-data-lake-store"></a>Data Lake Store에서 최상의 성능 얻기
+### <a name="get-the-best-performance-from-data-lake-storage-gen1"></a>Data Lake Storage Gen1에서 최상의 성능 얻기
 
-Data Lake Store를 사용할 때 다음을 수행하는 경우 최상의 성능을 얻을 수 있습니다.
+Data Lake Storage Gen1을 사용할 때 다음을 수행하는 경우 최상의 성능을 얻을 수 있습니다.
 * 작은 크기의 추가 항목을 보다 큰 크기로 병합합니다(이상적으로 4MB).
 * 가능한 동시 요청을 많이 수행. 각 Bolt 스레드는 읽기 차단 작업을 수행하므로 코어당 8-12개 스레드 범위 내에서 수행하려고 합니다. 그러면 NIC 및 CPU를 잘 활용할 수 있습니다. VM 크기가 크면 더 많은 동시 요청이 가능합니다.  
 
@@ -66,7 +66,7 @@ D13v2 Azure VM과 함께 8개의 작업자 노드 클러스터가 있다고 가�
 ## <a name="tune-additional-parameters"></a>추가 매개 변수 조정
 기본 토폴로지를 만든 후에는 매개 변수를 수정할 것인지 고려할 수 있습니다.
 * **작업자 노드당 JVM 수** 메모리 내에 호스트하는 큰 데이터 구조(예: 조회 테이블)가 있는 경우 각 JVM에는 별도 복사본이 필요합니다. 또는 JVM을 적게 설정한 경우 여러 스레드에 걸쳐 데이터 구조를 사용할 수 있습니다. Bolt I/O의 경우, JVM 수는 해당 JVM 간에 추가된 스레드 수와 큰 차이가 없습니다. 간소화하기 위해 작업자당 하나의 JVM이 있는 것이 좋습니다. 하지만 Bolt에서 수행한 작업이나 필요한 응용 프로그램 프로세스에 따라 이 번호를 변경해야 합니다.
-* **Spout 실행자 수** 이전 예제에서 Data Lake Store에 대한 쓰기에 Bolt를 사용하기 때문에 Spout 수는 Bolt 성능과 직접 관련이 없습니다. 하지만 Spout에서 발생하는 처리 또는 I/O 양에 따라 최적의 성능을 얻기 위해 Spout을 조정하는 것이 좋습니다. Bolt를 사용할 수 있는 충분한 Spout이 있는지 확인합니다. Spout의 출력 속도는 Bolt의 처리량과 일치해야 합니다. 실제 구성은 Spout에 따라 달라집니다.
+* **Spout 실행자 수** 이전 예제에서 Data Lake Storage Gen1에 대한 쓰기에 Bolt를 사용하기 때문에 Spout 수는 Bolt 성능과 직접 관련이 없습니다. 하지만 Spout에서 발생하는 처리 또는 I/O 양에 따라 최적의 성능을 얻기 위해 Spout을 조정하는 것이 좋습니다. Bolt를 사용할 수 있는 충분한 Spout이 있는지 확인합니다. Spout의 출력 속도는 Bolt의 처리량과 일치해야 합니다. 실제 구성은 Spout에 따라 달라집니다.
 * **태스크 수** 각 Bolt는 단일 스레드로 실행됩니다. Bolt당 추가 태스크는 어떠한 동시성도 제공하지 않습니다. 이익이 되는 경우는 튜플을 승인하는 프로세스가 Bolt 실행 시간의 상당 부분을 차지하는 경우 뿐입니다. Bolt에서 승인을 보내기 전에 많은 튜플을 추가에 그룹화하는 것이 좋습니다. 즉, 대부분의 경우에 여러 태스크에는 추가적인 이점이 없습니다.
 * **로컬 또는 순서 섞기 그룹화** 이 설정을 사용하면 동일한 작업자 프로세스 내에서 튜플이 Bolt로 전송됩니다. 그러면 프로세스 간 통신과 네트워크 호출이 줄어듭니다. 대부분의 토폴로지에 사용하는 것이 좋습니다.
 
@@ -85,17 +85,17 @@ Spout를 조정하도록 다음 설정을 수정할 수 있습니다.
  수행할 수 있는 적절한 계산은 각 튜플의 크기를 예상하는 것입니다. 그런 다음 한 개의 Spout 스레드에 지정된 메모리 양을 파악합니다. 스레드에 할당된 총 메모리를 이 값으로 나누어 보류 중인 최대 Spout 매개 변수에 대한 상한을 제공합니다.
 
 ## <a name="tune-the-bolt"></a>Bolt 조정
-Data Lake Store에 기록할 경우 크기 동기화 정책(클라이언트 쪽에서 버퍼)을 4MB로 설정합니다. 그러면 버퍼 크기가 이 값일 때만 플러시 또는 hsync()가 수행됩니다. 사용자가 hsync()를 명시적 수행하지 않으면 작업자 VM의 Data Lake Store 드라이버는 이 버퍼링을 자동으로 수행합니다.
+Data Lake Storage Gen1에 기록할 경우 크기 동기화 정책(클라이언트 쪽에서 버퍼)을 4MB로 설정합니다. 그러면 버퍼 크기가 이 값일 때만 플러시 또는 hsync()가 수행됩니다. 사용자가 hsync()를 명시적 수행하지 않으면 작업자 VM의 Data Lake Storage Gen1 드라이버는 이 버퍼링을 자동으로 수행합니다.
 
-기본 Data Lake Store Storm Bolt에는 이 매개 변수를 조정하는 데 사용할 수 있는 크기 동기화 정책 매개 변수(fileBufferSize)가 포함됩니다.
+기본 Data Lake Storage Gen1 Storm Bolt에는 이 매개 변수를 조정하는 데 사용할 수 있는 크기 동기화 정책 매개 변수(fileBufferSize)가 포함됩니다.
 
 I/O 집약적인 토폴로지에서 각 Bolt 스레드는 자체 파일에 기록하고 파일 회전 정책(fileRotationSize)을 설정하는 것이 좋습니다. 파일이 특정 크기에 도달하면 스트림이 자동으로 플러시되며 새 파일이 기록됩니다. 회전에 권장되는 파일 크기는 1GB입니다.
 
 ### <a name="handle-tuple-data"></a>튜플 데이터 처리
 
-Storm에서 Spout는 튜플이 Bolt에 의해 명시적으로 승인될 때까지 튜플을 계속 사용합니다. 튜플을 Bolt에서 읽었지만 아직 승인되지 않은 경우 Spout는 Data Lake Store 백 엔드에 유지되지 않을 수 있습니다. 튜플이 승인된 후에 Spout에서 Bolt의 지속성을 보장할 수 있고 읽어 오는 원본이 무엇이든지 원본 데이터를 삭제할 수 있습니다.  
+Storm에서 Spout는 튜플이 Bolt에 의해 명시적으로 승인될 때까지 튜플을 계속 사용합니다. 튜플을 Bolt에서 읽었지만 아직 승인되지 않은 경우 Spout는 Data Lake Storage Gen1 백 엔드에 유지되지 않을 수 있습니다. 튜플이 승인된 후에 Spout에서 Bolt의 지속성을 보장할 수 있고 읽어 오는 원본이 무엇이든지 원본 데이터를 삭제할 수 있습니다.  
 
-최상의 Data Lake Store 성능을 위해 Bolt가 4MB의 튜플 데이터를 버퍼링합니다. 그런 다음 Data Lake Store 백 엔드에 하나의 4MB 쓰기로 작성합니다. hflush()를 호출하여 저장소에 데이터를 성공적으로 기록한 후에 Bolt가 데이터를 Spout으로 다시 승인할 수 있습니다. 여기에 제공된 Bolt 예제에서 이 작업을 수행합니다. 또한 hflush() 호출을 수행하고 튜플을 승인하기 전에 많은 수의 튜플을 보유하는 것도 가능합니다. 하지만 이 경우 Spout이 보유해야 하는 진행 중인 튜플 수가 증가하므로 JVM당 필요한 메모리 양이 늘어납니다.
+최상의 Data Lake Storage Gen1 성능을 위해 Bolt가 4MB의 튜플 데이터를 버퍼링합니다. 그런 다음 Data Lake Storage Gen1 백 엔드에 하나의 4MB 쓰기로 작성합니다. hflush()를 호출하여 저장소에 데이터를 성공적으로 기록한 후에 Bolt가 데이터를 Spout으로 다시 승인할 수 있습니다. 여기에 제공된 Bolt 예제에서 이 작업을 수행합니다. 또한 hflush() 호출을 수행하고 튜플을 승인하기 전에 많은 수의 튜플을 보유하는 것도 가능합니다. 하지만 이 경우 Spout이 보유해야 하는 진행 중인 튜플 수가 증가하므로 JVM당 필요한 메모리 양이 늘어납니다.
 
 > [!NOTE]
 응용 프로그램에는 기타 성능 이외의 이유로 더욱 자주(4MB 미만의 데이터 크기로) 튜플을 승인하도록 요청해야 합니다. 그러나 저장소 백 엔드에 대한 I/O 처리량에 영향을 줄 수 있습니다. Bolt의 I/O 성능에 대해 이러한 균형 유지를 신중하게 평가합니다.
@@ -127,13 +127,13 @@ Storm에서 Spout는 튜플이 Bolt에 의해 명시적으로 승인될 때까�
 
 * **Bolt 실행 대기 시간이 깁니다.** Bolt의 execute() 메서드에 시간이 너무 오래 소요되기 때문입니다. 코드를 최적화하고 쓰기 크기 및 플러시 동작을 확인하세요.
 
-### <a name="data-lake-store-throttling"></a>Data Lake Store 제한
-Data Lake Store에서 제공하는 대역폭 한계에 도달한 경우 태스크 오류가 표시됩니다. 제한 오류에 대한 태스크 로그를 확인합니다. 컨테이너 크기를 늘려 병렬 처리를 줄일 수 있습니다.    
+### <a name="data-lake-storage-gen1-throttling"></a>Data Lake Storage Gen1 제한
+Data Lake Storage Gen1에서 제공하는 대역폭 한계에 도달한 경우 태스크 오류가 표시됩니다. 제한 오류에 대한 태스크 로그를 확인합니다. 컨테이너 크기를 늘려 병렬 처리를 줄일 수 있습니다.    
 
 제한 여부를 확인하려면 클라이언트 쪽에서 디버그 로깅을 사용하도록 설정합니다.
 
 1. **Ambari** > **Storm** > **Config** > **고급 storm-worker-log4j**에서 **&lt;root level="info"&gt;** 를 **&lt;root level=”debug”&gt;** 로 변경합니다. 구성을 적용하려면 모든 노드/서비스를 다시 시작합니다.
-2. 작업자 노드의 storm 토폴로지 로그에서 Data Lake Store 제한 예외를 모니터링합니다(/var/log/storm/worker-artifacts/&lt;TopologyName&gt;/&lt;port&gt;/worker.log 아래).
+2. 작업자 노드의 storm 토폴로지 로그에서 Data Lake Storage Gen1 제한 예외를 모니터링합니다(/var/log/storm/worker-artifacts/&lt;TopologyName&gt;/&lt;port&gt;/worker.log 아래).
 
 ## <a name="next-steps"></a>다음 단계
 Storm의 추가 성능 조정은 이 [블로그](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/)를 참조하세요.

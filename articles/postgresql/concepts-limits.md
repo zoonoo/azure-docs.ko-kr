@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/30/2018
-ms.openlocfilehash: 52dfac826de86f67b3143cce49c35088547c4b39
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 0bd894e99fd575fca734a101a1cde0f0a2979682
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171775"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983761"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스의 제한 사항
 다음 섹션에서는 데이터베이스 서비스의 용량 및 기능 제한에 대해 설명합니다.
@@ -47,12 +47,9 @@ Azure 시스템에는 Azure Database for PostgreSQL 서버를 모니터링하기
 - 서버 저장소 크기를 줄이는 것은 현재 지원되지 않습니다.
 
 ### <a name="server-version-upgrades"></a>서버 버전 업그레이드
-- 주 데이터베이스 엔진 버전 간에 자동화된 마이그레이션은 현재 지원되지 않습니다.
+- 주 데이터베이스 엔진 버전 간에 자동화된 마이그레이션은 현재 지원되지 않습니다. 다음의 주 버전으로 업그레이드하려는 경우 새 엔진 버전을 사용하여 만든 서버에 주 버전을 [덤프 및 복원](./howto-migrate-using-dump-and-restore.md)합니다.
 
-### <a name="subscription-management"></a>구독 관리
-- 구독 및 리소스 그룹에서 서버를 동적으로 이동하는 것은 현재 지원되지 않습니다.
-
-### <a name="vnet-service-endpoints"></a>VNet 서비스 끝점
+### <a name="vnet-service-endpoints"></a>VNet 서비스 엔드포인트
 - VNet 서비스 엔드포인트는 범용 및 메모리 최적화 서버에 대해서만 지원됩니다.
 
 ### <a name="restoring-a-server"></a>서버 복원

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 09/12/2018
 ms.author: jingwang
-ms.openlocfilehash: 4a0800dccca3a43d49204dfbcc32e7778449ae6e
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: b0e9f72bad685d569b4a09baecec8cebc33fefde
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442088"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717899"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SQL Server 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -475,6 +475,9 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 ```
 
 저장된 프로시저 기능은 [테이블 값 매개 변수](https://msdn.microsoft.com/library/bb675163.aspx)을 이용합니다.
+
+>[!NOTE]
+>저장 프로시저를 호출하여 Money/Smallmoney 데이터 형식에 쓰는 경우에는 값이 반올림될 수 있습니다. TVP의 해당 데이터 형식을 Money/Smallmoney대신 Decimal로 지정하면 이 현상을 완화합니다. 
 
 ## <a name="data-type-mapping-for-sql-server"></a>SQL Server에 대한 데이터 형식 매핑
 

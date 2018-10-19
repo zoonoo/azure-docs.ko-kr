@@ -9,15 +9,17 @@ ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 07/14/2017
-ms.openlocfilehash: bf98562224c2da770541f731ba93ec2e5dc1718d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 42982e3fa0a854109a6b887640604498ac68847c
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041323"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632262"
 ---
 # <a name="run-u-sql-and-debug-locally-in-visual-studio-code"></a>Visual Studio Code로 로컬에서 U-SQL 실행 및 디버그
-이 문서에서는 로컬 개발 컴퓨터에서 U-SQL 작업을 실행하여 초기 코딩 단계를 가속화하거나 Visual Studio Code로 로컬에서 코드를 디버그하는 방법을 설명합니다. Azure Data Lake Tools for Visual Studio Code에 대한 지침을 보려면 [Azure Data Lake Tools for Visual Studio Code 사용](data-lake-analytics-data-lake-tools-for-vscode.md)을 참조하세요. 
+이 문서에서는 로컬 개발 컴퓨터에서 U-SQL 작업을 실행하여 초기 코딩 단계를 가속화하거나 Visual Studio Code로 로컬에서 코드를 디버그하는 방법을 설명합니다. Azure Data Lake Tools for Visual Studio Code에 대한 지침을 보려면 [Azure Data Lake Tools for Visual Studio Code 사용](data-lake-analytics-data-lake-tools-for-vscode.md)을 참조하세요.
+
+Azure Data Lake Tools for Visual Studio의 Windows 설치만 U-SQL을 로컬로 실행하고 U-SQL을 로컬로 디버그하는 작업을 지원합니다. macOS 및 Linux 기반 운영 체제 설치는 이 기능을 지원하지 않습니다.
 
 ## <a name="set-up-the-u-sql-local-run-environment"></a>U-SQL 로컬 실행 환경 설정
 

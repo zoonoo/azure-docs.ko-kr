@@ -9,14 +9,14 @@ keywords: Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서
 ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 12/12/2017
+ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 9f538b48918bdde923c6dbf3999302e45b955035
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 54ac616f97ba034893721ff62fc6157dd045b5f8
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092413"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126828"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 개발자 참조
 
@@ -36,10 +36,24 @@ Azure Functions는 C# 및 C# 스크립트 프로그래밍 언어를 지원합니
 Visual Studio에서 **Azure Functions** 프로젝트 템플릿은 다음 파일이 포함된 C# 클래스 라이브러리 프로젝트를 만듭니다.
 
 * [host.json](functions-host-json.md) -로컬로 또는 Azure에서 실행될 경우 프로젝트의 모든 함수에 영향을 주는 구성 설정을 저장합니다.
-* [local.settings.json](functions-run-local.md#local-settings-file) - 로컬로 실행될 때 사용되는 앱 설정 및 연결 문자열을 저장합니다.
+* [local.settings.json](functions-run-local.md#local-settings-file) - 로컬로 실행될 때 사용되는 앱 설정 및 연결 문자열을 저장합니다. 이 파일은 암호를 포함하며 Azure의 함수 앱에 게시되지 않습니다. 대신 [앱 설정을 함수 앱에 추가](functions-develop-vs.md#function-app-settings)해야 합니다.
+
+프로젝트를 빌드할 때 빌드 출력 디렉터리에 다음과 같은 폴더 구조가 생성됩니다.
+
+```
+<framework.version>
+ | - bin
+ | - MyFirstFunction
+ | | - function.json
+ | - MySecondFunction
+ | | - function.json
+ | - host.json
+```
+
+이 디렉터리는 Azure의 함수 앱에 배포되는 디렉터리입니다. Functions 런타임의 [버전 2.x](functions-versions.md)에 필요한 바인딩 확장은 [NuGet 패키지로 프로젝트에 추가](functions-triggers-bindings.md#c-class-library-with-visual-studio-2017)됩니다.
 
 > [!IMPORTANT]
-> 빌드 프로세스는 각 함수에 대해 *function.json* 파일을 만듭니다. 이 *function.json* 파일은 직접 편집할 수 없습니다. 이 파일을 편집하여 바인딩 구성을 변경하거나 함수를 사용하지 않도록 설정할 수 없습니다. 기능을 사용하지 않도록 설정하려면 [Disable](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) 특성을 사용합니다. 예를 들어 부울 앱 설정 MY_TIMER_DISABLED를 추가하고 함수에 `[Disable("MY_TIMER_DISABLED")]`를 적용합니다. 그런 다음 앱 설정을 변경하여 사용하거나 사용하지 않도록 설정할 수 있습니다.
+> 빌드 프로세스는 각 함수에 대해 *function.json* 파일을 만듭니다. 이 *function.json* 파일은 직접 편집할 수 없습니다. 이 파일을 편집하여 바인딩 구성을 변경하거나 함수를 사용하지 않도록 설정할 수 없습니다. 함수를 사용하지 않도록 설정하는 방법을 알아보려면 [함수를 사용하지 않도록 설정하는 방법](disable-function.md#functions-2x---c-class-libraries)을 참조하세요.
 
 ## <a name="methods-recognized-as-functions"></a>함수로 인식되는 메서드
 

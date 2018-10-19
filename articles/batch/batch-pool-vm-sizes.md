@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 09/12/2018
 ms.author: danlep
-ms.openlocfilehash: 1669d5a2237322f72dce3b172c32e7199900a4e0
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 987cbcc642152a4077cc895ad06e43ac56113497
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038574"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544067"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 계산 노드에 대한 VM 크기 선택
 
@@ -41,8 +41,8 @@ Virtual Machine 구성의 Batch 풀은 다음을 *제외한* 모든 VM 크기([L
 | 기본 A 시리즈 | Basic_A0(A0) |
 | A 시리즈 | Standard_A0 |
 | B 시리즈 | 모두 |
-| M 시리즈 | 모두 |
 
+M 시리즈 VM은 낮은 우선 순위 노드에 대해서만 지원됩니다.
 
 
 ### <a name="pools-in-cloud-service-configuration"></a>Cloud Service 구성의 풀

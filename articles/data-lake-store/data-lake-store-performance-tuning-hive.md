@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Store Hive 성능 조정 지침 | Microsoft Docs
-description: Azure Data Lake Store Hive 성능 조정 지침
+title: Azure Data Lake Storage Gen1 Hive 성능 조정 지침 | Microsoft Docs
+description: Azure Data Lake Storage Gen1 Hive 성능 조정 지침
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -12,28 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: c46eb1b2da62d70337e60066ed0706c3a4fdedcf
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e9d0ad0398dfc238d48060247cdb6f29b0f34a60
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198972"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123337"
 ---
-# <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-store"></a>HDInsight의 Hive 및 Azure Data Lake Store에 대한 성능 조정 지침
+# <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>HDInsight의 Hive 및 Azure Data Lake Storage Gen1에 대한 성능 조정 지침
 
-서로 다른 여러 사용 사례 간에 적절한 성능을 제공하도록 기본 설정이 지정되었습니다.  I/O 집약적인 쿼리에 대해 ADLS로 더 나은 성능을 얻도록 Hive를 조정할 수 있습니다.  
+서로 다른 여러 사용 사례 간에 적절한 성능을 제공하도록 기본 설정이 지정되었습니다.  I/O 집약적인 쿼리의 경우 Azure Data Lake Storage Gen1로 더 나은 성능을 얻도록 Hive를 조정할 수 있습니다.  
 
 ## <a name="prerequisites"></a>필수 조건
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **Azure 데이터 레이크 저장소 계정**. 만드는 방법에 대한 지침은 [Azure 데이터 레이크 저장소 시작](data-lake-store-get-started-portal.md)
-* **Azure HDInsight 클러스터** 입니다. [Data Lake Store가 있는 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
+* **Data Lake Storage Gen1 계정**. 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)을 참조하세요.
+* Data Lake Storage Gen1 계정에 대한 액세스 권한이 있는 **Azure HDInsight 클러스터**. [Data Lake Storage Gen1을 사용하여 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
 * **HDInsight에서 Hive 실행**.  HDInsight에서 Hive 작업 실행에 대한 자세한 내용은 [HDInsight의 Hive 사용](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)을 참조하세요.
-* **ADLS에서 성능 조정 지침**.  일반적인 성능 개념은 [Data Lake Store 성능 조정 지침](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)을 참조하세요.
+* **Data Lake Storage Gen1 성능 조정 지침**.  일반적인 성능 개념은 [Data Lake Storage Gen1 성능 조정 지침](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)을 참조하세요.
 
 ## <a name="parameters"></a>매개 변수
 
-ADLS 성능 향상을 위해 조정할 가장 중요한 설정은 다음과 같습니다.
+Data Lake Storage Gen1 성능 향상을 위해 조정할 가장 중요한 설정은 다음과 같습니다.
 
 * **hive.tez.container.size** – 각 태스크에 사용된 메모리 양
 
@@ -63,7 +63,7 @@ I/O 집약적인 워크로드의 경우 Tez 컨테이너 크기를 줄여 더 �
 
         Total YARN memory = nodes * YARN memory per node
         # of YARN containers = Total YARN memory / Tez container size
-ADLS를 사용하여 성능을 개선하기 위한 핵심은 가능한 동시성을 늘리는 것입니다.  Tez가 생성할 태스크 수를 자동으로 계산하므로 설정할 필요가 없습니다.   
+Data Lake Storage Gen1을 사용하여 성능을 개선하기 위한 핵심은 가능한 동시성을 늘리는 것입니다.  Tez가 생성할 태스크 수를 자동으로 계산하므로 설정할 필요가 없습니다.   
 
 ## <a name="example-calculation"></a>계산 예
 
@@ -75,9 +75,9 @@ ADLS를 사용하여 성능을 개선하기 위한 핵심은 가능한 동시성
 
 ## <a name="limitations"></a>제한 사항
 
-**ADLS 제한** 
+**Data Lake Storage Gen1 제한** 
 
-ADLS에서 제공하는 대역폭 한계에 도달한 경우 태스크 오류가 표시됩니다. 이것은 태스크 로그에서 제한 오류를 확인하여 파악할 수 있습니다.  Tez 컨테이너 크기를 늘려 병렬 처리를 줄일 수 있습니다.  작업에 대한 동시성이 더 필요한 경우 문의하세요.
+Data Lake Storage Gen1에서 제공하는 대역폭 한도에 도달한 경우 작업 오류가 표시되기 시작합니다. 이것은 태스크 로그에서 제한 오류를 확인하여 파악할 수 있습니다.  Tez 컨테이너 크기를 늘려 병렬 처리를 줄일 수 있습니다.  작업에 대한 동시성이 더 필요한 경우 문의하세요.
 
 제한 여부를 확인하려면 클라이언트 쪽에서 디버그 로깅을 사용하도록 설정해야 합니다. 그 방법은 다음과 같습니다.
 

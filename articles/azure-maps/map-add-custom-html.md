@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5060839be244f55700b40735e598964a0b7b6709
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: e5cfbc7ddc10edf9b21afce73e3b7f8795fcdac9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382048"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121960"
 ---
 # <a name="add-custom-html-to-the-map"></a>지도에 사용자 지정 HTML 추가
 
-이 문서는 지도에 이미지 파일과 같은 사용자 지정 HTML을 추가하는 방법을 보여줍니다. 
+이 문서는 지도에 이미지 파일과 같은 사용자 지정 HTML을 추가하는 방법을 보여줍니다.
 
 ## <a name="understand-the-code"></a>코드 이해
 
@@ -33,11 +33,15 @@ ms.locfileid: "43382048"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다. 
-* [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-    * [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addhtml)
-    
-맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요. 
-* [검색 결과 표시](./map-search-location.md)
-* [좌표에서 정보 가져오기](./map-get-information-from-coordinate.md)
+이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
+> [!div class="nextstepaction"]
+> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+
+맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요.
+
+> [!div class="nextstepaction"]
+> [검색 결과 표시](./map-search-location.md)
+
+> [!div class="nextstepaction"]
+> [좌표에서 정보 가져오기](./map-get-information-from-coordinate.md)

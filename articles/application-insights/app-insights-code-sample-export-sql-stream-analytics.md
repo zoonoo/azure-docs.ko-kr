@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/06/2015
+ms.date: 09/11/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7d4bf0c5beeba22569e0000b28b007fb5b0ff68f
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 70086cdff3ed313d2b6851139ca8c8a937426aab
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294179"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716794"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>연습: Stream Analytics를 사용하여 Application Insights에서 SQL로 내보내기
 이 문서에서는 [연속 내보내기][export] 및 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)을 사용하여 [Azure Application Insights][start]에서 Azure SQL Database로 원격 분석 데이터를 이동하는 방법을 보여줍니다. 
@@ -143,21 +143,21 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 ## <a name="create-an-azure-stream-analytics-instance"></a>Azure Stream Analytics 인스턴스 만들기
 [Azure Portal](https://portal.azure.com/)에서 Azure Stream Analytics 서비스를 선택하고 새 Stream Analytics 작업을 만듭니다.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/SA001.png)
+![Stream Analytics 설정](./media/app-insights-code-sample-export-sql-stream-analytics/SA001.png)
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/SA002.png)
 
 새 작업이 만들어질 때 **리소스로 이동**을 선택합니다.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/SA003.png)
+![Stream Analytics 설정](./media/app-insights-code-sample-export-sql-stream-analytics/SA003.png)
 
 #### <a name="add-a-new-input"></a>새 입력 추가
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/SA004.png)
+![Stream Analytics 설정](./media/app-insights-code-sample-export-sql-stream-analytics/SA004.png)
 
 연속 내보내기 Blob에서 입력을 가져오도록 설정합니다.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/SA005.png)
+![Stream Analytics 설정](./media/app-insights-code-sample-export-sql-stream-analytics/SA0005.png)
 
 이제 앞에서 기록해 둔 Storage 계정의 기본 액세스 키가 필요합니다. 이 키를 Storage 계정 키로 설정합니다.
 

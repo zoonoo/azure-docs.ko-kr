@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
-ms.openlocfilehash: 42fde31851968434eef2983f24b0fd01d5386d7e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 8045a7c775bd79cf46ba2de3609541023e9208a8
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906259"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575715"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-ffiec-financial-services"></a>Azure 보안 및 규정 준수 청사진 - FFIEC Financial Services용 분석
 
@@ -31,7 +31,7 @@ FFIEC 규격을 취득하려면 자격 있는 감사자가 프로덕션 고객 �
 
 Azure는 고객에게 다양한 보고 및 분석 서비스를 제공합니다. 이 솔루션은 Azure Machine Learning 서비스를 Azure SQL Database와 통합하여 데이터를 빠르게 탐색하고 더 효율적인 모델링을 통해 더 빠른 결과를 제공합니다. Azure Machine Learning은 데이터 집합 간의 새로운 관계를 검색하여 쿼리 속도를 높입니다. 데이터가 여러 통계 함수를 통해 학습되면 쿼리 워크로드를 분산하고 응답 시간을 줄이기 위해 최대 7개의 추가 쿼리 풀(고객 서버를 포함하여 총 8개)을 동일한 테이블 형식 모델과 동기화할 수 있습니다.
 
-향상된 분석 및 보고를 위해 columnstore 인덱스를 사용하여 Azure SQL Database를 구성할 수 있습니다. Azure Machine Learning 및 Azure SQL Database는 모두 고객의 사용량에 따라 확장/축소하거나 완전히 종료할 수 있습니다. 모든 SQL 트래픽은 자체 서명된 인증서를 포함하여 SSL로 암호화됩니다. Azure는 강화된 보안을 위해 신뢰할 수 있는 인증 기관을 사용하는 것이 가장 좋습니다.
+향상된 분석 및 보고를 위해 columnstore 인덱스를 사용하여 Azure SQL 데이터베이스를 구성할 수 있습니다. Azure Machine Learning 및 Azure SQL 데이터베이스는 모두 고객의 사용에 따라 확장 또는 축소하거나 완전히 종료할 수 있습니다. 모든 SQL 트래픽은 자체 서명된 인증서를 포함하여 SSL로 암호화됩니다. Azure는 강화된 보안을 위해 신뢰할 수 있는 인증 기관을 사용하는 것이 가장 좋습니다.
 
 데이터가 Azure SQL Database에 업로드되고 Azure Machine Learning에서 학습되면, 운영 사용자와 SQL/데이터 관리자는 모두 Power BI를 사용하여 이러한 데이터를 요약합니다. Power BI는 직관적으로 데이터를 표시하고, 더 많은 통찰력을 얻기 위해 여러 데이터 집합에서 정보를 가져옵니다. 높은 수준의 적응성과 Azure SQL Database와의 손쉬운 통합에 따라 고객은 비즈니스 요구 사항에 따라 다양한 시나리오를 처리하도록 구성할 수 있습니다.
 
@@ -68,7 +68,7 @@ Azure SQL Database는 일반적으로 보안 VPN 또는 ExpressRoute 연결을 �
 
 다음 섹션에서는 개발 및 구현 요소에 대해 자세히 설명합니다.
 
-**Azure Event Grid**: [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview)를 사용하면 고객이 이벤트 기반 아키텍처를 통해 응용 프로그램을 쉽게 구축할 수 있습니다. 사용자는 구독하려는 Azure 리소스를 선택하고, 이벤트를 보내는 끝점을 이벤트 처리기 또는 웹후크에 제공합니다. 고객은 이벤트 구독을 만들 때 웹후크 URL에 쿼리 매개 변수를 추가하여 웹후크 엔드포인트를 보호할 수 있습니다. Azure Event Grid는 HTTPS 웹후크 엔드포인트만 지원합니다. Azure Event Grid를 사용하면 고객이 여러 사용자에게 부여된 액세스 수준을 제어하여 이벤트 구독 나열, 새 구독 만들기 및 키 생성과 같은 다양한 관리 작업을 수행할 수 있습니다. Event Grid는 Azure 역할 기반 액세스 제어를 활용합니다.
+**Azure Event Grid**: [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview)를 사용하면 고객이 이벤트 기반 아키텍처를 통해 응용 프로그램을 쉽게 구축할 수 있습니다. 사용자는 구독하려는 Azure 리소스를 선택하고, 이벤트를 보내는 엔드포인트를 이벤트 처리기 또는 웹후크에 제공합니다. 고객은 이벤트 구독을 만들 때 웹후크 URL에 쿼리 매개 변수를 추가하여 웹후크 엔드포인트를 보호할 수 있습니다. Azure Event Grid는 HTTPS 웹후크 엔드포인트만 지원합니다. Azure Event Grid를 사용하면 고객이 여러 사용자에게 부여된 액세스 수준을 제어하여 이벤트 구독 나열, 새 구독 만들기 및 키 생성과 같은 다양한 관리 작업을 수행할 수 있습니다. Event Grid는 Azure 역할 기반 액세스 제어를 활용합니다.
 
 **Azure Functions**: [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)는 인프라를 명시적으로 프로비전하거나 관리하지 않고도 사용자가 요청 시 코드를 실행할 수 있도록 하는 서버리스 계산 서비스입니다. Azure Functions를 사용하여 다양한 이벤트에 대한 응답으로 스크립트 또는 코드 조각을 실행합니다.
 
@@ -140,7 +140,7 @@ Azure 환경에서 데이터에 대한 액세스를 관리하는 기능을 제�
 
 **Azure Security Center**: [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)를 사용하면 고객은 워크로드에서 보안 정책을 중앙 집중식으로 적용하고 관리하며, 위협에 대한 노출을 제한하고, 공격을 감지하고 대응할 수 있습니다. 또한 Azure Security Center는 Azure 서비스의 기존 구성에 액세스하여 보안 상태를 개선하고 데이터를 보호하는 데 유용한 구성과 서비스 권장 사항을 제공합니다.
 
-Azure Security Center는 다양한 검색 기능을 사용하여 고객에게 환경을 대상으로 하는 잠재적인 공격에 대해 경고합니다. 이러한 경고는 트리거된 경고, 대상으로 지정된 리소스 및 공격의 출처에 대한 중요한 정보를 포함합니다. Azure Security Center에는 위협 또는 의심스러운 활동이 발생할 때 트리거되는 [미리 정의된 보안 경고](https://docs.microsoft.com/en-us/azure/security-center/security-center-alerts-type) 집합이 있습니다. Azure Security Center에서 [사용자 지정 경고 규칙](https://docs.microsoft.com/en-us/azure/security-center/security-center-custom-alert)을 사용하면 고객은 자신의 환경에서 이미 수집된 데이터를 기반으로 하는 새 보안 경고를 정의할 수 있습니다.
+Azure Security Center는 다양한 검색 기능을 사용하여 고객에게 환경을 대상으로 하는 잠재적인 공격에 대해 경고합니다. 이러한 경고는 트리거된 경고, 대상으로 지정된 리소스 및 공격의 출처에 대한 중요한 정보를 포함합니다. Azure Security Center에는 위협 또는 의심스러운 활동이 발생할 때 트리거되는 [미리 정의된 보안 경고](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) 집합이 있습니다. Azure Security Center에서 [사용자 지정 경고 규칙](https://docs.microsoft.com/azure/security-center/security-center-custom-alert)을 사용하면 고객은 자신의 환경에서 이미 수집된 데이터를 기반으로 하는 새 보안 경고를 정의할 수 있습니다.
 
 Azure Security Center에서는 우선 순위가 지정된 보안 경고 및 인시던트를 제공하여 고객이 잠재적인 보안 문제를 더 쉽게 검색하고 해결하게 합니다. [위협 인텔리전스 보고서](https://docs.microsoft.com/azure/security-center/security-center-threat-report)는 인시던트 대응 팀이 위협을 조사하고 수정하도록 지원하기 위해 탐지된 각 위협에 대해 생성됩니다.
 
@@ -155,7 +155,7 @@ Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위
 다음 Log Analytics [관리 솔루션](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)은 이 아키텍처의 일부로 포함됩니다.
 -   [Active Directory 평가](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Active Directory 상태 검사 솔루션은 표준 간격으로 서버 환경의 위험과 상태를 평가하고 배포된 서버 인프라에 관련된 권장 사항의 우선 순위 목록을 제공합니다.
 - [SQL 평가](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): SQL 상태 확인 솔루션은 일정한 간격으로 서버 환경의 위험과 상태를 평가하고, 배포된 서버 인프라에 관련된 권장 사항의 우선 순위 목록을 고객에게 제공합니다.
-- [에이전트 상태](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-solution-agenthealth): 에이전트 상태 솔루션은 배포되는 에이전트 수와 해당 지리적 분포, 응답이 없는 에이전트 수 및 운영 데이터를 제출하는 에이전트 수를 보고합니다.
+- [에이전트 상태](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): 에이전트 상태 솔루션은 배포되는 에이전트 수와 해당 지리적 분포, 응답이 없는 에이전트 수 및 운영 데이터를 제출하는 에이전트 수를 보고합니다.
 -   [활동 로그 분석](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): 활동 로그 분석 솔루션은 고객에 대한 모든 Azure 구독에서 Azure 활동 로그를 분석하는 데 도움을 줍니다.
 
 **Azure Automation**: [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker)은 Runbook을 저장, 실행 및 관리합니다. 이 솔루션에서 Runbook은 Azure SQL Database에서 로그를 수집하는 데 도움이 됩니다. Automation [변경 내용 추적](https://docs.microsoft.com/azure/automation/automation-change-tracking) 솔루션을 사용하면 고객이 환경의 변경 내용을 쉽게 파악할 수 있습니다.

@@ -10,16 +10,19 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: dbb9261cfce0a8437cfe76121fa16aa87c4b3393
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 583d2ac5a8ac4c236612cdfe78595da1812c56fa
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786802"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730769"
 ---
 #   <a name="text-split-cognitive-skill"></a>텍스트 분할 인식 기술
 
 **분할 텍스트** 기술은 텍스트를 텍스트의 청크로 나눕니다. 텍스트를 문장으로 또는 특정 길이의 페이지로 나눌 것인지 여부를 지정할 수 있습니다. 이 기술은 다른 기술 다운스트림에서 최대 텍스트 길이 요구 사항이 있는 경우 특히 유용합니다. 
+
+> [!NOTE]
+> 인식 검색은 현재 공개 미리 보기로 제공됩니다. 기능 실행과 이미지 추출 및 정규화는 현재 무료로 제공됩니다. 이러한 기능의 가격은 추후에 발표될 예정입니다. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.SplitSkill 
@@ -132,4 +135,4 @@ Microsoft.Skills.Text.SplitSkill
 ## <a name="see-also"></a>참고 항목
 
 + [미리 정의된 기술](cognitive-search-predefined-skills.md)
-+ [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
++ [기능을 정의하는 방법](cognitive-search-defining-skillset.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 73a23ace23d2373e238c6887c4a41c6037d233de
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 12f7e466bdfd6d9b6cf1c36df4daf1e76cc417f2
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189007"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729827"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에 Windows IoT Core 장치 연결
 
@@ -48,7 +48,10 @@ Windows IoT Core 장치를 설정하려면 [Windows IoT Core 장치 설정](http
 
 ### <a name="add-a-real-device"></a>실제 장치 추가
 
-Azure IoT Central 응용 프로그램에서 **Windows IoT Core** 장치 템플릿으로 실제 장치를 추가하고 장치 연결 문자열을 기록해 둡니다. 자세한 내용은 [Azure IoT Central 응용 프로그램에 실제 장치 추가](tutorial-add-device.md)를 참조하세요.
+Azure IoT Central 응용 프로그램에서 **Windows IoT Core** 장치 템플릿으로 실제 장치를 추가하고 장치 연결 정보(**범위 ID, 장치 ID, 기본 키**)를 기록해 둡니다. 자세한 내용은 [Azure IoT Central 응용 프로그램에 실제 장치 추가](tutorial-add-device.md)를 참조하세요.
+
+ > [!NOTE]
+   > Azure IoT Central은 모든 장치 연결에 Azure IoT Hub DPS(Device Provisioning Service)를 사용하도록 전환되었습니다. 다음 지침에 따라 [장치 연결 문자열을 가져오고](concepts-connectivity.md#getting-device-connection-string) 자습서의 나머지 부분을 계속합니다.
 
 ## <a name="prepare-the-windows-10-iot-core-device"></a>Windows 10 IoT Core 장치 준비
 
@@ -66,7 +69,7 @@ Azure IoT Central과 통신할 수 있는 클라이언트 응용 프로그램도
 * 데스크톱에서 connection.string.iothub라는 텍스트 파일에 연결 문자열을 저장합니다.
 * 텍스트 파일을 장치의 문서 폴더(`[device-IP-address]\C$\Data\Users\DefaultAccount\Documents\connection.string.iothub`)에 복사합니다.
 
-복사했으면 아무 브라우저에 http://[device-IP-address]:8080을 입력하여 [Windows 장치 포털](https://docs.microsoft.com/en-us/windows/iot-core/manage-your-device/deviceportal)을 열어야 합니다.
+복사했으면 아무 브라우저에 http://[device-IP-address]:8080을 입력하여 [Windows 장치 포털](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal)을 열어야 합니다.
 
 이 포털에서 아래와 같이 다음 작업을 수행합니다.
 1. 왼쪽에서 "앱" 노드를 확장합니다.

@@ -3,14 +3,14 @@ title: Azure Site Recovery의 VMware와 Azure 간 복제 아키텍처 | Microsof
 description: 이 문서에서는 Azure Site Recovery를 사용하여 온-프레미스 VMware VM을 Azure로 복제할 때 사용되는 구성 요소 및 아키텍처에 대한 개요를 제공합니다.
 author: rayne-wiselman
 ms.service: site-recovery
-ms.date: 08/29/2018
+ms.date: 09/12/2018
 ms.author: raynew
-ms.openlocfilehash: 4a97c44226d875a08f81a6306fc9ddd4ee29c409
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 498c41324bfc85f6f91acc8000df4c34856cf428
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288144"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715757"
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>VMware에서 Azure로 복제 아키텍처
 
@@ -36,16 +36,23 @@ ms.locfileid: "43288144"
 
 ## <a name="replication-process"></a>복제 프로세스
 
-1. VM에 대한 복제를 사용하도록 설정하면 복제 정책에 따라 복제되기 시작합니다. 
+1. VM에 대해 복제를 사용하도록 설정하면 지정된 복제 정책을 사용하여 Azure Storage에 초기 복제가 시작됩니다. 다음 사항에 유의하세요.
+    - VMware VM의 경우 복제는 VM에서 실행 중인 모바일 서비스 에이전트를 사용하여 블록 수준에서 거의 지속적으로 이루어집니다.
+    - 복제 정책 설정이 적용됩니다.
+        - **RPO 임계값**: 이 설정은 복제에 영향을 주지 않습니다. 모니터링에 도움이 됩니다. 현재 RPO가 지정 임계값 한도를 초과하는 경우 이벤트가 발생하고 선택적으로 메일이 전송됩니다.
+        - **복구 지점 보존**: 이 설정은 중단이 발생하는 경우 얼마나 오래전으로 되돌아갈지 지정합니다. 프리미엄 저장소의 최대 보존 기간은 24시간입니다. 표준 저장소의 경우는 72시간입니다. 
+        - **앱 일치 스냅숏**: 앱의 요구 사항에 따라 1시간에서 12시간마다 앱 일치 스냅숏을 만들 수 있습니다. 스냅숏은 표준 Azure Blob 스냅숏입니다. VM에서 실행되는 모바일 에이전트는 이 설정에 따라 VSS 스냅숏을 요청하며 이 특정 시점을 복제 스트림의 응용 프로그램 일치 지점으로 북마크합니다.
+
 2. 트래픽은 인터넷을 통해 Azure Storage 공용 엔드포인트에 복제됩니다. Azure ExpressRoute과 [공용 피어링](../expressroute/expressroute-circuit-peerings.md#azure-public-peering)을 함께 사용할 수도 있습니다. 온-프레미스 사이트에서 Azure로의 사이트 간 VPN(가상 사설망)을 통한 트래픽 복제는 지원되지 않습니다.
-3. VM 데이터의 초기 복사본은 Azure Storage에 복제됩니다.
-4. 초기 복제가 완료되면 Azure에 대한 델타 변경 내용의 복제가 시작됩니다. .hrl 파일에는 컴퓨터에 대한 추적된 변경 내용이 유지됩니다.
-5. 다음과 같이 통신이 발생합니다.
+3. 초기 복제가 완료되면 Azure에 대한 델타 변경 내용의 복제가 시작됩니다. 머신의 추적된 변경 내용이 프로세스 서버로 전송됩니다.
+4. 다음과 같이 통신이 발생합니다.
 
     - VM은 복제 관리를 위해 HTTPS 443 인바운드 포트에 대한 온-프레미스 구성 서버와 통신합니다.
     - 구성 서버는 HTTPS 443 아웃바운드 포트를 통해 Azure를 사용하는 복제를 오케스트레이션합니다.
     - VM은 HTTPS 9443 인바운드 포트의 프로세스 서버(구성 서버 컴퓨터에서 실행)로 복제 데이터를 전송합니다. 이 포트는 수정할 수 있습니다.
     - 프로세스 서버는 복제 데이터를 수신하고, 이를 최적화 및 암호화하며, 443 아웃바운드 포트를 통해 Azure Storage로 보냅니다.
+
+
 
 
 **VMware에서 Azure로 복제 프로세스**

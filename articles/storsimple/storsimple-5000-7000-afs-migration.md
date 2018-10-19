@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: d54394a8dc74d04f1922a78826b10a4a421d193b
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: aad5b2d2e451f33a3f4f365fa0702eef5d698e4e
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42814593"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729166"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>StorSimple 5000-7000 시리즈에서 Azure 파일 동기화로 데이터 마이그레이션
 
@@ -56,8 +56,7 @@ AFS로 전환하는 동안 고려해야 하는 사항은 다음과 같습니다.
 - StorSimple 볼륨은 호스트에 탑재되고 파일 공유를 포함합니다.
 - 호스트에는 로컬로 캐시된 데이터를 저장할 수 있을 만큼 충분한 로컬 저장소가 있습니다.
 - Azure 파일 동기화를 배포하는 데 사용할 Azure 구독에 소유자 수준 권한으로 액세스합니다. 소유자 또는 관리자 수준의 권한이 없으면 동기화 그룹에 대한 클라우드 엔드포인트를 만들 때 문제가 발생할 수 있습니다.
-- 동기화하려는 Azure 파일 공유가 있는 [범용 v2 저장소 계정](https://docs.microsoft.com/azure/storage/common/storage-account-options)에 액세스합니다. 자세한 내용은 다음을 참조하세요. 
- - [범용 v2 저장소 계정을 만드는 방법](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal#create-a-general-purpose-storage-account)
+- 동기화하려는 Azure 파일 공유가 있는 [범용 v2 저장소 계정](https://docs.microsoft.com/azure/storage/common/storage-account-overview)에 액세스합니다. 자세한 내용은 [저장소 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) 를 참조하세요.
  - [Azure 파일 공유를 만드는 방법](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share#create-file-share-through-the-azure-portal)
 
 ## <a name="migration-process"></a>마이그레이션 프로세스

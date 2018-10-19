@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/28/2018
+ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 1afd64fbd7019164f0e1f5c850f2dcd8250cdbfc
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: db2f3086da41e990e6f87d8086d6e8defa447532
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600339"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543445"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Cosmos DB 간 데이터 복사
 
@@ -34,10 +34,14 @@ Azure Cosmos DB에서 모든 지원되는 싱크 데이터 저장소로 또는 �
 
 특히 이 Azure Cosmos DB 커넥터는 다음을 지원합니다.
 
-- Cosmos DB [SQL API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction)
+- Cosmos DB [SQL API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction)에서/로 데이터 복사.
+- INSERT 또는 UPSERT로 Cosmos DB에 쓰기.
 - JSON 문서를 있는 그대로 가져오기/내보내기 또는 표 형식 데이터 집합(예: SQL 데이터베이스, CSV 파일 등) 간 데이터 복사 JSON 파일 또는 다른 Cosmos DB 컬렉션 간 있는 그대로 문서를 복사하려면 [JSON 문서 Import/Export](#importexport-json-documents)를 참조하세요.
 
 Data Factory는 Cosmos DB에 최상의 성능을 제공하기 위해 [Cosmos DB 대량 실행기 라이브러리](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)와 통합됩니다.
+
+>[!TIP]
+>Azure Blob Storage에서 Cosmos DB로 데이터를 복사하는 방법을 단계적으로 안내하고 Cosmos DB 데이터 수집과 관련한 성능 조정 고려 사항에 대해 일반적으로 설명하는 [이 비디오](https://youtu.be/5-SRNiC_qOU)를 시청합니다.
 
 ## <a name="getting-started"></a>시작
 
@@ -82,7 +86,7 @@ Azure Cosmos DB 연결된 서비스에 다음 속성이 지원됩니다.
 
 Azure Cosmos DB 간 데이터를 복사하려면 데이터 집합의 type 속성을 **DocumentDbCollection**으로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 데이터 집합의 type 속성을 **DocumentDbCollection**으로 설정해야 합니다. |yes |
 | collectionName |Cosmos DB 문서 컬렉션의 이름입니다. |yes |

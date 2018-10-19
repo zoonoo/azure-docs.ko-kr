@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 9f84686f8689a40cf002035053236b415481488f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 496ffdcb5cc2e7b208a53dc8c1d8ba4c0818945f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838353"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719973"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Azure Machine Learning Python 클라이언트 라이브러리를 사용하여 Python으로 데이터 집합에 액세스
 Microsoft Azure Machine Learning Python 클라이언트 라이브러리 미리보기를 사용하면 로컬 Python 환경에서 Azure Machine Learning 데이터 집합으로 안전하게 액세스할 수 있고, 작업 영역에 데이터 집합을 생성하여 관리할 수 있습니다.
@@ -65,7 +65,7 @@ Python, IPython 및 설치된 것으로 위에 나열된 세 가지 패키지와
 ## <a name="datasetAccess"></a>스튜디오 코드 조각을 사용하여 데이터 집합에 액세스
 Python 클라이언트 라이브러리를 사용하면 실행된 기존 데이터 집합에 프로그래밍 방식으로 액세스할 수 있습니다.
 
-스튜디오 웹 인터페이스에서 필요한 모든 정보를 포함하는 코드 조간을 생성하여 로컬 컴퓨터에 Pandas DataFrame 개체로 데이터 집합을 다운로드하고 역직렬화할 수 있습니다.
+스튜디오 웹 인터페이스에서 필요한 모든 정보를 포함하는 코드 조각을 생성하여 로컬 머신에 Pandas DataFrame 개체로 데이터 집합을 다운로드하고 역직렬화할 수 있습니다.
 
 ### <a name="security"></a>데이터 액세스를 위한 보안
 스튜디오에서 Python 클라이언트 라이브러리와 함께 사용하도록 제공하는 코드 조각에는 작업 영역 ID와 권한 부여 토큰이 포함되어 있습니다. 이러한 코드 조각은 작업 영역에 대한 전체 액세스 권한을 제공하고 암호와 같이 보호되어야 합니다.
