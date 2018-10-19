@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: b261ec5fb0ad437202df1a8fd8683a095cb1bb96
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 03280f87b4b49b3e42091c6b1572a7f050afb336
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42140520"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983166"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Azure 파일의 공유 스냅숏 개요 
 Azure 파일은 파일 공유의 공유 스냅숏을 생성하는 기능을 제공합니다. 공유 스냅숏은 특정 시점의 공유 상태를 캡처합니다. 이 문서에서는 공유 스냅숏이 제공하는 기능 및 사용자 지정 사용 사례에 이를 용할 수 있는 방법을 설명합니다.
@@ -32,7 +32,7 @@ Azure 파일은 파일 공유의 공유 스냅숏을 생성하는 기능을 제�
 ## <a name="capabilities"></a>기능
 공유 스냅숏은 데이터의 특정 시점 읽기 전용 복사본입니다. REST API를 사용하여 스냅숏을 만들고 삭제하고 관리할 수 있습니다. 클라이언트 라이브러리, Azure CLI 및 Azure Portal에서도 같은 기능을 사용할 수 있습니다. 
 
-REST API 및 SMB 둘 다를 사용하여 공유의 스냅숏을 볼 수 있습니다. 디렉터리 또는 파일의 버전 목록을 검색할 수 있으며 특정 버전을 드라이브로 직접 탑재할 수도 있습니다. 
+REST API 및 SMB 둘 다를 사용하여 공유의 스냅숏을 볼 수 있습니다. 디렉터리 또는 파일의 버전 목록을 검색할 수 있으며 특정 버전을 드라이브로 직접 탑재할 수도 있습니다(Windows에서만 사용 가능 - [한도](#limits) 참조). 
 
 공유 스냅숏이 생성된 후에는 읽거나 복사하거나 삭제할 수 있지만 수정할 수는 없습니다. 전체 공유 스냅숏을 다른 저장소 계정으로 복사할 수는 없습니다. AzCopy 또는 다른 복사 메커니즘을 사용하여 파일별로 작업을 수행해야 합니다.
 
@@ -62,6 +62,8 @@ http://storagesample.file.core.windows.net/myshare?snapshot=2011-03-09T01:42:34.
 Azure Files에서 허용하는 최대 공유 스냅숏 수는 200개입니다. 공유 스냅숏 200이후로 새 공유 스냅숏을 생성하려면 이전 공유 스냅숏을 삭제해야 합니다. 
 
 공유 스냅숏 생성을 위한 동시 호출에는 제한이 없습니다. 특정 파일 공유의 공유 스냅숏이 사용할 수 있는 공간의 양에는 제한이 없습니다. 
+
+오늘은 Linux에서 공유 스냅숏을 탑재할 수 없습니다. 이는 Linux SMB 클라이언트가 Windows와 같은 스냅숏 탑재를 지원하지 않기 때문입니다.
 
 ## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>공유 스냅숏에서 공유로 데이터 다시 복사
 파일 및 공유 스냅숏과 관련된 복사 작업에는 다음 규칙이 적용됩니다.

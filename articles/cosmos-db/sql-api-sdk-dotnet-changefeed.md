@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: 443cb2786c12bddd87535a7267d66c0332473b1b
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 6c4dafa5b15548b3dbc02a9c093232197b3f1400
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42143687"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716556"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -42,6 +42,10 @@ ms.locfileid: "42143687"
 ## <a name="release-notes"></a>릴리스 정보
 
 ### <a name="v2-builds"></a>v2 빌드
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* 새 API인 Task&lt;IReadOnlyList&lt;RemainingPartitionWork&gt;&gt; IRemainingWorkEstimator.GetEstimatedRemainingWorkPerPartitionAsync()를 추가했습니다. 각 파티션에 대해 예상되는 작업을 구하는 데 사용할 수 있습니다.
+* Microsoft.Azure.DocumentDB SDK 2.0을 지원합니다. Microsoft.Azure.DocumentDB 2.0 이상이 필요합니다.
 
 ### <a name="a-name206206"></a><a name="2.0.6"/>2.0.6
 * v1을 사용하여 호환성에 대한 ChangeFeedEventHost.HostName 공용 속성이 추가되었습니다.

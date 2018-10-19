@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 6643db7b732cc5b01ce7602eb3d679c130c46720
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: eab55f6e2bf909ccdbdb30a8ced34dbc58d3954a
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972199"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721333"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 보안 기술 기능
 
@@ -43,7 +43,7 @@ Microsoft Azure를 사용하면 다음과 같은 작업을 수행할 수 있습�
 
 ## <a name="scope"></a>범위
 
-이 백서에서는 Microsoft Azure의 핵심 구성 요소, 즉 [Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-introduction), [Microsoft Azure SQL Database](https://docs.microsoft.com/azure/sql-database/), [Microsoft Azure의 가상 컴퓨터 모델](https://docs.microsoft.com/azure/virtual-machines/)과 이를 관리하는 도구 및 인프라를 지원하는 보안 특징 및 기능을 중점적으로 소개합니다. 또한 이 백서는 고객이 데이터의 보안 및 개인 정보 보호를 이행하는 데 사용할 수 있는 Microsoft Azure 기술 기능에 주안점을 둡니다.
+이 백서에서는 Microsoft Azure의 핵심 구성 요소, 즉 [Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-introduction), [Microsoft Azure SQL Database](https://docs.microsoft.com/azure/sql-database/), [Microsoft Azure의 가상 머신 모델](https://docs.microsoft.com/azure/virtual-machines/)과 이를 관리하는 도구 및 인프라를 지원하는 보안 특징 및 기능을 중점적으로 소개합니다. 또한 이 백서는 고객이 데이터의 보안 및 개인 정보 보호를 이행하는 데 사용할 수 있는 Microsoft Azure 기술 기능에 주안점을 둡니다.
 
 이러한 공유 책임 모델을 이해하는 것은 클라우드로 전환하려는 고객에게 필수적입니다. 클라우드 공급자는 보안 및 규정 준수 활동에 대해 상당한 이점을 제공하지만 이러한 장점만으로 고객이 데이터, 응용 프로그램 및 서비스 제품을 보호하지 않아도 되는 것은 아닙니다.
 
@@ -167,8 +167,7 @@ Azure의 액세스 제어는 결제 관점에서 시작합니다. [Azure 계정 
 
 또한 구독은 디렉터리와 연결되어 있습니다. 디렉터리는 사용자 집합을 정의합니다. 사용자 집합은 디렉터리를 만든 회사 또는 학교 사용자이거나 외부 사용자(즉, Microsoft 계정)일 수 있습니다. 구독은 서비스 관리자(SA) 또는 CA(공동 관리자)로 할당된 해당 디렉터리 사용자의 하위 집합에서 액세스할 수 있습니다. 유일한 예외는 레거시의 이유로 Microsoft 계정(이전의 Windows Live ID)이 디렉터리에 없는 SA 또는 CA로 할당될 수 있다는 점입니다.
 
-보안 지향적 회사는 직원에게 정확히 필요한 권한을 제공하는 데 중점을 두어야 합니다. 권한이 너무 많으면 공격자에게 계정이 노출될 수 있고, 권한이 너무 적으면 직원이 업무를 효율적으로 수행할 수 없습니다. 
-  [Azure 역할 기반 Access Control(RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)은 Azure에 대한 세밀한 액세스 관리를 제공하여 이 문제를 해결하도록 도와줍니다.
+보안 지향적 회사는 직원에게 정확히 필요한 권한을 제공하는 데 중점을 두어야 합니다. 권한이 너무 많으면 공격자에게 계정이 노출될 수 있고, 권한이 너무 적으면 직원이 업무를 효율적으로 수행할 수 없습니다. [Azure 역할 기반 Access Control(RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)은 Azure에 대한 세밀한 액세스 관리를 제공하여 이 문제를 해결하도록 도와줍니다.
 
 ![보안 리소스 액세스 ](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
 

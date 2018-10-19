@@ -12,17 +12,17 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/26/2018
+ms.date: 09/17/2018
 ms.author: ryanwi
-ms.openlocfilehash: e3da081f9b327031d6d1e0afd2f2fb52383bf933
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b670b767a631e453bd58069fd69720bd1ab7c20a
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212071"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983563"
 ---
 # <a name="service-fabric-terminology-overview"></a>서비스 패브릭 용어 개요
-Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. 이 문서에서는 설명서에서 사용되는 용어를 이해할 수 있도록 Service Fabric에서 사용되는 용어에 대해 자세히 설명합니다.
+Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다.  Azure, 온-프레미스 데이터 센터 또는 모든 클라우드 공급자에서 [어디서나 Service Fabric 클러스터를 호스트](service-fabric-deploy-anywhere.md)할 수 있습니다.  Service Fabric은 [Azure Service Fabric Mesh](/azure/service-fabric-mesh)를 작동하는 오케스트레이터입니다. 임의 프레임워크를 사용하여 서비스를 작성하고, 여러 환경 선택 항목 중에서 응용 프로그램을 실행할 위치를 선택할 수 있습니다. 이 문서에서는 설명서에서 사용되는 용어를 이해할 수 있도록 Service Fabric에서 사용되는 용어에 대해 자세히 설명합니다.
 
 이 섹션에 나열된 개념은 Microsoft Virtual Academy 비디오, <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">핵심 개념인</a>, <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tlkI046yC_2906218965">디자인 타임 개념</a> 및 <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=x7CVH56yC_1406218965">런타임 개념</a>에서도 설명됩니다.
 
@@ -31,14 +31,44 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 
 **노드**: 클러스터의 일부인 컴퓨터 또는 VM으로, *노드*라고 합니다. 각 노드는 노드 이름(문자열)에 할당됩니다. 노드는 배치 속성과 같은 특징이 있습니다. 각 컴퓨터 또는 VM이 Windows 서비스인 `FabricHost.exe`를 자동으로 시작하여 부팅을 실행하기 시작한 다음 `Fabric.exe` 및 `FabricGateway.exe`라는 두 개의 실행 파일을 시작합니다. 이러한 두 실행 파일이 노드를 구성합니다. 테스트 시나리오에서는 `Fabric.exe` 및 `FabricGateway.exe`와 같은 여러 인스턴스를 실행하여 단일 컴퓨터 또는 VM에 여러 노드를 호스트할 수 있습니다.
 
-## <a name="application-concepts"></a>응용 프로그램 개념
+## <a name="application-and-service-concepts"></a>응용 프로그램 및 서비스 개념
+
+**Service Fabric Mesh 응용 프로그램**: Service Fabric Mesh 응용 프로그램은 리소스 모델(YAML 및 JSON 리소스 파일)에 의해 설명되며 Service Fabric이 실행되는 모든 환경에 배포될 수 있습니다.
+
+**Service Fabric 네이티브 응용 프로그램**: Service Fabric 네이티브 응용 프로그램은 네이티브 응용 프로그램 모델(XML 기반 응용 프로그램 및 서비스 매니페스트)에 의해 설명됩니다.  Service Fabric 네이티브 응용 프로그램은 Service Fabric Mesh에서 실행할 수 없습니다.
+
+### <a name="service-fabric-mesh-application-concepts"></a>Service Fabric Mesh 응용 프로그램 개념
+
+**응용 프로그램**: 응용 프로그램은 Mesh 응용 프로그램 배포, 버전 관리 및 수명의 단위입니다. 각 응용 프로그램 인스턴스의 수명 주기를 독립적으로 관리할 수 있습니다.  응용 프로그램은 하나 이상의 서비스 코드 패키지 및 설정으로 구성됩니다. 응용 프로그램은 Azure RM(Resource Model) 스키마를 사용하여 정의됩니다.  서비스는 RM 템플릿의 응용 프로그램 리소스 속성으로 설명됩니다.  응용 프로그램이 사용하는 네트워크 및 볼륨이 응용 프로그램에서 참조됩니다.  응용 프로그램을 만들면 응용 프로그램, 서비스, 네트워크 및 볼륨이 Service Fabric 리소스 모델을 사용하여 모델링됩니다.
+
+**서비스**: 응용 프로그램의 서비스는 마이크로 서비스를 나타내고 완전한 독립 실행형 기능을 수행합니다. 각 서비스는 코드 패키지와 관련된 컨테이너 이미지를 실행하는 데 필요한 모든 항목을 설명하는 하나 이상의 코드 패키지로 구성됩니다.  응용 프로그램의 서비스 수를 강화 및 규모 축소할 수 있습니다.
+
+**네트워크**: 네트워크 리소스는 응용 프로그램의 개인 네트워크를 만들고 이를 참조할 수 있는 응용 프로그램 또는 서비스에 독립적입니다. 서로 다른 응용 프로그램의 여러 서비스가 동일한 네트워크에 속할 수 있습니다. 네트워크는 응용 프로그램에서 참조하는 배포 가능한 리소스입니다.
+
+**코드 패키지**: 코드 패키지는 다음을 포함하여 코드 패키지와 연결된 컨테이너 이미지를 실행하는 데 필요한 모든 것을 설명합니다.
+
+* 컨테이너 이름, 버전 및 레지스트리
+* 각 컨테이너에 대한 필요한 CPU 및 메모리 리소스
+* 네트워크 엔드포인트
+* 별도 볼륨 리소스를 참조하는 컨테이너에 탑재할 볼륨
+
+응용 프로그램 리소스의 일부로 정의된 모든 코드 패키지를 배포하고 그룹으로 함께 활성화합니다.
+
+**볼륨**: 볼륨은 상태를 유지하는 데 사용할 수 있는 컨테이너 인스턴스 내에 탑재된 디렉터리입니다. Azure Files 볼륨 드라이버는 Azure Files 공유를 컨테이너에 탑재하고 파일 저장소를 지원하는 모든 API를 통해 신뢰할 수 있는 데이터 저장소를 제공합니다. 볼륨은 응용 프로그램에서 참조하는 배포 가능한 리소스입니다.
+
+### <a name="service-fabric-native-application-concepts"></a>Service Fabric 네이티브 응용 프로그램 개념
+
+**응용 프로그램**: 응용 프로그램은 특정 기능을 수행하는 구성 서비스 컬렉션입니다. 각 응용 프로그램 인스턴스의 수명 주기를 독립적으로 관리할 수 있습니다.
+
+**서비스**: 서비스는 완전한 독립 실행형 기능을 수행하며 다른 서비스와 독립적으로 시작할 수 있습니다. 서비스는 코드, 구성 및 데이터로 이루어집니다. 각 서비스에 대해 코드는 실행 가능한 이진으로 구성되고, 구성은 런타임에 로드할 수 있는 서비스 설정으로 이루어지고, 데이터는 서비스에서 사용할 임의의 정적 데이터로 구성됩니다.
+
 **응용 프로그램 유형**: 이름/버전이 서비스 형식의 컬렉션에 할당됩니다. `ApplicationManifest.xml` 파일에 정의되고 응용 프로그램 패키지 디렉터리에 포함합니다. 그런 다음 이 디렉터리는 Service Fabric 클러스터의 이미지 저장소에 복사됩니다. 그런 다음 클러스터 내에서 이 응용 프로그램 형식에서 명명된 응용 프로그램을 만들 수 있습니다.
 
 자세한 내용은 [응용 프로그램 모델](service-fabric-application-model.md) 문서를 참조하세요.
 
 **응용 프로그램 패키지**: 응용 프로그램 유형의 `ApplicationManifest.xml` 파일을 포함하는 디스크 디렉터리입니다. 응용 프로그램 형식을 구성하는 각 서비스 형식에 대한 서비스 패키지를 참조합니다. 응용 프로그램 패키지 디렉터리에 있는 파일은 서비스 패브릭 클러스터의 이미지 저장소에 복사됩니다. 예를 들어 전자 메일 응용 프로그램 유형에 대한 응용 프로그램 패키지는 큐 서비스 패키지, 프런트 엔드 서비스 패키지 및 데이터베이스 서비스 패키지에 대한 참조를 포함할 수 있습니다.
 
-**명명된 응용 프로그램**: 응용 프로그램 패키지를 이미지 저장소에 복사한 후 클러스터 내에서 응용 프로그램의 인스턴스를 만듭니다. 해당 이름 또는 버전을 사용하여 응용 프로그램 패키지의 응용 프로그램 유형을 지정할 때 인스턴스를 만듭니다. 각 응용 프로그램 유형 인스턴스에 `"fabric:/MyNamedApp"`과 같은 URI(Uniform Resource Identifier) 이름이 할당됩니다. 클러스터 내에서 단일 응용 프로그램 형식에서 여러 명명된 응용 프로그램을 만들 수 있습니다. 또한 다른 형식의 응용 프로그램에서 명명된 응용 프로그램을 만들 수 있습니다. 명명된 응용 프로그램은 각각 독립적으로 관리되고 버전이 지정됩니다.      
+**명명된 응용 프로그램**: 응용 프로그램 패키지를 이미지 저장소에 복사한 후 클러스터 내에서 응용 프로그램의 인스턴스를 만듭니다. 해당 이름 또는 버전을 사용하여 응용 프로그램 패키지의 응용 프로그램 유형을 지정할 때 인스턴스를 만듭니다. 각 응용 프로그램 유형 인스턴스에 `"fabric:/MyNamedApp"`과 같은 URI(Uniform Resource Identifier) 이름이 할당됩니다. 클러스터 내에서 단일 응용 프로그램 형식에서 여러 명명된 응용 프로그램을 만들 수 있습니다. 또한 다른 형식의 응용 프로그램에서 명명된 응용 프로그램을 만들 수 있습니다. 명명된 응용 프로그램은 각각 독립적으로 관리되고 버전이 지정됩니다.
 
 **서비스 유형**: 서비스의 코드 패키지, 데이터 패키지 및 구성 패키지에 할당된 이름/버전입니다. 서비스 유형은 `ServiceManifest.xml` 파일에 정의되고 서비스 패키지 디렉터리에 포함됩니다. 그런 다음 서비스 패키지 디렉터리는 응용 프로그램 패키지의 `ApplicationManifest.xml` 파일에서 참조됩니다. 클러스터 내에서 명명된 응용 프로그램을 만든 후에 응용 프로그램 형식의 서비스 형식 중 하나에서 명명된 서비스를 만들 수 있습니다. 서비스 형식의 `ServiceManifest.xml` 파일은 서비스에서 설명합니다.
 
@@ -59,8 +89,8 @@ Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하�
 
 **코드 패키지**: 서비스 형식의 실행 파일(일반적으로 EXE/DLL 파일)을 포함한 디스크 디렉터리입니다. 서비스 형식의 `ServiceManifest.xml` 파일에서 코드 패키지 디렉터리에 파일을 참조합니다. 명명된 서비스를 만들면 코드 패키지는 명명된 서비스를 실행하기 위해 선택된 하나 이상의 노드로 복사됩니다. 그러면 코드가 실행되기 시작합니다. 코드 패키지 실행 파일은 다음과 같은 두 종류가 있습니다.
 
-* **게스트 실행 파일**: 호스트 운영 체제(Windows 또는 Linux)에서 그대로 실행되는 실행 파일입니다. 이러한 실행 파일은 연결하거나 Service Fabric 런타임 파일을 참조하지 않으며 따라서 Service Fabric 프로그래밍 모델 중 하나를 사용하지 않습니다. 이러한 실행 파일은 끝점 검색을 위해 이름 지정 서비스와 같은 일부 Service Fabric 기능을 사용할 수 없습니다. 게스트 실행 파일은 각 서비스 인스턴스와 관련된 부하 메트릭을 보고할 수 없습니다.
-* **서비스 호스트 실행 파일**: Service Fabric 런타임 파일에 연결하여 Service Fabric 프로그래밍 모델을 사용하는 실행 파일로, Service Fabric 기능을 사용하도록 설정합니다. 예를 들어 명명된 서비스 인스턴스는 서비스 패브릭의 이름 지정 서비스를 사용하여 끝점을 등록할 수 있고 부하 메트릭을 보고할 수도 있습니다.      
+* **게스트 실행 파일**: 호스트 운영 체제(Windows 또는 Linux)에서 그대로 실행되는 실행 파일입니다. 이러한 실행 파일은 연결하거나 Service Fabric 런타임 파일을 참조하지 않으며 따라서 Service Fabric 프로그래밍 모델 중 하나를 사용하지 않습니다. 이러한 실행 파일은 엔드포인트 검색을 위해 이름 지정 서비스와 같은 일부 Service Fabric 기능을 사용할 수 없습니다. 게스트 실행 파일은 각 서비스 인스턴스와 관련된 부하 메트릭을 보고할 수 없습니다.
+* **서비스 호스트 실행 파일**: Service Fabric 런타임 파일에 연결하여 Service Fabric 프로그래밍 모델을 사용하는 실행 파일로, Service Fabric 기능을 사용하도록 설정합니다. 예를 들어 명명된 서비스 인스턴스는 서비스 패브릭의 이름 지정 서비스를 사용하여 엔드포인트를 등록할 수 있고 부하 메트릭을 보고할 수도 있습니다.
 
 **데이터 패키지**: 서비스 형식의 정적인 읽기 전용 데이터 파일을 포함하는 디스크 디렉터리입니다(일반적으로 사진, 사운드 및 비디오 파일). 서비스 형식의 `ServiceManifest.xml` 파일에서 데이터 패키지 디렉터리에 파일을 참조합니다. 명명된 서비스를 만들면 데이터 패키지는 명명된 서비스를 실행하기 위해 선택된 하나 이상의 노드로 복사됩니다. 이 코드는 실행되기 시작하며, 이제 데이터 파일에 액세스할 수 있습니다.
 
@@ -94,8 +124,17 @@ Naming Service와 연동되는 클라이언트 및 서비스 통신 API에 대�
    - [실버 및 골드 내구성](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Azure Service Fabric 클러스터에서 Azure 유지 관리 복구를 수행하는 데 사용됩니다.
    - [패치 오케스트레이션 응용 프로그램](service-fabric-patch-orchestration-application.md)에 대한 복구 작업을 수행하는 데 사용됩니다.
 
-## <a name="built-in-programming-models"></a>기본 제공 프로그래밍 모델
-Service Fabric 서비스를 작성하는 데 사용할 수 있는 .NET Framework 및 Java 프로그래밍 모델이 있습니다.
+## <a name="deployment-and-application-models"></a>배포 및 응용 프로그램 모델 
+
+서비스를 배포하려면 어떻게 실행할지를 설명해야 합니다. Service Fabric은 다음 세 가지 배포 모델을 지원합니다.
+
+### <a name="resource-model-preview"></a>리소스 모델(미리 보기)
+Service Fabric 리소스는 응용 프로그램, 서비스, 네트워크 및 볼륨을 포함하여 Service Fabric에 개별적으로 배포할 수 있는 모든 항목입니다. 리소스는 클러스터 엔드포인트에 배포할 수 있는 JSON 파일을 사용하여 정의됩니다.  Service Fabric Mesh의 경우 Azure 리소스 모델 스키마가 사용됩니다. 또한, YAML 파일 스키마를 사용하여 좀 더 쉽게 정의 파일을 작성할 수도 있습니다. Service Fabric이 실행되기만 하면 어디든지 리소스를 배포할 수 있습니다. 리소스 모델은 Service Fabric 응용 프로그램을 설명하는 가장 간단한 방법입니다. 주로 컨테이너화된 서비스의 간단한 배포 및 관리에 중점을 둡니다. 자세한 내용은 [Service Fabric 리소스 모델 소개](/azure/service-fabric-mesh/service-fabric-mesh-service-fabric-resources)를 참조하세요.
+
+### <a name="native-model"></a>네이티브 모델
+네이티브 응용 프로그램 모델은 Service Fabric에 대한 모든 하위 수준 액세스를 응용 프로그램에 제공합니다. 응용 프로그램 및 서비스는 XML 매니페스트 파일에서 등록된 유형으로 정의됩니다.
+
+네이티브 모델은 C# 및 Java로 작성된 Service Fabric 런타임 API 및 클러스터 관리 API에 대한 액세스를 제공하는 Reliable Services 및 Reliable Actors 프레임워크를 지원합니다. 네이티브 모델은 임의 컨테이너 및 실행 파일도 지원합니다. [Service Fabric Mesh 환경](/azure/service-fabric-mesh/service-fabric-mesh-overview)에서는 네이티브 모델이 지원되지 않습니다.
 
 **Reliable Services**: 상태 비저장 및 상태 저장 서비스를 구축하는 API입니다. 상태 저장 서비스는 신뢰할 수 있는 컬렉션(예: 사전 또는 큐)에 자신의 상태를 저장합니다. 또한 웹 API 및 WCF(Windows Communication Foundation)와 같은 다양한 통신 스택에 연결할 수 있습니다.
 
@@ -109,6 +148,33 @@ Service Fabric에서 기존 응용 프로그램을 실행할 수도 있습니다
 
 자세한 내용은 [서비스에 대한 프로그래밍 모델 선택](service-fabric-choose-framework.md) 문서를 참조하세요.
 
+### <a name="docker-compose"></a>Docker Compose 
+[Docker Compose](https://docs.docker.com/compose/)는 Docker 프로젝트의 일부입니다. Service Fabric은 [Docker Compose 모델을 사용한 응용 프로그램 배포](service-fabric-docker-compose.md)를 제한적으로 지원합니다.
+
+## <a name="environments"></a>환경
+
+Service Fabric은 여러 서비스 및 제품의 기초가 되는 오픈 소스 플랫폼 기술입니다. Microsoft에서는 다음과 같은 옵션을 제공합니다.
+
+ - **Azure Service Fabric Mesh**: Microsoft Azure에서 Service Fabric 응용 프로그램을 실행하기 위한 완전히 관리되는 서비스입니다.
+ - **Azure Service Fabric**: Azure 호스팅 Service Fabric 클러스터 제품입니다. Service Fabric 클러스터의 업그레이드 및 구성 관리와 함께 Service Fabric과 Azure 인프라 간의 통합을 제공합니다.
+ - **Service Fabric 독립 실행형**: [임의 위치(온-프레미스 또는 임의 클라우드 공급자)에 Service Fabric 클러스터를 배포](/azure/service-fabric/service-fabric-deploy-anywhere)하기 위한 설치 및 구성 도구 집합입니다. Azure에서 관리되지 않습니다.
+ - **Service Fabric 개발 클러스터**: Service Fabric 응용 프로그램 개발을 위해 Windows, Linux 또는 Mac에서 로컬 개발 환경을 제공합니다.
+
+## <a name="environment-framework-and-deployment-model-support-matrix"></a>환경, 프레임워크 및 배포 모델 지원 매트릭스
+프레임워크 및 배포 모델에 대한 지원 수준은 환경마다 다릅니다. 다음 표에서는 지원되는 프레임워크 및 배포 모델 조합에 대해 설명합니다.
+
+| 응용 프로그램 유형 | 설명 방법 | Azure Service Fabric Mesh | Azure Service Fabric 클러스터(모든 OS)| 로컬 클러스터 | 독립 실행형 클러스터 |
+|---|---|---|---|---|---|---|---|---|---|
+| Service Fabric Mesh 응용 프로그램 | 리소스 모델(YAML 및 JSON) | 지원됨 |지원되지 않음 | Windows - 지원됨, Linux 및 Mac - 지원되지 않음 | Windows - 지원되지 않음 |
+|Service Fabric 네이티브 응용 프로그램 | 네이티브 응용 프로그램 모델(XML) | 지원되지 않음| 지원됨|지원됨|Windows - 지원됨|
+
+다음 표에서는 다양한 응용 프로그램 모델 및 Service Fabric에 대한 응용 프로그램 모델의 도구에 대해 설명합니다.
+
+| 응용 프로그램 유형 | 설명 방법 | Visual Studio | (예: Eclipse | SFCTL | AZ CLI | PowerShell|
+|---|---|---|---|---|---|---|---|---|---|
+| Service Fabric Mesh 응용 프로그램 | 리소스 모델(YAML 및 JSON) | VS 2017 |지원되지 않음 |지원되지 않음 | 지원됨 - Mesh 환경만 | 지원되지 않음|
+|Service Fabric 네이티브 응용 프로그램 | 네이티브 응용 프로그램 모델(XML) | VS 2017 및 VS 2015| 지원됨|지원됨|지원됨|지원됨|
+
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>다음 단계
 서비스 패브릭에 대해 자세히 알아보려면 다음을 참고하세요.
@@ -117,4 +183,6 @@ Service Fabric에서 기존 응용 프로그램을 실행할 수도 있습니다
 * [응용 프로그램 구축에 마이크로 서비스 접근 방식이 필요한 이유](service-fabric-overview-microservices.md)
 * [응용 프로그램 시나리오](service-fabric-application-scenarios.md)
 
+Service Fabric Mesh를 자세히 알아보려면 다음을 참고하세요.
 
+* [Service Fabric Mesh 개요](/azure/service-fabric-mesh/service-fabric-mesh-overview)

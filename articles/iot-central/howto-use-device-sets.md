@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: d0b802842d60d68bab36e87913a84c5e40b8e431
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 28706ad77f48ae826b621ebdd920d26f3b87178a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39206074"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731985"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에 장치 집합 사용
 
@@ -50,7 +50,7 @@ ms.locfileid: "39206074"
 
 1. **대시보드** 탭을 선택합니다.
 
-1. **디자인 모드**를 켭니다.
+1. **템플릿 편집**을 클릭합니다.
 
     ![디자인 모드 켜기](media/howto-use-device-sets/image3.png)
 
@@ -58,9 +58,6 @@ ms.locfileid: "39206074"
 
 1. 링크 타일 추가:
     1. 오른쪽 창에서 **링크**를 선택합니다.
-
-        ![링크 선택](media/howto-use-device-sets/image6.png)
-
     1. 링크 **제목**을 지정합니다.
     1. 링크를 클릭할 때 열리는 URL을 선택합니다.
     1. **제목** 아래에 표시될 링크 설명을 입력합니다.
@@ -87,38 +84,26 @@ ms.locfileid: "39206074"
     > [!NOTE]
     > 여러 이미지, 링크 및 그리드를 추가할 수 있습니다.
   
-    1. **디자인 모드**를 끕니다.
+    1. **Done**을 클릭합니다.
 
     ![디자인 모드 끄기](media/howto-use-device-sets/image10.png)
 
 
 ### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>장치 집합 대시보드에서 위치 맵 구성 
-맵에서 장치 집합 위치를 시각화하려면 위치 맵을 추가할 수 있습니다. 
+맵에서 장치 집합 위치를 시각화하려면 위치 맵을 추가할 수 있습니다.
 
 장치 템플릿에서 위치 속성을 구성한 장치 집합 대시보드에 위치 맵을 추가하려면 [Azure Maps에서 제공하는 위치 속성 만들기](howto-set-up-template.md)를 참조합니다.
 
 
-1. 장치 집합 대시보드의 라이브러리에서 Map을 선택합니다. 
+1. 장치 집합 대시보드의 라이브러리에서 맵을 선택합니다.
 
     ![장치 집합 대시보드 맵](media/howto-use-device-sets/LocationMaps1.png)
 
-
 2. 제목을 지정하고 전에 장치 속성의 일부로 구성한 위치 속성을 선택합니다.
-
-    ![대시보드 맵 구성](media/howto-use-device-sets/LocationMaps2.png)
-
 3. 저장하면 장치 집합에서 장치 위치를 표시하는 지도 타일이 표시됩니다.
-
-    ![대시보드 맵 저장](media/howto-use-device-sets/LocationMaps3.png)
-
-
-5. 이제 연산자가 장치 집합 대시보드를 볼 때 한 번에 모든 장치 위치를 시각화하려면 위치 맵을 포함해 지금까지 구성한 모든 타일을 볼 수 있습니다! 
-
-    ![대시보드 맵 연산자 보기](media/howto-use-device-sets/LocationMaps4.png)
-
-    지도를 원하는 크기로 크기를 조정할 수 있습니다.
-
-    맵에서 핀을 클릭하면 장치 정보, 이름 및 위치가 표시됩니다. 팝업 항목을 클릭하여 장치 속성 페이지로 이동할 수 있습니다.  
+4. 이제 연산자가 장치 집합 대시보드를 볼 때 한 번에 모든 장치 위치를 시각화하려면 위치 맵을 포함해 지금까지 구성한 모든 타일을 볼 수 있습니다! 
+    
+[!NOTE] 지도를 원하는 크기로 크기를 조정할 수 있습니다. 맵에서 핀을 클릭하면 장치 정보, 이름 및 위치가 표시됩니다. 팝업 항목을 클릭하여 장치 속성 페이지로 이동할 수 있습니다.  
 
 
 ## <a name="configure-the-list-for-your-device-set"></a>장치 집합에 대한 목록 구성

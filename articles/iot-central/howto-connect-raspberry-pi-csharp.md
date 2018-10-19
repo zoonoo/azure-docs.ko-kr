@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 63843797cca7fe84cdb9ce91d2282b1c0c288f0c
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: a9390ac9046ad1e0ec5a1689052ee99bf76ec6f4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205139"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734238"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Azure IoT Central 응용 프로그램에 Raspberry Pi 연결(C#)
 
@@ -262,6 +262,9 @@ Visual Studio Code를 사용하여 다음 단계를 완료할 수 있습니다. 
 ## <a name="run-your-net-application"></a>.NET 응용 프로그램 실행
 
 장치가 Azure IoT Central에 인증할 장치 관련 연결 문자열을 코드에 추가합니다. Azure IoT Central 응용 프로그램에 실제 장치를 추가할 때 이 연결 문자열을 기록해 두었습니다.
+
+  > [!NOTE]
+   > Azure IoT Central은 모든 장치 연결에 Azure IoT Hub DPS(Device Provisioning Service)를 사용하도록 전환되었습니다. 다음 지침에 따라 [장치 연결 문자열을 가져오고](concepts-connectivity.md#getting-device-connection-string) 자습서의 나머지 부분을 계속합니다.
 
 1. **Program.cs** 파일의 `{your device connection string}`을 앞에서 기록해 둔 연결 문자열로 바꿉니다.
 

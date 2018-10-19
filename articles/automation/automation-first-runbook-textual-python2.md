@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/26/2018
+ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 386c2ecfdac44158f5d87034657491fa9598e3ad
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: b621c6b9af60637e8bb818545746923c22926ac4
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018236"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984986"
 ---
 # <a name="my-first-python-runbook"></a>내 첫 번째 Python Runbook
 
@@ -92,15 +92,15 @@ Runbook을 게시하면 초안 버전으로 기존의 게시된 버전을 덮어
 ## <a name="add-authentication-to-manage-azure-resources"></a>Azure 리소스를 관리하는 인증 추가
 
 지금까지 Runbook을 테스트 하고 게시했지만, 딱히 유용하지는 않습니다. Azure 리소스를 관리하려고 합니다.
-Azure 리소스를 관리하려면 스크립트가 [자동화 계정](automation-offering-get-started.md)의 자격 증명을 사용하여 인증해야 합니다.
+Azure 리소스를 관리하려면 스크립트가 Automation 계정의 자격 증명을 사용하여 인증해야 합니다. [Azure Automation 유틸리티 패키지](https://github.com/azureautomation/azure_automation_utility)를 사용하면 더욱 간편하게 Azure 리소스를 인증하고 조작할 수 있습니다.
 
 > [!NOTE]
-> 인증서로 실행하려면 자동화 계정이 서비스 주체 기능으로 만들어져야 합니다.
+> 실행 인증서를 만들려면 서비스 주체 기능을 사용하여 Automation 계정을 만들어야 합니다.
 > 서비스 주체를 사용하여 자동화 계정을 만들지 않은 경우 [Python용 Azure 관리 라이브러리를 사용하여 인증](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate)에서 설명하는 방법을 사용하여 인증할 수 있습니다.
 
 1. MyFirstRunbook-Python 창에서 **편집**을 클릭하여 텍스트 편집기를 엽니다.
 
-1. 다음 코드를 추가하여 Azure에 인증합니다.
+2. 다음 코드를 추가하여 Azure에 인증합니다.
 
    ```python
    import os
@@ -160,7 +160,7 @@ async_vm_start = compute_client.virtual_machines.start("MyResourceGroup", "TestV
 async_vm_start.wait()
 ```
 
-여기서 _MyResourceGroup_은 VM을 포함하는 리소스 그룹의 이름이고 _TestVM_은 시작하려는 VM의 이름입니다. 
+여기서 _MyResourceGroup_은 VM을 포함하는 리소스 그룹의 이름이고 _TestVM_은 시작하려는 VM의 이름입니다.
 
 Runbook을 다시 테스트 및 실행하여 VM이 시작되는지 확인합니다.
 

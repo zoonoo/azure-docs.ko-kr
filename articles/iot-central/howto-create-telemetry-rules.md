@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 5913df2d4dc286fad63760c95f54e0dbc717acdc
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 1b82ac3bf67370a2c39e85bf5691da38539edb74
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246730"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729329"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에서 원격 분석 규칙을 만들고 알림 설정
+
+‘이 문서는 운영자, 빌더 및 관리자에게 적용됩니다.’
 
 Azure IoT Central을 사용하여 원격으로 연결된 장치를 모니터링할 수 있습니다. Azure IoT Central 규칙을 사용하여 장치를 거의 실시간으로 모니터링하고, 이메일 보내기 또는 Microsoft Flow 트리거 등의 작업을 자동으로 호출합니다. 클릭 몇 번으로 장치 데이터를 모니터링하는 조건을 정의하고 해당 작업을 구성할 수 있습니다. 이 문서에서는 장치에서 보낸 원격 분석을 모니터링하는 규칙을 만드는 방법을 설명합니다.
 
@@ -36,9 +38,9 @@ Azure IoT Central을 사용하여 원격으로 연결된 장치를 모니터링�
 
     ![규칙 없음](media\howto-create-telemetry-rules\Rules_Landing_Page.png)
 
-1. **규칙** 탭에서 **+ 새 규칙**을 클릭하면 만들 수 있는 규칙 유형이 표시됩니다.
+1. **규칙** 탭에서 **템플릿 편집**을 클릭한 후 **+ 새 규칙**을 클릭하여 만들 수 있는 규칙 유형을 확인합니다.
 
-1. **원격 분석** 타일을 클릭하여 장치 원격 분석을 모니터링하는 규칙을 만듭니다.
+1. **원격 분석**을 클릭하여 장치 원격 분석을 모니터링하기 위한 규칙을 만듭니다.
 
     ![규칙 유형](media\howto-create-telemetry-rules\Rule_Types.png)
 
@@ -72,7 +74,7 @@ Azure IoT Central을 사용하여 원격으로 연결된 장치를 모니터링�
 
 ### <a name="configure-actions"></a>작업 구성
 
-이 섹션에서는 규칙이 실행될 때 수행할 작업을 설정하는 방법을 보여 줍니다. 규칙에 지정된 모든 조건이 true로 평가될 경우 작업이 호출됩니다.
+이 섹션에서는 규칙이 실행될 때 수행할 작업을 설정하는 방법을 보여줍니다. 규칙에 지정된 모든 조건이 true로 평가될 경우 작업이 호출됩니다.
 
 1. **작업** 옆에 있는 **+** 기호를 선택합니다. 사용 가능한 작업 목록을 표시됩니다.  
 
@@ -87,7 +89,9 @@ Azure IoT Central을 사용하여 원격으로 연결된 장치를 모니터링�
 
 1. 규칙을 저장하려면 **저장**을 선택합니다. 몇 분 이내에 규칙이 적용되어 응용 프로그램으로 전송되는 원격 분석 데이터의 모니터링이 시작됩니다. 규칙에 지정된 조건이 일치하는 경우 규칙이 구성된 이메일 작업을 트리거합니다.
 
-Microsoft Flow 및 웹후크와 같은 다른 작업을 규칙에 추가할 수 있습니다. 규칙당 최대 5개의 작업을 추가할 수 있습니다.
+1. **완료**를 선택하여 **템플릿 편집** 모드를 종료합니다.
+
+Microsoft Flow 및 webhook와 같은 다른 작업을 규칙에 추가할 수 있습니다. 규칙당 최대 5개의 작업을 추가할 수 있습니다.
 
 - [Microsoft Flow 작업](howto-add-microsoft-flow.md): 규칙이 트리거되면 Microsoft Flow에서 워크플로를 시작합니다. 
 - [웹후크 작업](howto-create-webhooks.md): 규칙이 트리거되면 다른 서비스에 알립니다.
@@ -117,5 +121,5 @@ Microsoft Flow 및 웹후크와 같은 다른 작업을 규칙에 추가할 수 
 Azure IoT Central 응용 프로그램에서 규칙을 만드는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
 
 - [규칙에 Microsoft Flow 작업 추가](howto-add-microsoft-flow.md)
-- [규칙에 웹후크 작업 추가](howto-create-webhooks.md)
+- [규칙에 Webhook 작업 추가](howto-create-webhooks.md)
 - [장치를 관리하는 방법](howto-manage-devices.md)

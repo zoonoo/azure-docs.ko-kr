@@ -6,14 +6,14 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 01/29/2018
+ms.date: 09/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: dd696330c9ee78ef84ac9fcf85946c837ad5b824
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 56f233afed8c403d19c9b668e98ecfec45470b64
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188020"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721622"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>CLI를 사용하여 원격 모니터링 솔루션 가속기 배포
 
@@ -54,7 +54,7 @@ pcs login
 | SKU    | `basic`, `standard`, `local` | _기본_ 배포는 테스트 및 데모를 위한 것이며 단일 가상 머신에 모든 마이크로 서비스를 배포합니다. _표준_ 배포는 프로덕션을 위한 것이며 여러 가상 머신에 마이크로 서비스를 배포합니다. _로컬_ 배포를 통해 로컬 컴퓨터에서 마이크로 서비스를 실행하고, 클라우드에서 저장소 및 Cosmos DB와 같은 Azure 서비스를 사용하도록 Docker 컨테이너를 구성합니다. |
 | 런타임 | `dotnet`, `java` | 마이크로 서비스의 언어 구현을 선택합니다. |
 
-로컬 배포를 사용하는 방법에 대한 자세한 내용은 [로컬에서 원격 모니터링 솔루션 실행](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables)을 참조하세요.
+로컬 배포를 사용하는 방법에 대한 자세한 내용은 [로컬에서 원격 모니터링 솔루션 실행](iot-accelerators-remote-monitoring-deploy-local.md)을 참조하세요.
 
 ## <a name="basic-vs-standard-deployments"></a>기본 및 표준 배포
 
@@ -69,9 +69,16 @@ pcs login
 |-------|--------------------------------|--------------|----------|
 | 1     | [Linux 가상 머신](https://azure.microsoft.com/services/virtual-machines/) | 표준 D1 V2  | 마이크로 서비스 호스트 |
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 - 표준 계층 | 장치 관리 및 통신 |
-| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | 구성 데이터와 규칙, 경보 및 메시지와 같은 장치 원격 분석 저장 |  
+| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | 구성 데이터, 규칙, 경보 및 기타 콜드 스토리지 저장 |  
 | 1     | [Azure Storage 계정](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | VM 및 스트리밍 검사점에 대한 저장소 |
 | 1     | [웹 응용 프로그램](https://azure.microsoft.com/services/app-service/web/)        |                 | 프런트 엔드 웹 응용 프로그램 호스트 |
+| 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | 사용자 ID 및 보안 관리 |
+| 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | 자산 위치 보기 |
+| 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3개 단위              | 실시간 분석 사용 |
+| 1     | [Azure Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | 대규모 장치 프로비저닝 |
+| 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1개 단위              | 메시지 데이터용 저장 영역이며 심도 있는 원격 분석 사용 |
+
+
 
 ### <a name="standard"></a>Standard
 표준 배포는 개발자가 요구에 맞게 사용자 지정하고 확장할 수 있는 프로덕션 사용 가능 배포입니다. 안정성과 확장성을 위해 응용 프로그램 마이크로 서비스는 Docker 컨테이너로 빌드되고 오케스트레이터(기본적으로 [Kubernetes](https://kubernetes.io/))를 사용하여 배포됩니다. 오케스트레이터는 응용 프로그램의 배포, 확장 및 관리를 담당합니다.
@@ -82,10 +89,15 @@ pcs login
 |-------|----------------------------------------------|-----------------|----------|
 | 4     | [Linux Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)   | 표준 D2 V2  | 중복성을 위해 마이크로 서비스를 호스트하기 위한 1개 마스터 및 3개 에이전트 |
 | 1     | [Azure Container Service](https://azure.microsoft.com/services/container-service/) |                 | [Kubernetes](https://kubernetes.io) Orchestrator |
-| 1     | [Azure IoT Hub][https://azure.microsoft.com/services/iot-hub/]                     | S2 - 표준 계층 | 장치 관리, 명령 및 제어 |
+| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2 - 표준 계층 | 장치 관리, 명령 및 제어 |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | 구성 데이터와 규칙, 경보 및 메시지와 같은 장치 원격 분석 저장 |
 | 5     | [Azure Storage 계정](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | VM 저장소용 4개, 스트리밍 검사점용 1개 |
 | 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 표준     | SSL을 통한 Application Gateway |
+| 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | 사용자 ID 및 보안 관리 |
+| 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | 자산 위치 보기 |
+| 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3개 단위              | 실시간 분석 사용 |
+| 1     | [Azure Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | 대규모 장치 프로비저닝 |
+| 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1개 단위              | 메시지 데이터용 저장 영역이며 심도 있는 원격 분석 사용 |
 
 > 이러한 서비스에 대한 가격 책정 정보는 [여기](https://azure.microsoft.com/pricing)에서 확인할 수 있습니다. 구독에 대한 사용 금액 및 청구 정보는 [Azure Portal](https://portal.azure.com/)에서 찾을 수 있습니다.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: cshoe
 ms.component: common
-ms.openlocfilehash: 912ae17fb7bb5d5cecad0af5b53d817b2faeef02
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 268459fde7a622079656e637d2c51562cea358a4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522204"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730952"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage 보안 가이드
 
@@ -142,20 +142,13 @@ Azure 포털에서 키를 다시 생성할 수 있습니다. 키가 다시 생�
 
 Azure Key Vault를 사용하면 Azure Active Directory를 사용하여 키에 대한 액세스를 제어할 수 있다는 또 다른 장점도 있습니다. 즉, Azure Key Vault에서 키를 검색해야 하는 다양한 응용 프로그램에 액세스 권한을 부여할 수 있으며, 특별히 권한을 부여 받지 못한 다른 응용 프로그램은 키에 액세스할 수 없다는 것을 알 수 있습니다.
 
-참고: 모든 응용 프로그램에서 키 중 하나만 동시에 사용하는 것이 좋습니다. 어떤 경우에는 키 1을 사용하고, 다른 경우에는 키 2를 사용하면 어떤 응용 프로그램이 액세스 권한을 상실해야만 키를 순환할 수 있게 됩니다.
+> [!NOTE]
+> 모든 응용 프로그램에서 키 중 하나만 동시에 사용하는 것이 좋습니다. 어떤 경우에는 키 1을 사용하고, 다른 경우에는 키 2를 사용하면 어떤 응용 프로그램이 액세스 권한을 상실해야만 키를 순환할 수 있게 됩니다.
 
 #### <a name="resources"></a>리소스
-* [Azure Storage 계정 정보](storage-create-storage-account.md#regenerate-storage-access-keys)
 
-  이 문서에서는 저장소 계정에 대해 대략적으로 설명하고 저장소 액세스 키를 보고, 복사하고, 다시 생성하는 과정을 논의합니다.
+* [Azure Portal에서 저장소 계정 설정 관리](storage-account-manage.md)
 * [Azure Storage 리소스 공급자 REST API 참조](https://msdn.microsoft.com/library/mt163683.aspx)
-
-  이 문서에서는 저장소 계정 키를 검색하고 REST API를 사용하여 Azure 계정에 대한 저장소 계정 키를 다시 생성하는 방법에 대한 특정 문서에 대한 링크를 포함합니다. 참고: Resource Manager 저장소 계정에 대한 내용입니다.
-* [저장소 계정에 대한 작업](https://msdn.microsoft.com/library/ee460790.aspx)
-
-  Storage 서비스 관리자 REST API 참조의 이 문서에는 REST API를 사용하여 Storage 계정 키를 검색하고 다시 생성하는 과정에 대한 특정 문서의 링크가 포함되어 있습니다. 참고: 기본 저장소 계정에 대한 내용입니다.
-
-  이 문서에서는 Active Directory를 사용하여 Azure Key Vault의 Azure Storage 키에 대한 액세스를 제어하는 방법을 보여 줍니다. 또한 Azure Automation 작업을 사용하여 시간별로 키를 다시 생성하는 방법도 보여 줍니다.
 
 ## <a name="data-plane-security"></a>데이터 평면 보안
 데이터 평면 보안은 Azure Storage에 저장된 데이터 개체(Blob, 큐, 테이블 및 파일)의 보안을 유지하는 데 사용되는 방법을 나타냅니다. 데이터가 전송되는 동안 데이터 및 보안을 암호화하는 방법을 살펴보았습니다. 그렇다면 개체에 대한 액세스를 제어하는 방법은 어디에서 확인할까요?

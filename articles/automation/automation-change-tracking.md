@@ -10,12 +10,12 @@ ms.date: 08/31/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0707726ec86b0a0c69d1ec752ebd6761327f3f0f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 713c0f676067cb32a84361dd7801031295e2244f
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669486"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634441"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적
 
@@ -33,13 +33,23 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 
 다음 Linux 배포판이 공식적으로 지원됩니다. 하지만 Linux 에이전트는 나열되지 않은 그 밖의 배포에서 실행이 가능할 수 있습니다. 다른 설명이 없는 한, 나열된 각 주 버전의 모든 부 버전이 지원됩니다.  
 
-* Amazon Linux 2012.09 ~ 2015.09(x86/x64)
-* CentOS Linux 5, 6 및 7(x86/x64)  
-* Oracle Linux 5, 6 및 7(x86/x64)
-* Red Hat Enterprise Linux Server 5, 6 및 7(x86/x64)
-* Debian GNU/Linux 6, 7, 8(x86/x64)
-* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS(x86/x64)
-* SUSE Linux Enterprise Server 11 및 12(x86/x64)
+### <a name="64-bit"></a>64비트
+
+* CentOS 6 및 7
+* Amazon Linux 2017.09
+* Oracle Linux 6 및 7
+* Red Hat Enterprise Linux Server 6 및 7
+* Debian GNU/Linux 8 및 9
+* Ubuntu Linux 14.04 LTS, 16.04 LTS 및 18.04 LTS
+* SUSE Linux Enterprise Server 12
+
+### <a name="32-bit"></a>32비트
+
+* CentOS 6
+* Oracle Linux 6
+* Red Hat Enterprise Linux Server 6
+* Debian GNU/Linux 8 및 9
+* Ubuntu Linux 14.04 LTS 및 16.04 LTS
 
 ## <a name="enable-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 사용
 
@@ -146,6 +156,7 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 변경 내용 추적 솔루션에 현재 다음과 같은 문제가 있습니다.
 
 * 핫픽스 업데이트가 Windows 10 크리에이터 업데이트 및 Windows Server 2016 Core RS3 컴퓨터에 대해 수집되지 않습니다.
+* 현재 Windows 파일의 경우 변경 내용 추적은 추적된 폴더 경로에 새 파일이 추가되었을 때 검색되지 않습니다.
 
 ## <a name="change-tracking-data-collection-details"></a>변경 내용 추적 데이터 수집 정보
 

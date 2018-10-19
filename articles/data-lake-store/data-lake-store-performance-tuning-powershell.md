@@ -1,6 +1,6 @@
 ---
-title: Data Lake Store에서 PowerShell을 사용하기 위한 성능 조정 지침 | Microsoft Docs
-description: Data Lake Store에서 Azure PowerShell을 사용할 때 성능을 향상하는 방법
+title: Azure Data Lake Storage Gen1에서 PowerShell을 사용하기 위한 성능 조정 지침 | Microsoft Docs
+description: Azure Data Lake Storage Gen1에서 Azure PowerShell을 사용할 때 성능을 향상하는 방법 관련 팁
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: stewu
-ms.openlocfilehash: 7b19972ed4a75ac899a4b78b28ab36ba305a5a64
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fff26406b036edeb48371b89f7e585160ddc58e0
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198653"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123320"
 ---
-# <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-store"></a>Azure Data Lake Store에서 PowerShell을 사용하기 위한 성능 조정 지침
+# <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에서 PowerShell을 사용하기 위한 성능 조정 지침
 
-이 문서에서는 Data Lake Store와 함께 PowerShell을 사용할 때 보다 나은 성능을 얻을 수 있도록 조정 가능한 속성에 대해 설명합니다.
+이 문서에서는 Azure Data Lake Storage Gen1과 함께 PowerShell을 사용할 때 보다 나은 성능을 얻을 수 있도록 조정 가능한 속성을 설명합니다.
 
 ## <a name="performance-related-properties"></a>성능 관련 속성
 
@@ -31,9 +31,9 @@ ms.locfileid: "34198653"
 
 **예제**
 
-이 명령은 파일당 20개의 스레드와 100개의 동시 파일을 사용하여 Azure Data Lake Store에서 사용자의 로컬 드라이브로 파일을 다운로드합니다.
+이 명령은 파일당 20개의 스레드와 100개의 동시 파일을 사용하여 Data Lake Storage Gen1에서 사용자의 로컬 드라이브로 파일을 다운로드합니다.
 
-    Export-AzureRmDataLakeStoreItem -AccountName <Data Lake Store account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
+    Export-AzureRmDataLakeStoreItem -AccountName <Data Lake Storage Gen1 account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
 
 ## <a name="how-do-i-determine-the-value-for-these-properties"></a>이러한 속성의 값은 어떻게 결정할까요?
 
@@ -93,8 +93,8 @@ ms.locfileid: "34198653"
 * **제한 오류**: 동시성이 너무 높으면 제한 오류가 표시될 수 있습니다. 제한 오류가 표시되면 동시성을 줄이거나 문의해 주세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [빅 데이터 요구 사항에 Azure Data Lake Store 사용](data-lake-store-data-scenarios.md) 
-* [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
-* [Azure 데이터 레이크 분석에 Data Lake Store 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Azure HDInsight에 데이터 레이크 저장소 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [빅 데이터 요구 사항에 Azure Data Lake Storage Gen1 사용](data-lake-store-data-scenarios.md) 
+* [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)
+* [Data Lake Storage Gen1에서 Azure Data Lake Analytics 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Data Lake Storage Gen1에서 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
 

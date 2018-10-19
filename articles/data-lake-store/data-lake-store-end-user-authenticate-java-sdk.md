@@ -1,6 +1,6 @@
 ---
-title: '최종 사용자 인증: Azure Active Directory를 사용하여 Java로 Data Lake Store 인증 | Microsoft Docs'
-description: Azure Active Directory와 Java를 사용하여 Data Lake Store로 최종 사용자 인증을 수행하는 방법을 알아봅니다.
+title: '최종 사용자 인증: Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1과 함께 Java 사용 | Microsoft Docs'
+description: Azure Active Directory와 Java를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증을 수행하는 방법을 알아봅니다.
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 633bf87d1e02a1132cfc5cd151b1e58418de8152
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 47b975b3ea0cfa9d2fb2536236b0a8dfaef14503
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625021"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126941"
 ---
-# <a name="end-user-authentication-with-data-lake-store-using-java"></a>Java를 사용하여 Data Lake Store로 최종 사용자 인증
+# <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Java를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증
 > [!div class="op_single_selector"]
 > * [Java 사용](data-lake-store-end-user-authenticate-java-sdk.md)
 > * [.NET SDK 사용](data-lake-store-end-user-authenticate-net-sdk.md)
@@ -27,12 +27,12 @@ ms.locfileid: "34625021"
 > 
 >   
 
-이 문서에서는 Java SDK를 사용하여 Azure Data Lake Store로 최종 사용자 인증을 수행하는 방법을 배웁니다. Java SDK를 사용하는 Data Lake Store 서비스 간 인증의 경우 [Java를 사용한 Data Lake Store의 서비스 간 인증](data-lake-store-service-to-service-authenticate-java.md)을 참조하세요.
+이 문서에서는 Java SDK를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증을 수행하는 방법을 배웁니다. Java SDK를 사용하여 Data Lake Storage Gen1에서 서비스 간 인증을 수행하려면 [Java SDK를 사용한 Data Lake Storage Gen1의 서비스 간 인증](data-lake-store-service-to-service-authenticate-java.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-* **Azure Active Directory "네이티브" 응용 프로그램을 만듭니다**. [Azure Active Directory를 사용하여 Data Lake Store로 최종 사용자 인증](data-lake-store-end-user-authenticate-using-active-directory.md)의 단계를 완료해야 합니다.
+* **Azure Active Directory "네이티브" 응용 프로그램을 만듭니다**. [Azure Active Directory를 사용하여 Data Lake Storage Gen1로 최종 사용자 인증](data-lake-store-end-user-authenticate-using-active-directory.md)의 단계를 완료해야 합니다.
 
 * [Maven](https://maven.apache.org/install.html) 이 자습서에서는 빌드 및 프로젝트 종속성을 위해 Maven을 사용합니다. Maven 또는 Gradle과 같은 빌드 시스템을 사용하지 않고 빌드할 수 있지만 이러한 시스템 생성은 종속성을 훨씬 쉽게 관리할 수 있습니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "34625021"
           </dependency>
         </dependencies>
    
-    첫 번째 종속성은 Maven 리포지토리에서 Data Lake Store SDK(`azure-data-lake-store-sdk`)를 사용하는 것입니다. 두 번째 종속성은 이 응용 프로그램에 사용하는 로깅 프레임워크(`slf4j-nop`)를 지정하는 것입니다. Data Lake Store SDK는 [slf4j](http://www.slf4j.org/) 로깅 외관을 사용하며 이로 인해 log4j, Java 로깅, logback 혹은 로깅 없음과 같은 다양하고 인기 있는 로깅 프레임워크를 선택할 수 있습니다. 이 예제에서 로깅을 비활성화하므로 **slf4j-nop** 바인딩을 사용합니다. 앱에서 다른 로깅 옵션을 사용하려면 [여기](http://www.slf4j.org/manual.html#projectDep)를 참조하세요.
+    첫 번째 종속성은 Maven 리포지토리에서 Data Lake Storage Gen1 SDK(`azure-data-lake-store-sdk`)를 사용하는 것입니다. 두 번째 종속성은 이 응용 프로그램에 사용하는 로깅 프레임워크(`slf4j-nop`)를 지정하는 것입니다. Data Lake Storage Gen1 SDK는 [slf4j](http://www.slf4j.org/) 로깅 외관을 사용하며 이로 인해 log4j, Java 로깅, logback 혹은 로깅 없음과 같은 다양하고 인기 있는 로깅 프레임워크를 선택할 수 있습니다. 이 예제에서 로깅을 비활성화하므로 **slf4j-nop** 바인딩을 사용합니다. 앱에서 다른 로깅 옵션을 사용하려면 [여기](http://www.slf4j.org/manual.html#projectDep)를 참조하세요.
 
 3. 응용 프로그램에 다음 import 문을 추가합니다.
 
@@ -73,11 +73,11 @@ ms.locfileid: "34625021"
             
         AccessTokenProvider provider = new DeviceCodeTokenProvider(nativeAppId);   
 
-Data Lake Store SDK는 Data Lake Store 계정에 대해 이야기하는 데 필요한 보안 토큰을 관리할 수 있는 편리한 방법을 제공합니다. 그러나 SDK에서는 이러한 방법만 필수로 사용해야 하는 것은 아닙니다. [Azure Active Directory SDK](https://github.com/AzureAD/azure-activedirectory-library-for-java) 또는 사용자 지정 코드를 사용할 뿐만 아니라 토큰을 가져오는 다른 방법을 사용할 수 있습니다.
+Data Lake Storage Gen1 SDK는 Data Lake Storage Gen1 계정에 대해 이야기하는 데 필요한 보안 토큰을 관리할 수 있는 편리한 방법을 제공합니다. 그러나 SDK에서는 이러한 방법만 필수로 사용해야 하는 것은 아닙니다. [Azure Active Directory SDK](https://github.com/AzureAD/azure-activedirectory-library-for-java) 또는 사용자 지정 코드를 사용할 뿐만 아니라 토큰을 가져오는 다른 방법을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 최종 사용자 인증을 사용하여 Java SDK로 Azure Data Lake Store를 인증하는 방법을 배웠습니다. 이제 다음 문서를 통해 Java SDK를 Azure Data Lake Store와 함께 사용하는 방법을 살펴볼 수 있습니다.
+이 문서에서는 최종 사용자 인증을 사용하여 Java SDK로 Azure Data Lake Storage Gen1을 인증하는 방법을 배웠습니다. 이제 다음 문서를 통해 Java SDK를 Azure Data Lake Storage Gen1과 함께 사용하는 방법을 살펴볼 수 있습니다.
 
-* [Java SDK를 사용한 Data Lake Store에서의 데이터 작업](data-lake-store-get-started-java-sdk.md)
+* [Java SDK를 사용한 Data Lake Storage Gen1에서의 데이터 작업](data-lake-store-get-started-java-sdk.md)
 
 

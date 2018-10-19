@@ -6,25 +6,25 @@ keywords: ''
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 07/20/2018
+ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5732f6986750dfee49084e2744052bb54e3a8139
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 3ec7f6043c1d2e8e8f090ffc60822768ab9bc9d9
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382570"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984004"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge용 C 모듈 개발 및 디버그
 
 비즈니스 논리를 Azure IoT Edge용 모듈로 전환할 수 있습니다. 이 아티클에서는 VS Code(Visual Studio Code)를 기본 도구로 사용하여 C 모듈을 개발하고 디버그하는 방법을 보여줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
-이 아티클에서는 사용자가 Windows 또는 Linux를 실행하는 컴퓨터 또는 가상 머신을 개발 머신으로 사용한다고 가정합니다. 또한 개발 머신에서 IoT Edge 장치를 시뮬레이트할 수 있습니다.
+이 아티클에서는 사용자가 Windows 또는 Linux를 실행하는 컴퓨터 또는 가상 머신을 개발 머신으로 사용한다고 가정합니다. 또한 IoT Edge 보안 디먼을 사용하여 개발 머신에서 IoT Edge 장치를 시뮬레이트합니다.
 
 > [!NOTE]
-> 이 디버깅 아티클에서는 모듈 컨테이너에서 프로세스를 연결하고 VS Code로 디버그하는 방법을 설명합니다. Linux amd64 컨테이너에서만 C 모듈을 디버그할 수 있습니다. Visual Studio Code의 디버깅 기능에 익숙하지 않은 경우, [디버깅](https://code.visualstudio.com/Docs/editor/debugging)에 대해 읽어 보시기 바랍니다. 
+> 이 디버깅 아티클에서는 모듈 컨테이너에서 프로세스를 연결하고 VS Code로 디버그하는 방법을 설명합니다. Linux amd64 컨테이너에서만 C 모듈을 디버그할 수 있습니다. Visual Studio Code의 디버깅 기능에 익숙하지 않은 경우, [디버깅](https://code.visualstudio.com/Docs/editor/debugging)에 대해 읽어 보시기 바랍니다.
 
 이 아티클에서 Visual Studio Code를 기본 개발 도구로 사용하기 때문에 VS Code를 설치합니다. 그런 다음, 필요한 확장을 추가합니다.
 * [Visual Studio Code](https://code.visualstudio.com/) 
@@ -37,7 +37,7 @@ ms.locfileid: "43382570"
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 또는 [Docker 허브](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
    * 클라우드 레지스트리 대신 로컬 Docker 레지스트리를 프로토타입 및 테스트 목적으로 사용할 수 있습니다. 
 
-장치에서 모듈을 테스트하려면 하나 이상의 IoT Edge 장치가 있는 활성 IoT 허브가 필요합니다. 컴퓨터를 IoT Edge 장치로 사용하려면 [Windows](quickstart.md) 또는 [Linux](quickstart-linux.md)용 빠른 시작의 단계에 따릅니다. 
+장치에서 모듈을 테스트하려면 하나 이상의 IoT Edge 장치가 있는 활성 IoT 허브가 필요합니다. 컴퓨터를 IoT Edge 장치로 사용하려면 [Linux](quickstart-linux.md)용 빠른 시작의 단계에 따릅니다. 
 
 ## <a name="create-a-new-solution-template"></a>새 솔루션 템플릿 만들기
 
@@ -97,7 +97,7 @@ VS Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만든 다음,
     "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
     ```
 
-2. VS Code 명령 팔레트에서 **Edge: IoT Edge 솔루션 빌드** 명령을 입력하고 실행합니다.
+2. VS Code 명령 팔레트에서 **Azure IoT Edge: IoT Edge 솔루션 빌드 및 푸시** 명령을 입력하고 실행합니다.
 3. 명령 팔레트에서 솔루션의 `deployment.template.json` 파일을 선택합니다. 
 4. Azure IoT Hub Device Explorer에서 IoT Edge 장치 ID를 마우스 오른쪽 단추로 클릭합니다. 그런 후 **단일 장치용 배포 만들기**를 선택합니다. 
 5. 솔루션의 **config** 폴더를 엽니다. 그런 다음, `deployment.json` 파일을 선택합니다. **Edge 배포 매니페스트 선택**을 선택합니다. 
@@ -111,7 +111,7 @@ VS Code는 작업 영역의 `.vscode` 폴더에 위치한 `launch.json` 파일�
 
 1. VS Code 디버그 보기로 이동합니다. 모듈에 대한 디버그 구성 파일을 선택합니다. 디버그 옵션 이름은 **ModuleName 원격 디버그(C)** 와 비슷합니다.
 
-   ![디버그 구성 선택](./media/how-to-develop-c-module/debug-config.png).
+   ![디버그 구성 선택](./media/how-to-develop-c-module/debug-config.png)
 
 2. `main.c`로 이동합니다. 이 파일에 중단점을 추가합니다.
 

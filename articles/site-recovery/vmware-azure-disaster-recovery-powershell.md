@@ -336,7 +336,7 @@ vCenter Server에서 가상 머신을 검색하는 데 15~20분 정도 걸립니
 
 * 복제할 보호 가능한 항목.
 * 가상 머신을 복제할 대상 저장소 계정. 또한 가상 머신을 프리미엄 저장소 계정으로 보호하기 위해 로그 저장소가 필요합니다.
-* 복제에 사용할 프로세스 서버. 사용 가능한 프로세스 서버 목록이 검색되어 ***$ProcessServers[0]****(ScaleOut-ProcessServer)* 및 ***$ProcessServers[1]****(ConfigurationServer)* 변수에 저장됩니다.
+* 복제에 사용할 프로세스 서버. 사용 가능한 프로세스 서버 목록이 검색되어 ***$ProcessServers[0]*** *(ScaleOut-ProcessServer)* 및 ***$ProcessServers[1]*** *(ConfigurationServer)* 변수에 저장됩니다.
 * 모바일 서비스 소프트웨어를 컴퓨터에 강제 설치하는 데 사용할 계정. 사용 가능한 계정 목록은 검색되어 ***$AccountHandles*** 변수에 저장됩니다.
 * 복제에 사용되는 복제 정책에 대한 보호 컨테이너 매핑.
 * 장애 조치(failover)시 가상 머신이 만들어져야 하는 리소스 그룹.

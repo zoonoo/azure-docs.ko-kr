@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ff1d51021038909c132bef4cb680589b9951f218
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7aa7cd2e5b1cf1346a5a7b1f82ec9c7933dd1112
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041428"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542483"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Azure Portal을 사용하여 장치를 관리하는 방법
 
@@ -123,7 +123,7 @@ Azure Portal을 사용하여 장치를 관리하려면 해당 장치가 Azure AD
 
 ### <a name="manage-an-intune-device"></a>Intune 장치 관리
 
-Intune 관리자인 경우 **Microsoft Intune**으로 표시된 장치를 관리할 수 있습니다. 관리자는 추가 장치를 볼 수 있습니다. 
+Intune 관리자인 경우 **Microsoft Intune**으로 표시된 장치를 관리할 수 있습니다. 
 
 ![Intune 장치 관리](./media/device-management-azure-portal/31.png)
 
