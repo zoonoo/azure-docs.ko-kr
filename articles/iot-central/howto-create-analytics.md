@@ -1,21 +1,25 @@
 ---
-title: Azure IoT Central 응용 프로그램을 위한 사용자 지정 분석 만들기 | Microsoft Docs
-description: 운영자로서 Azure IoT Central 응용 프로그램을 위한 사용자 지정 분석을 만드는 방법을 알아봅니다.
+title: Azure IoT Central 응용 프로그램에서 장치 데이터 분석 | Microsoft Docs
+description: Azure IoT Central 응용 프로그램에서 장치 데이터를 분석하는 방법을 설명합니다.
 author: lmasieri
 ms.author: lmasieri
-ms.date: 08/26/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 0a78c534605b6eab08d5b12674689f0459e80b26
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: bf86e769aff4a9b03d5df1b1aef702814c605fa4
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247099"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368089"
 ---
 # <a name="how-to-use-analytics-to-analyze-your-device-data"></a>분석을 사용하여 장치 데이터를 분석하는 방법
+
+
+*이 문서는 운영자, 빌더 및 관리자에게 적용됩니다.*
+
 
 Microsoft Azure IoT Central은 장치에서 오는 대량의 데이터를 이해하는 풍부한 분석 기능을 제공합니다. 시작하려면 왼쪽 탐색 메뉴에서 **분석**으로 이동합니다. 
 

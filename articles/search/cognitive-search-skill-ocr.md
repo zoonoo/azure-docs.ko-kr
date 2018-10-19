@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 478afe81ed739b98487973eb092ee9cad0aa17fd
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 234651ad3672982e4de9617561a926712697945a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055684"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734036"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR 인식 기술
 
@@ -28,6 +28,8 @@ ms.locfileid: "37055684"
 + .BMP
 + .GIF
 
+> [!NOTE]
+> 인식 검색은 현재 공개 미리 보기로 제공됩니다. 기능 실행과 이미지 추출 및 정규화는 현재 무료로 제공됩니다. 이러한 기능의 가격은 추후에 발표될 예정입니다. 
 
 ## <a name="skill-parameters"></a>기술 매개 변수
 

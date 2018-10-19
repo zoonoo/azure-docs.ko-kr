@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: f47e85b47f262e30e9160f11604220aa8055be5d
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 10867974c6f1c3fae6965b1888db3c4448b26a38
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701720"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364108"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HBase에서 데이터 복사 
 
@@ -45,7 +45,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 | 형식 | type 속성은 **HBase**로 설정해야 합니다. | yes |
 | host | HBase 서버의 IP 주소 또는 호스트 이름입니다. 즉, `[clustername].azurehdinsight.net`， `192.168.222.160입니다.  | yes |
 | 포트 | HBase 인스턴스가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. 기본값은 9090입니다. Azure HDInsights에 연결하는 경우 포트를 443으로 지정합니다. | 아니요 |
-| httpPath | HBase 서버에 해당하는 부분 URL입니다. 즉, `/hbaserest0`입니다.  | 아니요 |
+| httpPath | HDInsights 클러스터 사용 시 HBase 서버에 해당하는 부분 URL(예: `/hbaserest0`)입니다. | 아니요 |
 | authenticationType | HBase 서버에 연결하는 데 사용할 인증 메커니즘입니다. <br/>허용되는 값은 **Anonymous**, **Basic**입니다. | yes |
 | 사용자 이름 | HBase 인스턴스에 연결하는 데 사용되는 사용자 이름입니다.  | 아니요 |
 | 암호 | 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아니요 |

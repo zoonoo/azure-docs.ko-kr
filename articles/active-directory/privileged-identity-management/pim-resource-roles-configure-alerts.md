@@ -14,15 +14,15 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2fa63cf2fa05f2cde4558f0bea38bfd7f17df3ae
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 5d990d86124a7360dbc0398cf4250f9b088c183b
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43342065"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465574"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스에 대한 보안 경고 구성
-Azure 리소스에 대한 PIM(Privileged Identity Management)은 사용자의 환경에 의심스럽거나 안전하지 않은 활동이 있을 때 경고를 생성합니다. 경고가 트리거될 때 경고 페이지에 표시됩니다. 
+Azure 리소스용 PIM(Privileged Identity Management)은 사용자의 환경에 의심스럽거나 안전하지 않은 활동이 있을 때 경고를 생성합니다. 경고가 트리거될 때 경고 페이지에 표시됩니다. 
 
 ![경고 페이지](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
 
@@ -31,7 +31,7 @@ Azure 리소스에 대한 PIM(Privileged Identity Management)은 사용자의 �
 
 ![경고 보고서](media/azure-pim-resource-rbac/rbac-alert-info.png)
 
-## <a name="alerts"></a>Alerts
+## <a name="alerts"></a>경고
 | 경고 | 심각도 | 트리거 | 권장 사항 |
 | --- | --- | --- | --- |
 | **너무 많은 소유자를 리소스에 할당** |중간 |너무 많은 사용자가가 소유자 역할을 보유하고 있습니다. |목록에서 사용자를 검토하고 권한이 적은 역할에 다시 할당합니다. |

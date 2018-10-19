@@ -8,13 +8,13 @@ ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.openlocfilehash: a2c992a47e40a4f8764f5950c65bb90f1cd9e066
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/14/2018
+ms.openlocfilehash: 7c58162048de341468b69a29c55edf346b376e9b
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045146"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733817"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Azure HDInsight에서 외부 메타데이터 저장소 사용
 
@@ -29,9 +29,9 @@ HDInsight의 Hive metastore는 Hadoop 아키텍처의 핵심 부분입니다. me
 
 ## <a name="default-metastore"></a>기본 metastore
 
-기본적으로 HDInsight는 모든 클러스터 유형의 metastore를 프로비전합니다. 사용자 지정 metastore를 지정할 수 있습니다. 기본 metastore에 대한 고려 사항은 다음과 같습니다.
-- 추가 비용이 없습니다. HDInsight는 추가 비용 없이 모든 클러스터 유형의 metastore를 프로비전합니다.
-- 각 기본 metastore는 클러스터 수명 주기의 일부입니다. 클러스터를 삭제하면 metastore와 메타데이터도 삭제됩니다.
+기본적으로 HDInsight는 모든 클러스터 유형과 함께 metastore를 만듭니다. 사용자 지정 metastore를 지정할 수 있습니다. 기본 metastore에 대한 고려 사항은 다음과 같습니다.
+- 추가 비용이 없습니다. HDInsight는 모든 클러스터 유형과 함께 metastore를 만들며, 추가 비용은 없습니다.
+- 각 기본 metastore는 클러스터 수명 주기의 일부입니다. 클러스터를 삭제하면 해당하는 metastore와 메타데이터도 삭제됩니다.
 - 기본 metastore를 다른 클러스터와 공유할 수 없습니다.
 - 기본 metastore는 DTU(데이터베이스 트랜잭션 단위)가 5개로 제한되는 기본 Azure SQL DB를 사용합니다.
 이 기본 metastore는 일반적으로 여러 클러스터가 필요하지 않은 상대적으로 단순하고 클러스터의 수명 주기 이상 메타데이터를 보존할 필요가 없는 워크로드에 사용됩니다.
@@ -46,11 +46,7 @@ HDInsight는 프로덕션 클러스터에 권장되는 사용자 지정 metastor
 - 선택한 성능 수준에 따라 metastore(Azure SQL DB) 비용을 지불합니다.
 - 필요에 따라 metastore를 확장할 수 있습니다.
 
-
 ![HDInsight Hive 메타데이터 저장소 사용 사례](./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png)
-
-<!-- Image – Typical shared custom Metastore scenario in HDInsight (?) -->
-
 
 
 ### <a name="select-a-custom-metastore-during-cluster-creation"></a>클러스터를 만드는 동안 사용자 지정 metastore 선택
@@ -67,12 +63,14 @@ Azure Portal 또는 Ambari 구성(Hive > Advanced)에서 사용자 지정 metast
 
 다음은 몇 가지 일반적인 HDInsight Hive metastore 모범 사례입니다.
 
-- 가능한 경우 사용자 지정 metastore를 사용합니다. 이를 통해 계산 리소스(실행 중인 클러스터)와 metastore에 저장된 메타데이터를 구분할 수 있습니다.
+- 계산 리소스(실행 중인 클러스터)와 metastore에 저장된 메타데이터를 구분할 수 있도록 가능하면 항상 사용자 지정 metastore를 사용합니다.
 - 50 DTU 및 250GB의 저장소를 제공하는 S2 계층으로 시작합니다. 병목 상태가 발생하는 경우 데이터베이스를 확장할 수 있습니다.
-- 특정 HDInsight 클러스터 버전에 대해 만들어진 metastore가 여러 HDInsight 클러스터 버전 간에 공유되지 않도록 합니다. 여러 가지 Hive 버전에서는 다양한 스키마를 사용합니다. 예를 들어 Hive 1.2와 Hive 2.1 클러스터 모두와 metastore를 공유할 수 없습니다.
-- 사용자 지정 metastore를 정기적으로 백업합니다.
-- metastore와 HDInsight 클러스터를 동일한 영역에 유지합니다.
+- 여러 HDInsight 클러스터가 별개의 데이터에 액세스하도록 하려는 경우에는 각 클러스터의 metastore용으로 별도의 데이터베이스를 사용합니다. 여러 HDInsight 클러스터에서 metastore 하나를 공유하는 경우 클러스터는 같은 메타데이터 및 기본 사용자 데이터 파일을 사용합니다.
+- 사용자 지정 metastore를 정기적으로 백업합니다. Azure SQL Database는 백업을 자동으로 생성하지만 백업 보존 기간은 각기 다릅니다. 자세한 내용은 [자동 SQL 데이터베이스 백업에 대해 알아보기](../sql-database/sql-database-automated-backups.md)를 참조하세요.
+- 성능은 최대화하고 네트워크 송신 비용은 최소화하려면 metastore와 HDInsight 클러스터를 같은 지역에 배치합니다.
 - Azure Portal 또는 Azure Log Analytics와 같은 Azure SQL Database 모니터링 도구를 사용하여 성능 및 가용성 확인을 위해 metastore를 모니터링합니다.
+- 기존 사용자 지정 metastore 데이터베이스용으로 최신 버전 Azure HDInsight를 새로 만들면 시스템은 metastore의 스키마를 업그레이드합니다. 이 경우 백업에서 데이터베이스를 복원하지 않으면 업그레이드를 취소할 수 없습니다.
+- 여러 클러스터 간에 metastore 하나를 공유하는 경우 모든 클러스터의 HDInsight 버전이 같은지 확인해야 합니다. 각 Hive 버전이 사용하는 metastore 데이터베이스 스키마는 서로 다릅니다. 예를 들어 Hive 1.2와 Hive 2.1 버전 클러스터에서 metastore를 공유할 수는 없습니다. 
 
 ## <a name="oozie-metastore"></a>Oozie Metastore
 

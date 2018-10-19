@@ -1,26 +1,25 @@
 ---
-title: "Java SDK: Azure Data Lake Store에서의 파일 시스템 작업 | Microsoft Docs"
-description: "Azure Data Lake Store Java SDK를 사용하여 Data Lake Store에서 폴더 만들기 등의 파일 시스템 작업을 수행합니다."
+title: 'Java SDK: Azure Data Lake Storage Gen1에서의 파일 시스템 작업 | Microsoft Docs'
+description: Azure Data Lake Storage Gen1 Java SDK를 사용하여 Data Lake Storage Gen1에서 폴더 만들기 등의 파일 시스템 작업을 수행하는 방법을 설명합니다.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: d10e09db-5232-4e84-bb50-52efc2c21887
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/09/2018
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: fdae36c3cbdda16f9392a113502c7c6c62b25534
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: a91593c1bae3002be8b7e423b627f1baf19e86e2
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129197"
 ---
-# <a name="filesystem-operations-on-data-lake-store-using-java-sdk"></a>Java SDK를 사용한 Data Lake Store에서의 파일 시스템 작업
+# <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Java SDK를 사용한 Azure Data Lake Storage Gen1에서의 파일 시스템 작업
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
@@ -29,13 +28,13 @@ ms.lasthandoff: 01/10/2018
 >
 > 
 
-Azure Data Lake Store Java SDK를 사용하여 폴더 만들기, 데이터 파일 업로드 및 다운로드 등의 기본 작업을 수행하는 방법에 대해 알아봅니다. Data Lake에 대한 자세한 내용은 [Azure Data Lake Store](data-lake-store-overview.md)를 참조하세요.
+Azure Data Lake Storage Gen1 Java SDK를 사용하여 폴더 만들기, 데이터 파일 업로드 및 다운로드 등의 기본 작업을 수행하는 방법에 대해 알아봅니다. Data Lake Storage Gen1에 대한 자세한 내용은 [Azure Data Lake Storage Gen1](data-lake-store-overview.md)을 참조하세요.
 
-[Azure Data Lake Store Java API 문서](https://azure.github.io/azure-data-lake-store-java/javadoc/)에서 Azure Data Lake Store에 대한 Java SDK API 관련 문서에 액세스할 수 있습니다.
+[Azure Data Lake Storage Gen1 Java API 문서](https://azure.github.io/azure-data-lake-store-java/javadoc/)에서 Data Lake Storage Gen1용 Java SDK API 문서에 액세스할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 * Java 개발 키트(JDK 7 이상, Java 버전 1.7 이상 사용)
-* Azure Data Lake Store 계정 [Azure Portal을 사용하여 Azure Data Lake Store 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다.
+* Data Lake Storage Gen1 계정 [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다.
 * [Maven](https://maven.apache.org/install.html) 이 자습서에서는 빌드 및 프로젝트 종속성을 위해 Maven을 사용합니다. Maven 또는 Gradle과 같은 빌드 시스템을 사용하지 않고 빌드할 수 있지만 이러한 시스템 생성은 종속성을 훨씬 쉽게 관리할 수 있습니다.
 * (선택 사항)[IntelliJ IDEA](https://www.jetbrains.com/idea/download/) 또는 [Eclipse](https://www.eclipse.org/downloads/)나 유사한 IDE
 
@@ -59,7 +58,7 @@ Azure Data Lake Store Java SDK를 사용하여 폴더 만들기, 데이터 파�
           </dependency>
         </dependencies>
    
-    첫 번째 종속성은 Maven 리포지토리에서 Data Lake Store SDK(`azure-data-lake-store-sdk`)를 사용하는 것입니다. 두 번째 종속성은 이 응용 프로그램에 사용하는 로깅 프레임워크(`slf4j-nop`)를 지정하는 것입니다. Data Lake Store SDK는 [slf4j](http://www.slf4j.org/) 로깅 외관을 사용하며 이로 인해 log4j, Java 로깅, logback 혹은 로깅 없음과 같은 다양하고 인기 있는 로깅 프레임워크를 선택할 수 있습니다. 이 예제에서 로깅을 비활성화하므로 **slf4j-nop** 바인딩을 사용합니다. 앱에서 다른 로깅 옵션을 사용하려면 [여기](http://www.slf4j.org/manual.html#projectDep)를 참조하세요.
+    첫 번째 종속성은 Maven 리포지토리에서 Data Lake Storage Gen1 SDK(`azure-data-lake-store-sdk`)를 사용하는 것입니다. 두 번째 종속성은 이 응용 프로그램에 사용하는 로깅 프레임워크(`slf4j-nop`)를 지정하는 것입니다. Data Lake Storage Gen1 SDK는 [slf4j](http://www.slf4j.org/) 로깅 외관을 사용하며 이로 인해 log4j, Java 로깅, logback 혹은 로깅 없음과 같이 널리 사용되는 여러 로깅 프레임워크 중에서 선택할 수 있습니다. 이 예제에서 로깅을 비활성화하므로 **slf4j-nop** 바인딩을 사용합니다. 앱에서 다른 로깅 옵션을 사용하려면 [여기](http://www.slf4j.org/manual.html#projectDep)를 참조하세요.
 
 3. 응용 프로그램에 다음 import 문을 추가합니다.
 
@@ -76,20 +75,20 @@ Azure Data Lake Store Java SDK를 사용하여 폴더 만들기, 데이터 파�
 
 ## <a name="authentication"></a>인증
 
-* 응용 프로그램에 대한 최종 사용자 인증의 경우 [Java를 사용한 Data Lake Store의 최종 사용자 인증](data-lake-store-end-user-authenticate-java-sdk.md)을 참조하세요.
-* 응용 프로그램에 대한 서비스 간 인증의 경우 [Java를 사용한 Data Lake Store의 서비스 간 인증](data-lake-store-service-to-service-authenticate-java.md)을 참조하세요.
+* 응용 프로그램에 대한 최종 사용자 인증의 경우 [Java를 사용한 Data Lake Storage Gen1의 최종 사용자 인증](data-lake-store-end-user-authenticate-java-sdk.md)을 참조하세요.
+* 응용 프로그램에 대한 서비스 간 인증의 경우 [Java를 사용한 Data Lake Storage Gen1의 서비스 간 인증](data-lake-store-service-to-service-authenticate-java.md)을 참조하세요.
 
-## <a name="create-an-azure-data-lake-store-client"></a>Azure Data Lake Store 클라이언트 만들기
-[ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) 개체를 만들면 Data Lake Store로 인증할 때([인증](#authentication) 섹션 참조) 생성된 Data Lake Store 계정 이름 및 토큰 공급자를 지정해야 합니다. Data Lake Store 계정 이름은 정규화된 도메인 이름이어야 합니다. 예를 들어 **FILL-IN-HERE**를 **mydatalakestore.azuredatalakestore.net**과 같은 이름으로 바꿉니다.
+## <a name="create-a-data-lake-storage-gen1-client"></a>Data Lake Storage Gen1 클라이언트 만들기
+[ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) 개체를 만들 때는 Data Lake Storage Gen1에 인증할 때 생성한 Data Lake Storage Gen1 계정 이름 및 토큰 공급자를 지정해야 합니다([인증](#authentication) 섹션 참조). Data Lake Storage Gen1 계정 이름은 정규화된 도메인 이름이어야 합니다. 예를 들어 **FILL-IN-HERE**는 **mydatalakestoragegen1.azuredatalakestore.net**과 같은 이름으로 바꿉니다.
 
     private static String accountFQDN = "FILL-IN-HERE";  // full account FQDN, not just the account name
     ADLStoreClient client = ADLStoreClient.createClient(accountFQDN, provider);
 
-다음 섹션의 코드 조각에는 몇 가지 일반적인 파일 시스템 작업의 예가 포함되어 있습니다. 다른 작업을 확인하려면 **ADLStoreClient** 개체의 전체 [Data Lake Store Java SDK API 문서](https://azure.github.io/azure-data-lake-store-java/javadoc/) 개체를 살펴볼 수 있습니다.
+다음 섹션의 코드 조각에는 몇 가지 일반적인 파일 시스템 작업의 예가 포함되어 있습니다. 다른 작업을 확인하려면 **ADLStoreClient** 개체의 전체 [Data Lake Storage Gen1 Java SDK API 문서](https://azure.github.io/azure-data-lake-store-java/javadoc/) 개체를 살펴볼 수 있습니다.
 
 ## <a name="create-a-directory"></a>디렉터리 만들기
 
-다음 코드 조각은 지정한 Data Lake Store 계정의 루트에서 디렉터리 구조를 만듭니다.
+다음 코드 조각은 지정한 Data Lake Storage Gen1 계정의 루트에서 디렉터리 구조를 만듭니다.
 
     // create directory
     client.createDirectory("/a/b/w");
@@ -135,7 +134,7 @@ Azure Data Lake Store Java SDK를 사용하여 폴더 만들기, 데이터 파�
 
 ## <a name="read-a-file"></a>파일 읽기
 
-다음 코드 조각은 Data Lake Store 계정의 파일에서 콘텐츠를 읽습니다.
+다음 코드 조각은 Data Lake Storage Gen1 계정의 파일에서 콘텐츠를 읽습니다.
 
     // Read File
     InputStream in = client.getReadStream(filename);
@@ -150,7 +149,7 @@ Azure Data Lake Store Java SDK를 사용하여 폴더 만들기, 데이터 파�
 
 ## <a name="concatenate-files"></a>파일 연결
 
-다음 코드 조각은 Data Lake Store 계정의 두 개 파일을 연결합니다. 성공하면 연결된 파일은 두 개의 기존 파일을 대체합니다.
+다음 코드 조각은 Data Lake Storage Gen1 계정의 두 파일을 연결합니다. 성공하면 연결된 파일은 두 개의 기존 파일을 대체합니다.
 
     // concatenate the two files into one
     List<String> fileList = Arrays.asList("/a/b/c.txt", "/a/b/d.txt");
@@ -159,7 +158,7 @@ Azure Data Lake Store Java SDK를 사용하여 폴더 만들기, 데이터 파�
 
 ## <a name="rename-a-file"></a>파일 이름 바꾸기
 
-다음 코드 조각은 Data Lake Store 계정의 파일 이름을 변경합니다.
+다음 코드 조각은 Data Lake Storage Gen1 계정의 파일 이름을 바꿉니다.
 
     //rename the file
     client.rename("/a/b/f.txt", "/a/b/g.txt");
@@ -167,7 +166,7 @@ Azure Data Lake Store Java SDK를 사용하여 폴더 만들기, 데이터 파�
 
 ## <a name="get-metadata-for-a-file"></a>파일에 대한 메타데이터 가져오기
 
-다음 코드 조각은 Data Lake Store 계정의 파일에 대한 메타데이터를 검색합니다.
+다음 코드 조각은 Data Lake Storage Gen1 계정의 파일 메타데이터를 검색합니다.
 
     // get file metadata
     DirectoryEntry ent = client.getDirectoryEntry(filename);
@@ -198,7 +197,7 @@ Azure Data Lake Store Java SDK를 사용하여 폴더 만들기, 데이터 파�
 
 ## <a name="delete-files-and-folders"></a>파일 및 폴더 삭제
 
-다음 코드 조각은 Data Lake Store 계정에서 지정된 파일 및 폴더를 재귀적으로 삭제합니다.
+다음 코드 조각은 Data Lake Storage Gen1 계정에서 지정된 파일 및 폴더를 재귀적으로 삭제합니다.
 
     // delete directory along with all the subdirectories and files in it
     client.deleteRecursive("/a");
@@ -211,6 +210,6 @@ Azure Data Lake Store Java SDK를 사용하여 폴더 만들기, 데이터 파�
 
 ## <a name="next-steps"></a>다음 단계
 * [Java SDK에 대한 JavaDoc 탐색](https://azure.github.io/azure-data-lake-store-java/javadoc/)
-* [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
+* [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)
 
 

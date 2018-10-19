@@ -10,16 +10,19 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: d90a9f8bd32924eef6533e602957aa1704cfdae9
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 5bd1b534386f38f8dd3a78bbd98ffd012875351f
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190476"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736158"
 ---
 #    <a name="text-merge-cognitive-skill"></a>텍스트 병합 인식 기술
 
 **텍스트 병합** 기술은 필드 컬렉션에서 단일 필드로 텍스트를 통합합니다. 
+
+> [!NOTE]
+> 인식 검색은 현재 공개 미리 보기로 제공됩니다. 기능 실행과 이미지 추출 및 정규화는 현재 무료로 제공됩니다. 이러한 기능의 가격은 추후에 발표될 예정입니다. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.MergeSkill

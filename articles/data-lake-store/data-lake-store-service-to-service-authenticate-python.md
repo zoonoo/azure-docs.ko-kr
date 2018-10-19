@@ -1,6 +1,6 @@
 ---
-title: '서비스 간 인증: Azure Active Directory를 사용하여 Python으로 Data Lake Store 인증 | Microsoft Docs'
-description: Azure Active Directory를 사용하여 Python으로 Data Lake Store 서비스 간 인증을 수행하는 방법을 알아봅니다.
+title: '서비스 간 인증: Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 Python 인증 | Microsoft Docs'
+description: Azure Active Directory를 사용하여 Python으로 Azure Data Lake Storage Gen1 서비스 간 인증을 수행하는 방법을 알아봅니다.
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: f2ebd9228b9fa7861527dab20277ceb09f61b544
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a8e2cb090b2ee02301c54697db9edadeaebd9cd3
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626235"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295414"
 ---
-# <a name="service-to-service-authentication-with-data-lake-store-using-python"></a>Python을 사용하여 Data Lake Store로 서비스 간 인증
+# <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Python을 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증
 > [!div class="op_single_selector"]
 > * [Java 사용](data-lake-store-service-to-service-authenticate-java.md)
 > * [.NET SDK 사용](data-lake-store-service-to-service-authenticate-net-sdk.md)
@@ -27,7 +27,7 @@ ms.locfileid: "34626235"
 > 
 >  
 
-이 문서에서는 Python SDK를 사용하여 Azure Data Lake Store로 서비스 간 인증을 수행하는 방법을 배웁니다. Python을 사용한 Data Lake Store 최종 사용자 인증의 경우 [Python을 사용하여 Data Lake Store로 최종 사용자 인증](data-lake-store-end-user-authenticate-python.md)을 참조하세요.
+이 문서에서는 Python SDK를 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증을 수행하는 방법을 배웁니다. Python을 사용한 Data Lake Storage Gen1 최종 사용자 인증의 경우 [을 사용하여 Data Lake Storage Gen1로 최종 사용자 인증](data-lake-store-end-user-authenticate-python.md)을 참조하세요.
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -36,15 +36,15 @@ ms.locfileid: "34626235"
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-* **Azure Active Directory "웹" 응용 프로그램 만들기**. [Azure Active Directory를 사용하여 Data Lake Store로 서비스 간 인증](data-lake-store-service-to-service-authenticate-using-active-directory.md)의 단계를 완료해야 합니다.
+* **Azure Active Directory "웹" 응용 프로그램 만들기**. [Azure Active Directory를 사용하여 Data Lake Storage Gen1로 서비스 간 인증](data-lake-store-service-to-service-authenticate-using-active-directory.md)의 단계를 완료해야 합니다.
 
 ## <a name="install-the-modules"></a>모듈 설치
 
-Python을 사용한 Data Lake Store 작업을 위해서는 3가지 모듈을 설치해야 합니다.
+Python을 통해 Data Lake Storage Gen1을 사용하려면 세 가지 모듈을 설치해야 합니다.
 
 * Active Directory 등 Azure 모듈을 포함하는 `azure-mgmt-resource` 모듈.
-* Azure Data Lake Store 계정 관리 작업을 포함하는 `azure-mgmt-datalake-store` 모듈. 이 모듈에 대한 자세한 내용은 [Azure Data Lake Store 관리 모듈 참조](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python)를 참조하세요.
-* Azure Data Lake Store 파일 시스템 작업을 포함하는 `azure-datalake-store` 모듈. 이 모듈에 대한 자세한 내용은 [Azure Data Lake Store 파일 시스템 모듈 참조](http://azure-datalake-store.readthedocs.io/en/latest/)를 참조하세요.
+* Azure Data Lake Storage Gen1 계정 관리 작업을 포함하는 `azure-mgmt-datalake-store` 모듈. 이 모듈에 대한 자세한 내용은 [Azure Data Lake Storage Gen1 관리 모듈 참조](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python)를 참조하세요.
+* Azure Data Lake Storage Gen1 파일 시스템 작업을 포함하는 `azure-datalake-store` 모듈. 이 모듈에 대한 자세한 내용은 [azure-datalake-store 파일 시스템 모듈 참조](http://azure-datalake-store.readthedocs.io/en/latest/)를 참조하세요.
 
 다음 명령을 사용하여 모듈을 설치합니다.
 
@@ -64,11 +64,11 @@ pip install azure-datalake-store
     ## Use this for Azure AD authentication
     from msrestazure.azure_active_directory import AADTokenCredentials
 
-    ## Required for Azure Data Lake Store account management
+    ## Required for Data Lake Storage Gen1 account management
     from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
     from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
-    ## Required for Azure Data Lake Store filesystem management
+    ## Required for Data Lake Storage Gen1 filesystem management
     from azure.datalake.store import core, lib, multithread
 
     # Common Azure imports
@@ -84,7 +84,7 @@ pip install azure-datalake-store
 
 ## <a name="service-to-service-authentication-with-client-secret-for-account-management"></a>계정 관리를 위해 클라이언트 암호로 서비스 간 인증
 
-Data Lake Store에서 Data Lake Store 계정 만들기, Data Lake Store 계정 삭제 등의 계정 관리 작업을 수행할 수 있도록 이 코드 조각을 사용하여 Microsoft Azure Active Directory에 인증합니다. 다음 코드 조각은 기존 Microsoft Azure Active Directory "웹앱" 응용 프로그램의 응용 프로그램/서비스 주체에 대한 클라이언트 암호를 사용하여 비대화형으로 응용 프로그램을 인증하는 데 사용할 수 있습니다.
+Data Lake Storage Gen1에서 Data Lake Storage Gen1 계정 만들기, Data Lake Storage Gen1 계정 삭제 등의 계정 관리 작업을 수행할 수 있도록 이 코드 조각을 사용하여 Azure AD에 인증합니다. 다음 코드 조각은 기존 Microsoft Azure Active Directory "웹앱" 응용 프로그램의 응용 프로그램/서비스 주체에 대한 클라이언트 암호를 사용하여 비대화형으로 응용 프로그램을 인증하는 데 사용할 수 있습니다.
 
     authority_host_uri = 'https://login.microsoftonline.com'
     tenant = '<TENANT>'
@@ -99,7 +99,7 @@ Data Lake Store에서 Data Lake Store 계정 만들기, Data Lake Store 계정 �
 
 ## <a name="service-to-service-authentication-with-client-secret-for-filesystem-operations"></a>파일 시스템 작업을 위해 클라이언트 암호로 서비스 간 인증
 
-Data Lake Store에서 폴더 만들기, 파일 업로드 등의 파일 시스템 작업을 수행할 수 있도록 다음 코드 조각을 사용하여 Microsoft Azure Active Directory에 인증합니다. 다음 코드 조각은 응용 프로그램/서비스 주체에 대한 클라이언트 비밀을 사용하여 비대화형으로 응용 프로그램을 인증하는 데 사용될 수 있습니다. 기존 Azure AD "Web App" 응용 프로그램과 함께 사용합니다.
+Data Lake Storage Gen1에서 폴더 만들기, 파일 업로드 등의 파일 시스템 작업을 수행할 수 있도록 다음 코드 조각을 사용하여 Azure AD에 인증합니다. 다음 코드 조각은 응용 프로그램/서비스 주체에 대한 클라이언트 비밀을 사용하여 비대화형으로 응용 프로그램을 인증하는 데 사용될 수 있습니다. 기존 Azure AD "Web App" 응용 프로그램과 함께 사용합니다.
 
     tenant = '<TENANT>'
     RESOURCE = 'https://datalake.azure.net/'
@@ -113,7 +113,7 @@ Data Lake Store에서 폴더 만들기, 파일 업로드 등의 파일 시스템
 
 <!-- ## Service-to-service authentication with certificate for account management
 
-Use this snippet to authenticate with Azure AD for account management operations on Data Lake Store such as create Data Lake Store account, delete Data Lake Store account, etc. The following snippet can be used to authenticate your application non-interactively, using the certificate of an existing Azure AD "Web App" application. For instructions on how to create an Azure AD application, see [Create service principal with certificates](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
+Use this snippet to authenticate with Azure AD for account management operations on Data Lake Storage Gen1 such as create a Data Lake Storage Gen1 account, delete a Data Lake Storage Gen1 account, etc. The following snippet can be used to authenticate your application non-interactively, using the certificate of an existing Azure AD "Web App" application. For instructions on how to create an Azure AD application, see [Create service principal with certificates](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
 
     authority_host_uri = 'https://login.microsoftonline.com'
     tenant = '<TENANT>'
@@ -128,9 +128,9 @@ Use this snippet to authenticate with Azure AD for account management operations
     credentials = AADTokenCredentials(mgmt_token, client_id) -->
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 서비스 간 인증을 사용하여 Python으로 Azure Data Lake Store를 인증하는 방법을 배웠습니다. 이제 다음 문서를 통해 Python을 Azure Data Lake Store와 함께 사용하는 방법을 살펴볼 수 있습니다.
+이 문서에서는 Python을 사용하여 Data Lake Storage Gen1로 인증하는 서비스 간 인증을 사용하는 방법을 배웠습니다. 이제 다음 문서를 통해 Python을 Data Lake Storage Gen1과 함께 사용하는 방법을 살펴볼 수 있습니다.
 
-* [Python을 사용한 Data Lake Store에서의 계정 관리 작업](data-lake-store-get-started-python.md)
-* [Python을 사용한 Data Lake Store의 데이터 작업](data-lake-store-data-operations-python.md)
+* [Python을 사용한 Data Lake Storage Gen1에서의 계정 관리 작업](data-lake-store-get-started-python.md)
+* [Python을 사용한 Data Lake Storage Gen1에서의 데이터 작업](data-lake-store-data-operations-python.md)
 
 

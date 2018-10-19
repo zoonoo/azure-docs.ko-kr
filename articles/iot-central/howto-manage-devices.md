@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: cf803c03d266f2a400e47fc551dea62936456177
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 4b4ded86075e49277bca84f5261b6762b0f4fcae
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937621"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737314"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에서 장치 관리
 
@@ -51,12 +51,9 @@ Azure IoT Central 응용 프로그램에 장치를 추가하려면:
 
 ## <a name="import-devices"></a>장치 가져오기
 
-대량의 장치를 응용 프로그램에 연결할 수 있도록 Azure IoT Central은 CSV 파일을 통해 장치 대량 가져오기 기능을 제공합니다. 
-
-CSV 파일 요구 사항:
-1. CSV 파일에는 장치 ID를 포함하고 있는 열 하나만 있어야 합니다.
-
-1. 파일에 헤더가 없어야 합니다.
+대량의 장치를 응용 프로그램에 연결할 수 있도록 Azure IoT Central은 CSV 파일을 통해 장치 대량 가져오기 기능을 제공합니다. CSV 파일에는 다음 열 및 헤더가 있어야 합니다.
+1.  IOTC_DeviceID**<span style="color:Red">(소문자여야 함)</span>**
+1.  IOTC_DeviceName(선택 사항)
 
 
 장치를 응용 프로그램에 대량으로 등록하려면:
@@ -119,11 +116,13 @@ CSV 파일 요구 사항:
 
     [![내보내기 성공](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
 
-1. 내보낸 CSV 파일에는 다음과 같은 정보가 포함됩니다.
-    1. Name
-    1. 장치 ID
-    1. 기본 연결 문자열
-
+1. 내보낸 CSV 파일에는 다음의 열 정보(**장치 ID, 장치 이름, 장치 기본/보조 키, 및 기본/보조 인증서 지문**)가 있습니다.
+    *   IOTC_DEVICEID
+    *   IOTC_DEVICENAME
+    *   IOTC_SASKEY_PRIMARY
+    *   IOTC_SASKEY_SECONDARY
+    *   IOTC_X509THUMBPRINT_PRIMARY 
+    *   IOTC_X509THUMBPRINT_SECONDARY
 
 ## <a name="delete-a-device"></a>장치 삭제
 

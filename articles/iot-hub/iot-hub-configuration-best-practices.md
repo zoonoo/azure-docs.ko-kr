@@ -7,12 +7,12 @@ ms.date: 06/24/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 571aa5a080ae4622a23fdb20d712327d4ec6fbf9
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 5eb0ba659961d809d0ae471034b03263f87e3894
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42141583"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985501"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>IoT 솔루션 내에서 장치 구성에 대한 모범 사례
 
@@ -55,7 +55,7 @@ Azure IoT Hub에서 자동 장치 관리는 전체 수명 주기를 통해 대�
 
 다음은 Azure에 기반을 둔 시스템을 빌드하는 IoT 솔루션 개발자에 대한 모범 사례입니다.
 
-* **[장치 쌍](iot-hub-devguide-device-twins.md) 구현:** 장치 쌍은 클라우드에서 원하는 구성 동기화, 현재 구성 및 장치 속성 보고를 활성화합니다. 클라우드 솔루션 응용 프로그램 내에서 장치 쌍을 구현하는 가장 좋은 방법은 구성에 가장 적합한 [Azure IoT SDK](https://github.com/Azure/azure-iot-sdks.) 장치 쌍을 사용하는 것이며, 그 이유는 다음과 같습니다.
+* **[장치 쌍](iot-hub-devguide-device-twins.md) 구현:** 장치 쌍은 클라우드에서 원하는 구성 동기화, 현재 구성 및 장치 속성 보고를 활성화합니다. 클라우드 솔루션 응용 프로그램 내에서 장치 쌍을 구현하는 가장 좋은 방법은 [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks)를 사용하는 것입니다. 장치 쌍은 다음과 같은 이유로 구성에 가장 적합합니다.
 
     * 양방향 통신을 지원합니다.
     * 연결된 장치 상태 및 연결이 끊긴 장치 상태를 모두 허용합니다. 

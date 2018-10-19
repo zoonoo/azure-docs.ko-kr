@@ -9,15 +9,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 723006d37ed0570e32790a0bb70a3dce5a87ade8
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 7e0a68efc93d0f907edfb38dbc548ac95a35b3e1
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43346776"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465812"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Azure Monitor(미리 보기)를 사용하여 리소스 그룹 모니터링
 
@@ -109,6 +109,11 @@ App Service를 선택하면 Azure Monitor 통합 문서 템플릿 갤러리가 �
 이 경우 편집을 선택하면 이러한 시각화 집합이 Azure Monitor 메트릭을 기준으로 한다는 것을 알 수 있습니다.
 
  ![Azure 메트릭을 사용한 성능 보기 스크린샷](.\media\resource-group-insights\0012-performance-metrics.png)
+
+## <a name="troubleshooting"></a>문제 해결
+
+### <a name="enabling-access-to-alerts"></a>경고 액세스 사용
+리소스 그룹용 Azure Monitor에는 리소스 그룹의 리소스 경고 상태에 액세스하기 위한 특정 권한이 필요합니다. 경고를 로드할 때 오류 메시지가 표시되면 권한이 없는 것입니다. 이러한 경우 리소스 그룹이 포함된 구독에 대한 **소유자** 또는 **참가자** 역할을 부여해 줄 것을 관리자에게 요청하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

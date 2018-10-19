@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/08/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 211d79f387697ce850ac645ef65338c216e2bd76
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 3d8492d2a8982c9c85bfc91867f7eb6c2da04e58
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382198"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294767"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Azure Automation에서 Runbook 예약
 
@@ -50,7 +50,10 @@ Azure Portal에서 또는 Windows PowerShell을 사용하여 Runbook에 대한 �
 1. Azure Portal의 Automation 계정에서 왼쪽의 **공유 리소스** 섹션 아래에 있는 **일정**을 선택합니다.
 1. 페이지의 위쪽에서 **일정 추가**를 클릭합니다.
 1. **새 일정** 창에서 **이름**을 입력하고, 선택적으로 새 일정에 대한 **설명**을 입력합니다.
-1. **한 번** 또는 **되풀이**를 선택하여 일정을 한 번 실행할지 또는 되풀이 일정에 따라 실행할지를 선택합니다. **한 번**을 선택하는 경우 **시작 시간**을 지정한 다음, **만들기**를 클릭합니다. **되풀이**를 선택하는 경우 **시작 시간**을 지정하고 얼마나 자주 runbook을 반복할지 빈도를 **시간**, **일**, **주** 또는 **달**로 지정합니다. 드롭다운 목록에서 **주** 또는 **월**을 선택하면 **되풀이 옵션**이 창에 표시됩니다. 선택하는 즉시 **되풀이 옵션** 창이 표시되며 **주**를 선택한 경우 요일을 선택할 수 있습니다. **월**을 선택한 경우 **요일** 또는 달력에서 월의 특정한 날짜를 선택하고 마지막으로 월의 마지막 날에 실행할지 여부를 선택할 수 있습니다. 그런 다음 **확인**을 클릭합니다.
+1. **한 번** 또는 **되풀이**를 선택하여 일정을 한 번 실행할지 또는 되풀이 일정에 따라 실행할지를 선택합니다. **한 번**을 선택하는 경우 **시작 시간**을 지정한 다음, **만들기**를 클릭합니다. **되풀이**를 선택하는 경우 **시작 시간**을 지정하고 **되풀이 간격**에서는 Runbook 반복 빈도를 **시간**, **일**, **주** 또는 **월** 단위로 지정합니다.
+    1. **주**를 선택하는 경우 선택 가능한 요일 목록이 제공됩니다. 요일을 원하는 수만큼 선택합니다. 첫 번째 일정은 시작 시간 이후에 선택한 첫 번째 요일에 실행됩니다.
+    2. **월**을 선택하는 경우에는 다른 옵션이 제공됩니다. **월별 발생 빈도** 옵션에서는 **일(월 중)** 또는 **평일** 중 하나를 선택합니다. **일(월 중)** 을 선택하는 경우 날짜를 원하는 수만큼 선택할 수 있는 달력이 표시됩니다. 현재 달은 30일까지인데 31일을 선택하는 등의 경우에는 일정이 실행되지 않습니다. 일정이 해당 월의 말일에 실행되도록 하려면 **매월 말일 실행** 아래에서 **예**를 선택합니다. **평일**을 선택하는 경우에는 **되풀이 간격** 옵션이 표시됩니다. **첫 번째**, **두 번째**, **세 번째**, **네 번째** 또는 **마지막** 중 하나를 선택하고, 마지막으로 반복할 요일을 선택합니다.
+1. 선택을 완료한 후 **만들기**를 클릭합니다.
 
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>Windows PowerShell을 사용하여 새 일정을 만들려면
 
@@ -73,9 +76,9 @@ Runbook을 여러 일정에 연결할 수 있으며, 하나의 일정에 여러 
 ### <a name="to-link-a-schedule-to-a-runbook-with-the-azure-portal"></a>Azure 포털을 사용하여 Runbook에 일정을 연결하려면
 
 1. Azure Portal의 Automation 계정에서 왼쪽의 **프로세스 자동화** 섹션 아래에 있는 **Runbook**을 선택합니다.
-1. 예약할 Runbook의 이름을 클릭합니다.
-1. 현재 Runbook이 일정에 연결되지 않은 경우 새 일정을 만들거나 기존 일정에 연결하는 옵션이 제공됩니다.
-1. Runbook에 매개 변수가 있는 경우 **실행 설정 수정(기본값: Azure)** 옵션을 선택할 수 있고, 이에 따라 적절하게 정보를 입력할 수 있는 **매개 변수** 창이 표시됩니다.
+2. 예약할 Runbook의 이름을 클릭합니다.
+3. 현재 Runbook이 일정에 연결되지 않은 경우 새 일정을 만들거나 기존 일정에 연결하는 옵션이 제공됩니다.
+4. Runbook에 매개 변수가 있는 경우 **실행 설정 수정(기본값: Azure)** 옵션을 선택할 수 있고, 이에 따라 적절하게 정보를 입력할 수 있는 **매개 변수** 창이 표시됩니다.
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-windows-powershell"></a>Windows PowerShell을 사용하여 Runbook에 일정을 연결하려면
 

@@ -4,33 +4,31 @@ description: 구독 한도에 도달할 때 Azure Resource Manager 요청에 제
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: e1047233-b8e4-4232-8919-3268d93a3824
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/10/2018
+ms.date: 09/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: f3dcb0c5036b2cfc38ef2a6a16269a8697bbd9e6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fdc98c6d88b18f770d1869acbea5998ad4571287
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358866"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45981816"
 ---
 # <a name="throttling-resource-manager-requests"></a>Resource Manager 요청 제한
-각 구독 및 테넌트에 대해 Resource Manager는 읽기 요청을 시간당 15,000으로, 쓰기 요청을 시간당 1,200으로 제한합니다. 이러한 한도는 각 Azure Resource Manager 인스턴스에 적용됩니다. 모든 Azure 지역에 여러 인스턴스가 있으며 Azure Resource Manager가 모든 Azure 지역에 배포됩니다.  따라서 사용자 요청이 일반적으로 다수의 많은 인스턴스에서 서비스되기 때문에 실제 한도는 이러한 한도보다 훨씬 더 높습니다.
+각 Azure 구독 및 테넌트에 대해 Resource Manager는 시간당 최대 12,000개 읽기 요청과 1,200개 쓰기 요청을 허용합니다. 이러한 제한의 범위는 요청을 하는 보안 주체 ID 및 구독 ID나 테넌트 ID의 범위로 설정됩니다. 둘 이상의 보안 주체 ID가 요청을 하는 경우 구독 또는 테넌트 전체에 적용되는 제한이 시간당 12,000개/1,200개보다 커집니다.
+
+요청은 구독 또는 테넌트에 적용됩니다. 구독 요청은 구독 내의 리소스 그룹 검색과 같이 구독 ID가 전달되는 요청입니다. 유효한 Azure 위치 검색 등의 테넌트 요청에는 구독 ID가 포함되지 않습니다.
+
+이러한 한도는 각 Azure Resource Manager 인스턴스에 적용됩니다. 모든 Azure 지역에 여러 인스턴스가 있으며 Azure Resource Manager가 모든 Azure 지역에 배포됩니다.  따라서 사용자 요청이 일반적으로 다수의 많은 인스턴스에서 서비스되기 때문에 실제 한도는 이러한 한도보다 훨씬 더 높습니다.
 
 응용 프로그램 또는 스크립트가 이러한 한도에 도달하면 요청을 제한해야 합니다. 이 문서에서는 한도에 도달하기 전에 남은 요청을 확인하는 방법과 한도에 도달했을 때 응답하는 방법을 보여줍니다.
 
 한도에 도달하면 HTTP 상태 코드 **429 너무 많은 요청**이 표시됩니다.
-
-요청 수는 구독 또는 테넌트 범위로 한정됩니다. 구독에서 요청을 만드는 동시 응용 프로그램이 여러 개 있는 경우 해당 응용 프로그램의 요청이 함께 추가되어 나머지 요청 수가 결정됩니다.
-
-구독 범위가 지정된 요청은 구독의 리소스 그룹 검색과 같이 구독 ID 전달과 관련된 요청입니다. 테넌트 범위가 지정된 요청에는 올바른 Azure 위치 검색 등과 같이 구독 ID가 포함되지 않습니다.
 
 ## <a name="remaining-requests"></a>나머지 요청
 응답 헤더를 검사하여 나머지 요청 수를 확인할 수 있습니다. 각 요청은 나머지 읽기 및 쓰기 요청 수에 대한 값을 포함합니다. 다음 표에서는 해당 값을 검사할 수 있는 응답 헤더를 설명합니다.
@@ -62,7 +60,9 @@ $r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/re
 $r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
 ```
 
-또는 디버깅을 위해 나머지 요청을 보려면 **PowerShell** cmdlet에서 **-Debug** 매개 변수를 제공할 수 있습니다.
+전체 PowerShell 예제는 [구독에 대한 Resource Manager 제한 확인](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI)을 참조하세요.
+
+디버깅을 위해 남은 요청 수를 확인하려는 경우 **PowerShell** cmdlet에 **-Debug** 매개 변수를 제공할 수 있습니다.
 
 ```powershell
 Get-AzureRmResourceGroup -Debug
@@ -144,5 +144,6 @@ msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 
 ## <a name="next-steps"></a>다음 단계
 
+* 전체 PowerShell 예제는 [구독에 대한 Resource Manager 제한 확인](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI)을 참조하세요.
 * 제한 및 할당량에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
 * 비동기 REST 요청 처리에 대해 알아보려면 [Azure 비동기 작업 추적](resource-manager-async-operations.md)을 참조하세요.

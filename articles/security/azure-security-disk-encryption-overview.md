@@ -6,13 +6,13 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/10/2018
-ms.openlocfilehash: ea72e4ac778e52d4f6e4f5597d38a1de59ba43fc
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.date: 09/14/2018
+ms.openlocfilehash: 193aa8f87a90eb7bbf1e2c49132ad480881d41fe
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348942"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633472"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>IaaS VM용 Azure Disk Encryption 
 Microsoft Azure는 데이터 프라이버시, 데이터 독립성을 보장하고, 암호화 키를 암호화, 제어 및 관리하고 데이터 액세스를 제어 및 감사하는 다양한 고급 기술을 통해 Azure 호스팅 데이터를 제어할 수 있도록 노력하고 있습니다. Azure 고객은 이러한 제어를 통해 비즈니스 요구에 가장 적합한 솔루션을 유연하게 선택할 수 있습니다. 이 문서에서는 조직의 보안 및 규정 준수 약정에 따라 데이터를 보호할 수 있도록 하는 기술 솔루션인 "Windows 및 Linux IaaS VM용 Azure Disk Encryption"을 소개합니다. 
@@ -78,7 +78,10 @@ Azure 디스크 암호화 솔루션은 다음의 고객 시나리오를 지원�
 * 클래식 VM 만들기 방법을 사용하여 만든 IaaS VM
 * Linux IaaS VM 고객 사용자 지정 이미지에서 암호화 사용
 * 온-프레미스 키 관리 서비스와의 통합
-* Azure 파일(공유 파일 시스템), NFS(네트워크 파일 시스템), 동적 볼륨, 소프트웨어 기반 RAID 시스템으로 구성된 Windows VM
+* Azure 파일(공유 파일 시스템)
+* NFS(네트워크 파일 시스템)
+* 동적 볼륨
+* 소프트웨어 기반 RAID 시스템으로 구성된 Windows VM
 
 ## <a name="encryption-features"></a>암호화 기능
 Azure IaaS VM에 대한 Azure Disk Encryption을 사용하도록 설정하고 배포할 때 제공된 구성에 따라 다음 기능이 활성화됩니다.

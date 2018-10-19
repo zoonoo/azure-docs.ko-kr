@@ -15,12 +15,12 @@ ms.workload: identity
 ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: aee172bc6fc77aaac8d2d52037a481fdb976d308
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: ce7c96d92938c4e3b4cc0b53271df48350083754
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188971"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465234"
 ---
 # <a name="view-who-has-azure-resource-roles-in-pim"></a>PIM에서 Azure 리소스 역할이 있는 사용자 보기
 
@@ -38,11 +38,11 @@ Azure Active Directory PIM(Privileged Identity Management)을 사용하면 조�
 
 ## <a name="view-activation-and-azure-resource-activity"></a>활성화 및 Azure 리소스 활동 보기
 
-특정 사용자가 다양한 리소스에서 수행한 작업을 확인해야 하는 경우 적격 사용자에 대해 지정된 활성화 기간과 관련된 Azure 리소스 활동을 검토할 수 있습니다. [구성원] 보기 또는 특정 역할의 구성원 목록에서 사용자를 선택하여 시작합니다. 결과에서는 Azure Resources의 날짜별 사용자 작업 및 동일한 기간 동안의 최근 역할 활성화를 그래픽으로 표시합니다.
+특정 사용자가 다양한 리소스에서 수행한 작업을 확인해야 하는 경우 적격 사용자에 대해 지정된 활성화 기간과 관련된 Azure 리소스 활동을 검토할 수 있습니다. [구성원] 보기 또는 특정 역할의 구성원 목록에서 사용자를 선택하여 시작합니다. 결과에서는 Azure 리소스의 날짜별 사용자 작업 및 동일한 기간 동안의 최근 역할 활성화가 그래픽으로 표시됩니다.
 
 ![](media/azure-pim-resource-rbac/user-details.png)
 
-특정 역할 활성화를 선택하면 역할 활성화 세부 정보와 해당 사용자가 활성화된 동안 발생한 해당 Azure 리소스 활동이 표시됩니다.
+특정 역할 활성화를 선택하면 역할 활성화 세부 정보와 이 사용자가 활성 상태인 동안 발생한 해당 Azure 리소스 활동이 표시됩니다.
 
 ![](media/azure-pim-resource-rbac/audits.png)
 

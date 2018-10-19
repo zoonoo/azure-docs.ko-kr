@@ -10,18 +10,21 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: a12efaa020e626e4a10a0708c9b84d8fe125588c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 694271115626c652523be34160ad6a07053f6387
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786812"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735801"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>핵심 문구 추출 인식 기술
 
 **핵심 문구 추출** 기술은 구조화되지 않은 텍스트를 평가하고 각 레코드에 대해 핵심 문구 목록을 반환합니다.
 
 이 기능은 레코드에서 기본 대화 지점을 신속하게 식별해야 하는 경우 유용합니다. 예를 들어 "음식이 맛 있었으며 훌륭한 직원이 있었습니다"라는 입력 텍스트가 있는 경우 서비스는 "음식" 및 "훌륭한 직원"을 반환합니다.
+
+> [!NOTE]
+> 인식 검색은 현재 공개 미리 보기로 제공됩니다. 기능 실행과 이미지 추출 및 정규화는 현재 무료로 제공됩니다. 이러한 기능의 가격은 추후에 발표될 예정입니다. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.KeyPhraseExtractionSkill 
@@ -117,4 +120,4 @@ Microsoft.Skills.Text.KeyPhraseExtractionSkill
 ## <a name="see-also"></a>참고 항목
 
 + [미리 정의된 기술](cognitive-search-predefined-skills.md)
-+ [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
++ [기능을 정의하는 방법](cognitive-search-defining-skillset.md)
