@@ -1,30 +1,33 @@
 ---
-title: Knowledge Exploration Service API의 Evaluate 메서드 | Microsoft Docs
-description: Cognitive Services의 KES(Knowledge Exploration Service) API에서 Evaluate 메서드를 사용하는 방법에 대해 알아봅니다.
+title: Evaluate 메서드 - Knowledge Exploration Service API
+titlesuffix: Azure Cognitive Services
+description: KES(Knowledge Exploration Service) API에서 Evaluate 메서드를 사용하는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: fc3d73b326b565cfe40d1b82cc419357b28a801a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 45b25ec5cfc6e198b9b125675f4942463cef247a
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373111"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128267"
 ---
 # <a name="evaluate-method"></a>evaluate 메서드
+
 *evaluate* 메서드는 인덱스 데이터를 기반으로 구조화된 쿼리 식의 출력을 평가 및 반환합니다.
 
 일반적으로 언어 식은 interpret 메서드에 대한 응답에서 얻습니다.  하지만 쿼리 식을 직접 구성할 수도 있습니다([구조화된 쿼리 식](Expressions.md) 참조).  
 
 ## <a name="request"></a>요청 
+
 `http://<host>/evaluate?expr=<expr>&attributes=<attrs>[&<options>]`   
 
-Name|값|설명
+이름|값|설명
 ----|----|----
 expr       | 텍스트 문자열 | 인덱스 엔터티 하위 집합을 선택하는 구조화된 쿼리 식입니다.
 특성 | 텍스트 문자열 | 응답에 포함되는 쉼표로 구분된 특성 목록입니다.

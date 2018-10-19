@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.component: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/11/18
+ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: e382f53678806aa3442151703277c3a57bb30830
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 1caf69ee822ec11e8797ca23c9c163d36344edc7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302280"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719990"
 ---
 # <a name="what-is-the-myapps-portal"></a>MyApps 포털이란 무엇입니까?
 
@@ -109,16 +109,6 @@ Azure Active Directory 팀은 My Apps 모바일 앱을 게시합니다. 앱을 �
 
 > [!NOTE]
 > 플러그 인이나 모바일 앱 없이 모든 장치의 거의 모든 웹 브라우저(Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 및 기타 70개 이상 포함)에서 Azure AD를 사용하여 페더레이션을 지원하는 응용 프로그램에 로그인할 수 있습니다. 모바일 장치에서 사용하기 위해, 다른 [MyApps 포털 환경](https://myapps.microsoft.com/)에도 My Apps 모바일 앱이 필요하지 않습니다.
->
->
-
-### <a name="my-apps-for-android"></a>Android 용 My Apps
-
-Android용 My Apps는 Android 버전 4.1 이상을 실행하는 모든 Android 장치에서 지원됩니다.  
-
-[Google Play 스토어](https://play.google.com/store/apps/details?id=com.microsoft.myapps)에 제공됩니다.
-
-![Android 용 My Apps][3]   
 
 ### <a name="my-apps-for-iphone-and-ipad"></a>iPhone 및 iPad 용 My Apps
 
@@ -129,13 +119,13 @@ iOS용 My Apps는 iOS 버전 7 이상을 실행하는 iPhone 또는 iPad에서 �
 ![iOS용 My Apps][4]    
 
 
-## <a name="managed-browser-for-my-apps"></a>My Apps에 대한 관리되는 브라우저
+## <a name="intune-managed-browser-for-my-apps"></a>My Apps용 Intune Managed Browser
 
-My Apps는 Intune Managed Browser에도 통합되어 있습니다. iOS 및 Android 장치용 Intune Managed Browser는 모바일 장치의 데이터가 안전하게 유지되도록 하는 데 핵심적인 역할을 수행합니다. 브라우저를 사용하면 회사 정보가 포함될 수도 있는 웹 페이지를 안전하게 보고 탐색할 수 있으며 안전한 웹 브라우징 환경을 제공하는 데 도움이 됩니다.  
+My Apps는 Intune Managed Browser에도 통합되어 있습니다. iOS 및 Android 장치에 Intune Managed Browser를 사용하면 회사 정보가 포함된 웹 페이지를 더 안전하게 보고 탐색할 수 있으므로 더 안전한 웹 브라우징 환경을 제공할 수 있습니다.  
 
-Managed Browser 홈 페이지와 사용자의 책갈피에서 My Apps에 빠르게 액세스할 수 있기 때문에 액세스하려는 응용 프로그램에 도달하기 위해 필요한 클릭 수가 줄어듭니다.
+Managed Browser 홈페이지와 책갈피 모두에서 My Apps에 액세스할 수 있습니다. 즉 앱에 도달하기 위해 클릭해야 하는 횟수가 줄어듭니다.
 
-Intune Managed Browser는 [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) 및 [Google Play 스토어](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser&hl=en)에 제공됩니다.
+Intune Managed Browser는 [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) 및 [Google Play 스토어](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser)에 제공됩니다.
 
 ![My Apps에 대한 관리되는 브라우저][5]    
 
@@ -210,17 +200,16 @@ MyApps 포털로 돌아와서 응용 프로그램 타일을 다시 선택하면 
 
 ## <a name="next-steps"></a>다음 단계
 
-- 응용 프로그램 관리와 관련된 모든 항목의 목록을 보려면 [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](../active-directory-apps-index.md)를 참조하세요.
+- 응용 프로그램 관리에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 관리](../manage-apps/what-is-application-management.md)를 참조하세요.
  
 - SaaS 앱을 Azure AD와 통합하는 방법을 알아보려면 [SaaS 앱을 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)을 참조하세요.
  
 - Azure AD를 사용하여 앱 관리에 대한 자세한 내용은 [Azure Active Directory로 SSO(Single Sign-On) 및 앱 액세스 관리 소개](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
  
-- 사용자 프로비저닝에 대한 자세한 내용은 [SaaS 응용 프로그램에 자동화된 사용자 프로비저닝 및 프로비저닝 해제](../active-directory-saas-app-provisioning.md)를 참조하세요.
+- 사용자 프로비저닝에 대한 자세한 내용은 [SaaS 응용 프로그램에 자동화된 사용자 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요.
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-introduction/01.png
 [2]: ./media/active-directory-saas-access-panel-introduction/02.png
-[3]: ./media/active-directory-saas-access-panel-introduction/03.png
 [4]: ./media/active-directory-saas-access-panel-introduction/04.png
 [5]: ./media/active-directory-saas-access-panel-introduction/05.png

@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: d2ab34b3737ec00e4adc464f6d2255203fb6ae08
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 9cf49ae97da3bf67300bdc222c86bb712aeaed37
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43840622"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465795"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Visual Studio 연결된 서비스를 사용하여 웹 응용 프로그램에 Key Vault 추가
 
@@ -39,7 +39,8 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
 
    ![“Azure Key Vault로 비밀 보호” 선택](media/vs-key-vault-add-connected-service/KeyVaultConnectedService1.PNG)
 
-   Visual Studio에 로그인하고 사용자 계정과 연결된 Azure 구독이 있는 경우 구독이 포함된 드롭다운 목록이 페이지에 표시됩니다.
+   Visual Studio에 로그인하고 사용자 계정과 연결된 Azure 구독이 있는 경우 구독이 포함된 드롭다운 목록이 페이지에 표시됩니다. Visual Studio에 로그인되어 있는지, 로그인에 사용한 계정이 Azure 구독에 사용한 계정과 동일한지 확인합니다.
+
 1. 사용하려는 구독을 선택한 다음, 새로운 Key Vault 또는 기존 Key Vault를 선택하거나 편집 링크를 선택하여 자동으로 생성된 이름을 수정합니다.
 
    ![구독 선택](media/vs-key-vault-add-connected-service/KeyVaultConnectedService3.PNG)

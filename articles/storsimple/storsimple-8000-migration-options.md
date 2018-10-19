@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2018
+ms.date: 09/20/2018
 ms.author: alkohli
-ms.openlocfilehash: 8f34d5a38f09f015547f52cc4b44819b780932bb
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 5da67b5141eb61823d3e376b6f0e6b0b3895ca68
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818861"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498286"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>StorSimple 5000-7000 시리즈에서 데이터를 마이그레이션하는 옵션 
 
@@ -75,13 +75,22 @@ a. 예. 데이터의 호스트 복사본을 사용하여 다른 저장소 솔루
 
 a. 5000 또는 7000 시리즈에서 마이그레이션하는 작업은 완벽하게 지원됩니다. 실제로는 먼저 고객 지원팀에 문의한 후에 마이그레이션을 시작하는 것이 좋습니다. 마이그레이션은 현재 지원형 작업입니다. StorSimple 5000-7000 시리즈 장치에서 데이터를 마이그레이션하려면 [지원 티켓을 여세요](storsimple-8000-contact-microsoft-support.md).
 
-### <a name="q-how-does-the-cost-compare-for-the-two-listed-migrations-to-azure-hybrid-services"></a>Q. Azure 하이브리드 서비스에 나열된 두 가지 마이그레이션에 대한 비용을 비교하려면 어떻게 하나요? 
+### <a name="q-what-is-the-pricing-model-for-both-the-migration-options"></a>Q. 두 가지 마이그레이션 옵션 모두에 대한 가격 책정 모델은 무엇인가요?
 
-a. 마이그레이션 비용은 선택한 옵션에 따라 다릅니다. 마이그레이션 자체에는 추가 비용이 들지 않지만, StorSimple 8000 시리즈로 업그레이드하려는 경우 하드웨어 장치 비용이 발생하게 됩니다. 마찬가지로 Azure 파일 동기화를 사용하는 경우 서비스 독 요금이 적용될 수 있습니다. 고객은 각각의 경우에서 진행 중인 저장소 비용을 지불해야 합니다. 예상 비용은 [해당 서비스에 대한 Microsoft 가격 계산기](https://azure.microsoft.com/pricing/#product-picker)를 참조하세요.  
+a. 마이그레이션 비용은 선택한 옵션에 따라 다릅니다. 마이그레이션 자체에는 추가 비용이 들지 않지만, StorSimple 8000 시리즈로 업그레이드하려는 경우 하드웨어 장치 비용이 발생하게 됩니다. 
+
+마찬가지로 Azure 파일 동기화를 사용하는 경우 서비스 독 요금이 적용될 수 있습니다. 고객은 각각의 경우에서 진행 중인 저장소 비용을 지불해야 합니다. 예상 비용은 다음을 참조하세요. 
+- [StorSimple 가격 책정](https://azure.microsoft.com/pricing/details/storsimple/)  
+- [AFS 가격 책정]( https://azure.microsoft.com/pricing/details/storage/files/)
 
 ### <a name="q--how-long-does-it-take-to-complete-a-migration"></a>Q.  마이그레이션을 완료하는 데 얼마나 오래 걸리나요?
 
 a. 데이터 마이그레이션을 완료하는 데 걸리는 시간은 선택한 데이터의 양과 선택한 업그레이드 옵션에 따라 다릅니다. 
+
+### <a name="q-what-is-the-end-of-support-date-for-storsimple-8000-series"></a>Q. StorSimple 8000 시리즈의 지원 종료 날짜는 언제인가요?
+
+a. StorSimple 8000 시리즈의 지원 종료 날짜는 [여기](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series)에 게시됩니다.
+
 
 ## <a name="next-steps"></a>다음 단계
  - [StorSimple 5000-7000 시리즈에서 8000 시리즈 장치로 데이터 마이그레이션](storsimple-8000-migrate-from-5000-7000.md)

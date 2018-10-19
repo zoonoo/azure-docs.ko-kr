@@ -1,4 +1,21 @@
-Azure Resource Manager만 사용하여 관리 작업을 수행하는 경우 적용되는 제한은 다음과 같습니다.
+---
+title: 포함 파일
+description: 포함 파일
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 09/18/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: a76e91eee14c8c1feca8178fec461cf71989d8a3
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46299124"
+---
+다음과 같은 제한은 Azure Storage와 Azure Resource Manager를 사용하여 관리 작업을 수행하는 경우에만 적용됩니다.
 
 | 리소스 | 기본 제한 |
 | --- | --- |

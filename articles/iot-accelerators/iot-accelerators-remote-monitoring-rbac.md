@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: 956cb80ddbf96f23585dd52f3dc1013c7a665113
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: a56cb92dc8870bf3fff6de0b1d5d907a0898c216
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886313"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364298"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기에서 역할 기반 액세스 제어 구성
 
@@ -134,11 +134,11 @@ Azure Portal을 사용하여 원격 모니터링 솔루션에 사용자를 추�
 
 ### <a name="define-a-policy-for-the-new-role"></a>새 역할에 대한 정책 정의
 
-Azure Portal에서 앱에 역할을 추가한 후에는, 장치 관리에 필요한 권한을 할당하는 역할에 대해 [roles.json](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/pcs-auth/Services/data/policies/roles.json)에 정책을 정의해야 합니다.
+Azure Portal에서 앱에 역할을 추가한 후에는, 장치 관리에 필요한 권한을 할당하는 역할에 대해 [roles.json](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/auth/Services/data/policies/roles.json)에 정책을 정의해야 합니다.
 
-1. [인증 및 권한 부여 마이크로 서비스](https://github.com/Azure/pcs-auth-dotnet) 리포지토리를 GitHub에서 로컬 머신으로 복제합니다.
+1. GitHub의 [원격 모니터링 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet) 리포지토리를 로컬 머신으로 복제합니다.
 
-1. 다음 코드 조각처럼 **Services/data/policies/roles.json** 파일을 편집하여 **ManageDevices** 역할에 대한 정책을 추가합니다. **ID**와 **역할** 값은 이전 섹션의 앱 매니페스트에 있는 역할 정의와 일치해야 합니다. 허용된 작업 목록을 통해 **ManageDevices** 역할에 해당하는 사람이 솔루션에 연결된 장치를 만들고, 업데이트하고 삭제할 수 있습니다.
+1. 다음 코드 조각처럼 **auth/Services/data/policies/roles.json** 파일을 편집하여 **ManageDevices** 역할에 대한 정책을 추가합니다. **ID**와 **역할** 값은 이전 섹션의 앱 매니페스트에 있는 역할 정의와 일치해야 합니다. 허용된 작업 목록을 통해 **ManageDevices** 역할에 해당하는 사람이 솔루션에 연결된 장치를 만들고, 업데이트하고 삭제할 수 있습니다.
 
     ```json
     {
@@ -184,7 +184,7 @@ Azure Portal에서 앱에 역할을 추가한 후에는, 장치 관리에 필요
 
 ### <a name="how-the-web-ui-enforces-permissions"></a>웹 UI가 권한을 적용하는 방법
 
-웹 UI는 [인증 및 권한 부여 마이크로 서비스](https://github.com/Azure/pcs-auth-dotnet)를 사용하여 사용자가 수행하도록 허용된 작업이 무엇인지, UI에 어떤 컨트롤이 표시되는지를 확인합니다. 예를 들어 솔루션 이름이 **contoso-rm4**인 경우 웹 UI는 다음 요청을 보내서 현재 사용자에게 허용된 작업 목록을 검색합니다.
+웹 UI는 [인증 및 권한 부여 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth)를 사용하여 사용자가 수행하도록 허용된 작업이 무엇인지, UI에 어떤 컨트롤이 표시되는지를 확인합니다. 예를 들어 솔루션 이름이 **contoso-rm4**인 경우 웹 UI는 다음 요청을 보내서 현재 사용자에게 허용된 작업 목록을 검색합니다.
 
 ```http
 http://contoso-rm4.azurewebsites.net/v1/users/current
@@ -226,7 +226,7 @@ Authorization: Bearer <JWT Token from ADAL>
 
 마이크로 서비스는 인증되지 않은 API 요청으로부터 보호하기 위해 권한을 확인합니다. 마이크로 서비스가 API 요청을 받으면 JWT 토큰을 디코딩하여 유효성을 검사하고 사용자의 역할과 관련된 사용자 ID 및 권한을 가져옵니다.
 
-[IoTHub 관리자 마이크로 서비스](https://github.com/Azure/iothub-manager-dotnet)의 [DevicesController.cs](https://github.com/Azure/iothub-manager-dotnet/blob/master/WebService/v1/Controllers/DevicesController.cs) 파일의 다음 코드 조각은 권한이 적용되는 방법을 보여줍니다.
+[IoTHub 관리자 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/iothub-manager)의 [DevicesController.cs](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/iothub-manager/WebService/v1/Controllers/DevicesController.cs) 파일의 다음 코드 조각은 권한이 적용되는 방법을 보여줍니다.
 
 ```csharp
 [HttpDelete("{id}")]
@@ -240,6 +240,8 @@ public async Task DeleteAsync(string id)
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 원격 모니터링 솔루션 가속기에서 역할 기반 액세스 제어를 구현하는 방법을 알아보았습니다.
+
+원격 모니터링 솔루션 액셀러레이터에서 Time Series Insights 탐색기에 대한 액세스 권한을 관리하는 방법에 대한 자세한 내용은 [Time Series Insights Explorer에 대한 액세스 제어 구성](iot-accelerators-remote-monitoring-rbac-tsi.md)을 참조하세요.
 
 원격 모니터링 솔루션 가속기에 대한 자세한 개념 정보는 [원격 모니터링 아키텍처](iot-accelerators-remote-monitoring-sample-walkthrough.md)를 참조하세요.
 

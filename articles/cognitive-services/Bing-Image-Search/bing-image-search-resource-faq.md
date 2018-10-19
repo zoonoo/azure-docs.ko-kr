@@ -1,23 +1,24 @@
 ---
-title: Azure에서 Bing Image Search API에 대한 FAQ(질문과 대답) | Microsoft Docs
-description: Azure에서 Microsoft Cognitive Services Bing Image Search API에 대한 일반적인 질문에 대한 대답을 가져옵니다.
+title: FAQ(질문과 대답) - Bing Image Search API
+titleSuffix: Azure Cognitive Services
+description: Bing Image Search API와 관련된 개념, 코드 및 시나리오에 대한 일반적인 질문과 답변에 대해 알아봅니다.
 services: cognitive-services
 author: v-jerkin
-manager: jhubbard
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 10/06/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 15d3def94312fbde0bf3443cba54edfacafa7ab3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ea170f4751952288c7894cab9c5acda2bf443043
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372735"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295504"
 ---
-# <a name="frequently-asked-questions-faq-about-bing-image-search-api-cognitive-services"></a>Bing Image Search API(Cognitive Services)에 대한 FAQ(질문과 대답)
- 
+# <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Bing Image Search API에 관한 FAQ(질문과 대답)
+
 Azure에서 Microsoft Cognitive Services용 Bing Image Search API와 관련된 개념, 코드 및 시나리오에 대한 일반적인 질문에 대한 대답을 찾습니다.
 
 ## <a name="response-headers-in-javascript"></a>JavaScript에서 응답 헤더
@@ -52,9 +53,9 @@ Bing Image Search API의 응답에 다음 헤더가 발생할 수 있습니다.
 
 ## <a name="response-headers-in-production"></a>프로덕션에서 응답 헤더
 
-이전 응답에서 설명한 CORS 프록시 방식은 개발, 테스트 및 학습에 적합합니다. 
+이전 응답에서 설명한 CORS 프록시 방식은 개발, 테스트 및 학습에 적합합니다.
 
-그러나 프로덕션 환경에서는 Bing Web Search API를 사용하는 웹 페이지와 동일한 도메인에서 서버 쪽 스크립트를 호스트해야 합니다. 이 스크립트는 실제로 웹 페이지 JavaScript의 요청에 따라 API 호출을 수행하고 헤더를 포함한 모든 결과를 다시 클라이언트로 전달해야 합니다. 두 리소스(페이지 및 스크립트)가 원본을 공유하므로 CORS는 작동하지 않으며 특수 헤더로 웹 페이지의 JavaScript에서 액세스할 수 있습니다. 
+그러나 프로덕션 환경에서는 Bing Web Search API를 사용하는 웹 페이지와 동일한 도메인에서 서버 쪽 스크립트를 호스트해야 합니다. 이 스크립트는 실제로 웹 페이지 JavaScript의 요청에 따라 API 호출을 수행하고 헤더를 포함한 모든 결과를 다시 클라이언트로 전달해야 합니다. 두 리소스(페이지 및 스크립트)가 원본을 공유하므로 CORS는 작동하지 않으며 특수 헤더로 웹 페이지의 JavaScript에서 액세스할 수 있습니다.
 
 이 방법은 또한 API 키가 서버 쪽 스크립트에서만 필요하기 때문에 API 키가 공개적으로 노출되지 않도록 합니다. 이 스크립트는 다른 메서드(예: HTTP 참조 페이지)를 사용하여 요청이 승인되었는지 확인할 수 있습니다.
 

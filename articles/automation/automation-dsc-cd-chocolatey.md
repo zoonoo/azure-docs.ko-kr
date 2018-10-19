@@ -4,17 +4,17 @@ description: Azure Automation State Configuration, DSC 및 Chocolatey 패키지 
 services: automation
 ms.service: automation
 ms.component: dsc
-author: DCtheGeek
-ms.author: dacoulte
+author: bobbytreed
+ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dc0e49f2857468338f6e1f16462ed814893ea6e7
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 43f4a37ce0425503337cffa58570f3468fca6b29
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038643"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634255"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>사용 예: Automation State Configuration 및 Chocolatey를 사용하여 Virtual Machines에 연속 배포
 
@@ -182,7 +182,7 @@ Get-AzureRmAutomationDscCompilationJob `
 ## <a name="step-6-tying-it-all-together"></a>6단계: 모든 항목 요약
 
 각 버전이 QA를 전달하고 배포를 승인할 때마다 패키지를 만들고 nuspec 및 nupkg를 NuGet 서버에 업데이트하며 배포합니다. 또한 구성(위의 4단계)은 새 버전 번호와 일치하도록 업데이트되어야 합니다. 끌어오기 서버로 전송되고 컴파일되어야 합니다.
-해당 지점부터 업데이트를 끌어오고 설치하는 작업은 해당 구성에 종속되는 VM의 역할입니다. 이러한 각각의 업데이트는 하나 또는 두 줄의 PowerShell로 간단합니다. Visual Studio Team Services의 경우 일부는 빌드에서 서로 연결될 수 있는 빌드 작업에 캡슐화됩니다. 이 [문서](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery)에 자세한 내용이 나와 있습니다. 이 [GitHub 리포지토리](https://github.com/Microsoft/vso-agent-tasks) 는 사용 가능한 다양한 빌드 작업을 자세히 설명합니다.
+해당 지점부터 업데이트를 끌어오고 설치하는 작업은 해당 구성에 종속되는 VM의 역할입니다. 이러한 각각의 업데이트는 하나 또는 두 줄의 PowerShell로 간단합니다. Azure DevOps의 경우 일부는 빌드에서 서로 연결될 수 있는 빌드 작업에 캡슐화됩니다. 이 [문서](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery)에 자세한 내용이 나와 있습니다. 이 [GitHub 리포지토리](https://github.com/Microsoft/vso-agent-tasks) 는 사용 가능한 다양한 빌드 작업을 자세히 설명합니다.
 
 ## <a name="notes"></a>메모
 
@@ -191,7 +191,7 @@ Get-AzureRmAutomationDscCompilationJob `
 
 이 방법을 VM에 사용하기 위해 Resource Manager 템플릿이나 VM 확장을 사용할 필요는 없습니다. 또한 VM이 CD 관리를 위해 Azure에 있을 필요도 없습니다. 오직 Chocolatey을 설치하고 풀 서버 위치를 알 수 있게 VM에 LCM을 구성하기만 하면 됩니다.
 
-물론, 프러덕션 상태인 VM에서 패키지를 업데이트할 때는 업데이트가 설치되는 동안 VM을 로테이션에서 배제해야 합니다. 이를 수행하는 방법은 크게 다릅니다. 예를 들어, Azure 부하 분산 장치 뒤에 있는 VM에서는 사용자 지정 프로브를 추가할 수 있습니다. VM을 업데이트하는 동안 프로브 끝점이 400을 반환하게 합니다. 이 변경을 위해 필요한 조정은 구성 안에 있을 수 있습니다. 업데이트가 완료되면 조정에서 200을 반환하도록 복귀되기 때문입니다.
+물론, 프러덕션 상태인 VM에서 패키지를 업데이트할 때는 업데이트가 설치되는 동안 VM을 로테이션에서 배제해야 합니다. 이를 수행하는 방법은 크게 다릅니다. 예를 들어, Azure 부하 분산 장치 뒤에 있는 VM에서는 사용자 지정 프로브를 추가할 수 있습니다. VM을 업데이트하는 동안 프로브 엔드포인트가 400을 반환하게 합니다. 이 변경을 위해 필요한 조정은 구성 안에 있을 수 있습니다. 업데이트가 완료되면 조정에서 200을 반환하도록 복귀되기 때문입니다.
 
 이 사용 예의 전체 원본은 GitHub의 [이 Visual Studio 프로젝트](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) 에 있습니다.
 

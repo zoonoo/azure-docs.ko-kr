@@ -1,20 +1,21 @@
 ---
-title: Microsoft Translator CTF(Collaborative Translation Framework) 보고
+title: CTF(Collaborative Translation Framework) 보고 - Translator Text
+titlesuffix: Azure Cognitive Services
 description: CTF(Collaborative Translation Framework) 보고 사용 방법입니다.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: cefc630a82a56703ba4942bcad18f6e0a38b1ee5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9b3ac6e6d10fb0e70549cadfd7bf65220deb8f33
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374367"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126924"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>CTF(Collaborative Translation Framework) 보고 사용 방법
 
@@ -30,12 +31,12 @@ Collaborative(Collaborative Translation Framework) 보고 API는 CTF 스토어�
 * 원본 문장과 일치하지 않아도 번역된 콘텐츠와 해당 총수를 반환합니다.
 * 자동 번역(기계 번역)을 반환하지 않습니다.
 
-## <a name="endpoint"></a>끝점
-CTF 보고 API의 끝점은 http://api.microsofttranslator.com/v2/beta/ctfreporting.svc입니다.
+## <a name="endpoint"></a>엔드포인트
+CTF 보고 API의 엔드포인트는 http://api.microsofttranslator.com/v2/beta/ctfreporting.svc입니다.
                         
 
 ## <a name="methods"></a>메서드
-| Name |    설명|
+| 이름 |    설명|
 |:---|:---|
 | GetUserTranslationCounts 메서드 | 사용자가 만든 번역 개수를 가져옵니다. |
 | GetUserTranslations 메서드 | 사용자가 만든 번역을 검색합니다. |
@@ -75,7 +76,7 @@ UserTranslationCount[]GetUserTranslationCounts(
 
 | 매개 변수 | 설명 |
 |:---|:---|
-| appId | **필수** 인증 헤더를 사용하는 경우 appid 필드를 비워 두고, 사용하지 않는 경우 “Bearer” + “ “ + 액세스 토큰을 포함하는 문자열을 지정합니다.|
+| appId | **필수** 인증 헤더를 사용하는 경우 appid 필드를 비워 두고, 사용하지 않는 경우 "Bearer" + " " + 액세스 토큰을 포함하는 문자열을 지정합니다.|
 | uriPrefix | **선택 사항** 번역의 URI 접두사를 포함하는 문자열입니다.|
 | from | **선택 사항** 번역 텍스트의 언어 코드를 나타내는 문자열입니다. |
 | to | **선택 사항** 텍스트를 번역할 언어 코드를 나타내는 문자열입니다.|
@@ -146,7 +147,7 @@ UserTranslation[] GetUserTranslations (
 
 | 매개 변수 | 설명 |
 |:---|:---|
-| appId | **필수** 인증 헤더를 사용하는 경우 appid 필드를 비워 두고, 사용하지 않는 경우 “Bearer” + “ “ + 액세스 토큰을 포함하는 문자열을 지정합니다.|
+| appId | **필수** 인증 헤더를 사용하는 경우 appid 필드를 비워 두고, 사용하지 않는 경우 "Bearer" + " " + 액세스 토큰을 포함하는 문자열을 지정합니다.|
 | uriPrefix| **선택 사항** 번역의 URI 접두사를 포함하는 문자열입니다.|
 | from| **선택 사항** 번역 텍스트의 언어 코드를 나타내는 문자열입니다.|
 | to| **선택 사항** 텍스트를 번역할 언어 코드를 나타내는 문자열입니다.|

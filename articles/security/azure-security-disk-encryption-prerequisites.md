@@ -6,13 +6,13 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/10/2018
-ms.openlocfilehash: 0750ea0877d5f27a8ceb091f8c3904048c9314aa
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.date: 09/14/2018
+ms.openlocfilehash: ad8bf0217dcd07a7272a220f2d91ed6bc40523bc
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348279"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498592"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure Disk Encryption 필수 구성 요소 
  'Azure Disk Encryption 필수 구성 요소'라는 이 문서에서는 Azure Disk Encryption을 사용하기 전에 필요한 항목에 대해 설명합니다. Azure Disk Encryption은 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/)와 통합되어 암호화 키를 관리하는 데 도움이 됩니다. [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure/) 또는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure Disk Encryption을 구성할 수 있습니다.
@@ -67,7 +67,7 @@ Azure Disk Encryption이 지원되는 운영 체제는 다음과 같습니다.
     - [Windows용 Azure PowerShell 설치 및 구성](/powershell/azure/install-azurerm-ps). 
         - PowerShellGet, Azure PowerShell을 설치하고 AzureRM 모듈을 로드합니다. 
     - [macOS 및 Linux에서 Azure PowerShell 설치 및 구성](/powershell/azure/install-azurermps-maclinux)
-        -  PowerShell Core, .NET Core용 Azure PowerShell을 설치하고 AzureRM.Netcore 모듈을 로드합니다.
+        -  PowerShell Core, .NET Core용 Azure PowerShell을 설치하고 Az 모듈을 로드합니다.
 
 2. 설치된 AzureRM 모듈 버전을 확인합니다. 필요한 경우 [Azure PowerShell 모듈을 업데이트](/powershell/azure/install-azurerm-ps#update-the-azure-powershell-module)합니다.
     -  AzureRM 모듈 버전은 6.0.0 이상이어야 합니다.
@@ -127,6 +127,9 @@ Azure Disk Encryption에 대한 Key Vault 및 Azure AD 필수 구성 요소에 �
 1. 필요한 경우 리소스 그룹을 만듭니다.
 2. 키 자격 증명 모음을 만듭니다. 
 3. 키 자격 증명 모음에 대한 고급 액세스 정책을 설정합니다.
+
+>[!WARNING]
+>키 자격 증명 모음을 삭제하기 전에 이를 사용하여 기존 VM을 암호화하지 않았는지 확인합니다. 자격 증명 모음이 실수로 삭제되는 것을 방지하려면 자격 증명 모음에 대해 [일시 삭제 설정](../key-vault/key-vault-soft-delete-powershell.md#enabling-soft-delete)과 [리소스 잠금](../azure-resource-manager/resource-group-lock-resources.md)을 설정합니다. 
  
 ## <a name="bkmk_KeyVault"></a> Key Vault 만들기 
 Azure Disk Encryption은 [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/)와 통합되어 키 자격 증명 모음 구독에서 디스크 암호화 키 및 비밀을 제어하고 관리할 수 있습니다. Azure Disk Encryption에 대한 키 자격 증명 모음을 만들거나 기존 키 자격 증명 모음을 사용할 수 있습니다. 키 자격 증명 모음에 대한 자세한 내용은 [Azure Key Vault 시작](../key-vault/key-vault-get-started.md) 및 [키 자격 증명 모음 보안](../key-vault/key-vault-secure-your-key-vault.md)을 참조하세요. Resource Manager 템플릿, Azure PowerShell 또는 Azure CLI를 사용하여 키 자격 증명 모음을 만들 수 있습니다. 

@@ -11,15 +11,15 @@ ms.service: ''
 ms.workload: web, azure
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 61cb9fadd60ba35f11e2f3ade94bc647fac9ed72
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 1635d0fa51fb56f30dc7cf5864e49000d30cc25d
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235926"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719786"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>웹 응용 프로그램의 비밀 응용 프로그램 설정을 안전하게 저장
 
@@ -40,7 +40,7 @@ ms.locfileid: "35235926"
 .NET Core 콘솔 응용 프로그램을 실행하는 경우 Key Vault를 사용하여 비밀을 안전하게 저장합니다.
 
 ### <a name="save-secret-settings-in-azure-key-vault"></a>Azure Key Vault에 비밀 설정 저장
-팀 프로젝트를 개발하면서 소스 코드를 안전하게 공유해야 하는 경우 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용합니다.
+프로젝트를 개발하면서 소스 코드를 안전하게 공유해야 하는 경우 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용합니다.
 
 1. Azure 구독에 Key Vault를 만듭니다. UI에서 필수 필드를 모두 채우고 블레이드 아래쪽에서 *만들기*를 클릭합니다.
 
@@ -106,14 +106,13 @@ ms.locfileid: "35235926"
 2. 다음과 유사한 파일을 만듭니다. 프로젝트 폴더 외부의 위치에 저장합니다.
 
     ```xml
-
-       <root>
-              <secrets ver="1.0">
-                     <secret name="secret1" value="foo_one" />
-                        <secret name="secret2" value="foo_two" />
-                       </secrets>
-      </root>
-      ```
+    <root>
+        <secrets ver="1.0">
+            <secret name="secret1" value="foo_one" />
+            <secret name="secret2" value="foo_two" />
+        </secrets>
+    </root>
+    ```
 
 3. 비밀 파일을 Web.config 파일에 구성 빌더로 정의합니다. 이 섹션을 *appSettings* 섹션 앞에 배치합니다.
 

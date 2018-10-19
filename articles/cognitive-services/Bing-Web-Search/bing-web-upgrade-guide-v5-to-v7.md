@@ -1,31 +1,32 @@
 ---
-title: Bing Web Search API v5를 v7로 업그레이드 | Microsoft Docs
-description: 버전 7을 사용하려면 업데이트해야 하는 응용 프로그램 파트를 식별합니다.
+title: v5를 v7로 업그레이드 - Bing Web Search API
+titleSuffix: Azure Cognitive Services
+description: Bing Web Search v7 API를 사용하기 위해 업데이트가 필요한 응용 프로그램 부분을 확인합니다.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: E8827BEB-4379-47CE-B67B-6C81AD7DAEB1
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: reference
 ms.date: 01/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 155297f230c0ee02d6fa49d6d35eb24d9941f29b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: eb84c961d13c5abac7a0c9f426f099d21f034f20
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376935"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129746"
 ---
-# <a name="web-search-api-upgrade-guide"></a>Web Search API 업그레이드 가이드
+# <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Bing Web Search API v5를 v7로 업그레이드
 
 이 업그레이드 가이드는 Bing Web Search API 버전 5와 버전 7 사이의 변경 내용을 식별합니다. 이 가이드를 통해 버전 7을 사용하려면 업데이트해야 하는 응용 프로그램 파트를 식별할 수 있습니다.
 
 ## <a name="breaking-changes"></a>주요 변경 내용
 
-### <a name="endpoints"></a>Endpoints
+### <a name="endpoints"></a>엔드포인트
 
-- 끝점의 버전 번호가 v5에서 v7로 변경되었습니다. 예를 들어 https:\/\/api.cognitive.microsoft.com/bing/**v7.0**/search입니다.
+- 엔드포인트의 버전 번호가 v5에서 v7로 변경되었습니다. 예를 들어 https:\/\/api.cognitive.microsoft.com/bing/**v7.0**/search입니다.
 
 ### <a name="error-response-objects-and-error-codes"></a>오류 응답 개체 및 오류 코드
 
@@ -34,7 +35,7 @@ ms.locfileid: "35376935"
 - 다음 필드가 `Error` 개체에 추가되었습니다.  
   - `subCode`&mdash;가능한 경우 불연속 버킷으로 오류 코드 분할
   - `moreDetails`&mdash;`message` 필드에 설명된 오류에 대한 추가 정보
-   
+
 
 - v5 오류 코드가 다음과 같이 가능한 `code` 및 `subCode` 값으로 바뀌었습니다.
 
@@ -79,10 +80,9 @@ Blocked|InvalidRequest.Blocked
 ### <a name="query-parameters"></a>쿼리 매개 변수
 
 - [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) 쿼리 매개 변수가 추가되었습니다. 응답에 포함할 답변 수를 지정하려면 이 매개 변수를 사용합니다. 답변은 순위에 따라 선택됩니다. 예를 들어 이 매개 변수를 3으로 설정하는 경우 응답에는 상위 세 개의 답변이 포함됩니다.  
-  
+
 - [promote](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#promote) 쿼리 매개 변수가 추가되었습니다. 순위에 관계없이 하나 이상의 답변 유형을 명시적으로 포함하려면 `answerCount`와 함께 이 매개 변수를 사용합니다. 예를 들어 비디오와 이미지의 수준을 올려 응답에 포함하려면 promote를 *videos,images*로 설정합니다. 수준을 올리려는 답변 목록은 `answerCount` 제한에 계산되지 않습니다. 예를 들어 `answerCount`가 2이고 `promote`가 *videos,images*로 설정된 경우 응답에는 웹 페이지, 뉴스, 비디오 및 이미지가 포함될 수 있습니다.
 
 ### <a name="object-changes"></a>개체 변경 내용
 
 - `someResultsRemoved` 필드가 [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) 개체에 추가되었습니다. 이 필드에는 응답이 웹 답변에서 일부 결과를 제외했는지 여부를 나타내는 부울 값이 포함됩니다.  
-

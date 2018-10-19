@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 08/31/2018
-ms.openlocfilehash: 83d970cf41dde4141fcba84c39b9b750783e54e0
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: da39d4132190a7dea661779c507fa817758c3e17
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667160"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497929"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Azure Database for MySQL 데이터 내부 복제를 구성하는 방법
 
@@ -158,6 +158,9 @@ ms.locfileid: "43667160"
    - master_log_pos: 실행 중인 `show master status`의 이진 로그 위치
    - master_ssl_ca: CA 인증서의 컨텍스트 SSL을 사용하지 않는 경우 빈 문자열을 전달합니다.
        - 이 매개 변수를 변수로 전달하는 것이 좋습니다. 자세한 내용은 다음 예제를 참조하세요.
+
+> [!NOTE]
+> 마스터 서버가 Azure VM에서 호스트되는 경우, 마스터 서버와 복제본 서버가 서로 통신할 수 있도록 "Azure 서비스에 대한 액세스 허용"을 "켬"으로 설정합니다. 이 설정은 **연결 보안** 옵션에서 변경할 수 있습니다. 자세한 내용은 [포털을 사용하여 방화벽 규칙 관리](howto-manage-firewall-using-portal.md)를 참조하세요.
 
    **예**
 

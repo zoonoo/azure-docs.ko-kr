@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 57d3566e973f2bcd0ecea43173df5f65c96b404f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1b2f6df1e5688bf9bc47056c7b05cf6ac16026c6
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658420"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634866"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Azure VM에서 SAP NetWeaver에 대한 고가용성
 
@@ -802,9 +802,7 @@ ASCS/SCS 다중 SID 템플릿을 설정하려면 [ASCS/SCS 다중 SID 템플릿]
   -  **시스템 가용성**. **HA**를 선택합니다.
   -  **관리자 사용자 이름 및 관리자 암호**. 컴퓨터에 로그인하는 데 사용할 수 있는 새 사용자를 만듭니다.
   -  **새 또는 기존 서브넷**. 새 가상 네트워크와 서브넷을 만들어야 하는지 또는 기존 서브넷을 사용해야 하는지 설정합니다. 온-프레미스 네트워크에 연결되어 있는 가상 네트워크가 이미 있는 경우 **기존** 항목을 선택합니다.
-  -  **서브넷 ID**. 가상 머신을 연결해야 하는 서브넷의 ID를 설정합니다. 온-프레미스 네트워크에 가상 머신을 연결할 VPN(가상 사설망) 또는 ExpressRoute 가상 네트워크의 서브넷을 선택합니다. ID는 일반적으로 다음과 같이 나타납니다.
-
-   /subscriptions/<*구독 ID*>/resourceGroups/<*리소스 그룹 이름*>/providers/Microsoft.Network/virtualNetworks/<*가상 네트워크 이름*>/subnets/<*서브넷 이름*>
+  -  **서브넷 ID**. 서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로 다음과 같이 표시합니다. /subscriptions/<*구독 ID*>/resourceGroups/<*리소스 그룹 이름*>/providers/Microsoft.Network/virtualNetworks/<*가상 네트워크 이름*>/subnets/<*서브넷 이름*>
 
 템플릿은 여러 SAP 시스템을 지원하는 하나의 Azure Load Balancer 인스턴스를 배포합니다.
 
@@ -971,9 +969,9 @@ SAP Azure Resource Manager 템플릿은 다음에 대해 필요한 포트를 만
 
 SAP ASCS/SCS 인스턴스를 설치하면 ABAP ASCS 인스턴스에 대해 기본 인스턴스 번호 **00**을, Java SCS 인스턴스에 대해 기본 인스턴스 번호 **01**을 사용해야 합니다.
 
-다음으로 SAP NetWeaver 포트에 대한 필수 내부 부하 분산 끝점을 만듭니다.
+다음으로 SAP NetWeaver 포트에 대한 필수 내부 부하 분산 엔드포인트를 만듭니다.
 
-필수 내부 부하 분산 끝점을 만들려면 먼저 SAP NetWeaver ABAP ASCS 포트에 대한 다음과 같은 부하 분산 끝점을 만듭니다.
+필수 내부 부하 분산 엔드포인트를 만들려면 먼저 SAP NetWeaver ABAP ASCS 포트에 대한 다음과 같은 부하 분산 엔드포인트를 만듭니다.
 
 | 서비스/부하 분산 규칙 이름 | 기본 포트 번호 | (인스턴스 번호가 00인 ASCS 인스턴스)(ERS가 10)에 대한 구체적인 포트 |
 | --- | --- | --- |
@@ -991,7 +989,7 @@ SAP ASCS/SCS 인스턴스를 설치하면 ABAP ASCS 인스턴스에 대해 기�
 
 _**표 1:** SAP NetWeaver ABAP ASCS 인스턴스의 포트 번호_
 
-그런 후 SAP NetWeaver Java SCS 포트에 대한 다음과 같은 부하 분산 끝점을 만듭니다.
+그런 후 SAP NetWeaver Java SCS 포트에 대한 다음과 같은 부하 분산 엔드포인트를 만듭니다.
 
 | 서비스/부하 분산 규칙 이름 | 기본 포트 번호 | (인스턴스 번호가 01인 SCS 인스턴스)(ERS가 11)에 대한 구체적인 포트 |
 | --- | --- | --- |
@@ -1022,7 +1020,7 @@ SAP ASCS 또는 SCS 인스턴스에 대해 다른 번호를 사용하려는 경�
 1.  Azure Portal에서 **<*SID*>-lb-ascs 부하 분산 장치** > **부하 부산 규칙**을 선택합니다.
 2.  SAP ASCS 또는 SCS 인스턴스에 속하는 모든 부하 분산 규칙에 대해 다음 값을 변경합니다.
 
-  * Name
+  * 이름
   * 포트
   * 백 엔드 포트
 

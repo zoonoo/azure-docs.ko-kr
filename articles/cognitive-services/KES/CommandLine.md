@@ -1,23 +1,26 @@
 ---
-title: Knowledge Exploration Service 명령줄 인터페이스 | Microsoft Docs
-description: KES 명령줄 인터페이스를 사용하여 구조화된 데이터에서 인덱스 및 문법 파일을 빌드한 다음, Microsoft Cognitive Services에서 웹 서비스로 배포합니다.
+title: 명령줄 인터페이스 - Knowledge Exploration Service API
+titlesuffix: Azure Cognitive Services
+description: 명령줄 인터페이스를 사용하여 구조화된 데이터에서 인덱스 및 문법 파일을 빌드한 다음, 웹 서비스로 배포합니다.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
-ms.openlocfilehash: 71a6f5ac93e5605182a55de1bae9a99c5c3eddf4
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 7ec2282317019275b15a8e506753408c75a68561
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136358"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127158"
 ---
 # <a name="command-line-interface"></a>명령줄 인터페이스
-KES 명령줄 인터페이스는 구조화된 데이터에서 인덱스 및 문법 파일을 빌드하고 웹 서비스로 배포하는 기능을 제공합니다.  일반적인 구문 `kes.exe <command> <required_args> [<optional_args>]`를 사용합니다.  인수 없이 `kes.exe`를 실행하여 명령 목록을 표시하거나 `kes.exe <command>`를 실행하여 지정된 명령에 사용할 수 있는 인수 목록을 표시할 수 있습니다.  다음은 사용할 수 있는 명령의 목록입니다.
+
+KES(Knowledge Exploration Service) 명령줄 인터페이스는 구조화된 데이터에서 인덱스 및 문법 파일을 빌드하고 웹 서비스로 배포하는 기능을 제공합니다.  일반적인 구문 `kes.exe <command> <required_args> [<optional_args>]`를 사용합니다.  인수 없이 `kes.exe`를 실행하여 명령 목록을 표시하거나 `kes.exe <command>`를 실행하여 지정된 명령에 사용할 수 있는 인수 목록을 표시할 수 있습니다.  다음은 사용할 수 있는 명령의 목록입니다.
+
 * build_index
 * build_grammar
 * host_service

@@ -8,16 +8,22 @@ ms.service: time-series-insights
 ms.topic: article
 ms.date: 05/24/2018
 ms.author: anshan
-ms.openlocfilehash: 11bea78315ff7ebb4b0c167dbb687ce940907527
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: b9d5e922a9a0a5f50e2ced896f5957fbc90d7eb4
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628915"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364370"
 ---
 # <a name="how-to-shape-json-to-maximize-query-performance"></a>JSON을 셰이핑하여 쿼리 성능을 극대화하는 방법 
 
 이 아티클에서는 Azure TSI(Time Series Insights) 쿼리의 성능을 최대화하기 위해 JSON을 셰이핑하는 지침을 제공합니다.
+
+## <a name="video"></a>비디오: 
+
+### <a name="in-this-video-we-cover-best-practices-around-shaping-json-to-meet-your-storage-needsbr"></a>이 비디오에서는 저장소 요구 사항에 맞게 JSON을 구성하는 모범 사례를 설명합니다.</br>
+
+> [!VIDEO https://www.youtube.com/embed/b2BD5hwbg5I]
 
 ## <a name="best-practices"></a>모범 사례
 

@@ -13,22 +13,22 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 168ba57399b2649af29820f7321dd0151618346e
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 1daf04e3f878d0748bfa0904259c7b7187481843
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436483"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580490"
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>다른 Azure 구독 또는 리소스 그룹으로 Windows VM 이동
-이 문서에서는 리소스 그룹 또는 구독 간에 Windows VM을 이동하는 방법을 안내합니다. 개인 구독에서 원래 VM을 만들고 회사 구독으로 이동한 후 작업을 계속하려는 경우에 구독 간의 이동이 편리할 수 있습니다.
+이 문서에서는 리소스 그룹 또는 구독 간에 Windows VM(가상 머신)을 이동하는 방법을 안내합니다. 개인 구독에서 원래 VM을 만들고 회사 구독으로 이동한 후 작업을 계속하려는 경우에 구독 간의 이동이 편리할 수 있습니다.
 
 > [!IMPORTANT]
->지금은 Managed Disks를 이동할 수 없습니다. 
+>현재 Azure Managed Disks는 이동할 수 없습니다. 
 >
->새 리소스 ID는 이동의 일부로 생성됩니다. VM을 이동하면 새 리소스 ID를 사용하도록 도구 및 스크립트를 업데이트해야 합니다. 
+>새 리소스 ID는 이동의 일부로 생성됩니다. VM을 이동한 후에는 새 리소스 ID를 사용하도록 도구와 스크립트를 업데이트해야 합니다. 
 > 
 > 
 
@@ -36,16 +36,15 @@ ms.locfileid: "37436483"
 
 ## <a name="use-powershell-to-move-a-vm"></a>PowerShell을 사용하여 VM 이동
 
-가상 머신을 다른 리소스 그룹에 이동하려면 모든 종속 리소스를 이동하는지 확인해야 합니다. AzureRMResource cmdlet을 사용하려면 각 리소스의 ResourceId가 필요합니다. [Get-AzureRMResource](/powershell/module/azurerm.resources/get-azurermresource) cmdlet을 사용하여 ResourceId의 목록을 가져올 수 있습니다.
+가상 머신을 다른 리소스 그룹에 이동하려면 모든 종속 리소스를 이동하는지 확인해야 합니다. 이러한 리소스 각각에 대한 리소스 ID의 목록을 가져오려면 [Get-AzureRMResource](/powershell/module/azurerm.resources/get-azurermresource) cmdlet을 사용합니다.
 
 ```azurepowershell-interactive
  Get-AzureRMResource -ResourceGroupName <sourceResourceGroupName> | Format-table -Property ResourceId 
 ```
 
-VM을 이동하려면 여러 리소스를 이동해야 합니다. Get-AzureRMResource 출력을 사용하여 ResourceIds의 쉼표로 구분된 목록을 만들고 이를 [Move-AzureRMResource](/powershell/module/azurerm.resources/move-azurermresource)에 전달하여 대상으로 이동시킬 수 있습니다. 
+이전 명령의 출력을 [Move-AzureRMResource](/powershell/module/azurerm.resources/move-azurermresource)에 대한 쉼표로 구분된 리소스 ID 목록으로 사용하여 각 리소스를 대상으로 이동할 수 있습니다. 
 
 ```azurepowershell-interactive
-
 Move-AzureRmResource -DestinationResourceGroupName "<myDestinationResourceGroup>" `
     -ResourceId <myResourceId,myResourceId,myResourceId>
 ```
@@ -59,8 +58,8 @@ Move-AzureRmResource -DestinationSubscriptionId "<myDestinationSubscriptionID>" 
 ```
 
 
-지정한 리소스를 이동할 것인지 묻는 메시지가 나타납니다. 
+지정된 리소스를 이동할지 확인하는 메시지가 표시되면 **Y**를 입력하여 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
-리소스 그룹 및 구독 간의 다양한 유형의 리소스를 이동할 수 있습니다. 자세한 내용을 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../../resource-group-move-resources.md)을 참조하세요.    
+리소스 그룹 및 구독 간의 다양한 유형의 리소스를 이동할 수 있습니다. 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](../../resource-group-move-resources.md)을 참조하세요.    
 

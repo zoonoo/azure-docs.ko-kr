@@ -8,16 +8,18 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: d38ab71ed2d2ebff04004f02589cfccca4199318
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 0f726769b9e4266e310f9f50b1a7ef768c0c1d55
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143911"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735887"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Blob 저장소 이벤트에 대응
 
-Azure Storage 이벤트를 사용하면 응용 프로그램은 서버 없는 최신 아키텍처를 사용하여 Blob의 생성 및 삭제에 대응할 수 있습니다. 복잡한 코드나 비용이 많이 들고 비효율적인 폴링 서비스가 없어도 이렇게 할 수 있습니다.  대신, 이벤트는 [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)를 통해 [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)와 같은 구독자로 푸시되거나 사용자 지정 HTTP 수신기로도 푸시되며, 요금은 사용한 만큼만 청구됩니다. 
+Azure Storage 이벤트를 사용하면 응용 프로그램은 서버 없는 최신 아키텍처를 사용하여 Blob의 생성 및 삭제에 대응할 수 있습니다. 복잡한 코드나 비용이 많이 들고 비효율적인 폴링 서비스가 없어도 이렇게 할 수 있습니다.  대신, 이벤트는 [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)를 통해 [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)와 같은 구독자로 푸시되거나 사용자 지정 HTTP 수신기로도 푸시되며, 요금은 사용한 만큼만 청구됩니다.
+
+Blob Storage 이벤트는 다양한 다시 시도 정책 및 배달 못한 편지를 통해 응용 프로그램에 신뢰할 수 있는 배달 서비스를 제공하는 Event Grid 서비스에 안정적으로 전송됩니다.
 
 일반적인 Blob 저장소 이벤트 시나리오에는 이미지 또는 비디오 처리, 검색 인덱싱, 또는 파일 중심의 워크플로가 포함됩니다.  비동기 파일 업로드는 이벤트에 매우 적합합니다.  변경 빈도가 낮더라도 즉각적인 대응이 필요한 시나리오에서는 이벤트 기반 아키텍처가 특히 효율적일 수 있습니다.
 
@@ -26,7 +28,7 @@ Azure Storage 이벤트를 사용하면 응용 프로그램은 서버 없는 최
 ![Event Grid 모델](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
 ## <a name="blob-storage-accounts"></a>Blob 저장소 계정
-Blob Storage 이벤트는 [Blob Storage 계정](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) 및 [범용 v2 저장소 계정](../common/storage-account-options.md#general-purpose-v2-accounts)에서 사용할 수 있습니다. **범용 v2(GPv2)** 는 Blob, 파일, 큐 및 테이블을 포함하여 모든 저장소 서비스에서 모든 기능을 지원하는 저장소 계정입니다. **Blob Storage 계정**은 Azure Storage에서 Blob와 같은 구조화되지 않은 데이터(개체) 저장을 위한 특수 Storage 계정입니다. Blob Storage 계정은 범용 저장소 계정과 유사하면서, 현재 사용되고 있는 모든 뛰어난 내구성, 가용성, 확장성 및 성능 기능을 공유합니다(예: 블록 Blob 및 추가 Blob에 대한 100% API 일관성). 블록 또는 연결 Blob 저장소만 필요한 응용 프로그램의 경우 Blob 저장소 계정을 사용하는 것이 좋습니다. 
+Blob Storage 이벤트는 범용 v2 저장소 계정과 Blob Storage 계정에서 사용할 수 있습니다. **범용 v2** 저장소 계정은 Blob, 파일, 큐 및 테이블을 포함하여 모든 저장소 서비스의 모든 기능을 지원합니다. **Blob Storage 계정**은 Azure Storage에서 Blob와 같은 구조화되지 않은 데이터(개체) 저장을 위한 특수 Storage 계정입니다. Blob Storage 계정은 범용 저장소 계정과 유사하면서, 현재 사용되고 있는 모든 뛰어난 내구성, 가용성, 확장성 및 성능 기능을 공유합니다(예: 블록 Blob 및 추가 Blob에 대한 100% API 일관성). 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.
 
 ## <a name="available-blob-storage-events"></a>사용 가능한 Blob Storage 이벤트
 Event Grid는 [이벤트 구독](../../event-grid/concepts.md#event-subscriptions)을 사용하여 이벤트 메시지를 구독자에게 라우팅합니다.  Blob Storage 이벤트 구독에는 다음 두 가지 유형의 이벤트가 포함될 수 있습니다.  
@@ -42,7 +44,7 @@ Blob Storage 이벤트에는 데이터 변경에 대응하는 데 필요한 모�
 > |자산|type|설명|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |토픽|string|이벤트를 내보내는 저장소 계정의 전체 Azure Resource Manager ID입니다.|
-> |subject|string|이벤트 주체인 개체에 대한 상대 리소스 경로로, Azure RBAC용 저장소 계정, 서비스 및 컨테이너를 설명하는 데 사용하는 것과 동일한 확장 Azure Resource Manager 형식을 사용합니다.  이 형식은 대소문자가 구분되는 Blob 이름을 포함합니다.|
+> |제목|string|이벤트 주체인 개체에 대한 상대 리소스 경로로, Azure RBAC용 저장소 계정, 서비스 및 컨테이너를 설명하는 데 사용하는 것과 동일한 확장 Azure Resource Manager 형식을 사용합니다.  이 형식은 대소문자가 구분되는 Blob 이름을 포함합니다.|
 > |eventTime|string|이벤트가 생성된 날짜/시간(ISO 8601 형식)|
 > |eventType|string|"Microsoft.Storage.BlobCreated" 또는 "Microsoft.Storage.BlobDeleted"|
 > |Id|string|이 이벤트의 고유 식별자|

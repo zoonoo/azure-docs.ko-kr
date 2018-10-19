@@ -1,22 +1,23 @@
 ---
-title: 텍스트 분석 API(Azure의 Microsoft Cognitive Services) 등록 | Microsoft Docs
+title: Text Analytics API에 등록
+titleSuffix: Azure Cognitive Services
 description: 텍스트 분석에 등록하고 한도 내에서 운영하는 방법에 대한 지침입니다.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: get-started-article
-ms.date: 3/07/2018
+ms.topic: conceptual
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: dfa5ba138a2e0db75dfc097ca2430fe9c82e826f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: a369d6028cc2957113de01dab0371ad5305a0c68
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623181"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605535"
 ---
-# <a name="how-to-sign-up-for-text-analytics-api"></a>텍스트 분석 API에 등록하는 방법
+# <a name="how-to-sign-up-for-the-text-analytics-api"></a>Text Analytics API에 등록하는 방법
 
 Text Analytics 리소스는 클라우드에서 연중무휴 24시간 내내 사용할 수 있습니다. 분석할 콘텐츠를 업로드하려면 먼저 등록하여 액세스 키를 얻어야 합니다. API를 호출할 때마다 요청에 대한 액세스 키가 필요합니다.
 

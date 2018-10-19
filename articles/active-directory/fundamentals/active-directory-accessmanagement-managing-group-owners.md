@@ -1,47 +1,71 @@
 ---
-title: 그룹을 사용하여 액세스를 관리하기 위한 다음 단계 - Azure AD | Microsoft Docs
-description: 보안 그룹 관리에 대한 고급 방법과 이러한 그룹을 사용하여 리소스에 대한 액세스를 관리하는 방법입니다.
+title: Azure Active Directory 그룹 소유자를 추가하거나 제거하는 방법 | Microsoft Docs
+description: Azure Active Directory를 사용하여 그룹 소유자를 추가하거나 제거하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 09/12/2017
+ms.date: 09/11/2018
 ms.author: lizross
 ms.custom: it-pro
-ms.openlocfilehash: bdc8754253ce2567d957b4d6240fe52242aea2ea
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f546ea5b5f9288849334d27cd1721f0c22fb8806
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449200"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297778"
 ---
-# <a name="managing-owners-for-a-group"></a>그룹에 대한 소유자 관리
-리소스 소유자가 Azure AD 그룹에 리소스에 대한 액세스 권한을 할당하면 그룹의 멤버 자격은 그룹 소유자에 의해 관리됩니다. 실질적으로 리소스 소유자는 사용자를 해당 리소스에 할당할 권한을 그룹 소유자에게 위임합니다.
+# <a name="how-to-add-or-remove-group-owners-in-azure-active-directory"></a>방법: Azure Active Directory를 사용하여 그룹 소유자 추가 또는 제거
+Azure AD(Azure Active Directory) 그룹은 그룹 소유자가 소유하고 관리합니다. 그룹 소유자는 그룹 및 해당 멤버를 관리하기 위해 리소스 소유자(관리자)에게 할당됩니다. 그룹 소유자는 그룹의 멤버일 필요가 없습니다. 그룹 소유자가 할당된 후에는 리소스 소유자만 소유자를 추가하거나 제거할 수 있습니다.
+
+일부 경우에 관리자 권한으로 그룹 소유자를 할당하지 않도록 결정할 수도 있습니다. 이 경우 해당 관리자는 그룹 소유자가 됩니다. 또한 그룹 설정에서 이를 제한하지 않는 한, 소유자는 다른 소유자를 해당 그룹에 할당할 수 있습니다.
 
 ## <a name="add-an-owner-to-a-group"></a>그룹에 소유자 추가
+Azure AD를 사용하여 그룹에 추가 그룹 소유자를 추가합니다.
 
-1. [Azure AD 관리 센터](https://aad.portal.azure.com)에서 **사용자 및 그룹**을 선택합니다.
-2. **모든 그룹**을 선택하고 소유자를 추가할 그룹을 엽니다.
-3. **소유자 추가**를 선택합니다.
-4. **소유자 추가** 페이지에서 이 그룹의 소유자로 추가할 사용자를 선택하고 이 이름이 **선택 항목** 창에 추가되었는지 확인합니다.
+### <a name="to-add-a-group-owner"></a>그룹 소유자를 추가하려면
+1. 해당 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+
+2. **Azure Active Directory**를 선택하고 **그룹**을 선택한 다음, 소유자를 추가하려는 그룹을 선택합니다(예: _MDM 정책 - 서부_).
+
+3. **MDM 정책 - 서부 개요** 페이지에서 **소유자**를 선택합니다.
+
+    ![소유자 옵션이 강조 표시된 MDM 정책 - 서부 개요 페이지](media/active-directory-accessmanagement-managing-group-owners/add-owners-option-overview-blade.png)
+
+4. **MDM 정책 - 서부 - 소유자** 페이지에서 **소유자 추가**를 선택한 다음, 새 그룹 소유자가 될 사용자를 검색하고 선택한 다음, **선택**을 선택합니다.
+
+    ![소유자 추가 옵션이 강조 표시된 MDM 정책 - 서부 - 소유자 페이지](media/active-directory-accessmanagement-managing-group-owners/add-owners-owners-blade.png)
+
+    새 소유자를 선택한 후 **소유자** 페이지를 새로 고쳐서 소유자 목록에 추가된 이름을 확인할 수 있습니다.
 
 ## <a name="remove-an-owner-from-a-group"></a>그룹에서 소유자 제거
+Azure AD를 사용하여 그룹에서 소유자를 제거합니다.
 
-1. [Azure AD 관리 센터](https://aad.portal.azure.com)에서 **사용자 및 그룹**을 선택합니다.
-2. **모든 그룹**을 선택하고 소유자를 제거할 그룹을 엽니다.
-3. **소유자** 탭을 선택합니다.
-4. 이 그룹에서 제거할 소유자를 선택한 후 **제거**를 선택합니다.
+### <a name="to-remove-an-owner"></a>소유자를 제거하려면
+1. 해당 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-## <a name="additional-information"></a>추가 정보
-이러한 문서는 Azure Active Directory에 대한 추가 정보를 제공합니다.
+2. **Azure Active Directory**를 선택하고 **그룹**을 선택한 다음, 소유자를 추가하려는 그룹을 선택합니다(예: _MDM 정책 - 서부_).
 
-* [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](active-directory-manage-groups.md)
-* [그룹 설정을 구성하는 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-cmdlets.md)
-* [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](../active-directory-apps-index.md)
-* [Azure Active Directory란?](active-directory-whatis.md)
-* [Azure Active Directory와 온-프레미스 ID 통합](../connect/active-directory-aadconnect.md)
+3. **MDM 정책 - 서부 개요** 페이지에서 **소유자**를 선택합니다.
+
+    ![소유자 옵션이 강조 표시된 MDM 정책 - 서부 개요 페이지](media/active-directory-accessmanagement-managing-group-owners/remove-owners-option-overview-blade.png)
+
+4. **MDM 정책 - 서부 - 소유자** 페이지에서 그룹 소유자로 제거하려는 사용자를 선택하고, 사용자의 정보 페이지에서 **제거**를 선택한 후, **예**를 선택하여 결정을 확인합니다.
+
+    ![제거 옵션이 강조 표시된 사용자의 정보 페이지](media/active-directory-accessmanagement-managing-group-owners/remove-owner-info-blade.png)
+
+    소유자를 제거한 후 **소유자** 페이지로 돌아가면 해당 이름이 소유자 목록에서 제거되었음을 확인할 수 있습니다.
+
+## <a name="next-steps"></a>다음 단계
+- [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](active-directory-manage-groups.md)
+
+- [그룹 설정을 구성하는 Azure Active Directory cmdlets](../users-groups-roles/groups-settings-cmdlets.md)
+
+- [그룹을 사용하여 통합 SaaS 앱에 대한 액세스 할당](../users-groups-roles/groups-saasapps.md)
+
+- [Azure Active Directory와 온-프레미스 ID 통합](../hybrid/whatis-hybrid-identity.md)
+
+- [그룹 설정을 구성하는 Azure Active Directory cmdlets](../users-groups-roles/groups-settings-v2-cmdlets.md)

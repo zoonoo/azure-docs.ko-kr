@@ -1,22 +1,23 @@
 ---
-title: Text Analytics API에 대한 FAQ(질문과 대답) - Azure Cognitive Services | Microsoft Docs
-description: Azure에서 Microsoft Cognitive Services Text Analytics API에 대한 일반적인 질문에 대한 대답을 가져옵니다.
+title: Text Analytics API에 대한 FAQ(질문과 대답)
+titleSuffix: Azure Cognitive Services
+description: Text Analytics API와 관련된 일반적인 질문에 대한 답변을 얻습니다.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 3/07/2018
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: bf82899b4317f0f5ce0f6ca5096dccef7cddd931
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: aa1c5b048c3ef339d01a3a63fd1d565b888ffbbb
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377791"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603399"
 ---
-# <a name="frequently-asked-questions-faq-about-the-text-analytics-api"></a>Text Analytics API에 대한 FAQ(질문과 대답)
+# <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>Text Analytics Cognitive Service에 대한 FAQ(질문과 대답)
 
  Azure에서 Microsoft Cognitive Services용 Text Analytics API와 관련된 개념, 코드 및 시나리오에 대한 일반적인 질문에 대한 대답을 찾습니다.
 

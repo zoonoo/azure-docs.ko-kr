@@ -1,26 +1,25 @@
 ---
-title: Azure AD 테넌트 디렉터리 사용 방법 개요 | Microsoft Docs
-description: Azure AD 테넌트의 정의 및 Azure Active Directory를 사용하여 Azure를 관리하는 방법을 설명합니다.
+title: Azure Active Directory 테넌트 관리 | Microsoft Docs
+description: Azure AD 테넌트가 무엇인지, Azure Active Directory를 사용하여 Azure를 어떻게 관리하는지 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.service: active-directory
-ms.workload: identity
 ms.component: fundamentals
-ms.topic: overview
-ms.date: 08/23/2017
+ms.workload: identity
+ms.topic: conceptual
+ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro;oldportal
-ms.openlocfilehash: b18ff1f59a46e98544159b488294e2d3f7bd9cd7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+custom: it-pro
+ms.openlocfilehash: eb9cf7c21613ab91cc0b8e41a4454835d18f2c34
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767537"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297931"
 ---
-# <a name="manage-your-azure-ad-directory"></a>Azure AD 디렉터리 관리
+# <a name="manage-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트 관리
 
 ## <a name="what-is-an-azure-ad-tenant"></a>Azure AD 테넌트란?
 Azure AD(Azure Active Directory)에서 테넌트는 조직이 Azure 또는 Office 365와 같은 Microsoft 클라우드 서비스에 등록할 때 수신하는 Azure AD 디렉터리의 전용 인스턴스입니다. 각 Azure AD 디렉터리는 고유하며 다른 Azure AD 디렉터리와 구분됩니다. 회사 사무실 건물이 해당 조직에게만 속하는 안전한 자산인 것처럼 Azure AD 디렉터리도 조직에서만 사용하기 위해 자산을 보호하도록 설계되었습니다. Azure AD 디렉터리의 사용자 및 관리자가 실수로 또는 악의적으로 다른 디렉터리의 데이터에 액세스할 수 없도록 Azure AD 아키텍처는 고객 데이터와 ID 정보를 격리합니다.
@@ -43,7 +42,7 @@ Azure AD 디렉터리는 이러한 Microsoft 클라우드 서비스에 등록하
 
 예를 들어, Microsoft Intune 구독에 등록한 다음 추가 온-프레미스 Active Directory를 Azure AD 디렉터리와 동기화하는 경우 Office 365와 같은 다른 Microsoft 서비스에 등록하고 쉽게 Microsoft Intune에 포함된 동일한 디렉터리 통합 혜택을 얻을 수 있습니다.
 
-Azure AD와 온-프레미스 디렉터리 통합에 대한 자세한 내용은 [Azure AD Connect와 디렉터리 통합](../connect/active-directory-aadconnect.md)을 참조하세요.
+Azure AD와 온-프레미스 디렉터리 통합에 대한 자세한 내용은 [Azure AD Connect와 디렉터리 통합](../hybrid/whatis-hybrid-identity.md)을 참조하세요.
 
 ### <a name="associate-an-existing-azure-ad-directory-with-a-new-azure-subscription"></a>새 Azure 구독과 기존 Azure AD 디렉터리 연결
 기존 Office 365 또는 Microsoft Intune 구독에 대한 로그인을 인증한 동일한 디렉터리와 새 Azure 구독을 연결할 수 있습니다. 이 시나리오에 대한 자세한 내용은 [다른 계정에 Azure 구독의 소유권 이전](../../billing/billing-subscription-transfer.md)을 참조하세요.

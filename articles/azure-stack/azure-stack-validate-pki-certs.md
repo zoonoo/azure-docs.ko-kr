@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: f7079d54ccae32d06488d12d45d6035c7f372d63
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 8c89c49c1ea88937ba2494a4d9ee7adfa38ea1c1
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48236610"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408968"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Azure Stack PKI 인증서의 유효성 검사
 
@@ -94,7 +94,7 @@ ms.locfileid: "48236610"
     ```PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
-    Start-AzsReadinessChecker  -extensionshostfeature -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD 
+    Start-AzsReadinessChecker  -extensionhostfeature -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD 
     ```
 
 4. 모든 테스트를 통과 하는 출력 및 모든 인증서를 확인 합니다. 예: 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 6120ef39c4eb91c4b595f6b97a0eb4b96621b6f2
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 8ac6bc3ee042fee9757577dfa0e7ddab0f261645
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42143149"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498320"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft Authenticator 앱 FAQ
 
@@ -44,7 +44,7 @@ Microsoft Authenticator 앱은 Azure Authenticator 앱을 대신하며, Azure Mu
 |Microsoft Authenticator 앱에서 사용자가 장치를 잠금 해제하지 않아도 요청을 승인할 수 있도록 허용하는 이유는 무엇인가요?|사용자가 휴대폰을 갖고 있는지만 증명하면 되므로 확인 요청을 승인하도록 장치의 잠금을 해제할 필요가 없습니다. 2단계 인증은 두 가지를 요구합니다. 하나는 사용자가 알고 있는 것이고, 다른 하나는 사용자가 갖고 있는 것입니다. 사용자가 알고 있는 것은 암호입니다. 사용자가 갖고 있는 것은 휴대폰(Microsoft Authenticator 앱을 통해 설정하고 MFA 증명으로 등록된)입니다. 따라서 휴대폰을 갖고 있고 요청을 승인하면 인증의 두 번째 요소에 대한 조건을 충족합니다.|
 |Apple Watch에서 Microsoft Authenticator 앱을 열 때 모든 계정이 표시되지 않는 이유는 무엇인가요?|Microsoft Authenticator 앱은 Apple Watch 도우미 앱에서 Microsoft 개인 계정 또는 회사/학교 계정을 사용하는 것만 지원합니다. Google 또는 Facebook 같은 다른 계정의 경우 확인 코드를 보려면 휴대폰에서 Authenticator 앱을 열어야 합니다.|
 |Apple Watch에서 알림을 승인 또는 거부할 수 없는 이유는 무엇인가요?|먼저 iPhone에서 Microsoft Authenticator 앱을 버전 6.0.0 이상으로 업그레이드 했는지 확인합니다. 그 후 Apple Watch에서 Microsoft Authenticator 도우미 앱을 열고 아래에 **설정** 단추가 있는 계정을 찾습니다. 이러한 계정에 대한 알림을 승인하려면 이 설정 프로세스를 완료해야 합니다.|
-|**Apple Watch에서 Microsoft Authenticator 도우미 앱을 사용하는 동안 휴대폰과 통신할 수 없음** 오류가 발생하는 이유는 무엇입니까?|휴대폰과 Apple Watch가 서로 통신할 수 없는 경우 다음 조치를 시도할 수 있습니다.<ol><li>Microsoft Authenticator 휴대폰 앱을 강제로 종료하여 iPhone에서 다시 엽니다.</li><li>Apple Watch 도우미 앱을 강제로 종료합니다.<ol><li> Watch에서 Microsoft Authenticator 도우미 앱을 엽니다.</li><li>**종료** 화면이 나타날 때까지 옆면의 단추를 길게 누릅니다.</li><li>옆면의 단추를 놓고 Digital Crown을 길게 눌러 활성 앱을 강제로 종료합니다.</li></ol></li><li>휴대폰과 Watch에서 Bluetooth와 Wi-Fi를 모두 껐다가 다시 켭니다.</li><li>iPhone 및 Watch를 다시 시작합니다.</li></ol>|
+|Apple Watch와 휴대폰 사이에 통신 오류가 발생합니다. 어떻게 하면 문제를 해결할 수 있나요?|이 오류는 Watch가 휴대폰과 통신을 마치기 전에 해당 화면이 절전 모드로 전환되는 경우 발생합니다.<br><br><b>설치 중에 이런 문제가 발생하면:</b><br>설치를 다시 실행하고 프로세스가 완료될 때가지 Watch가 활성화 상태를 유지하도록 합니다. 동시에, 휴대폰에서 앱을 열고 표시되는 모든 메시지에 응답합니다.<br><br>이렇게 해도 휴대폰과 Watch가 서로 통신할 수 없으면 다음 조치를 시도할 수 있습니다.<ol><li>Microsoft Authenticator 휴대폰 앱을 강제로 종료하여 iPhone에서 다시 엽니다.</li><li>Apple Watch 도우미 앱을 강제로 종료합니다.<ol><li> Watch에서 Microsoft Authenticator 도우미 앱을 엽니다.</li><li>**종료** 화면이 나타날 때까지 옆면의 단추를 길게 누릅니다.</li><li>옆면의 단추를 놓고 Digital Crown을 길게 눌러 활성 앱을 강제로 종료합니다.</li></ol></li><li>휴대폰과 Watch에서 Bluetooth와 Wi-Fi를 모두 껐다가 다시 켭니다.</li><li>iPhone 및 Watch를 다시 시작합니다.</li></ol><b>알림을 승인하려고 할 때 이 문제가 발생하면:</b><br>다음 번에 Apple Watch에서 알림을 승인하려고 할 때, 요청이 완료되고 성공적으로 완료되었음을 알리는 소리가 들릴 때까지 화면을 활성화 상태로 유지합니다.|
 |Apple Watch용 Microsoft Authenticator 도우미 앱이 동기화되지 않거나 Watch에 표시되지 않는 이유는 무엇인가요?|앱이 Watch에 표시되지 않는 경우 다음 방법을 시도합니다. <ol><li>Watch가 watchOS 4.0 이상을 실행 중인지 확인합니다.</li><li>Watch를 다시 동기화합니다.</li></ol>|
 |Apple Watch 도우미 앱이 충돌했습니다. 크래시 로그를 보내서 조사할 수 있나요? |먼저 분석 정보를 Microsoft와 공유하도록 선택했는지 확인합니다. TestFlight 사용자인 경우 이미 등록되어 있습니다. 아닌 경우 **설정 > 개인 정보 > 분석**으로 이동하여 **iPhone 및 Watch 분석 공유** 및 **앱 개발자와 공유** 옵션을 모두 선택합니다.<br><br>등록을 마친 후 크래시를 재현하면 자동으로 크래시 로그가 Microsoft로 전송됩니다. 하지만 크래시를 재현할 수 없는 경우 로그 파일을 수동으로 복사해서 보내주시면 됩니다.<ol><li>휴대폰에서 Watch 앱을 열고 **설정 > 일반**으로 이동한 다음, **Watch 분석 복사**를 클릭합니다.</li><li>**설정 > 개인 정보 > 분석 > 분석 데이터** 아래에서 해당 크래시를 찾은 다음, 전체 텍스트를 수동으로 복사합니다.</li><li>휴대폰에서 Microsoft Authenticator 앱을 열고, 앞에서 복사한 텍스트를 **로그 보내기** 페이지의 **앱 개발자와 공유** 텍스트 상자에 붙여넣습니다.</li></ol>|
 

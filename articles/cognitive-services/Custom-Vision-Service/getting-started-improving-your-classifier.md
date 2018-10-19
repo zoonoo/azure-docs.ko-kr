@@ -1,20 +1,21 @@
 ---
-title: Custom Vision Service를 사용하여 분류자 개선 - Azure Cognitive Services | Microsoft Docs
-description: Custom Vision Service 분류자의 품질을 개선하는 방법을 알아봅니다.
+title: 분류자 개선 - Custom Vision Service
+titlesuffix: Azure Cognitive Services
+description: 분류자의 품질을 개선하는 방법을 알아봅니다.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: nolachar
-ms.openlocfilehash: 7c6cbd996d0c35b96fde78daf391bebb36feddce
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: d3f0da9b7c5894a485db4bd204e1a9ed5967c1aa
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888183"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366548"
 ---
 # <a name="how-to-improve-your-classifier"></a>분류자 개선 방법
 
@@ -62,7 +63,7 @@ __스타일:__ 같은 과일 클래스에 속하지만 다른 스타일을 갖�
 
 ## <a name="use-images-submitted-for-prediction"></a>예측을 위해 제출된 이미지 사용
 
-Custom Vision Service는 예측 끝점에 제출된 이미지를 저장합니다. 이러한 이미지를 사용하여 분류자를 개선하려면 다음 단계를 사용합니다.
+Custom Vision Service는 예측 엔드포인트에 제출된 이미지를 저장합니다. 이러한 이미지를 사용하여 분류자를 개선하려면 다음 단계를 사용합니다.
 
 1. 분류자에 제출된 이미지를 보려면 [Custom Vision 웹 페이지](https://customvision.ai)를 열고 프로젝트로 이동한 후 __예측__ 탭을 선택합니다. 기본 보기에는 현재 반복의 이미지가 표시됩니다. __반복__ 드롭다운 필드를 사용하여 이전 반복 중에 제출된 이미지를 볼 수 있습니다.
 

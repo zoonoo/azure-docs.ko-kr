@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2018
+ms.date: 09/19/2018
 ms.author: terrylan
-ms.openlocfilehash: ec8e4b1edfe815670664de83edf98a9e478101d2
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 309dddcea1022d9f14c1d4492f5564f2a4ad3b6f
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42143227"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498507"
 ---
 # <a name="azure-network-security-overview"></a>Azure 네트워크 보안 개요
 
-Azure에는 사용자의 응용 프로그램과 서비스 연결 요구 사항을 지원하기 위한 강력한 네트워킹 인프라가 포함되어 있습니다. 네트워크 연결은 Azure에 위치한 리소스 간, 온-프레미스 리소스와 Azure 호스팅 리소스 간, 그리고 인터넷과 Azure 간에 가능합니다.
+네트워크 보안은 네트워크 트래픽에 컨트롤을 적용하여 무단 액세스나 공격으로부터 리소스를 보호하는 프로세스로 정의할 수 있습니다. 목표는 정당한 트래픽만 허용되도록 하는 것입니다. Azure에는 사용자의 응용 프로그램과 서비스 연결 요구 사항을 지원하기 위한 강력한 네트워킹 인프라가 포함되어 있습니다. 네트워크 연결은 Azure에 위치한 리소스 간, 온-프레미스 리소스와 Azure 호스팅 리소스 간, 그리고 인터넷과 Azure 간에 가능합니다.
 
 이 문서에서는 Azure가 네트워크 보안 영역에서 제공하는 일부 옵션에 대해 설명합니다. 다음에 대해 알아볼 수 있습니다.
 
@@ -77,7 +77,11 @@ NSG는 응용 프로그램 계층 검사 또는 인증된 액세스 제어를 �
 
 #### <a name="asc-just-in-time-vm-access"></a>ASC Just-In-Time VM 액세스
 
-[Azure 보안 센터](../security-center/security-center-just-in-time.md)는 적절한 RBAC[역할 기반 액세스 제어](../role-based-access-control/overview.md) 사용 권한이 있는 사용자가 액세스를 요청할 때까지 VM에서 NSG를 관리하고 VM에 대한 액세스를 잠글 수 있습니다. 사용자에게 성공적으로 권한이 부여된 경우 ASC는 NSG를 수정하여 지정된 시간 동안 선택한 포트에 대한 액세스를 허용합니다. 시간이 만료된 경우 NSG는 이전의 안전한 상태로 복원됩니다.
+[Azure 보안 센터](../security-center/security-center-intro.md)는 적절한 RBAC[역할 기반 액세스 제어](../role-based-access-control/overview.md) 사용 권한이 있는 사용자가 액세스를 요청할 때까지 VM에서 NSG를 관리하고 VM에 대한 액세스를 잠글 수 있습니다. 사용자에게 성공적으로 권한이 부여된 경우 ASC는 NSG를 수정하여 지정된 시간 동안 선택한 포트에 대한 액세스를 허용합니다. 시간이 만료된 경우 NSG는 이전의 안전한 상태로 복원됩니다.
+
+자세한 정보:
+
+* [Azure Security Center JIT(적시)](../security-center/security-center-just-in-time.md)
 
 #### <a name="service-endpoints"></a>서비스 엔드포인트
 

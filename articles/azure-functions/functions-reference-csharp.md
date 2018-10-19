@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 3bdb5bc2aa47a51cc95a4274fbf20ba5d0515130
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 9a75e7ed8ce25384d39afb22ef50b5453ef543ba
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094284"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129678"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# 스크립트(.csx) 개발자 참조
 
@@ -35,6 +35,29 @@ Azure Functions에 대한 C# 스크립트 환경은 [Azure WebJobs SDK](https://
 *.csx* 형식을 사용하면 "상용구"를 덜 작성하고 C# 함수를 작성하는 데 집중할 수 있습니다. 네임스페이스 및 클래스의 모든 항목을 래핑하는 대신 `Run` 메서드만 정의합니다. 일반적으로 파일의 시작 부분에 모든 어셈블리 참조 및 네임스페이스를 포함합니다.
 
 함수 앱의 *.csx* 파일은 인스턴스가 초기화될 때 컴파일됩니다. 이 컴파일 단계는 콜드 시작 등의 방식이 C# 클래스 라이브러리에 비해 C# 스크립트 함수를 실행하는 데 더 오래 걸릴 수 있음을 의미합니다. 이 컴파일 단계는 C# 스크립트 함수가 C# 클래스 라이브러리와 달리 Azure Portal에서 편집 가능한 이유를 나타내기도 합니다.
+
+## <a name="folder-structure"></a>폴더 구조
+
+C# 스크립트 프로젝트에 필요한 폴더 구조는 다음과 같습니다.
+
+```
+FunctionsProject
+ | - MyFirstFunction
+ | | - run.csx
+ | | - function.json
+ | | - function.proj
+ | - MySecondFunction
+ | | - run.csx
+ | | - function.json
+ | | - function.proj
+ | - host.json
+ | - extensions.csproj
+ | - bin
+```
+
+함수 앱을 구성하는 데 사용할 수 있는 공유 [host.json](functions-host-json.md) 파일이 있습니다. 각 함수에는 자체 코드 파일(.csx)과 바인딩 구성 파일(function.json)이 있습니다.
+
+Functions 런타임의 [버전 2.x](functions-versions.md)에 필요한 바인딩 확장은 `extensions.csproj` 파일에 정의되어 있고 실제 라이브러리 파일은 `bin` 폴더에 있습니다. 로컬에서 개발할 때는 [바인딩 확장을 등록](functions-triggers-bindings.md#local-development-azure-functions-core-tools)해야 합니다. 이 등록은 Azure Portal에서 함수를 개발할 때 자동으로 수행됩니다.
 
 ## <a name="binding-to-arguments"></a>인수에 바인딩
 
@@ -336,8 +359,10 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 ## <a name="referencing-custom-assemblies"></a>사용자 지정 어셈블리 참조
 
 사용자 지정 어셈블리를 참조하려면 *공유* 어셈블리 또는 *전용* 어셈블리를 사용합니다.
-- 공유 어셈블리는 함수 앱 내의 모든 함수에서 공유됩니다. 사용자 지정 어셈블리를 참조하려면 [함수 앱 루트 폴더](functions-reference.md#folder-structure)(wwwroot)의 `bin` 폴더에 해당 어셈블리를 업로드합니다. 
-- 전용 어셈블리는 지정된 함수 컨텍스트의 일부이며 여러 버전의 테스트용 로드를 지원합니다. 전용 어셈블리는 함수 디렉터리의 `bin` 폴더에 업로드해야 합니다. `#r "MyAssembly.dll"`과 같은 파일 이름을 사용하여 어셈블리를 참조합니다. 
+
+* 공유 어셈블리는 함수 앱 내의 모든 함수에서 공유됩니다. 사용자 지정 어셈블리를 참조하려면 [함수 앱 루트 폴더](functions-reference.md#folder-structure)(wwwroot)의 `bin` 폴더에 해당 어셈블리를 업로드합니다.
+
+* 전용 어셈블리는 지정된 함수 컨텍스트의 일부이며 여러 버전의 테스트용 로드를 지원합니다. 전용 어셈블리는 함수 디렉터리의 `bin` 폴더에 업로드해야 합니다. `#r "MyAssembly.dll"`과 같은 파일 이름을 사용하여 어셈블리를 참조합니다.
 
 함수 폴더에 파일을 업로드하는 방법에 대한 내용은 [패키지 관리](#using-nuget-packages)에 대한 섹션을 참조하세요.
 

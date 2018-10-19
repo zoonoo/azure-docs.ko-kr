@@ -3,23 +3,19 @@ title: 지속성 함수의 HTTP API - Azure
 description: Azure Functions의 지속성 함수 확장에서 HTTP API를 구현하는 방법을 알아봅니다.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 09/29/2017
+ms.topic: conceptual
+ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3c000e268c4c926991c3f1928f226065a436c6d2
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: c6d7268a8501c602354d21edc5a0feaae9b1a0b2
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "36264888"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575477"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>지속성 함수의 HTTP API(Azure Functions)
 
@@ -49,6 +45,7 @@ ms.locfileid: "36264888"
 | statusQueryGetUri |오케스트레이션 인스턴스의 상태 URL입니다. |
 | sendEventPostUri  |오케스트레이션 인스턴스의 "이벤트 발생" URL입니다. |
 | terminatePostUri  |오케스트레이션 인스턴스의 "종료" URL입니다. |
+| rewindPostUri     |오케스트레이션 인스턴스의 "rewind" URL입니다. |
 
 다음은 응답 예제입니다.
 
@@ -56,13 +53,14 @@ ms.locfileid: "36264888"
 HTTP/1.1 202 Accepted
 Content-Length: 923
 Content-Type: application/json; charset=utf-8
-Location: https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
+Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
 
 {
     "id":"34ce9a28a6834d8492ce6a295f1a80e2",
-    "statusQueryGetUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
-    "sendEventPostUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
-    "terminatePostUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
+    "statusQueryGetUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "sendEventPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "terminatePostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "rewindPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/rewind?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
 }
 ```
 > [!NOTE]
@@ -75,9 +73,9 @@ Location: https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a2
 1. 클라이언트에서 장기 실행 프로세스(예: 오케스트레이터 함수)를 시작하기 위해 HTTP 요청을 발급합니다.
 2. 대상 HTTP 트리거에서 `statusQueryGetUri` 값을 사용하여 `Location` 헤더가 있는 HTTP 202 응답을 반환합니다.
 3. 클라이언트에서 `Location` 헤더의 URL을 폴링합니다. `Location` 헤더가 있는 HTTP 202 응답이 계속 표시됩니다.
-4. 인스턴스가 완료되거나 실패하면 `Location` 헤더의 끝점에서 HTTP 200을 반환합니다.
+4. 인스턴스가 완료되거나 실패하면 `Location` 헤더의 엔드포인트에서 HTTP 200을 반환합니다.
 
-이 프로토콜을 사용하면 HTTP 끝점 폴링 및 `Location` 헤더 추적을 지원하는 외부 클라이언트 또는 서비스에서 장기 실행 프로세스를 조정할 수 있습니다. 기본 조각은 지속성 함수 HTTP API에 이미 작성되어 있습니다.
+이 프로토콜을 사용하면 HTTP 엔드포인트 폴링 및 `Location` 헤더 추적을 지원하는 외부 클라이언트 또는 서비스에서 장기 실행 프로세스를 조정할 수 있습니다. 기본 조각은 지속성 함수 HTTP API에 이미 작성되어 있습니다.
 
 > [!NOTE]
 > 기본적으로 [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)에서 제공하는 모든 HTTP 기반 작업은 표준 비동기 작업 패턴을 지원합니다. 이 기능을 사용하면 Logic Apps 워크플로의 일부로 장기 실행 지속성 함수를 포함할 수 있습니다. Logic Apps의 비동기 HTTP 패턴 지원에 대한 자세한 내용은 [Azure Logic Apps 워크플로 작업 및 트리거 설명서](../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns)에서 찾을 수 있습니다.
@@ -114,7 +112,7 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}?taskHub={taskH
 Functions 2.0 형식에는 모두 동일한 매개 변수가 있지만 약간 다른 URL 접두사가 있습니다.
 
 ```http
-GET /runtime/webhooks/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
+GET /runtime/webhooks/durabletask/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
 #### <a name="response"></a>response
@@ -125,6 +123,7 @@ GET /runtime/webhooks/DurableTaskExtension/instances/{instanceId}?taskHub={taskH
 * **HTTP 202(수락됨)**: 지정된 인스턴스가 진행 중입니다.
 * **HTTP 400(잘못된 요청)**: 지정된 인스턴스가 실패했거나 종료되었습니다.
 * **HTTP 404(찾을 수 없음)**: 지정된 인스턴스가 없거나 실행이 시작되지 않았습니다.
+* **HTTP 500(내부 서버 오류)**: 처리되지 않은 예외로 인해 지정된 인스턴스가 실패했습니다.
 
 **HTTP 200** 및 **HTTP 202** 사례에 대한 응답 페이로드는 다음 필드가 있는 JSON 개체입니다.
 
@@ -210,7 +209,7 @@ GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connecti
 Functions 2.0 형식에는 모두 동일한 매개 변수가 있지만 약간 다른 URL 접두사가 있습니다. 
 
 ```http
-GET /runtime/webhooks/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
+GET /runtime/webhooks/durabletask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
 #### <a name="response"></a>response
@@ -267,7 +266,7 @@ GET /runtime/webhooks/DurableTaskExtension/instances/?taskHub={taskHub}&connecti
 ```
 
 > [!NOTE]
-> 이 작업은 인스턴스 테이블에 많은 행이 있는 경우 Azure Storage I/O의 측면에서 매우 비쌀 수 있습니다. 인스턴스 테이블에 대한 자세한 내용은 [지속성 함수의 성능 및 크기 조정(Azure Functions)](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-perf-and-scale#instances-table) 설명서에서 확인할 수 있습니다.
+> 이 작업은 인스턴스 테이블에 많은 행이 있는 경우 Azure Storage I/O의 측면에서 매우 비쌀 수 있습니다. 인스턴스 테이블에 대한 자세한 내용은 [지속성 함수의 성능 및 크기 조정(Azure Functions)](https://docs.microsoft.com/azure/azure-functions/durable-functions-perf-and-scale#instances-table) 설명서에서 확인할 수 있습니다.
 > 
 
 ### <a name="raise-event"></a>이벤트 발생
@@ -285,7 +284,7 @@ POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/raiseEvent/{e
 Functions 2.0 형식에는 모두 동일한 매개 변수가 있지만 약간 다른 URL 접두사가 있습니다.
 
 ```http
-POST /runtime/webhooks/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
+POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
 ```
 
 이 API에 대한 요청 매개 변수에는 앞에서 언급한 기본 집합과 다음과 같은 고유한 매개 변수가 포함됩니다.
@@ -325,13 +324,13 @@ Content-Length: 6
 Functions 1.0의 경우 요청 형식은 다음과 같습니다.
 
 ```http
-DELETE /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
 Functions 2.0 형식에는 모두 동일한 매개 변수가 있지만 약간 다른 URL 접두사가 있습니다.
 
 ```http
-DELETE /runtime/webhooks/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
 이 API에 대한 요청 매개 변수에는 앞에서 언급한 기본 집합과 다음과 같은 고유한 매개 변수가 포함됩니다.
@@ -351,7 +350,47 @@ DELETE /runtime/webhooks/DurableTaskExtension/instances/{instanceId}/terminate?r
 다음은 실행 중인 인스턴스를 종료하고 **buggy(버그 있음)** 에 대한 이유를 지정하는 요청 예제입니다.
 
 ```
-DELETE /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason=buggy&taskHub=DurableFunctionsHub&connection=Storage&code=XXX
+POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason=buggy&taskHub=DurableFunctionsHub&connection=Storage&code=XXX
+```
+
+이 API에 대한 응답에는 내용이 포함되어 있지 않습니다.
+
+## <a name="rewind-instance-preview"></a>rewind(되감기) 인스턴스(미리 보기)
+
+가장 최근에 실패한 작업을 재생하여 실패한 오케스트레이션 인스턴스를 실행 중 상태로 복원합니다.
+
+#### <a name="request"></a>요청
+
+Functions 1.0의 경우 요청 형식은 다음과 같습니다.
+
+```http
+POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/rewind?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+```
+
+Functions 2.0 형식에는 모두 동일한 매개 변수가 있지만 약간 다른 URL 접두사가 있습니다.
+
+```http
+POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+```
+
+이 API에 대한 요청 매개 변수에는 앞에서 언급한 기본 집합과 다음과 같은 고유한 매개 변수가 포함됩니다.
+
+| 필드       | 매개 변수 형식  | 데이터 형식 | 설명 |
+|-------------|-----------------|-----------|-------------|
+| reason      | 쿼리 문자열    | string    | 선택 사항입니다. 오케스트레이션 인스턴스를 되감는 이유입니다. |
+
+#### <a name="response"></a>response
+
+몇 가지 가능한 상태 코드 값을 반환할 수 있습니다.
+
+* **HTTP 202(수락됨)**: 되감기 요청을 처리하도록 수락되었습니다.
+* **HTTP 404(찾을 수 없음)**: 지정된 인스턴스를 찾을 수 없습니다.
+* **HTTP 410(없음)**: 지정된 인스턴스가 완료되었거나 종료되었습니다.
+
+다음은 실패한 인스턴스를 되감고 **fixed**(수정됨)의 이유를 지정하는 요청 예제입니다.
+
+```
+POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/rewind?reason=fixed&taskHub=DurableFunctionsHub&connection=Storage&code=XXX
 ```
 
 이 API에 대한 응답에는 내용이 포함되어 있지 않습니다.

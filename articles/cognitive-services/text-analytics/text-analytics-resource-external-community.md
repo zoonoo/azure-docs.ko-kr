@@ -1,5 +1,6 @@
 ---
-title: Text Analytics API의 외부 및 커뮤니티 콘텐츠 - Azure Cognitive Services | Microsoft Docs
+title: Text Analytics API에 대한 외부 및 커뮤니티 콘텐츠
+titleSuffix: Azure Cognitive Services
 description: Azure의 Microsoft Cognitive Services Text Analytics API에 대한 파트너 블로그, youtube 비디오, 교육입니다.
 services: cognitive-services
 author: HeidiSteen
@@ -7,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 3/07/2018
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 63de50bac69c5b7358ee2e37f534d2f997fde592
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fbea686ba0f67cdab79f1553344bd99dd105fc00
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377775"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605252"
 ---
-# <a name="external--community-content-for-the-text-analytics-api"></a>Text Analytics API에 대한 외부 및 커뮤니티 콘텐츠
+# <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Text Analytics Cognitive Service에 대한 외부 및 커뮤니티 콘텐츠
 
  이 문서의 링크를 클릭하면 Text Analytics API 사용 경험이 풍부한 파트너 및 전문가가 개발 및 제작한 유용한 웹 콘텐츠로 연결됩니다.
 

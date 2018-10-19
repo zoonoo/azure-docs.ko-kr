@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: a295cad2bf1cafce4dc64909174e9417daa7918e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 370700f8d146dd626e6e13deceb09dcaea34a9f3
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38235451"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983953"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs FAQ
 Azure DevTest Labs에 대한 일반적인 질문에 대한 답변을 확인합니다.
@@ -88,17 +88,17 @@ DevTest Labs에서 사용자 지정 역할을 만들 수도 있습니다. DevTes
 
 **CI/CD 통합 및 자동화**
 ## <a name="does-devtest-labs-integrate-with-my-cicd-toolchain"></a>DevTest Labs는 CI/CD 도구 체인과 통합되나요?
-Visual Studio Team Services를 사용하는 경우 [DevTest Labs 작업 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)을 사용하여 DevTest Labs에서 릴리스 파이프라인을 자동화할 수 있습니다. 이 확장으로 수행할 수 있는 작업 중 일부는 다음과 같습니다.
+Azure DevOps를 사용하는 경우 [DevTest Labs 작업 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)을 사용하여 DevTest Labs에서 릴리스 파이프라인을 자동화할 수 있습니다. 이 확장으로 수행할 수 있는 작업 중 일부는 다음과 같습니다.
 
-* VM을 만들고 자동으로 배포합니다. Azure File Copy 또는 PowerShell Team Services 작업을 사용하여 최신 빌드로 VM을 구성할 수도 있습니다.
+* VM을 만들고 자동으로 배포합니다. Azure File Copy 또는 PowerShell Azure DevOps Services 작업을 사용하여 최신 빌드로 VM을 구성할 수도 있습니다.
 * 추가 조사를 위해 동일한 VM에 대한 버그를 재현하는 테스트 후 VM의 상태를 자동으로 캡처합니다.
 * 더 이상 필요 없는 경우 릴리스 파이프라인의 끝에서 VM을 삭제합니다.
 
-다음 블로그 게시물은 Team Services 확장 사용에 대한 지침 및 정보를 제공합니다.
+다음 블로그 게시물은 Azure DevOps Services를 사용하는 방법에 대한 지침 및 정보를 제공합니다.
 
-* [DevTest Labs 및 Visual Studio Team Services 확장](https://blogs.msdn.microsoft.com/devtestlab/2016/06/15/azure-devtest-labs-vsts-extension/)
-* [Team Services에서 기존 DevTest Labs 랩에 새 VM 배포](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
-* [DevTest Labs에 대한 연속 배포에 대해 Team Services 릴리스 관리 사용](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
+* [DevTest Labs 및 Azure DevOps 확장](https://blogs.msdn.microsoft.com/devtestlab/2016/06/15/azure-devtest-labs-vsts-extension/)
+* [Azure DevOps Services에서 기존 DevTest Labs 랩에 새 VM 배포](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
+* [DevTest Labs에 대한 연속 배포에 대해 Azure DevOps Services 릴리스 관리 사용](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
 
 다른 CI(연속 통합)/CD(지속적인 업데이트) 도구 체인의 경우 [Azure Resource Manager 템플릿](https://aka.ms/dtlquickstarttemplate)을 배포하거나 [Azure PowerShell cmdlet](../azure-resource-manager/resource-group-template-deploy.md) 및 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/)를 사용하여 동일한 시나리오를 얻을 수 있습니다. 또한 [DevTest Labs용 REST API](http://aka.ms/dtlrestapis)를 사용하여 도구 체인과 통합할 수 있습니다.  
 
@@ -112,7 +112,7 @@ DevTest Labs에서 VM을 만들 때 해당 VM에 액세스할 수 있는 권한�
 
 ## <a name="how-do-i-create-multiple-vms-from-the-same-template-at-once"></a>동일한 템플릿에서 여러 VM을 한 번에 어떻게 만듭니까?
 동일한 템플릿에서 여러 VM을 동시에 만들기 위한 두 가지 옵션이 있습니다.
-* [Visual Studio Team Services 작업 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)을 사용할 수 있습니다. 
+* [Azure DevOps 작업 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks)을 사용할 수 있습니다. 
 * VM을 만드는 동안 [Resource Manager 템플릿을 생성](devtest-lab-add-vm.md#save-azure-resource-manager-template)하고 [Windows PowerShell에서 Resource Manager 템플릿을 배포](../azure-resource-manager/resource-group-template-deploy.md)할 수 있습니다.
 
 ## <a name="how-do-i-move-my-existing-azure-vms-into-my-devtest-labs-lab"></a>기존 Azure VM을 DevTest Labs 랩으로 어떻게 이동하나요?
@@ -172,7 +172,7 @@ Azure Portal의 랩에서 VM을 삭제할 수 있습니다. 또한 PowerShell �
     # Get the VMs from that lab.
     $labVMs = Get-AzureRmResource | Where-Object {
               $_.ResourceType -eq 'microsoft.devtestlab/labs/virtualmachines' -and
-              $_.ResourceName -like "$($lab.ResourceName)/*"}
+              $_.Name -like "$($lab.Name)/*"}
 
     # Delete the VMs.
     foreach($labVM in $labVMs)

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 09/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 3ad3f42563878d829f900d5cddb0c6866d2deab5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: c611fd7893a96113a4a9f2454bcd0b11db02be29
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43311449"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605113"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>자습서: Snowflake와 Azure Active Directory 통합
 
@@ -39,6 +39,7 @@ Snowflake와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다
 
 - Azure AD 구독
 - Snowflake Single Sign-on이 설정된 구독
+- Snowflake 계정이 없고 Azure AD 응용 프로그램 갤러리를 통해 사용해 보려는 고객은 [이 링크](https://trial.snowflake.net/?cloud=azure&utm_source=azure-marketplace&utm_medium=referral&utm_campaign=self-service-azure-mp)를 참조하세요.
 
 > [!NOTE]
 > 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다.
@@ -103,22 +104,22 @@ Snowflake에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
  
     ![Single Sign-On 대화 상자](./media/snowflake-tutorial/tutorial_snowflake_samlbase.png)
 
-3. **Snowflake 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
+3. **Snowflake 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![Snowflake 도메인 및 URL Single Sign-On 정보](./media/snowflake-tutorial/tutorial_snowflake_url.png)
 
-    a. **식별자** 텍스트 상자에서 `https://<SNOWFLAKE-URL>` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에서 `https://<SNOWFLAKE-URL>.snowflakecomputing.com` 패턴을 사용하여 URL을 입력합니다.
 
-    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<SNOWFLAKE-URL>/fed/login`
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<SNOWFLAKE-URL>.snowflakecomputing.com/fed/login`
 
 4. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
 
     ![Snowflake 도메인 및 URL Single Sign-On 정보](./media/snowflake-tutorial/tutorial_snowflake_url1.png)
 
-    **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<SNOWFLAKE-URL>`
+    **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
      
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [Snowflake 클라이언트 지원 팀](https://support.snowflake.net/s/snowflake-support)에 문의하세요. 
+    > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다.
 
 5. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -132,7 +133,22 @@ Snowflake에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Snowflake 구성](./media/snowflake-tutorial/tutorial_snowflake_configure.png) 
 
-8. **Snowflake** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64)** 및 **SAML Single Sign-On 서비스 URL**을 [Snowflake 지원 팀](https://support.snowflake.net/s/snowflake-support)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+8. 다른 웹 브라우저 창에서 Snowflake에 보안 관리자 권한으로 로그인합니다.
+
+9. **certificate** 값을 **다운로드된 인증서**로, Azure AD에서 복사한 **SAML Single Sign-On 서비스 URL**에 대한 **ssoUrl**을 아래 표시된 값으로 설정하여 워크시트에서 아래의 SQL 쿼리를 실행합니다.
+
+    ![Snowflake sql](./media/snowflake-tutorial/tutorial_snowflake_sql.png) 
+
+    ```
+    use role accountadmin;
+    alter account set saml_identity_provider = '{
+    "certificate": "<Paste the content of downloaded certificate from Azure portal>",
+    "ssoUrl":"<SAML single sign-on service URL value which you have copied from the Azure portal>",
+    "type":"custom",
+    "label":"AzureAD"
+    }';
+    alter account set sso_login_page = TRUE;
+    ```
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -168,7 +184,25 @@ Snowflake에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
  
 ### <a name="create-a-snowflake-test-user"></a>Snowflake 테스트 사용자 만들기
 
-이 섹션에서는 Snowflake에서 Britta Simon이라는 사용자를 만듭니다. Snowflake 플랫폼에서 사용자를 추가하려면 [Snowflake 지원 팀](https://support.snowflake.net/s/snowflake-support)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+Azure AD 사용자가 Snowflake에 로그인할 수 있도록 하려면 해당 사용자를 Snowflake로 프로비전해야 합니다. Snowflake에서 프로비전 작업은 수동으로 수행됩니다.
+
+**사용자 계정을 프로비전하려면 다음 단계를 수행합니다.**
+
+1. Snowflake에 보안 관리자 권한으로 로그인합니다.
+
+2. 페이지의 오른쪽 위에 있는 **프로필**을 클릭하여 **역할 전환**을 **ACCOUNTADMIN**으로 설정합니다.  
+
+    ![Snowflake 관리자 ](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+
+3. 아래 SQL 쿼리를 실행하여 사용자를 만듭니다. 아래와 같이 "로그인 이름"이 워크시트의 Azure AD 사용자 이름으로 설정되어 있는지 확인합니다.
+
+    ![Snowflake adminsql ](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
+
+    ```
+
+    use role accountadmin;
+    CREATE USER britta_simon PASSWORD = '' LOGIN_NAME = 'BrittaSimon@contoso.com' DISPLAY_NAME = 'Britta Simon';
+    ```
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 

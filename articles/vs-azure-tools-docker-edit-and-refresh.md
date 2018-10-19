@@ -1,43 +1,33 @@
 ---
 title: 로컬 Docker 컨테이너에서 앱 디버깅 | Microsoft Docs
 description: 로컬 Docker 컨테이너에서 실행 중인 앱을 수정하고, 편집 및 새로 고침을 통해 컨테이너를 새로 고치고, 디버깅 중단점을 설정하는 방법을 알아봅니다.
-services: azure-container-service
-documentationcenter: na
+services: container-service
 author: ghogen
 manager: douge
-editor: ''
 ms.assetid: 480e3062-aae7-48ef-9701-e4f9ea041382
 ms.service: multiple
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/22/2016
-ms.author: mlearned
-ms.openlocfilehash: 01741ba25ac3a6ab187a08636b7e26ee58dbee90
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.date: 09/11/2018
+ms.author: ghogen
+ms.openlocfilehash: 0f3f323cb4486c06f6f18de4c695efaf8dce4d99
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038630"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715723"
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>로컬 Docker 컨테이너에서 앱 디버깅
 ## <a name="overview"></a>개요
-Visual Studio 2017은 Linux Docker 컨테이너에서 로컬로 응용 프로그램을 개발하고 유효성을 검사하는 일관된 방법을 제공합니다.
+Visual Studio 2017은 Docker 컨테이너에서 로컬로 응용 프로그램을 개발하고 유효성을 검사하는 일관된 방법을 제공합니다.
 코드를 변경할 때마다 컨테이너를 다시 시작할 필요가 없습니다.
 이 문서에서는 "편집 및 새로 고침" 기능을 사용하여 로컬 Docker 컨테이너에서 ASP.NET Core 웹앱을 시작하고 필요한 내용을 변경한 다음 브라우저를 새로 고쳐 변경 내용을 확인하는 방법을 설명합니다.
 또한 이 문서에서는 디버깅을 위한 중단점 설정 방법도 보여 줍니다.
 
-> [!NOTE]
-> Windows 컨테이너 지원은 향후 릴리스에서 제공됩니다.
->
->
-
 ## <a name="prerequisites"></a>필수 조건
 다음과 같은 도구를 설치해야 합니다.
 
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/)
-* [Microsoft ASP.NET Core 1.0 SDK](https://go.microsoft.com/fwlink/?LinkID=809122)
+* 웹 개발 워크로드가 설치된 [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 
 로컬에서 Docker 컨테이너를 실행하려면 로컬 Docker 클라이언트가 필요합니다.
 [Docker 도구 상자](https://www.docker.com/products/docker-toolbox)는 Hyper-V를 비활성화한 후 사용할 수 있습니다. 또는 [Windows용 Docker](https://www.docker.com/get-docker)(Hyper-V를 사용하고 Windows 10을 필요로 함)를 사용할 수 있습니다.
@@ -47,10 +37,7 @@ Docker 도구 상자를 사용하는 경우 [Docker 클라이언트를 구성](v
 ## <a name="1-create-a-web-app"></a>1. 웹앱 만들기
 [!INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
-## <a name="2-add-docker-support"></a>2. Docker 지원 추가
-[!INCLUDE [Add docker support](../includes/vs-azure-tools-docker-add-docker-support.md)]
-
-## <a name="3-edit-your-code-and-refresh"></a>3. 코드 편집 및 새로 고침
+## <a name="2-edit-your-code-and-refresh"></a>2. 코드 편집 및 새로 고침
 변경을 신속하게 반복할 수 있도록, 응용 프로그램을 컨테이너에서 시작하고, IIS Express에서 하는 것처럼 변경 내용을 보며, 계속해서 변경해 나갈 수 있습니다.
 
 1. 솔루션 구성을 `Debug`로 설정하고 **&lt;CTRL + F5>** 키를 눌러 Docker 이미지를 빌드하고 로컬에서 실행합니다.
@@ -70,19 +57,20 @@ Docker 도구 상자를 사용하는 경우 [Docker 클라이언트를 구성](v
    Now listening on: http://*:80
    Application started. Press Ctrl+C to shut down
    ```
+
 6. 변경 내용이 적용되었습니다.
 
-## <a name="4-debug-with-breakpoints"></a>4. 중단점으로 디버깅
+## <a name="3-debug-with-breakpoints"></a>3. 중단점으로 디버깅
 흔히 변경은 Visual Studio의 디버깅 기능을 활용한 추가적인 검사를 필요로 합니다.
 
-1. Visual Studio로 돌아가서 `Controllers\HomeController.cs`
-2. About() 메서드 내용을 다음과 같이 바꿉니다.
+1. Visual Studio로 돌아가서 `About.cshtml.cs`
+2. OnGet() 메서드의 내용을 다음과 같이 바꿉니다.
 
+   ```cs
+       Message = "Your application description page from within a Container";
    ```
-   string message = "Your application description page from within a Container";
-   ViewData["Message"] = message;
-   ````
-3. `string message`... 줄 왼쪽에 중단점을 설정합니다.
+
+3. 코드 줄의 왼쪽에 중단점을 설정합니다.
 4. **&lt;F5>** 키를 눌러 디버깅을 시작합니다.
 5. 중단점에 도달하려면 정보 페이지로 이동합니다.
 6. Visual Studio로 전환하여 중단점을 보고, 메시지의 값을 검사합니다.
@@ -96,11 +84,11 @@ Visual Studio 2017의 Docker 지원을 통해 Docker 컨테이너 내에서 개�
 [Visual Studio Docker 개발 문제 해결](vs-azure-tools-docker-troubleshooting-docker-errors.md)
 
 ## <a name="more-about-docker-with-visual-studio-windows-and-azure"></a>Visual Studio, Windows 및 Azure와 함께 Docker에 대해 자세히 알아보기
-* [Visual Studio Team Services용 Docker 도구](http://aka.ms/dockertoolsforvsts) -docker 컨테이너를 빌드하고 배포함
+* [Visual Studio에서 컨테이너 개발](/visualstudio/containers) - 컨테이너 개발 허브 페이지
+* [Azure Pipelines용 Docker Integration](http://aka.ms/dockertoolsforvsts) - Docker 컨테이너 빌드 및 배포
 * [Visual Studio Code용 Docker 도구](http://aka.ms/dockertoolsforvscode) - 향후 제공될 더 많은 E2E 시나리오와 함께, docker 파일을 편집하기 위한 언어 서비스
 * [Windows 컨테이너 정보](http://aka.ms/containers)- Windows Server 및 Nano Server 정보
-* [Azure Container Service](https://azure.microsoft.com/services/container-service/) - [Azure Container Service 콘텐츠](http://aka.ms/AzureContainerService)
-* Docker를 사용한 더 많은 예는 [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [데모](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/)의 [Docker 작업](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker)을 참조하세요. HealthClinic.biz 데모에서 더 빠른 시작은 [Azure 개발자 도구 빠른 시작](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts)을 참조하세요.
+* [Azure Container Service](https://azure.microsoft.com/services/kubernetes-service/) - [Azure Kubernetes Service 설명서](/azure/aks)
 
 ## <a name="various-docker-tools"></a>다양한 Docker 도구
 [일부 뛰어난 docker 도구 (Steve Lasker의 블로그)](https://blogs.msdn.microsoft.com/stevelasker/2016/03/25/some-great-docker-tools/)

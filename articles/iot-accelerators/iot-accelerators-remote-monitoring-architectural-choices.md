@@ -6,14 +6,14 @@ manager: camerons
 ms.author: timlav
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 04/30/2018
+ms.date: 09/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6c4bf0e4bf0a6c1a791cf762ec9bb44ed5c0b1bd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09c5981701ffdee5f2e5dba47cc98c91d5df7526
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627691"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603909"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>원격 모니터링 아키텍처 선택
 
@@ -40,7 +40,10 @@ Azure IoT Hub는 원격 모니터링 솔루션 클라우드 게이트웨이로 �
 스트림 처리를 위해 원격 모니터링 솔루션은 Azure Stream Analytics를 사용하여 복잡한 규칙 처리합니다.  단순한 규칙을 원하는 고객을 위해 간단한 규칙의 처리를 지원하는 사용자 지정 마이크로 서비스를 제공합니다. 이 설정은 특별한 배포의 일부는 아닙니다. 참조 아키텍처에서는 간단한 규칙 처리에 Azure Functions를 사용하고 복잡한 규칙 처리에는 ASA(Azure Stream Analytics)를 사용하는 것을 권장합니다.  
 
 ### <a name="storage"></a>Storage
-저장소의 경우 콜드 저장소, 웜 저장소, 규칙 저장소 및 경보와 같은 모든 저장소 요구에 Azure Cosmos DB가 사용됩니다. 현재 참조 아키텍처에 권장된 대로 Azure Blob Storage로 이동하는 중입니다.  Azure Time Series Insights 및 Azure Data Lake와 같은 솔루션이 많은 사용 사례에 적합하긴 하지만, Azure Cosmos DB는 IoT 응용 프로그램에 권장되는 범용 웜 저장소 솔루션입니다.
+저장소의 경우 원격 모니터링 솔루션 가속기는 Azure Time Series Insights 및 Azure Cosmos DB를 모두 사용합니다. Azure Time Series Insights는 연결된 장치에서 IoT Hub를 통해 들어오는 메시지를 저장합니다. 솔루션 가속기는 Azure Cosmos DB를 콜드 저장소, 규칙 정의, 경보 및 구성 설정과 같은 다른 모든 저장소에 사용합니다. Azure Time Series Insights 및 Azure Data Lake와 같은 솔루션이 많은 사용 사례에 적합하긴 하지만, Azure Cosmos DB는 IoT 응용 프로그램에 권장되는 범용 웜 저장소 솔루션입니다. Azure Time Series Insights를 사용하면 추세와 이상 현상을 파악하여 시계열 센서 데이터에 대한 심층적 인사이트를 얻을 수 있습니다. 이를 통해 근본 원인을 분석하고 비용이 많이 드는 가동 중지 시간을 방지할 수 있습니다. 
+
+> [!NOTE]
+> Time Series Insights는 현재 Azure 중국 클라우드에서 사용할 수 없습니다. Azure China 클라우드에서 새 원격 모니터링 솔루션 가속기를 배포하는 경우 모든 저장소에 Cosmos DB를 사용합니다.
 
 ### <a name="business-integration"></a>비즈니스 통합
 원격 모니터링 솔루션의 비즈니스 통합은 웜 저장소에 배치되는 경보 생성으로 제한됩니다. 추가 비즈니스 통합은 Azure Logic Apps를 사용한 솔루션을 통합하여 수행할 수 있습니다.

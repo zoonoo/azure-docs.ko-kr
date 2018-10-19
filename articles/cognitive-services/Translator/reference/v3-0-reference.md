@@ -1,26 +1,27 @@
 ---
-title: Microsoft Translator Text API V3.0 참조 | Microsoft Docs
-description: V3.0 Microsoft Translator Text API에 대한 참조 문서입니다.
+title: Translator Text API V3.0 참조
+titlesuffix: Azure Cognitive Services
+description: Translator Text API V3.0에 대한 참조 문서입니다.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: cfaa9584e833b137b417d9074fbfcf606eb21388
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9282d8af30cbfb3346394bcd71510faf8d8c8a21
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374495"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129389"
 ---
-#<a name="translator-text-api-v30"></a>Translator Text API v3.0
+# <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
 ## <a name="whats-new"></a>새로운 기능
 
-Microsoft Translator Text API 버전 3은 최신 JSON 기반 Web API를 제공합니다. 기존 기능을 더 적은 개수의 작업으로 통합하여 유용성 및 성능을 개선하고 새로운 기능을 제공합니다.
+Translator Text API 버전 3은 최신 JSON 기반 Web API를 제공합니다. 기존 기능을 더 적은 개수의 작업으로 통합하여 유용성 및 성능을 개선하고 새로운 기능을 제공합니다.
 
  * 특정 언어의 텍스트를 한 스크립트에서 다른 스크립트로 음차하여 변환
  * 단일 요청에서 여러 언어로 번역

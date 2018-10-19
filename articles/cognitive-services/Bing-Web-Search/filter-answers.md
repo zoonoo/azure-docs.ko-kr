@@ -1,21 +1,22 @@
 ---
-title: Bing에서 반환하는 웹 답변 필터링 | Microsoft Docs
-description: responseFilter를 사용하여 Bing Web Search API가 반환하는 답변을 필터링하는 방법을 보여 줍니다.
+title: 검색 결과를 필터링하는 방법 - Bing Web Search API
+titleSuffix: Azure Cognitive Services
+description: Bing Web Search API의 검색 결과를 필터링하고 표시하는 방법을 알아봅니다.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: 8B837DC2-70F1-41C7-9496-11EDFD1A888D
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: scottwhi
-ms.openlocfilehash: 64095089e4c0841aa1f77165969221836c747738
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 700fae4e206e547037406d4f15f32cb167fbe6b9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888576"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123592"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>검색 응답에 포함되는 답변 필터링  
 
@@ -81,25 +82,25 @@ Host: api.cognitive.microsoft.com
 }
 ```
 
-이미지와 같은 특정 형식의 콘텐츠를 응답에서 제외하려는 경우 responseFilter 값에 하이픈(빼기) 접두사를 사용하여 제외할 수 있습니다. 쉼표를 사용하여 별도 제외된 형식: 
+이미지와 같은 특정 형식의 콘텐츠를 응답에서 제외하려는 경우 responseFilter 값에 하이픈(빼기) 접두사를 사용하여 제외할 수 있습니다. 쉼표를 사용하여 별도 제외된 형식:
 
 ```
 &responseFilter=-images,-videos
 ```
 
-Bing이 이전 응답에서 비디오 및 뉴스 결과를 반환하지 않았다고 해서 비디오 및 뉴스 콘텐츠가 없는 것은 아닙니다. 단지 해당 페이지에 포함되지 않은 것입니다. 그러나 더 많은 결과를 [페이징](./paging-webpages.md)하면 후속 페이지에 이러한 콘텐츠가 있을 가능성이 큽니다. 또한 [Video Search API](../bing-video-search/search-the-web.md) 및 [News Search API](../bing-news-search/search-the-web.md) 엔드포인트를 직접 호출하는 경우 응답에 결과가 포함될 가능성이 큽니다. 
+Bing이 이전 응답에서 비디오 및 뉴스 결과를 반환하지 않았다고 해서 비디오 및 뉴스 콘텐츠가 없는 것은 아닙니다. 단지 해당 페이지에 포함되지 않은 것입니다. 그러나 더 많은 결과를 [페이징](./paging-webpages.md)하면 후속 페이지에 이러한 콘텐츠가 있을 가능성이 큽니다. 또한 [Video Search API](../bing-video-search/search-the-web.md) 및 [News Search API](../bing-news-search/search-the-web.md) 엔드포인트를 직접 호출하는 경우 응답에 결과가 포함될 가능성이 큽니다.
 
 `responseFilter`를 사용하여 단일 API에서 결과를 가져오는 것은 좋지 않습니다. 단일 Bing API의 콘텐츠를 원하는 경우 해당 API를 직접 호출합니다. 예를 들어 이미지만 받으려면 Image Search API 엔드포인트 `https://api.cognitive.microsoft.com/bing/v7.0/images/search` 또는 다른 [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#endpoints) 엔드포인트 중 하나에 요청을 전송합니다. 성능상의 이유뿐 아니라 콘텐츠 특정 API가 더 풍부한 결과를 제공한다는 점에서 단일 API 호출이 중요합니다. 예를 들어 Web Search API에 제공되지 않는 필터를 사용하여 결과를 필터링할 수 있습니다.  
-  
+
 특정 도메인에서 검색 결과를 가져오려면 쿼리 문자열에 `site:` 쿼리 연산자를 포함합니다.  
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us
 ```
 
-> [!NOTE] 
-> `site:` 쿼리 연산자를 사용하는 경우 쿼리에 따라 [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#safesearch) 설정에 관계없이 응답에 성인 콘텐츠가 포함될 수 있는 가능성이 있습니다. 사이트의 콘텐츠를 알고 있고 시나리오가 성인 콘텐츠를 지원하는 경우에만 `site:`를 사용해야 합니다. 
-  
+> [!NOTE]
+> `site:` 쿼리 연산자를 사용하는 경우 쿼리에 따라 [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#safesearch) 설정에 관계없이 응답에 성인 콘텐츠가 포함될 수 있는 가능성이 있습니다. 사이트의 콘텐츠를 알고 있고 시나리오가 성인 콘텐츠를 지원하는 경우에만 `site:`를 사용해야 합니다.
+
 ## <a name="limiting-the-number-of-answers-in-the-response"></a>응답의 답변 수 제한
 
 Bing은 순위에 따라 응답에 답변을 포함합니다. 예를 들어 *sailing+dinghies*를 쿼리하는 경우 Bing은 `webpages`, `images`, `videos` 및 `relatedSearches`를 반환합니다.
@@ -118,7 +119,7 @@ Bing은 순위에 따라 응답에 답변을 포함합니다. 예를 들어 *sai
 }
 ```
 
-Bing에서 반환하는 답변 수를 상위 두 개 답변(웹 페이지 및 이미지)으로 제한하려면 [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) 쿼리 매개 변수를 2로 설정합니다. 
+Bing에서 반환하는 답변 수를 상위 두 개 답변(웹 페이지 및 이미지)으로 제한하려면 [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount) 쿼리 매개 변수를 2로 설정합니다.
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&answerCount=2&mkt=en-us HTTP/1.1  
@@ -159,7 +160,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="promoting-answers-that-are-not-ranked"></a>순위가 지정되지 않은 답변의 수준 올리기
 
-Bing에서 쿼리에 대해 반환하는 상위 순위 답변이 웹 페이지, 이미지, 비디오 및 relatedSearches인 경우 응답에는 해당 답변이 포함됩니다. [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount)를 두 개(2)로 설정하면 Bing은 두 개의 상위 순위 답변인 웹 페이지와 이미지를 반환합니다. Bing에서 이미지 및 비디오를 응답에 포함하려면 [promote](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#promote) 쿼리 매개 변수를 지정하고 이미지 및 비디오로 설정합니다. 
+Bing에서 쿼리에 대해 반환하는 상위 순위 답변이 웹 페이지, 이미지, 비디오 및 relatedSearches인 경우 응답에는 해당 답변이 포함됩니다. [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#answercount)를 두 개(2)로 설정하면 Bing은 두 개의 상위 순위 답변인 웹 페이지와 이미지를 반환합니다. Bing에서 이미지 및 비디오를 응답에 포함하려면 [promote](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#promote) 쿼리 매개 변수를 지정하고 이미지 및 비디오로 설정합니다.
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&answerCount=2&promote=images%2Cvideos&mkt=en-us HTTP/1.1  

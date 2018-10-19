@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 05/10/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f1683321e23eff82e73dc9bb44941fc390633b8c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: c2e131776fb9f2c5e87c363d0d57e655bc34448f
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143772"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294223"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory 보고 FAQ
 
@@ -169,3 +169,7 @@ ms.locfileid: "42143772"
 **Q: 모든 로그인 보고서의 정책 이름이 CA 정책 이름과 일치하지 않습니다. 그 이유는 무엇일까요?**
 
 **A:** 모든 로그인 보고서의 정책 이름은 로그인 시점의 CA 정책 이름을 기준으로 합니다. 나중, 즉 로그인 후에 정책 이름을 업데이트했다면 이 값이 CA의 정책 이름과 일관되지 않을 수 있습니다.
+
+**Q: 내 로그인이 조건부 액세스 정책으로 인해 차단되었으나 로그인 활동 보고서에는 로그인이 성공했다고 나옵니다. 그 이유는 무엇일까요?**
+
+**A:** 현재 로그인 보고서는 조건부 액세스가 적용될 때 Exchange ActiveSync 시나리오에 대한 정확한 결과를 표시하지 못할 수도 있습니다. 보고서의 로그인 결과가 성공적인 로그인으로 표시되나, 조건부 액세스 정책으로 인해 실제로는 로그인에 실패한 경우가 있을 수도 있습니다. 

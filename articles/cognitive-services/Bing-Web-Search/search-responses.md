@@ -1,23 +1,23 @@
 ---
-title: Bing Web Search API 응답 | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Bing Web Search API에서 제공하는 응답 형식 및 응답에 대해 알아봅니다.
+title: 응답 검색 - Bing Web Search API
+titleSuffix: Azure Cognitive Services
+description: Bing Web Search API에서 시작된 대답 형식 및 응답에 대해 알아봅니다.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 8/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 13e9792f3d5765047dabb4cdef59e85a47a69aba
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: f3a4c8bb024aa5e92365b72b8cc2180cc6f4d6d4
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42890056"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123779"
 ---
-# <a name="bing-web-search-responses"></a>Bing Web Search 응답  
+# <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web Search API 응답 구조 및 대답 형식  
 
 Bing Web Search에 검색 요청을 보내는 경우 응답 본문에 [`SearchResponse`](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) 개체가 반환됩니다. 개체는 Bing이 쿼리와 관련이 있다고 결정한 각 응답에 대한 필드를 포함합니다. 이 예제에서는 Bing이 모든 응답을 반환한 경우 응답 개체를 설명합니다.
 

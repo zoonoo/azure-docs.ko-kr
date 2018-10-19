@@ -9,14 +9,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 08/23/2018
+ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 6d15405ef22f47dc8a94c07d9d09d343a743408e
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: a52ba16d7c8548d378d1b13a85fc1fd1070144e8
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094555"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128386"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions의 Event Grid 트리거
 
@@ -308,23 +308,40 @@ Azure Portal을 사용하여 구독을 만드는 방법에 대한 자세한 내�
 
 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)를 사용하여 구독을 만들려면 [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create)를 사용합니다.
 
-이 명령에는 함수를 호출하는 엔드포인트 URL이 필요합니다. 다음 예제에서는 URL 패턴을 보여 줍니다.
+이 명령에는 함수를 호출하는 엔드포인트 URL이 필요합니다. 다음 예제에서는 버전별 URL 패턴을 보여줍니다.
 
-```
-https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
-```
+#### <a name="version-2x-runtime"></a>버전 2.x 런타임
+
+    https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
+
+#### <a name="version-1x-runtime"></a>버전 1.x 런타임
+
+    https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
 
 시스템 키는 Event Grid 트리거에 대한 엔드포인트 URL에 포함되어야 하는 인증 키입니다. 다음 섹션에서는 시스템 키를 가져오는 방법을 설명합니다.
 
 다음은 Blob 저장소 계정을 구독하는 예제입니다(시스템 키에 대한 자리 표시자 포함).
 
+#### <a name="version-2x-runtime"></a>버전 2.x 런타임
+
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
 --provider-namespace Microsoft.Storage --resource-type storageAccounts \
---resource-name glengablobstorage --name myFuncSub  \
+--resource-name myblobstorage12345 --name myFuncSub  \
 --included-event-types Microsoft.Storage.BlobCreated \
 --subject-begins-with /blobServices/default/containers/images/blobs/ \
---endpoint https://glengastorageevents.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=LUwlnhIsNtSiUjv/sNtSiUjvsNtSiUjvsNtSiUjvYb7XDonDUr/RUg==
+--endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
+```
+
+#### <a name="version-1x-runtime"></a>버전 1.x 런타임
+
+```azurecli
+az eventgrid resource event-subscription create -g myResourceGroup \
+--provider-namespace Microsoft.Storage --resource-type storageAccounts \
+--resource-name myblobstorage12345 --name myFuncSub  \
+--included-event-types Microsoft.Storage.BlobCreated \
+--subject-begins-with /blobServices/default/containers/images/blobs/ \
+--endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
 ```
 
 구독을 만드는 방법에 대한 자세한 내용은 [Blob 저장소 빠른 시작](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) 또는 다른 Event Grid 빠른 시작을 참조하세요.
@@ -334,10 +351,10 @@ az eventgrid resource event-subscription create -g myResourceGroup \
 다음 API(HTTP GET)를 사용하여 시스템 키를 가져올 수 있습니다.
 
 ```
-http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={adminkey}
+http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}
 ```
 
-이것은 관리자 API로, 사용자의 함수 앱 [마스터 키](functions-bindings-http-webhook.md#authorization-keys)를 입력해야 합니다. 시스템 키(Event Grid 트리거 함수 호출용)와 마스터 키(함수 앱의 관리 작업 수행용)를 혼동하지 마세요. Event Grid 토픽을 구독할 때는 시스템 키를 사용해야 합니다. 
+이것은 관리자 API로, 사용자의 함수 앱 [마스터 키](functions-bindings-http-webhook.md#authorization-keys)를 입력해야 합니다. 시스템 키(Event Grid 트리거 함수 호출용)와 마스터 키(함수 앱의 관리 작업 수행용)를 혼동하지 마세요. Event Grid 토픽을 구독할 때는 시스템 키를 사용해야 합니다.
 
 시스템 키를 제공하는 응답 예제는 다음과 같습니다.
 
@@ -354,7 +371,12 @@ http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextens
 }
 ```
 
-자세한 내용은 HTTP 트리거 참조 문서에서 [인증 키](functions-bindings-http-webhook.md#authorization-keys)를 참조하세요. 
+포털의 **함수 앱 설정** 탭에서 함수 앱에 대한 마스터 키를 가져올 수 있습니다.
+
+> [!IMPORTANT]
+> 마스터 키는 함수 앱에 대한 관리자 액세스를 제공합니다. 이 키를 타사와 공유하거나 네이티브 클라이언트 응용 프로그램에 배포하지 마십시오.
+
+자세한 내용은 HTTP 트리거 참조 문서에서 [인증 키](functions-bindings-http-webhook.md#authorization-keys)를 참조하세요.
 
 또는 HTTP PUT을 전송하여 키 값을 직접 지정할 수 있습니다.
 
@@ -475,7 +497,7 @@ https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionN
 ``` 
 Functions 2.x에 대해 이 엔드포인트 패턴을 사용합니다.
 ```
-https://{subdomain}.ngrok.io/runtime/webhooks/EventGridExtensionConfig?functionName={functionName}
+https://{subdomain}.ngrok.io/runtime/webhooks/eventgrid?functionName={functionName}
 ``` 
 `functionName` 매개 변수는 `FunctionName` 특성에 지정된 이름이어야 합니다.
 

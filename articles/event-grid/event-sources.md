@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/21/2018
+ms.date: 09/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 15fe97e39fbc1c669762ddb7523cfd043638d3de
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: adef9d2f2d859c62d3b3b3a542536698fa668f9a
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144232"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498303"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Azure Event Grid의 이벤트 원본
 
@@ -58,7 +58,7 @@ Container Registry 이벤트를 구독하여 이미지에서 변경 내용에 �
 | [PowerShell: 사용자 지정 토픽에 대한 이벤트 구독](./scripts/event-grid-powershell-subscribe-custom-topic.md)|사용자 지정 토픽에 대한 구독을 만드는 샘플 스크립트입니다. WebHook에 이벤트를 보냅니다.|
 | [Resource Manager 템플릿: 토픽 및 WebHook 엔드포인트 사용자 지정](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid) | 사용자 지정 토픽 및 해당 사용자 지정 토픽에 대한 구독을 만드는 Resource Manager 템플릿입니다. WebHook에 이벤트를 보냅니다. |
 |
-| [Resource Manager 템플릿: 토픽 및 Event Hubs 엔드포인트 사용자 지정](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/subscribeCustomTopicToEventHub.json)| 사용자 지정 토픽에 대한 구독을 만드는 Resource Manager 템플릿입니다. Azure Event Hubs에 이벤트를 전송합니다. |
+| [Resource Manager 템플릿: 토픽 및 Event Hubs 엔드포인트 사용자 지정](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| 사용자 지정 토픽에 대한 구독을 만드는 Resource Manager 템플릿입니다. Azure Event Hubs에 이벤트를 전송합니다. |
 | [이벤트 스키마](event-schema.md) | 사용자 지정 이벤트의 필드를 보여 줍니다. |
 
 ## <a name="event-hubs"></a>Event Hubs
@@ -104,7 +104,7 @@ Media Services 이벤트를 구독하여 작업 상태 이벤트에 응답합니
 | [Azure CLI: 리소스 그룹에 대한 이벤트 구독 및 리소스에 대한 필터링](./scripts/event-grid-cli-resource-group-filter.md) | 리소스 그룹에 대한 이벤트를 구독하고 하나의 리소스에 대한 이벤트를 필터링하는 샘플 스크립트입니다. |
 | [PowerShell: 리소스 그룹에 대한 이벤트 구독](./scripts/event-grid-powershell-resource-group.md) | 리소스 그룹에 대한 이벤트를 구독하는 샘플 스크립트입니다. WebHook에 이벤트를 보냅니다. |
 | [PowerShell: 리소스 그룹에 대한 이벤트 구독 및 리소스에 대한 필터링](./scripts/event-grid-powershell-resource-group-filter.md) | 리소스 그룹에 대한 이벤트를 구독하고 하나의 리소스에 대한 이벤트를 필터링하는 샘플 스크립트입니다. |
-| [Resource Manager 템플릿: 리소스 그룹 구독](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/subscribeResourceGroupToWebHook.json) | 리소스 그룹에 대한 이벤트를 구독합니다. WebHook에 이벤트를 보냅니다. |
+| [Resource Manager 템플릿: 리소스 구독](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-resource-events-to-webhook) | Azure 구독 또는 리소스 그룹에 대한 이벤트를 구독합니다. WebHook에 이벤트를 보냅니다. |
 | [이벤트 스키마](event-schema-resource-groups.md) | 리소스 그룹 이벤트의 필드를 표시합니다. |
 
 ## <a name="service-bus"></a>Service Bus
@@ -128,7 +128,7 @@ Blob Storage 이벤트를 구독하여 만든 blob 및 삭제된 이벤트에 �
 | [빠른 시작: Azure Portal을 사용하여 Blob Storage 이벤트 만들기 및 라우팅](blob-event-quickstart-portal.md) | 포털를 사용하여 Blob Storage 이벤트를 WebHook로 전송하는 방법을 보여줍니다. |
 | [Azure CLI: Blob Storage 계정에 대한 이벤트 구독](./scripts/event-grid-cli-blob.md) | Blob Storage 계정에 대한 이벤트를 구독하는 샘플 스크립트입니다. 이벤트를 WebHook로 전송합니다. |
 | [PowerShell: Blob Storage 계정에 대한 이벤트 구독](./scripts/event-grid-powershell-blob.md) | Blob Storage 계정에 대한 이벤트를 구독하는 샘플 스크립트입니다. 이벤트를 WebHook로 전송합니다. |
-| [Resource Manager 템플릿: Blob Storage 및 구독 만들기](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/createBlobAndSubscribe.json) | Azure Blob Storage 계정을 배포하고 해당 저장소 계정에 대한 이벤트를 구독합니다. WebHook에 이벤트를 보냅니다. |
+| [Resource Manager 템플릿: Blob Storage 및 구독 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Azure Blob Storage 계정을 배포하고 해당 저장소 계정에 대한 이벤트를 구독합니다. WebHook에 이벤트를 보냅니다. |
 | [개요: Blob Storage 이벤트에 대응](../storage/blobs/storage-blob-event-overview.md) | Event Grid와 Blob 저장소 통합의 개요입니다. |
 | [이벤트 스키마](event-schema-blob-storage.md) | Blob Storage 이벤트의 필드를 표시합니다. |
 

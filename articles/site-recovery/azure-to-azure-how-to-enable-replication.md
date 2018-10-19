@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: e7cd3032053b3628b94f93f3c7e00b6890afd4ca
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 7002e8a63ca0223a38ba099b17955a86034fa057
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916285"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295464"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>다른 Azure 지역으로 Azure 가상 머신 복제
 
@@ -36,6 +36,7 @@ ms.locfileid: "37916285"
     - **원본**: VM의 원점이며 이 경우 **Azure**입니다.
     - **원본 위치**: 가상 머신을 보호할 Azure 지역입니다. 이 그림에서는 원본 위치가 '동아시아'입니다.
     - **배포 모델**: 원본 컴퓨터의 Azure 배포 모델입니다.
+    - **원본 구독**: 원본 가상 머신이 속한 구독입니다. 복구 서비스 자격 증명 모음이 있는 동일한 Azure Active Directory 테넌트 내에 있는 구독일 수 있습니다.
     - **리소스 그룹**: 원본 가상 머신이 속해 있는 리소스 그룹입니다. 선택한 리소스 그룹 아래의 모든 VM은 다음 단계에서 보호를 위해 나열됩니다.
 
     ![복제 사용](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
@@ -46,6 +47,7 @@ ms.locfileid: "37916285"
 4. **설정**에서 대상 사이트 설정을 선택적으로 구성할 수 있습니다.
 
     - **대상 위치**: 원본 가상 머신 데이터가 복제될 위치입니다. 선택한 컴퓨터 위치에 따라 Site Recovery에서 적합한 대상 지역 목록을 제공합니다. 대상 위치를 Recovery Services 자격 증명 모음 위치와 동일하게 유지하는 것이 좋습니다.
+    - **대상 구독**: 재해 복구에 사용되는 대상 구독입니다. 기본적으로 대상 구독은 원본 구독과 동일합니다.
     - **대상 리소스 그룹**: 모든 복제된 가상 머신이 속하게 될 리소스 그룹입니다. 기본적으로 Azure Site Recovery는 "asr" 접미사를 사용하여 대상 지역에 새 리소스 그룹을 만듭니다. Azure Site Recovery에서 만든 리소스 그룹이 이미 있는 경우 해당 리소스 그룹이 재사용 됩니다. 아래 섹션처럼 리소스 그룹을 사용자 지정할 수도 있습니다. 원본 가상 머신이 호스트되는 지역을 제외한 모든 Azure 지역이 대상 리소스 그룹의 위치가 될 수 있습니다.
     - **대상 Virtual Network**: 기본적으로 Site Recovery는 이름에 "asr" 접미사가 있는 대상 지역에 새 가상 네트워크를 만듭니다. 이 가상 네트워크는 원본 네트워크에 매핑되고 이후의 모든 보호를 위해 사용됩니다. [자세히 알아봅니다](site-recovery-network-mapping-azure-to-azure.md) 를 확인해 보세요.
     - **대상 저장소 계정(원본 VM이 관리 디스크를 사용하는 경우)**: 기본적으로 Site Recovery는 원본 VM 저장소 구성을 모방하는 새 대상 저장소 계정을 만듭니다. 저장소 계정이 이미 있는 경우 다시 사용됩니다.
@@ -60,7 +62,9 @@ ms.locfileid: "37916285"
 
 Site Recovery에서 사용되는 기본 대상 설정을 수정할 수 있습니다.
 
-1. **사용자 지정**을 클릭하여 기본 설정을 수정합니다.
+1. ‘대상 구독’ 옆에 있는 **사용자 지정:** 을 클릭하여 기본 대상 구독을 수정합니다. 동일한 AAD(Azure Active Directory) 테넌트에서 사용할 수 있는 모든 구독 목록에서 구독을 선택합니다.
+
+2. **사용자 지정**을 클릭하여 기본 설정을 수정합니다.
     - **대상 리소스 그룹**에서 ,구독 내 대상 위치에 있는 모든 리소스 그룹의 목록에서 리소스 그룹을 선택할 수 있습니다.
     - **대상 가상 네트워크**에서 대상 위치의 모든 가상 네트워크 목록에서 네트워크를 선택합니다.
     - **가용성 집합**에서 가용성 집합 설정이 원본 지역 가용성 집합의 일부인 경우 VM에 가용성 집합 설정을 추가할 수 있습니다.

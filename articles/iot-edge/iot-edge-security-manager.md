@@ -9,12 +9,12 @@ ms.author: eustacea
 ms.date: 07/30/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9b4801048c391aae6e95f4181464255ecf6151fc
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 4594685291396b8b80e62abe57be109f0abbd81d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39359540"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126346"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Azure IoT Edge 보안 관리자
 
@@ -109,7 +109,7 @@ IoT Edge 런타임은 IoT Edge 보안 디먼의 버전을 추적 및 보고합�
 
 ### <a name="hardware-security-module-platform-abstraction-layer-hsm-pal"></a>하드웨어 보안 모듈 플랫폼 추상화 계층(HSM PAL)
 
-HSM PAL은 트러스트 하드웨어의 모든 루트를 추상화하여 IoT Edge의 개발자나 사용자를 복잡한 문제로부터 떼어놓습니다.  API(응용 프로그래밍 인터페이스) 및 트랜스 도메인 통신 프로시저(예: 표준 실행 환경과 보안 enclave 사이 통신)로 구성됩니다.  HSM PAL의 실제 구현은 사용 중인 특정 보안 하드웨어에 따라 달라집니다.  보안 하드웨어가 있으면 IoT 에코시스템 전반에 걸쳐 거의 모든 보안 실리콘 하드웨어를 사용할 수 있습니다.
+HSM PAL은 트러스트 하드웨어의 모든 루트를 추상화하여 IoT Edge의 개발자나 사용자를 복잡한 문제로부터 떼어놓습니다.  API(응용 프로그래밍 인터페이스) 및 트랜스 도메인 통신 프로시저(예: 표준 실행 환경과 보안 enclave 사이 통신)의 조합으로 구성됩니다.  HSM PAL의 실제 구현은 사용 중인 특정 보안 하드웨어에 따라 달라집니다.  보안 하드웨어가 있으면 IoT 에코시스템 전반에 걸쳐 거의 모든 보안 실리콘 하드웨어를 사용할 수 있습니다.
 
 ## <a name="secure-silicon-root-of-trust-hardware"></a>트러스트 하드웨어의 보안 실리콘 루트
 

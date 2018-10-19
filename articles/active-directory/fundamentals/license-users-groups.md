@@ -1,97 +1,144 @@
 ---
-title: Azure AD의 라이선스 사용자 | Microsoft Docs
-description: Azure Active Directory에서 본인 및 사용자의 라이선스를 허가하는 방법을 알아봅니다.
+title: Azure Active Directory 라이선스를 할당하거나 제거하는 방법 | Microsoft Docs
+description: Azure Active Directory를 사용하여 사용자 또는 그룹에서 Azure Active Directory 라이선스를 할당하거나 제거합니다.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: quickstart
-ms.date: 08/22/2017
+ms.topic: conceptual
+ms.date: 09/05/2018
 ms.author: lizross
-ms.reviewer: jeffgilb
+ms.reviewer: jeffsta
 custom: it-pro
-ms.openlocfilehash: 6fc1d808fb712f7acb60e490663cb7301e22153c
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e1b0b2f84c67e30c3bb998554dc662b002744003
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856092"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603892"
 ---
-# <a name="quickstart-license-users-in-azure-active-directory"></a>빠른 시작: Azure Active Directory에서 사용자의 라이선스
-라이선스 기반 Azure AD 서비스는 Azure 테넌트에서 Azure AD(Active Directory) 구독을 활성화하면 작동됩니다. 구독이 활성화된 후 서비스 기능은 Azure AD 관리자가 관리하고 사용이 허가된 사용자가 사용합니다. Enterprise Mobility + Security, Azure AD Premium 또는 Azure AD Basic을 구매하면 디렉터리의 유효 기간 및 선불 라이선스를 포함하여 테넌트가 구독으로 업데이트됩니다. 할당되거나 사용 가능한 라이선스 수를 포함한 구독 정보는 **라이선스** 타일을 열어 **Azure Active Directory** 아래에서 Azure Portal을 통해 사용할 수 있습니다. **라이선스** 블레이드는 사용자 라이선스 할당을 관리하기에 가장 적합한 위치이기도 합니다.
+# <a name="how-to-assign-or-remove-azure-active-directory-licenses"></a>방법: Azure Active Directory 라이선스 할당 또는 제거
+많은 Azure AD(Azure Active Directory) 서비스를 사용하려면 Azure AD 제품을 활성화하고 해당 제품에 대한 각 사용자 또는 그룹(및 관련 멤버)에 라이선스를 부여해야 합니다. 활성 라이선스가 있는 사용자만 사용이 허가된 Azure AD 서비스에 액세스하여 사용할 수 있습니다.
 
-유료 기능을 구성하기 위해서는 구독을 얻기만 하면 되지만, Azure AD 유료 기능에 대한 사용자 라이선스를 배포해야 합니다. 액세스 권한이 있어야 하거나 Azure AD 유료 기능을 통해 관리되는 모든 사용자에게 라이선스가 할당되어야 합니다. 라이선스 할당은 Azure AD Premium, Basic 또는 Enterprise Mobility + Security 등의 구매한 서비스와 사용자 간의 매핑입니다.
+## <a name="available-product-editions"></a>사용 가능한 제품 버전
+Azure AD 제품에는 사용 가능한 몇 가지 버전이 있습니다.
 
-[그룹 기반 라이선스 할당](active-directory-licensing-whatis-azure-portal.md)을 사용하여 다음과 같은 규칙을 설정할 수 있습니다.
-* 디렉터리의 모든 사용자가 자동으로 라이선스를 얻습니다.
-* 해당하는 직위를 가진 모든 사용자가 라이선스를 얻습니다.
-* [셀프 서비스 그룹](../users-groups-roles/groups-self-service-management.md)을 사용하여 조직의 다른 관리자에게 의사 결정을 위임할 수 있습니다.
+- Azure AD Free
 
-> [!TIP]
-> 고급 시나리오 및 Office 365 라이선스 시나리오를 비롯한 그룹에 대한 라이선스 할당의 자세한 내용은 [Azure Active Directory에서 그룹 멤버 자격에 따라 사용자에게 라이선스 할당](../users-groups-roles/licensing-groups-assign.md)을 참조하세요.
+- Azure AD Basic
 
-## <a name="assign-licenses-to-users-and-groups"></a>사용자 및 그룹에 라이선스 할당
-활성 구독을 사용하면 먼저 자신에게 라이선스를 할당하고 구독에 포함된 예상된 기능을 모두 표시하도록 브라우저를 새로 고쳐야 합니다. 다음 단계는 유료 Azure AD 기능에 액세스해야 할 사용자에게 라이선스를 할당하는 것입니다. 라이선스를 할당하는 쉬운 방법은 개인 대신 사용자의 그룹에 라이선스를 할당하는 것입니다. 그룹에게 라이선스를 할당하면 모든 그룹 구성원에게 라이선스가 할당됩니다. 사용자가 그룹에서 추가 또는 제거될 경우 해당 라이선스가 자동으로 할당 또는 제거됩니다. 
+- Azure AD P1(Azure AD Premium 1)
 
-> [!NOTE]
-> 일부 Microsoft 서비스는 모든 위치에서 사용할 수 없습니다. 사용자에게 라이선스를 할당하려면 먼저 관리자가 해당 사용자에 대해 “**사용 위치**” 속성을 지정해야 합니다. Azure Portal의 **사용자** &gt; **프로필** &gt; **설정**에서 이 속성을 설정할 수 있습니다. 그룹 라이선스 할당을 사용할 때 사용 위치가 지정되지 않은 사용자는 디렉터리의 위치를 상속합니다.
+- Azure AD P2(Azure AD Premium 2)
 
-라이선스를 할당하려면 **Azure Active Directory** &gt; **라이선스** &gt; **모든 제품** 아래에서 제품을 하나 이상 선택하고 명령 모음에서 **할당** 단추를 선택합니다.
+각 제품 버전 및 관련 라이선스 세부 정보에 대한 자세한 내용은 [어떤 라이선스가 필요한가요?](../authentication/concept-sspr-licensing.md)를 참조하세요.
 
-![할당할 라이선스 선택](./media/license-users-groups/select-license-to-assign.png)
+## <a name="view-your-product-edition-and-license-details"></a>제품 버전 및 라이선스 세부 정보 보기
+개별 라이선스를 포함하여 사용 가능한 제품을 보고, 보류 중인 만료 날짜 및 사용 가능한 할당 수를 확인할 수 있습니다.
 
-**사용자 및 그룹** 블레이드를 사용하여 여러 사용자나 그룹을 선택하거나 제품의 서비스 계획을 사용하지 않도록 설정할 수 있습니다. 맨 위에 있는 검색 상자를 사용하여 사용자 및 그룹 이름을 검색합니다.
+### <a name="to-find-your-product-and-license-details"></a>제품 및 라이선스 세부 정보를 찾으려면
+1. 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-![라이선스 할당을 위한 사용자 또는 그룹 선택](./media/license-users-groups/select-user-for-license-assignment.png)
+2. **Azure Active Directory**를 선택한 다음, **라이선스**를 선택합니다.
 
-라이선스를 그룹에 할당할 때는 모든 사용자가 라이선스를 상속하기 전에 그룹 크기에 따라 다소 시간이 소요될 수 있습니다. **그룹** 블레이드의 **라이선스** 타일 아래에서 처리 상태를 확인할 수 있습니다.
+    **라이선스** 페이지가 표시됩니다.
 
-![라이선스 할당 상태](./media/license-users-groups/license-assignment-status.png)
+    ![구입한 제품 수와 할당된 라이선스 수를 보여 주는 라이선스 페이지](media/license-users-groups/license-details-blade.png)
+    
+3. **제품** 페이지를 보고 각 특정 제품 버전에 대한 **할당됨**, **사용 가능** 및 **곧 만료됨** 세부 정보를 확인하려면 **구입한 제품** 링크를 선택합니다.
 
-Azure AD 라이선스 할당 중에 할당 오류가 발생할 수 있지만 Azure AD 및 Enterprise Mobility + Security 제품을 관리할 경우에는 상대적으로 드물게 오류가 발생합니다. 잠재적 할당 오류는 다음으로 제한됩니다.
-- 할당 충돌: 사용자에게 이전에 할당된 라이선스가 현재 라이선스와 호환되지 않는 경우. 이런 경우, 새 라이선스를 할당하려면 현재 라이선스를 제거해야 합니다.
-- 사용 가능한 라이선스 수 초과: 할당된 그룹의 사용자 수가 사용 가능한 라이선스 수를 초과한 경우 없는 라이선스로 인해 사용자의 할당 상태가 할당 실패로 표시됩니다.
+    ![제품 버전 및 관련 라이선스 정보가 있는 제품 페이지](media/license-users-groups/license-products-blade-with-products.png)
 
-### <a name="azure-ad-b2b-collaboration-licensing"></a>Azure AD B2B 공동 작업 라이선스
+4. 제품 버전 이름을 선택하여 사용이 허가된 사용자 및 그룹을 확인합니다.
 
-B2B 공동 작업을 통해 게스트 사용자를 Azure AD 테넌트로 초대해서 Azure AD 서비스 및 사용 가능하게 설정할 Azure 리소스에 대한 액세스 권한을 제공할 수 있습니다.  
+## <a name="assign-licenses-to-users-or-groups"></a>사용자 또는 그룹에 라이선스 할당
+사용이 허가된 Azure AD 서비스를 사용해야 하는 모든 사용자에게 적절한 라이선스가 있는지 확인합니다. 개별 사용자 또는 전체 그룹에 라이선스 권한을 추가할지 여부는 사용자 자신에게 달려 있습니다.
 
-B2B 사용자를 초대한 후 Azure AD에서 응용 프로그램에 할당하는 과정은 무료입니다. 게스트 사용자당 최대 10개 앱과 3개의 기본 보고서도 B2B 공동 작업 사용자에게 무료로 제공됩니다. 파트너의 Azure AD 테넌트에서 게스트 사용자에게 적절한 라이선스가 할당되어 있으면 여러분의 테넌트에서도 게스트 사용자에게 사용이 허가됩니다.
+>![참고] 그룹 기반 라이선싱은 Azure AD의 공개 미리 보기 기능이며, 모든 유료 Azure AD 라이선스 계획에서 사용할 수 있습니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.<br><br>사용자를 추가하는 방법에 대한 자세한 내용은 [Azure Active Directory에서 사용자를 추가하거나 삭제하는 방법](add-users-azure-active-directory.md)을 참조하세요. 그룹을 만들고 멤버를 추가하는 방법에 대한 자세한 내용은 [기본 그룹 만들기 및 멤버 추가](active-directory-groups-create-azure-portal.md)를 참조하세요.
 
-필수는 아니지만 유료 Azure AD 기능에 대한 액세스 권한을 제공하려면 해당 B2B 게스트 사용자는 적절한 Azure AD 라이선스의 사용 허가를 받아야 합니다. Azure AD 유료 라이선스가 있는 초대하는 테넌트는 테넌트에 초대된 5명의 추가 게스트 사용자에게 B2B 공동 작업 사용자 권한을 할당할 수 있습니다. 시나리오와 정보는 [B2B 공동 작업 라이선스 지침](../b2b/licensing-guidance.md)을 참조하세요.
+### <a name="to-assign-a-license-to-a-specific-user"></a>특정 사용자에게 라이선스를 할당하려면
+1. **제품** 페이지에서 사용자에게 할당하려는 버전의 이름을 선택합니다. 예를 들어 _Azure Active Directory Premium 요금제 2_입니다.
 
-## <a name="view-assigned-licenses"></a>할당된 라이선스 보기
+    ![제품 버전이 강조 표시된 제품 페이지](media/license-users-groups/license-products-blade-with-product-highlight.png)
 
-할당된 라이선스 및 사용 가능한 라이선스에 대한 요약 보기는 **Azure Active Directory** &gt; **라이선스** &gt; **모든 제품** 아래 표시됩니다.
+2. **Azure Active Directory Premium 요금제 2** 페이지에서 **할당**을 선택합니다.
 
-![라이선스 요약 보기](./media/license-users-groups/view-license-summary.png)
+    ![할당 옵션이 강조 표시된 제품 페이지](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
 
-특정 제품을 선택할 때 사용 가능한 할당된 사용자 및 그룹의 자세한 목록입니다. **허가된 사용자**에는 현재 라이선스를 사용 중인 모든 사용자와 함께 라이선스가 사용자에게 직접 할당되었는지, 그룹에서 상속되는지 여부가 표시됩니다.
+3. **할당** 페이지에서 **사용자 및 그룹**을 선택한 다음, 라이선스를 할당하려는 사용자를 검색하여 선택합니다. 예를 들어 _Mary Parker_입니다.
 
-![라이선스 세부 정보 보기](./media/license-users-groups/view-license-detail.png)
+    ![검색 및 선택 옵션이 강조 표시된 라이선스 할당 페이지](media/license-users-groups/assign-license-blade-with-highlight.png)
 
-마찬가지로 **허가된 그룹**은 라이선스가 할당된 모든 그룹을 보여 줍니다. 사용자 또는 그룹을 선택하면 해당 개체에 할당된 모든 라이선스를 보여 주는 **라이선스** 블레이드가 열립니다.
+4. **할당 옵션**을 선택하고, 적절한 라이선스 옵션이 설정되어 있는지 확인한 다음, **확인**을 선택합니다.
+
+    ![버전에서 사용 가능한 모든 옵션을 보여 주는 라이선스 옵션 페이지](media/license-users-groups/license-option-blade-assignments.png)
+
+    **라이선스 할당** 페이지가 업데이트되어 사용자가 선택되고 할당이 구성되었음을 보여 줍니다.
+
+    >[!NOTE]
+    >일부 Microsoft 서비스는 모든 위치에서 사용할 수 없습니다. 사용자에게 라이선스를 할당하려면 먼저 **사용 위치**를 지정해야 합니다. 이 값은 Azure AD의 **Azure Active Directory &gt; 사용자 &gt; 프로필 &gt; 설정** 영역에서 설정할 수 있습니다.
+
+5. **할당**을 선택합니다.
+
+    사용자가 사용이 허가된 사용자 목록에 추가되며, 포함된 Azure AD 서비스에 액세스할 수 있습니다.
+
+### <a name="to-assign-a-license-to-an-entire-group"></a>전체 그룹에 라이선스를 할당하려면
+1. **제품** 페이지에서 사용자에게 할당하려는 버전의 이름을 선택합니다. 예를 들어 _Azure Active Directory Premium 요금제 2_입니다.
+
+    ![제품 버전이 강조 표시된 제품 블레이드](media/license-users-groups/license-products-blade-with-product-highlight.png)
+
+2. **Azure Active Directory Premium 요금제 2** 페이지에서 **할당**을 선택합니다.
+
+    ![할당 옵션이 강조 표시된 제품 페이지](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
+
+3. **할당** 페이지에서 **사용자 및 그룹**을 선택한 다음, 라이선스를 할당하려는 그룹을 검색하여 선택합니다. 예를 들어 _MDM 정책 - 서부_입니다.
+
+    ![검색 및 선택 옵션이 강조 표시된 라이선스 할당 페이지](media/license-users-groups/assign-group-license-blade-with-highlight.png)
+
+4. **할당 옵션**을 선택하고, 적절한 라이선스 옵션이 설정되어 있는지 확인한 다음, **확인**을 선택합니다.
+
+    ![버전에서 사용 가능한 모든 옵션을 보여 주는 라이선스 옵션 페이지](media/license-users-groups/license-option-blade-group-assignments.png)
+
+    **라이선스 할당** 페이지가 업데이트되어 사용자가 선택되고 할당이 구성되었음을 보여 줍니다.
+
+    >[!NOTE]
+    >일부 Microsoft 서비스는 모든 위치에서 사용할 수 없습니다. 그룹에 라이선스를 할당하려면 먼저 모든 멤버에 대한 **사용 위치**를 지정해야 합니다. 이 값은 Azure AD의 **Azure Active Directory &gt; 사용자 &gt; 프로필 &gt; 설정** 영역에서 설정할 수 있습니다. 사용 위치가 지정되지 않은 모든 사용자는 테넌트의 위치를 상속합니다.
+
+5. **할당**을 선택합니다.
+
+    그룹이 사용이 허가된 그룹 목록에 추가되며, 모든 멤버가 포함된 Azure AD 서비스에 액세스할 수 있습니다.
+
 
 ## <a name="remove-a-license"></a>라이선스 제거
+**라이선스** 페이지에서 사용자 또는 그룹의 라이선스를 제거할 수 있습니다.
 
-라이선스를 제거하려면 사용자 또는 그룹으로 이동하고 **라이선스** 타일이 열립니다. 라이선스를 선택하고 **제거**를 클릭합니다.
+### <a name="to-remove-a-license-from-a-specific-user"></a>특정 사용자로부터 라이선스를 제거하려면
+1. 제품 버전에 대한 **라이선스 사용자** 페이지에서 더 이상 라이선스가 없어야 하는 사용자를 선택합니다. 예를 들어 _Alain Charon_입니다.
 
-![라이선스 제거](./media/license-users-groups/remove-license.png)
+2. **라이선스 제거**를 선택합니다.
 
-그룹에서 사용자에 상속된 라이선스는 직접 제거할 수 없습니다. 대신, 라이선스를 상속하는 그룹에서 사용자를 제거합니다.
+    ![라이선스 제거 옵션이 강조 표시된 허가된 사용자 페이지](media/license-users-groups/license-products-user-blade-with-remove-option-highlight.png)
 
+### <a name="to-remove-a-license-from-a-group"></a>그룹에서 라이선스를 제거하려면
+1. 제품 버전에 대한 **허가된 그룹** 페이지에서 더 이상 라이선스가 없어야 하는 그룹을 선택합니다. 예를 들어 _MDM 정책 - 서부_입니다.
+
+2. **라이선스 제거**를 선택합니다.
+
+    ![라이선스 제거 옵션이 강조 표시된 허가된 그룹 페이지](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
+
+>[!Important]
+>사용자가 그룹에서 상속한 라이선스는 직접 제거할 수 없습니다. 대신, 라이선스를 상속하는 그룹에서 사용자를 제거해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 빠른 시작에서는 Azure AD 디렉터리의 사용자 및 그룹에 라이선스를 할당하는 방법을 배웠습니다. 
+라이선스가 할당되면 다음 프로세스를 수행할 수 있습니다.
 
-다음 링크를 통해 Azure Portal에서 Azure AD에 구독 라이선스 할당을 구성할 수 있습니다.
+- [라이선스 할당 문제 식별 및 해결](../users-groups-roles/licensing-groups-resolve-problems.md)
 
-> [!div class="nextstepaction"]
-> [Azure AD 라이선스 할당](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Overview) 
+- [라이선싱을 위해 그룹에 허가된 사용자 추가](../users-groups-roles/licensing-groups-migrate-users.md)
+
+- [Azure Active Directory에서 라이선스 관리를 위해 그룹을 사용하는 경우 시나리오, 제한 사항 및 알려진 문제](../users-groups-roles/licensing-group-advanced.md)
+
+- [프로필 정보 추가 또는 변경](active-directory-users-profile-azure-portal.md)

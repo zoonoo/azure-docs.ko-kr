@@ -1,26 +1,25 @@
 ---
-title: Azure AD의 기본 사용자 권한 비교 | Microsoft Docs
-description: 멤버, 게스트, 앱 소유자 및 그룹 소유자 권한 비교
+title: Azure Active Directory의 기본 사용자 권한이란? | Microsoft Docs
+description: Azure Active Directory에서 사용할 수 있는 다른 사용자 권한에 대해 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
-ms.workload: identity
 ms.component: fundamentals
-ms.topic: overview
+ms.workload: identity
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: lizross
 ms.reviewer: vincesm
-ms.openlocfilehash: e2571a6854d2c3de2425547b69c5435286182ef7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+custom: it-pro
+ms.openlocfilehash: 9a9bd33dce4b2be9e15df2745dd25338cdb42702
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448155"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730482"
 ---
-# <a name="default-user-permissions-in-azure-active-directory"></a>Azure Active Directory의 기본 사용자 권한
+# <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Azure Active Directory의 기본 사용자 권한이란?
 
 Azure AD(Azure Active Directory)의 모든 사용자에게는 기본 권한 집합이 부여됩니다. 사용자 액세스는 사용자 형식, [역할 멤버 자격](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal) 및 개별 개체의 소유권으로 구성됩니다. 이 문서에서는 이 기본 권한을 설명하며 멤버와 게스트 사용자 기본값을 비교합니다.
 
@@ -52,7 +51,7 @@ Azure AD(Azure Active Directory)의 모든 사용자에게는 기본 권한 집�
 ---------- | ------------
 보안 그룹 만들기 기능 | 이 옵션을 아니요로 설정하면 사용자가 보안 그룹을 만들 수 없습니다. 전역 관리자 및 사용자 계정 관리자는 계속 보안 그룹을 만들 수 있습니다. 자세한 내용은 [그룹 설정 구성을 위한 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-cmdlets.md)을 참조하세요.
 Office 365 그룹을 만드는 기능 | 이 옵션을 아니요로 설정하면 사용자가 Office 365 그룹을 만들 수 없습니다. 이 옵션을 일부로 설정하면 Office 365 그룹을 만들 수 있는 사용자 집합을 선택할 수 있습니다. 전역 관리자 및 사용자 계정 관리자는 계속 Office 365 그룹을 만들 수 있습니다. 자세한 내용은 [그룹 설정 구성을 위한 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-cmdlets.md)을 참조하세요.
-Azure AD 관리 포털에 대한 액세스 제한 | 이 옵션을 아니요로 설정하면 사용자가 Azure Active Directory 포털에 액세스할 수 없습니다.
+Azure AD 관리 포털에 대한 액세스 제한 | 이 옵션을 아니요로 설정하면 사용자가 Azure Active Directory에 액세스할 수 없습니다.
 다른 사용자를 읽을 수 있는 기능 | 이 설정은 PowerShell에서만 사용할 수 있습니다. 이 설정을 $false로 설정하면 관리자가 아닌 모든 사용자가 디렉터리에서 사용자 정보를 읽지 못하게 됩니다. 단, Exchange Online과 같은 다른 Microsoft 서비스에서 사용자 정보를 읽지 못하게 되지는 않습니다. 이 설정은 특수한 상황에서만 사용해야 하며, 이 설정을 $false로 설정하는 것은 권장되지 않습니다.
 
 ## <a name="object-ownership"></a>개체 소유권
@@ -70,7 +69,7 @@ When a user adds a new enterprise application, they are automatically added as a
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure 구독에 대한 관리자를 변경하는 방법에 대해 자세히 알아보려면 [Azure 관리자 역할을 추가 또는 변경하는 방법](../../billing/billing-add-change-azure-subscription-administrator.md)
+* Azure AD 관리자 역할을 할당하는 방법에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할에 사용자 할당](active-directory-users-assign-role-azure-portal.md) 참조
 * Microsoft Azure에서 리소스 액세스를 제어하는 방법을 자세히 알아보려면 [Azure에서 리소스 액세스 이해](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Azure 구독에 Azure Active Directory가 연결되는 방법에 대한 자세한 내용은 [Azure 구독을 Azure Active Directory에 연결하는 방법](active-directory-how-subscriptions-associated-directory.md)
 * [사용자 관리](add-users-azure-active-directory.md)

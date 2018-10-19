@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a8f7ccf79e750c9f3c21c25c50c3e275db7e4195
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: f349dab23b9156d3a5656e8275533ebe6a82cdf9
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173087"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45540921"
 ---
 # <a name="wait-and-non-wait-actions"></a>대기 및 비대기 작업
 
@@ -33,7 +33,7 @@ ms.locfileid: "39173087"
 ## <a name="details"></a>세부 정보
 
 - 대기 작업: 시스템이 “대기” 작업을 수행한 후 작업 수행을 중지하고 사용자 입력을 기다립니다.
-- 비대기 작업: 시스템이 “비대기” 작업을 수행한 후 즉시 다른 작업을 선택합니다(먼저 사용자 입력을 기다리지 않음).
+- 비대기 작업: 시스템에서 "비대기" 작업이 수행되는 즉시 사용자 입력을 기다리지 않고 다른 작업을 선택합니다.
 
 ## <a name="steps"></a>단계
 
@@ -54,14 +54,14 @@ ms.locfileid: "39173087"
 1. 새 작업을 클릭합니다.
 2. 응답에 ‘Cows say moo’를 입력합니다.
 3. 응답 대기 확인란의 선택을 취소합니다.
-4. 만들기 클릭
+4. 만들기 클릭 
 
 ### <a name="create-a-second-non-wait-action"></a>두 번째 비대기 작업 만들기
 
 1. 새 작업을 클릭합니다.
 2. 응답에 ‘Ducks say quack’을 입력합니다.
 3. 응답 대기 확인란의 선택을 취소합니다.
-4. 만들기 클릭
+4. 만들기 클릭 
 
 ![](../media/tutorial2_actions.PNG)
 

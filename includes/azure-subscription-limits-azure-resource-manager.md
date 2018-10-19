@@ -5,15 +5,15 @@ services: billing
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 07/02/2018
+ms.date: 08/22/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: f47654d056a26f5a58b1ccc2c200f774bee1f19f
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 2d0fa179e7d1ae87372536d315175f1406baf21a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37348204"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45979200"
 ---
 | 리소스 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
@@ -21,7 +21,7 @@ ms.locfileid: "37348204"
 | [구독](../articles/billing-buy-sign-up-azure-subscription.md)당 VM 총 코어 수 |지역당 20<sup>1</sup> | 지원에 문의 |
 | [구독](../articles/billing-buy-sign-up-azure-subscription.md)당 시리즈(Dv2, F 등) 코어당 VM |지역당 20<sup>1</sup> | 지원에 문의 |
 | [공동 관리자](../articles/billing-add-change-azure-subscription-administrator.md)  |Unlimited |Unlimited |
-| 구독당 하위 지역별 [저장소 계정](../articles/storage/common/storage-create-storage-account.md) |200 |200<sup>2</sup> |
+| 구독당 하위 지역별 [저장소 계정](../articles/storage/common/storage-quickstart-create-account.md) |200 |200<sup>2</sup> |
 | 구독당 [리소스 그룹](../articles/azure-resource-manager/resource-group-overview.md) |980 |980 |
 | [가용성 집합](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)  |지역당 2,000개 |지역당 2,000개 |
 | 리소스 관리자 API 읽기 |시간당 15,000개 |시간당 15,000개 |
@@ -31,9 +31,9 @@ ms.locfileid: "37348204"
 | 구독당 고유한 태그 계산<sup>3</sup> | 10000 | 10000 |
 | [클라우드 서비스](../articles/cloud-services/cloud-services-choose-me.md)  |해당 사항 없음<sup>4</sup> |해당 사항 없음<sup>4</sup> |
 | [선호도 그룹](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md)  |해당 사항 없음<sup>4</sup> |해당 사항 없음<sup>4</sup> |
+| 위치당 [구독 수준 배포](../articles/azure-resource-manager/deploy-to-subscription.md) | 800 | 800 |
 
-
-  <sup>1</sup>기본 제한은 평가판, 종량제 및 Dv2, F, G 등의 시리즈와 같은 제품 범주 유형에 따라 다릅니다.
+<sup>1</sup>기본 제한은 평가판, 종량제 및 Dv2, F, G 등의 시리즈와 같은 제품 범주 유형에 따라 다릅니다.
 
 <sup>2</sup>표준 및 프리미엄 저장소 계정이 모두 포함됩니다. 저장소 계정이 200개 이상 필요한 경우 [Azure 지원](https://azure.microsoft.com/support/faq/)에 요청합니다. Azure Storage 팀이 비즈니스 사례를 검토하고 Storage 계정을 250개까지 승인할 수 있습니다.
 

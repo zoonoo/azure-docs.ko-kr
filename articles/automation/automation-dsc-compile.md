@@ -4,17 +4,17 @@ description: 이 문서에서는 Azure Automation에 대한 DSC(필요한 상태
 services: automation
 ms.service: automation
 ms.component: dsc
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 08/08/2018
+author: bobbytreed
+ms.author: robreed
+ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 03b22e3a4c2c0b8eb87ee0b61edba3c6f0923170
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: fae415d158a9fced0c63078cd09c0cc070c88372
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443818"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630004"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Azure Automation 상태 구성에서 DSC 구성 컴파일
 
@@ -156,7 +156,7 @@ DSC **복합 리소스**를 추가하려면 리소스 모듈을 보관 파일(*.
 ```powershell
 Node ($AllNodes.Where{$_.Role -eq 'WebServer'}).NodeName
 {
-    JoinDomain DomainJoin
+    DomainConfig myCompositeConfig
     {
         DomainName = $DomainName
         Admincreds = $Admincreds
@@ -164,7 +164,7 @@ Node ($AllNodes.Where{$_.Role -eq 'WebServer'}).NodeName
 
     PSWAWebServer InstallPSWAWebServer
     {
-        DependsOn = '[JoinDomain]DomainJoin'
+        DependsOn = '[DomainConfig]myCompositeConfig'
     }
 }
 ```
@@ -235,7 +235,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 ### <a name="credential-assets"></a>자격 증명 자산
 
-Azure Automation에서 DSC 구성은 `Get-AzureRmAutomationCredential`을 사용하여 Automation 자격 증명 자산을 참조할 수 있습니다. 구성에 **PSCredential** 형식의 매개 변수가 있는 경우 자격 증명을 검색하는 cmdlet에 Azure Automation 자격 증명 자산의 문자열 이름을 전달하여 `Get-AutomationRmAutomationCredential` cmdlet을 사용할 수 있습니다. 그런 다음, 해당 개체를 **PSCredential** 개체가 필요한 매개 변수로 사용할 수 있습니다. 내부적으로 해당 이름을 가진 Azure Automation 자격 증명 자산은 검색되고 구성에 전달됩니다. 아래 예제에서는 작업 중인 이 항목을 보여줍니다.
+Azure Automation에서 DSC 구성은 `Get-AutomationPSCredential` cmdlet를 사용하여 Automation 자격 증명 자산을 참조할 수 있습니다. 구성에 **PSCredential** 형식의 매개 변수가 있는 경우 자격 증명을 검색하는 cmdlet에 Azure Automation 자격 증명 자산의 문자열 이름을 전달하여 `Get-AutomationPSCredential` cmdlet을 사용할 수 있습니다. 그런 다음, 해당 개체를 **PSCredential** 개체가 필요한 매개 변수로 사용할 수 있습니다. 내부적으로 해당 이름을 가진 Azure Automation 자격 증명 자산은 검색되고 구성에 전달됩니다. 아래 예제에서는 작업 중인 이 항목을 보여줍니다.
 
 자격 증명을 노드 구성(MOF 구성 문서)에서 안전하게 유지하려면 노드 구성 MOF 파일에 자격 증명을 암호화해야 합니다. 그러나 현재 PowerShell DSC가 노드 구성 MOF을 생성하는 동안 자격 증명을 일반 텍스트로 출력해도 되는지 알아야 합니다. PowerShell DSC은 Azure Automation이 컴파일 작업을 통해 생성된 후에 전체 MOF 파일을 암호화한다는 것을 모르기 때문입니다.
 

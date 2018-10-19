@@ -12,12 +12,12 @@ ms.devlang: fsharp
 ms.topic: reference
 ms.date: 09/09/2016
 ms.author: syclebsc
-ms.openlocfilehash: ec4260363aa0af3062a6d61db44a75d9ebd599db
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 5593f76511f43106d6743a158b051e118ef2a4a6
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090747"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125258"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure Functions F# 개발자 참조
 
@@ -29,6 +29,29 @@ Azure Functions용 F#란 클라우드에서 작은 코드 또는 "함수"를 쉽
 `.fsx` 파일은 F# 스크립트입니다. 단일 파일에 포함된 F# 프로젝트로 생각할 수 있습니다. 파일은 프로그램(이 경우 Azure Function)에 대한 코드 및 종속성 관리를 위한 지시문을 모두 포함합니다.
 
 Azure Function에 `.fsx` 를 사용하는 경우 "상용구" 코드 대신 함수에 집중할 수 있도록 자주 필요한 어셈블리가 자동으로 포함됩니다.
+
+## <a name="folder-structure"></a>폴더 구조
+
+F# 스크립트 프로젝트에 필요한 폴더 구조는 다음과 같습니다.
+
+```
+FunctionsProject
+ | - MyFirstFunction
+ | | - run.fsx
+ | | - function.json
+ | | - function.proj
+ | - MySecondFunction
+ | | - run.fsx
+ | | - function.json
+ | | - function.proj
+ | - host.json
+ | - extensions.csproj
+ | - bin
+```
+
+함수 앱을 구성하는 데 사용할 수 있는 공유 [host.json](functions-host-json.md) 파일이 있습니다. 각 함수에는 자체 코드 파일(.fsx)과 바인딩 구성 파일(function.json)이 있습니다.
+
+Functions 런타임의 [버전 2.x](functions-versions.md)에 필요한 바인딩 확장은 `extensions.csproj` 파일에 정의되어 있고 실제 라이브러리 파일은 `bin` 폴더에 있습니다. 로컬에서 개발할 때는 [바인딩 확장을 등록](functions-triggers-bindings.md#local-development-azure-functions-core-tools)해야 합니다. Azure Portal에서 함수를 개발할 때 이 등록이 자동으로 수행됩니다.
 
 ## <a name="binding-to-arguments"></a>인수에 바인딩
 각 바인딩은 [Azure Functions 트리거 및 바인딩 개발자 참조](functions-triggers-bindings.md)에 설명된 대로 일부 인수 집합을 지원합니다. 예를 들어 Blob 트리거가 지원하는 인수 바인딩 중 하나는 F# 레코드를 사용하여 표현될 수 있는 POCO입니다. 예: 

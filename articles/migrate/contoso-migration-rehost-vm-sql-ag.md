@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: raynew
-ms.openlocfilehash: f744b9bacfb43b5cf4ba81e19d8e543561bcec61
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 7c96f362793ca2697eb2c92c07ff38d2fe6caad2
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842756"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716879"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Contoso 마이그레이션: 온-프레미스 앱을 Azure VM 및 SQL Server AlwaysOn 가용성 그룹에 다시 호스트
 
@@ -33,9 +33,9 @@ ms.locfileid: "43842756"
 [문서 8: Azure VM 및 Azure MySQL 서버에 Linux 앱 다시 호스트](contoso-migration-rehost-linux-vm-mysql.md) | Contoso에서 Azure Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 마이그레이션하고, MySQL Workbench를 사용하여 앱 데이터베이스를 Azure MySQL 서버 인스턴스로 마이그레이션합니다. | 사용 가능
 [문서 9: Azure Web Apps 및 Azure SQL 데이터베이스에서 앱 리팩터링](contoso-migration-refactor-web-app-sql.md) | Contoso에서 SmartHotel360 앱을 Azure Web App으로 마이그레이션하고, Database Migration Assistant를 사용하여 앱 데이터베이스를 Azure SQL Server 인스턴스로 마이그레이션합니다. | 사용 가능
 [문서 10: Azure Web Apps 및 Azure MySQL에서 Linux 앱 리팩터링](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso에서 지속적인 업데이트를 위해 GitHub와 통합된 Azure Traffic Manager를 사용하여 Linux osTicket 앱을 여러 Azure 지역의 Azure 웹앱으로 마이그레이션합니다. Contoso에서 앱 데이터베이스를 Azure Database for MySQL 인스턴스로 마이그레이션합니다. | 사용 가능 
-[문서 11: VSTS에서 TFS 리팩터링](contoso-migration-tfs-vsts.md) | Contoso에서 온-프레미스 Team Foundation Server 배포를 Azure의 Visual Studio Team Services로 마이그레이션합니다. | 사용 가능
-[문서 12: Azure 컨테이너 및 Azure SQL Database에서 앱 아키텍처 변경](contoso-migration-rearchitect-container-sql.md) | Contoso가 SmartHotel360 앱을 Azure로 마이그레이션합니다. 그런 다음, 웹앱 계층을 Azure Service Fabric에서 실행되는 Windows 컨테이너로 재설계하고 Azure SQL Database를 사용하여 데이터베이스를 재설계합니다. | 사용 가능
-[문서 13: Azure에서 앱 다시 빌드](contoso-migration-rebuild.md) | Contoso가 다양한 Azure 기능과 서비스(Azure App Service, AKS(Azure Kubernetes Service), Azure Functions, Azure Cognitive Services 및 Azure Cosmos DB 포함)를 사용하여 SmartHotel360 앱을 다시 빌드합니다. | 사용 가능
+[문서 11: Azure DevOps Services에서 TFS 리팩터링](contoso-migration-tfs-vsts.md) | Contoso에서 온-프레미스 Team Foundation Server 배포를 Azure의 Azure DevOps Services로 마이그레이션합니다. | 사용 가능
+[문서 12: Azure 컨테이너 및 Azure SQL Database에서 앱 아키텍처 변경](contoso-migration-rearchitect-container-sql.md) | Contoso에서 SmartHotel 앱을 Azure로 마이그레이션합니다. 그런 다음, 웹앱 계층을 Azure Service Fabric에서 실행되는 Windows 컨테이너로 재설계하고 Azure SQL Database를 사용하여 데이터베이스를 재설계합니다. | 사용 가능
+[문서 13: Azure에서 앱 다시 빌드](contoso-migration-rebuild.md) | Contoso에서 다양한 Azure 기능과 서비스(Azure App Service, AKS(Azure Kubernetes Service), Azure Functions, Azure Cognitive Services 및 Azure Cosmos DB 포함)를 사용하여 SmartHotel 앱을 다시 빌드합니다. | 사용 가능
 
 
 이 문서에서 Contoso는 VMware VM에서 실행되는 2계층 Windows .NET SmartHotel360 앱을 Azure로 마이그레이션합니다. 이 앱을 사용하려는 경우 오픈 소스로 제공되므로 [GitHub](https://github.com/Microsoft/SmartHotel360)에서 다운로드할 수 있습니다.
@@ -107,7 +107,7 @@ Contoso는 장점 및 단점 목록을 함께 조합하여 제안된 디자인�
 **고려 사항** | **세부 정보**
 --- | ---
 **장점** | WEBVM이 변경 없이 Azure로 이동하여 마이그레이션을 간소화합니다.<br/><br/> SQL Server 계층은 SQL Server 2017 및 Windows Server 2016에서 실행됩니다. 이것으로 현재 Windows Server 2008 R2 운영 체제는 사용 중지되고, 실행 중인 SQL Server 2017은 Contoso의 기술 요구 사항 및 목표를 지원합니다. IT는 SQL Server 2008 R2에서 전환하는 동안 100% 호환성을 제공합니다.<br/><br/> Contoso는 Azure 하이브리드 혜택을 사용하여 Software Assurance에 대한 투자를 활용할 수 있습니다.<br/><br/> Azure에 고가용성 SQL Server를 배포하면 앱 데이터 계층이 더 이상 단일 장애 조치(failover) 지점이 아니게 되므로 내결함성이 향상됩니다.
-**단점** | WEBVM이 Windows Server 2008 R2를 실행합니다. 운영 체제는 특정 역할을 위한 Azure에서 지원됩니다(2018년 7월). [자세히 알아보기](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).<br/><br/> 앱의 웹 계층은 단일 장애 조치(failover) 지점을 유지합니다.</br><br/> Contoso는 Azure App Service와 같이 관리되는 서비스로 이동하는 것이 아니라 웹 계층을 Azure VM으로 계속 지원해야 합니다.<br/><br/> 선택한 솔루션을 사용하면 Contoso는 Azure SQL Managed Instance 같은 관리 플랫폼으로 전환하는 것이 아니라 계속해서 두 SQL Server VM을 관리해야 합니다. 또한 Software Assurance를 사용하면 Contoso는 Azure SQL Managed Instance에서 기존 라이선스를 할인된 가격으로 교환할 수 있습니다.
+**단점** | WEBVM이 Windows Server 2008 R2를 실행합니다. 운영 체제는 특정 역할을 위한 Azure에서 지원됩니다(2018년 7월). [자세히 알아보기](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).<br/><br/> 앱의 웹 계층은 단일 장애 조치(failover) 지점을 유지합니다.</br><br/> Contoso는 Azure App Service와 같이 관리되는 서비스로 이동하는 것이 아니라 웹 계층을 Azure VM으로 계속 지원해야 합니다.<br/><br/> 선택한 솔루션을 사용하면 Contoso에서 Azure SQL Database Managed Instance와 같은 관리되는 플랫폼으로 전환하는 것이 아니라 두 SQL Server VM을 계속 관리해야 합니다. 또한 Software Assurance를 사용하면 Contoso에서 기존 라이선스를 Azure SQL Database Managed Instance의 할인된 가격으로 교환할 수 있습니다.
 
 
 ### <a name="azure-services"></a>Azure 서비스

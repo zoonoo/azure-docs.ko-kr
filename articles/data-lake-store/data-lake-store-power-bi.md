@@ -1,6 +1,6 @@
 ---
-title: Power BI를 사용하여 Data Lake Store 데이터 분석 | Microsoft 문서
-description: Power BI를 사용하여 Azure Data Lake 저장소에 저장된 데이터 분석
+title: Power BI를 사용하여 Azure Data Lake Storage Gen1의 데이터 분석 | Microsoft Docs
+description: Power BI를 사용하여 Azure Data Lake Storage Gen1에 저장된 데이터 분석
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -12,41 +12,41 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 37cde17703a15ba5659814e1b65a54d24b67edad
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5db9d18a31af4d6b407fcd9172ac80fc6f93f085
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624790"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297182"
 ---
-# <a name="analyze-data-in-data-lake-store-by-using-power-bi"></a>Power BI를 사용하여 Data Lake 저장소의 데이터 분석
-이 문서에서는 Power BI Desktop을 사용하여 Azure Data Lake 저장소에 저장된 데이터를 분석하고 시각화하는 방법에 대해 알아봅니다.
+# <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Power BI를 사용하여 Azure Data Lake Storage Gen1의 데이터 분석
+이 문서에서는 Power BI Desktop을 사용하여 Azure Data Lake Storage Gen1에 저장된 데이터를 분석하고 시각화하는 방법에 대해 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **Azure Data Lake Store 계정**. [Azure Portal을 사용하여 Azure Data Lake Store 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다. 이 문서에서는 이미 **mybidatalakestore**라는 Data Lake Store 계정을 만들어 샘플 데이터 파일(**Drivers.txt**)을 업로드했다고 가정합니다. 이 샘플 파일은 [Azure Data Lake Git 리포지토리](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt)에서 다운로드할 수 있습니다.
+* **Data Lake Storage Gen1 계정**. [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다. 이 문서에서는 이미 **myadlsg1**이라는 Data Lake Storage Gen1 계정을 만들어 샘플 데이터 파일(**Drivers.txt**)을 업로드했다고 가정합니다. 이 샘플 파일은 [Azure Data Lake Git 리포지토리](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt)에서 다운로드할 수 있습니다.
 * **Power BI Desktop**. [Microsoft 다운로드 센터](https://www.microsoft.com/en-us/download/details.aspx?id=45331)에서 다운로드할 수 있습니다. 
 
 ## <a name="create-a-report-in-power-bi-desktop"></a>Power BI Desktop에서 보고서 만들기
 1. 컴퓨터에서 Power BI Desktop을 시작합니다.
 2. **홈** 리본 메뉴에서 **데이터 가져오기**, [자세히]를 차례로 클릭합니다. **데이터 가져오기** 대화 상자에서 **Azure**, **Azure Data Lake Store**, **연결**을 차례로 클릭합니다.
    
-    ![Data Lake Store에 연결](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Data Lake Store에 연결")
+    ![Data Lake Storage Gen1에 연결](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Data Lake Storage Gen1에 연결")
 3. 커넥터가 개발 단계에 있다는 대화 상자가 표시되면, 계속 진행하도록 선택합니다.
-4. **Microsoft Azure Data Lake Store** 대화 상자에서 Data Lake Store 계정에 대한 URL을 제공한 다음 **확인**을 클릭합니다.
+4. **Azure Data Lake Store** 대화 상자에서 Data Lake Storage Gen1 계정에 대한 URL을 제공한 다음, **확인**을 클릭합니다.
    
-    ![Data Lake Store URL](./media/data-lake-store-power-bi/get-data-lake-store-account-url.png "Data Lake Store URL")
-5. 다음 대화 상자에서 **로그인** 을 클릭하여 Data Lake 저장소 계정에 로그인합니다. 사용자가 속한 조직의 로그인 페이지로 리디렉션됩니다. 프롬프트에 따라 계정에 로그인합니다.
+    ![Data Lake Storage Gen1에 대한 URL](./media/data-lake-store-power-bi/get-data-lake-store-account-url.png "Data Lake Storage Gen1에 대한 URL")
+5. 다음 대화 상자에서 **로그인**을 클릭하여 Data Lake Storage Gen1 계정에 로그인합니다. 사용자가 속한 조직의 로그인 페이지로 리디렉션됩니다. 프롬프트에 따라 계정에 로그인합니다.
    
-    ![Data Lake Store에 로그인](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "Data Lake Store에 로그인")
+    ![Data Lake Storage Gen1에 로그인](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "Data Lake Storage Gen1에 로그인")
 6. 성공적으로 로그인한 후에 **연결**을 클릭합니다.
    
-    ![Data Lake Store에 연결](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "Data Lake Store에 연결")
-7. 다음 대화 상자에서 Data Lake 저장소 계정에 업로드한 파일이 표시됩니다. 정보를 확인한 다음 **로드**를 클릭합니다.
+    ![Data Lake Storage Gen1에 연결](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "Data Lake Storage Gen1에 연결")
+7. 다음 대화 상자에서 Data Lake Storage Gen1 계정에 업로드한 파일이 표시됩니다. 정보를 확인한 다음 **로드**를 클릭합니다.
    
-    ![Data Lake Store에서 데이터 로드](./media/data-lake-store-power-bi/get-data-lake-store-account-load.png "Data Lake Store에서 데이터 로드")
+    ![Data Lake Storage Gen1에서 데이터 로드](./media/data-lake-store-power-bi/get-data-lake-store-account-load.png "Data Lake Storage Gen1에서 데이터 로드")
 8. 데이터가 Power BI에 성공적으로 로드된 후에, **필드** 탭에 다음 필드가 표시됩니다.
    
     ![가져온 필드](./media/data-lake-store-power-bi/imported-fields.png "가져온 필드")
@@ -97,5 +97,5 @@ ms.locfileid: "34624790"
 Power BI Desktop에서 시각화를 만들고 나면, Power BI 서비스에 게시하여 다른 사람들과 공유할 수 있습니다. 수행하는 방법에 대한 지침은 [Power BI Desktop에서 게시](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/)를 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
-* [Data Lake 분석을 사용하여 Data Lake 저장소의 데이터 분석](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Data Lake Analytics를 사용한 Data Lake Storage Gen1의 데이터 분석](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 

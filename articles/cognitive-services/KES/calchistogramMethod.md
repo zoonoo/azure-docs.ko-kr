@@ -1,20 +1,21 @@
 ---
-title: Knowledge Exploration Service API의 CalcHistogram 메서드 | Microsoft Docs
-description: Cognitive Services의 KES(Knowledge Exploration Service) API에서 CalcHistogram 메서드를 사용하는 방법에 대해 알아봅니다.
+title: CalcHistogram 메서드 - Knowledge Exploration Service API
+titlesuffix: Azure Cognitive Services
+description: KES(Knowledge Exploration Service) API에서 CalcHistogram 메서드를 사용하는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 6ed694b0cc9cf41b815cc54b9f6d12adb2b7cd64
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0ca43d6f6879198b8f80794c1948439e15f312ad
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373062"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122759"
 ---
 # <a name="calchistogram-method"></a>calchistogram 메서드
 *calchistogram* 메서드는 구조화된 쿼리 식과 일치하는 개체를 계산하고 해당 특성 값의 분포를 계산합니다.
@@ -22,7 +23,7 @@ ms.locfileid: "35373062"
 ## <a name="request"></a>요청
 `http://<host>/calchistogram?expr=<expr>[&options]` 
 
-Name|값|설명
+이름|값|설명
 ----|-----|-----------
 expr | 텍스트 문자열 | 히스토그램을 계산할 인덱스 엔터티를 지정하는 구조화된 쿼리 식입니다.
 특성 | 텍스트 문자열(기본값="") | 응답에 포함되는 쉼표로 구분된 특성 목록입니다.
@@ -42,7 +43,7 @@ $.histograms[\*].histogram | 이 특성에 대한 히스토그램 데이터입�
 $.histograms[\*].histogram[\*].value | 특성 값입니다.
 $.histograms[\*].histogram[\*].logprob  | 이 특성 값과 일치하는 엔터티의 총 자연 로그 확률입니다.
 $.histograms[\*].histogram[\*].count    | 이 특성 값과 일치하는 엔터티의 수입니다.
-$.aborted | 요청 시간이 초과되면 True입니다.
+$.aborted | 요청 시간이 초과되면 true입니다.
 
 ### <a name="example"></a>예
 학술 저서 예제에서, 다음은 2013년 이후 특정 작성자에 대한 연도 및 키워드별 게시물 수 히스토그램을 계산합니다.

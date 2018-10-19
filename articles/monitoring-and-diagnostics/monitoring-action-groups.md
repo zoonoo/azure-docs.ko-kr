@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/1/2018
+ms.date: 09/12/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 998f35c8957b63d73d7a3d15be76711198fa4833
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 6163a099894a823614355f71a3e1af4a6a9026ec
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745710"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717678"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 ## <a name="overview"></a>개요 ##
@@ -33,9 +33,9 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
 1. [포털](https://portal.azure.com)에서 **모니터**를 선택합니다. **모니터** 블레이드는 모든 모니터링 설정 및 데이터를 하나의 뷰에 통합합니다.
 
     ![“모니터링” 서비스](./media/monitoring-action-groups/home-monitor.png)
-1. **설정** 섹션에서 **작업 그룹**을 선택합니다.
+1. **경고**, **작업 그룹 관리**를 차례로 선택합니다.
 
-    ![“작업 그룹” 탭](./media/monitoring-action-groups/action-groups-blade.png)
+    ![작업 그룹 관리 단추](./media/monitoring-action-groups/manage-action-groups.png)
 1. **작업 그룹 추가**를 선택하고 필드를 입력합니다.
 
     ![“작업 그룹 추가” 명령](./media/monitoring-action-groups/add-action-group.png)
@@ -83,6 +83,7 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
 
 <dt>Runbook</dt>
 <dd>하나의 작업 그룹에 최대 10개의 Runbook 작업이 포함될 수 있습니다.</dd>
+<dd>Runbook 페이로드에 대한 제한 사항은 [Azure 구독 서비스 제한](../azure-subscription-service-limits.md)을 참조하세요.</dd>
 
 <dt>SMS</dt>
 <dd>하나의 작업 그룹에 최대 10개의 SMS 작업이 포함될 수 있습니다.</dd>
@@ -96,6 +97,17 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
 <dt>웹후크</dt>
 <dd>하나의 작업 그룹에 최대 10개의 웹후크 작업이 포함될 수 있습니다.
 <dd>다시 시도 논리 - 응답에 대한 제한 시간은 10초입니다. webhook 호출은 HTTP 상태 코드 408, 429, 503, 504가 반환되거나 HTTP 엔드포인트가 응답하지 않으면 최대 2번 다시 시도됩니다. 10초 후에 첫 번째 다시 시도가 발생합니다. 100초 후에 두 번째 및 마지막 다시 시도가 발생합니다.</dd>
+<dd>원본 IP 주소 범위
+<ul>
+    <li>13.106.57.181</li>
+    <li>13.106.54.3</li>
+    <li>13.106.54.19</li>
+    <li>13.106.38.142</li>
+    <li>13.106.38.148</li>
+    <li>13.106.57.196</li>
+</ul>
+이러한 IP 주소에 대한 변경 내용에 대한 업데이트를 받으려면 작업 그룹 서비스에 대한 정보 알림을 모니터링하는 [서비스 상태 경고](./monitoring-service-notifications.md)를 구성하는 것이 좋습니다.
+</dd>
 </dl>
 
 ## <a name="manage-your-action-groups"></a>작업 그룹 관리 ##

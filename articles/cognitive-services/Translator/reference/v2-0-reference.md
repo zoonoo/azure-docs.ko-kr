@@ -1,34 +1,34 @@
 ---
-title: Microsoft Translator Text API V2.0 참조 | Microsoft Docs
-titleSuffix: Cognitive Services
-description: V2.0 Microsoft Translator Text API에 대한 참조 문서입니다.
+title: Translator Text API V2.0
+titleSuffix: Azure Cognitive Services
+description: V2.0 Translator Text API에 대한 참조 문서입니다.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
-ms.openlocfilehash: e32e28608d2fecf27b61acff74af7eb6849f0ba1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 57058e9a86a338738315a08f218978e20fae95e2
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377759"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127859"
 ---
 # <a name="translator-text-api-v20"></a>Translator Text API v2.0
 
 > [!IMPORTANT]
 > 이 버전의 Translator Text API는 더 이상 사용되지 않습니다. [Translator Text API v3에 대한 설명서를 참조하세요](v3-0-reference.md).
 
-Microsoft Translator V2 Text API는 응용 프로그램, 웹 사이트, 도구 또는 기타 솔루션에 원활하게 통합되어 다국어 사용자 환경을 제공할 수 있습니다. 업계 표준을 활용하는 이 API는 모든 하드웨어 플랫폼 및 운영 체제에서 사용되면서 언어 번역은 물론, 텍스트 언어 검색 또는 텍스트 음성 변환과 같은 기타 언어 관련 작업을 수행할 수 있습니다. Microsoft Translator API에 대한 자세한 내용을 보려면 여기를 클릭하세요.
+Translator Text API V2는 응용 프로그램, 웹 사이트, 도구 또는 기타 솔루션에 원활하게 통합되어 다국어 사용자 환경을 제공할 수 있습니다. 업계 표준을 활용하는 이 API는 모든 하드웨어 플랫폼 및 운영 체제에서 사용되면서 언어 번역은 물론, 텍스트 언어 검색 또는 텍스트 음성 변환과 같은 기타 언어 관련 작업을 수행할 수 있습니다. Microsoft Translator API에 대한 자세한 내용을 보려면 여기를 클릭하세요.
 
 ## <a name="getting-started"></a>시작
-Microsoft Translator Text API에 액세스하려면 [Microsoft Azure에 등록](../translator-text-how-to-signup.md)해야 합니다.
+Translator Text API에 액세스하려면 [Microsoft Azure에 등록](../translator-text-how-to-signup.md)해야 합니다.
 
 ## <a name="authorization"></a>권한 부여
-Microsoft Translator Text API에 대한 모든 호출에는 인증을 위한 구독 키가 필요합니다. 이 API는 다음과 같은 두 가지 인증 모드를 지원합니다.
+Translator Text API에 대한 모든 호출에는 인증을 위한 구독 키가 필요합니다. 이 API는 다음과 같은 두 가지 인증 모드를 지원합니다.
 
 * 액세스 토큰 사용. 9**단계**에 참조된 구독 키를 통해 권한 부여 서비스에 대해 POST 요청을 수행하여 액세스 토큰을 생성합니다. 자세한 내용은 토큰 서비스 설명서를 참조하세요. 권한 부여 헤더 또는 access_token 쿼리 매개 변수를 사용하여 Translator 서비스에 액세스 토큰을 전달합니다. 액세스 토큰은 10분 동안 유효합니다. 10분 간격으로 새 액세스 토큰을 획득하고, 이러한 10분 내에 반복되는 요청에 대해 동일한 액세스 토큰을 계속 사용합니다.
 
@@ -347,7 +347,7 @@ binary
 
 요청 URI는 `https://api.microsofttranslator.com/V2/Http.svc/Detect`입니다.
 
-**반환 값:** 지정된 텍스트에 대한 2문자 언어 코드를 포함하는 문자열입니다. 에서도 확인할 수 있습니다.
+**반환 값:** 지정된 텍스트에 대한 2문자 언어 코드를 포함하는 문자열입니다. .
 
 ### <a name="response-class-status-200"></a>응답 클래스(상태: 200)
 

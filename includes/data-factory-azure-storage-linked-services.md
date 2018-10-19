@@ -6,7 +6,7 @@
 | 형식 |형식 속성은 **AzureStorage** |yes |
 | connectionString |connectionString 속성에 대한 Azure 저장소에 연결하는 데 필요한 정보를 지정합니다. |yes |
 
-Azure Storage에 대한 계정 키를 보거나 복사하는 단계는 [저장소 액세스 키 보기, 복사 및 다시 생성](../articles/storage/common/storage-create-storage-account.md#manage-your-storage-account)문서를 참조하세요.
+Azure Storage에 대한 계정 키를 보거나 복사하는 단계는 [액세스 키](../articles/storage/common/storage-account-manage.md#access-keys) 섹션을 참조하세요.
 
 **예제:**  
 

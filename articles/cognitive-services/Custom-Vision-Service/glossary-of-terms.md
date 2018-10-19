@@ -1,20 +1,21 @@
 ---
-title: Custom Vision Service에 대한 용어집 - Azure Cognitive Services | Microsoft Docs
+title: 용어집 - Custom Vision Service
+titlesuffix: Azure Cognitive Services
 description: Custom Vision Service에 대한 용어집
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: anroth
-ms.openlocfilehash: 871617ce3c1c5a84df746c0c7d87c113b3a6f354
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ae68db3de5d1f7eaacbe355133b9b7b61f145f04
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374743"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363414"
 ---
 # <a name="glossary-of-terms-for-custom-vision-service"></a>Custom Vision Service에 대한 용어집
 

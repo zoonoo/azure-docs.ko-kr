@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 02d402b7de82631ce459c60cb42e5335c7e7cfe3
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 5c2a37f3753292c6db847a4a9152bd4506f8fa5e
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003303"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580497"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory ID 보호 플레이 북
 
@@ -115,7 +115,7 @@ ms.locfileid: "40003303"
 
 ### <a name="user-risk-security-policy"></a>사용자 위험 보안 정책
 
-자세한 내용은 [사용자 위험 보안 정책](overview.md#user-risk-security-policy)을 참조하세요.
+자세한 내용은 [사용자 위험 정책을 구성하는 방법](howto-user-risk-policy.md)을 참조하세요.
 
 ![사용자 위험](./media/playbook/02.png "플레이북")
 
@@ -140,7 +140,7 @@ ms.locfileid: "40003303"
 
 ### <a name="sign-in-risk-security-policy"></a>로그인 위험 보안 정책
 
-자세한 내용은 [사용자 위험 보안 정책](overview.md#user-risk-security-policy)을 참조하세요.
+자세한 내용은 [로그인 위험 정책을 구성하는 방법](howto-sign-in-risk-policy.md)을 참조하세요.
 
 ![로그인 위험](./media/playbook/01.png "플레이북")
 

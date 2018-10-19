@@ -3,6 +3,7 @@
 > * [.NET를 사용하여 시뮬레이션된 장치](../articles/iot-hub/quickstart-send-telemetry-dotnet.md)
 > * [Java를 사용하여 시뮬레이션된 장치](../articles/iot-hub/quickstart-send-telemetry-java.md)
 > * [Node.js를 사용하여 시뮬레이션된 장치](../articles/iot-hub/quickstart-send-telemetry-node.md)
+> * [Python을 사용하여 시뮬레이션된 장치](../articles/iot-hub/quickstart-send-telemetry-python.md)
 > * [VS Code를 사용하는 IoT DevKit AZ3166](../articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md)
 > * [Node.js를 사용하는 Raspberry Pi](../articles/iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md)
 > * [Python을 사용하는 Raspberry Pi](../articles/iot-hub/iot-hub-raspberry-pi-kit-python-get-started.md)
@@ -12,3 +13,4 @@
 > * [Arduino IDE를 사용하는 Adafruit Feather HUZZAH ESP8266](../articles/iot-hub/iot-hub-arduino-huzzah-esp8266-get-started.md)
 > * [Arduino IDE를 사용하는 Sparkfun ESP8266 Thing Dev](../articles/iot-hub/iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 > * [Arduino IDE를 사용하는 Adafruit Feather M0](../articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+> * [Swift를 사용한 iOS](../articles/iot-hub/quickstart-send-telemetry-ios.md)

@@ -5,24 +5,20 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-editor: ''
-tags: ''
 keywords: Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 08/08/2018
+ms.date: 09/08/2018
 ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: 270228e73243e6b2670e7ccb30765526a5db6463
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: d1e73af69d3220c0719bd05e3f160e20f8c02858
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42145966"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715604"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions의 타이머 트리거 
 
@@ -136,7 +132,7 @@ let Run(myTimer: TimerInfo, log: TraceWriter ) =
 }
 ```
 
-JavaScript 스크립트 코드는 다음과 같습니다.
+JavaScript 코드는 다음과 같습니다.
 
 ```JavaScript
 module.exports = function (context, myTimer) {
@@ -144,9 +140,9 @@ module.exports = function (context, myTimer) {
 
     if(myTimer.isPastDue)
     {
-        context.log('Node.js is running late!');
+        context.log('Node is running late!');
     }
-    context.log('Node.js timer trigger function ran!', timeStamp);   
+    context.log('Node timer trigger function ran!', timeStamp);   
 
     context.done();
 };
@@ -195,10 +191,13 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 |**direction** | 해당 없음 | "in"으로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
 |**name** | 해당 없음 | 함수 코드에서 타이머 개체를 나타내는 변수의 이름입니다. | 
 |**schedule**|**ScheduleExpression**|[CRON 식](#cron-expressions) 또는 [TimeSpan](#timespan) 값입니다. App Service 계획에서 함수 앱을 실행 중인 경우에만 `TimeSpan`을 사용할 수 있습니다. "%ScheduleAppSetting%" 예제와 같이 앱 설정에서 일정 식을 배치하고 이 속성을 **%** 기호에서 래핑된 앱 설정 이름으로 설정할 수 있습니다. |
-|**runOnStartup**|**RunOnStartup**|`true`인 경우 함수는 런타임이 시작될 때 호출됩니다. 예를 들어 비활성으로 인해 유휴 상태로 전환된 후에 함수 앱이 작동될 때 런타임이 시작됩니다. 함수 변경으로 인해 함수 앱을 다시 시작할 때 및 함수 앱이 확장할 때입니다. 따라서 **runOnStartup**은 예측할 수 없는 경우에 코드를 실행하므로 `true`로 설정되는 경우가 거의 없습니다.|
+|**runOnStartup**|**RunOnStartup**|`true`인 경우 함수는 런타임이 시작될 때 호출됩니다. 예를 들어 비활성으로 인해 유휴 상태로 전환된 후에 함수 앱이 작동될 때 런타임이 시작됩니다. 함수 변경으로 인해 함수 앱을 다시 시작할 때 및 함수 앱이 확장할 때입니다. 따라서 **runOnStartup**은 특히 프로덕션에서 `true`로 설정되는 경우가 거의 없습니다. |
 |**useMonitor**|**UseMonitor**|`true` 또는 `false`로 설정하여 일정을 모니터링해야 하는지를 나타냅니다. 일정 모니터링은 일정 발생을 유지하여 함수 앱 인스턴스가 다시 시작하는 경우에도 일정을 올바르게 유지하도록 지원합니다. 명시적으로 설정하지 않는 경우 되풀이 간격이 1분을 넘는 큰 일정에서 기본값은 `true`입니다. 분당 한 번 넘게 트리거되는 일정에서 기본값은 `false`입니다.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+> [!CAUTION]
+> 프로덕션 환경에서는 **runOnStartup**을 `true`로 설정하지 않는 것이 좋습니다. 이 설정을 사용하면 매우 예측할 수 없는 시간에 코드가 실행됩니다. 특정 프로덕션 환경에서 이러한 추가 실행으로 인해 소비 계획에서 호스팅되는 앱의 비용이 상당히 높아질 수 있습니다. 예를 들어 **runOnStartup**을 사용하면 함수 앱의 크기를 조정할 때마다 트리거가 호출됩니다. 프로덕션 환경에서 **runOnStartup**을 사용하도록 설정하기 전에 함수의 프로덕션 동작을 완전히 이해했는지 확인하세요.   
 
 ## <a name="usage"></a>사용 현황
 

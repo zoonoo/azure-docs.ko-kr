@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 55ce85702804d99d806220d7f0a4ea0820975f4f
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 8a5d880d0238e38fbbaa9de22fc1baf604f0fc07
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39206040"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733467"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IoT Central 응용 프로그램에 일반 클라이언트 응용 프로그램 연결(Node.js)
 
@@ -129,7 +129,11 @@ Azure IoT Central 응용 프로그램에서, 자신이 만든 장치 템플릿�
     var client = clientFromConnectionString(connectionString);
     ```
 
-    `{your device connection string}` 자리 표시자를 자신의 장치 연결 문자열로 업데이트합니다. 실제 장치를 추가할 때 연결 세부 정보 페이지에서 이 값을 복사했습니다. 이 샘플에서는 `targetTemperature`를 0으로 초기화할 것이며, 필요에 따라 장치의 현재 판독값 또는 장치 쌍의 값을 사용할 수 있습니다. 
+  > [!NOTE]
+   > Azure IoT Central은 모든 장치 연결에 Azure IoT Hub DPS(Device Provisioning Service)를 사용하도록 전환되었습니다. 다음 지침에 따라 [장치 연결 문자열을 가져오고](concepts-connectivity.md#getting-device-connection-string) 자습서의 나머지 부분을 계속합니다.
+
+
+    `{your device connection string}` 자리 표시자를 장치 연결 문자열로 업데이트합니다. 이 샘플에서는 `targetTemperature`를 0으로 초기화할 것이며, 필요에 따라 장치의 현재 판독값 또는 장치 쌍의 값을 사용할 수 있습니다. 
 
 1. Azure IoT Central 응용 프로그램에 원격 분석 데이터, 상태 및 이벤트 측정값을 보낼 수 있도록 다음 함수를 파일에 추가합니다.
 

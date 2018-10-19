@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 99848cf4ba1e6e65a8c41c682916ca391128eb21
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 3f92eac79e9524aa6ded9f898d582ce46c99bf97
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42145896"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363295"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Azure API Management 인스턴스 업그레이드 및 크기 조정  
 
@@ -67,5 +67,5 @@ ms.locfileid: "42145896"
 
 ## <a name="next-steps"></a>다음 단계
 
-*[여러 Azure 지역에 Azure API Management 서비스 인스턴스를 배포하는 방법](api-management-howto-deploy-multi-region.md)
-*[자동으로 Azure API Management 서비스 인스턴스를 자동으로 확장하는 방법](api-management-howto-autoscale.md)
+- [여러 Azure 지역에 Azure API Management 서비스 인스턴스를 배포하는 방법](api-management-howto-deploy-multi-region.md)
+- [Azure API Management 서비스 인스턴스 크기를 자동으로 조정하는 방법](api-management-howto-autoscale.md)

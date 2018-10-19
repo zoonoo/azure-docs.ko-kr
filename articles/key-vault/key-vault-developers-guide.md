@@ -5,16 +5,16 @@ services: key-vault
 author: bryanla
 manager: mbaldwin
 ms.service: key-vault
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/12/2017
+ms.date: 09/05/2018
 ms.author: bryanla
-ms.openlocfilehash: d8554d235fdfeb5b192ddf1268e60b7bc32aabe7
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 3dc80c97a43c35295deacefc37a76471912c9b42
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42146434"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603994"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
@@ -53,11 +53,9 @@ Azure Key Vault에 대한 일반적인 내용은 [키 자격 증명 모음이란
 
 ## <a name="creating-and-managing-key-vaults"></a>주요 자격 증명 모음 만들기 및 관리
 
-Azure Key Vault를 사용하면 자격 증명과 기타 키 및 비밀을 안전하게 저장할 수 있습니다. 하지만 이러한 자격 증명/키/비밀을 검색하려면 코드가 Key Vault에 인증해야 합니다. MSI(관리 서비스 ID)를 사용하면 Azure AD(Azure Active Directory)에서 자동으로 관리되는 ID를 Azure 서비스에 제공함으로써 이 문제를 보다 간편하게 해결할 수 있습니다. 이 ID를 사용하면 Key Vault를 비롯하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다. 
+Azure Key Vault를 사용하면 자격 증명과 기타 키 및 비밀을 안전하게 저장할 수 있습니다. 하지만 이러한 자격 증명/키/비밀을 검색하려면 코드가 Key Vault에 인증해야 합니다. Azure 리소스에 대한 관리 ID를 사용하면 Azure AD(Azure Active Directory)에서 자동으로 관리되는 ID를 Azure 서비스에 제공하여 이 문제를 더 간편하게 해결할 수 있습니다. 이 ID를 사용하면 Key Vault를 비롯하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다. 
 
-MSI에 대한 자세한 내용은 [Azure 리소스용 MSI(관리 서비스 ID)](https://docs.microsoft.com/azure/active-directory/msi-overview)를 참조하세요.
-
-AAD 사용에 대한 자세한 내용은 [Azure Active Directory와 응용 프로그램 통합](/azure/active-directory/develop/active-directory-integrating-applications)을 참조하세요.
+Azure 리소스의 관리 ID에 대한 자세한 내용은 [관리 ID 개요](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요. AAD 사용에 대한 자세한 내용은 [Azure Active Directory와 응용 프로그램 통합](/azure/active-directory/develop/active-directory-integrating-applications)을 참조하세요.
 
 Key Vault에서 키, 암호 또는 인증서를 사용하기 전에 다음 문서에 설명된 대로 CLI, PowerShell, Resource Manager 템플릿 또는 REST를 통해 Key Vault를 만들고 관리합니다.
 
@@ -95,7 +93,7 @@ Node.js에서 Key Vault 관리 API와 Key Vault 개체 API는 별개입니다. �
 
 [Node.js용 Azure Key Vault 모듈](https://docs.microsoft.com/nodejs/api/overview/azure/key-vault)
 
-#### <a name="python"></a>파이썬
+#### <a name="python"></a>Python
 
 [Python용 Azure Key Vault 라이브러리](https://docs.microsoft.com/python/api/overview/azure/key-vault)
 
@@ -110,14 +108,14 @@ Node.js에서 Key Vault 관리 API와 Key Vault 개체 API는 별개입니다. �
 ### <a name="quick-start-guides"></a>빠른 시작 가이드
 
 - [주요 자격 증명 모음 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
-- [Node.js에서 Key Vault 시작](https://azure.microsoft.com/resources/samples/key-vault-node-getting-started/)
+- [Node.js에서 Key Vault 시작](https://github.com/Azure-Samples/key-vault-node-getting-started)
 
 ### <a name="code-examples"></a>코드 예제
 
 응용 프로그램에서 Key Vault를 사용하는 전체 예제는 다음을 참조하세요.
 
-- [Azure Key Vault 코드 샘플](http://www.microsoft.com/download/details.aspx?id=45343) - .NET 샘플 응용 프로그램 *HelloKeyVault* 및 Azure 웹 서비스 예제입니다. 
-- [웹 응용 프로그램에서 Azure Key Vault 사용](key-vault-use-from-web-application.md) - Azure의 웹 응용 프로그램에서 Azure Key Vault를 사용하는 방법을 제공하는 자습서입니다. 
+- [Azure Key Vault 코드 샘플](https://azure.microsoft.com/resources/samples/?service=key-vault) - Azure Key Vault에 대한 코드 샘플입니다. 
+- [웹 응용 프로그램에서 Azure Key Vault 사용](quick-create-net.md) - Azure의 웹 응용 프로그램에서 Azure Key Vault를 사용하는 방법을 제공하는 자습서입니다. 
 
 ## <a name="how-tos"></a>방법
 
@@ -130,9 +128,8 @@ Node.js에서 Key Vault 관리 API와 Key Vault 개체 API는 별개입니다. �
 - [확장 가능 키 관리를 위해 SQL Server에서 키 자격 증명을 사용하는 방법](https://msdn.microsoft.com/library/dn198405.aspx) - Azure Key Vault용 SQL Server 커넥터를 사용하면 SQL Server 및 SQL-in-a-VM에서 Azure Key Vault를 EKM(확장 가능 키 관리) 공급자로 활용하여 응용 프로그램 링크에 대한 암호화 키를 보호할 수 있습니다(투명한 데이터 암호화, 백업 암호화 및 열 수준 암호화).
 - [주요 자격 증명 모음에서 VM에 인증서를 배포하는 방법](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) - Azure의 VM에서 실행 중인 클라우드 응용 프로그램에는 인증서가 필요합니다. 지금 이 VM으로 인증서를 가져오려면 어떻게 하나요?
 - [종단 간 키 회전 및 감사를 사용하여 Key Vault를 설정하는 방법](key-vault-key-rotation-log-monitoring.md) - Azure Key Vault를 사용하는 키 회전 및 감사를 설정하는 방법을 안내합니다.
-- 
-  [Key Vault를 통한 Azure Web App Certificate 배포]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)는 [App Service Certificate](https://azure.microsoft.com/blog/internals-of-app-service-certificate/) 제품의 일부로 Key Vault에 저장된 인증서를 배포하기 위한 단계별 지침을 제공합니다.
-- [여러 응용 프로그램에 Key Vault 액세스 권한 부여](key-vault-group-permissions-for-apps.md) Key Vault 액세스 제어 정책에서는 16개 항목만 지원합니다. 그러나 Azure Active Directory 보안 그룹을 만들 수 있습니다. 관련된 모든 서비스 주체를 이 보안 그룹에 추가한 다음 Key Vault에 이 보안 그룹에 대한 액세스를 허용합니다.
+- [Key Vault를 통한 Azure Web App Certificate 배포]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)는 [App Service Certificate](https://azure.microsoft.com/blog/internals-of-app-service-certificate/) 제품의 일부로 Key Vault에 저장된 인증서를 배포하기 위한 단계별 지침을 제공합니다.
+- [여러 응용 프로그램에 Key Vault 액세스 권한 부여](key-vault-group-permissions-for-apps.md) Key Vault 액세스 제어 정책은 최대 1,024개의 항목을 지원합니다. 그러나 Azure Active Directory 보안 그룹을 만들 수 있습니다. 관련된 모든 서비스 주체를 이 보안 그룹에 추가한 다음 Key Vault에 이 보안 그룹에 대한 액세스를 허용합니다.
 - Azure에서 Key Vault를 통합 및 사용하는 방법에 대한 작업별 지침은 [Key Vault에 대한 Ryan Jones Azure Resource Manager 템플릿 예제](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)를 참조하세요.
 - [CLI로 Key Vault 일시 삭제를 사용하는 방법](key-vault-soft-delete-cli.md)에서는 활성화된 일시 삭제를 사용하는 Key Vault 및 다양한 Key Vault 개체의 사용 및 수명 주기에 대해 설명합니다.
 - [PowerShell로 Key Vault 일시 삭제를 사용하는 방법](key-vault-soft-delete-powershell.md)에서는 활성화된 일시 삭제를 사용하는 Key Vault 및 다양한 Key Vault 개체의 사용 및 수명 주기에 대해 설명합니다.
@@ -148,8 +145,7 @@ Node.js에서 Key Vault 관리 API와 Key Vault 개체 API는 별개입니다. �
 ## <a name="key-vault-overviews-and-concepts"></a>Key Vault 개요 및 개념
 
 - [Key Vault 일시 삭제 동작](key-vault-ovw-soft-delete.md)에서는 삭제가 실수인지, 의도적인 것인지에 관계없이 삭제된 개체를 복구할 수 있는 기능에 대해 설명합니다.
-- 
-  [Key Vault 클라이언트 제한](key-vault-ovw-throttling.md)에서는 제한의 기본 개념을 소개하고 앱에 맞는 접근 방식을 제공합니다.
+- [Key Vault 클라이언트 제한](key-vault-ovw-throttling.md)에서는 제한의 기본 개념을 소개하고 앱에 맞는 접근 방식을 제공합니다.
 - [Key Vault 저장소 계정 키 개요](key-vault-ovw-storage-keys.md)에서는 Key Vault 통합 Azure Storage 계정 키에 대해 설명합니다.
 - [Key Vault 보안 권역](key-vault-ovw-security-worlds.md)에서는 지역과 보안 영역 간의 관계를 설명합니다.
 

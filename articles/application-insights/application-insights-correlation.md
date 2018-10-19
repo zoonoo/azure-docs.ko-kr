@@ -9,14 +9,16 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/09/2018
-ms.author: mbullwin; sergkanz
-ms.openlocfilehash: 12b46b4abaa17fe9dd0e9055bca5463312bbd15d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: sergkanz
+ms.author: mbullwin
+ms.openlocfilehash: 696843363bc6617bb11c01cdccb9dbbb7b719a82
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298203"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -72,6 +74,34 @@ STOCKS API라는 외부 API를 사용하여 주식의 현재 시가를 보여 �
 표준은 `Request-Id` 생성의 두 가지 스키마인 플랫 및 계층 구조를 정의합니다. 플랫 스키마의 경우 `Correlation-Context` 컬렉션에 대한 잘 알려진 `Id` 키가 있습니다.
 
 Application Insights에서는 상관 관계 HTTP 프로토콜에 대한 [extension](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md)(확장)을 정의합니다. `Request-Context` 이름-값 쌍을 사용하여 즉각적인 호출자 또는 호출 수신자에서 사용된 속성 컬렉션을 전파합니다. Application Insights SDK는 이 헤더를 사용하여 `dependency.target` 및 `request.source` 필드를 설정합니다.
+
+### <a name="w3c-distributed-tracing"></a>W3C 분산 추적
+
+(W3C 분산 추적 형식)[https://w3c.github.io/distributed-tracing/report-trace-context.html]으로 전환하고 있습니다. 정의:
+- `traceparent` - 전역적으로 고유한 작업 ID와 호출의 고유 식별자를 전달합니다.
+- `tracestate` - 추적 시스템에 대한 특정 컨텍스트를 전달합니다.
+
+#### <a name="enable-w3c-distributed-tracing-support-for-aspnet-classic-apps"></a>ASP.NET 클래식 앱에 W3C 분산 추적 지원을 사용하도록 설정
+
+이 기능은 Microsoft.ApplicationInsights.Web 및 Microsoft.ApplicationInsights.DependencyCollector 패키지의 버전 2.8.0-beta1부터 사용할 수 있습니다.
+기본값은 **off**이며 사용하도록 설정하려면 `ApplicationInsights.config`를 다음과 같이 변경합니다.
+
+* `RequestTrackingTelemetryModule` 아래 `EnableW3CHeadersExtraction` 요소를 추가하고 값을 `true`로 설정합니다.
+* `DependencyTrackingTelemetryModule` 아래 `EnableW3CHeadersInjection` 요소를 추가하고 값을 `true`로 설정합니다.
+
+#### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>ASP.NET Core 앱에 W3C 분산 추적 지원을 사용하도록 설정
+
+이 기능은 Microsoft.ApplicationInsights.AspNetCore 버전 2.5.0-beta1 및 Microsoft.ApplicationInsights.DependencyCollector 버전 2.8.0-beta1에 포함되어 있습니다.
+기본값은 **off**이며 사용하도록 설정하려면 `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing`을 `true`로 설정합니다.
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddApplicationInsightsTelemetry(o => 
+        o.RequestCollectionOptions.EnableW3CDistributedTracing = true );
+    // ....
+}
+```
 
 ## <a name="open-tracing-and-application-insights"></a>Open Tracing 및 Application Insights
 
@@ -135,3 +165,5 @@ telemetry.getContext().getDevice().setRoleName("My Component Name");
 - Application Insights에서 마이크로 서비스의 모든 구성 요소를 등록합니다. [지원되는 플랫폼](app-insights-platforms.md)을 확인합니다.
 - Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](application-insights-data-model.md)을 참조하세요.
 - [원격 분석을 확장 및 필터링](app-insights-api-filtering-sampling.md)하는 방법을 알아봅니다.
+- [Application Insights 구성 참조](app-insights-configuration-with-applicationinsights-config.md)
+

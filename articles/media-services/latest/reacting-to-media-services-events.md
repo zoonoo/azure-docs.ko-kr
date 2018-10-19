@@ -4,19 +4,19 @@ description: Azure Event Grid를 사용하여 Media Services 이벤트를 구독
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 09/19/2018
 ms.author: juliako
-ms.openlocfilehash: 969957d53824bd70440e5529b83bc830bb5d9cc4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 143fec2ddb168b0fff0e419fa5767e9718637241
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782692"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465540"
 ---
 # <a name="reacting-to-media-services-events"></a>Media Services 이벤트에 대응
 
@@ -26,11 +26,20 @@ Media Services 이벤트의 가용성은 Event Grid [가용성](../../event-grid
 
 ## <a name="available-media-services-events"></a>사용 가능한 Media Services 이벤트
 
-Event Grid는 [이벤트 구독](../../event-grid/concepts.md#event-subscriptions)을 사용하여 이벤트 메시지를 구독자에게 라우팅합니다.  현재 Media Services 이벤트 구독에 다음 이벤트 유형을 포함할 수 있습니다.  
+Event Grid는 [이벤트 구독](../../event-grid/concepts.md#event-subscriptions)을 사용하여 이벤트 메시지를 구독자에게 라우팅합니다.  현재 Media Services 이벤트 구독에 다음 이벤트를 포함할 수 있습니다.  
 
 |이벤트 이름|설명|
 |----------|-----------|
 | Microsoft.Media.JobStateChange| 작업의 상태가 변경되면 발생합니다. |
+| Microsoft.Media.LiveEventConnectionRejected | 인코더의 연결 시도가 거부됩니다. |
+| Microsoft.Media.LiveEventEncoderConnected | 인코더에서 라이브 이벤트와의 연결을 설정합니다. |
+| Microsoft.Media.LiveEventEncoderDisconnected | 인코더에서 연결을 끊습니다. |
+| Microsoft.Media.LiveEventIncomingDataChunkDropped | 미디어 서버가 너무 늦거나 타임스탬프가 겹치기 때문에 데이터 청크가 삭제됩니다(새 데이터 청크의 타임스탬프가 이전 데이터 청크의 종료 시간보다 이전임). |
+| Microsoft.Media.LiveEventIncomingStreamReceived | 미디어 서버에서 스트림 또는 연결의 각 트랙에 대한 첫 번째 데이터 청크를 받습니다. |
+| Microsoft.Media.LiveEventIncomingStreamsOutOfSync | 미디어 서버에서 오디오 및 비디오 스트림이 동기화되지 않았음을 감지합니다. 사용자 환경이 영향을 받지 않으므로 이 이벤트는 경고로 사용합니다. |
+| Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | 미디어 서버에서 외부 인코더로부터 들어오는 두 비디오 스트림 중 동기화되지 않은 것을 감지합니다. 사용자 환경이 영향을 받지 않으므로 이 이벤트는 경고로 사용합니다. |
+| Microsoft.Media.LiveEventIngestHeartbeat | 라이브 이벤트가 실행될 때 각 트랙에 대해 20초마다 게시됩니다. 수집 상태 요약을 제공합니다. |
+| Microsoft.Media.LiveEventTrackDiscontinuityDetected | 미디어 서버에서 들어오는 트랙의 불연속성을 감지합니다. |
 
 ## <a name="event-schema"></a>이벤트 스키마
 

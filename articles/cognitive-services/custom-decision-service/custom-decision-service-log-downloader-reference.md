@@ -1,19 +1,21 @@
 ---
-title: LogDownloader - Azure Cognitive Services | Microsoft Docs
+title: LogDownloader - Custom Decision Service
+titlesuffix: Azure Cognitive Services
 description: Azure Custom Decision Service에서 생성된 로그 파일을 다운로드합니다.
 services: cognitive-services
 author: marco-rossi29
-manager: marco-rossi29
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
-ms.openlocfilehash: 783b534b3b3f4bb7f5d9f073f491690759edfea5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8c5ab0e297690f1fbdb41a2627dd63c3ea522d1b
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376966"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366815"
 ---
 # <a name="logdownloader"></a>LogDownloader
 

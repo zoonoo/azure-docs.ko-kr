@@ -1,24 +1,25 @@
 ---
-title: Web Search 엔드포인트 | Microsoft Docs
+title: Web Search 엔드포인트
+titleSuffix: Azure Cognitive Services
 description: News Search API 엔드포인트에 대한 요약 정보입니다.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: v-gedod
-ms.openlocfilehash: 72fbe1a0eb4379ad032e649f7299e37a0214adfb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 3058ca6cf0eb99486dd4c269d43b274fb367f7a9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372943"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125462"
 ---
 # <a name="web-search-endpoint"></a>Web Search 엔드포인트
 **Web Search API**는 웹 페이지, 뉴스, 이미지, 비디오 및 [엔터티](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web)를 반환합니다. 엔터티에는 사람, 장소 또는 토픽에 대한 요약 정보가 포함됩니다.
-## <a name="endpoint"></a>끝점
+## <a name="endpoint"></a>엔드포인트
 Bing API를 사용하여 웹 검색 결과를 가져오려면 `GET` 요청을 다음 엔드포인트로 전송합니다. 헤더 및 URL 매개 변수는 추가 사양을 정의합니다.
 
 **엔드포인트**: `?q=""`에서 정의한 사용자의 검색 쿼리와 관련된 웹 결과를 반환합니다.

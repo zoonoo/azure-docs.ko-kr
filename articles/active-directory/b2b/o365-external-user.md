@@ -4,18 +4,18 @@ description: O365 및 Azure Active Directory B2B 공동 작업을 사용하여 �
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/24/2017
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7e0a65e4a5807cb9a6b39feecfd2d5b2643ea4a9
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: fc789283e56d220f0068277544cb6494e265ee39
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39330707"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45981927"
 ---
 # <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Office 365 외부 공유 및 Azure Active Directory B2B 공동 작업
 
@@ -38,9 +38,14 @@ Azure AD B2B 공동 작업 기능으로 OneDrive/SharePoint Online의 외부 공
 
 ![OneDrive/SharePoint Online 외부 공유 설정](media/o365-external-user/odsp-sharing-setting.png)
 
+외부 공유를 사용하면 SPO(SharePoint Online) 사용자 선택기에서 기존 게스트 사용자를 검색하는 기능은 레거시 동작과 일치시키기 위해 기본적으로 꺼져 있습니다.
+
+이 기능은 테넌트 및 사이트 모음 수준에서 설정 'ShowPeoplePickerSuggestionsForGuestUsers'를 통해 이 기능을 사용하도록 설정할 수 있습니다. 또한 멤버가 디렉터리에서 모든 기존 게스트 사용자를 검색할 수 있도록 허용하는 Set-SPOTenant 및 Set-SPOSite cmdlet을 사용하여 이 기능을 설정할 수 있습니다. 테넌트 범위에 대한 변경 내용은 이미 프로비전된 SPO 사이트에 영향을 주지 않습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure AD B2B 공동 작업이란?](what-is-b2b.md)
 * [역할에 B2B 공동 작업 사용자 추가](add-guest-to-role.md)
 * [B2B 공동 작업 초대 위임](delegate-invitations.md)
 * [동적 그룹 및 B2B 공동 작업](use-dynamic-groups.md)
+* [Azure Active Directory B2B 공동 작업 문제 해결](troubleshoot.md)

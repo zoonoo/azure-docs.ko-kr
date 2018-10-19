@@ -1,6 +1,6 @@
 ---
-title: '서비스 간 인증: Azure Active Directory를 사용하여 .NET SDK로 Data Lake Store 인증 | Microsoft Docs'
-description: Azure Active Directory를 사용하여 .NET SDK로 Data Lake Store 서비스 간 인증을 수행하는 방법을 알아봅니다.
+title: '서비스 간 인증: Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 .NET SDK 인증 | Microsoft Docs'
+description: Azure Active Directory를 사용하여 .NET SDK로 Azure Data Lake Storage Gen1 서비스 간 인증을 수행하는 방법을 알아봅니다.
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 388b84024a031a181625404ec1429087982dffbe
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bd03c0801fed0da6d9a87466bc33819f6afa4578
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625494"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296926"
 ---
-# <a name="service-to-service-authentication-with-data-lake-store-using-net-sdk"></a>.NET SDK를 사용하여 Data Lake Store로 서비스 간 인증
+# <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>.NET SDK를 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증
 > [!div class="op_single_selector"]
 > * [Java 사용](data-lake-store-service-to-service-authenticate-java.md)
 > * [.NET SDK 사용](data-lake-store-service-to-service-authenticate-net-sdk.md)
@@ -27,7 +27,7 @@ ms.locfileid: "34625494"
 > 
 >  
 
-이 문서에서는 .NET SDK를 사용하여 Azure Data Lake Store로 서비스 간 인증을 수행하는 방법을 배웁니다. .NET SDK를 사용한 Data Lake Store 최종 사용자 인증의 경우 [.NET SDK를 사용하여 Data Lake Store로 최종 사용자 인증](data-lake-store-end-user-authenticate-net-sdk.md)을 참조하세요.
+이 문서에서는 .NET SDK를 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증을 수행하는 방법을 배웁니다. .NET SDK를 사용한 Data Lake Storage Gen1 최종 사용자 인증의 경우 [.NET SDK를 사용하여 Data Lake Storage Gen1로 최종 사용자 인증](data-lake-store-end-user-authenticate-net-sdk.md)을 참조하세요.
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -35,7 +35,7 @@ ms.locfileid: "34625494"
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-* **Azure Active Directory "웹" 응용 프로그램 만들기**. [Azure Active Directory를 사용하여 Data Lake Store로 서비스 간 인증](data-lake-store-service-to-service-authenticate-using-active-directory.md)의 단계를 완료해야 합니다.
+* **Azure Active Directory "웹" 응용 프로그램 만들기**. [Azure Active Directory를 사용하여 Data Lake Storage Gen1로 서비스 간 인증](data-lake-store-service-to-service-authenticate-using-active-directory.md)의 단계를 완료해야 합니다.
 
 ## <a name="create-a-net-application"></a>.NET 응용 프로그램 만들기
 1. Visual Studio를 열고 콘솔 응용 프로그램을 만듭니다.
@@ -46,7 +46,7 @@ ms.locfileid: "34625494"
    | --- | --- |
    | Category |Templates/Visual C#/Windows |
    | Template |콘솔 응용 프로그램 |
-   | Name |CreateADLApplication |
+   | 이름 |CreateADLApplication |
 4. **확인**을 클릭하여 프로젝트를 만듭니다.
 
 5. NuGet 패키지를 프로젝트에 추가합니다.
@@ -78,7 +78,7 @@ ms.locfileid: "34625494"
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 ## <a name="service-to-service-authentication-with-client-secret"></a>클라이언트 암호를 사용하여 서비스 간 인증
-.NET 클라이언트 응용 프로그램에서 이 코드 조각을 추가합니다. 자리 표시자 값을 Microsoft Azure Active Directory 웹 응용 프로그램에서 검색된 값(필수 구성 요소로 나열된)으로 바꿉니다.  이 코드 조각을 사용하면 Azure Data Lake Store 웹 응용 프로그램의 클라이언트 암호/키를 사용하여 응용 프로그램을 Data Lake Store에 **비 대화형**으로 인증할 수 있습니다. 
+.NET 클라이언트 응용 프로그램에서 이 코드 조각을 추가합니다. 자리 표시자 값을 Microsoft Azure Active Directory 웹 응용 프로그램에서 검색된 값(필수 구성 요소로 나열된)으로 바꿉니다.  이 코드 조각을 사용하면 Azure AD 웹 응용 프로그램의 클라이언트 비밀/키를 사용하여 응용 프로그램을 Data Lake Storage Gen1에 **비 대화형으로** 인증할 수 있습니다. 
 
     private static void Main(string[] args)
     {    
@@ -97,7 +97,7 @@ ms.locfileid: "34625494"
 
 ## <a name="service-to-service-authentication-with-certificate"></a>인증서를 사용하여 서비스 간 인증
 
-.NET 클라이언트 응용 프로그램에서 이 코드 조각을 추가합니다. 자리 표시자 값을 Microsoft Azure Active Directory 웹 응용 프로그램에서 검색된 값(필수 구성 요소로 나열된)으로 바꿉니다. 이 코드 조각을 사용하면 Microsoft Azure Active Directory 웹 응용 프로그램의 인증서를 사용하여 응용 프로그램을 Data Lake Store에 **비 대화형**으로 인증할 수 있습니다. Microsoft Azure Active Directory 응용 프로그램을 만드는 방법에 대한 지침은 [인증서로 서비스 주체 만들기](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate)를 참조하세요.
+.NET 클라이언트 응용 프로그램에서 이 코드 조각을 추가합니다. 자리 표시자 값을 Microsoft Azure Active Directory 웹 응용 프로그램에서 검색된 값(필수 구성 요소로 나열된)으로 바꿉니다. 이 코드 조각을 사용하면 Azure AD 웹 응용 프로그램의 인증서를 사용하여 응용 프로그램을 Data Lake Storage Gen1에 **비 대화형으로** 인증할 수 있습니다. Microsoft Azure Active Directory 응용 프로그램을 만드는 방법에 대한 지침은 [인증서로 서비스 주체 만들기](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate)를 참조하세요.
 
     
     private static void Main(string[] args)
@@ -116,9 +116,9 @@ ms.locfileid: "34625494"
 앞의 코드 조각은 도우미 함수 `GetCreds_SPI_Cert`를 사용합니다. 이 도우미 함수에 대한 코드는 [여기 Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert)에서 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 서비스 간 인증을 사용하여 .NET SDK로 Azure Data Lake Store를 인증하는 방법을 배웠습니다. 이제 다음 문서를 통해 .NET SDK를 Azure Data Lake Store와 함께 사용하는 방법을 살펴볼 수 있습니다.
+이 문서에서는 .NET SDK를 사용하여 Data Lake Storage Gen1로 인증하는 서비스 간 인증을 사용하는 방법을 배웠습니다. 이제 다음 문서를 통해 .NET SDK를 Data Lake Storage Gen1과 함께 사용하는 방법을 살펴볼 수 있습니다.
 
-* [.NET SDK를 사용한 Data Lake Store에서의 계정 관리 작업](data-lake-store-get-started-net-sdk.md)
-* [.NET SDK를 사용한 Data Lake Store의 데이터 작업](data-lake-store-data-operations-net-sdk.md)
+* [.NET SDK를 사용한 Data Lake Storage Gen1에서의 계정 관리 작업](data-lake-store-get-started-net-sdk.md)
+* [.NET SDK를 사용한 Data Lake Storage Gen1에서의 데이터 작업](data-lake-store-data-operations-net-sdk.md)
 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 57cfa44a0eb114503b89733b2c3e309b65d5b7e5
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 84b32cadbd7d574e01053b61ace1203d495983b4
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023327"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498609"
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Azure PowerShell을 사용하여 인증서로 서비스 주체 만들기
 
@@ -29,7 +29,7 @@ ms.locfileid: "44023327"
 * 무인 스크립트를 실행할 때 인증을 위해 인증서를 사용합니다.
 
 > [!IMPORTANT]
-> 서비스 주체를 만드는 대신 응용 프로그램 ID에 Azure AD 관리되는 서비스 ID를 사용하는 것이 좋습니다. Azure AD MSI는 코드에 대한 ID 만들기를 간소화하는 Azure Active Directory의 공개 미리 보기 기능입니다. 코드가 Azure AD MSI를 지원하는 서비스에서 실행되고 Azure Active Directory 인증을 지원하는 리소스에 액세스하는 경우 Azure AD MSI를 사용하는 것이 좋습니다. 현재 지원되는 서비스를 비롯하여 Azure AD MSI에 대한 자세한 내용은 [Azure 리소스에 대한 관리 서비스 ID](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
+> 서비스 주체를 만드는 대신 응용 프로그램 ID에 Azure 리소스에 대한 관리 ID를 사용하는 것이 좋습니다. 코드가 관리 ID를 지원하는 서비스에서 실행되고 Azure Active Directory 인증을 지원하는 리소스에 액세스하는 경우 관리 ID를 사용하는 것이 더 좋습니다. Azure 리소스에 대한 관리 ID 및 이것이 지원되는 서비스를 알아보려면 [Azure 리소스에 대한 관리 ID란?](../active-directory/managed-identities-azure-resources/overview.md)을 참조하세요.
 
 이 아티클에서는 인증서로 인증하는 서비스 주체를 만드는 방법을 보여줍니다. 암호를 사용하여 서비스 주체를 설정하려면 [Azure PowerShell을 사용하여 Azure 서비스 주체 만들기](/powershell/azure/create-azure-service-principal-azureps)를 참조하세요.
 
@@ -207,9 +207,9 @@ Get-AzureRmADApplication -DisplayName exampleapp | New-AzureRmADAppCredential `
 
 서비스 주체를 만들 때 다음과 같은 오류가 발생할 수 있습니다.
 
-* **"Authentication_Unauthorized"** 또는 **"컨텍스트에서 구독을 찾을 수 없습니다."** - 계정에 Azure Active Directory에서 앱을 등록하는 데 [필요한 권한](#required-permissions)이 없으면 이 오류가 발생합니다. 일반적으로 Azure Active Directory의 관리 사용자만 앱을 등록할 수 있고 사용자 계정은 관리자가 아니면 이 오류가 표시됩니다. 관리자 역할에 사용자를 할당하거나 사용자가 앱을 등록할 수 있게 설정하도록 관리자에게 요청합니다.
+* **"Authentication_Unauthorized"** 또는 **"컨텍스트에서 구독을 찾을 수 없습니다."** - 계정에 Azure Active Directory에서 앱을 등록하는 데 [필요한 권한](#required-permissions)이 없으면 이 오류가 발생합니다. 일반적으로 Azure Active Directory의 관리 사용자만 앱을 등록할 수 있고 내 계정이 관리자가 아니면 이 오류가 표시됩니다. 관리자 역할에 사용자를 할당하거나 사용자가 앱을 등록할 수 있게 설정하도록 관리자에게 요청합니다.
 
-* 계정에 **"'/subscriptions/{guid}' 범위에 대해 'Microsoft.Authorization/roleAssignments/write' 작업을 수행할 수 있는 권한이 없습니다."** - 계정에 ID에 역할을 할당할 수 있는 충분한 권한이 없을 때 이 오류가 표시됩니다. 구독 관리자에게 사용자 액세스 관리자 역할에 사용자를 추가할 것을 요청합니다.
+* 계정에 **"'/subscriptions/{guid}' 범위에 대해 'Microsoft.Authorization/roleAssignments/write' 작업을 수행할 수 있는 권한이 없습니다."** - 이 오류는 ID에 역할을 할당할 수 있는 충분한 권한이 계정에 없을 때 표시됩니다. 구독 관리자에게 사용자 액세스 관리자 역할에 사용자를 추가할 것을 요청합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * 암호를 사용하여 서비스 주체를 설정하려면 [Azure PowerShell을 사용하여 Azure 서비스 주체 만들기](/powershell/azure/create-azure-service-principal-azureps)를 참조하세요.

@@ -1,25 +1,25 @@
 ---
-title: Bing 썸네일 크기 조정 및 자르기 | Microsoft Docs
-description: Bing 응답에 포함된 썸네일의 크기를 조정하고 자르는 방법을 보여 줍니다.
+title: Bing 썸네일 크기 조정 및 자르기 - Bing Image Search API
+description: Bing Image Search API의 응답에 포함된 썸네일의 크기를 조정하고 자르는 방법을 알아봅니다.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: F4FFAE91-A003-4F7C-8E60-83A142485E28
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 98c4caa50ca5e861f4276e26983ef501d17bd349
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: de82cc5554af91294dda3826dfb394cc94dbf3d0
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42093810"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296230"
 ---
 # <a name="resizing-and-cropping-thumbnail-images"></a>썸네일의 크기 조정 및 자르기
 
-검색 쿼리가 처리되는 즉시, Bing은 [응답](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#bing-image-search-response-format)의 모든 이미지에 대한 썸네일 정보를 생성합니다. 이 정보는 반환되는 썸네일을 모두 또는 하위 집합을 표시하는 데 사용할 수 있습니다. 하위 집합을 표시하는 경우 나머지 이미지를 볼 수 있는 옵션도 제공해야 합니다. 
+검색 쿼리가 처리되는 즉시, Bing은 [응답](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#bing-image-search-response-format)의 모든 이미지에 대한 썸네일 정보를 생성합니다. 이 정보는 반환되는 썸네일을 모두 또는 하위 집합을 표시하는 데 사용할 수 있습니다. 하위 집합을 표시하는 경우 나머지 이미지를 볼 수 있는 옵션도 제공해야 합니다.
 
 
 <!-- Removing image until we can replace it with a sanatized version.
@@ -38,8 +38,8 @@ ms.locfileid: "42093810"
 
 ## <a name="resizing-and-cropping-thumbnails"></a>썸네일 크기 조정 및 자르기
 
-사용자가 커서를 썸네일 위로 이동하는 경우처럼 썸네일의 크기를 조정하고 확장할 수도 있습니다. 
+사용자가 커서를 썸네일 위로 이동하는 경우처럼 썸네일의 크기를 조정하고 확장할 수도 있습니다.
 > [!NOTE]
-> 확대하는 경우 이미지의 특성을 확인합니다. 예를 들어 [hostPageDisplayUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-hostpagedisplayurl)에서 호스트를 추출하여 이미지 아래에 표시하여 확인합니다. 
+> 확대하는 경우 이미지의 특성을 확인합니다. 예를 들어 [hostPageDisplayUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-hostpagedisplayurl)에서 호스트를 추출하여 이미지 아래에 표시하여 확인합니다.
 
 [!INCLUDE [cognitive-services-bing-resize-crop-thumbnails](../../../includes/cognitive-services-bing-resize-crop-thumbnails.md)]

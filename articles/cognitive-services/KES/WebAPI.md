@@ -1,23 +1,26 @@
 ---
-title: Knowledge Exploration Service API의 Web API 인터페이스 | Microsoft Docs
-description: Web API 인터페이스를 사용하여 Cognitive Services의 KES(Knowledge Exploration Service) API에서 풍부한 의미 체계 환경을 만들 수 있습니다.
+title: Web API 인터페이스 - Knowledge Exploration Service API
+titlesuffix: Azure Cognitive Services
+description: Web API 인터페이스를 사용하여 KES(Knowledge Exploration Service) API에서 풍부한 의미 체계 검색 환경을 만들 수 있습니다.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 16c5680eb4f249a5d37e6b90eea92cfff7090eef
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5be39e8dce6aeeef32d20273c56650620d6fe986
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372958"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122028"
 ---
 # <a name="web-api-interface"></a>Web API 인터페이스
+
 Knowledge Exploration Service에서 만드는 모델 파일은 Web API 집합을 통해 호스트 및 액세스할 수 있습니다.  이 API는 [`host_service`](CommandLine.md#host_service-command) 명령을 사용하여 로컬 컴퓨터에 호스트하거나, [`deploy_service`](CommandLine.md#deploy_service-command) 명령을 사용하여 Azure 클라우드 서비스에 배포할 수 있습니다.  두 기술 모두 다음과 같은 API 엔드포인트를 노출합니다.
+
 * [*interpret*](interpretMethod.md) – 자연어 쿼리 문자열을 해석합니다. 주석이 추가된 해석을 반환하여 사용자가 입력하는 내용을 예측하는 풍부한 검색 상자 자동 완성 환경을 지원합니다.
 * [*evaluate*](evaluateMethod.md) – 구조화된 쿼리 식의 출력을 평가 및 반환합니다.
 * [*calchistogram*](calchistogramMethod.md) – 구조화된 쿼리 식에서 반환한 개체의 특성 값 히스토그램을 계산합니다.

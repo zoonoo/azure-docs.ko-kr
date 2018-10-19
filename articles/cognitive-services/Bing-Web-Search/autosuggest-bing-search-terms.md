@@ -1,23 +1,23 @@
 ---
-title: Autosuggest Bing 검색 용어
-titleSuffix: Microsoft Cognitive Services
+title: Autosuggest 검색어 - Bing Web Search API
+titleSuffix: Azure Cognitive Services
 description: Bing Web Search API는 Bing Autosuggest API와 함께 사용자에게 향상된 검색 환경을 제공합니다.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 8/13/2018
 ms.author: erhopf
-ms.openlocfilehash: df8a57b3136abfacce971f4d01ccb2296dfa784c
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 475ddfc2bcd9acd1312348a6c85e3d4627e48a3d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42890064"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128947"
 ---
-# <a name="autosuggest-bing-search-terms"></a>Autosuggest Bing 검색 용어
+# <a name="autosuggest-bing-search-terms-in-your-application"></a>응용 프로그램의 Autosuggest Bing 검색어
 
 사용자가 자신의 검색 용어를 입력할 수 있는 검색 상자를 제공하는 경우 [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md)를 사용하여 환경을 개선합니다. API는 부분 검색 용어 기반의 제안된 쿼리 문자열을 사용자 형식으로 반환합니다.
 

@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 1a7ecbe42857e522785d5919d46b783feae4caeb
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: db008953b9aa596a64aceccacc0e4632ebfff596
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494128"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720126"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?
 Single Sign-On이란 단일 사용자 계정을 사용하여 한 번만 로그인함으로써 비즈니스를 수행하는데 필요한 모든 응용 프로그램 및 리소스에 액세스할 수 있음을 의미합니다. 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 응용 프로그램에 액세스할 수 있습니다.
@@ -46,7 +46,7 @@ Azure AD는 응용 프로그램에 로그인하는 세 가지 방법을 지원�
 
 * **페더레이션된 Single Sign-On**을 사용하면 사용자 인증을 위해 암호를 묻는 메시지를 표시하지 않고 응용 프로그램에서 Azure AD로 리디렉션할 수 있습니다. 페더레이션된 Single Sign-On은 SAML 2.0, WS-Federation 또는 OpenID Connect와 같은 프로토콜을 지원하는 응용 프로그램에 대해 지원되며, 가장 강력한 Single Sign-On 모드입니다.
 * **암호 기반 Single Sign-On**을 사용하면 웹 브라우저 확장 또는 모바일 응용 프로그램을 사용하여 안전한 응용 프로그램 암호 저장 및 재생이 가능합니다. 암호 기반 Single Sign-On은 응용 프로그램에서 제공하는 기존 프로세스를 사용하지만, 관리자가 암호를 관리할 수 있으므로 사용자는 암호를 몰라도 됩니다.
-* **기존 Single Sign-On**을 사용하면 Azure AD에서 응용 프로그램에 대해 설정된 기존의 Single Sign-On을 활용하여, 응용 프로그램을 Office 365 또는 Azure AD 액세스 패널 포털에 연결할 수 있습니다. 또한 해당 위치에서 응용 프로그램을 시작할 때 Azure AD에서 추가적인 보고가 가능합니다.
+* **연결된 Single Sign-On**을 사용하면 Azure AD에서 응용 프로그램에 대해 설정된 기존의 Single Sign-On을 활용할 수 있지만, 이러한 응용 프로그램을 Office 365 또는 Azure AD 액세스 패널 포털에 연결할 수 있습니다. 또한 Azure AD에서 응용 프로그램이 시작될 때 추가적으로 보고할 수 있습니다.
 
 사용자가 응용 프로그램을 통해 인증을 받으면 응용 프로그램에서 계정 레코드가 프로비전되어 있어야 합니다. 계정 레코드는 응용 프로그램 내의 사용 권한 및 액세스 수준이 있는 위치를 응용 프로그램에 알려줍니다. 이 계정 레코드의 프로비저닝은 자동으로 되거나, 사용자에게 Single Sign-On 액세스를 제공하기 전에 관리자에 의해 수동으로 발생할 수 있습니다. 
 
@@ -79,17 +79,17 @@ Azure AD는 HTML 기반 로그인 페이지가 있는 모든 클라우드 기반
 * Chrome - Windows 7 이상 및 Mac OS X 이상
 * Firefox 26.0 이상 - Windows XP SP2 이상 및 Mac OS X 10.6 이상
 
-### <a name="existing-single-sign-on"></a>기존 Single Sign-On
-응용 프로그램에 대한 Single Sign-On을 구성할 때 Azure Portal은 "기존 Single Sign-On”이라는 세 번째 옵션을 제공합니다. 이 옵션을 사용하면 관리자가 응용 프로그램에 대한 링크를 만들어 선택된 사용자의 액세스 패널에 배치할 수 있습니다. 
+### <a name="linked-single-sign-on"></a>연결된 Single Sign-On
+응용 프로그램에 대한 Single Sign-On을 구성할 때 Azure Portal에서는 "연결된 Single Sign-On"이라는 세 번째 옵션을 제공합니다. 이 옵션을 사용하면 관리자가 응용 프로그램에 대한 링크를 만들어 선택된 사용자의 액세스 패널에 배치할 수 있습니다. 
 
-예를 들어 Active Directory Federation Services 2.0을 사용하여 사용자를 인증하도록 구성된 응용 프로그램이 있는 경우, 관리자가 "기존 Single Sign-On" 옵션을 사용하여 액세스 패널에 이에 대한 링크를 만들 수 있습니다.  사용자가 이 링크에 액세스하는 경우 Active Directory Federation Services 2.0을 사용하거나 응용 프로그램에서 제공하는 기존 Single Sign-On 솔루션을 사용하여 인증을 받습니다.
+예를 들어 Active Directory Federation Services 2.0을 사용하여 사용자를 인증하도록 구성된 응용 프로그램이 있는 경우, 관리자는 "연결된 Single Sign-On" 옵션을 사용하여 이 응용 프로그램에 대한 링크를 액세스 패널에 만들 수 있습니다. 사용자가 이 링크에 액세스하는 경우 Active Directory Federation Services 2.0을 사용하거나 응용 프로그램에서 제공하는 기존 Single Sign-On 솔루션을 사용하여 인증을 받습니다.
 
 ### <a name="user-provisioning"></a>사용자 프로비전
 선택된 응용 프로그램의 경우 Azure AD를 사용하면 Windows Server Active Directory 또는 Azure AD ID 정보를 사용하여 Azure Portal 내의 타사 SaaS 응용 프로그램에서 자동화된 사용자 프로비전 및 프로비전 해제가 가능합니다. 이러한 응용 프로그램 중 하나에 대해 Azure AD의 사용자 권한을 사용자에게 제공하면 대상 SaaS 응용 프로그램에 계정을 자동으로 만들거나 프로비전할 수 있습니다.
 
 Azure AD에서 사용자가 삭제되거나 사용자 정보가 변경되면 변경 내용은 SaaS 응용 프로그램에도 반영됩니다. 즉, 자동화된 ID 수명 주기 관리를 구성하면 관리자가 SaaS 응용 프로그램에서 자동화된 프로비저닝 및 프로비저닝 해제를 제어하고 제공할 수 있습니다.  Azure AD에서 이러한 ID 수명 주기 관리의 자동화는 사용자 프로비저닝에 의해 활성화됩니다. 
 
-자세한 내용은 [SaaS 응용 프로그램에 자동화된 사용자 프로비저닝 및 프로비저닝 해제](../active-directory-saas-app-provisioning.md)
+자세한 내용은 [SaaS 응용 프로그램에 자동화된 사용자 프로비저닝 및 프로비저닝 해제](user-provisioning.md)
 
 ## <a name="get-started-with-the-azure-ad-application-gallery"></a>Azure AD 응용 프로그램 갤러리 시작
 시작할 준비가 되셨습니까? 조직에서 사용하는 Azure AD와 SaaS 응용 프로그램 간에 Single Sign-On을 배포하려면 다음 지침을 따르세요.
@@ -109,7 +109,7 @@ Azure AD에서 사용자가 삭제되거나 사용자 정보가 변경되면 변
 ### <a name="application-not-in-the-gallery"></a>응용 프로그램이 갤러리에 없습니까?
 응용 프로그램이 Azure AD 응용 프로그램 갤러리에 없으면 다음과 같은 옵션이 제공됩니다.
 
-* **사용 중이지만 목록에 없는 앱 추가** - Azure Portal 내에 있는 앱 갤러리에서 사용자 지정 범주를 사용하여, 조직에서 사용 중이지만 목록에 없는 응용 프로그램을 연결합니다. SAML 2.0을 페더레이션된 앱으로 지원하는 모든 응용 프로그램 또는 HTML 기반 로그인 페이지가 암호 SSO 앱으로 있는 모든 응용 프로그램을 추가할 수 있습니다. 자세한 내용은 [고유한 응용 프로그램 추가](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)에 대한 이 문서를 참조하세요.
+* **사용 중이지만 목록에 없는 앱 추가** - Azure Portal 내에 있는 앱 갤러리에서 사용자 지정 범주를 사용하여, 조직에서 사용 중이지만 목록에 없는 응용 프로그램을 연결합니다. SAML 2.0을 페더레이션된 앱으로 지원하는 모든 응용 프로그램 또는 HTML 기반 로그인 페이지가 암호 SSO 앱으로 있는 모든 응용 프로그램을 추가할 수 있습니다. 자세한 내용은 [고유한 응용 프로그램 추가](configure-federated-single-sign-on-non-gallery-applications.md)에 대한 이 문서를 참조하세요.
 * **개발 중인 고유한 앱 추가** - 사용자가 직접 응용 프로그램을 개발한 경우 Azure AD 개발자 설명서의 지침에 따라 페더레이션된 Single Sign-On 또는 프로비저닝을 구현할 수 있습니다. 이러한 응용 프로그램은 Azure AD Graph API를 사용할 수 있습니다. 자세한 내용은 다음 리소스를 참조하세요. 
   
   * [Azure AD의 인증 시나리오](../develop/authentication-scenarios.md)
@@ -172,7 +172,7 @@ SAML 2.0, WS-Federation 또는 OpenID Connect를 지원하는 대부분의 페�
 ![](./media/what-is-single-sign-on/workdaymobile.png)
 
 ### <a name="direct-sign-on-links-for-federated-password-based-or-existing-apps"></a>페더레이션된 앱, 암호로 보호된 앱 또는 기존 앱에 대한 직접 로그온 링크
-Azure AD는 암호 기반 Single Sign-On, 기존 Single Sign-On 및 모든 형태의 페더레이션된 Single Sign-On을 지원하는 개별 응용 프로그램에 대한 직접 Single Sign-On 링크를 지원합니다. 
+Azure AD는 암호 기반 Single Sign-On, 연결된 Single Sign-On 및 모든 형태의 페더레이션된 Single Sign-On을 지원하는 개별 응용 프로그램에 대한 직접 Single Sign-On 링크도 지원합니다.
 
 이러한 링크는 사용자가 Azure AD 액세스 패널이나 Office 365에서 시작하지 않아도 Azure AD 로그인 프로세스를 통해 사용자를 특정 응용 프로그램으로 보내는, 특별히 제작된 URL입니다. 이러한 Single Sign-On URL은 아래 스크린샷에 표시된 것처럼 Azure Portal의 Active Directory 섹션에서 사전 통합된 응용 프로그램의 대시보드 탭 아래에 있습니다.
 
@@ -191,7 +191,6 @@ Azure AD는 암호 기반 Single Sign-On, 기존 Single Sign-On 및 모든 형�
 이러한 링크는 액세스 패널 및 Office 365와 동일한 액세스 제어 메커니즘을 사용하며, Azure Portal에서 응용 프로그램에 할당된 해당 사용자나 그룹만 성공적으로 인증할 수 있습니다. 그러나 권한이 없는 사용자에게는 액세스 권한이 부여되지 않았음을 설명하는 메시지가 표시되고, 액세스할 수 있는 사용 가능한 응용 프로그램을 볼 수 있는 액세스 패널 로드에 대한 링크가 제공됩니다.
 
 ## <a name="related-articles"></a>관련 문서
-* [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](../active-directory-apps-index.md)
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)
 * [Cloud Discovery 설정](/cloud-app-security/set-up-cloud-discovery)
 * [앱에 대한 액세스 관리 소개](what-is-access-management.md)

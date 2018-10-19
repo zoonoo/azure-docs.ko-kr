@@ -1,6 +1,7 @@
 ---
-title: Bing Image Search API에 쿼리 보내기 | Microsoft Docs
-description: Bing Image Search API에 보낸 검색 쿼리를 보내고 사용자 지정하는 방법에 대해 알아봅니다.
+title: 이미지 쿼리 보내기 - Bing Image Search API
+titleSuffix: Azure Cognitive Services
+description: Bing Image Search API에 보낸 검색 쿼리를 사용자 지정하는 것에 대해 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,26 +11,26 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 8/8/2018
 ms.author: aahi
-ms.openlocfilehash: d74f59ffcf095e639686a3ada3b09dac988fc544
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 5d2dcc60a8707394ec07a76e3286929db365c651
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "40082524"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296518"
 ---
-# <a name="sending-queries-to-the-bing-image-search-api"></a>Bing Image Search API에 쿼리 보내기
+# <a name="send-queries-to-the-bing-image-search-api"></a>Bing Image Search API로 쿼리 보내기
 
-Bing Images Search API는 사용자 검색 쿼리를 Bing에 전송하고 관련 이미지 목록을 받을 수 있게 하여 Bing.com/Images와 유사한 환경을 제공합니다.
+Bing Image Search API는 Bing.com/Images와 유사한 환경을 제공합니다. 이를 사용하여 Bing에 검색 쿼리를 보내고 관련 이미지 목록을 다시 가져올 수 있습니다.
 
-## <a name="using-and-suggesting-search-terms"></a>검색 용어 사용 및 제안
+## <a name="use-and-suggest-search-terms"></a>검색어 사용 및 제안
 
-검색 용어를 입력하면 [**q**](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query) 쿼리 매개 변수를 설정하기 전에 해당 용어를 URL 인코딩합니다. 예를 들어 사용자가 *소형 범선*을 입력한 경우 `q`를 `sailing+dinghies` 또는 `sailing%20dinghies`로 설정합니다.
+검색어를 입력한 후, [**q**](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query) 쿼리 매개 변수를 설정하기 전에 해당 용어를 URL 인코딩합니다. 예를 들어 사용자가 *sailing dinghies(소형 범선)* 을 입력한 경우 `q`를 `sailing+dinghies` 또는 `sailing%20dinghies`로 설정합니다.
 
-앱에 검색 용어를 입력한 검색 상자가 있는 경우 제안된 검색 용어를 실시간으로 표시하여 환경을 개선하기 위해 [Bing Autosuggest API](../../bing-autosuggest/get-suggested-search-terms.md)를 사용할 수 있습니다. API는 부분 검색 용어 및 Azure Cognitive Services에 따라 제안된 쿼리 문자열을 반환합니다.
+앱에 검색어를 입력한 검색 상자가 있는 경우 환경을 개선하기 위해 [Bing Autosuggest API](../../bing-autosuggest/get-suggested-search-terms.md)를 사용할 수 있습니다. API는 제안된 검색어를 실시간으로 표시할 수 있습니다. API는 부분 검색어 및 Cognitive Services를 기반으로 제안된 쿼리 문자열을 반환합니다.
 
-## <a name="pivoting-the-query"></a>쿼리 피벗
+## <a name="pivot-the-query"></a>쿼리 피벗
 
-Bing에서 원래 검색 쿼리를 분할할 수 있는 경우 반환된 [이미지](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) 개체에는 사용자에 게 선택적 검색 용어로 표시될 수 있는 `pivotSuggestions`가 포함됩니다. 예를 들어 원래 쿼리가 *Microsoft Surface*인 경우 Bing은 쿼리를 *Microsoft* 및 *Surface*로 분할하고 각각에 피벗을 제안할 수 있습니다. 이러한 사용자에게 선택적 쿼리 용어로 표시될 수 있습니다.
+Bing이 원래 검색 쿼리를 분할할 수 있는 경우 반환된 [이미지](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) 개체에는 `pivotSuggestions`가 포함됩니다. 사용자에게 선택적 검색어로 피벗 제안을 표시할 수 있습니다. 예를 들어 원래 쿼리가 *Microsoft Surface*인 경우 Bing은 쿼리를 *Microsoft* 및 *Surface*로 분할하고 각각에 피벗을 제안할 수 있습니다. 사용자에게 선택적 쿼리 용어로 이러한 제안을 표시할 수 있습니다.
 
 다음 예제에서는 *Microsoft Surface*에 대한 피벗 제안 사항을 보여줍니다.  
 
@@ -90,9 +91,9 @@ Bing에서 원래 검색 쿼리를 분할할 수 있는 경우 반환된 [이미
 }
 ```
 
-`pivotSuggestions` 필드에는 원래 쿼리가 분할된 세그먼트(피벗) 목록이 포함됩니다. 각 피벗에 대한 응답에는 제안된 쿼리를 포함하는 [쿼리](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query_obj) 개체 목록이 포함됩니다. `text` 필드에는 제안된 쿼리가 포함되며 `displayText` 필드에는 원래 쿼리의 피벗을 대체하는 용어가 포함됩니다. 예를 들어 Surface의 릴리스 날짜입니다.
+`pivotSuggestions` 필드에는 원래 쿼리가 분할된 세그먼트(피벗) 목록이 포함됩니다. 각 피벗에 대한 응답에는 제안된 쿼리를 포함하는 [쿼리](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query_obj) 개체 목록이 포함됩니다. `text` 필드에는 제안된 쿼리가 포함됩니다. `displayText` 필드에는 원래 쿼리의 피벗을 대체하는 용어가 포함됩니다. 예를 들어 Release Date of Surface(Surface의 릴리스 날짜)입니다.
 
-피벗 쿼리 문자열이 실제로 원하는 것인 경우 피벗 쿼리 문자열을 사용자에게 표시하려면 `text` 및 `thumbnail` 필드를 사용할 수 있습니다. `webSearchUrl` URL 또는 `searchLink` URL을 사용하여 썸네일 및 텍스트를 클릭할 수 있게 만듭니다. Bing 검색 결과를 사용자에게 보내려면 `webSearchUrl`을, 직접 결과 페이지를 제공하는 경우 `searchLink`를 사용합니다.
+피벗 쿼리 문자열이 사용자가 찾는 것이라면 `text` 및 `thumbnail` 필드를 사용하여 피벗 쿼리 문자열을 표시합니다. `webSearchUrl` URL 또는 `searchLink` URL을 사용하여 썸네일 및 텍스트를 클릭할 수 있게 만듭니다. `webSearchUrl`을 사용하여 Bing 검색 결과로 사용자를 보냅니다. 고유한 결과 페이지를 제공하는 경우 `searchLink`를 사용합니다.
 
 <!-- Need a sanitized version of the image
 The following shows an example of the pivot queries.
@@ -100,9 +101,13 @@ The following shows an example of the pivot queries.
 ![Pivot suggestions](./media/cognitive-services-bing-images-api/bing-image-pivotsuggestion.GIF)
 -->
 
-## <a name="expanding-the-query"></a>쿼리 확장
+## <a name="expand-the-query"></a>쿼리 확장
 
-Bing이 원래 검색을 좁히기 위해 쿼리를 확장하는 경우 [이미지](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) 개체에는 `queryExpansions` 필드가 포함됩니다. 예를 들어 쿼리가 *Microsoft Surface*인 경우 확장된 쿼리는 Microsoft Surface **Pro 3**, Microsoft Surface **RT**, Microsoft Surface **Phone** 및 Microsoft Surface **Hub**가 될 수 있습니다.
+Bing이 원래 검색을 좁히기 위해 쿼리를 확장하는 경우 [이미지](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) 개체에는 `queryExpansions` 필드가 포함됩니다. 예를 들어 쿼리가 *Microsoft Surface*인 경우 확장된 쿼리는 다음과 같을 수 있습니다.
+- Microsoft Surface **Pro 3**.
+- Microsoft Surface **RT**.
+- Microsoft Surface **Phone**.
+- Microsoft Surface **Hub**.
 
 다음 예제에서는 *Microsoft Surface*에 대한 확장된 쿼리를 보여줍니다.
 
@@ -144,7 +149,7 @@ Bing이 원래 검색을 좁히기 위해 쿼리를 확장하는 경우 [이미�
 }
 ```
 
-`queryExpansions` 필드에는 [쿼리](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query_obj) 개체 목록이 포함됩니다. `text` 필드에는 확장된 쿼리가 포함되며 `displayText` 필드에는 확장 용어가 포함됩니다. 확장된 쿼리 문자열이 실제로 원하는 것인 경우 확장된 쿼리 문자열을 사용자에게 표시하려면 `text` 및 `thumbnail` 필드를 사용할 수 있습니다. `webSearchUrl` URL 또는 `searchLink` URL을 사용하여 썸네일 및 텍스트를 클릭할 수 있게 만듭니다. Bing 검색 결과를 사용자에게 보내려면 `webSearchUrl`을, 직접 결과 페이지를 제공하는 경우 `searchLink`를 사용합니다.
+`queryExpansions` 필드에는 [쿼리](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query_obj) 개체 목록이 포함됩니다. `text` 필드에는 확장된 쿼리가 포함됩니다. `displayText` 필드에는 확장 용어가 포함됩니다. 확장된 쿼리 문자열이 사용자가 찾는 것이라면 `text` 및 `thumbnail` 필드를 사용하여 확장된 쿼리 문자열을 표시합니다. `webSearchUrl` URL 또는 `searchLink` URL을 사용하여 썸네일 및 텍스트를 클릭할 수 있게 만듭니다. `webSearchUrl`을 사용하여 Bing 검색 결과로 사용자를 보냅니다. 고유한 결과 페이지를 제공하는 경우 `searchLink`를 사용합니다.
 
 <!-- Removing until we can replace with a sanitized image.
 The following shows an example Bing implementation that uses expanded queries. If the user clicks the Microsoft Surface Pro 3 link, they're taken to the Bing search results page, which shows them images of the Pro 3.

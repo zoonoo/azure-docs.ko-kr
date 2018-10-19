@@ -10,15 +10,22 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: 204a9d64d14fe190cb0de73c964bb95b4b9b475f
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: e265a66b841530d1133d760ebdcdf56046d1aee1
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628769"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364133"
 ---
 # <a name="understand-data-retention-in-time-series-insights"></a>Time Series Insights의 데이터 보존 기간 이해
+
 이 아티클에서는 TSI(Time Series Insights) 환경의 데이터 보존 기간에 영향을 주는 두 가지 설정을 설명합니다.
+
+## <a name="video"></a>비디오: 
+
+### <a name="in-this-video-we-cover-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>이 비디오에서는 Time Series Insights 데이터 보존 및 이에 대한 계획을 세우는 방법을 설명합니다.</br>
+
+> [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
 각 TSI 환경에는 **데이터 보존 시간**을 제어하는 설정이 있습니다. 값의 범위는 1~400일입니다. 데이터는 환경 저장소 용량 또는 보존 기간(1-400) 중 더 빠른 시간을 기준으로 삭제됩니다.
 

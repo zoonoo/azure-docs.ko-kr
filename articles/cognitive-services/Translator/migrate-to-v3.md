@@ -1,37 +1,38 @@
 ---
-title: Microsoft Translator Text API - V3로 마이그레이션 | Microsoft Docs
+title: V3으로 마이그레이션 - Translator Text API
+titlesuffix: Azure Cognitive Services
 description: Translator Text API의 V2에서 V3으로 마이그레이션하는 방법을 알아봅니다.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: 16fec351af5b5b3875657ee244c18f305311d965
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: eaf65bef28110d73378c213ae4781a409b86e1bd
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377542"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128182"
 ---
-# <a name="microsoft-translator-text-api-v2-to-v3-migration"></a>Microsoft Translator Text API V2에서 V3으로 마이그레이션
+# <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2에서 V3으로 마이그레이션
 
-Microsoft Translator 팀은 Text Translation API의 버전 3(V3)을 릴리스했습니다. 이 릴리스에는 새로운 기능, 사용되지 않는 메서드 및 Microsoft Translator Service 간에 데이터를 보내고 받는 새 형식이 포함되어 있습니다. 이 문서에서는 V3을 사용할 응용 프로그램을 변경하는 정보를 제공합니다. V2는 2018년 4월 30일에 사용되지 않고 2019년 4월 30일에 사용이 중단될 예정입니다.
+Microsoft Translator 팀은 Translator Text API의 버전 3(V3)을 릴리스했습니다. 이 릴리스에는 새로운 기능, 사용되지 않는 메서드 및 Microsoft Translator Service 간에 데이터를 보내고 받는 새 형식이 포함되어 있습니다. 이 문서에서는 V3을 사용할 응용 프로그램을 변경하는 정보를 제공합니다. V2는 2018년 4월 30일에 사용되지 않고 2019년 4월 30일에 사용이 중단될 예정입니다.
 
 이 문서의 끝에는 자세히 알아볼 유용한 링크가 포함됩니다.
 
 ## <a name="summary-of-features"></a>기능 요약
 
-* No Trace - V3에서 No Trace는 Azure Portal에서 모든 가격 책정 계층에 적용됩니다. 즉, V3 API에 제출된 텍스트가 Microsoft에 저장되지 않습니다.
+* No Trace - V3에서 No Trace는 Azure Portal에서 모든 가격 책정 계층에 적용됩니다. 이 기능은 V3 API에 제출된 텍스트가 Microsoft에 저장되지 않습니다.
 * JSON - XML은 JSON으로 바뀝니다. 서비스에 보내고 서비스로부터 받은 모든 데이터는 JSON 형식입니다.
 * 단일 요청의 여러 대상 언어 - 변환 메서드는 단일 요청의 변환에 여러 '대상' 언어를 허용합니다. 예를 들어 단일 요청은 '원본' 영어 및 '대상' 독일어, 스페인어 및 일본어 또는 다른 그룹의 언어일 수 있습니다.
 * 이중언어 사전 - 이중언어 사전 메서드가 API에 추가되었습니다. 이 메서드에는 '조회' 및 '예제'가 포함됩니다.
 * 음역 - 음역 메서드가 API에 추가되었습니다. 이 메서드는 하나의 스크립트에서 단어 및 문장(예: 아랍어)을 다른 스크립트(예: 라틴어)로 변환합니다.
 * 언어 - 새로운 '언어' 메서드는 '번역', '사전' 및 '음역' 메서드와 함께 사용하기 위해 JSON 형식으로 언어 정보를 제공합니다.
 * 번역에 대한 새로운 기능 - 새 기능이 '번역' 메서드에 추가되어 별도 메서드로 V2 API에 있던 기능 중 일부를 지원합니다. 예제는 TranslateArray입니다.
-* 음성 메서드 - 텍스트 음성 변환 기능이 더 이상 Microsoft 변환기 API에서 지원되지 않습니다. 텍스트 음성 변환 기능은 Microsoft Azure Cognitive 서비스 Bing Speech API에서 사용할 수 있습니다.
+* 음성 메서드 - 텍스트 음성 변환 기능이 더 이상 Microsoft 변환기 API에서 지원되지 않습니다. 텍스트 음성 변환 기능은 Azure Cognitive 서비스 Bing Speech API에서 사용할 수 있습니다.
 
 다음과 같은 V2 및 V3 메서드 목록은 V2와 함께 포함된 기능을 제공하는 V3 메서드 및 API를 식별합니다.
 
@@ -103,9 +104,9 @@ Microsoft Translator V3는 V2와 동일한 방식으로 공백을 포함한 문�
 
 ## <a name="customization"></a>사용자 지정
 
-Microsoft Translator V3는 기본적으로 신경망 기계 번역을 사용합니다. 따라서 레거시 통계 기계 번역만을 지원하는 Microsoft Translator Hub에서 사용할 수 없습니다. 이제 신경망 번역에 대한 사용자 지정은 사용자 지정 변환기를 사용하여 사용할 수 있습니다. [신경망 기계 번역을 사용자 지정하는 방법에 대한 자세한 정보](customization.md)
+Microsoft Translator V3는 기본적으로 신경망 기계 번역을 사용합니다. 따라서 Microsoft Translator Hub로 사용할 수 없습니다. Translator Hub만 기존의 통계 기계 번역을 지원합니다. 이제 신경망 번역에 대한 사용자 지정은 사용자 지정 변환기를 사용하여 사용할 수 있습니다. [신경망 기계 번역을 사용자 지정하는 방법에 대한 자세한 정보](customization.md)
 
-V3 텍스트 API를 포함한 신경망 번역은 표준 범주(smt, 음성, 텍스트, generalnn)의 사용을 지원하지 않습니다.
+V3 텍스트 API를 포함한 신경망 번역은 표준 범주(SMT, 음성, 텍스트, generalnn)의 사용을 지원하지 않습니다.
 
 
 ## <a name="links"></a>링크

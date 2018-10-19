@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 98dc33cc961c5c90fc3f6737a1cc470d4a753fd0
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4518011fbeaefbb32403f5b37e434e7315beffa0
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048760"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734927"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>U-SQL 데이터베이스 프로젝트를 사용하여 Azure Data Lake용 U-SQL 데이터베이스 개발
 
@@ -57,7 +57,7 @@ U-SQL 데이터베이스 프로젝트를 마우스 오른쪽 단추로 클릭합
 
 U-SQL 데이터베이스 프로젝트에 대한 빌드 출력은 접미사 `.usqldbpack`으로 명명된 U-SQL 데이터베이스 배포 패키지입니다. `.usqldbpack` 패키지는 단일 U-SQL 스크립트의 모든 DDL 문을 **DDL** 폴더에 포함하고, 어셈블리에 대한 모든 DLL 및 추가 파일을 **Temp** 폴더에 포함하는 zip 파일입니다.
 
-[MSBuild 명령줄 및 Visual Studio Team Service 빌드 태스크를 사용하여 U-SQL 데이터베이스 프로젝트를 빌드하는 방법](data-lake-analytics-cicd-overview.md)에 대해 자세히 알아봅니다.
+[MSBuild 명령줄 및 Azure DevOps Service 빌드 작업을 사용하여 U-SQL 데이터베이스 프로젝트를 빌드하는 방법](data-lake-analytics-cicd-overview.md)에 대해 자세히 알아봅니다.
 
 ## <a name="deploy-a-u-sql-database"></a>U-SQL 데이터베이스 배포
 
@@ -94,7 +94,7 @@ Visual Studio에서 U-SQL 데이터베이스 프로젝트 또는 .usqldbpack 패
 
 `PackageDeploymentTool.exe`는 U-SQL 데이터베이스를 배포하는 데 도움이 되는 프로그래밍 및 명령줄 인터페이스를 제공합니다. 이 SDK는 `build/runtime/PackageDeploymentTool.exe`에 있는 [U-SQL SDK Nuget 패키지](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/)에 포함되어 있습니다.
 
-[SDK 및 U-SQL 데이터베이스 배포에 대해 CI/CD 파이프라인을 설정하는 방법에 대해 자세히 알아봅니다](data-lake-analytics-cicd-overview.md#deploy-u-sql-database-through-visual-studio-team-service).
+[SDK 및 U-SQL 데이터베이스 배포에 대해 CI/CD 파이프라인을 설정하는 방법에 대해 자세히 알아봅니다](data-lake-analytics-cicd-overview.md).
 
 ## <a name="reference-a-u-sql-database-project"></a>U-SQL 데이터베이스 프로젝트 참조
 

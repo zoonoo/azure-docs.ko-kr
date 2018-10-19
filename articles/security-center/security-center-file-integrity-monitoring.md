@@ -1,27 +1,27 @@
 ---
-title: Azure Security Center에서 파일 무결성 모니터링(미리 보기) | Microsoft Docs
+title: Azure Security Center에서 파일 무결성 모니터링 | Microsoft Docs
 description: " Azure Security Center에서 파일 무결성 모니터링을 사용하도록 설정하는 방법을 알아봅니다. "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2018
-ms.author: terrylan
-ms.openlocfilehash: 722a4fd11f35f04ed22d73638f07d15c49ea3c26
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.date: 09/21/2018
+ms.author: rkarlin
+ms.openlocfilehash: 56aa756230dc908157a5a3d244d379215935cd2f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161836"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124119"
 ---
-# <a name="file-integrity-monitoring-in-azure-security-center-preview"></a>Azure Security Center에서 파일 무결성 모니터링(미리 보기)
+# <a name="file-integrity-monitoring-in-azure-security-center"></a>Azure Security Center에서 파일 무결성 모니터링
 이 연습을 사용하여 Azure Security Center에서 FIM(파일 무결성 모니터링)을 구성하는 방법을 알아봅니다.
 
 ## <a name="what-is-fim-in-security-center"></a>Security Center의 FIM이란?
@@ -182,6 +182,14 @@ FIM을 사용하는 작업 영역에 대한 **파일 무결성 모니터링** �
   ![[거짓]으로 설정된 [사용]][19]
 
 6. **저장**을 선택합니다.
+
+## <a name="folder-and-path-monitoring-using-wildcards"></a>와일드 카드를 사용하여 폴더 및 경로 모니터링
+
+와일드 카드를 사용하여 디렉터리에 대한 추적을 간소화합니다. 와일드 카드를 사용하여 폴더 모니터링을 구성한 경우 다음 규칙이 적용됩니다.
+-   와일드 카드는 여러 파일을 추적하는 데 필요합니다.
+-   C:\folder\file or /etc/*.conf와 같은 경로의 마지막 세그먼트에만 와일드 카드를 사용할 수 있습니다.
+-   환경 변수에 유효하지 않은 경로가 포함된 경우 인벤토리를 실행하면 유효성 검사는 성공하지만 경로는 실패합니다.
+-   경로를 설정할 때 c:\*.*와 같은 일반 경로를 사용하면 너무 많은 폴더가 트래버스되므로 사용하지 않는 것이 좋습니다.
 
 ## <a name="disable-fim"></a>FIM 사용 안 함
 FIM을 사용하지 않도록 설정할 수 있습니다. FIM은 Azure 변경 내용 추적 솔루션을 사용하여 환경의 변경 내용을 추적하고 식별합니다. FIM을 사용하지 않도록 설정하면 선택한 작업 영역에서 변경 내용 추적 솔루션이 제거됩니다.

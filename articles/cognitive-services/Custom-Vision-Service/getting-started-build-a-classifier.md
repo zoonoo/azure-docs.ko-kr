@@ -1,20 +1,21 @@
 ---
-title: Custom Vision Service를 사용하여 분류자 빌드 - Azure Cognitive Services | Microsoft Docs
+title: 분류자 빌드 - Custom Vision Service
+titlesuffix: Azure Cognitive Services
 description: Custom Vision Service를 사용하여 사진에서 개체를 구별할 수 있는 분류자를 만드는 방법을 알아봅니다.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: anroth
-ms.openlocfilehash: c5183078d2f9d5eb16abef4f5df240f77eea6b8b
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 998900e72511a95336e4a94289c794e2a8e59feb
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223372"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364249"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Custom Vision을 사용하여 분류자를 빌드하는 방법
 

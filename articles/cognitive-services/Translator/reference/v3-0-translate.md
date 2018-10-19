@@ -1,23 +1,23 @@
 ---
-title: Microsoft Translator Text API Translate 메서드 | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Microsoft Translator Text API Translate 메서드를 사용합니다.
+title: Translator Text API Translate 메서드
+titleSuffix: Azure Cognitive Services
+description: Translator Text API Translate 메서드를 사용합니다.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: d8d5e1e2fac747fa733f1d92c08008b7eac2a1bc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1841730a39d29c5fe1f3451b7614818e924b339f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382853"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128760"
 ---
-# <a name="text-api-30-translate"></a>Text API 3.0: Translate
+# <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: Translate
 
 텍스트를 번역합니다.
 

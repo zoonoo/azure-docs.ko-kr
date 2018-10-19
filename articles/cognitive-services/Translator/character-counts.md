@@ -1,24 +1,25 @@
 ---
-title: Microsoft Translator Text API 문자 수 | Microsoft Docs
-description: Microsoft Translator Text API에서 문자 수를 계산하는 방법입니다.
+title: Translator Text API 문자 개수
+titlesuffix: Azure Cognitive Services
+description: Translator Text API에서 문자 수를 계산하는 방법
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: v-jansko
-ms.openlocfilehash: 1b4987509c17e4064d7c54608395e272efa8de3b
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: c6234a46ae55d73739dcc23110c5e0f6375c3f96
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42093862"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128743"
 ---
-# <a name="how-the-microsoft-translator-text-api-counts-characters"></a>Microsoft Translator Text API에서 문자 수를 계산하는 방법
+# <a name="how-the-translator-text-api-counts-characters"></a>Translator Text API에서 문자 수를 계산하는 방법
 
-Microsoft Translator는 입력의 모든 문자 수를 계산합니다. 바이트가 아니라 유니코드 문자입니다. 유니코드 서로게이트는 두 문자로 계산됩니다. 공백과 태그는 문자로 계산됩니다. 응답 길이는 중요하지 않습니다.
+Translator Text API는 입력의 모든 문자 수를 계산합니다. 바이트가 아니라 유니코드 문자입니다. 유니코드 서로게이트는 두 문자로 계산됩니다. 공백과 태그는 문자로 계산됩니다. 응답 길이는 중요하지 않습니다.
 
 Detect 및 BreakSentence 메서드 호출은 문자 사용에 계산되지 않습니다. 그러나 Detect 및 BreakSentence 메서드 호출은 개수에 포함되는 다른 함수의 사용과 적절한 비율을 유지해야 합니다. Microsoft는 Detect 및 BreakSentence 개수 계산을 시작할 수 있는 권리를 보유합니다. 
 
