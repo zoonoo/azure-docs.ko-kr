@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6993895b6f2b836308b8ed7c375212c3fae12768
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c21b4b8996d7dae62c2aa1937c2876a66f6f82bd
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305922"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320563"
 ---
-#<a name="azure-ad-connect-device-options"></a>Azure AD Connect: 장치 옵션
+# <a name="azure-ad-connect-device-options"></a>Azure AD Connect: 장치 옵션
 
 다음 설명서에서는 Azure AD Connect에서 사용할 수 있는 다양한 장치 옵션에 대한 정보를 제공합니다. Azure AD Connect를 사용하여 다음 두 작업을 구성할 수 있습니다. 
 * **하이브리드 Azure AD 조인**: 사용자의 환경에 온-프레미스 AD 공간이 있고 Azure AD의 이점을 원하는 경우 하이브리드 Azure AD 가입 장치를 구현할 수 있습니다. 이 장치는 온-프레미스 Active Directory와 Azure Active Directory에 모두 가입됩니다.

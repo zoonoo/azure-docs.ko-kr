@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: glenga
-ms.openlocfilehash: 51b2bd7956f775dbc7f737be33bd0fd6f9246524
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: baf08f18fae7f82fff57616e2d86d3426e32a237
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604538"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387738"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions의 Azure Service Bus 바인딩
 
@@ -293,7 +293,7 @@ C# 및 C# 스크립트에서 큐 또는 토픽 메시지에 대해 다음 매개
 * `string` - 메시지가 텍스트인 경우
 * `byte[]` - 이진 데이터에 유용합니다.
 * 사용자 지정 형식 - 메시지에 JSON이 포함된 경우 Azure Functions는 JSON 데이터를 deserialize하려고 합니다.
-* `BrokeredMessage` - [BrokeredMessage.GetBody<T>()](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) 메서드를 사용하는 deserialize된 메시지가 표시됩니다.
+* `BrokeredMessage` - [BrokeredMessage.GetBody<T>()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) 메서드를 사용하는 deserialize된 메시지가 표시됩니다.
 
 이러한 매개 변수는 Azure Functions 버전 1.x용이므로 2.x의 경우 `BrokeredMessage` 대신 [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message)를 사용합니다.
 

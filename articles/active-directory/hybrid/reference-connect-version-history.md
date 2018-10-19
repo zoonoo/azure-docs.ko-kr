@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f3b80af1dfaca921efbe656356e85aeb353a576b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 93bd141b591cda5ec6ff1d9d042222070d3146e6
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310682"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390315"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -112,7 +112,7 @@ SQL Always On 가용성이 ADSync DB에 대해 구성된 경우 Azure AD Connect
 
 ### <a name="fixed-issues"></a>해결된 문제 
 
-- 이 릴리스는 SQL Server Express 설치를 특히 여러 보안 취약점에 대한 수정 프로그램을 제공하는 SQL Server 2012 SP4로 업데이트합니다.  SQL Server 2012 SP4에 대한 자세한 내용은 [여기](https://support.microsoft.com/en-ca/help/4018073/sql-server-2012-service-pack-4-release-information)를 참조하세요.
+- 이 릴리스는 SQL Server Express 설치를 특히 여러 보안 취약점에 대한 수정 프로그램을 제공하는 SQL Server 2012 SP4로 업데이트합니다.  SQL Server 2012 SP4에 대한 자세한 내용은 [여기](https://support.microsoft.com/help/4018073/sql-server-2012-service-pack-4-release-information)를 참조하세요.
 - 동기화 규칙 처리: 부모 동기화가 더 이상 적용되지 않는 경우 조인 조건이 없는 아웃바운드 조인 동기화 규칙이 적용 취소됩니다.
 - Synchronization Service Manager UI 및 Sync Rules Editor에 여러 접근성 수정 프로그램이 적용되었습니다.
 - Azure AD Connect 마법사: Azure AD Connect가 작업 그룹에 있을 때 AD 커넥터 계정을 만드는 중 오류가 발생합니다.

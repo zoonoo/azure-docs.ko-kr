@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 293b6af1d591c0c9763c2914713fe892392ae7ea
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: d25142cecd62fc34a08939d5f1915ba9b2cee749
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578143"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387432"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Azure Maps 검색 서비스를 사용하여 주소 찾기
 
@@ -59,7 +59,7 @@ Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니�
 
 4. **보내기**를 클릭하고 응답 본문을 검토합니다.
 
-    "pizza"라는 모호한 쿼리 문자열을 사용하면 "pizza"(피자)와 "restaurant"(음식점)에 속한 범주의 [POI(관심 지점)](https://docs.microsoft.com/en-us/rest/api/maps/search/getsearchpoi#searchpoiresponse) 결과 10개가 반환되었습니다. 각 결과는 위치에 대한 도로 주소, 위도 / 경도 값, 뷰 포트 및 진입점을 반환합니다.
+    "pizza"라는 모호한 쿼리 문자열을 사용하면 "pizza"(피자)와 "restaurant"(음식점)에 속한 범주의 [POI(관심 지점)](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) 결과 10개가 반환되었습니다. 각 결과는 위치에 대한 도로 주소, 위도 / 경도 값, 뷰 포트 및 진입점을 반환합니다.
   
     결과는 특정 기준 위치에 연결되지 않고 이 쿼리에 대해 변화됩니다. 기본 동작이 전체 세계를 검색하여 불필요한 결과를 반환할 가능성이 높기 때문에 **countrySet** 매개 변수를 사용하여 응용 프로그램에 적용 범위가 필요한 국가만 지정할 수 있습니다.
 

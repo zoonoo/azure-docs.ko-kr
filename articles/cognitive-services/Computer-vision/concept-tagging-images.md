@@ -3,19 +3,19 @@ title: 이미지 태그 지정 - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Computer Vision API를 사용하여 이미지 태그를 지정하는 데 관련된 개념입니다.
 services: cognitive-services
-author: deken
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: v-deken
-ms.openlocfilehash: 159a1b9404f6ce635dcc8bb6007e52b7346ef98d
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.author: pafarley
+ms.openlocfilehash: 0025cdcfaa64a262a5ca54ab4db5a84f6a5768ba
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982968"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338916"
 ---
 # <a name="tagging-images"></a>이미지에 태그 지정
 

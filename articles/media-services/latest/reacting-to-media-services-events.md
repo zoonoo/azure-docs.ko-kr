@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 143fec2ddb168b0fff0e419fa5767e9718637241
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 3541a5b33aa0bb98d9381b51caefc63b6aa677ad
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465540"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377551"
 ---
-# <a name="reacting-to-media-services-events"></a>Media Services 이벤트에 대응
+# <a name="handling-event-grid-events"></a>Event Grid 이벤트 처리
 
 Media Services 이벤트를 사용하면 응용 프로그램이 최신 서버리스 아키텍처를 사용하여 다른 이벤트(예: 작업 상태 변경 이벤트)에 대응할 수 있습니다. 복잡한 코드나 비용이 많이 들고 비효율적인 폴링 서비스가 없어도 이렇게 할 수 있습니다. 대신, 이벤트는 [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)를 통해 [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)와 같은 이벤트 처리기로 푸시 되거나 Webhook으로도 푸시 되며, 요금은 사용한 만큼만 청구됩니다. 가격 책정에 대한 자세한 내용은 [Event Grid 가격 책정](https://azure.microsoft.com/pricing/details/event-grid/)을 참조하세요.
 

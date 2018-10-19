@@ -3,19 +3,19 @@ title: 도메인 특정 콘텐츠 검색 - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Computer Vision API를 사용하여 이미지를 설명하는 데 관련된 개념입니다.
 services: cognitive-services
-author: deken
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: v-deken
-ms.openlocfilehash: b197227b6550703e4cc303fc800839dc48bf2d1c
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.author: pafarley
+ms.openlocfilehash: a9c71fa7e5d86cfeb4fe6fab44bbce241546ccb8
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985212"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342561"
 ---
 # <a name="detecting-domain-specific-content"></a>도메인 특정 콘텐츠 검색
 

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.author: ramamill
 ms.date: 09/19/2018
-ms.openlocfilehash: 22c01f2bd9c763eeb681bf2d60e0ccffe1154d85
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 4c57d048f4c3222ac180355a6a700562415f601c
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497623"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390196"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Mobility Service 푸시 설치 문제 해결
 
@@ -73,7 +73,7 @@ ms.locfileid: "46497623"
 * 그룹 정책을 사용하여 파일 공유가 가능하도록 하려면,
   * 시작으로 이동하여 gpmc.msc를 입력하고 검색합니다.
   * 탐색 창에서 로컬 컴퓨터 정책, 사용자 구성, 관리 템플릿, Windows 구성 요소 및 네트워크 공유 폴더를 엽니다.
-  * 세부 정보 창에서 **사용자 프로필 내의 파일 공유 안 함**을 두 번 클릭합니다. 그룹 정책 설정을 사용하지 않도록 설정하고 사용자가 파일을 공유할 수 있도록 하려면 사용 안 함을 클릭합니다. 확인을 클릭하여 변경 내용을 저장합니다. 자세히 알아보려면 [여기](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10))를 클릭하세요.
+  * 세부 정보 창에서 **사용자 프로필 내의 파일 공유 안 함**을 두 번 클릭합니다. 그룹 정책 설정을 사용하지 않도록 설정하고 사용자가 파일을 공유할 수 있도록 하려면 사용 안 함을 클릭합니다. 확인을 클릭하여 변경 내용을 저장합니다. 자세히 알아보려면 [여기](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10))를 클릭하세요.
 
 **이후 버전**의 경우, [여기](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery)에 제공된 지침에 따라 파일 및 프린터 공유가 가능하도록 설정합니다.
 

@@ -3,19 +3,19 @@ title: 얼굴 감지 - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Computer Vision API를 사용하여 얼굴을 감지하는 데 관련된 개념입니다.
 services: cognitive-services
-author: deken
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: v-deken
-ms.openlocfilehash: df1cd989d82fa5541c2d81fe6629671d6e063bc4
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.author: pafarley
+ms.openlocfilehash: bf358d1e8f60f989ced8db966bbf0a5179fab25b
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984557"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342316"
 ---
 # <a name="detecting-faces"></a>얼굴 감지
 
