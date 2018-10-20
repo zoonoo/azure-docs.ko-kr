@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: cc7b1b9e96e32b090c0ec9ec9ab029588e5ec4ce
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 418b23f0783341ff7e5aaf7e2bbb2e869eb7dc45
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166970"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466157"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Azure Stack에서 암호를 회전 합니다.
 
@@ -81,15 +81,18 @@ Azure Stack 다음 경우에 새 인증 기관 (CA)에서 외부 인증서를 �
 
    > [!IMPORTANT]  
    > 환경에서 암호 회전을 성공적으로 실행 되었을 않은 확인 합니다. 비밀 회전을 이미 수행 하는 경우 Azure Stack 1807 또는 비밀 회전을 실행 하기 전에 최신 버전으로 업데이트 합니다. 
+
 1.  연산자에는 경고 열기 및 Azure Stack 암호 회전 하는 동안 자동으로 닫기 알 수 있습니다.  이 동작이 예상 되 고 경고를 무시할 수 있습니다.  연산자는 AzureStack 테스트를 실행 하 여 이러한 경고의 유효성을 확인할 수 있습니다.  SCOM 모니터링을 사용 하 여 운영자에 대 한 시스템 유지 관리 모드로 배치 하 고 Azure Stack 시스템을 이러한 경고는 ITSM 시스템에 도달 하지 못하도록 없게 되지만 Azure Stack 시스템에 연결할 수 없는 경우 경고를 발생 시 계속 됩니다. 
 2. 유지 관리 작업의 사용자를 게 알립니다. 일반 유지 관리 기간을 최대한, 업무 외 시간을 예약 합니다. 유지 관리 작업 사용자 워크 로드와 포털 작업에 영향을 줄 수 있습니다.
     > [!note]  
     > 다음 단계는 Azure Stack 외부 암호를 회전 하는 경우에 적용 됩니다.
-3. 교체 집합을 새 외부 인증서를 준비 합니다. 새로운 집합에 설명 된 인증서 사양과 일치 합니다 [Azure Stack PKI 인증서 요구 사항](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs)합니다.
-4.  백업 회전 안전한 백업 위치에 사용 된 인증서를 저장 합니다. 회전에 실행 되 고 실패 하면 다음을 하는 경우는 회전을 다시 실행 하기 전에 백업 복사본을 사용 하 여 파일 공유에 인증서를 대체 합니다. 참고, 안전한 백업 위치에 백업 복사본을 보관 합니다.
-5.  ERCS Vm에서 액세스할 수 있습니다 하는 파일 공유를 만듭니다. 파일 공유를 읽을 수 있는 고에 대 한 쓰기 가능 해야 합니다 **CloudAdmin** identity입니다.
-6.  파일 공유에 액세스할 수 있는 컴퓨터에서 PowerShell ISE 콘솔을 엽니다. 에 파일 공유로 이동 합니다. 
-7.  실행할 **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** 외부 인증서에 대 한 필수 디렉터리를 만들려고 합니다.
+
+3. 실행할 **[테스트 AzureStack](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test)** 암호를 회전 하기 전에 모든 테스트 출력 정상이 확인 합니다.
+4. 교체 집합을 새 외부 인증서를 준비 합니다. 새로운 집합에 설명 된 인증서 사양과 일치 합니다 [Azure Stack PKI 인증서 요구 사항](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs)합니다.
+5.  백업 회전 안전한 백업 위치에 사용 된 인증서를 저장 합니다. 회전에 실행 되 고 실패 하면 다음을 하는 경우는 회전을 다시 실행 하기 전에 백업 복사본을 사용 하 여 파일 공유에 인증서를 대체 합니다. 참고, 안전한 백업 위치에 백업 복사본을 보관 합니다.
+6.  ERCS Vm에서 액세스할 수 있습니다 하는 파일 공유를 만듭니다. 파일 공유를 읽을 수 있는 고에 대 한 쓰기 가능 해야 합니다 **CloudAdmin** identity입니다.
+7.  파일 공유에 액세스할 수 있는 컴퓨터에서 PowerShell ISE 콘솔을 엽니다. 에 파일 공유로 이동 합니다. 
+8.  실행할 **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** 외부 인증서에 대 한 필수 디렉터리를 만들려고 합니다.
 
 ## <a name="rotating-external-and-internal-secrets"></a>외부 및 내부 비밀 회전
 

@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/02/2018
+ms.date: 10/19/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 4ba890f4763fc77981917d9311cf2bf6c97ec80f
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 6548693b91283665704be8fc83a483a9d20dc41b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902446"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470549"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 데이터 센터 통합-Identity
 Id 공급자로 Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)를 사용 하 여 Azure Stack을 배포할 수 있습니다. Azure Stack을 배포 하기 전에 선택을 해야 합니다. AD FS를 사용 하 여 배포를 오프 라인된 모드에서 Azure Stack 배포는 라고도 합니다.
@@ -70,6 +70,17 @@ Requirements:
 |---------|---------|---------|
 |CustomADGlobalCatalog|Active Directory 포리스트에 대상의 FQDN<br>와 통합|Contoso.com|
 |CustomADAdminCredentials|LDAP 읽기 권한이 있는 사용자|YOURDOMAIN\graphservice|
+
+### <a name="configure-active-directory-sites"></a>Active Directory 사이트를 구성 합니다.
+
+Active Directory 배포의 여러 사이트가 있는 경우 Azure Stack 배포에 가장 가까운 Active Directory 사이트를 구성 합니다. 구성을 원격 사이트에서 글로벌 카탈로그 서버를 사용 하 여 쿼리를 해결 하는 Azure Stack Graph 서비스를 하지 않아도 됩니다.
+
+추가 Azure Stack [공용 VIP 네트워크](azure-stack-network.md#public-vip-network) Azure Stack에 가장 가까운 Azure AD 사이트에는 서브넷입니다. 예를 들어, Active Directory 시애틀 및 레드먼드 시애틀 사이트에 배포 된 Azure Stack을 사용 하 여 두 사이트에 있으면 Azure Stack에 대 한 공용 VIP 네트워크 서브넷에 시애틀에 대 한 Azure AD 사이트 추가할는 있습니다.
+
+Active Directory 사이트에 대 한 자세한 내용은 참조 하세요 [사이트 토폴로지 디자인](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology)합니다.
+
+> [!Note]  
+> 단일 사이트의 Active Directory를 구성 하는 경우이 단계를 건너뛸 수 있습니다. 범용 서브넷 구성 된 경우에 Azure Stack에 대 한 공용 VIP 네트워크 서브넷의 일부가 아닌지 확인 합니다.
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>기존 Active Directory에서 사용자 계정 (선택 사항) 만들기
 
@@ -283,7 +294,7 @@ Microsoft는 클레임 변환 규칙을 포함 하 여 신뢰 당사자 트러�
 - AD FS를 사용 하 여 배포 하는 경우 Azure Stack 용 system Center 관리 팩
 - AD FS를 사용 하 여 배포 하는 경우 Azure Stack에서 리소스 공급자
 - 다양 한 응용 프로그램
-- 비 대화형 로그온 해야
+- 비 대화형 로그인 필요
 
 > [!Important]  
 > AD FS는만 대화형 로그온 세션을 지원합니다. 자동화 된 시나리오는 비 대화형 로그온 해야 하는 경우 SPN을 사용 해야 합니다.
