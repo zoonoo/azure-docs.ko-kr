@@ -89,7 +89,7 @@ items:
       href: how-to-auto-train-remote.md
   - name: ONNX 모델
     items:
-    - name: ONNX 모델 만들기 및 배포
+    - name: 만들기 및 배포
       href: how-to-build-deploy-onnx.md
   - name: 모델 배포
     items:
@@ -115,8 +115,6 @@ items:
       href: how-to-enable-app-insights.md
   - name: 리소스 할당량 관리
     href: how-to-manage-quotas.md
-  - name: 데이터 내보내기 및 삭제
-    href: how-to-export-delete-data.md
 - name: 참고 자료
   items:
   - name: Machine Learning SDK
@@ -133,18 +131,20 @@ items:
     href: https://azure.microsoft.com/pricing/details/machine-learning-services/
   - name: 국가별 가용성
     href: https://azure.microsoft.com/regions/services/
-  - name: 계정 데이터 내보내기 또는 삭제
-    href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
   - name: 릴리스 정보
     href: azure-machine-learning-release-notes.md
   - name: 알려진 문제
     href: resource-known-issues.md
   - name: 지원 받기
     href: support-for-aml-services.md
+  - name: 데이터 내보내기 및 삭제
+    href: how-to-export-delete-data.md
   - name: 사용되지 않는 문서
     items:
     - name: 마이그레이션하는 방법
       href: how-to-migrate.md
+    - name: 계정 데이터 내보내기 또는 삭제(사용되지 않음)
+      href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
     - name: Workbench 빠른 시작
       href: ../desktop-workbench/quickstart-installation.md
     - name: '자습서 1: 데이터 준비'
@@ -341,9 +341,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: 이전 문제
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: e408b78c66ddbd809d36c4aa8451b53031ba4d5a
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 2e5e1d3c925a6b946e340820fc7d259251c0e9b7
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428269"
+ms.locfileid: "49457063"

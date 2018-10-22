@@ -65,14 +65,14 @@ items:
     href: sql-database-design-first-database.md
   - name: 2 - .NET을 사용하여 DB 디자인
     href: sql-database-design-first-database-csharp.md
-  - name: 3 - DMA를 사용하여 SQL Server DB로 마이그레이션
-    href: sql-database-migrate-your-sql-server-database.md
+  - name: 3 - DMS를 사용하여 단일 Azure SQL Database로 마이그레이션
+    href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
   - name: 4 - SQL DB 보안
     href: sql-database-security-tutorial.md
   - name: 5 - 지역 분산 데이터베이스 구현
     href: sql-database-implement-geo-distributed-database.md
   - name: 6 - DMS를 사용하여 Managed Instance로 마이그레이션
-    href: ../dms/tutorial-sql-server-to-managed-instance.md
+    href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
   - name: 7 - Azure SQL 데이터 동기화 설정
     href: sql-database-get-started-sql-data-sync.md
 - name: 샘플
@@ -596,7 +596,7 @@ items:
   - name: SQLCMD
     href: /sql/tools/sqlcmd-utility
   - name: SqlPackage
-    href: https://docs.microsoft.com/sql/tools/sqlpackage
+    href: https://docs.microsoft.com/sql/tools/sqlpackage?toc=/azure/sql-database/toc.json
   - name: SQL Database 관리 라이브러리 패키지
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.Sql
   - name: SQL Server 드라이버
@@ -634,9 +634,9 @@ items:
     href: /azure/architecture/
   - name: 고객 사례
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: e39e94ccbf1da42b10cd8c618cd27c2a7eb214de
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 38a8ec13b8a5e50d60ed46d1bd4d71af933d61f0
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353513"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470374"

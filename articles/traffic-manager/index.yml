@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d7f1c1d523bc9c9d717accf7667c8bd7402bbc72
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: ecfb8cff995d471a480226bc44164107b50eda84
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388377"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458023"
 documentType: LandingData
 title: Traffic Manager
 metadata:
@@ -19,7 +19,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/26/2018
+  ms.date: 10/15/2018
   ms.author: kumud
 abstract:
   description: Azure Traffic Manager를 사용하는 방법을 알아보세요. 빠른 시작, 자습서, 샘플 등이 최적의 응용 프로그램 성능을 위해 들어오는 트래픽을 관리하는 방법과 Azure 또는 외부 서비스 엔드포인트에 트래픽을 분산하는 방법을 보여줍니다.
@@ -43,10 +43,11 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-geographic-routing-method">엔드포인트의 지리적 위치에 따라 트래픽 라우팅</a>
-    - html: <a href="/azure/traffic-manager/traffic-manager-configure-performance-routing-method">짧은 대기 시간을 위해 트래픽 라우팅</a>
+    - html: <a href="/azure/traffic-manager/tutorial-traffic-manager-improve-website-response">짧은 대기 시간을 위해 트래픽 라우팅</a>
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-weighted-routing-method">엔드포인트 집합으로 트래픽 분산</a>
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-priority-routing-method">우선순위 엔드포인트로 트래픽 라우팅</a>
-    - html: <a href="/azure/traffic-manager/traffic-manager-configure-priority-routing-method">사용자의 서브넷에 따라 트래픽 라우팅</a>
+    - html: <a href="/azure/traffic-manager/tutorial-traffic-manager-weighted-endpoint-routing">가중된 엔드포인트를 사용하여 트래픽 제어</a>
+    - html: <a href="/azure/traffic-manager/tutorial-traffic-manager-subnet-routing">사용자의 서브넷에 따라 트래픽 라우팅</a>
 - title: 무료 Pluralsight 동영상 교육
   items:
   - type: list

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 09/20/2018
 ms.author: mtillman
-ms.openlocfilehash: 3be7c42b52f6af36451a79ea8592e983cc98f42b
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 864240e45a616aa8c2e7f2d6b65f5c7550f0e50e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354362"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466412"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -106,14 +106,14 @@ ms.locfileid: "49354362"
                                                             <a href="authentication/concept-registration-mfa-sspr-converged.md">MFA 및 SSPR에 대한 등록 수렴</a>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="b2b/index.yml">B2B(Business to business)</a></h3>
+                                                        <h3><a href="b2b/index.yml">B2B(Business to Business)</a></h3>
                                                         <p>
                                                             <a href="b2b/b2b-quickstart-add-guest-users-portal.md">포털에서 게스트 사용자 추가</a><br>
                                                             <a href="b2b/b2b-tutorial-bulk-invite.md">게스트 사용자 대량 초대</a><br>
                                                             <a href="b2b/b2b-tutorial-require-mfa.md">게스트 사용자에 대해 MFA 요구</a>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="/azure/active-directory-b2c/index">B2C(Business to consumer)</a></h3>
+                                                        <h3><a href="/azure/active-directory-b2c/index">B2C(Business to Consumer)</a></h3>
                                                         <p>
                                                             <a href="/azure/active-directory-b2c/tutorial-create-tenant">Azure AD B2C 테넌트 만들기</a><br>
                                                             <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app">인증할 웹앱 활성화</a><br>
