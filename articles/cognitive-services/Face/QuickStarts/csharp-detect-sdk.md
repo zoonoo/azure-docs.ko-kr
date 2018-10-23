@@ -3,25 +3,23 @@ title: '빠른 시작: 이미지에서 얼굴 감지 - SDK, C#'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Cognitive Services에서 Face Windows C# 클라이언트 라이브러리를 사용하여 이미지의 얼굴을 감지합니다.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 09/14/2018
-ms.author: nolachar
-ms.openlocfilehash: a9a7efd89f8e7462812064615d07acf12acbc3a3
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.author: pafarley
+ms.openlocfilehash: b5fd10aaab28303079d3eef9c4c5c25207bb672e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364116"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344985"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-c35---face"></a>빠른 시작: C&#35;을 사용하여 이미지에서 얼굴 감지 - 얼굴
 
 이 빠른 시작에서는 Face Windows 클라이언트 라이브러리를 사용하여 이미지에서 사람 얼굴을 감지합니다.
-
-이 샘플의 소스 코드는 [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face)에 제공됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -30,6 +28,9 @@ ms.locfileid: "46364116"
 * [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview) 클라이언트 라이브러리 NuGet 패키지. 패키지를 다운로드할 필요는 없습니다. 설치 지침은 아래에 제공됩니다.
 
 ## <a name="detectwithurlasync-method"></a>DetectWithUrlAsync 메서드
+
+> [!TIP]
+> [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face)에서 최신 코드를 Visual Studio 솔루션으로 가져옵니다.
 
 `DetectWithUrlAsync` 및 `DetectWithStreamAsync` 메서드는 원격 및 로컬 이미지 각각에 대해 [Face - 감지 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)를 래핑합니다. 이 메서드를 사용하여 이미지에서 얼굴을 감지하고 다음을 포함한 얼굴 특성을 반환할 수 있습니다.
 

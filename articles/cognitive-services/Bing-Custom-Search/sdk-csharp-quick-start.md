@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 09/06/2018
 ms.author: scottwhi
-ms.openlocfilehash: 5abf1027059bed9c685e0eb44f17ab41dfabf655
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 6dc10bc2dedfe99573b5ad646461e66827c6df9e
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816772"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320172"
 ---
 # <a name="quickstart-using-the-bing-custom-search-sdk-with-c"></a>빠른 시작: C#을 통해 Bing Custom Search SDK 설정
 
@@ -42,6 +42,9 @@ NuGet Custom Search 패키지를 설치하면 다음 어셈블리도 함께 설�
 
 
 ## <a name="run-the-code"></a>코드 실행
+
+> [!TIP]
+> [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingCustomWebSearch)에서 최신 코드를 Visual Studio 솔루션으로 가져옵니다.
 
 이 예제를 실행하려면 다음 단계를 수행합니다.
 

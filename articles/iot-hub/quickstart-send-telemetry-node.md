@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/19/2018
 ms.author: dobett
-ms.openlocfilehash: 8a5a6ff2eab8a9ef5fb631ef81818a30db00078b
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 4ce693aa30159234ab0dbde29d5aa15e6da058fe
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784953"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361834"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-nodejs"></a>빠른 시작: 장치에서 IoT 허브로 원격 분석을 보내고 백 엔드 응용 프로그램(Node.js)으로 허브에서 원격 분석을 읽습니다.
 
@@ -55,12 +55,12 @@ https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip에서
 
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
+   **MyNodeDevice** : 등록된 장치에 지정된 이름입니다. 표시된 것처럼 MyNodeDevice를 사용하세요. 다른 장치 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 샘플 응용 프로그램에서 장치 이름을 업데이트한 후 실행해야 합니다.
+
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyNodeDevice
     ```
-
-    장치에 다른 이름을 선택하는 경우 샘플 응용 프로그램에서 실행하기 전에 장치 이름을 업데이트합니다.
 
 1. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 장치의 _장치 연결 문자열_을 가져옵니다.
 
@@ -69,7 +69,7 @@ https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip에서
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyNodeDevice --output table
     ```
-    
+ 
     다음과 같은 장치 연결 문자열을 기록해 둡니다.
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`

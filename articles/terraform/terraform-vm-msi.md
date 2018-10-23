@@ -1,6 +1,6 @@
 ---
-title: Azure Marketplace 이미지를 사용하여 관리 서비스 ID가 있는 Terraform Linux 가상 머신 만들기
-description: Marketplace 이미지를 사용하여 관리 서비스 ID 및 원격 상태 관리가 있는 Terraform Linux 가상 머신을 만들어 Azure에 리소스를 쉽게 배포합니다.
+title: Azure Marketplace 이미지를 사용하여 관리 ID가 있는 Terraform Linux 가상 머신 만들기
+description: Marketplace 이미지를 사용하여 관리 ID 및 원격 상태 관리가 있는 Terraform Linux 가상 머신을 만들어 Azure에 리소스를 쉽게 배포합니다.
 services: terraform
 ms.service: terraform
 keywords: Terraform, DevOps, MSI, 가상 머신, 원격 상태, Azure
@@ -9,16 +9,16 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 0136966576e3fbb22855d74cc1866e48b4ac24c9
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 1ec6228993c516ce2974c64bfa5b6dcdf63e7f91
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669390"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343829"
 ---
-# <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-service-identity"></a>Azure Marketplace 이미지를 사용하여 관리 서비스 ID가 있는 Terraform Linux 가상 머신 만들기
+# <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Azure Marketplace 이미지를 사용하여 관리 ID가 있는 Azure 리소스용 Terraform Linux 가상 머신 만들기
 
-이 문서에서는 [Terraform Marketplace 이미지](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.terraform?tab=Overview)를 사용하여 최신 [Terraform](https://www.terraform.io/intro/index.html) 버전이 설치되고 [MSI(관리 서비스 ID)](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)를 사용하여 구성된 Ubuntu Linux VM(16.04 LTS)을 만드는 방법을 보여 줍니다. 또한 이 이미지는 Terraform을 사용하여 [원격 상태](https://www.terraform.io/docs/state/remote.html) 관리를 사용할 수 있도록 하는 원격 백 엔드도 구성합니다. 
+이 문서에서는 [Terraform Marketplace 이미지](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.terraform?tab=Overview)를 사용하여 최신 [Terraform](https://www.terraform.io/intro/index.html) 버전이 설치되고 [Azure 리소스용 관리 ID](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)를 사용하여 구성된 Ubuntu Linux VM(16.04 LTS)을 만드는 방법을 보여줍니다. 또한 이 이미지는 Terraform을 사용하여 [원격 상태](https://www.terraform.io/docs/state/remote.html) 관리를 사용할 수 있도록 하는 원격 백 엔드도 구성합니다. 
 
 Terraform Marketplace 이미지를 사용하면 수동으로 Terraform을 설치하고 구성할 필요 없이 Azure에서 Terraform을 쉽게 시작할 수 있습니다. 
 
@@ -79,13 +79,13 @@ Terraform VM 이미지에서 수행하는 단계는 다음과 같습니다.
 
 VM을 만든 후 SSH를 사용하여 해당 VM에 로그인할 수 있습니다. 텍스트 셸 인터페이스에 대해 3단계의 "기본 사항" 섹션에서 만든 계정 자격 증명을 사용합니다. Windows에서는 [Putty](http://www.putty.org/)와 같은 SSH 클라이언트 도구를 다운로드할 수 있습니다.
 
-SSH를 사용하여 가상 머신에 연결한 후 가상 머신에서 전체 구독에 대한 참가자 권한을 관리 서비스 ID에 부여해야 합니다. 
+SSH를 사용하여 가상 머신에 연결한 후 가상 머신에서 전체 구독에 대한 기여자 권한을 Azure 리소스의 관리 서비스 ID에 부여해야 합니다. 
 
 참가자 권한은 VM의 MSI에서 Terraform을 사용하여 VM 리소스 그룹 외부의 리소스를 만드는 데 도움이 됩니다. 이 작업은 스크립트를 한 번 실행하여 쉽게 수행할 수 있습니다. 다음 명령을 사용합니다.
 
 `. ~/tfEnv.sh`
 
-이전 스크립트는 [AZ CLI v 2.0 대화형 로그인](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in) 메커니즘을 사용하여 Azure에서 인증하고 전체 구독에 대한 관리 서비스 ID 참가자 권한을 가상 머신에 할당합니다. 
+이전 스크립트는 [AZ CLI v 2.0 대화형 로그인](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in) 메커니즘을 사용하여 Azure에서 인증하고 전체 구독에 대한 관리 ID 기여자 권한을 가상 머신에 할당합니다. 
 
  VM에는 Terraform 원격 상태 백 엔드가 있습니다. Terraform 배포에서 이를 사용하려면 tfTemplate 디렉터리의 remoteState.tf 파일을 Terraform 스크립트의 루트에 복사합니다.  
 

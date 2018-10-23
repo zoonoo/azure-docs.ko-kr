@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 6cad73c8b8fa6a2fa95a6ea0c1fdb5d4114ffd41
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: fa9686e7f9ca7f14a51ea2b9c313dd69a2e40cec
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180102"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362257"
 ---
 # <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance에 데이터베이스 백업 복원
 
@@ -29,7 +29,7 @@ Azure DMS(Database Migration Service)를 사용하여 마이그레이션하는 �
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작의 필수 조건은 다음과 같습니다.
+이 빠른 시작의 특징은 다음과 같습니다.
 - [Managed Instance 만들기](sql-database-managed-instance-get-started.md) 빠른 시작에서 만든 리소스를 시작 지점으로 사용합니다.
 - 온-프레미스 클라이언트 컴퓨터에 최신 버전의 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)가 필요합니다.
 - SQL Server Management Studio를 사용하여 Managed Instance에 연결해야 합니다. 연결 옵션에 대해서는 다음 빠른 시작을 참조하세요.

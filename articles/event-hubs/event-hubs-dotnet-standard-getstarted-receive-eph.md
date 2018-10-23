@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 03acd63ff00f0a3017297d1998289c8e68f0f290
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 5abb2447fa90ea5900afb86746cc17eff62c2d2e
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41918150"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166288"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>.NET Standard에서 이벤트 프로세서 호스트를 사용하여 메시지 수신 시작
 
@@ -43,13 +43,18 @@ ms.locfileid: "41918150"
 ## <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기  
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.  
-2. 포털의 왼쪽 탐색 창에서 **리소스 만들기**, **Storage**, **Storage 계정**을 차례로 클릭합니다.  
-3. 저장소 계정 창에서 필드를 완성한 후 **만들기**를 클릭합니다.
+2. 포털 왼쪽 탐생 창에서 **리소스 만들기**를 선택하고 범주에서 **저장소**를 선택한 다음, **저장소 계정 - Blob, 파일, 테이블, 큐**를 선택합니다.  
+3. **저장소 계정 만들기** 창에서 필드를 입력한 다음, **검토 + 만들기**를 선택합니다. 
 
     ![저장소 계정 만들기][1]
 
-4. **배포 성공** 메시지가 나타나면 새 저장소 계정의 이름을 클릭합니다. **Essentials** 창에서 **Blob**을 클릭합니다. **Blob service** 대화 상자가 열리면 맨 위의 **+ 컨테이너**를 클릭합니다. 컨테이너 이름을 지정한 다음 **Blob service**를 닫습니다.  
-5. 왼쪽 창에서 **선택키**를 클릭하고 저장소 컨테이너 이름, 저장소 계정 및 **key1** 값을 복사합니다. 메모장이나 기타 다른 위치에 임시로 이 값을 저장합니다.  
+4. **검토 + 만들기** 페이지에서 필드 값을 검토한 후 **만들기**를 선택합니다. 
+5. **배포 성공** 메시지가 나타나면 새 저장소 계정의 이름을 선택합니다. 
+6. **Essentials** 창에서 **Blob**을 선택합니다. 
+7. 맨 위의 **+ 컨테이너**를 선택합니다. 컨테이너에 이름을 지정합니다.  
+8. 왼쪽 창에서 **선택키**를 선택하고 저장소 컨테이너 이름, 저장소 계정 및 **key1** 값을 복사합니다. 
+
+    메모장이나 기타 다른 위치에 임시로 이 값을 저장합니다.
 
 ## <a name="create-a-console-application"></a>콘솔 응용 프로그램 만들기
 

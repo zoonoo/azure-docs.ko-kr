@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/27/2018
 ms.author: wesmc
-ms.openlocfilehash: 77b76ac5b30c4f5f647c532dbc5db68b396b3d20
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 3fa4c536313375ed88f6f0223218a663d4be3eb3
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45636144"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364778"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-c"></a>빠른 시작: 장치에서 IoT 허브로 원격 분석을 보내고 백 엔드 응용 프로그램(C)으로 허브에서 원격 분석을 읽습니다.
 
@@ -118,25 +118,32 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="register-a-device"></a>장치 등록
 
-연결을 위해 장치를 IoT Hub에 등록해야 합니다. 이 섹션에서는 [IoT 확장](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest)과 함께 Azure CLI를 사용하여 시뮬레이트된 장치를 등록합니다.
+연결을 위해 장치를 IoT Hub에 등록해야 합니다. 이 섹션에서는 [IoT 확장](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest)과 함께 Azure Cloud Shell을 사용하여 시뮬레이션된 장치를 등록합니다.
 
-1. IoT Hub CLI 확장을 추가하고 장치 ID를 만듭니다. `{YourIoTHubName}`을 IoT 허브에 대해 선택한 이름으로 바꿉니다.
+1. Azure Cloud Shell에서 다음 명령을 실행하여 IoT Hub CLI 확장을 추가하고 장치 ID를 만듭니다. 
+
+   **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
+
+   **MyCDevice** : 등록된 장치에 지정된 이름입니다. 표시된 것처럼 MyCDevice를 사용합니다. 다른 장치 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 샘플 응용 프로그램에서 장치 이름을 업데이트한 후 실행해야 합니다.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyCDevice
+    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyCDevice
     ```
 
-    장치에 다른 이름을 선택하는 경우 샘플 응용 프로그램에서 실행하기 전에 장치 이름을 업데이트합니다.
+2. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 장치의 _장치 연결 문자열_을 가져옵니다.
 
-2. 방금 등록한 장치의 _장치 연결 문자열_을 가져오려면 다음 명령을 실행합니다.
+   **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyCDevice --output table
+    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyCDevice --output table
     ```
 
-    `Hostname=...=`과 같은 장치 연결 문자열을 기록해 둡니다. 이 값은 빠른 시작의 뒷부분에서 사용합니다.
+    다음과 같은 장치 연결 문자열을 기록해 둡니다.
 
+   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
+
+    이 값은 빠른 시작의 뒷부분에서 사용합니다.
 
 ## <a name="send-simulated-telemetry"></a>시뮬레이션된 원격 분석 전송
 
@@ -156,19 +163,19 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     ```
     `connectionString` 상수의 값을 이전에 적어둔 장치 연결 문자열로 바꿉니다. 그런 다음, 변경 내용을 **iothub_convenience_sample.c**에 저장합니다.
 
-3. 터미널 창에서 Azure IoT C SDK로 만든 CMake 디렉터리의 *iothub_convenience_sample* 프로젝트 디렉터리로 이동합니다.
+3. 로컬 터미널 창에서 Azure IoT C SDK로 만든 CMake 디렉터리의 *iothub_convenience_sample* 프로젝트 디렉터리로 이동합니다.
 
     ```
     cd /azure-iot-sdk-c/cmake/iothub_client/samples/iothub_convenience_sample
     ```
 
-4. 다음 명령줄을 통해 CMake를 실행하여 업데이트된 `connectionString` 값으로 샘플을 빌드합니다.
+4. 로컬 터미널 창에서 CMake를 실행하여 업데이트된 `connectionString` 값으로 샘플을 빌드합니다.
 
     ```cmd/sh
     cmake --build . --target iothub_convenience_sample --config Debug
     ```
 
-5. 명령 프롬프트에서 다음 명령을 실행하여 시뮬레이트된 장치 응용 프로그램을 실행합니다.
+5. 로컬 터미널 창에서 다음 명령을 실행하여 시뮬레이션된 장치 응용 프로그램을 실행합니다.
 
     ```cmd/sh
     Debug\iothub_convenience_sample.exe
@@ -181,12 +188,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 ## <a name="read-the-telemetry-from-your-hub"></a>허브에서 원격 분석 읽기
 
 
-이 섹션에서는 [IoT 확장](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest)과 함께 Azure CLI를 사용하여 시뮬레이트된 장치에서 보내는 장치 메시지를 모니터링합니다.
+이 섹션에서는 [IoT 확장](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest)과 함께 Azure Cloud Shell을 사용하여 시뮬레이션된 장치에서 보내는 장치 메시지를 모니터링합니다.
 
-1. Azure CLI를 통해 다음 명령을 실행하여 IoT 허브의 메시지를 연결하고 읽습니다.
+1. Azure Cloud Shell을 통해 다음 명령을 실행하여 IoT 허브의 메시지를 연결하고 읽습니다.
+
+   **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub monitor-events --hub-name {YourIoTHubName} --output table
+    az iot hub monitor-events --hub-name YourIoTHubName --output table
     ```
 
     ![Azure CLI를 사용하여 장치 메시지 읽기](media/quickstart-send-telemetry-c/read-device-to-cloud-messages-app.png)
@@ -199,7 +208,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서 IoT 허브를 설치하고, 장치를 등록하고, C# 응용 프로그램을 사용하여 허브에 시뮬레이트된 원격 분석을 보내고, Azure CLI를 사용하여 허브에서 원격 분석을 읽었습니다.
+이 빠른 시작에서 IoT 허브를 설치하고, 장치를 등록하고, C# 응용 프로그램을 사용하여 허브에 시뮬레이션된 원격 분석을 보내고, Azure Cloud Shell을 사용하여 허브에서 원격 분석을 읽었습니다.
 
 Azure IoT Hub C SDK를 사용하여 개발하는 방법을 자세히 알아보려면 다음 방법 가이드를 계속 진행합니다.
 

@@ -13,37 +13,47 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/14/2018
+ms.date: 10/12/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fcc9f338ad69322091199ce9d5d2d1d6f9f2165e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 78b20b977685989c10ba61a48afee7808c46f227
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227285"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320631"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Linux 가상 머신 만들기
 
-Azure Portal을 통해 Azure VM(가상 머신)을 만들 수 있습니다. 이 방법은 VM 및 관련 리소스를 만드는 브라우저 기반 사용자 인터페이스를 제공합니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Ubuntu를 실행하는 Azure에서 Linux VM(가상 머신)을 배포하는 방법을 보여줍니다. 작업에서 VM을 보려면 VM에 SSH를 수행하고 NGINX 웹 서버를 설치합니다.
+Azure Portal을 통해 Azure VM(가상 머신)을 만들 수 있습니다. Azure Portal은 VM 및 관련 리소스를 만드는 브라우저 기반 사용자 인터페이스를 제공합니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Ubuntu 16.04 LTS를 실행하는 Azure에서 Linux VM(가상 머신)을 배포하는 방법을 보여줍니다. VM 작동을 확인하기 위해 VM에 대해 SSH를 수행하고 NGINX 웹 서버를 설치합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="create-ssh-key-pair"></a>SSH 키 쌍 만들기
 
-이 빠른 시작을 완료하려면 SSH 키 쌍이 필요합니다. 기존 SSH 키 쌍을 사용하는 경우 이 단계를 건너뛸 수 있습니다.
+이 빠른 시작을 완료하려면 SSH 키 쌍이 필요합니다. SSH 키 쌍이 이미 있는 경우 이 단계를 건너뜁니다.
 
-SSH 키 쌍을 만들고 Linux VM에 로그인하려면 Bash 셸에서 다음 명령을 실행하고 화면의 지침을 따릅니다. 예를 들어 [Azure Cloud Shell](../../cloud-shell/overview.md) 또는 [Windows Substem for Linux](/windows/wsl/install-win10)를 사용할 수 있습니다. 명령 출력은 공개 키 파일의 파일 이름을 포함합니다. 공개 키 파일의 콘텐츠(`cat ~/.ssh/id_rsa.pub`)를 클립보드에 복사합니다.
+Bash 셸을 열고 [ssh-keygen](https://www.ssh.com/ssh/keygen/)을 사용하여 SSH 키 쌍을 만듭니다. 로컬 컴퓨터에 Bash 셸이 없는 경우 [Azure Cloud Shell](https://shell.azure.com/bash)을 사용할 수 있습니다.  
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
 
+위의 명령은 `~/.ssh directory`에서 기본 이름 `id_rsa`로 공용 및 개인 키와 키를 생성합니다. 명령이 공개 키의 전체 경로를 반환합니다. 공개 키의 전체 경로를 사용하여 `cat` 및 해당 콘텐츠를 표시합니다.
+
+```bash 
+cat ~/.ssh/id_rsa.pub
+```
+
+명령의 출력을 저장합니다. 이 항목은 관리자 계정이 VM에 로그인하도록 구성할 때 필요합니다.
+
 PuTTy 사용을 포함하여 SSH 키 쌍을 만드는 방법에 대한 자세한 내용은 [Windows에 SSH 키를 사용하는 방법](ssh-from-windows.md)을 참조하세요.
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+Cloud Shell을 사용하여 SSH 키 쌍을 만드는 경우 [Cloud Shell에서 자동으로 탑재되는](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage) Azure File Share에 저장됩니다. 키를 검색할 때까지 이 파일 공유나 저장소 계정을 삭제하지 마세요. VM에 대한 액세스를 잃게 됩니다. 
 
-http://portal.azure.com에서 Azure Portal에 로그인
+## <a name="sign-in-to-azure"></a>Azure에 로그인
+
+[Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 ## <a name="create-virtual-machine"></a>가상 머신 만들기
 
@@ -67,7 +77,11 @@ http://portal.azure.com에서 Azure Portal에 로그인
 
     ![RDP 및 HTTP에 대한 포트 열기](./media/quick-create-portal/inbound-port-rules.png)
 
-1. 나머지 기본값을 그대로 둔 다음, 페이지의 아래에서 **검토 + 만들기** 단추를 선택합니다.
+1. 나머지 기본값은 그대로 둔 다음, 페이지의 하단에 있는 **검토 + 만들기** 단추를 선택합니다.
+
+1. **가상 머신 만들기** 페이지에서 만들려는 VM의 세부 정보를 볼 수 있습니다. 준비가 되면 **만들기**를 선택합니다.
+
+VM 배포에는 몇 분 정도 걸립니다. 배포가 완료되면 다음 섹션으로 이동합니다.
 
     
 ## <a name="connect-to-virtual-machine"></a>가상 머신에 연결
@@ -78,32 +92,29 @@ VM과의 SSH 연결을 만듭니다.
 
     ![포털 9](./media/quick-create-portal/portal-quick-start-9.png)
 
-2. **가상 머신에 연결** 페이지에서, 22 포트를 통해 DNS 이름으로 연결하는 기본 옵션을 유지합니다. **VM 로컬 계정을 사용하여 로그인**에 연결 명령이 표시됩니다. 단추를 클릭하여 명령을 복사합니다. 다음 예제에서는 SSH 연결 명령의 모양을 보여줍니다.
+2. **가상 머신 연결** 페이지에서 포트 22를 통해 IP 주소로 연결하는 기본 옵션을 유지합니다. **VM 로컬 계정을 사용하여 로그인**에 연결 명령이 표시됩니다. 단추를 클릭하여 명령을 복사합니다. 다음 예제에서는 SSH 연결 명령의 모양을 보여줍니다.
 
     ```bash
-    ssh azureuser@myvm-123abc.eastus.cloudapp.azure.com
+    ssh azureuser@10.111.12.123
     ```
 
-3. Azure Cloud Shell이나 Ubuntu 또는 Windows의 Bash 같은 셸에 SSH 연결 명령을 붙여넣어 연결을 만듭니다. 
+3. SSH 키 쌍을 만들 때와 같은 Bash 셸을 사용하여(예: [Azure Cloud Shell](https://shell.azure.com/bash) 또는 로컬 Bash 셸) SSH 연결 명령을 셸에 붙여 넣어 SSH 세션을 만듭니다. 
 
 ## <a name="install-web-server"></a>웹 서버 설치
 
-실제로 작동 중인 VM을 보려면 NGINX 웹 서버를 설치합니다. 패키지 원본을 업데이트하고 최신 NGINX 패키지를 설치하려면 SSH 세션에서 다음 명령을 실행합니다.
+실제로 작동 중인 VM을 보려면 NGINX 웹 서버를 설치합니다. SSH 세션에서 패키지 소스를 업데이트한 다음, 최신 NGINX 패키지를 설치합니다.
 
 ```bash
-# update packages
 sudo apt-get -y update
-
-# install NGINX
 sudo apt-get -y install nginx
 ```
 
-여기까지 마쳤으면 SSH 세션을 `exit`하고 Azure Portal에서 VM 속성으로 돌아갑니다.
+완료되면 `exit`를 입력하여 SSH 세션을 종료합니다.
 
 
 ## <a name="view-the-web-server-in-action"></a>실제로 작동 중인 웹 서버 보기
 
-NGINX를 설치하고 VM에 대해 포트 80을 열었으니, 이제 인터넷에서 웹 서버에 액세스할 수 있습니다. 웹 브라우저를 열고 VM의 공용 IP 주소를 입력합니다. 공용 IP 주소는 VM 개요 페이지에서 또는 인바운드 포트 규칙을 추가하는 *네트워킹* 페이지의 위쪽에서 찾을 수 있습니다.
+원하는 웹 브라우저를 사용하여 기본 NGINX 시작 페이지를 봅니다. VM의 공용 IP 주소를 웹 주소로 입력합니다. 공용 IP 주소는 VM 개요 페이지나, 앞서 사용한 SSH 구성 문자열 부분에 있습니다.
 
 ![NGINX 기본 사이트](./media/quick-create-cli/nginx.png)
 

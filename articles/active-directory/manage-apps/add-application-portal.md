@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/24/2018
 ms.author: barbkess
-ms.openlocfilehash: 16910e51380a9d3f5ddf46b0deabc79830bb10c9
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 9cb3cb16e0eba30f98767efd0d1c0d9123304c27
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324666"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394997"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>빠른 시작: Azure Active Directory 테넌트에 응용 프로그램 추가
 
@@ -157,7 +157,7 @@ Azure AD 테넌트에 갤러리 응용 프로그램을 추가하려면:
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure AD 테넌트에 갤러리 응용 프로그램을 추가하는 방법을 배웠습니다. 응용 프로그램의 속성을 편집하는 방법도 알아보았습니다. 
+이 빠른 시작에서는 Azure AD 테넌트에 갤러리 응용 프로그램을 추가하는 방법을 배웠습니다. 응용 프로그램의 속성을 편집하는 방법을 알아보았습니다. 
 
 이제 응용 프로그램에 Single Sign-On을 구성할 준비가 완료되었습니다. 
 

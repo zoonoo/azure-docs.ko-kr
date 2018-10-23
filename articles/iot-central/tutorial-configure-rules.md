@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: fb13bcee411b4fa27bf3ce5cd62fa3a483ea23e6
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 20dcad571a32638488ce111b5af55623f2305c57
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731895"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310439"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>자습서: Azure IoT Central에서 장치에 대한 규칙 및 작업 구성
 
@@ -96,6 +96,9 @@ ms.locfileid: "45731895"
 규칙은 저장 한 직후 발효됩니다. 규칙에서 정의된 조건이 충족되면 응용 프로그램은 작업에서 지정된 이메일 주소로 메시지를 보냅니다.
 
 ![이메일 작업](media/tutorial-configure-rules/email.png)
+
+> [!NOTE]
+> 테스트를 완료한 뒤 받은 편지함에서 경고를 받지 않게 규칙을 해제합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

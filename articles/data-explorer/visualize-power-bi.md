@@ -2,18 +2,18 @@
 title: '자습서: Power BI에서 Azure Data Explorer의 데이터 시각화'
 description: 이 자습서에서는 Power BI를 사용하여 Azure Data Explorer에 연결하여 데이터를 시각화하는 방법을 알아봅니다.
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 938d8d6e291ca432ef3f642a0aaec74d5dcf5bf5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fc2d96c4dc8184ba26001fd77732ce7c45253d5a
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977148"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393715"
 ---
 # <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>자습서: Power BI에서 Azure Data Explorer의 데이터 시각화
 
@@ -108,7 +108,7 @@ Azure Data Explorer에 연결했으므로 파워 쿼리 편집기에서 데이�
 
     ![필터 열](media/visualize-power-bi/filter-column.png)
 
-1. **BeginLat** 열에 대한 화살표를 선택하고 **null** 확인란을 선택 취소한 다음, **확인**을 선택합니다.
+1. **StormSummary** 열 헤더를 마우스 오른쪽 단추로 클릭한 다음, **제거**를 선택합니다.
 
     ![열 제거](media/visualize-power-bi/remove-column.png)
 

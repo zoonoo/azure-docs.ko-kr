@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/22/2018
 ms.author: dobett
-ms.openlocfilehash: 903c5ce4b914575dbd0a807efeec30c8b32fa9dc
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: a4840fee22086bf6716f5f83ba86c4ac464377f9
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216131"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364407"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-java"></a>빠른 시작: 장치에서 IoT 허브로 원격 분석 데이터 보내기 및 백 엔드 응용 프로그램으로 허브에서 원격 분석 읽기(Java)
 
@@ -57,33 +57,41 @@ https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip에서
 
 ## <a name="register-a-device"></a>장치 등록
 
-연결을 위해 장치를 IoT Hub에 등록해야 합니다. 이 빠른 시작에서는 Azure CLI를 사용하여 시뮬레이션된 장치를 등록합니다.
+연결을 위해 장치를 IoT Hub에 등록해야 합니다. 이 빠른 시작에서는 Azure Cloud Shell을 사용하여 시뮬레이션된 장치를 등록합니다.
 
-1. IoT Hub CLI 확장을 추가하고 장치 ID를 만듭니다. `{YourIoTHubName}`을 IoT 허브에 대해 선택한 이름으로 바꿉니다.
+1. Azure Cloud Shell에서 다음 명령을 실행하여 IoT Hub CLI 확장을 추가하고 장치 ID를 만듭니다. 
+
+   **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
+
+   **MyJavaDevice** : 등록된 장치에 지정된 이름입니다. 표시된 것처럼 MyJavaDevice를 사용합니다. 다른 장치 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 샘플 응용 프로그램에서 장치 이름을 업데이트한 후 실행해야 합니다.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyJavaDevice
+    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyJavaDevice
     ```
 
-    장치에 다른 이름을 선택하는 경우 샘플 응용 프로그램에서 실행하기 전에 장치 이름을 업데이트합니다.
-
-2. 방금 등록한 장치의 _장치 연결 문자열_을 가져오려면 다음 명령을 실행합니다.
+2. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 장치의 _장치 연결 문자열_을 가져옵니다. **YourIoTHubName**: 아래의 이 자리 표시자를 IoT 허브에 대해 선택하는 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyJavaDevice --output table
+    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyJavaDevice --output table
     ```
 
-    `Hostname=...=`과 같은 장치 연결 문자열을 기록해 둡니다. 이 값은 빠른 시작의 뒷부분에서 사용합니다.
+    다음과 같은 장치 연결 문자열을 기록해 둡니다.
+
+   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
+
+    이 값은 빠른 시작의 뒷부분에서 사용합니다.
 
 3. 또한 백 엔드 응용 프로그램이 IoT 허브에 연결하고 메시지를 검색할 수 있도록 하려면 IoT 허브에서 _Event Hubs 호환 엔드포인트_, _Event Hubs 호환 경로_ 및 _iothubowner 기본 키_가 필요합니다. 다음 명령은 IoT 허브에 대해 이 값을 검색합니다.
 
+     **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
+
     ```azurecli-interactive
-    az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {YourIoTHubName}
+    az iot hub show --query properties.eventHubEndpoints.events.endpoint --name YourIoTHubName
 
-    az iot hub show --query properties.eventHubEndpoints.events.path --name {YourIoTHubName}
+    az iot hub show --query properties.eventHubEndpoints.events.path --name YourIoTHubName
 
-    az iot hub policy show --name iothubowner --query primaryKey --hub-name {your IoT Hub name}
+    az iot hub policy show --name iothubowner --query primaryKey --hub-name YourIoTHubName
     ```
 
     빠른 시작의 뒷부분에서 사용하기 위해 이 세 개의 값을 적어 둡니다.
@@ -92,19 +100,19 @@ https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip에서
 
 시뮬레이션된 장치 응용 프로그램은 IoT 허브의 장치 관련 엔드포인트에 연결하고 시뮬레이션된 온도 및 습도 원격 분석을 전송합니다.
 
-1. 터미널 창에서 Java 프로젝트 샘플의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\simulated-device** 폴더로 이동합니다.
+1. 로컬 터미널 창에서 Java 프로젝트 샘플의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\simulated-device** 폴더로 이동합니다.
 
 2. 원하는 텍스트 편집기에서 **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** 파일을 엽니다.
 
     `connString` 변수의 값을 이전에 적어둔 장치 연결 문자열로 바꿉니다. 그런 다음 변경 내용을 **SimulatedDevice.java** 파일에 저장합니다.
 
-3. 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고, 시뮬레이션된 장치 응용 프로그램을 빌드합니다.
+3. 로컬 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 장치 응용 프로그램을 빌드합니다.
 
     ```cmd/sh
     mvn clean package
     ```
 
-4. 터미널 창에서 다음 명령을 실행하여 시뮬레이션된 장치 응용 프로그램을 실행합니다.
+4. 로컬 터미널 창에서 다음 명령을 실행하여 시뮬레이션된 장치 응용 프로그램을 실행합니다.
 
     ```cmd/sh
     java -jar target/simulated-device-1.0.0-with-deps.jar
@@ -118,7 +126,7 @@ https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip에서
 
 백 엔드 응용 프로그램은 IoT Hub의 서비스 측 **이벤트** 엔드포인트에 연결합니다. 응용 프로그램은 시뮬레이션된 장치에서 전송하는 장치-클라우드 메시지를 받습니다. IoT Hub 백 엔드 응용 프로그램은 일반적으로 클라우드에서 실행되며 장치-클라우드 메시지를 수신하고 처리합니다.
 
-1. 다른 터미널 창에서 Java 프로젝트 샘플의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\read-d2c-messages** 폴더로 이동합니다.
+1. 다른 로컬 터미널 창에서 Java 프로젝트 샘플의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\read-d2c-messages** 폴더로 이동합니다.
 
 2. 원하는 텍스트 편집기에서 **src/main/java/com/microsoft/docs/iothub/samples/ReadDeviceToCloudMessages.java** 파일을 엽니다. 다음 변수를 업데이트하고 파일에 변경 내용을 저장합니다.
 
@@ -129,13 +137,13 @@ https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip에서
     | `iotHubSasKey`                | 변수 값을 이전에 적어둔 iothubowner 기본 키로 바꿉니다. |
 
 
-3. 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고, 백 엔드 응용 프로그램을 빌드합니다.
+3. 로컬 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 백 엔드 응용 프로그램을 빌드합니다.
 
     ```cmd/sh
     mvn clean package
     ```
 
-4. 터미널 창에서 다음 명령을 실행하여 백 엔드 응용 프로그램을 실행합니다.
+4. 로컬 터미널 창에서 다음 명령을 실행하여 백 엔드 응용 프로그램을 실행합니다.
 
     ```cmd/sh
     java -jar target/read-d2c-messages-1.0.0-with-deps.jar

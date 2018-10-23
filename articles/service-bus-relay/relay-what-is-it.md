@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 10/08/2018
 ms.author: spelluru
-ms.openlocfilehash: 46a9045cdf422ed4f14e5588b3342e8bfde2e4c8
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 3cc87c0acbed317cccaccec687f27c23a1d32cf0
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888122"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319339"
 ---
 # <a name="what-is-azure-relay"></a>Azure 릴레이란?
 Azure Relay 서비스를 사용하면 회사 네트워크에서 실행되는 서비스를 공용 클라우드에 안전하게 공개할 수 있습니다. 방화벽 연결을 열거나 회사 네트워크 인프라를 강제로 변경하지 않고도 이 작업을 수행할 수 있습니다. 
@@ -81,10 +81,9 @@ WCF Relay는 전체 .NET Framework 및 WCF에서 작동합니다. WCF "릴레이
 4. 요청을 수신한 게이트웨이에서 게이트웨이 저장소에 있는 릴레이를 조회합니다. 
 5. 게이트웨이에서 연결 요청을 게이트웨이 저장소에 언급된 올바른 게이트웨이로 전달합니다. 
 6. 게이트웨이에서 송신 클라이언트에 가장 가까운 게이트웨이 노드에 대한 임시 채널을 만들도록 요구하는 요청을 수신 클라이언트에 보냅니다. 
-7. 이제 수신 클라이언트에서 임시 채널을 만들고, 송신 클라이언트에 가장 가까운 게이트웨이에 응답 메시지를 보냅니다.
-8. 게이트웨이에서 응답 메시지를 송신 클라이언트로 전달합니다. 
-
-릴레이 연결이 설정되면 클라이언트가 랑데부에 사용되는 게이트웨이 노드를 통해 메시지를 교환할 수 있습니다.
+7. 수신 클라이언트는 송신 클라이언트에서 가장 가까운 게이트웨이에 대한 임시 채널을 만듭니다. 이제 게이트웨이를 통해 클라이언트 간의 연결이 수립되었으므로 클라이언트가 서로 메시지를 교환할 수 있습니다. 
+8. 게이트웨이는 메시지를 수신 대기 클라이언트에서 송신 클라이언트로 전달합니다. 
+9. 게이트웨이는 메시지를 송신 클라이언트에서 수신 대기 클라이언트로 전달합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 * [.NET Websocket 시작](relay-hybrid-connections-dotnet-get-started.md)

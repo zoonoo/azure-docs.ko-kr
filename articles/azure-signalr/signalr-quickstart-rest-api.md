@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 93c1198ecfba6db809228ed6dcd99c705f53926c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 40d5a02f83188330facc82701abdfb950585781c
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972762"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310395"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>빠른 시작: 콘솔 앱에서 실시간 메시지 브로드캐스트
 
@@ -120,5 +120,51 @@ broadcast
 
 각기 다른 클라이언트 이름으로 여러 클라이언트를 시작할 수 있습니다.
 
+## <a name="usage"> </a> 타사 서비스와의 통합
+Azure SignalR 서비스를 통해 타사 서비스를 시스템과 통합할 수 있습니다.
+### <a name="usage"> </a> 기술 사양 정의
+다음 표에서는 현재 지원되는 모든 REST API 버전을 보여 줍니다. 각 특정 버전에 대한 정의 파일도 찾을 수 있습니다.
+버전 | API 상태 | 문 | 특정
+--- | --- | --- | ---
+`1.0-preview` | 사용 가능 | 5002 | [Swagger] (https://github.com/Azure/azure-signalr/tree/dev/docs/swagger/v1-preview.json)
+`1.0` | 사용 가능 | Standard | [Swagger] (https://github.com/Azure/azure-signalr/tree/dev/docs/swagger/v1.json)
+각 특정 버전에 사용 가능한 API 목록은 다음 목록에서 확인할 수 있습니다.
+API | `1.0-preview` | `1.0`
+--- | --- | ---
+[모두에 브로드캐스트] (# broadcast) | : heavy_check_mark: | : Heavy_check_mark:
+[그룹에 브로드캐스트] (# broadcast-group) | : heavy_check_mark: | : Heavy_check_mark:
+일부 그룹에 브로드캐스트 | : heavy_check_mark: (사용되지 않음) | `N / A`
+[특정 사용자에게 보내기] (# send-user) | : heavy_check_mark: | : Heavy_check_mark:
+일부 사용자에게 보내기 | : heavy_check_mark: (사용되지 않음) | `N / A`
+[그룹에 사용자 추가] (# add-user-to-group) | `N / A` | : Heavy_check_mark:
+[그룹에서 사용자 제거] (# remove-user-from-group) | `N / A` | : Heavy_check_mark:
+<a name="broadcast"> </a>
+### <a name="broadcast-to-everyone"></a>모두에게 브로드캐스트
+버전 | API HTTP 메서드 | 요청 URL | 요청 본문
+--- | --- | --- | ---
+`1.0-preview` | `POST` | `https: // <instance-name> .service.signalr.net: 5002 / api / v1-preview / hub / <hub-name>` | `{" target ":" <method-name> "," arguments ": [...]}`
+`1.0` | `POST` | `https: // <instance-name> .service.signalr.net / api / v1 / hubs / <hub-name>` | 위의 같음
+<a name="broadcast-group"> </a>
+### <a name="broadcast-to-a-group"></a>그룹에 브로드캐스트
+버전 | API HTTP 메서드 | 요청 URL | 요청 본문
+--- | --- | --- | ---
+`1.0-preview` | `POST` | `https: // <instance-name> .service.signalr.net: 5002 / api / v1-preview / hub / <hub-name> / group / <group-name>` | `{" target ":" <method-name> "," arguments ": [...]}`
+`1.0` | `POST` | `https: // <instance-name> .service.signalr.net / api / v1 / hubs / <hub-name> / groups / <group-name>` | 위와 동일
+<a name="send-user"> </a>
+### <a name="sending-to-specific-users"></a>특정 사용자에게 보내기
+버전 | API HTTP 메서드 | 요청 URL | 요청 본문
+--- | --- | --- | ---
+`1.0-preview` | `POST` | `https: // <instance-name> .service.signalr.net: 5002 / api / v1-preview / hub / <hub-name> / user / <user-id>` | `{" target ":" <method-name> "," arguments ": [...]}`
+`1.0` | `POST` | `https: // <instance-name> .service.signalr.net / api / v1 / hubs / <hub-name> / users / <user-id>` | 위와 동일
+<a name="add-user-to-group"> </a>
+### <a name="adding-a-user-to-a-group"></a>그룹에 사용자 추가
+버전 | API HTTP 메서드 | 요청 URL
+--- | --- | ---
+`1.0` | `PUT` | `Https: // <instance-name> .service.signalr.net / api / v1 / hubs / <hub-name> / groups / <group-name> / users / <userid>`
+<a name="remove-user-from-group"> </a>
+### <a name="removing-a-user-from-a-group"></a>그룹에서 사용자 제거
+버전 | API HTTP 메서드 | 요청 URL
+--- | --- | ---
+`1.0` | `DELETE` | `Https: // <instance-name> .service.signalr.net / api / v1 / hubs / <hub-name> / groups / <group-name> / users / <userid>`
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]

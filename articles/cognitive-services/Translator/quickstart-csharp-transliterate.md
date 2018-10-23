@@ -10,18 +10,16 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 53ac3f4aa85e889c86d09927ece7df012427e4a9
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 7fa8c5dc76e59ec236d6b9662bd2ba41db0add0f
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367596"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320410"
 ---
 # <a name="quickstart-transliterate-text-with-c35"></a>빠른 시작: C&#35;을 사용하여 텍스트 음역
 
 이 빠른 시작에서는 Translator Text API를 사용하여 한 언어의 텍스트를 다른 언어로 변환합니다.
-
-이 샘플의 소스 코드는 [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp)에 제공됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -30,6 +28,9 @@ Windows에서 이 코드를 실행하려면 [Visual Studio 2017](https://www.vis
 Translator Text API를 사용하려면 구독 키도 필요합니다. [Translator Text API에 등록하는 방법](translator-text-how-to-signup.md)을 참조하세요.
 
 ## <a name="transliterate-request"></a>음역 요청
+
+> [!TIP]
+> [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp)에서 최신 코드를 받습니다.
 
 다음은 [Transliterate](./reference/v3-0-transliterate.md) 메서드를 사용하여 특정 언어의 텍스트를 한 스크립트에서 다른 스크립트로 변환합니다.
 

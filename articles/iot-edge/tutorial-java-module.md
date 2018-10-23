@@ -9,12 +9,12 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 9c4ad2275339b3aeb21258041a96840c76732687
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: e3216674fc5952e06a50c18c4624ea6706952d67
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423464"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167021"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>자습서: Java IoT Edge 모듈 개발 및 시뮬레이션된 장치에 배포
 
@@ -41,7 +41,7 @@ Azure IoT Edge 장치:
 
 클라우드 리소스:
 
-* Azure의 무료 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md). 
+* Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md). 
 
 개발 리소스:
 
@@ -257,6 +257,16 @@ IoT Edge 장치를 설정할 때 사용한 빠른 시작 문서에서는 Azure P
 6. 새로고침 단추를 클릭합니다. **TempSensor** 모듈과 **$edgeAgent** 및 **$edgeHub**가 함께 실행되는 새 **JavaModule**이 표시됩니다.  
 
 ## <a name="view-generated-data"></a>생성된 데이터 보기
+
+IoT Edge 장치에 배포 매니페스트를 적용한 후에는 장치의 IoT Edge 런타임이 새 배포 정보를 수집하고 그에 따라 실행하기 시작합니다. 배포 매니페스트에 포함되지 않는 장치에서 실행되는 모든 모듈은 중지됩니다. 장치에서 누락된 모든 모듈이 시작됩니다. 
+
+Visual Studio Code Explorer의 **Azure IoT Hub 장치** 섹션을 통해 IoT Edge 장치 상태를 확인할 수 있습니다. 배포되어 실행 중인 모듈의 목록을 보려면 장치 상세 정보를 확장합니다. 
+
+IoT Edge 장치 자체에서 `iotedge list` 명령을 사용하여 배포 모듈 상태를 확인할 수 있습니다. 두 IoT Edge 런타임 모듈과 tempSensor, 이 자습서에서 만든 사용자 지정 모듈 등, 4개 모듈이 표시됩니다. 모든 모듈이 시작되려면 몇 분 정도 걸릴 수 있으므로 처음에 일부가 표시되지 않는다면 명령을 다시 실행합니다. 
+
+모든 모듈에서 생성되는 메시지를 보려면 `iotedge logs <module name>` 명령을 사용합니다. 
+
+메시지가 IoT 허브에 도착하면 Visual Studio Code를 사용하여 메시지를 볼 수 있습니다. 
 
 1. IoT 허브에 도착하는 데이터를 모니터링하려면 줄임표(**...**)를 선택한 다음, **D2C 메시지 모니터링 시작**을 선택합니다.
 2. 특정 장치에 대한 D2C 메시지를 모니터링하려면 목록에서 해당 장치를 마우스 오른쪽 단추로 클릭하고 **D2C 메시지 모니터링 시작**을 선택합니다.

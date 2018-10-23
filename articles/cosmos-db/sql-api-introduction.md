@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/22/2017
 ms.author: rafats
-ms.openlocfilehash: 76545c9953cff944c515e887a6a4214b9c76c501
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: fdeb58d72e15f563fd70ae94804de0773dd603c7
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038530"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387353"
 ---
 # <a name="introduction-to-azure-cosmos-db-sql-api"></a>Azure Cosmos DB 소개: SQL API
 
@@ -67,14 +67,10 @@ Azure Cosmos DB는 HTTP/HTTPS 요청을 수행할 수 있는 임의의 언어로
 
 | 다운로드 | 문서화 |
 | --- | --- |
-| [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) |[.NET 라이브러리](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
-| [Node.js SDK](http://go.microsoft.com/fwlink/?LinkID=402990) |[Node.js 라이브러리](https://github.com/Azure/azure-cosmosdb-node) |
-| [Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) |[Java 라이브러리](/java/api/com.microsoft.azure.documentdb) |
-| [JavaScript SDK](https://github.com/Azure/azure-cosmos-js) |[JavaScript 라이브러리](https://github.com/Azure/azure-cosmos-js) |
-| 해당 없음 |[서버 쪽 JavaScript SDK](https://github.com/Azure/azure-cosmosdb-js-server) |
-| [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python 라이브러리](https://github.com/Azure/azure-cosmos-python) |
-| 해당 없음 | [MongoDB용 API](mongodb-introduction.md)
-
+| [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) |[.NET 참조 문서](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
+| [Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) |[Java 참조 문서](/java/api/com.microsoft.azure.documentdb) |
+| [JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) |[JavaScript 참조 문서](https://docs.microsoft.com/javascript/api/@azure/cosmos/?view=azure-node-latest) |
+| [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python 참조 문서](https://github.com/Azure/azure-cosmos-python) |
 
 [Azure Cosmos DB 에뮬레이터](local-emulator.md)를 사용하면 Azure 구독을 구입하거나 비용을 발생시키지 않고도 SQL API로 로컬에서 응용 프로그램을 개발 및 테스트할 수 있습니다. 에뮬레이터에서 응용 프로그램이 작동하는 방식에 만족하는 경우 Azure Cosmos DB 계정을 클라우드에서 사용하도록 전환할 수 있습니다.
 

@@ -2,24 +2,18 @@
 title: Azure Data Box 설정| Microsoft Docs
 description: 장치에 케이블을 연결하고 Azure Data Box에 연결하는 방법을 알아봅니다.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 10/03/2018
+ms.date: 10/17/2018
 ms.author: alkohli
-ms.openlocfilehash: f9671e3acdb71affe2187258582254561785780e
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: c3766713c87dd721f7e4c9a90624192cdb402be9
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785639"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393833"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>자습서: Azure Data Box에 케이블 연결
 
@@ -91,6 +85,8 @@ ms.locfileid: "48785639"
     - DHCP를 사용하도록 설정하지 않으면 필요한 경우 **집합 네트워크 인터페이스**로 이동하여 정적 IP를 할당합니다.
 
     ![장치 대시보드](media/data-box-deploy-set-up/data-box-dashboard-1.png)
+
+데이터 네트워크 인터페이스가 구성되면 DATA 1 - DATA 3 인터페이스의 아무 IP 주소를 사용하여 `https://<IP address of a data network interface>`에서 로컬 웹 UI에 액세스할 수 있습니다. 
 
 장치 설정이 완료되면 장치 공유에 연결하여 컴퓨터의 데이터를 장치로 복사할 수 있습니다. 
 

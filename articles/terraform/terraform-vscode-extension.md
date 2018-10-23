@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/31/2018
-ms.openlocfilehash: ad042525ead23959be57a5dd2d5735bcedfedb1b
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: be0140606302335884d62ba60c875a049949b495
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668328"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353053"
 ---
 # <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>Azure Terraform Visual Studio Code 확장 설치 및 사용
 
@@ -83,7 +83,7 @@ Terraform 시각화 함수를 사용하려면 [GraphViz를 설치](http://graphv
 
 #### <a name="verify-the-terraform-extension-is-installed-in-visual-studio-code"></a>Visual Studio Code에서 Terraform 확장이 설치되었는지 확인
 
-1. **확장**을 선택합니다.
+1. **확장**을 섡택합니다.
 
 1. 검색 텍스트 상자에 `@installed`를 입력합니다.
 
@@ -103,7 +103,9 @@ Azure Terraform 확장이 설치된 확장 목록에 표시됩니다.
 
 1. Visual Studio Code의 메뉴 모음에서 **파일 > 새 파일**을 선택합니다.
 
-1. [azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html#)으로 이동한 후 **Example Usage** 코드 블록의 코드를 복사합니다.
+1. 브라우저에서 [Terraform azurerm_resource_group page](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html#)로 이동하여 **Example Usage** 코드 블록의 코드를 복사합니다.
+
+    ![Example Usage](media/terraform-vscode-extension/tf-azurerm-resource-group-example-usage.png)
 
 1. 복사한 코드를 Visual Studio Code에서 만든 새 파일에 붙여넣습니다.
 

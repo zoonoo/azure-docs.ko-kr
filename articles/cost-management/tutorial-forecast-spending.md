@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 587459be69fe250b3e73fb9eb9d5cd08cf2e7a42
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e1954ae9fcbb010c66e8a812e3e34477ac2bfc29
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953687"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395227"
 ---
 # <a name="tutorial-forecast-future-spending"></a>자습서: 향후 소비 예측
 
@@ -29,7 +29,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 ## <a name="prerequisites"></a>필수 조건
 
 - Azure 계정이 있어야 합니다.
-- Cloudyn 평가판 등록 또는 유료 구독이 있어야 합니다.
+- Cloudyn에 대한 평가판 등록 또는 유료 구독이 있어야 합니다.
 
 ## <a name="forecast-future-spending"></a>향후 소비 예측
 

@@ -3,25 +3,23 @@ title: '빠른 시작: 텍스트 추출 - SDK, C# - Computer Vision'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Computer Vision Windows C# 클라이언트 라이브러리를 사용하여 이미지에서 텍스트를 추출합니다.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/27/2018
-ms.author: nolachar
-ms.openlocfilehash: 86808756721b2dc983df6eaf8a9e643a12d73969
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.author: pafarley
+ms.openlocfilehash: d819aee7c42759e2427e27e0f640d79536069ccb
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409019"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343608"
 ---
 # <a name="quickstart-extract-text-using-the-computer-vision-sdk-and-c"></a>빠른 시작: Computer Vision SDK 및 C#을 사용하여 텍스트를 추출
 
 이 빠른 시작에서는 Computer Vision Windows 클라이언트 라이브러리를 사용하여 이미지에서 필기 또는 인쇄 텍스트를 추출합니다.
-
-이 샘플에 대한 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision)에서 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -30,6 +28,9 @@ ms.locfileid: "47409019"
 * [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) 클라이언트 라이브러리 NuGet 패키지. 패키지를 다운로드할 필요는 없습니다. 설치 지침은 아래에 제공됩니다.
 
 ## <a name="recognizetextasync-method"></a>RecognizeTextAsync 메서드
+
+> [!TIP]
+> [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision)에서 최신 코드를 Visual Studio 솔루션으로 가져옵니다.
 
 `RecognizeTextAsync` 및 `RecognizeTextInStreamAsync` 메서드는 원격 및 로컬 이미지 각각에 대해 [텍스트 인식 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200)를 래핑합니다. `GetTextOperationResultAsync` 메서드는 [텍스트 인식 작업 결과 가져오기 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201)를 래핑합니다.  이 메서드를 사용하여 이미지의 텍스트를 감지하고 인식된 문자를 머신에서 사용 가능한 문자 스트림으로 추출할 수 있습니다.
 

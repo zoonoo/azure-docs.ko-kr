@@ -4,21 +4,21 @@ description: Azure Media Services를 사용하여 Microsoft PlayReady, Google Wi
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/15/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 8bfe2fb7274fb8c6dcf977e8bd72af525d8ce8a5
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 2a8a00ab034016e7121e4601b3ff5a16d8c721ac
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528173"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395082"
 ---
 # <a name="use-drm-dynamic-encryption-and-license-delivery-service"></a>DRM 동적 암호화 및 라이선스 배달 서비스 사용
 
@@ -147,7 +147,7 @@ Azure Media Services를 사용하여 [PlayReady DRM(디지털 권한 관리)](ht
 
 **StreamingLocator**를 만드는 과정을 게시라고 합니다. 기본적으로 **StreamingLocator**는 API 호출을 수행한 직후부터 유효하며, 선택적인 시작 및 종료 시간을 구성하지 않는 한 삭제될 때까지 지속됩니다. 
 
-[StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators)를 만들 때 원하는 **StreamingPolicyName**을 지정해야 합니다. 이 자습서에서는 스트리밍에 대한 콘텐츠를 게시하는 방법을 Azure Media Services에 알려주는 PredefinedStreamingPolicies 중 하나를 사용하고 있습니다. 이 예제에서는 StreamingLocator.StreamingPolicyName을 SecureStreaming 정책으로 설정합니다. 이 정책은 로케이터에서 생성되고 설정할 두 가지 콘텐츠 키(봉투 및 CENC)에 대한 것임을 나타냅니다. 따라서 봉투, PlayReady 및 Widevine 암호화가 적용됩니다(키가 구성된 DRM 라이선스에 따라 재생 클라이언트로 배달됨). 또한 CBCS(FairPlay)를 사용하여 스트림을 암호화하려면 PredefinedStreamingPolicy.SecureStreamingWithFairPlay를 사용합니다. 
+[StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators)를 만들 때 원하는 **StreamingPolicyName**을 지정해야 합니다. 이 자습서에서는 스트리밍할 콘텐츠를 게시하는 방법을 Azure Media Services에 알려주는 미리 정의된 StreamingPolicies 중 하나를 사용합니다. 이 예제에서는 StreamingLocator.StreamingPolicyName을 "Predefined_MultiDrmCencStreaming" 정책으로 설정합니다. 이 정책은 로케이터에서 생성되고 설정할 두 가지 콘텐츠 키(봉투 및 CENC)에 대한 것임을 나타냅니다. 따라서 봉투, PlayReady 및 Widevine 암호화가 적용됩니다(키가 구성된 DRM 라이선스에 따라 재생 클라이언트로 배달됨). 또한 CBCS(FairPlay)를 사용하여 스트림을 암호화하려면 "Predefined_MultiDrmStreaming"을 사용합니다. 
 
 > [!IMPORTANT]
 > 사용자 지정 [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies)를 사용하는 경우 Media Service 계정에 대해 이러한 정책을 제한적으로 설계하고 동일한 암호화 옵션 및 프로토콜이 필요할 때마다 StreamingLocator에 다시 사용해야 합니다. Media Service 계정에는 StreamingPolicy 항목의 수에 대한 할당량이 있습니다. 각 StreamingLocator에 대해 새 StreamingPolicy를 만들지 말아야 합니다.

@@ -10,18 +10,18 @@ ms.component: computer-vision
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: kefre
-ms.openlocfilehash: 6dc6eec729fc1be3f0a859834597bf2d5785d9bc
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: c024e517eb59c7d3b61408e477c94004ccb01a54
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984927"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341313"
 ---
 # <a name="tutorial-computer-vision-api-javascript"></a>자습서: Computer Vision API JavaScript
 
 이 자습서에서는 Azure Cognitive Services Computer Vision REST API의 기능을 보여 줍니다.
 
-Computer Vision REST API를 사용하는 JavaScript 응용 프로그램을 탐색하여 OCR(광학 인식)을 수행하고, 스마트하게 잘리는 썸네일을 만들고, 이미지에서 얼굴을 포함한 시각적 기능을 감지, 분류, 태그 지정 및 설명합니다. 이 예제에서는 분석 또는 처리할 이미지 URL을 제출할 수 있습니다. 이 오픈 소스 예제는 JavaScript에서 사용자 고유의 앱을 빌드하여 Computer Vision REST API를 사용하기 위한 템플릿으로 사용할 수 있습니다.
+Computer Vision REST API를 사용하는 JavaScript 응용 프로그램을 탐색하여 OCR(광학 인식)을 수행하고, 스마트하게 잘리는 썸네일을 만들고, 이미지에서 얼굴을 포함한 시각적 기능을 감지, 분류, 태그 지정 및 설명합니다. 이 예제에서는 분석 또는 처리할 이미지 URL을 제출할 수 있습니다. 이 오픈 소스 예제는 Computer Vision REST API를 사용하는 사용자 고유의 JavaScript 앱을 빌드하기 위한 템플릿으로 사용할 수 있습니다.
 
 JavaScript 양식 응용 프로그램은 이미 작성되어 있지만 Computer Vision 기능이 없습니다. 이 자습서에서는 Computer Vision REST API 관련 코드를 추가하여 응용 프로그램의 기능을 완성합니다.
 
@@ -35,25 +35,27 @@ JavaScript 양식 응용 프로그램은 이미 작성되어 있지만 Computer 
 
 예제를 만들기 전에 먼저 Azure Cognitive Services의 일부인 Computer Vision API를 구독해야 합니다. 구독 및 키 관리에 대한 자세한 내용은 [구독](https://azure.microsoft.com/try/cognitive-services/)을 참조하세요. 기본 및 보조 키는 모두 이 자습서에서 사용할 수 있습니다. 
 
-## <a name="download-the-tutorial-project"></a>자습서 프로젝트 다운로드
+## <a name="acquire-the-incomplete-tutorial-project"></a>완료되지 않은 자습서 프로젝트 획득
+
+### <a name="download-the-tutorial-project"></a>자습서 프로젝트 다운로드
 
 [Cognitive Services JavaScript Computer Vision 자습서](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial)를 복제하거나 .zip 파일을 다운로드하여 빈 디렉터리에 추출합니다.
 
 모든 자습서 코드를 추가하여 완성된 자습서를 사용하려면 **Completed** 폴더에 있는 파일을 사용하면 됩니다.
 
-## <a name="add-the-tutorial-code"></a>자습서 코드 추가
+## <a name="add-the-tutorial-code-to-the-project"></a>프로젝트에 자습서 코드 추가
 
 JavaScript 응용 프로그램은 각 기능마다 하나씩 6개의 .html 파일로 설정되어 있습니다. 각 파일에서는 서로 다른 Computer Vision 함수(분석, OCR 등)를 보여 줍니다. 6개의 자습서 섹션은 서로 종속되지 않으므로 하나의 파일, 6개의 파일 모두 또는 몇 개의 파일에만 자습서 코드를 추가할 수 있습니다. 그리고 자습서 코드는 임의의 순서로 파일에 추가할 수 있습니다.
 
 이제 시작하겠습니다.
 
-## <a name="analyze-an-image"></a>이미지 분석
+### <a name="analyze-an-image"></a>이미지 분석
 
-Computer Vision의 [분석] 기능은 2,000개가 넘는 인식 가능한 물체, 생물, 풍경 및 행위에 대한 이미지를 분석합니다. 분석이 완료되면 [분석]에서 설명 태그, 색 분석, 캡션 등으로 이미지를 설명하는 JSON 개체를 반환합니다.
+Computer Vision의 [분석] 기능은 이미지를 검사하여 2,000개가 넘는 인식 가능한 물체, 생물, 풍경 및 동작을 분석합니다. 분석이 완료되면 [분석]에서 설명 태그, 색 분석, 캡션 등으로 이미지를 설명하는 JSON 개체를 반환합니다.
 
 자습서 응용 프로그램의 [분석] 기능을 완성하려면 다음 단계를 수행합니다.
 
-### <a name="analyze-step-1-add-the-event-handler-code-for-the-form-button"></a>분석 1단계: 양식 단추에 대한 이벤트 처리기 코드 추가
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>양식 단추에 대한 이벤트 처리기 코드 추가
 
 텍스트 편집기에서 **analyze.html** 파일을 열고, 파일의 아래쪽에서 **analyzeButtonClick** 함수를 찾습니다.
 
@@ -77,7 +79,7 @@ function analyzeButtonClick() {
 }
 ```
 
-### <a name="analyze-step-2-add-the-wrapper-for-the-rest-api-call"></a>분석 2단계: REST API 호출에 대한 래퍼 추가
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>REST API 호출에 대한 래퍼 추가
 
 **AnalyzeImage** 함수는 REST API 호출을 래핑하여 이미지를 분석합니다. 성공적으로 반환되면 형식이 지정된 JSON 분석이 지정된 텍스트 영역에 표시되고 캡션이 지정된 범위에 표시됩니다.
 
@@ -151,17 +153,17 @@ function AnalyzeImage(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-### <a name="analyze-step-3-run-the-application"></a>분석 3단계: 응용 프로그램 실행
+#### <a name="run-the-application"></a>응용 프로그램 실행
 
 **analyze.html** 파일을 저장하고, 웹 브라우저에서 엽니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. 분석할 이미지에 대한 URL을 입력한 다음, **이미지 분석** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 
-## <a name="recognize-a-landmark"></a>랜드마크 인식
+### <a name="recognize-a-landmark"></a>랜드마크 인식
 
 Computer Vision의 [랜드마크] 기능은 산이나 유명한 건물과 같은 자연 및 인공 랜드마크에 대한 이미지를 분석합니다. 분석이 완료되면 [랜드마크]에서 이미지에 있는 랜드마크를 식별하는 JSON 개체를 반환합니다.
 
 자습서 응용 프로그램의 [랜드마크] 기능을 완성하려면 다음 단계를 수행합니다.
 
-### <a name="landmark-step-1-add-the-event-handler-code-for-the-form-button"></a>랜드마크 1단계: 양식 단추에 대한 이벤트 처리기 코드 추가
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>양식 단추에 대한 이벤트 처리기 코드 추가
 
 텍스트 편집기에서 **landmark.html** 파일을 열고, 파일의 아래쪽에서 **landmarkButtonClick** 함수를 찾습니다.
 
@@ -185,7 +187,7 @@ function landmarkButtonClick() {
 }
 ```
 
-### <a name="landmark-step-2-add-the-wrapper-for-the-rest-api-call"></a>랜드마크 2단계: REST API 호출에 대한 래퍼 추가
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>REST API 호출에 대한 래퍼 추가
 
 **IdentifyLandmarks** 함수는 REST API 호출을 래핑하여 이미지를 분석합니다. 성공적으로 반환되면 형식이 지정된 JSON 분석이 지정된 텍스트 영역에 표시되고 캡션이 지정된 범위에 표시됩니다.
 
@@ -258,17 +260,17 @@ function IdentifyLandmarks(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-### <a name="landmark-step-3-run-the-application"></a>랜드마크 3단계: 응용 프로그램 실행
+#### <a name="run-the-application"></a>응용 프로그램 실행
 
 **landmark.html** 파일을 저장하고, 웹 브라우저에서 엽니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. 분석할 이미지에 대한 URL을 입력한 다음, **이미지 분석** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 
-## <a name="recognize-celebrities"></a>유명 인사 인식
+### <a name="recognize-celebrities"></a>유명 인사 인식
 
 Computer Vision의 [유명 인사] 기능은 유명 인사에 대한 이미지를 분석합니다. 분석이 완료되면 [유명 인사]에서 이미지에 있는 유명 인사를 식별하는 JSON 개체를 반환합니다.
 
 자습서 응용 프로그램의 [유명 인사] 기능을 완성하려면 다음 단계를 수행합니다.
 
-### <a name="celebrities-step-1-add-the-event-handler-code-for-the-form-button"></a>유명 인사 1단계: 양식 단추에 대한 이벤트 처리기 코드 추가
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>양식 단추에 대한 이벤트 처리기 코드 추가
 
 텍스트 편집기에서 **celebrities.html** 파일을 열고, 파일의 아래쪽에서 **celebritiesButtonClick** 함수를 찾습니다.
 
@@ -292,7 +294,7 @@ function celebritiesButtonClick() {
 }
 ```
 
-### <a name="celebrities-step-2-add-the-wrapper-for-the-rest-api-call"></a>유명 인사 2단계: REST API 호출에 대한 래퍼 추가
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>REST API 호출에 대한 래퍼 추가
 
 ```javascript
 /* Identify celebrities in the image at the specified URL by using Microsoft Cognitive Services 
@@ -361,17 +363,17 @@ function IdentifyCelebrities(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-### <a name="celebrities-step-3-run-the-application"></a>유명 인사 3단계: 응용 프로그램 실행
+#### <a name="run-the-application"></a>응용 프로그램 실행
 
 **celebrities.html** 파일을 저장하고, 웹 브라우저에서 엽니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. 분석할 이미지에 대한 URL을 입력한 다음, **이미지 분석** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 
-## <a name="intelligently-generate-a-thumbnail"></a>지능적으로 썸네일 생성
+### <a name="intelligently-generate-a-thumbnail"></a>지능적으로 썸네일 생성
 
 Computer Vision의 [썸네일] 기능은 이미지에서 썸네일을 생성합니다. **스마트 자르기** 기능을 사용하면 [썸네일] 기능에서 이미지의 관심 영역을 식별하고 이 영역에서 썸네일을 가운데에 맞춰 미적으로 더욱 만족스러운 썸네일 이미지를 생성할 수 있습니다.
 
 자습서 응용 프로그램의 [썸네일] 기능을 완성하려면 다음 단계를 수행합니다.
 
-### <a name="thumbnail-step-1-add-the-event-handler-code-for-the-form-button"></a>썸네일 1단계: 양식 단추에 대한 이벤트 처리기 코드 추가
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>양식 단추에 대한 이벤트 처리기 코드 추가
 
 텍스트 편집기에서 **thumbnail.html** 파일을 열고, 파일의 아래쪽에서 **thumbnailButtonClick** 함수를 찾습니다.
 
@@ -403,7 +405,7 @@ function thumbnailButtonClick() {
 }
 ```
 
-### <a name="thumbnail-step-2-add-the-wrapper-for-the-rest-api-call"></a>썸네일 2단계: REST API 호출에 대한 래퍼 추가
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>REST API 호출에 대한 래퍼 추가
 
 **getThumbnail** 함수는 REST API 호출을 래핑하여 이미지를 분석합니다. 성공적으로 반환되면 썸네일이 지정된 img 요소에 표시됩니다.
 
@@ -482,11 +484,11 @@ function getThumbnail (sourceImageUrl, smartCropping, imageElement, responseText
 }
 ```
 
-### <a name="thumbnail-step-3-run-the-application"></a>썸네일 3단계: 응용 프로그램 실행
+#### <a name="run-the-application"></a>응용 프로그램 실행
 
 **thumbnail.html** 파일을 저장하고, 웹 브라우저에서 엽니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. 분석할 이미지에 대한 URL을 입력한 다음, **썸네일 생성** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 
-## <a name="read-printed-text-ocr"></a>인쇄된 텍스트 읽기(OCR)
+### <a name="read-printed-text-ocr"></a>인쇄된 텍스트 읽기(OCR)
 
 Computer Vision의 OCR(광학 인식) 기능은 인쇄된 텍스트의 이미지를 분석합니다. 분석이 완료되면 OCR에서 텍스트와 이미지 내 텍스트 위치가 포함된 JSON 개체를 반환합니다.
 
@@ -516,7 +518,7 @@ function ocrButtonClick() {
 }
 ```
 
-### <a name="ocr-step-2-add-the-wrapper-for-the-rest-api-call"></a>OCR 2단계: REST API 호출에 대한 래퍼 추가
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>REST API 호출에 대한 래퍼 추가
 
 **ReadOcrImage** 함수는 REST API 호출을 래핑하여 이미지를 분석합니다. 성공적으로 반환되면 텍스트와 텍스트의 위치를 설명하는 형식이 지정된 JSON이 지정된 텍스트 영역에 표시됩니다.
 
@@ -577,17 +579,17 @@ function ReadOcrImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-### <a name="ocr-step-3-run-the-application"></a>OCR 3단계: 응용 프로그램 실행
+#### <a name="run-the-application"></a>응용 프로그램 실행
 
 **ocr.html** 파일을 저장하고’ 웹 브라우저에서 엽니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. 읽을 텍스트의 이미지에 대한 URL을 입력한 다음, **이미지 읽기** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 
-## <a name="read-handwritten-text-handwriting-recognition"></a>필기 텍스트 읽기(필기 인식)
+### <a name="read-handwritten-text-handwriting-recognition"></a>필기 텍스트 읽기(필기 인식)
 
 Computer Vision의 [필기 인식] 기능은 손으로 쓴 텍스트의 이미지를 분석합니다. 분석이 완료되면 [필기 인식]에서 텍스트와 이미지 내 텍스트 위치가 포함된 JSON 개체를 반환합니다.
 
 자습서 응용 프로그램의 [필기 인식] 기능을 완성하려면 다음 단계를 수행합니다.
 
-### <a name="handwriting-recognition-step-1-add-the-event-handler-code-for-the-form-button"></a>필기 인식 1단계: 양식 단추에 대한 이벤트 처리기 코드 추가
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>양식 단추에 대한 이벤트 처리기 코드 추가
 
 텍스트 편집기에서 **handwriting.html** 파일을 열고, 파일의 아래쪽에서 **handwritingButtonClick** 함수를 찾습니다.
 
@@ -610,7 +612,7 @@ function handwritingButtonClick() {
 }
 ```
 
-### <a name="handwriting-recognition-step-2-add-the-wrapper-for-the-rest-api-call"></a>필기 인식 2단계: REST API 호출에 대한 래퍼 추가
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>REST API 호출에 대한 래퍼 추가
 
 **ReadHandwrittenImage** 함수는 이미지를 분석하는 데 필요한 두 개의 REST API 호출을 래핑합니다. [필기 인식]은 시간이 오래 걸리는 프로세스이므로 2단계 프로세스가 사용됩니다. 첫 번째 호출에서 처리할 이미지를 제출합니다. 처리가 완료되면 두 번째 호출에서 감지된 텍스트를 검색합니다.
 
@@ -736,7 +738,7 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-### <a name="handwriting-recognition-step-3-run-the-application"></a>필기 인식 3단계: 응용 프로그램 실행
+#### <a name="run-the-application"></a>응용 프로그램 실행
 
 **handwriting.html** 파일을 저장하고, 웹 브라우저에서 엽니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. 읽을 텍스트의 이미지에 대한 URL을 입력한 다음, **이미지 읽기** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: mvc
-ms.openlocfilehash: bc59d8671d904cf5096d616213cc4674ef5743b8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 3fc9677d72dacd06bde2fcfa4812cf4613efef01
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30832101"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394287"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>App Service Environment에 대한 웹 응용 프로그램 방화벽(WAF) 구성
 ## <a name="overview"></a>개요
@@ -34,7 +34,7 @@ Azure Application Gateway 외에도 [Azure Marketplace](https://azure.microsoft.
 ## <a name="setup"></a>설정
 이 문서에서는 Barracuda WAF의 다중 부하 분산 인스턴스 뒤의 App Service Environment를 구성하여 WAF의 트래픽만이 App Service Environment에 도달할 수 있게 하고 DMZ로부터는 접근할 수 없습니다. Azure Traffic Manager를 Azure 데이터 센터와 지역 간의 작업 부하를 위해 Barracuda WAF 앞에 놓겠습니다. 설치 프로그램의 높은 수준의 다이어그램은 다음 이미지와 비슷합니다.
 
-![건축][Architecture] 
+![아키텍처][Architecture] 
 
 > [!NOTE]
 > [App Service 환경에 대한 ILB 지원](app-service-environment-with-internal-load-balancer.md)의 도입으로 DMZ에서 ASE에 액세스할 수 없고 개인 네트워크에만 사용할 수 있도록 구성할 수 있습니다. 
@@ -47,26 +47,26 @@ App Service Environment를 구성하려면 해당 제목의 [설명서](app-serv
 ## <a name="configuring-your-barracuda-waf-cloud-service"></a>Barracuda WAF 클라우드 서비스를 구성합니다.
 Barracuda에는 Azure의 가상 머신에 WAF를 배포하는 방법에 대한 [자세한 문서](https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure) 가 있습니다. 이 설명서를 따라할 때 중복성을 원하고 단일 실패 지점을 도입하지 않는 것뿐만 아니라, 동일한 클라우드 서비스 안에 최소 2개의 WAF 인스턴스 VM을 배포하는 것을 원합니다.
 
-### <a name="adding-endpoints-to-cloud-service"></a>클라우드 서비스에 끝점 추가
-클라우드 서비스 내에 2개 이상의 WAF VM이 있다면 [Azure 포털](https://portal.azure.com/) 을 사용하여 다음 이미지처럼 응용 프로그램에서 사용하는 HTTP와 HTTPS 끝점을 추가할 수 있습니다.
+### <a name="adding-endpoints-to-cloud-service"></a>클라우드 서비스에 엔드포인트 추가
+클라우드 서비스 내에 2개 이상의 WAF VM이 있다면 [Azure 포털](https://portal.azure.com/) 을 사용하여 다음 이미지처럼 응용 프로그램에서 사용하는 HTTP와 HTTPS 엔드포인트를 추가할 수 있습니다.
 
-![끝점 구성][ConfigureEndpoint]
+![엔드포인트 구성][ConfigureEndpoint]
 
-응용 프로그램에서 다른 끝점을 사용하는 경우 이 목록에 추가해야 합니다. 
+응용 프로그램에서 다른 엔드포인트를 사용하는 경우 이 목록에 추가해야 합니다. 
 
 ### <a name="configuring-barracuda-waf-through-its-management-portal"></a>해당 관리 포털을 통해 WAF Barracuda 구성
 해당 관리 포털을 통해 Barracuda WAF를 사용하여 TCP Port 8000에 대해 구성합니다. WAF VM의 여러 인스턴스가 있기 때문에 각 VM에 이 단계를 반복해서 수행해야 합니다. 
 
 > [!NOTE]
-> WAF 구성이 끝났다면, WAF 보안을 유지하기 위해 모든 WAF VM에서 TCP/8000 끝점을 제거합니다.
+> WAF 구성이 끝났다면, WAF 보안을 유지하기 위해 모든 WAF VM에서 TCP/8000 엔드포인트를 제거합니다.
 > 
 > 
 
-다음 이미지와 같이 관리 끝점을 추가하여 Barracuda WAF를 구성합니다.
+다음 이미지와 같이 관리 엔드포인트를 추가하여 Barracuda WAF를 구성합니다.
 
-![관리 끝점 추가][AddManagementEndpoint]
+![관리 엔드포인트 추가][AddManagementEndpoint]
 
-브라우저를 사용하여 클라우드 서비스에서 관리 끝점으로 이동 합니다. Cloud Service 이름이 test.cloudapp.net이라면 http://test.cloudapp.net:8000 으로 이동하여 이 끝점에 액세스합니다. 로그인 페이지를 참조해야 다음 이미지와 같은 WAF VM 설치 단계에서 지정한 자격 증명을 사용하여 로그인할 수 있습니다.
+브라우저를 사용하여 클라우드 서비스에서 관리 엔드포인트로 이동 합니다. Cloud Service 이름이 test.cloudapp.net이라면 http://test.cloudapp.net:8000 으로 이동하여 이 엔드포인트에 액세스합니다. 로그인 페이지를 참조해야 다음 이미지와 같은 WAF VM 설치 단계에서 지정한 자격 증명을 사용하여 로그인할 수 있습니다.
 
 ![관리 로그인 페이지][ManagementLoginPage]
 
@@ -84,9 +84,9 @@ Barracuda에는 Azure의 가상 머신에 WAF를 배포하는 방법에 대한 [
 > 
 
 ## <a name="configuring-microsoft-azure-traffic-manager-optional"></a>Microsoft Azure Traffic Manager를 구성합니다. (선택 사항)
-응용 프로그램이 여러 지역에서 사용할 수 있는 경우, [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)를 사용하여 부하 분산하고자 합니다. 이 작업을 수행하려면 다음 이미지와 같이 Traffic Manager 프로필의 WAF 클라우드 서비스 이름을 이용하여 [Azure Portal](https://portal.azure.com)에서 끝점을 추가합니다. 
+응용 프로그램이 여러 지역에서 사용할 수 있는 경우, [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)를 사용하여 부하 분산하고자 합니다. 이 작업을 수행하려면 다음 이미지와 같이 Traffic Manager 프로필의 WAF 클라우드 서비스 이름을 이용하여 [Azure Portal](https://portal.azure.com)에서 엔드포인트를 추가합니다. 
 
-![Traffic Manager 끝점][TrafficManagerEndpoint]
+![Traffic Manager 엔드포인트][TrafficManagerEndpoint]
 
 응용 프로그램에 대해 인증이 필요한 경우, 응용 프로그램의 가용성에 대해 ping하는 Traffic Manager에 대한 어떤 자격 증명도 필요하지 않는 리소스가 남아 있는지 확인합니다. 다음 이미지와 같이 [Azure Portal](https://portal.azure.com)의 **구성** 페이지에서 URL을 구성할 수 있습니다.
 

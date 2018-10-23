@@ -7,18 +7,20 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: 6a44c36b5dd87c28db3de34a6858e29fb5730117
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 6834ad6c6915ceb3306284ea738d76027e2c9479
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067337"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365359"
 ---
 # <a name="azure-iot-technologies-and-solutions-paas-and-saas"></a>Azure IoT 기술 및 솔루션: PaaS 및 SaaS
 
 Microsoft는 모든 사람이 디지털 변환의 혜택을 누릴 수 있도록 모든 고객의 요구 사항을 지원하는 포트폴리오를 만들었습니다. Azure IoT 제품 포트폴리오는 사용 가능한 PaaS/SaaS 기술 및 솔루션의 개요를 보여줍니다. 고객이 고유의 솔루션을 구축하는 데 사용할 수 있는 두 가지 경로를 제공합니다.
 
-- PaaS(Platform as a Service): 사용자 지정 IoT 솔루션의 개발을 가속화하는 미리 구성된 엔터프라이즈급 솔루션 컬렉션인 [Azure IoT 솔루션 가속기](https://www.azureiotsolutions.com/)를 사용하여 응용 프로그램을 빌드하세요.
+- PaaS(Platform as a Service): 다음 서비스 중 하나를 사용하여 응용 프로그램을 빌드합니다.
+    - [Azure IoT 솔루션 가속기](https://www.azureiotsolutions.com/) - 사용자 지정 IoT 솔루션 개발 속도를 높일 수 있도록 미리 구성된 엔터프라이즈급 솔루션 컬렉션. 
+    - [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/) - 물리적 환경을 모델링하여 공간 인텔리전스 그래프 및 도메인 관련 개체 모델을 사용하여 컨텍스트 인식 IoT 솔루션을 만들 수 있습니다.
 
 - SaaS(Software as a Service): IoT 솔루션의 복잡성에 노출되지 않고 IoT 응용 프로그램을 개발할 수 있는 새로운 SaaS 솔루션인 [Azure IoT Central](https://azure.microsoft.com/services/iot-central/)로 빠르게 시작하세요. 조직에 고유의 IoT 솔루션을 빌드하는 데 필요한 리소스가 없는 경우 Azure IoT Central은 몇 분 안에 장치 모델, 대시보드 및 규칙을 만들 수 있는 코드 없는 IoT 솔루션입니다.
 
@@ -95,7 +97,10 @@ Azure IoT 제품을 선택하는 것은 IoT 솔루션 계획의 중요한 부분
 [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)는 수백만 대의 IoT 장치와 솔루션 백 엔드 간에서 안정적이고 안전한 양방향 통신을 가능하게 해주는 완전히 관리되는 서비스입니다. Azure IoT Hub Device Provisioning Service는 IoT Hub를 위한 도우미 서비스로, 사람이 개입할 필요 없이 적시에 올바른 IoT Hub에 무인 프로비전이 가능하므로 고객은 안전하고 확장성이 뛰어난 방식으로 수백만 대의 장치를 프로비전할 수 있습니다.
 
 ### <a name="edge"></a>Edge
-[Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/)는 IoT(사물 인터넷) 서비스입니다. 이 서비스는 클라우드가 아닌 장치에서 즉, "에지"의 데이터를 관리하려는 고객을 대상으로 합니다. 워크로드의 일부를 에지로 이동하면 대기 시간이 단축되고 오프라인 시나리오에 대한 옵션이 제공됩니다.
+[Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/)는 IoT 서비스입니다. 이 서비스는 클라우드가 아닌 장치에서 즉, "에지"의 데이터를 관리하려는 고객을 대상으로 합니다. 워크로드의 일부를 에지로 이동하면 대기 시간이 단축되고 오프라인 시나리오에 대한 옵션이 제공됩니다.
+
+### <a name="spatial-intelligence"></a>공간 인텔리전스
+[Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/)는 물리적 환경의 모델을 만들 수 있는 IoT 서비스입니다. 사람, 공간, 장치 간의 관계를 모델링하는 공간 인텔리전스 그래프를 제공합니다. 디지털 세계와 실제 세계의 데이터 간에 상관 관계를 지정하여 컨텍스트 인식 솔루션을 만들 수 있습니다.  
 
 ### <a name="data-and-analytics"></a>데이터 및 분석
 Azure Machine Learning을 사용하여 클라우드 인텔리전스를 에지로 가져오고, Azure Data Lake를 사용하여 IoT 장치 데이터를 비용 효율적인 방법으로 저장하고, [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)를 사용하여 IoT 장치의 데이터를 대량으로 시각화하는 등 IoT 솔루션에서 제공하는 다양한 Azure 데이터 및 분석 PaaS 서비스를 활용해 보세요.

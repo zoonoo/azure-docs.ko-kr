@@ -12,12 +12,12 @@ ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro
-ms.openlocfilehash: bce7a060908e8043390fdce729161cad48a644be
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a0a992e62e7b1e375ff2591aa82bdc7733e9d26f
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731073"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394700"
 ---
 # <a name="how-to-sign-up-for-azure-active-directory-premium"></a>방법: Azure Active Directory Premium에 등록
 Azure AD(Azure Active Directory) Premium을 구매하고 Azure 구독에 연결할 수 있습니다. 새로운 Azure 구독을 만들어야 하는 경우 라이선싱 계획 및 Azure AD 서비스 액세스도 활성화해야 합니다.
@@ -27,11 +27,11 @@ Azure AD(Azure Active Directory) Premium을 구매하고 Azure 구독에 연결�
 
 Active Directory Premium 1 또는 Premium 2에 등록하기 전에 먼저 기존 구독 또는 플랜 중 사용할 항목을 결정해야 합니다.
 
-    - 기존 Azure 또는 Office 365 구독을 통해
+- 기존 Azure 또는 Office 365 구독을 통해
 
-    - Enterprise Mobility + Security 라이선싱 플랜을 통해
+- Enterprise Mobility + Security 라이선싱 플랜을 통해
 
-    - Microsoft 볼륨 라이선싱 플랜을 통해
+- Microsoft 볼륨 라이선싱 플랜을 통해
 
 이전에 구매하고 활성화한 Azure AD 라이선스와 함께 Azure 구독을 사용하여 등록하면 동일 디렉터리에서 라이선스가 자동으로 활성화됩니다. 그렇지 않은 경우에는 라이선스 플랜 및 Azure AD 액세스를 활성화해야 합니다. 라이선스 플랜을 활성화하는 방법에 대한 자세한 내용은 [새 라이선스 플랜 활성화](#activate-your-new-license-plan)를 참조하세요. Azure AD 액세스를 활성화하는 방법에 대한 자세한 내용은 [Azure AD 액세스 활성화](#activate-your-azure-ad-access)를 참조하세요. 
 
@@ -43,20 +43,20 @@ Enterprise Mobility + Security는 Azure AD Premium, Azure Information Protection
 
 EMS에 대한 자세한 내용은 [Enterprise Mobility + Security 웹 사이트](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)를 참조하세요.
 
-    - 무료 [Enterprise Mobility + Security E5 평가판 구독](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1)으로 EMS 사용해 보기
+- 무료 [Enterprise Mobility + Security E5 평가판 구독](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1)으로 EMS 사용해 보기
 
-    - [Enterprise Mobility + Security E5 라이선스](https://signup.microsoft.com/Signup?OfferId=e6de2192-536a-4dc3-afdc-9e2602b6c790&ali=1) 구매
+- [Enterprise Mobility + Security E5 라이선스](https://signup.microsoft.com/Signup?OfferId=e6de2192-536a-4dc3-afdc-9e2602b6c790&ali=1) 구매
 
-    - [Enterprise Mobility + Security E3 라이선스](https://signup.microsoft.com/Signup?OfferId=4BBA281F-95E8-4136-8B0F-037D6062F54C&ali=1) 구매
+- [Enterprise Mobility + Security E3 라이선스](https://signup.microsoft.com/Signup?OfferId=4BBA281F-95E8-4136-8B0F-037D6062F54C&ali=1) 구매
 
 ## <a name="sign-up-using-your-microsoft-volume-licensing-plan"></a>Microsoft 볼륨 라이선싱 플랜을 사용하여 등록
 Microsoft 볼륨 라이선싱 플랜을 통해 가져오려는 라이선스 수에 따라 다음 두 프로그램 중 하나를 사용하여 Azure AD Premium에 등록할 수 있습니다.
 
-    - **250개 이상 라이선스.** [Microsoft 기업계약](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx)
+- **250개 이상 라이선스.** [Microsoft 기업계약](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx)
 
-    - **5~250개 라이선스.** [오픈** 볼륨 라이선스](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)
+- **5~250개 라이선스.** [오픈 볼륨 라이선스](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)
 
-    볼륨 라이선싱 구매 옵션에 대한 자세한 내용은 [볼륨 라이선싱을 통해 구매하는 방법](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx)을 참조하세요.
+볼륨 라이선싱 구매 옵션에 대한 자세한 내용은 [볼륨 라이선싱을 통해 구매하는 방법](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx)을 참조하세요.
 
 ## <a name="activate-your-new-license-plan"></a>새 라이선스 플랜 활성화
 새 Azure AD 라이선스 플랜을 사용하여 등록한 경우에는 구매 후에 받은 확인 메일을 사용하여 조직을 위해 해당 라이선스 플랜을 활성화해야 합니다.

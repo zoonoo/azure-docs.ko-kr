@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: tutorial
 ms.author: kefre
 ms.date: 09/21/2017
-ms.openlocfilehash: cca35d031e860e014c8fd84b0daf6b4d60d18046
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 36a8a49ee49636d186ca217ae223b1eebf9bb54b
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985850"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340259"
 ---
 # <a name="tutorial-computer-vision-api-java"></a>자습서: Computer Vision API Java
 
@@ -45,7 +45,9 @@ Java Swing 양식 응용 프로그램은 이미 작성되어 있지만 기능이
 
 예제를 만들기 전에 먼저 Azure Cognitive Services의 일부인 Computer Vision API를 구독해야 합니다. 구독 및 키 관리에 대한 자세한 내용은 [구독](https://azure.microsoft.com/try/cognitive-services/)을 참조하세요. 기본 및 보조 키는 모두 이 자습서에서 사용할 수 있습니다. 
 
-## <a name="download-the-tutorial-project"></a>자습서 프로젝트 다운로드
+## <a name="acquire-the-incomplete-tutorial-project"></a>완료되지 않은 자습서 프로젝트 획득
+
+### <a name="download-the-tutorial-project"></a>자습서 프로젝트 다운로드
 
 1. [Cognitive Services Java Computer Vision 자습서](https://github.com/Azure-Samples/cognitive-services-java-computer-vision-tutorial) 리포지토리로 이동합니다.
 1. **복제 또는 다운로드** 단추를 클릭합니다.
@@ -53,7 +55,7 @@ Java Swing 양식 응용 프로그램은 이미 작성되어 있지만 기능이
 
 NetBeans는 .zip 파일에서 프로젝트를 가져오므로 .zip 파일의 콘텐츠를 추출할 필요가 없습니다.
 
-## <a name="import-the-tutorial-project"></a>자습서 프로젝트 가져오기
+### <a name="import-the-tutorial-project"></a>자습서 프로젝트 가져오기
 
 **cognitive-services-java-computer-vision-tutorial-master.zip** 파일을 NetBeans로 가져옵니다.
 
@@ -65,29 +67,27 @@ NetBeans는 .zip 파일에서 프로젝트를 가져오므로 .zip 파일의 콘
 1. **MainFrame.java**를 두 번 클릭하여 파일을 NetBeans 편집기로 로드합니다. **MainFrame.java** 파일의 **디자인** 탭이 표시됩니다.
 1. **소스** 탭을 클릭하여 Java 소스 코드를 표시합니다.
 
-## <a name="build-and-run-the-tutorial-project"></a>자습서 프로젝트 빌드 및 실행
+### <a name="build-and-run-the-tutorial-project"></a>자습서 프로젝트 빌드 및 실행
 
 1. **F6** 키를 눌러 자습서 응용 프로그램을 빌드 및 실행합니다.
 
     자습서 응용 프로그램에서 Tab 키를 클릭하여 해당 기능의 창을 표시합니다. 단추에는 빈 메서드가 있으므로 아무 작업도 수행하지 않습니다.
 
-    창 아래쪽에 **구독 키** 및 **구독 지역** 필드가 있습니다. 이러한 필드에 유효한 구독 키 및 해당 구독 키의 올바른 지역을 입력해야 합니다. 구독 키를 얻으려면 [구독](https://azure.microsoft.com/try/cognitive-services/)을 참조하세요. 해당 링크의 평가판에서 구독 키를 얻은 경우 기본 **westcentralus**가 구독 키의 올바른 지역입니다.
+    창 아래쪽에 **구독 키** 및 **구독 지역** 필드가 있습니다. 이러한 필드에 유효한 구독 키 및 해당 구독 키의 올바른 지역을 입력해야 합니다. 구독 키를 얻으려면 [구독](https://azure.microsoft.com/try/cognitive-services/)을 참조하세요. 해당 링크의 평가판에서 구독 키를 얻은 경우 기본 지역 **westcentralus**가 구독 키의 올바른 지역입니다.
 
 1. 자습서 응용 프로그램을 종료합니다.
 
-## <a name="add-the-tutorial-code"></a>자습서 코드 추가
+## <a name="add-the-tutorial-code-to-the-project"></a>프로젝트에 자습서 코드 추가
 
-Java Swing 응용 프로그램은 6개의 탭으로 설치됩니다. 각 탭은 Computer Vision의 서로 다른 함수(분석, OCR 등)를 보여 줍니다. 6개의 자습서 섹션은 서로 종속되지 않으므로 하나의 섹션, 6개의 섹션 모두 또는 한두 개의 섹션만 추가할 수 있습니다. 또한 섹션은 순서에 관계없이 추가할 수 있습니다.
+Java Swing 응용 프로그램은 6개의 탭으로 설치됩니다. 각 탭은 Computer Vision의 서로 다른 함수(분석, OCR 등)를 보여줍니다. 6개의 자습서 섹션이 서로 독립적이므로 한 섹션을 추가할 수도 있고, 6개 섹션을 모두 추가할 수도 있고, 하위 집합을 추가할 수도 있습니다. 또한 섹션을 순서에 관계없이 추가할 수 있습니다.
 
-이제 시작하겠습니다.
+### <a name="analyze-an-image"></a>이미지 분석
 
-## <a name="analyze-an-image"></a>이미지 분석
-
-Computer Vision의 [분석] 기능은 2,000개가 넘는 인식 가능한 물체, 생물, 풍경 및 행위에 대한 이미지를 분석합니다. 분석이 완료되면 [분석]에서 설명 태그, 색 분석, 캡션 등으로 이미지를 설명하는 JSON 개체를 반환합니다.
+Computer Vision의 [분석] 기능은 이미지를 검사하여 2,000개가 넘는 인식 가능한 물체, 생물, 풍경 및 동작을 분석합니다. 분석이 완료되면 [분석]에서 설명 태그, 색 분석, 캡션 등으로 이미지를 설명하는 JSON 개체를 반환합니다.
 
 자습서 응용 프로그램의 [분석] 기능을 완성하려면 다음 단계를 수행합니다.
 
-### <a name="analyze-step-1-add-the-event-handler-code-for-the-form-button"></a>분석 1단계: 양식 단추에 대한 이벤트 처리기 코드 추가
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>양식 단추에 대한 이벤트 처리기 코드 추가
 
 **analyzeImageButtonActionPerformed** 이벤트 처리기 메서드는 양식을 지우고, URL에 지정된 이미지를 표시한 다음, **AnalyzeImage** 메서드를 호출하여 이미지를 분석합니다. **AnalyzeImage**가 반환되면 메서드는 **응답** 텍스트 영역에 형식 지정된 JSON 응답을 표시하고, **JSONObject**에서 첫 번째 캡션을 추출하고, 캡션 및 캡션이 올바른 신뢰도 수준을 표시합니다.
 
@@ -140,7 +140,7 @@ Computer Vision의 [분석] 기능은 2,000개가 넘는 인식 가능한 물체
     }
 ```
 
-### <a name="analyze-step-2-add-the-wrapper-for-the-rest-api-call"></a>분석 2단계: REST API 호출에 대한 래퍼 추가
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>REST API 호출에 대한 래퍼 추가
 
 **AnalyzeImage** 메서드는 REST API 호출을 래핑하여 이미지를 분석합니다. 메서드는 이미지를 설명하는 **JSONObject**를 반환하거나 오류가 있는 경우에는 **null**을 반환합니다.
 
@@ -201,17 +201,17 @@ Computer Vision의 [분석] 기능은 2,000개가 넘는 인식 가능한 물체
     }
  ```
 
-### <a name="analyze-step-3-run-the-application"></a>분석 3단계: 응용 프로그램 실행
+#### <a name="run-the-application"></a>응용 프로그램 실행
 
 **F6** 키를 눌러 응용 프로그램을 실행합니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. 분석할 이미지에 대한 URL을 입력한 다음, **이미지 분석** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 
-## <a name="recognize-a-landmark"></a>랜드마크 인식
+### <a name="recognize-a-landmark"></a>랜드마크 인식
 
 Computer Vision의 [랜드마크] 기능은 산이나 유명한 건물과 같은 자연 및 인공 랜드마크에 대한 이미지를 분석합니다. 분석이 완료되면 [랜드마크]에서 이미지에 있는 랜드마크를 식별하는 JSON 개체를 반환합니다.
 
 자습서 응용 프로그램의 [랜드마크] 기능을 완성하려면 다음 단계를 수행합니다.
 
-### <a name="landmark-step-1-add-the-event-handler-code-for-the-form-button"></a>랜드마크 1단계: 양식 단추에 대한 이벤트 처리기 코드 추가
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>양식 단추에 대한 이벤트 처리기 코드 추가
 
 **landmarkImageButtonActionPerformed** 이벤트 처리기 메서드는 양식을 지우고, URL에 지정된 이미지를 표시한 다음, **LandmarkImage** 메서드를 호출하여 이미지를 분석합니다. **LandmarkImage**가 반환되면 메서드는 **응답** 텍스트 영역에 형식 지정된 JSON 응답을 표시하고, **JSONObject**에서 첫 번째 랜드마크 이름을 추출하고, 랜드마크가 올바르게 식별된 신뢰도 수준과 함께 이름을 창에 표시합니다.
 
@@ -264,7 +264,7 @@ Computer Vision의 [랜드마크] 기능은 산이나 유명한 건물과 같은
     }
 ```
 
-### <a name="landmark-step-2-add-the-wrapper-for-the-rest-api-call"></a>랜드마크 2단계: REST API 호출에 대한 래퍼 추가
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>REST API 호출에 대한 래퍼 추가
 
 **LandmarkImage** 메서드는 REST API 호출을 래핑하여 이미지를 분석합니다. 메서드는 이미지에 있는 랜드마크를 설명하는 **JSONObject**를 반환하거나 오류가 있는 경우에는 **null**을 반환합니다.
 
@@ -325,17 +325,17 @@ Computer Vision의 [랜드마크] 기능은 산이나 유명한 건물과 같은
     }
 ```
 
-### <a name="landmark-step-3-run-the-application"></a>랜드마크 3단계: 응용 프로그램 실행
+#### <a name="run-the-application"></a>응용 프로그램 실행
 
 **F6** 키를 눌러 응용 프로그램을 실행합니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. **랜드마크** 탭을 클릭하고, 랜드마크 이미지의 URL을 입력한 다음, **이미지 분석** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 
-## <a name="recognize-celebrities"></a>유명 인사 인식
+### <a name="recognize-celebrities"></a>유명 인사 인식
 
 Computer Vision의 [유명 인사] 기능은 유명 인사에 대한 이미지를 분석합니다. 분석이 완료되면 [유명 인사]에서 이미지에 있는 유명 인사를 식별하는 JSON 개체를 반환합니다.
 
 자습서 응용 프로그램의 [유명 인사] 기능을 완성하려면 다음 단계를 수행합니다.
 
-### <a name="celebrities-step-1-add-the-event-handler-code-for-the-form-button"></a>유명 인사 1단계: 양식 단추에 대한 이벤트 처리기 코드 추가
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>양식 단추에 대한 이벤트 처리기 코드 추가
 
 **celebritiesImageButtonActionPerformed** 이벤트 처리기 메서드는 양식을 지우고, URL에 지정된 이미지를 표시한 다음, **CelebritiesImage** 메서드를 호출하여 이미지를 분석합니다. **CelebritiesImage**가 반환되면 메서드는 **응답** 텍스트 영역에 형식 지정된 JSON 응답을 표시하고, **JSONObject**에서 첫 번째 유명인 이름을 추출하고, 유명인이 올바르게 식별된 신뢰도 수준과 함께 이름을 창에 표시합니다.
 
@@ -388,7 +388,7 @@ Computer Vision의 [유명 인사] 기능은 유명 인사에 대한 이미지�
     }
 ```
 
-### <a name="celebrities-step-2-add-the-wrapper-for-the-rest-api-call"></a>유명 인사 2단계: REST API 호출에 대한 래퍼 추가
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>REST API 호출에 대한 래퍼 추가
 
 **CelebritiesImage** 메서드는 REST API 호출을 래핑하여 이미지를 분석합니다. 메서드는 이미지에 있는 유명인을 설명하는 **JSONObject**를 반환하거나 오류가 있는 경우에는 **null**을 반환합니다.
 
@@ -449,17 +449,17 @@ Computer Vision의 [유명 인사] 기능은 유명 인사에 대한 이미지�
     }
 ```
 
-### <a name="celebrities-step-3-run-the-application"></a>유명 인사 3단계: 응용 프로그램 실행
+#### <a name="run-the-application"></a>응용 프로그램 실행
 
 **F6** 키를 눌러 응용 프로그램을 실행합니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. **유명인** 탭을 클릭하고, 유명인 이미지의 URL을 입력한 다음, **이미지 분석** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 
-## <a name="intelligently-generate-a-thumbnail"></a>지능적으로 썸네일 생성
+### <a name="intelligently-generate-a-thumbnail"></a>지능적으로 썸네일 생성
 
 Computer Vision의 썸네일 기능은 이미지에서 썸네일을 생성합니다. **스마트 자르기** 기능을 사용하면 썸네일 기능에서 이미지의 관심 영역을 식별하고 이 영역에서 썸네일을 가운데에 맞춰 미적으로 더욱 만족스러운 썸네일 이미지를 생성할 수 있습니다.
 
 자습서 응용 프로그램의 [썸네일] 기능을 완성하려면 다음 단계를 수행합니다.
 
-### <a name="thumbnail-step-1-add-the-event-handler-code-for-the-form-button"></a>썸네일 1단계: 양식 단추에 대한 이벤트 처리기 코드 추가
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>양식 단추에 대한 이벤트 처리기 코드 추가
 
 **thumbnailImageButtonActionPerformed** 이벤트 처리기 메서드는 양식을 지우고, URL에 지정된 이미지를 표시한 다음, **getThumbnailImage** 메서드를 호출하여 썸네일을 만듭니다. **getThumbnailImage**가 반환되면 메서드는 생성된 썸네일을 표시합니다.
 
@@ -505,7 +505,7 @@ Computer Vision의 썸네일 기능은 이미지에서 썸네일을 생성합니
     }
 ```
 
-### <a name="thumbnail-step-2-add-the-wrapper-for-the-rest-api-call"></a>썸네일 2단계: REST API 호출에 대한 래퍼 추가
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>REST API 호출에 대한 래퍼 추가
 
 **getThumbnailImage** 메서드는 REST API 호출을 래핑하여 이미지를 분석합니다. 메서드는 썸네일이 포함된 **BufferedImage**를 반환하거나 오류가 있는 경우에는 **null**을 반환합니다. 오류 메시지는 **jsonError** 문자열 배열의 첫 번째 요소로 반환됩니다.
 
@@ -572,17 +572,17 @@ Computer Vision의 썸네일 기능은 이미지에서 썸네일을 생성합니
     }
 ```
 
-### <a name="thumbnail-step-3-run-the-application"></a>썸네일 3단계: 응용 프로그램 실행
+#### <a name="run-the-application"></a>응용 프로그램 실행
 
 **F6** 키를 눌러 응용 프로그램을 실행합니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. **썸네일** 탭을 클릭하고, 이미지의 URL을 입력한 다음, **썸네일 생성** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 
-## <a name="read-printed-text-ocr"></a>인쇄된 텍스트 읽기(OCR)
+### <a name="read-printed-text-ocr"></a>인쇄된 텍스트 읽기(OCR)
 
 Computer Vision의 OCR(광학 인식) 기능은 인쇄된 텍스트의 이미지를 분석합니다. 분석이 완료되면 OCR에서 텍스트와 이미지 내 텍스트 위치가 포함된 JSON 개체를 반환합니다.
 
 자습서 응용 프로그램의 OCR 기능을 완성하려면 다음 단계를 수행합니다.
 
-### <a name="ocr-step-1-add-the-event-handler-code-for-the-form-button"></a>OCR 1단계: 양식 단추에 대한 이벤트 처리기 코드 추가
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>양식 단추에 대한 이벤트 처리기 코드 추가
 
 **ocrImageButtonActionPerformed** 이벤트 처리기 메서드는 양식을 지우고, URL에 지정된 이미지를 표시한 다음, **OcrImage** 메서드를 호출하여 이미지를 분석합니다. **OcrImage**가 반환되면 메서드는 **응답** 텍스트 영역에 검색된 텍스트를 형식 지정된 JSON으로 표시합니다.
 
@@ -622,7 +622,7 @@ Computer Vision의 OCR(광학 인식) 기능은 인쇄된 텍스트의 이미지
     }
 ```
 
-### <a name="ocr-step-2-add-the-wrapper-for-the-rest-api-call"></a>OCR 2단계: REST API 호출에 대한 래퍼 추가
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>REST API 호출에 대한 래퍼 추가
 
 **OcrImage** 메서드는 REST API 호출을 래핑하여 이미지를 분석합니다. 메서드는 호출에서 반환된 JSON 데이터의 **JSONObject**를 반환하거나 오류가 있는 경우에는 **null**을 반환합니다.
 
@@ -683,17 +683,17 @@ Computer Vision의 OCR(광학 인식) 기능은 인쇄된 텍스트의 이미지
     }
 ```
 
-### <a name="ocr-step-3-run-the-application"></a>OCR 3단계: 응용 프로그램 실행
+#### <a name="run-the-application"></a>응용 프로그램 실행
 
 **F6** 키를 눌러 응용 프로그램을 실행합니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. **OCR** 탭을 클릭하고, 인쇄 텍스트 이미지의 URL을 입력한 다음, **이미지 읽기** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 
-## <a name="read-handwritten-text-handwriting-recognition"></a>필기 텍스트 읽기(필기 인식)
+### <a name="read-handwritten-text-handwriting-recognition"></a>필기 텍스트 읽기(필기 인식)
 
 Computer Vision의 [필기 인식] 기능은 손으로 쓴 텍스트의 이미지를 분석합니다. 분석이 완료되면 [필기 인식]에서 텍스트와 이미지 내 텍스트 위치가 포함된 JSON 개체를 반환합니다.
 
 자습서 응용 프로그램의 [필기 인식] 기능을 완성하려면 다음 단계를 수행합니다.
 
-### <a name="handwriting-recognition-step-1-add-the-event-handler-code-for-the-form-button"></a>필기 인식 1단계: 양식 단추에 대한 이벤트 처리기 코드 추가
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>양식 단추에 대한 이벤트 처리기 코드 추가
 
 **handwritingImageButtonActionPerformed** 이벤트 처리기 메서드는 양식을 지우고, URL에 지정된 이미지를 표시한 다음, **HandwritingImage** 메서드를 호출하여 이미지를 분석합니다. **HandwritingImage**가 반환되면 메서드는 **응답** 텍스트 영역에 검색된 텍스트를 형식 지정된 JSON으로 표시합니다.
 
@@ -733,7 +733,7 @@ Computer Vision의 [필기 인식] 기능은 손으로 쓴 텍스트의 이미�
     }
 ```
 
-### <a name="handwriting-recognition-step-2-add-the-wrapper-for-the-rest-api-call"></a>필기 인식 2단계: REST API 호출에 대한 래퍼 추가
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>REST API 호출에 대한 래퍼 추가
 
 **HandwritingImage** 메서드는 이미지를 분석하는 데 필요한 두 개의 REST API 호출을 래핑합니다. 필기 인식은 시간이 오래 걸리는 프로세스이므로 2단계 프로세스가 사용됩니다. 첫 번째 호출에서 처리할 이미지를 제출합니다. 처리가 완료되면 두 번째 호출에서 감지된 텍스트를 검색합니다.
 
@@ -841,7 +841,7 @@ Computer Vision의 [필기 인식] 기능은 손으로 쓴 텍스트의 이미�
     }
 ```
 
-### <a name="handwriting-recognition-step-3-run-the-application"></a>필기 인식 3단계: 응용 프로그램 실행
+#### <a name="run-the-application"></a>응용 프로그램 실행
 
 응용 프로그램을 실행하려면 **F6** 키를 누릅니다. 구독 키를 **구독 키** 필드에 배치하고, **구독 지역**에서 올바른 지역을 사용하고 있는지 확인합니다. **필기 텍스트 읽기** 탭을 클릭하고, 필기 텍스트 이미지의 URL을 입력한 다음, **이미지 읽기** 단추를 클릭하여 이미지를 분석하고 결과를 표시합니다.
 

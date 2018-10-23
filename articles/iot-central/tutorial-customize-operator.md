@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: d99b76faf618439e51735d5f1096fd4f1cfd2364
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9b8293196114f55f633e67cf19cd0c9e60f6398e
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038292"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309463"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>자습서: Azure IoT Central 연산자의 뷰 사용자 지정
 
@@ -56,7 +56,7 @@ ms.locfileid: "47038292"
 
     ![장치 템플릿 대시보드 페이지](media/tutorial-customize-operator/dashboard.png)
 
-4. KPI 타일을 대시보드에 추가하려면 **KPI**를 선택하세요.
+4. 대시보드에 KPI(핵심 성과 지표) 타일을 추가하려면 **KPI**를 선택합니다.
 
     ![KPI 추가](media/tutorial-customize-operator/addkpi.png)
 
@@ -81,7 +81,7 @@ ms.locfileid: "47038292"
 
 ## <a name="configure-your-settings-layout"></a>설정 레이아웃 구성
 
-작성기로서 장치 설정의 연산자의 뷰를 구성할 수 있습니다. 연산자는 장치 설정 페이지를 사용하여 장치를 구성합니다. 예를 들어 연산자는 냉장고에 대한 대상 온도를 설정하기 위한 설정 페이지를 사용합니다.
+작성기로서 장치 설정의 연산자의 뷰를 구성할 수 있습니다. 연산자는 장치 설정 페이지를 사용하여 장치를 구성합니다. 예를 들어 연산자는 연결된 공조 장치에 대한 대상 온도를 설정하기 위한 설정 페이지를 사용합니다.
 
 1. 연결된 공조 장치에 대한 설정 레이아웃을 편집하려면 **설정**을 선택하고, **템플릿 편집**을 선택합니다.
 
@@ -117,7 +117,7 @@ ms.locfileid: "47038292"
 
 **템플릿 편집** 모드에서 연산자에 대한 대시보드, 설정 및 속성 페이지를 사용자 지정할 수 있습니다. **템플릿 편집** 모드에 있지 않은 경우 운영자 권한으로 응용 프로그램을 볼 수 있습니다.
 
-1. 운영자로서 연결된 공조 장치를 보려면 템플릿 편집을 중지하기 위해 **완료**를 클릭해야 합니다. 장치의 운영자 보기로 돌아갑니다.
+1. 운영자로서 연결된 공조 장치를 보려면 **완료**를 클릭하여 템플릿 편집을 중지하고 운영자의 장치 보기로 돌아갑니다.
 
 2. 이 장치의 위치를 업데이트하려면 위치 타일에서 값을 편집하고 **저장**을 선택합니다.
 

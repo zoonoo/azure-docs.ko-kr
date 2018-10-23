@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: d1776fc2347eb1a1f03a834b6a5f847ef5c551e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 521b6423550bf3e2d0bc90212b7e3fe0cbeddfc4
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948886"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167073"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>자습서: Key Vault에서 비밀을 읽도록 Azure 웹 응용 프로그램 구성
 
@@ -126,10 +126,11 @@ az keyvault secret show --name "AppSecret" --vault-name "ContosoKeyVault"
 1. 솔루션 탐색기에서 웹 사이트 이름을 마우스 오른쪽 단추로 클릭합니다.
 2. **솔루션용 NuGet 패키지 관리...** 를 선택합니다.
 3. 검색 상자 옆의 확인란을 선택합니다. **시험판 포함**
-4. 아래에 나열된 두 NuGet 패키지를 검색하여 솔루션에 추가하는 것을 수락합니다.
+4. 아래에 나열된 세 NuGet 패키지를 검색하여 솔루션에 추가하는 것을 수락합니다.
 
     * [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) - 서비스-Azure-서비스 인증 시나리오에 사용할 액세스 토큰을 쉽게 가져올 수 있습니다. 
     * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) - Key Vault와 상호 작용하기 위한 메서드를 포함하고 있습니다.
+    * [Microsoft.Extensions.Configuration.AzureKeyVault](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureKeyVault/) - Azure Key Vault에 대한 `IConfiguration` 확장을 포함합니다.
 
 5. 솔루션 탐색기를 사용하여 `Program.cs`를 열고 Program.cs 파일의 내용을 다음 코드로 바꿉니다. ```<YourKeyVaultName>```을 키 자격 증명 모음의 이름으로 바꿉니다.
 
@@ -218,7 +219,7 @@ az keyvault secret show --name "AppSecret" --vault-name "ContosoKeyVault"
 >[!IMPORTANT]
 > 브라우저 창이 열리고 502.5 - 프로세스 오류 메시지가 표시됩니다. 예상된 동작입니다. Key Vault에서 비밀을 읽을 수 있는 응용 프로그램 ID 권한을 부여해야 합니다.
 
-## <a name="enable-a-managed-identity-for-the-web-app"></a>웹앱에 대한 관리 ID를 사용하도록 설정
+## <a name="enable-a-managed-identity-for-the-web-app"></a>웹앱의 관리 ID를 사용하도록 설정
 
 Azure Key Vault를 사용하면 자격 증명과 기타 키 및 비밀을 안전하게 저장할 수 있습니다. 하지만 이러한 자격 증명/키/비밀을 검색하려면 코드가 Key Vault에 인증해야 합니다. [Azure 리소스에 대한 관리 ID 개요](../active-directory/managed-identities-azure-resources/overview.md)를 통해 Azure AD(Azure Active Directory)에서 자동으로 관리되는 ID를 Azure 서비스에 제공함으로써 이 문제를 보다 간편하게 해결할 수 있습니다. 이 ID를 사용하면 Key Vault를 비롯하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다.
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.date: 10/04/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ae0d37dd8df9b076e72959e9036ba35d322e4e63
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 5d18a1f86e1d870db64199c575450dd475590b55
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803718"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394475"
 ---
-# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>자습서: Azure Deployment Manager에서 Resource Manager 템플릿 사용(공개 미리 보기)
+# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>자습서: Azure Deployment Manager에서 Resource Manager 템플릿 사용(비공개 미리 보기)
 
 [Azure Deployment Manager](./deployment-manager-overview.md)를 사용하여 여러 지역에 응용 프로그램을 배포하는 방법에 대해 알아봅니다. Deployment Manager를 사용하려면 두 개의 템플릿을 만들어야 합니다.
 
@@ -48,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 이 문서를 완료하려면 다음이 필요합니다.
 
 * [Azure Resource Manager 템플릿](./resource-group-overview.md)을 개발한 경험이 있어야 합니다.
-* Azure Deployment Manager가 공개 미리 보기로 제공됩니다. Azure Deployment Manager를 사용하여 등록하려면 [등록 시트](https://aka.ms/admsignup)를 채웁니다. 
+* Azure Deployment Manager가 비공개 미리 보기로 제공됩니다. Azure Deployment Manager를 사용하여 등록하려면 [등록 시트](https://aka.ms/admsignup)를 채웁니다. 
 * Azure PowerShell. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 * Deployment Manager cmdlet이 있어야 합니다. 이러한 시험판 cmdlet을 설치하려면 최신 버전의 PowerShellGet이 필요합니다. 최신 버전을 가져오려면 [PowerShellGet 설치](/powershell/gallery/installing-psget)를 참조하세요. PowerShellGet이 설치되면 PowerShell 창을 닫습니다. 새 PowerShell 창을 열고, 다음 명령을 사용합니다.
 

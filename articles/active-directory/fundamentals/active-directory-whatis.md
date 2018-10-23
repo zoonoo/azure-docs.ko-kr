@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 09/13/2018
 ms.custom: it-pro
-ms.openlocfilehash: 755c301651e7c49faa8b05b2b443c5cce1a03c90
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 08d32a99e2f1a77bcc7a5900b47e6771c33ec356
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364057"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393324"
 ---
 # <a name="what-is-azure-active-directory"></a>Azure Active Directory란?
 Azure AD(Azure Active Directory)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. Azure AD는 핵심 디렉터리 서비스, 응용 프로그램 액세스 관리 및 ID 보호를 단일 솔루션에 결합하여 개발자가 중앙 집중식 정책 및 규칙에 따라 앱의 액세스를 제어할 수 있도록 지원하는 표준 기반 플랫폼을 제공합니다.

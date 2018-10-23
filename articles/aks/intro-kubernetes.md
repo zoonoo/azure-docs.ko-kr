@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 67b80f539faab40884066f23aaf8a72ad7a6981b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: ac18b8099b14f29579b35eb8dd2124d2d63f80d7
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394408"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390077"
 ---
 # <a name="azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)
 
@@ -29,7 +29,7 @@ Azure CLI 또는 Resource Manager 템플릿 및 Terraform과 같은 템플릿 �
 
 ### <a name="identity-and-security-management"></a>ID 및 보안 관리
 
-클러스터 리소스에 대한 액세스를 제한하기 위해 AKS는 [Kubernetes RBAC(역할 기반 액세스 제어)][kubernetes-rbac]를 지원합니다. RBAC를 사용하면 Kubernetes 리소스 및 네임스페이스에 액세스할 수 있는 방법 및 해당 리소스에 대한 사용 권한을 제어할 수 있습니다. Azure AD(Active Directory)와 통합하도록 AKS 클러스터를 구성할 수도 있습니다. Azure AD 통합을 사용하여 Kubernetes 액세스는 기존 ID 및 그룹 멤버 자격에 따라 구성될 수 있습니다. 기존 Azure AD 사용자 및 그룹에 AKS 리소스에 대한 액세스와 통합된 로그인 환경을 제공할 수 있습니다.
+클러스터 리소스에 대한 액세스를 제한하기 위해 AKS는 [Kubernetes RBAC(역할 기반 액세스 제어)][kubernetes-rbac]를 지원합니다. RBAC를 사용하면 Kubernetes 리소스 및 네임스페이스에 대한 액세스와 해당 리소스에 대한 권한을 제어할 수 있습니다. Azure AD(Active Directory)와 통합하도록 AKS 클러스터를 구성할 수도 있습니다. Azure AD 통합을 사용하여 Kubernetes 액세스는 기존 ID 및 그룹 멤버 자격에 따라 구성될 수 있습니다. 기존 Azure AD 사용자 및 그룹에 AKS 리소스에 대한 액세스와 통합된 로그인 환경을 제공할 수 있습니다.
 
 AKS 클러스터를 보호하려면 [AKS와 Azure Active Directory 통합][aks-aad]을 참조하세요.
 
@@ -123,12 +123,12 @@ Azure CLI 빠른 시작으로 AKS 배포 및 관리에 대해 자세히 알아�
 [aks-cli]: ./kubernetes-walkthrough.md
 [aks-gpu]: ./gpu-cluster.md
 [aks-http-routing]: ./http-application-routing.md
-[aks-networking]: ./networking-overview.md
+[aks-networking]: ./concepts-network.md
 [aks-portal]: ./kubernetes-walkthrough-portal.md
 [aks-scale]: ./tutorial-kubernetes-scale.md
 [aks-upgrade]: ./upgrade-cluster.md
-[azure-dev-spaces]: https://docs.microsoft.com/en-us/azure/dev-spaces/azure-dev-spaces
-[azure-devops]: https://docs.microsoft.com/en-us/azure/devops-project/overview
+[azure-dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/azure-dev-spaces
+[azure-devops]: https://docs.microsoft.com/azure/devops-project/overview
 [azure-disk]: ./azure-disks-dynamic-pv.md
 [azure-files]: ./azure-files-dynamic-pv.md
 [container-health]: ../monitoring/monitoring-container-health.md

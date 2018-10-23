@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2f020bdf79811c959e07d753231fc133fe597861
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c7396d7322958442fab51417eb350f26f7ada78e
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855184"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352663"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>자습서: 페더레이션된 도메인용 하이브리드 Azure Active Directory 조인 구성
 
@@ -124,7 +124,7 @@ Azure AD Connect를 사용하여 하이브리드 Azure AD 조인을 구성하려
 
     a. 포리스트를 선택합니다.
 
-    b. 인증 서비스를 선택합니다. 조직에서 독점적으로 Windows 10 클라이언트를 보유하지 않은 이상, AD FS 서버를 선택해야 합니다.
+    b. 인증 서비스를 선택합니다. 조직에서 Windows 10 클라이언트를 독점적으로 소유하고 있고 관리자가 컴퓨터/장치 동기화를 구성했거나 조직에서 SeamlessSSO를 사용하지 않는 한, AD FS 서버를 선택해야 합니다.
 
     다. **추가**를 클릭하여 엔터프라이즈 관리자 자격 증명을 입력합니다.
 
@@ -194,7 +194,7 @@ Azure 테넌트에서 장치 등록 상태를 확인하려면 **[Azure Active Di
 
 - Windows 클라이언트의 ID와 일치하는 **장치 ID**를 갖는 개체가 있어야 합니다.
 - **DeviceTrustType** 값은 **도메인 가입됨**이어야 합니다. 이 값은 Azure AD 포털에서 장치 페이지의 **하이브리드 Azure AD 가입**과 같습니다.
-- 조건부 액세스에 사용되는 장치의 경우**Enabled** 값이 **True**여야 합니다. 
+- 조건부 액세스에 사용되는 장치의 경우 **Enabled** 값이 **True**이고 **DeviceTrustLevel**이 **Managed**여야 합니다. 
 
 
 **서비스 세부 정보를 확인하려면**

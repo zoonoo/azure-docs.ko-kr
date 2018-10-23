@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 08/01/2018
 ms.author: shvija
-ms.openlocfilehash: 8437b1c10facc28c5fd71b70dd7acf01b7d39e8e
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 336756e72c6c07f52101ddd0cd99a6ef9744d3c3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42024049"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351764"
 ---
 # <a name="what-is-azure-event-hubs"></a>Azure Event Hubs 정의
 
@@ -70,7 +70,7 @@ Event Hubs는 메시지 스트림 처리 기능을 제공하지만 기존 엔터
 - **파티션**: 각 소비자는 메시지 스트림의 특정 하위 집합 또는 파티션만 읽습니다.
 - **소비자 그룹**: 전체 이벤트 허브의 보기(상태, 위치 또는 오프셋)입니다. 소비자 그룹은 여러 소비 응용 프로그램을 사용하여 이벤트 스트림의 별도 보기가 있으며 자신의 속도 및 자신의 오프셋으로 독립적으로 스트림을 읽을 수 있습니다.
 - **처리량 단위**: Event Hubs의 처리량 용량을 제어하는 미리 구입한 용량 단위입니다.
-- **이벤트 수신기**: 이벤트 허브에서 이벤트 데이터를 읽는 엔터티입니다. 모든 Event Hubs 소비자는 AMQP 1.0 세션을 통해 연결되며, 사용 가능한 상태가 되면 이 세션을 통해 이벤트가 전달됩니다.
+- **이벤트 수신기**: 이벤트 허브에서 이벤트 데이터를 읽는 엔터티입니다. 모든 Event Hubs 소비자는 AMQP 1.0 세션을 통해 연결되며, 사용 가능한 상태가 되면 이 세션을 통해 이벤트가 전달됩니다. 모든 Kafka 소비자는 Kafka 프로토콜 1.0 이상을 통해 연결합니다.
 
 다음 그림에서는 아키텍처를 처리하는 Event Hubs 스트림을 보여 줍니다.
 

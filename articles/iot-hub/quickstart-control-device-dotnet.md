@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/20/2018
 ms.author: dobett
-ms.openlocfilehash: 0bb27c23850384501afec733d24f824346b8416b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 475fda79d3f5d844b494f1b0ae5eab8eba5ed8bc
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635379"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363566"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>빠른 시작: IoT 허브(.NET)에 연결된 장치 제어
 
@@ -56,52 +56,64 @@ dotnet --version
 
 이전 [빠른 시작: 원격 분석을 장치에서 IoT 허브로 전송](quickstart-send-telemetry-dotnet.md)을 완료한 경우 이 단계를 건너뛸 수 있습니다.
 
-연결을 위해 장치를 IoT Hub에 등록해야 합니다. 이 빠른 시작에서는 Azure CLI를 사용하여 시뮬레이션된 장치를 등록합니다.
+연결을 위해 장치를 IoT Hub에 등록해야 합니다. 이 빠른 시작에서는 Azure Cloud Shell을 사용하여 시뮬레이션된 장치를 등록합니다.
 
-1. IoT Hub CLI 확장을 추가하고 장치 ID를 만듭니다. `{YourIoTHubName}`을 IoT 허브에 대해 선택한 이름으로 바꿉니다.
+1. Azure Cloud Shell에서 다음 명령을 실행하여 IoT Hub CLI 확장을 추가하고 장치 ID를 만듭니다. 
+
+   **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
+
+   **MyDotnetDevice** : 등록된 장치에 지정된 이름입니다. 표시된 것처럼 MyDotnetDevice를 사용하세요. 다른 장치 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 샘플 응용 프로그램에서 장치 이름을 업데이트한 후 실행해야 합니다.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDotnetDevice
+    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDotnetDevice
     ```
 
-    장치에 다른 이름을 선택하는 경우 샘플 응용 프로그램에서 실행하기 전에 장치 이름을 업데이트합니다.
+2. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 장치의 _장치 연결 문자열_을 가져옵니다.
 
-2. 방금 등록한 장치의 _장치 연결 문자열_을 가져오려면 다음 명령을 실행합니다.
+   **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
+    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDotnetDevice --output table
     ```
 
-    `Hostname=...=`과 같은 장치 연결 문자열을 기록해 둡니다. 이 값은 빠른 시작의 뒷부분에서 사용합니다.
+    다음과 같은 장치 연결 문자열을 기록해 둡니다.
+
+   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
+
+    이 값은 빠른 시작의 뒷부분에서 사용합니다.
 
 ## <a name="retrieve-the-service-connection-string"></a>서비스 연결 문자열 검색
 
 백 엔드 응용 프로그램을 허브에 연결하여 메시지를 검색할 수 있게 하려면 IoT 허브 _서비스 연결 문자열_이 필요합니다. 다음 명령은 IoT Hub에 대한 서비스 연결 문자열을 검색합니다.
 
 ```azurecli-interactive
-az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
+az iot hub show-connection-string --hub-name YourIoTHubName --output table
 ```
 
-`Hostname=...=`과 같은 서비스 연결 문자열을 기록해 둡니다. 이 값은 빠른 시작의 뒷부분에서 사용합니다.
+다음과 같은 서비스 연결 문자열을 기록해 둡니다.
+
+   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
+
+이 값은 빠른 시작의 뒷부분에서 사용합니다. 서비스 연결 문자열은 장치 연결 문자열과는 다릅니다.  
 
 ## <a name="listen-for-direct-method-calls"></a>직접 메서드 호출 수신 대기
 
 시뮬레이션된 장치 응용 프로그램은 IoT 허브의 장치별 엔드포인트에 연결하고, 시뮬레이션된 원격 분석을 전송하고, 허브에서 직접 메서드 호출을 수신 대기합니다. 이 빠른 시작에서 허브의 직접 메서드 호출은 장치에 원격 분석을 보내는 간격을 변경하도록 지시합니다. 시뮬레이션된 장치는 직접 메서드를 실행한 후 승인을 다시 허브로 보냅니다.
 
-1. 터미널 창에서 샘플 C# 프로젝트의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\simulated-device-2** 폴더로 이동합니다.
+1. 로컬 터미널 창에서 샘플 C# 프로젝트의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\simulated-device-2** 폴더로 이동합니다.
 
 2. 원하는 텍스트 편집기에서 **SimulatedDevice.cs** 파일을 엽니다.
 
     `s_connectionString` 변수의 값을 이전에 적어둔 장치 연결 문자열로 바꿉니다. 그런 다음 변경 사항을 **SimulatedDevice.cs** 파일에 저장합니다.
 
-3. 터미널 창에서 다음 명령을 실행하여 시뮬레이션된 장치 응용 프로그램에 필요한 패키지를 설치합니다.
+3. 로컬 터미널 창에서 다음 명령을 실행하여 시뮬레이션된 장치 응용 프로그램에 필요한 패키지를 설치합니다.
 
     ```cmd/sh
     dotnet restore
     ```
 
-4. 터미널 창에서 다음 명령을 실행하여 시뮬레이션된 장치 응용 프로그램을 빌드하고 실행합니다.
+4. 로컬 터미널 창에서 다음 명령을 실행하여 시뮬레이션된 장치 응용 프로그램을 빌드하고 실행합니다.
 
     ```cmd/sh
     dotnet run
@@ -115,19 +127,19 @@ az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
 
 백 엔드 응용 프로그램은 IoT Hub의 서비스 측 엔드포인트에 연결합니다. 응용 프로그램은 IoT 허브를 통해 장치에 직접 메서드 호출을 하고 승인을 수신 대기합니다. IoT Hub 백 엔드 응용 프로그램은 일반적으로 클라우드에서 실행됩니다.
 
-1. 또 다른 터미널 창에서 샘플 C# 프로젝트의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\back-end-application** 폴더로 이동합니다.
+1. 또 다른 로컬 터미널 창에서 샘플 C# 프로젝트의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\back-end-application** 폴더로 이동합니다.
 
 2. 원하는 텍스트 편집기에서 **BackEndApplication.cs** 파일을 엽니다.
 
     `s_connectionString` 변수의 값을 이전에 적어둔 서비스 연결 문자열로 바꿉니다. 그런 다음 변경 사항을 **BackEndApplication.cs** 파일에 저장합니다.
 
-3. 터미널 창에서 다음 명령을 실행하여 백 엔드 응용 프로그램에 필요한 라이브러리 설치합니다.
+3. 로컬 터미널 창에서 다음 명령을 실행하여 백 엔드 응용 프로그램에 필요한 라이브러리를 설치합니다.
 
     ```cmd/sh
     dotnet restore
     ```
 
-4. 터미널 창에서 다음 명령을 실행하여 백 엔드 응용 프로그램을 빌드하고 실행합니다.
+4. 로컬 터미널 창에서 다음 명령을 실행하여 백 엔드 응용 프로그램을 빌드하고 실행합니다.
 
     ```cmd/sh
     dotnet run

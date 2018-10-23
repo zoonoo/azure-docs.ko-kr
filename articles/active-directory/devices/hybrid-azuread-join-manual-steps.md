@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 4155ea7c24746f9d3381f2d1e4a1e08a7a56206a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4e3b7aff97cbcebe34e6af4755900e8888c5e57d
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049940"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352804"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>자습서: 하이브리드 Azure Active Directory 조인 장치를 수동으로 구성 
 
@@ -92,6 +92,8 @@ Azure AD에 컴퓨터를 등록하려면 조직 네트워크 내에 있는 컴�
 조직이 온-프레미스 AD에서 자동 관리(페더레이션되지 않은) 설정을 사용하고, ADFS를 사용하여 Azure AD에 페더레이션하지 않는 경우 Windows 10의 하이브리드 Azure AD 연결은 Azure AD에 동기화할 AD의 컴퓨터 개체에 의존합니다. 따라서 하이브리드 Azure AD를 연결해야 하는 컴퓨터 개체가 포함된 OU(조직 구성 단위)는 Azure AD Connect 동기화 구성에서 동기화에 대해 활성화되어 있어야 합니다.
 
 버전 1703 이하의 Windows 10 장치를 사용하며 조직에서 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우 Windows 10 컴퓨터에서 Azure AD에 등록할 수 있도록 WPAD(웹 프록시 자동 검색)를 구현해야 합니다. 
+
+Windows 10 1803부터는 페더레이션된 도메인에서 AD FS를 사용한 장치의 하이브리드 Azure AD 조인 시도가 실패하더라도 Azure AD Connect가 컴퓨터/장치 개체를 Azure AD와 동기화하도록 구성되어 있으면 장치가 동기화된 컴퓨터/장치를 사용하여 하이브리드 Azure AD 조인을 완료하려고 시도합니다.
 
 ## <a name="configuration-steps"></a>구성 단계
 

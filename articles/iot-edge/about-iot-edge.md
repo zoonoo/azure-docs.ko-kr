@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 06/12/2018
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 6e3571fb54f12ef3bb5519f572b8af5bf9247e7d
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 107852bd2c4ec0b932008b498dde4ea77f8071a3
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37032919"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116339"
 ---
 # <a name="what-is-azure-iot-edge"></a>Azure IoT Edge란?
 
@@ -55,7 +55,7 @@ Azure IoT Edge 런타임은 IoT Edge 장치에서 사용자 지정 논리 및 �
 * IoT Edge 장치의 모듈 간 통신을 용이하게 합니다.
 * IoT Edge 장치와 클라우드 간 통신을 용이하게 합니다.
 
-![IoT Edge 런타임은 IoT Hub에 고급 정보를 전송하고 보고][1]
+![IoT Edge 런타임은 IoT Hub에 고급 정보를 전송하고 보고](./media/about-iot-edge/runtime.png)
 
 Azure IoT Edge 장치 사용법은 전적으로 사용자에게 달렸습니다. 런타임은 온-프레미스의 여러 장치에서 데이터를 집계하고 처리하는 게이트웨이에 AI를 배포하는 데 종종 사용되지만, 그 외에도 여러 가지 방법이 있습니다. 또한 리프 장치는 게이트웨이에 연결되든 아니면 클라우드에 직접 연결되든, Azure IoT Edge 장치가 될 수 있습니다.
 
@@ -71,15 +71,10 @@ Azure IoT Edge는 Azure IoT 솔루션 가속기와 원활하게 통합되어 솔
 * 장치 집합에 워크로드를 보냅니다.
 * 현장의 장치에서 실행되는 워크로드를 모니터링합니다.
 
-![장치의 원격 분석, 통찰력 및 작업을 클라우드에 맞게 조정][2]
+![장치의 원격 분석, 통찰력 및 작업을 클라우드에 맞게 조정](./media/about-iot-edge/cloud-interface.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-[시뮬레이션된 장치에 IoT Edge를 배포][lnk-quickstart]하여 다음 개념을 시도해 봅니다.
+[시뮬레이션된 장치에 IoT Edge를 배포](quickstart.md)하여 다음 개념을 시도해 봅니다.
 
-<!-- Images -->
-[1]: ./media/about-iot-edge/runtime.png
-[2]: ./media/about-iot-edge/cloud-interface.png
-
-<!-- Links -->
-[lnk-quickstart]: quickstart.md
+ 

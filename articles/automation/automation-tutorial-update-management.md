@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 4d504e0488d35c5c606468faa35bece1318503b4
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: bc1b52b97897cb1c635fb16e6ef9692de1ca8a44
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498524"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167259"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Azure Automation을 사용하여 Windows 업데이트 관리
 
@@ -116,7 +116,8 @@ UpdateRunProgress
 
 #### <a name="runbook-alert"></a>Runbook 경고
 
-실패한 배포의 경우 마스터 실행 실패에 대해 경고해야 합니다. Azure Portal에서 **모니터**로 이동한 다음, **경고 만들기**를 선택합니다.
+실패한 배포의 경우 마스터 Runbook의 실패에 대해 경고해야 합니다.
+Azure Portal에서 **모니터**로 이동한 다음, **경고 만들기**를 선택합니다.
 
 **1. 경고 조건 정의** 아래에서 **대상 선택**을 클릭합니다. **리소스 종류별로 필터링** 아래에서 **Automation 계정**을 선택합니다. Automation 계정을 선택한 다음, **완료**를 선택합니다.
 

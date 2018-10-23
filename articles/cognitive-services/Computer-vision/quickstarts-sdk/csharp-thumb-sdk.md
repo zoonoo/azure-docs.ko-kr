@@ -3,25 +3,23 @@ title: '빠른 시작: 썸네일 생성 - SDK, C# - Computer Vision'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Computer Vision Windows C# 클라이언트 라이브러리를 사용하여 이미지의 썸네일을 생성합니다.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
-ms.author: nolachar
-ms.openlocfilehash: 8fdbcf5bfe4d4fe60a2858b34b38c01d66e75d99
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.author: pafarley
+ms.openlocfilehash: 758021a9428672789923d1774f51fd319fe9885f
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054815"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343115"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>빠른 시작: Vision SDK 및 C#을 사용하여 썸네일 생성
 
 이 빠른 시작에서는 Computer Vision Windows 클라이언트 라이브러리를 사용하여 이미지의 썸네일을 생성합니다.
-
-이 샘플의 소스 코드는 [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision)에 제공됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -30,6 +28,9 @@ ms.locfileid: "47054815"
 * [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) 클라이언트 라이브러리 NuGet 패키지. 패키지를 다운로드할 필요는 없습니다. 설치 지침은 아래에 제공됩니다.
 
 ## <a name="generatethumbnailasync-method"></a>GenerateThumbnailAsync 메서드
+
+> [!TIP]
+> [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision)에서 최신 코드를 Visual Studio 솔루션으로 가져옵니다.
 
 `GenerateThumbnailAsync` 및 `GenerateThumbnailInStreamAsync` 메서드는 원격 및 로컬 이미지 각각에 대해 [썸네일 API 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb)를 래핑합니다.  이러한 메서드를 사용하여 이미지의 썸네일을 생성할 수 있습니다. 입력 이미지의 가로 세로 비율과 다를 수 있는 높이와 너비를 지정합니다. Computer Vision은 스마트 자르기를 사용하여 관심 영역을 지능적으로 식별하고 해당 영역을 기반으로 자르기 좌표를 생성합니다.
 

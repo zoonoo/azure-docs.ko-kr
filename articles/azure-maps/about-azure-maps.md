@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e68050e4902183b899bf3fee31bef088b1a0faf2
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 4db494de87993a6434eaf5dbf441094578d72ea4
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576071"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165967"
 ---
 # <a name="what-is-azure-maps"></a>Azure Maps란?
 
@@ -23,6 +23,14 @@ Azure Maps는 웹 및 모바일 응용 프로그램에 정확한 지리적 컨�
 다음 비디오는 Azure Maps를 자세히 설명합니다.
 
 <iframe src="https://channel9.msdn.com/Shows/Azure-Friday/Azure-Location-Based-Services/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+
+## <a name="map-controls"></a>맵 컨트롤
+
+### <a name="web-control"></a>웹 컨트롤
+
+Azure Maps 웹 컨트롤을 사용하면 웹 또는 모바일 응용 프로그램에 표시할 자체 콘텐츠와 이미지를 통해 대화형 지도를 사용자 지정할 수 있습니다. 이 컨트롤을 통해 WebGL을 사용하여 성능이 높은 대형 데이터 집합을 렌더링할 수 있습니다. JavaScript 또는 TypeScript를 사용하여 컨트롤로 개발합니다.
+
+![Azure Maps 웹 컨트롤](media/about-azure-maps/Introduction_WebMapControl.png)
 
 ## <a name="services-in-azure-maps"></a>Azure Maps의 서비스
 

@@ -10,19 +10,19 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/07/2018
+ms.date: 10/17/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: a2b4c4824960c21011876a7c0adf029fc56d93d2
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 69a24dba752e4aa374e03e57ce197ae882647373
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419120"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378691"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기
 
-Visual Studio Code 및 Azure Resource Manager 도구 확장을 사용하여 Azure Resource Manager 템플릿을 만드는 방법에 대해 알아봅니다. 확장이 없이 Visual Studio Code에서 Resource Manager 템플릿을 만들 수 있지만, 확장에서는 템플릿 개발을 간소화하는 자동 완성 옵션을 제공합니다. Azure 솔루션 배포 및 관리와 관련된 개념을 이해하려면 [Azure Resource Manager 개요](resource-group-overview.md)를 참조하세요.
+Visual Studio Code 및 Azure Resource Manager 도구 확장을 사용하여 Azure Resource Manager 템플릿을 만들고 편집하는 방법을 알아봅니다. 확장이 없이 Visual Studio Code에서 Resource Manager 템플릿을 만들 수 있지만, 확장에서는 템플릿 개발을 간소화하는 자동 완성 옵션을 제공합니다. Azure 솔루션 배포 및 관리와 관련된 개념을 이해하려면 [Azure Resource Manager 개요](resource-group-overview.md)를 참조하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -55,9 +55,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="edit-the-template"></a>템플릿 편집
 
-Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 알아보려면 출력 섹션에 하나 이상의 요소를 추가합니다.
+Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 알아보려면 `outputs` 섹션에 하나 이상의 요소를 추가합니다.
 
-1. Visual Studio Code에서 하나 이상의 출력을 내보낸 템플릿에 추가합니다.
+1. Visual Studio Code에서 값의 **종류**를 확인합니다. 값이 **Storage**이면 값을 **StorageV2**로 업데이트합니다.
+
+    ```json
+    "kind": "StorageV2",
+    ```
+2. 내보낸 템플릿에 하나 이상의 출력을 추가합니다.
 
     ```json
     "storageUri": {
@@ -85,25 +90,17 @@ Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 알아보
 
     ![Resource Manager 템플릿 - Visual Studio Code IntelliSense](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
 
-2. **파일**>**저장**을 차례로 선택하여 파일을 저장합니다.
+3. **파일**>**저장**을 차례로 선택하여 파일을 저장합니다.
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-템플릿을 배포하는 방법에는 여러 가지가 있습니다.  이 빠른 시작에서는 Azure Portal의 Azure Cloud Shell을 사용합니다. Cloud Shell은 Azure CLI와 Azure PowerShell을 모두 지원합니다. 
+템플릿을 배포하는 방법에는 여러 가지가 있습니다.  이 빠른 시작에서는 Azure Cloud Shell을 사용합니다. Cloud Shell은 Azure CLI와 Azure PowerShell을 모두 지원합니다. 
 
-1. [Azure 포털](https://portal.azure.com)
-2. 다음 이미지와 같이 오른쪽 위 모서리에서 **Cloud Shell**을 선택합니다.
-
-    ![Azure Portal - Cloud Shell](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell.png)
-
-    Cloud Shell은 창 아래쪽에 열려 있습니다.
-
-3. Cloud Shell의 왼쪽 위 모서리에는 **PowerShell** 또는 **Bash**가 표시됩니다. CLI를 사용하려면 Bash 세션을 열어야 합니다. PowerShell을 실행하려면 PowerShell 세션을 열어야 합니다. 아래쪽 화살표를 선택하여 Bash와 PowerShell 간에 전환합니다. 다음 이미지에서는 PowerShell에서 Bash로의 전환을 보여 줍니다.
+1. [Azure Cloud Shell](https://shell.azure.com)에 로그인
 
     ![Azure Portal - Cloud Shell에서 CLI로 전환](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
-
-    전환하는 경우 셸을 다시 시작해야 합니다.
-4. **파일 업로드/다운로드**를 선택한 다음, **업로드**를 선택합니다.
+2. Cloud Shell의 왼쪽 위 모서리에는 **PowerShell** 또는 **Bash**가 표시됩니다. CLI를 사용하려면 Bash 세션을 열어야 합니다. PowerShell을 실행하려면 PowerShell 세션을 열어야 합니다. 아래쪽 화살표를 선택하여 Bash와 PowerShell 간에 전환합니다. 이전 스크린샷을 참조하세요. 전환하는 경우 셸을 다시 시작해야 합니다.
+3. **파일 업로드/다운로드**를 선택한 다음, **업로드**를 선택합니다.
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
 
@@ -116,7 +113,7 @@ Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 알아보
     ---
 
     셸에서 템플릿 파일을 배포하려면 먼저 업로드해야 합니다.
-5. 빠른 시작의 앞부분에서 저장한 파일을 선택합니다. 기본 이름은 **azuredeploy.json**입니다.
+5. 이전 섹션에서 저장한 파일을 선택합니다. 기본 이름은 **azuredeploy.json**입니다.
 6. Cloud Shell에서 **ls** 명령을 실행하여 파일이 성공적으로 업로드되었는지 확인합니다. **cat** 명령을 사용하여 템플릿 내용을 확인할 수도 있습니다. 다음 이미지에서는 Bash에서 명령을 실행하는 것을 보여 줍니다.  PowerShell 세션에서 동일한 명령을 사용합니다.
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
@@ -132,20 +129,30 @@ Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 알아보
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```cli
-    az group create --name <ResourceGroupName> --location <AzureLocation>
-
-    az group deployment create --name <DeploymentName> --resource-group <ResourceGroupName> --template-file <TemplateFileName>
+    echo "Enter the Resource Group name:" &&
+    read resourceGroupName &&
+    echo "Enter the name for this deployment:" &&
+    read deploymentName &&
+    echo "Enter the location (i.e. centralus):" &&
+    read location &&
+    az group create --name $resourceGroupName --location $location &&
+    az group deployment create --name $deploymentName --resource-group $resourceGroupName --template-file "azuredeploy.json"
     ```
    
     # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
     
     ```powershell
-    New-AzureRmResourceGroup -Name <ResourceGroupName> -Location <AzureLocation>
-
-    New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroupName> -TemplateFile <TemplateFileName>
+    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    New-AzureRmResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName -TemplateFile "azuredeploy.json"
     ```
     
     ---
+
+    파일 이름을 **azuredeploy.json**이 아닌 다른 이름으로 저장한 경우 템플릿 파일 이름을 업데이트합니다.
 
     다음 스크린샷에서는 배포 샘플을 보여줍니다.
 
@@ -159,26 +166,25 @@ Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 알아보
     
     ---
 
-    스크린샷에서 사용된 값은 다음과 같습니다.
-
-    - **&lt;ResourceGroupName>**: myresourcegroup0709입니다. 매개 변수에는 두 가지 표현이 있습니다.  동일한 값을 사용해야 합니다.
-    - **&lt;AzureLocation>**: eastus2
-    - **&lt;DeployName>**: mydeployment0709
-    - **&lt;TemplateFile>**: azuredeploy.json
-
-    스크린샷 출력에서 저장소 계정 이름은 *3tqebj3slyfyestandardsa*입니다. 
+    스크린샷에는 출력 섹션의 저장소 계정 이름과 저장소 URL이 강조 표시되었습니다. 그 다음 단계에서 저장소 계정 이름이 필요합니다.
 
 7. 다음 CLI 또는 PowerShell 명령을 실행하여 새로 만든 저장소 계정을 나열합니다.
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```cli
-    az storage account show --resource-group <ResourceGroupName> --name <StorageAccountName>
+    echo "Enter the Resource Group name:" &&
+    read resourceGroupName &&
+    echo "Enter the Storage Account name:" &&
+    read storageAccountName &&
+    az storage account show --resource-group $resourceGroupName --name $storageAccountName
     ```
    
     # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
     
     ```powershell
-    Get-AzureRmStorageAccount -ResourceGroupName <ResourceGroupName> -Name <StorageAccountName>
+    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $storageAccountName = Read-Host -Prompt "Enter the Storage Account name"
+    Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
     ```
     
     ---

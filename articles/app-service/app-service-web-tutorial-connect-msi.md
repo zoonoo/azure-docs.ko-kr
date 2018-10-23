@@ -11,19 +11,23 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/17/2018
+ms.date: 10/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 3125db03dc13f70524fd094736f50b563ef712a4
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 6a3bb5511828d9f8ea7168ffa4748b141484299f
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379930"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376433"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>자습서: 관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호
 
 [App Service](app-service-web-overview.md)는 Azure에서 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 또한 [Azure SQL Database](/azure/sql-database/) 및 기타 Azure 서비스에 대한 액세스를 보호하기 위한 턴키 솔루션인 [관리 ID](app-service-managed-service-identity.md)를 앱에 제공합니다. App Service의 관리 ID는 연결 문자열의 자격 증명과 같은 비밀을 앱에서 제거하여 앱의 보안을 보다 강화합니다. 이 자습서에서는 [자습서: SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드](app-service-web-tutorial-dotnet-sqldatabase.md)에서 만든 샘플 ASP.NET 웹앱에 관리 ID를 추가합니다. 완료되면 샘플 앱은 사용자 이름과 암호 없이도 안전하게 SQL Database에 연결됩니다.
+
+> [!NOTE]
+> 이 시나리오는 현재 .NET Framework 4.6 이상에서 지원되지만, [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows)에서는 지원되지 않습니다. [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2)는 이 시나리오를 지원하지만, 아직 App Service의 기본 이미지에 포함되지 않습니다. 
+>
 
 다음 방법에 대해 알아봅니다.
 
@@ -95,6 +99,7 @@ Visual Studio의 **DotNetAppSqlDb** 프로젝트에서 _packages.config_를 열�
 
 ```xml
 <package id="Microsoft.Azure.Services.AppAuthentication" version="1.1.0-preview" targetFramework="net461" />
+<package id="Microsoft.IdentityModel.Clients.ActiveDirectory" version="3.14.2" targetFramework="net461" />
 ```
 
 _Models\MyDatabaseContext.cs_를 열고 파일의 맨 위에 다음 `using` 문을 추가합니다.
@@ -122,7 +127,7 @@ public MyDatabaseContext(SqlConnection conn) : base(conn, true)
 이 생성자는 App Service의 Azure SQL Database에 대한 액세스 토큰을 사용하도록 사용자 지정 SqlConnection 개체를 구성합니다. 이 액세스 토큰을 사용하면 App Service 앱이 관리 ID를 사용하여 Azure SQL Database로 인증됩니다. 자세한 내용은 [Azure 리소스 토큰 가져오기](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources)를 참조하세요. `if` 문을 사용하면 LocalDB에서 로컬로 앱을 계속 테스트할 수 있습니다.
 
 > [!NOTE]
-> `SqlConnection.AccessToken`은 현재 .NET Framework 4.6 이상에서만 지원되며 [.NET Core](https://www.microsoft.com/net/learn/get-started/windows)에서는 지원되지 않습니다.
+> `SqlConnection.AccessToken`은 현재 .NET Framework 4.6 이상과 [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2)에서 지원되지만 [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows)에서는 지원되지 않습니다.
 >
 
 이 새 생성자를 사용하려면 `Controllers\TodosController.cs`를 열고 `private MyDatabaseContext db = new MyDatabaseContext();` 줄을 확인합니다. 기존 코드는 기본 `MyDatabaseContext` 컨트롤러를 사용하여 표준 연결 문자열을 통해 데이터베이스를 만듭니다. [변경](#modify-connection-string) 전 사용자 이름과 암호는 일반 텍스트였습니다.
@@ -130,7 +135,7 @@ public MyDatabaseContext(SqlConnection conn) : base(conn, true)
 전체 줄을 다음 코드로 바꿉니다.
 
 ```csharp
-private MyDatabaseContext db = new MyDatabaseContext(new SqlConnection());
+private MyDatabaseContext db = new MyDatabaseContext(new System.Data.SqlClient.SqlConnection());
 ```
 
 ### <a name="publish-your-changes"></a>변경 내용 게시
@@ -172,32 +177,23 @@ az ad group member list -g $groupid
 
 ### <a name="grant-permissions-to-azure-active-directory-group"></a>Azure Active Directory 그룹에 사용 권한 부여
 
-Cloud Shell에서 SQLCMD 명령을 사용하여 SQL Database에 로그인합니다. _\<servername>_ 을 SQL Database 서버 이름으로 바꾸고, _\<AADusername>_ 및 _\<AADpassword>_ 를 Azure AD 사용자의 자격 증명으로 바꿉니다.
-
-```azurecli-interactive
-sqlcmd -S <server_name>.database.windows.net -U <AADuser_name> -P "<AADpassword>" -G -l 30
-```
-
-SQL 프롬프트에서 이전에 사용자 권한으로 만든 Azure Active Directory 그룹을 추가하는 다음 명령을 실행합니다.
-
-```sql
-CREATE USER [myAzureSQLDBAccessGroup] FROM EXTERNAL PROVIDER;
-GO
-```
-
-`EXIT`를 입력하여 Cloud Shell 프롬프트로 돌아갑니다. 다음으로, SQLCMD를 다시 실행하되 _\<dbname>_ 에 데이터베이스 이름을 지정합니다.
+Cloud Shell에서 SQLCMD 명령을 사용하여 SQL Database에 로그인합니다. _\<server\_name>_ 을 SQL Database 서버 이름으로 바꾸고, _\<db\_name>_ 을 앱에서 사용하는 데이터베이스 이름으로 바꾸고, _\<AADuser\_name>_ 및 _\<AADpassword>_ 를 Azure AD 사용자의 자격 증명으로 바꿉니다.
 
 ```azurecli-interactive
 sqlcmd -S <server_name>.database.windows.net -d <db_name> -U <AADuser_name> -P "<AADpassword>" -G -l 30
 ```
 
-원하는 데이터베이스에 대한 SQL 프롬프트에서 Azure Active Directory 그룹에 읽기 및 쓰기 권한을 부여하려면 다음 명령을 실행합니다.
+원하는 데이터베이스의 SQL 프롬프트에서 다음 명령을 실행하여 앞에서 만든 Azure Active Directory 그룹을 추가하고 앱에 필요한 권한을 부여합니다. 예를 들면 다음과 같습니다. 
 
 ```sql
+CREATE USER [myAzureSQLDBAccessGroup] FROM EXTERNAL PROVIDER;
 ALTER ROLE db_datareader ADD MEMBER [myAzureSQLDBAccessGroup];
 ALTER ROLE db_datawriter ADD MEMBER [myAzureSQLDBAccessGroup];
+ALTER ROLE db_ddladmin ADD MEMBER [myAzureSQLDBAccessGroup];
 GO
 ```
+
+`EXIT`를 입력하여 Cloud Shell 프롬프트로 돌아갑니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 7110d8df5ee837829f97fec8ab26d929689e3436
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: e6e49a03ee76c50cb2fff492bfd50b2820abafe4
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785141"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343761"
 ---
 # <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>자습서 1: Azure Machine Learning Service로 이미지 분류 모델 학습시키기
 
@@ -40,6 +40,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 사용자의 편의를 위해 이 자습서는 [Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb)으로 제공됩니다. Azure Notebooks 또는 자체 Jupyter 노트북 서버에서 `01.train-models.ipynb` 노트북을 실행할 수 있습니다.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+
+>[!NOTE]
+> 이 자습서는 Azure Machine Learning SDK 0.168 버전을 사용하여 테스트했습니다. 
 
 ## <a name="set-up-your-development-environment"></a>개발 환경 설정
 
@@ -288,7 +291,7 @@ y_test = load_data(os.path.join(data_folder, 'test-labels.gz'), True).reshape(-1
 print(X_train.shape, y_train.shape, X_test.shape, y_test.shape, sep = '\n')
 
 # get hold of the current run
-run = Run.get_submitted_run()
+run = Run.get_context()
 
 print('Train a logistic regression model with regularizaion rate of', args.reg)
 clf = LogisticRegression(C=1.0/args.reg, random_state=42)

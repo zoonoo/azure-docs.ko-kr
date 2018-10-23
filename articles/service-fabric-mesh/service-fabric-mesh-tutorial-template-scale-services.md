@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bf0b38c8c2d465abe9f2e129110df41c349c3d07
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4d6839fea3ce0eb74cdf87396716cdc69c0cd1a0
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055376"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165984"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>자습서: Service Fabric Mesh에서 실행 중인 응용 프로그램 크기 조정
 
-이 자습서는 시리즈의 2부입니다. [이전에 Service Fabric Mesh에 배포된](service-fabric-mesh-tutorial-template-deploy-app.md) 응용 프로그램의 서비스 인스턴스 수를 수동으로 조정하는 방법을 알아봅니다.  자습서를 완료하면 다음과 같은 것을 얻을 수 있습니다.
+이 자습서는 시리즈의 2부입니다. [이전에 Service Fabric Mesh에 배포된](service-fabric-mesh-tutorial-template-deploy-app.md) 응용 프로그램의 서비스 인스턴스 수를 수동으로 조정하는 방법을 알아봅니다. 조정이 완료되면 3개 인스턴스를 실행하는 프런트 엔드 서비스와 2개 인스턴스를 실행하는 데이터 서비스가 생깁니다.
 
 시리즈 2부에서는 다음 방법에 대해 알아봅니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "47055376"
 > [!div class="checklist"]
 > * [템플릿을 사용하여 Service Fabric Mesh에 응용 프로그램 배포](service-fabric-mesh-tutorial-template-deploy-app.md)
 > * Service Fabric Mesh에서 실행 중인 응용 프로그램 크기 조정
-> * [Service Fabric Mesh에서 실행되는 응용 프로그램 업그레이드](service-fabric-mesh-tutorial-template-upgrade-app.md)
+> * [Service Fabric Mesh에서 실행 중인 응용 프로그램 업그레이드](service-fabric-mesh-tutorial-template-upgrade-app.md)
 > * [응용 프로그램 제거](service-fabric-mesh-tutorial-template-remove-app.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
@@ -69,9 +69,9 @@ az mesh service show --resource-group myResourceGroup --name ToDoService --app-n
 
 ### <a name="modify-the-deployment-template-parameters"></a>배포 템플릿 매개 변수 수정
 
-응용 프로그램을 배포한 후에 템플릿의 값이 변경될 것으로 예상되거나 배포별로 값을 변경하는 옵션을 포함하려는 경우(다른 배포에 이 템플릿을 다시 사용하려는 경우)에는 값을 매개 변수화하는 것이 가장 좋습니다.
+응용 프로그램을 배포한 후에 템플릿의 값이 변경될 것으로 예상되거나 배포별로 값을 변경하는 옵션을 포함하려는 경우(다른 배포에 이 템플릿을 다시 사용하려는 경우) 가장 좋은 방법은 값을 매개 변수화하는 것입니다.
 
-앞에서 [mesh_rp.windows.json 배포 템플릿](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) 및 [mesh_rp.windows.parameter.json 매개 변수](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json) 파일을 사용하여 응용 프로그램을 배포했습니다.
+이전에 [mesh_rp.windows.json 배포 템플릿](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json)과 [mesh_rp.windows.parameter.json 매개 변수](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json) 파일을 사용하여 응용 프로그램을 배포했습니다.
 
 로컬로 [mesh_rp.windows.parameter.json 매개 변수](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json) 파일을 열고 *frontEndReplicaCount* 값을 3으로, *serviceReplicaCount* 값을 2로 설정합니다.
 
@@ -172,4 +172,4 @@ az mesh service show --resource-group myResourceGroup --name ToDoService --app-n
 
 다음 자습서를 진행합니다.
 > [!div class="nextstepaction"]
-> [Service Fabric Mesh에서 실행되는 응용 프로그램 업그레이드](service-fabric-mesh-tutorial-template-upgrade-app.md)
+> [Service Fabric Mesh에서 실행 중인 응용 프로그램 업그레이드](service-fabric-mesh-tutorial-template-upgrade-app.md)

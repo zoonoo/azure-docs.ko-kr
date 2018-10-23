@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 27167b011e23befda5d0c3703adeafc1581f4b98
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 4333a234efe96f32541254819c9c5f21bb031757
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268938"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115079"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>자습서: Kestrel을 사용하여 ASP.NET Core Web API 프런트 엔드 서비스에 HTTPS 엔드포인트 추가
 
@@ -118,7 +118,7 @@ using Microsoft.Extensions.Configuration;
 using System.Security.Cryptography.X509Certificates;
 ```
 
-새로운 *EndpointHttps* 엔드포인트를 사용하고 포트 443에서 수신 대기하도록 `ServiceInstanceListener`를 업데이트합니다.
+새로운 *EndpointHttps* 엔드포인트를 사용하고 포트 443에서 수신 대기하도록 `ServiceInstanceListener`를 업데이트합니다. Kestrel 서버를 사용하도록 웹 호스트를 구성할 때는 Kestrel이 모든 네트워크 인터페이스에 대해 IPv6 주소를 수신 대기하도록 구성해야 합니다(`opt.Listen(IPAddress.IPv6Any, port, listenOptions => {...}`).
 
 ```csharp
 new ServiceInstanceListener(

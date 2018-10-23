@@ -12,16 +12,16 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 09/18/2018
 ms.author: zhshang
-ms.openlocfilehash: 8cf26a055b6c0c3ffaf3690d4a6f30505f403eba
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 587752b25e3c98bbabbd42bd4d838fd19ae9fd45
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951494"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318710"
 ---
 # <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Azure Functions와 Azure SignalR Service를 사용하여 실시간 앱 빌드
 
-Azure SignalR Service와 Azure Functions는 둘 다 완전히 관리되는 서비스라서 인프라를 관리하는 대신 응용 프로그램 빌드에 집중이 가능한 확장성이 높은 서비스이기 때문에, 서버를 사용하지 않는 환경에서 두 가지 서비스를 함께 사용하여 실시간 통신을 제공하는 것이 일반적입니다.
+Azure SignalR Service와 Azure Functions는 둘 다 완전히 관리되는 서비스라서 인프라를 관리하는 대신 응용 프로그램 빌드에 집중이 가능한 확장성이 높은 서비스이기 때문에, [서버를 사용하지 않는](https://azure.microsoft.com/solutions/serverless/) 환경에서 두 가지 서비스를 함께 사용하여 실시간 통신을 제공하는 것이 일반적입니다.
 
 ## <a name="integrate-real-time-communications-with-azure-services"></a>Azure 서비스를 통해 실시간 통신 통합
 

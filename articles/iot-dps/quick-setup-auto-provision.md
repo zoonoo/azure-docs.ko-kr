@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ce1586e472e1d1ea5ddd9ca5a426b1bea2b5b931
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 5533dacc4a782cbdb6026c4a4d5c5bed9e39147a
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42023827"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320155"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Azure Portal에서 IoT Hub Device Provisioning 서비스 설정
 
@@ -40,12 +40,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     * **구독**: 이 Device Provisioning Service 인스턴스를 만드는 데 사용할 구독을 선택합니다.
     * **리소스 그룹:** 이 필드를 통해 새 리소스 그룹을 만들거나 새 인스턴스를 포함하도록 기존 항목을 선택할 수 있습니다. 위에서 만든 Iot 허브를 포함하는 동일한 리소스 그룹을 선택합니다(예: **TestResources**). 모든 관련 리소스를 한 그룹에 배치하여 다 함께 관리할 수 있습니다. 예를 들어 리소스 그룹을 삭제하면 해당 그룹에 들어 있는 모든 리소스가 삭제됩니다. 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-portal.md)를 참조하세요.
     * **위치**: 장치에 가장 가까운 위치를 선택합니다.
-    * **대시보드에 고정:** 대시보드에 고정된 인스턴스를 더 쉽게 찾을 수 있도록 이 옵션을 선택합니다.
 
     ![포털 블레이드에서 Device Provisioning Service 인스턴스에 대한 기본 정보 입력](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
 
-4. 서비스가 성공적으로 배포되면 요약 블레이드가 자동으로 열립니다.
+4. 리소스 인스턴스 만들기를 모니터링하려면 알림 단추를 클릭합니다. 서비스가 성공적으로 배포되면 **대시보드에 고정**, **리소스로 이동**을 차례로 클릭합니다.
 
+    ![배포 알림 모니터링](./media/quick-setup-auto-provision/pin-to-dashboard.png)
 
 ## <a name="link-the-iot-hub-and-your-device-provisioning-service"></a>IoT Hub 및 Device Provisioning Service 연결
 

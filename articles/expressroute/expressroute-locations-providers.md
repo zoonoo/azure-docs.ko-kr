@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/01/2018
-ms.author: jaredro
-ms.openlocfilehash: 78cc4875bd0dabba1c9cfebcb5e35160695fdc4e
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.date: 10/16/2018
+ms.author: pareshmu
+ms.openlocfilehash: 8372cd82e9b62c4440a9e7d525b7135153e59dde
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042413"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378071"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -76,7 +76,7 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 ### <a name="production-azure"></a>프로덕션 Azure
 | **위치**: | **피어링 위치 소유자** | **서비스 공급자** |
 | --- | --- | --- |
-| **암스테르담** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Verizon, Zayo |
+| **암스테르담** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Verizon, Zayo |
 | **암스테르담2** | Interxion | Interxion |
 | **애틀랜타** | Equinix | Equinix, Megaport |
 | **부산** |LG CNS | LG CNS |
@@ -99,7 +99,7 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **멜버른** | NextDC | AARNet, Equinix, Megaport, NEXTDC, Optus+, Telstra Corporation |
 | **마이애미** | Equinix | C3ntro+, Equinix, Megaport, Neutrona Networks |
 | **Montreal** | Cologix | Bell Canada, Cologix, Telus, Zayo |
-| **뭄바이** | Tata Communications | Global CloudXchange(GCX), Sify, Tata Communications |
+| **뭄바이** | Tata Communications | GCX(Global CloudXchange), Sify, Tata Communications, Vodafone Idea |
 | **뭄바이2** | Airtel | Airtel, Sify |
 | **뉴욕** | Equinix | CenturyLink Cloud Connect, Coresite, Equinix, Megaport, Zayo |
 | **뉴포트(웨일스)** | Next Generation Data | Level 3 Communications, Next Generation Data |
@@ -110,7 +110,7 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **상파울루** | Equinix | Ascenty Data Centers+, Equinix, Level 3 Communications, Neutrona Networks, Telefonica, UOLDIVEO |
 | **시애틀** | Equinix | Equinix, Level 3 Communications, Megaport |
 | **서울** | KINX | KINX, LG CNS, Sejong Telecom |
-| **실리콘밸리** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Comcast, Coresite, Equinix, IXReach, PacketFabric, Level 3 Communications, Megaport, Orange, Sprint, Tata Communications, Verizon, Zayo Group |
+| **실리콘밸리** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Comcast, Coresite, Equinix, InterCloud, IXReach, PacketFabric, Level 3 Communications, Megaport, Orange, Sprint, Tata Communications, Verizon, Zayo Group |
 | **싱가포르** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **Singapore2** | 글로벌 스위치 | Megaport, SingTel |
 | **시드니** | Equinix | AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, NTT Communications, Optus, Orange, Telstra Corporation, Verizon |
@@ -160,7 +160,7 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
   * [NextDC](http://www.nextdc.com/)
   * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
   * [PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/)
-  * [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
+  
 * 연결 공급자가 선택한 피어링 위치로 네트워크를 확장합니다.
   * 연결 공급자는 단일 실패 지점이 없도록 항상 사용 가능한 방식으로 연결을 확장하는지 확인합니다.
 * Microsoft에 연결할 연결 공급자로 Exchange를 지정하여 ExpressRoute 회로를 정렬합니다.
@@ -197,7 +197,7 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **오스트레일리아** | Ensyst, IT Consultancy, MOQdigital, Vigilant.IT |
 | **유럽** |Avanade Inc., Altogee, Bright Skies GmbH, Inframon, MSG Services, New Signature, Nelite, Orange Networks, sol-tec |
 | **북아메리카** |Avanade Inc., Equinix Professional Services, FlexManage, Lightstream, Perficient, Presidio |
-| **남미** |Avanade Inc. |
+| **남미** |Avanade Inc., Venha Pra Nuvem |
 ## <a name="next-steps"></a>다음 단계
 * ExpressRoute에 대한 자세한 내용은 [ExpressRoute FAQ](expressroute-faqs.md)를 참조하세요.
 * 모든 필수 조건이 충족되었는지 확인합니다. [ExpressRoute 필수 조건](expressroute-prerequisites.md)을 참조하세요.

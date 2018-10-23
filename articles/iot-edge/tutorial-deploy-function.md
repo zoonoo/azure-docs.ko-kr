@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 66dcb3347741c4826fc62cc258c67b85f3939ff7
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: f2b1c394f561b87baf2be261728a1ac39b1f7835
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422765"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116055"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules-preview"></a>자습서: IoT Edge 모듈로 Azure 함수 배포(미리 보기)
 
@@ -45,7 +45,7 @@ Azure IoT Edge 장치:
 
 클라우드 리소스:
 
-* Azure의 무료 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md). 
+* Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md). 
 
 개발 리소스:
 

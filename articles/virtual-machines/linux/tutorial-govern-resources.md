@@ -11,15 +11,15 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/20/2018
+ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 2d19488d9b4d6ae6c71610788345b45c38e51cfa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 715a8e5bab9e5d16b8c0e54298101df856d51a9a
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968818"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309862"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>자습서: Azure CLI를 사용한 Linux 가상 머신 제어에 대해 알아보기
 
@@ -27,7 +27,7 @@ ms.locfileid: "46968818"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+Azure CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="understand-scope"></a>범위 이해
 
@@ -55,19 +55,17 @@ az group create --name myResourceGroup --location "East US"
 * [네트워크 기여자](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [Storage 계정 기여자](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-개별 사용자에게 역할을 할당하는 대신 비슷한 동작을 수행해야 하는 사용자에게 [Azure Active Directory 그룹을 만들기](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)가 더 쉽습니다. 그런 다음, 해당 그룹에 적절한 역할을 할당합니다. 이 문서를 단순화하려면 구성원이 없는 Azure Active Directory 그룹을 만들 수 있습니다. 여전히 해당 그룹에 역할 범위를 할당할 수 있습니다. 
+개별 사용자에게 역할을 할당하는 대신 비슷한 동작을 수행해야 하는 사용자에게 Azure Active Directory 그룹을 사용하기가 더 쉽습니다. 그런 다음, 해당 그룹에 적절한 역할을 할당합니다. 이 문서에서는 가상 머신 관리에 기존 그룹을 사용하거나, 포털을 사용하여 [Azure Active Directory 그룹을 만듭니다](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-다음 예에서는 메일 별칭이 *vmDemoGroup*인 *VMDemoContributors*라는 Azure Active Directory 그룹을 만듭니다. 메일 별칭은 그룹에 대한 별칭으로 사용됩니다.
-
-```azurecli-interactive
-adgroupId=$(az ad group create --display-name VMDemoContributors --mail-nickname vmDemoGroup --query objectId --output tsv)
-```
-
-명령 프롬프트가 반환된 후 그룹이 Azure Active Directory 전체에 전파되는 데 몇 분 정도 걸립니다. 20초 또는 30초 동안 기다린 후 [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) 명령을 사용하여 새로운 Azure Active Directory 그룹을 리소스 그룹에 대한 가상 머신 참가자 역할에 할당합니다.  전파하기 전에 다음 명령을 실행하면 **<guid>주체가 디렉터리에 존재하지 않는다**는 오류 메시지가 표시됩니다. 명령을 다시 실행합니다.
+새 그룹을 만들거나 기존 그룹을 찾은 뒤 [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) 명령을 사용하여 새로운 Azure Active Directory 그룹을 리소스 그룹에 대한 Virtual Machine 기여자 역할에 할당합니다.
 
 ```azurecli-interactive
+adgroupId=$(az ad group show --group <your-group-name> --query objectId --output tsv)
+
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
+
+**보안 주체 <guid>가 디렉터리에 없다**는 오류 메시지가 표시된다면 새 그룹이 Azure Active Directory 전체에 전파되지 않은 것입니다. 명령을 다시 실행합니다.
 
 일반적으로 *네트워크 참가자*와 *Storage 계정 참가자*를 위한 프로세스를 반복해 배포된 리소스를 관리하도록 사용자가 할당됐는지 확인합니다. 이 문서에서는 이러한 단계를 건너뛸 수 있습니다.
 
@@ -171,7 +169,7 @@ az lock create --name LockNSG \
 az group delete --name myResourceGroup
 ```
 
-삭제 작업이 잠금 때문에 수행할 수 없음을 나타내는 오류가 표시 됩니다. 리소스 그룹은 특별히 잠금을 제거하는 경우에 삭제할 수 있습니다. 해당 단계는 [리소스 정리](#clean-up-resources)에 표시됩니다.
+삭제 작업이 잠금 때문에 수행할 수 없음을 나타내는 오류가 표시됩니다. 리소스 그룹은 특별히 잠금을 제거하는 경우에 삭제할 수 있습니다. 해당 단계는 [리소스 정리](#clean-up-resources)에 표시됩니다.
 
 ## <a name="tag-resources"></a>리소스 태그 지정
 
