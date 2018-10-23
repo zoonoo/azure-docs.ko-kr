@@ -244,7 +244,6 @@
 
 #### 조건부 액세스
 ##### [고객이 장치 등록 사전 요구 사항을 충족시키지 못함](active-directory-conditional-access.md)
-##### [조건부 액세스 정책의 잘못된 설정으로 인해 테넌트가 차단됨](active-directory-conditional-access-device-remediation.md)
 ##### [회사 네트워크 규칙이 적용되는 방법 및 시기](https://aka.ms/calocation)
 ##### [사용자가 Azure AD에 등록할 수 있는 장치 수를 늘리는 방법](active-directory-azureadjoin-setup.md)
 ##### [Exchange Online에 대한 조건부 액세스를 설정하는 방법](https://aka.ms/csforexchange)
