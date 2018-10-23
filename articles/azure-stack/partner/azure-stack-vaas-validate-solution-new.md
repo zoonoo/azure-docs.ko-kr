@@ -10,93 +10,60 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/24/2018
+ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 1e908a8cf5576ce3bc3d58d1ef6f29d596ebc58b
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 777609b89bc08cd61489d2c3a3669ec07ccbc372
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158180"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647016"
 ---
 # <a name="validate-a-new-azure-stack-solution"></a>새 Azure Stack 솔루션의 유효성을 검사합니다
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-사용 하는 방법을 솔루션 유효성 검사 워크플로 인증 새 Azure Stack 솔루션에 대해 알아봅니다.
+사용 방법 알아보기 합니다 **솔루션 유효성 검사** 새 Azure Stack 솔루션을 인증 하는 워크플로.
 
-Azure Stack 방법은 하드웨어 자재 명세서 제품 구성 정보 (BoM)가 공동으로 합의 된 Microsoft 및 Windows Server 로고 인증 요구 사항을 통과 했습니다. 하드웨어 BoM으로 분류 하는 솔루션을 발생 시키는 변경 된 경우에 솔루션 유효성 검사 워크플로 사용할 수 있습니다 *새*합니다. 경우 트리거는 무엇입니까에 대 한 질문을 **새** 또는 **재인증** 연락 솔루션 [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com)합니다.
+Azure Stack 방법은 하드웨어 자재 명세서 정보 (BoM)의 공동 합의 Microsoft와 파트너 간에 Windows Server 로고 인증 요구 사항을 충족 한 후입니다. 솔루션을 BoM 하드웨어 변경 되었을 때 recertified 수 있어야 합니다. 솔루션을 다시 인증 하는 경우에 대 한 추가 질문에 대 한 팀에 문의 [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com)합니다.
 
-솔루션이 인증 하려면 워크플로 두 번 실행 합니다. 에 대해 한 번씩 실행 합니다 *최소* 지원 되는 구성 합니다. 에 대 한 두 번째 시간에 실행 합니다 *최대* 구성 합니다. Microsoft는 모든 테스트를 통과 하는 둘 다 구성 하는 경우 솔루션을 인증 합니다.
+솔루션이 인증 하려면 솔루션 유효성 검사 워크플로 두 번 실행 합니다. 에 대해 한 번씩 실행 합니다 *최소* 지원 되는 구성 합니다. 에 대 한 두 번 실행 합니다 *최대로* 지원 되는 구성 합니다. Microsoft는 모든 테스트를 통과 하는 둘 다 구성 하는 경우 솔루션을 인증 합니다.
 
-이 빠른 시작 솔루션을 추가 하 고 테스트 실행의 프로세스 수를 가져옵니다.
+[!INCLUDE [azure-stack-vaas-workflow-validation-completion](includes/azure-stack-vaas-workflow-validation-completion.md)]
 
-## <a name="add-a-new-solution"></a>새 솔루션 추가
+## <a name="create-a-solution-validation-workflow"></a>솔루션의 유효성 검사 워크플로 만들기
 
-1. 에 로그인 합니다 [유효성 검사 포털](https://azurestackvalidation.com)합니다.
-2. 선택 **새 솔루션**합니다.
-3. 선택한 솔루션에 대 한 이름을 입력 **저장할**합니다.
+1. [!INCLUDE [azure-stack-vaas-workflow-step_select-solution](includes/azure-stack-vaas-workflow-step_select-solution.md)]
+2. 선택 **시작** 에 **솔루션 유효성 검사** 바둑판식으로 배열 합니다.
 
-## <a name="create-a-solution-validation-workflow"></a>유효성 검사 워크플로 솔루션 만들기
+    ![유효성 검사 워크플로 솔루션 타일](media/tile_validation-solution.png)
 
-1. 솔루션 이름을 선택 합니다.
-2. 선택 **관리** 에 **솔루션 유효성 검사** 바둑판식으로 배열 합니다.
+3. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
+4. 선택 된 **솔루션 구성**합니다.
+    - **최소**: 지원 되는 최소 노드 수를 사용 하 여 구성 된 솔루션입니다.
+    - **최대**: 지원 되는 최대 노드 수를 사용 하 여 구성 된 솔루션입니다.
+5. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
 
-    ![솔루션의 유효성 검사](media/image2.png)
+    ![솔루션 유효성 검사 정보](media/workflow_validation-solution_info.png)
 
-## <a name="create-a-solution-workflow"></a>솔루션 워크플로 만들기
+6. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
-1. 선택 **새 솔루션 유효성 검사**합니다.
-2. 유효성 검사의 이름을 입력 합니다.
-3. 선택 **최소** 하거나 **최대**합니다.  
-    - **최소**  
-    솔루션은 지원 되는 최소 노드 수를 사용 하 여 구성 됩니다.  
-    - **최대값**  
-    솔루션은 지원 되는 최대 노드 수를 사용 하 여 구성 됩니다.
-4. 선택 **업로드** 다음 배포 구성 파일을 추가 합니다. 선택적 단계입니다. 또한 다음 섹션의 단계를 수행 하 여 테스트 매개 변수를 추가할 수 있습니다.
+    > [!NOTE]
+    > 워크플로 만든 후 환경 매개 변수를 수정할 수 없습니다.
 
-    > [!note]  
-    > 만들 수 있습니다 프로그램 구성 파일 환경 매개 변수에서 매개 변수를 추가 하 여 일반적인 테스트 매개 변수 섹션에서는 인터페이스에서. 유효성을 검사할 Azure Stack 배포 서비스에서 생성 한 파일을 검색할 수 있습니다. 자세한 내용은 [서비스로 Azure Stack 유효성 검사에 대 한 워크플로 일반 매개 변수](azure-stack-vaas-parameters.md)합니다.
+7. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
+8. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
+    테스트 요약 페이지로 리디렉션됩니다.
 
-5. 환경 매개 변수를 추가 합니다. 자세한 내용은 [환경 매개 변수 추가](#add-environmental-parameters)합니다.
-6. 일반적인 테스트 매개 변수를 추가 합니다. 자세한 내용은 [일반적인 테스트 매개 변수 추가](#add-common-test-parameters)합니다.
+## <a name="execute-solution-validation-tests"></a>솔루션의 유효성 검사 테스트를 실행 합니다.
 
-    테스트 정의 따라 테스트 공통 매개 변수를 독립적으로 값을 입력 해야 할 수 있습니다 또는 공통 매개 변수 값을 재정의할 수 있습니다.
+에 **솔루션 유효성 검사 테스트 요약** 페이지 유효성 검사를 완료 하는 데 필요한 테스트 목록이 표시 됩니다.
 
-7. 클릭 **제출** 테스트를 예약 합니다.
+[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
 
-## <a name="add-environmental-parameters"></a>환경 매개 변수 추가
-
-다음 환경 매개 변수를 추가 합니다.
-
-| 테스트 단계 정보 | 필수 | 설명 |
-| --- | --- | --- | --- |
-| Azure Stack 빌드 | 필수 | Azure Stack 빌드를 유효한 Azure Stack 빌드 번호 또는 예를 들어 1.0.170330.9 버전 (예: 20170501.1) 숫자 값 이어야 합니다 |
-| 테넌트 ID | 필수 | Active Directory 테 넌 트 id입니다. GUID (예를 들어 ECA23256-6BA0-4F27-8E4D-AFB02F088363) 이어야 합니다. |
-| 지역 | 필수 | Azure stack 배포 |
-| 테 넌 트 Resource Manager 끝점 | 필수 | (예: 테 넌 트 Azure Resource Manager 작업에 대 한 끝점 https://management.loc-ext.domain.com) |
-| 관리자 Resource Manager 끝점 | 필요하지 않음 | (예: 테 넌 트 Azure Resource Manager 작업에 대 한 끝점 https://management.loc-ext.domain.com) |
-| 외부 FQDN | 필요하지 않음 | 외부 정규화 된 도메인 이름 끝점에 대 한 접미사로 사용 합니다. (예: local.azurestack.external 또는 redmond.contoso.com) |
-| 노드 수 | 필수 | 솔루션의 노드 수입니다. |
-
-## <a name="add-common-test-parameters"></a>일반 테스트 매개 변수를 추가 합니다.
-
-다음 일반적인 테스트 매개 변수를 추가 합니다.
-
-| 테스트 단계 정보 | 필수 | 설명 |
-| --- | --- | --- |
-| 테 넌 트 사용자 이름 | 필수 | 사용자를 테 넌 트 (예를 들어 tenant@contoso.onmicrosoft.com) |
-| 테 넌 트 암호 | 필수 | 테 넌 트에 대 한 암호입니다. |
-| 서비스 관리자 사용자 이름 | 필요하지 않음 | 사용자를 테 넌 트 (예를 들어 tenant@contoso.onmicrosoft.com) |
-| 서비스 관리자 암호 | 필요하지 않음 | 서비스 관리자 사용자 이름 (예를 들어 serviceadmin@contoso.onmicrosoft.com) |
-| 클라우드 관리자 사용자 이름 | 필요하지 않음 | Azure Stack 도메인 관리자 계정 (예를 들어 contoso\cloudadmin) |
-| 클라우드 관리자 암호 | 필요하지 않음 | |
-|  진단 연결 문자열 | 필요하지 않음 | SAS URI는 진단 테스트 실행 하는 동안 로그 복사 될 Azure Storage 계정입니다. 참조 [로그를 저장할 Azure 저장소 blob 만들기](azure-stack-vaas-set-up-account.md#create-an-azure-storage-blob-to-store-logs)합니다. <br><br>값을 **진단 연결 문자열이** 일반 매개 변수를 서비스에서 저장 하 고이 매개 변수를 사용 하는 워크플로의 모든 테스트를 예약 된 시간에 제공 됩니다. SAS URL의 만료 30 일 이내 이면 공용 매개 변수 페이지에서 새 SAS URL에 대해 묻는 메시지가 나타납니다. |
-| 태그-이름 | 필요하지 않음 |  워크플로 레이블을 설명 태그를 입력할 수 있습니다. 태그의 이름입니다. |
-| 태그-값 | 필요하지 않음 | 워크플로 레이블을 설명 태그를 입력할 수 있습니다. 태그의 값입니다. |
+![일정 솔루션 유효성 검사 테스트](media/workflow_validation-solution_schedule-test.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [일정을 조정 하거나 테스트 취소](azure-stack-vaas-monitor-test.md#reschedule-a-test)
-- 에 대해 자세히 알아보려면 [서비스로 Azure Stack 유효성 검사](https://docs.microsoft.com/azure/azure-stack/partner)합니다.
+- [모니터링 및 VaaS 포털에서 테스트를 관리 합니다.](azure-stack-vaas-monitor-test.md)

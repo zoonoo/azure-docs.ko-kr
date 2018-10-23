@@ -1,6 +1,6 @@
 ---
-title: 서비스로 Azure Stack 유효성 검사를 사용 하 여 테스트를 모니터링 합니다. | Microsoft Docs
-description: 서비스로 Azure Stack 유효성 검사를 사용 하 여 테스트를 모니터링 합니다.
+title: 모니터링 및 관리는 Azure Stack VaaS 포털에서 테스트 | Microsoft Docs
+description: 모니터링 하 고 Azure Stack VaaS 포털에서 테스트를 관리 합니다.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,124 +10,140 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/24/2018
+ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 2dc4d3f2855864ff80648b5b9635ff28c0dacbb7
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: b9500176cd3779c46886e6ed8bc8c989bea20a8c
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163332"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647514"
 ---
-# <a name="monitor-a-test-with-azure-stack-validation-as-a-service"></a>모니터 서비스로 Azure Stack 유효성 검사를 사용 하 여 테스트
+# <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>모니터링 및 VaaS 포털에서 테스트를 관리 합니다.
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-확인 하 여 테스트 실행을 모니터링할 수 있습니다 합니다 **Operations** 진행에서 중이거나 완료 하는 테스트 도구 모음에 대 한 페이지입니다. 이 페이지에는 테스트 및 해당 작업의 상태를 자세히 설명합니다.
+Azure Stack 솔루션에 대 한 테스트를 예약, 후 (VaaS) 서비스로 유효성 검사 테스트 실행 상태를 보고 시작 됩니다. 이 정보는 디스플레이 창 및 테스트를 취소 하는 등의 작업 함께 VaaS 포털에서 사용할 수 있습니다.
 
-## <a name="monitor-a-test"></a>테스트를 모니터링 합니다.
+## <a name="navigate-to-the-workflow-tests-summary-page"></a>워크플로 테스트 요약 페이지로 이동
 
-1. 솔루션을 선택 합니다.
+1. 솔루션 대시보드에서 워크플로가 하나 이상에 있는 기존 솔루션을 선택 합니다.
 
-2. 선택 **관리** 워크플로 타일입니다.
+    ![워크플로 타일](media/tile_all-workflows.png)
 
-3. 워크플로 해당 테스트 요약 페이지를 열려면 클릭 합니다.
+1. 선택 **관리** 워크플로 타일입니다. 다음 페이지는 선택한 솔루션에 대해 만든 워크플로 나열 합니다.
 
-4. 상황에 맞는 메뉴를 확장 **[...]**  에 대 한 suite 인스턴스를 테스트 합니다.
+1. 해당 테스트 요약을 열려면 워크플로 이름을 선택 합니다.
 
-5. 선택 **작업 보기**
+## <a name="change-workflow-parameters"></a>워크플로 매개 변수를 변경 합니다.
 
-![대체 텍스트](media\image4.png)
+각 워크플로 유형에 편집할 수 있습니다 합니다 [매개 변수를 테스트](azure-stack-vaas-parameters.md#test-parameters) 워크플로 만드는 동안 지정 합니다.
 
-실행 완료 된 테스트에 대 한 로그에서에서 다운로드할 수 있습니다 테스트 요약 페이지를 클릭 하 여 **로그를 다운로드할** 테스트 상황에 맞는 메뉴에서 **[...]** . Azure Stack 파트너 이러한 로그를 사용 하 여 실패 한 테스트에 대 한 문제를 디버깅할 수 있습니다.
+1. 테스트 요약 페이지에서 선택 합니다 **편집** 단추입니다.
 
-## <a name="open-the-test-pass-summary"></a>테스트 통과 요약 열
+1. 에 따라 새 값을 제공할 [서비스로 Azure Stack 유효성 검사에 대 한 워크플로 일반 매개 변수](azure-stack-vaas-parameters.md)합니다.
 
-1. 포털을 엽니다. 
-2. 이전에 실행 또는 예약 된 테스트가 포함 된 기존 솔루션의 이름을 선택 합니다.
+1. 선택 **제출** 값을 저장 합니다.
 
-    ![테스트 통과 관리 합니다.](media/managetestpasses.png)
+> [!NOTE]
+> 에 **테스트 통과** 워크플로 해야 선택한 테스트를 완료 하 고 새 매개 변수 값을 저장 하기 전에 검토 페이지로 이동 합니다.
 
-3. 선택 **관리** 에 **테스트 통과** 패널입니다.
-4. 테스트 통과 테스트 통과 요약 열를 선택 합니다. 테스트 이름을 검토할 수 있습니다 만든 날짜, 시간 테스트 하는 결과 (성공 또는 실패)를 실행 합니다.
-5. 선택 [ **...  .** ].
+### <a name="add-tests-test-pass-only"></a>테스트 (테스트 통과만 해당) 추가
 
-### <a name="test-pass-summary"></a>테스트 단계 요약
+**테스트 통과** 워크플로 모두를 **테스트를 추가** 및 **편집** 단추를 사용 하는 워크플로의 새 테스트를 예약할 수 있습니다.
+
+> [!TIP]
+> 선택 **테스트를 추가** 새 테스트를 예약 하려면 하 고 경우에 대 한 매개 변수를 편집할 필요 하지는 **테스트 통과** 워크플로.
+
+## <a name="managing-test-instances"></a>테스트 인스턴스 관리
+
+비공식 실행에 대 한 (즉, 합니다 **테스트 통과** 워크플로), 테스트 요약 페이지에서는 Azure Stack 솔루션에 대해 예약 된 테스트를 나열 합니다.
+
+공식 실행에 대 한 (즉, 합니다 **유효성 검사** 워크플로), 테스트 요약 페이지에서는 Azure Stack 솔루션의 유효성 검사를 완료 하는 데 필요한 테스트를 나열 합니다. 유효성 검사 테스트는이 페이지에서 예약 됩니다.
+
+각 예약 된 테스트 인스턴스는 다음 정보를 보여줍니다.
 
 | 열 | 설명 |
 | --- | --- |
-| 테스트 이름 | 테스트의 이름입니다. 유효성 검사 수를 참조합니다. |
-| 생성일 | 테스트 통과 만들어진 시간입니다. |
-| Started | 이전 테스트 실행 시간입니다. |
-| 기간 | 테스트 통과 실행 하는 데 걸린 시간 시간의 길이입니다. |
-| 상태 | 결과 (성공 또는 실패) rest pass에 대 한 합니다. |
-| 에이전트 이름 | 에이전트의 정규화 된 도메인 이름입니다. |
-| 총작업 수 | 테스트 통과에서 시도 하는 작업의 총 수입니다. |
-| 전달 된 작업 | 테스트 통과에 전달 하는 작업의 수입니다. |
-|  실패 한 작업 | 실패 한 작업의 수입니다. |
+| 테스트 이름 | 이름 및 버전의 테스트 합니다. |
+| Category | 테스트의 용도입니다. |
+| 생성일 | 테스트는 예약 된 시간입니다. |
+| Started | 테스트 실행 시작 된 시간입니다. |
+| 기간 | 테스트를 실행 하는 시간의 길이입니다. |
+| 상태 | 상태 또는 테스트의 결과입니다. 실행 전 또는 진행 중인 상태: `Pending`, `Running`합니다. 터미널 상태는: `Cancelled`, `Failed`하십시오 `Aborted`, `Succeeded`합니다. |
+| 에이전트 이름 | 테스트를 실행 하는 에이전트의 이름입니다. |
+| 총작업 수 | 테스트 중에 시도 하는 작업의 총 수입니다. |
+| 전달 된 작업 | 테스트 하는 동안 성공한 작업의 수입니다. |
+|  실패 한 작업 | 테스트 하는 동안 실패 한 작업의 수입니다. |
 
-### <a name="group-columns-in-the-test-pass-summary"></a>테스트에 그룹 열 요약 전달
+### <a name="actions"></a>작업
 
-선택한 열 머리글 열 값에서 그룹 만들기에 끌어다 놓습니다.
+상황에 맞는 메뉴를 클릭할 때 수행할 수 있는 사용 가능한 작업을 나열 하는 각 테스트 인스턴스에 **[...]**  테스트 인스턴스 테이블에 있습니다.
 
-## <a name="reschedule-a-test"></a>테스트를 다시 예약
+#### <a name="view-information-about-the-test-definition"></a>테스트 정의 대 한 정보 보기
 
-1. [테스트 통과 요약 열](#open-the-test-pass-summary)합니다.
-2. 선택 **일정 변경** 테스트 통과 다시 예약 하 합니다.
-3. Azure Stack 인스턴스에 대 한 클라우드 관리자 암호를 입력 합니다.
-4. 사용자 계정을 설정할 때 정의한 진단 저장소 연결 문자열을 입력 합니다.
-5. 테스트를 다시 예약 합니다.
+선택 **정보를 보려면** 테스트 정의 대 한 일반 정보를 보려면 상황에 맞는 메뉴에서입니다. 이 동일한 이름 및 버전을 사용 하 여 각 테스트 인스턴스에서 공유 됩니다.
 
-## <a name="cancel-a-test"></a>테스트 취소
-
-1. [테스트 통과 요약 열](#open-the-test-pass-summary)합니다.
-2. **취소**를 선택합니다.
-
-## <a name="get-test-information"></a>테스트 정보 가져오기
-
-1. [테스트 통과 요약 열](#open-the-test-pass-summary)합니다.
-2. 선택 **정보를 보려면** 테스트 통과 다시 예약 하 합니다.
-
-**테스트 정보**
-
-| 이름 | 설명 |
+| 테스트 속성 | 설명 |
 | -- | -- |
-| 테스트 이름 | Azure Stack 1806 RC 유효성 검사에 대 한 예를 들어, OEM 업데이트 하는 테스트의 이름입니다. |
-| 테스트 버전 | 예를 들어 5.1.4.0 테스트의 버전입니다. |
-| 게시자 | Microsoft와 같은 테스트 게시자입니다. |
-| Category | 테스트의 범주와 같은 **기능** 하거나 **안정성**합니다. |
-| 대상 서비스 | VirtualMachines 같은 테스트 중인 서비스 |
+| 테스트 이름 | 테스트의 이름입니다. |
+| 테스트 버전 | 테스트의 버전입니다. |
+| 게시자 | 게시자 테스트입니다. |
+| Category |  테스트의 용도입니다. |
+| 대상 서비스 | Azure Stack 테스트할 서비스입니다. |
 | 설명 | 테스트의 설명입니다. |
-| 예상된 기간 (분) | 길이 (분) 테스트를 실행 하는 데 걸린 시간입니다. |
-| 링크 | GitHub 문제 추적기에 대 한 링크입니다. |
+| 예상된 기간 (분) | 테스트의 예상된 런타임입니다. |
+| 링크 | 테스트 또는 연락처의 지점에 대 한 모든 관련 정보입니다. |
 
-## <a name="get-test-parameters"></a>테스트 매개 변수 가져오기
+#### <a name="view-test-instance-parameters"></a>테스트 인스턴스 매개 변수 보기
 
-1. [테스트 통과 요약 열](#open-the-test-pass-summary)합니다.
-2. 선택 **매개 변수를 보려면** 테스트 통과 다시 예약 하 합니다.
+선택 **매개 변수를 보려면** 테스트 인스턴스에 예약 된 시간에 제공 된 매개 변수를 보려면 상황에 맞는 메뉴에서입니다. 암호와 같은 중요 한 문자열 표시 되지 않습니다. 이 작업은 예정 된 테스트에 대해서만 사용할 수 있습니다.
 
-**매개 변수**
+이 창에는 모든 테스트 인스턴스에 대 한 다음과 같은 메타 데이터가 포함 됩니다.
 
-| 이름 | 설명 |
+| 테스트 인스턴스 속성 | 설명 |
 | -- | -- |
-| 테스트 이름 | 예를 들어 oemupdate1806test 테스트의 이름입니다. |
-| 테스트 버전 | 예를 들어 5.1.4.0 나머지 버전입니다. |
-| 테스트 인스턴스 ID | 예를 들어, 테스트의 특정 인스턴스를 식별 하는 GUID 20b20645-b400-4f0d-bf6f-1264d866ada9 합니다. |
-| cloudAdminUser | 예를 들어, 클라우드 관리자를 사용 하는 계정의 이름을 **cloudadmin**합니다. |
-| DiagnosticsContainerName | 예를 들어 진단 컨테이너의 ID 04dd3815-5f35-4158-92ea-698027693080 합니다. |
+| 테스트 이름 | 테스트의 이름입니다. |
+| 테스트 버전 | 테스트의 버전입니다. |
+| 테스트 인스턴스 ID | 테스트의 특정 인스턴스를 식별 하는 GUID입니다. |
 
-## <a name="get-test-operations"></a>테스트 작업을 가져옵니다.
+#### <a name="view-test-instance-operations"></a>테스트 인스턴스 작업 보기
 
-1. [테스트 통과 요약 열](#open-the-test-pass-summary)합니다.
-2. 선택 **작업 보기** 테스트 통과 다시 예약 하 합니다. 작업 요약 창이 열립니다.
+선택 **작업 보기** 컨텍스트에서 메뉴 작업의 자세한 상태를 테스트 하는 동안 수행 합니다. 이 작업은 예정 된 테스트에 대해서만 사용할 수 있습니다.
 
-## <a name="get-test-logs"></a>테스트 로그 가져오기
+![작업 보기](media/manage-test_context-menu-operations.png)
 
-1. [테스트 통과 요약 열](#open-the-test-pass-summary)합니다.
-2. 선택 **로그를 다운로드할** 테스트 통과 다시 예약 하 합니다.  
-    Zip 파일 이라는 ReleaseYYYY-MM-DD.zip 로그 다운로드를 포함 합니다.
+#### <a name="download-logs-for-a-completed-test-instance"></a>완료 된 테스트 인스턴스에 대 한 로그를 다운로드 합니다.
+
+선택 **로그를 다운로드할** 다운로드 하려면 상황에 맞는 메뉴에서을 `.zip` 테스트 실행 하는 동안 로그 출력의 파일입니다. 이 작업은 예 중 상태를 사용 하 여 테스트를 완료 하는 테스트에만 사용 가능 `Cancelled`, `Failed`, `Aborted`, 또는 `Succeeded`합니다.
+
+#### <a name="reschedule-a-test-instance-or-schedule-a-test"></a>테스트 인스턴스를 다시 예약 하거나 테스트를 예약 합니다.
+
+관리 페이지에서 테스트를 예약 하는 작업은 테스트 실행에서 워크플로의 유형에 따라 다릅니다.
+
+##### <a name="test-pass-workflow"></a>테스트 통과 워크플로
+
+테스트 통과 워크플로에서 **디스플레이 창** 테스트 인스턴스를 다시 원래 테스트 인스턴스와 동일한 매개 변수 집합을 사용 하 고 *대체* 해당 로그를 포함 하 여 원래 결과입니다. 일정을 재조정 하면 암호와 같은 중요 한 문자열을 다시 입력 해야 합니다.
+
+1. 선택 **일정 변경** 테스트 인스턴스 디스플레이 창에 대 한 프롬프트를 열려면 상황에 맞는 메뉴에서입니다.
+
+1. 해당 매개 변수를 입력 합니다.
+
+1. 선택 **제출** 기존 인스턴스를 바꾸고 테스트 인스턴스를 다시 예약 합니다.
+
+##### <a name="validation-workflows"></a>유효성 검사 워크플로
+
+[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
+
+#### <a name="cancel-a-test-instance"></a>테스트 인스턴스를 취소 합니다.
+
+예약 된 테스트를 해당 상태가 취소 될 수 있습니다 `Pending` 또는 `Running`합니다.  
+
+1. 선택 **취소** 테스트 인스턴스를 취소 하는 것에 대 한 프롬프트를 열려면 상황에 맞는 메뉴에서입니다.
+
+1. 선택 **제출** 테스트 인스턴스를 취소 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 에 대해 자세히 알아보려면 [서비스로 Azure Stack 유효성 검사](https://docs.microsoft.com/azure/azure-stack/partner)합니다.
+- [서비스 유효성 검사 문제 해결](azure-stack-vaas-troubleshoot.md)

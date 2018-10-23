@@ -1,5 +1,5 @@
 ---
-title: 서비스로 Azure Stack 유효성 검사에서 Microsoft의 소프트웨어 업데이트의 유효성을 검사 | Microsoft Docs
+title: 서비스로 Azure Stack 유효성 검사에는 Microsoft의 소프트웨어 업데이트의 유효성을 검사 | Microsoft Docs
 description: 서비스 유효성 검사를 사용 하 여 Microsoft의 소프트웨어 업데이트의 유효성을 검사 하는 방법에 알아봅니다.
 services: azure-stack
 documentationcenter: ''
@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/24/2018
+ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 6ef8c0486a694ac44c53375b24893812b10343e4
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 7fcc7d5a1d87fe93d32772dbbb84f1d3c91d5631
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158486"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648788"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Microsoft의 소프트웨어 업데이트의 유효성을 검사합니다
 
@@ -26,38 +26,22 @@ ms.locfileid: "44158486"
 
 Microsoft은 Azure Stack 소프트웨어 업데이트를 주기적으로 해제 됩니다. 이러한 업데이트는 해당 솔루션에 대 한 업데이트의 유효성을 검사 하 고 Microsoft에 피드백을 제공할 수 있도록 공개적으로 제공 되 전에 Azure Stack 공동 엔지니어링 파트너에 게 제공 됩니다.
 
-## <a name="test-an-existing-solution"></a>기존 솔루션 테스트
+[!INCLUDE [azure-stack-vaas-workflow-validation-completion](includes/azure-stack-vaas-workflow-validation-completion.md)]
 
-1. 에 로그인 합니다 [유효성 검사 포털](https://azurestackvalidation.com)합니다.
+## <a name="apply-monthly-update"></a>월별 업데이트를 적용 합니다.
 
-2. Microsoft에서 업데이트 된 배포한 선택한 기존 솔루션 선택 **시작** 에 **패키지 유효성 검사** 타일입니다.
+[!INCLUDE [azure-stack-vaas-workflow-section_update-azs](includes/azure-stack-vaas-workflow-section_update-azs.md)]
 
-    ![패키지 유효성 검사](media/image3.png)
+## <a name="create-a-workflow"></a>워크플로 만들기
 
-3. 유효성 검사 코드를 입력 합니다.
+Update 유효성 검사와 같은 워크플로 사용 하 여 **패키지 유효성 검사**합니다. 지침을 따르세요 [패키지 유효성 검사 워크플로 만드는](azure-stack-vaas-validate-oem-package.md#create-a-package-validation-workflow)합니다.
 
-4. 솔루션 배포 시에 설치 된 OEM 패키지에 URL을 입력 합니다. Azure blob service에 저장 된 패키지에 대 한 URL을 사용 합니다. 자세한 내용은 [로그를 저장할 Azure 저장소 blob 만들기](azure-stack-vaas-set-up-account.md#create-an-azure-storage-blob-to-store-logs)합니다.
+## <a name="run-tests"></a>테스트 실행
 
-5. 선택 **업로드** 배포 구성 파일을 추가 합니다. 참조 된 [새 Azure Stack 솔루션의 유효성을 검사](azure-stack-vaas-validate-solution-new.md) 배포 구성 파일을 업로드 하는 방법은 합니다.
+Update 유효성 검사와 같은 워크플로 사용 하 여 **패키지 유효성 검사**합니다. 지침을 따르세요 [실행 패키지 유효성 검사 테스트](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests)합니다.
 
-6. 배포 구성 파일을 다음으로 해야 올바른 환경 매개 변수 파일을 사용 하 여 사용자 지정을 참조 하세요 [환경 매개 변수](azure-stack-vaas-parameters.md#environment-parameters) 추가 세부 정보에 대 한 합니다.
-
-    > [!Note]   
-    > 배포 구성 파일을 일반 테스트 매개 변수를 추가 하 여 추가로 사용자 지정할 수 있습니다. 자세한 내용은 참조 하세요. [서비스로 Azure Stack 유효성 검사에 대 한 워크플로 일반 매개 변수](azure-stack-vaas-parameters.md)
-
-7. 사용자 이름 및 테 넌 트 사용자, 서비스 관리자 및 클라우드 관리자에 대 한 암호를 수동으로 입력 해야 합니다.
-
-8. 진단 로그를 저장할 Azure Storage blob URL을 제공 합니다. 자세한 내용은 [로그를 저장할 Azure 저장소 blob 만들기](azure-stack-vaas-set-up-account.md#create-an-azure-storage-blob-to-store-logs)합니다.
-
-    > [!Note]  
-    > 워크플로 레이블을 설명 태그를 입력할 수 있습니다.
-
-10. 선택 **제출** 는 워크플로를 저장 합니다.
-
-솔루션 워크플로 약 24 시간 동안 실행 됩니다. 테스트를 예약에 대 한 링크 또는 명령을 추가 합니다. 지우기 도구에서.
-
-유효성 검사의 진행률을 모니터링 하는 방법은 실행을 참조 하십시오 [테스트를 모니터링 ](azure-stack-vaas-monitor-test.md)합니다.
+패키지 업데이트 유효성 검사에 대 한 서명 요청할 필요가 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 에 대해 자세히 알아보려면 [서비스로 Azure Stack 유효성 검사](https://docs.microsoft.com/azure/azure-stack/partner)합니다.
+- [모니터링 및 VaaS 포털에서 테스트를 관리 합니다.](azure-stack-vaas-monitor-test.md)

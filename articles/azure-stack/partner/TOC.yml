@@ -8,45 +8,39 @@ items:
     href: azure-stack-vaas-overview.md
   - name: 릴리스 정보
     href: azure-stack-vaas-release-notes.md
-    items:
-    - name: 2018-04-02 업데이트
-      href: azure-stack-partner-update-1803.md
-    - name: 2018-01-30 업데이트
-      href: azure-stack-partner-update-1802.md
-  - name: 알려진 문제
-    href: azure-stack-vaas-known-issues.md
   expanded: true
-- name: 빠른 시작
-  items:
-  - name: 첫 번째 테스트 단계를 예약 합니다.
-    href: azure-stack-vaas-schedule-your-first-test.md
 - name: 자습서
   items:
-  - name: Azure Stack 유효성 검사를 사용 하 여 계정 설정
-    href: azure-stack-vaas-set-up-account.md
+  - name: 리소스 설정
+    href: azure-stack-vaas-set-up-resources.md
   - name: PowerShell 사용 하 여 Azure Stack 유효성 검사 자동화
     href: azure-stack-vaas-automate-with-powershell.md
+- name: 방법 가이드
+  items:
+  - name: 첫 번째 테스트를 예약 합니다.
+    href: azure-stack-vaas-schedule-test-pass.md
+  - name: 로컬 에이전트를 배포 합니다.
+    href: azure-stack-vaas-local-agent.md
   - name: 새 Azure Stack 솔루션의 유효성을 검사합니다
     href: azure-stack-vaas-validate-solution-new.md
+  - name: OEM 패키지 만들기
+    href: azure-stack-vaas-create-oem-package.md
   - name: OEM 패키지 유효성 검사
     href: azure-stack-vaas-validate-oem-package.md
   - name: Microsoft의 소프트웨어 업데이트의 유효성을 검사합니다
     href: azure-stack-vaas-validate-microsoft-updates.md
-  - name: 테스트 Vm
-    href: azure-stack-vaas-test-vm.md
 - name: 개념
   items:
-  - name: 테스트를 모니터링 합니다.
+  - name: 주요 개념
+    href: azure-stack-vaas-key-concepts.md
+  - name: 모범 사례
+    href: azure-stack-vaas-best-practice.md
+  - name: 모니터링 및 VaaS 포털에서 테스트를 관리 합니다.
     href: azure-stack-vaas-monitor-test.md
-  - name: 유효성 검사 구성 파일
+  - name: 워크플로 일반 매개 변수
     href: azure-stack-vaas-parameters.md
-  - name: 테스트 통과 매개 변수
-    href: azure-stack-vaas-parameters-test.md
   - name: 서비스 유효성 검사 문제 해결
     href: azure-stack-vaas-troubleshoot.md
-- name: 참조
-  items:
-  - name: (항목 JH에서 제공 될 예정)
 - name: 관련 항목
   items:
   - name: Azure Stack 설명서
@@ -68,9 +62,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: 교육 및 인증
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 15f87b24299726c2390c736a9801306e9dcf945b
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 3b15fbab72d094a18a1c794ca556a719efd376dd
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235311"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649689"

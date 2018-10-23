@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/09/2018
+ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: cf6bc980f6fd821056a987d0c830863bd15ba779
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: b5c2c51429e37eea2473ae5966b1f41295875cb6
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902011"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638174"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure에서 Azure Stack marketplace 항목 다운로드
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
-클라우드 운영자로 서 Azure Marketplace에서 항목을 다운로드 하 고 Azure Stack에서 사용할 수 있도록 합니다. 사전 테스트 및 Azure Stack과 함께 작동 하는 지원 되는 Azure Marketplace 항목의 엄선된 된 목록에서 항목이 선택할 수 있습니다. 따라서 새로운 내용을 확인 하려면 계속, 추가 항목은 자주이 목록에 추가 됩니다. 
+클라우드 운영자로 서 Azure Marketplace에서 항목을 다운로드할 수 있으며 Azure Stack에서 사용할 수 있도록 키를 누릅니다. 사전 테스트 및 Azure Stack과 함께 작동 하는 지원 되는 Azure Marketplace 항목의 엄선된 된 목록에서 항목이 선택할 수 있습니다. 따라서 새로운 내용을 확인 하려면 계속, 추가 항목은 자주이 목록에 추가 됩니다. 
 
 Azure Marketplace에 연결 하기 위한 두 가지 시나리오가 있습니다. 
 
@@ -49,20 +49,20 @@ Azure Stack 배포 인터넷 연결을가지고 있어야 [Azure에 등록 된](
 
     사용 가능한 공간을 검토 **하위 지역 관리** 탐색 하 고 이동 하려는 지역을 선택 **리소스 공급자** > **저장소**합니다.
 
-    ![저장소 공간을 검토](media/azure-stack-download-azure-marketplace-item/storage.png)  
+    [ ![저장소 공간을 검토](media/azure-stack-download-azure-marketplace-item/storagesm.png "저장소 공간을 검토") ](media/azure-stack-download-azure-marketplace-item/storage.png#lightbox)
 
     
 3. Azure Stack Marketplace를 열고 Azure에 연결 합니다. 이 위해 선택 **Marketplace management**를 선택한 후 **Azure에서 추가**합니다.
 
-    ![Azure에서 추가](media/azure-stack-download-azure-marketplace-item/marketplace.png)
+    [ ![Azure에서 추가](media/azure-stack-download-azure-marketplace-item/marketplacesm.png "Azure에서 추가") ](media/azure-stack-download-azure-marketplace-item/marketplace.png#lightbox)
 
     포털에는 Azure Marketplace에서 다운로드할 수 있는 항목 목록을 표시합니다. 다운로드 크기를 포함 하 여,에 대 한 추가 정보 및 해당 설명을 보려면 각 항목을 클릭할 수 있습니다. 
 
-    ![Marketplace 목록](media/azure-stack-download-azure-marketplace-item/image03.png)
+    [ ![Marketplace 목록](media/azure-stack-download-azure-marketplace-item/image03sm.png "Marketplace 목록") ](media/azure-stack-download-azure-marketplace-item/image03.png#lightbox)
 
 4. 항목을 선택한 다음 선택 **다운로드**합니다. 다운로드 시간 달라 집니다.
 
-    ![다운로드 메시지](media/azure-stack-download-azure-marketplace-item/image04.png)
+    [ ![메시지를 다운로드](media/azure-stack-download-azure-marketplace-item/image04.png "다운로드 메시지") ](media/azure-stack-download-azure-marketplace-item/image04.png#lightbox)
 
     다운로드가 완료 되 면 Azure Stack 연산자 또는 사용자로 새 마켓플레이스 항목을 배포할 수 있습니다.
 
@@ -128,24 +128,24 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
 
    Sync-AzSOfflineMarketplaceItem 
       -Destination "Destination folder path in quotes" `
-      -AzureTenantID $AzureContext.Tenant.TenantId `
+      -AzureTenantID $AzureContext.Tenant.TenantId ` 
       -AzureSubscriptionId $AzureContext.Subscription.Id 
    ```
 
-6. 도구를 실행 하는 경우 Azure 계정 자격 증명을 입력 하 라는 메시지가 표시 됩니다. Azure Stack 등록을 사용 하면 Azure 계정에 로그인 합니다. 로그인에 성공 하면 다음 이미지에서는 사용할 수 있는 marketplace 항목의 목록과 같은 화면이 표시 됩니다.  
+6. 도구를 실행 하는 경우 다음 이미지에서는 사용할 수 있는 marketplace 항목 목록 사용 하 여 비슷한 화면이 표시 됩니다.
 
-   ![Azure Marketplace 항목 팝업](media/azure-stack-download-azure-marketplace-item/image05.png)
+   [ ![Azure Marketplace 항목 팝업](media/azure-stack-download-azure-marketplace-item/image05.png "Azure Marketplace 항목") ](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
 
-7. 다운로드 하 고 기록 하려는 항목을 선택 합니다 *버전*합니다. (보유할 수는 *Ctrl* 키를 여러 이미지를 선택 합니다.) 참조 하 게 됩니다 합니다 *버전* 다음 절차에서 항목을 가져올 때입니다. 
+7. 다운로드 하 고 기록 하려는 항목을 선택 합니다 *버전*합니다. 보유할 수는 *Ctrl* 키를 여러 이미지를 선택 합니다. 참조 된 *버전* 다음 절차에서 항목을 가져올 때입니다. 
    
    사용 하 여 이미지 목록을 필터링 할 수도 있습니다는 **조건 추가** 옵션입니다.
 
 8. 선택 **확인**, 한 다음 확인 하 고 약관에 동의 합니다. 
 
-9. 다운로드 하는 경우 항목의 크기에 따라 달라 집니다. 다운로드가 완료 되 면 항목을 스크립트에 지정 된 폴더에서 제공 됩니다. (가상 머신) 용 VHD 파일을 포함 하는 다운로드 또는 합니다. ZIP 파일 (가상 머신 확장)입니다. 또한 갤러리 패키지를 *.azpkg* 형식. (A *.azpkg* 패키지를 *.zip* 파일입니다.)
- 
+9. 다운로드 하는 경우 항목의 크기에 따라 달라 집니다. 다운로드가 완료 되 면 항목을 스크립트에 지정 된 폴더에서 제공 됩니다. 다운로드는 VHD 파일 (가상 머신) 또는 (가상 머신 확장)에 대 한.zip 파일을 포함합니다. 갤러리 패키지를 포함할 수도 있습니다는 *.azpkg* 단순한.zip 파일 형식입니다.
 
 ### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>다운로드를 가져오고 Azure Stack Marketplace에 게시
+
 1. 가상 머신 이미지에 있는 솔루션 템플릿 파일 [이전에 다운로드 한](#use-the-marketplace-syndication-tool-to-download-marketplace-items) Azure Stack 환경에 로컬로 사용할 수 있어야 합니다.  
 
 2. Marketplace 항목 패키지 (.azpkg 파일) 및 가상 하드 디스크 이미지 (.vhd 파일) Azure Stack Blob storage에 업로드 하는 관리 포털을 사용 합니다. 패키지의 업로드 하 고 디스크 파일 사용할 수 있게 Azure Stack에 Azure Stack Marketplace에 항목을 게시할 수 있도록 합니다.
@@ -154,16 +154,15 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
    1. Azure Stack 관리 포털에서로 이동 **모든 서비스** 한 다음는 **데이터 + 저장소** 범주를 선택한 **저장소 계정**합니다.  
    
    2. 선택한 저장소 계정 구독에서 다음 아래 **BLOB SERVICE**를 선택 **컨테이너**합니다.  
-      ![Blob 서비스](media/azure-stack-download-azure-marketplace-item/blob-service.png)  
+      [ ![Blob 서비스](media/azure-stack-download-azure-marketplace-item/blob-service.png "Blob service") ](media/azure-stack-download-azure-marketplace-item/blob-service.png#lightbox)  
    
    3. 사용 하 여 선택한 컨테이너를 선택 **업로드** 열려는 합니다 **blob 업로드** 창입니다.  
-      ![컨테이너](media/azure-stack-download-azure-marketplace-item/container.png)  
+      [ ![컨테이너](media/azure-stack-download-azure-marketplace-item/container.png "컨테이너") ](media/azure-stack-download-azure-marketplace-item/container.png#lightbox)  
    
-   4. 패키지 및 디스크 파일을 저장소로 로드 하 고 선택한 업로드 blob 창에서 이동할 **업로드**합니다.  
-      ![upload](media/azure-stack-download-azure-marketplace-item/upload.png)  
+   4. 패키지 및 디스크 파일을 저장소로 로드 하 고 선택한 업로드 blob 창에서 이동할 **업로드할**: [ ![업로드](media/azure-stack-download-azure-marketplace-item/uploadsm.png "업로드") ](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
 
    5. 업로드 된 파일 컨테이너 창에 나타납니다. 파일을 선택 하 고 다음에서 URL을 복사 합니다 **Blob 속성** 창입니다. Azure Stack에 마켓플레이스 항목을 가져올 때 다음 단계에서이 URL을 사용 합니다.  다음 이미지는 컨테이너는 *blob-테스트-저장소* 있고 파일이 *Microsoft.WindowsServer2016DatacenterServerCore ARM.1.0.801.azpkg*합니다.  파일 URL *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*합니다.  
-      ![Blob 속성](media/azure-stack-download-azure-marketplace-item/blob-storage.png)  
+      [ ![Blob 속성](media/azure-stack-download-azure-marketplace-item/blob-storagesm.png "Blob 속성") ](media/azure-stack-download-azure-marketplace-item/blob-storage.png#lightbox)  
 
 3. VHD 이미지를 사용 하 여 Azure Stack 가져올는 **추가 AzsPlatformimage** cmdlet. 이 cmdlet을 사용 하는 경우 대체는 *게시자*, *제공*, 및가 가져오는 이미지의 값을 사용 하 여 다른 매개 변수 값입니다. 
 
@@ -199,16 +198,14 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
      –Verbose
     ```
 5. 갤러리 항목을 게시 한 후 사용 하 여 출시 되었습니다. 갤러리 항목이 게시 된를 확인 하려면로 이동 **모든 서비스**를 선택한 다음는 **일반** 범주를 선택한 **Marketplace**합니다.  다운로드를 솔루션 템플릿, 하는 경우 해당 솔루션 템플릿에 대 한 모든 종속 VHD 이미지를 추가 해야 합니다.  
-  ![보기 marketplace](media/azure-stack-download-azure-marketplace-item/view-marketplace.png)  
+  [ ![보기 마켓플레이스](media/azure-stack-download-azure-marketplace-item/view-marketplacesm.png "보기 marketplace") ](media/azure-stack-download-azure-marketplace-item/view-marketplace.png#lightbox)  
 
-> [!NOTE]
-> Azure Stack PowerShell 1.3.0의 릴리스를 사용 하 여 이제 가상 머신 확장을 추가할 수 있습니다.
-
-예: 
+Azure Stack PowerShell 1.3.0의 릴리스를 사용 하 여 이제 가상 머신 확장을 추가할 수 있습니다. 예: 
 
 ````PowerShell
 Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0" -ComputeRole "IaaS" -SourceBlob "https://github.com/Microsoft/PowerShell-DSC-for-Linux/archive/v1.1.1-294.zip" -SupportMultipleExtensions -VmOsType "Linux"
 ````
 
 ## <a name="next-steps"></a>다음 단계
+
 [Marketplace 항목 만들기 및 게시](azure-stack-create-and-publish-marketplace-item.md)

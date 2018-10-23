@@ -4,11 +4,11 @@ ms.service: azure-stack
 ms.topic: include
 ms.date: 10/19/2018
 ms.author: mabrigg
-ms.openlocfilehash: c682747877bcc66dd2ee3249e2755b5db1fd02fc
+ms.openlocfilehash: a2258ed6cf7951b082b6fbb88f20ea6547ebf952
 ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651767"
+ms.locfileid: "49650351"
 ---
-*적용 대상: Azure Stack 통합 시스템입니다.*
+선택 **SAS 생성 및 연결 문자열** 하 고 복사 합니다 **Blob service SAS URL** 문자열입니다.

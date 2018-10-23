@@ -4,6 +4,7 @@ items:
 - name: 개요
   items:
   - name: Azure Machine Learning 서비스란?
+    displayName: AML, services
     href: overview-what-is-azure-ml.md
   - name: Workbench에 대한 새로운 소식
     href: overview-what-happened-to-workbench.md
@@ -25,10 +26,12 @@ items:
 - name: 샘플
   items:
   - name: Jupyter notebook (GitHub)
+    displayName: example, examples
     href: http://aka.ms/aml-notebooks
 - name: 개념
   items:
   - name: 서비스의 작동 방식
+    displayName: architecture
     href: concept-azure-machine-learning-architecture.md
   - name: 모델 관리
     href: concept-model-management-and-deployment.md
@@ -43,6 +46,7 @@ items:
   - name: '개발 환경 설정 '
     items:
     - name: 환경 선택
+      displayName: local, remote
       href: how-to-choose-a-dev-environment.md
     - name: 환경 구성
       href: how-to-configure-environment.md
@@ -53,6 +57,7 @@ items:
       - name: 학습 및 배포
         href: how-to-vscode-train-deploy.md
   - name: 데이터 준비
+    displayName: data prep, etl, elt
     href: how-to-data-prep.md
     items:
     - name: 데이터 로드
@@ -142,6 +147,7 @@ items:
   - name: 사용되지 않는 문서
     items:
     - name: 마이그레이션하는 방법
+      displayName: Workbench, upgrade, update, transfer
       href: how-to-migrate.md
     - name: 계정 데이터 내보내기 또는 삭제(사용되지 않음)
       href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
@@ -238,7 +244,7 @@ items:
         href: ../desktop-workbench/how-to-use-model-data-collection.md
       - name: 배포 문제 해결 가이드
         href: ../desktop-workbench/how-to-deploy-troubleshooting-guide.md
-    - name: 실제 활용 방법
+    - name: 이전 예제
       items:
       - name: 문서 컬렉션 분석
         href: ../desktop-workbench/scenario-document-collection-analysis.md
@@ -266,7 +272,7 @@ items:
         href: ../desktop-workbench/scenario-image-classification-using-cntk.md
       - name: 예측 유지 관리에 대한 딥 러닝
         href: ../desktop-workbench/scenario-deep-learning-for-predictive-maintenance.md
-    - name: 참고 자료
+    - name: 이전 참조
       items:
       - name: 데이터 준비용 Python 확장
         href: ../desktop-workbench/data-prep-python-extensibility-overview.md
@@ -304,7 +310,7 @@ items:
         href: ../desktop-workbench/model-management-cli-reference.md
       - name: 모델 데이터 수집 API
         href: ../desktop-workbench/model-data-collection-api-reference.md
-    - name: 주요 개념
+    - name: 이전 개념
       href: ../desktop-workbench/overview-general-concepts.md
     - name: 도메인 패키지
       href: ../desktop-workbench/reference-python-package-overview.md
@@ -341,9 +347,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: 이전 문제
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 2e5e1d3c925a6b946e340820fc7d259251c0e9b7
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 56a72b437397c65777c5fd0955c5257d60f3a6a4
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457063"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649247"
