@@ -38,8 +38,8 @@
 ### [서버 관리](analysis-services-manage.md)
 ### [서버 메트릭 모니터링](analysis-services-monitor.md)
 ### [진단 로깅 설정](analysis-services-logging.md)
-### [서비스 주체 만들기 - Azure Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-### [서비스 주체 만들기 - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [서비스 주체 만들기 - Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md)
+### [서비스 주체 만들기 - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 ### [서버 관리자 역할에 서비스 주체 추가](analysis-services-addservprinc-admins.md)
 
 ## 모델
@@ -77,7 +77,7 @@
 # 참고 자료
 
 ## [PowerShell](analysis-services-powershell.md)
-## [REST](/rest/api/analysisservices)
+## [REST (영문)](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [파워 쿼리 M](https://msdn.microsoft.com/library/mt211003.aspx)
 ## [테이블 형식 모델 스크립팅 언어(TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
