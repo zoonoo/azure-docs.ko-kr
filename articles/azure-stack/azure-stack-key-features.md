@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: ''
-ms.openlocfilehash: 16c908dabd313cd9d64ce5be9b7d0299423a7675
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 38120b2be2ab7789946a4ad2fe688954e6212189
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344688"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959029"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Azure Stack의 주요 기능 및 개념
 Microsoft Azure Stack을 처음 접하는 경우 이러한 용어와 기능 설명은 도움이 될 수 있습니다.
@@ -154,14 +154,6 @@ Azure RBAC에 모든 리소스 유형에 적용 되는 세 가지 기본 역할:
 
 ## <a name="usage-data"></a>사용 데이터
 Microsoft Azure Stack 모든 리소스 공급자에서 사용 현황 데이터를 집계 및 전송 azure 처리를 위해 Azure에서 수집 합니다. REST API를 통해 Azure Stack에서 수집한 사용량 데이터를 볼 수 있습니다. Azure에 일관된 테넌트 API 뿐만 아니라 테넌트 구독 전체에서 사용 현황을 가져오는 공급자 및 위임된 공급자 API가 있습니다. 이 데이터는 대금 청구 또는 차지백을 위한 외부 도구 또는 서비스와 통합하는 데 사용될 수 있습니다. Azure에서 사용량을 처리 한 후에 Azure 청구 포털에서 볼 수 있습니다.
-
-## <a name="in-development-build-of-azure-stack-development-kit"></a>Azure Stack 개발 키트의 개발의 빌드
-개발의 빌드 사용-얼 리 어 Azure Stack 개발 키트의 최신 버전을 평가할 수 있습니다. 최신 버전에 따라 증분 빌드 됩니다. 주 버전은 몇 개월 마다 릴리스될 계속, 개발의 빌드 주요 릴리스 간의 일시적으로 해제 합니다.
-
-개발의 빌드에는 다음과 같은 이점을 제공 합니다.
-- 버그 수정
-- 새로운 기능
-- 기타 향상 된 기능
 
 ## <a name="next-steps"></a>다음 단계
 [관리 기본 사항](azure-stack-manage-basics.md)

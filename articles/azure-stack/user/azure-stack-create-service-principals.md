@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 08/22/2018
 ms.author: sethm
 ms.reviewer: thoroet
-ms.openlocfilehash: 891032e9f0a40b2a9df19ed25ffc19dd81507cab
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: a32327109bc71a41f871682936c5f27ed490975c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45628956"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958317"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>응용 프로그램 리소스 액세스 권한을 부여 Azure Stack에서 서비스 주체 만들기
 
@@ -57,13 +57,13 @@ Azure Stack에 대 한 Active Directory를 구성 하는 방법은 서비스 주
 Azure Stack에 Azure AD를 사용 하 여 id 저장소로, 하는 경우 서비스를 Azure portal을 사용 하 여 Azure에서와 같이 동일한 단계를 사용 하 여 주 만들 수 있습니다.
 
 >[!NOTE]
-있는지 확인 합니다 [필요한 Azure AD 권한](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) 서비스 주체 만들기를 시작 하기 전에 합니다.
+있는지 확인 합니다 [필요한 Azure AD 권한](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) 서비스 주체 만들기를 시작 하기 전에 합니다.
 
 ### <a name="create-service-principal"></a>서비스 주체 만들기
 
 응용 프로그램에 대 한 서비스 주체를 만들려면:
 
-1. 통해 Azure 계정에 로그인 합니다 [Azure portal](https://portal.azure.com)합니다.
+1. [Azure Portal](https://portal.azure.com)을 통해 Azure 계정에 로그인합니다.
 2. 선택 **Azure Active Directory** > **앱 등록** > **추가**합니다.
 3. 응용 프로그램에 대한 이름 및 URL을 제공합니다. 만들려는 응용 프로그램 유형으로 **웹앱/API** 또는 **네이티브**를 선택합니다. 값을 설정한 후 **만들기**를 선택합니다.
 

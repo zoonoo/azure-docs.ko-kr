@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 05/08/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 5e96c731496d79ca081091e2059a35545f963bd6
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 0ebf69dd3436a6b1010d4184b2063317d14547dd
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078639"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957636"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>Azure Stack PKI 인증서에 대 한 일반적인 문제 해결
 이 문서의 정보를 이해 하 고 Azure Stack PKI 인증서에 대 한 일반적인 문제를 해결 하면 도움이 됩니다. Azure Stack 준비 상태 검사기 도구를 사용 하는 경우 문제를 검색할 수 있습니다 [Azure Stack PKI 인증서의 유효성을 검사](azure-stack-validate-pki-certs.md)합니다. 인증서는 Azure Stack 배포 및 Azure Stack 암호 회전 PKI 요구 사항을 충족 하 고 결과 로그인 확인을 [report.json 파일](azure-stack-validation-report.md)합니다.  
@@ -69,12 +69,13 @@ ms.locfileid: "49078639"
 **재구성** -다시의 단계를 사용 하 여 인증서를 내보냅니다 [배포에 대 한 준비 Azure Stack PKI 인증서](azure-stack-prepare-pki-certs.md), 옵션을 선택 하 고 **가능 하면 인증 경로 있는 모든 인증서를 포함 합니다.** 내보내기에 대 한 리프 인증서만 선택 되어 있는지 확인 합니다.
 
 ## <a name="fix-common-packaging-issues"></a>일반적인 패키지 문제 해결
-AzsReadinessChecker 가져오고를 비롯 한 일반적인 패키징 문제를 해결 하려면 PFX 파일을 내보낼 수 있습니다. 
+AzsReadinessChecker 도우미 commandlet을 가져오기 하 고 다음을 비롯 한 일반적인 패키징 문제를 해결 하려면 PFX 파일을 내보낼 수 있는 복구 AzsPfxCertificate 포함 됩니다. 
  - *PFX 암호화* TripleDES-SHA1 아닙니다
  - *개인 키* 로컬 컴퓨터 특성이 없습니다.
  - *인증서 체인* 불완전 하거나 잘못 되었습니다. (로컬 컴퓨터 인증서 체인 경우 해서는 PFX 패키지 되지 않습니다 됩니다.) 
  - *다른 인증서*합니다.
-그러나 새 CSR을 생성 하 고 인증서를 다시 실행 해야 할 경우에 AzsReadinessChecker 수 없습니다. 
+ 
+새 CSR을 생성 하 고 인증서를 다시 실행 하는 경우 복구 AzsPfxCertificate 수 없습니다. 
 
 ### <a name="prerequisites"></a>필수 조건
 도구가 실행 되는 컴퓨터의 위치에 다음 필수 구성 요소 여야 합니다. 
@@ -96,9 +97,20 @@ AzsReadinessChecker 가져오고를 비롯 한 일반적인 패키징 문제를 
    - 에 대 한 *-PfxPath*를 사용 하는 PFX 파일의 경로를 지정 합니다.  다음 예제에서 경로 *.\certificates\ssl.pfx*합니다.
    - 에 대 한 *-ExportPFXPath*, 내보내기에 대 한 PFX 파일의 이름과 위치를 지정 합니다.  다음 예제에서 경로 *.\certificates\ssl_new.pfx*
 
-   > `Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx`  
+   > `Repair-AzsPfxCertificate -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx`  
 
-4. 도구에는 다음이 완료 되 면 성공에 대 한 출력을 검토할: ![결과](./media/azure-stack-remediate-certs/remediate-results.png)
+4. 도구에는 다음이 완료 되 면 성공에 대 한 출력을 검토 합니다. 
+````PowerShell
+Repair-AzsPfxCertificate v1.1809.1005.1 started.
+Starting Azure Stack Certificate Import/Export
+Importing PFX .\certificates\ssl.pfx into Local Machine Store
+Exporting certificate to .\certificates\ssl_new.pfx
+Export complete. Removing certificate from the local machine store.
+Removal complete.
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Repair-AzsPfxCertificate Completed
+````
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Stack 보안에 자세히 알아보기](azure-stack-rotate-secrets.md)

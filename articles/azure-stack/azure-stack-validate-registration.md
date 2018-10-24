@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/08/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: d6835f05666d66cc4f6aa937c4b85047ce3c2e93
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 51753a5324bbbcbf4e951628a42dd3bf425354af
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077072"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957585"
 ---
 # <a name="validate-azure-registration"></a>Azure 등록 유효성 검사 
 Azure 구독의 Azure Stack과 함께 사용할 준비가 되었는지 유효성을 검사 하려면 (AzsReadinessChecker) Azure Stack 준비 검사기 도구를 사용 합니다. Azure Stack 배포를 시작 하기 전에 등록을 확인 합니다. 준비 상태 검사기의 유효성을 검사 합니다.
@@ -62,10 +62,17 @@ Azure Stack 준비 상태 검사기 도구 (AzsReadinessChecker)의 최신 버�
    - AzureEnvironment으로 값을 지정 *AzureCloud*를 *AzureGermanCloud*, 또는 *AzureChinaCloud*합니다.  
    - Azure Active Directory 관리자와 Azure Active Directory 테 넌 트 이름을 제공 합니다. 
 
-   > `Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID`
+   > `Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID`
 
-5. 도구를 실행 한 후 출력을 검토 합니다. 상태는 로그온과 등록 요구 사항이 모두에 대 한 확인을 확인 합니다. 다음 이미지와 같이 유효성 검사를 성공적으로 표시 됩니다.  
-![유효성 검사 실행](./media/azure-stack-validate-registration/registration-validation.png)
+5. 도구를 실행 한 후 출력을 검토 합니다. 상태는 로그온과 등록 요구 사항이 모두에 대 한 확인을 확인 합니다. 성공적인 유효성 검사를 다음과 같이 표시 됩니다.  
+````PowerShell
+Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
+Checking Registration Requirements: OK
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsRegistrationValidation Completed
+````
 
 
 ## <a name="report-and-log-file"></a>보고서 및 로그 파일
@@ -83,14 +90,37 @@ Azure Stack 준비 상태 검사기 도구 (AzsReadinessChecker)의 최신 버�
 다음 예제에서는 일반적인 유효성 검사 오류에 지침을 제공 합니다.
 
 ### <a name="user-must-be-an-owner-of-the-subscription"></a>사용자 구독 소유자 여야 합니다.   
-![구독 소유자](./media/azure-stack-validate-registration/subscription-owner.png)
+````PowerShell
+Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
+Checking Registration Requirements: Fail 
+Error Details for registration account admin@contoso.onmicrosoft.com:
+The user admin@contoso.onmicrosoft.com is role(s) Reader for subscription 3f961d1c-d1fb-40c3-99ba-44524b56df2d. User must be an owner of the subscription to be used for registration.
+Additional help URL https://aka.ms/AzsRemediateRegistration
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsRegistrationValidation Completed
+````
 **원인** -계정이 Azure 구독 관리자가 아닙니다.   
 
 **해상도** -Azure Stack 배포의 사용량에 대 한 청구는 Azure 구독의 관리자 인 계정을 사용 합니다.
 
 
 ### <a name="expired-or-temporary-password"></a>만료 된 또는 임시 암호 
-![암호 만료](./media/azure-stack-validate-registration/expired-password.png)
+````PowerShell
+Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
+Checking Registration Requirements: Fail 
+Error Details for registration account admin@contoso.onmicrosoft.com:
+Checking Registration failed with: Retrieving TenantId for subscription 3f961d1c-d1fb-40c3-99ba-44524b56df2d using account admin@contoso.onmicrosoft.com failed with AADSTS50055: Force Change P
+assword.
+Trace ID: 48fe06f5-a5b4-4961-ad45-a86964689900
+Correlation ID: 3dd1c9b2-72fb-46a0-819d-058f7562cb1f
+Timestamp: 2018-10-22 11:16:56Z: The remote server returned an error: (401) Unauthorized.
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsRegistrationValidation Completed
+````
 **원인** -계정 로그온 없습니다 암호는 만료 되었거나 일시적입니다.     
 
 **해상도** -PowerShell에서를 실행 및 지시에 따라 암호를 다시 설정 합니다. 
@@ -99,15 +129,18 @@ Azure Stack 준비 상태 검사기 도구 (AzsReadinessChecker)의 최신 버�
 에 로그인 또는 https://portal.azure.com 계정 및 사용자 암호를 변경 하려면 적용할 수 됩니다.
 
 
-### <a name="microsoft-accounts-are-not-supported-for-registration"></a>등록에 대 한 Microsoft 계정은 지원 되지 않습니다.  
-![지원 되지 않는 계정](./media/azure-stack-validate-registration/unsupported-account.png)
-**원인** -Microsoft 계정 (예: Outlook.com 또는 Hotmail.com) 지정 되었습니다.  이러한 계정은 지원 되지 않습니다.
-
-**해상도** -계정 및 클라우드 서비스 공급자 (CSP) 또는 EA (기업 계약)에서 구독을 사용 합니다. 
-
-
 ### <a name="unknown-user-type"></a>알 수 없는 사용자 유형  
-![알 수 없는 사용자](./media/azure-stack-validate-registration/unknown-user.png)
+````PowerShell
+Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
+Checking Registration Requirements: Fail 
+Error Details for registration account admin@contoso.onmicrosoft.com:
+Checking Registration failed with: Retrieving TenantId for subscription 3f961d1c-d1fb-40c3-99ba-44524b56df2d using account admin@contoso.onmicrosoft.com failed with unknown_user_type: Unknown Us
+er Type
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsRegistrationValidation Completed
+````
 **원인** -계정이 지정 된 Azure Active Directory 환경에 로그온 할 수 없습니다. 이 예에서 *AzureChinaCloud* 로 지정 합니다 *AzureEnvironment*합니다.  
 
 **해상도** -지정 된 Azure 환경에 대 한 유효한 계정 인지 확인 합니다. PowerShell에서 특정 환경에 대 한 계정이 올바른지 확인 하려면 다음을 실행 합니다.     

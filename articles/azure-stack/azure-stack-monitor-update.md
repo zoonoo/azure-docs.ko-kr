@@ -5,27 +5,26 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 10/22/2019
 ms.author: mabrigg
-ms.openlocfilehash: 8f384a79811c9a9b104acb98c8f6b6e162946ab8
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.reviewer: fiseraci
+ms.openlocfilehash: 76f3db3631e1d66413bdce8d3f2379c2735a2eaf
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42139361"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945606"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>권한 있는 끝점을 사용 하 여 Azure Stack의 업데이트를 모니터링 합니다.
 
 *적용 대상: Azure Stack 통합 시스템*
 
-Azure Stack 업데이트 실행을의 진행률을 모니터링 하려면 권한 있는 끝점을 사용할 수 및 마지막으로 성공한 단계에서 실행 실패 한 업데이트를 다시 시작 해야 Azure Stack 포털을 사용할 수 없게 합니다.  Azure Stack 포털을 사용 하는 Azure Stack에서 업데이트를 관리 하는 것이 좋습니다.
+사용할 수는 [privileged 끝점](azure-stack-privileged-endpoint.md) Azure Stack의 진행률을 모니터링 하려면 업데이트를 실행 하 고 마지막으로 성공한 단계에서 실행 실패 한 업데이트를 다시 시작 해야 Azure Stack 포털을 사용할 수 없게 합니다.  Azure Stack 포털을 사용 하는 Azure Stack에서 업데이트를 관리 하는 것이 좋습니다.
 
 업데이트 관리에 대 한 다음 새 PowerShell cmdlet은 Azure Stack 통합 시스템이 1710 업데이트에 포함 됩니다.
 
@@ -168,7 +167,7 @@ Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate }
 
 ## <a name="troubleshoot"></a>문제 해결
 
-권한 있는 끝점은 Azure Stack 환경에서 모든 ERCS 가상 머신에서 사용할 수 있습니다. 항상 사용 가능한 끝점에는 연결 되지, 때문에 가끔 중단, 경고 또는 오류 메시지가 발생할 수 있습니다. 이러한 메시지는 세션 연결이 끊어진 또는 ECE 서비스와 통신 오류가 발생 했음을 나타낼 수 있습니다. 이 동작은 예상 됩니다. 잠시 후에 작업을 다시 시도 하거나 다른 ERCS 가상 컴퓨터 중 하나에서 새 끝점 권한 있는 세션을 만들 수 있습니다. 
+권한 있는 끝점은 Azure Stack 환경에서 모든 ERCS 가상 머신에서 사용할 수 있습니다. 항상 사용 가능한 끝점에는 연결 되지, 때문에 가끔 중단, 경고 또는 오류 메시지가 발생할 수 있습니다. 이러한 메시지는 세션 연결이 끊어진 또는 ECE 서비스와 통신 오류가 발생 했음을 나타낼 수 있습니다. 이는 정상적인 동작입니다. 잠시 후에 작업을 다시 시도 하거나 다른 ERCS 가상 컴퓨터 중 하나에서 새 끝점 권한 있는 세션을 만들 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

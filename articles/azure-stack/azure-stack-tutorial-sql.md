@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 17f06a08388720c4483ef1c187edf20ec8359121
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 50f5662fa574b512ab607e17dbdfcf1861e2f5c6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386386"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954915"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>자습서: 항상 사용 가능한 SQL 데이터베이스 제공
 
@@ -63,30 +63,28 @@ Azure Stack marketplace에 항목을 추가 하는 방법에 대 한 자세한 �
 - 클러스터에 대 한 파일 공유 감시로 구성 된 하나의 VM (Windows Server 2016)
 - Vm의 SQL 및 파일 공유 감시를 포함 하는 하나의 가용성 집합  
 
-1. 관리 포털에 로그인 합니다.
-    - 통합된 시스템 배포의 경우 솔루션의 지역 및 외부 도메인 이름에 포털 주소 따라 달라 집니다. 형식의 됩니다 https://adminportal.&lt; *지역*&gt;.&lt; *FQDN*&gt;합니다.
-    - Azure Stack 개발 키트 (ASDK)를 사용 하는 경우 사용자 포털 주소가 [ https://adminportal.local.azurestack.external ](https://portal.local.azurestack.external)합니다.
+1. 
+[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. 선택 **\+** **리소스 만들기** > **Custom**를 차례로 **템플릿 배포**.
 
-   ![사용자 지정 템플릿 배포](media/azure-stack-tutorial-sqlrp/custom-deployment.png)
+   ![사용자 지정 템플릿 배포](media/azure-stack-tutorial-sqlrp/1.png)
 
 
 3. 에 **사용자 지정 배포** 블레이드에서 **템플릿 편집** > **빠른 시작 템플릿** 다음에 사용 가능한 사용자 지정 템플릿 드롭다운 목록을 사용 하 여 선택 합니다 **alwayson-sql-2016** 템플릿을 클릭 **확인**를 차례로 **저장**합니다.
 
-   ![빠른 시작 템플릿 선택](./media/azure-stack-tutorial-sqlrp/quickstart-template.png)
-
+   [![](media/azure-stack-tutorial-sqlrp/2-sm.PNG "빠른 시작 템플릿 선택")](media/azure-stack-tutorial-sqlrp/2-lg.PNG#lightbox)
 
 4. 에 **사용자 지정 배포** 블레이드에서 **매개 변수 편집** 기본값을 검토 하 고 있습니다. 모든 필수 매개 변수 정보를 제공 하 고 클릭 한 다음 필요에 따라 값을 수정 **확인**합니다.<br><br> 최소:
 
     - ADMINPASSWORD, SQLSERVERSERVICEACCOUNTPASSWORD, 및 SQLAUTHPASSWORD 매개 변수에 대 한 복잡 한 암호를 제공 합니다.
     - DNSSUFFIX 매개 변수의 모든 소문자 역방향 조회에 대 한 DNS 접미사를 입력 합니다. (**azurestack.external** ASDK 설치의 경우).
     
-    ![사용자 지정 배포 매개 변수](./media/azure-stack-tutorial-sqlrp/edit-parameters.png)
+   [![](media/azure-stack-tutorial-sqlrp/3-sm.PNG "사용자 지정 배포 매개 변수 편집")](media/azure-stack-tutorial-sqlrp/3-lg.PNG#lightbox)
 
 5. 에 **사용자 지정 배포** 블레이드에서 새 리소스 그룹을 만들고 사용 하 여 구독을 선택 하거나 사용자 지정 배포에 대 한 기존 리소스 그룹을 선택 합니다.<br><br> 다음으로, 리소스 그룹 위치를 선택 (**로컬** ASDK 설치의 경우)을 클릭 한 다음 **만들기**합니다. 사용자 지정 배포 설정을 확인 하면 하 고 배포를 시작 하는 합니다.
 
-    ![사용자 지정 배포 매개 변수](./media/azure-stack-tutorial-sqlrp/create-deployment.png)
+    [![](media/azure-stack-tutorial-sqlrp/4-sm.PNG "사용자 지정 배포 만들기")](media/azure-stack-tutorial-sqlrp/4-lg.PNG#lightbox)
 
 
 6. 관리 포털에서 선택 **리소스 그룹** 한 다음 리소스 그룹의 이름에 대해 만든 사용자 지정 배포 및 (**리소스 그룹** 이 예제에 대 한). 모든 배포가 성공적으로 완료 되도록 배포의 상태를 봅니다.<br><br>그런 다음, 리소스 그룹 항목을 검토 하 고 선택 합니다 **SQLPIPsql\<리소스 그룹 이름\>**  공용 IP 주소 항목입니다. 공용 IP 주소 및 부하 분산 장치 공용 IP의 전체 FQDN을 기록 합니다. 이 SQL AlwaysOn 가용성 그룹을 활용 하 여 SQL 호스팅 서버를 만들 수 있도록 Azure Stack 운영자에 게 제공 해야 합니다.
@@ -94,16 +92,16 @@ Azure Stack marketplace에 항목을 추가 하는 방법에 대 한 자세한 �
    > [!NOTE]
    > 템플릿 배포를 완료 하는 데 몇 시간이 걸립니다.
 
-   ![사용자 지정 배포 매개 변수](./media/azure-stack-tutorial-sqlrp/deployment-complete.png)
+   ![사용자 지정 배포 완료](./media/azure-stack-tutorial-sqlrp/5.png)
 
 ### <a name="enable-automatic-seeding"></a>자동 시드를 사용 하도록 설정
 템플릿이 성공적으로 배포 하 고 후에 SQL AlwaysON 가용성 그룹 구성, 설정 해야 합니다 [자동 시드](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) SQL Server 가용성 그룹의 각 인스턴스에 있습니다. 
 
 자동 시드로 가용성 그룹을 만들 때 SQL Server 자동으로 만듭니다 모든 데이터베이스에 대 한 보조 복제본의 그룹 다른 수동 개입 없이 AlwaysOn 데이터베이스의 고가용성을 보장 하는 데 필요한.
 
-이러한 SQL 명령을 사용 하 여 AlwaysOn 가용성 그룹에 대 한 자동 시드를 구성 합니다.
+이러한 SQL 명령을 사용 하 여 AlwaysOn 가용성 그룹에 대 한 자동 시드를 구성 합니다. 바꿉니다 \<InstanceName\> 주를 사용 하 여 필요에 따라 AlwaysOn 가용성 그룹 이름으로 SQL Server 이름 및 < availability_group_name > 인스턴스. 
 
-기본 SQL 인스턴스 (대체 <InstanceName> 주 인스턴스에서 SQL Server 이름):
+기본 SQL 인스턴스:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
@@ -114,7 +112,7 @@ Azure Stack marketplace에 항목을 추가 하는 방법에 대 한 자세한 �
 
 >  ![기본 SQL 인스턴스 스크립트](./media/azure-stack-tutorial-sqlrp/sql1.png)
 
-보조 SQL 인스턴스 (AlwaysOn 가용성 그룹 이름으로 대체 < availability_group_name >):
+보조 SQL 인스턴스에서:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
@@ -156,9 +154,8 @@ SQL AlwaysOn 가용성 그룹 생성, 구성 및 Azure Stack SQL 호스팅 서�
 > [!NOTE]
 > SQL Server 기능 (Microsoft.SQLAdapter 서비스)을 제공 하는 구독을 사용 하 여 테 넌 트 사용자로 Azure Stack 사용자 포털에서 이러한 단계를 실행 합니다.
 
-1. 사용자 포털에 로그인 합니다.
-    - 통합된 시스템 배포의 경우 솔루션의 지역 및 외부 도메인 이름에 포털 주소 따라 달라 집니다. 형식의 됩니다 https://portal.&lt; *지역*&gt;.&lt; *FQDN*&gt;합니다.
-    - Azure Stack 개발 키트 (ASDK)를 사용 하는 경우 사용자 포털 주소가 [ https://portal.local.azurestack.external ](https://portal.local.azurestack.external)합니다.
+1. 
+[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. 선택 **\+** **리소스 만들기** > **데이터 \+ Storage**를 차례로 **SQL Database**합니다.<br><br>이름, 데이터 정렬, 최대 크기 및 구독, 리소스 그룹 및 위치는 배포에 사용할를 포함 하 여 필요한 데이터베이스 속성 정보를 제공 합니다. 
 

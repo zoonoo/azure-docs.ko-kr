@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 0cd8d309cfbf72a05c83c2a536d754e9cbc6e008
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: a9849b5c96b38fbfe6fa8ef4a69a1a2d4d6e6f2f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022662"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958077"
 ---
 # <a name="supported-metrics-with-azure-monitor-on-azure-stack"></a>Azure Stack에서 Azure Monitor를 사용 하 여 지원 되는 메트릭
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
-Azure에서 메트릭을 검색할 수 있습니다와 같은 전역 Azure로 Azure Stack에서 모니터링 합니다. 측정값이 있습니다 포털, REST API에서 가져올 또는 PowerShell 또는 CLI를 사용 하 여 쿼리 하 합니다.
+Azure에서 메트릭을 검색할 수 있습니다와 같은 전역 Azure로 Azure Stack에서 모니터링 합니다. 포털에서 사용자 측정값 만들기, REST API에서 가져와야 하 하거나 PowerShell 또는 CLI를 사용 하 여 쿼리할 수 있습니다.
 
 다음 표에서 Azure Stack에서 Azure Monitor의 메트릭 파이프라인을 사용 하 여 사용할 수 있는 메트릭을 보여 줍니다. 쿼리하고 이러한 메트릭에 액세스 해야 합니다 **2018-01-01** API 프로필의 api 버전입니다. 프로필 API 및 Azure Stack에 대 한 자세한 내용은 참조 하세요. [Azure Stack에서 관리 하는 API 버전 프로필](azure-stack-version-profiles.md)합니다.
 

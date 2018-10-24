@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/12/2018
-ms.author: mattbriggs
+ms.date: 10/22/2018
+ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: d402b2bcd5187cbb6ece78d7e981068c279c1f75
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 0b5f7442604dd31f730b0105d19231407e2b6f1a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804432"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946116"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Azure Stack에서 Service Fabric 클러스터 배포
 
@@ -48,7 +48,7 @@ Service Fabric을 사용 하 여 작업에 대 한 자세한 내용은 참조 �
 
 
 ## <a name="add-a-secret-to-key-vault"></a>Key Vault에 비밀 추가
-Service Fabric 클러스터를 배포 하려면 올바른 KeyVault를 지정 해야 합니다 *비밀 식별자* 또는 Service Fabric 클러스터에 대 한 URL입니다. Azure Resource Manager 템플릿을 입력으로 key Vault를 사용 하 고 Service Fabric 클러스터를 설치 하는 동안 클러스터 인증서를 검색 합니다. 
+Service Fabric 클러스터를 배포 하려면 올바른 KeyVault를 지정 해야 합니다 *비밀 식별자* 또는 Service Fabric 클러스터에 대 한 URL입니다. Azure Resource Manager 템플릿에서 key Vault 입력 변수로 사용 합니다. 다음 템플릿에 Service Fabric 클러스터를 설치 하는 경우 클러스터 인증서를 검색 합니다.
 
 > [!IMPORTANT]  
 > PowerShell을 사용 하 여 Service Fabric 사용에 대 한 key Vault에 비밀을 추가 해야 합니다. 포털을 사용 하지 마세요.  
@@ -139,7 +139,7 @@ Service Fabric 클러스터를 배포 하려면 올바른 KeyVault를 지정 해
    - 원본 키 자격 증명 모음: 전체 지정할 *keyVault id* 스크립트 결과 문자열입니다. 
    - 클러스터 인증서 URL: 전체 URL을 지정 합니다 *비밀 Id* 스크립트 결과에서. 
    - 클러스터 인증서 지문: 지정 된 *클러스터 인증서 지문과* 스크립트 결과에서.
-   - 관리 클라이언트 인증서 지문: 지정 된 *관리 클라이언트 인증서 지문이* 필수 구성 요소에서 만든 합니다. 
+   - 관리자 클라이언트 인증서 지문: 지정 된 *관리 클라이언트 인증서 지문이* 필수 구성 요소에서 만든 합니다. 
 
    ![스크립트 출력](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 

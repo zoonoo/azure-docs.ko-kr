@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2018
+ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 1f59f2ce6e3bf8d34ce225aa93da76ad523775e0
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f299cca57e3eaddd2a9d4868f3bae822392e45a0
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42139714"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944939"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack에서 크기 조정 단위 노드 작업
 
@@ -31,7 +31,7 @@ ms.locfileid: "42139714"
 > 이 문서에서 설명 하는 모든 노드 작업은 한 번에 대상 하나의 노드만 해야 합니다.
 
 
-## <a name="view-the-status-of-a-scale-unit-and-its-nodes"></a>배율 단위와 해당 노드 상태 보기
+## <a name="view-the-node-status"></a>노드 상태 보기
 
 관리자 포털의 배율 단위와 연결 된 해당 노드의 상태를 쉽게 볼 수 있습니다.
 
@@ -47,11 +47,11 @@ ms.locfileid: "42139714"
 - 시스템의 종류
 - 총 논리적 코어
 - 총 메모리
-- 개별 노드 및 해당 상태 목록 어느 **실행** 하거나 **중지**합니다.
+- 개별 노드 및 해당 상태 목록 어느 **실행** 또는 **중지**
 
 ![각 노드에 대 한 실행 상태를 표시 하는 크기 조정 단위 타일](media/azure-stack-node-actions/ScaleUnitStatus.PNG)
 
-## <a name="view-information-about-a-scale-unit-node"></a>배율 단위 노드에 대 한 정보 보기
+## <a name="view-node-information"></a>노드 정보 보기
 
 개별 노드를 선택 하면 다음 정보를 볼 수 있습니다.
 

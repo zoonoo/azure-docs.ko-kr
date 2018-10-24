@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 82a1d86f31bfb49ff97ec9928dd7ee946144a359
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: aa33db56910871891003866ef62431cfd7095d2a
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650046"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954129"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>PowerShell 사용 하 여 Azure Stack 유효성 검사 자동화
 
@@ -28,9 +28,7 @@ ms.locfileid: "49650046"
 
 - 테스트 통과
 
-이 자습서에서는 스크립트를 만드는 방법을 배웁니다입니다.
-
-이 스크립트는 다음 작업을 수행합니다.
+이 자습서에서는 스크립트를 작성 하는 방법을 알아봅니다입니다.
 
 > [!div class="checklist"]
 > * 필수 구성 요소 설치
