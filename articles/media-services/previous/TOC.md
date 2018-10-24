@@ -9,12 +9,12 @@
 ## [개발 환경 설정](media-services-set-up-computer.md)
 ### [.NET](media-services-dotnet-how-to-use.md)
 ### [REST (영문)](media-services-rest-how-to-use.md)  
-## [AAD 인증을 사용하여 API 액세스](media-services-use-aad-auth-to-access-ams-api.md)
-### [포털을 사용하여 AAD 인증 관리](media-services-portal-get-started-with-aad.md)
+## [Azure AD 인증을 사용하여 API 액세스](media-services-use-aad-auth-to-access-ams-api.md)
+### [포털을 사용하여 Azure AD 인증 관리](media-services-portal-get-started-with-aad.md)
 ### [.NET으로 API 액세스](media-services-dotnet-get-started-with-aad.md)
 ### [REST로 API 액세스](media-services-rest-connect-with-aad.md)
-### [Azure CLI를 사용하여 AAD 앱 만들기 및 구성](media-services-cli-create-and-configure-aad-app.md)
-### [Azure PowerShell을 사용하여 AAD 앱 만들기 및 구성](media-services-powershell-create-and-configure-aad-app.md)
+### [Azure CLI를 사용하여 Azure AD 앱 만들기 및 구성](media-services-cli-create-and-configure-aad-app.md)
+### [Azure PowerShell을 사용하여 Azure AD 앱 만들기 및 구성](media-services-powershell-create-and-configure-aad-app.md)
 
 ## 주문형 비디오 제공
 ### [Azure Portal](media-services-portal-vod-get-started.md)

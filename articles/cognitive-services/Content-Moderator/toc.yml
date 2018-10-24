@@ -16,12 +16,6 @@ items:
       href: text-moderation-quickstart-dotnet.md
     - name: 비디오 콘텐츠 확인
       href: video-moderation-api.md
-- name: 샘플
-  items:
-  - name: .NET SDK 샘플
-    href: samples-dotnet.md
-  - name: C#의 REST API 샘플
-    href: samples-rest.md
 - name: 개념
   items:
   - name: 이미지 조정
@@ -36,48 +30,48 @@ items:
     href: workflow-api.md
 - name: 방법 가이드
   items:
-  - name: Content Moderator 평가판 사용
+  - name: 조정 서비스 사용
     items:
     - name: 중재 API
       items:
-      - name: 이미지 - API 콘솔
-        href: try-image-api.md
-      - name: 사용자 지정 목록에 대한 이미지 확인
-        href: image-lists-quickstart-dotnet.md
-      - name: 사용자 지정 이미지 - API 콘솔
-        href: try-image-list-api.md
-      - name: 텍스트 - API 콘솔
-        href: try-text-api.md
-      - name: 사용자 지정 용어에 대한 텍스트 확인
-        href: term-lists-quickstart-dotnet.md
-      - name: 사용자 지정 사용 약관 - API 콘솔
-        href: try-terms-list-api.md
+      - name: .NET SDK 사용
+        items:
+        - name: 사용자 지정 목록에 대한 이미지 확인
+          href: image-lists-quickstart-dotnet.md
+        - name: 사용자 지정 용어에 대한 텍스트 확인
+          href: term-lists-quickstart-dotnet.md
+      - name: REST API 사용
+        items:
+        - name: 이미지 - API 콘솔
+          href: try-image-api.md
+        - name: 사용자 지정 이미지 - API 콘솔
+          href: try-image-list-api.md
+        - name: 텍스트 - API 콘솔
+          href: try-text-api.md
+        - name: 사용자 지정 사용 약관 - API 콘솔
+          href: try-terms-list-api.md
+  - name: 검토 도구 사용
+    items:
     - name: API 검토
       items:
-      - name: 작업 - API 콘솔
-        href: try-review-api-job.md
-      - name: 작업 - .NET
-        href: moderation-jobs-quickstart-dotnet.md
-      - name: 검토 - API 콘솔
-        href: try-review-api-review.md
-      - name: 검토 - .NET
-        href: moderation-reviews-quickstart-dotnet.md
-      - name: 비디오 검토 - .NET
-        href: video-reviews-quickstart-dotnet.md
-      - name: 비디오 대본 검토 - .NET
-        href: video-transcript-reviews-quickstart-dotnet.md
-      - name: 워크플로 - API 콘솔
-        href: try-review-api-workflow.md
-  - name: 첫 번째 Content Moderator 앱
-    items:
-    - name: Facebook 콘텐츠 조정
-      href: facebook-post-moderation.md
-    - name: eCommerce 이미지 조정
-      href: ecommerce-retail-catalog-moderation.md
-    - name: 비디오 및 대본 조정
-      href: video-transcript-moderation-review-tutorial-dotnet.md
-  - name: 검토 도구
-    items:
+      - name: .NET SDK 사용
+        items:
+        - name: 작업 - .NET
+          href: moderation-jobs-quickstart-dotnet.md
+        - name: 검토 - .NET
+          href: moderation-reviews-quickstart-dotnet.md
+        - name: 비디오 검토 - .NET
+          href: video-reviews-quickstart-dotnet.md
+        - name: 비디오 대본 검토 - .NET
+          href: video-transcript-reviews-quickstart-dotnet.md
+      - name: REST API 사용
+        items:
+        - name: 작업 - API 콘솔
+          href: try-review-api-job.md
+        - name: 검토 - API 콘솔
+          href: try-review-api-review.md
+        - name: 워크플로 - API 콘솔
+          href: try-review-api-workflow.md
     - name: 사용자 참여형
       href: Review-Tool-User-Guide/human-in-the-loop.md
     - name: 설정 사용
@@ -98,6 +92,20 @@ items:
       href: Review-Tool-User-Guide/Workflows.md
     - name: 대시보드 보기
       href: Review-Tool-User-Guide/View-Dashboard.md
+  - name: 첫 번째 Content Moderator 앱
+    items:
+    - name: Facebook 콘텐츠 조정
+      href: facebook-post-moderation.md
+    - name: eCommerce 이미지 조정
+      href: ecommerce-retail-catalog-moderation.md
+    - name: 비디오 및 대본 조정
+      href: video-transcript-moderation-review-tutorial-dotnet.md
+- name: 샘플
+  items:
+  - name: .NET SDK 샘플
+    href: samples-dotnet.md
+  - name: C#의 REST API 샘플
+    href: samples-rest.md
 - name: 참고 자료
   items:
   - name: Content Moderator API
@@ -134,9 +142,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: 주문형 웹 세미나
     href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
-ms.openlocfilehash: a6e9e2908a6365c1749e8a5d061779ebc37764e0
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: d162bcaefdde1aceb171d2ad83b5386e54cea890
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428966"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944161"

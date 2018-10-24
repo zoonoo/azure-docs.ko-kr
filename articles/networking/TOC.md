@@ -13,6 +13,11 @@
 ### [가상 네트워크](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [크로스 프레미스 연결 - VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [크로스 프레미스 연결 - 개별 전용](../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### 백 엔드 연결 상호 운용성
+#### [접두사 및 테스트 설정](connectivty-interoperability-preface.md?toc=%2fazure%2fnetworking%2ftoc.json)
+#### [테스트 설정 구성](connectivty-interoperability-configuration.md?toc=%2fazure%2fnetworking%2ftoc.json)
+#### [제어 평면 분석](connectivty-interoperability-control-plane.md?toc=%2fazure%2fnetworking%2ftoc.json)
+#### [데이터 평면 분석](connectivty-interoperability-data-plane.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ##  개념
 ### [가상 네트워크](../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
