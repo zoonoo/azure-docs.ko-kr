@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 9f65537da2b32eee0a6870d22f7c444605ee56b1
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 1ae68e8eac3baca53cda603769a89bc6a84fd468
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364883"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405930"
 ---
 # <a name="the-azure-sql-database-service"></a>Azure SQL Database 서비스
 
@@ -95,7 +95,7 @@ SQL Database는 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) �
 
 - **Azure Storage**: 저렴한 가격으로 방대한 양의 원격 분석을 보관하는 경우
 - **Azure Event Hub**: 사용자 지정 모니터링 솔루션 또는 핫 파이프라인과 SQL Database 원격 분석을 통합하는 경우
-- **Azure Log Analytics**: 보고, 경고 및 완화 기능을 사용하는 기본 제공 모니터링 솔루션의 경우 Azure Log Analytics는 [Operations Management Suite(OMS)](../operations-management-suite/operations-management-suite-overview.md)의 기능입니다.
+- **Azure Log Analytics**: 보고, 경고 및 완화 기능을 사용하는 기본 제공 모니터링 솔루션의 경우
 
     ![아키텍처](./media/sql-database-metrics-diag-logging/architecture.png)
 

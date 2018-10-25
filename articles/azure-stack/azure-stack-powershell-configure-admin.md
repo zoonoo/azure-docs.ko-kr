@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 10/24/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: aa86b44364ee84a9640fe0b39b6279982f5594ad
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 63fd864ebda1cb766792b99a2725fb069d5b5f2a
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982528"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024072"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>Operator 자격으로 PowerShell 사용 하 여 Azure Stack에 연결
 
@@ -29,7 +29,7 @@ Azure Stack PowerShell을 사용 하 여 제안, 계획, 할당량 및 경고 �
 
 ## <a name="prerequisites"></a>필수 조건
 
-다음 필수 구성 요소를 실행 합니다 [개발 키트](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), 또는 Windows 기반 외부 클라이언트의 경우 [VPN을 통해 연결](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)합니다. 
+다음 필수 구성 요소를 실행 합니다 [개발 키트](.\asdk\asdk-connect.md#connect-to-azure-stack-with-remote-desktop) 또는 Windows 기반 외부 클라이언트의 경우 [VPN 통해 ASDK 연결할](.\asdk\asdk-connect.md#connect-to-azure-stack-with-vpn)합니다. 
 
  - 설치할 [Azure Stack 호환 Azure PowerShell 모듈](azure-stack-powershell-install.md)합니다.  
  - 일관 된 [azure storage: 차이점 및 고려 사항](azure-stack-powershell-download.md).  

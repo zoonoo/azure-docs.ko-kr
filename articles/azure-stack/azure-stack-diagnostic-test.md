@@ -2,7 +2,7 @@
 title: Azure Stack에서 유효성 검사 테스트를 실행 합니다. | Microsoft Docs
 description: Azure Stack의 진단에 대 한 로그 파일을 수집 하는 방법입니다.
 services: azure-stack
-author: mattbriggs
+author: jeffgilb
 manager: femila
 cloud: azure-stack
 ms.service: azure-stack
@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/15/2018
-ms.author: mabrigg
-ms.reviewer: hectorl
-ms.openlocfilehash: 3f4dc6e4136d8d2e3eb1ca5e822306aae2217e3b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 10/24/2018
+ms.author: jeffgilb
+ms.reviewer: adshar
+ms.openlocfilehash: 4f95fb5f2199e8c276b78a83391f3814303a9470
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340854"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024622"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Azure Stack에 대 한 유효성 검사 테스트를 실행 합니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "49340854"
     3. 관리자 권한으로 PowerShell을 엽니다.
     4. 실행: `Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint`
     5. 실행: `Test-AzureStack`
-4. 테스트 실패를 보고 하는 경우 실행: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` cmdlet 테스트-azurestack의 경우에서 로그를 수집 합니다. 진단 로그에 대 한 자세한 내용은 참조 하세요. [진단 도구를 Azure Stack](azure-stack-diagnostics.md)합니다.
+4. 테스트 실패를 보고 하는 경우 실행: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` cmdlet 테스트-azurestack의 경우에서 로그를 수집 합니다. 진단 로그에 대 한 자세한 내용은 참조 하세요. [진단 도구를 Azure Stack](azure-stack-diagnostics.md)합니다. 하지 로그를 수집 하거나 테스트 경고를 보고 하는 경우 Microsoft 고객 서비스 지원 (CSS)에 문의 해야 합니다.
 5. 전송 합니다 **SeedRing** Microsoft 고객 서비스 지원에 로그 합니다. Microsoft 고객 서비스 지원 문제를 해결 하는 작동 합니다.
 
 ## <a name="reference-for-test-azurestack"></a>테스트-azurestack의 경우에 대 한 참조

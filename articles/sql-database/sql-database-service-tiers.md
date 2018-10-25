@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 3b2359564020eeeb209a7eb78d81782a675f125d
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.date: 10/19/2018
+ms.openlocfilehash: 9dc993b6ba9b90dfa61660df004ef7dae8b93fa7
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379290"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470957"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database 구매 모델
 
@@ -33,21 +33,21 @@ Azure SQL Database를 사용하면 성능 및 비용 요구에 적합한 완벽�
 
 |**구매 모델**|**설명**|**적합한 대상**|
 |---|---|---|
-|DTU 기반 모델|계산, 저장소 및 IO 리소스를 번들로 묶은 측정값을 기반으로 합니다. 계산 크기는 단일 데이터베이스에 대해서는 DTU(데이터베이스 트랜잭션 단위), 탄력적 풀에 대해서는 eDTU(탄력적 데이터베이스 트랜잭션 단위)로 표현됩니다. DTU 및 eDTU에 대한 자세한 내용은 [DTU 및 eDTU란?](sql-database-service-tiers.md#dtu-based-purchasing-model)을 참조하세요.|간단하고 미리 구성된 리소스 옵션을 원하는 고객에게 가장 적합합니다.| 
+|DTU 기반 모델|계산, 저장소 및 IO 리소스를 번들로 묶은 측정값을 기반으로 합니다. 계산 크기는 단일 데이터베이스에 대해서는 DTU(데이터베이스 트랜잭션 단위), 탄력적 풀에 대해서는 eDTU(탄력적 데이터베이스 트랜잭션 단위)로 표현됩니다. DTU 및 eDTU에 대한 자세한 내용은 [DTU 및 eDTU란?](sql-database-service-tiers.md#dtu-based-purchasing-model)을 참조하세요.|간단하고 미리 구성된 리소스 옵션을 원하는 고객에게 가장 적합합니다.|
 |vCore 기반 모델|이 모델을 사용하면 계산 및 저장소 리소스를 독립적으로 선택할 수 있습니다. SQL Server에 대한 Azure 하이브리드 혜택을 사용하여 비용을 절약할 수 있습니다.|유연성, 제어 및 투명성을 중요시하는 고객에게 가장 적합합니다.|
 ||||  
 
 ![가격 책정 모델](./media/sql-database-service-tiers/pricing-model.png)
 
-## <a name="vcore-based-purchasing-model"></a>vCore 기반 구매 모델 
+## <a name="vcore-based-purchasing-model"></a>vCore 기반 구매 모델
 
 가상 코어는 하드웨어 세대와 하드웨어의 물리적 특성(예: 코어의 수, 메모리, 저장소 크기) 간에 선택할 수 있는 옵션이 함께 제공되는 논리적 CPU를 나타냅니다. vCore 기반 구매 모델은 개별 리소스 사용에 대한 유연성, 제어, 투명성 및 온-프레미스 워크로드 요구 사항을 클라우드로 전환하는 직관적인 방법을 제공합니다. 이 모델을 통해 워크로드 요구 사항에 따라 계산, 메모리 및 저장소를 선택할 수 있습니다. vCore 기반 구매 모델에서는 [단일 데이터베이스](sql-database-single-database-scale.md), [관리되는 인스턴스](sql-database-managed-instance.md) 및 [탄력적 풀](sql-database-elastic-pool.md) 모두에 대해 [범용](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) 및 [중요 비즈니스](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) 서비스 계층 중에서 선택할 수 있습니다. 단일 데이터베이스의 경우에도 [하이퍼스케일(미리 보기)](sql-database-service-tier-hyperscale.md) 서비스 계층을 선택할 수 있습니다.
 
 vCore 기반 구매 모델을 사용하면 계산 및 저장소 리소스를 독립적으로 선택하고, 온-프레미스 성능에 맞추고, 가격을 최적화할 수 있습니다. vCore 기반 구매 모델에서 고객이 지불하는 비용은 다음과 같습니다.
 
 - 계산(서비스 계층 + vCore 수 및 메모리 양 + 하드웨어 세대)
-- 데이터 저장소 및 로그 저장소의 유형 및 크기 
-- 백업 저장소(RA-GRS) 
+- 데이터 저장소 및 로그 저장소의 유형 및 크기
+- 백업 저장소(RA-GRS)
 
 > [!IMPORTANT]
 > 계산, IO, 데이터 저장소 및 로그 저장소는 데이터베이스 또는 탄력적 풀당 요금이 부과됩니다. 백업 저장소는 각 데이터베이스당 요금이 부과됩니다. Managed Instance 요금에 대한 자세한 내용은 [Azure SQL Database Managed Instance](sql-database-managed-instance.md)를 참조하세요.
@@ -75,9 +75,7 @@ DTU는 여러 계산 크기 및 서비스 계층에서 Azure SQL Database 간의
 
 ### <a name="elastic-database-transaction-units-edtus"></a>eDTU(탄력적 데이터베이스 트랜잭션 단위)
 
-SQL Database에 항상 필요하지 않을 수도 있는데 항상 사용할 수 있는 전용 리소스 집합(DTU)을 SQL Database에 제공하는 대신, 해당 데이터베이스 간에 리소스 풀을 공유하는 SQL Database 서버의 [탄력적 풀](sql-database-elastic-pool.md)에 데이터베이스를 배치할 수 있습니다. 탄력적 풀의 공유 리소스는 eDTU(Elastic Database 트랜잭션 단위)로 측정됩니다. 탄력적 풀은 매우 다양하고 예측할 수 없는 사용 패턴을 지닌 여러 데이터베이스에 대한 성능 목표를 관리하기 위한 간단하고 비용 효율적인 솔루션을 제공합니다. 탄력적 풀은 풀의 한 데이터베이스에서 리소스를 모두 사용할 수 없도록 하는 동시에 풀의 각 데이터베이스에서 항상 필요한 최소량의 리소스를 사용할 수 있도록 합니다. 
-
-![SQL Database 소개: 계층 및 수준별 eDTU](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
+SQL Database에 항상 필요하지 않을 수도 있는데 항상 사용할 수 있는 전용 리소스 집합(DTU)을 SQL Database에 제공하는 대신, 해당 데이터베이스 간에 리소스 풀을 공유하는 SQL Database 서버의 [탄력적 풀](sql-database-elastic-pool.md)에 데이터베이스를 배치할 수 있습니다. 탄력적 풀의 공유 리소스는 eDTU(Elastic Database 트랜잭션 단위)로 측정됩니다. 탄력적 풀은 매우 다양하고 예측할 수 없는 사용 패턴을 지닌 여러 데이터베이스에 대한 성능 목표를 관리하기 위한 간단하고 비용 효율적인 솔루션을 제공합니다. 탄력적 풀은 풀의 한 데이터베이스에서 리소스를 모두 사용할 수 없도록 하는 동시에 풀의 각 데이터베이스에서 항상 필요한 최소량의 리소스를 사용할 수 있도록 합니다.
 
 풀에는 정해진 가격으로 정해진 개수의 eDTU가 제공됩니다. 탄력적 풀에 속한 개별 데이터베이스는 구성된 경계 내에서 자동 크기 조정할 수 있습니다. 부하가 높은 데이터베이스는 요구를 충족하기 위해 더 많은 eDTU를 사용합니다. 부하가 낮은 데이터베이스는 더 적은 eDTU를 사용합니다. 부하가 없는 데이터베이스는 eDTU를 사용하지 않습니다. 데이터베이스 단위가 아니라 전체 풀에 대한 리소스를 프로비전하면 관리 작업이 간소화되고 풀 예산을 예측할 수 있습니다.
 

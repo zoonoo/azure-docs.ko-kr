@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory의 엔터프라이즈 응용 프로그램에 대한 SAML 토큰에 발급된 클레임 사용자 지정 | Microsoft Docs
-description: Azure Active Directory의 엔터프라이즈 응용 프로그램에 SAML 토큰에서 발급된 클레임을 사용자 지정하는 방법에 대해 알아봅니다.
+title: Azure AD의 엔터프라이즈 응용 프로그램에 대한 SAML 토큰에 발급된 클레임 사용자 지정 | Microsoft Docs
+description: Azure AD의 엔터프라이즈 응용 프로그램에 대한 SAML 토큰에 발급된 클레임을 사용자 지정하는 방법을 알아보세요.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -17,20 +17,20 @@ ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 80842f7e99ee0c58f1615892f3c3c4adf03119b6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5633dfbf59396e79226b196c2b699981409092ab
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956972"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902028"
 ---
-# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-ad"></a>방법: Azure AD의 엔터프라이즈 응용 프로그램에 대한 SAML 토큰에 발급된 클레임 사용자 지정
+# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 응용 프로그램에 대한 SAML 토큰에 발급된 클레임 사용자 지정
 
-오늘날 Azure Active Directory는 사용자 지정 응용 프로그램뿐만 아니라 Azure AD 앱 갤러리에서 미리 통합된 응용 프로그램 모두를 포함하여 대부분의 엔터프라이즈 응용 프로그램에서 단일 로그인을 지원합니다. 사용자가 SAML 2.0 프로토콜을 사용하여 Azure AD를 통해 응용 프로그램을 인증하면 Azure AD는 (HTTP POST를 통해) 응용 프로그램에 토큰을 보냅니다. 그런 다음 응용 프로그램이 토큰의 유효성을 검사하고 사용하여 사용자 이름과 암호를 묻는 대신 사용자를 로그인합니다. 이러한 SAML 토큰에는 "클레임"이라고 알려진 사용자에 대한 정보가 포함되어 있습니다.
+오늘날 Azure Active Directory(Azure AD)는 사용자 지정 응용 프로그램뿐만 아니라 Azure AD 앱 갤러리에서 미리 통합된 응용 프로그램 모두를 포함하여 대부분의 엔터프라이즈 응용 프로그램에서 단일 로그인을 지원합니다. 사용자가 SAML 2.0 프로토콜을 사용하여 Azure AD를 통해 응용 프로그램을 인증하면 Azure AD는 (HTTP POST를 통해) 응용 프로그램에 토큰을 보냅니다. 그런 다음 응용 프로그램이 토큰의 유효성을 검사하고 사용하여 사용자 이름과 암호를 묻는 대신 사용자를 로그인합니다. 이러한 SAML 토큰에는 "클레임"이라고 알려진 사용자에 대한 정보가 포함되어 있습니다.
 
-ID에서 "클레임"은 해당 사용자에 대해 발급하는 토큰 내에서 ID 공급자가 사용자에 대해 나타내는 정보입니다. [SAML 토큰 ](http://en.wikipedia.org/wiki/SAML_2.0)에서 이러한 데이터는 일반적으로 SAML 특성 문에 포함됩니다. 사용자 고유의 ID는 대개 이름 식별자라고도 하는 SAML Subject에 나타납니다.
+‘클레임’은 해당 사용자에 대해 발급하는 토큰 내에서 ID 공급자가 사용자에 대해 나타내는 정보입니다. [SAML 토큰 ](http://en.wikipedia.org/wiki/SAML_2.0)에서 이러한 데이터는 일반적으로 SAML 특성 문에 포함됩니다. 사용자 고유의 ID는 대개 이름 식별자라고도 하는 SAML Subject에 나타납니다.
 
-기본적으로 Azure Active Directory는 Azure AD에 사용자의 사용자 이름(또는 사용자 계정 이름) 값과 함께 NameIdentifier 클레임이 포함된 SAML 토큰을 응용 프로그램에 발급합니다. 이 값이 사용자를 고유하게 식별할 수 있습니다. 또한 SAML 토큰에는 사용자의 메일 주소, 이름 및 성을 포함하는 추가 클레임이 포함됩니다.
+기본적으로 Azure AD는 Azure AD에 사용자의 사용자 이름(또는 사용자 계정 이름) 값과 함께 NameIdentifier 클레임이 포함된 SAML 토큰을 응용 프로그램에 발급합니다. 이 값이 사용자를 고유하게 식별할 수 있습니다. 또한 SAML 토큰에는 사용자의 메일 주소, 이름 및 성을 포함하는 추가 클레임이 포함됩니다.
 
 SAML 토큰이 응용 프로그램에 발급한 클레임을 보거나 편집하려면 Azure Portal에서 응용 프로그램을 엽니다. 그런 다음 응용 프로그램의 **사용자 특성** 섹션에서 **기타 모든 사용자 특성 보기 및 편집**을 선택합니다.
 
@@ -38,7 +38,7 @@ SAML 토큰이 응용 프로그램에 발급한 클레임을 보거나 편집하
 
 SAML 토큰에 발급된 클레임을 편집해야 할만한 두 가지 이유는 다음과 같습니다.
 * 응용 프로그램이 다른 클레임 URI 또는 클레임 값 집합을 요구하도록 작성되었습니다.
-* Azure Active Directory에 저장된 사용자 이름(또는 사용자 계정 이름) 이외의 NameIdentifier 클레임을 요구하는 방식으로 응용 프로그램이 배포되었습니다.
+* Azure AD에 저장된 사용자 이름(또는 사용자 계정 이름) 이외의 NameIdentifier 클레임을 요구하는 방식으로 응용 프로그램이 배포되었습니다.
 
 원하는 기본 클레임 값을 편집할 수 있습니다. SAML 토큰 특성 테이블에서 클레임 행을 선택합니다. 그러면 **특성 편집** 섹션이 열리고 클레임 이름, 값 및 클레임과 연결된 네임스페이스를 편집할 수 있습니다.
 
@@ -130,8 +130,9 @@ SAML에는 몇 가지 제한된 클레임이 있습니다. 이러한 클레임�
     | http://schemas.microsoft.com/identity/claims/scope |
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Active Directory의 응용 프로그램 관리](../manage-apps/what-is-application-management.md)
-* [Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+
+* [Azure AD의 응용 프로그램 관리](../manage-apps/what-is-application-management.md)
+* [Azure AD 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [SAML 기반 Single Sign-On 문제 해결](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->

@@ -12,12 +12,12 @@ ms.author: douglasl
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 6977995fb33d221b48a633076f61d3ee39d6ba40
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 225c8093816c5186cbc084f74bc6e0591107ec00
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160420"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586260"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>테스트 및 프로토타입 생성을 위한 공용 데이터 집합
 
@@ -40,7 +40,7 @@ ms.locfileid: "47160420"
 
 | 데이터 원본 | 데이터 정보 | 파일 정보 |
 |---|---|---|
-| [뉴욕시 택시 데이터](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | "택시 여정 레코드에는 승차 및 하차 날짜/시간, 승차 및 하단 위치, 이동 거리, 항목별 요금, 요율 종류, 지불 유형 및 운전자가 보고한 승객 수를 캡처하는 필드가 포함됩니다." | 데이터 집합은 월별 CSV 파일 형식입니다. |
+| [뉴욕시 택시 데이터](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | “택시 여정 레코드에는 승차 및 하차 날짜/시간, 승차 및 하단 위치, 이동 거리, 항목별 요금, 요율 종류, 지불 유형 및 운전자가 보고한 승객 수를 캡처하는 필드가 포함됩니다.” | 데이터 집합은 월별 CSV 파일 형식입니다. |
 | [Microsoft Research 데이터 집합 - "연구를 위한 데이터 과학"](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | 인간-컴퓨터 간 상호 작용, 오디오/비디오, 데이터 마이닝/정보 검색, 지리 공간/위치, 자연어 처리 및 로봇 공학/컴퓨터 비전을 아우르는 여러 데이터 집합이 제공됩니다. | 데이터 집합은 다운로드할 수 있게 다양한 형식으로 압축되어 있습니다. |
 | [공용 게놈 데이터](http://www.completegenomics.com/public-data/) | "일반 사용자가 전체 인간 게놈을 포함하는 다양한 데이터 집합을 무료로 사용하여 게놈 연구에 활용할 수 있습니다." 공급업체 Complete Genomics는 영리를 추구하는 개인 기업입니다. | 압축을 푼 데이터 집합은 UNIX 텍스트 형식입니다. 분석 도구를 사용할 수도 있습니다. |
 | [개방형 과학 데이터 클라우드 데이터](https://www.opensciencedatacloud.org/) | "개방형 과학 데이터 클라우드는 테라바이트 및 페타바이트 크기의 과학 데이터 집합을 저장, 공유 및 분석하기 위한 리소스를 포함하는 과학 커뮤니티를 제공합니다."| 데이터 집합은 다양한 형식으로 제공됩니다. |

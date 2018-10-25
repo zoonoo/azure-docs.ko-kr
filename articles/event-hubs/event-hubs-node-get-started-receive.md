@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: shvija
-ms.openlocfilehash: 27052759ccc4664ea95ea19cb52bebeec6fec5ae
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 6d5b52c8a5dd0306a349cac5e67eecc809005c6f
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803361"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429187"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>Node.js를 사용하여 Azure Event Hubs에서 이벤트 수신
 
@@ -57,7 +57,7 @@ npm install @azure/event-processor-host
 
 1. Visual Studio Code에서 프로젝트를 엽니다. 
 2. **processor** 폴더에 **.env** 파일을 만듭니다. 루트 폴더의 **sample.env**에서 샘플 환경 변수를 복사하여 붙여넣습니다.
-3. 이벤트 허브 연결 문자열, 이벤트 허브 이름 및 저장소 엔드포인트를 구성합니다. Azure Portal 이벤트 허브 페이지의 **RootManageSharedAccessKey** 아래 **연결 문자열-기본** 키에서 이벤트 허브의 연결 문자열을 복사할 수 있습니다. 자세한 단계는 [연결 문자열 가져오기](event-hubs-quickstart-portal.md#create-an-event-hubs-namespace)를 참조하세요.
+3. 이벤트 허브 연결 문자열, 이벤트 허브 이름 및 저장소 엔드포인트를 구성합니다. Azure Portal 이벤트 허브 페이지의 **RootManageSharedAccessKey** 아래 **연결 문자열-기본** 키에서 이벤트 허브의 연결 문자열을 복사할 수 있습니다. 자세한 단계는 [연결 문자열 가져오기](event-hubs-create.md#create-an-event-hubs-namespace)를 참조하세요.
 4. Azure CLI에서 **processor** 폴더 경로로 이동합니다. 다음 명령을 실행하여 node 패키지를 설치하고 프로젝트를 빌드합니다.
 
     ```nodejs

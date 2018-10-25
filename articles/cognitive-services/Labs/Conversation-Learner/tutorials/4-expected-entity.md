@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: fb9193066c9501341efb779b9f9e2ccace02cccf
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: d0ad7093249bea761e0a36c6fffab8cdd151a662
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888207"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268024"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>작업의 "예상 엔터티" 속성을 사용하는 방법
 
@@ -63,9 +63,10 @@ ms.locfileid: "42888207"
 2. 응답에서 '이름은 무엇인가요?'를 입력합니다.
 3. 예상 엔터티에서 $name을 입력합니다. 저장을 클릭합니다.
     - 이 값은 질문을 할 경우 사용자 응답에서 엔터티가 검색되지 않음을 의미합니다. 봇은 사용자의 응답 전체가 이 엔터티라고 가정해야 합니다.
+    - 엔터티가 실격 엔터티로 자동으로 추가됩니다. 
 2. 작업, 새 작업을 차례로 클릭하여 두 번째 작업을 만듭니다.
 3. 응답에 '안녕하세요 $name'을 입력합니다.
-    - 엔터티가 필수 엔터티로 자동으로 추가됩니다. 
+    - 엔터티가 필수 엔터티로 자동으로 추가됩니다.
 4. 저장을 클릭합니다.
 
 이제 두 가지 작업이 있습니다.
@@ -111,7 +112,7 @@ ms.locfileid: "42888207"
 2. '안녕하세요'를 입력합니다.
 3. '이름이 무엇인가요'에 대한 응답으로 'frank라고 합니다.'를 입력합니다.
     - 전체 구문이 강조 표시됩니다. 통계 모델이 이름을 찾지 못했기 때문입니다. 따라서 추론이 발생하고 전체 응답을 이름 엔터티로 선택합니다.
-2. 이를 해결하려면 강조 표시된 구문을 클릭한 다음, 빨간색 x를 클릭합니다. 
+2. 이를 해결하려면 강조 표시된 구문을 클릭한 다음, 빨간색 휴지통 아이콘을 클릭합니다. 
 3. frank를 선택하도록 클릭한 다음, 이름을 클릭합니다.
 2. 작업에 점수 지정을 클릭합니다.
 3. '안녕하세요 $name'을 선택합니다.

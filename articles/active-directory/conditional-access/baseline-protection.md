@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 6ee89aa901c9553d22470a0481909e9cd62d60cf
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: e7e92c2f3564591133816baaaf758d72b083330b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345133"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958553"
 ---
 # <a name="what-is-baseline-protection-preview"></a>기준 보호(미리 보기)란?  
 
@@ -86,7 +86,7 @@ ms.locfileid: "49345133"
 
 기준 정책에 포함된 디렉터리 역할은 가장 권한이 많은 Azure AD 역할입니다. 
 
-스크립트에서 권한 있는 계정을 사용한 경우, [Azure 리소스에 대한 관리 ID](../managed-identities-azure-resources/overview.md) 또는 [서비스 보안 사용자](../../azure-resource-manager/resource-group-authenticate-service-principal.md)를 대신 사용해야 합니다. 임시 해결 방법으로 기준 정책에서 특정 사용자 계정을 제외할 수 있습니다. 
+스크립트에서 권한 있는 계정을 사용한 경우, [Azure 리소스에 대한 관리 ID](../managed-identities-azure-resources/overview.md) 또는 [서비스 보안 사용자](../develop/howto-authenticate-service-principal-powershell.md)를 대신 사용해야 합니다. 임시 해결 방법으로 기준 정책에서 특정 사용자 계정을 제외할 수 있습니다. 
 
 기준 정책은 POP, IMAP, 기존의 Office 데스크톱 클라이언트 같은 레거시 인증 흐름에 적용됩니다. 
 

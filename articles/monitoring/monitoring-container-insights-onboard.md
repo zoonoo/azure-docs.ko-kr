@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2018
+ms.date: 10/04/2018
 ms.author: magoedte
-ms.openlocfilehash: df145ebe6276c911ef3064e3f8ff7a23a2faa870
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 9fa0df0bbf363a7c751de460fd98740b4314f996
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423037"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831197"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor 등록 방법
 이 문서에서는 컨테이너용 Azure Monitor를 설정하여 Kubernetes 환경에 배포되고 [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/)에서 호스트되는 워크로드의 성능을 모니터링하는 방법을 설명합니다.
@@ -39,8 +39,7 @@ ms.locfileid: "47423037"
 성능을 모니터링하는 기능은 컨테이너화된 Linux용 Log Analytics 에이전트에 의존합니다. 이를 통해 클러스터의 모든 노드에서 성능 및 이벤트 데이터를 수집합니다. 이 에이전트는 컨테이너 모니터링을 사용하도록 설정한 후에 지정된 Log Analytics 작업 영역에 자동으로 배포되고 등록됩니다. 
 
 >[!NOTE] 
->AKS 클러스터를 이미 배포한 경우, 이 문서의 뒷부분에 설명된 대로, Azure CLI 또는 제공된 Azure Resource Manager 템플릿을 사용하여 모니터링을 사용하도록 설정할 수 있습니다. `kubectl`을 사용하여 에이전트를 업그레이드, 삭제, 다시 배포 또는 배포할 수 없습니다. 
->
+>AKS 클러스터를 이미 배포한 경우, 이 문서의 뒷부분에 설명된 대로, Azure CLI 또는 제공된 Azure Resource Manager 템플릿을 사용하여 모니터링을 사용하도록 설정할 수 있습니다. `kubectl`을 사용하여 에이전트를 업그레이드, 삭제, 다시 배포 또는 배포할 수 없습니다. 템플릿을 클러스터와 동일한 리소스 그룹에 배포해야 합니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 [Azure Portal](https://portal.azure.com)에 로그인합니다. 
@@ -71,6 +70,18 @@ Azure CLI로 만든 새로운 AKS 클러스터에 대한 모니터링을 활성�
 
 ```azurecli
 az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  
+```
+
+출력은 다음과 유사합니다.
+
+```azurecli
+provisioningState       : Succeeded
+```
+
+기존 작업 영역과 통합하려는 경우 다음 명령을 사용하여 해당 작업 영역을 지정합니다.
+
+```azurecli
+az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG --workspace-resource-id <ExistingWorkspaceResourceID> 
 ```
 
 출력은 다음과 유사합니다.
@@ -124,6 +135,10 @@ Azure Portal에서 AKS 컨테이너에 대한 모니터링을 사용하도록 �
 * AKS 컨테이너 리소스 ID. 
 * 클러스터가 배포된 리소스 그룹.
 * Log Analytics 작업 영역 및 작업 영역을 만들 지역. 
+
+>[!NOTE]
+>템플릿을 클러스터와 동일한 리소스 그룹에 배포해야 합니다.
+>
 
 Log Analytics 작업 영역은 수동으로 만들어야 합니다. 작업 영역을 만들려면 [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md)나 [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json)을 통해 또는 [Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md)에서 설정할 수 있습니다.
 

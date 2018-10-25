@@ -6,22 +6,22 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/13/2018
+ms.date: 10/09/2018
 ms.author: babanisa
-ms.openlocfilehash: 257f7cbd20d21903f4cf7daf68b5f185d0af10bc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2fd8712cbe5d34baed158a56e6f06b6235f5d4b2
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965458"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068198"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 보안 및 인증 
 
 Azure Event Grid에는 세 가지 유형의 인증이 있습니다.
 
-* 이벤트 구독
-* 이벤트 게시
 * WebHook 이벤트 전달
+* 이벤트 구독
+* 사용자 지정 토픽 게시
 
 ## <a name="webhook-event-delivery"></a>WebHook 이벤트 전달
 
@@ -37,7 +37,7 @@ HTTP 트리거 기반 Azure 함수와 같은 엔드포인트의 다른 형식을
 
 1. **ValidationCode 핸드셰이크**: 이벤트 구독 생성 시 EventGrid가 “구독 유효성 검사 이벤트”를 사용자 엔드포인트에 게시합니다. 이 이벤트의 스키마는 다른 EventGridEvent와 유사하며, 이 이벤트의 데이터 부분에는 `validationCode` 속성이 포함됩니다. 응용 프로그램이 예상되는 이벤트 구독에 대한 유효성 검사 요청인지를 확인하면, 응용 프로그램 코드는 EventGrid에 유효성 검사 코드를 다시 에코하여 응답해야 합니다. 이 핸드셰이크 메커니즘은 모든 EventGrid 버전에서 지원됩니다.
 
-2. **ValidationURL 핸드셰이크(수동 핸드셰이크)**: 특정 경우에 ValidationCode 기반 핸드셰이크를 구현하도록 엔드포인트의 소스 코드를 제어하지 못할 수도 있습니다. 예를 들어, 타사 서비스를 사용하는 경우(예: [Zapier](https://zapier.com) 또는 [IFTTT](https://ifttt.com/)) 유효성 검사 코드를 통해 프로그래밍 방식으로 다시 응답하지 못할 수 있습니다. 따라서 버전 2018-05-01-미리 보기부터 현재 EventGrid는 수동 유효성 검사 핸드셰이크를 지원합니다. 이 새 API 버전(2018-05-01-미리 보기)을 사용하는 SDK/도구를 사용하여 이벤트 구독을 만드는 경우 EventGrid는 구독 유효성 검사 이벤트에서 데이터 부분의 일부로 `validationUrl` 속성(`validationCode`에 추가)을 전송합니다. 핸드셰이크를 완료하려면 REST 클라이언트를 통하거나 웹 브라우저를 사용하여 해당 URL에서 GET 요청을 수행합니다. 제공된 유효성 검사 URL은 약 10분 동안만 유효합니다. 이 시간 동안 이벤트 구독의 프로비전 상태가 `AwaitingManualAction`입니다. 10분 안에 수동 유효성 검사를 완료하지 않은 경우 프로비전 상태가 `Failed`로 설정됩니다. 수동 유효성 검사를 다시 시도하기 전에 이벤트 구독 만들기를 다시 시도해야 합니다.
+2. **ValidationURL 핸드셰이크(수동 핸드셰이크)**: 특정 경우에 ValidationCode 기반 핸드셰이크를 구현하도록 엔드포인트의 소스 코드를 제어하지 못할 수도 있습니다. 예를 들어, 타사 서비스를 사용하는 경우(예: [Zapier](https://zapier.com) 또는 [IFTTT](https://ifttt.com/)) 유효성 검사 코드를 통해 프로그래밍 방식으로 다시 응답하지 못할 수 있습니다. 버전 2018-05-01-미리 보기부터 현재 EventGrid는 수동 유효성 검사 핸드셰이크를 지원합니다. 이 새 API 버전(2018-05-01-미리 보기)을 사용하는 SDK/도구를 사용하여 이벤트 구독을 만드는 경우 EventGrid는 구독 유효성 검사 이벤트에서 데이터 부분의 일부로 `validationUrl` 속성을 전송합니다. 핸드셰이크를 완료하려면 REST 클라이언트를 통하거나 웹 브라우저를 사용하여 해당 URL에서 GET 요청을 수행합니다. 제공된 유효성 검사 URL은 약 10분 동안만 유효합니다. 이 시간 동안 이벤트 구독의 프로비전 상태가 `AwaitingManualAction`입니다. 10분 안에 수동 유효성 검사를 완료하지 않은 경우 프로비전 상태가 `Failed`로 설정됩니다. 수동 유효성 검사를 시도하기 전에 이벤트 구독을 다시 작성해야 합니다.
 
 수동 유효성 검사의 이 메커니즘은 미리 보기 상태입니다. 이 기능을 사용하려면 [Azure CLI](/cli/azure/install-azure-cli)에 대한[Event Grid 확장](/cli/azure/azure-cli-extensions-list)을 설치해야 합니다. `az extension add --name eventgrid`를 사용하여 설치할 수 있습니다. REST API를 사용하는 경우 `api-version=2018-05-01-preview`를 사용하고 있는지 확인합니다.
 
@@ -46,8 +46,8 @@ HTTP 트리거 기반 Azure 함수와 같은 엔드포인트의 다른 형식을
 * 이벤트 구독 생성/업데이트 시 Event Grid는 대상 엔드포인트에 Subscription Validation Event를 게시합니다. 
 * 이벤트에는 “aeg-event-type: SubscriptionValidation” 헤더 값이 포함됩니다.
 * 이벤트 본문에는 다른 Event Grid 이벤트와 동일한 스키마가 있습니다.
-* 이벤트의 eventType 속성은 “Microsoft.EventGrid.SubscriptionValidationEvent”입니다.
-* 이벤트의 데이터 속성에는 임의로 생성된 문자열을 포함한 “validationCode” 속성이 포함됩니다. 예를 들어 “validationCode: acb13...”과 같습니다.
+* 이벤트의 eventType 속성은 `Microsoft.EventGrid.SubscriptionValidationEvent`입니다.
+* 이벤트의 데이터 속성에는 임의로 생성된 문자열을 포함한 `validationCode` 속성이 있습니다. 예를 들어 “validationCode: acb13...”과 같습니다.
 * API 버전 2018-05-01-미리 보기를 사용하는 경우 이벤트 데이터는 구독에 대해 수동으로 유효성 검사를 수행하기 위해 URL에 `validationUrl` 속성이 포함되어 있습니다.
 * 배열에는 유효성 검사 이벤트만 포함됩니다. 다른 이벤트는 유효성 검사 코드를 에코 백한 후 별도의 요청으로 전송됩니다.
 * EventGrid DataPlane SDK에는 구독 유효성 검사 이벤트 데이터 및 구독 유효성 검사 응답에 해당하는 클래스가 있습니다.
@@ -78,18 +78,18 @@ SubscriptionValidationEvent 예가 다음 예제에 나와 있습니다.
 }
 ```
 
-또는 유효성 검사 URL에 GET 요청을 전송하여 구독이 유효한지 수동으로 검사할 수 있습니다. 이벤트 구독은 유효성을 검사할 때까지 보류 상태로 유지됩니다.
+또는 유효성 검사 URL에 GET 요청을 수동으로 전송하여 구독이 유효한지 수동으로 검사할 수 있습니다. 이벤트 구독은 유효성을 검사할 때까지 보류 상태로 유지됩니다.
 
 https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs에서 구독 유효성 검사 핸드셰이크를 처리하는 방법을 보여 주는 C# 샘플을 찾을 수 있습니다.
 
 ### <a name="checklist"></a>검사 목록
 
-이벤트 구독을 만드는 동안 “제공된 엔드포인트 https://your-endpoint-here에 대한 유효성 검사 시도가 실패했습니다. 자세한 내용은 https://aka.ms/esvalidation을 방문하세요”와 같은 오류 메시지가 표시되면 유효성 검사 핸드셰이크에서 오류가 있다는 뜻입니다. 이 오류를 해결하려면 다음과 같은 측면을 확인합니다.
+이벤트 구독을 만드는 동안 “제공된 엔드포인트 https://your-endpoint-here에 대한 유효성 검사 시도가 실패했습니다. https://aka.ms/esvalidation을 방문하세요”와 같은 오류 메시지가 표시되면 유효성 검사 핸드셰이크에서 오류가 있다는 뜻입니다. 이 오류를 해결하려면 다음과 같은 측면을 확인합니다.
 
-* 대상 엔드포인트에서 응용 프로그램 코드를 제어할 수 있습니까? 예를 들어, HTTP 트리거 기반 Azure Function을 작성하는 경우 변경하기 위해 응용 프로그램 코드에 액세스할 수 있습니까?
+* 대상 엔드포인트에서 응용 프로그램 코드를 제어할 수 있습니까? 예를 들어, HTTP 트리거 기반 Azure Function을 작성하는 경우 이를 변경하기 위해 응용 프로그램 코드에 액세스할 수 있습니까?
 * 응용 프로그램 코드에 액세스할 수 있는 경우 위의 샘플에서와 같이 ValidationCode 기반 핸드셰이크 메커니즘을 구현하세요.
 
-* 응용 프로그램 코드에 액세스할 수 없는 경우(예: 웹후크를 지원하는 타사 서비스를 사용하는 경우), 수동 핸드셰이크 메커니즘을 사용할 수 있습니다. 이 작업을 수행하기 위해 유효성 검사 이벤트에서 validationUrl 을 수신하도록 2018-05-01-미리 보기 API 버전을 사용(예: 위에서 설명한 EventGrid CLI 확장 사용)하는지 확인합니다. 수동 유효성 검사 핸드셰이크를 완료하려면 “validationUrl” 속성의 값을 가져오고 웹 브라우저에서 해당 URL을 방문합니다. 유효성 검사에 성공한 경우 유효성 검사가 성공했다는 메시지가 웹 브라우저에 표시되어야 하며 이벤트 구독의 provisioningState가 “성공”으로 표시됩니다. 
+* 응용 프로그램 코드에 액세스할 수 없는 경우(예: 웹후크를 지원하는 타사 서비스를 사용하는 경우), 수동 핸드셰이크 메커니즘을 사용할 수 있습니다. 2018-05-01-미리 보기 API 버전 이상(Event Grid Azure CLI 확장 설치)을 사용하여 유효성 검사 이벤트에서 validationUrl을 수신했는지 확인합니다. 수동 유효성 검사 핸드셰이크를 완료하려면 `validationUrl` 속성의 값을 가져오고 웹 브라우저에서 해당 URL을 방문합니다. 유효성 검사에 성공하는 경우 유효성 검사가 성공했다는 메시지가 웹 브라우저에 표시됩니다. 해당 이벤트 구독의 프로비저닝 상태가 “성공”이라고 표시됩니다. 
 
 ### <a name="event-delivery-security"></a>이벤트 전달 보안
 
@@ -101,7 +101,9 @@ https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/m
 
 ## <a name="event-subscription"></a>이벤트 구독
 
-이벤트를 구독하려면 필요한 리소스에 대한 **Microsoft.EventGrid/EventSubscriptions/Write** 권한이 있어야 합니다. 리소스의 범위에서 새 구독을 작성하기 때문에 이 권한이 있어야 합니다. 필요한 리소스는 시스템 항목 또는 사용자 지정 항목을 구독하는지 여부에 따라 다릅니다. 두 형식은 모두 이 섹션에 설명되어 있습니다.
+이벤트를 구독하려면 이벤트 소스 및 처리기에 액세스할 수 있는 권한이 있음을 입증해야 합니다. WebHook 소유에 대한 입증은 이전 섹션에서 설명했습니다. WebHook(예: 이벤트 허브 또는 큐 저장소)이 아닌 이벤트 처리기를 사용하는 경우 해당 리소스에 대한 쓰기 권한이 필요합니다. 이 권한 검사는 권한 없는 사용자가 리소스에 이벤트를 전송하지 못하도록 합니다.
+
+이벤트 소스인 리소스에 **Microsoft.EventGrid/EventSubscriptions/Write** 권한이 있어야 합니다. 리소스의 범위에서 새 구독을 작성하기 때문에 이 권한이 있어야 합니다. 필요한 리소스는 시스템 항목 또는 사용자 지정 항목을 구독하는지 여부에 따라 다릅니다. 두 형식은 모두 이 섹션에 설명되어 있습니다.
 
 ### <a name="system-topics-azure-service-publishers"></a>시스템 항목(Azure 서비스 게시자)
 
@@ -115,9 +117,9 @@ https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/m
 
 예를 들어 **mytopic**이라는 사용자 지정 항목을 구독하려면 `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`에 대한 Microsoft.EventGrid/EventSubscriptions/Write 권한이 필요합니다.
 
-## <a name="topic-publishing"></a>항목 게시
+## <a name="custom-topic-publishing"></a>사용자 지정 토픽 게시
 
-항목은 SAS(공유 액세스 서명) 또는 키 인증을 사용합니다. SAS를 사용하는 것이 좋지만 키 인증에서는 간단한 프로그래밍을 제공하며 기존의 많은 Webhook 게시자와 호환 가능합니다. 
+사용자 지정 토픽은 SAS(공유 액세스 서명) 또는 키 인증을 사용합니다. SAS를 사용하는 것이 좋지만 키 인증에서는 간단한 프로그래밍을 제공하며 기존의 많은 Webhook 게시자와 호환 가능합니다. 
 
 HTTP 헤더에서 인증 값을 포함합니다. SAS의 경우 헤더 값에 **aeg-sas-token**을 사용합니다. 키 인증의 경우 헤더 값에 **aeg-sas-key**를 사용합니다.
 
@@ -185,7 +187,7 @@ Azure Event Grid는 다음 작업을 지원합니다.
 * Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
-마지막 세 가지 작업에서는 일반 읽기 작업에서 필터링을 가져오는 비밀 정보를 잠재적으로 반환합니다. 이러한 작업에 대한 액세스를 제한하는 것이 좋습니다. [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), [Azure CLI(명령줄 인터페이스)](../role-based-access-control/role-assignments-cli.md) 및 [REST API](../role-based-access-control/role-assignments-rest.md)를 사용하여 사용자 지정 역할을 만들 수 있습니다.
+마지막 세 가지 작업에서는 일반 읽기 작업에서 필터링을 가져오는 비밀 정보를 잠재적으로 반환합니다. 이 작업에 대한 액세스를 제한하는 것이 좋습니다. [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), [Azure CLI(명령줄 인터페이스)](../role-based-access-control/role-assignments-cli.md) 및 [REST API](../role-based-access-control/role-assignments-rest.md)를 사용하여 사용자 지정 역할을 만들 수 있습니다.
 
 ### <a name="enforcing-role-based-access-check-rbac"></a>RBAC(역할 기반 액세스 확인) 적용
 
@@ -193,7 +195,7 @@ Azure Event Grid는 다음 작업을 지원합니다.
 
 #### <a name="create-a-custom-role-definition-file-json"></a>사용자 지정 역할 정의 파일(.json) 만들기
 
-사용자가 다른 일련의 동작을 수행할 수 있는 샘플 Event Grid 역할 정의는 다음과 같습니다.
+사용자가 다른 동작을 수행할 수 있는 샘플 Event Grid 역할 정의는 다음과 같습니다.
 
 **EventGridReadOnlyRole.json**: 읽기 전용 작업만을 허용합니다.
 

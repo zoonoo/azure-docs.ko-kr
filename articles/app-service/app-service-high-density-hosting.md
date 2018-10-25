@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: byvinyal
-ms.openlocfilehash: 97e1efe34417c3bf2f23801b2112b718f55d3416
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: f2cf472ef3c2c9950dd9f9382009e21fbf62771b
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36962407"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856788"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>앱별 크기 조정을 사용한 Azure App Service의 고밀도 호스팅
 기본적으로 실행하는 [App Service 계획](azure-web-sites-web-hosting-plans-in-depth-overview.md)의 크기 조정을 통해 App Service 앱을 크기 조정합니다. 여러 앱이 같은 App Service 계획에서 실행되는 경우 각 스케일 아웃 인스턴스는 계획의 모든 앱을 실행합니다.
@@ -32,7 +32,7 @@ ms.locfileid: "36962407"
 
 ## <a name="per-app-scaling-using-powershell"></a>PowerShell을 사용하여 앱 크기 조정당
 
-```-perSiteScaling $true``` 특성을 ```New-AzureRmAppServicePlan``` commandlet에 전달하여 앱별 크기 조정으로 계획을 만듭니다.
+```-PerSiteScaling $true``` 매개 변수를 ```New-AzureRmAppServicePlan``` cmdlet에 전달하여 앱별 크기 조정으로 플랜을 만듭니다.
 
 ```powershell
 New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
@@ -41,23 +41,12 @@ New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePla
                             -NumberofWorkers 5 -PerSiteScaling $true
 ```
 
-앱별 크기 조정으로 기존 App Service 계획을 업데이트하려면 다음을 수행합니다. 
-
-- 대상 계획 가져오기```Get-AzureRmAppServicePlan```
-- 속성 로컬 수정```$newASP.PerSiteScaling = $true```
-- 변경 내용을 Azure에 다시 게시```Set-AzureRmAppServicePlan``` 
+`-PerSiteScaling $true` 매개 변수를 ```Set-AzureRmAppServicePlan``` cmdlet에 전달하여 기존 App Service 계획으로 앱별 크기 조정을 사용합니다.
 
 ```powershell
-# Get the new App Service Plan and modify the "PerSiteScaling" property.
-$newASP = Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan
-$newASP
-
-#Modify the local copy to use "PerSiteScaling" property.
-$newASP.PerSiteScaling = $true
-$newASP
-    
-#Post updated app service plan back to azure
-Set-AzureRmAppServicePlan $newASP
+# Enable per-app scaling for the App Service Plan using the "PerSiteScaling" parameter.
+Set-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup `
+   -Name $AppServicePlan -PerSiteScaling $true
 ```
 
 앱 수준에서 앱이 App Service 계획에 사용할 수 있는 인스턴스 수를 구성합니다.

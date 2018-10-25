@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 36269392db785e7d2d203f032a84cccc8a6c62e0
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 32b60a53581a0f372a7d994cfa260ebd7bcb27b2
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352971"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467044"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL Database 데이터 검색 및 분류
 
@@ -140,10 +140,10 @@ T-SQL을 사용하여 열 분류를 추가/제거하고 전체 데이터베이�
 
 또한 REST API를 사용하여 프로그래밍 방식으로 분류를 관리할 수 있습니다. 게시된 REST API는 다음과 같은 작업을 지원합니다.
 
-- [만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_createorupdate) - 지정된 열의 민감도 레이블을 만들거나 업데이트합니다.
-- [삭제](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_delete) - 지정된 열의 민감도 레이블을 삭제합니다.
-- [가져오기](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_get) - 지정된 열의 민감도 레이블을 가져옵니다.
-- [데이터베이스별 목록](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_listbydatabase) - 지정된 데이터베이스의 민감도 레이블을 가져옵니다.
+- [만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) - 지정된 열의 민감도 레이블을 만들거나 업데이트합니다.
+- [삭제](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) - 지정된 열의 민감도 레이블을 삭제합니다.
+- [가져오기](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) - 지정된 열의 민감도 레이블을 가져옵니다.
+- [데이터베이스별 목록](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listbydatabase) - 지정된 데이터베이스의 민감도 레이블을 가져옵니다.
 
 ## <a id="subheading-5"></a>다음 단계
 

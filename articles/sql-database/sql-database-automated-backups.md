@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 5c6ebfcb7eae52915af24fc67e9b3c774656149d
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: e01f48ebee9ade35b44242eba3b03e6e0a4faf46
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181144"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802035"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>자동 SQL Database 백업에 대한 자세한 정보
 
@@ -59,7 +59,8 @@ DTU 기반 구매 모델을 사용하여 만든 데이터베이스의 기본 보
 * 표준 서비스 계층은 5주입니다.
 * 프리미엄 서비스 계층은 5주입니다.
 
-[vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 사용하는 경우 백업 보존은 최대 35일로 구성할 수 있습니다. 
+[vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 사용하는 경우 기본 백업 보존 기간은 7일입니다(논리 서버 및 관리되는 인스턴스에서 둘 다).
+논리 서버에서 [백업 보존 기간을 최대 35일로 변경](#how-to-change-backup-retention-period)할 수 있습니다. Managed Instance에서는 백업 보존 기간을 변경할 수 없습니다. 
 
 현재 PITR 보존 기간을 줄이면 새 보존 기간보다 오래된 기존의 모든 백업을 더 이상 사용할 수 없게 됩니다. 
 
@@ -74,7 +75,7 @@ PITR 백업은 지역 중복 백업이며 [Azure Storage 지역 간 복제](../s
 자세한 내용은 [지정 시간 복원](sql-database-recovery-using-backups.md#point-in-time-restore)을 참조하세요.
 
 ### <a name="backups-for-long-term-retention"></a>장기 보존에 대한 백업
-SQL Database는 Azure Blob 저장소에서 전체 백업의 LTR(장기 보존)을 최대 10년 동안 구성하는 옵션을 제공합니다. LTR 정책을 사용하면 매주 전체 백업이 다른 RA-GRS 저장소 컨테이너로 자동으로 복사됩니다. 서로 다른 준수 요구 사항을 충족하려면 주별, 월별 및/또는 연도별 백업에 대해 다른 보존 기간을 선택할 수 있습니다. 저장소 사용량은 선택한 백업 빈도 및 보존 기간에 따라 다릅니다. [LTR 가격 계산기](https://azure.microsoft.com/pricing/calculator/?service=sql-database)를 사용하여 LTR 저장소 비용을 추정할 수 있습니다. 
+논리 서버에서 호스트되는 SQL Database는 Azure Blob Storage에서 전체 백업의 LTR(장기 보존)을 최대 10년 동안 구성하는 옵션을 제공합니다. LTR 정책을 사용하면 매주 전체 백업이 다른 RA-GRS 저장소 컨테이너로 자동으로 복사됩니다. 서로 다른 준수 요구 사항을 충족하려면 주별, 월별 및/또는 연도별 백업에 대해 다른 보존 기간을 선택할 수 있습니다. 저장소 사용량은 선택한 백업 빈도 및 보존 기간에 따라 다릅니다. [LTR 가격 계산기](https://azure.microsoft.com/pricing/calculator/?service=sql-database)를 사용하여 LTR 저장소 비용을 추정할 수 있습니다. 
 
 PITR과 마찬가질 LTR 백업은 지역 중복 백업이며 [Azure Storage 지역 간 복제](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)로 보호됩니다.
 
@@ -95,6 +96,10 @@ Azure SQL Database 엔지니어링 팀은 지속적으로 서비스 전체에서
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="how-to-change-backup-retention-period"></a>백업 보존 기간을 변경하는 방법
+
+> [!Note]
+> Managed Instance에서는 기본 백업 보존 기간(7일)을 변경할 수 없습니다. 
+
 REST API 또는 PowerShell을 사용하여 기본 보존을 변경할 수 있습니다. 지원되는 값은 7일, 14일, 21일, 28일 또는 35일입니다. 다음 예제에서는 PITR 보존 기간을 28일로 변경하는 방법을 보여 줍니다. 
 
 > [!NOTE]

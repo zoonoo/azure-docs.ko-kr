@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 09/19/2018
+ms.date: 10/04/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 903074c78180ab2cd755abcf4207232f2851804e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c2dc0f2dea752dd44ab2805a0d6fc0e5517f5c6c
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47019696"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48831707"
 ---
 [Azure Files](../articles/storage/files/storage-files-introduction.md)는 [Azure AD(Azure Active Directory) Domain Services](../articles/active-directory-domain-services/active-directory-ds-overview.md)를 사용하여 SMB(서버 메시지 블록)를 통한 ID 기반 인증(미리 보기)을 지원합니다. 도메인 가입 Windows VM(가상 머신)은 [Azure AD](../articles/active-directory/fundamentals/active-directory-whatis.md) 자격 증명을 사용하여 Azure 파일 공유에 액세스할 수 있습니다. 
 
@@ -23,5 +23,7 @@ Azure Files는 미리 보기의 일부로서, 파일 공유의 모든 파일 및
 
 > [!NOTE]
 > SMB를 통한 Azure AD 인증은 미리 보기 릴리스의 Linux VM에서 지원되지 않습니다. Windows Server VM만 지원됩니다.
->
+
+> SMB를 통한 Azure AD 인증은 AD 또는 AAD 자격 증명을 사용하여 Azure Files에 액세스하는 온-프레미스 머신에 대해서는 지원되지 않습니다.
+
 > Azure AD 인증은 2018년 9월 24일 이후에 만든 저장소 계정에만 사용할 수 있습니다.

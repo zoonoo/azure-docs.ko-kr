@@ -1,22 +1,21 @@
 ---
-title: Bing Search SDK | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: 웹을 검색하는 응용 프로그램에 대한 Bing Search SDK입니다.
+title: Bing News Search SDK
+titleSuffix: Azure Cognitive Services
+description: 웹을 검색하는 응용 프로그램에 대한 Bing News Search SDK입니다.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
-ms.assetid: ''
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 1/24/2018
 ms.author: v-gedod
-ms.openlocfilehash: 4a40ea665e153536d2322706b455598902ce41eb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b1d9eaa35416adfa11647f2116171256f82fe095
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377919"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801236"
 ---
 # <a name="bing-search-sdk"></a>Bing Search SDK
 Bing News Search API 샘플에는 다음과 같은 시나리오가 포함됩니다.

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a629c598c94e44713f8990871c46272dc48b1359
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6280544a42d0d5012b01446ec8c3bc386ef861dd
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296280"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428422"
 ---
 # <a name="authentication-and-user-permissions"></a>인증 및 사용자 권한
 Azure Analysis Services는 ID 관리 및 사용자 인증에 Azure AD(Azure Active Directory)를 사용합니다. Azure Analysis Services 서버를 만들거나, 관리하거나, 이 서버에 연결하는 모든 사용자는 동일한 구독의 [Azure AD 테넌트](../active-directory/fundamentals/active-directory-administer.md)에 유효한 사용자 ID가 있어야 합니다.
@@ -27,7 +27,7 @@ Azure Analysis Services는 [Azure AD B2B 공동 작업](../active-directory/acti
 
 세 클라이언트 라이브러리는 Azure AD 대화형 흐름과 비대화형 인증 방법을 모두 지원합니다. Active Directory 암호 및 Active Directory 통합 인증 방법의 두 가지 비대화형 방법은 AMOMD 및 MSOLAP를 활용하는 응용 프로그램에서 사용할 수 있습니다. 이러한 두 가지 방법을 사용할 경우 팝업 대화 상자가 절대 표시되지 않습니다.
 
-Excel 및 Power BI Desktop 같은 클라이언트 응용 프로그램과 SSMS 및 SSDT 같은 도구는 최신 릴리스로 업데이트될 때 최신 버전의 라이브러리를 설치합니다. Power BI Desktop, SSMS 및 SSDT는 매월 업데이트됩니다. Excel은 [Office 365로 업데이트](https://support.office.com/en-us/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516)됩니다. Office 365 업데이트는 자주 수행되지 않으며 일부 조직에서는 지연 채널을 사용합니다. 즉, 업데이트가 최대 3개월까지 지연됩니다.
+Excel 및 Power BI Desktop 같은 클라이언트 응용 프로그램과 SSMS 및 SSDT 같은 도구는 최신 릴리스로 업데이트될 때 최신 버전의 라이브러리를 설치합니다. Power BI Desktop, SSMS 및 SSDT는 매월 업데이트됩니다. Excel은 [Office 365로 업데이트](https://support.office.com/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516)됩니다. Office 365 업데이트는 자주 수행되지 않으며 일부 조직에서는 지연 채널을 사용합니다. 즉, 업데이트가 최대 3개월까지 지연됩니다.
 
 사용하는 클라이언트 응용 프로그램이나 도구에 따라 인증 유형 및 로그인 방법이 달라질 수 있습니다. 각 응용 프로그램은 Azure Analysis Services와 같은 클라우드 서비스에 연결하는 다양한 기능을 지원할 수 있습니다.
 

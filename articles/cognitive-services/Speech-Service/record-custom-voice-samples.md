@@ -1,20 +1,21 @@
 ---
 title: 사용자 지정 음성을 만들기 위한 음성 샘플 녹음
-titleSuffix: Microsoft Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 강력한 스크립트를 준비하고, 적절한 성우를 고용하고, 전문적으로 녹음하여 프로덕션 수준 사용자 지정 음성을 만듭니다.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/5/2018
 ms.author: erhopf
-ms.openlocfilehash: 0051cc480a26ffc3668f922d1af9fc9cd7af1f49
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: b1b189db56eb3f70f23940a8612d310d2ba8566f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167174"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471189"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>사용자 지정 음성을 만들기 위한 음성 샘플 녹음
 

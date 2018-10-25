@@ -9,14 +9,14 @@ ms.reviewer: jmartens
 author: ph-com
 ms.author: pahusban
 ms.date: 09/24/2018
-ms.openlocfilehash: aef7bae7d2c511766bdbebbf1180e19263d7ccec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 20c75b55e9b02f30e90ad40ea11383b91ae0a247
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986305"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267316"
 ---
-# <a name="export-or-delete-your-workspace-data-in-machine-learning"></a>Machine Learning에서 작업 영역 데이터 내보내기 또는 삭제
+# <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Machine Learning 서비스 작업 영역 데이터 내보내기 또는 삭제 
 
 Azure Machine Learning에서는 인증된 REST API를 사용하여 작업 영역 데이터를 내보내거나 삭제할 수 있습니다. 이 문서에서는 이러한 작업을 수행하는 방법에 대해 설명합니다.
 

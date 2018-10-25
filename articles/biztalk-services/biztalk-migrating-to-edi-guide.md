@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.reviewer: jonfan, LADocs
 ms.suite: integration
-ms.openlocfilehash: 4ce65f1b5dd22da031ebf6730b5efad2d04f91a0
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 681cafc60661e16d70deb862da71f6baf80509fd
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365590"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856533"
 ---
 # <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>BizTalk Services에 BizTalk Server EDI 솔루션 마이그레이션: 기술 가이드
 
@@ -28,7 +28,7 @@ ms.locfileid: "39365590"
 Microsoft Azure BizTalk Services를 사용하여 작성 – 2014년 2월 릴리스.
 
 ## <a name="introduction"></a>소개
-EDI (전자 데이터 교환)은 기업간에 전자적으로 데이터를 교환하는 가장 널리 퍼진 방법 중 하나이며 기업간 또는 B2B 트랜잭션이라는 용어로도 사용됩니다. BizTalk Server는 BizTalk Sever가 처음 릴리스된 이래로 10년 넘게 EDI를 지원해왔습니다. BizTalk Services를 사용하여 Microsoft는 Microsoft Azure Platform에서 EDI 솔루션을 계속지원합니다. B2B 트랜잭션은 대부분 조직 외부에 대한 것이며, 따라서 클라우드 플랫폼에서 구현된 경우 보다 쉽게 구현할 수 있습니다. Microsoft Azure는 BizTalk Services를 통해 이 기능을 제공합니다.
+EDI (전자 데이터 교환)은 기업간에 전자적으로 데이터를 교환하는 가장 널리 퍼진 방법 중 하나이며 기업간 또는 B2B 트랜잭션이라는 용어로도 사용됩니다. BizTalk Server는 BizTalk Sever가 처음 릴리스된 이래로 10년 넘게 EDI를 지원해 왔습니다. BizTalk Services를 사용하여 Microsoft는 Microsoft Azure Platform에서 EDI 솔루션을 계속지원합니다. B2B 트랜잭션은 대부분 조직 외부에 대한 것이며, 따라서 클라우드 플랫폼에서 구현된 경우 보다 쉽게 구현할 수 있습니다. Microsoft Azure는 BizTalk Services를 통해 이 기능을 제공합니다.
 
 일부 고객은 BizTalk Services를 새로운 EDI 솔루션을 위한 "최적의" 플랫폼으로 보고 있지만, 많은 고객들은 최신 BizTalk Server EDI 솔루션을 사용하고 있으며 이 버전을 Azure로 마이그레이션하려고 할 수 있습니다. BizTalk Services EDI는 BizTalk Server EDI 아키텍처(거래 파트너, 엔터티, 규약)와 동일한 주요 엔터티에 기반을 둔 아키텍처로 설계되었으며, BizTalk Server EDI 아키텍처를 BizTalk Services로 마이그레이션할 수 있습니다.
 
@@ -55,11 +55,11 @@ BizTalk Server 및 BizTalk Services의 EDI 솔루션 흐름 차이점과 유사�
   
     BizTalk Services에서는 EDI 수신 브리지가 EDI 메시지를 처리한 후, 외부 프로세스에 메시지를 라우팅합니다. 외부 프로세스는 Microsoft Azure 또는 온-프레미스에서 실행 중일 수 있습니다. 외부 프로세스는 EDI 송신 브리지에 메시지를 라우팅해야 합니다. 송신 브리지는 메시지를 기본적으로 끌어오지 않습니다. 메시지를 처리 한 후 EDI 송신 브리지는 거래 파트너에게 메시지를 라우팅합니다.
 
-BizTalk Services는 Microsoft Azure Compute 인스턴스(웹 또는 작업자 역할), Microsoft Azure SQL Database 또는 Microsoft Azure 저장소 계정을 구성하지 않고 거래 파트너 간에 B2B 규약을 신속하게 만들고 배포하는 사용이 쉬운 구성 환경을 제공합니다. 거래 파트너 규약의 "가장자리”, 즉 거래 파트너 규약 EDI 브리지 처리 이전 또는 이후의 워크플로 또는 기타 서비스 처리를 시도하는 경우 보다 복잡한 시나리오가 필요합니다. 세부적으로 BizTalk Services에서 EDI 메시지를 처리 하는 동안 다음과 같은 이벤트의 시퀀스가 발생합니다.
+BizTalk Services는 Microsoft Azure Compute 인스턴스(웹 또는 작업자 역할), Microsoft Azure SQL 데이터베이스 또는 Microsoft Azure Storage 계정을 구성하지 않고 거래 파트너 간에 B2B 규약을 신속하게 만들고 배포하는 사용이 쉬운 구성 환경을 제공합니다. 거래 파트너 규약의 "가장자리”, 즉 거래 파트너 규약 EDI 브리지 처리 이전 또는 이후의 워크플로 또는 기타 서비스 처리를 시도하는 경우 보다 복잡한 시나리오가 필요합니다. 세부적으로 BizTalk Services에서 EDI 메시지를 처리 하는 동안 다음과 같은 이벤트의 시퀀스가 발생합니다.
 
 1. EDI 메시지가 거래 파트너인 Fabrikam에서 수신됩니다.  거래 파트너로부터 EDI 메시지를 수신하는 경우 BizTalk Services는 FTP, SFTP, AS2 및 HTTP/S.와 같은 전송 프로토콜 지원합니다.
-2. 거래 파트너 규약 수신측 처리는 EDI 메시지를 XML 형식으로 역어셈블합니다.  역어셈블된 EDI 메시지 (XML 형식)을 Service Bus Relay 끝점, Service Bus 토픽, Service Bus 큐 또는 BizTalk Services 브리지와 같은 Service Bus 끝점으로 라우팅할 수 있습니다.
-3. 그런 다음 역어셈블된 XML 메시지는 추가 사용자 지정 처리를 위해 끝점에서 수신 할 수 있습니다.  이러한 끝점은 예를 들어 Windows WF (Workflow) 또는 Windows Communication Foundation (WCF) 서비스에서 해당 메시지를 추가 처리하기 위해 온-프레미스 구성 요소별 또는 Microsoft Azure Compute 인스턴스로 처리할 수 있습니다.
+2. 거래 파트너 규약 수신측 처리는 EDI 메시지를 XML 형식으로 역어셈블합니다.  역어셈블된 EDI 메시지 (XML 형식)을 Service Bus Relay 엔드포인트, Service Bus 토픽, Service Bus 큐 또는 BizTalk Services 브리지와 같은 Service Bus 엔드포인트로 라우팅할 수 있습니다.
+3. 그런 다음 역어셈블된 XML 메시지는 추가 사용자 지정 처리를 위해 엔드포인트에서 수신 할 수 있습니다.  이러한 엔드포인트는 예를 들어 Windows WF (Workflow) 또는 Windows Communication Foundation (WCF) 서비스에서 해당 메시지를 추가 처리하기 위해 온-프레미스 구성 요소별 또는 Microsoft Azure Compute 인스턴스로 처리할 수 있습니다.
 4. 이 때 거래 파트너 규약의 "송신측 처리"는 XML 메시지를 EDI 형식으로 어셈블하고 계약 거래 파트너인 Contoso로 보냅니다.  거래 파트너에 EDI 메시지를 전송하는 경우  BizTalk Services는 EDI 메시지를 수신하기 위해 사용되는 동일한 프로토콜을 지원합니다.
 
 이 문서는 BizTalk Services에 다른 BizTalk Server EDI 아티팩트 중 일부를 마이그레이션하는 데 대한 개념적 지침을 제공합니다.
@@ -70,7 +70,7 @@ BizTalk Server에서 사용자는 거래 파트너에서 EDI/XML 메시지를 �
 ## <a name="pipelines-bridges"></a>파이프라인 (브리지)
 BizTalk Server EDI에서 파이프라인은 응용 프로그램에서 필요에 따라 특정 처리 능력에 대한 사용자 지정 논리를 포함할 수 있는 메시지 처리 엔터티입니다. BizTalk Services의 경우, 해당하는 서비스는 EDI 브리지일 것입니다. 그러나 지금은 BizTalk Services에서 EDI 브리지는 "닫혀" 있습니다.  즉, 사용자 고유의 사용자 지정 활동을 EDI 브리지에 추가할 수 없습니다. 모든 사용자 지정 처리는 메시지를 거래 파트너 규약의 일부로 구성된 브리지에 입력하기 이전 또는 이후에 응용 프로그램에서 EDI 브리지 외부로 수행해야 합니다. EAI 브리지에는 사용자 지정 처리를 수행하는 옵션이 제공 됩니다. 사용자 지정 처리를 원하는 경우, 메시지를 EAI 브리지로 처리하기 이전 또는 이후에 EAI 브리지를 사용할 수 있습니다. 자세한 내용은 [브리지에 사용자 지정 코드를 포함하는 방법](https://msdn.microsoft.com/library/azure/dn232389.aspx)을 참조하세요.
 
-사용자 지정 코드 및/또는 거래 업체 규약이 메시지를 수신하기 전 또는 규약이 메시지를 처리하고 Service Bus 끝점으로 라우팅 후 메시징 큐 및 항목 Service Bus를 사용하여 게시/구독 흐름을 삽입할 수 있습니다.
+사용자 지정 코드 및/또는 거래 업체 규약이 메시지를 수신하기 전 또는 규약이 메시지를 처리하고 Service Bus 엔드포인트로 라우팅 후 메시징 큐 및 항목 Service Bus를 사용하여 게시/구독 흐름을 삽입할 수 있습니다.
 
 메시지 흐름 패턴에 대해서는 이 문서의 **시나리오/메시지 흐름**을 참조하세요.
 
@@ -112,7 +112,7 @@ BizTalk Services를 사용하는 동안 확인 해야 하는 몇가지 고려 �
 BizTalk Server EDI 처리에는 "대체 계약"의 개념이 있습니다.  BizTalk Services에는 지금까지 대체 규약 개념이 **없습니다** .  BizTalk Server에서 대체 계약을 사용하는 방법에 대한 자세한 내용은 BizTalk 설명서 항목인 [EDI 처리에서 계약의 역할](http://go.microsoft.com/fwlink/p/?LinkId=237317) 및 [전역 구성 또는 대체 규약 속성](https://msdn.microsoft.com/library/bb245981.aspx)을 참조하세요.
 
 ### <a name="routing-to-multiple-destinations"></a>여러 대상으로 라우팅
-현재 상태에서 BizTalk Services 브리지는 게시-구동 모델을 사용하여 여러 대상에 메시지 라우팅을 지원하지 않습니다. 대신 BizTalk Services 브리지에서 둘 이상의 끝점에서 메시지를 수신하는 여러 구독을 가질 수 있는 Service Bus 토픽에 메시지를 라우팅할 수 있습니다.
+현재 상태에서 BizTalk Services 브리지는 게시-구동 모델을 사용하여 여러 대상에 메시지 라우팅을 지원하지 않습니다. 대신 BizTalk Services 브리지에서 둘 이상의 엔드포인트에서 메시지를 수신하는 여러 구독을 가질 수 있는 Service Bus 토픽에 메시지를 라우팅할 수 있습니다.
 
 ## <a name="see-also"></a>참고 항목
 [Azure의 LOB 솔루션](https://azure.microsoft.com/solutions/lob-applications)

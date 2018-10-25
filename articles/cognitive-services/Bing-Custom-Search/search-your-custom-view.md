@@ -1,20 +1,21 @@
 ---
-title: 'Bing Custom Search: 사용자 지정 뷰 검색 | Microsoft Docs'
-description: 웹의 사용자 지정 뷰를 검색하는 방법을 설명합니다.
+title: 사용자 지정 보기 검색 - Bing Custom Search
+titlesuffix: Azure Cognitive Services
+description: 웹의 사용자 지정 보기 검색 방법을 설명합니다.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: v-brapel
-ms.openlocfilehash: 7a2db7881dfe7efedb1a83637a6281f786652958
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: maheshb
+ms.openlocfilehash: 15c5b3c58c4f3617111707ed82d031b67b6ad4c1
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964905"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465138"
 ---
 # <a name="call-your-custom-search"></a>사용자 지정 검색 호출
 

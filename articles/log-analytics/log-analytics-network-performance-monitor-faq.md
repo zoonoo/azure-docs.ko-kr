@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 008eac235cd6b75c4c1d95b64e91923dad5a5106
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 2821f3fa07d8d9ada02da212084639c93e469d0b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49355368"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408883"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>네트워크 성능 모니터 솔루션 FAQ
 
@@ -61,7 +61,7 @@ Windows 데스크톱/클라이언트 운영 체제 기반 노드의 경우 ICMP�
 ### <a name="how-can-i-configure-a-node-to-support-monitoring-using-tcp-protocol"></a>TCP 프로토콜을 사용하여 모니터링을 지원하려면 노드를 어떻게 구성할 수 있나요?
 노드가 TCP 프로토콜을 사용하여 모니터링을 지원하려면: 
 * 노드 플랫폼이 Windows 서버(2008 SP1 이상)인지 확인합니다.
-* 노드에서 [EnableRules.ps1](https://aka.ms/npmpowershellscript) Powershell 스크립트를 실행합니다. 자세한 내용은 [지침](log-analytics-network-performance-monitor.md#configure-operations-management-suite-agents-for-monitoring)을 참조하세요.
+* 노드에서 [EnableRules.ps1](https://aka.ms/npmpowershellscript) Powershell 스크립트를 실행합니다. 자세한 내용은 [지침](log-analytics-network-performance-monitor.md#configure-log-analytics-agents-for-monitoring)을 참조하세요.
 
 
 ### <a name="how-can-i-change-the-tcp-port-being-used-by-npm-for-monitoring"></a>NPM에서 모니터링을 위해 사용 중인 TCP 포트를 어떻게 변경할 수 있나요?

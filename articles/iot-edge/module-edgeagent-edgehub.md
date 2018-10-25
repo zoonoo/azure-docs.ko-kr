@@ -8,12 +8,12 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5e358992661f7bcf06121a07c1bafca0850316b2
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 259d61125828ee487b74daa525f3635cfa592ce7
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423140"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017707"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Edge 에이전트 및 Edge 허브 모듈 트윈스의 속성
 
@@ -46,6 +46,7 @@ Edge 에이전트에 대한 모듈 쌍은 `$edgeAgent`라고 하며, 장치에�
 | systemModules.edgeHub.configuration.id | 이 모듈을 배포한 배포의 ID입니다. | 이 매니페스트가 배포를 사용하여 적용될 때 IoT Hub에서 이 속성을 설정합니다. 배포 매니페스트의 일부가 아닙니다. |
 | modules.{moduleId}.version | 이 모듈의 버전을 나타내는 사용자 정의 문자열입니다. | yes |
 | modules.{moduleId}.type | "docker"여야 합니다. | yes |
+| modules.{moduleId}.status | {“running” \| “stopped”} | yes |
 | modules.{moduleId}.restartPolicy | {“never” \| “on-failed” \| “on-unhealthy” \| “always”} | yes |
 | modules.{moduleId}.settings.image | 모듈 이미지에 대한 URI입니다. | yes |
 | modules.{moduleId}.settings.createOptions | 모듈 컨테이너에 대한 만들기 옵션을 포함하는 문자열 형식 JSON입니다. [Docker 만들기 옵션][lnk-docker-create-options] | 아니요 |

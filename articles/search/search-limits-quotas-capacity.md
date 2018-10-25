@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: heidist
-ms.openlocfilehash: c24cccde507873424e3c51d584f5cd094df2b876
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8abcc90bf72544e6226d6c8487d2951b60ea6d29
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641172"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802155"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure Search의 서비스 제한 사항
 저장소, 워크로드 및 인덱스, 문서, 기타 개체의 수량에 대한 최대 제한은 Azure Search를 **무료**, **기본** 또는 **표준** 가격 책정 계층 중 [어디에 프로비전하는지](search-create-service-portal.md)에 따라 달라집니다.
@@ -55,15 +55,15 @@ ms.locfileid: "34641172"
 
 ## <a name="document-limits"></a>문서 제한 
 
-대부분의 지역에서 Azure Search 가격 책정 계층(기본, S1, S2, S3, S3 HD)은 2017년 11월/12월 이후에 만든 모든 서비스에 대해 무제한의 문서 수를 갖습니다. 이 섹션에서는 제한이 적용되는 지역 및 서비스가 영향을 받는 있는지 여부를 확인하는 방법을 알아봅니다. 
+2018년 10월을 기준으로 모든 지역의 모든 청구 가능 계층(기본, S1, S2, S3, S3 HD)에서 생성된 모든 새 서비스에 대한 문서 제한이 더 이상 적용되지 않습니다. 2017년 11월/12월 이래로 대부분의 지역에서는 문서 수 제한이 없어졌지만 아직 5개 지역에서는 문서 제한을 적용하고 있습니다. 검색 서비스를 만든 시기 및 위치에 따라, 여전히 문서 제한이 적용되는 서비스를 실행하고 있을 수 있습니다.
 
 서비스에 문서 제한이 있는지 여부를 확인하려면 서비스의 개요 페이지에서 사용량 타일을 확인합니다. 문서 개수에는 제한이 없거나 계층에 따라 제한을 받습니다.
 
   ![사용량 타일](media/search-limits-quotas-capacity/portal-usage-tile.png)
 
-### <a name="regions-and-services-having-document-limits"></a>문서 제한이 있는 영역 및 서비스
+### <a name="regions-previously-having-document-limits"></a>이전에 문서 제한이 있던 지역
 
-제한이 있는 서비스는 2017년 후반 이전에 생성되었거나 Azure Search 서비스 호스팅을 위해 용량이 적은 클러스터를 사용하여 데이터 센터에서 실행되고 있습니다. 영향을 받는 데이터 센터는 다음 지역에 있습니다.
+포털에서 문서 제한이 지정하는 경우 2017년 후반 이전에 서비스가 만들어졌거나, Azure Search 서비스를 호스트하는 데 저용량 클러스터를 사용하는 데이터 센터에서 만들어진 것입니다.
 
 + 오스트레일리아 동부
 + 동아시아
@@ -76,6 +76,8 @@ ms.locfileid: "34641172"
 |  무료 | Basic | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
 |  10000 |1백만 |파티션당 1천 5백만, 서비스당 1억 8천만 |파티션당 6천만, 서비스당 7억 2천만 |파티션당 1억 2천만, 서비스당 14억 |인덱스당 1백만, 파티션당 2억만 |
+
+서비스의 제한 때문에 작업이 차단되는 경우 새 서비스를 만들고 해당 서비스에 모든 콘텐츠를 다시 게시합니다. 백그라운드 작업을 통해 새 하드웨어에 서비스를 원활하게 다시 프로비전할 수 있는 메커니즘은 없습니다.
 
 > [!Note] 
 > 2017년 후반 이후에 생성된 S3 고밀도 서비스의 경우 파티션당 2억 개의 문서가 제거되었지만 인덱스당 백만 개의 문서 한도가 남아 있습니다.

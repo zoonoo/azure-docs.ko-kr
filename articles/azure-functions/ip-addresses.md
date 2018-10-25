@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: glenga
-ms.openlocfilehash: 0fcda59add346d60f37273625fbbcf41faab0e15
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 0ed488cd717bc1548b26dcf8ff5f200a62710132
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091206"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584891"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Azure Functions의 IP 주소
 
@@ -58,21 +58,31 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 
 ## <a name="data-center-outbound-ip-addresses"></a>데이터 센터 아웃바운드 IP 주소
 
-함수 앱에서 사용하는 아웃바운드 IP 주소를 허용 목록에 추가해야 하는 경우, 함수 앱의 데이터 센터(Azure 지역)를 허용 목록에 추가할 수 있습니다. [모든 Azure 데이터 센터의 IP 주소를 나열하는 XML 파일을 다운로드](https://www.microsoft.com/en-us/download/details.aspx?id=41653)할 수 있습니다. 그런 다음, 함수 앱이 실행되는 지역에 적용되는 XML 요소를 찾습니다.
+함수 앱에서 사용하는 아웃바운드 IP 주소를 허용 목록에 추가해야 하는 경우, 함수 앱의 데이터 센터(Azure 지역)를 허용 목록에 추가할 수 있습니다. [모든 Azure 데이터 센터의 IP 주소를 나열하는 JSON 파일을 다운로드](https://www.microsoft.com/en-us/download/details.aspx?id=56519)할 수 있습니다. 그런 다음, 함수 앱이 실행되는 지역에 적용되는 JSON 조각을 찾습니다.
 
-예를 들어 유럽 서부 XML 요소는 다음과 같습니다.
+예를 들어, 유럽 서부 JSON 조각은 다음과 같습니다.
 
 ```
-  <Region Name="europewest">
-    <IpRange Subnet="13.69.0.0/17" />
-    <IpRange Subnet="13.73.128.0/18" />
-    <!-- Some IP addresses not shown here -->
-    <IpRange Subnet="213.199.180.192/27" />
-    <IpRange Subnet="213.199.183.0/24" />
-  </Region>
+{
+  "name": "AzureCloud.westeurope",
+  "id": "AzureCloud.westeurope",
+  "properties": {
+    "changeNumber": 9,
+    "region": "westeurope",
+    "platform": "Azure",
+    "systemService": "",
+    "addressPrefixes": [
+      "13.69.0.0/17",
+      "13.73.128.0/18",
+      ... Some IP addresses not shown here
+     "213.199.180.192/27",
+     "213.199.183.0/24"
+    ]
+  }
+}
 ```
 
- 이 파일이 업데이트되는 시기와 IP 주소가 변경되는 시기에 대한 내용은 [다운로드 센터 페이지](https://www.microsoft.com/en-us/download/details.aspx?id=41653)의 **세부 정보** 섹션을 펼쳐보세요.
+ 이 파일이 업데이트되는 시기와 IP 주소가 변경되는 시기에 대한 내용은 [다운로드 센터 페이지](https://www.microsoft.com/en-us/download/details.aspx?id=56519)의 **세부 정보** 섹션을 펼쳐보세요.
 
 ## <a name="inbound-ip-address-changes"></a>인바운드 IP 주소 변경
 

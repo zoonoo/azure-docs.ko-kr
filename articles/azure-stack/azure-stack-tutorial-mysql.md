@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: ea3e6c2e616f2618200c1e3904786abd72bbd75d
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 84aaa5534c629554074544b4bb56ae8da8825397
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376808"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986458"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>자습서: 항상 사용 가능한 MySQL 데이터베이스를 제공 합니다.
 
@@ -65,16 +65,15 @@ Azure Stack marketplace에 항목을 추가 하는 방법에 대 한 자세한 �
 - (기본 MySQL 클러스터 VM)에 대 한 공용 IP 주소
 - MySQL 클러스터를 호스트 하는 3 개의 Linux Vm
 
-1. 관리 포털에 로그인 합니다.
-    - 통합된 시스템 배포의 경우 솔루션의 지역 및 외부 도메인 이름에 포털 주소 따라 달라 집니다. 형식의 됩니다 https://adminportal.&lt; *지역*&gt;.&lt; *FQDN*&gt;합니다.
-    - Azure Stack 개발 키트 (ASDK)를 사용 하는 경우 포털 주소가 [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external)합니다.
+1. 
+[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. 선택 **\+** **리소스 만들기** > **계산**를 차례로 **복제를 사용 하 여 MySQL**합니다.
 
-   ![사용자 지정 템플릿 배포](media/azure-stack-tutorial-mysqlrp/createcluster1.png)
+   ![사용자 지정 템플릿 배포](media/azure-stack-tutorial-mysqlrp/1.png)
 
 3. 에 기본 배포 정보를 제공 합니다 **기본 사항** 페이지입니다. 및 기본값을 검토 하 고, 필요에 따라 변경 하 고, 클릭 **확인**합니다.<br><br>최소한 다음을 제공 합니다.
-   - 배포 이름 (기본값인 mysql)
+   - 배포 이름 (기본값인 mymysql)
    - 응용 프로그램 루트 암호입니다. 사용 하 여 12 자의 영숫자 암호를 제공 **특수 문자가**
    - 응용 프로그램 데이터베이스 이름 (기본값인 bitnami)
    - MySQL 데이터베이스 복제본 만들려는 Vm의 수 (기본값은 2)
@@ -82,22 +81,22 @@ Azure Stack marketplace에 항목을 추가 하는 방법에 대 한 자세한 �
    - 사용 하거나 새로 만들 리소스 그룹 선택
    - 위치 선택 (기본값: ASDK에 대 한 로컬)
 
-   ![배포 기본 사항](media/azure-stack-tutorial-mysqlrp/createcluster2.png)
+   [![](media/azure-stack-tutorial-mysqlrp/2-sm.PNG "배포 기본 사항")](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
 
 4. 에 **환경의 구성을** 페이지에서 다음 정보를 제공 하 고 클릭 **확인**: 
    - SSH (보안 셸) 인증에 사용할 암호 또는 SSH 공개 키입니다. 문자, 숫자 있어야 암호를 사용 하는 경우 및 **수** 특수 문자를 포함 합니다.
    - VM 크기 (기본값인 표준 D1 v2 Vm)
    - 데이터 디스크 크기 GB 클릭에서 **확인**
 
-   ![환경 구성](media/azure-stack-tutorial-mysqlrp/createcluster3.png)
+   [![](media/azure-stack-tutorial-mysqlrp/3-sm.PNG "환경 구성")](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
 
 5. 배포 상태를 검토할 **요약**합니다. 사용자 지정된 템플릿 및 매개 변수를 다운로드 하 고 클릭 수 필요에 따라 **확인**합니다.
 
-   ![요약](media/azure-stack-tutorial-mysqlrp/createcluster4.png)
+   [![](media/azure-stack-tutorial-mysqlrp/4-sm.PNG "요약")](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
 
 6. 클릭 **Create** 에 **구입** 페이지 배포를 시작 합니다.
 
-   ![구입](media/azure-stack-tutorial-mysqlrp/createcluster4.png)
+   ![구입](media/azure-stack-tutorial-mysqlrp/5.png)
 
     > [!NOTE]
     > 배포 시간 정도 소요 됩니다. 배포가 완료 된 MySQL 클러스터를 계속 하기 전에 완전히 구성 되었는지 확인 하십시오. 
@@ -110,11 +109,11 @@ Azure Stack marketplace에 항목을 추가 하는 방법에 대 한 자세한 �
 
 1. 관리자 포털에서 MySQL 클러스터를 배포할 때 만든 리소스 그룹으로 이동 하 고 네트워크 보안 그룹을 선택 (**sg-서브넷-기본**):
 
-   ![open](media/azure-stack-tutorial-mysqlrp/nsg1.png)
+   ![open](media/azure-stack-tutorial-mysqlrp/6.png)
 
 2. 선택 **인바운드 보안 규칙** 을 클릭 한 다음 **추가**합니다.<br><br>입력 **3306** 에 **대상 포트 범위** 에 설명을 선택적으로 제공 합니다 **이름** 및 **설명** 필드. 인바운드 보안 규칙 대화 상자를 닫고 추가 클릭 합니다.
 
-   ![open](media/azure-stack-tutorial-mysqlrp/nsg2.png)
+   ![open](media/azure-stack-tutorial-mysqlrp/7.png)
 
 ### <a name="configure-external-access-to-the-mysql-cluster"></a>MySQL 클러스터에 대 한 외부 액세스 구성
 MySQL 클러스터는 Azure Stack MySQL Server 호스트로 추가할 수 있습니다, 전에 외부 액세스를 사용할 수 있어야 합니다.
@@ -167,9 +166,8 @@ MySQL Server 데이터베이스 기능을 포함 하 여 구독을 사용 하 �
 > [!NOTE]
 > MySQL 서버 (Microsoft.MySQLAdapter 서비스) 기능을 제공 하는 구독을 사용 하 여 테 넌 트 사용자로 Azure Stack 사용자 포털에서 이러한 단계를 실행 합니다.
 
-1. 사용자 포털에 로그인 합니다.
-    - 통합된 시스템 배포의 경우 솔루션의 지역 및 외부 도메인 이름에 포털 주소 따라 달라 집니다. 형식의 됩니다 https://portal.&lt; *지역*&gt;.&lt; *FQDN*&gt;합니다.
-    - Azure Stack 개발 키트 (ASDK)를 사용 하는 경우 사용자 포털 주소가 [ https://portal.local.azurestack.external ](https://portal.local.azurestack.external)합니다.
+1. 
+[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. 선택 **\+** **리소스 만들기** > **Data \+ Storage**를 차례로 **MySQL 데이터베이스** .<br><br>이름, 데이터 정렬를 사용 하려면 구독 및 배포에 사용할 위치를 포함 하 여 필요한 데이터베이스 속성 정보를 제공 합니다. 
 

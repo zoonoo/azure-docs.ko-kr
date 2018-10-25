@@ -1,20 +1,21 @@
 ---
-title: Academic Knowledge API의 Interpret 메서드 | Microsoft Docs
+title: Interpret 메서드 - Academic Knowledge API
+titlesuffix: Azure Cognitive Services
 description: Interpret 메서드를 사용하여 Microsoft Cognitive Services의 Academic Graph 데이터 및 Academic Grammar를 기반으로 형식이 지정된 사용자 쿼리 문자열 해석을 반환합니다.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: a46c792f14fabf6562666d1067ef880bd505741f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e16a772caa5fba632f8544094e2d8b57ed4ca765
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372830"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902572"
 ---
 # <a name="interpret-method"></a>Interpret 메서드
 
@@ -28,18 +29,18 @@ ms.locfileid: "35372830"
 
 ## <a name="request-parameters"></a>요청 매개 변수
 
-Name     | 값 | Required?  | 설명
+이름     | 값 | Required?  | 설명
 ---------|---------|---------|---------
-**query**    | 텍스트 문자열 | 예 | 사용자가 입력한 쿼리입니다.  complete를 1로 설정하면 쿼리는 쿼리 자동 완성 제안을 생성하기 위한 접두사로 해석됩니다.        
-**model**    | 텍스트 문자열 | 아니오  | 쿼리할 모델의 이름입니다.  현재 기본값은 *최신*입니다.        
-**complete** | 0 또는 1 | 아니오<br>기본값: 0  | 1은 문법 및 그래프 데이터를 기반으로 자동 완성 제안이 생성된다는 의미입니다.         
-**count**    | Number | 아니오<br>기본값:10 | 반환할 최대 해석 수.         
-**offset**   | Number | 아니오<br>기본값: 0  | 반환할 첫 번째 해석의 인덱스입니다. 예를 들어 *count=2&offset=0*은 해석 0 및 1을 반환합니다. *count=2&offset=2*는 해석 2 및 3을 반환합니다.       
-**timeout**  | Number | 아니오<br>기본값: 1000 | 시간 제한(밀리초)입니다. 시간 제한이 경과되기 전에 찾은 해석만 반환됩니다.
+**query**    | 텍스트 문자열 | yes | 사용자가 입력한 쿼리입니다.  complete를 1로 설정하면 쿼리는 쿼리 추천 자동 완성을 생성하기 위한 접두사로 해석됩니다.        
+**model**    | 텍스트 문자열 | 아니요  | 쿼리할 모델의 이름입니다.  현재 기본값은 *최신*입니다.        
+**complete** | 0 또는 1 | 아니요<br>기본값: 0  | 1은 문법 및 그래프 데이터를 기반으로 자동 완성 제안이 생성된다는 의미입니다.         
+**count**    | Number | 아니요<br>기본값:10 | 반환할 최대 해석 수.         
+**offset**   | Number | 아니요<br>기본값: 0  | 반환할 첫 번째 해석의 인덱스입니다. 예를 들어 *count=2&offset=0*은 해석 0 및 1을 반환합니다. *count=2&offset=2*는 해석 2 및 3을 반환합니다.       
+**timeout**  | Number | 아니요<br>기본값: 1000 | 시간 제한(밀리초)입니다. 시간 제한이 경과되기 전에 찾은 해석만 반환됩니다.
 <br>
   
 ## <a name="response-json"></a>응답(JSON)
-Name     | 설명
+이름     | 설명
 ---------|---------
 **query** |요청의 *query* 매개 변수입니다.
 **interpretations** |문법에 따라 사용자 입력을 일치시키는 0개 이상의 서로 다른 방법 배열입니다.
@@ -50,10 +51,10 @@ Name     | 설명
 **interpretations[x].rules[y].output**  |규칙의 출력입니다.
 **interpretations[x].rules[y].output.type** |규칙의 출력 데이터 형식입니다.  Academic Knowledge API의 경우 항상 "쿼리"가 있습니다.
 **interpretations[x].rules[y].output.value**  |규칙의 출력입니다. Academic Knowledge API의 경우 이것은 evaluate 및 calchistogram 메서드에 전달할 수 있는 쿼리 식 문자열입니다.
-**aborted** | 요청 시간이 초과되면 True입니다.
+**aborted** | 요청 시간이 초과되면 true입니다.
 
 <br>
-#### <a name="example"></a>예:
+#### <a name="example"></a>예제:
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/interpret?query=papers by jaime&complete=1&count=2
  ```

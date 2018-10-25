@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 10/22/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 6548693b91283665704be8fc83a483a9d20dc41b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 8a33d4edb4107b936c36a744bb082c02b7830868
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470549"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024446"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 데이터 센터 통합-Identity
 Id 공급자로 Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)를 사용 하 여 Azure Stack을 배포할 수 있습니다. Azure Stack을 배포 하기 전에 선택을 해야 합니다. AD FS를 사용 하 여 배포를 오프 라인된 모드에서 Azure Stack 배포는 라고도 합니다.
@@ -53,7 +53,6 @@ AD FS를 사용 하 여 배포 id를 기존 Active Directory 포리스트를 Azu
 
 Requirements:
 
-
 |구성 요소|요구 사항|
 |---------|---------|
 |그래프|Microsoft Active Directory 2012/2012 R2/2016|
@@ -64,7 +63,6 @@ Requirements:
 그래프는 단일 Active Directory 포리스트를 사용 하 여 통합만 지원합니다. 여러 포리스트가 있는 경우 사용자 및 그룹을 가져올 구성에 지정 된 포리스트만 사용 됩니다.
 
 다음 정보는 automation 매개 변수에 대 한 입력으로 필요 합니다.
-
 
 |매개 변수|설명|예|
 |---------|---------|---------|
@@ -96,14 +94,14 @@ Active Directory 사이트에 대 한 자세한 내용은 참조 하세요 [사�
 
 이 절차에서는 Azure Stack에서 권한 있는 끝점과 통신할 수 있는 데이터 센터 네트워크에서 컴퓨터를 사용 합니다.
 
-2. 관리자 권한 Windows PowerShell 세션 (관리자 권한으로 실행)를 열고 권한 있는 끝점의 IP 주소에 연결 합니다. 에 대 한 자격 증명을 사용 하 여 **CloudAdmin** 인증할 수 있습니다.
+1. 관리자 권한 Windows PowerShell 세션 (관리자 권한으로 실행)를 열고 권한 있는 끝점의 IP 주소에 연결 합니다. 에 대 한 자격 증명을 사용 하 여 **CloudAdmin** 인증할 수 있습니다.
 
    ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-3. 권한 있는 끝점에 연결 했으므로 다음 명령을 실행 합니다. 
+2. 권한 있는 끝점에 연결 했으므로 다음 명령을 실행 합니다. 
 
    ```PowerShell  
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
@@ -210,6 +208,9 @@ Azure Stack에서 그래프 서비스 대상 Active Directory와 통신 하는 �
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
+   > [!Note]  
+   > 기존 AD FS (계정 STS)에서 인증서를 회전할 때 AD FS 통합을 다시 설정 해야 합니다. 메타 데이터 끝점에 연결할 수 있거나 메타 데이터 파일을 제공 하 여 구성 된 경우에 통합 설정 해야 합니다.
+
 ## <a name="configure-relying-party-on-existing-ad-fs-deployment-account-sts"></a>기존 AD FS 배포 (계정 STS)에서 신뢰 당사자 구성
 
 Microsoft는 클레임 변환 규칙을 포함 하 여 신뢰 당사자 트러스트를 구성 하는 스크립트를 제공 합니다. 명령을 수동으로 실행 하는 대로 스크립트를 사용 하는 것은 선택 사항입니다.
@@ -274,7 +275,7 @@ Microsoft는 클레임 변환 규칙을 포함 하 여 신뢰 당사자 트러�
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -TokenLifeTime 1440
    ```
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > Windows Server 2012 또는 2012 R2 AD FS를 사용 하는 경우 발급 권한 부여 규칙을 구성 하려면 AD FS MMC 스냅인을 사용 해야 합니다.
 
 4. Internet Explorer 또는 Microsoft Edge 브라우저를 사용 하 여 Azure 스택 액세스할 때 토큰 바인딩을 무시 해야 합니다. 그렇지 않은 경우 로그인 시도 실패합니다. AD FS 인스턴스 또는 팜 구성원에서 다음 명령을 실행 합니다.

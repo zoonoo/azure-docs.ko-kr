@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f03e124aab27292ee86fcd8c28ecebb0ba9cbdcf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8f5dba7ba1c21e33f23cf8917c93e478eadf5f88
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999514"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269533"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>관리 솔루션(미리 보기)에 Log Analytics에서 저장한 검색 및 경고 추가
 
@@ -84,7 +84,7 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 | 쿼리 | 실행할 쿼리입니다. |
 
 > [!NOTE]
-> JSON으로 해석될 수 있는 문자를 포함하고 있는 경우 쿼리에 이스케이프 문자를 사용해야 합니다.  예를 들어 쿼리가 **Type: AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write"** 이면 솔루션 파일에 **Type: AzureActivity OperationName:\"Microsoft.Compute/virtualMachines/write\"** 라고 써야 합니다.
+> JSON으로 해석될 수 있는 문자를 포함하고 있는 경우 쿼리에 이스케이프 문자를 사용해야 합니다.  예를 들어, 쿼리가 **AzureActivity | OperationName:“Microsoft.Compute/virtualMachines/write”** 이면 솔루션 파일에 **AzureActivity | OperationName:/\"Microsoft.Compute/virtualMachines/write\"** 라고 써야 합니다.
 
 ## <a name="alerts"></a>경고
 [Azure 로그 경고](../monitoring-and-diagnostics/monitor-alerts-unified-log.md)는 일정한 간격으로 지정된 로그 쿼리를 실행하는 Azure Alerts에 의해 생성됩니다.  쿼리 결과가 지정된 기준과 일치하면 경고 레코드가 생성되고 하나 이상의 작업이 [작업 그룹](../monitoring-and-diagnostics/monitoring-action-groups.md)을 사용하여 실행됩니다.  

@@ -128,8 +128,6 @@ items:
       href: azure-stack-region-management.md
     - name: 관리자 포털 사용
       href: azure-stack-manage-portals.md
-    - name: Azure Stack에 연결
-      href: azure-stack-connect-azure-stack.md
     - name: Azure에 연결
       items:
       - name: VPN을 사용하여 연결
@@ -348,7 +346,7 @@ items:
       href: azure-stack-backup-back-up-azure-stack.md
     - name: Azure Stack의 파일 및 응용 프로그램 백업
       href: ../backup/backup-mabs-files-applications-azure-stack.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
-    - name: Azure Stack Vm을 Azure로 복제
+    - name: Azure에 Azure Stack VM 복제
       href: ../site-recovery/azure-stack-site-recovery.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
     - name: 치명적인 데이터 손실 로부터 복구
       href: azure-stack-backup-recover-data.md
@@ -388,9 +386,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: 교육 및 인증
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 07db25425bf9ef753c1561803dd1cdf838ef3457
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 7034026f1a78c34cfd57750dcfdc4a65491ce75b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944962"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023987"

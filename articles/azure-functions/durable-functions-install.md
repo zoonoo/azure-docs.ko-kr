@@ -3,23 +3,19 @@ title: 지속성 함수 확장 및 샘플 설치 - Azure
 description: Azure Functions, 포털 개발 또는 Visual Studio 개발을 위한 지속성 함수 확장을 설치하는 방법에 대해 알아봅니다.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 03/19/2018
+ms.topic: conceptual
+ms.date: 08/31/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 12b5c013a0704eb2d3f7df58011571b902955c75
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 2eb838bcb9d3f64d0bbf4657c516adb50d103223
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42140312"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585308"
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>지속성 함수 확장 및 샘플 설치(Azure Functions)
 
@@ -35,12 +31,12 @@ Azure Functions에 대한 [지속성 함수](durable-functions-overview.md) 확�
 
 ### <a name="prerequisites"></a>필수 조건
 
-* [최신 버전의 Visual Studio](https://www.visualstudio.com/downloads/)(버전 15.3 이상)를 설치합니다. 설정 옵션에 **Azure 배포** 워크로드를 포함합니다.
+* [최신 버전의 Visual Studio](https://www.visualstudio.com/downloads/)(버전 15.6 이상)를 설치합니다. 설정 옵션에 **Azure 배포** 워크로드를 포함합니다.
 
 ### <a name="start-with-sample-functions"></a>샘플 함수로 시작 
 
 1. [Visual Studio용 샘플 앱 .zip 파일](https://azure.github.io/azure-functions-durable-extension/files/VSDFSampleApp.zip)을 다운로드합니다. 샘플 프로젝트에 이미 있으므로 NuGet 참조를 추가할 필요는 없습니다.
-2. [Azure Storage 에뮬레이터](https://docs.microsoft.com/azure/storage/storage-use-emulator) 버전 5.2 이상을 설치 및 실행합니다. 또는 실제 Azure Storage 연결 문자열로 *local.appsettings.json* 파일을 업데이트할 수 있습니다.
+2. [Azure Storage 에뮬레이터](https://docs.microsoft.com/azure/storage/storage-use-emulator) 버전 5.6 이상을 설치 및 실행합니다. 또는 실제 Azure Storage 연결 문자열로 *local.settings.json* 파일을 업데이트할 수 있습니다.
 3. Visual Studio 2017에서 프로젝트를 엽니다. 
 4. 샘플을 실행하는 방법에 대한 지침은 [함수 체이닝 - Hello 시퀀스 샘플](durable-functions-sequence.md)로 시작하세요. 샘플을 로컬로 실행하거나 Azure에 게시할 수 있습니다.
 
@@ -49,7 +45,7 @@ Azure Functions에 대한 [지속성 함수](durable-functions-overview.md) 확�
 샘플을 시작할 때와 같은 지침을 따르지만 *.zip* 파일을 다운로드하는 대신 다음 단계를 수행합니다.
 
 1. 함수 앱 프로젝트를 만듭니다.
-2. *패키지 관리*를 사용하여 다음 NuGet 패키지 참조를 검색하고 Microsoft.Azure.WebJobs.Extensions.DurableTask v1.5.0 프로젝트에 추가합니다.
+2. ‘NuGet 패키지 관리’를 사용하여 다음 NuGet 패키지 참조를 검색하고 Microsoft.Azure.WebJobs.Extensions.DurableTask v1.6.0 프로젝트에 추가합니다.
    
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
@@ -67,7 +63,7 @@ Visual Studio Code는 주요 플랫폼인 Windows, macOS 및 Linux를 포함하�
     >[!IMPORTANT]
     >JavaScript의 지속형 함수에는 2.x 버전의 Azure Functions Core Tools가 필요합니다.
 
-*  Windows 컴퓨터에서 작업하는 경우 [Azure Storage 에뮬레이터](https://docs.microsoft.com/azure/storage/storage-use-emulator) 버전 5.2 이상을 설치 및 실행합니다. 또는 실제 Azure Storage 연결로 *local.appsettings.json* 파일을 업데이트할 수 있습니다. 
+*  Windows 머신에서 작업하는 경우 [Azure Storage 에뮬레이터](https://docs.microsoft.com/azure/storage/storage-use-emulator) 버전 5.6 이상을 설치 및 실행합니다. 또는 실제 Azure Storage 연결로 *local.settings.json* 파일을 업데이트할 수 있습니다. 
 
 
 ### <a name="start-with-sample-functions"></a>샘플 함수로 시작
@@ -79,14 +75,14 @@ Visual Studio Code는 주요 플랫폼인 Windows, macOS 및 Linux를 포함하�
 3. 명령 프롬프트/터미널 창에서 다음을 실행하여 Azure Functions Durable Extension을 설치합니다.
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.6.0
     ```
 4. 명령 프롬프트/터미널 창에서 다음을 실행하여 Azure Functions Twilio Extension을 설치합니다.
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta5
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta8
     ```
-5. Azure Storage 에뮬레이터를 실행하거나 *local.appsettings.json* 파일을 실제 Azure Storage 연결 문자열로 업데이트합니다.
+5. Azure Storage 에뮬레이터를 실행하거나 실제 Azure Storage 연결 문자열로 *local.settings.json* 파일을 업데이트합니다.
 6. Visual Studio Code에서 프로젝트를 엽니다. 
 7. 샘플을 실행하는 방법에 대한 지침은 [함수 체이닝 - Hello 시퀀스 샘플](durable-functions-sequence.md)로 시작하세요. 샘플을 로컬로 실행하거나 Azure에 게시할 수 있습니다.
 8. 명령 프롬프트/터미널에서 다음 명령을 실행하여 프로젝트를 시작합니다.
@@ -100,48 +96,50 @@ Visual Studio Code는 주요 플랫폼인 Windows, macOS 및 Linux를 포함하�
 2. 컴퓨터에서 [JavaScript 샘플 폴더](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/javascript)로 이동합니다. 
 3. 명령 프롬프트/터미널 창에서 다음을 실행하여 Azure Functions Durable Extension을 설치합니다.
 
-    ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
     ```
+    func extensions install
+    ```
+    > [!NOTE] 
+    > 이를 사용하려면 머신에 [.NET Core SDK](https://www.microsoft.com/net/download)가 설치되어 있어야 합니다.
 4. 명령 프롬프트/터미널 창에서 다음을 실행하여 npm 패키지를 복원합니다.
     
-    ```bash
+    ```
     npm install
     ``` 
-5. 실제 Azure Storage 연결 문자열로 *local.appsettings.json* 파일을 업데이트합니다.
-6. Visual Studio Code에서 프로젝트를 엽니다. 
+5. `AzureWebJobsStorage`용 Azure Storage 계정에서 연결 문자열로 *local.settings.json* 파일을 업데이트합니다.  이 저장소 계정은 지속성 함수 상태에 사용됩니다.
+6. Visual Studio Code 같은 편집기에서 프로젝트를 엽니다. 
 7. 샘플을 실행하는 방법에 대한 지침은 [함수 체이닝 - Hello 시퀀스 샘플](durable-functions-sequence.md)로 시작하세요. 샘플을 로컬로 실행하거나 Azure에 게시할 수 있습니다.
 8. 명령 프롬프트/터미널에서 다음 명령을 실행하여 프로젝트를 시작합니다.
-    ```bash
-    func host start
+    ```
+    func start
     ```
 
 ### <a name="start-with-an-empty-project"></a>빈 프로젝트로 시작
  
 1. 명령 프롬프트/터미널에서 함수 앱을 호스트할 폴더로 이동합니다.
-2. 명령 프롬프트/터미널 창에서 다음을 실행하여 Azure Functions Durable Extension을 설치합니다.
-
-    ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
-    ```
 3. 다음 명령을 실행하여 함수 앱 프로젝트를 만듭니다.
 
-    ```bash
+    ```
     func init
     ``` 
-4. Azure Storage 에뮬레이터를 실행하거나 *local.appsettings.json* 파일을 실제 Azure Storage 연결 문자열로 업데이트합니다.
+4. Azure Storage 에뮬레이터(Windows 전용)를 실행하거나 `AzureWebJobsStorage`의 실제 Azure Storage 연결 문자열로 *local.settings.json* 파일을 업데이트합니다.
 5. 다음으로 다음 명령을 실행하여 새 함수를 만든 후 마법사 단계를 따릅니다.
 
-    ```bash
+    ```
     func new
     ```
     >[!IMPORTANT]
     > 현재 지속성 함수 템플릿을 사용할 수 없지만 지원되는 옵션 중 하나로 시작한 후 코드를 수정할 수 있습니다. [오케스트레이션 클라이언트](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/HttpStart), [오케스트레이션 트리거](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/E1_HelloSequence) 및 [작업 트리거](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/csx/E1_HelloSequence)에 대한 샘플을 참조하세요.
+2. 함수 앱 디렉터리의 명령 프롬프트/터미널 창에서 다음을 실행하여 Azure Functions Durable Extension을 설치합니다.
+
+    ```
+    func extensions install
+    ```
 
 6. Visual Studio Code에서 프로젝트 폴더를 열고 템플릿 코드를 수정하여 계속 진행합니다. 
 7. 명령 프롬프트/터미널에서 다음 명령을 실행하여 프로젝트를 시작합니다.
-    ```bash
-    func host start
+    ```
+    func start
     ```
 
 ## <a name="azure-portal"></a>Azure portal

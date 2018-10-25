@@ -3,23 +3,19 @@ title: 지속성 함수의 바인딩 - Azure
 description: Azure Functions의 지속성 함수 확장에 트리거 및 바인딩을 사용하는 방법을 설명합니다.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 370e6e2c569aaf6d9289bddccde2174b4dd2ee97
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 29cc7982dbe9991e6b0e3363cd636ac88881fc7b
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763359"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237284"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>지속성 함수의 바인딩(Azure Functions)
 
@@ -80,12 +76,12 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript(함수 v2에만 해당)
+#### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
 
 ```javascript
 const df = require("durable-functions");
 
-module.exports = df(function*(context) {
+module.exports = df.orchestrator(function*(context) {
     const name = context.df.getInput();
     return `Hello ${name}!`;
 });
@@ -109,12 +105,12 @@ public static async Task<string> Run(
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript(함수 v2에만 해당)
+#### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
 
 ```javascript
 const df = require("durable-functions");
 
-module.exports = df(function*(context) {
+module.exports = df.orchestrator(function*(context) {
     const name = context.df.getInput();
     const result = yield context.df.callActivityAsync("SayHello", name);
     return result;
@@ -125,7 +121,7 @@ module.exports = df(function*(context) {
 
 작업 트리거를 사용하면 오케스트레이터 함수에서 호출하는 함수를 작성할 수 있습니다.
 
-Visual Studio를 사용하는 경우 작업 트리거는 [ActvityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) .NET 특성을 사용하여 구성됩니다. 
+Visual Studio를 사용하는 경우 작업 트리거는 [ActivityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) .NET 특성을 사용하여 구성됩니다. 
 
 개발을 위해 Azure Portal을 사용하는 경우 작업 트리거는 *function.json*의 `bindings` 배열에 있는 다음 JSON 개체에서 정의됩니다.
 
@@ -177,7 +173,7 @@ public static string SayHello([ActivityTrigger] DurableActivityContext helloCont
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript(함수 v2에만 해당)
+#### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
 
 ```javascript
 module.exports = function(context) {
@@ -197,7 +193,7 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript(함수 v2에만 해당)
+#### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
 
 ```javascript
 module.exports = function(context, name) {

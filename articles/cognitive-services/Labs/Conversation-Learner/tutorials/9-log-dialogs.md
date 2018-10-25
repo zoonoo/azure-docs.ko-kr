@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 6ceeb9683a979256a8a52347fc74ab758fd1d348
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 4663fc377e795e603bd2484ec4cf98578408501f
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171438"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248384"
 ---
 # <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Conversation Learner 모델에서 대화를 기록하는 방법
 
@@ -51,7 +51,7 @@ ms.locfileid: "39171438"
 1. 작업, 새 작업을 차례로 클릭합니다.
 2. 응답에 '어느 도시인가요?'를 입력합니다.
 3. 실격 엔터티에 $city를 입력합니다.
-3. 만들기 클릭
+3. 만들기 클릭 
 
 그런 다음, 두 번째 작업을 만듭니다.
 
@@ -76,7 +76,7 @@ ms.locfileid: "39171438"
 
 또 다른 예제 대화 상자를 추가합니다.
 
-1. 새 작업, 새 학습 대화 상자를 차례로 클릭합니다.
+1. 학습 대화 상자, 새 학습 대화 상자를 차례로 클릭합니다.
 2. '시애틀의 날씨는 어떤가요?'를 입력합니다. 시애틀이 엔터티로 태그가 지정됩니다.
 5. 작업에 점수 지정을 클릭합니다. 
 6. '$city의 날씨는 아마도 맑습니다'를 선택합니다.
@@ -86,7 +86,7 @@ ms.locfileid: "39171438"
 사용자에게 이 봇을 배포했다고 가정하습니다.
 
 1. 로그 대화 상자를 클릭합니다.
-2. 새 채팅 세션을 클릭합니다.
+2. 새 로그 대화 상자를 클릭합니다.
     - 그러면 사용자가 UI의 왼쪽의 웹 채팅 컨트롤에서 경험한 대로 봇을 나타냅니다. 오른쪽의 공백 영역을 무시할 수 있습니다.
 3. '안녕하세요'를 입력합니다.
 4. 봇 응답: '어느 도시인가요?'
@@ -97,10 +97,10 @@ ms.locfileid: "39171438"
 
 새 세션을 시작하겠습니다.
 
-2. 새 채팅 세션을 클릭합니다.
+2. 새 로그 대화 상자를 클릭합니다.
 3. '보스턴의 날씨 예보'를 입력합니다.
 4. 봇 응답: '어느 도시인가요?'
-2. 학습 완료를 클릭합니다.
+2. 테스트 완료를 클릭합니다.
 
 이제 두 번째 대화 상자를 수정하겠습니다.
 

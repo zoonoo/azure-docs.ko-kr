@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
 ms.date: 09/24/2018
-ms.openlocfilehash: b450d2ca2af0c0f7598d74e2f07c0acc81b811f3
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 45aa954d2f85267b2c7c9aa2a7ba04e436765433
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116456"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023931"
 ---
 # <a name="pipelines-and-azure-machine-learning"></a>파이프라인 및 Azure Machine Learning
 
@@ -63,7 +63,7 @@ Python을 사용하여 ML 파이프라인을 만듭니다. Azure Machine Learnin
 
 일괄 처리 점수 매기기 또는 재교육 작업을 예약할 수 있도록 파이프라인을 템플릿으로 저장하고 REST 엔드포인트에 배포할 수 있습니다.
 
-다음 섹션의 [파이프라인용 Python SDK 참조 문서](http://aka.ms/aml-sdk) 및 Notebook을 통해 빌드 방법을 알아보세요.
+다음 섹션의 [파이프라인용 Python SDK 참조 문서](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) 및 Notebook을 통해 빌드 방법을 알아보세요.
 
 ## <a name="example-notebooks"></a>노트북 예제
  
