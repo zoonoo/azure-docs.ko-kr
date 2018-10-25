@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 02/06/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2687145a89c11efb4a3bcb1494a39806e9aae551
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 6c96ab18161230ffabd0703bdb6d0230bdc8d3ba
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238610"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026265"
 ---
 # <a name="example-call-emotion-api-for-video"></a>예제: 비디오용 Emotion API 호출
 
@@ -46,7 +46,7 @@ ocp-apim-subscription-key: <Your subscription key>
 ```
 var emotionServiceClient = new emotionServiceClient("Your subscription key");
 ```
-구독 키를 얻으려면 [구독](https://azure.microsoft.com/try/cognitive-services/)을 참조합니다.
+구독 키를 얻으려면 [구독](https://azure.microsoft.com/try/cognitive-services/)을 참조하세요.
 
 ### <a name="Step2">2단계: 서비스에 비디오 업로드 및 상태 확인</a>
 비디오용 Emotion API 호출을 수행하는 가장 기초적인 방법은 직접 비디오를 업로드하는 것입니다. 비디오 파일에서 데이터 판독과 함께 응용 프로그램/옥텟 스트림 콘텐츠 형식으로 "POST" 요청을 보내 수행합니다. 비디오의 최대 크기는 100MB입니다.

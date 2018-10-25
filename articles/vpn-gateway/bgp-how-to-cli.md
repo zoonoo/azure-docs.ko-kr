@@ -3,24 +3,17 @@ title: 'Azure VPN Gateway에서 BGP 구성: Resource Manager 및 CLI | Microsoft
 description: 이 문서에서는 Azure Resource Manager 및 CLI를 사용하여 Azure VPN Gateway와의 BGP 구성하는 방법을 안내합니다.
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
+author: yushwang
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/25/2017
-ms.author: cherylmc
-ms.openlocfilehash: 657cad69fff66aaaeba9819569442981d229f644
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 09/25/2018
+ms.author: yushwang
+ms.openlocfilehash: f0367a360de97d3935c7fa8de9f3dafa6555811e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971130"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471359"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>CLI를 사용하여 Azure VPN Gateway에서 BGP를 구성하는 방법
 
@@ -182,7 +175,7 @@ az network vnet-gateway show -n VNet1GW -g TestBGPRG1
   "id": "/subscriptions/<subscription ID>/resourceGroups/TestBGPRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW",
 ```
 
-연결을 만들 때 쉽게 붙여넣을 수 있도록 `"id":` 다음에 나오는 값을 텍스트 편집기(예: 메모장)에 복사합니다. 
+연결을 만들 때 쉽게 붙여 넣을 수 있도록 `"id":` 다음에 나오는 값을 텍스트 편집기(예: 메모장)에 복사합니다. 
 
 ```
 "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW"

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/13/2017
+ms.date: 10/23/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: beac96629ef2cc0cbbe8644929e7e0cc7c97a243
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 800fcc131cc6dc7b86444a00d60ad6c52599d334
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044351"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955100"
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Log Analytics로 Azure PaaS 리소스 메트릭의 수집 구성
 
@@ -42,7 +42,7 @@ Azure SQL 및 웹 사이트(Web Apps)처럼, Azure PaaS(Platform as a Service) �
 최신 버전의 Azure Resource Manager 모듈을 컴퓨터에 설치하려면 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.1#update-azps)을 참조하세요.  
 
 ## <a name="enable-azure-diagnostics"></a>Azure 진단 사용  
-PaaS 리소스에 대한 Azure 진단 구성은 **Enable-AzureRMDiagnostics.ps1** 스크립트를 실행하여 수행됩니다. 이 스크립트는 [PowerShell 갤러리](https://www.powershellgallery.com/packages/Enable-AzureRMDiagnostics/2.52/DisplayScript)에서 사용할 수 있습니다.  이 스크립트는 다음 시나리오를 지원합니다.
+PaaS 리소스에 대한 Azure 진단 구성은 **Enable-AzureRMDiagnostics.ps1** 스크립트를 실행하여 수행됩니다. 이 스크립트는 [PowerShell 갤러리](https://www.powershellgallery.com/packages/Enable-AzureRMDiagnostics/2.52)에서 사용할 수 있습니다.  이 스크립트는 다음 시나리오를 지원합니다.
   
 * 구독에서 하나 이상의 리소스 그룹과 관련된 리소스 지정  
 * 구독에서 특정 리소스 그룹과 관련된 리소스 지정  

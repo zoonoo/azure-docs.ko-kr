@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a6102a6bc28486c24134bbc172b9e8a7e1a61244
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: a63a31c5ceb4298829f85627196fea5d7a38ca4b
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308040"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068505"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge에 대한 일반적인 문제 및 해결 방법
 
@@ -310,6 +310,32 @@ Windows Registry Editor Version 5.00
 "EventMessageFile"="C:\\ProgramData\\iotedge\\iotedged.exe"
 "TypesSupported"=dword:00000007
 ```
+
+## <a name="iot-edge-module-fails-to-send-a-message-to-the-edgehub-with-404-error"></a>404 오류를 나타내며 IoT Edge 모듈이 edgeHub로 메시지를 보내지 못함
+
+404 `Module not found` 오류를 나타내며 사용자 지정 IoT Edge 모듈이 edgeHub로 메시지를 보내지 못합니다. IoT Edge 디먼은 로그에 다음 메시지를 출력합니다. 
+
+```output
+Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 ) 
+```
+
+### <a name="root-cause"></a>근본 원인
+IoT Edge 디먼은 보안상의 이유로 edgeHub에 연결하는 모든 모듈에 대해 프로세스 확인을 적용합니다. 이 디먼은 모듈이 전송하는 모든 메시지가 해당 모듈의 기본 프로세스 ID에서 온 것인지 확인합니다. 메시지가 처음에 설정한 것과는 다른 프로세스 ID의 모듈에서 전송될 경우 404 오류 메시지를 나타내며 거부됩니다.
+
+### <a name="resolution"></a>해결 방법
+사용자 지정 IoT Edge 모듈이 edgeHub에 메시지를 보내는 데 항상 동일한 프로세스 ID를 사용하는지 확인합니다. 예를 들어, `CMD` 명령을 실행하면 모듈의 한 프로세스 ID와 주 프로그램을 실행하는 bash 명령의 다른 프로세스 ID가 사용되지만, `ENTRYPOINT` 명령을 실행하면 단일 프로세스 ID가 사용되므로 Docker 파일에 `CMD` 명령 대신 `ENTRYPOINT` 명령을 사용해야 합니다.
+
+
+## <a name="firewall-and-port-configuration-rules-for-iot-edge-deployment"></a>IoT Edge 배포에 대한 방화벽 및 포트 구성 규칙
+Azure IoT Edge는 지원되는 IoT Hub 프로토콜을 사용하여 온-프레미스 Edge 서버에서 Azure 클라우드로의 통신을 허용합니다. [통신 프로토콜 선택](../iot-hub/iot-hub-devguide-protocols.md)을 참조하세요. 향상된 보안을 위해, Azure IoT Edge와 Azure IoT Hub 간의 통신 채널은 항상 아웃바운드로 구성됩니다. 이 구성은 악의적인 공격자가 이용할 수 있는 노출 영역을 최소화하는 [통신 지원 서비스 패턴](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/)을 기준으로 합니다. 인바운드 통신은 Azure IoT Hub가 Azure IoT Edge 서버로 메시지를 푸시다운해야 하는 특정 시나리오(예: 클라우드-장치 메시징)에마 필요합니다. 이러한 경우 보안 TLS 채널을 사용하여 다시 보호되고 X.509 인증서 및 TPM 장치 모듈을 통해 추가로 보호될 수 있습니다. Azure IoT Edge 보안 관리자는 이 통신을 설정하는 방법을 관리합니다. [IoT Edge 보안 관리자](../iot-edge/iot-edge-security-manager.md)를 참조하세요.
+
+IoT Edge는 Azure IoT Edge 런타임 및 배포된 모듈을 보호하기 위해 향상된 구성을 제공하지만, 기본 컴퓨터 및 네트워크 구성에 여전히 종속됩니다. 따라서 보안 Edge-클라우드 통신을 위해 적절한 네트워크 및 방화벽 규칙을 설정해야 합니다. Azure IoT Edge 런타임이 호스트되는 기본 서버의 방화벽 규칙을 구성할 때 다음을 참조할 수 있습니다.
+
+|프로토콜|포트|수신|발신|지침|
+|--|--|--|--|--|
+|MQTT|8883|BLOCKED(기본값)|BLOCKED(기본값)|<ul> <li>통신 프로토콜로 MQTT를 사용하는 경우 발신(아웃바운드)이 Open이 되도록 구성합니다.<li>MQTT에 대한 1883은 IoT Edge에서 지원되지 않습니다. <li>수신(인바운드) 연결을 차단해야 합니다.</ul>|
+|AMQP|5671|BLOCKED(기본값)|OPEN(기본값)|<ul> <li>IoT Edge의 기본 통신 프로토콜입니다. <li> Azure IoT Edge는 지원되는 다른 프로토콜에 대해 구성되지 않았거나 AMQP가 원하는 통신 프로토콜인 경우 Open으로 구성해야 합니다.<li>AMQP에 대한 5672는 IoT Edge에서 지원되지 않습니다.<li>Azure IoT Edge가 다른 IoT Hub 지원 프로토콜을 사용하는 경우 이 포트를 차단합니다.<li>수신(인바운드) 연결을 차단해야 합니다.</ul></ul>|
+|HTTPS|443|BLOCKED(기본값)|OPEN(기본값)|<ul> <li>IoT Edge 프로비저닝의 경우 발신(아웃바운드)을 443에서 Open으로 구성합니다. 이 작업은 수동 스크립트 또는 Azure IoT DPS(Device Provisioning Service)를 사용하는 경우 필수입니다. <li>다음과 같은 특정 시나리오의 경우에만 수신(인바운드) 연결이 Open 상태여야 합니다. <ul> <li>  메서드 요청을 보낼 수 있는 리프 장치에 대한 투명 게이트웨이가 있는 경우. 이 경우 IoTHub에 연결하거나 Azure IoT Edge를 통해 IoTHub 서비스를 제공하기 위해 포트 443을 외부 네트워크로 열어둘 필요가 없습니다. 따라서 수신 규칙은 내부 네트워크에서의 수신(인바운드)만 열도록 제한될 수 있습니다. <li> 클라이언트-장치(C2D) 시나리오의 경우</ul><li>HTTP에 대한 80은 IoT Edge에서 지원되지 않습니다.<li>비 HTTP 프로토콜(예: AMQP, MQTT)을 엔터프라이즈에서 구성할 수 없는 경우 WebSocket을 통해 메시지를 보낼 수 있습니다. 이 경우 WebSocket 통신에 포트 443이 사용됩니다.</ul>|
 
 
 ## <a name="next-steps"></a>다음 단계

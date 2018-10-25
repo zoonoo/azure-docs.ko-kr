@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: ''
-ms.openlocfilehash: cb803450f7765ae62292ff3afb7f32209b437f78
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 235eda231dfb0f936bf55c7c8d93a8f709fdf9bc
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978931"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954856"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Windows 가상 머신(클래식)용 Azure Monitor 데이터 저장소에 게스트 OS 메트릭 보내기
 
 Azure Monitor [Microsoft Azure 진단 확장](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)(WAD)을 사용하면 가상 머신, 클라우드 서비스 또는 Service Fabric 클러스터의 일부로 실행 중인 게스트 운영 체제(게스트 OS)에서 메트릭과 로그를 수집할 수 있습니다. 이 확장은 이전에 연결된 문서에 나열된 여러 다른 위치에 원격 분석 데이터를 보낼 수 있습니다.
 
-이 문서에서는 Windows 가상 머신(클래식)의 게스트 OS 성능 메트릭을 Azure Monitor 메트릭 저장소에 보내는 프로세스를 설명합니다. WAD 버전 1.11부터 표준 플랫폼 메트릭이 이미 수집된 Azure Monitor 메트릭 저장소에 직접 메트릭을 쓸 수 있습니다. 이 위치에 저장하면 플랫폼 메트릭에 사용 가능한 동일한 작업에도 액세스할 수 있습니다.  작업에는 실시간에 가까운 경고, 차트 작성, 라우팅, REST API에서 액세스 등이 포함됩니다.  과거에는 WAD 확장에서 Azure Monitor 데이터 저장소가 아니라 Azure 저장소에 썼습니다. 
+이 문서에서는 Windows 가상 머신(클래식)의 게스트 OS 성능 메트릭을 Azure Monitor 메트릭 저장소에 보내는 프로세스를 설명합니다. WAD 버전 1.11부터 표준 플랫폼 메트릭이 이미 수집된 Azure Monitor 메트릭 저장소에 직접 메트릭을 쓸 수 있습니다. 이 위치에 메트릭을 저장하면 플랫폼 메트릭에 사용할 수 있는 동일한 작업에 액세스할 수 있습니다.  작업에는 실시간에 가까운 경고, 차트 작성, 라우팅, REST API에서 액세스 등이 포함됩니다.  과거에는 WAD 확장에서 Azure Monitor 데이터 저장소가 아니라 Azure 저장소에 썼습니다. 
 
 이 문서에 설명된 프로세스는 Windows 운영 체제를 실행하는 클래식 가상 머신에서만 작동합니다.
 
@@ -27,7 +27,7 @@ Azure Monitor [Microsoft Azure 진단 확장](https://docs.microsoft.com/azure/m
 
 - Azure 구독의 [서비스 관리자 또는 공동 관리자](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator.md)여야 합니다. 
 
-- 구독을 [Microsoft.Insights](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1)에 등록해야 합니다. 
+- 구독은 [Microsoft.Insights](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1)에 등록해야 합니다. 
 
 - [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1)이 설치되어 있어야 하거나 [Azure CloudShell](https://docs.microsoft.com/azure/cloud-shell/overview.md)을 사용할 수 있습니다. 
 
@@ -41,7 +41,7 @@ Azure Monitor [Microsoft Azure 진단 확장](https://docs.microsoft.com/azure/m
 
 ## <a name="create-a-service-principal"></a>서비스 주체 만들기
 
-[서비스 주체 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md) 지침을 사용하여 Azure Active Directory 테넌트에 서비스 주체를 만듭니다. 이 프로세스를 진행하는 동안 다음 사항에 유의하세요. 
+[서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md) 지침을 사용하여 Azure Active Directory 테넌트에 서비스 주체를 만듭니다. 이 프로세스를 진행하는 동안 다음 사항에 유의하세요. 
 - 이 앱에 대한 새 클라이언트 암호 만들기  
 - 이후 단계에서 사용하기 위해 키와 클라이언트 ID를 저장합니다.
 

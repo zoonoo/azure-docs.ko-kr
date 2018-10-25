@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: e0d430ced1dbddbfca79806591c83c33e732eefd
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 43202e88482933aed7952f6cc97dcaf1e0dcb5e7
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901717"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986035"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure Stream Analytics 사용 시작 : 실시간 부정 행위 감지
 
@@ -39,7 +39,7 @@ ms.locfileid: "37901717"
 시작하기 전에 다음이 필요합니다.
 
 * Azure 계정.
-* 호출 이벤트 생성기 앱 [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip): Microsoft 다운로드 센터에서 다운로드할 수 있습니다. 컴퓨터의 폴더에 이 패키지의 압축을 풉니다. 소스 코드를 확인하고 디버거에서 앱을 실행하려면 [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator)에서 앱 소스 코드를 가져올 수 있습니다. 
+* 호출 이벤트 생성기 앱 [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip): Microsoft 다운로드 센터에서 다운로드할 수 있습니다. 컴퓨터의 폴더에 이 패키지의 압축을 풉니다. 소스 코드를 확인하고 디버거에서 앱을 실행하려면 [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator)에서 앱 소스 코드를 가져올 수 있습니다. 
 
     >[!NOTE]
     >Windows에서 다운로드한 .zip 파일을 차단할 수 있습니다. 압축을 풀 수 없는 경우 해당 파일을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. “이 파일은 다른 컴퓨터로부터 왔으며 사용자의 컴퓨터를 보호하기 위해 차단되었을 수도 있습니다.”라는 메시지가 표시되면 **차단 해제** 옵션을 선택하여 **적용**을 클릭합니다.
@@ -185,7 +185,7 @@ TelcoGenerator 앱을 시작하기 전에 호출 레코드를 만든 이벤트 �
    |**설정**  |**제안 값**  |**설명**  |
    |---------|---------|---------|
    |입력 별칭  |  CallStream   |  작업의 입력을 식별하는 이름을 입력합니다.   |
-   |구독   |  \<사용자의 구독\> |  만든 이벤트 허브가 있는 Azure 구독을 선택합니다.   |
+   |구독   |  \<구독\> |  만든 이벤트 허브가 있는 Azure 구독을 선택합니다.   |
    |이벤트 허브 네임스페이스  |  asa-eh-ns-demo |  이벤트 허브 네임스페이스의 이름을 입력합니다.   |
    |이벤트 허브 이름  | asa-eh-frauddetection-demo | 이벤트 허브의 이름을 선택합니다.   |
    |이벤트 허브 정책 이름  | asa-policy-manage-demo | 이전에 만든 액세스 정책을 선택합니다.   |
@@ -346,7 +346,7 @@ SQL Server Database, Table Storage, Data Lake Storage, Power BI 및 다른 이�
    |**설정**  |**제안 값**  |**설명**  |
    |---------|---------|---------|
    |출력 별칭  |  CallStream-FraudulentCalls   |  작업의 출력을 식별하는 이름을 입력합니다.   |
-   |구독   |  \<사용자의 구독\> |  만든 저장소 계정이 있는 Azure 구독을 선택합니다. 동일한 또는 다른 구독에 저장소 계정이 있을 수 있습니다. 이 예제에서는 동일한 구독에 저장소 계정을 만들었다고 가정합니다. |
+   |구독   |  \<구독\> |  만든 저장소 계정이 있는 Azure 구독을 선택합니다. 동일한 또는 다른 구독에 저장소 계정이 있을 수 있습니다. 이 예제에서는 동일한 구독에 저장소 계정을 만들었다고 가정합니다. |
    |Storage 계정  |  asaehstorage |  만든 저장소 계정의 이름을 입력합니다. |
    |컨테이너  | asa-fraudulentcalls-demo | 새로 만들기를 선택하고 컨테이너 이름을 입력합니다. |
     <br/>

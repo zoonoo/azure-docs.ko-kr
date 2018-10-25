@@ -1,21 +1,21 @@
 ---
 title: Java용 Speech SDK를 사용하여 음성 인식
-titleSuffix: Microsoft Cognitive Services
-description: >
-  Java용 Speech SDK를 사용하여(파일의 음성, 마이크의 음성을 사용자 정의된 모델로, 연속해서 또는 단발로) 음성을 인식하는 방법을 알아봅니다.
+titleSuffix: Azure Cognitive Services
+description: Java용 Speech SDK를 사용하여(파일의 음성, 마이크의 음성을 사용자 정의된 모델로, 연속해서 또는 단발로) 음성을 인식하는 방법을 알아봅니다.
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 02e6fa8c522384a1c3f0d69b456bf580c067a9c2
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 0accd353f0079e5e9da80e3aab8eb542aaa21edd
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883689"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468328"
 ---
 # <a name="recognize-speech-by-using-the-speech-sdk-for-java"></a>Java용 Speech SDK를 사용하여 음성 인식
 

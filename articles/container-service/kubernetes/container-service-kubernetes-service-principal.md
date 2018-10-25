@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: e3e3a981daf1273b8b2387cb1c665317f860b1d2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c370d25ed5d70887c8beecae8fea3528a259a0ea
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974870"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954575"
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Container Service에서 Kubernetes 클러스터에 대한 Azure AD 서비스 주체 설정
 
@@ -37,14 +37,14 @@ Azure Container Service에서 Kubernetes 클러스터는 Azure API와 상호 작
 * **클라이언트 비밀**: 암호여야 합니다. 현재 인증서 인증을 위해 설정된 서비스 주체는 사용할 수 없습니다.
 
 > [!IMPORTANT]
-> 서비스 주체를 만들려면 Azure AD 테넌트에 응용 프로그램을 등록하고 구독의 역할에 해당 응용 프로그램을 할당할 수 있는 권한이 있어야 합니다. 필요한 권한이 있는지 확인하려면 [포털에서 확인합니다](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions).
+> 서비스 주체를 만들려면 Azure AD 테넌트에 응용 프로그램을 등록하고 구독의 역할에 해당 응용 프로그램을 할당할 수 있는 권한이 있어야 합니다. 필요한 권한이 있는지 확인하려면 [포털에서 확인합니다](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 >
 
 ## <a name="option-1-create-a-service-principal-in-azure-ad"></a>옵션 1: Azure AD에서 서비스 주체 만들기
 
 Kubernetes 클러스터를 배포하기 전에 Azure AD 서비스 주체를 만들려는 경우 Azure에서 여러 가지 방법을 제공합니다.
 
-다음 예제 명령은 [Azure CLI](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)를 사용하여 이 작업을 수행하는 방법을 보여 줍니다. 또는 [Azure PowerShell](../../azure-resource-manager/resource-group-authenticate-service-principal.md), [포털](../../azure-resource-manager/resource-group-create-service-principal-portal.md) 또는 다른 방법을 사용하여 서비스 주체를 만들 수 있습니다.
+다음 예제 명령은 [Azure CLI](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)를 사용하여 이 작업을 수행하는 방법을 보여 줍니다. 또는 [Azure PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md), [포털](../../active-directory/develop/howto-create-service-principal-portal.md) 또는 다른 방법을 사용하여 서비스 주체를 만들 수 있습니다.
 
 ```azurecli
 az login

@@ -1,21 +1,21 @@
 ---
-title: Bing Spell Check API v5를 v7으로 업그레이드 | Microsoft Docs
-description: 버전 7을 사용하도록 업데이트해야 하는 응용 프로그램의 부분을 식별합니다.
+title: Bing Spell Check API v5를 v7으로 업그레이드
+titlesuffix: Azure Cognitive Services
+description: 버전 7을 사용하려면 업데이트해야 하는 응용 프로그램 파트를 식별합니다.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 7DC8FB29-4732-47D8-824B-CF2D7AEBA07B
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 305139e45ee93614eab17c5798cb1105e3e8f8cb
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 3bcbba21d367b3d40eca72d84a7e2447f78fa57f
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42093851"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801581"
 ---
 # <a name="spell-check-api-upgrade-guide"></a>Spell Check API 업그레이드 가이드
 
@@ -25,7 +25,7 @@ ms.locfileid: "42093851"
 
 ### <a name="endpoints"></a>엔드포인트
 
-- 엔드포인트의 버전 번호가 v5에서 v7로 변경되었습니다. 예: `https://api.cognitive.microsoft.com/bing/v7.0/spellcheck`
+- 엔드포인트의 버전 번호가 v5에서 v7로 변경되었습니다. 예: `https://api.cognitive.microsoft.com/bing/v7.0/spellcheck`.
 
 ### <a name="error-response-objects-and-error-codes"></a>오류 응답 개체 및 오류 코드
 

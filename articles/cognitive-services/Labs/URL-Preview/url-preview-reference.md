@@ -1,35 +1,36 @@
 ---
-title: Project URL Preview 참조 - Microsoft Cognitive Services | Microsoft Docs
-description: Project URL Preview 끝점에 대한 참조입니다.
+title: Project URL Preview 참조
+titlesuffix: Azure Cognitive Services
+description: Project URL Preview 엔드포인트에 대한 참조입니다.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: reference
 ms.date: 03/29/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 46c011d62b6ae51f5f7d292345e6ece0e27a8541
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: rosh
+ms.openlocfilehash: 3416fd9bc63c48e976d0b00f42ec9f8119a40eb8
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865878"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870811"
 ---
 # <a name="project-url-preview-v7-reference"></a>Project URL Preview v7 참조
 
 URL Preview는 블로그 게시물, 포럼 토론, 미리 보기 페이지 등의 웹 리소스에 대한 간략한 설명을 지원합니다.  URL은 웹 페이지, 뉴스, 이미지, 비디오 등 임의 유형의 인터넷 리소스일 수 있습니다. 쿼리는 http 또는 https 체계를 사용하는 절대 URL이어야 합니다. 상대 URL이나 기타 체계(예: ftp://)는 지원되지 않습니다.
 
-URL Preview를 사용하는 응용 프로그램은 쿼리 매개 변수에 미리 보기할 URL을 사용하여 웹 요청을 끝점으로 보냅니다.  요청에는 *Ocp-Apim-Subscription-Key* 헤더가 포함되어야 합니다.   
+URL Preview를 사용하는 응용 프로그램은 쿼리 매개 변수에 미리 보기할 URL을 사용하여 웹 요청을 엔드포인트로 보냅니다.  요청에는 *Ocp-Apim-Subscription-Key* 헤더가 포함되어야 합니다.   
 
 이름, 리소스에 대한 설명, *isFamilyFriendly*, 전체 리소스와 대표 이미지에 대한 온라인 액세스를 제공하는 링크 등의 미리 보기 정보를 위해 JSON 응답을 구문 분석할 수 있습니다.
 
 소셜 미디어, 챗봇 또는 유사한 제품에서 최종 사용자가 시작한 URL 공유에 원본 사이트로 하이퍼링크된 썸네일 이미지 및 미리 보기 코드 조각을 표시하려면 URL Preview의 데이터만 사용해야 합니다. Project URL Preview에서 받은 데이터는 복사, 저장 또는 캐시하면 안 됩니다. 웹 사이트 또는 콘텐츠 소유자로부터 받을 수 있는 미리 보기 비활성화 요청을 모두 적용해야 합니다.
 
-## <a name="endpoint"></a>끝점
-URL Preview 결과를 요청하려면 다음 끝점으로 요청을 보냅니다. 헤더 및 URL 매개 변수를 사용하여 추가 사양을 정의합니다.
+## <a name="endpoint"></a>엔드포인트
+URL Preview 결과를 요청하려면 다음 엔드포인트로 요청을 보냅니다. 헤더 및 URL 매개 변수를 사용하여 추가 사양을 정의합니다.
 
-끝점 GET: 
+엔드포인트 GET: 
 ````
 https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=queryURL
 
@@ -74,11 +75,11 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=queryURL
 요청에 다음과 같은 쿼리 매개 변수를 포함할 수 있습니다. 필수 매개 변수는 필수 열을 참조하세요. 쿼리 매개 변수는 URL로 인코드해야 합니다. 쿼리는 http 또는 https 체계를 사용하는 절대 URL이어야 합니다. 상대 URL이나 기타 체계(예: ftp://)는 지원되지 않습니다.
   
   
-|Name|값|type|필수|  
+|이름|값|type|필수|  
 |----------|-----------|----------|--------------|  
-|<a name="mkt" />mkt|결과가 나오는 지역/국가입니다. <br /><br />가능한 지역/국가 값 목록은 [지역/국가 코드](#market-codes)를 참조하세요.<br /><br /> **참고:** URL Preview API는 현재 미국 지역과 영어 언어만 지원합니다.<br /><br />|문자열|예|  
-|<a name="query" />q|미리 보기할 URL입니다.|문자열|예|  
-|<a name="responseformat" />responseFormat|응답에 사용할 미디어 형식입니다. 다음은 대/소문자를 구분하지 않는 가능한 값입니다.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> 기본값은 JSON입니다. 응답에 포함된 JSON 개체에 대한 자세한 내용은 [응답 개체](#response-objects)를 참조하세요.<br /><br />  JsonLd를 지정하는 경우 응답 본문에 검색 결과를 포함하는 JSON-LD 개체가 포함됩니다. JSON-LD에 대한 자세한 내용은 [JSON-LD](http://json-ld.org/)를 참조하세요.|문자열|아니오|
+|<a name="mkt" />mkt|결과가 나오는 지역/국가입니다. <br /><br />가능한 지역/국가 값 목록은 [지역/국가 코드](#market-codes)를 참조하세요.<br /><br /> **참고:** URL Preview API는 현재 미국 지역과 영어 언어만 지원합니다.<br /><br />|문자열|yes|  
+|<a name="query" />q|미리 보기할 URL입니다.|문자열|yes|  
+|<a name="responseformat" />responseFormat|응답에 사용할 미디어 형식입니다. 다음은 대/소문자를 구분하지 않는 가능한 값입니다.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> 기본값은 JSON입니다. 응답에 포함된 JSON 개체에 대한 자세한 내용은 [응답 개체](#response-objects)를 참조하세요.<br /><br />  JsonLd를 지정하는 경우 응답 본문에 검색 결과를 포함하는 JSON-LD 개체가 포함됩니다. JSON-LD에 대한 자세한 내용은 [JSON-LD](http://json-ld.org/)를 참조하세요.|문자열|아니요|
 |<a name="safesearch"/>safeSearch|불법 성인 콘텐츠 또는 해적판 콘텐츠는 오류 코드 400으로 차단되고 *isFamilyFriendly* 플래그는 반환되지 않습니다. <p>합법적 성인 콘텐츠에 대한 동작은 아래와 같습니다. 상태 코드 200을 반환하며 *isFamilyFriendly* 플래그가 false로 설정됩니다.<ul><li>safeSearch=strict: 제목, 설명, URL 및 이미지가 반환되지 않습니다.</li><li>safeSearch=moderate: 설명이 포함된 이미지를 제외한 제목, URL 및 설명을 가져옵니다.</li><li>safeSearch=off: 제목, URL, 설명 및 이미지 등의 모든 응답 개체/요소를 가져옵니다.</li></ul> |문자열|필요하지 않습니다. </br> 기본값은 safeSearch=strict입니다.| 
 
 ## <a name="response-objects"></a>응답 개체  
@@ -106,7 +107,7 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=queryURL
 ### <a name="errorresponse"></a>ErrorResponse  
 요청이 실패할 경우 응답에 포함되는 최상위 개체입니다.  
   
-|Name|값|type|  
+|이름|값|type|  
 |----------|-----------|----------|  
 |_type|유형 힌트입니다.|문자열|  
 |<a name="errors" />errors|요청이 실패한 이유를 설명하는 오류 목록입니다.|[Error](#error)[]|   
@@ -115,7 +116,7 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=queryURL
 ### <a name="webpage"></a>WebPage  
 미리 보기의 웹 페이지에 대한 정보를 정의합니다.  
   
-|Name|값|type|  
+|이름|값|type|  
 |----------|-----------|----------|
 |이름|페이지 제목입니다. HTML 제목이 아닐 수도 있습니다.|문자열|
 |URL|실제로 크롤링된 URL입니다. 요청이 리디렉션을 따랐을 수도 있습니다.|문자열|  
@@ -125,7 +126,7 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=queryURL
 
 
 ### <a name="identifiable"></a>Identifiable
-|Name|값|type|  
+|이름|값|type|  
 |-------------|-----------------|----------|
 |id|리소스 식별자|문자열|
  
@@ -137,7 +138,7 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=queryURL
 |상태 코드|설명|  
 |-----------------|-----------------|  
 |200|성공.|  
-|400|쿼리 매개 변수 중 하나가 없거나 잘못되었습니다.| 
+|400|쿼리 매개 변수 중 하나가 누락되었거나 유효하지 않습니다.| 
 |400|ServerError, subCode ResourceError: 요청된 URL에 연결할 수 없습니다.|
 |400|ServerError, subCode ResourceError: 요청된 URL이 성공 코드를 반환하지 않았습니다(HTTP 404를 반환한 경우 포함).|
 |400|InvalidRequest, subCode Blocked: 요청된 URL에 성인 콘텐츠가 포함되어 차단되었을 수 있습니다.| 

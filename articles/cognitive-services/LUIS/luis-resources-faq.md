@@ -1,5 +1,5 @@
 ---
-title: FAQ(질문과 대답) - LUIS(Language Understanding)
+title: FAQ - 질문과 대답 - LUIS(Language Understanding)
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 LUIS(Language Understanding)에 대한 FAQ(질문과 대답)에 대해 알아봅니다.
 author: diberry
@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 10/10/2018
 ms.author: diberry
-ms.openlocfilehash: 5910417696651cad06d6f21513e81728be4181cd
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: b5433ea0a92635b5bf9c2a4887451f1e64ec62e6
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432465"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067771"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding FAQ
 
@@ -113,6 +113,10 @@ Azure에서 [서비스](https://azure.microsoft.com/pricing/details/cognitive-se
 
 [동일한 앱 사본 간 예측 차이점](luis-concept-prediction-score.md#differences-with-predictions)을 참조하세요.
 
+### <a name="some-utterances-go-to-the-wrong-intent-after-i-made-changes-to-my-app-the-issue-seems-to-disappear-at-random-how-do-i-fix-it"></a>내 앱을 변경한 후 일부 발언의 의도가 맞지 않습니다. 이 문제는 우연히 사라진 것 같습니다. 이 문제를 어떻게 해결하나요? 
+
+[모든 데이터를 사용하여 학습](luis-how-to-train.md#train-with-all-data)을 참조하세요.
+
 ## <a name="app-publishing"></a>앱 게시
 
 ### <a name="what-is-the-tenant-id-in-the-add-a-key-to-your-app-window"></a>"앱에 키 추가" 창에서 테넌트 ID란 무엇인가요?
@@ -135,7 +139,7 @@ Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을
 LUIS 앱을 다른 Azure 구독으로 이전하려면 LUIS 앱을 내보낸 후 새 계정을 사용하여 가져옵니다. LUIS 앱을 호출하는 클라이언트 응용 프로그램에서 해당 앱 ID를 업데이트합니다. 새 앱은 원래 앱과는 약간 다른 LUIS 점수를 반환할 수 있습니다.
 
 ### <a name="how-do-i-download-a-log-of-user-utterances"></a>사용자 발언의 로그를 다운로드하려면 어떻게 해야 하나요?
-기본적으로 LUIS 앱은 사용자의 발언을 로깅합니다. 사용자가 LUIS 앱으로 전송하는 발언 로그를 다운로드하려면 **내 앱**으로 이동한 후 앱에 대한 목록에서 줄임표(***...***)를 클릭합니다. 그런 후 **엔드포인트 로그 내보내기**를 클릭합니다. 로그 형식은 쉼표로 구분된 값(CSV) 파일로 지정됩니다.
+기본적으로 LUIS 앱은 사용자의 발언을 로깅합니다. 사용자가 LUIS 앱으로 전송하는 발언 로그를 다운로드하려면 **내 앱**으로 이동한 후 앱을 선택합니다. 상황에 맞는 도구 모음에서 **엔드포인트 로그 내보내기**를 선택합니다. 로그 형식은 쉼표로 구분된 값(CSV) 파일로 지정됩니다.
 
 ### <a name="how-can-i-disable-the-logging-of-utterances"></a>발언 로깅을 사용하지 않도록 설정하려면 어떻게 해야 하나요?
 클라이언트 응용 프로그램이 LUIS를 쿼리하는 사용하는 엔드포인트 URL에서 `log=false`를 설정하여 사용자 발언의 로깅을 해제할 수 있습니다. 그렇지만 로깅을 해제하면 [활성 학습](luis-concept-review-endpoint-utterances.md#what-is-active-learning)에 따라 발언을 제안하거나 성능을 향상시키는 LUIS 앱 기능을 사용할 수 없게 됩니다. 데이터 개인 정보 문제 때문에 `log=false`를 설정하는 경우 LUIS에서 해당 사용자 발언의 기록을 다운로드하거나 해당 발언을 사용하여 앱을 향상시킬 수 없습니다.

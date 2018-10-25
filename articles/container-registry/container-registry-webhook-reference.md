@@ -2,17 +2,17 @@
 title: Azure Container Registry 웹후크 스키마 참조
 description: Azure Container Registry에 대한 웹후크 요청 JSON 페이로드 참조입니다.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
-ms.author: marsma
-ms.openlocfilehash: f62477a4c68abf1617d9689047913fd820ee5461
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: danlep
+ms.openlocfilehash: 8bae44215cdc17e9f1617c909ef197f2757fc114
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857757"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Azure Container Registry 웹후크 참조
 
@@ -150,7 +150,7 @@ docker push myregistry.azurecr.io/hello-world:v1
   }
 ```
 
-**delete** 이벤트 웹후크를 트리거하는 예제 [Azure CLI 2.0](/cli/azure/acr) 명령:
+**delete** 이벤트 웹후크를 트리거하는 예제 [Azure CLI](/cli/azure/acr) 명령:
 
 ```azurecli
 # Delete repository

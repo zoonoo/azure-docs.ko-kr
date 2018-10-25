@@ -1,19 +1,21 @@
 ---
-title: 브라우저에서 API 호출 - Azure Cognitive Services | Microsoft Docs
-description: 브라우저에서 직접 API 호출을 수행하여 웹 페이지를 최적화하기 위해 Azure Custom Decision Service를 시작하는 방법입니다.
+title: 브라우저에서 API 호출 - Custom Decision Service
+titlesuffix: Azure Cognitive Services
+description: 브라우저에서 Custom Decision Service로 직접 API 호출을 수행하여 웹 페이지를 최적화하는 방법입니다.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/09/2018
-ms.author: slivkins,marcozo,alekh
-ms.openlocfilehash: 10236c9d8f70d9b90a896464b4f86a847ee904c2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: slivkins
+ms.openlocfilehash: 01f75d333e3eea5af35ca57bd44bc76148a481f2
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377223"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867618"
 ---
 # <a name="call-api-from-a-browser"></a>브라우저에서 API 호출
 

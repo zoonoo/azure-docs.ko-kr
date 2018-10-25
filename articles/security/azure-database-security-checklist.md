@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 7682a733c5630c16d9684ec3cb9e7757b03a8b1b
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: f6e8ed1725b7ba2a0cba8523ae03c0306337aba0
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855938"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402510"
 ---
 # <a name="azure-database-security-checklist"></a>Azure 데이터베이스 보안 검사 목록
 
@@ -46,7 +46,7 @@ Azure 데이터베이스에는 보안을 향상시키기 위해 액세스를 제
 |검사 목록 범주| 설명|
 | ------------ | -------- |
 |**데이터 보호**||
-| <br> 진행 중/전송 중 암호화| <ul><li>[전송 계층 보안](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol) - 데이터가 네트워크로 이동할 때의 데이터 암호화용</li><li>데이터베이스에는 TLS(전송 계층 보안)를 통한 [TDS(Tabular Data Stream)](https://msdn.microsoft.com/en-in/library/dd357628.aspx) 프로토콜에 기반한 클라이언트로부터의 보안 통신이 필요합니다.</li></ul> |
+| <br> 진행 중/전송 중 암호화| <ul><li>[전송 계층 보안](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol) - 데이터가 네트워크로 이동할 때의 데이터 암호화용</li><li>데이터베이스에는 TLS(전송 계층 보안)를 통한 [TDS(Tabular Data Stream)](https://msdn.microsoft.com/library/dd357628.aspx) 프로토콜에 기반한 클라이언트로부터의 보안 통신이 필요합니다.</li></ul> |
 |<br>휴지 상태의 암호화| <ul><li>[투명한 데이터 암호화](http://go.microsoft.com/fwlink/?LinkId=526242) - 비활성 데이터가 디지털 형식으로 물리적으로 저장되는 경우</li></ul>|
 |**액세스 제어**||  
 |<br> 데이터베이스 액세스 | <ul><li>[인증](https://docs.microsoft.com/azure/sql-database/sql-database-control-access)(Azure Active Directory 인증) - AD 인증은 Azure Active Directory에서 관리되는 ID를 사용합니다.</li><li>[권한 부여](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) - 사용자에게 필요한 최소 권한을 부여합니다.</li></ul> |

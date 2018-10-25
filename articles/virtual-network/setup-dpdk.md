@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
-ms.openlocfilehash: 205a1e399eadd268ffaa390a7ebb4397fda9feff
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 34647c218bd5fd2eec775599a4d2f10373dbd2fd
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444656"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268279"
 ---
-# <a name="setup-dpdk-in-a-linux-virtual-machine"></a>Linux 가상 머신에서 DPDK 설정
+# <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Linux 가상 머신에서 DPDK 설정
 
-Azure의 DPDK(데이터 평면 개발 키트)는 가상 머신의 커널 네트워크 스택을 무시하는 성능 집약적 응용 프로그램에 대해 더 빠른 사용자 공간 패킷 처리 프레임워크를 제공합니다.
+Azure의 DPDK(데이터 평면 개발 키트)는 성능 집약적 응용 프로그램에 대해 더 빠른 사용자 공간 패킷 처리 프레임워크를 제공합니다. 이 프레임워크에는 가상 머신의 커널 네트워크 스택을 무시합니다.
 
-커널 네트워크 스택을 사용한 일반적인 패킷 처리는 인터럽트 기반입니다. 네트워크 인터페이스가 들어오는 패킷을 수신할 때마다 커널 공간에서 사용자 공간까지 패킷 및 컨텍스트 스위치를 처리하기 위한 커널 인터럽트가 있습니다. DPDK는 빠른 패킷 처리를 위한 폴링 모드 드라이버를 사용하여 사용자 공간 구현 대신 컨텍스트 전환 및 인터럽트 기반 메서드를 제거합니다.
+커널 네트워크 스택을 사용하는 일반적인 패킷 처리에서 프로세스는 인터럽트를 기준으로 합니다. 네트워크 인터페이스가 들어오는 패킷을 수신할 때 커널 공간에서 사용자 공간까지 패킷 및 컨텍스트 스위치를 처리하기 위한 커널 인터럽트가 있습니다. DPDK는 빠른 패킷 처리를 위한 폴링 모드 드라이버를 사용하는 사용자 공간 구현 대신 컨텍스트 전환 및 인터럽트 기반 메서드를 제거합니다.
 
-DPDK는 하드웨어, 논리 코어, 메모리 관리 및 네트워크 인터페이스 카드의 폴링 모드 드라이버 등의 하위 수준 리소스에 대한 액세스를 제공하는 사용자 공간 라이브러리의 집합으로 이루어져 있습니다.
+DPDK는 하위 수준 리소스에 대한 액세스를 제공하는 사용자 공간 라이브러리의 집합으로 구성됩니다. 이러한 리소스는 하드웨어, 논리 코어, 메모리 관리 및 네트워크 인터페이스 카드의 폴링 모드 드라이버에 포함할 수 있습니다.
 
-DPDK는 여러 운영 체제 배포를 지원하면서 Azure 가상 머신에서 실행될 수 있습니다. DPDK는 가상 라우터, 방화벽, VPN, 부하 분산 장치, 향상된 패킷 코어 및 DDoS(서비스 거부) 응용 프로그램 같은 NVA(네트워크 가상 어플라이언스)의 형태로 네트워크 함수 가상화 구현을 작동하는 데 있어 주요한 성능 차이를 제공합니다.
+DPDK는 여러 운영 체제 배포를 지원하는 Azure Virtual Machines에서 실행될 수 있습니다. DPDK는 네트워크 기능 가상화 구현을 구동할 때 핵심 성과 차별화를 제공합니다. 이러한 구현은 가상 라우터, 방화벽, VPN, 부하 분산 장치, 발전된 패킷 코어 및 DDoS(서비스 거부) 응용 프로그램 같은 NVA(네트워크 가상 어플라이언스) 형식을 취할 수 있습니다.
 
 ## <a name="benefit"></a>혜택
 
-**초당 더 높은 패킷(PPS)**: 커널을 무시하고 사용자 공간에서 패킷을 제어하면 컨텍스트 스위치를 제거하여 주기 횟수를 줄이고 Azure Linux 가상 머신에서 초당 처리 패킷 속도를 향상시킵니다.
+**초당 더 높은 패킷(PPS)**: 커널을 무시하고 사용자 공간에서 패킷을 제어하면 컨텍스트 스위치를 제거하여 주기 횟수를 줄입니다. 또한 Azure Linux 가상 머신에서 초당 처리 패킷 속도를 향상시킵니다.
 
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
@@ -50,7 +50,7 @@ DPDK는 여러 운영 체제 배포를 지원하면서 Azure 가상 머신에서
 
 **사용자 지정 커널 지원**
 
-나열되지 않은 모든 Linux 커널 버전은 [Azure 조정 Linux 커널 빌딩에 대한 패치](https://github.com/microsoft/azure-linux-kernel)를 참조하거나 자세한 내용은 [azuredpdk@microsoft.com](mailto:azuredpdk@microsoft.com)에 문의하세요. 
+나열되지 않은 모든 Linux 커널 버전은 [Azure 조정 Linux 커널 빌드용 패치](https://github.com/microsoft/azure-linux-kernel)를 참조하세요. 자세한 내용은 [azuredpdk@microsoft.com](mailto:azuredpdk@microsoft.com)에 문의할 수도 있습니다. 
 
 ## <a name="region-support"></a>지역 지원
 
@@ -105,17 +105,17 @@ zypper \
   --gpg-auto-import-keys install kernel-default-devel gcc make libnuma-devel numactl librdmacm1 rdma-core-devel
 ```
 
-## <a name="setup-virtual-machine-environment-once"></a>가상 머신 환경 설정(한 번)
+## <a name="set-up-the-virtual-machine-environment-once"></a>가상 머신 환경 설정(한 번)
 
 1. [최신 DPDK 다운로드](https://core.dpdk.org/download). Azure에는 버전 18.02 이상이 필요합니다.
-2. 먼저 `make config T=x86_64-native-linuxapp-gcc`로 기본 구성을 빌드합니다.
+2. `make config T=x86_64-native-linuxapp-gcc`로 기본 구성을 빌드합니다.
 3. `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config`로 생성된 구성에서 Mellanox PMD를 사용하도록 설정합니다.
 4. `make`를 사용하여 컴파일합니다.
 5. `make install DESTDIR=<output folder>`를 사용하여 설치합니다.
 
-# <a name="configure-runtime-environment"></a>런타임 환경 구성
+## <a name="configure-the-runtime-environment"></a>런타임 환경 구성
 
-다시 부팅 한 후 다음 명령을 한 번 실행합니다.
+다시 시작한 후 다음 명령을 한 번 실행합니다.
 
 1. Hugepage
 
@@ -131,24 +131,26 @@ zypper \
    *  `grep Huge /proc/meminfo`를 사용하여 hugepage가 예약되었는지 확인합니다.
 
      > [!NOTE]
-     > DPDK에 대한 [지침](http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment)을 따라 부팅 시 hugepage가 예약되도록 grub 파일을 수정할 방법이 있습니다. 지침은 페이지 맨 아래에 있습니다. Azure Linux 가상 머신에서 실행하는 경우 다시 부팅 시에 hugepage를 예약하려면 대신 /etc/config/grub.d에서 파일을 수정합니다.
+     > DPDK에 대한 [지침](http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment)을 따라 부팅 시 hugepage가 예약되도록 grub 파일을 수정할 방법이 있습니다. 지침은 페이지 맨 아래에 있습니다. Azure Linux 가상 머신에서 사용하는 경우 다시 부팅 시에 hugepage를 예약하려면 대신 **/etc/config/grub.d**에서 파일을 수정합니다.
 
-2. MAC 및 IP 주소: `ifconfig –a`를 사용하여 네트워크 인터페이스의 MAC 및 IP 주소를 확인합니다. *VF* 네트워크 인터페이스 및 *NETVSC* 네트워크 인터페이스에는 동일한 MAC 주소가 있지만 *NETVSC* 네트워크 인터페이스에만 IP 주소가 있습니다. VF 인터페이스는 NETVSC 인터페이스의 슬레이브 인터페이스로 실행됩니다.
+2. MAC 및 IP 주소: `ifconfig –a`를 사용하여 네트워크 인터페이스의 MAC 및 IP 주소를 확인합니다. *VF* 네트워크 인터페이스 및 *NETVSC* 네트워크 인터페이스에는 동일한 MAC 주소가 있지만 *NETVSC* 네트워크 인터페이스에만 IP 주소가 있습니다. NETVSC 인터페이스는 NETVSC 인터페이스의 슬레이브 인터페이스로 실행됩니다.
 
 3. PCI 주소
 
-   * `ethtool -i <vf interface name>`에서 *VF*에 사용할 PCI 주소를 찾습니다.
-   * *eth0*이 가속 네트워킹을 사용하도록 설정한 경우 testpmd가 *eth0*에 대한 VF pci 장치를 실수로 넘겨받지 않도록 해야 합니다. DPDK 응용 프로그램이 실수로 관리 네트워크 인터페이스를 넘겨받아 SSH 연결 손실을 초래한 경우 직렬 콘솔을 사용하여 DPDK 응용 프로그램을 종료하거나 가상 머신을 시작합니다.
+   * `ethtool -i <vf interface name>`을 사용하여 *VF*에 사용할 PCI 주소를 찾습니다.
+   * *eth0*이 가속 네트워킹을 사용하도록 설정한 경우 testpmd가 *eth0*에 대한 VF pci 장치를 실수로 넘겨받지 않도록 해야 합니다. DPDK 응용 프로그램이 실수로 관리 네트워크 인터페이스를 넘겨받아 SSH 연결 손실을 초래한 경우 직렬 콘솔을 사용하여 DPDK 응용 프로그램을 중지합니다. 또는 직렬 콘솔을 사용하여 가상 머신을 중지 또는 시작할 수도 있습니다.
 
 4. `modprobe -a ib_uverbs`로 다시 부팅할 때마다 *ibuverbs*를 로드합니다. SLES 15의 경우만 `modprobe -a mlx4_ib`로 *mlx4_ib*를 로드합니다.
 
 ## <a name="failsafe-pmd"></a>Failsafe PMD
 
-DPDK 응용 프로그램은 Azure에서 공개되는 failsafe PMD에서 실행되어야 합니다. 응용 프로그램이 직접 VF PMD에서 실행되는 경우 일부 패킷이 가상 인터페이스에 표시되므로 VM을 대상으로 한 **모든** 패킷을 수신하지는 않습니다. failsafe PMD에서 실행하면 응용 프로그램이 이를 대상으로 한 모든 패킷을 수신하며 또한 호스트가 서비스되는 경우 VF가 해지된다고 해도 응용 프로그램이 DPDK 모드로 계속 실행되도록 보장합니다. Failsafe PMD에 대한 자세한 내용은 [Failsafe 폴링 모드 드라이버 라이브러리](http://doc.dpdk.org/guides/nics/fail_safe.html)를 참조하세요.
+DPDK 응용 프로그램은 Azure에서 공개되는 failsafe PMD에서 실행되어야 합니다. 응용 프로그램이 직접 VF PMD에서 실행되는 경우 일부 패킷이 가상 인터페이스에 표시되므로 VM을 대상으로 한 **모든** 패킷을 수신하지는 않습니다. 
+
+Failsafe PMD 통해 DPDK 응용 프로그램을 실행하는 경우 응용 프로그램이 대상으로 지정된 모든 패킷을 수신하게 됩니다. 또한 호스트에 서비스가 제공될 때 VF가 호출되더라도 응용 프로그램은 DPDK 모드에서 계속 실행됩니다. Failsafe PMD에 대한 자세한 내용은 [Failsafe 폴링 모드 드라이버 라이브러리](http://doc.dpdk.org/guides/nics/fail_safe.html)를 참조하세요.
 
 ## <a name="run-testpmd"></a>testpmd 실행
 
-*testpmd* 명령 전에 `sudo`를 사용하여 루트 모드에서 실행합니다.
+루트 모드에서 testpmd를 실행하려면 *testpmd* 명령 전에 `sudo`를 사용합니다.
 
 ### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>기초: 정상 여부 검사, failsafe 어댑터 초기화
 
@@ -171,12 +173,12 @@ DPDK 응용 프로그램은 Azure에서 공개되는 failsafe PMD에서 실행�
    -- -i
    ```
 
-   2개를 초과하는 NIC를 실행하는 경우 `--vdev` 인수는 `net_vdev_netvsc<id>,iface=<vf’s pairing eth>` 패턴을 따릅니다.
+   2개를 초과하는 NIC를 사용하여 testpmd를 실행하는 경우 `--vdev` 인수는 `net_vdev_netvsc<id>,iface=<vf’s pairing eth>` 패턴을 따릅니다.
 
 3.  시작되면 `show port info all`을 실행하여 포트 정보를 확인합니다. net_failsafe인(*net_mlx4*가 아니라) 하나 또는 두 개의 DPDK 포트가 표시돼야 합니다.
 4.  트래픽을 시작하려면 `start <port> /stop <port>`를 사용합니다.
 
-일부 testpmd 명령을 시도하려면 이전 명령은 권장되는 대화형 모드로 *testpmd*를 시작합니다.
+이전 명령은 testpmd에 권장되는 대화형 모드로 *testpmd*를 시작합니다.
 
 ### <a name="basic-single-sendersingle-receiver"></a>기초: 단일 발신자/단일 수신자
 
@@ -188,7 +190,7 @@ DPDK 응용 프로그램은 Azure에서 공개되는 failsafe PMD에서 실행�
    testpmd \
      -l <core-list> \
      -n <num of mem channels> \
-     -w <pci address of the device intended to use> \
+     -w <pci address of the device you plan to use> \
      --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
      -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
@@ -203,7 +205,7 @@ DPDK 응용 프로그램은 Azure에서 공개되는 failsafe PMD에서 실행�
    testpmd \
      -l <core-list> \
      -n <num of mem channels> \
-     -w <pci address of the device intended to use> \
+     -w <pci address of the device you plan to use> \
      --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
      -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \
@@ -223,7 +225,7 @@ DPDK 응용 프로그램은 Azure에서 공개되는 failsafe PMD에서 실행�
    testpmd \
      -l <core-list> \
      -n <num of mem channels> \
-     -w <pci address of the device intended to use> \
+     -w <pci address of the device you plan to use> \
      --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
      -- --port-topology=chained \
      --nb-cores <number of cores to use for test pmd> \

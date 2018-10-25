@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 5489fa999f3427345c3ee9f07f904296de224e31
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 2e4ff84c957540aa6863cd9836b1744e73c5b2f5
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42143560"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854884"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Service Bus 메시징을 통한 분산 추적 및 상관관계
 
@@ -227,7 +227,6 @@ serviceBusLogger.LogInformation($"{currentActivity.OperationName} is finished, D
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Service Bus 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 * [Application Insights 상관관계](../application-insights/application-insights-correlation.md)
 * [Application Insights 종속성 모니터링](../application-insights/app-insights-asp-net-dependencies.md) - REST, SQL 또는 다른 외부 리소스의 속도가 느려지는지 확인합니다.
 * [Application Insights .NET SDK를 통한 사용자 지정 작업 추적](../application-insights/application-insights-custom-operations-tracking.md)

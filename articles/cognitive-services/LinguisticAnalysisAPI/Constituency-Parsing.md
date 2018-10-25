@@ -1,22 +1,27 @@
 ---
-title: Linguistic Analysis API에서 팀원 구문 분석 | Microsoft Docs
+title: 구성 구문 분석 - Linguistic Analysis API
+titlesuffix: Azure Cognitive Services
 description: “구 구조 구문 분석”이라고도 하는 팀원 구문 분석이 텍스트에서 구를 식별하는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: lesun
-ms.openlocfilehash: bff5e587621e1278c260d555aec280a0f4c7c8a1
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ROBOTS: NOINDEX
+ms.openlocfilehash: 89832f2d936a08df8b6f9e846c3dd4a5665c06a4
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082175"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238627"
 ---
 # <a name="constituency-parsing"></a>팀원 구문 분석
+
+> [!IMPORTANT]
+> Linguistic Analysis 미리 보기는 2018년 8월 9일부로 서비스 해제되었습니다. 텍스트 처리 및 분석에는 [Azure Machine Learning 텍스트 분석 모듈](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics)을 사용하는 것이 좋습니다.
 
 팀원 구문 분석(“구 구조 구문 분석”이라고도 함)의 목표는 텍스트에서 구를 식별하는 것입니다.
 이는 텍스트에서 정보를 추출하는 경우에 유용할 수 있습니다.

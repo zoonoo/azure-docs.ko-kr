@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 95c27bcc99f08cb1e4998e43a6a2abd508bee0ac
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 25d13ba53eb5a8b411a557b5eaf05d278faa3733
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47228171"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869315"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>SQL Database Managed Instance를 사용한 복제
 
@@ -76,21 +76,22 @@ Azure SQL Database에서 게시자 및 배포자는 다음이 필요합니다.
 
 ## <a name="configure-publishing-and-distribution-example"></a>게시 및 배포 예제 구성
 
-1. 포털에서 [Azure SQL Database Managed Instance를 만듭니다](http://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal).
+1. 포털에서 [Azure SQL Database Managed Instance를 만듭니다](sql-database-managed-instance-create-tutorial-portal.md).
+2. 작업 디렉터리에 대한 [Azure Storage 계정을 만듭니다](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account).
 
-1. 작업 디렉터리에 대한 [Azure Storage 계정을 만듭니다](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account). 저장소 키를 복사해야 합니다. [저장소 액세스 키 보기 및 복사](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)를 참조하세요.
-
-1. 게시자에 대한 데이터베이스를 만듭니다.
+   저장소 키를 복사해야 합니다. [저장소 액세스 키 보기 및 복사](../storage/common/storage-account-manage.md#access-keys
+)를 참조하세요.
+3. 게시자에 대한 데이터베이스를 만듭니다.
 
    아래 예제 스크립트에서 `<Publishing_DB>`를 이 데이터베이스의 이름으로 바꿉니다.
 
-1. 배포자에 대한 SQL 인증을 사용하여 데이터베이스 사용자를 만듭니다. [데이터베이스 사용자 만들기](http://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users)를 참조하세요. 보안 암호를 사용합니다.
+4. 배포자에 대한 SQL 인증을 사용하여 데이터베이스 사용자를 만듭니다. [데이터베이스 사용자 만들기](http://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users)를 참조하세요. 보안 암호를 사용합니다.
 
    아래 예제 스크립트에서 이 SQL Server 계정 데이터베이스 사용자 및 암호로 `<SQL_USER>` 및 `<PASSWORD>`를 사용합니다.
 
-1. [SQL Database Managed Instance에 연결합니다](http://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
+5. [SQL Database Managed Instance에 연결합니다](http://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
 
-1. 다음 쿼리를 실행하여 배포자 및 배포 데이터베이스를 추가합니다.
+6. 다음 쿼리를 실행하여 배포자 및 배포 데이터베이스를 추가합니다.
 
    ```sql
    USE [master]
@@ -99,7 +100,7 @@ Azure SQL Database에서 게시자 및 배포자는 다음이 필요합니다.
    EXEC sp_adddistributiondb @database = N'distribution';
    ```
 
-1. 지정된 배포 데이터베이스를 사용하도록 게시자를 구성하려면 다음 쿼리를 업데이트하고 실행합니다.
+7. 지정된 배포 데이터베이스를 사용하도록 게시자를 구성하려면 다음 쿼리를 업데이트하고 실행합니다.
 
    `<SQL_USER>` 및 `<PASSWORD>`를 SQL Server 계정 및 암호로 바꿉니다.
 
@@ -107,7 +108,7 @@ Azure SQL Database에서 게시자 및 배포자는 다음이 필요합니다.
 
    `<STORAGE_CONNECTION_STRING>`을 Microsoft Azure 저장소 계정의 **액세스 키** 탭에서 연결 문자열로 바꿉니다.
 
-   다음 쿼리를 업데이트한 후 실행합니다. 
+   다음 쿼리를 업데이트한 후 실행합니다.
 
    ```sql
    USE [master]
@@ -121,7 +122,7 @@ Azure SQL Database에서 게시자 및 배포자는 다음이 필요합니다.
    GO
    ```
 
-1. 복제에 대한 게시자를 구성합니다. 
+8. 복제에 대한 게시자를 구성합니다.
 
     다음 쿼리에서 `<Publishing_DB>`를 게시자 데이터베이스의 이름으로 바꿉니다.
 
@@ -155,15 +156,13 @@ Azure SQL Database에서 게시자 및 배포자는 다음이 필요합니다.
                 @job_password = N'<PASSWORD>'
    ```
 
-1. 문서, 구독 및 밀어넣기 구독 에이전트를 추가합니다. 
+9. 문서, 구독 및 밀어넣기 구독 에이전트를 추가합니다.
 
    이러한 개체를 추가하려면 다음 스크립트를 업데이트합니다.
 
-   `<Object_Name>`을 게시 개체의 이름으로 바꿉니다.
-
-   `<Object_Schema>`를 원본 스키마의 이름으로 바꿉니다. 
-
-   꺾쇠 괄호(`<>`)의 다른 매개 변수를 이전 스크립트의 값과 일치하도록 바꿉니다. 
+   - `<Object_Name>`을 게시 개체의 이름으로 바꿉니다.
+   - `<Object_Schema>`를 원본 스키마의 이름으로 바꿉니다.
+   - 꺾쇠 괄호(`<>`)의 다른 매개 변수를 이전 스크립트의 값과 일치하도록 바꿉니다.
 
    ```sql
    EXEC sp_addarticle @publication = N'<Publication_Name>',
@@ -183,7 +182,7 @@ Azure SQL Database에서 게시자 및 배포자는 다음이 필요합니다.
                 @subscriber_security_mode = 0,
                 @subscriber_login = N'<SQL_USER>',
                 @subscriber_password = N'<PASSWORD>',
-                @job_login = N'<SQL_USER>', 
+                @job_login = N'<SQL_USER>',
                 @job_password = N'<PASSWORD>'
    GO
    ```

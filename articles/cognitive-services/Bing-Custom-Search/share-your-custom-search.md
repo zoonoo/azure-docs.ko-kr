@@ -1,20 +1,21 @@
 ---
-title: 'Bing Custom Search: 사용자 지정 검색 공유 | Microsoft Docs'
+title: 사용자 지정 검색 공유 - Bing Custom Search
+titlesuffix: Azure Cognitive Services
 description: 사용자 지정 검색 인스턴스를 공유하는 방법을 설명합니다.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: 4a9761ce0671b57d802fe332c92e32d1f410fa6f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b6834681f2b6478943c43e44d694ae278ddd4682
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960960"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815922"
 ---
 # <a name="share-your-custom-search-instance"></a>Custom Search 인스턴스 공유
 

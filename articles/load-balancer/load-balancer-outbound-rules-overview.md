@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/8/2018
 ms.author: kumud
-ms.openlocfilehash: 63c193b4757c28f809a33b917058df36467d4db4
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 15783822631a5372b181f2d65746664d90b389da
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163021"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883961"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer 아웃바운드 규칙
 
@@ -180,10 +180,10 @@ disableOutboundSNAT 매개 변수의 기본값은 false입니다. 즉 부하 분
 
 #### <a name="outbound-nat-for-internal-standard-load-balancer-scenarios"></a>내부 표준 Load Balancer 시나리오에 대한 아웃바운드 NAT
 
-내부 표준 Load Balancer를 사용하는 경우 공용 표준 Load Balancer도 구성될 때까지 아웃바운드 NAT를 사용할 수 없습니다. 아웃바운드 규칙을 통해 이를 변경하여 내부 표준 Load Balancer 뒤에 있는 VM에 대한 아웃바운드 연결을 만들 수 있습니다.
+내부 표준 Load Balancer를 사용하는 경우 아웃바운드 연결이 명시적으로 선언될 때까지 아웃바운드 NAT를 사용할 수 없습니다. 다음 단계에 따라 내부 표준 Load Balancer 뒤에 있는 VM에 대한 아웃바운드 연결을 만드는 아웃바운드 규칙을 통해 아웃바운드 연결을 정의할 수 있습니다.
 
 1. 공용 표준 Load Balancer를 만듭니다.
-2. 백 엔드 풀을 만들고 공용 Load Balancer의 백 엔드 풀에 VM을 배치합니다.
+2. 백 엔드 풀을 만들고 내부 Load Balancer 외에, 공용 Load Balancer의 백 엔드 풀에 VM을 배치합니다.
 3. 공용 Load Balancer에서 이러한 VM에 대해 아웃바운드 NAT를 프로그래밍하도록 아웃바운드 규칙을 구성합니다.
 
 #### <a name="enable-both-tcp--udp-protocols-for-outbound-nat-with-a-public-standard-load-balancer"></a>공용 표준 Load Balancer를 통해 아웃바운드 NAT에 TCP 및 UDP 프로토콜을 모두 사용

@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
-ms.openlocfilehash: 4ce7b3a6b455384180184aa3b9be34fb88da266b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 35f1ed2fbeeea7ff3beffeae91f775c829deedec
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308872"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637717"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Azure AD userPrincipalName 채우기
 
@@ -166,7 +166,7 @@ Azure AD 테넌트 사용자 개체:
 - mailNickName      : us4
 - proxyAddresses        : {SMTP:us6@contoso.com}
 - mail          : us7@contoso.com
-- serPrincipalName  : us5@verified.contoso.com
+- userPrincipalName : us5@verified.contoso.com
 
 온-프레미스 userPrincipalName 특성에 대한 업데이트를 Azure AD 테넌트와 동기화
 - 온-프레미스 userPrincipalName 특성에 대한 업데이트는 Azure AD UserPrincipalName 특성의 다시 계산을 트리거합니다.

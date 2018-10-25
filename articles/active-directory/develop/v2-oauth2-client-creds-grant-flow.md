@@ -17,18 +17,21 @@ ms.date: 01/07/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 02d5bf9ef293731ce707596a90cd7e9aa0b96450
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 2dc1be6b861515cf34f8dd799fa732da530e82a1
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39580613"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985403"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 및 OAuth 2.0 클라이언트 자격 증명 흐름
+
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
+
 응용 프로그램의 ID를 사용하여 웹 호스팅 리소스에 액세스하기 위해 RFC 6749에 명시된 [OAuth 2.0 클라이언트 자격 증명 권한 부여](http://tools.ietf.org/html/rfc6749#section-4.4)(때로는 *2단계 OAuth*라고도 함)를 사용할 수 있습니다. 이 유형의 권한 부여는 일반적으로 사용자의 직접적인 상호 작용 없이 백그라운드에서 실행해야 하는 서버 간 상호 작용에 사용됩니다. 이러한 유형의 응용 프로그램은 종종 *디먼* 또는 *서비스 계정*이라고 합니다.
 
 > [!NOTE]
-> v2.0 끝점에서는 일부 Azure Active Directory 시나리오 및 기능만 지원합니다. v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
+> v2.0 엔드포인트에서는 일부 Azure Active Directory 시나리오 및 기능만 지원합니다. v2.0 엔드포인트를 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
 >
 >
 
@@ -43,9 +46,9 @@ ms.locfileid: "39580613"
 일반적으로 앱은 리소스에서 ACL(액세스 제어 목록)을 통하거나 Azure AD(Azure Active Directory)에서 응용 프로그램 사용 권한 할당을 통하는 두 가지 방법 중 하나로 리소스에 액세스할 수 있는 직접 권한을 부여받습니다. 이 두 메서드는 Azure AD에서 가장 일반적이며 클라이언트 자격 증명 흐름을 수행하는 클라이언트 및 리소스에 사용하는 것이 좋습니다. 그러나 리소스가 다른 방식으로 해당 클라이언트를 인증하도록 선택할 수 있습니다. 각 리소스 서버가 해당 응용 프로그램에 가장 적합한 방법을 선택할 수 있습니다.
 
 ### <a name="access-control-lists"></a>액세스 제어 목록
-리소스 공급자는 특정 수준의 액세스를 알고 권한을 부여하는 응용 프로그램 ID 목록에 따라 권한 부여 확인을 적용할 수 있습니다. 리소스가 v2.0 끝점에서 토큰을 받으면 토큰을 디코딩하고 `appid` 및 `iss` 클레임에서 클라이언트의 응용 프로그램 ID를 추출할 수 있습니다. 그런 다음 유지 관리하는 ACL에 대해 응용 프로그램을 비교합니다. ACL의 세분성 및 메서드는 리소스 간에 크게 달라질 수 있습니다.
+리소스 공급자는 특정 수준의 액세스를 알고 권한을 부여하는 응용 프로그램 ID 목록에 따라 권한 부여 확인을 적용할 수 있습니다. 리소스가 v2.0 엔드포인트에서 토큰을 받으면 토큰을 디코딩하고 `appid` 및 `iss` 클레임에서 클라이언트의 응용 프로그램 ID를 추출할 수 있습니다. 그런 다음 유지 관리하는 ACL에 대해 응용 프로그램을 비교합니다. ACL의 세분성 및 메서드는 리소스 간에 크게 달라질 수 있습니다.
 
-일반적인 사용 사례는 ACL을 사용하여 웹 응용 프로그램 또는 Web API에 대한 테스트를 실행하는 것입니다. Web API는 특정 클라이언트에 대한 모든 권한의 하위 집합만 부여할 수 있습니다. API에서 종단 간 테스트를 실행하려면 v2.0 끝점에서 토큰을 획득하여 API에 전송하는 테스트 클라이언트를 만듭니다. 그러면 API는 API의 전체 기능에 대한 모든 권한에 대해 ACL에서 테스트 클라이언트의 응용 프로그램 ID를 확인합니다. 이 종류의 ACL을 사용하는 경우 호출자의 `appid` 값에 대한 유효성을 검사할 뿐만 아니라 토큰의 `iss` 값을 신뢰할 수 있는지도 확인해야 합니다.
+일반적인 사용 사례는 ACL을 사용하여 웹 응용 프로그램 또는 Web API에 대한 테스트를 실행하는 것입니다. Web API는 특정 클라이언트에 대한 모든 권한의 하위 집합만 부여할 수 있습니다. API에서 종단 간 테스트를 실행하려면 v2.0 엔드포인트에서 토큰을 획득하여 API에 전송하는 테스트 클라이언트를 만듭니다. 그러면 API는 API의 전체 기능에 대한 모든 권한에 대해 ACL에서 테스트 클라이언트의 응용 프로그램 ID를 확인합니다. 이 종류의 ACL을 사용하는 경우 호출자의 `appid` 값에 대한 유효성을 검사할 뿐만 아니라 토큰의 `iss` 값을 신뢰할 수 있는지도 확인해야 합니다.
 
 이 종류의 권한 부여는 개인 Microsoft 계정을 가진 소비자 사용자가 소유한 데이터에 액세스해야 하는 디먼 및 서비스 계정에 일반적입니다. 조직에서 소유한 데이터의 경우 응용 프로그램 사용 권한을 통해 필요한 권한 부여를 획득하는 것이 좋습니다.
 
@@ -72,7 +75,7 @@ ACL을 사용하는 대신 API를 사용하여 응용 프로그램 사용 권한
 사용자가 앱에 로그인하면 사용자에게 응용 프로그램 사용 권한을 승인하도록 요청하기 전에 사용자가 속해 있는 조직을 식별할 수 있습니다. 반드시 필요하지는 않지만 사용자를 위한 보다 직관적인 환경을 만드는 것이 유용할 수 있습니다. 사용자가 로그인하려면 [v2.0 프로토콜 자습서](active-directory-v2-protocols.md)를 수행합니다.
 
 #### <a name="request-the-permissions-from-a-directory-admin"></a>디렉터리 관리에서 사용 권한 요청
-조직의 관리자에게 사용 권한을 요청할 준비가 되면 v 2.0 *관리 동의 끝점*에 사용자를 리디렉션할 수 있습니다.
+조직의 관리자에게 사용 권한을 요청할 준비가 되면 v 2.0 *관리 동의 엔드포인트*에 사용자를 리디렉션할 수 있습니다.
 
 ```
 // Line breaks are for legibility only.
@@ -125,10 +128,10 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 | error |오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | error_description |오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
 
-앱 프로비전 끝점에서 성공적인 응답을 받았다면 앱은 요청한 응용 프로그램 직접 사용 권한을 얻게 됩니다. 이제 원하는 리소스에 대한 토큰을 요청할 수 있습니다.
+앱 프로비전 엔드포인트에서 성공적인 응답을 받았다면 앱은 요청한 응용 프로그램 직접 사용 권한을 얻게 됩니다. 이제 원하는 리소스에 대한 토큰을 요청할 수 있습니다.
 
 ## <a name="get-a-token"></a>토큰 가져오기
-응용 프로그램에 필요한 권한을 부여받은 후에는 API에 대한 액세스 토큰을 획득하는 과정을 진행합니다. 클라이언트 자격 증명 권한 부여를 사용하여 토큰을 가져오려면 POST 요청을 `/token` v2.0 끝점에 보냅니다.
+응용 프로그램에 필요한 권한을 부여받은 후에는 API에 대한 액세스 토큰을 획득하는 과정을 진행합니다. 클라이언트 자격 증명 권한 부여를 사용하여 토큰을 가져오려면 POST 요청을 `/token` v2.0 엔드포인트에 보냅니다.
 
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>첫 번째 사례: 공유 암호를 사용한 액세스 토큰 요청
 
@@ -151,7 +154,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | --- | --- | --- |
 | tenant |필수 | 응용 프로그램에서 GUID 또는 도메인 이름 형식으로 작동하도록 계획하는 디렉터리 테넌트입니다. |
 | client_id |필수 |[응용 프로그램 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)에서 앱에 할당한 응용 프로그램 ID입니다. |
-| scope |필수 |이 요청에서 `scope` 매개 변수에 전달된 값은 원하는 리소스의 리소스 식별자(응용 프로그램 ID URI)여야 하고 `.default` 접미사가 붙어 있어야 합니다. Microsoft Graph 예제의 경우 값은 `https://graph.microsoft.com/.default`입니다. 이 값은 앱에 구성한 모든 응용 프로그램 직접 사용 권한의 v2.0 끝점을 알려주며 사용하려는 리소스와 연결된 사용 권한의 토큰을 발급해야 합니다. |
+| scope |필수 |이 요청에서 `scope` 매개 변수에 전달된 값은 원하는 리소스의 리소스 식별자(응용 프로그램 ID URI)여야 하고 `.default` 접미사가 붙어 있어야 합니다. Microsoft Graph 예제의 경우 값은 `https://graph.microsoft.com/.default`입니다. 이 값은 앱에 구성한 모든 응용 프로그램 직접 사용 권한의 v2.0 엔드포인트를 알려주며 사용하려는 리소스와 연결된 사용 권한의 토큰을 발급해야 합니다. |
 | client_secret |필수 |앱 등록 포털에서 앱에 대해 생성한 응용 프로그램 암호입니다. 클라이언트 암호는 전송되기 전에 URL로 인코딩되어야 합니다.|
 | grant_type |필수 |`client_credentials`이어야 합니다. |
 
@@ -173,7 +176,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 | --- | --- | --- |
 | tenant |필수 | 응용 프로그램에서 GUID 또는 도메인 이름 형식으로 작동하도록 계획하는 디렉터리 테넌트입니다. |
 | client_id |필수 |[응용 프로그램 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)에서 앱에 할당한 응용 프로그램 ID입니다. |
-| scope |필수 |이 요청에서 `scope` 매개 변수에 전달된 값은 원하는 리소스의 리소스 식별자(응용 프로그램 ID URI)여야 하고 `.default` 접미사가 붙어 있어야 합니다. Microsoft Graph 예제의 경우 값은 `https://graph.microsoft.com/.default`입니다. 이 값은 앱에 구성한 모든 응용 프로그램 직접 사용 권한의 v2.0 끝점을 알려주며 사용하려는 리소스와 연결된 사용 권한의 토큰을 발급해야 합니다. |
+| scope |필수 |이 요청에서 `scope` 매개 변수에 전달된 값은 원하는 리소스의 리소스 식별자(응용 프로그램 ID URI)여야 하고 `.default` 접미사가 붙어 있어야 합니다. Microsoft Graph 예제의 경우 값은 `https://graph.microsoft.com/.default`입니다. 이 값은 앱에 구성한 모든 응용 프로그램 직접 사용 권한의 v2.0 엔드포인트를 알려주며 사용하려는 리소스와 연결된 사용 권한의 토큰을 발급해야 합니다. |
 | client_assertion_type |필수 |값은 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`이어야 합니다. |
 | client_assertion |필수 | 응용 프로그램의 자격 증명으로 등록한 인증서를 사용하여 만들고 서명해야 하는 어설션(JSON Web Token)입니다. 인증서 등록 방법 및 어설션 형식에 대한 자세한 내용은 [인증서 자격 증명](active-directory-certificate-credentials.md)을 참조하세요.|
 | grant_type |필수 |`client_credentials`이어야 합니다. |
@@ -223,7 +226,7 @@ client_secret 매개 변수가 두 개의 매개 변수 client_assertion_type �
 | correlation_id |전체 구성 요소에서 진단에 도움이 될 수 있는 요청에 대한 고유 식별자입니다. |
 
 ## <a name="use-a-token"></a>토큰 사용
-토큰을 획득했으므로 해당 토큰을 사용하여 리소스에 요청합니다. 토큰이 만료되면 `/token` 끝점에 대한 요청을 반복하여 새 액세스 토큰을 획득합니다.
+토큰을 획득했으므로 해당 토큰을 사용하여 리소스에 요청합니다. 토큰이 만료되면 `/token` 엔드포인트에 대한 요청을 반복하여 새 액세스 토큰을 획득합니다.
 
 ```
 GET /v1.0/me/messages
@@ -240,4 +243,4 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dC
 ```
 
 ## <a name="code-sample"></a>코드 샘플
-관리 동의 끝점을 사용하여 클라이언트 자격 증명 권한 부여를 구현하는 응용 프로그램의 예를 보려면 [v2.0 디먼 코드 샘플](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)을 참조하세요.
+관리 동의 엔드포인트를 사용하여 클라이언트 자격 증명 권한 부여를 구현하는 응용 프로그램의 예를 보려면 [v2.0 디먼 코드 샘플](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)을 참조하세요.

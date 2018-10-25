@@ -1,5 +1,5 @@
 ---
-title: 기술 자료의 개발 수명 주기 - QnA Maker
+title: 기술 자료 수명 주기 - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker는 모델 변경, 발언 예제, 게시 및 엔드포인트 쿼리에서 데이터 수집의 반복 주기에서 가장 좋은 사례를 학습합니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 5af829b3355c6d68bace959b66f9511877d08b83
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: ec5e9f92114e9bae1aaa840a1d02f5a42b2fd7bf
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040917"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857174"
 ---
 # <a name="knowledge-base-lifecycle"></a>기술 자료 수명 주기
 QnA Maker는 모델 변경, 발언 예제, 게시 및 엔드포인트 쿼리에서 데이터 수집의 반복 주기에서 가장 좋은 사례를 학습합니다. 

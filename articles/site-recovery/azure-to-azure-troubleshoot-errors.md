@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: sujayt
-ms.openlocfilehash: 86d6c77dab817cf755c34bdd699ee1158e852f37
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 040ace1eab4062c011ed82a59e7f5bfb789c256b
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42140507"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945742"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 간 VM 복제 문제 해결
 
@@ -158,8 +158,8 @@ Site Recovery 복제가 작동하려면 VM에서 특정 URL 또는 IP 범위에 
 
 - **해결 방법**
    - 방화벽 프록시를 사용하여 VM에서 아웃바운드 네트워크 연결을 제어하는 경우 필수 구성 요소 URL 또는 데이터 센터 IP 범위가 허용 목록에 있는지 확인합니다. 자세한 내용은 [방화벽 프록시 지침](https://aka.ms/a2a-firewall-proxy-guidance)을 참조하세요.
-   - NSG 규칙을 사용하여 VM에서 아웃바운드 네트워크 연결을 제어하는 경우 필수 구성 요소 데이터 센터 IP 범위가 허용 목록에 있는지 확인합니다. 자세한 내용은 [네트워크 보안 그룹 지침](https://aka.ms/a2a-nsg-guidance)을 참조하세요.
-   - [필요한 URL](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 또는 [필요한 IP 범위](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)가 허용 목록에 있도록 하려면 [네트워킹 지침 문서](site-recovery-azure-to-azure-networking-guidance.md)의 단계에 따릅니다.
+   - NSG 규칙을 사용하여 VM에서 아웃바운드 네트워크 연결을 제어하는 경우 필수 구성 요소 데이터 센터 IP 범위가 허용 목록에 있는지 확인합니다. 자세한 내용은 [네트워크 보안 그룹 지침](azure-to-azure-about-networking.md)을 참조하세요.
+   - [필요한 URL](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 또는 [필요한 IP 범위](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)가 허용 목록에 있도록 하려면 [네트워킹 지침 문서](azure-to-azure-about-networking.md)의 단계에 따릅니다.
 
 ### <a name="issue-2-site-recovery-configuration-failed-151072"></a>문제 2: Site Recovery 구성이 실패했습니다(151072).
 - **가능한 원인** </br>

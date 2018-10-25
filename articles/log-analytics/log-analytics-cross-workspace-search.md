@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d3fb6557571042be7db1380010738bacd72e50f5
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: cc7bcefe43eed524f50fcad09d7fb31a80d22b83
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869503"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025806"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Log Analytics에서 리소스 간 로그 검색 수행  
 
@@ -29,7 +29,7 @@ ms.locfileid: "48869503"
 이제 여러 Log Analytics 작업 영역뿐만 아니라 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독의 특정 Application Insights 앱의 데이터도 쿼리가 가능합니다. 이를 통해 시스템 차원의 데이터 보기가 가능합니다.  [로그 분석](log-analytics-log-search-portals.md#log-analytics-page)에서 이러한 유형의 쿼리만 수행할 수 있습니다. 단일 쿼리에 포함할 수 있는 리소스 (Log Analytics 작업 영역 및 Application Insights 앱)의 수는 100개로 제한됩니다. 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Log Analytics 작업 영역 전체 및 Application Insights 쿼리
-쿼리에 다른 작업 영역을 참조하려면 [*workspace*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) 식별자를 사용하고 Application Insights의 앱의 경우 [*app*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app()) 식별자를 사용합니다.  
+쿼리에 다른 작업 영역을 참조하려면 [*workspace*](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression) 식별자를 사용하고 Application Insights의 앱의 경우 [*app*](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression) 식별자를 사용합니다.  
 
 ### <a name="identifying-workspace-resources"></a>작업 영역 리소스 식별
 다음 예제에서는 현재 작업 영역과 *contosoretail-it*이라는 작업 영역의 업데이트 테이블에서 요약된 로그 수를 반환하기 위한 Log Analytics 작업 영역의 쿼리를 보여줍니다. 
@@ -104,4 +104,4 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 
 ## <a name="next-steps"></a>다음 단계
 
-Log Analytics에 사용할 수 있는 모든 쿼리 구문 옵션을 보려면 [Log Analytics 로그 검색 참조](https://docs.loganalytics.io/docs/Language-Reference)를 검토하세요.    
+Log Analytics에 사용할 수 있는 모든 쿼리 구문 옵션을 보려면 [Log Analytics 로그 검색 참조](https://docs.microsoft.com/azure/log-analytics/query-language/kusto)를 검토하세요.    

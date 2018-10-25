@@ -7,14 +7,14 @@ manager: carmonm
 keywords: 백업; 백업;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/21/2018
+ms.date: 9/10/2018
 ms.author: markgal
-ms.openlocfilehash: 40a83b93443ebe1482f89a114505a1ba27b93bd2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7ab88ce3565ccf79f20847a3a5e744c495d5fcb1
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445746"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884936"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager 배포 가상 머신을 백업하기 위한 환경 준비
 
@@ -37,7 +37,7 @@ Resource Manager 배포 가상 머신을 보호하거나 백업하기 전에 다
 
  * **Linux**: Azure Backup은 CoreOS Linux를 제외한 [Azure 인증 배포 목록](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 지원합니다. 파일 저장을 지원하는 Linux 운영 체제의 목록은 [가상 머신 백업에서 파일 복구](backup-azure-restore-files-from-vm.md#for-linux-os)를 참조하세요.
 
-    > [!NOTE] 
+    > [!NOTE]
     > 가상 머신에서 VM 에이전트를 사용할 수 있고 Python에 대한 지원이 있는 한 다른 Bring-Your-Own-Linux 배포가 작동할 수 있습니다. 그러나 이러한 배포는 지원되지 않습니다.
     >
  * **Windows Server**, **Windows 클라이언트**: Windows Server 2008 R2 또는 Windows 7 이전 버전은 지원되지 않습니다.
@@ -46,10 +46,10 @@ Resource Manager 배포 가상 머신을 보호하거나 백업하기 전에 다
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>VM 백업 및 복원 시의 제한 사항
 환경을 준비하기 전에 다음과 같은 제한 사항을 이해해야 합니다.
 
-* 16개 이상의 데이터 디스크가 있는 가상 머신의 백업은 지원되지 않습니다.
-* 예약된 IP 주소가 있고 정의된 끝점이 없는 가상 머신의 백업은 지원되지 않습니다.
+* 32개 이상의 데이터 디스크가 있는 가상 머신의 백업은 지원되지 않습니다.
+* 예약된 IP 주소가 있고 정의된 엔드포인트가 없는 가상 머신의 백업은 지원되지 않습니다.
 * LUKS(Linux 통합 키 설치) 암호화를 통해 암호화된 Linux VM을 백업하도록 지원하지 않습니다.
-* CSV(클러스터 공유 볼륨) 또는 스케일 아웃 파일 서버 구성을 포함하는 VM을 백업하지 않는 것이 좋습니다. 완료된 경우 CSV 작성기의 실패가 예상됩니다. 스냅숏 작업 중에 클러스터 구성에 포함된 모든 VM이 포함되어야 합니다. Azure Backup은 다중 VM 일관성을 지원하지 않습니다. 
+* CSV(클러스터 공유 볼륨) 또는 스케일 아웃 파일 서버 구성을 포함하는 VM을 백업하지 않는 것이 좋습니다. 완료된 경우 CSV 작성기의 실패가 예상됩니다. 스냅숏 작업 중에 클러스터 구성에 포함된 모든 VM이 포함되어야 합니다. Azure Backup은 다중 VM 일관성을 지원하지 않습니다.
 * Backup 데이터는 VM에 연결된 네트워크 탑재된 드라이브를 포함하지 않습니다.
 * 복원하는 동안 기존 가상 머신의 교체는 지원되지 않습니다. VM이 존재하는 경우 VM 복원을 시도하면, 복원 작업이 실패합니다.
 * 지역 간 백업 및 복원은 지원되지 않습니다.
@@ -63,12 +63,15 @@ Resource Manager 배포 가상 머신을 보호하거나 백업하기 전에 다
   * 다중의 예약된 IP 주소가 있는 가상 머신
   * 다중 네트워크 어댑터가 있는 가상 머신
 
+  > [!NOTE]
+  > Azure Backup은 [표준 SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)를 지원합니다. 이 기능은 새로운 형식의 Microsoft Azure Virtual Machines용 저장소로서 내구성이 좋습니다. 이 저장소는 [Azure VM Backup 스택 V2](backup-upgrade-to-vm-backup-stack-v2.md)의 관리 디스크에서 지원됩니다.
+
 ## <a name="create-a-recovery-services-vault-for-a-vm"></a>VM에 대한 Recovery Services 자격 증명 모음 만들기
 Recovery Services 자격 증명 모음은 시간에 따라 생성된 모든 백업과 복구 지점을 저장하는 엔터티입니다. Recovery Services 자격 증명 모음에는 보호된 가상 머신과 연결된 백업 정책도 포함됩니다.
 
 Recovery Services 자격 증명 모음을 만들려면:
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. **허브** 메뉴에서 **찾아보기**를 선택한 다음 **Recovery Services**를 입력합니다. 입력하기 시작하면 입력은 리소스 목록을 필터링합니다. **Recovery Services 자격 증명 모음**을 선택합니다.
 
     ![상자에 입력 및 결과에서 "Recovery Services 자격 증명 모음" 선택](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
@@ -111,10 +114,10 @@ Recovery Services 자격 증명 모음을 만들려면:
 
    ![백업 자격 증명 모음 목록](./media/backup-azure-arm-vms-prepare/full-blade.png)
 
-   Azure를 기본 백업 저장소 끝점으로 사용하는 경우 계속해서 지역 중복 저장소를 사용합니다. Azure를 주가 아닌 백업 저장소 끝점으로 사용하는 경우 로컬 중복 저장소를 선택합니다. 저장소 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조하세요.
+   Azure를 기본 백업 저장소 엔드포인트로 사용하는 경우 계속해서 지역 중복 저장소를 사용합니다. Azure를 주가 아닌 백업 저장소 엔드포인트로 사용하는 경우 로컬 중복 저장소를 선택합니다. 저장소 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조하세요.
 
 1. 저장소 복제 형식을 변경한 경우 **저장**을 선택합니다.
-    
+
 자격 증명 모음에 대한 저장소 옵션을 선택하면 자격 증명 모음이 있는 VM에 연결할 준비가 됩니다. 연결을 시작하려면 Azure 가상 머신을 검색하고 등록해야 합니다.
 
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>백업 목표 선택, 정책 설정, 보호할 항목 정의
@@ -130,7 +133,7 @@ Recovery Services 자격 증명 모음에 가상 머신을 등록하기 전에 �
 
       ![Recovery Services 자격 증명 모음 목록 보기](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
-   나. Recovery Services 자격 증명 모음의 목록에서 자격 증명 모음을 선택합니다.
+   b. Recovery Services 자격 증명 모음의 목록에서 자격 증명 모음을 선택합니다.
 
       선택한 자격 증명 모음의 **설정** 창 및 자격 증명 모음 대시보드가 열립니다.
 
@@ -171,11 +174,11 @@ Recovery Services 자격 증명 모음에 가상 머신을 등록하기 전에 �
 가상 머신을 등록하는 데 문제가 있으면 VM 에이전트 설치 및 네트워크 연결에 대한 다음 정보를 참조하세요. Azure에서 만든 가상 머신을 보호하는 경우 아마도 다음 정보가 필요 없을 것입니다. 그러나 가상 머신을 Azure로 마이그레이션한 경우에는 VM 에이전트가 올바르게 설치되었으며 가상 머신이 가상 네트워크와 통신할 수 있는지 확인해야 합니다.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>가상 머신에 VM 에이전트 설치
-사용할 백업 확장의 경우 Azure [VM 에이전트](../virtual-machines/extensions/agent-windows.md)는 Azure 가상 머신에 설치되어야 합니다. Azure Marketplace에서 VM을 만든 경우 VM 에이전트는 이미 가상 머신에 표시됩니다. 
+사용할 백업 확장의 경우 Azure [VM 에이전트](../virtual-machines/extensions/agent-windows.md)는 Azure 가상 머신에 설치되어야 합니다. Azure Marketplace에서 VM을 만든 경우 VM 에이전트는 이미 가상 머신에 표시됩니다.
 
 Azure Marketplace에서 만든 VM을 사용하지 *않는* 경우에 다음 정보가 제공됩니다. **예를 들어 온-프레미스 데이터 센터에서 VM을 마이그레이션했습니다. 이런 경우, 가상 머신을 보호하기 위해 VM 에이전트를 설치해야 합니다.**
 
-**참고**: VM 에이전트를 설치한 후에는 Azure에서 VM에 에이전트가 설치되었음을 알 수 있도록 Azure PowerShell을 사용하여 ProvisionGuestAgent 속성을 업데이트해야 합니다. 
+**참고**: VM 에이전트를 설치한 후에는 Azure에서 VM에 에이전트가 설치되었음을 알 수 있도록 Azure PowerShell을 사용하여 ProvisionGuestAgent 속성을 업데이트해야 합니다.
 
 Azure VM을 백업하는 데 문제가 있는 경우 다음 표를 사용하여 Azure VM 에이전트가 가상 머신에 올바르게 설치되었는지 확인합니다. 표에서는 Windows 및 Linux VM용 VM 에이전트에 대한 추가 정보를 제공합니다.
 
@@ -206,16 +209,16 @@ VM 스냅숏을 관리하려면 백업 확장에 Azure 공용 IP 주소에 대�
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Azure 데이터 센터 IP 범위 허용 목록
 Azure 데이터 센터 IP 범위의 허용 목록을 만들려면 [Azure 웹 사이트](http://www.microsoft.com/en-us/download/details.aspx?id=41653)에서 IP 범위에 대한 자세한 내용과 지침을 참조하세요.
 
-[서비스 태그](../virtual-network/security-overview.md#service-tags)를 사용하여 특정 지역의 저장소에 대한 연결을 허용할 수 있습니다. 인터넷 액세스를 차단하는 규칙보다 저장소 계정에 대한 액세스를 허용하는 규칙에 높은 우선 순위가 있는지 확인합니다. 
+[서비스 태그](../virtual-network/security-overview.md#service-tags)를 사용하여 특정 지역의 저장소에 대한 연결을 허용할 수 있습니다. 인터넷 액세스를 차단하는 규칙보다 저장소 계정에 대한 액세스를 허용하는 규칙에 높은 우선 순위가 있는지 확인합니다.
 
 ![지역에 대한 저장소 태그가 있는 NSG ](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
-다음 비디오에서는 서비스 태그를 구성하는 단계별 절차를 안내합니다. 
+다음 비디오에서는 서비스 태그를 구성하는 단계별 절차를 안내합니다.
 
 >[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
-> [!WARNING]
-> 저장소 서비스 태그는 특정 지역에서만 사용할 수 있으며 미리 보기 상태입니다. 지역 목록은 [저장소의 서비스 태그](../virtual-network/security-overview.md#service-tags)를 참조하세요.
+> [!NOTE]
+> 저장소 서비스 태그 및 지역 목록은 [저장소의 서비스 태그](../virtual-network/security-overview.md#service-tags)를 참조하세요.
 
 ### <a name="use-an-http-proxy-for-vm-backups"></a>VM 백업에 HTTP 프록시 사용
 VM을 백업할 때 VM의 백업 확장이 HTTPS API를 사용하여 Azure Storage에 스냅숏 관리 명령을 보냅니다. 공용 인터넷에 액세스하도록 구성된 유일한 구성 요소이기 때문에 HTTP 프록시를 통해 백업 확장 트래픽을 라우팅합니다.
@@ -291,7 +294,7 @@ HttpProxy.Port=<proxy port>
    * **로컬 포트**에서 **특정 포트**를 선택합니다. 다음 상자에서 구성된 프록시 포트 번호를 지정합니다.
    * **원격 포트**에서 **모든 포트**를 선택합니다.
 
-마법사의 나머지 부분에서 끝까지 기본 설정을 적용합니다. 그런 다음 이 규칙의 이름을 지정합니다. 
+마법사의 나머지 부분에서 끝까지 기본 설정을 적용합니다. 그런 다음 이 규칙의 이름을 지정합니다.
 
 #### <a name="step-3-add-an-exception-rule-to-the-nsg"></a>3단계: NSG에 예외 규칙 추가
 다음 명령은 NSG에 예외를 추가합니다. 이 예외는 10.0.0.5의 모든 포트에서 오는 TCP 트래픽을 포트 80(HTTP) 또는 443(HTTPS)의 모든 인터넷 주소에 허용합니다. 공용 인터넷에 특정 포트가 필요하면 해당 포트를 ```-DestinationPortRange```에 추가해야 합니다.

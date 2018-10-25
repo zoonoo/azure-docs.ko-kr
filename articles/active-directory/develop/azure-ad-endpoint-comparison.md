@@ -17,12 +17,12 @@ ms.date: 09/27/2018
 ms.author: andret
 ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: b75b31ddfc77be5ed651e7b8484e41a4ae73d8d8
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e393851535c36eb604d57cc4d7c7561a3ebb201b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406535"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955447"
 ---
 # <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>Azure AD v2.0 엔드포인트와 v1.0 엔드포인트 비교
 
@@ -133,7 +133,7 @@ Microsoft ID 플랫폼과 통합되는 응용 프로그램을 빌드하는 경�
 
 * 응용 프로그램에서 개인 Microsoft 계정을 지원해야 하는 경우 v2.0을 사용하세요. 그러나 그 전에 이 문서에 설명된 제한 사항을 이해해야 합니다.
 
-* 응용 프로그램에서 Microsoft 회사 및 학교 계정만 지원해야 하는 경우에는 v2.0을 사용하지 마세요. 대신 [v1.0 가이드](azure-ad-developers-guide.md)를 참조하세요.
+* 응용 프로그램에서 Microsoft 회사 및 학교 계정만 지원해야 하는 경우에는 v2.0을 사용하지 마세요. 대신 [v1.0 가이드](v1-overview.md)를 참조하세요.
 
 v2.0 엔드포인트가 좀 더 발전하면 여기에 나열된 제한 사항이 사라질 것이므로 v2.0 엔드포인트 외에는 신경 쓸 필요가 없게 될 것입니다. 그 전까지는 이 문서를 사용하여 v2.0 엔드포인트가 본인에게 적합한지 확인하세요. v2.0 엔드포인트의 현재 상태를 반영하도록 이 문서를 계속 업데이트할 예정이므로 다시 확인하여 v2.0 기능에 대한 요구 사항을 다시 평가하세요.
 
