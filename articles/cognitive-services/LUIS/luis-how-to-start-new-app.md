@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 401c4fb8942aee73c036ae2b248a030eaea4917a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 55af0559c98c9fc63fd6902d80b4e6f2f0a7d2da
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031257"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870118"
 ---
 # <a name="create-an-app"></a>앱 만들기
 LUIS 앱을 만드는 몇 가지 방법이 있습니다. [LUIS](https://www.luis.ai) 포털에서 또는 LUIS 제작 [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)를 통해 LUIS 앱을 만들 수 있습니다.
@@ -22,9 +22,9 @@ LUIS 앱을 만드는 몇 가지 방법이 있습니다. [LUIS](https://www.luis
 ## <a name="using-the-luis-portal"></a>LUIS 포털 사용
 여러 가지 방법으로 LUIS 포털에서 새 앱을 만들 수 있습니다.
 
-* 빈 앱으로 [시작](#create-new-app)하고 의도, 발화 및 엔터티를 만듭니다.
-* 빈 앱으로 [시작](#create-new-app)하고 [미리 빌드된 도메인](luis-how-to-use-prebuilt-domains.md)을 추가합니다.
-* 이미 의도, 발화 및 엔터티가 포함된 JSON 파일에서 [LUIS 앱을 가져옵니다](#import-new-app).
+* 빈 앱으로 시작하고 의도, 발화 및 엔터티를 만듭니다.
+* 빈 앱으로 시작하고 [미리 빌드된 도메인](luis-how-to-use-prebuilt-domains.md)을 추가합니다.
+* 이미 의도, 발언 및 엔터티가 포함된 JSON 파일에서 LUIS 앱을 가져옵니다.
 
 ## <a name="using-the-authoring-apis"></a>작성 API 사용
 여러 가지 방법으로 작성 API를 사용하여 새 앱을 만들 수 있습니다.

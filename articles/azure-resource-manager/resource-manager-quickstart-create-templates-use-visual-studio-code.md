@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/17/2018
+ms.date: 10/18/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 69a24dba752e4aa374e03e57ce197ae882647373
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: e8ca232f3c5664f69db800648b46abaf0822d6f1
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378691"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458142"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기
 
@@ -57,12 +57,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 알아보려면 `outputs` 섹션에 하나 이상의 요소를 추가합니다.
 
-1. Visual Studio Code에서 값의 **종류**를 확인합니다. 값이 **Storage**이면 값을 **StorageV2**로 업데이트합니다.
-
-    ```json
-    "kind": "StorageV2",
-    ```
-2. 내보낸 템플릿에 하나 이상의 출력을 추가합니다.
+1. 내보낸 템플릿에 하나 이상의 출력을 추가합니다.
 
     ```json
     "storageUri": {
@@ -90,7 +85,7 @@ Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 알아보
 
     ![Resource Manager 템플릿 - Visual Studio Code IntelliSense](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
 
-3. **파일**>**저장**을 차례로 선택하여 파일을 저장합니다.
+2. **파일**>**저장**을 차례로 선택하여 파일을 저장합니다.
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
@@ -128,7 +123,7 @@ Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 알아보
 7. Cloud Shell에서 다음 명령을 실행합니다. 탭을 선택하여 PowerShell 코드 또는 CLI 코드를 표시합니다.
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
-    ```cli
+    ```azurecli
     echo "Enter the Resource Group name:" &&
     read resourceGroupName &&
     echo "Enter the name for this deployment:" &&
@@ -141,7 +136,7 @@ Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 알아보
    
     # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
     
-    ```powershell
+    ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
@@ -171,7 +166,7 @@ Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 알아보
 7. 다음 CLI 또는 PowerShell 명령을 실행하여 새로 만든 저장소 계정을 나열합니다.
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
-    ```cli
+    ```azurecli
     echo "Enter the Resource Group name:" &&
     read resourceGroupName &&
     echo "Enter the Storage Account name:" &&
@@ -181,7 +176,7 @@ Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 알아보
    
     # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
     
-    ```powershell
+    ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $storageAccountName = Read-Host -Prompt "Enter the Storage Account name"
     Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName

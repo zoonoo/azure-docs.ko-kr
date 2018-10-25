@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 09/10/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3f4907d99b25df31ac7f081282cebe700f55b62
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 25a8150a2fcf7cdd4e3c82478c0b3db3dad870b4
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423745"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887567"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 서비스 할당량 및 제한
 
@@ -53,7 +53,9 @@ Batch에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기�
 | [응용 프로그램](batch-application-packages.md)  |20 |
 | 응용 프로그램당 응용 프로그램 패키지 |40 |
 | 최대 작업 수명 | 7일<sup>1</sup> |
-| 노드 간 통신 사용 풀의 계산 노드 | 100 |
+| [노드 간 통신 사용 풀](batch-mpi.md)의 계산 노드 | 100 |
+| [사용자 지정 VM 이미지로 만든 풀](batch-custom-images.md)의 전용 계산 노드 | 2500 |
+| [사용자 지정 VM 이미지로 만든 풀](batch-custom-images.md)의 우선 순위가 낮은 계산 노드 | 1000 |
 
 <sup>1</sup> 태스크가 작업에 추가될 때부터 완료될 때까지 태스크의 최대 수명은 7일입니다. 완료된 태스크무한 지속됩니다. 최대 수명 이내에 완료되지 않은 태스크에 대한 데이터에는 액세스할 수 없습니다.
 
@@ -81,7 +83,7 @@ Batch에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기�
    
     a. **문제 형식** > **할당량**
    
-    나. 구독을 선택합니다.
+    b. 구독을 선택합니다.
    
     다. **할당량 유형** > **배치**
    
@@ -92,14 +94,14 @@ Batch에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기�
    
     a. [비즈니스 영향][support_sev]에 따라 **심각도**를 선택합니다.
    
-    나. **세부 정보**에서 변경하려는 각 할당량과 Batch 계정 이름, 새로운 제한을 지정합니다.
+    b. **세부 정보**에서 변경하려는 각 할당량과 Batch 계정 이름, 새로운 제한을 지정합니다.
    
     **다음**을 클릭합니다.
 1. **연락처 정보**에서
    
     a. **기본 연락 방법**을 선택합니다.
    
-    나. 필수 연락처 세부 정보를 확인하고 입력합니다.
+    b. 필수 연락처 세부 정보를 확인하고 입력합니다.
    
     **만들기** 를 클릭하여 지원 요청을 제출합니다.
 

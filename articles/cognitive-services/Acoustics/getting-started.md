@@ -1,20 +1,21 @@
 ---
-title: 프로젝트 Acoustics 시작 - Cognitive Services
+title: 프로젝트 Acoustics 시작
+titlesuffix: Azure Cognitive Services
 description: 이 빠른 시작 가이드는 Unity 프로젝트에서 플러그 인을 통합하고, 장면을 준비하고, 소리 원본에 음향 효과를 적용하는 방법을 보여 줍니다.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: b80543b199d4b766c1a8800d2dff4cf5ed81f8cc
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 62b6b40e6289ccca92c0a92d8bb7d0489dd44246
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181967"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902946"
 ---
 # <a name="getting-started-with-project-acoustics"></a>프로젝트 Acoustics 시작
 이 빠른 시작 가이드는 Unity 프로젝트에서 플러그 인을 통합하고, 장면을 준비하고, 소리 원본에 음향 효과를 적용하는 방법을 보여 줍니다. 이 빠른 시작에서는 먼저 [Azure Batch 계정](create-azure-account.md)을 만들어야 합니다. 이 가이드에서는 Unity 사용 경험이 있다고 가정합니다.
@@ -93,9 +94,9 @@ Unity의 Spatializer 프레임워크에서 음향 효과를 위한 오디오 DSP
 ![오디오 원본](media/AudioSource.png)
 
 ## <a name="apply-post-bake-design"></a>준비 후 디자인 적용
-**Add Component**(구성 요소 추가)를 선택하고 **Scripts(스크립트) > Acoustics Source Customization(음향 원본 사용자 지정)** 을 클릭 하여 스크립트 **AcousticsSourceCustomization**을 장면의 소리 원본에 추가함으로써 추가 원본 디자인 매개 변수를 사용하도록 설정할 수 있습니다.
+**Add Component**(구성 요소 추가)를 선택하고 **Scripts(스크립트) > Acoustics Adjust(음향 조정)** 를 클릭하여 스크립트 **AcousticsAdjust**를 장면의 소리 원본에 추가함으로써 추가 원본 디자인 매개 변수를 사용하도록 설정할 수 있습니다.
 
-![원본 사용자 지정](media/SourceCustomization.png)
+![AcousticsAdjust](media/AcousticsAdjust.png)
 
 **Microsoft Acoustics Mixer**에 대한 매개 변수도 있습니다. 준비 후 디자인에 대한 자세한 내용은 [디자인 매개 변수](design-process.md)를 참조하세요.
 

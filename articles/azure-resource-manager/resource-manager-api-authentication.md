@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: b841a1104a0cc1e74d9ab1f16ef39d3892ba7d55
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 69127702a7d8e7027e78a8e04a4e8e1bc3e36b65
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996692"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956343"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Resource Manager 인증 API를 사용하여 구독에 액세스
 ## <a name="introduction"></a>소개
@@ -94,7 +94,7 @@ az ad app create --display-name {app name} --homepage https://{your domain}/{app
 ### <a name="optional-configuration---certificate-credential"></a>선택적 구성 - 인증서 자격 증명
 또한 Azure AD는 응용 프로그램에 대한 인증서 자격 증명을 지원합니다. 즉, 자체 서명된 인증서를 만들고 개인 키를 유지하고 Azure AD 응용 프로그램 등록에 공개 키를 추가합니다. 인증을 위해 응용 프로그램이 개인 키를 사용하여서명한 Azure AD에 작은 페이로드를 보내면 Azure AD가 등록된 공개 키를 사용하여 서명의 유효성을 검사합니다.
 
-인증서를 사용하여 AD 앱을 만드는 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) 또는 [Azure CLI를 사용하여 리소스에 액세스하는 서비스 주체 만들기](resource-group-authenticate-service-principal-cli.md)를 참조하세요.
+인증서를 사용하여 AD 앱을 만드는 방법에 대한 자세한 내용은 [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority) 또는 [Azure CLI를 사용하여 리소스에 액세스하는 서비스 주체 만들기](resource-group-authenticate-service-principal-cli.md)를 참조하세요.
 
 ## <a name="get-tenant-id-from-subscription-id"></a>구독 ID에서 테넌트 ID 가져오기
 Resource Manager를 호출하는 데 사용할 수 있는 토큰을 요청하기 위해서는 응용 프로그램이 Azure 구독을 호스트하는 Azure AD 테넌트의 테넌트 ID를 알고 있어야 합니다. 대부분의 경우 사용자는 자신의 구독 ID를 알고 있지만 Azure Active Directory에 대한 테넌트 ID는 모를 수 있습니다. 사용자의 테넌트 ID를 얻으려면 사용자에게 구독 ID를 요청합니다. 구독에 대한 요청을 보낼 때 이 구독 ID를 제공합니다.
@@ -106,7 +106,7 @@ Resource Manager를 호출하는 데 사용할 수 있는 토큰을 요청하기
 ## <a name="get-user--app-access-token"></a>사용자 + 앱 액세스 토큰 가져오기
 응용 프로그램이 OAuth 2.0 권한 부여 요청을 사용하여 사용자를 Azure AD로 리디렉션하여 사용자의 자격 증명을 인증하고 권한 부여 코드를 돌려 줍니다. 응용 프로그램은 권한 부여 코드를 사용하여 Resource Manager에 대한 액세스 토큰을 가져옵니다. [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) 메서드는 권한 부여 요청을 생성합니다.
 
-이 문서는 사용자를 인증하는 REST API 요청을 보여 줍니다. 또한 코드에서 인증을 수행하도록 도우미 라이브러리를 사용할 수도 있습니다. 이러한 라이브러리에 대한 자세한 내용은 [Azure Active Directory 인증 라이브러리](../active-directory/active-directory-authentication-libraries.md)를 참조하세요. 응용 프로그램에서 ID 관리를 통합하는 지침은 [Azure Active Directory 개발자 가이드](../active-directory/develop/azure-ad-developers-guide.md)를 참조하세요.
+이 문서는 사용자를 인증하는 REST API 요청을 보여 줍니다. 또한 코드에서 인증을 수행하도록 도우미 라이브러리를 사용할 수도 있습니다. 이러한 라이브러리에 대한 자세한 내용은 [Azure Active Directory 인증 라이브러리](../active-directory/active-directory-authentication-libraries.md)를 참조하세요. 응용 프로그램에서 ID 관리를 통합하는 지침은 [Azure Active Directory 개발자 가이드](../active-directory/develop/v1-overview.md)를 참조하세요.
 
 ### <a name="auth-request-oauth-20"></a>인증 요청(OAuth 2.0)
 Azure AD 권한 부여 엔드포인트에 대한 Open ID Connect/OAuth2.0 권한 부여 요청을 실행합니다.

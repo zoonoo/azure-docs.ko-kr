@@ -17,12 +17,12 @@ ms.date: 10/04/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8c25e07d9844b077de80ae39b81a4e5823b0d344
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 8c1edd33432480932573bce43ae6335bc334194c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785059"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958927"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory 인증 라이브러리
 
@@ -83,6 +83,6 @@ Azure AD에 대한 인증을 사용하여 이 시나리오를 설명하는 코�
 
 ## <a name="see-also"></a>참고 항목
 
-- [Azure Active Directory 개발자 가이드](azure-ad-developers-guide.md)
+- [Azure Active Directory 개발자 가이드](v1-overview.md)
 - [Azure Active directory 인증 시나리오](authentication-scenarios.md)
 - [Azure Active Directory 코드 샘플](sample-v1-code.md)

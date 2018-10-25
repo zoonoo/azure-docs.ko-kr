@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/18/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: d59cb64e1499f703bf6913ab422d0f979caca324
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f21710354572c9b54dbf0e08d02809bb68a8e120
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47008735"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49805016"
 ---
 Azure Portal에서 범용 v2 저장소 계정을 만들려면 다음 단계를 수행합니다.
 
@@ -33,5 +33,6 @@ Azure Portal에서 범용 v2 저장소 계정을 만들려면 다음 단계를 �
     - **액세스 계층**은 기본적으로 **핫**으로 설정됩니다.
 
 1. **검토 + 만들기**를 클릭하여 저장소 계정 설정을 검토하고 계정을 만듭니다.
+1. **만들기**를 클릭합니다.
 
 저장소 계정 유형 및 기타 저장소 계정 설정에 대한 자세한 내용은 [Azure Storage 계정 개요](https://docs.microsoft.com/azure/storage/common/storage-account-overview)를 참조하세요. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 참조하세요. 

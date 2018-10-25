@@ -3,7 +3,7 @@ title: Azure PowerShell 샘플- 단일 영역 확장 집합 | Microsoft Docs
 description: Azure PowerShell 샘플
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 42a92f00c80a16cc1d7000c6163af8dbdb519138
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c46f295873751b2bee870da280fb432eda892460
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38670890"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467161"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-powershell"></a>PowerShell을 사용하여 단일 영역 가상 머신 확장 집합 만들기
 이 스크립트는 단일 가용성 영역에서 Windows Server 2016을 실행하는 가상 머신 확장 집합을 만듭니다. 스크립트를 실행하면 RDP를 통해 가상 머신에 액세스할 수 있습니다.

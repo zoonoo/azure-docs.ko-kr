@@ -1,20 +1,29 @@
 ---
-title: Custom Vision Service 릴리스 정보
+title: 릴리스 정보 - Custom Vision Service
+titlesuffix: Azure Cognitive Services
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
+ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: anroth
-ms.openlocfilehash: 8423051fa5169eb8acddc7297e36188e297cb9e4
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 8b4ba1601a7c5a9f523f7f8145a032861aac5d8c
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43284473"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901331"
 ---
 # <a name="custom-vision-service-release-notes"></a>Custom Vision Service 릴리스 정보
+
+## <a name="october-9-2018"></a>2018년 10월 9일
+- 개체 감지는 유료 미리 보기로 전환됩니다. 이제 Azure 리소스를 사용하여 개체 감지 프로젝트를 만들 수 있습니다.
+- 제한된 평가판 프로젝트를 Azure 리소스 연결 프로젝트(F0 또는 S0) 링크로 보다 쉽게 업그레이드할 수 있도록 웹 사이트에 “Azure에 이동” 기능이 추가되었습니다. 제품의 설정 페이지에서 이 기능을 찾을 수 있습니다.  
+- Windows ML의 Windows 2018년 10월 업데이트 버전을 지원하도록 ONNX 1.2로의 내보내기가 추가되었습니다.
+버그 수정(특수 문자를 사용한 ONNX 내보내기 관련 버그 수정 포함) 
+
 
 ## <a name="august-14-2018"></a>2018년 8월 14일
 - 사용자에게 프로젝트 학습을 안내하는 "시작" 위젯이 customvision.ai 사이트 에 추가되었습니다. 

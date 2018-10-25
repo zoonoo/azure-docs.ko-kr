@@ -10,12 +10,12 @@ ms.date: 08/31/2018
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: c2696d5eb22443b565c48ef4f96d6e4a25827606
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 9b0600a7afb07600116440461037c7abcb9236de
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295007"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404327"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Azure Key Vault의 가상 네트워크 서비스 엔드포인트
 
@@ -62,7 +62,7 @@ Key Vault에 대한 가상 네트워크 서비스 엔드포인트를 사용하�
 |Azure Resource Manager 템플릿 배포 서비스|[배포 중 보안 값 전달](../azure-resource-manager/resource-manager-keyvault-parameter.md)|
 |Azure Disk Encryption 볼륨 암호화 서비스|VM 배포 동안 BitLocker 키(Windows VM) 또는 DM 암호(Linux VM)와 키 암호화에 대한 액세스를 허용하여 [Azure Disk Encryption](../security/azure-security-disk-encryption.md)를 사용하도록 설정|
 |Azure Backup|Azure VM 백업 동안 [Azure Backup](../backup/backup-introduction-to-azure-backup.md)을 사용하여 관련 키 및 암호의 백업 및 복원 허용|
-|Exchange Online 및 SharePoint Online|[고객 키](https://support.office.com/en-us/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697)를 사용하여 서비스 암호화를 위한 고객 키 액세스 허용|
+|Exchange Online 및 SharePoint Online|[고객 키](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697)를 사용하여 서비스 암호화를 위한 고객 키 액세스 허용|
 |Azure Information Protection|[Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)을 위해 테넌트 키 액세스 허용|
 |App Services|[Key Vault를 통해 Azure Web App 인증서 배포](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)|
 |Azure SQL|[Azure SQL Database 및 Data Warehouse에서 BYOK(Bring Your Own Key) 지원을 통한 투명한 데이터 암호화](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current)|

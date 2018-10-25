@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: ce4b87735f16b4167605f2897ba96f10155f7c01
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b68e65bdcefcabb2804b259cff45e0a8719f7ab7
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222304"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870519"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>기능 비교: Azure SQL Database 및 SQL Server 
 
@@ -141,7 +141,7 @@ Microsoft는 Azure SQL Database에 계속해서 기능을 추가하고 있습니
 | [추적 플래그](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | 아니요 | 아니요 |
 | [변수](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | yes | yes |
 | [TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | 예 - 범용 및 중요 비즈니스 서비스 계층만 해당| 서비스에서 관리하는 암호화에만 부분적으로 |
-[VNet](../virtual-network/virtual-networks-overview.md) | 부분 - [VNET 엔드포인트](sql-database-vnet-service-endpoint-rule-overview.md) 참조 | 예. Resource Manager 모델만 |
+[VNet](../virtual-network/virtual-networks-overview.md) | 부분 - [VNet 엔드포인트](sql-database-vnet-service-endpoint-rule-overview.md) 참조 | 예. Resource Manager 모델만 |
 | [Windows Server 장애 조치(failover) 클러스터링](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | [고가용성](sql-database-high-availability.md)은 모든 데이터베이스에 포함됩니다. 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md)에서 설명합니다. | [고가용성](sql-database-high-availability.md)은 모든 데이터베이스에 포함됩니다. 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md)에서 설명합니다. |
 | [XML 인덱스](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | yes | yes |
 

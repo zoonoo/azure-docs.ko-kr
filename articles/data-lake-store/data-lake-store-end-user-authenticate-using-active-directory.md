@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 2f0638b2449bfd582cb68e26d2043b7bc85342b6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6f7b812f32eda0c671b1ad1101b13a1290df0482
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125955"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954785"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ Azure Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사�
   
     ![AAD 도메인 가져오기](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
 
-* Azure 테넌트 ID입니다. 테넌트 ID를 검색하는 방법에 대한 지침은 [테넌트 ID 가져오기](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id)를 참조하세요.
+* Azure 테넌트 ID입니다. 테넌트 ID를 검색하는 방법에 대한 지침은 [테넌트 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id)를 참조하세요.
 
 ## <a name="end-user-authentication"></a>최종 사용자 인증
 이 인증 메커니즘은 최종 사용자가 Microsoft Azure Active Directory를 통해 응용 프로그램에 로그인하기를 원하는 경우에 권장되는 방법입니다. 응용 프로그램은 로그인한 최종 사용자와 동일한 수준의 액세스로 Azure 리소스에 액세스할 수 있게 됩니다. 최종 사용자는 응용 프로그램이 액세스를 유지할 수 있도록 주기적으로 자격 증명을 제공해야 합니다.
@@ -74,7 +74,7 @@ Azure Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사�
 
 ## <a name="step-1-create-an-active-directory-native-application"></a>1단계: Active Directory 네이티브 응용 프로그램 만들기
 
-Azure Active Directory를 사용하여 Data Lake Storage Gen1로 최종 사용자를 인증하기 위한 Azure AD 네이티브 응용 프로그램을 만들고 구성합니다. 지침에 대해서는 [Azure AD 응용 프로그램 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md)를 참조하세요.
+Azure Active Directory를 사용하여 Data Lake Storage Gen1로 최종 사용자를 인증하기 위한 Azure AD 네이티브 응용 프로그램을 만들고 구성합니다. 지침에 대해서는 [Azure AD 응용 프로그램 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 
 이 링크에 있는 지침을 수행하는 동안 다음 스크린샷과 같이 응용 프로그램 유형으로 **네이티브**를 선택해야 합니다.
 
@@ -82,7 +82,7 @@ Azure Active Directory를 사용하여 Data Lake Storage Gen1로 최종 사용�
 
 ## <a name="step-2-get-application-id-and-redirect-uri"></a>2단계: 응용 프로그램 ID 및 리디렉션 URI 가져오기
 
-응용 프로그램 ID를 검색하려면 [응용 프로그램 ID 가져오기](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)를 참조하세요.
+응용 프로그램 ID를 검색하려면 [응용 프로그램 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key)를 참조하세요.
 
 리디렉션 URI를 검색하려면 다음 단계를 수행합니다.
 

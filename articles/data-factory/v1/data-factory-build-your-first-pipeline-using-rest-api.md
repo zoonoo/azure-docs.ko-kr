@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 91a85505eda34e11f0db9c5f3c46e33aad992ffe
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: caea4296bc0573141865aca27b04f9d9ee049e94
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736702"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955589"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>자습서: 데이터 팩터리 REST API를 사용하여 첫 번째 Azure Data Factory 빌드
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ ms.locfileid: "45736702"
 ## <a name="prerequisites"></a>필수 조건
 * [자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 살펴보고 **필수 구성 요소** 단계를 완료합니다.
 * 컴퓨터에 [Curl](https://curl.haxx.se/dlwiz/) 을 설치합니다. REST 명령과 함께 CURL 도구를 사용하여 데이터 팩터리를 만듭니다.
-* [이 문서](../../azure-resource-manager/resource-group-create-service-principal-portal.md) 의 지침에 따라 다음 작업을 수행합니다.
+* [이 문서](../../active-directory/develop/howto-create-service-principal-portal.md) 의 지침에 따라 다음 작업을 수행합니다.
   1. Azure Active Directory에서 **ADFGetStartedApp** 이라는 웹 응용 프로그램을 만듭니다.
   2. **클라이언트 ID** 및 **암호 키**를 가져옵니다.
   3. **테넌트 ID**를 가져옵니다.

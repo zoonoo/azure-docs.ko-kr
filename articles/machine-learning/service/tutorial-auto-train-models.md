@@ -9,12 +9,12 @@ author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: df1c19c0e16b9862b09dcc652ef2831e0c5bf3a5
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 29d673f48671ec917e45b7ff76feeebf0b868c4b
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802358"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426892"
 ---
 # <a name="tutorial-train-a-classification-model-with-automated-machine-learning-in-azure-machine-learning-service"></a>자습서: Azure Machine Learning 서비스에서 자동화된 기계 학습을 사용하여 분류 모델 학습
 
@@ -38,7 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="get-the-notebook"></a>Notebook 가져오기
 
-이 자습서는 사용자의 편의를 위해 [Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/03.auto-train-models.ipynb)으로 사용할 수 있습니다. Azure Notebooks 또는 사용자 고유의 Jupyter 노트북 서버에서 `03.auto-train-models.ipynb` 노트북을 실행합니다.
+사용자의 편의를 위해 이 자습서는 [Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/03.auto-train-models.ipynb)으로 제공됩니다. Azure Notebooks 또는 자체 Jupyter 노트북 서버에서 `03.auto-train-models.ipynb` 노트북을 실행할 수 있습니다.
 
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
@@ -533,7 +533,7 @@ plt.show()
 
 ## <a name="next-steps"></a>다음 단계
 
-이 Azure Machine Learning 서비스 자습서에서는 Python을 사용하여 다음을 수행했습니다.
+이 Azure Machine Learning Service 자습서에서는 Python을 사용하여 다음 작업을 수행했습니다.
 
 > [!div class="checklist"]
 > * 개발 환경 설정
@@ -543,5 +543,5 @@ plt.show()
 > * 학습 결과 검토
 > * 최적 모델 등록
 
-[자동 학습에 대한 설정을 구성하는 방법]() 또는 [원격 리소스에서 자동 학습을 사용하는 방법](how-to-auto-train-remote.md)에 대해 자세히 알아보세요.  
+[자동 학습에 대한 설정을 구성하는 방법](how-to-configure-auto-train.md) 또는 [원격 리소스에서 자동 학습을 사용하는 방법](how-to-auto-train-remote.md)에 대해 자세히 알아보세요.  
 

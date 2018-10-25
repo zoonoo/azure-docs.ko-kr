@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: a7916a434552cbcb999f1e69c7a5bc2419f517fb
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a4f9e1111516d439f018e965883eb8268c83289c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094345"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954793"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>.NET SDK를 사용하여 데이터 팩터리 및 파이프라인 만들기
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 [Azure .NET SDK](http://azure.microsoft.com/downloads/)를 컴퓨터에 다운로드하여 설치합니다.
 
 ## <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory에서 응용 프로그램 만들기
-[이 아티클](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)의 섹션에 있는 지침을 따라 다음과 같은 작업을 수행합니다. 
+[이 아티클](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)의 섹션에 있는 지침을 따라 다음과 같은 작업을 수행합니다. 
 
 1. **Azure Active Directory 응용 프로그램을 만듭니다**. 이 자습서에서 만드는.NET 응용 프로그램을 나타내는 Microsoft Azure Active Directory에 응용 프로그램을 만듭니다. sign-on URL의 경우 (`https://contoso.org/exampleapp`)에 보이는 더미 URL을 제공할 수 있습니다.
 2. **응용 프로그램 ID** 및 **인증 키**를 가져오고, 이 자습서의 뒷부분에서 사용하기 위해 이러한 값을 적어둡니다. 

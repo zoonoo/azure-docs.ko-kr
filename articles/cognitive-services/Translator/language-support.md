@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jansko
-ms.openlocfilehash: 775e098eb2a067e3e0446bccc223c1c54e082347
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 222e37e38772b82e9d9849e3a955b865d43d3c63
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435656"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957399"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Translator Text API에 대한 언어 및 지역 지원
 
@@ -108,7 +108,7 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 | 힌디어 | hi | 데바나가리어 | <--> | 라틴어 |
 | 일본어 | ja | 일본어 | <--> | 라틴어 |
 | 칸나다어 | kn | 칸나다어 | --> | 라틴어 |
-| 말레이시아어 | ml | 말라얄람어 | --> | 라틴어 |
+| 말라얄람어 | ml | 말라얄람어 | --> | 라틴어 |
 | 마라티어 | mr | 데바나가리어 | --> | 라틴어 |
 | 오리야어 | 또는 | 오리야어 | <--> | 라틴어 |
 | 펀잡어 | pa | 굴묵키어 | <--> | 라틴어  |

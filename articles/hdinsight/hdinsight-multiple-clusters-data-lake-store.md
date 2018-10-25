@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: jasonh
-ms.openlocfilehash: 0e74406d79484483053ca7d4b89b096c3f70e298
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: eb046e62b5ed2d9512af0d25908c3253962f5a6a
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095127"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954674"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Azure Data Lake Store 계정으로 여러 HDInsight 클러스터 사용
 
@@ -47,7 +47,7 @@ HDInsight 클러스터에서 이 폴더 구조를 효과적으로 사용하려�
 - **서비스 주체**는 계정과 연결된 AAD(Azure Active Directory) 서비스 주체입니다.
 - **FINGRP**는 재무 부서의 사용자를 포함하는 AAD에서 만든 사용자 그룹입니다.
 
-AAD 응용 프로그램을 만드는 방법에 대한 지침은(서비스 주체도 만듦) [AAD 응용 프로그램을 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)를 참조하세요. AAD에서 사용자 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory에서 그룹 관리](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
+AAD 응용 프로그램을 만드는 방법에 대한 지침은(서비스 주체도 만듦) [AAD 응용 프로그램을 만들기](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)를 참조하세요. AAD에서 사용자 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory에서 그룹 관리](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
 
 몇 가지 고려할 주요 사항은 다음과 같습니다.
 

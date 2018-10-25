@@ -7,15 +7,15 @@ author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 5ade15b3f80d725af4ece31a36ea0b670f5f5147
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: fbd11eb23b10800e115a63549f233e0239763420
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031546"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638151"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>패턴을 통해 예측 정확도 개선
 패턴은 여러 발언이 매우 유사할 경우 정확도를 향상시키도록 디자인됩니다.  패턴를 통해 더 많은 발화를 제공하지 않고도 의도에 대한 더 높은 정확성을 얻을 수 있습니다. 
@@ -67,7 +67,7 @@ ms.locfileid: "47031546"
 ### <a name="syntax-to-add-an-entity-and-role-to-a-pattern-template"></a>패턴 템플릿에 엔터티 및 역할을 추가하는 구문
 엔터티 역할은 엔터티 이름에 콜론을 입력하고 역할 이름을 입력하여 `{entity:role}`로 표시합니다. 패턴 템플릿에 역할이 있는 엔터티를 추가하려면 엔터티 이름과 역할 이름을 중괄호로 묶습니다(예: `Book a ticket from {Location:Origin} to {Location:Destination}`). 
 
-|엔터티 역할 사용 패턴|
+|엔터티 역할을 사용한 패턴|
 |--|
 |`Book a ticket from {Location:Origin} to {Location:Destination}`|
 

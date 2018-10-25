@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 46e12378812788d147c903046b50a93c13119f2f
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: ee3dafe55799c46231aa3ca7c19684d905a057de
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444591"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815429"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob 저장소 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,7 +30,7 @@ ms.locfileid: "42444591"
 특히 이 Blob 저장소 커넥터는 다음을 지원합니다.
 
 - 범용 Azure 저장소 계정 및 핫/쿨 Blob 저장소 간에 Blob을 복사합니다. 
-- 계정 키, 서비스 공유 액세스 서명, 서비스 주체 또는 관리 서비스 ID 인증을 사용하여 Blob을 복사합니다.
+- Azure 리소스 인증을 위해 계정 키, 서비스 공유 액세스 서명, 서비스 주체 또는 관리 ID를 사용하여 Blob을 복사합니다.
 - 블록, 추가 또는 페이지 Blob에서 Blob을 복사하고, 블록 Blob에만 데이터를 복사합니다. Azure Premium Storage는 페이지 Blob으로 지원되므로 싱크로는 지원되지 않습니다.
 - Blob을 있는 그대로 복사하거나 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs.md)을 사용하여 Blob을 구문 분석하거나 생성합니다.
 
@@ -47,7 +47,7 @@ Azure Blob 커넥터에서 지원하는 인증 유형은 다음과 같습니다.
 - [계정 키 인증](#account-key-authentication)
 - [공유 액세스 서명 인증](#shared-access-signature-authentication)
 - [서비스 주체 인증](#service-principal-authentication)
-- [관리 서비스 ID 인증](#managed-service-identity-authentication)
+- [Azure 리소스 인증용 관리 ID](#managed-identity)
 
 >[!NOTE]
 >HDInsight, Azure Machine Learning 및 Azure SQL Data Warehouse PolyBase 로드는 Azure Blob 저장소 계정 키 인증만 지원합니다.
@@ -91,7 +91,7 @@ Azure Blob 커넥터에서 지원하는 인증 유형은 다음과 같습니다.
 공유 액세스 서명은 저장소 계정의 리소스에 대한 위임된 권한을 제공합니다. 공유 액세스 서명을 사용하여 저장소 계정의 개체에 대해 지정된 시간 동안 제한된 권한을 클라이언트에 부여할 수 있습니다. 계정 액세스 키를 공유할 필요가 없습니다. 공유 액세스 서명은 저장소 리소스에 대해 인증된 액세스에 필요한 모든 정보를 쿼리 매개 변수에 포함하는 URI입니다. 공유 액세스 서명을 사용하여 저장소 리소스에 액세스하려면 클라이언트에서 공유 액세스 서명을 해당 생성자 또는 메서드에 전달하기만 하면 됩니다. 공유 액세스 서명에 대한 자세한 내용은 [공유 액세스 서명: 공유 액세스 서명 모델 이해](../storage/common/storage-dotnet-shared-access-signature-part-1.md)를 참조하세요.
 
 > [!NOTE]
-> Data Factory는 이제 **서비스 공유 액세스 서명**과 **계정 공유 액세스 서명**을 모두 지원합니다. 이러한 두 유형 및 이를 생성하는 방법에 대한 자세한 내용은 [공유 액세스 서명 유형](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures)을 참조하세요. 
+> Data Factory에서 이제 **서비스 공유 액세스 서명**과 **계정 공유 액세스 서명**이 모두 지원됩니다. 이러한 두 유형 및 이를 생성하는 방법에 대한 자세한 내용은 [공유 액세스 서명 유형](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures)을 참조하세요. 
 
 > [!TIP]
 > 저장소 계정에 대한 서비스 공유 액세스 서명을 생성하려면 다음 PowerShell 명령을 실행합니다. 자리 표시자를 바꾸고 필요한 권한을 부여합니다.
@@ -191,13 +191,13 @@ Azure Blob 저장소 연결된 서비스에 지원되는 속성은 다음과 같
 }
 ```
 
-### <a name="managed-service-identity-authentication"></a>관리 서비스 ID 인증
+### <a name="managed-identity"></a>Azure 리소스 인증용 관리 ID
 
-데이터 팩터리는 특정 데이터 팩터리를 나타내는 [관리 서비스 ID](data-factory-service-identity.md)와 연결할 수 있습니다. 사용자 고유의 서비스 주체를 사용하는 것과 비슷하게 Blob 저장소 인증에 이 서비스 ID를 직접 사용할 수 있습니다. 이렇게 하면 이 지정된 팩터리에서 Blob 저장소 간에 데이터에 액세스하고 복사할 수 있습니다.
+특정 데이터 팩터리를 나타내는 [Azure 리소스용 관리 ID](data-factory-service-identity.md)와 데이터 팩터리를 연결할 수 있습니다. 사용자 고유의 서비스 주체를 사용하는 것과 비슷하게 Blob 저장소 인증에 이 서비스 ID를 직접 사용할 수 있습니다. 이렇게 하면 이 지정된 팩터리에서 Blob 저장소 간에 데이터에 액세스하고 복사할 수 있습니다.
 
 Azure Storage MSI 인증은 일반적으로 [Azure Active Directory를 사용하여 Azure Storage에 대한 액세스 인증](../storage/common/storage-auth-aad.md)을 참조하세요.
 
-MSI(관리 서비스 ID) 인증을 사용하려면 다음 단계를 수행합니다.
+Azure 리소스 인증을 위해 관리 ID를 사용하려면 다음 단계를 따릅니다.
 
 1. 팩터리와 함께 생성된 "서비스 ID 응용 프로그램 ID"의 값을 복사하여 [데이터 팩터리 서비스 ID를 검색](data-factory-service-identity.md#retrieve-service-identity)합니다.
 
@@ -214,8 +214,8 @@ Azure Blob 저장소 연결된 서비스에 지원되는 속성은 다음과 같
 | serviceEndpoint | 패턴이 `https://<accountName>.blob.core.windows.net/`인 Azure Blob 저장소 서비스 엔드포인트를 지정합니다. |yes |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime(데이터 저장소가 사설망에 있는 경우)을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
->[!NOTE]
->관리 서비스 ID 인증은 "AzureBlobStorage" 유형 연결된 서비스에서만 지원되고, 이전의 "AzureStorage" 유형 연결된 서비스에서는 지원되지 않습니다. 
+> [!NOTE]
+> Azure 리소스 인증을 위한 관리 ID는 "AzureBlobStorage" 유형 연결된 서비스에서만 지원되고, 이전의 "AzureStorage" 유형 연결된 서비스에서는 지원되지 않습니다. 
 
 **예제:**
 

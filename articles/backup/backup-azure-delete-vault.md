@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/6/2018
 ms.author: markgal
-ms.openlocfilehash: 4dc5b006be8599177fb908fe022a3a821b137e12
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e5bc68b55fdefc07b9764b8393ea6f4062468252
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422946"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816466"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 삭제
 
@@ -90,6 +90,12 @@ Recovery Services 자격 증명 모음 삭제하려면
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
+   자격 증명을 삭제하려면 먼저 비워 두어야 합니다. 그렇지 않으면 “기존 리소스를 포함하므로 자격 증명 모음을 삭제할 수 없습니다.” 오류가 표시됩니다. 다음 명령은 자격 증명 모음 내에서 컨테이너를 제거하는 방법을 보여 줍니다.
+
+   ```powershell
+   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
+   ```
+   
 1. Azure Portal에서 구독에 로그인하고 자격 증명 모음이 삭제됐는지 확인합니다.
 
 

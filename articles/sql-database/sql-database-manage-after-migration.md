@@ -11,13 +11,13 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 6dd4aacddfbce3e06c1ea9a356a559cc8cd8049c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: fd32a00fe83e731321cb5e365f64d0f6acf8732d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166489"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870981"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>클라우드의 새 DBA - Azure SQL Database의 데이터베이스 관리
 
@@ -89,7 +89,7 @@ SQL Database에서 [두 가지 사용자 인증 방법](sql-database-control-acc
 ### <a name="how-do-i-limit-or-control-connectivity-access-to-my-database"></a>내 데이터베이스에 대한 연결 액세스를 제한 또는 제어하려면 어떻게 해야 합니까?
 용도에 맞는 최적의 연결 구성을 획득하기 위해 원하는 대로 사용할 수 있는 여러 기술이 있습니다. 
 - 방화벽 규칙
-- VNET 서비스 엔드포인트
+- VNet 서비스 엔드포인트
 - 예약된 IP
 
 #### <a name="firewall"></a>방화벽
@@ -102,7 +102,7 @@ SQL Database에서 [두 가지 사용자 인증 방법](sql-database-control-acc
 
 서비스 엔드포인트(SE)를 사용하면 중요 Azure 자원을 Azure의 자신의 개인 가상 네트워크에 대해서만 노출할 수 있습니다. 그렇게 하면 기본적으로 사용자의 리소스에 대한 공용 액세스가 제거됩니다. 가상 네트워크와 Azure 간의 트래픽은 Azure 백본 네트워크에서 유지됩니다. SE가 없으면 강제 적용 터널링 패킷 라우팅을 하게 됩니다. 사용자의 가상 네트워크는 인터넷 트래픽을 강제로 사용자의 조직으로 이동하며 Azure 서비스 트래픽은 같은 경로를 통해 이동합니다. 서비스 엔드포인트를 사용하면 패킷이 사용자의 가상 네트워크에서 Azure 백본 네트워크의 서비스로 곧장 흐르므로 이 작업을 최적화할 수 있습니다.
 
-![VNET 서비스 엔드포인트](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
+![VNet 서비스 엔드포인트](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
 
 #### <a name="reserved-ips"></a>예약된 IP
 다른 옵션은 VM에 대해 [예약된 IP](../virtual-network/virtual-networks-reserved-public-ip.md)를 프로비전하고, 서버 방화벽 설정에 있는 특정 VM IP 주소를 허용목록에 넣습니다. 예약된 IP를 할당하면 IP 주소 변경에 따라 방화벽 규칙을 직접 업데이트해야 할 필요가 없습니다.

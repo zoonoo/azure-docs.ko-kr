@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 54804867cfaf38965b3dbf5ceb51e08a731d4dd8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 73ff58148ac68b7aeb782b77385f9f971e02edb5
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966548"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457394"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>다중 테넌트를 지원하기 위해 장치를 프로비전하는 방법 
 
@@ -88,7 +88,7 @@ ms.locfileid: "46966548"
 
 1. [Azure Portal](http://portal.azure.com)에 로그인하고 Device Provisioning Service 인스턴스를 엽니다.
 
-2. **등록 관리** 탭을 선택한 후 페이지 위쪽에 있는 **등록 그룹 추가** 단추를 클릭합니다. 
+2. **등록 관리** 탭을 선택한 다음, 페이지 위쪽에 있는 **등록 그룹 추가** 단추를 클릭합니다. 
 
 3. **등록 그룹 추가**에서 다음 정보를 입력하고 **저장** 단추를 클릭합니다.
 
@@ -220,7 +220,7 @@ ms.locfileid: "46966548"
 1. 두 VM에 대해 개발 클라이언트 플랫폼에 특정된 SDK 버전을 빌드하는 다음 명령을 실행합니다. 
 
     ```bash
-    cmake -Duse_prov_client:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON ..
     ```
 
     빌드가 성공되면 마지막 몇몇 출력 줄은 다음 출력과 유사하게 표시됩니다.
@@ -413,7 +413,7 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
 ## <a name="next-steps"></a>다음 단계
 
 - 다시 프로비전에 대한 자세한 내용은 [IoT Hub 장치 다시 프로비전 개념](concepts-device-reprovision.md)을 참조하세요. 
-- 프로비전 해제에 대한 자세한 내용은 [이전에 자동 프로비전된 장치를 프로비전 해제하는 방법](how-to-unprovision-devices.md)을 참조하세요. 
+- 프로비전 해제에 대한 자세한 내용은 [이전에 자동으로 프로비전된 장치의 프로비전을 해제하는 방법](how-to-unprovision-devices.md)을 참조하세요. 
 
 
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
 ms.component: ''
-ms.openlocfilehash: 9524d471388e69166191b6197fb295532b068092
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 59e7ac5e2da733724c047f6842561ce87fb495bb
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390557"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955307"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST API 연습
 이 문서에서는 [Microsoft Azure Monitor REST API 참조](https://msdn.microsoft.com/library/azure/dn931943.aspx)를 사용할 수 있도록 인증을 수행하는 방법을 살펴봅니다.         
@@ -25,7 +25,7 @@ Azure Monitor API를 통해 사용 가능한 기본 메트릭 정의, 세분성 
 ## <a name="authenticating-azure-monitor-requests"></a>Azure Monitor 요청 인증
 첫 번째 단계는 요청을 인증하는 것입니다.
 
-Azure Monitor API에 대해 실행되는 모든 작업은 Azure Resource Manager 인증 모델을 사용합니다. 따라서 모든 요청은 Azure AD(Azure Active Directory)로 인증되어야 합니다. 클라이언트 응용 프로그램을 인증하는 한 가지 방법은 Azure AD 서비스 주체를 만들고 인증(JWT) 토큰을 검색하는 것입니다. 다음 예제 스크립트에서는 PowerShell을 통해 Azure AD 서비스 주체를 만드는 것을 보여 줍니다. 상세한 연습은 [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)를 참조하세요. [Azure Portal을 통해 서비스 주체를 만들 수도](../azure-resource-manager/resource-group-create-service-principal-portal.md)있습니다.
+Azure Monitor API에 대해 실행되는 모든 작업은 Azure Resource Manager 인증 모델을 사용합니다. 따라서 모든 요청은 Azure AD(Azure Active Directory)로 인증되어야 합니다. 클라이언트 응용 프로그램을 인증하는 한 가지 방법은 Azure AD 서비스 주체를 만들고 인증(JWT) 토큰을 검색하는 것입니다. 다음 예제 스크립트에서는 PowerShell을 통해 Azure AD 서비스 주체를 만드는 것을 보여 줍니다. 상세한 연습은 [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)를 참조하세요. [Azure Portal을 통해 서비스 주체를 만들 수도](../active-directory/develop/howto-create-service-principal-portal.md)있습니다.
 
 ```PowerShell
 $subscriptionId = "{azure-subscription-id}"

@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 08/26/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: f0bcb2e7f99689d31be610f1523d2c57e332deb7
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f3fa6c75fdaf30d13231bc3072bd671614c9a668
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049818"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650695"
 ---
 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
 2. **Azure 함수 앱**을 선택하고, **새로 만들기**를 선택한 다음, **게시**를 선택합니다.
 
-    ![게시 대상 선택](./media/functions-vstools-publish/functions-vstools-create-new-function-app.png)
+    ![게시 대상 선택](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
 
     **Zip에서 실행**을 사용하도록 설정하면 Azure의 함수 앱이 배포 패키지에서 직접 실행됩니다. 자세한 내용은 [패키지 파일에서 Azure Functions 실행](../articles/azure-functions/run-functions-from-deployment-package.md)을 참조하세요.
 
@@ -27,7 +27,7 @@ ms.locfileid: "43049818"
 
 4. **App Service 만들기** 대화 상자에서 이미지 아래의 테이블에 지정된 대로 **호스팅** 설정을 사용합니다.
 
-    ![App Service 만들기 대화 상자](./media/functions-vstools-publish/functions-vstools-publish.png)
+    ![App Service 만들기 대화 상자](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
     | 설정      | 제안 값  | 설명                                |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -41,4 +41,4 @@ ms.locfileid: "43049818"
 
 6. 베포가 완료된 후에 Azure에서 함수 앱의 주소인 **사이트 URL** 값을 기록해 둡니다.
 
-    ![게시 성공 메시지](./media/functions-vstools-publish/functions-vstools-publish-profile.png)
+    ![게시 성공 메시지](./media/functions-vstools-publish/functions-visual-studio-publish-complete.png)

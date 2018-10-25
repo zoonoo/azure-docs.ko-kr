@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: a2b6fbae4a7b49c5596d5f2a6f9305181a0717d3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 02336d9f4d041d4c8d5ba973cf8802692ddad914
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979967"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946014"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Azure Monitor의 Azure Event Hubs 메트릭(미리 보기)
 
@@ -66,7 +66,6 @@ Azure Monitor에서 메트릭 사용은 미리 보기 상태인 동안 현재 �
 | 성공한 요청(미리 보기)   | 지정된 기간 동안 Azure Event Hubs 서비스에 대한 성공한 요청 수입니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName |
 | 서버 오류(미리 보기) | 지정된 기간 동안 Azure Event Hubs 서비스에서 오류로 인해 처리되지 않은 요청 수입니다. <br/><br/>단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName |
 |사용자 오류(미리 보기)|지정된 기간 동안 사용자 오류로 인해 처리되지 않은 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|제한된 요청(미리 보기)|처리량 단위 사용량이 초과되었기 때문에 제한된 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 |할당량 초과 오류(미리 보기)|사용 가능한 할당량을 초과하는 요청 수입니다. Event Hubs 할당량에 대한 자세한 내용은 [이 문서](event-hubs-quotas.md)를 참조하세요.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 
 ## <a name="throughput-metrics"></a>처리량 메트릭

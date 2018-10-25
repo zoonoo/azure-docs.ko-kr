@@ -7,16 +7,16 @@ ms.author: raagyema
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: e29186d07d9a060e45ed051d6f7ed0ac81a5e15b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/04/2018
+ms.openlocfilehash: 0794c1573c2eaa951b805573cf33f05923da83b4
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982667"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867785"
 ---
 # <a name="monitor-and-tune"></a>모니터링 및 튜닝
-서버에 대한 데이터를 모니터링하면 워크로드에 대한 문제를 해결하고 최적화할 수 있습니다. 
+서버에 대한 데이터를 모니터링하면 워크로드에 대한 문제를 해결하고 최적화할 수 있습니다. Azure Database for PostgreSQL은 서버 동작에 대한 인사이트를 제공하기 위해 다양한 모니터링 옵션을 제공합니다.
 
 ## <a name="metrics"></a>메트릭
 Azure Database for PostgreSQL은 PostgreSQL 서버를 지원하는 리소스의 동작에 대한 통찰력을 제공하는 다양한 메트릭을 제공합니다. 각 메트릭은 1분 빈도로 내보내지며, 최대 30일 동안 기록됩니다. 메트릭에 대한 경고를 구성할 수 있습니다. 단계별 지침은 [How to set up alerts](howto-alert-on-metric.md)(경고를 설정하는 방법)를 참조하세요. 다른 작업에는 자동화된 작업 설정, 고급 분석 수행 및 기록 보관이 포함됩니다. 자세한 내용은 [Azure 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md)를 참조하세요.
@@ -39,6 +39,9 @@ Azure Database for PostgreSQL에서는 다음 메트릭을 사용할 수 있습�
 |connections_failed|실패한 연결|개수|서버에 대해 실패한 연결 수|
 |network_bytes_egress|네트워크 아웃|바이트|활성 연결을 통한 네트워크 출력의 크기입니다.|
 |network_bytes_ingress|네트워크 인|바이트|활성 연결을 통한 네트워크 입력의 크기입니다.|
+
+## <a name="server-logs"></a>서버 로그
+서버에서 로그를 사용하도록 설정할 수 있습니다. 또한 이러한 로그는 [Log Analytics](../log-analytics/log-analytics-queries.md), Event Hubs 및 저장소 계정에서 Azure 진단 로그를 통해 사용할 수 있습니다. 로깅에 대한 자세한 내용은 [서버 로그](concepts-server-logs.md) 페이지를 참조하세요.
 
 ## <a name="query-store"></a>쿼리 저장소
 [쿼리 저장소](concepts-query-store.md)는 쿼리 런타임 통계 및 대기 이벤트를 포함하여 시간 경과에 따라 쿼리 성능을 추적하는 공개 미리 보기 기능입니다. 이 기능은 query_store 스키마 아래의 **azure_sys**라는 시스템 데이터베이스에서 쿼리 런타임 성능 정보를 유지합니다. 데이터 수집 및 저장은 다양한 구성 노브를 통해 제어할 수 있습니다.

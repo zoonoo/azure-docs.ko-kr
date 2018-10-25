@@ -1,20 +1,21 @@
 ---
-title: 'Bing Custom Search: 사용자 지정 뷰 정의 | Microsoft Docs'
+title: 사용자 지정 보기 정의 - Bing Custom Search
+titlesuffix: Azure Cognitive Services
 description: 사이트 및 세로 검색 서비스를 만드는 방법을 설명합니다.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: 59fef9a370ca56080d06f0920ed5409c141683a4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a74e6a6a90a242d4d1b2fd71a5fc6cf949ea55cb
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980664"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815259"
 ---
 # <a name="configure-your-custom-search-experience"></a>사용자 지정 검색 환경 구성
 

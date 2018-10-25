@@ -1,20 +1,21 @@
 ---
 title: Speech Service 학습을 위한 전사 지침
+titleSuffix: Azure Cognitive Services
 description: Speech Service에 대한 음향 및 언어 모델과 음성 글꼴을 사용자 지정하기 위해 텍스트를 준비하는 방법을 알아봅니다.
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: f9cb205b5111e981ee70adca715139402c9e31a4
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 07b90942c8d231418888491fd47a9be3caff77ea
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721822"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467738"
 ---
 # <a name="transcription-guidelines-for-using-the-speech-service"></a>Speech Service 사용을 위한 전사 지침
 

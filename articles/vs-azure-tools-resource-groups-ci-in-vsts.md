@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: f44bb7bd95ef405c65bb259a6d104475c2e283bd
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a3dfca48b52af39e7a536b3012a3f4cdac4e9a94
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297845"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955170"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Azure 리소스 그룹 배포 프로젝트를 사용하여 Azure DevOps Services에서 연속 통합
 Azure 템플릿을 배포하려면 빌드, 테스트, Azure에 복사("준비"라고도 함), 템플릿 배포 등 다양한 단계에서 태스크를 수행합니다. Azure DevOps Services에 템플릿을 배포하는 두 가지 방법이 있습니다. 두 방법 모두 결과는 같으므로 사용자의 워크플로에 가장 적합한 방법을 선택하면 됩니다.
@@ -92,7 +92,7 @@ Azure Pipelines에서 PowerShell 스크립트를 호출하려면 빌드 파이�
       Azure CLI의 경우 
       
       `azure account show`
-   8. 서비스 주체 ID, 서비스 주체 키 및 테넌트 ID를 가져오려면 [Active Directory 응용 프로그램 및 서비스 주체 만들기](resource-group-create-service-principal-portal.md) 또는 [Azure Resource Manager를 사용한 서비스 주체 인증](resource-group-authenticate-service-principal.md)의 절차에 따릅니다.
+   8. 서비스 주체 ID, 서비스 주체 키 및 테넌트 ID를 가져오려면 [Active Directory 응용 프로그램 및 서비스 주체 만들기](active-directory/develop/howto-create-service-principal-portal.md) 또는 [Azure Resource Manager를 사용한 서비스 주체 인증](active-directory/develop/howto-authenticate-service-principal-powershell.md)의 절차에 따릅니다.
    9. 서비스 주체 ID, 서비스 주체 키 및 테넌트 ID 값을 **Azure 구독 추가** 대화 상자에 추가한 다음 **확인** 단추를 선택합니다.
       
       이제 Azure PowerShell 스크립트를 실행하는 데 사용할 유효한 서비스 주체를 만들었습니다.
@@ -181,7 +181,7 @@ Azure Pipelines에서 PowerShell 스크립트를 호출하려면 빌드 파이�
 7. 모든 필요한 항목을 추가한 후 빌드 파이프라인을 저장하고 위쪽에서 **새 빌드 큐 대기**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
-Azure Resource Manager 및 Azure 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](azure-resource-manager/resource-group-overview.md) 를 참조하세요.
+Azure 리소스 관리자 및 Azure 리소스 그룹에 대한 자세한 내용은 [Azure 리소스 관리자 개요](azure-resource-manager/resource-group-overview.md) 를 참조하세요.
 
 [0]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough1.png
 [1]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough2.png

@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 274c2289c75f44c5a1c8dd3799612a23f46a6d67
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c9d36014bc364d8b016221e6b9ff380b0bd4b8ed
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037697"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854170"
 ---
 # <a name="create-a-knowledge-base"></a>기술 자료 만들기
 
@@ -28,9 +28,7 @@ QnA Maker를 사용하면 기술 자료를 만들 때 간단하게 기존 데이
 
 ## <a name="steps"></a>단계
 
-1. Azure 자격 증명을 사용하여 [QnA Maker 포털](https://qnamaker.ai)에 로그인하고 **새 서비스 만들기**를 선택합니다.
-
-    ![기술 자료 만들기 ](../media/qnamaker-how-to-create-kb/create-new-service.png)
+1. Azure 자격 증명을 사용하여 [QnA Maker 포털](https://qnamaker.ai)에 로그인하고 **기술 자료 문서 만들기**를 선택합니다.
 
 2. 아직 QnA Maker 서비스를 만들지 않은 경우 **QnA 서비스 만들기**를 선택합니다. 
 

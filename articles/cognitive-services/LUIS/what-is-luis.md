@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: overview
 ms.date: 10/06/2018
 ms.author: diberry
-ms.openlocfilehash: 0520c00ab20ca7210b3bb13567f9998e7231be43
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 28580a29c2ffaadfa3b3ea26cb28f103d883d576
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867676"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637275"
 ---
 # <a name="what-is-language-understanding-luis"></a>LUIS(Language Understanding)란?
 
@@ -183,7 +183,7 @@ LUIS에 대한 상위 클라이언트 응용 프로그램은 다음과 같습니
 봇에서 LUIS를 빠르고 쉽게 사용할 수 있는 도구는 다음과 같습니다.
 * [LUIS CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS) - NPM 패키지에서 독립 실행형 명령줄 도구 또는 가져오기를 사용하여 작성 및 자동 완성을 제공합니다. 
 * [LUISGen](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUISGen) - LUISGen은 내보낸 LUIS 모델에서 강력한 형식의 C# 및 TypeScript 소스 코드를 생성하는 도구입니다.
-* [디스패치](https://aka.ms/dispatch-tool) - 디스패처 모델을 사용하는 부모 앱에서 여러 LUIS 및 QnA Maker 앱을 사용할 수 있도록 허용합니다.
+* [디스패치](https://aka.ms/dispatch-tool)는 디스패처 모델을 사용하는 부모 앱에서 여러 LUIS 및 QnA Maker 앱을 사용할 수 있도록 허용합니다.
 * [LUDown](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Ludown) - LUDown은 봇용 언어 모델을 관리하는 데 유용한 명령줄 도구입니다.
 
 LUIS에 사용되는 다른 Cognitive Services:
@@ -192,16 +192,7 @@ LUIS에 사용되는 다른 Cognitive Services:
 * [음성 서비스](../Speech-Service/overview.md)는 음성 언어 요청을 텍스트로 변환합니다. 
 * [대화 학습자](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview)를 사용하면 LUIS를 사용하여 보다 빠르게 봇 대화를 빌드할 수 있습니다.
 * [프로젝트 개인 정보 채팅](https://docs.microsoft.com/azure/cognitive-services/project-personality-chat/overview)은 봇 짧은 대화를 처리합니다.
-<!--
-## Other ways of implementing LUIS
 
-A client application for LUIS is:
-* [Windows Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/) - learn more with this [Mixed reality course](https://docs.microsoft.com/windows/mixed-reality/mr-azure-303) with LUIS. 
-
-
-Labs: 
-
--->
 ## <a name="next-steps"></a>다음 단계
 
 [미리 작성된](luis-get-started-create-app.md) 또는 [사용자 지정](luis-quickstart-intents-only.md) 도메인으로 새 LUIS 앱을 작성합니다. 공용 IoT 앱의 [예측 엔드포인트를 쿼리합니다](luis-get-started-cs-get-intent.md).

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 10/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 8e34b0823b7f10455ac0b66fb0614d3946f2382e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: df1fbcb09310985b7ca9d9fd2e7a987fc6e2b2dc
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38542706"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457090"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업
 
@@ -130,17 +130,17 @@ Azure Data Factory에서 복사 작업을 사용하려면 다음이 필요합니
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업의 type 속성은 **Copy**로 설정해야 합니다. | 예 |
-| inputs | 원본 데이터를 가리키는 만든 데이터 집합을 지정합니다. 복사 작업에서는 하나의 입력만 지원합니다. | 예 |
-| outputs | 싱크 데이터를 가리키는 만든 데이터 집합을 지정합니다. 복사 작업에서는 하나의 출력만 지원합니다. | 예 |
-| typeProperties | 복사 작업을 구성하는 속성의 그룹입니다. | 예 |
-| 원본 | 데이터 검색 방법에 대한 해당 속성과 복사 원본 유형을 지정합니다.<br/><br/>자세한 내용은 [지원되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 열거된 커넥터 문서의 "복사 작업 속성" 섹션을 참조하세요. | 예 |
-| 싱크 | 데이터 쓰기 방법에 대한 해당 속성과 복사 싱크 유형을 지정합니다.<br/><br/>자세한 내용은 [지원되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 열거된 커넥터 문서의 "복사 작업 속성" 섹션을 참조하세요. | 예 |
-| 번역기 | 원본에서 싱크로의 명시적 열 매핑을 지정합니다. 기본 복사 동작이 요구를 수행할 수 없는 경우 적용됩니다.<br/><br/>자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요. | 아니오 |
-| dataIntegrationUnits | 데이터 복사를 수행할 [Azure Integration Runtime](concepts-integration-runtime.md)의 강도를 지정합니다. 이전의 클라우드 DMU(데이터 이동 단위)입니다. <br/><br/>자세한 내용은 [데이터 통합 단위](copy-activity-performance.md#data-integration-units)를 참조하세요. | 아니오 |
-| parallelCopies | 원본에서 데이터를 읽어 싱크에 쓸 때 복사 작업이 사용할 병렬 처리를 지정합니다.<br/><br/>자세한 내용은 [병렬 복사](copy-activity-performance.md#parallel-copy)를 참조하세요. | 아니오 |
-| enableStaging<br/>stagingSettings | 데이터를 직접 원본에서 싱크로 복사하는 대신 aa BLOB Storage에서 중간 데이터를 준비하도록 선택합니다.<br/><br/>유용한 시나리오 및 구성 상세 정보는 [준비된 복사](copy-activity-performance.md#staged-copy)를 참조하세요. | 아니오 |
-| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| 데이터를 원본에서 싱크로 복사할 때 호환되지 않는 행을 처리하는 방법을 선택합니다.<br/><br/>자세한 내용은 [내결함성](copy-activity-fault-tolerance.md)을 참조하세요. | 아니오 |
+| 형식 | 복사 작업의 type 속성은 **Copy**로 설정해야 합니다. | yes |
+| inputs | 원본 데이터를 가리키는 만든 데이터 집합을 지정합니다. 복사 작업에서는 하나의 입력만 지원합니다. | yes |
+| outputs | 싱크 데이터를 가리키는 만든 데이터 집합을 지정합니다. 복사 작업에서는 하나의 출력만 지원합니다. | yes |
+| typeProperties | 복사 작업을 구성하는 속성의 그룹입니다. | yes |
+| 원본 | 데이터 검색 방법에 대한 해당 속성과 복사 원본 유형을 지정합니다.<br/><br/>자세한 내용은 [지원되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 열거된 커넥터 문서의 "복사 작업 속성" 섹션을 참조하세요. | yes |
+| 싱크 | 데이터 쓰기 방법에 대한 해당 속성과 복사 싱크 유형을 지정합니다.<br/><br/>자세한 내용은 [지원되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 열거된 커넥터 문서의 "복사 작업 속성" 섹션을 참조하세요. | yes |
+| 번역기 | 원본에서 싱크로의 명시적 열 매핑을 지정합니다. 기본 복사 동작이 요구를 수행할 수 없는 경우 적용됩니다.<br/><br/>자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요. | 아니요 |
+| dataIntegrationUnits | 데이터 복사를 수행할 [Azure Integration Runtime](concepts-integration-runtime.md)의 강도를 지정합니다. 이전의 클라우드 DMU(데이터 이동 단위)입니다. <br/><br/>자세한 내용은 [데이터 통합 단위](copy-activity-performance.md#data-integration-units)를 참조하세요. | 아니요 |
+| parallelCopies | 원본에서 데이터를 읽어 싱크에 쓸 때 복사 작업이 사용할 병렬 처리를 지정합니다.<br/><br/>자세한 내용은 [병렬 복사](copy-activity-performance.md#parallel-copy)를 참조하세요. | 아니요 |
+| enableStaging<br/>stagingSettings | 데이터를 직접 원본에서 싱크로 복사하는 대신 aa BLOB Storage에서 중간 데이터를 준비하도록 선택합니다.<br/><br/>유용한 시나리오 및 구성 상세 정보는 [준비된 복사](copy-activity-performance.md#staged-copy)를 참조하세요. | 아니요 |
+| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| 데이터를 원본에서 싱크로 복사할 때 호환되지 않는 행을 처리하는 방법을 선택합니다.<br/><br/>자세한 내용은 [내결함성](copy-activity-fault-tolerance.md)을 참조하세요. | 아니요 |
 
 ## <a name="monitoring"></a>모니터링
 

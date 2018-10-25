@@ -7,15 +7,15 @@ author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
-ms.date: 09/10/2018
+ms.topic: conceptual
+ms.date: 10/07/2018
 ms.author: diberry
-ms.openlocfilehash: 78cc2a8a2b9295654d0c6264cbf4a4d634b16544
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 4ef6f5022b3c38eab2cda20123f179811f46390f
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038173"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637241"
 ---
 # <a name="enable-active-learning-by-reviewing-endpoint-utterances"></a>엔드포인트 발화를 검토하여 활성 학습을 사용하도록 설정합니다.
 활성 학습은 예측 정확도를 향상시키는 세 가지 전략 중 하나이며 구현하기에 가장 쉽습니다. 활성 학습을 사용하여 올바른 의도 및 엔터티에 대한 엔드포인트 발언을 검토하세요. LUIS는 알 수 없는 엔드포인트 발언을 선택합니다.
@@ -36,7 +36,7 @@ ms.locfileid: "47038173"
 제안된 발화를 매일 검토할 필요는 없지만 정기적인 LUIS 유지 관리에 포함해야 합니다. 
 
 ## <a name="delete-review-items-programmatically"></a>프로그래밍 방식으로 검토 항목 삭제
-앱이 큰 경우 일부 발화를 검토하고 목록에서 나머지 부분을 프로그래밍 방식으로 삭제하도록 선택할 수 있습니다. 이 작업을 수행하려면 먼저 목록을 [가져온](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) 다음, ID별로 발화를 [삭제](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)합니다.
+**[레이블이 지정되지 않은 발언 삭제](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)** API를 사용합니다. 삭제하기 전에 **[로그 파일을 내보내](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)** 이러한 발언을 백업합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

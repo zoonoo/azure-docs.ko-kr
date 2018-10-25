@@ -1,32 +1,32 @@
 ---
-title: 웹 UI를 사용하여 Azure Kubernetes 클러스터 관리
-description: AKS(Azure Kubernetes Service)와 함께 기본 제공 Kubernetes 웹 UI 대시보드를 사용하는 방법을 알아봅니다.
+title: 웹 대시보드를 사용하여 Azure Kubernetes Service 클러스터를 관리합니다.
+description: AKS(Azure Kubernetes Service) 클러스터를 관리하는 데 기본 제공 Kubernetes 웹 UI 대시보드를 사용하는 방법 알아보기
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 10/08/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: af48af596e86e0eb09fe45deabe13beedef57cd2
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 9d953cdb82412c07fe0ed4bef75dece4a929cad9
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307928"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067591"
 ---
-# <a name="access-the-kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 사용하여 Kubernetes 대시보드에 액세스
+# <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Kubernetes 웹 대시보드에 액세스
 
-Kubernetes에는 기본 관리 작업에 사용할 수 있는 웹 대시보드가 포함됩니다. 이 문서에서는 Azure CLI를 사용하여 Kubernetes 대시보드에 액세스하는 방법을 보여준 후 일부 기본적인 대시보드 작업 과정을 안내합니다. Kubernetes 대시보드에 대한 자세한 내용은 [Kubernetes 웹 UI 대시보드][kubernetes-dashboard]를 참조하세요.
+Kubernetes에는 기본 관리 작업에 사용할 수 있는 웹 대시보드가 포함됩니다. 이 대시보드를 사용하면 응용 프로그램의 기본 상태와 메트릭을 보고 서비스를 작성 및 배포하며 기존 응용 프로그램을 편집할 수 있습니다. 이 문서에서는 Azure CLI를 사용하여 Kubernetes 대시보드에 액세스하는 방법을 보여준 후 일부 기본적인 대시보드 작업 과정을 안내합니다.
+
+Kubernetes 대시보드에 대한 자세한 내용은 [Kubernetes 웹 UI 대시보드][kubernetes-dashboard]를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서에 설명된 단계에서는 AKS 클러스터를 만들고 클러스터와 `kubectl` 연결을 설정했다고 가정합니다. AKS 클러스터를 만들어야 하는 경우, [AKS 빠른 시작][aks-quickstart]을 참조하세요.
 
-또한 Azure CLI 버전 2.0.27 이상이 설치되고 구성되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
+또한 Azure CLI 버전 2.0.46 이상이 설치되고 구성되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
-## <a name="start-kubernetes-dashboard"></a>Kubernetes 대시보드 시작
+## <a name="start-the-kubernetes-dashboard"></a>Kubernetes 대시보드 시작
 
 Kubernetes 대시보드를 시작하려면 [az aks browse][az-aks-browse] 명령을 사용합니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에 *myAKSCluster*라는 클러스터의 대시보드를 엽니다.
 
@@ -34,7 +34,9 @@ Kubernetes 대시보드를 시작하려면 [az aks browse][az-aks-browse] 명령
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
-이 명령은 개발 시스템과 Kubernetes API 사이에 프록시를 만들고 웹 브라우저에서 Kubernetes 대시보드를 엽니다.
+이 명령은 개발 시스템과 Kubernetes API 사이에 프록시를 만들고 웹 브라우저에서 Kubernetes 대시보드를 엽니다. 웹 브라우저가 Kubernetes 대시보드에서 열리지 않는 경우 Azure CLI에 표시된 URL 주소(일반적으로 *http://127.0.0.1:8001*)를 복사하여 붙여넣으세요.
+
+![Kubernetes 웹 대시보드의 개요 페이지](./media/kubernetes-dashboard/dashboard-overview.png)
 
 ### <a name="for-rbac-enabled-clusters"></a>RBAC 지원 클러스터의 경우
 
@@ -53,48 +55,57 @@ kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-adm
 
 이제 RBAC 지원 클러스터의 Kubernetes 대시보드에 액세스할 수 있습니다. Kubernetes 대시보드를 시작하려면 이전 단계에서 설명한 대로 [az aks browse][az-aks-browse] 명령을 사용합니다.
 
-## <a name="run-an-application"></a>응용 프로그램 실행
+## <a name="create-an-application"></a>응용 프로그램 만들기
 
-Kubernetes 대시보드에서 오른쪽 상단 창의 **만들기** 단추를 클릭합니다. 배포 이름을 `nginx`로 지정하고 컨테이너 이미지 이름에 `nginx:latest`를 입력합니다. **서비스**에서 **외부**를 선택하고 포트와 대상 포트 모두에 대해 `80`을 입력합니다.
+Kubernetes 대시보드가 관리 작업의 복잡도를 줄일 수 있는 방법을 보기 위해 응용 프로그램을 작성해 보겠습니다. 텍스트 입력, YAML 파일을 제공하거나 그래픽 마법사를 통해 Kubernetes 대시보드에서 응용 프로그램을 작성할 수 있습니다.
 
-준비가 되면 **배포**를 클릭하여 배포를 만듭니다.
+응용 프로그램을 작성하려면 다음 단계를 완료하세요.
 
-![Kubernetes 서비스 만들기 대화 상자](./media/container-service-kubernetes-ui/create-deployment.png)
+1. 오른쪽 상단 창에서 **만들기** 단추를 선택하세요.
+1. 그래픽 마법사를 사용하려면 **앱 만들기**를 선택하세요.
+1. 배치 이름(예: *nginx*)을 입력하세요.
+1. 사용할 컨테이너 이미지의 이름(예: *1.15.5*)을 입력하세요.
+1. 웹 트래픽에 대해 포트 80을 노출하려면 Kubernetes 서비스를 작성하세요. **서비스**에서 **외부**를 선택하고 포트와 대상 포트 모두에 대해 **80**을 입력합니다.
+1. 준비가 되면 **배포** 를 선택하여 앱을 만듭니다.
 
-## <a name="view-the-application"></a>응용 프로그램 보기
+![Kubernetes 웹 대시보드에 앱 배포](./media/kubernetes-dashboard/create-app.png)
 
-응용 프로그램에 대한 상태는 Kubernetes 대시보드에서 확인할 수 있습니다. 응용 프로그램이 실행되면 각 구성 요소 옆에 녹색 확인란이 표시됩니다.
+공용 외부 IP 주소가 Kubernetes 서비스에 지정되는 데 1분이나 2분이 소요됩니다. 왼쪽에 있는 **감지 및 로드 밸런싱**에서 **서비스**를 선택하세요. 다음 예제에 표시된 대로 ‘외부 엔드포인트’를 포함하여 응용 프로그램 서비스가 나열됩니다.
 
-![Kubernetes 포드](./media/container-service-kubernetes-ui/complete-deployment.png)
+![서비스 및 엔드포인트 목록 보기](./media/kubernetes-dashboard/view-services.png)
 
-응용 프로그램 Pod에 대한 자세한 내용을 보려면 왼쪽 메뉴에서 **Pod**를 클릭하고 **NGINX** Pod를 선택합니다. 여기에서 리소스 사용량과 같은 Pod별 정보를 볼 수 있습니다.
+웹 브라우저 창을 기본 NGINX 페이지로 열려면 엔드포인트 주소를 선택하세요.
 
-![Kubernetes 리소스](./media/container-service-kubernetes-ui/running-pods.png)
+![배포된 응용 프로그램의 기본 NGINX 페이지 보기](./media/kubernetes-dashboard/default-nginx.png)
 
-응용 프로그램의 IP 주소를 찾으려면 왼쪽 메뉴에서 **서비스**를 클릭하고 **NGINX** 서비스를 선택합니다.
+## <a name="view-pod-information"></a>Pod 정보 보기
 
-![nginx 보기](./media/container-service-kubernetes-ui/nginx-service.png)
+Kubernetes 대시보드는 기본 모니터링 메트릭 및 문제점 해결 정보(예:로그)를 제공할 수 있습니다.
+
+응용 프로그램 Pod에 대한 자세한 정보를 보려면 왼쪽 메뉴에서 **Pod**을 선택하세요. 사용 가능한 Pod 목록이 표시됩니다. 리소스 사용량과 같은 정보를 보려면 *nginx* Pod를 선택하세요.
+
+![Pod 정보 보기](./media/kubernetes-dashboard/view-pod-info.png)
 
 ## <a name="edit-the-application"></a>응용 프로그램 편집
 
-Kubernetes 대시보드는 응용 프로그램을 만들고 보는 것 외에도 응용 프로그램 배포를 편집하고 업데이트하는 데 사용할 수 있습니다.
+Kubernetes 대시보드는 응용 프로그램을 만들고 보는 것 외에도 응용 프로그램 배포를 편집하고 업데이트하는 데 사용할 수 있습니다. 응용 프로그램에 추가 중복을 제공하려면 NGINX 복제본의 수를 늘리세요.
 
-배포를 편집하려면 왼쪽 메뉴에서 **배포**를 클릭한 다음 **NGINX** 배포를 선택합니다. 마지막으로, 오른쪽 위 탐색 표시줄에서 **편집**을 선택합니다.
+배포를 편집하려면 다음을 수행하세요.
 
-![kubernetes 편집](./media/container-service-kubernetes-ui/view-deployment.png)
+1. 왼쪽 메뉴에서 **배치**를 선택한 다음, *nginx* 배치를 선택하세요.
+1. 오른쪽 위 탐색 표시줄에서 **편집**을 선택합니다.
+1. 행 20 정도에서 `spec.replica` 값을 찾으세요. 응용 프로그램의 복제본 수를 늘리려면 이 값을 *1*에서 *3*으로 변경하세요.
+1. 준비가 되면 **업데이트**를 선택합니다.
 
-1인 `spec.replica` 값을 찾아서 이 값을 3으로 변경합니다. 이렇게 하면 NGINX 배포의 복제본 수가 1에서 3으로 증가합니다.
+![배치를 편집하여 복제본 수를 업데이트세요.](./media/kubernetes-dashboard/edit-deployment.png)
 
-준비가 되면 **업데이트**를 선택합니다.
+새 Pod이 복제본 세트 내에 작성되는 데 몇 분 정도 걸립니다. 왼쪽 메뉴에서 **복제본 세트**를 선택한 다음, *nginx* 복제본 세트를 선택합니다. 이제 Pod 목록은 다음 예제 출력에 표시된 대로 업데이트된 복제본 수를 반영합니다.
 
-![kubernetes 편집](./media/container-service-kubernetes-ui/edit-deployment.png)
+![복제본 세트에 대한 정보 보기](./media/kubernetes-dashboard/view-replica-set.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-Kubernetes 대시보드에 대한 자세한 내용은 Kubernetes 설명서를 참조하세요.
-
-> [!div class="nextstepaction"]
-> [Kubernetes 웹 UI 대시보드][kubernetes-dashboard]
+Kubernetes 대시보드에 대한 자세한 내용은 [Kubernetes 웹 UI 대시보드][kubernetes-dashboard]를 참조하세요.
 
 <!-- LINKS - external -->
 [kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/

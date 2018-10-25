@@ -1,20 +1,21 @@
 ---
-title: Academic Knowledge API의 Graph Search 메서드 | Microsoft Docs
-description: Academic Knowledge API의 Graph Search 메서드를 사용하여 Microsoft Cognitive Services의 특정 그래프 패턴을 기반으로 일련의 교육 기관을 반환합니다.
+title: Graph Search 메서드 - Academic Knowledge API
+titlesuffix: Azure Cognitive Services
+description: Academic Knowledge API의 Graph Search 메서드를 사용하여 특정 그래프 패턴을 기반으로 일련의 교육 기관을 반환합니다.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: d811db117c934c0d41fbfea1220d241cc022e4a8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 83f29106d72f564f894c968102b703ab6bb5d8c2
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372750"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902386"
 ---
 # <a name="graph-search-method"></a>Graph Search 메서드
 
@@ -28,9 +29,9 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 <br>
 
 ## <a name="request-parameters"></a>요청 매개 변수  
-Name     | 값 | Required?  | 설명
+이름     | 값 | Required?  | 설명
 -----------|-----------|---------|--------
-**mode**       | 텍스트 문자열 | 예 | 사용할 모드의 이름입니다. 값은 *json* 또는 *lambda*입니다.
+**mode**       | 텍스트 문자열 | yes | 사용할 모드의 이름입니다. 값은 *json* 또는 *lambda*입니다.
 
 Graph Search 메서드는 HTTP POST 요청을 통해 호출되어야 합니다. post 요청은 **application/json** 콘텐츠 형식 헤더를 포함해야 합니다.
 
@@ -45,7 +46,7 @@ Graph Search 메서드는 HTTP POST 요청을 통해 호출되어야 합니다. 
 
 <br>
 ## <a name="response-json"></a>응답(JSON)
-Name | 설명
+이름 | 설명
 -------|-----   
 **결과** | 쿼리 식과 일치하는 0개 이상의 엔터티 배열입니다. 각 엔터티에는 요청된 특성 값이 있습니다. 이 필드는 요청이 성공적으로 처리된 경우 나타납니다.
 **error** | HTTP 상태 코드. 이 필드는 요청이 실패하는 경우 나타납니다.
@@ -54,7 +55,7 @@ Name | 설명
 쿼리를 _800ms_ 내에 처리할 수 없는 경우 _시간 제한_ 오류가 반환됩니다. 
 
 <br>
-#### <a name="example"></a>예:
+#### <a name="example"></a>예제:
 
 ##### <a name="json-search"></a>JSON 검색
 ```

@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 04cdba261d67e20762fd4bb4835568f763124fef
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 312b1f7accee47c07c5fb0507061253fda5044f6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578476"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958043"
 ---
 # <a name="azure-active-directory-authentication-protocols"></a>Azure Active Directory 인증 프로토콜
 Azure AD(Azure Active Directory)는 가장 널리 사용되는 다수의 인증 및 권한 부여 프로토콜을 지원합니다. 이 섹션의 항목에서는 Azure AD에서 지원되는 프로토콜 및 이 프로토콜의 구현에 대해 설명합니다. 이 항목에서는 지원되는 클레임 유형을 검토하고, 페더레이션 메타데이터 사용에 대해 소개하고, 자세한 OAuth 2.0. 및 SAML 2.0 프로토콜 참조 설명서 및 문제 해결 섹션을 소개합니다.
@@ -38,6 +38,6 @@ Azure AD(Azure Active Directory)는 가장 널리 사용되는 다수의 인증 
 * [SAML 프로토콜 참조](active-directory-saml-protocol-reference.md) - Azure AD의 Single Sign On 및 Single Sign Out SAML 프로필에 대해 알아봅니다.
 
 ## <a name="see-also"></a>참고 항목
-[Azure Active Directory 개발자 가이드](azure-ad-developers-guide.md)
+[Azure Active Directory 개발자 가이드](v1-overview.md)
 
 [Active Directory 코드 샘플](sample-v1-code.md)

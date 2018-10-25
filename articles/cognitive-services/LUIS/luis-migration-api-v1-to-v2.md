@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: b936b42671c15a77a901f321ed3c51f1ba3639cd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 57742d72c8be0dcd999bc8b73f6d598263429c12
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036595"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646578"
 ---
 # <a name="api-v2-migration-guide"></a>API v2 마이그레이션 가이드
 버전 1 [엔드포인트](https://aka.ms/v1-endpoint-api-docs) 및 [작성](https://aka.ms/v1-authoring-api-docs) API는 더 이상 사용되지 않습니다. 이 가이드를 사용하여 버전 2 [엔드포인트](https://aka.ms/luis-endpoint-apis) 및 [작성](https://aka.ms/luis-authoring-apis) API로 마이그레이션하는 방법을 이해합니다. 
@@ -155,7 +155,7 @@ LUIS는 모델을 향상시킬 수 있는 기존 [엔드포인트 발화](luis-h
 내보낸 1.x 앱의 JSON에는 [LUIS][LUIS] 2.0으로 가져오기 전에 변경해야 하는 일부 영역이 있습니다. 
 
 ### <a name="prebuilt-entities"></a>미리 빌드된 엔터티 
-[미리 빌드된 엔터티](luis-prebuilt-entities.md)가 변경되었습니다. V2 미리 빌드된 엔터티를 사용하고 있는지 확인합니다. 여기에는 datetime 대신에 [datetimeV2](luis-prebuilt-entities.md#use-a-prebuilt-datetimev2-entity) 사용이 포함됩니다. 
+[미리 빌드된 엔터티](luis-prebuilt-entities.md)가 변경되었습니다. V2 미리 빌드된 엔터티를 사용하고 있는지 확인합니다. 여기에는 datetime 대신에 [datetimeV2](luis-reference-prebuilt-datetimev2.md) 사용이 포함됩니다. 
 
 ### <a name="actions"></a>작업
 작업 속성이 더 이상 유효하지 않습니다. 비어 있어야 함 

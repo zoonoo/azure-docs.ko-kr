@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: a74d91ad986b606a36a8040ac849e7fcbec03f16
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: c94d4d4beea22e68a581cd208a25f915e4217614
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093195"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870879"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure VNET(Virtual Network)을 사용하면 인터넷에서 사용할 수 없고 라우팅할 있는 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있습니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)부터 참조하세요.
@@ -106,18 +106,21 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
 
 API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표의 포트가 사용됩니다.
 
-| 소스/대상 포트 | 방향 | 전송 프로토콜 | 원본 / 대상 | 목적( * ) | 가상 네트워크 유형 |
-| --- | --- | --- | --- | --- | --- |
-| * / 80, 443 |인바운드 |TCP |인터넷 / VIRTUAL_NETWORK|API Management에 대한 클라이언트 통신|외부 |
-| * / 3443 |인바운드 |TCP |인터넷 / VIRTUAL_NETWORK|Azure Portal 및 Powershell용 관리 엔드포인트 |외부 및 내부 |
-| * / 80, 443 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|**Azure Storage, Azure Service Bus 및 Azure Active Directory에 대한 종속성**(해당되는 경우).|외부 및 내부 |
-| * / 1433 |아웃바운드 |TCP |VIRTUAL_NETWORK / SQL|**Azure SQL 엔드포인트에 대한 액세스** |외부 및 내부 |
-| * / 5672 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|이벤트 허브 정책 및 모니터링 에이전트에 대한 로그의 종속성 |외부 및 내부 |
-| * / 445 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|GIT의 Azure 파일 공유에 대한 종속성 |외부 및 내부 |
-| * / 1886 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|리소스 상태에 상태를 게시하는 데 필요 |외부 및 내부 |
-| * / 25028 |아웃바운드 |TCP |VIRTUAL_NETWORK / 인터넷|전자 메일을 보내기 위한 SMTP 릴레이에 연결 |외부 및 내부 |
-| * / 6381 - 6383 |인바운드 및 아웃바운드 |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|역할 인스턴스 간 Redis 캐시 인스턴스에 대한 액세스 |외부 및 내부 |
-| * / * | 인바운드 |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure 인프라 부하 분산 장치 |외부 및 내부 |
+| 소스/대상 포트 | 방향          | 전송 프로토콜 | 원본 / 대상                  | 목적( * )                                                 | 가상 네트워크 유형 |
+|------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
+| * / 80, 443                  | 인바운드            | TCP                | 인터넷 / VIRTUAL_NETWORK            | API Management에 대한 클라이언트 통신                      | 외부             |
+| * / 3443                     | 인바운드            | TCP                | APIMANAGEMENT / VIRTUAL_NETWORK       | Azure Portal 및 Powershell용 관리 엔드포인트         | 외부 및 내부  |
+| * / 80, 443                  | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 저장소             | **Azure Storage에 대한 종속성**                             | 외부 및 내부  |
+| * / 80, 443                  | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 인터넷            | Azure Active Directory(해당되는 경우)                   | 외부 및 내부  |
+| * / 1433                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / SQL                 | **Azure SQL 엔드포인트에 대한 액세스**                           | 외부 및 내부  |
+| * / 5672                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / EventHub            | 이벤트 허브 정책 및 모니터링 에이전트에 대한 로그의 종속성 | 외부 및 내부  |
+| * / 445                      | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 저장소             | GIT의 Azure 파일 공유에 대한 종속성                      | 외부 및 내부  |
+| * / 1886                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 인터넷            | 리소스 상태에 상태를 게시하는 데 필요          | 외부 및 내부  |
+| * / 25                       | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 인터넷            | 메일을 보내기 위해 SMTP 릴레이에 연결                    | 외부 및 내부  |
+| * / 587                      | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 인터넷            | 메일을 보내기 위해 SMTP 릴레이에 연결                    | 외부 및 내부  |
+| * / 25028                    | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 인터넷            | 메일을 보내기 위해 SMTP 릴레이에 연결                    | 외부 및 내부  |
+| * / 6381 - 6383              | 인바운드 및 아웃바운드 | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | 역할 인스턴스 간 Redis 캐시 인스턴스에 대한 액세스          | 외부 및 내부  |
+| * / *                        | 인바운드            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure 인프라 부하 분산 장치                          | 외부 및 내부  |
 
 >[!IMPORTANT]
 > API Management 서비스를 성공적으로 배포하려면 *목적*이 **볼드**인 포트가 필요합니다. 하지만 다른 포트를 차단할 경우 실행 중인 서비스사를 용 및 모니터링하는 기능이 저하됩니다.
@@ -128,11 +131,15 @@ API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표�
 
 * **메트릭 및 상태 모니터링**: Azure Monitoring 엔드포인트에 대한 아웃바운드 네트워크 연결은 다음 도메인에서 확인합니다. 
 
-    | Azure 환경 | 엔드포인트 |
-    | --- | --- |
-    | Azure 공용 | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li></ul> |
-    | Azure Government | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul> |
-    | Azure China | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul> |
+    | Azure 환경 | 엔드포인트                                                                                                                                                                                                                                                                                                                                                              |
+    |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | Azure 공용      | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`.warm.ingestion.msftcloudes.com(여기서 `East US 2`는 eastus2.warm.ingestion.msftcloudes.com임)</li></ul> |
+    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
+    | Azure China       | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
+
+* **SMTP 릴레이**: 호스트 `ies.global.microsoft.com`에서 확인되는 SMTP 릴레이에 대한 아웃바운드 네트워크 연결입니다.
+
+* **Azure Portal 진단**: Virtual Network 내부에서 API Management 확장을 사용할 때 Azure Portal에서 진단 로그의 흐름을 사용하도록 설정하려면 포트 443에서 `dc.services.visualstudio.com`에 대한 아웃바운드 액세스가 필요합니다. 이는 확장을 사용할 때 발생할 수 있는 문제 해결에 도움이 됩니다.
 
 * **Express Route 설정**: 고객의 일반적인 구성은 온-프레미스 흐름 대신 아웃바운드 인터넷 트래픽을 강제하는 기본 경로(0.0.0.0/0)로 정의되어 있습니다. 이 트래픽 흐름은 변함없이 Azure API Management와의 연결을 끊습니다. 그 이유는 아웃바운드 트래픽이 온-프레미스에서 막히거나 다양한 Azure 엔드포인트에서 더 이상 작동하지 않는 인식 불가능한 주소 집합으로 NAT되기 때문입니다. 해결책은 하나의(또는 그 이상) [UDR][UDRs](사용자 정의 경로)을 Azure API Management를 포함하는 서브넷에 정의하는 것입니다. UDR이 정의한 특정 서브넷 경로는 기본 경로대신 적용됩니다.
   가능하면 다음 구성을 사용하는 것이 좋습니다.
@@ -159,8 +166,6 @@ API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표�
 
 * **리소스 탐색 링크**: 리소스 관리자 스타일 Vnet 서브넷으로 배포할 경우 API Management는 리소스 탐색 링크를 만들어 서브넷을 보유합니다. 서브넷에 니미 다른 공급자의 리소스가 포함된 경우에는 배포가 **실패**합니다. 마찬가지로 API Management 서비스를 다른 서브넷으로 이동하거나 삭제할 경우에는 해당 리소스 탐색 링크가 삭제됩니다.
 
-* **Azure Portal의 API 테스트**: Azure Portal 및 API Management 인스턴스의 API 테스트가 내부 VNet과 통합되면 VNet에 구성된 DNS 서버는 이름 확인을 위해 사용됩니다. Azure Portal에서 테스트할 때 404를 수신하는 경우 VNet에 대한 DNS 서버가 API Management 인스턴스의 호스트 이름을 올바르게 확인할 수 있도록 합니다. 
-
 ## <a name="subnet-size"> </a> 서브넷 크기 요구 사항
 Azure는 각 서브넷 내의 일부 IP 주소를 예약하며, 이러한 주소는 사용할 수 없습니다. 서브넷의 첫 번째 및 마지막 IP 주소는 Azure 서비스에 사용되는 3개 이상의 주소와 함께 프로토콜 적합성을 위해 예약됩니다. 자세한 내용은 [이러한 서브넷 내에서 IP 주소를 사용하는데 제한 사항이 있습니까?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
@@ -186,6 +191,7 @@ API Management가 배포될 수 있는 서브넷의 최소 크기 이상으로 �
 * [다양한 배포 모델에서 Virtual Network 연결](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [API 검사기를 사용하여 Azure API Management에서 호출을 추적하는 방법](api-management-howto-api-inspector.md)
 * [Virtual Network FAQ](../virtual-network/virtual-networks-faq.md)
+* [서비스 태그](../virtual-network/security-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-type.png

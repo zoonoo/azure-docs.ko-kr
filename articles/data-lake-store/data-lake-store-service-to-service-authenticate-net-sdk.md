@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: bd03c0801fed0da6d9a87466bc33819f6afa4578
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 61d9606ff14a48e6c224108596f0f01daa4813e1
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296926"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954293"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>.NET SDK를 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증
 > [!div class="op_single_selector"]
@@ -97,7 +97,7 @@ ms.locfileid: "46296926"
 
 ## <a name="service-to-service-authentication-with-certificate"></a>인증서를 사용하여 서비스 간 인증
 
-.NET 클라이언트 응용 프로그램에서 이 코드 조각을 추가합니다. 자리 표시자 값을 Microsoft Azure Active Directory 웹 응용 프로그램에서 검색된 값(필수 구성 요소로 나열된)으로 바꿉니다. 이 코드 조각을 사용하면 Azure AD 웹 응용 프로그램의 인증서를 사용하여 응용 프로그램을 Data Lake Storage Gen1에 **비 대화형으로** 인증할 수 있습니다. Microsoft Azure Active Directory 응용 프로그램을 만드는 방법에 대한 지침은 [인증서로 서비스 주체 만들기](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate)를 참조하세요.
+.NET 클라이언트 응용 프로그램에서 이 코드 조각을 추가합니다. 자리 표시자 값을 Microsoft Azure Active Directory 웹 응용 프로그램에서 검색된 값(필수 구성 요소로 나열된)으로 바꿉니다. 이 코드 조각을 사용하면 Azure AD 웹 응용 프로그램의 인증서를 사용하여 응용 프로그램을 Data Lake Storage Gen1에 **비 대화형으로** 인증할 수 있습니다. Microsoft Azure Active Directory 응용 프로그램을 만드는 방법에 대한 지침은 [인증서로 서비스 주체 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate)를 참조하세요.
 
     
     private static void Main(string[] args)
@@ -119,6 +119,6 @@ ms.locfileid: "46296926"
 이 문서에서는 .NET SDK를 사용하여 Data Lake Storage Gen1로 인증하는 서비스 간 인증을 사용하는 방법을 배웠습니다. 이제 다음 문서를 통해 .NET SDK를 Data Lake Storage Gen1과 함께 사용하는 방법을 살펴볼 수 있습니다.
 
 * [.NET SDK를 사용한 Data Lake Storage Gen1에서의 계정 관리 작업](data-lake-store-get-started-net-sdk.md)
-* [.NET SDK를 사용한 Data Lake Storage Gen1에서의 데이터 작업](data-lake-store-data-operations-net-sdk.md)
+* [.NET SDK를 사용한 Data Lake Storage Gen1의 데이터 작업](data-lake-store-data-operations-net-sdk.md)
 
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5180aa935ed5ab1a263c8dd002c2009ec89d5d86
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cb2b4bdee445587b32516c8db869170ab067b8d3
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46304842"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406860"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>동기화 중 오류 문제 해결
 ID 데이터가 Windows Server Active Directory(AD DS)로부터 Azure AD(Azure Active Directory)로 동기화되는 중에 오류가 발생할 수 있습니다. 이 문서에서는 여러 동기화 오류 유형, 오류가 발생할 수 있는 몇 가지 상황, 오류를 해결할 수 있는 가능한 방법에 대한 개요를 제공합니다. 이 문서는 일반적인 오류 유형을 다루며 가능한 모든 오류를 포괄하지 못할 수 있습니다.
@@ -178,7 +178,7 @@ b. UserPrincipalName 특성이 필요한 형식을 따르지 않습니다.
 a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르는지 확인합니다.
 
 #### <a name="related-articles"></a>관련 문서
-* [Office 365 디렉터리 동기화를 통한 사용자 프로비전 준비](https://support.office.com/en-us/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
+* [Office 365 디렉터리 동기화를 통한 사용자 프로비전 준비](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
 ### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
 #### <a name="description"></a>설명

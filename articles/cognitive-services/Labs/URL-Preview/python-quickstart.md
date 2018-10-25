@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: project-url-preview
+ms.component: url-preview
 ms.topic: quickstart
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: c4af701188c6453bd3c067b838519c32862af13d
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: ecf98803e5313812a074442b70bb376ab67e7366
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867275"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469999"
 ---
 # <a name="quickstart-url-preview-with-python"></a>빠른 시작: Python을 통해 URL Preview 사용
 

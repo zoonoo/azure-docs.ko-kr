@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 33126c094a55bc57edd49a54fbc4f5acd7401998
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 1aeb1315cfafbcdf3507a6e49d71e1f1e69b537c
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079007"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430190"
 ---
 # <a name="configure-your-automated-machine-learning-experiment"></a>자동화된 기계 학습 실험 구성
 
@@ -147,7 +147,7 @@ get_data()를 통하거나 `AutoMLConfig` 메서드에서 직접 별도의 학�
 2.  클라우드의 원격 머신(Linux를 실행하는 [Azure Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)) - 큰 데이터 집합이 있고 Azure 클라우드에서 사용할 수 있는 대형 머신으로 강화하려고 합니다. 
 3.  Azure Batch AI 클러스터 - 자동화된 ML 반복을 확장하고 병렬로 실행하도록 설정할 수 있는 관리되는 클러스터입니다. 
 
-
+<a name='configure-experiment'/>
 ## <a name="configure-your-experiment-settings"></a>실험 설정 구성
 
 자동화된 ML 실험을 구성하는 데 사용할 수 있는 몇 가지 노브가 있습니다. 이러한 매개 변수는 `AutoMLConfig` 개체를 인스턴스화하여 설정됩니다.

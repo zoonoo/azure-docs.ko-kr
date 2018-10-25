@@ -7,28 +7,18 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/02/2018
 ms.author: andrl
-ms.openlocfilehash: 2da00f700f5cc234455cc686377e5863f1c35bdd
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 2280a3f6b2a67d392a109a5294e1509bcc804bc3
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734474"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869927"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Azure Cosmos DB 컨테이너 및 데이터베이스에 대한 처리량 설정 및 가져오기
 
-Azure Portal을 사용하거나 클라이언트 SDK를 사용하여 Azure Cosmos DB 컨테이너 또는 컨테이너 집합에 대한 처리량을 설정할 수 있습니다. 
-
-**개별 컨테이너에 대한 처리량 프로비전:** 컨테이너 집합에 대한 처리량을 프로비전할 때 모든 컨테이너가 프로비전된 처리량을 공유합니다. 개별 컨테이너에 대해 처리량을 프로비전하면 해당 특정 컨테이너의 처리량이 예약 보증됩니다. 개별 컨테이너 수준에서 RU/초를 할당할 때 컨테이너를 *고정* 또는 *무제한*으로 만들 수 있습니다. 고정 크기 컨테이너는 최대 제한 10GB 및 10,000RU/s 처리량을 설정할 수 있습니다. 무제한 컨테이너를 만들려면 최소 1,000RU/s 처리량과 [파티션 키](partition-data.md)를 지정해야 합니다. 데이터는 여러 파티션에 분할되어야 하므로 카디널리티가 높은(백~수백만 개의 고유 값) 파티션 키를 선택해야 합니다. 고유 값이 많은 파티션 키를 선택하면 컨테이너/테이블/그래프 및 요청이 Azure Cosmos DB에서 균일하게 확장될 수 있습니다. 
-
-**컨테이너 또는 데이터베이스 집합에 대한 처리량 프로비전:** 데이터베이스에 대한 처리량을 프로비전하면 해당 데이터베이스에 속한 모든 컨테이너에서 처리량을 공유 할 수 있습니다. Azure Cosmos DB 데이터베이스에서 전용 처리량을 가진 컨테이너는 물론 처리량을 공유하는 컨테이너 집합을 가질 수 있습니다. 컨테이너 집합에서 RU/초를 할당할 때 이 집합에 속하는 컨테이너는 *무제한* 컨테이너로 처리되어야 하며 파티션 키를 지정해야 합니다.
-
-프로비전된 처리량에 따라 Azure Cosmos DB는 컨테이너를 호스트하는 실제 파티션을 할당하고 확장됨에 따라 파티션에서 데이터를 분할/균형 조정합니다. 컨테이너 및 데이터베이스 수준 처리량 프로비전은 별개의 제안이며 이를 전환하려면 원본에서 대상으로 데이터를 마이그레이션해야 합니다. 즉, 새 데이터베이스 또는 새 컬렉션을 만든 다음, [bulk executor library](bulk-executor-overview.md) 또는 [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)를 사용하여 데이터를 마이그레이션해야 합니다. 다음 이미지에서는 다양한 수준의 처리량 프로비전을 보여 줍니다.
-
-![개별 컨테이너 및 컨테이너의 집합에 대한 요청 단위 프로비저닝](./media/request-units/provisioning_set_containers.png)
-
-다음 섹션에서는 Azure Cosmos DB 계정에 대한 여러 단계의 처리량을 구성하는 데 필요한 단계를 알아봅니다. 
+Azure Portal을 사용하거나 클라이언트 SDK를 사용하여 Azure Cosmos DB 컨테이너 또는 컨테이너 집합에 대한 처리량을 설정할 수 있습니다. 이 문서에서는 Azure Cosmos DB 계정에 대해 여러 세분화 수준에서 처리량을 구성하는 데 필요한 단계를 안내합니다.
 
 ## <a name="provision-throughput-by-using-azure-portal"></a>Azure Portal을 사용하여 처리량 프로비전
 
@@ -45,7 +35,7 @@ Azure Portal을 사용하거나 클라이언트 SDK를 사용하여 Azure Cosmos
    |데이터베이스 ID  |  데이터베이스를 식별하는 고유한 이름을 제공합니다. 데이터베이스는 하나 이상 콜렉션의 논리 컨테이너입니다. 데이터베이스 이름은 1-255자여야 하며, /, \\, #,? 또는 후행 공백은 포함할 수 없습니다. |
    |컬렉션 ID  | 컬렉션을 식별하는 고유한 이름을 제공합니다. 컬렉션 ID에는 데이터베이스 이름과 동일한 문자 요구 사항이 적용됩니다. |
    |Storage 용량   | 이 값은 데이터베이스의 저장소 용량을 나타냅니다. 개별 컬렉션의 처리량을 프로비전할 때 저장 용량은 **Fixed(10 GB)** 또는 **Unlimited**일 수 있습니다. 무제한 저장 용량을 사용하려면 데이터에 대한 파티션 키를 설정해야 합니다.  |
-   |처리량   | 각 콜렉션 및 데이터베이스는 초당 요청 단위로 처리량을 가질 수 있습니다.  고정 저장 용량의 경우 최소 처리량은 초당 400 요청 단위(RU/s)이며 무제한 저장 용량의 경우 최소 처리량은 1000RU/s로 설정됩니다.|
+   |처리량   | 각 콜렉션 및 데이터베이스는 초당 요청 단위로 처리량을 가질 수 있습니다.  또한 컬렉션에는 고정 또는 무제한 저장소 용량이 지정될 수 있습니다. |
 
 6. 이 필드의 값을 입력한 후 **확인**을 선택하여 설정을 저장합니다.  
 
@@ -198,6 +188,21 @@ int newThroughput = 500;
 offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
+
+## <a name="get-the-request-charge-using-cassandra-api"></a>Cassandra API를 사용하여 요청 요금 가져오기 
+
+Cassandra API는 지정된 작업의 요청 단위 요금에 대한 추가 정보를 제공하는 방법을 지원합니다. 예를 들어, 삽입 작업의 RU/s 요금을 다음과 같이 검색할 수 있습니다.
+
+```csharp
+var insertResult = await tableInsertStatement.ExecuteAsync();
+ foreach (string key in insertResult.Info.IncomingPayload)
+        {
+            byte[] valueInBytes = customPayload[key];
+            string value = Encoding.UTF8.GetString(valueInBytes);
+            Console.WriteLine($“CustomPayload:  {key}: {value}”);
+        }
+```
+
 
 ## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>MongoDB API 포털 메트릭을 사용하여 처리량 가져오기
 

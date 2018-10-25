@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: adcb1b15ed52e6954846ea09be0a87a118222c10
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 265d34c91a8c803256e718899f5b6ce2738a88e5
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989587"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956434"
 ---
 # <a name="about-v20"></a>v2.0 정보
 
@@ -62,6 +62,6 @@ v2.0에 관한 자세한 정보를 살펴보세요.
 * [Microsoft Graph API](https://graph.microsoft.io)
 
 > [!NOTE]
-> Azure Active Directory에서 회사 계정과 학교 계정에만 로그인해야 하는 경우 [개발자용 Azure AD 가이드](azure-ad-developers-guide.md)를 시작합니다. v2.0 엔드포인트는 Microsoft 개인 계정에 명시적으로 로그인해야 하는 개발자가 사용하기 위한 것입니다.
+> Azure Active Directory에서 회사 계정과 학교 계정에만 로그인해야 하는 경우 [개발자용 Azure AD 가이드](v1-overview.md)를 시작합니다. v2.0 엔드포인트는 Microsoft 개인 계정에 명시적으로 로그인해야 하는 개발자가 사용하기 위한 것입니다.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

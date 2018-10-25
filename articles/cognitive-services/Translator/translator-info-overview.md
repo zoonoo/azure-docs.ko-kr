@@ -3,19 +3,19 @@ title: Translator Text API란?
 titlesuffix: Azure Cognitive Services
 description: Translator Text API를 응용 프로그램, 웹 사이트, 도구 및 기타 솔루션에 통합하여 다국어 사용자 환경을 제공합니다.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: overview
 ms.date: 05/10/2018
-ms.author: nolachar
-ms.openlocfilehash: c0004960b7a234d374ec0ae1bdc2f6576b197705
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.author: erhopf
+ms.openlocfilehash: 6c89ff41531b130843eb288b98ffe7def1d8915e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385028"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645052"
 ---
 # <a name="what-is-translator-text-api"></a>Translator Text API란?
 
@@ -35,7 +35,7 @@ Microsoft Translator는 클라우드 기반 기계 번역 서비스입니다. �
 
 핵심 Microsoft Translator 서비스의 확장인 Custom Translator는 Translator Text API와 함께 사용하여 신경망 번역 시스템을 사용자 지정하고 특정 용어 및 스타일에 맞게 번역을 향상시킬 수 있습니다.
 
-Custom Translator를 사용하면 고유한 비즈니스 및 업계에서 사용되는 용어를 처리하는 번역 시스템을 구축할 수 있습니다. 사용자 지정 번역 시스템은 범주 매개 변수를 사용하여 일반 Microsoft Translator Text API를 통해 여러 유형의 장치에서 기존 응용 프로그램, 워크플로 및 웹 사이트에 쉽게 통합됩니다. 
+Custom Translator를 사용하면 고유한 비즈니스 및 업계에서 사용되는 용어를 처리하는 번역 시스템을 구축할 수 있습니다. 사용자 지정 번역 시스템은 범주 매개 변수를 사용하여 일반 Microsoft Translator Text API를 통해 여러 유형의 장치에서 기존 응용 프로그램, 워크플로 및 웹 사이트에 쉽게 통합됩니다.
 
 [언어 사용자 지정](customization.md)에 대한 자세한 정보
 
@@ -45,7 +45,7 @@ NMT(신경망 기계 번역)는 고품질 AI 기반 기계 번역에 대한 새�
 
 NMT는 원시 번역 품질 채점 관점에서 SMT보다 더 나은 번역을 제공할 뿐만 아니라 더 유창하고 인간적으로 들릴 수도 있습니다. 이렇게 유연한 번역이 제공될 수 있는 핵심 이유는 NMT가 단어를 번역하는 데 문장의 전체 컨텍스트를 사용한다는 것입니다. SMT는 각 단어 앞뒤의 몇 개 단어로 된 컨텍스트만 사용합니다.
 
-NMT 모델은 API의 핵심이며, 최종 사용자에게는 보이지 않습니다. 눈에 띄는 유일한 차이점은 특히 중국어, 일본어 및 아랍어와 같은 언어에 대한 번역 품질이 향상되었다는 것입니다. 
+NMT 모델은 API의 핵심이며, 최종 사용자에게는 보이지 않습니다. 눈에 띄는 유일한 차이점은 특히 중국어, 일본어 및 아랍어와 같은 언어에 대한 번역 품질이 향상되었다는 것입니다.
 
 [NMT 작동 방법](https://www.microsoft.com/en-us/translator/mt.aspx#nnt)에 대해 자세히 알아보기
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 13cf5861bf39cdd9c192586979b95192a31e9399
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3d52ca0c7022e08655ece8775b5855f3ae985aca
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978678"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247455"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>IoT Hub에 대한 메시지 라우팅과 Event Grid 비교
 
@@ -22,6 +22,7 @@ Azure IoT Hub는 연결된 장치에서 데이터를 스트림하고 해당 데�
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 * **[IoT Hub 메시지 라우팅](iot-hub-devguide-messages-d2c.md)**: 이 IoT Hub 기능을 사용하면 사용자가 Azure Storage 컨테이너, Event Hubs, Service Bus 큐 및 Service Bus 토픽과 같은 서비스 엔드포인트에 장치-클라우드 메시지를 라우팅할 수 있습니다. 라우팅은 엔드포인트에 라우팅하기 전에 데이터를 필터링하는 쿼리 기능도 제공합니다. 장치 원격 분석 데이터 외에도 작업을 트리거하는 데 사용할 수 있는 [원격 분석 이외 이벤트](iot-hub-devguide-messages-d2c.md#non-telemetry-events)를 보낼 수도 있습니다. 
+
 * **Event Grid와 IoT Hub 통합**: Azure Event Grid는 게시-구독 모델을 사용하여 완전히 관리되는 이벤트 라우팅 서비스입니다. IoT Hub 및 Event Grid는 거의 실시간으로 [IoT Hub 이벤트를 Azure 및 외부 Azure 서비스에 통합](iot-hub-event-grid.md)하기 위해 함께 작동합니다. 
 
 ## <a name="similarities-and-differences"></a>유사성 및 차이점

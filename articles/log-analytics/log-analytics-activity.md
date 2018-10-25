@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: dab2dd2b1d020a7619b18f330640b7f555a1f8c1
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: dd404bf8766082148a2c5a1ae55189f5f82f9021
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044385"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404072"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Log Analytics에서 Azure 활동 로그 수집 및 분석
 
@@ -75,8 +75,7 @@ Log Analytics는 무료로 활동 로그를 수집하고 90일 동안 무료로 
     3. *SubscriptionName* 블레이드에서 **연결**을 클릭합니다.  
         ![구독 연결](./media/log-analytics-activity/subscription-connect.png)
 
-OMS 포털을 사용하여 솔루션을 추가하면 다음 타일이 표시됩니다. Azure Portal에 로그인하여 Azure 구독을 작업 영역에 연결합니다.  
-![평가 수행](./media/log-analytics-activity/tile-performing-assessment.png)
+Azure Portal에 로그인하여 Azure 구독을 작업 영역에 연결합니다.  
 
 ## <a name="using-the-solution"></a>솔루션 사용
 

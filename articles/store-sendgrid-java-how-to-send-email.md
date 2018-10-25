@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
-ms.openlocfilehash: cadd771a516270faf23f18a36f54fa9a1541e6d5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cdc6e082207b9128be3e3005305510f3ee493850
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698673"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427844"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Java의 SendGrid를 사용하여 메일을 보내는 방법
 이 가이드에서는 Azure에서 SendGrid 전자 메일 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 샘플은 Java로 작성되었습니다. **전자 메일 생성**, **전자 메일 보내기**, **첨부 파일 추가**, **필터 사용**, **속성 업데이트** 등의 시나리오를 다룹니다. SendGrid 및 전자 메일 보내기에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
@@ -46,7 +46,6 @@ javax.mail 라이브러리를 가져오고(예: <http://www.oracle.com/technetwo
 
 ```
         import java.util.Properties;
-        import javax.activation.*;
         import javax.mail.*;
         import javax.mail.internet.*;
 

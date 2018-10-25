@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 798b2b457016856662f392af25d987788f73c242
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 066aab598628701bf7a60b0f4f20d996348fa5ce
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036754"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406724"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>렌더링 팜 관리자로 Azure Batch 사용
 
@@ -33,7 +33,7 @@ Azure Batch 풀 VM을 Qube 작업자로 사용하도록 활성화하기 위한 �
 
 Royal Render는 Azure와 Azure Batch 통합을 기본 제공하므로 Azure 기반 VM을 통해 렌더링 팜을 확장할 수 있습니다. 요약은 [도움말 파일](http://www.royalrender.de/help8/index.html?Cloudrendering.html)을 참조하세요.
 
-Azure 통합을 사용하는 Royal Render 고객 예는 [Jellyfish Pictures 고객 스토리](https://customers.microsoft.com/en-gb/story/jellyfishpictures)를 참조하세요.
+Azure 통합을 사용하는 Royal Render 고객 예는 [Jellyfish Pictures 고객 스토리](https://customers.microsoft.com/story/jellyfishpictures)를 참조하세요.
 
 ## <a name="using-azure-with-thinkbox-deadline"></a>Azure에 Thinkbox Deadline 사용
 

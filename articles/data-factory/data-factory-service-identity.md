@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: ffe7337282d06dd9a7e22d6750ac98b3a56964bd
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: db0bc0cb64c0b6d7df9319c8d2c5850a27e767a1
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142849"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249216"
 ---
 # <a name="azure-data-factory-service-identity"></a>Azure Data Factory 서비스 ID
 
@@ -169,6 +169,6 @@ Type                  : ServicePrincipal
 데이터 팩터리 서비스 ID를 사용하는 시기 및 방법을 소개하는 다음 항목을 참조하세요.
 
 - [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)
-- [관리 서비스 ID 인증을 사용하여 Azure Data Lake Store 간에 데이터 복사](connector-azure-data-lake-store.md)
+- [Azure 리소스 인증을 위해 관리 ID를 사용하여 Azure Data Lake Store 간에 데이터 복사](connector-azure-data-lake-store.md)
 
-관리 서비스 ID에 대한 자세한 배경은 [MSI 개요](~/articles/active-directory/msi-overview.md)를 참조하세요. 이 문서는 데이터 팩터리 서비스 ID를 기반으로 합니다. 
+데이터 팩터리 서비스 ID의 기준이 되는 Azure 리소스의 관리 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID 개요](~/articles/active-directory/msi-overview.md)를 참조하세요. 

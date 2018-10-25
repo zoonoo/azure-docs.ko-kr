@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 779a202fccd3ff56c174ebc1ebbf3c4adfdd8c7b
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d89e79548d62634e4b2b47fb310c4f8d7279f17f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441742"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957261"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>서버 관리자 역할에 서비스 사용자 추가 
 
@@ -22,8 +22,8 @@ ms.locfileid: "37441742"
 ## <a name="before-you-begin"></a>시작하기 전에
 이 태스크를 완료하기 전에 Azure Active Directory에 등록된 서비스 사용자가 있어야 합니다.
 
-[서비스 사용자 만들기 - Azure Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)   
-[서비스 사용자 만들기 - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+[서비스 사용자 만들기 - Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md)   
+[서비스 사용자 만들기 - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="required-permissions"></a>필요한 사용 권한
 이 태스크를 완료하려면 Azure AS 서버에서 [서버 관리자](analysis-services-server-admins.md) 권한이 있어야 합니다. 

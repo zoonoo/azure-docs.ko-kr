@@ -10,24 +10,25 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 388957fc5dac5cdab5bee34a4431eaa524e76a48
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 06e7d227511a9b651a905df3172f59a191acce01
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999905"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945674"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning Data Prep SDK를 사용하여 데이터 변환
 
 [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py)에서는 데이터를 정리하는 데 사용할 수 있는 여러 가지 변환 메서드를 제공합니다. 이러한 메서드를 사용하면 간편하게 열을 추가하고, 원치 않는 행이나 열을 필터링하고, 누락 값을 입력할 수 있습니다.
 
 현재는 다음 작업을 위한 메서드가 제공됩니다.
-- [식을 사용하여 열 추가](#add-column-using-expression)
+- [식을 사용하여 열 추가](#column)
 - [누락 값 입력](#impute-missing-values)
 - [예제별 열 파생](#derive-column-by-example)
 - [필터링](#filtering)
 - [사용자 지정 Python 변환](#custom-python-transforms)
 
+<a name=column>
 ## <a name="add-column-using-an-expression"></a>식을 사용하여 열 추가
 
 Azure Machine Learning Data Prep SDK에는 기존 열에서 값을 계산한 다음 새 열에 해당 값을 입력하는 데 사용할 수 있는 `substring` 식이 포함되어 있습니다. 이 예제에서는 데이터를 로드하고 해당 입력 데이터에 열을 추가해 보겠습니다.

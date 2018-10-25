@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 10/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 32f93f383ec4044afb0696fcef1705c9ed65d673
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f79fa096484edc34294ea0a69584e12788dba647
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38578920"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043400"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Event Grid 스키마에 사용자 지정 필드 매핑
 
@@ -43,9 +43,9 @@ ms.locfileid: "38578920"
 
 * `--input-schema` 매개 변수는 스키마의 형식을 지정합니다. 사용 가능한 옵션은 *cloudeventv01schema*, *customeventschema* 및 *eventgridschema*입니다. 기본값은 eventgridschema입니다. 사용자의 스키마와 Event Grid 스키마 간 사용자 지정 매핑을 만들 때는 customeventschema를 사용합니다. 이벤트가 CloudEvents 스키마에 있는 경우 cloudeventv01schema를 사용합니다.
 
-* `--input-mapping-default-values` 매개 변수는 Event Grid 스키마의 필드에 대한 기본값을 지정합니다. *subject*, *eventtype* 및 *dataversion*에 대한 기본값을 설정할 수 있습니다. 일반적으로 사용자 지정 스키마가 이 세 필드 중 하나에 해당하는 필드를 포함하지 않는 경우에 이 매개 변수를 사용합니다. 예를 들어 해당 dataversion은 항상 **1.0**으로 설정됩니다.
+* `--input-mapping-default-values` 매개 변수는 Event Grid 스키마의 필드에 대한 기본값을 지정합니다. `subject`, `eventtype` 및 `dataversion`의 기본값을 설정할 수 있습니다. 일반적으로 사용자 지정 스키마가 이 세 필드 중 하나에 해당하는 필드를 포함하지 않는 경우에 이 매개 변수를 사용합니다. 예를 들어 해당 데이터 버전은 항상 **1.0**으로 설정됩니다.
 
-* `--input-mapping-fields` 매개 변수는 Event Grid 스키마로 사용자 스키마의 필드를 매핑합니다. 공백으로 구분된 키/값 쌍의 값을 지정합니다. 키 이름의 경우 Event Grid 필드의 이름을 사용합니다. 값의 경우 사용자의 필드 이름을 사용합니다. *id*, *topic*, *eventtime*, *subject*, *eventtype* 및 *dataversion*에 대한 키 이름을 사용할 수 있습니다.
+* `--input-mapping-fields` 매개 변수는 Event Grid 스키마로 사용자 스키마의 필드를 매핑합니다. 공백으로 구분된 키/값 쌍의 값을 지정합니다. 키 이름의 경우 Event Grid 필드의 이름을 사용합니다. 값의 경우 사용자의 필드 이름을 사용합니다. `id`, `topic`, `eventtime`, `subject`, `eventtype` 및 `dataversion`의 키 이름을 사용할 수 있습니다.
 
 다음 예제에서는 일부 매핑된 기본 필드를 사용하여 사용자 지정 토픽을 만듭니다.
 
@@ -58,7 +58,7 @@ az eventgrid topic create \
   -n demotopic \
   -l eastus2 \
   -g myResourceGroup \
-  --input-schema customeventschema
+  --input-schema customeventschema \
   --input-mapping-fields eventType=myEventTypeField \
   --input-mapping-default-values subject=DefaultSubject dataVersion=1.0
 ```
@@ -69,13 +69,14 @@ az eventgrid topic create \
 
 이 섹션의 예제에서는 이벤트 처리기에 대한 큐 저장소를 사용합니다. 자세한 내용은 [Azure Queue Storage로 사용자 지정 이벤트 라우팅](custom-event-to-queue-storage.md)을 참조하세요.
 
-다음 예제에서는 Event Grid 토픽을 구독하고 기본 Event Grid 스키마를 사용합니다.
+다음 예제에서는 Event Grid 토픽을 구독하고 Event Grid 스키마를 사용합니다.
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
   --topic-name demotopic \
   -g myResourceGroup \
   --name eventsub1 \
+  --event-delivery-schema eventgridschema \
   --endpoint-type storagequeue \
   --endpoint <storage-queue-url>
 ```
@@ -100,9 +101,9 @@ az eventgrid event-subscription create \
 endpoint=$(az eventgrid topic show --name demotopic -g myResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name demotopic -g myResourceGroup --query "key1" --output tsv)
 
-body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/mapeventfields.json)'")
+event='[ { "myEventTypeField":"Created", "resource":"Users/example/Messages/1000", "resourceData":{"someDataField1":"SomeDataFieldValue"} } ]'
 
-curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 ```
 
 이제 큐 저장소를 살펴 봅니다. 두 개의 구독이 서로 다른 스키마에 이벤트를 전달합니다.

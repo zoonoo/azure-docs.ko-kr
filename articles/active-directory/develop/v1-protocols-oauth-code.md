@@ -16,12 +16,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: bd9d3a677d9fea54331200258d4b9b8e07a54312
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e896392404c23e88d697d45146f802576d6045d3
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956900"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870828"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>OAuth 2.0 코드 권한 부여 흐름을 사용하여 Azure Active Directory 웹 응용 프로그램에 대한 액세스 권한 부여
 
@@ -274,7 +274,7 @@ RFC 6750 사양은 응답에 WWW-authenticate 헤더와 전달자 체계를 사�
 
 ## <a name="refreshing-the-access-tokens"></a>액세스 토큰 새로 고침
 
-액세스 토큰은 수명이 짧으며, 만료되면 새로 고쳐야 리소스에 계속 액세스할 수 있습니다. 다른 `POST` 요청을 `/token` 엔드포인트에 제출하여 `access_token`을(를) 새로 고칠 수 있지만 이번에는 `code` 대신 `refresh_token`을(를) 제공해야 합니다.
+액세스 토큰은 수명이 짧으며, 만료되면 새로 고쳐야 리소스에 계속 액세스할 수 있습니다. 다른 `POST` 요청을 `/token` 엔드포인트에 제출하여 `access_token`을(를) 새로 고칠 수 있지만 이번에는 `code` 대신 `refresh_token`을(를) 제공해야 합니다.  새로 고침 토큰은 클라이언트가 이미 액세스 동의를 받은 모든 리소스에 유효합니다. 따라서 `resource=https://graph.microsoft.com`에 대한 요청에서 발행된 새로 고침 토큰을 사용하여 `resource=https://contoso.com/api`에 대한 새 액세스 토큰을 요청할 수 있습니다. 
 
 새로 고침 토큰에는 지정된 수명이 없습니다. 일반적으로 새로 고침 토큰의 수명은 비교적 깁니다. 그러나 새로 고침 토큰이 만료되거나 해지되거나 원하는 작업을 위한 충분한 권한이 없는 경우가 있습니다. 응용 프로그램은 토큰 발급 엔드포인트에서 반환하는 오류를 예상하고 정확히 처리해야 합니다.
 

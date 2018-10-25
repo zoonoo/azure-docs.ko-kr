@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: glenga
-ms.openlocfilehash: baf08f18fae7f82fff57616e2d86d3426e32a237
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 8728533171ec8c8754aabf1a3e32c5ab7630db77
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387738"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637992"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions의 Azure Service Bus 바인딩
 
@@ -326,7 +326,7 @@ Service Bus 트리거는 몇 가지 [메타데이터 속성](functions-triggers-
 |`To`|`string`|주소로 보내기입니다.|
 |`Label`|`string`|응용 프로그램별 레이블입니다.|
 |`CorrelationId`|`string`|상관관계 ID입니다.|
-|`Properties`|`IDictionary<String,Object>`|응용 프로그램별 메시지 속성입니다.|
+|`UserProperties`|`IDictionary<String,Object>`|응용 프로그램별 메시지 속성입니다.|
 
 이 아티클의 앞부분에서 이러한 속성을 사용하는 [코드 예제](#trigger---example)를 참조하세요.
 

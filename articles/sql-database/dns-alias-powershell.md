@@ -7,58 +7,50 @@ ms.service: sql-database
 ms.subservice: operations
 ms.devlang: PowerShell
 ms.topic: conceptual
-author: DhruvMsft
-ms.author: dmalik
+author: oslake
+ms.author: moslake
 ms.reviewer: genemi,amagarwa,maboja
 manager: craigg
 ms.date: 02/05/2018
-ms.openlocfilehash: 809eea7787e63a0e7a2be457b47d05c0dca0d36e
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 095e6c6d59bf73bb74e2d8fbe3d1506601ab533e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054560"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471121"
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>Azure SQL Database의 DNS 별칭에 대한 PowerShell
 
 이 문서에서는 Azure SQL Database에 대한 DNS 별칭을 관리하는 방법을 보여 주는 PowerShell 스크립트를 제공합니다. 이 스크립트는 다음 작업을 수행하는 다음 cmdlet을 실행합니다.
 
-
 코드 예제에 사용된 cmdlet은 다음과 같습니다.
+
 - [New-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/New-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Azure SQL Database 서비스 시스템에 새 DNS 별칭을 만듭니다. 이 별칭은 Azure SQL Database 서버 1을 가리킵니다.
 - [Get-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): SQL DB 서버 1에 할당된 모든 DNS 별칭을 가져와서 나열합니다.
 - [Set-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Set-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): 별칭이 나타내도록 구성된 서버 이름을 서버 1에서 SQL DB 서버 2로 수정합니다.
 - [Remove-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Remove-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): 별칭의 이름을 사용하여 SQL DB 서버 2에서 DNS 별칭을 제거합니다.
 
-
 위의 PowerShell cmdlet은 버전 5.1.1부터 시작하는 **AzureRm.Sql** 모듈에 추가되었습니다.
 
-
-
-
-#### <a name="dns-alias-in-connection-string"></a>연결 문자열의 DNS 별칭
+## <a name="dns-alias-in-connection-string"></a>연결 문자열의 DNS 별칭
 
 특정 Azure SQL Database 서버에 연결하려면 SSMS(SQL Server Management Studio)와 같은 클라이언트가 실제 서버 이름 대신 DNS 별칭 이름을 제공할 수 있습니다. 다음 예제의 서버 문자열에서 별칭 *any-unique-alias-name*은 4개 노드 서버 문자열에서 점으로 구분된 첫 번째 노드를 대신합니다.
+
 - 예제 서버 문자열: `any-unique-alias-name.database.windows.net`
-
-
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 문서에 제공된 데모 PowerShell 스크립트를 실행하려는 경우 다음과 같은 필수 조건이 적용됩니다.
 
 - Azure 구독 및 계정 평가판의 경우 [https://azure.microsoft.com/free/][https://azure.microsoft.com/free/]를 클릭합니다.
-
 - cmdlet **New-AzureRMSqlServerDNSAlias**가 있는 Azure PowerShell 모듈
-    - 설치 또는 업그레이드하려면 [Azure PowerShell 모듈 설치][install-azurerm-ps-84p]를 참조하세요.
-    - powershell\_ise.exe에서 `Get-Module -ListAvailable AzureRM;`을 실행합니다.
-
+  - 설치 또는 업그레이드하려면 [Azure PowerShell 모듈 설치][install-azurerm-ps-84p]를 참조하세요.
+  - powershell\_ise.exe에서 `Get-Module -ListAvailable AzureRM;`을 실행합니다.
 - 2개의 Azure SQL Database 서버
 
 ## <a name="code-example"></a>코드 예제
 
 다음 PowerShell 코드 예제에서는 먼저 여러 변수에 리터럴 값을 할당합니다. 이 코드를 실행하려면 먼저 시스템의 실제 값과 일치하도록 모든 자리 표시자 값을 편집해야 합니다. 또는 코드를 학습하기만 해도 됩니다. 코드의 콘솔 출력도 제공됩니다.
-
 
 ```powershell
 ################################################################
@@ -127,16 +119,14 @@ Remove-AzureRMSqlServerDNSAlias `
     -ServerDNSAliasName $SqlServerDnsAliasName;
 ```
 
-
-#### <a name="actual-console-output-from-the-powershell-example"></a>PowerShell 예제의 실제 콘솔 출력
+### <a name="actual-console-output-from-the-powershell-example"></a>PowerShell 예제의 실제 콘솔 출력
 
 다음 콘솔 출력은 실제 실행에서 복사되고 붙여넣은 것입니다.
 
-
-```
+```powershell
 You must log into Azure once per powershell_ise.exe session,
   thus type 'yes' only the first time.
- 
+
 [yes/no]  Do you need to log into Azure now?: yes
 
 
@@ -145,29 +135,26 @@ Account               : gm@acorporation.com
 TenantId              : 72f988bf-1111-1111-1111-111111111111
 SubscriptionId        : 45651c69-2222-2222-2222-222222222222
 SubscriptionName      : mysubscriptionname
-CurrentStorageAccount : 
+CurrentStorageAccount :
 
- 
 [1] Assign a DNS alias to SQL DB server 1.
 [2] Get the DNS alias that is assigned to SQL DB server 1.
 [3] Move the DNS alias from 1 to SQL DB server 2.
 [4] Remove the DNS alias from SQL DB server 2.
-ResourceGroupName ServerName         ServerDNSAliasName    
------------------ ----------         ------------------    
+ResourceGroupName ServerName         ServerDNSAliasName
+----------------- ----------         ------------------
 gm-rg-dns-1       gm-sqldb-dns-1     unique-alias-name-food
 gm-rg-dns-1       gm-sqldb-dns-1     unique-alias-name-food
 gm-rg-dns-2       gm-sqldb-dns-2     unique-alias-name-food
 
 
 [C:\windows\system32\]
->> 
+>>
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
 SQL Database에 대한 DNS 별칭 기능의 전체 설명을 보려면 [Azure SQL Database에 대한 DNS 별칭][dns-alias-overview-37v]을 참조하세요.
-
-
 
 <!-- Article links. -->
 
@@ -176,4 +163,3 @@ SQL Database에 대한 DNS 별칭 기능의 전체 설명을 보려면 [Azure SQ
 [install-azurerm-ps-84p]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 
 [dns-alias-overview-37v]: dns-alias-overview.md
-

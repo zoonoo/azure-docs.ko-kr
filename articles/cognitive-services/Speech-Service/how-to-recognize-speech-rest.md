@@ -1,20 +1,21 @@
 ---
 title: REST API를 사용하여 음성 인식
+titleSuffix: Azure Cognitive Services
 description: Speech to Text API를 Cognitive Services Speech 서비스에 사용하는 방법을 알아봅니다.
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: erhopf
-ms.openlocfilehash: 4e87feae7e3321efe7adcdbf1302762f539f034d
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 1bcc290d987e8294f9a73cf8490f6cdd0251b440
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167276"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467279"
 ---
 # <a name="recognize-speech-by-using-the-rest-api"></a>REST API를 사용하여 음성 인식
 

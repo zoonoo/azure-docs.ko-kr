@@ -1,20 +1,20 @@
 ---
 title: Azure Search BLOB 인덱서를 사용하여 JSON BLOB 인덱싱
 description: Azure Search BLOB 인덱서를 사용하여 JSON BLOB 인덱싱
-author: chaosrealm
-manager: jlembicz
+ms.date: 10/17/2018
+author: mgottein
+manager: cgronlun
+ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/20/2018
-ms.author: eugenesh
-ms.openlocfilehash: 5b4cd1c592c4cd965a0b5d9e4fb8eef84a6bea91
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: a4689093508c3287e60da9d4668393e71211fbdd
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003284"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405705"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Azure Search BLOB 인덱서를 사용하여 JSON BLOB 인덱싱
 이 문서에서는 Azure Blob Storage의 JSON Blob에서 구조화된 콘텐츠를 추출하도록 Azure Search Blob 인덱서를 구성하는 방법을 보여줍니다.

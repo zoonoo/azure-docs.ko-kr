@@ -1,27 +1,31 @@
 ---
-title: Linguistic Analysis API에서 음성 부분 태그 지정 | Microsoft Docs
-description: Microsoft Cognitive Services에서 음성 부분 태그 지정이 텍스트에서 각 단어의 범주 또는 음성 부분을 식별하는 방법에 대해 알아봅니다.
+title: 음성 부분 태그 지정 - Linguistic Analysis API
+description: Linguistic Analysis API의 음성 부분 태그 지정이 텍스트에서 각 단어의 범주 또는 음성 부분을 식별하는 방법을 알아봅니다.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/27/2016
 ms.author: lesun
-ms.openlocfilehash: 90fd5b05c2dabdac88c6c8da288ab629177be38d
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ROBOTS: NOINDEX
+ms.openlocfilehash: a01fcea4ae6c8950d578bacefc2f064586d7306b
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082641"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238526"
 ---
 # <a name="part-of-speech-tagging"></a>음성 부분 태그 지정
+
+> [!IMPORTANT]
+> Linguistic Analysis 미리 보기는 2018년 8월 9일부로 서비스 해제되었습니다. 텍스트 처리 및 분석에는 [Azure Machine Learning 텍스트 분석 모듈](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics)을 사용하는 것이 좋습니다.
 
 ## <a name="background-and-motivation"></a>배경 및 동기
 
 텍스트를 문장 및 토큰으로 구분하고 나면 분석의 다음 단계는 각 단어의 범주 또는 음성 부분을 식별하는 것입니다.
-여기에는 *명사*(일반적으로 사람, 장소, 사물, 아이디어 등을 나타냄) 및 *동사*(일반적으로 동작, 상태의 변화 등을 나타냄)와 같은 범주가 포함됩니다. 일부 단어의 경우 음성 부분이 모호하지 않지만(예를 들어, *quagmire(수렁)* 은 실제로 명사로만 사용됨), 많은 경우 알기 어렵습니다.
+여기에는 *명사*(일반적으로 사람, 장소, 사물, 아이디어 등을 나타냄) 및 *동사*(일반적으로 동작, 상태의 변화 등을 나타냄)와 같은 범주가 포함됩니다. 일부 단어의 경우 음성 부분이 모호하지 않지만(예를 들어, *quagmire(수렁)* 은 명사로만 사용됨), 많은 경우 알기 어렵습니다.
 *Table(테이블)* 은 사람이 앉는 위치(또는 숫자의 2-D 레이아웃)일 수 있지만, “table a discussion(논의를 상정하다)”라고도 할 수 있습니다.
 
 ## <a name="list-of-part-of-speech-tags"></a>음성 부분 태그 지정의 목록
@@ -45,7 +49,7 @@ ms.locfileid: "37082641"
 | IN | 전치사 또는 종속 접속사| in inside if upon whether |
 | JJ | 형용사 또는 숫자, 서수 | ninth pretty execrable multimodal |
 | JJR | 비교급 형용사 | better faster cheaper |
-| JJS | 최상급 형용사 | best fastest cheapest | 
+| JJS | 최상급 형용사 | best fastest cheapest |
 | LS | 목록 항목 표식 | (a) (b) 1 2 A B A. B. |
 | MD | 조동사 | can may shall will could might should ought |
 | NN | 보통 명사, 단수 명사 또는 복수 명사 | potato money shoe |

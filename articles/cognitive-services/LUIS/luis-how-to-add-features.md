@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 6831f67a33d114ca5c42ddacf8ef4de704e21711
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 32ef8ba2f6416e1b59fc98595f1b204e94bd2ead
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036959"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830993"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>단어 목록의 신호를 강화하는 구 사용
 
@@ -46,7 +46,7 @@ ms.locfileid: "47036959"
 <a name="deactivate-phrase-list"></a>
 
 > [!Note]
-> 각 구 목록 행 끝의 줄임표(***...***) 단추에서 구 목록을 편집하거나, 삭제하거나, 비활성화할 수 있습니다.
+> **구 목록** 페이지의 상황에 맞는 도구 모음에서 구 목록을 삭제하거나 비활성화할 수 있습니다.
 
 ## <a name="pattern-regular-expression-feature"></a>패턴(정규식) 기능 
 **이 기능은 더 이상 사용되지 않습니다**. 새 패턴 기능은 LUIS에 추가할 수 없습니다. 모든 기존 패턴 기능은 2018년 5월까지 지원됩니다. PR을 사용한 표준 LUIS 정규식 일치의 경우 [Recognizers-Text Github 리포지토리](https://github.com/Microsoft/Recognizers-Text)에서 도움을 주세요. 

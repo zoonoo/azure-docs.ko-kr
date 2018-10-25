@@ -8,18 +8,36 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.component: core
 ms.topic: article
-ms.date: 09/24/2018
-ms.openlocfilehash: d84040dc440c373ae9bae6dbac7a95109a387ba7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/01/2018
+ms.openlocfilehash: 02cee5a3e088c919ec94aee6f46ef6f428b9bb48
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162749"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249420"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Azure Machine Learning 서비스의 알려진 문제 및 문제 해결
  
 이 문서는 Azure Machine Learning 서비스를 사용할 때 발생한 오류 또는 장애를 찾아서 수정하는 데 도움을 줍니다. 
 
+## <a name="sdk-installation-issues"></a>SDK 설치 문제
+
+**오류 메시지: ‘PyYAML’을 제거할 수 없습니다.** 
+
+PyYAML은 distutils 설치 프로젝트입니다. 따라서 부분 제거 시 속해 있는 파일을 정확히 확인할 수 없습니다. 이 오류를 무시하면서 SDK를 게속 설치하려면 다음을 사용합니다.
+```Python 
+pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
+```
+
+## <a name="image-building-failure"></a>이미지 빌드 실패
+
+웹 서비스를 배포할 때 이미지 빌드가 실패했습니다. 해결 방법은 이미지 구성을 위한 Conda 파일에 "pynacl==1.2.1"을 pip 종속성으로 추가하는 것입니다.  
+
+## <a name="pipelines"></a>파이프라인
+스크립트 또는 매개 변수를 변경하지 않고 하나의 행에서 PythonScriptStep을 여러 번 호출하면 오류가 발생합니다. 해결 방법은 PipelineData 개체를 다시 빌드하는 것입니다.
+
+## <a name="fpgas"></a>FPGA
+요청을 하고 FPGA 할당량의 승인을 받을 때까지 FPGA에 모델을 배포할 수 없습니다. 액세스를 요청하려면 할당량 요청 양식 https://aka.ms/aml-real-time-ai를 작성합니다.
 
 ## <a name="databricks"></a>Databricks
 
@@ -36,7 +54,7 @@ Databricks 및 Azure Machine Learning 문제.
    pstuil cryptography==1.5 pyopenssl==16.0.0 ipython=2.2.0
    ```
 
-## <a name="gather-diagnostics-information"></a>진단 정보 수집
+## <a name="diagnostic-logs"></a>진단 로그
 도움말을 요청할 때 진단 정보를 제공할 수 있는 경우에 유용할 수 있습니다. 로그 파일 위치는 다음과 같습니다.
 
 ## <a name="resource-quotas"></a>리소스 할당량

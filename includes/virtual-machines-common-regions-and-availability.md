@@ -2,18 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: virtual-machines
-author: iainfoulds
+author: zr-msft
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/27/2018
-ms.author: iainfou
+ms.author: zarhoads
 ms.custom: include file
-ms.openlocfilehash: 7ab67e878e7cf08fe983ab172731209328b1a474
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 231dcee1a9b330b2f8721283c39c71002a75fcac
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47454462"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49476316"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Azure에서 가상 머신의 지역 및 가용성
 Azure는 전 세계 여러 데이터 센터에서 작동합니다. 이러한 데이터 센터는 지리적 영역으로 그룹화되므로 응용 프로그램을 빌드할 위치를 유연하게 선택할 수 있습니다. 성능, 가용성 및 중복성을 최대화하는 옵션을 함께 Azure에서 VMs(가상 머신)가 작동하는 위치와 방법을 이해하는 것이 중요합니다. 이 문서에서는 Azure의 가용성 및 중복성 기능에 대 한 개요를 제공합니다.

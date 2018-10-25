@@ -2,18 +2,17 @@
 title: 빠른 시작 - Event Grid로 Azure Container Registry 이벤트 전송
 description: 이 빠른 시작에서는 컨테이너 레지스트리에 Event Grid 이벤트를 활성화한 다음, 응용 프로그램 예제에 컨테이너 이미지 push 및 delete 이벤트를 전송합니다.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 08/23/2018
-ms.author: marsma
-ms.openlocfilehash: 6ff83885ba80f0399f7b085970b1191e8e4cd999
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.author: danlep
+ms.openlocfilehash: 88265ee6f8a340909880ba70bd9f37a49ef85bf5
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746511"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857366"
 ---
 # <a name="quickstart-send-container-registry-events-to-event-grid"></a>빠른 시작: Event Grid로 컨테이너 레지스트리 이벤트 전송
 
@@ -141,20 +140,20 @@ az eventgrid event-subscription create \
 
 ## <a name="trigger-registry-events"></a>레지스트리 이벤트 트리거
 
-샘플 앱이 작동 중이고 Event Grid를 사용하여 레지스트리를 구독했으므로 일부 이벤트를 생성할 수 있습니다. 이 섹션에서는 ACR Build를 사용하여 컨테이너 이미지를 빌드하고 레지스트리에 푸시합니다. ACR Build는 로컬 컴퓨터에 Docker Engine을 설치하지 않고도 클라우드에서 컨테이너 이미지를 빌드할 수 있게 해주는 Azure Container Registry의 기능입니다.
+샘플 앱이 작동 중이고 Event Grid를 사용하여 레지스트리를 구독했으므로 일부 이벤트를 생성할 수 있습니다. 이 섹션에서는 ACR Tasks를 사용하여 컨테이너 이미지를 빌드하고 레지스트리에 푸시합니다. ACR Tasks는 로컬 컴퓨터에 Docker Engine을 설치하지 않고도 클라우드에서 컨테이너 이미지를 빌드할 수 있게 해주는 Azure Container Registry의 기능입니다.
 
 ### <a name="build-and-push-image"></a>이미지 빌드 및 푸시
 
-GitHub 리포지토리의 콘텐츠에서 컨테이너 이미지를 빌드하려면 다음 Azure CLI 명령을 실행합니다. 기본적으로 ACR Build는 성공적으로 빌드된 이미지를 레지스트리에 자동으로 푸시하여 `ImagePushed` 이벤트를 생성합니다.
+GitHub 리포지토리의 콘텐츠에서 컨테이너 이미지를 빌드하려면 다음 Azure CLI 명령을 실행합니다. 기본적으로 ACR Tasks는 성공적으로 빌드된 이미지를 레지스트리에 자동으로 푸시하여 `ImagePushed` 이벤트를 생성합니다.
 
 ```azurecli-interactive
-az acr build --registry $ACR_NAME --image myimage:v1 https://github.com/Azure-Samples/acr-build-helloworld-node.git
+az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
 ```
 
-ACR Build가 이미지를 빌드하고 푸시하는 동안에는 다음과 유사한 출력이 표시되어야 합니다. 다음 샘플 출력은 너무 길어서 일부분이 잘렸습니다.
+ACR Tasks가 이미지를 빌드하고 푸시하는 동안에는 다음과 유사한 출력이 표시되어야 합니다. 다음 샘플 출력은 너무 길어서 일부분이 잘렸습니다.
 
 ```console
-$ az acr build -r $ACR_NAME --image myimage:v1 https://github.com/Azure-Samples/acr-build-helloworld-node.git
+$ az acr build -r $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
 Sending build context to ACR...
 Queued a build with build ID: aa2
 Waiting for build agent...
@@ -227,10 +226,10 @@ Event Grid 설명서에서 Azure Container Registry 이벤트 메시지 스키�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 컨테이너 레지스트리를 배포하고, ACR Build로 이미지를 빌드한 후 삭제하고, Event Grid에서 응용 프로그램 예제로 레지스트리의 이벤트를 사용했습니다. 이제 ACR Build 자습서로 넘어가서 기본 이미지 업데이트에 대한 자동 빌드 등 클라우드에 컨테이너 이미지를 빌드하는 방법에 대해 자세히 알아보세요.
+이 빠른 시작에서는 컨테이너 레지스트리를 배포하고, ACR Tasks로 이미지를 빌드한 후 삭제하고, Event Grid에서 응용 프로그램 예제로 레지스트리의 이벤트를 사용했습니다. 이제 ACR Tasks 자습서로 넘어가서 기본 이미지 업데이트에 대한 자동 빌드 등 클라우드에 컨테이너 이미지를 빌드하는 방법에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [ACR Build를 사용하여 클라우드에 컨테이너 이미지 빌드](container-registry-tutorial-quick-build.md)
+> [ACR Tasks를 사용하여 클라우드에 컨테이너 이미지 빌드](container-registry-tutorial-quick-task.md)
 
 <!-- IMAGES -->
 [sample-app-01]: ./media/container-registry-event-grid-quickstart/sample-app-01.png

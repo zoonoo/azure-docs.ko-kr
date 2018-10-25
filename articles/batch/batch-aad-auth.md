@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: danlep
-ms.openlocfilehash: 1347d3aac01c62040c164eee22c7a905b07e8236
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 67f8b49cd2205403dec8843beebb92c9f41f6e37
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816968"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955799"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Active Directory를 사용하여 Batch 서비스 솔루션 인증
 
@@ -374,7 +374,7 @@ credentials = ServicePrincipalCredentials(
 
 * Azure AD에 대한 자세한 내용은 [Azure Active Directory 설명서](https://docs.microsoft.com/azure/active-directory/)를 참조하세요. ADAL을 사용하는 방법을 보여 주는 자세한 예제는 [Azure 코드 샘플](https://azure.microsoft.com/resources/samples/?service=active-directory) 라이브러리에서 사용할 수 있습니다.
 
-* 서비스 주체에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요. Azure Portal을 사용하여 서비스 주체를 만들려면 [포털을 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체 만들기](../resource-group-create-service-principal-portal.md)를 참조하세요. 또한 PowerShell 또는 Azure CLI를 사용하여 서비스 주체를 만들 수도 있습니다.
+* 서비스 주체에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요. Azure Portal을 사용하여 서비스 주체를 만들려면 [포털을 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요. 또한 PowerShell 또는 Azure CLI를 사용하여 서비스 주체를 만들 수도 있습니다.
 
 * Azure AD를 사용하여 Batch Management 응용 프로그램을 인증하려면 [Active Directory를 사용하여 Batch Management 솔루션 인증](batch-aad-auth-management.md)을 참조하세요.
 

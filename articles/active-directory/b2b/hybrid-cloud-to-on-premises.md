@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 10/10/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 65f43eb28ef2ef51409469934d59e1add7e83666
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 57c807b7729b58d2537ee09ddd5d05d4f2afb55e
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297217"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068846"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Azure AD의 B2B 사용자에게 온-프레미스 응용 프로그램에 대한 액세스 권한 부여
 
@@ -65,7 +65,7 @@ B2B 사용자에게 Windows 통합 인증 및 Kerberos 제한 위임을 사용�
 - 응용 프로그램 프록시를 인증하는 동안 MFA가 사용되도록 게스트 사용자에 대한 MFA(Multi-Factor Authentication)를 설정할 수 있습니다. 자세한 내용은 [B2B 공동 작업 사용자에 대한 조건부 액세스](conditional-access.md)를 참조하세요.
 - 클라우드 B2B 사용자에서 수행되는 모든 후원, 액세스 검토, 계정 확인 등은 온-프레미스 사용자에게 적용됩니다. 예를 들어 수명 주기 관리 정책을 통해 클라우드 사용자가 삭제된 경우 온-프레미스 사용자도 MIM 동기화 또는 Azure AD Connect 동기화를 통해 삭제됩니다. 자세한 내용은 [Azure AD 액세스 검토를 사용하여 게스트 액세스 관리](../governance/manage-guest-access-with-access-reviews.md)를 참조하세요.
 
-### <a name="create-b2b-guest-user-objects-through-mim-preview"></a>MIM을 통해 B2B 게스트 사용자 개체 만들기(미리 보기)
+### <a name="create-b2b-guest-user-objects-through-mim"></a>MIM을 통해 B2B 게스트 사용자 개체 만들기
 
 MIM 2016 서비스 팩 1 및 Microsoft Graph용 MIM 관리 에이전트를 사용하여 온-프레미스 디렉터리에 게스트 사용자 개체를 만드는 방법에 관한 자세한 내용은 [Azure 응용 프로그램 프록시를 사용하여 MIM(Microsoft Identity Manager) 2016 SP1과 Azure AD B2B(Business to Business) 공동 작업](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario)을 참조하세요.
 

@@ -3,7 +3,7 @@ title: 자습서 - Azure 가상 머신 확장 집합 만들기 및 관리 | Micr
 description: Azure CLI를 사용하여 인스턴스를 시작하고 중지하는 방법, 확장 집합 용량을 변경하는 방법 등의 몇 가지 일반적인 관리 작업과 함께 가상 머신 확장 집합을 만드는 방법을 알아봅니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: f00f7934bfb78c16f9e93dc2fcd94025e5f806a1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 263a2ddd1cf42348678488a02ed0b97a7ed1304c
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993291"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466140"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 가상 머신 확장 집합 만들기 및 관리
 가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 가상 머신 확장 집합의 수명 주기 동안 하나 이상의 관리 작업을 실행해야 합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.

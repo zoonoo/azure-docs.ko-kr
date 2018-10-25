@@ -7,13 +7,13 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.openlocfilehash: 17504cec6ddf98aca8ddfc6c91d21d34055902f6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.date: 10/16/2018
+ms.openlocfilehash: 38a7a4fa3ac0b9bfb554deeb8086dca398e5cdc1
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394856"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956173"
 ---
 # <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>빠른 시작: Azure 데이터 탐색기 Python 라이브러리를 사용하여 데이터 쿼리
 
@@ -31,7 +31,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
 
 *azure-kusto-data*를 설치합니다.
 
-```python
+```
 pip install azure-kusto-data==0.0.13
 ```
 

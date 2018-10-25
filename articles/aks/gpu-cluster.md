@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: laevenso
 ms.custom: mvc
-ms.openlocfilehash: 7fb60f3c440b4804ad8c5e6c013ecfa454358833
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 231d7b875a7163aaa532be4a6477ca4e2eb67286
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716120"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043625"
 ---
 # <a name="using-gpus-on-aks"></a>AKS에서 GPU 사용
 
@@ -63,7 +63,7 @@ aks-nodepool1-22139053-1   Ready     agent     10h       v1.9.6
 aks-nodepool1-22139053-2   Ready     agent     10h       v1.9.6
 ```
 
-노드 중 하나를 설명하여 GPU가 예약 가능한지 확인합니다. 이 내용은 `Capacity` 섹션에서 찾을 수 있습니다. 예: `alpha.kubernetes.io/nvidia-gpu:  1`
+노드 중 하나를 설명하여 GPU가 예약 가능한지 확인합니다. 이 내용은 `Capacity` 섹션에서 찾을 수 있습니다. 예: `nvidia.com/gpu:  1`. GPU가 표시되지 않으면 아래의 **문제 해결** 섹션을 참조하세요.
 
 ```
 $ kubectl describe node aks-nodepool1-22139053-0
@@ -96,12 +96,12 @@ Addresses:
   InternalIP:  10.240.0.4
   Hostname:    aks-nodepool1-22139053-0
 Capacity:
- alpha.kubernetes.io/nvidia-gpu:  1
+ nvidia.com/gpu:                  1
  cpu:                             6
  memory:                          57691688Ki
  pods:                            110
 Allocatable:
- alpha.kubernetes.io/nvidia-gpu:  1
+ nvidia.com/gpu:                  1
  cpu:                             6
  memory:                          57589288Ki
  pods:                            110
@@ -135,7 +135,7 @@ Events:         <none>
 
 GPU가 실제로 작동하는지 보여 주기 위해 적절한 리소스 요청을 사용하여 GPU 사용 워크로드를 예약합니다. 이 예제에서는 [MNIST 데이터 집합](http://yann.lecun.com/exdb/mnist/)에 대해 [Tensorflow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) 작업을 실행합니다.
 
-다음 작업 매니페스트에는 `alpha.kubernetes.io/nvidia-gpu: 1`의 리소스 제한이 포함되어 있습니다. 해당 CUDA 라이브러리 및 디버그 도구는 `/usr/local/nvidia`의 노드에서 사용할 수 있으며, 아래와 같은 해당 볼륨 사양을 사용하여 Pod에 탑재해야 합니다.
+다음 작업 매니페스트에는 `nvidia.com/gpu: 1`의 리소스 제한이 포함되어 있습니다. 
 
 매니페스트를 복사하고 **samples-tf-mnist-demo.yaml**로 저장합니다.
 ```
@@ -158,15 +158,8 @@ spec:
         imagePullPolicy: IfNotPresent
         resources:
           limits:
-            alpha.kubernetes.io/nvidia-gpu: 1
-        volumeMounts:
-        - name: nvidia
-          mountPath: /usr/local/nvidia
+           nvidia.com/gpu: 1
       restartPolicy: OnFailure
-      volumes:
-        - name: nvidia
-          hostPath:
-            path: /usr/local/nvidia
 ```
 
 작업을 실행하려면 [kubectl apply][kubectl-apply] 명령을 사용합니다. 이 명령은 매니페스트 파일을 구문 분석하고 정의된 Kubernetes 개체를 만듭니다.

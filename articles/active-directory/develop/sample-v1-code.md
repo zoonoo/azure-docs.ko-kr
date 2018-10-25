@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a8d1c94ac4357c7833f6db7cb9b4eaffa00c0396
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 46b66a6e718f18b76db6332487c350c2c199c342
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963801"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957777"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Azure Active Directory 코드 샘플(v1.0 엔드포인트)
 
@@ -125,7 +125,7 @@ Azure AD 인증을 포함하여 Microsoft Graph API에 대한 여러 사용 패�
 
 ## <a name="see-also"></a>참고 항목
 
-[Azure Active Directory 개발자 가이드](azure-ad-developers-guide.md)
+[Azure Active Directory 개발자 가이드](v1-overview.md)
 
 [Azure Active Directory 인증 라이브러리](active-directory-authentication-libraries.md)
 

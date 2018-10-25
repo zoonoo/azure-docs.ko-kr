@@ -7,110 +7,123 @@ author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 10/03/2018
 ms.author: glenga
-ms.openlocfilehash: a601ea42549abad84d6cab5c429cf94147776436
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f2f1313461fcb58ea48af99aeda2f7005534fe34
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978627"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885190"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 런타임 버전 개요
 
  Azure Functions 런타임 주 버전에는 1.x 및 2.x의 두 가지가 있습니다. 새로운 기능이 추가되고 개선이 적용되고 있는 현재 버전은 2.x이지만 두 가지 모두 프로덕션 시나리오에서 지원됩니다.  여기에서는 두 버전의 차이점, 각 버전을 만드는 방법, 1.x에서 2.x로 업그레이드하는 방법에 대해 자세히 설명합니다.
 
-> [!NOTE] 
+> [!NOTE]
 > 이 문서에서는 클라우드 서비스 Azure Functions를 참조합니다. 온-프레미스에서 Azure Functions를 실행할 수 있는 미리 보기 제품에 대한 자세한 내용은 [Azure Functions 런타임 개요](functions-runtime-overview.md)를 참조하세요.
-
-## <a name="creating-1x-apps"></a>1.x 앱 만들기
-
-Azure Portal에서 만든 새 앱은 기본적으로 2.x로 설정됩니다. 이 버전이 새로운 기능 투자가 적용되고 있는 최신 버전이기 때문입니다.  단, 다음을 수행하면 v1.x 앱을 만들 수 있습니다.
-
-1. Azure Portal에서 Azure 함수 만들기
-1. 만들어진 앱을 열고 비어있는 동안 **함수 설정**을 엽니다.
-1. 버전을 ~2에서 ~1로 변경합니다.  *앱에 함수가 있으면 이 토글을 사용할 수 없습니다*.
-1. 저장을 클릭하고 앱을 다시 시작합니다.  이제 모든 템플릿이 생성되고 1.x 버전으로 실행됩니다.
 
 ## <a name="cross-platform-development"></a>교차 플랫폼 개발
 
-1.x 런타임은 포털 또는 Windows에서만 개발 및 호스팅을 지원합니다. 2.x 런타임은 .NET Core 2에서 실행되는데, 이는 macOS 및 Linux를 포함하여 .NET Core에서 지원하는 모든 플랫폼에서 실행할 수 있다는 의미입니다. 따라서 플랫폼 간 개발 및 호스팅 시나리오가 가능합니다.
+버전 2.x 런타임은 .NET Core 2에서 실행되며, macOS 및 Linux를 포함하여 .NET Core에서 지원하는 모든 플랫폼에서 실행할 수 있습니다. .NET Core에서 실행하면 플랫폼 간 개발 및 호스팅 시나리오가 가능합니다.
+
+비교해보면 버전 1.x 런타임은 Azure Portal 또는 Windows 컴퓨터의 개발 및 호스팅만 지원합니다.
 
 ## <a name="languages"></a>언어
 
-2.x 런타임은 새 언어 확장성 모델을 사용합니다. 또한 도구 및 성능을 향상시키기 위해 2.x의 각 앱은 단일 언어로 된 함수만 포함하도록 제한됩니다. 2.x에서 현재 지원되는 언어는 C#, F#, JavaScript 및 Java입니다. Azure Functions 1.x 실험 언어는 새 모델을 사용하도록 업데이트되지 않았기 때문에 2.x에서 지원되지 않습니다. 다음 표는 각 런타임 버전에서 지원되는 프로그래밍 언어를 나타냅니다.
+버전 2.x 런타임은 새 언어 확장성 모델을 사용합니다. 버전 2.x에서는 함수 앱의 모든 함수가 동일한 언어를 공유해야 합니다. 함수 앱의 함수 언어는 앱을 만들 때 선택합니다.
+
+Azure Functions 1.x 실험 언어는 새 모델을 사용하도록 업데이트되지 않을 예정이므로 2.x에서 지원되지 않습니다. 다음 표는 각 런타임 버전에서 현재 지원되는 프로그래밍 언어를 나타냅니다.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
 자세한 내용은 [지원되는 언어](supported-languages.md)를 참조하세요.
 
+## <a name="creating-1x-apps"></a>버전 1.x에서 실행
+
+기본적으로 Azure Portal에서 만든 함수 앱은 버전 2.x로 설정됩니다. 가능한 경우 새 기능을 위한 투자가 진행될 이 런타임 버전을 사용하는 것이 좋습니다. 필요한 경우 버전 1.x 런타임에서 함수 앱을 계속 실행할 수 있습니다. 함수 앱을 만든 후, 함수를 추가하기 전에만 런타임 버전을 변경할 수 있습니다. 런타임 버전을 1.x로 고정하는 방법을 알아보려면 [현재 런타임 버전 확인 및 업데이트](set-runtime-version.md#view-and-update-the-current-runtime-version)를 참조하세요.
+
 ## <a name="migrating-from-1x-to-2x"></a>1.x에서 2.x로 마이그레이션
 
-1.x로 작성한 기존 앱을 2.x로 이동할 수도 있습니다.  버전 간 이동에 필요한 대부분의 고려 사항은 위에 나열된 언어 런타임 변경(예: .NET Framework 4.7에서 .NET Core 2로 이동하는 C#)과 관련이 있습니다.  사용하는 언어 런타임과 코드 및 라이브러리가 호환되는지 확인해야 합니다.  또한 아래에 강조 표시된 트리거, 바인딩 및 기능의 변경 내용을 기록해 두어야 합니다.
+버전 1.x 런타임 사용하도록 작성된 기존 앱을 버전 2.x를 대신 사용하도록 마이그레이션할 수 있습니다. 수행해야 하는 대부분의 변경은 .NET Framework 4.7과 .NET Core 2 간의 C# API 변경과 같은 언어 런타임의 변경과 관련되어 있습니다. 또한 선택한 언어 런타임과 코드 및 라이브러리가 호환되는지 확인해야 합니다. 마지막으로 아래에 강조 표시된 트리거, 바인딩 및 기능의 변경 내용을 기록해 두어야 합니다. 최상의 마이그레이션 결과를 얻으려면 버전 2.x에 대한 새 함수 앱을 만들고 기존 버전 1.x 함수 코드를 새 앱으로 이식해야 합니다.  
 
 ### <a name="changes-in-triggers-and-bindings"></a>트리거 및 바인딩의 변경 내용
 
-대부분의 트리거와 바인딩 속성 및 구성은 버전 간에 동일하게 유지되지만, 2.x에서는 트리거 또는 바인딩을 앱에 설치해야 합니다. 이에 대한 유일한 예외는 HTTP 및 타이머 트리거입니다.  [바인딩 확장 등록 및 설치](./functions-triggers-bindings.md#register-binding-extensions)를 참조하세요.  버전 간에 `function.json` 또는 함수의 특성이 변경될 수도 있습니다. (예를 들어 CosmosDB `connection` 속성이 이제는 `ConnectionStringSetting`입니다.)  각 바인딩의 설명서에 대한 링크는 [기존 바인딩 테이블](#bindings)을 참조하세요.
+버전 2.x를 사용하려면 앱의 함수에 사용되는 특정 트리거 및 바인딩의 확장을 설치해야 합니다. 유일한 예외는 확장이 필요 없는 이 HTTP 및 타이머 트리거입니다.  자세한 내용은 [바인딩 확장 등록 및 설치](./functions-triggers-bindings.md#register-binding-extensions)를 참조하세요.
 
-### <a name="changes-in-features-available"></a>사용 가능한 기능의 변경 내용
+버전 간에 `function.json` 또는 함수의 특성도 일부 변경되었습니다. 예를 들어, 이벤트 허브 `path` 속성은 이제 `eventHubName`입니다. 각 바인딩의 설명서에 대한 링크는 [기존 바인딩 테이블](#bindings)을 참조하세요.
 
-언어 및 바인딩이 변경되는 것 외에, 버전 간에 제거, 업데이트 또는 대체되는 기능이 있습니다.  다음은 1.x를 사용한 다음, 2.x를 시작할 때 주로 고려해야 하는 몇 가지 사항입니다.  v2.x에서는 다음 사항이 변경되었습니다.
+### <a name="changes-in-features-and-functionality"></a>기능 변경
 
-* 함수 호출을 위한 키는 항상 암호화된 Blob 저장소에 저장됩니다. 1.x에서는 기본적으로 파일 저장소에 저장되었다가 슬롯과 같은 기능을 사용하도록 설정하면 Blob으로 이동할 수 있었습니다.  1.x 앱을 2.x로 업그레이드하면 비밀이 현재 파일 저장소에 유지되고 재설정됩니다.
-* 성능을 향상시키기 위해 "webhook" 유형 트리거가 제거되고 "HTTP" 트리거로 대체됩니다.
-* 호스트 구성(`host.json`)이 비어 있거나 속성 중 하나에 대해 `2.0` `version`을 포함해야 합니다.
-* 모니터링 및 관찰 기능을 개선하기 위해, WebJobs 대시보드(`AzureWebJobsDashboard`)가 [Azure Application Insights](functions-monitoring.md)(`APPINSIGHTS_INSTRUMENTATIONKEY`)로 대체됩니다.
-* 응용 프로그램 설정(`local.settings.json`)에 앱 `dotnet | node | java | python`의 언어에 매핑되는 `FUNCTIONS_WORKER_RUNTIME` 속성에 대한 값이 필요합니다.
-    * 공간 및 시작 시간을 개선하기 위해 앱이 단일 언어로 제한됩니다. 동일한 솔루션에 대해 서로 다른 언어로 기능을 포함하려면 여러 앱을 게시하면 됩니다.
-* App Service 계획의 함수에 대한 기본 시간 제한은 30분입니다.  수동으로 무제한으로 설정할 수도 있습니다.
-* [.NET Core 제한 사항으로 인해](https://github.com/Azure/azure-functions-host/issues/3414), F# 함수에 대한 `.fsx` 스크립트가 제거되었습니다. 컴파일된 F# 함수는 계속 지원됩니다.
-* 웹후크 기반 트리거(예: Event Grid)의 형식이 `https://{app}/runtime/webhooks/{triggerName}`으로 변경되었습니다.
+새 버전에서 제거, 업데이트 또는 대체된 일부 기능입니다. 이 섹션에서는 버전 1.x를 사용한 후에 버전 2.x에서 확인된 변경 내용을 자세히 설명합니다.
 
-### <a name="upgrading-a-locally-developed-application"></a>로컬에서 개발한 응용 프로그램 업그레이드
+버전 2.x에서 다음과 같은 사항이 변경되었습니다.
 
-v1.x 앱이 로컬에서 개발된 경우 v2와 호환되도록 앱이나 프로젝트를 변경할 수 있습니다.  새 앱을 만들고 코드를 새 앱으로 포팅하는 것이 좋습니다.  현재 위치 업그레이드를 수행하기 위해 기존 앱에 변경해야 하는 내용이 있기는 하지만, v1과 v2 사이에는 레거시 코드로 사용할 수 없는 다른 많은 개선 사항(예: C#의 `TraceWriter`가 `ILogger`로 변경됨)이 있습니다.  
+* HTTP 엔드포인트를 호출하기 위한 키는 항상 Azure Blob Storage에 암호화된 상태로 저장됩니다. 버전 1.x에서 키는 기본적으로 Azure File Storage에 저장되었습니다. 앱을 버전 1.x에서 버전 2.x로 업그레이드할 때 파일 저장소에 있는 기존 암호가 다시 설정됩니다.
 
-권장되는 단계는 v2 템플릿 중 하나를 사용하여 시작한 다음, 새 프로젝트나 앱으로 코드를 옮기는 것입니다.
+* 버전 2.x 런타임에서는 웹후크 공급자가 기본적으로 지원되지 않습니다. 성능 향상을 위해 이렇게 변경되었습니다. HTTP 트리거를 여전히 웹후크에 대한 엔드포인트로 사용할 수 있습니다.
+
+* 호스트 구성 파일(host.json)은 비워 두거나 문자열 `"version": "2.0"`을 포함해야 합니다.
+
+* 모니터링을 향상시키기 위해 [`AzureWebJobsDashboard`](functions-app-settings.md#azurewebjobsdashboard) 설정을 사용하는 포털의 WebJobs 대시보드가 [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsightsinstrumentationkey) 설정을 사용하는 Azure Application Insights로 바뀌었습니다. 자세한 내용은 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요.
+
+* 함수 앱의 모든 함수가 동일한 언어를 공유해야 합니다. 함수 앱을 만들 때 앱의 런타임 스택을 선택해야 합니다. 런타임 스택은 응용 프로그램 설정의 [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functionsworkerruntime) 값으로 지정됩니다. 이 요구 사항은 공간 효율성 및 시작 시간을 개선하기 위해 추가되었습니다. 로컬로 개발하는 경우 [local.settings.json 파일](functions-run-local.md#local-settings-file)에 이 설정을 포함해야 합니다.
+
+* App Service 계획의 함수에 대한 기본 시간 제한은 30분으로 변경되었습니다. host.json에서 [functionTimeout](functions-host-json.md#functiontimeout) 설정을 사용하여 수동으로 제한 시간을 다시 무제한으로 변경할 수 있습니다.
+
+* HTTP 동시성 제한은 기본값으로 인스턴스당 동시 요청 수 100개를 갖는 사용 계획 함수에 대해 기본적으로 구현됩니다. 이 설정은 host.json 파일의 [`maxConcurrentRequests`](functions-host-json.md#http) 설정에서 변경할 수 있습니다.
+
+* [.NET core 제한](https://github.com/Azure/azure-functions-host/issues/3414)때문에 F # 스크립트(.fsx) 함수에 대한 지원이 제거되었습니다. 컴파일된 F# 함수(.fs)는 계속 지원됩니다.
+
+* Event Grid 트리거 웹후크의 URL 형식은 `https://{app}/runtime/webhooks/{triggerName}`으로 변경되었습니다.
+
+### <a name="migrating-a-locally-developed-application"></a>로컬에서 개발한 응용 프로그램 마이그레이션
+
+버전 1.x 런타임을 사용하여 로컬로 개발한 기존 함수 앱 프로젝트가 있을 수 있습니다. 버전 2.x로 업그레이드하려면 버전 2.x용 로컬 함수 앱 프로젝트를 만든 후 기존 코드를 새 앱으로 이식해야 합니다. 기존 프로젝트 및 코드를 수동으로 업데이트할 수 있습니다(일종의 "전체" 업그레이드). 그러나 버전 1.x와 버전 2.x 간에는 아직도 많은 기능 개선이 필요합니다. 예를 들어 C#의 디버깅 개체가 `TraceWriter`에서 `ILogger`로 변경되었습니다. 새 버전 2.x 프로젝트를 만들어 최신 버전 2.x 템플릿을 기준으로 하는 업데이트된 함수로 시작합니다.
 
 #### <a name="visual-studio-runtime-versions"></a>Visual Studio 런타임 버전
 
-Visual Studio에서 프로젝트를 만들 때 런타임 버전을 선택합니다.  Visual Studio는 두 가지 주요 버전에 대한 비트가 있으며 프로젝트에 적합한 비트를 동적으로 활용할 수 있습니다.  이러한 설정은 `.csproj` 파일에서 파생됩니다.  1.x 앱의 경우 프로젝트에 속성이 있습니다.
+Visual Studio에서 프로젝트를 만들 때 런타임 버전을 선택합니다. Visual Studio용 Azure Functions 도구는 둘 다 주 런타임 버전을 지원합니다. 디버깅 및 게시를 수행할 때 프로젝트 설정에 따라 올바른 버전이 사용됩니다. 버전 설정은 `.csproj` 파일의 다음 속성에 정의됩니다.
+
+##### <a name="version-1x"></a>버전 1.x
 
 ```xml
 <TargetFramework>net461</TargetFramework>
 <AzureFunctionsVersion>v1</AzureFunctionsVersion>
 ```
 
-v2의 프로젝트 속성은 다음과 같습니다.
+##### <a name="version-2x"></a>버전 2.x
 
 ```xml
 <TargetFramework>netstandard2.0</TargetFramework>
 <AzureFunctionsVersion>v2</AzureFunctionsVersion>
 ```
 
-디버그 또는 게시를 클릭하면 프로젝트 설정에 적합한 버전이 올바르게 설정됩니다.
+프로젝트를 디버그하거나 게시하는 경우 올바른 버전의 런타임이 사용됩니다.
 
 #### <a name="vs-code-and-azure-functions-core-tools"></a>VS Code 및 Azure Functions 핵심 도구
 
-다른 로컬 도구는 Azure Functions 핵심 도구를 사용합니다.  이러한 도구는 시스템에 설치되며 일반적으로 한 번에 한 가지 버전만 개발 머신에 설치됩니다.  [특정 버전의 핵심 도구를 설치하는 방법에 대한 지침](./functions-run-local.md)을 참조하세요.
+[Azure Functions Core Tools](functions-run-local.md)는 명령줄 개발에 사용되며 Visual Studio Code용 [Azure Functions 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)에서도 사용됩니다. 버전 2.x에 대해 개발하려면 Core Tools 버전 2.x를 설치합니다. 버전 1.x 개발에는 Core Tools 버전 1.x가 필요합니다. 자세한 내용은 [Azure Functions Core Tools 설치](functions-run-local.md#install-the-azure-functions-core-tools)를 참조하세요.
 
-VS Code의 경우 설치된 도구의 버전과 일치하도록 `azureFunctions.projectRuntime`에 대한 사용자 설정을 업데이트해야 할 수도 있습니다.  그러면 새 앱을 만드는 동안 표시되는 템플릿과 언어도 업데이트됩니다.
+Visual Studio Code 개발의 경우 설치된 도구의 버전과 일치하도록 `azureFunctions.projectRuntime`에 대한 사용자 설정을 업데이트해야 할 수도 있습니다.  이 설정은 함수 앱을 만드는 동안 사용되는 템플릿 및 언어도 업데이트합니다.
 
 ### <a name="changing-version-of-apps-in-azure"></a>Azure에서 앱 버전 변경
 
-게시된 앱 버전은 응용 프로그램 설정 `FUNCTIONS_RUNTIME_VERSION`을 통해 설정됩니다.  v2 앱에 대해 `~2`로 설정되고 v1 앱에 대해 `~1`로 설정됩니다.  기존 함수가 게시되어 있는 앱의 런타임 버전을 해당 함수의 코드를 변경하지 않고 변경하는 것은 권장되지 않습니다.  권장되는 단계는 새 함수 앱을 만들고 적절한 버전으로 설정하고 변경 사항을 테스트한 다음, 이전 앱을 사용 중지하거나 삭제하는 것입니다.
+Azure에 게시된 앱에서 사용하는 Functions 런타임 버전은 [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functionsextensionversion) 응용 프로그램 설정에 따라 결정됩니다. `~2` 값은 버전 2.x 런타임을 대상으로 하고 `~1`은 버전 1.x 런타임을 대상으로 합니다. 이 설정을 임의로 변경하지 않도록 합니다. 함수의 다른 앱 설정 및 코드도 변경해야 할 수 있기 때문입니다. 함수 앱을 다른 런타임 버전으로 마이그레이션하기 위한 권장 방법에 대한 자세한 내용은 [Azure Functions 런타임 버전을 대상으로 지정하는 방법](set-runtime-version.md)을 참조하세요.
 
-## <a name="bindings"></a>바인딩 
+## <a name="bindings"></a>바인딩
 
-2.x 런타임은 다음과 같은 장점이 있는 새 [바인딩 확장성 모델](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)을 사용합니다.
+버전 2.x 런타임은 다음과 같은 장점이 있는 새 [바인딩 확장성 모델](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)을 사용합니다.
 
 * 타사 바인딩 확장 지원.
-* 런타임과 바인딩을 분리. 이렇게 하면 바인딩 확장의 버전을 지정하고 독립적으로 릴리스할 수 있습니다. 예를 들어 기본 SDK의 최신 버전을 사용하는 확장 버전으로 업그레이드하도록 선택할 수 있습니다.
+
+* 런타임과 바인딩을 분리. 이렇게 변경하면 바인딩 확장의 버전을 지정하고 독립적으로 릴리스할 수 있습니다. 예를 들어 기본 SDK의 최신 버전을 사용하는 확장 버전으로 업그레이드하도록 선택할 수 있습니다.
+
 * 사용 중인 바인딩만 런타임에 알려지고 로드되는 가벼운 실행 환경.
 
-모든 기본 제공 Azure Functions 바인딩은 이 모델을 채택했으며 타이머 트리거 및 HTTP 트리거를 제외하고 더 이상 포함되지 않습니다. 이러한 확장은 Visual Studio 같은 도구를 통해 또는 포털을 통해 함수를 만들 때 자동으로 설치됩니다.
+HTTP 및 타이머 트리거를 제외하고 모든 바인딩은 명시적으로 함수 앱 프로젝트에 추가하거나 포털에 등록해야 합니다. 자세한 내용은 [바인딩 확장 등록](functions-triggers-bindings.md#register-binding-extensions)을 참조하세요.
 
-다음 표에는 각 런타임 버전에서 지원되는 바인딩이 정리되어 있습니다.
+다음 표에는 각 런타임 버전에서 지원되는 바인딩이 나와 있습니다.
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 

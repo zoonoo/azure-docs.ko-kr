@@ -9,21 +9,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 4537c0308ee587d921dc795054966f6a3dbb69c4
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 01ff5faa130bf1d6d5b89ac42d5664b13306c203
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093223"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956156"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>비대화형 인증 .NET HDInsight 응용 프로그램 만들기
 Microsoft .NET Azure HDInsight 응용 프로그램은 응용 프로그램 자체의 ID(비대화형) 또는 응용 프로그램에 로그인한 사용자의 ID(대화형)로 실행할 수 있습니다. 이 문서에서는 비대화형 인증 .NET 응용 프로그램을 만들어 Azure에 연결하고 HDInsight를 관리하는 방법을 보여 줍니다. 대화형 응용 프로그램의 샘플은 [Azure HDInsight에 연결](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight)을 참조하세요. 
 
 비 대화형.NET 응용 프로그램에서 다음 항목이 필요합니다.
 
-* Azure 구독 테넌트 ID(*디렉터리 ID*라고도 함) - [테넌트 ID 가져오기](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id)를 참조하세요.
-* Azure AD(Azure Active Directory) 응용 프로그램 클라이언트 ID - [Azure Active Directory 응용 프로그램 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) 및 [응용 프로그램 ID 가져오기](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) 참조
-* Azure AD 응용 프로그램 비밀 키 - [응용 프로그램 인증 키 가져오기](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) 참조
+* Azure 구독 테넌트 ID(*디렉터리 ID*라고도 함) - [테넌트 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id)를 참조하세요.
+* Azure AD(Azure Active Directory) 응용 프로그램 클라이언트 ID - [Azure Active Directory 응용 프로그램 만들기](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) 및 [응용 프로그램 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key) 참조
+* Azure AD 응용 프로그램 비밀 키 - [응용 프로그램 인증 키 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key) 참조
 
 ## <a name="prerequisites"></a>필수 조건
 * HDInsight 클러스터. [시작 자습서](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) 참조
@@ -119,6 +119,6 @@ Azure AD 응용 프로그램에 [역할](../role-based-access-control/built-in-r
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Portal에서 Azure Active Directory 응용 프로그램 및 서비스 주체를 만듭니다](../azure-resource-manager/resource-group-create-service-principal-portal.md).
-* [Azure Resource Manager를 사용하여 서비스 주체를 인증](../azure-resource-manager/resource-group-authenticate-service-principal.md)하는 방법을 알아봅니다.
+* [Azure Portal에서 Azure Active Directory 응용 프로그램 및 서비스 주체를 만듭니다](../active-directory/develop/howto-create-service-principal-portal.md).
+* [Azure Resource Manager를 사용하여 서비스 주체를 인증](../active-directory/develop/howto-authenticate-service-principal-powershell.md)하는 방법을 알아봅니다.
 * [Azure RBAC(역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md)에 대해 알아봅니다.

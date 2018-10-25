@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 09/13/2018
 ms.custom: it-pro
-ms.openlocfilehash: 08d32a99e2f1a77bcc7a5900b47e6771c33ec356
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 406baeac60c7c0cdf5f74876e5fc29ea23d3d6f6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393324"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957550"
 ---
 # <a name="what-is-azure-active-directory"></a>Azure Active Directory란?
 Azure AD(Azure Active Directory)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. Azure AD는 핵심 디렉터리 서비스, 응용 프로그램 액세스 관리 및 ID 보호를 단일 솔루션에 결합하여 개발자가 중앙 집중식 정책 및 규칙에 따라 앱의 액세스를 제어할 수 있도록 지원하는 표준 기반 플랫폼을 제공합니다.
@@ -74,7 +74,7 @@ Azure AD 구현을 향상시키기 위해 Azure Active Directory Basic, Premium 
 30일 평가판을 등록하고 첫 번째 클라우드 솔루션을 배포하세요. [Azure Active Directory Premium 평가판](https://azure.microsoft.com/trial/get-started-active-directory/)을 참조합니다.
 
 ## <a name="as-a-developer-how-do-i-get-started"></a>개발자의 경우 어떻게 시작하나요?
-30일 평가판을 등록하고 Azure AD와 앱의 통합을 시작하세요. [Azure Active Directory Premium 평가판](https://azure.microsoft.com/trial/get-started-active-directory/)을 참조합니다. 자세한 내용은 Azure Active Directory에 대한 [개발자 가이드](../develop/azure-ad-developers-guide.md)를 참조하세요.
+30일 평가판을 등록하고 Azure AD와 앱의 통합을 시작하세요. [Azure Active Directory Premium 평가판](https://azure.microsoft.com/trial/get-started-active-directory/)을 참조합니다. 자세한 내용은 Azure Active Directory에 대한 [개발자 가이드](../develop/v1-overview.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure ID 및 액세스 관리의 기본 사항에 대해 자세히 알아보기](identity-fundamentals.md).

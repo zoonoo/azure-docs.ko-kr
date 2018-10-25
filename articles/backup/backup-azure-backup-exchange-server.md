@@ -2,18 +2,18 @@
 title: System Center 2012 R2 DPM을 사용하여 Azure Backup에 Exchange 서버 백업
 description: System Center 2012 R2 DPM을 사용하여 Azure Backup에 Exchange 서버를 백업하는 방법을 알아봅니다.
 services: backup
-author: MaanasSaran
+author: adigan
 manager: NKolli1
 ms.service: backup
-ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.topic: conceptual
+ms.date: 10/19/2018
 ms.author: adigan
-ms.openlocfilehash: 4edec499d12261add398e5a9297f039ecfb252e9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8fbe3e716971f4d82e6d24fb866334ffd626bf32
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605103"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945980"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>System Center 2012 R2 DPM을 사용하여 Azure Backup에 Exchange 서버 백업
 이 문서에서는 System Center 2012 R2 Data Protection Manager(DPM) 서버를 구성하여 Azure Backup에 Microsoft Exchange server를 백업하는 방법을 설명합니다.  
@@ -27,7 +27,7 @@ Azure Backup을 사용하여 DPM 서버를 성공적으로 등록하려면 Syste
 >
 
 ## <a name="prerequisites"></a>필수 조건
-계속하기 전에 워크로드를 보호하기 위하여 Microsoft Azure Backup 사용을 위한 [필수 구성 요소](backup-azure-dpm-introduction.md#prerequisites) 를 모두 충족하는지 확인합니다. 이러한 필수 구성 요소는 다음과 같습니다.
+계속하기 전에 워크로드를 보호하기 위하여 Microsoft Azure Backup 사용을 위한 [필수 구성 요소](backup-azure-dpm-introduction.md#prerequisites-and-limitations) 를 모두 충족하는지 확인합니다. 이러한 필수 구성 요소는 다음과 같습니다.
 
 * Azure 사이트에서 백업 자격 증명 모음을 만들었습니다.
 * DPM 서버에 에이전트 및 자격 증명 모음 자격 증명을 다운로드했습니다.

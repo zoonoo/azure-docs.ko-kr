@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: project-url-preview
+ms.component: url-preview
 ms.topic: overview
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 5d0b8260bf1c58af915c1be18c32cec678f4f09c
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: e3791c897722c9bbf50f58c126d7e4e573b2096f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869436"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465817"
 ---
 # <a name="what-is-project-url-preview"></a>Project URL Preview란?
 URL Preview 엔드포인트는 URL 쿼리 매개 변수를 사용하고 대상 리소스 이름, 간략한 설명 및 미리 보기에 표시할 이미지에 대한 링크로 JSON 응답을 반환합니다. 이 응답에는 URL이 성인, 해적판 또는 기타 불법 콘텐츠를 포함하는지 여부를 나타내는 [isFamilyFriendly](url-preview-reference.md#query-parameters) 플래그도 포함됩니다. 

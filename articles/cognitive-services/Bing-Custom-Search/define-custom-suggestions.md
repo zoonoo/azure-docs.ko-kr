@@ -1,20 +1,21 @@
 ---
-title: 'Bing Custom Search: Custom Autosuggest 제안 정의 | Microsoft Docs'
+title: Custom Autosuggest 제안 정의 - Bing Custom Search
+titlesuffix: Azure Cognitive Services
 description: 사용자 지정 제안으로 Custom Autosuggest를 구성하는 방법을 설명합니다.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: bing-custom-search
-ms.topic: article
+ms.component: bing-custom-search
+ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: v-brapel
-ms.openlocfilehash: 11d3b1c2d98caa8d6527c52bec1cc65ba22c6c3b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: maheshb
+ms.openlocfilehash: 6d7ee4ef1a84b644a7075e24c0760ea46b407754
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958750"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465545"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Custom Autosuggest 환경 구성
 

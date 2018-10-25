@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: jingwang
-ms.openlocfilehash: d500bc9c910858341d7fdacb4d85bffc8be215e1
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: d8bbc3a5e4ac14ed60fcd6e5f19bdf1df03455a6
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338765"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817027"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1 간에 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,7 +32,7 @@ ms.locfileid: "43338765"
 
 특히 이 Azure Data Lake Store 커넥터는 다음을 지원합니다.
 
-- **서비스 주체** 또는 **MSI(관리 서비스 ID)** 인증을 사용하여 파일을 복사합니다.
+- **서비스 주체** 또는 **Azure 리소스에 대한 관리 ID** 인증을 사용하여 파일을 복사합니다.
 - 파일을 있는 그대로 복사하거나 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs.md)을 사용하여 파일을 붙여넣거나 생성합니다.
 
 > [!IMPORTANT]
@@ -65,7 +65,7 @@ Azure Data Lake Store 연결된 서비스에 다음 속성이 지원됩니다.
 다른 인증 형식에 대한 더 많은 속성 및 JSON 샘플은 각각 다음 섹션을 참조하세요.
 
 - [서비스 주체 인증 사용](#using-service-principal-authentication)
-- [관리 서비스 ID 인증 사용](#using-managed-service-identity-authentication)
+- [Azure 리소스 인증용 관리 ID 사용](#managed-identity)
 
 ### <a name="using-service-principal-authentication"></a>서비스 주체 인증 사용
 
@@ -114,11 +114,11 @@ Azure Data Lake Store 연결된 서비스에 다음 속성이 지원됩니다.
 }
 ```
 
-### <a name="using-managed-service-identity-authentication"></a>관리 서비스 ID 인증 사용
+### <a name="managed-identity"></a> Azure 리소스 인증용 관리 ID 사용
 
-데이터 팩터리는 특정 데이터 팩터리를 나타내는 [관리 서비스 ID](data-factory-service-identity.md)와 연결할 수 있습니다. 고유한 서비스 주체를 사용하는 것과 유사하게 Data Lake Store 인증에 이 서비스 ID를 직접 사용할 수 있습니다. 이 지정된 팩터리는 Data Lake Store 간에 데이터에 액세스하고 복사할 수 있습니다.
+특정 데이터 팩터리를 나타내는 [Azure 리소스용 관리 ID](data-factory-service-identity.md)와 데이터 팩터리를 연결할 수 있습니다. 고유한 서비스 주체를 사용하는 것과 유사하게 Data Lake Store 인증에 이 서비스 ID를 직접 사용할 수 있습니다. 이 지정된 팩터리는 Data Lake Store 간에 데이터에 액세스하고 복사할 수 있습니다.
 
-MSI(관리 서비스 ID) 인증을 사용하려면:
+Azure 리소스 인증에 관리 ID를 사용하려면
 
 1. 팩터리와 함께 생성된 "서비스 ID 응용 프로그램 ID"의 값을 복사하여 [데이터 팩터리 서비스 ID를 검색](data-factory-service-identity.md#retrieve-service-identity)합니다.
 2. 아래 메모에 따라 서비스 주체에서 수행한 것과 동일한 방식으로 Data Lake Store에 서비스 ID 액세스 권한을 부여합니다.

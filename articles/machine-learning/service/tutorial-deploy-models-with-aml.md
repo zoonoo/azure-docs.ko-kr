@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: b1ae3fb5de3e28f44ef39731f49a33e2086255a1
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: ad6b296543cffedb215c87b1fc893a22b29a3052
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785344"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427351"
 ---
 # <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>자습서 #2: ACI(Azure Container Instance)에서 이미지 분류 모델 배포
 
@@ -383,4 +383,4 @@ service.delete()
 > * ACI에 모델 배포
 > * 배포된 모델 테스트
  
-또한 [자동 알고리즘 선택]() 자습서를 통해 Azure Machine Learning Service에서 모델에 가장 적합한 알고리즘이 자동으로 선택되고 조정되어 해당 모델이 구축되는 방법을 확인했습니다.
+또한 [자동 알고리즘 선택](tutorial-auto-train-models.md) 자습서를 통해 Azure Machine Learning Service에서 모델에 가장 적합한 알고리즘이 자동으로 선택되고 조정되어 해당 모델이 구축되는 방법을 확인했습니다.
