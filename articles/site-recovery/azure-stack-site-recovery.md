@@ -6,16 +6,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 08/30/2018
+ms.date: 10/09/2018
 ms.author: raynew
-ms.openlocfilehash: c71f683355a09c8ba2381db406eeb1ccabdb7afa
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 802c2223a72a89dbe2a97404aab4b0fc85c391ed
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697699"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902827"
 ---
-# <a name="replicate-azure-stack-vms-to-azure-preview"></a>Azure Stack VM을 Azure에 복제(미리 보기)
+# <a name="replicate-azure-stack-vms-to-azure"></a>Azure에 Azure Stack VM 복제
 
 이 문서에서는 [Azure Site Recovery 서비스](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하여 Azure에 Azure Stack VM에 대한 재해 복구를 설정하는 방법을 알아봅니다.
 
@@ -25,10 +25,6 @@ Site Recovery는 BCDR(비즈니스 연속성 및 재해 복구 개선) 전략에
 - 기본 사이트에서 중단이 발생하는 경우 Site Recovery를 사용하여 Azure로 장애 조치(Failover)합니다.
 - 장애 조치(Failover) 시 Azure VM이 저장된 VM 데이터에서 만들어지고, 사용자는 해당 Azure VM에서 실행되는 워크로드에 계속 액세스할 수 있습니다.
 - 모든 기능이 다시 작동되고 실행되면 Azure VM을 기본 사이트로 다시 장애 복구(Failback)하고 Azure Storage로 다시 복제할 수 있습니다.
-
-
-> [!NOTE]
-> Azure Stack에 대한 Site Recovery는 현재 공개 미리 보기로 제공됩니다.
 
 
 이 문서에서는 다음 방법을 설명합니다.

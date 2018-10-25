@@ -14,17 +14,19 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: fb521fc9d4927a953cdd66948101969dfc102de4
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b26b88d0e089217fa9915bdbdcb8f913731bcc67
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48842864"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988211"
 ---
 ## <a name="register-your-application"></a>응용 프로그램 등록
+
 두 가지 방법 중 하나로 응용 프로그램을 등록할 수 있습니다.
 
 ### <a name="option-1-express-mode"></a>옵션 1: 기본 모드
+
 다음을 수행하여 응용 프로그램을 신속하게 등록할 수 있습니다.
 1. [Microsoft 응용 프로그램 등록 포털](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&step=configure)로 이동합니다.
 
@@ -37,12 +39,13 @@ ms.locfileid: "48842864"
 5. 응용 프로그램 ID를 가져오는 지침에 따라 코드에 붙여넣습니다.
 
 ### <a name="option-2-advanced-mode"></a>옵션 2: 고급 모드
+
 응용 프로그램을 등록하고 응용 프로그램 등록 정보를 솔루션에 추가하려면 다음을 수행합니다.
 1. 응용 프로그램을 이미 등록한 경우 [Microsoft 응용 프로그램 등록 포털](https://apps.dev.microsoft.com/portal/register-app)로 이동합니다.
 
 2. **앱 추가**를 선택합니다.
 
-3. **응용 프로그램 이름** 상자에서 응용 프로그램의 이름을 입력합니다. 
+3. **응용 프로그램 이름** 상자에서 응용 프로그램의 이름을 입력합니다.
 
 4. **단계별 설치** 확인란의 선택을 취소한 다음 **만들기**를 선택하도록 합니다.
 

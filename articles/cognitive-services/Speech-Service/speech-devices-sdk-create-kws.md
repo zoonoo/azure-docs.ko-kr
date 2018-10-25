@@ -1,20 +1,21 @@
 ---
 title: 사용자 지정 절전 모드 해제 단어 만들기
-description: Speech 장치 SDK에 대한 사용자 지정 절전 모드 해제 단어를 만드는 방법을 알아봅니다.
 titleSuffix: Azure Cognitive Services
+description: Speech 장치 SDK에 대한 사용자 지정 절전 모드 해제 단어를 만드는 방법을 알아봅니다.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 04/28/2018
 ms.author: erhopf
-ms.openlocfilehash: ab2bc9a83feadd9ece8876559e730e7bc955908a
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 5f138aee9dfa91e285591e5d50c14465ad32b77d
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165473"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469081"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Speech Service를 사용하여 사용자 지정 절전 모드 해제 단어 만들기
 
@@ -52,10 +53,6 @@ ms.locfileid: "49165473"
 1. Azure Active Directory에 대한 초대를 받은 이메일 주소를 사용하여 새 계정을 만듭니다. 
 
     ![새 계정 만들기](media/speech-devices-sdk/wake-word-1.png)
- 
-1.  로그인한 후 양식을 작성한 다음, **경험 시작**을 선택합니다.
-
-    ![정상 로그인된 후의 화면](media/speech-devices-sdk/wake-word-3.png)
  
 1. 일반 사용자는 **사용자 지정 절전 모드 해제 단어** 페이지를 사용할 수 없으므로 이 페이지로 이동할 수 있는 직접 링크가 없습니다. Custom Speech 기능을 사용하려면 Azure 구독이 필요하지만 사용자 지정 절전 모드 해제 단어 기능은 필요하지 않습니다. **구독을 찾을 수 없습니다.** 오류 페이지가 표시되면, URL에서 **"Subscriptions?errorMessage=No%20Subscriptions%20found"** 를 "**customkws**"로 바꾸고 Enter 키를 누르기만 하면 됩니다. URL은 해당 지역의 위치에 따라 https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws 또는 https://northeurope.cris.ai/customkws 중 하나여야 합니다.
 

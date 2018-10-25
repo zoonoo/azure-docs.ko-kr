@@ -4,41 +4,61 @@ description: 이 문서에서는 Azure Database for PostgreSQL에서 쿼리 및 
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: bcca8ce8d11482dd8517992297b7e8a5b94ac8b1
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.topic: conceptual
+ms.date: 10/04/2018
+ms.openlocfilehash: 2a6744bdec48e59b820605bb4d1cc01d32702bcf
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435493"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867768"
 ---
-# <a name="server-logs-in-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스의 서버 로그 
-PostgreSQL용 Azure 데이터베이스에서는 쿼리 및 오류 로그를 생성합니다. 그러나 트랜잭션 로그에 대한 액세스는 지원되지 않습니다. 쿼리 및 오류 로그는 구성 오류 및 최적 상태가 아닌 성능 문제를 식별하고, 문제를 해결하고, 복구하는 데 사용될 수 있습니다. 자세한 내용은 [오류 보고 및 로깅](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html)을 참조하세요.
+# <a name="server-logs-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL의 서버 로그 
+PostgreSQL용 Azure 데이터베이스에서는 쿼리 및 오류 로그를 생성합니다. 쿼리 및 오류 로그는 구성 오류 및 최적 상태가 아닌 성능 문제를 식별하고, 문제를 해결하고, 복구하는 데 사용될 수 있습니다. 단, 트랜잭션 로그 액세스 권한은 포함되지 않습니다. 
 
-## <a name="access-server-logs"></a>서버 로그 액세스
-Azure Portal, [Azure CLI](howto-configure-server-logs-using-cli.md) 및 Azure REST API를 사용하여 Azure PostgreSQL 서버 오류 로그를 나열하고 다운로드할 수 있습니다.
+## <a name="configure-logging"></a>로깅 구성 
+로깅 서버 매개 변수를 사용하면 서버에서 로깅을 구성할 수 있습니다. 각 새 서버의 **log_checkpoints** 및 **log_connections**는 기본적으로 설정되어 있습니다. 로깅 요구에 맞게 매개 변수를 추가로 조정할 수도 있습니다. 
 
-## <a name="log-retention"></a>로그 보존
-서버에 연결된 **log\_retention\_period** 매개 변수를 사용하여 시스템 로그의 보존 기간을 설정할 수 있습니다. 이 매개 변수의 단위는 일입니다. 기본값은 3일입니다. 최대값은 7일입니다. 서버에 보존된 로그 파일을 포함할만큼 충분한 저장소가 할당되어야 합니다.
-로그 파일은 1시간마다 또는 100MB 크기가 될 때마다(둘 중 먼저 도달할 때) 순환됩니다.
+![Azure Database for PostgreSQL - 로깅 매개 변수](./media/concepts-server-logs/log-parameters.png)
 
-## <a name="configure-logging-for-azure-postgresql-server"></a>Azure PostgreSQL 서버에 대한 로깅 구성
-서버에 대한 쿼리 로깅 및 오류 로그를 사용하도록 설정할 수 있습니다. 오류 로그에는 자동 진공, 연결 및 검사점 정보가 포함될 수 있습니다.
+이러한 매개 변수에 대한 자세한 내용은 PostgreSQL의 [오류 보고 및 로깅](https://www.postgresql.org/docs/current/static/runtime-config-logging.html) 설명서를 참조하세요. Azure Database for PostgreSQL 매개 변수를 구성하는 방법을 알아보려면 [포털 설명서](howto-configure-server-parameters-using-portal.md) 또는 [CLI 설명서](howto-configure-server-parameters-using-cli.md)를 참조하세요.
 
-두 개의 서버 매개 변수 `log_statement` 및 `log_min_duration_statement`를 설정하여 PostgreSQL DB 인스턴스에 대한 쿼리 로깅을 활성화할 수 있습니다.
+## <a name="access-server-logs-through-portal-or-cli"></a>포털 또는 CLI를 통해 서버 로그 액세스
+로그를 사용하도록 설정한 경우 [Azure Portal](howto-configure-server-logs-in-portal.md), [Azure CLI](howto-configure-server-logs-using-cli.md) 및 Azure REST API를 사용하여 Azure Database for PostgreSQL 로그 저장소에서 로그에 액세스할 수 있습니다. 로그 파일은 1시간마다 또는 100MB 크기가 될 때마다(둘 중 먼저 도달할 때) 순환됩니다. 서버에 연결된 **log\_retention\_period** 매개 변수를 사용하여 이 로그 저장소의 보존 기간을 설정할 수 있습니다. 기본값은 3일이며 최대값은 7일입니다. 로그 파일을 저장하기에 충분한 저장소를 서버에 할당해야 합니다. Azure 진단 로그는 이 보존 매개 변수를 통해 제어되지 않습니다.
 
-**log\_statement** 매개 변수는 로깅되는 SQL 문을 제어합니다. 모든 문을 로깅하려면 이 매개 변수를 ***all***로 설정하는 것이 좋습니다. 기본값은 none입니다.
 
-**log\_min\_duration\_statement** 매개 변수는 로깅할 문에 대한 제한(밀리초)을 설정합니다. 이 매개 변수 설정보다 오래 실행되는 모든 SQL 문은 로깅됩니다. 이 매개 변수는 사용되지 않도록 설정되어 있으며, 기본적으로 -1로 설정됩니다. 이 매개 변수를 사용하도록 설정하면 응용 프로그램에서 최적화되지 않은 쿼리를 추적하는 데 도움이 될 수 있습니다.
+## <a name="diagnostic-logs"></a>진단 로그
+Azure Database for PostgreSQL은 Azure Monitor 진단 로그와 통합됩니다. PostgreSQL 서버에서 로그를 사용하도록 설정하고 나면 [Log Analytics](../log-analytics/log-analytics-queries.md), Event Hubs 또는 Azure Storage로 로그를 내보내도록 선택할 수 있습니다. 진단 로그를 사용하도록 설정하는 방법에 대한 자세한 내용은 [진단 로그 설명서](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)의 방법 섹션을 참조하세요. 
 
-**log\_min\_messages**를 사용하여 서버 로그에 기록되는 메시지 수준을 제어할 수 있습니다. 기본값은 WARNING입니다. 
 
-이러한 설정에 대한 자세한 내용은 [오류 보고 및 로깅](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html) 설명서를 참조하세요. Azure Database for PostgreSQL 서버 매개 변수를 특별히 구성하려면 [Azure CLI를 사용하여 서버 구성 매개 변수 사용자 지정](howto-configure-server-parameters-using-cli.md)을 참조하세요.
+아래 표에는 각 로그의 내용에 대한 설명이 나와 있습니다. 포함되는 필드와 이러한 필드가 표시되는 순서는 선택한 출력 엔드포인트에 따라 달라질 수 있습니다. 
+
+|**필드** | **설명** |
+|---|---|
+| TenantId | 테넌트 ID |
+| SourceSystem | `Azure` |
+| TimeGenerated [UTC] | UTC에 로그가 기록된 때의 타임스탬프 |
+| type | 로그의 형식 항상 `AzureDiagnostics` |
+| SubscriptionId | 서버가 속한 구독의 GUID |
+| ResourceGroup | 서버가 속한 리소스 그룹의 이름 |
+| ResourceProvider | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORPOSTGRESQL` |
+| ResourceType | `Servers` |
+| ResourceId | 리소스 URI |
+| 리소스 | 서버의 이름 |
+| Category | `PostgreSQLLogs` |
+| OperationName | `LogEvent` |
+| errorLevel | 로깅 수준(예: LOG, ERROR, NOTICE) |
+| Message | 기본 로그 메시지 | 
+| 도메인 | 서버 버전(예: postgres-10) |
+| 세부 정보 | 보조 로그 메시지(해당하는 경우) |
+| ColumnName | 열 이름(해당하는 경우) |
+| SchemaName | 스키마 이름(해당하는 경우) |
+| DatatypeName | 데이터 형식 이름(해당하는 경우) |
+| LogicalServerName | 서버의 이름 | 
+| _ResourceId | 리소스 URI |
 
 ## <a name="next-steps"></a>다음 단계
-- Azure CLI 명령줄 인터페이스를 사용하여 로그에 액세스하려면 [Azure CLI를 사용하여 서버 로그 구성 및 액세스](howto-configure-server-logs-using-cli.md)를 참조하세요.
-- 서버 매개 변수에 대한 자세한 내용은 [Azure CLI를 사용하여 서버 구성 매개 변수 사용자 지정](howto-configure-server-parameters-using-cli.md)을 참조하세요.
+- [Azure Portal](howto-configure-server-logs-in-portal.md) 또는 [Azure CLI](howto-configure-server-logs-using-cli.md)에서 로그에 액세스하는 방법에 대해 자세히 알아봅니다.
+- [Azure Monitor 가격](https://azure.microsoft.com/pricing/details/monitor/)에 대해 자세히 알아봅니다.

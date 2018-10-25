@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/25/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 54d177d7542d7501a91a955be20af776b16657a2
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: fedb41f6538e0c65114c4a28c8aa43ffc7ef6d7f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182368"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957603"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Azure Virtual WAN이란?
 
@@ -35,7 +35,7 @@ Virtual WAN을 사용하여 사이트 간 연결을 만들려면 [Virtual WAN �
 
 Virtual WAN 파트너 사용 시의 프로세스는 다음과 같습니다.
 
-1. 분기 장치(VPN/SDWAN) 컨트롤러가 [Azure 서비스 주체](../azure-resource-manager/resource-group-create-service-principal-portal.md)를 사용하여 Azure에 사이트 중심 정보를 내보내도록 인증됩니다.
+1. 분기 장치(VPN/SDWAN) 컨트롤러가 [Azure 서비스 주체](../active-directory/develop/howto-create-service-principal-portal.md)를 사용하여 Azure에 사이트 중심 정보를 내보내도록 인증됩니다.
 2. 분기 장치(VPN/SDWAN) 컨트롤러는 Azure 연결 구성을 가져오고 로컬 장치를 업데이트합니다. 구성 다운로드, 온-프레미스 VPN 장치의 편집 및 업데이트를 자동화합니다.
 3. 장치에 올바른 Azure 구성이 적용되면 Azure WAN에 대한 사이트 간 연결(활성 터널 2개)이 설정됩니다. Azure는 IKEv1 및 IKEv2를 둘 다 지원합니다. BGP는 선택 사항입니다.
 

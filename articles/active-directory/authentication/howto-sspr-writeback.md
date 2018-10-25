@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/04/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 1ae74f7c43e763962224683954b28e5941136c08
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 57446f068945d74351a77f21e16874d9e24ddcab
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295821"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801933"
 ---
 # <a name="how-to-configure-password-writeback"></a>방법: 비밀번호 쓰기 저장 구성
 
@@ -34,6 +34,12 @@ ms.locfileid: "46295821"
 8. 구성이 완료된 것이 확인되면 **마침**을 선택합니다.
 
 비밀번호 쓰기 저장과 관련된 일반적인 문제 해결 작업은 문제 해결 문서에서 [비밀번호 쓰기 저장 문제 해결](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) 섹션을 참조하세요.
+
+> [!WARNING]
+> [2018년 11월 7일에 ACS(Azure Access Control) 서비스 사용이 중지되면](../develop/active-directory-acs-migration.md) Azure AD Connect 1.0.8641.0 이하 버전을 사용 중인 고객의 경우 비밀번호 쓰기 저장 기능의 작동이 중지됩니다. 해당 날짜부터는 Azure AD Connect 1.0.8641.0 이하 버전에서 더 이상 비밀번호 쓰기 저장이 허용되지 않습니다. 이러한 버전에서는 해당 기능에 ACS를 사용하기 때문입니다.
+>
+> 서비스 중단을 방지하려면 이전 버전 Azure AD Connect에서 최신 버전으로 업그레이드하세요([Azure AD Connect: 이전 버전에서 최신 버전으로 업그레이드](../hybrid/how-to-upgrade-previous-version.md) 문서 참조).
+>
 
 ## <a name="active-directory-permissions"></a>Active Directory 사용 권한
 
@@ -67,7 +73,7 @@ SSPR 범위 내에 있으려면 Azure AD Connect 유틸리티에 지정된 계�
 4. **사용 권한** 탭에서 **추가**를 선택합니다.
 5. (Azure AD Connect 설정에서) 사용 권한이 적용되는 계정을 선택합니다.
 6. **적용 대상** 드롭다운 목록에서 **하위 사용자** 개체를 선택합니다.
-7. **사용 권한** 아래에서 다음에 대한 확인란을 선택합니다.
+7. **권한** 아래에서 다음 옵션의 확인란을 선택합니다.
     * **암호 다시 설정**
     * **암호 변경**
     * **lockoutTime 쓰기**

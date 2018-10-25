@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: annaba
-ms.openlocfilehash: 2f6b9ee7a23341f27272a4614bed6be5ae422ce0
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ea65dcca3e5de06d1bc966b3e7cb6b608260a053
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297276"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803969"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Azure Active Directory에서 인증서 기반 인증 시작
 
@@ -203,6 +203,6 @@ Intune과 같은 MDM(모바일 장치 관리)을 활용하거나 장치의 EAS �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Android 장치에서 인증서 기반 인증에 대한 추가 정보입니다.](active-directory-certificate-based-authentication-android.md)
+[Android 장치의 인증서 기반 인증에 대한 추가 정보를 확인합니다.](active-directory-certificate-based-authentication-android.md)
 
-[iOS 장치에서 인증서 기반 인증에 대한 추가 정보입니다.](active-directory-certificate-based-authentication-ios.md)
+[iOS 장치의 인증서 기반 인증에 대한 추가 정보를 확인합니다.](active-directory-certificate-based-authentication-ios.md)

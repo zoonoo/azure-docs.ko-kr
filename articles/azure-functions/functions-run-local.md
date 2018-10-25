@@ -5,21 +5,18 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-editor: ''
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: multiple
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.date: 08/14/2018
+ms.topic: conceptual
+ms.date: 09/24/2018
 ms.author: glenga
-ms.openlocfilehash: cb336d6742aab10e1fd8305fd52f1376bb4f2598
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 1827e54f5e1e68ec324b4f521de843be48935391
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42143790"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079415"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -29,13 +26,13 @@ Azure Functions 핵심 도구를 사용하여 명령 프롬프트 또는 터미�
 
 ## <a name="core-tools-versions"></a>핵심 도구 버전
 
-Azure Functions 핵심 도구에는 두 가지 버전이 있습니다. 사용 중인 버전은 로컬 개발 환경, 선택한 언어 및 필요한 지원 수준에 따라 달라집니다.
+Azure Functions 핵심 도구에는 두 가지 버전이 있습니다. 사용 중인 버전은 로컬 개발 환경, [선택한 언어](supported-languages.md) 및 필요한 지원 수준에 따라 달라집니다.
 
-+ [버전 1.x](#v1): GA(일반 공급) 상태인 1.x 버전의 런타임을 지원합니다. 이 버전의 도구는 Windows 컴퓨터에서만 지원되며 [npm 패키지](https://docs.npmjs.com/getting-started/what-is-npm)에서 설치됩니다. 이 버전을 사용하면 공식적으로 지원되지 않는 실험적 언어로 함수를 만들 수 있습니다. 자세한 내용은 [Azure Functions에서 지원되는 언어](supported-languages.md)를 참조하세요.
++ [버전 1.x](#v1): 런타임 버전 1.x를 지원합니다. 이 버전의 도구는 Windows 컴퓨터에서만 지원되며 [npm 패키지](https://docs.npmjs.com/getting-started/what-is-npm)에서 설치됩니다. 이 버전을 사용하면 공식적으로 지원되지 않는 실험적 언어로 함수를 만들 수 있습니다. 자세한 내용은 [Azure Functions에서 지원되는 언어](supported-languages.md)를 참조하세요.
 
-+ [버전 2.x](#v2): [런타임 버전 2.x](functions-versions.md)를 지원합니다. 이 버전은 [Windows](#windows-npm), [macOS](#brew) 및 [Linux](#linux)를 지원합니다. 설치에 플랫폼별 패키지 관리자 또는 npm을 사용합니다. 2.x 런타임과 같이 이 버전의 핵심 도구는 현재 미리 보기 상태입니다. 
++ [버전 2.x](#v2): [런타임 버전 2.x](functions-versions.md)를 지원합니다. 이 버전은 [Windows](#windows-npm), [macOS](#brew) 및 [Linux](#linux)를 지원합니다. 설치에 플랫폼별 패키지 관리자 또는 npm을 사용합니다.
 
-언급이 없는 경우 이 아티클의 예제는 2.x 버전용입니다. 버전 2.x에서 주요 변경 알림을 비롯한 중요한 업데이트를 받으려면 [Azure App Service 알림](https://github.com/Azure/app-service-announcements/issues) 리포지토리를 확인하세요.
+언급이 없는 경우 이 아티클의 예제는 2.x 버전용입니다.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Azure Functions 핵심 도구 설치
 
@@ -43,18 +40,15 @@ Azure Functions 핵심 도구에는 두 가지 버전이 있습니다. 사용 �
 
 ### <a name="v1"></a>버전 1.x
 
-원래 버전의 도구는 Functions 1.x 런타임을 사용합니다. 이 버전은 .NET Framework(4.7.1)를 사용하며 Windows 컴퓨터에서만 지원됩니다. 버전 1.x 도구를 설치하려면 먼저 npm이 포함된 [NodeJS를 설치](https://docs.npmjs.com/getting-started/installing-node)해야 합니다.
+원래 버전의 도구는 Functions 1.x 런타임을 사용합니다. 이 버전은 .NET Framework(4.7)를 사용하며 Windows 컴퓨터에서만 지원됩니다. 버전 1.x 도구를 설치하려면 먼저 npm이 포함된 [NodeJS를 설치](https://docs.npmjs.com/getting-started/installing-node)해야 합니다.
 
 다음 명령을 사용하여 버전 1.x 도구를 설치합니다.
 
 ```bash
-npm install -g azure-functions-core-tools
+npm install -g azure-functions-core-tools@v1
 ```
 
 ### <a name="v2"></a>버전 2.x
-
->[!NOTE]
-> Azure Functions 런타임 2.0은 미리 보기 상태이며, 현재 Azure Functions의 일부 기능은 지원되지 않습니다. 자세한 내용은 [Azure Functions 버전](functions-versions.md)을 참조하세요. 
 
 버전 2.x 도구는 .NET Core를 기반으로 하는 Azure Functions 런타임 2.x를 사용합니다. 이 버전은 [Windows](#windows-npm), [macOS](#brew) 및 [Linux](#linux)를 포함하여 .NET Core 2.x에서 지원하는 모든 플랫폼에서 지원됩니다.
 
@@ -69,7 +63,7 @@ npm install -g azure-functions-core-tools
 3. 다음과 같이 핵심 도구 패키지를 설치합니다.
 
     ```bash
-    npm install -g azure-functions-core-tools@core
+    npm install -g azure-functions-core-tools
     ```
 
 #### <a name="brew"></a>Homebrew가 있는 MacOS
@@ -109,6 +103,7 @@ npm install -g azure-functions-core-tools
 
     | Linux 배포 | 버전 |
     | --------------- | ----------- |
+    | Ubuntu 18.04    | `bionic`    |
     | Ubuntu 17.10    | `artful`    |
     | Ubuntu 17.04    | `zesty`     |
     | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
@@ -118,6 +113,16 @@ npm install -g azure-functions-core-tools
     ```bash
     sudo apt-get install azure-functions-core-tools
     ```
+
+### <a name="v1"></a>버전 1.x
+
+원래 버전의 도구는 Functions 1.x 런타임을 사용합니다. 이 버전은 .NET Framework(4.7.1)를 사용하며 Windows 컴퓨터에서만 지원됩니다. 버전 1.x 도구를 설치하려면 먼저 npm이 포함된 [NodeJS를 설치](https://docs.npmjs.com/getting-started/installing-node)해야 합니다.
+
+다음 명령을 사용하여 버전 1.x 도구를 설치합니다.
+
+```bash
+npm install -g azure-functions-core-tools@v1
+```
 
 ## <a name="create-a-local-functions-project"></a>로컬 Functions 프로젝트 만들기
 
@@ -151,10 +156,19 @@ Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
 Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 ```
 
-로컬 Git 리포지토리 없이 프로젝트를 만들려면 `--no-source-control [-n]` 옵션을 사용합니다.
+별도의 설명이 없으면 `func init`는 다음 옵션(버전 2.x 전용)을 지원합니다.
+
+| 옵션     | 설명                            |
+| ------------ | -------------------------------------- |
+| **`--csx`** | C# 스크립트(.csx) 프로젝트를 초기화합니다. 후속 명령에서 `--csx`를 지정해야 합니다. |
+| **`--docker`** | 선택한 `--worker-runtime`을 기반으로 하는 기본 이미지를 사용하여 컨테이너용 Docker 파일을 만듭니다. 사용자 지정 Linux 컨테이너에 게시하려는 경우 이 옵션을 사용합니다. |
+| **`--force`** | 프로젝트에 기존 파일이 있어도 프로젝트를 초기화합니다. 이 설정은 이름이 같은 기존 파일을 덮어씁니다. 프로젝트 폴더의 다른 파일에는 영향이 없습니다. |
+| **`--no-source-control -n`** | 버전 1.x에서 Git 리포지토리 기본 작성을 차단합니다. 버전 2.x에서는 Git 리포지토리가 기본적으로 작성되지 않습니다. |
+| **`--source-control`** | Git 리포지토리 작성 여부를 제어합니다. 리포지토리는 기본적으로 작성되지 않습니다. `true`이면 리포지토리가 작성됩니다. |
+| **`--worker-runtime`** | 프로젝트의 언어 런타임을 설정합니다. 지원되는 값은 `dotnet`, `node`(JavaScript) 및 `java`입니다. 설정하지 않으면 초기화 중에 런타임을 선택하라는 메시지가 표시됩니다. |
 
 > [!IMPORTANT]
-> 기본적으로 핵심 도구 버전 2.x에서는 .NET 런타임에 대한 함수 앱 프로젝트를 [C# 클래스 프로젝트](functions-dotnet-class-library.md)(.csproj)로 만듭니다. 이러한 C# 프로젝트는 Visual Studio 2017 또는 Visual Studio Code에서 사용할 수 있으며, 테스트 도중 및 Azure에 게시할 때 컴파일됩니다. 버전 1.x 및 포털에서 생성되는 것과 동일한 C# 스크립트(.csx) 파일을 만들고 작업하려는 경우, 함수를 만들고 배포할 때 `--csx` 매개 변수를 포함해야 합니다.
+> 기본적으로 핵심 도구 버전 2.x에서는 .NET 런타임에 대한 함수 앱 프로젝트를 [C# 클래스 프로젝트](functions-dotnet-class-library.md)(.csproj)로 만듭니다. 이러한 C# 프로젝트는 Visual Studio 또는 Visual Studio Code에서 사용할 수 있으며, 테스트 중에/Azure에 게시할 때 컴파일됩니다. 버전 1.x 및 포털에서 생성되는 것과 동일한 C# 스크립트(.csx) 파일을 만들고 작업하려는 경우, 함수를 만들고 배포할 때 `--csx` 매개 변수를 포함해야 합니다.
 
 ## <a name="register-extensions"></a>확장 등록
 
@@ -166,12 +180,13 @@ Azure Functions 런타임의 2.x 버전에서는 함수 앱에서 사용하는 �
 
 ## <a name="local-settings-file"></a>로컬 설정 파일
 
-local.settings.json 파일은 앱 설정, 연결 문자열 및 Azure Functions 핵심 도구에 대한 설정을 저장합니다. 구조는 다음과 같습니다.
+local.settings.json 파일은 앱 설정, 연결 문자열 및 Azure Functions 핵심 도구에 대한 설정을 저장합니다. local.settings.json 파일의 설정은 로컬에서 실행할 때 Functions 도구에서만 사용됩니다. 기본적으로 이러한 설정은 프로젝트가 Azure에 게시될 때 자동으로 마이그레이션되지 않습니다. [게시할 때](#publish) `--publish-local-settings` 스위치를 사용하여 이러한 설정이 Azure의 함수 앱에 추가되었는지 확인합니다. **ConnectionStrings**의 값은 게시되지 않습니다. 파일의 구조는 다음과 같습니다.
 
 ```json
 {
   "IsEncrypted": false,
   "Values": {
+    "FUNCTIONS\_WORKER\_RUNTIME": "<language worker>",
     "AzureWebJobsStorage": "<connection-string>",
     "AzureWebJobsDashboard": "<connection-string>",
     "MyBindingConnection": "<binding-connection-string>"
@@ -199,15 +214,13 @@ local.settings.json 파일은 앱 설정, 연결 문자열 및 Azure Functions �
 
 + [미리 컴파일된 C#](functions-dotnet-class-library.md#environment-variables)
 + [C# 스크립트(.csx)](functions-reference-csharp.md#environment-variables)
-+ [F#](functions-reference-fsharp.md#environment-variables)
++ [F# 스크립트(.fsx)](functions-reference-fsharp.md#environment-variables)
 + [Java](functions-reference-java.md#environment-variables) 
 + [JavaScript](functions-reference-node.md#environment-variables)
 
-local.settings.json 파일의 설정은 로컬에서 실행할 때 Functions 도구에서만 사용됩니다. 기본적으로 이러한 설정은 프로젝트가 Azure에 게시될 때 자동으로 마이그레이션되지 않습니다. [게시할 때](#publish) `--publish-local-settings` 스위치를 사용하여 이러한 설정이 Azure의 함수 앱에 추가되었는지 확인합니다. **ConnectionStrings**의 값은 절대 게시되지 않습니다.
-
 **AzureWebJobsStorage**에 유효한 저장소 연결 문자열이 설정되어 있지 않고 에뮬레이터가 사용되지 않으면 다음 오류 메시지가 표시됩니다.  
 
->local.settings.json에 AzureWebJobsStorage 값이 없습니다. 이 값은 HTTP 이외의 모든 트리거에 필요합니다. 'func azure functionapp fetch-app-settings <functionAppName>'를 실행하거나 local.settings.json에서 연결 문자열을 지정할 수 있습니다. 
+> local.settings.json에 AzureWebJobsStorage 값이 없습니다. 이 값은 HTTP 이외의 모든 트리거에 필요합니다. 'func azure functionapp fetch-app-settings <functionAppName>'를 실행하거나 local.settings.json에서 연결 문자열을 지정할 수 있습니다. 
 
 ### <a name="get-your-storage-connection-strings"></a>저장소 연결 문자열 가져오기
 
@@ -233,7 +246,7 @@ local.settings.json 파일의 설정은 로컬에서 실행할 때 Functions 도
     ```bash
     func azure storage fetch-connection-string <StorageAccountName>
     ```
-    
+
     Azure에 로그인하지 않은 경우 수행하라는 메시지가 나타납니다.
 
 ## <a name="create-func"></a>함수 만들기
@@ -274,10 +287,10 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 | 인수     | 설명                            |
 | ------------------------------------------ | -------------------------------------- |
-| **`--language -l`**| C#, F# 또는 JavaScript와 같은 템플릿 프로그래밍 언어 이 옵션은 버전 1.x에서 필요합니다. 버전 2.x에서는 이 옵션을 사용하지 않거나 프로젝트의 기본 언어를 선택합니다. |
-| **`--template -t`** | `func templates list` 명령을 사용하여 지원되는 각 언어에 대해 사용 가능한 템플릿의 전체 목록을 확인합니다.   |
-| **`--name -n`** | 함수 이름 |
 | **`--csx`** | (버전 2.x) 버전 1.x 및 포털에서 사용되는 것과 동일한 C# 스크립트(.csx) 템플릿을 생성합니다. |
+| **`--language -l`**| C#, F# 또는 JavaScript와 같은 템플릿 프로그래밍 언어 이 옵션은 버전 1.x에서 필요합니다. 버전 2.x에서는 이 옵션을 사용하지 않거나 작업자 런타임과 일치하는 언어를 선택하세요. |
+| **`--name -n`** | 함수 이름 |
+| **`--template -t`** | `func templates list` 명령을 사용하여 지원되는 각 언어에 대해 사용 가능한 템플릿의 전체 목록을 확인합니다.   |
 
 예를 들어 단일 명령에서 JavaScript HTTP 트리거를 만들려면 다음을 실행합니다.
 
@@ -298,28 +311,31 @@ Functions 프로젝트를 실행하려면 Functions 호스트를 실행합니다
 ```bash
 func host start
 ```
+
 `host` 명령은 버전 1.x에서만 필요합니다.
 
 `func host start`은 다음 옵션을 지원합니다.
 
 | 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
-| **`--cors`** | CORS 원본의 공백 없이 쉼표로 구분된 목록입니다. |
-| **`--debug <type>`** | [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) 또는 [Visual Studio 2017](functions-dotnet-class-library.md)에서 **func.exe** 프로세스에 연결할 수 있도록 디버그 포트를 열어둔 호스트를 시작합니다. *\<형식\>* 옵션은 `VSCode` 및 `VS`입니다.  |
-| **`--port -p`** | 수신 대기할 로컬 포트입니다. 기본값: 7071 |
-| **`--timeout -t`** | Functions 호스트를 시작할 제한 시간(초)입니다. 기본값: 20초|
-| **`--useHttps`** | `http://localhost:{port}`가 아닌 `https://localhost:{port}`에 바인딩합니다. 기본적으로 이 옵션은 사용자 컴퓨터에 신뢰할 수 있는 인증서를 만듭니다.|
 | **`--build`** | 실행 전에 현재 프로젝트를 빌드합니다. 버전 2.x 및 C# 프로젝트만 해당됩니다. |
-| **`--cert`** | 개인 키가 포함된 .pfx 파일에 대한 경로입니다. `--useHttps`을 통해서만 사용됩니다. 버전 2.x 전용입니다. | 
-| **`--password`** | .pfx 파일에 대한 암호가 포함된 암호 또는 파일입니다. `--cert`을 통해서만 사용됩니다. 버전 2.x 전용입니다. |
+| **`--cert`** | 개인 키가 포함된 .pfx 파일에 대한 경로입니다. `--useHttps`을 통해서만 사용됩니다. 버전 2.x 전용입니다. |
+| **`--cors`** | CORS 원본의 공백 없이 쉼표로 구분된 목록입니다. |
+| **`--debug`** | [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) 또는 [Visual Studio 2017](functions-dotnet-class-library.md)에서 **func.exe** 프로세스에 연결할 수 있도록 디버그 포트를 열어둔 호스트를 시작합니다. 유효한 값은 `VSCode` 및 `VS`입니다.  |
 | **`--language-worker`** | 언어 작업자를 구성하는 인수입니다. 버전 2.x 전용입니다. |
 | **`--nodeDebugPort -n`** | 사용할 노드 디버거의 포트입니다. 기본값: launch.json 값 또는 5858 버전 1.x 전용입니다. |
+| **`--password`** | .pfx 파일에 대한 암호가 포함된 암호 또는 파일입니다. `--cert`을 통해서만 사용됩니다. 버전 2.x 전용입니다. |
+| **`--port -p`** | 수신 대기할 로컬 포트입니다. 기본값: 7071 |
+| **`--pause-on-error`** | 프로세스를 종료하기 전에 추가 입력에 대해 일시 중지합니다. IDE(통합 개발 환경)에서 Core Tools를 시작할 때만 사용됩니다.|
+| **`--script-root --prefix`** | 실행하거나 배포할 함수 앱의 루트 경로를 지정하는 데 사용됩니다. 하위 폴더에 프로젝트 파일을 생성하는 컴파일된 프로젝트용으로 사용됩니다. 예를 들어 C# 클래스 라이브러리 프로젝트를 작성할 때는 `MyProject/bin/Debug/netstandard2.0`과 같은 경로를 사용하여 *root* 하위 폴더에 host.json, local.settings.json 및 function.json 파일이 생성됩니다. 이 경우 접두사를 `--script-root MyProject/bin/Debug/netstandard2.0`으로 설정합니다. 이 접두사는 Azure에서 실행할 때의 함수 앱 루트입니다. |
+| **`--timeout -t`** | Functions 호스트를 시작할 제한 시간(초)입니다. 기본값: 20초|
+| **`--useHttps`** | `http://localhost:{port}`가 아닌 `https://localhost:{port}`에 바인딩합니다. 기본적으로 이 옵션은 사용자 컴퓨터에 신뢰할 수 있는 인증서를 만듭니다.|
 
 C# 클래스 라이브러리 프로젝트(.csproj)의 경우 library.dll을 생성하려면 `--build` 옵션을 포함해야 합니다.
 
 Functions 호스트가 시작되면 HTTP 트리거 함수의 URL이 출력됩니다.
 
-```bash
+```output
 Found the following functions:
 Host.Functions.MyHttpTrigger
 
@@ -349,6 +365,7 @@ Functions 호스트가 수신 대기 중인 동일한 서버 이름 및 포트�
 ```bash
 curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
 ```
+
 다음 예제는 요청 본문에서 _이름_을 전달하는 POST 요청에서 호출되는 동일한 함수입니다.
 
 ```bash
@@ -408,32 +425,66 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 ## <a name="publish"></a>Azure에 게시
 
+Core Tools는 두 가지 배포 유형을 지원합니다. 그중 하나는 함수 앱에 함수 프로젝트 파일을 직접 배포하는 것이고, 다른 하나는 사용자 지정 Linux 컨테이너를 배포하는 것입니다. 두 번째 유형은 버전 2.x에서만 지원됩니다. 그리고 이미 [Azure 구독에서 함수 앱을 작성](functions-cli-samples.md#create)한 상태여야 합니다.
+
+버전 2.x에서는 게시 전에 프로젝트에서 [확장을 등록](#register-extensions)해야 합니다. 컴파일해야 하는 프로젝트는 이진 파일을 배포할 수 있는 방식으로 빌드해야 합니다.
+
+### <a name="project-file-deployment"></a>프로젝트 파일 배포  
+
+가장 흔히 사용되는 배포 방법에서는 Core Tools를 사용하여 함수 앱 프로젝트를 패키지로 만든 다음 함수 앱에 해당 패키지를 배포합니다. 필요한 경우 [배포 패키지에서 함수를 직접 실행](run-functions-from-deployment-package.md)할 수 있습니다.
+
 Azure의 함수 앱에 Functions 프로젝트를 게시하려면 `publish` 명령을 사용합니다.
 
 ```bash
 func azure functionapp publish <FunctionAppName>
 ```
 
-다음 옵션을 사용할 수 있습니다.
-
-| 옵션     | 설명                            |
-| ------------ | -------------------------------------- |
-| **`--publish-local-settings -i`** |  local.settings.json의 설정을 Azure에 게시하고, 설정이 이미 있는 경우 덮어쓸지 묻습니다. 저장소 에뮬레이터를 사용하는 경우 앱 설정을 [실제 저장소 연결](#get-your-storage-connection-strings)로 변경합니다. |
-| **`--overwrite-settings -y`** | `-i`와 함께 사용해야 합니다. Azure의 AppSettings을 로컬 값으로 덮어씁니다(서로 다른 경우). 기본값은 프롬프트입니다.|
-
 이 명령은 Azure에서 기존 함수 앱에 게시합니다. `<FunctionAppName>`이 구독에 없으면 오류가 발생합니다. Azure CLI를 사용하여 명령 프롬프트 또는 터미널 창에서 함수 앱을 만드는 방법을 알아보려면 [서버를 사용하지 않고 실행하기 위한 함수 앱 만들기](./scripts/functions-cli-create-serverless.md)를 참조하세요.
 
 `publish` 명령은 Functions 프로젝트 디렉터리의 콘텐츠를 업로드합니다. 파일을 로컬로 삭제하는 경우 `publish` 명령은 Azure에서 해당 파일을 삭제하지 않습니다. [Azure Portal]에서 [Kudu 도구](functions-how-to-use-azure-function-app-settings.md#kudu)를 사용하여 Azure에서 파일을 삭제할 수 있습니다.  
 
 >[!IMPORTANT]  
-> Azure에서 함수 앱을 만드는 경우 기본적으로 Function 런타임 버전 1.x가 사용됩니다. 함수 앱이 런타임 버전 2.x를 사용하도록 하려면 응용 프로그램 설정 `FUNCTIONS_EXTENSION_VERSION=beta`를 추가합니다.  
-이 설정을 함수 앱에 추가하려면 다음 Azure CLI 코드를 사용합니다.
+> Azure Portal에서 함수 앱을 만들 때는 기본적으로 Function 런타임 버전 2.x가 사용됩니다. 함수 앱이 런타임 버전 1.x를 사용하도록 하려면 [버전 1.x에서 실행](functions-versions.md#creating-1x-apps)의 지침을 따르세요.  
+> 기존 함수가 있는 함수 앱의 런타임 버전은 변경할 수 없습니다.
 
-```azurecli-interactive
-az functionapp config appsettings set --name <function_app> \
---resource-group myResourceGroup \
---settings FUNCTIONS_EXTENSION_VERSION=beta   
+두 버전(1.x 및 2.x)에 모두 적용되는 다음 게시 옵션을 사용할 수 있습니다.
+
+| 옵션     | 설명                            |
+| ------------ | -------------------------------------- |
+| **`--publish-local-settings -i`** |  local.settings.json의 설정을 Azure에 게시하고, 설정이 이미 있는 경우 덮어쓸지 묻습니다. 저장소 에뮬레이터를 사용하는 경우 앱 설정을 [실제 저장소 연결](#get-your-storage-connection-strings)로 변경합니다. |
+| **`--overwrite-settings -y`** | `--publish-local-settings -i` 사용 시 앱 설정을 덮어쓴다는 메시지를 표시하지 않습니다.|
+
+다음 게시 옵션은 버전 2.x에서만 지원됩니다.
+
+| 옵션     | 설명                            |
+| ------------ | -------------------------------------- |
+| **`--publish-settings-only -o`** |  설정만 게시하고 콘텐츠는 건너뜁니다. 기본값은 프롬프트입니다. |
+|**`--list-ignored-files`** | .funcignore 파일을 기준으로 하여 게시 중에 무시되는 파일 목록을 표시합니다. |
+| **`--list-included-files`** | .funcignore 파일을 기준으로 하여 게시되는 파일 목록을 표시합니다. |
+| **`--zip`** | Run-From-Zip 패키지에서 게시합니다. 앱에 AzureWebJobsStorage 설정이 정의되어 있어야 합니다. |
+| **`--force`** | 특정 시나리오에서 게시 전 확인을 무시합니다. |
+| **`--csx`** | C# 스크립트(.csx) 프로젝트를 게시합니다. |
+| **`--no-build`** | dotnet 함수 작성을 건너뜁니다. |
+| **`--dotnet-cli-params`** | 컴파일된 C#(.csproj) 함수를 게시할 때 Core Tools는 'dotnet build --output bin/publish'를 호출합니다. 이 명령으로 전달하는 모든 매개 변수는 명령줄에 추가됩니다. |
+
+### <a name="custom-container-deployment"></a>사용자 지정 컨테이너 배포
+
+Functions에서는 사용자 지정 Linux 컨테이너에서 함수 프로젝트를 배포할 수 있습니다. 자세한 내용은 [사용자 지정 이미지를 사용하여 Linux에서 함수 만들기](functions-create-function-linux-custom-image.md)를 참조하세요. Core Tools 버전 2.x에서는 사용자 지정 컨테이너 배포가 지원됩니다. 사용자 지정 컨테이너에는 Dockerfile이 있어야 합니다. Dockerfile을 포함하려면 `func init`에서 --dockerfile 옵션을 사용합니다.
+
+```bash
+func deploy
 ```
+
+다음과 같은 사용자 지정 컨테이너 배포 옵션을 사용할 수 있습니다. 
+
+| 옵션     | 설명                            |
+| ------------ | -------------------------------------- |
+| **`--registry`** | 현재 사용자가 로그인되어 있는 Docker 레지스트리의 이름입니다. |
+| **`--platform`** | 함수 앱의 호스팅 플랫폼입니다. 유효한 옵션은 `kubernetes`입니다. |
+| **`--name`** | 함수 앱 이름입니다. |
+| **`--max`**  | 필요한 경우 배포할 함수 앱 인스턴스의 최대 수를 설정합니다. |
+| **`--min`**  | 필요한 경우 배포할 함수 앱 인스턴스의 최소 수를 설정합니다. |
+| **`--config`** | 선택적 배포 구성 파일을 설정합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -444,4 +495,4 @@ Azure Functions 핵심 도구는 [오픈 소스이며 GitHub에서 호스팅](ht
 
 [Azure Functions 핵심 도구]: https://www.npmjs.com/package/azure-functions-core-tools
 [Azure Portal]: https://portal.azure.com 
-[Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
+[Node.JS]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows

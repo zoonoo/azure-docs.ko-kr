@@ -9,13 +9,13 @@ ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 07/03/2018
-ms.openlocfilehash: 49ac9f9603a1b8043b19c327d5a66015959b9dd1
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/14/2018
+ms.openlocfilehash: 974ef7a51736c2e2b0a0de3c13d23ddc37fa13b7
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045877"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855020"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics에 대해 CI/CD 파이프라인을 설정하는 방법  
 
@@ -84,9 +84,9 @@ msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL
 * **DataRoot=<DataRoot path>**. DataRoot는 SyntaxCheck 모드에만 필요합니다. SyntaxCheck 모드를 사용하여 스크립트를 빌드하는 경우 MSBuild는 스크립트에서 데이터베이스 개체에 대한 참조를 확인합니다. 빌드하기 전에 빌드 머신의 DataRoot 폴더에서 U-SQL 데이터베이스의 참조된 개체를 포함하는 일치하는 로컬 환경을 설정합니다. [U-SQL 데이터베이스 프로젝트를 참조](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project)하여 이러한 데이터베이스 종속성을 관리할 수도 있습니다. MSBuild는 파일이 아닌 데이터베이스 개체 참조만 확인합니다.
 * **EnableDeployment=true** 또는 **false**. EnableDeployment는 빌드 프로세스 동안 참조된 U-SQL 데이터베이스를 배포하도록 허용되는지를 나타냅니다. U-SQL 데이터베이스 프로젝트를 참조하고 U-SQL 스크립트에서 데이터베이스 개체를 사용하는 경우 이 매개 변수를 **true**로 설정합니다.
 
-### <a name="continuous-integration-with-visual-studio-team-services"></a>Visual Studio Team Services와의 지속적인 통합
+### <a name="continuous-integration-through-azure-pipelines"></a>Azure Pipelines를 통한 연속 통합
 
-명령줄 외에 Visual Studio Build 또는 MSBuild 태스크를 사용하여 VSTS(Visual Studio Team Service)에서 U-SQL 프로젝트를 빌드할 수도 있습니다. 빌드 파이프라인을 설정하려면 빌드 파이프라인의 두 가지 작업인 NuGet 복원 작업 및 MSBuild 작업을 추가해야 합니다.
+명령줄 외에 Visual Studio Build 또는 MSBuild 작업을 사용하여 Azure Pipelines에서 U-SQL 프로젝트를 빌드할 수도 있습니다. 빌드 파이프라인을 설정하려면 빌드 파이프라인의 두 가지 작업인 NuGet 복원 작업 및 MSBuild 작업을 추가해야 합니다.
 
 ![U-SQL 프로젝트에 대한 MSBuild 작업](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
@@ -94,7 +94,7 @@ msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL
 
     ![U-SQL 프로젝트에 대한 NuGet 복원 작업](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
-2.  다음 예제와 같이 MSBuild 인수를 Visual Studio 빌드 도구 또는 MSBuild 작업에서 설정합니다. 또는 VSTS 빌드 정의에서 이러한 인수에 대한 변수를 정의할 수 있습니다.
+2.  다음 예제와 같이 MSBuild 인수를 Visual Studio 빌드 도구 또는 MSBuild 작업에서 설정합니다. 또는 Azure Pipelines 빌드 파이프라인에서 이러한 인수에 대한 변수를 정의할 수 있습니다.
 
     ![U-SQL 프로젝트에 대한 CI/CD MSBuild 변수 정의](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables.png) 
 
@@ -115,15 +115,15 @@ msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL
 
 Azure Data Lake는 U-SQL 스크립트 및 C# UDO/UDAG/UDF에 대한 테스트 프로젝트를 제공합니다.
 * [U-SQL 스크립트 및 확장 C# 코드에 대한 테스트 사례 추가](data-lake-analytics-cicd-test.md#test-u-sql-scripts) 방법을 알아봅니다.
-* [Visual Studio Team Services에서 테스트 사례를 실행](data-lake-analytics-cicd-test.md#run-test-cases-in-visual-studio-team-service)하는 방법을 알아봅니다.
+* [Azure Pipelines에서 테스트 사례를 실행](data-lake-analytics-cicd-test.md#run-test-cases-in-azure-devops)하는 방법을 알아봅니다.
 
 ## <a name="deploy-a-u-sql-job"></a>U-SQL 작업 배포
 
-빌드 및 테스트 프로세스를 통해 코드를 확인한 후 Azure PowerShell 작업을 통해 Visual Studio Team Services에서 직접 U-SQL 작업을 제출할 수 있습니다. 또한 Azure Data Lake Store 또는 Azure Blob Storage에 스크립트를 배포하고 [Azure Data Factory를 통해 예약된 작업을 실행](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics)할 수 있습니다.
+빌드 및 테스트 프로세스를 통해 코드를 확인한 후 Azure PowerShell 작업을 통해 Azure Pipelines에서 직접 U-SQL 작업을 제출할 수 있습니다. 또한 Azure Data Lake Store 또는 Azure Blob Storage에 스크립트를 배포하고 [Azure Data Factory를 통해 예약된 작업을 실행](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics)할 수 있습니다.
 
-### <a name="submit-u-sql-jobs-through-visual-studio-team-services"></a>Visual Studio Team Services를 통해 U-SQL 작업 제출
+### <a name="submit-u-sql-jobs-through-azure-pipelines"></a>Azure Pipelines를 통해 U-SQL 작업 제출
 
-U-SQL 프로젝트의 빌드 출력은 **USQLProjectName.usqlpack**이라는 zip 파일입니다. zip 파일에는 프로젝트의 모든 U-SQL 스크립트가 포함되어 있습니다. Visual Studio Team Services에서 다음 샘플 PowerShell 스크립트와 함께 [Azure PowerShell 작업](https://docs.microsoft.com/vsts/pipelines/tasks/deploy/azure-powershell?view=vsts)을 사용하여 Visual Studio Team Services 빌드 또는 릴리스 파이프라인에서 직접 U-SQL 작업을 제출할 수 있습니다.
+U-SQL 프로젝트의 빌드 출력은 **USQLProjectName.usqlpack**이라는 zip 파일입니다. zip 파일에는 프로젝트의 모든 U-SQL 스크립트가 포함되어 있습니다. Pipelines에서 다음 샘플 PowerShell 스크립트와 함께 [Azure PowerShell 작업](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-powershell?view=vsts)을 사용하여 Azure Pipelines에서 직접 U-SQL 작업을 제출할 수 있습니다.
 
 ```powershell
 <#
@@ -230,9 +230,9 @@ Main
 
 ### <a name="deploy-u-sql-jobs-through-azure-data-factory"></a>Azure Data Factory를 통해 U-SQL 작업 배포
 
-Visual Studio Team Services에서 직접 U-SQL 작업을 제출할 수 있습니다. 또는 Azure Data Lake Store 또는 Azure Blob Storage에 빌드된 스크립트를 업로드하고 [Azure Data Factory를 통해 예약된 작업을 실행](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics)할 수 있습니다.
+Azure Pipelines에서 직접 U-SQL 작업을 제출할 수 있습니다. 또는 Azure Data Lake Store 또는 Azure Blob Storage에 빌드된 스크립트를 업로드하고 [Azure Data Factory를 통해 예약된 작업을 실행](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics)할 수 있습니다.
 
-Visual Studio Team Services에서 다음 샘플 PowerShell 스크립트와 함께 [Azure PowerShell 작업](https://docs.microsoft.com/vsts/pipelines/tasks/deploy/azure-powershell?view=vsts)을 사용하여 U-SQL 스크립트를 Azure Data Lake Store 계정으로 업로드합니다.
+Azure Pipelines에서 다음 샘플 PowerShell 스크립트와 함께 [Azure PowerShell 작업](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-powershell?view=vsts)을 사용하여 U-SQL 스크립트를 Azure Data Lake Store 계정으로 업로드합니다.
 
 ```powershell
 <#
@@ -319,9 +319,9 @@ msbuild DatabaseProject.usqldbproj /p:USQLSDKPath=packages\Microsoft.Azure.DataL
 
 인수 `USQLSDKPath=<U-SQL Nuget package>\build\runtime`은 U-SQL 언어 서비스에 대한 NuGet 패키지의 설치 경로를 나타냅니다.
 
-### <a name="continuous-integration-with-visual-studio-team-services"></a>Visual Studio Team Services와의 지속적인 통합
+### <a name="continuous-integration-with-azure-pipelines"></a>Azure Pipelines를 사용한 연속 통합
 
-명령줄 외에 Visual Studio Build 또는 MSBuild 작업을 사용하여 Visual Studio Team Services에서 U-SQL 데이터베이스 프로젝트를 빌드할 수 있습니다. 빌드 작업을 설정하려면 빌드 파이프라인의 두 가지 작업인 NuGet 복원 작업 및 MSBuild 작업을 추가해야 합니다.
+명령줄 외에 Visual Studio Build 또는 MSBuild 작업을 사용하여 Azure Pipelines에서 U-SQL 데이터베이스 프로젝트를 빌드할 수 있습니다. 빌드 작업을 설정하려면 빌드 파이프라인의 두 가지 작업인 NuGet 복원 작업 및 MSBuild 작업을 추가해야 합니다.
 
    ![U-SQL 프로젝트에 대한 CI/CD MSBuild 작업](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
@@ -330,7 +330,7 @@ msbuild DatabaseProject.usqldbproj /p:USQLSDKPath=packages\Microsoft.Azure.DataL
 
     ![U-SQL 프로젝트를 위한 CI/CD NuGet 작업](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
-2.  다음 예제와 같이 MSBuild 인수를 Visual Studio 빌드 도구 또는 MSBuild 작업에서 설정합니다. 또는 VSTS 빌드 정의에서 이러한 인수에 대한 변수를 정의할 수 있습니다.
+2.  다음 예제와 같이 MSBuild 인수를 Visual Studio 빌드 도구 또는 MSBuild 작업에서 설정합니다. 또는 Azure Pipelines 빌드 파이프라인에서 이러한 인수에 대한 변수를 정의할 수 있습니다.
 
    ![U-SQL 데이터베이스 프로젝트에 대한 CI/CD MSBuild 변수 정의](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables-database-project.png) 
 
@@ -350,16 +350,16 @@ U-SQL 데이터베이스 프로젝트에 대한 빌드 출력은 접미사 `.usq
 2.  U-SQL 프로젝트에 데이터베이스 참조를 추가합니다. 테이블 반환 함수 및 저장 프로시저 정의를 가져오려면 DDL 문을 포함하는 데이터베이스 프로젝트를 참조해야 합니다. [데이터베이스 참조](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project)에 대해 자세히 알아보세요.
 3.  테이블 반환 함수 및 저장 프로시저를 호출하는 U-SQL 스크립트에 대한 테스트 사례를 추가합니다. [U-SQL 스크립트에 대한 테스트 사례 추가](data-lake-analytics-cicd-test.md#test-u-sql-scripts) 방법을 알아봅니다.
 
-## <a name="deploy-u-sql-database-through-visual-studio-team-service"></a>Visual Studio Team Service를 통해 U-SQL 데이터베이스 배포
+## <a name="deploy-u-sql-database-through-azure-pipelines"></a>Azure Pipelines를 통해 U-SQL 데이터베이스 배포
 
 `PackageDeploymentTool.exe`는 U-SQL 데이터베이스 배포 패키지 **.usqldbpack**를 배포하는 데 도움이 되는 프로그래밍 및 명령줄 인터페이스를 제공합니다. SDK는 **build/runtime/PackageDeploymentTool.exe**에 있는 [U-SQL SDK NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/)에 포함되어 있습니다. `PackageDeploymentTool.exe`를 사용하여 Azure Data Lake Analytics와 로컬 계정 둘 다에 U-SQL 데이터베이스를 배포할 수 있습니다.
 
 > [!NOTE]
 >
-> U-SQL 데이터베이스 배포에 대한 PowerShell 명령줄 지원 및 Visual Studio Team Services 릴리스 작업 지원은 현재 보류 중입니다.
+> U-SQL 데이터베이스 배포를 위한 PowerShell 명령줄 지원 및 Azure Pipelines 릴리스 작업 지원은 현재 보류 중입니다.
 >
 
-Visual Studio Team Services에서 데이터베이스 배포 작업을 설정하려면 다음 단계를 따릅니다.
+Azure Pipelines에서 데이터베이스 배포 작업을 설정하려면 다음 단계를 따릅니다.
 
 1. 빌드 또는 릴리스 파이프라인에 PowerShell 스크립트 작업을 추가하고 다음 PowerShell 스크립트를 실행합니다. 이 태스크는 `PackageDeploymentTool.exe` 및 `PackageDeploymentTool.exe`에 대한 Azure SDK 종속성을 가져오는 데 도움이 됩니다. **-AzureSDK** 및 **-DBDeploymentTool** 매개 변수를 설정하여 종속성 및 배포 도구를 일부 특정 폴더로 로드할 수 있습니다. 2단계에서 `PackageDeploymentTool.exe`에 대한 **-AzureSDK** 경로를 **-AzureSDKPath** 매개 변수로서 전달합니다. 
 
@@ -388,8 +388,8 @@ Visual Studio Team Services에서 데이터베이스 배포 작업을 설정하�
     echo "workingfolder=$workingfolder, outputfolder=$outputfolder"
     echo "Downloading required packages..."
 
-    iwr https://www.nuget.org/api/v2/package/Microsoft.Azure.Management.DataLake.Analytics/3.2.3-preview -outf Microsoft.Azure.Management.DataLake.Analytics.3.2.3-preview.zip
-    iwr https://www.nuget.org/api/v2/package/Microsoft.Azure.Management.DataLake.Store/2.3.3-preview -outf Microsoft.Azure.Management.DataLake.Store.2.3.3-preview.zip
+    iwr https://www.nuget.org/api/v2/package/Microsoft.Azure.Management.DataLake.Analytics/3.5.1-preview -outf Microsoft.Azure.Management.DataLake.Analytics.3.5.1-preview.zip
+    iwr https://www.nuget.org/api/v2/package/Microsoft.Azure.Management.DataLake.Store/2.4.1-preview -outf Microsoft.Azure.Management.DataLake.Store.2.4.1-preview.zip
     iwr https://www.nuget.org/api/v2/package/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.3 -outf Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3.zip
     iwr https://www.nuget.org/api/v2/package/Microsoft.Rest.ClientRuntime/2.3.11 -outf Microsoft.Rest.ClientRuntime.2.3.11.zip
     iwr https://www.nuget.org/api/v2/package/Microsoft.Rest.ClientRuntime.Azure/3.3.7 -outf Microsoft.Rest.ClientRuntime.Azure.3.3.7.zip
@@ -399,8 +399,8 @@ Visual Studio Team Services에서 데이터베이스 배포 작업을 설정하�
 
     echo "Extracting packages..."
 
-    Expand-Archive Microsoft.Azure.Management.DataLake.Analytics.3.2.3-preview.zip -DestinationPath Microsoft.Azure.Management.DataLake.Analytics.3.2.3-preview -Force
-    Expand-Archive Microsoft.Azure.Management.DataLake.Store.2.3.3-preview.zip -DestinationPath Microsoft.Azure.Management.DataLake.Store.2.3.3-preview -Force
+    Expand-Archive Microsoft.Azure.Management.DataLake.Analytics.3.5.1-preview.zip -DestinationPath Microsoft.Azure.Management.DataLake.Analytics.3.5.1-preview -Force
+    Expand-Archive Microsoft.Azure.Management.DataLake.Store.2.4.1-preview.zip -DestinationPath Microsoft.Azure.Management.DataLake.Store.2.4.1-preview -Force
     Expand-Archive Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3.zip -DestinationPath Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3 -Force
     Expand-Archive Microsoft.Rest.ClientRuntime.2.3.11.zip -DestinationPath Microsoft.Rest.ClientRuntime.2.3.11 -Force
     Expand-Archive Microsoft.Rest.ClientRuntime.Azure.3.3.7.zip -DestinationPath Microsoft.Rest.ClientRuntime.Azure.3.3.7 -Force
@@ -412,8 +412,8 @@ Visual Studio Team Services에서 데이터베이스 배포 작업을 설정하�
 
     mkdir $AzureSDK -Force
     mkdir $DBDeploymentTool -Force
-    copy Microsoft.Azure.Management.DataLake.Analytics.3.2.3-preview\lib\net452\*.dll $AzureSDK
-    copy Microsoft.Azure.Management.DataLake.Store.2.3.3-preview\lib\net452\*.dll $AzureSDK
+    copy Microsoft.Azure.Management.DataLake.Analytics.3.5.1-preview\lib\net452\*.dll $AzureSDK
+    copy Microsoft.Azure.Management.DataLake.Store.2.4.1-preview\lib\net452\*.dll $AzureSDK
     copy Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3\lib\net45\*.dll $AzureSDK
     copy Microsoft.Rest.ClientRuntime.2.3.11\lib\net452\*.dll $AzureSDK
     copy Microsoft.Rest.ClientRuntime.Azure.3.3.7\lib\net452\*.dll $AzureSDK

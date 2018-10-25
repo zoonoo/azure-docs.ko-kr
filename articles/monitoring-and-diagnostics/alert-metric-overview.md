@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: alerts
-ms.openlocfilehash: 586ced5b239b77dd9ae596a754613a66cee371a9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 0ac19ec18c443f677260ba22b6bce1c06237fb2e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405923"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816433"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Azure Monitor에서 메트릭 경고가 작동하는 방식 이해
 
@@ -93,7 +93,43 @@ Azure Monitor의 메트릭 경고는 한 규칙을 통한 여러 차원 값 조�
 
 ## <a name="supported-resource-types-for-metric-alerts"></a>메트릭 경고에 대한 지원되는 리소스 종류
 
-이 지원 되는 리소스 종류의 전체 목록은 [문서](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported)에서 제공합니다.
+지원되는 리소스 종류의 전체 목록은 이 [문서](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported)에서 확인할 수 있습니다.
+
+현재는 클래식 메트릭 경고를 사용하는데 메트릭 경고가 사용 중인 모든 리소스 종류를 지원하는지를 확인하려는 경우 아래 표를 참조하세요. 이 표에는 클래식 메트릭 경고가 지원하는 리소스 종류, 그리고 이러한 리소스 종류가 현재 메트릭 경고에서 지원되는지 여부가 나와 있습니다.
+
+|클래식 메트릭 경고가 지원하는 리소스 종류 | 메트릭 경고의 지원 여부 |
+|-------------------------------------------------|----------------------------|
+| Microsoft.ApiManagement/service | yes |
+| Microsoft.Batch/batchAccounts| yes|
+|Microsoft.Cache/redis| yes
+|Microsoft.ClassicCompute/virtualMachines | 아니요 |
+|Microsoft.ClassicCompute/domainNames/slots/roles | 아니요|
+|Microsoft.CognitiveServices/accounts | 아니요 |
+|Microsoft.Compute/virtualMachines | yes|
+|Microsoft.Compute/virtualMachineScaleSets| yes|
+|Microsoft.ClassicStorage/storageAccounts| 아니요 |
+|Microsoft.DataFactory/datafactories | yes|
+|Microsoft.DBforMySQL/servers| yes|
+|Microsoft.DBforPostgreSQL/servers| yes|
+|Microsoft.Devices/IotHubs | 아니요|
+|Microsoft.DocumentDB/databaseAccounts| 아니요|
+|Microsoft.EventHub/namespaces | yes|
+|Microsoft.Logic/workflows | yes|
+|Microsoft.Network/loadBalancers |yes|
+|Microsoft.Network/publicIPAddresses| yes|
+|Microsoft.Network/applicationGateways| yes|
+|Microsoft.Network/expressRouteCircuits| yes|
+|Microsoft.Network/trafficManagerProfiles | yes|
+|Microsoft.Search/searchServices | 아니요|
+|Microsoft.ServiceBus/namespaces| 아니요|
+|Microsoft.Storage/storageAccounts | yes|
+|Microsoft.StreamAnalytics/streamingjobs| yes|
+|Microsoft.TimeSeriesInsights/environments | yes|
+|Microsoft. Web/serverfarms | yes |
+|Microsoft. Web/sites(함수 제외) | yes|
+|Microsoft. Web/hostingEnvironments/multiRolePools | 아니요|
+|Microsoft. Web/hostingEnvironments/workerPools| 아니요
+|Microsoft.SQL/Servers | 아니요|
 
 ## <a name="next-steps"></a>다음 단계
 

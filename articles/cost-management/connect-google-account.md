@@ -5,21 +5,24 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/05/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 09035146fe3211f9fc46d3ad51326a6e76921b7d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 48f1afcbef873e1af4346199c00ee2fadb1ad858
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977301"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830247"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Google Cloud Platform 계정 연결
 
 기존 Google Cloud Platform 계정을 Cloudyn에 연결할 수 있습니다. 사용자 계정을 Cloudyn에 연결하면 Cloudyn 보고서에서 비용 및 사용량 데이터를 볼 수 있습니다. 이 문서에서는 Cloudyn을 사용하여 Google 계정을 구성 및 연결하는 방법을 설명합니다.
+
+> [!NOTE]
+> Google이 계정 보안을 수정함에 따라 Cloudyn과 Google 간에 새 연결을 설정할 수 없게 되었습니다. Cloudyn은 이미 Google에 Cloudyn을 연결한 사용자의 Google 데이터를 계속 수집합니다. 하지만 현재 Cloudyn에 새 Google 계정을 추가할 수는 없습니다. 새 Google 계정을 Cloudyn에 추가하기 위한 지원이 재개될 시기는 Cloudyn 팀에서도 확인할 수 없는 상황입니다. 지원이 재개되면 이 참고 사항은 제거될 예정입니다.
 
 ## <a name="collect-project-information"></a>프로젝트 정보 수집
 

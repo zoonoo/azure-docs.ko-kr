@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/27/2018
+ms.date: 10/08/2018
 ms.author: aljo
-ms.openlocfilehash: ed904f7d4de9406e60de1652cefeb5bb84e5a1d8
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 7a80693090b92db55ad2feed52fdbb2a455e3c39
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144041"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884496"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric 클러스터 설정 사용자 지정
 이 문서에서는 Service Fabric 클러스터에 대한 다양한 패브릭 설정을 사용자 지정하는 방법을 설명합니다. Azure에서 호스팅된 클러스터의 경우 [Azure Portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 설정을 사용자 지정할 수 있습니다. 독립 실행형 클러스터의 경우 ClusterConfig.json 파일을 업데이트하고 클러스터에서 구성 업그레이드를 수행하여 설정을 사용자 지정합니다. 
@@ -352,6 +352,7 @@ ClusterConfig.json 파일의 설정을 수정한 후 [클러스터 구성 업그
 |ApplicationUpgradeTimeout| TimeSpan, 기본값: Common::TimeSpan::FromSeconds(360)|동적| 시간 간격은 초 단위로 지정합니다. 응용 프로그램 업그레이드에 대한 시간 제한입니다. 시간 제한이 "ActivationTimeout"보다 작으면 배포자가 실패합니다. |
 |ContainerServiceArguments|string, 기본값: "-H localhost:2375 -H npipe://"|공용|SF(서비스 패브릭)는 docker 디먼을 관리합니다(Win10 같은 Windows 클라이언트 컴퓨터는 제외). 이 구성을 통해 사용자는 시작할 때 docker 디먼에 전달되어야 하는 사용자 지정 인수를 지정할 수 있습니다. 사용자 지정 인수가 지정되면 Service Fabric은 Docker 엔진에 '--pidfile' 인수를 제외한 다른 인수를 전달하지 않습니다. 따라서 사용자는 '-pidfile' 인수를 자신의 고객 인수의 일부로 지정할 수 없습니다. 또한 사용자 지정 인수는 Service Fabric이 디먼과 통신할 수 있도록 docker 디먼이 Windows의 기본 이름 파이프(또는 Linux의 UNIX 도메인 소켓)를 수신 대기하도록 해야 합니다.|
 |ContainerServiceLogFileMaxSizeInKb|int, 기본값은 32768입니다.|공용|Docker 컨테이너에서 생성된 로그 파일의 최대 파일 크기입니다.  Windows만 해당됩니다.|
+|ContainerImagesToSkip|string. 세로줄 문자로 구분된 이미지 이름입니다. 기본값은 ""입니다.|공용|삭제하면 안 되는 컨테이너 이미지 하나 이상의 이름입니다.  PruneContainerImages 매개 변수와 함께 사용합니다.|
 |ContainerServiceLogFileNamePrefix|string, 기본값은 "sfcontainerlogs"입니다.|공용|Docker 컨테이너에서 생성된 로그 파일의 파일 이름 접두사입니다.  Windows만 해당됩니다.|
 |ContainerServiceLogFileRetentionCount|int, 기본값: 10|공용|로그 파일을 덮어쓰기 전에 Docker 컨테이너에서 생성된 로그 파일의 수입니다.  Windows만 해당됩니다.|
 |CreateFabricRuntimeTimeout|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(120)|동적| 시간 간격은 초 단위로 지정합니다. 동기화 FabricCreateRuntime 호출에 대한 시간 제한 값입니다. |
@@ -360,6 +361,7 @@ ClusterConfig.json 파일의 설정을 수정한 후 [클러스터 구성 업그
 |DeploymentMaxFailureCount|int, 기본값: 20| 동적|노드에서 응용 프로그램의 배포가 실패하기 전에 DeploymentMaxFailureCount 시간 동안 해당 응용 프로그램의 배포가 다시 시도됩니다.| 
 |DeploymentMaxRetryInterval| TimeSpan, 기본값: Common::TimeSpan::FromSeconds(3600)|동적| 시간 간격은 초 단위로 지정합니다. 배포에 대한 최대 다시 시도 간격입니다. 모든 연속 실패에서 다시 시도 간격은 Min(DeploymentMaxRetryInterval, 연속 실패 횟수 * DeploymentRetryBackoffInterval)으로 계산됩니다. |
 |DeploymentRetryBackoffInterval| TimeSpan, 기본값: Common::TimeSpan::FromSeconds(10)|동적|시간 간격은 초 단위로 지정합니다. 배포 실패에 대한 백오프 간격입니다. 모든 연속 배포 실패에서 시스템은 최대 MaxDeploymentFailureCount회까지 배포를 다시 시도합니다. 다시 시도 간격은 연속 배포 실패와 배포 백오프 간격의 곱입니다. |
+|DisableDockerRequestRetry|bool, 기본값: FALSE |동적| 기본적으로 SF는 전송되는 각 http 요청에 대해 시간 제한 'DockerRequestTimeout' 동안 DD(docker 디먼)와 통신합니다. 이 기간 내에 DD가 응답하지 않으면 SF는 최상위 작업 시간이 아직 남아 있는 경우 요청을 다시 전송합니다.  hyperv 컨테이너 사용 시에는 DD가 컨테이너를 불러오거나 비활성화하는 데 시간이 훨씬 더 많이 걸릴 수도 있습니다. 이러한 경우 SF 측면에서 DD 요청의 시간이 초과되며, SF는 작업을 다시 시도합니다. 이로 인해 DD의 부담이 가중될 수도 있습니다. 이 구성을 사용하면 작업을 다시 시도하지 않도록 설정하고 DD가 응답할 때까지 기다릴 수 있습니다. |
 |EnableActivateNoWindow| bool, 기본값: FALSE|동적| 활성화된 프로세스가 콘솔 없이 백그라운드에서 만들어집니다. |
 |EnableContainerServiceDebugMode|bool, 기본값: TRUE|공용|Docker 컨테이너에 대한 로깅을 사용/사용하지 않도록 설정합니다.  Windows만 해당됩니다.|
 |EnableDockerHealthCheckIntegration|bool, 기본값: TRUE|공용|Docker HealthCheck 이벤트를 Service Fabric 시스템 상태 보고서와 통합할 수 있도록 합니다. |
@@ -375,6 +377,7 @@ ClusterConfig.json 파일의 설정을 수정한 후 [클러스터 구성 업그
 |NTLMAuthenticationPasswordSecret|SecureString, 기본값: Common::SecureString("")|공용|NTLM 사용자의 암호를 생성하는 데 사용되는 암호화된 비밀입니다. NTLMAuthenticationEnabled가 true이면 설정해야 합니다. 배포자에서 유효성을 검사합니다. |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|TimeSpan, 기본값: Common::TimeSpan::FromMinutes(3)|동적|시간 간격은 초 단위로 지정합니다. 환경 관련 설정이며, FileStoreService NTLM 구성에 사용할 새 인증서를 Hosting에서 검색하는 주기적인 간격입니다. |
 |NTLMSecurityUsersByX509CommonNamesRefreshTimeout|TimeSpan, 기본값: Common::TimeSpan::FromMinutes(4)|동적| 시간 간격은 초 단위로 지정합니다. 인증서 일반 이름을 사용하여 NTLM 사용자를 구성하는 데 걸리는 시간 제한입니다. NTLM 사용자는 FileStoreService 공유에 필요합니다. |
+|PruneContainerImages|bool, 기본값: FALSE|동적| 노드에서 사용되지 않는 응용 프로그램 컨테이너 이미지를 제거합니다. Service Fabric 컨테이너에서 ApplicationType 등록을 취소하면 이 응용 프로그램에서 사용했던 컨테이너 이미지가 Service Fabric에 의해 다운로드되었던 노드에서 제거됩니다. 정리는 1시간마다 실행되므로 클러스터에서 이미지가 제거될 때까지 최대 1시간 + 이미지 정리에 소요되는 시간이 걸릴 수 있습니다.<br>Service Fabric은 응용 프로그램과 관련이 없는 이미지를 다운로드하거나 제거하지 않습니다.  수동으로 또는 기타 방식을 통해 다운로드한 관련이 없는 이미지는 명시적으로 제거해야 합니다.<br>삭제하지 않아야 하는 이미지는 ContainerImagesToSkip 매개 변수에서 지정할 수 있습니다.| 
 |RegisterCodePackageHostTimeout|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(120)|동적| 시간 간격은 초 단위로 지정합니다. FabricRegisterCodePackageHost 동기화 호출에 대한 시간 제한 값입니다. FWP와 같은 다중 코드 패키지 응용 프로그램 호스트에만 적용됩니다. |
 |RequestTimeout|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(30)|동적| 시간 간격은 초 단위로 지정합니다. 다양한 호스팅 관련 작업(예: 팩터리 등록, 런타임 등록)을 위한 사용자의 응용 프로그램 호스트와 Fabric 프로세스 간 통신에 대한 시간 제한을 나타냅니다. |
 |RunAsPolicyEnabled| bool, 기본값: FALSE|공용| 패브릭 프로세스가 실행되는 사용자 이외의 로컬 사용자로 코드 패키지를 실행할 수 있습니다. 이 정책을 사용하려면 Fabric이 SYSTEM 또는 SeAssignPrimaryTokenPrivilege가 있는 사용자로 실행되어야 합니다. |
@@ -420,6 +423,7 @@ ClusterConfig.json 파일의 설정을 수정한 후 [클러스터 구성 업그
 |SharedLogId |string, 기본값: "" |공용|공유 로그 컨테이너에 대한 고유 GUID. 패브릭 데이터 루트 아래의 기본 경로를 사용하는 경우 ""을 사용합니다. |
 |SharedLogPath |string, 기본값: "" |공용|공유 로그 컨테이너를 배치할 경로 및 파일 이름. 패브릭 데이터 루트 아래의 기본 경로를 사용하려면 ""을 사용합니다. |
 |SharedLogSizeInMB |int, 기본값: 8192 |공용|공유 로그 컨테이너에 할당할 MB 수 |
+|SharedLogThrottleLimitInPercentUsed|int, 기본값: 0 | 공용 | 제한이 적용되도록 할 공유 로그의 사용량 백분율입니다. 값은 0에서 100 사이여야 합니다. 값을 0으로 지정하면 기본 백분율 값이 사용됩니다. 값을 100으로 지정하면 제한이 적용되지 않습니다. 1~99 사이의 값은 초과 시에 제한이 적용되는 로그 사용 백분율을 지정합니다. 예를 들어 공유 로그가 10GB일 때 값을 90으로 지정하는 경우 사용 용량이 9GB보다 많으면 제한이 적용됩니다. 기본값을 사용하는 것이 좋습니다.|
 |WriteBufferMemoryPoolMaximumInKB | int, 기본값: 0 |동적|쓰기 버퍼 메모리 풀이 확장할 수 있는 KB 수. 제한하지 않으려면 0을 사용합니다. |
 |WriteBufferMemoryPoolMinimumInKB |int, 기본값: 8388608 |동적|쓰기 버퍼 메모리 풀에 처음으로 할당할 KB 수. 제한하지 않으려면 0을 사용합니다. 기본값은 아래의 SharedLogSizeInMB와 일치해야 합니다. |
 
@@ -624,10 +628,13 @@ ClusterConfig.json 파일의 설정을 수정한 후 [클러스터 구성 업그
 ## <a name="security"></a>보안
 | **매개 변수** | **허용되는 값** |**업그레이드 정책**| **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
+|AADCertEndpointFormat|string, 기본값: ""|공용|Azure Government "https://login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml" 등 기본값이 아닌 환경용으로 지정되는 AAD 인증서 엔드포인트 형식입니다(기본값: Azure Commercial). |
 |AADClientApplication|string, 기본값: ""|공용|Fabric 클라이언트를 나타내는 Native Client 응용 프로그램 이름 또는 ID |
 |AADClusterApplication|string, 기본값: ""|공용|클러스터를 나타내는 Web API 응용 프로그램 이름 또는 ID |
+|AADLoginEndpoint|string, 기본값: ""|공용|Azure Government "https://login.microsoftonline.us" 등 기본값이 아닌 환경용으로 지정되는 AAD 로그인 엔드포인트입니다(기본값: Azure Commercial). |
 |AADTenantId|string, 기본값: ""|공용|테넌트 ID(GUID) |
 |AdminClientCertThumbprints|string, 기본값: ""|동적|관리자 역할의 클라이언트에서 사용하는 인증서의 지문입니다. 쉼표로 구분된 이름 목록입니다. |
+|AADTokenEndpointFormat|string, 기본값: ""|공용|Azure Government "https://login.microsoftonline.us/{0}" 등 기본값이 아닌 환경용으로 지정되는 AAD 토큰 엔드포인트입니다(기본값: Azure Commercial). |
 |AdminClientClaims|string, 기본값: ""|동적|모든 가능한 클레임은 관리자 클라이언트에서 예상되는 모든 가능한 클레임이며, ClientClaims와 동일한 형식입니다. 이 목록은 ClientClaims에 내부적으로 추가되므로 ClientClaims에 동일한 항목을 추가할 필요가 없습니다. |
 |AdminClientIdentities|string, 기본값: ""|동적|관리자 역할의 패브릭 클라이언트에 대한 Windows ID이며, 권한 있는 패브릭 작업에 대한 권한을 부여하는 데 사용됩니다. 쉼표로 구분된 목록이며, 각 항목은 도메인 계정 이름 또는 그룹 이름입니다. 편의상 fabric.exe를 실행하는 계정에 관리자 역할이 자동으로 할당됩니다. ServiceFabricAdministrators 그룹도 마찬가지입니다. |
 |CertificateExpirySafetyMargin|TimeSpan, 기본값: Common::TimeSpan::FromMinutes(43200)|공용|시간 간격은 초 단위로 지정합니다. 인증서 만료에 대한 여유 제한입니다. 만료가 이 값보다 더 가까울 경우 인증서 상태 보고서 상태가 확인에서 경고로 변경됩니다. 기본값: 30일 |

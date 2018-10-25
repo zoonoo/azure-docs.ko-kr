@@ -2,18 +2,19 @@
 title: 포함 파일
 description: 포함 파일
 services: backup
-author: markgalioto
+author: rayne-wiselman
+manager: carmonm
 ms.service: backup
 ms.topic: include
-ms.date: 5/14/2018
-ms.author: markgal
+ms.date: 10/18/2018
+ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 0ff9bf829e2dbe1bca078360ccded94bad63d9a6
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 74fe531c07aa871b06b5d0773f7e8fb0ade80be4
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249464"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946218"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 Recovery Services 자격 증명 모음은 시간에 따라 생성된 모든 백업과 복구 지점을 저장하는 엔터티입니다. Recovery Services 자격 증명 모음에는 보호된 가상 머신과 연결된 백업 정책도 포함됩니다.

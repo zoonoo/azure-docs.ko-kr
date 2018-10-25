@@ -1,6 +1,6 @@
 ---
 title: Azure Backup 중앙 보고 콘텐츠 팩 업데이트
-description: Power BI에서 Azure Backup 콘텐츠 팩 업데이트에 대한 정보
+description: Power BI의 Azure Backup 콘텐츠 팩 업데이트에 대한 정보를 제공합니다.
 services: backup
 documentationcenter: ''
 author: adigan
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: adigan;
-ms.openlocfilehash: 07774234849d96b9a44678b68ca7b13b6b4830f9
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 73a5e8126ebe6223d790a5b58db7bd5d04b5350f
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39267179"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267315"
 ---
-# <a name="updating-azure-backup-central-reporting-content-pack"></a>Azure Backup 중앙 보고 콘텐츠 팩 업데이트 
+# <a name="update-the-azure-backup-central-reporting-content-pack"></a>Azure Backup 중앙 보고 콘텐츠 팩 업데이트 
 
-[Azure Backup 콘텐츠 팩](https://docs.microsoft.com/azure/backup/backup-azure-configure-reports#view-reports-in-power-bi)은 백업에 대한 보고서를 중앙에서 보는 데 사용할 수 있습니다. 콘텐츠 팩은 더 많은 기능을 추가 하고 버그를 수정하기 위해 정기적으로 업데이트됩니다. 이 문서는 콘텐츠 팩을 업데이트하고 업데이트를 지연시키기 위한 단계 및 시간 경과에 따라 수행되는 업데이트를 안내합니다.
+[Azure Backup 콘텐츠 팩](https://docs.microsoft.com/azure/backup/backup-azure-configure-reports#view-reports-in-power-bi)을 사용하면 중앙 백업 관련 보고서를 확인할 수 있습니다. 콘텐츠 팩은 더 많은 기능을 추가하고 버그를 수정하기 위해 정기적으로 업데이트됩니다. 이 문서에서는 콘텐츠 팩을 업데이트하는 방법을 설명합니다. 또한 업데이트를 연기하고 시간별로 수행된 업데이트를 확인하는 방법도 설명합니다.
 
-## <a name="how-to-get-updates-to-the-content-pack"></a>콘텐츠 팩 업데이트를 가져오는 방법
+## <a name="get-updates-to-the-content-pack"></a>콘텐츠 팩 업데이트 가져오기
 
-### <a name="to-get-the-updated-content-pack"></a>업데이트된 콘텐츠 팩을 가져오려면
-콘텐츠 팩의 복사본은 아무 것도 변경하지 않은 경우 자동으로 업데이트됩니다. 콘텐츠 팩이 변경된 경우 PowerBI에서 알림 및 동일한 내용의 이메일 알림을 받게 됩니다. 편의에 따라 업데이트된 콘텐츠 팩을 가져오도록 선택할 수 있습니다. 
+### <a name="get-the-updated-content-pack"></a>업데이트된 콘텐츠 팩 가져오기
+콘텐츠 팩 복사본을 변경하지 않은 경우 콘텐츠 팩은 자동 업데이트됩니다. 콘텐츠 팩이 변경되면 Power BI에 알림이 수신되며 전자 메일 알림도 수신됩니다. 편리할 때 업데이트된 콘텐츠 팩을 가져오도록 선택할 수 있습니다. 
 
-### <a name="to-delay-the-update"></a>업데이트를 지연시키려면
-[사용자 지정 작업 영역](https://youtu.be/26zyOtyHPJM?t=1m57s)에 콘텐츠 팩을 가져오는 것이 좋습니다. 이제 보고서를 편집할 능력이 있습니다.
-위에서 설명한 대로 콘텐츠 팩이 변경된 경우 PowerBI에 알림이 표시됩니다. 나중에 콘텐츠 팩을 가져오도록 선택할 수 있습니다. 
+### <a name="postpone-the-update"></a>업데이트 연기
+[사용자 지정 작업 영역](https://youtu.be/26zyOtyHPJM?t=1m57s)에 콘텐츠 팩을 가져오는 것이 좋습니다. 이제 보고서를 편집할 수 있습니다.
+위에서 설명한 대로 콘텐츠 팩이 변경되면 PowerBI에 알림이 표시됩니다. 나중에 콘텐츠 팩을 가져오도록 선택할 수 있습니다. 
 
 ## <a name="coming-soon"></a>서비스 예정
    
-Azure Backup 콘텐츠 팩은 MAB 및 Azure VM Backup에 대한 현재의 지원 외에 IaaS VM 백업의 SQL 및 SC DPM처럼 더 많은 워크 로드를 지원하기 위해 업데이트됩니다. 하나의 중앙 위치에서 모든 백업 데이터를 곧 보고 분석할 수 있다는 것을 의미합니다. [보고서를 사용자 지정하여](https://youtu.be/26zyOtyHPJM) 조직의 요구에 맞출 수 있습니다.
+Azure Backup 콘텐츠 팩은 더 많은 워크로드를 지원하도록 업데이트됩니다. 이러한 워크로드에는 System Center Data Protection Manager 및 IaaS VM 백업용 Azure SQL Database가 포함됩니다. 즉, 현재 지원되는 Azure Backup 및 Azure VM Backup과 더불어 이 워크로드가 추가로 지원됩니다. 따라서 모든 백업 데이터를 중앙 위치 한 곳에서 확인하고 분석할 수 있습니다. 조직의 요구에 맞게 [보고서를 사용자 지정](https://youtu.be/26zyOtyHPJM)할 수도 있습니다.
 
-워크로드에서 보고서를 보다 의미 있게 만들려면 Azure Backup 콘텐츠 팩을 사용하여 미리 구성된 보고서 집합이 변경됩니다. 예정된 보고서 집합의 미리 보기는 다음에서 사용할 수 있습니다.
+Azure Backup 콘텐츠 팩과 함께 제공되는 미리 구성된 보고서는 현재 새롭게 변경되고 있습니다. 이 변경을 통해 여러 워크로드에서 보고서를 더욱 유용하게 활용할 수 있을 것입니다. 아래에는 제공 예정인 보고서 집합의 스크린샷이 나와 있습니다.
 
 ### <a name="summary"></a>요약
    
@@ -57,18 +57,18 @@ Azure Backup 콘텐츠 팩은 MAB 및 Azure VM Backup에 대한 현재의 지원
 ![Storage](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Storage.png)
 
 ### <a name="backup-items"></a>Backup 항목
-![BackupItems](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-BackupItem.png)
+![Backup 항목](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-BackupItem.png)
 
-### <a name="alerts"></a>Alerts
+### <a name="alerts"></a>경고
 
-![Alerts](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Alerts.png)
+![경고](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Alerts.png)
 
 ### <a name="jobs"></a>교육
 
 ![교육](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Jobs.png)
     
 
-## <a name="next-steps"></a>다음 단계:
+## <a name="next-steps"></a>다음 단계
 
-* [조직에서 보고서 공유](https://youtu.be/26zyOtyHPJM)
+* [조직 전체에서 보고서 공유](https://youtu.be/26zyOtyHPJM)
 * [Azure Backup - FAQ](backup-azure-backup-faq.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: cwatson
-ms.openlocfilehash: 405e0d5184880a00c07de55bd968210fa28e45fc
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 76f4a52b702a609d7181b9c6c0f2ce600d8a6aac
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393080"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267990"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Azure 대시보드의 구조
 이 문서는 다음 대시보드 예제를 사용하여 Azure 대시보드 구조를 안내합니다.
@@ -326,7 +326,7 @@ __parts__ 개체는 각 파트에 대한 속성을 포함합니다. 여기서 �
 각 개별 파트 개체는 __position__ 및 __metadata__를 포함합니다.
 
 ### <a name="the-position-object"></a>position 개체
-__position__ 속성에는 __x__, __y__, __rowSpan__ 및 __colSpan__으로 표현되는 파트에 대한 크기 및 위치 정보를 포함합니다. 값이 그리드 단위를 기준으로 합니다. 다음과 같이 대시보드가 사용자 지정 모드에 있는 경우 그리드 단위가 표시됩니다. 타일의 너비가 두 개의 그리드 단위이고 높이가 한 개의 그리드 단위이며 위치가 대시보드 왼쪽 상단 모서리라면 위치 개체는 다음과 같습니다.
+__position__ 속성에는 __x__, __y__, __rowSpan__ 및 __colSpan__으로 표현되는 파트에 대한 크기 및 위치 정보를 포함합니다. 값이 그리드 단위를 기준으로 합니다. 다음과 같이 대시보드가 사용자 지정 모드에 있는 경우 그리드 단위가 표시됩니다. 타일의 너비는 그리드 단위 2개이고 높이는 그리드 단위 1개이며 위치가 대시보드 왼쪽 상단 모서리라면 위치 개체는 다음과 같습니다.
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
@@ -338,7 +338,7 @@ __position__ 속성에는 __x__, __y__, __rowSpan__ 및 __colSpan__으로 표현
 
 1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart` – 모니터링 메트릭을 표시하는 데 사용됨
 1. `Extension[azure]/HubsExtension/PartType/MarkdownPart` – 목록, 링크 등에 대한 기본 서식과 함께 텍스트 또는 이미지를 표시하는 데 사용됨
-1. `Extension[azure]/HubsExtension/PartType/VideoPart` - html 비디오 태그에서 작동하는 YouTube, Channel9 및 기타 비디오 유형의 비디오를 표시하는 데 사용됨
+1. `Extension[azure]/HubsExtension/PartType/VideoPart` - HTML 비디오 태그에서 작동하는 YouTube, Channel9 및 기타 비디오 유형의 비디오를 표시하는 데 사용됨
 1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart` – Azure 가상 머신의 이름 및 상태를 표시하는 데 사용됨
 
 각 파트 유형에는 고유한 구성이 있습니다. 가능한 구성 속성을 __inputs__, __settings__ 및 __asset__이라고 합니다. 

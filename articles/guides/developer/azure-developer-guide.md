@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: d298cfe22328db68cfbb6b4c7fc82b2de0c186b1
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 4c56a1164a589af5d325d1378f331a7d0ee138b7
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423598"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956445"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 개발자를 위한 시작 가이드
 
@@ -162,7 +162,7 @@ Azure는 응용 프로그램에서 컨테이너를 사용하는 여러 방법을
 
     >**사용 시기**: SSO 환경 제공, 그래프 기반 데이터 작업 또는 도메인 기반 사용자를 인증하려는 경우
 
-    >**시작하기**: 자세한 내용은 [Azure Active Directory 개발자 가이드](../../active-directory/develop/azure-ad-developers-guide.md)를 참조하세요.
+    >**시작하기**: 자세한 내용은 [Azure Active Directory 개발자 가이드](../../active-directory/develop/v1-overview.md)를 참조하세요.
 
 -   **App Service 인증**: App Service를 선택하여 앱을 호스트하는 경우 소셜 ID 공급자(Facebook, Google, Microsoft 및 Twitter 포함)와 함께 Azure AD에 대한 기본 제공 인증도 지원됩니다.
 
@@ -234,7 +234,7 @@ Azure는 Azure Portal UI를 지원하는 REST API 집합을 기반으로 합니�
 REST API 외에도 여러 Azure 서비스를 사용하여 다음 개발 플랫폼의 SDK를 비롯한 플랫폼별 Azure SDK를 사용해 응용 프로그램에서 리소스를 프로그래밍 방식으로 관리할 수도 있습니다.
 
 -   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
--   [Node.js](https://docs.microsoft.com/javascript/azure)
+-   [Node.JS](https://docs.microsoft.com/javascript/azure)
 -   [Java](https://docs.microsoft.com/java/azure)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
 -   [Python](https://docs.microsoft.com/python/azure)
@@ -289,7 +289,7 @@ Azure 리소스에 대한 액세스를 허용하는 경우 항상 사용자에�
 
 -   **서비스 주체 개체**: 사용자 계정 및 그룹에 대한 액세스 권한을 제공할 뿐만 아니라 동일한 액세스 권한을 서비스 주체에게 부여할 수 있습니다.
 
-    > **사용 시기**: 프로그래밍 방식으로 Azure 리소스를 관리하거나 응용 프로그램에 대한 액세스 권한을 부여하는 경우 자세한 내용은 [Active Directory 응용 프로그램 및 서비스 주체 만들기](../../resource-group-create-service-principal-portal.md)를 참조하세요.
+    > **사용 시기**: 프로그래밍 방식으로 Azure 리소스를 관리하거나 응용 프로그램에 대한 액세스 권한을 부여하는 경우 자세한 내용은 [Active Directory 응용 프로그램 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 
 #### <a name="tags"></a>태그들
 

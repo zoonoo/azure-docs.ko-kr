@@ -8,14 +8,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
-ms.date: 05/23/2018
+ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 39745991f7ab3b181f892bbaa59283d92737ecf3
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 3ba8919a499da0db8e2deb626d8cf4d5067c1c25
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093876"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069180"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Visual Studio를 사용하여 Azure Functions 개발  
 
@@ -96,7 +96,7 @@ Visual Studio가 최신 상태이고 [가장 최신 버전](#check-your-tools-ve
 
 3. 이전 단계를 반복하여 사용자의 함수에 필요한 다른 연결에 대한 **값** 배열에 고유 키를 추가합니다.
 
-## <a name="create-a-function"></a>함수 만들기
+## <a name="add-a-function-to-your-project"></a>프로젝트에 함수 추가
 
 미리 컴파일된 함수에서 함수에 사용된 바인딩은 코드에 특성을 적용함에 따라 정의됩니다. Azure Functions 도구를 사용하여 제공된 템플릿에서 함수를 만들 때 이러한 특성이 적용됩니다. 
 
@@ -171,7 +171,9 @@ Azure Functions Core 도구를 사용하면 로컬 개발 컴퓨터에서 Azure 
 
 실행 중인 프로젝트와 함께 배포된 함수를 테스트할 때 코드를 테스트할 수 있습니다. 자세한 내용은 [Azure Functions에서 코드를 테스트하기 위한 전략](functions-test-a-function.md)을 참조하세요. 디버그 모드에서 실행할 때 중단점이 예상대로 Visual Studio에서 적중됩니다. 
 
-큐 트리거 함수를 테스트하는 방법에 대한 예제는 [큐 트리거 함수 빠른 시작 자습서](functions-create-storage-queue-triggered-function.md#test-the-function)를 참조하세요.  
+<!---
+For an example of how to test a queue triggered function, see the [queue triggered function quickstart tutorial](functions-create-storage-queue-triggered-function.md#test-the-function).  
+-->
 
 Azure Functions 핵심 도구 사용에 대한 자세한 내용은 [Azure Functions를 로컬로 코딩 및 테스트](functions-run-local.md)를 참조하세요.
 
@@ -196,6 +198,20 @@ Azure에서 함수 앱에 필요한 설정을 업로드하는 가장 쉬운 방�
 * [Azure Portal 사용](functions-how-to-use-azure-function-app-settings.md#settings)
 * [`--publish-local-settings` Azure Functions 핵심 도구의 게시 옵션](functions-run-local.md#publish) 사용
 * [Azure CLI 사용](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) 
+
+## <a name="monitoring-functions"></a>함수 모니터링
+
+Azure에서 함수 실행을 모니터링할 때는 Azure Application Insights와 함수를 통합하는 방식을 사용하는 것이 좋습니다. Azure Portal에서 함수 앱을 만들 때는 이 통합이 기본적으로 자동 수행됩니다. 그러나 Visual Studio 게시 중에 함수 앱을 만들 때는 Azure에서 함수 앱 통합이 수행되지 않습니다. 대신 로깅 기능이 기본 제공되는데, 이 기능은 사용하지 않는 것이 좋습니다.
+
+Azure에서 함수 앱에 대해 Application Insights를 사용하도록 설정하려면 다음 단계를 수행합니다.
+
+1. [Azure Portal](https://portal.azure.com)에서 Application Insights 인스턴스를 만든 다음 해당 계측 키를 복사합니다. 이 작업을 수행하는 방법을 알아보려면 [App Insights 리소스를 수동으로 연결](functions-monitoring.md#manually-connect-an-app-insights-resource)을 참조하세요.  
+
+1. [함수 앱 설정](#function-app-settings)의 설명에 따라 Azure의 함수 앱 설정에 앱 설정 `APPINSIGHTS_INSTRUMENTATIONKEY`를 추가합니다. 이 앱 설정에는 이전 단계에서 만든 계측 키가 포함되어 있습니다.
+
+1. Azure의 함수 앱에서 `AzureWebJobsDashboard` 앱 설정을 제거합니다. 그러면 기본 제공 로깅이 사용하지 않도록 설정됩니다.  
+
+자세히 알아보려면 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

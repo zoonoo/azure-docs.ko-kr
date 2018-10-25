@@ -12,16 +12,16 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: douglasl
-ms.openlocfilehash: aa06110a6f6fe668388c6aecd98c1ddeeae37edd
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 234fb5af55565602d283539c63076adebad1ed25
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576632"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248978"
 ---
 # <a name="enable-azure-active-directory-authentication-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임에 대한 Azure Active Directory 인증 활성화
 
-이 문서에서는 Azure Data Factory 서비스 ID를 사용하여 Azure-SSIS IR을 만드는 방법을 보여줍니다. Azure-SSIS 통합 런타임에 대한 MSI(관리 서비스 ID)가 있는 Azure AD(Azure Active Directory) 인증 서버를 통해 SQL 인증 대신 Data Factory MSI를 사용하여 Azure-SSIS 통합 런타임을 만들 수 있습니다.
+이 문서에서는 Azure Data Factory 서비스 ID를 사용하여 Azure-SSIS IR을 만드는 방법을 보여줍니다. Azure-SSIS 통합 런타임에 대해 Azure 리소스용 관리 ID를 사용하는 Azure AD(Active Directory) 인증을 사용하는 경우 SQL 인증 대신 Data Factory MSI를 사용하여 Azure-SSIS 통합 런타임을 만들 수 있습니다.
 
 Data Factory MSI에 대한 자세한 내용은 [Azure Data Factory 서비스 ID](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)를 참조하세요.
 

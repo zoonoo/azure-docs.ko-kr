@@ -1,7 +1,7 @@
 ---
 title: App Service 및 Azure Functions의 보안 | Microsoft Docs
 description: App Service에서 앱 보안을 유지하는 방법과 위협으로부터 앱을 추가로 잠그는 방법을 알아봅니다.
-keywords: Azure App Service, 웹앱, 모바일 앱, API 앱, 함수 앱, 보안, secure, secured, 준수, compliant, 인증서, certificates, https, ftps, TLS, 신뢰, 암호화, encrypt, encrypted, IP 제한, 인증, authn, 권한 부여, autho, MSI, 관리 서비스 ID, 비밀, secrets, 패치, patches, 버전, 격리, 네트워크 격리, DDos, MITM
+keywords: azure app service, 웹앱, 모바일 앱, API 앱, 함수 앱, 보안, 안전, 보호, 규정 준수, 준수, 인증서, 트러스트, 암호화, 암호화됨, IP 제한, 인증, 권한 부여, 관리 서비스 ID, 관리 ID, 비밀, 패칭, 패치, 버전, 격리, 네트워크 격리, web app, mobile app, api app, function app, security, secure, secured, compliance, compliant, certificate, certificates, https, ftps, tls, trust, encryption, encrypt, encrypted, ip restriction, authentication, authorization, authn, autho, msi, managed service identity, managed identity, secrets, secret, patching, patch, patches, version, isolation, network isolation, ddos, mitm
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
-ms.openlocfilehash: 40fdd22bdbb3fc0676688430069d58c0422a7ca2
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 3bacc2bf253a6b8c3b869b7a6d4952d982de3ee6
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382119"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857502"
 ---
 # <a name="security-in-azure-app-service-and-azure-functions"></a>App Service 및 Azure Functions의 보안
 
@@ -69,7 +69,7 @@ App Service 인증 및 권한 부여는 Azure Active Directory, Microsoft 계정
 
 App Service는 백 엔드 서비스를 인증할 때 필요에 따라 별도의 다음 두 가지 메커니즘을 제공합니다.
 
-- **서비스 ID** - 앱 자체의 ID를 사용하여 원격 리소스에 로그인합니다. App Service를 사용하면 다른 서비스(예: [Azure SQL Database](/azure/sql-database/) 또는 [Azure Key Vault](/azure/key-vault/))에서 인증하는 데 사용할 수 있는 [관리 서비스 ID](app-service-managed-service-identity.md)를 쉽게 만들 수 있습니다. 이 방법에 대한 종단 간 자습서는 [관리되는 서비스 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호](app-service-web-tutorial-connect-msi.md)를 참조하세요.
+- **서비스 ID** - 앱 자체의 ID를 사용하여 원격 리소스에 로그인합니다. App Service를 사용하면 다른 서비스(예: [Azure SQL Database](/azure/sql-database/) 또는 [Azure Key Vault](/azure/key-vault/))에서 인증하는 데 사용할 수 있는 [관리 ID](app-service-managed-service-identity.md)를 쉽게 만들 수 있습니다. 이 방식을 설명하는 전체 자습서는 [관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호](app-service-web-tutorial-connect-msi.md)를 참조하세요.
 - **OBO(On-Behalf-Of)** - 원격 리소스에 대해 사용자를 대신하도록 위임된 액세스 권한을 만듭니다. Azure Active Directory를 인증 공급자로 사용하면 App Service 앱에서 App Service의 원격 서비스(예: [Azure Active Directory Graph API](../active-directory/develop/active-directory-graph-api.md) 또는 원격 API 앱)에 위임된 로그인을 수행할 수 있습니다. 이 방법에 대한 종단 간 자습서는 [Azure App Service에서 종단 간 사용자 인증 및 권한 부여](app-service-web-tutorial-auth-aad.md)를 참조하세요.
 
 ## <a name="connectivity-to-remote-resources"></a>원격 리소스에 대한 연결
@@ -106,13 +106,13 @@ Azure의 공유 네트워크에서 리소스 연결을 완전히 분리하려면
 
 응용 프로그램 비밀(예: 데이터베이스 자격 증명, API 토큰 및 개인 키)을 코드 또는 구성 파일에 저장하지 않습니다. 일반적으로 허용되는 방법은 선택한 언어로 표준 패턴을 사용하여 [환경 변수](https://wikipedia.org/wiki/Environment_variable)로 액세스하는 것입니다. App Service에서 환경 변수를 정의하는 방법은 [앱 설정](web-sites-configure.md#app-settings)(특히 .NET 응용 프로그램의 경우 [연결 문자열](web-sites-configure.md#connection-strings))을 통해 이루어집니다. 앱 설정과 연결 문자열은 Azure에서 암호화되어 저장되며, 앱이 시작될 때 앱의 프로세스 메모리에 삽입되기 전에만 해독됩니다. 암호화 키는 정기적으로 회전합니다.
 
-또는 고급 비밀 관리를 위해 App Service 앱을 [Azure Key Vault](/azure/key-vault/)와 통합할 수 있습니다. [관리 서비스 ID를 사용하여 Key Vault에 액세스](../key-vault/tutorial-web-application-keyvault.md)하는 경우 App Service 앱에서 필요한 비밀에 안전하게 액세스할 수 있습니다.
+또는 고급 비밀 관리를 위해 App Service 앱을 [Azure Key Vault](/azure/key-vault/)와 통합할 수 있습니다. [관리 ID를 사용하여 Key Vault에 액세스](../key-vault/tutorial-web-application-keyvault.md)하는 경우 App Service 앱에서 필요한 비밀에 안전하게 액세스할 수 있습니다.
 
 ## <a name="network-isolation"></a>네트워크 격리
 
 **App Service 격리** 가격 책정 계층을 제외한 모든 계층에서는 App Service의 공유 네트워크 인프라에서 앱을 실행합니다. 예를 들어 공용 IP 주소 및 프런트 엔드 부하 분산 장치는 다른 테넌트와 공유됩니다. **App Service 격리** 계층은 전용 [App Service 환경](environment/intro.md) 내에서 앱을 실행하여 완벽한 네트워크 격리를 제공합니다. App Service 환경은 [Azure Virtual Network](/azure/virtual-network/)의 사용자 인스턴스에서 실행됩니다. 수행할 수 있는 작업은 다음과 같습니다. 
 
-- [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)사용하여 네트워크 액세스를 제한합니다. 
+- [네트워크 보안 그룹](../virtual-network/virtual-networks-dmz-nsg.md)사용하여 네트워크 액세스를 제한합니다. 
 - 전용 프런트 엔드를 사용하여 전용 공용 엔드포인트를 통해 앱을 제공합니다.
 - ILB(내부 부하 분산 장치)를 사용하여 내부 응용 프로그램을 제공합니다. 이렇게 하면 Azure Virtual Network 내에서만 해당 응용 프로그램을 액세스할 수 있습니다. ILB에는 인터넷으로부터 응용 프로그램을 완전히 격리하는 개인 서브넷의 IP 주소가 있습니다.
 - [WAF(웹 응용 프로그램 방화벽) 뒤에서 ILB를 사용합니다](environment/integrate-with-application-gateway.md). WAF는 공용 응용 프로그램에 대한 엔터프라이즈 수준의 보호(예: DDoS 보호, URI 필터링 및 SQL 삽입 방지)를 제공합니다.

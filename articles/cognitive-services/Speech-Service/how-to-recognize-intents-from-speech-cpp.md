@@ -1,21 +1,21 @@
 ---
 title: C++용 Speech SDK를 사용하여 음성에서 의도 인식
-titleSuffix: Microsoft Cognitive Services
-description: >
-  C++용 Speech SDK를 사용하여 음성, 파일 또는 마이크를 통해 의도를 인식하는 방법을 알아봅니다.
+titleSuffix: Azure Cognitive Services
+description: C++용 Speech SDK를 사용하여 음성, 파일 또는 마이크를 통해 의도를 인식하는 방법을 알아봅니다.
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: bbcea97918d377a6d40b95fe61592f7a79e8f5f4
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 48fc330c62ec8f6ce8c25c79c85db622bcaa4282
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883791"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466497"
 ---
 # <a name="recognize-intents-from-speech-by-using-the-speech-sdk-for-c"></a>C++용 Speech SDK를 사용하여 음성에서 의도 인식
 

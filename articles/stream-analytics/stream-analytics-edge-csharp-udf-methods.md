@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 2b6dfe7c8f8ac8d7207659b848abecd04f56c232
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: f0da25410fe81a93501df940ffbb0e115456a9e8
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181445"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247810"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>Azure Stream Analytics Edge 작업에 대한 .NET Standard 사용자 정의 함수 개발(미리 보기)
 
@@ -37,16 +37,13 @@ UDF를 구현하는 다음 세 가지 방법이 있습니다.
 
 |**UDF 형식(C#)**  |**Azure Stream Analytics 형식**  |
 |---------|---------|
-|Bool  |  bigint   |
-|int32  |  bigint   |
-|int64  |  bigint   |
-|float  |  double   |
+|long  |  bigint   |
 |double  |  double   |
 |string  |  nvarchar(max)   |
 |datetime  |  datetime   |
 |struct  |  IRecord   |
 |object  |  IRecord   |
-|배열  |  IArray   |
+|Array<object>  |  IArray   |
 |dictionary<string, object>  |  IRecord   |
 
 ## <a name="codebehind"></a>CodeBehind

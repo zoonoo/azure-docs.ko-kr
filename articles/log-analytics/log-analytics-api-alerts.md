@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 7f55b762bda5ff0c7bbedf414b18465656496cbb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.component: ''
+ms.openlocfilehash: b178744911d03547509de58e35be5cd99e046391
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984588"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079058"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>REST API로 Log Analytics에서 경고 규칙 만들기 및 관리
 Log Analytics 경고 REST API를 사용하여 OMS(Operations Management Suite)에서 경고를 만들고 관리할 수 있습니다.  이 문서에서는 다음 작업을 수행하기 위한 API 및 여러 예제의 세부 정보를 제공합니다.
@@ -40,7 +40,7 @@ Log Analytics Search REST API는 RESTful이며 Azure Resource Manager REST API�
 | QueryTimeSpan |조건이 평가되는 시간 간격입니다. 간격보다 크거나 같아야 합니다. 분 단위로 측정됩니다. |
 | 버전 |사용 중인 API 버전입니다.  현재 항상 1로 설정해야 합니다. |
 
-예를 들어 간격이 15분이고 Timespan이 30분인 이벤트 쿼리를 고려합니다. 이 경우 쿼리는 매 15분마다 실행되며 조건이 30분의 기간 동안 계속 True로 확인되었으면 경고가 트리거될 수 있습니다.
+예를 들어 간격이 15 분이고 Timespan이 30 분인 이벤트 쿼리를 고려합니다. 이 경우 쿼리는 매 15분마다 실행되며 조건이 30분의 기간 동안 계속 True로 확인되었으면 경고가 트리거될 수 있습니다.
 
 ### <a name="retrieving-schedules"></a>일정 검색
 Get 메서드를 사용하여 저장된 검색에 대한 모든 일정을 검색합니다.
@@ -138,6 +138,7 @@ Get 메서드를 사용하여 일정에 대한 모든 작업을 검색합니다.
 |:--- |:--- |:--- |
 | 임계값 |작업이 실행되기 위한 조건입니다.| Azure로 확장되기 이전 또는 이후에 모든 경고에 필요합니다. |
 | 심각도 |트리거되는 경우 경고를 분류하는 데 사용되는 레이블| Azure로 확장되기 이전 또는 이후에 모든 경고에 필요합니다. |
+| 표시 안 함 |경고의 알림을 중지하는 옵션입니다. | 모든 경고(아직 Azure로 확장되지 않은 경고나 Azure로 확장된 경고)에서 선택 사항입니다. |
 | 작업 그룹 |이메일, SMS, 음성 통화, 웹후크, Automation Runbook, ITSM 커넥터 등과 같이 필요한 작업이 지정된 Azure ActionGroup의 ID입니다.| 경고가 Azure로 확장되면 필요함|
 | 사용자 지정 동작|ActionGroup에서 select 동작에 대한 표준 출력 수정| 경고가 Azure로 확장된 후 모든 경고에 대한 옵션을 사용할 수 있습니다. |
 | EmailNotification |복수의 받는 사람에게 메일을 보냅니다. | 경고가 Azure로 확장되는 경우 필요 없음|
@@ -157,7 +158,7 @@ Get 메서드를 사용하여 일정에 대한 모든 작업을 검색합니다.
 | 연산자 |임계값 비교를 위한 연산자입니다. <br> gt = 보다 큰 <br> lt = 보다 작은 |
 | 값 |임계값에 대한 값입니다. |
 
-예를 들어 간격이 15분이고 Timespan이 30분이고 임계값이 10보다 큰 이벤트 쿼리를 고려합니다. 이 경우 쿼리는 매 15분마다 실행되며 경고는 30분의 기간 동안 생성된 이벤트 10개를 반환하면 경고가 트리거될 수 있습니다.
+예를 들어 간격이 15 분이고 Timespan이 30 분이고 임계값이 10보다 큰 이벤트 쿼리를 고려합니다. 이 경우 쿼리는 매 15분마다 실행되며 경고는 30분의 기간 동안 생성된 이벤트 10개를 반환하면 경고가 트리거될 수 있습니다.
 
 다음은 임계값만 가진 작업에 대한 샘플 응답입니다.  
 
@@ -213,6 +214,37 @@ Log Analytics를 통해 쉽게 관리하고 심사할 수 있도록 경고를 �
 
     $thresholdWithSevJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdWithSevJson
+
+#### <a name="suppress"></a>표시 안 함
+임계값에 도달하거나 임계값이 초과될 때마다 Log Analytics 기반 쿼리 경고가 생성됩니다. 그러므로 쿼리에 내재된 논리에 따라 일련의 간격으로 경고가 생성되고, 그로 인해 알림도 계속 전송될 수 있습니다. 이러한 상황을 방지하려는 경우 사용자는 알림 규칙에 대해 알림이 두 번째로 생성되기 전에 정해진 시간 동안 기다리도록 Log Analytics에 명령하는 표시 안 함 옵션을 설정할 수 있습니다. 예를 들어 표시 안 함 시간을 30분으로 설정하면 경고가 처음 생성되어 구성된 알림이 전송된 후 30분 동안 기다렸다가 경고 규칙에 대한 알림이 다시 사용됩니다. 이 중간 기간 동안에도 경고 규칙은 계속 실행되며, 이 기간 동안 경고 규칙이 실행된 횟수에 관계없이 Log Analytics에서 지정된 시간 동안 알림만 표시하지 않는 것입니다.
+
+Log Analytics 경고 규칙의 표시 안 함 속성은 *Throttling* 값을 사용하여 지정하며 표시 안 함 기간은 *DurationInMinutes* 값을 사용하여 지정합니다.
+
+아래에는 임계값, 심각도 및 표시 안 함 속성만 포함된 작업의 샘플 응답이 나와 있습니다.
+
+    "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
+    "properties": {
+        "Type": "Alert",
+        "Name": "My threshold action",
+        "Threshold": {
+            "Operator": "gt",
+            "Value": 10
+        },
+        "Throttling": {
+          "DurationInMinutes": 30
+        },
+        "Severity": "critical",
+        "Version": 1    }
+
+고유한 작업 ID와 함께 Put 메서드를 사용하여 심각도로 일정에 대한 새 작업을 만듭니다.  
+
+    $AlertSuppressJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
+
+고유 작업 ID와 Put 메서드를 사용하여 일정에 대한 심각도 작업을 수정합니다.  요청 본문에는 작업의 etag가 포함되어야 합니다.
+
+    $AlertSuppressJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
 
 #### <a name="action-groups"></a>작업 그룹
 Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘으로 작업 그룹을 사용합니다. 작업 그룹을 사용하여 작업을 한 번 지정한 다음, 작업 그룹을 Azure 전체에서 여러 경고에 연결할 수 있습니다. 필요가 없으면, 반복적으로 동일한 작업을 반복하고 다시 선언합니다. 작업 그룹은 이메일, SMS, 음성 통화, ITSM 연결, Automation Runbook, 웹후크 URI 등을 포함하는 여러 작업을 지원합니다. 

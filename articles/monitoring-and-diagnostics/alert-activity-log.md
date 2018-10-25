@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 526c50fa4d261a30738c3f24d537fe5e0d765f6d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a95cdbb48371cf960211f55bf077cea9db783db5
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951307"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248332"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기  
 
@@ -25,7 +25,7 @@ ms.locfileid: "46951307"
 > [!IMPORTANT]
 > Service Health 알림에 대한 경고는 활동 로그 경고 작성을 위한 인터페이스를 통해 만들 수 없습니다. 서비스 상태 알림 생성 및 사용에 대해 자세히 알아보려면 [서비스 상태 알림에서 활동 로그 경고 수신](monitoring-activity-log-alerts-on-service-notifications.md)을 참조하세요.
 
-## <a name="manage-alert-rules-for-activity-log-using-azure-portal"></a>Azure Portal을 사용하여 활동 로그에 대한 경고 규칙 관리
+## <a name="azure-portal"></a>Azure portal
 
 > [!NOTE]
 
@@ -36,7 +36,7 @@ ms.locfileid: "46951307"
 - 경고 구성 JSON에 “anyOf” 조건 또는 중첩된 조건이 없습니다(기본적으로 추가 allOf/anyOf 없이 하나의 allOf만 허용됨).
 - 범주가 "관리"인 경우. 경고에 앞에 나온 조건 중 하나 이상을 지정해야 합니다. 활동 로그에서 이벤트가 생성될 때마다 활성화되는 경고를 만들 필요는 없습니다.
 
-### <a name="create-an-alert-rule-for-an-activity-log-using-azure-portal"></a>Azure Portal을 사용하여 활동 로그에 대한 경고 규칙 만들기
+### <a name="create-with-azure-portal"></a>Azure Portal을 사용하여 만들기
 
 이렇게 하려면 다음 절차를 수행합니다.
 
@@ -102,7 +102,7 @@ ms.locfileid: "46951307"
  ![ 활동 로그에서 경고 추가](./media/monitoring-activity-log-alerts-new-experience/add-activity-log.png)
     
 
-### <a name="view-and-manage-activity-log-alert-rules-in-azure-portal"></a>Azure Portal에서 활동 로그 경고 규칙 보기 및 관리
+### <a name="view-and-manage-in-azure-portal"></a>Azure Portal에서 보기 및 관리
 
 1. Azure Portal에서 **모니터** > **경고**를 클릭하고 창의 왼쪽 위에서 **규칙 관리**를 클릭합니다.
 
@@ -127,7 +127,7 @@ ms.locfileid: "46951307"
 4.  규칙을 사용/사용하지 않도록 설정하거나 삭제할 수 있습니다. 2단계에서 설명한 대로 규칙을 선택한 후 창의 맨 위에서 적절한 옵션을 선택합니다.
 
 
-## <a name="manage-alert-rules-for-activity-log-using-azure-resource-template"></a>Azure 리소스 템플릿을 사용하여 활동 로그에 대한 경고 규칙 관리
+## <a name="azure-resource-template"></a>Azure 리소스 템플릿
 리소스 관리자 템플릿을 사용하여 활동 로그 경고를 만들려면 `microsoft.insights/activityLogAlerts` 유형의 리소스를 만듭니다. 그런 다음 모든 관련된 속성을 입력합니다. 다음은 활동 로그 경고를 만드는 템플릿입니다.
 
 ```json
@@ -200,21 +200,23 @@ ms.locfileid: "46951307"
 > [!NOTE]
 > 새로운 활동 로그 경고 규칙이 활성화되는 데에는 최대 5분이 걸릴 수 있습니다.
 
-## <a name="manage-alert-rules-for-activity-log-using-powershell-cli-or-api"></a>PowerShell, CLI 또는 API를 사용하여 활동 로그에 대한 경고 규칙 관리
+## <a name="rest-api"></a>REST API 
 [Azure Monitor - 활동 로그 경고 API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts)는 REST API이며 Azure Resource Manager REST API와 완벽하게 호환됩니다. 따라서 Resource Manager cmdlet 뿐 아니라 Azure CLI를 사용하여 Powershell을 통해 사용할 수 있습니다.
 
+## <a name="powershell"></a>PowerShell
 [리소스 템플릿 섹션](#manage-alert-rules-for-activity-log-using-azure-resource-template)에 이전에 표시된 샘플 리소스 템플릿(sampleActivityLogAlert.json)에 대한 Azure Resource Manager PowerShell cmdlet을 통한 사용량은 아래에 나와 있습니다.
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
 ```
 여기에서 sampleActivityLogAlert.parameters.json에는 경고 규칙 생성에 필요한 매개 변수에 대해 제공된 값이 있습니다.
 
+## <a name="cli"></a>CLI
 [리소스 템플릿 섹션](#manage-alert-rules-for-activity-log-using-azure-resource-template)에 이전에 표시된 샘플 리소스 템플릿(sampleActivityLogAlert.json)에 대한 Azure CLI의 Azure Resource Manager 명령을 통한 사용량은 아래에 나와 있습니다.
 
 ```azurecli
 az group deployment create --resource-group myRG --template-file sampleActivityLogAlert.json --parameters @sampleActivityLogAlert.parameters.json
 ```
-여기에서 sampleActivityLogAlert.parameters.json에는 경고 규칙 생성에 필요한 매개 변수에 대해 제공된 값이 있습니다.
+*sampleActivityLogAlert.parameters.json* 파일에는 경고 규칙 생성에 필요한 매개 변수용으로 제공된 값이 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

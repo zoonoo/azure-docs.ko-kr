@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: project-answer-search
+ms.component: answer-search
 ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 5658054b3cc77db20edd64f6c560ee5d4a58eb46
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: b211ede7ef90fb1aef3a6d6e9a82e0d52397afd3
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883723"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465919"
 ---
 # <a name="what-is-project-answer-search"></a>Project Answer Search란?
 Project Answer Search API는 Bing v7 엔드포인트를 사용하여 질문 형태의 쿼리에 대한 답변을 가져옵니다. “What is the circumference of the earth?”와 같은 질문은 팩트 정보가 포함된 답변을 반환합니다.  사람, 장소 또는 사물에 대한 쿼리는 쿼리에 의해 식별된 엔터티에 대한 정보를 반환합니다. 대화 봇, 메시징 앱, 리더 등과 같은 응용 프로그램에서는 이러한 시나리오가 유용할 수 있습니다.  

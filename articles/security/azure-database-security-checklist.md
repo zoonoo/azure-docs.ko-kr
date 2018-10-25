@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 7712196caefeea8a62045d432d762fbd16f42011
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 7682a733c5630c16d9684ec3cb9e7757b03a8b1b
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33893969"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855938"
 ---
 # <a name="azure-database-security-checklist"></a>Azure 데이터베이스 보안 검사 목록
 
@@ -61,7 +61,7 @@ Azure 데이터베이스는 다양한 조직 및 규정 준수 요구 사항을 
 ## <a name="next-steps"></a>다음 단계
 몇 가지 간단한 단계만 거치면 악의적인 사용자 또는 무단 액세스로부터 데이터베이스를 보호하는 기능을 크게 향상시킬 수 있습니다. 이 자습서에서는 다음에 대해 알아봅니다.
 
-- 서버 및 데이터베이스에 대한 [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) 설정
+- 서버 및/또는 데이터베이스에 대한 [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) 설정
 - [암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-encryption)를 사용하여 데이터 보호
 - [SQL Database 감사](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) 사용
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: msangapu
-ms.openlocfilehash: 0f2d4626308eed376b71f1b3df2f9e43f1b2a4f7
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 20ca63b7126a6800538129115ff339308c11d8c5
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130968"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867028"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Web App for Containers를 사용한 연속 배포
 
@@ -42,7 +42,7 @@ az webapp deployment container config --name name --resource-group myResourceGro
 
 Docker 허브 연속 배포를 구성하려는 앱의 이름을 선택합니다.
 
-**Docker 컨테이너** 페이지에서 **켜기**를 선택한 다음, **저장**을 선택하여 지속적인 배포를 사용하도록 설정합니다.
+**컨테이너 설정** 페이지에서 **켜기**를 선택한 다음 **저장**을 선택하여 연속 배포를 사용하도록 설정합니다.
 
 ![앱 설정 스크린샷](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 

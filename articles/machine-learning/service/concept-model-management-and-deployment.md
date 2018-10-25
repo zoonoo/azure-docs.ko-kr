@@ -1,6 +1,6 @@
 ---
-title: Azure Machine Learning에서 모델 관리 및 배포
-description: Azure Machine Learning을 통해 모델을 배포, 관리 및 모니터링하여 모델을 지속적으로 향상시키는 방법을 알아봅니다. Azure Machine Learning을 사용하여 학습한 모델을 로컬 머신 또는 다른 원본에서 배포할 수 있습니다.
+title: Azure Machine Learning Service에서 모델 관리 및 배포
+description: Azure Machine Learning Service를 통해 모델을 배포, 관리 및 모니터링하여 지속적으로 개선하는 방법을 알아봅니다. Azure Machine Learning Service를 사용하여 학습시킨 모델을 로컬 컴퓨터 또는 다른 원본에서 배포할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,21 +9,21 @@ ms.reviewer: jmartens
 author: hjerez
 ms.author: hjerez
 ms.date: 09/24/2018
-ms.openlocfilehash: d3e0b63d42ad8c6d4765f5120c26c5dfdf5ad6fb
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b09ef259d73744612c41adc4fc40ea0235da9bcb
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166540"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885070"
 ---
-# <a name="manage-deploy-and-monitor-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 관리, 배포 및 모니터링
+# <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Azure Machine Learning Service를 사용하여 모델 관리, 배포 및 모니터링
 
-이 문서에서는 Azure Machine Learning을 통해 모델을 배포, 관리 및 모니터링하여 모델을 지속적으로 향상시키는 방법을 알아볼 수 있습니다. Azure Machine Learning을 사용하여 학습한 모델을 로컬 머신 또는 다른 원본에서 배포할 수 있습니다. 
+이 문서에서는 Azure Machine Learning Service를 통해 모델을 배포, 관리 및 모니터링하여 지속적으로 개선하는 방법을 알아볼 수 있습니다. Azure Machine Learning을 사용하여 학습한 모델을 로컬 머신 또는 다른 원본에서 배포할 수 있습니다. 
 
 다음 다이어그램에서는 배포 워크플로 전체를 보여 줍니다. [ ![Azure Machine Learning의 배포 워크플로](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
 배포 워크플로에는 다음 단계가 포함됩니다.
-1. Azure Machine Learning 작업 영역에서 호스팅된 레지스트리에 **모델 등록**
+1. Azure Machine Learning Service 작업 영역에서 호스팅되는 레지스트리에 **모델 등록**
 1. 이식 가능한 컨테이너에서 점수 매기기 스크립트 및 종속성과 모델이 쌍을 이루는 **이미지 등록** 
 1. 클라우드 또는 에지 장치에서 웹 서비스로 이미지 **배포**
 1. **모니터링 및 데이터 수집**
@@ -35,7 +35,7 @@ ms.locfileid: "47166540"
 
 ## <a name="step-1-register-model"></a>1단계: 모델 등록
 
-모델 레지스트리는 Azure Machine Learning 작업 영역에서 모든 모델을 추적합니다.
+모델 레지스트리는 Azure Machine Learning Service 작업 영역에서 모든 모델을 추적합니다.
 모델은 이름 및 버전으로 식별됩니다. 모델을 기존 이름과 동일한 이름으로 등록할 때마다 레지스트리에서 버전을 증가시킵니다. 또한 모델을 검색할 때 사용할 수 있는 추가 메타데이터 태그를 등록 중에 제공할 수도 있습니다.
 
 이미지에서 사용되는 모델은 삭제할 수 없습니다.
@@ -71,7 +71,7 @@ Azure Machine Learning은 가장 인기 있는 프레임워크를 지원하지�
 * Azure FPGA 머신
 * Azure IoT Edge 장치
 
-서비스가 배포되면 추론 요청이 자동으로 부하 분산되고, 요청 시 모든 스파이크를 충족하도록 클러스터의 크기가 조정됩니다. [서비스에 대한 원격 분석](https://docs.microsoft.com/python/api/azureml-telemetry/azureml.telemetry?view=azure-ml-py)은 작업 영역과 연결된 Azure Application Insights 서비스로 캡처할 수 있습니다.
+서비스가 배포되면 추론 요청이 자동으로 부하 분산되고, 요청 시 모든 스파이크를 충족하도록 클러스터의 크기가 조정됩니다. [서비스에 대한 원격 분석](how-to-enable-app-insights.md)은 작업 영역과 연결된 Azure Application Insights 서비스로 캡처할 수 있습니다.
 
 ## <a name="step-4-monitor-models-and-collect-data"></a>4단계: 모델 모니터링 및 데이터 수집
 

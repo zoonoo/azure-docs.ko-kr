@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: ecd58779262f6580287e6c72d3aa2aecf237a562
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 35027b4eadba72776fd27826a389763cc0832eee
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983111"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044317"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service에서 스테이징 환경 설정
 <a name="Overview"></a>
@@ -84,7 +84,7 @@ ms.locfileid: "45983111"
 * 크기 조정 설정
 * WebJob 스케줄러
 
-슬롯에 맞도록(교환되지 않음) 앱 설정 또는 연결 문자열을 구성하려면 특정 슬롯에 대해 **응용 프로그램 설정** 블레이드에 액세스한 다음 슬롯에 맞아야 하는 구성 요소에 대한 **슬롯 설정** 상자를 선택합니다. 특정 슬롯으로 구성 요소를 표시하면 앱과 연결된 모든 배포 슬롯에서 교환할 수 없도록 요소를 설정하는 효과가 있습니다.
+슬롯에 고정되어 교환되지 않도록 앱 설정 또는 연결 문자열을 구성하려면 특정 슬롯의 **응용 프로그램 설정** 블레이드에 액세스한 다음 슬롯에 고정해야 하는 구성 요소의 **슬롯 설정** 상자를 선택합니다. 특정 슬롯으로 구성 요소를 표시하면 앱과 연결된 모든 배포 슬롯에서 교환할 수 없도록 요소를 설정하는 효과가 있습니다.
 
 ![슬롯 설정][SlotSettings]
 

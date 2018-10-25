@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 230a4df2c43e8d5e6ae1a5a7e8188cf207461022
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 11b6766533da65f55430d55bd8aa0b7067783e0c
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47057794"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267473"
 ---
 # <a name="how-to-close-active-risk-events"></a>방법: 활성 위험 이벤트 닫기
 
@@ -51,7 +51,7 @@ ms.locfileid: "47057794"
 
 ![암호 재설정](./media/howto-close-active-risk-events/13.png)
 
-암호 재설정은 관련된 사용자의 모든 활성 위험 이벤트를 닫고 ID를 안전한 상태로 다시 전환합니다. 사용자 위험 정책은 자동화되어 있으므로 활성 위험 이벤트를 닫기 위해 선호되는 방법입니다. 영향을 받은 사용자와 지원 센터 또는 관리자 간에 상호 작용이 필요합니다.
+암호 재설정은 관련된 사용자의 모든 활성 위험 이벤트를 닫고 ID를 안전한 상태로 다시 전환합니다. 사용자 위험 정책은 자동화되어 있으므로 활성 위험 이벤트를 닫기 위해 선호되는 방법입니다. 영향을 받은 사용자와 지원 센터 또는 관리자 간에 상호 작용이 필요하지 않습니다.
 
 그러나 사용자 위험 정책을 사용하는 것이 항상 적용 가능한 것은 아닙니다. 예를 들어 다음에 적용됩니다.
 

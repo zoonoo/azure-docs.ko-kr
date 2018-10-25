@@ -9,14 +9,14 @@ keywords: Azure Functions, 함수, 이벤트 처리, 웹후크, 동적 계산, �
 ms.service: azure-functions
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 08/10/2018
+ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: f0dc471e8875ad0d738fce10421c3586752148b9
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 9e07cddb9d446ea24143d3a6dec5e310d3ed6f1c
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092312"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802120"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 개발자 가이드
 
@@ -26,7 +26,35 @@ ms.locfileid: "44092312"
 
 Azure 함수는 입력을 처리하고 출력을 생성하는 상태 비저장 클래스 메서드여야 합니다. 인스턴스 메서드를 작성할 수는 있지만 함수가 클래스의 어떤 인스턴스 필드에도 종속되지 않아야 합니다. 모든 함수 메서드에는 `public` 액세스 한정자가 있어야 합니다.
 
-하나의 프로젝트에 둘 이상의 함수를 넣을 수 있습니다. 함수를 별도의 jar에 넣지 않도록 하세요.
+## <a name="folder-structure"></a>폴더 구조
+
+Java 프로젝트의 폴더 구조는 다음과 같습니다.
+
+```
+FunctionsProject
+ | - src
+ | | - main
+ | | | - java
+ | | | | - FunctionApp
+ | | | | | - MyFirstFunction.java
+ | | | | | - MySecondFunction.java
+ | - target
+ | | - azure-functions
+ | | | - FunctionApp
+ | | | | - FunctionApp.jar
+ | | | | - host.json
+ | | | | - MyFirstFunction
+ | | | | | - function.json
+ | | | | - MySecondFunction
+ | | | | | - function.json
+ | | | | - bin
+ | | | | - lib
+ | - pom.xml
+```
+
+함수 앱을 구성하는 데 사용할 수 있는 공유 [host.json](functions-host-json.md) 파일이 있습니다. 각 함수에는 자체 코드 파일(.java)과 바인딩 구성 파일(function.json)이 있습니다.
+
+하나의 프로젝트에 둘 이상의 함수를 넣을 수 있습니다. 함수를 별도의 jar에 넣지 않도록 하세요. 대상 디렉터리의 FunctionApp이 Azure의 함수 앱에 배포됩니다.
 
 ## <a name="triggers-and-annotations"></a>트리거 및 주석
 
@@ -87,9 +115,15 @@ public class MyClass {
 
 ```
 
+## <a name="jdk-runtime-availability-and-support"></a>JDK 런타임 사용 가능성 및 지원 
+
+Java 함수 앱을 로컬에서 개발하는 데 사용할 수 있는 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/)의 [Azul Zulu for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) JDK를 다운로드하여 사용합니다. JDK는 Windows, Linux 및 macOS용으로 제공되며, [적격 지원 플랜](https://azure.microsoft.com/support/plans/)을 보유한 경우 개발 중에 발생하는 문제에 대해 [Azure 지원](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support)을 받을 수 있습니다.
+
 ## <a name="third-party-libraries"></a>타사 라이브러리 
 
 Azure Functions는 타사 라이브러리의 사용을 지원합니다. 기본적으로 프로젝트 `pom.xml` 파일에 지정된 모든 종속성은 `mvn package` 목표 중에 자동으로 번들됩니다. `pom.xml` 파일에 종속성으로 지정되지 않은 라이브러리의 경우 함수의 루트 디렉터리에 있는 `lib` 디렉터리에 배치합니다. `lib` 디렉터리에 배치된 종속성은 런타임에 시스템 클래스 로더에 추가됩니다.
+
+`com.microsoft.azure.functions:azure-functions-java-library` 종속성은 classpath에서 기본적으로 제공되므로 `lib` 디렉터리에 포함하지 않아도 됩니다.
 
 ## <a name="data-type-support"></a>데이터 형식 지원
 

@@ -14,17 +14,19 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 3cbcae9c02abaf11ded31304f97abdd74f905c6e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 0c4908315bd7c0e4d83c7aba735cc4d102216a28
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843534"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988436"
 ---
 ## <a name="test-your-code"></a>코드 테스트
 
 ### <a name="test-with-node"></a>Node를 사용하여 테스트
+
 Visual Studio를 사용하지 않는 경우 웹 서버가 시작되었는지 확인합니다.
+
 1. **index.html** 파일의 위치를 기반으로 하는 TCP 포트에서 수신 대기하도록 서버를 구성합니다. Node의 경우 응용 프로그램 폴더의 명령줄 프롬프트에서 다음 명령을 실행하여 포트를 수신 대기하도록 웹 서버를 시작합니다.
 
     ```bash
@@ -36,15 +38,14 @@ Visual Studio를 사용하지 않는 경우 웹 서버가 시작되었는지 확
 <p/><!-- -->
 
 ### <a name="test-with-visual-studio"></a>Visual Studio를 사용한 테스트
-Visual Studio를 사용하는 경우 프로젝트 솔루션을 선택하고 **F5** 키를 눌러 프로젝트를 실행합니다. 브라우저가 열리고 http://<span></span>localhost:{port} 위치로 이동합니다. **로그인** 단추가 표시됩니다.
 
+Visual Studio를 사용하는 경우 프로젝트 솔루션을 선택하고 **F5** 키를 눌러 프로젝트를 실행합니다. 브라우저가 열리고 http://<span></span>localhost:{port} 위치로 이동합니다. **로그인** 단추가 표시됩니다.
 
 ## <a name="test-your-application"></a>응용 프로그램 테스트
 
 브라우저에서 index.html 파일이 로드되면 **로그인**을 클릭합니다. Microsoft Azure AD(Azure Active Directory) v2.0 엔드포인트로 로그인하라는 메시지가 표시됩니다.
 
 ![JavaScript SPA 계정에 로그인](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
-
 
 ### <a name="provide-consent-for-application-access"></a>응용 프로그램 액세스에 대한 동의 제공
 
@@ -53,6 +54,7 @@ Visual Studio를 사용하는 경우 프로젝트 솔루션을 선택하고 **F5
 ![응용 프로그램 액세스에 대한 사용자 동의 제공](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
 
 ### <a name="view-application-results"></a>응용 프로그램 결과 보기
+
 로그인하면 페이지에 표시된 Microsoft Graph API 응답에 사용자 프로필 정보가 반환된 것을 확인할 수 있습니다.
 
 ![Microsoft Graph API 호출로부터 예상된 결과](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)

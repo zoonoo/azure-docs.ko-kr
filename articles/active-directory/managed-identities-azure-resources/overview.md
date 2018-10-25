@@ -12,14 +12,14 @@ ms.component: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/28/2018
+ms.date: 10/23/2018
 ms.author: daveba
-ms.openlocfilehash: 43bfe3abcbe6a66f124565cde8ddb839ba76d045
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: e025d9041358fbb9dee9b64519e012c4c1988024
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47107253"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987263"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID란?
 
@@ -116,9 +116,11 @@ Linux VM에서 관리 ID를 사용하는 방법:
 
 * [Azure App Service](/azure/app-service/app-service-managed-service-identity)
 * [Azure 기능](/azure/app-service/app-service-managed-service-identity)
+* [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
 * [Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md)
 * [Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md)
 * [Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md)
+* [Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
 
 ## Azure 서비스에서 어떤 기능을 지원하나요?<a name="which-azure-services-support-managed-identity"></a>
 

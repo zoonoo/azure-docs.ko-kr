@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/26/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 1df237a65a8b5312b20de19a99399b3a3dd075ff
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 76da33a74ad95d7f074bc4efd3a8d9f97c19d612
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049613"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830315"
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Azure Storage의 데이터 이동
 온-프레미스 데이터를 Azure Storage로(또는 그 반대로) 이동하는 여러 방법이 있습니다. 가장 적합한 방법은 시나리오에 따라 달라집니다. 이 문서에서는 다양한 시나리오 그리고 각 시나리오에 적합한 방법을 신속하게 살펴보겠습니다.
@@ -38,7 +38,7 @@ Azure Storage는 .NET, Java, Android, Go, Xamarin, C++, Node.JS, PHP, Ruby, Pyth
 ### <a name="azcopy"></a>AzCopy
 AzCopy는 Azure Storage의 데이터를 고속으로 복사하기 위해 설계된 명령줄 유틸리티입니다. 저장소 계정 내에서 또는 여러 저장소 계정 간에 데이터를 복사할 수도 있습니다. AzCopy는 [Windows](storage-use-azcopy.md) 및 [Linux](storage-use-azcopy-linux.md)에서 사용할 수 있습니다.
 
-자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md) 또는 [Linux에서 AzCopy로 데이터 전송](storage-use-azcopy-linux.md)을 참조하세요.
+온-프레미스 데이터를 Azure Storage로 마이그레이션하는 방법을 알아보려면 [자습서: AzCopy를 사용하여 클라우드 저장소로 온-프레미스 데이터 마이그레이션](storage-use-azcopy-migrate-on-premises-data.md)을 참조하세요.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Azure PowerShell은 Azure의 서비스를 관리하는 cmdlet을 제공하는 모듈입니다. 시스템 관리를 위해 특별히 설계된 작업 기반 명령줄 셸 및 스크립트 언어입니다.

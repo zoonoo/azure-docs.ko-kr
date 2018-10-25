@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 10/02/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 60cdcbeba0c4149d8f049bbab553bd658c965338
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 322b21ae2273b949e9a46e0c47a9f9e4d661603e
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128598"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267956"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>명령 실행을 사용하여 Windows VM에서 PowerShell 스크립트 실행
 
@@ -21,7 +21,7 @@ ms.locfileid: "43128598"
 
 ## <a name="benefits"></a>이점
 
-가상 머신에 액세스하는 데 사용할 수 있는 여러 옵션이 있습니다. 명령 실행은 VM 에이전트를 사용하여 원격으로 가상 머신에서 스크립트를 실행할 수 있습니다. 명령 실행은 Azure Portal, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) 또는 [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand)을 통해 사용할 수 있습니다.
+가상 머신에 액세스하는 데 사용할 수 있는 여러 옵션이 있습니다. 명령 실행은 VM 에이전트를 사용하여 원격으로 가상 머신에서 스크립트를 실행할 수 있습니다. 명령 실행은 Azure Portal, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) 또는 Windows VM용 [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand)을 통해 사용할 수 있습니다.
 
 이 기능은 가상 머신 내에서 스크립트를 실행하려는 경우 모든 시나리오에서 유용하며, 부적절한 네트워크 또는 관리 사용자 구성으로 인해 RDP 또는 SSH를 개방하지 않은 가상 머신의 문제를 해결하고 수정할 수 있는 유일한 방법입니다.
 
@@ -33,6 +33,7 @@ ms.locfileid: "43128598"
 * 스크립트를 실행하는 최소 시간은 약 20초
 * 스크립트는 Windows에서 시스템으로 실행
 * 한 번에 한 스크립트씩 실행 가능
+* 정보를 요청하는 스크립트(대화형 모드)는 지원되지 않습니다.
 * 실행 중인 스크립트는 취소할 수 없음
 * 스크립트를 실행할 수 있는 최대 시간은 90분으로 이후는 시간 초과
 * 스크립트의 결과를 반환하려면 VM에서의 아웃바운드 연결이 필요합니다.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: e92c099d9e0dfacff71c13382059acb06037bb1e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2291136cf50439b7845c3a344be3218277257b34
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999871"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269482"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -230,7 +230,7 @@ VNet 피어링(또는 가상 네트워크 피어링)을 통해 가상 네트워�
 예. 글로벌 VNet 피어링을 사용하면 다른 지역의 VNet에 피어로 연결할 수 있습니다. 글로벌 VNet 피어링은 모든 Azure 공용 지역에서 사용할 수 있습니다. Azure 공용 지역에서 글로벌하게 국가별 클라우드에 피어로 연결할 수 없습니다. 글로벌 피어링은 현재 국가별 클라우드에서 제공되지 않습니다.
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>내 가상 네트워크가 다른 Azure Active Directory 테넌트의 구독에 속한 경우 VNet 피어링을 사용할 수 있나요?
-현재 구독이 다른 Azure Active Directory 테넌트에 속한 경우 VNet 피어링을 수립할 수 없습니다(로컬 또는 글로벌 모두).
+예. 현재 구독이 다른 Azure Active Directory 테넌트에 속한 경우 로컬 또는 글로벌 VNet 피어링을 설정할 수 없습니다. PowerShell 또는 CLI에서는 피어링을 설정할 수 있습니다. 포털은 아직 지원되지 않습니다.
 
 ### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>내 VNet 피어링 연결이 *시작됨* 상태입니다. 왜 연결할 수 없나요?
 피어링 연결이 시작됨 상태라면 한 링크만 만든 것입니다. 성공적인 연결을 위해서는 양방향 연결을 만들어야 합니다. 예를 들어, VNet A를 VNet B에 피어로 연결하려면 VNetA로부터 VNetB와, VNetB로부터 VNetA로의 연결을 만들어야 합니다. 두 연결을 만들면 상태가 *연결됨*으로 바뀝니다.

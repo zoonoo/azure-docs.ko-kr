@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 65b02ddc8fbd27d5081400032222a904b27e1a25
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 0f6f485bb251bfae942c258b9be879c0aff5f5b9
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126142"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955690"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Azure Data Lake Storage Gen1을 사용하는 HDInsight 클러스터 만들기
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "46126142"
 
 Azure PowerShell을 사용하여 Azure Data Lake Storage Gen1을 **추가 저장소로** 사용하는 HDInsight 클러스터를 구성하는 방법에 대해 알아봅니다.
 
-지원되는 클러스터 유형의 경우 Data Lake Storage Gen1은 기본 저장소 또는 추가 저장소 계정으로 사용할 수 있습니다. Data Lake Storage Gen1을 추가 저장소로 사용하는 경우 클러스터의 기본 저장소 계정은 여전히 Azure Storage Blob(WASB)이고 클러스터 관련 파일(예: 로그 등)은 여전히 기본 저장소에 기록되지만 처리하려는 데이터는 Data Lake Storage Gen1 계정에 저장될 수 있습니다. Data Lake Storage Gen1을 추가 저장소 계정으로 사용하면 클러스터에서 저장소로 읽고 쓰는 성능 또는 기능에 영향을 주지 않습니다.
+지원되는 클러스터 유형의 경우 Data Lake Storage Gen1은 기본 저장소 또는 추가 저장소 계정으로 사용할 수 있습니다. Data Lake Storage Gen1을 추가 저장소로 사용하는 경우 클러스터의 기본 저장소 계정은 여전히 Azure Storage Blob(WASB)이고 클러스터 관련 파일(예: 로그 등)은 여전히 기본 저장소에 기록되지만 처리하려는 데이터는 Data Lake Storage Gen1 계정에 저장될 수 있습니다. Data Lake Storage Gen1을 추가 저장소 계정으로 사용하는 것은 클러스터에서 저장소로 읽고 쓰는 성능 또는 기능에 영향을 주지 않습니다.
 
 ## <a name="using-data-lake-storage-gen1-for-hdinsight-cluster-storage"></a>HDInsight 클러스터 저장소에 대해 Data Lake Storage Gen1 사용
 
@@ -49,7 +49,7 @@ Data Lake Storage Gen1에서 HDInsight를 사용하는 경우 다음 중요 사�
 * **Azure PowerShell 1.0 이상**. [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 * **Azure Active Directory 서비스 사용자**. 이 자습서의 단계에서는 Azure AD에서 서비스 사용자를 만드는 방법에 대한 지침을 제공합니다. 그러나 서비스 사용자를 만들려면 Azure AD 관리자여야 합니다. Azure AD 관리자인 경우 이 필수 조건을 건너뛰고 자습서를 진행할 수 있습니다.
 
-    **Azure AD 관리자가 아닌 경우** 서비스 사용자를 만드는 데 필요한 단계를 수행할 수 없습니다. 이 경우 먼저 Azure AD 관리자가 서비스 주체를 만들어야 Data Lake Storage Gen1과 HDInsight 클러스터를 만들 수 있습니다. 또한 [인증서를 사용하여 서비스 사용자 만들기](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority)에 설명된 대로 인증서를 사용하여 서비스 사용자를 만들어야 합니다.
+    **Azure AD 관리자가 아닌 경우** 서비스 사용자를 만드는 데 필요한 단계를 수행할 수 없습니다. 이 경우 먼저 Azure AD 관리자가 서비스 주체를 만들어야 Data Lake Storage Gen1과 HDInsight 클러스터를 만들 수 있습니다. 또한 [인증서를 사용하여 서비스 사용자 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority)에 설명된 대로 인증서를 사용하여 서비스 사용자를 만들어야 합니다.
 
 ## <a name="create-an-hdinsight-cluster-with-data-lake-storage-gen1"></a>Data Lake Storage Gen1을 사용하는 HDInsight 클러스터 만들기
 Resource Manager 템플릿 및 템플릿 사용을 위한 필수 조건은 GitHub의 [Deploy a HDInsight Linux cluster with new Data Lake Storage Gen1](https://github.com/Azure/azure-quickstart-templates/tree/master/201-hdinsight-datalake-store-azure-storage)(새로운 Data Lake Storage Gen1을 사용하는 HDInsight Linux 클러스터 배포)에서 확인할 수 있습니다. 이 링크에 제공된 지침에 따라 Data Lake Storage Gen1을 추가 저장소로 사용하는 HDInsight 클러스터를 만듭니다.
@@ -112,8 +112,8 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
    ```
 
 
-## <a name="access-data-lake-storage-gen1-using-hdfs-commands"></a>HDFS 명령을 사용한 Data Lake Storage Gen1 액세스
-Data Lake Storage Gen1을 사용하도록 HDInsight 클러스터를 구성한 후 HDFS 셸 명령을 사용하여 저장소에 액세스할 수 있습니다.
+## <a name="access-data-lake-storage-gen1-using-hdfs-commands"></a>HDFS 명령을 사용하여 Data Lake Storage Gen1 액세스
+Data Lake Storage Gen1을 사용하도록 HDInsight 클러스터를 구성하고 나면 HDFS 셸 명령을 사용하여 저장소에 액세스할 수 있습니다.
 
 이 섹션에서는 HDInsight Linux 클러스터로 SSH하고 HDFS 명령을 실행합니다. Windows 클라이언트를 사용하는 경우 [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있는 **PuTTY**를 사용하는 것이 좋습니다.
 
@@ -125,7 +125,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
 hdfs dfs -ls adl://<Data Lake Storage Gen1 account name>.azuredatalakestore.net:443/
 ```
 
-Data Lake Storage Gen1에 이전에 업로드한 파일이 나열되어야 합니다.
+이전에 Data Lake Storage Gen1에 업로드한 파일이 나열되어야 합니다.
 
 ```
 15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6

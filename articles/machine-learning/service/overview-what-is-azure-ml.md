@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 09/24/2018
-ms.openlocfilehash: 660e5515b765e133d5bc9309be5439209b957353
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 4a867692d3ce509443e5aa94536075fdcd4bab84
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238521"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945963"
 ---
 # <a name="what-is-azure-machine-learning-service-preview"></a>Azure Machine Learning 서비스(미리 보기)란?
 
@@ -54,7 +54,7 @@ Azure Machine Learning 서비스는 모델을 자동으로 생성하여 사용�
 - <a href="http://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
 - <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>
 - <a href="https://pytorch.org" target="_blank">PyTorch</a>
-- <a href="https://www.microsoft.com/cognitive-toolkit/" target="_blank">CNTK</a>
+- <a href="https://www.microsoft.com/en-us/cognitive-toolkit/" target="_blank">CNTK</a>
 - <a href="http://mxnet.io" target="_blank">MXNet</a>
 
 모델이 있으면 모델을 사용하여 테스트를 위해 로컬로 배포한 다음, [Azure Container Instances](how-to-deploy-to-aci.md) 또는 [Azure Kubernetes Service](how-to-deploy-to-aks.md)의 프로덕션 웹 서비스로 배포할 수 있는 할 수 있는 컨테이너(예: Docker)를 만듭니다.

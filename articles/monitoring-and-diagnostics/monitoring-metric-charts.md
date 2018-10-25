@@ -8,20 +8,14 @@ ms.topic: conceptual
 ms.date: 09/17/2017
 ms.author: vitaly.gorbenko
 ms.component: metrics
-ms.openlocfilehash: 21b0029ff12915c8416ad2366fbf6c45ddfaa288
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f82b4dff20e2b26e62889c41b3ff3c27bc86066a
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978425"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901416"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor 메트릭 탐색기
-
-이 방법에서는 현재 공개 미리 보기로 제공되는 차세대 Azure Monitor 메트릭 차트 환경을 설명합니다. 새로운 환경에서는 다차원 메트릭 및 차원이 없는 기본 메트릭 모두에 대해 렌더링 차트를 지원합니다. 여러 리소스 종류, 다중 리소스 그룹 및 구독에서 메트릭을 오버레이한 차트를 그릴 수 있습니다. 차원 필터를 적용하고 그룹화하여 다차원 메트릭 차트를 사용자 지정할 수 있습니다. 사용자 지정된 차트를 포함하여 모든 차트를 대시보드에 고정할 수 있습니다.
-
-차원이 없는 기본 메트릭만을 지원하는 이전 환경에 대한 정보를 찾고 경우 [Microsoft Azure 메트릭 개요 가이드](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics)에서 "포털을 통해 메트릭에 액세스"라는 섹션을 참조하세요.
-
-## <a name="what-is-azure-monitor-metrics-explorer"></a>Azure Monitor 메트릭 탐색기란?
 
 Azure Monitor 메트릭 탐색기는 Microsoft Azure Portal의 구성 요소이며 차트를 그리고, 추세의 상관 관계를 시각적으로 지정하고, 메트릭 값에서 급증 및 하락을 조사할 수 있습니다. 메트릭 탐색기는 Azure에서 호스트되거나 Azure Monitor 서비스에서 모니터링되는 응용 프로그램 및 인프라와 관련된 다양한 성능 및 가용성 문제를 조사하는 데 필수적인 시작점입니다. 
 
@@ -29,34 +23,29 @@ Azure Monitor 메트릭 탐색기는 Microsoft Azure Portal의 구성 요소이�
 
 Microsoft Azure의 메트릭은 지남에 따라 수집되고 저장된 일련의 측정된 값과 수입니다. 표준(또는 "플랫폼") 메트릭 및 사용자 지정 메트릭이 있습니다. 표준 메트릭은 Azure 플랫폼 자체에서 제공됩니다. 표준 메트릭은 Azure 리소스의 상태 및 사용량 통계를 반영합니다. 사용자 지정 메트릭은 [사용자 지정 이벤트의 Application Insights API](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics)를 사용하여 응용 프로그램에서 Azure로 전송되는 반면 사용자 지정 메트릭은 다른 응용 프로그램 특정 메트릭과 함께 Application Insights 리소스에 저장됩니다.
 
-
-
 ## <a name="how-do-i-create-a-new-chart"></a>새 차트를 만들려면 어떻게 할까요?
 
-   > [!NOTE]
-   > 이전 메트릭 환경의 일부 기능은 새 메트릭 탐색기에서 아직 사용할 수 없습니다. 새로운 환경이 미리 보기로 제공되는 반면 Azure Monitor의 이전(비차원) 메트릭 보기를 계속 사용할 수 있습니다. 
-
 1. Azure 포털 열기
-2. 새 **모니터** 탭으로 이동하고 **메트릭(미리 보기)** 을 선택합니다.
+2. 새 **모니터** 탭으로 이동하여 **메트릭**을 선택합니다.
 
-   ![메트릭 미리 보기 이미지](./media/monitoring-metric-charts/0001.png)
+   ![메트릭 이미지](./media/monitoring-metric-charts/0001.png)
 
 3. **메트릭 선택기**가 자동으로 열립니다. 해당 관련 메트릭을 보려면 목록에서 리소스를 선택합니다. 메트릭을 포함한 리소스만이 목록에 표시됩니다.
 
-   ![메트릭 미리 보기 이미지](./media/monitoring-metric-charts/0002.png)
+   ![메트릭 이미지](./media/monitoring-metric-charts/0002.png)
 
    > [!NOTE]
    >Azure 구독이 여러 개 있는 경우 메트릭 탐색기는 포털 설정 -> 구독 목록별 필터에서 선택된 모든 구독에 걸쳐 리소스를 끌어옵니다. 이를 변경하려면 화면 맨 위에서 포털 설정 기어 아이콘을 클릭하고 사용하려는 구독을 선택합니다.
 
-4. 메트릭을 선택하기 전에 일부 리소스 형식(즉, 저장소 계정 및 가상 머신)에 대해 **네임스페이스**를 선택해야 합니다. 각 네임스페이스는 이 네임스페이스에만 관련이 있고 다른 네임스페이스에는 관련이 없는 고유한 메트릭 집합을 포함합니다.
+4. 저장소 계정 및 가상 머신과 같은 일부 리소스 종류의 경우에는 메트릭을 선택하기 전에 **네임스페이스**를 선택해야 합니다. 각 네임스페이스는 이 네임스페이스에만 관련이 있고 다른 네임스페이스에는 관련이 없는 고유한 메트릭 집합을 포함합니다.
 
    예를 들어 각 Azure Storage에는 저장소 계정의 모든 부분인 하위 서비스 "Blob", "파일", "큐" 및 "테이블"에 대한 메트릭이 있습니다. 그러나 "큐 메시지 수" 메트릭은 다른 저장소 계정 하위 서비스가 아닌 "큐" 하위 서비스에 자연스럽 게 적용됩니다.
 
-   ![메트릭 미리 보기 이미지](./media/monitoring-metric-charts/0003.png)
+   ![메트릭 이미지](./media/monitoring-metric-charts/0003.png)
 
 5. 목록에서 메트릭을 선택합니다. 원하는 메트릭의 이름을 일부 알고 있는 경우 입력하여 사용 가능한 메트릭의 필터링된 목록을 볼 수 있습니다.
 
-   ![메트릭 미리 보기 이미지](./media/monitoring-metric-charts/0004.png)
+   ![메트릭 이미지](./media/monitoring-metric-charts/0004.png)
 
 6. 메트릭을 선택한 후에 차트는 선택한 메트릭에 대한 기본 집계로 렌더링됩니다. 이 시점에서 **메트릭 선택기**를 닫으려면 바깥쪽을 클릭하면 됩니다. 또한 선택적으로 다른 집계로 차트를 전환할 수 있습니다. 일부 메트릭의 경우 집계를 전환하면 차트에 표시하려는 값을 선택할 수 있습니다. 예를 들어 평균, 최소 및 최대 값을 전환할 수 있습니다. 
 

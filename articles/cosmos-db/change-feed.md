@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 3170ee1b48aa332a8730ba835396761ca5ef44c7
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: b6d05c5e9bc59df9df7ef8840b70ab027b6e2f74
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287328"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269499"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Azure Cosmos DB에서 변경 피드 지원 사용
 
@@ -152,7 +152,7 @@ Azure Cosmos DB의 [SQL SDK](sql-api-sdk-dotnet.md)는 변경 피드를 읽고 �
     ```
 
 > [!NOTE]
-> `ChangeFeedOptions.PartitionKeyRangeId` 대신, `ChangeFeedOptions.PartitionKey`를 사용하여 변경 피드를 가져올 단일 파티션 키를 지정합니다. 예: `PartitionKey = new PartitionKey("D8CFA2FD-486A-4F3E-8EA6-F3AA94E5BD44")`
+> `ChangeFeedOptions.PartitionKeyRangeId` 대신, `ChangeFeedOptions.PartitionKey`를 사용하여 변경 피드를 가져올 단일 파티션 키를 지정합니다. 예: `PartitionKey = new PartitionKey("D8CFA2FD-486A-4F3E-8EA6-F3AA94E5BD44")`.
 > 
 >
 
@@ -351,19 +351,13 @@ Azure Cosmos DB의 [SQL SDK](sql-api-sdk-dotnet.md)는 변경 피드를 읽고 �
                     CollectionName = this.leaseCollectionName
                 };
             DocumentFeedObserverFactory docObserverFactory = new DocumentFeedObserverFactory();
-            ChangeFeedOptions feedOptions = new ChangeFeedOptions();
-
-            /* ie customize StartFromBeginning so change feed reads from beginning
-                can customize MaxItemCount, PartitonKeyRangeId, RequestContinuation, SessionToken and StartFromBeginning
-            */
-
-            feedOptions.StartFromBeginning = true;
-        
+       
             ChangeFeedProcessorOptions feedProcessorOptions = new ChangeFeedProcessorOptions();
 
             // ie. customizing lease renewal interval to 15 seconds
             // can customize LeaseRenewInterval, LeaseAcquireInterval, LeaseExpirationInterval, FeedPollDelay 
             feedProcessorOptions.LeaseRenewInterval = TimeSpan.FromSeconds(15);
+            feedProcessorOptions.StartFromBeginning = true;
 
             this.builder
                 .WithHostName(hostName)
@@ -439,7 +433,7 @@ Azure Functions 호출마다 문서 100개입니다. 하지만 function.json 파
 
 ### <a name="my-document-is-updated-every-second-and-i-am-not-getting-all-the-changes-in-azure-functions-listening-to-change-feed"></a>내 문서가 1초마다 업데이트되고, 변경 피드를 수신 대기하는 Azure Functions의 변경 내용 중 일부를 가져올 수 없습니다.
 
-Azure Functions가 5초마다 변경 피드를 폴링하므로 5초 사이에 변경된 내용은 손실됩니다. Azure Cosmos DB는 5초마다 한 가지 버전만 저장하므로 문서에는 5번째 변경 내용이 반영됩니다. 그러나 5초 미만으로 낮추고 변경 피드를 1초마다 폴링하려면 폴링 시간 "feedPollTime"을 구성하면 됩니다. 자세한 내용은 [Azure Cosmos DB 바인딩](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration)을 참조하세요. 밀리초 단위로 정의되며 기본값은 5000입니다. 1초 미만으로 설정할 수 있지만 CPU 사용량이 증가하므로 권장하지 않습니다.
+Azure Functions가 5초마다 변경 피드를 폴링하므로 5초 사이에 변경된 내용은 손실됩니다. Azure Cosmos DB는 5초마다 한 가지 버전만 저장하므로 문서에는 5번째 변경 내용이 반영됩니다. 그러나 저장 간격을 5초 미만으로 낮추고 변경 피드를 1초마다 폴링하려면 폴링 시간 "feedPollTime"을 구성하면 됩니다. 자세한 내용은 [Azure Cosmos DB 바인딩](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration)을 참조하세요. 밀리초 단위로 정의되며 기본값은 5000입니다. 1초 미만으로 설정할 수 있지만 CPU 사용량이 증가하므로 권장하지 않습니다.
 
 ### <a name="i-inserted-a-document-in-the-mongo-api-collection-but-when-i-get-the-document-in-change-feed-it-shows-a-different-id-value-what-is-wrong-here"></a>Mongo API 컬렉션에 문서를 삽입했는데, 변경 피드에서 해당 문서를 가져오면 다른 id 값이 표시됩니다. 무엇이 문제입니까?
 
@@ -451,7 +445,7 @@ Azure Functions가 5초마다 변경 피드를 폴링하므로 5초 사이에 �
 
 ### <a name="is-there-a-way-to-get-deletes-in-change-feed"></a>변경 피드의 삭제를 가져오는 방법이 있나요?
 
-현재 변경 피드는 삭제를 기록하지 않습니다. 변경 피드를 지속적으로 개선 중이며, 로드맵에 이 기능이 있습니다. 지금은 삭제에 대한 문서에서 소프트 표식을 추가할 수 있습니다. 문서에 "deleted"라고 하는 특성을 추가하고 "true"로 설정한 다음, 문서에서 TTL을 설정하면 자동으로 삭제됩니다.
+현재 변경 피드는 삭제를 기록하지 않습니다. 변경 피드를 지속적으로 개선 중이며, 로드맵에 이 기능이 있습니다. 지금은 삭제에 대한 문서에서 소프트 표식을 추가할 수 있습니다. 문서에 "deleted" 특성을 추가하고 "true"로 설정한 다음 문서에서 TTL을 설정하면 문서가 자동으로 삭제됩니다.
 
 ### <a name="can-i-read-change-feed-for-historic-documentsfor-example-documents-that-were-added-5-years-back-"></a>기록 문서(예: 5년 전에 추가된 문서)에 대한 변경 피드를 읽을 수 있나요?
 

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/22/2018
 ms.author: adigan
-ms.openlocfilehash: 873e7066bcf51b32c3a7a54e845ffd5a744f407f
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 2da5b04f56a5746fb77de6bc954bb5971eb4664b
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745438"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885173"
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>DPM을 통해 Azure에서 워크로드 백업 준비
 > [!div class="op_single_selector"]
@@ -93,7 +93,7 @@ DPM용 Azure에서 백업에 대한 몇 가지 주요 정의는 다음과 같습
 
 자격 증명 모음 자격 증명 파일은 Azure 포털에서 보안 채널을 통해 다운로드됩니다. Azure Backup 서비스는 인증서의 개인 키를 인식하지 않으며 개인 키는 포털 또는 서비스에서 사용할 수 없습니다. 로컬 컴퓨터에 자격 증명 모음 자격 증명 파일을 다운로드하려면 다음 단계를 따르십시오.
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 2. DPM 서버에 등록할 Recovery Services 자격 증명 모음을 엽니다.
 
@@ -170,7 +170,7 @@ Azure Backup 자격 증명 모음을 만든 후에는 각 Windows 컴퓨터(Wind
 14. Data Protection Manager를 사용하는 경우 **구성** 옵션을 클릭하고 **관리** 탭 아래쪽에 있는 **온라인**을 선택하여 등록 워크플로 중에 지정된 설정을 수정할 수 있습니다.
 
 ## <a name="requirements-and-limitations"></a>요구 사항(및 제한 사항)
-* DPM은 물리적 서버 또는 System Center 2012 SP1 또는 System Center 2012 R2에 설치된 Hyper-V 가상 머신으로 실행할 수 있습니다. 최소 System Center 2012 R2 DPM 2012 R2 업데이트 롤업 3에서 실행되는 Azure 가상 컴퓨터 또는 최소 System Center 2012 R2 업데이트 롤업 5에서 실행되는 VMWare의 Windows 가상 컴퓨터로도 실행할 수 있습니다.
+* DPM은 물리적 서버 또는 System Center 2012 SP1 또는 System Center 2012 R2에 설치된 Hyper-V 가상 머신으로 실행할 수 있습니다. 최소 System Center 2012 R2 DPM 2012 R2 업데이트 롤업 3에서 실행되는 Azure 가상 머신 또는 최소 System Center 2012 R2 업데이트 롤업 5에서 실행되는 VMware의 Windows 가상 머신으로도 실행할 수 있습니다.
 * DPM을 System Center 2012 SP1에서 실행 중인 경우,  System Center Data Protection Manager SP1용 업데이트 롤업 2를 설치해야 합니다. Azure Backup 에이전트를 설치하기 전에 필수입니다.
 * DPM 서버는 Windows PowerShell 및 .Net Framework 4.5가 설치되어 있어야 합니다.
 * DPM은 대부분의 워크로드를 Azure Backup에 백업할 수 있습니다. 지원되는 전체 목록은 아래의 Azure Backup 지원 항목을 참조하십시오.

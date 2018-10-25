@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: ffd8a82fb03c23a661223e16e75d2964249d2b96
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 69802c6c4246b91f62a0e49ec0c34bdd3a1bec8b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965826"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958423"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Azure Media Services를 사용하여 액세스 제어가 포함된 콘텐츠 보호 시스템 설계
 
@@ -225,7 +225,7 @@ ASP.NET MVC 플레이어 앱에 대해 Azure AD를 설정하는 방법에 대한
 
 Azure AD에 대한 내용:
 
-* [Azure Active Directory 개발자 가이드](../../active-directory/develop/azure-ad-developers-guide.md)에서 개발자 정보를 찾을 수 있습니다.
+* [Azure Active Directory 개발자 가이드](../../active-directory/develop/v1-overview.md)에서 개발자 정보를 찾을 수 있습니다.
 * [Azure AD 테넌트 디렉터리 관리](../../active-directory/fundamentals/active-directory-administer.md)에서 관리자 정보를 찾을 수 있습니다.
 
 ### <a name="some-issues-in-implementation"></a>구현에 대한 몇 가지 문제

@@ -14,12 +14,12 @@ ms.component: users-groups-roles
 ms.date: 01/14/2018
 ms.author: curtand
 ms.custom: seohack1
-ms.openlocfilehash: 10851990f26124ae89945d4b56058115cacb81ee
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 5beee2fae518fec23b65ff05a79281e0fc3f1417
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861595"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48800743"
 ---
 # <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>Azure Active Directory에서 라이선스에 대해 라이선스 사용자를 그룹에 추가하는 방법
 
@@ -47,7 +47,7 @@ ms.locfileid: "37861595"
 
 6. 원래의 직접 할당을 제거하는 것을 고려합니다. 이러한 작업을 점차적으로 “단계별”로 진행하면서 사용자의 일부에 대한 결과를 모니터링할 수 있습니다.
 
-  사용자에 대한 원래의 직접 할당을 그대로 둘 수 있지만 사용자가 라이선스 그룹을 나가게 되어도 원래 라이선스가 계속 유지되며 이러한 상황을 원치 않을 수 있습니다.
+  사용자에 대한 원래 직접 할당을 그대로 둘 수도 있지만, 이렇게 하면 사용자가 라이선스 그룹에서 제외되는데도 원래 라이선스를 계속 보유하는 상황이 발생할 수도 있습니다.
 
 ## <a name="an-example"></a>예제
 

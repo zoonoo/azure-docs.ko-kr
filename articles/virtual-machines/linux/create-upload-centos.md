@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: d7c35b79dcdf75dbb3f891dc4c66cbf893b61c03
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5328ee7e3e3035ebce1ff9fccbfc6e9ccfd86ee8
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777691"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888399"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Azure용 CentOS 기반 가상 머신 준비
 * [Azure용 CentOS 6.x 가상 머신 준비](#centos-6x)
@@ -298,7 +298,7 @@ Azure용으로 CentOS 7 가상 컴퓨터를 준비하는 작업은 CentOS 6과 �
    
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
-10. **VMWare VirtualBox 또는 KVM**에서 이미지를 빌드하는 경우 Hyper-V 드라이버가 initramfs에 포함되어 있는지 확인합니다.
+10. **VMware VirtualBox 또는 KVM**에서 이미지를 빌드하는 경우 Hyper-V 드라이버가 initramfs에 포함되어 있는지 확인합니다.
    
    `/etc/dracut.conf`를 편집하고 콘텐츠를 추가합니다.
    

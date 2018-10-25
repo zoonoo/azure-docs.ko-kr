@@ -17,12 +17,12 @@ ms.date: 08/21/2018
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: a2876ccdfe073a3c642304a1381faf77ae4a7d90
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 603da0add9efba4e68088bf0eb6ab919ec9988e2
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42142576"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955494"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Azure Active Directory에 대해 인증된 AppSource 가져오는 방법
 
@@ -32,7 +32,7 @@ AppSource에서 독립 실행형 SaaS 응용 프로그램을 나열하려면 응
 
 ## <a name="guides-and-code-samples"></a>지침 및 코드 샘플
 
-Open ID를 사용하여 응용 프로그램을 Azure AD와 통합하는 방법에 대해 자세히 알아보려면 [Azure Active Directory 개발자 가이드](azure-ad-developers-guide.md#get-started "개발자를 위한 Azure AD 시작")에서 지침 및 코드 샘플을 따릅니다.
+Open ID를 사용하여 응용 프로그램을 Azure AD와 통합하는 방법에 대해 자세히 알아보려면 [Azure Active Directory 개발자 가이드](v1-overview.md#get-started "개발자를 위한 Azure AD 시작")에서 지침 및 코드 샘플을 따릅니다.
 
 ## <a name="multi-tenant-applications"></a>다중 테넌트 응용 프로그램
 
@@ -127,9 +127,9 @@ Azure AD 통합의 경우 지원을 제공하기 위해 커뮤니티와 함께 [
 <!--Reference style links -->
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Auth-Scenarios-Browser-To-WebApp]:authentication-scenarios.md#web-browser-to-web-application
-[AAD-Dev-Guide]: azure-ad-developers-guide.md
+[AAD-Dev-Guide]: v1-overview.md
 [AAD-Howto-Multitenant-Overview]: howto-convert-app-to-be-multi-tenant.md
-[AAD-QuickStart-Web-Apps]: azure-ad-developers-guide.md#get-started
+[AAD-QuickStart-Web-Apps]: v1-overview.md#get-started
 
 
 <!--Image references-->

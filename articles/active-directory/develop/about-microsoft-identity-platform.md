@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 5e18a27579c577f914709e25cab1549387a965f3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7b96ee362f6169d386a58ee48878e40a42fc9ede
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966404"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987599"
 ---
 # <a name="about-microsoft-identity-platform"></a>Microsoft ID 플랫폼 정보
 
@@ -37,7 +37,7 @@ Microsoft ID 플랫폼의 기능을 확장하고 발전시키기 위해 이제 A
 
 다음 다이어그램은 앱 등록 환경, SDK, 엔드포인트 및 지원되는 ID를 포함하는 높은 수준의 Microsoft ID 환경을 보여줍니다.
 
-![현재 Microsoft ID 플랫폼](./media/about-microsoft-identity-platform/microsoft-identity-platform-today.png)
+![현재 Microsoft ID 플랫폼](./media/about-microsoft-identity-platform/microsoft-identity-platform-preview.png)
 
 Microsoft ID 플랫폼에는 두 개의 엔드포인트(v1.0 및 v2.0)와 이러한 엔드포인트를 처리하는 클라이언트 라이브러리의 두 가지 집합이 있습니다. 새 응용 프로그램을 개발할 때 엔드포인트 및 인증 라이브러리의 장점 및 현재 상태를 고려합니다. 또한 다음 사항도 고려합니다.
 
@@ -61,5 +61,5 @@ Microsoft ID 플랫폼에는 두 개의 엔드포인트(v1.0 및 v2.0)와 이러
 
 v1.0 및 v2.0에 대해 자세히 알아봅니다.
 
-* [v1.0 정보](azure-ad-developers-guide.md)
-* [v2.0 정보](azure-ad-developers-guide.md)
+* [v1.0 정보](v1-overview.md)
+* [v2.0 정보](v2-overview.md)

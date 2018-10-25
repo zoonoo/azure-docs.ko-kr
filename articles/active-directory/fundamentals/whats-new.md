@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d39cfddc42ea0e03f6b0f6c8d1c0160839742518
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 98edf224ebbd15f6acafdfeb28769eecb4edff40
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393913"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638122"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -131,7 +131,7 @@ Azure Portal의 **로그인** 페이지에 있는 새로운 **문제 해결 및 
 **서비스 범주:** 조건부 액세스  
 **제품 기능:** ID 보안 및 보호
 
-[승인된 클라이언트 앱](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference.md#approved-client-app-requirement) 목록에는 다음과 같은 앱이 있습니다.
+[승인된 클라이언트 앱](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference#approved-client-app-requirement) 목록에는 다음과 같은 앱이 있습니다.
 
 - Microsoft To-Do
 

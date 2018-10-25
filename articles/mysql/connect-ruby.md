@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: cbd60be37dc7021ecbb961027dca40d048ed84cb
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: cfaf6cc5b93ee80017a8fe5634c7afa7b9ce0ccf
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265081"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986802"
 ---
 # <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>MySQL용 Azure Database: Ruby를 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 Windows, Ubuntu Linux 및 Mac 플랫폼에서 [Ruby](https://www.ruby-lang.org) 응용 프로그램 및 [mysql2](https://rubygems.org/gems/mysql2) gem을 사용하여 MySQL용 Azure Database에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 항목에서는 Ruby를 사용하여 개발하는 데 익숙하고 MySQL용 Azure Database를 처음 사용한다고 가정합니다.
@@ -30,7 +30,7 @@ ms.locfileid: "35265081"
 Ruby, Gem 및 MySQL2 라이브러리를 자신의 컴퓨터에 설치합니다. 
 
 ### <a name="windows"></a>Windows
-1. [Ruby](http://rubyinstaller.org/downloads/) 버전 2.3을 다운로드하고 설치합니다.
+1. [Ruby](https://rubyinstaller.org/downloads/) 버전 2.3을 다운로드하고 설치합니다.
 2. 시작 메뉴에서 새 명령 프롬프트(cmd)를 시작합니다.
 3. 디렉터리를 Ruby 버전 2.3에 대한 디렉터리로 변경합니다. `cd c:\Ruby23-x64\bin`
 4. `ruby -v` 명령을 실행하여 설치된 버전을 확인함으로써 Ruby 설치를 테스트합니다.
@@ -70,7 +70,7 @@ MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵
 ## <a name="connect-and-create-a-table"></a>테이블 연결 및 생성
 **CREATE TABLE** SQL 문 다음에 테이블에 행을 추가하는 **INSERT INTO** SQL 문을 사용하여 테이블을 연결 및 생성하려면 다음 코드를 사용합니다.
 
-이 코드는 [mysql2::client](http://www.rubydoc.info/gems/mysql2/0.4.8) 클래스 .new() 메서드를 사용하여 MySQL용 Azure 데이터베이스에 연결합니다. 그런 다음 [query()](http://www.rubydoc.info/gems/mysql2/0.4.8#Usage) 메서드를 여러 번 호출하여 DROP, CREATE TABLE 및 INSERT INTO 명령을 실행합니다. 그런 다음 종료하기 전에 [close()](http://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) 메서드를 호출하여 연결을 닫습니다.
+이 코드는 [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8) 클래스 .new() 메서드를 사용하여 MySQL용 Azure 데이터베이스에 연결합니다. 그런 다음 [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) 메서드를 여러 번 호출하여 DROP, CREATE TABLE 및 INSERT INTO 명령을 실행합니다. 그런 다음 종료하기 전에 [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) 메서드를 호출하여 연결을 닫습니다.
 
 `host`, `database`, `username` 및 `password` 문자열은 원하는 값으로 바꾸세요. 
 ```ruby
@@ -115,7 +115,7 @@ end
 ## <a name="read-data"></a>데이터 읽기
 **SELECT** SQL 문을 사용하여 데이터를 연결하고 읽으려면 다음 코드를 사용하세요. 
 
-이 코드는 [mysql2::client](http://www.rubydoc.info/gems/mysql2/0.4.8) class.new() 메서드를 사용하여 MySQL용 Azure Database에 연결합니다. 그런 다음 [query()](http://www.rubydoc.info/gems/mysql2/0.4.8#Usage) 메서드를 호출하여 SELECT 명령을 실행합니다. 그런 다음 종료하기 전에 [close()](http://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) 메서드를 호출하여 연결을 닫습니다.
+이 코드는 [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8) class.new() 메서드를 사용하여 MySQL용 Azure Database에 연결합니다. 그런 다음 [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) 메서드를 호출하여 SELECT 명령을 실행합니다. 그런 다음 종료하기 전에 [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) 메서드를 호출하여 연결을 닫습니다.
 
 `host`, `database`, `username` 및 `password` 문자열은 원하는 값으로 바꾸세요. 
 
@@ -154,7 +154,7 @@ end
 ## <a name="update-data"></a>데이터 업데이트
 **UPDATE** SQL 문을 사용하여 데이터를 연결하고 업데이트하려면 다음 코드를 사용하세요.
 
-이 코드는 [mysql2::client](http://www.rubydoc.info/gems/mysql2/0.4.8) 클래스 .new() 메서드를 사용하여 MySQL용 Azure 데이터베이스에 연결합니다. 그런 다음 [query()](http://www.rubydoc.info/gems/mysql2/0.4.8#Usage) 메서드를 호출하여 UPDATE 명령을 실행합니다. 그런 다음 종료하기 전에 [close()](http://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) 메서드를 호출하여 연결을 닫습니다.
+이 코드는 [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8) 클래스 .new() 메서드를 사용하여 MySQL용 Azure 데이터베이스에 연결합니다. 그런 다음 [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) 메서드를 호출하여 UPDATE 명령을 실행합니다. 그런 다음 종료하기 전에 [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) 메서드를 호출하여 연결을 닫습니다.
 
 `host`, `database`, `username` 및 `password` 문자열은 원하는 값으로 바꾸세요. 
 
@@ -191,7 +191,7 @@ end
 ## <a name="delete-data"></a>데이터 삭제
 **DELETE** SQL 문을 사용하여 데이터를 연결하고 읽으려면 다음 코드를 사용하세요. 
 
-이 코드는 [mysql2::client](http://www.rubydoc.info/gems/mysql2/0.4.8) 클래스 .new() 메서드를 사용하여 MySQL용 Azure 데이터베이스에 연결합니다. 그런 다음 [query()](http://www.rubydoc.info/gems/mysql2/0.4.8#Usage) 메서드를 호출하여 DELETE 명령을 실행합니다. 그런 다음 종료하기 전에 [close()](http://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) 메서드를 호출하여 연결을 닫습니다.
+이 코드는 [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8) 클래스 .new() 메서드를 사용하여 MySQL용 Azure 데이터베이스에 연결합니다. 그런 다음 [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) 메서드를 호출하여 DELETE 명령을 실행합니다. 그런 다음 종료하기 전에 [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) 메서드를 호출하여 연결을 닫습니다.
 
 `host`, `database`, `username` 및 `password` 문자열은 원하는 값으로 바꾸세요. 
 

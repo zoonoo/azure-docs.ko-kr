@@ -7,33 +7,33 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 10/02/2018
 ms.author: rimman
-ms.openlocfilehash: 66beeb2cc724f75d17a4c155f1cdb888153e8fbf
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 23a3e629e12e2a4d417757c9fef5db804bb72c9e
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286768"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248757"
 ---
-# <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB의 요청 단위
+# <a name="throughput-and-request-units-in-azure-cosmos-db"></a>Azure Cosmos DB의 처리량 및 요청 단위
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)는 Microsoft의 전 세계로 분산된 다중 모델 데이터베이스입니다. Azure Cosmos DB를 사용하면 가상 머신을 임대하거나, 소프트웨어를 배포하거나, 데이터베이스를 모니터링할 필요가 없습니다. 세계적 수준의 가용성, 성능 및 데이터 보호를 제공하기 위해 Microsoft의 최고 엔지니어가 Azure Cosmos DB를 작동하고 지속적으로 모니터링합니다. [SQL](documentdb-introduction.md), [MongoDB](mongodb-introduction.md) 및 [테이블](table-introduction.md) API와 같이 사용자가 선택한 API를 사용하여 데이터에 액세스하고, [Gremlin API](graph-introduction.md)를 통해 그래프에 액세스할 수 있습니다. 모든 API는 모두 기본적으로 지원됩니다. 
+Azure Cosmos DB 리소스에는 프로비전된 처리량과 저장소를 기준으로 대금이 청구됩니다. Azure Cosmos DB 처리량은 **초당 요청 단위 수(RU/초)** 로 표시됩니다. Azure Cosmos DB는 단순한 읽기 및 쓰기부터 복잡한 그래프 쿼리에 이르기까지 다양한 작업에서 많은 API를 지원합니다. 각 요청은 요청을 처리하는 데 필요한 계산 작업량을 기준으로 하여 요청 단위를 사용합니다. 작업에 대한 요청 단위의 수는 명확합니다. 응답 헤더를 통해 Azure Cosmos DB의 모든 작업에서 사용하는 요청 단위의 수를 추적할 수 있습니다. 예측 가능한 성능을 제공하려면 100 RU/초 단위로 처리량을 예약해야 합니다. Azure Cosmos DB [요청 단위 계산기](https://www.documentdb.com/capacityplanner)를 사용하여 처리량 수요를 예측할 수 있습니다.
 
-Azure Cosmos DB의 통화는 *RU(요청 단위)* 입니다. 요청 단위를 사용하면 읽기/쓰기 용량을 예약하거나 CPU, 메모리 및 IOPS를 프로비전할 필요가 없습니다. Azure Cosmos DB는 단순한 읽기 및 쓰기부터 복잡한 그래프 쿼리에 이르기까지 다양한 작업에서 많은 API를 지원합니다. 모든 요청 값이 같지 않으므로 요청을 처리하는 데 필요한 계산의 양에 기반하여 정규화된 양의 요청 단위가 할당됩니다. 작업에 대한 요청 단위의 수는 명확합니다. 응답 헤더를 통해 Azure Cosmos DB의 모든 작업에서 사용하는 요청 단위의 수를 추적할 수 있습니다. 
+Azure Cosmos DB에서는 두 가지 단위로 처리량을 프로비전할 수 있습니다. 
 
-예측 가능한 성능을 제공하려면 100 RU/초 단위로 처리량을 예약합니다. Azure Cosmos DB [요청 단위 계산기](https://www.documentdb.com/capacityplanner)를 사용하여 [처리량 요구 사항을 예상](request-units.md#estimating-throughput-needs)할 수 있습니다.
+1. **Azure Cosmos DB 컨테이너:** 컨테이너에 프로비전되는 처리량은 해당 특정 컨테이너 전용으로 예약됩니다. 컨테이너 수준에서 처리량(RU/초)를 할당할 때는 컨테이너를 **고정** 또는 **무제한**으로 만들 수 있습니다. 
 
-![처리량 계산기][5]
+  고정 크기 컨테이너의 최대 처리량 한도는 10,000 RU/초이고 저장소 한도는 10GB입니다. 무제한 컨테이너를 만들려면 최소 1,000RU/s 처리량과 [파티션 키](partition-data.md)를 지정해야 합니다. 데이터는 여러 파티션에 분할될 수 있으므로 카디널리티가 높은 파티션 키(고유 값 100개~수백만 개)를 선택해야 합니다. 고유 값이 많은 파티션 키를 선택하면 컬렉션/테이블/그래프 및 요청이 Azure Cosmos DB에서 균일하게 확장됩니다. 
 
-이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다.
+2. **Azure Cosmos DB 데이터베이스:** 데이터베이스에 프로비전되는 처리량을 해당 데이터베이스 내의 모든 컨테이너가 공유합니다. 데이터베이스 수준에서 처리량을 프로비전할 때는 특정 컨테이너를 명시적으로 제외하고 대신 컨테이너 수준에서 해당 컨테이너에 대해 처리량을 프로비전할 수 있습니다. 데이터베이스 수준 처리량을 프로비전할 때는 파티션 키 하나로 모든 컬렉션을 만들어야 합니다. 데이터베이스 수준에서 처리량을 할당할 때는 파티션 키 하나를 사용하여 이 데이터베이스에 속하는 컨테이너를 만들어야 합니다. 모든 컬렉션이 **무제한** 컨테이너이기 때문입니다.  
 
-* Azure Cosmos DB에서 요청 단위 및 요청 요금이 무엇인가요?
-* Azure Cosmos DB에서 컨테이너 또는 컨테이너 집합에 대해 요청 단위 용량을 어떻게 지정하나요?
-* 내 응용 프로그램에 필요한 요청 단위를 어떻게 추정할 수 있나요?
-* Azure Cosmos DB에서 컨테이너 또는 컨테이너 집합에 대해 요청 단위 용량을 지정하면 어떻게 되나요?
+프로비전된 처리량에 따라 Azure Cosmos DB는 컨테이너를 호스트하는 실제 파티션을 할당하며, 컨테이너가 확장되면 파티션 간에 데이터를 분할합니다. 다음 이미지에서는 다양한 수준의 처리량 프로비전을 보여 줍니다.
 
-Azure Cosmos DB는 다중 모델 데이터베이스이므로 이 문서는 Azure Cosmos DB의 모든 데이터 모델과 API에 해당합니다. 이 문서에서는 일반 용어인 *컨테이너*를 일반적으로 컬렉션 또는 그래프를 나타내는 용어로, *항목*을 일반적으로 테이블, 문서, 노드 또는 엔터티를 나타내는 용어로 사용합니다.
+  ![개별 컨테이너 및 컨테이너의 집합에 대한 요청 단위 프로비저닝](./media/request-units/provisioning_set_containers.png)
+
+> [!NOTE] 
+> 컨테이너 수준과 데이터베이스 수준에서 처리량을 프로비전하는 기능은 각각 별개의 서비스이며, 두 기능 간을 전환하려면 원본에서 대상으로 데이터를 마이그레이션해야 합니다. 즉, 새 데이터베이스 또는 새 컬렉션을 만든 다음, [bulk executor library](bulk-executor-overview.md) 또는 [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)를 사용하여 데이터를 마이그레이션해야 합니다.
 
 ## <a name="request-units-and-request-charges"></a>요청 단위 및 요청 요금
 
@@ -57,7 +57,7 @@ Azure Cosmos DB에서는 예약된 처리량이 초당 처리되는 요청 단�
 * **스크립트 사용량**. 쿼리와 마찬가지로, 저장된 프로시저 및 트리거는 수행하는 작업의 복잡성에 따라 요청 단위를 사용합니다. 응용 프로그램을 개발하면서 요청 요금 헤더를 검사하면 각 작업이 요청 단위 용량을 어떻게 사용하는지 파악하는 데 도움이 됩니다.
 
 ## <a name="estimating-throughput-needs"></a>필요한 처리량 예측
-요청 단위는 요청 처리 비용의 정규화된 측정값입니다. 단일 요청 단위는 10개의 고유한 속성 값(시스템 속성 제외)으로 구성된 1KB 항목 하나를 읽는 데(self 링크 또는 ID를 통해) 필요한 처리 용량을 나타냅니다. 동일한 항목을 생성(삽입), 대체 또는 삭제하는 요청은 서비스에서 추가 처리를 사용하므로 더 많은 요청 단위가 필요합니다. 
+요청 단위는 요청 처리 비용의 정규화된 측정값입니다. 단일 요청 단위는 10개의 고유한 속성 값(시스템 속성 제외)으로 구성된 1KB 항목 하나를 self 링크 또는 ID를 통해 읽는 데 필요한 처리 용량을 나타냅니다. 동일한 항목을 생성(삽입), 대체 또는 삭제하는 요청은 서비스에서 추가 처리를 사용하므로 더 많은 요청 단위가 필요합니다. 
 
 > [!NOTE]
 > 1KB 항목에 대한 요청 단위 1개의 기준은 항목의 self 링크 또는 ID에 의한 간단한 GET에 해당합니다.
@@ -74,7 +74,6 @@ Azure Cosmos DB에서는 예약된 처리량이 초당 처리되는 요청 단�
 | 4KB | 500 | 500 | (500 * 1.3) + (500 * 7) = 4,150RU/s
 | 64KB | 500 | 100 | (500 * 10) + (100 * 48) = 9,800RU/s
 | 64KB | 500 | 500 | (500 * 10) + (500 * 48) = 29,000RU/s
-
 
 ### <a name="use-the-request-unit-calculator"></a>요청 단위 계산기를 사용합니다.
 처리량 추정을 미세 조정할 수 있도록 웹 기반 [요청 단위 계산기](https://www.documentdb.com/capacityplanner)를 사용할 수 있습니다. 계산기는 다음과 같은 일반적인 작업에 대한 요청 단위 요구 사항을 예측하는 데 유용합니다.
@@ -183,7 +182,7 @@ Azure Cosmos DB 서비스의 모든 응답에는 해당 요청에 사용된 요�
 
 다음 표에 이 항목의 일반적인 작업에 대한 대략적인 요청 단위 요금이 나와 있습니다. (대략적인 요청 단위 요금은 계정 일관성 수준이 **세션**으로 설정되고 모든 항목이 자동으로 인덱싱된다고 가정합니다.)
 
-| 작업 | 요청 단위 요금 |
+| 작업(Operation) | 요청 단위 요금 |
 | --- | --- |
 | 항목 만들기 |~15 RU |
 | 항목 읽기 |~1 RU |
@@ -237,4 +236,5 @@ Azure Cosmos DB 서비스의 모든 응답에는 해당 요청에 사용된 요�
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
+
 

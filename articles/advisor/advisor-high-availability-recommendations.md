@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: makohli
-ms.openlocfilehash: 7bd0737e7fb26af95eed63696d1ac07c88a9dec4
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 2216b915c47ea05d3303ca02e51e976490ea36c6
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42145168"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068358"
 ---
 # <a name="advisor-high-availability-recommendations"></a>Advisor 고가용성 권장 사항
 
@@ -67,6 +67,10 @@ Azure 문제가 영향을 미칠 때 알림을 받도록 Azure Service Health �
 
 Traffic Manager 프로필이 지리적 라우팅에 대해 구성된 경우 트래픽은 정의된 지역에 따라 엔드포인트로 라우팅됩니다. 한 지역이 실패하면 미리 정의된 장애 조치(failover)가 없습니다. 자역 그룹화가 “모두(세계)”로 구성된 엔드포인트가 있으면 트래픽 폐기를 방지하고 서비스 가용성을 높입니다. Advisor는 지역 그룹화가 “모두(세계)”로 구성된 엔드포인트가 없으며 지리적 라우팅 대상으로 구성된 Traffic Manager를 식별하고 구성을 변경하도록 권장합니다.
 
+## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-in-the-event-of-accidental-overwrite-or-deletion"></a>데이터를 저장하고 실수로 덮어쓰거나 삭제하는 경우 복구할 수 있도록 Azure 저장소 계정에 대해 일시 삭제 기능 사용
+
+삭제한 Blob가 영구적으로 삭제되지 않고 일시 삭제된 상태로 전환되도록 저장소 계정에 대해 [일시 삭제](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)를 사용하도록 설정합니다. 데이터를 덮어쓰는 경우 덮어쓴 데이터의 상태를 저장하기 위해 일시 삭제된 스냅숏이 생성됩니다. 그러므로 실수로 삭제하거나 덮어쓴 데이터를 복구할 수 있습니다. Advisor는 일시 삭제가 사용하도록 설정되지 않은 Azure 저장소 계정을 확인하여 해당 기능을 사용하도록 설정하라는 제안을 표시합니다.
+
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Advisor의 고가용성 권장 사항에 액세스하는 방법
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 [Advisor](https://aka.ms/azureadvisordashboard)를 엽니다.
@@ -78,7 +82,7 @@ Traffic Manager 프로필이 지리적 라우팅에 대해 구성된 경우 트�
 Advisor 권장 사항에 대한 자세한 내용은 다음을 참조하세요.
 * [Azure Advisor 소개](advisor-overview.md)
 * [Advisor 시작](advisor-get-started.md)
-* [Advisor 비용 권장 사항](advisor-performance-recommendations.md)
+* [Advisor 비용 권장 사항](advisor-cost-recommendations.md)
 * [Advisor 성능 권장 사항](advisor-performance-recommendations.md)
 * [Advisor 보안 권장 사항](advisor-security-recommendations.md)
 

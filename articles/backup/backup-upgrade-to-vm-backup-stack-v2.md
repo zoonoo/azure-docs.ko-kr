@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/1/2018
 ms.author: trinadhk
-ms.openlocfilehash: 1021900620272cc5476d8972daf9d7e0a161797a
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 6f19a536861d236a82cc77a17570d8e3004a2ba1
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398004"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888274"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Azure VM 백업 스택 V2로 업그레이드
 
@@ -28,19 +28,19 @@ VM(가상 머신) 백업 스택 업그레이드를 위한 Resource Manager 배�
 
 * 복원할 때 관리되지 않는 VM의 원래 저장소 계정을 사용할 수 있습니다. 이 기능은 VM의 디스크가 저장소 계정에 분산된 경우에도 지원됩니다. 이는 다양한 VM 구성에 대한 복원 작업을 가속화합니다.
     > [!NOTE]
-    > 이 기능은 원래 VM을 재정의하는 것과는 다릅니다. 
+    > 이 기능은 원래 VM을 재정의하는 것과는 다릅니다.
     >
 
 ## <a name="whats-changing-in-the-new-stack"></a>새 스택의 변경 사항
 현재 백업 작업은 다음과 같은 두 단계로 구성됩니다.
-1.  VM 스냅숏 만들기 
-2.  VM 스냅숏을 Azure Backup 자격 증명 모음으로 전송 
+1.  VM 스냅숏 만들기
+2.  VM 스냅숏을 Azure Backup 자격 증명 모음으로 전송
 
-복구 지점은 1단계 및 2단계가 완료된 후에만 만들어지는 것으로 간주됩니다. 새 스택의 일환으로, 스냅숏이 완료되는 즉시 복구 지점이 생성됩니다. 동일한 복원 흐름을 사용하여 이 복구 지점에서 복원할 수도 있습니다. Azure Portal에서 “스냅숏”을 복구 지점 형식으로 사용하여 이 복구 지점을 식별할 수 있습니다. 스냅숏이 자격 증명 모음에 전송되면 복구 지점 형식이 “스냅숏 및 자격 증명 모음”으로 변경됩니다. 
+복구 지점은 1단계 및 2단계가 완료된 후에만 만들어지는 것으로 간주됩니다. 새 스택의 일환으로, 스냅숏이 완료되는 즉시 복구 지점이 생성됩니다. 동일한 복원 흐름을 사용하여 이 복구 지점에서 복원할 수도 있습니다. Azure Portal에서 “스냅숏”을 복구 지점 형식으로 사용하여 이 복구 지점을 식별할 수 있습니다. 스냅숏이 자격 증명 모음에 전송되면 복구 지점 형식이 “스냅숏 및 자격 증명 모음”으로 변경됩니다.
 
-![VM 백업 스택 Resource Manager 배포 모델의 백업 작업 - 저장소 및 자격 증명 모음](./media/backup-azure-vms/instant-rp-flow.jpg) 
+![VM 백업 스택 Resource Manager 배포 모델의 백업 작업 - 저장소 및 자격 증명 모음](./media/backup-azure-vms/instant-rp-flow.jpg)
 
-기본적으로 스냅숏은 7일 동안 보존됩니다. 이 기능을 사용하면 이러한 스냅숏에서 복원이 더 빨리 완료될 수 있습니다. 자격 증명 모음에서 고객의 저장소 계정으로 데이터를 다시 복사하는 데 필요한 시간이 줄어듭니다. 
+기본적으로 스냅숏은 7일 동안 보존됩니다. 이 기능을 사용하면 이러한 스냅숏에서 복원이 더 빨리 완료될 수 있습니다. 자격 증명 모음에서 고객의 저장소 계정으로 데이터를 다시 복사하는 데 필요한 시간이 줄어듭니다.
 
 ## <a name="considerations-before-upgrade"></a>업그레이드 전 고려 사항
 
@@ -48,25 +48,28 @@ VM(가상 머신) 백업 스택 업그레이드를 위한 Resource Manager 배�
 
 * 스냅숏은 복구 지점 생성을 강화하고 복원 작업을 가속화하기 위해 로컬에 저장됩니다. 따라서 7일 동안 만든 스냅숏에 해당하는 저장소 비용이 발생합니다.
 
-* 증분 스냅숏은 페이지 Blob으로 저장됩니다. 관리되지 않는 디스크를 사용하는 모든 고객의 경우 고객의 로컬 저장소 계정에 저장된 7일 동안의 스냅숏에 대해 요금이 청구됩니다. 관리되는 VM 백업에서 사용하는 복원 지점 컬렉션이 기본 저장소 수준에서 Blob 스냅숏을 사용하므로 관리되는 디스크의 경우 [Blob 스냅숏 가격 책정](https://docs.microsoft.com/rest/api/storageservices/understanding-how-snapshots-accrue-charges)에 해당하는 비용이 표시되고 증분됩니다. 
+* 증분 스냅숏은 페이지 Blob으로 저장됩니다. 관리되지 않는 디스크를 사용하는 모든 고객의 경우 고객의 로컬 저장소 계정에 저장된 7일 동안의 스냅숏에 대해 요금이 청구됩니다. 관리되는 VM 백업에서 사용하는 복원 지점 컬렉션이 기본 저장소 수준에서 Blob 스냅숏을 사용하므로 관리되는 디스크의 경우 [Blob 스냅숏 가격 책정](https://docs.microsoft.com/rest/api/storageservices/understanding-how-snapshots-accrue-charges)에 해당하는 비용이 표시되고 증분됩니다.
 
 * 스냅숏 복구 지점에서 프리미엄 VM을 복원하는 경우, VM을 만드는 동안 임시 저장소 위치가 사용됩니다.
 
 * 프리미엄 저장소 계정의 경우, 빠른 복구 지점에 대해 만든 스냅숏이 10TB의 할당된 공간 한도에 포함됩니다.
 
+> [!NOTE]
+> Azure VM Backup 스택 V2로 업그레이드하면 Azure Backup에서 [표준 SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/) 및 최대 32개의 데이터 디스크가 포함된 가상 머신에 대한 지원을 받을 수 있습니다.
+
 ## <a name="upgrade"></a>업그레이드
 ### <a name="the-azure-portal"></a>Azure 포털
 Azure Portal을 사용하는 경우 자격 증명 모음 대시보드에 알림이 표시됩니다. 이 알림은 대량 디스크 지원과 백업 및 복원 속도 개선과 관련됩니다. 대신 자격 증명 모음 속성 페이지로 이동하여 업그레이드 옵션을 가져올 수 있습니다.
 
-![VM 백업 스택 Resource Manager 배포 모델의 백업 작업 - 지원 알림](./media/backup-azure-vms/instant-rp-banner.png) 
+![VM 백업 스택 Resource Manager 배포 모델의 백업 작업 - 지원 알림](./media/backup-azure-vms/instant-rp-banner.png)
 
-새 스택으로 업그레이드하는 화면을 열려면 배너를 선택합니다. 
+새 스택으로 업그레이드하는 화면을 열려면 배너를 선택합니다.
 
-![VM 백업 스택 Resource Manager 배포 모델의 백업 작업 - 업그레이드](./media/backup-azure-vms/instant-rp.png) 
+![VM 백업 스택 Resource Manager 배포 모델의 백업 작업 - 업그레이드](./media/backup-azure-vms/instant-rp.png)
 
 ### <a name="powershell"></a>PowerShell
 관리자 권한 PowerShell 터미널에서 다음 cmdlet을 실행합니다.
-1.  Azure 계정 로그인: 
+1.  Azure 계정 로그인:
 
     ```
     PS C:> Connect-AzureRmAccount
@@ -98,25 +101,22 @@ Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNa
 다음 질문과 대답은 포럼 및 고객 질문에서 수집되었습니다.
 
 ### <a name="will-upgrading-to-v2-impact-current-backups"></a>V2로 업그레이드하면 현재 백업이 영향을 받나요?
-
 V2로 업그레이드하는 경우, 현재 백업에는 영향을 주지 않으며, 환경을 다시 구성할 필요가 없습니다. 업그레이드해도 백업 환경은 계속해서 이전처럼 작동합니다.
 
 ### <a name="what-does-it-cost-to-upgrade-to-azure-vm-backup-stack-v2"></a>Azure VM Backup 스택 v2로 업그레이드하는 비용은 얼마인가요?
-
 스택 v2로 업그레이드하는 비용은 없습니다. 스냅숏은 복구 지점 생성 및 복원 작업을 가속화하기 위해 로컬에 저장됩니다. 따라서 7일 동안 만든 스냅숏에 해당하는 저장소 비용이 발생합니다.
 
 ### <a name="does-upgrading-to-stack-v2-increase-the-premium-storage-account-snapshot-limit-by-10-tb"></a>스택 v2로 업그레이드하면 프리미엄 저장소 계정 스냅숏 한도가 10TB 증가하나요?
-
-아니요, 저장소 계정당 총 스냅숏 한도는 여전히 10TB입니다. 
+아니요, 저장소 계정당 총 스냅숏 한도는 여전히 10TB입니다.
 
 ### <a name="in-premium-storage-accounts-do-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>Premium Storage 계정에서 빠른 복구 지점에 대해 만든 스냅숏이 10TB 스냅숏 한도에 포함되나요?
-
 예, 프리미엄 저장소 계정의 경우, 빠른 복구 지점에 대해 만든 스냅숏이 10TB의 할당된 공간에 포함됩니다.
 
-### <a name="how-does-the-snapshot-work-during-the-seven-day-period"></a>스냅숏은 7일 동안 어떻게 작동하나요? 
-
+### <a name="how-does-the-snapshot-work-during-the-seven-day-period"></a>스냅숏은 7일 동안 어떻게 작동하나요?
 매일 새 스냅숏이 생성되므로, 7개의 개별 스냅숏이 있습니다. 첫째 날에는 서비스에서 복사를 수행하지 **않고**, 다음 6일 동안 변경 내용을 추가합니다.
 
 ### <a name="is-a-v2-snapshot-an-incremental-snapshot-or-full-snapshot"></a>v2 스냅숏은 증분 스냅숏인가요, 아니면 전체 스냅숏인가요?
+증분 스냅숏은 비관리형 디스크에 사용됩니다. 관리되는 디스크의 경우 Azure Backup에서 만든 복원 지점 컬렉션에서는 Blob 스냅숏을 사용하므로 증분됩니다.
 
-증분 스냅숏은 비관리형 디스크에 사용됩니다. 관리되는 디스크의 경우 Azure Backup에서 만든 복원 지점 컬렉션에서는 Blob 스냅숏을 사용하므로 증분됩니다. 
+### <a name="how-to-get-standard-ssd-managed-disk-support-for-a-virtual-machine"></a>가상 머신에 대해 표준 SSD Managed Disks 지원을 받는 방법
+Azure VM Backup 스택 V2로 업그레이드하면 Azure Backup에서 [표준 SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)에 대한 지원을 받을 수 있습니다. 업그레이드 후에는 최대 32개의 데이터 디스크를 포함하는 가상 머신을 백업할 수도 있습니다.

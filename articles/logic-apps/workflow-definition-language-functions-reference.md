@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 8a2e06d2e6cf3e470d4e0909e5559ac0411292fd
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: bc16b71ad20e2cf2bc61a046336fe6a3618bc403
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307116"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269567"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps의 워크플로 정의 언어에 대한 함수 참조
 
@@ -82,7 +82,7 @@ ms.locfileid: "43307116"
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | 하위 문자열에 대한 시작 위치를 반환합니다. | 
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | 마지막으로 나오는 부분 문자열의 시작 위치를 반환합니다. | 
 | [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | 하위 문자열을 지정된 문자열로 바꾸고 업데이트된 문자열을 반환합니다. | 
-| [분할](../logic-apps/workflow-definition-language-functions-reference.md#split) | 문자열에서 모든 문자를 지닌 배열을 반환하고 특정 구분 문자로 각 문자를 구분합니다. | 
+| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | 원래 문자열에 지정된 구분 기호 문자를 기준으로 하여 더 큰 문자열의 하위 문자열을 포함하는 배열(쉼표로 구분됨)을 반환합니다. | 
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | 문자열이 특정 하위 문자열로 시작하는지 검사합니다. | 
 | [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | 지정된 위치에서 시작하여 문자열에서 문자를 반환합니다. | 
 | [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | 문자열을 소문자 형식으로 반환합니다. | 
@@ -493,7 +493,7 @@ addDays('<timestamp>', <days>, '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | yes | 문자열 | 타임스탬프를 포함하는 문자열 | 
 | <*days*> | yes | 정수  | 더할 양수 또는 음수 일 수 | 
-| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프에 대한 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddT:mm:ss:fffffffK)이며, 이는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하고 표준 시간대 정보를 보존합니다. |
+| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 ||||| 
 
 | 반환 값 | type | 설명 | 
@@ -3016,32 +3016,32 @@ skip([0, 1, 2, 3], 1)
 
 ### <a name="split"></a>split
 
-문자열의 모든 문자를 포함하고 각 문자가 *구분 기호*로 구분된 배열을 반환합니다.
+원래 문자열에 지정된 구분 기호 문자를 기준으로 하여 하위 문자열을 포함하는 배열(쉼표로 구분됨)을 반환합니다. 
 
 ```
-split('<text>', '<separator>')
+split('<text>', '<delimiter>')
 ```
 
 | 매개 변수 | 필수 | 형식 | 설명 | 
 | --------- | -------- | ---- | ----------- | 
-| <*text*> | yes | 문자열 | 분할할 문자가 있는 문자열 |  
-| <*separator*> | yes | 문자열 | 결과 배열의 각 문자 사이에 나타나는 구분 기호 | 
+| <*text*> | yes | 문자열 | 원래 문자열에 지정된 구분 기호를 기준으로 하여 하위 문자열로 구분할 문자열입니다. |  
+| <*delimiter*> | yes | 문자열 | 구분 기호로 사용할 원래 문자열의 문자입니다. | 
 ||||| 
 
 | 반환 값 | type | 설명 | 
 | ------------ | ---- | ----------- | 
-| [<*char1*><*separator*><*char2*><*separator*>...] | 배열 | 지정한 문자열의 모든 항목에서 만든 결과 배열 |
+| [<*substring1*>,<*substring2*>,...] | 배열 | 원래 문자열의 하위 문자열이 포함된 배열(쉼표로 구분됨)입니다. |
 |||| 
 
 *예제* 
 
-이 예제는 지정한 문자열에서 배열을 만들고 쉼표를 구분 기호로 사용하여 각 문자를 구분합니다.
+이 예제에서는 지정된 문자(구분 기호)를 기준으로 하여 지정한 문자열의 하위 문자열이 포함된 배열을 만듭니다. 
 
 ```
-split('abc', ',')
+split('a_b_c', '_')
 ```
 
-그리고 다음 결과를 반환합니다. `[a, b, c]`
+그리고 `["a","b","c"]` 배열을 결과로 반환합니다.
 
 <a name="startOfDay"></a>
 

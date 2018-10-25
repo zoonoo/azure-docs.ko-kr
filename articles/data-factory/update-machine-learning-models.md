@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 4eed11b312bce27dc0cd98daa3e2599a28fcabbd
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: aed816dadcced36946d6e173ca259a6c0f373727
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524433"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957466"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>리소스 업데이트 작업을 사용하여 Azure Machine Learning 모델 업데이트
 이 문서는 주요 Azure Data Factory - Azure Machine Learning 통합 문서인 [Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기](transform-data-using-machine-learning.md)를 보완합니다. 수행하지 않았다면 이 문서를 읽기 전에 기본 문서를 검토하세요. 
@@ -77,20 +77,20 @@ Machine Learning을 사용하여 만드는 모델은 일반적으로 정적이�
 모델을 다시 학습하고 예측 웹 서비스를 업데이트하는 전체 프로세스에는 다음 단계가 포함됩니다. 
 
 - **일괄 처리 실행 작업**을 사용하여 **학습 웹 서비스**를 호출합니다. 학습 웹 서비스 호출은 [Azure Machine Learning 및 Azure Data Factory 일괄 처리 실행 작업을 사용하여 예측 파이프라인 만들기](transform-data-using-machine-learning.md)에서 설명하는 예측 웹 서비스 호출과 동일합니다. 학습 웹 서비스의 출력은 예측 웹 서비스를 업데이트하는 데 사용할 수 있는 iLearner 파일입니다. 
-- **리소스 업데이트 작업**을 통해 **예측 웹 서비스**의 **리소스 업데이트 끝점**을 호출하여 새로운 학습된 모델을 통해 웹 서비스를 업데이트합니다. 
+- **리소스 업데이트 작업**을 통해 **예측 웹 서비스**의 **리소스 업데이트 엔드포인트**를 호출하여 새로운 학습된 모델을 통해 웹 서비스를 업데이트합니다. 
 
 ## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning 연결된 서비스
 
 위에서 언급한 종단 간 워크플로가 작동하려면 다음 두 개의 Azure Machine Learning 연결된 서비스를 만들어야 합니다. 
 
 1. 학습 웹 서비스에 대한 Azure Machine Learning 연결된 서비스 - 일괄 처리 실행 작업에서 [Azure Machine Learning 및 Azure Data Factory 일괄 처리 실행 작업을 사용하여 예측 파이프라인 만들기](transform-data-using-machine-learning.md)에서 설명한 것과 동일한 방식으로 사용됩니다. 차이점은 학습 웹 서비스의 출력이 리소스 업데이트 작업에서 예측 웹 서비스를 업데이트하는 데 사용하는 iLearner 파일이라는 것입니다. 
-2. 예측 웹 서비스의 리소스 업데이트 끝점에 대한 Azure Machine Learning 연결된 서비스 - 리소스 업데이트 작업에서 위의 단계에서 반환된 iLearner 파일을 사용하여 예측 웹 서비스를 업데이트하는 데 사용됩니다. 
+2. 예측 웹 서비스의 리소스 업데이트 엔드포인트에 대한 Azure Machine Learning 연결된 서비스 - 리소스 업데이트 작업에서 위의 단계에서 반환된 iLearner 파일을 사용하여 예측 웹 서비스를 업데이트하는 데 사용됩니다. 
 
 두 번째 Azure Machine Learning 연결된 서비스의 경우, Azure Machine Learning 웹 서비스가 기본 웹 서비스 또는 새 웹 서비스일 때 구성이 다릅니다. 차이점은 다음 섹션에서 별도로 설명합니다. 
 
 ## <a name="web-service-is-new-azure-resource-manager-web-service"></a>새 Azure Resource Manager 웹 서비스 
 
-웹 서비스가 Azure Resource Manager 끝점을 노출하는 새로운 유형의 웹 서비스인 경우 두 번째 **기본이 아닌** 끝점을 추가할 필요가 없습니다. 연결된 서비스의 **updateResourceEndpoint**는 다음 형식을 갖습니다. 
+웹 서비스가 Azure Resource Manager 엔드포인트를 노출하는 새로운 유형의 웹 서비스인 경우 두 번째 **기본이 아닌** 엔드포인트를 추가할 필요가 없습니다. 연결된 서비스의 **updateResourceEndpoint**는 다음 형식을 갖습니다. 
 
 ```
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
@@ -98,7 +98,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 
 [Azure Machine Learning 웹 서비스 포털](https://services.azureml.net/)에서 웹 서비스를 쿼리할 때 URL에 대한 자리 표시자 값을 가져올 수 있습니다. 
 
-새 유형의 리소스 업데이트 끝점에는 서비스 주체 인증이 필요합니다. 서비스 주체 인증을 사용하려면 Azure AD(Azure Active Directory)에 응용 프로그램 엔터티를 등록하고, 웹 서비스가 속한 구독 또는 리소스 그룹의 **참가자** 또는 **소유자** 역할을 이 엔터티에 부여합니다. [서비스 주체를 만들고 Azure 리소스를 관리하기 위한 권한을 할당하는 방법](../azure-resource-manager/resource-group-create-service-principal-portal.md)을 참조하세요. 연결된 서비스를 정의하는 데 사용되므로 다음 값을 적어둡니다.
+새 유형의 리소스 업데이트 엔드포인트에는 서비스 주체 인증이 필요합니다. 서비스 주체 인증을 사용하려면 Azure AD(Azure Active Directory)에 응용 프로그램 엔터티를 등록하고, 웹 서비스가 속한 구독 또는 리소스 그룹의 **참가자** 또는 **소유자** 역할을 이 엔터티에 부여합니다. [서비스 주체를 만들고 Azure 리소스를 관리하기 위한 권한을 할당하는 방법](../active-directory/develop/howto-create-service-principal-portal.md)을 참조하세요. 연결된 서비스를 정의하는 데 사용되므로 다음 값을 적어둡니다.
 
 - 응용 프로그램 UI
 - 응용 프로그램 키 
@@ -157,8 +157,8 @@ Azure Storage는 다음 데이터를 보관합니다.
 }
 ```
 
-### <a name="linked-service-for-azure-ml-training-endpoint"></a>Azure ML 학습 끝점에 대한 연결된 서비스
-다음 JSON 코드 조각은 학습 웹 서비스의 기본 끝점을 가리키는 Azure Machine Learning에 연결된 서비스를 정의합니다.
+### <a name="linked-service-for-azure-ml-training-endpoint"></a>Azure ML 학습 엔드포인트에 대한 연결된 서비스
+다음 JSON 코드 조각은 학습 웹 서비스의 기본 엔드포인트를 가리키는 Azure Machine Learning에 연결된 서비스를 정의합니다.
 
 ```JSON
 {    
@@ -181,8 +181,8 @@ Azure Storage는 다음 데이터를 보관합니다.
 4. **Azure ML studio**에서 **배치 실행** 링크를 클릭합니다.
 5. **요청** 섹션에서 **요청 URI**를 복사하여 Data Factory JSON 편집기에 붙여넣습니다.   
 
-### <a name="linked-service-for-azure-ml-updatable-scoring-endpoint"></a>Azure ML 업데이트 가능한 점수 매기기 끝점에 대한 연결된 서비스:
-다음 JSON 코드 조각에서는 점수 매기기 웹 서비스의 업데이트 가능한 끝점을 가리키는 Azure Machine Learning 연결된 서비스를 정의합니다.  
+### <a name="linked-service-for-azure-ml-updatable-scoring-endpoint"></a>Azure ML 업데이트 가능한 점수 매기기 엔드포인트에 대한 연결된 서비스:
+다음 JSON 코드 조각에서는 점수 매기기 웹 서비스의 업데이트 가능한 엔드포인트를 가리키는 Azure Machine Learning 연결된 서비스를 정의합니다.  
 
 ```JSON
 {

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5007e18db0af40621ab4b30a16d705d3a5b3915c
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7e791514cc25c645775de260e7f190ee20812d4b
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443820"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428494"
 ---
 # <a name="create-relationships"></a>관계 만들기
 
@@ -54,11 +54,11 @@ ms.locfileid: "37443820"
   
     |Active|테이블|관련된 조회 테이블|  
     |----------|---------|------------------------|  
-    |예|**DimCustomer [GeographyKey]**|**DimGeography [GeographyKey]**|  
-    |예|**DimProduct [ProductSubcategoryKey]**|**DimProductSubcategory [ProductSubcategoryKey]**|  
-    |예|**DimProductSubcategory [ProductCategoryKey]**|**DimProductCategory [ProductCategoryKey]**|  
-    |예|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
-    |예|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
+    |yes|**DimCustomer [GeographyKey]**|**DimGeography [GeographyKey]**|  
+    |yes|**DimProduct [ProductSubcategoryKey]**|**DimProductSubcategory [ProductSubcategoryKey]**|  
+    |yes|**DimProductSubcategory [ProductCategoryKey]**|**DimProductCategory [ProductCategoryKey]**|  
+    |yes|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
+    |yes|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
   
     관계가 없는 경우 사용자 모델에 DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory 및 FactInternetSales 테이블이 포함되어 있는지 확인합니다. 동일한 데이터 원본 연결의 테이블을 별도의 시간에 가져오는 경우 해당 테이블 간의 관계가 만들어지지 않으므로 수동으로 만들어야 합니다. 관계 없음이 표시되는 경우 데이터 원본에 관계가 없음을 의미합니다. 데이터 모델에서 수동으로 만들 수 있습니다.
 

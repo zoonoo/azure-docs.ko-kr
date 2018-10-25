@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: jingwang
-ms.openlocfilehash: a160c47e12db3c4ef9cefc5cd70293468ddf8234
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 953585ffcc5a40d9ae48055f68a1c1fa84db25cc
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011361"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249335"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-preview-with-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1에서 Gen2(미리 보기)로 데이터 복사
 
-[Azure Data Lake Storage Gen2(미리 보기)](../storage/data-lake-storage/introduction.md)에서는 계층적 파일 시스템 네임스페이스 및 보안 기능을 포함한 프로토콜을 Azure Blob Storage에 추가하여 분석 프레임워크를 지속성 저장소 계층에 쉽게 연결할 수 있습니다. Data Lake Storage Gen2(미리 보기)에서 파일 시스템 인터페이스의 이점이 추가되는 동안 개체 저장소의 모든 특성이 유지됩니다.
+[Azure Data Lake Storage Gen2(미리 보기)](../storage/data-lake-storage/introduction.md)에서는 계층적 파일 시스템 네임스페이스 및 보안 기능을 포함한 프로토콜을 Azure Blob Storage에 추가하여 분석 프레임워크를 지속성 저장소 레이어에 쉽게 연결할 수 있습니다. Data Lake Storage Gen2(미리 보기)에서 파일 시스템 인터페이스의 이점이 추가되는 동안 개체 저장소의 모든 특성이 유지됩니다.
 
 현재 Azure Data Lake Storage Gen1을 사용 중인 경우 Azure Data Factory를 사용하여 Data Lake Storage Gen1에서 Gen2로 데이터를 복사하여 Gen2의 새로운 기능을 평가할 수 있습니다.
 
-Azure Data Factory는 완전히 관리되는 클라우드 기반 데이터 통합 서비스입니다. 분석 솔루션을 빌드할 때 서비스를 사용하여 풍부한 온-프레미스 및 클라우드 기반 데이터 저장소의 데이터로 레이크를 채우고 시간을 절약할 수 있습니다. 지원되는 커넥터의 자세한 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
+Azure Data Factory는 완전히 관리되는 클라우드 기반 데이터 통합 서비스입니다. 분석 솔루션을 빌드할 때 서비스를 사용하여 풍부한 온-프레미스 및 크라우드 기반 데이터 저장소의 데이터로 레이크를 채우고 시간을 절약할 수 있습니다. 지원되는 커넥터의 자세한 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
 Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션을 제공합니다. ADF의 스케일 아웃 아키텍처로 인해 높은 처리량으로 데이터를 수집할 수 있습니다. 자세한 내용은 [복사 작업 성능](copy-activity-performance.md)을 참조하세요.
 
@@ -80,7 +80,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
    3. **다음**을 선택합니다.
    
    > [!IMPORTANT]
-   > 이 연습에서는 _관리되는 서비스 ID_를 사용하여 Data Lake Storage Gen1을 인증합니다. [다음 지침](connector-azure-data-lake-store.md#using-managed-service-identity-authentication)에 따라 Azure Data Lake Storage Gen1에서 MSI에 적절한 권한을 부여합니다.
+   > 이 연습에서는 Azure 리소스용 관리 ID를 사용하여 Data Lake Storage Gen1을 인증합니다. [다음 지침](connector-azure-data-lake-store.md#managed-identity)에 따라 Azure Data Lake Storage Gen1에서 MSI에 적절한 권한을 부여합니다.
    
    ![Azure Data Lake Storage Gen1 계정 지정](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png)
    

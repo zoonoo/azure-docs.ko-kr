@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2017
+ms.date: 10/3/2018
 ms.author: yurid
-ms.openlocfilehash: 7a7314b3aebd32c4a909bda4c88c5d43ab5df9f0
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f139f2f967edc03419f41f8c903c71b9ab9e6fcb
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161444"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044436"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Azure Security Center에서 보안 경고 관리 및 대응
 이 문서는 Azure Security Center를 사용하여 보안 경고를 관리하고 대응하는 데 도움이 됩니다.
@@ -57,6 +57,7 @@ ms.locfileid: "44161444"
 * **날짜**: 이벤트가 발생한 날짜입니다.
 * **상태**: 해당 경고에 대한 현재 상태입니다. 다음과 같은 두 가지 종류의 상태가 있습니다.
   * **활성**: 보안 경고가 감지되었습니다.
+  * **해제됨**: 사용자가 보안 경고를 해제했습니다. 일반적으로 이 상태는 조사를 거쳐 실제 공격이 아닌 것으로 밝혀졌거나 완화된 경고에 사용됩니다.
 * **심각도**: 심각도 수준(높음, 중간 또는 낮음)입니다.
 
 > [!NOTE]
