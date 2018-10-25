@@ -12,26 +12,43 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/13/2018
+ms.date: 10/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 2b989fbebe237e4e3746ef2f237193587173dfe4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7cd2aecf21a86bb58452e48fcdf1d79f1d3a2104
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963409"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321226"
 ---
-# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-azure-monitor-for-containers"></a>컨테이너에 대한 AKS(Azure Kubernetes Service) Azure Monitor의 모니터링을 중지하는 방법
+# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor를 사용하여 AKS(Azure Kubernetes Service) 모니터링을 중단하는 방법
 
-AKS 클러스터에 대한 모니터링을 사용하도록 설정한 후에 더 이상 모니터링하지 않기로 결정한 경우 Azure CLI 또는 PowerShell cmdlet **New-AzureRmResourceGroupDeployment**에서 제공된 Azure Resource Manager 템플릿을 사용하여 *옵트아웃(opt out)* 할 수 있습니다. 하나의 JSON 템플릿은 *옵트아웃(opt out)* 할 구성을 지정합니다. 다른 템플릿에는 클러스터가 배포된 AKS 클러스터 리소스 ID 및 리소스 그룹을 지정하도록 구성하는 매개 변수 값이 포함됩니다. 
+AKS 클러스터를 모니터링하도록 설정한 후 더 이상 모니터링을 사용하지 않으려면 *옵트아웃*을 사용합니다.  이 문서에서는 Azure CLI 또는 제공된 Azure Resource Manager 템플릿을 사용하여 옵트아웃하는 방법을 보여줍니다.  
+
+
+## <a name="azure-cli"></a>Azure CLI
+[az aks disable-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) 명령을 사용하여 컨테이너용 Azure Monitor를 해제합니다. 이 명령은 클러스터 노드에서 에이전트를 제거하지만, 이미 수집되어 Log Analytics 리소스에 저장된 솔루션 또는 데이터를 제거하지 않습니다.  
+
+```azurecli
+az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
+```
+
+클러스터에 대한 모니터링을 다시 사용하려면 [Azure CLI를 사용하여 모니터링을 사용하도록 설정](monitoring-container-insights-onboard.md#enable-monitoring-using-azure-cli)을 참조하세요.
+
+## <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
+리소스 그룹에서 솔루션 리소스를 일관적이고 반복적인 방법으로 제거할 수 있는 두 가지 Azure Resource Manager 템플릿이 제공됩니다. 하나는 *옵트아웃*할 구성을 지정하는 JSON 템플릿이고, 다른 하나는 AKS 클러스터 리소스 ID 및 클러스터가 배포되는 리소스 그룹을 지정하기 위해 구성하는 매개 변수 값을 포함하고 있습니다. 
 
 템플릿을 사용하여 리소스를 배포하는 개념에 익숙하지 않은 경우 다음을 참조하십시오.
 * [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../azure-resource-manager/resource-group-template-deploy.md)
 * [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../azure-resource-manager/resource-group-template-deploy-cli.md)
 
+>[!NOTE]
+>템플릿을 클러스터와 동일한 리소스 그룹에 배포해야 합니다.
+>
+
 Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.27 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요. 
 
-## <a name="create-template"></a>템플릿 만들기
+### <a name="create-template"></a>템플릿 만들기
 
 1. 다음 JSON 구문을 파일에 복사하여 붙여넣습니다.
 
@@ -101,7 +118,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
 5. 이 파일을 로컬 폴더에 **OptOutParam.json**으로 저장합니다.
 6. 이제 이 템플릿을 배포할 수 있습니다. 
 
-## <a name="remove-the-solution-using-azure-cli"></a>Azure CLI를 사용하여 솔루션 제거
+### <a name="remove-the-solution-using-azure-cli"></a>Azure CLI를 사용하여 솔루션 제거
 Linux에서 Azure CLI로 다음 명령을 실행하여 솔루션을 제거하고 AKS 클러스터에서 구성을 정리합니다.
 
 ```azurecli
@@ -116,7 +133,7 @@ az group deployment create --resource-group <ResourceGroupName> --template-file 
 ProvisioningState       : Succeeded
 ```
 
-## <a name="remove-the-solution-using-powershell"></a>PowerShell을 사용하여 솔루션 제거
+### <a name="remove-the-solution-using-powershell"></a>PowerShell을 사용하여 솔루션 제거
 
 템플릿이 포함된 폴더에서 다음 PowerShell 명령을 실행하여 솔루션을 제거하고 AKS 클러스터에서 구성을 정리합니다.    
 

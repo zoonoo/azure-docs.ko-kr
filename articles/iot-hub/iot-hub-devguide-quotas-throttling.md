@@ -6,26 +6,28 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/05/2018
 ms.author: dobett
-ms.openlocfilehash: 11cec9621ad72cfeaee45e4cd466430e64b9b836
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: b7ef5d2853cdf4a7b09aa52c510c268cb42a245f
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42144075"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395159"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>참조 - IoT Hub 할당량 및 제한
 
 ## <a name="quotas-and-throttling"></a>할당량 및 제한
+
 각 Azure 구독은 IoT Hub 최대 50개와 무료 허브 최대 1개를 가질 수 있습니다.
 
-각 IoT 허브는 특정 계층에서 특정한 단위 수로 프로비전됩니다. 계층과 단위 수는 보낼 수 있는 메시지의 최대 일일 할당량을 결정합니다. 일일 할당량을 계산하는 데 사용되는 메시지 크기는 무료 계층 허브의 경우 0.5KB이며 기타 모든 계층의 경우 4KB입니다. 자세한 내용은 [Azure IoT Hub 가격 책정][lnk-pricing]을 참조하세요.
+각 IoT 허브는 특정 계층에서 특정한 단위 수로 프로비전됩니다. 계층과 단위 수는 보낼 수 있는 메시지의 최대 일일 할당량을 결정합니다. 일일 할당량을 계산하는 데 사용되는 메시지 크기는 무료 계층 허브의 경우 0.5KB이며 기타 모든 계층의 경우 4KB입니다. 자세한 내용은 [Azure IoT Hub 가격](https://azure.microsoft.com/pricing/details/iot-hub/)을 참조하세요.
 
 또한 계층은 IoT Hub가 모든 작업에 강제로 적용하는 조정 제한을 결정합니다.
 
 ## <a name="operation-throttles"></a>작업 제한
-작업 제한은 분 범위에 적용하고 남용을 방지하고자 하는 속도 제한입니다. IoT Hub는 가능한 경우 오류를 반환 하지 않으려 하지만 제한이 너무 오랫동안 위반된 경우 예외를 반환하기 시작합니다.
+
+작업 제한은 분 범위에 적용하고 남용을 방지하고자 하는 속도 제한입니다. IoT Hub는 가능한 경우 오류를 반환하지 않으려고 하지만, 제한이 너무 오랫동안 위반되면 `429 ThrottlingException`을 반환하기 시작합니다.
 
 지정된 시간에 IoT Hub에 프로비전된 단위 수를 늘려 할당량이나 조정 제한을 증가시킬 수 있습니다.
 
@@ -42,21 +44,21 @@ ms.locfileid: "42144075"
 | 직접 메서드<sup>1</sup> | 160KB/sec/unit<sup>2</sup> | 480KB/sec/unit<sup>2</sup> | 24MB/sec/unit<sup>2</sup> | 
 | 쌍(장치 및 모듈) 읽기<sup>1</sup> | 10/초 | 10/초 또는 1/초/단위 이상 | 50/초/단위 |
 | 쌍 업데이트(장치 및 모듈)<sup>1</sup> | 10/초 | 10/초 또는 1/초/단위 이상 | 50/초/단위 |
-| 작업(Job) 작업<sup>1</sup> <br/> (만들기, 업데이트, 나열, 삭제) | 1.67/초/단위(100/분/단위) | 1.67/초/단위(100/분/단위) | 83.33/초/단위(5000/분/단위) |
+| 작업 연산<sup>1,3</sup> <br/> (만들기, 업데이트, 나열, 삭제) | 1.67/초/단위(100/분/단위) | 1.67/초/단위(100/분/단위) | 83.33/초/단위(5000/분/단위) |
 | 작업 장치 연산<sup>1</sup> <br/> (쌍 업데이트, 직접 메서드 호출) | 10/초 | 10/초 또는 1/초/단위 이상 | 50/초/단위 |
 | 구성 및 에지 배포<sup>1</sup> <br/> (만들기, 업데이트, 나열, 삭제) | 0.33/초/단위(20/분/단위) | 0.33/초/단위(20/분/단위) | 0.33/초/단위(20/분/단위) |
 
 
-<sup>1</sup>이 기능은 IoT Hub의 기본 계층에서 사용할 수 없습니다. 자세한 내용은 [올바른 IoT Hub를 선택하는 방법](iot-hub-scaling.md)을 참조하세요. <br/><sup>2</sup>제한 미터 크기는 8KB입니다.
+<sup>1</sup>이 기능은 IoT Hub의 기본 계층에서 사용할 수 없습니다. 자세한 내용은 [올바른 IoT Hub를 선택하는 방법](iot-hub-scaling.md)을 참조하세요. <br/><sup>2</sup>제한 미터 크기는 8KB입니다. <br/><sup>3</sup>한 번에 하나의 활성 장치 가져오기/내보내기 작업만 수행할 수 있습니다.
 
-*장치 연결* 제한은 IoT Hub에서 새 장치 연결을 설정할 수 있는 속도를 제어합니다. *장치 연결* 제한은 동시에 연결되는 장치의 최대 수를 제어하지 않습니다. 이 제한은 IoT Hub에 대해 프로비전되는 단위의 수에 따라 달라집니다.
+*장치 연결* 제한은 IoT Hub에서 새 장치 연결을 설정할 수 있는 속도를 제어합니다. *장치 연결* 제한은 동시에 연결되는 장치의 최대 수를 제어하지 않습니다. *장치 연결* 속도 제한은 IoT Hub에 대해 프로비전되는 단위의 수에 따라 다릅니다.
 
 예를 들어 S1 단위 하나를 구매하는 경우 초당 연결 제한은 100개입니다. 따라서 100,000 개의 장치를 연결하려면 최소 1,000초(약 16분)가 걸립니다. 그러나 ID 레지스트리에 등록한 수만큼의 장치를 동시에 연결할 수 있습니다.
 
-IoT Hub 제한 동작에 대한 자세한 설명을 보려면 블로그 게시물 [IoT Hub 제한][lnk-throttle-blog]을 참조하세요.
+IoT Hub 제한 동작에 대한 자세한 내용은 [IoT Hub 제한](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/) 블로그 게시물을 참조하세요.
 
 > [!IMPORTANT]
-> ID 레지스트리 작업은 장치 관리 및 프로비전 시나리오에서 런타임에 사용하기 위한 것입니다. 많은 수의 장치 ID 읽기 또는 업데이트는 [가져오기 및 내보내기 작업][lnk-importexport]을 통해 지원됩니다.
+> ID 레지스트리 작업은 장치 관리 및 프로비전 시나리오에서 런타임에 사용하기 위한 것입니다. 많은 수의 장치 ID는 [가져오기 및 내보내기 작업](iot-hub-devguide-identity-registry.md#import-and-export-device-identities)을 통해 읽거나 업데이트할 수 있습니다.
 > 
 > 
 
@@ -64,7 +66,7 @@ IoT Hub 제한 동작에 대한 자세한 설명을 보려면 블로그 게시�
 
 IoT Hub에는 다른 작업 제한도 적용됩니다.
 
-| 작업 | 제한 |
+| 작업(Operation) | 제한 |
 | --------- | ----- |
 | 파일 업로드 URI | 10000 SAS URI는 한 번에 저장소 계정에 대해 나올 수 있습니다. <br/> 10 SAS URI/장치는 한 번에 나올 수 있습니다. |
 | 작업<sup>1</sup> | 작업 기록은 30일까지 유지됩니다. <br/> 최대 동시 작업은 1개(무료), S1, 5(S2의 경우), 10(S3의 경우)입니다. |
@@ -73,9 +75,9 @@ IoT Hub에는 다른 작업 제한도 적용됩니다.
 | 장치-클라우드 메시징 | 최대 메시지 크기 256KB |
 | 클라우드-장치 메시징<sup>1</sup> | 최대 메시지 크기 64KB 배달 보류 중인 최대 메시지 수는 50개입니다. |
 | 직접 메서드<sup>1</sup> | 최대 직접 메서드 페이로드 크기는 128KB입니다. |
-| 구성 | 허브당 20개의 구성 |
-| Edge 배포 | 허브당 20개의 배포 배포당 20개의 모듈 |
-| 쌍 | 쌍 섹션(태그, 원하는 속성, 보고된 속성)당 최대 크기는 8KB입니다. |
+| 자동 장치 구성<sup>1</sup> | 유료 SKU 허브당 100개 구성입니다. 체험 SKU 허브당 20개 구성입니다. |
+| 자동 Edge 배포<sup>1</sup> | 배포당 20개의 모듈 유료 SKU 허브당 100개 배포입니다. 체험 SKU 허브당 20개 배포입니다. |
+| 쌍<sup>1</sup> | 쌍 섹션(태그, 원하는 속성, 보고된 속성)당 최대 크기는 8KB입니다. |
 
 <sup>1</sup>이 기능은 IoT Hub의 기본 계층에서 사용할 수 없습니다. 자세한 내용은 [올바른 IoT Hub를 선택하는 방법](iot-hub-scaling.md)을 참조하세요.
 
@@ -90,19 +92,11 @@ IoT Hub는 모든 작업에 낮은 대기 시간을 제공하기 위해 노력�
 * Azure IoT Edge를 사용하여 장치 또는 장치에 가까운 게이트웨이에서 대기 시간에 민감한 작업을 수행하는 것이 좋습니다.
 
 여러 IoT Hub 단위는 앞에서 설명한 대로 제한에 영향을 주지만 추가 대기 시간을 주거나 보장하지 않습니다.
+
 작업 대기 시간에 예기치 않은 증가가 발생한 경우 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 문의하세요.
 
 ## <a name="next-steps"></a>다음 단계
+
 이 IoT Hub 개발자 가이드의 다른 참조 자료:
 
-* [IoT Hub 엔드포인트][lnk-devguide-endpoints]
-* [장치 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어][lnk-devguide-query]
-* [IoT Hub MQTT 지원][lnk-devguide-mqtt]
-
-[lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
-[lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
-[lnk-importexport]: iot-hub-devguide-identity-registry.md#import-and-export-device-identities
-
-[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-devguide-query]: iot-hub-devguide-query-language.md
-[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
+* [IoT Hub 엔드포인트](iot-hub-devguide-endpoints.md)

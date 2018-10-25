@@ -17,18 +17,18 @@ ms.date: 06/06/2017
 ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: ce29c6a9df49721ca23f84da3f1c97bcc83ab4a7
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: cf62d961d7bd2b6ff2cb03ee577368f2ee7b8452
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39580398"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318831"
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>On-Behalf-Of 흐름에서 위임된 사용자 ID를 사용하여 서비스 간 호출
 OAuth 2.0 OBO(On-Behalf-Of) 흐름은 응용 프로그램이 서비스/웹 API를 호출하고 차례로 다른 서비스/웹 API를 호출해야 하는 사용 사례를 제공합니다. 요청 체인을 통해 위임된 사용자 ID 및 사용 권한을 전파하는 개념입니다. 중간 계층 서비스가 다운스트림 서비스에 대해 인증된 요청을 수행하도록 하려면 사용자를 대신하여 Azure AD(Azure Active Directory)에서 액세스 토큰을 보호해야 합니다.
 
 > [!IMPORTANT]
-> [OAuth 2.0 암시적 권한 부여](v1-oauth2-implicit-grant-flow.md)를 사용하는 공용 클라이언트는 OBO 흐름을 사용할 수 없습니다. 이러한 클라이언트는 OBO 흐름을 수행하는 중간 계층 기밀 클라이언트에 액세스 토큰을 전달해야 합니다. OBO 호출을 수행할 수 있는 클라이언트에 대한 자세한 내용은 [클라이언트 제한 사항](#client-limitations)을 참조하세요.
+> 2018년 5월부터 위임자 흐름에는 `id_token`을 사용할 수 없습니다. SPA는 OBO 흐름을 수행하려면 중간 계층 기밀 클라이언트에 **액세스 토큰**을 전달해야 합니다. 클라이언트가 위임자 호출을 수행할 수 있는 데 관한 자세한 내용은 [제한](#client-limitations)을 참조하세요.
 
 ## <a name="on-behalf-of-flow-diagram"></a>On-Behalf-Of 흐름 다이어그램
 사용자가 [OAuth 2.0 권한 부여 코드 부여 흐름](v1-protocols-oauth-code.md)을 사용하여 응용 프로그램에 대해 인증되었다고 가정합니다. 이 시점에서 응용 프로그램은 사용자의 클레임이 있는 액세스 토큰(토큰 A)을 포함하고 중간 계층 웹 API(API A)에 액세스하는 데 동의합니다. 이제 API A는 다운스트림 웹 API(API B)에 대해 인증된 요청을 해야 합니다.
@@ -39,8 +39,8 @@ OAuth 2.0 OBO(On-Behalf-Of) 흐름은 응용 프로그램이 서비스/웹 API�
 
 
 1. 클라이언트 응용 프로그램은 토큰 A와 함께 API A에 요청합니다.
-2. API A는 Azure AD 토큰 발급 끝점을 인증하고 API B에 액세스하기 위해 토큰을 요청합니다.
-3. Azure AD 토큰 발급 끝점은 토큰 A와 함께 API A의 자격 증명의 유효성을 검사하고 API B(토큰 B)에 대한 액세스 토큰을 발급합니다.
+2. API A는 Azure AD 토큰 발급 엔드포인트를 인증하고 API B에 액세스하기 위해 토큰을 요청합니다.
+3. Azure AD 토큰 발급 엔드포인트는 토큰 A와 함께 API A의 자격 증명의 유효성을 검사하고 API B(토큰 B)에 대한 액세스 토큰을 발급합니다.
 4. 토큰 B는 API B에 대한 요청의 권한 부여 헤더에 설정됩니다.
 5. 보안 리소스의 데이터가 API B에 의해 반환됩니다.
 
@@ -70,7 +70,7 @@ Azure AD에 클라이언트 응용 프로그램 및 중간 계층 서비스를 �
 3. [저장] 단추를 클릭하여 매니페스트를 저장합니다.
 
 ## <a name="service-to-service-access-token-request"></a>서비스 간 액세스 토큰 요청
-액세스 토큰을 요청하려면 다음 매개 변수로 테넌트별 Azure AD 끝점에 HTTP POST를 만듭니다.
+액세스 토큰을 요청하려면 다음 매개 변수로 테넌트별 Azure AD 엔드포인트에 HTTP POST를 만듭니다.
 
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/token
@@ -178,7 +178,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 ```
 
 ### <a name="error-response-example"></a>오류 응답 예제
-다운스트림 API에 설정된 Multi-Factor Authentication과 같은 조건부 액세스 정책이 있는 경우, 다운스트림 API에 대한 액세스 토큰을 얻으려고 할 때 Azure AD 토큰 끝점에서 오류 응답이 반환됩니다. 중간 계층 서비스는 이 오류를 클라이언트 응용 프로그램에 전달하여 클라이언트 응용 프로그램이 조건부 액세스 정책을 충족시키기 위해 사용자 상호 작용을 제공할 수 있도록 해야 합니다.
+다운스트림 API에 설정된 Multi-Factor Authentication과 같은 조건부 액세스 정책이 있는 경우, 다운스트림 API에 대한 액세스 토큰을 얻으려고 할 때 Azure AD 토큰 엔드포인트에서 오류 응답이 반환됩니다. 중간 계층 서비스는 이 오류를 클라이언트 응용 프로그램에 전달하여 클라이언트 응용 프로그램이 조건부 액세스 정책을 충족시키기 위해 사용자 상호 작용을 제공할 수 있도록 해야 합니다.
 
 ```
 {
@@ -202,7 +202,7 @@ Host: graph.windows.net
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRvd3MubmV0IiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMjYwMzljY2UtNDg5ZC00MDAyLTgyOTMtNWIwYzUxMzRlYWNiLyIsImlhdCI6MTQ5MzQyMzE2OCwibmJmIjoxNDkzNDIzMTY4LCJleHAiOjE0OTM0NjY5NTEsImFjciI6IjEiLCJhaW8iOiJBU1FBMi84REFBQUE1NnZGVmp0WlNjNWdBVWwrY1Z0VFpyM0VvV2NvZEoveWV1S2ZqcTZRdC9NPSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiI2MjUzOTFhZi1jNjc1LTQzZTUtOGU0NC1lZGQzZTMwY2ViMTUiLCJhcHBpZGFjciI6IjEiLCJlX2V4cCI6MzAyNjgzLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJnaXZlbl9uYW1lIjoiTmF2eWEiLCJpcGFkZHIiOiIxNjcuMjIwLjEuMTc3IiwibmFtZSI6Ik5hdnlhIFRlc3QiLCJvaWQiOiIxY2Q0YmNhYy1iODA4LTQyM2EtOWUyZi04MjdmYmIxYmI3MzkiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzNGRkZBMTJFRDdGRSIsInNjcCI6IlVzZXIuUmVhZCIsInN1YiI6IjNKTUlaSWJlYTc1R2hfWHdDN2ZzX0JDc3kxa1l1ekZKLTUyVm1Zd0JuM3ciLCJ0aWQiOiIyNjAzOWNjZS00ODlkLTQwMDItODI5My01YjBjNTEzNGVhY2IiLCJ1bmlxdWVfbmFtZSI6Im5hdnlhQGRkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tIiwidXBuIjoibmF2eWFAZGRvYmFsaWFub3V0bG9vay5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJ4Q3dmemhhLVAwV0pRT0x4Q0dnS0FBIiwidmVyIjoiMS4wIn0.cqmUVjfVbqWsxJLUI1Z4FRx1mNQAHP-L0F4EMN09r8FY9bIKeO-0q1eTdP11Nkj_k4BmtaZsTcK_mUygdMqEp9AfyVyA1HYvokcgGCW_Z6DMlVGqlIU4ssEkL9abgl1REHElPhpwBFFBBenOk9iHddD1GddTn6vJbKC3qAaNM5VarjSPu50bVvCrqKNvFixTb5bbdnSz-Qr6n6ACiEimiI1aNOPR2DeKUyWBPaQcU5EAK0ef5IsVJC1yaYDlAcUYIILMDLCD9ebjsy0t9pj_7lvjzUSrbMdSCCdzCqez_MSNxrk1Nu9AecugkBYp3UVUZOIyythVrj6-sVvLZKUutQ
 ```
 ## <a name="client-limitations"></a>클라이언트 제한 사항
-와일드카드 회신 URL이 있는 공용 클라이언트는 OBO 흐름에 대해 `id_token`을 사용할 수 없습니다. 그러나 기밀 클라이언트는 공용 클라이언트에 등록된 와일드카드 회신 URI가 있는 경우에도 암시적 권한 부여 흐름을 통해 획득한 액세스 토큰을 계속 회수할 수 있습니다.
+와일드카드 회신 URL이 있는 공용 클라이언트는 OBO 흐름에 대해 `id_token`을 사용할 수 없습니다. 그러나 기밀 클라이언트는 공용 클라이언트에 등록된 와일드카드 회신 URI가 있는 경우에도 암시적 권한 부여 흐름을 통해 획득한 **액세스** 토큰을 계속 회수할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 OAuth 2.0 프로토콜 및 클라이언트 자격 증명을 사용하여 서비스 간 인증을 수행하는 다른 방법에 대해 자세히 알아보세요.

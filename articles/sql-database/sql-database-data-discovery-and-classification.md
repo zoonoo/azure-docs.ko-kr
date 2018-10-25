@@ -11,20 +11,22 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/04/2018
-ms.openlocfilehash: e40f2f3f0a6551fd9fc38ad138d92f694a09879f
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.date: 10/15/2018
+ms.openlocfilehash: 36269392db785e7d2d203f032a84cccc8a6c62e0
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803242"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352971"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL Database 데이터 검색 및 분류
+
 데이터 검색 및 분류(현재 미리 보기)는 데이터베이스에 있는 중요한 데이터의 **검색**, **분류**, **레이블 지정** & **보호**를 위해 Azure SQL Database에 내장된 고급 기능을 제공합니다.
 가장 중요한 데이터(비즈니스, 재무, 의료, PII(개인 식별 데이터) 등)를 검색하고 분류하는 기능은 조직 정보 보호 평판에 중추적인 역할을 할 수 있습니다. 그것은 다음에 대한 인프라 역할을 할 수 있습니다.
-* 데이터 프라이버시 표준 및 규정 준수 요구 사항을 충족하도록 지원.
-* 중요한 데이터에 대한 비정상적인 엑세스 모니터링(감사) 및 경고하는 것과 같은 다양한 보안 시나리오.
-* 매우 중요한 데이터가 들어 있는 데이터베이스에 대한 엑세스 제어 및 보안 강화.
+
+- 데이터 프라이버시 표준 및 규정 준수 요구 사항을 충족하도록 지원.
+- 중요한 데이터에 대한 비정상적인 엑세스 모니터링(감사) 및 경고하는 것과 같은 다양한 보안 시나리오.
+- 매우 중요한 데이터가 들어 있는 데이터베이스에 대한 엑세스 제어 및 보안 강화.
 
 데이터 검색 및 분류는 고급 SQL 보안 기능용 통합 패키지인 [SQL ATP(Advanced Threat Protection)](sql-advanced-threat-protection.md) 제품의 일부입니다. 중앙 SQL ATP 포털을 통해 데이터 검색 및 분류에 액세스하고 관리할 수 있습니다.
 
@@ -32,18 +34,33 @@ ms.locfileid: "48803242"
 > 이 문서는 Azure SQL Database에만 관련됩니다. SQL Server(온-프레미스)의 경우 [SQL 데이터 검색 및 분류](https://go.microsoft.com/fwlink/?linkid=866999)를 참조하세요.
 
 ## <a id="subheading-1"></a>데이터 검색 및 분류란?
+
 데이터 검색 및 분류는 고급 서비스 및 새로운 SQL 기능 집합을 도입하여 데이터베이스 뿐 아니라 데이터를 보호 대상으로 하는 새로운 SQL Information Protection 패러다임을 형성합니다.
-* **검색 및 권장 사항** – 분류 엔진은 데이터베이스를 스캔하여 잠재적으로 중요한 데이터가 포함된 열을 식별합니다. 그런 다음 Azure Portal을 통해 적절한 분류 권장 사항을 쉽게 검토하고 적용하는 방법을 제공합니다.
-* **레이블 지정** – 민감도 분류 레이블은 SQL Engine에 도입된 새로운 분류 메타데이터 특성을 사용하여 열에 영구적으로 태그할 수 있습니다. 그런 후에 이 메타데이터는 고급 민감도 기반 감사 및 보호 시나리오에 사용될 수 있습니다.
-* **쿼리 결과 집합 민감도** – 쿼리 결과 집합의 민감도는 감사 목적으로 실시간 계산됩니다.
-* **가시성** - 데이터베이스 분류 상태는 포털의 상세 대시보드에서 볼 수 있습니다. 또한 규정 준수 및 감사 목적은 물론 다른 요구 사항에도 사용하도록 보고서(Excel 형식)를 다운로드할 수 있습니다.
+
+- **검색 및 권장 사항**
+
+  분류 엔진은 데이터베이스를 스캔하여 잠재적으로 중요한 데이터가 포함된 열을 식별합니다. 그런 다음 Azure Portal을 통해 적절한 분류 권장 사항을 쉽게 검토하고 적용하는 방법을 제공합니다.
+
+- **레이블 지정**
+
+  민감도 분류 레이블은 SQL Engine에 도입된 새로운 분류 메타데이터 특성을 사용하여 열에 영구적으로 태그할 수 있습니다. 그런 후에 이 메타데이터는 고급 민감도 기반 감사 및 보호 시나리오에 사용될 수 있습니다.
+
+- **쿼리 결과 집합 민감도**
+
+  쿼리 결과 집합의 민감도는 감사 목적으로 실시간 계산됩니다.
+
+- **표시 유형**
+
+  데이터베이스 분류 상태는 포털의 자세한 대시보드에서 볼 수 있습니다. 또한 규정 준수 및 감사 목적은 물론 다른 요구 사항에도 사용하도록 보고서(Excel 형식)를 다운로드할 수 있습니다.
 
 ## <a id="subheading-2"></a>중요한 열 검색, 분류 및 레이블 지정
+
 다음 섹션은 데이터베이스에서 중요한 데이터를 포함하는 열을 검색, 분류 및 레이블을 지정하는 것은 물론 데이터베이스의 현재 분류 상태를 보고 보고서를 내보내는 단계를 설명합니다.
 
 분류는 두 개의 메타데이터 특성을 포함합니다.
-* 레이블 - 열에 저장된 데이터의 민감도 수준을 정의하는 데 사용되는 주요 분류 속성입니다.  
-* 정보 유형 – 열에 저장된 데이터의 유형에 추가 세분성을 제공합니다.
+
+- 레이블 - 열에 저장된 데이터의 민감도 수준을 정의하는 데 사용되는 주요 분류 속성입니다.  
+- 정보 유형 – 열에 저장된 데이터의 유형에 추가 세분성을 제공합니다.
 
 ## <a name="define-and-customize-your-classification-taxonomy"></a>분류 체계 정의 및 사용자 지정
 
@@ -72,31 +89,31 @@ Information Protection 정책 관리의 일환으로, 사용자 지정 레이블
 
    ![Excel로 내보내기](./media/sql-data-discovery-and-classification/3_data_classification_export_report.png)
 
-5.  <a id="step-5"></a>데이터 분류를 시작하려면 창의 위쪽에 있는 **분류 탭**을 클릭합니다.
+5. <a id="step-5"></a>데이터 분류를 시작하려면 창의 위쪽에 있는 **분류 탭**을 클릭합니다.
 
     ![데이터 분류](./media/sql-data-discovery-and-classification/4_data_classification_classification_tab_click.png)
 
 6. 분류 엔진은 잠재적으로 중요한 데이터를 포함하는 열에 대해 데이터베이스를 스캔하여 **권장되는 열 분류** 목록을 제공합니다. 분류 권장 사항 보기 및 적용하기
 
-    * 권장된 열 분류 목록을 보려면 창의 맨 아래에서 권장 사항 패널을 클릭합니다.
+   - 권장된 열 분류 목록을 보려면 창의 맨 아래에서 권장 사항 패널을 클릭합니다.
 
       ![데이터 분류](./media/sql-data-discovery-and-classification/5_data_classification_recommendations_panel.png)
 
-    * 권장 사항 목록을 검토합니다. 특정 열에 대한 권장 사항을 받아 들이려면 관련 행의 왼쪽 열에 있는 확인란을 선택합니다. 또한 권장 사항 테이블 헤더에 있는 확인란을 선택하여 *모든 권장 사항*을 수락됨으로 표시할 수 있습니다.
+   - 권장 사항 목록을 검토합니다. 특정 열에 대한 권장 사항을 받아 들이려면 관련 행의 왼쪽 열에 있는 확인란을 선택합니다. 또한 권장 사항 테이블 헤더에 있는 확인란을 선택하여 *모든 권장 사항*을 수락됨으로 표시할 수 있습니다.
 
        ![권장 사항 목록 검토](./media/sql-data-discovery-and-classification/6_data_classification_recommendations_list.png)
 
-    * 선택한 권장 사항을 적용하려면 파란색인 **선택한 권장 사항을 받아들임** 단추를 클릭합니다.
+   - 선택한 권장 사항을 적용하려면 파란색인 **선택한 권장 사항을 받아들임** 단추를 클릭합니다.
 
       ![권장 사항 적용](./media/sql-data-discovery-and-classification/7_data_classification_accept_selected_recommendations.png)
 
 7. 또한 열을 대안으로 또는 권장 사항에 기반을 둔 분류에 **수동으로 분류**할 수 있습니다.
 
-    * 창의 위쪽 메뉴에서 **분류 추가**를 클릭합니다.
+   - 창의 위쪽 메뉴에서 **분류 추가**를 클릭합니다.
 
       ![수동으로 분류 추가](./media/sql-data-discovery-and-classification/8_data_classification_add_classification_button.png)
 
-    * 열리는 컨텍스트 창에서 분류하고자 하는 스키마 > 테이블 > 열 및 정보 유형 및 민감도 레이블을 선택합니다. 컨텍스트 창의 아래쪽에 있는 파란색 **분류 추가** 단추를 클릭합니다.
+   - 열리는 컨텍스트 창에서 분류하고자 하는 스키마 > 테이블 > 열 및 정보 유형 및 민감도 레이블을 선택합니다. 컨텍스트 창의 아래쪽에 있는 파란색 **분류 추가** 단추를 클릭합니다.
 
       ![분류할 열 선택](./media/sql-data-discovery-and-classification/9_data_classification_manual_classification.png)
 
@@ -117,16 +134,16 @@ T-SQL을 사용하여 열 분류를 추가/제거하고 전체 데이터베이�
 > [!NOTE]
 > T-SQL을 사용하여 레이블을 관리하는 경우, 열에 추가된 레이블이 조직 정보 보호 정책(포털 권장 사항에 표시되는 레이블 집합)에 있는지 확인되지 않습니다. 따라서 이 확인 작업은 사용자가 수행해야 합니다.
 
-* 하나 이상의 열 분류 추가/업데이트: [ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
-* 하나 이상의 열에서 분류 제거: [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
-* 데이터베이스에 대한 모든 분류 보기: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+- 하나 이상의 열 분류 추가/업데이트: [ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+- 하나 이상의 열에서 분류 제거: [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+- 데이터베이스에 대한 모든 분류 보기: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 또한 REST API를 사용하여 프로그래밍 방식으로 분류를 관리할 수 있습니다. 게시된 REST API는 다음과 같은 작업을 지원합니다.
-* [만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) - 지정된 열의 민감도 레이블을 만들거나 업데이트합니다.
-* [삭제](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) - 지정된 열의 민감도 레이블을 삭제합니다.
-* [가져오기](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) - 지정된 열의 민감도 레이블을 가져옵니다.
-* [데이터베이스별 목록](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listbydatabase) - 지정된 데이터베이스의 민감도 레이블을 가져옵니다.
 
+- [만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_createorupdate) - 지정된 열의 민감도 레이블을 만들거나 업데이트합니다.
+- [삭제](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_delete) - 지정된 열의 민감도 레이블을 삭제합니다.
+- [가져오기](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_get) - 지정된 열의 민감도 레이블을 가져옵니다.
+- [데이터베이스별 목록](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_listbydatabase) - 지정된 데이터베이스의 민감도 레이블을 가져옵니다.
 
 ## <a id="subheading-5"></a>다음 단계
 

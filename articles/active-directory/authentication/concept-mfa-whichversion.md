@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 0d68c88bdad63bb022babcc4a6ee4ee7c59ce58a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 696c331111fef9d6fc238b733e15230ab3ee1e56
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158457"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378019"
 ---
 # <a name="which-version-of-azure-mfa-is-right-for-my-organization"></a>우리 조직에 적합한 Azure MFA 버전은 무엇입니까?
 
@@ -61,7 +61,7 @@ MFA(Multi-Factor Authentication)를 어디에 어떻게 배포할 것인지 결�
 | 두 번째 단계로 모바일 앱 확인 코드 | ● | ● |
 | 두 번째 단계로 전화 통화 | ● | ● |
 | 두 번째 단계로 단방향 SMS | ● | ● |
-| 두 번째 단계로 하드웨어 토큰 | | ● |
+| 두 번째 단계로 하드웨어 토큰 | ● (공개 미리 보기) | ● |
 | MFA를 지원하지 않는 Office 365 클라이언트에 대한 앱 암호 | ● | |
 | 인증 방법에 대한 관리자 제어 | ● | ● |
 | PIN 모드 | | ● |

@@ -1,5 +1,5 @@
 ---
-title: C#을 사용하는 LUIS의 Application Insights 데이터
+title: Node.js를 사용하는 LUIS의 Application Insights 데이터
 titleSuffix: Azure Cognitive Services
 description: Node.js를 사용하여 LUIS 응용 프로그램 및 Application Insights와 통합된 봇을 빌드합니다.
 services: cognitive-services
@@ -10,17 +10,17 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 342c4f98d854d94426c3e4a1eb79bb2a6adffaad
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6199e4a681f7f58ea0cf57b575afb2a63d160eee
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038003"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321957"
 ---
 # <a name="add-luis-results-to-application-insights"></a>Application Insights에 LUIS 결과 추가
 이 자습서에서는 [Application Insights](https://azure.microsoft.com/services/application-insights/) 원격 분석 데이터 저장소에 LUIS 요청 및 응답 정보를 추가합니다. 해당 데이터가 있으면 Kusto 언어 또는 PowerBi로 데이터를 쿼리하여 발화의 의도 및 엔터티를 실시간으로 분석, 집계 및 보고할 수 있습니다. 이 분석을 통해 LUIS 앱의 의도와 엔터티를 추가하거나 편집해야 할지 결정할 수 있습니다.
 
-해당 봇은 Bot Framework 3.x 및 Azure 웹앱 봇을 사용하여 빌드됩니다.
+이 봇은 Bot Framework 3.x 및 Azure 웹앱 봇을 사용하여 빌드됩니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 

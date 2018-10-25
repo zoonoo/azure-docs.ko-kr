@@ -4,7 +4,7 @@ description: WebJobs를 사용하여 Azure App Service 웹앱, API 앱 또는 �
 services: app-service
 documentationcenter: ''
 author: ggailey777
-manager: erikre
+manager: jeconnoc
 editor: jimbe
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.service: app-service
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2017
-ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: c3a41733dd193d10349a0126bfa9c25ce4ba56e7
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.date: 10/16/2018
+ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
+ms.openlocfilehash: 901cf32557e0a437e938ceb50ecd500c69c8c3be
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577680"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364033"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure App Service에서 WebJobs로 백그라운드 작업 실행
 
@@ -44,7 +44,7 @@ Azure Functions는 프로그램 및 스크립트를 실행하는 다른 방법�
 | 원격 디버깅을 지원합니다. | 원격 디버깅을 지원하지 않습니다.|
 
 > [!NOTE]
-> 웹앱이 20분 동안 작동하지 않으면 시간이 초과될 수 있습니다. 포털에서 SCM(배포) 사이트 또는 웹앱의 페이지에 대한 요청만이 타이머를 다시 설정합니다. 실제 사이트에 대한 요청은 타이머를 다시 설정하지 않습니다. 앱이 연속 또는 예약된 WebJobs를 실행하는 경우 **Always On**을 사용하도록 설정하여 WebJobs를 안정적으로 실행합니다. 이 기능은 기본, 표준 및 프리미엄 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)에서만 사용할 수 있습니다.
+> 웹앱이 20분 동안 작동하지 않으면 시간이 초과될 수 있습니다. 실제 웹앱에 대한 요청만 타이머를 다시 설정합니다. Azure Portal에서 앱의 구성을 보거나 고급 도구 사이트(https://<app_name>.scm.azurewebsites.net)에 요청을 수행해도 타이머가 다시 설정되지 않습니다. 앱이 연속 또는 예약된 WebJobs를 실행하는 경우 **Always On**을 사용하도록 설정하여 WebJobs를 안정적으로 실행합니다. 이 기능은 기본, 표준 및 프리미엄 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)에서만 사용할 수 있습니다.
 
 ## <a name="acceptablefiles"></a>스크립트 또는 프로그램에 지원되는 파일 형식
 

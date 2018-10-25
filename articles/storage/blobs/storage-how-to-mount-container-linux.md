@@ -5,14 +5,14 @@ services: storage
 author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 10/11/2018
 ms.author: seguler
-ms.openlocfilehash: 9964aa4d263e0b75eb59b4e1434a9b3f0aac6ea1
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 4f29933fbd4b9ea5c9868e307a6affa7e2273e3d
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400186"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165184"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>blobfuse를 사용하여 Blob Storage를 파일 시스템으로 탑재하는 방법
 
@@ -27,7 +27,7 @@ ms.locfileid: "39400186"
 > 
 
 ## <a name="install-blobfuse-on-linux"></a>Linux에 blobfuse 설치
-blobfuse 이진 파일은 [Linux용 Microsoft 소프트웨어 리포지토리](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software)에서 사용할 수 있습니다. blobfuse를 설치하려면 이러한 리포지토리 중 하나를 구성합니다.
+Blobfuse 이진 파일은 Ubuntu 및 RHEL 배포를 위한 [Linux용 Microsoft 소프트웨어 리포지토리](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software)에서 사용할 수 있습니다. 해당 배포에서 Blobfuse를 설치하려면 목록에서 리포지토리 중 하나를 구성합니다. 배포에 사용할 수 있는 이진 파일이 없는 경우 [여기](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) 설치 단계에 따라 소스 코드에서 이진 파일을 빌드할 수도 있습니다.
 
 ### <a name="configure-the-microsoft-package-repository"></a>Microsoft 패키지 리포지토리 구성
 [Microsoft 제품용 Linux 패키지 리포지토리](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software)를 구성합니다.
@@ -89,7 +89,7 @@ blobfuse를 사용하려면 자격 증명을 다음 형식의 텍스트 파일�
 
 ```
 accountName myaccount
-accountKey myaccesskey==
+accountKey 9fD-/KjshdfLDERmcIjabcdefhAUSIHD/asdhfoiasiaAISOIabcdef/askdfewiAASJDNFL+askdlfj==
 containerName mycontainer
 ```
 
@@ -97,6 +97,10 @@ containerName mycontainer
 ```bash
 chmod 700 fuse_connection.cfg
 ```
+
+> [!NOTE]
+> Windows에서 구성 파일을 만든 경우 `dos2unix`를 실행하여 삭제하고 Unix 형식으로 변환해야 합니다. 
+>
 
 ### <a name="create-an-empty-directory-for-mounting"></a>탑재할 빈 디렉터리 만들기
 ```bash

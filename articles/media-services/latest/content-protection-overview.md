@@ -4,21 +4,21 @@ description: 이 기사는 Media Services 콘텐츠 보호에 대한 개요를 �
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 2a3e94d37a926bd36b780b45eb3d6cb29fb73597
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f8ef92a335dd6faee076356dbffc873b08afbdc0
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521757"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394278"
 ---
 # <a name="content-protection-overview"></a>콘텐츠 보호 개요
 
@@ -149,9 +149,7 @@ AMS(Azure Media Services) v3를 사용하여 다중 DRM(PlayReady, Widevine 및 
 
 2. 암호화된 자산을 스트림하도록 구성된 StreamingLocator를 만듭니다. 
 
-  이 예제에서는 envelope 및 cenc 암호화를 지원하고 StreamingLocator에 두 개의 콘텐츠 키를 설정하는 **StreamingPolicyName**을 **PredefinedStreamingPolicy.SecureStreaming**으로 설정합니다. 
-
-  또한 FairPlay를 사용하여 암호화하려면 **StreamingPolicyName**을 **PredefinedStreamingPolicy.SecureStreamingWithFairPlay**로 설정합니다.
+  예를 들어 StreamingLocator.StreamingPolicyName을 "Predefined_MultiDrmCencStreaming" 정책으로 설정할 수 있습니다. 이 정책은 로케이터에서 생성되고 설정할 두 가지 콘텐츠 키(봉투 및 CENC)에 대한 것임을 나타냅니다. 따라서 봉투, PlayReady 및 Widevine 암호화가 적용됩니다(키가 구성된 DRM 라이선스에 따라 재생 클라이언트로 배달됨). 또한 CBCS(FairPlay)를 사용하여 스트림을 암호화하려면 "Predefined_MultiDrmStreaming"을 사용합니다.
 
 3. 테스트 토큰을 만듭니다.
 

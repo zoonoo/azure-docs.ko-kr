@@ -8,20 +8,20 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 9f6746f1bf8fb65e39933afa00b74a2b8266a1a9
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: ec309bc5484c0ac96d1323c56670c147737e7c64
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095439"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377866"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions에 대한 앱 설정 참조
 
-함수 앱의 앱 설정에는 해당 함수 앱의 모든 함수에 영향을 주는 전역 구성 옵션이 포함됩니다. 로컬에서 실행할 때 이러한 설정은 환경 변수에 있습니다. 이 문서에는 함수 앱에서 사용할 수 있는 앱 설정이 나열되어 있습니다.
+함수 앱의 앱 설정에는 해당 함수 앱의 모든 함수에 영향을 주는 전역 구성 옵션이 포함됩니다. 로컬에서 실행할 때 이러한 설정은 [환경 변수](functions-run-local.md#local-settings-file)에 있습니다. 이 문서에는 함수 앱에서 사용할 수 있는 앱 설정이 나열되어 있습니다.
 
-[!INCLUDE [함수 앱 설정](../../includes/functions-app-settings.md]
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
 [host.json](functions-host-json.md) 파일과 [local.settings.json](functions-run-local.md#local-settings-file) 파일에는 다른 전역 구성 옵션이 있습니다.
 
@@ -40,6 +40,9 @@ Application Insights를 사용하는 경우 Application Insights 계측 키입�
 |키|샘플 값|
 |---|------------|
 |AzureWebJobsDashboard|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
+
+> [!TIP]
+> 성능 및 환경을 위해 AzureWebJobsDashboard 대신 모니터링을 위해 App Insights 및 APPINSIGHTS_INSTRUMENTATIONKEY를 사용하는 것이 좋습니다.
 
 ## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHomepage
 
@@ -111,11 +114,19 @@ TypeScript에 사용되는 컴파일러의 경로입니다. 필요한 경우 기
 
 ## <a name="functionsextensionversion"></a>FUNCTIONS\_EXTENSION\_VERSION
 
-이 함수 앱에 사용할 Azure Functions 런타임의 버전입니다. 주 버전의 물결표는 해당 주 버전의 최신 버전(예: "~ 1")을 사용한다는 의미입니다. 동일한 주 버전의 새 버전을 사용할 수 있으면 함수 앱에 자동으로 설치됩니다. 앱을 특정 버전으로 고정하려면 전체 버전 번호(예: "1.0.12345")를 사용하십시오. 기본값은 "~1"입니다.
+이 함수 앱에 사용할 Functions 런타임의 버전입니다. 주 버전의 물결표는 해당 주 버전의 최신 버전(예: "~2")을 사용한다는 의미입니다. 동일한 주 버전의 새 버전을 사용할 수 있으면 함수 앱에 자동으로 설치됩니다. 앱을 특정 버전으로 고정하려면 전체 버전 번호(예: "2.0.12345")를 사용합니다. 기본값은 "~2"입니다. 값이 `~1`이면 앱을 런타임의 버전 1.x로 고정합니다.
 
 |키|샘플 값|
 |---|------------|
-|FUNCTIONS\_EXTENSION\_VERSION|~1|
+|FUNCTIONS\_EXTENSION\_VERSION|~2|
+
+## <a name="functionsworkerruntime"></a>FUNCTIONS\_WORKER\_RUNTIME
+
+함수 앱에 로드할 언어 작업자 런타임입니다.  이것은 응용 프로그램(예: "dotnet")에 사용되는 언어에 해당합니다. 여러 언어로 된 함수는 여러 개의 앱을 각각 해당하는 작업자 런타임 값을 사용하여 게시해야 합니다.  유효한 값은 `dotnet`(C#/F#), `node`(JavaScript) 및 `java`(Java)입니다.
+
+|키|샘플 값|
+|---|------------|
+|FUNCTIONS\_WORKER\_RUNTIME|dotnet|
 
 ## <a name="websitecontentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
@@ -138,32 +149,29 @@ TypeScript에 사용되는 컴파일러의 경로입니다. 필요한 경우 기
 함수 앱이 확장할 수 있는 최대 인스턴스 수입니다. 기본값은 무제한입니다.
 
 > [!NOTE]
-> 이 설정은 미리 보기 기능용입니다.
+> 이 설정은 미리 보기 기능이며 값이 <= 5로 설정된 경우에만 신뢰할 수 있습니다.
 
 |키|샘플 값|
 |---|------------|
-|WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT|10|
+|WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT|5|
 
 ## <a name="websitenodedefaultversion"></a>WEBSITE\_NODE\_DEFAULT_VERSION
 
-기본값은 "6.5.0"입니다.
+기본값은 "8.11.1"입니다.
 
 |키|샘플 값|
 |---|------------|
-|WEBSITE\_NODE\_DEFAULT_VERSION|6.5.0|
+|WEBSITE\_NODE\_DEFAULT_VERSION|8.11.1|
 
-## <a name="websiterunfromzip"></a>WEBSITE\_RUN\_FROM\_ZIP
+## <a name="websiterunfrompackage"></a>WEBSITE\_RUN\_FROM\_PACKAGE
 
 탑재된 패키지 파일에서 함수 앱을 실행하도록 설정합니다.
 
-> [!NOTE]
-> 이 설정은 미리 보기 기능용입니다.
-
 |키|샘플 값|
 |---|------------|
-|WEBSITE\_RUN\_FROM\_ZIP|1|
+|WEBSITE\_RUN\_FROM\_PACKAGE|1|
 
-유효한 값은 배포 패키지 파일의 위치를 확인하는 URL이거나 `1`입니다. `1`로 설정하면 패키지는 `d:\home\data\SitePackages` 폴더에 있어야 합니다. 이 설정으로 zip 배포를 사용하면 패키지가 자동으로 이 위치에 업로드됩니다.  자세한 내용은 [패키지 파일에서 Functions 실행](run-functions-from-deployment-package.md)을 참조하세요.
+유효한 값은 배포 패키지 파일의 위치를 확인하는 URL이거나 `1`입니다. `1`로 설정하면 패키지는 `d:\home\data\SitePackages` 폴더에 있어야 합니다. 이 설정으로 zip 배포를 사용하면 패키지가 자동으로 이 위치에 업로드됩니다. 미리 보기에서 이 설정은 `WEBSITE_RUN_FROM_ZIP`으로 명명되었습니다. 자세한 내용은 [패키지 파일에서 Functions 실행](run-functions-from-deployment-package.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

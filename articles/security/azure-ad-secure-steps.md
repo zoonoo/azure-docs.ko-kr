@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 2a6c94d902c639a2529e501347876d63a3f56d7e
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 94d96cab28f738984b3d05d5eee0754e8c5e75b6
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505612"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341582"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>ID 인프라를 보호하기 위한 5단계
 
@@ -32,7 +32,7 @@ ms.locfileid: "39505612"
 * 자가 진단으로 더 예측 가능하고 완벽한 최종 사용자 보안을 사용하도록 설정합니다.
 
 > [!NOTE]
-> 이 문서에 나온 다양한 권장 사항은 ID 공급자로 Azure Active Directory를 사용하도록 구성되어 있는 응용 프로그램에만 적용됩니다. Single Sign-On에 대해 앱을 구성하면 해당 앱에 자격 증명 정책, 위협 요소 탐지, 감사, 로깅 및 기타 기능의 이점이 추가됩니다. [Azure Active Directory를 통한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso)은 이러한 모든 권장 사항의 기반이 되는 토대입니다.
+> 이 문서의 다양한 권장 사항은 ID 공급자로 Azure Active Directory를 사용하도록 구성되어 있는 응용 프로그램에만 적용됩니다. Single Sign-On에 대해 앱을 구성하면 해당 앱에 자격 증명 정책, 위협 요소 탐지, 감사, 로깅 및 기타 기능의 이점이 추가됩니다. [Azure Active Directory를 통한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso)은 이러한 모든 권장 사항의 기반이 되는 토대입니다.
 
 ## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>시작하기 전에: MFA를 통해 권한 있는 계정을 보호
 
@@ -44,7 +44,7 @@ ms.locfileid: "39505612"
 
 ## <a name="step-1---strengthen-your-credentials"></a>1단계 - 자격 증명을 강화합니다. 
 
-대부분의 엔터프라이즈 보안 위반은 암호 스프레이, 위반 재생 또는 피싱 같은 방법 중 하나로 손상된 계정으로 시작됩니다. 이러한 공격에 대해 자세히 알아보려면 이 비디오를 시청하세요.
+대부분의 엔터프라이즈 보안 위반은 암호 스프레이, 위반 재생 또는 피싱 같은 방법 중 하나로 손상된 계정으로 시작됩니다. 이러한 공격에 대해 자세히 알아보려면 이 비디오(1시간 15분)를 시청하세요.
 > [!VIDEO https://channel9.msdn.com/events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3016/player]
 
 ID 시스템의 사용자가 취약한 암호를 사용하고 다단계 인증으로 강화하지 않는다면 이는 손상 여부의 문제가 아니라 “손상 빈도”의 문제가 됩니다.

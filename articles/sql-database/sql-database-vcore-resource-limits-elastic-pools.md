@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 3c85398f140ccd61202c066f4394fa54358e0a1e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/15/2018
+ms.openlocfilehash: 6673fa9d377400d7e80fc95dc7d0ce12f4b2e60e
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161576"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354175"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>탄력적 풀에 대한 Azure SQL Database vCore 기반 구매 모델 제한
 
@@ -28,16 +28,15 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 > [!IMPORTANT]
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](sql-database-file-space-management.md)를 참조하세요.
 
-## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>탄력적 풀: 저장소 크기 및 계산 크기
-
-SQL Database 탄력적 풀과 관련된 다음 표는 각 서비스 계층 및 계산 크기에 제공되는 리소스를 보여줍니다. [Azure Portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) 또는 [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases)를 사용하여 서비스 계층, 계산 크기 및 저장소 용량을 설정할 수 있습니다.
+[Azure Portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) 또는 [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases)를 사용하여 서비스 계층, 계산 크기 및 저장소 용량을 설정할 수 있습니다.
 
 > [!NOTE]
 > 탄력적 풀의 개별 데이터베이스에 대한 리소스 제한은 일반적으로 계산 크기가 동일한 풀 외부의 단일 데이터베이스에 대한 리소스 제한과 동일합니다. 예를 들어 GP_Gen4_1 데이터베이스에 대한 최대 동시 작업자 수는 200명입니다. 따라서 GP_Gen4_1 풀의 데이터베이스에 대한 최대 동시 작업자 수도 200명입니다. GP_Gen4_1 풀에 대한 총 동시 작업자 수는 210명입니다.
 
-### <a name="general-purpose-service-tier"></a>범용 서비스 계층
+## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>범용 서비스 계층: 저장소 크기 및 크기 계산
 
-#### <a name="generation-4-compute-platform"></a>4세대 계산 플랫폼
+### <a name="generation-4-compute-platform"></a>4세대 계산 플랫폼
+
 |계산 크기|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |하드웨어 세대|4|4|4|4|4|4|
@@ -54,14 +53,15 @@ SQL Database 탄력적 풀과 관련된 다음 표는 각 서비스 계층 및 �
 |최대 동시 작업자(요청)|210|420|840|1,680|3,360|5040|
 |허용되는 최대 세션 수|30000|30000|30000|30000|30000|30000|
 |풀당 최대 DB|100|200|500|500|500|500|
-|데이터베이스마다 최소/최대 탄력적 풀 vcore 선택|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
+|데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
 |복제본 수|1|1|1|1|1|1|
 |다중 AZ|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |읽기 확장|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |포함되는 백업 저장소|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 |||
 
-#### <a name="generation-5-compute-platform"></a>5세대 계산 플랫폼
+### <a name="generation-5-compute-platform"></a>5세대 계산 플랫폼
+
 |계산 크기|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |하드웨어 세대|5|5|5|5|5|5|5|5|
@@ -78,16 +78,17 @@ SQL Database 탄력적 풀과 관련된 다음 표는 각 서비스 계층 및 �
 |최대 동시 작업자(요청)|210|420|840|1,680|2520|3,360|4200|8400
 |허용되는 최대 세션 수|30000|30000|30000|30000|30000|30000|30000|30000|
 |풀당 최대 DB|100|200|500|500|500|500|500|500|
-|데이터베이스마다 최소/최대 탄력적 풀 vcore 선택|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
+|데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
 |복제본 수|1|1|1|1|1|1|1|1|
 |다중 AZ|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |읽기 확장|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |포함되는 백업 저장소|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 |||
 
-### <a name="business-critical-service-tier"></a>중요 비즈니스 서비스 계층
+## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>중요 비즈니스용 서비스 계층: 저장소 크기 및 크기 계산
 
-#### <a name="generation-4-compute-platform"></a>4세대 계산 플랫폼
+### <a name="generation-4-compute-platform"></a>4세대 계산 플랫폼
+
 |계산 크기|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |하드웨어 세대|4|4|4|4|4|4|
@@ -104,7 +105,7 @@ SQL Database 탄력적 풀과 관련된 다음 표는 각 서비스 계층 및 �
 |최대 동시 작업자(요청)|210|420|840|1,680|3,360|5040|
 |허용되는 최대 세션 수|30000|30000|30000|30000|30000|30000|
 |풀당 최대 DB|이 계산 크기에는 단일 DB만 지원됩니다.|50|100|100|100|100|
-|데이터베이스마다 최소/최대 탄력적 풀 vcore 선택|해당 없음|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
+|데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|해당 없음|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
 |복제본 수|3|3|3|3|3|3|
 |다중 AZ|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |읽기 확장|yes|예|예|예|예|yes|
@@ -112,6 +113,7 @@ SQL Database 탄력적 풀과 관련된 다음 표는 각 서비스 계층 및 �
 |||
 
 #### <a name="generation-5-compute-platform"></a>5세대 계산 플랫폼
+
 |계산 크기|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |하드웨어 세대|5|5|5|5|5|5|5|5|
@@ -128,7 +130,7 @@ SQL Database 탄력적 풀과 관련된 다음 표는 각 서비스 계층 및 �
 |최대 동시 작업자(요청)|210|420|840|1,680|2520|3,360|5040|8400|
 |허용되는 최대 세션 수|30000|30000|30000|30000|30000|30000|30000|30000|
 |풀당 최대 DB|해당 없음|50|100|100|100|100|100|100|
-|데이터베이스마다 최소/최대 탄력적 풀 vcore 선택|해당 없음|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
+|데이터베이스별로 최소/최대 탄력적 풀 vcore 선택|해당 없음|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
 |복제본 수|3|3|3|3|3|3|3|3|
 |다중 AZ|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |읽기 확장|yes|예|예|예|예|예|예|yes|
@@ -137,7 +139,7 @@ SQL Database 탄력적 풀과 관련된 다음 표는 각 서비스 계층 및 �
 
 탄력적 풀의 모든 vCore가 사용 중인 경우 풀의 각 데이터베이스는 동일한 양의 계산 리소스를 받아서 쿼리를 처리합니다. SQL Database 서비스는 같은 분량의 계산 시간을 보장하여 데이터베이스 간의 공정성을 공유할 리소스를 제공합니다. 데이터베이스당 최소 vCore 수가 0이 아닌 값으로 설정되면, 탄력적 풀 리소스 공유 공정성이 각 데이터베이스에 대해 보장된 리소스의 양에 추가됩니다.
 
-### <a name="database-properties-for-pooled-databases"></a>풀링된 데이터베이스에 대한 데이터베이스 속성
+## <a name="database-properties-for-pooled-databases"></a>풀링된 데이터베이스에 대한 데이터베이스 속성
 
 다음 표에서 풀링된 데이터베이스에 대한 속성을 설명합니다.
 
@@ -147,9 +149,9 @@ SQL Database 탄력적 풀과 관련된 다음 표는 각 서비스 계층 및 �
 | 데이터베이스당 최소 vCore 수 |풀의 데이터베이스가 보장되는 최소 vCore 수입니다. 풀에 있는 모든 데이터베이스에 적용되는 전역 설정입니다. 데이터베이스당 최소 vCore 수를 0으로 설정할 수 있으며 기본값이기도 합니다. 이 속성은 0과 데이터베이스당 평균 vCore 사용량 사이의 값으로 설정됩니다. 풀의 데이터베이스 수와 데이터베이스당 최소 vCore 수를 곱한 값은 풀당 vCore 수를 초과할 수 없습니다.|
 | 데이터베이스당 최대 저장소 |사용자가 풀의 데이터베이스에 대해 설정한 최대 데이터베이스 크기입니다. 풀된 데이터베이스는 할당된 풀 저장소를 공유하므로 데이터베이스에 도달할 수 있는 크기는 남아있는 풀 저장소 및 데이터베이스 크기 중 작은 값으로 제한됩니다. 최대 데이터베이스 크기는 데이터 파일의 최대 크기를 나타내고, 로그 파일에서 사용하는 공간을 포함하지 않습니다. |
 |||
- 
+
 ## <a name="next-steps"></a>다음 단계
 
 - 자주 묻는 질문에 대한 답변은 [SQL Database FAQ](sql-database-faq.md)를 참조하세요.
-- 서버 및 구독 수준에서 제한에 대한 자세한 내용은 [Azure SQL Database 리소스 제한 개요](sql-database-resource-limits.md)를 참조하세요.
+- 서버 및 구독 수준의 한도에 관한 정보는 [논리 서버에 대한 리소스 한도 개요](sql-database-resource-limits-logical-server.md)를 참조하세요.
 - 일반 Azure 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.

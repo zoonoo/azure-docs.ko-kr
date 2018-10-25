@@ -7,16 +7,30 @@ author: wolfma61
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: cfc8f973ac9bced9396a081f7fb2ab6a4a1b2f7f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3a9da3b0f2165dadd99691c6dc9e41cbf3d48620
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963086"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340004"
 ---
 # <a name="release-notes"></a>릴리스 정보
+
+## <a name="cognitive-services-speech-sdk-101"></a>Cognitive Services Speech SDK 1.0.1
+
+안정성 향상 및 버그 수정:
+
+* 삭제 중인 인식기에서 경합 상태로 인한 잠재적인 치명적인 오류를 해결합니다.
+* 설정되지 않은 속성의 경우에 치명적인 오류를 해결합니다.
+* 추가 오류 및 매개 변수 검사입니다.
+* Objective-C: NSString에서 재정의하는 이름으로 발생되는 오류를 해결합니다.
+* Objectice-C: API의 표시 여부를 조정합니다.
+* JavaScript: 관련 이벤트 및 해당 페이로드를 해결합니다.
+* 설명서 향상된 기능입니다.
+
+[샘플 리포지토리](https://aka.ms/csspeech/samples)에서 JavaScript에 대한 새로운 샘플이 추가되었습니다.
 
 ## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>Cognitive Services Speech SDK 1.0.0: 2018년 9월 release
 

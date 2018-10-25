@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
 ms.date: 09/24/2018
-ms.openlocfilehash: e1181d07ed51b1edf5da68d759d871703bd1540f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b450d2ca2af0c0f7598d74e2f07c0acc81b811f3
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162783"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116456"
 ---
 # <a name="pipelines-and-azure-machine-learning"></a>파이프라인 및 Azure Machine Learning
 
@@ -65,10 +65,10 @@ Python을 사용하여 ML 파이프라인을 만듭니다. Azure Machine Learnin
 
 다음 섹션의 [파이프라인용 Python SDK 참조 문서](http://aka.ms/aml-sdk) 및 Notebook을 통해 빌드 방법을 알아보세요.
 
-## <a name="example-notebooks"></a>예제 Notebook
+## <a name="example-notebooks"></a>노트북 예제
  
-다음 `pipeline/pipeline-batch-scoring.ipynb` Notebook은 Azure Machine Learning을 사용하는 파이프라인을 보여줍니다.
+다음 Notebook은 Azure Machine Learning을 사용하는 파이프라인을 설명합니다. [pipeline/pipeline-batch-scoring.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/pipeline/pipeline-batch-scoring.ipynb).
  
-다음 Notebook을 다운로드합니다.
+이 Notebook을 다운로드하려면 다음 단계를 수행합니다.
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

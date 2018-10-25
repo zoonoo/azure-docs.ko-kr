@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: 1ec60300d179edf69e32dc07653b6c69c7cc8e52
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: cf540caebd5f993cdba0d85f4109a6e78e201658
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42144289"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378757"
 ---
 # <a name="plan-virtual-networks"></a>가상 네트워크 계획
 
@@ -93,7 +93,7 @@ Azure에서는 서브넷의 아웃바운드 트래픽에 대한 여러 기본 �
 
 ### <a name="peering"></a>피어링
 
-[가상 네트워크 피어링](virtual-network-peering-overview.md)을 사용하는 경우 가상 네트워크는 지원되는 동일하거나 다른 Azure 지역에 있을 수 있습니다. 가상 네트워크는 구독이 모두 동일한 Azure Active Directory 테넌트에 할당되어 있는 한, 같거나 서로 다른 Azure 구독에 있을 수 있습니다. 피어링을 만들기 전에 모든 피어링 [요구 사항 및 제약 조건](virtual-network-manage-peering.md#requirements-and-constraints)을 이해하는 것이 좋습니다. 리소스가 같은 가상 네트워크에 있는 것처럼 동일한 지역에서 피어링된 가상 네트워크의 리소스 간 대역폭은 동일합니다.
+[가상 네트워크 피어링](virtual-network-peering-overview.md)을 사용하는 경우 가상 네트워크는 지원되는 동일하거나 다른 Azure 지역에 있을 수 있습니다. 가상 네트워크는 동일하거나 다른 Azure 구독에 있을 수 있습니다(다른 Azure Active Directory 테넌트에 속하는 구독에도 해당됨). 피어링을 만들기 전에 모든 피어링 [요구 사항 및 제약 조건](virtual-network-manage-peering.md#requirements-and-constraints)을 이해하는 것이 좋습니다. 리소스가 같은 가상 네트워크에 있는 것처럼 동일한 지역에서 피어링된 가상 네트워크의 리소스 간 대역폭은 동일합니다.
 
 ### <a name="vpn-gateway"></a>VPN 게이트웨이
 

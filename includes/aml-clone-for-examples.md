@@ -9,15 +9,13 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 98e168ccb600bd1371da7f125531f3b4421b3d80
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 46be1c670002b584bac1d1a2d3e5e02e845027c7
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47018629"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49312602"
 ---
 1. [![Azure Notebooks](https://notebooks.azure.com/launch.png)](https://aka.ms/aml-clone-azure-notebooks)
-[샘플 Notebook을 Azure Notebooks로 가져옵니다](https://aka.ms/aml-clone-azure-notebooks).
-1.  [Azure Machine Learning 서비스용 개발 환경을 구성하는 방법](https://aka.ms/aml-how-to-configure-environment)의 지침을 사용하여 작업 영역 및 해당 구성 파일(**config.json**)을 만듭니다.
-2. 도구 모음에서 `+New`를 선택하여 **config.json** 파일을 Notebook과 같은 폴더에 추가합니다.
-3. Notebook을 엽니다.
+[샘플 Notebook을 Azure Notebooks로 가져옵니다](https://aka.ms/aml-clone-azure-notebooks). (로그인하려면 [관리자 동의](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent)가 필요하도록 조직에서 요구할 수 있습니다.)
+1. Notebook 실행에 대한 자세한 지침은 가져온 라이브러리의 README를 참조하세요.

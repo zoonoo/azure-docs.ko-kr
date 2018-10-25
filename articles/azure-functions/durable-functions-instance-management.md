@@ -3,23 +3,19 @@ title: 지속성 함수의 인스턴스 관리 - Azure
 description: Azure Functions의 지속성 함수 확장에서 인스턴스를 관리하는 방법을 알아봅니다.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 03/19/2018
+ms.topic: conceptual
+ms.date: 08/31/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 5cb3ccbc949f8250101fab6cb7899b859149fdfd
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: c9b3cd112cef7a34e0d475cdeb85b9e07d77f584
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341095"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352596"
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>지속성 함수의 인스턴스 관리(Azure Functions)
 
@@ -64,6 +60,19 @@ module.exports = function (context, input) {
 
     context.done(null);
 };
+```
+위의 코드는 function.json 파일에서 이름이 "starter"이고 형식이 "orchestrationClient"인 아웃 바인딩을 정의했다고 가정합니다. 바인딩이 정의되어 있지 않으면 지속성 함수 인스턴스가 만들어지지 않습니다.
+
+지속성 함수를 호출하려면 아래 설명된 대로 오케스트레이션 클라이언트에 대한 바인딩을 포함하도록 function.json을 수정해야 합니다.
+
+```js
+{
+    "bindings": [{
+        "name":"starter",
+        "type":"orchestrationClient",
+        "direction":"out"
+    }]
+}
 ```
 
 > [!NOTE]
@@ -119,6 +128,32 @@ public static async Task Run(
     };
 }
 ```
+## <a name="querying-instances-with-filters"></a>필터로 인스턴스 쿼리
+
+`GetStatusAsync` 메서드를 사용하여 미리 정의된 필터 집합과 일치하는 오케스트레이션 인스턴스 목록을 가져올 수도 있습니다. 가능한 필터 옵션에는 오케스트레이션 생성 시간과 오케스트레이션 런타임 상태가 포함됩니다.
+
+```csharp
+[FunctionName("QueryStatus")]
+public static async Task Run(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")]HttpRequestMessage req,
+    [OrchestrationClient] DurableOrchestrationClient client,
+    TraceWriter log)
+{
+    IEnumerable<OrchestrationRuntimeStatus> runtimeStatus = new List<OrchestrationRuntimeStatus> {
+        OrchestrationRuntimeStatus.Completed,
+        OrchestrationRuntimeStatus.Running
+    };
+    IList<DurableOrchestrationStatus> instances = await starter.GetStatusAsync(
+        new DateTime(2018, 3, 10, 10, 1, 0),
+        new DateTime(2018, 3, 10, 10, 23, 59),
+        runtimeStatus
+    ); // You can pass CancellationToken as a parameter.
+    foreach (var instance in instances)
+    {
+        log.Info(JsonConvert.SerializeObject(instance));
+    };
+}
+```
 
 ## <a name="terminating-instances"></a>인스턴스 종료
 
@@ -149,8 +184,6 @@ public static Task Run(
 * **EventData**: 인스턴스에 보낼 JSON 직렬화 가능 페이로드입니다.
 
 ```csharp
-#r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
-
 [FunctionName("RaiseEvent")]
 public static Task Run(
     [OrchestrationClient] DurableOrchestrationClient client,
@@ -211,7 +244,8 @@ public static Task Run(
             "id": "d3b72dddefce4e758d92f4d411567177",
             "sendEventPostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/raiseEvent/{eventName}?taskHub={taskHub}&connection={connection}&code={systemKey}",
             "statusQueryGetUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177?taskHub={taskHub}&connection={connection}&code={systemKey}",
-            "terminatePostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
+            "terminatePostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}",
+            "rewindPostUri": "https://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/rewind?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
         }
     ```
 
@@ -232,12 +266,12 @@ public static Task Run(
 * **StatusQueryGetUri**: 오케스트레이션 인스턴스의 상태 URL입니다.
 * **SendEventPostUri**: 오케스트레이션 인스턴스의 "이벤트 발생" URL입니다.
 * **TerminatePostUri**: 오케스트레이션 인스턴스의 "종료" URL입니다.
+* **RewindPostUri**: 오케스트레이션 인스턴스의 "rewind" URL입니다.
 
 작업 함수는 외부 시스템에 [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) 인스턴스를 보내 오케스트레이션을 모니터링하거나 이벤트를 발생시킬 수 있습니다.
 
 ```csharp
-#r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
-
+[FunctionName("SendInstanceInfo")]
 public static void SendInstanceInfo(
     [ActivityTrigger] DurableActivityContext ctx,
     [OrchestrationClient] DurableOrchestrationClient client,
@@ -250,6 +284,29 @@ public static void SendInstanceInfo(
 
     // send the payload to Cosmos DB
     document = new { Payload = payload, id = ctx.InstanceId };
+}
+```
+
+## <a name="rewinding-instances-preview"></a>되감기 인스턴스(미리 보기)
+
+실패한 오케스트레이션 인스턴스는 [RewindAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RewindAsync_System_String_System_String_) API를 사용하여 이전의 정상 상태로 *되감기*될 수 있습니다. 오케스트레이션을 *실행* 상태로 되돌리고 오케스트레이션 실패를 유발한 작업 및/또는 하위 오케스트레이션 실행 실패를 다시 실행하여 수행됩니다.
+
+> [!NOTE]
+> 이 API로 적절한 오류 처리 및 재시도 정책을 대체할 수 없습니다. 예기치 않은 이유로 오케스트레이션 인스턴스가 실패하는 경우에만 사용할 수 있습니다. 오류 처리 및 재시도 정책에 대한 자세한 내용은 [오류 처리](durable-functions-error-handling.md) 문서를 참조하세요.
+
+*되감기*에 대한 한 가지 사용 사례는 [사람의 승인](durable-functions-overview.md#pattern-5-human-interaction)이 포함된 워크플로입니다. 누군가에게 승인이 필요하다고 알리고 실시간 응답을 기다리는 일련의 작업 함수가 있다고 가정하겠습니다. 모든 승인 작업이 응답을 수신하거나 시간이 초과된 후에는 응용 프로그램의 잘못된 구성(예: 잘못된 데이터베이스 연결 문자열)으로 인해 다른 작업이 실패합니다. 결과적으로 워크플로에 대한 오케스트레이션 실패가 발생합니다. `RewindAsync` API를 사용하면 응용 프로그램 관리자가 구성 오류를 수정하고 실패한 오케스트레이션을 실패 직전의 상태로 *되감기*할 수 있습니다. 인간 상호 작용 단계를 다시 승인할 필요가 없기 때문에 오케스트레이션을 성공적으로 완료할 수 있습니다.
+
+> [!NOTE]
+> *되감기* 기능은 지속형 타이머를 사용하는 오케스트레이션 인스턴스 되감기를 지원하지 않습니다.
+
+```csharp
+[FunctionName("RewindInstance")]
+public static Task Run(
+    [OrchestrationClient] DurableOrchestrationClient client,
+    [ManualTrigger] string instanceId)
+{
+    string reason = "Orchestrator failed and needs to be revived.";
+    return client.RewindAsync(instanceId, reason);
 }
 ```
 

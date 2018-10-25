@@ -10,12 +10,12 @@ author: shivanipatel
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 03d692ddfd6f41fd559e9b921f0214a9cd2ada22
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 7d706cf71761496fd740c729224ee4331eeb2911
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225228"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091626"
 ---
 # <a name="prepare-to-deploy-models-on-iot-edge"></a>IoT Edge에서 모델 배포 준비
 
@@ -35,7 +35,7 @@ Azure IoT Edge 장치는 Azure IoT Edge 런타임을 실행하는 Linux 또는 W
 
 * Azure 구독의 [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md). 
 
-* 학습된 모델. 모델 학습에 관한 예제는 [Azure Machine Learning을 사용하여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 문서를 참조하세요.
+* 학습된 모델. 모델 학습에 관한 예제는 [Azure Machine Learning을 사용하여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 문서를 참조하세요. 미리 학습된 모델은 [Azure IoT Edge GitHub 리포지토리에 대한 AI 도구 키트](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial)에서 사용할 수 있습니다.
 
 ## <a name="prepare-the-iot-device"></a>IoT 장치 준비
 
@@ -43,10 +43,7 @@ Azure IoT Edge 장치는 Azure IoT Edge 런타임을 실행하는 Linux 또는 W
 
 ## <a name="register-the-model"></a>모델 등록
 
-Azure IoT Edge 모듈은 컨테이너 이미지를 기반으로 합니다. 모델을 IoT Edge 장치에 배포하려면 Azure Machine Learning 작업 영역에서 모델을 등록하고 Docker 이미지를 만드는 다음 단계를 사용합니다. 
-
-> [!IMPORTANT]
-> Azure Machine Learning을 사용하여 모델을 학습한 경우 모델이 작업 영역에 이미 등록되어 있을 수 있으므로 이러한 경우 3단계로 건너뜁니다.
+Azure IoT Edge 모듈은 컨테이너 이미지를 기반으로 합니다. 모델을 IoT Edge 장치에 배포하려면 Azure Machine Learning 서비스 작업 영역에서 모델을 등록하고 Docker 이미지를 만드는 다음 단계를 사용합니다. 
 
 1. 작업 영역을 초기화하고 config.json 파일을 로드합니다.
 
@@ -58,6 +55,9 @@ Azure IoT Edge 모듈은 컨테이너 이미지를 기반으로 합니다. 모�
     ```    
 
 1. 작업 영역에 모델을 등록합니다. 기본 텍스트를 모델 경로, 이름, 태그 및 설명으로 바꿉니다.
+
+    > [!IMPORTANT]
+    > Azure Machine Learning을 사용하여 모델을 학습한 경우 모델이 작업 영역에 이미 등록되어 있을 수 있습니다. 이러한 경우 이 단계를 건너뜁니다. 이 작업 영역에 등록된 모델의 목록을 보려면 `Model.list(ws)`를 사용합니다.
 
     ```python
     from azureml.core.model import Model
@@ -122,7 +122,7 @@ Azure IoT에는 Azure Machine Learning 서비스가 Docker 이미지를 저장�
 
 1. [Azure Portal](https://portal.azure.com/signin/index)에 로그인합니다.
 
-1. Azure Machine Learning 작업 영역으로 이동하고 __개요__를 선택합니다. 컨테이너 레지스트리 설정으로 이동하려면 __레지스트리__ 링크를 선택합니다.
+1. Azure Machine Learning 서비스 작업 영역으로 이동하고 __개요__를 선택합니다. 컨테이너 레지스트리 설정으로 이동하려면 __레지스트리__ 링크를 선택합니다.
 
     ![컨테이너 레지스트리 항목의 이미지](./media/how-to-deploy-to-iot/findregisteredcontainer.png)
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 021ab6cd29634c2e2f17234e188edce2a14449cf
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 02ca9065107b999fa0182c89ae2b9d8ca0c8607a
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42144311"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362877"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>독립 실행형 Azure Automation 계정 만들기
 
@@ -61,14 +61,15 @@ Azure Portal에서 Azure Automation 계정을 만들려면 다음 단계를 완�
    ![Azure Marketplace에서 Automation & Control 검색 및 선택](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)
 
 1. 다음 화면에서 **만들기**를 선택합니다.
+
   ![Automation 계정 추가](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
 
   > [!NOTE]
   > **Automation 계정 추가** 창에서 다음과 같은 경고가 표시되는 경우 사용자의 계정은 구독 관리자 역할의 구성원 및 구독의 공동 관리자가 아닙니다.
   >
   > ![Automation 계정 경고 추가](media/automation-create-standalone-account/create-account-without-perms.png)
-  >
-1. **Automation 계정 추가** 창의 **이름** 상자에 새 Automation 계정의 이름을 입력합니다. 이 이름은 선택 후 변경할 수 없습니다.
+
+1. **Automation 계정 추가** 창의 **이름** 상자에 새 Automation 계정의 이름을 입력합니다. 이 이름은 선택 후 변경할 수 없습니다. *Automation 계정 이름은 하위 지역 및 리소스 그룹별로 고유합니다.*
 1. 구독이 하나 이상인 경우는 **구독** 상자에서 새 계정에 사용하려는 구독을 지정합니다.
 1. **리소스 그룹**에서 기존 또는 새 리소스 그룹을 입력하거나 선택합니다.
 1. **위치**에서 Azure 데이터 센터 위치를 선택합니다.

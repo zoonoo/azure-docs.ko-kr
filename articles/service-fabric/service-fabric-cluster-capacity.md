@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: d1d17ff331d3e770b77ce729904e57cf88ebc16c
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d8f2dbe4885f1cb85ab5eb78ae4f06b2ad702d53
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348571"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389584"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>서비스 패브릭 클러스터 용량 계획 고려 사항
 프로덕션 배포의 경우 용량 계획은 중요한 단계입니다. 다음은 해당 프로세스의 일부로 고려해야 하는 항목 중 일부입니다.
@@ -72,7 +72,7 @@ Azure Resource Manager 템플릿에서 주 노드 형식은 [노드 형식 정�
 * 주 노드가 아닌 노드 형식의 **최소 VM 수**는 1입니다. 그러나 이 노드 유형에서 실행하려는 응용 프로그램/서비스의 복제본 수에 따라 이 수를 선택해야 합니다. 클러스터를 배포한 후에 노드 유형에서 VM의 수를 늘릴 수 있습니다.
 
 ## <a name="the-durability-characteristics-of-the-cluster"></a>클러스터의 지속성 특성
-지속성 계층은 기본 Azure 인프라와 함께 VM에 있는 권한을 이 시스템에 표시하는 데 사용됩니다. 주 노드 유형에서 이 권한을 사용하면 Service Fabric이 시스템 서비스 및 상태 저장 서비스에 대한 쿼럼 요구 사항에 영향을 주는 VM 수준 인프라 요청(VM 다시 부팅, VM 이미지로 다시 설치 또는 VM 마이그레이션 등)을 일시 중지할 수 있습니다. 주가 아닌 노드 형식에서 이 권한을 사용하면 Service Fabric이 상태 저장 서비스에 대한 쿼럼 요구 사항에 영향을 주는 VM 수준 인프라 요청(예: VM 다시 부팅, VM 이미지로 다시 설치, VM 마이그레이션)을 일시 중지할 수 있습니다.
+지속성 계층은 기본 Azure 인프라와 함께 VM에 있는 권한을 이 시스템에 표시하는 데 사용됩니다. 주 노드 유형에서 이 권한을 사용하면 Service Fabric이 시스템 서비스 및 상태 저장 서비스에 대한 쿼럼 요구 사항에 영향을 주는 VM 수준 인프라 요청(VM 다시 부팅, VM 이미지로 다시 설치, 또는 VM 마이그레이션 등)을 일시 중지할 수 있습니다. 주가 아닌 노드 형식에서 이 권한을 사용하면 Service Fabric이 상태 저장 서비스에 대한 쿼럼 요구 사항에 영향을 주는 VM 수준 인프라 요청(예: VM 다시 부팅, VM 이미지로 다시 설치, VM 마이그레이션)을 일시 중지할 수 있습니다.
 
 | 내구성 계층  | 필요한 최소 VM 수 | 지원되는 VM SKU                                                                  | VMSS 업데이트                               | Azure에서 시작되는 업데이트 및 유지 관리                                                              | 
 | ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
@@ -83,7 +83,7 @@ Azure Resource Manager 템플릿에서 주 노드 형식은 [노드 형식 정�
 > [!WARNING]
 > Bronze 내구성으로 실행되는 노드 형식은 _권한 없음_이 됩니다. 즉, 상태 비저장 워크로드에 영향을 주는 인프라 작업은 중지되거나 지연되지 않으며, 이는 워크로드에 영향을 줄 수 있습니다. 상태 비저장 워크로드만 실행하는 노드 형식에는 Bronze만 사용합니다. 프로덕션 워크로드의 경우 Silver 이상을 실행하는 것이 좋습니다. 
 
-> 내구성 수준에 관계 없이 VM 확장 집합의 [할당 취소](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/deallocate) 작업은 클러스터를 삭제합니다.
+> 내구성 수준에 관계 없이 VM 확장 집합의 [할당 취소](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) 작업은 클러스터를 삭제합니다.
 
 **Silver 또는 Gold 내구성 수준 사용 시 장점**
  
@@ -165,6 +165,7 @@ Azure Resource Manager 템플릿에서 주 노드 형식은 [노드 형식 정�
 - 14GB 로컬 SSD는 최소 요구 사항입니다. 권장 사항은 최소 50GB입니다. 워크로드를 위해, 특히 Windows 컨테이너를 실행하는 경우, 더 큰 디스크가 필요합니다. 
 - 프로덕션 작업에는 표준 A0과 같은 부분 코어 VM SKU가 지원되지 않습니다.
 - 표준 A1 SKU는 성능상의 이유로 프로덕션 워크로드에 지원되지 않습니다.
+- 우선 순위가 낮은 VM은 지원되지 않습니다.
 
 > [!WARNING]
 > 실행 중인 클러스터에서 주 노드 VM SKU 크기를 변경하는 것은 크기 조정 작업이고 [가상 머신 확장 집합 확장](virtual-machine-scale-set-scale-node-type-scale-out.md) 설명서에 설명되어 있습니다.

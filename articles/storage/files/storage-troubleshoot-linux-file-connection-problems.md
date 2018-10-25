@@ -6,19 +6,19 @@ author: jeffpatt24
 tags: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 0f99913ab252b94d475f920bd734e68ff5f3b3d3
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 87190a7f46a209ae66ca47d9346ed4b5929ac8fd
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525123"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394204"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Linux에서 Azure Files 문제 해결
 
-이 문서에서는 Linux 클라이언트에서 연결할 때 Microsoft Azure Files와 관련하여 발생하는 일반적인 문제를 보여 줍니다. 또한 이러한 문제의 가능한 원인과 해결 방법을 제공합니다.
+이 문서에서는 Linux 클라이언트에서 연결할 때 Microsoft Azure Files와 관련하여 발생하는 일반적인 문제를 보여 줍니다. 또한 이러한 문제의 가능한 원인과 해결 방법을 제공합니다. 이 문서의 문제 해결 단계 외에도 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089)를 사용하여 Linux 클라이언트에서 올바른 필수 구성 요소를 갖출 수 있도록 할 수 있습니다. AzFileDiagnostics는 이 문서에서 설명하는 대부분의 현상을 자동으로 감지하고 최적의 성능을 얻도록 환경을 설정하는 데 도움이 됩니다. 이 정보는 Azure Files 공유 연결/매핑/탑재 관련 문제에 도움이 되는 단계를 제공하는 [Azure Files 공유 문제 해결사](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares)에서도 찾을 수 있습니다.
 
 <a id="permissiondenied"></a>
 ## <a name="permission-denied-disk-quota-exceeded-when-you-try-to-open-a-file"></a>파일을 열려고 할 때 “[사용 권한 거부됨] 디스크 할당량이 초과됨”
@@ -82,7 +82,7 @@ Linux 커널의 이러한 재연결 문제는 현재 다음 변경의 일부로 
 
 ### <a name="solution"></a>해결 방법
 
-Linux용 SMB 3.0에 대한 암호화 기능이 4.11 커널에 도입되었습니다. 이 기능을 사용하면 온-프레미스 또는 다른 Azure 지역에서 Azure 파일 공유를 탑재할 수 있습니다. 게시 시점에서 이 기능은 Ubuntu 17.04 및 Ubuntu 16.10으로 백포팅되었습니다. Linux SMB 클라이언트가 암호화를 지원하지 않을 경우 File Storage 계정과 같은 데이터 센터의 Azure Linux VM에서 SMB 2.1을 사용하여 Azure Files를 탑재합니다.
+Linux용 SMB 3.0에 대한 암호화 기능이 4.11 커널에 도입되었습니다. 이 기능을 사용하면 온-프레미스 또는 다른 Azure 지역에서 Azure 파일 공유를 탑재할 수 있습니다. 게시 시점에서 이 기능은 Ubuntu 17.04 및 Ubuntu 16.10으로 백포팅되었습니다. Linux SMB 클라이언트에서 암호화를 지원하지 않는 경우 파일 공유와 동일한 데이터 센터에 있는 Azure Linux VM에서 SMB 2.1을 사용하여 Azure Files를 탑재하고 저장소 계정에서 [보안 전송 필요]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 설정을 사용하지 않도록 설정되어 있는지 확인합니다. 
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Linux VM에 탑재된 Azure 파일 공유의 성능 저하
@@ -149,7 +149,8 @@ COPYFILE에서 force 플래그 **f**로 인해 Unix에서 **cp -p -f**가 실행
 - 최소 SMB/CIFS 버전 2.1은 클라이언트에 설치되지 않았습니다.
 - SMB 3.0 암호화는 클라이언트에서 지원되지 않습니다. SMB 3.0 암호화는 Ubuntu 16.4 이상 버전, SUSE 12.3 이상 버전에서 사용할 수 있습니다. 다른 배포에는 커널 4.11 이상 버전이 필요합니다.
 - 지원되지 않는 TCP 포트 445를 통해 저장소 계정에 연결하려고 합니다.
-- Azure VM에서 Azure 파일 공유에 연결하려고 하며 VM은 저장소 계정과 동일한 지역에 있지 않습니다.
+- Azure VM에서 Azure 파일 공유에 연결하려고 시도하고 있으며, VM이 Storage 계정과 동일한 지역에 있지 않습니다.
+- 저장소 계정에서 [보안 전송 필요]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 설정을 사용하도록 설정된 경우 Azure Files에서는 암호화 기능이 포함된 SMB 3.0을 사용하는 연결만 허용됩니다.
 
 ### <a name="solution"></a>해결 방법
 
@@ -190,7 +191,7 @@ symlink를 사용하려면 CIFS 탑재 명령 끝에 다음을 추가합니다.
 그러면 명령이 다음과 같은 모양이 됩니다.
 
 ```
-sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino,mfsynlinks
+sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino,mfsymlinks
 ```
 
 일단 추가되면 [Wiki](https://wiki.samba.org/index.php/UNIX_Extensions#Storing_symlinks_on_Windows_servers)에 제안된 대로 심볼 링크를 만들 수 있습니다.

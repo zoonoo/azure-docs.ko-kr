@@ -12,14 +12,14 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 04/02/2018
-ms.openlocfilehash: b91960920f0181939e634a221080d493fb8cea63
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: ff09a5f09393ad642ddb2059b58bd69a17591aff
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056661"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352214"
 ---
-# <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Azure SQL Database를 사용하는 분할된 다중 테넌트 응용 프로그램 배포 및 탐색
+# <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>분할된 다중 테넌트 응용 프로그램 배포 및 탐색
 
 이 자습서에서는 Wingtip Tickets라는 샘플 다중 테넌트 SaaS 응용 프로그램을 배포하고 탐색합니다. Wingtip Tickets 앱은 SaaS 시나리오 구현을 간소화하는 Azure SQL Database의 기능을 보여 주도록 설계되었습니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "47056661"
 
 이 데이터베이스 패턴을 사용하여 각 분할 또는 데이터베이스에 하나 이상의 테넌트를 저장할 수 있습니다. 각 데이터베이스를 여러 테넌트에서 공유하여 최저 비용에 대해 최적화할 수 있습니다. 또는 각 데이터베이스에 하나의 테넌트만 저장하여 격리에 대해 최적화할 수 있습니다. 최적화는 각 특정 테넌트에 대해 개별적으로 선택할 수 있습니다. 테넌트가 처음 저장될 때 선택할 수 있고 나중에 변경할 수도 있습니다. 응용 프로그램은 어떤 방식으로도 잘 작동하도록 설계되었습니다.
 
-#### <a name="app-deploys-quickly"></a>빠르게 앱 배포
+## <a name="app-deploys-quickly"></a>빠르게 앱 배포
 
 앱은 Azure 클라우드에서 실행되고 Azure SQL Database를 사용합니다. 다음 배포 섹션에서는 파란색 **Azure에 배포** 단추를 제공합니다. 단추를 누르면 앱이 5분 내에 Azure 구독에 완전히 배포됩니다. 개별 응용 프로그램 구성 요소를 사용할 수 있는 전체 액세스 권한이 있습니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "47056661"
 
 누구나 [GitHub 리포지토리][link-github-wingtip-multitenantdb-55g]에서 Wingtip Tickets에 대한 C# 및 PowerShell 소스 코드를 다운로드할 수 있습니다.
 
-#### <a name="learn-in-this-tutorial"></a>이 자습서에서 알아보기
+## <a name="learn-in-this-tutorial"></a>이 자습서에서 알아보기
 
 > [!div class="checklist"]
 > - Wingtip Tickets SaaS 응용 프로그램을 배포하는 방법.
@@ -55,7 +55,7 @@ ms.locfileid: "47056661"
 
 ## <a name="deploy-the-wingtip-tickets-app"></a>Wingtip Tickets 앱 배포
 
-#### <a name="plan-the-names"></a>이름 계획
+### <a name="plan-the-names"></a>이름 계획
 
 이 섹션의 단계에서는 리소스 이름을 전역에서 고유하게 설정하는 데 사용되는 ‘사용자’ 값과 앱 배포에서 만들어진 모든 리소스를 포함하는 ‘리소스 그룹’의 이름을 제공합니다. *Ann Finley*라는 사람의 경우 다음을 제안합니다.
 - ‘사용자’: **af1**(Ann Finley의 이니셜과 숫자입니다. *앱을 두 번째로 배포하는 경우 다른 값(예: af2)을 사용하세요.)*
@@ -63,7 +63,7 @@ ms.locfileid: "47056661"
 
 이제 이름을 선택하고, 기록합니다. 
 
-#### <a name="steps"></a>단계
+### <a name="steps"></a>단계
 
 1. 다음 파란색 **Azure에 배포** 단추를 클릭합니다.
     - Wingtip Tickets SaaS 배포 템플릿이 포함된 Azure Portal이 열립니다.
@@ -133,7 +133,7 @@ Wingtip 앱에서 테넌트는 장소입니다. 장소는 콘서트 홀, 스포�
 
    ![이벤트](./media/saas-multitenantdb-get-started-deploy/fabrikam.png)
 
-#### <a name="azure-traffic-manager"></a>Azure Traffic Manager
+### <a name="azure-traffic-manager"></a>Azure Traffic Manager
 
 들어오는 요청의 배포를 제어하기 위해 Wingtip 앱에서는 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 사용합니다. 각 테넌트에 대한 이벤트 페이지는 해당 URL에 테넌트 이름을 포함합니다. 각 URL은 특정 사용자 값도 포함합니다. 각 URL은 다음 단계를 사용하여 표시된 형식을 따릅니다.
 
@@ -144,7 +144,7 @@ Wingtip 앱에서 테넌트는 장소입니다. 장소는 콘서트 홀, 스포�
 3. 앱은 카탈로그에서 키를 찾고 테넌트의 데이터베이스의 해당 위치를 가져옵니다.
 4. 앱은 위치 정보를 사용하여 테넌트에 대한 모든 데이터를 포함하는 하나의 데이터베이스를 찾고 액세스합니다.
 
-#### <a name="events-hub"></a>이벤트 허브
+### <a name="events-hub"></a>이벤트 허브
 
 1. **이벤트 허브**는 카탈로그에 등록된 모든 테넌트 및 해당 장소를 나열합니다.
 2. **이벤트 허브**는 URL을 구성하기 위해 카탈로그의 확장 메타데이터를 사용하여 각 매핑과 연결된 테넌트의 이름을 검색합니다.
@@ -185,6 +185,7 @@ PowerShell 세션을 닫으면 모든 작업이 중지됩니다.
 ## <a name="provision-a-new-tenant-in-its-own-database"></a>새로운 테넌트를 자체 데이터베이스에서 프로비전
 
 분할된 다중 테넌트 모델을 사용하면 다른 테넌트가 포함된 데이터베이스로 새 테넌트를 프로비전할지 아니면 자체 데이터베이스로 새 테넌트를 프로비전할지 선택할 수 있습니다. 자체 데이터베이스에서 격리된 테넌트는 다음과 같은 이점을 활용할 수 있습니다.
+
 - 테넌트의 데이터베이스 성능은 다른 테넌트의 요구에 따라 손상시킬 필요 없이 관리될 수 있습니다.
 - 다른 테넌트는 영향을 받지 않으므로 필요한 경우 데이터베이스를 이전 시점으로 복원할 수 있습니다.
 
@@ -221,7 +222,6 @@ PowerShell 세션을 닫으면 모든 작업이 중지됩니다.
 
    ![테넌트 서버](./media/saas-multitenantdb-get-started-deploy/tenants-server.png)
 
-
 ## <a name="monitor-the-performance-of-the-database"></a>데이터베이스의 성능 모니터링
 
 몇 분 동안 부하 생성기를 실행한 경우 Azure Portal에 기본 제공되는 데이터베이스 모니터링 기능을 확인할 정도의 충분한 원격 분석을 이용할 수 있습니다.
@@ -238,7 +238,7 @@ PowerShell 세션을 닫으면 모든 작업이 중지됩니다.
 
 부하 생성기는 각 테넌트가 있는 데이터베이스에 상관없이 각 테넌트에 유사한 부하를 적용하고 있습니다. **salixsalsa** 데이터베이스에 하나의 테넌트만 있는 경우 데이터베이스가 여러 테넌트가 포함된 데이터베이스보다 훨씬 높은 부하를 감당할 수 있음을 확인할 수 있습니다. 
 
-#### <a name="resource-allocations-vary-by-workload"></a>리소스 할당은 워크로드에 따라 다릅니다.
+### <a name="resource-allocations-vary-by-workload"></a>리소스 할당은 워크로드에 따라 다릅니다.
 
 다중 테넌트 데이터베이스에서 단일 테넌트 데이터베이스보다 성능 향상을 위해 더 많은 리소스가 필요한 경우가 종종 있지만 항상 그렇지는 않습니다. 최적의 리소스 할당은 시스템의 테넌트에 대한 특정 워크로드 특성에 따라 달라집니다.
 
@@ -249,8 +249,9 @@ PowerShell 세션을 닫으면 모든 작업이 중지됩니다.
 - 다중 테넌트 SaaS 응용 프로그램에 대해 알아보려면 [다중 테넌트 SaaS 응용 프로그램을 위한 디자인 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
 
 - 탄력적 풀에 대해 알아보려면 다음을 참조하세요.
-    - [탄력적 풀이 여러 Azure SQL Database를 관리하고 크기를 조정하는 데 도움을 주는 방식](sql-database-elastic-pool.md)
-    - [Azure SQL Database를 사용하여 확장](sql-database-elastic-scale-introduction.md)
+
+  - [탄력적 풀이 여러 Azure SQL Database를 관리하고 크기를 조정하는 데 도움을 주는 방식](sql-database-elastic-pool.md)
+  - [Azure SQL Database를 사용하여 확장](sql-database-elastic-scale-introduction.md)
 
 ## <a name="next-steps"></a>다음 단계
 

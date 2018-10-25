@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 10/17/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e76097c0d0cbaf14f2fc2b1a407bc2d320a2091d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 73edb518a7e0c89b3ef510c6e528b6fa76f8dca5
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964407"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393424"
 ---
 # <a name="azure-active-directory-code-samples-v2-endpoint"></a>Azure Active Directory 코드 샘플(V2 엔드포인트)
 
@@ -49,8 +49,8 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
  플랫폼 |  Microsoft Graph 호출
  -------- |  ---------------------
 ![JavaScript](media/sample-v2-code/logo_js.png) JavaScript(msal.js)  | [javascript-graphapi-web-v2](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2)
-![Angular JS](media/sample-v2-code/logo_angular.png) JavaScript(msal AngularJS) | [MsalAngularjsDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angularjs/samples/MsalAngularjsDemoApp)
-![Angular](media/sample-v2-code/logo_angular.png) JavaScript(msal Angular) | [MSALAngularDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular/samples/MSALAngularDemoApp)
+![Angular JS](media/sample-v2-code/logo_angular.png) JavaScript(MSAL AngularJS) | [MsalAngularjsDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angularjs/samples/MsalAngularjsDemoApp)
+![Angular](media/sample-v2-code/logo_angular.png) JavaScript(MSAL Angular) | [MSALAngularDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular/samples/MSALAngularDemoApp)
 
 ## <a name="web-applications"></a>웹 응용 프로그램
 
@@ -65,15 +65,17 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>데스크톱 및 모바일 공용 클라이언트 앱
 
-다음 샘플은 대화형 로그인을 사용하여 사용자 이름으로 Microsoft Graph 또는 사용자 고유의 Web API에 액세스하는 공용 클라이언트 응용 프로그램(데스크톱/모바일 응용 프로그램)을 보여 줍니다. 이러한 클라이언트 응용 프로그램은 모두 MSAL(Microsoft 인증 라이브러리)을 사용합니다.
+다음 샘플에서는 사용자 이름으로 Microsoft Graph 또는 사용자 고유의 Web API에 액세스 하는 공용 클라이언트 응용 프로그램(데스크톱/모바일 응용 프로그램)을 보여 줍니다. 이러한 클라이언트 응용 프로그램은 모두 MSAL(Microsoft 인증 라이브러리)을 사용합니다.
 
-클라이언트 응용 프로그램 | 플랫폼 | Microsoft Graph 호출 | ASP.NET Core 2.0 Web API 호출
------------------- | -------- |  -------------------- | -------------------------
-데스크톱(WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | [dotnet-desktop-msgraph-v2](http://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) <p/> [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) | [dotnet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
-모바일(UWP)   | ![.NET/C#(UWP)](media/sample-v2-code/logo_windows.png) | [dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) |
-모바일(Android, iOS, UWP)   | ![.NET/C#(Xamarin)](media/sample-v2-code/logo_xamarin.png) | [xamarin-native-v2](https://Github.com/azure-samples/active-directory-xamarin-native-v2) |
-모바일(iOS)       | ![iOS/Objective C 또는 swift](media/sample-v2-code/logo_iOS.png) | [ios-swift-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) <p/> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |
-모바일(Android)   | ![Android/Java](media/sample-v2-code/logo_Android.png) |   [android-native-v2](https://github.com/azure-samples/active-directory-android-native-v2 ) |
+클라이언트 응용 프로그램 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출 | ASP.NET Core 2.0 Web API 호출
+------------------ | -------- |  ----------| ---------- | -------------------------
+데스크톱(WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | 대화형 | [dotnet-desktop-msgraph-v2](http://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) <p/> [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) | [dotnet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
+데스크톱(콘솔)   | ![.NET/C#(데스크톱)](media/sample-v2-code/logo_NET.png) | Windows 통합 인증 |[dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2)
+데스크톱(콘솔)   | ![.NET/C#(데스크톱)](media/sample-v2-code/logo_NETcore.png) | 사용자 이름/암호 |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-up-v2)
+모바일(UWP)   | ![.NET/C#(UWP)](media/sample-v2-code/logo_windows.png) | 대화형 |[dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) |
+모바일(Android, iOS, UWP)   | ![.NET/C#(Xamarin)](media/sample-v2-code/logo_xamarin.png) | 대화형 |[xamarin-native-v2](https://Github.com/azure-samples/active-directory-xamarin-native-v2) |
+모바일(iOS)       | ![iOS/Objective C 또는 swift](media/sample-v2-code/logo_iOS.png) | 대화형 |[ios-swift-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) <p/> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |
+모바일(Android)   | ![Android/Java](media/sample-v2-code/logo_Android.png) | 대화형 |  [android-native-v2](https://github.com/azure-samples/active-directory-android-native-v2 ) |
 
 ## <a name="daemon-applications"></a>디먼 응용 프로그램
 
@@ -81,9 +83,16 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
 클라이언트 응용 프로그램 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출
 ------------------ | -------- | ---------- | --------------------
+콘솔 | ![.NET Core](media/sample-v2-code/logo_NETcore.png)<p/> ASP.NET  | 클라이언트 자격 증명 | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2)
 웹앱 | ![ASP.NET](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET  | 클라이언트 자격 증명 | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2)
 
-> 데스크톱 디먼 응용 프로그램을 보여 주는 샘플이 백로그에 있습니다.
+## <a name="headless-applications"></a>헤드리스 응용 프로그램
+
+다음 샘플에서는 웹 브라우저가 없는 장치에서 실행되는 공용 클라이언트 응용 프로그램을 보여 줍니다. 이러한 응용 프로그램은 명령줄 도구, Linux/Mac에서 실행되는 응용 프로그램 또는 iOT 응용 프로그램일 수 있습니다. 샘플에는 다른 장치(예: 휴대폰)에 대화형으로 로그인하는 사용자 이름으로 Microsoft Graph에 액세스하는 응용 프로그램이 있습니다. 이러한 클라이언트 응용 프로그램은 모두 MSAL(Microsoft 인증 라이브러리)을 사용합니다.
+
+클라이언트 응용 프로그램 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출
+------------------ | -------- |  ----------| ----------
+데스크톱(콘솔)   | ![.NET/C#(데스크톱)](media/sample-v2-code/logo_NETcore.png) | 장치 코드 흐름 |[dotnetcore-devicecodeflow-v2](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2)
 
 ## <a name="web-apis"></a>Web API
 

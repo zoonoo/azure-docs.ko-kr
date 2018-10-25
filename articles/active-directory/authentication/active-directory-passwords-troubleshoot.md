@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 057af5e0e5b467ab60e8de7534e9f4428b96c3dc
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 668882b8b39052c3c8e7d7b72c881a64c5c05a10
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298322"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321801"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>셀프 서비스 암호 재설정의 문제 해결
 
@@ -173,16 +173,14 @@ Azure AD Connect 버전 1.1.443.0 이상의 경우 다음 항목에 대한 아�
 
 자세한 내용은 [Azure AD Connect에 대한 필수 조건](../hybrid/how-to-connect-install-prerequisites.md) 문서에서 연결 필수 조건을 검토하세요.
 
-
-
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>Azure AD Connect 동기화 서비스 다시 시작
 
 연결 문제 또는 기타 서비스의 일시적 문제를 해결하려면 Azure AD Connect 동기화 서비스를 다시 시작합니다.
 
    1. 관리자로써 Azure AD Connect를 실행하는 서버에서 **시작**을 선택합니다.
-   2. 검색 필드에서 **services.msc**를 입력하고 **Enter** 키를 누릅니다.
-   3. **Microsoft Azure AD Sync** 항목을 찾습니다.
-   4. 서비스 항목을 마우스 오른쪽 단추로 클릭하고 **다시 시작**을 선택한 후 작업이 완료되기를 기다립니다.
+   1. 검색 필드에서 **services.msc**를 입력하고 **Enter** 키를 누릅니다.
+   1. **Microsoft Azure AD Sync** 항목을 찾습니다.
+   1. 서비스 항목을 마우스 오른쪽 단추로 클릭하고 **다시 시작**을 선택한 후 작업이 완료되기를 기다립니다.
 
    ![Azure AD Sync 서비스 다시 시작][Service restart]
 
@@ -193,15 +191,15 @@ Azure AD Connect 버전 1.1.443.0 이상의 경우 다음 항목에 대한 아�
 연결 문제를 해결하려면 비밀번호 쓰기 저장 기능을 사용하지 않도록 설정했다가 다시 사용하도록 설정합니다.
 
    1. 관리자 권한으로 Azure AD Connect 구성 마법사를 엽니다.
-   2. **Azure AD에 연결**에서 Azure AD 전역 관리자 자격 증명을 입력합니다
-   3. **AD DS에 연결**에서 AD 도메인 서비스 관리자 자격 증명을 입력합니다
-   4. **고유하게 식별하는 사용자**에서 **다음** 단추를 클릭합니다.
-   5. **선택적 기능**에서 **비밀번호 쓰기 저장** 확인란을 선택 취소합니다.
-   6. **구성 준비 완료** 페이지에 도달할 때까지 아무것도 변경하지 않고 남은 대화 상자 페이지에서 계속 **다음**을 클릭합니다.
-   7. **구성 준비 완료** 페이지에 **비밀번호 쓰기 저장** 옵션이 **사용 안함으로**으로 표시되는지 확인하고 녹색 **구성** 단추를 클릭하여 변경 내용을 확인합니다.
-   8. **마침**에서 **지금 동기화** 옵션을 선택 취소한 다음 **마침**을 선택하여 마법사를 닫습니다.
-   9. Azure AD Connect 구성 마법사를 다시 엽니다.
-   10. **선택적 기능** 페이지에서 **비밀번호 쓰기 저장** 옵션을 선택하여 서비스를 다시 사용하도록 설정하고 2~8단계를 반복합니다.
+   1. **Azure AD에 연결**에서 Azure AD 전역 관리자 자격 증명을 입력합니다
+   1. **AD DS에 연결**에서 AD 도메인 서비스 관리자 자격 증명을 입력합니다
+   1. **고유하게 식별하는 사용자**에서 **다음** 단추를 클릭합니다.
+   1. **선택적 기능**에서 **비밀번호 쓰기 저장** 확인란을 선택 취소합니다.
+   1. **구성 준비 완료** 페이지에 도달할 때까지 아무것도 변경하지 않고 남은 대화 상자 페이지에서 계속 **다음**을 클릭합니다.
+   1. **구성 준비 완료** 페이지에 **비밀번호 쓰기 저장** 옵션이 **사용 안함으로**으로 표시되는지 확인하고 녹색 **구성** 단추를 클릭하여 변경 내용을 확인합니다.
+   1. **마침**에서 **지금 동기화** 옵션을 선택 취소한 다음 **마침**을 선택하여 마법사를 닫습니다.
+   1. Azure AD Connect 구성 마법사를 다시 엽니다.
+   1. **선택적 기능** 페이지에서 **비밀번호 쓰기 저장** 옵션을 선택하여 서비스를 다시 사용하도록 설정하고 2~8단계를 반복합니다.
 
 이러한 단계를 실행하여 클라우드 서비스를 사용하여 연결을 재설정하면 사용자에게 발생할 수 있는 중단을 해결할 수 있습니다.
 
@@ -215,10 +213,11 @@ Azure AD Connect를 다시 설치하면 클라우드 서비스와 로컬 Active 
 
 > [!WARNING]
 > 상자 동기화 규칙을 사용자 지정하면 *업그레이드를 계속하기 전에 이를 백업하고 완료된 이후 수동으로 다시 배포합니다*.
+>
 
-   1. [Microsoft 다운로드 센터](http://go.microsoft.com/fwlink/?LinkId=615771)에서 최신 버전의 Azure AD Connect를 다운로드합니다.
-   2. Azure AD Connect를 이미 설치했기 때문에 Azure AD Connect 설치를 최신 버전으로 업데이트하려면 바로 업그레이드를 수행해야 합니다.
-   3. 다운로드한 패키지를 실행하고 화면에 나타나는 지침을 따라 Azure AD Connect 컴퓨터를 업데이트하십시오.
+1. [Microsoft 다운로드 센터](http://go.microsoft.com/fwlink/?LinkId=615771)에서 최신 버전의 Azure AD Connect를 다운로드합니다.
+1. Azure AD Connect를 이미 설치했기 때문에 Azure AD Connect 설치를 최신 버전으로 업데이트하려면 바로 업그레이드를 수행해야 합니다.
+1. 다운로드한 패키지를 실행하고 화면에 나타나는 지침을 따라 Azure AD Connect 컴퓨터를 업데이트하십시오.
 
 이전 단계를 실행하여 클라우드 서비스를 사용하여 연결을 재설정하면 사용자에게 발생할 수 있는 중단을 해결할 수 있습니다.
 
@@ -228,34 +227,33 @@ Azure AD Connect를 다시 설치하면 클라우드 서비스와 로컬 Active 
 
 비밀번호 쓰기 저장을 수행하려면 Azure AD Connect에 Active Directory **암호 재설정** 권한이 있어야 합니다. Azure AD Connect에 지정된 온-프레미스 Active Directory 사용자 계정에 대해 필요한 권한이 있는지 확인하려면 Windows Effective Permission 기능을 사용합니다.
 
-   1. Azure AD Connect 서버에 로그인하고 **시작** > **동기화 서비스**를 선택하여 **Synchronization Service Manager**를 시작합니다.
-   2. **커넥터** 탭 아래에서 온-프레미스 **Active Directory Domain Services** 커넥터를 선택한 후 **속성**을 선택합니다.  
-
+1. Azure AD Connect 서버에 로그인하고 **시작** > **동기화 서비스**를 선택하여 **Synchronization Service Manager**를 시작합니다.
+1. **커넥터** 탭 아래에서 온-프레미스 **Active Directory Domain Services** 커넥터를 선택한 후 **속성**을 선택합니다.  
    ![유효 권한 - 2단계](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
   
-   3. 팝업 창에서 **Active Directory 포리스트에 연결**을 선택하고 **사용자 이름** 속성을 기록해 둡니다. 이 속성은 Azure AD Connect에서 디렉터리 동기화를 수행하는 데 사용하는 AD DS 계정입니다. Azure AD Connect에서 비밀번호 쓰기 저장을 수행하려면 AD DS 계정에 암호 재설정 권한이 있어야 합니다.  
+1. 팝업 창에서 **Active Directory 포리스트에 연결**을 선택하고 **사용자 이름** 속성을 기록해 둡니다. 이 속성은 Azure AD Connect에서 디렉터리 동기화를 수행하는 데 사용하는 AD DS 계정입니다. Azure AD Connect에서 비밀번호 쓰기 저장을 수행하려면 AD DS 계정에 암호 재설정 권한이 있어야 합니다.  
    
    ![유효 권한 - 3단계](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
   
-   4. 온-프레미스 도메인 컨트롤러에 로그인하고 **Active Directory 사용자 및 컴퓨터** 응용 프로그램을 시작합니다.
-   5. **보기**를 선택하고 **고급 기능** 옵션이 사용하도록 설정되어 있는지 확인합니다.  
+1. 온-프레미스 도메인 컨트롤러에 로그인하고 **Active Directory 사용자 및 컴퓨터** 응용 프로그램을 시작합니다.
+1. **보기**를 선택하고 **고급 기능** 옵션이 사용하도록 설정되어 있는지 확인합니다.  
    
    ![유효 권한 - 5단계](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
   
-   6. 확인할 Active Directory 사용자 계정을 검색합니다. 계정 이름을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.  
+1. 확인할 Active Directory 사용자 계정을 검색합니다. 계정 이름을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.  
    
    ![유효 권한 - 6단계](./media/active-directory-passwords-troubleshoot/checkpermission04.png) 
 
-   7. 팝업 창에서 **보안** 탭으로 이동하고 **고급**을 선택합니다.  
+1. 팝업 창에서 **보안** 탭으로 이동하고 **고급**을 선택합니다.  
    
    ![유효 권한 - 7단계](./media/active-directory-passwords-troubleshoot/checkpermission05.png) 
    
-   8. **관리자에 대한 고급 보안 설정** 팝업 창에서 **유효한 액세스** 탭으로 이동합니다.
-   9. **사용자 선택**을 선택하고 Azure AD Connect에서 사용되는 AD DS 계정(3단계 참조)를 선택한 후 **유효한 액세스 보기**를 선택합니다.  
-   
+1. **관리자에 대한 고급 보안 설정** 팝업 창에서 **유효한 액세스** 탭으로 이동합니다.
+1. **사용자 선택**을 선택하고 Azure AD Connect에서 사용되는 AD DS 계정(3단계 참조)를 선택한 후 **유효한 액세스 보기**를 선택합니다.
+
    ![유효 권한 - 9단계](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
   
-   10. 아래로 스크롤하여 **암호 재설정**을 검색합니다. 해당 항목에 선택 표시가 있는 경우 AD DS 계정에 선택한 Active Directory 사용자 계정의 암호를 재설정할 권한이 있는 것입니다.  
+1. 아래로 스크롤하여 **암호 재설정**을 검색합니다. 해당 항목에 선택 표시가 있는 경우 AD DS 계정에 선택한 Active Directory 사용자 계정의 암호를 재설정할 권한이 있는 것입니다.  
    
    ![유효 권한 - 10단계](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
 
@@ -285,8 +283,6 @@ Azure AD 및 셀프 서비스 암호 재설정에 대한 일반적인 질문이 
     * 클라우드 전용 사용자인가요?
 * **라이선스**: 사용자에게 Azure AD Premium 또는 Azure AD Basic 라이선스가 할당되어 있나요?
 * **응용 프로그램 이벤트 로그**: 비밀번호 쓰기 저장을 사용 중이고 온-프레미스 인프라에서 오류가 발생한 경우 Azure AD Connect 서버에서 응용 프로그램 이벤트 로그의 복사본을 압축하여 보내주세요.
-
-
 
 [Service restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Azure AD Sync 서비스 다시 시작"
 [Support code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "지원 코드는 창의 오른쪽 아래에 있습니다."

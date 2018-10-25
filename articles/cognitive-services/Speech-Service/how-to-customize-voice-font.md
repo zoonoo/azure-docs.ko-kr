@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 5e99e7e376a020f845816fb38e31dd727d87a4cb
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 21b37d2b61af81e6481de4c5e7537a3382d895b6
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423428"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113923"
 ---
 # <a name="creating-custom-voice-fonts"></a>사용자 지정 음성 글꼴 만들기
 
@@ -22,12 +22,9 @@ Microsoft TTS(Text to Speech) 음성 사용자 지정을 사용하여 인식 가
 
 개념 증명을 위해 소량의 데이터로 시작할 수 있습니다. 그러나 더 많은 데이터를 제공할수록 음성의 자연스러움과 전문성이 높아집니다.
 
-
 ## <a name="prerequisites"></a>필수 조건
 
-**Text to Speech** 음성 사용자 지정 기능은 현재 비공개 미리 보기로 제공됩니다. 액세스하려면 [신청 양식을 작성하세요](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u).
-
-Speech Service를 위한 Azure 계정 및 구독도 필요합니다. 아직 없는 경우 [하나를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). 다음과 같이 구독을 Custom Voice 포털에 연결합니다.
+Azure 계정 및 Speech Service에 대한 구독이 필요합니다. 구독이 아직 없다면 [하나를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). 여기에 표시된 대로 구독을 Custom Voice 포털에 연결합니다.
 
 1. 액세스 권한을 신청하는 데 사용한 것과 동일한 Microsoft 계정을 사용하여 [Custom Voice 포털](https://customvoice.ai)에 로그온합니다.
 
@@ -37,7 +34,6 @@ Speech Service를 위한 Azure 계정 및 구독도 필요합니다. 아직 없�
 
 3. 구독 페이지에서 **기존 구독 연결**을 선택합니다. Speech Services는 서로 다른 지역을 지원합니다. 구독 키를 만든 지역을 확인하고, 키를 올바른 하위 포털에 연결하도록 합니다.  
 
-     
 4. 다음 예제와 같이 구독 키를 표에 붙여 넣습니다. 각 구독에는 두 개의 키가 있으며 둘 중 하나를 사용할 수 있습니다.
 
      ![구독 추가](media/custom-voice/add-subscription.png)
@@ -56,7 +52,7 @@ Speech Service를 위한 Azure 계정 및 구독도 필요합니다. 아직 없�
 
 ### <a name="audio-files"></a>오디오 파일
 
-각 오디오 파일에는 하나의 발화(예: 단일 문장 또는 대화 체계의 한 순서)가 포함되어야 합니다. 모든 파일은 동일한 언어여야 합니다. (다국어 사용자 지정 음성 지원 안 됨). 또한 오디오 파일 각각에는 파일 이름 확장명 `.wav`를 사용해서 만든 고유한 숫자 파일 이름을 지정해야 합니다.
+각 오디오 파일에는 하나의 발화(예: 단일 문장 또는 대화 체계의 한 순서)가 포함되어야 합니다. 모든 파일은 동일한 언어여야 합니다. (다국어 사용자 지정 음성은 지원되지 않습니다.) 또한 오디오 파일 각각에는 파일 이름 확장명 `.wav`를 사용한 고유한 숫자 파일 이름이 있어야 합니다.
 
 오디오 파일은 다음과 같이 준비해야 합니다. 다른 형식은 지원되지 않으며 거부됩니다.
 
@@ -75,7 +71,7 @@ Speech Service를 위한 Azure 계정 및 구독도 필요합니다. 아직 없�
 
 ### <a name="transcripts"></a>스크립트(Transcript)
 
-기록 파일은 일반 텍스트 파일(ANSI,UTF-8, UTF-8-BOM, UTF-16-LE 또는 UTF-16-BE)입니다. 스크립트 파일의 각 줄에는 오디오 파일의 이름, 탭(코드 포인트 9) 문자, 해당 스크립트가 순서대로 포함되어야 합니다. 빈 줄은 허용되지 않습니다.
+스크립트 파일은 일반 텍스트 파일(ANSI, UTF-8, UTF-8-BOM, UTF-16-LE 또는 UTF-16-BE)입니다. 스크립트 파일의 각 줄에는 오디오 파일의 이름, 탭(코드 포인트 9) 문자, 해당 스크립트가 순서대로 포함되어야 합니다. 빈 줄은 허용되지 않습니다.
 
 예: 
 
@@ -92,7 +88,7 @@ Speech Service를 위한 Azure 계정 및 구독도 필요합니다. 아직 없�
 
 ## <a name="upload-your-datasets"></a>데이터 집합 업로드
 
-오디오 보관 파일 및 스크립트를 준비한 후에는 [Custom Voice 서비스 포털](https://customvoice.ai)을 통해 업로드합니다.
+오디오 파일 보관 및 스크립트를 준비한 후에는 [Custom Voice 서비스 포털](https://customvoice.ai)을 통해 업로드합니다.
 
 > [!NOTE]
 > 데이터 집합을 업로드한 후에는 편집할 수 없습니다. 예를 들어, 일부 오디오 파일의 스크립트를 포함하는 것을 잊었거나 실수로 잘못된 성별을 선택하게 되면 전체 데이터 집합을 다시 업로드해야 합니다. 업로드를 시작하기 전에 데이터 집합 및 설정을 철저히 확인하세요.

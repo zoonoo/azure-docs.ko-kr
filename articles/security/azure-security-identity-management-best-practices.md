@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: barclayn
-ms.openlocfilehash: f6640e7d179199fbfb5b0c2b0c384729b6f53bcf
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: b1002d046014abd15452489e343ecf7c30b00d73
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498252"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311340"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identity Management 및 액세스 제어 보안 모범 사례
 
@@ -113,7 +113,7 @@ SSO를 사용하여 사용자가 Azure AD에서 회사 또는 학교 계정을 �
 
 2단계 인증을 사용하도록 설정하는 옵션 및 혜택은 다음과 같습니다.
 
-**옵션 1**: [사용자 상태를 변경하여 Multi-Factor Authentication을 사용하도록 설정합니다](../active-directory/authentication/howto-mfa-userstates.md#enable-azure-mfa-by-changing-user-status).   
+**옵션 1**: [사용자 상태를 변경하여 Multi-Factor Authentication을 사용하도록 설정합니다](../active-directory/authentication/howto-mfa-userstates.md).   
 **혜택**: 2단계 인증을 요구하는 기존 방법입니다. 이 기능은 [클라우드의 Azure Multi-Factor Authentication 및 Azure Multi-Factor Authentication 서버](../active-directory/authentication/concept-mfa-whichversion.md)에서 작동합니다. 이 방법을 사용할 경우 사용자는 로그인할 때마다 2단계 인증을 수행해야 하며, 조건부 액세스 정책을 재정의합니다.
 
 **옵션 2**: [조건부 액세스 정책을 사용하여 Multi-Factor Authentication을 사용하도록 설정합니다](../active-directory/authentication/howto-mfa-getstarted.md#enable-multi-factor-authentication-with-conditional-access).   
@@ -121,7 +121,7 @@ SSO를 사용하여 사용자가 Azure AD에서 회사 또는 학교 계정을 �
 
 이것이 사용자에게 2단계 인증을 사용하도록 설정하는 가장 유연한 방법입니다. 조건부 액세스 정책을 사용하도록 설정하는 방법은 클라우드의 Azure Multi-Factor Authentication에서만 가능하며, Azure AD의 프리미엄 기능입니다. [클라우드 기반 Azure Multi-factor Authentication 배포](../active-directory/authentication/howto-mfa-getstarted.md)에서 이 방법에 대한 자세한 내용을 확인할 수 있습니다.
 
-**옵션 3**: [Azure AD Identity Protection](../active-directory/active-directory-identityprotection.md)의 사용자 및 로그인 위험을 평가하여 조건부 액세스 정책에서 Multi-Factor Authentication을 사용하도록 설정합니다.   
+**옵션 3**: [Azure AD Identity Protection](../active-directory/authentication/tutorial-risk-based-sspr-mfa.md)의 사용자 및 로그인 위험을 평가하여 조건부 액세스 정책에서 Multi-Factor Authentication을 사용하도록 설정합니다.   
 **혜택**: 이 옵션을 사용하면 다음을 수행할 수 있습니다.
 
 - 조직의 ID에 영향을 미치는 잠재적인 취약점 검색
@@ -131,7 +131,7 @@ SSO를 사용하여 사용자가 Azure AD에서 회사 또는 학교 계정을 �
 이 방법은 Azure AD Identity Protection 위험 평가를 사용하여 모든 클라우드 응용 프로그램에 대한 사용자 및 로그인 위험에 따라 2단계 인증이 필요한지 결정합니다. 이 방법에는 Azure Active Directory P2 라이선스가 필요합니다. [Azure Active Directory Identity Protection](../active-directory/identity-protection/overview.md)에서 이 방법에 대한 자세한 내용을 찾을 수 있습니다.
 
 > [!Note]
-> 옵션 1, 사용자 상태를 변경하여 Multi-Factor Authentication을 사용하면 조건부 정책을 재정의합니다. 옵션 2 및 3이 조건부 액세스 정책을 사용하기 때문에 여기에서 옵션 1을 사용할 수 없습니다.
+> 옵션 1, 사용자 상태를 변경하여 Multi-Factor Authentication을 사용하면 조건부 액세스 정책이 재정의됩니다. 옵션 2 및 3이 조건부 액세스 정책을 사용하기 때문에 여기에서 옵션 1을 사용할 수 없습니다.
 
 2단계 인증과 같은 추가적인 ID 보호 계층을 추가하지 않는 조직은 자격 증명 도난 공격에 취약합니다. 자격 증명 도난 공격으로 인해 데이터 손상이 발생할 수 있습니다.
 
@@ -235,4 +235,4 @@ Azure의 [기본 제공 RBAC](../role-based-access-control/built-in-roles.md) �
 
 ## <a name="next-step"></a>다음 단계
 
-[Azure 보안 모범 사례 및 패턴](security-best-practices-and-patterns.md)에서 Azure를 사용하여 클라우드 솔루션을 디자인/배포/관리할 때 사용할 수 있는 더 많은 보안 모범 사례를 확인합니다.
+[Azure 보안 모범 사례 및 패턴](security-best-practices-and-patterns.md)에서 Azure를 사용하여 클라우드 솔루션을 디자인하고, 배포하고, 관리할 때 사용할 수 있는 더 많은 보안 모범 사례를 참조하세요.

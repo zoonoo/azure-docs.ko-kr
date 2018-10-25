@@ -8,18 +8,18 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 4ed911766a14dd35ea662326a5d50df11cf81698
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f3076054eb6e18eb5143a34ba558c1f9e43ea4a5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984077"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345189"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Windows Virtual Machine용 Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
 
 Azure Monitor [MAD(Microsoft Azure 진단) 확장](azure-diagnostics.md)을 사용하면 Virtual Machine, Cloud Service 또는 Service Fabric 클러스터의 일부로 실행되는 게스트 OS(게스트 운영 체제)에서 메트릭과 로그를 수집할 수 있습니다.  이 확장은 이전에 연결된 문서에 나열된 여러 다른 위치에 원격 분석을 보낼 수 있습니다.  
 
-이 문서에서는 Windows Virtual Machine에 대한 게스트 OS 성능 메트릭을 Azure Monitor 데이터 저장소에 보내는 프로세스에 대해 설명합니다. MAD 버전 1.11부터 표준 플랫폼 메트릭이 이미 수집된 Azure Monitor 메트릭 저장소에 메트릭을 직접 기록할 수 있습니다. 이 위치에 저장하면 플랫폼 메트릭에 사용할 수 있는 동일한 작업에 액세스할 수 있습니다.  작업에는 실시간에 가까운 경고, 차트 작성, 라우팅, REST API에서 액세스 등이 포함됩니다.  과거에는 MAD 확장에서 Azure Monitor 데이터 저장소가 아니라 Azure 저장소에 기록했습니다.   
+이 문서에서는 Windows Virtual Machine에 대한 게스트 OS 성능 메트릭을 Azure Monitor 데이터 저장소에 보내는 프로세스에 대해 설명합니다. MAD 버전 1.11부터 표준 플랫폼 메트릭이 이미 수집된 Azure Monitor 메트릭 저장소에 메트릭을 직접 기록할 수 있습니다. 이 위치에 메트릭을 저장하면 플랫폼 메트릭에 사용할 수 있는 동일한 작업에 액세스할 수 있습니다.  작업에는 실시간에 가까운 경고, 차트 작성, 라우팅, REST API에서 액세스 등이 포함됩니다.  과거에는 MAD 확장에서 Azure Monitor 데이터 저장소가 아니라 Azure 저장소에 기록했습니다.   
 
 Resource Manager 템플릿을 처음 사용하는 경우 [템플릿 배포](../azure-resource-manager/resource-group-overview.md)와 해당 구조 및 구문에 대해 알아보세요.  
 
@@ -27,25 +27,25 @@ Resource Manager 템플릿을 처음 사용하는 경우 [템플릿 배포](../a
 
 - 구독은 [Microsoft.Insights](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1)에 등록해야 합니다. 
 
-- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1)이 설치되어 있어야 하거나 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview.md)을 사용할 수 있습니다. 
+- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1)이 설치되어 있거나 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview.md)을 사용할 수 있습니다. 
 
  
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Azure Monitor를 데이터 싱크로 설정 
-Azure 진단 확장은 "데이터 싱크"라는 기능을 사용하여 메트릭과 로그를 다른 위치로 라우팅합니다.  다음 단계에서는 Resource Manager 템플릿과 PowerShell을 사용하여 새 "Azure Monitor" 데이터 싱크를 통해 VM을 배포하는 방법을 보여 줍니다. 
+Azure 진단 확장은 "데이터 싱크"라는 기능을 사용하여 메트릭과 로그를 다른 위치로 라우팅합니다.  다음 단계에서는 Resource Manager 템플릿과 PowerShell을 사용하여 새 "Azure Monitor" 데이터 싱크를 통해 VM을 배포하는 방법을 보여줍니다. 
 
 ## <a name="author-resource-manager-template"></a>Resource Manager 템플릿 작성 
 이 예제에서는 공개적으로 사용할 수 있는 템플릿 샘플을 사용할 수 있습니다. 시작 템플릿은 https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows에 있습니다. 
 
 - **Azuredeploy.json**은 Virtual Machine을 배포하도록 미리 구성된 Resource Manager 템플릿입니다. 
 
-- **Azuredeploy.parameters.json**은 사용자의 VM에 대해 설정하려는 사용자 이름 및 암호와 같은 정보를 저장하는 매개 변수 파일입니다. Resource Manager 템플릿은 배포하는 동안 이 파일에 설정된 매개 변수를 사용합니다. 
+- **Azuredeploy.parameters.json**은 사용자의 VM에 대해 설정하려는 사용자 이름 및 암호와 같은 정보를 저장하는 매개 변수 파일입니다. 배포하는 동안 Resource Manager 템플릿에서는 이 파일에 설정된 매개 변수를 사용합니다. 
 
-두 파일은 모두 로컬로 다운로드하고 저장합니다. 
+두 파일을 다운로드하고 로컬로 저장합니다. 
 
-###  <a name="modify-azuredeployparametersjson"></a>azuredeploy.parameters.json 수정
+###  <a name="modify-azuredeployparametersjson"></a>azuredeploy.parameters.json을 수정합니다.
 *azuredeploy.parameters.json* 파일을 엽니다. 
 
-1. VM에 대해 *adminUsername* 및 *adminPassword*에 대한 값을 입력합니다. 이러한 매개 변수는 VM에 대한 원격 액세스에 사용됩니다. VM이 하이재킹되지 않도록 방지하려면 이 템플릿의 매개 변수를 사용하지 마세요. 봇은 인터넷에서 공용 Github 리포지토리에 있는 사용자 이름과 암호를 검색하며, 이러한 기본값을 사용하여 VM을 테스트할 수도 있습니다.  
+1. VM에 대해 *adminUsername* 및 *adminPassword*에 대한 값을 입력합니다. 이러한 매개 변수는 VM에 대한 원격 액세스에 사용됩니다. VM이 하이재킹되지 않도록 방지하려면 이 템플릿에서 사용하지 마세요. 봇은 공용 Github 리포지토리에서 사용자 이름 및 암호에 대한 인터넷을 검색합니다. 이러한 기본값을 사용하여 VM을 테스트할 수도 있습니다.  
 
 1. VM에 대한 고유한 dnsname을 만듭니다.  
 
@@ -64,7 +64,7 @@ Azure 진단 확장은 "데이터 싱크"라는 기능을 사용하여 메트릭
     "accountid": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]", 
 ```
 
-템플릿의 "resources" 섹션 위쪽에 MSI(관리 서비스 ID) 확장을 추가합니다.  이 확장을 통해 Azure Monitor에서 내보내는 메트릭을 허용합니다.  
+"리소스" 섹션 위쪽의 템플릿에 Azure 리소스 확장에 대한 이 관리 ID를 추가합니다.  이 확장을 통해 Azure Monitor에서 내보내는 메트릭을 허용합니다.  
 
 ```json
 //Find this code 
@@ -237,7 +237,7 @@ Resource Manager 템플릿을 배포하기 위해 Azure PowerShell을 활용하�
 1. PowerShell 시작 
 1. `Login-AzureRmAccount`를 사용하여 Azure에 로그인합니다.
 1. `Get-AzureRmSubscription`을 사용하여 구독 목록을 가져옵니다.
-1. 가상 머신을 만들거나 업데이트할 구독을 설정합니다. 
+1. 가상 머신을 만들/업데이트할 구독을 설정합니다. 
 
    ```PowerShell
    Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>" 
@@ -261,7 +261,7 @@ Resource Manager 템플릿을 배포하기 위해 Azure PowerShell을 활용하�
 1. 배포가 완료되면 Azure Portal에서 해당 VM을 찾을 수 있어야 하며 메트릭을 Azure Monitor에 내보내야 합니다. 
 
    > [!NOTE] 
-   > 선택한 vmSkuSize 관련 오류가 발생할 수 있습니다. 그렇다면 azuredeploy.json 파일로 돌아가서 vmSkuSize 매개 변수의 기본값을 업데이트하세요. 이 경우 "Standard_DS1_v2"를 사용하는 것이 좋습니다. 
+   > 선택한 vmSkuSize 관련 오류가 발생할 수 있습니다. 그렇다면 azuredeploy.json 파일로 돌아가서 vmSkuSize 매개 변수의 기본값을 업데이트하세요. 이 경우에 "Standard_DS1_v2"를 사용하는 것이 좋습니다. 
 
 ## <a name="chart-your-metrics"></a>메트릭 차트 작성 
 
@@ -279,8 +279,8 @@ Resource Manager 템플릿을 배포하기 위해 Azure PowerShell을 활용하�
 
 1. 네임스페이스 드롭다운에서 **azure.vm.windows.guest**를 선택합니다. 
 
-1. 메트릭 드롭다운에서 **Memory\%Committed Bytes in Use**를 선택합니다.  
+1. 메트릭 드롭다운에서 **메모리\%사용 중인 커밋된 바이트**를 선택합니다.  
  
 
 ## <a name="next-steps"></a>다음 단계
-- [사용자 지정 메트릭](metrics-custom-overview.md)에 대해 자세히 알아봅니다.
+- [사용자 지정 메트릭](metrics-custom-overview.md)에 대해 자세히 알아보세요.

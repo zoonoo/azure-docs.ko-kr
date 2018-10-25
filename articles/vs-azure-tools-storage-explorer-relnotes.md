@@ -14,26 +14,225 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: e3efb19010f36a6ef1fa0a191695a0e2c9f39d19
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 708b80787337d549ebc5e66bca21e734620616ac
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190524"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388301"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Storage 탐색기 릴리스 정보
 
-이 문서는 Azure Storage 탐색기 1.4.1 릴리스에 대한 릴리스 정보 및 이전 버전에 대한 릴리스 정보를 포함합니다.
+이 문서에는 Azure Storage 탐색기 1.4.3 릴리스의 릴리스 정보 및 이전 버전의 릴리스 정보가 포함되어 있습니다.
 
 [Microsoft Azure Storage 탐색기](./vs-azure-tools-storage-manage-with-storage-explorer.md) 는 Windows, macOS 및 Linux에서 Azure Storage 데이터를 쉽게 사용할 수 있게 하는 독립 실행형 앱입니다.
 
+## <a name="version-144"></a>버전 1.4.4
+2018년 10월 15일
+
+### <a name="download-azure-storage-explorer-144"></a>Azure Storage 탐색기 1.4.4 다운로드
+- [Windows용 Azure Storage 탐색기 1.4.4](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Mac용 Azure Storage 탐색기 1.4.4](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Linux용 Azure Storage 탐색기 1.4.4](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="hotfixes"></a>핫픽스
+* Azure US Government 사용자의 차단을 해제하기 위해 Azure Resource Management API 버전이 롤백되었습니다. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
+* 회전자가 로드되면 이제 CSS 애니메이션을 사용하여 Storage 탐색기에서 사용하는 GPU 양을 줄일 수 있습니다. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
+
+### <a name="new"></a>새로 만들기
+* SAS 연결 및 에뮬레이터와 같은 외부 리소스 연결이 크게 향상되었습니다. 이제 다음을 수행할 수 있습니다.
+   * 연결하는 리소스의 표시 이름을 사용자 지정합니다. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * 다른 포트를 사용하여 여러 로컬 에뮬레이터에 연결합니다. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * 연결된 리소스를 빠른 액세스에 추가합니다. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* 이제 Storage 탐색기에서 일시 삭제를 지원합니다. 다음을 수행할 수 있습니다.
+   * Storage 계정에 대한 Blob 컨테이너 노드를 마우스 오른쪽 단추로 클릭하여 일시 삭제 정책을 구성합니다.
+   * 탐색 모음 옆에 있는 드롭다운에서 "활성 및 삭제된 Blob"을 선택하여 Blob 편집기에서 일시 삭제된 Blob을 봅니다.
+   * 일시 삭제된 Blob을 삭제 취소합니다.
+
+### <a name="fixes"></a>수정 프로그램
+* Premium Storage 계정이 CORS를 지원하지 않으므로 "CORS 설정 구성" 작업은 Premium Storage 계정에서 더 이상 사용할 수 없습니다. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* 이제 SAS 연결 서비스에 대한 공유 액세스 서명 속성이 있습니다. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* "기본 액세스 계층 설정" 작업은 이제 빠른 액세스에 고정된 Blob 및 GPV2 저장소 계정에 대해 사용할 수 있습니다. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* 경우에 따라 Storage 탐색기에서 클래식 저장소 계정을 표시하지 못할 수도 있습니다. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+
+### <a name="known-issues"></a>알려진 문제
+* Azure Storage 에뮬레이터 또는 Azurite와 같은 에뮬레이터를 사용하는 경우 해당 기본 포트에 대한 연결을 수신하도록 해야 합니다. 그렇지 않으면 Storage 탐색기에서 연결할 수 없습니다.
+* Mac용 VS를 사용하고 사용자 지정 AAD 구성을 만든 적이 있으면 로그인이 불가능할 수 있습니다. 이 문제를 해결하려면 ~/.IdentityService/AadConfigurations의 내용을 삭제합니다. 이렇게 해도 차단이 해제되지 않으면 [이 문제](https://github.com/Microsoft/AzureStorageExplorer/issues/97)에 의견을 남겨주세요.
+* Azurite는 모든 저장소 API에 아직 완전히 구현되지 않았습니다. 그래서 개발 저장소에 Azurite를 사용하는 경우 예상치 못한 오류나 동작이 발생할 수 있습니다.
+* 드물지만, 트리 포커스가 빠른 액세스에 고정될 수 있습니다. 모두 새로 고침을 사용하여 고정을 풀 수 있습니다.
+* NodeJS의 버그로 인해 OneDrive 폴더에서 업로드가 수행되지 않습니다. 이 버그는 수정되었지만 Electron에 아직 통합되지 않았습니다.
+* Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
+* 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. [여기](https://github.com/Azure/azure-storage-node/issues/317) 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
+* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Linux 사용자의 경우 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)을 설치해야 합니다.
+* Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Ubuntu 17.04 사용자의 경우에는 GConf를 설치해야 합니다. 이렇게 하려면 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>이전 릴리스
+
+* [버전 1.4.3](#version-143)
+* [버전 1.4.2](#version-142)
+* [버전 1.4.1](#version-141)
+* [버전 1.3.0](#version-130)
+* [버전 1.2.0](#version-120)
+* [버전 1.1.0](#version-110)
+* [Version 1.0.0](#version-100)
+* [버전 0.9.6](#version-096)
+* [버전 0.9.5](#version-095)
+* [버전 0.9.4 및 0.9.3](#version-094-and-093)
+* [버전 0.9.2](#version-092)
+* [버전 0.9.1 및 0.9.0](#version-091-and-090)
+* [버전 0.8.16](#version-0816)
+* [버전 0.8.14](#version-0814)
+* [버전 0.8.13](#version-0813)
+* [버전 0.8.12 및 0.8.11 및 0.8.10](#version-0812-and-0811-and-0810)
+* [버전 0.8.9 및 0.8.8](#version-089-and-088)
+* [버전 0.8.7](#version-087)
+* [버전 0.8.6](#version-086)
+* [버전 0.8.5](#version-085)
+* [버전 0.8.4](#version-084)
+* [버전 0.8.3](#version-083)
+* [버전 0.8.2](#version-082)
+* [버전 0.8.0](#version-080)
+* [버전 0.7.20160509.0](#version-07201605090)
+* [버전 0.7.20160325.0](#version-07201603250)
+* [버전 0.7.20160129.1](#version-07201601291)
+* [버전 0.7.20160105.0](#version-07201601050)
+* [버전 0.7.20151116.0](#version-07201511160)
+
+## <a name="version-143"></a>버전 1.4.3
+2018년 10월 11일
+
+### <a name="hotfixes"></a>핫픽스
+* Azure US Government 사용자의 차단을 해제하기 위해 Azure Resource Management API 버전이 롤백되었습니다. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
+* 회전자가 로드되면 이제 CSS 애니메이션을 사용하여 Storage 탐색기에서 사용하는 GPU 양을 줄일 수 있습니다. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
+
+### <a name="new"></a>새로 만들기
+* SAS 연결 및 에뮬레이터와 같은 외부 리소스 연결이 크게 향상되었습니다. 이제 다음을 수행할 수 있습니다.
+   * 연결하는 리소스의 표시 이름을 사용자 지정합니다. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * 다른 포트를 사용하여 여러 로컬 에뮬레이터에 연결합니다. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * 연결된 리소스를 빠른 액세스에 추가합니다. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* 이제 Storage 탐색기에서 일시 삭제를 지원합니다. 다음을 수행할 수 있습니다.
+   * Storage 계정에 대한 Blob 컨테이너 노드를 마우스 오른쪽 단추로 클릭하여 일시 삭제 정책을 구성합니다.
+   * 탐색 모음 옆에 있는 드롭다운에서 "활성 및 삭제된 Blob"을 선택하여 Blob 편집기에서 일시 삭제된 Blob을 봅니다.
+   * 일시 삭제된 Blob을 삭제 취소합니다.
+
+### <a name="fixes"></a>수정 프로그램
+* Premium Storage 계정이 CORS를 지원하지 않으므로 "CORS 설정 구성" 작업은 Premium Storage 계정에서 더 이상 사용할 수 없습니다. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* 이제 SAS 연결 서비스에 대한 공유 액세스 서명 속성이 있습니다. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* "기본 액세스 계층 설정" 작업은 이제 빠른 액세스에 고정된 Blob 및 GPV2 저장소 계정에 대해 사용할 수 있습니다. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* 경우에 따라 Storage 탐색기에서 클래식 저장소 계정을 표시하지 못할 수도 있습니다. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+
+### <a name="known-issues"></a>알려진 문제
+* Azure Storage 에뮬레이터 또는 Azurite와 같은 에뮬레이터를 사용하는 경우 해당 기본 포트에 대한 연결을 수신하도록 해야 합니다. 그렇지 않으면 Storage 탐색기에서 연결할 수 없습니다.
+* Mac용 VS를 사용하고 사용자 지정 AAD 구성을 만든 적이 있으면 로그인이 불가능할 수 있습니다. 이 문제를 해결하려면 ~/.IdentityService/AadConfigurations의 내용을 삭제합니다. 이렇게 해도 차단이 해제되지 않으면 [이 문제](https://github.com/Microsoft/AzureStorageExplorer/issues/97)에 의견을 남겨주세요.
+* Azurite는 모든 저장소 API에 아직 완전히 구현되지 않았습니다. 그래서 개발 저장소에 Azurite를 사용하는 경우 예상치 못한 오류나 동작이 발생할 수 있습니다.
+* 드물지만, 트리 포커스가 빠른 액세스에 고정될 수 있습니다. 모두 새로 고침을 사용하여 고정을 풀 수 있습니다.
+* NodeJS의 버그로 인해 OneDrive 폴더에서 업로드가 수행되지 않습니다. 이 버그는 수정되었지만 Electron에 아직 통합되지 않았습니다.
+* Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
+* 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. [여기](https://github.com/Azure/azure-storage-node/issues/317) 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
+* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Linux 사용자의 경우 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)을 설치해야 합니다.
+* Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Ubuntu 17.04 사용자의 경우에는 GConf를 설치해야 합니다. 이렇게 하려면 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="version-142"></a>버전 1.4.2
+2018년 9월 24일
+
+### <a name="hotfixes"></a>핫픽스
+* 새 Azure Storage 계정 종류에 대한 지원을 추가하기 위해 Azure Resource Management API 버전이 2018-07-01로 업데이트되었습니다. [#652](https://github.com/Microsoft/AzureStorageExplorer/issues/652)
+
+### <a name="new"></a>새로 만들기
+* SAS 연결 및 에뮬레이터와 같은 외부 리소스 연결이 크게 향상되었습니다. 이제 다음을 수행할 수 있습니다.
+   * 연결하는 리소스의 표시 이름을 사용자 지정합니다. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * 다른 포트를 사용하여 여러 로컬 에뮬레이터에 연결합니다. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * 연결된 리소스를 빠른 액세스에 추가합니다. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* 이제 Storage 탐색기에서 일시 삭제를 지원합니다. 다음을 수행할 수 있습니다.
+   * Storage 계정에 대한 Blob 컨테이너 노드를 마우스 오른쪽 단추로 클릭하여 일시 삭제 정책을 구성합니다.
+   * 탐색 모음 옆에 있는 드롭다운에서 "활성 및 삭제된 Blob"을 선택하여 Blob 편집기에서 일시 삭제된 Blob을 봅니다.
+   * 일시 삭제된 Blob을 삭제 취소합니다.
+
+### <a name="fixes"></a>수정 프로그램
+* Premium Storage 계정이 CORS를 지원하지 않으므로 "CORS 설정 구성" 작업은 Premium Storage 계정에서 더 이상 사용할 수 없습니다. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* 이제 SAS 연결 서비스에 대한 공유 액세스 서명 속성이 있습니다. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* "기본 액세스 계층 설정" 작업은 이제 빠른 액세스에 고정된 Blob 및 GPV2 저장소 계정에 대해 사용할 수 있습니다. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* 경우에 따라 Storage 탐색기에서 클래식 저장소 계정을 표시하지 못할 수도 있습니다. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+
+### <a name="known-issues"></a>알려진 문제
+* Azure Storage 에뮬레이터 또는 Azurite와 같은 에뮬레이터를 사용하는 경우 해당 기본 포트에 대한 연결을 수신하도록 해야 합니다. 그렇지 않으면 Storage 탐색기에서 연결할 수 없습니다.
+* Mac용 VS를 사용하고 사용자 지정 AAD 구성을 만든 적이 있으면 로그인이 불가능할 수 있습니다. 이 문제를 해결하려면 ~/.IdentityService/AadConfigurations의 내용을 삭제합니다. 이렇게 해도 차단이 해제되지 않으면 [이 문제](https://github.com/Microsoft/AzureStorageExplorer/issues/97)에 의견을 남겨주세요.
+* Azurite는 모든 저장소 API에 아직 완전히 구현되지 않았습니다. 그래서 개발 저장소에 Azurite를 사용하는 경우 예상치 못한 오류나 동작이 발생할 수 있습니다.
+* 드물지만, 트리 포커스가 빠른 액세스에 고정될 수 있습니다. 모두 새로 고침을 사용하여 고정을 풀 수 있습니다.
+* NodeJS의 버그로 인해 OneDrive 폴더에서 업로드가 수행되지 않습니다. 이 버그는 수정되었지만 Electron에 아직 통합되지 않았습니다.
+* Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
+* 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. [여기](https://github.com/Azure/azure-storage-node/issues/317) 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
+* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Linux 사용자의 경우 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)을 설치해야 합니다.
+* Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Ubuntu 17.04 사용자의 경우에는 GConf를 설치해야 합니다. 이렇게 하려면 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
 ## <a name="version-141"></a>버전 1.4.1
 2018년 08월 28일
-
-### <a name="download-azure-storage-explorer-141"></a>Azure Storage 탐색기 1.4.1 다운로드
-- [Windows용 Azure Storage 탐색기 1.4.1](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Mac용 Azure Storage 탐색기 1.4.1](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Linux용 Azure Storage 탐색기 1.4.1](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>핫픽스
 * Storage 탐색기는 처음 시작할 때 중요한 데이터를 암호화하는 데 사용되는 키를 생성할 수 없었습니다. 이로 인해 빠른 액세스를 사용하고 리소스를 연결할 때 문제가 발생할 수 있습니다. [#535](https://github.com/Microsoft/AzureStorageExplorer/issues/535)
@@ -76,7 +275,7 @@ ms.locfileid: "43190524"
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Linux 사용자의 경우 [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)을 설치해야 합니다.
+* Linux 사용자의 경우 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)을 설치해야 합니다.
 * Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
 
     ```
@@ -91,35 +290,6 @@ ms.locfileid: "43190524"
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>이전 릴리스
-
-* [버전 1.3.0](#version-130)
-* [버전 1.2.0](#version-120)
-* [버전 1.1.0](#version-110)
-* [Version 1.0.0](#version-100)
-* [버전 0.9.6](#version-096)
-* [버전 0.9.5](#version-095)
-* [버전 0.9.4 및 0.9.3](#version-094-and-093)
-* [버전 0.9.2](#version-092)
-* [버전 0.9.1 및 0.9.0](#version-091-and-090)
-* [버전 0.8.16](#version-0816)
-* [버전 0.8.14](#version-0814)
-* [버전 0.8.13](#version-0813)
-* [버전 0.8.12 및 0.8.11 및 0.8.10](#version-0812-and-0811-and-0810)
-* [버전 0.8.9 및 0.8.8](#version-089-and-088)
-* [버전 0.8.7](#version-087)
-* [버전 0.8.6](#version-086)
-* [버전 0.8.5](#version-085)
-* [버전 0.8.4](#version-084)
-* [버전 0.8.3](#version-083)
-* [버전 0.8.2](#version-082)
-* [버전 0.8.0](#version-080)
-* [버전 0.7.20160509.0](#version-07201605090)
-* [버전 0.7.20160325.0](#version-07201603250)
-* [버전 0.7.20160129.1](#version-07201601291)
-* [버전 0.7.20160105.0](#version-07201601050)
-* [버전 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-130"></a>버전 1.3.0
 07/09/2018
@@ -162,7 +332,7 @@ ms.locfileid: "43190524"
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Linux 사용자의 경우 [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)을 설치해야 합니다.
+* Linux 사용자의 경우 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)을 설치해야 합니다.
 * Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
 
     ```
@@ -219,7 +389,7 @@ ms.locfileid: "43190524"
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Linux 사용자의 경우 [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)을 설치해야 합니다.
+* Linux 사용자의 경우 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)을 설치해야 합니다.
 * Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
 
     ```
@@ -240,7 +410,7 @@ ms.locfileid: "43190524"
 
 ### <a name="new"></a>새로 만들기
 * Storage 탐색기에서 Azurite 사용이 지원됩니다. 참고: Azurite에 대한 연결은 기본 개발 엔드포인트로 하드코드됩니다.
-* Storage 탐색기에서 Blob 전용 및 GPV2 저장소 계정에 대한 액세스 계층이 지원됩니다. 액세스 계층에 대한 자세한 내용은 [여기](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers)를 참조하세요.
+* Storage 탐색기에서 Blob 전용 및 GPV2 저장소 계정에 대한 액세스 계층이 지원됩니다. 액세스 계층에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)를 참조하세요.
 * SAS를 생성할 때 시작 시간이 더 이상 필요하지 않습니다.
 
 ### <a name="fixes"></a>수정 프로그램
@@ -273,7 +443,7 @@ ms.locfileid: "43190524"
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Linux 사용자의 경우 [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)을 설치해야 합니다.
+* Linux 사용자의 경우 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)을 설치해야 합니다.
 * Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
 
     ```
@@ -300,7 +470,7 @@ ms.locfileid: "43190524"
 * 이제 Storage 탐색기 피드백이 GitHub에 있습니다. 왼쪽 아래에 있는 [피드백] 단추를 클릭하거나 [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues)로 이동하여 문제 페이지를 열 수 있습니다. 자유롭게 의견을 제안하고, 문제를 보고하고, 궁금한 점을 질문하거나 기타 형태의 피드백을 남겨주세요.
 * SSL 인증서 문제가 발생했는데 잘못된 인증서를 찾을 수 없는 경우 이제 명령줄에서 `--ignore-certificate-errors` 플래그로 Storage 탐색기를 시작할 수 있습니다. 이 플래그로 시작하면 Storage 탐색기가 SSL 인증서 오류를 무시합니다.
 * 이제 BLOB 및 파일 항목의 상황에 맞는 메뉴에 '다운로드' 옵션이 있습니다.
-* 향상된 내게 필요한 옵션 및 화면 판독기가 지원됩니다. 내게 필요한 옵션 기능을 사용하는 경우 [내게 필요한 옵션 설명서](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-accessibility)에서 자세한 내용을 참조하세요.
+* 향상된 내게 필요한 옵션 및 화면 판독기가 지원됩니다. 내게 필요한 옵션 기능을 사용하는 경우 [내게 필요한 옵션 설명서](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-accessibility)에서 자세한 내용을 참조하세요.
 * 이제 Storage 탐색기가 Electron 1.8.3 사용
 
 ### <a name="breaking-changes"></a>주요 변경 내용
@@ -339,7 +509,7 @@ ms.locfileid: "43190524"
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Linux 사용자의 경우 [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)을 설치해야 합니다.
+* Linux 사용자의 경우 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)을 설치해야 합니다.
 * Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
 
     ```

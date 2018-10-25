@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/21/2018
+ms.date: 10/08/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 18dfdce827a76d924494e66ceb0d03e2bb3a3ffe
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c5cbeed7f689a7ae159d753963c35281b051f632
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523763"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114195"
 ---
 # <a name="azure-storage-replication"></a>Azure Storage 복제
 
@@ -39,9 +39,13 @@ Microsoft Azure Storage 계정 데이터는 항상 내구성 및 고가용성을
 | 전체 지역 가동 중단                                                                                     | 아니요                              | 아니요                               | 예                                  | yes                                  |
 | 지역 전체가 사용할 수 없는 우 데이터(원격 지역 복제 지역의)에 대한 읽기 권한 | 아니요                              | 아니요                               | 아니요                                   | yes                                  |
 | 지정된 한 해 동안 ___의 개체 내구성을 제공하도록 설계되었습니다.                                          | 최소 99.999999999% | 최소 99.9999999999% | 최소 99.99999999999999% | 최소 99.99999999999999% |
-| 지원되는 저장소 계정 형식                                                                   | GPv1, GPv2, Blob                | GPv2                             | GPv1, GPv2, Blob                     | GPv1, GPv2, Blob                     |
+| 지원되는 저장소 계정 형식                                                                   | GPv2, GPv1, Blob                | GPv2, GPv1(PowerShell, Azure CLI 또는 리소스 공급자 API를 통해)                             | GPv2, GPv1, Blob                     | GPv2, GPv1, Blob                     |
+| 읽기 요청에 대한 가용성 SLA | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.99%(쿨 액세스 계층에 대해 99.9%) |
+| 쓰기 요청에 대한 가용성 SLA | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) |
 
-다른 중복 옵션에 대한 가격 정보를 보려면 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
+각 중복 옵션에 대한 가격 책정 정보는 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요. 
+
+Azure Storage의 내구성 및 가용성 보장에 대한 정보는 [Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/)를 참조하세요.
 
 > [!NOTE]
 > Premium Storage는 LRS(로컬 중복 저장소)만 지원합니다. Premium Storage에 대한 자세한 내용은 [Premium Storage: Azure Virtual Machine에 대한 고성능 저장소](../../virtual-machines/windows/premium-storage.md)를 참조하세요.

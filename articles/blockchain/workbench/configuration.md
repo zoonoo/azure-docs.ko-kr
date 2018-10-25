@@ -5,23 +5,23 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 10/4/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: fd3ff0087ee51c392d9cebb32c8bcc969f9a4601
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: caaee4cb155fc05b78bc47f1e53c79ecb0597183
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48242110"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341942"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Azure Blockchain Workbench 구성 참조
 
  Azure Blockchain Workbench 응용 프로그램은 구성 메타데이터 및 스마트 계약 코드에 의해 정의된 다자간 워크플로입니다. 구성 메타데이터는 블록체인 응용 프로그램의 높은 수준 워크플로 및 상호 작용 모델을 정의합니다. 스마트 계약은 블록체인 응용 프로그램의 비즈니스 논리를 정의합니다. Workbench는 구성 및 스마트 계약 코드를 사용하여 블록체인 응용 프로그램 사용자 환경을 생성합니다.
 
-구성 메타데이터는 각 블록체인 응용 프로그램에 대한 다음 정보를 지정합니다. 
+구성 메타데이터는 각 블록체인 응용 프로그램에 대한 다음 정보를 지정합니다.
 
 * 블록체인 응용 프로그램의 이름 및 설명
 * 블록체인 응용 프로그램 내에서 작업하거나 참여할 수 있는 사용자에 대한 고유한 역할
@@ -73,17 +73,44 @@ ms.locfileid: "48242110"
 
 | type | 설명 |
 |-------|-------------|
-| address  | *계약* 또는 *사용자*와 같은 블록체인 주소 유형 |
-| bool     | Boolean 데이터 형식 |
-| 계약 | 계약 유형의 주소 |
-| enum     | 명명된 값의 열거형 집합입니다. 열거형 형식을 사용하는 경우 EnumValues 목록도 지정합니다. 태그 값은 255자로 제한됩니다. 유효한 값 문자에는 대/소문자(A-Z, a-z)와 숫자(0-9)가 포함됩니다. |
-| int      | Integer 데이터 형식 |
-| money    | Money 데이터 형식 |
-| state    | 워크플로 상태 |
-| string   | String 데이터 형식 |
-| 사용자     | 사용자 유형의 주소 |
-| 실시간     | Time 데이터 형식 |
+| address  | *계약* 또는 *사용자*와 같은 블록체인 주소 형식 |
+| array    | 정수, 부울, 돈 또는 시간 형식의 단일 수준 배열입니다. 배열은 정적 또는 동적일 수 있습니다. **ElementType**을 사용하여 배열 내 요소의 데이터 형식을 지정합니다. [예제 구성](#example-configuration-of-type-array)을 참조하세요. |
+| bool     | 부울 데이터 형식입니다. |
+| 계약 | 계약 형식의 주소입니다. |
+| enum     | 명명된 값의 열거형 집합입니다. 열거형 형식을 사용하는 경우 EnumValues 목록도 지정합니다. 태그 값은 255자로 제한됩니다. 유효한 값 문자에는 대/소문자(A-Z, a-z)와 숫자(0-9)가 포함됩니다. [Solidity에서 예제 구성 및 사용](#example-configuration-of-type-enum)을 참조하세요. |
+| int      | 정수 데이터 형식입니다. |
+| money    | 돈 데이터 형식입니다. |
+| state    | 워크플로 상태입니다. |
+| string  | 문자열 데이터 형식입니다. 최대 4000자입니다. [예제 구성](#example-configuration-of-type-string)을 참조하세요. |
+| 사용자     | 사용자 형식의 주소입니다. |
+| 실시간     | 시간 데이터 형식입니다. |
 |`[ Application Role Name ]`| 응용 프로그램 역할에 지정된 임의의 이름. 사용자를 그 역할 유형에 해당하는 경우로 제한합니다. |
+
+### <a name="example-configuration-of-type-array"></a>배열 형식의 예제 구성
+
+```json
+{
+  "Name": "Quotes",
+  "Description": "Market quotes",
+  "DisplayName": "Quotes",
+  "Type": {
+    "Name": "array",
+    "ElementType": {
+        "Name": "int"
+    }
+  }
+}
+```
+
+#### <a name="using-a-property-of-type-array"></a>배열 형식의 속성 사용
+
+구성에서 배열 형식으로 속성을 정의하는 경우 Solidity에서 배열 형식의 공용 속성을 반환하는 명시적인 가져오기 함수를 포함해야 합니다. 예: 
+
+```
+function GetQuotes() public constant returns (int[]) {
+     return Quotes;
+}
+```
 
 ### <a name="example-configuration-of-type-string"></a>문자열 형식의 예제 구성
 

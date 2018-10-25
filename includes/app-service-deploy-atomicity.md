@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/08/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: ac2cf4d688b1bdc54ed2d7341f0e195d3b2fe42d
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 91a4a9ae1d3d84f1396adad07d1cda73ee3747c9
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236472"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49312523"
 ---
 ## <a name="what-happens-to-my-app-during-deployment"></a>배포하는 동안 앱에서 진행되는 작업
 
@@ -21,4 +21,4 @@ ms.locfileid: "35236472"
 
 - 배포하는 동안 앱을 중지하거나 앱에 대한 오프라인 모드를 사용하도록 설정합니다. 자세한 내용은 [배포하는 동안 잠긴 파일 처리](https://github.com/projectkudu/kudu/wiki/Dealing-with-locked-files-during-deployment)를 참조하세요.
 - [자동 전환](../articles/app-service/web-sites-staged-publishing.md#configure-auto-swap) 사용하도록 설정한 상태로 [스테이징 슬롯](../articles/app-service/web-sites-staged-publishing.md)에 배포합니다. 
-- 대신 [Run-from-Zip](https://github.com/Azure/app-service-announcements/issues/84)을 사용합니다.
+- [패키지에서 실행](https://github.com/Azure/app-service-announcements/issues/84)을 대신 사용합니다.

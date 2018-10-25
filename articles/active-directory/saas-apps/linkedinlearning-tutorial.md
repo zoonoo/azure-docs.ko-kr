@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 02e7d9d26b389e82365f3447cceb5566244236f1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 618437d0007668800e0a14e8233db1676be2a364
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440911"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379266"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>자습서: LinkedIn Learning과 Azure Active Directory 통합
 
@@ -110,7 +110,7 @@ LinkedIn Learning에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     ![Configure Single Sign-On](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
 
-1. **OR Click Here to load and copy individual fields from the form(또는 폼에서 개별 필드를 로드하여 복사하려면 여기를 클릭)** 을 클릭하고 **엔터티 ID** 및 **ACS(Assertion Consumer Access) URL**을 복사합니다.
+1. **OR Click Here to load and copy individual fields from the form**(또는 폼에서 개별 필드를 로드하여 복사하려면 여기를 클릭)을 클릭하고 **엔터티 ID** 및 **ACS(Assertion Consumer Access) URL**을 복사합니다.
 
     ![Configure Single Sign-On](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
 
@@ -120,9 +120,9 @@ LinkedIn Learning에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     a. **식별자** 텍스트 상자에 LinkedIn 포털에서 복사한 **엔티티 ID**를 입력합니다. 
 
-    나. **회신 URL** 텍스트 상자에 LinkedIn 포털에서 복사한 **ACS(Assertion Consumer Access) URL**을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 LinkedIn 포털에서 복사한 **ACS(Assertion Consumer Service) URL**을 입력합니다.
 
-1. **SP 시작**에서 SSO를 구성하려면 구성 섹션에서 고급 URL 설정 표시 옵션을 클릭하고 다음 패턴으로 로그온 URL을 구성합니다.
+1. **SP 시작**에서 SSO를 구성하려면 구성 섹션에서 고급 URL 설정 표시 옵션을 클릭하고 로그온 URL을 구성합니다.  자체 로그인 URL을 만들려면 **ACS(Access Control Server) URL**을 복사하여 /saml/을 /login/으로 바꿉니다.   완료된 후에는 로그온 URL에 다음과 같은 패턴이 포함됩니다.
 
     `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=learning&applicationInstanceId=<InstanceId>`
 
@@ -136,7 +136,7 @@ LinkedIn Learning에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     | 특성 이름 | 특성 값 |
     | --- | --- |
-    | email| user.mail |    
+    | 이메일| user.mail |    
     | department| user.department |
     | firstname| user.givenname |
     | lastname| user.surname |
@@ -149,7 +149,7 @@ LinkedIn Learning에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     ![Azure AD 테스트 사용자 만들기](./media/linkedinlearning-tutorial/tutorial_attribute_05.png)
     
-    나. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
+    b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
     
     다. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
     
@@ -161,7 +161,7 @@ LinkedIn Learning에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     ![Configure Single Sign-On](./media/linkedinlearning-tutorial/url_update.png)
 
-    나. **네임스페이스**에서 URL 값을 삭제합니다.
+    b. **네임스페이스**에서 URL 값을 삭제합니다.
     
     다. **확인**을 클릭하여 설정을 저장합니다.
 
@@ -206,7 +206,7 @@ LinkedIn Learning에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: c136772e27dab014c22234f1ef1d2baddd2ffe58
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1bdf1e1f5e58ecb0939d5876e0cef349e32de517
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978083"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344753"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Azure Monitor의 사용자 지정 메트릭
 
@@ -31,7 +31,7 @@ Azure Monitor에 사용자 지정 메트릭을 보내면 보고되는 각 데이
 
 ### <a name="authentication"></a>인증
 Azure Monitor에 사용자 지정 메트릭을 전송하려면 메트릭을 전송하는 엔터티는 요청의 “전달자” 헤더에 유효한 Azure Active Directory 토큰이 있어야 합니다. 유효한 전달자 토큰을 획득하기 위한 지원되는 몇 가지 방법이 있습니다.
-1. [MSI(관리 서비스 ID)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) - Azure 리소스 자체(예: VM)에 ID를 제공합니다. MSI는 리소스가 리소스 자체에 대한 메트릭을 내보내도록 허용하는 등의 특정 작업을 수행하는 권한을 리소스에 부여하도록 설계되었습니다. 다른 리소스에 대한 “메트릭 게시자 모니터링” 권한을 리소스(또는 해당 MSI)에 부여할 수 있습니다. 따라서 다른 리소스에 대한 메트릭을 내보내도록 MSI를 설정할 수 있습니다.
+1. [Azure 리소스에 대한 관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) - Azure 리소스 자체(예: VM)에 ID를 제공합니다. MSI는 리소스가 리소스 자체에 대한 메트릭을 내보내도록 허용하는 등의 특정 작업을 수행하는 권한을 리소스에 부여하도록 설계되었습니다. 다른 리소스에 대한 “메트릭 게시자 모니터링” 권한을 리소스(또는 해당 MSI)에 부여할 수 있습니다. 따라서 다른 리소스에 대한 메트릭을 내보내도록 MSI를 설정할 수 있습니다.
 2. [AAD 서비스 주체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) - 여기에 나온 시나리오는 Azure 리소스에 대한 메트릭을 내보내는 권한을 할당할 수 있는 AAD 응용 프로그램(서비스)입니다.
 요청을 인증하기 위해 Azure Monitor가 AAD 공개 키를 사용하여 응용 프로그램 토큰의 유효성을 검사합니다. 기존 “메트릭 게시자 모니터링” 역할에는 이미 이 권한이 있으며 Azure Portal에서 사용할 수 있습니다. 서비스 주체는 사용자 지정 메트릭을 내보낼 리소스에 따라 필요한 범위(구독, 리소스 그룹 또는 특정 리소스)에서 “메트릭 게시자 모니터링” 역할을 부여받을 수 있습니다.
 

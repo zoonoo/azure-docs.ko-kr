@@ -2,19 +2,18 @@
 title: Azure IoT Hub(Java)를 사용하여 작업 예약 | Microsoft 문서
 description: 여러 장치에서 직접 메서드를 호출하여 Azure IoT Hub 작업을 예약하고 원하는 속성을 설정하는 방법을 설명합니다. Java용 Azure IoT 장치 SDK를 사용하여 시뮬레이션된 장치 앱을 구현하고 Java용 Azure IoT 서비스 SDK를 사용하여 작업을 실행하는 서비스 앱을 구현합니다.
 author: dominicbetts
-manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: 7d41732103bd76e281c2a669a649645c8ff5bc73
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1b49303588c785af149bfc5656bccdbab5216249
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957985"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376467"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>작업 예약 및 브로드캐스트(Java)
 
@@ -31,6 +30,7 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
 이러한 각 기능에 대한 자세한 내용은 다음을 참조하세요.
 
 * 장치 쌍 및 속성: [장치 쌍 시작](iot-hub-java-java-twin-getstarted.md)
+
 * 직접 메서드: [IoT Hub 개발자 가이드 - 직접 메서드](iot-hub-devguide-direct-methods.md) 및 [자습서: 직접 메서드 사용](quickstart-control-device-java.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
@@ -38,6 +38,7 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
 * **lockDoor**라는 직접 메서드를 구현하는 장치 앱을 만듭니다. 또한 이 장치 앱은 백 엔드 앱에서 원하는 속성 변경 내용을 수신합니다.
+
 * 여러 장치에 대해 **lockDoor** 직접 메서드를 호출하는 작업을 만드는 백 엔드 앱을 만듭니다. 다른 작업이 여러 장치로 원하는 속성 업데이트를 보냅니다.
 
 이 자습서를 마치면 다음과 같은 java 콘솔 장치 앱과 java 콘솔 백 엔드 앱이 생성됩니다.
@@ -54,7 +55,9 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * 최신 [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+
 * [Maven 3](https://maven.apache.org/install.html)
+
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 [무료 계정](http://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -68,19 +71,20 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
 이 섹션에서는 작업을 통해 다음을 수행하는 Java 콘솔 앱을 만듭니다.
 
 * 여러 장치에서 **lockDoor** 직접 메서드 호출
+
 * 여러 장치로 원하는 속성 전송
 
 앱을 만들려면 다음을 수행합니다.
 
 1. 개발 컴퓨터에서 `iot-java-schedule-jobs`라는 빈 폴더를 만듭니다.
 
-1. `iot-java-schedule-jobs` 폴더에서 명령 프롬프트를 통해 다음 명령을 사용하여 **schedule-jobs**라는 Maven 프로젝트를 만듭니다. 긴 단일 명령입니다.
+2. `iot-java-schedule-jobs` 폴더에서 명령 프롬프트를 통해 다음 명령을 사용하여 **schedule-jobs**라는 Maven 프로젝트를 만듭니다. 긴 단일 명령입니다.
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=schedule-jobs -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
-1. 명령 프롬프트에서 `schedule-jobs` 폴더로 이동합니다.
+3. 명령 프롬프트에서 `schedule-jobs` 폴더로 이동합니다.
 
-1. 텍스트 편집기를 사용하여 `schedule-jobs` 폴더에서 `pom.xml` 파일을 열고 **종속성** 노드에 다음 종속성을 추가합니다. 이러한 종속성을 통해 IoT Hub와 통신하도록 앱에서 **iot-service-client** 패키지를 사용할 수 있습니다.
+4. 텍스트 편집기를 사용하여 `schedule-jobs` 폴더에서 `pom.xml` 파일을 열고 **종속성** 노드에 다음 종속성을 추가합니다. 이러한 종속성을 통해 IoT Hub와 통신하도록 앱에서 **iot-service-client** 패키지를 사용할 수 있습니다.
 
     ```xml
     <dependency>
@@ -94,7 +98,7 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
     > [!NOTE]
     > [Maven 검색](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)을 사용하여 **iot-service-client**의 최신 버전을 확인할 수 있습니다.
 
-1. **종속성** 노드 뒤에 다음 **빌드** 노드를 추가합니다. 이 구성에서는 Maven에 Java 1.8을 사용하여 앱을 빌드하도록 지시합니다.
+5. **종속성** 노드 뒤에 다음 **빌드** 노드를 추가합니다. 이 구성에서는 Maven에 Java 1.8을 사용하여 앱을 빌드하도록 지시합니다.
 
     ```xml
     <build>
@@ -112,11 +116,11 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
     </build>
     ```
 
-1. `pom.xml` 파일을 저장하고 닫습니다.
+6. `pom.xml` 파일을 저장하고 닫습니다.
 
-1. 텍스트 편집기를 사용하여 `schedule-jobs\src\main\java\com\mycompany\app\App.java` 파일을 엽니다.
+7. 텍스트 편집기를 사용하여 `schedule-jobs\src\main\java\com\mycompany\app\App.java` 파일을 엽니다.
 
-1. 파일에 다음 **import** 문을 추가합니다.
+8. 파일에 다음 **import** 문을 추가합니다.
 
     ```java
     import com.microsoft.azure.sdk.iot.service.devicetwin.DeviceTwinDevice;
@@ -134,7 +138,7 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
     import java.util.UUID;
     ```
 
-1. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. `{youriothubconnectionstring}`은 *IoT Hub 만들기* 섹션에서 기록한 IoT Hub 연결 문자열로 바꿉니다.
+9. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. `{youriothubconnectionstring}`은 *IoT Hub 만들기* 섹션에서 기록한 IoT Hub 연결 문자열로 바꿉니다.
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -145,7 +149,7 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
     private static final long maxExecutionTimeInSeconds = 30;
     ```
 
-1. **App** 클래스에 다음 메서드를 추가하여 장치 쌍에서 원하는 속성 **Building** 및 **Floor**를 업데이트하는 작업을 예약합니다.
+10. **App** 클래스에 다음 메서드를 추가하여 장치 쌍에서 원하는 속성 **Building** 및 **Floor**를 업데이트하는 작업을 예약합니다.
 
     ```java
     private static JobResult scheduleJobSetDesiredProperties(JobClient jobClient, String jobId) {
@@ -175,7 +179,7 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
     }
     ```
 
-1. **lockDoor** 메서드를 호출하는 작업을 예약하려면 **App** 클래스에 다음 메서드를 추가합니다.
+11. **lockDoor** 메서드를 호출하는 작업을 예약하려면 **App** 클래스에 다음 메서드를 추가합니다.
 
     ```java
     private static JobResult scheduleJobCallDirectMethod(JobClient jobClient, String jobId) {
@@ -199,7 +203,7 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
     };
     ```
 
-1. 작업을 모니터링하려면 **App** 클래스에 다음 메서드를 추가합니다.
+12. 작업을 모니터링하려면 **App** 클래스에 다음 메서드를 추가합니다.
 
     ```java
     private static void monitorJob(JobClient jobClient, String jobId) {
@@ -226,7 +230,7 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
     }
     ```
 
-1. 실행한 작업의 세부 정보를 쿼리하려면 다음 메서드를 추가합니다.
+13. 실행한 작업의 세부 정보를 쿼리하려면 다음 메서드를 추가합니다.
 
     ```java
     private static void queryDeviceJobs(JobClient jobClient, String start) throws Exception {
@@ -243,13 +247,13 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
     }
     ```
 
-1. 다음 `throws` 절을 포함하도록 **main** 메서드 서명을 업데이트합니다.
+14. 다음 `throws` 절을 포함하도록 **main** 메서드 서명을 업데이트합니다.
 
     ```java
     public static void main( String[] args ) throws Exception
     ```
 
-1. 두 작업을 순서대로 실행하고 모니터링하려면 **main** 메서드에 다음 코드를 추가합니다.
+15. 두 작업을 순서대로 실행하고 모니터링하려면 **main** 메서드에 다음 코드를 추가합니다.
 
     ```java
     // Record the start time
@@ -276,9 +280,9 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
     System.out.println("Shutting down schedule-jobs app");
     ```
 
-1. `schedule-jobs\src\main\java\com\mycompany\app\App.java` 파일을 저장하고 닫습니다.
+16. `schedule-jobs\src\main\java\com\mycompany\app\App.java` 파일을 저장하고 닫습니다.
 
-1. **schedule-jobs** 앱을 빌드하고 오류를 수정합니다. 명령 프롬프트에서 `schedule-jobs` 폴더로 이동하고 다음 명령을 실행합니다.
+17. **schedule-jobs** 앱을 빌드하고 오류를 수정합니다. 명령 프롬프트에서 `schedule-jobs` 폴더로 이동하고 다음 명령을 실행합니다.
 
     `mvn clean package -DskipTests`
 
@@ -290,9 +294,9 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
-1. 명령 프롬프트에서 `simulated-device` 폴더로 이동합니다.
+2. 명령 프롬프트에서 `simulated-device` 폴더로 이동합니다.
 
-1. 텍스트 편집기를 사용하여 `simulated-device` 폴더에서 `pom.xml` 파일을 열고 **종속성** 노드에 다음 종속성을 추가합니다. 이러한 종속성을 통해 IoT 허브와 통신하도록 앱에서 **iot-device-client** 패키지를 사용할 수 있습니다.
+3. 텍스트 편집기를 사용하여 `simulated-device` 폴더에서 `pom.xml` 파일을 열고 **종속성** 노드에 다음 종속성을 추가합니다. 이러한 종속성을 통해 IoT 허브와 통신하도록 앱에서 **iot-device-client** 패키지를 사용할 수 있습니다.
 
     ```xml
     <dependency>
@@ -305,7 +309,7 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
     > [!NOTE]
     > [Maven 검색](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)을 사용하여 **iot-device-client**의 최신 버전을 확인할 수 있습니다.
 
-1. **종속성** 노드 뒤에 다음 **빌드** 노드를 추가합니다. 이 구성에서는 Maven에 Java 1.8을 사용하여 앱을 빌드하도록 지시합니다.
+4. **종속성** 노드 뒤에 다음 **빌드** 노드를 추가합니다. 이 구성에서는 Maven에 Java 1.8을 사용하여 앱을 빌드하도록 지시합니다.
 
     ```xml
     <build>
@@ -323,11 +327,11 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
     </build>
     ```
 
-1. `pom.xml` 파일을 저장하고 닫습니다.
+5. `pom.xml` 파일을 저장하고 닫습니다.
 
-1. 텍스트 편집기를 사용하여 `simulated-device\src\main\java\com\mycompany\app\App.java` 파일을 엽니다.
+6. 텍스트 편집기를 사용하여 `simulated-device\src\main\java\com\mycompany\app\App.java` 파일을 엽니다.
 
-1. 파일에 다음 **import** 문을 추가합니다.
+7. 파일에 다음 **import** 문을 추가합니다.
 
     ```java
     import com.microsoft.azure.sdk.iot.device.*;
@@ -338,7 +342,7 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
     import java.util.Scanner;
     ```
 
-1. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. `{youriothubname}`을 IoT 허브 이름으로 바꾸고 `{yourdevicekey}`를 *장치 ID 만들기* 섹션에서 만든 장치 키 값으로 바꿉니다.
+8. 다음 클래스 수준 변수를 **App** 클래스에 추가합니다. `{youriothubname}`을 IoT 허브 이름으로 바꾸고 `{yourdevicekey}`를 *장치 ID 만들기* 섹션에서 만든 장치 키 값으로 바꿉니다.
 
     ```java
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myDeviceID;SharedAccessKey={yourdevicekey}";
@@ -349,7 +353,7 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
 
     이 샘플 앱은 **DeviceClient** 개체를 인스턴스화할 때 **프로토콜** 변수를 사용합니다.
 
-1. 콘솔에 장치 쌍 알림을 인쇄하려면 다음 중첩 클래스를 **App** 클래스에 추가합니다.
+9. 콘솔에 장치 쌍 알림을 인쇄하려면 다음 중첩 클래스를 **App** 클래스에 추가합니다.
 
     ```java
     // Handler for device twin operation notifications from IoT Hub
@@ -360,7 +364,7 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
     }
     ```
 
-1. 콘솔에 직접 메서드 알림을 인쇄하려면 다음 중첩 클래스를 **App** 클래스에 추가합니다.
+10. 콘솔에 직접 메서드 알림을 인쇄하려면 다음 중첩 클래스를 **App** 클래스에 추가합니다.
 
     ```java
     // Handler for direct method notifications from IoT Hub
@@ -371,7 +375,7 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
     }
     ```
 
-1. IoT Hub로부터의 직접 메서드 호출을 처리하려면 다음 중첩 클래스를 **App** 클래스에 추가합니다.
+11. IoT Hub로부터의 직접 메서드 호출을 처리하려면 다음 중첩 클래스를 **App** 클래스에 추가합니다.
 
     ```java
     // Handler for direct method calls from IoT Hub
@@ -396,13 +400,13 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
     }
     ```
 
-1. 다음 `throws` 절을 포함하도록 **main** 메서드 서명을 업데이트합니다.
+12. 다음 `throws` 절을 포함하도록 **main** 메서드 서명을 업데이트합니다.
 
     ```java
     public static void main( String[] args ) throws IOException, URISyntaxException
     ```
 
-1. **main** 메서드에 다음 코드를 추가합니다.
+13. **main** 메서드에 다음 코드를 추가합니다.
     * IoT Hub와 통신하는 장치 클라이언트를 만듭니다.
     * **Device** 개체를 만들어 장치 쌍 속성을 저장합니다.
 
@@ -420,7 +424,7 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
     };
     ```
 
-1. 장치 클라이언트 서비스를 시작하려면 다음 코드를 **main** 메서드에 추가합니다.
+14. 장치 클라이언트 서비스를 시작하려면 다음 코드를 **main** 메서드에 추가합니다.
 
     ```java
     try {
@@ -438,7 +442,7 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
     }
     ```
 
-1. 종료하기 전에 사용자가 **Enter** 키를 누를 때까지 대기하려면 다음 코드를 **main** 메서드 끝에 추가합니다.
+15. 종료하기 전에 사용자가 **Enter** 키를 누를 때까지 대기하려면 다음 코드를 **main** 메서드 끝에 추가합니다.
 
     ```java
     // Close the app
@@ -450,9 +454,9 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
     scanner.close();
     ```
 
-1. `simulated-device\src\main\java\com\mycompany\app\App.java` 파일을 저장하고 닫습니다.
+16. `simulated-device\src\main\java\com\mycompany\app\App.java` 파일을 저장하고 닫습니다.
 
-1. **simulated-device** 앱을 빌드하고 오류를 수정합니다. 명령 프롬프트에서 `simulated-device` 폴더로 이동하고 다음 명령을 실행합니다.
+17. **simulated-device** 앱을 빌드하고 오류를 수정합니다. 명령 프롬프트에서 `simulated-device` 폴더로 이동하고 다음 명령을 실행합니다.
 
     `mvn clean package -DskipTests`
 
@@ -464,17 +468,17 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
 
     `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
 
-    ![장치 클라이언트 시작](media/iot-hub-java-java-schedule-jobs/device-app-1.png)
+    ![장치 클라이언트 시작](./media/iot-hub-java-java-schedule-jobs/device-app-1.png)
 
-1. 명령 프롬프트의 `schedule-jobs` 폴더에서 다음 명령을 실행하여 **schedule-jobs** 서비스 앱을 실행해 두 작업을 실행합니다. 첫 번째 작업에서는 원하는 속성 값을 설정하고 두 번째 작업에서는 직접 메서드를 호출합니다.
+2. 명령 프롬프트의 `schedule-jobs` 폴더에서 다음 명령을 실행하여 **schedule-jobs** 서비스 앱을 실행해 두 작업을 실행합니다. 첫 번째 작업에서는 원하는 속성 값을 설정하고 두 번째 작업에서는 직접 메서드를 호출합니다.
 
     `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
 
-    ![Java IoT Hub 서비스 앱에서 두 개의 작업을 작성함](media/iot-hub-java-java-schedule-jobs/service-app-1.png)
+    ![Java IoT Hub 서비스 앱에서 두 개의 작업을 작성함](./media/iot-hub-java-java-schedule-jobs/service-app-1.png)
 
-1. 장치 앱이 원하는 속성 변경 및 직접 메서드 호출을 처리합니다.
+3. 장치 앱이 원하는 속성 변경 및 직접 메서드 호출을 처리합니다.
 
-    ![장치 클라이언트에 변경 내용에 응답함](media/iot-hub-java-java-schedule-jobs/device-app-2.png)
+    ![장치 클라이언트에 변경 내용에 응답함](./media/iot-hub-java-java-schedule-jobs/device-app-2.png)
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -483,4 +487,5 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
 아래와 같이 실행할 방법을 알아보려면 다음 리소스를 참조하세요.
 
 * [IoT Hub 시작](quickstart-send-telemetry-java.md) 자습서를 참조하여 장치에서 원격 분석을 보냅니다.
-* [직접 메서드 사용](quickstart-control-device-java.md) 자습서를 참조하여 대화형으로(예: 사용자 제어 앱에서 팬 작동) 장치를 제어합니다.
+
+* [직접 메서드 사용](quickstart-control-device-java.md) 자습서를 참조하여 대화형으로(예: 사용자가 제어하는 앱에서 팬을 켬) 장치 제어

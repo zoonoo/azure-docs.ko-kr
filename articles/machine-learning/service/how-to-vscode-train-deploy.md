@@ -9,12 +9,12 @@ ms.author: jmartens
 author: j-martens
 ms.reviewer: jmartens
 ms.date: 10/1/2018
-ms.openlocfilehash: 3a5ee8795dabcbf9e35e16a8ba0f9c0eb5490ead
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 6372aada8c3d380f8d3cefb0479e45bbd7c63898
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241820"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945249"
 ---
 # <a name="vs-code-tools-for-ai-train-and-deploy-ml-models-from-vs-code"></a>VS Code Tools for AI: VS Code에서 ML 모델 학습 및 배포
 이 문서에서는 **VS Code Tools for AI** 확장을 사용하여 VS Code에서 Azure Machine Learning 서비스로 기계 학습 및 딥 러닝 모델을 학습하고 배포하는 방법을 알아봅니다.
@@ -196,4 +196,4 @@ ACI 컨테이너가 즉석에서 만들어지므로 테스트할 컨테이너를
 
 VS Code 외부에서 Machine Learning을 사용한 학습을 연습하려면 [자습서: Azure Machine Learning을 사용하여 모델 학습](tutorial-train-models-with-aml.md)을 참조하세요.
 
-로컬로 코드를 편집, 실행 및 디버그하는 방법을 연습하려면 [Python Hello World 자습서](https://code.visualstudio.com/docs/languages/python/docs/python/python-tutorial)를 참조하세요.
+로컬로 코드를 편집, 실행 및 디버그하는 방법을 연습하려면 [Python Hello World 자습서](https://code.visualstudio.com/docs/python/python-tutorial)를 참조하세요.

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: e12c513f8812381897804412616be1ef7c743a3d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 634958265193a1dedb7c860c34f712160e4120d2
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044096"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353294"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -257,7 +257,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 네트워크 성능 모니터는 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)의 경고 기능을 사용합니다.
 
-즉, 모든 경고는 [작업 그룹](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview)을 사용하여 관리됩니다.  
+즉, 모든 알림은 [작업 그룹](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview)을 사용하여 관리됩니다.  
 
 OMS를 통해 경고를 만드는 NPM 사용자인 경우: 
 1. Azure Portal로 리디렉션하는 링크가 보입니다. 이 링크를 클릭하여 포털에 액세스합니다.
@@ -271,7 +271,11 @@ Azure Portal을 통해 경고를 만드는 NPM 사용자인 경우:
 3. 작업 그룹을 사용하기로 선택하면 이전에 만든 작업 그룹을 선택해야 합니다. 작업 그룹을 만드는 방법은 [여기](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal)서 배울 수 있습니다. 
 4. 경고가 만들어지면 경고 관리를 사용하여 경고를 관리할 수 있습니다. 
 
-##<a name="pricing"></a>가격
+경고를 만들 때마다 NPM은 Azure Monitor에 쿼리 기반 로그 경고 규칙을 작성합니다. 이 쿼리는 기본적으로 5분마다 트리거됩니다. Azure Monitor에서는 처음 생성된 250개의 로그 경고 규칙에 대해서는 요금을 부과하지 않고 250개 로그 경고 규칙 제한을 초과하는 모든 경고 규칙에 대해 [Azure Monitor 가격 책정 페이지의 경고 가격](https://azure.microsoft.com/en-us/pricing/details/monitor/)에 따라 요금을 부과합니다.
+알림은 [Azure Monitor 가격 책정 페이지의 알림 가격](https://azure.microsoft.com/en-us/pricing/details/monitor/)에 따라 별도로 청구됩니다.
+
+
+## <a name="pricing"></a>가격
 
 가격 책정에 대한 정보는 [온라인](log-analytics-network-performance-monitor-pricing-faq.md)으로 지원됩니다.
 

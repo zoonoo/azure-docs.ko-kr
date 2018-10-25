@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: saudas
-ms.openlocfilehash: 6b55825107ae8872b146b3ad4fde0ef4b917b71d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d8da717b83b43395309c695a4f9edaeda8144a8b
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046830"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379198"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 지원되는 Kubernetes 버전
 
@@ -32,6 +32,29 @@ AKS에서 지원하는 Kubernetes의 4개 부 버전은 다음과 같습니다.
 새로운 부 버전이 릴리스되면 지원되는 가장 오래된 부 버전 및 패치 릴리스는 사용 중지됩니다. 새로운 부 버전이 릴리스되어 이전 버전이 사용 중지되기 15일 전에 Azure 업데이트 채널을 통해 공지가 제공됩니다. 위의 예제에서는 *1.11.x*가 릴리스되면 *1.7.g* + *1.7.h* 버전이 사용 중지됩니다.
 
 포털에서 또는 Azure CLI를 사용하여 배포하는 AKS 클러스터는 항상 n-1 부 버전 및 최신 패치로 설정됩니다. 예를 들어 AKS에서 *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1.9d*, *1.8.e* + *1.8f*를 지원하는 경우 새 클러스터의 기본 버전은 *1.10.b*가 됩니다.
+
+## <a name="list-currently-supported-versions"></a>현재 지원되는 버전 목록
+
+사용자의 구독과 지역에 현재 제공되는 버전을 알아보려면 [az aks get-versions][az-aks-get-versions] 명령을 사용합니다. 다음 예제에는 *EastUS* 지역에 제공되는 Kubernetes 버전이 나열되어 있습니다.
+
+```azurecli-interactive
+az aks get-versions --location eastus --output table
+```
+
+출력은 다음 예제와 비슷합니다. 예제의 경우 Kubernetes 버전 *1.11.3*이 사용할 수 있는 최신 버전입니다.
+
+```
+KubernetesVersion    Upgrades
+-------------------  ----------------------
+1.11.3               None available
+1.11.2               1.11.3
+1.10.8               1.11.2, 1.11.3
+1.10.7               1.10.8, 1.11.2, 1.11.3
+1.9.10               1.10.7, 1.10.8
+1.9.9                1.9.10, 1.10.7, 1.10.8
+1.8.15               1.9.9, 1.9.10
+1.8.14               1.8.15, 1.9.9, 1.9.10
+```
 
 ## <a name="faq"></a>FAQ
 
@@ -65,3 +88,4 @@ AKS에서 지원되지 않는 부 버전에서도 규모 감축이나 확장은 
 
 <!-- LINKS - Internal -->
 [aks-upgrade]: upgrade-cluster.md
+[az-aks-get-versions]: /cli/azure/aks#az-aks-get-versions

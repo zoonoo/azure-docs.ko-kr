@@ -1,20 +1,21 @@
 ---
-title: Academic Knowledge API의 CalcHistogram 메서드 | Microsoft Docs
-description: CalcHistogram 메서드를 사용하여 Microsoft Cognitive Services의 논문 엔터티 집합에 대한 특성 값의 분포를 계산할 수 있습니다.
+title: CalcHistogram 메서드 - Academic Knowledge API
+titlesuffix: Azure Cognitive Services
+description: CalcHistogram 메서드를 사용하여 논문 엔터티 집합의 특성 값 분포를 계산합니다.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: e0b773fb9791ee638c8cfdbbc9dca40543e50ec0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 915e2e5a67d068c418ce50eee9d84dc66e61ee00
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372798"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321294"
 ---
 # <a name="calchistogram-method"></a>CalcHistogram 메서드
 
@@ -29,16 +30,18 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
   
 ## <a name="request-parameters"></a>요청 매개 변수
 
-Name  |값 | Required?  |설명
+이름  |값 | Required?  |설명
 -----------|----------|--------|----------
-**expr**    |텍스트 문자열 | 예  |히스토그램을 계산할 엔터티를 지정하는 쿼리 식입니다.
-**model** |텍스트 문자열 | 아니오 |쿼리할 모델 이름을 선택합니다.  현재 기본값은 *최신*입니다.
-**attributes** | 텍스트 문자열 | 아니오<br>기본값: | 응답에 포함된 특성 값을 지정하는 쉼표로 구분된 목록입니다. 특성 이름은 대/소문자를 구분합니다.
-**count** |Number | 아니오<br>기본값: 10 |반환할 결과의 수입니다.
-**offset**  |Number | 아니오<br>기본값: 0 |반환할 첫 번째 결과의 인덱스입니다.
-<br>
+**expr**    |텍스트 문자열 | yes  |히스토그램을 계산할 엔터티를 지정하는 쿼리 식입니다.
+**model** |텍스트 문자열 | 아니요 |쿼리할 모델 이름을 선택합니다.  현재 기본값은 *최신*입니다.
+**attributes** | 텍스트 문자열 | 아니요<br>기본값: | 응답에 포함된 특성 값을 지정하는 쉼표로 구분된 목록입니다. 특성 이름은 대/소문자를 구분합니다.
+**count** |Number | 아니요<br>기본값: 10 |반환할 결과의 수입니다.
+**offset**  |Number | 아니요<br>기본값: 0 |반환할 첫 번째 결과의 인덱스입니다.
+**timeout**  |Number | 아니요<br>기본값: 1000 |시간 제한(밀리초)입니다. 시간 제한이 경과되기 전에 찾은 해석만 반환됩니다.
+
 ## <a name="response-json"></a>응답(JSON)
-Name | 설명
+
+이름 | 설명
 --------|---------
 **expr**  |요청의 expr 매개 변수입니다.
 **num_entities** | 일치하는 항목의 총 수입니다.
@@ -50,10 +53,10 @@ Name | 설명
 **histograms[x].histogram[y].value** |  특성의 값입니다.
 **histograms[x].histogram[y].logprob**  |이 특성 값과 일치하는 엔터티의 총 자연 로그 확률입니다.
 **histograms[x].histogram[y].count**  |이 특성 값과 일치하는 엔터티의 수입니다.
-**aborted** | 요청 시간이 초과되면 True입니다.
+**aborted** | 요청 시간이 초과되면 true입니다.
 
- <br>
-#### <a name="example"></a>예:
+
+#### <a name="example"></a>예제:
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?expr=And(Composite(AA.AuN=='jaime teevan'),Y>2012)&attributes=Y,F.FN&count=4
 ```

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/03/2018
+ms.date: 10/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 43f077ef07597604eaf42cb4af47cbc2f0e6c524
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 9decd861ff20a45939f700eef99245b6555829f8
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042006"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319747"
 ---
 # <a name="collect-data-in-a-hybrid-environment-with-log-analytics-agent"></a>Azure Log Analytics 에이전트를 사용하여 하이브리드 환경에서 데이터 수집
 
@@ -51,15 +51,30 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 * Windows 7 SP1 이상.
 
 ## <a name="supported-linux-operating-systems"></a>지원되는 Linux 운영 체제
-다음 Linux 배포판이 공식적으로 지원됩니다.  하지만 Linux 에이전트는 나열되지 않은 그 밖의 배포에서 실행이 가능할 수 있습니다.  다른 설명이 없는 한, 나열된 각 주 버전의 모든 부 버전이 지원됩니다.  
+이 섹션에서는 지원되는 Linux 배포판에 대한 정보를 제공합니다.    
 
-* Amazon Linux 2012.09 ~ 2015.09(x86/x64)
-* CentOS Linux 5, 6 및 7(x86/x64)  
-* Oracle Linux 5, 6 및 7(x86/x64) 
-* Red Hat Enterprise Linux Server 5, 6 및 7(x86/x64)
-* Debian GNU/Linux 6, 7, 8(x86/x64)
-* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS(x86/x64)
-* SUSE Linux Enterprise Server 11 및 12(x86/x64)
+2018년 8월 이후에 출시된 버전부터 지원 모델이 다음과 같이 변경됩니다.  
+
+* 서버 버전만 지원되고 클라이언트 버전은 지원되지 않습니다.  
+* 새 버전의 [Azure Linux 보증 배포판](../virtual-machines/linux/endorsed-distros.md)은 항상 지원됩니다.  
+* 나열된 각 주 버전의 모든 부 버전이 지원됩니다.
+* 제조업체의 지원 종료 날짜가 지난 버전은 지원되지 않습니다.  
+* 새 AMI 버전은 지원되지 않습니다.  
+* 기본적으로 SSL 1.x를 실행하는 버전만 지원됩니다.
+
+현재 지원되지 않고 Microsoft 지원 모델에 맞지 않는 배포판 또는 버전을 사용하는 경우 이 리포지토리를 포크하고, Microsoft 기술 지원에서 포크된 에이전트 버전에 대한 지원을 제공하지 않는다는 것을 확인하는 것이 좋습니다.
+
+* Amazon Linux 2017.09(x64)
+* CentOS Linux 6(x86/x64) 및 7(x64)  
+* Oracle Linux 6 및 7(x86/x64) 
+* Red Hat Enterprise Linux Server 6(x86/x64) 및 7(x64)
+* Debian GNU/Linux 8 및 9(x86/x64)
+* Ubuntu 14.04 LTS(x86/x64), 16.04 LTS(x86/x64) 및 18.04 LTS(x64)
+* SUSE Linux Enterprise Server 12(x64)
+
+>[!NOTE]
+>OpenSSL 1.1.0은 x86_x64 플랫폼(64비트)에서만 지원되고, OpenSSL 1.x 미만은 어떤 플랫폼에서도 지원되지 않습니다.
+>
 
 ## <a name="tls-12-protocol"></a>TLS 1.2 프로토콜
 Log Analytics로 전송 중인 데이터를 보호하려면 적어도 TLS(전송 계층 보안) 1.2 이상을 사용하도록 에이전트를 구성하는 것이 좋습니다. 이전 버전의 TLS/SSL(Secure Sockets Layer)은 취약한 것으로 나타났으며, 여전히 이전 버전과 호환되지만 **사용하지 않는 것이 좋습니다**.  자세한 내용은 [TLS 1.2를 사용하여 안전하게 데이터 보내기](log-analytics-data-security.md#sending-data-securely-using-tls-12)를 검토하세요. 

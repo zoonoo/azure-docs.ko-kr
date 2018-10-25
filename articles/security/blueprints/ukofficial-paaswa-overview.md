@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 6fe85d7ac527179ab39e89739f5744f3aa1ef8e2
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1c2294004245e0ef64b9b708a5b57ec0d34cc45f
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297558"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321991"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Security and Compliance Blueprint: UK OFFICIAL 워크로드 준수 PaaS 웹 응용 프로그램 호스팅
 
@@ -52,7 +52,6 @@ Azure Blueprint는 승인 또는 규정 준수 요구 사항이 있는 시나리
 이 솔루션에서는 다음과 같은 Azure 서비스를 사용합니다. 배포 아키텍처에 대한 세부 정보는 [배포 아키텍처](#deployment-architecture) 섹션에 있습니다.
 
 - Azure Active Directory
-- 관리되는 서비스 ID
 - App Service
 - 웹앱
 - API 앱
@@ -107,13 +106,13 @@ Azure Web Apps는 인프라를 관리할 필요 없이 Java, PHP, Node.js Python
 
 App Service는 [ISO, SOC 및 PCI 규격](https://www.microsoft.com/TrustCenter/)이며, [Azure Active Directory](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) 또는 소셜 로그인([Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication), [Facebook](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-facebook-authentication), [Twitter](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-twitter-authentication) 및 [Microsoft 인증](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication)을 통해 사용자를 인증합니다.
 
-기본, 표준 및 프리미엄 요금제는 프로덕션 워크로드에 적용되는 요금제이며, 전용 Virtual Machine 인스턴스에서 실행됩니다. 각 인스턴스는 여러 개의 응용 프로그램과 도메인을 지원할 수 있습니다. 또한 App Services는 필요한 경우 [IP 주소 제한](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)을 지원하여 신뢰할 수 있는 IP 주소에 대한 트래픽을 보호하고, [관리 서비스 ID](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)도 지원하여 [Key Vault](https://azure.microsoft.com/services/key-vault/) 및 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)와 같은 다른 PaaS 서비스에 대한 연결을 보호합니다. 추가 보안이 필요한 경우 격리 계층 요금제는 개인 전용 Azure 환경에서 앱을 호스팅하며, 온-프레미스 네트워크와의 보안 연결이 필요하거나 추가 성능과 크기 조정이 필요한 앱에 이상적입니다.
+기본, 표준 및 프리미엄 요금제는 프로덕션 워크로드에 적용되는 요금제이며, 전용 Virtual Machine 인스턴스에서 실행됩니다. 각 인스턴스는 여러 개의 응용 프로그램과 도메인을 지원할 수 있습니다. 또한 App Services는 필요한 경우 [IP 주소 제한](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)을 지원하여 신뢰할 수 있는 IP 주소로 전송되는 트래픽을 보호하고, [Key Vault](https://azure.microsoft.com/services/key-vault/) 및 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 같은 다른 PaaS 서비스에 안전하게 연결할 수 있도록 [Azure 리소스에 대한 관리 ID](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)를 지원합니다. 추가 보안이 필요한 경우 격리 계층 요금제는 개인 전용 Azure 환경에서 앱을 호스팅하며, 온-프레미스 네트워크와의 보안 연결이 필요하거나 추가 성능과 크기 조정이 필요한 앱에 이상적입니다.
 
 이 템플릿에서 배포하는 App Service 기능은 다음과 같습니다.
 
 - [표준](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) App Service 계획 계층
 - 여러 Web App [배포 슬롯](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing): 개발, 미리 보기, QA, UAT 및 프로덕션(기본 슬롯)
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)에 연결하는 [관리 서비스 ID](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)([Azure SQL Database](https://azure.microsoft.com/services/sql-database/)에 대한 액세스를 제공하는 데도 사용할 수 있음) 
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)에 연결하는 [Azure 리소스에 대한 관리 ID](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)([Azure SQL Database](https://azure.microsoft.com/services/sql-database/)에 대한 액세스를 제공하는 데 사용할 수도 있음) 
 - 성능을 모니터링하는 [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps)와의 통합
 - [진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 
 - 메트릭 [경고](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) 
@@ -164,7 +163,7 @@ Azure Storage 보안에 대한 자세한 내용은 [보안 가이드](https://do
 
 #### <a name="azure-key-vault-in-this-blueprint"></a>이 청사진의 Azure Key Vault
 
-- 고객이 연결하는 웹앱의 [관리 서비스 ID](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)에 읽기 액세스 권한이 부여된 저장소 액세스 키를 보유합니다.
+- 고객이 연결하는 웹앱의 [관리 ID](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)에 읽기 액세스 권한이 부여된 저장소 액세스 키를 보유합니다.
 - SQL Server DBA 암호를 보유합니다(별도의 자격 증명 모음에 있음).
 - 진단 로깅
 

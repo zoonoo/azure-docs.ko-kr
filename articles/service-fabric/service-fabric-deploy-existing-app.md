@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell
-ms.openlocfilehash: 99d34d59bb9d55ff074d454fe4544917c4e91110
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a80895db8a89b8d9392d0ed067b95daa23474d8b
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205990"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113872"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>기존 실행 파일을 Service Fabric으로 패키징 및 배포
 기존 실행 파일을 [게스트 실행 파일](service-fabric-guest-executables-introduction.md)로 패키징할 경우 Visual Studio 프로젝트 템플릿을 사용하거나 [응용 프로그램 패키지를 수동으로 만들도록](#manually) 선택할 수 있습니다. Visual Studio를 사용하면 새 프로젝트 템플릿에 의해 응용 프로그램 패키지 구조 및 매니페스트 파일이 생성됩니다.
@@ -42,7 +42,7 @@ Visual Studio는 게스트 실행 파일을 서비스 패브릭 클러스터에 
      * `CodePackage`는 작업 디렉터리가 응용 프로그램 패키지의 루트에 설정되도록 지정합니다(이전 파일 구조에 표시된 `GuestService1Pkg`).
      * `Work`는 파일이 work라는 하위 디렉터리에 배치되도록 지정합니다.
 4. 서비스에 이름을 지정하고 **확인**을 클릭합니다.
-5. 서비스에서 통신에 끝점이 필요한 경우 이제 프로토콜, 포트, 형식을 ServiceManifest.xml 파일에 추가할 수 있습니다. 예: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`
+5. 서비스에서 통신에 엔드포인트가 필요한 경우 이제 프로토콜, 포트, 형식을 ServiceManifest.xml 파일에 추가할 수 있습니다. 예: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`
 6. 이제 패키지를 사용하고 Visual Studio에서 솔루션을 디버깅하여 로컬 클러스터에 대해 작업을 게시할 수 있습니다. 준비가 되면 원격 클러스터로 응용 프로그램을 게시하거나 원본 제어에 대한 솔루션을 체크 인합니다.
 7. Service Fabric Explorer에서 실행 중인 게스트 실행 파일 서비스를 보는 방법을 보려면 [실행 중인 응용 프로그램 확인](#check-your-running-application)을 참조하세요.
 
@@ -168,7 +168,9 @@ SetupEntryPoint가 하나밖에 없으므로 응용 프로그램의 설치에 �
 </EntryPoint>
 ```
 
-서비스 매니페스트 파일의 `EntryPoint` 요소는 서비스를 시작하는 방법을 지정하는 데 사용됩니다. `ExeHost` 요소는 서비스를 시작하는 데 사용되어야 하는 실행 파일(및 인수)을 지정합니다.
+서비스 매니페스트 파일의 `EntryPoint` 요소는 서비스를 시작하는 방법을 지정하는 데 사용됩니다.
+
+`ExeHost` 요소는 서비스를 시작하는 데 사용되어야 하는 실행 파일(및 인수)을 지정합니다. 필요에 따라 `IsExternalExecutable="true"` 특성을 `ExeHost`에 추가하여 프로그램이 코드 패키지 외부의 외부 실행 파일임을 나타낼 수 있습니다. 예: `<ExeHost IsExternalExecutable="true">`.
 
 * `Program`은 서비스를 시작해야 하는 실행 파일의 이름을 지정합니다.
 * `Arguments` 는 실행 파일에 전달되어야 하는 인수를 지정합니다. 인수가 있는 매개 변수 목록이 될 수도 있습니다.
@@ -179,19 +181,19 @@ SetupEntryPoint가 하나밖에 없으므로 응용 프로그램의 설치에 �
 
 WorkingFolder는 응용 프로그램 또는 초기화 스크립트에서 상대 경로를 사용할 수 있도록 올바른 작업 디렉터리를 설정하는 데 유용합니다.
 
-#### <a name="update-endpoints-and-register-with-naming-service-for-communication"></a>통신을 위해 끝점을 업데이트하고 명명 서비스에 등록
+#### <a name="update-endpoints-and-register-with-naming-service-for-communication"></a>통신을 위해 엔드포인트를 업데이트하고 명명 서비스에 등록
 ```xml
 <Endpoints>
    <Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" Type="Input" />
 </Endpoints>
 
 ```
-앞의 예제에서 `Endpoint` 요소는 응용 프로그램에서 수신 대기할 수 있는 끝점을 지정합니다. 이 예제에서 Node.js 응용 프로그램은 포트 3000의 http에 수신 대기합니다.
+앞의 예제에서 `Endpoint` 요소는 응용 프로그램에서 수신 대기할 수 있는 엔드포인트를 지정합니다. 이 예제에서 Node.js 응용 프로그램은 포트 3000의 http에 수신 대기합니다.
 
-또한 다른 서비스가 이 서비스에 대한 끝점 주소를 검색할 수 있도록 Service Fabric에 이 끝점을 명명 서비스에 게시하도록 요청할 수 있습니다. 이렇게 하면 게스트 실행 파일인 서비스 간에 통신을 할 수 있습니다.
-게시된 끝점 주소는 `UriScheme://IPAddressOrFQDN:Port/PathSuffix`형식입니다. `UriScheme` 및 `PathSuffix`는 선택적 특성입니다. `IPAddressOrFQDN`은 이 실행 파일이 배치되고 계산되는 노드의 IP 주소 또는 정규화된 도메인 이름입니다.
+또한 다른 서비스가 이 서비스에 대한 엔드포인트 주소를 검색할 수 있도록 Service Fabric에 이 엔드포인트를 명명 서비스에 게시하도록 요청할 수 있습니다. 이렇게 하면 게스트 실행 파일인 서비스 간에 통신을 할 수 있습니다.
+게시된 엔드포인트 주소는 `UriScheme://IPAddressOrFQDN:Port/PathSuffix`형식입니다. `UriScheme` 및 `PathSuffix`는 선택적 특성입니다. `IPAddressOrFQDN`은 이 실행 파일이 배치되고 계산되는 노드의 IP 주소 또는 정규화된 도메인 이름입니다.
 
-다음 예제에서 서비스가 배포되면, 서비스 인스턴스에 대해 게시된 `http://10.1.4.92:3000/myapp/`와 유사한 끝점이 Service Fabric Explorer에 표시됩니다. 또는 로컬 컴퓨터인 경우, `http://localhost:3000/myapp/`가 표시됩니다.
+다음 예제에서 서비스가 배포되면, 서비스 인스턴스에 대해 게시된 `http://10.1.4.92:3000/myapp/`와 유사한 엔드포인트가 Service Fabric Explorer에 표시됩니다. 또는 로컬 컴퓨터인 경우, `http://localhost:3000/myapp/`가 표시됩니다.
 
 ```xml
 <Endpoints>
@@ -279,7 +281,7 @@ New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric
 * `InstanceCount = "1"`. 이 경우 단 한 개의 서비스 인스턴스가 클러스터에 배포됩니다. 서비스 패브릭의 스케줄러는 서비스를 배포할 노드를 결정합니다.
 * `InstanceCount ="-1"`. 이 경우 서비스의 단일 인스턴스가 Service Fabric 클러스터의 모든 노드에 배포됩니다. 그 결과 클러스터의 각 노드에 대한 서비스의 인스턴스를 하나(및 하나만) 갖게 됩니다.
 
-이 구성은 프런트 엔드 응용 프로그램(예: REST 끝점)에 유용합니다. 클라이언트 응용 프로그램은 끝점을 사용하려면 클러스터의 노드에 "연결"해야 하기 때문입니다. 예를 들어, Service Fabric 클러스터의 모든 노드가 부하 분산 장치에 연결된 경우 이 구성을 사용할 수도 있습니다. 그러면 클라이언트 트래픽을 클러스터의 모든 노드에서 실행되는 서비스에 배포할 수 있습니다.
+이 구성은 프런트 엔드 응용 프로그램(예: REST 엔드포인트)에 유용합니다. 클라이언트 응용 프로그램은 엔드포인트를 사용하려면 클러스터의 노드에 "연결"해야 하기 때문입니다. 예를 들어, Service Fabric 클러스터의 모든 노드가 부하 분산 장치에 연결된 경우 이 구성을 사용할 수도 있습니다. 그러면 클라이언트 트래픽을 클러스터의 모든 노드에서 실행되는 서비스에 배포할 수 있습니다.
 
 ## <a name="check-your-running-application"></a>실행 중인 응용 프로그램 확인
 서비스 패브릭 탐색기에서 서비스가 실행되고 있는 노드를 식별합니다. 이 예제에서는 Node1에서 실행됩니다.

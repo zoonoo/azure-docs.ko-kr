@@ -7,13 +7,13 @@ ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/26/2018
-ms.openlocfilehash: 98c62f54e2413bd67600db182c452d0d5965f239
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/08/2018
+ms.openlocfilehash: 6455322a1a1cf392c16aba708ce8445f8c80c3df
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972184"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363846"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure Virtual Network를 사용하여 Azure HDInsight 확장
 
@@ -173,7 +173,7 @@ Azure는 가상 네트워크에 설치된 Azure 서비스에 대한 이름 확�
 
 ## <a name="directly-connect-to-hadoop-services"></a>Hadoop 서비스에 직접 연결
 
-HDInsight에 대한 대부분의 설명서는 인터넷을 통해 클러스터에 액세스할 수 있다고 가정합니다. 예를 들어 https://CLUSTERNAME.azurehdinsight.net에 있는 클러스터에 연결할 수 있습니다. 이 주소는 인터넷에서 액세스를 제한하는 데 NSG 또는 UDR을 사용한 경우에는 사용할 수 없는 공용 게이트웨이를 사용합니다.
+https://CLUSTERNAME.azurehdinsight.net에 있는 클러스터에 연결할 수 있습니다. 이 주소는 공용 IP를 사용하며, NSG 또는 UDR을 사용하여 인터넷에서 들어오는 트래픽을 제한하는 경우 액세스할 수 없습니다. 또한 클러스터를 VNet에 배포하는 경우 개인 엔드포인트 https://CLUSTERNAME-internal.azurehdinsight.net을 사용하여 액세스할 수 있습니다. 이 엔드포인트는 클러스터 액세스를 위한 VNet 내부의 사설 IP로 확인됩니다.
 
 가상 네트워크를 통해 Ambari 및 다른 웹 페이지에 연결하려면 다음 단계를 사용합니다.
 
@@ -253,7 +253,7 @@ HDInsight는 여러 포트에서 서비스를 공개합니다. 가상 어플라�
 >
 > 트래픽을 제어하는 네트워크 보안 그룹 또는 사용자 정의 경로를 사용하지 않는 경우 이 섹션을 무시할 수 있습니다.
 
-네트워크 보안 그룹 또는 사용자 정의 경로를 사용하는 경우 Azure 상태 및 관리 서비스의 트래픽이 HDInsight에 도달하도록 해야 합니다. 다음 단계를 사용하여 다음을 허용해야 하는 IP 주소를 찾을 수 있습니다.
+네트워크 보안 그룹 또는 사용자 정의 경로를 사용하는 경우 Azure 상태 및 관리 서비스의 트래픽이 HDInsight에 도달하도록 해야 합니다. 서브넷 내에서 VM 간 트래픽도 허용해야 합니다. 다음 단계를 사용하여 다음을 허용해야 하는 IP 주소를 찾을 수 있습니다.
 
 1. 다음 IP 주소에서 트래픽을 항상 허용해야 합니다.
 
@@ -280,6 +280,7 @@ HDInsight는 여러 포트에서 서비스를 공개합니다. 가상 어플라�
     | &nbsp; | 캐나다 중부 | 52.228.37.66</br>52.228.45.222 | 443 | 인바운드 |
     | 중국 | 중국 북부 | 42.159.96.170</br>139.217.2.219 | 443 | 인바운드 |
     | &nbsp; | 중국 동부 | 42.159.198.178</br>42.159.234.157 | 443 | 인바운드 |
+    | &nbsp; | 중국 북부 2 | 40.73.37.141</br>40.73.38.172 | 443 | 인바운드 |
     | 유럽 | 북유럽 | 52.164.210.96</br>13.74.153.132 | 443 | 인바운드 |
     | &nbsp; | 서유럽| 52.166.243.90</br>52.174.36.244 | 443 | 인바운드 |
     | 독일 | 독일 중부 | 51.4.146.68</br>51.4.146.80 | 443 | 인바운드 |
@@ -301,7 +302,7 @@ HDInsight는 여러 포트에서 서비스를 공개합니다. 가상 어플라�
 
     Azure Government에 사용할 IP 주소에 대한 자세한 내용은 [Azure Government 인텔리전스 + 분석](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) 문서를 참조하세요.
 
-3. 가상 네트워크에서 사용자 지정 DNS 서버를 사용하는 경우 __168.63.129.16__에서의 액세스도 허용해야 합니다. 이 주소는 Azure 재귀 확인자입니다. 자세한 내용은 [VM 및 역할 인스턴스의 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) 문서를 참조하세요.
+3. __168.63.129.16__에서 액세스도 허용해야 합니다. 이 주소는 Azure 재귀 확인자입니다. 자세한 내용은 [VM 및 역할 인스턴스의 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) 문서를 참조하세요.
 
 자세한 내용은 [네트워크 트래픽 제어](#networktraffic) 섹션을 참조하세요.
 
@@ -575,7 +576,7 @@ $vnet | Set-AzureRmVirtualNetwork
     
     * `192.168.0.1` 값을 온-프레미스 DNS 서버의 IP 주소로 바꿉니다. 이 항목은 다른 모든 DNS 요청을 온-프레미스 DNS 서버에 라우팅합니다.
 
-3. 구성을 사용하려면 바인딩을 다시 시작합니다. 예: `sudo service bind9 restart`
+3. 구성을 사용하려면 바인딩을 다시 시작합니다. 예: `sudo service bind9 restart`.
 
 4. 온-프레미스 DNS 서버에 조건부 전달자를 추가합니다. 1단계에서 DNS 접미사에 대한 요청을 사용자 지정 DNS 서버에 보내도록 조건부 전달자를 구성합니다.
 

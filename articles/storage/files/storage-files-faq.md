@@ -4,15 +4,15 @@ description: Azure Files에 대한 질문과 대답을 확인합니다.
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.date: 09/11/2018
+ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 43acff5c4d37c46245566fb2e1d74d3e14d527bb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 29f09034988acde3643eebe368445caab035fabd
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949845"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387506"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -108,60 +108,23 @@ ms.locfileid: "46949845"
 
 * <a id="sizeondisk-versus-size"></a>
 **Azure 파일 동기화를 사용한 후에 Azure 파일에 대한 *디스크 크기* 속성이 *크기* 속성과 일치하지 않는 이유는 무엇인가요?**  
-    Windows 파일 탐색기는 파일 크기를 나타내기 위해 **크기** 및 **디스크 크기**의 두 속성을 표시합니다. 이러한 속성은 의미가 약간 다릅니다. **크기**는 파일의 전체 크기를 나타냅니다. **디스크 크기**는 디스크에 저장된 파일 스트림의 크기를 나타냅니다. 이러한 속성에 대한 값은 압축, 데이터 중복 제거의 사용 또는 Azure 파일 동기화를 사용한 클라우드 계층화 같은 다양한 이유로 차이를 보일 수 있습니다. 파일이 Azure 파일 공유로 계층화되면 파일 스트림이 디스크가 아닌 Azure 파일 공유에 저장되므로 디스크 크기는 0입니다. 파일을 부분적으로 계층화할 수 있습니다(또는 부분적으로 회수). 부분적으로 계층화된 파일에서 파일 일부가 디스크에 있습니다. 멀티미디어 플레이어 또는 압축 유틸리티와 같은 응용 프로그램에 의해 파일이 부분적으로 읽힐 때 이러한 현상이 발생할 수 있습니다. 
+ [클라우드 계층화 이해](storage-sync-cloud-tiering.md#sizeondisk-versus-size) 참조
 
 * <a id="is-my-file-tiered"></a>
 **파일이 계층화되어 있는지 여부를 어떻게 알 수 있나요?**  
-    파일이 Azure 파일 공유로 계층화되었는지 여부를 확인하는 몇 가지 방법이 있습니다.
-    
-   *  **파일의 파일 특성을 확인합니다.**
-     이렇게 하려면 파일을 마우스 오른쪽 단추로 클릭하고 **세부 정보**로 이동한 다음 아래로 스크롤하여 **특성** 속성으로 이동합니다. 계층화된 파일에는 다음과 같은 특성 집합이 적용됩니다.     
-        
-        | 특성 문자 | 특성 | 정의 |
-        |:----------------:|-----------|------------|
-        | A | 보관 | 파일을 백업 소프트웨어로 백업해야 함을 나타냅니다. 이 특성은 파일이 계층화되는지 또는 디스크에 완전히 저장되는지에 관계없이 항상 설정됩니다. |
-        | P | 스파스 파일 | 파일이 스파스 파일인지를 나타냅니다. 스파스 파일은 디스크 스트림의 파일이 대부분 비어 있을 때 효율적으로 사용하기 위해 NTFS가 제공하는 특수한 형식의 파일입니다. Azure 파일 동기화는 파일이 완전히 계층화되거나 부분적으로 회수되기 때문에 스파스 파일을 사용합니다. 완전히 계층화된 파일에서 파일 스트림은 클라우드에 저장됩니다. 부분적으로 회수된 파일에서 파일의 해당 부분은 이미 디스크에 있습니다. 파일이 디스크에 완전히 회수되면 Azure 파일 동기화는 스파스 파일에서 일반 파일로 변환합니다. |
-        | L | 재분석 지점 | 파일에 재분석 지점이 있음을 나타냅니다. 재분석 지점은 파일 시스템 필터에서 사용되는 특별한 포인터입니다. Azure 파일 동기화는 재분석 지점을 사용하여 Azure 파일 동기화 파일 시스템 필터(StorageSync.sys)에 파일이 저장되는 클라우드 위치를 정의합니다. 원활한 액세스를 지원합니다. 사용자는 Azure 파일 동기화가 사용되는지 또는 Azure 파일 공유에 있는 파일에 액세스하는 방법을 알 필요가 없습니다. 파일을 완전하게 회수되면 Azure 파일 동기화는 파일에서 재분석 지점을 제거합니다. |
-        | O | 오프라인 | 파일 콘텐츠 일부 또는 전체가 디스크에 저장되지 않음을 나타냅니다. 파일을 완전하게 회수되면 Azure 파일 동기화는 이 특성을 제거합니다. |
-
-        ![세부 정보 탭이 선택되어 있는 파일에 대한 속성 대화 상자](media/storage-files-faq/azure-file-sync-file-attributes.png)
-        
-        **특성** 필드를 파일 탐색기의 표 화면에 추가하여 폴더의 모든 파일에 대한 특성을 볼 수 있습니다. 이렇게 하려면 기존 열을 마우스 오른쪽 단추로 클릭하고(예: **크기**) **더 보기**를 선택한 다음 드롭다운 목록에서 **특성**을 선택합니다.
-        
-   * **`fsutil`을 사용하여 파일에 대한 재분석 지점을 확인합니다.**
-       이전 옵션에서 설명된 것과 같이 계층화된 파일은 항상 재분석 지점 집합을 가집니다. 재분석 포인터는 Azure 파일 동기화 파일 시스템 필터(StorageSync.sys)에 대한 특별한 포인터입니다. 파일에 재분석 지점이 있는지 확인하려면 관리자 권한 명령 프롬프트 또는 PowerShell 창에서 `fsutil` 유틸리티를 실행합니다.
-    
-        ```PowerShell
-        fsutil reparsepoint query <your-file-name>
-        ```
-
-        파일에 재분석 지점이 있으면 **재분석 태그 값: 0x8000001e**이 표시됩니다. 이 16진수 값은 Azure 파일 동기화에서 소유하는 재분석 지점 값입니다. 또한 출력에는 Azure 파일 공유의 파일 경로를 나타내는 재분석 데이터도 포함됩니다.
-
-        > [!WARNING]  
-        > `fsutil reparsepoint` 유틸리티 명령에는 재분석 지점을 삭제하는 기능도 있습니다. Azure 파일 동기화 엔지니어링 팀에서 요청하는 경우가 아니면 이 명령을 실행하지 마십시오. 이 명령을 실행하면 데이터가 손실될 수 있습니다. 
+ [클라우드 계층화 이해](storage-sync-cloud-tiering.md#is-my-file-tiered) 참조
 
 * <a id="afs-recall-file"></a>**사용하려는 파일이 계층화되어 있습니다. 파일을 로컬에서 사용하기 위해 디스크로 회수할 수 있는 방법은 무엇인가요?**  
-    디스크로 파일을 회수하는 가장 쉬운 방법은 파일을 여는 것입니다. Azure 파일 동기화 파일 시스템 필터(StorageSync.sys)는 사용자의 별다른 작업 없이도 Azure 파일 공유에서 파일을 원활하게 다운로드합니다. 부분적으로 읽을 수 있는 파일 형식(예: 멀티미디어 또는 zip 파일)의 경우 파일을 열면 전체 파일이 다운로드되지 않습니다.
+ [클라우드 계층화 이해](storage-sync-cloud-tiering.md#afs-recall-file) 참조
 
-    PowerShell을 사용하여 파일을 강제로 회수할 수도 있습니다. 이 옵션은 많은 파일을 한 번에 회수하려는 경우에(예: 폴더의 모든 파일) 유용할 수 있습니다. Azure 파일 동기화가 설치되어 있는 서버 노드로 PowerShell 세션을 열고 다음 PowerShell 명령을 실행합니다.
-    
-    ```PowerShell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-    Invoke-StorageSyncFileRecall -Path <file-or-directory-to-be-recalled>
-    ```
 
 * <a id="afs-force-tiering"></a>
 **파일 또는 디렉터리를 강제로 계층화하려면 어떻게 해야 하나요?**  
-    클라우드 계층화 기능이 활성화된 경우 클라우드 계층화는 클라우드 엔드포인트에 지정된 사용 가능한 볼륨 공간 비율에 맞게 마지막 액세스 및 수정 시간을 기준으로 파일을 자동으로 계층화합니다. 그러나 경우에 따라 파일을 강제로 계층화하려는 경우도 있을 수 있습니다. 장시간 다시 사용하지 않으려는 큰 파일을 저장하고 다른 파일 및 폴더에 사용하기 위해 볼륨 공간을 확보하려는 경우에 이러한 강제 계층화가 유용할 수 있습니다. 다음 PowerShell 명령을 사용하여 강제로 계층화할 수 있습니다.
-
-    ```PowerShell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-    Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
-    ```
+ [클라우드 계층화 이해](storage-sync-cloud-tiering.md#afs-force-tiering) 참조
 
 * <a id="afs-effective-vfs"></a>
 **볼륨에 여러 서버 엔드포인트가 있는 경우 *사용 가능한 볼륨 공간*은 어떻게 해석되나요?**  
-    볼륨에 서버 엔드포인트가 둘 이상 있으면 효과적인 사용 가능한 볼륨 공간 임계값은 해당 볼륨의 서버 엔드포인트에서 지정된 사용 가능한 최대 볼륨 공간입니다. 파일은 속해 있는 서버 엔드포인트와 관계없이 사용 패턴에 따라 계층화됩니다. 예를 들어 Endpoint1 및 Endpoint2라는 두 개의 서버 엔드포인트가 볼륨에 있고, Endpoint1의 사용 가능한 볼륨 공간 임계값은 25%이고, Endpoint2의 사용 가능한 볼륨 공간 임계값은 50%인 경우, 두 서버 엔드포인트의 사용 가능한 볼륨 공간 임계값은 50%가 됩니다.
+ [클라우드 계층화 이해](storage-sync-cloud-tiering.md#afs-effective-vfs) 참조
 
 * <a id="afs-files-excluded"></a>
 **어떤 파일과 폴더가 Azure 파일 동기화에서 자동으로 제외되나요?**  
@@ -186,7 +149,7 @@ ms.locfileid: "46949845"
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
 **계층화된 파일이 서버 엔드포인트 네임스페이스 외부에 존재하는 이유는 무엇인가요?**  
-    Azure 파일 동기화 에이전트 버전 3 이전에 Azure 파일 동기화는 서버 엔드포인트인 동일한 볼륨이 아닌 서버 엔드포인트 외부에서 계층화된 파일의 이동을 차단합니다. 복사 작업, 계층화되지 않은 파일의 이동 및 다른 볼륨에 계층화된 파일의 이동은 영향을 받지 않았습니다. 이 동작은 동일한 볼륨에서 작업을 이동하는 파일 탐색기 및 기타 Windows API가 비슷한 순간적인 이름 바꾸기 작업이라고 암시적으로 가정합니다. 즉, 이동하면 Azure 파일 동기화가 클라우드의 데이터를 다시 호출하는 동안 파일 탐색기 또는 다른 이동 방법(예: 명령줄 또는 PowerShell)이 응답하지 않는다고 표시됩니다. [Azure 파일 동기화 에이전트 버전 3.0.12.0](storage-files-release-notes.md#agent-version-30120)부터 Azure 파일 동기화를 사용하면 외부 서버 엔드포인트에서 계층화된 파일을 이동할 수 있습니다. 계층화된 파일을 서버 엔드포인트 외부에서 계층화된 파일로 유지한 다음, 백그라운드에서 파일을 회수하여 앞에서 언급한 부정적인 영향을 방지합니다. 즉, 동일한 볼륨의 이동은 순간적이므로 이동을 완료한 후에 디스크로 파일을 회수하는 모든 작업을 수행합니다. 
+    Azure 파일 동기화 에이전트 버전 3 이전에 Azure 파일 동기화는 서버 엔드포인트인 동일한 볼륨이 아닌 서버 엔드포인트 외부에서 계층화된 파일의 이동을 차단합니다. 복사 작업, 계층화되지 않은 파일의 이동 및 다른 볼륨에 계층화된 파일의 이동은 영향을 받지 않았습니다. 이 동작은 동일한 볼륨에서 작업을 이동하는 파일 탐색기 및 기타 Windows API가 비슷한 순간적인 이름 바꾸기 작업이라고 암시적으로 가정합니다. 즉, 이동하면 Azure 파일 동기화가 클라우드의 데이터를 다시 호출하는 동안 파일 탐색기 또는 다른 이동 방법(예: 명령줄 또는 PowerShell)이 응답하지 않는다고 표시됩니다. [Azure 파일 동기화 에이전트 버전 3.0.12.0](storage-files-release-notes.md#supported-versions)부터 Azure 파일 동기화를 사용하면 외부 서버 엔드포인트에서 계층화된 파일을 이동할 수 있습니다. 계층화된 파일을 서버 엔드포인트 외부에서 계층화된 파일로 유지한 다음, 백그라운드에서 파일을 회수하여 앞에서 언급한 부정적인 영향을 방지합니다. 즉, 동일한 볼륨의 이동은 순간적이므로 이동을 완료한 후에 디스크로 파일을 회수하는 모든 작업을 수행합니다. 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
 **서버의 Azure 파일 동기화에 문제가 발생했습니다(동기화, 클라우드 계층화 등). 서버 엔드포인트를 제거하고 다시 만들어야 하나요?**  
@@ -194,8 +157,11 @@ ms.locfileid: "46949845"
     
 * <a id="afs-resource-move"></a>
 **저장소 동기화 서비스 및/또는 저장소 계정을 다른 리소스 그룹이나 구독으로 이동할 수 있나요?**  
-   예, 저장소 동기화 서비스 및/또는 저장소 계정을 다른 리소스 그룹 또는 구독으로 이동할 수 있습니다. 저장소 계정이 이동되는 경우 저장소 계정에 대한 액세스 권한을 하이브리드 파일 동기화 서비스에 부여해야 합니다([Azure 파일 동기화가 저장소 계정에 액세스할 수 있는지 확인합니다.](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac) 참조).
+   예, 저장소 동기화 서비스 및/또는 저장소 계정은 기존 Azure AD 테넌트 내의 다른 리소스 그룹 또는 구독으로 이동할 수 있습니다. 저장소 계정이 이동되는 경우 저장소 계정에 대한 액세스 권한을 하이브리드 파일 동기화 서비스에 부여해야 합니다([Azure 파일 동기화가 저장소 계정에 액세스할 수 있는지 확인합니다.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac) 참조).
 
+    > [!Note]  
+    > Azure 파일 동기화는 구독을 다른 Azure AD 테넌트로 이동할 수 없습니다.
+    
 * <a id="afs-ntfs-acls"></a>
 **Azure 파일 동기화는 Azure Files에 저장된 데이터와 함께 디렉터리/파일 수준 NTFS ACL을 보존하나요?**
 
@@ -216,7 +182,7 @@ ms.locfileid: "46949845"
 * <a id="ad-support-regions"></a>
 **Azure Files에 대한 SMB를 통한 Azure AD의 미리 보기는 모든 Azure 지역에서 사용할 수 있나요?**
 
-    미리 보기는 미국 서부, 미국 서부 2, 미국 중남부, 미국 동부, 미국 동부 2, 미국 중부, 미국 중북부, 오스트레일리아 동부, 유럽 서부, 유럽 북부를 제외한 모든 공용 지역에서 사용할 수 있습니다.
+    이 미리 보기는 북유럽을 제외한 모든 공용 지역에서 사용할 수 있습니다.
 
 * <a id="ad-support-on-premises"></a>
 **Azure Files(미리 보기)에 대한 SMB를 통한 Azure AD 인증은 온-프레미스 컴퓨터에서 Azure AD를 사용한 인증을 지원하나요?**
@@ -276,7 +242,7 @@ ms.locfileid: "46949845"
 * <a id="data-compliance-policies"></a>
 **Azure Files는 어떤 데이터 규정 준수 정책을 지원하나요?**  
 
-   Azure Files는 Azure Storage의 다른 저장소 서비스에서 사용되는 동일한 저장소 아키텍처를 기반으로 하여 실행됩니다. Azure Files는 다른 Azure 저장소 서비스에서 사용되는 동일한 데이터 규정 준수 정책을 적용합니다. Azure Storage 데이터 규정 준수에 대한 자세한 내용은 [Azure Storage 준수 제품](https://docs.microsoft.com/en-us/azure/storage/common/storage-compliance-offerings)을 참조하고, [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx)로 이동하여 참조할 수 있습니다.
+   Azure Files는 Azure Storage의 다른 저장소 서비스에서 사용되는 동일한 저장소 아키텍처를 기반으로 하여 실행됩니다. Azure Files는 다른 Azure 저장소 서비스에서 사용되는 동일한 데이터 규정 준수 정책을 적용합니다. Azure Storage 데이터 규정 준수에 대한 자세한 내용은 [Azure Storage 준수 제품](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings)을 참조하고, [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx)로 이동하여 참조할 수 있습니다.
 
 ## <a name="on-premises-access"></a>온-프레미스 액세스
 * <a id="expressroute-not-required"></a>
@@ -292,7 +258,7 @@ ms.locfileid: "46949845"
 ## <a name="backup"></a>Backup
 * <a id="backup-share"></a>
 **내 Azure 파일 공유를 백업하려면 어떻게 하나요?**  
-    실수로 삭제하지 않도록 보호하기 위해 주기적인 [공유 스냅숏](storage-snapshots-files.md)을 사용할 수 있습니다. 탑재된 파일 공유를 백업할 수 있는 AzCopy, RoboCopy 또는 타사 백업 도구를 사용할 수도 있습니다. Azure Backup에서는 Azure Files의 백업을 제공합니다. [Azure Backup으로 Azure 파일 공유 백업](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files)에 대해 자세히 알아봅니다.
+    실수로 삭제하지 않도록 보호하기 위해 주기적인 [공유 스냅숏](storage-snapshots-files.md)을 사용할 수 있습니다. 탑재된 파일 공유를 백업할 수 있는 AzCopy, RoboCopy 또는 타사 백업 도구를 사용할 수도 있습니다. Azure Backup에서는 Azure Files의 백업을 제공합니다. [Azure Backup으로 Azure 파일 공유 백업](https://docs.microsoft.com/azure/backup/backup-azure-files)에 대해 자세히 알아봅니다.
 
 ## <a name="share-snapshots"></a>공유 스냅숏
 

@@ -3,18 +3,18 @@ title: 사용자 지정 음성을 만들기 위한 음성 샘플 녹음
 titleSuffix: Microsoft Cognitive Services
 description: 강력한 스크립트를 준비하고, 적절한 성우를 고용하고, 전문적으로 녹음하여 프로덕션 수준 사용자 지정 음성을 만듭니다.
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
-ms.author: v-jerkin
-ms.openlocfilehash: b1bab65b68c5f37165fbc8414ac4300c924e53b9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.author: erhopf
+ms.openlocfilehash: 0051cc480a26ffc3668f922d1af9fc9cd7af1f49
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165179"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167174"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>사용자 지정 음성을 만들기 위한 음성 샘플 녹음
 
@@ -38,7 +38,7 @@ ms.locfileid: "47165179"
 감독            |스크립트를 준비하고 성우의 녹음 과정을 코칭합니다.
 편집기              |오디오 파일을 마무리하고 Custom Voice 포털에 업로드할 준비를 합니다.
 
-한 개인이 둘 이상의 역할을 맡을 수 있습니다. 이 가이드에서는 사용자가 주로 감독 역할을 맡고 성우와 녹음 엔지니어를 모두 고용한다고 가정합니다. 직접 녹음하려는 경우 이 문서에는 녹음 엔지니어 역할에 대한 몇 가지 정보가 포함되어 있습니다. 편집자 역할은 세션이 끝날 때까지 필요하지 않으므로 감독 겸임 녹음 엔지니어가 수행할 수 있습니다.
+한 개인이 둘 이상의 역할을 맡을 수 있습니다. 이 가이드에서는 사용자가 주로 감독 역할을 맡고 성우와 녹음 엔지니어를 모두 고용한다고 가정합니다. 직접 녹음하려는 경우 이 문서에는 녹음 엔지니어 역할에 대한 몇 가지 정보가 포함되어 있습니다. 편집자 역할은 세션이 끝날 때까지 필요하지 않으므로 감독 또는 녹음 엔지니어가 수행할 수 있습니다.
 
 ## <a name="choose-your-voice-talent"></a>성우 선정
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 935d4a3ba3fc3199177be5bd4e70f82239c3c971
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 59eb0ddad72f5e54a23a97a260477f84019eb62c
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39530437"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386344"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows에서 Azure Files 문제 해결
 
@@ -32,22 +32,23 @@ ms.locfileid: "39530437"
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>원인 1: 암호화되지 않은 통신 채널
 
-보안상 이유로, 통신 채널이 암호화되지 않고 Azure 파일 공유가 있는 같은 데이터 센터에서 연결 시도가 이루어지지 않을 경우 Azure 파일 공유에 대한 연결이 차단됩니다. 사용자의 클라이언트 OS가 SMB 암호화를 지원하는 경우에만 통신 채널 암호화가 제공됩니다.
+보안상 이유로, 통신 채널이 암호화되지 않고 Azure 파일 공유가 있는 같은 데이터 센터에서 연결 시도가 이루어지지 않을 경우 Azure 파일 공유에 대한 연결이 차단됩니다. 저장소 계정에서 [보안 전송 필요](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 설정을 사용하도록 설정한 경우에도 동일한 데이터 센터 내의 암호화되지 않은 연결을 차단할 수 있습니다. 사용자의 클라이언트 OS가 SMB 암호화를 지원하는 경우에만 통신 채널 암호화가 제공됩니다.
 
 각 시스템의 Windows 8, Windows Server 2012 이후 버전은 암호화를 지원하는 SMB 3.0이 포함된 요청을 협상합니다.
 
 ### <a name="solution-for-cause-1"></a>원인 1의 해결 방법
 
-다음 중 하나를 수행하는 클라이언트에서 연결합니다.
+1. 저장소 계정에서 [보안 전송 필요](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 설정을 사용하지 않도록 설정되어 있는지 확인합니다.
+2. 다음 중 하나를 수행하는 클라이언트에서 연결합니다.
 
-- Windows 8 및 Windows Server 2012 이후 버전의 요구 사항을 충족합니다.
-- Azure 파일 공유에 사용되는 Azure Storage 계정과 동일한 데이터 센터의 가상 컴퓨터에서 연결합니다.
+    - Windows 8 및 Windows Server 2012 이후 버전의 요구 사항을 충족합니다.
+    - Azure 파일 공유에 사용되는 Azure Storage 계정과 동일한 데이터 센터의 가상 컴퓨터에서 연결합니다.
 
 ### <a name="cause-2-port-445-is-blocked"></a>원인 2: 포트 445 차단
 
 시스템 오류 53 또는 시스템 오류 67은 Azure Files 데이터 센터에 대한 포트 445 아웃바운드 통신이 차단될 경우 발생할 수 있습니다. 포트 445에서 시작되는 액세스를 허용하거나 거부하는 ISP에 대한 요약을 확인하려면 [TechNet](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx)으로 이동합니다.
 
-이 이유로 "시스템 오류 53" 메시지가 수신되었는지 이해하려면 Portqry를 사용하여 TCP:445 끝점을 쿼리할 수 있습니다. TCP:445 끝점이 필터링됨으로 표시될 경우 TCP 포트가 차단됩니다. 다음은 예제 쿼리입니다.
+이 이유로 "시스템 오류 53" 메시지가 수신되었는지 이해하려면 Portqry를 사용하여 TCP:445 엔드포인트를 쿼리할 수 있습니다. TCP:445 엔드포인트가 필터링됨으로 표시될 경우 TCP 포트가 차단됩니다. 다음은 예제 쿼리입니다.
 
   `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
 

@@ -8,12 +8,12 @@ ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9c9c04a8310a46605cf5733131db1418b7cb7f7a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 97a2180aaf236d3541cff30d2151f26ce70b14af
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47218787"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393477"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Azure IoT Edge 런타임 및 해당 아키텍처 이해
 
@@ -23,13 +23,13 @@ IoT Edge 런타임은 IoT Edge 장치에서 다음 기능을 수행합니다.
 
 * 장치에 워크로드를 설치하고 업데이트합니다.
 * 장치에서 Azure IoT Edge 보안 표준을 유지 관리합니다.
-* [IoT Edge 모듈][lnk-modules]이 항상 실행되도록 합니다.
+* [IoT Edge 모듈](iot-edge-modules.md)이 항상 실행되도록 합니다.
 * 원격 모니터링을 위해 모듈 상태를 클라우드에 보고합니다.
 * 다운스트림 리프 장치와 IoT Edge 장치 간의 통신을 용이하게 합니다.
 * IoT Edge 장치의 모듈 간 통신을 용이하게 합니다.
 * IoT Edge 장치와 클라우드 간의 통신을 용이하게 합니다.
 
-![IoT Hub에 통찰력 및 모듈 상태를 전달하는 IoT Edge 런타임][1]
+![IoT Hub에 통찰력 및 모듈 상태를 전달하는 IoT Edge 런타임](./media/iot-edge-runtime/Pipeline.png)
 
 IoT Edge 런타임의 책임은 모듈 관리와 통신이라는 두 가지 범주로 나뉩니다. 이 두 역할은 IoT Edge 런타임을 구성하는 두 가지 구성 요소를 통해 수행됩니다. IoT Edge 허브는 통신을 담당하고, IoT Edge 에이전트는 모듈 배포 및 모니터링을 관리합니다. 
 
@@ -49,7 +49,7 @@ Edge 허브는 로컬로 실행되는 IoT Hub의 전체 버전이 아닙니다. 
 
 Edge 허브는 IoT Edge 솔루션에서 사용하는 대역폭을 줄이기 위해 클라우드에 실제로 연결되는 수를 최적화합니다. Edge 허브는 모듈 또는 리프 장치와 같은 클라이언트에서 논리적 연결을 가져와서 클라우드에 대한 하나의 실제 연결에 결합합니다. 이 프로세스의 세부 정보는 솔루션의 나머지 부분에 투명합니다. 클라이언트는 모두 동일한 연결을 통해 전송되는 경우에도 클라우드에 대한 자체 연결이 있다고 생각하면 됩니다. 
 
-![여러 물리적 장치와 클라우드 간의 게이트웨이 역할을 하는 Edge 허브][2]
+![여러 물리적 장치와 클라우드 간의 게이트웨이 역할을 하는 Edge 허브](./media/iot-edge-runtime/Gateway.png)
 
 Edge 허브는 IoT Hub에 연결되어 있는지 여부를 결정할 수 있습니다. 연결이 끊어진 경우 Edge 허브는 메시지 또는 쌍 업데이트를 로컬로 저장합니다. 연결이 다시 설정되면 모든 데이터가 동기화됩니다. 이 임시 캐시에 사용되는 위치는 Edge 허브 모듈 쌍의 속성으로 결정됩니다. 캐시의 크기는 제한되지 않으며, 장치에 저장 용량이 있는 동안에는 증가합니다. 
 
@@ -57,7 +57,7 @@ Edge 허브는 IoT Hub에 연결되어 있는지 여부를 결정할 수 있습�
 
 Edge 허브는 모듈 간 통신을 용이하게 합니다. Edge broker를 메시지 broker로 사용하면 모듈이 서로 독립적으로 유지됩니다. 모듈은 메시지를 수락하는 입력과 메시지를 쓰는 출력을 지정하기만 하면 됩니다. 솔루션 개발자는 이러한 입력과 출력을 함께 연결하여 모듈에서 해당 솔루션과 관련된 순서로 데이터를 처리하도록 합니다. 
 
-![모듈 간 통신을 용이하게 하는 Edge 허브][3]
+![모듈 간 통신을 용이하게 하는 Edge 허브](./media/iot-edge-runtime/ModuleEndpoints.png)
 
 Edge 허브에 데이터를 보내려면 모듈에서 SendEventAsync 메서드를 호출합니다. 첫 번째 인수는 메시지를 보낼 출력을 지정합니다. 다음 의사 코드는 메시지를 output1에 보냅니다.
 
@@ -77,7 +77,7 @@ Edge 허브에 데이터를 보내려면 모듈에서 SendEventAsync 메서드�
 
 <!--- For more info on how to declare routes between modules, see []. --->   
 
-![모듈 간 경로][4]
+![모듈 간 경로](./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png)
 
 ## <a name="iot-edge-agent"></a>IoT Edge 에이전트
 
@@ -117,13 +117,4 @@ Azure IoT Edge 보안 프레임워크에 대한 자세한 정보는 [IoT Edge �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure IoT Edge 인증서 이해][lnk-certs]
-
-<!-- Images -->
-[1]: ./media/iot-edge-runtime/Pipeline.png
-[2]: ./media/iot-edge-runtime/Gateway.png
-[3]: ./media/iot-edge-runtime/ModuleEndpoints.png
-[4]: ./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png
-
-<!-- Links -->
-[lnk-certs]: iot-edge-certs.md
+[Azure IoT Edge 인증서 이해](iot-edge-certs.md)

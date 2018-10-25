@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: a4ea483104a28e436ac35b50b962d3a153483789
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 3e3b608d3928536d654a594c42cbcc955d620d98
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804177"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321736"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Azure Active Directory에서 암호 정책 및 제한
 
@@ -27,7 +27,7 @@ ms.locfileid: "48804177"
 
 2게이트 정책을 사용할 경우 **관리자는 보안 질문을 사용할 수 없습니다**.
 
- 두 게이트 정책은 전자 메일 주소 *및* 전화 번호 등, 두 가지 인증 데이터를 요구합니다. 다음과 같은 경우에 두 게이트 정책이 적용됩니다.
+두 게이트 정책은 전자 메일 주소 *및* 전화 번호 등, 두 가지 인증 데이터를 요구합니다. 다음과 같은 경우에 두 게이트 정책이 적용됩니다.
 
 * 다음과 같은 모든 Azure 관리자 역할이 영향을 받습니다.
   * 기술 지원팀 관리자
@@ -50,29 +50,17 @@ ms.locfileid: "48804177"
   * CRM 서비스 관리자
   * Power BI 서비스 관리자
 
-* 평가판 구독에서 30일이 경과한 경우
-
-  또는
-
-* 베니티 도메인이 있는 경우(예: contoso.com)
-
-  또는
-
+* 평가판 구독에서 30일이 경과한 경우 또는
+* contoso.com 같은 베니티 도메인이 있는 경우 또는
 * Azure AD Connect가 온-프레미스 디렉터리에서 ID를 동기화하는 경우
 
 ### <a name="exceptions"></a>예외
 
 한 게이트 정책은 전자 메일 주소 *또는* 전화 번호 등, 한 가지 인증 데이터를 요구합니다. 다음과 같은 경우에 한 게이트 정책이 적용됩니다.
 
-* 평가판 구독의 처음 30일 이내인 경우
-
-  또는
-
-* 베니티 도메인이 없는 경우(*.onmicrosoft.com)
-
-  and
-
-  Azure AD Connect가 ID를 동기화하지 않는 경우
+* 평가판 구독의 처음 30일 이내인 경우 또는
+* 베니티 도메인이 없는 경우(*.onmicrosoft.com) 그리고
+* Azure AD Connect가 ID를 동기화하지 않는 경우
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>모든 사용자 계정에 적용되는 UserPrincipalName 정책
 
@@ -80,7 +68,7 @@ Azure AD에 로그인해야 하는 모든 사용자 계정에는 해당 계정�
 
 | 자산 | UserPrincipalName 요구 사항 |
 | --- | --- |
-| 허용되는 문자 |<ul> <li>A-Z</li> <li>a-z</li><li>0-9</li> <li> \. - \_ ! \# ^ \~</li></ul> |
+| 허용되는 문자 |<ul> <li>A-Z</li> <li>a-z</li><li>0-9</li> <li> ' \. - \_ ! \# ^ \~</li></ul> |
 | 허용되지 않는 문자 |<ul> <li>도메인에서 사용자 이름을 구분하지 않는 모든 "\@\"" 문자입니다.</li> <li>"\@\"" 기호 바로 앞에는 "."(마침표) 문자를 사용할 수 없습니다.</li></ul> |
 | 길이 제약 조건 |<ul> <li>총 길이는 113자를 초과할 수 없습니다.</li><li>"\@\"" 기호 앞에는 최대 64자를 사용할 수 있습니다.</li><li>"\@\"" 기호 뒤에는 최대 48자를 사용할 수 있습니다.</li></ul> |
 
@@ -117,7 +105,7 @@ Microsoft 클라우드 서비스의 전역 관리자는 Windows PowerShell용 Mi
 ### <a name="check-the-expiration-policy-for-a-password"></a>암호에 대한 만료 정책 확인
 
 1. 회사 관리자 자격 증명을 사용하여 Windows PowerShell에 연결합니다.
-2. 다음 중 하나의 명령을 실행합니다.
+1. 다음 중 하나의 명령을 실행합니다.
 
    * 사용자의 암호가 만료되지 않도록 설정되어 있는지 확인하려면 해당 사용자의 UPN(예: *aprilr@contoso.onmicrosoft.com*) 또는 사용자 ID를 사용하여 `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}` cmdlet을 실행합니다.
    * 모든 사용자에 대한 **암호 사용 기간 제한 없음** 설정을 보려면 `Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}` cmdlet을 실행합니다.
@@ -125,7 +113,7 @@ Microsoft 클라우드 서비스의 전역 관리자는 Windows PowerShell용 Mi
 ### <a name="set-a-password-to-expire"></a>암호가 만료되도록 설정
 
 1. 회사 관리자 자격 증명을 사용하여 Windows PowerShell에 연결합니다.
-2. 다음 중 하나의 명령을 실행합니다.
+1. 다음 중 하나의 명령을 실행합니다.
 
    * 특정 사용자의 암호가 만료되도록 설정하려면 해당 사용자의 UPN 또는 사용자 ID를 사용하여 `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None` cmdlet을 실행합니다.
    * 조직의 모든 사용자 암호가 만료되도록 설정하려면 다음 cmdlet을 사용합니다. `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None`
@@ -133,7 +121,7 @@ Microsoft 클라우드 서비스의 전역 관리자는 Windows PowerShell용 Mi
 ### <a name="set-a-password-to-never-expire"></a>암호가 만료되지 않도록 설정
 
 1. 회사 관리자 자격 증명을 사용하여 Windows PowerShell에 연결합니다.
-2. 다음 중 하나의 명령을 실행합니다.
+1. 다음 중 하나의 명령을 실행합니다.
 
    * 특정 사용자의 암호가 만료되지 않도록 설정하려면 해당 사용자의 UPN 또는 사용자 ID를 사용하여 `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration` cmdlet을 실행합니다.
    * 조직의 모든 사용자 암호가 만료되지 않도록 설정하려면 `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration`

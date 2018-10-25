@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 6477879953dc2bb2c7503eb0b2d4b5effa7b6a11
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 911d62fc2baa50cce6d40f8b5bcc455f308d21d7
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024658"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309658"
 ---
 # <a name="manage-credentials"></a>자격 증명 관리
 
@@ -66,11 +66,11 @@ Content Moderator 내에서 제공되는 워크플로에 Azure 키를 사용하�
 
 ### <a name="resource-id"></a>리소스 ID
 
-이 섹션은 [ Azure 계정 사용](credentials.md#how-to-use-your-azure-account-with-the-review-tool) 섹션에서 다뤘습니다. 이 필드는 이전 섹션에서 설명한 대로 Azure Resource ID를 이 필드에 추가하지 않는 한 대개 비어 있습니다.
+이 필드 집합은 이전 섹션 [검토 도구 및 API와 함께 Azure 계정 사용](credentials.md#use-the-azure-account-with-the-review-tool-and-review-api)에서 다루었습니다. 이 필드는 이전 섹션에서 설명한 대로 Azure Resource ID를 이 필드에 추가하지 않는 한 대개 비어 있습니다.
 
 ### <a name="workflows"></a>워크플로
 
-이 필드 집합은 [Azure 키를 사용하여 워크플로 실행](credentials.md#use-the-azure-account-with-the-workflows-in-the-review-tool)의 이전 섹션에 포함됩니다. 기본적으로 검토 도구는 워크플로우를 실행하기 위해 자동 생성된 평가판 키를 사용하며 이 키는 처음에 표시됩니다. 다른 두 필드에는 각각 [화면 텍스트] 및 [이미지 평가 작업]에 나열된 용어와 이미지를 사용할 수 있습니다.
+이 필드 집합은 이전 섹션 [검토 도구의 워크플로와 함께 Azure 계정 사용](credentials.md#use-the-azure-account-with-the-workflows-in-the-review-tool)에서 다루었습니다. 기본적으로 검토 도구는 워크플로우를 실행하기 위해 자동 생성된 평가판 키를 사용하며 이 키는 처음에 표시됩니다. 다른 두 필드에는 각각 [화면 텍스트] 및 [이미지 평가 작업]에 나열된 용어와 이미지를 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

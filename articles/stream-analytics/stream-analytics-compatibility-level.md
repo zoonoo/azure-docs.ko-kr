@@ -7,13 +7,13 @@ ms.author: jasonh
 manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/03/2018
-ms.openlocfilehash: 136b21f026d208c09b50dfa8601de692e518774e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 10/15/2018
+ms.openlocfilehash: 661aa85a200d4eafa1c521b06f6e12378d61e93e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699113"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343589"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업의 호환성 수준
  
@@ -68,5 +68,5 @@ ms.locfileid: "43699113"
   * **현재 버전:** 더 이상 자동으로 표준 시간대 정보를 사용하여 문자열 값을 날짜/시간 형식으로 업캐스트하지 않습니다. 따라서 표준 시간대 정보가 유지됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Stream Analytics 문제 해결 가이드](stream-analytics-troubleshooting-guide.md)
+* [Azure Stream Analytics 입력 문제 해결](stream-analytics-troubleshoot-input.md)
 * [Stream Analytics Resource 상태 블레이드](stream-analytics-resource-health.md)

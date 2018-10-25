@@ -1,26 +1,21 @@
 ---
-title: 에너지 수요 예측을 위한 Cortana Intelligence 솔루션 템플릿 플레이 북 | Microsoft Docs
+title: 에너지 수요 예측용 Cortana Intelligence Solution 템플릿 플레이북
 description: 에너지 공익 사업체에서 수요를 예측할 수 있도록 하는 Microsoft Cortana Intelligence 솔루션 템플릿입니다.
 services: machine-learning
-documentationcenter: ''
 author: ilanr9
 manager: cgronlun
-editor: yijichen
-ms.assetid: 8855dbb9-8543-45b9-b4c6-aa743a04d547
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/24/2016
-ms.author: yijichen
-ms.openlocfilehash: 6a879faa88cc6cdf586f2c12283bcb6f0263bf57
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.author: garye
+ms.openlocfilehash: 43a75c31c0f094bdcb7008a39140226815bda163
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842588"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390298"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>에너지 수요 예측을 위한 Cortana Intelligence 솔루션 템플릿 플레이 북
 ## <a name="executive-summary"></a>요약

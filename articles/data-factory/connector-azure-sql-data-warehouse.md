@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: ef1bd613943543f78d358064f4abefc6fa31b63e
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: d7a7b87f0d7915692b5a4a8c2233f543bb4c9e1d
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842338"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389329"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 복사 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -33,7 +33,7 @@ Azure SQL Data Warehouse에서 데이터를 지원되는 모든 싱크 데이터
 
 특히 이 Azure SQL Data Warehouse 커넥터는 다음 기능을 지원합니다.
 
-- 서비스 주체 또는 MSI(관리 서비스 ID)와 함께 SQL 인증 및 Azure AD(Azure Active Directory) 응용 프로그램 토큰 인증을 사용하여 데이터를 복사합니다.
+- 서비스 주체 또는 Azure 리소스에 대한 관리 ID를 통해 SQL 인증 및 Azure AD(Azure Active Directory) 응용 프로그램 토큰 인증을 사용하여 데이터를 복사합니다.
 - 원본으로 SQL 쿼리 또는 저장 프로시저를 사용하여 데이터를 검색합니다.
 - 싱크로 PolyBase 또는 대량 삽입을 사용하여 데이터를 로드합니다. 더 나은 복사 성능을 얻으려면 PolyBase를 사용하는 것이 좋습니다.
 
@@ -70,7 +70,7 @@ Azure SQL Data Warehouse 연결된 서비스에 대해 지원되는 속성은 �
 
 - [SQL 인증](#sql-authentication)
 - Azure AD 응용 프로그램 토큰 인증: [서비스 주체](#service-principal-authentication)
-- Azure AD 응용 프로그램 토큰 인증: [관리 서비스 ID](#managed-service-identity-authentication)
+- Azure AD 응용 프로그램 토큰 인증: [Azure 리소스에 대한 관리 ID](#managed-identity)
 
 >[!TIP]
 >"UserErrorFailedToConnectToSqlServer" 오류 코드 및 "데이터베이스에 대한 세션 제한이 XXX이고 이에 도달했습니다."와 같은 메시지가 있는 오류가 발생하면 연결 문자열에 `Pooling=false`를 추가하고 다시 시도하세요.
@@ -152,9 +152,9 @@ Azure SQL Data Warehouse 연결된 서비스에 대해 지원되는 속성은 �
 }
 ```
 
-### <a name="managed-service-identity-authentication"></a>관리 서비스 ID 인증
+### <a name="managed-identity"></a> Azure 리소스 인증에 대한 관리 ID
 
-데이터 팩터리는 특정 팩터리를 나타내는 [관리 서비스 ID](data-factory-service-identity.md)와 연결할 수 있습니다. Azure SQL Data Warehouse 인증에 이 서비스 ID를 사용할 수 있습니다. 지정된 팩터리는 이 ID를 사용하여 데이터 웨어하우스의 데이터에 액세스하고 복사할 수 있습니다.
+데이터 팩터리는 특정 팩터리를 나타내는 [Azure 리소스에 대한 관리 ID](data-factory-service-identity.md)와 연결할 수 있습니다. Azure SQL Data Warehouse 인증에 이 서비스 ID를 사용할 수 있습니다. 지정된 팩터리는 이 ID를 사용하여 데이터 웨어하우스의 데이터에 액세스하고 복사할 수 있습니다.
 
 > [!IMPORTANT]
 > PolyBase는 현재 MSI 인증에 대해 지원되지 않습니다.
@@ -210,7 +210,7 @@ MSI 기반 Azure AD 응용 프로그램 토큰 인증을 사용하려면 다음 
 
 ## <a name="dataset-properties"></a>데이터 집합 속성
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](https://docs.microsoft.com/en-us/azure/data-factory/concepts-datasets-linked-services) 문서를 참조하세요. 이 섹션에서는 Azure SQL Data Warehouse 데이터 집합에서 지원하는 속성 목록을 제공합니다.
+데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) 문서를 참조하세요. 이 섹션에서는 Azure SQL Data Warehouse 데이터 집합에서 지원하는 속성 목록을 제공합니다.
 
 Azure SQL Data Warehouse에서/로 데이터를 복사하려면 데이터 집합의 **type** 속성을 **AzureSqlDWTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
@@ -383,7 +383,7 @@ Azure SQL Data Warehouse에 데이터를 복사하려면 복사 작업의 싱크
 
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>PolyBase를 사용하여 Azure SQL Data Warehouse에 데이터 로드
 
-[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)를 사용하면 높은 처리량으로 대량 데이터를 Azure SQL Data Warehouse에 효율적으로 로드할 수 있습니다. 기본 BULKINSERT 메커니즘 대신 PolyBase를 사용하면 처리량이 훨씬 증가합니다. 자세한 비교는 [성능 참조](copy-activity-performance.md#performance-reference)를 참조하세요. 사용 사례가 있는 연습을 보려면 [Azure SQL Data Warehouse에 1TB 로드](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-load-sql-data-warehouse)를 참조하세요.
+[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)를 사용하면 높은 처리량으로 대량 데이터를 Azure SQL Data Warehouse에 효율적으로 로드할 수 있습니다. 기본 BULKINSERT 메커니즘 대신 PolyBase를 사용하면 처리량이 훨씬 증가합니다. 자세한 비교는 [성능 참조](copy-activity-performance.md#performance-reference)를 참조하세요. 사용 사례가 있는 연습을 보려면 [Azure SQL Data Warehouse에 1TB 로드](https://docs.microsoft.com/azure/data-factory/v1/data-factory-load-sql-data-warehouse)를 참조하세요.
 
 * 원본 데이터가 Azure Blob Storage 또는 Azure Data Lake Store에 있고 형식이 PolyBase와 호환되는 경우, PolyBase를 사용하여 Azure SQL Data Warehouse에 직접 복사합니다. 자세한 내용은 **[PolyBase를 사용하여 직접 복사](#direct-copy-by-using-polybase)** 를 참조하세요.
 * 원본 데이터 저장소와 형식이 PolyBase에서 원래 지원되지 않는 경우, 대신 **[PolyBase를 사용한 준비된 복사](#staged-copy-by-using-polybase)** 기능을 사용합니다. 준비된 복사 기능을 사용할 경우, 처리량도 향상됩니다. 이 기능은 데이터를 PolyBase 호환 형식으로 자동으로 변환합니다. 또한 Azure Blob Storage에 데이터를 저장합니다. 그런 다음, SQL Data Warehouse에 데이터를 로드합니다.

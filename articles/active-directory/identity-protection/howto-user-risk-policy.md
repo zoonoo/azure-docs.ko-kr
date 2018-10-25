@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: a54403b7794d26d87c810f5cd20050db35c078f1
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 3ba8c93d158a6ff80c3db788924503e9d4e87242
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054340"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378122"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>방법: 사용자 위험 정책 구성
 
@@ -41,7 +41,7 @@ Azure AD는 사용자의 각 로그인을 분석합니다. 분석 목표는 로�
 사용자 위험 정책은 특정 사용자 위험 수준에 대해 구성할 수 있는 자동화된 응답입니다. 사용자 위험 정책을 사용하여 리소스에 대한 액세스를 차단하거나 암호 변경을 요구하여 사용자 계정을 정상 상태로 되돌릴 수 있습니다.
 
 
-## <a name="how-do-i-access-the-sign-in-risk-policy"></a>로그인 위험 정책에 액세스하려면 어떻게 할까요?
+## <a name="how-do-i-access-the-user-risk-policy"></a>사용자 위험 정책에 어떻게 액세스할 수 있나요?
    
 로그인 위험 정책은 [Azure AD ID 보호 페이지](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy)의 **구성** 섹션에 있습니다.
    

@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: kgremban
-ms.openlocfilehash: b5316479011a432f3822448f03b8ad6ecddd4fe1
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 031524f4ef00b57f598c1114d594fb70eeedd15b
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590594"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394003"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>IoT Edge 장치 게이트웨이를 통해 Modbus TCP 장치 연결
 
@@ -38,7 +38,7 @@ Modbus 게이트웨이 기능을 테스트하려는 경우 사용할 수 있는 
 mcr.microsoft.com/azureiotedge/modbus:1.0
 ```
 
-사용자 고유의 모듈을 만들고 환경에 맞게 사용자 지정하려는 경우 GitHub의 [Azure IoT Edge Modbus 모듈](https://github.com/Azure/iot-edge-modbus) 오픈 소스 프로젝트가 있습니다. 해당 프로젝트의 지침에 따라 사용자 고유의 컨테이너 이미지를 만듭니다. 사용자 고유의 컨테이너 이미지를 만드는 경우 컨테이너 이미지를 레지스트리에 게시하고 장치에 사용자 지정 모듈을 배포하기 위한 지침은 [C# IoT Edge 모듈 개발 및 배포](tutorial-csharp-module.md)를 참조하세요. 
+사용자 고유의 모듈을 만들고 환경에 맞게 사용자 지정하려는 경우 GitHub에 오픈 소스 [Azure IoT Edge Modbus 모듈](https://github.com/Azure/iot-edge-modbus) 프로젝트가 있습니다. 해당 프로젝트의 지침에 따라 사용자 고유의 컨테이너 이미지를 만듭니다. 사용자 고유의 컨테이너 이미지를 만드는 경우 컨테이너 이미지를 레지스트리에 게시하고 장치에 사용자 지정 모듈을 배포하기 위한 지침은 [C# IoT Edge 모듈 개발 및 배포](tutorial-csharp-module.md)를 참조하세요. 
 
 
 ## <a name="run-the-solution"></a>솔루션 실행
@@ -54,13 +54,12 @@ mcr.microsoft.com/azureiotedge/modbus:1.0
 
       ```JSON
       {  
-        "properties.desired":{  
+        "properties.desired":{
           "PublishInterval":"2000",
-          "SlaveConfigs":{  
-            "Slave01":{  
-              "SlaveConnection":"<IPV4 address>",
-              "HwId":"PowerMeter-0a:01:01:01:01:01",
-              "Operations":{  
+          "SlaveConfigs":{
+            "Slave01":{
+              "SlaveConnection":"<IPV4 address>","HwId":"PowerMeter-0a:01:01:01:01:01",
+              "Operations":{
                 "Op01":{  
                   "PollingInterval": "1000",
                   "UnitId":"1",
@@ -100,8 +99,5 @@ docker logs -f modbus
 
 ## <a name="next-steps"></a>다음 단계
 
-- IoT Edge 장치가 게이트웨이로 작동하는 방법에 대한 자세한 내용은 [투명한 게이트웨이 역할을 하는 IoT Edge 장치 만들기][lnk-transparent-gateway-linux]를 참조하세요.
+- IoT Edge 장치가 게이트웨이로 작동하는 방법에 대한 자세한 내용은 [투명한 게이트웨이 역할을 하는 IoT Edge 장치 만들기](./how-to-create-transparent-gateway-linux.md)를 참조하세요.
 - IoT Edge 모듈이 작동하는 방법에 대한 자세한 내용은 [Azure IoT Edge 모듈 이해](iot-edge-modules.md)를 참조하세요.
-
-<!-- Links -->
-[lnk-transparent-gateway-linux]: ./how-to-create-transparent-gateway-linux.md

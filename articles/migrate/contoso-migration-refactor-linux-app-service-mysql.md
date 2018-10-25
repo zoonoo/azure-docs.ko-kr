@@ -2,16 +2,17 @@
 title: Contoso Linux 서비스 데스크 앱을 Azure App Service 및 Azure MySQL에 리팩터링 | Microsoft Docs
 description: Contoso가 온-프레미스 Linux 앱을 Azure App Service(웹 계층용 GitHub 사용)와 Azure SQL Database에 마이그레이션하여 리팩터링하는 방법을 알아봅니다.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 3f85d9d18aa49a378c63fa1f1692c7dc665489be
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 588bd5b3edeadb841de54691cf30916dd18c0982
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296525"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093004"
 ---
 # <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-multiple-regions-with-azure-app-service-traffic-manager-and-azure-mysql"></a>Contoso 마이그레이션: Contoso Linux 서비스 데스크 앱을 Azure App Service, Traffic Manager 및 Azure MySQL의 여러 지역에 리팩터링
 
@@ -34,6 +35,7 @@ ms.locfileid: "44296525"
 [문서 11: Azure DevOps Services에서 TFS 리팩터링](contoso-migration-tfs-vsts.md) | Contoso에서 온-프레미스 Team Foundation Server 배포를 Azure의 Azure DevOps Services로 마이그레이션합니다. | 사용 가능
 [문서 12: Azure 컨테이너 및 Azure SQL Database에서 앱 아키텍처 변경](contoso-migration-rearchitect-container-sql.md) | Contoso에서 SmartHotel 앱을 Azure로 마이그레이션합니다. 그런 다음, 웹앱 계층을 Azure Service Fabric에서 실행되는 Windows 컨테이너로 재설계하고 Azure SQL Database를 사용하여 데이터베이스를 재설계합니다. | 사용 가능
 [문서 13: Azure에서 앱 다시 빌드](contoso-migration-rebuild.md) | Contoso가 다양한 Azure 기능과 서비스(Azure App Service, AKS(Azure Kubernetes Service), Azure Functions, Azure Cognitive Services 및 Azure Cosmos DB 포함)를 사용하여 SmartHotel360 앱을 다시 빌드합니다. | 사용 가능
+[문서 14: Azure로의 마이그레이션 확장](contoso-migration-scale.md) | 마이그레이션 조합을 시도한 후 Contoso는 Azure로 전체 마이그레이션을 확장할 준비를 합니다. | 사용 가능
 
 이 문서에서 Contoso는 2계층 Linux Apache MySQL PHP(LAMP) 서비스 데스크 앱(osTicket)을 Azure로 마이그레이션합니다. 이 오픈 소스 앱을 사용하려면 [GitHub](https://github.com/osTicket/osTicket)에서 다운로드할 수 있습니다.
 
@@ -332,11 +334,11 @@ Contoso 관리자는 개인 GitHub 리포지토리를 새로 만들어서 Azure 
 1. App Service **APP-SRV-EUS2**에서 **배율 단위**를 엽니다.
 2. 현재 인스턴스에 대한 CPU 백분율이 10분 동안 70%를 초과하면 인스턴스 수를 하나씩 증가시키는 단일 규칙을 사용하여 자동 크기 조정 설정을 새로 구성합니다.
 
-    ![Autoscale](./media/contoso-migration-refactor-linux-app-service-mysql/autoscale1.png)
+    ![자동 크기 조정](./media/contoso-migration-refactor-linux-app-service-mysql/autoscale1.png)
 
 3. **APP-SRV-CUS**에 동일한 설정을 구성하여 앱이 보조 지역으로 장애 조치(failover)되면 동일한 동작이 적용되도록 합니다. 유일한 차이는 인스턴스 제한을 1로 설정하는 것입니다. 보조 지역은 장애 조치(failover) 전용이기 때문입니다.
 
-   ![Autoscale](./media/contoso-migration-refactor-linux-app-service-mysql/autoscale2.png)
+   ![자동 크기 조정](./media/contoso-migration-refactor-linux-app-service-mysql/autoscale2.png)
 
 ##  <a name="clean-up-after-migration"></a>마이그레이션 후 정리
 

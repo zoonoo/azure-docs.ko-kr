@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/23/2018
+ms.date: 10/11/2018
 ms.author: douglasl
-ms.openlocfilehash: 38fbb62de60bc5604210c8ad7339368a04967c27
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 20ee69654a6b19365c9b7c46e1fa11e102168365
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867055"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309362"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>이벤트에 대한 응답으로 파이프라인을 실행하는 트리거 만들기
 
@@ -80,7 +80,7 @@ EDA(이벤트 기반 아키텍처)는 프로덕션, 검색, 소비 및 이벤트
 이 섹션에는 이벤트 기반 트리거 설정의 예가 제공됩니다.
 
 -   **Blob path begins with**(Blob 경로 시작 문자)('/containername/') – 컨테이너에 있는 모든 Blob에 대한 이벤트를 수신합니다.
--   **Blob path begins with**(Blob 경로 시작 문자)('/containername/blobs/foldername') – containername 컨테이너 및 foldername 폴더에 있는 모든 Blob에 대한 이벤트를 수신합니다.
+-   **Blob path begins with**(Blob 경로 시작 문자)('/containername/blobs/foldername') – containername 컨테이너 및 foldername 폴더에 있는 모든 Blob에 대한 이벤트를 수신합니다. 하위 폴더를 참조할 수도 있습니다(예: '/containername/blobs/foldername/subfoldername/').
 -   **Blob path begins with**(Blob 경로 시작 문자)('/containername/blobs/foldername/file.txt') – containername 컨테이너 아래 foldername 폴더에 있는 file.txt라는 이름의 Blob에 대한 이벤트를 수신합니다.
 -   **Blob path ends with**(Blob 경로 마지막 문자)('file.txt') – 모든 경로에서 file.txt라는 이름의 Blob에 대한 이벤트를 수신합니다.
 -   **Blob path ends with**(Blob 경로 마지막 문자)('/containername/blobs/file.txt') – containername 컨테이너에 있는 file.txt라는 이름의 Blob에 대한 이벤트를 수신합니다.

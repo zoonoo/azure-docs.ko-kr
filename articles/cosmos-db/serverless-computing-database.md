@@ -9,16 +9,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: b7908f9f9aef51857f0ffb07102e1df245b7a259
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: c183bbe2c20bdc1772160cbbd8260dece0b6eb54
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064461"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309504"
 ---
-# <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Azure Functions를 통한, 서버를 사용하지 않는 데이터베이스 컴퓨팅
+# <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB 및 Azure Functions를 사용하는 서버리스 데이터베이스 컴퓨팅
 
-서버를 사용하지 않는 컴퓨팅을 통해 반복 가능한 상태 비저장 논리의 개별 항목에 집중할 수 있습니다. 이러한 항목에는 인프라 관리가 필요 없으며, 실행 기간(초 또는 밀리초) 동안만 리소스를 사용합니다. 서버를 사용하지 않는 컴퓨팅 이동의 핵심에는 [Azure Functions](https://azure.microsoft.com/services/functions)가 Azure 에코시스템에서 사용할 수 있는 함수가 있습니다.
+서버를 사용하지 않는 컴퓨팅을 통해 반복 가능한 상태 비저장 논리의 개별 항목에 집중할 수 있습니다. 이러한 항목에는 인프라 관리가 필요 없으며, 실행 기간(초 또는 밀리초) 동안만 리소스를 사용합니다. 서버를 사용하지 않는 컴퓨팅 이동의 핵심에는 [Azure Functions](https://azure.microsoft.com/services/functions)가 Azure 에코시스템에서 사용할 수 있는 함수가 있습니다. Azure의 다른 서버리스 실행 환경에 대해 자세히 알아보려면 [Azure의 서버리스](https://azure.microsoft.com/solutions/serverless/) 페이지를 참조하세요. 
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db)와 Azure Functions 간의 네이티브 통합을 사용하여 Azure Cosmos DB 계정에서 직접 데이터베이스 트리거, 입력 바인딩 및 출력 바인딩을 만들 수 있습니다. Azure Functions 및 Azure Cosmos DB를 통해 전역 사용자 기반의 풍부한 데이터에 짧은 대기 시간으로 액세스할 수 있는, 서버를 사용하지 않는 이벤트 구동 앱을 만들고 배포할 수 있습니다.
 

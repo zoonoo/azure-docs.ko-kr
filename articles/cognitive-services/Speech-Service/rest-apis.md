@@ -2,26 +2,26 @@
 title: Speech Service REST API
 description: Speech Service의 REST API에 대한 참조입니다.
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: speech
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: v-jerkin
-ms.openlocfilehash: 6758cd658daf75beeea93bf9c719508cd271c8be
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.author: erhopf
+ms.openlocfilehash: f8b27277cbf3ea6d53a8f02e550beae67fc50741
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032430"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167633"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API
 
-Azure Cognitive Services 통합 Speech Service의 REST API는 [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech)가 제공하는 API와 비슷합니다. 엔드포인트는 Bing Speech Service에서 사용되는 엔드포인트와 다릅니다. 지역별 엔드포인트는 사용할 수 없으며, 사용 중인 엔드포인트에 상응하는 구독 키를 사용해야 합니다.
+Azure Cognitive Services 음성 서비스의 REST API는 [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech)가 제공하는 API와 비슷합니다. 엔드포인트는 Bing Speech Service에서 사용되는 엔드포인트와 다릅니다. 지역별 엔드포인트는 사용할 수 없으며, 사용 중인 엔드포인트에 상응하는 구독 키를 사용해야 합니다.
 
 ## <a name="speech-to-text"></a>음성을 텍스트로 변환
 
-Speech to Text REST API에 대한 엔드포인트는 다음 표에 표시됩니다. 사용자 구독 지역과 일치하는 끝점을 사용하세요.
+Speech to Text REST API에 대한 엔드포인트는 다음 표에 표시됩니다. 사용자 구독 지역과 일치하는 끝점을 사용하세요. 
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
@@ -30,13 +30,14 @@ Speech to Text REST API에 대한 엔드포인트는 다음 표에 표시됩니�
 
 이 API는 짧은 발화만 지원합니다. 요청은 최대 10초의 오디오를 포함할 수 있고 전체적으로 최대 14초 동안 지속될 수 있습니다. REST API는 부분적 또는 중간 결과가 아닌 최종 결과만 반환합니다. Speech Service에는 긴 오디오를 전사할 수 있는 [일괄 전사](batch-transcription.md) API도 있습니다.
 
+
 ### <a name="query-parameters"></a>쿼리 매개 변수
 
-다음 매개 변수를 REST 요청의 쿼리 문자열에 포함될 수 있습니다.
+다음 매개 변수를 REST 요청의 쿼리 문자열에 포함할 수 있습니다.
 
 |매개 변수 이름|필수/선택|의미|
 |-|-|-|
-|`language`|필수|인식할 언어의 식별자입니다. [지원되는 언어](supported-languages.md#speech-to-text)를 참조하세요.|
+|`language`|필수|인식할 언어의 식별자입니다. [지원되는 언어](language-support.md#speech-to-text)를 참조하세요.|
 |`format`|옵션<br>기본값: `simple`|결과 형식, `simple` 또는 `detailed`입니다. 단순 결과는 `RecognitionStatus`, `DisplayText`, `Offset` 및 기간을 포함합니다. 상세한 결과는 신뢰도 값 및 4가지 다른 표현과 함께 여러 후보를 포함합니다.|
 |`profanity`|옵션<br>기본값: `masked`|인식 결과에서 욕설을 처리하는 방법입니다. `masked`(별표로 욕설 대체), `removed`(욕설 모두 삭제) 또는 `raw`(욕설 포함)가 될 수 있습니다.
 
@@ -55,13 +56,19 @@ Speech to Text REST API에 대한 엔드포인트는 다음 표에 표시됩니�
 
 ### <a name="audio-format"></a>오디오 형식
 
-오디오는 HTTP `PUT` 요청 본문에서 전송됩니다. 16KHz에서 PCM 단일 채널(모노)가 포함된 16비트 WAV 형식이어야 합니다.
+오디오는 HTTP `PUT` 요청 본문에서 전송됩니다. 다음 형식/인코딩의 16KHz에서 PCM 단일 채널(모노)이 포함된 16비트 WAV 형식이어야 합니다.
+
+* PCM 코덱을 사용하는 WAV 형식
+* OPUS 코덱을 사용하는 Ogg 형식
+
+>[!NOTE]
+>위의 형식은 음성 서비스의 REST API 및 WebSocket을 통해 지원됩니다. [음성 SDK](/index.yml)는 현재 PCM 코덱을 사용하는 WAV 형식만 지원합니다. 
 
 ### <a name="chunked-transfer"></a>청크 분할 전송
 
 청크 분할 전송(`Transfer-Encoding: chunked`)은 Speech Service가 오디오 파일을 전송하는 동안 처리를 시작할 수 있으므로 인식 대기 시간을 줄이는 데 도움이 됩니다. REST API는 부분 또는 중간 결과를 제공하지 않습니다. 이 옵션은 응답성을 향상하기 위한 용도로만 사용됩니다.
 
-다음 코드는 오디오를 청크로 전송하는 방법을 보여 줍니다. `request`는 적절한 REST 엔드포인트에 연결된 HTTPWebRequest 개체입니다. `audioFile`은 디스크에서 오디오 파일의 경로입니다.
+다음 코드는 오디오를 청크로 전송하는 방법을 보여 줍니다. 오직 첫 번째 청크만 오디오 파일의 헤더를 포함해야 합니다. `request`는 적절한 REST 엔드포인트에 연결된 HTTPWebRequest 개체입니다. `audioFile`은 디스크에서 오디오 파일의 경로입니다.
 
 ```csharp
 using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
@@ -195,9 +202,6 @@ HTTP 코드|의미|가능한 원인
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
-> [!NOTE]
-> 사용자 지정 음성 글꼴을 만든 경우 연결된 사용자 지정 엔드포인트를 대신 사용합니다.
-
 Speech Service는 Bing Speech에서 지원하는 16Khz 출력뿐만 아니라 24KHz 오디오 출력을 지원합니다. 2개의 24KHz 음성, `Jessa24kRUS` 및 `Guy24kRUS`가 있으므로, `X-Microsoft-OutputFormat` HTTP 헤더에는 4개의 24KHz 출력 형식이 사용 가능합니다.
 
 로캘 | 언어   | 성별 | 서비스 이름 매핑
@@ -205,7 +209,7 @@ Speech Service는 Bing Speech에서 지원하는 16Khz 출력뿐만 아니라 24
 ko-KR  | 영어 | Female | “Microsoft Server Speech Text to Speech Voice(en-US, Jessa24kRUS)” 
 ko-KR  | 영어 | Male   | “Microsoft Server Speech Text to Speech Voice(en-US, Guy24kRUS)”
 
-사용 가능한 음성의 전체 목록은 [지원되는 언어](supported-languages.md#text-to-speech)에 나와 있습니다.
+사용 가능한 음성의 전체 목록은 [지원되는 언어](language-support.md#text-to-speech)에 나와 있습니다.
 
 ### <a name="request-headers"></a>헤더 요청
 
@@ -265,7 +269,8 @@ HTTP 코드|의미|가능한 원인
 400 |잘못된 요청 |필수 매개 변수가 없거나 비어 있거나 null입니다. 또는 필수 또는 선택적 매개 변수에 전달된 값이 올바르지 않습니다. 일반적인 문제는 헤더가 너무 긴 경우입니다.
 401|권한 없음 |요청에 권한이 없습니다. 구독 키 또는 토큰이 유효하고 올바른 영역에 있는지 확인하세요.
 413|요청 엔터티가 너무 큼|SSML 입력이 1024자보다 깁니다.
-|502|잘못된 게이트웨이    | 네트워크 또는 서버 쪽 문제입니다. 잘못된 헤더를 나타낼 수도 있습니다.
+429|너무 많은 요청|구독에 허용되는 요청의 할당량 또는 속도가 초과되었습니다.
+502|잘못된 게이트웨이 | 네트워크 또는 서버 쪽 문제입니다. 잘못된 헤더를 나타낼 수도 있습니다.
 
 HTTP 상태가 `200 OK`인 경우 응답 본문은 요청된 형식으로 오디오 파일을 포함합니다. 이 파일은 전송될 때 재생되거나 이후 재생 또는 다른 용도로 사용하기 위해 버퍼 또는 파일로 저장할 수 있습니다.
 

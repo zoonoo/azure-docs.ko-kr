@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 지역 중복 백업을 사용하여 SaaS 앱 재해 복구 | Microsoft Docs
+title: 'SaaS 앱: 재해 복구를 위한 Azure SQL Database 지역 중복 백업 | Microsoft Docs'
 description: 가동 중단 시 Azure SQL Database 지역 중복 백업을 사용하여 다중 테넌트 SaaS 앱을 복구하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,13 +11,13 @@ author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 784fd1797f2a4f85842666c9fa987a2decc933c2
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 10/15/2018
+ms.openlocfilehash: a78632ed6215c467f53938569621cfb18f9e51ca
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868720"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352943"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>데이터베이스 백업에서 지역 복원을 사용하여 다중 테넌트 SaaS 응용 프로그램 복구
 

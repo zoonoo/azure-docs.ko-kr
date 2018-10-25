@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: e5b44ed2435986ffd500cade1f7c8ff8047d353d
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 30a1f2be1917ba6ea404a2862daaf5f51f35ac3f
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452309"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394887"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>모델을 교육하기 위한 계산 대상의 선택 및 사용
 
@@ -25,9 +25,12 @@ Azure Machine Learning 서비스를 통해 다양한 환경에서 모델을 교�
 
 처음에는 머신에서 로컬로 실행하고, 나중에 GPU 또는 Azure Batch AI를 사용하여 원격 데이터 과학 가상 머신 같은 다른 환경으로 확장 및 강화할 수 있습니다. 
 
+>[!NOTE]
+> 이 문서의 코드는 Azure Machine Learning SDK 버전 0.168에서 테스트되었습니다. 
+
 ## <a name="supported-compute-targets"></a>지원되는 계산 대상
 
-Azure Machine Learning은 다음과 같은 계산 대상을 지원합니다.
+Azure Machine Learning 서비스에서 지원하는 계산 대상은 다음과 같습니다.
 
 |계산 대상| GPU 가속 | 자동화된 하이퍼 매개 변수 튜닝 | 자동화된 모델 선택 | 파이프라인에서 사용 가능|
 |----|:----:|:----:|:----:|:----:|
@@ -41,8 +44,8 @@ __[ACI(Azure Container Instances)](#aci)__ 를 사용하여 모델을 교육할 
 계산 대상 간의 주요 차별화 요소는 다음과 같습니다.
 * __GPU 가속__: GPU는 Data Science Virtual Machine 및 Azure Batch AI에 사용할 수 있습니다. 설치된 하드웨어, 드라이버 및 프레임워크에 따라 로컬 컴퓨터에서 GPU에 액세스할 수도 있습니다.
 * __자동화된 하이퍼 매개 변수 튜닝__: Azure Machine Learning 자동화된 하이퍼 매개 변수 최적화는 모델에 가장 적합한 하이퍼 매개 변수를 찾는 데 도움을 줍니다.
-* __자동화된 모델 선택__: 모델을 빌드할 때 Azure Machine Learning은 지능적으로 알고리즘 및 하이퍼 매개 변수를 추천할 수 있습니다. 자동화된 모델 선택을 사용하면 여러 조합을 수동으로 시도하는 것보다 더 빠르게 고품질 모델을 찾을 수 있습니다. 자세한 내용은 [자습서: Azure 자동화된 Machine Learning을 사용하여 자동으로 분류 모델 학습시키기](tutorial-auto-train-models.md) 문서를 참조하세요.
-* __파이프라인__: Azure Machine Learning을 사용하면 교육 및 배포 같은 여러 작업을 파이프라인에 결합할 수 있습니다. 파이프라인은 병렬로 또는 순서대로 실행할 수 있으며, 신뢰할 수 있는 자동화 메커니즘을 제공합니다. 자세한 내용은 [Azure Machine Learning 서비스를 사용하여 기계 학습 파이프라인 빌드](concept-ml-pipelines.md) 문서를 참조하세요.
+* __자동화된 모델 선택__: 모델을 빌드할 때 Azure Machine Learning 서비스는 알고리즘 및 하이퍼 매개 변수를 선택하도록 지능적으로 권장할 수 있습니다. 자동화된 모델 선택을 사용하면 여러 조합을 수동으로 시도하는 것보다 더 빠르게 고품질 모델을 찾을 수 있습니다. 자세한 내용은 [자습서: Azure 자동화된 Machine Learning을 사용하여 자동으로 분류 모델 학습시키기](tutorial-auto-train-models.md) 문서를 참조하세요.
+* __파이프라인__: Azure Machine Learning 서비스를 사용하면 학습 및 배포와 같은 다양한 작업을 파이프라인에 결합할 수 있습니다. 파이프라인은 병렬로 또는 순서대로 실행할 수 있으며, 신뢰할 수 있는 자동화 메커니즘을 제공합니다. 자세한 내용은 [Azure Machine Learning 서비스를 사용하여 기계 학습 파이프라인 빌드](concept-ml-pipelines.md) 문서를 참조하세요.
 
 Azure Machine Learning SDK, Azure CLI 또는 Azure Portal을 사용하여 계산 대상을 만들 수 있습니다. 기존 계산 대상을 작업 영역에 추가(연결)하여 사용할 수도 있습니다.
 
@@ -106,7 +109,7 @@ from azureml.core.conda_dependencies import CondaDependencies
 run_config_system_managed = RunConfiguration()
 
 run_config_system_managed.environment.python.user_managed_dependencies = False
-run_config_system_managed.prepare_environment = True
+run_config_system_managed.auto_prepare_environment = True
 
 # Specify conda dependencies with scikit-learn
 
@@ -174,7 +177,7 @@ run_config_system_managed.environment.python.conda_dependencies = CondaDependenc
     # Use Docker in the remote VM
     run_config.environment.docker.enabled = True
 
-    # Use CPU base image from DockerHub
+    # Use CPU base image
     run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
     print('Base Docker image is:', run_config.environment.docker.base_image)
 
@@ -206,30 +209,30 @@ Data Science Virtual Machine에서 학습을 보여주는 Jupyter Notebook은 [h
 ```python
 from azureml.core.compute import BatchAiCompute
 from azureml.core.compute import ComputeTarget
+import os
 
 # choose a name for your cluster
-batchai_cluster_name = ws.name + "cpu"
+batchai_cluster_name = os.environ.get("BATCHAI_CLUSTER_NAME", ws.name + "gpu")
+cluster_min_nodes = os.environ.get("BATCHAI_CLUSTER_MIN_NODES", 1)
+cluster_max_nodes = os.environ.get("BATCHAI_CLUSTER_MAX_NODES", 3)
+vm_size = os.environ.get("BATCHAI_CLUSTER_SKU", "STANDARD_NC6")
+autoscale_enabled = os.environ.get("BATCHAI_CLUSTER_AUTOSCALE_ENABLED", True)
 
-found = False
-# see if this compute target already exists in the workspace
-for ct in ws.compute_targets():
-    print(ct.name, ct.type)
-    if (ct.name == batchai_cluster_name and ct.type == 'BatchAI'):
-        found = True
-        print('found compute target. just use it.')
-        compute_target = ct
-        break
-        
-if not found:
+
+if batchai_cluster_name in ws.compute_targets():
+    compute_target = ws.compute_targets()[batchai_cluster_name]
+    if compute_target and type(compute_target) is BatchAiCompute:
+        print('found compute target. just use it. ' + batchai_cluster_name)
+else:
     print('creating a new compute target...')
-    provisioning_config = BatchAiCompute.provisioning_configuration(vm_size = "STANDARD_D2_V2", # for GPU, use "STANDARD_NC6"
-                                                                #vm_priority = 'lowpriority', # optional
-                                                                autoscale_enabled = True,
-                                                                cluster_min_nodes = 1, 
-                                                                cluster_max_nodes = 4)
+    provisioning_config = BatchAiCompute.provisioning_configuration(vm_size = vm_size, # NC6 is GPU-enabled
+                                                                vm_priority = 'lowpriority', # optional
+                                                                autoscale_enabled = autoscale_enabled,
+                                                                cluster_min_nodes = cluster_min_nodes, 
+                                                                cluster_max_nodes = cluster_max_nodes)
 
     # create the cluster
-    compute_target = ComputeTarget.create(ws,batchai_cluster_name, provisioning_config)
+    compute_target = ComputeTarget.create(ws, batchai_cluster_name, provisioning_config)
     
     # can poll for a minimum number of nodes and for a specific timeout. 
     # if no min node count is provided it will use the scale settings for the cluster
@@ -372,7 +375,7 @@ Azure Portal에서 작업 영역과 연결된 계산 대상을 살펴볼 수 있
 1. [Azure Portal](https://portal.azure.com)을 방문하여 작업 영역으로 이동합니다.
 2. __응용 프로그램__ 섹션 아래에서 __계산__ 링크를 클릭합니다.
 
-    ![[계산 보기] 탭](./media/how-to-set-up-training-targets/compute_tab.png)
+    ![[계산 보기] 탭](./media/how-to-set-up-training-targets/azure-machine-learning-service-workspace.png)
 
 ### <a name="create-a-compute-target"></a>계산 대상 만들기
 
@@ -380,7 +383,7 @@ Azure Portal에서 작업 영역과 연결된 계산 대상을 살펴볼 수 있
 
 1. __+__ 기호를 클릭하여 계산 대상을 추가합니다.
 
-    ![계산 추가 ](./media/how-to-set-up-training-targets/add_compute.png)
+    ![계산 추가 ](./media/how-to-set-up-training-targets/add-compute-target.png)
 
 1. 계산 대상의 이름을 입력합니다.
 1. __교육__용으로 연결할 계산 유형을 선택합니다. 
@@ -413,14 +416,14 @@ Azure Portal에서 작업 영역과 연결된 계산 대상을 살펴볼 수 있
 6. 이제 이러한 대상에 대한 실행을 제출할 수 있습니다.
 
 ## <a name="examples"></a>예
-다음 Notebook은 문서의 개념을 보여줍니다.
-* `01.getting-started/02.train-on-local/02.train-on-local.ipynb`
-* `01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb`
-* `01.getting-started/03.train-on-aci/03.train-on-aci.ipynb`
-* `01.getting-started/05.train-in-spark/05.train-in-spark.ipynb`
-* `01.getting-started/07.hyperdrive-with-sklearn/07.hyperdrive-with-sklearn.ipynb`
+이 문서의 개념을 보여 주는 노트북은 다음과 같습니다.
+* [01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
+* [01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm)
+* [01.getting-started/03.train-on-aci/03.train-on-aci.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci)
+* [01.getting-started/05.train-in-spark/05.train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark)
+* [tutorials/01.train-models.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb)
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)] Notebook을 다운로드합니다.
+노트북을 가져오려면 다음을 수행합니다. [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

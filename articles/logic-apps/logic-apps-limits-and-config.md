@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 09/26/2018
-ms.openlocfilehash: c557c3e34fc4588b8bf13d69159a144d059b039e
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.date: 10/11/2018
+ms.openlocfilehash: 52f30adf1ea383b098d3f187a315257f101e8a9b
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452458"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320441"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -111,9 +111,22 @@ ms.locfileid: "47452458"
 
 정상적인 처리에서 이러한 제한을 초과하거나 이러한 제한을 초과하는 부하 테스트를 실행하려면 [Logic Apps 팀에 문의](mailto://logicappsemail@microsoft.com)하여 요구 사항에 대해 도움을 받으세요.
 
+<a name="sftp"></a>
+
+## <a name="ftp-sftp-and-sftp-ssh-limits"></a>FTP, SFTP 및 SFTP-SSH 한도
+
+### <a name="file-size"></a>파일 크기
+
+| 이름 | 제한 | 메모 |
+|------|-------|-------|
+| FTP | 50MB | 이 제한을 해결하려면 [청킹이 있는 대용량 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. 그러나 일부 커넥터 및 API는 청킹 또는 기본 제한을 지원하지 않을 수 있습니다. | 
+| SFTP | 50MB | 이 제한을 해결하려면 [SFTP-SSH 커넥터](../connectors/connectors-sftp-ssh.md)를 사용하거나 [청킹이 있는 대용량 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. 그러나 일부 커넥터 및 API는 청킹 또는 기본 제한을 지원하지 않을 수 있습니다. | 
+| SFTP-SSH | 1 GB | 이 제한을 해결하려면 [청킹이 있는 대용량 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. 그러나 일부 커넥터 및 API는 청킹 또는 기본 제한을 지원하지 않을 수 있습니다. | 
+|||| 
+
 <a name="request-limits"></a>
 
-## <a name="http-request-limits"></a>HTTP 요청 한도
+## <a name="http-limits"></a>HTTP 한도
 
 다음은 단일 HTTP 요청 또는 동기 커넥터 호출에 대한 제한 사항입니다.
 
@@ -156,6 +169,15 @@ ms.locfileid: "47452458"
 | 사용자 지정 커넥터 수 | Azure 구독당 1,000개 | 
 | 사용자 지정 커넥터에서 만든 각 연결에 대한 분당 요청 수 | 연결당 500개의 요청 |
 |||| 
+
+<a name="managed-identity"></a>
+
+## <a name="managed-identities"></a>관리 ID
+
+| 이름 | 제한 | 
+| ---- | ----- | 
+| 시스템 할당 관리 ID가 있는 논리 앱의 수/Azure 구독 | 10 | 
+|||
 
 <a name="integration-account-limits"></a>
 
@@ -306,11 +328,11 @@ ms.locfileid: "47452458"
 > [!IMPORTANT]
 > 기존 구성이 있는 경우 논리 앱이 있는 지역에 대한 다음 목록의 IP 주소를 포함하여 일치하도록 **2018년 9월 1일 이전까지 가능한 한 빨리** 업데이트하세요. 
 > 
-> Logic Apps는 방화벽을 통해 Azure storage 계정에 직접 연결하도록 지원하지 않습니다. 이러한 저장소 계정에 액세스하려면 다음 옵션 중 하나를 사용합니다. 
+> Logic Apps는 방화벽을 통해 Azure Storage 계정에 직접 연결하도록 지원하지 않습니다. 이러한 저장소 계정에 액세스하려면 다음 옵션 중 하나를 사용합니다. 
 >
 > * [통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)을 만듭니다. Azure Virtual Network의 리소스에 연결할 수 있습니다. 
 > 
-> * 아직 API Management를 사용하는 경우 이 시나리오에 이 서비스를 사용할 수 있습니다. 자세한 내용은 [간단한 엔터프라이즈 통합 아키텍처](http://aka.ms/aisarch)를 참조하세요.
+> * API Management를 이미 사용 중인 경우 이 시나리오에 이 서비스를 사용할 수 있습니다. 자세한 내용은 [간단한 엔터프라이즈 통합 아키텍처](http://aka.ms/aisarch)를 참조하세요.
 
 | Logic Apps 지역 | 아웃바운드 IP | 
 |-------------------|-------------|  

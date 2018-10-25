@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: luisca
-ms.openlocfilehash: b428e6e7738c8a9052c3fcfe2ad5284bfd5293d6
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: d78959ba415c837e931edcc0278de84daa879bc1
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307996"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393953"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>예제: Translator Text API를 사용하여 사용자 지정 기술 만들기
 
@@ -37,6 +37,8 @@ ms.locfileid: "39307996"
 1. Visual Studio의 파일 메뉴에서 **새로 만들기** > **프로젝트**를 선택합니다.
 
 1. 새 프로젝트 대화 상자에서 **설치됨**을 선택하고, **Visual C#** > **클라우드**를 확장하고, **Azure Functions**를 선택하고, 프로젝트의 이름을 입력한 다음, **확인**을 선택합니다. 함수 앱 이름은 C# 네임스페이스로 유효해야 하므로 밑줄, 하이픈 또는 기타 영숫자가 아닌 문자는 사용하지 마세요.
+
+1. **Azure Functions v2(.Net Core)** 를 선택합니다. 버전 1에서도 수행할 수 있지만 아래에 작성된 코드는 v2 템플릿을 기반으로 합니다.
 
 1. 형식을 **HTTP 트리거**로 선택합니다.
 
@@ -243,14 +245,6 @@ POST https://localhost:7071/api/Translate
 1. 배포가 완료된 후 사이트 URL을 적어둡니다. 이 URL은 Azure에서 해당 함수 앱의 주소입니다. 
 
 1. [Azure Portal](https://portal.azure.com)에서 리소스 그룹으로 이동한 다음, 게시한 Translate Function을 찾습니다. **관리** 섹션 아래에 호스트 키가 표시됩니다. ‘기본’ 호스트 키의 **복사** 아이콘을 선택합니다.  
-
-## <a name="update-ssl-settings"></a>SSL 설정 업데이트
-
-2018년 6월 30일 후에 만들어진 모든 Azure Functions는 현재 사용자 지정 기술과 호환되지 않는 TLS 1.0을 사용하지 않습니다.
-
-1. [Azure Portal](https://portal.azure.com)에서 리소스 그룹으로 이동한 다음, 게시한 Translate Function을 찾습니다. **플랫폼 기능** 섹션 아래에 SSL이 표시되어야 합니다.
-
-1. SSL을 선택한 후 **최소 TLS 버전**을 1.0으로 변경해야 합니다. TLS 1.2 함수는 아직 사용자 지정 기술로 지원되지 않습니다.
 
 ## <a name="test-the-function-in-azure"></a>Azure에서 함수 테스트
 

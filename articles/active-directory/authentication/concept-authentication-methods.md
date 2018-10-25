@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 7776ca63dd5c02e470ead35e3dad73c051731fd1
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 67f99e68bc4091d076e27aee06c2851bc77e6fc7
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42144488"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378927"
 ---
 # <a name="what-are-authentication-methods"></a>인증 방법이란?
 
@@ -30,7 +30,8 @@ Azure AD SSPR(Self-service Password Reset)과 MFA(Multi-Factor Authentication)�
 | 암호 | MFA 및 SSPR |
 | 보안 질문 | SSPR만 |
 | 메일 주소 | SSPR만 |
-| Microsoft Authenticator 앱 | MFA 및 SSPR용 공개 미리 보기  |
+| Microsoft Authenticator 앱 | MFA 및 SSPR용 공개 미리 보기 |
+| OATH 하드웨어 토큰 | MFA 및 SSPR용 공개 미리 보기 |
 | sms | MFA 및 SSPR |
 | 음성 통화 | MFA 및 SSPR |
 | 앱 암호 | 특정 경우 MFA만 |
@@ -39,7 +40,7 @@ Azure AD SSPR(Self-service Password Reset)과 MFA(Multi-Factor Authentication)�
 
 |     |
 | --- |
-| Azure AD SSPR(Self-service Password Reset)에 대한 모바일 앱 알림 및 모바일 앱 코드는 Azure Active Directory의 공개 미리 보기 기능입니다.  미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
+| MFA 및 SSPR용 OATH 하드웨어 토큰과 Azure AD SSPR(Self-service Password Reset) 방법인 모바일 앱 알림 또는 모바일 앱 코드는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
 |     |
 
 ## <a name="password"></a>암호
@@ -146,6 +147,30 @@ Microsoft Authenticator 앱 또는 타사 앱을 소프트웨어 토큰으로 �
 > [!WARNING]
 > 재설정에 한 가지 방법만 필요하고 셀프 서비스 암호 재설정을 사용하는 경우 **최고 수준의 보안을 유지하기 위해** 사용자에게 유일한 옵션으로 확인 코드만 제공됩니다.
 >
+
+## <a name="oath-hardware-tokens-public-preview"></a>OATH 하드웨어 토큰(공개 미리 보기)
+
+OATH는 OTP(일회성 암호) 코드 생성 방법을 지정하는 공개 표준입니다. Azure AD는 30초 또는 60초 중 하나로 OATH-TOTP SHA-1 토큰 사용을 지원합니다. 고객은 자신이 선택한 공급업체에서 이러한 토큰을 확보할 수 있습니다. 비밀 키는 128자로 제한되며 일부 토큰과는 호환되지 않을 수 있습니다.
+
+![Azure Portal의 MFA 서버 OATH 토큰에 OATH 토큰 업로드](media/concept-authentication-methods/oath-tokens-azure-ad.png)
+
+OATH 하드웨어 토큰은 공개 미리 보기의 일부로 지원됩니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+토큰이 확보되면 아래 예제와 같이 UPN, 일련 번호, 비밀 키, 시간 간격, 제조업체 및 모델이 포함된 CSV(쉼표로 구분된 값) 파일 형식으로 업로드해야 합니다.
+
+```
+upn,serial number,secret key,timeinterval,manufacturer,model
+Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
+```
+
+> [!NOTE]
+> 위와 같이 CSV 파일에 머리글 행을 포함해야 합니다.
+
+CSV 파일로 올바르게 형식이 지정되면 관리자는 Azure Portal에 로그인하여 **Azure Active Directory**, **MFA 서버**, **OATH 토큰**으로 이동하여 CSV 파일을 업로드할 수 있습니다.
+
+CSV 파일의 크기에 따라 처리하는 데 몇 분 정도가 소요될 수 있습니다. 현재 상태를 가져오려면 **새로 고침** 단추를 클릭합니다. 파일에 오류가 있는 경우 오류가 나열된 CSV 파일을 다운로드하여 해결할 수 있습니다.
+
+오류가 모두 처리되면 관리자는 토큰이 활성화되도록 **활성화**를 클릭하고 토큰에 표시된 OTP를 입력하여 각 키를 활성화할 수 있습니다.
 
 ## <a name="mobile-phone"></a>휴대폰
 

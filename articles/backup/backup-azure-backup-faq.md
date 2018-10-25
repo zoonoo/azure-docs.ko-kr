@@ -9,15 +9,15 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/2/2018
 ms.author: markgal
-ms.openlocfilehash: 5fd0cb92bd35b1f238e4080d2c9e8caf781b8131
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 2151733a5d91fb17c69fa1f4f6aac64a70928824
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493871"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364305"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Azure Backup 서비스에 대한 질문
-이 문서에서는 Azure Backup 구성 요소에 대한 일반적인 질문과 대답을 제공합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. **의견**(오른쪽)을 클릭하여 Azure Backup에 대한 질문을 할 수 있습니다. 의견은 이 문서의 하단에 나타납니다. Livefyre 계정은 메모가 필수입니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
+이 문서에서는 Azure Backup 구성 요소에 대한 일반적인 질문과 대답을 제공합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. **의견**(오른쪽)을 클릭하여 Azure Backup에 대한 질문을 할 수 있습니다. 의견은 이 문서의 하단에 나타납니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
 
 이 문서의 섹션을 신속하게 검색하려면 **이 문서** 아래의 오른쪽에서 링크를 사용합니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "39493871"
 자격 증명 모음당 최대 1000대의 Azure 가상 머신을 등록할 수 있습니다. MAB Agent를 사용하면 자격 증명 모음당 최대 50대의 MAB Agent를 등록할 수 있습니다. 또한 자격 증명 모음에 50대의 MAB 서버/DPM 서버를 등록할 수 있습니다.
 
 ### <a name="can-i-use-a-rest-api-to-query-the-size-of-protected-items-in-a-vault-br"></a>REST API를 사용하여 자격 증명 모음에서 보호된 항목의 크기를 쿼리할 수 있나요? <br/>
-예. [사용량 - 자격 증명 모음별 목록](https://t.co/2lgIrIaF0J) 문서는 Recovery Services 자격 증명 모음에서 얻을 수 있는 정보를 나열합니다.
+예. [사용량 - 자격 증명 모음별 목록](https://docs.microsoft.com/rest/api/recoveryservices/usages/usages_listbyvaults) 문서는 Recovery Services 자격 증명 모음에서 얻을 수 있는 정보를 나열합니다.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>내 조직에 하나의 자격 증명 모음이 있는 경우 데이터를 복원할 때 서버 간에 데이터를 어떻게 격리할 수 있나요?<br/>
 동일한 자격 증명 모음에 등록된 모든 서버는 *동일한 암호를 사용*하는 다른 서버에서 백업된 데이터를 복구할 수 있습니다. 조직의 다른 서버에서 백업 데이터를 격리하고 싶은 서버가 있는 경우 해당 서버에 대해 지정된 암호를 사용합니다. 예를 들어 인사부 서버가 첫 번째 암호화 암호를 사용하고, 회계 서버가 두 번째, 저장소 서버가 세 번째 암호화 암호를 사용할 수 있습니다.
@@ -42,8 +42,11 @@ ms.locfileid: "39493871"
 ### <a name="can-i-migrate-backup-data-to-another-vault-br"></a>백업 데이터를 다른 자격 증명 모음에 마이그레이션할 수 있나요? <br/>
 아니요. 자격 증명 모음에 저장된 백업 데이터는 다른 자격 증명 모음으로 옮길 수 없습니다.
 
+### <a name="can-i-change-from-grs-to-lrs-after-a-backup-br"></a>백업 후 GRS에서 LRS로 변경할 수 있나요? <br/>
+아니요. Recovery Services 자격 증명 모음은 백업을 저장하기 전에만 저장소 옵션을 변경할 수 있습니다.
+
 ### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>Recovery Services 자격 증명 모음은 Resource Manager에 기반합니다. Backup 자격 증명 모음도 계속 지원되나요? <br/>
-Backup 자격 증명 모음은 Recovery Services 자격 증명 모음으로 변환되었습니다. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 변환하지 않은 경우 Backup 자격 증명 모음은 Recovery Services 자격 증명 모음으로 변환되었습니다. 
+Backup 자격 증명 모음은 Recovery Services 자격 증명 모음으로 변환되었습니다. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 변환하지 않은 경우 Backup 자격 증명 모음은 Recovery Services 자격 증명 모음으로 변환되었습니다.
 
 ### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>Recovery Services 자격 증명 모음에 Backup 자격 증명 모음을 마이그레이션할 수 있나요? <br/>
 모든 Backup 자격 증명 모음은 Recovery Services 자격 증명 모음으로 변환되었습니다. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 변환하지 않은 경우 Backup 자격 증명 모음은 Recovery Services 자격 증명 모음으로 변환되었습니다.
@@ -57,7 +60,6 @@ Backup 자격 증명 모음은 Recovery Services 자격 증명 모음으로 변�
 ## <a name="back-up-vmware-servers"></a>VMware 서버 백업
 
 ### <a name="can-i-back-up-vmware-vcenter-servers-to-azure"></a>VMware vCenter 서버를 Azure에 백업할 수 있나요?
-
 예. VMware vCenter 및 ESXi를 Azure에 백업하는 데 Azure Backup Server를 사용할 수 있습니다. 지원되는 VMware 버전에 대 한 자세한 내용은 [Azure Backup Server 보호 매트릭스](backup-mabs-protection-matrix.md)를 참조하세요. 단계별 지침은 [Azure Backup Server를 사용하여 VMware 서버 백업](backup-azure-backup-server-vmware.md)을 참조하세요.
 
 ### <a name="do-i-need-a-separate-license-to-recover-a-full-on-premises-vmwarehyper-v-cluster-from-dpm-or-azure-backup-serverbr"></a>DPM 또는 Azure Backup Server에서 온-프레미스 VMware/Hyper-V 클러스터 전체를 복구하려면 별도 라이선스가 필요하나요?<br/>
@@ -71,17 +73,14 @@ VMware/Hyper-V 보호를 위해 별도 라이선스는 필요 없습니다. Syst
 아니요. DPM 또는 MABS 서버는 하나의 자격 증명 모음에만 등록할 수 있습니다.
 
 ### <a name="which-version-of-system-center-data-protection-manager-is-supported"></a>지원되는 System Center Data Protection Manager의 버전은 무엇인가요?
-
-System Center DPM(Data Protection Manager)용 최신 업데이트 롤업(UR)에 [최신](http://aka.ms/azurebackup_agent) Azure Backup 에이전트를 설치하는 것이 좋습니다. 
+System Center DPM(Data Protection Manager)용 최신 업데이트 롤업(UR)에 [최신](http://aka.ms/azurebackup_agent) Azure Backup 에이전트를 설치하는 것이 좋습니다.
 - System Center DPM 2012 R2의 경우 [Update Rollup 14](https://support.microsoft.com/help/4043315/update-rollup-14-for-system-center-2012-r2-data-protection-manager)가 최신 업데이트입니다.
 - System Center DPM 2016의 경우 [Update Rollup 2](https://support.microsoft.com/en-us/help/3209593)가 최신 업데이트입니다.
 
 ### <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-protect-on-premises-applicationvm-workloads-to-azure"></a>내 파일 및 폴더를 보호하기 위해 Azure Backup 에이전트를 설치했습니다. System Center DPM을 설치하여 Azure에 온-프레미스 응용 프로그램/VM 워크로드를 보호할 수 있나요?
-
 예. 단, System Center DPM(Data Protection Manager)과 함께 Azure Backup을 사용하려면 먼저 DPM을 설치한 다음, Azure Backup 에이전트를 설치합니다. Azure Backup 구성 요소를 이 순서대로 설치하면 Azure Backup 에이전트는 DPM과 함께 작동합니다. DPM을 설치하기 전에 Azure Backup 에이전트를 설치하는 것이 권장되거나 지원되지 않습니다.
 
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Azure Stack에서 DPM을 사용하여 앱을 백업할 수 있나요?
-
 아니요. Azure Backup을 사용하여 Azure Stack을 보호할 수 있지만 Azure Backup은 DPM을 사용하여 Azure Stack에 있는 앱을 백업하는 기능은 지원하지 않습니다.
 
 ## <a name="how-azure-backup-works"></a>Azure Backup 작동 방식
@@ -112,7 +111,7 @@ Azure Backup은 Azure Backup Server 및 System Center DPM(Data Protection Manage
 | Windows Server 2016 |64비트 |Standard, Datacenter, Essentials |
 | Windows Server 2012 R2 및 최신 SP |64비트 |Standard, Datacenter, Foundation |
 | Windows Server 2012 및 최신 SP |64비트 |Datacenter, Foundation, Standard |
-| Windows Storage Server 2016 및 최신 SP |64비트 |Standard, Workgroup | 
+| Windows Storage Server 2016 및 최신 SP |64비트 |Standard, Workgroup |
 | Windows Storage Server 2012 R2 및 최신 SP |64비트 |Standard, Workgroup |
 | Windows Storage Server 2012 및 최신 SP |64비트 |Standard, Workgroup |
 | Windows Server 2012 R2 및 최신 SP |64비트 |Essential |
@@ -145,7 +144,7 @@ Azure Backup은 데이터 원본에 대해 최대 크기를 적용하지만 원�
 | Microsoft Exchange |백업되는 Exchange 서버의 모든 Exchange 데이터베이스 합계 |
 | BMR/시스템 상태 |백업되는 컴퓨터의 각 개별 BMR 복사본 또는 시스템 상태 |
 
-Azure IaaS VM 백업의 경우 각 VM은 최대 16개의 데이터 디스크를 가질 수 있으며 각 데이터 디스크는 최대 4095GB일 수 있습니다.
+Azure IaaS VM 백업의 경우 각 VM은 최대 32개의 데이터 디스크를 가질 수 있으며 각 데이터 디스크는 최대 4095GB가 될 수 있습니다.
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-held-in-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 저장된 데이터의 양에 제한이 있나요?
 Recovery Services 자격 증명 모음에 백업할 수 있는 데이터의 양에는 제한이 없습니다.
@@ -189,7 +188,7 @@ Azure Backup에서 수행할 수 있는 복구 횟수에는 제한이 없습니�
 예. Azure에 전송되는 데이터는 암호화 상태(휴지 상태)를 유지합니다. Microsoft는 어떠한 경우에도 백업 데이터를 암호 해독하지 않습니다. Azure VM을 백업할 때 Azure Backup은 가상 머신의 암호화가 필요합니다. 예를 들어, Azure Disk Encryption 또는 다른 암호화 기술을 사용하여 VM을 암호화하는 경우 Azure Backup은 해당 암호화를 사용하여 데이터를 보호합니다.
 
 ### <a name="what-is-the-minimum-length-of-encryption-key-used-to-encrypt-backup-data-br"></a>백업 데이터를 암호화하는 데 사용되는 암호화 키의 최소 길이는 어느 정도인가요? <br/>
-Azure 백업 에이전트를 사용하는 경우 암호화 키는 16자 이상이어야 합니다. Azure VM의 경우 Azure Key Vault에서 사용하는 키의 길이는 제한되지 않습니다. 
+Azure 백업 에이전트를 사용하는 경우 암호화 키는 16자 이상이어야 합니다. Azure VM의 경우 Azure Key Vault에서 사용하는 키의 길이는 제한되지 않습니다.
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-or-can-microsoft-recover-the-data-br"></a>암호화 키를 잃어버리면 어떻게 되나요? 제가 데이터를 복구할 수 있나요? 아니면 Microsoft가 데이터를 복구할 수 있나요? <br/>
 백업 데이터를 암호화하는 데 사용되는 키는 고객 사업장에만 존재합니다. Microsoft는 Azure에 복사본을 유지하지 않으며 키에 대한 어떠한 액세스 권한도 없습니다. 고객이 키를 잃어버릴 경우 Microsoft는 백업 데이터를 복구할 수 없습니다.

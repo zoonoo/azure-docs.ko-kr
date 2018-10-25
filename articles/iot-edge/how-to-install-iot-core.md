@@ -9,12 +9,12 @@ ms.date: 03/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f57db00894dab80f96f45111331d47a173520ced
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: ac729963e63bd97c83719e21dad3ad2cfc9b4fee
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576001"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49392797"
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Windows IoT Core에 IoT Edge 런타임 설치 - 미리 보기
 
@@ -27,7 +27,7 @@ Azure IoT Edge 및 [Windows IoT Core](https://docs.microsoft.com/windows/iot-cor
 ## <a name="install-the-container-runtime"></a>컨테이너 런타임 설치
 
 1. **빌드 17134(RS4)** IoT Core 이미지로 보드를 구성합니다. 
-1. 장치를 켠 다음 [PowerShell을 사용하여 원격으로 로그인][lnk-powershell]합니다.
+1. 장치를 켠 다음, [PowerShell을 사용하여 원격으로 로그인](https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell)합니다.
 1. PowerShell 콘솔에서 컨테이너 런타임을 설치합니다. 
 
    ```powershell
@@ -45,15 +45,8 @@ Azure IoT Edge 및 [Windows IoT Core](https://docs.microsoft.com/windows/iot-cor
 
 ## <a name="finish-installing"></a>설치 마침
 
-IoT Edge 보안 디먼을 설치하고 [이 문서][lnk-install-windows-on-windows]의 지침을 사용하여 구성합니다.
+IoT Edge 보안 디먼을 설치하고 [이 문서](how-to-install-iot-edge-windows-with-windows.md)의 지침을 사용하여 구성합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 IoT Edge 런타임을 실행하는 장치가 있으므로 [대규모 IoT Edge 모듈 배포 및 모니터링][lnk-deploy]을 수행하는 방법을 알아봅니다.
-
-<!--Links-->
-[lnk-install-windows-on-windows]: how-to-install-iot-edge-windows-with-windows.md
-[lnk-powershell]: https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell
-[lnk-deploy]: how-to-deploy-monitor.md
-[lnk-docker-install]: https://docs.docker.com/engine/installation/linux/docker-ce/binaries#install-server-and-client-binaries-on-windows
-[lnk-docker-containers]: https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10#2-switch-to-windows-containers
+이제 IoT Edge 런타임을 실행하는 장치가 있으므로 [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor.md)을 수행하는 방법을 알아봅니다.

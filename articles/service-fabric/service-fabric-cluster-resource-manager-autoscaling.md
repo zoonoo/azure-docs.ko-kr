@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: db4f83d0d407ad3d9e895759ea2a687662f5620a
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: fbaf6b92a2605d284a749365d542c223e09f730d
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053298"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362605"
 ---
 # <a name="introduction-to-auto-scaling"></a>자동 크기 조정 소개
 자동 크기 조정은 서비스가 보고하는 로드 또는 리소스의 사용량에 따라 서비스를 동적으로 조정하는 Service Fabric의 추가 기능입니다. 자동 크기 조정 기능은 뛰어난 탄력성을 제공하며 필요에 따라 서비스의 인스턴스 또는 파티션을 추가로 프로비전할 수 있습니다. 전체 자동 크기 조정 프로세스는 자동화되고 투명합니다. 서비스에 정책을 설정하면 서비스 수준에서 수동으로 크기 조정 작업을 수행할 필요가 없습니다. 자동 크기 조정은 서비스 생성 시 또는 서비스를 업데이트하여 언제든지 설정할 수 있습니다.
@@ -120,7 +120,7 @@ Update-ServiceFabricService -Stateless -ServiceName "fabric:/AppName/ServiceName
 * _상위 로드 임계값_은 서비스가 **규모 확장**되는 시기를 결정하는 값입니다. 서비스에 있는 모든 파티션의 평균 로드가 이 값을 초과하면 서비스가 규모 확장됩니다.
 * _크기 조정 간격_은 트리거를 검사할 빈도를 결정합니다. 트리거를 확인하여 크기 조정이 필요한 경우 메커니즘이 적용됩니다. 크기 조정이 필요하지 않으면 아무 작업도 수행되지 않습니다. 두 경우 모두, 크기 조정 간격이 다시 만료되기 전에는 트리거가 다시 확인되지 않습니다.
 
-이 트리거는 상태 저장 및 상태 비저장 서비스와 함께 사용할 수 있습니다. 이 트리거와 함께 사용할 수 있는 유일한 메커니즘은 AddRemoveIncrementalNamedParitionScalingMechanism입니다. 서비스가 규모 확장되면 새 파티션이 추가되고 서비스가 규모 감축되면 기존 파티션 중 하나가 제거됩니다. 서비스를 만들거나 업데이트할 때 확인되는 제한 사항이 있으며 이러한 조건이 충족되지 않으면 서비스 만들기/업데이트가 실패합니다.
+이 트리거는 상태 저장 및 상태 비저장 서비스와 함께 사용할 수 있습니다. 이 트리거와 함께 사용할 수 있는 유일한 메커니즘은 AddRemoveIncrementalNamedPartitionScalingMechanism입니다. 서비스가 규모 확장되면 새 파티션이 추가되고 서비스가 규모 감축되면 기존 파티션 중 하나가 제거됩니다. 서비스를 만들거나 업데이트할 때 확인되는 제한 사항이 있으며 이러한 조건이 충족되지 않으면 서비스 만들기/업데이트가 실패합니다.
 * 명명된 파티션 구성표가 해당 서비스에 사용되어야 합니다.
 * 파티션 이름은 “0”, “1” 등과 같이 연속된 정수여야 합니다.
 * 첫 번째 파티션 이름은 “0”이어야 합니다.
@@ -137,7 +137,7 @@ Update-ServiceFabricService -Stateless -ServiceName "fabric:/AppName/ServiceName
 * _최소 인스턴스 수_는 크기 조정의 하한을 정의합니다. 서비스의 파티션 수가 이 한계에 도달하면 로드에 관계없이 서비스가 규모 감축되지 않습니다.
 
 > [!WARNING] 
-> AddRemoveIncrementalNamedParitionScalingMechanism을 상태 저장 서비스로 사용하면 Service Fabric이 **알림 또는 경고 없이** 파티션을 추가 또는 제거합니다. 크기 조정 메커니즘이 트리거되면 데이터의 다시 분할이 수행되지 않습니다. 강화 작업의 경우 새 파티션은 비어 있고 규모 축소 작업의 경우 **파티션은**포함된 모든 데이터와 함께 삭제됩니다.
+> AddRemoveIncrementalNamedPartitionScalingMechanism을 상태 저장 서비스와 함께 사용하면 Service Fabric이 **알림 또는 경고 없이** 파티션을 추가 또는 제거합니다. 크기 조정 메커니즘이 트리거되면 데이터의 다시 분할이 수행되지 않습니다. 강화 작업의 경우 새 파티션은 비어 있고 규모 축소 작업의 경우 **파티션은**포함된 모든 데이터와 함께 삭제됩니다.
 
 ## <a name="setting-auto-scaling-policy"></a>자동 크기 조정 정책 설정
 
@@ -146,7 +146,7 @@ Update-ServiceFabricService -Stateless -ServiceName "fabric:/AppName/ServiceName
 <ServiceScalingPolicies>
     <ScalingPolicy>
         <AverageServiceLoadScalingTrigger MetricName="servicefabric:/_MemoryInMB" LowerLoadThreshold="300" UpperLoadThreshold="500" ScaleIntervalInSeconds="600"/>
-        <AddRemoveIncrementalNamedParitionScalingMechanism MinPartitionCount="1" MaxPartitionCount="3" ScaleIncrement="1"/>
+        <AddRemoveIncrementalNamedPartitionScalingMechanism MinPartitionCount="1" MaxPartitionCount="3" ScaleIncrement="1"/>
     </ScalingPolicy>
 </ServiceScalingPolicies>
 ```
@@ -155,7 +155,7 @@ Update-ServiceFabricService -Stateless -ServiceName "fabric:/AppName/ServiceName
 FabricClient fabricClient = new FabricClient();
 StatefulServiceUpdateDescription serviceUpdate = new StatefulServiceUpdateDescription();
 AveragePartitionLoadScalingTrigger trigger = new AverageServiceLoadScalingTrigger();
-PartitionInstanceCountScaleMechanism mechanism = new AddRemoveIncrementalNamedParitionScalingMechanism();
+PartitionInstanceCountScaleMechanism mechanism = new AddRemoveIncrementalNamedPartitionScalingMechanism();
 mechanism.MaxPartitionCount = 4;
 mechanism.MinPartitionCount = 1;
 mechanism.ScaleIncrement = 1;
@@ -171,7 +171,7 @@ await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/AppName/Se
 ```
 ### <a name="using-powershell"></a>Powershell 사용
 ```posh
-$mechanism = New-Object -TypeName System.Fabric.Description.AddRemoveIncrementalNamedParitionScalingMechanism
+$mechanism = New-Object -TypeName System.Fabric.Description.AddRemoveIncrementalNamedPartitionScalingMechanism
 $mechanism.MinPartitionCount = 1
 $mechanism.MaxPartitionCount = 3
 $mechanism.ScaleIncrement = 2

@@ -10,18 +10,18 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 09/14/2018
 tags: connectors
-ms.openlocfilehash: 13268ec865ec72fce23df550619b199389096360
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: dd86fd1aa8b1dab9f329f12924ff37db1256d1eb
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056509"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377906"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Azure Logic Apps에서 SAP 시스템에 연결
 
 이 문서에서는 SAP ECC(ERP Central Component) 커넥터를 사용하여 논리 앱 내부에서 온-프레미스 SAP 리소스에 액세스할 수 있는 방법을 보여줍니다. SAP ECC 커넥터는 IDoc(Intermediate Document) 또는 BAPI(비즈니스 응용 프로그램 프로그래밍 인터페이스) 또는 RFC(원격 함수 호출)를 통해 SAP Netweaver 기반 시스템과의 메시지 또는 데이터 통합을 지원합니다.
 
-SAP ECC 커넥터는 <a href="https://help.sap.com/saphelp_nwpi71/helpdata/en/e9/23c80d66d08c4c8c044a3ea11ca90f/frameset.htm">SAP NCo(.Net Connector) 라이브러리</a>를 사용하고 다음과 같은 작업 또는 동작을 제공합니다.
+SAP ECC 커넥터는 <a href="https://support.sap.com/en/product/connectors/msnet.html">SAP NCo(.Net Connector) 라이브러리</a>를 사용하고 다음과 같은 작업 또는 동작을 제공합니다.
 
 - **SAP로 보내기**: SAP 시스템의 tRFC를 통해 IDoc를 보내거나 BAPI 함수를 호출합니다.
 - **SAP에서 수신**: SAP 시스템의 tRFC를 통해 IDoc 또는 BAPI 함수 호출을 수신합니다.
@@ -44,7 +44,7 @@ SAP 커넥터는 [온-프레미스 데이터 게이트웨이](https://www.micros
 
 * 온-프레미스 컴퓨터에서 최신 [온-프레미스 데이터 게이트웨이](https://www.microsoft.com/download/details.aspx?id=53127)를 다운로드하여 설치합니다. 계속 진행하기 전에 Azure Portal에서 게이트웨이를 설정하세요. 게이트웨이는 온-프레미스의 데이터 및 리소스에 안전하게 액세스하는 데 도움이 됩니다. 자세한 내용은 [Azure Logic Apps용 온-프레미스 데이터 게이트웨이 설치](../logic-apps/logic-apps-gateway-install.md)를 참조하세요.
 
-* 현재 <a href="https://softwaredownloads.sap.com/file/0020000000086282018" target="_blank">Microsoft .NET Framework 4.0 및 Windows 64비트(x64)용 SAP Connector(NCo) 3.0.20.0</a>인 최신 SAP 클라이언트 라이브러리를 온-프레미스 데이터 게이트웨이와 동일한 컴퓨터에서 다운로드하여 설치합니다. 이 버전 이상을 설치해야 하는 이유는 다음과 같습니다.
+* 현재 <a href="https://softwaredownloads.sap.com/file/0020000001865512018" target="_blank">Microsoft .NET Framework 4.0 및 Windows 64비트(x64)용 SAP Connector(NCo) 3.0.21.0</a>인 최신 SAP 클라이언트 라이브러리를 온-프레미스 데이터 게이트웨이와 동일한 컴퓨터에서 다운로드하여 설치합니다. 이 버전 이상을 설치해야 하는 이유는 다음과 같습니다.
 
   * 이전 SAP NCo 버전은 둘 이상의 IDoc 메시지가 동시에 전송될 때 교착 상태가 될 수 있습니다. 
   이 조건에서는 SAP 대상으로 전송되는 이후 메시지가 모두 차단되어 메시지가 시간 초과됩니다.

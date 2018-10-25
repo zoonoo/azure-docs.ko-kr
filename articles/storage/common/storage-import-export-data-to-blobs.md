@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 10/15/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 39287e4d90e4f6f42dd1f79d5457853e253bd736
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 3a647d9f821007dc0f2b48864b937aee84924d8f
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737059"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353174"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 데이터 가져오기
 
@@ -30,7 +30,7 @@ ms.locfileid: "45737059"
 - [지원되는 유형](storage-import-export-requirements.md#supported-disks)에 속한 적절한 개수의 디스크가 있어야 합니다. 
 - [지원되는 OS 버전](storage-import-export-requirements.md#supported-operating-systems)을 실행하는 Windows 시스템이 있어야 합니다. 
 - Windows 시스템에서 BitLocker를 사용하도록 설정합니다. [BitLocker를 사용하도록 설정하는 방법](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/)을 참조하세요.
-- Windows 시스템에서 [WAImportExport 버전 1을 다운로드](https://www.microsoft.com/en-us/download/details.aspx?id=42659)합니다. `waimportexportv1` 기본 폴더에 압축을 풉니다. 예: `C:\WaImportExportV1`
+- Windows 시스템에서 [WAImportExport 버전 1을 다운로드](https://www.microsoft.com/en-us/download/details.aspx?id=42659)합니다. `waimportexportv1` 기본 폴더에 압축을 풉니다. 예: `C:\WaImportExportV1`.
 - FedEx/DHL 계정이 있습니다.  
     - 계정은 유효해야 하고, 잔액이 있어야 하며, 반품 기능이 있어야 합니다.
     - 내보내기 작업의 추적 번호를 생성합니다.
@@ -71,7 +71,7 @@ ms.locfileid: "45737059"
     |/sk:     |Azure Storage 계정 키입니다.         |
     |/t:     |배송할 디스크의 드라이브 문자입니다. 예: `D` 드라이브         |
     |/bk:     |드라이브의 BitLocker 키입니다. ` manage-bde -protectors -get D: ` 출력의 숫자 암호입니다.      |
-    |/srcdir:     |`:\` 다음에 나오는 배송될 디스크의 드라이브 문자입니다. 예: `D:\`         |
+    |/srcdir:     |`:\` 다음에 나오는 배송될 디스크의 드라이브 문자입니다. 예: `D:\`.         |
     |/dstdir:     |Azure Storage에 있는 대상 컨테이너 이름입니다.         |
     |/skipwrite:     |복사하는 데 필요한 새 데이터가 없고 디스크의 기존 데이터를 준비하도록 지정하는 옵션입니다.          |
 7. 배송해야 하는 각 디스크에 대해 이전 단계를 반복합니다. 명령줄을 실행할 때마다 제공된 이름의 저널 파일이 만들어집니다.
@@ -96,7 +96,7 @@ ms.locfileid: "45737059"
 
     - **Azure로 가져오기**를 선택합니다.
     - 가져오기 작업을 설명하는 이름을 입력합니다. 이름을 사용하여 작업 진행 상황을 추적합니다.
-        - 이름에는 소문자, 숫자, 하이픈 및 밑줄만 사용할 수 있습니다.
+        - 이름에는 소문자, 숫자 및 하이픈만 포함할 수 있습니다.
         - 이름은 문자로 시작해야 하며, 공백은 포함할 수 없습니다.
     - 구독을 선택합니다.
     - 리소스 그룹을 입력하거나 선택합니다.  
@@ -107,7 +107,7 @@ ms.locfileid: "45737059"
 
     - 드라이브 준비 단계에서 얻은 드라이브 저널 파일을 업로드합니다. `waimportexport.exe version1`이 사용된 경우 준비한 각 드라이브에 대해 파일을 하나씩 업로드합니다. 저널 파일 크기가 2MB를 초과하면 저널 파일을 사용하여 만든 `<Journal file name>_DriveInfo_<Drive serial ID>.xml`도 사용할 수 있습니다. 
     - 데이터가 저장될 대상 저장소 계정을 선택합니다. 
-    - 자동 전송 위치는 선택한 저장소 계정의 지역에 따라 자동으로 채워집니다.
+    - 하차 위치는 선택한 저장소 계정의 지역을 기반으로 자동으로 채워집니다.
    
    ![가져오기 작업 만들기 - 2단계](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 

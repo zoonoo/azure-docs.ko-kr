@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f4afad753da4a314ade3fb7433c6be3e489e05b0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 30b85f15d8718e21af66634db5a4afd5623a77e6
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033688"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340174"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>IoT Edge 장치, 모듈 및 자식 장치용 확장 오프라인 기능(미리 보기)을 이해합니다.
 
@@ -126,11 +126,11 @@ Azure Portal의 **고급 Edge 런타임 설정 구성** 섹션에서 Edge 허브
     "type": "docker",
     "settings": {
         "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": "{\"HostConfig\":{\"Binds\":[\"C:\\\\HostStoragePath:C:\\\\ModuleStoragePath\"],\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
+        "createOptions": "{\"HostConfig\":{\"Binds\":[\"<HostStoragePath>:<ModuleStoragePath>\"],\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
     },
     "env": {
         "storageFolder": {
-            "value": "C:\\\\ModuleStoragePath"
+            "value": "<ModuleStoragePath>"
         }
     },
     "status": "running",
@@ -138,6 +138,8 @@ Azure Portal의 **고급 Edge 런타임 설정 구성** 섹션에서 Edge 허브
 }
 ```
 
+`<HostStoragePath>` 및 `<ModuleStoragePath>`를 호스트 및 모듈 저장소 경로로 바꿉니다. 호스트 및 모듈 저장소 경로는 모두 절대 경로여야 합니다.  예를 들어 `\"Binds\":[\"/etc/iotedge/storage/:/iotedge/storage/"`는 `/etc/iotedge/storage` 경로 호스트가 `/iotedge/storage/` 컨테이너 경로에 매핑되어 있다는 의미입니다.  [docker 문서](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate)에서 createOptions에 대한 자세한 세부 정보를 찾을 수도 있습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
-[Linux](how-to-create-transparent-gateway-linux.md) 또는 [Windows](how-to-create-transparent-gateway-windows.md) 장치용 투명한 게이트웨이 시나리오에서 확장된 오프라인 작업을 사용하도록 설정합니다. 
+[Linux](how-to-create-transparent-gateway-linux.md) 또는 [Windows](how-to-create-transparent-gateway-windows.md) 장치용 투명한 게이트웨이 시나리오에서 확장된 오프라인 작업을 사용하도록 설정합니다.

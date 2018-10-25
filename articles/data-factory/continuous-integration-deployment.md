@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory에서 연속 통합 및 배포 | Microsoft Docs
-description: 연속 통합 및 배포를 사용하여 다른 환경(개발, 테스트, 프로덕션) 간에 Data Factory 파이프라인을 이동하는 방법에 대해 알아봅니다.
+title: Azure Data Factory의 지속적인 통합 및 지속적인 업데이트 | Microsoft Docs
+description: 지속적인 통합 및 지속적인 업데이트를 사용하여 환경(개발, 테스트, 프로덕션) 간에 Data Factory 파이프라인을 이동하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -10,20 +10,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 10/09/2018
 ms.author: douglasl
-ms.openlocfilehash: 8bbc64a34b5ae95e044b95f921770adc9045574c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 89ea3d576f20f6e62730b40e0e4f4f8d5f798142
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142855"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386990"
 ---
-# <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Azure Data Factory에서 연속 통합 및 배포
+# <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Azure Data Factory의 CI/CD(지속적인 통합 및 지속적인 업데이트)
 
-연속 통합은 코드 베이스에 자동으로 이루어진 변경 내용을 각각 가능한 빨리 테스트하는 방법입니다. 연속 배포는 연속 통합 중에 발생하는 테스트를 수행하고, 준비 또는 프로덕션 시스템에 변경 내용을 푸시합니다.
+연속 통합은 코드 베이스에 자동으로 이루어진 변경 내용을 각각 가능한 빨리 테스트하는 방법입니다. 지속적인 업데이트는 지속적인 통합 중에 발생하는 테스트를 수행하고, 변경 내용을 준비 또는 프로덕션 시스템에 푸시합니다.
 
-Azure Data Factory에서 연속 통합 및 배포란 다른 환경(개발, 테스트, 프로덕션) 간에 Data Factory 파이프라인을 이동하는 것입니다. 연속 통합 및 배포를 수행하기 위해 Azure Resource Manager 템플릿을 사용하여 Data Factory UI 통합을 사용할 수 있습니다. **ARM 템플릿** 옵션을 선택하는 경우 Data Factory UI가 Resource Manager 템플릿을 생성할 수 있습니다. **ARM 템플릿 내보내기**를 선택하는 경우 포털에서는 Data Factory의 Resource Manager 템플릿과 모든 연결 문자열 및 기타 매개 변수를 포함하는 구성 파일을 생성합니다. 그런 다음, 각 환경(개발, 테스트, 프로덕션)에 하나의 구성 파일을 만들어야 합니다. 주 Resource Manager 템플릿 파일은 모든 환경에서 동일하게 유지됩니다.
+Azure Data Factory의 경우 지속적인 통합 및 지속적인 업데이트는 환경(개발, 테스트, 프로덕션) 간에 Data Factory 파이프라인을 이동하는 것입니다. 지속적인 통합 및 지속적인 업데이트를 수행하기 위해 Azure Resource Manager 템플릿과 Data Factory UI의 통합을 사용할 수 있습니다. **ARM 템플릿** 옵션을 선택하는 경우 Data Factory UI가 Resource Manager 템플릿을 생성할 수 있습니다. **ARM 템플릿 내보내기**를 선택하는 경우 포털에서는 Data Factory의 Resource Manager 템플릿과 모든 연결 문자열 및 기타 매개 변수를 포함하는 구성 파일을 생성합니다. 그런 다음, 각 환경(개발, 테스트, 프로덕션)에 하나의 구성 파일을 만들어야 합니다. 주 Resource Manager 템플릿 파일은 모든 환경에서 동일하게 유지됩니다.
 
 9분 동안 이 기능의 소개 및 데모에 대한 다음 비디오를 시청하세요.
 
@@ -53,9 +53,9 @@ Azure Data Factory에서 연속 통합 및 배포란 다른 환경(개발, 테�
 ![코드 보기를 열어 연결 문자열 확인](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
 ## <a name="continuous-integration-lifecycle"></a>연속 통합 수명 주기
-Data Factory UI에서 VSTS GIT 통합을 사용하도록 설정한 후에 사용할 수 있는 연속 통합 및 배포의 전체 수명 주기는 다음과 같습니다.
+Data Factory UI에서 Azure Repos GIT 통합을 사용하도록 설정한 후에 사용할 수 있는 지속적인 통합 및 지속적인 업데이트의 전체 수명 주기는 다음과 같습니다.
 
-1.  모든 개발자가 파이프라인, 데이터 집합 등과 같은 Data Factory 리소스를 작성할 수 있는 VSTS를 사용하여 개발 Data Factory를 설정합니다.
+1.  모든 개발자가 파이프라인, 데이터 집합 등과 같은 Data Factory 리소스를 작성할 수 있는 Azure Repos를 사용하여 개발 데이터 팩터리를 설정합니다.
 
 1.  그런 다음, 개발자는 파이프라인 등의 리소스를 수정할 수 있습니다. 수정하는 경우 **디버그**를 선택하여 가장 최근 변경 내용을 사용하여 파이프라인을 실행하는 방법을 확인할 수 있습니다.
 
@@ -67,25 +67,25 @@ Data Factory UI에서 VSTS GIT 통합을 사용하도록 설정한 후에 사용
 
 1.  내보낸 Resource Manager 템플릿은 테스트 팩터리 및 프로덕션 팩터리에 다른 매개 변수 파일을 사용하여 배포될 수 있습니다.
 
-## <a name="automate-continuous-integration-with-vsts-releases"></a>VSTS 릴리스를 사용하여 연속 통합 자동화
+## <a name="automate-continuous-integration-with-azure-pipelines-releases"></a>Azure Pipelines 릴리스를 사용하여 지속적인 통합 자동화
 
-여러 환경에 Data Factory의 배포를 자동화할 수 있도록 VSTS 릴리스를 설정하는 단계는 다음과 같습니다.
+여러 환경으로의 데이터 팩터리 배포를 자동화할 수 있도록 Azure Pipelines 릴리스를 설정하는 단계는 다음과 같습니다.
 
-![VSTS 연속 통합 다이어그램](media/continuous-integration-deployment/continuous-integration-image12.png)
+![Azure Pipelines를 사용하는 지속적인 통합 다이어그램](media/continuous-integration-deployment/continuous-integration-image12.png)
 
 ### <a name="requirements"></a>요구 사항
 
--   [*Azure Resource Manager 서비스 엔드포인트*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm)를 사용하여 Team Foundation Server 또는 VSTS에 연결된 Azure 구독
+-   [*Azure Resource Manager 서비스 엔드포인트*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm)를 사용하여 Team Foundation Server 또는 Azure Repos에 연결된 Azure 구독
 
--   VSTS Git이 구성된 Data Factory
+-   Azure Repos Git 통합이 구성된 Data Factory
 
 -   암호를 포함한 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
-### <a name="set-up-a-vsts-release"></a>VSTS 릴리스 설정
+### <a name="set-up-an-azure-pipelines-release"></a>Azure Pipelines 릴리스 설정
 
-1.  Data Factory를 사용하여 구성된 것과 동일한 프로젝트에서 VSTS 페이지로 이동합니다.
+1.  Data Factory를 사용하여 구성된 것과 동일한 프로젝트에서 Azure Repos 페이지로 이동합니다.
 
-1.  상단 메뉴 **빌드 및 릴리스**&gt;**릴리스**&gt;**릴리스 정의 만들기**를 클릭합니다.
+1.  위쪽 메뉴에서 **Azure Pipelines** &gt; **릴리스** &gt; **릴리스 정의 만들기**를 차례로 클릭합니다.
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
@@ -113,15 +113,20 @@ Data Factory UI에서 VSTS GIT 통합을 사용하도록 설정한 후에 사용
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-1.  릴리스 정의를 저장합니다.
+    g. **증분** 배포 모드를 선택합니다.
 
-1.  이 릴리스 정의에서 새 릴리스를 만듭니다.
+    > [!WARNING]
+    > **전체** 배포 모드를 선택하면 Resource Manager 템플릿에 정의되지 않은 대상 리소스 그룹의 모든 리소스를 포함하여 기존 리소스가 삭제될 수 있습니다.
+
+1.  릴리스 파이프라인을 저장합니다.
+
+1.  이 릴리스 파이프라인에서 새 릴리스를 만듭니다.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
 
 ### <a name="optional---get-the-secrets-from-azure-key-vault"></a>선택 사항 - Azure Key Vault에서 비밀을 가져옵니다.
 
-Azure Resource Manager 템플릿에 전달하는 비밀이 있는 경우 VSTS 릴리스로 Azure Key Vault를 사용하는 것이 좋습니다.
+Azure Resource Manager 템플릿에 전달할 비밀이 있는 경우 Azure Pipelines 릴리스에서 Azure Key Vault를 사용하는 것이 좋습니다.
 
 암호를 처리하는 두 가지 방법이 있습니다.
 
@@ -148,7 +153,7 @@ Azure Resource Manager 템플릿에 전달하는 비밀이 있는 경우 VSTS �
 
     -   매개 변수 파일은 게시 분기에 포함되어야 합니다.
 
-1.  이전 섹션에 설명된 Azure Resource Manager 배포 전에 [Azure Key Vault 작업](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault)을 추가합니다.
+1.  이전 섹션에 설명된 Azure Resource Manager 배포 전에 [Azure Key Vault 작업](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault)을 추가합니다.
 
     -   **작업** 탭을 선택하고, 새 작업을 만들고, **Azure Key Vault**를 검색하고 추가합니다.
 
@@ -156,13 +161,13 @@ Azure Resource Manager 템플릿에 전달하는 비밀이 있는 경우 VSTS �
 
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-### <a name="grant-permissions-to-the-vsts-agent"></a>VSTS 에이전트에 사용 권한 부여
-Azure Key Vault 작업은 액세스 거부 오류를 표시하며 처음으로 실패할 수 있습니다. 릴리스에 대한 로그를 다운로드하고, VSTS 에이전트에 사용 권한을 부여하는 명령을 사용하여 `.ps1` 파일을 찾습니다. 직접 명령을 실행할 수 있습니다. 또는 파일에서 보안 주체 ID를 복사하고 Azure Portal에 액세스 정책을 수동으로 추가할 수 있습니다. (*가져오기* 및 *나열*은 필요한 최소 권한입니다.)
+### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Azure Pipelines 에이전트에 권한 부여
+Azure Key Vault 작업은 액세스 거부 오류를 표시하며 처음으로 실패할 수 있습니다. 릴리스에 대한 로그를 다운로드하고, Azure Pipelines 에이전트에 권한을 부여하는 명령을 사용하여 `.ps1` 파일을 찾습니다. 직접 명령을 실행할 수 있습니다. 또는 파일에서 보안 주체 ID를 복사하고 Azure Portal에 액세스 정책을 수동으로 추가할 수 있습니다. (*가져오기* 및 *나열*은 필요한 최소 권한입니다.)
 
 ### <a name="update-active-triggers"></a>활성 트리거 업데이트
 활성 트리거를 업데이트하려고 하면 배포에 실패할 수 있습니다. 활성 트리거를 업데이트하려면 수동으로 중단하고 배포 후에 시작해야 합니다. 다음 예제와 같이 이를 위해 Azure PowerShell 작업을 추가할 수 있습니다.
 
-1.  VSTS 릴리스의 작업 탭에서 **Azure PowerShell**을 검색하고 추가합니다.
+1.  릴리스의 [작업] 탭에서 **Azure PowerShell**을 검색하여 추가합니다.
 
 1.  **Azure Resource Manager**를 연결 형식으로 선택하고 구독을 선택합니다.
 
@@ -178,9 +183,12 @@ Azure Key Vault 작업은 액세스 거부 오류를 표시하며 처음으로 �
 
 비슷한 단계를 수행하고 유사한 코드(`Start-AzureRmDataFactoryV2Trigger` 함수 포함)를 사용하여 배포 후에 트리거를 다시 시작할 수 있습니다.
 
+> [!IMPORTANT]
+> 지속적인 통합 및 지속적인 배포 시나리오에서는 서로 다른 환경 간의 Integration Runtime 유형이 동일해야 합니다. 예를 들어 개발 환경에 *자체 호스팅* IR(Integration Runtime)이 있는 경우 테스트 및 프로덕션과 같은 다른 환경에서도 동일한 IR이 *자체 호스팅* 유형이어야 합니다. 마찬가지로 여러 단계에서 통합 런타임을 공유하는 경우 개발, 테스트 및 프로덕션과 같은 모든 환경에서 IR을 *연결된 자체 호스팅*으로 구성해야 합니다.
+
 ## <a name="sample-deployment-template"></a>샘플 배포 템플릿
 
-VSTS에서 가져올 수 있는 샘플 배포 템플릿은 다음과 같습니다.
+Azure Pipelines에서 가져올 수 있는 샘플 배포 템플릿은 다음과 같습니다.
 
 ```json
 {
@@ -720,7 +728,7 @@ VSTS에서 가져올 수 있는 샘플 배포 템플릿은 다음과 같습니�
 
 ## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>트리거를 중지 및 다시 시작하고 정리하는 샘플 스크립트
 
-배포하기 전에 트리거를 중지하고 나중에 트리거를 다시 시작하는 샘플 스크립트는 다음과 같습니다. 스크립트에는 제거된 리소스를 삭제하는 코드도 포함됩니다.
+배포하기 전에 트리거를 중지하고 나중에 트리거를 다시 시작하는 샘플 스크립트는 다음과 같습니다. 스크립트에는 제거된 리소스를 삭제하는 코드도 포함됩니다. 최신 버전의 Azure PowerShell을 설치하려면 [PowerShellGet으로 Windows에 Azure PowerShell 설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.9.0)를 참조하세요.
 
 ```powershell
 param
@@ -799,9 +807,9 @@ else {
 
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Resource Manager 템플릿에서 사용자 지정 매개 변수 사용
 
-Resource Manager 템플릿에 대한 사용자 지정 매개 변수를 정의할 수 있습니다. 리포지토리의 루트 폴더에 `arm-template-parameters-definition.json`이라는 파일이 있으면 됩니다. 파일 이름은 여기에 표시된 이름과 정확히 일치해야 합니다. Data Factory는 공동 작업 분기만이 아니라 현재 작업 중인 모든 분기에서 파일을 읽으려고 합니다. 파일을 찾을 수 없는 경우 Data Factory는 기본 정의를 사용합니다.
+Resource Manager 템플릿에 대한 사용자 지정 매개 변수를 정의할 수 있습니다. 리포지토리의 루트 폴더에 `arm-template-parameters-definition.json`이라는 파일이 있으면 됩니다. 파일 이름은 여기에 표시된 이름과 정확히 일치해야 합니다. Data Factory는 공동 작업 분기만이 아니라 현재 작업 중인 모든 분기에서 파일을 읽으려고 합니다. 파일이 없는 경우 Data Factory에서 기본 매개 변수와 값을 사용합니다.
 
-다음 예제에서는 샘플 매개 변수 파일을 보여 줍니다. 이 샘플을 참조로 사용하여 사용자 지정 매개 변수 파일을 만듭니다. 제공한 파일이 올바른 JSON 형식이 아닌 경우, Data Factory는 브라우저 콘솔에 오류 메시지를 출력하고 Data Factory UI에 표시된 기본 정의로 돌아갑니다.
+다음 예제에서는 샘플 매개 변수 파일을 보여 줍니다. 이 샘플을 참조로 사용하여 사용자 지정 매개 변수 파일을 만듭니다. 제공한 파일의 JSON 형식이 올바르지 않으면 Data Factory에서 브라우저 콘솔에 오류 메시지를 출력하고, Data Factory UI에 표시된 기본 매개 변수와 값으로 돌아갑니다.
 
 ```json
 {

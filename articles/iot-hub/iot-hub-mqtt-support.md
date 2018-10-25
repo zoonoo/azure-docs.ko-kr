@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Hub MQTT 지원 이해 | Microsoft Docs
 description: 개발자 가이드 - MQTT 프로토콜을 사용하여 IoT Hub 장치 지향 엔드포인트에 연결하는 장치를 지원합니다. Azure IoT 장치 SDK의 기본 제공 MQTT 지원에 대한 정보를 포함합니다.
-author: fsautomata
+author: rezasherafat
 manager: ''
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/05/2018
-ms.author: elioda
-ms.openlocfilehash: 2e45422ca6a861894193600eff17f192bc20b357
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.date: 10/12/2018
+ms.author: rezas
+ms.openlocfilehash: 6e2ab773f865a8e52c7b04b94a188dd244540e0d
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42140517"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344968"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -107,7 +107,7 @@ Azure IoT Toolkit의 경우
 
 MQTT 연결 및 분리 패킷의 경우, IoT Hub는 **작업 모니터링** 채널의 이벤트를 발행합니다. 이 이벤트에에는 연결 문제 해결에 도움이 되는 추가 정보가 있습니다.
 
-장치 앱은 **CONNECT** 패킷에 **Will** 메시지를 지정할 수 있습니다. 장치 앱은 `devices/{device_id}/messages/events/{property_bag}` 또는 `devices/{device_id}/messages/events/{property_bag}`를 **Will** 항목 이름으로 사용하여 원격 분석 메시지로서 전달할 **Will** 메시지를 정의할 수 있습니다. 이 경우 네트워크 연결이 닫혀 있지만 **DISCONNECT** 패킷이 이전에 장치에서 수신되지 않은 경우 IoT Hub는 **CONNECT** 패킷에 제공된 **Will** 메시지를 원격 분석 채널로 전송합니다. 원격 분석 채널은 기본 **이벤트** 엔드포인트 또는 IoT Hub 라우팅으로 정의되는 사용자 지정 엔드포인트일 수 있습니다. 메시지에는 **Will** 값이 할당된 **iothub MessageType** 속성이 지정됩니다.
+장치 앱은 **CONNECT** 패킷에 **Will** 메시지를 지정할 수 있습니다. 장치 앱은 `devices/{device_id}/messages/events/` 또는 `devices/{device_id}/messages/events/{property_bag}`를 **Will** 항목 이름으로 사용하여 원격 분석 메시지로서 전달할 **Will** 메시지를 정의할 수 있습니다. 이 경우 네트워크 연결이 닫혀 있지만 **DISCONNECT** 패킷이 이전에 장치에서 수신되지 않은 경우 IoT Hub는 **CONNECT** 패킷에 제공된 **Will** 메시지를 원격 분석 채널로 전송합니다. 원격 분석 채널은 기본 **이벤트** 엔드포인트 또는 IoT Hub 라우팅으로 정의되는 사용자 지정 엔드포인트일 수 있습니다. 메시지에는 **Will** 값이 할당된 **iothub MessageType** 속성이 지정됩니다.
 
 ### <a name="tlsssl-configuration"></a>TLS/SSL 구성
 
@@ -228,6 +228,8 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** `devices/{device_
 
 ### <a name="update-device-twins-reported-properties"></a>장치 쌍의 reported 속성 업데이트
 
+reported 속성을 업데이트하기 위해 장치는 지정된 MQTT 토픽에서 게시를 통해 IoT Hub에 요청을 발급합니다. IoT Hub는 요청을 처리한 후에 다른 항목에 대한 게시를 통해 업데이트 작업의 성공 또는 실패 상태를 응답합니다. 해당 쌍 업데이트 요청의 결과에 대해 알리기 위해 장치에서 이 토픽을 구독할 수 있습니다. MQTT에서 이 형식의 요청/응답 상호 작용을 구현하려면 해당 업데이트 요청의 장치에서 처음 제공된 요청 ID(`$rid`)의 개념을 활용합니다. 이 요청 ID는 IoT Hub의 응답에도 포함되어 장치가 이전의 특정 요청에 대한 응답을 상호 연결하도록 합니다.
+
 다음 시퀀스에서는 장치가 IoT Hub의 장치 쌍에서 보고된 속성을 업데이트하는 방법을 설명합니다.
 
 1. 장치는 먼저 `$iothub/twin/res/#` 항목을 구독하여 IoT Hub에서 작업의 응답을 수신해야 합니다.
@@ -253,6 +255,20 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** `devices/{device_
 | 400 | 잘못된 요청. 형식이 잘못된 JSON |
 | 429 | 너무 많은 요청(제한됨), [IoT Hub 제한][lnk-quotas] 참조 |
 | 5** | 서버 오류 |
+
+아래의 Python 코드 조각은 MQTT(Paho MQTT 클라이언트 사용)를 통한 쌍 reported 속성 업데이트 프로세스를 보여줍니다.
+```python
+from paho.mqtt import client as mqtt
+
+# authenticate the client with IoT Hub (not shown here)
+
+client.subscribe("$iothub/twin/res/#")
+rid = "1"
+twin_reported_property_patch = "{\"firmware_version\": \"v1.1\"}"
+client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" + rid, twin_reported_property_patch, qos=0)
+```
+
+위의 쌍 reported 속성 업데이트 작업이 성공하면 IoT Hub의 게시 메시지에는 다음 토픽이 포함됩니다. `$iothub/twin/res/204/?$rid=1&$version=6` 여기서 `204`는 성공을 나타내는 상태 코드이고, `$rid=1`은 해당 코드에서 장치에 의해 제공된 요청 ID에 해당하고, `$version`은 업데이트 후에 장치 쌍의 reported 속성 섹션 버전에 해당합니다.
 
 자세한 내용은 [장치 쌍 개발자 가이드][lnk-devguide-twin]를 참조하세요.
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: dobett
-ms.openlocfilehash: 19f6f5d360981c743d819da81eb2f68db1853c8b
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: f10f1da93df6a313525e102e4906cfe67a5f6ae3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783120"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351885"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Azure IoT Hub의 X.509 보안 설정
 
@@ -72,9 +72,9 @@ IoT Hub에서 X.509 인증서 기반 보안을 사용하려면 루트 인증서�
 
 ## <a name="create-an-x509-device-for-your-iot-hub"></a>IoT Hub용 X.509 장치 만들기
 
-1. Azure Portal에서 IoT Hub의 **Device Explorer**로 이동합니다.
+1. Azure Portal에서 IoT Hub의 **탐색기 > IoT 장치**로 이동합니다.
 
-2. **추가**를 클릭하여 새 장치를 추가합니다. 
+2. **+ 추가**를 클릭하여 새 장치를 추가합니다.
 
 3. **장치 ID**에 대한 표시 이름을 입력하고 **인증 유형**으로 **_X.509 CA Signed_** 를 선택합니다. **저장**을 클릭합니다.
 

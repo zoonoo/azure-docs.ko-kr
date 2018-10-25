@@ -7,14 +7,14 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/04/2017
+ms.date: 10/15/2018
 ms.author: bryanla
-ms.openlocfilehash: 73ece43c26c3957a1b7dba02a673099f7d35e8d6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: af2d480e84ca69c0ecd795e38371375e6a71542b
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951783"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363642"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>CLI로 Key Vault 일시 삭제를 사용하는 방법
 
@@ -43,14 +43,14 @@ Key Vault 작업은 RBAC(역할 기반 액세스 제어) 권한을 통해 다음
 
 ## <a name="enabling-soft-delete"></a>일시 삭제를 사용하도록 설정
 
-삭제된 Key Vault 또는 Key Vault에 저장된 개체를 복구할 수 있도록 하려면 먼저 해당 Key Vault에 대한 일시 삭제를 사용하도록 설정해야 합니다.
+"일시 삭제"를 사용하여 삭제된 키 자격 증명 모음 또는 키 자격 증명 모음에 저장된 개체를 복구할 수 있습니다.
+
+> [!IMPORTANT]
+> 키 자격 증명 모음에 대해 '일시 삭제'를 사용하도록 설정하는 것은 복구 불가능한 동작입니다. 일시 삭제된 속성을 "true"로 설정한 후에는 해당 속성을 변경하거나 제거할 수 없습니다.  
 
 ### <a name="existing-key-vault"></a>기존 Key Vault 사용
 
 ContosoVault라는 기존 Key Vault의 경우 다음과 같이 일시 삭제를 사용하도록 설정합니다. 
-
->[!NOTE]
->현재 Azure Resource Manager 리소스 조작을 사용하여 *enableSoftDelete* 속성을 Key Vault 리소스에 직접 작성해야 합니다.
 
 ```azurecli
 az resource update --id $(az keyvault show --name ContosoVault -o tsv | awk '{print $1}') --set properties.enableSoftDelete=true
@@ -66,7 +66,7 @@ az keyvault create --name ContosoVault --resource-group ContosoRG --enable-soft-
 
 ### <a name="verify-soft-delete-enablement"></a>일시 삭제 사용 확인
 
-Key Vault에 일시 삭제가 사용할 수 있도록 설정되어 있는지 확인하려면 *show* 명령을 실행하여 ‘일시 삭제 사용?’ 특성과 해당 설정(true 또는 false)을 찾습니다.
+Key Vault에 일시 삭제가 사용할 수 있도록 설정되어 있는지 확인하려면 *show* 명령을 실행하여 ‘일시 삭제 사용?’ 특성:
 
 ```azurecli
 az keyvault show --name ContosoVault
@@ -74,40 +74,41 @@ az keyvault show --name ContosoVault
 
 ## <a name="deleting-a-key-vault-protected-by-soft-delete"></a>일시 삭제로 보호되는 Key Vault 삭제
 
-Key Vault 삭제(또는 제거)에 대한 명령이 동일해도 해당 동작은 일시 삭제를 사용하도록 설정했는지 여부에 따라 달라집니다.
+키 자격 증명을 삭제하는 명령의 동작은 일시 삭제가 사용하도록 설정되었는지 여부에 따라 변합니다.
+
+> [!IMPORTANT]
+>일시 삭제를 사용하도록 설정하지 않은 키 자격 증명 모음에 대해 다음 명령을 실행하면 이 키 자격 증명 모음과 해당 자격 증명 모음의 모든 내용을 복구하는 옵션 없이 영구적으로 삭제하게 됩니다!
 
 ```azurecli
 az keyvault delete --name ContosoVault
 ```
 
-> [!IMPORTANT]
->일시 삭제가 활성화되어 있지 않은 Key Vault에 대한 이전 명령을 실행하는 경우 복구에 대한 옵션 없이 영구적으로 이 Key Vault 및 해당 콘텐츠 전체를 삭제하게 됩니다.
-
 ### <a name="how-soft-delete-protects-your-key-vaults"></a>일시 삭제가 Key Vault를 보호하는 방식
 
 활성화된 일시 삭제 사용:
 
-- Key Vault가 삭제되면 해당 리소스 그룹에서 제거되고, 예약된 네임스페이스에 배치됩니다. 이는 Key Vault가 생성되었던 위치에만 연결되어 있습니다. 
-- 키, 비밀 및 인증서 같이 삭제된 Key Vault의 개체에는 액세스할 수 없으며 포함된 Key Vault가 삭제된 상태로 남아 있습니다. 
-- 삭제된 상태의 Key Vault에 대한 DNS 이름은 여전히 예약되어 있으므로, 동일한 이름으로 새 Key Vault를 만들 수 없습니다.  
+- 삭제된 키 자격 증명 모음은 해당 리소스 그룹에서 제거되고 원래 생성되었던 위치와 연결된 예약된 네임스페이스에 놓입니다. 
+- 키, 비밀 및 인증서와 같은 삭제된 개체는 해당 개체가 포함하고 있는 키 자격 증명 모음이 삭제된 상태에 있는 한 액세스할 수 없습니다. 
+- 삭제된 키 자격 증명 모음에 대한 DNS 이름은 동일한 이름의 새로운 키 자격 증명 모음이 만들어지지 않도록 예약됩니다.  
 
 다음 명령을 사용하여 사용자 구독에 연결된 삭제된 상태 Key Vault를 볼 수도 있습니다.
 
 ```azurecli
 az keyvault list-deleted
 ```
-
-출력의 *리소스 ID*는 이 자격 증명 모음의 원본 리소스 ID를 참조합니다. 이제 이 Key Vault가 삭제된 상태로 있으므로 해당 리소스 ID를 사용하는 리소스가 없습니다. *ID* 필드를 사용하여 복구 또는 제거할 때 리소스를 식별할 수 있습니다. *예약된 제거 날짜* 필드는 이 삭제된 자격 증명 모음에 대해 어떤 작업도 수행되지 않는 경우 자격 증명 모음이 영구적으로 삭제(제거)될 때를 나타냅니다. *예약된 제거 날짜*를 계산하는 데 사용되는 기본 보존 기간은 90일입니다.
+- *ID*를 사용하여 복구 또는 제거할 때 리소스를 식별할 수 있습니다. 
+- *리소스 ID*는 이 자격 증명 모음의 원본 리소스 ID입니다. 이제 이 Key Vault가 삭제된 상태로 있으므로 해당 리소스 ID를 사용하는 리소스가 없습니다. 
+- *예약된 제거 날짜*는 어떤 작업도 수행되지 않는 경우 자격 증명 모음이 영구적으로 삭제되는 시기입니다. *예약된 제거 날짜*를 계산하는 데 사용되는 기본 보존 기간은 90일입니다.
 
 ## <a name="recovering-a-key-vault"></a>Key Vault 복구
 
-Key Vault를 복구하려면 Key Vault 이름, 리소스 그룹 및 위치를 지정해야 합니다. 삭제된 Key Vault의 위치 및 리소스 그룹은 Key Vault 복구 프로세스에서 필요하므로 적어 둡니다.
+키 자격 증명 모음을 복구하려면 키 자격 증명 모음, 리소스 그룹 및 위치를 지정합니다. 삭제된 키 자격 증명 모음의 위치 및 리소스 그룹은 복구 프로세스에 필요하므로 적어 둡니다.
 
 ```azurecli
 az keyvault recover --location westus --resource-group ContosoRG --name ContosoVault
 ```
 
-Key Vault를 복구하면 결과는 Key Vault의 원본 리소스 ID 사용하는 새 리소스입니다. Key Vault가 존재했던 리소스 그룹을 제거한 경우에는 동일한 이름을 사용하는 새 리소스 그룹을 만들어야 Key Vault를 복구할 수 있습니다.
+키 자격 증명 모음이 복구될 때 해당 키 자격 증명 모음의 원래 리소스 ID를 가진 새로운 리소스가 생성됩니다. 원래 리소스 그룹이 제거된 경우 복구를 시도하기 전에 동일한 이름의 리소스 그룹을 만들어야 합니다.
 
 ## <a name="key-vault-objects-and-soft-delete"></a>Key Vault 개체 및 일시 삭제
 
@@ -127,36 +128,34 @@ az keyvault key list-deleted --vault-name ContosoVault
 
 ### <a name="transition-state"></a>전환 상태 
 
-일시 삭제가 활성화되어 있는 Key Vault의 키를 삭제하는 경우 전환이 완료되기까지 몇 초 정도 걸릴 수 있습니다. 이 전환 상태 동안 키가 활성 상태 또는 삭제된 상태가 아닌 것으로 나타납니다. 이 명령은 ‘ContosoVault’라는 Key Vault에 있는 모든 삭제된 키를 나열합니다.
-
-```azurecli
-az keyvault key list-deleted --vault-name ContosoVault
-```
+일시 삭제가 활성화되어 있는 Key Vault의 키를 삭제하는 경우 전환이 완료되기까지 몇 초 정도 걸릴 수 있습니다. 이 전환 중에 키가 활성 상태 또는 삭제된 상태에 있지 않은 것으로 나타날 수 있습니다. 
 
 ### <a name="using-soft-delete-with-key-vault-objects"></a>Key Vault 개체를 통해 일시 삭제 사용
 
-Key Vault와 마찬가지로, 삭제된 키, 비밀 또는 인증서는 복구하거나 제거하지 않는 한 최대 90일 동안 삭제된 상태로 남아 있게 됩니다. 
+키 자격 증명 모음과 마찬가지로 삭제된 키, 비밀 또는 인증서도 복구하거나 제거하지 않는 한 최대 90일 동안 삭제된 상태로 남아 있습니다.
 
 #### <a name="keys"></a>구성
 
-삭제된 키를 복구하려면 다음을 수행합니다.
+일시 삭제된 키를 복구하려면 다음을 수행합니다.
 
 ```azurecli
 az keyvault key recover --name ContosoFirstKey --vault-name ContosoVault
 ```
 
-키를 영구적으로 삭제하려면 다음을 수행합니다.
+일시 삭제된 키를 영구적으로 삭제(일명 제거)하려면 다음을 수행합니다.
+
+> [!IMPORTANT]
+> 키를 제거하면 키가 영구적으로 삭제되며, 복구할 수 없습니다! 
 
 ```azurecli
 az keyvault key purge --name ContosoFirstKey --vault-name ContosoVault
 ```
 
->[!NOTE]
->키 제거는 키를 영구적으로 삭제하며 복구할 수 없습니다.
-
-**복구** 및 **제거** 작업은 Key Vault 액세스 정책에 연결된 자체 권한이 있습니다. 사용자 또는 서비스 주체가 **복구** 또는 **제거** 작업을 실행하려면 Key Vault 액세스 정책에서 해당 개체(키 또는 비밀)에 대한 각각의 권한이 있어야 합니다. ‘모든’ 바로 가기를 사용하여 사용자에게 모든 권한을 부여하는 경우 기본적으로 **제거** 권한은 Key Vault의 액세스 정책에 추가되지 않습니다. **제거** 권한을 명시적으로 부여해야 합니다. 예를 들어 다음 명령은 **제거**를 포함하는 *ContosoVault*의 키에 대한 여러 작업을 수행할 수 있도록 user@contoso.com 권한을 부여합니다.
+**복구** 및 **제거** 작업은 Key Vault 액세스 정책에 연결된 자체 권한이 있습니다. 사용자 또는 서비스 주체가 **복구** 또는 **제거** 동작을 실행할 수 있도록 하려면 이들이 해당 키 또는 비밀에 대한 적절한 권한을 가지고 있어야 합니다. 기본적으로 '모든' 바로 가기를 사용하여 모든 사용 권한을 부여할 때 **제거**는 키 자격 증명 모음의 액세스 정책에 추가되지 않습니다. **제거** 사용 권한을 명시적으로 부여해야 합니다. 
 
 #### <a name="set-a-key-vault-access-policy"></a>Key Vault 액세스 정책 설정
+
+다음 명령은 **제거**를 포함하여 *ContosoVault*의 키에 대해 여러 가지 작업을 사용하는 user@contoso.com 사용 권한을 부여합니다.
 
 ```azurecli
 az keyvault set-policy --name ContosoVault --key-permissions get create delete list update import backup restore recover purge
@@ -167,7 +166,7 @@ az keyvault set-policy --name ContosoVault --key-permissions get create delete l
 
 #### <a name="secrets"></a>비밀
 
-키와 마찬가지로 Key Vault의 비밀도 자체 명령으로 작동됩니다. 다음은 비밀을 삭제, 나열, 복구 및 제거하기 위한 암호입니다.
+키와 마찬가지로 비밀도 자체의 명령을 사용하여 관리됩니다.
 
 - SQLPassword라는 비밀 삭제: 
 ```azurecli
@@ -185,40 +184,41 @@ az keyvault secret recover --name SQLPassword --vault-name ContosoVault
 ```
 
 - 삭제된 상태의 비밀 제거: 
-```azurecli
-az keyvault secret purge --name SQLPAssword --vault-name ContosoVault
-```
 
->[!NOTE]
->비밀 제거는 비밀을 영구적으로 삭제하며 복구할 수 없습니다.
+  > [!IMPORTANT]
+  > 비밀을 제거하면 비밀이 영구적으로 삭제되며 복구할 수 없습니다! 
+
+  ```azurecli
+  az keyvault secret purge --name SQLPAssword --vault-name ContosoVault
+  ```
 
 ## <a name="purging-and-key-vaults"></a>제거 및 Key Vault
 
 ### <a name="key-vault-objects"></a>Key Vault 개체
 
-키, 비밀 또는 인증서 제거는 해당 항목을 영구적으로 삭제하며 복구할 수 없습니다. 그러나 삭제된 개체가 포함된 Key Vault는 Key Vault의 다른 모든 개체처럼 그대로 유지됩니다. 
+키, 비밀 또는 인증서를 제거하면 영구 삭제가 이루어지며 복구할 수 없습니다. 그러나 삭제된 개체가 포함된 Key Vault는 Key Vault의 다른 모든 개체처럼 그대로 유지됩니다. 
 
 ### <a name="key-vaults-as-containers"></a>컨테이너로써의 Key Vault
-Key Vault를 제거하면 키, 비밀 및 인증서를 포함한 모든 콘텐츠가 영구적으로 삭제됩니다. Key Vault를 제거하려면 `az keyvault purge` 명령을 사용합니다. `az keyvault list-deleted` 명령을 사용하여 구독의 삭제된 Key Vault의 위치를 찾을 수 있습니다.
+키 자격 증명 모음이 제거되면 키, 비밀 및 인증서를 포함하여 해당 전체 콘텐츠가 영구적으로 삭제됩니다. Key Vault를 제거하려면 `az keyvault purge` 명령을 사용합니다. `az keyvault list-deleted` 명령을 사용하여 구독의 삭제된 Key Vault의 위치를 찾을 수 있습니다.
+
+>[!IMPORTANT]
+>키 자격 증명 모음을 제거하면 영구적으로 삭제되며 복구할 수 없습니다!
 
 ```azurecli
 az keyvault purge --location westus --name ContosoVault
 ```
 
->[!NOTE]
->Key Vault 제거는 영구적으로 삭제하며 복구할 수 없습니다.
-
 ### <a name="purge-permissions-required"></a>제거 권한 필요
-- 자격 증명 모음 및 해당 콘텐츠가 영구적으로 제거되도록 삭제된 Key Vault를 제거하려면 사용자는 *Microsoft.KeyVault/locations/deletedVaults/purge/action* 작업을 수행하기 위한 RBAC 권한이 필요합니다. 
-- 삭제된 키를 나열하려면 사용자는 *Microsoft.KeyVault/deletedVaults/read* 권한을 수행하기 위한 RBAC 권한이 필요합니다. 
+- 삭제된 키 자격 증명 모음을 제거하려면 사용자가 *Microsoft.KeyVault/locations/deletedVaults/purge/action* 작업에 대한 RBAC 사용 권한을 가지고 있어야 합니다. 
+- 삭제된 키 자격 증명 모음을 나열하려면 사용자가 *Microsoft.KeyVault/deletedVaults/read* 작업에 대한 RBAC 사용 권한을 가지고 있어야 합니다. 
 - 기본적으로 구독 관리자만 이러한 권한을 갖습니다. 
 
 ### <a name="scheduled-purge"></a>예약된 제거
 
-삭제된Key Vault 개체를 나열하면 Key Vault에 의해 제거되는 시기가 표시됩니다. *예약된 제거 날짜* 필드는 어떤 작업도 수행되지 않는 경우 Key Vault 개체가 영구적으로 삭제될 때를 나타냅니다. 기본적으로 삭제된 Key Vault 개체에 대한 보존 기간은 90일입니다.
+삭제된 키 자격 증명 모음 개체를 나열하면 키 자격 증명 모음에 의해 제거하기로 예약된 시기도 표시됩니다. *예약된 제거 날짜*는 어떤 작업도 수행되지 않는 경우 키 자격 증명 모음 개체가 영구적으로 삭제될 때를 나타냅니다. 기본적으로 삭제된 Key Vault 개체에 대한 보존 기간은 90일입니다.
 
->[!NOTE]
->해당 *예약된 제거 날짜* 필드에 의해 트리거되는 제거된 자격 증명 모음 개체가 영구적으로 삭제됩니다. 복구할 수는 없습니다.
+>[!IMPORTANT]
+>해당 *예약된 제거 날짜* 필드에 의해 트리거되는 제거된 자격 증명 모음 개체가 영구적으로 삭제됩니다. 이는 복구할 수 없습니다!
 
 ## <a name="other-resources"></a>기타 리소스
 

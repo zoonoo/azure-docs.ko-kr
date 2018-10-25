@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 49d5e307c51a6527ade63bac0276fa141ecb5c24
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 1cbb46f5238c2019225ab724abaf49e878d19598
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222457"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353869"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Intelligent Insights를 사용하여 Azure SQL Database 성능 문제 해결
 
@@ -61,7 +61,7 @@ Intelligent Insights는 쿼리 실행 대기 시간, 오류 또는 시간 제한
 
 이 검색 가능한 성능 패턴은 사용 가능한 리소스 제한, 작업자 제한, 세션 제한 도달과 관련된 성능 문제를 결합합니다. 이 성능 문제가 감지되면 진단 로그의 설명 필드에 성능 문제가 리소스, 작업자 또는 세션 제한 중 어디에 관련되어 있는지가 표시됩니다.
 
-SQL Database의 리소스는 일반적으로 [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) 또는 [vCore](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-service-tiers-vcore) 리소스라고 합니다. 리소스 제한 도달 패턴은 측정된 리소스 제한 중 하나에 도달하여 쿼리 성능 저하가 발견될 때 인식됩니다.
+SQL Database의 리소스는 일반적으로 [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) 또는 [vCore](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore) 리소스라고 합니다. 리소스 제한 도달 패턴은 측정된 리소스 제한 중 하나에 도달하여 쿼리 성능 저하가 발견될 때 인식됩니다.
 
 이러한 세션 한도는 SQL 데이터베이스에 대해 사용 가능한 동시 로그인 수를 지정합니다. 이 성능 패턴은 SQL 데이터베이에 연결하는 응용 프로그램이 데이터베이스에 사용 가능한 동시 로그인 수에 도달하는 경우에 인식됩니다. 응용 프로그램이 데이터베이스에서 사용할 수 있는 것보다 많은 세션을 사용하려고 하면 쿼리 성능에 영향을 줍니다.
 
@@ -73,7 +73,7 @@ SQL Database의 리소스는 일반적으로 [DTU](https://docs.microsoft.com/az
 
 사용 가능한 세션 제한에 도달한 경우 데이터베이스에 대한 로그인 수를 줄여 응용 프로그램을 최적화할 수 있습니다. 응용 프로그램에서 데이터베이스에 접속하는 로그인 수를 줄일 수 없는 경우 데이터베이스의 가격 계층을 높이는 것이 좋습니다. 또는 데이터베이스를 여러 데이터베이스로 나누고 이동해 워크로드를 더욱 균형 있게 배분할 수 있습니다.
 
-세션 제한 해결에 대한 자세한 제안 사항은 [SQL Database 최대 로그인 수 제한을 처리하는 방법(영문)](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/)을 참조하세요. 구독 계층에 사용할 수 있는 리소스 제한을 확인하려면 [SQL Database 리소스 제한](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits)을 참조하세요.
+세션 제한 해결에 대한 자세한 제안 사항은 [SQL Database 최대 로그인 수 제한을 처리하는 방법(영문)](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/)을 참조하세요. 서버 및 구독 수준의 제한에 관한 정보는 [논리 서버에 대한 리소스 한도 개요](sql-database-resource-limits-logical-server.md)를 참조하세요.
 
 ## <a name="workload-increase"></a>워크로드 증가
 
@@ -237,7 +237,7 @@ SQL 데이터베이스에는 사용할 수 있는 다양한 유형의 래치가 
 
 검색 가능한 이 성능 패턴은 지난 7일간의 기준과 비교하여 현재 데이터베이스 워크로드의 성능이 저하되었음을 나타냅니다. 구독의 탄력적 풀에서 사용 가능한 DTU가 부족하기 때문입니다 
 
-SQL Database의 리소스는 일반적으로 CPU 및 IO(데이터 및 트랜잭션 로그 IO) 리소스가 복합된 측정값으로 구성되는 [DTU 리소스](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)라고 합니다. [Azure 탄력적 풀 리소스](sql-database-elastic-pool.md)은 크기 조정을 위해 여러 데이터베이스 간에 공유되는 사용 가능한 eDTU 리소스의 풀로 사용됩니다. 탄력적 풀에서 사용 가능한 eDTU 리소스가 충분하지 않아 풀의 모든 데이터베이스를 지원할 수 없는 경우 시스템에서 탄력적 풀 DTU 부족 성능 문제를 감지합니다.
+SQL Database의 리소스는 일반적으로 CPU 및 IO(데이터 및 트랜잭션 로그 IO) 리소스가 복합된 측정값으로 구성되는 [DTU 리소스](sql-database-service-tiers.md#dtu-based-purchasing-model)라고 합니다. [Azure 탄력적 풀 리소스](sql-database-elastic-pool.md)은 크기 조정을 위해 여러 데이터베이스 간에 공유되는 사용 가능한 eDTU 리소스의 풀로 사용됩니다. 탄력적 풀에서 사용 가능한 eDTU 리소스가 충분하지 않아 풀의 모든 데이터베이스를 지원할 수 없는 경우 시스템에서 탄력적 풀 DTU 부족 성능 문제를 감지합니다.
 
 ### <a name="troubleshooting"></a>문제 해결
 

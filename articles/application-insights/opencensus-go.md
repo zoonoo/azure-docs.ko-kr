@@ -9,12 +9,12 @@ ms.date: 09/15/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6262c7029a76deec2dc1169783e9cbf6311fc3f1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 853fd1e9939631b6c459caf89994299e7a8406b0
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958274"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165536"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Go(미리 보기)에서 분산 추적 수집
 
@@ -30,7 +30,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure 포털](https://portal.azure.com/)에 로그인합니다.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-application-insights-resource"></a>Application Insights 리소스 만들기
 
@@ -182,47 +182,47 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
             log.Fatal(http.ListenAndServe(":50030", &ochttp.Handler{Propagation: &tracecontext.HTTPFormat{}}))
         
         }
-        ```
+     ```
 
-3. Once the simple go app is running navigate to `http://localhost:50030`. Each refresh of the browser will generate the text "hello world" accompanied by corresponding span data that is picked up by the local forwarder.
+3. 간단한 Go 앱이 실행되면 `http://localhost:50030`으로 이동합니다. 브라우저를 새로 고칠 때마다 텍스트 “hello world”와 함께 로컬 전달자에서 선택된 해당 범위 데이터가 생성됩니다.
 
-4. To confirm that the **local forwarder** is picking up the traces check the `LocalForwarder.config` file. If you followed the steps in the [prerequisite](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service), it will be located in `C:\LF-WindowsServiceHost`.
+4. **로컬 전달자**가 추적을 선택하는지 확인하려면 `LocalForwarder.config` 파일을 확인합니다. [필수 구성 요소](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service)의 단계를 따른 경우 `C:\LF-WindowsServiceHost`에 배치됩니다.
 
-    In the image below of the log file, you can see that prior to running the second script where we added an exporter `OpenCensus input BatchesReceived` was 0. Once we started running the updated script `BatchesReceived` incremented equal to the number of values we entered:
+    로그 파일의 아래 이미지에서 내보내기를 추가한 두 번째 스크립트를 실행하기 전에 `OpenCensus input BatchesReceived`가 0인 것을 확인할 수 있습니다. 업데이트된 스크립트 실행을 시작했을 때 `BatchesReceived`가 입력한 값의 수와 동일하게 증가했습니다.
     
-    ![New App Insights resource form](./media/opencensus-go/0004-batches-received.png)
+    ![새로운 App Insights 리소스 형식](./media/opencensus-go/0004-batches-received.png)
 
-## Start monitoring in the Azure portal
+## <a name="start-monitoring-in-the-azure-portal"></a>Azure Portal에서 모니터링 시작
 
-1. You can now reopen the Application Insights **Overview** page in the Azure portal, to view details about your currently running application. Select **Live Metric Stream**.
+1. 이제 Azure Portal에서 Application Insights **개요** 페이지를 다시 열어 현재 실행 중인 응용 프로그램에 대한 세부 정보를 볼 수 있습니다. **라이브 메트릭 스트림**을 선택합니다.
 
-   ![Screenshot of overview pane with live metric stream selected in red box](./media/opencensus-go/0005-overview-live-metrics-stream.png)
+   ![빨간색 상자에서 라이브 메트릭 스트림이 선택된 개요 창의 스크린샷](./media/opencensus-go/0005-overview-live-metrics-stream.png)
 
-2. If you run the second Go app again and start refreshing the browser for `http://localhost:50030`, you will see live trace data as it arrives in Application Insights from the local forwarder service.
+2. 두 번째 Go 앱을 다시 실행하고 `http://localhost:50030`에 대한 브라우저를 새로 고치기 시작할 경우 로컬 전달자 서비스에서 Application Insights에 도착하는 대로 라이브 추적 데이터가 표시됩니다.
 
-   ![Screenshot of live metric stream with performance data displayed](./media/opencensus-go/0006-stream.png)
+   ![성능 데이터가 표시된 라이브 메트릭 스트림의 스크린샷](./media/opencensus-go/0006-stream.png)
 
-3. Navigate back to the **Overview** page and select **Application Map** for a visual layout of the dependency relationships and call timing between your application components.
+3. **개요** 페이지로 다시 이동하고 종속성 관계의 시각적 개체 레이아웃에 대한 **응용 프로그램 맵**을 선택하고 응용 프로그램 구성 요소 간의 타이밍을 호출합니다.
 
-    ![Screenshot of basic application map](./media/opencensus-go/0007-application-map.png)
+    ![기본 응용 프로그램 맵의 스크린샷](./media/opencensus-go/0007-application-map.png)
 
-    Since we were only tracing one method call, our application map isn't as interesting. But application map can scale to visualize far more distributed applications:
+    하나의 메서드 호출만 추적했으므로 응용 프로그램 맵은 흥미롭지 않습니다. 하지만 응용 프로그램은 훨씬 분산된 응용 프로그램을 시각화하도록 확장될 수 있습니다.
 
-   ![Application Map](./media/app-insights-nodejs-quick-start/application-map.png)
+   ![응용 프로그램 맵](./media/app-insights-nodejs-quick-start/application-map.png)
 
-4. Select **Investigate Performance** to perform detailed performance analysis and determine the root cause of slow performance.
+4. **성능 조사**를 선택하여 자세한 성능 분석을 수행하고 성능 저하의 근본 원인을 확인합니다.
 
-    ![Screenshot of performance pane](./media/opencensus-go/0008-performance.png)
+    ![성능 창의 스크린샷](./media/opencensus-go/0008-performance.png)
 
-5. Selecting **Samples** and then clicking on any of the samples that appear in the right-hand pane will launch the end-to-end transaction details experience. While our sample app will just show us a single event, a more complex application would allow you to explore the end-to-end transaction down to level of an individual event's call stack.
+5. **샘플**을 선택한 다음, 오른쪽 창에 표시되는 샘플 중 하나를 클릭하면 종단 간 트랜잭션 세부 정보 환경이 시작됩니다. 샘플 앱은 단일 이벤트만을 표시하지만 더 복잡한 응용 프로그램을 통해 개별 이벤트의 호출 스택의 수준까지 종단 간 트랜잭션을 탐색할 수 있습니다.
 
-     ![Screenshot of end-to-end transaction interface](./media/opencensus-go/0009-end-to-end-transaction.png)
+     ![종단 간 트랜잭션 인터페이스의 스크린샷](./media/opencensus-go/0009-end-to-end-transaction.png)
 
-## OpenCensus trace for Go
+## <a name="opencensus-trace-for-go"></a>Go용 OpenCensus 추적
 
-We only covered the basics of integrating OpenCensus for Go with the local forwarder and Application Insights. The [official OpenCensus Go usage guidance](https://godoc.org/go.opencensus.io) covers more advanced topics.
+Go용 OpenCensus를 로컬 전달자 및 Application Insights에 통합하는 기본 사항만을 다루었습니다. [공식 OpenCensus Go 사용 지침](https://godoc.org/go.opencensus.io)에서는 더 고급 항목을 다룹니다.
 
-## Next steps
+## <a name="next-steps"></a>다음 단계
 
-* [Application map](./app-insights-app-map.md)
-* [End-to-end performance monitoring](./app-insights-tutorial-performance.md)
+* [응용 프로그램 맵](./app-insights-app-map.md)
+* [종단 간 성능 모니터링](./app-insights-tutorial-performance.md)

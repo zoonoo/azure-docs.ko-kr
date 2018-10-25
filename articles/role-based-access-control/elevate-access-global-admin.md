@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 10/15/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fb0fb4e0f23413cb56b1bb5ec419c44dfc52e7b6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a2f66078a817f5e6ad7296df11634a1a6130a055
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996845"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321668"
 ---
 # <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Azure Active Directory에서 전역 관리자에 대한 액세스 권한 상승
 
@@ -31,29 +31,37 @@ ms.locfileid: "46996845"
 - 조직에서 모든 Azure 구독 확인
 - 자동화 앱(예: 송장 또는 감사 앱)이 모든 Azure 구독에 액세스하도록 허용
 
-기본적으로 Azure AD 관리자 역할 및 Azure RBAC(역할 기반 액세스 제어) 역할은 Azure AD 및 Azure를 포함하지 않습니다. 그러나 사용자가 Azure AD에서 전역 관리자인 경우 Azure 구독 및 관리 그룹을 관리하는 액세스 권한을 상승시킬 수 있습니다. 사용자가 액세스 권한을 상승시킬 때 특정 테넌트에 대한 모든 구독에서 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 역할(RBAC 역할)을 부여합니다. 사용자 액세스 관리자 역할을 사용하면 사용자가 다른 사용자에게 루트 범위(`/`)의 Azure 리소스에 대한 액세스 권한을 부여할 수 있습니다.
-
-이러한 권한 상승은 임시로 필요할 때에만 수행되어야 합니다.
+이 문서에서는 Azure AD에서 액세스 권한을 높이는 여러 가지 방법을 설명합니다.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
+
+## <a name="overview"></a>개요
+
+Azure AD와 Azure 리소스는 서로 독립적으로 보호됩니다. 즉, Azure AD 역할을 할당해도 Azure 리소스에 대한 액세스가 부여되지 않고, Azure 역할을 할당해도 Azure AD에 대한 액세스가 부여되지 않습니다. 그러나 Azure AD의 글로벌 관리자는 디렉터리에 있는 모든 Azure 구독 및 관리 그룹에 대한 액세스 권한을 자신에게 할당할 수 있습니다. 가상 머신이나 저장소 계정 같은 Azure 구독 리소스에 액세스할 수 없고, 글로벌 관리자 권한을 사용하여 이러한 리소스에 대한 액세스 권한을 얻고 싶으면 이 기능을 사용하세요.
+
+액세스 권한을 높이면 Azure의 루트 범위(`/`)에서 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 역할이 할당됩니다. 이를 통해 모든 리소스를 살펴보고, 디렉터리에 있는 구독 또는 관리 그룹에 대한 액세스 권한을 할당할 수 있습니다. 사용자 액세스 관리자 역할 할당은 PowerShell을 사용하여 제거할 수 있습니다.
+
+루트 범위에서 필요한 변경 작업을 마친 후에는 상승된 액세스 권한을 제거해야 합니다.
+
+![액세스 권한 상승](./media/elevate-access-global-admin/elevate-access.png)
 
 ## <a name="azure-portal"></a>Azure portal
 
 다음 단계에 따라 Azure Portal을 사용하여 전역 관리자에 대한 액세스 권한을 상승시킵니다.
 
-1. [Azure Portal](https://portal.azure.com) 또는 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com) 또는 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에 글로벌 관리자로 로그인합니다.
 
 1. 탐색 목록에서 **Azure Active Directory**를 클릭한 다음, **속성**을 클릭합니다.
 
    ![Azure AD 속성 - 스크린샷](./media/elevate-access-global-admin/aad-properties.png)
 
-1. **전역 관리자는 Azure 구독 및 관리 그룹을 관리할 수 있습니다.** 에서 스위치를 **예**로 설정합니다.
+1. **Azure 리소스에 대한 액세스 관리**에서 스위치를 **예**로 설정합니다.
 
-   ![전역 관리자는 Azure 구독 및 관리 그룹을 관리할 수 있습니다. - 스크린샷](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
+   ![Azure 리소스에 대한 액세스 관리 - 스크린샷](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
 
-   스위치를 **예**로 설정하면 전역 관리자 계정(현재 로그인한 사용자)이 루트 범위(`/`)에서 Azure RBAC의 사용자 액세스 관리자 역할에 추가됩니다. 여기에서는 Azure AD 테넌트와 연결된 모든 Azure 구독에서 보고 보고할 액세스할 수 있는 권한을 부여합니다.
+   스위치를 **예**로 설정하면 Azure RBAC의 루트 범위(/)에서 사용자 액세스 관리자 역할이 할당됩니다. 그러면 이 Azure AD 디렉터리와 연결된 모든 Azure 구독 및 관리 그룹의 역할을 할당할 수 있는 권한이 부여됩니다. 이 스위치는 Azure AD에서 글로벌 관리자 역할이 할당된 사용자만 사용할 수 있습니다.
 
-   스위치를 **아니요**로 설정하면 전역 관리자 계정(현재 로그인한 사용자)이 Azure RBAC의 사용자 액세스 관리자 역할에서 제거됩니다. Azure AD 테넌트와 연결된 모든 Azure 구독을 볼 수 없습니다. 또한 액세스 권한이 부여된 Azure 구독만을 보고 관리할 수 있습니다.
+   스위치를 **아니요**로 설정하면 Azure RBAC의 사용자 액세스 관리자 역할이 사용자 계정에서 제거됩니다. 그러면 이 Azure AD 디렉터리와 연결된 모든 Azure 구독 및 관리 그룹의 역할을 더 이상 할당할 수 없습니다. 액세스 권한이 부여된 Azure 구독 및 관리 그룹만 살펴보고 관리할 수 있습니다.
 
 1. **Save**를 클릭하여 설정을 저장합니다.
 
@@ -190,16 +198,16 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
 
     `18d7d88d-d35e-4fb5-a5c3-7773c20a72d9` 같은 경우에 `name` 매개 변수의 ID를 저장합니다.
 
-2. 또한 테넌트 범위에서 테넌트 관리자의 역할 할당을 나열해야 합니다. 액세스 권한 상승 호출을 수행한 테넌트 관리자의 `principalId`에 대한 테넌트 범위의 모든 할당을 나열합니다. 그러면 objectid에 대한 테넌트의 모든 할당이 나열됩니다.
+2. 또한 디렉터리 범위에서 디렉터리 관리자의 역할 할당을 나열해야 합니다. 액세스 권한 상승 호출을 수행한 디렉터리 관리자의 `principalId`에 대한 디렉터리 범위에 포함되는 모든 할당을 나열합니다. 그러면 objectid에 대한 디렉터리의 모든 할당이 나열됩니다.
 
     ```http
     GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'
     ```
     
     >[!NOTE] 
-    >테넌트 관리자는 할당이 많지 않아야 합니다. 이전 쿼리에서 너무 많은 할당을 반환하는 경우, 테넌트 범위 수준의 모든 할당을 쿼리한 다음, 결과를 필터링할 수도 있습니다. `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
+    >디렉터리 관리자는 할당이 많지 않아야 합니다. 이전 쿼리에서 너무 많은 할당을 반환하는 경우 디렉터리 범위 수준에서만 모든 할당을 쿼리한 다음, 결과를 필터링할 수도 있습니다. `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
         
-    2. 이전 호출은 역할 할당 목록을 반환합니다. 범위가 `"/"`이고 `roleDefinitionId`가 1단계에서 찾은 역할 이름 ID로 끝나는 역할 할당을 찾고 `principalId`가 테넌트 관리자의 objectId와 일치합니다. 
+    2. 이전 호출은 역할 할당 목록을 반환합니다. 범위가 `"/"`이고 `roleDefinitionId`가 1단계에서 찾은 역할 이름 ID로 끝나는 역할 할당을 찾고 `principalId`가 디렉터리 관리자의 objectId와 일치합니다. 
     
     샘플 역할 할당:
 
@@ -235,6 +243,5 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
 
 ## <a name="next-steps"></a>다음 단계
 
+- [여러 역할의 이해](rbac-and-directory-admin-roles.md)
 - [REST를 사용하는 역할 기반 액세스 제어](role-assignments-rest.md)
-- [PIM(Privileged Identity Management)을 사용하여 Azure 리소스에 대한 액세스 관리](pim-azure-resource.md)
-- [조건부 액세스로 Azure Management에 대한 액세스 관리](conditional-access-azure-management.md)

@@ -1,26 +1,19 @@
 ---
 title: Azure Data Box Gateway 제한 | Microsoft Docs
 description: Microsoft Azure Data Box Gateway에 대한 시스템 제한 및 권장 크기를 설명합니다.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: alkohli
-ms.custom: ''
-ms.openlocfilehash: edb4995b626055be830a7accb74d99f1db3ef8d0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 60078845c98f2e241b00e184303dce0c860629e9
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962207"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49164436"
 ---
 # <a name="azure-data-box-gateway-limits-preview"></a>Azure Data Box Gateway 제한(미리 보기)
 
@@ -44,7 +37,7 @@ Microsoft Azure Data Box Gateway 솔루션을 배포 및 운영할 때 이러한
 |---|---|
 |아니요. 장치당 파일 수 |1억 <br> 제한은 2TB 디스크 공간마다 25백만 개 파일로, 최대 한도는 1억 개입니다. |
 |아니요. 장치당 공유 수 |24 |
-|공유에 기록되는 최대 파일 크기|5TB |
+|공유에 기록되는 최대 파일 크기|2TB 가상 장치의 경우 최대 파일 크기는 500GB입니다. <br> 최대 파일 크기는 최대 5TB에 도달할 때까지 이전 비율의 데이터 디스크 크기에 따라 증가합니다. |
 
 ## <a name="azure-storage-limits"></a>Azure Storage 제한
 

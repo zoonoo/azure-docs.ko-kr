@@ -4,28 +4,28 @@ description: 이 항목에서는 Azure Media Services v3를 사용하는 라이�
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: e9ecf1ba3022ca057fa09bad2413aa19d902ae23
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 533aa505c38d3cbfb46d70acecd43cc66614b13d
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972182"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378139"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Azure Media Services v3를 통한 라이브 스트리밍
 
 Azure Media Services를 사용하여 라이브 스트리밍 이벤트를 제공할 때 다음 구성 요소가 일반적으로 포함됩니다.
 
 * 이벤트를 브로드캐스트하는 데 사용되는 카메라
-* 카메라(또는 노트북과 같은 다른 장치)에서 Media Services 라이브 스트리밍 서비스로 보내는 스트림으로 신호를 변환하는 라이브 비디오 인코더입니다. 신호에는 SCTE-35 및 Ad-cues 광고가 포함될 수도 있습니다. 
+* 카메라(또는 노트북과 같은 다른 장치)의 신호를 라이브 스트리밍 서비스로 보내는 스트림으로 변환하는 라이브 비디오 인코더입니다. 신호에는 SCTE-35 및 Ad-cues 광고가 포함될 수도 있습니다. 
 * Media Services 라이브 스트리밍 서비스를 사용하면 콘텐츠를 수집, 미리 보기, 패키지화, 기록, 암호화할 수 있으며 고객 또는 CDN(추가 배포를 위해)에 브로드캐스트할 수 있습니다.
 
 이 문서에서는 Media Services의 라이브 스트리밍과 관련된 주요 구성 요소의 다이어그램과 자세한 개요를 제공합니다.
@@ -40,6 +40,17 @@ Media Services를 사용하면 AES-128(Advanced Encryption Standard) 또는 Micr
 
 원하는 경우 **동적 필터링**을 적용하여 플레이어에 전송되는 트랙 번호, 형식, 비트 전송률을 제어할 수 있습니다. Media Services는 광고 삽입도 지원합니다.
 
+### <a name="new-live-encoding-improvements"></a>새로운 라이브 인코딩의 향상된 기능
+
+최신 릴리스에서는 다음과 같은 기능이 새롭게 향상되었습니다.
+
+- 라이브에 대한 짧은 대기 시간(종단간 10초)
+- RTMP 지원 향상(향상된 안정성 및 더 많은 소스 인코더 지원)
+- RTMPS 보안 수집
+
+    LiveEvent를 만들면 이제 수집 URL이 4개 생성됩니다. 4개의 수집 URL은 거의 동일하며 스트리밍 토큰(AppId)이 동일하고 포트 번호 부분만 다릅니다. URL 중 두 개는 RTMPS에 대한 기본 및 백업용입니다.   
+- 24시간 코드 변환 지원 
+- SCTE35를 통한 RTMP의 광고 신호 지원 향상
 
 ## <a name="liveevent-types"></a>LiveEvent 형식
 
@@ -73,19 +84,19 @@ Media Services를 사용하면 AES-128(Advanced Encryption Standard) 또는 Micr
 
 | 기능 | 통과 LiveEvent | 기본 LiveEvent |
 | --- | --- | --- |
-| 단일 비트 전송률 입력은 클라우드에서 다중 비트 전송률로 인코딩됩니다. |아니오 |예 |
+| 단일 비트 전송률 입력은 클라우드에서 다중 비트 전송률로 인코딩됩니다. |아니요 |yes |
 | 최대 해상도, 계층 수 |4Kp30  |720p, 6계층, 30fps |
 | 입력 프로토콜 |RTMP, 부드러운 스트리밍 |RTMP, 부드러운 스트리밍 |
 | 가격 |[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) 를 참조하고 "라이브 비디오" 탭 클릭 |[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) |
 | 최대 실행 시간 |연중 무휴 |연중 무휴 |
-| 슬레이트 삽입 지원 |아니오 |예 |
-| API를 통한 광고 신호 지원|아니오 |예 |
-| SCTE35 인밴드를 통한 광고 신호 지원|예 |예 |
-| 통과 CEA 608/708 캡션 |예 |예 |
-| 기여 피드의 일시 정지에서 복구하는 기능 |예 |아니요(LiveEvent는 입력 데이터가 6초 이상 없으면 슬레이팅을 시작함)|
-| 균일하지 않은 입력 GOP에 대한 지원 |예 |아니요 - 입력은 고정된 2초 GOP여야 함 |
-| 변수 프레임 속도 입력에 대한 지원 |예 |아니요 - 입력은 고정된 프레임 속도여야 함.<br/>예를 들어 움직임이 많은 장면 중에는 사소한 차이가 허용됩니다. 하지만 인코더는 10프레임/초까지 떨어질 수 없습니다. |
-| 입력 피드가 손실될 경우 LiveEvent 자동 차단 |아니오 |12시간 동안 LiveOutput 실행이 없는 경우 |
+| 슬레이트 삽입 지원 |아니요 |yes |
+| API를 통한 광고 신호 지원|아니요 |yes |
+| SCTE35 인밴드를 통한 광고 신호 지원|yes |yes |
+| 통과 CEA 608/708 캡션 |yes |yes |
+| 기여 피드의 일시 정지에서 복구하는 기능 |yes |아니요(LiveEvent는 입력 데이터가 6초 이상 없으면 슬레이팅을 시작함)|
+| 균일하지 않은 입력 GOP에 대한 지원 |yes |아니요 - 입력은 고정된 2초 GOP여야 함 |
+| 변수 프레임 속도 입력에 대한 지원 |yes |아니요 - 입력은 고정된 프레임 속도여야 함.<br/>예를 들어 움직임이 많은 장면 중에는 사소한 차이가 허용됩니다. 하지만 인코더는 10프레임/초까지 떨어질 수 없습니다. |
+| 입력 피드가 손실될 경우 LiveEvent 자동 차단 |아니요 |12시간 동안 LiveOutput 실행이 없는 경우 |
 
 ## <a name="liveevent-states"></a>LiveEvent 상태 
 
@@ -131,7 +142,7 @@ LiveEvent는 상태가 “실행 중”으로 전환되면 그 즉시 청구되�
 | 시작 중 |없음(일시적인 상태) |
 | 실행 중 |예 |
 | 중지 중 |없음(일시적인 상태) |
-| 중지됨 |아니오 |
+| 중지됨 |아니요 |
 
 ## <a name="next-steps"></a>다음 단계
 

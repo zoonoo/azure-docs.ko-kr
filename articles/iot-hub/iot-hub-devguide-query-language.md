@@ -2,22 +2,21 @@
 title: Azure IoT Hub 쿼리 언어 | Microsoft Docs
 description: 개발자 가이드 - IoT Hub에서 장치/모듈 쌍 및 작업에 대한 정보를 검색하는 데 사용되는 SQL 유형의 IoT Hub 쿼리 언어에 대한 설명
 author: fsautomata
-manager: ''
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 2e4b356fec642e06e3223700967eeacd19f1c49c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f28a41f4a80806df14e314dae05405b7b45449b1
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952480"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318251"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>장치 및 모듈 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어
 
-IoT Hub는 [장치 쌍][lnk-twins] 및 [작업][lnk-jobs] 그리고 [메시지 라우팅][lnk-devguide-messaging-routes]과 관련된 정보를 검색할 수 있는 강력한 SQL 유형의 언어를 제공합니다. 이 문서에 제공되는 내용:
+IoT Hub는 [장치 쌍](iot-hub-devguide-device-twins.md) 및 [작업](iot-hub-devguide-jobs.md) 그리고 [메시지 라우팅](iot-hub-devguide-messages-d2c.md)과 관련된 정보를 검색할 수 있는 강력한 SQL 유형의 언어를 제공합니다. 이 문서에 제공되는 내용:
 
 * IoT Hub 쿼리 언어의 주요 기능 소개 및
 * 언어에 대한 자세한 설명 메시지 라우팅의 쿼리 언어에 대한 자세한 내용은 [메시지 라우팅의 쿼리](../iot-hub/iot-hub-devguide-routing-query-syntax.md)를 참조하세요.
@@ -25,7 +24,9 @@ IoT Hub는 [장치 쌍][lnk-twins] 및 [작업][lnk-jobs] 그리고 [메시지 �
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="device-and-module-twin-queries"></a>장치 및 모듈 쌍 쿼리
-[장치 쌍][lnk-twins] 및 모듈 쌍은 임의의 JSON 개체를 태그와 속성으로 포함할 수 있습니다. IoT Hub를 사용하면 모든 쌍 정보를 포함하는 단일 JSON 문서로 장치 쌍 및 모듈 쌍을 쿼리할 수 있습니다.
+
+[장치 쌍](iot-hub-devguide-device-twins.md) 및 모듈 쌍은 임의의 JSON 개체를 태그와 속성으로 포함할 수 있습니다. IoT Hub를 사용하면 모든 쌍 정보를 포함하는 단일 JSON 문서로 장치 쌍 및 모듈 쌍을 쿼리할 수 있습니다.
+
 예를 들어 IoT 허브 장치 쌍에 다음 구조가 있다고 가정합니다(모듈 쌍은 추가 moduleId와 유사함).
 
 ```json
@@ -80,15 +81,14 @@ IoT Hub는 [장치 쌍][lnk-twins] 및 [작업][lnk-jobs] 그리고 [메시지 �
 
 ### <a name="device-twin-queries"></a>장치 쌍 쿼리
 
-IoT Hub는 **devices**라는 문서 컬렉션으로 장치 쌍을 노출합니다.
-따라서 다음 쿼리는 전체적인 장치 쌍을 검색합니다.
+IoT Hub는 **devices**라는 문서 컬렉션으로 장치 쌍을 노출합니다. 예를 들어 다음 쿼리는 장치 쌍 전체 집합을 검색합니다.
 
 ```sql
 SELECT * FROM devices
 ```
 
 > [!NOTE]
-> [Azure IoT SDK][lnk-hub-sdks]는 큰 결과에 대한 페이징을 지원합니다.
+> [Azure IoT SDK](iot-hub-devguide-sdks.md)는 큰 결과의 페이징을 지원합니다.
 
 IoT Hub는 임의의 조건으로 장치 쌍 필터링을 검색하도록 허용합니다. 예를 들어 **location.region** 태그가 **US**로 설정된 장치 쌍을 받으려면 다음 쿼리를 사용합니다.
 
@@ -101,7 +101,7 @@ WHERE tags.location.region = 'US'
 
 ```sql
 SELECT * FROM devices
-WHERE tags.location.region = 'US'
+  WHERE tags.location.region = 'US'
     AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
 ```
 
@@ -109,25 +109,25 @@ WHERE tags.location.region = 'US'
 
 ```sql
 SELECT * FROM devices
-WHERE properties.reported.connectivity IN ['wired', 'wifi']
+  WHERE properties.reported.connectivity IN ['wired', 'wifi']
 ```
 
 특정 속성을 포함하는 모든 장치 쌍을 식별해야 하는 경우가 종종 있습니다. IoT Hub는 이러한 용도로 `is_defined()` 함수를 지원합니다. 예를 들어 `connectivity` 속성을 정의하는 장치 쌍을 검색하려면 다음 쿼리를 사용합니다.
 
 ```SQL
 SELECT * FROM devices
-WHERE is_defined(properties.reported.connectivity)
+  WHERE is_defined(properties.reported.connectivity)
 ```
 
-필터링 기능에 대한 전체 참조는 [WHERE 절][lnk-query-where] 섹션을 참조하세요.
+필터링 기능에 대한 전체 참조는 [WHERE 절](iot-hub-devguide-query-language.md#where-clause) 섹션을 참조하세요.
 
 그룹화 및 집계도 지원됩니다. 예를 들어 각 원격 분석 구성 상태에서 장치 수를 찾으려면 다음 쿼리를 사용합니다.
 
 ```sql
 SELECT properties.reported.telemetryConfig.status AS status,
     COUNT() AS numberOfDevices
-FROM devices
-GROUP BY properties.reported.telemetryConfig.status
+  FROM devices
+  GROUP BY properties.reported.telemetryConfig.status
 ```
 
 이 그룹화 쿼리는 다음 예제와 비슷한 결과를 반환합니다.
@@ -159,7 +159,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### <a name="module-twin-queries"></a>모듈 쌍 쿼리
 
-모듈 쌍의 쿼리는 장치 쌍의 쿼리와 유사하지만 서로 다른 컬렉션/네임스페이스, 즉, 쿼리할 수 있는 "장치에서" 대신 사용합니다.
+모듈 쌍에 대한 쿼리는 장치 쌍에 대한 쿼리와 유사하지만, "장치에서"가 아니라 다른 컬렉션/네임스페이스를 사용하여 device.modules를 쿼리할 수 있습니다.
 
 ```sql
 SELECT * FROM devices.modules
@@ -171,14 +171,18 @@ SELECT * FROM devices.modules
 Select * from devices.modules where properties.reported.status = 'scanning'
 ```
 
-이 쿼리는 검색 상태와 함께 모든 모듈 쌍을 반환하지만 지정된 하위 집합의 장치에서만 반환합니다.
+이 쿼리는 검색 상태와 함께 모든 모듈 쌍을 반환하지만, 지정된 하위 집합의 장치에서만 반환합니다.
 
 ```sql
-Select * from devices.modules where properties.reported.status = 'scanning' and deviceId IN ('device1', 'device2')  
+Select * from devices.modules 
+  where properties.reported.status = 'scanning' 
+  and deviceId IN ['device1', 'device2']
 ```
 
 ### <a name="c-example"></a>C# 예제
-쿼리 기능은 [C# 서비스 SDK][lnk-hub-sdks]의 **RegistryManager** 클래스에서 공개합니다.
+
+쿼리 기능은 [C# 서비스 SDK](iot-hub-devguide-sdks.md)의 **RegistryManager** 클래스를 통해 공개됩니다.
+
 다음은 간단한 예제 쿼리입니다.
 
 ```csharp
@@ -198,7 +202,9 @@ while (query.HasMoreResults)
 query 개체는 쿼리에 필요한 역직렬화 옵션에 따라 여러 개의 **Next** 값을 노출합니다. 프로젝션을 사용할 경우의 장치 쌍이나 작업 개체 또는 일반 JSON을 예로 들 수 있습니다.
 
 ### <a name="nodejs-example"></a>Node.js 예제
-쿼리 기능은 [Node.js용 Azure IoT 서비스 SDK][lnk-hub-sdks]의 **Registry** 개체에서 공개합니다.
+
+쿼리 기능은 [Node.js용 Azure IoT 서비스 SDK](iot-hub-devguide-sdks.md)의 **Registry** 개체에서 공개됩니다.
+
 다음은 간단한 예제 쿼리입니다.
 
 ```nodejs
@@ -233,8 +239,7 @@ query 개체는 쿼리에 필요한 역직렬화 옵션에 따라 여러 개의 
 
 ## <a name="get-started-with-jobs-queries"></a>작업 쿼리 시작
 
-[작업][lnk-jobs]은 장치 집합에 대해 작업을 실행하는 방법을 제공합니다. 각 장치 쌍은 작업에 대한 정보를 포함하며 이것은 **jobs**라는 컬렉션에 속합니다.
-로컬에서,
+[작업](iot-hub-devguide-jobs.md)은 장치 집합에 대해 작업을 실행하는 방법을 제공합니다. 각 장치 쌍은 작업에 대한 정보를 포함하며 이것은 **jobs**라는 컬렉션에 속합니다.
 
 ```json
 {
@@ -276,16 +281,18 @@ query 개체는 쿼리에 필요한 역직렬화 옵션에 따라 여러 개의 
 
 ```sql
 SELECT * FROM devices.jobs
-WHERE devices.jobs.deviceId = 'myDeviceId'
+  WHERE devices.jobs.deviceId = 'myDeviceId'
 ```
 
 이 쿼리가 반환된 각 작업의 장치별 상태(및 가능한 경우 직접 메서드 응답)를 제공하는 방법에 유의합니다.
+
 **devices.jobs** 컬렉션의 모든 개체 속성에 대해 임의의 부울 조건으로 필터링할 수도 있습니다.
+
 예를 들어, 특정 장치에 대해 2016년 9월 이후에 작성되어 완료된 장치 트윈 업데이트 작업을 모두 검색하려면 다음 쿼리를 사용합니다.
 
 ```sql
 SELECT * FROM devices.jobs
-WHERE devices.jobs.deviceId = 'myDeviceId'
+  WHERE devices.jobs.deviceId = 'myDeviceId'
     AND devices.jobs.jobType = 'scheduleTwinUpdate'
     AND devices.jobs.status = 'completed'
     AND devices.jobs.createdTimeUtc > '2016-09-01'
@@ -295,10 +302,11 @@ WHERE devices.jobs.deviceId = 'myDeviceId'
 
 ```sql
 SELECT * FROM devices.jobs
-WHERE devices.jobs.jobId = 'myJobId'
+  WHERE devices.jobs.jobId = 'myJobId'
 ```
 
 ### <a name="limitations"></a>제한 사항
+
 현재 **devices.jobs**에 대한 쿼리는 다음을 지원하지 않습니다.
 
 * 프로젝션(따라서 `SELECT *`만 가능)
@@ -306,24 +314,28 @@ WHERE devices.jobs.jobId = 'myJobId'
 * 집계 수행(예: count, avg, group by)
 
 ## <a name="basics-of-an-iot-hub-query"></a>IoT Hub 쿼리의 기초
+
 모든 IoT Hub 쿼리는 SELECT 및 FROM 절로 이루어지며 선택적으로 WHERE 및 GROUP BY 절이 포함됩니다. 모든 쿼리는 JSON 문서(예: 장치 쌍) 컬렉션에 대해 실행됩니다. FROM 절은 반복이 수행될 문서 컬렉션을 나타냅니다(예: **devices** 또는 **devices.jobs**). 그런 다음 WHERE 절의 필터가 적용됩니다. 집계를 사용할 경우 이 단계의 결과는 GROUP BY 절에 지정된 대로 그룹화됩니다. 각 그룹에 대해 SELECT 절에 지정된 대로 행이 생성됩니다.
 
 ```sql
 SELECT <select_list>
-FROM <from_specification>
-[WHERE <filter_condition>]
-[GROUP BY <group_specification>]
+  FROM <from_specification>
+  [WHERE <filter_condition>]
+  [GROUP BY <group_specification>]
 ```
 
 ## <a name="from-clause"></a>FROM 절
+
 **FROM <from_specification>** 절은 두 가지 값만 가정할 수 있습니다. **FROM devices**는 장치 쌍을 쿼리하기 위해 **FROM devices.jobs**는 장치별 작업 세부 정보를 쿼리하기 위해 가정합니다.
+
 
 ## <a name="where-clause"></a>WHERE 절
 **WHERE <filter_condition>** 절은 선택 사항입니다. FROM 컬렉션의 JSON 문서가 결과의 일부로 포함되기 위해 충족해야 하는 하나 이상의 조건을 지정합니다. JSON 문서가 결과에 포함되려면 지정된 조건을 "true"로 평가해야 합니다.
 
-허용되는 조건은 [식 및 조건][lnk-query-expressions] 섹션에 설명되어 있습니다.
+허용되는 조건은 [식 및 조건](iot-hub-devguide-query-language.md#expressions-and-conditions) 섹션에 설명되어 있습니다.
 
 ## <a name="select-clause"></a>SELECT 절
+
 **SELECT <select_list>** 는 필수이며 쿼리에서 검색되는 값을 지정합니다. 새 JSON 개체를 생성하는 데 사용될 JSON 값을 지정합니다.
 FROM 컬렉션의 필터링된(그리고 선택적으로 그룹화된) 하위 집합의 각 요소에 대해 프로젝션 단계는 새 JSON 개체를 생성합니다. 이 개체는 SELECT 절에 지정된 값으로 구성됩니다.
 
@@ -349,7 +361,7 @@ SELECT [TOP <max number>] <projection list>
     | max(<projection_element>)
 ```
 
-**Attribute_name**은 FROM 컬렉션에 있는 JSON 문서의 속성을 참조합니다. SELECT 절에 대한 예제는 [장치 쌍 쿼리 시작][lnk-query-getstarted] 섹션에서 찾을 수 있습니다.
+**Attribute_name**은 FROM 컬렉션에 있는 JSON 문서의 속성을 참조합니다. SELECT 절에 대한 예제는 [장치 쌍 쿼리 시작](iot-hub-devguide-query-language.md#get-started-with-device-twin-queries) 섹션에서 찾을 수 있습니다.
 
 현재 **SELECT** \*와 다른 선택 절은 장치 쌍에 대한 집계 쿼리에서만 지원됩니다.
 
@@ -483,18 +495,5 @@ GROUP BY <group_by_element>
 | CONTAINS(x,y) | 첫 번째 문자열 식이 두 번째를 포함하는지를 나타내는 부울 값을 반환합니다. |
 
 ## <a name="next-steps"></a>다음 단계
-[Azure IoT SDK][lnk-hub-sdks]를 사용하여 앱에서 쿼리를 수행하는 방법을 알아봅니다.
 
-[lnk-query-where]: iot-hub-devguide-query-language.md#where-clause
-[lnk-query-expressions]: iot-hub-devguide-query-language.md#expressions-and-conditions
-[lnk-query-getstarted]: iot-hub-devguide-query-language.md#get-started-with-device-twin-queries
-
-[lnk-twins]: iot-hub-devguide-device-twins.md
-[lnk-jobs]: iot-hub-devguide-jobs.md
-[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-devguide-messaging-routes]: iot-hub-devguide-messages-d2c.md
-[lnk-devguide-messaging-format]: iot-hub-devguide-messages-construct.md
-
-[lnk-hub-sdks]: iot-hub-devguide-sdks.md
+[Azure IoT SDK](iot-hub-devguide-sdks.md)를 사용하여 앱에서 쿼리를 수행하는 방법을 알아봅니다.

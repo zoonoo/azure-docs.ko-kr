@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7971a5aeadd2b2edaa43da8bacae9743937ce30e
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 59f2860168782d96bf82d0a27f9bb9eeed0f1020
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127349"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167497"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기 사용자 지정
 
@@ -460,9 +460,15 @@ See the [Connect an external visualization tool](https://github.com/Azure/azure-
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 원격 모니터링 솔루션 가속기에서 웹 UI를 사용자 지정하는 데 사용할 수 있는 리소스에 대해 알아보았습니다.
+이 문서에서는 원격 모니터링 솔루션 가속기에서 웹 UI를 사용자 지정하는 데 사용할 수 있는 리소스에 대해 알아보았습니다. UI 사용자 지정에 대한 자세한 내용은 다음 문서를 참조하세요.
+
+* [원격 모니터링 솔루션 가속기 웹 UI에 사용자 지정 페이지 추가](iot-accelerators-remote-monitoring-customize-page.md)
+* [원격 모니터링 솔루션 가속기 웹 UI에 사용자 지정 서비스 추가](iot-accelerators-remote-monitoring-customize-service.md)
+* [원격 모니터링 솔루션 가속기 웹 UI에 사용자 지정 그리드 추가](iot-accelerators-remote-monitoring-customize-grid.md)
+* [원격 모니터링 솔루션 가속기 웹 UI에 사용자 지정 플라이아웃 추가](iot-accelerators-remote-monitoring-customize-flyout.md)
+* [원격 모니터링 솔루션 가속기 웹 UI의 대시보드에 사용자 지정 패널 추가](iot-accelerators-remote-monitoring-customize-panel.md)
 
 원격 모니터링 솔루션 가속기에 대한 자세한 개념 정보는 [원격 모니터링 아키텍처](iot-accelerators-remote-monitoring-sample-walkthrough.md)를 참조하세요.
 
-원격 모니터링 솔루션 사용자 지정에 대한 자세한 내용은 [마이크로 서비스 사용자 지정 및 재배포](iot-accelerators-microservices-example.md)
-<!-- Next tutorials in the sequence -->를 참조하세요.
+원격 모니터링 솔루션 마이크로 서비스 사용자 지정에 대한 자세한 내용은 [마이크로 서비스 사용자 지정 및 재배포](iot-accelerators-microservices-example.md)를 참조하세요.
+<!-- Next tutorials in the sequence -->

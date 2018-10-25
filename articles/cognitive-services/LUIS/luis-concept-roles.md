@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 033e5e5e054b0a29961ad60e72b1466b51d1df0c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5fda0ac590e5faeaa8b6ec44a7d649d2c0122eeb
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035201"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352988"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>패턴의 엔터티 역할은 컨텍스트 하위 형식입니다.
 역할은 [패턴](luis-concept-patterns.md)에서만 사용되는 엔터티의 명명된 컨텍스트 하위 형식입니다.
@@ -28,6 +28,8 @@ ms.locfileid: "47035201"
 |--|--|--|
 |위치|원본|비행기가 출발하는 위치|
 |위치|destination|비행기가 도착하는 위치|
+|미리 빌드된 datetimeV2|to|종료 날짜|
+|미리 빌드된 datetimeV2|from|시작 날짜|
 
 ## <a name="how-are-roles-used-in-patterns"></a>패턴에서 역할이 사용되는 방식
 패턴의 템플릿 발화에서 역할은 발화 내에서 사용됩니다. 
@@ -47,6 +49,14 @@ ms.locfileid: "47035201"
 |--|--|
 |계층 구조 엔터티|의도|
 |roles|패턴|
+
+## <a name="roles-with-prebuilt-entities"></a>미리 작성된 엔터티와 역할
+
+미리 작성된 엔터티와 함께 역할을 사용하여 발화 내에서 미리 만들어진 엔터티의 다른 인스턴스에 의미를 부여합니다. 
+
+### <a name="roles-with-datetimev2"></a>datetimeV2와 역할
+
+미리 작성된 엔터티 datetimeV2는 발화에서 날짜와 시간의 다양성을 광범위하게 이해하는 작업을 원활하게 수행합니다. 미리 작성된 엔터티의 기본 이해와 다르게 날짜와 날짜 범위를 지정하려고 할 수도 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,18 +3,18 @@ title: Enterprise Security Package를 사용하는 Azure HDInsight 아키텍처
 description: Enterprise Security Package를 사용하여 HDInsight 보안을 계획하는 방법을 알아봅니다.
 services: hdinsight
 ms.service: hdinsight
-author: omidm1
-ms.author: omidm
-ms.reviewer: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 975a4f7b15d1e1c13767cd7026e961e9d4227603
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8d344adc367eb9b93e52d9423a2ab4dda657b298
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998931"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115542"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>HDInsight에서 Enterprise Security Package 사용
 
@@ -26,26 +26,20 @@ HDInsight는 널리 사용되는 ID 공급자인 Active Directory를 관리되�
 
 HDInsight의 VM(가상 머신)은 제공된 도메인에 가입된 도메인입니다. 따라서 HDInsight에서 실행 중인 모든 서비스(Ambari, Hive 서버, Ranger, Spark thrift 서버 등)가 인증된 사용자에 원활하게 작동합니다. 관리자는 Apache Ranger를 사용하여 클러스터의 리소스에 대한 역할 기반 액세스 제어를 제공하는 강력한 권한 부여 정책을 만들 수 있습니다.
 
-
 ## <a name="integrate-hdinsight-with-active-directory"></a>Active Directory와 HDInsight 통합
 
 오픈 소스 Hadoop은 인증 및 보안에 Kerberos를 사용합니다. 따라서 ESP(Enterprise Security Package)가 포함된 HDInsight 클러스터 노드는 Azure AD DS에서 관리하는 도메인에 조인됩니다. Kerberos 보안은 클러스터의 Hadoop 구성 요소에 대해 구성됩니다. 
 
-각 Hadoop 구성 요소의 경우, 서비스 주체는 자동으로 생성됩니다. 또한 도메인에 가입된 각 머신에 대한 해당 머신 보안 주체가 만들어집니다. 이러한 서비스 및 머신 주체를 저장하기 위해 이러한 원칙을 배치할 위치인 도메인 컨트롤러(Azure AD DS) 내에서 OU(조직 구성 단위)를 제공해야 합니다. 
+다음 작업은 자동으로 만들어집니다.
+- 각 Hadoop 구성 요소에 대한 서비스 주체 
+- 또한 도메인에 가입된 각 머신에 대한 머신 보안 주체
+- 이러한 서비스 및 머신 보안 주체를 저장하는 각 클러스터에 대한 OU(조직 구성 단위) 
 
 요약하면 다음으로 환경을 설정해야 합니다.
 
 - Active Directory 도메인(Azure AD DS에서 관리함)
 - Azure AD DS에서 사용하도록 설정된 보안 LDAP(LDAPS)
 - 가상 네트워크를 별도로 선택하는 경우, HDInsight 가상 네트워크에서 Azure AD DS 가상 네트워크로 적절한 네트워킹 연결 HDInsight 가상 네트워크 내의 VM은 가상 네트워크 피어링을 통해 Azure AD DS에 연결되어 있어야 합니다. HDInsight 및 Azure AD DS가 동일한 가상 네트워크에 배포된 경우, 연결이 자동으로 제공되며 추가 작업이 필요하지 않습니다.
-- [Azure AD DS에서 생성된](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md) OU
-- 다음에 대한 사용 권한을 가진 서비스 계정:
-    - OU에 서비스 사용자를 만듭니다.
-    - 컴퓨터를 도메인에 가입하고 OU에 컴퓨터 보안 주체를 만듭니다.
-
-다음 스크린샷은 contoso.com에서 만든 OU를 보여 줍니다. 또한 일부 서비스 사용자 및 머신 보안 주체를 표시합니다.
-
-![ESP가 포함된 HDInsight 클러스터용 조직 구성 단위](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
 ## <a name="set-up-different-domain-controllers"></a>다른 도메인 컨트롤러 설정
 HDInsight는 현재 클러스터가 Kerberos 통신에 사용하는 주 도메인 컨트롤러로 Azure AD DS만 지원합니다. 그러나 이러한 설정을 통해 HDInsight 액세스에 Azure AD DS를 사용하도록 설정하면 다른 복잡한 Active Directory 설정이 가능합니다.

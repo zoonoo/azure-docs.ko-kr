@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: cbfe3022c4ffd03e4ab93682eb14a5a588aa0013
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: d240bafa543633999a74ef66efcfd7130a4a7b7a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409476"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389278"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -131,10 +131,25 @@ Set-AzureRmStorageSyncServerEndpoint `
 
 이 문제를 해결하려면 다음 단계를 수행합니다.
 
-1. 서버에서 작업 관리자를 열고 Storage 동기화 모니터링 (AzureStorageSyncMonitor.exe) 프로세스가 실행 중인지 확인합니다. 프로세스가 실행되지 않으면 먼저 서버를 다시 시작합니다. 서버를 다시 시작해도 문제가 해결되지 않으면 Azure 파일 동기화 에이전트를 제거하고 다시 설치합니다(참고: 에이전트를 제거하고 다시 설치한 경우 서버 설정은 그대로 유지됩니다).
+1. 서버에서 작업 관리자를 열고 Storage 동기화 모니터링 (AzureStorageSyncMonitor.exe) 프로세스가 실행 중인지 확인합니다. 프로세스가 실행되지 않으면 먼저 서버를 다시 시작합니다. 서버를 다시 시작해도 문제가 해결되지 않는 경우 Azure 파일 동기화 에이전트를 아직 설치되지 않은 [3.3.0.0]( https://support.microsoft.com/help/4457484/update-rollup-for-azure-file-sync-agent-september-2018) 버전으로 업그레이드합니다.
 2. 방화벽 및 프록시 설정이 올바로 구성되었는지 확인합니다.
-    - 서버가 방화벽 뒤에 있는 경우 포트 443 아웃 바운드가 허용되는지 확인합니다. 방화벽이 트래픽을 특정 도메인으로 제한하는 경우 방화벽 [설명서](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall)에 나열된 도메인에 액세스할 수 있는지 확인합니다.
-    - 서버가 프록시 뒤에 있는 경우 프록시 [설명서](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy)에 있는 단계에 따라 머신 전체 또는 앱 별 프록시 설정을 구성합니다.
+    - 서버가 방화벽 뒤에 있는 경우 포트 443 아웃 바운드가 허용되는지 확인합니다. 방화벽이 트래픽을 특정 도메인으로 제한하는 경우 방화벽 [설명서](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall)에 나열된 도메인에 액세스할 수 있는지 확인합니다.
+    - 서버가 프록시 뒤에 있는 경우 프록시 [설명서](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy)에 있는 단계에 따라 머신 전체 또는 앱 별 프록시 설정을 구성합니다.
+
+<a id="endpoint-noactivity-sync"></a>**서버 엔드포인트의 상태가 "활동 없음"이며, 등록된 서버 블레이드의 서버 상태가 "온라인"입니다.**  
+
+서버 엔드포인트 상태가 "활동 없음"이면 서버 엔드포인트에서 지난 2시간 동안 동기화 활동을 기록하지 않은 것입니다.
+
+서버 엔드포인트에서 동기화 활동을 기록할 수 없는 이유는 다음과 같습니다.
+
+- 서버에서 최대 동시 동기화 세션 수에 도달했습니다. Azure 파일 동기화는 현재 프로세서당 2개의 활성 동기화 세션 또는 서버당 최대 8개의 활성 동기화 세션을 지원합니다.
+
+- 서버에 활성 VSS 동기화 세션(SnapshotSync)이 있습니다. VSS 동기화 세션이 서버 엔드포인트에 대해 활성 상태이면 VSS 동기화 세션이 완료될 때까지 서버의 다른 서버 엔드포인트에서 동기화 시작 세션을 시작할 수 없습니다.
+
+서버의 현재 동기화 활동을 확인하려면 [현재 동기화 세션의 진행률을 모니터링 하려면 어떻게 해야 하나요?](#how-do-i-monitor-the-progress-of-a-current-sync-session)를 참조하세요.
+
+> [!Note]  
+> 등록된 서버 블레이드의 서버 상태가 "오프라인으로 나타남"인 경우 [서버 엔드포인트가 "활동 없음" 또는 "보류 중" 상태이며, 등록된 서버 블레이드의 서버 상태가 "오프라인으로 나타남"](#server-endpoint-noactivity) 섹션에서 설명하는 단계를 수행하세요.
 
 ## <a name="sync"></a>동기화
 <a id="afs-change-detection"></a>**SMB 또는 포털을 통해 Azure 파일 공유에 직접 파일을 만든 경우 해당 파일이 동기화 그룹의 서버에 동기화되는 데 얼마나 걸리나요?**  
@@ -236,7 +251,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | 동기화 중에 파일이 변경되었으므로 다시 동기화해야 합니다. | 아무 조치도 취할 필요가 없습니다. |
 
 #### <a name="handling-unsupported-characters"></a>지원되지 않는 처리 문자
-지원되지 않는 문자로 인해 **FileSyncErrorsReport.ps1** PowerShell 스크립트가 오류를 표시하는 경우(오류 코드 0x7b 및 0x8007007b) 오류 시 각 파일에서 해당 문자를 제거하거나 이름을 변경해야 합니다. 이러한 문자는 대부분 표준 시각적 개체 인코딩이 없으므로 PowerShell이 이러한 문자를 물음표 또는 빈 사각형으로 인쇄할 수 있습니다. [평가 도구](storage-sync-files-planning.md#evaluation-tool)는 지원되지 않는 문자를 식별하는 데 사용될 수 있습니다.
+지원되지 않는 문자로 인해 **FileSyncErrorsReport.ps1** PowerShell 스크립트에서 오류(오류 코드 0x7b 및 0x8007007b)가 표시되면 각 파일 이름에서 오류가 있는 문자를 제거하거나 이름을 변경해야 합니다. 이러한 문자는 대부분 표준 시각적 개체 인코딩이 없으므로 PowerShell이 이러한 문자를 물음표 또는 빈 사각형으로 인쇄할 수 있습니다. [평가 도구](storage-sync-files-planning.md#evaluation-tool)는 지원되지 않는 문자를 식별하는 데 사용될 수 있습니다.
 
 아래 표에서 Azure 파일 동기화에서 지원하지 않는 모든 유니코드 문자가 포함되어 있습니다.
 
@@ -319,6 +334,16 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 | **재구성 필요** | yes |
 
 이 오류는 Azure 파일 동기화에서 사용하는 내부 데이터베이스에 문제가 있을 때 발생합니다. 이 문제가 발생할 경우 지원 요청을 만드시면 이 문제를 해결할 수 있도록 연락을 드리겠습니다.
+
+<a id="-2134364053"></a>**서버에 설치된 Azure 파일 동기화 에이전트 버전이 지원되지 않습니다.**  
+| | |
+|-|-|
+| **HRESULT** | 0x80C8306B |
+| **HRESULT(10진)** | -2134364053 |
+| **오류 문자열** | ECS_E_AGENT_VERSION_BLOCKED |
+| **재구성 필요** | yes |
+
+서버에 설치된 Azure 파일 동기화 에이전트 버전이 지원되지 않으면 이 오류가 발생합니다. 이 문제를 해결하려면 [지원되는 에이전트 버전]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions)으로 [업그레이드]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#upgrade-paths)합니다.
 
 <a id="-2134351810"></a>**Azure 파일 공유 저장소 용량 한도에 도달했습니다.**  
 | | |
@@ -770,11 +795,11 @@ New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported charac
 <a id="monitor-recall-activity"></a>**서버의 회수 작업을 모니터링하는 방법**  
 서버의 회수 작업을 모니터링하려면 이벤트 ID 9005, 9006, 9007을 원격 분석 이벤트 로그에 사용합니다(이벤트 뷰어의 Applications and Services\Microsoft\FileSync\Agent에 있음). 이러한 이벤트는 매시간 기록됩니다.
 
-- 이벤트 ID 9005는 서버 엔드포인트에 대한 회수 안정성을 제공합니다. 액세스된 고유한 파일 수, 액세스에 실패한 고유한 파일 수 등을 예로 들 수 있습니다.
+- 9005 이벤트 ID는 서버 엔드포인트에 대한 회수 안정성을 제공합니다. 액세스된 고유한 파일 수, 액세스에 실패한 고유한 파일 수 등을 예로 들 수 있습니다.
 
 - 이벤트 ID 9006은 서버 엔드포인트에 대한 회수 오류 분포를 제공합니다. 실패한 요청 수, ErrorCode 등을 예로 들 수 있습니다. 한 이벤트는 오류 코드별로 기록됩니다.
 
-- 이벤트 ID 9007은 서버 엔드포인트에 대한 회수 성능을 제공합니다. TotalRecallIOSize, TotalRecallTimeTaken 등을 예로 들 수 있습니다.
+- 9007 이벤트 ID는 서버 엔드포인트에 대한 회수 성능을 제공합니다. TotalRecallIOSize, TotalRecallTimeTaken 등을 예로 들 수 있습니다.
 
 <a id="files-fail-tiering"></a>**계층화에 실패한 파일의 문제 해결**  
 파일이 Azure Files로 계층화되지 못한 경우:

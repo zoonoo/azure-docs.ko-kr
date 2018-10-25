@@ -9,22 +9,22 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c94a58a19558350c3c20377ce750f6758f688c0d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a3d073e9fd7c535ea84d6e4dbbf8003a6c55725b
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998511"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394615"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Azure CLI를 사용하여 대규모 IoT Edge 모듈 배포 및 모니터링
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-edge-how-to-deploy-monitor-selector.md)]
 
-Azure IoT Edge를 사용하면 분석을 에지로 이동할 수 있고 클라우드 인터페이스를 제공하므로, 각 장치에 물리적으로 액세스하지 않고도 IoT Edge 장치를 관리하고 모니터링할 수 있습니다. IoT(사물 인터넷) 솔루션이 점점 더 커지고 복잡하게 됨에 따라 장치를 원격으로 관리하는 기능이 점점 더 중요해지고 있습니다. Azure IoT Edge는 추가하는 장치의 수와 관계없이 비즈니스 목표를 지원하도록 설계되었습니다.
+Azure IoT Edge를 사용하면 분석을 에지로 이동할 수 있고, 클라우드 인터페이스를 제공하여 IoT Edge 장치를 원격으로 관리하고 모니터링할 수 있습니다. IoT(사물 인터넷) 솔루션이 점점 더 커지고 복잡하게 됨에 따라 장치를 원격으로 관리하는 기능이 점점 더 중요해지고 있습니다. Azure IoT Edge는 추가하는 장치의 수와 관계없이 비즈니스 목표를 지원하도록 설계되었습니다.
 
 개별 장치를 관리하고 모듈을 한 번에 하나씩 배포할 수 있습니다. 그러나 대대적으로 장치를 변경하려는 경우 IoT Hub에서 자동 장치 관리의 일부인 **IoT Edge 자동 배포**를 만들 수 있습니다. 배포는 여러 모듈을 여러 장치에 한 번에 배포하고, 모듈의 상태를 추적하며, 필요한 경우 변경할 수 있게 하는 동적 프로세스입니다. 
 
-이 문서에서는 Azure CLI 및 IoT 확장을 설정합니다. 그런 다음, 사용 가능한 CLI 명령을 사용하여 IoT Edge 장치 집합에 모듈을 배포하고 프로세스를 모니터링하는 방법을 알아봅니다.
+이 문서에서는 Azure CLI 및 IoT 확장을 설정합니다. 그런 다음, 사용 가능한 CLI 명령을 사용하여 IoT Edge 장치 집합에 모듈을 배포하고 진행률을 모니터링하는 방법을 알아봅니다.
 
 ## <a name="cli-prerequisites"></a>CLI 필수 구성 요소
 
@@ -128,7 +128,7 @@ Azure CLI를 사용하여 모듈을 배포하려면 배포 매니페스트를 �
 }
 ```
 
-장치 쌍 및 태그에 대한 자세한 내용은 [IoT Hub의 장치 쌍 이해 및 사용][lnk-device-twin]을 참조하세요.
+장치 쌍 및 태그에 대한 자세한 내용은 [IoT Hub의 장치 쌍 이해 및 사용](../iot-hub/iot-hub-devguide-device-twins.md)을 참조하세요.
 
 ## <a name="create-a-deployment"></a>배포 만들기
 
@@ -209,16 +209,4 @@ az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub na
 
 ## <a name="next-steps"></a>다음 단계
 
-[Edge 장치에 모듈 배포][lnk-deployments]를 자세히 알아봅니다.
-
-<!-- Images -->
-[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
-
-<!-- Links -->
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-portal]: https://portal.azure.com
-[lnk-docker-create]: https://docs.docker.com/engine/reference/commandline/create/
-[lnk-deployments]: module-deployment-monitoring.md
-
-<!-- Anchor links -->
-[anchor-monitor]: #monitor-a-deployment
+[Edge 장치에 모듈 배포](module-deployment-monitoring.md)에 대해 자세히 알아봅니다.

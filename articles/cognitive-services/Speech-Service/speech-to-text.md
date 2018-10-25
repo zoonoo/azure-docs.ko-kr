@@ -3,18 +3,18 @@ title: Speech to Text 정보
 description: Speech to Text API의 기능 개요입니다.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-jerkin
-ms.openlocfilehash: 7cb0257a7302221f80bb90c0a6c3446cde07290a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.author: erhopf
+ms.openlocfilehash: 5a19366f6aeec2422ec8671ba3c32f642b5e01ac
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434129"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361439"
 ---
 # <a name="about-the-speech-to-text-api"></a>Speech to Text API 정보
 
@@ -26,7 +26,7 @@ ms.locfileid: "47434129"
 
 - 실시간 연속 인식. **Speech to Text**를 사용하여 오디오를 실시간으로 텍스트로 기록할 수 있습니다. 또한 지금까지 인식된 단어의 중간 결과도 수신할 수 있습니다. 이 서비스는 음성의 끝을 자동으로 인식합니다. 사용자는 대문자 표시 및 문장 부호, 욕설 마스킹 및 역 텍스트 정규화와 같은 추가 형식 지정 옵션을 선택할 수도 있습니다.
 
-- 대화형, 대화 및 받아쓰기 시나리오에 최적화된 **음성 텍스트 변환** 결과. 인식된 결과는 어휘 및 표시 양식으로 모두 반환됩니다(어휘 결과는 예제 또는 API에서 DetailedSpeechRecognitionResult 참조).
+- 어휘 및 표시 양식으로 모두 반환됩니다(어휘 결과는 예제 또는 API에서 DetailedSpeechRecognitionResult 참조).
 
 - 여러 음성 언어 및 언어 지원. 각 인식 모드에서 지원되는 언어의 전체 목록은 [지원되는 언어](language-support.md#speech-to-text)를 참조하세요.
 
@@ -34,9 +34,11 @@ ms.locfileid: "47434129"
 
 - 자연어 이해 LUIS([Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/))와 통합하여 음성에서 의도 및 엔터티를 파생할 수 있습니다. 사용자는 앱 어휘를 알 필요가 없지만 원하는 내용을 자신만의 단어로 설명할 수 있습니다.
 
+- 신뢰성 점수는 음성 구성 개체 (SpeechConfig.OutputFormat 속성)에 대한 자세한 출력을 지정 하는 경우 서비스에서 다시 반환됩니다. 그러면 결과에 대해 Best() 메서드를 사용하거나 서비스에서 반환된 JSON에서 직접 점수를 가져올 수 있습니다(result.Properties.GetProperty(PropertyId.SpeechServiceResponse_JsonResult)와 같은 것).
+
 ## <a name="api-capabilities"></a>API 기능
 
-**음성을 텍스트로 변환** API의 많은 기능(특히 사용자 지정 기능)은 REST를 통해 사용할 수 있습니다. 다음 표에서는 API에 액세스하는 각 방법의 기능을 요약해서 설명합니다. 기능 및 API의 전체 목록은 [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/)를 참조하세요.
+**음성 텍스트 변환** API의 일부 기능(특히 사용자 지정 기능)은 REST를 통해 사용할 수 있습니다. 다음 표에서는 API에 액세스하는 각 방법의 기능을 요약해서 설명합니다. 기능 및 API의 세부 정보의 전체 목록은 [Swagger 참조](https://westus.cris.ai/swagger/ui/index)를 참조하세요.
 
 | 사용 사례 | REST (영문) | SDK |
 |-----|-----|-----|----|

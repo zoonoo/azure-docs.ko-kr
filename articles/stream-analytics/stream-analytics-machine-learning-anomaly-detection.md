@@ -9,17 +9,17 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: e7274e4507d901a209ed5832e98ca630feefda4f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3cd9b5a2bfed49ee712b89040477389ba9ea7715
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31420098"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389635"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Azure Stream Analytics의 변칙 검색
 
 > [!IMPORTANT]
-> 이 기능은 미리 보기 상태이며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다.
+> 이 기능은 더 이상 사용되지 않고 있지만 새로운 함수로 대체됩니다. 자세한 내용은 [Azure Stream Analytics의 8가지 새로운 기능](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) 블로그 게시물을 참조하세요.
 
 **AnomalyDetection** 연산자는 이벤트 스트림에서 다양한 형식의 변칙을 검색하는 데 사용됩니다. 예를 들어 장시간에 걸쳐 사용 가능한 메모리가 천천히 감소하는 것은 메모리 누수를 암시할 수 있으며, 일정 범위에서 안정적인 상태를 유지하던 웹 서비스 요청 수가 갑자기 증가하거나 늘어날 수 있습니다.  
 
@@ -243,7 +243,7 @@ Machine Learning 수준에서 변칙 검색 알고리즘은 들어오는 각각�
 ## <a name="references"></a>참조
 
 * [변칙 검색 - Machine Learning을 사용하여 시계열 데이터에서 변칙 검색](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/)
-* [Machine Learning 변칙 검색 API](https://docs.microsoft.com/en-gb/azure/machine-learning/machine-learning-apps-anomaly-detection-api)
+* [Machine Learning 변칙 검색 API](https://docs.microsoft.com/azure/machine-learning/machine-learning-apps-anomaly-detection-api)
 * [시계열 변칙 검색](https://msdn.microsoft.com/library/azure/mt775197.aspx)
 
 ## <a name="next-steps"></a>다음 단계

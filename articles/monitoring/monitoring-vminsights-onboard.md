@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 2f0568064eed556429675ffb34c84d588ac670d5
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 33d16e211667edc6c082ab8c101e69ee5875efb8
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064359"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390247"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms"></a>VM용 Azure Monitor를 등록하는 방법 
 이 문서에서는 사용자의 Azure 가상 머신의 운영 체제 상태를 모니터링하고 해당 머신에서 호스트될 수 있는 응용 프로그램 종속성을 검색 및 매핑하도록 VM용 Azure Monitor를 설정하는 방법을 설명합니다.  
@@ -31,11 +31,11 @@ ms.locfileid: "47064359"
 * PowerShell을 사용하여 지정된 구독 또는 리소스 그룹에 걸친 여러 Azure VM 또는 가상 머신 확장 집합.
 
 ## <a name="prerequisites"></a>필수 조건
-시작하기 전에 아래 하위 섹션에 설명된 다음 사항이 있는지 확인하세요.
+시작하기 전에 아래 하위 섹션에서 설명한 대로 다음 사항이 있는지 확인합니다.
 
 ### <a name="log-analytics"></a>Log Analytics 
 
-다음 지역의 Log Analytics 작업 영역이 현재 지원됩니다.
+현재 Log Analytics 작업 영역이 지원되는 지역은 다음과 같습니다.
 
   - 미국 중서부  
   - 미국 동부  
@@ -44,11 +44,22 @@ ms.locfileid: "47064359"
 
 <sup>1</sup> 이 지역은 현재 VM용 Azure Monitor의 상태 기능을 지원하지 않습니다   
 
-작업 영역이 없는 경우 [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md)를 통해, [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json)을 통해 또는 [Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md)에서 만들 수 있습니다.  
+>[!NOTE]
+>Azure 가상 머신은 모든 지역에서 온보딩될 수 있으며, Log Analytics 작업 영역에 지원되는 지역으로 제한되지 않습니다.
+>
+
+작업 영역이 없는 경우 [Azure CLI](../log-analytics/log-analytics-quick-create-workspace-cli.md), [PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md), [Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md) 또는 [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md)을 통해 만들 수 있습니다.  Azure Portal에서 단일 Azure VM에 대한 모니터링을 사용하도록 설정하는 경우 이 프로세스 중에 작업 영역을 만들 수 있습니다.  
 
 솔루션을 사용하려면 Log Analytics 기여자 역할의 구성원이 되어야 합니다. Log Analytics 작업 영역에 대한 액세스를 제어하는 방법에 대한 자세한 내용은 [작업 영역 관리](../log-analytics/log-analytics-manage-access.md)를 참조하세요.
 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+
+대규모 시나리오에 대한 솔루션을 사용하도록 설정하려면 먼저 Log Analytics 작업 영역에서 다음을 구성해야 합니다.
+
+* **ServiceMap** 및 **InfrastructureInsights** 솔루션 설치
+* 성능 카운터를 수집하도록 Log Analytics 작업 영역 구성
+
+이 시나리오에 맞게 작업 영역을 구성하려면 [Log Analytics 작업 영역 설정](#setup-log-analytics-workspace)을 참조하세요.
 
 ### <a name="supported-operating-systems"></a>지원되는 운영 체제
 
@@ -138,7 +149,7 @@ ms.locfileid: "47064359"
 |12 SP3 | 4.4.* |
 
 ### <a name="hybrid-environment-connected-sources"></a>하이브리드 환경에 연결된 원본
-VM용 Azure Monitor는 Microsoft Dependency Agent에서 해당 데이터를 가져옵니다. Dependency Agent는 Log Analytics 연결에 사용된 Log Analytics 에이전트에 따라 달라집니다. 즉, 시스템에 Log Analytics 에이전트를 설치하고 Dependency Agent로 구성해야 합니다.  다음 테이블은 하이브리드 환경에서 맵 기능이 지원하는 연결된 원본을 설명합니다.
+VM용 Azure Monitor는 Microsoft Dependency Agent에서 해당 데이터를 가져옵니다. 종속성 에이전트는 Log Analytics에 연결하기 위해 Log Analytics 에이전트를 사용하므로 시스템에 Log Analytics 에이전트가 설치되고 종속성 에이전트로 구성되어야 합니다. 다음 테이블은 하이브리드 환경에서 맵 기능이 지원하는 연결된 원본을 설명합니다.
 
 | 연결된 원본 | 지원됨 | 설명 |
 |:--|:--|:--|
@@ -150,7 +161,7 @@ Windows에서 System Center Operations Manager와 Log Analytics는 MMA(Microsoft
 
 Linux에서는 Linux용 Log Analytics 에이전트가 모니터링 데이터를 수집하여 Log Analytics에 보냅니다.   
 
-Windows 또는 Linux 머신을 서비스에 직접 연결할 수 없으면, OMS 게이트웨이를 사용하여 Log Analytics에 연결하도록 Log Analytics 에이전트를 구성해야 합니다. OMS 게이트웨이를 배포하고 구성하는 방법에 자세한 내용은 [OMS 게이트웨이를 사용하여 인터넷 액세스 없이 컴퓨터 연결](../log-analytics/log-analytics-oms-gateway.md)을 참조합니다.  
+Windows 또는 Linux 머신을 서비스에 직접 연결할 수 없으면, OMS 게이트웨이를 사용하여 Log Analytics에 연결하도록 Log Analytics 에이전트를 구성해야 합니다. OMS 게이트웨이를 배포하고 구성하는 방법에 자세한 내용은 [OMS 게이트웨이를 사용하여 인터넷 액세스 없이 컴퓨터 연결](../log-analytics/log-analytics-oms-gateway.md)을 참조하세요.  
 
 종속성 에이전트는 다음 위치에서 다운로드할 수 있습니다.
 
@@ -206,6 +217,9 @@ VM용 Azure Monitor는 솔루션에서 사용된 성능 카운터를 수집하�
 |네트워크 |전송된 총 바이트 |  
 |프로세서 |% Processor Time |  
 
+## <a name="sign-in-to-azure-portal"></a>Azure Portal에 로그인
+[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다. 
+
 ## <a name="enable-from-the-azure-portal"></a>Azure Portal에서 사용하도록 설정
 Azure Portal에서 Azure VM의 모니터링을 사용하도록 설정하려면 다음 단계를 수행합니다.
 
@@ -225,76 +239,183 @@ Azure Portal에서 Azure VM의 모니터링을 사용하도록 설정하려면 �
 
 ![배포 처리를 모니터링하도록 VM용 Azure Monitor 설정](./media/monitoring-vminsights-onboard/onboard-vminsights-vm-portal-status.png)
 
-## <a name="enable-using-azure-policy"></a>Azure Policy를 사용하여 설정
-프로비전된 새 VM에 대해 일관된 규정 준수 및 자동 사용을 보장하는 여러 Azure VM에 대한 솔루션을 사용하도록 설정하려면 [Azure Policy](../azure-policy/azure-policy-introduction.md)를 사용하는 것이 좋습니다.  제공된 정책과 함께 Azure Policy를 사용하면 새 VM에 다음과 같은 이점이 제공됩니다.
 
-* 정의된 범위의 각 VM에 대해 VM용 Azure Monitor를 사용하도록 설정
-* Log Analytics 에이전트 배포 
-* 응용 프로그램 종속성을 검색하고 맵에 표시하도록 Dependency Agent 배포
-* Azure VM OS 이미지가 정책 정의에서 미리 정의된 목록에 있는 경우 감사  
-* Azure VM이 지정된 곳이 아닌 작업 영역에서 로깅되는 경우 감사
-* 준수 결과 보고 
-* 비준수 VM에 대한 재구성 지원
+## <a name="on-boarding-at-scale"></a>규모별 온보딩
+이 섹션에서는 Azure Policy 또는 Azure PowerShell을 사용하여 VMs용 Azure Monitor를 규모별로 배포하는 방법에 대한 지침을 제공합니다.  필요한 첫 번째 단계는 Log Analytics 작업 영역을 구성하는 것입니다.  
 
-사용자 테넌트에 대해 활성화하려면 이 프로세스에 다음이 필요합니다.
+### <a name="setup-log-analytics-workspace"></a>Log Analytics 작업 영역 설정
+Log Analytics 작업 영역이 없는 경우 [필수 조건](#log-analytics) 섹션에서 제안된 사용 가능한 방법을 검토하여 이 작업 영역을 만듭니다.  
 
-- 여기에 나열된 단계를 사용하여 Log Analytics 작업 영역 구성
-- 이니셔티브 정의를 사용자 테넌트에 가져오기(관리 그룹 또는 구독 수준에서)
-- 정책을 원하는 범위에 할당
-- 준수 결과를 검토
+#### <a name="enable-performance-counters"></a>성능 카운터 사용하도록 설정
+솔루션에서 참조되는 Log Analytics 작업 영역이 솔루션에 필요한 성능 카운터를 수집하도록 구성되지 않은 경우 사용하도록 설정해야 합니다. [여기](../log-analytics/log-analytics-data-sources-performance-counters.md)에 설명된 대로 수동으로 수행하거나 [Azure Powershell 갤러리](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)에서 확인할 수 있는 PowerShell 스크립트를 다운로드하고 실행하여 수행할 수 있습니다.
+ 
+#### <a name="install-the-servicemap-and-infrastructureinsights-solutions"></a>ServiceMap 및 InfrastructureInsights 솔루션 설치
+이 메서드는 Log Analytics 작업 영역에 솔루션 구성 요소를 사용하도록 구성을 지정하는 JSON 템플릿을 포함합니다.  
 
-### <a name="add-the-policies-and-initiative-to-your-subscription"></a>정책 및 이니셔티브를 구독에 추가
-제공된 PowerShell 스크립트를 사용하면 정책을 사용할 수 있습니다. Azure PowerShell 갤러리에서 이 작업을 완료하기 위한 [Add-VMInsightsPolicy.ps1](https://www.powershellgallery.com/packages/Add-VMInsightsPolicy/1.2)을 사용할 수 있습니다. 스크립트는 정책 및 이니셔티브를 사용자 구독에 추가합니다.  구독에서 Azure Policy를 구성하려면 다음 단계를 수행합니다. 
+템플릿을 사용하여 리소스를 배포하는 개념에 익숙하지 않은 경우 다음을 참조하십시오.
+* [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../azure-resource-manager/resource-group-template-deploy.md)
+* [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../azure-resource-manager/resource-group-template-deploy-cli.md) 
 
-1. PowerShell 스크립트를 로컬 파일 시스템으로 다운로드합니다.
+Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.27 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요. 
 
-2. 정책을 추가할 폴더에서 다음 PowerShell 명령을 사용합니다. 스크립트는 다음과 같은 선택적 매개 변수를 지원합니다. 
+1. 다음 JSON 구문을 파일에 복사하여 붙여넣습니다.
+
+    ```json
+    {
+
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "WorkspaceName": {
+            "type": "string"
+        },
+        "WorkspaceLocation": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2017-03-15-preview",
+            "type": "Microsoft.OperationalInsights/workspaces",
+            "name": "[parameters('WorkspaceName')]",
+            "location": "[parameters('WorkspaceLocation')]",
+            "resources": [
+                {
+                    "apiVersion": "2015-11-01-preview",
+                    "location": "[parameters('WorkspaceLocation')]",
+                    "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
+                    "type": "Microsoft.OperationsManagement/solutions",
+                    "dependsOn": [
+                        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                    ],
+                    "properties": {
+                        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                    },
+
+                    "plan": {
+                        "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
+                        "publisher": "Microsoft",
+                        "product": "[Concat('OMSGallery/', 'ServiceMap')]",
+                        "promotionCode": ""
+                    }
+                },
+                {
+                    "apiVersion": "2015-11-01-preview",
+                    "location": "[parameters('WorkspaceLocation')]",
+                    "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
+                    "type": "Microsoft.OperationsManagement/solutions",
+                    "dependsOn": [
+                        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                    ],
+                    "properties": {
+                        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
+                    },
+                    "plan": {
+                        "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
+                        "publisher": "Microsoft",
+                        "product": "[Concat('OMSGallery/', 'InfrastructureInsights')]",
+                        "promotionCode": ""
+                    }
+                }
+            ]
+        }
+    ]
+    ```
+
+2. 이 파일을 **installsolutionsforvminsights.json**으로 로컬 폴더에 저장합니다.
+3. **WorkspaceName**, **ResourceGroupName** 및 **WorkspaceLocation;** 에 대한 값을 편집합니다.  **WorkspaceName** 값은 작업 영역 이름이 포함된 Log Analytics 작업 영역의 전체 리소스 ID이며, **WorkspaceLocation** 값은 해당 작업 영역이 정의된 지역입니다.
+4. 다음 PowerShell 명령을 사용하여 이 템플릿을 배포할 준비가 되었습니다.
 
     ```powershell
-    -UseLocalPolicies [<SwitchParameter>]
-      <Optional> Load the policies from a local folder instead of https://raw.githubusercontent.com/dougbrad/OnBoardVMInsights/Policy/Policy/
+    New-AzureRmResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
+    ```
 
-    -SubscriptionId <String>
-      <Optional> SubscriptionId to add the Policies/Initiatives to
-    -ManagementGroupId <String>
-      <Optional> Management Group Id to add the Policies/Initiatives to
+    구성 변경을 완료하려면 몇 분 정도 걸릴 수 있습니다. 완료되면 다음과 유사한 메시지가 표시되고 결과가 포함됩니다.
 
-    -Approve [<SwitchParameter>]
-      <Optional> Gives the approval to add the Policies/Initiatives without any prompt
-    ```  
+    ```powershell
+    provisioningState       : Succeeded
+    ```
+
+### <a name="enable-using-azure-policy"></a>Azure Policy를 사용하여 설정
+프로비전된 새 VM에 대해 일관된 규정 준수 및 자동 사용을 보장하는 규모의 VMs용 Azure Monitor를 사용하도록 설정하려면 [Azure Policy](../azure-policy/azure-policy-introduction.md)를 사용하는 것이 좋습니다. 이러한 정책에서 수행하는 작업은 다음과 같습니다.
+
+* Log Analytics 에이전트 및 종속성 에이전트 배포 
+* 준수 결과 보고 
+* 준수하지 않는 VM에 대한 수정
+
+테넌트에 대한 정책을 통해 VMs용 Azure Monitor를 사용하도록 설정하려면 다음을 수행해야 합니다. 
+
+- 범위(관리 그룹, 구독 또는 리소스 그룹)에 이니셔티브 할당 
+- 규정 준수 결과 검토 및 수정  
+
+Azure Policy 할당에 대한 자세한 내용은 계속하기 전에 [Azure Policy 개요](../governance/policy/overview.md#policy-assignment)를 참조하고 [관리 그룹 개요](../governance/management-groups/index.md)를 검토하세요.  
+
+다음 표에는 제공되는 정책 정의가 나와 있습니다.  
+
+|이름 |설명 |type |  
+|-----|------------|-----|  
+|[미리 보기]: VM에 대해 Azure Monitor 사용 |지정된 범위(관리 그룹, 구독 또는 리소스 그룹)에서 VMs(Virtual Machines)용 Azure Monitor를 사용하도록 설정합니다. Log Analytics 작업 영역을 매개 변수로 사용합니다. |이니셔티브 |  
+|[미리 보기]: Dependency Agent 배포 감사 - VM 이미지(OS)가 나열 취소됨 |VM 이미지(OS)가 정의된 목록에 없고 에이전트가 설치되어 있지 않은 경우 VM을 비준수로 보고합니다. |정책 |  
+|[미리 보기]: Log Analytics 에이전트 배포 감사 - VM 이미지(OS)가 나열 취소됨 |VM 이미지(OS)가 정의된 목록에 없고 에이전트가 설치되어 있지 않은 경우 VM을 비준수로 보고합니다. |정책 |  
+|[미리 보기]: Linux VM용 Dependency Agent 배포 |VM 이미지(OS)가 정의된 목록에 있고 에이전트가 설치되어 있지 않은 경우 Linux VM용 종속성 에이전트를 배포합니다. |정책 |  
+|[미리 보기]: Windows VM용 Dependency Agent 배포 |VM 이미지(OS)가 정의된 목록에 있고 에이전트가 설치되어 있지 않은 경우 Windows VM용 Dependency Agent를 배포합니다. |정책 |  
+|[미리 보기]: Linux VM용 Log Analytics 에이전트 배포 |VM 이미지(OS)가 정의된 목록에 있고 에이전트가 설치되어 있지 않은 경우 Linux VM용 Log Analytics 에이전트를 배포합니다. |정책 |  
+|[미리 보기]: Windows VM용 Log Analytics 에이전트 배포 |VM 이미지(OS)가 정의된 목록에 있고 에이전트가 설치되어 있지 않은 경우 Windows VM용 Log Analytics 에이전트를 배포합니다. |정책 |  
+
+독립 실행형 정책(이니셔티브에 포함되지 않음) 
+
+|이름 |설명 |type |  
+|-----|------------|-----|  
+|[미리 보기]: VM용 Log Analytics 작업 영역 감사 - 보고서 불일치 |정책/이니셔티브 할당에 지정된 LA 작업 영역에 로깅하지 않는 경우 VM을 비준수로 보고합니다. |정책 |
+
+#### <a name="assign-azure-monitor-initiative"></a>Azure Monitor 이니셔티브 할당
+이 초기 릴리스를 사용하면 Azure Portal에서 정책 할당만 만들 수 있습니다. 이러한 단계를 완료하는 방법을 알아보려면  [Azure Portal에서 정책 할당 만들기](../governance/policy/assign-policy-portal.md)를 참조하세요. 
+
+1. **모든 서비스**를 클릭한 후 **정책**을 검색하고 선택하여 Azure Portal에서 Azure Policy 서비스를 시작합니다. 
+2. Azure Policy 페이지의 왼쪽에서 **할당**을 선택합니다. 할당은 특정 범위 내에서 수행하도록 할당된 정책입니다.
+3. **정책 - 할당** 페이지의 위쪽에서 **이니셔티브 할당**을 선택합니다.
+4. **이니셔티브 할당** 페이지에서 줄임표를 클릭하여 **범위**를 선택하고, 관리 그룹 또는 구독 및 선택적으로 리소스 그룹을 선택합니다. 여기서는 범위에서 정책 할당을 가상 머신 그룹으로 제한하여 적용합니다. **범위** 페이지의 아래쪽에서 **선택**을 클릭하여 변경 내용을 저장합니다.
+5. **제외**는 범위에서 선택 항목인 하나 이상의 리소스를 생략할 수 있게 합니다. 
+6. **이니셔티브 정의** 줄임표를 선택하여 사용 가능한 정의 목록을 열고, 목록에서 **[미리 보기] VM에 대해 Azure Monitor 사용**을 선택한 다음, **선택**을 클릭합니다.
+7. **할당 이름**은 선택한 이니셔티브 이름으로 자동으로 채워지지만 변경할 수 있습니다. 선택적인 **설명**을 추가할 수도 있습니다. **할당한 사람**은 로그인한 사용자를 기반으로 하여 자동으로 채워지며, 이 필드는 선택 사항입니다.
+8. 지원되는 지역에서 사용할 수 있는 드롭다운 목록에서 **Log Analytics 작업 영역**을 선택합니다.
 
     >[!NOTE]
-    >참고: 이니셔티브/정책을 여러 구독에 할당하려는 경우 정책을 할당할 구독이 포함된 관리 그룹에 정의를 저장해야 합니다. 따라서 -ManagementGroupID 매개 변수를 사용해야 합니다.
+    >작업 영역이 할당 범위를 벗어나는 경우 **Log Analytics 기여자** 권한을 정책 할당의 Principal ID에 부여해야 합니다. 이 작업을 수행하지 않으면 `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ... `과 같은 배포 오류가 발생할 수 있습니다. [관리 ID를 수동으로 구성하는 방법](../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity)을 검토하여 권한을 부여하세요.
     >
-   
-    매개 변수가 없는 예제: `.\Add-VMInsightsPolicy.ps1`
 
-### <a name="create-a-policy-assignment"></a>정책 할당 만들기
-`Add-VMInsightsPolicy.ps1` PowerShell 스크립트를 실행한 후, 다음 이니셔티브 및 정책이 추가됩니다.
+9. **관리 ID** 옵션이 선택되어 있는지 확인합니다. 할당되는 이니셔티브에 deployIfNotExists가 적용된 정책이 있으면 이 확인란을 선택합니다. **ID 위치 관리** 드롭다운 목록에서 해당 지역을 선택합니다.  
+10. **할당**을 클릭합니다.
 
-* **Windows VM용 Log Analytics 에이전트 배포 - 미리 보기**
-* **Linux VM용 Log Analytics 에이전트 배포 - 미리 보기**
-* **Windows VM용 Dependency Agent 배포 - 미리 보기**
-* **Linux VM용 Dependency Agent 배포 - 미리 보기**
-* **Log Analytics 에이전트 배포 감사 - VM 이미지(OS) 목록 없음 - 미리 보기**
-* **Dependency Agent 배포 감사 - VM 이미지(OS) 목록 없음 - 미리 보기**
+#### <a name="review-and-remediate-the-compliance-results"></a>규정 준수 결과 검토 및 수정 
 
-다음과 같은 이니셔티브 매개 변수가 추가됩니다.
+[규정 비준수 결과 식별](../governance/policy/assign-policy-portal.md#identify-non-compliant-resources)을 참조하여 규정 준수 결과를 검토하는 방법을 알아볼 수 있습니다. 페이지의 왼쪽에서 **규정 준수**를 선택하고, 만든 할당마다 준수되지 않는 **[미리 보기] VM에 대해 Azure Monitor 사용** 이니셔티브를 찾습니다.
 
-- **Log Analytice 작업 영역**(PowerShell 또는 CLI를 사용하여 할당을 적용하는 경우 작업 영역의 ResourceID를 제공해야 함)
+![Azure VM에 대한 정책 준수](./media/monitoring-vminsights-onboard/policy-view-compliance-01.png)
 
-    **OS 범위 내 VM 아님...** 감사 정책에서 비준수로 발견된 VM의 경우 배포 정책의 기준은 잘 알려진 Azure VM 이미지에서 배포된 VM만 포함합니다. VM OS가 지원되는지 여부는 설명서를 확인하세요.  지원되지 않는 경우 이미지가 범위에 해당되도록 배포 정책을 복제하고 업데이트/수정해야 합니다.
+이니셔티브에 포함된 정책의 결과에 따라 VM이 비준수로 보고되는 시나리오는 다음과 같습니다.  
+  
+1. Log Analytics 또는 Dependency Agent가 배포되지 않았습니다.  
+   이는 일반적으로 기존 VM이 포함된 범위에 해당합니다. 이 문제를 완화하려면 필요한 에이전트를 배포하도록 비준수 정책에 대한 [수정 작업을 만듭니다](../governance/policy/how-to/remediate-resources.md).    
+ 
+    - [미리 보기]: Deploy Dependency Agent for Linux VMs   
+    - [미리 보기]: Deploy Dependency Agent for Windows VMs  
+    - [미리 보기]: Deploy Log Analytics Agent for Linux VMs  
+    - [미리 보기]: Deploy Log Analytics Agent for Windows VMs  
 
-다음과 같은 독립 실행형 선택적 정책이 추가됩니다.
+2. VM 이미지(OS)가 정책 정의에서 식별된 목록에 없습니다.  
+   배포 정책의 조건에는 잘 알려진 Azure VM 이미지에서 배포된 VM만 포함됩니다. VM OS가 지원되는지 여부는 설명서를 확인하세요. 그렇지 않은 경우 배포 정책을 복제하고 업데이트/수정하여 이미지가 준수되도록 해야 합니다. 
+  
+    - [미리 보기]: Dependency Agent 배포 감사 - VM 이미지(OS)가 나열 취소됨  
+    - [미리 보기]: Log Analytics 에이전트 배포 감사 - VM 이미지(OS)가 나열 취소됨
 
-- **VM이 일치하지 않는 Log Analytics 작업 영역에 대해 구성됨 - 미리 보기**
+3. VM이 지정된 LA 작업 영역에 로깅하지 않습니다.  
+이니셔티브 범위에 속한 일부 VM은 정책 할당에 지정된 것과 다른 LA 작업 영역에 로깅할 수 있습니다. 이 정책은 비준수 작업 영역에 보고하는 VM을 식별하는 도구입니다.  
+ 
+    - [미리 보기]: Audit Log Analytics Workspace for VM - Report Mismatch  
 
-    이는 VM이 [Log Analytics VM 확장](../virtual-machines/extensions/oms-windows.md)에서 이미 구성되었으나 의도된 것과 다른 작업 영역으로 구성되었음을 식별하는 데 사용됩니다(정책 할당으로 표시됨). 이는 WorkspaceID에 대한 매개 변수를 사용합니다.
-
-이 초기 릴리스를 사용하면 Azure Portal에서 정책 할당만 만들 수 있습니다. 이러한 단계를 완료하는 방법을 알아보려면 [Azure Portal에서 정책 할당 만들기](../azure-policy/assign-policy-definition.md)를 참조하세요.
-
-## <a name="enable-with-powershell"></a>PowerShell을 통해 사용하도록 설정
-여러 VM 또는 VM 확장 집합에 대해 VM용 Azure Monitor를 사용하도록 설정하기 위해 제공된 PowerShell 스크립트를 사용할 수 있습니다. Azure PowerShell 갤러리의 [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0)을 사용하여 이 작업을 완료할 수 있습니다.  이 스크립트는 *ResourceGroup*에 의해 지정된 범위가 지정된 리소스 그룹의 사용자 구독에 있는 모든 가상 머신과 VM 확장 집합 또는 *Name*에 의해 지정된 단일 VM 또는 확장 집합에서 반복됩니다.  각 VM 또는 VM 확장 집합의 경우 스크립트에서 VM 확장이 이미 설치되어 있는지와 재설치를 시도하지 않았는지를 확인합니다.  그렇지 않은 경우 Log Analytics 및 Dependency Agent VM 확장 설치를 진행합니다.   
+### <a name="enable-with-powershell"></a>PowerShell을 통해 사용하도록 설정
+여러 VM 또는 가상 머신 확장 집합에 대해 VMs용 Azure Monitor를 사용하도록 설정하려면, Azure PowerShell 갤러리에서 제공되는 [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0) PowerShell 스크립트를 사용하여 이 작업을 완료할 수 있습니다.  이 스크립트는 구독 또는 *ResourceGroup*에 지정된 범위의 리소스 그룹에 있는 모든 가상 머신과 가상 머신 확장 집합에서 반복되거나 *Name*에 지정된 단일 VM 또는 가상 머신확장 집합에서 반복됩니다.  각 VM 또는 가상 머신 확장 집합의 경우 스크립트에서 VM 확장을 이미 설치했는지와 다시 설치하려고 시도하지 않았는지를 확인합니다.  그렇지 않은 경우 Log Analytics 및 Dependency Agent VM 확장 설치를 진행합니다.   
 
 이 스크립트에는 Azure PowerShell 모듈 버전 5.7.0 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
@@ -588,7 +709,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
     ```
 
 2. 이 파일을 **installsolutionsforvminsights.json**으로 로컬 폴더에 저장합니다.
-3. **WorkspaceName**, **ResourceGroupName** 및 **WorkspaceLocation;** 에 대한 값을 편집합니다.  **WorkspaceName**에 대한 값은 작업 영역 이름을 포함하는 Log Analytics 작업 영역의 전체 리소스 ID이며, **WorkspaceLocation**에 대한 값은 작업 영역이 정의되는 지역입니다.
+3. **WorkspaceName**, **ResourceGroupName** 및 **WorkspaceLocation;** 에 대한 값을 편집합니다.  **WorkspaceName** 값은 작업 영역 이름이 포함된 Log Analytics 작업 영역의 전체 리소스 ID이며, **WorkspaceLocation** 값은 해당 작업 영역이 정의된 지역입니다.
 4. 다음 PowerShell 명령을 사용하여 이 템플릿을 배포할 준비가 되었습니다.
 
     ```powershell

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 737a76ba313dddaa58c302f1df501f16a5c4e9e8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e9e88fc9aa3aad902c140ac176e31571b9e55ee3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966560"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353744"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>연결된 팩터리 솔루션 가속기에 대한 질문과 대답
 
@@ -140,33 +140,21 @@ IoT Hub로 전송된 데이터를 볼 수 없는 경우 시뮬레이션에 문�
 
 ### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>연결된 팩터리 솔루션에서 대화형 맵을 사용하려면 어떻게 할까요?
 
-연결된 팩터리 솔루션에서 대화형 맵을 사용하려면 엔터프라이즈용 Bing 지도 API가 있어야 합니다.
+연결된 팩터리 솔루션에서 대화형 맵을 사용하려면 Azure Maps 계정이 있어야 합니다.
 
-[www.azureiotsolutions.com](http://www.azureiotsolutions.com)에서 배포할 경우, 배포 프로세스는 구독이 엔터프라이즈용 Bing 지도 API 계획을 사용하도록 설정했는지 확인하고, 연결된 팩터리에 대화형 지도를 자동으로 배포합니다. 이 경우가 아니면 다음과 같이 배포에서 대화형 지도를 사용하도록 설정할 수 있습니다.
+[www.azureiotsolutions.com](http://www.azureiotsolutions.com)에서 배포하는 경우, 배포 프로세스는 Azure Maps 계정을 솔루션 가속기 서비스를 포함하는 리소스 그룹에 추가합니다.
 
-연결된 팩터리 GitHub 리포지토리의 `build.ps1` 스크립트를 사용하여 배포하며, 엔터프라이즈용 Bing 지도 API 계획이 있는 경우 빌드 창에서 환경 변수 `$env:MapApiQueryKey`를 계획의 쿼리 키로 설정합니다. 그러면 대화형 지도가 자동으로 사용되도록 설정됩니다.
+연결된 팩터리 GitHub 리포지토리의 `build.ps1` 스크립트를 사용하여 배포하는 경우 빌드 창의 변수 `$env:MapApiQueryKey`를[ Azure Maps 계정의 키](../azure-maps/how-to-manage-account-keys.md)로 설정합니다. 그러면 대화형 지도가 자동으로 사용되도록 설정됩니다.
 
-엔터프라이즈용 Bing 지도 API 계획이 있는 경우 [www.azureiotsolutions.com](http://www.azureiotsolutions.com)에서 또는 `build.ps1` 스크립트를 사용하여 연결된 팩터리 솔루션을 배포합니다. 그런 후 [엔터프라이즈용 Bing 지도 API 계정을 만들려면 어떻게 할까요?](#how-do-i-create-a-bing-maps-api-for-enterprise-account)에 설명된 대로 엔터프라이즈용 Bing 지도 API 계획을 구독에 추가합니다. [엔터프라이즈용 Bing 지도 API QueryKey를 가져오는 방법](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey)에 설명된 대로 이 계정의 쿼리 키를 조회한 후 저장합니다. Azure Portal로 이동한 후 연결된 팩터리 배포의 App Service 리소스에 액세스합니다. **앱 설정** 섹션을 찾을 수 있는 **응용 프로그램 설정**으로 이동합니다. **MapApiQueryKey**를 가져온 쿼리 키로 설정합니다. 설정을 저장한 다음 **개요**로 이동하고 App Service를 다시 시작합니다.
+또한 배포 후 솔루션 가속기에 Azure Maps 계정 키를 추가할 수도 있습니다. Azure Portal로 이동한 후 연결된 팩터리 배포의 App Service 리소스에 액세스합니다. **응용 프로그램 설정** 섹션을 찾을 수 있는 **응용 프로그램 설정**으로 이동합니다. **MapApiQueryKey**를 [Azure Maps 계정의 키](../azure-maps/how-to-manage-account-keys.md)로 설정합니다. 설정을 저장한 다음 **개요**로 이동하고 App Service를 다시 시작합니다.
 
-### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>엔터프라이즈용 Bing 지도 API 계정을 만드는 방법
+### <a name="how-do-i-create-a-azure-maps-account"></a>Azure Maps 계정을 만드는 방법?
 
-체험용 *내부 트랜잭션 수준 1 엔터프라이즈용 Bing 지도* 계획을 사용할 수 있습니다. 그러나 이러한 두 개의 계획을 Azure 구독에 추가할 수 있습니다. 엔터프라이즈용 Bing 지도 API 계정을 설정하지 않은 경우 Azure Portal에서 **+리소스 만들기**를 클릭하여 만듭니다. 그런 다음 **엔터프라이즈용 Bing 지도 API**를 검색하고 프롬프트를 따라 만듭니다.
+[Azure Maps 계정과 키를 관리하는 방법](../azure-maps/how-to-manage-account-keys.md)을 참조하세요.
 
-![Bing 키](./media/iot-accelerators-faq-cf/bing.png)
+### <a name="how-to-obtain-your-azure-maps-account-key"></a>Azure Maps 계정 키를 가져오는 방법
 
-### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>엔터프라이즈용 Bing 지도 API QueryKey를 가져오는 방법
-
-엔터프라이즈용 Bing 지도 API 계획을 만들면 Azure Portal에서 연결된 팩터리 솔루션의 리소스 그룹에 엔터프라이즈용 Bing 지도 리소스를 추가합니다.
-
-1. Azure Portal에서 엔터프라이즈용 Bing 지도 API 계획이 포함된 리소스 그룹으로 이동합니다.
-
-1. **모든 설정**을 클릭한 다음 **키 관리**를 클릭합니다.
-
-1. **MasterKey**와 **QueryKey**라는 두 개의 키가 있습니다. **QueryKey** 값을 복사합니다.
-
-1. `build.ps1` 스크립트에서 키를 선택하려면 PowerShell 환경에서 `$env:MapApiQueryKey` 환경 변수를 계획의 **QueryKey**로 설정합니다. 그러면 빌드 스크립트가 App Service의 설정에 해당 값을 자동으로 추가합니다.
-
-1. `build.ps1` 스크립트를 사용하여 로컬 또는 클라우드 배포를 실행합니다.
+[Azure Maps 계정과 키를 관리하는 방법](../azure-maps/how-to-manage-account-keys.md)을 참조하세요.
 
 ### <a name="how-do-enable-the-interactive-map-while-debugging-locally"></a>로컬로 디버그하는 동안 대화형 맵을 사용하려면 어떻게 하나요?
 

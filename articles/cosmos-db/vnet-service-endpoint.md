@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: a4758e5597876112fa7a85850786491e22af8c83
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 868f465cc651043d3ef4b1735b4b528252572dbb
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037143"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378088"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Azure Virtual Network 서비스 엔드포인트를 사용하여 Azure Cosmos DB 계정에 보안 액세스
 
@@ -226,7 +226,7 @@ HTTP 404 오류가 반환됩니다.
 
 예, Virtual Network 서비스 엔드포인트와 방화벽은 공존할 수 있습니다. 일반적으로 컨테이너와 관련된 메트릭을 볼 수 있도록 가상 네트워크 서비스 엔드포인트를 구성하기 전에 포털에 대한 액세스가 항상 사용하도록 허용되었는지 확인해야 합니다.
 
-### <a name="can-i-allow-access-to-other-azure-services-from-a-given-azure-region-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>서비스 엔드포인트 액세스가 Azure Cosmos DB에 사용하도록 설정된 경우 “다른 Azure 서비스에 대한 주어진 Azure 지역의 액세스를 허용”할 수 있나요?  
+### <a name="can-i-accept-connections-from-within-public-azure-datacenters-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>Azure Cosmos DB에 대해 서비스 엔드포인트 액세스가 가능하면 "공용 Azure 데이터 센터 내에서 연결을 허용"해도 되나요?  
 
 이는 Azure Data Factory, Azure Search 또는 주어진 Azure 지역에 배포되는 다른 서비스와 같이 다른 Azure 자사 서비스에서 Azure Cosmos DB 계정에 액세스하려는 경우에만 필요합니다.
 

@@ -8,18 +8,21 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 8934852fe3d95d0a96af0283c30bba4b3bdb411b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c2f68afb685cb04d456e06cadf378bd1c3ebb1fb
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345882"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49384984"
 ---
 # <a name="http-application-routing"></a>HTTP 응용 프로그램 라우팅
 
-HTTP 응용 프로그램 라우팅 솔루션을 사용하면 AKS(Azure Kubernetes Service) 클러스터에 배포된 응용 프로그램에 쉽게 액세스할 수 있습니다. 솔루션이 사용하도록 설정되면 AKS 클러스터에 수신 컨트롤러를 구성합니다. 응용 프로그램을 배포할 때 솔루션은 응용 프로그램 엔드포인트에 대해 공개적으로 액세스할 수 있는 DNS 이름도 만듭니다.
+HTTP 응용 프로그램 라우팅 솔루션을 사용하면 AKS(Azure Kubernetes Service) 클러스터에 배포된 응용 프로그램에 쉽게 액세스할 수 있습니다. 솔루션이 사용하도록 설정되면 AKS 클러스터에 수신 컨트롤러를 구성합니다. 응용 프로그램이 배포되면 솔루션에서 응용 프로그램 엔드포인트에 대해 공개적으로 액세스할 수 있는 DNS 이름도 만듭니다.
 
 추가 기능이 사용하도록 설정되면 구독에 DNS 영역을 만듭니다. DNS 비용에 대한 자세한 내용은 [DNS 가격 책정][dns-pricing]을 참조하세요.
+
+> [!CAUTION]
+> HTTP 응용 프로그램 라우팅 추가 기능은 수신 컨트롤러를 빠르게 만들고 응용 프로그램에 액세스할 수 있도록 설계되었습니다. 이 추가 기능은 프로덕션 용도로 사용하지 않는 것이 좋습니다. 여러 복제본 및 TLS 지원을 포함하는 프로덕션 준비 수신 배포에 대해서는 [HTTPS 수신 컨트롤러 만들기](https://docs.microsoft.com/azure/aks/ingress-tls)를 참조하세요.
 
 ## <a name="http-routing-solution-overview"></a>HTTP 라우팅 솔루션 개요
 
@@ -88,6 +91,13 @@ spec:
       containers:
       - image: r.j3ss.co/party-clippy
         name: party-clippy
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         tty: true
         command: ["party-clippy"]
         ports:

@@ -1,21 +1,20 @@
 ---
-title: Azure Cosmos DB 대량 실행기 라이브러리 개요 | Microsoft Docs
-description: Azure Cosmos DB 대량 실행기 라이브러리, 라이브러리 및 해당 아키텍처를 사용할 때의 이점에 대해 알아봅니다.
-keywords: Java Bulk Executor
+title: Azure Cosmos DB에서 Bulk Executor 라이브러리를 사용하여 데이터 대량 가져오기 및 업데이트 | Microsoft Docs
+description: Azure Cosmos DB에서 대량 가져오기를 통해 대량 작업을 수행하고 Bulk Executor 라이브러리에서 제공하는 API를 대량 업데이트합니다.
 services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: 7c490aa958cf9e78c260dd0fbcf7952b55d8d88c
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: a760de998c78ce2afdd24a15d9dd6e5d0cf44dc1
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096179"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363547"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB 대량 실행기 라이브러리 개요
  
@@ -24,10 +23,10 @@ Azure Cosmos DB는 다음을 지원하기 위해 탄력적으로 스케일 아�
 * 대규모 읽기 및 쓰기 처리량(초당 수백만 작업).  
 * 예측 가능한 밀리초 대기 시간으로 많은 양(수백 테라바이트 이상)의 트랜잭션 및 작업 데이터를 저장합니다.  
 
-대량 실행기 라이브러리는 이 대규모 처리량 및 저장소를 활용하는 데 유용합니다. 대량 실행기 라이브러리를 사용하면 API 대량 가져오기 및 대량 업데이트를 통해 Azure Cosmos DB에서 대량 작업을 수행할 수 있습니다. 다음 섹션에서 대량 실행기 라이브러리의 기능에 대한 자세한 내용을 확인할 수 있습니다. 
+Bulk Executor 라이브러리를 사용하면 이 대규모 처리량 및 저장소를 활용할 수 있습니다. Bulk Executor 라이브러리를 사용하면 Azure Cosmos DB에서 대량 가져오기 및 대량 업데이트 API를 통해 대량 작업을 수행할 수 있습니다. 다음 섹션에서 대량 실행기 라이브러리의 기능에 대한 자세한 내용을 확인할 수 있습니다. 
 
 > [!NOTE] 
-> 현재, 대량 실행기 라이브러리는 가져오기 및 업데이트 작업을 지원하며, 이 라이브러리는 Azure Cosmos DB SQL API 계정에서만 지원됩니다. 라이브러리에 대한 업데이트 정보는 [.NET](sql-api-sdk-bulk-executor-dot-net.md) 및 [Java](sql-api-sdk-bulk-executor-java.md) 릴리스 정보를 참조하세요.
+> 현재, Bulk Executor 라이브러리는 가져오기 및 업데이트 작업을 지원하며, 이 라이브러리는 Azure Cosmos DB SQL API 및 Gremlin API 계정에서만 지원됩니다.
  
 ## <a name="key-features-of-the-bulk-executor-library"></a>대량 실행기 라이브러리의 주요 기능  
  
@@ -35,7 +34,7 @@ Azure Cosmos DB는 다음을 지원하기 위해 탄력적으로 스케일 아�
 
 * 응용 프로그램 논리 작성의 지루한 작업을 추상화하여 요청의 속도 제한, 요청 시간 제한 및 다른 일시적 예외를 라이브러리 내에서 효과적으로 처리합니다.  
 
-* 응용 프로그램이 스케일 아웃할 대량 작업을 수행할 수 있도록 간소화된 메커니즘을 제공합니다. Azure VM에서 실행되는 단일 대량 실행기 인스턴스는 500K RU/s 이상을 사용할 수 있으며, 사용자는 개별 클라이언트 VM에서 추가 인스턴스를 추가하여 더 높은 처리량 속도를 얻을 수 있습니다.  
+* 응용 프로그램이 스케일 아웃할 대량 작업을 수행할 수 있도록 간소화된 메커니즘을 제공합니다. Azure VM에서 실행하는 단일 Bulk Executor 인스턴스는 500K RU/s 이상을 사용할 수 있으며, 사용자는 개별 클라이언트 VM에서 추가 인스턴스를 추가하여 더 높은 처리량 속도를 얻을 수 있습니다.  
  
 * 스케일 아웃 아키텍처를 사용하면 한 시간에 테라바이트 이상의 데이터를 대량으로 가져올 수 있습니다.  
 

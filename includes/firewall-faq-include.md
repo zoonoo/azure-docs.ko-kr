@@ -5,21 +5,21 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 9/14/2018
+ms.date: 10/15/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 1242cf80ffd283471eb507612949a81d4b3fd594
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 1d52c9b3b9b91873bd6f34443f162c74d724a65c
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47401570"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49367157"
 ---
 ### <a name="what-is-azure-firewall"></a>Azure Firewall이란?
 
 Azure Firewall은 Azure Virtual Network 리소스를 보호하는 관리되는 클라우드 기반 네트워크 보안 서비스입니다. 고가용성 및 무제한 클라우드 확장성이 내장되어 있는 서비스 형태의 완전한 상태 저장 방화벽입니다. 구독 및 가상 네트워크 전반에 걸쳐 응용 프로그램 및 네트워크 연결 정책을 중앙에서 만들고, 적용하고 기록할 수 있습니다.
 
-### <a name="what-capabilities-are-supported-in-azure-firewall"></a>Azure Firewall에서 어떤 기능이 지원되나요?  
+### <a name="what-capabilities-are-supported-in-azure-firewall"></a>Azure Firewall에서 어떤 기능이 지원되나요?
 
 * 서비스로서의 상태 저장 방화벽
 * 무제한 클라우드 확장성이 포함된 기본 제공 고가용성
@@ -29,7 +29,7 @@ Azure Firewall은 Azure Virtual Network 리소스를 보호하는 관리되는 �
 * 아웃바운드 SNAT 지원
 * 인바운드 DNAT 지원
 * Azure 구독 및 VNET 전반에 걸쳐 응용 프로그램 및 네트워크 연결 정책을 중앙에서 만들고 적용하고 기록
-* 로깅 및 분석을 위한 Azure Monitor와 완전히 통합 
+* 로깅 및 분석을 위한 Azure Monitor와 완전히 통합
 
 ### <a name="what-is-the-pricing-for-azure-firewall"></a>Azure Firewall의 가격 책정은 어떻게 되나요?
 
@@ -52,13 +52,13 @@ Azure Firewall은 규칙 및 규칙 컬렉션을 지원합니다. 규칙 컬렉�
 
 다음과 같은 두 가지 유형의 규칙 컬렉션이 있습니다.
 
-* *응용 프로그램 규칙*: 서브넷에서 액세스할 수 있는 정규화된 도메인 이름(FQDN)을 구성할 수 있습니다. 
-* *네트워크 규칙* 원본 주소, 프로토콜, 대상 포트 및 대상 주소를 포함하는 규칙을 구성할 수 있습니다. 
+* *응용 프로그램 규칙*: 서브넷에서 액세스할 수 있는 정규화된 도메인 이름(FQDN)을 구성할 수 있습니다.
+* *네트워크 규칙* 원본 주소, 프로토콜, 대상 포트 및 대상 주소를 포함하는 규칙을 구성할 수 있습니다.
 
 ### <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Azure Firewall은 인바운드 트래픽 필터링을 지원하나요?
 
 Azure Firewall은 인바운드 및 아웃바운드 필터링을 지원합니다. 인바운드 보호는 HTTP/S 이외의 프로토콜용입니다. 예를 들어 RDP, SSH 및 FTP 프로토콜이 이에 해당합니다.
- 
+
 ### <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Azure Firewall에서는 어떤 로깅 및 분석 서비스를 지원하나요?
 
 Azure Firewall은 방화벽 로그를 살펴보고 분석할 수 있도록 Azure Monitor와 통합됩니다. 로그를 Log Analytics, Azure Storage 또는 Event Hubs로 전송할 수 있습니다. 전송된 로그를 Log Analytics 또는 Excel이나 Power BI 같은 다른 도구에서 분석할 수 있습니다. 자세한 내용은 [자습서: Azure Firewall 로그 모니터링](../articles/firewall/tutorial-diagnostics.md)을 참조하세요.
@@ -66,14 +66,14 @@ Azure Firewall은 방화벽 로그를 살펴보고 분석할 수 있도록 Azure
 ### <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>Azure Firewall이 Marketplace의 NVA와 같은 기존 서비스와 어떻게 다르게 작동하나요?
 
 Azure Firewall은 특정 고객 시나리오를 해결할 수 있는 기본 방화벽 서비스입니다. 타사 NVA와 Azure Firewall이 혼합되어 있을 것으로 예상됩니다. 함께 잘 작동하는 것이 가장 중요합니다.
- 
+
 ### <a name="what-is-the-difference-between-application-gateway-waf-and-azure-firewall"></a>Application Gateway WAF와 Azure Firewall의 차이점은 무엇인가요?
 
-WAF(웹 응용 프로그램 방화벽)는 일반적인 악용 및 취약점으로부터 웹 응용 프로그램에 대해 중앙 집중식 인바운드 보호를 제공하는 Application Gateway의 기능입니다. Azure Firewall은 모든 포트 및 프로토콜에 아웃바운드 네트워크 수준 보호를 제공하고 아웃바운드 HTTP/S에 응용 프로그램 수준 보호를 제공합니다. 비 HTTP/S 프로토콜(예: RDP, SSH, FTP)에 대한 인바운드 보호는 Azure Firewall GA에서 제공할 예정입니다.
+WAF(웹 응용 프로그램 방화벽)는 일반적인 악용 및 취약점으로부터 웹 응용 프로그램에 대해 중앙 집중식 인바운드 보호를 제공하는 Application Gateway의 기능입니다. Azure Firewall은 비HTTP/S 프로토콜(예: RDP, SSH, FTP)에 대해 인바운드 보호를 제공하고, 모든 포트 및 프로토콜에 아웃바운드 네트워크 수준 보호를 제공하고 아웃바운드 HTTP/S에 응용 프로그램 수준 보호를 제공합니다.
 
 ### <a name="what-is-the-difference-between-network-security-groups-nsgs-and-azure-firewall"></a>NSG(네트워크 보안 그룹)와 Azure Firewall의 차이점은 무엇입니까?
 
-Azure Firewall 서비스는 네트워크 보안 그룹 기능을 보완합니다. 그뿐 아니라 더 나은 "심층 방어" 네트워크 보안을 제공합니다. 네트워크 보안 그룹은 각 구독의 가상 네트워크 내 리소스에 대한 트래픽을 제한하는 분산 네트워크 레이어 트래픽 필터링을 제공합니다. Azure Firewall은 상태를 저장하는 서비스 형태의 완전한 중앙 집중식 네트워크 방화벽으로, 다양한 구독 및 가상 네트워크에 네트워크 및 응용 프로그램 수준의 보호를 제공합니다. 
+Azure Firewall 서비스는 네트워크 보안 그룹 기능을 보완합니다. 그뿐 아니라 더 나은 "심층 방어" 네트워크 보안을 제공합니다. 네트워크 보안 그룹은 각 구독의 가상 네트워크 내 리소스에 대한 트래픽을 제한하는 분산 네트워크 레이어 트래픽 필터링을 제공합니다. Azure Firewall은 상태를 저장하는 서비스 형태의 완전한 중앙 집중식 네트워크 방화벽으로, 다양한 구독 및 가상 네트워크에 네트워크 및 응용 프로그램 수준의 보호를 제공합니다.
 
 ### <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>서비스 엔드포인트를 사용하여 Azure Firewall을 설정하려면 어떻게 해야 하나요?
 
@@ -107,7 +107,7 @@ Set-AzureRmFirewall -AzureFirewall $azfw
 
 ### <a name="what-are-the-known-service-limits"></a>알려진 서비스 제한 사항은 무엇입니까?
 
-* Azure Firewall의 제한은 1000TB/방화벽/월입니다. 
+* Azure Firewall의 제한은 1000TB/방화벽/월입니다.
 * 중앙 가상 네트워크에서 실행되는 Azure Firewall 방화벽 인스턴스는 최대 50개스포크 가상 네트워크에 해당하는 가상 네트워크 피어링 제한이 적용됩니다.  
 * Azure Firewall은 글로벌 피어링으로 작동하지 않으므로 고객은 지역당 최소 하나의 방화벽 배포가 필요합니다.
 * Azure Firewall은 10,000개의 응용 프로그램 규칙과 10,000개의 네트워크 규칙을 지원합니다.
@@ -119,3 +119,7 @@ Set-AzureRmFirewall -AzureFirewall $azfw
 ### <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network"></a>Azure Firewall이 동일한 가상 네트워크에 있는 서브넷 간에 네트워크 트래픽을 전달하고 필터링할 수 있나요?
 
 동일한 가상 네트워크 또는 직접 피어링된 가상 네트워크에 있는 서브넷 간 트래픽은 UDR이 Azure Firewall을 기본 게이트웨이로 가리키는 경우에도 직접 라우팅됩니다. 내부 네트워크 조각화에 대해 네트워크 보안 그룹을 사용하는 방법이 권장됩니다. 이 시나리오에서 서브넷 트래픽에 대한 서브넷을 방화벽으로 보내려면 두 가지 서브넷에 명시적으로 지정된 대상 서브넷 네트워크 접두사가 포함되어 있어야 합니다.
+
+### <a name="are-there-any-firewall-resource-group-restrictions"></a>방화벽 리소스 그룹 제한 사항이 있나요?
+
+예. 방화벽, 서브넷, VNet 및 공용 IP 주소는 모두 동일한 리소스 그룹에 있어야 합니다.

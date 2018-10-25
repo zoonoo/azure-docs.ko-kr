@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/10/2018
+ms.date: 10/15/2018
 ms.author: barclayn
-ms.openlocfilehash: af4ab892ab84ba2f1a19e72710f23ce5ba1232f9
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: b5e235221d34434b908d605c9077ae2fede2fe94
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163110"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365621"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Azure Key Vault 시작
 이 문서는 PowerShell을 사용하여 Azure Key Vault를 시작할 수 있도록 하고 다음 활동을 따르는 과정을 안내합니다.
@@ -32,10 +32,10 @@ Azure Key Vault는 대부분 지역에서 사용할 수 있습니다. 자세한 
 플랫폼 간 명령줄 인터페이스 지침은 [이 해당 자습서](key-vault-manage-with-cli2.md)를 참조하세요.
 
 ## <a name="requirements"></a>요구 사항
-문서를 진행하기 전에 다음이 있는지 확인합니다.
+계속하기 전에 다음 항목이 있는지 확인합니다.
 
-- **Azure 구독**. 아직 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/en-us/free/)을 등록할 수 있습니다.
-- **Microsoft Azure PowerShell**, **최소 버전 1.1.0**. Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요. 이미 Azure PowerShell가 설치되어 있고 버전을 알 수 없는 경우, Azure PowerShell 콘솔에서 `(Get-Module azure -ListAvailable).Version`을 입력합니다. Azure PowerShell 버전 0.9.1 ~ 0.9.8이 설치된 경우, 일부 약간의 변경이 있지만 이 자습서를 계속 사용할 수 있습니다. 예를 들어, `Switch-AzureMode AzureResourceManager` 명령을 사용해야 하고 Azure Key Vault 명령의 일부가 변경되었습니다. 버전 0.9.1 ~ 0.9.8에 대한 키 자격 증명 모음 목록은 [Azure Key Vault Cmdlets](/powershell/module/azurerm.keyvault/#key_vault)을 참조하세요.
+- **Azure 구독**. 아직 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/)을 등록할 수 있습니다.
+- **Microsoft Azure PowerShell**, **최소 버전 1.1.0**. Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요. 이미 Azure PowerShell가 설치되어 있고 버전을 알 수 없는 경우, Azure PowerShell 콘솔에서 `(Get-Module azure -ListAvailable).Version`을 입력합니다. Azure PowerShell 버전 0.9.1 ~ 0.9.8이 설치된 경우, 일부 약간의 변경이 있지만 이 자습서를 계속 사용할 수 있습니다. 예를 들어, `Switch-AzureMode AzureResourceManager` 명령을 사용해야 하고 Azure Key Vault 명령의 일부가 변경되었습니다. 버전 0.9.1 ~ 0.9.8에 대한 Key Vault 목록은 [Azure Key Vault Cmdlet](/powershell/module/azurerm.keyvault/#key_vault)을 참조하세요.
 - **Key Vault를 사용하도록 구성할 수 있는 응용 프로그램**. 샘플 응용 프로그램은 [Microsoft 다운로드 센터](http://www.microsoft.com/download/details.aspx?id=45343)에서 사용할 수 있습니다. 자세한 내용은 해당 **추가 정보** 파일을 참조하세요.
 
 >[!NOTE]
@@ -105,14 +105,14 @@ New-AzureRmResourceGroup –Name 'ContosoResourceGroup' –Location 'East US'
 다음을 입력합니다.
 
 ```powershell
-New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
+New-AzureRmKeyVault -Name 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
 ```
 ![Key Vault 만들기 명령이 완료된 후 출력](./media/key-vault-get-started/output-after-creating-keyvault.png)
 
 이 cmdlet의 출력에서는 만든 자격 증명 모음의 속성을 보여줍니다. 가장 중요한 두 개의 속성은 다음과 같습니다.
 
 * **자격 증명 모음 이름**: 예제에서는 **ContosoKeyVault**입니다. 다른 키 자격 증명 모음 cmdlet에 대해 이 이름을 사용합니다.
-* **자격 증명 모음 URI**: 이 예에서는 https://contosokeyvault.vault.azure.net/입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 응용 프로그램은 URI를 사용해야 합니다.
+* **자격 증명 모음 URI**: 예제에서는 https://contosokeyvault.vault.azure.net/입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 응용 프로그램은 URI를 사용해야 합니다.
 
 Azure 계정은 이제 이 키 자격 증명 모음에서 모든 작업을 수행할 권한을 가지게 됩니다. 아직 다른 사람은 권한이 없습니다.
 
@@ -140,7 +140,7 @@ $key.id
 
 ### <a name="importing-an-existing-pfx-file-into-azure-key-vault"></a>Azure Key Vault로 기존 PFX 파일 가져오기
 
-Azure Key Vault에 업로드 하려는 pfx 파일에 저장된 기존 키의 경우 단계가 다릅니다. 예: 
+기존 키가 Azure Key Vault에 업로드하려는 pfx 파일에 저장되어 있는 경우 단계가 다릅니다. 예: 
 - PFX 파일에 기존 소프트웨어 보호된 키가 있다면
 - Pfx 파일은 softkey.pfx라는 이름이 지정됩니다. 
 - 파일은 C 드라이브에 저장됩니다.
@@ -170,6 +170,7 @@ Get-AzureKeyVaultKey –VaultName 'ContosoKeyVault'
 포털에서 PFX 파일의 속성을 보려 한다면 아래에 표시된 이미지와 비슷한 내용이 표시됩니다.
 
 ![포털에서 인증서를 보여주는 방법](./media/key-vault-get-started/imported-pfx.png)
+
 ### <a name="to-add-a-secret-to-azure-key-vault"></a>Azure Key Vault에 비밀을 추가하려면
 
 암호가 SQLPassword이고 Azure Key Vault에 대한 Pa$$w0rd 값이 있는 비밀을 자격 증명 모음에 추가하려면 먼저 다음을 입력하여 Pa$$w0rd 값을 비밀 문자열로 변환합니다.
@@ -200,27 +201,27 @@ $secret.Id
 ```powershell
 (get-azurekeyvaultsecret -vaultName "Contosokeyvault" -name "SQLPassword").SecretValueText
 ```
-이제, 사용자 키 자격 증명 모음 또는 비밀은 응용 프로그램에서 사용할 준비가 되었습니다. 응용 프로그램을 사용하여 권한을 부여해야 합니다.  
+이제, 사용자 키 자격 증명 모음 또는 비밀은 응용 프로그램에서 사용할 준비가 되었습니다. 이제 응용 프로그램에 사용 권한을 부여합니다.  
 
 ## <a id="register"></a>Azure Active Directory에 응용 프로그램 등록
-이 단계는 일반적으로 별도의 컴퓨터에서 개발자가 수행할 수 있습니다. Azure Key Vault에 국한되지 않습니다. Azure Active Directory를 사용하여 응용 프로그램을 등록하는 자세한 단계를 알아보려면 [Azure Active Directory를 사용하여 응용 프로그램 통합](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) 또는 [포털을 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md)라는 문서를 검토해야 합니다.
+이 단계는 일반적으로 별도의 컴퓨터에서 개발자가 수행할 수 있습니다. Azure Key Vault에 국한되지 않습니다. Azure Active Directory를 사용하여 응용 프로그램을 등록하는 자세한 단계를 알아보려면 [Azure Active Directory와 응용 프로그램 통합](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) 또는 [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md) 문서를 검토하세요.
 
 > [!IMPORTANT]
 > 이 단계에서 등록된 자습서, 계정, 해당 자격 증명 모음 및 응용 프로그램을 완료하려면, 모두 동일한 Azure 디렉터리에 있어야 합니다.
 
 
-자격 증명 모음 키를 사용하는 응용 프로그램은 Azure Active Directory에서 토큰을 사용하여 인증해야 합니다. 이렇게 하려면 응용 프로그램의 소유자가 Azure Active Directory에 먼저 응용 프로그램을 등록해야 합니다. 등록 끝에 응용 프로그램 소유자는 다음 값을 가져옵니다.
+자격 증명 모음 키를 사용하는 응용 프로그램은 Azure Active Directory에서 토큰을 사용하여 인증해야 합니다. 응용 프로그램의 소유자가 Azure Active Directory에 먼저 응용 프로그램을 등록해야 합니다. 등록 끝에 응용 프로그램 소유자는 다음 값을 가져옵니다.
 
 - **응용 프로그램 ID** 
 - **인증 키**(또한 공유 암호라고도 함) 
 
-응용 프로그램은 토큰을 가져올 Azure Active Directory에 이 두 값 모두가 있어야 합니다. 응용 프로그램 구성 방식은 응용 프로그램에 따라 달라집니다. [Key Vault 샘플 응용 프로그램](https://www.microsoft.com/download/details.aspx?id=45343)의 경우, 응용 프로그램 소유자는 app.config 파일에서 이러한 값을 설정합니다.
+응용 프로그램은 토큰을 가져올 Azure Active Directory에 이 두 값 모두가 있어야 합니다. 응용 프로그램 구성은 응용 프로그램에 따라 달라집니다. [Key Vault 샘플 응용 프로그램](https://www.microsoft.com/download/details.aspx?id=45343)의 경우, 응용 프로그램 소유자는 app.config 파일에서 이러한 값을 설정합니다.
 
 
 Azure Active Directory에 응용 프로그램을 등록하려면:
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽에서 **앱 등록**을 클릭합니다. 앱 등록을 볼 수 없다면 **더 많은 서비스**를 클릭하여 찾습니다.  
+2. 왼쪽에서 **앱 등록**을 클릭합니다. 앱 등록이 보이지 않으면 **추가 서비스**를 클릭합니다.  
 >[!NOTE]
 주요 자격 증명 모음을 만든 Azure 구독을 포함하는 동일한 디렉터리를 선택해야 합니다. 
 3. **새 응용 프로그램 등록**을 클릭합니다.
@@ -231,7 +232,7 @@ Azure Active Directory에 응용 프로그램을 등록하려면:
     **웹 응용 프로그램 및/또는 웹 API**를 선택했는지 확인합니다. 선택하지 않았다면 설정 아래에 **키** 옵션이 표시되지 않습니다.
 
 5. **만들기** 단추를 클릭합니다.
-6. 앱 등록을 완료하면 등록된 앱 목록을 볼 수 있습니다. 방금 등록한 앱을 찾아 클릭합니다.
+6. 앱 등록을 완료하면 등록된 앱 목록이 표시됩니다. 직접 등록한 앱을 찾아서 클릭합니다.
 7. **등록된 앱** 블레이드를 클릭하고 **응용 프로그램 ID**를 복사합니다.
 8. **모든 설정**을 클릭합니다.
 9. **설정** 블레이드에서 **키**를 클릭합니다.
@@ -244,7 +245,7 @@ Azure Active Directory에 응용 프로그램을 등록하려면:
 ### <a name="using-powershell"></a>PowerShell 사용
 PowerShell을 사용하려면 [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) cmdlet을 사용합니다.
 
-예를 들어 자격 증명 모음 이름이 **ContosoKeyVault** 이고 권한을 부여하려는 응용 프로그램의 클라이언트 ID가 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed이며 자격 증명 모음에 있는 키로 서명하고 암호 해독하도록 응용 프로그램에 권한을 부여하려면 다음을 실행합니다.
+예를 들어 자격 증명 모음 이름이 **ContosoKeyVault** 이고 권한을 부여하려는 응용 프로그램의 클라이언트 ID가 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed이며 자격 증명 모음에 있는 키로 서명하고 암호 해독을 수행하도록 응용 프로그램에 권한을 부여하려면 다음 cmdlet을 실행합니다.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
@@ -271,7 +272,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalNa
 주요 자격 증명 모음을 만들 때 **-SKU** 매개 변수를 추가합니다.
 
 ```powershell
-New-AzureRmKeyVault -VaultName 'ContosoKeyVaultHSM' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US' -SKU 'Premium'
+New-AzureRmKeyVault -Name 'ContosoKeyVaultHSM' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US' -SKU 'Premium'
 ```
 
 

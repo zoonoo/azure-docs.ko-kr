@@ -1,20 +1,20 @@
 ---
 title: Speech Synthesis Markup Language
 description: Speech Synthesis Markup Language를 사용하여 텍스트 음성 변환의 발음 및 운율을 제어합니다.
-titleSuffix: Microsoft Cognitive Services
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 09/08/2018
-ms.author: v-jerkin
-ms.openlocfilehash: 48e2f965cdc482f9070497f9a4e7e016bfeb92ea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: erhopf
+ms.openlocfilehash: bdcb206e092467703f0bd4404da47b334ea8ccaf
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978151"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165490"
 ---
 # <a name="speech-synthesis-markup-language"></a>Speech Synthesis Markup Language
 
@@ -22,7 +22,7 @@ SSML(Speech Synthesis Markup Language)은 텍스트 음성 변환의 발음 및 
 
 자세한 내용은 W3C에서 [SSML(Speech Synthesis Markup Language) 버전 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/)을 참조하세요.
 
-다음 예제에서는 일반적인 음성 합성 요구에 SSML을 사용하는 방법을 보여 줍니다.
+다음 예제에서는 일반적인 음성 합성 요구에 SSML을 사용하는 방법을 보여줍니다.
 
 ## <a name="add-a-break"></a>중단 추가
 ```xml

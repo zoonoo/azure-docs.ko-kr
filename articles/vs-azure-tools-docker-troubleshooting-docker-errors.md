@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 10/13/2017
 ms.author: devinb
-ms.openlocfilehash: 90dd5df4a607568e2f3a60791da2948af7ce4e50
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: cd88dec2ad79ad9f4b4c004866060be86b777cd9
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
-ms.locfileid: "24002933"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311187"
 ---
 # <a name="troubleshoot-visual-studio-2017-development-with-docker"></a>Docker를 사용한 Visual Studio 2017 개발 문제 해결
 
@@ -33,9 +33,13 @@ Visual Studio Tools for Docker로 작업할 때 응용 프로그램 빌드 또�
 1. **공유 드라이브**를 선택하고 프로젝트가 있는 드라이브와 함께 시스템 드라이브를 공유합니다.
 
 > [!NOTE]
-> 파일이 공유됨으로 나타나면, 볼륨 공유를 다시 사용하도록 설정하기 위해 대화 상자의 맨 아래에 있는 "자격 증명 재설정..." 링크를 여전히 클릭해야 합니다.
+> 파일이 공유됨으로 나타나면, 볼륨 공유를 다시 사용하도록 설정하기 위해 대화 상자의 맨 아래에 있는 "자격 증명 재설정..." 링크를 여전히 클릭해야 합니다. 자격 증명을 다시 설정한 후 계속 진행하려면 Visual Studio를 다시 시작해야 할 수 있습니다.
 
 ![공유 드라이브](./media/vs-azure-tools-docker-troubleshooting-docker-errors/shareddrives.png)
+
+## <a name="mounts-denied"></a>탑재 거부됨
+
+macOS용 Docker를 사용하는 경우 /usr/local/share/dotnet/sdk/NuGetFallbackFolder 폴더를 참조할 때 오류가 발생할 수 있습니다. Docker에서 [파일 공유] 탭에 폴더를 추가하세요.
 
 ## <a name="unable-to-start-debugging"></a>디버깅을 시작할 수 없음
 

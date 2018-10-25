@@ -3,18 +3,16 @@ title: Azure Kubernetes에서 Helm을 사용하여 컨테이너 배포
 description: Helm 패키징 도구를 사용하여 AKS(Azure Kubernetes Service) 클러스터에 컨테이너 배포
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 10/01/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: dd2deba25615373765dd3492d03c1ba547c8ba8c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 2c74e3ffaa5ced0925b5ad0edfc357afb375803e
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055137"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363966"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Helm을 사용하여 응용 프로그램 설치
 
@@ -26,32 +24,11 @@ ms.locfileid: "39055137"
 
 이 문서에 설명된 단계에서는 AKS 클러스터를 만들고 클러스터와 `kubectl` 연결을 설정했다고 가정합니다. 이러한 항목이 필요한 경우 [AKS 빠른 시작][aks-quickstart]을 참조하세요.
 
-## <a name="install-helm-cli"></a>Helm CLI 설치
-
-Helm CLI는 개발 시스템에서 실행되는 클라이언트로, Helm이 있는 응용 프로그램을 시작, 중지 및 관리할 수 있습니다.
-
-Azure Cloud Shell을 사용하는 경우 Helm CLI가 이미 설치되어 있습니다. Mac에서 Helm CLI를 설치하려면 `brew`를 사용합니다. 추가 설치 옵션은 [Helm 설치][helm-install-options]를 참조하세요.
-
-```console
-brew install kubernetes-helm
-```
-
-출력:
-
-```
-==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.9.1.high_sierra.bottle.tar.gz
-######################################################################## 100.0%
-==> Pouring kubernetes-helm-2.9.1.high_sierra.bottle.tar.gz
-==> Caveats
-Bash completion has been installed to:
-  /usr/local/etc/bash_completion.d
-==> Summary
-🍺  /usr/local/Cellar/kubernetes-helm/2.9.1: 50 files, 66.2MB
-```
+Helm CLI도 설치되어 있어야 합니다. 이것은 개발 시스템에서 실행되는 클라이언트로, Helm으로 응용 프로그램을 시작, 중지 및 관리할 수 있습니다. Azure Cloud Shell을 사용하는 경우 Helm CLI가 이미 설치되어 있습니다. 로컬 플랫폼에 대한 설치 지침은 [Helm 설치][helm-install]를 참조하세요.
 
 ## <a name="create-a-service-account"></a>서비스 계정 만들기
 
-RBAC 지원 클러스터에서 Helm을 배포하려면 먼저 서비스 계정과 Tiller 서비스에 대한 역할 바인딩이 필요합니다. RBAC 지원 클러스터에서 Helm/Tiller를 보호하는 방법에 대한 자세한 내용은 [Tiller, 네임스페이스 및 RBAC][tiller-rbac]를 참조하세요. 클러스터가 RBAC를 사용할 수 없는 경우 이 단계를 건너뜁니다.
+RBAC 지원 AKS 클러스터에서 Helm을 배포하려면 먼저 서비스 계정과 Tiller 서비스에 대한 역할 바인딩이 필요합니다. RBAC 지원 클러스터에서 Helm/Tiller를 보호하는 방법에 대한 자세한 내용은 [Tiller, 네임스페이스 및 RBAC][tiller-rbac]를 참조하세요. AKS 클러스터가 RBAC를 사용할 수 없는 경우 이 단계를 건너뜁니다.
 
 `helm-rbac.yaml`이라는 파일을 만들고 다음 YAML에 복사합니다.
 
@@ -62,7 +39,7 @@ metadata:
   name: tiller
   namespace: kube-system
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: tiller
@@ -76,10 +53,10 @@ subjects:
     namespace: kube-system
 ```
 
-`kubectl create` 명령을 사용하여 서비스 계정 및 역할 바인딩을 만듭니다.
+`kubectl apply` 명령을 사용하여 서비스 계정 및 역할 바인딩을 만듭니다.
 
 ```console
-kubectl create -f helm-rbac.yaml
+kubectl apply -f helm-rbac.yaml
 ```
 
 ## <a name="secure-tiller-and-helm"></a>Tiller 및 Helm 보호
@@ -96,7 +73,7 @@ RBAC 지원 Kubernetes 클러스터를 사용하여 Tiller가 클러스터에 �
 helm init --service-account tiller
 ```
 
-Helm과 Tiller 간에 TLS/SSL을 구성한 경우 다음 예제와 같이 `--tiller-tls-` 매개 변수 및 고유한 인증서 이름을 제공합니다.
+Helm과 Tiller 간에 TLS/SSL을 구성한 경우 다음 예제와 같이 `--tiller-tls-*` 매개 변수 및 고유한 인증서 이름을 제공합니다.
 
 ```console
 helm init \
@@ -227,6 +204,16 @@ $ helm list
 
 NAME             REVISION    UPDATED                     STATUS      CHART              NAMESPACE
 wishful-mastiff  1           Thu Jul 12 15:53:56 2018    DEPLOYED    wordpress-2.1.3  default
+```
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+Helm 차트를 배포하면 다수의 Kubernetes 리소스가 생성됩니다. 이 리소스에는 Pod, 배포 및 서비스가 포함됩니다. 이러한 리소스를 정리하려면 `helm delete` 명령을 사용하고 이전 `helm list` 명령에서 찾은 릴리스 이름을 지정합니다. 다음 예제는 *wishful mastiff*라는 이름의 릴리스를 삭제합니다.
+
+```console
+$ helm delete wishful-mastiff
+
+release "wishful-mastiff" deleted
 ```
 
 ## <a name="next-steps"></a>다음 단계

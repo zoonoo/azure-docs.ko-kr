@@ -4,22 +4,21 @@ description: Media Services 릴리스 정보
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: 3ca2d7af-1cf0-45fa-9585-3b73f3ee057d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: cdfd19f2dfd599eacaa0759b63c94767e760a874
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 531cdf9a69e0ecfa2d2d8ae02f8f88fd5f400479
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42146849"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378944"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
 Azure Media Services에 대한 이 릴리스 정보에는 이전 릴리스 이후의 변경 내용과 알려진 문제가 요약되어 있습니다.
@@ -45,6 +44,16 @@ Azure Media Services에 대한 이 릴리스 정보에는 이전 릴리스 이�
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>REST API 버전 기록
 Media Services REST API 버전 기록에 대한 자세한 내용은 [Azure Media Services REST API 참조]를 참조하세요.
+
+## <a name="october-2018"></a>2018년 10월
+
+### <a name="cmaf-support"></a>CMAF 지원
+
+CMAF를 지원하는 Apple HLS(iOS 11+) 및 MPEG-DASH 플레이어에 대해 CMAF 및 'cbcs' 암호화가 지원됩니다.
+
+### <a name="web-vtt-thumbnail-sprites"></a>Web VTT 썸네일 스프라이트
+
+이제 v2 API를 사용하면 Media Services를 사용하여 Web VTT 썸네일 스프라이트를 생성할 수 있습니다. 자세한 내용은 [썸네일 스프라이트 생성](generate-thumbnail-sprite.md)을 참조하세요.
 
 ## <a name="july-2018"></a>2018년 7월
 
@@ -533,9 +542,6 @@ Media Services SDK 버전 3.0.0.0부터 [Azure AD Access Control Service](http:/
 * 비동기 메서드 지원
   
     * 모든 메서드에 비동기 지원이 추가되었습니다.
-
-## <a name="media-services-learning-paths"></a>Media Services 학습 경로
-[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

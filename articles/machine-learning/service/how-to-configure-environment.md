@@ -5,20 +5,21 @@ services: machine-learning
 author: rastala
 ms.author: roastala
 ms.service: machine-learning
+ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.openlocfilehash: 675dae022376fc62292f3b079bd735939b9199c2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 9938772618e9a85f7d85678c4ddde3147cbc40dd
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220298"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091861"
 ---
 # <a name="configure-a-development-environment-for-the-azure-machine-learning-service"></a>Azure Machine Learning 서비스용 개발 환경 구성
 
-Azure Machine Learning 서비스 작업 시 개발 환경을 구성하는 방법을 알아봅니다. Azure Machine Learning 작업 영역과 개발자 환경을 연결하는 구성 파일을 만드는 방법을 알아봅니다. 또한 다음 개발 환경을 구성하는 방법도 알아봅니다.
+Azure Machine Learning 서비스 작업 시 개발 환경을 구성하는 방법을 알아봅니다. Azure Machine Learning 서비스 작업 영역과 개발자 환경을 연결하는 구성 파일을 만드는 방법을 알아봅니다. 또한 다음 개발 환경을 구성하는 방법도 알아봅니다.
 
 * 자신의 컴퓨터에 Jupyter Notebook 구성
 * Visual Studio Code
@@ -35,6 +36,9 @@ Azure Machine Learning 서비스 작업 시 개발 환경을 구성하는 방법
 
  * Visual Studio Code 환경용 [Python 확장 프로그램](https://code.visualstudio.com/docs/python/python-tutorial).
 
+> [!NOTE]
+> 이 문서에 사용된 셸 명령은 Linux 및 macOS에서 bash를 사용하여 테스트됩니다. 또한 명령은 Windows에서 cmd.exe를 사용하여 테스트됩니다.
+
 ## <a name="create-workspace-configuration-file"></a>작업 영역 구성 파일 만들기
 
 작업 영역 구성 파일은 SDK에서 Azure Machine Learning 서비스 작업 영역과 통신하는 데 사용됩니다.  이 파일을 얻는 방법은 두 가지가 있습니다.
@@ -49,7 +53,8 @@ Azure Machine Learning 서비스 작업 시 개발 환경을 구성하는 방법
         ![Azure portal](./media/how-to-configure-environment/configure.png) 
     
     1. 이 Python 코드를 사용하여 파일을 만듭니다. 작업 영역을 참조하는 스크립트 또는 Notebook과 동일한 디렉터리에서 코드를 실행합니다.
-        ```
+
+        ```python
         from azureml.core import Workspace
 
         subscription_id ='<subscription-id>'
@@ -113,6 +118,11 @@ Azure Machine Learning 서비스와 Azure Notebooks를 함께 사용하는 방�
      ```shell
     pip install --upgrade azureml-sdk[notebooks,automl]
     ```
+
+    > [!NOTE]
+    > `PyYAML`을 제거할 수 없다는 메시지를 수신하는 경우 다음 명령을 대신 사용합니다.
+    > 
+    > `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML` 
 
     SDK를 설치하는 데 몇 분 정도 걸릴 수 있습니다.
 
@@ -179,7 +189,7 @@ Azure Machine Learning 서비스와 Azure Notebooks를 함께 사용하는 방�
     conda install <new package>
     ```
 
-6. Visual Studio Code를 시작한 다음, __CTRL-SHIFT-P__를 사용하여 __명령 팔레트__를 가져옵니다. *Python: 인터프리터 선택*을 입력하고, 자신이 만든 Conda 환경을 선택합니다.
+6. Visual Studio Code를 시작한 다음, Windows의 경우 __CTRL-SHIFT-P__를, Mac의 경우 __COMMAND-SHIFT-P__를 사용하여 __명령 팔레트__를 가져옵니다. *Python: 인터프리터 선택*을 입력하고, 자신이 만든 Conda 환경을 선택합니다.
 
     > [!NOTE]
     > Visual Studio Code는 개발자 컴퓨터에 설치된 Conda 환경을 자동으로 인식합니다. 자세한 내용은 [Visual Studio 코드 문서](https://code.visualstudio.com/docs/python/environments#_conda-environments)를 참조하세요.
