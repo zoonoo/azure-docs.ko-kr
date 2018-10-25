@@ -5,17 +5,17 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/23/2018
+ms.date: 10/04/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
-ms.openlocfilehash: 7f70470880845fd4271ffdbb35af771ec433babc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0ea1b69b788255b1d8d24e17fcc1409d35a4fd36
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961946"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814324"
 ---
-# <a name="virtual-wan-partners-preview"></a>Virtual WAN 파트너(미리 보기)
+# <a name="virtual-wan-partners"></a>Virtual WAN 파트너
 
 이 문서는 Azure Virtual WAN의 분기 장치(고객 온-프레미스 VPN 장치 또는 SDWAN CPE)를 연결 및 구성하기 위해 자동화 환경을 설정하는 방법을 이해하는 데 도움이 됩니다. 이 문서는 IPsec/IKEv2 또는 IPsec/IKEv1을 통해 VPN 연결을 수용할 수 있는 분기 장치를 제공하는 공급자를 대상으로 합니다.
 

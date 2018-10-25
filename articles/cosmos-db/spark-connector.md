@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: ramkris
-ms.openlocfilehash: e7ed0049e64a7740063f2fab7bdfddff38d45ed9
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 26479ade27b18e817d7ad03d70d27b0cef687e8d
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287713"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269414"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Apache Spark-Azure Cosmos DB 커넥터를 사용하여 빅 데이터 분석 가속화
  
@@ -83,7 +83,7 @@ Spark와 Azure Cosmos DB 간의 통신은 Spark 마스터 노드와 Azure Cosmos
 
 6. **Notebook 만들기** 대화 상자에서 사용자에게 익숙한 이름을 입력하고, **Python**을 언어로 선택합니다. 드롭다운 목록에서 이전에 만든 클러스터를 선택하고, **만들기**를 선택합니다.  
 
-7. "doctorwho" Azure Cosmos DB 계정에서 호스트되는 항공편 샘플 데이터를 사용하여 몇 가지 Spark 쿼리를 실행합니다. (이 계정은 공개적으로 액세스할 수 있습니다.) [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub 리포지토리에서 Notebook의 HTML 버전을 호스트합니다. 리포지토리 파일을 다운로드하고, `\samples\Documentation_Samples\Read_Batch_PyDocumentDB.html`으로 이동합니다. Azure Databricks 계정으로 Notebook을 가져오고 실행할 수 있습니다. 다음 섹션에서는 코드 블록의 기능을 자세히 설명합니다.
+7. “doctorwho” Azure Cosmos DB 계정에서 호스트되는 항공편 샘플 데이터를 사용하여 몇 가지 Spark 쿼리를 실행합니다. (이 계정은 공개적으로 액세스할 수 있습니다.) [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub 리포지토리에서 Notebook의 HTML 버전을 호스트합니다. 리포지토리 파일을 다운로드하고, `\samples\Documentation_Samples\Read_Batch_PyDocumentDB.html`으로 이동합니다. Azure Databricks 계정으로 Notebook을 가져오고 실행할 수 있습니다. 다음 섹션에서는 코드 블록의 기능을 자세히 설명합니다.
 
 다음 코드 조각은 pyDocumentDB SDK를 가져오고 Spark 컨텍스트에서 쿼리를 실행하는 방법을 보여줍니다. 코드 조각에 표시된 대로 pyDocumentDB SDK에는 Azure Cosmos DB 계정에 연결하는 데 필요한 연결 매개 변수가 포함되어 있습니다. 필수 라이브러리를 가져오고, 마스터 키와 호스트를 구성하여 Azure Cosmos DB 클라이언트(pydocumentdb.document_client)를 만듭니다.
 
@@ -179,7 +179,7 @@ Spark 작업자 노드와 Azure Cosmos DB 데이터 노드(파티션) 간에 데
 
 4. Twitter 피드 샘플의 콘텐츠를 추출하고 config.py 파일을 엽니다. masterKey, host, databaseId, collectionId 및 preferredLocations 값을 업데이트합니다.  
 
-5. `http://apps.twitter.com/`으로 이동하고, Twitter 피드 스크립트를 새 응용 프로그램으로 등록합니다. 앱의 이름과 응용 프로그램을 선택하면 **소비자 키, 소비자 암호, 액세스 토큰 및 액세스 토큰 암호**가 제공됩니다. 이 값을 복사하고 config.py 파일에서 업데이트하여 Twitter에 대한 응용 프로그램의 프로그래밍 방식 액세스를 제공합니다.   
+5. `http://apps.twitter.com/`으로 이동하고 Twitter 피드 응용 프로그램을 등록합니다. 응용 프로그램 이름을 선택하면 **소비자 키, 소비자 암호, 액세스 토큰 및 액세스 토큰 암호**가 제공됩니다. 이 값을 복사하고 config.py 파일에서 업데이트하여 Twitter에 대한 응용 프로그램의 프로그래밍 방식 액세스를 Twitter 피드에 제공합니다.   
 
 6. config.py 파일을 저장합니다. 명령 프롬프트를 열고, 다음 명령을 사용하여 Python 응용 프로그램을 실행합니다.
 

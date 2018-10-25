@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: e36b8a680f0dc5bf6b438ab00620d4f2a5b9770c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c5d4299d2d391a25bfab579f5f78da3718afc24c
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980596"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043009"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Azure CLI용 IoT 확장을 사용하여 Azure IoT Hub 장치 관리
 
@@ -27,8 +27,8 @@ ms.locfileid: "46980596"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-| 관리 옵션          | Task                                                                                                                            |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| 관리 옵션          | Task  |
+|----------------------------|-----------|
 | 직접 메서드             | 메시지 보내기 시작 또는 중지, 장치 다시 부팅 등의 장치 작업을 수행합니다.                                        |
 | Twin desired 속성    | 장치를 특정 상태(예: LED를 녹색으로 설정 또는 원격 분석 전송 간격을 30 분으로 설정)로 지정합니다.         |
 | Twin reported 속성   | 장치의 보고된 상태를 가져옵니다. 예를 들어 장치에서 지금 LED가 깜박이고 있다고 보고합니다.                                    |
@@ -49,17 +49,19 @@ ms.locfileid: "46980596"
 
 ## <a name="what-you-need"></a>필요한 항목
 
-- 다음 요구 사항을 다루는 자습서 [장치 설정](iot-hub-raspberry-pi-kit-node-get-started.md) 완료:
+* 다음 요구 사항을 다루는 자습서 [장치 설정](iot-hub-raspberry-pi-kit-node-get-started.md)을 완료합니다.
+
   - 활성 Azure 구독.
   - 구독 중인 Azure IoT Hub
   - 메시지를 Azure IoT Hub로 보내는 클라이언트 응용 프로그램
 
-- 이 자습서를 진행하는 동안 장치가 클라이언트 응용 프로그램을 사용해서 실행되고 있어야 합니다.
+* 이 자습서를 진행하는 동안 장치가 클라이언트 응용 프로그램을 사용해서 실행되고 있어야 합니다.
 
-- [Python 2.7x 또는 Python 3.x](https://www.python.org/downloads/)
-- Azure CLI Azure CLI를 설치해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요. Azure CLI 버전이 2.0.24 이상이어야 합니다. `az –version` 명령을 사용하여 유효성을 검사합니다. 
-- IoT 확장을 설치합니다. 가장 간단한 방법은 `az extension add --name azure-cli-iot-ext` 명령을 사용하는 것입니다. [IoT 확장 추가 정보](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md)에는 확장을 설치하는 여러 가지 방법이 설명되어 있습니다.
+* [Python 2.7x 또는 Python 3.x](https://www.python.org/downloads/)
 
+* Azure CLI Azure CLI를 설치해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요. Azure CLI 버전이 2.0.24 이상이어야 합니다. `az –version` 명령을 사용하여 유효성을 검사합니다. 
+
+* IoT 확장을 설치합니다. 가장 간단한 방법은 `az extension add --name azure-cli-iot-ext` 명령을 사용하는 것입니다. [IoT 확장 추가 정보](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md)에는 확장을 설치하는 여러 가지 방법이 설명되어 있습니다.
 
 ## <a name="log-in-to-your-azure-account"></a>Azure 계정에 로그인합니다.
 
@@ -72,7 +74,10 @@ az login
 ## <a name="direct-methods"></a>직접 메서드
 
 ```bash
-az iot hub invoke-device-method --device-id <your device id> --hub-name <your hub name> --method-name <the method name> --method-payload <the method payload>
+az iot hub invoke-device-method --device-id <your device id> \
+  --hub-name <your hub name> \
+  --method-name <the method name> \
+  --method-payload <the method payload>
 ```
 
 ## <a name="device-twin-desired-properties"></a>장치 쌍 desired 속성
@@ -80,7 +85,8 @@ az iot hub invoke-device-method --device-id <your device id> --hub-name <your hu
 다음 명령을 실행하여 desired 속성의 간격(interval = 3000)을 설정합니다.
 
 ```bash
-az iot hub device-twin update -n <your hub name> -d <your device id> --set properties.desired.interval = 3000
+az iot hub device-twin update -n <your hub name> \
+  -d <your device id> --set properties.desired.interval = 3000
 ```
 
 이 속성은 장치에서 읽을 수 있습니다.
@@ -106,7 +112,10 @@ az iot hub device-twin show --hub-name <your hub name> --device-id <your device 
 다음 명령을 실행하여 장치에 역할(role = temperature&humidity) 필드를 추가합니다.
 
 ```bash
-az iot hub device-twin update --hub-name <your hub name> --device-id <your device id> --set tags = '{"role":"temperature&humidity"}}'
+az iot hub device-twin update \
+  --hub-name <your hub name> \
+  --device-id <your device id> \
+  --set tags = '{"role":"temperature&humidity"}}'
 ```
 
 ## <a name="device-twin-queries"></a>장치 쌍 쿼리
@@ -114,13 +123,15 @@ az iot hub device-twin update --hub-name <your hub name> --device-id <your devic
 다음 명령을 실행하여 role = 'temperature & humidity' 태그가 있는 장치를 쿼리합니다.
 
 ```bash
-az iot hub query --hub-name <your hub name> --query-command "SELECT * FROM devices WHERE tags.role = 'temperature&humidity'"
+az iot hub query --hub-name <your hub name> \
+  --query-command "SELECT * FROM devices WHERE tags.role = 'temperature&humidity'"
 ```
 
 다음 명령을 실행하여 role = 'temperature & humidity' 태그가 있는 장치를 제외한 모든 장치를 쿼리합니다.
 
 ```bash
-az iot hub query --hub-name <your hub name> --query-command "SELECT * FROM devices WHERE tags.role != 'temperature&humidity'"
+az iot hub query --hub-name <your hub name> \
+  --query-command "SELECT * FROM devices WHERE tags.role != 'temperature&humidity'"
 ```
 
 ## <a name="next-steps"></a>다음 단계

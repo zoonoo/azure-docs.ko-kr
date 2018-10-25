@@ -1,6 +1,6 @@
 ---
-title: Azure Logic Apps에서 큰 메시지 처리 | Microsoft Docs
-description: 논리 앱에서 청크 분할을 사용하여 큰 메시지 크기를 처리하는 방법을 알아봅니다.
+title: 큰 메시지 처리 - Azure Logic Apps | Microsoft Docs
+description: Azure Logic Apps에서 청크 분할을 사용하여 큰 메시지 크기를 처리하는 방법 알아보기
 services: logic-apps
 documentationcenter: ''
 author: shae-hurst
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: ''
 ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
-ms.openlocfilehash: 6064db5455d92d15dca0e2a4a78285f0aeade904
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e6ac6a4aa46feb768df437ff9d5969b2b41092c3
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299048"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041648"
 ---
-# <a name="handle-large-messages-with-chunking-in-logic-apps"></a>Logic Apps에서 청크 분할을 사용하여 큰 메시지 처리
+# <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Azure Logic Apps에서 청크 분할을 사용하여 큰 메시지 처리
 
 메시지를 처리할 때 Logic Apps는 메시지 콘텐츠를 최대 크기로 제한합니다. 이 제한은 큰 메시지를 저장하고 처리하여 생성되는 오버헤드를 줄이는 데 도움이 됩니다. 이 제한보다 큰 메시지를 처리하기 위해 Logic Apps는 큰 메시지를 더 작은 메시지로 *청크 분할*합니다. 그러면 특정 조건에 따라 Logic Apps를 사용하여 큰 파일을 전송할 수도 있습니다. 커넥터 또는 HTTP를 통해 다른 서비스와 통신할 때 Logic Apps는 큰 메시지를 사용할 수 있지만 *청크*로만 사용합니다. 이 조건은 커넥터에서 청크 분할을 지원해야 하거나, Logic Apps와 이러한 서비스 간의 기본 HTTP 메시지 교환에서 청크 분할을 사용해야 한다는 것을 의미합니다.
 
@@ -127,8 +127,8 @@ HTTP 작업에서 청크 분할 콘텐츠를 업로드하려면 작업의 `runti
 
    | 엔드포인트 응답 헤더 필드 | type | 필수 | 설명 |
    |--------------------------------|------|----------|-------------|
-   | **x-ms-chunk-size** | 정수  | 아니오 | 제안된 청크 크기(바이트)입니다. |
-   | **위치**: | 문자열 | 아니오 | HTTP PATCH 메시지를 보낼 URL 위치입니다. |
+   | **x-ms-chunk-size** | 정수  | 아니요 | 제안된 청크 크기(바이트)입니다. |
+   | **위치**: | 문자열 | 아니요 | HTTP PATCH 메시지를 보낼 URL 위치입니다. |
    ||||
 
 3. 논리 앱에서 각각 다음 정보가 포함된 후속 HTTP PATCH 메시지를 만들어 보냅니다.

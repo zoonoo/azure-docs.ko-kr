@@ -2,18 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: storage
-author: rogara
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 04/09/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 26c3e8a096a3ee7bc5146759f8de62e5c1c7fed1
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 796614a9e60ccb7ab155bc986b39c04c781224e8
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47389846"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48874060"
 ---
 ## <a name="about-vhds"></a>VHD에 대하여
 
@@ -34,11 +34,11 @@ Azure는 고정 디스크 VHD 형식을 지원합니다. 고정 형식은 디스
 
 Azure 디스크는 99.999% 가용성을 위해 설계되었습니다. Azure 디스크는 업계 최고의 0% 연간 실패율(Annualized Failure Rate)로 엔터프라이즈급 내구성을 일관되게 제공합니다.
 
-디스크(프리미엄 SSD 디스크, 표준 SSD(미리 보기) 및 표준 HDD Storage)를 만들 때 선택할 수 있는 저장소에는 세 가지 성능 계층이 있습니다. 또한 두 가지 유형의 디스크(비관리 및 관리)가 있습니다.
+디스크를 만들 때 선택할 수 있는 저장소에는 프리미엄 SSD 디스크, 표준 SSD 및 표준 HDD 저장소라는 세 가지 성능 계층이 있습니다. 또한 두 가지 유형의 디스크(비관리 및 관리)가 있습니다.
 
 ### <a name="standard-hdd-disks"></a>표준 HDD 디스크
 
-표준 HDD 디스크는 HDD에 의해 지원되며, 비용 효율적인 저장소를 제공합니다. 표준 HDD 저장소는 하나의 데이터 센터에 로컬로 복제되거나 기본 및 보조 데이터 센터와 함께 지역 중복 저장소가 될 수 있습니다. 저장소 복제에 대한 자세한 내용은 [Azure Storage 복제](../articles/storage/common/storage-redundancy.md)를 참조하세요. 
+표준 HDD 디스크는 HDD에 의해 지원되며, 비용 효율적인 저장소를 제공합니다. 표준 HDD 저장소는 하나의 데이터 센터에 로컬로 복제되거나 기본 및 보조 데이터 센터와 함께 지역 중복 저장소가 될 수 있습니다. 저장소 복제에 대한 자세한 내용은 [Azure Storage 복제](../articles/storage/common/storage-redundancy.md)를 참조하세요.
 
 표준 HDD 디스크를 사용하는 방법에 대한 자세한 내용은 [표준 저장소 및 디스크](../articles/virtual-machines/windows/standard-storage.md)를 참조하세요.
 

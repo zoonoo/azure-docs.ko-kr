@@ -7,17 +7,17 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 9/21/2018
 ms.author: tyfox
-ms.openlocfilehash: bb7cdbc340c6e9763277d5cdacc0cfb510fdc0db
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 8beb75748c2e9fe3f71ad321c4cd523e344fb90c
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047046"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901909"
 ---
 # <a name="hdinsight-go-management-sdk-preview"></a>HDInsight Go 관리 SDK 미리 보기
 
 ## <a name="overview"></a>개요
-HDInsight Go SDK는 HDInsight 클러스터 관리를 위한 클래스 및 함수를 제공합니다. 여기에는 HDInsight 클러스터의 속성 만들기, 삭제, 업데이트, 나열, 크기 조정, 스크립트 작업 실행, 모니터링, 가져오기 작업이 포함됩니다.
+HDInsight Go SDK는 HDInsight 클러스터 관리를 위한 클래스 및 함수를 제공합니다. 여기에는 HDInsight 클러스터의 속성 만들기, 삭제, 업데이트, 나열, 크기 조정, 스크립트 작업 실행, 모니터링, 가져오기 작업을 포함합니다.
 
 > [!NOTE]
 >이 SDK에 대한 GoDoc 참조 자료도 [여기](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight)서 사용할 수 있습니다.
@@ -325,7 +325,7 @@ client.Update(context.Background(), "<Resource Group Name>", "<Cluster Name>", h
 client.Update(context.Background(), "SDKTestRG", "SDKTest", hdi.ClusterPatchParameters{map[string]*string{"tag1Name" : to.StringPtr("tag1Value"), "tag2Name" : to.StringPtr("tag2Value")}})
 ```
 
-### <a name="scale-cluster"></a>클러스터 크기 조정
+### <a name="resize-cluster"></a>클러스터 크기 조정
 
 새 크기를 지정하여 작업자 노드의 지정된 클러스터 번호를 크기 조정할 수 있습니다.
 
@@ -437,7 +437,7 @@ for (page.NotDone()) {
 
 ### <a name="list-all-scripts-execution-history"></a>모든 스크립트 실행 기록 나열
 
-이 작업의 경우 관리 작업에 사용할 `ClusterClient`를 만든 방법과 마찬가지로, 사용할 `ScriptExecutionHistoryClient`를 만들어야 합니다. 위의 인증 섹션을 완료하면 다음과 같이 `ScriptActionsClient`를 만들 수 있습니다.
+이 작업의 경우 관리 작업에 사용할 `ClusterClient`를 만든 방법과 마찬가지로, `ScriptExecutionHistoryClient`를 만들어야 합니다. 위의 인증 섹션을 완료하면 다음과 같이 `ScriptActionsClient`를 만들 수 있습니다.
 
 ```golang
 scriptExecutionHistoryClient := hdi.NewScriptExecutionHistoryClient(SUBSCRIPTION_ID)

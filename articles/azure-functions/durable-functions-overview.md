@@ -3,23 +3,19 @@ title: 지속성 함수 개요 - Azure
 description: Azure Functions의 지속성 함수 확장을 소개합니다.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 04/30/2018
+ms.topic: conceptual
+ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 25f7cf6de4f217219e510ae00ce21762e755d2e8
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 79ffa541d16212b21d20a238465a846fad5e4902
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627409"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237928"
 ---
 # <a name="durable-functions-overview"></a>지속성 함수 개요
 
@@ -70,7 +66,7 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
 ```js
 const df = require("durable-functions");
 
-module.exports = df(function*(ctx) {
+module.exports = df.orchestrator(function*(ctx) {
     const x = yield ctx.df.callActivityAsync("F1");
     const y = yield ctx.df.callActivityAsync("F2", x);
     const z = yield ctx.df.callActivityAsync("F3", y);
@@ -118,7 +114,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 ```js
 const df = require("durable-functions");
 
-module.exports = df(function*(ctx) {
+module.exports = df.orchestrator(function*(ctx) {
     const parallelTasks = [];
 
     // get a list of N work items to process in parallel
@@ -141,7 +137,7 @@ module.exports = df(function*(ctx) {
 
 ## <a name="pattern-3-async-http-apis"></a>패턴 #3: 비동기 HTTP API
 
-세 번째 패턴은 외부 클라이언트에서 장기 실행 작업 상태를 조정하는 문제에 관한 것입니다. 이 패턴을 구현하는 일반적인 방법은 HTTP 호출로 트리거된 장기 실행 작업을 수행한 다음, 작업 완료 시점을 확인하기 위해 폴링할 수 있는 상태 끝점으로 클라이언트를 리디렉션하는 것입니다.
+세 번째 패턴은 외부 클라이언트에서 장기 실행 작업 상태를 조정하는 문제에 관한 것입니다. 이 패턴을 구현하는 일반적인 방법은 HTTP 호출로 트리거된 장기 실행 작업을 수행한 다음, 작업 완료 시점을 확인하기 위해 폴링할 수 있는 상태 엔드포인트로 클라이언트를 리디렉션하는 것입니다.
 
 ![HTTP API 다이어그램](media/durable-functions-overview/async-http-api.png)
 
@@ -239,7 +235,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 const df = require("durable-functions");
 const df = require("moment");
 
-module.exports = df(function*(ctx) {
+module.exports = df.orchestrator(function*(ctx) {
     const jobId = ctx.df.getInput();
     const pollingInternal = getPollingInterval();
     const expiryTime = getExpiryTime();
@@ -304,7 +300,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 const df = require("durable-functions");
 const df = require('moment');
 
-module.exports = df(function*(ctx) {
+module.exports = df.orchestrator(function*(ctx) {
     yield ctx.df.callActivityAsync("RequestApproval");
 
     const dueTime = moment.utc(ctx.df.currentUtcDateTime).add(72, 'h');
@@ -338,7 +334,7 @@ public static async Task Run(string instanceId, DurableOrchestrationClient clien
 
 ### <a name="event-sourcing-checkpointing-and-replay"></a>이벤트 소싱, 검사점 설정 및 재생
 
-오케스트레이터 함수는 [이벤트 소싱](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing)으로 알려진 클라우드 디자인 패턴을 사용하여 실행 상태를 안정적으로 유지합니다. 지속성 확장에서는 오케스트레이션의 *현재* 상태를 직접 저장하는 대신, 함수 오케스트레이션에서 수행한 *일련의 전체 작업*을 기록하기 위해 추가 전용 저장소를 사용합니다. 이렇게 하면 전체 런타임 상태를 "덤프"하는 것에 비해 성능, 확장성 및 응답성 향상을 포함한 많은 이점이 있습니다. 다른 이점으로 트랜잭션 데이터에 대한 최종 일관성 제공과 전체 감사 내역 및 기록 유지가 있습니다. 감사 내역 자체는 신뢰할 수 있는 보정 작업을 가능하게 합니다.
+오케스트레이터 함수는 [이벤트 소싱](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing)으로 알려진 디자인 패턴을 사용하여 실행 상태를 안정적으로 유지 관리합니다. 지속성 확장에서는 오케스트레이션의 *현재* 상태를 직접 저장하는 대신, 함수 오케스트레이션에서 수행한 *일련의 전체 작업*을 기록하기 위해 추가 전용 저장소를 사용합니다. 이렇게 하면 전체 런타임 상태를 "덤프"하는 것에 비해 성능, 확장성 및 응답성 향상을 포함한 많은 이점이 있습니다. 다른 이점으로 트랜잭션 데이터에 대한 최종 일관성 제공과 전체 감사 내역 및 기록 유지가 있습니다. 감사 내역 자체는 신뢰할 수 있는 보정 작업을 가능하게 합니다.
 
 이 확장에서 사용하는 이벤트 소싱 사용은 투명합니다. 내부적으로 오케스트레이터 함수의 `await` 연산자는 오케스트레이터 스레드의 제어를 지속성 작업 프레임워크 디스패처에 다시 생성합니다. 그런 다음 디스패처는 오케스트레이터에서 예약한 새 작업(예: 하나 이상의 자식 함수 호출 또는 지속성 타이머 예약)을 저장소에 커밋합니다. 이 투명한 커밋 작업은 오케스트레이션 인스턴스의 *실행 기록*에 추가됩니다. 기록은 저장소 테이블에 저장됩니다. 그런 다음 커밋 작업은 실제 작업을 예약하는 큐에 메시지를 추가합니다. 이 시점에서 오케스트레이터 함수는 메모리에서 언로드할 수 있습니다. Azure Functions 소비 계획을 사용하는 경우 이에 대한 청구가 중지됩니다.  수행할 작업이 더 많이 있으면 함수가 다시 시작되고 해당 상태도 다시 구성됩니다.
 
@@ -373,6 +369,8 @@ public static async Task Run(string instanceId, DurableOrchestrationClient clien
 오케스트레이터 함수는 작업 함수를 예약하고 내부 큐 메시지를 통해 이러한 함수의 응답을 받습니다. 함수 앱이 Azure Functions 소비 계획에서 실행되면 이러한 큐는 [Azure Functions 크기 조정 컨트롤러](functions-scale.md#how-the-consumption-plan-works)에서 모니터링되고 필요에 따라 새 계산 인스턴스가 추가됩니다. 여러 VM으로 확장되는 경우 하나의 VM에서 오케스트레이터 함수가 실행될 수 있는 반면, 호출되는 작업 함수는 별도의 여러 VM에서 실행됩니다. 지속성 함수의 크기 조정 동작에 대한 자세한 내용은 [성능 및 크기 조정](durable-functions-perf-and-scale.md)에서 찾을 수 있습니다.
 
 테이블 저장소는 오케스트레이터 계정에 대한 실행 기록을 저장하는 데 사용됩니다. 인스턴스가 특정 VM에서 리하이드레이션할 때마다 테이블 저장소에서 실행 기록을 가져와서 해당 로컬 상태를 다시 작성할 수 있습니다. 테이블 저장소에서 기록을 사용할 수 있는 편리한 작업 중 하나는 [Microsoft Azure Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)와 같은 도구를 사용하여 오케스트레이션의 기록을 확인할 수 있다는 것입니다.
+
+Storage Blob은 주로 여러 VM에서 오케스트레이션 인스턴스의 확장을 조정하기 위한 임대 메커니즘으로 사용됩니다. 또한 테이블 또는 큐에 직접 저장할 수 없는 큰 메시지의 데이터를 저장하는 데 사용됩니다.
 
 ![Microsoft Azure Storage 탐색기 스크린샷](media/durable-functions-overview/storage-explorer.png)
 

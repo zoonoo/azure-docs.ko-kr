@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/11/2018
 ms.author: harijay
-ms.openlocfilehash: 642bf03ecef7f6db25c51671635d96ef7baed91a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: bccf53ed5554579f4ff0a864c38562b7b7f0d3ca
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412031"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885292"
 ---
 # <a name="virtual-machine-serial-console"></a>Virtual Machine 직렬 콘솔
 
@@ -44,12 +44,12 @@ Windows VM에 대한 직렬 콘솔 설명서를 보려면 [여기를 클릭](../
 
     ![](./media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
-* Linux 배포판 설정에 대한 자세한 내용은 [Linux용 직렬 콘솔 액세스](#Serial-Console-Linux-distro-availability)를 참조하세요.
+* Linux 배포판과 관련된 설정은 [직렬 콘솔 Linux 배포판 가용성](#serial-console-linux-distro-availability)을 참조하세요.
 
 
 
 ## <a name="get-started-with-serial-console"></a>직렬 콘솔 시작
-가상 머신의 직렬 콘솔은 [Azure Portal](https://portal.azure.com)을 통해서만 액세스할 수 있습니다. 다음은 포털을 통해 가상 머신의 직렬 콘솔에 액세스하는 단계입니다. 
+가상 머신의 직렬 콘솔은 [Azure Portal](https://portal.azure.com)을 통해서만 액세스할 수 있습니다. 위의 [필수 조건](#prerequisites)을 충족했는지 확인합니다. 다음은 포털을 통해 가상 머신의 직렬 콘솔에 액세스하는 단계입니다.
 
   1. Azure 포털 열기
   1. (VM에 암호 인증을 사용하는 사용자가 있는 경우 이 단계를 건너뜁니다) "암호 다시 설정" 블레이드를 클릭하여 사용자 이름/암호 인증을 통해 사용자 추가
@@ -206,7 +206,7 @@ a. VM의 직렬 콘솔에 액세스하려면 VM에 대한 기여자 수준 이�
 
 **Q. 내 직렬 콘솔에 아무 것도 표시되지 않으면 어떻게 하나요?**
 
-a. 사용자의 이미지가 직렬 콘솔 액세스에 대해 잘못 구성됐습니다. 직렬 콘솔을 사용하도록 설정하기 위해 사용자 이미지를 구성하는 방법에 대한 자세한 내용은 [Linux용 액세스 직렬 콘솔](#Access-Serial-Console-for-Linux)을 참조하세요.
+a. 사용자의 이미지가 직렬 콘솔 액세스에 대해 잘못 구성됐습니다. 직렬 콘솔을 사용하도록 이미지를 구성하는 방법에 대한 자세한 내용은 [직렬 콘솔 Linux 배포판 가용성](#serial-console-linux-distro-availability)을 참조하세요.
 
 **Q. Virtual Machine Scale Sets에 대해 직렬 콘솔을 사용할 수 있나요?**
 

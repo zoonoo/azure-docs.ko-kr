@@ -10,20 +10,18 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 436ff9d318dc311efe27352a8b2ac91cfb5be618
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 91db32b7056a0cf211e6293a891d58e0239ca499
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221332"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237588"
 ---
-#<a name="load-and-read-data-with-azure-machine-learning"></a>Azure Machine Learning을 사용한 데이터 로드 및 읽기
+# <a name="load-and-read-data-with-azure-machine-learning"></a>Azure Machine Learning을 사용한 데이터 로드 및 읽기
 
 [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py)를 사용하여 다양한 형식의 입력 데이터를 로드합니다. 
 
-데이터를 로드하려면 두 가지 방법이 있습니다.
-+ 데이터 파일 형식 및 해당 매개 변수 지정
-+ SDK 스마트 읽기 기능을 사용하여 파일의 형식을 자동으로 검색
+데이터를 로드하려면 데이터 파일 형식 및 해당 매개 변수를 지정합니다.
 
 ## <a name="use-text-line-data"></a>텍스트 줄 데이터 사용 
 데이터를 로드하는 가장 간단한 방법 중 하나는 텍스트 줄로 읽는 것입니다.
@@ -352,7 +350,3 @@ dataflow.to_pandas_dataframe().head()
 |2|1011878|100 Mile Market|http://www.pfcmarkets.com |507 Harrison St|칼라마주|칼라마주|
 |3|1009364|106 S. Main Street Farmers Market|http://thetownofsixmile.wordpress.com/ |106 S. Main Street|식스 마일|||
 |4|1010691|10th Steet Community Farmers Market|http://agrimissouri.com/mo-grown/grodetail.php.. |10th Street and Poplar|라마|바턴|
-
-## <a name="use-smart-reading"></a>“스마트 읽기” 사용
-
-SDK 스마트 읽기 기능을 사용하여 파일의 형식을 자동으로 검색합니다.

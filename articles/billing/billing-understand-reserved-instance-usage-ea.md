@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 09/28/2018
 ms.author: cwatson
-ms.openlocfilehash: 4b418db3c4d9876a739ce94539a6f48402332a86
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: a33a360d25930f1468f1c9240be2d0f306d682c7
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394899"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585750"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>엔터프라이즈 등록에서 Azure Reservation 사용량 이해
 
@@ -51,9 +51,11 @@ ms.locfileid: "47394899"
 3. **요금제 ID**는 $0 비용의 예약 요금제입니다. 실행 중인 VM의 비용은 예약 VM 인스턴스로 지불됩니다.
 4. Standard_D1은 하나의 vCPU VM이며 해당 VM은 Azure 하이브리드 혜택 없이 배포됩니다. 따라서 이 요금제는 Windows 소프트웨어의 추가 요금을 포함합니다. D 시리즈 1 코어 VM에 해당하는 요금제를 찾으려면 [Azure Reserve VM Instances Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)을 참조하세요.  Azure 하이브리드 혜택이 있는 경우 이 추가 비용이 적용되지 않습니다.
 
-## <a name="usage-for-sql-database-reserved-capacity-reservations"></a>SQL Database 예약된 용량 예약에 대한 사용량
+## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>SQL Database 및 Cosmos DB 예약된 용량 예약의 사용량
 
-다음 섹션에서는 미국 동부 지역에서 SQL Database Gen 4를 실행하고 예약 정보가 다음 표와 같다고 가정합니다.
+다음 섹션에서는 Azure SQL Database를 예로 사용하여 사용 현황 보고서를 설명합니다. 동일한 단계를 사용하여 Azure Cosmos DB의 사용 현황도 확인할 수 있습니다. 
+
+미국 동부 지역에서 SQL Database Gen 4를 실행하고 예약 정보가 다음 표와 같다고 가정합니다.
 
 | 필드 | 값 |
 |---| --- |
@@ -62,9 +64,9 @@ ms.locfileid: "47394899"
 |제품| SQL Database Gen 4(2개 코어)|
 |지역 | eastus |
 
-### <a name="usage-in-csv-file-for-sql-database-reserved-capacity"></a>SQL Database 예약된 용량에 대한 CSV 파일의 사용량
+### <a name="usage-in-csv-file"></a>CSV 파일에서 사용 
 
-**추가 정보**를 필터링하고 **Reservation ID**를 입력합니다. 다음 스크린샷에서는 예약과 관련된 필드를 보여줍니다.
+**추가 정보**로 필터링하고, **예약 ID**를 입력하고, 필수 **미터 범주**(Azure SQL Database 또는 Azure Cosmos DB)를 선택합니다. 다음 스크린샷에서는 예약과 관련된 필드를 보여줍니다.
 
 ![SQL Database 예약된 용량에 대한 EA(기업계약) csv](./media/billing-understand-reserved-instance-usage-ea/billing-ea-sql-db-reserved-capacity-csv.png)
 
@@ -94,3 +96,4 @@ Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 ## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+

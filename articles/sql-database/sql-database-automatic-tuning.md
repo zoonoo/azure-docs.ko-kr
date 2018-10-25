@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 931e0f2c6be51c78187413d638259237f98bd9b0
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: f9a9f3d04a3ee7a2917e04c378af135601f3eaac
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063356"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042056"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL Database에서 자동 조정
 
@@ -66,7 +66,7 @@ Azure SQL Database 자동 조정은 핵심 논리를 SQL Server 자동 조정 �
 
 Azure SQL Database에서 사용 가능한 자동 조정 옵션은 다음과 같습니다.
  1. **CREATE INDEX** - 워크로드의 성능을 향상시킬 수 있는 인덱스를 식별하고, 인덱스를 만들며, 쿼리의 성능이 향상되었는지 자동으로 확인합니다.
- 2. **DROP INDEX** - 고유 인덱스를 제외한 중복 및 복제 인덱스를 매일 파악하고 장기간(90일 이상) 사용되지 않은 인덱스를 파악합니다. 이 옵션은 파티션 전환 및 인덱스 힌트를 사용하는 응용 프로그램과 호환되지 않습니다.
+ 2. **DROP INDEX** - 고유 인덱스를 제외한 중복 및 복제 인덱스를 매일 파악하고 장기간(90일 이상) 사용되지 않은 인덱스를 파악합니다. 현재 이 옵션은 파티션 전환 및 인덱스 힌트를 사용하는 응용 프로그램과 호환되지 않습니다.
  3. **FORCE LAST GOOD PLAN** - 이전의 적절한 계획보다 느린 실행 계획을 사용하는 SQL 쿼리 및 회귀된 계획 대신 마지막으로 알려진 적절한 계획을 사용하는 쿼리를 식별합니다.
 
 자동 조정은 데이터베이스 성능을 최적화하여 [Azure Portal](sql-database-advisor-portal.md)에 표시할 수 있는 **CREATE INDEX**, **DROP INDEX** 및 **FORCE LAST GOOD PLAN** 권장 사항을 식별하고 [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) 및 [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning)를 통해 노출합니다.

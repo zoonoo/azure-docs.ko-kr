@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: a960ace141d5d71559c39c627f96746a25bf5207
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 31d7f0fd70edf7bbf05a3a180baa6cc078e02ba1
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42144654"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585478"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights에서 원격 분석 내보내기
 표준 보존 기간 보다 오랫동안 원격 분석을 유지하시겠습니까? 또는 일부 특수한 방식으로 처리하시겠습니까? 그렇다면 연속 내보내기가 적합합니다. Application Insights 포털에 표시되는 이벤트는 JSON 형식으로 Microsoft Azure에서 저장소로 내보낼 수 있습니다. 여기에서 데이터를 다운로드하고 프로세스에 필요한 모든 코드를 작성할 수 있습니다.  
@@ -37,11 +37,9 @@ ms.locfileid: "42144654"
 ## <a name="setup"></a> 연속 내보내기 만들기
 1. 앱에 대 한 Application Insights 리소스에서 연속 내보내기를 열고 **추가**를 선택합니다.
 
-    ![아래로 스크롤하여 연속 내보내기 클릭](./media/app-insights-export-telemetry/01-export.png)
-
 2. 내보낼 원격 분석 데이터 유형을 선택합니다.
 
-3. 데이터를 저장할 [Azure Storage 계정](../storage/common/storage-introduction.md)을 만들거나 선택합니다.
+3. 데이터를 저장할 [Azure Storage 계정]\(../storage/common/storage-introduction.md\)을 만들거나 선택합니다. 저장소 가격 책정 옵션에 대한 자세한 내용은 [공식 책정 가격 페이지](https://azure.microsoft.com/pricing/details/storage/)를 참조하세요.
 
     > [!Warning]
     > 기본적으로 저장소 위치는 Application Insights 리소스와 동일한 지역으로 설정됩니다. 다른 지역에 저장하는 경우 전송 요금이 발생할 수 있습니다.

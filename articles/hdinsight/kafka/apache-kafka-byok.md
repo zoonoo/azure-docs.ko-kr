@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 46105ee92a5c98cb8180b2499d0ad295702aac43
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 85fea195b05bea8a1db70f8b5b81cabdfe7c6c72
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953376"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041512"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>Azure HDInsight의 Apache Kafka에 대한 Bring Your Own Key(미리 보기)
 
@@ -35,17 +35,37 @@ Azure Portal 또는 Azure CLI를 사용하여 Key Vault의 키를 안전하게 �
 
    ![Azure Portal에서 사용자가 할당한 관리 ID 만들기](./media/apache-kafka-byok/user-managed-identity-portal.png)
 
-2. Azure Key Vault를 만들거나 가져옵니다.
+2. 기존 키 자격 증명 모음을 가져오거나 새로 만듭니다.
 
    HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 경우 Azure Key Vault로 키를 가져올 수 있습니다. 키에 대한 “일시 삭제” 및 “제거 안 함”이 사용하도록 설정되어야 합니다. “일시 삭제” 및 “제거 안 함” 기능은 REST, .NET/C#, PowerShell 및 Azure CLI 인터페이스를 통해 제공됩니다.
 
    새 Key Vault를 만들려면 [Azure Key Vault](../../key-vault/key-vault-get-started.md) 빠른 시작을 수행합니다. 기존 키를 가져오는 방법에 대한 자세한 내용은 [키, 비밀 및 인증서 정보](../../key-vault/about-keys-secrets-and-certificates.md)를 참조하세요.
 
+   새 키를 만들려면 **설정** 아래 **키** 메뉴에서 **생성/가져오기**를 선택합니다.
+
+   ![Azure Key Vault에 새 키 생성](./media/apache-kafka-byok/kafka-create-new-key.png)
+
+   **옵션**을 **생성**으로 설정하고 키에 이름을 지정합니다.
+
+   ![Azure Key Vault에 새 키 생성](./media/apache-kafka-byok/kafka-create-a-key.png)
+
+   키 목록에서 만든 키를 선택합니다.
+
+   ![Azure Key Vault 키 목록](./media/apache-kafka-byok/kafka-key-vault-key-list.png)
+
+   Kafka 클러스터 암호화에 고유 키를 사용하는 경우 키 URI를 제공해야 합니다. **키 식별자**를 복사하고 클러스터를 만들 준비가 될 때까지 어딘가에 저장합니다.
+
+   ![키 식별자 복사](./media/apache-kafka-byok/kafka-get-key-identifier.png)
+   
 3. Key Vault 액세스 정책에 관리 ID를 추가합니다.
 
    새 Azure Key Vault 액세스 정책을 만듭니다.
 
    ![새 Azure Key Vault 액세스 정책 만들기](./media/apache-kafka-byok/add-key-vault-access-policy.png)
+
+   **주체 선택** 아래에서 직접 만든 사용자가 할당한 관리 ID를 선택합니다.
+
+   ![Azure Key Vault 액세스 정책에 대한 주체 선택 설정](./media/apache-kafka-byok/add-key-vault-access-policy-select-principal.png)
 
    **키 권한**을 **가져오기**, **키 래핑 해제** 및 **키 래핑**으로 설정합니다.
 
@@ -55,17 +75,13 @@ Azure Portal 또는 Azure CLI를 사용하여 Key Vault의 키를 안전하게 �
 
    ![Azure Key Vault 액세스 정책에 대한 키 권한 설정](./media/apache-kafka-byok/add-key-vault-access-policy-secrets.png)
 
-   **주체 선택** 아래에서 직접 만든 사용자가 할당한 관리 ID를 선택합니다.
-
-   ![Azure Key Vault 액세스 정책에 대한 주체 선택 설정](./media/apache-kafka-byok/add-key-vault-access-policy-select-principal.png)
-
 4. HDInsight 클러스터 만들기
 
    이제 HDInsight 클러스터를 만들 준비가 되었습니다. BYOK는 클러스터를 만드는 동안 새 클러스터에만 적용할 수 있습니다. BYOK 클러스터에서 암호화를 제거할 수 없고, 기존 클러스터에 BYOK를 추가할 수 없습니다.
 
    ![Azure Portal의 Kafka 디스크 암호화](./media/apache-kafka-byok/apache-kafka-byok-portal.png)
 
-   클러스터를 만드는 동안 키 버전을 포함한 전체 키 URL을 제공합니다. 예: `myakv.azure.com/KEK1/v1` 또한 클러스터에 관리 ID를 할당하고 키 URI를 제공해야 합니다.
+   클러스터를 만드는 동안 키 버전을 포함한 전체 키 URL을 제공합니다. 예: `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. 또한 클러스터에 관리 ID를 할당하고 키 URI를 제공해야 합니다.
 
 ## <a name="faq-for-byok-to-kafka"></a>Kafka에 대한 BYOK FAQ
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: mikhegn
-ms.openlocfilehash: f7c36fec7ff58c225e41899e8264ca1dde95ce7c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1c8400898dba59f312ba9d994ee711a5e241973a
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213251"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268007"
 ---
 # <a name="service-fabric-environment-variables"></a>Service Fabric 환경 변수
 
@@ -27,8 +27,8 @@ Service Fabric에는 각 서비스 인스턴스에 대해 설정된 기본 제�
 |----------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------|
 | Fabric_ApplicationName                       | 응용 프로그램의 패브릭 URI 이름                                 | fabric:/MyApplication                                                |
 | Fabric_CodePackageName                       | 프로세스가 속하는 코드 패키지의 이름              | 코드                                                                 |
-| Fabric_Endpoint\_IPOrFQDN\_*ServiceEndpointName*     | 끝점 IP 주소 또는 FQDN                                 | 10.0.0.1                                                     |
-| Fabric\_Endpoint\_*ServiceEndpointName*              | 끝점에 대한 포트 번호                                  | 8234                                                                 |
+| Fabric_Endpoint\_IPOrFQDN\_*ServiceEndpointName*     | 엔드포인트 IP 주소 또는 FQDN                                 | 10.0.0.1                                                     |
+| Fabric\_Endpoint\_*ServiceEndpointName*              | 엔드포인트에 대한 포트 번호                                  | 8234                                                                 |
 | Fabric_Folder_App_Log                        | 로그 폴더                                                             | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12\\\\log      |
 | Fabric_Folder_App_Temp                       | 임시 폴더                                                            | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12\\\\temp     |
 | Fabric_Folder_App_Work                       | 작업 폴더                                                            | C:\\\\Data\\\\_App\\\\_Node_0\\\\MyApplicationType_App12\\\\work     |
@@ -37,7 +37,7 @@ Service Fabric에는 각 서비스 인스턴스에 대해 설정된 기본 제�
 | Fabric_NodeId                                | 프로세스를 실행 중인 노드의 노드 ID                            | bf865279ba277deb864a976fbf4c200e                                     |
 | Fabric_NodeIPOrFQDN                          | 클러스터 매니페스트 파일에 지정된 노드의 IP 또는 FQDN | localhost 또는 10.0.0.1                                                |
 | Fabric_NodeName                              | 프로세스를 실행 중인 노드의 노드 이름                          | _Node_0                                                              |
-| Fabric_ServiceName                           | 서비스가 ExclusiveProcess 모드에서 호스트되는 경우 서비스의 이름 이 변수 값은 ServicePackageActivationMode ExclusiveProcess를 사용하여 서비스를 생성한 경우에만 제공됩니다.  | MyService                                               |
+| Fabric_ServiceName                           | 서비스의 패브릭 URI가 ExclusiveProcess 모드에서 호스트되는 경우 서비스의 이름. 이 변수 값은 ServicePackageActivationMode ExclusiveProcess를 사용하여 서비스를 생성한 경우에만 제공됩니다.  | fabric:/MyApplication/MyService                                               |
 | Fabric_ServicePackageActivationId            | The ServicePackageActivationId                                         | GUID                                                               |
 | Fabric_ServicePackageName                    | 프로세스가 속하는 서비스 패키지의 이름                     | Web1Pkg                                                              |
 

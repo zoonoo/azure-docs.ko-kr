@@ -1,6 +1,6 @@
 ---
-title: FPGA 및 Project Brainwave란? - Azure Machine Learning
-description: Azure에서 FPGA를 사용하여 모델 및 심층 신경망을 가속화하는 방법을 알아봅니다. 이 문서에서는 FPGA(Field-programmable Gate Arrays)를 소개하고, Azure FPGA에 모델을 배포할 때 Azure Machine Learning으로 실시간 AI(인공 지능)를 제공하는 방법을 설명합니다.
+title: FPGA 및 Project Brainwave란? - Azure Machine Learning 서비스
+description: Azure에서 FPGA를 사용하여 모델 및 심층 신경망을 가속화하는 방법을 알아봅니다. 이 문서에서는 FPGA(Field-programmable Gate Arrays)를 소개하고, Azure FPGA에 모델을 배포할 때 Azure Machine Learning 서비스로 실시간 AI(인공 지능)를 제공하는 방법을 설명합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,22 +9,22 @@ ms.author: tedway
 author: tedway
 ms.reviewer: jmartens
 ms.date: 9/24/2018
-ms.openlocfilehash: adcd812bc63f98e4cbde949946bf32a037c6d704
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 411beacd65915c30338ab415b095acc1a0c8cbe6
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158690"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238858"
 ---
 # <a name="what-is-fpga-and-project-brainwave"></a>FPGA 및 Project Brainwave란?
 
-이 문서에서는 FPGA(Field-programmable Gate Arrays)를 소개하고, Azure FPGA에 모델을 배포할 때 Azure Machine Learning으로 실시간 AI(인공 지능)를 제공하는 방법을 설명합니다.
+이 문서에서는 FPGA(Field-programmable Gate Arrays)를 소개하고, Azure FPGA에 모델을 배포할 때 Azure Machine Learning 서비스로 실시간 AI(인공 지능)를 제공하는 방법을 설명합니다.
 
 FPGA는 프로그래밍 가능한 논리 블록 배열과 재구성 가능한 상호 연결 계층 구조를 포함하고 있습니다. 제조 후 상호 연결을 통해 이러한 블록을 다양한 방법으로 구성할 수 있습니다. FPGA는 다른 칩과 비교되는 프로그래밍 기능 및 성능 조합을 제공합니다.
 
 ## <a name="fpgas-vs-cpu-gpu-and-asic"></a>FPGA 대 CPU, GPU 및 ASIC 비교
 
-![Azure Machine Learning FPGA 비교](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
+![Azure Machine Learning 서비스 FPGA 비교](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
 |프로세서||설명|
 |---|:-------:|------|

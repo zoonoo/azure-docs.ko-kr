@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1fb19c7b74d059d83cc5a51a158dcc6ba9bede23
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 3cb44779f376dca1844f42f346ed0fa3bfaa93cf
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306272"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269448"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect FAQ
 
@@ -47,7 +47,7 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 **Q: Azure AD Connect 데이터베이스를 로컬 데이터베이스에서 원격 SQL Server 인스턴스로 이동할 수 있나요?**   
 예, 이 작업을 수행하는 방법에 대한 일반적인 지침은 다음과 같습니다. 현재 문서를 더 자세히 준비하고 있습니다.
 1. LocalDB ADSync 데이터베이스를 백업합니다.
-이 작업을 수행하는 가장 간단한 방법은 Azure AD Connect와 동일한 컴퓨터에 설치된 SQL Server Management Studio를 사용하는 것입니다. *(localdb)\.\ADSync*에 연결한 다음, ADSync 데이터베이스를 백업합니다.
+이 작업을 수행하는 가장 간단한 방법은 Azure AD Connect와 동일한 컴퓨터에 설치된 SQL Server Management Studio를 사용하는 것입니다. *(LocalDb).\ADSync*에 연결한 후 ADSync 데이터베이스를 백업합니다.
 
 2. ADSync 데이터베이스를 원격 SQL Server 인스턴스에 복원합니다.
 

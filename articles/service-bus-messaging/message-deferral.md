@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: f9dbd663ce3b15e6a825f0ef73f3dd5d1f5df76b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: efe04b19188d7324c3f86565610040b8eaa97c43
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697546"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855394"
 ---
 # <a name="message-deferral"></a>메시지 지연
 
@@ -26,7 +26,7 @@ ms.locfileid: "43697546"
 
 연기는 워크플로 처리 시나리오를 위해 특별히 만들어진 기능입니다. 워크플로 프레임워크는 특정 작업이 특정 순서로 처리되도록 요구하며, 다른 메시지가 알려준 사전 설정된 사전 작업이 완료될 때까지 수신된 일부 메시지의 처리를 연기해야 할 수 있습니다.
 
-이에 대한 간단한 참고 예제는 일치하는 구매 주문서가 매장에서 결제 처리 시스템으로 전파되기 전에 외부 결제 공급자의 결제 알림이 시스템에 표시되는 주문 처리 시퀀스입니다. 이 경우 결제 처리 시스템은 연결된 주문이 있을 때까지 결제 알림 처리를 연기할 수 있습니다. 여러 다른 원본의 메시지가 워크플로를 구동하는 랑데부 시나리오에서는 실제로 실시간 실행 순서는 올바르지만 결과를 반영하는 메시지의 순서가 맞지 않을 수 있습니다.
+간단한 참고 예제는 일치하는 구매 주문서가 매장에서 결제 처리 시스템으로 전파되기 전에 외부 결제 공급자의 결제 알림이 시스템에 표시되는 주문 처리 시퀀스입니다. 이 경우 결제 처리 시스템은 연결된 주문이 있을 때까지 결제 알림 처리를 연기할 수 있습니다. 여러 다른 원본의 메시지가 워크플로를 구동하는 랑데부 시나리오에서는 실제로 실시간 실행 순서는 올바르지만 결과를 반영하는 메시지의 순서가 맞지 않을 수 있습니다.
 
 궁극적으로, 연기 기능은 처리를 연기해야 하는 메시지를 메시지 저장소에 안전하게 보관하면서, 메시지 순서를 도착 순서에서 처리할 수 있는 순서로 다시 정렬하는 데 도움이 됩니다.
 
@@ -46,7 +46,6 @@ ms.locfileid: "43697546"
 
 Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
-* [Service Bus 기본 사항](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus 큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus 토픽 및 구독을 사용하는 방법](service-bus-dotnet-how-to-use-topics-subscriptions.md)

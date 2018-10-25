@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: c4686bf01031e30bd9dc94f42d80da524db82931
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eb84638e2996b0ee9bd5a580b7e827ea30d0ab21
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969260"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855989"
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Azure Machine Learning 데이터 준비에서 지원되는 데이터 원본 
 
@@ -115,7 +115,7 @@ Parquet 데이터 집합은 각각 큰 데이터 집합의 작은 파티션을 �
 로컬 하드 드라이브 또는 매핑된 네트워크 저장소 위치입니다.
 
 ### <a name="sql-server"></a>SQL Server
-온-프레미스 SQL Server 또는 Azure SQL Database.
+온-프레미스 SQL 서버 또는 Azure SQL 데이터베이스.
 
 ### <a name="azure-blob-storage"></a>Azure Blob 저장소
 Azure 구독이 필요한 Azure Blob Storage입니다.

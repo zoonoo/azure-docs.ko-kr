@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
+ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: f5d5b8064821dfb1aa6d4e99d0152e364f9a83fe
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b05e23019e7b0a03965e51052bf334d0cbff041d
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700521"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269346"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>Microsoft Azure Service Bus에서 AMQP 1.0: Microsoft Azure Service Bus 요청/응답 기반 작업
 
@@ -142,6 +142,10 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
 |`lock-tokens`|uuid의 배열|yes|갱신할 메시지 잠금 토큰입니다.|  
+
+> [!NOTE]
+> 잠금 토큰은 수신된 메시지의 `DeliveryTag` 속성입니다. 잠금 토큰을 검색하는 [.NET SDK](https://github.com/Azure/azure-service-bus-dotnet/blob/6f144e91310dcc7bd37aba4e8aebd535d13fa31a/src/Microsoft.Azure.ServiceBus/Amqp/AmqpMessageConverter.cs#L336)에서 다음 예제를 참조하세요. 또한 ‘DeliveryAnnotations’에 토큰이 ‘x-opt-lock-token’으로 표시될 수 있지만 항상 표시되는 것은 아니고 `DeliveryTag`를 사용하는 것이 좋습니다. 
+> 
   
 #### <a name="response"></a>response  
 
@@ -365,7 +369,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|operation|string|yes|`com.microsoft:peek-message`|  
+|operation|string|yes|`com.microsoft:set-session-state`|  
 |`com.microsoft:server-timeout`|uint|아니요|작업 서버 제한 시간(밀리초)입니다.|  
   
 요청 메시지 본문은 다음 엔터티와 함께 **맵**을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  

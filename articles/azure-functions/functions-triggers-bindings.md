@@ -9,14 +9,14 @@ keywords: Azure Functions, 함수, 이벤트 처리, webhook, 동적 계산, 서
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 05/24/2018
+ms.date: 09/24/2018
 ms.author: glenga
-ms.openlocfilehash: cc965073863375d76efb969ad66cf5750c9755bb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 694dd98caadb12571c58f9d615cf75325654c772
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969430"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801308"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 트리거 및 바인딩 개념
 
@@ -168,7 +168,7 @@ function generateRandomId() {
 
 함수를 만들거나 바인딩을 추가할 때 트리거 또는 바인딩에 대한 확장에 등록이 필요한 경우 메시지가 표시됩니다. **설치**를 클릭하여 프롬프트에 응답하고 확장을 등록합니다. 소비 계획에 대해 설치는 최대 10분이 소요될 수 있습니다.
 
-지정된 함수 앱에 대해 각 확장을 한 번만 등록하면 됩니다. 
+지정된 함수 앱에 대해 각 확장을 한 번만 등록하면 됩니다. 포털에서 사용할 수 없는 지원되는 바인딩의 경우 또는 설치된 확장을 업데이트하려면 [포털에서 Azure Functions 바인딩 확장을 수동으로 설치 또는 업데이트](install-update-binding-extensions-manual.md)할 수도 있습니다.  
 
 ### <a name="local-development-azure-functions-core-tools"></a>Azure Functions 핵심 도구 로컬 개발
 

@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: f57d582aacad568811314494c0ed614839ccabba
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 0221965c51f2287cb6042c33b9ab3402e104abc3
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221743"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870481"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>응용 프로그램을 Azure SQL Database Managed Instance에 연결
 
@@ -93,7 +93,7 @@ Managed Instance는 개인 IP 주소를 통해서만 액세스할 수 있습니�
 
    ![수신/송신 숫자](./media/sql-database-managed-instance-connect-app/ingress-egress-numbers.png)
 
-- 클라이언트 머신(VPN 클라이언트를 사용 중인)에 사용자가 액세스해야 하는 모든 Vnet에 대한 경로 항목이 있는지 확인합니다. 경로는 `%AppData%\ Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt`에 저장됩니다.
+- 클라이언트 머신(VPN 클라이언트를 사용 중인)에 사용자가 액세스해야 하는 모든 VNet에 대한 경로 항목이 있는지 확인합니다. 경로는 `%AppData%\ Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt`에 저장됩니다.
 
 
    ![route.txt](./media/sql-database-managed-instance-connect-app/route-txt.png)

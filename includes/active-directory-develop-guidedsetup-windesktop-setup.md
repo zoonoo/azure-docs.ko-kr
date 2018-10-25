@@ -3,24 +3,23 @@ title: 포함 파일
 description: 포함 파일
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: jmprieur
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
-ms.author: andret
+ms.date: 09/17/2018
+ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 5e933406b266b8371019abf0f62365184d8900b3
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 022017015808d72f661f6764e8fa10fdc49e9f61
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36205247"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843373"
 ---
 ## <a name="set-up-your-project"></a>프로젝트 설정
 
@@ -33,11 +32,13 @@ ms.locfileid: "36205247"
 >
 
 응용 프로그램을 만들려면 다음을 수행합니다.
+
 1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
 2. **템플릿**에서 **Visual C#** 을 선택합니다.
-3. 사용하고 있는 Visual Studio의 버전에 따라 **WPF 앱** 또는 **WPF 응용 프로그램**을 선택합니다.
+3. 사용하고 있는 Visual Studio 버전에 따라 **WPF 앱(.NET Framework)** 을 선택합니다.
 
 ## <a name="add-msal-to-your-project"></a>프로젝트에 MSAL 추가
+
 1. Visual Studio에서 **도구** > **NuGet 패키지 관리자**> **패키지 관리자 콘솔**을 선택합니다.
 2. 패키지 관리자 콘솔 창에서 다음 Azure PowerShell 명령을 붙여넣습니다.
 
@@ -46,10 +47,11 @@ ms.locfileid: "36205247"
     ```
 
     > [!NOTE] 
-    > 이 명령은 Microsoft 인증 라이브러리를 설치합니다. MSAL은 Azure Active Directory v2 끝점에서 보호하는 API에 액세스하는 데 사용되는 사용자 토큰의 획득, 캐싱 및 새로 고침을 처리합니다.
+    > 이 명령은 Microsoft 인증 라이브러리를 설치합니다. MSAL은 Azure Active Directory v2.0으로 보호된 API에 액세스하는 데 사용되는 사용자 토큰의 획득, 캐싱 및 새로 고침을 처리합니다.
     >
 
 ## <a name="add-the-code-to-initialize-msal"></a>MSAL을 초기화하는 코드 추가
+
 이 단계에서는 토큰 처리와 같이 MSAL과 상호 작용을 처리하는 클래스를 만들 수 있습니다.
 
 1. *App.xaml.cs* 파일을 열고 MSAL에 대한 참조를 클래스에 추가합니다.
@@ -93,4 +95,3 @@ ms.locfileid: "36205247"
     </StackPanel>
 </Grid>
 ```
-

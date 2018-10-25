@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018
+ms.date: 10/01/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 6c6143cad04178fcafc825d9dae13c1a0620fb93
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 50bd22559c3695ac4161932652eb191084e2b46e
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033450"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017365"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>자습서: Azure 예산 만들기 및 관리
 
@@ -57,7 +57,7 @@ Azure Portal에서 **Cost Management + 청구** &gt; **구독** &gt; 구독 선�
 
 ![Cost Management 예산](./media/tutorial-acm-create-budgets/budgets01.png)
 
-**예산 만들기** 창에서 예산 이름 및 예산 금액을 입력합니다. 그런 다음 월별, 분기별 또는 연간 기간 중에서 선택합니다. 다음으로, 종료 날짜를 선택합니다. 예산은 1개 이상의 비용 임계값(예산의 %) 및 해당하는 이메일 주소가 필요합니다. 필요에 따라 단일 예산에 최대 5개의 임계값과 5개의 이메일 주소를 포함할 수 있습니다.
+**예산 만들기** 창에서 예산 이름 및 예산 금액을 입력합니다. 그런 다음 월별, 분기별 또는 연간 기간 중에서 선택합니다. 다음으로, 종료 날짜를 선택합니다. 예산은 1개 이상의 비용 임계값(예산의 %) 및 해당하는 이메일 주소가 필요합니다. 필요에 따라 단일 예산에 최대 5개의 임계값과 5개의 이메일 주소를 포함할 수 있습니다. 예산 임계값에 도달하면 메일 알림은 일반적으로 8시간 이내에 수신됩니다.
 
 예로, 월별 4,500달러의 예산을 만들어 보겠습니다. 예산의 90%에 도달하면 이메일 경고가 생성됩니다.
 

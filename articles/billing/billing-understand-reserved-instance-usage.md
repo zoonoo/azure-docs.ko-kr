@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 09/28/2018
 ms.author: cwatson
-ms.openlocfilehash: c81db66637a4c56a36b6995ad8df0fe1967d08ef
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 1edf87d9ec334845f82c3c0c20c958e27f01e87a
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391674"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585223"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>종량제 구독의 Azure Reservations 사용량 이해
 
@@ -62,9 +62,11 @@ CSV 파일의 이 섹션에서는 예약에 대한 총 사용량을 보여 줍�
 4. **요금제 ID**는 예약에 대한 요금제 ID입니다. 이 요금제의 비용은 $0입니다. 이 요금제 ID는 예약 할인을 받을 수 있는 VM에 표시됩니다.
 5. Standard_DS1_v2는 하나의 vCPU VM이며 해당 VM은 Azure Hybrid Benefit 없이 배포됩니다. 따라서 이 요금제는 Windows 소프트웨어의 추가 요금을 포함합니다. D 시리즈 1개 코어 VM에 해당하는 요금제를 찾으려면 [Azure Reserve VM Instances Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)을 참조하세요. Azure 하이브리드 혜택이 있는 경우 이 추가 비용이 적용되지 않습니다.
 
-## <a name="usage-for-sql-database-reserved-capacity-reservations"></a>SQL Database 예약된 용량 예약에 대한 사용량
+## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>SQL Database 및 Cosmos DB 예약된 용량 예약의 사용량
 
-다음 섹션에서는 미국 동부 지역에서 SQL Database Gen 4를 실행하고 예약 정보가 다음 표와 같다고 가정합니다.
+다음 섹션에서는 Azure SQL Database를 예로 사용하여 사용 현황 보고서를 설명합니다. 동일한 단계를 사용하여 Azure Cosmos DB의 사용 현황도 확인할 수 있습니다. 
+
+미국 동부 지역에서 SQL Database Gen 4를 실행하고 예약 정보가 다음 표와 같다고 가정합니다.
 
 | 필드 | 값 |
 |---| --- |
@@ -75,7 +77,7 @@ CSV 파일의 이 섹션에서는 예약에 대한 총 사용량을 보여 줍�
 
 ### <a name="statement-section-of-csv-file"></a>CSV 파일의 명령문 섹션
 
-**예약된 인스턴스 사용량** 요금제 이름을 필터링합니다. 다음 스크린샷과 유사한 출력이 표시됩니다.
+**예약 인스턴스 사용량** 미터 이름으로 필터링하고 필수 **미터 범주**(Azure SQL Database 또는 Azure Cosmos DB)를 선택합니다. 다음 스크린샷과 유사한 출력이 표시됩니다.
 
 ![SQL Database 예약된 용량에 대한 CSV 파일](./media/billing-understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
 
@@ -106,3 +108,5 @@ Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 ## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+
+

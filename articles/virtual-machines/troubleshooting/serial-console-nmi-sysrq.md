@@ -3,7 +3,7 @@ title: SysRq 및 NMI 호출에 대한 Azure 직렬 콘솔 | Microsoft Docs
 description: Azure Virtual Machines에서 SysRq 및 NMI 호출에 대한 직렬 콘솔 사용
 services: virtual-machines-linux
 documentationcenter: ''
-author: alsin
+author: asinn826
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 6f46a1d6964af867b7b0671d020002d1c1de19ae
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 9dcec525adf7676b23c6dec14dff07c6d419c085
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412082"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884645"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>SysRq 및 NMI 호출에 대한 직렬 콘솔 사용
 
@@ -30,11 +30,11 @@ SysRq 시퀀스가 전달되면 커널 구성이 시스템의 응답을 제어�
 
 아래 표시된 명령줄에서 키보드 아이콘을 사용하여 SysRq를 Azure Virtual Machine에 전송하는 데 Azure 직렬 콘솔을 사용할 수 있습니다.
 
-![](/media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
+![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
 
 “SysRq 명령 보내기”를 선택하면 일반적인 SysRq 옵션을 제공하거나 대화 상자에 입력된 SysRq 명령의 시퀀스를 허용하는 대화 상자가 열립니다.  이렇게 하면 일련의 SysRq에서 `REISUB`를 사용하여 안전한 부팅처럼 높은 수준의 작업을 수행할 수 있습니다.
 
-![](/media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
+![](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
 
 SysRq 명령은 중지된 가상 머신 또는 해당 커널이 응답하지 않는 상태의 가상 머신에서 사용할 수 없습니다. (예: 커널 패닉)
 
@@ -103,8 +103,9 @@ NMI(마스크 불가능 인터럽트)는 가상 머신에 있는 소프트웨어
 
 아래 표시된 명령줄에서 키보드 아이콘을 사용하여 NMI를 Azure Virtual Machine에 전송하는 데 직렬 콘솔을 사용할 수 있습니다. NMI가 전달되면 가상 머신 구성이 시스템의 응답을 제어하게 됩니다.  운영 체제가 NMI를 수신하는 메모리 덤프를 크래시하고 만들도록 Linux 운영 체제를 구성할 수 있습니다.
 
-![](/media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
+![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
 
+### <a name="enable-nmi"></a>NMI 사용
 커널 매개 변수를 구성하기 위해 sysctl을 지원하는 Linux 시스템의 경우 다음을 사용하여 이 NMI을 받으면 패닉을 사용하도록 설정할 수 있습니다.
 1. 이 줄을 */etc/sysctl.conf*에 추가 <br>
     `kernel.panic_on_unrecovered_nmi=1`

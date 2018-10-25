@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 3f98b4e34c4c76efc33395530ef016b26e1ad523
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f6a574f169310f2779fb20353fda748e6893a4bd
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163042"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48016743"
 ---
 # <a name="set-up-security-info-to-use-email-preview"></a>이메일을 사용하도록 보안 정보 설정(미리 보기)
 
@@ -46,7 +46,7 @@ ms.locfileid: "44163042"
 
 3. **Keep your account secure**(계정 보안 유지) 페이지에서 **완료**를 선택합니다.
 
-    2단계 확인을 사용할 때 이메일 주소를 사용하여 본인 여부를 확인하도록 보안 정보가 업데이트됩니다.
+    암호 재설정을 사용할 때 메일 주소를 사용하여 본인 여부를 확인하도록 보안 정보가 업데이트됩니다.
 
 ## <a name="additional-security-info-options"></a>추가 보안 정보 옵션
 

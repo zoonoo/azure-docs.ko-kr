@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 62ca89ffe7507c2dc0a0f1a86750fb2bb996a5bd
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: be6bda4f5c420d1e631690fc648f982d4910e198
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836973"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585988"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Azure Data Lake를 사용한 확장성 있는 데이터 과학: 종단 간 연습
 이 연습에서는 팁을 요금으로 지급할지 여부를 예측하기 위해 NYC Taxi Trip 및 요금 데이터 집합 샘플에서 데이터 탐색 및 이진 분류 작업을 수행하는 데 Azure Data Lake를 사용하는 방법을 보여줍니다. [팀 데이터 과학 프로세스](http://aka.ms/datascienceprocess), 종단 간, 데이터 획득에서 모델 학습 후 모델을 게시하는 웹 서비스 배포 단계까지 안내합니다.
@@ -35,7 +35,7 @@ Data Lake 분석은 또한 Cortana Analytics Suite에서 핵심적인 부분으�
 ### <a name="u-sql-and-visual-studio"></a>U-SQL 및 Visual Studio
 이 연습에서는 Visual Studio를 사용하여 데이터 집합을 처리하도록 U-SQL 스크립트를 편집할 것을 권장합니다. U-SQL 스크립트는 여기서 설명하고 별도의 파일로 제공됩니다. 이 프로세스에는 데이터 수집, 탐색 및 샘플링이 포함됩니다. 또한 Azure 포털에서 U-SQL 스크립트 작업을 실행하는 방법을 보여 줍니다. Azure Machine Learning Studio에서 이진 분류 모델의 빌드 및 배포를 용이하게 하기 위해 연결된 HDInsight 클러스터에 데이터에 대한 Hive 테이블이 생성됩니다.  
 
-### <a name="python"></a>파이썬
+### <a name="python"></a>Python
 이 연습에는 Azure Machine Learning Studio에서 Python을 사용하여 예측 모델을 빌드 및 배포하는 방법을 보여 주는 섹션도 포함되어 있습니다. 이 프로세스의 이러한 단계에 대해 Python 스크립트와 함께 Jupyter Notebook을 제공합니다. Notebook에는 여기에 설명된 이진 분류 모델 외에도 다중 클래스 분류 및 회귀 모델링과 같은 추가 기능 엔지니어링 단계 및 모델 생성을 위한 코드가 포함됩니다. 회귀 작업은 다른 팁 기능을 기반으로 하는 팁의 금액을 예측합니다. 
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning

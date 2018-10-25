@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 5a62d4b0b324d8b2536e408132210f07f08e8bb8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e796feaf8ef25eaa91b7db810a11a67da13e9df1
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958699"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237180"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>Azure Container Instances에 웹 서비스 배포 
 
@@ -33,9 +33,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Azure Machine Learning 작업 영역 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. [Azure Machine Learning 빠른 시작을 통한 시작](quickstart-get-started.md)을 사용하여 이러한 필수 구성 요소를 충족하는 방법을 알아봅니다.
+- Azure Machine Learning 서비스 작업 영역 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. [Azure Machine Learning 빠른 시작을 통한 시작](quickstart-get-started.md)을 사용하여 이러한 필수 구성 요소를 충족하는 방법을 알아봅니다.
 
-- Azure Machine Learning 작업 영역 개체
+- Azure Machine Learning 서비스 작업 영역 개체
 
     ```python
     from azureml.core import Workspace

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 672e31109b71a8a4238a05851a58a7c83e275b19
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 63cc8a698c9e383c4b5908286d28b51d89842bdc
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576318"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585699"
 ---
 # <a name="azure-event-hubs-event-processor-host-overview"></a>Azure Event Hubs 이벤트 프로세서 호스트 개요
 
@@ -45,7 +45,7 @@ Event Hubs의 크기를 조정하는 핵심은 분할된 소비자라는 개념�
 
 ## <a name="ieventprocessor-interface"></a>IEventProcessor 인터페이스
 
-먼저 사용하는 응용 프로그램은 [OpenAsync, CloseAsync, ProcessErrorAsync 및 ProcessEventsAsnyc](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet#methods)라는 네 가지 메서드가 있는 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 인터페이스를 구현합니다. 이 인터페이스에는 Event Hubs가 전송하는 이벤트를 사용하는 실제 코드가 포함됩니다. 다음 코드에서는 구현 예제를 보여줍니다.
+먼저 사용하는 응용 프로그램은 [OpenAsync, CloseAsync, ProcessErrorAsync 및 ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet#methods)라는 네 가지 메서드가 있는 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 인터페이스를 구현합니다. 이 인터페이스에는 Event Hubs가 전송하는 이벤트를 사용하는 실제 코드가 포함됩니다. 다음 코드에서는 구현 예제를 보여줍니다.
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -88,7 +88,8 @@ public class SimpleEventProcessor : IEventProcessor
 - **eventHubConnectionString:** Azure Portal에서 검색할 수 있는 이벤트 허브에 대한 연결 문자열입니다. 이 연결 문자열에는 이벤트 허브에 대한 **수신** 권한이 있어야 합니다.
 - **storageConnectionString:** 내부 리소스 관리에 사용되는 저장소 계정입니다.
 
-마지막으로, 소비자는 Event Hubs 서비스를 사용하여 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 인스턴스를 등록합니다. 등록하면 Event Hubs 서비스에 지시하여 소비자 앱에서 해당 파티션 중 일부의 이벤트를 사용하도록 예상하고 사용할 이벤트를 푸시할 때마다 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 구현 코드를 호출합니다.
+마지막으로, 소비자는 Event Hubs 서비스를 사용하여 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 인스턴스를 등록합니다. EventProcessorHost 인스턴스에 이벤트 프로세서 클래스를 등록하면 이벤트 처리가 시작됩니다. 등록하면 Event Hubs 서비스에 지시하여 소비자 앱에서 해당 파티션 중 일부의 이벤트를 사용하도록 예상하고 사용할 이벤트를 푸시할 때마다 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 구현 코드를 호출합니다. 
+
 
 ### <a name="example"></a>예
 
@@ -123,7 +124,7 @@ EPH 인스턴스(또는 소비자)에 대한 파티션의 소유권은 추적을
 
 [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)에 대한 호출은 이벤트의 컬렉션을 제공합니다. 사용자의 책임 하에 이러한 이벤트를 처리합니다. 비교적 빠르게 작업을 수행하는 것이 좋습니다. 즉, 가능한 작은 처리로 수행합니다. 대신 소비자 그룹을 사용합니다. 저장소를 작성하고 일부 라우팅을 수행해야 하는 경우 일반적으로 두 개의 소비자 그룹을 사용하고 개별적으로 실행되는 두 개의 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 구현이 포함되는 것이 좋습니다.
 
-처리하는 동안 특정 시점에 읽고 완료한 내용을 추적하는 것이 좋습니다. 스트림의 시작 부분으로 돌아가지 않도록 읽기를 다시 시작해야 하는 경우 추적하는 것이 중요합니다. [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)는 *검사점*을 사용하여 이 추적을 간소화합니다. 검사점은 지정된 소비자 그룹 내에서 지정된 파티션의 위치 또는 오프셋입니다. 여기서 메시지를 처리하는 작업을 충족합니다. **EventProcessorHost**에서 검사점을 표시하는 작업은 [PartitionContext](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext) 개체에서 [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) 메서드를 호출하여 수행됩니다. 이 작업은 일반적으로 [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) 메서드 내에서 수행되지만 [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync)에서 수행될 수도 있습니다.
+처리하는 동안 특정 시점에 읽고 완료한 내용을 추적하는 것이 좋습니다. 스트림의 시작 부분으로 돌아가지 않도록 읽기를 다시 시작해야 하는 경우 추적하는 것이 중요합니다. [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)는 *검사점*을 사용하여 이 추적을 간소화합니다. 검사점은 지정된 소비자 그룹 내에서 지정된 파티션의 위치 또는 오프셋입니다. 여기서 메시지를 처리하는 작업을 충족합니다. **EventProcessorHost**에서 검사점을 표시하는 작업은 [PartitionContext](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext) 개체에서 [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) 메서드를 호출하여 수행됩니다. 이 작업은 [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) 메서드 내에서 수행되지만 [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync)에서 수행될 수도 있습니다.
 
 ## <a name="checkpointing"></a>검사점 설정
 
@@ -140,6 +141,7 @@ EPH 인스턴스(또는 소비자)에 대한 파티션의 소유권은 추적을
 마지막으로, [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync)는 모든 파티션 판독기를 완전히 종료할 수 있고 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)의 인스턴스를 종료할 때 항상 호출되어야 합니다. 이렇게 하는 데 실패하면 임대 만료 및 Epoch 충돌로 인해 **EventProcessorHost**의 다른 인스턴스를 시작할 때 지연이 발생할 수 있습니다. Epoch 관리는 이 [블로그 게시물](https://blogs.msdn.microsoft.com/gyan/2014/09/02/event-hubs-receiver-epoch/)에서 자세히 다룹니다.
 
 ## <a name="lease-management"></a>임대 관리
+EventProcessorHost 인스턴스에 이벤트 프로세서 클래스를 등록하면 이벤트 처리가 시작됩니다. 호스트 인스턴스는 이벤트 허브의 일부 파티션에서 임대를 획득하므로 모든 호스트 인스턴스에 걸쳐 균일한 파티션 분포로 수렴하는 방식으로 다른 호스트 인스턴스에서 일부를 가져올 수 있습니다. 각 임대 파티션의 경우 호스트 인스턴스는 제공된 이벤트 프로세서 클래스 인스턴스를 만든 후, 해당 파티션에서 이벤트를 수신하고, 이벤트 프로세서 인스턴스에 전달합니다. 더 많은 리스가 추가되고 더 많은 임대를 가져오면 EventProcessorHost는 결국 모든 소비자 간에 부하를 분산합니다.
 
 앞에서 설명한 대로 추적 테이블은 [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync)의 자동 크기 조정 특성을 크게 간소화합니다. **EventProcessorHost**의 인스턴스가 시작되면 가능한 많은 임대를 획득하고 읽기 이벤트를 시작합니다. 임대가 만료되려고 하면 **EventProcessorHost**는 예약을 배치하여 이를 갱신하려고 합니다. 임대가 갱신 가능한 경우 프로세서는 읽기를 계속하지만 불가능한 경우 판독기가 닫히고 [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync)가 호출됩니다. **CloseAsync**는 해당 파티션에 대한 최종 정리를 수행하기에 적합합니다.
 
@@ -159,7 +161,7 @@ EPH 인스턴스(또는 소비자)에 대한 파티션의 소유권은 추적을
 
 이제 이벤트 프로세서 호스트에 익숙해졌으므로 다음 아티클을 참조하여 Event Hubs에 대해 자세히 알아봅니다.
 
-* [Event Hubs 자습서](event-hubs-dotnet-standard-getstarted-send.md) 시작
+* [Event Hubs 자습서](event-hubs-dotnet-standard-getstarted-send.md)
 * [Event Hubs 프로그래밍 가이드](event-hubs-programming-guide.md)
 * [Event Hubs의 가용성 및 일관성](event-hubs-availability-and-consistency.md)
 * [Event Hubs FAQ](event-hubs-faq.md)

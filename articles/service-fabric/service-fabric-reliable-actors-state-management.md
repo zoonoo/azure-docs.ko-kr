@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 3cab4d87eacc7bce17da64cda213086c262179a8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: aae0ec93f3de708096ff9546a3a4f4e090095a89
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206201"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041163"
 ---
 # <a name="reliable-actors-state-management"></a>Reliable Actors 상태 관리
 Reliable Actors는 논리와 상태를 모두 캡슐화할 수 있는 단일 스레드 개체입니다. 행위자가 Reliable Services에서 실행되므로 동일한 지속성 및 복제 메커니즘을 사용하여 안전하게 상태를 유지할 수 있습니다. 이러한 방식으로 행위자는 실패한 후에 해당 상태를 손실하지 않고 가비지 수집 후 다시 활성화합니다. 또한 리소스 균형 조정 또는 업그레이드로 인해 클러스터의 노드 간에 이동하는 경우에도 그렇습니다.
@@ -121,7 +121,7 @@ class MyActorImpl extends FabricActor implements MyActor
 이것은 응용 프로그램의 성능 및 리소스 사용량에 중요합니다. 행위자의 “명명된 상태”에 대한 쓰기/업데이트가 있을 때마다, “명명된 상태”에 해당하는 전체 값이 직렬화되어 네트워크를 통해 보조 복제본으로 전송됩니다.  보조 복제본은 이것을 로컬 디스크에 쓰고 주 복제본에 회신합니다. 주 복제본이 보조 복제본의 쿼럼으로부터 승인을 수신하면 로컬 디스크에 상태를 씁니다. 예를 들어 값이 멤버가 20개 있고 크기가 1MB인 클래스라고 가정하겠습니다. 크기가 1KB인 클래스 멤버 중 하나만 수정하더라도 1MB 전체에 대한 직렬화와 네트워크 및 디스크 쓰기에 대한 비용을 지불하게 됩니다. 마찬가지로, 컬렉션(예: 목록, 배열 또는 사전) 값을 사용하는 경우에 멤버 중 하나를 수정하더라도 컬렉션 전체에 대한 비용을 지불합니다. 행위자 클래스의 StateManager 인터페이스는 사전과 유사합니다. 이 사전 위에 행위자 상태를 나타내는 데이터 구조를 항상 모델링해야 합니다.
  
 ### <a name="correctly-manage-the-actors-life-cycle"></a>행위자의 수명 주기를 올바르게 관리
-행위자 서비스의 파티션마다 상태의 크기를 관리하는 명확한 정책이 있어야 합니다. 행위자 서비스에는 고정된 수의 행위자를 두고 최대한 많이 다시 사용해야 합니다. 새 행위자를 지속적으로 만드는 경우 작업이 완료되고 나면 행위자를 삭제해야 합니다. 행위자 프레임워크는 존재하는 각 행위자에 대한 메타데이터를 저장합니다. 행위자의 상태를 모두 삭제해도 해당 행위자에 대한 메타데이터는 제거되지 않습니다. 시스템에 저장된 행위자에 대한 정보를 모두 제거하려면 행위자를 삭제해야 합니다([행위자와 해당 상태 삭제](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state) 참조). 추가 검사의 일환으로, 가끔 행위자 서비스를 쿼리하여 숫자 행위자가 예상 범위 내에 있는지 확인해야 합니다([행위자 열거](service-fabric-reliable-actors-platform.md) 참조).
+행위자 서비스의 파티션마다 상태의 크기를 관리하는 명확한 정책이 있어야 합니다. 행위자 서비스에는 고정된 수의 행위자를 두고 최대한 많이 다시 사용해야 합니다. 새 행위자를 지속적으로 만드는 경우 작업이 완료되고 나면 행위자를 삭제해야 합니다. 행위자 프레임워크는 존재하는 각 행위자에 대한 메타데이터를 저장합니다. 행위자의 상태를 모두 삭제해도 해당 행위자에 대한 메타데이터는 제거되지 않습니다. 시스템에 저장된 행위자에 대한 정보를 모두 제거하려면 행위자를 삭제해야 합니다([행위자와 해당 상태 삭제](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state) 참조). 추가 검사의 일환으로, 가끔 행위자 서비스를 쿼리하여 숫자 행위자가 예상 범위 내에 있는지 확인해야 합니다([행위자 열거](service-fabric-reliable-actors-enumerate.md) 참조).
  
 행위자 서비스의 데이터베이스 파일 크기가 예상 크기를 초과하여 증가하는 경우가 발생하면 이전 지침을 따르고 있는지 확인해야 합니다. 지침을 따르고 있는데 데이터베이스 파일 크기에 문제가 있으면 제품 팀과 함께 [지원 티켓을 열어서](service-fabric-support.md) 지원을 받는 것이 좋습니다.
 

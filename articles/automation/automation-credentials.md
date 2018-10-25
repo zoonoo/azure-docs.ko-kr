@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4fa2bc2dd59a5c62becc7f5cd4c4c9633dac1a29
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: e5414a7607c036f1d60f58e1eb047da1e54f4db9
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42144603"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585343"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Azure Automation의 자격 증명 자산
 
@@ -77,6 +77,9 @@ AzureRM에 대해 다음 표의 cmdlet은 Windows PowerShell을 사용하여 자
 2. **자격 증명** 파트를 클릭하여 **자격 증명** 블레이드를 엽니다.
 3. 블레이드의 위쪽에서 **자격 증명 추가** 를 클릭합니다.
 4. 양식을 완료하고 **만들기** 를 클릭하여 새 자격 증명을 저장합니다.
+
+> [!NOTE]
+> 다단계 인증을 사용하는 사용자 계정은 Azure Automation에서 사용할 수 없습니다.
 
 ### <a name="to-create-a-new-credential-asset-with-windows-powershell"></a>Windows PowerShell을 사용하여 새 자격 증명 자산을 만들려면
 

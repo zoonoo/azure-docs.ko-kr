@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: ff382becb71f187ac38b0ef5d31c1b29c43f3fe7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bcb772185f0a16183b8a6c9674419781ef41be3e
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972558"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068539"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 Virtual Network 구성
 Azure Storage는 계층화된 보안을 제공하여 허용되는 특정 네트워크 집합에만 연결되도록 저장소 계정을 보호할 수 있도록 합니다.  네트워크 규칙이 구성된 경우 허용되는 네트워크의 응용 프로그램만 저장소 계정에 액세스할 수 있습니다.  허용되는 네트워크에서 호출되면 응용 프로그램은 저장소 계정에 액세스하기 위한 적절한 인증(유효한 액세스 키 또는 SAS 토큰)을 계속 요구합니다.
 
 > [!IMPORTANT]
-> 저장소 계정에 대한 방화벽 규칙을 설정하면 다른 Azure 서비스에서 들어오는 요청을 포함하여, 들어오는 데이터 요청에 대한 액세스가 차단됩니다.  여기에는 포털 사용, 로그 작성 등이 포함됩니다.  서비스에 참여하기 위해 아래의 [예외](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) 섹션에서 기능을 사용하도록 설정할 수 있습니다.  포털에 액세스하려면 설정한 신뢰할 수 있는 경계(IP 또는 VNet) 내의 컴퓨터에서 액세스해야 합니다.
+> 저장소 계정에 대한 방화벽 규칙을 설정하면 다른 Azure 서비스에서 들어오는 요청을 포함하여, 들어오는 데이터 요청에 대한 액세스가 차단됩니다.  여기에는 포털 사용, 로그 작성 등이 포함됩니다.  VNet에서 작동하는 Azure 서비스에는 서비스 인스턴스의 서브넷을 허용하여 액세스 권한을 부여받을 수 있습니다.  VNet에서 작동하지 않는 Azure 서비스는 방화벽으로 차단됩니다.  제한된 수의 시나리오는 아래에 설명된 [예외](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) 메커니즘을 통해 사용할 수 있습니다.  포털에 액세스하려면 설정한 신뢰할 수 있는 경계(IP 또는 VNet) 내의 컴퓨터에서 액세스해야 합니다.
 >
 
 ## <a name="scenarios"></a>시나리오

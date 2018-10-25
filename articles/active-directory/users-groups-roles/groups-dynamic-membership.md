@@ -14,12 +14,12 @@ ms.date: 09/20/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: c3121f8b303d9f82ed949d598a942906d0d24f7e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e8f0077bf5a1a2911b3aec032fadacf31ad75463
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041026"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855275"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙
 
@@ -130,15 +130,29 @@ user.department -eq "Sales"
 | 그런 다음 | -in |
 | 속하지 않음 | -notIn |
 
-### <a name="using-the--in-and--notin-operators"></a>-In 및 -notIn 연산자 사용
+### <a name="using-the--in-and--notin-operators"></a>-in 및 -notIn 연산자 사용
 
-사용자 특성의 값을 다양한 값과 비교하려면 -In 또는 -notIn 연산자를 사용할 수 있습니다. "[" 및 "]" 괄호 기호를 사용하여 값 목록을 시작하고 끝냅니다.
+사용자 특성의 값을 다양한 값과 비교하려는 경우 -in 또는 -notIn 연산자를 사용할 수 있습니다. "[" 및 "]" 괄호 기호를 사용하여 값 목록을 시작하고 끝냅니다.
 
  다음 예제에서는 user.department의 값이 목록의 값과 같으면 식은 true로 평가됩니다.
 
 ```
-   user.department -In ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
+   user.department -in ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
 ```
+
+
+### <a name="using-the--match-operator"></a>-match 연산자 사용 
+**-match** 연산자는 정규식 일치에 사용됩니다. 예제:
+
+```
+user.displayName -match "Da.*"   
+```
+Da, Dav, David는 true로 평가되고, aDa는 false로 평가됩니다.
+
+```
+user.displayName -match ".*vid"
+```
+David는 true로 평가되고, Da는 false로 평가됩니다.
 
 ## <a name="supported-values"></a>지원되는 값
 
