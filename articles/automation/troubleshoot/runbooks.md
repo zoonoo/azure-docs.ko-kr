@@ -8,12 +8,12 @@ ms.date: 10/17/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b8c6b82af1a71f5e2df7dd555c7ceb91b8ccd292
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 33c2bd48084c3d0e73fe2f4a1ce922e7a66b944f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394549"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955434"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook으로 오류 해결
 
@@ -122,7 +122,7 @@ Azure 계정에서 Multi-Factor Authentication을 사용하면 Azure Active Dire
 
 #### <a name="resolution"></a>해결 방법
 
-Azure 클래식 배포 모델 cmdlet에 인증서를 사용하려면 [인증서를 만들고 추가하여 Azure 서비스 관리](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx)를 참조하세요. Azure Resource Manager cmdlet에 서비스 주체를 사용하려면 [Azure Portal을 사용하여 서비스 주체 만들기](../../azure-resource-manager/resource-group-create-service-principal-portal.md) 및 [Azure Resource Manager를 사용하여 서비스 주체 인증](../../azure-resource-manager/resource-group-authenticate-service-principal.md)을 참조하세요.
+Azure 클래식 배포 모델 cmdlet에 인증서를 사용하려면 [인증서를 만들고 추가하여 Azure 서비스 관리](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx)를 참조하세요. Azure Resource Manager cmdlet에 서비스 주체를 사용하려면 [Azure Portal을 사용하여 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md) 및 [Azure Resource Manager를 사용하여 서비스 주체 인증](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)을 참조하세요.
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Runbook을 사용할 때 발생하는 일반적인 오류
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: victorh
-ms.openlocfilehash: 7acc0fa4c3654c96ac0f8f1baed7ea5b7b306376
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: a814c543b9f4bfe6717e639342d82ed13dac35b0
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829772"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954609"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>.NET SDK를 사용하여 DNS 영역 및 레코드 집합 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "48829772"
 
 일반적으로 고유한 사용자 자격 증명 대신 전용 계정을 통해 Azure 리소스에 대한 프로그래밍 방식의 액세스를 부여합니다. 이러한 전용 계정을 '서비스 주체' 계정이라고 합니다. Azure DNS SDK 샘플 프로젝트를 사용하려면 먼저 서비스 주체 계정을 만들고 올바른 사용 권한을 할당해야 합니다.
 
-1. [이러한 지침](../azure-resource-manager/resource-group-authenticate-service-principal.md) 에 따라 서비스 주체 계정을 만듭니다(Azure DNS SDK 샘플 프로젝트는 암호 기반 인증을 가정함).
+1. [이러한 지침](../active-directory/develop/howto-authenticate-service-principal-powershell.md) 에 따라 서비스 주체 계정을 만듭니다(Azure DNS SDK 샘플 프로젝트는 암호 기반 인증을 가정함).
 2. 리소스 그룹을 만듭니다([방법은 여기에서 확인](../azure-resource-manager/resource-group-template-deploy-portal.md)).
 3. Azure RBAC를 사용하여 서비스 주체 계정 'DNS 영역 참가자' 권한을 리소스 그룹에 부여합니다([방법은 다음과 같음](../role-based-access-control/role-assignments-portal.md)).
 4. Azure DNS SDK 샘플 프로젝트를 사용하는 경우 'program.cs' 파일을 다음과 같이 편집합니다.

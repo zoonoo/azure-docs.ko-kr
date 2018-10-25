@@ -17,14 +17,16 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 1b9f1f1ff5e0a2a178b5a0b2a09f5513bf508b3f
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: b5f36bcce77ad0dac3a6e2e9da39493be6751539
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079177"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985848"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0 프로토콜 - OAuth 2.0 인증 코드 흐름
+
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 OAuth 2.0 인증 코드 권한은 장치에 설치된 앱에서 사용하여 Web API와 같은 보호된 리소스에 대한 액세스 권한을 얻을 수 있습니다. 앱 모델 v2.0의 OAuth 2.0 구현을 사용하여, 로그인 및 모바일 및 API 액세스를 데스크톱 앱에 추가할 수 있습니다. 이 가이드는 언어 독립적이며 [Azure 공개 소스 인증 라이브러리](active-directory-authentication-libraries.md)를 사용하지 않고 HTTP 메시지를 수신하는 방법을 설명합니다.
 

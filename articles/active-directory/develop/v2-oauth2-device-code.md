@@ -17,14 +17,16 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e05bf723507ba12b577605d44ddb3aaef3b19efe
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 83c1deb7c767c29046e6c1af4452270e90b391df
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079630"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987735"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-device-code-flow"></a>Azure Active Directory v2.0 및 OAuth 2.0 장치 코드 흐름
+
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 Azure AD는 [장치 코드 부여](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12)를 지원합니다. 이 코드를 사용하면 사용자가 스마트 TV, IoT 장치 또는 프린터와 같은 입력 제한된 장치에 로그인할 수 있습니다.  이 흐름을 활성화하기 위해, 해당 장비는 사용자가 로그인할 웹 페이지를 다른 장비의 브라우저에서 방문하도록 합니다.  사용자가 로그인하면 장치는 필요에 따라 액세스 토큰 및 새로 고침 토큰을 가져올 수 있습니다.  
 
