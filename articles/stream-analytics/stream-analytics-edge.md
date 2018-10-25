@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/16/2017
-ms.openlocfilehash: 5ce0420dde5bf232fe8067a3b14814f14380602e
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 73b594aaabd814108dfce813b53a4ea865336e63
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802530"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985066"
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>IoT Edge의 Azure Stream Analytics(미리 보기)
 
@@ -116,7 +116,7 @@ IoT Edge 배포에 대한 자세한 내용은 [이 페이지](https://docs.micro
 
 ##### <a name="configure-routes"></a>경로 구성
 IoT Edge에서는 모듈 간에, 그리고 모듈과 IoT Hub 간에 선언적으로 경로를 지정하는 방법을 제공합니다. 전체 구문은 [여기](https://docs.microsoft.com/azure/iot-edge/module-composition)에 설명되어 있습니다.
-ASA 작업에서 만든 입/출력의 이름은 라우팅을 위한 끝점으로 사용할 수 있습니다.  
+ASA 작업에서 만든 입/출력의 이름은 라우팅을 위한 엔드포인트로 사용할 수 있습니다.  
 
 ###### <a name="example"></a>예
 ```
@@ -135,7 +135,7 @@ ASA 작업에서 만든 입/출력의 이름은 라우팅을 위한 끝점으로
 이 예제에서는 다음 경로를 정의합니다.
 - **tempSensor**의 모든 메시지는 **temperature**라는 입력에 대해 **ASA** 모듈로 전송됩니다.
 - **ASA** 모듈의 모든 출력은 이 장치에 연결된 IoT Hub로 전송됩니다($upstream).
-- **ASA** 모듈의 모든 출력은 **tempSensor**의 **control** 끝점으로 전송됩니다.
+- **ASA** 모듈의 모든 출력은 **tempSensor**의 **control** 엔드포인트로 전송됩니다.
 
 
 ## <a name="technical-information"></a>기술 정보
@@ -174,7 +174,7 @@ ASA Edge 작업은 IoT Edge 장치에서 실행되는 다른 모듈에서 입/�
 
 입/출력 모두에서 CSV 및 JSON 형식이 지원됩니다.
 
-ASA 작업에서 생성한 각 입/출력 스트림에 해당하는 끝점이 배포 모듈에 생성됩니다. 이러한 끝점은 배포 경로에서 사용될 수 있습니다.
+ASA 작업에서 생성한 각 입/출력 스트림에 해당하는 엔드포인트가 배포 모듈에 생성됩니다. 이러한 엔드포인트는 배포 경로에서 사용될 수 있습니다.
 
 현재 지원되는 유일한 스트림 입력 및 스트림 출력 유형은 Edge Hub입니다. 참조 입력은 참조 파일 유형을 지원합니다. 다른 출력은 클라우드 작업 다운스트림을 사용하여 도달할 수 있습니다. 예를 들어 Edge에서 호스트되는 Stream Analytics 작업은 Edge Hub에 출력을 보냅니다. 그러면 IoT Hub에 출력을 보낼 수 있습니다. IoT Hub에서의 입력 및 Power BI 또는 다른 출력 유형으로의 출력을 통해 두 번째 클라우드 호스팅된 Azure Stream Analytics 작업을 사용할 수 있습니다.
 
@@ -217,5 +217,5 @@ IoT Edge에서 ASA에 대한 참조 데이터를 사용하려면 다음 단계�
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
+[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301

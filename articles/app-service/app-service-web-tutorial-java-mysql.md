@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 0baab86c0cb76bfeecb30cdb62c968a476e402b9
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: db1005bbce25b0fa3fec76e6f9428a4cdd6fa4aa
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296774"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024378"
 ---
 # <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>자습서: Azure에서 Java 및 MySQL 웹앱 빌드
 
@@ -28,7 +28,7 @@ ms.locfileid: "44296774"
 > 이 문서에서는 Windows의 App Service에 앱을 배포합니다. _Linux_의 App Service에 배포하려면 [Azure에 컨테이너화된 Spring Boot 앱 배포](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin)를 참조하세요.
 >
 
-이 자습서에서는 Azure에서 Java 웹앱을 만들고 MySQL 데이터베이스에 연결하는 방법을 보여 줍니다. 작업이 완료되면 [Azure App Service Web Apps](app-service-web-overview.md)에서 실행되는 [MySQL용 Azure 데이터베이스](https://docs.microsoft.com/azure/mysql/overview)에 [Spring Boot](https://projects.spring.io/spring-boot/) 응용 프로그램 저장 데이터가 생깁니다.
+이 자습서에서는 Azure에서 Java 웹앱을 만들고 MySQL 데이터베이스에 연결하는 방법을 보여 줍니다. 작업이 완료되면 [Azure App Service Web Apps](app-service-web-overview.md)에서 실행되는 [MySQL용 Azure 데이터베이스](../mysql/overview.md)에 [Spring Boot](https://projects.spring.io/spring-boot/) 응용 프로그램 저장 데이터가 생깁니다.
 
 ![Azure App Service에서 실행 중인 Java 앱](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
 
@@ -122,7 +122,7 @@ select * from todo_item;
 
 ## <a name="create-an-azure-mysql-database"></a>Azure MySQL 데이트베이스 만들기
 
-이 단계에서는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)를 사용하여 [MySQL용 Azure 데이터베이스 ](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md) 인스턴스를 만듭니다. 이 자습서의 후반부에서 샘플 응용 프로그램을 구성하여 이 데이터베이스를 사용합니다.
+이 단계에서는 [Azure CLI](/cli/azure/install-azure-cli)를 사용하여 [MySQL용 Azure 데이터베이스 ](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md) 인스턴스를 만듭니다. 이 자습서의 후반부에서 샘플 응용 프로그램을 구성하여 이 데이터베이스를 사용합니다.
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -282,7 +282,7 @@ az webapp config set --name <app_name> --resource-group myResourceGroup --java-v
 
 샘플 앱을 실행하기 전에 Azure에서 만든 Azure MySQL 데이터베이스를 사용하기 위해 웹앱에서 응용 프로그램 설정을 지정합니다. 이러한 속성은 환경 변수로서 웹 응용 프로그램에 노출되며 패키지된 웹앱 내부의 application.properties에 설정된 값을 재정의합니다. 
 
-Cloud Shell에서 CLI의 [`az webapp config appsettings`](https://docs.microsoft.com/cli/azure/webapp/config/appsettings)를 사용하여 응용 프로그램 설정을 지정합니다.
+Cloud Shell에서 CLI의 [`az webapp config appsettings`](/cli/azure/webapp/config/appsettings)를 사용하여 응용 프로그램 설정을 지정합니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --settings SPRING_DATASOURCE_URL="jdbc:mysql://<mysql_server_name>.mysql.database.azure.com:3306/tododb?verifyServerCertificate=true&useSSL=true&requireSSL=false" --resource-group myResourceGroup --name <app_name>
@@ -299,7 +299,7 @@ az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_p
 ### <a name="get-ftp-deployment-credentials"></a>FTP 배포 자격 증명 가져오기 
 FTP, 로컬 Git, GitHub, Azure DevOps 및 BitBucket과 같은 다양한 방법으로 응용 프로그램을 Azure App Service에 배포할 수 있습니다. 이 예에서는 로컬 컴퓨터에 이전에 빌드된 .WAR 파일을 Azure App Service에 배포하는 FTP입니다.
 
-ftp 명령에서 웹앱으로 전달할 자격 증명을 결정하려면 Cloud Shell에서 [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/webapp/deployment#az-appservice-web-deployment-list-publishing-profiles) 명령을 사용합니다. 
+ftp 명령에서 웹앱으로 전달할 자격 증명을 결정하려면 Cloud Shell에서 [`az webapp deployment list-publishing-profiles`](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-profiles) 명령을 사용합니다. 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --name <app_name> --resource-group myResourceGroup --query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" --output json
@@ -440,25 +440,25 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다른 자습서에서 이러한 리소스가 필요하지 않으면([다음 단계](#next) 참조) Cloud Shell에서 다음 명령을 실행하여 삭제할 수 있습니다. 
-  
+다른 자습서에서 이러한 리소스가 필요하지 않으면([다음 단계](#next) 참조) Cloud Shell에서 다음 명령을 실행하여 삭제할 수 있습니다. 
+  
 ```azurecli-interactive
-az group delete --name myResourceGroup 
-``` 
+az group delete --name myResourceGroup 
+``` 
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>다음 단계
+## Next steps
 
 > [!div class="checklist"]
-> * Azure에서 MySQL 데이터베이스 만들기
-> * MySQL에 샘플 Java 앱 연결
-> * Azure에 앱 배포
-> * 앱 업데이트 및 다시 배포
-> * Azure에서 진단 로그 스트림
-> * Azure Portal에서 앱 관리
+> * Create a MySQL database in Azure
+> * Connect a sample Java app to the MySQL
+> * Deploy the app to Azure
+> * Update and redeploy the app
+> * Stream diagnostic logs from Azure
+> * Manage the app in the Azure portal
 
-사용자 지정 DNS 이름을 앱에 매핑하는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
+Advance to the next tutorial to learn how to map a custom DNS name to the app.
 
 > [!div class="nextstepaction"] 
-> [Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑](app-service-web-tutorial-custom-domain.md)
+> [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md)

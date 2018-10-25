@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: jasonh
 ms.reviewer: jasonh
-ms.openlocfilehash: 0408ea6ead1ddf482ce0a07c21859af80ab6ca43
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 50ea4dafe7edfdeb851ad6d9cc42a7bca262e970
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697818"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985814"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업에서 Azure Functions 실행 
 
@@ -40,11 +40,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 ![Azure 서비스 간 관계를 보여주는 다이어그램](./media/stream-analytics-with-azure-functions/image1.png)
 
 이 작업을 수행하기 위해서는 다음 단계가 필요합니다.
-* [Event Hubs에서 입력으로 사용할 Stream Analytics 작업 만들기](#create-stream-analytics-job-with-event-hub-as-input)  
-* [Azure Redis Cache 인스턴스 만들기](#create-an-azure-redis-cache)  
-* [Azure Functions에서 Azure Redis Cache에 데이터를 기록할 수 있는 함수 만들기](#create-an-azure-function-that-can-write-data-to-the-redis-cache)    
-* [출력으로 사용할 함수로 Stream Analytics 작업 업데이트](#update-the-stream-analytic-job-with-azure-function-as-output)  
-* [Azure Redis Cache의 결과 확인](#check-redis-cache-for-results)  
+* [Event Hubs에서 입력으로 사용할 Stream Analytics 작업 만들기](#create-a-stream-analytics-job-with-event-hubs-as-input)  
+* [Azure Redis Cache 인스턴스 만들기](#create-an-azure-redis-cache-instance)  
+* [Azure Functions에서 Azure Redis Cache에 데이터를 기록할 수 있는 함수 만들기](#create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache)    
+* [출력으로 사용할 함수로 Stream Analytics 작업 업데이트](#update-the-stream-analytics-job-with-the-function-as-output)  
+* [Azure Redis Cache의 결과 확인](#check-azure-redis-cache-for-results)  
 
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Event Hubs에서 입력으로 사용할 Stream Analytics 작업 만들기
 

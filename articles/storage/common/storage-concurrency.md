@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
 ms.component: common
-ms.openlocfilehash: 9c36347db2d1678e79e5ad80cda491f77850c4a6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 91eb9c12a8913c0a96ee7c3133dc5f982c42cad7
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525242"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025311"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Microsoft Azure Storage에서 동시성 관리
 ## <a name="overview"></a>개요
@@ -50,29 +50,29 @@ Storage 서비스는 저장되는 모든 개체에 식별자를 할당합니다.
 ```csharp
 // Retrieve the ETag from the newly created blob
 // Etag is already populated as UploadText should cause a PUT Blob call
-// to storage blob service which returns the etag in response.
-string orignalETag = blockBlob.Properties.ETag;
+// to storage blob service which returns the ETag in response.
+string originalETag = blockBlob.Properties.ETag;
 
 // This code simulates an update by a third party.
 string helloText = "Blob updated by a third party.";
 
-// No etag, provided so orignal blob is overwritten (thus generating a new etag)
+// No ETag provided so original blob is overwritten (thus generating a new ETag)
 blockBlob.UploadText(helloText);
 Console.WriteLine("Blob updated. Updated ETag = {0}",
 blockBlob.Properties.ETag);
 
-// Now try to update the blob using the orignal ETag provided when the blob was created
+// Now try to update the blob using the original ETag provided when the blob was created
 try
 {
-    Console.WriteLine("Trying to update blob using orignal etag to generate if-match access condition");
+    Console.WriteLine("Trying to update blob using original ETag to generate if-match access condition");
     blockBlob.UploadText(helloText,accessCondition:
-    AccessCondition.GenerateIfMatchCondition(orignalETag));
+    AccessCondition.GenerateIfMatchCondition(originalETag));
 }
 catch (StorageException ex)
 {
     if (ex.RequestInformation.HttpStatusCode == (int)HttpStatusCode.PreconditionFailed)
     {
-        Console.WriteLine("Precondition failure as expected. Blob's orignal etag no longer matches");
+        Console.WriteLine("Precondition failure as expected. Blob's original ETag no longer matches");
         // TODO: client can decide on how it wants to handle the 3rd party updated content.
     }
     else
@@ -84,7 +84,7 @@ Storage 서비스는 **If-Modified-Since**, **If-Unmodified-Since** 및 **If-Non
 
 아래 표에는 요청에서 **If-Match** 와 같은 조건부 헤더를 수락하며 응답에서 ETag 값을 반환하는 컨테이너 작업이 요약되어 있습니다.  
 
-| 작업 | 컨테이너 ETag 값 반환 | 추가 헤더 수락 |
+| 작업(Operation) | 컨테이너 ETag 값 반환 | 추가 헤더 수락 |
 |:--- |:--- |:--- |
 | 컨테이너 만들기 |yes |아니요 |
 | 컨테이너 속성 가져오기 |yes |아니요 |
@@ -100,7 +100,7 @@ Storage 서비스는 **If-Modified-Since**, **If-Unmodified-Since** 및 **If-Non
 
 아래 표에는 요청에서 **If-Match** 와 같은 조건부 헤더를 수락하며 응답에서 ETag 값을 반환하는 Blob 작업이 요약되어 있습니다.
 
-| 작업 | ETag 값 반환 | 추가 헤더 수락 |
+| 작업(Operation) | ETag 값 반환 | 추가 헤더 수락 |
 |:--- |:--- |:--- |
 | Blob 배치 |yes |yes |
 | Blob 가져오기 |yes |yes |
@@ -235,7 +235,7 @@ customer.ETag = "*";
 
 다음 표에는 테이블 엔터티 작업이 ETag 값을 사용하는 방식이 요약되어 있습니다.
 
-| 작업 | ETag 값 반환 | If-Match 요청 헤더 필요 여부 |
+| 작업(Operation) | ETag 값 반환 | If-Match 요청 헤더 필요 여부 |
 |:--- |:--- |:--- |
 | 엔터티 쿼리 |yes |아니요 |
 | 엔터티 삽입 |yes |아니요 |
@@ -264,7 +264,7 @@ customer.ETag = "*";
 * [메시지 가져오기](http://msdn.microsoft.com/library/azure/dd179474.aspx)  
 
 ## <a name="managing-concurrency-in-the-file-service"></a>파일 서비스에서 동시성 관리
-서로 다른 두 프로토콜 끝점인 SMB와 REST를 사용하여 파일 서비스에 액세스할 수 있습니다. REST 서비스는 낙관적 잠금이나 비관적 잠금을 지원하지 않으며 모든 업데이트는 마지막 작성자의 업데이트 적용 전략을 따릅니다. 파일 공유를 탑재하는 SMB 클라이언트는 파일 시스템 잠금 메커니즘을 활용하여 공유 파일에 대한 액세스를 관리할 수 있습니다. 여기에는 비관적 잠금을 수행하는 기능이 포함됩니다. SMB 클라이언트는 파일을 열 때 파일 액세스 및 공유 모드를 모두 지정합니다. 파일 공유 모드를 "없음"으로 지정하는 동시에 파일 액세스 옵션을 "쓰기" 또는 "읽기/쓰기"로 설정하면 파일을 닫을 때까지 SMB 클라이언트가 파일을 잠급니다. SMB 클라이언트가 파일을 잠근 경우 해당 파일에 대해 REST 작업을 시도하면 REST 서비스가 상태 코드 409(충돌) 및 오류 코드 SharingViolation을 반환합니다.  
+서로 다른 두 프로토콜 엔드포인트인 SMB와 REST를 사용하여 파일 서비스에 액세스할 수 있습니다. REST 서비스는 낙관적 잠금이나 비관적 잠금을 지원하지 않으며 모든 업데이트는 마지막 작성자의 업데이트 적용 전략을 따릅니다. 파일 공유를 탑재하는 SMB 클라이언트는 파일 시스템 잠금 메커니즘을 활용하여 공유 파일에 대한 액세스를 관리할 수 있습니다. 여기에는 비관적 잠금을 수행하는 기능이 포함됩니다. SMB 클라이언트는 파일을 열 때 파일 액세스 및 공유 모드를 모두 지정합니다. 파일 공유 모드를 "없음"으로 지정하는 동시에 파일 액세스 옵션을 "쓰기" 또는 "읽기/쓰기"로 설정하면 파일을 닫을 때까지 SMB 클라이언트가 파일을 잠급니다. SMB 클라이언트가 파일을 잠근 경우 해당 파일에 대해 REST 작업을 시도하면 REST 서비스가 상태 코드 409(충돌) 및 오류 코드 SharingViolation을 반환합니다.  
 
 SMB 클라이언트는 삭제를 위해 파일을 열 때 해당 파일에 대한 기타 모든 SMB 클라이언트 열기 핸들이 닫힐 때까지 파일을 삭제 보류 중으로 표시합니다. 파일이 삭제 보류 중으로 표시되어 있는 동안 해당 파일에 대해 REST 작업을 수행하면 상태 코드 409(충돌)와 오류 코드 SMBDeletePending이 반환됩니다. SMB 클라이언트가 파일을 닫기 전에 삭제 보류 중 플래그를 제거할 수 있으므로 상태 코드 404(찾을 수 없음)는 반환되지 않습니다. 즉, 파일이 제거된 경우에만 상태 코드 404(찾을 수 없음)가 반환됩니다. 파일이 SMB 삭제 보류 중 상태인 경우 목록 파일 결과에 포함되지 않습니다. 또한 REST 파일 삭제 및 REST 디렉터리 삭제 작업은 원자성으로 커밋되며 삭제 보류 중 상태를 나타내지 않습니다.  
 

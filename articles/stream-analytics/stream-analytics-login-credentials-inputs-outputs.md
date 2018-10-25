@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: b49b4fecb6be70987e7e6736d78f224c03f719bf
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2dd5721ad0f45080a73172e150891cfb5f48d329
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30907282"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025772"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Stream Analytics 작업에서 입력 및 출력을 위한 로그인 자격 증명 순환
 
@@ -34,7 +34,7 @@ Stream Analytics 작업의 입력 또는 출력에대 한 자격 증명을 다�
 6. **Storage 계정 키** 필드를 찾아 새로 생성된 키를 붙여 넣고 **저장**을 클릭합니다.    
 7. 변경 내용을 저장할 때 연결 테스트가 자동으로 시작되며 알림 탭에서 확인할 수 있습니다. 다음과 같이 업데이트 저장에 해당하는 알림과 연결 테스트에 대한 알림이 하나씩 표시됩니다.  
    ![키 편집 후 알림](media/stream-analytics-login-credentials-inputs-outputs/image4.png)
-8. [마지막으로 중지된 시간부터 작업 시작] (#start-your-job-from-the-last-stopped-time) 섹션을 계속 진행합니다.
+8. [마지막으로 중지된 시간부터 작업 시작](#start-your-job-from-the-last-stopped-time) 섹션을 계속 진행합니다.
 
 ### <a name="event-hubs"></a>이벤트 허브(영문)
 

@@ -11,12 +11,12 @@ ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 926b35f49169c5a87e82996ba714aad40ba5244c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 557d4217819449cd0513d4a21e331e660e37037b
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29687322"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987684"
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>PostgreSQL용 Azure Database: Python을 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 [Python](https://python.org)을 사용하여 Azure Database for PostgreSQL에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 macOS, Ubuntu Linux 및 Windows 플랫폼에서 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법도 보여 줍니다. 이 문서의 단계에서는 개발자가 Python을 사용하여 개발하는 것에 익숙하고 PostgreSQL용 Azure Database 작업에 익숙하지 않다고 가정합니다.
@@ -31,7 +31,7 @@ ms.locfileid: "29687322"
 - [pip](https://pip.pypa.io/en/stable/installing/) 패키지 설치([python.org](https://python.org)에서 다운로드한 Python 2 >=2.7.9 또는 Python 3 >=3.4 이진 파일을 사용하는 경우 pip가 이미 설치됨)
 
 ## <a name="install-the-python-connection-libraries-for-postgresql"></a>PostgreSQL용 Python 연결 라이브러리 설치
-데이터베이스를 연결하고 쿼리할 수 있는 [psycopg2](http://initd.org/psycopg/docs/install.html) 패키지를 설치합니다. psycopg2는 가장 일반적인 플랫폼(Linux, OSX, Windows)에 대한 [휠](http://pythonwheels.com/) 패키지 형태로 [PyPI에서 제공](https://pypi.python.org/pypi/psycopg2/)됩니다. 모든 종속 관계를 포함한 모듈의 이진 버전을 가져오려면 pip 설치를 사용합니다.
+데이터베이스를 연결하고 쿼리할 수 있는 [psycopg2](http://initd.org/psycopg/docs/install.html) 패키지를 설치합니다. psycopg2는 가장 일반적인 플랫폼(Linux, OSX, Windows)에 대한 [휠](https://pythonwheels.com/) 패키지 형태로 [PyPI에서 제공](https://pypi.python.org/pypi/psycopg2/)됩니다. 모든 종속 관계를 포함한 모듈의 이진 버전을 가져오려면 pip 설치를 사용합니다.
 
 1. 자신의 컴퓨터에서 명령줄 인터페이스를 시작합니다.
     - Linux에서 Bash 셸을 시작합니다.
