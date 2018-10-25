@@ -1,21 +1,21 @@
 ---
 title: C++용 Speech SDK를 사용하여 음성 인식
-titleSuffix: Microsoft Cognitive Services
-description: >
-  C++용 Speech SDK를 사용하여(파일의 음성, 마이크의 음성을 사용자 정의된 모델로, 연속해서 또는 단발로) 음성을 인식하는 방법을 알아봅니다.
+titleSuffix: Azure Cognitive Services
+description: C++용 Speech SDK를 사용하여(파일의 음성, 마이크의 음성을 사용자 정의된 모델로, 연속해서 또는 단발로) 음성을 인식하는 방법을 알아봅니다.
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 133bce7443f8cd9fce41446fef9f9247355e1125
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 2289a41fad552082e93f4d0d51ff76c6f4c241da
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886419"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470532"
 ---
 # <a name="recognize-speech-by-using-the-speech-sdk-for-c"></a>C++용 Speech SDK를 사용하여 음성 인식
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e42bc63b0c2b6edf4dc0de204bbac5fe90071a67
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 7410dadabf9fda2eb36531991d1d7ff3c3747e2c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480515"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406520"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Azure Active Directory B2C에 사용할 수 있는 응용 프로그램 유형
 
@@ -26,13 +26,13 @@ Azure AD B2C를 사용하는 모든 응용 프로그램은 [Azure Portal](https:
 * 응용 프로그램을 고유하게 식별하는 **응용 프로그램 ID**
 * 응답을 다시 응용 프로그램으로 보내는 데 사용할 수 있는 **리디렉션 URI**
 
-Azure AD B2C에 전송되는 각 요청은 **정책**을 지정합니다. 정책은 Azure AD의 동작을 제어합니다. 또한 이러한 끝점을 사용하여 사용자 환경에 대해 고도로 사용자 지정 가능한 집합을 만들 수 있습니다. 공통 정책에는 등록 정책, 로그인 정책 및 프로필 편집 정책이 포함됩니다. 정책에 익숙하지 않은 경우 계속 읽기 전에 Azure AD B2C의 [확장할 수 있는 정책 프레임워크](active-directory-b2c-reference-policies.md) 에 대해 읽어야 합니다.
+Azure AD B2C에 전송되는 각 요청은 **정책**을 지정합니다. 정책은 Azure AD의 동작을 제어합니다. 또한 이러한 엔드포인트를 사용하여 사용자 환경에 대해 고도로 사용자 지정 가능한 집합을 만들 수 있습니다. 공통 정책에는 등록 정책, 로그인 정책 및 프로필 편집 정책이 포함됩니다. 정책에 익숙하지 않은 경우 계속 읽기 전에 Azure AD B2C의 [확장할 수 있는 정책 프레임워크](active-directory-b2c-reference-policies.md) 에 대해 읽어야 합니다.
 
 모든 응용 프로그램의 상호 작용은 높은 수준에서 비슷한 패턴을 따릅니다.
 
-1. 응용 프로그램이 사용자를 v2.0 끝점으로 보내어 [정책](active-directory-b2c-reference-policies.md)을 실행합니다.
+1. 응용 프로그램이 사용자를 v2.0 엔드포인트로 보내어 [정책](active-directory-b2c-reference-policies.md)을 실행합니다.
 2. 사용자는 정책 정의에 따라 정책을 완료합니다.
-3. 응용 프로그램은 v2.0 끝점에서 보안 토큰을 수신합니다.
+3. 응용 프로그램은 v2.0 엔드포인트에서 보안 토큰을 수신합니다.
 4. 응용 프로그램이 보안 토큰을 사용하여 보호된 정보 또는 보호된 리소스에 액세스합니다.
 5. 리소스 서버가 보안 토큰의 유효성을 검사하여 액세스 권한을 부여할 수 있는지 확인합니다.
 6. 응용 프로그램은 주기적으로 보안 토큰을 새로 고칩니다.
@@ -88,11 +88,6 @@ Accept: application/json
 
 그러면 Web API는 토큰을 사용하여 API 호출자의 ID를 확인하고 토큰에 인코드된 클레임에서 호출자에 대한 정보를 추출할 수 있습니다. [Azure AD B2C 토큰 참조](active-directory-b2c-reference-tokens.md)에서 앱이 사용할 수 있는 토큰 및 클레임 유형에 대해 알아볼 수 있습니다.
 
-> [!NOTE]
-> Azure AD B2C는 현재 고유한 잘 알려진 클라이언트에서 액세스하는 Web API만을 지원합니다. 예를 들어, 전체 앱이 iOS 응용 프로그램, Android 응용 프로그램 및 백 엔드 Web API를 포함할 수 있습니다. 이 아키텍처를 완전히 지원합니다. 다른 iOS 응용 프로그램과 같은 파트너 클라이언트에서 동일한 Web API에 액세스하는 것은 현재 지원되지 않습니다. 전체 응용 프로그램의 모든 구성 요소는 단일 응용 프로그램 ID를 공유해야 합니다.
->
->
-
 Web API는 웹 응용 프로그램, 데스크톱 및 모바일 응용 프로그램, 단일 페이지 응용 프로그램, 서버 쪽 데몬 및 다른 Web API까지 포함하여 많은 유형의 클라이언트에서 토큰을 받을 수 있습니다. 다음은 Web API를 호출하는 웹 응용 프로그램에 대한 전체 흐름을 보여주는 예입니다.
 
 1. 웹 응용 프로그램에서 정책을 실행하고, 사용자는 사용자 환경을 완료합니다.
@@ -114,11 +109,6 @@ Azure AD B2C를 사용하여 Web API를 보호하는 방법을 알아보려면 [
 모바일 및 데스크톱 응용 프로그램과 같은 장치에 설치된 응용 프로그램은 사용자 대신 백 엔드 서비스 또는 Web API에 액세스해야 하는 경우가 많습니다. 네이티브 응용 프로그램에 사용자 지정된 ID 관리 환경을 추가하고 Azure AD B2C 및 [OAuth 2.0 권한 부여 코드 흐름](active-directory-b2c-reference-oauth-code.md)을 사용하여 안전하게 백 엔드 서비스를 호출할 수 있습니다.  
 
 이 흐름에서 응용 프로그램은 [정책](active-directory-b2c-reference-policies.md)을 실행하고 사용자가 정책을 완료하면 Azure AD에서 `authorization_code`를 수신합니다. `authorization_code`는 현재 로그인한 사용자를 대신하여 백 엔드 서비스를 호출할 응용 프로그램의 사용 권한을 나타냅니다. 그러면 응용 프로그램은 백그라운드에서 `id_token` 및 `refresh_token`에 대한 `authorization_code`를 교환할 수 있습니다.  응용 프로그램은 HTTP 요청에서 백 엔드 Web API를 인증하는 데 `id_token`을 사용할 수 있습니다. 또한 이전 항목이 만료된 경우 `refresh_token`을 사용하여 새 `id_token`을 가져올 수도 있습니다.
-
-> [!NOTE]
-> Azure AD B2C는 현재 응용 프로그램 자체의 백 엔드 웹 서비스에 액세스하는 데 사용되는 토큰만을 지원합니다. 예를 들어, 전체 응용 프로그램이 iOS 응용 프로그램, Android 응용 프로그램 및 백 엔드 Web API를 포함할 수 있습니다. 이 아키텍처를 완전히 지원합니다. iOS 응용 프로그램이 OAuth 2.0 액세스 토큰을 사용하여 파트너 Web API에 액세스하는 작업은 현재 지원되지 않습니다. 전체 응용 프로그램의 모든 구성 요소는 단일 응용 프로그램 ID를 공유해야 합니다.
->
->
 
 ## <a name="current-limitations"></a>현재 제한 사항
 

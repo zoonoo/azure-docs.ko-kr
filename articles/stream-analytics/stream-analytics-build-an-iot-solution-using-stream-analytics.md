@@ -9,12 +9,12 @@ ms.reviewer: jasonh, sngun
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/21/2018
-ms.openlocfilehash: 1610e8173d90be3c0b50f05e64d0e84e1c21ad0e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 88c58175f4886d4796ed4e32b41d030c9ee441fc
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698046"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986891"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Stream Analytics를 사용하여 IoT 솔루션 빌드
 
@@ -109,7 +109,7 @@ ms.locfileid: "43698046"
 | 만료됨 |차량의 등록 상태: 차량 등록이 활성화된 경우는 0, 등록이 만료된 경우는 1 |
 
 ## <a name="set-up-the-environment-for-azure-stream-analytics"></a>Azure Stream Analytics를 위한 환경 설정
-이 솔루션을 완료하려면 Microsoft Azure 구독이 필요합니다. Azure 계정이 없는 경우 [평가판 버전을 요청](http://azure.microsoft.com/pricing/free-trial/)할 수 있습니다.
+이 솔루션을 완료하려면 Microsoft Azure 구독이 필요합니다. Azure 계정이 없는 경우 [평가판 버전을 요청](https://azure.microsoft.com/pricing/free-trial/)할 수 있습니다.
 
 이 문서 끝에 나오는 “Azure 계정 정리” 섹션의 단계를 수행해야 Azure 크레딧을 최대한 활용할 수 있습니다.
 

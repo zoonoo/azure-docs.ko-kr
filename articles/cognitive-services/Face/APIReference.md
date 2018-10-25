@@ -1,5 +1,3 @@
-<!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->
----
 제목: API 참조 = Face API 제목 접미사: Azure Cognitive Services 설명: API 참조는 Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management 및 Face Algorithms API에 대한 정보를 제공합니다.
 서비스: cognitive-services 작성자: SteveMSFT 관리자: cgronlun
 
@@ -18,3 +16,5 @@ Face API는 다음 범주를 포함합니다.
 - [LargeFaceList Management API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc): [Find Similar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)에 대한 LargeFaceList를 관리하는 데 사용됩니다.
 - [PersonGroup Person Management API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c): [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)에 대한 PersonGroup Person Faces를 관리하는 데 사용됩니다.
 - [PersonGroup Management API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244): [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)에 대한 PersonGroup 데이터 집합을 관리하는 데 사용됩니다.
+
+<!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->

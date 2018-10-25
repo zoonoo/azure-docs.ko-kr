@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 538b0c969d8c039079c09232e06f55e24aabf393
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 87ac7364a2c409af410fcb5cd09aed4377b28d8e
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843052"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988197"
 ---
 ## <a name="use-msal-to-get-a-token-for-the-microsoft-graph-api"></a>MSAL을 사용하여 Microsoft Graph API에 대한 토큰 가져오기
 
 이 섹션에서는 MSAL을 사용하여 Microsoft Graph API에 대한 토큰을 가져옵니다.
 
-1.  *MainWindow.xaml.cs* 파일에서 MSAL에 대한 참조를 클래스에 추가합니다.
+1. *MainWindow.xaml.cs* 파일에서 MSAL에 대한 참조를 클래스에 추가합니다.
 
     ```csharp
     using Microsoft.Identity.Client;
@@ -215,4 +215,3 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 
 또한 MSAL에서는 사용자가 로그인한 후에 Microsoft Graph API를 호출하는 데 사용되는 액세스 토큰을 외에도 ID 토큰을 가져옵니다. 이 토큰에는 사용자에게 관련된 정보의 작은 하위 집합이 포함됩니다. `DisplayBasicTokenInfo` 메서드는 토큰에 포함된 기본 정보를 표시합니다. 예를 들어, 토큰 만료 날짜 및 액세스 토큰 자체를 나타내는 문자열뿐만 아니라 사용자 표시 이름 및 ID을 표시합니다. *Microsoft Graph API 호출* (Call Microsoft Graph API) 단추를 여러 번 선택하면 동일한 토큰이 후속 요청에 다시 사용된 것을 볼 수 있습니다. MSAL이 토큰 갱신 시점이라고 판단한 경우에는 만료 날짜가 연장된 것도 확인할 수 있습니다.
 <!--end-collapse-->
-

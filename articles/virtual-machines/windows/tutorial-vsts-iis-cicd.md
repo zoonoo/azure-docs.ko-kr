@@ -3,7 +3,7 @@ title: 자습서 - Azure에서 Azure DevOps Services를 사용하여 CI/CD 파�
 description: 이 자습서에서는 지속적인 통합 및 전달을 위해 Azure의 Windows VM에서 웹앱을 IIS에 배포하는 Azure DevOps Services 파이프라인을 만드는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/12/2017
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: d4edf0d22ce04eb2cb865d80c2b70f1bcc2169df
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4b4d514ec8bfd78b303a7f51c2a4072507da5be9
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301901"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471461"
 ---
 # <a name="tutorial-create-a-continuous-integration-pipeline-with-azure-devops-services-and-iis"></a>자습서: Azure DevOps Services 및 IIS를 사용하여 연속 통합 파이프라인 만들기
 응용 프로그램 개발의 빌드, 테스트 및 배포 단계를 자동화하려면 CI/CD(연속 통합 및 배포) 파이프라인을 사용할 수 있습니다. 이 자습서에서는 Azure DevOps Services 및 IIS를 실행하는 Azure의 Windows VM(가상 머신)을 사용하여 CI/CD 파이프라인을 만듭니다. 다음 방법에 대해 알아봅니다.
@@ -91,7 +91,7 @@ Azure DevOps Services에서 빌드 파이프라인을 사용하여 응용 프로
 ![성공적인 Azure DevOps Services 프로젝트 빌드](media/tutorial-vsts-iis-cicd/successful_build.png)
 
 
-## <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
+## <a name="create-virtual-machine"></a>가상 머신 만들기
 ASP.NET 웹앱을 실행할 플랫폼을 제공하려면 IIS를 실행하는 Windows 가상 컴퓨터가 필요합니다. 코드를 커밋하고 빌드가 트리거될 때 Azure DevOps Services에서 에이전트를 사용하여 IIS 인스턴스와 상호 작용합니다.
 
 [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)으로 Windows Server 2016 VM을 만듭니다. 다음 예제에서는 *EastUS* 위치에 *myVM*이라는 VM을 만듭니다. 리소스 그룹 *myResourceGroupAzureDevOpsServices* 및 지원 네트워크 리소스도 만들어집니다. 웹 트래픽을 허용하기 위해 TCP 포트 *80*이 VM에 대해 열립니다. 메시지가 표시되면 VM에 대한 로그인 자격 증명으로 사용할 사용자 이름과 암호를 입력합니다.

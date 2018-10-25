@@ -2,25 +2,18 @@
 title: 'Azure Resource Manager VNet에 클래식 가상 네트워크를 연결하는 방법: 포털 | Microsoft Docs'
 description: VPN Gateway 및 포털을 사용하여 클래식 VNet을 Resource Manager VNet에 연결하는 단계
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-service-management,azure-resource-manager
-ms.assetid: 5a90498c-4520-4bd3-a833-ad85924ecaf9
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 03/13/2018
+ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6a585155e1d1050498754f5b9a7ec3dfc82d7a2c
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 4d2edeaf7423d3a46becf386294d2dd8c46e9ab7
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319934"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405007"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>포털을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
 

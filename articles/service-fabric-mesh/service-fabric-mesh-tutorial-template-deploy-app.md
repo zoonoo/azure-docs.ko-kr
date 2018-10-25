@@ -165,7 +165,7 @@ seabreeze/azure-mesh-todo-webfrontend
 seabreeze/azure-mesh-todo-service
 ```
 
-다음 예제에서는 **** 리포지토리의 태그를 나열합니다.
+다음 예제에서는 리포지토리의 태그를 나열합니다 **.**
 
 ```azurecli
 az acr repository show-tags --name myContainerRegistry --repository seabreeze/azure-mesh-todo-service --output table

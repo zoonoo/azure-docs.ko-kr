@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: ''
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: f3efb99ddb47f167a0d9cbef064890e817a18841
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: cc8bd25b58cf898169a4d84154f7f3f81966bb92
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186820"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985797"
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스에서 SSL 연결 구성
 PostgreSQL용 Azure 데이터베이스는 SSL(Secure Sockets Layer)을 사용해서 PostgreSQL 서비스에 클라이언트 응용 프로그램을 연결하는 것을 선호합니다. 데이터베이스 서버와 클라이언트 응용 프로그램 간 SSL 연결을 적용하면 서버와 응용 프로그램 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다.
@@ -58,7 +58,7 @@ PostgreSQL용 Azure 데이터베이스 서버와 함께 SSL을 통해 통신하�
 응용 프로그램을 데이터베이스 서버에 안전하게 연결하기 위해 필요한 인증서 파일을 디코딩하려면 OpenSSL을 로컬 컴퓨터에 설치해야 합니다.
 
 #### <a name="for-linux-os-x-or-unix"></a>Linux, OS X 또는 Unix
-OpenSSL 라이브러리는 [OpenSSL Software Foundation](http://www.openssl.org)에서 직접 소스 코드로 제공됩니다. 다음 지침에서는 Linux PC에 OpenSSL을 설치하는 데 필요한 단계를 안내합니다. 이 문서에서는 Ubuntu 12.04 이상에서 작동하는 것으로 알려진 명령을 사용합니다.
+OpenSSL 라이브러리는 [OpenSSL Software Foundation](https://www.openssl.org)에서 직접 소스 코드로 제공됩니다. 다음 지침에서는 Linux PC에 OpenSSL을 설치하는 데 필요한 단계를 안내합니다. 이 문서에서는 Ubuntu 12.04 이상에서 작동하는 것으로 알려진 명령을 사용합니다.
 
 터미널 세션을 열고 OpenSSL을 다운로드합니다.
 ```bash

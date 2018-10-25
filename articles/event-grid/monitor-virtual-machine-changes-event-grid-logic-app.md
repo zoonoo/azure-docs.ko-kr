@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 11/30/2017
-ms.openlocfilehash: 29b28b0d81314d062c1b334092979cc9bccbeb31
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a6adf97a11821ff58c01d2450f06d07e7327fdfb
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127662"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957930"
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Azure Event Grid와 Logic Apps를 사용하여 가상 머신의 변경 사항 모니터링
 
@@ -90,7 +90,7 @@ Azure 리소스 또는 타사 리소스에서 특정 이벤트가 발생하는 �
    ![Azure 자격 증명으로 로그인](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
 
    > [!NOTE]
-   > @outlook.com 또는 @hotmail.com과 같은 개인 Microsoft 계정으로 로그인하는 경우 Event Grid 트리거가 제대로 나타나지 않을 수 있습니다. 이 문제를 해결하기 위해 [서비스 주체와 연결](../azure-resource-manager/resource-group-create-service-principal-portal.md)을 선택하거나 Azure 구독과 연결된 Azure Active Directory의 구성원(예: *user-name*@emailoutlook.onmicrosoft.com)으로 인증합니다.
+   > @outlook.com 또는 @hotmail.com과 같은 개인 Microsoft 계정으로 로그인하는 경우 Event Grid 트리거가 제대로 나타나지 않을 수 있습니다. 이 문제를 해결하기 위해 [서비스 주체와 연결](../active-directory/develop/howto-create-service-principal-portal.md)을 선택하거나 Azure 구독과 연결된 Azure Active Directory의 구성원(예: *user-name*@emailoutlook.onmicrosoft.com)으로 인증합니다.
 
 8. 이제 논리 앱을 게시자 이벤트에 구독합니다. 다음 테이블에 지정된 이벤트 구독에 대한 세부 정보를 제공합니다.
 
@@ -153,7 +153,7 @@ Azure 리소스 또는 타사 리소스에서 특정 이벤트가 발생하는 �
 
 ## <a name="send-email-when-your-virtual-machine-changes"></a>가상 머신이 변경될 때 전자 메일 보내기
 
-이제 지정한 조건이 참일 때 전자 메일을 받을 수 있도록 [*작업*](../logic-apps/logic-apps-overview.md#logic-app-concepts)을 추가합니다.
+이제 지정한 조건이 true일 때 전자 메일을 받을 수 있도록 [*작업*](../logic-apps/logic-apps-overview.md#logic-app-concepts)을 추가합니다.
 
 1. 조건의 **참인 경우** 상자에서 **작업 추가**를 선택합니다.
 

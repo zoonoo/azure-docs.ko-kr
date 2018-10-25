@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: ''
-ms.openlocfilehash: de2c57949cb2087e41b79a225963225d340f12af
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: b4fbd1248f91e0766cca66d1c51033a8b338c324
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263085"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957381"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Grafana에서 Azure 서비스 모니터링
 이제 [Azure Monitor 데이터 원본 플러그 인](https://grafana.com/plugins/grafana-azure-monitor-datasource)을 사용하여 [Grafana](https://grafana.com/)에서 Azure 서비스 및 응용 프로그램을 모니터링할 수 있습니다. 플러그 인은 Azure Monitor에서 제공하는 인프라 데이터뿐만 아니라 Application Insights SDK에서 수집한 응용 프로그램 성능 데이터도 수집합니다. 그런 다음 Grafana 대시보드에 이 데이터를 표시할 수 있습니다.
@@ -62,7 +62,7 @@ Azure Marketplace에서 Grafana 서버를 설정하고 Azure Monitor 및 Applica
 
 Grafana는 Azure Monitor API에 연결하고 메트릭 데이터를 수집하는 데 Azure Active Directory 서비스 주체를 사용합니다. Azure 리소스에 대한 액세스를 관리하려면 서비스 주체를 만들어야 합니다.
 
-1. 서비스 주체를 만들려면 [이러한 지침](../azure-resource-manager/resource-group-create-service-principal-portal.md)을 참조하세요. 테넌트 ID, 클라이언트 ID 및 클라이언트 암호를 복사하고 저장합니다.
+1. 서비스 주체를 만들려면 [이러한 지침](../active-directory/develop/howto-create-service-principal-portal.md)을 참조하세요. 테넌트 ID, 클라이언트 ID 및 클라이언트 암호를 복사하고 저장합니다.
 
 2. Azure Active Directory 응용 프로그램에 읽기 권한자 역할을 할당하려면 [역할에 응용 프로그램 할당](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role)을 참조하세요.     
 

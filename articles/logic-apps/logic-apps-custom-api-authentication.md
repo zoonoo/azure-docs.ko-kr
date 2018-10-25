@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: b329fb1416d28b0732e7b9ea4612f5bac8580b3a
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 62f71f29f813cd30c7d8e3c7f37f41677cf07364
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43132462"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956377"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Azure Logic Apps에서 사용자 지정 API에 대한 호출 보호
 
@@ -104,7 +104,7 @@ PowerShell과 함께 Azure Resource Manager를 통해 이 작업을 수행할 �
 
 4. 사용한 **테넌트 ID**(Azure AD 테넌트의 GUID), **응용 프로그램 ID** 및 암호를 복사합니다.
 
-자세한 내용은 [PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../azure-resource-manager/resource-group-authenticate-service-principal.md)를 참조하세요.
+자세한 내용은 [PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md)를 참조하세요.
 
 #### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>2부: 웹앱 또는 API 앱의 Azure AD 응용 프로그램 ID 만들기
 
@@ -189,7 +189,7 @@ Azure Active Directory 인증과 함께 빈 웹앱과 논리 앱을 자동으로
 | 요소 | 필수 | 설명 | 
 | ------- | -------- | ----------- | 
 | tenant | yes | Azure AD 테넌트의 GUID | 
-| audience | yes | 액세스하려는 대상 리소스의 GUID, 즉 웹앱 또는 API 앱에 대한 응용 프로그램 ID의 클라이언트 ID | 
+| 대상 | yes | 액세스하려는 대상 리소스의 GUID, 즉 웹앱 또는 API 앱에 대한 응용 프로그램 ID의 클라이언트 ID | 
 | clientId | yes | 액세스를 요청하는 클라이언트의 GUID, 즉 논리 앱에 대한 응용 프로그램 ID의 클라이언트 ID | 
 | secret | yes | 액세스 토큰을 요청하는 클라이언트에 대한 응용 프로그램 ID의 키 또는 암호 | 
 | 형식 | yes | 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. | 

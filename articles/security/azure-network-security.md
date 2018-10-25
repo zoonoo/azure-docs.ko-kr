@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: b1485ff933df7991e1c112981ae10d93bf5613da
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 1d94ac5f799fc4bad13ab6a5e97a225a7499380d
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061544"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405976"
 ---
 # <a name="azure-network-security"></a>Azure 네트워크 보안
 
@@ -200,7 +200,7 @@ Azure는 VNet의 모든 서브넷에 연결된 리소스가 서로 통신할 수
 
 #### <a name="internet-connectivity"></a>인터넷 연결
 
-이름에서 알 수 있듯이 인터넷 연결은 가상 네트워크 내에 존재하는 작업에 다른 공용 끝점을 노출하도록 하여 인터넷에서 작업에 액세스할 수 있도록 해줍니다. 이러한 작업은 [인터넷 연결 Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview)를 사용하거나 단순히 VM에 공용 IP 주소를 할당하여 노출할 수 있습니다. 이러한 방식으로 인터넷의 모든 항목은 호스트 방화벽, [NSG(네트워크 보안 그룹)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 및 [사용자 정의 경로](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)가 허용할 경우 해당 가상 컴퓨터에 연결될 수 있습니다.
+이름에서 알 수 있듯이 인터넷 연결은 가상 네트워크 내에 존재하는 작업에 다른 공용 엔드포인트를 노출하도록 하여 인터넷에서 작업에 액세스할 수 있도록 해줍니다. 이러한 작업은 [인터넷 연결 Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview)를 사용하거나 단순히 VM에 공용 IP 주소를 할당하여 노출할 수 있습니다. 이러한 방식으로 인터넷의 모든 항목은 호스트 방화벽, [NSG(네트워크 보안 그룹)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 및 [사용자 정의 경로](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)가 허용할 경우 해당 가상 컴퓨터에 연결될 수 있습니다.
 
 이 시나리오에서는 인터넷에 공개되어야 하고, 작업의 구성에 따라 어디에서든지 또는 특정 위치에서만 액세스할 수 있어야 하는 응용 프로그램을 노출할 수 있습니다.
 
@@ -428,7 +428,7 @@ Azure Load Balancer를 다음과 같이 구성할 수 있습니다.
 
 -   들어오는 인터넷 트래픽을 가상 머신에 부하 분산합니다. 이 구성을 [인터넷 연결 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview)이라고 합니다.
 
--   가상 네트워크의 가상 머신 간, 클라우드 서비스의 가상 머신 간, 또는 크로스-프레미스 가상 네트워크의 온-프레미스 컴퓨터와 가상 머신 간에 트래픽을 부하 분산합니다. 이 구성을 [내부 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-internal-overview)이라고 합.
+-   가상 네트워크의 가상 머신 간, 클라우드 서비스의 가상 머신 간, 또는 크로스-프레미스 가상 네트워크의 온-프레미스 컴퓨터와 가상 머신 간에 트래픽을 부하 분산합니다. 이 구성을 [내부 부하 분산](https://docs.microsoft.com/azure/load-balancer/load-balancer-internal-overview)이라고 합니다.
 
 -   외부 트래픽을 특정 가상 머신에 전달합니다.
 
@@ -436,31 +436,29 @@ Azure Load Balancer를 다음과 같이 구성할 수 있습니다.
 
  **Application Gateway**
 
- Application Gateway는 응용 프로그램 계층(OSI 네트워크 참조 스택의 계층 7)에서 작동합니다. 이 게이트웨이는 역방향 프록시 서비스 역할을 하며 클라이언트 연결을 종료하고 백 엔드 끝점으로 요청을 전달합니다.
+ Application Gateway는 응용 프로그램 계층(OSI 네트워크 참조 스택의 계층 7)에서 작동합니다. 이 게이트웨이는 역방향 프록시 서비스 역할을 하며 클라이언트 연결을 종료하고 백 엔드 엔드포인트로 요청을 전달합니다.
 
  **Traffic Manager**
 
-Microsoft Azure Traffic Manager를 사용하면 다양한 데이터 센터에서 서비스 끝점에 대한 사용자 트래픽의 배포를 제어할 수 있습니다. Traffic Manager에서 지원되는 서비스 끝점은 Azure VM, Web Apps 및 클라우드 서비스를 포함합니다. 또한 외부, Azure가 아닌 끝점으로 Traffic Manager를 사용할 수 있습니다.
+Microsoft Azure Traffic Manager를 사용하면 다양한 데이터 센터에서 서비스 엔드포인트에 대한 사용자 트래픽의 배포를 제어할 수 있습니다. Traffic Manager에서 지원되는 서비스 엔드포인트는 Azure VM, Web Apps 및 클라우드 서비스를 포함합니다. 또한 외부, Azure가 아닌 엔드포인트로 Traffic Manager를 사용할 수 있습니다.
 
-Traffic Manager는 DNS(Domain Name System)를 사용하여 클라이언트 요청을 [트래픽 라우팅 메서드](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods) 및 끝점의 상태를 기반으로 가장 적절한 끝점으로 리디렉션합니다. Traffic Manager는 다양한 응용 프로그램 요구 사항, 끝점 상태 [모니터링](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring) 및 자동 장애 조치에 잘 맞는 트래픽 라우팅 메서드를 제공합니다. Traffic Manager는 전체 Azure 지역의 오류를 포함한, 오류에 대해 복원력을 갖습니다.
+Traffic Manager는 DNS(Domain Name System)를 사용하여 클라이언트 요청을 [트래픽 라우팅 메서드](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods) 및 엔드포인트의 상태를 기반으로 가장 적절한 엔드포인트로 리디렉션합니다. Traffic Manager는 다양한 응용 프로그램 요구 사항, 엔드포인트 상태 [모니터링](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring) 및 자동 장애 조치에 잘 맞는 트래픽 라우팅 메서드를 제공합니다. Traffic Manager는 전체 Azure 지역의 오류를 포함한, 오류에 대해 복원력을 갖습니다.
 
-Azure Traffic Manager를 사용하면 응용 프로그램 끝점에 트래픽 분산을 제어할 수 있습니다. 끝점은 Azure의 내부 또는 외부에서 호스팅되는 모든 인터넷 연결 서비스입니다.
+Azure Traffic Manager를 사용하면 응용 프로그램 엔드포인트에 트래픽 분산을 제어할 수 있습니다. 엔드포인트는 Azure의 내부 또는 외부에서 호스팅되는 모든 인터넷 연결 서비스입니다.
 
 Traffic Manager는 다음과 같은 두 가지 주요 이점을 제공합니다.
 
 -   여러 가지 [트래픽 라우팅 방법](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods) 중 하나에 따라 트래픽 배포
 
--   [끝점 상태 연속 모니터링](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring) 및 끝점이 실패할 경우 자동 장애 조치(failover)
+-   [엔드포인트 상태 연속 모니터링](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring) 및 엔드포인트가 실패할 경우 자동 장애 조치(failover)
 
-클라이언트가 서비스에 연결하려고 시도하면 먼저 IP 주소에 대한 서비스의 DNS 이름을 확인합니다. 그런 다음 클라이언트는 해당 IP 주소에 연결하여 서비스에 액세스합니다. Traffic Manager는 DNS를 사용하여 트래픽 라우팅 메서드의 규칙에 따라 클라이언트를 특정 서비스 끝점에 연결합니다. 클라이언트는 선택한 끝점에 직접 연결됩니다. Traffic Manager는 프록시 또는 게이트웨이가 아닙니다. Traffic Manager는 클라이언트와 서비스 간에 전달되는 트래픽을 표시하지 않습니다.
+클라이언트가 서비스에 연결하려고 시도하면 먼저 IP 주소에 대한 서비스의 DNS 이름을 확인합니다. 그런 다음 클라이언트는 해당 IP 주소에 연결하여 서비스에 액세스합니다. Traffic Manager는 DNS를 사용하여 트래픽 라우팅 메서드의 규칙에 따라 클라이언트를 특정 서비스 엔드포인트에 연결합니다. 클라이언트는 선택한 엔드포인트에 직접 연결됩니다. Traffic Manager는 프록시 또는 게이트웨이가 아닙니다. Traffic Manager는 클라이언트와 서비스 간에 전달되는 트래픽을 표시하지 않습니다.
 
 ### <a name="azure-network-validation"></a>Azure 네트워크 유효성 검사
 
 Azure 네트워크 유효성 검사는 Azure 네트워크가 구성된 대로 작동하는지 확인하며 이러한 유효성 검사는 네트워크 모니터링에 사용할 수 있는 서비스 및 기능을 사용하여 수행할 수 있습니다. Azure Network Watcher를 사용하여 다양한 로깅 및 진단 기능에 액세스함으로써 네트워크 성능과 상태를 보다 깊이 있기 이해할 수 있습니다. 이러한 기능은 포털, Powershell, CLI, Rest API 및 SDK를 통해 액세스할 수 있습니다.
 
 Azure 운영 보안은 사용자가 Microsoft Azure에서 자신의 데이터, 응용 프로그램 및 기타 자산을 보호할 수 있는 서비스, 제어 및 기능을 나타냅니다. Azure 운영 보안은 Microsoft SDL(Security Development Lifecycle), Microsoft 보안 대응 센터 프로그램 및 사이버 보안 위협 상황에 대한 심층 인식을 포함하여 Microsoft 고유의 다양한 기능을 통해 얻은 지식을 통합한 프레임워크를 기반으로 합니다.
-
--   [Azure Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
 
 -   [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.openlocfilehash: 1955fc033e0351be9da89bbee11dc41d6281a63a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: c29131720de8d6016d134fe7c0118fc3db9e22be
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433993"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985644"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Power BI 대시보드에서 전화 통화 데이터를 분석하고 결과를 시각화하는 Stream Analytics 작업 만들기
  
@@ -37,7 +37,7 @@ ms.locfileid: "47433993"
 
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.  
 * [Azure Portal](https://portal.azure.com/)에 로그인합니다.  
-* Microsoft 다운로드 센터에서 전화 통화 이벤트 생성기 앱 [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip)을 다운로드하거나 [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator)에서 소스 코드를 가져올 수 있습니다.  
+* Microsoft 다운로드 센터에서 전화 통화 이벤트 생성기 앱 [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip)을 다운로드하거나 [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator)에서 소스 코드를 가져올 수 있습니다.  
 
 ## <a name="create-an-azure-event-hub"></a>Azure 이벤트 허브 만들기 
 
@@ -52,7 +52,7 @@ Stream Analytics가 사기성 호출 데이터 스트림을 분석하려면 먼�
    |**설정**  |**제안 값** |**설명**  |
    |---------|---------|---------|
    |이름     | myEventHubNS        |  이벤트 허브 네임스페이스를 식별하는 고유 이름입니다.       |
-   |구독     |   \<사용자의 구독\>      |   이벤트 허브를 만들 Azure 구독을 선택합니다.      |
+   |구독     |   \<구독\>      |   이벤트 허브를 만들 Azure 구독을 선택합니다.      |
    |리소스 그룹     |   MyASADemoRG      |  **새로 만들기**를 선택하고 계정의 새로운 리소스 그룹 이름을 입력합니다.       |
    |위치     |   미국 서부2      |    이벤트 허브 네임스페이스를 배포할 수 있는 위치입니다.     |
 
@@ -89,7 +89,7 @@ Stream Analytics가 사기성 호출 데이터 스트림을 분석하려면 먼�
 
 TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 데이터를 전송하도록 앱을 구성해야 합니다.
 
-1. [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) 파일의 콘텐츠를 추출합니다.  
+1. [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) 파일의 콘텐츠를 추출합니다.  
 2. 원하는 텍스트 편집기에서 `TelcoGenerator\TelcoGenerator\telcodatagen.exe.config` 파일을 엽니다(.config 파일이 여러 개 있으므로 올바른 파일을 열어야 함).  
 
 3. 구성 파일의 <appSettings> 요소를 다음 세부 정보로 업데이트합니다.
@@ -133,7 +133,7 @@ TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 
    |**설정**  |**제안 값**  |**설명**  |
    |---------|---------|---------|
    |작업 이름     |  ASATutorial       |   이벤트 허브 네임스페이스를 식별하는 고유 이름입니다.      |
-   |구독    |  \<사용자의 구독\>   |   작업을 만들 Azure 구독을 선택합니다.       |
+   |구독    |  \<구독\>   |   작업을 만들 Azure 구독을 선택합니다.       |
    |리소스 그룹   |   MyASADemoRG      |   **기존 항목 사용**을 선택하고 계정의 새로운 리소스 그룹 이름을 입력합니다.      |
    |위치   |    미국 서부2     |      작업을 배포할 수 있는 위치입니다. 최상의 성능을 위해 동일한 지역에 작업 및 이벤트 허브를 배치하는 것이 좋으며 지역 간에 데이터를 전송하는 데 비용을 지불하지 않아도 됩니다.      |
    |호스팅 환경    | 클라우드        |     Stream Analytics 작업은 클라우드 또는 에지에 배포할 수 있습니다. 클라우드를 사용하면 Azure Cloud에 배포할 수 있고, 에지를 사용하면 IoT 에지 장치에 배포할 수 있습니다.    |
@@ -156,7 +156,7 @@ TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 
    |**설정**  |**제안 값**  |**설명**  |
    |---------|---------|---------|
    |입력 별칭     |  CallStream       |  입력을 식별하는 표시 이름. 입력 별칭은 영숫자 문자, 하이픈, 밑줄만 사용할 수 있으며 길이가 3자에서 63자 사이여야 합니다.       |
-   |구독    |   \<사용자의 구독\>      |   이벤트 허브를 만든 Azure 구독을 선택합니다. 이벤트 허브는 Stream Analytics 작업과 같은 구독일 수도 있고 다른 구독일 수도 있습니다.       |
+   |구독    |   \<구독\>      |   이벤트 허브를 만든 Azure 구독을 선택합니다. 이벤트 허브는 Stream Analytics 작업과 같은 구독일 수도 있고 다른 구독일 수도 있습니다.       |
    |이벤트 허브 네임스페이스    |  MyEventHubNS       |  이전 섹션에서 만든 이벤트 허브 네임스페이스를 선택합니다. 현재 구독에서 사용할 수 있는 모든 이벤트 허브 네임스페이스가 드롭다운에 나열됩니다.       |
    |이벤트 허브 이름    |   MyEventHub      |  이전 섹션에서 만든 이벤트 허브를 선택합니다. 현재 구독에서 사용할 수 있는 모든 이벤트 허브가 드롭다운에 나열됩니다.       |
    |이벤트 허브 정책 이름   |  Mypolicy       |  이전 섹션에서 만든 이벤트 허브 공유 액세스 정책을 선택합니다. 현재 구독에서 사용할 수 있는 모든 이벤트 정책이 드롭다운에 나열됩니다.       |
@@ -260,7 +260,7 @@ TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 
 
 ## <a name="embedding-your-powerbi-dashboard-in-a-web-application"></a>웹 응용 프로그램에 PowerBI 대시보드 포함
 
-자습서의 이 부분에서는 PowerBI 팀에서 만든 [ASP.NET](http://asp.net/) 웹 응용 프로그램을 사용하여 대시보드를 포함할 것입니다. 대시보드를 포함하는 방법에 대한 자세한 내용은 [Power BI를 통해 포함](https://docs.microsoft.com/power-bi/developer/embedding) 문서를 참조하세요.
+자습서의 이 부분에서는 PowerBI 팀에서 만든 [ASP.NET](https://asp.net/) 웹 응용 프로그램을 사용하여 대시보드를 포함할 것입니다. 대시보드를 포함하는 방법에 대한 자세한 내용은 [Power BI를 통해 포함](https://docs.microsoft.com/power-bi/developer/embedding) 문서를 참조하세요.
 
 이 자습서에서는 사용자 소유 데이터 응용 프로그램에 대한 단계를 따르겠습니다. 응용 프로그램을 설정하려면 [PowerBI-개발자-샘플](https://github.com/Microsoft/PowerBI-Developer-Samples) Github 리포지토리로 이동하여 **사용자 소유 데이터** 섹션 아래의 지침을 따릅니다(**통합-대시보드-웹앱** 하위 섹션 아래에 있는 리디렉션 및 홈페이지 URL 사용). 우리는 대시보드 예제를 사용할 예정이므로 [GitHub 리포지토리](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app)에 있는 통합-대시보드-웹앱 샘플 코드를 사용합니다.
 브라우저에서 응용 프로그램을 실행한 후에는 다음 단계에 따라 앞에서 만든 대시보드를 웹 페이지에 포함합니다.

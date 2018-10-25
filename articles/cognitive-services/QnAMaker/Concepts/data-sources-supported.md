@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: tulasim
-ms.openlocfilehash: 982bcbb9060a3f29000de2a0487b61dc58e24f6e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 36d74c7fba472956d57344977de79a4cbfd2cf02
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855462"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648516"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>QnA Maker 콘텐츠의 데이터 원본
 
@@ -90,7 +90,7 @@ QnA Maker는 글꼴 크기, 글꼴 스타일, 번호 매기기, 색상 등의 �
 
 DOC 파일에서 구조화된 질문-답변의 형식은 줄마다 질문과 답변이 번갈아 반복되는 양식으로, 아래와 같이 한 줄에 질문이 하나 나오면 그 다음 줄에 답변이 나옵니다. 
 
-```
+```text
 Question1
 
 Answer1

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: d7c006ca0be5e8db4b7ab02974ff029d3fe738e3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 0340a4d527023c050e2c776d31c02b59161a1316
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042345"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429478"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 데이터 분석
 
@@ -57,34 +57,42 @@ Log Analytics에는 다양한 방법으로 로그 데이터를 검색하고 분�
 
 예를 들어, 과거 오류 이벤트가 가장 많은 상위 10개 컴퓨터를 찾는다고 가정합니다.
 
-    Event
-    | where (EventLevelName == "Error")
-    | where (TimeGenerated > ago(1days))
-    | summarize ErrorCount = count() by Computer
-    | top 10 by ErrorCount desc
+```Kusto
+Event
+| where (EventLevelName == "Error")
+| where (TimeGenerated > ago(1days))
+| summarize ErrorCount = count() by Computer
+| top 10 by ErrorCount desc
+```
 
 또는 마지막 날에 하트비트를 보유하지 않은 컴퓨터를 찾을 수도 있습니다.
 
-    Heartbeat
-    | where TimeGenerated > ago(7d)
-    | summarize max(TimeGenerated) by Computer
-    | where max_TimeGenerated < ago(1d)  
+```Kusto
+Heartbeat
+| where TimeGenerated > ago(7d)
+| summarize max(TimeGenerated) by Computer
+| where max_TimeGenerated < ago(1d)  
+```
 
 지난 주 각 컴퓨터의 프로세서 사용률과 관련된 꺾은선형 차트는 어떨까요?
 
-    Perf
-    | where ObjectName == "Processor" and CounterName == "% Processor Time"
-    | where TimeGenerated  between (startofweek(ago(7d)) .. endofweek(ago(7d)) )
-    | summarize avg(CounterValue) by Computer, bin(TimeGenerated, 5min)
-    | render timechart    
+```Kusto
+Perf
+| where ObjectName == "Processor" and CounterName == "% Processor Time"
+| where TimeGenerated  between (startofweek(ago(7d)) .. endofweek(ago(7d)) )
+| summarize avg(CounterValue) by Computer, bin(TimeGenerated, 5min)
+| render timechart    
+```
 
 이러한 간단한 샘플 쿼리에서, 작업하는 데이터의 종류에 관계 없이 구조는 비슷하다는 점을 알 수 있습니다.  한 명령의 결과 데이터가 파이프라인을 통해 다음 명령에 전송되는 별개의 단계로 구분할 수 있습니다.
 
 또한 구독 내에서 Log Analytics 작업 영역 전반에 걸쳐 데이터를 쿼리할 수도 있습니다.
 
-    union Update, workspace("contoso-workspace").Update
-    | where TimeGenerated >= ago(1h)
-    | summarize dcount(Computer) by Classification 
+```Kusto
+union Update, workspace("contoso-workspace").Update
+| where TimeGenerated >= ago(1h)
+| summarize dcount(Computer) by Classification 
+```
 
 ## <a name="how-log-analytics-data-is-organized"></a>Log Analytics 데이터 구성 방법
 쿼리를 작성하는 경우 원하는 데이터가 있는 테이블이 무엇인지 확인하는 것으로 시작합니다. 각기 다른 종류의 데이터가 각 [Log Analytics 작업 영역](log-analytics-quick-create-workspace.md)의 전용 테이블에 구분됩니다.  다양한 데이터 원본의 설명서에는 생성되는 데이터 형식의 이름 및 각 속성에 대한 설명이 포함되어 있습니다.  많은 쿼리의 경우 단일 테이블의 데이터만 필요하지만, 여러 테이블의 데이터를 포함하는 다양한 옵션이 사용되는 경우도 있습니다.

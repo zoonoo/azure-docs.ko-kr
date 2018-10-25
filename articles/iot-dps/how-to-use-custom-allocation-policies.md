@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 89cb44366d4752052d990a1506482c9108cde103
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: f2c9194b07774443a70eef8e879d895efeb338e9
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161709"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458194"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>사용자 지정 할당 정책을 사용하는 방법
 
@@ -92,7 +92,7 @@ ms.locfileid: "47161709"
 
 1. [Azure Portal](http://portal.azure.com)에 로그인하고 Device Provisioning Service 인스턴스를 엽니다.
 
-2. **등록 관리** 탭을 선택한 후 페이지 위쪽에 있는 **등록 그룹 추가** 단추를 클릭합니다. 
+2. **등록 관리** 탭을 선택한 다음, 페이지 위쪽에 있는 **등록 그룹 추가** 단추를 클릭합니다. 
 
 3. **등록 그룹 추가**에서 다음 정보를 입력하고 **저장** 단추를 클릭합니다.
 
@@ -390,7 +390,7 @@ Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하
 4. 개발 클라이언트 플랫폼에 관련된 SDK 버전을 빌드하는 다음 명령을 실행합니다. 또한 시뮬레이션된 장치에 대한 Visual Studio 솔루션이 `cmake` 디렉터리에서 생성됩니다. 
 
     ```cmd
-    cmake -Duse_prov_client:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON ..
     ```
     
     `cmake`에서 C++ 컴파일러를 찾지 못하면 위의 명령을 실행하는 동안 빌드 오류가 발생할 수 있습니다. 이 경우에는 [Visual Studio 명령 프롬프트](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)에서 이 명령을 실행합니다. 
@@ -398,7 +398,7 @@ Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하
     빌드가 성공되면 마지막 몇몇 출력 줄은 다음 출력과 유사하게 표시됩니다.
 
     ```cmd/sh
-    $ cmake -Duse_prov_client:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0
@@ -557,7 +557,7 @@ Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하
 ## <a name="next-steps"></a>다음 단계
 
 - 다시 프로비전에 대한 자세한 내용은 [IoT Hub 장치 다시 프로비전 개념](concepts-device-reprovision.md)을 참조하세요. 
-- 프로비전 해제에 대한 자세한 내용은 [이전에 자동 프로비전된 장치를 프로비전 해제하는 방법](how-to-unprovision-devices.md)을 참조하세요. 
+- 프로비전 해제에 대한 자세한 내용은 [이전에 자동으로 프로비전된 장치의 프로비전을 해제하는 방법](how-to-unprovision-devices.md)을 참조하세요. 
 
 
 

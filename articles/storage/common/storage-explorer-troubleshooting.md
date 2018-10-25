@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: eb72d92496addacd82e4d30df625b4f9c0c823e5
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ffb355b4471bd8455f67e657d9557c3f372c3f4e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521033"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470323"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage 탐색기 문제 해결 가이드
 
@@ -74,7 +74,7 @@ macOS 키 집합은 Storage 탐색기의 인증 라이브러리에서 문제를 
 7. 로그인을 시도합니다.
 
 ### <a name="general-sign-in-troubleshooting-steps"></a>일반적인 로그인 문제 해결 단계
-* macOS에서 "인증 대기 중..." 대화 상자 위에 로그인 창이 나타나지 않으면 [이러한 조치](#Mac-Keychain-Errors)를 시도해 보세요.
+* macOS에서 "인증 대기 중..." 대화 상자 위에 로그인 창이 나타나지 않으면 [이러한 조치](#mac-keychain-errors)를 시도해 보세요.
 * Storage 탐색기 다시 시작
 * 인증 창이 비어 있는 경우 1분 이상 기다렸다가 인증 대화 상자를 닫습니다.
 * 컴퓨터와 Storage 탐색기에 대해 프록시와 인증서 설정이 올바르게 구성되었는지 확인합니다.
@@ -120,7 +120,7 @@ macOS 키 집합은 Storage 탐색기의 인증 라이브러리에서 문제를 
 * 프록시를 사용하지 않고 인터넷에 연결할 수 있으면 프록시 설정을 사용하지 않고 Storage 탐색기가 작동하는지 확인합니다. 이 경우 프록시 설정에 문제가 있을 수 있습니다. 프록시 관리자와 함께 문제를 식별합니다.
 * 프록시 서버를 사용하는 다른 응용 프로그램이 예상대로 작동하는지 확인합니다.
 * 사용할 Azure 환경에 대한 포털에 로그인하여 확인
-* 서비스 끝점에서 응답을 수신할 수 있는지 확인합니다. 끝점 URL 중 하나를 브라우저에 입력합니다. 연결할 수 있으면 InvalidQueryParameterValue 또는 유사한 XML 응답을 수신해야 합니다.
+* 서비스 엔드포인트에서 응답을 수신할 수 있는지 확인합니다. 엔드포인트 URL 중 하나를 브라우저에 입력합니다. 연결할 수 있으면 InvalidQueryParameterValue 또는 유사한 XML 응답을 수신해야 합니다.
 * 다른 사용자가 Storage 탐색기와 프록시 서버를 함께 사용하고 있는 경우 연결할 수 있는지 확인합니다. 연결할 수 있다면 프록시 서버 관리자에게 문의해야 할 수도 있습니다.
 
 ### <a name="tools-for-diagnosing-issues"></a>문제를 진단하기 위한 도구
@@ -129,7 +129,7 @@ Windows용 Fiddler와 같은 네트워킹 도구가 있으면 다음과 같은 �
 
 * 프록시를 통해 작업해야 하는 경우 프록시를 통해 연결하도록 네트워킹 도구를 구성해야 할 수 있습니다.
 * 네트워킹 도구에서 사용하는 포트 번호를 확인합니다.
-* Storage 탐색기에 로컬 호스트 URL과 네트워킹 도구의 포트 번호를 프록시 설정으로 입력합니다. 올바르게 수행되면 네트워킹 도구가 Storage 탐색기에서 만든 네트워크 요청을 관리 및 서비스 끝점에 기록하기 시작합니다. 예를 들어 브라우저에서 Blob 엔드포인트에 대해 https://cawablobgrs.blob.core.windows.net/을 입력하면 다음과 유사한 응답이 수신됩니다. 이 응답을 통해 리소스에 액세스할 수는 없지만 리소스가 있음을 알 수 있습니다.
+* Storage 탐색기에 로컬 호스트 URL과 네트워킹 도구의 포트 번호를 프록시 설정으로 입력합니다. 올바르게 수행되면 네트워킹 도구가 Storage 탐색기에서 만든 네트워크 요청을 관리 및 서비스 엔드포인트에 기록하기 시작합니다. 예를 들어 브라우저에서 Blob 엔드포인트에 대해 https://cawablobgrs.blob.core.windows.net/을 입력하면 다음과 유사한 응답이 수신됩니다. 이 응답을 통해 리소스에 액세스할 수는 없지만 리소스가 있음을 알 수 있습니다.
 
 ![코드 샘플](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
@@ -137,7 +137,7 @@ Windows용 Fiddler와 같은 네트워킹 도구가 있으면 다음과 같은 �
 
 프록시 설정이 올바른 경우 프록시 서버 관리자에게 문의해야 할 수도 있습니다.
 
-* 프록시가 Azure 관리 또는 리소스 끝점에 대한 트래픽을 차단하지 않는지 확인합니다.
+* 프록시가 Azure 관리 또는 리소스 엔드포인트에 대한 트래픽을 차단하지 않는지 확인합니다.
 * 프록시 서버에서 사용하는 인증 프로토콜을 확인합니다. Storage 탐색기는 현재 NTLM 프록시를 지원하지 않습니다.
 
 ## <a name="unable-to-retrieve-children-error-message"></a>"하위 항목을 검색할 수 없음" 오류 메시지

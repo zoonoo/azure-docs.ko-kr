@@ -9,16 +9,18 @@ ms.reviewer: sgilley
 author: hning86
 ms.author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: cc348ca50b942b6b8b1474ed4dac4067d107a4af
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: e4624b115143f9f2e6dd77aa8ee79597c86ba31c
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378002"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456205"
 ---
 # <a name="quickstart-use-python-to-get-started-with-azure-machine-learning"></a>빠른 시작: Python을 사용하여 Azure Machine Learning 시작
 
 이 빠른 시작에서는 Python용 Azure Machine Learning SDK를 사용하여 Machine Learning 서비스 [작업 영역](concept-azure-machine-learning-architecture.md)을 만들고 사용합니다. 이 작업 영역은 Machine Learning을 사용하여 기계 학습 모델을 실험하고, 교육하고, 배포하는 데 사용되는 클라우드의 기본 블록입니다.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
 
 이 자습서에서는 Python SDK를 설치하고 다음을 수행합니다.
 

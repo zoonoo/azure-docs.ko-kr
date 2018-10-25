@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 6c43e5bf311d94ff2e5b5c31217c5071ea26746c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/19/2018
+ms.openlocfilehash: 0c939956a8f3336b5071748a8c2bdf8840b749ad
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351865"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466072"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Azure SQL Database에서 탄력적 풀 만들기 및 관리
 
@@ -106,11 +106,11 @@ SQL Database 탄력적 풀 및 풀링된 데이터베이스를 만들고 관리�
 |[탄력적 풀 - Update](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|기준 탄력적 풀을 업데이트합니다.|
 |[탄력적 풀 활동](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|탄력적 풀 활동을 반환합니다.|
 |[탄력적 풀 데이터베이스 활동](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|탄력적 풀 내에서 데이터베이스에 대한 활동을 반환합니다.|
-|[데이터베이스 - Create 또는 Update](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate)|새 데이터베이스를 만들거나 기존 데이터베이스를 업데이트합니다.|
-|[데이터베이스 - Get](https://docs.microsoft.com/rest/api/sql/databases/databases_get)|데이터베이스를 가져옵니다.|
-|[데이터베이스 - List By Elastic Pool](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyelasticpool)|탄력적 풀에서 데이터베이스의 목록을 반환합니다.|
-|[데이터베이스 - List By Server](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyserver)|서버의 데이터베이스의 목록을 반환합니다.|
-|[데이터베이스 - Update](https://docs.microsoft.com/rest/api/sql/databases/databases_update)|기존 데이터베이스를 업데이트합니다.|
+|[데이터베이스 - Create 또는 Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|새 데이터베이스를 만들거나 기존 데이터베이스를 업데이트합니다.|
+|[데이터베이스 - Get](https://docs.microsoft.com/rest/api/sql/databases/get)|데이터베이스를 가져옵니다.|
+|[데이터베이스 - List By Elastic Pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|탄력적 풀에서 데이터베이스의 목록을 반환합니다.|
+|[데이터베이스 - List By Server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|서버의 데이터베이스의 목록을 반환합니다.|
+|[데이터베이스 - Update](https://docs.microsoft.com/rest/api/sql/databases/update)|기존 데이터베이스를 업데이트합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

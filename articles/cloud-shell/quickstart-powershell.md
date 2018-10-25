@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 10/18/2018
 ms.author: damaerte
-ms.openlocfilehash: 83fb07d718681a9d14176868d11b45a199f60543
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 0bce9f50bdc3ac8fb4675a7ac2a3fb300036973f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166207"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404362"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Azure Cloud Shell의 PowerShell에 대한 빠른 시작
 
@@ -181,17 +181,17 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
  > [!WARNING]
  > [Azure VM의 원격 관리 문제 해결](troubleshooting.md#troubleshooting-remote-management-of-azure-vms)을 참조하세요.
 
-  MyVM1이란 VM이 있다고 가정하고 `Invoke-AzureRmVMCommand`를 사용하여 원격 컴퓨터에 PowerShell 스크립트 블록을 호출합니다.
+  MyVM1이란 VM이 있다고 가정하고 `Invoke-AzVMCommand`를 사용하여 원격 컴퓨터에 PowerShell 스크립트 블록을 호출합니다.
 
   ```azurepowershell-interactive
-  Invoke-AzureRmVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -EnableRemoting
+  Invoke-AzVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -EnableRemoting
   ```
 
-  또한 먼저 VirtualMachines 디렉터리로 이동하고 다음과 같이 `Invoke-AzureRmVMCommand`를 실행할 수 있습니다.
+  또한 먼저 VirtualMachines 디렉터리로 이동하고 다음과 같이 `Invoke-AzVMCommand`를 실행할 수 있습니다.
 
   ```azurepowershell-interactive
   PS Azure:\> cd MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines
-  PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzureRmVMCommand -Scriptblock {Get-ComputerInfo}
+  PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzVMCommand -Scriptblock {Get-ComputerInfo}
 
   # You will see output similar to the following:
 
@@ -210,16 +210,16 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 
 #### <a name="interactively-log-on-to-a-remote-vm"></a>원격 VM에 대화형으로 로그온
 
-`Enter-AzureRmVM`을 사용하여 Azure에서 실행하는 VM에 대화형으로 로그인할 수 있습니다.
+`Enter-AzVM`을 사용하여 Azure에서 실행하는 VM에 대화형으로 로그인할 수 있습니다.
 
   ```azurepowershell-interactive
-  PS Azure:\> Enter-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
+  PS Azure:\> Enter-AzVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
   ```
 
-또는 먼저 `VirtualMachines` 디렉터리로 이동하고 다음과 같이 `Enter-AzureRmVM`를 실행할 수 있습니다.
+또는 먼저 `VirtualMachines` 디렉터리로 이동하고 다음과 같이 `Enter-AzVM`를 실행할 수 있습니다.
 
   ```azurepowershell-interactive
- PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzureRmVM
+ PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzVM
  ```
 
 ### <a name="discover-webapps"></a>WebApps 검색
