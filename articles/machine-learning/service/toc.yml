@@ -6,6 +6,9 @@ items:
   - name: Azure Machine Learning 서비스란?
     displayName: AML, services
     href: overview-what-is-azure-ml.md
+  - name: 서비스의 작동 방식
+    displayName: architecture
+    href: concept-azure-machine-learning-architecture.md
   - name: Workbench에 대한 새로운 소식
     href: overview-what-happened-to-workbench.md
   expanded: true
@@ -30,9 +33,6 @@ items:
     href: http://aka.ms/aml-notebooks
 - name: 개념
   items:
-  - name: 서비스의 작동 방식
-    displayName: architecture
-    href: concept-azure-machine-learning-architecture.md
   - name: 모델 관리
     href: concept-model-management-and-deployment.md
   - name: FPGA를 사용하여 가속화
@@ -43,7 +43,7 @@ items:
   items:
   - name: 작업 영역 관리
     href: how-to-manage-workspace.md
-  - name: '개발 환경 설정 '
+  - name: 개발 환경 설정 
     items:
     - name: 환경 선택
       displayName: local, remote
@@ -347,9 +347,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: 이전 문제
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 56a72b437397c65777c5fd0955c5257d60f3a6a4
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 23e715064db714765a11771182248978f9493bd2
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649247"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095078"
